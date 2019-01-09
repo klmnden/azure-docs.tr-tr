@@ -11,24 +11,24 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2018
+ms.date: 1/08/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: f3a83352e5aa7591d3f7b325adb542ba89e57fe5
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 1205bb636c01ff03e7e5d6f245c7469c186fca6f
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515837"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121184"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Azure Stack PKI sertifikalarını doğrulama
 
-Bu makalede açıklanan Azure Stack hazırlık Denetleyicisi aracı kullanılabilir [PowerShell Galerisi'ndeki](https://aka.ms/AzsReadinessChecker). Aracı doğrulamak için kullanabileceğiniz [oluşturulan PKI sertifikalarını](azure-stack-get-pki-certs.md) dağıtım öncesi için uygundur. Sertifikalar gerekiyorsa sertifikaları yeniden gönderin ve test için yeterli zaman bırakarak doğrulamalıdır.
+Bu makalede açıklanan Azure Stack hazırlık Denetleyicisi aracı kullanılabilir [PowerShell Galerisi'ndeki](https://aka.ms/AzsReadinessChecker). Aracı doğrulamak için kullanabileceğiniz [oluşturulan PKI sertifikalarını](azure-stack-get-pki-certs.md) dağıtım öncesi için uygundur. Sertifikalar gerekiyorsa sertifikaları yeniden gönderin ve test için yeterli zaman bırakarak doğrulayın.
 
 Hazır olma denetimi aracı, aşağıdaki sertifika doğrulama gerçekleştirir:
 
 - **PFX okuyun**  
-    Doğru parolayı geçerli PFX dosyası için denetler ve genel bilgileri parola ile korunmayan durumunda sizi uyarır. 
+    Doğru parolayı geçerli PFX dosyası için denetler ve olup ortak bilgilerini parola ile korunmuyor. 
 - **İmza algoritması**  
     İmza algoritması SHA1 olmadığını denetler.
 - **Özel anahtar**  
@@ -86,8 +86,8 @@ Hazırlama ve dağıtım ve gizli döndürme Azure Stack PKI sertifikalarını d
     
      - Önceki adımda oluşturduğunuz uygun dizinleri sertifikalarınız yerleştirin. Örneğin:  
         - `c:\certificates\ACSBlob\CustomerCertificate.pfx`
-        - `c:\certificates\Certs\Admin Portal\CustomerCertificate.pfx`
-        - `c:\certificates\Certs\ARM Admin\CustomerCertificate.pfx`
+        - `c:\certificates\Admin Portal\CustomerCertificate.pfx`
+        - `c:\certificates\ARM Admin\CustomerCertificate.pfx`
 
 3. PowerShell penceresinde değerlerini değiştirmek **RegionName** ve **FQDN** Azure Stack ortamına uygun ve aşağıdaki komutu çalıştırın:
 
@@ -145,9 +145,9 @@ Invoke-AzsCertificateValidation Completed
 
 ### <a name="known-issues"></a>Bilinen sorunlar
 
-**Belirti**: testleri atlanır
+**Belirti**: Testler atlandı
 
-**Neden**: bağımlılık uyulmazsa AzsReadinessChecker atlar belirli testleri:
+**Neden**: Bir bağımlılık uyulmazsa AzsReadinessChecker belirli testleri atlar:
 
  - Sertifika zinciri başarısız olursa, diğer sertifikalar atlanır.
 
@@ -172,7 +172,7 @@ Invoke-AzsCertificateValidation Completed
     Invoke-AzsCertificateValidation Completed
     ```
 
-**Çözüm**: her her sertifika için test kümesini altındaki ayrıntılar bölümünde Aracı'nın yönergeleri izleyin.
+**Çözüm**: Her her sertifika için test kümesini altındaki ayrıntılar bölümünde Aracı'nın yönergeleri izleyin.
 
 ## <a name="perform-platform-as-a-service-certificate-validation"></a>Platform bir hizmet sertifika doğrulama gerçekleştirme
 

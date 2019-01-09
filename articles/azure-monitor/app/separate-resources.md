@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: 592efa5cc6a4918c03680e9785f85792eaa90099
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 2e9c599c12ed10327d352baee02500d2284d98d8
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54046119"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121490"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>Geliştirme, Test ve üretim telemetri ayırma
 
-Bir web uygulaması'nın sonraki sürümü geliştirirken karışımı istemediğiniz [Application Insights](../../application-insights/app-insights-overview.md) alınan telemetri yeni sürüm ve zaten yayımlanmış sürümü. Karışıklığı önlemek için farklı geliştirme aşamalarına (ikey'leri) ayrı izleme anahtarı ile Application Insights kaynakları ayırmak için telemetri gönderin. Bir sürüm bir aşamadan diğerine taşınırken izleme anahtarını değiştirmek daha kolay hale getirmek için yapılandırma dosyasında değil, kod içinde ikey değerini ayarlamak yararlı olabilir. 
+Bir web uygulaması'nın sonraki sürümü geliştirirken karışımı istemediğiniz [Application Insights](../../azure-monitor/app/app-insights-overview.md) alınan telemetri yeni sürüm ve zaten yayımlanmış sürümü. Karışıklığı önlemek için farklı geliştirme aşamalarına (ikey'leri) ayrı izleme anahtarı ile Application Insights kaynakları ayırmak için telemetri gönderin. Bir sürüm bir aşamadan diğerine taşınırken izleme anahtarını değiştirmek daha kolay hale getirmek için yapılandırma dosyasında değil, kod içinde ikey değerini ayarlamak yararlı olabilir. 
 
 (Sisteminizin Azure bulut hizmeti ise yoktur [ayrı ikey'leri ayarlamanın başka bir yöntem](../../azure-monitor/app/cloudservices.md).)
 

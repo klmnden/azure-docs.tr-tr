@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: jeffgo
-ms.openlocfilehash: 932b4c80912fa516a08c18cd581f96b5ea91e1dc
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 397f07c23d1c272e540741a339b57a8e1bcce198
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232316"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104021"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>Azure Stack için Red Hat tabanlı bir sanal makine hazırlama
 
 Bu makalede, Azure Stack kullanım için Red Hat Enterprise Linux (RHEL) sanal makineyi hazırlama öğreneceksiniz. Bu makalede ele RHEL 7.1 + sürümleridir. Bu makalede ele hiper hazırlama için Hyper-V, çekirdek tabanlı sanal makine (KVM) ve VMware ' dir.
 
-Red Hat Enterprise Linux destek bilgileri için başvurmak [Red Hat ve Azure Stack: sık sorulan sorular](https://access.redhat.com/articles/3413531).
+Red Hat Enterprise Linux destek bilgileri için başvurmak [Red Hat ve Azure Stack: Sık sorulan sorular](https://access.redhat.com/articles/3413531).
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-hyper-v-manager"></a>Red Hat tabanlı bir sanal makine Hyper-V Yöneticisi'nden hazırlama
 
@@ -347,7 +347,7 @@ Bu bölümde zaten varsa Red Hat Web sitesinden bir ISO dosyası ve RHEL görün
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-vmware"></a>Vmware'den Red Hat tabanlı bir sanal makine hazırlama
 
-Bu bölümde, VMware ortamınızda RHEL sanal makine zaten yüklediğinizi varsayar. VMware ortamınızda bir işletim sistemi yükleme hakkında daha fazla bilgi için bkz. [VMware konuk işletim sistemi Yükleme Kılavuzu](http://partnerweb.vmware.com/GOSIG/home.html).
+Bu bölümde, VMware ortamınızda RHEL sanal makine zaten yüklediğinizi varsayar. VMware ortamınızda bir işletim sistemi yükleme hakkında daha fazla bilgi için bkz. [VMware konuk işletim sistemi Yükleme Kılavuzu](https://partnerweb.vmware.com/GOSIG/home.html).
 
 * Linux işletim sistemi yüklediğinizde, genellikle çoğu yüklemeleri için varsayılan seçenek LVM, yerine standart bölümleri kullanmanızı öneririz. Özellikle bir işletim sistemi diski hiç sorun giderme için başka bir sanal makineye bağlı gerekiyorsa, bu kopyalanan sanal makinenin adı çakışıyor LVM önler. LVM'yi veya RAID veri disklerinde, tercih etmeleri durumunda kullanılabilir.
 * İşletim sistemi diski üzerinde takas bölümü yapılandırmayın. Geçici kaynak diski üzerinde takas dosyası oluşturmak için Linux Aracısı yapılandırabilirsiniz. İzleyen adımları bu hakkında daha fazla bilgi bulabilirsiniz.

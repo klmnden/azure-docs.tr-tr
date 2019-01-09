@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/12/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 1ddadcf17a5733767e24505b970b2ac21c8d7fa8
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 8a8883989a731265fb358c119d44fa4243b54a5e
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53326269"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103953"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure tanılama sorunlarını giderme
 Bu makalede, Azure Tanılama'yı kullanarak ilgili sorun giderme bilgileri açıklar. Azure Tanılama hakkında daha fazla bilgi için bkz: [Azure tanılama genel bakış](diagnostics-extension-overview.md).
@@ -118,7 +118,7 @@ Tanılama yapılandırması toplanacak veri belirli bir tür için yönergeler i
 #### <a name="is-the-host-generating-data"></a>Konak veri oluşturuyor?
 - **Performans sayaçları**: Perfmon aracını açın ve sayaç denetleyin.
 
-- **İzleme günlükleri**:  Uzaktan erişim VM'ye ve bir TextWriterTraceListener uygulamanın yapılandırma dosyasına ekleyin.  Bkz: http://msdn.microsoft.com/library/sk36c28t.aspx metin dinleyiciyi ayarlamak için.  Emin `<trace>` öğesinin `<trace autoflush="true">`.<br />
+- **İzleme günlükleri**:  Uzaktan erişim VM'ye ve bir TextWriterTraceListener uygulamanın yapılandırma dosyasına ekleyin.  Bkz: https://msdn.microsoft.com/library/sk36c28t.aspx metin dinleyiciyi ayarlamak için.  Emin `<trace>` öğesinin `<trace autoflush="true">`.<br />
 Oluşturulan izleme günlüklerini görmüyorsanız bkz [eksik izleme günlükleri hakkında daha fazla](#more-about-trace-logs-missing).
 
 - **ETW izlemelerini**: Uzaktan erişim VM ve PerfView yükleyin.  PerfView içinde çalıştırma **dosya** > **kullanıcı komutu** > **dinleme etwprovder1** > **etwprovider2**ve benzeri. **Dinleme** komutu büyük/küçük harfe ve ETW sağlayıcıları virgülle ayrılmış liste arasında boşluk olamaz. Çalıştırılacak komutu başarısız olursa, seçebileceğiniz **günlük** ne çalıştırmayı denedi ve hangi sonuç görmek için sağa Perfview aracının alt düğmesi.  Girişin doğru olduğunu varsayarsak, yeni bir pencere açılır. Birkaç saniye içinde ETW izlemelerini görmeye başlar.
@@ -217,9 +217,9 @@ Alternatif olarak, makineye ve açıklanan Azure tanılama yapılandırma dosyas
 
 Her iki durumda da, arama **Microsoft.Azure.Diagnostics**ve ardından **xmlCfg** veya **WadCfg** alan.
 
-Bir sanal makinede arama yapıyorsanız ve **WadCfg** alan varsa, bu yapılandırma, JSON biçiminde olduğu anlamına gelir. Varsa **xmlCfg** alan varsa, bu yapılandırma XML ve base64 olarak kodlanmış anlamına gelir. Şunları yapmanız [çözülmesi](http://www.bing.com/search?q=base64+decoder) tanılama tarafından yüklenen XML görmek için.
+Bir sanal makinede arama yapıyorsanız ve **WadCfg** alan varsa, bu yapılandırma, JSON biçiminde olduğu anlamına gelir. Varsa **xmlCfg** alan varsa, bu yapılandırma XML ve base64 olarak kodlanmış anlamına gelir. Şunları yapmanız [çözülmesi](https://www.bing.com/search?q=base64+decoder) tanılama tarafından yüklenen XML görmek için.
 
-Diskten, yapılandırma çekme böylece, bulut hizmeti rolü için verileri base64 kodlamalı ise [çözülmesi](http://www.bing.com/search?q=base64+decoder) tanılama tarafından yüklenen XML görmek için.
+Diskten, yapılandırma çekme böylece, bulut hizmeti rolü için verileri base64 kodlamalı ise [çözülmesi](https://www.bing.com/search?q=base64+decoder) tanılama tarafından yüklenen XML görmek için.
 
 ### <a name="azure-diagnostics-plugin-exit-codes"></a>Azure tanılama eklentisi çıkış kodları
 Eklenti aşağıdaki çıkış kodlarını döndürür:

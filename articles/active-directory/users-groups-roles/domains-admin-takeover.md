@@ -10,19 +10,19 @@ ms.service: active-directory
 ms.component: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 04/06/2017
+ms.date: 01/08/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: c07b87d88b884b22f44fe108bb28877cb30f973e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 8e11d370f58028ee4c1665d84d0e48541e7d3344
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837180"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121201"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Azure Active Directory'de yönetici olarak yönetilmeyen bir dizini devralma
-Bu makalede, Azure Active Directory (Azure AD) bir yönetilmeyen dizinde bir DNS etki alanı adı ele iki yolu açıklanır. Bir self servis kullanıcısı, Azure AD kullanan bir bulut hizmetine kaydolduğunda bu kullanıcı, e-posta etki alanına göre yönetilmeyen bir Azure AD dizinine eklenir. Self Servis veya "viral" kayıt bir hizmet için hakkında daha fazla bilgi için bkz. [Azure Active Directory için Self Servis kaydolma nedir?](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-signup)
+Bu makalede, Azure Active Directory (Azure AD) bir yönetilmeyen dizinde bir DNS etki alanı adı ele iki yolu açıklanır. Bir self servis kullanıcısı, Azure AD kullanan bir bulut hizmetine kaydolduğunda bu kullanıcı, e-posta etki alanına göre yönetilmeyen bir Azure AD dizinine eklenir. Self Servis veya "viral" hizmeti için kayıt hakkında daha fazla bilgi için bkz. [Azure Active Directory için Self Servis kaydolma nedir?](directory-self-service-signup.md)
 
 ## <a name="decide-how-you-want-to-take-over-an-unmanaged-directory"></a>Nasıl yönetilmeyen bir dizini devralma istediğinize karar verin
 Yönetici devralma işlemi sırasında, [Azure AD’ye özel etki alanı adı ekleme](../fundamentals/add-custom-domain.md) bölümünde açıklandığı gibi sahipliği kanıtlayabilirsiniz. Sonraki bölümlerde, yönetici deneyimi daha ayrıntılı şekilde açıklanmaktadır, ancak bir özeti aşağıda verilmiştir:
@@ -41,7 +41,7 @@ SharePoint ve OneDrive, Office 365 gibi bazı ürünler, dış devralma destekle
 
 3. Onay e-postadaki Power bı'dan seçin **Evet, bu benim**.
 
-4. Oturum [Office 365 Yönetim Merkezi](https://portal.office.com/adminportal/Home) Power BI kullanıcı hesabıyla. Yönlendiren bir ileti alırsınız **yönetici olun** etki alanı adının yönetilmeyen kiracıda zaten doğrulandı. seçin **Evet, yönetici olmak istiyorum**.
+4. Oturum [Office 365 Yönetim Merkezi](https://portal.office.com/admintakeover) Power BI kullanıcı hesabıyla. Yönlendiren bir ileti alırsınız **yönetici olun** etki alanı adının yönetilmeyen kiracıda zaten doğrulandı. seçin **Evet, yönetici olmak istiyorum**.
   
   ![Yönetici olun ilk ekran görüntüsü](./media/domains-admin-takeover/become-admin-first.png)
   
@@ -53,9 +53,9 @@ DNS TXT kayıtlarının, etki alanı adı kayıt şirketinize belirlediğinizde,
 
 Yukarıdaki adımları tamamladıktan sonra artık Office 365'te Fourth Coffee kiracının genel Yöneticisi olursunuz. Etki alanı adı, diğer Azure Hizmetleri ile tümleştirme için Office 365'ten kaldırın ve azure'da yönetilen farklı bir kiracıya ekleyin.
 
-### <a name="adding-the-domain-name-to-a-managed-tenant-in-azure-ad"></a>Etki alanı adı, Azure AD'de yönetilen bir kiracıya ekleme 
+### <a name="adding-the-domain-name-to-a-managed-tenant-in-azure-ad"></a>Etki alanı adı, Azure AD'de yönetilen bir kiracıya ekleme
 
-1. Açık [Office 365 Yönetim Merkezi](https://portal.office.com/adminportal/Home).
+1. Açık [Office 365 Yönetim Merkezi](https://portal.office.com/admintakeover).
 2. Seçin **kullanıcılar** sekmesini tıklatıp gibi yeni bir kullanıcı hesabı oluşturmanız *user@fourthcoffeexyz.onmicrosoft.com* özel etki alanı adını kullanmaz. 
 3. Yeni kullanıcı hesabının Azure AD kiracınız için genel yönetici ayrıcalıkları olduğundan emin olun.
 4. Açık **etki alanları** sekmesinde Office 365 Yönetim merkezinde, etki alanı adını seçip seçin **Kaldır**. 

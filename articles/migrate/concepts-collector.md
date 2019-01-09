@@ -4,15 +4,15 @@ description: Azure geçişi, Toplayıcı gerecini hakkında bilgi sağlar.
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 01/08/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 255f5b34e53ddfb1a503130f0bccbac16a420f9a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 6f843fedafd68d4e04d181af2c6d7542baaf0144
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255984"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104225"
 ---
 # <a name="about-the-collector-appliance"></a>Toplayıcı gerecini hakkında
 
@@ -63,7 +63,7 @@ Toplayıcı sağlamak için Azure geçişi hizmetini internet üzerinden bağlan
     - Azure ticari buluta geçiş yapmayı planlıyorsanız Azure genel seçin.
     - Gereç, burada belirtilen bulutta bağlı olarak, ilgili Uç noktalara bulunan meta verileri gönderir.
 - **İnternet bağlantısı kontrol**: Toplayıcı, doğrudan İnternet'e veya bir ara sunucu aracılığıyla bağlanabilirsiniz.
-    - Önkoşul denetimi bağlantıyı doğrular [gerekli ve isteğe bağlı URL'leri](#connect-to-urls).
+    - Önkoşul denetimi bağlantıyı doğrular [gerekli ve isteğe bağlı URL'leri](#urls-for-connectivity).
     - İnternet'e doğrudan bir bağlantı varsa, belirli bir eylem, Toplayıcı gerekli URL'lere erişebildiğinden emin emin olma dışında gereklidir.
     - Bir ara sunucu bağlanıyorsanız, Not [aşağıdaki gereksinimleri](#connect-via-a-proxy).
 - **Zaman eşitleme doğrulayın**: Toplayıcı hizmet isteklerine kimlik doğrulaması sağlamak için internet saat sunucusuyla eşitlenmiş.
@@ -105,7 +105,7 @@ Toplayıcı sağlamak için Azure geçişi hizmetini internet üzerinden bağlan
 
 
 
-### <a name="connect-to-urls"></a>URL'lerle
+### <a name="urls-for-connectivity"></a>Bağlantı için URL'leri
 
 Bağlantı denetimi URL'lerin bir listesini bağlanarak doğrulanır.
 

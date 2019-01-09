@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: wesmc
-ms.openlocfilehash: 0978e906467fd5b16f25bd2e053980dda4510127
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 906ab6c433df7cf452d1f5ab4660abce8d4674fc
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53020098"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107523"
 ---
 # <a name="introduction-to-the-azure-cache-for-redis-premium-tier"></a>Azure önbelleği için Redis Premium katmanına giriş
 Redis için Azure Cache, verilerinize çok hızlı erişim sağlayarak üst düzeyde ölçeklenebilir ve hızlı yanıt veren uygulamalar geliştirmenize yardımcı olan dağıtılmış, yönetilen bir önbellektir. 
@@ -34,7 +34,7 @@ Yeni Premium katmanı, tüm standart katman özellikleri ve daha iyi performans,
 Boyut, işleme ve premium önbelleklere sahip bant genişliği hakkında daha fazla bilgi için bkz. [Azure önbelleği için Redis SSS](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
 
 ## <a name="redis-data-persistence"></a>Redis veri kalıcılığı
-Premium katman, kalıcı önbellek verileri bir Azure depolama hesabı olanak tanır. Temel/standart önbellekte tüm verileri yalnızca bellekte depolanır. Altyapının olması durumunda olası veri kaybı sorunları var olabilir. Veri kaybına karşı dayanıklılığı artırmak için Premium katmandaki Redis veri dayanıklılığı özelliğinin kullanılmasını öneririz. Azure önbelleği için Redis RDB ve (çok yakında) AOF seçenekleri sunar [Redis kalıcılığı](http://redis.io/topics/persistence). 
+Premium katman, kalıcı önbellek verileri bir Azure depolama hesabı olanak tanır. Temel/standart önbellekte tüm verileri yalnızca bellekte depolanır. Altyapının olması durumunda olası veri kaybı sorunları var olabilir. Veri kaybına karşı dayanıklılığı artırmak için Premium katmandaki Redis veri dayanıklılığı özelliğinin kullanılmasını öneririz. Azure önbelleği için Redis RDB ve (çok yakında) AOF seçenekleri sunar [Redis kalıcılığı](https://redis.io/topics/persistence). 
 
 Kalıcılığın yapılandırılması hakkında yönergeler için bkz: [Redis için bir Premium Azure Cache için kalıcılığı yapılandırma](cache-how-to-premium-persistence.md).
 

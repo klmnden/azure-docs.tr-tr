@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: be44a233c2b09aa91ec04b5a64b523a2d0b00db1
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: bd872e7aa9ada8c46b0af897b4d7ad137b767514
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599868"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103800"
 ---
 # <a name="tutorial-azure-signalr-service-authentication"></a>Öğretici: Azure SignalR hizmeti kimlik doğrulaması
 
@@ -547,7 +547,7 @@ Kodunuzu dağıtmak için, Git kabuğunda aşağıdaki komutları yürütün.
 
 Yapmanız gereken son işlem GitHub OAuth uygulamasının **Giriş sayfası URL'si** ve **Yetkilendirme geri çağırma URL'si** değerlerini yeni barındırılan uygulamaya işaret edecek şekilde güncelleştirmektir.
 
-1. Tarayıcıda [http://github.com](http://github.com) bağlantısını açın ve hesabınızın **Ayarlar** > **Geliştirici Ayarları** > **Oauth Uygulamaları** bölümüne gidin.
+1. Tarayıcıda [https://github.com](https://github.com) bağlantısını açın ve hesabınızın **Ayarlar** > **Geliştirici Ayarları** > **Oauth Uygulamaları** bölümüne gidin.
 
 2. Kimlik doğrulama uygulamanıza tıklayın ve **Giriş sayfası URL'si** ve **Yetkilendirme geri çağırma URL'si** değerlerini aşağıda gösterildiği gibi güncelleştirin:
 

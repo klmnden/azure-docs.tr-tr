@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: wesmc
-ms.openlocfilehash: c9a2d569641ab0f8f6aa1d7234da1d3cbb0ab147
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: e14e76be50fc71738779e0196b2034ca4f8e0097
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744998"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103900"
 ---
 # <a name="azure-cache-for-redis-samples"></a>Redis için Azure Önbelleği örnekleri
 Bu konu, önbellek, okuma ve yazma verileri azure'a veya önbellekten bağlanma ve ASP.NET Azure önbelleği için Redis sağlayıcıları kullanan gibi senaryoları kapsayan, Redis örnekleri için Azure önbellek listesini sağlar. Örneklerden bazıları indirilebilir projelerdir ve bazı adım adım rehberlik ve kod parçacıkları içerir ancak indirilebilir bir projeye bağlamayın.
@@ -47,7 +47,7 @@ Daha fazla bilgi için [StackExchange.Redis](https://github.com/StackExchange/St
 [Önbellekte .NET nesneleriyle çalışma](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache) yazmanıza izin ve bir Azure önbelleği için Redis örneğinden okuyabilir .NET nesneleri serileştirmek için bir yol gösterir. 
 
 ## <a name="use-azure-cache-for-redis-as-a-scale-out-backplane-for-aspnet-signalr"></a>Azure Cache için Redis genişletme devre kartına ASP.NET SignalR için kullanın
-[Kullanan Azure Cache için ASP.NET SignalR genişletme devre kartı olarak Redis için](https://github.com/rustd/RedisSamples/tree/master/RedisAsSignalRBackplane) örneği, nasıl Azure önbelleği için Redis bir SignalR devre kartı olarak kullanabileceğinizi gösterir. Devre kartına hakkında daha fazla bilgi için bkz: [Redis ile SignalR ölçeğini genişletme](http://www.asp.net/signalr/overview/performance/scaleout-with-redis).
+[Kullanan Azure Cache için ASP.NET SignalR genişletme devre kartı olarak Redis için](https://github.com/rustd/RedisSamples/tree/master/RedisAsSignalRBackplane) örneği, nasıl Azure önbelleği için Redis bir SignalR devre kartı olarak kullanabileceğinizi gösterir. Devre kartına hakkında daha fazla bilgi için bkz: [Redis ile SignalR ölçeğini genişletme](https://www.asp.net/signalr/overview/performance/scaleout-with-redis).
 
 ## <a name="azure-cache-for-redis-customer-query-sample"></a>Azure önbelleği için Redis müşteri sorgu örneği
 Bu örnek, bir önbelleğe alınan verilere ve verilere erişim kalıcı depolama alanından arasında karşılaştırır performans gösterir. Bu örnek, iki proje yok.

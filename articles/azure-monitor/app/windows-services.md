@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: c7273a1ef6ef4eab1d8bfadec33eeaacf4d222e9
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 85764c0ee5b8ed117fb191657d54abe5bd10a703
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083295"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54116560"
 ---
 # <a name="manually-configure-application-insights-for-net-applications"></a>.NET uygulamaları için Application Insights’ı el ile yapılandırma
 
-[Application Insights](../../application-insights/app-insights-overview.md)’ı, çok çeşitli uygulamaları veya uygulama rolleri, bileşenler veya mikro hizmetleri izlemek üzere yapılandırabilirsiniz. Web uygulamaları ve hizmetleri için, Visual Studio [tek adımlı yapılandırma](../../azure-monitor/app/asp-net.md) sunar. Arka uç sunucu rolleri veya masaüstü uygulamaları gibi diğer .NET uygulaması türleri için Application Insights’ı el ile yapılandırabilirsiniz.
+[Application Insights](../../azure-monitor/app/app-insights-overview.md)’ı, çok çeşitli uygulamaları veya uygulama rolleri, bileşenler veya mikro hizmetleri izlemek üzere yapılandırabilirsiniz. Web uygulamaları ve hizmetleri için, Visual Studio [tek adımlı yapılandırma](../../azure-monitor/app/asp-net.md) sunar. Arka uç sunucu rolleri veya masaüstü uygulamaları gibi diğer .NET uygulaması türleri için Application Insights’ı el ile yapılandırabilirsiniz.
 
 ![Örnek performans izleme grafikleri](./media/windows-services/10-perf.png)
 

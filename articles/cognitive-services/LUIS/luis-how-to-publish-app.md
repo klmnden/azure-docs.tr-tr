@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 01/08/2019
 ms.author: diberry
-ms.openlocfilehash: a3d27e7be97901c6757ca6991a7404f3b00f21e7
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 241227270aeede93b74d3d94c782dfe7eaf1fbf2
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605577"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121711"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Bir hazırlık veya üretim uç noktası için etkin, eğitilen uygulamanızı yayımlayın
 
@@ -56,11 +56,9 @@ Yaklaşım Analizi ile tümleştirmek LUIS sağlayan [metin analizi](https://azu
 
 Metin analizi anahtarı belirtmeniz gerekmez ve Azure hesabınızda bu hizmet için fatura ücret alınmaz. Bu ayarı işaretleyin, sonra kalıcıdır. 
 
-Yaklaşım verilerdir pozitif gösteren 0 ile 1 arasındaki bir puan (1 yakın) veya (0 yakın) negatif yaklaşım veri.
+Yaklaşım verilerdir pozitif gösteren 0 ile 1 arasındaki bir puan (1 yakın) veya (0 yakın) negatif yaklaşım veri. Yaklaşım etiketinin `positive`, `neutral`, ve `negative` desteklenen kültürdür. Şu anda yalnızca İngilizce yaklaşım etiketlerini destekler. 
 
 Yaklaşım Analizi ile JSON uç yanıtı hakkında daha fazla bilgi için bkz. [yaklaşım analizi](luis-concept-data-extraction.md#sentiment-analysis)
-
-
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

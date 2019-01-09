@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/19/2018
+ms.date: 1/07/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 8268a6b04d7ddbb35821999142d3a33bdd2bedcc
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: e3b0de577186cb7eb032a2042d234a0ffa2e3bb9
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261811"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105556"
 ---
 # <a name="validate-oem-packages"></a>OEM paketleri doğrula
 
@@ -35,7 +35,7 @@ Bellenim veya sürücülerinin tamamlanan çözümü doğrulama için bir deği�
 
 Kullanırken **paket doğrulama** bir paket doğrulamak için iş akışı için bir URL sağlamak ihtiyacınız olacak bir **Azure depolama blobu**. Bu blob çözümü, dağıtım sırasında yüklenen OEM paketidir. Kurulumu sırasında oluşturduğunuz Azure depolama hesabı kullanarak blob oluşturma (bkz [doğrulama hizmet kaynakları olarak ayarlama](azure-stack-vaas-set-up-resources.md)).
 
-### <a name="prerequisite-provision-a-storage-container"></a>Önkoşul: bir depolama kapsayıcısı sağlama
+### <a name="prerequisite-provision-a-storage-container"></a>Önkoşul: Bir depolama kapsayıcısı sağlama
 
 Depolama hesabınızda blobları paket için bir kapsayıcı oluşturun. Bu kapsayıcıdaki tüm paket doğrulama çalıştırmalarını için kullanılabilir.
 
@@ -56,7 +56,7 @@ Depolama hesabınızda blobları paket için bir kapsayıcı oluşturun. Bu kaps
 
 Oluştururken bir **paket doğrulama** VaaS portalı akışı paketinizi içeren Azure depolama blob için bir URL sağlamanız gerekir.
 
-#### <a name="option-1-generating-an-account-sas-url"></a>1. seçenek: hesap SAS URL'si oluşturuluyor
+#### <a name="option-1-generating-an-account-sas-url"></a>1. seçenek: Hesap SAS URL'si oluşturuluyor
 
 1. İçinde [Azure portalında](https://portal.azure.com/), depolama hesabınıza gidin ve paketinizi içeren .zip olarak gidin
 
@@ -70,7 +70,7 @@ Oluştururken bir **paket doğrulama** VaaS portalı akışı paketinizi içeren
 
 Kullanım **Blob SAS URL'si** başlatırken Yeni **paket doğrulama** VaaS Portalı'nda iş akışı.
 
-#### <a name="option-2-using-public-read-container"></a>2. seçenek: Genel okuma kapsayıcı kullanma
+#### <a name="option-2-using-public-read-container"></a>2. seçenek: Ortak okuma kapsayıcı kullanma
 
 > [!CAUTION]
 > Yukarı kapsayıcınızı anonim salt okunur erişim için bu seçeneği açılır.
@@ -113,9 +113,23 @@ Kullanım **Blob SAS URL'si** başlatırken Yeni **paket doğrulama** VaaS Porta
 
 ## <a name="run-package-validation-tests"></a>Paket doğrulama testlerini çalıştırın
 
-İçinde **paketini doğrulama testlerini Özet** sayfasında doğrulamayı tamamlamak için gereken testlerin bir listesini görürsünüz. Bu iş akışı testlerinde yaklaşık 24 saat için çalıştırın.
+1. İçinde **paket doğrulama testleri özeti** sayfasında doğrulamayı tamamlamak için gereken testlerin bir listesini görürsünüz. Bu iş akışı testlerinde yaklaşık 24 saat için çalıştırın.
 
-[!INCLUDE [azure-stack-vaas-workflow-validation-section_schedule](includes/azure-stack-vaas-workflow-validation-section_schedule.md)]
+    Doğrulama iş akışlarında **zamanlama** test iş akışı oluşturma işlemi sırasında belirtilen düzey iş akışı ortak parametreleri kullanır (bkz [hizmetolarakAzureStackdoğrulamaişakışıortakparametreleri](azure-stack-vaas-parameters.md)). Herhangi bir test parametre değerleri geçersiz hale gelirse, bunları belirtildiği gibi resupply gerekir [iş akışı parametreleri değiştirmek](azure-stack-vaas-monitor-test.md#change-workflow-parameters).
+
+    > [!NOTE]
+    > Var olan bir örneği üzerinde bir doğrulama testi zamanlama portalda eski örneği yerine yeni bir örneğini oluşturur. Eski örneği için günlükleri korunur ancak Portalı'ndan erişilebilir değildir.  
+    Bir test başarıyla tamamlandıktan sonra **zamanlama** eylemi devre dışı kalır.
+
+2. Sınama Aracı'nı seçin. Ekleme hakkında bilgi yerel test yürütme aracıları, bkz: [yerel aracı dağıtma](azure-stack-vaas-local-agent.md).
+
+3. Her biri aşağıdaki testleri için dört ve beş adımı:
+    - OEM uzantı paketi doğrulama
+    - Bulut benzetimi altyapısı
+
+4. Seçin **zamanlama** bağlam menüsünden test örneği zamanlamak için bir istem açın.
+
+5. Test parametreleri gözden geçirin ve ardından **Gönder** test yürütme için zamanlamak için.
 
 Tüm testler başarıyla tamamladıktan sonra VaaS çözümünüzü ve paket doğrulama adını gönder [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com) paket imzalama istemek için.
 

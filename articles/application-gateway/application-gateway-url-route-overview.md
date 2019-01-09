@@ -1,18 +1,17 @@
 ---
-title: URL tabanlı içerik yönlendirmeye genel bakış | Microsoft Belgeleri
-description: Bu sayfada, Application Gateway URL'si tabanlı içerik yönlendirme, UrlPathMap yapılandırması ve PathBasedRouting kuralı için genel bir bakış sunulmuştur.
+title: Azure Application Gateway URL tabanlı içerik yönlendirmeye genel bakış
+description: Bu sayfa, Azure Application Gateway URL'si tabanlı içerik yönlendirme, UrlPathMap yapılandırması ve PathBasedRouting kuralı genel bir bakış sağlar.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.date: 11/7/2018
+ms.date: 1/8/2019
 ms.author: victorh
-ms.openlocfilehash: bc123307a3cc3a5040e93e517c60604dc75fc7e7
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: d5d8ed09da2b05de079bc1b62066bb4008a659d8
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218432"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118378"
 ---
 # <a name="url-path-based-routing-overview"></a>URL Yolu Tabanlı Yönlendirmeye genel bakış
 
@@ -20,7 +19,7 @@ URL Yolu Tabanlı Yönlendirme, trafiği isteğin URL Yollarına göre arka uç 
 
 Senaryolardan biri, farklı içerik türleri için istekleri farklı arka uç sunucu havuzlarına yönlendirmektir.
 
-Aşağıdaki örnekte, Application Gateway contoso.com için VideoServerPool, ImageServerPool ve DefaultServerPool gibi üç arka uç sunucu havuzlarından trafik sunmaktadır.
+Aşağıdaki örnekte, Application Gateway için örneğin contoso.com üç arka uç sunucu havuzlarından trafik hizmet veriyor: Videoserverpool'a, Imageserverpool ve DefaultServerPool gibi.
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
@@ -62,8 +61,37 @@ UrlPathMap öğesi, arka uç sunucu havuzu eşlemeleri için Yol desenleri belir
 }]
 ```
 
-> [!NOTE]
-> PathPattern: Bu ayar, eşleştirilecek yol desenlerinin listesidir. Her biri / ile başlamalıdır. "*" işareti, yalnızca "/" işaretinin ardından en sona koyulabilir. Eşleştiricisine dize birinciden sonra herhangi bir metin içermez? veya # yanı sıra, bu karakterlere burada kullanılamaz. Aksi takdirde, bir URL'de izin verilen herhangi bir karakter Pathpattern'da izin verilir.
+### <a name="pathpattern"></a>PathPattern
+
+PathPattern, eşleştirilecek yol desenlerinin listesidir. Her biri / ile başlamalıdır. "*" işareti, yalnızca "/" işaretinin ardından en sona koyulabilir. Eşleştiricisine dize birinciden sonra herhangi bir metin içermez? veya # yanı sıra, bu karakterlere burada kullanılamaz. Aksi takdirde, bir URL'de izin verilen herhangi bir karakter Pathpattern'da izin verilir.
+
+Desteklenen desenler, Application Gateway v1 veya v2 dağıttığınız bağlıdır:
+
+#### <a name="v1"></a>V1
+
+Yol kuralları büyük/küçük harfe duyarsızdır.
+
+|V1 yol deseni  |Destekleniyor mu?  |
+|---------|---------|
+|`/images/*`     |evet|
+|`/images*`     |hayır|
+|`/images/*.jpg`     |hayır|
+|`/*.jpg`     |hayır|
+|`/Repos/*/Comments/*`     |hayır|
+|`/CurrentUser/Comments/*`     |evet|
+
+#### <a name="v2"></a>v2
+
+Yol kuralları büyük/küçük harfe duyarlıdır.
+
+|v2 yol deseni  |Destekleniyor mu?  |
+|---------|---------|
+|`/images/*`     |evet|
+|`/images*`     |evet|
+|`/images/*.jpg`     |hayır|
+|`/*.jpg`     |hayır|
+|`/Repos/*/Comments/*`     |hayır|
+|`/CurrentUser/Comments/*`     |evet|
 
 Daha fazla bilgi için [URL tabanlı yönlendirme kullanan bir Resource Manager şablonunu](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing) inceleyebilirsiniz.
 

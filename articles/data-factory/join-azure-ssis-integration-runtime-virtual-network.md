@@ -7,17 +7,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 01/08/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: a228bba9effeb803fcc664e06448646b06645d5e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 8693c5e255020e30c2e8ed52a3199712089e4503
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015636"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119093"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Bir Azure-SSIS tümleştirme çalışma zamanını bir sanal ağa katılın
 Bir Azure sanal ağına aşağıdaki senaryolarda, Azure-SSIS Integration runtime (IR) katılın: 
@@ -72,6 +72,10 @@ Aşağıdaki bölümlerde daha ayrıntılı bilgi verilmektedir.
 -   Azure Express Route kullanarak veya kullanıcı tanımlı yol (UDR) yapılandırma Bkz [kullanımı Azure ExpressRoute veya kullanıcı tanımlı yol](#route). 
 
 -   Sanal ağın kaynak grubu oluşturabilir ve belirli Azure ağ kaynakları silmek emin olun. Bkz: [kaynak grubu için gereksinimleri](#resource-group). 
+
+Azure-SSIS IR için gerekli bağlantıları gösteren bir diyagram şu şekildedir:
+
+![Azure-SSIS IR](media/join-azure-ssis-integration-runtime-virtual-network/azure-ssis-ir.png)
 
 ### <a name="perms"></a> Gerekli izinler
 

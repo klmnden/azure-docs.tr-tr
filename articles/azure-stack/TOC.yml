@@ -21,6 +21,8 @@ items:
   items:
   - name: Azure Stack değerlendirme
     href: azure-stack-deploy-overview.md
+  - name: Yönetim portalını kullanın
+    href: azure-stack-manage-portals.md
   expanded: true
 - name: Öğreticiler
   items:
@@ -127,8 +129,6 @@ items:
       href: azure-stack-registration.md
     - name: Bölge yönetimi
       href: azure-stack-region-management.md
-    - name: Yönetici portalını kullanma
-      href: azure-stack-manage-portals.md
     - name: Azure'a Bağlanma
       items:
       - name: VPN kullanarak bağlanma
@@ -262,6 +262,8 @@ items:
       items:
       - name: SQL kaynak sağlayıcısı 1.1.30.0 sürüm notları
         href: azure-stack-sql-resource-provider-11300.md
+      - name: SQL kaynak sağlayıcısı 1.1.33.0 sürüm notları
+        href: azure-stack-sql-resource-provider-11330.md
   - name: PaaS olarak MySQL teklifi
     href: azure-stack-mysql-resource-provider.md
     items:
@@ -281,6 +283,8 @@ items:
       items:
       - name: MySQL kaynak sağlayıcısı 1.1.30.0 sürüm notları
         href: azure-stack-mysql-resource-provider-11300.md
+      - name: MySQL kaynak sağlayıcısı 1.1.33.0 sürüm notları
+        href: azure-stack-mysql-resource-provider-11330.md
   - name: PaaS olarak App Service teklifi
     href: azure-stack-app-service-overview.md
     items:
@@ -398,12 +402,12 @@ items:
   - name: Fiyatlandırma bilgileri
     href: https://azure.microsoft.com/overview/azure-stack/how-to-buy/
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-stack
+    href: https://stackoverflow.com/questions/tagged/azure-stack
   - name: Eğitim ve sertifika
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: 3d24dc847d6ca1e842cd86ff9192d43f9006d53d
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: d485829d98dcd5969c0acd02ad6e0c0255647d5c
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723272"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118345"

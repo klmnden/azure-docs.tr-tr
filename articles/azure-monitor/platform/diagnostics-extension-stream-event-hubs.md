@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: bb240437870ce5457e40e8dcc3b31f3909b546fc
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 200f36ee5312c92bed7dc9a7ffa29a0ee4993c43
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53607141"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103375"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Event Hubs kullanarak Azure Tanılama verileri etkin yolu akış
 Azure Tanılama, bulut Hizmetleri sanal makinelerden (VM'ler) ölçümlerini ve günlüklerini toplamak ve sonuçları Azure depolama alanına aktarmak için esnek bir yol sağlar. Mart 2016 (SDK 2.9) zaman çerçevesinde başlayarak, özel veri kaynakları için Tanılama verileri gönderme ve sık kullanılan yol veri aktarma saniyeler içinde kullanarak [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/).
@@ -316,7 +316,7 @@ namespace EventHubListener
     İlk olarak, olay hub'ı ve yapılandırma bilgisi daha önce açıklandığı gibi doğru olduğundan emin olun. Bazen **PrivateConfig** dağıtım güncelleştirmede sıfırlanır. Tüm değişiklik yapmak için önerilen düzeltmesidir *.wadcfgx* proje ve sonra anında iletme uygulamanın güncelleştirme. Bu mümkün değilse, tanılama güncelleştirme eksiksiz bir gönderim emin **PrivateConfig** , SAS anahtarını içerir.  
 * Öneriler çalıştım ve olay hub'ı hala çalışmıyorsa.
 
-    Azure tanılama için kendisini günlükleri ve hataları içeren Azure depolama tablosundaki bakmayın deneyin: **WADDiagnosticInfrastructureLogsTable**. Bir seçenek olduğu gibi bir araç kullanmak için [Azure Depolama Gezgini](http://www.storageexplorer.com) bu depolama hesabına bağlanmak için bu tablo görüntülemek ve bir sorgu için zaman damgası, son 24 saat içindeki ekleyin. Microsoft Excel gibi bir uygulama açın ve bir .csv dosyasına dışarı aktarma Aracı'nı kullanabilirsiniz. Excel gibi arama kartı dizeleri için arama yapmayı kolaylaştırır **EventHubs**hangi hata bildirilir görmek için.  
+    Azure tanılama için kendisini günlükleri ve hataları içeren Azure depolama tablosundaki bakmayın deneyin: **WADDiagnosticInfrastructureLogsTable**. Bir seçenek olduğu gibi bir araç kullanmak için [Azure Depolama Gezgini](https://www.storageexplorer.com) bu depolama hesabına bağlanmak için bu tablo görüntülemek ve bir sorgu için zaman damgası, son 24 saat içindeki ekleyin. Microsoft Excel gibi bir uygulama açın ve bir .csv dosyasına dışarı aktarma Aracı'nı kullanabilirsiniz. Excel gibi arama kartı dizeleri için arama yapmayı kolaylaştırır **EventHubs**hangi hata bildirilir görmek için.  
 
 ## <a name="next-steps"></a>Sonraki adımlar
 • [Event Hubs hakkında daha fazla bilgi edinin](https://azure.microsoft.com/services/event-hubs/)

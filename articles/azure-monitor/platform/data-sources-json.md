@@ -1,6 +1,6 @@
 ---
 title: Azure İzleyici'de özel JSON verileri toplama | Microsoft Docs
-description: Özel JSON veri kaynakları, Azure İzleyici'de Linux için Log Analytics aracısını kullanarak halinde toplanabilir.  Bu özel veri kaynaklarının curl veya FluentD'ın 300'ü aşkın eklentileri gibi JSON döndüren basit betik dosyalarını olabilir. Bu makalede, bu veri toplama için gerekli yapılandırmayı açıklar.
+description: Özel JSON veri kaynakları, Linux için Log Analytics aracısını kullanarak Log Analytics'e halinde toplanabilir.  Bu özel veri kaynaklarının curl veya FluentD'ın 300'ü aşkın eklentileri gibi JSON döndüren basit betik dosyalarını olabilir. Bu makalede, bu veri toplama için gerekli yapılandırmayı açıklar.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 64f1d7b1437ea018a25db18e5f92bffaac8f7099
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 36f914109d8d3879d23511cb37055d20db4d670c
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438464"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105228"
 ---
 # <a name="collecting-custom-json-data-sources-with-the-log-analytics-agent-for-linux-in-azure-monitor"></a>Azure İzleyici'de Linux için Log Analytics aracısını özel JSON veri kaynaklarıyla toplama
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
-Özel JSON veri kaynakları toplanmasını içine [Azure İzleyici günlükleri](data-collection.md) Linux için Log Analytics aracısını kullanarak.  Bu özel veri kaynakları gibi JSON döndüren basit betik dosyalarını olabilir [curl](https://curl.haxx.se/) veya biri [FluentD'ın 300'ü aşkın eklentileri](http://www.fluentd.org/plugins/all). Bu makalede, bu veri toplama için gerekli yapılandırmayı açıklar.
+
+Özel JSON veri kaynakları toplanmasını içine [Log Analytics](data-collection.md) Linux için Log Analytics aracısını kullanarak.  Bu özel veri kaynakları gibi JSON döndüren basit betik dosyalarını olabilir [curl](https://curl.haxx.se/) veya biri [FluentD'ın 300'ü aşkın eklentileri](http://www.fluentd.org/plugins/all). Bu makalede, bu veri toplama için gerekli yapılandırmayı açıklar.
+
 
 > [!NOTE]
 > Linux v1.1.0 için log Analytics aracısını-217 + özel JSON verileri için gerekli
@@ -31,7 +33,7 @@ ms.locfileid: "53438464"
 
 ### <a name="configure-input-plugin"></a>Giriş eklentisini yapılandırma
 
-Azure İzleyici JSON verilerini toplamak için ekleme `oms.api.` bir giriş eklentisi FluentD etiketinde başlatma.
+Log analytics'te JSON verileri toplamak için ekleme `oms.api.` bir giriş eklentisi FluentD etiketinde başlatma.
 
 Örneğin, ayrı bir yapılandırma dosyası verilmiştir `exec-json.conf` içinde `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`.  Bu FluentD eklentisi `exec` her 30 saniyede bir curl komutu çalıştırın.  Bu komutun çıktısı, JSON çıkış eklenti tarafından toplanır.
 
@@ -85,9 +87,9 @@ Aşağıdaki komutla Linux hizmet için Log Analytics aracısını yeniden başl
     sudo /opt/microsoft/omsagent/bin/service_control restart 
 
 ## <a name="output"></a>Çıktı
-Azure İzleyici günlüklerine kaydı türünde veri toplanacağını `<FLUENTD_TAG>_CL`.
+Bir kayıt türü ile Log Analytics'te veri toplanacağını `<FLUENTD_TAG>_CL`.
 
-Örneğin, özel etiket `tag oms.api.tomcat` kayıt türü ile Azure İzleyicisi'nde `tomcat_CL`.  Bu tür aşağıdaki günlük sorgusu ile tüm kayıtlar alabilir.
+Örneğin, özel etiket `tag oms.api.tomcat` kayıt türü ile Log analytics'te `tomcat_CL`.  Bu tür aşağıdaki günlük sorgusu ile tüm kayıtlar alabilir.
 
     Type=tomcat_CL
 

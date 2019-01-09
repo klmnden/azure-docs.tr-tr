@@ -10,21 +10,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/26/2018
+ms.date: 1/07/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 8e0009bf0fc34d3e0d22755d93d941b85db62ffd
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: c90b81cdb6df5477d658d53dc93d0c3bbc47c1ff
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334474"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106452"
 ---
 # <a name="validate-software-updates-from-microsoft"></a>Microsoft yazılım güncelleştirmeleri doğrulayın
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Microsoft Azure Stack yazılım güncelleştirmeleri düzenli olarak serbest bırakır. Bu güncelleştirmeler, güncelleştirmeleri çözümleri karşı doğrulamak ve Microsoft'a geri bildirimde genel kullanıma açık yapılan tarifelerindeki ortak mühendislik iş ortaklarının Azure Stack için sağlanır.
+Microsoft Azure Stack yazılım güncelleştirmeleri düzenli olarak serbest bırakır. Bu güncelleştirmeler, Azure Stack iş ortakları coengineering sağlanır. Güncelleştirmeleri herkese, öncelikli sağlanır. Çözümünüzü karşı güncelleştirmeleri denetleyin ve Microsoft'a geri bildirim sağlayın.
 
 [!INCLUDE [azure-stack-vaas-workflow-validation-completion](includes/azure-stack-vaas-workflow-validation-completion.md)]
 
@@ -34,13 +34,17 @@ Microsoft Azure Stack yazılım güncelleştirmeleri düzenli olarak serbest bı
 
 ## <a name="create-a-workflow"></a>Bir iş akışı oluşturma
 
-Güncelleştirme doğrulamaları aynı iş akışı olarak kullanmak **paket doğrulama**. Konumundaki yönergeleri [paket doğrulama iş akışı oluşturma](azure-stack-vaas-validate-oem-package.md#create-a-package-validation-workflow).
+Güncelleştirme doğrulamaları aynı iş akışı olarak kullanmak **çözüm doğrulama**.
 
-## <a name="run-tests"></a>Testleri çalıştırın
+## <a name="run-tests"></a>Testleri çalıştırma
 
-Güncelleştirme doğrulamaları aynı iş akışı olarak kullanmak **paket doğrulama**. Konumundaki yönergeleri [paket doğrulama çalıştırmak testlerini](azure-stack-vaas-validate-oem-package.md#run-package-validation-tests).
+1. Güncelleştirme doğrulamaları aynı iş akışı olarak kullanmak **çözüm doğrulama**. 
 
-Paket için güncelleştirme doğrulamaları imzalama isteği gerekmez.
+2. Konumundaki yönergeleri [çözüm doğrulama çalıştırmak testlerini](azure-stack-vaas-validate-oem-package.md#run-package-validation-tests). Bunun yerine aşağıdaki testleri seçin:
+    - Aylık Azure Stack güncelleştirme doğrulama
+    - Bulut benzetimi altyapısı
+
+Paket için güncelleştirme doğrulamaları imzalama isteği gerek yoktur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

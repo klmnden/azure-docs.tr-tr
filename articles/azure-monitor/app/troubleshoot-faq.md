@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: cb2383ee8a921aa2c9c4e3b536edc203dd883200
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 0ad9179c5a6589df1168c5cebc3dcbd5496b9870
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074453"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121133"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Sık Sorulan Sorular
 
@@ -25,7 +25,7 @@ ms.locfileid: "54074453"
 *Ayarlama konusunda sorun yaşıyorum my:*
 
 * [.NET uygulaması](../../azure-monitor/app/asp-net-troubleshoot-no-data.md)
-* [Zaten çalışan bir uygulamayı izleme](../../azure-monitor/app/monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights)
+* [Zaten çalışan bir uygulamayı izleme](../../azure-monitor/app/monitor-performance-live-website-now.md#troubleshoot)
 * [Azure tanılama](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 * [Java web uygulaması](../../azure-monitor/app/java-troubleshoot.md)
 
@@ -300,5 +300,5 @@ Bizim [web testleri](../../azure-monitor/app/monitor-web-app-availability.md) d�
 
 [data]: ../../azure-monitor/app/data-retention-privacy.md
 [platforms]: ../../azure-monitor/app/platforms.md
-[start]: ../../application-insights/app-insights-overview.md
+[start]: ../../azure-monitor/app/app-insights-overview.md
 [windows]: app-insights-windows-get-started.md

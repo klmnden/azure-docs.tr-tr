@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apipm
-ms.openlocfilehash: c55a80749506b0a03af2f8c5f0179b67c8a78d15
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: bad87931feb11012f23f0ef19bd853b38566c07c
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016751"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106833"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API içeri aktarma kısıtlamaları ve bilinen sorunlar
 ## <a name="about-this-list"></a>Bu liste hakkında
@@ -47,6 +47,7 @@ WSDL dosyaları, SOAP doğrudan API'ları oluşturmak veya bir SOAP ve REST API 
 * **WCF wsHttpBinding** -Windows Communication Foundation ile oluşturulan SOAP Hizmetleri basicHttpBinding kullanması gereken - wsHttpBinding desteklenmiyor.
 * **MTOM** - MTOM kullanan hizmetler <em>olabilir</em> çalışır. Resmi destek şu anda sunulmaz.
 * **Özyineleme** -türlere yinelemeli olarak tanımlanan (örneğin, bir dizi kendileri için bakın) APIM tarafından desteklenmez.
+* **Birden çok ad** - birden çok ad şemada kullanılabilir, ancak yalnızca hedef ad alanı, ileti bölümlerini tanımlamak için kullanılabilir. Giriş veya çıkış diğer öğeleri tanımlamak için kullanılan ad alanları hedefinden korunmaz. Böyle bir WSDL belgesi aktarılabilen olsa da, dışarı aktarma üzerinde tüm ileti bölümleri WSDL hedef ad alanı olacaktır.
 
 ## <a name="wadl"> </a>WADL
 Şu anda bilinen WADL alma herhangi bir sorun vardır.

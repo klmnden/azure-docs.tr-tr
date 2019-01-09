@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
 ms.date: 01/02/2019
-ms.openlocfilehash: f756f043a7ab3c9086b21b8bdb88a5a6a7ed60df
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 6a5902b8c442d83c86142bad516b862febd6522c
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001609"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118209"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>Sanal çekirdek hizmet katmanları, Azure hibrit avantajı ve geçiş
 
@@ -66,6 +66,10 @@ Bkz: [SQL veritabanı SSS](sql-database-faq.md) sık sorulan soruların yanıtla
 Sanal çekirdek tabanlı satın alma modeli, mevcut lisanslarınızı kullanarak SQL veritabanı üzerinde indirimli fiyatlar için exchange [SQL Server için Azure hibrit avantajı](https://azure.microsoft.com/pricing/hybrid-benefit/). Bu Azure avantajını Yazılım Güvencesi içeren şirket içi SQL Server lisanslarınızı kullanarak Azure SQL veritabanı'nda % 30 kaydetmek için şirket içi SQL Server lisanslarınızı kullanmanıza olanak tanır.
 
 ![fiyatlandırma](./media/sql-database-service-tiers/pricing.png)
+
+Mevcut şirket içi SQL Server lisanslarınızı kullanmak istiyorsanız, SQL Server veritabanı altyapısı lisans faturanızda dahil edilmemesi sırasında temel alınan Azure altyapısı (örneğin Azure veritabanı'nın çalıştırıldığı VM) için taban fiyat ödeyebilirsiniz. Belirli bir süre içinde SQL Server ve Azure SQL veritabanı için hem de şirket içi lisansınızı kullanabilirsiniz. Aksi takdirde, veritabanı veya örnek fiyatına SQL Server veritabanı altyapısı için lisans maliyeti eklenir. Oluşturmak veya veritabanı veya örnek güncelleştirmek için PowerShell veya Azure CLI kullanıyorsanız, seçim yapabileceğiniz iki fiyatlandırma seçeneği vardır:
+- **BasePrice** parçası olarak kullanmak istediğiniz geçerli bir SQL Server Lisans olduğu anlamına gelir [Azure hibrit avantajı](https://azure.microsoft.com/pricing/hybrid-benefit/) ve yalnızca temel altyapı maliyetini ödeme yapmak istiyorum.
+- **LicenseIncluded** ya da sahip olmadığınız anlamına gelir şirket içi SQL Server işlemci lisansı veya veritabanı veya yönetilen örneği için şirket içi lisansınızı kullanmak istemiyorsanız. Bu durumda, SQL Server Lisans faturanızda dahil edilir. 
 
 ## <a name="migration-from-dtu-model-to-vcore-model"></a>VCore modeli DTU modeline geçiş
 

@@ -11,12 +11,12 @@ ms.assetid: 51dd4f22-7dc5-41af-a0a9-e7148378cd50
 tags: connectors
 ms.topic: article
 ms.date: 01/08/2019
-ms.openlocfilehash: 369bdba063f8582b8343682dcbbc990d2f63e21a
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: a1f89ca6e9dc2d05180df14ff0f4dc52729a7e03
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078074"
+ms.locfileid: "54107846"
 ---
 # <a name="create-and-run-recurring-tasks-and-workflows-with-azure-logic-apps"></a>Oluşturma ve Azure Logic Apps ile yinelenen görevleri ve iş akışları çalıştırma
 
@@ -39,7 +39,7 @@ Bu tetikleyici, birçok desen, örneğin destekler:
 
 Yinelenme tetikleyici her etkinleştirildiğinde Logic Apps oluşturur ve mantıksal uygulama iş akışınızı yeni bir örneğini çalıştırır. 
 
-Mantıksal uygulamanızı hemen Tetikle ve yinelenen olmadan bir kez çalıştırmak için bkz [işler yalnızca bir kez çalıştır](#run-once) bu konuda.
+Mantıksal uygulamanızı tetikleyecek ve gelecekte yalnızca bir kez çalıştırmak için bkz: [işler yalnızca bir kez çalıştır](#run-once) bu konuda.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -141,8 +141,8 @@ Bu özellikler için yineleme tetikleyicisi yapılandırabilirsiniz.
 
 <a name="run-once"></a>
 
-**S:** Mantıksal uygulamayı hemen ve bir kez yalnızca çalıştırılacak istersem? </br>
-**Y:** Mantıksal uygulamanızı hemen Tetikle ve yinelenen olmadan bir kez çalıştırmak için kullanabileceğiniz **Zamanlayıcı: Bir kez işlerinizi** şablonu. Yeni bir mantıksal uygulama oluşturduktan sonra ancak Logic Apps Tasarımcısı'nda altında açmadan önce **şablonları** bölümü, gelen **kategori** listesinden **zamanlama**ve ardından seçin Şablonu:
+**S:** Mantıksal uygulama gelecekte yalnızca bir kez çalıştırılacak istersem? </br>
+**Y:** Mantıksal uygulamanızı tetikleyecek ve yinelenen olmadan bir kez çalıştırmak için kullanabileceğiniz **Zamanlayıcı: Bir kez işlerinizi** şablonu. Yeni bir mantıksal uygulama oluşturduktan sonra ancak Logic Apps Tasarımcısı'nda altında açmadan önce **şablonları** bölümü, gelen **kategori** listesinden **zamanlama**ve ardından seçin Şablonu:
 
 ![Seçin "Zamanlayıcı: İşleri bir kez çalıştır"şablonu](./media/connectors-native-recurrence/choose-run-once-template.png)
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 57cde41bf65c370f86ebc57a39e917b95721ca81
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: a9decacc3b22676d94726e3cf979198b3486d270
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52892472"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104650"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>Döşeme katmanı haritaya eklemek
 
@@ -24,7 +24,7 @@ Kutucuklarda bir sunucudan bir kutucuk. Katman yük. Bu görüntüleri önceden 
 
 * X, Y yakınlaştırma gösterimi - yakınlaştırma düzeyini temel alan, x sütun ve y döşeme kutucuğu satır konumu.
 * Quadkey gösterimi - birleşimi x, y, yakınlaştırma bilgileri bir kutucuk için benzersiz bir tanımlayıcıdır tek bir dize değeri.
-* Görüntü biçimi belirtmek için sınırlayıcı kutu - sınırlama kutusu koordinatları kullanılabilir `{west},{south},{east},{north}` yaygın olarak kullanılan tarafından [Web eşleme Hizmetleri (WMS)](http://www.opengeospatial.org/standards/wms).
+* Görüntü biçimi belirtmek için sınırlayıcı kutu - sınırlama kutusu koordinatları kullanılabilir `{west},{south},{east},{north}` yaygın olarak kullanılan tarafından [Web eşleme Hizmetleri (WMS)](https://www.opengeospatial.org/standards/wms).
 
 > [!TIP]
 > A [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) harita üzerinde büyük veri kümeleri görselleştirmek için harika bir yoludur. Yalnızca bir görüntüden bir döşeme katmanı oluşturulabilir ancak vektör verilerini de bir döşeme katmanı çok işlenebilir. Döşeme katmanı olarak vektör verilerini işleyerek harita denetiminin yalnızca temsil ettikleri vektör verilerini dosya boyutu çok küçük olabilen kutucukları yüklemesi gerekir. Bu teknik, harita üzerinde veri satırı milyonlarca işlemek için gereken çoğu tarafından kullanılır.
@@ -38,9 +38,9 @@ Bir döşeme katmanı geçirilen kutucuk URL'si TileJSON kaynak veya aşağıdak
 * `{bbox-epsg-3857}` -Bir sınırlama kutusu dize biçiminde `{west},{south},{east},{north}` EPSG 3857 uzamsal başvuru sistemi içinde.
 * `{subdomain}` -Belirtilmişse alt etki alanı değerlerin ekleneceği bir yer tutucu.
 
-## <a name="add-a-tile-layer"></a>Döşeme katmanı Ekle
+## <a name="add-a-tile-layer"></a>Kutucuk katmanı ekleme
 
- Bu örnek, bir dizi kullanan x, y, yakınlaştırma döşeme sistemi kutucukla için işaret eden bir döşeme katmanı oluşturma işlemi gösterilmektedir. Gelen bir hava durumu radar katmana bu döşeme katmanı kaynağıdır [Iowa ortam Mesonet, Iowa State Üniversitesi](http://mesonet.agron.iastate.edu/ogc/).
+ Bu örnek, bir dizi kullanan x, y, yakınlaştırma döşeme sistemi kutucukla için işaret eden bir döşeme katmanı oluşturma işlemi gösterilmektedir. Gelen bir hava durumu radar katmana bu döşeme katmanı kaynağıdır [Iowa ortam Mesonet, Iowa State Üniversitesi](https://mesonet.agron.iastate.edu/ogc/).
 
 <br/>
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
-ms.openlocfilehash: b6640e4ef9751e235c0310b0d725cd7e27ff2b40
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: caabc5a396c015b806778bfc5887b0708897101e
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53746263"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54101930"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Azure Active Directory ile esnek erişim denetimi yönetim stratejisi oluşturma
 
@@ -230,7 +230,7 @@ Kesinti nedeniyle hizmet geri yüklendikten sonra etkin Yedek planı bir parças
 Kuruluşunuzun kullanıcı başına MFA eski ilkeleri kullanıyorsanız, aşağıdaki alternatif göz atabilirsiniz:
 
 1. Şirket ağına giden IP adresi varsa, Kurumsal ağa yalnızca kimlik doğrulamasını etkinleştirmek için güvenilen IP'ler olarak ekleyebilirsiniz.
- 2. Envanteri giden IP adresi yoksa veya içindeki ve dışındaki şirket ağına erişimi etkinleştirmek için gereken, güvenilen IP'ler CIDR gösteriminde (Örneğin 192.168.1.1/24) olarak tüm IPv4 adres alanı ekleyebilirsiniz.
+ 2. Envanteri giden IP adresi yoksa veya içindeki ve dışındaki şirket ağına erişimi etkinleştirmek için gereken tüm IPv4 adres alanına 0.0.0.0/1 ve 128.0.0.0/1 belirterek güvenilen IP'ler ekleyebilirsiniz.
 
 >[!IMPORTANT]
  > Erişim engelini kaldırmak için güvenilen IP adresleri genişletmek, IP adresleri (örneğin, mümkün olmayan seyahat veya tanınmayan konumlardan) ile ilişkili risk olayları oluşturulmaz.

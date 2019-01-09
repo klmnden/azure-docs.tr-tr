@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 01/08/2019
 ms.author: jeffgilb
-ms.reviewer: quying
-ms.openlocfilehash: ee76d71f89fb94c8c05c6a733dac241a9e4fa13c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: georgel
+ms.openlocfilehash: 790a8bfed693f03cdadd036cab17eb94dee1c1ed
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965147"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119300"
 ---
 # <a name="update-the-mysql-resource-provider"></a>MySQL kaynak sağlayıcısını güncelle 
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri.*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri.*
 
 Azure Stack yapılar güncelleştirildiğinde yeni bir SQL kaynak sağlayıcısı bağdaştırıcısını serbest bırakılması. Mevcut bağdaştırıcısı çalışmaya devam ederken için en son sürüme mümkün olan en kısa sürede güncelleştirilmesi önerilir. 
 
@@ -110,7 +110,7 @@ Bu parametreleri komut satırında belirtebilirsiniz. Bunu yapmazsanız veya her
 | **RetryDuration** | Saniye cinsinden yeniden denemeler arasındaki zaman aşımı aralığı. | 120 | 
 | **Kaldırma** | Kaynak sağlayıcısı ile ilişkili tüm kaynakları (aşağıdaki notlara bakın) kaldırın. | Hayır | 
 | **DebugMode** | Otomatik temizleme başarısız engeller. | Hayır | 
-| **AcceptLicense** | GPL lisansı kabul etmek için istemi atlar.  (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | | 
+| **AcceptLicense** | GPL lisansı kabul etmek için istemi atlar.  (https://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | | 
  
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -7,15 +7,15 @@ tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 01/02/2019
+ms.date: 01/07/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3f75cd61d948f3f6df34124a9b16b333f6c5e6d5
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 9bdc2e197b4d7aea270c954305a96a01a1371945
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001796"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121558"
 ---
 # <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Hızlı Başlangıç: Azure Search içeri aktarma, dizin oluşturma ve sorgular için yerleşik portal araçlarını kullanma
 
@@ -48,7 +48,7 @@ Birçok müşteri ücretsiz hizmetle başlar. Bu sürüm üç dizin, üç veri k
 
 Hizmet panosundaki bölümleri kaç dizin, dizin oluşturucular ve veri kaynaklarına sahip olduğunuzu gösterir. 
 
-! [Dizin, dizin oluşturucular ve veri kaynakları listesi] [media/search-get-started-portal/tiles-indexers-datasources2.png]
+![Dizin, dizin oluşturucular ve veri kaynaklarının listesi](media/search-get-started-portal/tiles-indexers-datasources2.png)
 
 ## <a name="create-index"></a> Dizin oluşturma ve verileri yükleme
 
@@ -124,9 +124,13 @@ Portalın sayfanın birkaç dakika sürebilir ve durumunu gösteren ile listesin
 
 ## <a name="view-the-index"></a>Dizini görüntüleme
 
-**Dizinleri** listesi dahil olmak üzere mevcut dizinleri gösterir *realestate-us-sample* Sihirbazı'nda yeni oluşturduğunuz dizin.
+Ana hizmet sayfası, Azure Search hizmetinizde oluşturulan kaynakların bağlantılarını sağlar.  Yeni oluşturduğunuz dizin görüntülemek için tıklayın **dizinleri** bağlantılar listesinden. 
 
-Bu listeden dizin şemasını görüntülemek ve isteğe bağlı olarak yeni alan ekleyebilir, ancak varolan alanların değiştiremezsiniz. Var olan alanlar Azure Search'te fiziksel olarak temsil edildiğinden kod ile dahi değişiklik yapılamaz. Temelde varolan bir alanı değiştirmek için özgün bırakmadan yeni bir dizin oluşturun.
+   ![Hizmet panosundaki dizinler listesi](media/search-get-started-portal/indexes-list.png)
+
+Bu listeden tıklayarak *realestate-us-sample* yeni dizin oluşturulmuş dizin şemasını görüntüleyin. ve isteğe bağlı olarak yeni alanlar ekleyin. 
+
+**Alanları** sekmesi dizin şemasını gösterir. Yeni bir alan girin için listenin en alt kısma. Çoğu durumda, var olan alanları değiştiremezsiniz. Var olan alanlar Azure Search'te fiziksel olarak temsil edildiğinden kod ile dahi değişiklik yapılamaz. Temelde varolan bir alanı değiştirmek için özgün bırakmadan yeni bir dizin oluşturun.
 
    ![Örnek dizin tanımı](media/search-get-started-portal/sample-index-def.png)
 
@@ -137,6 +141,8 @@ Dizin tasarımı sırasında düzenleme yapabileceğiniz ve yapamayacağınız a
 ## <a name="query-index"></a> Arama Gezgini'ni kullanarak sorgulama
 
 Artık yerleşik [**Arama gezgini**](search-explorer.md) sorgu sayfasını kullanarak sorgulayabileceğiniz bir arama dizinine sahipsiniz. Bu sayfada rastgele sorgu dizelerini test etmek için kullanabileceğiniz bir arama kutusu bulunur.
+
+**Arama Gezgini** işlemek için yalnızca donatılmış [REST API istekleri](https://docs.microsoft.com/rest/api/searchservice/search-documents), ancak her ikisi için söz dizimini kabul [Basit Sorgu söz dizimi](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) ve [tam Lucene sorgu ayrıştırıcısına](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), kullanılabilen tüm arama parametrelerini artı [arama belge REST API'si](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) operations.
 
 > [!TIP]
 > [Azure Search’e Genel Bakış videosunu](https://channel9.msdn.com/Events/Connect/2016/138) 6 dakika 8 saniye ileri alarak aşağıdaki adımların gösterimini izleyebilirsiniz.
@@ -150,11 +156,9 @@ Artık yerleşik [**Arama gezgini**](search-explorer.md) sorgu sayfasını kulla
 
    ![Dizin ve API komutları](media/search-get-started-portal/search-explorer-changeindex-se2.png)
 
-3. Arama kutusuna aşağıdaki sorgu dizelerini girin ve **Ara**’ya tıklayın.
+3. Aşağıdaki sorgu dizeleri arama çubuğunda yapıştırın ve tıklayın **arama**.
 
-    > [!NOTE]
-    > **Arama Gezgini** işlemek için yalnızca donatılmış [REST API istekleri](https://docs.microsoft.com/rest/api/searchservice/search-documents). Hem [basit sorgu söz dizimi](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) hem de [tam Lucene sorgu ayrıştırıcısına](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) yönelik söz dizimlerinin yanı sıra [Belgede Arama](https://docs.microsoft.com/rest/api/searchservice/search-documents) işlemlerinde kullanılabilen arama parametrelerini kabul eder.
-    >
+   ![Sorgu dizesi ve arama düğmesi](media/search-get-started-portal/search-explorer-query-string-example.png)
 
 ## <a name="example-queries"></a>Örnek sorgular
 

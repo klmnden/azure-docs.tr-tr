@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 4db494de87993a6434eaf5dbf441094578d72ea4
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
-ms.translationtype: HT
+ms.openlocfilehash: 9bf168a0f06d662526d172687e54327b55d50bd8
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165973"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104276"
 ---
 # <a name="what-is-azure-maps"></a>Azure Haritalar nedir?
 
@@ -62,7 +62,7 @@ Arama hizmeti, ayrıca yol boyunca arama, daha geniş bir alanda arama, bir grup
 
 ### <a name="time-zone-service"></a>Saat Dilimi hizmeti
 
-Saat Dilimi hizmeti, güncel, geçmiş ve gelecek saat dilimi bilgilerini enlem-boylam çifti veya [IANA ID](http://www.iana.org/) kullanarak sorgulamanızı sağlar. Saat Dilimi Hizmeti ayrıca Microsoft Windows saat dilimi kimliklerini IANA saat dilimlerine dönüştürmenizi, UTC ile saat dilimi farkını öğrenmenizi ve belirli bir saat dilimindeki güncel saati almanızı sağlar. Saat Dilimi Hizmetine gönderilen bir sorguya verilen tipik JSON yanıtı aşağıdaki örnek gibi olacaktır:
+Saat Dilimi hizmeti, güncel, geçmiş ve gelecek saat dilimi bilgilerini enlem-boylam çifti veya [IANA ID](https://www.iana.org/) kullanarak sorgulamanızı sağlar. Saat Dilimi Hizmeti ayrıca Microsoft Windows saat dilimi kimliklerini IANA saat dilimlerine dönüştürmenizi, UTC ile saat dilimi farkını öğrenmenizi ve belirli bir saat dilimindeki güncel saati almanızı sağlar. Saat Dilimi Hizmetine gönderilen bir sorguya verilen tipik JSON yanıtı aşağıdaki örnek gibi olacaktır:
 
 ```JSON
 {
@@ -109,7 +109,7 @@ Azure Haritalar ayrıca hem web hem de mobil platform uygulamalarının hızlı 
 
 ## <a name="usage"></a>Kullanım
 
-Haritalar hizmetlerine erişmek için [Azure portalına](http://portal.azure.com) gidip Azure Haritalar hesabı oluşturulması gerekir.
+Haritalar hizmetlerine erişmek için [Azure portalına](https://portal.azure.com) gidip Azure Haritalar hesabı oluşturulması gerekir.
 
 Azure Haritalar anahtar tabanlı bir kimlik doğrulama düzeni kullanır. Hesabınızda önceden oluşturulmuş iki anahtar mevcuttur. Bu anahtarlardan birini kullanıp Azure Haritalar hizmetine istekte bulunarak bu konum özelliklerini uygulamanızla tümleştirmeye başlayabilirsiniz.
 

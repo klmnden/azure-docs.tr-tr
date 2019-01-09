@@ -11,16 +11,16 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: 69ba67eb74333e8316b739fc2f264434643cab95
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 986a05dab29226ff492269587ab6c0f49585cef6
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075150"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119916"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>İzleme ve Application Insights ile bir Azure Batch .NET uygulama hatalarını ayıklama
 
-[Application Insights](../application-insights/app-insights-overview.md) geliştiriciler Azure Hizmetleri için dağıtılan izleme ve hata ayıklama uygulamaları için zarif ve güçlü bir yol sağlar. Application Insights izleme performans sayaçları ve özel durumların yanı sıra gereç özel Ölçümler ve izleme ile kodunuzu kullanın. Application Insights ile Azure toplu işlem uygulamanızı tümleştirme davranışları derin Öngörüler elde edin ve sorunları neredeyse gerçek zamanlı olarak araştırmak sağlar.
+[Application Insights](../azure-monitor/app/app-insights-overview.md) geliştiriciler Azure Hizmetleri için dağıtılan izleme ve hata ayıklama uygulamaları için zarif ve güçlü bir yol sağlar. Application Insights izleme performans sayaçları ve özel durumların yanı sıra gereç özel Ölçümler ve izleme ile kodunuzu kullanın. Application Insights ile Azure toplu işlem uygulamanızı tümleştirme davranışları derin Öngörüler elde edin ve sorunları neredeyse gerçek zamanlı olarak araştırmak sağlar.
 
 Bu makalede, ekleme, Azure Batch .NET çözümünüze Application Insights Kitaplığı'nı yapılandırma ve uygulama kodunuz izleme gösterilmektedir. Ayrıca, uygulamanızı Azure portal aracılığıyla izlemek ve özel panolar oluşturmak için yol gösterir. Application Insights'ı diğer dillerde desteği sağlamak için bakmak [dilleri, platformlar ve tümleştirmeler belgeleri](../azure-monitor/app/platforms.md).
 
@@ -342,7 +342,7 @@ Azure Batch uygulamalarıyla üretimde çalışan büyük ölçekli yapısı ned
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Daha fazla bilgi edinin [Application Insights](../application-insights/app-insights-overview.md).
+* Daha fazla bilgi edinin [Application Insights](../azure-monitor/app/app-insights-overview.md).
 
 * Application Insights'ı diğer dillerde desteği sağlamak için bakmak [dilleri, platformlar ve tümleştirmeler belgeleri](../azure-monitor/app/platforms.md).
 

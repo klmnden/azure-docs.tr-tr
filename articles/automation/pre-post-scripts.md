@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d84596b586ea54dd4a64faf46b32226862d83198
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: edbb953111fb4589539369bd9b2519b48b9b70eb
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584630"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121320"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Yönetme öncesi ve sonrası betikler (Önizleme)
 
@@ -100,10 +100,7 @@ Yapılandırırken runbook'u zamanlama parametrelerinde yalnızca geçirebilirsi
    }
 ```
 
-Tüm özellikleri ile tam bir örnek şurada bulunabilir: [yazılım güncelleştirme yapılandırmaları - ada göre alma](/rest/api/automation/softwareupdateconfigurations/getbyname#examples)
-
-> [!NOTE]
-> Kullanarak bir dağıtım eklenmiş bilgisayarlar [dinamik gruplar (Önizleme)](automation-update-management.md#using-dynamic-groups) şu anda parçası değildir **SoftwareUpdateConfigurationRunContext** parametresi.
+Tüm özellikleri ile tam bir örnek bulabilirsiniz: [Yazılım güncelleştirme yapılandırmaları - ada göre alma](/rest/api/automation/softwareupdateconfigurations/getbyname#examples)
 
 ## <a name="samples"></a>Örnekler
 

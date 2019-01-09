@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.reviewer: mazhar
 ms.author: mbullwin
-ms.openlocfilehash: 12b4a4639991628265a19a5d45f3abdef590efcd
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 6119f1116d255f7cd2a2bfc20e86eeca9e5dfe82
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077938"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121172"
 ---
 # <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>Çözüm: Microsoft Dynamics CRM Online Application Insights ile Telemetri etkinleştirme
 Bu makalede telemetri verilerinin alınacağı gösterilmektedir [Microsoft Dynamics CRM Online](https://www.dynamics.com/) kullanarak [Azure Application Insights](https://azure.microsoft.com/services/application-insights/). Veri ve veri görselleştirme yakalama uygulamanıza Application Insights betiğini ekleme tam işlemi gösterilecektir.
@@ -133,6 +133,6 @@ Bunu daha da derin analizi yapabilirsiniz, [Microsoft Power BI için verileri d�
 [Microsoft Dynamics CRM'de uygulanan örnek çözüm işte](https://dynamicsandappinsights.codeplex.com/).
 
 ## <a name="learn-more"></a>Daha fazla bilgi edinin
-* [Application Insights nedir?](../../application-insights/app-insights-overview.md)
+* [Application Insights nedir?](../../azure-monitor/app/app-insights-overview.md)
 * [Web sayfaları için Application Insights](../../azure-monitor/app/javascript.md)
-* [Daha fazla örnekleri ve izlenecek yollar](../../application-insights/app-insights-overview.md)
+* [Daha fazla örnekleri ve izlenecek yollar](../../azure-monitor/app/app-insights-overview.md)

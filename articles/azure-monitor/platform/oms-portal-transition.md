@@ -10,14 +10,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 01/08/2018
 ms.author: bwren
-ms.openlocfilehash: 08f26742d5c0af7f873d8f55204fd9ceeb141f1e
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 3dc574b3aab3600895376c0271b5c6224a70d3b6
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340089"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119237"
 ---
 # <a name="oms-portal-moving-to-azure"></a>OMS portalında Azure'a taşıma
 
@@ -26,7 +26,7 @@ ms.locfileid: "53340089"
 
 Azure portalı, tüm Azure Hizmetleri için hub'ı ve panolar için kaynaklar, akıllı arama bulma kaynakların ve kaynak yönetimi için etiketleme sabitleme gibi özellikler sayesinde zengin yönetim deneyimi sunar. İzleme ve yönetim iş akışını kolaylaştırın ve birleştirmek için Azure portalında OMS portalı yetenekleri ekleme başlatıldı. OMS Portalı'nın özelliklerin tümü, artık Azure portalında bir parçasıdır. Aslında, bazı trafik analizi gibi yeni özellikleri yalnızca Azure portalında kullanılabilir. Her şeyi ve daha fazlasını Azure portalı ile OMS portalında yaptığınız işe gerçekleştirmek mümkün olacaktır. Zaten yapmadıysanız, Azure Portalı'nı hemen kullanmaya başlayın!
 
-**OMS portalında resmi olarak 15 Ocak 2019 üzerinde kullanımdan kaldırılacaktır.** Azure portalına taşıma ve bir kolayca geçiş beklediğiniz heyecan duyuyoruz. Ancak anlıyoruz değişiklikleri zordur ve karışıklığa neden olabilir. Sorularınız, geri bildirim veya endişeleriniz için gönderme **LAUpgradeFeedback@microsoft.com**. Bu makalenin geri kalanında, senaryoları ve bu geçiş için yol haritası üzerinden gider.
+**OMS portalında resmi olarak 15 Ocak 2019 üzerinde kullanımdan kaldırılacak** Azure ABD kamu Bulutu, OMS portalı ve Azure ticari bulutundaki için **resmi olarak 30 Mart 2019 üzerinde kullanımdan kaldırılacaktır.** Azure portalına taşıma ve bir kolayca geçiş beklediğiniz heyecan duyuyoruz. Ancak anlıyoruz değişiklikleri zordur ve karışıklığa neden olabilir. Sorularınız, geri bildirim veya endişeleriniz için gönderme **LAUpgradeFeedback@microsoft.com**. Bu makalenin geri kalanında, senaryoları ve bu geçiş için yol haritası üzerinden gider.
 
 ## <a name="what-is-changing"></a>Değişen nedir? 
 Aşağıdaki değişiklikler OMS portalına kullanımdan kaldırma ile bildirilir. Her biri bu değişiklikler aşağıdaki bölümlerde daha ayrıntılı olarak açıklanmıştır.
@@ -77,23 +77,24 @@ Olan artık yeni çalışma alanları OMS portalını kullanarak oluşturamazsı
 ### <a name="alert-extension"></a>Uyarı uzantısı  
 
 > [!NOTE]
-> Uyarıları artık tam olarak Azure portalında genel bulut için genişletilmiştir. Mevcut uyarı kuralları OMS portalında görüntülenebilir, ancak Azure portalında yalnızca yönetilebilir. Azure portalında uyarıları uzantısını Azure kamu bulutunda Ekim, 2018'de başlayacaktır.
+> Uyarıları artık tam olarak Azure portalında genel bulut için genişletilmiştir. Mevcut uyarı kuralları OMS portalında görüntülenebilir, ancak Azure portalında yalnızca yönetilebilir. Azure portalında uyarıları uzantısını Azure kamu bulutunda Şubat 2019 üzerinde başlayacaktır.
 
 Uyarılar olmuştur [Azure portalında Genişletilmiş](../../azure-monitor/platform/alerts-extend.md). Bu işlem tamamlandıktan sonra Yönetim eylemleri uyarıları yalnızca Azure portalında kullanılabilir olacaktır. Var olan uyarılar OMS portalında listelenmeye devam eder. Uyarılar programlama yoluyla Log Analytics uyarı REST API veya Log Analytics uyarı kaynak şablonu kullanarak erişirseniz, API çağrıları, Azure Resource Manager şablonları ve PowerShell komutlarında Eylemler yerine eylem gruplarını kullanmanız gerekir.
 
 ### <a name="alert-management-solution"></a>Uyarı yönetimi çözümü
-Yerine [uyarı yönetimi çözümü](../../azure-monitor/platform/alert-management-solution.md), kullanabileceğiniz [Azure İzleyici'nın birleşik uyarı arabirimi](../../azure-monitor/platform/alerts-overview.md) görselleştirip uyarılarınızı yönetme. Bu yeni deneyim, Log Analytics de dahil olmak üzere Azure günlük uyarıları içindeki farklı kaynaklardan uyarılarını toplar. Uyarılarınızı dağıtımlarını görebilir, akıllı grupları ilgili uyarıları otomatik gruplandırması avantajlarından yararlanın ve zengin bir filtre uygulanırken, birden fazla aboneliği analiz uyarıları görüntüleyin. Tüm bu özellikler, 4 Haziran 2018 tarihinden itibaren önizlemede kullanılabilir. Uyarı yönetimi çözümü, Azure portalında kullanılamaz. 
+Önceki bir duyuru değişiklik olarak [uyarı yönetimi çözümü](../../azure-monitor/platform/alert-management-solution.md) Azure portalında tam olarak desteklenir ve kullanılabilir olmaya devam edecektir. Azure Market'te çözüm yüklemeye devam edebilirsiniz.
 
-Uyarı yönetimi çözümü (uyarı türünü kayıtlarla) tarafından toplanan veriler, Log Analytics'e çözüm çalışma alanı için yüklü olduğu sürece olmaya devam eder. Ağustos 2018 itibarıyla, birleştirilmiş çalışma alanları halinde uyarı gelen uyarılar, akış, bu özellik değiştirerek etkinleştirilecektir. Bazı şema değişiklikleri beklenir ve daha sonraki bir tarihte duyurulacaktır.
+Uyarı yönetimi çözümü kullanılabilmesi amacıyla bu devam ederken kullanmanızı öneriyoruz [Azure İzleyici'nın birleşik uyarı arabirimi](../../azure-monitor/platform/alerts-overview.md) görselleştirip azure'a tüm uyarıları yönetme. Bu yeni deneyim, uyarılar yerel olarak Azure Log Analytics de dahil olmak üzere günlük uyarıları içindeki farklı kaynaklardan toplar. Azure İzleyici'nın birleşik uyarı arabirimi kullanıyorsanız, sonra uyarı yönetimi çözümü yalnızca azure'a gelen System Center Operation Manager uyarıları tümleştirmeyi etkinleştirmek için gereklidir. Azure İzleyici'nın birleşik uyarı arabiriminde, dağıtımları uyarılarınızı görmek, akıllı grupları ilgili uyarıları otomatik gruplandırması yararlanın ve zengin bir filtre uygulanırken, birden fazla aboneliği analiz uyarıları görüntüleyin. Uyarı Yönetimi gelecekteki geliştirmeleri, öncelikle bu yeni deneyiminden kullanıma sunulacaktır. 
+
+Uyarı yönetimi çözümü (uyarı türünü kayıtlarla) tarafından toplanan veriler, Log Analytics'e çözüm çalışma alanı için yüklü olduğu sürece olmaya devam eder. 
 
 ## <a name="oms-mobile-app"></a>OMS mobil uygulamasını
 OMS mobil uygulaması ile birlikte OMS portalı sunsetted olacaktır. OMS mobil uygulamasını yerine, BT altyapısı, panolar ve kaydedilmiş sorgular hakkındaki bilgilere erişmek için Azure portalında doğrudan tarayıcınızdan mobil cihazınıza erişebilirsiniz. Uyarıları almak için yapılandırmanız [Azure Eylem grupları](../../azure-monitor/platform/action-groups.md) SMS veya sesli çağrı biçiminde bildirimleri almak için
 
 ## <a name="application-insights-connector-and-solution"></a>Application Insights Bağlayıcısı ve çözümü
-[Application Insights Bağlayıcısı](../../azure-monitor/platform/app-insights-connector.md) Log Analytics çalışma alanınıza Application Insights verileri getirmek için bir yol sağlar. Bu veri çoğaltma, altyapı ve uygulama veriler üzerinde görünürlük etkinleştirmek için gerekli.
+[Application Insights Bağlayıcısı](../../azure-monitor/platform/app-insights-connector.md) Application Insights verilerini Log Analytics çalışma alanınıza eklemek için bir yol sağlar. Bu veri çoğaltma, altyapı ve uygulama veriler üzerinde görünürlük etkinleştirmek için gerekli. Application Insights'ın Mart 2019 veri saklama desteği genişletilmiş ve gerçekleştirme becerisi [kaynaklar arası sorgular](../../azure-monitor/log-query/cross-workspace-query.md), yinelenen verileri, Application Insights kaynaklarını ve Log Analytics'e göndermek için gerek yoktur. Ayrıca, bağlayıcı uygulama özelliklerinin bir alt Log Analytics'e gönderir, kaynaklar arası sorgular getirirken esneklik Gelişmiş.  
 
-Desteğiyle [kaynaklar arası sorgular](../../azure-monitor/log-query/cross-workspace-query.md), artık veri çoğaltmak için bu gereksinimi yoktur. Bu nedenle, varolan bir Application Insights çözümü kullanımdan kaldırılacaktır. Ekim dan başlayarak, yeni bir Application Insights kaynaklarını Log Analytics çalışma alanına bağlamak mümkün olmayacaktır. Var olan bağlantıları ve panolar 15 Ocak 2019 kadar çalışmaya devam eder.
-
+Bu nedenle, Application Insights Bağlayıcısı kullanım dışı ve varolan bağlantılar 30 Haziran 2019 kadar çalışmaya devam edecek, ancak 30 Mart 2019 tarihinde OMS portalı kullanımdan kaldırma ile birlikte Azure Marketi'nden kaldırıldı. OMS portalı kullanımdan kaldırma ile yapılandırmak ve mevcut bağlantıları Portalı'ndan kaldırmak için hiçbir yolu yoktur. Bu Ocak 2019 içinde kullanılabilir hale getirilir REST API'sini kullanarak desteklenmeyecek ve bildirim tarihinde gönderildi [Azure güncelleştirmeleri](https://azure.microsoft.com/updates/). 
 
 ## <a name="azure-network-security-group-analytics"></a>Azure Ağ Güvenlik Grubu Analizi
 [Azure ağ güvenlik grubu analizi çözümü](../../azure-monitor/insights/azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) değiştirilecek kısa süre önce kullanıma ile [trafik analizi](https://azure.microsoft.com/blog/traffic-analytics-in-preview/) üzerinde bulut ağlarındaki kullanıcı ve uygulama etkinliğiniz görünürlük sağlar. Trafik analizi, kuruluşunuzun ağ etkinliği, güvenli uygulamaları ve verileri denetleme, iş yükü performansı iyileştirmek ve uyumluluğu sürdürün yardımcı olur. 

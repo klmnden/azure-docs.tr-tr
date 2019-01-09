@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 0135f3ab79852e55187874ce1d5a0695238de207
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 1b0c991c09d1235215dc9b930c529a219d492a8c
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074844"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117086"
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Gezinti ve panolar Application Insights portalında
-Sonra [projenize Application ınsights'ı ayarlama](../../application-insights/app-insights-overview.md), uygulamanızın performansı ve kullanımıyla ilgili telemetri verilerini projenizin Application Insights kaynağını görünür [Azure portalında](https://portal.azure.com).
+Sonra [projenize Application ınsights'ı ayarlama](../../azure-monitor/app/app-insights-overview.md), uygulamanızın performansı ve kullanımıyla ilgili telemetri verilerini projenizin Application Insights kaynağını görünür [Azure portalında](https://portal.azure.com).
 
 ## <a name="find-your-telemetry"></a>Telemetrinizi bulun
 Oturum [Azure portalında](https://portal.azure.com) ve uygulamanız için oluşturduğunuz Application Insights kaynağına gidin.
@@ -34,7 +34,7 @@ Uygulamanız için genel bakış dikey (sayfa) uygulamanızın ana tanılama öl
 Grafikler ve Kılavuzlar herhangi birini özelleştirin ve bunları panoya sabitleyin. Bu şekilde, merkezi bir Panoda farklı uygulamalardan birlikte anahtar telemetri getirebilirsiniz.
 
 ## <a name="dashboards"></a>Panolar
-İçin oturum açtıktan sonra gördüğünüz ilk şey [Microsoft Azure Portal'da](https://portal.azure.com) bir panodur. Burada, alınan telemetri dahil olmak üzere tüm Azure kaynaklarınız genelinde, sizin için en önemli olan grafikleri bir araya getirebilirsiniz [Azure Application Insights](../../application-insights/app-insights-overview.md).
+İçin oturum açtıktan sonra gördüğünüz ilk şey [Microsoft Azure Portal'da](https://portal.azure.com) bir panodur. Burada, alınan telemetri dahil olmak üzere tüm Azure kaynaklarınız genelinde, sizin için en önemli olan grafikleri bir araya getirebilirsiniz [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
 
 ![Özelleştirilmiş Pano.](./media/app-insights-dashboards/31.png)
 

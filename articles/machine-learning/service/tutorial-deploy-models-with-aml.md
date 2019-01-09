@@ -11,12 +11,12 @@ ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: d93eadd1053cfbc88b2d0748f2f22e359694baa7
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: a5f13bfa4d0e9962622565cc5ac9c80372b50123
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53579660"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107693"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Öğretici: Azure Container ınstances'da bir görüntü sınıflandırma model dağıtma
 
@@ -342,8 +342,6 @@ plt.show()
 Bir rastgele test görüntülerinin örnekten oluşur:
 
 ![Sonuçları gösteren grafik](./media/tutorial-deploy-models-with-aml/results.png)
-
-![Sonuçlar](./media/tutorial-deploy-models-with-aml/results.png)
 
 Ayrıca, web hizmeti test etmek için ham bir HTTP isteği gönderebilirsiniz:
 

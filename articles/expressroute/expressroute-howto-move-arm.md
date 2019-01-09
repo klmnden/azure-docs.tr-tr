@@ -1,19 +1,19 @@
 ---
-title: "Bağlantı hatlarını Klasikten Resource Manager'a - ExpressRoute taşıma: PowerShell: Azure | Microsoft Docs"
+title: "Devreleri Klasikten Resource Manager'a - ExpressRoute taşıyın: PowerShell: Azure | Microsoft Docs"
 description: Bu sayfa, klasik bir bağlantı hattı PowerShell kullanılarak Resource Manager dağıtım modelinde taşımayı açıklar.
 services: expressroute
 author: ganesr
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/07/2019
 ms.author: ganesr;cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: fae5ad4a9045115c0e7a68b0164593f639824073
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 984ccfa9bad99281418ba891ce188536ae13d8e5
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141508"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106775"
 ---
 # <a name="move-expressroute-circuits-from-classic-to-resource-manager-deployment-model-using-powershell"></a>PowerShell kullanılarak Resource Manager dağıtım modelinde ExpressRoute devreleri Klasikten Taşı
 
@@ -29,7 +29,7 @@ Bir ExpressRoute bağlantı hattı Klasik ve Resource Manager dağıtım modelle
 
 ## <a name="move-an-expressroute-circuit"></a>Bir ExpressRoute bağlantı hattı Taşı
 
-### <a name="step-1-gather-circuit-details-from-the-classic-deployment-model"></a>1. adım: Klasik dağıtım modelinden bağlantı hattına ayrıntıları toplayın
+### <a name="step-1-gather-circuit-details-from-the-classic-deployment-model"></a>1. Adım: Klasik dağıtım modelinden bağlantı hattına ayrıntıları toplayın
 
 Azure Klasik ortamı için oturum açın ve hizmet anahtarı toplayın.
 
@@ -48,8 +48,8 @@ Azure Klasik ortamı için oturum açın ve hizmet anahtarı toplayın.
 3. PowerShell modülleri, Azure ve ExpressRoute için içeri aktarın.
 
   ```powershell
-  Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
-  Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
+  Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
+  Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
   ```
 
 4. Tüm ExpressRoute devrelerinizin hizmet anahtarlarını almak için aşağıdaki cmdlet'i kullanın. Anahtarları aldıktan sonra kopyalama **hizmet anahtarı** Resource Manager dağıtım modeli için taşımak istediğiniz bağlantı hattının.
@@ -58,7 +58,7 @@ Azure Klasik ortamı için oturum açın ve hizmet anahtarı toplayın.
   Get-AzureDedicatedCircuit
   ```
 
-### <a name="step-2-sign-in-and-create-a-resource-group"></a>2. adım: Oturum açın ve bir kaynak grubu oluşturun
+### <a name="step-2-sign-in-and-create-a-resource-group"></a>2. Adım: Oturum açma ve bir kaynak grubu oluşturma
 
 Resource Manager ortamı için oturum açın ve yeni bir kaynak grubu oluşturun.
 
@@ -80,7 +80,7 @@ Resource Manager ortamı için oturum açın ve yeni bir kaynak grubu oluşturun
   New-AzureRmResourceGroup -Name "DemoRG" -Location "West US"
   ```
 
-### <a name="step-3-move-the-expressroute-circuit-to-the-resource-manager-deployment-model"></a>3. adım: ExpressRoute bağlantı hattı Resource Manager dağıtım modeline taşıma.
+### <a name="step-3-move-the-expressroute-circuit-to-the-resource-manager-deployment-model"></a>3. Adım: ExpressRoute bağlantı hattı Resource Manager dağıtım modeline taşıma
 
 ExpressRoute bağlantı hattı Klasik dağıtım modelinden Resource Manager dağıtım modeline taşıma artık hazırsınız. Devam etmeden önce sağlanan bilgileri gözden geçirin [bir ExpressRoute bağlantı hattını Klasikten Resource Manager dağıtım modeline taşıma](expressroute-move.md).
 

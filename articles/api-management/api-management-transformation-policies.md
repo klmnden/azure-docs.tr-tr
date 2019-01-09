@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 87d2ebcf6a12f51775b15e906ea7813962e3630f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 3a8b0ecefe9e314e8056c941c9ef4ce32d1cbb75
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965385"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119382"
 ---
 # <a name="api-management-transformation-policies"></a>API Management dönüştürme ilkeleri
 Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -70,13 +70,13 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 
 ### <a name="elements"></a>Öğeler
 
-|Ad|Açıklama|Gerekli|
+|Ad|Açıklama|Gereklidir|
 |----------|-----------------|--------------|
 |JSON xml|Kök öğe.|Evet|
 
 ### <a name="attributes"></a>Öznitelikler
 
-|Ad|Açıklama|Gerekli|Varsayılan|
+|Ad|Açıklama|Gereklidir|Varsayılan|
 |----------|-----------------|--------------|-------------|
 |uygula|Öznitelik aşağıdaki değerlerden birine ayarlanmalıdır.<br /><br /> -her zaman - her zaman dönüştürme uygulanır.<br />yanıt Content-Type üst bilgisi JSON varlığını gösteriyorsa - içerik-türü-json - Dönüştür.|Evet|Yok|
 |göz önünde bulundurun kabul-üstbilgisi|Öznitelik aşağıdaki değerlerden birine ayarlanmalıdır.<br /><br /> -true - JSON Accept üst bilgisi istekte istenirse dönüştürme uygulanır.<br />-yanlış - dönüştürme her zaman geçerlidir.|Hayır|true|
@@ -114,13 +114,13 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 
 ### <a name="elements"></a>Öğeler
 
-|Ad|Açıklama|Gerekli|
+|Ad|Açıklama|Gereklidir|
 |----------|-----------------|--------------|
 |XML-json|Kök öğe.|Evet|
 
 ### <a name="attributes"></a>Öznitelikler
 
-|Ad|Açıklama|Gerekli|Varsayılan|
+|Ad|Açıklama|Gereklidir|Varsayılan|
 |----------|-----------------|--------------|-------------|
 |tür|Öznitelik aşağıdaki değerlerden birine ayarlanmalıdır.<br /><br /> javascript-dostu - dönüştürülen JSON, JavaScript geliştiricileri için kolay bir forma sahiptir.<br />-doğrudan - özgün XML belgesinin yapısına dönüştürülen JSON yansıtır.|Evet|Yok|
 |uygula|Öznitelik aşağıdaki değerlerden birine ayarlanmalıdır.<br /><br /> -her zaman - her zaman Dönüştür.<br />yanıt Content-Type üst bilgisi XML varlığını gösteriyorsa - içerik-türü-xml - Dönüştür.|Evet|Yok|
@@ -150,13 +150,13 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 
 ### <a name="elements"></a>Öğeler
 
-|Ad|Açıklama|Gerekli|
+|Ad|Açıklama|Gereklidir|
 |----------|-----------------|--------------|
 |Bul ve Değiştir|Kök öğe.|Evet|
 
 ### <a name="attributes"></a>Öznitelikler
 
-|Ad|Açıklama|Gerekli|Varsayılan|
+|Ad|Açıklama|Gereklidir|Varsayılan|
 |----------|-----------------|--------------|-------------|
 |başlangıç|Aranacak dize.|Evet|Yok|
 |-|Yeni dize. Arama dizesini kaldırmak için bir sıfır uzunluk değiştirme dizesini belirtin.|Evet|Yok|
@@ -188,7 +188,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 
 ### <a name="elements"></a>Öğeler
 
-|Ad|Açıklama|Gerekli|
+|Ad|Açıklama|Gereklidir|
 |----------|-----------------|--------------|
 |yeniden yönlendirme içerik URL'leri|Kök öğe.|Evet|
 
@@ -252,13 +252,13 @@ Bu örnekte, ilke UserID sorgu dizesi bölüm anahtarı olarak ve birincil çoğ
 
 ### <a name="elements"></a>Öğeler
 
-|Ad|Açıklama|Gerekli|
+|Ad|Açıklama|Gereklidir|
 |----------|-----------------|--------------|
 |set-backend-service|Kök öğe.|Evet|
 
 ### <a name="attributes"></a>Öznitelikler
 
-|Ad|Açıklama|Gerekli|Varsayılan|
+|Ad|Açıklama|Gereklidir|Varsayılan|
 |----------|-----------------|--------------|-------------|
 |temel url|Yeni arka uç hizmeti temel URL'si.|Hayır|Yok|
 |arka uç kimliği|Yönlendirmek için arka uç tanımlayıcısı.|Hayır|Yok|
@@ -318,7 +318,7 @@ Bu örnekte, ilke UserID sorgu dizesi bölüm anahtarı olarak ve birincil çoğ
 </set-body>
 ```
 
-#### <a name="example-accessing-the-body-as-a-jobject-note-that-since-we-are-not-reserving-the-original-request-body-accesing-it-later-in-the-pipeline-will-result-in-an-exception"></a>Örnek bir JObject olarak gövde erişme. Biz özgün istek gövdesinde belirtilmemelidir daha sonra işlem hattı içinde bir özel durumu oluşur ayırma değil beri çoğalttığını unutmayın.
+#### <a name="example-accessing-the-body-as-a-jobject-note-that-since-we-are-not-reserving-the-original-request-body-accessing-it-later-in-the-pipeline-will-result-in-an-exception"></a>Örnek bir JObject olarak gövde erişme. Biz özgün istek gövdesi rezerve edersiniz değil olduğundan, daha sonra işlem hattında erişen bir özel durum sonuçlanacağını unutmayın.
 
 ```xml
 <set-body> 
@@ -334,7 +334,7 @@ Bu örnekte, ilke UserID sorgu dizesi bölüm anahtarı olarak ve birincil çoğ
 ```
 
 #### <a name="filter-response-based-on-product"></a>Yanıt ürüne göre filtrele
- Bu örnekte, veri öğeleri kullanırken arka uç hizmetinden alınan yanıtı kaldırarak içerik filtreleme yapma işlemi açıklanır `Starter` ürün. Yapılandırma ve bu ilkeyi kullanan bir gösterimi için bkz. [Cloud Cover bölümü 177: daha fazla API yönetimi özellikleri ile Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) ve 34:30 için ileri sarma. Başlangıç 31:50 özetini görmek [koyu Gök tahmin API](https://developer.forecast.io/) bu tanıtım için kullanılır.
+ Bu örnekte, veri öğeleri kullanırken arka uç hizmetinden alınan yanıtı kaldırarak içerik filtreleme yapma işlemi açıklanır `Starter` ürün. Yapılandırma ve bu ilkeyi kullanan bir gösterimi için bkz. [Cloud Cover bölümü 177: Daha fazla API yönetimi özellikleri ile Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) ve 34:30 için ileri sarma. Başlangıç 31:50 özetini görmek [koyu Gök tahmin API](https://developer.forecast.io/) bu tanıtım için kullanılır.
 
 ```xml
 <!-- Copy this snippet into the outbound section to remove a number of data elements from the response received from the backend service based on the name of the api product -->
@@ -388,13 +388,13 @@ Bu örnekte, ilke UserID sorgu dizesi bölüm anahtarı olarak ve birincil çoğ
 
 ### <a name="elements"></a>Öğeler
 
-|Ad|Açıklama|Gerekli|
+|Ad|Açıklama|Gereklidir|
 |----------|-----------------|--------------|
 |gövdeyi Ayarla|Kök öğe. Gövde metni veya bir gövde döndüren bir ifade içeriyor.|Evet|
 
 ### <a name="properties"></a>Özellikler
 
-|Ad|Açıklama|Gerekli|Varsayılan|
+|Ad|Açıklama|Gereklidir|Varsayılan|
 |----------|-----------------|--------------|-------------|
 |şablon|İlkesi ayarlama gövdesi içinde çalışacağı şablon oluşturma modunu değiştirmek için kullanılır. Şu anda desteklenen tek değerdir:<br /><br />-liquid - gövdesi İlkesi ayarlama liquid şablon oluşturma altyapısı da kullanır |Hayır|Sıvı|
 
@@ -469,7 +469,7 @@ OriginalUrl.
 ```
 
 #### <a name="forward-context-information-to-the-backend-service"></a>Bağlam bilgileri arka uç hizmetine iletmek
- Bu örnekte, arka uç hizmetine bağlam bilgilerini sağlamak için API düzeyinde ilkenin uygulanacağı gösterilmektedir. Yapılandırma ve bu ilkeyi kullanan bir gösterimi için bkz. [Cloud Cover bölümü 177: daha fazla API yönetimi özellikleri ile Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) ve 10:30 için ileri sarma. 12: 10'da bir tanıtım İlkesi iş görebileceğiniz Geliştirici Portalı'nda bir işlemi çağırma yoktur.
+ Bu örnekte, arka uç hizmetine bağlam bilgilerini sağlamak için API düzeyinde ilkenin uygulanacağı gösterilmektedir. Yapılandırma ve bu ilkeyi kullanan bir gösterimi için bkz. [Cloud Cover bölümü 177: Daha fazla API yönetimi özellikleri ile Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) ve 10:30 için ileri sarma. 12: 10'da bir tanıtım İlkesi iş görebileceğiniz Geliştirici Portalı'nda bir işlemi çağırma yoktur.
 
 ```xml
 <!-- Copy this snippet into the inbound element to forward some context information, user id and the region the gateway is hosted in, to the backend service for logging or evaluation -->
@@ -497,14 +497,14 @@ OriginalUrl.
 
 ### <a name="elements"></a>Öğeler
 
-|Ad|Açıklama|Gerekli|
+|Ad|Açıklama|Gereklidir|
 |----------|-----------------|--------------|
 |üst bilgi ayarlama|Kök öğe.|Evet|
 |değer|Ayarlanacak üstbilgi değerini belirtir. Aynı ada sahip birden çok üst bilgi ek eklemek için `value` öğeleri.|Evet|
 
 ### <a name="properties"></a>Özellikler
 
-|Ad|Açıklama|Gerekli|Varsayılan|
+|Ad|Açıklama|Gereklidir|Varsayılan|
 |----------|-----------------|--------------|-------------|
 |Mevcut eylem|Üstbilgi zaten belirtildiğinde gerçekleştirilecek eylemi belirtir. Bu öznitelik aşağıdaki değerlerden birine sahip olmalıdır.<br /><br /> -override - mevcut üstbilgisinin değerini değiştirir.<br />-skip - var olan üstbilgi değeri yerini almaz.<br />-ekleme - değeri var olan üstbilgi değerine ekler.<br />-delete - üstbilgi istekten kaldırır.<br /><br /> Ayarlandığında `override` göre (Bu, birden çok kez listelenir), tüm girişleri ayarlanan üst bilgisindeki sonuçları aynı ada sahip birden çok girişi kaydetme; yalnızca listelenen değerler sonuç ayarlanır.|Hayır|geçersiz kılma|
 |ad|Ayarlanacak üstbilginin adı belirtir.|Evet|Yok|
@@ -543,7 +543,7 @@ OriginalUrl.
 ```
 
 #### <a name="forward-context-information-to-the-backend-service"></a>Bağlam bilgileri arka uç hizmetine iletmek
- Bu örnekte, arka uç hizmetine bağlam bilgilerini sağlamak için API düzeyinde ilkenin uygulanacağı gösterilmektedir. Yapılandırma ve bu ilkeyi kullanan bir gösterimi için bkz. [Cloud Cover bölümü 177: daha fazla API yönetimi özellikleri ile Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) ve 10:30 için ileri sarma. 12: 10'da bir tanıtım İlkesi iş görebileceğiniz Geliştirici Portalı'nda bir işlemi çağırma yoktur.
+ Bu örnekte, arka uç hizmetine bağlam bilgilerini sağlamak için API düzeyinde ilkenin uygulanacağı gösterilmektedir. Yapılandırma ve bu ilkeyi kullanan bir gösterimi için bkz. [Cloud Cover bölümü 177: Daha fazla API yönetimi özellikleri ile Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) ve 10:30 için ileri sarma. 12: 10'da bir tanıtım İlkesi iş görebileceğiniz Geliştirici Portalı'nda bir işlemi çağırma yoktur.
 
 ```xml
 <!-- Copy this snippet into the inbound element to forward a piece of context, product name in this example, to the backend service for logging or evaluation -->
@@ -557,14 +557,14 @@ OriginalUrl.
 
 ### <a name="elements"></a>Öğeler
 
-|Ad|Açıklama|Gerekli|
+|Ad|Açıklama|Gereklidir|
 |----------|-----------------|--------------|
 |kümesi sorgu parametresi|Kök öğe.|Evet|
 |değer|Ayarlanacak sorgu parametresi'ünün değerini belirtir. Aynı ada sahip birden çok sorgu parametreleri ek eklemek için `value` öğeleri.|Evet|
 
 ### <a name="properties"></a>Özellikler
 
-|Ad|Açıklama|Gerekli|Varsayılan|
+|Ad|Açıklama|Gereklidir|Varsayılan|
 |----------|-----------------|--------------|-------------|
 |Mevcut eylem|Sorgu parametresi zaten belirtilmiş gerçekleştirilecek eylemi belirtir. Bu öznitelik aşağıdaki değerlerden birine sahip olmalıdır.<br /><br /> -override - mevcut parametresinin değerini değiştirir.<br />-skip - var olan sorgu parametresi değerini değiştirmez.<br />-ekleme - var olan sorgu parametresi değeri değeri ekler.<br />-delete - sorgu parametresi istekte kaldırır.<br /><br /> Ayarlandığında `override` göre (Bu, birden çok kez listelenir), tüm girişleri ayarlanan sorgu parametresi sonuçlarının aynı ada sahip birden çok girişi kaydetme; yalnızca listelenen değerler sonuç ayarlanır.|Hayır|geçersiz kılma|
 |ad|Ayarlanacak sorgu parametresi adını belirtir.|Evet|Yok|
@@ -636,13 +636,13 @@ OriginalUrl.
 
 ### <a name="elements"></a>Öğeler
 
-|Ad|Açıklama|Gerekli|
+|Ad|Açıklama|Gereklidir|
 |----------|-----------------|--------------|
 |URI yeniden yazma|Kök öğe.|Evet|
 
 ### <a name="attributes"></a>Öznitelikler
 
-|Öznitelik|Açıklama|Gerekli|Varsayılan|
+|Öznitelik|Açıklama|Gereklidir|Varsayılan|
 |---------------|-----------------|--------------|-------------|
 |şablon|Herhangi bir sorgu dizesi parametreleri ile gerçek web hizmeti URL'si. İfadeleri kullanırken, tam değeri bir ifade olmalıdır.|Evet|Yok|
 |kopyalama eşleşmeyen-params|Özgün URL şablonunda yok gelen istekteki sorgu parametreleri için URL yeniden yazma şablon tarafından tanımlanan eklenip eklenmeyeceğini belirtir|Hayır|true|
@@ -705,7 +705,7 @@ OriginalUrl.
 
 ### <a name="elements"></a>Öğeler
 
-|Ad|Açıklama|Gerekli|
+|Ad|Açıklama|Gereklidir|
 |----------|-----------------|--------------|
 |XSL Dönüştürme|Kök öğe.|Evet|
 |parametre|Dönüşüm kullanılan değişkenleri tanımlamak için kullanılır|Hayır|

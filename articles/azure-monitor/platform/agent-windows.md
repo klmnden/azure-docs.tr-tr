@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 1c90c85f667e18a80c4673a73867ee2d6b3b6294
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 1d4760eb6490ce458e699ad9bc59a57cb473ef6d
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189906"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104131"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Windows bilgisayarları Azure Log Analytics hizmetine bağlayın
 
@@ -128,9 +128,9 @@ Aşağıdaki örnek tarafından tanımlanmış 64 bit aracı yükler `URI` değe
 
 Aracı paketi 32-bit ve 64-bit sürümleri farklı ürün kodları ve yayımlanan yeni sürümleri de benzersiz bir değere sahiptir.  Ürün kodu, bir uygulama veya ürün asıl kimliği ve Windows Installer tarafından temsil edilen bir GUID'dir **ProductCode** özelliği.  `ProductId` Değerini **MMAgent.ps1** betik, 32 bit veya 64 bit aracı Yükleyici paketini ürün kodu eşleşmelidir.
 
-Ürün kodu aracı yükleme paketinden doğrudan almak için gelen Orca.exe'yi kullanabilirsiniz [Windows Installer geliştiriciler için Windows SDK Bileşenleri](https://msdn.microsoft.com/library/windows/desktop/aa370834%28v=vs.85%29.aspx) diğer bir deyişle bir bileşeni olan Windows Yazılım Geliştirme Seti veya kullanma PowerShell aşağıdaki bir [örnek betiği](http://www.scconfigmgr.com/2014/08/22/how-to-get-msi-file-information-with-powershell/) bir Microsoft Valuable Professional (MVP) tarafından yazılmış.  Her iki yaklaşım için önce ayıklamak ihtiyacınız **MOMagent.msi** MMASetup yükleme paketinden dosya.  Bu bölümünde daha önce ilk adımda gösterilen [komut satırını kullanarak aracı yükleme](#install-the-agent-using-the-command-line).  
+Ürün kodu aracı yükleme paketinden doğrudan almak için gelen Orca.exe'yi kullanabilirsiniz [Windows Installer geliştiriciler için Windows SDK Bileşenleri](https://msdn.microsoft.com/library/windows/desktop/aa370834%28v=vs.85%29.aspx) diğer bir deyişle bir bileşeni olan Windows Yazılım Geliştirme Seti veya kullanma PowerShell aşağıdaki bir [örnek betiği](https://www.scconfigmgr.com/2014/08/22/how-to-get-msi-file-information-with-powershell/) bir Microsoft Valuable Professional (MVP) tarafından yazılmış.  Her iki yaklaşım için önce ayıklamak ihtiyacınız **MOMagent.msi** MMASetup yükleme paketinden dosya.  Bu bölümünde daha önce ilk adımda gösterilen [komut satırını kullanarak aracı yükleme](#install-the-agent-using-the-command-line).  
 
-1. İçeri aktarma xPSDesiredStateConfiguration DSC modülünden [ http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration ](http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) Azure Otomasyonu ile.  
+1. İçeri aktarma xPSDesiredStateConfiguration DSC modülünden [ https://www.powershellgallery.com/packages/xPSDesiredStateConfiguration ](https://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) Azure Otomasyonu ile.  
 2.  Azure Otomasyonu değişken varlıkları için oluşturma *OPSINSIGHTS_WS_ID* ve *OPSINSIGHTS_WS_KEY*. Ayarlama *OPSINSIGHTS_WS_ID* Log Analytics çalışma alanı kimliği ve kümesi *OPSINSIGHTS_WS_KEY* çalışma alanınızın birincil anahtarı.
 3.  Betiği kopyalayın ve MMAgent.ps1 kaydedin.
 

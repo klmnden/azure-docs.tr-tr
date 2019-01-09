@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: 79d78faa53962ea72178281d75cef3c2f61320b1
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: a3703133e5dc5f0525638562fab98f9416bcf26e
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971513"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104667"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>AD FS tarafından güvenliği bağlantısı kesilmiş bir Azure Stack ortamına bir App Service kaynak sağlayıcısı ekleme
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 > [!IMPORTANT]
 > Azure Stack tümleşik sisteminize 1809 güncelleştirmesini veya Azure App Service 1.4 dağıtmadan önce en son Azure Stack geliştirme Seti'ni dağıtın.
@@ -203,14 +203,14 @@ App Service bağlantısı kesilmiş bir ortamda dağıtmak için önce Internet'
 
 > [!NOTE]
 > Mevcut bir sanal ağ ve dosya için bağlanmak için bir iç IP adresi dağıtmayı seçerseniz, çalışan alt ağ ve dosya sunucusu arasında SMB trafiği etkinleştirme bir giden güvenlik kuralı eklemeniz gerekir.  Bunu yapmak için Yönetim Portalı'nda WorkersNsg gidin ve aşağıdaki özelliklere sahip bir giden güvenlik kuralı ekleyin:
-> * Kaynak: tüm
+> * Kaynak: Herhangi biri
 > * Kaynak bağlantı noktası aralığı: *
-> * Hedef: IP adresleri
-> * Hedef IP adresi aralığı: dosya için IP aralığı
+> * Hedef: IP Adresleri
+> * Hedef IP adresi aralığı: Dosya için IP aralığı
 > * Hedef bağlantı noktası aralığı: 445
 > * Protokol: TCP
-> * Eylem: izin ver
-> * Öncelik: 700
+> * Eylem: İzin Ver
+> * Önceliği: 700
 > * Ad: Outbound_Allow_SMB445
 >
 
@@ -257,9 +257,9 @@ Diğer de deneyebilirsiniz [platform olarak hizmet (PaaS) Hizmetleri](azure-stac
 - [MySQL kaynak sağlayıcısı](azure-stack-mysql-resource-provider-deploy.md)
 
 <!--Links-->
-[Azure_Stack_App_Service_preview_installer]: http://go.microsoft.com/fwlink/?LinkID=717531
-[App_Service_Deployment]: http://go.microsoft.com/fwlink/?LinkId=723982
-[AppServiceHelperScripts]: http://go.microsoft.com/fwlink/?LinkId=733525
+[Azure_Stack_App_Service_preview_installer]: https://go.microsoft.com/fwlink/?LinkID=717531
+[App_Service_Deployment]: https://go.microsoft.com/fwlink/?LinkId=723982
+[AppServiceHelperScripts]: https://go.microsoft.com/fwlink/?LinkId=733525
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-deploy-offline/app-service-exe-advanced-create-package.png

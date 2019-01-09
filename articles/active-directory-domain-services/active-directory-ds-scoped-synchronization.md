@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: eşitleme kapsamı | Microsoft Docs'
+title: 'Azure Active Directory etki alanı Hizmetleri: Eşitleme kapsamı | Microsoft Docs'
 description: Yönetilen etki alanlarınızı Azure AD'den kapsamlı eşitlemeyi yapılandırma
 services: active-directory-ds
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: ergreenl
-ms.openlocfilehash: 1df9b07d5a0a9e5018fc024038e65723c606ef71
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: ae51151bd20d2c715d868e916f7bc633040efa40
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442990"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121541"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-your-managed-domain"></a>Yönetilen etki alanınızı Azure AD'den kapsamlı eşitlemeyi yapılandırma
 Bu makalede, yalnızca belirli kullanıcı hesaplarını Azure AD dizininizi Azure AD Domain Services yönetilen Etki Alanınızla eşitlenmek üzere yapılandırma işlemini göstermektedir.
@@ -58,11 +58,11 @@ Bu adım kümesini tamamlamak için PowerShell kullanın. Yönergelere bakın [A
 Grup tabanlı kapsamlı eşitleme yönetilen etki alanınıza yapılandırmak için aşağıdaki adımları tamamlayın:
 
 1. Aşağıdaki görevleri tamamlayın:
-  * [1. Görev: gerekli PowerShell modüllerini yükleyin](active-directory-ds-enable-using-powershell.md#task-1-install-the-required-powershell-modules).
+  * [1. Görev: Gerekli PowerShell modüllerini yükleyin](active-directory-ds-enable-using-powershell.md#task-1-install-the-required-powershell-modules).
   * [2. Görev: Azure AD dizininizde gerekli hizmet sorumlusu oluşturma](active-directory-ds-enable-using-powershell.md#task-2-create-the-required-service-principal-in-your-azure-ad-directory).
   * [3. Görev: Oluşturma ve yapılandırma 'AAD DC Administrators' grubunun](active-directory-ds-enable-using-powershell.md#task-3-create-and-configure-the-aad-dc-administrators-group).
-  * [4. Görev: Azure AD Domain Services kaynak sağlayıcısını kaydedin](active-directory-ds-enable-using-powershell.md#task-4-register-the-azure-ad-domain-services-resource-provider).
-  * [5. Görev: bir kaynak grubu oluşturma](active-directory-ds-enable-using-powershell.md#task-5-create-a-resource-group).
+  * [Görev 4: Azure AD Domain Services kaynak sağlayıcısını kaydetme](active-directory-ds-enable-using-powershell.md#task-4-register-the-azure-ad-domain-services-resource-provider).
+  * [Görev 5: Bir kaynak grubu oluşturma](active-directory-ds-enable-using-powershell.md#task-5-create-a-resource-group).
   * [6. Görev: Oluşturma ve sanal ağ yapılandırma](active-directory-ds-enable-using-powershell.md#task-6-create-and-configure-the-virtual-network).
 
 2. Yönetilen etki alanınızla eşitlenmesini istediğiniz grupların görünen adını belirtin ve istediğiniz grupları seçin.
@@ -173,7 +173,7 @@ foreach ($id in $newGroupIds)
     }
     catch
     {
-        Write-Error "Exception occured assigning Object-ID: $id. Exception: $($_.Exception)."
+        Write-Error "Exception occurred assigning Object-ID: $id. Exception: $($_.Exception)."
     }
 }
 

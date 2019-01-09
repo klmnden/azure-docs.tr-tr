@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 5a3fe90da0b469707c67c852784468455bbec95d
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 0973c86d055ff4ebbe7e5a3c4a2ca4e3dcabc6a0
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999201"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117699"
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>Ölçüm telemetri: Application Insights veri modeli
 
-Ölçüm telemetri tarafından desteklenen iki tür vardır [Application Insights](../../application-insights/app-insights-overview.md): tek bir ölçüm ve önceden toplanmış ölçümü. Yalnızca bir ad ve değer bunun tek ölçümüdür. Önceden toplanmış ölçüm toplama aralığı ve standart sapmasını ölçüm minimum ve maksimum değerini belirtir.
+Ölçüm telemetri tarafından desteklenen iki tür vardır [Application Insights](../../azure-monitor/app/app-insights-overview.md): tek bir ölçüm ve önceden toplanmış ölçümü. Yalnızca bir ad ve değer bunun tek ölçümüdür. Önceden toplanmış ölçüm toplama aralığı ve standart sapmasını ölçüm minimum ve maksimum değerini belirtir.
 
 Bu toplama süresi bir dakika olan önceden toplanmış ölçüm telemetri varsayar.
 

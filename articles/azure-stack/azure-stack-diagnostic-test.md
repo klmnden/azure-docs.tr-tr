@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/03/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: f754242d0cf7ee30572b21a3f4daf6fd2c0f63ff
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 63a198b082c7486de2392153291a11be5bcb2f9e
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275916"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103232"
 ---
 # <a name="validate-azure-stack-system-state"></a>Azure Stack sistem durumu doğrulama
 
@@ -125,7 +125,7 @@ Aşağıdaki bulut senaryoları doğrulama aracı tarafından test edilen:
 
 - **BackupSharePath** ve **BackupShareCredential** altyapısını Yedekleme ayarlarını gösterildiği gibi test ederken kullanılan [büyük örneklerde](azure-stack-diagnostic-test.md#use-case-examples) bölümü.
 
-- Doğrulama Aracı Ayrıca ortak PowerShell parametrelerini destekler: Ayrıntılı, hata ayıklama, ErrorAction, ErrorVariable, WarningAction, WarningVariable, OutBuffer, PipelineVariable ve OutVariable. Daha fazla bilgi için [ortak parametreleri hakkında](http://go.microsoft.com/fwlink/?LinkID=113216).  
+- Doğrulama Aracı Ayrıca ortak PowerShell parametrelerini destekler: Ayrıntılı, hata ayıklama, ErrorAction, ErrorVariable, WarningAction, WarningVariable, OutBuffer, PipelineVariable ve OutVariable. Daha fazla bilgi için [ortak parametreleri hakkında](https://go.microsoft.com/fwlink/?LinkID=113216).  
 
 ## <a name="use-case-examples"></a>Büyük/küçük harf örneklerini kullanın
 

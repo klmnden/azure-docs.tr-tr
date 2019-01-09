@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2019
 ms.author: mavoge
-ms.openlocfilehash: 443a697a576aa26fe352d8ad47d9e61214c3fcf3
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 2b4f9bf87122f047e496dca1dbd425db8ad7c16c
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024119"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119977"
 ---
 # <a name="enable-multitenant-applications-with-azure-digital-twins"></a>Azure dijital çiftleri ile çok kiracılı uygulamaları etkinleştirin
 
@@ -41,7 +41,7 @@ Bu senaryoda, bir Azure dijital İkizlerini çözümünüzü oluşturmaya bir ge
 Sorun:
 
 - Zaman **müşteri** oturum açtığı **Geliştirici**ait uygulama, uygulama olamaz almak için belirteçleri **müşteri**ait Azure dijital İkizlerini yönetim API'leri ile kimlik doğrulaması için kullanıcılar.
-- Azure dijital İkizlerini içinde tanınmıyor gösteren Azure Active Directory'de bir özel durum verilecek **müşteri**ait dizin.
+- Azure dijital İkizlerini içinde tanınmıyor gösteren Azure Active Directory'de verilen bir özel durum **müşteri**ait dizin.
 
 ## <a name="problem-solution"></a>Sorunun çözümü
 

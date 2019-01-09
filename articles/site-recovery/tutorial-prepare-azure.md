@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 01/08/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 947e5d4004565fd10e81e703111daf26fce10368
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: d33f50239f6385dc1e331aa44fe5a62e02dac1db
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973528"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107047"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Şirket içi makinelerin olağanüstü durum kurtarma işlemleri için Azure kaynaklarını hazırlama
 
@@ -68,11 +68,12 @@ Bu görevleri tamamlamak için hesabınıza Sanal Makine Katkıda Bulunan yerle�
 
 ## <a name="create-a-recovery-services-vault"></a>Kurtarma Hizmetleri kasası oluşturma
 
-1. Azure portalında, **Kaynak oluştur** > **Depolama** > **Backup and Site Recovery (OMS)** öğesini seçin.
-2. **Ad** alanına kasayı tanımlamak için kolay bir ad girin. Bu öğretici dizisi için **ContosoVMVault**’u kullanacağız.
-3. **Kaynak grubu**'nda **contosoRG** kullanacağız.
-4. **Konum**'da **Batı Avrupa** kullanacağız.
-5. Panodan kasaya hızlı şekilde erişmek için **Panoya sabitle** > **Oluştur**’u seçin.
+1. Azure portalında **+ kaynak Oluştur**ve markette Ara **kurtarma Hizmetleri**.
+2. Tıklayın **yedekleme ve Site Recovery (OMS)** ve Backup ve Site Recovery sayfasında tıklayın **Oluştur**. 
+1. İçinde **kurtarma Hizmetleri kasası** > **adı**, kasayı tanımlamak için bir kolay ad girin. Bu öğretici dizisi için **ContosoVMVault**’u kullanacağız.
+2. İçinde **kaynak grubu**, mevcut bir kaynak grubunu seçin veya yeni bir tane oluşturun. Bu öğretici için kullandığımız **contosoRG**.
+3. İçinde **konumu**, hangi kasa olmalıdır bölgeyi seçin. **Batı Avrupa** kullanacağız.
+4. Panodan kasaya hızlı şekilde erişmek için **Panoya sabitle** > **Oluştur**’u seçin.
 
    ![Yeni kasa oluştur](./media/tutorial-prepare-azure/new-vault-settings.png)
 

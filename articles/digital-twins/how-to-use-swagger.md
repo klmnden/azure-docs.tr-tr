@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: adgera
 ms.custom: seodec18
-ms.openlocfilehash: 0e325de3a9a28d824ea9a6bfb7b3346bf9285e58
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 9a1d328f79405b14ffd84e07cb915566bd686c8e
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033324"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120963"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Azure dijital İkizlerini Swagger başvuru belgeleri
 
@@ -55,7 +55,7 @@ Daha ayrıntılı bir özetinin varlıkların önemli özniteliklerinin her list
 
 ![Swagger modeli][3]
 
-Tüm kullanılabilir Azure dijital İkizlerini görmek oluşturulan Swagger nesne modellerini kullanışlıdır [nesneleri ve API'leri](./concepts-objectmodel-spatialgraph.md). Geliştiriciler yapabilir bu kaynak üzerinde dijital İkizlerini Azure çözümleri derlediğinizde kullanın.
+Tüm kullanılabilir Azure dijital İkizlerini görmek oluşturulan Swagger nesne modellerini kullanışlıdır [nesneleri ve API'leri](./concepts-objectmodel-spatialgraph.md). Azure üzerinde dijital İkizlerini çözümleri derlediğinizde, geliştiriciler bu kaynak kullanabilir.
 
 ## <a name="endpoint-summary"></a>Uç nokta özeti
 
@@ -79,7 +79,7 @@ Belirli bir uç noktası seçtikten sonra gördüğünüz **denemek**.
 
 ![Swagger deneyin][5]
 
-Gerekli ve isteğe bağlı her parametre için giriş alanlarını getirmek için bu bölümü genişletin. Uygun değerleri girin ve seçin **yürütme**.
+Gerekli ve isteğe bağlı her parametre için giriş alanlarını getirmek için bu bölümü genişletin. Doğru değerleri girin ve seçin **yürütme**.
 
 ![Swagger çalıştı][6]
 

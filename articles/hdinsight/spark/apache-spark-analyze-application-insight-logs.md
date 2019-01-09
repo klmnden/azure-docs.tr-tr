@@ -9,18 +9,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/09/2018
-ms.openlocfilehash: 161158157e3af92b1ac4fe81a664d95aa6816490
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 806e5b6f764797d2e038cc7ed58ec1d04f678e2b
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001575"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120385"
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-apache-spark-on-hdinsight"></a>HDInsight üzerinde Apache Spark ile Application Insights telemetri günlüklerini çözümleme
 
 Nasıl kullanacağınızı öğrenin [Apache Spark](https://spark.apache.org/) Application Insight telemetri verilerini çözümlemek için HDInsight üzerinde.
 
-[Visual Studio Application Insights](../../application-insights/app-insights-overview.md) web uygulamalarınızı izleyen bir analiz hizmetidir. Application Insights tarafından üretilen telemetri verileri Azure depolama alanına aktarılabilir. Azure Depolama'da veri hale geldikten sonra HDInsight incelemek üzere kullanılabilir.
+[Visual Studio Application Insights](../../azure-monitor/app/app-insights-overview.md) web uygulamalarınızı izleyen bir analiz hizmetidir. Application Insights tarafından üretilen telemetri verileri Azure depolama alanına aktarılabilir. Azure Depolama'da veri hale geldikten sonra HDInsight incelemek üzere kullanılabilir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 

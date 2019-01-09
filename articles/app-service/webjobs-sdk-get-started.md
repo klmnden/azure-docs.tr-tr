@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: d9f3685e0a3961631f1577827cc415cb91d38a15
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 913b23946f70500ace7ab7e4ff7b5cd2858492fc
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074249"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121677"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Olay temelli arka planda işleme için Azure WebJobs SDK ile çalışmaya başlama
 
@@ -292,7 +292,7 @@ Bu bölümde, projeyi yerel olarak çalıştırın ve bir kuyruk iletisi oluştu
 
 ## <a name="add-application-insights-logging"></a>Application Insights günlük Ekle
 
-Projeyi Azure içinde çalıştığında, işlevi yürütme konsol çıktısı görüntüleyerek izleyemez. Tavsiye ederiz izleme çözümü [Application Insights](../application-insights/app-insights-overview.md). Daha fazla bilgi için [İzleyici Azure işlevleri](../azure-functions/functions-monitoring.md).
+Projeyi Azure içinde çalıştığında, işlevi yürütme konsol çıktısı görüntüleyerek izleyemez. Tavsiye ederiz izleme çözümü [Application Insights](../azure-monitor/app/app-insights-overview.md). Daha fazla bilgi için [İzleyici Azure işlevleri](../azure-functions/functions-monitoring.md).
 
 Bu bölümde, Azure'a dağıtmadan önce Application Insights günlük ayarlama için şu görevleri yapın:
 

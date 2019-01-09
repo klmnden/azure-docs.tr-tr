@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 01/03/2019
+ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: a66917f1ab4e554dbb5a8cd1fb9013e111970714
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: b6713eabec62b1658b54dcb29231ddbfb2faceb7
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999824"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107511"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>VMware Vm'lerini ve fiziksel sunucuları azure'a olağanüstü durum kurtarma için destek matrisi
 
@@ -169,7 +169,7 @@ Konuk/sunucu şifreli disk | Hayır
 Konuk/sunucu NFS | Hayır
 Konuk/sunucu SMB 3.0 | Hayır
 Konuk/sunucu RDM | Evet<br/><br/> Fiziksel sunucular için yok
-Konuk/sunucu disk > 1 TB | Evet<br/><br/>4.095 GB'a kadar
+Konuk/sunucu disk > 1 TB | Evet<br/><br/>4.095 GB'a kadar<br/><br/> Disk 1024 MB değerinden daha büyük olmalıdır.
 Konuk/sunucu disk ile 4 K mantıksal ve 4 k fiziksel kesim boyutu | Evet
 Konuk/sunucu disk ile 4K mantıksal ve fiziksel kesim boyutu 512 bayt | Evet
 Bölüştürülmüş bir disk ile Konuk/sunucusu birimi > 4 TB <br/><br/>Mantıksal birim yönetimi (LVM)| Evet

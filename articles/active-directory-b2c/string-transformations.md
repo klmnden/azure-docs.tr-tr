@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ce2ad3e699b930f801ad47083d6cfcf6a7937a5c
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: f2823ec32b6658aa22c38294c09c9738c9121c39
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433455"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121592"
 ---
 # <a name="string-claims-transformations"></a>Dize talep dönüşümleri
 
@@ -31,7 +31,7 @@ Bu makalede, Azure Active Directory (Azure AD) B2C'de kimlik deneyimi çerçeves
 | ---- | ----------------------- | --------- | ----- |
 | Inputclaim | inputClaim1 | dize | Karşılaştırılacak olan ilk talebin türü. |
 | Inputclaim | inputClaim2 | dize | Karşılaştırılacak talebin türü, ikinci. |
-| InputParameter | stringComparison | dize | dize karşılaştırması, değerlerden biri: sıra, Ordinalıgnorecase. |
+| InputParameter | stringComparison | dize | dize karşılaştırması, değerlerden biri: Sıra, Ordinalıgnorecase. |
 
 **AssertStringClaimsAreEqual** talep dönüştürme gelen her zaman yürütülür bir [doğrulama teknik profili](validation-technical-profile.md) çağrılan bir [teknik profilSelfonaylanan](self-asserted-technical-profile.md). **UserMessageIfClaimsTransformationStringsAreNotEqual** otomatik olarak onaylanan teknik profil meta verileri kullanıcıya sunulan hata iletisi denetler.
 
@@ -82,7 +82,7 @@ Doğrulama otomatik olarak onaylanan teknik profil çağırır **etkileşimli ol
     - **inputClaim2**: someone@outlook.com
  - Giriş parametreleri:
     - **stringComparison**: Ordinalıgnorecase
-- Sonuç: durum hatası
+- Sonuç: Durum hatası
 
 ## <a name="changecase"></a>ChangeCase 
 
@@ -115,7 +115,7 @@ Bu talep dönüştürmeyi herhangi bir dize düşürmek için ClaimType veya bü
 - Giriş talepleri:
     - **e-posta**: SomeOne@contoso.com
 - Giriş parametreleri:
-    - **toCase**: daha düşük
+    - **toCase**: LOWER
 - Çıkış talep:
     - **e-posta**: someone@contoso.com
 
@@ -144,7 +144,7 @@ Bu dönüşüm talep kullanımı bir dize ClaimType değeri ayarlayın.
 ### <a name="example"></a>Örnek
 
 - Giriş parametresi:
-    - **değer**: hizmet Contoso kullanım koşulları...
+    - **Değer**: Hizmet contoso kullanım koşulları...
 - Çıkış talep:
     - **createdClaim**: TOS ClaimType "Contoso hizmet kullanım koşullarını..." değeri içeriyor.
 
@@ -184,7 +184,7 @@ Bu talep dönüştürme talep için başka bir talep eşit olup olmadığını d
     - **inputClaim1**: someone@contoso.com
     - **inputClaim2**: someone@outlook.com
 - Giriş parametreleri:
-    - **İşleç**: eşit değildir
+    - **İşleç**:  EŞİT DEĞİLDİR
     - **ignoreCase**: true
 - Çıkış talep:
     - **outputClaim**: true
@@ -197,7 +197,7 @@ Bir talep değerinin giriş parametresi değerine eşit olup olmadığını beli
 | ---- | ----------------------- | --------- | ----- |
 | Inputclaim | inputClaim1 | dize | Karşılaştırılacak olduğu talebin türü. |
 | InputParameter | İşleci | dize | Olası değerler: `EQUAL` veya `NOT EQUAL`. |
-| InputParameter | compareTo | dize | dize karşılaştırması, değerlerden biri: sıra, Ordinalıgnorecase. |
+| InputParameter | compareTo | dize | dize karşılaştırması, değerlerden biri: Sıra, Ordinalıgnorecase. |
 | InputParameter | IgnoreCase | boole | Bu karşılaştırma karşılaştırılan dizelerin durumunu yoksay olup olmadığını belirtir. |
 | outputClaim | outputClaim | boole | Bu dönüşüm talep sonra üreten ClaimType çağrılmış. |
 
@@ -223,8 +223,8 @@ Kullanabileceğiniz bu talep, belirtilen bir değere eşit olup olmadığını d
 - Giriş talepleri:
     - **inputClaim1**: v1
 - Giriş parametreleri:
-    - **compareTo**: V1
-    - **İşleç**: eşit 
+    - **CompareTo**: V1
+    - **İşleç**: EŞİTTİR 
     - **ignoreCase**: true
 - Çıkış talep:
     - **outputClaim**: true
@@ -238,7 +238,7 @@ Rastgele sayı oluşturucusunu kullanarak rastgele bir dize oluşturur. Rasgele 
 | InputParameter | randomGeneratorType | dize | Oluşturulacak, rastgele bir değer belirtir `GUID` (genel benzersiz Tanımlayıcı) veya `INTEGER` (sayı). |
 | InputParameter | stringFormat | dize | [İsteğe bağlı] Rastgele bir değeri biçimi. |
 | InputParameter | Base64 | boole | [İsteğe bağlı] Rastgele bir değeri, base64 dönüştürün. Dize biçimi uygulanırsa, değerin dize biçimi sonra base64 kodlanmış. |
-| InputParameter | maximumNumber | int | [İsteğe bağlı] İçin `INTEGER` yalnızca randomGeneratorType. Maximute belirtin. |
+| InputParameter | maximumNumber | int | [İsteğe bağlı] İçin `INTEGER` yalnızca randomGeneratorType. Maksimum sayısını belirtin. |
 | InputParameter | Çekirdek  | int | [İsteğe bağlı] İçin `INTEGER` yalnızca randomGeneratorType. Çekirdek için rastgele bir değer belirtin. Not: aynı çekirdek aynı rastgele sayı dizisi üretir. |
 | outputClaim | outputClaim | dize | Bu dönüşüm talep sonra üretilecek ClaimTypes çağrılmış. Rastgele bir değer. |
 
@@ -280,7 +280,7 @@ Aşağıdaki örnek, 0 ile 1000 arasında rastgele bir tamsayı değeri oluştur
 ### <a name="example"></a>Örnek
 
 - Giriş parametreleri:
-    - **randomGeneratorType**: tamsayı
+    - **randomGeneratorType**: TAMSAYI
     - **maximumNumber**: 1000
     - **stringFormat**: OTP_{0}
     - **Base64**: false
@@ -392,7 +392,7 @@ Talep dönüştürme öğenin metni arar ve değeri döndürür. Kısıtlama kul
     <InputClaim ClaimTypeReferenceId="responseCode" TransformationClaimType="mapFromClaim" />
   </InputClaims>
   <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="restrictionValueClaim" />         
+    <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="restrictionValueClaim" />         
   </OutputClaims>
 </ClaimsTransformation>
 ```
@@ -402,7 +402,7 @@ Talep dönüştürme öğenin metni arar ve değeri döndürür. Kısıtlama kul
 - Giriş talepleri:
     - **mapFromClaim**: B2C_V1_90001
 - Çıkış talep:
-    - **restrictionValueClaim**: yapılamıyor, küçük olduğundan oturum açın.
+    - **restrictionValueClaim**: Yapılamıyor küçük olduğundan oturum açın.
 
 ## <a name="lookupvalue"></a>LookupValue
 
@@ -415,7 +415,7 @@ Başka bir talep değerine göre değerler listesinden bir talep değeri aramak.
 | InputParameter | errorOnFailedLookup | boole | Eşleşen hiçbir arama çalışılırken bir hata döndürülür olup olmadığını denetliyor. |
 | outputClaim | inputParameterId | dize | Bu dönüşüm talep sonra üretilecek ClaimTypes çağrılmış. Eşleşen kimlik değeri |
 
-Aşağıdaki örnek inpuParameters koleksiyonlardan biri etki alanı adını arar. Talep dönüştürme tanımlayıcı etki alanı adıyla arar ve (uygulama kimliği) değerini döndürür.
+Aşağıdaki örnek InputParameters koleksiyonlardan biri etki alanı adını arar. Talep dönüştürme tanımlayıcı etki alanı adıyla arar ve (uygulama kimliği) değerini döndürür.
 
 ```XML
  <ClaimsTransformation Id="DomainToClientId" TransformationMethod="LookupValue">
@@ -540,11 +540,11 @@ Kullanabileceğiniz bu talep, belirtilen değere eşit olup olmadığını denet
 - Giriş parametreleri:
     - **matchTo**: V1
     - **stringComparison**: Ordinalıgnorecase 
-    - **stringMatchMsg**: B2C_V1_90005
-    - **stringMatchMsgCode**: TOS v2'ye yükseltme
+    - **stringMatchMsg**:  B2C_V1_90005
+    - **stringMatchMsgCode**:  TOS v2'ye yükseltilir.
 - Çıkış talep:
     - **outputClaim1**: B2C_V1_90005
-    - **outputClaim2**: TOS v2'ye yükseltme
+    - **outputClaim2**: TOS v2'ye yükseltilir.
     - **stringCompareResultClaim**: true
 
 ## <a name="setclaimsifstringsmatch"></a>SetClaimsIfStringsMatch
@@ -582,11 +582,11 @@ Bir dize talep denetler ve `matchTo` giriş parametresi eşit ve kümeleri çık
 ### <a name="example"></a>Örnek
 
 - Giriş talepleri:
-    - **claimToMatch**: küçük
+    - **claimToMatch**: İkincil
 - Giriş parametreleri:
-    - **matchTo**: küçük
+    - **matchTo**: İkincil
     - **stringComparison**: Ordinalıgnorecase 
-    - **outputClaimIfMatched**: B2C_V1_90001
+    - **outputClaimIfMatched**:  B2C_V1_90001
 - Çıkış talep:
     - **isMinorResponseCode**: B2C_V1_90001
     - **isMinor**: true

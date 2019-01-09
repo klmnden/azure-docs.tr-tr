@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/10/2016
 ms.author: mbullwin
-ms.openlocfilehash: 4510c66dc0a64f65de9f9ee57563b847e20e25de
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 5d0866bdd96a1b0f626c369cfd646f6249a4da54
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000487"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121388"
 ---
 # <a name="application-insights-for-java-web-apps-that-are-already-live"></a>Zaten olan bir Java web uygulamaları için Application Insights Canlı
 
-J2EE sunucuda zaten çalışan bir web uygulamanız varsa, onunla izlemeye başlayabilirsiniz [Application Insights](../../application-insights/app-insights-overview.md) gerekmeden kod değişiklikleri yapabilir veya projenizi yeniden derleyin. Bu seçenek ile sunucu, işlenmemiş özel durumlar ve performans sayaçları için gönderilen HTTP istekleriyle ilgili bilgileri alın.
+J2EE sunucuda zaten çalışan bir web uygulamanız varsa, onunla izlemeye başlayabilirsiniz [Application Insights](../../azure-monitor/app/app-insights-overview.md) gerekmeden kod değişiklikleri yapabilir veya projenizi yeniden derleyin. Bu seçenek ile sunucu, işlenmemiş özel durumlar ve performans sayaçları için gönderilen HTTP istekleriyle ilgili bilgileri alın.
 
 Size bir [Microsoft Azure](https://azure.com) aboneliği gerekecektir.
 

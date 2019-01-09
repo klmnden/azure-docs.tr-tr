@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: e6292c97d3e7bbbe74477188586257b4fbf91218
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: b6264d47c7627d72b8746c79e7e050fd468171de
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582720"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105126"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>Azure önbelleği için Redis izleme
 Azure önbelleği için Redis kullandığı [Azure İzleyici](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) önbelleği örneklerinizin izlemek için çeşitli seçenekler sağlayacak. Ölçümleri görüntüleyin, ölçüm grafikleri başlangıç panosuna sabitlemek, tarih ve saat aralığı grafikleri izleme özelleştirme, ekleyin ve ölçümleri grafikten kaldırabileceğiniz ve belirli koşullar karşılandığında uyarılar ayarlayın. Bu araçlar, Azure önbelleği için Redis örneği ve önbelleğe alma uygulamalarınızı yönetmenize yardımcı durumunu izlemenize olanak tanır.
 
-Azure önbelleği için Redis örneği için toplanan ölçümler Redis kullanarak [bilgisi](http://redis.io/commands/info) 30 gün boyunca dakika ve otomatik olarak depolanan başına yaklaşık iki kez komut (bkz [dışarı önbellek ölçümleri](#export-cache-metrics) yapılandırmak için bir farklı bekletme ilkesi) için ölçümler grafiklerde görüntülenen edilebilmeleri ve uyarı kuralları tarafından değerlendirilen. Her önbellek ölçümü için kullanılan farklı bilgisi değerleri hakkında daha fazla bilgi için bkz: [kullanılabilir Ölçümler ve raporlama aralıkları](#available-metrics-and-reporting-intervals).
+Azure önbelleği için Redis örneği için toplanan ölçümler Redis kullanarak [bilgisi](https://redis.io/commands/info) 30 gün boyunca dakika ve otomatik olarak depolanan başına yaklaşık iki kez komut (bkz [dışarı önbellek ölçümleri](#export-cache-metrics) yapılandırmak için bir farklı bekletme ilkesi) için ölçümler grafiklerde görüntülenen edilebilmeleri ve uyarı kuralları tarafından değerlendirilen. Her önbellek ölçümü için kullanılan farklı bilgisi değerleri hakkında daha fazla bilgi için bkz: [kullanılabilir Ölçümler ve raporlama aralıkları](#available-metrics-and-reporting-intervals).
 
 <a name="view-cache-metrics"></a>
 
@@ -98,7 +98,7 @@ Her ölçüm iki sürümünü içerir. Bir ölçüm ölçer performans kullanan 
 
 | Ölçüm | Açıklama |
 | --- | --- |
-| İsabetli Önbellek Okuma Sayısı |Belirtilen raporlama aralığı sırasında anahtar başarılı arama sayısı. Bu eşlendiği `keyspace_hits` redis [bilgisi](http://redis.io/commands/info) komutu. |
+| İsabetli Önbellek Okuma Sayısı |Belirtilen raporlama aralığı sırasında anahtar başarılı arama sayısı. Bu eşlendiği `keyspace_hits` redis [bilgisi](https://redis.io/commands/info) komutu. |
 | Önbellek gecikme süresi (Önizleme) | Gecikme süresi önbellek, önbellek düğümler arası gecikme süresini kapalı göre hesaplanır. Bu ölçüm, mikro saniye cinsinden ölçülür ve üç boyutu vardır: "Ortalama", "Min" ve "ortalama, minimum ve maksimum gecikme süresini önbelleği belirtilen zaman aralığı boyunca sırasıyla temsil eden Max". |
 | İsabetsiz Önbellek Okuma Sayısı |Belirtilen raporlama aralığı sırasında başarısız anahtar arama sayısı. Bu eşlendiği `keyspace_misses` Redis bilgisi komutu. İsabetsiz önbellek okuma sayısı, önbellek ile ilgili bir sorun var. olmak zorunda gelmez. Örneğin, programlama edilgen önbellek düzeni kullanılırken, bir uygulama önbellekteki bir öğenin ilk arar. Öğesi (önbellek isabetsizliği) yoksa, öğe veritabanından alınan ve bir sonraki seferde önbelleğe eklenir. İsabetsiz önbellek okuma sayısı programlama edilgen önbellek düzeni için normal davranış ' dir. Önbellek kaçaklarının sayısı beklenenden yüksekse uygulama mantığı doldurur ve önbellekten okur inceleyin. Öğeleri çıkarıldığına bellek baskısı nedeniyle önbellekten sonra bazı önbellek isabetsizliği olabilir, ancak bellek Basıncı izlemek için daha iyi bir ölçüm olacaktır `Used Memory` veya `Evicted Keys`. |
 | Önbellek Okuması |Önbelleğin megabayt (MB/sn) belirtilen raporlama aralığı sırasında saniye başına veri miktarını okuyabilir. Bu değer, önbellek barındıran ve Redis belirli değil sanal makineyi destekleyen ağ arabirim kartlarından elde edilir. **Bu değer bu önbelleği tarafından kullanılan ağ bant genişliği karşılık gelir. Uyarılar için sunucu tarafı ağ bant genişliği sınırlarını ayarlamak istiyorsanız, bunu kullanarak oluşturma `Cache Read` sayacı. Bkz: [bu tabloda](cache-faq.md#cache-performance) gözlemlenen bant genişliği sınırlarını çeşitli önbellek fiyatlandırma katmanları ve boyutları için.** |

@@ -1,5 +1,5 @@
 ---
-title: Hibrit Azure Active Directory'ye katılmış cihazları yapılandırma | Microsoft Docs
+title: Karma Azure Active Directory join uygulaması Azure Active Directory'de (Azure AD) nasıl | Microsoft Docs
 description: Hibrit Azure Active Directory'ye katılmış cihazları elle nasıl yapılandıracağınızı öğrenin.
 services: active-directory
 documentationcenter: ''
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 01/08/2019
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 02699e5072801dbb8f4a8f97c88db006d31e6e0f
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: bddd183c517c611373afd1df64f22bfcd6a0cea8
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022045"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102287"
 ---
-# <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Hibrit Azure Active Directory join uygulamanızı planlama
+# <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Nasıl Yapılır: Hibrit Azure Active Directory join uygulamanızı planlama
 
 Kullanıcıya benzer şekilde bir cihaz, korumak istediğiniz ve her yerde ve zamanda kaynaklarınızı korumak için kullandığınız başka bir kimlik alır. Aşağıdaki yöntemlerden biri ile cihazlarınızın kimliklerini Azure AD'ye getirerek bu hedefi gerçekleştirebilirsiniz:
 
@@ -54,7 +54,6 @@ Karma Azure AD uygulamanız planlamak için ile kendinizi alıştırın:
 
 
  
-
 
 ## <a name="review-supported-devices"></a>Cihazları gözden geçir desteklenir 
 
@@ -112,7 +111,7 @@ Kuruluşunuz, kimliği doğrulanmış bir giden bağlantı proxy'si aracılığ�
 
 Hibrit Azure AD'ye katılma, Azure AD ile şirket içi etki alanına katılmış cihazlarınızı otomatik olarak kaydedilecek bir işlemdir. Otomatik olarak kaydetmek için tüm cihazlar burada istemediğiniz durumlar vardır. Bu sizin için doğru olup olmadığını [cihazlarınızı hibrit Azure AD'ye katılma denetlemek nasıl](hybrid-azuread-join-control.md).
 
-Windows 10 etki alanına katılmış ise zaten cihazlardır [kayıtlı Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/devices/overview#azure-ad-registered-devices) kiracınız için hibrit Azure AD'ye katılma etkinleştirmeden önce bu duruma kaldırmayı düşünmelisiniz. Bir cihaz hibrit Azure AD'ye katılım hem de Azure AD kayıtlı olmasını ikili durumu desteklenmiyor. Windows 10 1809 yayından çift bu durumu önlemek için aşağıdaki değişiklikler yapılmıştır: 
+Windows 10 etki alanına katılmış ise zaten cihazlardır [kayıtlı Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/devices/overview#azure-ad-registered-devices) kiracınız için hibrit Azure AD'ye katılma etkinleştirmeden önce bu duruma kaldırmayı düşünmelisiniz. Bir cihazın ve ikisi de, Azure AD'ye katılım hibrit Azure AD'ye kayıtlı olması çift durumu desteklenmiyor. Windows 10 1809 yayından çift bu durumu önlemek için aşağıdaki değişiklikler yapılmıştır: 
  - Hibrit Azure AD'ye katılmış cihaz olduktan sonra herhangi bir mevcut Azure AD kayıtlı durumu otomatik olarak kaldırılması. 
  - Etki alanına katılmış cihaz Azure AD'ye bu kayıt defteri anahtarı - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin" ekleyerek kayıtlı olmasını engelleyebilir = DWORD: 00000001
 
@@ -149,15 +148,15 @@ Ortamınızı etki alanları yönettiği, hibrit Azure AD'ye katılım'ı destek
  Azure AD Connect gerekli sürümünü yüklemek sizin için bir seçenek değilse, bkz. [el ile cihaz kaydını yapılandırmak nasıl](../device-management-hybrid-azuread-joined-devices-setup.md). 
 
 
-## <a name="alternate-login-id-support-in-hybrid-azure-ad-join"></a>Hibrit Azure AD'ye katılma alternatif oturum açma kimliği desteği
+## <a name="alternate-login-id-support-in-hybrid-azure-ad-join"></a>Hibrit Azure AD'ye katılma alternatif bir oturum açma kimliği desteği
 
-Windows 10 hibrit Azure AD'ye katılım için sınırlı destek sağlar [alternatif oturum açma kimliklerini](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) alternatif oturum açma kimliği türüne göre [kimlik doğrulama yöntemi](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), etki alanı türü ve Windows 10 sürümü. Ortamınızda bulunabilir alternatif oturum açma kimliklerini iki türü vardır.
+Windows 10 hibrit Azure AD'ye katılım için sınırlı destek sağlar [alternatif oturum açma kimliklerini](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) alternatif oturum açma kimliği türüne göre [kimlik doğrulama yöntemi](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), etki alanı türü ve Windows 10 sürümü. Alternatif oturum açma kimliklerini ortamınızda bulunabilir iki tür vardır:
 
  - Yönlendirilebilir alternatif bir oturum açma kimliği: Bir etki alanı kayıt şirketi ile kayıtlı geçerli bir doğrulanmış etki alanı, yönlendirilebilir alternatif bir oturum açma kimliği vardır. Birincil etki alanı contoso.com ise contoso.org ve contoso.co.uk Contoso tarafından sahip olunan geçerli etki alanları gibi cihazlar ve [Azure AD'de doğrulanmış](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
  
  - Yönlendirilebilir olmayan alternatif bir oturum açma kimliği: Yönlendirilemeyen alternatif bir oturum açma kimliği doğrulanmış bir etki alanı yok. Yalnızca kuruluşunuzun özel ağına içinde geçerlidir. Örneğin, birincil etki alanı contoso.com ise contoso.local Internet doğrulanabilir bir etki alanı değil ancak Contoso'nun ağ içinde kullanılır.
  
-Aşağıdaki tabloda, destek ya da Windows 10 hibrit Azure AD'ye katılma bu alternatif bir oturum açma kimlikleri hakkında ayrıntılı bilgi sağlar.
+Aşağıdaki tabloda Ayrıntılar bunlardan biri için destek Windows 10 hibrit Azure AD'ye katılma alternatif bir oturum açma kimlikleri sağlar
 
 |Alternatif oturum açma kimliği türü|Etki alanı türü|Windows 10 sürümü|Açıklama|
 |-----|-----|-----|-----|

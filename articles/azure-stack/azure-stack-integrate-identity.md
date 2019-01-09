@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 01/08/19
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 9d9e97d81e33487a5f23197912eba3802e83a32e
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 07f77a8390edcde1128a7381a54d622611637d78
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257385"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118311"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack veri merkezi tümleştirmesi - kimlik
 Kimlik sağlayıcısı Azure Stack, Azure Active Directory (Azure AD) veya Active Directory Federasyon Hizmetleri (AD FS) kullanarak dağıtabilirsiniz. Azure Stack dağıtmadan önce seçim yapmanız gerekir. AD FS dağıtımı da bağlantı kesik moddayken Azure Stack dağıtımı olarak adlandırılır.
@@ -27,7 +27,7 @@ Aşağıdaki tabloda, iki kimlik seçenekleri arasındaki farklar gösterilmekte
 |Faturalandırma|Kapasite olmalıdır<br> Yalnızca Kurumsal Anlaşma (EA)|Kapasite veya,-kullandıkça<br>Kurumsal Anlaşma veya Bulut çözümü sağlayıcısı (CSP)|
 |Kimlik|AD FS olmalıdır|Azure AD veya AD FS|
 |Market |Desteklenen<br>KLG lisanslama|Desteklenen<br>KLG lisanslama|
-|Kayıt|Önerilen, çıkarılabilir medya gerektirir<br> ve ayrı bağlı bir cihaz.|Otomatik|
+|Kayıt|Gerekli, çıkarılabilir medya gerektirir<br> ve ayrı bağlı bir cihaz.|Otomatik|
 |Düzeltme eki ve güncelleştirme|Gerekli, çıkarılabilir medya gerektirir<br> ve ayrı bağlı bir cihaz.|Güncelleştirme paketini doğrudan indirilebilir<br> Internet'ten Azure yığını.|
 
 > [!IMPORTANT]

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: mbullwin
-ms.openlocfilehash: 32da4ad6f35d8fd5585135a71572e0ad4fa41499
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 5daf0944212dc4b8040a39e6efbf5bb25f7f39f0
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083156"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117240"
 ---
 # <a name="create-an-application-insights-resource"></a>Application Insights kaynağı oluşturma
 Azure Application Insights, Microsoft Azure'da uygulamanızla ilgili verileri görüntüler *kaynak*. Yeni kaynak oluşturma, bu nedenle parçası [yeni bir uygulama izlemek için Application ınsights'ı ayarlama][start]. Çoğu durumda, bir kaynak oluşturma otomatik olarak IDE tarafından yapılabilir. Ancak bazı durumlarda, bir kaynak el ile - Örneğin, geliştirme için ayrı kaynaklar için oluşturmanız ve uygulamanızı üretim oluşturur.
@@ -79,5 +79,5 @@ Yazabileceğiniz bir [PowerShell Betiği](../../azure-monitor/app/powershell.md)
 [api]: ../../azure-monitor/app/api-custom-events-metrics.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [metrics]: ../../azure-monitor/app/metrics-explorer.md
-[start]: ../../application-insights/app-insights-overview.md
+[start]: ../../azure-monitor/app/app-insights-overview.md
 

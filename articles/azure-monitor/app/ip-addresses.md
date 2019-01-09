@@ -12,18 +12,18 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4efd4622745a4a86c691cec32f5b93225715930a
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 6e2621103e79e201a6f3a9d45350e3b71d15f47c
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974394"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119620"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Application Insights ve Log Analytics tarafından kullanılan IP adresleri
-[Azure Application Insights](../../application-insights/app-insights-overview.md) hizmeti IP adresi sayısını kullanır. İzlemekte olduğunuz uygulamanın bir güvenlik duvarının arkasında barındırılıyorsa bu adresleri bilmeniz gerekebilir.
+[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) hizmeti IP adresi sayısını kullanır. İzlemekte olduğunuz uygulamanın bir güvenlik duvarının arkasında barındırılıyorsa bu adresleri bilmeniz gerekebilir.
 
 > [!NOTE]
-> Bu adresler statik olsa da, biz zaman zaman değiştirileceği gerekir mümkündür.
+> Bu adresler statik olsa da, biz zaman zaman değiştirileceği gerekir mümkündür. Tüm Application Insights trafiği giden trafiği kullanılabilirlik izleme ve gelen güvenlik duvarı kuralları gerektiren Web kancaları dışında temsil eder.
 > 
 > 
 

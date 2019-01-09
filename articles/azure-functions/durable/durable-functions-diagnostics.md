@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 066ae6ffba64c7dd71c982172f7cd15a881809b4
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 4f6d49a60df09e78c3cbeee22d43827ecc9f9f64
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036809"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118430"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Dayanıklı işlevler Azure tanılama
 
@@ -23,7 +23,7 @@ Sorunları tanılamak için birkaç seçenek vardır [dayanıklı işlevler](dur
 
 ## <a name="application-insights"></a>Application Insights
 
-[Application Insights](../../application-insights/app-insights-overview.md) tanılama ve Azure işlevleri'nde İzleme yapmak için önerilen yoldur. Aynı dayanıklı işlevler için geçerlidir. İşlev uygulamanızda Application Insights kullanmayı genel bakış için bkz. [İzleyici Azure işlevleri](../functions-monitoring.md).
+[Application Insights](../../azure-monitor/app/app-insights-overview.md) tanılama ve Azure işlevleri'nde İzleme yapmak için önerilen yoldur. Aynı dayanıklı işlevler için geçerlidir. İşlev uygulamanızda Application Insights kullanmayı genel bakış için bkz. [İzleyici Azure işlevleri](../functions-monitoring.md).
 
 Azure işlevleri dayanıklı uzantısı da yayan *olayları izleme* düzenleme uçtan uca yürütmeyi izlemesini izin verir. Bunlar bulunabilir ve kullanarak sorgulanan [Application Insights Analytics](../../azure-monitor/app/analytics.md) Azure portalında aracı.
 

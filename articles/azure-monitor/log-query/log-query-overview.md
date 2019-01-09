@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
-ms.openlocfilehash: 33f8547721f499ed7b9a81088681fc2ade2d030c
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 47abb191383bd1ec1000c9fd1e0803a7d900c9bf
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723544"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117648"
 ---
 # <a name="analyze-log-analytics-data-in-azure-monitor"></a>Azure İzleyici'de log Analytics verilerini çözümleme
 
@@ -95,7 +95,7 @@ union Update, workspace("contoso-workspace").Update
 ## <a name="how-log-analytics-data-is-organized"></a>Log Analytics verilerini nasıl düzenlenir
 Bir sorgu oluşturduğunuzda, aradığınız veri tabloları sahip belirleyerek işe başlayın. Farklı türlerde veri ayrılmış her adanmış tablolara [Log Analytics çalışma alanı](../../azure-monitor/learn/quick-create-workspace.md).  Farklı veri kaynakları için belge oluşturduğu veri türünün adını ve açıklamasını her birinin özelliklerini içerir.  Çok sayıda sorgu yalnızca tek bir tablodan veri gerektirir ancak diğerleri birden çok tablodan veri eklemek için çeşitli seçenekler kullanabilir.
 
-Sırada [Application Insights](../../application-insights/app-insights-overview.md) istekler, özel durumlar, izlemeler ve Log analytics'te bu veri kullanımını gibi uygulama verilerini depolar, diğer günlük verileri farklı bir bölümden depolanır. Bu verilere erişmek için aynı sorgu dilini kullanın, ancak kullanmalısınız [Application Insights konsol](../../azure-monitor/app/analytics.md) veya [Application Insights REST API](https://dev.applicationinsights.io/) erişmek için. Kullanabileceğiniz [kaynaklar arası sorgular](../../azure-monitor/log-query/cross-workspace-query.md) Application Insights verilerini Log analytics'teki diğer verilerle birleştirmek için.
+Sırada [Application Insights](../../azure-monitor/app/app-insights-overview.md) istekler, özel durumlar, izlemeler ve Log analytics'te bu veri kullanımını gibi uygulama verilerini depolar, diğer günlük verileri farklı bir bölümden depolanır. Bu verilere erişmek için aynı sorgu dilini kullanın, ancak kullanmalısınız [Application Insights konsol](../../azure-monitor/app/analytics.md) veya [Application Insights REST API](https://dev.applicationinsights.io/) erişmek için. Kullanabileceğiniz [kaynaklar arası sorgular](../../azure-monitor/log-query/cross-workspace-query.md) Application Insights verilerini Log analytics'teki diğer verilerle birleştirmek için.
 
 
 ![Tablolar](media/log-query-overview/queries-tables.png)

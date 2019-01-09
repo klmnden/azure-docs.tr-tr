@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/09/2018
 ms.author: vashan, cynthn, rajsqr
 ms.custom: include file
-ms.openlocfilehash: e1dc637d2f629b5002c2e8796fbd29a95478c392
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: b48de6a6eeed997fe162cabe4d57e6770e016971
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50035175"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54122811"
 ---
 Azure sanal makineleri (VM'ler) halinde kategorilere farklı durumları geçtikleri *sağlama* ve *güç* durumları. Bu makalenin amacı, bu durumları açıklayan ve müşterilerin olduğunda özellikle vurgulamak için örneği için kullanım faturalandırılır ' dir. 
 
@@ -108,7 +108,7 @@ Açıklama
  ]</code><br>
 </td>
 <td>
-<p><b>Faturalandırılmaz&#42;</b></p>
+<p><b>Faturalandırılır&#42;</b></p>
 </td>
 </tr>
 <tr>
@@ -151,7 +151,7 @@ Açıklama
 </table>
 
 
-&#42;Diskler ve ağ gibi bazı Azure kaynakları örneğinin durumunu bakılmaksızın ücretleri. 
+&#42;Diskler ve ağ gibi bazı Azure kaynak ücretleri. Yazılım lisanslarını örneğinde ücretleri uygulanmaz.
 
 ## <a name="provisioning-states"></a>Sağlama durumları
 
@@ -244,7 +244,7 @@ Kullanıcı tarafından başlatılan bir eylem platformu kabul ettikten sonra ge
  "displayStatus": "OS Provisioning Complete"<br>
  }<br>
 ]</code><br>
-<p><b>Not</b>: işletim sistemi sağlama geçiş için **başarısız** bir işletim sistemi hatası veya işletim sistemi sürede yüklemez. Müşteriler, altyapı üzerinde dağıtılan sanal makine için faturalandırılırsınız.</p>
+<p><b>Not</b>: İşletim sistemi sağlama geçiş için **başarısız** bir işletim sistemi hatası veya işletim sistemi sürede yüklemez. Müşteriler, altyapı üzerinde dağıtılan sanal makine için faturalandırılırsınız.</p>
 </td>
 </tr>
 </table>
@@ -287,7 +287,7 @@ Kullanıcı tarafından başlatılan bir eylem platformu kabul ettikten sonra ge
 
 Örnek görünümü API VM çalışma durumu bilgileri sağlar. Daha fazla bilgi için [sanal makineler - örnek görünümü](https://docs.microsoft.com/rest/api/compute/virtualmachines/instanceview) API belgeleri.
 
-Azure kaynak Gezgini, VM'nin çalışır durumda görüntülemek için basit bir kullanıcı Arabirimi sağlar: [kaynak Gezgini](https://resources.azure.com/).
+Azure kaynak Gezgini, VM'nin çalışır durumda görüntülemek için basit bir kullanıcı Arabirimi sağlar: [Kaynak Gezgini](https://resources.azure.com/).
 
 Sağlama durumları VM özelliklerini ve örnek görünümünü görülebilir. Güç durumları VM örneği görünümünde kullanılabilir. 
 

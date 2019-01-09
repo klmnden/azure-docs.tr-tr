@@ -1,97 +1,98 @@
 ---
-title: Kapasite planlama ve azure'a Azure Site Recovery ile VMware olağanüstü durum kurtarma için ölçeklendirme | Microsoft Docs
-description: Azure Site Recovery ile VMware vm'lerinin olağanüstü durum kurtarmayı ayarlarken kapasiteyi planlama ve ölçek için bu makaleyi kullanın
+title: Kapasite planlama ve Vmware'den azure'a olağanüstü durum kurtarma için Azure Site Recovery kullanarak ölçeklendirme | Microsoft Docs
+description: Bu makale size gibi kapasite ve Azure Site Recovery kullanılarak Azure'da VMware vm'lerinin olağanüstü durum kurtarma oluşturduğunuzda ölçeklendirme planı.
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: dc903fca206f5d40f631181b83252f505b9f57a2
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 29e01177d4b096449cd906a22b47223078c6493e
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065225"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107829"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Kapasite ve ölçeklendirme Vmware'den azure'a olağanüstü durum kurtarma için planlama
 
-Kapasite planlaması ve ölçeklendirme, şirket içi VMware Vm'leri ve fiziksel sunucuları azure'a çoğaltırken anlamak için bu makaleyi kullanın [Azure Site Recovery](site-recovery-overview.md).
+Kapasite ve şirket içi VMware Vm'leri ve fiziksel sunucuları Azure'a kullanarak çoğalttığınızda ölçeklendirme planlamak için bu makaleyi kullanın [Azure Site Recovery](site-recovery-overview.md).
 
 ## <a name="how-do-i-start-capacity-planning"></a>Kapasite planlaması nasıl başlarım?
 
-Azure Site Recovery altyapısı gereksinimleri bilmeniz çalıştırarak çoğaltma ortamınız hakkında bilgi toplayın [Azure Site Recovery dağıtım Planlayıcısı](https://aka.ms/asr-deployment-planner-doc) VMware çoğaltması için. Bu araç hakkında [daha fazla bilgi edinin](site-recovery-deployment-planner.md). Bu araç, uyumlu ve uyumsuz VM'ler, VM başına disk üzerindeki tüm bilgileri içeren bir rapor sağlar ve disk başına veri değişim sıklığı. Araç ayrıca hedef RPO ve başarılı çoğaltma ve yük devretme testi için gereken Azure altyapısını karşılamak için ağ bant genişliği gereksinimlerini özetler.
+Azure Site Recovery altyapı gereksinimleri hakkında bilgi edinmek için çalıştırarak çoğaltma ortamınız hakkında bilgi toplayın [Azure Site Recovery dağıtım Planlayıcısı](https://aka.ms/asr-deployment-planner-doc) VMware çoğaltması için. Daha fazla bilgi için [hakkında Site Recovery dağıtım Planlayıcısı vmware'den azure'a](site-recovery-deployment-planner.md). 
+
+Site Recovery dağıtım Planlayıcısı uyumlu ve uyumsuz VM'ler, VM başına disk sayısı ile ilgili eksiksiz bilgi sahip bir rapor sağlar ve disk başına veri değişim sıklığı. Araç ayrıca hedef RPO ve başarılı çoğaltma ve yük devretme testi için gereken Azure altyapısını karşılamak için ağ bant genişliği gereksinimlerini özetler.
 
 ## <a name="capacity-considerations"></a>Kapasite konuları
 
-**Bileşen** | **Ayrıntılar** |
---- | --- | ---
-**Çoğaltma** | **Maksimum günlük değişikliği oranı:** Korumalı makine yalnızca bir işlem sunucusu kullanabilirsiniz ve tek işlem sunucusu günlük işleyebilir değişiklik hızı 2 TB'a kadar artırın. Maksimum günlük veri değişikliği bir korumalı makine için desteklenen oranı böylece 2 TB'tır.<br/><br/> **En fazla aktarım hızı:** Çoğaltılmış bir makineden, azure'da bir depolama hesabına ait olabilir. Bir standart depolama hesabı en fazla saniye başına 20.000 istekleri işleyebilir ve 20. 000'için bir kaynak makine arasında (IOPS) saniyede giriş/çıkış işlemi sayısı tutmanızı öneririz. Örneğin, kaynak makinenin 5 disklerle olan ve her disk 120 IOPS (8 K boyut) kaynak makinede oluşturur, ardından bu azure'da 500 IOPS sınırı disk başına olacaktır. (Gerekli depolama hesabı sayısı 20,000 tarafından ayrılmış toplam kaynak makine IOPS, eşittir.)
-**Yapılandırma sunucusu** | Yapılandırma sunucusu, korumalı makineler üzerinde çalışan tüm iş yükleri arasında günlük değişiklik hızı kapasitesi işleyebilmesi ve verileri Azure depolama alanına sürekli olarak çoğaltmak için yeterli bant genişliği gerekiyor.<br/><br/> En iyi uygulama, aynı ağ ve LAN kesimi yapılandırma sunucusunda, korumak istediğiniz makinelere bulun. Farklı bir ağda bulunan, ancak korumak istediğiniz makinelere Katman 3 ağ görünürlüğü ona sahip olmalıdır.<br/><br/> Yapılandırma sunucusu için boyut önerileri, aşağıdaki bölümde bulunan tablodaki özetlenmiştir.
-**İşlem sunucusu** | İlk işlem sunucusu yapılandırma sunucusunda varsayılan olarak yüklenir. Ortamınızı ölçeklendirme için ek işlem sunucuları dağıtabilirsiniz. <br/><br/> İşlem sunucusu, korumalı makinelerden çoğaltma verilerini alıp ve önbelleğe alma, sıkıştırma ve şifreleme ile iyileştirir. Daha sonra Azure'a veri gönderir. İşlem sunucusu makinesi, bu görevleri gerçekleştirmek için yeterli kaynak olması gerekir.<br/><br/> İşlem sunucusu, disk tabanlı bir önbelleği kullanır. Bir ağ sorunu ya da kesinti olması durumunda depolanan veri değişikliklerini işlemek için 600 GB veya üzeri bir ayrı önbellek diski kullanın.
+Bileşen | Ayrıntılar
+--- | ---
+**Çoğaltma** | **Maksimum günlük değişim hızı**: Korumalı makine yalnızca bir işlem sunucusunu kullanabilirsiniz. Bir tek işlem sunucusu günlük işleyebilir değişiklik hızı 2 TB'a kadar artırın. Bu nedenle, en fazla günlük veri değişikliği bir korumalı makine için desteklenen oranı 2 TB olduğu.<br /><br /> **En yüksek aktarım**: Çoğaltılmış bir makineden, azure'da bir depolama hesabına ait olabilir. Standart Azure depolama hesabı, en fazla saniye başına 20.000 istekleri işleyebilir. 20.000 için bir kaynak makine arasında giriş/çıkış işlemi (IOPS) saniyede sayısını sınırlayın öneririz. Örneğin, beş diskleri olan bir kaynak makine varsa ve her disk 120 IOPS (8 K boyutu) kaynak makinede oluşturur. kaynak makine 500 Azure disk başına IOPS sınırı içinde olur. (Gerekli depolama hesabı sayısı 20. 000'ile ayrılmış IOPS toplam kaynak makineye eşittir.)
+**Yapılandırma sunucusu** | Yapılandırma sunucusu korumalı makineler üzerinde çalışan tüm iş yükleri arasında günlük değişiklik hızı kapasitesi işleyebilir olması gerekir. Makine yapılandırma verilerini Azure Depolama'ya sürekli olarak çoğaltmak için yeterli bant genişliği olması gerekir.<br /><br /> Yapılandırma sunucusu korumak istediğiniz makinelere LAN kesimi ve aynı ağ üzerinde yerleştirmek iyi bir uygulamadır. Yapılandırma sunucusunu farklı bir ağda koyabilirsiniz ancak korumak istediğiniz makinelere Katman 3 ağ görünürlüğü olması gerekir.<br /><br /> Yapılandırma sunucusu için boyut önerileri, aşağıdaki bölümde bulunan tablodaki özetlenmiştir.
+**İşlem sunucusu** | İlk işlem sunucusu yapılandırma sunucusunda varsayılan olarak yüklenir. Ortamınızı ölçeklendirme için ek işlem sunucuları dağıtabilirsiniz. <br /><br /> İşlem sunucusu, korumalı makinelerden çoğaltma verilerini alır. İşlem sunucusu, önbelleğe alma, sıkıştırma ve şifreleme kullanarak verileri iyileştirir. Ardından, işlem sunucusu verileri Azure'a gönderir. İşlem sunucusu makinesi, bu görevleri gerçekleştirmek için yeterli kaynak olması gerekir.<br /><br /> İşlem sunucusu, disk tabanlı bir önbelleği kullanır. Bir ağ sorununu veya kesinti oluşursa, depolanan veri değişikliklerini işlemek için 600 GB veya üzeri bir ayrı önbellek diski kullanın.
 
-## <a name="size-recommendations-for-the-configuration-server-along-with-in-built-process-server"></a>Yapılandırma sunucusu (yerleşik bir işlem sunucusu) birlikte için boyut önerileri
+## <a name="size-recommendations-for-the-configuration-server-and-inbuilt-process-server"></a>Boyut önerileri ve yerleşik yapılandırma sunucusu için sunucu işlemleri
 
-Her yapılandırma sunucusu aracılığıyla dağıtılan [OVF şablonunu](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template) bir yerleşik bir işlem sunucusuna sahiptir. Yerleşik bir işlem sunucusu sanal makineleri korumak için kullanılırken, yapılandırma sunucusunun CPU, bellek, boş alan gibi kaynakların farklı bir fiyat karşılığında kullanılır. Bu nedenle, yerleşik bir işlem sunucusu yararlanıldığında gereksinimleri farklılık gösterir.
-Yerleşik bir işlem sunucusu iş yükünü korumak için kullanıldığı bir yapılandırma sunucusu 200'e kadar sanal makineler aşağıdaki yapılandırmalarına göre işleyebilir.
+İş yükünü korumak için bir yerleşik işlem sunucusunu kullanan bir yapılandırma sunucusu, aşağıdaki yapılandırmalarına göre 200'e kadar sanal makineler işleyebilir:
 
-**CPU** | **Bellek** | **Önbellek diski boyutu** | **Veri değişiklik oranı** | **Korumalı makineler**
+CPU | Bellek | Önbellek diski boyutu | Veri değişiklik oranı | Korumalı makineler
 --- | --- | --- | --- | ---
-8 Vcpu (2 yuva * 4 çekirdek \@ 2,5 gigahertz [GHz]) | 16 GB | 300 GB | 500 GB veya daha az | 100 makineleri çoğaltabilir.
-12 Vcpu (2 yuva * 6 çekirdek \@ 2.5 GHz) | 18 GB | 600 GB | 500 GB ila 1 TB | 100-150 makineler arasında çoğaltılır.
-16 Vcpu (2 yuva * 8 çekirdek \@ 2.5 GHz) | 32 GB | 1 TB | 1 TB ile 2 TB | 150-200 makineler arasında çoğaltılır.
-Başka bir yapılandırma sunucusunu dağıtma [OVF şablonu](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template) | | | | 200'den fazla makineler çoğaltma yapıyorsanız, yeni yapılandırma sunucusu dağıtır.
-Başka bir dağıtma [işlem sunucusu](vmware-azure-set-up-process-server-scale.md#download-installation-file) | | | &GT; 2 TB| Genel günlük veri değişikliği hızını 2 TB aşarsa, yeni bir genişleme işlem sunucusu dağıtın.
+8 Vcpu (2 yuva * 4 çekirdek \@ 2.5 GHz) | 16 GB | 300 GB | 500 GB veya daha az | 100'den az makineleri çoğaltmak için kullanın.
+12 Vcpu (2 yuva * 6 çekirdek \@ 2.5 GHz) | 18 GB | 600 GB | 501 GB ila 1 TB | 100-150 makineleri çoğaltmak için kullanın.
+16 Vcpu (2 yuva * 8 çekirdek \@ 2.5 GHz) | 32 GB | 1 TB | > 1 TB ile 2 TB | 200 151 makineleri çoğaltmak için kullanın.
+Kullanarak başka bir yapılandırma sunucusunu dağıtma bir [OVF şablonunu](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template). | | | | 200'den fazla makineler çoğaltma yapıyorsanız, yeni bir yapılandırma sunucusu dağıtın.
+Başka bir dağıtma [işlem sunucusu](vmware-azure-set-up-process-server-scale.md#download-installation-file). | | | &GT; 2 TB| Genel günlük veri değişikliği hızınıza 2 TB'den büyük ise, yeni bir genişleme işlem sunucusu dağıtın.
 
-Konumlar:
+Bu yapılandırmalarda:
 
-* Her kaynak makine, 100 GB'lık 3 diskleri ile yapılandırıldı.
-* 10 k RPM, 8 SAS sürücüleri Kıyaslama depolama RAID 10 ile önbellek diski ölçümleri için kullandık.
+* Her kaynak makinenin, üç disk 100 GB'lık vardır.
+* 10 k RPM sekiz paylaşılan erişim imzası sürücülerin Kıyaslama depolama RAID 10 ile önbellek diski ölçümleri için kullandık.
 
 ## <a name="size-recommendations-for-the-process-server"></a>İşlem sunucusu için boyut önerileri
 
-İşlem sunucusu, Azure Site recovery'de veri çoğaltma işlemini gerçekleştirir bileşendir. Günlük değişim hızı 2 TB'den büyük ise, çoğaltma yükünü işlemek için bir genişleme işlem sunucusu eklemeniz gerekir. Ölçeği genişletmek için şunları yapabilirsiniz:
+İşlem sunucusu, Azure Site recovery'de veri çoğaltma işlemini gerçekleştirir bileşendir. Günlük değişim hızı 2 TB'den büyük ise, çoğaltma yükünü işlemek için genişleme işlem sunucusu eklemeniz gerekir. Ölçeği genişletmek için şunları yapabilirsiniz:
 
-* Yapılandırma sunucusu arasında dağıtarak sayısını [OVF şablonunu](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template). Örneğin, 400 makineleri iki yapılandırma sunucusu ile en fazla koruyabilirsiniz.
-* Ekleme [genişleme işlem sunucusu](vmware-azure-set-up-process-server-scale.md#download-installation-file)ve bunlar yerine (veya ek olarak) çoğaltma trafiğini işlemek için yapılandırma sunucusu.
+* Yapılandırma sunucusu kullanarak dağıtarak sayısını bir [OVF şablonunu](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template). Örneğin, 400 makineler, iki yapılandırma sunucusu kullanarak koruyabilirsiniz.
+* Ekleme [genişleme işlem sunucusu](vmware-azure-set-up-process-server-scale.md#download-installation-file). Çoğaltma trafiği yerine (veya ek olarak) işlemek için ölçeği genişletilmiş işlem sunucularını kullanın yapılandırma sunucusu.
 
-Aşağıdaki tabloda, bir senaryoda açıklanmaktadır:
+Aşağıdaki tabloda bu senaryo anlatılmaktadır:
 
-* Bir genişleme işlem sunucusu ayarlamadıysanız ayarladınız.
-* Korunan sanal makinelerin genişleme işlem sunucusu kullanacak şekilde yapılandırdınız.
-* Her bir korumalı kaynak makine, 100 GB'lık üç diskleri ile yapılandırıldı.
+* Bir genişleme işlem sunucusu ayarlayın.
+* Korunan sanal makinelerin genişleme işlem sunucusu kullanacak şekilde yapılandırılmış.
+* Her korumalı kaynak makinenin, üç disk 100 GB vardır.
 
-**Ek işlem sunucusu** | **Önbellek diski boyutu** | **Veri değişiklik oranı** | **Korumalı makineler**
+Ek işlem sunucusu | Önbellek diski boyutu | Veri değişiklik oranı | Korumalı makineler
 --- | --- | --- | ---
-4 Vcpu (2 yuva * 2 Çekirdek \@ 2.5 GHz), 8 GB bellek | 300 GB | 250 GB veya daha az | 85 veya daha az makineleri çoğaltabilir.
-8 Vcpu (2 yuva * 4 çekirdek \@ 2.5 GHz), 12 GB bellek | 600 GB | 250 GB ila 1 TB | 85 150 makineler arasında çoğaltılır.
-12 Vcpu (2 yuva * 6 çekirdek \@ 2.5 GHz) 24 GB bellek | 1 TB | 1 TB ile 2 TB | 150-225 makineler arasında çoğaltılır.
+4 Vcpu (2 yuva * 2 Çekirdek \@ 2.5 GHz), 8 GB bellek | 300 GB | 250 GB veya daha az | 85 veya daha az makineleri çoğaltmak için kullanın.
+8 Vcpu (2 yuva * 4 çekirdek \@ 2.5 GHz), 12 GB bellek | 600 GB | 251 GB ila 1 TB | -86 150 makineleri çoğaltmak için kullanın.
+12 Vcpu (2 yuva * 6 çekirdek \@ 2.5 GHz) 24 GB bellek | 1 TB | > 1 TB ile 2 TB | 151 için 225 makineleri çoğaltmak için kullanın.
 
-Bir ölçek büyütme veya ölçek genişletme modeli için tercihinizi sunucularınızın ölçeği şekilde bağlıdır.  Bazı gelişmiş yapılandırma ve işlem sunucusu dağıtarak ölçeği büyütün veya daha az kaynak ile daha fazla sunucu dağıtarak ölçeği genişletme. Örneğin, genel veri değişikliği hızını günlük 1,5 TB'lık birlikte için 200 makine korumanız gerekiyorsa, şunlardan birini yapabilirsiniz:
+Bir ölçek büyütme veya ölçek genişletme modeli için tercihinizi sunucularınızın nasıl ölçekleme bağlıdır. Ölçeği artırma işleminin bazı gelişmiş yapılandırma sunucusu dağıtma ve sunucuların işleme. Ölçeği genişletmek için daha az kaynak sahip daha fazla sunucu dağıtın. Örneğin, 200 makine korumak istiyorsanız ile bir genel günlük veri değişim oranı 1,5 TB'lık, aşağıdaki eylemlerden birini gerçekleştirebilir:
 
-* 16 vCPU, 24 GB RAM ile tek bir işlem sunucusu ayarlayın.
+* Bir tek işlem sunucusunu (16 vCPU, 24 GB RAM) ayarlayın.
 * İki işlem sunucularını (2 x 8 vCPU, 2 * 12 GB RAM) ayarlayın.
 
 ## <a name="control-network-bandwidth"></a>Ağ bant genişliğini denetlemek
 
-Kullandığınız sonra [dağıtım Planlayıcısı aracını](site-recovery-deployment-planner.md) (ilk çoğaltma ve ardından değişim) çoğaltma için gereken bant genişliğini hesaplamak için birkaç seçenek kullanarak çoğaltma için kullanılan bant genişliği miktarını kontrol edebilirsiniz:
+Kullandıktan sonra [Site Recovery dağıtım Planlayıcısı](site-recovery-deployment-planner.md) (ilk çoğaltma ve ardından değişim) çoğaltma için gereken bant genişliğini hesaplamak için kullanılan bant genişliği miktarını denetleme seçenekleri birkaç vardır. çoğaltma:
 
-* **Bant genişliğini kısıtlama**: Azure'a çoğaltılan VMware trafiği belirli bir işlem sunucusu üzerinden gider. İşlem sunucusu çalışan makineler üzerinde bant genişliğini kısıtlayabilirsiniz.
+* **Bant genişliğini kısıtlama**: Azure'a çoğaltılan VMware trafiği belirli bir işlem sunucusu üzerinden gider. İşlem sunucusu çalışan sanal makinelerin bant genişliğini kısıtlayabilirsiniz.
 * **Bant genişliği üzerinde etki**: Birkaç kayıt defteri anahtarlarını kullanarak çoğaltma için kullanılan bant genişliği üzerinde etki oluşturabilirsiniz:
-  * **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM** kayıt defteri değeri, veri aktarımı bir disk için (başlangıç ve değişim çoğaltması) kullanılan iş parçacığı sayısını belirtir. Daha yüksek bir değer, çoğaltma işlemi için kullanılan ağ bant genişliğini artırır.
-  * **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\DownloadThreadsPerVM** yeniden çalışma sırasında veri aktarımı için kullanılan iş parçacıklarının sayısını belirtir.
+  * **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM** kayıt defteri değeri, veri aktarımı bir disk için (başlangıç ve değişim çoğaltması) kullanılan iş parçacığı sayısını belirtir. Daha yüksek bir değer, çoğaltma için kullanılan ağ bant genişliğini artırır.
+  * **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\DownloadThreadsPerVM** kayıt defteri değeri, yeniden çalışma sırasında veri aktarımı için kullanılan iş parçacığı sayısını belirtir.
 
 ### <a name="throttle-bandwidth"></a>Bant genişliğini kısıtlama
 
-1. İşlem sunucusu davranan makineye Azure Backup MMC ek bileşenini açın. Varsayılan olarak, bir kısayol yedekleme için masaüstünde veya aşağıdaki klasörde bulunur: C:\Program Files\Microsoft Azure Recovery Services Agent\bin.
-2. Ek bileşende **Özellikleri Değiştir**'e tıklayın.
+1. İşlem sunucusu kullandığınız makineye Azure Backup MMC ek bileşenini açın. Varsayılan olarak, bir kısayol yedekleme için masaüstünde veya aşağıdaki klasörde bulunur: C:\Program Files\Microsoft Azure Recovery Services Agent\bin.
+2. Ek bileşeninde, seçin **özelliklerini değiştirme**.
 
-    ![Özellikleri değiştirmek için ekran Azure Backup MMC ek bileşenini seçeneği](./media/site-recovery-vmware-to-azure/throttle1.png)
-3. Üzerinde **azaltma** sekmesinde **yedekleme işlemleri için internet bant genişliği kullanımını azaltmayı etkinleştir**. Ve çalışma dışı saatler için sınırları ayarlayın. Geçerli aralıklar 1023 MB/sn saniye başına 512 Kbps ila üzeresiniz.
+    ![Özelliklerini değiştirmek için Azure Backup MMC ek bileşenini seçeneğinin ekran görüntüsü](./media/site-recovery-vmware-to-azure/throttle1.png)
+3. Üzerinde **azaltma** sekmesinde **yedekleme işlemleri için internet bant genişliği kullanımını azaltmayı etkinleştir**. Ve çalışma dışı saatler için sınırları ayarlayın. Geçerli aralıklar 512 Kbps ila 1,023 MB/sn olan.
 
-    ![Azure yedekleme özellikleri ekran iletişim kutusu](./media/site-recovery-vmware-to-azure/throttle2.png)
+    ![Azure yedekleme Özellikleri iletişim kutusunun ekran görüntüsü](./media/site-recovery-vmware-to-azure/throttle2.png)
 
-Ayrıca, azaltma ayarı için [Set-OBMachineSetting](https://technet.microsoft.com/library/hh770409.aspx) cmdlet'ini de kullanabilirsiniz. Bu ayara ilişkin örneği aşağıda bulabilirsiniz:
+Ayrıca, azaltma ayarı için [Set-OBMachineSetting](https://technet.microsoft.com/library/hh770409.aspx) cmdlet'ini de kullanabilirsiniz. Bir örneği aşağıda verilmiştir:
 
     $mon = [System.DayOfWeek]::Monday
     $tue = [System.DayOfWeek]::Tuesday
@@ -99,63 +100,74 @@ Ayrıca, azaltma ayarı için [Set-OBMachineSetting](https://technet.microsoft.c
 
 **Set-OBMachineSetting - NoThrottle** hiçbir azaltmanın gerekli olmadığını gösterir.
 
-### <a name="influence-network-bandwidth-for-a-vm"></a>Bir VM için ağ bant genişliğini etkiler
+### <a name="alter-the-network-bandwidth-for-a-vm"></a>Bir VM için ağ bant genişliğini değiştirme
 
 1. Sanal makinenin kayıt defterine gidin **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication**.
-   * Çoğaltılan disk üzerindeki bant genişliği trafiğini etkilemek için değerini değiştirmek **UploadThreadsPerVM**, veya anahtar yoksa anahtar oluşturun.
-   * Azure'dan yeniden çalışma trafiği için bant genişliği etkilemek için değerini değiştirmek **DownloadThreadsPerVM**.
-2. Varsayılan değer 4'tür. "Fazla sağlanan" bir ağda, bu kayıt defteri anahtarlarının varsayılan değerlerinin değiştirilmesi gerekir. Maksimum değer 32'dir. Değeri iyileştirmek için trafiği izleyin.
+   * Çoğaltılan disk üzerindeki bant genişliği trafiğini değiştirmek için değerini değiştirmek **UploadThreadsPerVM**. Yoksa anahtar oluşturun.
+   * Azure'dan yeniden çalışma trafiği için bant genişliği değiştirmek için değerini değiştirmek **DownloadThreadsPerVM**.
+2. Her anahtar için varsayılan değer **4**. "Fazla sağlanan" bir ağda, bu kayıt defteri anahtarlarının varsayılan değerlerinin değiştirilmesi gerekir. Kullanabileceğiniz maksimum değer **32**. Değeri iyileştirmek için trafiği izleyin.
 
-## <a name="setup-azure-site-recovery-infrastructure-to-protect-more-than-500-virtual-machines"></a>500'den fazla sanal makineyi korumak için Azure Site Recovery altyapı Kurulumu
+## <a name="set-up-the-site-recovery-infrastructure-to-protect-more-than-500-vms"></a>Site Recovery altyapı Kurulumu 500'den fazla Vm'leri korumak için ayarlayın
 
-Azure Site Recovery altyapısı ayarlama önce aşağıdaki faktörleri ölçmek için ortamı erişmeniz gerekir: uyumlu sanal makineler, günlük veri RPO, Azure site kurtarma sayısı için gerekli ağ bant genişliği Hızı değiştirin gerekli bileşenler, vb. ilk çoğaltmayı tamamlamak için geçen süre.,
+Site Recovery altyapı Kurulumu ayarlamadan önce aşağıdaki etmenlere ölçmek için ortam erişim: uyumlu sanal makinelerin günlük veri değişiklik oranı, gerekli ağ bant genişliği elde etmek için Site Recovery sayısını istediğiniz RPO için gerekli bileşenleri ve ilk çoğaltmayı tamamlamak için gereken süreyi. Gerekli bilgileri toplamak için aşağıdaki adımları tamamlayın:
 
-1. Dağıtım Planlayıcısını çalıştırın, ortamınıza paylaşılan yönergeleri, Yardım için bu parametreleri ölçmek için olun [burada](site-recovery-deployment-planner.md).
-2. Yukarıda belirtilen gereksinimleri olan bir yapılandırma sunucusu dağıtır. Üretim iş yükünüz 650 sanal makineler aşarsa, başka bir yapılandırma sunucusu dağıtır.
-3. Ölçülen günlük veri değişikliği hızınıza göre dağıtma [genişleme işlem sunucusu](vmware-azure-set-up-process-server-scale.md#download-installation-file) belirtilen boyutu yönergeler yardımıyla [burada](site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-process-server).
-4. Bir disk sanal makineye 2 MB/sn aşacağı için veri değişim oranı bekliyorsanız, emin olmak için [bir premium depolama hesabı ayarlama](tutorial-prepare-azure.md#create-a-storage-account). Belirli bir süre için dağıtım Planlayıcısı çalıştırıldıktan sonra veri yükündeki hızını nokta raporda yakalanan değil başka bir zaman sırasında değiştirin.
-5. İstenen RPO'ya göre [ağ bant genişliğini](site-recovery-plan-capacity-vmware.md#control-network-bandwidth).
-6. Altyapıyı ayarladıktan sonra altında yayımlanan faydalandığından [yapılır bölümü](vmware-azure-set-up-source.md) yükünüze olağanüstü durum kurtarma sağlamak.
+1. Bu parametreleri ölçmek için Site Recovery dağıtım Planlayıcısı ortamınızda çalıştırın. Faydalı yönergeleri için bkz. [hakkında Site Recovery dağıtım Planlayıcısı vmware'den azure'a](site-recovery-deployment-planner.md).
+2. Uygun bir yapılandırma sunucusunu dağıtma [yapılandırma sunucusuna yönelik boyut önerileri](site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-configuration-server-and-inbuilt-process-server). Üretim iş yükünüz 650 sanal makineler aşarsa, başka bir yapılandırma sunucusu dağıtır.
+3. Ölçülen günlük veri değişikliği hızınıza göre dağıtma [genişleme işlem sunucusu](vmware-azure-set-up-process-server-scale.md#download-installation-file) yardımıyla [boyut yönergeleri](site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-process-server).
+4. Veri değişikliği 2 MB/sn, uzun bir disk sanal makinesinin ücretine bekliyorsanız [bir Premium depolama hesabı ayarlama](tutorial-prepare-azure.md#create-a-storage-account). Site Recovery dağıtım Planlayıcısı, belirli bir süre için çalışır. Diğer zamanlarda veri değişim hızı yükündeki raporda yakalanan değil.
+5. [Ağ bant genişliğini](site-recovery-plan-capacity-vmware.md#control-network-bandwidth) elde etmek istediğiniz RPO üzerinde temel.
+6. Altyapısını ayarlarken, olağanüstü durum kurtarma iş yükünüz için etkinleştirin. Bilgi edinmek için bkz. nasıl [Azure'a çoğaltma için VMware için kaynak ortamı ayarlama](vmware-azure-set-up-source.md).
 
 ## <a name="deploy-additional-process-servers"></a>Ek işlem sunucusu dağıtma
 
-Varsa ölçeklendirmek için çıkış dağıtımınızı 200 kaynak makineler ötesinde veya günlük 2 TB'den fazla oranını karmaşıklığı toplam sahip, trafik hacmini işlemeye yetecek ek işlem sunucularının gerekir. Üzerinde verilen yönergeleri izleyerek [bu makalede](vmware-azure-set-up-process-server-scale.md) işlem sunucusu ayarlanamıyor. Sunucuyu ayarladıktan sonra bunu kullanmak için kaynak makineleri geçirebilirsiniz.
+Dağıtımınız kaynak için 200 makine ötesinde ölçeği veya günlük 2 TB'den fazla oranını karmaşıklığı toplam varsa, trafik hacmini işlemeye yetecek işlem sunucusu eklemeniz gerekir. İşlem Sunucusu hakkında bilgi edinmek için bkz: [ek işlem sunucularının kullanarak yeniden çalışma için ölçek](vmware-azure-set-up-process-server-scale.md). İşlem sunucusunu ayarladıktan sonra bunu kullanmak için kaynak makineleri geçirebilirsiniz.
 
 ### <a name="migrate-machines-to-use-the-new-process-server"></a>Yeni işlem sunucusu kullanabilmek için makineleri geçirme
 
-1. İçinde **ayarları** > **Site Recovery sunucuları**, yapılandırma sunucusuna tıklayın ve ardından **işlem sunucuları**.
+1. Seçin **ayarları** > **Site Recovery sunucuları**. Yapılandırma sunucusunu seçin ve ardından **işlem sunucuları**.
 
-    ![İşlem sunucusu ekran iletişim kutusu](./media/site-recovery-vmware-to-azure/migrate-ps2.png)
-2. İşlem sunucusu şu anda kullanımda sağ tıklayın ve **anahtar**.
+    ![İşlem Sunucusu iletişim kutusunun ekran görüntüsü](./media/site-recovery-vmware-to-azure/migrate-ps2.png)
+2. Şu anda kullanımda işlem sunucusuna sağ tıklayın ve ardından **anahtar**.
 
-    ![Ekran görüntüsü, yapılandırma sunucusu iletişim kutusu](./media/site-recovery-vmware-to-azure/migrate-ps3.png)
-3. İçinde **Select hedef işlem sunucusunu**, kullanmak istediğiniz yeni işlem sunucusunu seçin ve ardından sunucu işleyecek olan sanal makineleri seçin. Sunucu hakkındaki bilgileri almak için bilgi simgesine tıklayın. Yük kararları vermenize yardımcı olmak için seçilen her bir sanal makine için yeni işlem sunucusu çoğaltmak için gereken ortalama alanı görüntülenir. Yeni işlem sunucusuna çoğaltmaya başlamak için onay işaretine tıklayın.
+    ![Yapılandırma sunucusu iletişim kutusunun ekran görüntüsü](./media/site-recovery-vmware-to-azure/migrate-ps3.png)
+3. İçinde **Select hedef işlem sunucusunu**, kullanmak istediğiniz yeni işlem sunucusunu seçin. Ardından sunucu işleyecek olan sanal makineleri seçin. Sunucu hakkındaki bilgileri almak için bilgi simgesini seçin. Yük kararları vermenize yardımcı olmak için seçilen her bir sanal makine için yeni işlem sunucusu çoğaltmak için gereken ortalama alanı gösterilir. Yeni işlem sunucusuna çoğaltmaya başlamak için onay işaretini seçin.
 
 ## <a name="deploy-additional-master-target-servers"></a>Ek ana hedef sunucuları dağıtma
 
-Aşağıdaki senaryolarda sırasında ek ana hedef sunucu gerekir
+Aşağıdaki senaryolarda, birden fazla ana hedef sunucusunda gereklidir:
 
-1. Linux tabanlı bir sanal makine korumaya çalışıyorsanız.
-2. Ana hedef sunucusu yapılandırma sunucusunda kullanılabilir VM veri deposuna erişimi yok
-3. Disk yöneticisinde toplam sayısı (Hayır. sunucu hedefliyorsanız Sunucu üzerindeki yerel disklerden) + korunacak disklerin 60 diskleri aşıyor.
+*   Linux tabanlı bir sanal makine korumak istiyorsunuz.
+*   Ana hedef sunucusu yapılandırma sunucusunda kullanılabilir VM veri deposuna erişimi yok.
+*   Disk (sunucu üzerindeki yerel disklerden sayısı) yanı sıra korunacak disklerin ana hedef sunucusunda toplam sayısını 60 disklerden daha büyüktür.
 
-İçin yeni bir ana hedef sunucusu eklemek için **Linux tabanlı sanal makine**, [Buraya](vmware-azure-install-linux-master-target.md).
+Linux tabanlı bir sanal makine için bir ana hedef sunucusu ekleme konusunda bilgi edinmek için [bir Linux ana hedef sunucusu yeniden çalışma için yükleme](vmware-azure-install-linux-master-target.md).
 
-İçin **Windows tabanlı sanal makine**, izleyerek aşağıdaki yönergeler verilir.
+Windows tabanlı bir sanal makine için bir ana hedef sunucusu eklemek için:
 
-1. Gidin **kurtarma Hizmetleri kasası** > **Site Recovery altyapısı** > **yapılandırma sunucusu**.
-2. Gerekli yapılandırma sunucusunda tıklayın > **+ ana hedef sunucu**.![ Ekle-master-target-server.png](media/site-recovery-plan-capacity-vmware/add-master-target-server.png)
-3. Birleşik Kurulum indirme ve çalıştırma, ana hedef sunucusu'kurmak için VM üzerinde.
-4. Seçin **yükleme ana hedef** > **sonraki**. ![MT.PNG seçin](media/site-recovery-plan-capacity-vmware/choose-MT.PNG)
-5. Varsayılan yükleme konumu seçin > tıklatın **yükleme**. ![MT yüklemesi](media/site-recovery-plan-capacity-vmware/MT-installation.PNG)
-6. Tıklayarak **yapılandırmasına devam** ana hedef yapılandırma sunucusu ile kayıt. ![MT devam configuration.PNG](media/site-recovery-plan-capacity-vmware/MT-proceed-configuration.PNG)
-7. Yapılandırma sunucusu ve parola IP adresini girin. [Buraya](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) parola oluşturmayı öğrenin.![ cs IP parola](media/site-recovery-plan-capacity-vmware/cs-ip-passphrase.PNG)
-8. Tıklayın **kaydetme** post kayıt tıklatıp **son**.
-9. Başarılı kayıt sırasında bu sunucu altında portalında listelenen **kurtarma Hizmetleri kasası** > **Site Recovery altyapısı** > **yapılandırma sunucuları** > ana hedef sunucular ilgili yapılandırma sunucusu.
+1. Git **kurtarma Hizmetleri kasası** > **Site Recovery altyapısı** > **yapılandırma sunucusu**.
+2. Gerekli yapılandırma sunucusunu seçin ve ardından **ana hedef sunucu**.
 
- >[!NOTE]
- >Ayrıca ana en son sürümünü indirebilirsiniz Windows için hedef sunucu birleşik Kurulum [burada](https://aka.ms/latestmobsvc).
+    ![Ana hedef Sunucusu Ekle düğmesini gösteren ekran görüntüsü](media/site-recovery-plan-capacity-vmware/add-master-target-server.png)
+3. Birleşik kurulum dosyasını indirirsiniz ve ardından dosya ana hedef sunucusu kurmak için VM üzerinde çalıştırın.
+4. Seçin **yükleme ana hedef** > **sonraki**.
+
+    ![Ana hedef yükleme seçeneğini gösteren ekran görüntüsü](media/site-recovery-plan-capacity-vmware/choose-MT.PNG)
+5. Varsayılan yükleme konumu seçin ve ardından **yükleme**.
+
+     ![Varsayılan yükleme konumu gösteren ekran görüntüsü](media/site-recovery-plan-capacity-vmware/MT-installation.PNG)
+6. Yapılandırma sunucusu ile ana hedef kaydetmek için işaretleyin **yapılandırma devam**.
+
+    ![Devam etmek için Yapılandır düğmesini gösteren ekran görüntüsü](media/site-recovery-plan-capacity-vmware/MT-proceed-configuration.PNG)
+7. Yapılandırma sunucusunun IP adresini girin ve parolayı girin. Bir parola oluşturmak nasıl öğrenmek için bkz. [yapılandırma sunucusu parolası oluşturma](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase). 
+
+    ![Yapılandırma sunucusunun IP adresini ve parolayı girin nerede gösteren ekran görüntüsü](media/site-recovery-plan-capacity-vmware/cs-ip-passphrase.PNG)
+8. **Kaydol**’u seçin. Kayıt tamamlandığında seçin **son**.
+
+Kayıt başarıyla tamamlandığında sunucu adresindeki Azure portalında listelenir **kurtarma Hizmetleri kasası** > **Site Recovery altyapısı**  >   **Yapılandırma sunucusu**, yapılandırma sunucusunun ana hedef sunucular.
+
+ > [!NOTE]
+ > En son sürümünü indirin [Windows için ana hedef sunucusu birleşik kurulum dosyasını](https://aka.ms/latestmobsvc).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-İndirme ve çalıştırma [Azure Site Recovery dağıtım Planlayıcısı](https://aka.ms/asr-deployment-planner)
+İndirme ve çalıştırma [Site Recovery dağıtım Planlayıcısı](https://aka.ms/asr-deployment-planner).

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 2afed85c0c86e541c281f579294676fa889d4f27
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 5c809153b3b86a5460bd2c235d9f6226fb50a024
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041450"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118804"
 ---
 # <a name="explore-net-trace-logs-in-application-insights"></a>.NET izleme günlüklerini Application ınsights'ı keşfedin
 NLog, log4Net veya System.Diagnostics.Trace ASP.NET uygulamanızı Tanılama izleme için kullanırsanız, gönderilen günlüklerinizi olabilir [Azure Application Insights][start], burada, arama ve keşfedebilirsiniz bunları. Günlüklerinizi, böylece her kullanıcı isteği hizmet ile ilişkilendirilmiş izlemeleri tanımlamak ve bunları diğer olayları ve özel durum raporları ilişkilendirmek uygulamanızdan gelen telemetri ile birleştirilir.
@@ -207,4 +207,4 @@ Uygulamanız çok miktarda veri gönderiyorsa ve ASP.NET sürüm 2.0.0-beta3 vey
 [exceptions]: asp-net-exceptions.md
 [portal]: https://portal.azure.com/
 [qna]: ../../azure-monitor/app/troubleshoot-faq.md
-[start]: ../../application-insights/app-insights-overview.md
+[start]: ../../azure-monitor/app/app-insights-overview.md

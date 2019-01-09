@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.author: mbullwin
-ms.openlocfilehash: 1db4f4be7ab883e6be52b52bd93a43468829bed5
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: b1a3b04427839736359c88f8ad6a8db5eedf8488
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076634"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121252"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Akıllı algılama - performans Anomalileri
 
-[Application Insights](../../application-insights/app-insights-overview.md) otomatik olarak web uygulamanızın performansını analiz eder ve olası sorunlar hakkında sizi uyarabilir. Bizim akıllı algılama bildirim aldığından, bu okuma.
+[Application Insights](../../azure-monitor/app/app-insights-overview.md) otomatik olarak web uygulamanızın performansını analiz eder ve olası sorunlar hakkında sizi uyarabilir. Bizim akıllı algılama bildirim aldığından, bu okuma.
 
 Bu özellik, uygulamanız için Application Insights yapılandırma dışında hiçbir özel kurulum gerektirir (üzerinde [ASP.NET](../../azure-monitor/app/asp-net.md), [Java](../../azure-monitor/app/java-get-started.md), veya [Node.js](../../azure-monitor/app/nodejs.md)hem de [web sayfası kod](../../azure-monitor/app/javascript.md)). Uygulamanızı yeterli telemetri oluşturduğunda etkin değil.
 

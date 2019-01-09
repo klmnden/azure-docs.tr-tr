@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 50eb70799506ecd5203ff4fd0c2649726658b3e4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 08ad8964fee2d94677832fa664ed2e18cb9f772c
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53551590"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104990"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Toplama ve Azure kaynaklarınızdan günlük verilerini kullanma
 
@@ -83,7 +83,7 @@ Tanılama günlükleri koleksiyonunu etkinleştirilebilir [bir kaynak bir Resour
 
 Belirli bir kaynağa giderek veya Azure İzleyicisi'ne giderek bir kaynak oluşturulduktan sonra Azure portalında kaynak tanılama günlükleri koleksiyonunu etkinleştirebilirsiniz. Azure İzleyici aracılığıyla bunu etkinleştirmek için:
 
-1. İçinde [Azure portalında](http://portal.azure.com)Azure İzleyicisi'ne gidin ve tıklayarak **tanılama ayarları**
+1. İçinde [Azure portalında](https://portal.azure.com)Azure İzleyicisi'ne gidin ve tıklayarak **tanılama ayarları**
 
     ![Azure İzleyicisi İzleme](media/diagnostic-logs-overview/diagnostic-settings-blade.png)
 

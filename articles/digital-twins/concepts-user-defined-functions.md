@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: alinast
-ms.openlocfilehash: 915c57033209ff982946163c408cf8557515e2f5
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 897a350c345e6e284f30040c0d4fcf07d5a6f466
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999212"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106850"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Veri işleme ve kullanıcı tanımlı işlevleri
 
@@ -102,6 +102,15 @@ Kullanıcı tanımlı işlevler, JavaScript dilinde yazılabilir. Yardımcı yö
 - Graf meta verileri bildirim gönderilmeden önce okuma algılayıcı iliştirin.
 
 Daha fazla bilgi için [kullanıcı tanımlı işlevler kullanma](./how-to-user-defined-functions.md).
+
+
+#### <a name="examples"></a>Örnekler
+
+[Dijital çiftleri için GitHub deposunu C# örnek](https://github.com/Azure-Samples/digital-twins-samples-csharp/) kullanıcı tanımlı işlevlerin bazı örnekleri içerir:
+- [Bu işlev](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availabilityForTutorial.js) tasarruf edilen karbon dioksit, hareket ve sıcaklık değerleri bir oda aralıktaki şu değerlerle kullanılabilir olup olmadığını belirlemek arar. [Dijital çiftleri için öğreticiler](tutorial-facilities-udf.md) bu işlevi daha ayrıntılı keşfedin. 
+- [Bu işlev](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/multiplemotionsensors.js) verilerini birden çok hareket sensörden arar ve bunların hiçbiri herhangi bir hareket algılama alanının olduğunu belirler. Kullanıcı tanımlı işlev ya da kullanılan kolayca değiştirebilirsiniz [hızlı](quickstart-view-occupancy-dotnet.md), veya [öğreticiler](tutorial-facilities-setup.md), açıklamalar bölümünde belirtilen değişiklikler yaparak. 
+
+
 
 ### <a name="role-assignment"></a>Rol ataması
 

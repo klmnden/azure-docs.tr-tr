@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 8f76c53964d062db76ea7d40cdb0ced2d015fc79
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 926a339bc8214c989da4ef934ae41012eea58d1e
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716020"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120742"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Öğretici: Azure Active Directory Uygulama proxy'si aracılığıyla uzaktan erişim için şirket içi uygulama ekleme
 
@@ -26,9 +26,9 @@ Bu öğreticide:
 
 > [!div class="checklist"]
 > * Giden trafik için bağlantı noktalarını açar ve belirli URL'lere erişim sağlar.
-> * Bağlayıcı, Windows sunucuya yükler ve uygulama proxy'sine
-> * Yüklü ve kayıtlı doğru bağlayıcı doğrular
-> * Azure AD kiracınız için bir şirket içi uygulama ekler
+> * Bağlayıcı, Windows sunucuya yükler ve uygulama proxy'si ile kaydeder.
+> * Yüklü ve kayıtlı doğru bağlayıcı doğrular.
+> * Azure AD kiracınız için bir şirket içi uygulama ekler.
 > * Bir test kullanıcısı bir Azure AD hesabını kullanarak uygulamada oturum açabilir doğrular.
 
 ## <a name="before-you-begin"></a>Başlamadan önce

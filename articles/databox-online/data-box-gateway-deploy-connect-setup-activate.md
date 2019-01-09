@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 2126871472b044f9b8c0df99c7cb14df348eab0e
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 5e83eb46a4d62c6aaf0862d4bb1aa046c5d64dde
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166755"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120522"
 ---
-# <a name="tutorial-connect-set-up-activate-azure-data-box-gateway-preview"></a>Öğretici: Bağlanın, ayarlama, Azure veri kutusu ağ geçidi (Önizleme) etkinleştirme 
+# <a name="tutorial-connect-set-up-activate-azure-data-box-gateway-preview"></a>Öğretici: Bağlanma, ayarlama, Azure veri kutusu ağ geçidi (Önizleme) etkinleştirme 
 
 ## <a name="introduction"></a>Giriş
 
@@ -84,7 +84,10 @@ En sunuldu **Pano** cihazınızın.
     - Ortamınızda DHCP etkinse, ağ arabirimleri otomatik olarak yapılandırılır. Bu nedenle, bir IP adresi, alt ağ, ağ geçidi ve DNS otomatik olarak atanır.
     - DHCP etkin değilse, gerekirse statik IP atayabilirsiniz.
     - Ağ Arabiriminizin IPv4 yapılandırabilirsiniz.
-   
+
+    >[!NOTE] 
+    > Cihaza bağlanmak için başka bir IP adresi yoksa yerel IP adresi DHCP, ağını arabirimin statik'den geçiş yapabilirim öneririz. Birini kullanıyorsanız, ağ arabirimi ve geçiş için DHCP, DHCP adresini belirlemek mümkün olacaktır. Bir DHCP adresi için değiştirmek istiyorsanız, cihazın hizmete kaydolduktan sonra kadar bekleyin ve sonra değiştirebilirsiniz. Ardından tüm adpaters IP'ler görüntüleyebilirsiniz **cihaz özelliklerini** hizmetiniz için Azure portalında.
+
 4. (İsteğe bağlı olarak), web Ara sunucusunu yapılandırın. Web proxy yapılandırması isteğe bağlı olsa da, bir web proxy kullanıyorsanız, yalnızca, burada yapılandırabilirsiniz olduğunu unutmayın.
    
    ![](./media/data-box-gateway-deploy-connect-setup-activate/image8.png)

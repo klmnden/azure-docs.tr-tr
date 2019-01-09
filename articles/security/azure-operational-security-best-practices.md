@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: terrylan
-ms.openlocfilehash: 14c21db9e1da23e97815953937f434fe7f25e354
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 7c6d373fd294645605815d8a8d380259982d90e7
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725329"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118192"
 ---
 # <a name="azure-operational-security-best-practices"></a>Azure operasyonel güvenlik en iyi uygulamaları
 Azure operasyonel güvenlik hizmetleri, denetimleri ve kullanıcılara sunulan özellikleri verilerini, uygulamalarını ve diğer Azure varlıklarını korumak için ifade eder. Azure operasyonel güvenlik Microsoft'a özgü özellikleri aracılığıyla edinilen bilgileri Bilgi Bankası'na dahil olan bir çerçeve üzerine kurulmuştur dahil olmak üzere [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl), [Microsoft Güvenlik Yanıt Merkezi](https://www.microsoft.com/msrc?rtc=1) program ve siber güvenlik tehditleri hakkındaki ayrıntılı tanıma.
@@ -87,7 +87,7 @@ Kullanabileceğiniz [Azure Resource Manager](https://azure.microsoft.com/documen
 - Uygulamanızı bir sonraki başlatma veya Pazarlama kampanyanız için trafiği işleyebildiğinden emin olun.
 
 **En iyi yöntem**: Uygulama performansını izleme.  
-**Ayrıntı**: [Azure Application Insights](../application-insights/app-insights-overview.md) olan birden çok platformda web geliştiricilerine yönelik bir Genişletilebilir uygulama performans yönetimi (APM) hizmetidir. Canlı web uygulamanızı izlemek için Application Insights'ı kullanın. Bunu, performans anormalliklerini otomatik olarak algılar. Bu sorunları tanılamanıza yardımcı olur ve kullanıcıların gerçekten uygulamanızla neler anlamak için analiz araçları içerir. Performansı ve kullanılabilirliği sürekli geliştirmenize yardımcı olmak amacıyla tasarlanmıştır.
+**Ayrıntı**: [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) olan birden çok platformda web geliştiricilerine yönelik bir Genişletilebilir uygulama performans yönetimi (APM) hizmetidir. Canlı web uygulamanızı izlemek için Application Insights'ı kullanın. Bunu, performans anormalliklerini otomatik olarak algılar. Bu sorunları tanılamanıza yardımcı olur ve kullanıcıların gerçekten uygulamanızla neler anlamak için analiz araçları içerir. Performansı ve kullanılabilirliği sürekli geliştirmenize yardımcı olmak amacıyla tasarlanmıştır.
 
 ## <a name="mitigate-and-protect-against-ddos"></a>Azaltmak ve DDoS karşı koruyun
 Dağıtılmış engelleme (DDoS) hizmetinin, uygulama kaynaklarını tüketebilir dener saldırı türüdür. Uygulama kullanılabilirliği ve meşru istekler işleyebilme etkileyen olmaktır. Bu saldırıların daha karmaşık ve daha büyük boyuta ve etkisi gelmektedir. İnternet üzerinden genel olarak erişilebilen herhangi bir uç noktada hedefleyebilir.

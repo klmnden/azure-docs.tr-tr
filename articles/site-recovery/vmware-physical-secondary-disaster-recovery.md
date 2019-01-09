@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 2467da8d5a87a3a9325b807aec48c584ab0197cb
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 34b38f979fcab765a35d8aa6f0714ce85beec6fe
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/08/2019
-ms.locfileid: "54079111"
+ms.locfileid: "54105194"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Şirket içi VMware sanal makinelerini veya fiziksel sunucuları ikincil bir siteye olağanüstü durum kurtarmayı ayarlama
 
@@ -80,7 +80,7 @@ Güncelleştirmeleri gibi yükleyin:
 > [!NOTE]
 >Tüm Scout bileşenleri dosya güncelleştirme sürümüne güncelleştirme .zip dosyasını aynı olmayabilir. Eski sürümü olduğunu hiçbir değişiklik bileşen bu güncelleştirmenin önceki bir güncelleştirme bu yana gösterir.
 
-İndirme [güncelleştirme](https://aka.ms/asr-scout-update7) .zip dosyası. Tüm taban dosyayı içeren ikili dosyaları ve aşağıdaki bileşenlerden toplu yükseltme ikili dosyaları: 
+İndirme [güncelleştirme](https://aka.ms/asr-scout-update7) .zip dosyası ve [MySQL ve PHP yükseltme](https://aka.ms/asr-scout-u7-mysql-php-manualupgrade) yapılandırma dosyaları. Tüm taban güncelleştirme .zip dosyasını içeren ikili dosyaları ve aşağıdaki bileşenlerden toplu yükseltme ikili dosyaları: 
   - InMage_ScoutCloud_RX_8.0.1.0_RHEL6-64_GA_02Mar2015.tar.gz
   - RX_8.0.7.0_GA_Update_7_2965621_28Dec18.Tar.gz
   - InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe
@@ -126,7 +126,7 @@ Güncelleştirmeleri gibi yükleyin:
 6. **Linux ana hedef sunucusu**: Birleşik aracıyı güncelleştirin, kopyalayın **InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz** Linux ana hedef sunucusuna ve ayıklayın. Ayıklanan klasöründe Çalıştır **/Install**.
 7. **Kaynak sunucu Windows**: Birleşik aracıyı güncelleştirin, kopyalayın **InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe** kaynak sunucuya. Çalıştırmak için dosyaya çift tıklayın. 
 8. **Linux kaynak sunucu**: Birleşik Aracı'nı güncelleştirmek için birleşik aracı dosyasını ilgili sürümünü Linux sunucusuna kopyalayın ve ayıklayın. Ayıklanan klasöründe Çalıştır **/Install**.  Örnek: RHEL 6.7 için 64 bit sunucu, kopyalama **InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz** sunucuya ve ayıklayın. Ayıklanan klasöründe Çalıştır **/Install**.
-9. Yukarıda belirtilen yükleyicileri ile yapılandırma sunucusu, işlem sunucusu ve RX sunucusu yükselttikten sonra PHP ve MySQL kitaplıkları gereken bölümünde anlatılan adımları el ile yükseltilmesi [bölümü](#manual-upgrade-for-php-and-mysql-on-cs-ps-and-rx).
+9. Yukarıda belirtilen yükleyicileri ile yapılandırma sunucusu, işlem sunucusu ve RX sunucusu yükselttikten sonra PHP ve MySQL kitaplıkları gereken bölümünü 7.4 bahsedilen adımlarla el ile yükseltilmesi [Hızlı Yükleme Kılavuzu](https://aka.ms/asr-scout-quick-install-guide).
 
 ## <a name="enable-replication"></a>Çoğaltmayı etkinleştirme
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/29/2018
 ms.author: zarhoads
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 18be454c93c32e0902a55a08748045c26d649ce7
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: a5386e56bffd9a9789fe431aae8ed13df8ffae13
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322048"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117444"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Azure sanal makine ölçek ile otomatik ölçeklendirmeye genel bakış ayarlar
 Bir Azure sanal makine ölçek kümesini otomatik olarak artırabilir veya uygulamanızı çalıştıran VM örneği sayısını azaltabilirsiniz. Bu otomatik ve esnek davranışı izlemek ve uygulamanızın performansını en iyi duruma getirmek için yönetim yükünü azaltır. Pozitif bir müşteri deneyimi için kabul edilebilir performans tanımlayan kuralları oluşturun. Bu tanımlı eşikler karşılandığında, otomatik ölçeklendirme kurallarını ölçek kümenizin kapasitesinin ayarlamak için gerekeni yapın. Ayrıca, olayları otomatik olarak artırma veya azaltma ölçek kümenizin kapasitesinin kez sabit zamanlayabilirsiniz. Bu makalede performans ölçümleri kullanılabilir bir genel bakış ve hangi eylemleri otomatik ölçeklendirme gerçekleştirebilir sağlar.
@@ -122,7 +122,7 @@ Daha fazla bilgi için Azure tanılama uzantısını [Linux VM](../virtual-machi
 ## <a name="application-level-metrics-with-app-insights"></a>App Insights ile uygulama düzeyinde ölçümler
 Uygulamalarınızın performansını artırmak için daha fazla görünürlük elde etmek için Application ınsights'ı kullanabilirsiniz. Uygulama izler ve Azure'a telemetri gönderen uygulamanızda küçük bir izleme paketi yükleyin. Sayfa yükleme performansı, uygulamanızın yanıt süreleri gibi ölçümleri izleyebilir ve oturum sayılarını. Bu uygulama ölçümleri, müşteri deneyimini etkileyebilecek eyleme dönüştürülebilir öngörüleri temel alan kurallarını tetikleme ayrıntılı ve katıştırılmış düzeyinde otomatik ölçeklendirme kuralları oluşturmak için kullanılabilir.
 
-App Insights hakkında daha fazla bilgi için bkz. [Application Insights nedir?](../application-insights/app-insights-overview.md).
+App Insights hakkında daha fazla bilgi için bkz. [Application Insights nedir?](../azure-monitor/app/app-insights-overview.md).
 
 
 ## <a name="scheduled-autoscale"></a>Zamanlanan otomatik ölçeklendirme

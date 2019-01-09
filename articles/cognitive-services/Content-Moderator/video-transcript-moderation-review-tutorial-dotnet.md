@@ -1,5 +1,5 @@
 ---
-title: "Öğretici: .NET'te videoları ve transkriptleri denetleme - Content Moderator"
+title: "Öğretici: Orta videoları ve. NET'te - Content Moderator dökümleri"
 titlesuffix: Azure Cognitive Services
 description: Content Moderator'ı kullanarak .NET'te videoları ve transkriptleri denetleme.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: content-moderator
 ms.topic: tutorial
 ms.date: 1/27/2018
 ms.author: sajagtap
-ms.openlocfilehash: d156c481e3c16105ad85cbc793d93306a310d5ef
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: e5958eeb4aca4cdc41bbc263a4cc38378927874b
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567120"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118583"
 ---
-# <a name="tutorial-video-and-transcript-moderation"></a>Öğretici: Video ve transkript denetimi
+# <a name="tutorial-video-and-transcript-moderation"></a>Öğretici: Video ve döküm denetleme
 
 Content Moderator'ın video API'leri videoları denetlemenizi ve kullanıcı tarafından çalıştırılan gözden geçirme aracında video incelemeleri oluşturmanızı sağlar. 
 
@@ -530,7 +530,7 @@ Transkript bir AMS varlığı olarak yayımlanır. Transkripti uygunsuz içerik 
         }
         catch
         {   //TODO:  Logging
-            Console.WriteLine("Exception occured while generating index for video.");
+            Console.WriteLine("Exception occurred while generating index for video.");
             throw;
         }
     }

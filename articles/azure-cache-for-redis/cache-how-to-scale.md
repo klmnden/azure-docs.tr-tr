@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: wesmc
-ms.openlocfilehash: 46f94a512ea78016a327357a3d0ee25a91ad607e
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 009fbd3b86518758e9654fab547bab99bec369de
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53020015"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105211"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Azure önbelleği için Redis ölçeklendirme
 Azure önbelleği için Redis önbellek boyutunu ve özelliklerini, tercih ettiğiniz esneklik sağlayan farklı bir önbellek teklifleri sahiptir. Önbellek oluşturulduktan sonra uygulamanızın gereksinimlerini değiştirirseniz, boyutu ve fiyatlandırma katmanı önbellek ölçeklendirebilirsiniz. Bu makalede Azure portalı ve Azure PowerShell ve Azure CLI gibi araçları kullanarak, önbellek ölçeklendirme gösterilmektedir.
@@ -136,7 +136,7 @@ Hayır, önbellek adını ve anahtarlarını bir ölçeklendirme işlemi sıras�
 ### <a name="will-i-lose-data-from-my-cache-during-scaling"></a>My önbellekten ölçeklendirme sırasında miyim veriyi kaybedeceksiniz?
 * Olduğunda bir **temel** önbellek yeni bir boyuta ölçeklendirilir, tüm veriler kaybolur ve önbellek ölçeklendirme işlemi sırasında kullanılamaz.
 * Olduğunda bir **temel** önbellek ölçeği genişletilmiş bir **standart** önbellek, önbellekteki verilerin genellikle korunur.
-* Olduğunda bir **standart** daha büyük bir boyut veya katmanı önbellek ölçeği veya **Premium** önbellek daha büyük bir boyuta ölçeklendirilir, tüm veriler genellikle korunur. Ölçeklendirme bir **standart** veya **Premium** veri daha küçük bir boyut gösteriyor önbellek için yeni boyut ölçeklendiğinde ilgili önbellekte ne kadar veri olduğuna bağlı olarak kayıp. Veri ölçeği azaltma sırasında kaybolsa bile anahtarları kullanarak çıkarılan [allkeys lru](http://redis.io/topics/lru-cache) çıkarma ilkesi. 
+* Olduğunda bir **standart** daha büyük bir boyut veya katmanı önbellek ölçeği veya **Premium** önbellek daha büyük bir boyuta ölçeklendirilir, tüm veriler genellikle korunur. Ölçeklendirme bir **standart** veya **Premium** veri daha küçük bir boyut gösteriyor önbellek için yeni boyut ölçeklendiğinde ilgili önbellekte ne kadar veri olduğuna bağlı olarak kayıp. Veri ölçeği azaltma sırasında kaybolsa bile anahtarları kullanarak çıkarılan [allkeys lru](https://redis.io/topics/lru-cache) çıkarma ilkesi. 
 
 ### <a name="is-my-custom-databases-setting-affected-during-scaling"></a>My özel veritabanlarını ölçeklendirme sırasında etkilenen ayarlıyor?
 Özel bir değer için yapılandırılmışsa `databases` önbellek oluşturma işlemi sırasında ayarlama, bazı fiyatlandırma katmanlarını etkilenebileceğini sahip farklı [veritabanları sınırları](cache-configure.md#databases). Bu senaryoda ölçeklerken bazı noktalar şunlardır:

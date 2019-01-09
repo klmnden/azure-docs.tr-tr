@@ -14,12 +14,12 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: ff6a3f32d9163be01483e8b8c743caa4e5bb573c
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 8a78823a208a5310e62714de7b1a3cd2e35eaa8f
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53581258"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104684"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Azure önbelleği için Redis yapılandırma
 Bu konuda, Azure önbelleği için Redis örneği için yapılandırmaları açıklanmaktadır. Bu konuda, Azure Cache Redis örneği için varsayılan Redis sunucu yapılandırması da kapsar.
@@ -147,7 +147,7 @@ SSL olmayan erişim yeni önbellekler için varsayılan olarak devre dışı bı
 * `volatile-ttl`
 * `noeviction`
 
-Hakkında daha fazla bilgi için `maxmemory` ilkeleri, [çıkarma ilkelerinin](http://redis.io/topics/lru-cache#eviction-policies).
+Hakkında daha fazla bilgi için `maxmemory` ilkeleri, [çıkarma ilkelerinin](https://redis.io/topics/lru-cache#eviction-policies).
 
 **Maxmemory ayrılmış** ayarı, yük devretme sırasında çoğaltma gibi önbellek olmayan işlem için ayrılan MB cinsinden bellek miktarını yapılandırır. Bu değeri ayarlamak yük farklılık gösteriyorsa, daha tutarlı bir Redis sunucusuna deneyim sahip olmanızı sağlar. Bu değer, ağır yazma iş yükleri için yüksek olarak ayarlanmalıdır. Bu işlemler için ayrılmış bellek, önbelleğe alınan verilerin depolanması için kullanılamaz.
 
@@ -170,7 +170,7 @@ Anahtar alanı bildirimleri yapılandırılır redis **Gelişmiş ayarlar** dike
 > 
 > 
 
-Daha fazla bilgi için [Redis anahtar alanı bildirimleri](http://redis.io/topics/notifications). Örnek kod için bkz: [KeySpaceNotifications.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/KeySpaceNotifications.cs) dosyası [Merhaba Dünya](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) örnek.
+Daha fazla bilgi için [Redis anahtar alanı bildirimleri](https://redis.io/topics/notifications). Örnek kod için bkz: [KeySpaceNotifications.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/KeySpaceNotifications.cs) dosyası [Merhaba Dünya](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) örnek.
 
 
 <a name="recommendations"></a>
@@ -406,7 +406,7 @@ Yeni Azure Cache, Redis örneği için aşağıdaki varsayılan Redis yapıland�
 | `maxmemory-samples` |3 |Bellek kaydetmek için kesin bir algoritma yerine yaklaşık algoritmaları LRU ve TTL algoritmaları en az olan. Varsayılan olarak üç anahtar denetimleri ve çekme daha kısa bir süre önce kullanıldı bir Redis. |
 | `lua-time-limit` |5.000 |En fazla yürütme zamanı Lua komut dosyası milisaniye cinsinden. En fazla yürütme zamanı ulaşılırsa, Redis bir kod yürütülmesine izin verilen en fazla süre geçtikten sonra hala bulunduğu ve bir hata ile sorguları yanıtlamak başlatır günlüğe kaydeder. |
 | `lua-event-limit` |500 |Komut dosyası olay sırası en büyük boyutu. |
-| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |İstemci çıkış arabelleği sınırları veri yeterince hızlı sunucudan (Pub/Sub istemci iletileri yayımcı üretmek elimizden geldiğince hızlı kullanamıyor yaygın bir nedeni olduğundan) herhangi bir nedenden dolayı okuyorsanız olmayan istemciler bağlantısının kesilmesi zorlamak için kullanılabilir. Daha fazla bilgi için bkz. [http://redis.io/topics/clients](http://redis.io/topics/clients). |
+| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |İstemci çıkış arabelleği sınırları veri yeterince hızlı sunucudan (Pub/Sub istemci iletileri yayımcı üretmek elimizden geldiğince hızlı kullanamıyor yaygın bir nedeni olduğundan) herhangi bir nedenden dolayı okuyorsanız olmayan istemciler bağlantısının kesilmesi zorlamak için kullanılabilir. Daha fazla bilgi için bkz. [https://redis.io/topics/clients](https://redis.io/topics/clients). |
 
 <a name="databases"></a>
 <sup>1</sup>sınırı `databases` her Azure önbelleği için Redis fiyatlandırma katmanı için farklıdır ve önbellek oluşturma sırasında ayarlanabilir. Hayır ise `databases` ayarı belirtilen önbellek oluşturma işlemi sırasında varsayılan değer 16.
@@ -424,7 +424,7 @@ Yeni Azure Cache, Redis örneği için aşağıdaki varsayılan Redis yapıland�
   * Ö2 (13 GB 130 GB) - 32 veritabanları kadar
   * P3 (26 GB - 260 GB) - 48 veritabanları kadar
   * P4 (53 GB 530 GB) - 64 veritabanları kadar
-  * Redis kümesiyle etkin - tüm premium önbellekler Redis kümesi yalnızca 0 veritabanı kullanımını destekler. böylece `databases` etkin Redis kümesiyle tüm premium önbelleği etkili bir şekilde 1'dir sınırlandırmak ve [seçin](http://redis.io/commands/select) komut izin verilmiyor. Daha fazla bilgi için [kümeleme kullanmak üzere istemci uygulamamın herhangi bir değişiklik yapmanız gerekiyor mu?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
+  * Redis kümesiyle etkin - tüm premium önbellekler Redis kümesi yalnızca 0 veritabanı kullanımını destekler. böylece `databases` etkin Redis kümesiyle tüm premium önbelleği etkili bir şekilde 1'dir sınırlandırmak ve [seçin](https://redis.io/commands/select) komut izin verilmiyor. Daha fazla bilgi için [kümeleme kullanmak üzere istemci uygulamamın herhangi bir değişiklik yapmanız gerekiyor mu?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
 
 Veritabanları hakkında daha fazla bilgi için bkz. [Redis veritabanı nedir?](cache-faq.md#what-are-redis-databases)
 
@@ -473,14 +473,14 @@ Veritabanları hakkında daha fazla bilgi için bkz. [Redis veritabanı nedir?](
 > 
 > 
 
-Redis komutları hakkında daha fazla bilgi için bkz. [ http://redis.io/commands ](http://redis.io/commands).
+Redis komutları hakkında daha fazla bilgi için bkz. [ https://redis.io/commands ](https://redis.io/commands).
 
 ## <a name="redis-console"></a>Redis Konsolu
 Komutları kullanarak Redis örneği için Azure önbelleği için güvenli bir şekilde verebilir **Redis Konsolu**, kullanılabildiği tüm önbellek katmanları için Azure Portalı'nda.
 
 > [!IMPORTANT]
 > - Redis konsolu ile çalışmıyor [VNET](cache-how-to-premium-vnet.md). Önbelleğinizi bir sanal ağın parçası olduğunda, yalnızca sanal ağ istemcilerinde önbelleğe erişebilir. Redis Konsolu sanal ağ dışında olan yerel tarayıcınızda çalıştığından önbelleğinize bağlantı kurulamıyor.
-> - Redis komutları tüm Azure Cache Redis için desteklenir. Azure önbelleği için Redis için devre dışı bırakılmış Redis komutları listesi için bkz. önceki [Redis komutları Azure önbelleği için Redis desteklenmeyen](#redis-commands-not-supported-in-azure-cache-for-redis) bölümü. Redis komutları hakkında daha fazla bilgi için bkz. [ http://redis.io/commands ](http://redis.io/commands).
+> - Redis komutları tüm Azure Cache Redis için desteklenir. Azure önbelleği için Redis için devre dışı bırakılmış Redis komutları listesi için bkz. önceki [Redis komutları Azure önbelleği için Redis desteklenmeyen](#redis-commands-not-supported-in-azure-cache-for-redis) bölümü. Redis komutları hakkında daha fazla bilgi için bkz. [ https://redis.io/commands ](https://redis.io/commands).
 > 
 > 
 

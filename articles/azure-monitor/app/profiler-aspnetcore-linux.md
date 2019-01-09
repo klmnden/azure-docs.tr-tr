@@ -11,18 +11,18 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: bfd6f59ca61d14bc8187aa7c56c29ac44b40b8e9
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: cb294f0a3c22d52bc40f30e1d8655aed185857c6
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074299"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118498"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Application Insights Profiler ile ASP.NET Core Azure Linux web app'ler profil
 
 Bu özellik şu anda önizleme sürümündedir.
 
-Ne kadar zaman canlı web uygulamanızın her bir yöntemin kullanırken harcandığını Bul [Application Insights](../../application-insights/app-insights-overview.md). Application Insights Profiler, artık Linux'ta Azure App Service üzerinde barındırılan ASP.NET Core web uygulamaları için kullanılabilir. Bu kılavuz, Profiler izlemeleri ASP.NET Core Linux web apps için toplanabilir nasıl adım adım yönergeler sağlar.
+Ne kadar zaman canlı web uygulamanızın her bir yöntemin kullanırken harcandığını Bul [Application Insights](../../azure-monitor/app/app-insights-overview.md). Application Insights Profiler, artık Linux'ta Azure App Service üzerinde barındırılan ASP.NET Core web uygulamaları için kullanılabilir. Bu kılavuz, Profiler izlemeleri ASP.NET Core Linux web apps için toplanabilir nasıl adım adım yönergeler sağlar.
 
 Bu kılavuzu tamamladıktan sonra uygulamanızı Profiler izlemeleri izlemeler görüntüde gösterildiği gibi toplayabilirsiniz. Bu örnekte, Profiler izlemesi, belirli bir web isteği harcanan süre bekleme nedeniyle yavaş olduğunu gösterir. *Etkin yolu* uygulama yavaşlatıyor kodda bir Ateş simgesiyle işaretlenir. **Hakkında** yönteminde **HomeController** bölümü yöntemini çağırmak için web uygulaması yavaşlatmasını **net_thread_sleep** işlevi.
 

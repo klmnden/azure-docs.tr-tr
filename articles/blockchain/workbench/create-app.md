@@ -1,33 +1,35 @@
 ---
 title: Azure Blockchain Workbench uygulamasında bir blok zinciri uygulaması oluşturma
-description: Azure Blockchain Workbench uygulamasında bir blok zinciri uygulaması oluşturma
+description: Azure Blockchain Workbench uygulamasında bir blok zinciri uygulaması oluşturma Öğreticisi.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
-ms.topic: article
+ms.date: 1/8/2019
+ms.topic: tutorial
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: a7ca3f42874bc844bc0036e37a790ffebdc5f8d8
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 570d7a51bd6796a6360a4e52e637e1621a29deea
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48243489"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104395"
 ---
-# <a name="create-a-blockchain-application-in-azure-blockchain-workbench"></a>Azure Blockchain Workbench uygulamasında bir blok zinciri uygulaması oluşturma
+# <a name="tutorial-create-a-blockchain-application-in-azure-blockchain-workbench"></a>Öğretici: Azure Blockchain Workbench uygulamasında bir blok zinciri uygulaması oluşturma
 
 Azure Blockchain Workbench, çok kişili iş akışlarını yapılandırma ve akıllı sözleşme kodu tarafından tanımlanan temsil eden blok zinciri uygulamaları oluşturmak için kullanabilirsiniz.
 
-Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
+Şunları öğrenirsiniz:
 
 > [!div class="checklist"]
 > * Blok zinciri uygulaması yapılandırma
 > * Bir akıllı sözleşme kodu dosyası oluştur
 > * Blockchain Workbench'i bir blok zinciri uygulaması Ekle
 > * Blok zinciri uygulamaya üyeleri Ekle
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -236,56 +238,17 @@ Aşağıdaki sürüm pragma üstüne ekleyin `HelloBlockchain.sol` akıllı söz
   pragma solidity ^0.4.20;
   ```
 
-### <a name="base-class"></a>Temel sınıf
-
-**WorkbenchBase** Blockchain Workbench, sözleşmenin oluşturmak temel sınıf sağlar. Blockchain Workbench'i belirli akıllı sözleşme kod için temel sınıf gereklidir. Devralınacak sözleşmeniz gereken **WorkbenchBase** temel sınıfı.
-
-İçinde `HelloBlockchain.sol` akıllı sözleşme kod dosyası, ekleme **WorkbenchBase** dosyasının başında sınıfı. 
-
-```
-contract WorkbenchBase {
-    event WorkbenchContractCreated(string applicationName, string workflowName, address originatingAddress);
-    event WorkbenchContractUpdated(string applicationName, string workflowName, string action, address originatingAddress);
-
-    string internal ApplicationName;
-    string internal WorkflowName;
-
-    function WorkbenchBase(string applicationName, string workflowName) internal {
-        ApplicationName = applicationName;
-        WorkflowName = workflowName;
-    }
-
-    function ContractCreated() internal {
-        WorkbenchContractCreated(ApplicationName, WorkflowName, msg.sender);
-    }
-
-    function ContractUpdated(string action) internal {
-        WorkbenchContractUpdated(ApplicationName, WorkflowName, action, msg.sender);
-    }
-}
-```
-Temel sınıfı iki önemli işlevler içerir:
-
-|Temel sınıf işlevi  | Amaç  | Çağrısı yapıldığında  |
-|---------|---------|---------|
-| ContractCreated() | Blockchain Workbench'i sözleşme oluşturulan bildirir | Sözleşme Oluşturucusu çıkmadan önce |
-| ContractUpdated() | Blockchain Workbench'i anlaşması durum güncelleştirildi bildirir | Bir sözleşme işlev çıkmadan önce |
-
 ### <a name="configuration-and-smart-contract-code-relationship"></a>Yapılandırma ve akıllı sözleşme kodu ilişki
 
 Blockchain Workbench'i akıllı sözleşme kod dosyasını ve yapılandırma dosyası bir blok zinciri uygulaması oluşturmak için kullanır. Hangi yapılandırma ve akıllı sözleşme kodda tanımlanır arasında bir ilişki yoktur. Uygulama oluşturmak için eşleştirilecek podrobnosti o kontraktu, işlevleri, parametreler ve türleri gerekir. Blockchain Workbench'i uygulama oluşturma önce dosyaları doğrular. 
 
 ### <a name="contract"></a>Sözleşme
 
-Blockchain Workbench'i için sözleşmeler devralınacak gerek **WorkbenchBase** temel sınıfı. Sözleşme bildirirken, uygulama adı ve iş akışı adı bağımsız değişken olarak geçirmek gerekir.
-
-Ekleme **sözleşme** başlığına, `HelloBlockchain.sol` akıllı sözleşme kod dosyası. 
+Ekleme **sözleşme** başlığına, `HelloBlockchain.sol` akıllı sözleşme kod dosyası.
 
 ```
-contract HelloBlockchain is WorkbenchBase('HelloBlockchain', 'HelloBlockchain') {
+contract HelloBlockchain {
 ```
-
-Devralınacak sözleşmeniz gereken **WorkbenchBase** temel sınıfı ve parametreleri geçirin **ApplicationName** ve iş akışı **adı** yapılandırmasında tanımlandığı şekilde dosya. Bu durumda, uygulama adı ve iş akışı adı aynıdır.
 
 ### <a name="state-variables"></a>Durum değişkenleri
 
@@ -312,8 +275,6 @@ Oluşturucu, bir iş akışının yeni bir akıllı sözleşme örneği için gi
 
 Oluşturucu işlevi iş mantığı sözleşme oluşturmadan önce gerçekleştirmek istediğiniz yazın. Örneğin, değerleri başlangıç durumu değişkenlerini başlatın.
 
-Oluşturucu işlevi çıkmadan önce çağrı `ContractCreated()` işlevi. Bu işlev bir sözleşme oluşturulan Blockchain Workbench'i bildirir.
-
 Oluşturucu işlevi, sözleşmede ekleyin, `HelloBlockchain.sol` akıllı sözleşme kod dosyası. 
 
 ```
@@ -323,9 +284,6 @@ Oluşturucu işlevi, sözleşmede ekleyin, `HelloBlockchain.sol` akıllı sözle
         Requestor = msg.sender;
         RequestMessage = message;
         State = StateType.Request;
-    
-        // call ContractCreated() to create an instance of this workflow
-        ContractCreated();
     }
 ```
 
@@ -334,8 +292,6 @@ Oluşturucu işlevi, sözleşmede ekleyin, `HelloBlockchain.sol` akıllı sözle
 İşlevler, iş mantığı bir sözleşme içinde yürütülebilir birimleridir. İşlevi için gerekli parametreler, yapılandırma dosyasındaki işlevi parametre olarak tanımlanır. Her iki dosyada sayısı, sırası ve parametre türü eşleşmelidir. Yapılandırma dosyasındaki Blockchain Workbench'i akışındaki geçişleri ilişkili işlevlerdir. Geçiş, sözleşmesi tarafından belirlenen şekilde bir uygulamanın iş akışı bir sonraki adımına gitmek için gerçekleştirilen bir eylemdir.
 
 İş mantığı işlevi gerçekleştirmek istediğiniz yazın. Örneğin, bir durum değişkeninin değerini değiştirme.
-
-İşlev çıkmadan önce çağrı `ContractUpdated()` işlevi. İşlevi, Blockchain Workbench'i anlaşması durum güncelleştirildi bildirir. İşlevde yapılan durumu değişiklikleri geri almak istiyorsanız, revert() çağırın. Geri döndürme durum ContractUpdated() son çağrısından sonra yapılan değişiklikleri atar.
 
 1. Sözleşmeniz aşağıdaki işlevleri ekleyin, `HelloBlockchain.sol` akıllı sözleşme kod dosyası. 
 
@@ -347,12 +303,8 @@ Oluşturucu işlevi, sözleşmede ekleyin, `HelloBlockchain.sol` akıllı sözle
             {
                 revert();
             }
-    
             RequestMessage = requestMessage;
             State = StateType.Request;
-    
-            // call ContractUpdated() to record this action
-            ContractUpdated('SendRequest');
         }
     
         // call this function to send a response
@@ -360,10 +312,8 @@ Oluşturucu işlevi, sözleşmede ekleyin, `HelloBlockchain.sol` akıllı sözle
         {
             Responder = msg.sender;
     
-            // call ContractUpdated() to record this action
             ResponseMessage = responseMessage;
             State = StateType.Respond;
-            ContractUpdated('SendResponse');
         }
     }
     ```

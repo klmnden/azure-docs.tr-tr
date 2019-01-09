@@ -1,5 +1,5 @@
 ---
-title: 'Azure Analysis Services öğreticisi 4. Ders: İlişki oluşturma | Microsoft Docs'
+title: 'Azure Analysis Services Öğreticisi 4. Ders: İlişki oluşturma | Microsoft Docs'
 description: Azure Analysis Services öğretici projesinde ilişkilerin nasıl oluşturulacağını açıklar.
 author: minewiskan
 manager: kfile
@@ -8,24 +8,24 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7e791514cc25c645775de260e7f190ee20812d4b
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: d37b30708e3817460e5aa01f045c1e9f9032532e
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428502"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117750"
 ---
 # <a name="create-relationships"></a>İlişki oluşturma
 
 Bu derste, verileri içeri aktarıp farklı tablolar arasında yeni ilişkiler oluşturduğunuzda otomatik olarak oluşturulan ilişkileri doğrularsınız. İlişki, iki tablo arasında kurulan ve bu tablolardaki verilerin nasıl bağıntılı olması gerektiğini belirleyen bir bağlantıdır. Örneğin, DimProduct tablosu ile DimProductSubcategory tablosu arasında, her ürünün bir alt kategoriye ait olması temelinde bir ilişki mevcuttur. Daha fazla bilgi edinmek için bkz. [İlişkiler](https://docs.microsoft.com/sql/analysis-services/tabular-models/relationships-ssas-tabular).
   
-Bu dersin tahmini tamamlanma süresi: **10 dakika**  
+Bu dersi tamamlamak için tahmini süre: **10 dakika**  
   
 ## <a name="prerequisites"></a>Önkoşullar  
-Bu konu başlığı, sırayla tamamlanması gereken bir tablosal modelleme öğreticisinin parçasıdır. Bu dersteki görevleri gerçekleştirmeden önce, bir önceki dersi tamamlamış olmanız gerekir: [3. Ders: Tarih Tablosu olarak işaretleme](../tutorials/aas-lesson-3-mark-as-date-table.md). 
+Bu konu başlığı, sırayla tamamlanması gereken bir tablosal modelleme öğreticisinin parçasıdır. Bu dersteki görevleri gerçekleştirmeden önce bir önceki dersi tamamlamış olmanız gerekir: [3. Ders: Tarih tablosu olarak işaretle](../tutorials/aas-lesson-3-mark-as-date-table.md). 
   
 ## <a name="review-existing-relationships-and-add-new-relationships"></a>Mevcut ilişkileri gözden geçirme ve yeni ilişki ekleme  
-Veri Al seçeneğini kullanarak verileri içeri aktardığınızda, AdventureWorksDW2014 veritabanından yedi tablo aldınız. İlişkisel bir veritabanındaki verileri içeri aktardığınızda, verilerle birlikte genellikle mevcut ilişkiler de otomatik olarak içeri aktarılır. Veri Al seçeneğinin veri modelindeki ilişkileri otomatik olarak oluşturması için veri kaynağındaki tabloların arasında ilişki olması gerekir.
+Veri Al seçeneğini kullanarak verileri içeri aktardığınızda, AdventureWorksDW2014 veritabanından yedi tablo aldınız. İlişkisel bir veritabanındaki verileri içeri aktardığınızda, verilerle birlikte genellikle mevcut ilişkiler de otomatik olarak içeri aktarılır. Veri Al veri modelindeki ilişkileri otomatik olarak oluşturmasını için sırada olmalıdır ilişkileri veri kaynağındaki tabloların arasında.
 
 Kendi modelinizi yazmaya başlamadan önce tablolar arasındaki bu ilişkilerin düzgün oluşturulduğunu doğrulamanız gerekir. Bu öğretici için üç yeni ilişki de ekleyeceksiniz.  
 
@@ -60,7 +60,7 @@ Kendi modelinizi yazmaya başlamadan önce tablolar arasındaki bu ilişkilerin 
     |Evet|**FactInternetSales [CustomerKey]**|**DimCustomer [CustomerKey]**|  
     |Evet|**FactInternetSales [ProductKey]**|**DimProduct [ProductKey]**|  
   
-    İlişkilerden herhangi biri eksikse modelinizin şu tabloları içerdiğini doğrulayın: DimCustomer, DimDate, DimGeography, DimProduct, DimProductCategory, DimProductSubcategory ve FactInternetSales. Aynı veri kaynağı bağlantısından alınan tablolar farklı zamanlarda içeri aktarılmışsa, varsa bu tablolar arasındaki ilişkiler oluşturulmaz ve ilişkilerin el ile oluşturulması gerekir. İlişki olmaması, veri kaynağında da ilişki olmadığı anlamına gelir. Bunları veri modelinde el ile oluşturmanız gerekir.
+    İlişkilerden herhangi biri eksikse modelinizin şu tabloları içerir doğrulayın: DimCustomer, DimDate, DimGeography, DimProduct, DimProductCategory, DimProductSubcategory ve Factınternetsales. Aynı veri kaynağı bağlantısından alınan tablolar farklı zamanlarda içeri aktarılmışsa, varsa bu tablolar arasındaki ilişkiler oluşturulmaz ve ilişkilerin el ile oluşturulması gerekir. İlişki olmaması, veri kaynağında da ilişki olmadığı anlamına gelir. Bunları veri modelinde el ile oluşturmanız gerekir.
 
 ### <a name="take-a-closer-look"></a>Daha yakından bakın
 Diyagram Görünümü’nde tablolar arasındaki ilişkiyi gösteren çizgilerde bir ok, bir yıldız ve bir rakam olduğuna dikkat edin.
@@ -95,7 +95,7 @@ Bazı durumlarda, zincir iş mantığını desteklemek için modelinizdeki tablo
      ![aas-lesson4-newinactive](../tutorials/media/aas-lesson4-newinactive.png)
   
 ## <a name="whats-next"></a>Sırada ne var?
-[5. Ders: Hesaplanan sütun oluşturma](../tutorials/aas-lesson-5-create-calculated-columns.md).
+[5. Ders: Hesaplanan sütunlar oluşturma](../tutorials/aas-lesson-5-create-calculated-columns.md).
   
   
   

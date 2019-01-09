@@ -15,14 +15,14 @@ ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: f6f804ea9121d1728e31f1e694280e841f4b7f4e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 9683eb8cbfcabb946f8b364ac9cc8aeeb167d023
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946553"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120300"
 ---
-# <a name="quickstart-secure-a-web-api-with-azure-active-directory"></a>Hızlı başlangıç: Azure Active Directory ile Web API'sinin güvenliğini sağlama
+# <a name="quickstart-secure-a-web-api-with-azure-active-directory"></a>Hızlı Başlangıç: Web API'si Azure Active Directory ile güvenli hale getirme
 
 [!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
@@ -32,7 +32,7 @@ Bu hızlı başlangıç, API uç noktalarının güvenliğiyle ilgili konuları 
 
 Bu makaleyle ilişkilendirilmiş kod örneğinin tamamı [GitHub](https://github.com/Azure-Samples/active-directory-node-webapi-basic)'da sağlanır.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Başlamak için şu önkoşulları tamamlayın.
 
@@ -82,7 +82,7 @@ az ad app create --display-name node-aad-demo --homepage http://localhost --iden
 
 Azure Active Directory'ye bağlanabilmeniz için önce şu bilgilere ihtiyacınız vardır:
 
-| Adı  | Açıklama | Yapılandırma Dosyasında Değişken Adı |
+| Ad  | Açıklama | Yapılandırma Dosyasında Değişken Adı |
 | ------------- | ------------- | ------------- |
 | Kiracı Adı  | Kimlik doğrulaması için kullanmak istediğiniz [kiracı adı](quickstart-create-new-tenant.md) | `tenantName`  |
 | İstemci Kimliği  | İstemci kimliği, AAD _Uygulama Kimliği_ için kullanılan OAuth terimidir. |  `clientID`  |
@@ -106,9 +106,9 @@ Tek tek yapılandırma ayarlarıyla ilgili daha fazla bilgi için, [passport-azu
 
 ### <a name="implement-the-server"></a>Sunucuyu uygulama
 
-[passport-azure-ad](https://github.com/AzureAD/passport-azure-ad#5-usage) modülünün iki kimlik doğrulama stratejisi vardır: [OIDC](https://github.com/AzureAD/passport-azure-ad#51-oidcstrategy) ve [Taşıyıcı](https://github.com/AzureAD/passport-azure-ad#52-bearerstrategy) stratejileri. Bu makalede uygulanan sunucu, API uç noktasının güvenliğini sağlamak için Taşıyıcı stratejisini kullanır.
+[Passport-azure-ad](https://github.com/AzureAD/passport-azure-ad#5-usage) modül iki kimlik doğrulama stratejileri özellikleri: [OIDC](https://github.com/AzureAD/passport-azure-ad#51-oidcstrategy) ve [taşıyıcı](https://github.com/AzureAD/passport-azure-ad#52-bearerstrategy) stratejiler. Bu makalede uygulanan sunucu, API uç noktasının güvenliğini sağlamak için Taşıyıcı stratejisini kullanır.
 
-### <a name="step-1-import-dependencies"></a>1. Adım: Bağımlılıkları alma
+### <a name="step-1-import-dependencies"></a>1. Adım: İçeri aktarma bağımlılıkları
 
 `app.js` adlı yeni bir dosya oluşturun ve aşağıdaki metni yapıştırın:
 
@@ -132,7 +132,7 @@ Kodun bu bölümünde:
 - Kullanıcı belirteçleri güvenli uç noktalara geçirilirken bu belirteçleri depolamak üzere `authenticatedUserTokens` için bir dizi oluşturulur.
 - `serverPort`, işlem ortamının bağlantı noktasından veya yapılandırma dosyasından tanımlanır.
 
-### <a name="step-2-instantiate-an-authentication-strategy"></a>2. Adım: Kimlik doğrulama stratejisi örneği oluşturma
+### <a name="step-2-instantiate-an-authentication-strategy"></a>2. Adım: Kimlik doğrulama stratejisi örneği
 
 Uç noktayı güvenlik altına alırken, geçerli isteklerin kimliği doğrulanmış bir kullanıcıdan kaynaklanıp kaynaklanmadığını saptamaktan sorumlu olacak bir strateji sağlamalısınız. Burada, `authenticatonStrategy` değişkeni `passport-azure-ad` `BearerStrategy` sınıfının bir örneğidir. `require` deyiminin arkasında aşağıdaki kodu ekleyin.
 
@@ -166,14 +166,14 @@ passport.use(authenticationStrategy);
 Kimlik doğrulama stratejisi tanımlandıktan sonra, artık bazı temel ayarlarla Restify sunucusunu ayarlayabilir ve güvenlik için Passport kullanılmasını sağlayabilirsiniz.
 
 ```JavaScript
-const server = restify.createServer({ name: 'Azure Active Directroy with Node.js Demo' });
+const server = restify.createServer({ name: 'Azure Active Directory with Node.js Demo' });
 server.use(restifyPlugins.authorizationParser());
 server.use(passport.initialize());
 server.use(passport.session());
 ```
 Bu sunucu, kimlik doğrulama üst bilgilerini ayrıştırmak ve ardından Passport kullanılacak şekilde ayarlamak için başlatılır ve yapılandırılır.
 
-### <a name="step-4-define-routes"></a>4. Adım: Yolları tanımlama
+### <a name="step-4-define-routes"></a>4. Adım: Yolları tanımlayın
 
 Şimdi yolları tanımlayabilir ve Azure AD ile hangisinin güvenlik altına alınacağına karar verebilirsiniz. Bu projede iki yol vardır; kök düzeyi açıktır ve `/api` yolu kimlik doğrulaması gerektirecek şekilde ayarlanmıştır.
 
@@ -221,7 +221,7 @@ Sunucunuzu doğru yapılandırdıysanız, yanıt şuna benzer olmalıdır:
 
 ```shell
 HTTP/1.1 200 OK
-Server: Azure Active Directroy with Node.js Demo
+Server: Azure Active Directory with Node.js Demo
 Content-Type: application/json
 Content-Length: 49
 Date: Tue, 10 Oct 2017 18:35:13 GMT
@@ -240,7 +240,7 @@ Sunucuyu doğru yapılandırdıysanız, sunucu `Unauthorized` durumuyla yanıt v
 
 ```shell
 HTTP/1.1 401 Unauthorized
-Server: Azure Active Directroy with Node.js Demo
+Server: Azure Active Directory with Node.js Demo
 WWW-Authenticate: token is not found
 Date: Tue, 10 Oct 2017 16:22:03 GMT
 Connection: keep-alive

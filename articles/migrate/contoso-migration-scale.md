@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: raynew
-ms.openlocfilehash: ca7d565c020e8ac4510c7a65745a9e052b69551d
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: c36572230387ffc33a46913dbcc1259ea65f84f5
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063208"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104242"
 ---
 # <a name="contoso---scale-a-migration-to-azure"></a>Contoso - ölçek azure'a geçiş
 
@@ -289,7 +289,7 @@ Contoso kapasite konularına göre bu bileşenleri dağıtmanın nasıl ekleyece
 --- | ---
 **Maksimum günlük değişim hızı** | Bir tek işlem sunucusu günlük işleyebilir değişiklik hızı 2 TB'a kadar artırın. Bir sanal makine yalnızca bir işlem sunucusu kullanabildiğinden, çoğaltılmış bir VM için desteklenen en fazla günlük veri değişim hızı 2 TB'tır.
 **En fazla aktarım hızı** | Bir standart Azure depolama hesabı en fazla saniye başına 20.000 istekleri işleyebilir ve giriş/çıkış işlemi (IOPS) saniyede arasında çoğaltılan VM bu sınır içinde olmalıdır. Örneğin, bir sanal makine 5 diskler içeriyor ve 120 IOPS (8 K boyutu) VM'deki her disk oluşturur, ardından bu azure'da 500 IOPS sınırı disk başına olacaktır.<br/><br/> Gerekli depolama hesabı sayısı 20. 000'ile ayrılmış toplam kaynak makine IOPS, eşit olduğunu unutmayın. Çoğaltılmış bir makineden yalnızca azure'da tek bir depolama hesabına ait olabilir.
-**Yapılandırma sunucusu** | Contoso'nun tahminine 100 = 200 çoğaltmak dayanarak birlikte, VM'ler ve [yapılandırma sunucusu boyutlandırma gereksinimleri](../site-recovery/site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-configuration-server-along-with-in-built-process-server), Contoso tahmin gibidir gereksinimlerini configuration server makinesi:<br/><br/> CPU: 16 Vcpu (2 yuva * @ 2.5 GHz 8 çekirdek)<br/><br/> Bellek: 32 GB<br/><br/> Önbellek diski: 1 TB<br/><br/> Veri değişiklik oranı: 1 TB ile 2 TB.<br/><br/> Gereksinimleri boyutlandırma ek olarak, yapılandırma sunucusuna geçirilecek vm'lerle LAN kesimi ve aynı ağ üzerinde en uygun şekilde yer olduğundan emin olmak Contoso gerekir.
+**Yapılandırma sunucusu** | Contoso'nun tahminine 100 = 200 çoğaltmak dayanarak birlikte, VM'ler ve [yapılandırma sunucusu boyutlandırma gereksinimleri](../site-recovery/site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-configuration-server-and-inbuilt-process-server), Contoso tahmin gibidir gereksinimlerini configuration server makinesi:<br/><br/> CPU: 16 Vcpu (2 yuva * @ 2.5 GHz 8 çekirdek)<br/><br/> Bellek: 32 GB<br/><br/> Önbellek diski: 1 TB<br/><br/> Veri değişiklik oranı: 1 TB ile 2 TB.<br/><br/> Gereksinimleri boyutlandırma ek olarak, yapılandırma sunucusuna geçirilecek vm'lerle LAN kesimi ve aynı ağ üzerinde en uygun şekilde yer olduğundan emin olmak Contoso gerekir.
 **İşlem sunucusu** | Contoso 100 200 Vm'lerini çoğaltma özelliği sayesinde tek başına adanmış işlem sunucusu dağıtır:<br/><br/> CPU: 16 Vcpu (2 yuva * @ 2.5 GHz 8 çekirdek)<br/><br/> Bellek: 32 GB<br/><br/> Önbellek diski: 1 TB<br/><br/> Veri değişiklik oranı: 1 TB ile 2 TB.<br/><br/> İşlem sunucusu sabit çalışma olacaktır ve bu nedenle bir ESXi konağındaki disk g/ç ve ağ trafiğini çoğaltma için gereken CPU işleyebilir bulunması gerekir. Contoso, bu amaç için adanmış bir ana bilgisayar dikkate alacaktır. 
 **Ağ** | Contoso, geçerli siteden siteye VPN altyapısı gözden geçirdi ve Azure ExpressRoute uygulamaya karar verdi. Bu daha düşük gecikme süresi ve Contoso'nun birincil Doğu ABD 2 Azure bölgesini bant genişliğini iyileştirmek için kritik bir uygulamasıdır.<br/><br/> **İzleme**: Contoso veri akışının işlem sunucusundan dikkatle izlemeniz gerekir. Veri Contoso dikkate alınır ağ bant genişliği aşırı varsa [işlem sunucusu bant genişliği azaltma](../site-recovery/site-recovery-plan-capacity-vmware.md#control-network-bandwidth).
 **Azure depolama alanı** | Geçiş için doğru tür ve sayıda hedef Azure depolama hesabı, Contoso tanımlamanız gerekir.  Site Recovery, sanal makine verilerini Azure depolama alanına çoğaltır.<br/><br/> Site Recovery, standart veya premium (SSD) depolama hesaplarına çoğaltabilir.<br/><br/> Depolama hakkında karar vermek üzere Contoso gözden geçirmelisiniz [depolama sınırları](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)ve beklenen büyüme ve artan kullanım zaman içinde faktörü. Hız ve geçişlerin öncelik verildiğinde, Contoso, premium depolama hesapları kullanmaya karar verdi.<br/><br/> Bunlar, oluşturma ve birden fazla depolama hesabı geçiş işlemi sırasında yeniden.

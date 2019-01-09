@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: adgera
 ms.custom: seodec18
-ms.openlocfilehash: 9abf1eebe8174160bd671d83086ed641708b98eb
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 36f4caac38f2f4891af6f61b78b55c7eff15eae4
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54073960"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54116747"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Azure dijital İkizlerini nesnelerine BLOB Ekle
 
-Resimler ve günlükleri gibi yaygın dosya türleri yapılandırılmamış temsillerini blobudur. Bir MIME türü kullanarak temsil ettikleri ne tür veriler BLOB'ları izlemek (örneğin: "image/jpeg") ve meta verileri (adı, açıklamayı, türü ve benzeri).
+Resimler ve günlükleri gibi yaygın dosya türleri yapılandırılmamış temsillerini blobudur. BLOB'ları izlemek bir MIME türü kullanarak temsil ettikleri ne tür veriler (örneğin: "image/jpeg") ve meta verileri (adı, açıklamayı, türü ve benzeri).
 
 Azure dijital İkizlerini cihazlara, boşluk ve kullanıcılara düğmelere bloblarını destekler. BLOB'ları, bir kullanıcı, cihaz fotoğraf, video, bir harita, üretici yazılımı zip, JSON verilerini, bir günlük, vb. bir profil resmi temsil edebilir.
 
@@ -202,7 +202,7 @@ Doğru üst bilgi bilgileri dahil yaygın bir hatadır:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure dijital çiftleri için Swagger başvuru belgeleri hakkında daha fazla bilgi edinmek için [kullanımı Azure dijital İkizlerini Swagger](how-to-use-swagger.md).
+- Azure dijital çiftleri için Swagger başvuru belgeleri hakkında daha fazla bilgi edinmek için [kullanımı Azure dijital İkizlerini Swagger](how-to-use-swagger.md).
 
 <!-- Images -->
 [1]: media/how-to-add-blobs/blob-models.PNG

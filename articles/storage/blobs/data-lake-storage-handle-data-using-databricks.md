@@ -1,6 +1,6 @@
 ---
-title: Azure Databricks'i kullanarak ayıklama, yükleme ve aktarma işlemlerini gerçekleştirmeyi öğrenin
-description: Azure Data Lake Storage Gen2 Önizleme'den Azure Databricks'e veri ayıklamayı, verileri dönüştürmeyi ve sonra da Azure SQL Veri Ambarı'na yüklemeyi öğrenin.
+title: 'Öğretici: Ayıklama, yerine yükleyin ve aktarımı işlemlerinin Azure Databricks kullanarak'
+description: Bu öğreticide, verileri Azure Data Lake depolama Gen2 Preview'dan Azure Databricks'e veri ayıklamayı, verileri dönüştürün ve ardından verileri Azure SQL Data Warehouse'a veri yükleme konusunda bilgi edinin.
 services: storage
 author: jamesbak
 ms.service: storage
@@ -8,354 +8,339 @@ ms.author: jamesbak
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 108495c367bdb50ed4799aab929e4d26ad14ab87
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 6b2812e31174c4e5d61ae9941563e39357de9522
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975744"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107098"
 ---
-# <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Öğretici: Azure Databricks kullanarak verileri ayıklama, dönüştürme ve yükleme
+# <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Öğretici: Ayıklama, dönüştürme ve Azure Databricks kullanarak verileri yüklemek
 
-Bu öğreticide Azure Databricks kullanarak Azure Data Lake Storage 2. Nesil etkin bir Azure Depolama hesabından Azure SQL Veri Ambarı'na veri aktarmak için bir ETL (veri ayıklama, dönüştürme ve yükleme) işlemi gerçekleştireceksiniz.
+Bu öğreticide, bir ETL (ayıklama, dönüştürme ve veri yükleme) gerçekleştirmek için Azure Databricks'i kullanmayı işlemi. Azure Data Lake depolama 2. nesil Azure SQL veri ambarı'na etkin olan bir Azure depolama hesabındaki verileri taşıyın.
 
-Aşağıdaki şekilde uygulama akışı gösterilmektedir:
-
-![Data Lake Storage Gen2 ve SQL Veri Ambarı ile Azure Databricks](./media/data-lake-storage-handle-data-using-databricks/databricks-extract-transform-load-sql-datawarehouse.png "Data Lake Storage Gen2 ve SQL Veri Ambarı ile Azure Databricks")
-
-Bu öğretici aşağıdaki görevleri kapsar:
+Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Azure Databricks çalışma alanı oluşturma
-> * Azure Databricks’te Spark kümesi oluşturma
-> * Azure Data Lake Storage Gen2 uyumlu bir hesap oluşturma
-> * Azure Data Lake Storage Gen2'ye veri yükleme
-> * Azure Databricks’te not defteri oluşturma
-> * Data Lake Storage Gen2'den veri ayıklama
-> * Azure Databricks'te verileri dönüştürme
-> * Azure SQL Veri Ambarı’na veri yükleme
+> * Bir Azure Databricks çalışma alanı oluşturun.
+> * Azure Databricks'te Spark kümesi oluşturma.
+> * Azure Data Lake depolama Gen2 yeteneğine sahip bir hesap oluşturun.
+> * Verileri Azure Data Lake depolama Gen2 karşıya yükleyin.
+> * Azure Databricks'te not defteri oluşturun.
+> * Data Lake depolama Gen2 ' verileri ayıklayın.
+> * Azure databricks'te verileri dönüştürün.
+> * Verileri Azure SQL veri ambarı'na yükleyin.
 
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için:
 
-* Bir Azure SQL Veri Ambarı oluşturun, sunucu düzeyi güvenlik duvarı kuralı oluşturun ve sunucu yöneticisi olarak sunucuya bağlanın. [Hızlı başlangıç: Azure SQL Veri Ambarı oluşturma](../../sql-data-warehouse/create-data-warehouse-portal.md) başlığı altındaki yönergeleri izleyin
-* Azure SQL Veri Ambarı için veritabanı ana anahtarı oluşturun. [Veritabanı Ana Anahtarı oluşturma](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key) başlığı altındaki yönergeleri izleyin.
-* [Azure Data Lake Storage Gen2 hesabı oluşturma](data-lake-storage-quickstart-create-account.md)
+* Bir Azure SQL veri ambarı oluşturma, sunucu düzeyinde güvenlik duvarı kuralı oluşturun ve sunucu yöneticisi olarak sunucuya bağlanma Bölümündeki yönergeleri [hızlı başlangıç: Bir Azure SQL veri ambarı oluşturma](../../sql-data-warehouse/create-data-warehouse-portal.md) makalesi.
+* Azure SQL veri ambarı için veritabanı ana anahtarı oluşturun. Bölümündeki yönergeleri [bir veritabanı ana anahtarı oluşturma](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key) makalesi.
+* [Azure Data Lake depolama Gen2 hesabı oluşturma](data-lake-storage-quickstart-create-account.md).
+* [U-SQL Examples and Issue Tracking](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) deposundan (**small_radio_json.json**) dosyasını indirin ve kaydettiğiniz yeri not edin.
+* [Azure Portal](https://portal.azure.com/) oturum açın.
 
-## <a name="sign-in-to-the-azure-portal"></a>Azure Portal'da oturum açma
+## <a name="create-the-workspace"></a>Çalışma alanı oluşturma
 
-[Azure Portal](https://portal.azure.com/) oturum açın.
-
-## <a name="create-an-azure-databricks-workspace"></a>Azure Databricks çalışma alanı oluşturma
-
-Bu bölümde Azure portalını kullanarak bir Azure Databricks çalışma alanı oluşturursunuz.
+Bu bölümde, Azure portalını kullanarak bir Azure Databricks çalışma alanı oluşturun.
 
 1. Azure portalında **Kaynak oluşturun** > **Analiz** > **Azure Databricks**'i seçin.
 
     ![Azure portalında Databricks](./media/data-lake-storage-handle-data-using-databricks/azure-databricks-on-portal.png "Databricks on Azure portal")
 
-2. **Azure Databricks Hizmeti** bölümünde, Databricks çalışma alanı oluşturmak için değerler sağlayın.
-
-    ![Azure Databricks çalışma alanı oluşturma](./media/data-lake-storage-handle-data-using-databricks/create-databricks-workspace.png "Create an Azure Databricks workspace")
-
-    Aşağıdaki değerleri sağlayın:
+1. Altında **Azure Databricks hizmeti**, Databricks çalışma alanı oluşturmak için aşağıdaki değerleri sağlayın:
 
     |Özellik  |Açıklama  |
     |---------|---------|
     |**Çalışma alanı adı**     | Databricks çalışma alanınız için bir ad sağlayın.        |
     |**Abonelik**     | Açılan listeden Azure aboneliğinizi seçin.        |
     |**Kaynak grubu**     | Yeni bir kaynak grubu oluşturmayı veya mevcut bir kaynak grubunu kullanmayı seçin. Kaynak grubu, bir Azure çözümü için ilgili kaynakları bir arada tutan kapsayıcıdır. Daha fazla bilgi için bkz. [Azure Kaynak Grubuna genel bakış](../../azure-resource-manager/resource-group-overview.md). |
-    |**Konum**     | **Batı ABD 2**'yi seçin. Kullanılabilir diğer bölgeler için bkz. [Bölgeye göre kullanılabilir Azure hizmetleri](https://azure.microsoft.com/regions/services/).        |
-    |**Fiyatlandırma Katmanı**     |  **Standart** veya **Premium** arasında seçim yapın. Bu katmanlar hakkında daha fazla bilgi için bkz. [Databricks fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/databricks/).       |
+    |**Konum**     | **Batı ABD 2**'yi seçin.        |
+    |**Fiyatlandırma Katmanı**     |  Seçin **standart**.     |
 
-    **Panoya sabitle**’yi ve sonra **Oluştur**’u seçin.
+    ![Azure Databricks çalışma alanı oluşturma](./media/data-lake-storage-handle-data-using-databricks/create-databricks-workspace.png "Create an Azure Databricks workspace")
 
-3. Hesabın oluşturulması birkaç dakika sürer. Hesap oluşturma sırasında portal sağ tarafta **Azure Databricks için dağıtım gönderiliyor** kutucuğunu gösterir. Kutucuğu görmek için panonuzu sağa kaydırmanız gerekebilir. Ayrıca, ekranın üst kısmında gösterilen bir ilerleme çubuğu vardır. İlerleme durumu için her iki alanı da izleyebilirsiniz.
+1. **Panoya sabitle**’yi ve sonra **Oluştur**’u seçin.
+
+1. Hesabın oluşturulması birkaç dakika sürer. Hesap oluşturma sırasında portal görüntüler **Azure Databricks için dağıtım gönderiliyor** kutucuğuna sağ tarafta. İşlem durumunu izlemek için üst kısmında ilerleme çubuğunu görüntüleyin.
 
     ![Databricks dağıtım kutucuğu](./media/data-lake-storage-handle-data-using-databricks/databricks-deployment-tile.png "Databricks dağıtım kutucuğu")
 
-## <a name="create-a-spark-cluster-in-databricks"></a>Databricks’te Spark kümesi oluşturma
+## <a name="create-the-spark-cluster"></a>Spark kümesi oluşturma
 
-1. Azure portalında, oluşturduğunuz Databricks çalışma alanına gidin ve sonra **Çalışma Alanını Başlat**’ı seçin.
+Bu öğreticide işlemleri gerçekleştirmek için bir Spark kümesi gerekir. Spark kümesi oluşturmak için aşağıdaki adımları kullanın.
 
-2. Azure Databricks portalına yönlendirilirsiniz. Portaldan **Küme**’yi seçin.
+1. Azure portalında, oluşturduğunuz Databricks çalışma alanına gidin ve seçin **çalışma alanını Başlat**.
+
+1. Azure Databricks portalına yönlendirilirsiniz. Portaldan **Küme**’yi seçin.
 
     ![Azure’da Databricks](./media/data-lake-storage-handle-data-using-databricks/databricks-on-azure.png "Databricks on Azure")
 
-3. **Yeni küme** sayfasında, bir küme oluşturmak için değerleri girin.
+1. **Yeni küme** sayfasında, bir küme oluşturmak için değerleri girin.
 
     ![Azure’da Databricks Spark kümesi oluşturma](./media/data-lake-storage-handle-data-using-databricks/create-databricks-spark-cluster.png "Create Databricks Spark cluster on Azure")
 
-    Aşağıdaki alanlara değerleri girin ve diğer alanlar için varsayılan değerleri kabul edin:
+1. Aşağıdaki alanlara değerleri girin ve diğer alanlar için varsayılan değerleri kabul edin:
 
     * Küme için bir ad girin.
-    * Bu makale için **4.2** çalışma zamanıyla bir küme oluşturun.
-    * **\_\_ dakika işlem yapılmadığında sonlandır** onay kutusunu seçtiğinizden emin olun. Küme kullanılmazsa kümenin sonlandırılması için biz süre (dakika cinsinden) belirtin.
+    * Bu makale için bir küme oluşturun **5.1** çalışma zamanı.
+    * Seçtiğinizden emin olun **sonra Sonlandır \_ \_ yapılmadan geçecek dakika cinsinden** onay kutusu. Küme kullanılmıyor ise küme sonlandırmak için bir süre (dakika cinsinden) belirtin.
 
-    **Küme oluştur**’u seçin. Küme çalışmaya başladıktan sonra kümeye not defterleri ekleyebilir ve Spark işleri çalıştırabilirsiniz.
+1. **Küme oluştur**’u seçin.
 
-## <a name="create-storage-account-file-system"></a>Depolama hesabı dosya sistemi oluşturma
+Küme çalışmaya başladıktan sonra kümeye not defterleri ekleme ve Spark işleri çalıştırabilirsiniz.
 
-Bu bölümde, Azure Databricks çalışma alanında bir not defteri oluşturacak ve ardından depolama hesabını yapılandırmak için kod parçacıklarını çalıştıracaksınız.
+## <a name="create-a-file-system"></a>Bir dosya sistemi oluşturun
 
-1. [Azure portalında](https://portal.azure.com), oluşturduğunuz Azure Databricks çalışma alanına gidin ve sonra **Çalışma Alanını Başlat**’ı seçin.
+Data Lake depolama Gen2'ye depolama hesabınızdaki verileri depolamak için bir dosya sistemi oluşturmak gerekir.
 
-2. Sol bölmede **Çalışma Alanı**’nı seçin. **Çalışma Alanı** açılır listesinden **Oluştur** > **Not Defteri**’ni seçin.
+İlk olarak, Azure Databricks çalışma alanınızda bir not defteri oluşturun ve ardından dosya sistemi depolama hesabınızı oluşturmak için kod parçacıkları çalıştırırsınız.
 
-    ![Databricks’te not defteri oluşturma](./media/data-lake-storage-handle-data-using-databricks/databricks-create-notebook.png "Create notebook in Databricks")
+1. İçinde [Azure portalında](https://portal.azure.com), oluşturduğunuz Azure Databricks çalışma alanına gidin ve seçin **çalışma alanını Başlat**.
 
-3. **Not Defteri Oluştur** iletişim kutusunda, not defterinizin adını girin. Dil olarak **Scala**’yı seçin ve daha önce oluşturduğunuz Spark kümesini seçin.
+1. Sol tarafta, seçin **çalışma**. **Çalışma Alanı** açılır listesinden **Oluştur** > **Not Defteri**’ni seçin.
 
-    ![Databricks’te not defteri oluşturma](./media/data-lake-storage-handle-data-using-databricks/databricks-notebook-details.png "Create notebook in Databricks")
+    ![Databricks'te not defteri oluşturma](./media/data-lake-storage-handle-data-using-databricks/databricks-create-notebook.png "Databricks not defteri oluşturma")
+
+1. **Not Defteri Oluştur** iletişim kutusunda, not defterinizin adını girin. Dil olarak **Scala**’yı seçin ve daha önce oluşturduğunuz Spark kümesini seçin.
+
+    ![Bir Databricks not defteri için ayrıntıları sağlayın](./media/data-lake-storage-handle-data-using-databricks/databricks-notebook-details.png "bir Databricks not defteri için ayrıntıları sağlayın")
 
     **Oluştur**’u seçin.
 
-4. İlk hücreye aşağıdaki kodu girin ve kod yürütün. Gösterilen örnekte kendi değerlerinizle köşeli ayraçlar içindeki yer tutucuları değiştirmeniz unutmayın:
+1. İlk not defteri hücreye aşağıdaki kodu girin ve kod yürütün. Gösterilen örnekte kendi değerlerinizle köşeli ayraçlar içindeki yer tutucuları değiştirin:
 
-        ```scala
-        %python%
-        configs = {"fs.azure.account.auth.type": "OAuth",
-            "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
-            "fs.azure.account.oauth2.client.id": "<service-client-id>",
-            "fs.azure.account.oauth2.client.secret": "<service-credentials>",
-            "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant-id>/oauth2/token"}
+    ```scala
+    %python%
+    configs = {"fs.azure.account.auth.type": "OAuth",
+        "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
+        "fs.azure.account.oauth2.client.id": "<service-client-id>",
+        "fs.azure.account.oauth2.client.secret": "<service-credentials>",
+        "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant-id>/oauth2/token"}
      
-        dbutils.fs.mount(
-            source = "abfss://<file-system-name>@<account-name>.dfs.core.windows.net/[<directory-name>]",
-            mount_point = "/mnt/<mount-name>",
-            extra_configs = configs)
-        ```
+    dbutils.fs.mount(
+        source = "abfss://<file-system-name>@<account-name>.dfs.core.windows.net/[<directory-name>]",
+        mount_point = "/mnt/<mount-name>",
+        extra_configs = configs)
+    ```
 
-5. Kod hücresini çalıştırmak için **SHIFT + ENTER** tuşlarına basın.
+1. Kodu çalıştırmak için SHIFT + Enter tuşlarını seçin.
 
 Depolama hesabı için dosya sistemi oluşturulmuş olur.
 
-## <a name="upload-data-to-the-storage-account"></a>Verileri depolama hesabına yükleme
+## <a name="upload-the-sample-data"></a>Örnek verileri karşıya yükleme
 
-Bir sonraki adım, örnek verileri daha sonra Azure Databricks'te dönüştürmek üzere depolama hesabına yüklemektir. 
+Daha sonra Azure Databricks'te dönüştürmek için depolama hesabı için bir örnek veri dosyasını karşıya yüklemek için sonraki adımdır bakın.
 
-> [!NOTE]
-> Azure Data Lake Storage Gen2 ile uyumlu bir hesabınız yoksa [oluşturmak için hızlı başlangıç](./data-lake-storage-quickstart-create-account.md) bölümüne bakın.
+Depolama hesabınıza yüklediğiniz örnek verileri karşıya yükleyin. Verileri, depolama hesabınıza yüklemek için kullandığınız yöntem, hiyerarşik ad alanı etkin olmasına bağlı olarak farklılık gösterir.
 
-1. [U-SQL Examples and Issue Tracking](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) deposundan (**small_radio_json.json**) dosyasını indirin ve kaydettiğiniz yeri not edin.
+Karşıya yükleme yapmak için Azure Data Factory, distp veya AzCopy (sürüm 10) kullanabilirsiniz. Sürüm 10 AzCopy şu anda yalnızca önizleme kullanılabilir. AzCopy'yi kullanmak için aşağıdaki kodu bir komut penceresine yapıştırın:
 
-2. Sonraki adımda örnek verileri depolama hesabınıza yükleyin. Verileri depolama hesabınıza yüklemek için kullandığınız yöntem, hiyerarşik ad alanını etkinleştirme durumuna göre değişiklik gösterir.
+```bash
+set ACCOUNT_NAME=<ACCOUNT_NAME>
+set ACCOUNT_KEY=<ACCOUNT_KEY>
+azcopy cp "<DOWNLOAD_PATH>\small_radio_json.json" https://<ACCOUNT_NAME>.dfs.core.windows.net/data --recursive 
+```
 
-    Hiyerarşik ad alanı Azure Depolama hesabınızda etkinleştirilmişse yükleme için Azure Data Factory, distp veya AzCopy (sürüm 10) araçlarını kullanabilirsiniz. AzCopy sürüm 10 şu anda yalnızca önizleme yoluyla kullanılabilir. AzCopy'yi kullanmak için aşağıdaki kodu bir komut penceresine yapıştırın:
+## <a name="extract-the-data"></a>Veri ayıklamak
 
-    ```bash
-    set ACCOUNT_NAME=<ACCOUNT_NAME>
-    set ACCOUNT_KEY=<ACCOUNT_KEY>
-    azcopy cp "<DOWNLOAD_PATH>\small_radio_json.json" https://<ACCOUNT_NAME>.dfs.core.windows.net/data --recursive 
-    ```
-    
-## <a name="extract-data-from-azure-storage"></a>Azure Depolama verilerini ayıklama
+Databricks'te örnek verilerle çalışmak için depolama hesabınızdan verileri ayıklamak gerekir.
 
-DataBricks Not Defterinize dönün ve aşağıdaki kodu yeni bir hücreye girin:
+Databricks not defterinize dönün ve yeni bir not defterinizin hücresinde aşağıdaki kodu girin.
 
-1. Aşağıdaki kod parçacığını boş bir kod hücresine ekleyin ve yer tutucu değerleri daha önce depolama hesabından kaydettiğiniz değerlerle değiştirin.
+Aşağıdaki kod parçacığında, bir boş bir kod hücresine ekleyin. Depolama hesabından daha önce kaydettiğiniz değerlerle parantez içinde gösterilen yer tutucularını değiştirin.
 
-    ```scala
-    dbutils.widgets.text("storage_account_name", "STORAGE_ACCOUNT_NAME", "<YOUR_STORAGE_ACCOUNT_NAME>")
-    dbutils.widgets.text("storage_account_access_key", "YOUR_ACCESS_KEY", "<YOUR_STORAGE_ACCOUNT_SHARED_KEY>")
-    ```
+```scala
+dbutils.widgets.text("storage_account_name", "STORAGE_ACCOUNT_NAME", "<YOUR_STORAGE_ACCOUNT_NAME>")
+dbutils.widgets.text("storage_account_access_key", "YOUR_ACCESS_KEY", "<YOUR_STORAGE_ACCOUNT_SHARED_KEY>")
+```
 
-    Kod hücresini çalıştırmak için **SHIFT + ENTER** tuşlarına basın.
+Kodu çalıştırmak için SHIFT + Enter tuşlarını seçin.
 
-2. Artık Azure Databricks'e veri çerçevesi olarak örnek json dosyasını yükleyebilirsiniz. Aşağıdaki kodu yeni bir hücreye yapıştırıp **SHIFT + ENTER** tuşlarına basın (yer tutucu değerlerini değiştirdiğinizden emin olun):
+Artık Azure Databricks'e veri çerçevesi olarak örnek json dosyasını yükleyebilirsiniz. Aşağıdaki kod, yeni bir hücreye yapıştırın. Yer tutucuları değerleriniz ile parantez içinde gösterilen değiştirin.
 
-    ```scala
-    val df = spark.read.json("abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/data/small_radio_json.json")
-    ```
+```scala
+val df = spark.read.json("abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/data/small_radio_json.json")
+```
 
-3. Veri çerçevesinin içeriğini görmek için aşağıdaki kodu çalıştırın.
+Kodu çalıştırmak için SHIFT + Enter tuşlarını seçin.
 
-    ```scala
-    df.show()
-    ```
+Veri çerçevesinin içeriğini görmek için aşağıdaki kodu çalıştırın:
 
-    Aşağıdaki kod parçacığına benzer bir çıkış görürsünüz:
+```scala
+df.show()
+```
 
-    ```bash
-    +---------------------+---------+---------+------+-------------+----------+---------+-------+--------------------+------+--------+-------------+---------+--------------------+------+-------------+------+
-    |               artist|     auth|firstName|gender|itemInSession|  lastName|   length|  level|            location|method|    page| registration|sessionId|                song|status|           ts|userId|
-    +---------------------+---------+---------+------+-------------+----------+---------+-------+--------------------+------+--------+-------------+---------+--------------------+------+-------------+------+
-    | El Arrebato         |Logged In| Annalyse|     F|            2|Montgomery|234.57914| free  |  Killeen-Temple, TX|   PUT|NextSong|1384448062332|     1879|Quiero Quererte Q...|   200|1409318650332|   309|
-    | Creedence Clearwa...|Logged In|   Dylann|     M|            9|    Thomas|340.87138| paid  |       Anchorage, AK|   PUT|NextSong|1400723739332|       10|        Born To Move|   200|1409318653332|    11|
-    | Gorillaz            |Logged In|     Liam|     M|           11|     Watts|246.17751| paid  |New York-Newark-J...|   PUT|NextSong|1406279422332|     2047|                DARE|   200|1409318685332|   201|
-    ...
-    ...
-    ```
+Aşağıdaki kod parçacığına benzer bir çıkış görürsünüz:
+
+```bash
++---------------------+---------+---------+------+-------------+----------+---------+-------+--------------------+------+--------+-------------+---------+--------------------+------+-------------+------+
+|               artist|     auth|firstName|gender|itemInSession|  lastName|   length|  level|            location|method|    page| registration|sessionId|                song|status|           ts|userId|
++---------------------+---------+---------+------+-------------+----------+---------+-------+--------------------+------+--------+-------------+---------+--------------------+------+-------------+------+
+| El Arrebato         |Logged In| Annalyse|     F|            2|Montgomery|234.57914| free  |  Killeen-Temple, TX|   PUT|NextSong|1384448062332|     1879|Quiero Quererte Q...|   200|1409318650332|   309|
+| Creedence Clearwa...|Logged In|   Dylann|     M|            9|    Thomas|340.87138| paid  |       Anchorage, AK|   PUT|NextSong|1400723739332|       10|        Born To Move|   200|1409318653332|    11|
+| Gorillaz            |Logged In|     Liam|     M|           11|     Watts|246.17751| paid  |New York-Newark-J...|   PUT|NextSong|1406279422332|     2047|                DARE|   200|1409318685332|   201|
+...
+...
+```
 
 Artık verileri Azure Data Lake Storage Gen2'den Azure Databricks'e ayıkladınız.
 
-## <a name="transform-data-in-azure-databricks"></a>Azure Databricks'te verileri dönüştürme
+## <a name="transform-the-data"></a>Verileri dönüştürme
 
-Ham örnek veriler (**small_radio_json.json**) radyo istasyonunun hedef kitlesini yakalar ve çeşitli sütunları vardır. Bu bölümde, veri kümesinden yalnızca belirli sütunları içeri almak için verileri dönüştürürsünüz.
+Ham örnek veriler **small_radio_json.json** dosya radyo istasyonunun hedef kitlesini yakalar ve çeşitli sütunları vardır. Bu bölümde, veri kümesinden yalnızca belirli sütunları alınacak verileri dönüştürün.
 
-1. Oluşturduğunuz veri çerçevesinden yalnızca *firstName*, *lastName*, *gender*, *location* ve *level* sütunlarını alarak başlayın.
+İlk olarak, yalnızca sütunları almak **firstName**, **lastName**, **cinsiyet**, **konumu**, ve **düzeyi**, oluşturulan veri çerçevesi'nden.
 
-    ```scala
-    val specificColumnsDf = df.select("firstname", "lastname", "gender", "location", "level")
-    ```
+```scala
+val specificColumnsDf = df.select("firstname", "lastname", "gender", "location", "level")
+```
 
-    Aşağıdaki kod parçacığında gösterildiği gibi bir çıkış alırsınız:
+Aşağıdaki kod parçacığında gösterildiği gibi bir çıktı alırsınız:
 
-    ```bash
-    +---------+----------+------+--------------------+-----+
-    |firstname|  lastname|gender|            location|level|
-    +---------+----------+------+--------------------+-----+
-    | Annalyse|Montgomery|     F|  Killeen-Temple, TX| free|
-    |   Dylann|    Thomas|     M|       Anchorage, AK| paid|
-    |     Liam|     Watts|     M|New York-Newark-J...| paid|
-    |     Tess|  Townsend|     F|Nashville-Davidso...| free|
-    |  Margaux|     Smith|     F|Atlanta-Sandy Spr...| free|
-    |     Alan|     Morse|     M|Chicago-Napervill...| paid|
-    |Gabriella|   Shelton|     F|San Jose-Sunnyval...| free|
-    |   Elijah|  Williams|     M|Detroit-Warren-De...| paid|
-    |  Margaux|     Smith|     F|Atlanta-Sandy Spr...| free|
-    |     Tess|  Townsend|     F|Nashville-Davidso...| free|
-    |     Alan|     Morse|     M|Chicago-Napervill...| paid|
-    |     Liam|     Watts|     M|New York-Newark-J...| paid|
-    |     Liam|     Watts|     M|New York-Newark-J...| paid|
-    |   Dylann|    Thomas|     M|       Anchorage, AK| paid|
-    |     Alan|     Morse|     M|Chicago-Napervill...| paid|
-    |   Elijah|  Williams|     M|Detroit-Warren-De...| paid|
-    |  Margaux|     Smith|     F|Atlanta-Sandy Spr...| free|
-    |     Alan|     Morse|     M|Chicago-Napervill...| paid|
-    |   Dylann|    Thomas|     M|       Anchorage, AK| paid|
-    |  Margaux|     Smith|     F|Atlanta-Sandy Spr...| free|
-    +---------+----------+------+--------------------+-----+
-    ```
+```bash
++---------+----------+------+--------------------+-----+
+|firstname|  lastname|gender|            location|level|
++---------+----------+------+--------------------+-----+
+| Annalyse|Montgomery|     F|  Killeen-Temple, TX| free|
+|   Dylann|    Thomas|     M|       Anchorage, AK| paid|
+|     Liam|     Watts|     M|New York-Newark-J...| paid|
+|     Tess|  Townsend|     F|Nashville-Davidso...| free|
+|  Margaux|     Smith|     F|Atlanta-Sandy Spr...| free|
+|     Alan|     Morse|     M|Chicago-Napervill...| paid|
+|Gabriella|   Shelton|     F|San Jose-Sunnyval...| free|
+|   Elijah|  Williams|     M|Detroit-Warren-De...| paid|
+|  Margaux|     Smith|     F|Atlanta-Sandy Spr...| free|
+|     Tess|  Townsend|     F|Nashville-Davidso...| free|
+|     Alan|     Morse|     M|Chicago-Napervill...| paid|
+|     Liam|     Watts|     M|New York-Newark-J...| paid|
+|     Liam|     Watts|     M|New York-Newark-J...| paid|
+|   Dylann|    Thomas|     M|       Anchorage, AK| paid|
+|     Alan|     Morse|     M|Chicago-Napervill...| paid|
+|   Elijah|  Williams|     M|Detroit-Warren-De...| paid|
+|  Margaux|     Smith|     F|Atlanta-Sandy Spr...| free|
+|     Alan|     Morse|     M|Chicago-Napervill...| paid|
+|   Dylann|    Thomas|     M|       Anchorage, AK| paid|
+|  Margaux|     Smith|     F|Atlanta-Sandy Spr...| free|
++---------+----------+------+--------------------+-----+
+```
 
-2.  Bu verilerde başka dönüştürmeler de yaparak **level** sütununun adını **subscription_type** olarak değiştirebilirsiniz.
+Bu verilerde başka dönüştürmeler de yaparak **level** sütununun adını **subscription_type** olarak değiştirebilirsiniz.
 
-    ```scala
-    val renamedColumnsDF = specificColumnsDf.withColumnRenamed("level", "subscription_type")
-    renamedColumnsDF.show()
-    ```
+```scala
+val renamedColumnsDF = specificColumnsDf.withColumnRenamed("level", "subscription_type")
+renamedColumnsDF.show()
+```
 
-    Aşağıdaki kod parçacığında gösterildiği gibi bir çıkış alırsınız.
+Aşağıdaki kod parçacığında gösterildiği gibi bir çıktı alırsınız.
 
-    ```bash
-    +---------+----------+------+--------------------+-----------------+
-    |firstname|  lastname|gender|            location|subscription_type|
-    +---------+----------+------+--------------------+-----------------+
-    | Annalyse|Montgomery|     F|  Killeen-Temple, TX|             free|
-    |   Dylann|    Thomas|     M|       Anchorage, AK|             paid|
-    |     Liam|     Watts|     M|New York-Newark-J...|             paid|
-    |     Tess|  Townsend|     F|Nashville-Davidso...|             free|
-    |  Margaux|     Smith|     F|Atlanta-Sandy Spr...|             free|
-    |     Alan|     Morse|     M|Chicago-Napervill...|             paid|
-    |Gabriella|   Shelton|     F|San Jose-Sunnyval...|             free|
-    |   Elijah|  Williams|     M|Detroit-Warren-De...|             paid|
-    |  Margaux|     Smith|     F|Atlanta-Sandy Spr...|             free|
-    |     Tess|  Townsend|     F|Nashville-Davidso...|             free|
-    |     Alan|     Morse|     M|Chicago-Napervill...|             paid|
-    |     Liam|     Watts|     M|New York-Newark-J...|             paid|
-    |     Liam|     Watts|     M|New York-Newark-J...|             paid|
-    |   Dylann|    Thomas|     M|       Anchorage, AK|             paid|
-    |     Alan|     Morse|     M|Chicago-Napervill...|             paid|
-    |   Elijah|  Williams|     M|Detroit-Warren-De...|             paid|
-    |  Margaux|     Smith|     F|Atlanta-Sandy Spr...|             free|
-    |     Alan|     Morse|     M|Chicago-Napervill...|             paid|
-    |   Dylann|    Thomas|     M|       Anchorage, AK|             paid|
-    |  Margaux|     Smith|     F|Atlanta-Sandy Spr...|             free|
-    +---------+----------+------+--------------------+-----------------+
-    ```
+```bash
++---------+----------+------+--------------------+-----------------+
+|firstname|  lastname|gender|            location|subscription_type|
++---------+----------+------+--------------------+-----------------+
+| Annalyse|Montgomery|     F|  Killeen-Temple, TX|             free|
+|   Dylann|    Thomas|     M|       Anchorage, AK|             paid|
+|     Liam|     Watts|     M|New York-Newark-J...|             paid|
+|     Tess|  Townsend|     F|Nashville-Davidso...|             free|
+|  Margaux|     Smith|     F|Atlanta-Sandy Spr...|             free|
+|     Alan|     Morse|     M|Chicago-Napervill...|             paid|
+|Gabriella|   Shelton|     F|San Jose-Sunnyval...|             free|
+|   Elijah|  Williams|     M|Detroit-Warren-De...|             paid|
+|  Margaux|     Smith|     F|Atlanta-Sandy Spr...|             free|
+|     Tess|  Townsend|     F|Nashville-Davidso...|             free|
+|     Alan|     Morse|     M|Chicago-Napervill...|             paid|
+|     Liam|     Watts|     M|New York-Newark-J...|             paid|
+|     Liam|     Watts|     M|New York-Newark-J...|             paid|
+|   Dylann|    Thomas|     M|       Anchorage, AK|             paid|
+|     Alan|     Morse|     M|Chicago-Napervill...|             paid|
+|   Elijah|  Williams|     M|Detroit-Warren-De...|             paid|
+|  Margaux|     Smith|     F|Atlanta-Sandy Spr...|             free|
+|     Alan|     Morse|     M|Chicago-Napervill...|             paid|
+|   Dylann|    Thomas|     M|       Anchorage, AK|             paid|
+|  Margaux|     Smith|     F|Atlanta-Sandy Spr...|             free|
++---------+----------+------+--------------------+-----------------+
+```
 
-## <a name="load-data-into-azure-sql-data-warehouse"></a>Azure SQL Veri Ambarı’na veri yükleme
+## <a name="load-the-data"></a>Verileri yükleme
 
-Bu bölümde, dönüştürülen verileri Azure SQL Veri Ambarı'na yüklersiniz. Azure Databricks için Azure SQL Veri Ambarı bağlayıcısını kullanıp veri çerçevesini bir tablo olarak doğrudan SQL veri ambarına yükleyebilirsiniz.
+Bu bölümde, dönüştürülen verileri Azure SQL Veri Ambarı'na yüklersiniz. Azure Databricks için Azure SQL veri ambarı Bağlayıcısı, SQL data warehouse'da tablo olarak, doğrudan bir dataframe karşıya yüklemek için kullanın.
 
-Daha önce de belirtildiği gibi, SQL veri ambarı bağlayıcısı verileri Azure Databricks ile Azure SQL Veri Ambarı arasında aktarmak üzere karşıya yüklemek için geçici depolama alanı olarak Azure Blob Depolama'yı kullanır. Bu nedenle, depolama hesabına bağlanmak için kullanılacak yapılandırmayı sağlayarak başlarsınız. Bu makalenin önkoşullarından biri olarak hesabı önceden oluşturmuş olmalısınız.
+SQL veri ambarı Bağlayıcısı verileri Azure Databricks ve Azure SQL veri ambarı arasında yüklemek için geçici depolama alanı olarak Azure Blob Depolama kullanır. Bu nedenle, depolama hesabına bağlanmak için kullanılacak yapılandırmayı sağlayarak başlarsınız. Hesap bu makalenin önkoşullarından bir parçası olarak oluşturmuş olmanız gerekir.
 
-1. Azure Databricks'ten Azure Depolama hesabına erişmek için yapılandırmayı sağlayın.
+Azure Databricks'ten Azure Depolama hesabına erişmek için yapılandırmayı sağlayın.
 
-    ```scala
-    val storageURI = "<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net"
-    val fileSystemName = "<FILE_SYSTEM_NAME>"
-    val accessKey =  "<ACCESS_KEY>"
-    ```
+```scala
+val storageURI = "<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net"
+val fileSystemName = "<FILE_SYSTEM_NAME>"
+val accessKey =  "<ACCESS_KEY>"
+```
 
-2. Verileri Azure Databricks ile Azure SQL Veri Ambarı arasında taşırken kullanılacak geçici klasörü belirtin.
+Verileri Azure Databricks ile Azure SQL veri ambarı arasında taşırken kullanılacak geçici klasörü belirtin.
 
-    ```scala
-    val tempDir = "abfs://" + fileSystemName + "@" + storageURI +"/tempDirs"
-    ```
+```scala
+val tempDir = "abfs://" + fileSystemName + "@" + storageURI +"/tempDirs"
+```
 
-3. Aşağıdaki kod parçacığını çalıştırarak Azure Blob depolama erişim anahtarlarını yapılandırmada depolayın. Bu sayede erişim anahtarını not defterinde düz metin olarak saklamanız gerekmez.
+Aşağıdaki kod parçacığını çalıştırarak Azure Blob depolama erişim anahtarlarını yapılandırmada depolayın. Bu eylem, erişim anahtarını not defterinde düz metin tutmak çalışmamasını garantiler.
 
-    ```scala
-    val acntInfo = "fs.azure.account.key."+ storageURI
-    sc.hadoopConfiguration.set(acntInfo, accessKey)
-    ```
+```scala
+val acntInfo = "fs.azure.account.key."+ storageURI
+sc.hadoopConfiguration.set(acntInfo, accessKey)
+```
 
-4. Azure SQL Veri Ambarı örneğine bağlanmak için değerleri sağlayın. Önkoşulların bir parçası olarak SQL veri ambarını oluşturmuş olmalısınız.
+Azure SQL Veri Ambarı örneğine bağlanmak için değerleri sağlayın. SQL veri ambarı bir önkoşul olarak oluşturmuş olmanız gerekir.
 
-    ```scala
-    //SQL Data Warehouse related settings
-    val dwDatabase = "<DATABASE NAME>"
-    val dwServer = "<DATABASE SERVER NAME>" 
-    val dwUser = "<USER NAME>"
-    val dwPass = "<PASSWORD>"
-    val dwJdbcPort =  "1433"
-    val dwJdbcExtraOptions = "encrypt=true;trustServerCertificate=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;"
-    val sqlDwUrl = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass + ";$dwJdbcExtraOptions"
-    val sqlDwUrlSmall = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass
-    ```
+```scala
+//SQL Data Warehouse related settings
+val dwDatabase = "<DATABASE NAME>"
+val dwServer = "<DATABASE SERVER NAME>" 
+val dwUser = "<USER NAME>"
+val dwPass = "<PASSWORD>"
+val dwJdbcPort =  "1433"
+val dwJdbcExtraOptions = "encrypt=true;trustServerCertificate=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;"
+val sqlDwUrl = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass + ";$dwJdbcExtraOptions"
+val sqlDwUrlSmall = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass
+```
 
-5. Dönüştürülmüş veri çerçevesi **renamedColumnsDF**'yi SQL veri ambarına tablo olarak yüklemek için aşağıdaki kod parçacığını çalıştırın. Bu kod parçacığı SQL veritabanında **SampleTable** adlı bir tablo oluşturur.
+Dönüştürülmüş veri çerçevesi yüklemek için aşağıdaki kod parçacığını çalıştırarak **renamedColumnsDF**, bir SQL data warehouse'da tablo olarak. Bu kod parçacığı SQL veritabanında **SampleTable** adlı bir tablo oluşturur.
 
-    ```scala
-    spark.conf.set(
-        "spark.sql.parquet.writeLegacyFormat",
-        "true")
+```scala
+spark.conf.set(
+    "spark.sql.parquet.writeLegacyFormat",
+    "true")
     
-    renamedColumnsDF.write
-        .format("com.databricks.spark.sqldw")
-        .option("url", sqlDwUrlSmall) 
-        .option("dbtable", "SampleTable")
-        .option( "forward_spark_azure_storage_credentials","True")
-        .option("tempdir", tempDir)
-        .mode("overwrite")
-        .save()
-    ```
+renamedColumnsDF.write
+    .format("com.databricks.spark.sqldw")
+    .option("url", sqlDwUrlSmall) 
+    .option("dbtable", "SampleTable")
+    .option( "forward_spark_azure_storage_credentials","True")
+    .option("tempdir", tempDir)
+    .mode("overwrite")
+    .save()
+```
 
-6. SQL veritabanına bağlanın ve **SampleTable** tablosunu gördüğünüzü doğrulayın.
+Adlı bir veritabanı gördüğünüzü doğrulayın ve SQL veritabanı'na bağlanma **SampleTable**.
 
-    ![Örnek tabloyu doğrulama](./media/data-lake-storage-handle-data-using-databricks/verify-sample-table.png "Örnek tabloyu doğrulama")
+![Örnek tabloyu doğrulama](./media/data-lake-storage-handle-data-using-databricks/verify-sample-table.png "örnek tabloyu doğrulama")
 
-7. Tablonun içindekileri doğrulamak için bir seçme sorgusu çalıştırın. **renamedColumnsDF** veri çerçevesiyle aynı verileri içermelidir.
+Tablonun içindekileri doğrulamak için bir seçme sorgusu çalıştırın. Tabloda aynı verileri olmalıdır **renamedColumnsDF** veri çerçevesi.
 
-    ![Örnek tablo içeriğini doğrulama](./media/data-lake-storage-handle-data-using-databricks/verify-sample-table-content.png "Örnek tablo içeriğini doğrulama")
+![Örnek tablo içeriğini doğrulama](./media/data-lake-storage-handle-data-using-databricks/verify-sample-table-content.png "örnek tablo içeriğini doğrulama")
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Öğreticiyi çalıştırdıktan sonra kümeyi sonlandırabilirsiniz. Bunu yapmak için Azure Databricks çalışma alanında sol bölmedeki **Kümeler**’i seçin. Sonlandırmak istediğiniz küme için imleci **Eylemler** sütunu altındaki üç noktanın üzerine taşıyın ve **Sonlandır** simgesini seçin.
+Öğreticiyi tamamladıktan sonra kümeyi sonlandırabilirsiniz. Azure Databricks çalışma alanından seçin **kümeleri** soldaki. Kümenin altındaki sonlandırmak **eylemleri**seçin ve üç nokta (...)'in üzerine **sonlandırma** simgesi.
 
 ![Databricks kümesini durdurma](./media/data-lake-storage-handle-data-using-databricks/terminate-databricks-cluster.png "Databricks kümesini durdurma")
 
-El ile otomatik olarak durdurur küme sonlandırmazsanız, seçtiğiniz sağlanan **sonra Sonlandır \_ \_ yapılmadan geçecek dakika cinsinden** küme oluşturulurken onay kutusu. Böyle bir durumda, belirtilen süre boyunca etkin olmaması durumunda küme otomatik olarak durdurulur.
+Kümeyi el ile sonlandırmaz, seçtiğiniz sağlanan bunu otomatik olarak durdurulur **sonra Sonlandır \_ \_ yapılmadan geçecek dakika cinsinden** küme oluşturulduğunda onay kutusu. Böyle bir durumda, belirtilen süre boyunca etkin olmaması durumunda küme otomatik olarak durdurulur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
-
-> [!div class="checklist"]
-> * Azure Databricks çalışma alanı oluşturma
-> * Azure Databricks’te Spark kümesi oluşturma
-> * Azure Data Lake Storage Gen2 uyumlu bir hesap oluşturma
-> * Azure Data Lake Storage Gen2'ye veri yükleme
-> * Azure Databricks’te not defteri oluşturma
-> * Data Lake Storage Gen2'den veri ayıklama
-> * Azure Databricks'te verileri dönüştürme
-> * Azure SQL Veri Ambarı’na veri yükleme
-
-Azure Event Hubs kullanarak Azure Databricks'e gerçek zamanlı veri akışı yapmayı öğrenmek için sonraki öğreticiye ilerleyin.
+Azure Event Hubs'ı kullanarak Azure Databricks'e gerçek zamanlı veri akışını yapma hakkında bilgi edinmek için sonraki öğreticiye ilerleyin.
 
 > [!div class="nextstepaction"]
->[Event Hubs kullanarak Azure Databricks’e veri akışı sağlama](../../azure-databricks/databricks-stream-from-eventhubs.md)
+>[Event Hubs kullanarak Azure Databricks Stream verileri](../../azure-databricks/databricks-stream-from-eventhubs.md)

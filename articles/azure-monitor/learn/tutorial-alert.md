@@ -9,12 +9,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: af002035bb0ab56a985e38d02ad374b23d177583
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 300f0ddc8b738b5fd8578ed0b33cc15000c1098a
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/08/2019
-ms.locfileid: "54081148"
+ms.locfileid: "54101794"
 ---
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>İzleme ve uyarılar Azure Application Insights ile uygulama durumu
 
@@ -94,4 +94,4 @@ Application Insights ile bir mantıksal uygulama oluşturma hakkında daha fazla
 Sorunları hakkında uyarmak öğrendiniz, kullanıcıların uygulamanızla nasıl etkileşim çözümleneceği hakkında bilgi edinmek için sonraki öğreticiye ilerleyin.
 
 > [!div class="nextstepaction"]
-> [Kullanıcıları anlama](../../application-insights/app-insights-tutorial-users.md)
+> [Kullanıcıları anlama](../../azure-monitor/learn/tutorial-users.md)

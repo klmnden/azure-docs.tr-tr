@@ -8,24 +8,29 @@ ms.topic: include
 ms.date: 11/14/2018
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: bc311ca5c49584ae3715fa4507e1fd678bcc93bb
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: db37515926bf3872a1183467e0449035f7bf6097
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53007929"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54122845"
 ---
 GPU için iyileştirilmiş sanal makine boyutları olan özel sanal makineler tek veya birden çok NVIDIA GPU'ları ile kullanılabilir. Bu boyutları görselleştirme yoğun işlem gücü kullanımlı ve grafik kullanımlı iş yükleri için tasarlanmıştır. Bu makalede sayısı ve gpu'ları, Vcpu, veri diskleri ve NIC türü hakkında bilgi sağlar. Depolama aktarım hızı ve ağ bant genişliği de bu gruplandırmaki her boyut için dahil edilir. 
 
 * **NC, NCv2 NCv3, ND ve NDv2** boyutları, yoğun işlem ve ağ kullanımlı uygulamalar ve algoritmalar için iyileştirilmiştir. CUDA ve OpenCL tabanlı uygulama ve simülasyonlar, yapay ZEKA ve derin öğrenme örnek verilebilir. NCv3 serisi, NVIDIA Tesla V100 GPU özelliklerine sahip yüksek performanslı bilgi işlem iş yükleri üzerinde odaklanmıştır.  ND serisi, derin öğrenme için eğitim ve çıkarım senaryolarına odaklanır. Bu seri, NVIDIA Tesla P40 GPU’yu kullanır.
+
+* **NC serisi** bir Intel Xeon® E5-2690 v3 2.60 GHz işlemci özellikleri.
+
+* **NCSv3**, **NCSv2**, ve **ND** boyutları bir Intel Xeon® E5-2690 v4 2.60 GHz işlemci özelliği.
+                      
 * **NV ve NVv2** boyutları en iyi duruma getirilmiş ve Uzaktan görselleştirme, akışı, oyun, kodlama ve OpenGL ve DirectX gibi çerçeveleri kullanan VDI senaryoları için tasarlanmıştır.  Bu sanal makineler, NVIDIA Tesla M60 GPU tarafından desteklenir.
 
 
 ## <a name="nc-series"></a>NC serisi
 
-Premium Depolama: Desteklenmez
+Premium Depolama:  Desteklenmiyor
 
-Premium depolama önbelleğe alma: Desteklenmez
+Premium depolama önbelleğe alma:  Desteklenmiyor
 
 NC serisi VM'ler ile desteklenen [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf) kart. Kullanıcılar verileri daha hızlı enerji keşif uygulamaları CUDA yararlanarak işleyin, benzetimleri kilitlenme, izlenen işleme, derin öğrenme ve diğer ışın. Düşük gecikme süreli, yüksek performanslı ağ arabirimi sıkı bağlı paralel bilgi işlem iş yükleri için en iyi duruma getirilmiş NC24r yapılandırması sunar.
 
@@ -43,9 +48,9 @@ NC serisi VM'ler ile desteklenen [NVIDIA Tesla K80](https://www.nvidia.com/conte
 
 ## <a name="ncv2-series"></a>NCv2 serisi
 
-Premium Depolama: desteklenir
+Premium Depolama:  Desteklenen
 
-Premium depolama önbelleğe alma: desteklenir
+Premium depolama önbelleğe alma:  Desteklenen
 
 NCv2 serisi VM'ler ile desteklenen [NVIDIA Tesla P100](http://images.nvidia.com/content/tesla/pdf/nvidia-tesla-p100-datasheet.pdf) GPU'ları. Bu GPU'ları NC serisi işlem performansı x 2'den sağlayabilir. Müşteriler, modellemesi, DNA sıralama, protein analizi, Monte Carlo simülasyonları ve diğerleri gibi geleneksel HPC iş yüklerinde bu güncelleştirilmiş GPU avantajlarından yararlanabilirsiniz. Düşük gecikme süreli, yüksek performanslı ağ arabirimi sıkı bağlı paralel bilgi işlem iş yükleri için en iyi duruma getirilmiş NC24rs v2 yapılandırmasını sağlar.
 
@@ -66,9 +71,9 @@ NCv2 serisi VM'ler ile desteklenen [NVIDIA Tesla P100](http://images.nvidia.com/
 
 ## <a name="ncv3-series"></a>NCv3 serisi
 
-Premium Depolama: desteklenir
+Premium Depolama:  Desteklenen
 
-Premium depolama önbelleğe alma: desteklenir
+Premium depolama önbelleğe alma:  Desteklenen
 
 NCv3 serisi VM'ler ile desteklenen [NVIDIA Tesla V100](http://www.nvidia.com/content/PDF/Volta-Datasheet.pdf) GPU'ları. Bu GPU'ları 1,5 kat NCv2 serisi işlem performansı sağlayabilir. Müşteriler, modellemesi, DNA sıralama, protein analizi, Monte Carlo simülasyonları ve diğerleri gibi geleneksel HPC iş yüklerinde bu güncelleştirilmiş GPU avantajlarından yararlanabilirsiniz. Düşük gecikme süreli, yüksek performanslı ağ arabirimi sıkı bağlı paralel bilgi işlem iş yükleri için en iyi duruma getirilmiş NC24rs v3 yapılandırmasını sağlar.
 
@@ -90,11 +95,11 @@ NCv3 serisi VM'ler ile desteklenen [NVIDIA Tesla V100](http://www.nvidia.com/con
 ## <a name="ndv2-series-preview"></a>NDv2 serisi (Önizleme)
 
 
-Premium Depolama: desteklenir
+Premium Depolama:  Desteklenen
 
-Premium depolama önbelleğe alma: desteklenir
+Premium depolama önbelleğe alma:  Desteklenen
 
-Infiniband: desteklenmez
+Infiniband: Desteklenmiyor
 
 
 HPC, yapay ZEKA ve makine öğrenimi iş yükleri için tasarlanan GPU ailesine yeni eklenen NDv2 serisi sanal makinesidir. Bu sanal makine, 8 NVIDIA Tesla V100 NVLINK bağlantılı GPU’lar, 40 Intel Skylake çekirdek ve 672 GiB sistem belleği ile çalıştırılır. NDv2 örneği Cuda, TensorFlow, Pytorch, Caffe ve diğer çerçeveleri kullanarak HPC ve AI iş yükleri için mükemmel FP32 ve FP64 performansı sağlar.
@@ -109,9 +114,9 @@ HPC, yapay ZEKA ve makine öğrenimi iş yükleri için tasarlanan GPU ailesine 
 
 ## <a name="nd-series"></a>ND serisi
 
-Premium Depolama: desteklenir
+Premium Depolama:  Desteklenen
 
-Premium depolama önbelleğe alma: desteklenir
+Premium depolama önbelleğe alma:  Desteklenen
 
 ND serisi sanal makineler, GPU ailesine yeni eklenen iş yükleri yapay ZEKA ve derin öğrenme için tasarlanmış olan. Bunlar, eğitim ve çıkarım için mükemmel performans sunar. ND örnekleri ile desteklenen [NVIDIA Tesla P40](http://images.nvidia.com/content/pdf/tesla/184427-Tesla-P40-Datasheet-NV-Final-Letter-Web.pdf) GPU'ları. Bu örnekler tek duyarlıklı kayan nokta işlemleri, Microsoft Bilişsel araç seti, TensorFlow, Caffe ve diğer çerçeveleri kullanan AI iş yükleri için mükemmel bir performans sağlar. Ayrıca, ND serisi çok daha büyük bir GPU bellek boyutu (24 GB) sunarak daha büyük sinir ağı modellerinin sığdırılmasına imkan tanır. NC serisinde olduğu gibi ND serisi RDMA aracılığıyla ikincil bir düşük gecikme süreli, yüksek performanslı ağ yapılandırmasıyla sunar ve Infiniband bağlantısı birçok GPU'yu kapsayan büyük ölçekli eğitim işleri çalıştırabilirsiniz.
 
@@ -132,9 +137,9 @@ ND serisi sanal makineler, GPU ailesine yeni eklenen iş yükleri yapay ZEKA ve 
 
 ## <a name="nv-series"></a>NV serisi
 
-Premium Depolama: Desteklenmez
+Premium Depolama:  Desteklenmiyor
 
-Premium depolama önbelleğe alma: Desteklenmez
+Premium depolama önbelleğe alma:  Desteklenmiyor
 
 NV serisi sanal makineler tarafından desteklenen [NVIDIA Tesla M60](http://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU'ları ve NVIDIA GRID teknoloji Masaüstü için hızlandırılmış uygulamaları ve sanal masaüstü müşterilerin verilerini veya simülasyonlarını görselleştirmek mümkün olduğu. Kullanıcılar üst grafik özelliğine sahip olursunuz ve buna ek olarak kodlama ve işleme gibi tek duyarlıklı iş yüklerini çalıştırmak için NV örnekleri üzerinde grafik açısından yoğun kaynak gerektiren iş akışlarını görselleştirin olanağına sahip olursunuz. 
 
@@ -150,9 +155,9 @@ NV örnekleri, her bir GPU kılavuz lisansı ile birlikte gelir. Bu lisans size 
 
 ## <a name="nvv2-series-preview"></a>NVv2 serisi (Önizleme)
 
-Premium Depolama: desteklenir
+Premium Depolama:  Desteklenen
 
-Premium depolama önbelleğe alma: desteklenir
+Premium depolama önbelleğe alma:  Desteklenen
 
 NVv2 serisi sanal makineler tarafından desteklenen [NVIDIA Tesla M60](http://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU'ları ve NVIDIA GRID Intel Broadwell CPU teknolojisi. Bu sanal makineler GPU hızlandırılmış grafik uygulamalar ve sanal masaüstlerini müşteriler istediğiniz yere verilerini görselleştirmek için hedeflenen, sonuçları görüntülemek için CAD veya işleme ve akış içeriği üzerinde çalışan benzetimi. Ayrıca bu sanal makineler kodlama ve işleme gibi tek hassas iş yüklerini de çalıştırabilir. NVv2 sanal makine, Premium depolamayı destekler ve kendi öncellerini NV serisi ile karşılaştırıldığında iki kez sistem belleği (RAM) gelir.  
 

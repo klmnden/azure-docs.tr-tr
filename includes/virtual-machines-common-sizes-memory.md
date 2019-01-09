@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: dc78c8794923a180264058fc984a58aa29171c58
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b992947245175803f8f2f8c6a5aba70fe13bde2c
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52978843"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54084030"
 ---
 Bellek, ilişkisel veritabanı sunucuları, Orta veya büyük boyutlu önbellekler ve bellek içi analiz için harika olan yüksek bellek CPU oranı VM boyutları teklifi en iyi duruma getirilmiş. Bu makalede, Vcpu, veri diskleri ve NIC yanı sıra depolama aktarım hızı ve ağ bant genişliği için bu gruplandırma her boyutundaki sayısı hakkında bilgi sağlar. 
 
@@ -30,16 +30,16 @@ Bellek, ilişkisel veritabanı sunucuları, Orta veya büyük boyutlu önbellekl
 
 ## <a name="esv3-series"></a>Esv3 serisi 
 
-ACU: 160-190 <sup>1</sup>
+ACU: 160 190 <sup>1</sup>
 
-Premium Depolama: desteklenir
+Premium Depolama:  Desteklenen
 
-Premium depolama önbelleğe alma: desteklenir
+Premium depolama önbelleğe alma:  Desteklenen
 
 ESv3 serisi örnekleri, 2,3 GHz Intel XEON ® E5-2673 v4 (Broadwell) işlemciyi temel alır, Intel Turbo Boost Technology 2.0 ile 3,5 GHz hıza çıkabilir ve premium depolama kullanır. Ev3 serisi örnekleri, yoğun bellek kullanımlı kurumsal uygulamalar için idealdir.
 
 
-| Boyut             | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum veri diskleri | Maksimum önbelleğe alınmış ve geçici depolama aktarım hızı: IOPS-MB/sn (önbellek boyutu GiB biriminde) | Maksimum önbelleğe alınmamış disk aktarım hızı: IOPS-MB/sn | Maks NIC / beklenen ağ bant genişliği (MB/sn) |
+| Boyut             | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum veri diskleri | Maksimum önbelleğe alınmış ve geçici depolama aktarım hızı: IOPS / sn (önbellek boyutu gib biriminde) | Maksimum önbelleğe alınmamış disk aktarım hızı: IOPS / MB/sn | Maks NIC / beklenen ağ bant genişliği (MB/sn) |
 |------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------------------------|
 | Standard_E2s_v3 | 2      | 16          | 32             | 4              | 4,000 / 32 (50)                                                       | 3200/48                                | 2 / 1,000                                   |
 | Standard_E4s_v3&nbsp;<sup>2</sup> | 4      | 32          | 64             | 8              | 8,000 / 64 (100)                                                      | 6400/96                                | 2 / 2,000                                   |
@@ -60,18 +60,18 @@ ESv3 serisi örnekleri, 2,3 GHz Intel XEON ® E5-2673 v4 (Broadwell) işlemciyi 
 
 ## <a name="ev3-series"></a>Ev3 serisi 
 
-ACU: 160-190 <sup>1</sup>
+ACU: 160 - 190 <sup>1</sup>
 
-Premium Depolama: Desteklenmez
+Premium Depolama:  Desteklenmiyor
 
-Premium depolama önbelleğe alma: Desteklenmez
+Premium depolama önbelleğe alma:  Desteklenmiyor
 
 Ev3 serisi örnekleri, 2,3 GHz Intel XEON ® E5-2673 v4 (Broadwell) işlemciyi temel alır ve Intel Turbo Boost Technology 2.0 ile 3,5 GHz hıza çıkabilir. Ev3 serisi örnekleri, yoğun bellek kullanımlı kurumsal uygulamalar için idealdir.
 
 Veri disk depolaması, sanal makinelerden ayrı olarak faturalandırılır. Premium depolama disklerini kullanmak için ESv3 boyutlarını kullanın. ESv3 boyutları için fiyatlandırma ve faturalandırma oranları Ev3 serisi ile aynıdır. 
 
 
-| Boyut            | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum veri diskleri | Maksimum geçici depolama aktarım hızı: IOPS / Okuma MB/sn / Yazma MB/sn | Maksimum NIC/Ağ bant genişliği |
+| Boyut            | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum veri diskleri | Maksimum geçici depolama aktarım hızı: IOPS / okuma MB/sn / yazma MB/sn | Maksimum NIC/Ağ bant genişliği |
 |-----------------|-----------|-------------|----------------|----------------|----------------------------------------------------------|------------------------------|
 | Standard_E2_v3  | 2         | 16          | 50             | 4              | 3000/46/23                                               | 2 / 1,000                 |
 | Standard_E4_v3  | 4         | 32          | 100            | 8              | 6000/93/46                                               | 2 / 2,000                 |
@@ -93,13 +93,13 @@ Veri disk depolaması, sanal makinelerden ayrı olarak faturalandırılır. Prem
 
 ACU: 160-180 <sup>1</sup>
 
-Premium Depolama: desteklenir
+Premium Depolama:  Desteklenen
 
-Premium depolama önbelleğe alma: desteklenir
+Premium depolama önbelleğe alma:  Desteklenen
 
-Yazma hızlandırıcı: [desteklenir](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
+Hızlandırıcı yazma:  [Destekleniyor](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
-| Boyut            | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum veri diskleri | Maksimum önbelleğe alınmış ve geçici depolama aktarım hızı: IOPS-MB/sn (önbellek boyutu GiB biriminde) | Maksimum önbelleğe alınmamış disk aktarım hızı: IOPS-MB/sn | Maks NIC / beklenen ağ bant genişliği (MB/sn) |
+| Boyut            | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum veri diskleri | Maksimum önbelleğe alınmış ve geçici depolama aktarım hızı: IOPS / sn (önbellek boyutu gib biriminde) | Maksimum önbelleğe alınmamış disk aktarım hızı: IOPS / MB/sn | Maks NIC / beklenen ağ bant genişliği (MB/sn) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
 | İşler için Standard_M8ms&nbsp;<sup>3</sup>    | 8  | 218.75 | 256  | 8  | 10.000 / 100 (793)  | 5000 / 125 | 4 / 2.000 |
 | İşler için Standard_M16ms&nbsp;<sup>3</sup>   | 16 | 437.5  | 512  | 16 | 20.000 / 200 (1,587) | 10.000/250 | 8 / 4000 |
@@ -109,7 +109,7 @@ Yazma hızlandırıcı: [desteklenir](https://docs.microsoft.com/azure/virtual-m
 | İşler için standart_m64s  | 64 | 1,024   | 2.048 | 64 | 80.000 / 800 (6,348)| 40.000/1000 | 8 / 16,000          |
 | İşler için standart_m64ls  | 64 | 512    | 2.048 | 64 | 80.000 / 800 (6,348) | 40.000/1000 | 8 / 16,000 |
 | İşler için standart_m64ms&nbsp;<sup>3</sup>  | 64   | 1,792 | 2.048 | 64 | 80.000 / 800 (6,348)| 40.000/1000 | 8 / 16,000          |
-| İşler için standart_m128s&nbsp;<sup>2&nbsp;3</sup> | 128  | 2.048        | 4.096  | 64 | 160,000 / 1,600 (12,696) | 80.000/2000                            | 8 / 30,000          |
+| İşler için standart_m128s&nbsp;<sup>2</sup> | 128  | 2.048        | 4.096  | 64 | 160,000 / 1,600 (12,696) | 80.000/2000                            | 8 / 30,000          |
 | İşler için standart_m128ms&nbsp;<sup>2&nbsp;3&nbsp;4</sup> | 128  | 3,892  | 4.096 | 64 | 160,000 / 1,600 (12,696) | 80.000/2000                            | 8 / 30,000          |
 | Standard_M64   | 64  | 1,024 | 7,168  | 64 | 80.000 / 800 (1,228) | 40.000/1000 | 8 / 16,000 |
 | Standard_M64m  | 64  | 1,792 | 7,168  | 64 | 80.000 / 800 (1,228) | 40.000/1000 | 8 / 16,000 |
@@ -120,7 +120,7 @@ Yazma hızlandırıcı: [desteklenir](https://docs.microsoft.com/azure/virtual-m
 
 <sup>1</sup> M serisi sanal makineler özellik Intel® Hyper-Threading Teknolojisi
 
-<sup>2</sup> 64'ten fazla şu desteklenen konuk işletim sistemlerinden birini gerektirir: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2 ve Red Hat Enterprise Linux, CentOS 7.3 veya Oracle Linux 7.3 LIS 4.2.1 ile.
+<sup>2</sup> 64'ten fazla şu desteklenen konuk işletim sistemlerinden birini gerektirir: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2 ve Red Hat Enterprise Linux, CentOS 7.3 veya LIS 4.2.1 ile Oracle Linux 7.3.
 
 <sup>3</sup> sınırlı kullanılabilir çekirdek boyutu.
 
@@ -129,13 +129,13 @@ Yazma hızlandırıcı: [desteklenir](https://docs.microsoft.com/azure/virtual-m
 
 ## <a name="gs-series"></a>GS serisi 
 
-ACU: 180-240 <sup>1</sup>
+ACU: 180 - 240 <sup>1</sup>
 
-Premium Depolama: desteklenir
+Premium Depolama:  Desteklenen
 
-Premium depolama önbelleğe alma: desteklenir
+Premium depolama önbelleğe alma:  Desteklenen
 
-| Boyut | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum veri diskleri | Maksimum önbelleğe alınmış ve geçici depolama aktarım hızı: IOPS-MB/sn (önbellek boyutu GiB biriminde) | Maksimum önbelleğe alınmamış disk aktarım hızı: IOPS-MB/sn | Maks NIC / beklenen ağ bant genişliği (MB/sn) |
+| Boyut | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum veri diskleri | Maksimum önbelleğe alınmış ve geçici depolama aktarım hızı: IOPS / sn (önbellek boyutu gib biriminde) | Maksimum önbelleğe alınmamış disk aktarım hızı: IOPS / MB/sn | Maks NIC / beklenen ağ bant genişliği (MB/sn) |
 |---|---|---|---|---|---|---|---|
 | Standard_GS1 |2 |28 |56 |8 |10.000/100 (264) |5000/125 |2 / 2000 |
 | Standard_GS2 |4 |56 |112 |16 |20.000/200 (528) |10.000/250 |2 / 4000 |
@@ -143,7 +143,7 @@ Premium depolama önbelleğe alma: desteklenir
 | Standard_GS4&nbsp;<sup>3</sup> |16 |224 |448 |64 |80.000/800 (2112) |40.000/1000 |8 / 16000 |
 | Standard_GS5&nbsp;<sup>2&nbsp;3</sup> |32 |448 |896 |64 |160.000/1600 (4224) |80.000/2000 |8 / 20000 |
 
-<sup>1</sup> maksimum disk aktarım hızı (IOPS veya MB/sn) GS serisi VM ile sınırlı olabilir sayısı, boyutu ve bölümleme türüyle ekli disklerin. Ayrıntılar için bkz. [Premium Depolama: Azure sanal makine iş yükleri için yüksek performanslı depolama](../articles/virtual-machines/windows/premium-storage.md). 
+<sup>1</sup> maksimum disk aktarım hızı (IOPS veya MB/sn) GS serisi VM ile sınırlı olabilir sayısı, boyutu ve bölümleme türüyle ekli disklerin. Ayrıntılar için bkz [Premium Depolama: Azure sanal makine iş yükleri için yüksek performanslı depolama](../articles/virtual-machines/windows/premium-storage.md). 
 
 <sup>2</sup> örneği, tek bir müşteriye özel donanımla yalıtılır.
 
@@ -155,11 +155,11 @@ Premium depolama önbelleğe alma: desteklenir
 
 ACU: 180 - 240
 
-Premium Depolama: Desteklenmez
+Premium Depolama:  Desteklenmiyor
 
-Premium depolama önbelleğe alma: Desteklenmez
+Premium depolama önbelleğe alma:  Desteklenmiyor
 
-| Boyut         | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum geçici depolama aktarım hızı: IOPS / Okuma MB/sn / Yazma MB/sn | Maksimum veri diski/aktarım hızı: IOPS | Maks NIC / beklenen ağ bant genişliği (MB/sn) |
+| Boyut         | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum geçici depolama aktarım hızı: IOPS / okuma MB/sn / yazma MB/sn | Maksimum veri diski / aktarım hızı: IOPS | Maks NIC / beklenen ağ bant genişliği (MB/sn) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_G1  | 2         | 28          | 384            | 6000/93/46                                           | 8/8x500                       | 2 / 2000                     |
 | Standard_G2  | 4         | 56          | 768            | 12000/187/93                                         | 16/16x500                       | 2 / 4000                     |
@@ -173,13 +173,13 @@ Premium depolama önbelleğe alma: Desteklenmez
 
 ## <a name="dsv2-series-11-15"></a>DSv2 serisi 11-15
 
-ACU: 210-250 <sup>1</sup>
+ACU: 210 - 250 <sup>1</sup>
 
-Premium Depolama: desteklenir
+Premium Depolama:  Desteklenen
 
-Premium depolama önbelleğe alma: desteklenir
+Premium depolama önbelleğe alma:  Desteklenen
 
-| Boyut | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum veri diskleri | Maksimum önbelleğe alınmış ve geçici depolama aktarım hızı: IOPS-MB/sn (önbellek boyutu GiB biriminde) | Maksimum önbelleğe alınmamış disk aktarım hızı: IOPS-MB/sn | Maks NIC / beklenen ağ bant genişliği (MB/sn) |
+| Boyut | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum veri diskleri | Maksimum önbelleğe alınmış ve geçici depolama aktarım hızı: IOPS / sn (önbellek boyutu gib biriminde) | Maksimum önbelleğe alınmamış disk aktarım hızı: IOPS / MB/sn | Maks NIC / beklenen ağ bant genişliği (MB/sn) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS11_v2&nbsp;<sup>3</sup> |2 |14 |28 |8 |8000/64 (72) |6400/96 |2 / 1500 |
 | Standard_DS12_v2&nbsp;<sup>3</sup> |4 |28 |56 |16 |16.000/128 (144) |12.800/192 |4 / 3000 |
@@ -188,7 +188,7 @@ Premium depolama önbelleğe alma: desteklenir
 | Standard_DS15_v2&nbsp;<sup>2</sup> |20 |140 |280 |64 |80.000/640 (720) |64.000/960 |8 / 25000&nbsp;<sup>4</sup>
 
 
-<sup>1</sup> maksimum disk aktarım hızı (IOPS veya MB/sn) DSv2 serisi VM ile sınırlı olabilir sayısı, boyutu ve bölümleme türüyle ekli disklerin.  Ayrıntılar için bkz. [Premium Depolama: Azure sanal makine iş yükleri için yüksek performanslı depolama](../articles/virtual-machines/windows/premium-storage.md).
+<sup>1</sup> maksimum disk aktarım hızı (IOPS veya MB/sn) DSv2 serisi VM ile sınırlı olabilir sayısı, boyutu ve bölümleme türüyle ekli disklerin.  Ayrıntılar için bkz [Premium Depolama: Azure sanal makine iş yükleri için yüksek performanslı depolama](../articles/virtual-machines/windows/premium-storage.md).
 
 <sup>2</sup> örneği, tek bir müşteriye özel donanımla yalıtılır.
 
@@ -202,11 +202,11 @@ Premium depolama önbelleğe alma: desteklenir
 
 ACU: 210 - 250
 
-Premium Depolama: Desteklenmez
+Premium Depolama:  Desteklenmiyor
 
-Premium depolama önbelleğe alma: Desteklenmez
+Premium depolama önbelleğe alma:  Desteklenmiyor
 
-| Boyut              | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum geçici depolama aktarım hızı: IOPS / Okuma MB/sn / Yazma MB/sn | Maksimum veri diski/aktarım hızı: IOPS | Maks NIC / beklenen ağ bant genişliği (MB/sn) |
+| Boyut              | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum geçici depolama aktarım hızı: IOPS / okuma MB/sn / yazma MB/sn | Maksimum veri diski / aktarım hızı: IOPS | Maks NIC / beklenen ağ bant genişliği (MB/sn) |
 |-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_D11_v2   | 2         | 14          | 100            | 6000/93/46                                           | 8/8x500                         | 2 / 1500                     |
 | Standard_D12_v2   | 4         | 28          | 200            | 12000/187/93                                         | 16/16x500                         | 4 / 3000                     |

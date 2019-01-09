@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 95e4140125f064d4e279c90f60b390c4762e8cf8
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 6ed8bae2e1571722f7a9a0030a48e64c4f7fbc60
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580221"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106673"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure İzleyici iş ortağı tümleştirmeleri
 | İş Ortakları |  |  |
@@ -126,7 +126,7 @@ PagerDuty, önde gelen bir olay Yönetimi çözümüyle, ölçümlere ilişkin A
 [Belgelerine gidin.][pagerduty-doc]
 
 ## <a name="qradar"></a>QRadar
-Microsoft Azure olay hub'ı protokolü ve Microsoft Azure DSM sitesinden indirilebilir [IBM Destek Web sitesi](http://www.ibm.com/support). Yapabilecekleriniz [Azure ile tümleştirme burada hakkında daha fazla bilgi][qradar-doc].
+Microsoft Azure olay hub'ı protokolü ve Microsoft Azure DSM sitesinden indirilebilir [IBM Destek Web sitesi](https://www.ibm.com/support). Yapabilecekleriniz [Azure ile tümleştirme burada hakkında daha fazla bilgi][qradar-doc].
 
 ## <a name="sciencelogic"></a>ScienceLogic
 ScienceLogic tüm teknoloji, her yerden yönetmeye yönelik yeni nesil BT hizmet güvencesi platformu sunar. ScienceLogic ölçek, güvenlik, otomasyon ve BT kaynakları, hizmetleri ve uygulamaları yönetme görevlerini basitleştirmek gerekli esnekliği sunar. ScienceLogic platformu, Microsoft Azure ile arabirim oluşturmak için Azure API'lerini kullanır. ScienceLogic, Azure Hizmetleri ve kaynakları gerçek zamanlı görünürlük sağlar. Bir şey değil ne zaman çalıştığını bilmesi ve daha hızlı düzeltin. Azure Ayrıca, diğer Bulut ve veri merkezi sistemleri ve Hizmetleri yanı sıra da yönetebilirsiniz.
@@ -230,8 +230,8 @@ Turbonomic, performansı, maliyeti ve uyumluluğu gerçek zamanlı bir şekilde 
 [botmetric-doc]: https://www.botmetric.com/blog/announcing-botmetric-cost-governance-beta-microsoft-azure/ "Botmetric giriş."
 [circonus-doc]: https://support.circonus.com/support/solutions/articles/24000013515-azure-integration 
 [cloudhealth-doc]: https://www.cloudhealthtech.com/azure
-[cloudmonix-doc]: http://cloudmonix.com/features/azure-management/ "CloudMonix giriş."
-[datadog-doc]: http://docs.datadoghq.com/integrations/azure/ "Datadog belgeleri."
+[cloudmonix-doc]: https://cloudmonix.com/features/azure-management/ "CloudMonix giriş."
+[datadog-doc]: https://docs.datadoghq.com/integrations/azure/ "Datadog belgeleri."
 [dynatrace-doc]: https://help.dynatrace.com/infrastructure-monitoring/paas/how-do-i-monitor-microsoft-azure-web-apps/ "Dynatrace belgeleri."
 [elastic-doc]: https://www.elastic.co/guide/en/logstash/master/azure-module.html "Elastik belgeleri."
 [grafana-doc]: ./grafana-plugin.md "Azure İzleyici Grafana tümleştirmesi."

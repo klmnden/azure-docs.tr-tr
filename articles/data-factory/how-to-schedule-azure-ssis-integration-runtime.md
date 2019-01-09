@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 12/27/2018
+ms.date: 1/8/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 5920ec5ec8e864b5bdb986544a3cdc259e7344da
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: c1dfc4ed969735be26ae075900cd850e016afffa
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053645"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107591"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Nasıl bir zamanlamaya göre Azure-SSIS tümleştirme çalışma zamanını durdurmak ve başlatmak
 Bu makalede, Azure Data Factory (ADF) kullanarak zamanlama başlatma ve durdurma Azure-SSIS Integration Runtime (IR) açıklar. Azure-SSIS IR, ADF kaynak SQL Server Integration Services (SSIS) paketlerini yürütmek için adanmış işlem ' dir. Azure-SSIS IR çalıştıran, kendisiyle ilişkili bir maliyeti vardır. Bu nedenle, genellikle, IR, SSIS paketlerini Azure'da yürütmek ve artık ihtiyacınız olmayan olduğunda, IR durdurmak yalnızca ihtiyacınız olduğunda çalıştırmak istediğiniz. Kullanabileceğiniz ADF kullanıcı arabirimi (UI) / uygulama veya Azure PowerShell ile [el ile başlatın veya durdurun, IR](manage-azure-ssis-integration-runtime.md)).
@@ -54,7 +54,7 @@ Gece yarısı her gün çalışacak şekilde zamanlanırsa üçüncü bir tetikl
  
    ADF adını genel olarak benzersiz olmalıdır. Aşağıdaki hata iletisini alırsanız, ADF (örneğin yournameMyAzureSsisDataFactory) adını değiştirin ve yeniden oluşturmayı deneyin. Bkz: [Data Factory - adlandırma kuralları](naming-rules.md) makalenin ADF yapıtlarının adlandırma kuralları hakkında bilgi edinin.
   
-   `Data factory name �MyAzureSsisDataFactory� is not available`
+   `Data factory name MyAzureSsisDataFactory is not available`
       
 4. Azure'ı seçin **abonelik** , ADF oluşturmak istediğiniz altında. 
 5. **Kaynak Grubu** için aşağıdaki adımlardan birini uygulayın:
@@ -86,23 +86,21 @@ Gece yarısı her gün çalışacak şekilde zamanlanırsa üçüncü bir tetikl
    
 2. İçinde **etkinlikleri** araç genişletin **genel** menüsünde ve sürükle ve bırak bir **Web** etkinliğini işlem hattı tasarımcısının yüzeyine sürükleyin. İçinde **genel** sekmesini etkinlik Özellikler penceresi, etkinlik adını **startMyIR**. Geçiş **ayarları** sekmesini tıklatın ve aşağıdaki eylemleri gerçekleştirin.
 
-    1. İçin **URL**, REST API'si için Azure-SSIS IR başlatan aşağıdaki URL'yi girin değiştirerek `{subscriptionId}`, `{resourceGroupName}`, `{factoryName}`, ve `{integrationRuntimeName}` , IR için gerçek değerlerle: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/start?api-version=2018-06-01`.
+    1. İçin **URL**, REST API'si için Azure-SSIS IR başlatan aşağıdaki URL'yi girin değiştirerek `{subscriptionId}`, `{resourceGroupName}`, `{factoryName}`, ve `{integrationRuntimeName}` , IR için gerçek değerlerle: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/start?api-version=2018-06-01`. Alternatif olarak, ayrıca kopyalayın & kaynak kimliği, izleme sayfasından IR ADF UI/yukarıdaki URL'yi aşağıdaki bölümü değiştirmek için uygulamamı yapıştırın: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}`.
     
-    Alternatif olarak, ayrıca kopyalayın & kaynak kimliği, izleme sayfasından IR ADF UI/yukarıdaki URL'yi aşağıdaki bölümü değiştirmek için uygulamamı yapıştırın: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}`.
-    
-   ![ADF SSIS IR kaynak kimliği](./media/how-to-schedule-azure-ssis-integration-runtime/adf-ssis-ir-resource-id.png)
+       ![ADF SSIS IR kaynak kimliği](./media/how-to-schedule-azure-ssis-integration-runtime/adf-ssis-ir-resource-id.png)
   
     2. İçin **yöntemi**seçin **POST**. 
     3. İçin **gövdesi**, girin `{"message":"Start my IR"}`. 
     4. İçin **kimlik doğrulaması**seçin **MSI** , ADF için yönetilen kimlik kullanmak için bkz: [Azure veri fabrikası hizmet kimliği](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) makale daha fazla bilgi için.
-    5. İçin **kaynak**, girin `https://management.azure.com/`. 
+    5. İçin **kaynak**, girin `https://management.azure.com/`.
     
-   ![ADF Web etkinlik zamanlaması SSIS IR](./media/how-to-schedule-azure-ssis-integration-runtime/adf-web-activity-schedule-ssis-ir.png)
+       ![ADF Web etkinlik zamanlaması SSIS IR](./media/how-to-schedule-azure-ssis-integration-runtime/adf-web-activity-schedule-ssis-ir.png)
   
 3. Kopyalama etkinliği adı değiştirme, ikinci bir tane oluşturmak için ilk işlem hattı **stopMyIR** ve aşağıdaki özellikleri değiştirme.
 
     1. İçin **URL**, REST API'si için Azure-SSIS IR, durdurur aşağıdaki URL'yi girin değiştirerek `{subscriptionId}`, `{resourceGroupName}`, `{factoryName}`, ve `{integrationRuntimeName}` , IR için gerçek değerlerle: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/stop?api-version=2018-06-01`.
-  
+    
     2. İçin **gövdesi**, girin `{"message":"Stop my IR"}`. 
 
 4. Üçüncü bir işlem hattı oluşturmak, sürükle & bırak bir **SSIS paketi yürütme** etkinliğinden **etkinlikleri** toolbox işlem hattı tasarımcısının yüzeyine bırakın ve talimatları yapılandırmanız [ SSIS paketi yürütme etkinliği kullanarak ADF içinde bir SSIS paketi çağırma](how-to-invoke-ssis-package-ssis-activity.md) makalesi.  Alternatif olarak, bir **saklı yordam** etkinliği bunun yerine ve talimatları yapılandırın [ADF içinde depolanan yordam etkinliği kullanarak bir SSIS paketi çağırma](how-to-invoke-ssis-package-stored-procedure-activity.md) makalesi.  Ardından, benzer şekilde bu Web etkinlikler ilk/saniye işlem hatları, IR Başlat/Durdur iki Web etkinliği arasında SSIS paket/saklı yordamı Yürüt etkinliği zincirleyebilir, yani.

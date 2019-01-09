@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/08/2018
 ms.reviewer: mbullwin
 ms.author: Evgeny.Ternovsky
-ms.openlocfilehash: 892342dfa4407a7ed138ffb004e7854c0cd07b4a
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: d034bf130440fdb5b783db41161ab5a21a306478
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53798185"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103125"
 ---
 # <a name="correlating-application-insights-data-with-custom-data-sources"></a>Application Insights verileri özel veri kaynakları ile ilişkilendirme
 
@@ -28,7 +28,7 @@ Application Insights, birçok farklı veri türlerini toplar: özel durumlar, iz
 
 - Veri zenginleştirme veya arama tabloları: Örneğin, sunucu ve içinde bulunabilir Laboratuvar konumunu sahip bir sunucu adı tamamlar 
 - Application Insights veri kaynaklarıyla bağıntı: Örneğin, web mağazası bilgileri satın alma yerine getirme hizmetinizden ne kadar doğru sevkiyat zaman tahminleri belirlemek için üzerinde bir satın alma hakkında verilerin ilişkilendirilmesini olan 
-- Tamamen özel veri: birçok müşterimizin sevdiğiniz sorgu dili ve Application Insights yedekler Log Analytics Veri Platformu performansını ve Application ınsights'ı hiç ilgili veri kullanmak istiyorsanız. Örneğin, bir akıllı ana yükleme olarak bir parçası olarak Güneş paneli performansını izlemek için ana hatlarıyla belirtilen [burada]( http://blogs.catapultsystems.com/cfuller/archive/2017/10/04/using-log-analytics-and-a-special-guest-to-forecast-electricity-generation/).
+- Tamamen özel veri: birçok müşterimizin sevdiğiniz sorgu dili ve Application Insights yedekler Log Analytics Veri Platformu performansını ve Application ınsights'ı hiç ilgili veri kullanmak istiyorsanız. Örneğin, bir akıllı ana yükleme olarak bir parçası olarak Güneş paneli performansını izlemek için ana hatlarıyla belirtilen [burada]( https://blogs.catapultsystems.com/cfuller/archive/2017/10/04/using-log-analytics-and-a-special-guest-to-forecast-electricity-generation/).
 
 ## <a name="how-to-correlate-custom-data-with-application-insights-data"></a>Application Insights verilerini özel verilerle ilişkilendirmek nasıl 
 

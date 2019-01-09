@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: e6c5f4623f3483dcfb0dde0f55b77161eee2c562
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: aff3f47624fe21e1d0f020e8e5732e60b4b53657
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50035145"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54084064"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>VM Yeniden Başlatma İşlemlerini Anlama - bakım ve kapalı kalma süresi
 Sanal makine azure'da etkilenmesine neden olabilecek üç senaryo vardır: plansız Donanım bakımı, beklenmeyen kapalı kalma süresi ve planlı Bakım.
@@ -32,7 +32,7 @@ Bu olayların bir veya daha fazlası nedeniyle kapalı kalma süresinin etkisini
 
 * [Bir kullanılabilirlik kümesindeki birden fazla sanal makineyi yedeklilik için yapılandırma]
 * [Bir kullanılabilirlik kümesindeki VM’ler için yönetilen diskleri kullanma]
-* [Proaktif olarak yanıt etkileyen olayları VM için zamanlanmış olayları kullanın ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
+* [Proaktif olarak yanıt etkileyen olayları VM için zamanlanmış olayları kullanın](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
 * [Her uygulama katmanını ayrı kullanılabilirlik kümeleri halinde yapılandırma]
 * [Yük Dengeleyiciyi kullanılabilirlik kümeleri ile birleştirme]
 * [Düzey veri merkezi arızasına karşı korumak için kullanılabilirlik alanlarını kullanma]
@@ -65,6 +65,10 @@ VM’leri [yönetilmeyen diskler](../articles/virtual-machines/windows/about-dis
 1. **Bir VM ile ilişkili tüm diskleri (işletim sistemi ve veri) aynı depolama hesabında tutma**
 2. Bir depolama hesabına daha fazla VHD eklemeden önce **Depolama hesabındaki yönetilmeyen disk sayısına ilişkin [limitleri](../articles/storage/common/storage-scalability-targets.md) gözden geçirin**
 3. **Bir Kullanılabilirlik Kümesindeki her VM için ayrı depolama hesabı kullanın.** Depolama hesaplarını aynı Kullanılabilirlik Kümesinde birden fazla VM ile paylaşmayın. Farklı kullanılabilirlik yukarıdaki en iyi deneyimler uygulanırsa, depolama hesaplarını paylaşabilir kümelerindeki vm'le ![yönetilmeyen diskler FD](./media/virtual-machines-common-manage-availability/umd-updated.png)
+
+## <a name="use-scheduled-events-to-proactively-respond-to-vm-impacting-events"></a>VM etkileyen olayları proaktif olarak yanıt vermek için zamanlanmış olayları kullanın
+
+Abone olduğunuzda [zamanlanmış olaylar](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events), sanal Makinenizin etkileyebilir yaklaşan bakımın olaylar hakkında bildirilir. Zamanlanmış olaylar etkinleştirildiğinde, sanal makinenizin bakım etkinliği gerçekleştiren önce geçmesi gereken süreyi en düşük düzeyde verilir. Örneğin, sanal makinenizin etkileyebilecek ana bilgisayar işletim sistemi güncelleştirmeleri etkisi belirten olayları, olarak hiçbir işlem yapılmadı, bakım gerçekleştirilir birer sıraya alınır. Azure iyileştirme ne zaman yapılması gereken karar vermenize olanak tanır, VM etkileyebilecek uyaran bir donanım hatası algıladığında zamanlama olayları da eklenirler. Müşteriler, olay durumu kaydetmeyi gibi önce bakım görevleri gerçekleştirmek için ikincil veritabanına yük devretmeyi kullanın ve benzeri. Düzgün bir şekilde bir bakım olayı işlemek için mantığınızı tamamladıktan sonra Bakım ve devam etmek platform izin vermek için bekleyen zamanlanmış olay onaylayabilirsiniz.
 
 ## <a name="configure-each-application-tier-into-separate-availability-sets"></a>Her uygulama katmanını ayrı kullanılabilirlik kümeleri halinde yapılandırma
 Sanal makinelerinizin neredeyse tümü aynıysa ve uygulamanız için aynı amaca hizmet ediyorsa, uygulamanızın her katmanı için bir kullanılabilirlik kümesi yapılandırmanız önerilir.  Aynı kullanılabilirlik kümesine iki farklı katman yerleştirirseniz, aynı uygulama katmanındaki tüm sanal makineler tek seferde yeniden başlatılabilir. Her katman için bir kullanılabilirlik kümesinde en az iki sanal makineyi yapılandırarak, her katmanda en az bir sanal makinenin kullanılabilir olmasını garanti edersiniz.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 21b72a6999b58e7896a79766073ba5a8fa35a734
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 812478c13ef39b369471a731c52dc38ba6a4368c
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023018"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119756"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights ile veri toplama, tutma ve depolama
 
@@ -202,7 +202,7 @@ Açıkça sürece yalnızca TLS 1.2 kullanmak için uygulamanızı otomatik olar
 |.NET | Desteklenen yapılandırma sürüme göre değişir. | .NET 4.7 ve önceki sürümleri için ayrıntılı yapılandırma bilgileri için bkz [bu yönergeleri](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12).  |
 |Durum İzleyicisi | Desteklenen, yapılandırma gerekiyor | Durum İzleyicisi'ni dayanır [işletim sistemi yapılandırması](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) + [.NET Yapılandırması](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) TLS 1.2 desteği.
 |Node.js |  , Desteklenen v10.5.0 içinde yapılandırması gerekli olabilir. | Kullanım [resmi bir Node.js TLS/SSL belge](https://nodejs.org/api/tls.html) için herhangi bir uygulama belirli yapılandırma. |
-|Java | Desteklenir, TLS 1.2 JDK desteği eklenmiştir [JDK 6 güncelleştirmesi 121](https://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) ve [JDK 7](http://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html). | JDK 8 kullanan [varsayılan olarak TLS 1.2](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default).  |
+|Java | Desteklenir, TLS 1.2 JDK desteği eklenmiştir [JDK 6 güncelleştirmesi 121](https://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) ve [JDK 7](https://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html). | JDK 8 kullanan [varsayılan olarak TLS 1.2](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default).  |
 |Linux | Linux dağıtımları eğilimli etmenin [OpenSSL](https://www.openssl.org) TLS 1.2 desteği.  | Denetleme [OpenSSL Changelog](https://www.openssl.org/news/changelog.html) OpenSSL sürümünüz desteklenir onaylamak için.|
 | Windows 8.0 10 | Desteklenen ve varsayılan olarak etkindir. | Yine de kullandığınızı doğrulamak için [varsayılan ayarları](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).  |
 | Windows Server 2012-2016 | Desteklenen ve varsayılan olarak etkindir. | Yine de kullandığınızı doğrulamak için [varsayılan ayarları](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
@@ -297,5 +297,5 @@ Bu ürünü MaxMind kullanılabilir tarafından oluşturulan GeoLite2 veri içer
 [platforms]: ../../azure-monitor/app/platforms.md
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
 [redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
-[start]: ../../application-insights/app-insights-overview.md
+[start]: ../../azure-monitor/app/app-insights-overview.md
 

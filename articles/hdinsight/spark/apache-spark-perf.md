@@ -8,13 +8,13 @@ ms.author: maxluk
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/11/2018
-ms.openlocfilehash: a6ab4d751be74b66d9e75a37f88bc8d441f9b003
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.date: 01/08/2019
+ms.openlocfilehash: d1eeedfd91dfe1d4a174a3cbed2c0db826a8d5ab
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653739"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117869"
 ---
 # <a name="optimize-apache-spark-jobs"></a>Apache Spark işlerini iyileştirme
 
@@ -24,7 +24,7 @@ Aşağıdaki bölümlerde, yaygın bir Spark işi iyileştirmeler ve önerileri 
 
 ## <a name="choose-the-data-abstraction"></a>Veri Özet seçin
 
-Soyut veri ve Spark 1.x kullandığı Rdd spark 2.x sunulan veri çerçevelerini ve veri kümeleri. Şu göreli değeri göz önünde bulundurun:
+Spark sürümlerde Rdd özet verileri Spark 1.3 kullanın ve 1.6 DataFrames ve veri kümeleri, sırasıyla kullanıma sunulmuştur. Şu göreli değeri göz önünde bulundurun:
 
 * **Veri çerçevelerini**
     * Çoğu durumda en iyi bir seçimdir.
@@ -42,7 +42,7 @@ Soyut veri ve Spark 1.x kullandığı Rdd spark 2.x sunulan veri çerçevelerini
     * Yüksek GC yükü.
     * Tüm aşama kod oluşturma keser.
 * **Rdd**
-    * Spark 2.x gerektirmeyen Rdd, kullanılacak yeni bir özel RDD oluşturmaya gerekmedikçe.
+    * Yeni bir özel RDD oluşturmaya gerekmedikçe Rdd, kullanın gerekmez.
     * Catalyst aracılığıyla sorgu iyileştirmesi yok.
     * Tüm aşama kod üretme.
     * Yüksek GC yükü.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: 7184a5e1e9b41653cfe23aa863f8e4e4ea86c620
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: a07512c801d8e6c0f0ff3242fe1b94eeab5b2534
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409250"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105007"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>ITSM ürünler/hizmetler BT Hizmet Yönetimi Bağlayıcısı ile bağlanma
 Bu makalede, iş öğeleri merkezi olarak yönetmek için Log Analytics'te ITSM ürününüz/hizmetiniz ve BT Hizmet Yönetimi Bağlayıcısı'nı (ITSMC) arasındaki bağlantıyı yapılandırmak hakkında bilgi sağlar. ITSMC hakkında daha fazla bilgi için bkz: [genel bakış](../../azure-monitor/platform/itsmc-overview.md).
@@ -224,7 +224,7 @@ ServiceNow bağlantısı oluşturmak için aşağıdaki yordamı kullanın:
 | **Kullanıcı Adı**   | ServiceNow uygulama ITSMC bağlantıyı desteklemek için oluşturduğunuz tümleştirme kullanıcı adını yazın. Daha fazla bilgi: [ServiceNow uygulama kullanıcı rolü oluşturma](#create-integration-user-role-in-servicenow-app).|
 | **Parola**   | Bu kullanıcı adıyla ilişkili parolayı yazın. **Not**: Kullanıcı adı ve parola kimlik doğrulama belirteçleri oluşturmak için kullanılır ve ITSMC hizmetinde herhangi bir yerde depolanmaz.  |
 | **Sunucu URL'si**   | ITSMC için bağlanmak istediğiniz ServiceNow örneğinin URL'sini yazın. |
-| **İstemci kimliği**   | Daha önce oluşturulan OAuth2 kimlik doğrulamasında kullanmak istediğiniz istemci kimliği yazın.  İstemci kimliği ve gizli anahtarı oluşturma hakkında daha fazla bilgi:   [OAuth Kurulumu](http://wiki.servicenow.com/index.php?title=OAuth_Setup). |
+| **İstemci kimliği**   | Daha önce oluşturulan OAuth2 kimlik doğrulamasında kullanmak istediğiniz istemci kimliği yazın.  İstemci kimliği ve gizli anahtarı oluşturma hakkında daha fazla bilgi:   [OAuth Kurulumu](https://wiki.servicenow.com/index.php?title=OAuth_Setup). |
 | **İstemci gizli anahtarı**   | İstemci gizli anahtarını girin. Bu kimlik için oluşturulan   |
 | **Veri Eşitleme kapsamı**   | Azure Log analytics'e ITSMC aracılığıyla eşitlemek istediğiniz ServiceNow çalışma öğelerini seçin.  Seçilen değerleri log analytics'e aktarılır.   **Seçenekler:**  Olaylar ve değişiklik istekleri.|
 | **Veri Eşitleme** | Verilerden istediğiniz geçen gün sayısını yazın. **Üst sınır**: 120 gün. |

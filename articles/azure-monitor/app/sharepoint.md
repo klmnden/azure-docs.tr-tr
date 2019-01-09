@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: mbullwin
-ms.openlocfilehash: 5c050ce33e9e5b4df7d5bdd50ca1bfd6a775b4a8
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 027d5485b29deb434953470023d8a290cc0af58a
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54046118"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120946"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>Bir SharePoint sitesini Application Insights ile izleme
 Azure Application Insights, uygulamalarınızın kullanılabilirliğini, performansını ve kullanımını izler. Burada, bir SharePoint sitesi için nasıl ayarlayacağınızı öğreneceksiniz.
@@ -145,7 +145,7 @@ function onRequestFail(sender, args) {
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 * Sitenizin kullanılabilirliğini izlemek için [web testleri](../../azure-monitor/app/monitor-web-app-availability.md).
-* Diğer uygulama türleri için [Application Insights](../../application-insights/app-insights-overview.md).
+* Diğer uygulama türleri için [Application Insights](../../azure-monitor/app/app-insights-overview.md).
 
 <!--Link references-->
 

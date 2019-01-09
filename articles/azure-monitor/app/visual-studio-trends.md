@@ -15,12 +15,12 @@ ms.date: 03/17/2017
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: fe4a3a4c5bbb1954fb44bd94d33d108b81ba3893
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 898f0974a6a29abde5c84d611adc8d50c3873141
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54057247"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121080"
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>Visual Studio Eğilimlerini Çözümleme
 Application Insights Eğilimleri aracı, web uygulamanızın önemli telemetri olaylarının zaman içinde nasıl değiştiğini gösterir ve sorunları ve anormallikleri hızlıca belirlemenize yardımcı olur. Sizi daha ayrıntılı tanılama bilgilerine bağlayan Eğilimler, uygulamanızın performansını geliştirmenize, özel durumların nedenlerini izlemenize ve özel olaylarınıza ilişkin bilgileri açığa çıkarmanıza yardımcı olabilir.
@@ -29,7 +29,7 @@ Application Insights Eğilimleri aracı, web uygulamanızın önemli telemetri o
 
 ## <a name="configure-your-web-app-for-application-insights"></a>Web uygulamanızı Application Insights için yapılandırma
 
-Henüz yapmadıysanız [web uygulamanızı Application Insights için yapılandırın](../../application-insights/app-insights-overview.md). Bunun yapılması, Application Insights portalına telemetri gönderilmesine olanak tanır. Eğilimler aracı, telemetriyi buradan okur.
+Henüz yapmadıysanız [web uygulamanızı Application Insights için yapılandırın](../../azure-monitor/app/app-insights-overview.md). Bunun yapılması, Application Insights portalına telemetri gönderilmesine olanak tanır. Eğilimler aracı, telemetriyi buradan okur.
 
 Application Insights Eğilimleri, Visual Studio 2015 Güncelleştirme 3 ve sonrasında mevcuttur.
 
@@ -69,7 +69,7 @@ Ardından, sorguyu çalıştırmak için **Telemetriyi Çözümle**’ye tıklay
 Görseldeki baloncuklar arasında gezinmek için:
 
 * Bir baloncuğa tıklayarak seçtiğinizde pencerenin altındaki filtreler güncelleştirilir ve yalnızca belirli bir süre içinde oluşan olaylar özetlenir
-* Arama aracında gezinmek için bir baloncuğa çift tıklayın ve ilgili süre içinde gerçekleşen tüm telemetri olaylarını tek tek görüntüleyin
+* Arama aracında gezinmek ve ilgili süre içinde gerçekleşen telemetri olaylarını tek tek görmek için bir baloncuğa çift tıklayın
 * Baloncuğun görseldeki seçimini kaldırmak için Ctrl tuşuna basıp tıklayın.
 
 > [!TIP]
@@ -94,7 +94,7 @@ Bu filtrelerden birini kaldırmak için yöne ilişkin **Seçili filtreleri kald
 ![Birden fazla filtre](./media/visual-studio-trends/TrendsFiltering2-750.png)
 
 ## <a name="find-anomalies"></a>Anormallikleri bulma
-Eğilimler aracı, aynı zaman dizisindeki diğer baloncuklara kıyasla anormal olan olayların baloncuklarını vurgulayabilir. Görünüm Türü açılır listesinde **Zaman aralığındaki sayımlar (anomalileri vurgula)** veya **Zaman aralığındaki yüzdeler (anomalileri vurgula)** seçeneğini belirleyin. Kırmızı baloncuklar anormaldir. Anomaliler sayıları/yüzdeleri, son iki zaman dilimi (örneğin, son 24 saati görüntülüyorsanız 48 saat) boyunca gerçekleşen sayıların/yüzdelerin standart sapmasının 2.1 katını aşan baloncuklar olarak tanımlanır.
+Eğilimler aracı, aynı zaman dizisindeki diğer baloncuklara kıyasla anormal olan olayların baloncuklarını vurgulayabilir. Görünüm Türü açılır listesinde **Zaman aralığındaki sayımlar (anomalileri vurgula)** veya **Zaman aralığındaki yüzdeler (anomalileri vurgula)** seçeneğini belirleyin. Kırmızı baloncuklar anormaldir. Anomaliler sayıları/yüzdeleri geçmişte oluşan sayıları/yüzdeleri, standart sapmasının 2.1 katını aşan baloncuklar olarak tanımlanır iki zaman dilimi boyunca (48 görüntülediğiniz, son 24 saatte bir vb. saat).
 
 ![Renkli noktalar anomalileri gösterir](./media/visual-studio-trends/TrendsAnomalies-750.png)
 

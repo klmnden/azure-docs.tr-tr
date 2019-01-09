@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 12/25/2018
+ms.date: 1/8/2019
 ms.author: douglasl
-ms.openlocfilehash: be14eb59cb89676b0d69b94246f35ad6dfc7eed9
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: be26aa95ddac7b63293cee234209ac52243f110a
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792656"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104344"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Azure-SSIS tümleştirme çalışma zamanı için Azure Active Directory kimlik doğrulamasını etkinleştirme
 
@@ -114,10 +114,28 @@ Bu sonraki adım için ihtiyacınız [Microsoft SQL Server Management Studio](h
 9.  Sorgu penceresine işaretini kaldırın, aşağıdaki T-SQL komutu girin ve seçin **yürütme** araç.
 
     ```sql
+    ALTER ROLE dbmanager ADD MEMBER [SSISIrGroup]
+    ```
+
+    Komutu, kapsanan kullanıcı veritabanını (SSISDB) oluşturma olanağı verme başarıyla tamamlanmalıdır.
+
+10.  SQL kimlik doğrulaması kullanarak, SSISDB oluşturuldu ve ona erişmek için Azure AD kimlik doğrulaması için Azure-SSIS IR kullanmaya geçmek istiyorsunuz, sağ **SSISDB** seçin ve veritabanı **yeni sorgu**.
+
+11.  Sorgu penceresinde aşağıdaki T-SQL komutunu girin ve seçin **yürütme** araç.
+
+    ```sql
+    CREATE USER [SSISIrGroup] FROM EXTERNAL PROVIDER
+    ```
+
+    Kapsanan kullanıcı grubunu temsil etmek için oluşturma komutu başarıyla tamamlamanız gerekir.
+
+12.  Sorgu penceresine işaretini kaldırın, aşağıdaki T-SQL komutu girin ve seçin **yürütme** araç.
+
+    ```sql
     ALTER ROLE db_owner ADD MEMBER [SSISIrGroup]
     ```
 
-    Komutu, kapsanan kullanıcı veritabanı oluşturma olanağı verme başarıyla tamamlanmalıdır.
+    Komutu, kapsanan kullanıcı SSISDB erişim olanağı verme başarıyla tamamlanmalıdır.
 
 ## <a name="enable-azure-ad-on-azure-sql-database-managed-instance"></a>Azure SQL veritabanı yönetilen örneği Azure AD etkinleştir
 
@@ -127,15 +145,15 @@ Azure SQL veritabanı yönetilen örneği, ADF için yönetilen kimlikle bir ver
 
 1.   Azure portalında **tüm hizmetleri** -> **SQL sunucuları** sol gezinti bölmesinden.
 
-1.   Yönetilen Azure AD kimlik doğrulaması ile yapılandırılması örneğinizi seçin.
+2.   Yönetilen Azure AD kimlik doğrulaması ile yapılandırılması örneğinizi seçin.
 
-1.   İçinde **ayarları** dikey penceresinde bölümünü **Active Directory Yöneticisi**.
+3.   İçinde **ayarları** dikey penceresinde bölümünü **Active Directory Yöneticisi**.
 
-1.   Komut çubuğunda **yönetici Ayarla**.
+4.   Komut çubuğunda **yönetici Ayarla**.
 
-1.   Sunucu Yöneticisi yapılması ve ardından seçmek için bir Azure AD kullanıcı hesabı seçin **seçin**.
+5.   Sunucu Yöneticisi yapılması ve ardından seçmek için bir Azure AD kullanıcı hesabı seçin **seçin**.
 
-1.   Komut çubuğunda **Kaydet**.
+6.   Komut çubuğunda **Kaydet**.
 
 ### <a name="add-the-managed-identity-for-your-adf-as-a-user-in-azure-sql-database-managed-instance"></a>Yönetilen kimlik bilgilerinizi ADF için Azure SQL veritabanı yönetilen örneği'nın bir kullanıcı olarak ekleyin.
 
@@ -168,7 +186,7 @@ Bu sonraki adım için ihtiyacınız [Microsoft SQL Server Management Studio](h
     ALTER SERVER ROLE [securityadmin] ADD MEMBER [{the managed identity name}]
     ```
     
-    Yönetilen kimlik bilgilerinizi ADF için bir veritabanı oluşturma olanağı verme komutu başarıyla tamamlanması.
+    Yönetilen kimlik ADF veritabanını (SSISDB) oluşturma olanağı verme komutu başarıyla tamamlanması.
 
 ## <a name="provision-azure-ssis-ir-in-azure-portaladf-app"></a>Azure portal/ADF uygulamasında Azure-SSIS IR sağlama
 

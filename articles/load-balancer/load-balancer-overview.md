@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/20/2018
 ms.author: kumud
-ms.openlocfilehash: 55cb1eee1c0319f9b1037476da208de377e0c47b
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 7b0a837bf23145c5ac5e5775d4324582fa3a6b20
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971197"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120844"
 ---
 # <a name="what-is-azure-load-balancer"></a>Azure Load Balancer nedir?
 
@@ -139,7 +139,7 @@ Azure Load Balancer ağ trafiğini varsayılan olarak birden fazla VM örneği a
 
 ### <a name = "internalloadbalancer"></a> İç Load Balancer
 
-Bir iç Load Balancer, trafiği yalnızca bir sanal ağın içindeki veya Azure altyapısına bağlanmak için VPN kullanan kaynaklara yönlendirir. İç Load Balancer ile genel Load Balancer arasındaki fark budur. Azure altyapısı erişimi bir sanal ağın yük dengeli ön uç IP adresleriyle sınırlar. Ön uç IP adresleri ve sanal ağlar asla bir internet uç noktası üzerinden kullanıma sunulmaz. İç iş kolu uygulamaları Azure'da çalışır ve Azure'dan veya şirket içi kaynaklardan erişim sağlanır.
+Bir iç Load Balancer, trafiği yalnızca bir sanal ağın içindeki veya Azure altyapısına bağlanmak için VPN kullanan kaynaklara yönlendirir. İç Load Balancer ile genel Load Balancer arasındaki fark budur. Azure altyapısı erişimi bir sanal ağın yük dengeli ön uç IP adresleriyle sınırlar. ön uç IP adresleri ve sanal ağlar, bir internet uç noktasına hiçbir zaman doğrudan kullanıma sunulur. İç iş kolu uygulamaları Azure'da çalışır ve Azure'dan veya şirket içi kaynaklardan erişim sağlanır.
 
 İç Load Balancer, aşağıdaki yük dengeleme türlerini destekler:
 

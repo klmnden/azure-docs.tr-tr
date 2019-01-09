@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 1/07/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 871df693878611b0322a0f06634c62a7a9efd90a
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 6a14a806b48b30d84b021a84a1ef0a2f4318ea94
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335172"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106495"
 ---
 # <a name="validation-as-a-service-key-concepts"></a>Hizmet temel kavramları olarak doğrulama
 
@@ -44,7 +44,7 @@ VaaS iş akışı VaaS çözüm bağlamında çalışır. Bu test paketleri, bir
 ![VaaS iş akışı kutucukları](media/tile_all-workflows.png)
 
 > [!NOTE]
-> **Paket doğrulama** iş akışı şu anda iki senaryo da destekler: [doğrulama OEM paketleri](azure-stack-vaas-validate-oem-package.md) ve [yazılım güncelleştirmelerini Microsoft gelen doğrulama](azure-stack-vaas-validate-microsoft-updates.md).
+> **Çözüm doğrulama** iş akışı şu anda iki senaryo da destekler: [OEM paketleri doğrulama](azure-stack-vaas-validate-oem-package.md) ve [yazılım güncelleştirmelerini Microsoft gelen doğrulama](azure-stack-vaas-validate-microsoft-updates.md).
 
 İş akışı türleri hakkında daha fazla bilgi için bkz. [Azure Stack için hizmet olarak doğrulama nedir?](azure-stack-vaas-overview.md).
 
@@ -52,10 +52,10 @@ VaaS iş akışı VaaS çözüm bağlamında çalışır. Bu test paketleri, bir
 
 1. Çözümleri Panoda yeni bir çözüm oluşturun veya var olan bir'ı seçin. Bu yeniler ve iş akışı kutucukları olanak tanır.
 2. Yeni bir iş akışı oluşturmak için seçin **Başlat** herhangi bir kutucuğa üzerinde. Her iş akışına özel bilgiler için aşağıdaki makalelere bakın:
-    - Test geçişi: [hızlı başlangıç: doğrulama, ilk test zamanlamak için bir servis portalı kullanın.](azure-stack-vaas-schedule-test-pass.md)
-    - Çözüm doğrulama: [yeni bir Azure Stack çözüm doğrula](azure-stack-vaas-validate-solution-new.md)
-    - Paket doğrulaması: [Microsoft yazılım güncelleştirmeleri doğrulayın](azure-stack-vaas-validate-microsoft-updates.md)
-    - Paket doğrulaması: [doğrulama OEM paketleri](azure-stack-vaas-validate-oem-package.md)
+    - Test geçişi: [Hızlı Başlangıç: Doğrulama, ilk test zamanlamak için bir servis portalı kullanın.](azure-stack-vaas-schedule-test-pass.md)
+    - Çözüm doğrulama: [Yeni bir Azure Stack çözüm doğrula](azure-stack-vaas-validate-solution-new.md)
+    - Çözüm doğrulama: [Microsoft yazılım güncelleştirmeleri doğrulayın](azure-stack-vaas-validate-microsoft-updates.md)
+    - Çözüm doğrulama: [OEM paketleri doğrula](azure-stack-vaas-validate-oem-package.md)
 
 3. Yönettiğiniz veya izlediğiniz varolan bir iş akışı için seçin **Yönet** iş akışı kutucuğundaki. Kullanım ve iş akışı adını seçin **Düzenle** özelliklerini görüntüleyin ya da ortak test parametreleri değiştirmek için düğme.
 

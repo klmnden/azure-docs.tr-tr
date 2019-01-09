@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 23400331db3bd63eeeb843c9772604fabf5a87d1
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: d5714e43c9ba58cdec33ca5fd1eae31eb6a88f51
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043779"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107744"
 ---
 # <a name="working-with-azure-cosmos-databases-containers-and-items"></a>Azure Cosmos veritabanı, kapsayıcıları ve öğeleri ile çalışma
 
@@ -45,7 +45,7 @@ Aşağıdaki Azure Cosmos API'lerini kullanarak bir Azure Cosmos veritabanıyla 
 
 ## <a name="azure-cosmos-containers"></a>Azure Cosmos kapsayıcıları
 
-Bir Azure Cosmos ölçeklenebilirlik için hem sağlanan aktarım hızı birimi ve depolama öğelerinin kapsayıcıdır. Bir kapsayıcı yatay olarak bölümlenir ve ardından birden çok bölgeye çoğaltılır. Sağlama üzerindeki olduğunu hem de otomatik olarak kapsayıcı ve aktarım hızı ekleme öğeleri mantıksal bölümler bölüm anahtarına göre bir dizi dağıtılmış. Bölümlendirme ve bölüm anahtarı hakkında daha fazla bilgi için bkz: [mantıksal bölümler](partition-data.md) makalesi. 
+Bir Azure Cosmos ölçeklenebilirlik için hem sağlanan aktarım hızı birimi ve depolama öğelerinin kapsayıcıdır. Bir kapsayıcı yatay olarak bölümlenir ve ardından birden çok bölgeye çoğaltılır. Kapsayıcı ve aktarım hızı üzerinde sağlamak için eklediğiniz öğeleri otomatik olarak bir dizi bölüm anahtarına göre mantıksal bölümler arasında dağıtılır. Bölümlendirme ve bölüm anahtarı hakkında daha fazla bilgi için bkz: [mantıksal bölümler](partition-data.md) makalesi. 
 
 Bir Azure Cosmos kapsayıcı oluştururken, aktarım hızı şu modlardan birini yapılandırın:
 

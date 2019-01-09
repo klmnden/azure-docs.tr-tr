@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 84d8d3838740ec5d448b14b5c4539f7d78c96b5e
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 7c4eefa09f0a70d42601a5b1fe8694500b5c6be2
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714364"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118260"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure geliştiricileri için kullanmaya başlama kılavuzu
 
@@ -178,7 +178,7 @@ Uygulamanızı ayarlama ve Azure'da çalışan ile performansı izlemek için so
 
 -   **Visual Studio Application Insights**: Canlı web uygulamalarınızı izleme için Visual Studio ile tümleşen Azure'da barındırılan genişletilebilir bir analiz hizmetidir. Azure üzerinde barındırılan da olup olmadığını performansı ve kullanılabilirliği, uygulamalarınızın sürekli olarak geliştirmek için gereken verileri sağlar.
 
-    >**Başlama**: İzleyin [Application Insights öğretici](../../application-insights/app-insights-overview.md).
+    >**Başlama**: İzleyin [Application Insights öğretici](../../azure-monitor/app/app-insights-overview.md).
 
 -   **Azure İzleyici**: Görselleştirin, sorgu, yol, arşiv ve Azure altyapınız ve kaynaklar tarafından oluşturulan günlükleri ve ölçümler üzerinde işlem yapmasına yardımcı olan bir hizmet. İzleyici, Azure portalında görmek ve Azure kaynakları izlemek için tek bir kaynak veri görünümleri sağlar.
  

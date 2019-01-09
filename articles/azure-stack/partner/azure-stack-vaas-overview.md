@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 12/20/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: cb61b1ef1caa39f31331d8e9dc5e0da207959e89
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: dea93fefc69664e4830efdab2052d2e1ca0fd2fa
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334933"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102491"
 ---
 # <a name="what-is-validation-as-a-service-for-azure-stack"></a>Azure Stack için hizmet olarak doğrulama nedir?
 
@@ -41,21 +41,29 @@ Daha fazla bilgi için [yeni bir Azure Stack çözüm doğrulama](azure-stack-va
 
 ## <a name="validate-changes-to-the-azure-stack-software"></a>Azure Stack yazılım değişiklikleri doğrulama
 
-İş ortakları, kullanım **paket doğrulama** çözüm en son Azure Stack yazılım güncelleştirmeleriyle çalışıp çalışmadığını denetlemek için iş akışı. Paket doğrulama iş akışı burada düzeltme eki ve güncelleştirme (P & U) güncelleştirmeyi uygulamak için kullanılan bir Microsoft tarafından önerilen donanım ortamında çalıştırılmalıdır. Ayrıca iş akışı ana hat derlemesi üzerinde çalıştırmanız önerilir.
+İş ortakları, kullanım **çözüm doğrulama** çözüm en son Azure Stack yazılım güncelleştirmeleriyle çalışıp çalışmadığını denetlemek için iş akışı. Çözüm doğrulama iş akışı burada düzeltme eki ve güncelleştirme (P & U) güncelleştirmeyi uygulamak için kullanılan bir Microsoft tarafından önerilen donanım ortamında çalıştırılmalıdır. Ayrıca iş akışı ana hat derlemesi üzerinde çalıştırmanız önerilir.
 
 Daha fazla bilgi için [yazılım güncelleştirmelerini Microsoft gelen doğrulama](azure-stack-vaas-validate-microsoft-updates.md).
 
 ## <a name="get-digitally-signed-solution-partner-packages"></a>Dijital olarak imzalanmış çözüm iş ortağı paketleri al
 
-Azure Stack güncelleştirmeleri doğrulanıyor ek olarak, ortak kullanım **paket doğrulama** Azure Stack iş ortağı özel sürücüler, bellenim ve diğer yazılımları OEM özelleştirme paketleri için güncelleştirmeleri doğrulamak için iş akışı Azure Stack yazılım dağıtımı sırasında kullanılır. Azure Stack yazılımı desteklenecektir en küçük ölçekli çözüm en az kullanarak geçerli sürümünde doğrulamakta olduğunuz paket dağıtın. Paket, testleri çalıştırmadan önce VaaS için gönderilir. Testler başarıyla tamamlanırsa bildir [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com) paketi test tamamlandı ve dijital olarak olmalıdır Azure Stack dijital imza ile imzalanmış. Microsoft, paketi imzalar ve Azure Stack iş ortağı paketi VaaS portalında indirilebilir olduğunu bildirir.
+Azure Stack güncelleştirmeleri doğrulanıyor ek olarak, ortak kullanım **çözüm doğrulama** Azure Stack iş ortağı özel sürücüler, bellenim ve diğer yazılımları OEM özelleştirme paketleri için güncelleştirmeleri doğrulamak için iş akışı Azure Stack yazılım dağıtımı sırasında kullanılır. Azure Stack yazılımı desteklenecektir en küçük ölçekli çözüm en az kullanarak geçerli sürümünde doğrulamakta olduğunuz paket dağıtın. Paket, testleri çalıştırmadan önce VaaS için gönderilir. Testler başarıyla tamamlanırsa bildir [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com) paketi test tamamlandı ve dijital olarak olmalıdır Azure Stack dijital imza ile imzalanmış. Microsoft, paketi imzalar ve Azure Stack iş ortağı paketi VaaS portalında indirilebilir olduğunu bildirir.
 
 Daha fazla bilgi için [doğrulama OEM paketleri](azure-stack-vaas-validate-oem-package.md).
 
 ## <a name="preview-vaas-test-collateral"></a>Önizleme VaaS malzemeleri test
 
-Microsoft yeni özellikleri düzenli olarak Azure Stack'te kullanılabilir yapar. Bu özellikler pazara sunmaya yönelik geliştirme sürecinin bir parçası olarak yeni test malzemeleri içinde kullanılabilir hale getirileceğini **Test geçiş** iş akışı. Test geçiş iş akışı için resmi olmayan test yürütmeye olanak tanımak için diğer iş akışlarını gelen test malzemeleri içerir. Test geçiş iş akışı, onay için sonuçları göndermek için kullanmayın. Çözümünüz için resmi onay almak için çözüm doğrulama ve paket doğrulama iş akışları kullanın.
+Microsoft yeni özellikleri düzenli olarak Azure Stack'te kullanılabilir yapar. Bu özellikler pazara sunmaya yönelik geliştirme sürecinin bir parçası olarak yeni test malzemeleri içinde kullanılabilir hale getirileceğini **Test geçiş** iş akışı. Test geçiş iş akışı için resmi olmayan test yürütmeye olanak tanımak için diğer iş akışlarını gelen test malzemeleri içerir. Test geçiş iş akışı, onay için sonuçları göndermek için kullanmayın. Çözümünüz için resmi onay almak için çözüm doğrulama ve çözüm doğrulama iş akışları kullanın.
 
-Daha fazla bilgi için [hızlı başlangıç: ilk test zamanlamak için bir servis portalı doğrulama kullanmak](azure-stack-vaas-schedule-test-pass.md).
+Daha fazla bilgi için [hızlı başlangıç: Doğrulama, ilk test zamanlamak için bir servis portalı kullanmak](azure-stack-vaas-schedule-test-pass.md).
+
+## <a name="validation-workflow-tests-summary"></a>Doğrulama iş akışı test özeti
+
+| Doğrulama iş akışı | Gerekli testleri |
+|----|------------|
+| [Yeni çözüm doğrulama](azure-stack-vaas-validate-solution-new.md) | Bulut benzetimi altyapısı<br>SDK'sı işletimsel Suite işlem<br>Disk kimliği Test<br>KeyVault uzantı SDK'sı işletimsel paketi<br>KeyVault SDK işletimsel paketi<br>Ağ SDK işletimsel paketi<br>Depolama hesabı SDK işletimsel paketi<br> |
+| [Yeni çözüm doğrulama](azure-stack-vaas-validate-oem-package.md) | OEM uzantı paketi doğrulama<br>Bulut benzetimi altyapısı |
+| [Aylık güncelleştirme doğrulama](azure-stack-vaas-validate-microsoft-updates.md) | Aylık AzureStack güncelleştirme doğrulama<br>Bulut benzetimi altyapısı<br> |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

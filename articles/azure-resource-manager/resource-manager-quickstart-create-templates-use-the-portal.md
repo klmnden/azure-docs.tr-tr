@@ -13,14 +13,14 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 515ab6a4ee832c702cfe19f2aca9022f208b409d
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 15940d952dad62b3f71bfef6aa1cd8598d044605
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612797"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104735"
 ---
-# <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>Hızlı başlangıç: Azure portalı kullanarak Azure Resource Manager şablonu oluşturma ve dağıtma
+# <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>Hızlı Başlangıç: Oluşturma ve Azure portalını kullanarak Azure Resource Manager şablonlarını dağıtma
 
 Azure portalı kullanarak ilk Azure Resource Manager şablonunuzu oluşturma ve bu şablonu Azure portaldan düzenleyip dağıtmayı öğrenin. Resource Manager şablonları, çözümünüz için dağıtmanız gereken kaynakları tanımlayan JSON dosyalarıdır. Bu öğreticideki yönergeler bir Azure Depolama hesabı oluşturur. Aynı işlemi kullanarak başka Azure kaynakları da oluşturabilirsiniz.
 
@@ -97,7 +97,7 @@ Azure'daki her Azure hizmetinin adının benzersiz olması gerekir. Var olan bir
 
     ```json
     {
-        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
             "location": {
@@ -145,9 +145,9 @@ Azure'daki her Azure hizmetinin adının benzersiz olması gerekir. Var olan bir
     - **Kaynak grubu**: Kaynak grubunuza benzersiz bir ad verin.
     - **Konum**: Kaynak grubu için bir konum seçin.
     - **Konum**: Depolama hesabı için bir konum seçin.  Kaynak grubu ile aynı konumu kullanabilirsiniz.
-    - **Hesap Türü**: Bu hızlı başlangıç için **Standard_LRS** yazın.
-    - **Tür**: Bu hızlı başlangıç için **StorageV2** yazın.
-    - **Erişim Katmanı**: Bu hızlı başlangıç için **Hot** yazın.
+    - **Hesap türü**: Girin **Standard_LRS** Bu Hızlı Başlangıç için.
+    - **Tür**: Girin **StorageV2** Bu Hızlı Başlangıç için.
+    - **Erişim katmanı**: Girin **etkin** Bu Hızlı Başlangıç için.
     - **Yalnızca HTTPS Trafiği Etkin**.  Bu hızlı başlangıç için **true** değerini seçin.
     - **Yukarıda belirtilen hüküm ve koşulları kabul ediyorum**: (seçin)
 
@@ -164,7 +164,7 @@ Azure'daki her Azure hizmetinin adının benzersiz olması gerekir. Var olan bir
 
     ![Azure Resource Manager şablonlarını dağıtma kaynak grubu](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-portal-deployment-resource-group.png)
 
-    Dağıtım durumunun başarılı olduğunu ve kaynak grubunda yalnızca bir depolama hesabı olduğunu görebilirsiniz. Depolama hesabı adı, şablon tarafından oluşturulan benzersiz bir dizedir. Azure depolama hesaplarını kullanma hakkında daha fazla bilgi edinmek için bkz. [Hızlı başlangıç: Azure portalı kullanarak blobları yükleme, indirme ve listeleme](../storage/blobs/storage-quickstart-blobs-portal.md).
+    Dağıtım durumunun başarılı olduğunu ve kaynak grubunda yalnızca bir depolama hesabı olduğunu görebilirsiniz. Depolama hesabı adı, şablon tarafından oluşturulan benzersiz bir dizedir. Azure depolama hesapları kullanma hakkında daha fazla bilgi edinmek için [hızlı başlangıç: Karşıya yükleme, indirme ve Azure portalını kullanarak blobları listeleme](../storage/blobs/storage-quickstart-blobs-portal.md).
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

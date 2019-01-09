@@ -11,19 +11,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 1/08/2019
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: 67e1e22bc5569e7d6e20332ee86ffe4c7dd6a354
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 6d28eea434b081602f0e2455b22fcc58022a800e
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343852"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117122"
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Azure Stack Kiracı kaydı yönetme
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri*
 
 Bu makalede, kayıt işlemleri ilgili ayrıntıları içerir. Bu işlemler için kullanabilirsiniz:
 - Kiracı kayıtları Yönet
@@ -51,7 +51,7 @@ Azure Stack ve API profilleri hakkında daha fazla bilgi için bkz. [yönetme AP
 |---                         | --- |
 | registrationSubscriptionID | İlk kayıt için kullanılan Azure aboneliği. |
 | customerSubscriptionID     | Kaydedilecek müşteriye ait Azure aboneliği (Azure Stack değil). Oluşturulmalıdır iş ortağı merkezi aracılığıyla bulut hizmeti sağlayıcısı (CSP) teklifte. Bir müşteri birden fazla Kiracı varsa, Azure Stack açmak bir kiracı için bir abonelik oluşturuldu. |
-| Kaynak grubu              | Kaydınızı depolandığı Azure kaynak grubunda. |
+| resourceGroup              | Kaydınızı depolandığı Azure kaynak grubunda. |
 | registrationName           | Azure Stack kayıt adı. Bu, Azure'da depolanan bir nesnedir. Form azurestack-Cloudıd Azure Stack dağıtımınıza bulut kimliği olduğu Cloudıd içinde genellikle adıdır. |
 
 > [!Note]  
@@ -59,7 +59,7 @@ Azure Stack ve API profilleri hakkında daha fazla bilgi için bkz. [yönetme AP
 
 ### <a name="powershell"></a>PowerShell
 
-Kayıt kaynağı güncelleştirmek için New-AzureRmResource cmdlet'ini kullanın. Azure'da oturum açın (`Add-AzureRmAccount`) ilk kayıt için kullandığınız hesabı kullanarak. Bir kiracı ekleme konusunda bir örnek aşağıda verilmiştir:
+Kayıt kaynağı güncelleştirmek için New-AzureRmResource cmdlet'ini kullanın. Bir kiracı ekleme konusunda bir örnek aşağıda verilmiştir:
 
 ```powershell
   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
@@ -67,11 +67,11 @@ Kayıt kaynağı güncelleştirmek için New-AzureRmResource cmdlet'ini kullanı
 
 ### <a name="api-call"></a>API çağrısı
 
-**İşlem**: YERLEŞTİRME  
+**İşlem**: PUT  
 **RequestURI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  /providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/  
 {customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
 **Yanıt**: 201 oluşturuldu  
-**Yanıt gövdesi**: boş  
+**Yanıt gövdesi**: Boş  
 
 ## <a name="list-all-registered-tenants"></a>Kayıtlı tüm kiracılar listesinde
 
@@ -85,7 +85,7 @@ Bir kaydı için eklenmiş olan tüm kiracılar listesini alın.
 | Parametre                  | Açıklama          |
 |---                         | ---                  |
 | registrationSubscriptionId | İlk kayıt için kullanılan Azure aboneliği.   |
-| Kaynak grubu              | Kaydınızı depolandığı Azure kaynak grubunda.    |
+| resourceGroup              | Kaydınızı depolandığı Azure kaynak grubunda.    |
 | registrationName           | Azure Stack kayıt adı. Bu, Azure'da depolanan bir nesnedir. Adı genellikle biçimindedir **azurestack**-***Cloudıd***burada ***Cloudıd*** Azure Stack dağıtımınıza bulut kimliğidir.   |
 
 ### <a name="powershell"></a>PowerShell
@@ -100,7 +100,7 @@ Kayıtlı tüm kiracılar listelemek için Get-AzureRmResource cmdlet'ini kullan
 
 Tüm Kiracı eşlemeler GET işlemi kullanarak bir listesini alabilirsiniz.
 
-**İşlem**: Al  
+**İşlem**: GET  
 **RequestURI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  
 /providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions?  
 api-version=2017-06-01 HTTP/1.1`  
@@ -135,7 +135,7 @@ Bir kaydı için eklenmiş olan bir kiracı kaldırabilirsiniz. Söz konusu kira
 | Parametre                  | Açıklama          |
 |---                         | ---                  |
 | registrationSubscriptionId | Kayıt için abonelik kimliği.   |
-| Kaynak grubu              | Kayıt için kaynak grubu.   |
+| resourceGroup              | Kayıt için kaynak grubu.   |
 | registrationName           | Kayıt adı.  |
 | customerSubscriptionId     | Müşteri abonelik kimliği  |
 
@@ -149,12 +149,12 @@ Bir kaydı için eklenmiş olan bir kiracı kaldırabilirsiniz. Söz konusu kira
 
 Kiracı eşlemeleri silme işlemini kullanarak kaldırabilirsiniz.
 
-**İşlem**: Sil  
+**İşlem**: DELETE  
 **RequestURI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  
 /providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/  
 {customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
 **Yanıt**: 204 İçerik yok  
-**Yanıt gövdesi**: boş
+**Yanıt gövdesi**: Boş
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

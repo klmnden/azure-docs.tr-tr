@@ -12,24 +12,24 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/24/2016
 ms.author: mbullwin
-ms.openlocfilehash: 039ebe9d38b4ac4f63b078489a9c442e08aff0b0
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: c8320a0f504927830c47400f1f1ef0369c0e1cad
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075116"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54116543"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>toplanan: Application ınsights Linux performans ölçümleri
 
 
-İçindeki Linux sistem performans ölçümlerini keşfetmek için [Application Insights](../../application-insights/app-insights-overview.md), yükleme [toplanan](https://collectd.org/)eklentisi, Application Insights ile birlikte. Bu açık kaynaklı çözüm çeşitli sistem ve ağ istatistiklerini toplar.
+İçindeki Linux sistem performans ölçümlerini keşfetmek için [Application Insights](../../azure-monitor/app/app-insights-overview.md), yükleme [toplanan](https://collectd.org/)eklentisi, Application Insights ile birlikte. Bu açık kaynaklı çözüm çeşitli sistem ve ağ istatistiklerini toplar.
 
 Genellikle zaten varsa, toplanan kullanacağınız [Application Insights ile Java web hizmetinizin izleme eklenmiş][java]. Uygulamanızın performansını geliştirmek veya sorunları tanılamak için yardımcı olacak daha fazla veri sağlar. 
 
 ![Örnek grafikler](./media/java-collectd/sample.png)
 
 ## <a name="get-your-instrumentation-key"></a>İzleme anahtarınızı alın
-İçinde [Microsoft Azure Portal'da](https://portal.azure.com)açın [Application Insights](../../application-insights/app-insights-overview.md) verilerin görünmesini istediğiniz kaynak. (Veya [yeni kaynak Oluştur](../../azure-monitor/app/create-new-resource.md ).)
+İçinde [Microsoft Azure Portal'da](https://portal.azure.com)açın [Application Insights](../../azure-monitor/app/app-insights-overview.md) verilerin görünmesini istediğiniz kaynak. (Veya [yeni kaynak Oluştur](../../azure-monitor/app/create-new-resource.md ).)
 
 Kaynağı tanımlayan izleme anahtarını bir kopyasını alın.
 

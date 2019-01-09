@@ -1,11 +1,11 @@
 ---
-title: Hazırlık web uygulamaları - Azure App Service ortamları ayarlama | Microsoft Docs
+title: Hazırlık ortamları Azure App service'taki web apps için ayarlama | Microsoft Docs
 description: Azure App service'taki web apps için hazırlanmış yayımlamayı kullanmayı öğrenin.
 services: app-service
 documentationcenter: ''
 author: cephalin
 writer: cephalin
-manager: erikre
+manager: jpconnoc
 editor: mollybos
 ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.service: app-service
@@ -13,60 +13,67 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 01/03/2019
 ms.author: cephalin
-ms.custom: seodec18
-ms.openlocfilehash: 85fa047fbe94904c2bd665ff0318426920661e76
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 1d0f89285095e7edd67883a2bad1411f6e8942d2
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731688"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107216"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Azure App Service ortamlarında hazırlık ayarlama
 <a name="Overview"></a>
 
-Web uygulaması, Linux ve mobil arka uç API uygulamasına web uygulamasına dağıtırken [App Service](https://go.microsoft.com/fwlink/?LinkId=529714), varsayılan üretim yuvasına yerine ayrı bir dağıtım yuvası çalıştırıldığında dağıtabileceğiniz **standart**, **Premium**, veya **yalıtılmış** App Service planı katmanı. Dağıtım yuvaları kendi ana bilgisayar adları olan Canlı uygulamalardır. Uygulama içeriği ve yapılandırma öğelerinin, üretim yuvası dahil iki dağıtım yuvası arasında değişiklik yapılabilir. Uygulamanızı bir dağıtım yuvasına dağıtma, aşağıdaki faydaları vardır:
+> [!NOTE]
+> Bu nasıl yapılır kılavuzunda yeni bir önizleme Yönetim sayfasını kullanarak yuvalarını yönetmek nasıl gösterir. Mevcut Yönetim sayfasına kullanılan müşteriler mevcut yuva Yönetim sayfası olarak önce kullanmaya devam edebilirsiniz. 
+>
+
+Web uygulaması, Linux ve mobil arka uç API uygulamasına web uygulamasına dağıtırken [App Service](https://go.microsoft.com/fwlink/?LinkId=529714), varsayılan üretim yuvasına yerine ayrı bir dağıtım yuvası çalıştırıldığında dağıtabileceğiniz **standart**, **Premium**, veya **yalıtılmış** App Service planı katmanı. Dağıtım yuvaları kendi ana bilgisayar adları olan Canlı uygulamalardır. Uygulama içeriği ve yapılandırma öğelerinin, üretim yuvası dahil iki dağıtım yuvası arasında değişiklik yapılabilir. Uygulamanızı üretim dışı bir yuvaya dağıtmak için aşağıdaki faydaları vardır:
 
 * Üretim yuvasıyla değiştirmeden önce hazırlık dağıtım yuvasındaki uygulama değişiklikleri doğrulayabilirsiniz.
-* Bir uygulamayı ilk kez bir yuvasına dağıtma ve üretime geçirmeden yuvası tüm örneklerini üretime takas önce warmed olduğunu sağlar. Uygulamanızı dağıtırken bu kapalı kalma süresini ortadan kaldırır. Trafik yeniden yönlendirmesi sorunsuzdur ve değiştirme işlemleri sonucunda hiçbir istek bırakılır. Yapılandırarak bu iş akışının tamamı otomatikleştirilebilir [otomatik değiştirme](#Auto-Swap) zaman değiştirme öncesi doğrulama gerekli değildir.
-* Bir değiştirme işleminden sonra yuvası ile önceden hazırlanmış uygulama artık önceki üretim uygulamasına sahiptir. Beklendiği gibi üretim yuvasına değişiklikleri varsa, "son bilinen iyi sitenizi" hemen almak için aynı değiştirme gerçekleştirebileceğiniz geri.
+* Bir uygulamayı ilk kez bir yuvasına dağıtma ve üretime geçirmeden yuvası tüm örneklerini üretime takas önce warmed emin emin olur. Uygulamanızı dağıtırken bu kapalı kalma süresini ortadan kaldırır. Trafik yeniden yönlendirmesi sorunsuzdur ve değiştirme işlemleri nedeniyle istek bırakılır. Yapılandırarak bu iş akışının tamamı otomatikleştirilebilir [otomatik değiştirme](#Auto-Swap) değiştirme öncesi doğrulama değil gerekli olmadığında.
+* Bir değiştirme işleminden sonra yuvası ile önceden hazırlanmış uygulama artık önceki üretim uygulamasına sahiptir. Üretim yuvasına değişiklikler beklediğiniz gibi değilse, "son bilinen iyi sitenizi" hemen almak için aynı değiştirme gerçekleştirebileceğiniz geri.
 
-Her App Service planı katmanı farklı sayıda dağıtım yuvalarını destekler. Sayısının ölçeğini bulmak için uygulama katmanı destekleyen yuvası için bkz: [App Service limitleri](https://docs.microsoft.com/azure/azure-subscription-service-limits#app-service-limits). Farklı bir katmana uygulamanızı ölçeklendirmek için hedef katmana uygulamanızı zaten kullanıyor yuva sayısı desteklemesi gerekir. Uygulamanızı 5'ten fazla yuva varsa, örneğin, aşağı için ölçeği **standart** olduğundan, katman **standart** katman yalnızca 5 dağıtım yuvalarını destekler.
+Her App Service planı katmanı farklı sayıda dağıtım yuvalarını destekler. Sayısının ölçeğini bulmak için uygulama katmanı destekleyen yuvası için bkz: [App Service limitleri](https://docs.microsoft.com/azure/azure-subscription-service-limits#app-service-limits). Farklı bir katmana uygulamanızı ölçeklendirmek için hedef katmana uygulamanızı zaten kullanıyor yuva sayısı desteklemesi gerekir. Uygulamanızın beşten fazla yuva varsa, örneğin, aşağı için ölçeklendirilemez **standart** olduğundan, katman **standart** katman yalnızca beş dağıtım yuvalarını destekler.
 
 <a name="Add"></a>
 
-## <a name="add-a-deployment-slot"></a>Bir dağıtım yuvası Ekle
-Uygulama çalıştırmalıdır **standart**, **Premium**, veya **yalıtılmış* katmanı, birden çok dağıtım yuvasını etkinleştirmeniz sırayla.
+## <a name="add-slot"></a>Yuva Ekle
+Uygulama çalıştırmalıdır **standart**, **Premium**, veya **yalıtılmış** katmanı, birden çok dağıtım yuvasını etkinleştirmeniz sırayla.
 
-1. İçinde [Azure portalı](https://portal.azure.com/), uygulamanızın açın [kaynak dikey penceresinin](../azure-resource-manager/resource-group-portal.md#manage-resources).
-2. Seçin **dağıtım yuvalarını** seçeneğini belirleyin, ardından tıklayın **yuva Ekle**.
+1. İçinde [Azure portalında](https://portal.azure.com/), uygulamanızın açın [kaynak sayfası](../azure-resource-manager/resource-group-portal.md#manage-resources).
+
+2. Sol gezinti bölmesinde seçin **dağıtım yuvaları (Önizleme)** seçeneğini belirleyin, ardından tıklayın **yuva Ekle**.
    
-    ![Yeni bir dağıtım yuvası ekle][QGAddNewDeploymentSlot]
+    ![Yeni bir dağıtım yuvası ekle](./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png)
    
    > [!NOTE]
-   > Uygulama zaten değilse **standart**, **Premium**, veya **yalıtılmış* katmanı, aşamalı yayımlamayı etkinleştirmeye desteklenen katmanları belirten bir ileti alırsınız. Bu noktada, tercih yapma seçeneğine sahip **yükseltme** gidin **ölçek** sekmesinde devam etmeden önce uygulama.
+   > Uygulamayı hala kullanımda değilse **standart**, **Premium**, veya **yalıtılmış** katmanı, aşamalı yayımlamayı etkinleştirmeye desteklenen katmanları belirten bir ileti alırsınız. Bu noktada, tercih yapma seçeneğine sahip **yükseltme** gidin **ölçek** sekmesinde devam etmeden önce uygulama.
    > 
-   > 
-3. İçinde **bir yuva Ekle** dikey penceresinde yuvası bir ad verin ve mevcut olan başka bir dağıtım yuvası uygulama yapılandırmasından kopyalamak seçin. Devam etmek için onay işaretine tıklayın.
-   
-    ![Yapılandırma Kaynağı][ConfigurationSource1]
-   
-    İlk kez bir yuvaya eklemek için yalnızca iki seçeneğiniz vardır: üretim ya da hiç varsayılan yuvasından kopya yapılandırma.
-    Birkaç yuvaları oluşturduktan sonra üretim ortamında farklı bir yuvasından yapılandırma kopyalama olacaktır:
-   
-    ![Yapılandırma kaynağı][MultipleConfigurationSources]
-4. Uygulamanızın kaynak dikey penceresinde **dağıtım yuvalarını**, Metrikler ve yapılandırma gibi herhangi bir uygulama kümesiyle Bu yuvanın kaynak dikey penceresini açmak için bir dağıtım yuvası'ye tıklayın. Yuva adını dağıtım yuvası görüntülediğiniz hatırlatmak için dikey pencerenin en üstünde gösterilir.
-   
-    ![Dağıtım yuvası başlığı][StagingTitle]
-5. Uygulama URL'sini yuvanın dikey penceresinde tıklayın. Dağıtım yuvası kendi ana bilgisayar adı olan hem de dinamik uygulama dikkat edin. Dağıtım yuvası genel erişimi sınırlamak için bkz: [web erişimi engellemek için üretim dışı dağıtım yuvaları App Service Web uygulaması –](https://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/).
 
-Dağıtım yuvası oluşturulduktan sonra içerik yok. Farklı bir depo dalı veya tamamen farklı bir depoya yuvaya dağıtabilirsiniz. Yuvanın yapılandırmasını da değiştirebilirsiniz. İçerik güncelleştirmeleri için dağıtım yuvasıyla ilişkili yayımlama profilini veya dağıtım kimlik bilgilerini kullanın.  Örneğin, [bu yuva git ile yayımlama](deploy-local-git.md).
+3. İçinde **bir yuva Ekle** iletişim kutusunda, yuva bir ad verin ve mevcut olan başka bir dağıtım yuvası uygulama yapılandırmasından kopyalamak seçin. Tıklayın **Ekle** devam etmek için.
+   
+    ![Yapılandırma Kaynağı](./media/web-sites-staged-publishing/ConfigurationSource1.png)
+   
+    Tüm mevcut yuvasından yapılandırma kopyalayabilirsiniz. Uygulama ayarları, bağlantı dizeleri, dil framework sürümü, web yuvaları, HTTP sürümü ve platform bit genişliği kopyalanabilir ayarları içerir.
+
+4. Yuva eklendikten sonra tıklayın **kapatmak** iletişim kutusunu kapatmak için. Yeni yuva artık gösterilen **dağıtım yuvaları (Önizleme)** sayfası. Varsayılan olarak, **trafik %** 0 yeni bir yuva için üretim yuvasına yönlendirilen tüm müşteri trafiği ile ayarlanır.
+
+5. Bu yuvanın kaynak sayfasını açmak için yeni dağıtım yuvasına tıklayın.
+   
+    ![Dağıtım yuvası başlığı](./media/web-sites-staged-publishing/StagingTitle.png)
+
+    Herhangi bir App Service uygulaması gibi bir yönetim sayfası hazırlama yuvasına sahiptir. Yuvanın yapılandırmasını değiştirebilirsiniz. Yuva adını dağıtım yuvası görüntülediğiniz hatırlatmak için sayfanın en üstünde gösterilir.
+
+6. Uygulama URL'sini yuvanın kaynak sayfasında tıklayın. Dağıtım yuvası, kendi ana bilgisayar adı var ve ayrıca canlı bir uygulamadır. Dağıtım yuvası genel erişimi sınırlamak için bkz: [Azure App Service IP kısıtlamaları](app-service-ip-restrictions.md).
+
+Başka bir yuvaya ayarlarından kopyalama olsa bile yeni dağıtım yuvası, içerik yok. Örneğin, [bu yuva git ile yayımlama](app-service-deploy-local-git.md). Farklı bir depo dalı ya da farklı bir depoya yuvaya dağıtabilirsiniz. 
 
 <a name="AboutConfiguration"></a>
 
 ## <a name="which-settings-are-swapped"></a>Hangi ayarların değiştirilir?
-Başka bir dağıtım yuvasından yapılandırma kopyaladığınızda, kopyalanan düzenlenebilir bir yapılandırmadır. Ayrıca, diğer yapılandırma öğeleri aynı yuva değiştirme işleminden sonra (Yuva belirli) kalır ancak bazı yapılandırma öğeleri (değil yuva belirli) arasında bir takas içeriği izler. Aşağıdaki listelerde, yuvaları takas olduğunda değiştirme ayarları gösterilir.
+Başka bir dağıtım yuvasından yapılandırma kopyaladığınızda, kopyalanan düzenlenebilir bir yapılandırmadır. Ayrıca, diğer yapılandırma öğeleri aynı yuva değiştirme işleminden sonra (Yuva belirli) kalır ancak bazı yapılandırma öğeleri (değil yuva belirli) arasında bir takas içeriği izleyin. Aşağıdaki listelerde, yuvaları takas olduğunda değiştirme ayarları gösterilir.
 
 **Olacağı ayarları**:
 
@@ -75,102 +82,121 @@ Başka bir dağıtım yuvasından yapılandırma kopyaladığınızda, kopyalana
 * Bağlantı dizeleri (yuvada şekilde yapılandırılabilir)
 * İşleyici eşlemeleri
 * İzleme ve tanılama ayarları
+* Ortak Sertifikalar
 * WebJobs içeriği
 * Karma bağlantılar
 
-**Değil takas ayarları**:
+**Takas olmayan ayarlarını**:
 
 * Yayımlama uç noktaları
 * Özel Etki Alanı Adları
-* SSL sertifikaları ve bağlamaları
+* Özel sertifikaları ve SSL bağlamaları
 * Ölçek ayarları
 * WebJobs zamanlayıcılar
 
-(Takas değil) yuvada için bir uygulama ayarı veya bağlantı dizesini yapılandırmak için erişim **uygulama ayarları** dikey penceresinde belirli bir yuva için seçip **yuva ayarı** kutusunu yapılandırma yuvada öğeler. Yuva olarak belirli bir yapılandırma öğesi işaretleme, o öğe arasında uygulama ile ilişkili tüm dağıtım yuvalarını swappable kurma etkisi vardır.
+<!-- VNET, IP restrictions, CORS, hybrid connections? -->
 
-![Yuva ayarları][SlotSettings]
+(Takas değil) belirli yuvada için bir uygulama ayarı veya bağlantı dizesini yapılandırmak için gidin **uygulama ayarları** sayfasında bu yuva için ve ardından **yuva ayarı** kutusunun yapılandırma öğeleri yuvada. Yuva olarak belirli bir yapılandırma öğesi işaretleme, App Service swappable değil olduğunu bildirir.
+
+![Yuva ayarı](./media/web-sites-staged-publishing/SlotSetting.png)
 
 <a name="Swap"></a>
 
-## <a name="swap-deployment-slots"></a>Dağıtım yuvalarını değiştirme 
-Dağıtım yuvaları takas edebilirsiniz **genel bakış** veya **dağıtım yuvalarını** uygulamanızın kaynak dikey penceresinin görünümü.
+## <a name="swap-two-slots"></a>İki Yuvalar 
+Uygulamanızın dağıtım yuvaları takas edebilirsiniz **dağıtım yuvaları (Önizleme)** sayfası. 
+
+Ayrıca gelen yuvaları takas edebilirsiniz **genel bakış** ve **dağıtım yuvalarını** sayfaları, ancak şu anda eski bir deneyim sunar. Bu kılavuz bize yeni kullanıcı arabiriminde kullanmayı gösterir **dağıtım yuvaları (Önizleme)** sayfası.
 
 > [!IMPORTANT]
-> Bir uygulamadan bir dağıtım yuvasını üretime taşır önce tüm yuvası olmayan belirli ayarları takas hedef sağlamak üzere tam olarak istediğiniz şekilde yapılandırıldığından emin olun.
+> Bir uygulamadan bir dağıtım yuvasını üretime taşır önce tüm ayarları takas hedef sağlamak üzere tam olarak istediğiniz şekilde yapılandırıldığından emin olun.
 > 
 > 
 
-1. Dağıtım yuvalarını değiştirmek için tıklayın **takas** uygulamasının komut çubuğunda veya dağıtım yuvasının komut çubuğunda düğme.
+Dağıtım yuvalarını değiştirmek için aşağıdaki adımları izleyin:
+
+1. Git, uygulamanızın **dağıtım yuvaları (Önizleme)** sayfasında ve tıklayın **takas**.
    
-    ![Değiştirme düğmesi][SwapButtonBar]
+    ![Değiştirme düğmesi](./media/web-sites-staged-publishing/SwapButtonBar.png)
 
-2. Değiştirme hedefi ve takas kaynak düzgün ayarlandığından emin olun. Genellikle, değiştirme hedefi üretim yuvasıdır. Tıklayın **Tamam** işlem tamamlanamadı. İşlem sona erdiğinde, dağıtım yuvaları takas.
+    **Takas** iletişim ayarları değiştirilecek seçilen kaynak ve hedef yuvalarda gösterir.
+
+2. İstenen seçin **kaynak** ve **hedef** yuvası. Genellikle, hedefi üretim yuvasıdır. Ayrıca, **kaynak değişiklikleri** ve **hedef değişiklikleri** sekmeler ve yapılandırma değişikliklerini beklendiğini doğrulayın. İşiniz bittiğinde, hemen tıklayarak Yuvalar **takas**.
 
     ![Değiştirmeyi tamamla](./media/web-sites-staged-publishing/SwapImmediately.png)
 
-    İçin **Önizleme ile değiştirme** değiştirme türü için bkz: [(birden çok aşamalı değiştirme) önizleme ile değiştirme](#Multi-Phase).  
+    Takas gerçekten gerçekleşmeden önce hedef yuvadaki yeni ayarlar ile nasıl çalışır görmek için tıklamayın **takas**, ancak yönergeleri [Önizleme ile değiştirme](#Multi-Phase).
+
+3. İşlemi tamamladığınızda, tıklayarak iletişim kutusunu kapatmak **kapatmak**.
 
 <a name="Multi-Phase"></a>
 
-## <a name="swap-with-preview-multi-phase-swap"></a>(Birden çok aşamalı değiştirme) önizleme ile değiştirme
-
-Önizleme ile değiştirme ya da birden çok aşamalı takas yuvası özgü yapılandırma öğelerinin bağlantı dizeleri gibi doğrulama basitleştirin.
-Görev açısından kritik iş yükleri için doğrulamak uygulamayı üretim yuvanın yapılandırmasını uygulandığında beklendiği gibi davranan istediğiniz ve bu tür doğrulamasını gerçekleştirmelidir *önce* uygulamayı üretime taşınır. Önizleme ile değiştirme ihtiyacınız var.
+### <a name="swap-with-preview-multi-phase-swap"></a>(Birden çok aşamalı değiştirme) önizleme ile değiştirme
 
 > [!NOTE]
-> Linux üzerinde web apps Önizleme ile değiştirme desteklenmez.
+> Linux üzerinde web apps'te Önizleme ile değiştirme desteklenmez.
 
-Kullanırken **Önizleme ile değiştirme** seçeneği (bkz [dağıtım yuvaları takas](#Swap)), App Service şunları yapar:
+Takas gerçekleşmeden önce hedef yuva olarak üretime geçirmeden önce takas ayarlarla uygulama çalıştırmaları doğrulayın. Kaynak yuvaya de ayrıca görev açısından kritik uygulamalar için tercih edilir değiştirme tamamlanmadan önce warmed.
 
-- Hedef yuvanın yuvanın (örneğin, üretim) var olan iş yükünü etkilemeyecek şekilde değişmeden kalmasını sağlar.
-- Yapılandırma öğelerini hedef yuva, uygulama ayarları ve yuva özel bağlantı dizeleri dahil olmak üzere kaynak yuvaya uygular.
-- Bu yapılandırma yukarıda sözü edilen öğeleri kullanılarak kaynak yuvaya üzerinde çalışan işlemleri yeniden başlatır.
-- Takas tamamlandığında: Öncesi warmed yukarı kaynak yuvaya hedef yuvaya taşır. Hedef yuvanın el ile takas olduğu gibi kaynak yuvasına taşınır.
-- Ne zaman değiştirmeyi iptal et: Kaynak yuvaya yapılandırma öğelerini, kaynak yuvaya yeniden uygular.
+Önizleme ile değiştirme gerçekleştirdiğinizde, takas başlattığınızda, App Service şunları yapar:
 
-Uygulamanın hedef yuvanın yapılandırmasını ile tam olarak nasıl davranacağını önizleyebilirsiniz. Doğrulama tamamlandığında, takas ayrı bir adımda tamamlayın. Bu adım, kaynak yuvaya zaten istenen yapılandırma ile warmed ek bir avantajı vardır ve istemciler, kapalı kalma süresi deneyimi yok.  
+- Hedef yuva yuvanın (üretim gibi) mevcut iş yüküne etkilenmez şekilde değişmeden kalmasını sağlar.
+- Yapılandırma öğelerini hedef yuvanın, uygulama ayarları ve yuva özel bağlantı dizeleri dahil olmak üzere kaynak yuvaya uygular.
+- Bu yapılandırma öğelerini kullanarak kaynak yuvaya üzerinde çalışan işlemleri yeniden başlatır. Kaynak yuvaya göz atabilir ve uygulama yapılandırma değişiklikleriyle çalıştırması bakın.
 
-Örnekleri birden çok aşamalı takas için Azure PowerShell cmdlet'leri için dağıtım yuvaları bölümü için Azure PowerShell cmdlet'leri dahil edilmiştir.
+Ayrı bir adım değiştirmeyi tamamlamak, App Service, hedef yuvadaki warmed yukarı kaynak yuvaya yanı sıra, hedef yuvadaki kaynak yuvaya taşır. Değiştirmeyi iptal ederseniz, App Service kaynak yuvaya kaynak yuvaya yapılandırma öğelerini yeniden uygular.
+
+Önizleme ile değiştirme için aşağıdaki adımları izleyin.
+
+1. bağlantısındaki [dağıtım yuvaları takas](#Swap) ancak select **Önizleme ile değiştirme gerçekleştir**.
+
+    ![Önizleme ile değiştirme](./media/web-sites-staged-publishing/SwapWithPreview.png)
+
+    İletişim kutusu, kaynak yuvaya yapılandırmada 1. Aşama içinde nasıl değiştiğini ve kaynak ve hedef yuvanın Aşama 2 nasıl değiştiğini gösterir.
+
+2. Hazır olduğunuzda takas başlatmak tıklatın **Başlat takas**.
+
+    1. Aşama tamamlandıktan sonra iletişim kutusunda bildirim alırsınız. Değiştirme kaynağı yuvasındaki giderek Önizleme `https://<app_name>-<source-slot-name>.azurewebsites.net`. 
+
+3. Hazır bekleyen değiştirme işlemini tamamlamak bittiğinde **değiştirmeyi Tamamla** içinde **değiştirme eylemi** tıklatıp **değiştirmeyi Tamamla**.
+
+    Bekleyen bir değiştirme iptal etmek için işaretleyin **iptal takas** yerine tıklatıp **iptal takas**.
+
+4. İşlemi tamamladığınızda, tıklayarak iletişim kutusunu kapatmak **kapatmak**.
+
+Birden çok aşamalı değiştirmeyi otomatik hale getirmek için bkz: [PowerShell ile otomatikleştirme](#automate-with-azure-powershell).
+
+<a name="Rollback"></a>
+
+## <a name="roll-back-swap"></a>Değiştirme geri alma
+Hatalar (örneğin, üretim yuvası) hedef yuvada yuva değiştirme işleminden sonra meydana gelirse, yuva hemen aynı iki yuvayı değiştirerek öncesi takas durumlarına geri yükleyin.
 
 <a name="Auto-Swap"></a>
 
 ## <a name="configure-auto-swap"></a>Otomatik Takas yapılandırın
-Otomatik Takas sıfır hazırlıksız başlatma ve sıfır kapalı kalma süresi ile uygulamanızı uygulamasının son müşteriler için sürekli olarak dağıtmak istediğiniz DevOps senaryolarını kolaylaştırır. Bu yuvaya her kod güncelleştirme gönderdiğinizde bir dağıtım yuvası üretim ortamına otomatik takas için yapılandırıldığında, bunu zaten yuvada warmed sonra App Service otomatik olarak uygulama üretime değiştireceksiniz.
-
-> [!IMPORTANT]
-> Otomatik değiştirme için bir yuva etkinleştirdiğinizde, tam olarak (genellikle üretim yuvasına) hedef yuva için hedeflenen yapılandırma yuva yapılandırmadır emin olun.
-> 
-> 
 
 > [!NOTE]
-> Linux üzerinde web apps'te otomatik değiştirme desteklenmiyor.
+> Linux üzerinde web apps'te otomatik değiştirme desteklenmez.
 
-Otomatik Takas yuva için yapılandırma çok kolaydır. Şu adımları uygulayın:
+Otomatik Takas için uygulamanın son müşterilere sürekli olarak sıfır hazırlıksız başlatma ve sıfır kapalı kalma süresi ile uygulamanızı dağıtmak için istediğiniz DevOps senaryolarını kolaylaştırır. Bir yuva autoswaps üretime kodunuzun her gönderdiğinizde bu yuvaya değiştiğinde, kaynak yuvaya warmed, sonra App Service uygulama otomatik olarak üretime taşır.
 
-1. İçinde **dağıtım yuvalarını**, üretim dışı bir yuva seçin ve seçme **uygulama ayarları** Bu yuvanın kaynak dikey penceresinde.  
-   
-    ![][Autoswap1]
-2. Seçin **üzerinde** için **otomatik değiştirme**, istenen hedef yuvada seçin **otomatik takas yuvası**, tıklatıp **Kaydet** komut çubuğunda. Tam olarak hedef yuva için hedeflenen yapılandırma yuva için yapılandırma olduğundan emin olun.
-   
-    **Bildirimleri** sekmesini yanıp yeşil **başarı** işlemi tamamlandıktan sonra.
-   
-    ![][Autoswap2]
-   
    > [!NOTE]
-   > Otomatik değiştirme için uygulamanızı test etmek için önce bir üretim dışı hedef yuvaya seçebilirsiniz **otomatik takas yuvası** özelliğiyle ilgili bilgi sahibi olma.  
+   > Otomatik değiştirme için üretim yuvasına yapılandırmadan önce otomatik test değiştirme üretim dışı hedef yuvadaki üzerinde önce göz önünde bulundurun.
    > 
-   > 
-3. Bu dağıtım yuvası için bir kod gönderimi yürütün. Kısa bir süre sonra otomatik takas olur ve güncelleştirme sırasında hedef yuvanın URL'si yansıtılır.
 
-<a name="Rollback"></a>
+Otomatik değiştirme yapılandırmak için aşağıdaki adımları izleyin:
 
-## <a name="roll-back-a-production-app-after-swap"></a>Bir üretim uygulaması değiştirme işleminden sonra geri alma
-Üretim yuvası takas sonra herhangi bir hata belirlenirse yuvaları hemen aynı iki yuvayı değiştirerek öncesi takas durumlarına geri alma.
+1. Uygulamanızın kaynak sayfasına gidin. Seçin **dağıtım yuvaları (Önizleme)** > *\<istenen kaynak yuvaya >* > **uygulama ayarları**.
+   
+2. İçinde **otomatik değiştirme**seçin **üzerinde**, istenen hedef yuvada seçip **otomatik takas yuvası**, tıklatıp **Kaydet** komut çubuğunda. 
+   
+    ![](./media/web-sites-staged-publishing/AutoSwap02.png)
+
+3. Bir kod gönderimi kaynak yuvaya yürütün. Kısa bir süre sonra otomatik takas olur ve güncelleştirme sırasında hedef yuvanın URL'si yansıtılır.
 
 <a name="Warm-up"></a>
 
-## <a name="custom-warm-up-before-swap"></a>Takas önce özel Isınma
-Kullanırken [Auto-Swap](#Auto-Swap), bazı uygulamalar, özel Isınma Eylemler gerekebilir. `applicationInitialization` Web.config dosyasındaki yapılandırma öğesi, bir istek almadan önce gerçekleştirilecek özel başlatma eylemleri belirtmenize olanak sağlar. Değiştirme işlemi, bu özel bir Isınma tamamlanmasını bekler. İşte bir örnek web.config parça.
+## <a name="custom-warm-up"></a>Özel Isınma
+Kullanırken [Auto-Swap](#Auto-Swap), bazı uygulamalar takas önce özel Isınma Eylemler gerekebilir. `applicationInitialization` Web.config yapılandırma öğesinde gerçekleştirilecek özel başlatma eylemleri belirtmenize olanak sağlar. Değiştirme işlemi bu özel Isınma hedef yuvasıyla değiştirmeden önce tamamlanmasını bekler. İşte bir örnek web.config parça.
 
     <system.webServer>
         <applicationInitialization>
@@ -179,54 +205,89 @@ Kullanırken [Auto-Swap](#Auto-Swap), bazı uygulamalar, özel Isınma Eylemler 
         </applicationInitialization>
     </system.webServer>
 
-## <a name="monitor-swap-progress"></a>Takas ilerlemeyi İzle
+## <a name="monitor-swap"></a>İzleyici değiştirme
 
-Bazı durumlarda, değiştirme işlemi, değiştirilirken uygulama uzun Isınma süresini olduğunda gibi tamamlanması biraz zaman alır. Değiştirme işlemleri hakkında daha fazla bilgi alabilirsiniz [etkinlik günlüğü](../azure-monitor/platform/activity-logs-overview.md) içinde [Azure portalında](https://portal.azure.com).
+Değiştirme işlemi, tamamlanması uzun sürerse, takas işlemi hakkında bilgi alabileceğiniz [etkinlik günlüğü](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
 
-Portalın sol gezinti bölmesinde, uygulama sayfanızın seçin **etkinlik günlüğü**.
+Portalında, sol taraftaki gezinti bölmesinde, uygulamanızın kaynak sayfasını seçin **etkinlik günlüğü**.
 
-Bir değiştirme işlemi günlük sorgusu görünür `Slotsswap`. Genişletin ve ayrıntıları görmek için hataları ve suboperations birini seçin.
+Bir değiştirme işlemi günlük sorgusu görünür `Swap Web App Slots`. Genişletin ve ayrıntıları görmek için hataları ve suboperations birini seçin.
 
-![Etkinlik günlüğü yuvası takas için](media/web-sites-staged-publishing/activity-log.png)
+## <a name="route-traffic"></a>Trafiği yönlendirme
+
+Varsayılan olarak, tüm istemci isteklerini uygulamanın üretim URL'si (`http://<app_name>.azurewebsites.net`) üretim yuvasına yönlendirilir. Trafiğin bir kısmını başka bir yuvaya yönlendirebilirsiniz. Kullanıcı geri bildirimi için yeni bir güncelleştirme gerekiyor, ancak üretim yayınlamaya hazır değilseniz bu özellik yararlıdır.
+
+### <a name="route-production-traffic-automatically"></a>Üretim trafiği otomatik olarak yönlendirin
+
+Üretim trafiği otomatik olarak yönlendirmek için bu adımları izleyin:
+
+1. Uygulamanızın kaynak sayfasına gidin ve seçin **dağıtım yuvaları (Önizleme)**.
+
+2. İçinde **trafik %** sütun yuvasının istediğiniz yönlendirmek istediğiniz yönlendirmek için toplam trafik miktarı temsil etmek için (0 ile 100 arasında) bir yüzde belirtin. **Kaydet**’e tıklayın.
+
+    ![](./media/web-sites-staged-publishing/RouteTraffic.png)
+
+Ayar kaydedildikten sonra belirtilen istemcilerin yüzdesi üretim dışı yuvasına rastgele yönlendirilir. 
+
+Bir istemci belirli bir yuvaya otomatik olarak yönlendirilir sonra onun "sabitlenmiş" bu yuvaya ömrü, istemci oturumun. İstemci tarayıcısına oturumunuz sabitlenmiş için bakarak hangi yuvası gördüğünüz `x-ms-routing-name` tanımlama bilgisi, HTTP üst bilgilerinde. "Hazırlama" yuvasını yönlendirilmiş bir istek tanımlama bilgisi varsa `x-ms-routing-name=staging`. Üretim yuvasına yönlendirilmiş bir istek tanımlama bilgisi varsa `x-ms-routing-name=self`.
+
+### <a name="route-production-traffic-manually"></a>El ile üretim trafiği yönlendirin
+
+App Service, otomatik trafik yönlendirme ek olarak, belirli bir yuvaya istekleri yönlendirebilir. Kullanıcılarınız için iyileştirilmiş içine veya çevirme beta uygulamanızın olmasını istediğinizde bu kullanışlıdır. El ile üretim trafiği yönlendirmek için kullandığınız `x-ms-routing-name` sorgu parametresi.
+
+Beta uygulamanızı dışında iyileştirilmiş kullanıcılara izin vermek için örneğin, bu bağlantıyı web sayfanızın koyabilirsiniz:
+
+```HTML
+<a href="<webappname>.azurewebsites.net/?x-ms-routing-name=self">Go back to production app</a>
+```
+
+Dize `x-ms-routing-name=self` üretim yuvasına belirtir. İstemci tarayıcısı bağlantı erişen sonra yalnızca üretim yuvasına yönlendirilir ancak sonraki her istekte `x-ms-routing-name=self` sabitler üretim yuvasına oturum tanımlama bilgisi.
+
+Beta uygulamanıza kabul et kullanıcılar izin vermek için aynı sorgu parametresi örneğin üretim dışı yuvası adını ayarlayın:
+
+```
+<webappname>.azurewebsites.net/?x-ms-routing-name=staging
+```
 
 <a name="Delete"></a>
 
-## <a name="delete-a-deployment-slot"></a>Dağıtım yuvasını Sil
-Dağıtım yuvası dikey penceresinde, dağıtım yuvasındaki'nın dikey penceresini açın, **genel bakış** (varsayılan sayfası) tıklayıp **Sil** komut çubuğunda.  
+## <a name="delete-slot"></a>Yuvasını Sil
 
-![Dağıtım yuvasını Sil][DeleteStagingSiteButton]
+Uygulamanızın kaynak sayfasına gidin. Seçin **dağıtım yuvaları (Önizleme)** > *\<silmek için yuva >* > **genel bakış**. Tıklayın **Sil** komut çubuğunda.  
+
+![Dağıtım yuvasını Sil](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
 
 <!-- ======== AZURE POWERSHELL CMDLETS =========== -->
 
 <a name="PowerShell"></a>
 
-## <a name="automate-with-azure-powershell"></a>Azure PowerShell ile otomatik hale getirin
+## <a name="automate-with-powershell"></a>PowerShell ile otomatikleştirme
 
 Azure PowerShell, Azure App Service'te dağıtım yuvalarını yönetmek için destek dahil olmak üzere Windows PowerShell aracılığıyla Azure yönetmek için cmdlet'ler sağlayan bir modüldür.
 
-* Yükleme ve yapılandırma Azure PowerShell ve Azure PowerShell, Azure aboneliğiniz ile kimlik doğrulaması için bilgi [nasıl Microsoft Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/overview).  
+Yükleme ve yapılandırma Azure PowerShell ve Azure PowerShell, Azure aboneliğiniz ile kimlik doğrulaması için bilgi [nasıl Microsoft Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/overview).  
 
 - - -
-### <a name="create-a-web-app"></a>Web uygulaması oluşturma
+### <a name="create-web-app"></a>Web uygulaması oluşturma
 ```PowerShell
 New-AzureRmWebApp -ResourceGroupName [resource group name] -Name [app name] -Location [location] -AppServicePlan [app service plan name]
 ```
 
 - - -
-### <a name="create-a-deployment-slot"></a>Dağıtım yuvası oluştur
+### <a name="create-slot"></a>Yuva oluşturun
 ```PowerShell
 New-AzureRmWebAppSlot -ResourceGroupName [resource group name] -Name [app name] -Slot [deployment slot name] -AppServicePlan [app service plan name]
 ```
 
 - - -
-### <a name="initiate-a-swap-with-preview-multi-phase-swap-and-apply-destination-slot-configuration-to-source-slot"></a>Önizleme (birden çok aşamalı değiştirme) ile bir değiştirme başlatmak ve kaynak yuva için hedef yuva yapılandırmasını Uygula
+### <a name="initiate-swap-with-preview-multi-phase-swap-and-apply-destination-slot-configuration-to-source-slot"></a>(Birden çok aşamalı değiştirme) önizleme ile değiştirme başlatmak ve kaynak yuva için hedef yuva yapılandırmasını Uygula
 ```PowerShell
 $ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
 Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01
 ```
 
 - - -
-### <a name="cancel-a-pending-swap-swap-with-review-and-restore-source-slot-configuration"></a>Bekleyen bir değiştirme (gözden geçirme ile değiştirme) iptal edin ve geri yükleme kaynağı yuvası yapılandırması
+### <a name="cancel-pending-swap-swap-with-review-and-restore-source-slot-configuration"></a>Swap (gözden geçirme ile değiştirme) bekleyen iptal etme ve kaynak yuva yapılandırması geri yükleme
 ```PowerShell
 Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action resetSlotConfig -ApiVersion 2015-07-01
 ```
@@ -238,13 +299,13 @@ $ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
 Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01
 ```
 
-### <a name="monitor-swap-events-in-the-activity-log"></a>Etkinlik günlüğünde İzleyici değiştirme olayları
+### <a name="monitor-swap-events-in-the-activity-log"></a>Etkinlik günlüğü değiştirme olay izleme
 ```PowerShell
 Get-AzureRmLog -ResourceGroup [resource group name] -StartTime 2018-03-07 -Caller SlotSwapJobProcessor  
 ```
 
 - - -
-### <a name="delete-deployment-slot"></a>Dağıtım yuvasını Sil
+### <a name="delete-slot"></a>Yuvasını Sil
 ```
 Remove-AzureRmResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [app name]/[slot name] -ApiVersion 2015-07-01
 ```
@@ -254,27 +315,9 @@ Remove-AzureRmResource -ResourceGroupName [resource group name] -ResourceType Mi
 
 <a name="CLI"></a>
 
-## <a name="automate-with-azure-cli"></a>Azure CLI ile otomatikleştirme
+## <a name="automate-with-cli"></a>CLI ile otomatikleştirme
 
 İçin [Azure CLI](https://github.com/Azure/azure-cli) bkz: dağıtım yuvaları için komutları [az webapp deployment slot](/cli/azure/webapp/deployment/slot).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Azure App Service Web uygulaması – üretim dışı dağıtım yuvalarını web erişimi engelle](https://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)  
-[Linux üzerinde App Service'e Giriş](../app-service/containers/app-service-linux-intro.md)  
-[Microsoft Azure ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/)
-
-<!-- IMAGES -->
-[QGAddNewDeploymentSlot]:  ./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png
-[AddNewDeploymentSlotDialog]: ./media/web-sites-staged-publishing/AddNewDeploymentSlotDialog.png
-[ConfigurationSource1]: ./media/web-sites-staged-publishing/ConfigurationSource1.png
-[MultipleConfigurationSources]: ./media/web-sites-staged-publishing/MultipleConfigurationSources.png
-[SiteListWithStagedSite]: ./media/web-sites-staged-publishing/SiteListWithStagedSite.png
-[StagingTitle]: ./media/web-sites-staged-publishing/StagingTitle.png
-[SwapButtonBar]: ./media/web-sites-staged-publishing/SwapButtonBar.png
-[SwapConfirmationDialog]:  ./media/web-sites-staged-publishing/SwapConfirmationDialog.png
-[DeleteStagingSiteButton]: ./media/web-sites-staged-publishing/DeleteStagingSiteButton.png
-[SwapDeploymentsDialog]: ./media/web-sites-staged-publishing/SwapDeploymentsDialog.png
-[Autoswap1]: ./media/web-sites-staged-publishing/AutoSwap01.png
-[Autoswap2]: ./media/web-sites-staged-publishing/AutoSwap02.png
-[SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
-
+[Üretim dışı yuvaları erişimi engelle](app-service-ip-restrictions.md)

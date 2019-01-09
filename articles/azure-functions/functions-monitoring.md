@@ -11,16 +11,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: glenga
-ms.openlocfilehash: 62ee1c880987d0f9ad358f1a0d31af4a73263725
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: d0c24fbd749a344d9041e9c50c34e6e58ab8fd38
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017982"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121235"
 ---
 # <a name="monitor-azure-functions"></a>Azure İşlevlerini İzleme
 
-[Azure işlevleri](functions-overview.md) ile yerleşik tümleştirme sunan [Azure Application Insights](../application-insights/app-insights-overview.md) işlevleri izleme. Bu makalede, sistem tarafından oluşturulan günlük dosyalarını Application Insights'a gönderme işlevlerini yapılandırma gösterilmektedir.
+[Azure işlevleri](functions-overview.md) ile yerleşik tümleştirme sunan [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) işlevleri izleme. Bu makalede, sistem tarafından oluşturulan günlük dosyalarını Application Insights'a gönderme işlevlerini yapılandırma gösterilmektedir.
 
 ![Application Insights ölçüm Gezgini](media/functions-monitoring/metrics-explorer.png)
 
@@ -414,7 +414,7 @@ Ayrıca, alanın başvurarak özgün ileti dizesi sorgulayabilirsiniz `customDim
 C# betik işlevleri'nde kullanabilirsiniz `LogMetric` genişletme yöntemini `ILogger` özel ölçümler Application Insights'da oluşturmak için. Bir örnek yöntem çağrısı şu şekildedir:
 
 ```csharp
-logger.LogMetric("TestMetric", 1234); 
+logger.LogMetric("TestMetric", 1234);
 ```
 
 Bu kodu çağırmak için bir alternatifidir `TrackMetric` kullanarak [.NET için Application Insights API](#custom-telemetry-in-c-functions).
@@ -429,10 +429,10 @@ context.log('JavaScript HTTP trigger function processed a request.' + context.in
 
 ### <a name="logging-custom-metrics"></a>Özel ölçümler günlüğe kaydetme  
 
-Node.js işlevleri'nde kullanabilirsiniz `context.log.metric` özel ölçümler Application Insights'da oluşturmak için yöntemi. Bir örnek yöntem çağrısı şu şekildedir:
+Çalışırken [sürüm 1.x](functions-versions.md#creating-1x-apps) işlevler çalışma zamanı olan Node.js işlevleri kullanabilirsiniz `context.log.metric` özel ölçümler Application Insights'da oluşturmak için yöntemi. Bu yöntem sürümü şu anda desteklenmeyen 2.x. Bir örnek yöntem çağrısı şu şekildedir:
 
 ```javascript
-context.log.metric("TestMetric", 1234); 
+context.log.metric("TestMetric", 1234);
 ```
 
 Bu kodu çağırmak için bir alternatifidir `trackMetric` kullanarak [Application ınsights Node.js SDK'sı](#custom-telemetry-in-javascript-functions).

@@ -1,6 +1,6 @@
 ---
 title: Azure Application Insights ile canlı bir ASP.NET web uygulamasını izleme | Microsoft Docs
-description: Yeniden dağıtmadan web sitesinin performansını izleme. Şirket içinde, sanal makinelerde veya Azure üzerinde ASP.NET web uygulamaları ile çalışır.
+description: Yeniden dağıtmadan web sitesinin performansını izleme. ASP.NET web uygulamaları barındırılan şirket içi veya sanal makinelerinde çalışır.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -12,16 +12,23 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 5c0ba79826af735ad3f2edcc897dce0c84db9fce
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 333edfc4041e7ab0dfbe6d45f306b1450e6b9946
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039002"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103155"
 ---
-# <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Application Insights ile çalışma zamanında web uygulamalarını izleme
+# <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>Application Insights Durum İzleyicisi ile çalışma zamanında web uygulamalarını izleme
 
-Kodunuzu değiştirmeye veya yeniden dağıtmaya gerek olmadan canlı bir web uygulamasını Azure Application Insights ile izleyebilirsiniz. Uygulamalarınız şirket içi IIS sunucusu tarafından barındırılıyorsa, Durum İzleyicisi’ni yükleyin. Uygulamalarınız Azure web uygulamaları ise veya bir Azure VM ortamında çalışıyorsa, Azure denetim masasından Application Insights izlemeyi etkinleştirebilirsiniz. ([Canlı J2EE web uygulamaları](../../azure-monitor/app/java-live.md) ve [Azure Cloud Services](../../azure-monitor/app/cloudservices.md) izleme hakkında ayrı makaleler de vardır.) [Microsoft Azure](https://azure.com) aboneliğiniz olması gerekir.
+Kodunuzu değiştirmeye veya yeniden dağıtmaya gerek olmadan canlı bir web uygulamasını Azure Application Insights ile izleyebilirsiniz. [Microsoft Azure](https://azure.com) aboneliğiniz olması gerekir.
+
+Durum İzleyicisi IIS'de barındırılan bir .NET uygulaması izleme için kullanılan şirket içinde veya bir VM.
+
+- Uygulamanızı Azure app Services'e dağıtılması durumunda izleyin [bu yönergeleri](azure-web-apps.md).
+- Uygulamanızı Azure VM'deki dağıttıysanız, Azure denetim masasından Application Insights izlemeyi geçiş yapabilirsiniz.
+- ([Canlı J2EE web uygulamaları](java-live.md) ve [Azure Cloud Services](../../azure-monitor/app/cloudservices.md) izleme hakkında ayrı makaleler de vardır.)
+
 
 ![Başarısız istekler, sunucu yanıt süresi ve sunucu istekleri hakkında bilgi içeren App Insights ekran genel bakış grafikleri](./media/monitor-performance-live-website-now/overview-graphs.png)
 
@@ -45,39 +52,13 @@ Burada, her yöntemle kazanacaklarınızın bir özeti verilmiştir:
 | Kodu yeniden derlemeniz gerekir |Evet | Hayır |
 
 
-## <a name="monitor-a-live-azure-web-app"></a>Canlı bir Azure web uygulamasını izleme
-
-Uygulamanız bir Azure web hizmeti olarak çalışıyorsa, izlemeyi açma işlemi şu şekilde yapılır:
-
-* Azure'da, uygulamanın denetim masasında bulunan Application Insights'ı seçin.
-
-    ![Bir Azure web uygulaması için Application Insights’ı ayarlama](./media/monitor-performance-live-website-now/azure-web-setup.png)
-* Application Insights özet sayfası açıldığında, tam Application Insights kaynağını açmak için alttaki bağlantıya tıklayın.
-
-    ![Application Insights'a tıklayın](./media/monitor-performance-live-website-now/azure-web-view-more.png)
-
-[Bulut ve VM uygulamalarını izleme](../../application-insights/app-insights-overview.md).
-
-### <a name="enable-client-side-monitoring-in-azure"></a>Azure'da istemci tarafı izlemeyi etkinleştirme
-
-Azure'da Application Insights'ı etkinleştirdiyseniz sayfa görüntülemesi ve kullanıcı telemetrisi ekleyebilirsiniz.
-
-1. Ayarlar > Uygulama Ayarları'nı seçin.
-2.  Uygulama Ayarları'nın altında yeni bir anahtar değer çifti ekleyin: 
-   
-    Anahtar: `APPINSIGHTS_JAVASCRIPT_ENABLED` 
-    
-    Değer:`true`
-3. Ayarları **Kaydedin** ve uygulamanızı **Yeniden başlatın**.
-
-Bu işlemle Application Insights JavaScript SDK tüm web sayfalarına eklenmiş olur.
 
 ## <a name="monitor-a-live-iis-web-app"></a>Canlı bir IIS web uygulamasını izleme
 
 Uygulamanız bir IIS sunucusunda barındırılıyorsa, Durum İzleyici’yi kullanarak Application Insights’ı etkinleştirin.
 
 1. IIS web sunucunuzda yönetici kimlik bilgileriyle oturum açın.
-2. Application Insights Durum İzleyicisi henüz yüklü değilse, [Durum İzleyicisi yükleyicisini](https://go.microsoft.com/fwlink/?LinkId=506648) indirip çalıştırın (veya [Web Platformu Yükleyicisi](https://www.microsoft.com/web/downloads/platform.aspx)’ni çalıştırıp Application Insights Durum İzleyicisi için arama yapın).
+2. Application Insights Durum İzleyicisi zaten yüklü değilse, [indirin ve yükleyiciyi çalıştırın](#download)
 3. Durum İzleyicisi'nde yüklü web uygulamasını veya izlemek istediğiniz web sitesini seçin. Azure kimlik bilgilerinizle oturum açın.
 
     Sonuçlarını Application Insights portalında görmek istediğiniz kaynağı yapılandırın. (Normalde, yeni bir kaynak oluşturmak en iyi yöntemdir. Bu uygulama için zaten [web testleriniz][availability] veya [istemci izleme][client] özelliği varsa mevcut bir kaynağı seçin.) 
@@ -106,21 +87,73 @@ Koda Application Insights eklemeden yeniden yayımlamak istiyorsanız, dağıtı
 4. .config dosyası üzerinde yaptığınız tüm düzenlemeleri yeniden devreye sokun.
 
 
-## <a name="troubleshooting-runtime-configuration-of-application-insights"></a>Application Insights çalışma zamanı yapılandırma sorunlarını giderme
+## <a name="troubleshoot"></a>Sorun giderme
 
 ### <a name="cant-connect-no-telemetry"></a>Bağlanamıyor musunuz? Telemetri yok mu?
 
 * Durum İzleyicisi’nin çalışmasına izin vermek için sunucunuzun güvenlik duvarında [gerekli giden bağlantı noktalarını](../../azure-monitor/app/ip-addresses.md#outgoing-ports) açın.
 
+### <a name="unable-to-login"></a>Oturum açılamıyor
+
+* Durum İzleyicisi için oturum açamıyor, yoksa bir komut satırı yükleme yerine. Durum İzleyicisi, ikey toplamak için oturum açma girişiminde, ancak bu komutu kullanılarak el ile sağlayın: 
+```
+Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll
+Start-ApplicationInsightsMonitoring -Name appName -InstrumentationKey 00000000-000-000-000-0000000
+```
+
+### <a name="could-not-load-file-or-assembly-systemdiagnosticsdiagnosticsource"></a>Dosya veya 'System.Diagnostics.DiagnosticSource' derlemesi yüklenemedi
+
+Uygulaması Insights'ı etkinleştirdikten sonra bu hatayı alabilirsiniz. Yükleyici bu dll bin dizinindeki değiştirdiğinden budur.
+Düzeltmek için web.config güncelleştirin:
+
+```
+<dependentAssembly>
+    <assemblyIdentity name="System.Diagnostics.DiagnosticSource" publicKeyToken="cc7b13ffcd2ddd51"/>
+    <bindingRedirect oldVersion="0.0.0.0-4.*.*.*" newVersion="4.0.2.1"/>
+</dependentAssembly>
+```
+
+Bu sorunu takip ettiğimiz [burada](https://github.com/Microsoft/ApplicationInsights-Home/issues/301).
+
+
+### <a name="application-diagnostic-messages"></a>Uygulama tanılama iletileri
+
 * Durum İzleyicisi’ni açın ve sol bölmede uygulamanızı seçin. "Yapılandırma bildirimleri" bölümünde bu uygulamayla ilgili herhangi bir tanılama iletisi olup olmadığını denetleyin:
 
   ![İstek, yanıt süresi, bağımlılık ve diğer verileri görmek için Performans dikey penceresini açın](./media/monitor-performance-live-website-now/appinsights-status-monitor-diagnostics-message.png)
+  
+### <a name="detailed-logs"></a>Ayrıntılı günlükler
+
+* Varsayılan olarak, Durum İzleyicisi tanılama günlüklerine çıkarır: `C:\Program Files\Microsoft Application Insights\Status Monitor\diagnostics.log`
+
+* Ayrıntılı günlükleri çıktısını almak için yapılandırma dosyasını değiştirme: `C:\Program Files\Microsoft Application Insights\Status Monitor\Microsoft.Diagnostics.Agent.StatusMonitor.exe.config` ve ekleme `<add key="TraceLevel" value="All" />` için `appsettings`.
+Ardından, Durum İzleyicisi'ni yeniden başlatın.
+
+### <a name="insufficient-permissions"></a>İzinler yetersiz
+  
 * "Yetersiz izinler" hakkında bir ileti görürseniz, sunucuda aşağıdakileri deneyin:
   * IIS Yöneticisi'nde, uygulama havuzunuzu seçin, **Gelişmiş Ayarlar**’ı açın ve **işlem modeli** altında kimliğini not edin.
   * Bilgisayar yönetimi denetim masasında, bu kimliği Performans İzleyicisi Kullanıcıları grubuna ekleyin.
+
+### <a name="conflict-with-systems-center-operations-manager"></a>Systems Center Operations Manager ile çakışma
+
 * Sunucunuza yüklenmiş MMA/SCOM (System Center Operations Manager) varsa bazı sürümler çakışabilir. Hem SCOM’u, hem de Durum İzleyicisi’ni kaldırın ve en son sürümleri yeniden yükleyin.
-* Durum İzleyicisi günlükleri, varsayılan olarak bu konumda bulunabilir: "C:\Program Files\Microsoft Application Insights\Status Monitor\diagnostics.log"
-* Bkz. [Sorun giderme][qna].
+
+### <a name="failed-or-incomplete-installation"></a>Başarısız veya tamamlanmamış yüklemesi
+
+Durum İzleyicisi yükleme sırasında başarısız olursa, Durum İzleyicisi, kurtarılır silemiyor tamamlanmamış bir yükleme ile kalabilir. Bu elle sıfırlama gerektirir.
+
+Bu dosyalar, uygulama dizininizde bulunan silin:
+- Ya da "Microsoft.AI." Başlangıç bin dizinindeki tüm DLL'ler veya "Microsoft.applicationınsights".
+- Bu DLL bin dizinindeki "Microsoft.Web.Infrastructure.dll"
+- Bu DLL bin dizinindeki "System.Diagnostics.DiagnosticSource.dll"
+- "App_Data\packages" uygulama dizininizde Kaldır
+- "Applicationınsights.config" uygulama dizininizde Kaldır
+
+
+### <a name="additional-troubleshooting"></a>Ek Sorun Giderme Seçenekleri
+
+* Bkz: ek [sorun giderme][qna].
 
 ## <a name="system-requirements"></a>Sistem Gereksinimleri
 Sunucuda Application Insights Durum İzleyicisi için işletim sistemi desteği:
@@ -251,6 +284,11 @@ Derleme zamanında zaten izlenmekte olan uygulamalar için:
 ## <a name="video"></a>Video
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+
+## <a name="download"></a>Durum İzleyicisi'ni indirin
+
+- İndirme ve çalıştırma [Durum İzleyicisi yükleyici](https://go.microsoft.com/fwlink/?LinkId=506648)
+- Veya çalıştırmak [Web Platformu yükleyicisi](https://www.microsoft.com/web/downloads/platform.aspx) ve Application Insights Durum İzleyicisi da arayın.
 
 ## <a name="next"></a>Sonraki adımlar
 

@@ -1,25 +1,33 @@
 ---
 title: Uygulamaları Azure Blockchain Workbench uygulamasında kullanma
-description: Uygulamayı kullanmak nasıl Azure Blockchain Workbench uygulamasında daraltır.
+description: Uygulamayı kullanma hakkında öğretici, Azure Blockchain Workbench uygulamasında daraltır.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
-ms.topic: article
+ms.date: 1/8/2019
+ms.topic: tutorial
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 4fe6f164882ffce7bf22ec0c0b94107abcf6a20e
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: b43b125f7e96ac58a9094fc1e0e18b38f10d3e2f
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48243493"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107081"
 ---
-# <a name="using-applications-in-azure-blockchain-workbench"></a>Uygulamaları Azure Blockchain Workbench uygulamasında kullanma
+# <a name="tutorial-using-applications-in-azure-blockchain-workbench"></a>Öğretici: Uygulamaları Azure Blockchain Workbench uygulamasında kullanma
 
 Blockchain Workbench'i oluşturup sözleşmelerinde eylemleri için kullanabilirsiniz. Ayrıca görüntüleyebilirsiniz Sözleşme durumu ve işlem geçmişi gibi ayrıntıları.
+
+Şunları öğrenirsiniz:
+
+> [!div class="checklist"]
+> * Yeni sözleşme oluşturma
+> * Bir sözleşmede bir eylem
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -82,4 +90,4 @@ Durumuna bağlı olarak bir sözleşmedir, üyeleri sözleşmenin sonraki duruma
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Azure Blockchain Workbench sorunlarını giderme](troubleshooting.md)
+> [Azure Blockchain Workbench uygulama sürümü](version-app.md)

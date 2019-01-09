@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 1f9a108a91a2fa917ec58e6cff487c6dca71130f
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: d39ec71315bec98c35ac7fb76ed9a88a094817ca
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076408"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117155"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>İstek telemetrisi: Application Insights veri modeli
 
-Bir istek telemetri öğesinin (içinde [Application Insights](../../application-insights/app-insights-overview.md)) mantıksal uygulamanız için bir dış istek tarafından tetiklenen yürütme sırası temsil eder. Her istek yürütme benzersiz tarafından tanımlanır `ID` ve `url` yürütme parametreleri içeren. İstekler mantıksal olarak gruplayabilirsiniz `name` ve tanımlama `source` bu isteği. Kod yürütmeyi sonuçlanabilir `success` veya `fail` ve belirli bir `duration`. Hem başarılı hem de hata yürütme gruplandırılmış tarafından daha fazla `resultCode`. Başlangıç saati Zarf düzeyinde tanımlanan istek telemetrisi.
+Bir istek telemetri öğesinin (içinde [Application Insights](../../azure-monitor/app/app-insights-overview.md)) mantıksal uygulamanız için bir dış istek tarafından tetiklenen yürütme sırası temsil eder. Her istek yürütme benzersiz tarafından tanımlanır `ID` ve `url` yürütme parametreleri içeren. İstekler mantıksal olarak gruplayabilirsiniz `name` ve tanımlama `source` bu isteği. Kod yürütmeyi sonuçlanabilir `success` veya `fail` ve belirli bir `duration`. Hem başarılı hem de hata yürütme gruplandırılmış tarafından daha fazla `resultCode`. Başlangıç saati Zarf düzeyinde tanımlanan istek telemetrisi.
 
 İstek telemetri destekleyen özel kullanarak standart genişletilebilirlik modeli `properties` ve `measurements`.
 

@@ -13,16 +13,16 @@ ms.custom: mvc
 ms.topic: overview
 ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: c7b9485d9a7da6479e65689fbcab67e10dec5cb2
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: d5cba3b21ff6099a4132a7ebfab38d1ead9afded
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052283"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118091"
 ---
 # <a name="overview-of-application-insights-for-devops"></a>DevOps için Application Insights’a genel bakış
 
-[Application Insights](../../application-insights/app-insights-overview.md) ile uygulamanızın canlıyken nasıl performans gösterdiğini ve kullanıldığını hızlıca bulabilirsiniz. Bir sorun olduğunda bunu bilmenizi sağlar, etkisini değerlendirmenize ve nedenini belirlemenize yardımcı olur.
+[Application Insights](../../azure-monitor/app/app-insights-overview.md) ile uygulamanızın canlıyken nasıl performans gösterdiğini ve kullanıldığını hızlıca bulabilirsiniz. Bir sorun olduğunda bunu bilmenizi sağlar, etkisini değerlendirmenize ve nedenini belirlemenize yardımcı olur.
 
 Web uygulamaları geliştiren bir ekip şunları anlatıyor:
 
@@ -230,6 +230,6 @@ Uygulamanızın özelliklerine bağlı olarak çeşitli şekillerde başlayabili
 * [ASP.NET Web uygulaması](../../azure-monitor/app/asp-net.md)
 * [Java Web uygulaması](../../azure-monitor/app/java-get-started.md)
 * [Node.js Web uygulaması](../../azure-monitor/app/nodejs.md)
-* [IIS](../../azure-monitor/app/monitor-web-app-availability.md), [J2EE](../../azure-monitor/app/java-live.md) veya [Azure](../../application-insights/app-insights-overview.md) üzerinde barındırılan önceden dağıtılmış uygulamalar.
+* [IIS](../../azure-monitor/app/monitor-web-app-availability.md), [J2EE](../../azure-monitor/app/java-live.md) veya [Azure](../../azure-monitor/app/app-insights-overview.md) üzerinde barındırılan önceden dağıtılmış uygulamalar.
 * [Web sayfaları](../../azure-monitor/app/javascript.md) -Tek Sayfalık Uygulama veya normal Web sayfası - bunu kendi başına veya sunucu seçeneklerinden herhangi biriyle birlikte kullanın.
 * Uygulamanızı genel İnternet'ten test etmek için [kullanılabilirlik testleri](../../azure-monitor/app/monitor-web-app-availability.md).

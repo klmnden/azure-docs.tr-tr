@@ -11,12 +11,12 @@ author: hning86
 ms.author: haining
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: da84d6361d80db8aea797827ed3d7bc612e2eda3
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 2c8edd73a287d5bca2f3deb68448ba951b7a3367
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999059"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106571"
 ---
 # <a name="quickstart-use-the-python-sdk-to-get-started-with-azure-machine-learning"></a>Hızlı Başlangıç: Azure Machine Learning'i kullanmaya başlamak için Python SDK'sını kullanma
 
@@ -76,7 +76,7 @@ SDK'yı yüklemeden yalıtılmış bir Python ortamı oluşturmanızı öneririz
 
 Etkinleştirilen conda ortamına SDK'yı yükleyin. Bu kod, Machine Learning SDK'sının temel bileşenlerini yükler. Ayrıca conda ortamında Jupyter Notebook sunucusu yükler. Yükleme, makinenizin yapılandırmasına göre tamamlanması birkaç dakika sürer.
 
-```sh
+```shell
 # Install Jupyter
 conda install nb_conda
 
@@ -86,7 +86,7 @@ pip install azureml-sdk[notebooks]
 
 SDK'ın diğer bileşenleri yüklemek için ek anahtar sözcükleri kullanabilirsiniz:
 
-```sh
+```shell
 # Install the base SDK and auto ml components
 pip install azureml-sdk[automl]
 
@@ -97,13 +97,8 @@ pip install azureml-sdk[explain]
 pip install azureml-sdk[contrib]
 ```
 
-Azure Databricks ortamında, bunun yerine aşağıdaki yükleme komutunu kullanın:
-
-```
-# Install the base SDK and automl components in the Azure Databricks environment.
-# For more information, see https://github.com/Azure/MachineLearningNotebooks/tree/master/databricks.
-pip install azureml-sdk[databricks]
-```
+Azure Databricks ortamda [Databricks yükleme adımlarını](how-to-configure-environment.md#azure-databricks
+) yerine.
 
 
 ## <a name="create-a-workspace"></a>Çalışma alanı oluşturma
@@ -143,11 +138,7 @@ pip install azureml-sdk[databricks]
 
 Bir yapılandırma dosyası geçerli dizin için çalışma alanınızı ayrıntılarını kaydedin. Bu dosya adında *aml_config\config.json*.  
 
-Bu çalışma alanı yapılandırma dosyası, aynı çalışma alanına daha sonra yüklemek kolaylaştırır. Bunu başka notebook'lar ve betiklerle aynı dizine veya bir alt dizine yükleyebilirsiniz. 
-
-[!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=writeConfig)]
-
-`write_config()` API çağrısı geçerli dizinde yapılandırma dosyası oluşturur. *Config.json* dosyası aşağıdaki betiği içerir:
+`write_config()` API çağrısı geçerli dizinde yapılandırma dosyası oluşturur. *Config.json* dosyası şunları içerir:
 
 ```json
 {
@@ -156,6 +147,12 @@ Bu çalışma alanı yapılandırma dosyası, aynı çalışma alanına daha son
     "workspace_name": "myworkspace"
 }
 ```
+
+Bu çalışma alanı yapılandırma dosyası, aynı çalışma alanına daha sonra yüklemek kolaylaştırır. Bunu başka notebook'lar ve betiklerle aynı dizine veya bir alt dizine yükleyebilirsiniz. 
+
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=writeConfig)]
+
+
 
 ## <a name="use-the-workspace"></a>Çalışma alanını kullanma
 
@@ -190,7 +187,7 @@ Machine Learning öğreticileri ile kodu kullanmak için ortamınızda birkaç d
 
 1. Tarayıcınızda notebook'unuzu kapatın.
 1. Jupyter Notebook sunucusu durdurmak için Ctrl + C komut satırı penceresinde seçin.
-1. Ek paketleri yükleyin.
+1. Ek paketleri yükleyin.  Yüklemediyseniz `azureml-sdk[automl]` yukarıda, bunu şimdi emin olun.
 
     ```shell
     conda install -y cython matplotlib scikit-learn pandas numpy

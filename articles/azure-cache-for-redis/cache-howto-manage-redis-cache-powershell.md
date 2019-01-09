@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 0186882183ed0848fd8b14d186b55ad1a5ff58ea
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 746e1c082d370cdcf1fca6597923b0e38b9a6d62
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53020045"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105245"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Azure önbelleği için Redis Azure PowerShell ile yönetme
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ Bu konuda, oluşturma gibi ortak görevleri gerçekleştirmek için nasıl günc
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
-Klasik dağıtım modeli hakkında daha fazla bilgi için bkz: [Azure Resource Manager ve klasik dağıtım: dağıtım modellerini ve kaynaklarınızın durumunu anlama](../azure-resource-manager/resource-manager-deployment-model.md).
+Klasik dağıtım modeli hakkında daha fazla bilgi için bkz: [Azure Resource Manager ve klasik dağıtım: Dağıtım modellerini ve kaynaklarınızın durumunu anlama](../azure-resource-manager/resource-manager-deployment-model.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 Azure PowerShell'i zaten yüklediyseniz, Azure PowerShell sürüm 1.0.0 olmalıdır veya üzeri. Azure PowerShell, Azure PowerShell komut isteminde bu komutu ile yüklü olan sürümü denetleyebilirsiniz.
@@ -128,16 +128,16 @@ Aşağıdaki tabloda, özellikleri ve oluşturma ve yönetme, Azure önbelleği 
 | Ad |Önbellek adı | |
 | Konum |Önbellek konumu | |
 | ResourceGroupName |Önbellek oluşturulacağı kaynak grubu adı | |
-| Boyut |Önbellek boyutu. Geçerli değerler: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250MB, 1GB, 2,5 GB, 6 GB, 13 GB, 26 GB, 53 GB |1 GB |
-| ShardCount |Premium önbellek kümeleme özellikli oluştururken oluşturmak için parça sayısı. Geçerli değerler: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
-| SKU |Önbelleğinin SKU belirtir. Geçerli değerler: temel, standart ve Premium |Standart |
+| Boyut |Önbellek boyutu. Geçerli değerler şunlardır: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250MB, 1GB, 2,5 GB, 6 GB, 13 GB, 26 GB, 53 GB |1 GB |
+| ShardCount |Premium önbellek kümeleme özellikli oluştururken oluşturmak için parça sayısı. Geçerli değerler şunlardır: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
+| SKU |Önbelleğinin SKU belirtir. Geçerli değerler şunlardır: Temel, Standart, Premium |Standart |
 | RedisConfiguration |Redis yapılandırma ayarlarını belirtir. Her ayar hakkında daha fazla bilgi için aşağıdakilere bakın [RedisConfiguration özellikleri](#redisconfiguration-properties) tablo. | |
 | enableNonSslPort |SSL olmayan bağlantı noktasının etkinleştirilip etkinleştirilmeyeceğini gösterir. |False |
 | MaxMemoryPolicy |Bu parametre kullanım - RedisConfiguration kullanın. | |
 | StaticIP |Bir vnet'teki önbelleğinizi barındırırken, benzersiz bir IP adresi alt ağ için önbellek belirtir. Sağlanmazsa, bir, alt ağdan seçilir. | |
 | Alt ağ |Bir vnet'teki önbelleğinizi barındırırken, önbellek dağıtacağınız bir alt ağ adını belirtir. | |
 | VirtualNetwork |Bir vnet'teki önbelleğinizi barındırırken, önbellek dağıtacağınız sanal ağın kaynak Kimliğini belirtir. | |
-| KeyType |Erişim anahtarlarını yenilenirken yeniden oluşturmak için hangi erişim anahtarını belirtir. Geçerli değerler: birincil, ikincil | |
+| KeyType |Erişim anahtarlarını yenilenirken yeniden oluşturmak için hangi erişim anahtarını belirtir. Geçerli değerler şunlardır: Birincil, ikincil | |
 
 ### <a name="redisconfiguration-properties"></a>RedisConfiguration özellikleri
 | Özellik | Açıklama | Fiyatlandırma katmanları |
@@ -148,11 +148,11 @@ Aşağıdaki tabloda, özellikleri ve oluşturma ve yönetme, Azure önbelleği 
 | maxmemory-ayrılmış |Yapılandırır [ayrılan bellek](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) önbellek olmayan işlemler için |Standart ve Premium |
 | Maks bellek politikası |Yapılandırır [çıkarma İlkesi](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) önbelleği |Tüm fiyatlandırma katmanları |
 | bildirim-anahtar alanı-olayları |Yapılandırır [anahtar alanı bildirimleri](cache-configure.md#keyspace-notifications-advanced-settings) |Standart ve Premium |
-| en fazla ziplist girişlerini karması |Yapılandırır [bellek iyileştirme](http://redis.io/topics/memory-optimization) küçük toplam veri türleri |Standart ve Premium |
-| en fazla ziplist değeri karması |Yapılandırır [bellek iyileştirme](http://redis.io/topics/memory-optimization) küçük toplam veri türleri |Standart ve Premium |
-| en fazla intset Girişlerini Ayarla |Yapılandırır [bellek iyileştirme](http://redis.io/topics/memory-optimization) küçük toplam veri türleri |Standart ve Premium |
-| zset-max-ziplist-entries |Yapılandırır [bellek iyileştirme](http://redis.io/topics/memory-optimization) küçük toplam veri türleri |Standart ve Premium |
-| zset-max-ziplist-value |Yapılandırır [bellek iyileştirme](http://redis.io/topics/memory-optimization) küçük toplam veri türleri |Standart ve Premium |
+| en fazla ziplist girişlerini karması |Yapılandırır [bellek iyileştirme](https://redis.io/topics/memory-optimization) küçük toplam veri türleri |Standart ve Premium |
+| en fazla ziplist değeri karması |Yapılandırır [bellek iyileştirme](https://redis.io/topics/memory-optimization) küçük toplam veri türleri |Standart ve Premium |
+| en fazla intset Girişlerini Ayarla |Yapılandırır [bellek iyileştirme](https://redis.io/topics/memory-optimization) küçük toplam veri türleri |Standart ve Premium |
+| zset-max-ziplist-entries |Yapılandırır [bellek iyileştirme](https://redis.io/topics/memory-optimization) küçük toplam veri türleri |Standart ve Premium |
+| zset-max-ziplist-value |Yapılandırır [bellek iyileştirme](https://redis.io/topics/memory-optimization) küçük toplam veri türleri |Standart ve Premium |
 | veritabanları |Veritabanı sayısı yapılandırır. Bu özellik yalnızca önbellek oluşturma sırasında yapılandırılabilir. |Standart ve Premium |
 
 ## <a name="to-create-an-azure-cache-for-redis"></a>Bir Azure önbelleği için Redis oluşturmak için
@@ -237,7 +237,7 @@ Kullanılabilir parametrelerin ve Tanımlamaların için bir listesini görmek i
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 Varsayılan parametreleri bir önbellek oluşturmak için aşağıdaki komutu çalıştırın.
 
@@ -317,7 +317,7 @@ Kullanılabilir parametrelerin ve Tanımlamaların için bir listesini görmek i
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 `Set-AzureRmRedisCache` Cmdlet'i gibi özellikleri güncelleştirmek için kullanılabilir `Size`, `Sku`, `EnableNonSslPort`ve `RedisConfiguration` değerleri. 
 
@@ -421,7 +421,7 @@ Kullanılabilir parametrelerin ve Tanımlamaların için bir listesini görmek i
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 Geçerli abonelikte tüm önbellekleri hakkında bilgi döndürmek için çalıştırın `Get-AzureRmRedisCache` hiçbir parametre olmadan.
 
@@ -488,7 +488,7 @@ Kullanılabilir parametrelerin ve Tanımlamaların için bir listesini görmek i
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 Önbelleğinizi anahtarlarını almak için arama `Get-AzureRmRedisCacheKey` cmdlet'i ve önbelleği içeren kaynak grubunu adını önbelleğinizi adını geçirin.
 
@@ -533,7 +533,7 @@ Kullanılabilir parametrelerin ve Tanımlamaların için bir listesini görmek i
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 Önbellek hesabınız için birincil veya ikincil anahtarı yeniden oluşturmak için çağrı `New-AzureRmRedisCacheKey` cmdlet'i seçeneklerinden birini belirtin ve kaynak grubu adı olarak oldfashionedgoat `Primary` veya `Secondary` için `KeyType` parametresi. Aşağıdaki örnekte, bir önbellek için ikincil erişim anahtarını yeniden oluşturulur.
 
@@ -584,7 +584,7 @@ Kullanılabilir parametrelerin ve Tanımlamaların için bir listesini görmek i
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 Aşağıdaki örnekte, önbellek adlı `myCache` kaldırılır.
 
@@ -648,7 +648,7 @@ Kullanılabilir parametrelerin ve Tanımlamaların için bir listesini görmek i
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 
 Aşağıdaki komut SAS URI tarafından Azure önbelleğine Redis için belirtilen blob verileri alır.
@@ -707,7 +707,7 @@ Kullanılabilir parametrelerin ve Tanımlamaların için bir listesini görmek i
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 
 Aşağıdaki komutu, bir Azure önbelleği için SAS URI tarafından belirtilen kapsayıcı içine bir Redis örneğinden gelen verileri dışarı aktarır.
@@ -768,7 +768,7 @@ Kullanılabilir parametrelerin ve Tanımlamaların için bir listesini görmek i
             This cmdlet supports the common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
-            about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+            about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 
 Aşağıdaki komut, belirtilen önbellek her iki düğüm yeniden başlatır.
@@ -783,7 +783,7 @@ Azure ile Windows PowerShell kullanma hakkında daha fazla bilgi edinmek için a
 * [Azure önbelleği için Redis cmdlet belgeleri MSDN](https://docs.microsoft.com/powershell/module/azurerm.rediscache/?view=azurermps-6.6.0)
 * [Azure Resource Manager cmdlet'leri](https://go.microsoft.com/fwlink/?LinkID=394765): Azure Resource Manager modüldeki cmdlet'ler kullanmayı öğrenin.
 * [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../azure-resource-manager/resource-group-template-deploy-portal.md): Azure portalında kaynak gruplarını oluşturma ve yönetme hakkında bilgi edinin.
-* [Azure blogu](https://azure.microsoft.com/blog/): azure'daki yeni özellikleri hakkında bilgi edinin.
+* [Azure blogu](https://azure.microsoft.com/blog/): Azure'da yeni özellikler hakkında bilgi edinin.
 * [Windows PowerShell Web günlüğü](https://blogs.msdn.com/powershell): Windows PowerShell'de yeni özellikler hakkında bilgi edinin.
-* ["Hey, betik yazarı!" Blog](http://blogs.technet.com/b/heyscriptingguy/): Windows PowerShell Topluluğu'ndan gerçek ipuçları ve püf noktaları alın.
+* ["Hey, betik yazarı!" Blog](https://blogs.technet.com/b/heyscriptingguy/): Windows PowerShell Topluluğu'ndan gerçek ipuçları ve püf noktaları alın.
 

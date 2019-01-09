@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/26/2018
+ms.date: 12/20/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 7949e764baa7a4e20eb988c78817b6b4f0045593
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: e6cfdca207b114871a478262f14ea960be5985df
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333777"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104973"
 ---
 # <a name="validate-a-new-azure-stack-solution"></a>Yeni bir Azure Stack çözüm doğrula
 
@@ -35,32 +35,53 @@ Tüm dünyada Microsoft ve iş ortağı arasında Windows Server logo sertifikas
 ## <a name="create-a-solution-validation-workflow"></a>Bir çözüm doğrulama iş akışı oluşturma
 
 1. [!INCLUDE [azure-stack-vaas-workflow-step_select-solution](includes/azure-stack-vaas-workflow-step_select-solution.md)]
-2. Seçin **Başlat** üzerinde **çözüm doğrulamaları** Döşe.
+
+3. Seçin **Başlat** üzerinde **çözüm doğrulamaları** Döşe.
 
     ![Çözüm doğrulama iş akışı kutucuğu](media/tile_validation-solution.png)
 
-3. [!INCLUDE [azure-stack-vaas-workflow-step_naming](includes/azure-stack-vaas-workflow-step_naming.md)]
-4. Seçin **çözüm yapılandırması**.
+4. [!INCLUDE [azure-stack-vaas-workflow-step_naming](includes/azure-stack-vaas-workflow-step_naming.md)]
+
+5. Seçin **çözüm yapılandırması**.
     - **En düşük**: Çözüm desteklenen düğüm sayısı alt sınırı ile yapılandırılır.
     - **En fazla**: çözüm en fazla desteklenen düğüm sayısını ile yapılandırılır.
-5. [!INCLUDE [azure-stack-vaas-workflow-step_upload-stampinfo](includes/azure-stack-vaas-workflow-step_upload-stampinfo.md)]
+6. [!INCLUDE [azure-stack-vaas-workflow-step_upload-stampinfo](includes/azure-stack-vaas-workflow-step_upload-stampinfo.md)]
 
     ![Çözüm doğrulama bilgileri](media/workflow_validation-solution_info.png)
 
-6. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
+7. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
 
     > [!NOTE]
     > Bir iş akışını oluşturduktan sonra ortam parametrelerini değiştirilemez.
 
-7. [!INCLUDE [azure-stack-vaas-workflow-step_tags](includes/azure-stack-vaas-workflow-step_tags.md)]
-8. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
+8. [!INCLUDE [azure-stack-vaas-workflow-step_tags](includes/azure-stack-vaas-workflow-step_tags.md)]
+9. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
     Testleri Özet sayfasına yönlendirilirsiniz.
 
-## <a name="execute-solution-validation-tests"></a>Çözüm doğrulama testleri yürütün
+## <a name="run-solution-validation-tests"></a>Çözüm doğrulama testlerini çalıştırın
 
 İçinde **çözüm doğrulama testleri özeti** sayfasında doğrulamayı tamamlamak için gereken testlerin bir listesini görürsünüz.
 
-[!INCLUDE [azure-stack-vaas-workflow-validation-section_schedule](includes/azure-stack-vaas-workflow-validation-section_schedule.md)]
+Doğrulama iş akışlarında **zamanlama** test iş akışı oluşturma işlemi sırasında belirtilen düzey iş akışı ortak parametreleri kullanır (bkz [hizmetolarakAzureStackdoğrulamaişakışıortakparametreleri](azure-stack-vaas-parameters.md)). Herhangi bir test parametre değerleri geçersiz hale gelirse, bunları belirtildiği gibi resupply gerekir [iş akışı parametreleri değiştirmek](azure-stack-vaas-monitor-test.md#change-workflow-parameters).
+
+> [!NOTE]
+> Var olan bir örneği üzerinde bir doğrulama testi zamanlama portalda eski örneği yerine yeni bir örneğini oluşturur. Eski örneği için günlükleri korunur ancak Portalı'ndan erişilebilir değildir.  
+Bir test başarıyla tamamlandıktan sonra **zamanlama** eylemi devre dışı kalır.
+
+1. [!INCLUDE [azure-stack-vaas-workflow-step_select-agent](includes/azure-stack-vaas-workflow-step_select-agent.md)]
+
+2. Aşağıdaki testler seçin:
+    - Bulut benzetimi altyapısı
+    - SDK'sı işletimsel Suite işlem
+    - Disk kimliği Test
+    - KeyVault uzantı SDK'sı işletimsel paketi
+    - KeyVault SDK işletimsel paketi
+    - Ağ SDK işletimsel paketi
+    - Depolama hesabı SDK işletimsel paketi
+
+3. Seçin **zamanlama** bağlam menüsünden test örneği zamanlamak için bir istem açın.
+
+4. Test parametreleri gözden geçirin ve ardından **Gönder** test yürütme için zamanlamak için.
 
 ![Zamanlama çözümü doğrulama sınaması](media/workflow_validation-solution_schedule-test.png)
 

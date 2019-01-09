@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: af4e9d0ec90c203a83acf142dd9c81494fe5bc47
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: e008a53ce71a55b344dfc3a76bdb4ae39b954c46
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/08/2019
-ms.locfileid: "54081154"
+ms.locfileid: "54104888"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Azure Application Insights’ı kullanarak özel KPI panoları oluşturma
 
@@ -167,4 +167,4 @@ Azure Applications Insights Analytics, ayrı bir hizmet olduğundan Analytics so
 Artık nasıl özel pano oluşturulacağını öğrendiniz. Bir örnek olay içeren diğer Application Insights belgelerine de göz atabilirsiniz.
 
 > [!div class="nextstepaction"]
-> [Derin tanılama](../../application-insights/app-insights-devops.md)
+> [Derin tanılama](../../azure-monitor/app/devops.md)

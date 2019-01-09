@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: alinast
-ms.openlocfilehash: 374a27b10b3928838b10e4fba24e1f36721c162a
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: e6d95d44dbfe2d66189be5103552d841ccbdf690
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53433688"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117427"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>Cihaz bağlantısı ve telemetri sorunları
 
@@ -67,7 +67,7 @@ Cihazınızın ileti biçimi ve yükü çözümünüzün gereksinimlerine uyacak
 
  Yükü içeriğini bir **ileti** rastgele verilerin boyutu 256 KB'a kadar. Özellikleri için beklenen birkaç gereksinim vardır [ `Message.Properties` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.properties?view=azure-dotnet) türü. Tablo, sistem tarafından desteklenen gerekli ve isteğe bağlı özellikleri gösterir.
 
-| Özellik adı | Değer | Gerekli | Açıklama |
+| Özellik adı | Değer | Gereklidir | Açıklama |
 |---|---|---|---|
 | **DigitalTwins Telemetri** | 1.0 | Evet | Bir ileti sistemi tanımlayan bir sabit değer. |
 | **DigitalTwins SensorHardwareId** | `string(72)` | Evet | Benzersiz bir tanımlayıcı gönderen algılayıcı **ileti**. Bu değer, bir nesnenin eşleşmelidir **HardwareId** sistemin işlemek özellik. Örneğin, `00FF0643BE88-CO2`. |
@@ -80,4 +80,4 @@ DeviceClient kullanın [SendEventAsync](https://docs.microsoft.com/dotnet/api/mi
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure dijital İkizlerini veri işleme ve kullanıcı tanımlı işlevleri özellikleri hakkında bilgi edinmek için [Azure dijital İkizlerini veri işleme ve kullanıcı tanımlı işlevleri](concepts-user-defined-functions.md).
+- Azure dijital İkizlerini veri işleme ve kullanıcı tanımlı işlevleri özellikleri hakkında bilgi edinmek için [Azure dijital İkizlerini veri işleme ve kullanıcı tanımlı işlevleri](concepts-user-defined-functions.md).

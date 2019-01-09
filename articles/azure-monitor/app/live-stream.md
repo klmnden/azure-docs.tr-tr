@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 12/04/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 99a8ac29167db4619d68cfa51de6a747d5ae9a51
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 403906a60d16a478dffd313b45aa1ce24e42196a
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54079179"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119247"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Canlı ölçümleri Stream: İzleme ve tanılama 1 saniyelik gecikme süresi
 
-Gelen Canlı ölçümleri Stream kullanarak canlı, üretimde web uygulamanızın beating Kalp araştırma [Application Insights](../../application-insights/app-insights-overview.md). Seçin ve hizmetinize herhangi Ayaklanma olmadan gerçek zamanlı olarak izlemek için Ölçümler ve performans sayaçlarını filtreleyin. Yığın izlemelerinden örnek başarısız istekler ve özel durumları inceleyin. İle birlikte [Profiler](../../azure-monitor/app/profiler.md), [anlık görüntü hata ayıklayıcısı](../../azure-monitor/app/snapshot-debugger.md), ve [performans testi](../../azure-monitor/app/monitor-web-app-availability.md#performance-tests), Canlı ölçümleri Stream, canlı web için güçlü ve bozucu bir tanılama aracı sağlar Site.
+Gelen Canlı ölçümleri Stream kullanarak canlı, üretimde web uygulamanızın beating Kalp araştırma [Application Insights](../../azure-monitor/app/app-insights-overview.md). Seçin ve hizmetinize herhangi Ayaklanma olmadan gerçek zamanlı olarak izlemek için Ölçümler ve performans sayaçlarını filtreleyin. Yığın izlemelerinden örnek başarısız istekler ve özel durumları inceleyin. İle birlikte [Profiler](../../azure-monitor/app/profiler.md), [anlık görüntü hata ayıklayıcısı](../../azure-monitor/app/snapshot-debugger.md), ve [performans testi](../../azure-monitor/app/monitor-web-app-availability.md#performance-tests), Canlı ölçümleri Stream, canlı web için güçlü ve bozucu bir tanılama aracı sağlar Site.
 
 Canlı ölçümler Stream ile şunları yapabilirsiniz:
 

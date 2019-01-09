@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: cc6a1bcbcc4de455597eabc4d793656770c3a6dc
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 2af1ad35ee5f7548352180026f1d613d27b6af46
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038730"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103528"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Azure VM’leri için ikincil Azure bölgesine olağanüstü durum kurtarma ayarlama
 
@@ -172,7 +172,8 @@ Site Recovery, hedef bölge için varsayılan ayarları ve çoğaltma ilkesini o
 
 5. İçinde **Özelleştir**seçin **Evet** Vm'leri yeni veya mevcut çoğaltma grubuna eklemek istiyorsanız, çoklu VM tutarlılığı için. Vm'leri yapmak için bir çoğaltma grubunun parçası. Daha sonra, **Tamam**'a tıklayın.
 
-    - Bir çoğaltma grubundaki tüm makineler, yük devredildiğinde paylaşılan kilitlenmeyle tutarlı ve uygulamayla tutarlı kurtarma noktalarına sahip olur. Çoklu VM tutarlılığını etkinleştirmek, iş yükü performansını etkileyebileceğinden yalnızca makineler aynı iş yükünü çalıştırıyorsa ve birden çok makinede tutarlığa ihtiyaç duyuyorsanız kullanılmalıdır.
+    - Bir çoğaltma grubundaki tüm makineler, yük devredildiğinde paylaşılan kilitlenmeyle tutarlı ve uygulamayla tutarlı kurtarma noktalarına sahip olur. Çoklu VM tutarlılığını etkinleştirmek etkileyebilir iş yükü performansı (CPU kullanımı yoğun olduğu gibi) ve yalnızca makineler aynı iş yükünü çalıştıran ve birden fazla makine arasında tutarlılık ihtiyacınız varsa kullanılmalıdır.
+    - Çoğaltma grubunda en fazla 16 sanal makineler, sahip olmayı seçebilirsiniz.
     - Çoklu VM tutarlılığını etkinleştirirseniz çoğaltma grubundaki makineler birbiriyle 20004 numaralı bağlantı noktası üzerinden iletişim kurar. VM’ler arasında 20004 numaralı bağlantı noktası üzerinden gerçekleştirilen iç iletişimi engelleyen bir güvenlik duvarı gereci olmadığından emin olun. Linux VM’lerinin çoğaltma grubunun bir parçası olmasını istiyorsanız, 20004 numaralı bağlantı noktası üzerinden giden trafiğin, belirli Linux sürümünün kılavuzuna göre el ile açıldığından emin olun.
 
 ### <a name="configure-encryption-settings"></a>Şifreleme ayarlarını yapılandırma

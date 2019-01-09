@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 11/12/2018
+ms.date: 1/8/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: f8f3584475415cf9ca19458f6da78d34df37f438
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 34731bb96a83a901b3fc1a59ce1846083d69bfd7
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614370"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103392"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Azure Blockchain Workbench ile tümleştirme Mesajlaşma
 
@@ -87,7 +87,7 @@ Blockchain Workbench'i şu alanlara sahip bir yanıt döndürür:
 } 
 ```
 
-İstek başarısız oldu, hata hakkındaki ayrıntılar olan dahil ek bilgiler.
+İstek başarısız oldu, hata hakkındaki ayrıntılar ek bilgileri dahil edilir.
 
 ``` json
 {
@@ -156,7 +156,7 @@ Blockchain Workbench'i şu alanlara sahip bir yanıt döndürür:
 | ConnectionID             | Blok zinciri bağlantı için benzersiz tanımlayıcı                               |
 | messageSchemaVersion     | Mesajlaşma şema sürümü                                                         |
 | messageName              | **CreateContractUpdate**                                                      |
-| durum                   | Sözleşme oluşturma isteği durumu.  Olası değerler: **gönderildi**, **kabul edilen**, **hatası**.  |
+| durum                   | Sözleşme oluşturma isteği durumu.  Olası değerler: **Gönderilen**, **kaydedilmiş**, **hatası**.  |
 | AdditionalInformation    | Ek bilgi sağlanan temel durumu                              |
 
 Gönderilen bir örneği **sözleşmesi oluşturma** Blockchain Workbench'i gelen yanıt:
@@ -189,7 +189,7 @@ Gönderilen bir örneği **sözleşmesi oluşturma** Blockchain Workbench'i gele
 }
 ```
 
-İstek başarısız oldu, hata hakkındaki ayrıntılar olan dahil ek bilgiler.
+İstek başarısız oldu, hata hakkındaki ayrıntılar ek bilgileri dahil edilir.
 
 ``` json
 {
@@ -216,7 +216,7 @@ Yeni bir sözleşme eylem oluşturur.
 | **Ad**                 | **Açıklama**                                                                                                           |
 |--------------------------|---------------------------------------------------------------------------------------------------------------------------|
 | requestId                | İstemci tarafından sağlanan GUID |
-| UserChainIdentifier      | Blok zinciri ağ üzerinde oluşturulan kullanıcı adresi. Kullanıcının budur Ethereum **zincirinde** adresi. |
+| UserChainIdentifier      | Blok zinciri ağ üzerinde oluşturulan kullanıcı adresi. Ethereum bu kullanıcının adresidir **zincirinde** adresi. |
 | ContractLedgerIdentifier | Genel muhasebe sözleşme adresi |
 | WorkflowFunctionName     | İş akışı işlevinin adı |
 | parametreler               | Sözleşme oluşturma için giriş parametreleri |
@@ -257,7 +257,7 @@ Blockchain Workbench'i şu alanlara sahip bir yanıt döndürür:
 | ConnectionID          | Blok zinciri bağlantı için benzersiz tanımlayıcı |
 | messageSchemaVersion  | Mesajlaşma şema sürümü |
 | messageName           | **CreateContractActionUpdate** |
-| durum                | Sözleşme eylem isteğinin durumu. Olası değerler: **gönderildi**, **kabul edilen**, **hatası**.                         |
+| durum                | Sözleşme eylem isteğinin durumu. Olası değerler: **Gönderilen**, **kaydedilmiş**, **hatası**.                         |
 | AdditionalInformation | Ek bilgi sağlanan temel durumu |
 
 Gönderilen bir örneği **sözleşme Eylem oluştur** Blockchain Workbench'i gelen yanıt:
@@ -288,7 +288,7 @@ Gönderilen bir örneği **sözleşme Eylem oluştur** Blockchain Workbench'i ge
 }
 ```
 
-İstek başarısız oldu, hata hakkındaki ayrıntılar olan dahil ek bilgiler.
+İstek başarısız oldu, hata hakkındaki ayrıntılar ek bilgileri dahil edilir.
 
 ``` json
 {
@@ -319,12 +319,12 @@ Gönderilen bir örneği **sözleşme Eylem oluştur** Blockchain Workbench'i ge
 - {Muhasebe tanımlayıcısı tarafından tanımlanan} sözleşme işlevi yok {iş akışı işlevi adı}
 - UserChainIdentifier yok
 
-**Hata kodu 4090: çakışma hatası**
+**Hata kodu 4090: Çakışma hatası**
 - Kullanıcı zaten var.
 - Sözleşme zaten var.
 - Sözleşme eylemi zaten var.
 
-**5000 hata kodu: İç sunucu hatası**
+**Hata kodu 5000: İç sunucu hatası**
 - Özel durum iletileri
 
 ## <a name="event-notifications"></a>Olay bildirimleri
@@ -345,8 +345,8 @@ Bir kullanıcı Blockchain Workbench içinde gerçekleşen olaylar hakkında bil
 
 ### <a name="consuming-event-grid-events-with-logic-apps"></a>Logic Apps ile Event Grid olay tüketme
 
-1.  Yeni bir **Azure Logic App** Azure portalında.
-2.  Azure Logic App portalda açılırken, bir tetikleyici seçin istenir. Seçin **Azure Event Grid kaynak olay meydana geldiğinde--**.
+1. Yeni bir **Azure Logic App** Azure portalında.
+2. Azure Logic App portalda açılırken, bir tetikleyici seçin istenir. Seçin **Azure Event Grid kaynak olay meydana geldiğinde--**.
 3. İş Akışı Tasarımcısı görüntülendiğinde, oturum açmanız istenir.
 4. Aboneliği seçin. Kaynak olarak **Microsoft.EventGrid.Topics**. Seçin **kaynak adı** Azure Blockchain Workbench kaynak grubundan kaynak adını.
 5. Event Grid, Blockchain Workbench'i'nın kaynak grubu seçin.
@@ -355,11 +355,11 @@ Bir kullanıcı Blockchain Workbench içinde gerçekleşen olaylar hakkında bil
 
 Hizmet veri yolu konuları, Blockchain Workbench içinde gerçekleşen olaylar hakkında kullanıcılara bildirmek için kullanılabilir. 
 
-1.  Service Bus Workbench'in kaynak grubunda göz atın.
-2.  Seçin **konuları**.
-3.  Seçin **workbench dış**.
-4.  Bu konu başlığına yeni bir abonelik oluşturun. Bunun için bir anahtar alın.
-5.  Olaylara abone olan bu abonelikten bir program oluşturun.
+1. Service Bus Workbench'in kaynak grubunda göz atın.
+2. Seçin **konuları**.
+3. Seçin **çıkış konu**.
+4. Bu konu başlığına yeni bir abonelik oluşturun. Bunun için bir anahtar alın.
+5. Olaylara abone olan bu abonelikten bir program oluşturun.
 
 ### <a name="consuming-service-bus-messages-with-logic-apps"></a>Logic Apps ile Service Bus iletilerini kullanma
 
@@ -373,240 +373,531 @@ Hizmet veri yolu konuları, Blockchain Workbench içinde gerçekleşen olaylar h
 
 Yapılandırmanıza bağlı olarak **OperationName**, bildirim iletileri aşağıdaki ileti türlerini birine sahip.
 
-### <a name="accountcreated"></a>AccountCreated
+### <a name="block-message"></a>Engelleme iletisi
 
-Yeni bir hesap için belirtilen zinciri eklenecek istenen gösterir.
-
-| Ad    | Açıklama  |
-|----------|--------------|
-| UserId  | Oluşturulan kullanıcı kimliği. |
-| ChainIdentifier | Blok zinciri ağ üzerinde oluşturulan kullanıcı adresi. Ethereum bu kullanıcının olacaktır **zincir** adresi. |
-
-``` csharp
-public class NewAccountRequest : MessageModelBase
-{
-  public int UserID { get; set; }
-  public string ChainIdentifier { get; set; }
-}
-```
-
-### <a name="contractinsertedorupdated"></a>ContractInsertedOrUpdated
-
-Bir istek eklemek veya dağıtılmış bir defter sözleşmesinde güncelleştirmek için yapılan gösterir.
+Tek tek bloklar hakkında bilgi içerir. *BlockMessage* blok düzeyi bilgileri içeren bir bölüm ve işlem bilgileri ile bir bölüm içerir.
 
 | Ad | Açıklama |
-|-----|--------------|
-| ChainID | İstekle ilişkili zinciri için benzersiz tanımlayıcı |
-| Blockıd'si | Genel bir blok için benzersiz tanımlayıcı |
-| ContractId | Anlaşma için benzersiz bir tanımlayıcı |
-| ContractAddress |       Genel muhasebe sözleşme adresi |
-| TransactionHash  |     Genel muhasebe üzerinde işlem karması |
-| OriginatingAddress |   İşlem gönderen adresi |
-| actionName       |     Eylemin adı |
-| IsUpdate        |      Bu güncelleştirme olup olmadığını tanımlar |
-| Parametreler       |     Parametreleri için bir eylem gönderilen ada, değere ve veri türünü tanımlayan nesnelerin bir listesini |
-| TopLevelInputParams |  Bir sözleşme bir veya daha fazla diğer sözleşmeleri nerede bağlı senaryolarda, üst düzey sözleşmesi Parametreler şunlardır. |
+|------|-------------|
+| engelle | İçeren [bilgi engelle](#block-information) |
+| işlem | Bir koleksiyon içeren [işlem bilgilerini](#transaction-information) blok için |
+| ConnectionID | Bağlantı için benzersiz tanımlayıcı |
+| messageSchemaVersion | Mesajlaşma şema sürümü |
+| messageName | **BlockMessage** |
+| AdditionalInformation | Ek bilgiler sağlanmıştır |
 
-``` csharp
-public class ContractInsertOrUpdateRequest : MessageModelBase
+#### <a name="block-information"></a>Blok bilgileri
+
+| Ad              | Açıklama |
+|-------------------|-------------|
+| Blockıd'si           | Azure Blockchain Workbench içinde blok için benzersiz tanımlayıcı |
+| BlockNumber       | Genel bir blok için benzersiz tanımlayıcı |
+| BlockHash         | Blok karma |
+| previousBlockHash | Önceki blok karması |
+| BlockTimestamp    | Bloğun zaman damgası |
+
+#### <a name="transaction-information"></a>İşlem bilgileri
+
+| Ad               | Açıklama |
+|--------------------|-------------|
+| TransactionID      | Azure Blockchain Workbench içinde işlem için benzersiz tanımlayıcı |
+| TransactionHash    | Genel muhasebe üzerinde işlem karması |
+| başlangıç               | Genel muhasebe işlem kaynağı için benzersiz tanımlayıcısı |
+| -                 | İşlem hedefi için bir kayıt defteri benzersiz tanımlayıcısı |
+| ProvisioningStatus | Geçerli işlem için sağlama işlemini durumunu tanımlar. Olası değerler şunlardır: </br>0 – işlem veritabanı API'si tarafından oluşturuldu</br>1 – işlem defterine gönderildi</br>2 – işlem için bir kayıt defteri başarıyla kaydedildi</br>3 veya 4 - işlem için bir kayıt defteri kaydedilemedi</br>5 - işlem için bir kayıt defteri başarıyla yürütüldü |
+
+Örnek bir *BlockMessage* blok zinciri workbench'ten:
+
+``` json
 {
-    public int ChainId { get; set; }
-    public int BlockId { get; set; }
-    public int ContractId { get; set; }
-    public string ContractAddress { get; set; }
-    public string TransactionHash { get; set; }
-    public string OriginatingAddress { get; set; }
-    public string ActionName { get; set; }
-    public bool IsUpdate { get; set; }
-    public List<ContractProperty> Parameters { get; set; }
-    public bool IsTopLevelUpdate { get; set; }
-    public List<ContractInputParameter> TopLevelInputParams { get; set; }
+    "block": {
+        "blockId": 123
+        "blockNumber": 1738312,
+        "blockHash": "0x03a39411e25e25b47d0ec6433b73b488554a4a5f6b1a253e0ac8a200d13fffff",
+        "previousBlockHash": null,
+        "blockTimestamp": "2018-10-09T23:35:58Z",
+    },
+    "transactions": [
+        {
+            "transactionId": 234
+            "transactionHash": "0xa4d9c95b581f299e41b8cc193dd742ef5a1d3a4ddf97bd11b80d123fec27ffff",
+            "from": "0xd85e7262dd96f3b8a48a8aaf3dcdda90f60dffff",
+            "to": null,
+            "provisioningStatus": 1
+        },
+        {
+            "transactionId": 235
+            "transactionHash": "0x5c1fddea83bf19d719e52a935ec8620437a0a6bdaa00ecb7c3d852cf92e1ffff",
+            "from": "0xadd97e1e595916e29ea94fda894941574000ffff",
+            "to": "0x9a8DDaCa9B7488683A4d62d0817E965E8f24ffff",
+            "provisioningStatus": 2
+        }
+    ],
+    "connectionId": 1,
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "BlockMessage",
+    "additionalInformation": {}
 }
 ```
 
-#### <a name="updatecontractaction"></a>UpdateContractAction
+### <a name="contract-message"></a>İleti sözleşmesi
 
-Belirli bir dağıtılmış bir defter sözleşmesinde bir eylem yürütme için bir istek yapıldığını gösterir.
+Bir sözleşme hakkında bilgi içerir. İleti sözleşmesi özelliklere sahip bir bölüm ve işlem bilgileri ile bir bölüm içerir. İşlem bölümünde bloktan sözleşmesi değiştirdiniz tüm işlemler dahildir.
 
-| Ad                     | Açıklama                                                                                                                                                                   |
-|--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ContractActionId         | Bu sözleşme eylem için benzersiz tanımlayıcı |
-| ChainIdentifier          | Zinciri için benzersiz tanımlayıcı |
-| ConnectionID             | Bağlantı için benzersiz tanımlayıcı |
-| UserChainIdentifier      | Blok zinciri ağ üzerinde oluşturulan kullanıcı adresi. Ethereum bu kullanıcının adresidir **zincirinde** adresi. |
-| ContractLedgerIdentifier | Genel muhasebe sözleşme adresi |
-| WorkflowFunctionName     | İş akışı işlevinin adı |
-| WorkflowName             | İş akışının adı |
-| WorkflowBlobStorageURL   | Blob depolama alanındaki sözleşme URL'si |
-| ContractActionParameters | Sözleşme eylemi için parametreler |
-| TransactionHash          | Genel muhasebe üzerinde işlem karması |
-| Sağlama Durumu      | Eylem geçerli sağlama durumu.</br>0 – oluşturuldu</br>1 – işleminde</br>2 – tamamlayın</br> Eksiksiz bir onay defterinden gösterir, bu gibi başarıyla eklendi |
+| Ad | Açıklama |
+|------|-------------|
+| Blockıd'si | Azure Blockchain Workbench içinde blok için benzersiz tanımlayıcı |
+| BlockHash | Blok karma |
+| modifyingTransactions | [Değişiklik işlemleri](#modifying-transaction-information) Sözleşmesi |
+| ContractId | Azure Blockchain Workbench içinde sözleşme için benzersiz tanımlayıcı |
+| ContractLedgerIdentifier | Genel muhasebe sözleşme için benzersiz tanımlayıcı |
+| contractProperties | [Sözleşme özellikleri](#contract-properties) |
+| isNewContract | Bu sözleşmeyi yeni oluşturulmuş olup olmadığını gösterir. Olası değerler şunlardır: true: Bu sözleşme oluşturulan yeni bir sözleşme oluştu. false: Bu sözleşmenin bir sözleşme güncelleştirmesidir. |
+| ConnectionID | Bağlantı için benzersiz tanımlayıcı |
+| messageSchemaVersion | Mesajlaşma şema sürümü |
+| messageName | **ContractMessage** |
+| AdditionalInformation | Ek bilgiler sağlanmıştır |
 
-```csharp
-public class ContractActionRequest : MessageModelBase
+#### <a name="modifying-transaction-information"></a>İşlem bilgilerini değiştirme
+
+| Ad               | Açıklama |
+|--------------------|-------------|
+| TransactionID | Azure Blockchain Workbench içinde işlem için benzersiz tanımlayıcı |
+| TransactionHash | Genel muhasebe üzerinde işlem karması |
+| başlangıç | Genel muhasebe işlem kaynağı için benzersiz tanımlayıcısı |
+| - | İşlem hedefi için bir kayıt defteri benzersiz tanımlayıcısı |
+
+#### <a name="contract-properties"></a>Sözleşme özellikleri
+
+| Ad               | Açıklama |
+|--------------------|-------------|
+| WorkflowPropertyId | Azure Blockchain Workbench içinde iş akışı özellik için benzersiz tanımlayıcı |
+| ad | İş akışı özelliğin adı |
+| değer | İş akışı özelliğinin değeri |
+
+Örnek bir *ContractMessage* blok zinciri workbench'ten:
+
+``` json
 {
-    public int ContractActionId { get; set; }
-    public int ConnectionId { get; set; }
-    public string UserChainIdentifier { get; set; }
-    public string ContractLedgerIdentifier { get; set; }
-    public string WorkflowFunctionName { get; set; }
-    public string WorkflowName { get; set; }
-    public string WorkflowBlobStorageURL { get; set; }
-    public IEnumerable<ContractActionParameter> ContractActionParameters { get; set; }
-    public string TransactionHash { get; set; }
-    public int ProvisioningStatus { get; set; }
+    "blockId": 123,
+    "blockhash": "0x03a39411e25e25b47d0ec6433b73b488554a4a5f6b1a253e0ac8a200d13fffff",
+    "modifyingTransactions": [
+        {
+            "transactionId": 234,
+            "transactionHash": "0x5c1fddea83bf19d719e52a935ec8620437a0a6bdaa00ecb7c3d852cf92e1ffff",
+            "from": "0xd85e7262dd96f3b8a48a8aaf3dcdda90f60dffff",
+            "to": "0xf8559473b3c7197d59212b401f5a9f07ffff"
+        },
+        {
+            "transactionId": 235,
+            "transactionHash": "0xa4d9c95b581f299e41b8cc193dd742ef5a1d3a4ddf97bd11b80d123fec27ffff",
+            "from": "0xd85e7262dd96f3b8a48a8aaf3dcdda90f60dffff",
+            "to": "0xf8559473b3c7197d59212b401f5a9f07b429ffff"
+        }
+    ],
+    "contractId": 111,
+    "contractLedgerIdentifier": "0xf8559473b3c7197d59212b401f5a9f07b429ffff",
+    "contractProperties": [
+        {
+            "workflowPropertyId": 1,
+            "name": "State",
+            "value": "0"
+        },
+        {
+            "workflowPropertyId": 2,
+            "name": "Description",
+            "value": "1969 Dodge Charger"
+        },
+        {
+            "workflowPropertyId": 3,
+            "name": "AskingPrice",
+            "value": "30000"
+        },
+        {
+            "workflowPropertyId": 4,
+            "name": "OfferPrice",
+            "value": "0"
+        },
+        {
+            "workflowPropertyId": 5,
+            "name": "InstanceAppraiser",
+            "value": "0x0000000000000000000000000000000000000000"
+        },
+        {
+            "workflowPropertyId": 6,
+            "name": "InstanceBuyer",
+            "value": "0x0000000000000000000000000000000000000000"
+        },
+        {
+            "workflowPropertyId": 7,
+            "name": "InstanceInspector",
+            "value": "0x0000000000000000000000000000000000000000"
+        },
+        {
+            "workflowPropertyId": 8,
+            "name": "InstanceOwner",
+            "value": "0x9a8DDaCa9B7488683A4d62d0817E965E8f24ffff"
+        },
+        {
+            "workflowPropertyId": 9,
+            "name": "ClosingDayOptions",
+            "value": "[21,48,69]"
+        }
+    ],
+    "isNewContract": false,
+    "connectionId": 1,
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "ContractMessage",
+    "additionalInformation": {}
 }
 ```
 
-### <a name="updateuserbalance"></a>UpdateUserBalance
+### <a name="event-message-contract-function-invocation"></a>Olay iletisi: Sözleşme işlevi çağırma
 
-Bir istek belirli bir dağıtılmış kayıt defteri kullanıcı bakiyeye güncelleştirmek için yapılan gösterir.
+Bir sözleşme işlevi çağrıldığında işlev adı, parametreleri giriş ve çağıran işlevin gibi bilgileri içerir.
 
-> [!NOTE]
-> Bu ileti, hesaplarını fon gerektiren bu defterlerinin oluşturulur.
-> 
+| Ad | Açıklama |
+|------|-------------|
+| EventName                   | **ContractFunctionInvocation** |
+| çağıran                      | [Arayan bilgileri](#caller-information) |
+| ContractId                  | Azure Blockchain Workbench içinde sözleşme için benzersiz tanımlayıcı |
+| ContractLedgerIdentifier    | Genel muhasebe sözleşme için benzersiz tanımlayıcı |
+| functionName                | İşlevin adı |
+| parametreler                  | [Parametre bilgileri](#parameter-information) |
+| İşlem                 | [İşlem bilgileri](#eventmessage-transaction-information) |
+| inTransactionSequenceNumber | İşlem bloğundaki sıra numarası |
+| ConnectionID                | Bağlantı için benzersiz tanımlayıcı |
+| messageSchemaVersion        | Mesajlaşma şema sürümü |
+| messageName                 | **EventMessage** |
+| AdditionalInformation       | Ek bilgiler sağlanmıştır |
 
-| Ad    | Açıklama                              |
-|---------|------------------------------------------|
-| Adres | Fon kullanıcının adresi |
-| Bakiye | Kullanıcı Bakiye bakiyesi         |
-| ChainID | Zinciri için benzersiz tanımlayıcı     |
+#### <a name="caller-information"></a>Arayan bilgileri
 
+| Ad | Açıklama |
+|------|-------------|
+| type | Arayanın gibi bir kullanıcı veya sözleşme türü |
+| id | Arayanın içinde Azure Blockchain Workbench için benzersiz tanımlayıcı |
+| ledgerIdentifier | Çağrı üzerinde genel benzersiz tanıtıcısı |
 
-``` csharp
-public class UpdateUserBalanceRequest : MessageModelBase
+#### <a name="parameter-information"></a>Parametre bilgileri
+
+| Ad | Açıklama |
+|------|-------------|
+| ad | Parametre adı |
+| değer | Parametre değeri |
+
+#### <a name="event-message-transaction-information"></a>Olay iletisi işlem bilgileri
+
+| Ad               | Açıklama |
+|--------------------|-------------|
+| TransactionID      | Azure Blockchain Workbench içinde işlem için benzersiz tanımlayıcı |
+| TransactionHash    | Genel muhasebe üzerinde işlem karması |
+| başlangıç               | Genel muhasebe işlem kaynağı için benzersiz tanımlayıcısı |
+| -                 | İşlem hedefi için bir kayıt defteri benzersiz tanımlayıcısı |
+
+Örnek bir *EventMessage ContractFunctionInvocation* blok zinciri workbench'ten:
+
+``` json
 {
-    public string Address { get; set; }
-    public decimal Balance { get; set; }
-    public int ChainID { get; set; }
+    "eventName": "ContractFunctionInvocation",
+    "caller": {
+        "type": "User",
+        "id": 21,
+        "ledgerIdentifier": "0xd85e7262dd96f3b8a48a8aaf3dcdda90f60ffff"
+    },
+    "contractId": 34,
+    "contractLedgerIdentifier": "0xf8559473b3c7197d59212b401f5a9f07b429ffff",
+    "functionName": "Modify",
+    "parameters": [
+        {
+            "name": "description",
+            "value": "a new description"
+        },
+        {
+            "name": "price",
+            "value": "4567"
+        }
+    ],
+    "transaction": {
+        "transactionId": 234,
+        "transactionHash": "0x5c1fddea83bf19d719e52a935ec8620437a0a6bdaa00ecb7c3d852cf92e1ffff",
+        "from": "0xd85e7262dd96f3b8a48a8aaf3dcdda90f60dffff",
+        "to": "0xf8559473b3c7197d59212b401f5a9f07b429ffff"
+    },
+    "inTransactionSequenceNumber": 1,
+    "connectionId": 1,
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "EventMessage",
+    "additionalInformation": { }
 }
 ```
 
-### <a name="insertblock"></a>InsertBlock
+### <a name="event-message-application-ingestion"></a>Olay iletisi: Uygulama alma
 
-Bir istek üzerinde dağıtılmış bir defter bloğu eklemek üzere yapılan ileti gösterir.
+Workbench için bir uygulama yüklendiğinde adı ve sürümü gibi bilgileri içerir.
 
-| Ad           | Açıklama                                                            |
-|----------------|------------------------------------------------------------------------|
-| ChainId        | Blok eklendiği zinciri benzersiz tanıtıcısı             |
-| Blockıd'si        | Azure Blockchain Workbench içinde blok için benzersiz tanımlayıcı |
-| BlockHash      | Blok karma                                                 |
-| BlockTimeStamp | Bloğun zaman damgası                                            |
+| Ad | Açıklama |
+|------|-------------|
+| EventName | **ApplicationIngestion** |
+| ApplicationId | Azure Blockchain Workbench içindeki uygulama için benzersiz tanımlayıcı |
+| ApplicationName | Uygulama adı |
+| ApplicationDisplayName | Uygulamanın görünen adı |
+| ApplicationVersion | Uygulama sürümü |
+| applicationDefinitionLocation | Uygulama yapılandırma dosyasının bulunduğu URL'si |
+| contractCodes | Koleksiyonu [sözleşme kodları](#contract-code-information) uygulama |
+| ApplicationRoles | Koleksiyonu [uygulama rolleri](#application-role-information) uygulama |
+| applicationWorkflows | Koleksiyonu [uygulama iş akışlarını](#application-workflow-information) uygulama |
+| ConnectionID | Bağlantı için benzersiz tanımlayıcı |
+| messageSchemaVersion | Mesajlaşma şema sürümü |
+| messageName | **EventMessage** |
+| AdditionalInformation | Burada sağlanan ek bilgiler uygulama iş akışı durumlarını ve geçiş bilgilerini içerir. |
 
-``` csharp
-public class InsertBlockRequest : MessageModelBase
+#### <a name="contract-code-information"></a>Kod bilgi Sözleşmesi
+
+| Ad | Açıklama |
+|------|-------------|
+| id | Azure Blockchain Workbench içinde sözleşme kod dosyası için benzersiz tanımlayıcı |
+| LedgerId | Azure Blockchain Workbench içinde bir kayıt defteri için benzersiz tanımlayıcı |
+| location | Sözleşme kod dosyasının bulunduğu URL'si |
+
+#### <a name="application-role-information"></a>Uygulama rol bilgileri
+
+| Ad | Açıklama |
+|------|-------------|
+| id | Azure Blockchain Workbench içinde uygulama rolü için benzersiz tanımlayıcı |
+| ad | Uygulama rolü adı |
+
+#### <a name="application-workflow-information"></a>Uygulama iş akışı bilgileri
+
+| Ad | Açıklama |
+|------|-------------|
+| id | Azure Blockchain Workbench içinde uygulama iş akışı için benzersiz tanımlayıcı |
+| ad | Uygulama iş akışı adı |
+| displayName | Uygulama iş akışı görünen adı |
+| işlevler | Koleksiyonu [uygulama iş akışı için işlevleri ](#workflow-function-information)|
+| durumları | Koleksiyonu [uygulama iş akışı durumları](#workflow-state-information) |
+| properties | Uygulama [iş akışı özellikleri bilgileri](#workflow-property-information) |
+
+##### <a name="workflow-function-information"></a>İş akışı işlevi bilgileri
+
+| Ad | Açıklama |
+|------|-------------|
+| id | Azure Blockchain Workbench içinde uygulama iş akışı işlevi için benzersiz tanımlayıcı |
+| ad | İşlev adı |
+| parametreler | İşlevi için parametreler |
+
+##### <a name="workflow-state-information"></a>İş akışı durumu bilgileri
+
+| Ad | Açıklama |
+|------|-------------|
+| ad | Eyalet adı |
+| displayName | Durum görünen adı |
+| Stil | Durum stili (başarı veya hata) |
+
+##### <a name="workflow-property-information"></a>İş akışı özellik bilgileri
+
+| Ad | Açıklama |
+|------|-------------|
+| id | Azure Blockchain Workbench içinde uygulama iş akışı özelliği için benzersiz tanımlayıcı |
+| ad | Özellik adı |
+| type | Özellik türü |
+
+Örnek bir *EventMessage ApplicationIngestion* blok zinciri workbench'ten:
+
+``` json
 {
-    public int ChainId { get; set; }
-    public int BlockId { get; set; }
-    public string BlockHash { get; set; }
-    public int BlockTimestamp { get; set; }
+    "eventName": "ApplicationIngestion",
+    "applicationId": 31,
+    "applicationName": "AssetTransfer",
+    "applicationDisplayName": "Asset Transfer",
+    "applicationVersion": “1.0”,
+    "applicationDefinitionLocation": "http://url"
+    "contractCodes": [
+        {
+            "id": 23,
+            "ledgerId": 1,
+            "location": "http://url"
+        }
+    ],
+    "applicationRoles": [
+            {
+                "id": 134,
+                "name": "Buyer"
+            },
+            {
+                "id": 135,
+                "name": "Seller"
+            }
+       ],
+    "applicationWorkflows": [
+        {
+            "id": 89,
+            "name": "AssetTransfer",
+            "displayName": "Asset Transfer",
+            "functions": [
+                {
+                    "id": 912,
+                    "name": "",
+                    "parameters": [
+                        {
+                            "name": "description",
+                            "type": {
+                                "name": "string"
+                             }
+                        },
+                        {
+                            "name": "price",
+                            "type": {
+                                "name": "int"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": 913,
+                    "name": "modify",
+                    "parameters": [
+                        {
+                            "name": "description",
+                            "type": {
+                                "name": "string"
+                             }
+                        },
+                        {
+                            "name": "price",
+                            "type": {
+                                "name": "int"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "states": [ 
+                 {
+                      "name": "Created",
+                      "displayName": "Created",
+                      "style" : "Success"
+                 },
+                 {
+                      "name": "Terminated",
+                      "displayName": "Terminated",
+                      "style" : "Failure"
+                 }
+            ],
+            "properties": [
+                {
+                    "id": 879,
+                    "name": "Description",
+                    "type": {
+                                "name": "string"
+                     }
+                },
+                {
+                    "id": 880,
+                    "name": "Price",
+                    "type": {
+                                "name": "int"
+                     }
+                }
+            ]
+        }
+    ]
+    "connectionId": [ ],
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "EventMessage",
+    "additionalInformation":
+        {
+            "states" :
+            [
+                {
+                    "Name": "BuyerAccepted",
+                    "Transitions": [
+                        {
+                            "DisplayName": "Accept"
+                            "AllowedRoles": [ ],
+                            "AllowedInstanceRoles": [ "InstanceOwner" ],
+                            "Function": "Accept",
+                            "NextStates": [ "SellerAccepted" ]
+                        }
+                    ]
+                }
+            ]
+        }
 }
 ```
 
-### <a name="inserttransaction"></a>InsertTransaction
+### <a name="event-message-role-assignment"></a>Olay iletisi: Rol ataması
 
-İleti, işlem üzerinde dağıtılmış bir defter ekleme isteği hakkında ayrıntılar sağlar.
+Bir kullanıcı rol ataması ve karşılık gelen uygulama ve rol adını gerçekleştiren gibi Workbench, bir rol atandığında bilgileri içerir.
 
-| Ad            | Açıklama                                                            |
-|-----------------|------------------------------------------------------------------------|
-| ChainId         | Blok eklendiği zinciri benzersiz tanıtıcısı             |
-| Blockıd'si         | Azure Blockchain Workbench içinde blok için benzersiz tanımlayıcı |
-| TransactionHash | İşlem karması                                           |
-| Kimden            | İşlem gönderen adresi                      |
-| Alıcı              | İşlem hedeflenen alıcı adresi              |
-| Değer           | Harekete dahil değeri                                 |
-| IsAppBuilderTx  | Blockchain Workbench'i işlem bu olup olmadığını tanımlar                         |
+| Ad | Açıklama |
+|------|-------------|
+| EventName | **RoleAssignment** |
+| ApplicationId | Azure Blockchain Workbench içindeki uygulama için benzersiz tanımlayıcı |
+| ApplicationName | Uygulama adı |
+| ApplicationDisplayName | Uygulamanın görünen adı |
+| ApplicationVersion | Uygulama sürümü |
+| applicationRole        | Hakkında bilgi [uygulama rolü](#roleassignment-application-role) |
+| atayan               | Hakkında bilgi [atayan](#roleassignment-assigner) |
+| atanan               | Hakkında bilgi [atanan](#roleassignment-assignee) |
+| ConnectionID           | Bağlantı için benzersiz tanımlayıcı |
+| messageSchemaVersion   | Mesajlaşma şema sürümü |
+| messageName            | **EventMessage** |
+| AdditionalInformation  | Ek bilgiler sağlanmıştır |
 
-``` csharp
-public class InsertTransactionRequest : MessageModelBase
+#### <a name="roleassignment-application-role"></a>RoleAssignment uygulama rolü
+
+| Ad | Açıklama |
+|------|-------------|
+| id | Azure Blockchain Workbench içinde uygulama rolü için benzersiz tanımlayıcı |
+| ad | Uygulama rolü adı |
+
+#### <a name="roleassignment-assigner"></a>RoleAssignment atayan
+
+| Ad | Açıklama |
+|------|-------------|
+| id | Azure Blockchain Workbench içinde kullanıcının benzersiz tanımlayıcısı |
+| type | Atayan türü |
+| ChainIdentifier | Genel muhasebe kullanıcının benzersiz tanımlayıcısı |
+
+#### <a name="roleassignment-assignee"></a>RoleAssignment atanan
+
+| Ad | Açıklama |
+|------|-------------|
+| id | Azure Blockchain Workbench içinde kullanıcının benzersiz tanımlayıcısı |
+| type | Atanan türü |
+| ChainIdentifier | Genel muhasebe kullanıcının benzersiz tanımlayıcısı |
+
+Örnek bir *EventMessage RoleAssignment* blok zinciri workbench'ten:
+
+``` json
 {
-    public int ChainId { get; set; }
-    public int BlockId { get; set; }
-    public string TransactionHash { get; set; }
-    public string From { get; set; }
-    public string To { get; set; }
-    public decimal Value { get; set; }
-    public bool IsAppBuilderTx { get; set; }
-}
-```
-
-### <a name="assigncontractchainidentifier"></a>AssignContractChainIdentifier
-
-Ayrıntılar zinciri tanımlayıcısı atamada sözleşme sağlar. Örneğin, Ethereum blok zincirine yatırım, muhasebe sözleşmesinde adresidir.
-
-| Ad            | Açıklama                                                                       |
-|-----------------|-----------------------------------------------------------------------------------|
-| ContractId      | Azure Blockchain Workbench içinde sözleşme için benzersiz tanımlayıcı |
-| ChainIdentifier | Zincir sözleşme tanımlayıcısı                             |
-
-``` csharp
-public class AssignContractChainIdentifierRequest : MessageModelBase
-{
-    public int ContractId { get; set; }
-    public string ChainIdentifier { get; set; }
-}
-```
-
-## <a name="classes-used-by-message-types"></a>İleti türleri tarafından kullanılan sınıflar
-
-### <a name="messagemodelbase"></a>MessageModelBase
-
-Tüm iletileri için temel modeli.
-
-| Ad          | Açıklama                          |
-|---------------|--------------------------------------|
-| OperationName | İşlem adı           |
-| RequestId     | İstek için benzersiz tanımlayıcı |
-
-``` csharp
-public class MessageModelBase
-{
-    public string OperationName { get; set; }
-    public string RequestId { get; set; }
-}
-```
-
-### <a name="contractinputparameter"></a>ContractInputParameter
-
-Ad, değer ve bir parametresinin türü içerir.
-
-| Ad  | Açıklama                 |
-|-------|-----------------------------|
-| Ad  | Parametrenin adı  |
-| Değer | Parametresinin değeri |
-| Tür  | Parametrenin türü  |
-
-``` csharp
-public class ContractInputParameter
-{
-    public string Name { get; set; }
-    public string Value { get; set; }
-    public string Type { get; set; }
-}
-```
-
-#### <a name="contractproperty"></a>ContractProperty
-
-Kimlik, ad, değer ve bir özelliğin türünü içerir.
-
-| Ad  | Açıklama                |
-|-------|----------------------------|
-| Kimlik    | Özellik kimliği    |
-| Ad  | Özelliğin adı  |
-| Değer | Özelliğin değeri |
-| Tür  | Özelliğin türü  |
-
-``` csharp
-public class ContractProperty
-{
-    public int Id { get; set; }
-    public string Name { get; set; }
-    public string Value { get; set; }
-    public string DataType { get; set; }
+    "eventName": "RoleAssignment",
+    "applicationId": 31,
+    "applicationName": "AssetTransfer",
+    "applicationDisplayName": "Asset Transfer",
+    "applicationVersion": “1.0”,
+    "applicationRole": {
+        "id": 134,
+        "name": "Buyer"
+    },
+    "assigner": {
+        "id": 1,
+        "type": null,
+        "chainIdentifier": "0xeFFC7766d38aC862d79706c3C5CEEf089564ffff"
+    },
+    "assignee": {
+        "id": 3,
+        "type": null,
+        "chainIdentifier": "0x9a8DDaCa9B7488683A4d62d0817E965E8f24ffff"
+    },
+    "connectionId": [ ],
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "EventMessage",
+    "additionalInformation": { }
 }
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-> [!div class="nextstepaction"]
-> [Akıllı sözleşme tümleştirme desenleri](integration-patterns.md)
+- [Akıllı sözleşme tümleştirme desenleri](integration-patterns.md)

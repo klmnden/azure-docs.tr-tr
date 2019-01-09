@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/19/2018
+ms.date: 1/07/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: dc0c6a37e11574cef857a7af773a9d90bea57357
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: a483a8e5e4c37c51c4efce13ad69b4abc83a402d
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972074"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105381"
 ---
 # <a name="interactive-feature-verification-testing"></a>Etkileşimli özellik doğrulama testi  
 
@@ -104,7 +104,7 @@ Disk kimliği Test istemleri VaaS Aracısı'nı çalıştıran bilgisayarda gös
 
     ![Alternatif metin](media/azure-stack-vaas-interactive-feature-verification/image11.png)
 
-4.  Precheck betik başarıyla tamamlandıktan sonra el ile senaryoyu (Disk değiştirme) olarak başına yürütme **belgeleri** ve **doğrulama** gelen bağlantılar **bilgi**sekmesi.
+4.  Precheck betik başarıyla tamamlandıktan sonra el ile senaryoyu (Disk değiştirme) olarak başına çalıştırma **belgeleri** ve **doğrulama** gelen bağlantılar **bilgi**sekmesi.
 
     ![Alternatif metin](media/azure-stack-vaas-interactive-feature-verification/image12.png)
 

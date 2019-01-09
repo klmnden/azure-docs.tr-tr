@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: cb2c548a94a91fe9126f684e382e9626adb93dd6
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
+ms.lasthandoff: 01/08/2019
 ms.locfileid: "52319466"
 ---
 # <a name="enable-or-disable-a-firewall-rule-on-a-azure-vm-guest-os"></a>Etkinleştirmek veya bir Azure VM konuk işletim sisteminde bir güvenlik duvarı kuralı devre dışı bırak
@@ -35,7 +35,7 @@ Güvenlik duvarı kurallarını nasıl yapılandırabileceğinizi gereken sanal 
 
 ### <a name="online-troubleshooting"></a>Çevrimiçi sorun giderme 
 
-#### <a name="mitigation-1-custom-script-extension"></a>Azaltma 1: Özel betik uzantısı
+#### <a name="mitigation-1-custom-script-extension"></a>1. azaltma: Özel Betik Uzantısı
 
 1.  Aşağıdaki şablonu kullanarak, komut dosyası oluşturun.
 
@@ -51,7 +51,7 @@ Güvenlik duvarı kurallarını nasıl yapılandırabileceğinizi gereken sanal 
 
 2.  Bu betik, Azure portal kullanarak karşıya [özel betik uzantısı](../extensions/custom-script-windows.md) özelliği. 
 
-#### <a name="mitigation-2-remote-powershell"></a>2. azaltma: Uzak PowerShell
+#### <a name="mitigation-2-remote-powershell"></a>Azaltma 2: Uzak PowerShell
 
 Sanal makine çevrimiçi olduğundan ve aynı sanal ağdaki başka bir sanal Makineye erişilebildiğinden ve diğer sanal makine kullanarak izleyin risk azaltma işlemleri yapabilirsiniz.
 
@@ -93,7 +93,7 @@ Sanal makine çevrimiçi olduğundan ve aynı sanal ağdaki başka bir sanal Mak
         netsh advfirewall firewall set rule dir=in name="Remote Desktop - User Mode (TCP-In)" new enable=no
         ```
 
-#### <a name="mitigation-4-remote-registry"></a>Azaltma 4: Uzak kayıt defteri
+#### <a name="mitigation-4-remote-registry"></a>Azaltma 4: Uzak Kayıt defteri
 
 Sanal makine çevrimiçi olduğundan ve aynı sanal ağdaki başka bir VM üzerinde erişilebilir, kullanabileceğiniz [uzak kayıt defteri](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry) diğer VM üzerinde.
 

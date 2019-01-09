@@ -14,12 +14,12 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.workload: tbd
 ms.date: 05/01/2017
 ms.author: wesmc
-ms.openlocfilehash: c9b843bfd448c05cb2b11165e54d19db0a7ad60e
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: a7f3e23cd74baa2e1fdef178be8c5b213a3905ef
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53020087"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105296"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>Redis Azure Cache için ASP.NET oturum durumu sağlayıcısı
 Azure önbelleği için Redis, oturum durumu ile bellek içi Azure önbelleği için Redis yerine SQL Server veritabanını depolamak için kullanabileceğiniz bir oturum durumu sağlayıcısı sağlar. Önbelleğe alma oturum durumu sağlayıcısı kullanmak için önbelleğinizi önce yapılandırın ve ardından ASP.NET uygulamanız Azure önbelleği için Redis oturum durumu NuGet paketi kullanarak bir önbellek için yapılandırın.
@@ -127,7 +127,7 @@ Bu adımların sonra uygulamanızı Azure önbelleği için Redis oturum durumu 
 * SQL Server oturum durumu sağlayıcısı - bu sağlayıcı Sql Server'da oturum durumunu depolar. Oturum durumu kalıcı depolama alanında depolamak istiyorsanız bu sağlayıcısını kullanın. Web uygulamanızı ölçeklendirmek ancak oturumu için Sql Server'ı kullanarak Web uygulamanızı bir performans etkisi olur. Bu sağlayıcı ile de kullanabileceğiniz bir [bellek içi OLTP'yi yapılandırma](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/11/28/asp-net-session-state-with-sql-server-in-memory-oltp/) performansını geliştirmeye yardımcı olmak için.
 * Dağıtılmış, bellek oturum durumu sağlayıcısını Azure önbelleği için Redis oturum durumu sağlayıcısı - bu sağlayıcının gibi en iyi şekilde yararlanmanızı sağlar. Web uygulamanızı basit, hızlı ve ölçeklenebilir bir oturum durumu sağlayıcısı olabilir. Bu sağlayıcı oturum durumu bir önbellekte depolar için göz önünde bulundurarak dağıtılmış, bellek önbelleğini, geçici ağ hataları gibi konuşurken ilişkili tüm özelliklerini almak uygulamanızı sahiptir. Önbellek kullanarak en iyi uygulamalar için bkz: [önbelleğe alma Kılavuzu](../best-practices-caching.md) Microsoft Patterns & yöntemler [Azure bulut uygulama tasarımı ve Uygulama Kılavuzu](https://github.com/mspnp/azure-guidance).
 
-Oturum durumu ve diğer en iyi yöntemler hakkında daha fazla bilgi için bkz. [Web geliştirme en iyi yöntemler (gerçek hayatta kullanılan bulut uygulamaları Azure ile oluşturma)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices).
+Oturum durumu ve diğer en iyi yöntemler hakkında daha fazla bilgi için bkz. [Web geliştirme en iyi yöntemler (gerçek hayatta kullanılan bulut uygulamaları Azure ile oluşturma)](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Kullanıma [Redis için Azure Cache için ASP.NET çıktı önbelleği sağlayıcısı](cache-aspnet-output-cache-provider.md).

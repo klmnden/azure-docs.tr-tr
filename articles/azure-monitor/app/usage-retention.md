@@ -13,16 +13,16 @@ ms.date: 05/03/2017
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 4b21632f936093c0a48abf2d13389f22306045cc
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: bda79520dd86cc14161f6f22cd24feb2e35849ab
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052913"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121371"
 ---
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Application Insights ile web uygulamaları için kullanıcı saklama analizi
 
-Saklama özelliği [Azure Application Insights](../../application-insights/app-insights-overview.md) kaç kullanıcının uygulamanıza dönün ve ne sıklıkta kullanıcılar belirli görevleri veya hedeflere ulaşmak analiz yardımcı olur. Örneğin, bir oyun site çalıştırırsanız, ödüllü sonra iade kimin numarası ile bir oyun kaybettikten sonra siteye geri dön kullanıcılar sayıda kıyaslayarak. Bu bilgi, hem kullanıcı deneyiminizi ve iş stratejinizin geliştirmeye yardımcı olabilir.
+Saklama özelliği [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) kaç kullanıcının uygulamanıza dönün ve ne sıklıkta kullanıcılar belirli görevleri veya hedeflere ulaşmak analiz yardımcı olur. Örneğin, bir oyun site çalıştırırsanız, ödüllü sonra iade kimin numarası ile bir oyun kaybettikten sonra siteye geri dön kullanıcılar sayıda kıyaslayarak. Bu bilgi, hem kullanıcı deneyiminizi ve iş stratejinizin geliştirmeye yardımcı olabilir.
 
 ## <a name="get-started"></a>başlarken
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: aee91f6d9b8d16db7f14bbc2372d7c465377ce28
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 444f1aaee496666745be548bcdfadf3a4f162699
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971537"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104072"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Redis için Azure Önbelleği SSS
 Sık sorulan sorular, desenleri ve en iyi yanıtları Azure önbelleği için Redis için öğrenin.
@@ -90,7 +90,7 @@ Azure önbelleği için Redis popüler açık kaynak yazılım tabanlı [Redis](
 
 * Çıkış için kullanılabilen öğreticilerimizden birini denetleyebilirsiniz [.NET](cache-dotnet-how-to-use-azure-redis-cache.md), [ASP.NET](cache-web-app-howto.md), [Java](cache-java-get-started.md), [Node.js](cache-nodejs-get-started.md), ve [Python](cache-python-get-started.md).
 * İzleyebilir [derleme yüksek performanslı uygulamaları kullanarak Microsoft Azure önbelleği için Redis nasıl](https://azure.microsoft.com/documentation/videos/how-to-build-high-performance-apps-using-microsoft-azure-cache/).
-* Redis kullanma hakkında bilgi için projenizin bir geliştirme dilini eşleşen istemciler için istemci belgeleri kullanıma alabilirsiniz. İle Azure Cache, Redis için kullanılabilecek birçok Redis istemcilerinin vardır. Redis istemcilerinin listesi için bkz. [ http://redis.io/clients ](http://redis.io/clients).
+* Redis kullanma hakkında bilgi için projenizin bir geliştirme dilini eşleşen istemciler için istemci belgeleri kullanıma alabilirsiniz. İle Azure Cache, Redis için kullanılabilecek birçok Redis istemcilerinin vardır. Redis istemcilerinin listesi için bkz. [ https://redis.io/clients ](https://redis.io/clients).
 
 Bir Azure hesabınız yoksa, şunları yapabilirsiniz:
 
@@ -210,7 +210,7 @@ Genellikle istemcinin varsayılan değerler yeterlidir. Seçenekler, iş yükün
       * Bu kılavuz için daha fazla yol açabilir rahat bir gecikme süresi başına `ConnectionMultiplexer`.
 
 ### <a name="what-azure-cache-for-redis-clients-can-i-use"></a>Hangi Azure önbelleği için Redis istemcileri kullanabilirim?
-Redis hakkındaki harika şeylerden biri çok sayıda farklı geliştirme dili destekleyen birden çok istemci yoktur. İstemcileri güncel bir listesi için bkz. [Redis istemcileri](http://redis.io/clients). Birkaç farklı dilleri ve istemcilerin kapsayan öğreticiler için bkz. [Azure önbelleği için Redis kullanma](cache-dotnet-how-to-use-azure-redis-cache.md) makalenin üst kısmındaki dil değiştirici istenen dili tıklayın.
+Redis hakkındaki harika şeylerden biri çok sayıda farklı geliştirme dili destekleyen birden çok istemci yoktur. İstemcileri güncel bir listesi için bkz. [Redis istemcileri](https://redis.io/clients). Birkaç farklı dilleri ve istemcilerin kapsayan öğreticiler için bkz. [Azure önbelleği için Redis kullanma](cache-dotnet-how-to-use-azure-redis-cache.md) makalenin üst kısmındaki dil değiştirici istenen dili tıklayın.
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
@@ -236,12 +236,12 @@ Azure önbelleği için Redis için hiçbir yerel öykünücü yoktur, ancak red
         }
 
 
-İsteğe bağlı olarak yapılandırabileceğiniz bir [redis.conf](http://redis.io/topics/config) daha yakından eşleşecek şekilde dosya [varsayılan önbellek ayarları](cache-configure.md#default-redis-server-configuration) isterseniz Redis için çevrimiçi, Azure önbelleği için.
+İsteğe bağlı olarak yapılandırabileceğiniz bir [redis.conf](https://redis.io/topics/config) daha yakından eşleşecek şekilde dosya [varsayılan önbellek ayarları](cache-configure.md#default-redis-server-configuration) isterseniz Redis için çevrimiçi, Azure önbelleği için.
 
 <a name="cache-commands"></a>
 
 ### <a name="how-can-i-run-redis-commands"></a>Redis komutları nasıl çalıştırabilir miyim?
-Konusunda listelenen komutlardan herhangi birini kullanabilirsiniz [Redis komutları](http://redis.io/commands#) konusunda listelenen komutları dışında [Redis komutları Azure önbelleği için Redis desteklenmeyen](cache-configure.md#redis-commands-not-supported-in-azure-cache-for-redis). Redis komutları çalıştırmak için birkaç seçeneğiniz vardır.
+Konusunda listelenen komutlardan herhangi birini kullanabilirsiniz [Redis komutları](https://redis.io/commands#) konusunda listelenen komutları dışında [Redis komutları Azure önbelleği için Redis desteklenmeyen](cache-configure.md#redis-commands-not-supported-in-azure-cache-for-redis). Redis komutları çalıştırmak için birkaç seçeneğiniz vardır.
 
 * Bir standart veya Premium önbellek varsa kullanarak Redis komutları çalıştırabilirsiniz [Redis Konsolu](cache-configure.md#redis-console). Redis konsolu, Azure portalında Redis komutları çalıştırmak için güvenli bir yol sağlar.
 * Ayrıca, Redis komut satırı araçları da kullanabilirsiniz. Bunları kullanmak için aşağıdaki adımları gerçekleştirin:
@@ -257,7 +257,7 @@ Konusunda listelenen komutlardan herhangi birini kullanabilirsiniz [Redis komutl
 <a name="cache-reference"></a>
 
 ### <a name="why-doesnt-azure-cache-for-redis-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services"></a>Neden Azure önbelleği için Redis bazı diğer Azure Hizmetleri gibi bir MSDN sınıf kitaplığı başvurusu yok?
-Microsoft Azure Cache Redis popüler Aç temel alınır, Azure önbelleği için Redis kaynak ve çok çeşitli tarafından erişilebilir [Redis istemcileri](http://redis.io/clients) birçok programlama dili için. Azure Cache, Redis örneğinin kullanılması için çağrılar kendi API her bir istemciye sahip [Redis komutları](http://redis.io/commands).
+Microsoft Azure Cache Redis popüler Aç temel alınır, Azure önbelleği için Redis kaynak ve çok çeşitli tarafından erişilebilir [Redis istemcileri](https://redis.io/clients) birçok programlama dili için. Azure Cache, Redis örneğinin kullanılması için çağrılar kendi API her bir istemciye sahip [Redis komutları](https://redis.io/commands).
 
 Her bir istemciye farklı olduğu için MSDN'de değil bir merkezi sınıf başvurusu yok ve kendi başvuru belgeleri her istemci korur. Başvuru belgeleri yanı sıra farklı dilleri kullanarak Redis için Azure Cache kullanmaya başlama ve istemciler önbelleğe nasıl yapıldığını gösteren çeşitli öğreticiler vardır. Bu öğreticiler erişmek için bkz. [Azure önbelleği için Redis kullanma](cache-dotnet-how-to-use-azure-redis-cache.md) makalenin üst kısmındaki dil değiştirici istenen dili tıklayın.
 
@@ -310,7 +310,7 @@ Redis Araçları'nı yükleme hakkında yönergeler için bkz. [Redis komutları
 * Works en küçük değerler ile redis, bu nedenle büyük verilerin birden çok anahtar chopping göz önünde bulundurun. İçinde [bu Redis tartışma](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ), 100 kb büyük değerlendirilir. Okuma [bu makalede](https://gist.github.com/JonCole/db0e90bedeb3fc4823c2#large-requestresponse-size) büyük değerler neden bir örneğin sorun için.
 * Yapılandırma, [iş parçacığı havuzu ayarları](#important-details-about-threadpool-growth) zaman aşımları önlemek için.
 * En az 5 saniyelik varsayılan connectTimeout kullanın. Bu aralık, ağ blip durumunda bağlantıyı yeniden kurmak için yeterli zaman StackExchange.Redis verirsiniz.
-* Kullanmakta olduğunuz farklı işlemleriyle ilişkili performans maliyetleri farkında olun. Örneğin, `KEYS` komut bir o(n) ve kaçınılmalıdır. [Redis.io site](http://redis.io/commands/) desteklediği her bir işlem için zaman karmaşıklığı ayrıntılarla sahiptir. Her komut, her işlem için karmaşıklık görmek için tıklayın.
+* Kullanmakta olduğunuz farklı işlemleriyle ilişkili performans maliyetleri farkında olun. Örneğin, `KEYS` komut bir o(n) ve kaçınılmalıdır. [Redis.io site](https://redis.io/commands/) desteklediği her bir işlem için zaman karmaşıklığı ayrıntılarla sahiptir. Her komut, her işlem için karmaşıklık görmek için tıklayın.
 
 #### <a name="configuration-and-concepts"></a>Yapılandırma ve kavramları
 * Standart veya Premium katmanı, üretim sistemleri için kullanın. Temel katmanı, veri çoğaltma ve SLA ile bir tek düğümlü sistemidir. Ayrıca, en az bir C1 önbelleği kullanır. C0 önbellekler genellikle basit geliştirme/test senaryoları için kullanılır.
@@ -329,7 +329,7 @@ Redis Araçları'nı yükleme hakkında yönergeler için bkz. [Redis komutları
 
 ### <a name="what-are-some-of-the-considerations-when-using-common-redis-commands"></a>Bazı önemli noktalar ortak Redis komutları kullanılırken nelerdir?
 * Bu komutlar etkisini anlama olmadan tamamlanması uzun süren belirli Redis komutları çalıştırmamanız gerekir.
-  * Örneğin, çalışmaz [ANAHTARLARI](http://redis.io/commands/keys) anahtarları sayısına bağlı olarak döndürülecek uzun sürebilir olarak üretim ortamında komutu. Redis bir tek iş parçacıklı bir sunucudur ve komutları teker teker işler. Diğer komutlar sonra ANAHTARLARI varsa, Redis ANAHTARLARI komut işlem kadar bunlar işlenmeyecek. [Redis.io site](http://redis.io/commands/) desteklediği her bir işlem için zaman karmaşıklığı ayrıntılarla sahiptir. Her komut, her işlem için karmaşıklık görmek için tıklayın.
+  * Örneğin, çalışmaz [ANAHTARLARI](https://redis.io/commands/keys) anahtarları sayısına bağlı olarak döndürülecek uzun sürebilir olarak üretim ortamında komutu. Redis bir tek iş parçacıklı bir sunucudur ve komutları teker teker işler. Diğer komutlar sonra ANAHTARLARI varsa, Redis ANAHTARLARI komut işlem kadar bunlar işlenmeyecek. [Redis.io site](https://redis.io/commands/) desteklediği her bir işlem için zaman karmaşıklığı ayrıntılarla sahiptir. Her komut, her işlem için karmaşıklık görmek için tıklayın.
 * Küçük bir anahtar/değer ya da büyük bir anahtar/değer anahtar boyutları - kullanmalıyım? Genel olarak, senaryoya bağlıdır. Büyük anahtarlar senaryonuz gerektiriyorsa, ConnectionTimeout ayarlayın ve yeniden deneme değerleri ve yeniden deneme mantığınız ayarlayın. Redis sunucu açısından bakıldığında, daha iyi performans sağlamak için daha küçük değerler gözlenmiştir.
 * Bu konuları daha büyük değerler Redis depolanamıyor olduğu anlamına gelmez; Aşağıdaki hususlara farkında olmanız gerekir. Gecikme, daha yüksek olacaktır. Bir büyük veri kümesi ve daha küçük olanı varsa, birden çok ConnectionMultiplexer örneği kullanabilirsiniz, her önceki açıklandığı gibi farklı bir zaman aşımı ve yeniden deneme değerlerini kümesi ile yapılandırılmış [StackExchange.Redis ne yapılandırma seçenekleri yapın](#cache-configuration) bölümü.
 

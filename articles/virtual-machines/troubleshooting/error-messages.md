@@ -12,12 +12,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure
 ms.date: 5/22/2017
 ms.author: xujing
-ms.openlocfilehash: b996d42e5c543235d09b46d29889bc5eaeafd52a
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 80b99880362c3979ae5ead6d1cdff4091d23d065
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47414383"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118984"
 ---
 # <a name="understand-common-error-messages-when-you-manage-virtual-machines-in-azure"></a>Azure sanal makineler'de yönetirken genel hata iletileri anlama
 
@@ -108,7 +108,7 @@ Bu bölümde, VM'ler yönetirken karşılaşabileceğiniz genel hata iletileri l
 |  InvalidParameter  |  Belirtilen görüntü başvurusunda zaten tanımlı olan bir disk için kullanıcı görüntüsü geçersiz kılmaları belirtilemez.  |
 |  InvalidParameter  |  Adlı disk '{0}' VHD URL'si zaten kullanıyor {1}.  |
 |  InvalidParameter  |  Belirtilen hata etki alanı sayısı {0} aralığında olmalıdır {1} için {2}.  |
-|  InvalidParameter  |  Lisans türü {0} geçersiz. Geçerli lisans türleri: Windows_Client ve Windows_Server, büyük küçük harfe duyarlı.  |
+|  InvalidParameter  |  Lisans türü {0} geçersiz. Geçerli lisans türleri şunlardır: Windows_Client ve Windows_Server, büyük küçük harfe duyarlı.  |
 |  InvalidParameter  |  Linux konak adı aşamaz {0} karakter uzunluğunda veya şu karakterleri içeremez: {1}.  |
 |  InvalidParameter  |  Ssh ortak anahtarları için hedef yol için varsayılan değer şu anda sınırlı {0} Linux sağlama aracısındaki bilinen bir sorun nedeniyle.  |
 |  InvalidParameter  |  Bir diskin LUN {0} zaten mevcut.  |
@@ -171,14 +171,14 @@ Bu bölümde, VM'ler yönetirken karşılaşabileceğiniz genel hata iletileri l
 |  OperationNotAllowed  |  Alınamıyor çünkü sanal makine yeniden boyutlandırmak istenen boyut {0} kullanılabilirlik kümesi şu anda ayrıldığı kümede kullanılabilir değil. Bulunan boyutlar: {1}. Yeniden boyutlandırma stratejisi, VM hakkında daha fazla https://aka.ms/azure-resizevm.  |
 |  OperationNotAllowed  |  Alınamıyor çünkü sanal makine yeniden boyutlandırmak istenen boyut {0} VM şu anda ayrıldığı kümede kullanılabilir değil. Sanal makinenizde yeniden boyutlandırmak için {1} Lütfen serbest (Bu, Azure portalında durdurma işlemi) ve yeniden boyutlandırma işlemi yeniden deneyin. Yeniden boyutlandırma stratejisi, VM hakkında daha fazla https://aka.ms/azure-resizevm.  |
 |  OSProvisioningClientError  |  VM için işletim sistemi sağlama başarısız '{0}' olduğundan ' % s'konuk işletim sistemi şu anda sağlanıyor.  |
-|  OSProvisioningClientError  |  VM için işletim sistemi sağlama '{0}' başarısız oldu. Hata ayrıntıları: {1} görüntünün düzgün hazırlandığından emin olun (genelleştirildiğinden). <ul><li>Windows için yönergeler: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/  </li></ul> |
+|  OSProvisioningClientError  |  VM için işletim sistemi sağlama '{0}' başarısız oldu. Hata ayrıntıları: {1} Görüntünün düzgün hazırlandığından emin olun (genelleştirildiğinden). <ul><li>Windows için yönergeler: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/  </li></ul> |
 |  OSProvisioningClientError  |  SSH ana bilgisayar anahtarı oluşturma başarısız oldu. Hata ayrıntıları: {0}. Gidermek için bu sorunu doğrulayın Linux Aracısı düzgün şekilde ayarlanmış olup. <ul><li>Bölümündeki yönergeleri denetleyebilirsiniz: https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux/ </li></ul> |
 |  OSProvisioningClientError  |  Bu Linux dağıtımı için bir VM için belirtilen kullanıcı adı geçersiz. Hata ayrıntıları: {0}.  |
 |  OSProvisioningInternalError  |  VM için işletim sistemi sağlama başarısız '{0}' bir iç hata nedeniyle.  |
 |  OSProvisioningTimedOut  |  VM için işletim sistemi sağlama '{0}' ayrılan sürede tamamlanmadı. VM, yine de sağlamayı başarıyla tamamlayabilir son. Lütfen sağlama durumunu daha sonra denetleyin.  |
 |  OSProvisioningTimedOut  |  VM için işletim sistemi sağlama '{0}' ayrılan sürede tamamlanmadı. VM, yine de sağlamayı başarıyla tamamlayabilir son. Lütfen sağlama durumunu daha sonra denetleyin. Ayrıca, görüntünün düzgün hazırlandığından emin olun (genelleştirildiğinden).   <ul><li>Windows için yönergeler: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/ </li><li> Linux için yönergeler: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-capture-image/</li></ul>  |
 |  OSProvisioningTimedOut  |  VM için işletim sistemi sağlama '{0}' ayrılan sürede tamamlanmadı. Ancak, VM Konuk Aracısı çalıştıran algılandı. Bu konuk işletim Sisteminin VM görüntüsü olarak kullanılacak doğru hazırlanmış çalıştırılmadı önerir (Fromımage ile CreateOption =). Bu sorunu çözmek için VHD'yi CreateOption ile olduğu gibi kullanın Ekle = ya da bir görüntü olarak kullanmak için düzgün şekilde hazırlayın:   <ul><li>Windows için yönergeler: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/ </li><li> Linux için yönergeler: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-capture-image/</li></ul>  |
-|  OverConstrainedAllocationRequest  |  Gerekli VM boyutu, seçilen konumda şu an için kullanılamıyor.  |
+|  OverConstrainedAllocationRequest  |  Gerekli VM boyutu seçilen konumda şu anda kullanılabilir değil.  |
 |  ResourceUpdateBlockedOnPlatformUpdate  |  Şu anda devam eden platform güncelleştirmesi nedeniyle kaynak güncelleştirilemiyor. Lütfen daha sonra tekrar deneyin.  |
 |  StorageAccountLimitation  |  Depolama hesabı '{0}', disk oluşturmak için gerekli sayfa bloblarını desteklemez.  |
 |  StorageAccountLimitation  |  Depolama hesabı '{0}', ayrılmış kotasını aştı.  |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.workload: tbd
 ms.date: 05/30/2017
 ms.author: wesmc
-ms.openlocfilehash: 5a1febb80b5d3aaf0e5da2620f1b0a35d5d1144b
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 27c8fce8c8eac936708dbac72ca60a1c0af286ea
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556807"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106146"
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-cache-for-redis"></a>Yönetilen önbellek Hizmeti'nden Azure önbelleği için Redis için geçirme
 Azure önbelleği için Redis için Azure yönetilen önbellek hizmeti kullanan, uygulamaları geçirme uygulamanızın, önbelleğe alma uygulamanız tarafından kullanılan yönetilen önbellek hizmeti özelliklere bağlı olarak küçük değişiklikler ile gerçekleştirilebilir. API'leri tam olarak aynı olsa da benzemez ve yönetilen önbellek hizmeti bir önbelleğe erişmek için kullandığı mevcut kodunuzu çoğunu minimum değişikliklerle yeniden kullanılabilir. Bu makalede, gerekli yapılandırma yapma gösterilmektedir ve uygulama, Azure önbelleği için Redis kullanmak üzere yönetilen önbellek hizmeti uygulamalarınızı geçirmeyi değiştirir ve nasıl bazı özellikleri Azure önbelleği için Redis işlevselliğini uygulamak için kullanılabileceğini gösterir bir yönetilen önbellek hizmeti önbelleği.
@@ -53,7 +53,7 @@ Azure yönetilen önbellek hizmeti ve Azure önbelleği için Redis ile benzerdi
 | Yerel önbellek |Çok hızlı erişim için istemcide önbelleğe alınan nesnelerin bir kopyasını yerel olarak depolar. |İstemci uygulamaları, sözlük veya benzer veri yapısı'nı kullanarak bu işlevselliği uygulamak gerekir. |
 | Çıkarma İlkesi |Yok veya LRU. Varsayılan ilke LRU olur. |Azure önbelleği için Redis aşağıdaki çıkarma ilkelerinin destekler: geçici lru, allkeys lru, rastgele geçici, allkeys rastgele, geçici ttl, noeviction. Volatile lru olan varsayılan ilkedir. Daha fazla bilgi için [varsayılan Redis sunucu yapılandırması](cache-configure.md#default-redis-server-configuration). |
 | Süre sonu ilkesi |Varsayılan süre Dolum İlkesi mutlak ve varsayılan zaman aşımı aralığı 10 dakika. Kayan ve hiçbir zaman ilkelerini de mevcuttur. |Varsayılan olarak önbellekteki öğeleri süresinin sona ermediğinden, ancak bir sona erme önbellek kümesi aşırı yüklemeleri kullanmak yazma başına temelinde yapılandırılabilir. |
-| Bölgeler ve etiketleme |Alt grupları için önbelleğe alınmış öğeleri bölgelerdir. Bölgeler, önbelleğe alınmış öğeleri ek açıklama etiketleri adlı ek açıklama dizelerle de destekler. Bölgeler, bu bölgede etiketlenmiş öğeler arama işlemleri gerçekleştirmek için özelliği destekler. Bir bölge içindeki tüm öğeleri tek bir düğüm önbellek kümesi içinde yer alır. |(Redis kümesi etkinleştirilmediği sürece) bir Azure önbelleği için Redis yönetilen önbellek hizmeti bölgeleri kavramını uygulanamaz tek bir düğümünden oluşur. Açıklayıcı etiketler katıştırılmış içinde anahtar adlarını ve daha sonra öğeleri almak için kullanılan anahtarlar alınırken redis aramayı destekler ve joker parçacık işlemleri. Redis etiketleme kullanarak çözümü uygulama örneği için bkz: [etiketleme ile Redis cache uygulanırken](http://stackify.com/implementing-cache-tagging-redis/). |
+| Bölgeler ve etiketleme |Alt grupları için önbelleğe alınmış öğeleri bölgelerdir. Bölgeler, önbelleğe alınmış öğeleri ek açıklama etiketleri adlı ek açıklama dizelerle de destekler. Bölgeler, bu bölgede etiketlenmiş öğeler arama işlemleri gerçekleştirmek için özelliği destekler. Bir bölge içindeki tüm öğeleri tek bir düğüm önbellek kümesi içinde yer alır. |(Redis kümesi etkinleştirilmediği sürece) bir Azure önbelleği için Redis yönetilen önbellek hizmeti bölgeleri kavramını uygulanamaz tek bir düğümünden oluşur. Açıklayıcı etiketler katıştırılmış içinde anahtar adlarını ve daha sonra öğeleri almak için kullanılan anahtarlar alınırken redis aramayı destekler ve joker parçacık işlemleri. Redis etiketleme kullanarak çözümü uygulama örneği için bkz: [etiketleme ile Redis cache uygulanırken](https://stackify.com/implementing-cache-tagging-redis/). |
 | Seri hale getirme |Yönetilen önbellek NetDataContractSerializer BinaryFormatter ve özel seri hale getiricileri genişletme kullanımını destekler. NetDataContractSerializer varsayılandır. |Bunları serileştirici istemci uygulama geliştiricisi kadar tercih ettiğiniz önbelleğine yerleştirmeden önce .NET nesneleri serileştirmek için istemci uygulamanın sorumluluğundadır. Daha fazla bilgi ve örnek kod için bkz. [önbellekte .NET nesneleriyle çalışma](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache). |
 | Önbellek öykünücüsü |Yönetilen önbellek, bir yerel önbellek öykünücü sağlar. |Azure önbelleği için Redis bir öykünücü yok, ancak yapabilecekleriniz [redis server.exe MSOpenTech yapısını yerel olarak çalıştırma](cache-faq.md#cache-emulator) bir öykünücü deneyimi sunar. |
 

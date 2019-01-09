@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: 6fe7152e43640a809ab9f4de39b1c6b599975a20
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: ced306b00a5761ae096e918b43a8e67e649580dd
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969956"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106027"
 ---
 # <a name="common-questions---azure-to-azure-replication"></a>Sık sorulan sorular - Azure'dan Azure'a çoğaltma
 
@@ -62,7 +62,7 @@ Hayır, Site Recovery, ancak Site Recovery hizmeti URL'lerine ve IP aralıkları
 ## <a name="replication-policy"></a>Çoğaltma İlkesi
 
 ### <a name="what-is-a-replication-policy"></a>Bir çoğaltma ilkesi nedir?
-Kurtarma noktası bekletme geçmişine ve uygulama tutarlı anlık görüntü sıklığı ayarlarını tanımlar. Varsayılan olarak, Azure Site Recovery, ' 24 saatliğine kurtarma noktası bekletme ' 60 dakika için uygulamayla tutarlı anlık görüntü sıklığını ve varsayılan ayarlarla yeni bir çoğaltma ilkesi oluşturur.
+Kurtarma noktası bekletme geçmişine ve uygulama tutarlı anlık görüntü sıklığı ayarlarını tanımlar. Varsayılan olarak, Azure Site Recovery, ' 24 saatliğine kurtarma noktası bekletme ' 60 dakika için uygulamayla tutarlı anlık görüntü sıklığını ve varsayılan ayarlarla yeni bir çoğaltma ilkesi oluşturur. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#configure-replication-settings) çoğaltma ilkesini yapılandırma]
 
 ### <a name="what-is-crash-consistent-recovery-point"></a>Kilitlenmeyle tutarlı kurtarma noktası nedir?
 Kilitlenmeyle tutarlı kurtarma noktası, sanki VM kilitlenmesi veya güç kablosunu sunucudan anlık görüntünün alındığı zaman çekilmiştir diskteki verileri temsil eder. Bellek anlık görüntü alındığında olan herhangi bir şey içermez. Bugün, çoğu uygulama iyi kilitlenme tutarlı anlık görüntülerden kurtarabilirsiniz. Kilitlenmeyle tutarlı kurtarma noktası yeterince genellikle hiçbir veritabanı işletim sistemleri ve dosya sunucuları, DHCP sunucusu, yazdırma sunucuları ve benzeri gibi uygulamalar içindir.
@@ -96,6 +96,24 @@ Tam kopya olması durumunda ilk çoğaltma oluşturulan ilk kurtarma noktasını
 
 ### <a name="does-increasing-recovery-points-retention-windows-increases-the-storage-cost"></a>Mu kurtarma noktalarının bekletme pencerelerinin artırılması artırır depolama maliyeti?
 Site Recovery kurtarma noktaları ekleme kaydedecek sonra 24 saat saklama süresini 72 saate artırırsanız Evet, hangi olacak 48 saat, depolama ücretleri. Delta değişikliklerinin / 10 GB ve GB başına maliyet tek bir kurtarma noktası varsa, aylık $1.6 * 48 ek ücret olacaktır sonra örnek, aylık $0,16 için.
+
+## <a name="multi-vm-consistency"></a>Çoklu VM tutarlılığı 
+
+### <a name="what-is-multi--vm-consistency"></a>Çoklu VM tutarlılığını nedir?
+Bu kurtarma noktasını tüm çoğaltılan sanal makineler arasında tutarlı olduğundan emin olmak anlamına gelir.
+Site Recovery, bir "Çoklu VM tutarlılığı" seçeneğini sağlar olan seçili grubun parçası olan tüm makineleri birlikte çoğaltmak için bir çoğaltma grubu oluşturur.
+Tüm sanal makinelerin yük devretme sırasında kilitlenmeyle tutarlı ve uygulamayla tutarlı kurtarma noktalarını paylaşılan.
+Go için Bu öğreticide ["Çoklu VM" tutarlılığını etkinleştirmek](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication).
+
+### <a name="can-i-failover-single-virtual-machine-within-a-multi-vm-consistency-replication-group"></a>Alabilir miyim "Çoklu VM" tutarlılık çoğaltma grubundaki tek sanal makine yük devretme?
+"Çoklu VM tutarlılığı" seçeneğini belirleyerek uygulamayı bir grup içindeki tüm sanal makineler üzerinde bir bağımlılık olduğunu belirten. Bu nedenle, tek sanal makine yük devretme izin verilmez. 
+
+### <a name="how-many-virtual-machines-can-i-replicate-as-a-part-of-multi-vm-consistency-replication-group"></a>"Çoklu VM" tutarlılık çoğaltma grubunun bir parçası kaç tane sanal makineyi çoğaltabilirim?
+Bir çoğaltma grubunda birlikte 16 sanal makine çoğaltabilirsiniz.
+
+### <a name="when-should-i-enable-multi-vm-consistency-"></a>Çoklu VM tutarlılığı etkinleştirdiğinizde?
+Çoklu VM tutarlılığını etkinleştirmek etkileyebilir iş yükü performansı (CPU kullanımı yoğun olduğu gibi) ve yalnızca makineler aynı iş yükünü çalıştıran ve birden fazla makine arasında tutarlılık ihtiyacınız varsa kullanılmalıdır. Örneğin, 2 sql sunucunuz varsa ve daha sonra uygulama 2 web sunucuları yalnızca sql sunucuları için "Çoklu VM" tutarlılık olması gerekir.
+
 
 ## <a name="failover"></a>Yük devretme
 

@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 12/11/2018
+ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: ebb8d5d141dab39e73297342907d4439b30a9fbf
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: cac219414418277ace09ba3a0b442f3bf74e6025
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042487"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107438"
 ---
 # <a name="about-azure-vm-backup"></a>Azure VM yedeklemesi hakkında
 
@@ -30,7 +30,7 @@ Nasıl Azure Backup bir Azure Vm'leri için yedeklemeden aşağıda verilmiştir
     - Uzantının ilk VM yedeklemesi sırasında yüklenir.
     - Uzantıyı yüklemek için VM çalıştırılması gerekir.
     - VM çalışmıyorsa Backup hizmeti, temel alınan depolamanın anlık görüntüsünü alır (VM durduğunda herhangi bir uygulama yazma işlemi gerçekleşmediği için).
-4. Yedekleme uzantısı, depolama düzeyinde, uygulamayla tutarlı anlık görüntüsünü alır.
+4. Backup uzantısı, depolama düzeyinde kilitlenme tutarlı/dosya tutarlı anlık görüntü alır.
 5. Anlık görüntünün alınma sonra veriler kasaya aktarılır. Verimliliği en üst düzeye çıkarmak için hizmet tanımlar ve yalnızca (delta) önceki yedeklemeden itibaren değişmiş olan veri blokları aktarır.
 5. Veri aktarımı tamamlandığında, anlık görüntü kaldırılır ve bir kurtarma noktası oluşturulur.
 

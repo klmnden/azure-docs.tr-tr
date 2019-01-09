@@ -13,22 +13,22 @@ ms.date: 10/10/2017
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 6d8570c78fcf28a236374579a9cb85c7c27f6ec8
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: f2539d5250ff436a720fe10f748f40db29b0ee25
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076986"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118532"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Application Insights ile kullanım analizi
 
-Web veya mobil uygulamanızı hangi özelliklerinin en popüler misiniz? Kullanıcılarınız uygulamanızla hedeflerine ulaşması? Belirli noktalarda bıraktıklarını ve daha sonra iade etmeden?  [Azure Application Insights](../../application-insights/app-insights-overview.md) , insanların uygulamanızı nasıl kullandığını içine güçlü Öngörüler elde etmeye yardımcı olur. Uygulamanızı her güncelleştirdiğinizde, kullanıcılar için ne kadar iyi çalıştığı değerlendirebilirsiniz. Bu bilgiyle, veri odaklı kararlar sonraki geliştirme döngülerinizi yapabilirsiniz.
+Web veya mobil uygulamanızı hangi özelliklerinin en popüler misiniz? Kullanıcılarınız uygulamanızla hedeflerine ulaşması? Belirli noktalarda bıraktıklarını ve daha sonra iade etmeden?  [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) , insanların uygulamanızı nasıl kullandığını içine güçlü Öngörüler elde etmeye yardımcı olur. Uygulamanızı her güncelleştirdiğinizde, kullanıcılar için ne kadar iyi çalıştığı değerlendirebilirsiniz. Bu bilgiyle, veri odaklı kararlar sonraki geliştirme döngülerinizi yapabilirsiniz.
 
 ## <a name="send-telemetry-from-your-app"></a>Uygulamanızdan telemetri gönderin
 
 Application Insights hem uygulama sunucu kodunuzda ve web sayfalarınızda yükleyerek en iyi deneyimi elde edilir. Uygulamanızın istemci ve sunucu bileşenleri telemetri analizi için Azure portalı için geri gönderin.
 
-1. **Sunucu kodu:** İçin uygun modülünü yüklemek, [ASP.NET](../../azure-monitor/app/asp-net.md), [Azure](../../application-insights/app-insights-overview.md), [Java](../../azure-monitor/app/java-get-started.md), [Node.js](../../azure-monitor/app/nodejs.md), veya [diğer](../../azure-monitor/app/platforms.md) uygulama.
+1. **Sunucu kodu:** İçin uygun modülünü yüklemek, [ASP.NET](../../azure-monitor/app/asp-net.md), [Azure](../../azure-monitor/app/app-insights-overview.md), [Java](../../azure-monitor/app/java-get-started.md), [Node.js](../../azure-monitor/app/nodejs.md), veya [diğer](../../azure-monitor/app/platforms.md) uygulama.
 
     * *Sunucu kodu yüklemek istemiyor musunuz? Yalnızca [Azure Application Insights kaynağı oluşturma](../../azure-monitor/app/create-new-resource.md ).*
 

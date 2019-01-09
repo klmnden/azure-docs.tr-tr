@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 12/4/2018
+ms.date: 1/8/2019
 ms.topic: article
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 5f2f262d5ec4b9e8884e47c6c064927da2af4790
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 2c5e3664a9ef26319eb8a51d03ddef6a5392ffa9
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52876158"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103001"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Azure Blockchain Workbench'i dağıtma
 
@@ -61,7 +61,7 @@ Azure Blockchain Workbench, Azure AD, yapılandırma ve uygulama kayıtlarını 
 Önkoşul adımlarını tamamladıktan sonra Blockchain Workbench'i dağıtma hazırsınız. Aşağıdaki bölümlerde, framework dağıtmak nasıl yenileyeceğiniz özetlenmektedir.
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Azure Blockchain Workbench'i dağıtma istediğiniz köşe ve anahtar istediğiniz Azure ad Kiracı sağ üst bölümde hesabınızı seçin.
+2. Sağ üst köşedeki hesabınızı seçin ve istenen geçiş, Azure Blockchain Workbench'i dağıtma istediğiniz Azure AD kiracısı.
 3. Sol bölmede seçin **kaynak Oluştur**. Arama `Azure Blockchain Workbench` içinde **markette Ara** arama çubuğu. 
 
     ![Market arama çubuğu](media/deploy/marketplace-search-bar.png)
@@ -101,7 +101,7 @@ Azure Blockchain Workbench, Azure AD, yapılandırma ve uygulama kayıtlarını 
     | Ayar | Açıklama  |
     |---------|--------------|
     | İzleme | Azure blockchain ağınızı izlemek izleyicisini etkinleştirmek isteyip istemediğinizi seçin |
-    | Azure Active Directory ayarları | Seçin **ekleyebilirsiniz**.</br>Not:, seçerseniz [önceden Azure AD'yi yapılandırma](#azure-ad-configuration) veya tercih yeniden dağıtmaya gerek, *artık ekleme*. |
+    | Azure Active Directory ayarları | Seçin **ekleyebilirsiniz**.</br>Not: İçin seçerseniz, [önceden Azure AD'yi yapılandırma](#azure-ad-configuration) veya tercih yeniden dağıtmaya gerek, *artık ekleme*. |
     | Sanal makine seçimi | Blok zinciri ağınız için tercih edilen VM boyutunu seçin. Gibi daha küçük bir VM boyutu seçin *standart DS1 v2* Azure ücretsiz katmanı gibi düşük hizmet sınırları olan bir abonelik kullanıyorsanız. |
 
     İçin **var olanı kullan**:
@@ -119,8 +119,8 @@ Azure Blockchain Workbench, Azure AD, yapılandırma ve uygulama kayıtlarını 
 
     | Ayar | Açıklama  |
     |---------|--------------|
-    | Ethereum RPC bitiş noktası | Var olan PoA blok zinciri ağı RPC uç noktası sağlar. Uç nokta https:// veya http:// ile başlayan ve bir bağlantı noktası numarası ile sona erer. Örneğin, `https://network.westus.cloudapp.com:8540` |
-    | Azure Active Directory ayarları | Seçin **ekleyebilirsiniz**.</br>Not:, seçerseniz [önceden Azure AD'yi yapılandırma](#azure-ad-configuration) veya tercih yeniden dağıtmaya gerek, *artık ekleme*. |
+    | Ethereum RPC bitiş noktası | Var olan PoA blok zinciri ağı RPC uç noktası sağlar. Uç nokta https:// veya http:// ile başlayan ve bir bağlantı noktası numarası ile sona erer. Örneğin, `http<s>://<network-url>:<port>` |
+    | Azure Active Directory ayarları | Seçin **ekleyebilirsiniz**.</br>Not: İçin seçerseniz, [önceden Azure AD'yi yapılandırma](#azure-ad-configuration) veya tercih yeniden dağıtmaya gerek, *artık ekleme*. |
     | Sanal makine seçimi | Blok zinciri ağınız için tercih edilen VM boyutunu seçin. |
 
 9. Seçin **Tamam** Gelişmiş ayarlar tamamlanması.
@@ -159,7 +159,7 @@ Blockchain Workbench'i dağıtımı tamamlandıktan sonra yeni bir kaynak grubu 
 Azure AD, Blockchain Workbench'i dağıtımınızı tamamlamak için yapılandırılmalıdır. Yapılandırma yapmak için bir PowerShell Betiği kullanacaksınız.
 
 1. Bir tarayıcıda gidin [Blockchain Workbench'i Web URL'si](#blockchain-workbench-web-url).
-2. Cloud Shell kullanarak Azure AD'de ayarlamaya ilişkin yönergeler görürsünüz. Komutu kopyalayıp Cloud Shell'i başlatın.
+2. Cloud Shell kullanarak Azure AD'yi ayarlama yönergeleri görürsünüz. Komutu kopyalayıp Cloud Shell'i başlatın.
 
     ![AAD betiği Başlat](media/deploy/launch-aad-script.png)
 
@@ -194,7 +194,7 @@ Blockchain Workbench'i dağıtımı, Azure AD uygulaması kaydı gerektirir. Uyg
 
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Kiracı hesabınız sağ üst köşe ve geçiş yapmak istediğiniz Azure AD'ye seçin. Kiracı abonelik yöneticinin kiracısı aboneliğin burada Workbench dağıtılır ve uygulamaları kaydetmek için yeterli izinlere sahip olması gerekir.
+2. Sağ üst köşedeki hesabınızı seçin ve geçiş yapmak istediğiniz Azure AD kiracısına. Kiracı abonelik yöneticinin kiracısı aboneliğin burada Workbench dağıtılır ve uygulamaları kaydetmek için yeterli izinlere sahip olması gerekir.
 3. Sol taraftaki gezinti bölmesinde **Azure Active Directory** hizmetini seçin. Seçin **uygulama kayıtları** > **yeni uygulama kaydı**.
 
     ![Uygulama kaydı](media/deploy/app-registration.png)
@@ -216,7 +216,7 @@ Blockchain Workbench'i dağıtımı, Azure AD uygulaması kaydı gerektirir. Uyg
 Ardından, uygulama rolleri Blockchain Workbench'i yöneticileri belirlemek için Azure AD içinde kullanmak için bildirim değiştirmeniz gerekir.  Uygulama bildirimleri hakkında daha fazla bilgi için bkz: [Azure Active Directory Uygulama bildirimini](../../active-directory/develop/reference-app-manifest.md).
 
 1. Uygulama için kaydettiğiniz seçin **bildirim** kayıtlı uygulama ayrıntıları bölmesinde.
-2. Bir GUID oluşturun. [GUID] PowerShell komutunu kullanarak bir GUID oluşturabileceğiniz:: NewGuid () veya GUID yeni cmdlet. Başka bir seçenek, bir GUID generator Web sitesi kullanmaktır.
+2. Bir GUID oluşturun. [GUID] PowerShell komutunu kullanarak bir GUID oluşturabilirsiniz: NewGuid (') veya GUID yeni cmdlet. Başka bir seçenek, bir GUID generator Web sitesi kullanmaktır.
 3. Güncelleştirilecek **appRoles** bildiriminin. Düzenleme bildirim bölmesinde seçin **Düzenle** değiştirin `"appRoles": []` sağlanan JSON ile. Değerini değiştirdiğinizden emin olun **kimliği** , oluşturulan GUID ile alan. 
 
     ![Bildirimi düzenle](media/deploy/edit-manifest.png)

@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/4/2018
+ms.date: 1/8/2019
 ms.topic: article
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: caaee4cb155fc05b78bc47f1e53c79ecb0597183
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: f93bfcb076bfae5c50c751ac664a145e1b375f23
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341948"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107778"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Azure Blockchain Workbench yapılandırma başvurusu
 
@@ -39,10 +39,10 @@ Tanımlanan her iş akışı aşağıdaki belirtir:
 
 Bir blok zinciri uygulaması kimin işlem veya uygulama içinde katılmak yapılandırma meta verileri, iş akışları ve kullanıcı rolleri içerir.
 
-| Alan | Açıklama | Gerekli |
+| Alan | Açıklama | Gereklidir |
 |-------|-------------|:--------:|
 | ApplicationName | Benzersiz uygulama adı. Karşılık gelen akıllı sözleşmenin aynı kullanmalısınız **ApplicationName** uygulanabilir bir sözleşme sınıfı.  | Evet |
-| displayName | Uygulama kolay görünen adı. | Evet |
+| DisplayName | Uygulama kolay görünen adı. | Evet |
 | Açıklama | Uygulama açıklaması. | Hayır |
 | ApplicationRoles | Koleksiyonu [ApplicationRoles](#application-roles). İşlem veya uygulama içinde katılmak kullanıcı rolleri.  | Evet |
 | İş akışları | Koleksiyonu [iş akışları](#workflows). Her bir iş akışı, iş mantığı akışını denetlemek için bir Durum Makinesi görev yapar. | Evet |
@@ -53,17 +53,17 @@ Bir örnek için bkz. [yapılandırma dosyası örneği](#configuration-file-exa
 
 Bir uygulamanın iş mantığı, burada bir durumdan diğerine taşımak için iş mantığı akışını bir eylemde neden olan bir Durum makinesi olarak modellenebilir. Bir iş akışı, bu tür durumları ve Eylemler oluşan bir koleksiyondur. Her bir iş akışı kodu dosyalarında iş mantığı temsil eden bir veya daha fazla akıllı sözleşmelerinizin oluşur. Bir iş akışı örneği bir yürütülebilir sözleşmedir.
 
-| Alan | Açıklama | Gerekli |
-|-------|-------------|:--------:|
-| Ad | Benzersiz iş akışının adı. Karşılık gelen akıllı sözleşmenin aynı kullanmalısınız **adı** uygulanabilir bir sözleşme sınıfı. | Evet |
-| displayName | İş akışı kolay görünen adı. | Evet |
-| Açıklama | İş akışı tanımı. | Hayır |
-| Başlatıcılar | Koleksiyonu [ApplicationRoles](#application-roles). İş akışında sözleşmeleri oluşturmak için yetkili kullanıcılara atanan roller. | Evet |
-| StartState | İş akışı yapının başlangıç durumunun adı. | Evet |
-| Özellikler | Koleksiyonu [tanımlayıcıları](#identifiers). Araç zinciri kapalı veya bir kullanıcı görselleştirilen okunabilir temsil veri karşılaşırsınız. | Evet |
-| Oluşturucusu | İş akışı örneği oluşturmak için giriş parametrelerini tanımlar. | Evet |
-| İşlevler | Bir koleksiyonu [işlevleri](#functions) akışında çalıştırılabilir. | Evet |
-| Durumlar | İş akışı koleksiyonunu [durumları](#states). | Evet |
+| Alan | Açıklama | Gereklidir | En büyük uzunluk |
+|-------|-------------|:--------:|-----------:|
+| Ad | Benzersiz iş akışının adı. Karşılık gelen akıllı sözleşmenin aynı kullanmalısınız **adı** uygulanabilir bir sözleşme sınıfı. | Evet | 50 |
+| DisplayName | İş akışı kolay görünen adı. | Evet | 255 |
+| Açıklama | İş akışı tanımı. | Hayır | 255 |
+| Başlatıcılar | Koleksiyonu [ApplicationRoles](#application-roles). İş akışında sözleşmeleri oluşturmak için yetkili kullanıcılara atanan roller. | Evet | |
+| StartState | İş akışı yapının başlangıç durumunun adı. | Evet | |
+| Özellikler | Koleksiyonu [tanımlayıcıları](#identifiers). Araç zinciri kapalı veya bir kullanıcı görselleştirilen okunabilir temsil veri karşılaşırsınız. | Evet | |
+| Oluşturucusu | İş akışı örneği oluşturmak için giriş parametrelerini tanımlar. | Evet | |
+| İşlevler | Bir koleksiyonu [işlevleri](#functions) akışında çalıştırılabilir. | Evet | |
+| Durumlar | İş akışı koleksiyonunu [durumları](#states). | Evet | |
 
 Bir örnek için bkz. [yapılandırma dosyası örneği](#configuration-file-example).
 
@@ -147,7 +147,7 @@ Enum yapılandırmasında tanımlandıktan sonra Numaralandırma türleri Solidi
 enum PropertyTypeEnum {House, Townhouse, Condo, Land} PropertyTypeEnum public PropertyType; 
 ```
 
-Dize listesi, yapılandırma ve Blockchain Workbench'i bildirimlerinde geçerli ve tutarlı olması için akıllı sözleşmesi arasındaki eşleşmesi gerekir.
+Dize listesi, yapılandırma ve Blockchain Workbench'i bildirimlerinde geçerli ve tutarlı olması için akıllı sözleşmesi arasındaki ile eşleşmesi gerekiyor.
 
 Atama örnek:
 
@@ -174,7 +174,7 @@ function AssetTransfer(string description, uint256 price, PropertyTypeEnum prope
 
 Bir iş akışı örneği için giriş parametrelerini tanımlar.
 
-| Alan | Açıklama | Gerekli |
+| Alan | Açıklama | Gereklidir |
 |-------|-------------|:--------:|
 | Parametreler | Koleksiyonu [tanımlayıcıları](#identifiers) akıllı bir sözleşme başlatması gerekli. | Evet |
 
@@ -207,12 +207,12 @@ Bir iş akışı örneği için giriş parametrelerini tanımlar.
 
 İş akışını yürütülebilecek işlevleri tanımlar.
 
-| Alan | Açıklama | Gerekli |
-|-------|-------------|:--------:|
-| Ad | İşlev benzersiz adı. Karşılık gelen akıllı sözleşmenin aynı kullanmalısınız **adı** geçerli işlev. | Evet |
-| displayName | İşlev kolay görünen adı. | Evet |
-| Açıklama | İşlev açıklaması | Hayır |
-| Parametreler | Koleksiyonu [tanımlayıcıları](#identifiers) karşılık gelen işlevin parametreleri. | Evet |
+| Alan | Açıklama | Gereklidir | En büyük uzunluk |
+|-------|-------------|:--------:|-----------:|
+| Ad | İşlev benzersiz adı. Karşılık gelen akıllı sözleşmenin aynı kullanmalısınız **adı** geçerli işlev. | Evet | 50 |
+| DisplayName | İşlev kolay görünen adı. | Evet | 255 |
+| Açıklama | İşlev açıklaması | Hayır | 255 |
+| Parametreler | Koleksiyonu [tanımlayıcıları](#identifiers) karşılık gelen işlevin parametreleri. | Evet | |
 
 ### <a name="functions-example"></a>Örnek işlevleri
 
@@ -255,14 +255,14 @@ Bir iş akışı örneği için giriş parametrelerini tanımlar.
 
 Bir iş akışındaki benzersiz durumlar koleksiyonudur. Her durum, iş mantığı'nın denetim akışı bir adımda yakalar. 
 
-| Alan | Açıklama | Gerekli |
-|-------|-------------|:--------:|
-| Ad | Durumun benzersiz adı. Karşılık gelen akıllı sözleşmenin aynı kullanmalısınız **adı** geçerli durumu için. | Evet |
-| displayName | Durumun kolay görünen adı. | Evet |
-| Açıklama | Durum açıklaması. | Hayır |
-| PercentComplete | İş mantığı denetim akışı içinde ilerleme durumunu göstermek için Blockchain Workbench'i kullanıcı arabiriminde görüntülenen bir tamsayı değeri. | Evet |
-| Stil | Durumu'başarı veya başarısızlık durumu temsil edip etmediğini gösteren görsel ipucu. Geçerli iki değer vardır: `Success` veya `Failure`. | Evet |
-| Geçişleri | Kullanılabilir koleksiyonunu [geçişleri](#transitions) durumları sonraki kümesine geçerli durumu. | Hayır |
+| Alan | Açıklama | Gereklidir | En büyük uzunluk |
+|-------|-------------|:--------:|-----------:|
+| Ad | Durumun benzersiz adı. Karşılık gelen akıllı sözleşmenin aynı kullanmalısınız **adı** geçerli durumu için. | Evet | 50 |
+| DisplayName | Durumun kolay görünen adı. | Evet | 255 |
+| Açıklama | Durum açıklaması. | Hayır | 255 |
+| PercentComplete | İş mantığı denetim akışı içinde ilerleme durumunu göstermek için Blockchain Workbench'i kullanıcı arabiriminde görüntülenen bir tamsayı değeri. | Evet | |
+| Stil | Durumu'başarı veya başarısızlık durumu temsil edip etmediğini gösteren görsel ipucu. Geçerli iki değer vardır: `Success` veya `Failure`. | Evet | |
+| Geçişleri | Kullanılabilir koleksiyonunu [geçişleri](#transitions) durumları sonraki kümesine geçerli durumu. | Hayır | |
 
 ### <a name="states-example"></a>Örnek durumları
 
@@ -324,11 +324,11 @@ Bir iş akışındaki benzersiz durumlar koleksiyonudur. Her durum, iş mantığ
 
 Kullanılabilir eylemler için sonraki durum. Bir veya daha fazla kullanıcı rolleri, bir eylem burada başka bir durumda iş akışı durumuna geçiş her durumda, bir eylem gerçekleştirebilir. 
 
-| Alan | Açıklama | Gerekli |
+| Alan | Açıklama | Gereklidir |
 |-------|-------------|:--------:|
 | AllowedRoles | Geçişi başlatmak için izin verilen uygulamalar rollerinin listesi. Belirtilen rolün tüm kullanıcılar eylemi gerçekleştirmek mümkün olabilir. | Hayır |
 | AllowedInstanceRoles | Katılma veya geçiş başlatmasına izin verilmiş akıllı sözleşmede belirtilen kullanıcı rolleri listesi. Örnek rollerinizin tanımlanmış **özellikleri** içinde iş akışları. AllowedInstanceRoles akıllı sözleşmenin bir örneğine katılan bir kullanıcıyı temsil eder. AllowedInstanceRoles bir eylemde bir sözleşme örneğinde bir kullanıcı rolüne sınırlandırılmasına olanak sağlar.  Örneğin, yalnızca Rol türü (sahibi) içindeki tüm kullanıcılar yerine AllowedRoles içinde rol belirtilmişse sonlandıramaz sözleşmenin (InstanceOwner) oluşturan kullanıcıya izin vermek isteyebilirsiniz. | Hayır |
-| displayName | Geçiş kolay görünen adı. | Evet |
+| DisplayName | Geçiş kolay görünen adı. | Evet |
 | Açıklama | Geçişin açıklaması. | Hayır |
 | İşlev | Geçişi başlatmak için işlevin adı. | Evet |
 | NextStates | Başarılı bir geçiş sonrasında olası sonraki durumları koleksiyonu. | Evet |
@@ -369,10 +369,10 @@ Kullanılabilir eylemler için sonraki durum. Bir veya daha fazla kullanıcı ro
 
 Uygulama rolleri hareket ya da uygulama içinde katılmak istiyorsanız kullanıcılara atanan roller kümesini tanımlar. Uygulama rolleri, Eylemler ve blok zinciri içinde katılım kısıtlamak için kullanılabilir uygulama ve karşılık gelen iş akışları. 
 
-| Alan | Açıklama | Gerekli |
-|-------|-------------|:--------:|
-| Ad | Uygulama rolünün benzersiz adı. Karşılık gelen akıllı sözleşmenin aynı kullanmalısınız **adı** uygun rolü için. Temel tür adları ayrılmıştır. Aynı ada sahip bir uygulama rolü adlandırılamıyor [türü](#type)| Evet |
-| Açıklama | Uygulama rolü açıklaması. | Hayır |
+| Alan | Açıklama | Gereklidir | En büyük uzunluk |
+|-------|-------------|:--------:|-----------:|
+| Ad | Uygulama rolünün benzersiz adı. Karşılık gelen akıllı sözleşmenin aynı kullanmalısınız **adı** uygun rolü için. Temel tür adları ayrılmıştır. Aynı ada sahip bir uygulama rolü adlandırılamıyor [türü](#type)| Evet | 50 |
+| Açıklama | Uygulama rolü açıklaması. | Hayır | 255 |
 
 ### <a name="application-roles-example"></a>Uygulama rolleri örneği
 
@@ -392,11 +392,11 @@ Uygulama rolleri hareket ya da uygulama içinde katılmak istiyorsanız kullanı
 
 Tanımlayıcılar, iş akışı özellikleri, kurucu ve işlev parametrelerini tanımlamak için kullanılan bilgileri koleksiyonunu temsil eder. 
 
-| Alan | Açıklama | Gerekli |
-|-------|-------------|:--------:|
-| Ad | Özellik veya parametre benzersiz adı. Karşılık gelen akıllı sözleşmenin aynı kullanmalısınız **adı** için geçerli bir özellik veya parametre. | Evet |
-| displayName | Özellik veya parametre kolay görünen adı. | Evet |
-| Açıklama | Özellik veya parametre açıklaması. | Hayır |
+| Alan | Açıklama | Gereklidir | En büyük uzunluk |
+|-------|-------------|:--------:|-----------:|
+| Ad | Özellik veya parametre benzersiz adı. Karşılık gelen akıllı sözleşmenin aynı kullanmalısınız **adı** için geçerli bir özellik veya parametre. | Evet | 50 |
+| DisplayName | Özellik veya parametre kolay görünen adı. | Evet | 255 |
+| Açıklama | Özellik veya parametre açıklaması. | Hayır | 255 |
 
 ### <a name="identifiers-example"></a>Tanımlayıcıları örneği
 
@@ -423,7 +423,7 @@ Tanımlayıcılar, iş akışı özellikleri, kurucu ve işlev parametrelerini t
 
 ## <a name="configuration-file-example"></a>Yapılandırma dosyası örneği
 
-Varlık aktarımı alım ve satım bir denetçisi ve appraiser gerektiren yüksek değerli varlıklar için bir akıllı sözleşme senaryodur. Satıcılar, sıra varlıklarını bir varlık aktarımı akıllı sözleşme örnekleme tarafından listeleyebilirsiniz. Alıcılar akıllı sözleşmenin bir eylemde teklifler yapabilir ve diğer taraflara incelemek veya varlık eşyaların değerini belirle eylemleri gerçekleştirebilirsiniz. Varlık olarak işaretlendikten sonra her ikisi de inceledi ve sözleşmesini tamamlanmasını ayarlanmadan önce biçilen, satıcı ve alıcı satışı yeniden onaylar. Güncelleştirildiğinde işlemdeki her bir noktada, tüm katılımcılar durumuyla sözleşmenin görünürlüğe sahip. 
+Varlık aktarımı alım ve satım bir denetçisi ve appraiser gerektiren yüksek değerli varlıklar için bir akıllı sözleşme senaryodur. Satıcılar, sıra varlıklarını bir varlık aktarımı akıllı sözleşme örnekleme tarafından listeleyebilirsiniz. Alıcılar akıllı sözleşmenin bir eylemde teklifler yapabilir ve diğer taraflara incelemek veya varlık eşyaların değerini belirle eylemleri gerçekleştirebilirsiniz. Varlık olarak işaretlendikten sonra her ikisi de inceledi ve sözleşmesini tamamlanmasını ayarlanmadan önce biçilen, satıcı ve alıcı satışı yeniden onaylar. Güncelleştirildiğinde işlemdeki her bir noktada, tüm katılımcılar durumuyla sözleşmenin görünürlüğe sahip. 
 
 Kod dosyaları da dahil olmak üzere daha fazla bilgi için bkz. [Azure Blockchain Workbench için varlık aktarımı örneği](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/asset-transfer)
 

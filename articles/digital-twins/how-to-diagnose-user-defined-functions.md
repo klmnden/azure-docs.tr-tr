@@ -9,41 +9,41 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: stefanmsft
 ms.custom: seodec18
-ms.openlocfilehash: e373e7c3ca83a0200cd1b6b945c5e4cb43b77a51
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: ebeed6d2a52937a6e80dfe28574ad854643fa7f2
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974871"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119241"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Azure dijital İkizlerini kullanıcı tanımlı işlevlerde hata ayıklama
 
-Bu makalede, kullanıcı tanımlı işlevleri tanılamak nasıl özetlenir. Ardından, bu büyük olasılıkla bunlarla çalışırken karşılaşılan en yaygın senaryolardan bazıları tanımlar.
+Bu makalede, tanılamak ve kullanıcı tanımlı işlevleri hata ayıklama nasıl özetlenir. Ardından, bunları hata ayıklama sırasında bulunamadı en yaygın senaryolardan bazıları tanımlar.
 
 >[!TIP]
 > Okuma [izleme ve günlüğe kaydetme yapılandırma](./how-to-configure-monitoring.md) etkinlik günlükleri, tanılama günlükleri ve Azure İzleyicisi'ni kullanarak Azure dijital İkizlerini araçlarındaki hata ayıklamayı kurma hakkında daha fazla bilgi edinmek için.
 
 ## <a name="debug-issues"></a>Sorunlarında hata ayıklama
 
-Azure dijital İkizlerini örneğinizin içinde gerçekleşen tüm sorunlarının nasıl tanılandığını bilerek sorunu, sorunu ve çözüm nedenini etkili bir şekilde tanımlamak için yardımcı olur.
+Azure dijital İkizlerini örneğinizin içinde gerçekleşen tüm sorunlarının nasıl tanılandığını bilerek sorunu, sorunu ve çözüm nedenini etkili bir şekilde tanımlamak için kolaylık sağlar.
 
 ### <a name="enable-log-analytics-for-your-instance"></a>Örneğiniz için log analytics etkinleştir
 
-Günlükleri ve ölçümleri Azure dijital İkizlerini örneğinizin Azure İzleyici sunulur. Aşağıdaki belgeler, oluşturduğunuz varsayılır bir [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md) çalışma alanını kullanarak [Azure portalı](../azure-monitor/learn/quick-create-workspace.md)temellidir [Azure CLI](../azure-monitor/learn/quick-create-workspace-cli.md), aracılığıyla veya [ PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
+Günlükleri ve ölçümleri Azure dijital İkizlerini örneğinizin Azure İzleyicisi'nde görüntülenir. Bu belge, oluşturduğunuz varsayar bir [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md) çalışma alanını kullanarak [Azure portalı](../azure-monitor/learn/quick-create-workspace.md)temellidir [Azure CLI](../azure-monitor/learn/quick-create-workspace-cli.md), aracılığıyla veya [ PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
 
 > [!NOTE]
 > 5 dakikalık bir gecikmeyle olayları ilk kez Azure Log Analytics'e gönderirken karşılaşabilirsiniz.
 
 İzleme ve günlüğe kaydetme dijital İkizlerini Azure kaynakları için yapılandırmak için okuma [izleme ve günlüğe kaydetme yapılandırma](./how-to-configure-monitoring.md).
 
-Makaleyi okuyun [toplamak ve Azure kaynaklarınızdan günlük verilerini kullanma](../azure-monitor/platform/diagnostic-logs-overview.md) tanılama günlüğü ayarları Azure dijital İkizlerini örneğinizin Azure portalı, Azure CLI veya PowerShell aracılığıyla kapsamlı bir genel bakış için.
+Makaleyi okuyun [toplamak ve Azure kaynaklarınızdan günlük verilerini kullanma](../azure-monitor/platform/diagnostic-logs-overview.md) Azure portalı, Azure CLI veya PowerShell aracılığıyla Azure dijital çiftleri olarak tanılama günlüğü ayarlarını yapılandırmak için.
 
 >[!IMPORTANT]
 > Tüm günlük kategorileri, Ölçümler ve Azure Log Analytics çalışma alanınızı seçtiğinizden emin olun.
 
 ### <a name="trace-sensor-telemetry"></a>Telemetri algılayıcı izleme
 
-Tanılama ayarları Azure dijital İkizlerini Örneğinizde etkin, tüm günlük kategorileri seçilir ve günlükleri Azure Log Analytics'e gönderildiğini olduğundan emin olun.
+Telemetri algılayıcı izleme, tanılama ayarları Azure dijital İkizlerini Örneğiniz için etkinleştirildiğini doğrulayın. Ardından, istenen tüm günlük kategorileri seçildiğinden emin olun. Son olarak, Azure Log Analytics için istenen günlükleri gönderildiğini doğrulayın.
 
 Algılayıcı telemetri iletileriyle ilgili günlüklerinin için eşleştirilecek gönderilen olay verileri üzerinde bir bağıntı kimliği belirtebilirsiniz. Bunu yapmak için ayarlanmış `x-ms-client-request-id` özelliğini bir GUID.
 
@@ -58,7 +58,7 @@ AzureDiagnostics
 | --- | --- |
 | YOUR_CORRELATION_IDENTIFIER | Olay verileri üzerinde belirtilen bağıntı kimliği |
 
-Kullanıcı tanımlı işlevinizi oturum açarsanız, bu günlükleri kategori Azure Log Analytics örneğinizle görünür `UserDefinedFunction`. Bunları almak için Azure Log Analytics'te şu sorgu koşulunu girin:
+Kullanıcı tanımlı işlev için günlüğe yazmayı etkinleştirirseniz, bu günlükleri kategori Azure Log Analytics örneğinizle görünür `UserDefinedFunction`. Bunları almak için Azure Log Analytics'te şu sorgu koşulunu girin:
 
 ```Kusto
 AzureDiagnostics
@@ -69,13 +69,13 @@ Güçlü sorgu işlemleri hakkında daha fazla bilgi için okuma [sorguları ile
 
 ## <a name="identify-common-issues"></a>Sık karşılaşılan sorunları tanımlayın
 
-Tanılama hem ortak sorunları belirlemenize, çözüme giderirken önemlidir. Kullanıcı tanımlı işlevleri geliştirirken yaygın olarak karşılaşılan birkaç sorun aşağıda özetlenmiştir.
+Tanılama hem ortak sorunları belirlemenize, çözüme giderirken önemlidir. Kullanıcı tanımlı işlevleri geliştirirken yaygın olarak karşılaşılan birkaç sorun aşağıdaki alt kısımlarda özetlenmiştir.
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
-### <a name="ensure-a-role-assignment-was-created"></a>Rol atamasının oluşturulduğu emin olun.
+### <a name="check-if-a-role-assignment-was-created"></a>Bir rol ataması oluşturulduğundan emin olun
 
-Yönetim API'si içinde oluşturulan bir rol ataması olmadan kullanıcı tanımlı işlev bildirimleri, meta verileri alınırken gönderme gibi eylemleri gerçekleştirmek için erişim sahip değil ve ayarı topolojisi içindeki değerleri hesaplanan.
+Yönetim API'si içinde oluşturulan bir rol ataması olmadan kullanıcı tanımlı işlev bildirimleri, meta verileri alınırken gönderme gibi eylemleri gerçekleştirmek için erişime sahip değil ve ayarı topolojisi içindeki değerleri hesaplanan.
 
 Bir rol ataması, yönetim API'si aracılığıyla kullanıcı tanımlı işleviniz için mevcut olup olmadığını denetleyin:
 
@@ -89,9 +89,9 @@ GET YOUR_MANAGEMENT_API_URL/roleassignments?path=/&traverse=Down&objectId=YOUR_U
 
 Bilgi [kullanıcı tanımlı işleviniz için bir rol ataması oluşturma](./how-to-user-defined-functions.md), hiçbir rol ataması yok.
 
-### <a name="check-if-the-matcher-will-work-for-a-sensors-telemetry"></a>Eşleştiricisi için telemetri algılayıcı'nın çalışıp çalışmayacağını denetleyin
+### <a name="check-if-the-matcher-works-for-a-sensors-telemetry"></a>Eşleştiricisi için telemetri algılayıcı'nın çalışıp çalışmadığını denetleyin
 
-Azure dijital İkizlerini örneklerinizin yönetim API'sine aşağıdaki çağrısı ile verilen Eşleştiricisi için verilen algılayıcı geçerliyse belirlemek mümkün olacaktır.
+Azure dijital İkizlerini örneklerinizin yönetim API'sine aşağıdaki çağrısı ile verilen Eşleştiricisi için verilen algılayıcı geçerliyse belirlemek kullanabilirsiniz.
 
 ```plaintext
 GET YOUR_MANAGEMENT_API_URL/matchers/YOUR_MATCHER_IDENTIFIER/evaluate/YOUR_SENSOR_IDENTIFIER?enableLogging=true
@@ -113,9 +113,9 @@ Yanıt:
 }
 ```
 
-### <a name="check-what-a-sensor-will-trigger"></a>Ne algılayıcı tetikleyecek denetleyin
+### <a name="check-what-a-sensor-triggers"></a>Neyin algılayıcı tetikleyeceğini denetleyin
 
-Azure dijital İkizlerini örneklerinizin yönetim API'sine aşağıdaki çağrısı ile verilen algılayıcının gelen telemetriyi tarafından tetiklenen kullanıcı tanımlı işlevleri tanımlayıcıların belirlemek mümkün olacaktır:
+Azure dijital İkizlerini yönetim API'leri karşı aşağıdaki çağrısı ile verilen algılayıcının gelen telemetriyi tarafından tetiklenen olan kullanıcı tanımlı işlevleri tanımlayıcıların belirleyebilirsiniz:
 
 ```plaintext
 GET YOUR_MANAGEMENT_API_URL/sensors/YOUR_SENSOR_IDENTIFIER/matchers?includes=UserDefinedFunctions
@@ -123,7 +123,7 @@ GET YOUR_MANAGEMENT_API_URL/sensors/YOUR_SENSOR_IDENTIFIER/matchers?includes=Use
 
 | Parametre | Şununla değiştir |
 | --- | --- |
-| *YOUR_SENSOR_IDENTIFIER* | Telemetri gönderdiği algılayıcı kimliği |
+| *YOUR_SENSOR_IDENTIFIER* | Telemetri göndermek için algılayıcı kimliği |
 
 Yanıt:
 
@@ -156,7 +156,7 @@ Yanıt:
 
 ### <a name="issue-with-receiving-notifications"></a>Bildirim alma ile sorun
 
-Harekete geçirilen kullanıcı tanımlı işlevin içindeki değil alıcı bildirimleri yaptığınızda emin, kullanılan tanımlayıcı türü topolojisi nesne türü parametreniz eşleşir.
+Tetiklenmiş kullanıcı tanımlı işlevini bildirimleri almadığınızı, topoloji nesne türü parametreniz kullanılan tanımlayıcı türünü eşleştiğini onaylayın.
 
 **Yanlış** örneği:
 
@@ -201,12 +201,12 @@ function process(telemetry, executionContext) {
 
 Tanılama ayarlarını etkinleştirme, bu sık karşılaşılan özel durumlar karşılaşabilirsiniz:
 
-1. **Azaltma**: kullanıcı tanımlı işlevinizi sınırları ana hatlarıyla belirtilen yürütme hızını aşıyorsa [hizmet sınırları](./concepts-service-limits.md) makalesi, bu kısıtlanır. Azaltma sınırları süresi dolana kadar başarılı bir şekilde yürütülen başka işlem kapsar.
+1. **Azaltma**: kullanıcı tanımlı işlevinizi sınırları ana hatlarıyla belirtilen yürütme hızını aşıyorsa [hizmet sınırları](./concepts-service-limits.md) makalesi, bu kısıtlanır. Azaltma sınırları süresi dolana kadar başka işlem başarıyla yürütüldü.
 
-1. **Veri bulunamadı**: var olmayan meta verilerine erişmek, kullanıcı tanımlı işlev çalışırsa, işlem başarısız olur.
+1. **Veri bulunamadı**:, kullanıcı tanımlı işlev, işlem başarısız yok meta verilerine erişim dener.
 
-1. **Yetkili**:, kullanıcı tanımlı işlev yoksa, bir rol ataması ayarlayın veya topolojisinden belirli meta verilerine erişmek için yeterli izinlere sahip değil, işlem başarısız olur.
+1. **Yetkili**:, kullanıcı tanımlı işlev yoksa, bir rol ataması ayarlayın veya topolojisinden belirli meta verilerine erişmek için yeterli izinlere sahip değil, işlem başarısız.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Nasıl etkinleştireceğinizi öğrenin [izleme ve günlükleri](../azure-monitor/platform/activity-logs-overview.md) Azure dijital İkizlerini içinde.
+- Nasıl etkinleştireceğinizi öğrenin [izleme ve günlükleri](../azure-monitor/platform/activity-logs-overview.md) Azure dijital İkizlerini içinde.

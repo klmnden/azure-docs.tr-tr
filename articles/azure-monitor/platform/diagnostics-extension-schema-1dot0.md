@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 333fec5b9459979d7735f0dd292d7367d86353fe
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 7c5bfa96e7f9ef7812b8487c479b34d926633287
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53326306"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105925"
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Azure tanılama 1.0 yapılandırma şeması
 > [!NOTE]
@@ -25,7 +25,7 @@ Azure Tanılama, Azure İzleyici, Application Insights ve Log Analytics gibi di�
 
 Azure tanılama yapılandırma dosyası, tanılama İzleyicisi'ni başlatmak için kullanılan değerleri tanımlar. Bu dosya, Tanılama izleme başladığında tanılama yapılandırma ayarları başlatmak için kullanılır.  
 
- Azure tanılama yapılandırma şema dosyası varsayılan olarak yüklü `C:\Program Files\Microsoft SDKs\Azure\.NET SDK\<version>\schemas` dizin. Değiştirin `<version>` 'ın yüklü sürümü ile [Azure SDK'sı](http://www.windowsazure.com/develop/downloads/).  
+ Azure tanılama yapılandırma şema dosyası varsayılan olarak yüklü `C:\Program Files\Microsoft SDKs\Azure\.NET SDK\<version>\schemas` dizin. Değiştirin `<version>` 'ın yüklü sürümü ile [Azure SDK'sı](https://www.windowsazure.com/develop/downloads/).  
 
 > [!NOTE]
 >  Tanılama yapılandırma dosyası, genellikle başlangıç işlemde daha önce toplanacak tanılama verilerini gerektiren başlangıç görevleri ile kullanılır. Azure tanılama kullanma hakkında daha fazla bilgi için bkz. [kullanarak Azure Tanılama ile günlük verileri topla](assetId:///83a91c23-5ca2-4fc9-8df3-62036c37a3d7).  
@@ -101,7 +101,7 @@ En üst düzey öğesi tanılama yapılandırma dosyası.
 
 Öznitelikler:
 
-|Öznitelik  |Tür   |Gerekli| Varsayılan | Açıklama|  
+|Öznitelik  |Tür   |Gereklidir| Varsayılan | Açıklama|  
 |-----------|-------|--------|---------|------------|  
 |**configurationChangePollInterval**|süre|İsteğe bağlı | PT1M| Tanı İzleyicisi yoklama aralığını tanılama yapılandırma değişikliklerini belirtir.|  
 |**overallQuotaInMB**|unsignedInt|İsteğe bağlı| 4000 MB. Bir değer belirtirseniz, bu miktar aşmamalıdır |Tüm günlük arabellekleri için ayrılan dosya sistemi depolama miktarı.|  

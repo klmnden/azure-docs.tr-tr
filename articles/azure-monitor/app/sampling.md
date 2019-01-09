@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.date: 10/02/2018
 ms.reviewer: vitalyg
 ms.author: mbullwin
-ms.openlocfilehash: 7b25495973502f1b28aedf8b99c84ca45a5ac898
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 0b56451231f1fda4e5bd156d0aded6e84c9c0162
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54028797"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117461"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights’ta örnekleme
 
 
-Örnekleme bir özelliktir [Azure Application Insights](../../application-insights/app-insights-overview.md). Bir uygulama verilerinin istatistiksel olarak doğru olan analizini korurken telemetri trafiğini ve depolama alanını azaltmak için önerilen yoldur. Tanılama araştırmalar yaparken öğeleri arasında gidebilmeniz filtre ilgili olan öğeleri seçer.
+Örnekleme bir özelliktir [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md). Bir uygulama verilerinin istatistiksel olarak doğru olan analizini korurken telemetri trafiğini ve depolama alanını azaltmak için önerilen yoldur. Tanılama araştırmalar yaparken öğeleri arasında gidebilmeniz filtre ilgili olan öğeleri seçer.
 Ölçüm sayıları için portalda sunulduğunda istatistikleri herhangi bir etkisi en aza indirmek için örnekleme, hesaba renormalized.
 
 Örnekleme, trafik ve veri maliyetleri azalttı ve azaltma önlemenize yardımcı olur.

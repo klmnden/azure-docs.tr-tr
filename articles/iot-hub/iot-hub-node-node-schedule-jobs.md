@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 10/06/2017
 ms.author: juanpere
-ms.openlocfilehash: 1b6f3a3d4f130792ee606050338a2c30f7fc7847
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: a0614b5a1eadafe78537a4793d2dc0a866337487
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514987"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118889"
 ---
 # <a name="schedule-and-broadcast-jobs-node"></a>Zamanlama ve yayınlama işleri (Node)
 
@@ -30,7 +30,7 @@ Kavramsal olarak, bir işi bu eylemlerden biri, sarmalar ve bir cihaz ikizi sorg
 
 Bu makaleler, bu özelliklerin her biri hakkında daha fazla bilgi edinin:
 
-* Cihaz ikizi ve özellikleri: [cihaz ikizlerini kullanmaya başlama] [ lnk-get-started-twin] ve [öğretici: cihaz ikizi özelliklerini kullanma][lnk-twin-props]
+* Cihaz ikizi ve özellikleri: [Cihaz ikizlerini kullanmaya başlama] [ lnk-get-started-twin] ve [Öğreticisi: Cihaz ikizi özelliklerini kullanma][lnk-twin-props]
 * Doğrudan yöntemler: [IOT Hub Geliştirici Kılavuzu - doğrudan yöntemler] [ lnk-dev-methods] ve [Öğreticisi: doğrudan yöntemler][lnk-c2d-methods]
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
@@ -97,7 +97,7 @@ Bu bölümde, bir sanal tetikler bulut tarafından çağrılan doğrudan bir yö
         // Respond the cloud app for the direct method
         response.send(200, function(err) {
             if (!err) {
-                console.error('An error occured when sending a method response:\n' + err.toString());
+                console.error('An error occurred when sending a method response:\n' + err.toString());
             } else {
                 console.log('Response to method \'' + request.methodName + '\' sent successfully.');
             }
@@ -262,7 +262,7 @@ Bu öğreticide, bir işi bir doğrudan yöntem bir cihaz ve cihaz ikizinin öze
 
 IOT Hub ve cihaz yönetim modellerini uzaktan gibi hava üretici yazılımı güncelleştirme kullanmaya başlama devam etmek için bkz:
 
-[Öğretici: nasıl üretici yazılımlarını güncelleştirme][lnk-fwupdate]
+[Öğretici: Üretici yazılımı güncelleştirme yapma][lnk-fwupdate]
 
 IOT Hub kullanmaya başlamaya devam etmek için bkz: [Azure IOT Edge'i kullanmaya başlama][lnk-iot-edge].
 

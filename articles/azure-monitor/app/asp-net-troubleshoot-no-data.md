@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 2387af0ddd9f6f3ecbe91afaaca66d89f070c036
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 690822848fa2c6524f98c9bbd32e6d2890e4a9c4
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076051"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118771"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Veri bulunmama sorunlarını giderme - .NET için Application Insights
 ## <a name="some-of-my-telemetry-is-missing"></a>Telemetrimi bazıları eksik
@@ -34,7 +34,7 @@ ms.locfileid: "54076051"
 
 *Ben [Durum İzleyicisi'nin yüklü](../../azure-monitor/app/monitor-performance-live-website-now.md) web sunucuma mevcut uygulamaları izleyin. Herhangi bir sonuç göremiyorum.*
 
-* Bkz: [Durum İzleyicisi sorun giderme](../../azure-monitor/app/monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights). 
+* Bkz: [Durum İzleyicisi sorun giderme](../../azure-monitor/app/monitor-performance-live-website-now.md#troubleshoot). 
 
 ## <a name="q01"></a>Visual Studio 'Application Insights Ekle' seçeneği
 *Mevcut bir projeyi Çözüm Gezgini'nde sağ tıkladığımda, herhangi bir Application Insights seçeneği görmüyorum.*
@@ -154,7 +154,7 @@ Web sayfalarındaki veriler gelir.
 Bkz: [bağımlılık telemetrisi](../../azure-monitor/app/asp-net-dependencies.md) ve [özel durum telemetrisi](asp-net-exceptions.md).
 
 ## <a name="no-performance-data"></a>Performans verisi
-Performans verileri (CPU, GÇ oranı vb.) için kullanılabilir [Java web Hizmetleri](../../azure-monitor/app/java-collectd.md), [Windows Masaüstü uygulamaları](../../azure-monitor/app/windows-desktop.md), [Durum İzleyicisi'ni yükleyin, web uygulamaları ve Hizmetleri'IIS](../../azure-monitor/app/monitor-performance-live-website-now.md), ve [Azure bulut Hizmetleri](../../application-insights/app-insights-overview.md). Sunucu Ayarları altında bulabilirsiniz.
+Performans verileri (CPU, GÇ oranı vb.) için kullanılabilir [Java web Hizmetleri](../../azure-monitor/app/java-collectd.md), [Windows Masaüstü uygulamaları](../../azure-monitor/app/windows-desktop.md), [Durum İzleyicisi'ni yükleyin, web uygulamaları ve Hizmetleri'IIS](../../azure-monitor/app/monitor-performance-live-website-now.md), ve [Azure bulut Hizmetleri](../../azure-monitor/app/app-insights-overview.md). Sunucu Ayarları altında bulabilirsiniz.
 
 ## <a name="no-server-data-since-i-published-the-app-to-my-server"></a>(Sunucu) veri için my server uygulaması yayımladım beri
 * Aslında tüm Microsoft kopyaladığınız denetleyin. Sunucuya Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll birlikte Applicationınsights DLL'leri
