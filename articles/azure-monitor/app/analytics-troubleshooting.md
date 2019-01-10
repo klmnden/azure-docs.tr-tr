@@ -12,19 +12,19 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: 5459786ccf69c51fec1630d612fd37b1b78c36c9
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: bf999e15c04a64f717bcd7bac87e357d5ccc92e6
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017013"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189941"
 ---
 # <a name="troubleshoot-analytics-in-application-insights"></a>Application Insights Analiz Sorunlarını Giderme
 Sorun [Application Insights Analytics](analytics.md)? Buradan başlayın. Analytics, Azure Application Insights'ın güçlü bir arama aracıdır.
 
 ## <a name="limits"></a>Sınırlar
 * Şu anda geçmiş verilerin bir hafta içerisinde yalnızca sorgu sonuçları sınırlıdır.
-* Şu test tarayıcılar: en son Chrome, Edge ve Internet Explorer sürümleri.
+* Şu test tarayıcılar: en son Chrome, Microsoft Edge ve Internet Explorer sürümleri.
 
 ## <a name="known-incompatible-browser-extensions"></a>Bilinen uyumlu tarayıcı uzantıları
 * Ghostery
@@ -54,7 +54,7 @@ Kimlik doğrulamasıyla ilgili bir hata oluştu (kimlik doğrulama veya erişim 
 2. Analytics portalını açmak için sık kullanılan, yer işareti veya kayıtlı bağlantılardan birini mi kullandınız? Bağlantıyı kaydettiğinizde kullandığınızdan farklı kimlik bilgileriyle mi oturum açtınız?
 3. InPrivate/gizli tarayıcı penceresi kullanmayı deneyin (tüm ilgili pencereleri kapattıktan sonra). Kimlik bilgilerinizi sağlamanız gerekir. 
 4. Başka bir (normal) bir tarayıcı penceresi açın ve gidin [Azure](https://portal.azure.com). Oturumunuzu kapatın. Sonra bağlantınızı açın ve doğru kimlik bilgileriyle oturum açın.
-5. Edge ve Internet Explorer kullanıcıları, güvenilir bölge ayarlarının desteklenmediği durumlarda da bu hatayı alabilir.
+5. Güvenilir Bölge ayarlarının desteklenmediği durumlarda kullanıcıların Microsoft Edge ve Internet Explorer da bu hatayı alabilirsiniz.
    
     Her ikisi de doğrulayın [analiz portalı](https://portal.azure.com) ve [Azure Active Directory portalında](https://portal.azure.com) aynı güvenlik bölgesinde bulunan:
    
