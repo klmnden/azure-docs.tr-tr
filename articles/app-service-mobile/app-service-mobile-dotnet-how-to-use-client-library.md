@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: crdun
-ms.openlocfilehash: 30eb458b9d0584b467479163d8312d7bd5456be1
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 62711ac094a10a9e4a0350319a316c5a293fd522
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409743"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157337"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Azure Mobile Apps için yönetilen istemci kullanma
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -651,7 +651,7 @@ Uygulamanız, bağımsız olarak kimlik sağlayıcısına başvurun ve sonra dö
 Azure Active Directory kimlik doğrulamasını kullanarak istemciden başlatma kullanıcı kimlik doğrulaması için Active Directory Authentication Library (ADAL) kullanabilirsiniz.
 
 1. AAD oturum açma için mobil uygulama arka ucunuzu izleyerek yapılandırın [App Service, Active Directory oturum açma için yapılandırma] öğretici. Yerel istemci uygulaması kaydetme isteğe bağlı bir adım tamamladığınızdan emin olun.
-2. Visual Studio veya Xamarin Studio, projenizi açın ve bir başvuru ekleyin `Microsoft.IdentityModel.CLients.ActiveDirectory` NuGet paketi. Arama yaparken, yayın öncesi sürümlerini içerir.
+2. Visual Studio veya Xamarin Studio, projenizi açın ve bir başvuru ekleyin `Microsoft.IdentityModel.Clients.ActiveDirectory` NuGet paketi. Arama yaparken, yayın öncesi sürümlerini içerir.
 3. Kullandığınız platform göre uygulamanız için aşağıdaki kodu ekleyin. Her, aşağıdaki değişiklikleri yapın:
 
    * Değiştirin **INSERT yetkilisi burada** uygulamanızı sağlanan Kiracı adı. Biçim olmalıdır https://login.microsoftonline.com/contoso.onmicrosoft.com. Bu değer, Azure Active Directory etki alanı sekmesinden kopyalanabilir [Azure portal].
