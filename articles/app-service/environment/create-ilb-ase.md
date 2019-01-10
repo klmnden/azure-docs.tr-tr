@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 9c44e2564c26a16d632a16195d3e53b8ce83d735
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: edea614065d67bab23de29e5cef3b56c69905a90
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629892"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188621"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Bir App Service Ortamı ile iç yük dengeleyici oluşturma ve kullanma #
 
@@ -188,7 +188,7 @@ Hem İşlevler hem de web işleri ILB ASE’de desteklenir, ancak portalın bunl
 
 Azure İşlevleri’ni bir ILB ASE’de kullandığınızda şöyle bir hata iletisi alabilirsiniz: "Şu anda işlevlerinizi alamıyoruz. Lütfen daha sonra tekrar deneyin." Bu hata, İşlevler kullanıcı arabirimi HTTPS üzerinden SCM sitesini kullandığından ve kök sertifika, tarayıcının güven zincirinde olmadığından oluşur. Web işleri de benzer bir sorun içerir. Bu sorunu önlemek için aşağıdakilerden birini yapabilirsiniz:
 
-- Sertifikayı güvenilir sertifika deponuza ekleyin. Bu işlem Edge ve Internet Explorer’ın engelini kaldırır.
+- Sertifikayı güvenilir sertifika deponuza ekleyin. Bu Microsoft Edge ve Internet Explorer engellemesini kaldırır.
 - Chrome kullanın ve ilk olarak SCM sitesine gidin, güvenilmeyen sertifikayı kabul edip portala gidin.
 - Tarayıcınızın güven zincirinde olan ticari bir sertifika kullanın.  En iyi seçenek budur.  
 
