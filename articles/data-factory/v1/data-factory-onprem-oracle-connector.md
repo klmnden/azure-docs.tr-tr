@@ -22,7 +22,7 @@ ms.locfileid: "54024918"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veya Oracle şirket içi veri kopyalayın
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Kullanmakta olduğunuz Data Factory servisinin sürümünü seçin:"]
 > * [Sürüm 1](data-factory-onprem-oracle-connector.md)
 > * [Sürüm 2 (geçerli sürüm)](../connector-oracle.md)
 
