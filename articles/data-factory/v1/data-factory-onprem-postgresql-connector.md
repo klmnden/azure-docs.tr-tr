@@ -21,7 +21,7 @@ ms.lasthandoff: 01/04/2019
 ms.locfileid: "54025717"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>PostgreSQL Azure Data Factory ile verileri taşıma
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Kullanmakta olduğunuz Data Factory servisinin sürümünü seçin:"]
 > * [Sürüm 1](data-factory-onprem-postgresql-connector.md)
 > * [Sürüm 2 (geçerli sürüm)](../connector-postgresql.md)
 
