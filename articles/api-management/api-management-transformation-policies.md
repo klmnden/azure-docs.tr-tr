@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 3a8b0ecefe9e314e8056c941c9ef4ce32d1cbb75
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 5dc39d2f64aa2cd895cbf57d95100d831a6f4432
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119382"
+ms.locfileid: "54159800"
 ---
 # <a name="api-management-transformation-policies"></a>API Management dönüştürme ilkeleri
 Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -353,7 +353,7 @@ Bu örnekte, ilke UserID sorgu dizesi bölüm anahtarı olarak ve birincil çoğ
 ```
 
 ### <a name="using-liquid-templates-with-set-body"></a>Liquid şablonları kümesi gövde ile kullanma
-`set-body` İlkesi kullanmak için yapılandırılabilir [Liquid](https://shopify.github.io/liquid/basics/introduction/) transfom bir istek veya yanıt gövdesi için şablon oluşturma dili. Bu, ileti biçimi tamamen yeniden şekillendirmeniz gerekiyorsa çok etkili olabilir.
+`set-body` İlkesi kullanmak için yapılandırılabilir [Liquid](https://shopify.github.io/liquid/basics/introduction/) bir istek veya yanıt gövdesi dönüştürmek için şablon oluşturma dili. Bu, ileti biçimi tamamen yeniden şekillendirmeniz gerekiyorsa çok etkili olabilir.
 
 > [!IMPORTANT]
 > Sıvı uygulaması içinde kullanılan `set-body` İlkesi ', C# modu' yapılandırılır. Bu filtreleme gibi şeyler olduğunda özellikle önemlidir. Örnek olarak, bir tarih filtresi kullanarak Pascal kullanılmasını gerektiren büyük/küçük harf ve C# tarih biçimlendirme örn:

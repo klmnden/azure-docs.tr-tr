@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 7aa5ccb402bf8648668a5eb00d6a740caf7bf3d4
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 852ffdafefeef7f4b8fd6bf3a9c5d175d872e077
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055158"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157641"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure Dosya Eşitleme ile ilgili sorunları giderme
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -553,6 +553,16 @@ Durumlarda olduğu dosya eşitleme hatalarını çok sayıda, Eşitleme oturumla
 
 Yolun var olduğundan, yerel bir NTFS biriminde bulunduğundan ve bir yeniden ayrıştırma noktası veya mevcut bir sunucu uç noktası olmadığından emin olun.
 
+<a id="-2134375817"></a>**Eşitleme filtresi sürücüsü sürümü aracı sürümü ile uyumlu olmadığı için başarısız oldu**  
+| | |
+|-|-|
+| **HRESULT** | 0x80C80277 |
+| **HRESULT (ondalık)** | -2134375817 |
+| **Hata dizesi** | ECS_E_INCOMPATIBLE_FILTER_VERSION |
+| **Düzeltme gerekli** | Evet |
+
+Yüklenen bulut Katmanlandırma Filtresi Sürücüsü (StorageSync.sys) sürümü depolama eşitleme Aracısı (FileSyncSvc) hizmeti ile uyumlu olmadığından, bu hata oluşur. Azure dosya eşitleme aracısının yükseltilmişse, yüklemeyi tamamlamak için sunucuyu yeniden başlatın. Hata devam ederse, aracıyı kaldırmak, sunucuyu yeniden başlatın ve Azure dosya eşitleme aracısını yeniden yükleyin.
+
 <a id="-2134376373"></a>**Hizmet şu anda kullanılamıyor.**  
 | | |
 |-|-|
@@ -875,5 +885,5 @@ Sorun çözülmezse AFSDiag aracı çalıştırın:
 
 ## <a name="see-also"></a>Ayrıca bkz.
 - [Azure dosyaları hakkında sık sorulan sorular](storage-files-faq.md)
-- [Windows Azure dosyaları sorunlarını giderme](storage-troubleshoot-windows-file-connection-problems.md)
+- [Windows’ta Azure Dosyalar sorunlarını giderme](storage-troubleshoot-windows-file-connection-problems.md)
 - [Linux'ta Azure dosyaları sorunlarını giderme](storage-troubleshoot-linux-file-connection-problems.md)

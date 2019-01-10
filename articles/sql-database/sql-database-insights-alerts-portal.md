@@ -1,28 +1,31 @@
 ---
-title: SQL veritabanı uyarılar oluşturmak için Azure portalını kullanma | Microsoft Docs
+title: Uyarılar ve bildirimler Azure portalını kullanarak kurulum | Microsoft Docs
 description: Belirttiğiniz koşullar karşılandığında bildirimleri veya otomasyonu tetikleyebilir SQL veritabanı uyarılar oluşturmak için Azure portalını kullanın.
 services: sql-database
 ms.service: sql-database
 ms.subservice: monitor
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: howto
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 11/02/2018
-ms.openlocfilehash: ddd704b41e6d1463bc635f13135cc9a388e677fe
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 64e743010b3ae615817639d9b2531b2f99979498
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634618"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156911"
 ---
-# <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Azure SQL veritabanı ve veri ambarı için Uyarılar oluşturmak için Azure portalını kullanma
+# <a name="create-alerts-for-azure-sql-database-and-data-warehouse-using-azure-portal"></a>Azure SQL veritabanı ve Azure portalı kullanarak veri ambarı için uyarılar oluşturun
 
 ## <a name="overview"></a>Genel Bakış
-Bu makalede, Azure portalını kullanarak Azure SQL veritabanı ve veri ambarı uyarıları ayarlama işlemini göstermektedir. Bu makalede ayrıca uyarı nokta ayarlamaya yönelik en iyi yöntemler sağlar.    
+Bu makalede, Azure portalını kullanarak Azure SQL veritabanı ve veri ambarı uyarıları ayarlama işlemini göstermektedir. Uyarılar, bir e-posta Gönder veya bazı ölçüm (örneğin, veritabanı boyutu veya CPU kullanımı) eşiğe ulaştığında bir web kancası çağrısı. Bu makalede ayrıca uyarı nokta ayarlamaya yönelik en iyi yöntemler sağlar.    
+
+> [!IMPORTANT]
+> Bu özellik henüz yönetilen örneği'nde kullanılamaz. Alternatif olarak, temel bazı ölçümler için e-posta uyarıları göndermek üzere SQL Agent kullanabilirsiniz [dinamik yönetim görünümlerini](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
 
 İzleme ölçümlerini veya olayları, Azure hizmetleriniz hakkındaki bağlı olarak bir uyarı alabilirsiniz.
 

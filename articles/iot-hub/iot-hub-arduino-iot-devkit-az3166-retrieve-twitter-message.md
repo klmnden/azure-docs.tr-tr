@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
-ms.openlocfilehash: 722f350c4f11648753465e302e84949fc340e281
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: f488f8aa991b3d4baae05097af9b6e2f2db481cc
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42061079"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158933"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>Sallama, bir Tweet için sallayın--Azure işlevleri ile bir Twitter iletisini alma
 
@@ -52,7 +52,7 @@ Proje klasörünü açarak işleme başlayın.
 Sol tarafındaki genişletme **ARDUINO ÖRNEKLER** bölümünde **MXCHIP AZ3166 için örnek > AzureIoT**seçip **ShakeShake**. Proje klasörünü görüntüleyen yeni bir VS Code penceresinin açılır. MXCHIP AZ3166 bölümü göremiyorsanız, cihazınız düzgün bağlandığından ve Visual Studio Code yeniden emin olun.  
 ![mini solution örnekleri](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/vscode_examples.png)
 
-Komut paletinden da örnek projeyi açabilirsiniz. Tıklayın `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) komut paletini açmak için şunu yazın **Arduino**ve ardından bulmak ve seçmek **Arduino: örnekler**.
+Komut paletinden da örnek projeyi açabilirsiniz. Tıklayın `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) komut paletini açmak için şunu yazın **Arduino**ve ardından bulmak ve seçmek **Arduino: Örnekler**.
 
 ## <a name="provision-azure-services"></a>Azure hizmetleri sağlama
 
@@ -118,7 +118,7 @@ Bağlantı dizesini ayarlayalım artık doğrular ve uygulamayı yükler ardınd
 
 2. DevKit yeniden başlatır ve kod çalışmaya başlar.
 
-Alabilirsiniz bir "hata: AZ3166: Bilinmeyen Paket" hata iletisi. Pano paket dizinini doğru şekilde yenilenmez bu hata oluşur. Bu sorunu çözmek için denetleme ["Bilinmeyen Paket" hatası IOT DevKit SSS](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
+Alabilirsiniz bir "hata: AZ3166: Bilinmeyen Paket"hata iletisi. Pano paket dizinini doğru şekilde yenilenmez bu hata oluşur. Bu sorunu çözmek için denetleme ["Bilinmeyen Paket" hatası IOT DevKit SSS](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
 
 ## <a name="test-the-project"></a>Test projesi
 
@@ -157,7 +157,7 @@ Uygulama başlatmadan sonra tıklatın ve düğmesi A release ve yavaşça DevKi
 
 Arduino taslak Azure IOT Hub'ına bir olay gönderir. Azure işlev uygulaması bu olay tetiklenir. Azure işlev uygulaması, Twitter'ın API'sine bağlanmak ve tweet almak için mantığı içerir. Daha sonra bir C2D tweet metni kaydırmıyor (bulut-cihaz) ileti ve cihaza geri gönderir.
 
-## <a name="optional-use-your-own-twitter-bearer-token"></a>İsteğe bağlı: kendi Twitter taşıyıcı belirteci kullanın
+## <a name="optional-use-your-own-twitter-bearer-token"></a>İsteğe bağlı: Kendi Twitter taşıyıcı belirteci kullanın
 
 Test amacıyla, bu örnek proje, önceden yapılandırılmış bir Twitter taşıyıcı belirteci kullanır. Ancak, bir [hız sınırı](https://dev.twitter.com/rest/reference/get/search/tweets) her Twitter hesabı. Kendi belirteç kullanmayı göz önünde bulundurun istiyorsanız şu adımları izleyin:
 
@@ -202,7 +202,7 @@ Veya kodu çalıştırırken, uygulamanın yeniden başlatılması neden bazı b
 Diğer sorunlar yaşıyorsanız, başvurmak [IOT DevKit SSS](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) veya aşağıdaki kanalları kullanarak bize ulaşın:
 
 * [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
-* [Stackoverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: a36ad31531e41782f5be457450737a74f476c543
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 478b1352d0bf2eec9af62e519b50e61dea6cc8fc
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584885"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158440"
 ---
 # <a name="api-management-advanced-policies"></a>API Management Gelişmiş ilkeleri
 Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -103,7 +103,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 ```
 
 #### <a name="example"></a>Örnek
- Bu örnekte, veri öğeleri kullanırken arka uç hizmetinden alınan yanıtı kaldırarak içerik filtreleme yapma işlemi açıklanır `Starter` ürün. Yapılandırma ve bu ilkeyi kullanan bir gösterimi için bkz. [Cloud Cover bölümü 177: daha fazla API yönetimi özellikleri ile Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) ve 34:30 için ileri sarma. Başlangıç 31:50 özetini görmek [koyu Gök tahmin API](https://developer.forecast.io/) bu tanıtım için kullanılır.
+ Bu örnekte, veri öğeleri kullanırken arka uç hizmetinden alınan yanıtı kaldırarak içerik filtreleme yapma işlemi açıklanır `Starter` ürün. Yapılandırma ve bu ilkeyi kullanan bir gösterimi için bkz. [Cloud Cover bölümü 177: Daha fazla API yönetimi özellikleri ile Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) ve 34:30 için ileri sarma. Başlangıç 31:50 özetini görmek [koyu Gök tahmin API](https://developer.forecast.io/) bu tanıtım için kullanılır.
 
 ```xml
 <!-- Copy this snippet into the outbound section to remove a number of data elements from the response received from the backend service based on the name of the api product -->
@@ -123,7 +123,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 
 ### <a name="elements"></a>Öğeler
 
-|Öğe|Açıklama|Gerekli|
+|Öğe|Açıklama|Gereklidir|
 |-------------|-----------------|--------------|
 |Seçin|Kök öğe.|Evet|
 |zaman|İçin kullanılacak koşulu `if` veya `ifelse` bölümlerini `choose` ilkesi. Varsa `choose` ilkeye sahip birden çok `when` bölümleri sırayla değerlendirilir. Bir kez `condition` öğesi bir zaman değerlendiren `true`, başka `when` koşullar değerlendirilir.|Evet|
@@ -131,7 +131,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 
 ### <a name="attributes"></a>Öznitelikler
 
-|Öznitelik|Açıklama|Gerekli|
+|Öznitelik|Açıklama|Gereklidir|
 |---------------|-----------------|--------------|
 |koşul = "Boole ifadesi &#124; Boole sabiti"|Boole ifadesi veya sabit değer için değerlendirilen ne zaman içeren `when` ilke ifadesi değerlendirilir.|Evet|
 
@@ -235,13 +235,13 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 
 ### <a name="elements"></a>Öğeler
 
-|Öğe|Açıklama|Gerekli|
+|Öğe|Açıklama|Gereklidir|
 |-------------|-----------------|--------------|
 |İleri-istek|Kök öğe.|Evet|
 
 ### <a name="attributes"></a>Öznitelikler
 
-|Öznitelik|Açıklama|Gerekli|Varsayılan|
+|Öznitelik|Açıklama|Gereklidir|Varsayılan|
 |---------------|-----------------|--------------|-------------|
 |zaman aşımı "tamsayı" =|Zaman aşımı aralığı saniye önce arka uç hizmetine yapılan çağrı başarısız olur.|Hayır|300 saniye|
 |İzleme yeniden yönlendirmeleri = "true &#124; false"|Arka uç hizmetinden yeniden yönlendirmeleri gateway tarafından izlenen veya çağırana döndürülen belirtir.|Hayır|false|
@@ -282,13 +282,13 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 
 ### <a name="elements"></a>Öğeler
 
-|Öğe|Açıklama|Gerekli|
+|Öğe|Açıklama|Gereklidir|
 |-------------|-----------------|--------------|
 |Eşzamanlılık sınırı|Kök öğe.|Evet|
 
 ### <a name="attributes"></a>Öznitelikler
 
-|Öznitelik|Açıklama|Gerekli|Varsayılan|
+|Öznitelik|Açıklama|Gereklidir|Varsayılan|
 |---------------|-----------------|--------------|--------------|
 |anahtar|Bir dize. Verilen ifade. Eşzamanlılık kapsamı belirtir. Birden çok ilke tarafından paylaşılabilir.|Evet|Yok|
 |en yüksek sayısı|Bir tamsayı. İstekleri ilkeyi girmek için izin verilen en fazla sayısını belirtir.|Evet|Yok|
@@ -332,13 +332,13 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 
 ### <a name="elements"></a>Öğeler
 
-|Öğe|Açıklama|Gerekli|
+|Öğe|Açıklama|Gereklidir|
 |-------------|-----------------|--------------|
 |Günlük eventhub|Kök öğe. Bu öğenin değeri, olay hub'ınıza bağlanmanız dizedir.|Evet|
 
 ### <a name="attributes"></a>Öznitelikler
 
-|Öznitelik|Açıklama|Gerekli|
+|Öznitelik|Açıklama|Gereklidir|
 |---------------|-----------------|--------------|
 |Günlükçü kimliği|Günlükçü kimliğini API Yönetimi hizmetiniz ile kayıtlı.|Evet|
 |bölüm kimliği|İletilerin gönderileceği bölümün dizinini belirtir.|İsteğe bağlı. Bu öznitelik, kullanılamaz `partition-key` kullanılır.|
@@ -375,13 +375,13 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="elements"></a>Öğeler
 
-|Öğe|Açıklama|Gerekli|
+|Öğe|Açıklama|Gereklidir|
 |-------------|-----------------|--------------|
 |sahte yanıt|Kök öğe.|Evet|
 
 ### <a name="attributes"></a>Öznitelikler
 
-|Öznitelik|Açıklama|Gerekli|Varsayılan|
+|Öznitelik|Açıklama|Gereklidir|Varsayılan|
 |---------------|-----------------|--------------|--------------|
 |Durum kodu|Yanıt durum kodu belirtir ve karşılık gelen örnek veya şema seçmek için kullanılır.|Hayır|200|
 |içerik türü|Belirtir `Content-Type` yanıt üst bilgisi değeri ve karşılık gelen örnek veya şema seçmek için kullanılır.|Hayır|None|
@@ -431,13 +431,13 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="elements"></a>Öğeler
 
-|Öğe|Açıklama|Gerekli|
+|Öğe|Açıklama|Gereklidir|
 |-------------|-----------------|--------------|
 |retry|Kök öğe. Diğer ilkelerle onun alt öğeleri içerebilir.|Evet|
 
 ### <a name="attributes"></a>Öznitelikler
 
-|Öznitelik|Açıklama|Gerekli|Varsayılan|
+|Öznitelik|Açıklama|Gereklidir|Varsayılan|
 |---------------|-----------------|--------------|-------------|
 |koşul|Boole sabit veya [ifade](api-management-policy-expressions.md) yeniden denemeleri durdurulur belirtme (`false`) veya devam (`true`).|Evet|Yok|
 |count|Denemek için yeniden deneme sayısını belirten pozitif bir sayı.|Evet|Yok|
@@ -449,7 +449,7 @@ status code and media type. If no example or schema found, the content is empty.
 > [!NOTE]
 >  Yalnızca `interval` belirtilen **sabit** aralığı yeniden denemeler gerçekleştirilir.
 > Yalnızca `interval` ve `delta` belirtilir, bir **doğrusal** aralığı yeniden deneme algoritma kullanılır, bekleme süresi yeniden denemeler arasında nerede hesaplanır aşağıdaki formülü - uygun `interval + (count - 1)*delta`.
-> Zaman `interval`, `max-interval` ve `delta` belirtilir, **üstel** aralığı yeniden deneme algoritması uygulandığında, burada yeniden denemeler arasındaki bekleme süresi değerinden katlanarak artıyor `interval` için değer `max-interval` aşağıdaki forumula göre- `min(interval + (2^count - 1) * random(delta * 0.8, delta * 1.2), max-interval)`.
+> Zaman `interval`, `max-interval` ve `delta` belirtilir, **üstel** aralığı yeniden deneme algoritması uygulandığında, burada yeniden denemeler arasındaki bekleme süresi değerinden katlanarak artıyor `interval` için değer `max-interval` aşağıdaki formülü göre- `min(interval + (2^count - 1) * random(delta * 0.8, delta * 1.2), max-interval)`.
 
 ### <a name="usage"></a>Kullanım
  Bu ilke aşağıdaki ilkesinde kullanılabilir [bölümleri](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) . Alt ilke kullanım kısıtlamaları Bu ilke tarafından devralınır unutmayın.
@@ -486,7 +486,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="elements"></a>Öğeler
 
-|Öğe|Açıklama|Gerekli|
+|Öğe|Açıklama|Gereklidir|
 |-------------|-----------------|--------------|
 |döndürülecek yanıt|Kök öğe.|Evet|
 |üst bilgi ayarlama|A [üst bilgi ayarlama](api-management-transformation-policies.md#SetHTTPheader) ilke bildirimi.|Hayır|
@@ -495,7 +495,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="attributes"></a>Öznitelikler
 
-|Öznitelik|Açıklama|Gerekli|
+|Öznitelik|Açıklama|Gereklidir|
 |---------------|-----------------|--------------|
 |yanıt değişken adı|Bağlam değişkeni adını, örneğin, bir Yukarı Akış başvurulan [gönderme isteği](api-management-advanced-policies.md#SendRequest) İlkesi ve içeren bir `Response` nesnesi|İsteğe bağlı.|
 
@@ -553,7 +553,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="elements"></a>Öğeler
 
-|Öğe|Açıklama|Gerekli|
+|Öğe|Açıklama|Gereklidir|
 |-------------|-----------------|--------------|
 |bir şekilde İsteği Gönder|Kök öğe.|Evet|
 |url|İsteğin URL'si.|Hiçbir if modu kopyaya = Aksi takdirde Evet.|
@@ -565,7 +565,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="attributes"></a>Öznitelikler
 
-|Öznitelik|Açıklama|Gerekli|Varsayılan|
+|Öznitelik|Açıklama|Gereklidir|Varsayılan|
 |---------------|-----------------|--------------|-------------|
 |mod = "string"|Geçerli isteğin bir kopyasını ya da yeni bir istek olup olmadığını belirler. Giden modunda, mod = kopyalama istek gövdesi başlatamadı.|Hayır|Yeni|
 |ad|Ayarlanacak üstbilginin adı belirtir.|Evet|Yok|
@@ -635,7 +635,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="elements"></a>Öğeler
 
-|Öğe|Açıklama|Gerekli|
+|Öğe|Açıklama|Gereklidir|
 |-------------|-----------------|--------------|
 |Gönderme isteği|Kök öğe.|Evet|
 |url|İsteğin URL'si.|Hiçbir if modu kopyaya = Aksi takdirde Evet.|
@@ -646,7 +646,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="attributes"></a>Öznitelikler
 
-|Öznitelik|Açıklama|Gerekli|Varsayılan|
+|Öznitelik|Açıklama|Gereklidir|Varsayılan|
 |---------------|-----------------|--------------|-------------|
 |mod = "string"|Geçerli isteğin bir kopyasını ya da yeni bir istek olup olmadığını belirler. Giden modunda, mod = kopyalama istek gövdesi başlatamadı.|Hayır|Yeni|
 |yanıt değişkeni adı = "string"|Yanıt nesnesini alacak bağlam değişkeninin adı. Değişkeni mevcut değilse, ilkenin başarılı yürütme sonrasında oluşturulur ve aracılığıyla erişilebilir olacak [ `context.Variable` ](api-management-policy-expressions.md#ContextVariables) koleksiyonu.|Evet|Yok|
@@ -682,13 +682,13 @@ Kullanımına dikkat edin [özellikleri](api-management-howto-properties.md) kul
 
 ### <a name="elements"></a>Öğeler
 
-|Öğe|Açıklama|Gerekli|
+|Öğe|Açıklama|Gereklidir|
 |-------------|-----------------|--------------|
 |Proxy|Kök öğe|Evet|
 
 ### <a name="attributes"></a>Öznitelikler
 
-|Öznitelik|Açıklama|Gerekli|Varsayılan|
+|Öznitelik|Açıklama|Gereklidir|Varsayılan|
 |---------------|-----------------|--------------|-------------|
 |URL = "string"|Proxy URL'si biçiminde http://host:port.|Evet|Yok|
 |Kullanıcı adı = "string"|Proxy kimlik doğrulaması için kullanılacak kullanıcı adı.|Hayır|Yok|
@@ -742,7 +742,7 @@ Kullanımına dikkat edin [özellikleri](api-management-howto-properties.md) kul
 
 ### <a name="elements"></a>Öğeler
 
-|Öğe|Açıklama|Gerekli|
+|Öğe|Açıklama|Gereklidir|
 |-------------|-----------------|--------------|
 |Set yöntemi|Kök öğe. Öğenin değeri HTTP yöntemi belirtir.|Evet|
 
@@ -782,13 +782,13 @@ Kullanımına dikkat edin [özellikleri](api-management-howto-properties.md) kul
 
 ### <a name="elements"></a>Öğeler
 
-|Öğe|Açıklama|Gerekli|
+|Öğe|Açıklama|Gereklidir|
 |-------------|-----------------|--------------|
 |durumunu ayarla|Kök öğe.|Evet|
 
 ### <a name="attributes"></a>Öznitelikler
 
-|Öznitelik|Açıklama|Gerekli|Varsayılan|
+|Öznitelik|Açıklama|Gereklidir|Varsayılan|
 |---------------|-----------------|--------------|-------------|
 |code="integer"|Döndürülecek HTTP durum kodu.|Evet|Yok|
 |neden = "string"|Durum kodunu döndürerek nedeni açıklaması.|Evet|Yok|
@@ -817,13 +817,13 @@ Kullanımına dikkat edin [özellikleri](api-management-howto-properties.md) kul
 
 ### <a name="elements"></a>Öğeler
 
-|Öğe|Açıklama|Gerekli|
+|Öğe|Açıklama|Gereklidir|
 |-------------|-----------------|--------------|
 |değişken Ayarla|Kök öğe.|Evet|
 
 ### <a name="attributes"></a>Öznitelikler
 
-|Öznitelik|Açıklama|Gerekli|
+|Öznitelik|Açıklama|Gereklidir|
 |---------------|-----------------|--------------|
 |ad|Değişkenin adı.|Evet|
 |değer|Değişken değeri. Bu, bir ifade veya değişmez değer olabilir.|Evet|
@@ -884,13 +884,13 @@ Kullanımına dikkat edin [özellikleri](api-management-howto-properties.md) kul
 
 ### <a name="elements"></a>Öğeler
 
-|Öğe|Açıklama|Gerekli|
+|Öğe|Açıklama|Gereklidir|
 |-------------|-----------------|--------------|
 |İzleme|Kök öğe.|Evet|
 
 ### <a name="attributes"></a>Öznitelikler
 
-|Öznitelik|Açıklama|Gerekli|Varsayılan|
+|Öznitelik|Açıklama|Gereklidir|Varsayılan|
 |---------------|-----------------|--------------|-------------|
 |source|Dize sabit değeri anlamlı izleme görüntüleyicisini ve iletinin kaynağını belirtme.|Evet|Yok|
 
@@ -951,13 +951,13 @@ Kullanımına dikkat edin [özellikleri](api-management-howto-properties.md) kul
 
 ### <a name="elements"></a>Öğeler
 
-|Öğe|Açıklama|Gerekli|
+|Öğe|Açıklama|Gereklidir|
 |-------------|-----------------|--------------|
 |bekleme|Kök öğe. Alt öğeleri olarak içerebilir `send-request`, `cache-lookup-value`, ve `choose` ilkeleri.|Evet|
 
 ### <a name="attributes"></a>Öznitelikler
 
-|Öznitelik|Açıklama|Gerekli|Varsayılan|
+|Öznitelik|Açıklama|Gereklidir|Varsayılan|
 |---------------|-----------------|--------------|-------------|
 |için|Belirler olmadığını `wait` İlkesi, tamamlanmış ya da yalnızca bir tane olacak şekilde ilk alt öğe yönelik tüm ilkeleri bekler. İzin verilen değerler şunlardır:<br /><br /> -   `all` -Tüm ilk alt öğe ilkeleri tamamlanması bekle<br />-Tüm - tamamlamak ilk alt ilke bekleyin. İlk ilk alt ilke tamamlandıktan sonra `wait` ilke tamamlar ve diğer ilk alt öğe ilkeleri yürütülmesini sonlandırılır.|Hayır|tümü|
 

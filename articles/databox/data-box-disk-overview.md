@@ -6,27 +6,21 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 10/30/2018
+ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
-ms.openlocfilehash: f965d455b3ada48caabb80458d44e841329cf787
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 874142df31d96de36b2b5be81a863c2f31317c52
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229620"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158049"
 ---
-# <a name="what-is-azure-data-box-disk-preview"></a>Azure Data Box Disk nedir? (Önizleme)
+# <a name="what-is-azure-data-box-disk"></a>Azure Data Box Disk nedir?
 
 Microsoft Azure Data Box Disk çözümü, terabaytlarca şirket içi veriyi Azure'a hızlı, uygun maliyetli ve güvenilir bir şekilde göndermenizi sağlar. Güvenli veri aktarımının daha hızlı gerçekleştirilmesi için 1 ila 5 katı hal sürücüsü (SSD) gönderilir. Her biri 8 TB boyutundaki bu şifrelenmiş diskler bölgesel dağıtım şirketi aracılığıyla veri merkezinize gönderilir. 
 
 Diskleri Azure portalda Data Box hizmetiyle hızlıca yapılandırabilir, bağlayabilir ve disklerin kilidini açabilirsiniz. Verilerinizi disklere kopyalayın ve diskleri Azure'a geri gönderin. Azure veri merkezinde verileriniz sürücülerden hızlı, özel bir ağ yükleme bağlantısı kullanılarak buluta yüklenir.
-
-
-> [!IMPORTANT]
-> - Data Box Disk önizleme aşamasındadır. Bu çözümü dağıtmadan önce [Önizleme için Azure hizmet şartlarını](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) gözden geçirin. 
-> - Bu hizmet için kaydolmanız gerekir. Kaydolmak için [Önizleme portalına](https://aka.ms/azuredataboxfromdiskdocs) gidin.
-> - Önizleme sırasında Data Box Disk, ABD ve Avrupa Birliği ülkelerindeki müşterilere gönderilebilir. Daha fazla bilgi için bkz. [Bölge kullanılabilirliği](#region-availability).
 
 ## <a name="use-cases"></a>Uygulama alanları
 
@@ -95,7 +89,7 @@ Daha fazla bilgi için bkz. [Azure Data Box Disk güvenliği ve veri koruması](
 
 ## <a name="region-availability"></a>Bölge kullanılabilirliği
 
-Data Box Disk önizleme sırasında aşağıdaki Azure bölgelerine veri aktarabilir:
+Şu anda Data Box Disk şu Azure bölgelerine veri aktarımı:
 
 
 |Azure bölgesi  |Azure bölgesi  |
@@ -112,7 +106,7 @@ Data Box Disk önizleme sırasında aşağıdaki Azure bölgelerine veri aktarab
 
 ## <a name="pricing"></a>Fiyatlandırma
 
-Fiyatlandırma hakkında bilgi için bkz. [Önizleme Fiyatlandırması sayfası](https://azure.microsoft.com/pricing/details/storage/databox/disk/).
+Fiyatlandırma hakkında daha fazla bilgi için Git [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/storage/databox/disk/).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

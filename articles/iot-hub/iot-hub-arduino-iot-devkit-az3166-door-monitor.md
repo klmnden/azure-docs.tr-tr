@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: 501dc942fc41a4e06aa13fba2eb670f8bc0f8a21
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 293c2325f57f04c3a77b0b2b8ec2ef30e8c912b8
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597829"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156247"
 ---
 # <a name="door-monitor"></a>Kapı İzleyicisi          
 
@@ -70,9 +70,9 @@ Kayıt formunu tamamlayın:
 
    * **Ad**: SendGrid hizmetinizin adı. Bilgisayarınızda yüklü olmayabilir diğer hizmetlerden farklı olan benzersiz bir ad seçin.
 
-   * **Parola**: hizmeti bu projede herhangi bir şey için kullanılmayacak bir parola gerektirir.
+   * **Parola**: Hizmet, bu projedeki her şey için kullanılmayacak bir parola gerektirir.
 
-   * **E-posta**: SendGrid hizmet doğrulama Bu e-posta adresine gönderir.
+   * **e-posta**: SendGrid hizmetini doğrulama Bu e-posta adresine gönderir.
 
 Denetleme **panoya Sabitle** gelecekte bulmak bu uygulamayı kolaylaştırmak için seçeneğini belirleyin, ardından tıklayın **satın alma** oturum açma formunu göndermek için.
  
@@ -110,7 +110,7 @@ Kayıt formunda alanları doldurun.
 
    * **IOT hub'ı adı**: IOT hub'ınızın adı. Bilgisayarınızda yüklü olmayabilir diğer hizmetlerden farklı olan benzersiz bir ad seçin.
 
-   * **IOT Hub Sku'sunun**: F1'e (abonelik başına tek teklifle sınırlıdır) ücretsizdir. Diğer fiyatlandırma bilgileri gördüğünüz [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/iot-hub/).
+   * **IOT Hub Sku'sunun**: (Abonelik başına tek teklifle sınırlıdır) F1 ücretsiz olarak kullanılabilir. Diğer fiyatlandırma bilgileri gördüğünüz [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/iot-hub/).
 
    * **E-postasındaki**: Bu alan, SendGrid hizmetini ayarlarken kullandığınız aynı e-posta adresi olmalıdır.
 
@@ -135,7 +135,7 @@ Sol tarafındaki genişletme **ARDUINO ÖRNEKLER** bölümünde **MXCHIP AZ3166 
 
 ![Mini solution örnekleri](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/vscode-examples.png)
 
-Örnek uygulama komut paletinden da açabilirsiniz. Kullanım `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) komut paletini açmak için şunu yazın **Arduino**ve ardından bulmak ve seçmek **Arduino: örnekler**.
+Örnek uygulama komut paletinden da açabilirsiniz. Kullanım `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) komut paletini açmak için şunu yazın **Arduino**ve ardından bulmak ve seçmek **Arduino: Örnekler**.
 
 ### <a name="provision-azure-services"></a>Azure hizmetleri sağlama
 
@@ -162,7 +162,7 @@ Ardından, cihaz için kodu yükleyin.
 
 #### <a name="macos"></a>macOS
 
-1. Yapılandırma moduna DevKit: düğme A, sonra anında iletme ve yayın Sıfırla düğmesini basılı tutun. Ekran 'Configuration' görüntüler.
+1. DevKit yapılandırma moduna: A tuşunu basılı tutun, sonra anında iletme ve Sıfırla düğmesini bırakın. Ekran 'Configuration' görüntüler.
 
 2. Tıklayın `Cmd+P` çalıştırılacak `task device-upload`.
 
@@ -177,7 +177,7 @@ VS Code sonra doğrulama ve Arduino karşıya yükleme başlar Devkit'e tasarlay
 DevKit yeniden başlatır ve kod çalışmaya başlar.
 
 > [!NOTE]
-> Bazen, alabileceğiniz bir "hata: AZ3166: Bilinmeyen Paket" hata iletisi. Pano paket dizinini doğru şekilde yenilenmez bu hata oluşur. Bu hatayı gidermek için başvurmak [geliştirme IOT DevKit SSS bölümünü](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
+> Bazen, alabileceğiniz bir "hata: AZ3166: Bilinmeyen Paket"hata iletisi. Pano paket dizinini doğru şekilde yenilenmez bu hata oluşur. Bu hatayı gidermek için başvurmak [geliştirme IOT DevKit SSS bölümünü](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
 
 ## <a name="test-the-project"></a>Test projesi
 
@@ -185,16 +185,16 @@ Program, önce DevKit bir kararlı manyetik alan olduğu durumda olduğunda baş
 
 Başlatma sonra `Door closed` ekranında görüntülenir. Manyetik alanında bir değişiklik olduğunda durumu değişir `Door opened`. Kapı durumu değişiklikleri her zaman, bir e-posta bildirimi alırsınız. (Bu e-posta iletilerini alınması beş dakika kadar sürebilir.)
 
-![Algılayıcı yakın mıknatıs: kapı kapalı](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-closed.jpg "algılayıcı yakın mıknatıs: kapı kapalı")
+![Algılayıcı yakın mıknatıs: Kapı kapalı](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-closed.jpg "algılayıcı yakın mıknatıs: Kapı kapalı")
 
-![Mıknatıs uzağa algılayıcı taşındı: kapı açılan](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-opened.jpg "mıknatıs uzağa algılayıcı taşındı: kapı açıldı")
+![Algılayıcı uzağa mıknatıs taşındı: Kapak Açık](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-opened.jpg "mıknatıs uzağa algılayıcı taşındı: Kapı açıldı")
 
 ## <a name="problems-and-feedback"></a>Sorunları ve geri bildirim
 
 Sorunlarla karşılaşırsanız, başvurmak [IOT DevKit SSS](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) veya aşağıdaki kanalları kullanarak bağlanın:
 
 * [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
-* [Stackoverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

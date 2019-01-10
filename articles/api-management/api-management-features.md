@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: apimpm
-ms.openlocfilehash: a00328608c582dcd28dbc78b5b56829f9d1ab500
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: eae36aa6e60e3da03c59952a1d9e035e6a773d2d
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585585"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156706"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Azure API Management katmanları özellik tabanlı karşılaştırması
 
@@ -29,10 +29,10 @@ Her API Management [fiyatlandırma katmanı](https://aka.ms/apimpricing) özelli
 | Azure AD tümleştirmesi<sup>1</sup>                                                             | Hayır                            | Evet            | Hayır             | Evet            | Evet            |
 | Sanal ağ (VNet) desteği                                                               | Hayır                            | Evet            | Hayır             | Hayır             | Evet            |
 | Çok bölgeli dağıtım                                                                      | Hayır                            | Hayır             | Hayır             | Hayır             | Evet            |
-| Birden fazla özel etki alanı adı                                                                 | Hayır                            | Hayır             | Hayır             | Hayır             | Evet            |
+| Birden çok özel etki alanı adı                                                                 | Hayır                            | Hayır             | Hayır             | Hayır             | Evet            |
 | Geliştirici Portalı<sup>2</sup>                                                                 | Hayır                            | Evet            | Evet            | Evet            | Evet            |
 | Yerleşik önbelleği                                                                               | Hayır                            | Evet            | Evet            | Evet            | Evet            |
-| Yerleşik analiz                                                                           | Hayır                            | Evet            | Evet            | Evet            | Evet            |
+| Yerleşik analitik                                                                           | Hayır                            | Evet            | Evet            | Evet            | Evet            |
 | [SSL ayarları](api-management-howto-manage-protocols-ciphers.md)                             | Hayır                            | Evet            | Evet            | Evet            | Evet            |
 | [Dış önbellek](https://aka.ms/apimbyoc)                                                    | Evet                           | Hayır<sup>3</sup> | Hayır<sup>3</sup> | Hayır<sup>3</sup> | Hayır<sup>3</sup> |
 | [İstemci sertifikası kimlik doğrulaması](api-management-howto-mutual-certificates-for-clients.md) | Hayır<sup>4</sup>                | Evet            | Evet            | Evet            | Evet            |
@@ -42,7 +42,7 @@ Her API Management [fiyatlandırma katmanı](https://aka.ms/apimpricing) özelli
 | Azure İzleyici günlükleri ve ölçümler                                                               | Hayır<sup>5</sup>                | Evet            | Evet            | Evet            | Evet            |
 
 <sup>1</sup> Azure AD'ye kullanılmasına olanak tanır (ve Azure AD B2C) Geliştirici portalında kullanıcı oturumu açma için kimlik sağlayıcısı.<br/>
-<sup>2</sup> ilgili işlevleri dahil olmak üzere örn kullanıcıları, grupları, sorunları, applicationsn ve e-posta şablonları ve bildirimleri.<br/>
+<sup>2</sup> ilgili işlevleri dahil olmak üzere örn kullanıcıları, grupları, sorunları, uygulamaları ve e-posta şablonları ve bildirimleri.<br/>
 <sup>3</sup> Bu katman için dış önbellek desteği yakında.<br/>
 <sup>4</sup> istemci sertifikası kimlik doğrulaması, tüketim katmanına genel kullanılabilirliğini önce eklenir.<br/>
 <sup>5</sup> tüketim katmana tam Azure İzleyici destek eklenecektir.

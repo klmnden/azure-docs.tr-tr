@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: eed970d46c8a895001ce0a6d7d7f37acf6c02a55
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 83f4ebd9c3f5ad05173b045b3fa15804ddc88df6
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249209"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157573"
 ---
 # <a name="power-bi-workspace-collections-faq"></a>Power BI çalışma alanı koleksiyonları ile ilgili SSS
 
@@ -77,7 +77,7 @@ Power BI çalışma alanı koleksiyonları modelde, Azure AD kiracıları müşt
 Geliştiriciler/çalıştığı veya uygulamanızı oluşturmaya çalışan olduğunda Azure aboneliğinizi ve çalışma alanı koleksiyonları Azure portalı üzerinden yönetmek için bir AAD kullanıcı hesabı olmalıdır. Geliştiricilerin raporları alın, bağlantı dizelerini değiştirmek ve Al'ı etkinleştirmek için program tabalı API'lerle URL'leri gücünden yararlanarak uygulama belirteçlerini kimlik doğrulaması için bunun yerine ekleme ve sonuç olarak, bir AAD gerektirmez.
 
 ## <a name="where-can-i-learn-more"></a>Nereden daha fazla bilgi edinebilirim?
-Ziyaret ettiğiniz [Power BI çalışma alanı koleksiyonları belgeleri sayfasını](get-started.md). Bu hizmet hakkında güncel ederek kalabileceği [Power BI blogunu](https://powerbi.microsoft.com/blog/) veya dev.powerbi.com adresindeki Power BI Geliştirici Merkezi'ni ziyaret edin. Sorular da sorabilirsiniz [Stackoverflow](http://stackoverflow.com/questions/tagged/powerbi).
+Ziyaret ettiğiniz [Power BI çalışma alanı koleksiyonları belgeleri sayfasını](get-started.md). Bu hizmet hakkında güncel ederek kalabileceği [Power BI blogunu](https://powerbi.microsoft.com/blog/) veya dev.powerbi.com adresindeki Power BI Geliştirici Merkezi'ni ziyaret edin. Sorular da sorabilirsiniz [Stack Overflow](http://stackoverflow.com/questions/tagged/powerbi).
 
 ## <a name="how-do-i-get-started"></a>Nasıl kullanmaya başlayabilirim?
 Şimdi ücretsiz başlayabilirsiniz! Bir Azure aboneliğiniz varsa, artık Power BI çalışma alanı koleksiyonları Azure portalından doğrudan sağlayabilirsiniz. Ayrıca, [ücretsiz Azure hesabı](https://azure.microsoft.com/free/). Power BI çalışma alanı koleksiyonları hizmet sağladıktan sonra kolayca doğrudan Power BI REST API'lerini kullanın, veya Geliştirici SDK'sı kullanılabilir [GitHub](https://go.microsoft.com/fwlink/?LinkID=746472). SDK'sı Geliştirici yararlanarak nasıl örnekleri verilmiştir.

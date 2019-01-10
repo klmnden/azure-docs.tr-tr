@@ -6,21 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 07/10/2018
+ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 569442f5dfdf96f03a95f7210bfe1ed7dc3af8de
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.openlocfilehash: 569f89d389e4bc8c7f2d1f46f3713e9792d4e466
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091496"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159698"
 ---
-# <a name="azure-data-box-disk-security-and-data-protection-preview"></a>Azure Data Box Disk güvenliği ve veri koruması (Önizleme)
+# <a name="azure-data-box-disk-security-and-data-protection"></a>Azure Data Box Disk güvenlik ve veri koruması
 
 Bu makalede, Data Box çözümü bileşenlerinden her birini ve buralarda depolanan verileri korumaya yardımcı olan Azure Data Box Disk güvenliği açıklanır. 
-
-> [!IMPORTANT]
-> Data Box Disk önizleme aşamasındadır. Bu çözümü dağıtmadan önce [Önizleme için Azure hizmet şartlarını](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) gözden geçirin.
 
 ## <a name="data-flow-through-components"></a>Bileşenler arasında veri akışı
 

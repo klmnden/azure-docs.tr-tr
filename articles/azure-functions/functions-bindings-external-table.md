@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: cshoe
-ms.openlocfilehash: 62924488b776a1a89e1abf492db1881a44585b1a
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 38f0d03698ff8b11e1a6a06dc29102f407e0e90f
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997819"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156876"
 ---
 # <a name="external-table-binding-for-azure-functions-experimental"></a>Azure işlevleri (Deneysel) için dış tablo bağlama
 
-Bu makalede, Sharepoint ve Dynamics, Azure işlevleri'nde gibi SaaS sağlayıcıları tablo verileriyle çalışacak açıklanmaktadır. Giriş ve çıkış bağlamaları dış tablolar için Azure işlevleri destekler.
+Bu makalede, SharePoint ve Dynamics, Azure işlevleri'nde gibi SaaS sağlayıcıları tablo verileriyle çalışacak açıklanmaktadır. Giriş ve çıkış bağlamaları dış tablolar için Azure işlevleri destekler.
 
 > [!IMPORTANT]
 > Dış tablo bağlama, Deneysel ve genel kullanıma (GA) durumu hiçbir zaman ulaşın. Yalnızca Azure'da bulunan 1.x işlevleri ve Azure işlevleri'ne ekleyerek bir plan yok 2.x. SaaS sağlayıcıları verilere erişim gerektiren senaryolar için kullanmayı [işlevlerini çağıran logic apps'i](functions-twitter-email.md).
@@ -166,7 +166,7 @@ GO
 
 ### <a name="google-sheets-data-source"></a>Google e-tabloları veri kaynağı
 
-Bu örnekte Google Docs ile kullanılacak bir tablo oluşturmak için bir elektronik tablo adlı bir çalışma sayfası ile oluşturmak `Contact`. Bağlayıcı, elektronik tablo görünen adı kullanamazsınız. Örneğin dataSetName kullanılacak iç adı (kalın) gereksinimlerini: `docs.google.com/spreadsheets/d/` **`1UIz545JF_cx6Chm_5HpSPVOenU4DZh4bDxbFgJOSMz0`** sütun adlarını ekleyin `Id`, `LastName`, `FirstName` ilk satırın ardından şirket verilerini doldurun sonraki satır.
+Bu örnekte Google Docs ile kullanılacak bir tablo oluşturmak için bir elektronik tablo adlı bir çalışma sayfası ile oluşturmak `Contact`. Bağlayıcı, elektronik tablo görünen adı kullanamazsınız. Örneğin dataSetName kullanılacak iç adı (kalın) gereksinimlerini: `docs.google.com/spreadsheets/d/`**`1UIz545JF_cx6Chm_5HpSPVOenU4DZh4bDxbFgJOSMz0`** Sütun adlarını ekleyin `Id`, `LastName`, `FirstName` ilk satırın ardından, sonraki satırlara verilerini doldurun.
 
 ### <a name="salesforce"></a>Salesforce
 

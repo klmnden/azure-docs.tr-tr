@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect eşitleme: işlevleri başvurusu | Microsoft Docs'
+title: 'Azure AD Connect eşitleme: İşlevler başvurusu | Microsoft Docs'
 description: Azure AD Connect eşitleme, bildirim temelli sağlama ifadelerini başvurusu.
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: cb6f74a1de3e91868d7b20563a790352486862ee
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: db427d0c171e164cb03d7280103fa85e5add4dd1
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425702"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157488"
 ---
-# <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect eşitleme: İşlevler başvurusu
+# <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect eşitleme: İşlevler Başvurusu
 Azure AD Connect, işlevleri, bir öznitelik değeri, eşitleme sırasında işlemek için kullanılır.  
 İşlevler söz dizimi aşağıdaki biçimi kullanarak ifade edilir:  
 `<output type> FunctionName(<input type> <position name>, ..)`
@@ -78,7 +78,7 @@ Türleri aşağıdaki sözdizimiyle belirtilir:
 | [içerir](#contains) |[Sayısı](#count) |[Öğesi](#item) |[ItemOrNull](#itemornull) | |
 | [Birleştir](#join) |[RemoveDuplicates](#removeduplicates) |[Böl](#split) | | |
 | **Program akışı** | | | | |
-| [Hata](#error) |[IIF](#iif) |[Seç](#select) |[Anahtar](#switch) | |
+| [Hata:](#error) |[IIF](#iif) |[Seç](#select) |[Anahtar](#switch) | |
 | [Burada](#where) |[ile](#with) | | | |
 | **Metin** | | | | |
 | [GUID](#guid) |[InStr](#instr) |[InStrRev](#instrrev) |[LCase](#lcase) | |
@@ -166,7 +166,7 @@ Bir sertifika nesnesinin tüm kritik uzantılar OID değerlerini döndürür.
 
 **Sözdizimi:**  
 `mvstr CertExtensionOids(binary certificateRawData)`  
-*   certificateRawData: Bayt dizisine bir X.509 sertifikası temsili. Bayt dizisinin kodlanmış ikili (DER ile) veya Base64 ile kodlanmış X.509 veri olabilir.
+*   certificateRawData: X.509 sertifikası bayt dizisi gösterimi. Bayt dizisinin kodlanmış ikili (DER ile) veya Base64 ile kodlanmış X.509 veri olabilir.
 
 - - -
 ### <a name="certformat"></a>CertFormat
@@ -175,7 +175,7 @@ Bu X.509v3 sertifikasını biçiminin adını döndürür.
 
 **Sözdizimi:**  
 `str CertFormat(binary certificateRawData)`  
-*   certificateRawData: Bayt dizisine bir X.509 sertifikası temsili. Bayt dizisinin kodlanmış ikili (DER ile) veya Base64 ile kodlanmış X.509 veri olabilir.
+*   certificateRawData: X.509 sertifikası bayt dizisi gösterimi. Bayt dizisinin kodlanmış ikili (DER ile) veya Base64 ile kodlanmış X.509 veri olabilir.
 
 - - -
 ### <a name="certfriendlyname"></a>CertFriendlyName
@@ -184,7 +184,7 @@ Bir sertifika ilişkili diğer döndürür.
 
 **Sözdizimi:**  
 `str CertFriendlyName(binary certificateRawData)`  
-*   certificateRawData: Bayt dizisine bir X.509 sertifikası temsili. Bayt dizisinin kodlanmış ikili (DER ile) veya Base64 ile kodlanmış X.509 veri olabilir.
+*   certificateRawData: X.509 sertifikası bayt dizisi gösterimi. Bayt dizisinin kodlanmış ikili (DER ile) veya Base64 ile kodlanmış X.509 veri olabilir.
 
 - - -
 ### <a name="certhashstring"></a>CertHashString
@@ -193,7 +193,7 @@ X.509v3 sertifikasını SHA1 karma değeri bir onaltılık dize olarak döndür�
 
 **Sözdizimi:**  
 `str CertHashString(binary certificateRawData)`  
-*   certificateRawData: Bayt dizisine bir X.509 sertifikası temsili. Bayt dizisinin kodlanmış ikili (DER ile) veya Base64 ile kodlanmış X.509 veri olabilir.
+*   certificateRawData: X.509 sertifikası bayt dizisi gösterimi. Bayt dizisinin kodlanmış ikili (DER ile) veya Base64 ile kodlanmış X.509 veri olabilir.
 
 - - -
 ### <a name="certissuer"></a>CertIssuer
@@ -202,7 +202,7 @@ X.509v3 sertifikasını veren sertifika yetkilisinin adını döndürür.
 
 **Sözdizimi:**  
 `str CertIssuer(binary certificateRawData)`  
-*   certificateRawData: Bayt dizisine bir X.509 sertifikası temsili. Bayt dizisinin kodlanmış ikili (DER ile) veya Base64 ile kodlanmış X.509 veri olabilir.
+*   certificateRawData: X.509 sertifikası bayt dizisi gösterimi. Bayt dizisinin kodlanmış ikili (DER ile) veya Base64 ile kodlanmış X.509 veri olabilir.
 
 - - -
 ### <a name="certissuerdn"></a>CertIssuerDN
@@ -211,7 +211,7 @@ Sertifikayı verenin ayırt edici adını döndürür.
 
 **Sözdizimi:**  
 `str CertIssuerDN(binary certificateRawData)`  
-*   certificateRawData: Bayt dizisine bir X.509 sertifikası temsili. Bayt dizisinin kodlanmış ikili (DER ile) veya Base64 ile kodlanmış X.509 veri olabilir.
+*   certificateRawData: X.509 sertifikası bayt dizisi gösterimi. Bayt dizisinin kodlanmış ikili (DER ile) veya Base64 ile kodlanmış X.509 veri olabilir.
 
 - - -
 ### <a name="certissueroid"></a>CertIssuerOid
@@ -220,7 +220,7 @@ OID, sertifikayı veren döndürür.
 
 **Sözdizimi:**  
 `str CertIssuerOid(binary certificateRawData)`  
-*   certificateRawData: Bayt dizisine bir X.509 sertifikası temsili. Bayt dizisinin kodlanmış ikili (DER ile) veya Base64 ile kodlanmış X.509 veri olabilir.
+*   certificateRawData: X.509 sertifikası bayt dizisi gösterimi. Bayt dizisinin kodlanmış ikili (DER ile) veya Base64 ile kodlanmış X.509 veri olabilir.
 
 - - -
 ### <a name="certkeyalgorithm"></a>CertKeyAlgorithm
@@ -229,7 +229,7 @@ Bu X.509v3 sertifikasını anahtar algoritması bilgilerini bir dize olarak dön
 
 **Sözdizimi:**  
 `str CertKeyAlgorithm(binary certificateRawData)`  
-*   certificateRawData: Bayt dizisine bir X.509 sertifikası temsili. Bayt dizisinin kodlanmış ikili (DER ile) veya Base64 ile kodlanmış X.509 veri olabilir.
+*   certificateRawData: X.509 sertifikası bayt dizisi gösterimi. Bayt dizisinin kodlanmış ikili (DER ile) veya Base64 ile kodlanmış X.509 veri olabilir.
 
 - - -
 ### <a name="certkeyalgorithmparams"></a>CertKeyAlgorithmParams
@@ -238,7 +238,7 @@ Anahtar algoritması parametreleri X.509v3 sertifikasını için bir onaltılık
 
 **Sözdizimi:**  
 `str CertKeyAlgorithm(binary certificateRawData)`  
-*   certificateRawData: Bayt dizisine bir X.509 sertifikası temsili. Bayt dizisinin kodlanmış ikili (DER ile) veya Base64 ile kodlanmış X.509 veri olabilir.
+*   certificateRawData: X.509 sertifikası bayt dizisi gösterimi. Bayt dizisinin kodlanmış ikili (DER ile) veya Base64 ile kodlanmış X.509 veri olabilir.
 
 - - -
 ### <a name="certnameinfo"></a>CertNameInfo
@@ -247,7 +247,7 @@ Konu ve sertifikayı veren sertifika adlarını döndürür.
 
 **Sözdizimi:**  
 `str CertNameInfo(binary certificateRawData, str x509NameType, bool includesIssuerName)`  
-*   certificateRawData: Bayt dizisine bir X.509 sertifikası temsili. Bayt dizisinin kodlanmış ikili (DER ile) veya Base64 ile kodlanmış X.509 veri olabilir.
+*   certificateRawData: X.509 sertifikası bayt dizisi gösterimi. Bayt dizisinin kodlanmış ikili (DER ile) veya Base64 ile kodlanmış X.509 veri olabilir.
 *   X509NameType: Konu X509NameType değeri.
 *   includesIssuerName: verenin adı; eklemek için true Aksi takdirde false.
 
@@ -258,7 +258,7 @@ Sonra sertifika artık geçerli olmayan yerel saatle tarihi döndürür.
 
 **Sözdizimi:**  
 `dt CertNotAfter(binary certificateRawData)`  
-*   certificateRawData: Bayt dizisine bir X.509 sertifikası temsili. Bayt dizisinin kodlanmış ikili (DER ile) veya Base64 ile kodlanmış X.509 veri olabilir.
+*   certificateRawData: X.509 sertifikası bayt dizisi gösterimi. Bayt dizisinin kodlanmış ikili (DER ile) veya Base64 ile kodlanmış X.509 veri olabilir.
 
 - - -
 ### <a name="certnotbefore"></a>CertNotBefore
@@ -267,7 +267,7 @@ Yerel saatle bir sertifikanın geçerli hale geldiği tarihi döndürür.
 
 **Sözdizimi:**  
 `dt CertNotBefore(binary certificateRawData)`  
-*   certificateRawData: Bayt dizisine bir X.509 sertifikası temsili. Bayt dizisinin kodlanmış ikili (DER ile) veya Base64 ile kodlanmış X.509 veri olabilir.
+*   certificateRawData: X.509 sertifikası bayt dizisi gösterimi. Bayt dizisinin kodlanmış ikili (DER ile) veya Base64 ile kodlanmış X.509 veri olabilir.
 
 - - -
 ### <a name="certpublickeyoid"></a>CertPublicKeyOid
@@ -276,7 +276,7 @@ Ortak anahtarın X.509v3 sertifikasını için OID döndürür.
 
 **Sözdizimi:**  
 `str CertKeyAlgorithm(binary certificateRawData)`  
-*   certificateRawData: Bayt dizisine bir X.509 sertifikası temsili. Bayt dizisinin kodlanmış ikili (DER ile) veya Base64 ile kodlanmış X.509 veri olabilir.
+*   certificateRawData: X.509 sertifikası bayt dizisi gösterimi. Bayt dizisinin kodlanmış ikili (DER ile) veya Base64 ile kodlanmış X.509 veri olabilir.
 
 - - -
 ### <a name="certpublickeyparametersoid"></a>CertPublicKeyParametersOid
@@ -285,7 +285,7 @@ Ortak anahtar parametreleri X.509v3 sertifikasını OID döndürür.
 
 **Sözdizimi:**  
 `str CertPublicKeyParametersOid(binary certificateRawData)`  
-*   certificateRawData: Bayt dizisine bir X.509 sertifikası temsili. Bayt dizisinin kodlanmış ikili (DER ile) veya Base64 ile kodlanmış X.509 veri olabilir.
+*   certificateRawData: X.509 sertifikası bayt dizisi gösterimi. Bayt dizisinin kodlanmış ikili (DER ile) veya Base64 ile kodlanmış X.509 veri olabilir.
 
 - - -
 ### <a name="certserialnumber"></a>CertSerialNumber
@@ -294,7 +294,7 @@ X.509v3 sertifikasını seri numarasını döndürür.
 
 **Sözdizimi:**  
 `str CertSerialNumber(binary certificateRawData)`  
-*   certificateRawData: Bayt dizisine bir X.509 sertifikası temsili. Bayt dizisinin kodlanmış ikili (DER ile) veya Base64 ile kodlanmış X.509 veri olabilir.
+*   certificateRawData: X.509 sertifikası bayt dizisi gösterimi. Bayt dizisinin kodlanmış ikili (DER ile) veya Base64 ile kodlanmış X.509 veri olabilir.
 
 - - -
 ### <a name="certsignaturealgorithmoid"></a>CertSignatureAlgorithmOid
@@ -303,7 +303,7 @@ Bir sertifikanın imzasını oluşturmak için kullanılan algoritma OID döndü
 
 **Sözdizimi:**  
 `str CertSignatureAlgorithmOid(binary certificateRawData)`  
-*   certificateRawData: Bayt dizisine bir X.509 sertifikası temsili. Bayt dizisinin kodlanmış ikili (DER ile) veya Base64 ile kodlanmış X.509 veri olabilir.
+*   certificateRawData: X.509 sertifikası bayt dizisi gösterimi. Bayt dizisinin kodlanmış ikili (DER ile) veya Base64 ile kodlanmış X.509 veri olabilir.
 
 - - -
 ### <a name="certsubject"></a>CertSubject
@@ -312,7 +312,7 @@ Bir sertifikadan konu ayırt edici adını alır.
 
 **Sözdizimi:**  
 `str CertSubject(binary certificateRawData)`  
-*   certificateRawData: Bayt dizisine bir X.509 sertifikası temsili. Bayt dizisinin kodlanmış ikili (DER ile) veya Base64 ile kodlanmış X.509 veri olabilir.
+*   certificateRawData: X.509 sertifikası bayt dizisi gösterimi. Bayt dizisinin kodlanmış ikili (DER ile) veya Base64 ile kodlanmış X.509 veri olabilir.
 
 - - -
 ### <a name="certsubjectnamedn"></a>CertSubjectNameDN
@@ -321,7 +321,7 @@ Bir sertifikadan konu ayırt edici adını döndürür.
 
 **Sözdizimi:**  
 `str CertSubjectNameDN(binary certificateRawData)`  
-*   certificateRawData: Bayt dizisine bir X.509 sertifikası temsili. Bayt dizisinin kodlanmış ikili (DER ile) veya Base64 ile kodlanmış X.509 veri olabilir.
+*   certificateRawData: X.509 sertifikası bayt dizisi gösterimi. Bayt dizisinin kodlanmış ikili (DER ile) veya Base64 ile kodlanmış X.509 veri olabilir.
 
 - - -
 ### <a name="certsubjectnameoid"></a>CertSubjectNameOid
@@ -330,7 +330,7 @@ Bir sertifika konu adının OID döndürür.
 
 **Sözdizimi:**  
 `str CertSubjectNameOid(binary certificateRawData)`  
-*   certificateRawData: Bayt dizisine bir X.509 sertifikası temsili. Bayt dizisinin kodlanmış ikili (DER ile) veya Base64 ile kodlanmış X.509 veri olabilir.
+*   certificateRawData: X.509 sertifikası bayt dizisi gösterimi. Bayt dizisinin kodlanmış ikili (DER ile) veya Base64 ile kodlanmış X.509 veri olabilir.
 
 - - -
 ### <a name="certthumbprint"></a>Certthumbprınt
@@ -339,7 +339,7 @@ Bir sertifikanın parmak izini döndürür.
 
 **Sözdizimi:**  
 `str CertThumbprint(binary certificateRawData)`  
-*   certificateRawData: Bayt dizisine bir X.509 sertifikası temsili. Bayt dizisinin kodlanmış ikili (DER ile) veya Base64 ile kodlanmış X.509 veri olabilir.
+*   certificateRawData: X.509 sertifikası bayt dizisi gösterimi. Bayt dizisinin kodlanmış ikili (DER ile) veya Base64 ile kodlanmış X.509 veri olabilir.
 
 - - -
 ### <a name="certversion"></a>CertVersion
@@ -348,7 +348,7 @@ Bir sertifikanın X.509 biçimindeki sürümü döndürür.
 
 **Sözdizimi:**  
 `str CertThumbprint(binary certificateRawData)`  
-*   certificateRawData: Bayt dizisine bir X.509 sertifikası temsili. Bayt dizisinin kodlanmış ikili (DER ile) veya Base64 ile kodlanmış X.509 veri olabilir.
+*   certificateRawData: X.509 sertifikası bayt dizisi gösterimi. Bayt dizisinin kodlanmış ikili (DER ile) veya Base64 ile kodlanmış X.509 veri olabilir.
 
 - - -
 ### <a name="cguid"></a>CGuid
@@ -393,8 +393,8 @@ ConvertFromBase64 işlevi, belirtilen base64 kodlu değer normal bir dizeye dön
 `str ConvertFromBase64(str source)` -Unicode kodlama için varsayar.  
 `str ConvertFromBase64(str source, enum Encoding)`
 
-* Kaynak: Base64 kodlamalı dize  
-* Kodlaması: Unicode, ASCII, UTF8
+* Kaynak: Base64 ile kodlanmış dize  
+* Kodlama: Unicode, ASCII, UTF8
 
 **Örnek**  
 `ConvertFromBase64("SABlAGwAbABvACAAdwBvAHIAbABkACEA")`  
@@ -485,7 +485,7 @@ CStr işlevi bir dize veri türüne dönüştürür.
 `str CStr(ref value)`  
 `str CStr(bool value)`  
 
-* değer: sayısal değer, başvuru özniteliği veya Boolean olabilir.
+* Değer: Bir sayısal değer, başvuru özniteliği ya da Boole değeri olabilir.
 
 **Örnek:**  
 `CStr([dn])`  
@@ -499,7 +499,7 @@ Belirtilen bir zaman aralığına eklenmiş olan bir tarih içeren bir tarih dö
 **Sözdizimi:**  
 `dt DateAdd(str interval, num value, dt date)`
 
-* Aralık: dize eklemek istediğiniz zaman aralığını ifade. Dizenin şu değerlerden birine sahip olmalıdır:
+* aralığı: Eklemek istediğiniz zaman aralığı dize ifade. Dizenin şu değerlerden birine sahip olmalıdır:
   * yyyy yıl
   * q Çeyrek
   * milyon ay
@@ -510,8 +510,8 @@ Belirtilen bir zaman aralığına eklenmiş olan bir tarih içeren bir tarih dö
   * h Saat
   * n dakika
   * s ikinci
-* değer: eklemek istediğiniz birim sayısı. (Gelecek tarihler almak için) artı veya eksi (geçmişteki tarihler almak için) olabilir.
-* Tarih: temsil eden tarih aralığı eklenen tarih/saat.
+* Değer: Eklemek istediğiniz birim sayısı. (Gelecek tarihler almak için) artı veya eksi (geçmişteki tarihler almak için) olabilir.
+* Tarihi: Aralık ekleneceği tarihi temsil eden tarih ve saat.
 
 **Örnek:**  
 `DateAdd("m", 3, CDate("2001-01-01"))`  
@@ -539,7 +539,7 @@ DNComponent işlevi soldan giderek belirtilen DN bileşen değerini döndürür.
 `str DNComponent(ref dn, num ComponentNumber)`
 
 * DN: yorumlamak için başvuru özniteliği
-* ComponentNumber: Döndürülecek DN bileşeninde
+* ComponentNumber: Döndürülecek DN bileşeni
 
 **Örnek:**  
 `DNComponent(CRef([dn]),1)`  
@@ -600,7 +600,7 @@ FormatDateTime işlevi DateTime bir dize olarak belirtilen biçimiyle için kull
 * Format: biçim dönüştürme temsil eden bir dize.
 
 **Notlar:**  
-Biçim için olası değerler burada bulunabilir: [kullanıcı tanımlı tarih/saat biçimleri (biçim işlev)](https://msdn2.microsoft.com/library/73ctwf33\(VS.90\).aspx)
+Biçim için olası değerler burada bulunabilir: [Özel tarih ve saat biçimleri için biçimlendirme işlevinde](https://docs.microsoft.com/dax/custom-date-and-time-formats-for-the-format-function).
 
 **Örnek:**  
 
@@ -627,8 +627,8 @@ IIf işlevi olası değerleri belirtilen bir koşulu temel alarak bir dizi dönd
 `var IIF(exp condition, var valueIfTrue, var valueIfFalse)`
 
 * koşul: herhangi bir değer veya true veya false sonucu verebilen bir ifade.
-* Koşul: koşul true olarak döndürülen değer olarak değerlendirilirse.
-* valueIfFalse: döndürülen değeri false olarak değerlendirilen koşul yoksa.
+* Koşul: Döndürülen değeri true olarak değerlendirilen koşul yoksa.
+* valueIfFalse: Koşul false, döndürülen değer olarak değerlendirilirse.
 
 **Örnek:**  
 `IIF([employeeType]="Intern","t-" & [alias],[alias])`  
@@ -714,7 +714,7 @@ Ham verileri .NET X509Certificate2 sertifika nesnede seri hale getirilebilir tru
 
 **Sözdizimi:**  
 `bool CertThumbprint(binary certificateRawData)`  
-*   certificateRawData: Bayt dizisine bir X.509 sertifikası temsili. Bayt dizisinin kodlanmış ikili (DER ile) veya Base64 ile kodlanmış X.509 veri olabilir.
+*   certificateRawData: X.509 sertifikası bayt dizisi gösterimi. Bayt dizisinin kodlanmış ikili (DER ile) veya Base64 ile kodlanmış X.509 veri olabilir.
 - - -
 ### <a name="isempty"></a>IsEmpty
 **Açıklama:**  
@@ -852,8 +852,8 @@ Birleştirme işlevi, birden çok değerli bir dize alır ve her bir öğe eklen
 `str Join(mvstr attribute)`  
 `str Join(mvstr attribute, str Delimiter)`
 
-* Öznitelik: birleştirilecek dizeleri içeren birden çok değerli öznitelik.
-* sınırlayıcı: döndürülen dizedeki alt dizeleri ayırmak için kullanılan herhangi bir dize. Atlanırsa, boşluk karakteri ("") kullanılır. Sınırlayıcı sıfır uzunlukta bir dize ise ("") veya hiçbir şey, listedeki tüm öğeleri hiçbir sınırlayıcıları ile bitiştirilir.
+* Öznitelik: Birleştirilecek dizeleri içeren birden çok değerli öznitelik.
+* sınırlayıcı: Döndürülen dize içindeki alt dizelerin ayırmak için kullanılan bir dize. Atlanırsa, boşluk karakteri ("") kullanılır. Sınırlayıcı sıfır uzunlukta bir dize ise ("") veya hiçbir şey, listedeki tüm öğeleri hiçbir sınırlayıcıları ile bitiştirilir.
 
 **Açıklamalar**  
 Katılma ve bölünmüş işlevler arasında eşlik yoktur. Birleştirme işlevi, bir dize dizisi alır ve bunları tek bir dize döndürecek şekilde bir sınırlayıcı dizesi kullanarak birleştirir. Split işlevine bir dize alır ve bir dizisini döndürmek için sınırlayıcı ayırır. Ancak, önemli bir fark birleştirme herhangi bir ayırıcı dize ile dizeyi bitiştirebilirsiniz, bölünmüş yalnızca bir tek karakter sınırlayıcıyı kullanarak dizeleri ayırabilirsiniz olur.
@@ -983,7 +983,7 @@ PadLeft işlevi sol-kullanamamaktadır sağlanan doldurma karakteri kullanılara
 
 * dize: dize doldurur.
 * Uzunluk: İstenen dizenin uzunluğunu temsil eden bir tamsayı.
-* padCharacter: doldurma karakteri olarak kullanmak için tek bir karakter içeren bir dize
+* padCharacter: Doldurma karakteri olarak kullanmak için tek bir karakter içeren bir dize
 
 **Notlar:**
 
@@ -1008,7 +1008,7 @@ PadRight işlevi sağ-kullanamamaktadır sağlanan doldurma karakteri kullanıla
 
 * dize: dize doldurur.
 * Uzunluk: İstenen dizenin uzunluğunu temsil eden bir tamsayı.
-* padCharacter: doldurma karakteri olarak kullanmak için tek bir karakter içeren bir dize
+* padCharacter: Doldurma karakteri olarak kullanmak için tek bir karakter içeren bir dize
 
 **Notlar:**
 
@@ -1077,9 +1077,9 @@ Replace işlevi başka bir dize için bir dize tüm oluşumlarını değiştirir
 **Sözdizimi:**  
 `str Replace(str string, str OldValue, str NewValue)`
 
-* dize: bir dize değerleri değiştirin.
+* Dize: Değerleri değiştirmek için bir dize.
 * OldValue: Dize için arama yapın ve değiştirmek için.
-* NewValue: için değiştirilecek dize.
+* NewValue: İçin değiştirilecek dize.
 
 **Notlar:**  
 İşlev, aşağıdaki özel adlar tanır:
@@ -1100,7 +1100,7 @@ ReplaceChars işlevi ReplacePattern dizesinde bulunan karakter tüm oluşumları
 **Sözdizimi:**  
 `str ReplaceChars(str string, str ReplacePattern)`
 
-* dize: içindeki karakterleri değiştirmek için bir dize.
+* Dize: İçindeki karakterleri değiştirmek için bir dize.
 * ReplacePattern: değiştirilecek karakterler içeren bir sözlük içeren bir dize.
 
 {Kaynak1} biçimi şu şekildedir: {hedef1}, {kaynak2}: {hedef2}, {kaynakN}, {targetN} kaynağı bulun ve hedef dize ile değiştirilecek karakter olduğu.
@@ -1172,7 +1172,7 @@ Belirtilen işlev üzerinde birden çok değerli bir öznitelik (veya bir ifaden
 `mvattr Select(variable item, mvattr attribute, func function)`  
 `mvattr Select(variable item, exp expression, func function)`
 
-* öğe: bir öğeyi birden çok değerli bir özniteliği temsil eder
+* öğe: Bir öğeyi birden çok değerli bir özniteliği temsil eder
 * Öznitelik: birden çok değerli öznitelik
 * ifade: değerlerin bir koleksiyonunu döndüren bir ifade
 * koşul: öznitelik bir öğedeki işleyebilir herhangi işlevi
@@ -1222,8 +1222,8 @@ Anahtar işlev, değerlendirilen koşullara göre tek bir değer döndürmek iç
 **Sözdizimi:**  
 `var Switch(exp expr1, var value1[, exp expr2, var value … [, exp expr, var valueN]])`
 
-* Expr: değerlendirmek istediğiniz değişken ifade.
-* değer: karşılık gelen ifadenin True olması durumunda döndürülecek değer.
+* ifade: Değişken ifade değerlendirmek istiyorsunuz.
+* Değer: Karşılık gelen ifadenin True olması durumunda döndürülecek değer.
 
 **Notlar:**  
 Anahtarın işlevi bağımsız değişken listesi ifadeleri ve değer çiftlerinden oluşur. İfadeleri soldan sağa doğru değerlendirilir ve ilk ifade True olarak değerlendirilmesi için ilişkili değer döndürülür. Bölümleri düzgün eşleştirilmedi, bir çalışma zamanı hatası oluşur.
@@ -1279,7 +1279,7 @@ Belirli bir koşula dayalı birden çok değerli öznitelik (veya bir ifadenin �
 **Sözdizimi:**  
 `mvattr Where(variable item, mvattr attribute, exp condition)`  
 `mvattr Where(variable item, exp expression, exp condition)`  
-* öğe: bir öğeyi birden çok değerli bir özniteliği temsil eder
+* öğe: Bir öğeyi birden çok değerli bir özniteliği temsil eder
 * Öznitelik: birden çok değerli öznitelik
 * koşul: true veya false sonucu verebilen herhangi bir ifade
 * ifade: değerlerin bir koleksiyonunu döndüren bir ifade
@@ -1295,9 +1295,9 @@ WITH işlevi karmaşık ifadeyi temsil eden bir görünen bir alt ifade bir değ
 
 **Sözdizimi:**
 `With(var variable, exp subExpression, exp complexExpression)`  
-* değişken: alt ifade temsil eder.
+* değişkeni: Alt ifade temsil eder.
 * Alt: alt ifade değişkeni tarafından temsil edilir.
-* complexExpression: karmaşık bir ifade.
+* complexExpression: Karmaşık bir ifade.
 
 **Örnek:**  
 `With($unExpiredCerts,Where($item,[userCertificate],CertNotAfter($item)>Now()),IIF(Count($unExpiredCerts)>0,$unExpiredCerts,NULL))`  
@@ -1335,5 +1335,5 @@ Döndürür "brown"
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 * [Bildirim temelli sağlama ifadelerini anlama](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)
-* [Azure AD eşitleme bağlanın: Eşitleme seçeneklerini özelleştirme](how-to-connect-sync-whatis.md)
+* [Azure AD Connect eşitleme: Eşitleme seçeneklerini özelleştirme](how-to-connect-sync-whatis.md)
 * [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](whatis-hybrid-identity.md)

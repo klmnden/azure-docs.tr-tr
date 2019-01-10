@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: juliako;johndeu
-ms.openlocfilehash: 38310ce64335e03c6728092bf1b8ce4752740a83
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 7ea2a84daaa22e0fc7ff4dc90ca41dd906b808c8
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233472"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159749"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Media Services işlemlerini REST API'si genel bakış
 [!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
@@ -28,7 +28,7 @@ ms.locfileid: "50233472"
 
 Media Services, JSON veya atom + XML biçimi pub kabul eden bir REST API'si sağlar. Media Services REST API'si, Media Services, hem de isteğe bağlı üst bilgiler bir dizi bağlanırken her bir istemciye göndermesi gerekir belirli HTTP üst bilgileri gerektirir. Aşağıdaki bölümlerde üstbilgileri ve ne zaman kullanabileceğiniz HTTP fiilleri istekleri oluşturmak ve yanıtları Media Services'dan teslim alma.
 
-Kimlik doğrulaması için medya Hizmetleri REST API makalesinde özetlenen Azure Active Directory kimlik doğrulaması aracılığıyla gerçekleştirilir [REST ile Azure Media Services API'sine erişmek için kimlik doğrulamasını Azure AD kullanın](media-services-rest-connect-with-aad.md)
+Kimlik doğrulaması için Media Services REST API makalesinde özetlenen Azure Active Directory kimlik doğrulaması aracılığıyla gerçekleştirilir [REST ile Azure Media Services API'sine erişmek için kimlik doğrulamasını Azure AD kullanın](media-services-rest-connect-with-aad.md)
 
 ## <a name="considerations"></a>Dikkat edilmesi gerekenler
 
@@ -58,9 +58,9 @@ Media Services'e olun, her çağrı için gerekli üst bilgileri İsteğinizde i
 | Üst bilgi | Tür | Değer |
 | --- | --- | --- |
 | Yetkilendirme |Taşıyıcı |Taşıyıcı yalnızca kabul edilen yetkilendirme mekanizmadır. Değer, Azure Active Directory tarafından sağlanan erişim belirtecini de içermelidir. |
-| x-ms-version |Ondalık |2.17 (veya en son sürüm)|
-| DataServiceVersion |Ondalık |3.0 |
-| MaxDataServiceVersion |Ondalık |3.0 |
+| x-ms-version |Onluk |2.17 (veya en son sürüm)|
+| DataServiceVersion |Onluk |3.0 |
+| MaxDataServiceVersion |Onluk |3.0 |
 
 > [!NOTE]
 > Media Services REST API'lerini kullanıma sunmak için OData kullandığından, içindeki tüm istekleri DataServiceVersion ve MaxDataServiceVersion üstbilgileri eklenmelidir; değilse, ancak daha sonra şu anda Media Services DataServiceVersion değeri kullanılıyor 3.0 olduğunu varsayar.
@@ -73,7 +73,7 @@ Aşağıdaki isteğe bağlı bir üst kümesidir:
 | --- | --- | --- |
 | Tarih |RFC 1123 tarihi |İstek zaman damgası |
 | Kabul |İçerik türü |Aşağıdaki gibi yanıtı için istenen içerik türü:<p> -application/json; odata ayrıntılı =<p> -application/atom + xml şeklindedir<p> Yanıtlar, burada başarılı bir yanıt yükü olarak blob akışı içeren bir blob getirme gibi farklı bir içerik türü olabilir. |
-| Kabul kodlama |Gzip, deflate |GZIP ve DEFLATE, uygun olduğunda kodlama. Not: büyük kaynaklar için Media Services bu başlığı yoksay ve küçülen verileri döndürür. |
+| Kabul kodlama |Gzip, deflate |GZIP ve DEFLATE, uygun olduğunda kodlama. Not: Büyük kaynaklar için Media Services ve bu başlığı yoksay küçülen verileri döndürür. |
 | Kabul dil |"en", "es" ve benzeri. |Yanıt için tercih edilen dili belirtir. |
 | Accept-Charset |"UTF-8" gibi Charset türü |Varsayılan UTF-8'dir. |
 | X-HTTP-Method |HTTP yöntemi |İstemciler veya bir GET çağrısı tünel, bu yöntemleri kullanmak için PUT ya da DELETE gibi HTTP yöntemleri desteklemez güvenlik duvarları sağlar. |

@@ -6,41 +6,46 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 11/05/2018
+ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 961352dc99a164b8537fb588e038ad1b385941cc
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: db10361707d83fcda20f0e4bf2adc2abc4176808
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567460"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156180"
 ---
-# <a name="tutorial-order-an-azure-data-box-disk-preview"></a>Öğretici: Azure Data Box Disk (Önizleme) siparişi verme
+# <a name="tutorial-order-an-azure-data-box-disk"></a>Öğretici: Bir Azure Data Box Disk sipariş
 
 Azure Data Box Disk, şirket içi verilerinizi Azure'a hızlı, kolay ve güvenilir bir şekilde aktarmanızı sağlayan bir hibrit bulut çözümüdür. Verilerinizi Microsoft tarafından sağlanan katı hal sürücülerine (SSD) aktarır ve diskleri geri gönderirsiniz. Bu veriler daha sonra Azure'a yüklenir.
 
 Bu öğreticide Azure Data Box Disk siparişi verme adımları anlatılmaktadır. Bu öğreticide şunları öğrenirsiniz:
 
 > [!div class="checklist"]
-> * Data Box Disk'e kaydolma
 > * Data Box Disk sipariş etme
 > * Siparişi izleme
 > * Siparişi iptal etme
 
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
+## <a name="prerequisites"></a>Önkoşullar
 
-> [!IMPORTANT]
-> - Data Box Disk önizleme aşamasındadır. Sipariş vermeden ve bu çözümü dağıtmadan önce [Önizleme için Azure hizmet şartlarını](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) gözden geçirin. 
-> - Önizleme sırasında ABD, Batı ve Kuzey Avrupa, Kanada ve Avustralya'da bulunan müşteriler için Data Box Disk gönderilebilir. Daha fazla bilgi için bkz. [Bölge kullanılabilirliği](data-box-disk-overview.md#region-availability).
+Dağıtmadan önce Data Box hizmeti ve Data Box Disk için aşağıdaki yapılandırma önkoşulları tamamlayın.
 
-## <a name="sign-up"></a>Kaydolma
+### <a name="for-service"></a>Hizmet için
 
-Data Box Disk önizleme aşamasındadır ve hizmete kaydolmanız gerekir. Data Box hizmetine kaydolmak için aşağıdaki adımları izleyin:
+Başlamadan önce aşağıdakilerden emin olun:
+- Erişim kimlik bilgilerine sahip bir Microsoft Azure Storage hesabınız var.
+- Data Box hizmeti için kullandığınız aboneliğin aşağıdaki türlerden birinde olduğundan emin olun:
+    - Microsoft Kurumsal Anlaşma (EA). [EA abonelikleri](https://azure.microsoft.com/pricing/enterprise-agreement/) hakkındaki yazıları okuyun.
+    - Bulut Çözümü Sağlayıcısı (CSP). [Azure CSP programı](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview) hakkında daha fazla bilgi edinin.
+- Data Box siparişi oluşturmak için, abonelik üzerinde sahip veya katkıda bulunan erişimine sahip olduğunuzdan emin olun.
 
-1. Azure portalda oturum açın: [https://aka.ms/azuredataboxfromdiskdocs](https://aka.ms/azuredataboxfromdiskdocs).
-2. Önizlemeyi etkinleştirmek istediğiniz aboneliği seçin. Veri boyutu, verilerin bulunduğu ülke, zaman aralığı ve veri aktarımı sıklığı hakkındaki soruları yanıtlayın. **Beni kaydet!** bağlantısına tıklayın.
-3. Kaydolduktan ve önizlemeyi etkinleştirdikten sonra Data Box Disk siparişi verebilirsiniz.
+### <a name="for-device"></a>Cihaz için
+
+Başlamadan önce aşağıdakilerden emin olun:
+- Kullanılabilir bir istemci bilgisayar, verileri kopyalamak sahip. İstemci bilgisayarınızda:
+    - [Desteklenen bir işletim sistemi](data-box-disk-system-requirements.md#supported-operating-systems-for-clients) çalıştırılmalıdır.
+    - Windows istemciyse diğer [gerekli yazılımlar](data-box-disk-system-requirements.md#other-required-software-for-windows-clients) yüklenmiş olmalıdır.  
 
 ## <a name="order-data-box-disk"></a>Data Box Disk sipariş etme
 
@@ -97,7 +102,7 @@ Data Box Disk sipariş etmek için [Azure portalda](https://aka.ms/azuredataboxf
  
 ## <a name="track-the-order"></a>Siparişi izleme
 
-Siparişi verdikten sonra durumunu Azure önizleme portalından takip edebilirsiniz. Siparişinize gidin ve durumunu görüntülemek için **Genel bakış** sayfasını inceleyin. Portalda işin durumu **Sipariş edildi** olarak görünür. 
+Siparişi verdikten sonra durumunu Azure portalından takip edebilirsiniz. Siparişinize gidin ve durumunu görüntülemek için **Genel bakış** sayfasını inceleyin. Portalda işin durumu **Sipariş edildi** olarak görünür. 
 
 ![Data Box Disk durumu, sipariş verildi](media/data-box-disk-deploy-ordered/data-box-portal-ordered.png) 
 
@@ -111,17 +116,15 @@ Disklerin hazırlanması tamamlandığında portalda sipariş durumu **İşlenen
 
 Microsoft ardından disklerinizi hazırlar ve bölgeye uygun gönderim şirketine teslim eder. Diskler gönderildikten sonra bir takip numarası iletilir. Portalda sipariş durumu **Yola çıktı** olarak değişir.
 
-
-
 ## <a name="cancel-the-order"></a>Siparişi iptal etme
 
-Bu siparişi iptal etmek için Azure önizleme portalında **Genel bakış**'a gidin ve komut çubuğundan **İptal**'e tıklayın. 
+Bu siparişi iptal etmek için Azure portalında **Genel bakış**'a gidin ve komut çubuğundan **İptal**'e tıklayın. 
 
 Yalnızca diskler sipariş edildikten ve sipariş gönderim için işleme aşamasındayken iptal edebilirsiniz. Sipariş işleme alındıktan sonra iptal edemezsiniz. 
 
 ![Siparişi iptal etme](media/data-box-disk-deploy-ordered/cancel-order1.png)
 
-İptal edilen bir siparişi silmek için **Genel bakış**'a gidin ve komut çubuğundan **Sil**'e tıklayın. 
+İptal edilen bir siparişi silmek için **Genel bakış**'a gidin ve komut çubuğundan **Sil**'e tıklayın.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
@@ -129,7 +132,6 @@ Yalnızca diskler sipariş edildikten ve sipariş gönderim için işleme aşama
 Bu öğreticide aşağıdaki Azure Data Box konularını öğrendiniz:
 
 > [!div class="checklist"]
-> * Data Box Disk'e kaydolma
 > * Data Box Disk sipariş etme
 > * Siparişi izleme
 > * Siparişi iptal etme

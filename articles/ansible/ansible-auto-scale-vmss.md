@@ -5,15 +5,15 @@ ms.service: ansible
 keywords: ansible'ı, azure, devops, bash, playbook, Ölçek, otomatik ölçeklendirme, sanal makine, sanal makine ölçek kümesi, vmss
 author: tomarchermsft
 manager: jeconnoc
-ms.author: yuwzho, kyliel
+ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/10/2018
-ms.openlocfilehash: b573eecb2f5c67014901f0006cf1087a261cf9c4
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 7721dba37131616122f8a5a902e3c63de5c7157f
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54049954"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157063"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-azure-using-ansible"></a>Sanal makine ölçek kümesi ansible'ı kullanarak Azure'da otomatik ölçeklendirme
 Ansible, ortamınızdaki kaynakların dağıtımını ve yapılandırılmasını otomatikleştirmenizi sağlar. Azure'da sanal makine ölçek kümenizi (VMSS) yönetmek için, tıpkı diğer Azure kaynaklarını yönettiğiniz gibi Ansible kullanabilirsiniz. 
@@ -29,7 +29,7 @@ Ansible, ortamınızdaki kaynakların dağıtımını ve yapılandırılmasını
 > Bu öğreticideki örnek playbook'ları çalıştırmak için Ansible 2.7 gerekir. 
 
 ## <a name="auto-scale-based-on-a-schedule"></a>Bir zamanlamaya göre otomatik ölçeklendirme   
-Bir ölçek kümesinde otomatik ölçeklendirmeyi etkinleştirmek için ilk olarak bir otomatik ölçeklendirme profili tanımlamanız gerekir. Bu profil varsayılan, en düşük ve en yüksek ölçek kümesi kapasitesini tanımlar. Bu limitler, sürekli VM örnekleri oluşturmayarak maliyeti kontrol etmenize ve bir ölçeklendirme olayında kalan en düşük örnek sayısı ile kabul edilebilir performansı dengelemenize olanak tanır. 
+Bir ölçek kümesinde otomatik ölçeklendirmeyi etkinleştirmek için ilk olarak bir otomatik ölçeklendirme profili tanımlamanız gerekir. Bu profil varsayılan, en düşük ve en yüksek ölçek kümesi kapasitesini tanımlar. Bu sınırlar değil, sürekli olarak VM örnekleri oluşturarak maliyet denetlemek ve en az bir ölçeğini olayında kalan örnek sayısı kabul edilebilir performans Bakiye belirlemenizi sağlar. 
 
 Ölçeklendirme ve ölçek dışı sanal makine ölçek kümeleri, yinelenen bir zamanlamaya göre veya belirli bir tarihe göre. Bu bölümde, Ölçek kümelerinizdeki 10:00 her Pazartesi, Pasifik saati dilimindeki üç sanal makine örneği sayısını artıran bir otomatik ölçeklendirme ayarı oluşturan bir örnek Ansible playbook sunar. 
 

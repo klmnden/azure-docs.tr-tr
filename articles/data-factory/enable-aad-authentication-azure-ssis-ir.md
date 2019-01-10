@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 1/8/2019
+ms.date: 1/9/2019
 ms.author: douglasl
-ms.openlocfilehash: be26aa95ddac7b63293cee234209ac52243f110a
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 5cc625e07f1c92c53491e83f4049bad12cd9d1a1
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104344"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158270"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Azure-SSIS tümleştirme çalışma zamanı için Azure Active Directory kimlik doğrulamasını etkinleştirme
 
@@ -187,6 +187,17 @@ Bu sonraki adım için ihtiyacınız [Microsoft SQL Server Management Studio](h
     ```
     
     Yönetilen kimlik ADF veritabanını (SSISDB) oluşturma olanağı verme komutu başarıyla tamamlanması.
+
+8.  SQL kimlik doğrulaması kullanarak, SSISDB oluşturuldu ve ona erişmek için Azure AD kimlik doğrulaması için Azure-SSIS IR kullanmaya geçmek istiyorsunuz, sağ **SSISDB** seçin ve veritabanı **yeni sorgu**.
+
+9.  Sorgu penceresinde aşağıdaki T-SQL komutunu girin ve seçin **yürütme** araç.
+
+    ```sql
+    CREATE USER [{the managed identity name}] FOR LOGIN [{the managed identity name}] WITH DEFAULT_SCHEMA = dbo
+    ALTER ROLE db_owner ADD MEMBER [{the managed identity name}]
+    ```
+
+    Yönetilen kimlik bilgilerinizi ADF için SSISDB erişim olanağı verme komutu başarıyla tamamlanması.
 
 ## <a name="provision-azure-ssis-ir-in-azure-portaladf-app"></a>Azure portal/ADF uygulamasında Azure-SSIS IR sağlama
 

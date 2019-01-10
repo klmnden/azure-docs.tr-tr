@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: jdial
-ms.openlocfilehash: b6b3111928baf7fa52a5d87d818e15302b96e790
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 52cac856fbec79842cc4661f38342cb972ea40df
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025904"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159069"
 ---
 # <a name="security-groups"></a>Güvenlik grupları
 <a name="network-security-groups"></a>
@@ -71,15 +71,18 @@ Genişletilmiş güvenlik kuralları, sanal ağlar için güvenlik tanımını d
 * **MicrosoftContainerRegistry** (yalnızca Resource Manager): Bu etiket, Microsoft kapsayıcı kayıt defteri hizmetin adres ön eklerini belirtir. *MicrosoftContainerRegistry* değerini belirtirseniz MicrosoftContainerRegistry'ye gelen trafiğe izin verilir veya trafik reddedilir. Yalnızca belirli bir [bölgede](https://azure.microsoft.com/regions) MicrosoftContainerRegistry’ye erişime izin vermek istiyorsanız bölgeyi şu biçimde belirtebilirsiniz: MicrosoftContainerRegistry.[bölge adı]. 
 * **AzureContainerRegistry** (yalnızca Resource Manager): Bu etiket, Azure Container Registry hizmetin adres ön eklerini belirtir. *AzureContainerRegistry* değerini belirtirseniz AzureContainerRegistry'ye gelen trafiğe izin verilir veya trafik reddedilir. Yalnızca belirli bir [bölgede](https://azure.microsoft.com/regions) AzureContainerRegistry’ye erişime izin vermek istiyorsanız bölgeyi şu biçimde belirtebilirsiniz: AzureContainerRegistry.[bölge adı]. 
 * **AppService** (yalnızca Resource Manager): Bu etiket Azure AppService hizmetin adres ön eklerini belirtir. *AppService* değerini belirtirseniz AppService'e gelen trafiğe izin verilir veya trafik reddedilir. Yalnızca belirli bir [bölgede](https://azure.microsoft.com/regions) AppService’e erişime izin vermek istiyorsanız bölgeyi şu biçimde belirtebilirsiniz: AppService.[bölge adı]. 
-* **AppServiceManagement** (yalnızca Resource Manager): Bu etiket Azure AppService yönetim hizmetin adres ön eklerini belirtir. *AppServiceManagement* değerini belirtirseniz AppServiceManagement'a gelen trafiğe izin verilir veya trafik reddedilir. Yalnızca belirli bir [bölgede](https://azure.microsoft.com/regions) AppServiceManagement’a erişime izin vermek istiyorsanız bölgeyi şu biçimde belirtebilirsiniz: AppServiceManagement.[bölge adı]. 
-* **ApiManagement** (yalnızca Resource Manager): Bu etiket Azure API Management hizmetinin adres ön eklerini belirtir. *ApiManagement* değerini belirtirseniz ApiManagement'a gelen trafiğe izin verilir veya trafik reddedilir. Yalnızca belirli bir [bölgede](https://azure.microsoft.com/regions) ApiManagement’a erişime izin vermek istiyorsanız bölgeyi şu biçimde belirtebilirsiniz: ApiManagement.[bölge adı]. 
+* **AppServiceManagement** (yalnızca Resource Manager): Bu etiket Azure AppService yönetim hizmetin adres ön eklerini belirtir. *AppServiceManagement* değerini belirtirseniz AppServiceManagement'a gelen trafiğe izin verilir veya trafik reddedilir. 
+* **ApiManagement** (yalnızca Resource Manager): Bu etiket Azure API Management hizmetinin adres ön eklerini belirtir. *ApiManagement* değerini belirtirseniz ApiManagement'a gelen trafiğe izin verilir veya trafik reddedilir.  
 * **AzureConnectors** (yalnızca Resource Manager): Bu etiket Azure bağlayıcılar hizmetin adres ön eklerini belirtir. *AzureConnectors* değerini belirtirseniz AzureConnectors’a gelen trafiğe izin verilir veya trafik reddedilir. Yalnızca belirli bir [bölgede](https://azure.microsoft.com/regions) AzureConnectors’a erişime izin vermek istiyorsanız bölgeyi şu biçimde belirtebilirsiniz: AzureConnectors.[bölge adı]. 
-* **GatewayManager** (yalnızca Resource Manager): Bu etiket Azure Ağ Geçidi Yöneticisi hizmetin adres ön eklerini belirtir. *GatewayManager* değerini belirtirseniz GatewayManager’a gelen trafiğe izin verilir veya trafik reddedilir. Yalnızca belirli bir [bölgede](https://azure.microsoft.com/regions) GatewayManager’a erişime izin vermek istiyorsanız bölgeyi şu biçimde belirtebilirsiniz: GatewayManager.[bölge adı]. 
+* **GatewayManager** (yalnızca Resource Manager): Bu etiket Azure Ağ Geçidi Yöneticisi hizmetin adres ön eklerini belirtir. *GatewayManager* değerini belirtirseniz GatewayManager’a gelen trafiğe izin verilir veya trafik reddedilir.  
 * **AzureDataLake** (yalnızca Resource Manager): Bu etiket, Azure Data Lake hizmetin adres ön eklerini belirtir. *AzureDataLake* değerini belirtirseniz AzureDataLake’e gelen trafiğe izin verilir veya trafik reddedilir. 
 * **AzureActiveDirectory** (yalnızca Resource Manager): Bu etiket AzureActiveDirectory hizmetin adres ön eklerini belirtir. *AzureActiveDirectory* değerini belirtirseniz AzureActiveDirectory’ye gelen trafiğe izin verilir veya trafik reddedilir.  
+* **AzureMonitor** (yalnızca Resource Manager): Bu etiket AzureMonitor hizmetin adres ön eklerini belirtir. Belirtirseniz *AzureMonitor* değeri için trafiğe izin veya trafik için AzureMonitor reddedilir. 
+* **ServiceFabric** (yalnızca Resource Manager): Bu etiket ServiceFabric hizmetin adres ön eklerini belirtir. Belirtirseniz *ServiceFabric* değeri için trafiğe izin veya trafik için ServiceFabric reddedilir. 
+* **AzureMachineLearning** (yalnızca Resource Manager): Bu etiket AzureMachineLearning hizmetin adres ön eklerini belirtir. Belirtirseniz *AzureMachineLearning* değeri için trafiğe izin veya trafik için AzureMachineLearning reddedilir. 
 
 > [!NOTE]
-> Hizmet etiketleri Azure hizmetlerinin adres ön eklerini kullanılan özel buluttan gösterir. Bölgesel hizmet etiketleri ulusal bulutlarda desteklenmez, yalnızca küresel biçimde desteklenir. Örneğin, *Depolama* ve *Sql*.
+> Hizmet etiketleri Azure hizmetlerinin adres ön eklerini kullanılan özel buluttan gösterir. 
 
 > [!NOTE]
 > Azure Depolama veya Azure SQL Veritabanı gibi bir hizmet için bir [sanal ağ hizmet uç noktası](virtual-network-service-endpoints-overview.md) uygularsanız Azure, sanal ağ alt ağına hizmet için bir [rota](virtual-networks-udr-overview.md#optional-default-routes) ekler. Rotada adres ön ekleri ilgili hizmet etiketiyle aynı adres ön ekleri veya CIDR aralıklarıdır.

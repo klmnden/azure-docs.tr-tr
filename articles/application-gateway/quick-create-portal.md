@@ -5,15 +5,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 12/21/2018
+ms.date: 1/8/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: f9bae7ec39b8c9d52feb846360deda5a6367e3e6
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 16e23f77509d2402f765981b39a30e08a2309f68
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038577"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156536"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Hızlı Başlangıç: Azure Application Gateway - Azure portalı ile doğrudan web trafiği
 
@@ -54,7 +54,7 @@ Oluşturduğunuz kaynaklar arasında iletişim kurmak Azure için sanal ağ gere
 
     - **Adres alanı**: Girin *10.0.0.0/16* sanal ağ adres alanı için.
 
-    - **Alt ağ adı**: Girin *myAGSubnet* alt ağ adı için.
+    - **Alt ağ adı**: Girin *myAGSubnet* alt ağ adı için.<br>Uygulama ağ geçidi alt ağı, yalnızca uygulama ağ geçitleri içerebilir. Başka kaynaklar izin verilir.
 
     - **Alt ağ adres aralığı**: Girin *10.0.0.0/24* için alt ağ adres aralığı.
 

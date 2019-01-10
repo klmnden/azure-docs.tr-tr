@@ -6,23 +6,19 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 1a4fe30881f06d8af851a67f389a6faafbe3dfef
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 412727d79c194172f2855d014d1eaf18f44167f6
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389471"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159358"
 ---
-# <a name="azure-data-box-disk-limits-preview"></a>Azure Data Box Disk sınırları (Önizleme)
+# <a name="azure-data-box-disk-limits"></a>Azure Data Box Disk limitleri
 
 
 Limitler, dağıtmanıza ve Microsoft Azure Data Box Disk çözümünüz olarak düşünün. 
-
-> [!IMPORTANT] 
-> Azure Data Box Disk Önizleme aşamasındadır. Bu çözümü dağıtmadan önce [önizleme için kullanım koşullarını](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) gözden geçirin. 
-
 
 ## <a name="data-box-service-limits"></a>Veri kutusu hizmeti sınırları
 

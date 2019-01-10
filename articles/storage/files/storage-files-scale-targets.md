@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 7/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: af738b655b4070da1cfe7555daff82c0e40ff91c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 05e5c0a37d2de78393048728b73d9bcf6e56c491
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138594"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159175"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure dosyaları ölçeklenebilirlik ve performans hedefleri
 [Azure dosyaları](storage-files-introduction.md) tam olarak yönetilen dosya paylaşımları endüstri standardı SMB protokolünü erişilebilen bulutta sunar. Bu makalede, Azure dosyaları ve Azure dosya eşitleme için ölçeklenebilirlik ve performans hedefleri ele alır.
@@ -39,11 +39,11 @@ Bu her zaman mümkün değildir, ancak Azure dosya eşitleme ile sınırsız kul
 [!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
 
 ### <a name="azure-file-sync-performance-metrics"></a>Azure dosya eşitleme performans ölçümleri
-Azure dosya eşitleme aracısının Azure dosya paylaşımları için bağlanan bir Windows Server makinesi üzerinde çalıştığından, etkili eşitleme performansı altyapınızdaki bir dizi etkene bağlıdır: Windows Server ve temel alınan disk yapılandırması, ağ bant genişliği Sunucu ve Azure depolama, dosya boyutu, toplam veri kümesi boyutu ve bir veri kümesini etkinlik arasında. Azure dosya eşitleme dosya düzeyinde çalışır olduğundan, Azure dosya eşitleme tabanlı bir çözüm performans özelliklerini daha iyi ölçülür saniyede işlenen nesne (dosyalar ve dizinler) sayısı. 
+Azure dosya eşitleme aracısının Azure dosya paylaşımları için bağlanan bir Windows Server makinesi üzerinde çalıştığından, etkili eşitleme performansı altyapınızdaki bir dizi etkene bağlıdır: Windows Server ve temel alınan disk yapılandırmasını, sunucu ve Azure depolama arasındaki ağ bant genişliği veri kümesinde dosya boyutu, toplam veri kümesi boyutu ve etkinlik. Azure dosya eşitleme dosya düzeyinde çalışır olduğundan, Azure dosya eşitleme tabanlı bir çözüm performans özelliklerini daha iyi ölçülür saniyede işlenen nesne (dosyalar ve dizinler) sayısı. 
  
 Azure dosya eşitleme için performans iki aşamada önemlidir:
-1. **İlk tek seferlik sağlama**: ilk sağlama üzerinde performansını iyileştirmek için başvurmak [Azure dosya eşitleme ile ekleme](storage-sync-files-deployment-guide.md#onboarding-with-azure-file-sync) için en uygun dağıtım ayrıntılarını.
-2. **Devam eden eşitleme**: veri başlangıçta Azure dosya paylaşımlarını sağlanmış sonra Azure dosya eşitleme birden fazla uç noktası eşitlenmiş tutar.
+1. **İlk tek seferlik sağlama**: İlk sağlama üzerinde performansını iyileştirmek için başvurmak [Azure dosya eşitleme ile ekleme](storage-sync-files-deployment-guide.md#onboarding-with-azure-file-sync) için en uygun dağıtım ayrıntıları.
+2. **Devam eden eşitleme**: Azure dosya eşitleme verileri başlangıçta Azure dosya paylaşımlarını sağlanmış sonra birden fazla uç noktası uyumlu kalmasını sağlar.
 
 Her aşamalar için dağıtım planlamanıza yardımcı olması için aşağıdaki sonuçları iç bir sistemde bir yapılandırma ile test sırasında gözetilir
 
@@ -59,9 +59,9 @@ Her aşamalar için dağıtım planlamanıza yardımcı olması için aşağıda
 |-|-|
 | Nesne sayısı | 10 milyon nesneleri | 
 | Veri kümesi boyutu| ~ 4 TiB |
-| Ortalama dosya boyutu | Yaklaşık 500 KiB (en büyük dosyayı: 100 GiB) |
-| Aktarım hızı karşıya yükleme | saniyede 15 nesneleri |
-| Namespace indirme aktarım hızı * | saniyede 350 nesneleri |
+| Ortalama dosya boyutu | Yaklaşık 500 KiB (en büyük dosya: 100 giB) |
+| Aktarım hızı karşıya yükleme | saniye başına 20 nesneleri |
+| Namespace indirme aktarım hızı * | Saniyede 400 nesneleri |
  
 * Yeni bir sunucu uç noktası oluşturulduğunda, Azure dosya eşitleme aracısının dosya içeriği indirmez. İlk tam ad alanı eşitler ve ardından Tetikleyiciler ya da tamamen dosyaları indirmek için geri çağırma arka plan veya Bulut katmanlaması sunucu uç noktasında ayarlayın bulut katmanlama ilkesi etkinleştirilir.
 
@@ -70,8 +70,8 @@ Her aşamalar için dağıtım planlamanıza yardımcı olması için aşağıda
 | Eşitlenen nesne sayısı| 125,000 nesneleri (yaklaşık %1 değişim sıklığı) | 
 | Veri kümesi boyutu| 50 giB |
 | Ortalama dosya boyutu | Yaklaşık 500 KiB |
-| Aktarım hızı karşıya yükleme | saniye başına 20 nesneleri |
-| Tam yükleme verimi * | saniyede 30 nesneleri |
+| Aktarım hızı karşıya yükleme | saniyede 30 nesneleri |
+| Tam yükleme verimi * | saniyede 60 nesneleri |
  
 * İse bulut katmanlama etkin olduğunda, muhtemelen yalnızca bazı veri karşıdan dosya olarak daha iyi performans gözlemleyin. Bunlar herhangi bir uç nokta değiştirildiğinde azure dosya eşitleme yalnızca verilerin önbelleğe alınmış dosyaları indirir. Aracı, tüm katmanlı veya yeni oluşturulan dosyalar için dosya verilerini indirmez ve bunun yerine, tüm sunucu uç noktaları için ad alanı yalnızca eşitleyebilir. Kullanıcı tarafından erişilen gibi aracı katmanlı dosyaların kısmi yüklemeleri de destekler. 
  

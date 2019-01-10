@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 7f7ae858f633a910b796f544ed69a582e749beaf
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: d5d284e8f7756e3e9bff5b08d28a8ed911a60572
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311074"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158882"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Hızlı Başlangıç: Kullanıcılar oturum ve bir Android uygulamasından Microsoft Graph API çağırma
 
@@ -110,14 +110,14 @@ mAuthResult.getAccessToken()
 2. Örneği Android Studio’da açın.
     - **Var olan Android Studio projesini aç**'ı seçin.
 
-## <a name="step-3-configure-your-code"></a>3. adım: Kodunuzu yapılandırın
+## <a name="step-3-configure-your-code"></a>3. Adım: Kodunuzu yapılandırın
 
 Bu kod örneğinin tüm yapılandırmasını ***src/main/java/com/azuresamples/azuresampleapp/MainActivity.java*** dosyasında bulabilirsiniz.
 
 1. `CLIENT_ID` sabitini `ApplicationID` ile değiştirin.
 2. `REDIRECT URI` sabitini daha önce yapılandırdığınız `Redirect URI` ile (`http://localhost`) değiştirin.
 
-## <a name="step-4-run-the-sample"></a>4. adım: Örneği çalıştırma
+## <a name="step-4-run-the-sample"></a>4. Adım: Örneği çalıştırma
 
 1. **Derle > Projeyi Temizle**’yi seçin.
 2. **Çalıştır > Uygulamayı çalıştır**’ı seçin.
@@ -127,7 +127,7 @@ Bu kod örneğinin tüm yapılandırmasını ***src/main/java/com/azuresamples/a
 
 1. Kitaplığı mekanizması ve yeni senaryolarla özellikleri yapılandırma hakkında daha fazla bilgi için [ADAL Android Wiki'sini](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki) gözden geçirin.
 2. Yerel senaryolarda uygulama, eklenmiş bir Webview kullanır ve uygulamadan çıkılmaz. `Redirect URI` rastgele olabilir.
-3. Sorun mu buldunuz yoksa istekleriniz mi var? Bir sorun oluşturabilir veya `azure-active-directory` etiketiyle Stackoverflow'a gönderi ekleyebilirsiniz.
+3. Sorun mu buldunuz yoksa istekleriniz mi var? Sorun oluştur veya etiketle sonrası Stack Overflow sitesinde `azure-active-directory`.
 
 ### <a name="cross-app-sso"></a>Uygulamalar arası SSO
 

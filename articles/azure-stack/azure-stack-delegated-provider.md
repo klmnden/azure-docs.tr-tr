@@ -11,27 +11,27 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 01/09/2019
 ms.author: sethm
 ms.reviewer: alfredop
-ms.openlocfilehash: 77819c5592fe8b61ed4e3fcb5f874fc0bf5ca602
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 1efe64d2057a4dccc0d82a8a99bfbf3eaa719521
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077993"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159120"
 ---
 # <a name="delegate-offers-in-azure-stack"></a>Azure Stack’te teklifleri yetkilendirme
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
-Azure Stack operatör olarak, genellikle diğer kişilerin sorumlu kullanıcılar imzalama ve abonelik oluşturma yerleştirmek istediğiniz. Örneğin, bir hizmet sağlayıcı barındırıyorsanız, müşterileri oturum ve sizin adınıza yönetmek için Satıcılar isteyebilirsiniz. Veya merkezi bir BT grubu, bir kuruluşta bir parçası kullanıyorsanız, kullanıcı oturum kadar temsilci isteyebileceğiniz diğer BT personeli.
+Azure Stack operatör olarak, genellikle diğer kişilerin sorumlu kullanıcılar imzalama ve abonelik oluşturma yerleştirmek istediğiniz. Örneğin, bir hizmet sağlayıcı barındırıyorsanız, müşterileri oturum ve sizin adınıza yönetmek için Satıcılar isteyebilirsiniz. Veya, bir kuruluşta merkezi BT grubunun bir parçası kullanıyorsanız, kullanıcı kaydı diğer BT personeli için temsilci seçmek isteyebilirsiniz.
 
-Temsilci erişmek ve aşağıdaki çizimde gösterildiği gibi kendiniz ile yapabileceğiniz daha fazla kullanıcı yönetmek daha kolay hale getirir. 
+Temsilci erişmek ve aşağıdaki resimde gösterildiği gibi kendiniz tarafından yapabileceğinden daha fazla kullanıcı yönetmek daha kolay hale getirir:
 
 ![Temsilci düzeyleri](media/azure-stack-delegated-provider/image1.png)
 
-Temsilci seçme, bir teklif (teklif temsilcisi) sağlayıcı temsilcisi yönetir ve son müşterilere abonelikleri katılımı olmadan bu teklif altındaki Sistem Yöneticisi'nden alın. 
+Temsilci seçme, bir teklif (teklif temsilcisi) sağlayıcı temsilcisi yönetir ve son müşterilere abonelikleri katılımı olmadan bu teklif altındaki Sistem Yöneticisi'nden alın.
 
 ## <a name="understand-delegation-roles-and-steps"></a>Temsilci rolleri ve adımlarını anlamak
 
@@ -49,17 +49,17 @@ Aşağıdaki roller temsilci bir parçasıdır:
 
 Temsilci seçmeyi ayarlama ayarlamak için iki temel adım vardır:
 
-1. *Temsilci bir sağlayıcı aboneliği oluşturma* yalnızca abonelikleri hizmeti içeren bir teklif için bir kullanıcı abone tarafından. Bu teklife abone kullanıcılar ardından teklif temsilcisi diğer kullanıcılara teklifler için açarak genişletebilirsiniz.
+1. **Sağlayıcı temsilcisi aboneliğini oluşturmak**: Bir kullanıcı yalnızca abonelikleri hizmeti içeren bir teklif için abone olun. Bu teklife abone kullanıcılar ardından teklif temsilcisi diğer kullanıcılara teklifler için açarak genişletebilirsiniz.
 
-2. *Sağlayıcı temsilcisi için bir teklifi yetkilendirme*. Bu teklif abonelikleri oluşturma veya kullanıcıları için teklif genişletmek için sağlayıcı temsilcisi sağlar. Sağlayıcı temsilcisi artık teklif almak ve diğer kullanıcılara sunma.
+2. **Sağlayıcı temsilcisi için bir teklifi yetkilendirme**: Bu teklif abonelikleri oluşturma veya kullanıcıları için teklif genişletmek için sağlayıcı temsilcisi sağlar. Sağlayıcı temsilcisi artık teklif almak ve diğer kullanıcılara sunma.
 
-Sonraki grafikte, temsilci seçmeyi ayarlama adımları gösterir.
+Temsilci seçmeyi ayarlama adımları aşağıdaki şekilde gösterilmiştir:
 
 ![Sağlayıcı temsilcisi oluşturun ve bunları kullanıcılar oturum açmak etkinleştirme](media/azure-stack-delegated-provider/image2.png)
 
-**Sağlayıcı temsilcisi gereksinimleri**
+#### <a name="delegated-provider-requirements"></a>Sağlayıcı temsilcisi gereksinimleri
 
-Sağlayıcı temsilcisi çalışmak için bir abonelik oluşturarak ana sağlayıcısı ile bir ilişki kurmak bir kullanıcının gerekir. Bu abonelikte teklif temsilcisi ana Sağlayıcı adına sunmak hakkı sahip sağlayıcı temsilcisi tanımlar.
+Sağlayıcı temsilcisi çalışmak için bir kullanıcı bir abonelik oluşturarak bir ilişki ana sağlayıcıyla kurar. Bu abonelikte teklif temsilcisi ana Sağlayıcı adına sunmak hakkı sahip sağlayıcı temsilcisi tanımlar.
 
 Bu ilişki kurulduktan sonra Azure Stack operatörü bir teklif sağlayıcı temsilcisi için yetkilendirme yapabilirsiniz. Sağlayıcı temsilcisi teklif alır, yeniden adlandırın (ancak özünü değiştirilmemesi), müşterilerine sunar.
 
@@ -83,11 +83,11 @@ Bu anlatımda kullanmak için iki Azure AD hesaplarının yanı sıra Azure Stac
 1. Bir kullanıcının bir sağlayıcı temsilcisi olmasını sağlayan bir teklifi oluşturmak için:
 
    a.  [Bir plan oluşturmanız](azure-stack-create-plan.md).
-       Bu plan yalnızca abonelikleri hizmet içermelidir. Bu makalede adlı bir planı kullanan **PlanForDelegation** örnek olarak.
+       Bu plan, yalnızca abonelik hizmeti içermelidir. Bu makalede adlı bir planı kullanan **PlanForDelegation** örnek olarak.
 
    b.  [Teklif oluşturma](azure-stack-create-offer.md) bu plana göre. Bu makalede adlı bir teklif kullanan **OfferToDP** örnek olarak.
 
-   c.  Sağlayıcı temsilcisi, seçerek bu teklife abone olarak ekleyin **abonelikleri** > **Ekle** > **yeni Kiracı aboneliği**.
+   c.  Sağlayıcı temsilcisi, seçerek bu teklife abone olarak ekleyin **abonelikleri**, ardından **Ekle**, ardından **yeni Kiracı aboneliği**.
 
    ![Sağlayıcı temsilcisi bir abone Ekle](media/azure-stack-delegated-provider/image3.png)
 
@@ -96,16 +96,16 @@ Bu anlatımda kullanmak için iki Azure AD hesaplarının yanı sıra Azure Stac
 
 ### <a name="azure-stack-operator-creates-the-delegated-offer"></a>Teklif temsilcisi Azure Stack operatörü oluşturur
 
-Sonraki adım, plan ve teklif temsilci olarak gideceğinizi ve kullanıcılarınızın kullanacağı oluşturmaktır. Sağlayıcı temsilcisi planları ve kotaları içerdiğinden değiştirilemiyor çünkü görmek için kullanıcılar tam olarak istediğiniz gibi bu teklif tanımlamak için iyi bir fikirdir.
+Sonraki adım, plan ve teklif temsilci olarak gideceğinizi ve kullanıcılarınızın kullanacağı oluşturmaktır. Sağlayıcı temsilcisi planları ve kotaları içerdiğinden değiştirilemiyor çünkü tam olarak, kullanıcıların istediğiniz şekilde bu teklif tanımlamak için iyi bir fikirdir.
 
 1. Azure Stack operatör olarak [bir plan oluşturmanız](azure-stack-create-plan.md) ve [teklif](azure-stack-create-offer.md) planına dayanarak. Bu makalede adlı bir teklif kullanan **DelegatedOffer** örnek olarak.
 
    > [!NOTE]
-   > Bu teklif genel olması gerekmez, ancak isterseniz, genel yapabilirsiniz. Ancak, çoğu zaman yalnızca teklif erişimi için yetkilendirilmiş sağlayıcıları istersiniz. Aşağıdaki adımlarda açıklandığı gibi özel bir teklif temsilci sonra sağlayıcı temsilcisi erişimi vardır.
+   > Bu teklif, ortak olmak zorunda değildir, ancak genel yapabilirsiniz. Ancak, çoğu zaman yalnızca teklif erişimi için yetkilendirilmiş sağlayıcıları istersiniz. Aşağıdaki adımlarda açıklandığı gibi özel bir teklif temsilci sonra sağlayıcı temsilcisi erişimi vardır.
 
-1. Teklif temsilci. Git **DelegatedOffer**. Altında **ayarları**seçin **temsilci sağlayıcıları** > **Ekle**.
+2. Teklif temsilci. Git **DelegatedOffer**. Altında **ayarları**seçin **temsilci sağlayıcıları**, ardından **Ekle**.
 
-1. Sağlayıcı temsilcisi için abonelik aşağı açılan listeden seçin ve ardından **temsilci**.
+3. Sağlayıcı temsilcisi için abonelik aşağı açılan listeden seçin ve ardından **temsilci**.
 
    ![Bir sağlayıcı temsilcisi Ekle](media/azure-stack-delegated-provider/image4.png)
 
@@ -113,28 +113,28 @@ Sonraki adım, plan ve teklif temsilci olarak gideceğinizi ve kullanıcıların
 
 Sağlayıcı temsilcisi olarak kullanıcı portalında oturum açın ve ardından teklif temsilcisini şablon olarak kullanarak yeni bir teklif oluşturun.
 
-1. Seçin **+ kaynak Oluştur** > **Kiracı sunar + planlar** > **teklif**.
+1. Seçin **+ kaynak Oluştur**, ardından **Kiracı sunar + planlar**, ardından **teklif**.
 
     ![Yeni bir teklif oluşturun](media/azure-stack-delegated-provider/image5.png)
 
-1. Teklif için bir ad atayın. Bu makalede **ResellerOffer** örnek olarak. Teklif temsilcisi, temel ve ardından bağlanacağı seçin **Oluştur**.
+2. Teklif için bir ad atayın. Bu örnekte **ResellerOffer**. Teklif temsilcisi, temel ve ardından bağlanacağı seçin **Oluştur**.
 
    ![Bir ad atayın](media/azure-stack-delegated-provider/image6.png)
 
    >[!IMPORTANT]
-   >Sağlayıcı temsilcisi onlara yetki verilen teklifler yalnızca seçebilirsiniz anlamak önemlidir. Bunlar, bu tekliflerin içerdiği değişiklik yapamazsınız. Yalnızca Azure Stack operatörü Bu teklif, örneğin, kendi planları ve kotaları değiştirme değiştirebilirsiniz. Bir sağlayıcı temsilcisi, bir temel plan ve eklenti planları tekliften oluşturmak değildir. 
+   >Sağlayıcı temsilcisi onlara yetki verilen teklifler yalnızca seçebilirsiniz anlamak önemlidir. Bunlar, bu tekliflerin içerdiği değişiklik yapamazsınız. Yalnızca Azure Stack operatörü Bu teklif, örneğin, kendi planları ve kotaları değiştirerek değiştirebilirsiniz. Bir sağlayıcı temsilcisi, bir temel plan ve eklenti planları tekliften oluşturmak değil.
 
 3. Sağlayıcı temsilcisi bu teklifleri kendi portal aracılığıyla genel erişime açmadan URL'si. Teklife genel hale getirmek üzere seçin **Gözat**, ardından **sunar**. Teklif seçin ve ardından **durumunu değiştir**.
 
 4. Teklif temsilcisi genel artık yalnızca yetkilendirilmiş portal üzerinden görülebilir. Bulmak ve bu URL'yi değiştirmek için:
 
-    a.  Seçin **Gözat** > **tüm hizmetleri**ve ardından altındaki **genel** kategorisi seçin **abonelikleri**. Sağlayıcı temsilcisi aboneliğini seçin. Örneğin, **DPSubscription** > **özellikleri**.
+    a.  Seçin **Gözat**, ardından **tüm hizmetleri**ve ardından altındaki **genel** kategorisi seçin **abonelikleri**. Sağlayıcı temsilcisi aboneliğini seçin. Örneğin, **DPSubscription**, ardından **özellikleri**.
 
     b.  Portaldaki kopyalayın, Not Defteri gibi ayrı bir konuma URL.
 
     ![Sağlayıcı temsilcisi aboneliğini seçin](media/azure-stack-delegated-provider/dpportaluri.png)  
 
-   Teklif temsilcisi olarak yetkilendirilmiş bir sağlayıcı oluşturma işlemi tamamlandı. Sağlayıcı temsilcisi oturumu kapatın ve kullanmakta olduğunuz tarayıcı penceresini kapatın.
+   Teklif temsilcisi olarak yetkilendirilmiş bir sağlayıcı oluşturma işlemi tamamlandı. Sağlayıcı temsilcisi oturumu kapatın ve tarayıcı penceresini kapatın.
 
 ### <a name="sign-up-for-the-offer"></a>Teklif için kaydolun
 
@@ -151,13 +151,13 @@ Bir teklif için temsilci seçme işlemi tamamlandı. Artık bir kullanıcı bu 
 
 ## <a name="move-subscriptions-between-delegated-providers"></a>Sağlayıcı temsilcisi arasında taşıma abonelikler
 
-Gerekirse, bir abonelik aynı dizine kiracısına ait sağlayıcı temsilcisi, yeni veya mevcut abonelikler arasında taşınabilir. Bu PowerShell cmdlet'ini kullanarak, [taşıma AzsSubscription](https://docs.microsoft.com/powershell/module/azs.subscriptions.admin).
+Gerekirse, bir abonelik aynı dizine kiracısına ait sağlayıcı temsilcisi, yeni veya mevcut abonelikler arasında taşınabilir. Bu PowerShell cmdlet'i kullanılarak gerçekleştirilir [taşıma AzsSubscription](/powershell/module/azs.subscriptions.admin).
 
 Bu durumlarda yararlı olur:
-- Yerleşik sağlayıcı temsilcisi rolü ve, yeni bir takım üyesi bu takım üyesi kullanıcı-varsayılan sağlayıcı abonelikte önceden oluşturulmuş abonelikler atamak istediğiniz.
-- Aynı dizin-kiracıda (Azure Active Directory) birden çok sağlayıcı temsilcisi aboneliğiniz varsa ve bunlar arasında kullanıcı aboneliklerini taşımanız gerekir. Bu durum burada bir takım üyesi takımlar arasında taşır ve yeni ekibine ayrılmasını aboneliğini gerekiyor olabilir.
 
+* Yerleşik sağlayıcı temsilcisi rolü ve, yeni bir takım üyesi için varsayılan sağlayıcı abonelikte önceden oluşturulmuş bu takım üyesi kullanıcı abonelikleri atamak istediğiniz.
+* Aynı dizin kiracısında (Azure Active Directory) birden çok sağlayıcı temsilcisi aboneliğiniz varsa ve bunlar arasında kullanıcı aboneliklerini taşımanız gerekir. Bu senaryo, burada bir takım üyesi takımlar arasında taşır ve aboneliğini yeni takıma ayrılması gereken bir durumda olabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Bir VM sağlama](azure-stack-provision-vm.md)
+* [Bir VM sağlama](azure-stack-provision-vm.md)

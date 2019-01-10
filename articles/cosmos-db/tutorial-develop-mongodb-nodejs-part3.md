@@ -11,12 +11,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: 2ab583a2cdef5df3816f6da7e0a57ee20f087a49
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 286ccfe84f511ffccdc8919b2e717cd21f124c2b
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043150"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158712"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---build-the-ui-with-angular"></a>Angular uygulama API'si ile Azure Cosmos DB'nin MongoDB için oluşturma - Angular ile kullanıcı arabirimini oluşturma
 
@@ -417,7 +417,7 @@ Bu çok bölümlü öğretici, Express ve Angular ile Node.js kullanılarak yaz�
 
 2. Visual Studio Code’da **heroes.components.ts** dosyasına geri dönün. `constructor(private heroService: HeroService) {}` satırında (13. satır), `HeroService` altında kırmızı bir çizgi vardır. `HeroService`’e tıkladığınızda kod bloğunun sol tarafında bir ampul görünür. Ampule ve **Import HeroService from "./hero.service ".** ("./hero.service "den İçeri Aktar.) seçeneğine veya **Import HeroService from "/app/hero.service ".** ("/uygulama/hero.service"den HeroService İçeri Aktar) seçeneğine tıklayın.
 
-    Ampule tıkladığınızda 2. satıra yeni bir kod satırı eklenir. 2. satır /app/hero.service klasörüne başvuruyorsa, yerel klasördeki (./hero.service) hero dosyasına başvurması için bu satırı değiştirin. 2. satır şu şekilde görünmelidir:
+    Ampule tıkladığınızda 2. satıra yeni bir kod satırı eklenir. Satır 2 /app/hero.service klasörüne başvuruyorsa, yerel bir klasörden hero dosyasına başvuruyor, şekilde değiştirin (. / hero.service). 2. satır şu şekilde görünmelidir:
     
     ```javascript
     import { HeroService } from "./hero.service"

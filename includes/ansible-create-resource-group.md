@@ -1,25 +1,25 @@
 ---
-author: tomarcher
+author: tomarchermsft
 ms.service: ansible
 ms.topic: include
 ms.date: 08/09/2018
 ms.author: tarcher
-ms.openlocfilehash: fa1f7fe0b4b70aae4f9165197d5d1463df1f2e3b
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: fe995535cd42571ad96f192883e48f4b6ea1eb0e
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40026602"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54160412"
 ---
-1. Cloud Shell'de adlı bir dosya oluşturun `rg.yml`.
+1. Cloud Shell'de `rg.yml` adlı bir dosya oluşturun.
 
     ```bash
     vi rg.yml
     ```
 
-1. Ekleme modu seçerek girin **miyim** anahtarı.
+1. **I** anahtarını seçerek ekleme moduna geçin.
 
-1. Aşağıdaki kod düzenleyicisine yapıştırın:
+1. Aşağıdaki kodu düzenleyiciye yapıştırın:
 
    ```yaml
    ---
@@ -35,9 +35,9 @@ ms.locfileid: "40026602"
            var: rg
    ```
 
-1. Çıkış Ekle modundan **Esc** anahtarı.
+1. **Esc** tuşuna basarak ekleme modundan çıkın.
 
-1. Dosyayı kaydedin ve aşağıdaki komutu girerek VI düzenleyiciden çıkın:
+1. Dosyayı kaydedin ve aşağıdaki komutu girerek VI düzenleyicisini kapatın:
 
     ```bash
     :wq

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 4/12/2017
 ms.author: dukek
 ms.component: logs
-ms.openlocfilehash: 8603ccf4643d7b1abd977cc372cde3fe24f98e07
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: MT
+ms.openlocfilehash: e4cb22866fa2885208b912c88d56243ac7826480
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724887"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159256"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Azure portalını kullanarak hizmet durumu bildirimlerini görüntüleme
 
@@ -49,12 +49,12 @@ category | Bu özellik her zaman, **ServiceHealth**.
 resourceId | Etkilenen kaynak kaynak kimliği.
 Properties.Title | Bu iletişim için yerelleştirilmiş başlığı. İngilizce varsayılandır.
 Properties.Communication | HTML biçimlendirmesi ile iletişimi yerelleştirilmiş ayrıntıları. İngilizce varsayılandır.
-Properties.incidentType | Aşağıdaki değerlerden biri: **Eylem gereklidir**, **bilgi**, **olay**, **Bakım**, veya **güvenlik**.
+Properties.incidentType | Aşağıdaki değerlerden biri: **Eylem gereklidir**, **bilgilendirici**, **olay**, **Bakım**, veya **güvenlik**.
 Properties.trackingId | Bu olay ile ilişkili olduğu olay. Bir olayla ilgili olayları ilişkilendirmek için bunu kullanın.
 Properties.impactedServices | Hizmetleri ve bölgeleri olaydan etkilenen açıklar JSON kaçan bir blob. Her biri, hizmetlerin bir listesini özelliği içeren bir **ServiceName**ve her biri etkilenen bölgelerin bir listesini bir **RegionName**.
 Properties.defaultLanguageTitle | İngilizce dilinde iletişim.
 Properties.defaultLanguageContent | HTML biçimlendirmesi veya düz metin olarak İngilizce dilinde iletişim.
-Properties.Stage | Olası değerler için **olay**, ve **güvenlik** olan **etkin** **çözümlenmiş** veya **RCA**. İçin **eylem gereklidir** veya **bilgi** tek değerdir **etkin.** İçin **Bakım** bunlar: **Etkin**, **planlı**, **Inprogress**, **iptal**, **filtrelerden**, **çözümlenen**, veya **tam**.
+Properties.Stage | Olası değerler için **olay**, ve **güvenlik** olan **etkin** **çözümlenmiş** veya **RCA**. İçin **eylem gereklidir** veya **bilgilendirici** tek değerdir **etkin.** İçin **Bakım** bunlar: **Etkin**, **planlı**, **Inprogress**, **iptal**, **filtrelerden**, **çözümlenen**, veya **tam**.
 Properties.communicationId | Bu olay ile ilişkili olduğu iletişimi.
 
 ### <a name="details-on-service-health-level-information"></a>Hizmet durumu düzeyi bilgileri hakkında ayrıntılı bilgi
@@ -71,7 +71,7 @@ Properties.communicationId | Bu olay ile ilişkili olduğu iletişimi.
             <dd>Standart planlı bakım</dd>
         </dl>
     </li>
-    <li><b>Bilgi</b> (properties.incidentType bilgi ==) <dl>
+    <li><b>Bilgi</b> (properties.incidentType bilgilendirici ==) <dl>
             <dt>Bilgilendirme</dt>
             <dd>Yönetici, mevcut hizmetlere etkiyi önlemek için gerekli</dd>
         </dl>

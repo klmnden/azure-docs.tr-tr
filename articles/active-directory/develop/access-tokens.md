@@ -16,12 +16,12 @@ ms.date: 10/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 18de5ce2f47b6593d4c8556af045f14ade957fb9
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 164fc42d905c9354a58ea6f66a739ea05f12e601
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979242"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157777"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Azure Active Directory erişim belirteçleri
 
@@ -38,7 +38,7 @@ Nasıl kaynak doğrulamak ve bir erişim belirteci içindeki taleplerin kullanı
 
 ## <a name="sample-tokens"></a>Örnek belirteçleri
 
-V1.0 ve v2.0 belirteçleri çok benzeyen ve aynı talep çoğunu içerir. Her bir örnek burada verilmiştir.
+V1.0 ve v2.0 belirteçleri, aşağıdakine benzer ve aynı talep çoğunu içerir. Her bir örnek burada verilmiştir.
 
 ### <a name="v10"></a>v1.0
 
@@ -79,7 +79,7 @@ Yalnızca doldurmak için bir değer varsa, mevcut taleplerdir. Bu nedenle, uygu
 | `nonce` | Dize | Belirteç yeniden yürütme saldırılarına karşı korumak için kullanılan benzersiz tanımlayıcısı. Kaynağınızı olumsuzlukları karşı korumak için bu değer kaydedebilirsiniz. |
 | `alg` | Dize | Örneğin, "RS256" belirteç imzalamak için kullanılan algoritmayı belirtir |
 | `kid` | Dize | Bu belirteç imzalamak için kullanılan ortak anahtar için parmak izini belirtir. Erişim belirteçleri, hem v1.0 hem de v2.0 yayılır. |
-| `x5t` | Dize | Aynı (kullanın ve değerini) olarak işlev `kid`. V1.0 erişim belirteçleri uyumluluk amacıyla, yalnızca yayılan eski bir talep budur. |
+| `x5t` | Dize | Aynı (kullanın ve değerini) olarak işlev `kid`. `x5t` eski bir talep v1.0 erişim belirteçleri uyumluluk amacıyla, yalnızca yayılır. |
 
 ### <a name="payload-claims"></a>Yükü talepleri
 
@@ -121,7 +121,7 @@ Aşağıdaki talep v1.0 belirteçleri varsa dahil edilir, ancak v2.0 belirteçle
 | İste | Biçimlendir | Açıklama |
 |-----|--------|-------------|
 | `ipaddr`| Dize | IP adresi gelen kimliği doğrulanmış kullanıcı. |
-| `onprem_sid`| Dize, içinde [SID biçimi](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | Bir şirket içi kimlik doğrulamasıyla kullanıcının sahip olduğu durumlarda bu talep, SID sağlar. Bu yetkilendirme eski uygulamalar için kullanılabilir. |
+| `onprem_sid`| Dize, içinde [SID biçimi](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | Bir şirket içi kimlik doğrulamasıyla kullanıcının sahip olduğu durumlarda bu talep, SID sağlar. Kullanabileceğiniz `onprem_sid` yetkilendirme eski uygulamalar için. |
 | `pwd_exp`| int, UNIX zaman damgası | Kullanıcı parolasının süresi dolduğunda gösterir. |
 | `pwd_url`| Dize | Kullanıcının parolasını sıfırlamak için kullanıcılar'ın nerede gönderilebilecek bir URL. |
 | `in_corp`|boole | Sinyaller istemci ve şirket ağından oturum açılıyor. Değilse, talep dahil değildir. |
@@ -200,7 +200,7 @@ Bu adım, uygulamanızın iş mantığı gösterecektir, bazı yaygın yetkilend
 * Çağıran istemciyi kullanarak kimlik doğrulama durumunu doğrulamak `appidacr` -API çağırmak için genel istemcilere izin verilmiyorsa 0 olmamalıdır.
 * Kontrol listesini karşı geçmiş `nonce` belirteç değil yeniden doğrulamak talep.
 * Bu maddeyi `tid` API çağırmak için izin verilen bir kiracı ile eşleşir.
-* Kullanım `acr` kullanıcı MFA gerçekleştirilen doğrulamak talep. Bu kullanılarak zorlanıp zorlanmayacağını olduğunu unutmayın [koşullu erişim](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
+* Kullanım `acr` kullanıcı MFA gerçekleştirilen doğrulamak talep. Bu kullanılarak zorlanıp zorlanmayacağını [koşullu erişim](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
 * Siz istediniz, `roles` veya `groups` erişim belirtecinde talep, kullanıcının bu eylemi gerçekleştirmek için izin verilen grupta olduğunu doğrulayın.
   * Örtük akışını kullanarak belirteçleri için büyük olasılıkla sorgulamak ihtiyacınız olacak [Microsoft Graph](https://developer.microsoft.com/graph/) bu için olarak verilerdir genellikle belirteç sığmayacak kadar büyük. 
 
@@ -217,15 +217,15 @@ Yenileme belirteçlerini geçersiz veya çeşitli nedenlerle için herhangi bir 
 
 ### <a name="token-timeouts"></a>Belirteci zaman aşımları
 
-* MaxInactiveTime: yenileme belirteci MaxInactiveTime tarafından dikte zaman içinde kullanılmamış, belirteci yenilemek artık geçerli olmayacak. 
-* MaxSessionAge: (Kadar iptal edilen) varsayılan dışında bir şey MaxAgeSessionMultiFactor veya MaxAgeSessionSingleFactor atanmışsa, MaxAgeSession * ayarlanmış bir süre geçtikten sonra daha sonra yeniden kimlik doğrulamanın gerekli olacaktır. 
+* MaxInactiveTime: Yenileme belirteci MaxInactiveTime tarafından dikte zaman içinde kullanılmamış, belirteci yenilemek artık geçerli olmayacak. 
+* MaxSessionAge: Ardından MaxAgeSessionMultiFactor veya MaxAgeSessionSingleFactor (kadar iptal edilen) varsayılan dışında bir şey atanmışsa, MaxAgeSession * ayarlanmış bir süre geçtikten sonra yeniden kimlik doğrulamanın gerekli olarak olacaktır. 
 * Örnekler:
   * 5 günlük bir MaxInactiveTime kiracısına sahip kullanıcı için bir hafta tatile oluştu ve bu nedenle AAD kullanıcıdan yeni bir belirteç isteğini 7 gündür görülmeyen değil. Kullanıcı yeni bir belirteç istediğinde, kendi yenileme belirteci iptal edildi ve kendi kimlik bilgileri yeniden girmelisiniz bulabilirsiniz.
   * 1 günlük bir MaxAgeSessionSingleFactor duyarlı bir uygulamaya sahiptir. Pazartesi ve Salı (25 saat geçtikten sonra) bir kullanıcı oturum açarsa, yeniden kimlik doğrulamaya zorlayabilir gerekir.
 
 ### <a name="revocation"></a>İptal etme
 
-|   | Parola tabanlı tanımlama bilgisi | Parola tabanlı belirteci | Olmayan parola tabanlı tanımlama bilgisi | Olmayan parola tabanlı belirteci | Gizli istemci belirteci| 
+|   | Parola tabanlı tanımlama bilgisi | Parola tabanlı belirteci | Parola tabanlı olmayan tanımlama bilgisi | Parola tabanlı olmayan belirteci | Gizli istemci belirteci| 
 |---|-----------------------|----------------------|---------------------------|--------------------------|--------------------------|
 | Parola süre sonu | Canlı kalır| Canlı kalır | Canlı kalır | Canlı kalır | Canlı kalır |
 | Parola kullanıcı tarafından değiştirildi | İptal edildi | İptal edildi | Canlı kalır | Canlı kalır | Canlı kalır |

@@ -3,8 +3,8 @@ title: Microsoft Azure SUSE Linux vm'lerde SAP NetWeaver test etme | Microsoft D
 description: Microsoft Azure SUSE Linux VM’lerde SAP NetWeaver’ı test etme
 services: virtual-machines-linux
 documentationcenter: ''
-author: hermanndms
-manager: jeconnoc
+author: msjuergent
+manager: patfilot
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -15,17 +15,18 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/14/2017
-ms.author: hermannd
-ms.openlocfilehash: 8a16fa9f639a6a4a17d6904d6bc9a0e31f774e0c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: juergent
+ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 032ab2a221f64d01af25056a4eff3ee3384de0c3
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950055"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157233"
 ---
 # <a name="running-sap-netweaver-on-microsoft-azure-suse-linux-vms"></a>Microsoft Azure SUSE Linux VM’lerde SAP NetWeaver’ı çalıştırma
-Bu makalede, Microsoft Azure SUSE Linux sanal makinelerinde (VM'ler) SAP NetWeaver çalıştırırken dikkate alınması gereken çeşitli şeyler açıklanmaktadır. 19 Mayıs 2016 itibariyle resmi olarak Azure SUSE Linux Vm'lerde SAP NetWeaver desteklenir. Linux sürümleri, SAP çekirdek sürümlerini ve diğer ön koşulları ile ilgili tüm ayrıntıları SAP notu 1928533 bulunabilir "azure'da SAP uygulamaları: desteklenen ürünler ve Azure VM türleri".
-Linux vm'lerinde SAP hakkında daha fazla belgeleri şurada bulunabilir: [Linux sanal makinelerinde (VM'ler) SAP kullanma](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Bu makalede, Microsoft Azure SUSE Linux sanal makinelerinde (VM'ler) SAP NetWeaver çalıştırırken dikkate alınması gereken çeşitli şeyler açıklanmaktadır. 19 Mayıs 2016 itibariyle resmi olarak Azure SUSE Linux Vm'lerde SAP NetWeaver desteklenir. Linux sürümleri, SAP çekirdek sürümlerini ve diğer ön koşulları ile ilgili tüm ayrıntıları SAP notu 1928533 bulunabilir "azure'da SAP uygulamaları: Desteklenen Ürünler ve Azure VM türleri ".
+Linux vm'lerinde SAP hakkında daha fazla belgeleri şurada bulunabilir: [Linux sanal makinelerinde (VM'ler) SAP çözümlerini kullanma](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Aşağıdaki bilgiler, bazı olası Tuzaklar önlemenize yardımcı.
 
@@ -75,7 +76,7 @@ WALinuxAgent adlı aracı Azure Marketi'nde bulunan SLES görüntüleri bir par�
 * [SUSE](https://www.suse.com/communities/blog/suse-linux-enterprise-server-configuration-for-windows-azure/)
 
 ## <a name="sap-enhanced-monitoring"></a>SAP Gelişmiş"izleme"
-SAP Gelişmiş"izleme", Azure üzerinde SAP çalışmasına zorunlu bir önkoşuldur. Onay ayrıntıları SAP 2191498 "SAP Linux ile Azure: Gelişmiş izlemesini" unutmayın.
+SAP Gelişmiş"izleme", Azure üzerinde SAP çalışmasına zorunlu bir önkoşuldur. SAP ayrıntılarında Not 2191498 denetle "Azure ile Linux üzerinde SAP: Gelişmiş izleme".
 
 ## <a name="attaching-azure-data-disks-to-an-azure-linux-vm"></a>Azure Linux VM'LERİNİ Azure veri diski ekleme
 Hiçbir zaman bağlama Azure veri diskleri cihaz kimliğini kullanarak bir Azure Linux VM Bunun yerine, evrensel benzersiz tanımlayıcı (UUID) kullanın. Bağlama Azure veri diskleri için grafik araçları örneğin kullanırken dikkatli olun. /Etc/fstab girişleri denetleyin.
@@ -125,7 +126,7 @@ Klasik Azure CLI ve Azure Resource Manager hakkında daha fazla bilgi için bkz:
 Resmi Azure SAP sertifikaları için SAP lisansı için kullanılan SAP donanım anahtarına hesaplamak için yeni bir mekanizma sunulmuştur. SAP çekirdek yapmak için uyarlanmış olması gerekiyordu yeni algoritma kullanın. Linux için eski SAP çekirdek sürümleri, bu kod değişikliği içermiyordu. Bu nedenle, bazı durumlarda (örneğin, Azure VM yeniden boyutlandırma), SAP donanım anahtarı değiştirildi ve SAP lisansı olan artık geçerli. Bir çözüm ile daha yeni SAP Linux çekirdeklerinin sağlanır.  Ayrıntılı SAP çekirdek düzeltme ekleri, SAP notu 1928533 belgelenmiştir.
 
 ## <a name="suse-sapconf-package--tuned-adm"></a>SUSE sapconf paket / ayarlanmış adm
-"SAP özgü ayarları kümesini yöneten sapconf" adlı bir paketi SUSE sağlar. Bu paket yaptığı ve nasıl yüklemek ve kullanmak hakkında daha fazla bilgi için bkz: [sapconf SAP sistemlerini bir SUSE Linux Enterprise Server hazırlamak için kullanarak](https://www.suse.com/communities/blog/using-sapconf-to-prepare-suse-linux-enterprise-server-to-run-sap-systems/) ve [sapconf nedir veya SUSE Linux Enterprise hazırlamayı öğrenin SAP sistemlerini çalıştırmak için sunucu? ](http://scn.sap.com/community/linux/blog/2014/03/31/what-is-sapconf-or-how-to-prepare-a-suse-linux-enterprise-server-for-running-sap-systems).
+"SAP özgü ayarları kümesini yöneten sapconf" adlı bir paketi SUSE sağlar. Bu paket yaptığı ve nasıl yüklemek ve kullanmak hakkında daha fazla bilgi için bkz:  [Sapconf SAP sistemlerini bir SUSE Linux Enterprise Server hazırlamak için kullanarak](https://www.suse.com/communities/blog/using-sapconf-to-prepare-suse-linux-enterprise-server-to-run-sap-systems/) ve [sapconf nedir veya bir SUSE Linux Enterprise Server, SAP sistemlerini çalıştırmak üzere hazırlama?](http://scn.sap.com/community/linux/blog/2014/03/31/what-is-sapconf-or-how-to-prepare-a-suse-linux-enterprise-server-for-running-sap-systems).
 
 Bu arada, 'sapconf - ayarlanmış adm' yerini alan yeni bir aracı yoktur. Bir, iki bağlantı izleyerek bu aracı hakkında daha fazla bilgi bulabilirsiniz:
 

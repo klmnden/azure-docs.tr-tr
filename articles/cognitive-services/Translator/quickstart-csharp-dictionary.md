@@ -1,5 +1,5 @@
 ---
-title: "Hızlı Başlangıç: Alma alternatif çevirileri C# -Translator metin çevirisi API'si"
+title: "Hızlı Başlangıç: İki dilli sözlük ile sözcük araması C# -Translator metin çevirisi API'si"
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, bir dönem için alternatif Çevirileri Alma öğreneceksiniz ve ayrıca bu kullanım örneklerini Çeviriler, .NET Core ve Translator Text API kullanarak diğer.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 11/26/2018
 ms.author: erhopf
-ms.openlocfilehash: 034b6e102d008039ddd138798900dbee17faf51d
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 3460c1c62f26e2bb0a4a14238e110cdd363a7a87
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52887959"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159579"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-alternate-translations-using-c"></a>Hızlı Başlangıç: Translator Text API kullanarak diğer çevirileri almak için kullanın.C#
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-c"></a>Hızlı Başlangıç: Kullanarak iki dilli sözlük ile sözcük aramasıC#
 
 Bu hızlı başlangıçta, bir dönem için alternatif Çevirileri Alma öğreneceksiniz ve ayrıca bu kullanım örneklerini Çeviriler, .NET Core ve Translator Text API kullanarak diğer.
 

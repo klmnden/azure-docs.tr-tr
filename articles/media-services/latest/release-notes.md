@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services v3 sürüm notları | Microsoft Docs
+title: Yenilikler Sürüm Notları - Azure Media Services v3 | Microsoft Docs
 description: İle en son gelişmeleri güncel kalmak için bu makalede, Azure Media Services v3 en yeni güncelleştirmeleri sağlar.
 services: media-services
 documentationcenter: ''
@@ -7,18 +7,18 @@ author: Juliako
 manager: femila
 editor: ''
 ms.service: media-services
-ms.workload: ''
+ms.workload: na
 ms.topic: article
 ms.date: 11/21/2018
 ms.author: juliako
-ms.openlocfilehash: 598587a0fe726ccf65f062833f84b352ca03c077
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 4db84deb344921d329e81e0f0c9c3a97923430f3
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315537"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156502"
 ---
-# <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 sürüm notları 
+# <a name="whats-new-in-azure-media-services-v3"></a>Azure Media Services v3'teki yenilikler nedir?
 
 İle en son gelişmeleri güncel kalmak için bu makalede, ile hakkında bilgi sağlar:
 
@@ -26,7 +26,6 @@ ms.locfileid: "52315537"
 * Bilinen sorunlar
 * Hata düzeltmeleri
 * Kullanım dışı işlev
-* Değişiklikleri planları
 
 ## <a name="known-issues"></a>Bilinen sorunlar
 

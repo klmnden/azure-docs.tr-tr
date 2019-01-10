@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeedes
-ms.openlocfilehash: fac22508e679c1e1c93ec62a5b120ba9c7c52317
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 607d05818966e62407795640d223f1aed2f59bbb
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162401"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156757"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sap-netweaver"></a>Öğretici: SAP NetWeaver ile Azure Active Directory tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-sap-netweaver"></a>Öğretici: SAP NetWeaver ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile SAP NetWeaver tümleştirme konusunda bilgi edinin.
 
@@ -142,7 +142,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
 
     ![Sertifika indirme bağlantısı](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_userpwd.png)
 
-6. Değiştirin **sağlayıcı adı** T01122 için gelen **http://T01122** tıklayın **Kaydet**.
+6. Değiştirin **sağlayıcı adı** T01122 için gelen `http://T01122` tıklayın **Kaydet**.
 
     > [!NOTE]
     > Varsayılan sağlayıcı adı ile gelir olarak <sid> <client> biçimi ancak Azure AD'ye bekliyor adı biçiminde <protocol>://<name>, sağlayıcı adı ' https://'olarak korumak için önerilen<sid> <client> birden çok SAP izin vermek için Azure AD'de yapılandırmak için NetWeaver ABAP altyapıları.
@@ -175,11 +175,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
 
     a. Tıklayın **meta veri dosyasını karşıya yükleme** yüklenecek **hizmet sağlayıcısı meta veri dosyası** , daha önce aldığınız.
 
-    ![Meta veri dosyasını karşıya yükleyin](common/editmetadataupload.png)
+    ![Meta veri dosyasını yükleyin](common/editmetadataupload.png)
 
     b. Tıklayarak **klasör logosu** meta veri dosyası seçin ve **karşıya**.
 
-    ![Meta veri dosyasını karşıya yükleyin](common/uploadmetadata.png)
+    ![Meta veri dosyasını yükleyin](common/uploadmetadata.png)
 
     c. Meta veri dosyası başarıyla karşıya yüklendikten sonra **tanımlayıcı** ve **yanıt URL'si** değerlerini alma otomatik olarak doldurulmuş **temel SAML yapılandırma** aşağıda gösterildiği gibi metin bölümü :
 
@@ -215,9 +215,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
 
 15. Üzerinde **SAP NetWeaver ' ayarlamak** bölümünde, ihtiyacınıza göre uygun URL'yi kopyalayın.
 
-    a. Oturum açma URL'si
+    a. Oturum Açma URL'si:
 
-    b. Azure AD tanımlayıcısı
+    b. Azure AD Tanımlayıcısı
 
     c. Oturum Kapatma URL'si
 
@@ -275,7 +275,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
 
 29. Unutmayın **kullanıcı kimliği kaynak** ve **kullanıcı kimliği eşleme modunu** değerleri SAP kullanıcısı ve Azure AD talep arasındaki bağlantıyı belirler.  
 
-    ####<a name="scenario-sap-user-to-azure-ad-user-mapping"></a>Senaryo: SAP kullanıcı Azure AD kullanıcı eşlemesi.
+    ####<a name="scenario-sap-user-to-azure-ad-user-mapping"></a>Senaryo: Azure AD kullanıcı eşleme SAP kullanıcı.
 
     a. SAP'den Nameıd ayrıntıları ekran görüntüsü.
 
@@ -285,7 +285,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
 
     ![Çoklu oturum açmayı yapılandırın](./media/sapnetweaver-tutorial/claimsaad1.png)
 
-    ####<a name="scenario-select-sap-user-id-based-on-configured-email-address-in-su01-in-this-case-email-id-should-be-configured-in-su01-for-each-user-who-requires-sso"></a>Senaryo: SU01 yapılandırılan e-posta adresini temel alarak SAP kullanıcı kimliği'ni seçin. Bu durumda e-posta kimliği su01 SSO gerektiren her bir kullanıcı için yapılandırılmalıdır.
+    ####<a name="scenario-select-sap-user-id-based-on-configured-email-address-in-su01-in-this-case-email-id-should-be-configured-in-su01-for-each-user-who-requires-sso"></a>Senaryo: SU01 yapılandırılan e-posta adresini temel alarak SAP kullanıcı kimliğini seçin. Bu durumda e-posta kimliği su01 SSO gerektiren her bir kullanıcı için yapılandırılmalıdır.
 
     a.  SAP'den Nameıd ayrıntıları ekran görüntüsü.
 

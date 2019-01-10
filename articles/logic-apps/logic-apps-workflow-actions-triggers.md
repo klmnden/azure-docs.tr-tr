@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/22/2018
-ms.openlocfilehash: 4b124b79eeacf0df5f1b9dff798ebeea20d82090
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
-ms.translationtype: MT
+ms.openlocfilehash: 613423c02de7f1140674c28ee57bd471c3a52b96
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044782"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158253"
 ---
 # <a name="trigger-and-action-types-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure Logic apps'te iş akışı tanımlama dili tetikleyicisi ve eylem türleri başvurusu
 
@@ -55,7 +55,7 @@ Bazı isteğe bağlıdır, ancak bu üst düzey öğeleri Tetikleyiciler vardır
 | <*Tetikleyici türü*> | Dize | Örneğin "Http" veya "ApiConnection" tetikleyici türü | 
 | <*Tetikleyici giriş*> | JSON nesnesi | Tetikleyicinin davranışını tanımlayan girişleri | 
 | <*zaman birimi*> | Dize | Tetikleyici ne sıklıkta açıklayan zaman birimi: "Saniye", "Minute", "Hour", "Day", "Week", "Month" | 
-| <*sayı, zaman birimi*> | Tamsayı | Tetikleyici ne sıklıkta belirten bir değeri sıklığı temel yeniden tetikleyici kadar beklenecek zaman birimlerinin sayısı tabanlı <p>Minimum ve maksimum aralıkları şunlardır: <p>-Ay: 1-16 ay </br>-Gün: 1-500 gün </br>-Saat: 1-12.000 saat </br>-Dakika: 1-72,000 dakika </br>-İkinci: 1-9,999,999 saniye<p>Örneğin, aralığı 6 sıklığıdır "Month" ise, her 6 ayda bir yineleme olur. | 
+| <*sayı, zaman birimi*> | Tamsayı | Tetikleyici ne sıklıkta belirten bir değeri sıklığı temel yeniden tetikleyici kadar beklenecek zaman birimlerinin sayısı tabanlı <p>Minimum ve maksimum aralıkları şunlardır: <p>-Ay: 1-16 ay </br>-Günü: 1-500 gün </br>-Saat: 12.000 1 saat </br>-Dakikası: 1-72,000 dakika </br>-Saniye: 1-9,999,999 saniye<p>Örneğin, aralığı 6 sıklığıdır "Month" ise, her 6 ayda bir yineleme olur. | 
 |||| 
 
 *İsteğe bağlı*
@@ -133,10 +133,10 @@ Bu tetikleyiciyi denetler veya *yoklamalar* kullanarak bir uç nokta [Microsoft 
 |-------|------|-------------| 
 | <*APIConnection_trigger_name*> | Dize | Tetikleyici adı | 
 | <*Bağlantı adı*> | Dize | İş akışı kullanan yönetilen API bağlantısı adı | 
-| <*yöntem türü*> | Dize | Yönetilen API ile iletişim kurmak için HTTP yöntemi: "GET", "PUT", "POST", "Düzeltme", "Sil" | 
+| <*yöntem türü*> | Dize | Yönetilen API ile iletişim kurmak için HTTP yöntemi: "GET", "PUT", "POST", "DÜZELTME EKİ", "SİL" | 
 | <*API işlemi*> | Dize | API işlemi çağırmak için | 
 | <*zaman birimi*> | Dize | Tetikleyici ne sıklıkta açıklayan zaman birimi: "Saniye", "Minute", "Hour", "Day", "Week", "Month" | 
-| <*sayı, zaman birimi*> | Tamsayı | Tetikleyici ne sıklıkta belirten bir değeri sıklığı temel yeniden tetikleyici kadar beklenecek zaman birimlerinin sayısı tabanlı <p>Minimum ve maksimum aralıkları şunlardır: <p>-Ay: 1-16 ay </br>-Gün: 1-500 gün </br>-Saat: 1-12.000 saat </br>-Dakika: 1-72,000 dakika </br>-İkinci: 1-9,999,999 saniye<p>Örneğin, aralığı 6 sıklığıdır "Month" ise, her 6 ayda bir yineleme olur. | 
+| <*sayı, zaman birimi*> | Tamsayı | Tetikleyici ne sıklıkta belirten bir değeri sıklığı temel yeniden tetikleyici kadar beklenecek zaman birimlerinin sayısı tabanlı <p>Minimum ve maksimum aralıkları şunlardır: <p>-Ay: 1-16 ay </br>-Günü: 1-500 gün </br>-Saat: 12.000 1 saat </br>-Dakikası: 1-72,000 dakika </br>-Saniye: 1-9,999,999 saniye<p>Örneğin, aralığı 6 sıklığıdır "Month" ise, her 6 ayda bir yineleme olur. | 
 |||| 
 
 *İsteğe bağlı*
@@ -155,7 +155,7 @@ Bu tetikleyiciyi denetler veya *yoklamalar* kullanarak bir uç nokta [Microsoft 
  
 | Öğe | Tür | Açıklama |
 |---------|------|-------------| 
-| headers | JSON nesnesi | Yanıt üst bilgiler | 
+| Üst bilgileri | JSON nesnesi | Yanıt üst bilgiler | 
 | body | JSON nesnesi | Yanıt gövdesinden | 
 | Durum kodu | Tamsayı | Yanıt durum kodu | 
 |||| 
@@ -304,10 +304,10 @@ Bu tetikleyiciyi veya belirtilen yinelenme zamanlamasına göre belirtilen uç n
 
 | Değer | Tür | Açıklama | 
 |-------|------|-------------| 
-| <*yöntem türü*> | Dize | Belirtilen uç noktası'ı yoklamak için kullanılacak HTTP yöntemi: "GET", "PUT", "POST", "Düzeltme", "Sil" | 
+| <*yöntem türü*> | Dize | Belirtilen uç noktası'ı yoklamak için kullanılacak HTTP yöntemi: "GET", "PUT", "POST", "DÜZELTME EKİ", "SİL" | 
 | <*uç nokta URL'si*> | Dize | HTTP veya HTTPS uç noktası URL'sini yoklamak için <p>Maksimum dize boyutu: 2 KB | 
 | <*zaman birimi*> | Dize | Tetikleyici ne sıklıkta açıklayan zaman birimi: "Saniye", "Minute", "Hour", "Day", "Week", "Month" | 
-| <*sayı, zaman birimi*> | Tamsayı | Tetikleyici ne sıklıkta belirten bir değeri sıklığı temel yeniden tetikleyici kadar beklenecek zaman birimlerinin sayısı tabanlı <p>Minimum ve maksimum aralıkları şunlardır: <p>-Ay: 1-16 ay </br>-Gün: 1-500 gün </br>-Saat: 1-12.000 saat </br>-Dakika: 1-72,000 dakika </br>-İkinci: 1-9,999,999 saniye<p>Örneğin, aralığı 6 sıklığıdır "Month" ise, her 6 ayda bir yineleme olur. | 
+| <*sayı, zaman birimi*> | Tamsayı | Tetikleyici ne sıklıkta belirten bir değeri sıklığı temel yeniden tetikleyici kadar beklenecek zaman birimlerinin sayısı tabanlı <p>Minimum ve maksimum aralıkları şunlardır: <p>-Ay: 1-16 ay </br>-Günü: 1-500 gün </br>-Saat: 12.000 1 saat </br>-Dakikası: 1-72,000 dakika </br>-Saniye: 1-9,999,999 saniye<p>Örneğin, aralığı 6 sıklığıdır "Month" ise, her 6 ayda bir yineleme olur. | 
 |||| 
 
 *İsteğe bağlı*
@@ -328,7 +328,7 @@ Bu tetikleyiciyi veya belirtilen yinelenme zamanlamasına göre belirtilen uç n
 
 | Öğe | Tür | Açıklama |
 |---------|------|-------------| 
-| headers | JSON nesnesi | Yanıt üst bilgiler | 
+| Üst bilgileri | JSON nesnesi | Yanıt üst bilgiler | 
 | body | JSON nesnesi | Yanıt gövdesinden | 
 | Durum kodu | Tamsayı | Yanıt durum kodu | 
 |||| 
@@ -337,7 +337,7 @@ Bu tetikleyiciyi veya belirtilen yinelenme zamanlamasına göre belirtilen uç n
 
 Uç nokta da mantıksal uygulamanız ile çalışmak için belirli bir tetikleyici düzeni ya da sözleşme uygun ve bu özellikleri tanıması gerekir:  
   
-| Yanıt | Gerekli | Açıklama | 
+| Yanıt | Gereklidir | Açıklama | 
 |----------|----------|-------------| 
 | Durum kodu | Evet | "200 Tamam" durum kodu çalıştırma başlatır. Diğer bir durum kodu çalıştırma başlamaz. | 
 | Retry-after üst bilgisi | Hayır | Mantıksal uygulama yeniden uç noktasını yoklayan kadar saniye sayısı | 
@@ -423,7 +423,7 @@ Gibi bazı değerler <*yöntem türü*>, her ikisi için de kullanılabilir `"su
 
 | Öğe | Tür | Açıklama |
 |---------|------|-------------| 
-| headers | JSON nesnesi | Yanıt üst bilgiler | 
+| Üst bilgileri | JSON nesnesi | Yanıt üst bilgiler | 
 | body | JSON nesnesi | Yanıt gövdesinden | 
 | Durum kodu | Tamsayı | Yanıt durum kodu | 
 |||| 
@@ -496,14 +496,14 @@ Bu tetikleyiciyi belirtilen yinelenme zamanlamaya göre çalışan ve düzenli a
 | Değer | Tür | Açıklama | 
 |-------|------|-------------| 
 | <*zaman birimi*> | Dize | Tetikleyici ne sıklıkta açıklayan zaman birimi: "Saniye", "Minute", "Hour", "Day", "Week", "Month" | 
-| <*sayı, zaman birimi*> | Tamsayı | Tetikleyici ne sıklıkta belirten bir değeri sıklığı temel yeniden tetikleyici kadar beklenecek zaman birimlerinin sayısı tabanlı <p>Minimum ve maksimum aralıkları şunlardır: <p>-Ay: 1-16 ay </br>-Gün: 1-500 gün </br>-Saat: 1-12.000 saat </br>-Dakika: 1-72,000 dakika </br>-İkinci: 1-9,999,999 saniye<p>Örneğin, aralığı 6 sıklığıdır "Month" ise, her 6 ayda bir yineleme olur. | 
+| <*sayı, zaman birimi*> | Tamsayı | Tetikleyici ne sıklıkta belirten bir değeri sıklığı temel yeniden tetikleyici kadar beklenecek zaman birimlerinin sayısı tabanlı <p>Minimum ve maksimum aralıkları şunlardır: <p>-Ay: 1-16 ay </br>-Günü: 1-500 gün </br>-Saat: 12.000 1 saat </br>-Dakikası: 1-72,000 dakika </br>-Saniye: 1-9,999,999 saniye<p>Örneğin, aralığı 6 sıklığıdır "Month" ise, her 6 ayda bir yineleme olur. | 
 |||| 
 
 *İsteğe bağlı*
 
 | Değer | Tür | Açıklama | 
 |-------|------|-------------| 
-| <*start-date-time-with-format-YYYY-MM-DDThh:mm:ss*> | Dize | Başlangıç tarih ve saat şu biçimde: <p>YYYY-MM-ddTHH bir saat dilimi belirtirseniz <p>-veya- <p>YYYY-AA-saat dilimi belirtmezseniz ssZ <p>Örneğin, 18 Eylül 2017 2: 00'da isterseniz, ardından belirtin "2017-09-18T14:00:00" ve "Pasifik Standart Saati" gibi bir saat dilimi belirtin veya belirtin "2017-09-18T14:00:00Z" olmadan bir saat dilimi. <p>**Not:** bu başlangıç zamanı izlemelidir [ISO 8601 tarih saat belirtimi](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) içinde [UTC tarih saat biçiminde](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), olmadan bir [UTC farkı](https://en.wikipedia.org/wiki/UTC_offset). Bir saat dilimi belirtmezseniz, sonunda boşluk olmadan "Z" harfi eklemeniz gerekir. Bu "Z" eş değeri başvuruyor [Denizcilik zaman](https://en.wikipedia.org/wiki/Nautical_time). <p>Basit zamanlamalar için ilk yinelenme, başlangıç zamanıdır sırada karmaşık zamanlamalar için tetikleyici başlangıç saatinden herhangi bir erken etkinleşmez. Başlangıç tarihler ve saatler hakkında daha fazla bilgi için bkz: [oluşturma ve zamanlama düzenli olarak çalışan görevlerin](../connectors/connectors-native-recurrence.md). | 
+| <*start-date-time-with-format-YYYY-MM-DDThh:mm:ss*> | Dize | Başlangıç tarih ve saat şu biçimde: <p>YYYY-MM-ddTHH bir saat dilimi belirtirseniz <p>-veya- <p>YYYY-AA-saat dilimi belirtmezseniz ssZ <p>Örneğin, 18 Eylül 2017 2: 00'da isterseniz, ardından belirtin "2017-09-18T14:00:00" ve "Pasifik Standart Saati" gibi bir saat dilimi belirtin veya belirtin "2017-09-18T14:00:00Z" olmadan bir saat dilimi. <p>**Not:** Bu başlangıç zamanı izlemelidir [ISO 8601 tarih saat belirtimi](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) içinde [UTC tarih saat biçiminde](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), olmadan bir [UTC farkı](https://en.wikipedia.org/wiki/UTC_offset). Bir saat dilimi belirtmezseniz, sonunda boşluk olmadan "Z" harfi eklemeniz gerekir. Bu "Z" eş değeri başvuruyor [Denizcilik zaman](https://en.wikipedia.org/wiki/Nautical_time). <p>Basit zamanlamalar için ilk yinelenme, başlangıç zamanıdır sırada karmaşık zamanlamalar için tetikleyici başlangıç saatinden herhangi bir erken etkinleşmez. Başlangıç tarihler ve saatler hakkında daha fazla bilgi için bkz: [oluşturma ve zamanlama düzenli olarak çalışan görevlerin](../connectors/connectors-native-recurrence.md). | 
 | <*saat dilimi*> | Dize | Bu tetikleyiciyi kabul etmez çünkü yalnızca bir başlangıç zamanı belirttiğinizde geçerlidir [UTC farkı](https://en.wikipedia.org/wiki/UTC_offset). Uygulamak istediğiniz saat dilimini belirtin. | 
 | <*bir-veya-daha fazla bilgi-saat-işaretleri*> | Tamsayı veya tamsayı dizisi | İçin "Day" veya "Week" belirtirseniz `frequency`, bir veya daha fazla tam sayılar 0'dan 23, iş akışını çalıştırmak istediğinizde günün saat virgülle ayırarak belirtebilirsiniz. <p>Örneğin, "10", "12" ve "14" belirtin, 10 AM, PM 12 ve 2 Pasifik saat işaretlerinde olarak alırsınız. | 
 | <*bir-veya-daha fazla bilgi-dakika-işaretleri*> | Tamsayı veya tamsayı dizisi | İçin "Day" veya "Week" belirtirseniz `frequency`, bir veya daha fazla tam sayılar 0'dan 59, iş akışını çalıştırmak istediğinizde saat, dakika, virgülle ayırarak belirtebilirsiniz. <p>Örneğin, "30" dakika işareti belirtebilirsiniz ve önceki örnekte için günün saatlerini kullanarak 10:30 AM, alın 12:30 PM ve 2:30 PM. | 
@@ -612,7 +612,7 @@ Bu tetikleyiciyi çağırmak için kullanmalısınız `listCallbackUrl` açıkla
 
 | Değer | Tür | Açıklama | 
 |-------|------|-------------| 
-| <*yöntem türü*> | Dize | Gelen istekler, mantıksal uygulamanızı çağırmak için kullanması gereken yöntemini: "GET", "PUT", "POST", "Düzeltme", "Sil" |
+| <*yöntem türü*> | Dize | Mantıksal uygulamanızı çağırmak için gelen istekleri kullanmalıdır yöntemi: "GET", "PUT", "POST", "DÜZELTME EKİ", "SİL" |
 | <*göreli yol-için-kabul edildi-parametresi*> | Dize | Uç noktasının URL'sini kabul edebilen parametresi için göreli yolu | 
 | <*gerekli özellikleri*> | Dizi | Değer gerektiren bir veya daha fazla özellikleri | 
 | <*Maksimum Çalıştırma*> | Tamsayı | Varsayılan olarak, mantıksal uygulama iş akışı örnekleri aynı anda veya paralel kadar çalıştırmak [varsayılan sınırı](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Yeni bir ayarlayarak bu sınırı değiştirmek için <*sayısı*> değeri için bkz: [değişiklik tetikleyici eşzamanlılık](#change-trigger-concurrency). | 
@@ -1238,7 +1238,7 @@ Bu eylem, kullanıcı dostu alanları oluşturur veya *belirteçleri* özellikle
 | Değer | Tür | Açıklama | 
 |-------|------|-------------| 
 | <*JSON-kaynak*> | JSON nesnesi | Parse JSON içeriği | 
-| <*JSON şeması*> | JSON nesnesi | Temel alınan kaynak JSON içeriği ayrıştırmak için eylemini kullanan JSON içeriği tanımlayan JSON şeması. <p>**İpucu**: Logic Apps Tasarımcısı'nda, şema sağlayın veya eylem şema oluşturmak örnek yük sağlayın. | 
+| <*JSON şeması*> | JSON nesnesi | Temel alınan kaynak JSON içeriği ayrıştırmak için eylemini kullanan JSON içeriği tanımlayan JSON şeması. <p>**İpucu**: Logic Apps Tasarımcısı'nda için şema sağlamak veya bir örnek yük eylemi şema oluşturabilmesi sağlayın. | 
 |||| 
 
 *Örnek*
@@ -1340,7 +1340,7 @@ Bu eylem, bir koşul veya filtre temel başka bir dizideki öğelerden bir dizi 
 | Değer | Tür | Açıklama | 
 |-------|------|-------------| 
 | <*Dizi*> | Dizi | Dizi veya kaynak öğeleri sağlayan bir ifade. Bir ifade belirtirseniz, bu ifade çift tırnak içine alın. |
-| <*koşul veya filtre*> | Dize | Kaynak dizideki öğeleri filtreleme için kullanılan koşul <p>**Not**: hiçbir değer koşulu karşılayan sonra boş bir dizi eylem oluşturur. |
+| <*koşul veya filtre*> | Dize | Kaynak dizideki öğeleri filtreleme için kullanılan koşul <p>**Not**: Hiçbir değer koşulu karşılayan, eylem boş bir dizi oluşturur. |
 |||| 
 
 *Örnek*
@@ -1455,7 +1455,7 @@ Bu eylem, belirtilen haritasına dayalı olarak başka bir diziden öğeleri dö
 
 | Değer | Tür | Açıklama | 
 |-------|------|-------------| 
-| <*Dizi*> | Dizi | Dizi veya kaynak öğeleri sağlayan bir ifade. Bir ifade çift tırnak içine emin olun. <p>**Not**: kaynak diziden boşsa, boş bir dizi eylem oluşturur. | 
+| <*Dizi*> | Dizi | Dizi veya kaynak öğeleri sağlayan bir ifade. Bir ifade çift tırnak içine emin olun. <p>**Not**: Kaynak dizi boşsa, boş bir dizi eylem oluşturur. | 
 | <*anahtar adı*> | Dize | Sonuç atanan özellik adı <*ifadesi*> <p>Çıkış dizi içindeki tüm nesneler üzerinde yeni bir özellik eklemek için belirtin bir <*anahtar adı*> Bu özellik için bir <*ifade*> özellik değeri için. <p>Dizi içindeki tüm nesneler bir özelliği kaldırmak için Atla <*anahtar adı*> Bu özellik için. | 
 | <*İfade*> | Dize | Kaynak dizideki öğeyi dönüştüren ve sonuca atar ifade <*anahtar adı*> | 
 |||| 
@@ -1554,7 +1554,7 @@ Bu eylem, bir diziyi bir CSV veya HTML tablosu oluşturur. JSON nesnesi içeren 
 | Değer | Tür | Açıklama | 
 |-------|------|-------------| 
 | < CSV *veya* HTML >| Dize | Oluşturmak istediğiniz tablo biçimi | 
-| <*Dizi*> | Dizi | Dizi veya tablo için kaynak öğeleri sağlayan ifade <p>**Not**: kaynak diziden boşsa, eylem boş bir tablo oluşturur. | 
+| <*Dizi*> | Dizi | Dizi veya tablo için kaynak öğeleri sağlayan ifade <p>**Not**: Eylem, kaynak diziden boşsa, boş bir tablo oluşturur. | 
 |||| 
 
 *İsteğe bağlı*
@@ -1666,7 +1666,7 @@ Bu eylem çalıştırmak için mantıksal uygulama iş akışı örneği durduru
 
 | Değer | Tür | Açıklama | 
 |-------|------|-------------| 
-| <*Durumu*> | Dize | Çalıştırmak için döndürülecek durum: "Başarısız", "İptal edildi" veya "Başarılı" |
+| <*status*> | Dize | Çalıştırmak için döndürülecek durum: "Başarısız", "İptal" veya "Başarılı" |
 |||| 
 
 *İsteğe bağlı*
@@ -2350,9 +2350,9 @@ Temel tetikleyicisi tanımı, ekleme veya güncelleştirme `runtimeConfiguration
 
 1. Tetikleyicinin sağ üst köşedeki üç nokta (...) düğmesini seçin ve ardından **ayarları**.
 
-2. Altında **eşzamanlılık denetimi**ayarlayın **Varsayılanı geçersiz kıl** için **üzerinde**. 
+2. Altında **eşzamanlılık denetimi**ayarlayın **sınırı** için **üzerinde**. 
 
-3. Sürükleme **paralellik derecesi** kaydırıcıyı istediğiniz değer. 
+3. Sürükleme **paralellik derecesi** kaydırıcıyı istediğiniz değer. Mantıksal uygulamanızı sıralı olarak çalıştırmak için kaydırıcı değeri sürükleyin **1**.
 
 <a name="change-for-each-concurrency"></a>
 
@@ -2387,9 +2387,9 @@ Eş zamanlı çalıştırma 10 yinelemelere sınırlayan bir örnek aşağıda v
 
 1. İçinde **her** eylem, sağ üst köşedeki üç nokta (...) düğmesini seçin ve ardından **ayarları**.
 
-2. Altında **eşzamanlılık denetimi**ayarlayın **Varsayılanı geçersiz kıl** için **üzerinde**. 
+2. Altında **eşzamanlılık denetimi**ayarlayın **eşzamanlılık denetimi** için **üzerinde**. 
 
-3. Sürükleme **paralellik derecesi** kaydırıcıyı istediğiniz değer. 
+3. Sürükleme **paralellik derecesi** kaydırıcıyı istediğiniz değer. Mantıksal uygulamanızı sıralı olarak çalıştırmak için kaydırıcı değeri sürükleyin **1**.
 
 <a name="change-waiting-runs"></a>
 
@@ -2465,7 +2465,7 @@ Ayarlama `operationOptions` özelliğini `SingleInstance`:
 
 1. Tetikleyicinin sağ üst köşedeki üç nokta (...) düğmesini seçin ve ardından **ayarları**.
 
-2. Altında **eşzamanlılık denetimi**ayarlayın **Varsayılanı geçersiz kıl** için **üzerinde**. 
+2. Altında **eşzamanlılık denetimi**ayarlayın **sınırı** için **üzerinde**. 
 
 3. Sürükleme **paralellik derecesi** sayı kaydırıcısını `1`. 
 
@@ -2516,7 +2516,7 @@ Ayarlama `operationOptions` özelliğini `Sequential`:
 
 1. İçinde **her** eylemin sağ üst köşesindeki üç nokta (...) düğmesini seçin ve ardından **ayarları**.
 
-2. Altında **eşzamanlılık denetimi**ayarlayın **Varsayılanı geçersiz kıl** için **üzerinde**. 
+2. Altında **eşzamanlılık denetimi**ayarlayın **eşzamanlılık denetimi** için **üzerinde**. 
 
 3. Sürükleme **paralellik derecesi** sayı kaydırıcısını `1`. 
 
@@ -2577,7 +2577,7 @@ Ayarlayabileceğiniz kimlik doğrulama türleri şunlardır:
 
 Bu kimlik doğrulama türü için tetikleyici veya eylemi tanımınızı içerebilir bir `authentication` bu özelliklere sahip bir JSON nesnesi:
 
-| Özellik | Gerekli | Değer | Açıklama | 
+| Özellik | Gereklidir | Değer | Açıklama | 
 |----------|----------|-------|-------------| 
 | **type** | Evet | "Temel" | Burada "Temel" olan kullanmak için kimlik doğrulaması türü | 
 | **Kullanıcı adı** | Evet | "@parameters('userNameParam')" | Hedef hizmet uç noktası erişmek için kimlik doğrulaması için kullanıcı adı geçen bir parametre |
@@ -2608,7 +2608,7 @@ Bu kimlik doğrulama türü için tetikleyici veya eylemi tanımınızı içereb
 
 Bu kimlik doğrulama türü için tetikleyici veya eylemi tanımınızı içerebilir bir `authentication` bu özelliklere sahip bir JSON nesnesi:
 
-| Özellik | Gerekli | Değer | Açıklama | 
+| Özellik | Gereklidir | Değer | Açıklama | 
 |----------|----------|-------|-------------| 
 | **type** | Evet | "ClientCertificate" | Güvenli Yuva Katmanı (SSL) istemci sertifikaları için kullanılacak kimlik doğrulaması türü | 
 | **PFX** | Evet | <*Base64 kodlamalı pfx dosyası*> | Bir kişisel bilgi değişimi (PFX) dosyasından base64 ile kodlanmış içeriği |
@@ -2631,7 +2631,7 @@ Bu kimlik doğrulama türü için tetikleyici veya eylemi tanımınızı içereb
 
 Bu kimlik doğrulama türü için tetikleyici veya eylemi tanımınızı içerebilir bir `authentication` bu özelliklere sahip bir JSON nesnesi:
 
-| Özellik | Gerekli | Değer | Açıklama | 
+| Özellik | Gereklidir | Değer | Açıklama | 
 |----------|----------|-------|-------------| 
 | **type** | Evet | `ActiveDirectoryOAuth` | Azure AD OAuth "ActiveDirectoryOAuth" olan kullanmak için kimlik doğrulaması türü | 
 | **Yetkilisi** | Hayır | <*URL-için-yetkilisi-token-yayımcısı*> | Kimlik Doğrulama belirtecini sağlar yetkilisi URL'si |  
@@ -2644,7 +2644,7 @@ Bu kimlik doğrulama türü için tetikleyici veya eylemi tanımınızı içereb
 | **Gizli anahtarı** | Evet, yalnızca "Gizli dizisini" kimlik bilgisi türü için | <*Gizli dizi için kimlik doğrulaması*> | İstekte bulunan yetkilendirme için istemcinin kullandığı base64 ile kodlanmış bir gizli anahtarı |
 ||||| 
 
-Örneğin, biçimi şöyledir `authentication` nesne "Gizli dizisini" kimlik bilgisi türü, tetikleyici veya eylemi tanımınızı kullandığında: parametreleri güvenliğini sağlama hakkında daha fazla bilgi için bkz. [güvenli hassas bilgileri](#secure-info). 
+Örneğin, biçimi şöyledir `authentication` nesne kullanıldığında, tetikleyici veya eylemi tanımınızı "Gizli dizisini" kimlik bilgileri türü: Parametreleri güvenliğini sağlama hakkında daha fazla bilgi için bkz. [güvenli hassas bilgileri](#secure-info). 
 
 ```javascript
 "authentication": {

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d716a27cc2b4879451a8d5edbca46ca1bbfeaf40
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 96b0c44ff36dac3832e518deeed7f07b11e78c16
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968996"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54160055"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>SAP HANA altyapısı yapılandırmaları ve işlemleri Azure üzerinde
 Bu belge, Azure altyapı yapılandırma ve işletim dağıtılan Azure yerel sanal makinelerinde (VM'ler) SAP HANA sistemleri için yönergeler sağlar. Belge ayrıca SAP HANA ölçeklendirme M128s VM SKU için yapılandırma bilgilerini içerir. Bu belge aşağıdaki içeriği için standart bir SAP belgelerindeki değiştirin yönelik değildir:
@@ -208,7 +208,7 @@ SAP HANA çalıştırmayı Vm'leri yüklediğinizde, VM'lerin gerekir:
 
 Ancak, enduring dağıtımları için Azure'da bir sanal veri merkezi ağ mimarisi oluşturmanız gerekir. Bu mimari, şirket içi ayrı bir Azure Vnet'e bağlanır Azure VNet ağ geçidinin ayrılması önerir. Bu ayrı sanal ağ ya da şirket içi bırakır tüm trafiği barındırmamalısınız veya İnternet'e. Bu yaklaşım, yazılım denetleme ve sanal veri merkezi, Azure'da bu ayrı hub sanal ağında girdiği günlük trafiği dağıtmanıza olanak tanır. Bu nedenle içinde - ve giden trafiği Azure dağıtımınıza ilişkili tüm yazılım ve yapılandırmalar barındıran bir VNet gerekir.
 
-Makaleleri [Azure sanal veri merkezi: ağ perspektifi A](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) ve [Azure sanal veri merkezi ve kurumsal denetim düzlemi](https://docs.microsoft.com/azure/architecture/vdc/) sanal veri merkezi yaklaşımı hakkında daha fazla bilgi verin ve ilgili Azure sanal ağ tasarımı.
+Makaleleri [Azure sanal veri merkezi: Ağ perspektifi](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) ve [Azure sanal veri merkezi ve kurumsal denetim düzlemi](https://docs.microsoft.com/azure/architecture/vdc/) sanal veri merkezi yaklaşımıyla ve ilgili Azure sanal ağ tasarımı hakkında daha fazla bilgi verin.
 
 
 >[!NOTE]
@@ -403,8 +403,8 @@ Azure hızlandırılmış ağ hakkında ek bilgi [burada](https://docs.microsoft
 
 DT 2.0 en iyi uygulama kılavuzunu göre disk g/ç aktarım hızı fiziksel çekirdek başına en az 50 MB/sn olmalıdır. DT 2.0 için bir desteklenen iki Azure VM türleri belirtimi bakarak maksimum disk g/ç aktarım hızı sınırı VM için görürsünüz:
 
-- E32sv3: 768 MB (önbelleğe alınmamış) fiziksel çekirdek başına 48 MB/sn oranını anlamına gelen saniye başına
-- M64-32ms: 1000 MB/sn (önbelleğe alınmamış) 62.5 MB/sn başına fiziksel çekirdek oranı anlamına gelir
+- E32sv3:   768 MB/sn (fiziksel çekirdek başına 48 MB/sn oranını başka bir deyişle, önbelleğe alınmamış)
+- M64-32MS:  1000 MB/sn (yani 62.5 MB/sn başına fiziksel çekirdek oranı önbelleğe alınmamış)
 
 Birden çok Azure diski DT 2.0 VM ve VM başına disk aktarım hızı sınırını elde etmek için işletim sistemi düzeyinde yazılım RAID (şeritleme) oluşturmak için gereklidir. Tek bir Azure diskinin VM sınırını bu bağlamda ulaşmak için aktarım hızı sağlayamaz. Azure Premium depolama DT 2.0 çalıştırmak için zorunludur. 
 

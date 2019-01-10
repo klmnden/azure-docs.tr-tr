@@ -15,12 +15,12 @@ ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
-ms.openlocfilehash: 565e7379ad12222e459bd61ed50fa38f9f9b12fc
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 26b0bd3c6bec2427cd95deb05cc19c4dd3b22aa3
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136256"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159545"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Kerberos kısıtlanmış temsil için çoklu oturum açma uygulamalarınıza uygulama ara sunucusu ile
 
@@ -66,13 +66,15 @@ Active Directory yapılandırması, uygulama ara sunucusu bağlayıcısını ve 
 1. KCD ile çalışma alanlarında önkoşullarının listesi için bkz. [etki alanlarında Kerberos kısıtlanmış temsil](https://technet.microsoft.com/library/hh831477.aspx).
 2. Kullanım `principalsallowedtodelegateto` bağlayıcı sunucusu için temsilci seçmek uygulama proxy'sini etkinleştirmek için bağlayıcı sunucusu özelliği. Uygulama sunucusu olan `sharepointserviceaccount` ve temsilci sunucusu `connectormachineaccount`. Windows 2012 R2 için örnek olarak bu kodu kullanın:
 
-        $connector= Get-ADComputer -Identity connectormachineaccount -server dc.connectordomain.com
+```powershell
+$connector= Get-ADComputer -Identity connectormachineaccount -server dc.connectordomain.com
 
-        Set-ADComputer -Identity sharepointserviceaccount -PrincipalsAllowedToDelegateToAccount $connector
+Set-ADComputer -Identity sharepointserviceaccount -PrincipalsAllowedToDelegateToAccount $connector
 
-        Get-ADComputer sharepointserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
+Get-ADComputer sharepointserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
+```
 
-Sharepointserviceaccount SPS makine hesabının veya SPS uygulama havuzu altında çalıştığı hizmet hesabı olabilir.
+`sharepointserviceaccount` SPS makine hesabının veya SPS uygulama havuzu altında çalıştığı hizmet hesabı olabilir.
 
 ## <a name="configure-single-sign-on"></a>Çoklu oturum açmayı yapılandırma 
 1. Açıklanan yönergelere göre uygulamanızı yayımlayın [uygulama ara sunucusu ile uygulama yayımlama](application-proxy-add-on-premises-application.md). Seçtiğinizden emin olun **Azure Active Directory** olarak **ön kimlik doğrulama yöntemi**.

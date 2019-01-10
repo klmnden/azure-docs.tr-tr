@@ -13,12 +13,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
-ms.openlocfilehash: 031cb10e476ba068f7e3d7baf3b19f7703caf170
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 74f47344afff630a8633b340ea4ce21db28db7ca
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580062"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159936"
 ---
 # <a name="sap-hana-backup-based-on-storage-snapshots"></a>Depolama anlık görüntülerine dayalı SAP HANA yedeklemesi
 
@@ -52,7 +52,7 @@ SAP HANA veri dizininde anlık görüntü diskte gösterilir.
 
 SAP HANA anlık görüntü hazırlama modundayken, depolama anlık görüntüyü çalıştırmadan önce dosya sistemi tutarlılığı de sağlanır emin olmak varsa. Bkz: _depolama anlık görüntülerini çekerken SAP HANA veri tutarlılığı_ ilgili makaledeki [SAP HANA için yedekleme Kılavuzu Azure sanal Makineler'de](sap-hana-backup-guide.md).
 
-Depolama anlık görüntü tamamlandıktan sonra SAP HANA anlık görüntü onaylamak için önemlidir. Çalıştırmak için karşılık gelen bir SQL deyimi vardır: yedekleme verilerini Kapat anlık görüntü (bkz [yedekleme veri anlık görüntü tablosunu Kapat (yedekleme ve kurtarma)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/c3/9739966f7f4bd5818769ad4ce6a7f8/content.htm)).
+Depolama anlık görüntü tamamlandıktan sonra SAP HANA anlık görüntü onaylamak için önemlidir. Çalıştırılacak karşılık gelen bir SQL deyimi vardır: Yedekleme verileri Kapat anlık görüntü (bkz [yedekleme veri anlık görüntü tablosunu Kapat (yedekleme ve kurtarma)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/c3/9739966f7f4bd5818769ad4ce6a7f8/content.htm)).
 
 > [!IMPORTANT]
 > HANA anlık görüntü onaylayın. Şu nedenle &quot;kopyalama yazarken,&quot; SAP HANA gerektirebilecek ek disk alanı hazırlama anlık görüntü modu ve SAP HANA anlık görüntü onaylanana kadar yeni yedeklemeleri başlatmak mümkün değildir.

@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı Başlangıç: Alternatif çevirileri alma, Python - Translator Metin Çevirisi API’si'
+title: "Hızlı Başlangıç: İki dilli sözlük, Python - Translator metin çevirisi API'si ile sözcük araması"
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta Python ve Translator Metin Çevirisi API'sini kullanarak belirtilen bir metnin alternatif çevirilerini ve kullanım örneklerini bulmayı öğreneceksiniz.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/21/2018
 ms.author: erhopf
-ms.openlocfilehash: ab8a6d5b6d4bb52863e77b844a4008bb80d840be
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 52820a9162a20b680b85d07f8c49ac5305d4979a
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993950"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158029"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-alternate-translations-using-python"></a>Hızlı Başlangıç: Python ve Translator Metin Çevirisi API'sini kullanarak alternatif çevirileri alma
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-python"></a>Hızlı Başlangıç: Python kullanarak iki dilli sözlük ile sözcük arayın
 
 Bu hızlı başlangıçta Python ve Translator Metin Çevirisi API'sini kullanarak belirtilen bir metnin alternatif çevirilerini ve kullanım örneklerini bulmayı öğreneceksiniz.
 
@@ -69,7 +69,7 @@ else:
 `params` kaynak ve çıkış dillerini ayarlamak için kullanılır. Bu örnekte İngilizce ve İspanyolca dillerini temsil eden `en` ve `es` değerlerini kullanıyoruz.
 
 >[!NOTE]
-> Uç noktalar, rotalar ve istek parametreleri hakkında daha fazla bilgi için bkz. [Translator Metin Çevirisi API’si 3.0: Sözlük Arama](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup).
+> Uç noktaları, yollar ve istek parametreleri hakkında daha fazla bilgi için bkz: [Translator Text API 3.0: Sözlük Arama](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup).
 
 ```python
 base_url = 'https://api.cognitive.microsofttranslator.com'

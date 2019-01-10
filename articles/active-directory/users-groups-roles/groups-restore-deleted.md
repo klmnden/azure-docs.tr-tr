@@ -14,12 +14,12 @@ ms.date: 08/28/2017
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 3b2264817dce63885ce0c428fe4df8427f7cdde6
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ms.openlocfilehash: 090c6c2d20bf169a3b3362cc796f6fc5c04b3c83
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049259"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54155040"
 ---
 # <a name="restore-a-deleted-office-365-group-in-azure-active-directory"></a>Azure Active Directory’de silinmiş bir Office 365 grubunu geri yükleme
 
@@ -73,7 +73,7 @@ Office 365 grubunu başarıyla geri yüklediğinizi doğrulamak için, grup hakk
 
 - Grup, Exchange’de Sol gezinti çubuğunda görünür
 - Grubun planı Planner’da gösterilir
-- Tüm Sharepoint siteleri ve tüm içerikleri kullanılabilir duruma gelir
+- Herhangi bir SharePoint sitesine ve tüm içerikleri kullanıma sunulacaktır
 - Gruba, herhangi bir Exchange uç noktasından ve Office 365 gruplarını destekleyen diğer Office 365 iş yüklerinden erişilebilir
 
 ## <a name="next-steps"></a>Sonraki adımlar

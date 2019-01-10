@@ -11,12 +11,12 @@ ms.author: haining
 ms.reviewer: j-martens
 ms.date: 12/20/2018
 ms.custom: seodec18
-ms.openlocfilehash: 8a67a20beff306cd23b08e1d651ab5dc4c779fd2
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
-ms.translationtype: MT
+ms.openlocfilehash: a43481bf6d9c95efdb9c4bc38ed400c5fe782c17
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742771"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157522"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning hizmeti sürüm notları
 
@@ -271,85 +271,7 @@ Bkz: [bilinen sorunların listesi](resource-known-issues.md) bilinen hataların 
 
 Yeni bir Azure Machine Learning sürümü yenilendi: Bu sürüm hakkında daha fazlasını okuyun: https://azure.microsoft.com/blog/what-s-new-in-azure-machine-learning-service/
 
-## <a name="older-notes-sept-2017---jun-2018"></a>Eski Notlar: Eylül 2017 - Haziran 2018
-### <a name="2018-05-sprint-5"></a>2018-05 (sprint 5)
-
-Azure Machine Learning bu sürümle birlikte, şunları yapabilirsiniz:
-+ Özellik kazandırın görüntüleri ResNet 50 quantized bir sürümü ile bu özellikler, temel bir sınıflandırıcı eğitmek ve [modelin bir FPGA azure'da dağıtmak](../service/how-to-deploy-fpga-web-service.md) Ultra düşük gecikme süresi çıkarım için.
-
-+ Hızla oluşturmak ve yüksek oranda doğru makine öğrenimi ve derin öğrenme modelleri kullanarak dağıtmak [özel Azure Machine Learning paketleri](../desktop-workbench/reference-python-package-overview.md)
-
-### <a name="2018-03-sprint-4"></a>2018-03 (sprint 4)
-**Sürüm numarası**: 0.1.1801.24353 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([sürümünüzü bulmak](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
-
-Aşağıdaki güncelleştirmelerin çoğu, doğrudan geri bildirim sonuçlarını yapılır. Bunları devam ettirmeye kararlıyız!
-
-**Önemli yeni özellikler ve değişiklikleri**
-
-- Temelli yürütme komut dosyalarınızı uzak Ubuntu vm'lerinde uzak docker yanı sıra kendi ortamınızı üzerinde yerel olarak çalıştırma desteği.
-- Yeni ortam deneyimi Workbench uygulamasında işlem hedeflerini oluşturmak ve CLI tabanlı deneyimimizi ek yapılandırmaları Çalıştır sağlar.
-![Ortamlar sekmesi](media/azure-machine-learning-release-notes/environment-page.png)
-- Özelleştirilebilir çalıştırma geçmişi raporlarını ![yeni geçmiş raporları çalıştırma görüntüsü](media/azure-machine-learning-release-notes/new-run-history-reports.png)
-
-**Ayrıntılı güncelleştirmeleri**
-
-Her bileşen bölümünde Azure Machine Learning'de bu sprint ayrıntılı güncelleştirmeleri listesi aşağıda verilmiştir.
-
-#### <a name="workbench-ui"></a>Workbench kullanıcı Arabirimi
-- Özelleştirilebilir çalıştırma geçmişi raporları
-  - Çalıştırma geçmişi raporlar için geliştirilmiş grafik yapılandırması
-    - Kullanılan giriş noktaları değiştirilebilir
-    - Üst düzey filtre eklenebilir ve değiştiren ![filtreleri ekleyin](media/azure-machine-learning-release-notes/add-filters.jpg)
-    - Grafikler ve istatistikleri eklenecek veya değiştirilecek (ve düzenlenmeyecek sürükle ve bırak).
-    ![Yeni grafik oluşturma](media/azure-machine-learning-release-notes/configure-charts.png)
-
-  - CRUD çalıştırma geçmişi raporları
-  - Var olan tüm çalıştırma geçmişi liste görünümü yapılandırma dosyalarını, seçilen giriş noktaları çalıştırmalardan işlem hatları gibi davranır sunucu tarafı raporun taşındı.
-
-- Ortamlar sekmesi
-  - Kolayca yeni işlem hedefini ekleme ve yapılandırma dosyaları projenize ![yeni işlem hedefi](media/azure-machine-learning-release-notes/add-new-environments.png)
-  - Yönetme ve yapılandırma dosyalarınızın basit, form tabanlı bir UX kullanarak güncelleştirme
-  - Yeni düğme yürütme için ortamınızı hazırlama
-
-- Kenar çubuğunda dosyalarının listesi için performans geliştirmeleri
-
-#### <a name="data-preparation"></a>Veri hazırlama 
-- Azure Machine Learning Workbench, bilinen bir sütunun adını kullanarak bir sütun için arama yapabilmesi olanak sağlıyor.
-
-
-#### <a name="experimentation"></a>Deneme
-- Azure Machine Learning Workbench, betiklerinizi yerel olarak kendi python veya pyspark'tan ortamında çalışan artık desteklemektedir. Bu özellik için kullanıcı oluşturur ve kendi uzak sanal ortamda yönetir ve Azure Machine Learning Workbench, hedefte betiklerini çalıştırmak için kullanın. Bkz: [Azure Machine Learning deneme hizmeti yapılandırma](../desktop-workbench/experimentation-service-configuration.md) 
-
-#### <a name="model-management"></a>Model Yönetimi
-- Dağıtılmış kapsayıcıları özelleştirmek için destek: apt-get- vb. kullanarak dış kitaplıkları yüklenmesini sağlayarak kapsayıcı görüntüsünü özelleştirme sağlar. Artık, kolayca yüklenebilir kitaplıklara sınırlı değildir. Bkz: [belgeleri](../desktop-workbench/model-management-custom-container.md) daha fazla bilgi için.
-  - Kullanım `--docker-file myDockerStepsFilename` bildirimi, görüntü veya hizmet oluşturma komutları bayrağı ve dosya adı.
-  - Temel görüntü Ubuntu olduğu ve değiştirilemez.
-  - Örnek komut: 
-  
-    ```shell
-    $ az ml image create -n myimage -m mymodel.pkl -f score.py --docker-file mydockerstepsfile
-    ```
-
-### <a name="2018-01-sprint-3"></a>2018-01 (sprint 3) 
-**Sürüm numarası**: 0.1.1712.18263 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([sürümünüzü bulmak](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
-
-Bu sprint'te geliştirmeleri ve güncelleştirmeler şunlardır: Bu güncelleştirmelerin çoğu kullanıcı geri bildirim doğrudan sonucu yapılır. 
-
-### <a name="2017-12-sprint-2"></a>2017-12 (sprint 2)
-**Sürüm numarası**: 0.1.1711.15263 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([sürümünüzü bulmak](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
-
-Bu sürüm, Azure Machine Learning üçüncü güncelleştirmedir. Bu güncelleştirme, workbench uygulaması, komut satırı arabirimi (CLI) ve arka uç Hizmetleri geliştirmeleri içerir. Gülümsemeleri göndermek için çok teşekkür ederiz ve frowns. Aşağıdaki güncelleştirmelerin çoğu, doğrudan geri bildirim sonuçlarını yapılır. 
-
-### <a name="2017-11-sprint-1"></a>2017-11 (sprint 1) 
-**Sürüm numarası**: 0.1.1710.31013 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([sürümünüzü bulmak](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
-
-Bu sürümde, güvenlik, kararlılık ve sürdürülebilirliği workbench uygulaması, CLI ve arka uç Hizmetleri katmanı geliştirmeler yaptık. 
-
-### <a name="2017-10-sprint-0"></a>2017-10 (sprint 0) 
-**Sürüm numarası**: 0.1.1710.31013 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([sürümünüzü bulmak](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
-
-Bu sürüm, ilk bizim genel Önizleme'de Microsoft Ignite 2017 konferansına izleyerek Azure Machine Learning Workbench ilk güncelleştirmedir. Ana güncelleştirmeler bu sürümde, güvenilirlik ve sabitleme giderir. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Azure Machine Learning](../service/overview-what-is-azure-ml.md)’e genel bakışı okuyun.
+Genel bakışı okuyun [Azure Machine Learning hizmeti](../service/overview-what-is-azure-ml.md).

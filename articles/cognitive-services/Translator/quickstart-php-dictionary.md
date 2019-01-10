@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı Başlangıç: Alternatif çevirileri bulma, PHP - Translator Metin Çevirisi API’si'
+title: İki dilli sözlük, PHP - Translator metin çevirisi API'si ile sözcük araması
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, PHP ile Translator Metin Çevirisi API’sini kullanarak alternatif çeviriler ve bağlam içindeki terim örnekleri bulacaksınız.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: erhopf
-ms.openlocfilehash: 4d48ab8d0178b2d3fbcba2ee631ee97b30518f88
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
-ms.translationtype: HT
+ms.openlocfilehash: ff1f0a97667260fa19c46bec6901113ff696aaab
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649792"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156893"
 ---
-# <a name="quickstart-find-alternate-translations-with-the-translator-text-rest-api-php"></a>Hızlı Başlangıç: Translator Metin Çevirisi REST API’si (PHP) ile alternatif çevirileri bulma
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-php"></a>Hızlı Başlangıç: PHP kullanarak iki dilli sözlük ile sözcük arayın
 
 Bu hızlı başlangıçta, Translator Metin Çevirisi API'sini kullanarak bir terimin olası alternatif çevirilerini ve ayrıca bu alternatif çevirilerin kullanım örneklerini bulacaksınız.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu kodu çalıştırmak için [PHP 5.6.x](http://php.net/downloads.php)’e ihtiyacınız olacak.
 

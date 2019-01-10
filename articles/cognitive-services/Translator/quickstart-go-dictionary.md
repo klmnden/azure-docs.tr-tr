@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı Başlangıç: Alternatif çevirileri bulma, Go - Translator Metin Çevirisi API’si'
+title: "Hızlı Başlangıç: İki dilli sözlük ile sözcük araması Git - Translator metin çevirisi API'si"
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, Go ile Translator Metin Çevirisi API’sini kullanarak alternatif çeviriler ve bağlam içindeki terim örnekleri bulacaksınız.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 12/05/2018
 ms.author: erhopf
-ms.openlocfilehash: bcda716d143bd675f9510b1ecf5974ab9c28a394
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: c1a75a32e60e337d07bda9d6f6d39efa58c679e2
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000583"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158576"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-alternate-translations-using-go"></a>Hızlı Başlangıç: Go kullanarak diğer çevirileri almak için Translator Text API kullanın.
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-go"></a>Hızlı Başlangıç: Go kullanarak iki dilli sözlük ile sözcük arayın
 
 Bu hızlı başlangıçta, Git ve Translator Text REST API kullanarak belirtilen bir metin için alternatif çevirileri ve kullanım örnekleri bulmak öğreneceksiniz.
 
@@ -102,7 +102,7 @@ u.RawQuery = q.Encode()
 ```
 
 >[!NOTE]
-> Uç noktalar, rotalar ve istek parametreleri hakkında daha fazla bilgi için bkz. [Translator Metin Çevirisi API’si 3.0: Sözlük Arama](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup).
+> Uç noktaları, yollar ve istek parametreleri hakkında daha fazla bilgi için bkz: [Translator Text API 3.0: Sözlük Arama](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup).
 
 ## <a name="create-a-struct-for-your-request-body"></a>Bir yapı, istek gövdesi için oluşturma
 

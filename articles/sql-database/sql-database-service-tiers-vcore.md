@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 01/02/2019
-ms.openlocfilehash: 6a5902b8c442d83c86142bad516b862febd6522c
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.date: 01/08/2019
+ms.openlocfilehash: 9d5a1493316fbfa9a703655f37a40276ee3ffaf7
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118209"
+ms.locfileid: "54156825"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>Sanal çekirdek hizmet katmanları, Azure hibrit avantajı ve geçiş
 
@@ -67,9 +67,28 @@ Sanal çekirdek tabanlı satın alma modeli, mevcut lisanslarınızı kullanarak
 
 ![fiyatlandırma](./media/sql-database-service-tiers/pricing.png)
 
-Mevcut şirket içi SQL Server lisanslarınızı kullanmak istiyorsanız, SQL Server veritabanı altyapısı lisans faturanızda dahil edilmemesi sırasında temel alınan Azure altyapısı (örneğin Azure veritabanı'nın çalıştırıldığı VM) için taban fiyat ödeyebilirsiniz. Belirli bir süre içinde SQL Server ve Azure SQL veritabanı için hem de şirket içi lisansınızı kullanabilirsiniz. Aksi takdirde, veritabanı veya örnek fiyatına SQL Server veritabanı altyapısı için lisans maliyeti eklenir. Oluşturmak veya veritabanı veya örnek güncelleştirmek için PowerShell veya Azure CLI kullanıyorsanız, seçim yapabileceğiniz iki fiyatlandırma seçeneği vardır:
-- **BasePrice** parçası olarak kullanmak istediğiniz geçerli bir SQL Server Lisans olduğu anlamına gelir [Azure hibrit avantajı](https://azure.microsoft.com/pricing/hybrid-benefit/) ve yalnızca temel altyapı maliyetini ödeme yapmak istiyorum.
-- **LicenseIncluded** ya da sahip olmadığınız anlamına gelir şirket içi SQL Server işlemci lisansı veya veritabanı veya yönetilen örneği için şirket içi lisansınızı kullanmak istemiyorsanız. Bu durumda, SQL Server Lisans faturanızda dahil edilir. 
+Azure karma avantajı ile SQL veritabanı altyapısı için kendi mevcut SQL Server lisansınızı kullanarak temel Azure altyapısını karşılığında Ödeme yapmalarını sağlayan seçebilirsiniz (**BasePrice**) veya her iki temel alınan altyapı için ödeme ve SQL Server Lisansı (**LicenseIncluded**). Azure portalını kullanarak ya da aşağıdaki API'leri kullanarak, lisans modeli değiştirmek ya da seçin.
+
+- Ayarlamak veya PowerShell kullanarak lisans türünü güncelleştirmek için:
+
+  - [Yeni AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase):
+  - [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql)
+  - [Yeni AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance)
+  - [Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql)
+
+- Azure CLI'yı kullanarak lisans türünü güncelleştirmek veya ayarlamak için:
+
+  - [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create)
+  - [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update)
+  - [az sql mı oluşturma](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create)
+  - [az sql mı güncelleştirme](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)
+
+- Ayarlamak veya REST API'yi kullanarak lisans türünü güncelleştirmek için:
+
+  - [Veritabanları - oluştur veya güncelleştir](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)
+  - [Veritabanları - güncelleştirme](https://docs.microsoft.com/rest/api/sql/databases/update)
+  - [Yönetilen örnekler - oluştur veya güncelleştir](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)
+  - [Yönetilen örnekleri - güncelleştirme](https://docs.microsoft.com/rest/api/sql/managedinstances/update)
 
 ## <a name="migration-from-dtu-model-to-vcore-model"></a>VCore modeli DTU modeline geçiş
 

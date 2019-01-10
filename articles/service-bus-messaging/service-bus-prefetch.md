@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: spelluru
-ms.openlocfilehash: 9c88ea7433232b62c006c908cd2768d318d36d43
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 292f8ae1821cdcc4fd6274808b53454ec51eaea0
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854057"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157413"
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>Azure Service Bus iletileri önceden getirme
 
@@ -50,7 +50,7 @@ Kilit sessizce önceden getirme arabelleğinde dolarsa iletisi bırakılmış ol
 
 İleti işleme için güvenilirliği yüksek derecede gerekir ve işleme önemli bir çalışma ve zaman alan, ölçülü veya hiç önceden getirme özelliğini kullanmanız önerilir.
 
-Yüksek boyunca gerekir ve ileti işleme genellikle ucuz ise, önceden getirme önemli aktarım hızı avantajları verir.
+Önceden getirme, yüksek aktarım hızı gerekir ve ileti işleme genellikle ucuz ise, önemli aktarım hızı avantajları verir.
 
 En fazla hazırlık sayısı ve kuyruk veya abonelik yapılandırılmış kilit süresi kilit zaman aşımı en az bir ileti yanı sıra toplu beklenen ileti önceden getirme arabellek boyutu en fazla bir süredir işleme aşıyor, dengeli gerekir. Aynı zamanda, kilit zaman aşımı, iletileri kendi maksimum aşabilir kadar uzun olmaması gereken [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) yanlışlıkla bırakılır, bu nedenle yeniden teslim önce süresi dolacak şekilde kendi kilit gerek.
 

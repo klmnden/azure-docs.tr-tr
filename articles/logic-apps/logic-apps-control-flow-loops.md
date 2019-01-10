@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 manager: jeconnoc
 ms.date: 01/05/2019
 ms.topic: article
-ms.openlocfilehash: 728152c8f9e7d4cceb4b1c8165bbf087927f58e8
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 7237a9a6a99b57401af40512a6d2e21a3fe49e53
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063327"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159494"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>İş akışı eylemi yineleyin veya Azure Logic Apps dizilerde işlem döngü oluşturma
 
@@ -42,7 +42,7 @@ Bir koşul veya bir durum değişikliklerini kadar Eylemler yinelemek için olu�
 
 * İç içe geçmiş Döngülerde yinelemeler her zaman sırayla, paralel olarak çalışır. Paralel iç içe döngü öğeleri için işlemleri çalıştırmak için oluşturma ve [alt mantıksal uygulamayı çağırın](../logic-apps/logic-apps-http-endpoint.md).
 
-* Döngülerde değişkenlerde işlemlerden tahmin edilebilir sonuçlar almak için bu döngü sırayla çalışır.
+* Her döngü yinelemesinin sırasında değişkenlerde işlemlerden tahmin edilebilir sonuçlar almak için bu döngü sırayla çalışır. Örneğin, eşzamanlı olarak çalışan döngü sona erer, artırma, azaltma ve ekleme için değişken işlemleri tahmin edilebilir sonuçlar döndürür. Ancak, eşzamanlı olarak çalışan Döngüdeki her bir yineleme sırasında bu işlemleri öngörülemeyen sonuçlara döndürebilir. 
 
 * "Foreach" eylemi döngü kullanın [`@item()`](../logic-apps/workflow-definition-language-functions-reference.md#item) 
 Başvuru ve dizideki her öğe işlemek için ifade. Bir dizi içinde olmayan veriler belirlediğiniz mantıksal uygulama iş akışı başarısız olur. 
@@ -130,9 +130,9 @@ Varsayılan olarak, Döngülerde "Foreach" döngüsünü paralel olarak çalış
 
    !["Foreach" döngüsünü üzerinde seçin "..." > "Ayarlar"](media/logic-apps-control-flow-loops/for-each-loop-settings.png)
 
-1. Açma **eşzamanlılık denetimi** ayarı. Taşıma **paralellik derecesi** kaydırıcısını **1**ve **Bitti**.
+1. Altında **eşzamanlılık denetimi**, kapatma **eşzamanlılık denetimi** ayarını **üzerinde**. Taşıma **paralellik derecesi** kaydırıcısını **1**ve **Bitti**.
 
-   !["Eşzamanlılık denetimi" ayarı](media/logic-apps-control-flow-loops/for-each-loop-sequential-setting.png)
+   ![Eşzamanlılık denetimi açın](media/logic-apps-control-flow-loops/for-each-loop-sequential-setting.png)
 
 Mantıksal uygulamanızın JSON tanımı ile çalışıyorsanız, kullanabileceğiniz `Sequential` ekleyerek seçeneği `operationOptions` parametresi, örneğin:
 

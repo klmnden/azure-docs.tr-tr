@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: douglasl
-ms.openlocfilehash: 974b45566255154bddc969b2a5ab3db0d2bf4f31
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: MT
+ms.openlocfilehash: 1b9821a0115aba96f4588049273bd7a157121ded
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019291"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156638"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Azure Data factory'de bir Azure işlev etkinliği
 
@@ -25,7 +25,7 @@ Azure işlev etkinliği çalıştırmanıza izin veren [Azure işlevleri](../azu
 
 ## <a name="azure-function-linked-service"></a>Azure bağlantılı işlev hizmeti
 
-Azure işlevinin dönüş türü, geçerli bir JObject olması gerekir. Başka bir şey başarısız olur ve genel kullanıcı hatası oluşturuyor *hata arama uç noktası*.
+Azure işlevinin dönüş türü, geçerli bir JObject olması gerekir. (Aklınızda [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) olduğu *değil* bir JObject.) Başka bir şey başarısız olur ve genel kullanıcı hatası oluşturuyor *hata arama uç noktası*.
 
 | **Özellik** | **Açıklama** | **Gerekli** |
 | --- | --- | --- |

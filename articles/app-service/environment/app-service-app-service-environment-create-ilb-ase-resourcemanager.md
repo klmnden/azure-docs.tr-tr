@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: d9d94a7ece4b3758792cc0df8e013d14ac40c027
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 34278e02c62bda18a4b4d2f404417e8844dd5fc4
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276375"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156689"
 ---
 # <a name="how-to-create-an-ilb-ase-using-azure-resource-manager-templates"></a>Azure Resource Manager Şablonlarını kullanarak ILB ASE oluşturma
 
@@ -42,7 +42,7 @@ Bir örnek Azure Resource Manager şablonunu ve ilişkili parametreler dosyası 
 
 Parametrelerin çoğu *azuredeploy.parameters.json* hem ILB ase, hem de genel bir VIP için bağlı Ase'ler oluşturmak için yaygın dosya.  Out Parametreleri özel notun çağrıları aşağıdaki liste veya ILB ASE oluşturulurken benzersiz şunlardır:
 
-* *interalLoadBalancingMode*:  Çoğu durumda kümesinde 80/443 numaralı bağlantı noktasındaki HTTP/HTTPS trafiğini hem ase'ye FTP hizmeti için bağlantı noktalarını dinledik denetim/veri kanalı anlamına gelir, 3, bu iç sanal ağ adres ayrılmış ILB bağlanacak.  Bu özellik, bunun yerine 2 olarak ayarlanır, yalnızca FTP hizmeti bir ILB adresini, bağlantı noktaları (Denetim hem de veri kanalı) HTTP/HTTPS trafiğini, genel VIP üzerinde kalır ancak bağlanacak ilgili.
+* *Internalloadbalancingmode*:  Çoğu durumda kümesinde 80/443 numaralı bağlantı noktasındaki HTTP/HTTPS trafiğini hem ase'ye FTP hizmeti için bağlantı noktalarını dinledik denetim/veri kanalı anlamına gelir, 3, bu iç sanal ağ adres ayrılmış ILB bağlanacak.  Bu özellik, bunun yerine 2 olarak ayarlanır, yalnızca FTP hizmeti bir ILB adresini, bağlantı noktaları (Denetim hem de veri kanalı) HTTP/HTTPS trafiğini, genel VIP üzerinde kalır ancak bağlanacak ilgili.
 * *Dnssuffıx*:  Bu parametre, ASE için atanan varsayılan kök etki alanı tanımlar.  Tüm web uygulamaları için Azure App Service'in genel varyasyonu varsayılan kök etki alanıdır *azurewebsites.net*.  ILB ASE, müşterinin sanal ağa iç olduğundan, ancak bu ortak hizmetin varsayılan kök etki alanını kullanmak için anlam ifade etmez.  Bunun yerine, ILB ASE şirketin iç sanal ağ içinde kullanmak için anlamlı varsayılan kök etki alanı olmalıdır.  Örneğin, bir kuramsal Contoso Corporation'ın bir varsayılan kök etki alanı kullanabilirsiniz *contoso.com iç* uygulamalar yalnızca çözümlenebilir ve Contoso'nun sanal ağdaki erişilebilir olacak şekilde tasarlanmıştır. 
 * *ipSslAddressCount*:  Bu parametre 0 değerini otomatik olarak alınır *azuredeploy.json* ILB ase yalnızca tek bir ILB adresini olduğundan dosya.  Bir ILB ASE için açık bir IP SSL adresi yok ve bu nedenle bir ILB ASE için IP SSL adresi havuzu sıfır olarak ayarlanmalıdır, aksi takdirde bir sağlama hatası oluşur. 
 

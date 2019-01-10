@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: cfbb04ea56eacfd859b6ce520da5396ad91d9abf
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 4a7e3e9ff414c8f7ba1c49924f1d8659d72ae3e2
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121303"
+ms.locfileid: "54158219"
 ---
 # <a name="azure-api-management-template-resources"></a>Azure API Management şablon kaynakları
 Azure API Management aşağıdaki türdeki kaynakları portal şablonları kullanılmak üzere Geliştirici sağlar.  
@@ -361,7 +361,7 @@ Azure API Management aşağıdaki türdeki kaynakları portal şablonları kulla
 |WebProductsUsageLimitsHeader|Kullanım sınırları|  
 |WebProductsYouAreNotSubscribed|Bu ürüne abonesiniz.|  
 |WebProductsYouRequestedSubscription|Bu ürün için abonelik talebinde bulundunuz.|  
-|ErrorYouNeedtoAgreeWithLegalTerms|Devam etmeden önce Kullanım Koşulları'nı kabul etmeniz gerekir.|  
+|ErrorYouNeedToAgreeWithLegalTerms|Devam etmeden önce Kullanım Koşulları'nı kabul etmeniz gerekir.|  
 |ButtonLabelAddSubscription|Abonelik ekleme|  
 |LinkLabelChangeSubscriptionName|değiştir|  
 |ButtonLabelConfirm|Onayla|  
@@ -517,7 +517,7 @@ Azure API Management aşağıdaki türdeki kaynakları portal şablonları kulla
 |WebDevelopersSecondaryKey|İkincil anahtar|  
 |ButtonLabelShowKey|Göster|  
 |ButtonLabelRenewSubscription|Yenile|  
-|WebDevelopersSubscriptionReqested|İstendiği tarihi {0}|  
+|WebDevelopersSubscriptionRequested|İstendiği tarihi {0}|  
 |WebDevelopersSubscriptionRequestedState|İstenen|  
 |WebDevelopersSubscriptionTableNameHeader|Ad|  
 |WebDevelopersSubscriptionTableStateHeader|Durum|  

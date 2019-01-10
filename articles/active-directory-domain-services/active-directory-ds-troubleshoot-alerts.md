@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: sorun giderme uyarıları | Microsoft Docs'
+title: 'Azure Active Directory etki alanı Hizmetleri: Sorun giderme uyarıları | Microsoft Docs'
 description: Azure AD Domain Services için sorun giderme uyarıları
 services: active-directory-ds
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: c4aa5786ea1dfbef32c40306de6291ebeb2fe6f8
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: c30e18c42f310172b07995e0ad88a505a01c4218
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036147"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159613"
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD etki alanı Hizmetleri - sorun giderme uyarıları
 Bu makalede, yönetilen etki alanınızda karşılaşabileceğiniz herhangi bir uyarı için sorun giderme kılavuzları sağlar.
@@ -56,7 +56,7 @@ Karşılık gelen sorun giderme adımlarını kimliği veya ileti uyarıyı seç
 
 
 
-## <a name="aadds100-missing-directory"></a>AADDS100: Dizin eksik
+## <a name="aadds100-missing-directory"></a>AADDS100: Eksik dizin
 **Uyarı iletisi:**
 
 *Yönetilen etki alanınızla ilişkili Azure AD dizini silinmiş olabilir. Yönetilen etki alanı artık desteklenen bir yapılandırma değildir. Microsoft olamaz izleme, yönetme, düzeltme eki ve yönetilen Etki Alanınızla eşitleme.*
@@ -67,7 +67,7 @@ Azure aboneliğiniz için yeni bir Azure yanlış taşıyarak bu hata genellikle
 
 Bu hata onarılamaz. Gidermek için şunları yapmanız gerekir [mevcut yönetilen etki alanınızı silmek](active-directory-ds-disable-aadds.md) ve yeni dizininizde yeniden oluşturun. Silme konusunda sorun yaşıyorsanız, Azure Active Directory Domain Services ürün ekibiyle [desteği](active-directory-ds-contact-us.md).
 
-## <a name="aadds101-azure-ad-b2c-is-running-in-this-directory"></a>AADDS101: Bu dizinde Azure AD B2C'yi çalıştıran
+## <a name="aadds101-azure-ad-b2c-is-running-in-this-directory"></a>AADDS101: Azure AD B2C bu dizinde çalışıyor
 **Uyarı iletisi:**
 
 *Azure AD etki alanı Hizmetleri, bir Azure AD B2C dizininde etkinleştirilemez.*
@@ -114,7 +114,7 @@ Sanal ağ içinde makineler aynı IP adresi aralığı alt ağ için yapılandı
 4. Yeni etki alanınız için sanal makinelerinizi etki alanına katılma için izleyin [bu kılavuzda](active-directory-ds-admin-guide-join-windows-vm-portal.md).
 8. Uyarı çözümlendiğinde emin olmak için iki saat içinde etki alanınızın sistem durumunu denetleyin.
 
-## <a name="aadds106-your-azure-subscription-is-not-found"></a>AADDS106: Azure aboneliğinizi bulunamadı
+## <a name="aadds106-your-azure-subscription-is-not-found"></a>AADDS106: Azure aboneliğiniz bulunamadı
 
 **Uyarı iletisi:**
 
@@ -128,7 +128,7 @@ Azure AD Domain Services işlevi aboneliği gerektirir ve başka bir aboneliğe 
 2. [Yönetilen etki alanınızı silmek](active-directory-ds-disable-aadds.md) , mevcut Azure AD dizininden.
 3. İzleyin [Başlarken](active-directory-ds-getting-started.md) yönetilen bir etki alanı yeniden oluşturmak için Kılavuzu.
 
-## <a name="aadds107-your-azure-subscription-is-disabled"></a>AADDS107: Azure aboneliğiniz devre dışı bırakıldı
+## <a name="aadds107-your-azure-subscription-is-disabled"></a>AADDS107: Azure aboneliğiniz devre dışı
 
 **Uyarı iletisi:**
 
@@ -140,7 +140,7 @@ Azure AD Domain Services işlevi aboneliği gerektirir ve başka bir aboneliğe 
 1. [Azure aboneliğinizi yenileyin](https://docs.microsoft.com/azure/billing/billing-subscription-become-disable).
 2. Abonelik yenilendikten sonra Azure AD Domain Services yönetilen etki alanınıza yeniden etkinleştirmek için Azure'nın sunduğu bir bildirim alırsınız.
 
-## <a name="aadds108-subscription-moved-directories"></a>AADDS108: Abonelik dizinleri taşındı.
+## <a name="aadds108-subscription-moved-directories"></a>AADDS108: Abonelik, taşınan dizinleri
 
 **Uyarı iletisi:**
 
@@ -150,7 +150,7 @@ Azure AD Domain Services işlevi aboneliği gerektirir ve başka bir aboneliğe 
 
 Önceki dizinine Azure AD Domain Services ile ilişkili aboneliği ya da taşıyabilir veya ihtiyacınız [yönetilen etki alanınızı silmek](active-directory-ds-disable-aadds.md) mevcut dizinden ve seçtiğiniz dizinde oluşturun (ile birlikte bir Yeni Abonelik veya değişiklik dizini Azure AD Domain Services örneğinizin bulunduğu).
 
-## <a name="aadds109-resources-for-your-managed-domain-cannot-be-found"></a>AADDS109: Yönetilen etki alanınız için kaynaklar bulunamıyor
+## <a name="aadds109-resources-for-your-managed-domain-cannot-be-found"></a>AADDS109: Yönetilen etki alanınıza yönelik kaynaklar bulunamadı
 
 **Uyarı iletisi:**
 
@@ -169,7 +169,7 @@ Azure AD etki alanı Hizmetleri oluşturur belirli kaynaklar düzgün çalışab
 3.  Uyarı 4 saatten eski ise, yönetilen etki alanı kurtarılamaz bir durumda değil. Azure AD Domain Services silip yeniden açmanız gerekir.
 
 
-## <a name="aadds110-the-subnet-associated-with-your-managed-domain-is-full"></a>AADDS110: yönetilen Etki Alanınızla ilişkili alt ağ dolu
+## <a name="aadds110-the-subnet-associated-with-your-managed-domain-is-full"></a>AADDS110: Yönetilen etki alanınızla ilişkili alt ağ dolu
 
 **Uyarı iletisi:**
 
@@ -179,7 +179,7 @@ Azure AD etki alanı Hizmetleri oluşturur belirli kaynaklar düzgün çalışab
 
 Bu hata onarılamaz. Gidermek için şunları yapmanız gerekir [mevcut yönetilen etki alanınızı silmek](active-directory-ds-disable-aadds.md) ve [yönetilen etki alanınıza yeniden oluşturun](active-directory-ds-getting-started.md)
 
-## <a name="aaddds111-service-principal-unauthorized"></a>AADDDS111: yetkisiz hizmet sorumlusu
+## <a name="aadds111-service-principal-unauthorized"></a>AADDS111: Hizmet sorumlusu yetkisiz
 
 **Uyarı iletisi:**
 
@@ -193,7 +193,7 @@ Bizim hizmet sorumluları, yönetilen etki alanınızda kaynakları oluşturmak 
 2. Erişim gözden geçirin, hizmet sorumlusu kimliği ile ```abba844e-bc0e-44b0-947a-dc74e5d09022``` ve daha önceki bir tarihte reddedildi erişim.
 
 
-## <a name="aadds112-not-enough-ip-address-in-the-managed-domain"></a>AADDS112: Yeterli IP adresi, yönetilen etki alanı
+## <a name="aadds112-not-enough-ip-address-in-the-managed-domain"></a>AADDS112: Yönetilen etki alanında yeterli sayıda IP adresi yok
 
 **Uyarı iletisi:**
 
@@ -224,7 +224,7 @@ Bizim hizmet sorumluları, yönetilen etki alanınızda kaynakları oluşturmak 
 
 Bu hata onarılamaz. Gidermek için şunları yapmanız gerekir [mevcut yönetilen etki alanınızı silmek](active-directory-ds-disable-aadds.md) ve [yönetilen etki alanınıza yeniden](active-directory-ds-getting-started.md).
 
-## <a name="aadds114-subnet-invalid"></a>AADDS114: Alt ağı geçersiz
+## <a name="aadds114-subnet-invalid"></a>AADDS114: Geçersiz alt ağ
 
 **Uyarı iletisi:**
 
@@ -245,7 +245,7 @@ Bu hata onarılamaz. Gidermek için şunları yapmanız gerekir [mevcut yönetil
 1.  Gözden geçirme Resource Manager işlem günlükleri ağ kaynaklarına (Bu bilgileri size değişiklik hangi kilidi engelliyor).
 2.  Azure AD Domain Services hizmet sorumlusu, bunlar üzerinde çalışabilir, böylece kilitler kaynakları kaldırın.
 
-## <a name="aadds116-resources-are-unusable"></a>AADDS116: Kaynakları kullanılamaz
+## <a name="aadds116-resources-are-unusable"></a>AADDS116: Kaynak kullanılamıyor
 
 **Uyarı iletisi:**
 
@@ -272,7 +272,7 @@ Neden yönetilen etki alanlarında eşitleme durdurur bazı yaygın nedenler şu
 - Ağ bağlantısı, yönetilen etki alanında engellenir. Nasıl olduğunu okuyun, ağ sorunlarını denetlemesi hakkında daha fazla bilgi için [ağ güvenlik gruplarında sorun giderme](active-directory-ds-troubleshoot-nsg.md) ve [Azure AD Domain Services için ağ gereksinimleri](active-directory-ds-networking.md).
 -  Parola Eşitleme hiçbir zaman ayarlayın veya tamamlandı. Parola eşitlemeyi ayarlamak için okuma [bu makalede](active-directory-ds-getting-started-password-sync.md).
 
-## <a name="aadds501-a-backup-has-not-been-taken-in-a-while"></a>AADDS501: Yedekleme bir süredir kullanımda değil
+## <a name="aadds501-a-backup-has-not-been-taken-in-a-while"></a>AADDS501: Bir yedek bir süredir kullanımda değil
 
 **Uyarı iletisi:**
 

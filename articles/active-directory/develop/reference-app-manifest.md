@@ -17,12 +17,12 @@ ms.date: 12/18/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: a971806b453d34aa8459cb30090024bfca96d342
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: d89a80ac6d6e81fd9cc68e1dc04d4461691994fd
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631205"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157981"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory Uygulama bildirimi
 
@@ -47,12 +47,9 @@ Uygulama bildirimini yapılandırmak için:
 > [!NOTE]
 > Göremiyorsanız **örnek değer** sonra sütun **açıklama**tarayıcı pencerenizin ekranı kaplaması ve kaydırma/geçirme görene kadar **örnek değer** sütun.
 
->[!div class="mx-tdBreakAll"]
->[!div class="mx-tdCol2BreakAll"]
-
 | Anahtar  | Değer türü | Açıklama  | Örnek değer |
 |---------|---------|---------|---------|
-| `accessTokenAcceptedVersion` | Boş değer atanabilir Int32 | Geçerli API kaynak için kabul edilen bir erişim belirteci sürümünü belirtir. Olası değerler şunlardır: 1, 2, null. Varsayılan olarak null 2 olarak değerlendirilir. | `2` |
+| `accessTokenAcceptedVersion` | Boş değer atanabilir Int32 | Kaynak tarafından beklenen erişim belirteci sürümünü belirtir. Bu sürüm değiştirir ve biçimi JWT uç nokta veya istemci erişim belirteci istemek için kullanılan bağımsız olarak üretilen.<br/><br/>Kullanılan uç nokta veya v1.0, v2.0 istemci tarafından seçilir ve yalnızca id_tokens sürümünü etkiler. Açıkça yapılandırmanız gereken kaynakları `accesstokenAcceptedVersion` desteklenen erişim belirteci biçimini belirtmek için.<br/><br/>Olası değerler için `accesstokenAcceptedVersion` 1, 2 ya da null. Değer null ise, bu v1.0 uç noktaya karşılık gelen varsayılan olarak 1. | `2` |
 | `allowPublicClient` | boole | Geri dönüş uygulaması türünü belirtir. Azure AD, varsayılan olarak replyUrlsWithType uygulama türünden çıkarır. Burada Azure AD'ye belirleyemiyor istemci uygulama türüne belirli senaryolar vardır (örneğin [ROPC](https://tools.ietf.org/html/rfc6749#section-4.3) burada HTTP isteği bir URL yeniden yönlendirme ' olmuyor akış). Bu gibi durumlarda, Azure AD uygulama türü, bu özelliğin değerine göre görürler. Bu değer, geri dönüş uygulama türünü true olarak ayarlanırsa, bir mobil cihazda çalışan yüklü bir uygulama gibi ortak istemci olarak ayarlanır. Web uygulaması gibi gizli bir istemci geri dönüş uygulaması türüdür yani varsayılan değer false'tur. | `false` |
 | `appId` | Kimlik dizesi | Azure AD tarafından atanmış bir uygulama uygulama için benzersiz tanımlayıcısını belirtir. | `"601790de-b632-4f57-9523-ee7cb6ceba95"` |
 | `appRoles` | Dizi türü | Bir uygulamanın bildirebileceği rolleri koleksiyonunu belirtir. Bu roller, kullanıcıları, grupları veya hizmet sorumlularına atanabilir. Daha fazla örnekler ve bilgi için bkz. [uygulamanızda uygulama rolleri eklemek ve bunları belirteci alma](howto-add-app-roles-in-azure-ad-apps.md) | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"allowedMemberTypes": [<br>&emsp;&nbsp;&nbsp;&nbsp;"User"<br>&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;"description":"Read-only access to device information",<br>&nbsp;&nbsp;&nbsp;"displayName":"Read Only",<br>&nbsp;&nbsp;&nbsp;"id":guid,<br>&nbsp;&nbsp;&nbsp;"isEnabled":true,<br>&nbsp;&nbsp;&nbsp;"value":"ReadOnly"<br>&nbsp;&nbsp;}<br>]</code>  |

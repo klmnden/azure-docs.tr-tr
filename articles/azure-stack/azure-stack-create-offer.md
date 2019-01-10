@@ -11,25 +11,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/12/2018
+ms.date: 01/09/2019
 ms.author: sethm
 ms.reviewer: efemmano
-ms.openlocfilehash: 4ccff997c7e9f29aafc6966730ab36dfcf72ca9f
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 079f45e37bef24ac974a0e2df7b1e81f1002cac0
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077349"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159086"
 ---
 # <a name="create-an-offer-in-azure-stack"></a>Azure Stack'te teklif oluşturma
 
-[Sunar](azure-stack-key-features.md) sağlayıcıları satın almanız veya abone kullanıcılara sunmak bir veya daha fazla plan gruplarıdır. Bu belgede, içeren bir teklif oluşturma işlemini göstermektedir [oluşturduğunuz planı](azure-stack-create-plan.md). Bu teklifin aboneleri sanal makineleri ayarlama olanağı sağlar.
+[Sunar](azure-stack-key-features.md) sağlayıcıları bu kullanıcıları satın alın veya abone, kullanıcılara sunmak bir veya daha fazla plan gruplarıdır. Bu makalede içeren bir teklif oluşturma [oluşturduğunuz planı](azure-stack-create-plan.md). Bu teklifin aboneleri sanal makineleri (VM'ler) ayarlama olanağı sağlar.
 
-1. Azure Stack Yönetici portalında oturum açın (https://adminportal.local.azurestack.external) seçip **+ kaynak Oluştur** > **Kiracı sunar + planlar** > **Teklif**.
+1. Oturum [Azure Stack Yönetici portalı](https://adminportal.local.azurestack.external) seçip **+ kaynak Oluştur**, ardından **Kiracı sunar + planlar**ve ardından **teklif**.
 
    ![Teklif oluşturma](media/azure-stack-create-offer/image01.png)
   
-2. Altında **yeni teklif**, girin bir **görünen ad** ve **kaynak adı**ve ardından altındaki **kaynak grubu**seçin **oluştur Yeni** veya **var olanı kullan**. Görünen ad, teklifin kolay addır. Yalnızca bir teklife abone olduğunda kullanıcıların gördüğü teklif ilgili bilgilerin Bu kolay addır. Kullanıcılar teklife ne geldiğini anlamak yardımcı olan sezgisel bir ad kullanın. Kaynak Adını yalnızca yönetici görebilir. Bu ad, yöneticilerin teklifle Azure Resource Manager kaynağı olarak çalışmak için kullandıkları addır.
+2. Altında **yeni teklif**, girin bir **görünen ad** ve **kaynak adı**ve ardından altındaki **kaynak grubu**seçin **oluştur Yeni** veya **var olanı kullan**. Görünen ad, teklifin kolay addır. Yalnızca bir teklife abone olduğunda kullanıcıların gördüğü teklif ilgili bilgilerin Bu kolay addır. Kullanıcılar teklife ne geldiğini anlamak yardımcı olan sezgisel bir ad kullanın. Yalnızca yönetici kaynak adını görebilirsiniz. Bu ad, yöneticilerin teklifle Azure Resource Manager kaynağı olarak çalışmak için kullandıkları addır.
 
    ![Yeni Teklif](media/azure-stack-create-offer/image01a.png)
   
@@ -37,17 +37,17 @@ ms.locfileid: "49077349"
 
    ![Plan seçin](media/azure-stack-create-offer/image02.png)
   
-4. Teklif oluşturduktan sonra kendi durumunu değiştirebilirsiniz. Teklifler yapılacak *genel* kullanıcıların abone tam bir görünüm elde edin. Teklifler olabilir:
+4. Teklif oluşturduktan sonra kendi durumunu değiştirebilirsiniz. Teklifler yapılacak **genel** kullanıcıların abone tam bir görünüm elde edin. Teklifler olabilir:
 
-   - **Genel**: kullanıcılara görünür.
-   - **Özel**: Yöneticiler buluta yalnızca görünür. Bu ayar yararlıdır plan veya teklif taslağı oluşturma sırasında veya Bulut Yöneticisi istiyorsa, [kullanıcılar için her bir abonelik oluşturmak](azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator).
-   - **Yetkisi Alınmış**: Yeni abonelere kapalıdır. Bulut yöneticisine kullanabilirsiniz yetkisi alınmış sonraki abonelikleri engellemek, ancak mevcut aboneler etkilenmeyen bırakın.
+   - **Genel**: Kullanıcılara görünür.
+   - **Özel**: Yalnızca Yöneticiler buluta görünür. Bu ayar yararlıdır plan veya teklif taslağı oluşturma sırasında veya Bulut Yöneticisi istiyorsa, [kullanıcılar için her bir abonelik oluşturmak](azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator).
+   - **Kullanımdan**: Yeni abonelere kapalıdır. Bulut yöneticisine sonraki abonelikleri engellemek, ancak mevcut aboneler etkilenmeyen bırakmak için teklifleri yetkisini alabilir.
 
    > [!TIP]  
-   > Teklif değişiklikleri kullanıcıya hemen görünmez. Değişiklikleri görmek için kullanıcıların oturumu kapatın ve Kullanıcı Portalı'na yeni teklif görmek için tekrar oturum açmanızın gerekebilir.
+   > Kullanıcı için teklif değişiklikler hemen görünmez. Değişiklikleri görmek için kullanıcıların oturumu kapatın ve Kullanıcı Portalı'na yeni teklif görmek için tekrar oturum açmanızın gerekebilir.
 
-   Genel Bakış'ta teklif için seçin **erişilebilirlik durumu**. Kullanmak istediğiniz durumu seçin (örneğin, **genel**) ve ardından **Kaydet**.
- 
+   Teklif için genel bakış ekranında seçin **erişilebilirlik durumu**. Kullanmak istediğiniz durumu seçin (örneğin, **genel**) ve ardından **Kaydet**.
+
      ![Durum seçin](media/azure-stack-create-offer/change-stage-1807.png)
 
      Alternatif, **durumunu değiştir** ve ardından bir eyalet seçin.
@@ -55,7 +55,7 @@ ms.locfileid: "49077349"
     ![Erişilebilirlik durumunu seçin](media/azure-stack-create-offer/change-stage-select-1807.png)
 
    > [!NOTE]
-   > Varsayılan tekliflerini, planları ve kotaları oluşturmak için PowerShell de kullanabilirsiniz. Daha fazla bilgi için [Azure Stack PowerShell modülü 1.4.0](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.4.0).
+   > Varsayılan tekliflerini, planları ve kotaları oluşturmak için PowerShell de kullanabilirsiniz. Daha fazla bilgi için [Azure Stack PowerShell modülü 1.4.0](/powershell/azure/azure-stack/overview?view=azurestackps-1.4.0).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 1/8/2019
+ms.date: 1/9/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: c1dfc4ed969735be26ae075900cd850e016afffa
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 9f1ee309156a39078ffdfeed2c75d86476ac8b48
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107591"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158661"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Nasıl bir zamanlamaya göre Azure-SSIS tümleştirme çalışma zamanını durdurmak ve başlatmak
 Bu makalede, Azure Data Factory (ADF) kullanarak zamanlama başlatma ve durdurma Azure-SSIS Integration Runtime (IR) açıklar. Azure-SSIS IR, ADF kaynak SQL Server Integration Services (SSIS) paketlerini yürütmek için adanmış işlem ' dir. Azure-SSIS IR çalıştıran, kendisiyle ilişkili bir maliyeti vardır. Bu nedenle, genellikle, IR, SSIS paketlerini Azure'da yürütmek ve artık ihtiyacınız olmayan olduğunda, IR durdurmak yalnızca ihtiyacınız olduğunda çalıştırmak istediğiniz. Kullanabileceğiniz ADF kullanıcı arabirimi (UI) / uygulama veya Azure PowerShell ile [el ile başlatın veya durdurun, IR](manage-azure-ssis-integration-runtime.md)).
@@ -86,7 +86,7 @@ Gece yarısı her gün çalışacak şekilde zamanlanırsa üçüncü bir tetikl
    
 2. İçinde **etkinlikleri** araç genişletin **genel** menüsünde ve sürükle ve bırak bir **Web** etkinliğini işlem hattı tasarımcısının yüzeyine sürükleyin. İçinde **genel** sekmesini etkinlik Özellikler penceresi, etkinlik adını **startMyIR**. Geçiş **ayarları** sekmesini tıklatın ve aşağıdaki eylemleri gerçekleştirin.
 
-    1. İçin **URL**, REST API'si için Azure-SSIS IR başlatan aşağıdaki URL'yi girin değiştirerek `{subscriptionId}`, `{resourceGroupName}`, `{factoryName}`, ve `{integrationRuntimeName}` , IR için gerçek değerlerle: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/start?api-version=2018-06-01`. Alternatif olarak, ayrıca kopyalayın & kaynak kimliği, izleme sayfasından IR ADF UI/yukarıdaki URL'yi aşağıdaki bölümü değiştirmek için uygulamamı yapıştırın: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}`.
+    1. İçin **URL**, REST API'si için Azure-SSIS IR başlatan aşağıdaki URL'yi girin değiştirerek `{subscriptionId}`, `{resourceGroupName}`, `{factoryName}`, ve `{integrationRuntimeName}` , IR için gerçek değerlerle: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/start?api-version=2018-06-01` Alternatif olarak, ayrıca kopyalayın & kaynak kimliği, izleme sayfasından IR ADF UI/yukarıdaki URL'yi aşağıdaki bölümü değiştirmek için uygulamamı yapıştırın: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}`
     
        ![ADF SSIS IR kaynak kimliği](./media/how-to-schedule-azure-ssis-integration-runtime/adf-ssis-ir-resource-id.png)
   
@@ -99,7 +99,7 @@ Gece yarısı her gün çalışacak şekilde zamanlanırsa üçüncü bir tetikl
   
 3. Kopyalama etkinliği adı değiştirme, ikinci bir tane oluşturmak için ilk işlem hattı **stopMyIR** ve aşağıdaki özellikleri değiştirme.
 
-    1. İçin **URL**, REST API'si için Azure-SSIS IR, durdurur aşağıdaki URL'yi girin değiştirerek `{subscriptionId}`, `{resourceGroupName}`, `{factoryName}`, ve `{integrationRuntimeName}` , IR için gerçek değerlerle: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/stop?api-version=2018-06-01`.
+    1. İçin **URL**, REST API'si için Azure-SSIS IR, durdurur aşağıdaki URL'yi girin değiştirerek `{subscriptionId}`, `{resourceGroupName}`, `{factoryName}`, ve `{integrationRuntimeName}` , IR için gerçek değerlerle: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/stop?api-version=2018-06-01`
     
     2. İçin **gövdesi**, girin `{"message":"Stop my IR"}`. 
 

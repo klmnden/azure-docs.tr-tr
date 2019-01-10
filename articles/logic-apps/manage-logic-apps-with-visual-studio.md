@@ -3,20 +3,20 @@ title: Visual Studio - Azure Logic Apps ile mantıksal uygulamaları yönetme | 
 description: Logic apps ve diğer Azure varlıklarınızdan Visual Studio Cloud Explorer ile yönetme
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
 manager: jeconnoc
+ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
 ms.date: 03/15/2018
-ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: d4de75238e48b8eb955095b5a3823f2fed799fae
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: dbb38336f0521f8f8e526ad3f5e13829075e7cca
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42445652"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158154"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Visual Studio ile mantıksal uygulamaları yönetme
 
@@ -171,7 +171,14 @@ Azure portalında Cloud Explorer, mantıksal uygulamanızı silmek için mantık
 ![Mantıksal uygulamanızı silme](./media/manage-logic-apps-with-visual-studio/delete-logic-app.png)
 
 > [!NOTE]
-> Mantıksal uygulama sildiğinizde, hiçbir yeni çalıştırmaları örneği oluşturulur. Tüm ilerleme ve çalıştırmaları bekleyen iptal edilir. Çalıştırmaları binlerce varsa, iptal tamamlamak için önemli zaman alabilir. 
+> Mantıksal uygulamayı sildiğinizde yeni çalıştırma başlatılmaz. Devam eden ve bekleme durumunda olan tüm çalıştırmalar iptal edilir. Binlerce çalıştırma varsa iptal işleminin tamamlanması zaman alabilir. 
+
+## <a name="troubleshooting"></a>Sorun giderme
+
+Logic Apps Tasarımcısı'nda mantıksal uygulama projenizin açtığınızda, Azure aboneliğinizi seçmek için seçenek alamayabilirsiniz. Bunun yerine, mantıksal uygulamanızı kullanmak istediğiniz bir tane değil bir Azure aboneliği ile açılır. Bir mantıksal uygulama .json dosyasını açın, sonra Visual Studio'yu ilk seçili abonelik gelecekte kullanım için ön belleğe aldığından, bu davranış gerçekleşir. Bu sorunu çözmek için aşağıdaki adımlardan birini deneyin:
+
+* Mantıksal uygulama .json dosyasını yeniden adlandırın. Abonelik önbellek dosyası adına bağlıdır. 
+* Daha önce seçilen abonelikleri için kaldırmak için *tüm* logic apps'te, çözümünüzün Sil *gizli* .vs klasöründeki çözümünüzün dizin. Bu konum abonelik bilgilerinizi depolar. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

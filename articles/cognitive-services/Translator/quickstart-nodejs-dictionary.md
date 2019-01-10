@@ -1,5 +1,5 @@
 ---
-title: "Hızlı Başlangıç: Alternatif çevirileri alma, Node.js - Translator Metin Çevirisi API'si"
+title: "Hızlı Başlangıç: İki dilli sözlük, Node.js - Translator metin çevirisi API'si ile sözcük araması"
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta Node.js ve Translator Metin Çevirisi API'sini kullanarak belirtilen bir metnin alternatif çevirilerini ve kullanım örneklerini bulmayı öğreneceksiniz.
 services: cognitive-services
@@ -10,20 +10,20 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: 191afcdfb7a401755fffc028ce4119526f1e693d
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
-ms.translationtype: HT
+ms.openlocfilehash: f7f779ccd10eeffc9ddfcba5dbb9abde00e1f735
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035637"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54160021"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-alternate-translations-with-nodejs"></a>Hızlı Başlangıç: Node.js ve Translator Metin Çevirisi API'sini kullanarak alternatif çevirileri alma
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-nodejs"></a>Hızlı Başlangıç: Node.js kullanarak iki dilli sözlük ile sözcük arayın
 
 Bu hızlı başlangıçta Node.js ve Translator Metin Çevirisi API'sini kullanarak belirtilen bir metnin alternatif çevirilerini ve kullanım örneklerini bulmayı öğreneceksiniz.
 
 Bu hızlı başlangıç, Translator Metin Çevirisi kaynağına sahip bir [Azure Bilişsel Hizmetler hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) gerektirir. Bir hesabınız yoksa, abonelik anahtarı almak için [ücretsiz deneme sürümünü](https://azure.microsoft.com/try/cognitive-services/) kullanabilirsiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu hızlı başlangıç şunları gerektirir:
 
@@ -68,7 +68,7 @@ if (!subscriptionKey) {
 İstek modülü aracılığıyla kullanıma sunulan `request()` yöntemi HTTP yöntemi, URL, istek parametreleri, üst bilgileri ve JSON gövdesi bileşenlerini `options` nesnesi olarak geçirmemizi sağlar. Bu kod parçacığında isteği yapılandıracağız:
 
 >[!NOTE]
-> Uç noktalar, rotalar ve istek parametreleri hakkında daha fazla bilgi için bkz. [Translator Metin Çevirisi API’si 3.0: Sözlük Arama](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup).
+> Uç noktaları, yollar ve istek parametreleri hakkında daha fazla bilgi için bkz: [Translator Text API 3.0: Sözlük Arama](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup).
 
 ```javascript
 let options = {

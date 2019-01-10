@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 09/29/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: dd6d25d05f59d9561eadb0b55d2a1ec528c27b56
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
-ms.translationtype: MT
+ms.openlocfilehash: 7c3a37ede07f98174191c8a4847c8a3d9075b21a
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753957"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156315"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Öğretici: Karşıya yüklenen görüntüleri yeniden boyutlandırmayı Event Grid kullanarak otomatikleştirme
 
@@ -170,8 +170,8 @@ Olay aboneliği, belirli bir uç noktaya gönderilmesini istediğiniz, sağlayı
     | **Abone türü** |  otomatik oluşturulmuş |  Web Kancası olarak önceden tanımlanmış. |
     | **Abone uç noktası** | otomatik oluşturulmuş | Sizin için oluşturulan uç nokta URL'sini kullanın. | 
     | **Ad** | imageresizersub | Yeni olay aboneliğinizi tanımlayan ad. | 
-
-4. Olay aboneliği eklemek için **Oluştur**’a tıklayın. Bu işlem, *images* kapsayıcısına bir blob eklendiğinde `imageresizerfunc` olayını tetikleyen bir olay aboneliği oluşturur. İşlev, görüntüleri yeniden boyutlandırır ve *thumbnails* kapsayıcısına ekler.
+4. *İsteğe bağlı:* Gelecekte diğer amaçlar için ek kapsayıcıları aynı blob depolama alanında oluşturmak için ihtiyacınız olması durumunda, kullanabileceğiniz **konu filtreleme** özellikleri **filtreleri** daha ayrıntılı blob hedeflemek için sekmesinde işlev uygulamanızı emin olmak için olayları yalnızca BLOB eklendiğinde çağırılır **görüntüleri** kapsayıcı özellikle. 
+5. Olay aboneliği eklemek için **Oluştur**’a tıklayın. Bu işlem, *images* kapsayıcısına bir blob eklendiğinde `imageresizerfunc` olayını tetikleyen bir olay aboneliği oluşturur. İşlev, görüntüleri yeniden boyutlandırır ve *thumbnails* kapsayıcısına ekler.
 
 Arka uç hizmetleri yapılandırıldıktan sonra, görüntü yeniden boyutlandırma işlevini örnek web uygulamasında test edin. 
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 408d43f07179f9f18c05f22fdd4ea36a3a90cb49
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: c5f71e104e97ab886483d50760f0a42936a16717
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39076517"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157318"
 ---
 # <a name="sap-maxdb-livecache-and-content-server-deployment-on-azure-vms"></a>SAP MaxDB liveCache ve Azure Vm'leri üzerinde içerik sunucusu dağıtımı
 
@@ -331,7 +331,7 @@ Aşağıdaki SAP Note SAP MaxDB belgeleri güncelleştirilmiş listesini bulabil
 
 ### <a name="sap-maxdb-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Azure vm'lerde SAP yüklemeleri için SAP MaxDB yapılandırma yönergeleri
 #### <a name="b48cfe3b-48e9-4f5b-a783-1d29155bd573"></a>Depolama yapılandırması
-SAP MaxDB için Azure depolama en iyi uygulamaları izleyin bölümde bahsedilen genel öneriler [RDBMS dağıtım yapısı][dbms-guide-2].
+SAP MaxDB için Azure depolama en iyi uygulamaları izleyin bölümde bahsedilen genel öneriler [RDBMS dağıtımlar için bir VM depolama yapısını](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64).
 
 > [!IMPORTANT]
 > Diğer veritabanları gibi SAP MaxDB veri ve günlük dosyalarını da vardır. Bununla birlikte, SAP MaxDB terminolojisinde doğru "Birim" (değil "dosyası") bir terimdir. Örneğin, SAP MaxDB vardır verileri ve günlük birimler. Bu işletim sistemi disk birimleri ile karıştırmayın. 
@@ -458,7 +458,7 @@ Burada iki seçeneğiniz vardır:
 
 1. **İstemci, bir arka uç SAP sistemidir** SAP içerik sunucusuna erişmek için bir arka uç SAP sistemine yapılandırdıysanız, bu SAP sistemine bir istemcidir. Aynı Azure bölgesinde, aynı Azure veri merkezinde hem SAP sistemi hem de SAP içerik sunucusu dağıtılırken fiziksel olarak birbirlerine yakın oldukları. Bu nedenle, ayrılmış bir SAP önbellek sunucusu olmasını gerek yoktur. SAP UI istemcileri (SAP GUI veya web tarayıcısı) doğrudan SAP sistemine erişim ve SAP sistemine SAP içerik sunucusundan belgelerini alır.
 2. **İstemci, bir şirket içi web tarayıcısı olan** SAP içerik sunucusu, doğrudan web tarayıcısı tarafından erişilecek şekilde yapılandırılabilir. Bu durumda, şirket içinde çalışan bir web tarayıcısı olan SAP içeriği sunucusunun bir istemcidir. Şirket içi veri merkezi ve Azure veri merkezi (İdeal olarak yakın olması birbirleriyle) farklı fiziksel konumlarda yerleştirilir. Şirket içi veri merkezinizi Azure siteden siteye VPN veya ExpressRoute aracılığıyla azure'a bağlı. İki seçenek de Azure'da güvenli bir VPN ağ bağlantısı sunmasına rağmen siteden siteye ağ bağlantısı şirket içi veri merkezi ve Azure veri merkezi arasında ağ bant genişliği ve gecikme SLA sağlamaz. Belgeye erişimi hızlandırmak için aşağıdakilerden birini yapın:
-   1. Şirket içi SAP önbellek sunucusu yüklemek, kapatmak için şirket içi web tarayıcısında (seçeneğini [bu] [ dbms-guide-900-sap-cache-server-on-premises] Şekil)
+   1. Şirket içi SAP önbellek sunucusu yüklemek, kapatmak için şirket içi web tarayıcısında (aşağıdaki şekilde seçeneği gibi)
    2. Azure şirket içi veri merkeziniz ile Azure veri merkezi arasında yüksek hızlı ve düşük gecikme süreli Adanmış ağ bağlantısı sunan ExpressRoute yapılandırın.
 
 ![Şirket içi SAP önbellek sunucusu yüklemek için seçeneği](./media/dbms_maxdb_deployment_guide/900-sap-cache-server-on-premises.png)

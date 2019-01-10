@@ -9,16 +9,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/25/2018
+ms.date: 01/08/2019
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 023793cc699849eec4e1c6d8cbe08259d984ac8d
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 8efab173f464b67c0c88c87ee28ea7fa19980501
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052879"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54155006"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Application Insights ile Etkisi Analizi
 
@@ -68,7 +68,7 @@ Bu durumda, sonuçları, artık ilk örnekte olduğu gibi bir sürekli x ekseni 
 
 ## <a name="how-does-the-impact-tool-calculate-these-conversion-rates"></a>Bu dönüşüm oranlarını etkisi Aracı'nı nasıl hesaplar?
 
-Etkisi aracı dayanan altyapı öğeleri, [Pearson bağıntı katsayısı](https://en.wikipedia.org/wiki/Pearson_correlation_coefficient). Sonuçları -1 ve sıfır bağıntı ve pozitif bir bağıntı gösteren 1 -1 ile 1 arasında hesaplanır.
+Etkisi aracı dayanan altyapı öğeleri, [Pearson bağıntı katsayısı](https://en.wikipedia.org/wiki/Pearson_correlation_coefficient). Sonuçları -1 ve negatif bir doğrusal bağıntı ve pozitif doğrusal bir bağıntı gösteren 1 -1 ile 1 arasında hesaplanır.
 
 Etki analizi nasıl çalıştığına ilişkin temel dökümü aşağıdaki gibidir:
 

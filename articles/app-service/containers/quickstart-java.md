@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 12/10/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 0c72318f6c80563d138d9c885ea5984a22c5c7fa
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: fe134591a979569048072877632260ea9728b4fc
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653909"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159766"
 ---
 # <a name="quickstart-create-a-java-app-in-app-service-on-linux"></a>Hızlı Başlangıç: Linux üzerinde App Service'te bir Java uygulaması oluşturma
 
@@ -108,7 +108,7 @@ Dağıtım tamamlandıktan sonra, web tarayıcınızda aşağıdaki URL’yi kul
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta, yapılandırılmış bir Java uygulaması oluşturmak için Maven kullanılan [Azure Web Apps için Maven Plugin](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin), Linux üzerinde App Service'e paketlenmiş arşiv Java web uygulaması dağıtılıp. Aşağıdaki öğreticiler ve daha fazla bilgi Linux'ta App Service üzerinde Java uygulamalarını barındırmak için nasıl yapılır makaleleri bakın.
+Bu hızlı başlangıçta, yapılandırılmış bir Java uygulaması oluşturmak için Maven kullanılan [Azure Web Apps için Maven Plugin](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin), Linux üzerinde App Service'e paketlenmiş arşiv Java web uygulaması dağıtılıp. Aşağıdaki öğreticiler ve daha fazla bilgi Linux üzerinde App Service'te Java uygulamalarını barındırmak için nasıl yapılır makaleleri bakın.
 
 - [Öğretici: Bir Java dağıtma PostgreSQL ile Kurumsal uygulama](tutorial-java-enterprise-postgresql-app.md)
 - [Tomcat veri kaynağını yapılandırma](app-service-linux-java.md#connecting-to-data-sources)

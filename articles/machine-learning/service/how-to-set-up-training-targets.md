@@ -1,556 +1,315 @@
 ---
-title: İşlem modeli eğitim hedefleri
+title: Oluşturma ve model yönetimi için işlem hedeflerini kullan
 titleSuffix: Azure Machine Learning service
 description: (Hedef işlem) eğitim ortamları için makine öğrenme modeli eğitimi yapılandırın. Eğitim ortamlar arasında kolayca geçiş yapabilirsiniz. Eğitim yerel olarak başlatın. Ölçeği genişletmek gerekiyorsa, bir bulut tabanlı bir işlem hedefine geçiş yapın.
 services: machine-learning
 author: heatherbshapiro
 ms.author: hshapiro
-ms.reviewer: larryfr
-manager: cgronlun
+ms.reviewer: sgilley
 ms.service: machine-learning
 ms.component: core
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9037f6d7602f186bc30e55acbc050280bca134ee
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 44788e1e1f53c4a939326b4fb3d6b672a9ef514e
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794473"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157539"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>İşlem hedeflerine yönelik model eğitiminin ayarlama
 
-Azure Machine Learning hizmeti ile farklı işlem kaynakları, modelinize eğitebilirsiniz. Bu işlem kaynakları, adlı __hedefleri işlem__, yerel veya Bulut üzerinde olabilir. Bu makalede, desteklenen işlem hedefleri ve bunları nasıl kullanacağınızı öğrenin.
+Azure Machine Learning hizmeti ile kaynakları veya ortamlar için olarak anılan, çeşitli modelinizi eğitmek [ __hedefleri işlem__](concept-azure-machine-learning-architecture.md#compute-target). İşlem hedefi, bir yerel makineye veya bir Azure Machine Learning işlem, Azure HDInsight veya uzak bir sanal makine gibi bir bulut kaynağı olabilir.  
 
-İşlem hedefi, bir web hizmeti olarak dağıtıldığında eğitim betiği veya ev sahipliği modelinizi çalıştırdığınız bir kaynaktır. Oluşturabilir ve Azure Machine Learning SDK'sı, Azure portalında veya Azure CLI kullanarak bir işlem hedefine yönetebilirsiniz. Başka bir hizmete (örneğin, bir Azure HDInsight kümesi) oluşturulan işlem hedefleri varsa, Azure Machine Learning hizmeti çalışma alanınıza ekleyerek bu hedefler kullanabilirsiniz.
+Oluşturun ve Azure Machine Learning SDK'sı, Azure portal veya Azure CLI kullanarak bir işlem hedefine yönetin. Başka bir hizmete (örneğin, bir HDInsight kümesi) oluşturulan işlem hedefleri varsa, Azure Machine Learning hizmeti çalışma alanınıza ekleyerek kullanabilirsiniz.
+ 
+Bu makalede, çeşitli bilgisayar hedefine kullanmayı öğrenin.  Aynı iş akışının tüm işlem hedeflerine yönelik adımları izleyin:
+1. __Oluşturma__ zaten yoksa, işlem hedefi.
+2. __Ekleme__ çalışma alanınıza işlem hedefi.
+3. __Yapılandırma__ işlem hedef böylece betiğinizin tarafından gereken Python ortamını ve paket bağımlılıkları içerir.
 
-Azure Machine Learning destekleyen işlem hedefleri üç kategoriden vardır:
-
-* __Yerel__: Yerel makinenizde veya bir bulut tabanlı sanal bir geliştirme ve deneme ortamı olarak kullanabileceğiniz makine (VM). 
-* __Yönetilen işlem__: Azure Machine Learning işlem Azure Machine Learning hizmeti tarafından yönetilen bir işlem teklifi olur. Teklif, eğitim, test ve batch çıkarım tek veya çok düğümlü bir işlem kolayca oluşturmanıza olanak sağlar.
-* __İşlem bağlı__: Ayrıca, kendi Azure bulut bilgi işlem getirin ve Azure Machine Learning ile ekleyin. Hakkında daha fazla bilgi işlem türleri ve bunları aşağıdaki bölümlerde kullanma desteklenmiyor.
-
+>[!NOTE]
+> Bu makalede kod, Azure Machine Learning SDK 1.0.6 sürümünü ile test edilmiştir.
 
 ## <a name="supported-compute-targets"></a>Desteklenen işlem hedefleri
 
-Azure Machine Learning hizmeti çeşitli işlem hedef arasında değişen desteğe sahiptir. Geliştirme ve küçük bir veri miktarına deneme tipik model geliştirme yaşam döngüsü başlatır. Bu aşamada, yerel bilgisayarınıza veya bulut tabanlı bir VM gibi yerel bir ortamı kullanmanızı öneririz. Bir çalıştırma, daha büyük veri kümeleri üzerinde eğitim ölçeğini dağıtılmış Eğitimi, kullanımı bir Azure Machine Learning işlem ortamını tek bir oluşturmak için veya her zaman çok düğümlü küme bu ihtiyaçlara göre otomatik olarak gönderin. Çeşitli senaryolarda olarak değişebilir desteği aşağıdaki tabloda açıklanan olsa da, kendi işlem kaynağı ekleyebilirsiniz:
+Azure Machine Learning hizmeti farklı işlem hedef arasında değişen desteğe sahiptir. Az miktarda veriniz üzerinde dev/deneme ile tipik model geliştirme yaşam döngüsü başlatır. Bu aşamada, yerel bir ortamı kullanmanızı öneririz. Örneğin, yerel bilgisayarınıza veya bulut tabanlı bir VM. Büyük veri kümeleri üzerinde eğitim ölçeğini veya dağıtılmış eğitimi yapmak gibi bir Farklı Çalıştır gönderdiğiniz her zaman bu daralttığında tek veya çok node küme oluşturmak için Azure Machine Learning işlem kullanmanızı öneririz. Çeşitli senaryolarda olarak değişiklik gösterebilir destek aşağıda ayrıntılarıyla olsa da, kendi işlem kaynağı ekleyebilirsiniz:
+
 
 |Hedef işlem| GPU hızlandırma | Otomatik<br/> Hiper parametre ayarı | Otomatik</br> makine öğrenimi | Kolay bir işlem hattı|
 |----|:----:|:----:|:----:|:----:|
 |[Yerel bilgisayar](#local)| Belki de | &nbsp; | ✓ | &nbsp; |
 |[Azure Machine Learning işlem](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
 |[Uzak VM](#vm) | ✓ | ✓ | ✓ | ✓ |
-|[Azure Databricks](#databricks)| &nbsp; | &nbsp; | ✓ | ✓[*](#pipeline-only) |
-|[Azure Data Lake Analytics'i](#adla)| &nbsp; | &nbsp; | &nbsp; | ✓[*](#pipeline-only) |
+|[Azure Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | &nbsp; | ✓ | ✓[*](#pipeline-only) |
+|[Azure Data Lake Analytics'i](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓[*](#pipeline-only) |
 |[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 
-> [!IMPORTANT]
-> <a id="pipeline-only"></a>__*__ _Yalnızca bir işlem hattı, Azure Databricks ve Azure Data Lake Analytics kullanılabilir._<br/>
-> İşlem hatları hakkında daha fazla bilgi için bkz. [Azure Machine Learning işlem hatlarında](concept-ml-pipelines.md).
->
-> Azure Machine Learning işlem ortamını bir çalışma alanı içinde oluşturulması gerekir. Bir çalışma alanına mevcut örneklerdeki eklenemiyor.
->
-> Diğer işlem hedefleri dışında Azure Machine Learning oluşturulur ve ardından çalışma alanınıza bağlı.
->
-> Bir model eğitip, hedefler üzerinde Docker kapsayıcı görüntüleri kullanan bazı işlem. GPU temel görüntü yalnızca Microsoft Azure hizmetleri üzerinde kullanılmalıdır. Model yönetimi için hizmetler şunlardır:
-> * Azure Machine Learning işlem
-> * Azure Kubernetes Service
-> * Windows veri bilimi sanal makinesi (DSVM)
+<a id="pipeline-only"></a>__*__ Azure Databricks ve Azure Data Lake Analytics __yalnızca__ bir işlem hattında kullanılabilir. 
 
-## <a name="workflow"></a>İş akışı
+>İşlem hedeflerine yönelik bu makalede gösterilen şekilde machine learning işlem hatları oluşturun, ancak burada listelenen yöntemler yerine işlem hattını adımlarda bu hesaplar'ı kullanın.  Ayrıca, yalnızca bazı işlem hattı adımlar bu makalede açıklanan çalıştırma yapılandırma kullanın.  Bir işlem hattı, işlem hedefleri kullanma hakkında daha fazla bilgi için bkz. [oluşturma ve makine öğrenimi işlem hattı çalıştırma](how-to-create-your-first-pipeline.md).
 
-Geliştirme ve Azure Machine Learning ile bir model dağıtma iş akışı adımları izler:
+## <a name="whats-a-run-configuration"></a>Bir çalıştırma yapılandırma nedir?
 
-1. Makine öğrenimi eğitim betikleriniz python'da geliştirin.
-1. Oluşturma ve işlem hedef yapılandırabilir veya var olan bir işlem hedef ekleyin.
-1. Eğitim betikleriniz işlem hedefine gönderin.
-1. En iyi modeli bulmak için sonuçları inceleyin.
-1. Model kayıt defterinde modeli kaydedin.
-1. Model dağıtma.
+Eğitim, yerel bilgisayarınızda başlatmak ve daha sonra farklı işlem hedefte Bu eğitim betiğini çalıştırmak için yaygındır. Azure Machine Learning hizmeti ile kodunuzu değiştirmek zorunda kalmadan kodunuzu çeşitli işlem hedefler üzerinde çalıştırabilirsiniz. 
 
-> [!NOTE]
-> Eğitim betiğinizi belirli bir işlem hedefine bağlı değildir. Yerel bilgisayarınızda başlangıçta eğitim ve eğitim betiği yeniden yazmak zorunda kalmadan işlem hedefleri geçiş.
-> 
-> Oluşturarak işlem hedefi çalışma alanınız ile ilişkilendirdiğinizde yönetilen bir işlem veya mevcut bir işlem ekleyerek, işlem için bir ad sağlayın. Ad, iki ile 16 arasında olmalıdır. karakter uzunluğunda.
+Tek yapmak için ihtiyacınız olan ortam için her işlem hedefini tanımlayan bir **çalıştırma yapılandırmasını**.  Ardından, farklı işlem hedefte eğitim denemenizi çalıştırmak istediğinizde, bu işlem için çalışma yapılandırması belirtin. 
 
-Bir işlem hedefine geçiş yapmak için gereken bir [çalıştırma yapılandırmasını](concept-azure-machine-learning-architecture.md#run-configuration). Çalıştırma yapılandırma işlem hedef betiği çalıştırmak nasıl tanımlar.
+Daha fazla bilgi edinin [denemeleri gönderme](#submit) bu makalenin sonunda.
 
-## <a name="training-scripts"></a>Eğitim betikleriniz
+### <a name="manage-environment-and-dependencies"></a>Ortamı ve bağımlılıkları yönetin
 
-Bir eğitim çalıştırması başlattığınızda, eğitim betikleriniz içerir ve işlem hedefe gönderen directory anlık görüntüsünü oluşturur. Daha fazla bilgi için [anlık görüntüleri](concept-azure-machine-learning-architecture.md#snapshot).
+Bir çalıştırma yapılandırması oluşturduğunuzda, işlem hedef bağımlılıkları ve ortamı yönetmek nasıl karar vermeniz gerekir. 
 
-## <a id="local"></a>Yerel bilgisayar
+#### <a name="system-managed-environment"></a>Sistem tarafından yönetilen ortamı
 
-Yerel olarak eğittiğinizde, eğitim işlemi göndermek için SDK'yi kullanın. Kullanıcı tarafından yönetilen ya da sistem tarafından yönetilen bir ortamı kullanarak eğitebilirsiniz.
+Sistem tarafından yönetilen bir ortamda istediğiniz zaman kullanmak [Conda](https://conda.io/docs/) Python ortamı ve kod bağımlılıkları, yönetilecek. Sistem tarafından yönetilen bir ortamda, varsayılan ve en yaygın seçimi tarafından kabul edilir. Özellikle hedefleyen yapılandıramazsınız, uzak işlem hedeflerde yararlıdır. 
 
-### <a name="user-managed-environment"></a>Kullanıcı tarafından yönetilen ortamı
+Tek yapmak için ihtiyacınız olan her paket bağımlılık kullanarak belirttiğiniz [CondaDependency sınıfı](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py) ardından Conda adlı bir dosya oluşturur **conda_dependencies.yml** içinde **aml_config** Paket bağımlılıklarını ve eğitim denemenizi gönderdiğinizde Python ortamınızı kümeleri listesi ile çalışma dizini. 
 
-Kullanıcı tarafından yönetilen bir ortamda, tüm gerekli paketleri betik çalıştırdığı Python ortamında kullanılabilir olduğundan emin olun. Aşağıdaki kod parçacığı, bir kullanıcı tarafından yönetilen ortam için eğitim yapılandırma örneğidir:
-
-```python
-from azureml.core.runconfig import RunConfiguration
-
-# Edit a run configuration property on the fly.
-run_config_user_managed = RunConfiguration()
-
-run_config_user_managed.environment.python.user_managed_dependencies = True
-
-# Choose a specific Python environment by pointing to a Python path. For example:
-# run_config.environment.python.interpreter_path = '/home/ninghai/miniconda3/envs/sdk2/bin/python'
-```
-
+Yeni bir ortam ilk Kurulum gerekli bağımlılıkları boyutuna bağlı olarak birkaç dakika sürebilir. Saati ayarla, paketlerin listesi değişmeden kaldığı sürece, yalnızca bir kez gerçekleşir.
   
-### <a name="system-managed-environment"></a>Sistem tarafından yönetilen ortamı
+Aşağıdaki kod örneği scikit gerektiren sistem tarafından yönetilen bir ortamda gösterir-öğrenin:
+    
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=run_system_managed)]
 
-Bağımlılıkları yönetmek için conda ortamları sistem yönetilen kullanır. Conda adlı bir dosya oluşturur **conda_dependencies.yml** bu bağımlılıkların bir listesini içerir. Sistemin var. komut dosyalarınızı çalıştırın ve yeni bir conda ortamı oluşturmak isteyebilirsiniz. Conda_dependencies.yml Dosya değiştirilmediği sürece ortamları sistem yönetilen daha sonra yeniden kullanılabilir. 
+#### <a name="user-managed-environment"></a>Kullanıcı tarafından yönetilen ortamı
 
-Yeni bir ortam kurmak ilk kurulumu, gerekli bağımlılıkları boyutuna göre tamamlanması birkaç dakika sürebilir. Aşağıdaki kod parçacığını üzerinde scikit bağlıdır sistem tarafından yönetilen bir ortam oluşturmak nasıl gösterir-öğrenin:
+Bir kullanıcı tarafından yönetilen ortamlarda ortamınızı ayarlarken ve işlem hedef eğitim betiğinizi gereken her paket yükleme sorumludur. Eğitim ortamınızı zaten yapılandırılmışsa (gibi yerel makinenizde), ayarlayarak ayarlama adımını atlayabilirsiniz `user_managed_dependencies` true. Conda ortamınızı denetlemez ve her şeyi sizin için yükler.
 
-```python
-from azureml.core.runconfig import RunConfiguration
-from azureml.core.conda_dependencies import CondaDependencies
+Aşağıdaki kod, kullanıcı tarafından yönetilen bir ortamda eğitim çalıştırmalarının yapılandırma örneği gösterilmektedir:
 
-run_config_system_managed = RunConfiguration()
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=run_user_managed)]
+  
+## <a name="set-up-compute-targets-with-python"></a>Python ile işlem hedeflerini ayarlama
 
-run_config_system_managed.environment.python.user_managed_dependencies = False
-run_config_system_managed.auto_prepare_environment = True
+Kullanım bu yapılandırmak için aşağıdaki bölümlerde işlem hedefleri:
 
-# Specify the conda dependencies with scikit-learn
+* [Yerel bilgisayar](#local)
+* [Azure Machine Learning işlem](#amlcompute)
+* [Uzak sanal makineler](#vm)
+* [Azure HDInsight](#hdinsight)
 
-run_config_system_managed.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
-```
 
-## <a id="amlcompute"></a>Azure Machine Learning işlem
+### <a id="local"></a>Yerel bilgisayar
 
-Azure Machine Learning işlem kolayca tek veya çok düğümlü bir işlem oluşturmak kullanıcıya izin veren bir yönetilen işlem altyapısıdır. İşlem, çalışma alanı bölge içinde çalışma alanınızda diğer kullanıcılarla paylaşılabilir bir kaynak oluşturulur. Bir iş gönderilir ve bir Azure sanal ağında koyabilirsiniz işlem otomatik olarak ölçeklendirilebilir. İşlem, bir kapsayıcı ortamında yürütür ve model bağımlılıklarınızı Docker kapsayıcısında paketler.
+1. **Oluşturma ve ekleme**: Yerel bilgisayarınıza eğitim ortamı olarak kullanmak üzere bir işlem hedefine eklemek veya oluşturmak için gerek yoktur.  
+
+1. **Yapılandırma**:  Yerel bilgisayarınızda bir işlem hedef olarak kullandığınızda, eğitim kod çalışmasında, [geliştirme ortamı](how-to-configure-environment.md).  Bu ortamda zaten Python paketlerini ihtiyacınız varsa, kullanıcı tarafından yönetilen ortamı kullanın.
+
+ [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/local.py?name=run_local)]
+
+İşlem bağlı ve çalıştırma yapılandırılmış göre sonraki adım olarak [eğitim çalıştırma gönderme](#submit).
+
+### <a id="amlcompute"></a>Azure Machine Learning işlem
+
+Azure Machine Learning işlem kolayca tek veya çok düğümlü bir işlem oluşturmak kullanıcıya izin veren bir yönetilen işlem altyapısıdır. İşlem, çalışma alanı bölge içinde çalışma alanınızda diğer kullanıcılarla paylaşılabilir bir kaynak oluşturulur. Bir iş gönderilir ve bir Azure sanal ağında koyabilirsiniz işlem otomatik olarak ölçeklendirilebilir. İşlem, bir kapsayıcı ortamında yürütür ve model bağımlılıklarınızı paketleri bir [Docker kapsayıcısı](https://www.docker.com/why-docker).
 
 Azure Machine Learning işlem eğitim işlemin CPU veya GPU işlem düğümü bulutta bir küme dağıtmak için kullanabilirsiniz. GPU'ları içeren VM boyutları hakkında daha fazla bilgi için bkz. [GPU için iyileştirilmiş sanal makine boyutları](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu).
 
-> [!NOTE]
-> Azure Machine Learning işlemi, ayrılan çekirdek sayısı gibi varsayılan sınırlara sahiptir. Daha fazla bilgi için [Azure kaynaklarını yönetin ve istek kotalarını](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-quotas).
+Azure Machine Learning işlemi, ayrılan çekirdek sayısı gibi varsayılan sınırlara sahiptir. Daha fazla bilgi için [Azure kaynaklarını yönetin ve istek kotalarını](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-quotas).
+
 
 Bir farklı çalıştır zamanladığınızda isteğe bağlı veya bir kalıcı kaynak olarak bir Azure Machine Learning işlem ortamı oluşturabilirsiniz.
 
-### <a name="run-based-creation"></a>Çalıştırma tabanlı oluşturma
+#### <a name="run-based-creation"></a>Çalıştırma tabanlı oluşturma
 
-Çalışma zamanında işlem hedefi bir Azure Machine Learning işlem ortamı oluşturabilirsiniz. İşlem çalıştırma için otomatik olarak oluşturulur ve büyük sayıda **max_nodes** çalıştırma, yapılandırmada belirttiğiniz. İşlem, çalıştırma tamamlandıktan sonra otomatik olarak silinir.
+Azure Machine Learning işlem işlem hedefi çalışma zamanında oluşturabilirsiniz. İşlem, çalıştırmak için otomatik olarak oluşturulur. Küme ölçek sayısı kadar **max_nodes** çalıştırma, yapılandırmada belirttiğiniz. İşlem, çalıştırma tamamlandıktan sonra otomatik olarak silinir.
 
 > [!IMPORTANT]
-> Bir Azure Machine Learning işlem ortamını çalıştırma tabanlı oluşturulması şu anda Önizleme aşamasındadır. Otomatik hiper parametre ayarı kullanın ya da machine learning otomatik çalıştırma tabanlı olarak oluşturulmasını kullanmayın. Bir farklı çalıştır göndermeden önce hiper parametre ayarı veya otomatik makine öğrenimi kullanmak için Azure Machine Learning işlem ortamını oluşturun.
+> Azure Machine Learning işlem çalışma tabanlı oluşturulması şu anda Önizleme aşamasındadır. Otomatik hiper parametre ayarı kullanın ya da machine learning otomatik çalıştırma tabanlı olarak oluşturulmasını kullanmayın. Hiper parametre ayarı veya otomatik makine öğrenimi kullanmak için oluşturun bir [kalıcı işlem](#persistent) bunun yerine hedef.
 
-```python
-from azureml.core.compute import ComputeTarget, AmlCompute
+1.  **Oluşturma, ekleme ve yapılandırma**: Çalıştırma tabanlı olarak oluşturulmasını oluşturma, ekleme ve işlem hedef çalışma yapılandırması ile yapılandırmak için gerekli tüm adımları gerçekleştirir.  
 
-# First, list the supported VM families for Azure Machine Learning Compute
-AmlCompute.supported_vmsizes()
-
-from azureml.core.runconfig import RunConfiguration
-
-# Create a new runconfig object
-run_config = RunConfiguration()
-
-# Signal that you want to use AmlCompute to execute the script
-run_config.target = "amlcompute"
-
-# AmlCompute is created in the same region as your workspace
-# Set the VM size for AmlCompute from the list of supported_vmsizes
-run_config.amlcompute.vm_size = 'STANDARD_D2_V2'
-
-```
-
-### <a name="persistent-compute-basic"></a>Kalıcı işlem: Temel
-
-Kalıcı bir Azure Machine Learning işlem ortamını iş arasında yeniden kullanılabilir. İşlem, çalışma alanındaki diğer kullanıcılarla paylaşılabilir ve işleri arasında tutulur.
-
-Kalıcı bir Azure Machine Learning işlem ortamını kaynak oluşturmak için belirttiğiniz **vm_size** ve **max_nodes** özellikleri. Azure Machine Learning, daha sonra diğer özellikler için akıllı Varsayılanları kullanır. Kullanılmayan ve oluşturduğunda sıfır düğümleri aşağı işlem daralttığında Vm'leri gerektiğinde işlerinizi çalıştırmak için ayrılmış. 
-
-* **vm_size**: Azure Machine Learning işlem tarafından oluşturulan düğümler VM ailesi.
-* **max_nodes**: Otomatik ölçeklendirme, Azure Machine Learning işlem iş çalıştırıldığında en fazla düğüm sayısı.
-
-```python
-from azureml.core.compute import ComputeTarget, AmlCompute
-from azureml.core.compute_target import ComputeTargetException
-
-# Choose a name for your CPU cluster
-cpu_cluster_name = "cpucluster"
-
-# Verify that the cluster doesn't already exist
-try:
-    cpu_cluster = ComputeTarget(workspace=ws, name=cpu_cluster_name)
-    print('Found existing cluster, use it.')
-except ComputeTargetException:
-    compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2',
-                                                           max_nodes=4)
-    cpu_cluster = ComputeTarget.create(ws, cpu_cluster_name, compute_config)
-
-cpu_cluster.wait_for_completion(show_output=True)
-
-```
-
-### <a name="persistent-compute-advanced"></a>Kalıcı işlem: Gelişmiş
-
-Bir Azure Machine Learning işlem ortamını oluştururken, bazı gelişmiş özellikler yapılandırabilirsiniz. Özellikleri aboneliğinizde sabit boyutlu ya da mevcut bir Azure sanal ağı içinde kalıcı bir küme oluşturmanıza imkan tanır.
-
-İle birlikte **vm_size** ve **max_nodes** özellikleri, aşağıdaki özellikleri de kullanabilirsiniz:
-
-* **min_nodes**: İşlem ortamı için bir Azure Machine Learning'de bir işi çalıştırdığınızda aşağı ölçeklemenizi için düğüm sayısı alt sınırı. En az sıfır (0) düğümleri varsayılandır.
-* **vm_priority**: Bir Azure Machine Learning işlem ortamını kaynak oluştururken kullanmak üzere VM türü. Arasında seçim **adanmış** (varsayılan) ve **lowpriority**. Düşük öncelikli VM'ler, Azure'da aşırı kapasitesini kullanın. Bu VM'ler ucuz, ancak bu sanal makineler kullanıldığında, çalıştırmalarını pre-empted.
-* **idle_seconds_before_scaledown**: Bir çalıştırma tamamlandıktan sonra beklenecek boşta kalma süresi ve otomatik ölçeklendirme sayısı kadar önce miktarı **min_nodes**. Varsayılan boşta kalma süresi, 120 saniyedir.
-* **vnet_resourcegroup_name**: Kaynak grubunu __mevcut__ sanal ağ. Azure Machine Learning işlem ortamını, bu sanal ağ içinde oluşturulur.
-* **vnet_name**: Sanal ağ adı. Sanal ağ, Azure Machine Learning çalışma alanı ile aynı bölgede olması gerekir.
-* **subnet_name**: Sanal ağ içindeki alt ağ adı. Azure Machine Learning işlem ortamını kaynaklarını bu alt ağı aralığından IP adresleri atanır.
-
-> [!TIP]
-> Kalıcı bir Azure Machine Learning işlem ortamını kaynağı oluşturduğunuzda, sayısı gibi özellikleri güncelleştirebilirsiniz **min_nodes** veya **max_nodes**. Özellik Güncelleştirme için çağrı `update()` özelliği için işlevi.
-
-```python
-from azureml.core.compute import ComputeTarget, AmlCompute
-from azureml.core.compute_target import ComputeTargetException
-
-# Choose a name for your CPU cluster
-cpu_cluster_name = "cpucluster"
-
-# Verify that the cluster doesn't already exist 
-try:
-    cpu_cluster = ComputeTarget(workspace=ws, name=cpu_cluster_name)
-    print('Found existing cluster, use it.')
-except ComputeTargetException:
-    compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2',
-                                                           vm_priority='lowpriority',
-                                                           min_nodes=2,
-                                                           max_nodes=4,
-                                                           idle_seconds_before_scaledown='300',
-                                                           vnet_resourcegroup_name='<my-resource-group>',
-                                                           vnet_name='<my-vnet-name>',
-                                                           subnet_name='<my-subnet-name>')
-    cpu_cluster = ComputeTarget.create(ws, cpu_cluster_name, compute_config)
-
-cpu_cluster.wait_for_completion(show_output=True)
-
-```
+  [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute.py?name=run_temp_compute)]
 
 
-## <a id="vm"></a>Uzak VM
+İşlem bağlı ve çalıştırma yapılandırılmış göre sonraki adım olarak [eğitim çalıştırma gönderme](#submit).
+
+#### <a id="persistent"></a>Kalıcı işlem
+
+Bir kalıcı Azure Machine Learning işlem işleri arasında yeniden kullanılabilir. İşlem, çalışma alanındaki diğer kullanıcılarla paylaşılabilir ve işleri arasında tutulur.
+
+1. **Oluşturma ve ekleme**: Python'da kalıcı bir Azure Machine Learning işlem kaynak oluşturmak için belirtin **vm_size** ve **max_nodes** özellikleri. Azure Machine Learning, daha sonra diğer özellikler için akıllı Varsayılanları kullanır. İşlem daralttığında kullanılan değil sıfır düğümleri gösteriyor.   Gerektiğinde işlerinizi çalıştırmak için adanmış VM'ler oluşturulur.
+    
+    * **vm_size**: Azure Machine Learning işlem tarafından oluşturulan düğümler VM ailesi.
+    * **max_nodes**: Otomatik ölçeklendirme, Azure Machine Learning işlem iş çalıştırıldığında en fazla düğüm maksimum sayısı.
+    
+ [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=cpu_cluster)]
+
+  Azure Machine Learning işlem oluşturduğunuzda, bazı gelişmiş özellikler yapılandırabilirsiniz. Özellikleri aboneliğinizde sabit boyutlu ya da mevcut bir Azure sanal ağ içindeki kalıcı bir küme oluşturmanıza imkan tanır.  Bkz: [AmlCompute sınıfı](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py
+    ) Ayrıntılar için.
+    
+ Ya da oluşturabilir ve Azure Machine Learning işlem bir kalıcı kaynak ekleme [Azure portalında](#portal-create).
+
+1. **Yapılandırma**: Kalıcı işlem hedefi için bir çalıştırma yapılandırması oluşturun.
+
+ [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=run_amlcompute)]
+
+İşlem bağlı ve çalıştırma yapılandırılmış göre sonraki adım olarak [eğitim çalıştırma gönderme](#submit).
+
+
+### <a id="vm"></a>Uzak sanal makineler
 
 Azure Machine Learning, ayrıca kendi işlem kaynağı getiren ve çalışma alanınıza eklenmesini destekler. Azure Machine Learning hizmetini erişilebilir olduğu sürece bir kaynak türü bir rasgele uzak VM ' dir. Kaynak, bir Azure VM, kuruluş veya şirket içi uzak bir sunucuda olabilir. Özellikle, verilen IP adresini ve kimlik bilgilerini (kullanıcı adı ve parola veya SSH anahtarı), tüm erişilebilir VM'ler uzaktan çalıştırmalar için kullanabilirsiniz.
-Bir Docker kapsayıcısı, bir Python ortamı veya sistem tarafından oluşturulan conda ortamda kullanabilirsiniz. Bir Docker kapsayıcısı kullanarak yürüttüğünüzde, VM'de çalışan Docker altyapısının olması gerekir. Uzak VM işlevselliği, özellikle yerel makinenize daha esnek bir bulut tabanlı geliştirme ve deneme ortamı istediğinizde yararlıdır.
 
-> [!TIP]
-> DSVM, bu senaryo için tercih ettiğiniz Azure VM olarak kullanın. Bu bir vm'dir önceden yapılandırılmış bir veri bilimi ve yapay ZEKA geliştirme ortamında Azure VM araç ve çerçeve tam yaşam döngüsü makine öğrenimi geliştirme için seçkin bir seçenek sunar. Azure Machine Learning ile DSVM'sini kullanma hakkında daha fazla bilgi için bkz. [geliştirme ortamını yapılandırma](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-environment#dsvm).
+Bir Docker kapsayıcısı, zaten var olan bir Python ortamını veya sistem tarafından oluşturulan conda ortamda kullanabilirsiniz. Bir Docker kapsayıcısında yürütmek için VM'de çalışan bir Docker altyapısının olmalıdır. Yerel makinenize daha esnek, bulut tabanlı geliştirme/deneme ortamı istediğinizde, bu işlev özellikle yararlıdır.
 
-> [!WARNING]
-> Azure Machine Learning yalnızca Ubuntu çalıştıran sanal makineleri destekler. Bir VM oluşturmak veya mevcut bir VM'yi seçin, Ubuntu kullanan bir VM seçmeniz gerekir.
+Azure veri bilimi sanal makinesi (DSVM), bu senaryo için tercih ettiğiniz Azure VM olarak kullanın. Bu, önceden yapılandırılmış bir veri bilimi ve yapay ZEKA geliştirme ortamında Azure vm'dir. VM, araç ve çerçeve tam yaşam döngüsü makine öğrenimi geliştirme için seçkin bir seçenek sunar. Azure Machine Learning ile DSVM'sini kullanma hakkında daha fazla bilgi için bkz. [geliştirme ortamını yapılandırma](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-environment#dsvm).
 
-Eğitim hedef olarak bir DSVM yapılandırmak için SDK'sı aşağıdaki adımları kullanın:
+1. **Oluşturma**: Modelinizi eğitmek için kullanmadan önce bir DSVM oluşturma. Bu kaynak oluşturmak için bkz [Linux (Ubuntu) için veri bilimi sanal makinesi sağlama](https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro).
 
-1. Mevcut bir sanal makine işlem hedefi olarak eklemek için sanal makine için tam etki alanı adı (FQDN), kullanıcı adı ve parola sağlamalısınız. Bu örnekte değiştirin \<fqdn > Genel VM'nin genel IP adresi veya FQDN ile. Değiştirin \<username > ve \<parola > SSH kullanıcı adı ve parolayla VM için.
+    > [!WARNING]
+    > Azure Machine Learning yalnızca Ubuntu çalıştıran sanal makineleri destekler. Bir VM oluşturmak veya mevcut bir VM'yi seçin, Ubuntu kullanan bir VM seçmeniz gerekir.
 
-    ```python
-    from azureml.core.compute import RemoteCompute, ComputeTarget
-    
-    # Create the compute config
-    attach_config = RemoteCompute.attach_configuration(address = "ipaddress",
-                                                       ssh_port=22,
-                                                       username='<username>',
-                                                       password="<password>")
+1. **Ekleme**: Mevcut bir sanal makine işlem hedefi olarak eklemek için sanal makine için tam etki alanı adı (FQDN), kullanıcı adı ve parola sağlamalısınız. Bu örnekte değiştirin \<fqdn > Genel VM'nin genel IP adresi veya FQDN ile. Değiştirin \<username > ve \<parola > SSH kullanıcı adı ve parolayla VM için.
 
-    # If you use SSH instead of a password, use this code:
-    #                                                  ssh_port=22,
-    #                                                  username='<username>',
-    #                                                  password=None,
-    #                                                  private_key_file="path-to-file",
-    #                                                  private_key_passphrase="passphrase")
+ ```python
+ from azureml.core.compute import RemoteCompute, ComputeTarget
 
-    # Attach the compute target
-    compute = ComputeTarget.attach(ws, "attach-dsvm", attach_config)
+ # Create the compute config 
+ compute_target_name = "attach-dsvm"
+ attach_config = RemoteCompute.attach_configuration(address = "<fqdn>",
+                                                    ssh_port=22,
+                                                    username='<username>',
+                                                    password="<password>")
 
-    compute.wait_for_completion(show_output=True)
-    ```
+ # If you use SSH instead of a password, use this code:
+ #                                                  ssh_port=22,
+ #                                                  username='<username>',
+ #                                                  password=None,
+ #                                                  private_key_file="<path-to-file>",
+ #                                                  private_key_passphrase="<passphrase>")
 
-1. DSVM işlem hedefi için bir yapılandırma oluşturun. Docker ve conda oluşturmak ve eğitim ortamı DSVM'nin yapılandırmak için kullanılır.
+ # Attach the compute
+ compute = ComputeTarget.attach(ws, compute_target_name, attach_config)
 
-    ```python
-    from azureml.core.runconfig import RunConfiguration
-    from azureml.core.conda_dependencies import CondaDependencies
+ compute.wait_for_completion(show_output=True)
+ ```
 
-    # Load into memory the cpu-dsvm.runconfig file created in the previous attach operation
-    run_config = RunConfiguration(framework = "python")
+ DSVM çalışma alanınıza eklemek veya [Azure portalını kullanarak](#portal-reuse).
 
-    # Set the compute target to the Linux DSVM
-    run_config.target = compute_target_name
+1. **Yapılandırma**: DSVM işlem hedefi için bir çalıştırma yapılandırması oluşturun. Docker ve conda oluşturmak ve eğitim ortamı DSVM'nin yapılandırmak için kullanılır.
 
-    # Use Docker in the remote VM
-    run_config.environment.docker.enabled = True
+ [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/dsvm.py?name=run_dsvm)]
 
-    # Use the CPU base image
-    # To use GPU in DSVM, you must also use the GPU base Docker image "azureml.core.runconfig.DEFAULT_GPU_IMAGE"
-    run_config.environment.docker.base_image = azureml.core.runconfig.DEFAULT_CPU_IMAGE
-    print('Base Docker image is:', run_config.environment.docker.base_image)
 
-    # Ask the system to provision a new conda environment based on the conda_dependencies.yml file
-    run_config.environment.python.user_managed_dependencies = False
+İşlem bağlı ve çalıştırma yapılandırılmış göre sonraki adım olarak [eğitim çalıştırma gönderme](#submit).
 
-    # Prepare the Docker and conda environment automatically when they're used for the first time
-    run_config.prepare_environment = True
-
-    # Specify the CondaDependencies object
-    run_config.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
-
-    ```
-
-## <a id="databricks"></a>Azure Databricks
-
-Azure Databricks, Azure bulutta Apache Spark tabanlı bir ortam olan. Bir Azure Machine Learning işlem hattı modelleriyle eğittiğinizde ortam işlem hedefi kullanılabilir.
-
-> [!IMPORTANT]
-> Bir Azure Databricks işlem hedefi bir Machine Learning işlem hattında yalnızca kullanılabilir.
->
-> Modelinizi eğitmek için kullanmadan önce bir Azure Databricks çalışma alanı oluşturmanız gerekir. Bu kaynak oluşturmak için bkz [Azure Databricks'te Spark işini çalıştırma](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal).
-
-Azure Databricks işlem hedefi olarak eklemek için Azure Machine Learning SDK'yı kullanın ve aşağıdaki bilgileri sağlayın:
-
-* __İşlem adı__: Bu işlem kaynağına atanacak ad.
-* __Databricks çalışma alanı adı__: Azure Databricks çalışma alanı adı.
-* __Erişim belirteci__: Azure Databricks için kimliğini doğrulamak için kullanılan erişim belirteci. Bir erişim belirteci oluşturmak için bkz: [kimlik doğrulaması](https://docs.azuredatabricks.net/api/latest/authentication.html).
-
-Aşağıdaki kod, Azure Databricks işlem hedefi olarak eklemek gösterilmektedir:
-
-```python
-databricks_compute_name = os.environ.get("AML_DATABRICKS_COMPUTE_NAME", "<databricks_compute_name>")
-databricks_workspace_name = os.environ.get("AML_DATABRICKS_WORKSPACE", "<databricks_workspace_name>")
-databricks_resource_group = os.environ.get("AML_DATABRICKS_RESOURCE_GROUP", "<databricks_resource_group>")
-databricks_access_token = os.environ.get("AML_DATABRICKS_ACCESS_TOKEN", "<databricks_access_token>")
-
-try:
-    databricks_compute = ComputeTarget(workspace=ws, name=databricks_compute_name)
-    print('Compute target already exists')
-except ComputeTargetException:
-    print('compute not found')
-    print('databricks_compute_name {}'.format(databricks_compute_name))
-    print('databricks_workspace_name {}'.format(databricks_workspace_name))
-    print('databricks_access_token {}'.format(databricks_access_token))
-
-    # Create the attach config
-    attach_config = DatabricksCompute.attach_configuration(resource_group = databricks_resource_group,
-                                                           workspace_name = databricks_workspace_name,
-                                                           access_token = databricks_access_token)
-    databricks_compute = ComputeTarget.attach(
-             ws,
-             databricks_compute_name,
-             attach_config
-         )
-    
-    databricks_compute.wait_for_completion(True)
-```
-
-## <a id="adla"></a>Azure Data Lake Analytics'i
-
-Azure Data Lake Analytics, Azure bulutunda bir büyük veri analiz platformudur. Bir Azure Machine Learning işlem hattı modelleriyle eğittiğinizde platform işlem hedefi kullanılabilir.
-
-> [!IMPORTANT]
-> Bir Azure Data Lake Analytics işlem hedefi bir Machine Learning işlem hattında yalnızca kullanılabilir.
->
-> Modelinizi eğitmek için kullanmadan önce bir Azure Data Lake Analytics hesabı oluşturmanız gerekir. Bu kaynak oluşturmak için bkz [Azure Data Lake Analytics ile çalışmaya başlama](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-get-started-portal).
-
-Data Lake Analytics işlem hedefi olarak eklemek için Azure Machine Learning SDK'yı kullanın ve aşağıdaki bilgileri sağlayın:
-
-* __İşlem adı__: Bu işlem kaynağına atanacak ad.
-* __Kaynak grubu__: Data Lake Analytics hesabını içeren kaynak grubu.
-* __Hesap adı__: Data Lake Analytics hesap adı.
-
-Aşağıdaki kod, Data Lake Analytics işlem hedefi olarak eklemek gösterilmektedir:
-
-```python
-adla_compute_name = os.environ.get("AML_ADLA_COMPUTE_NAME", "<adla_compute_name>")
-adla_resource_group = os.environ.get("AML_ADLA_RESOURCE_GROUP", "<adla_resource_group>")
-adla_account_name = os.environ.get("AML_ADLA_ACCOUNT_NAME", "<adla_account_name>")
-
-try:
-    adla_compute = ComputeTarget(workspace=ws, name=adla_compute_name)
-    print('Compute target already exists')
-except ComputeTargetException:
-    print('compute not found')
-    print('adla_compute_name {}'.format(adla_compute_name))
-    print('adla_resource_id {}'.format(adla_resource_group))
-    print('adla_account_name {}'.format(adla_account_name))
-    
-    # Create the attach config
-    attach_config = AdlaCompute.attach_configuration(resource_group = adla_resource_group,
-                                                     account_name = adla_account_name)
-    # Attach the ADLA
-    adla_compute = ComputeTarget.attach(
-             ws,
-             adla_compute_name,
-             attach_config
-         )
-    
-    adla_compute.wait_for_completion(True)
-```
-
-> [!TIP]
-> Azure Machine Learning işlem hatları yalnızca Data Lake Analytics hesabı varsayılan veri deposunda depolanan verileri ile çalışma. Varsayılan olmayan deposunda ihtiyacınız olan verileri ise kullanabileceğiniz bir [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) modeli eğitme önce veri kopyalama işlemi.
-
-## <a id="hdinsight"></a>Azure HDInsight 
+### <a id="hdinsight"></a>Azure HDInsight 
 
 Azure HDInsight, büyük veri analizi için popüler bir platformdur. Apache Spark, modelinizi eğitmek için kullanılan platform sağlar.
 
-> [!IMPORTANT]
-> Modelinizi eğitmek için kullanmadan önce HDInsight kümesi oluşturmanız gerekir. HDInsight kümesinde bir Spark oluşturmak için bkz: [HDInsight Spark kümesi oluşturma](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql).
->
-> Kümeyi oluşturduğunuzda, bir SSH kullanıcı adı ve parola belirtmeniz gerekir. Bir işlem hedefi olarak HDInsight'ı kullanmaya gerek duyduğunuzda, bu değerleri not alın.
->
-> Küme oluşturulduktan sonra FQDN sahip \<clustername >. azurehdinsight.net burada \<clustername >, küme için sağlanan addır. Küme işlem hedefi kullanmak için FQDN adresini (veya kümesinin genel IP adresi) gerekir.
+1. **Oluşturma**:  Modelinizi eğitmek için kullanmadan önce HDInsight kümesi oluşturun. HDInsight kümesinde bir Spark oluşturmak için bkz: [HDInsight Spark kümesi oluşturma](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql). 
 
-HDInsight işlem hedefi yapılandırmak için HDInsight kümesi için FQDN, kullanıcı adı ve parola sağlamalısınız. Aşağıdaki örnek, bir küme çalışma alanınıza eklemek için SDK'sını kullanır. Bu örnekte değiştirin \<fqdn > ortak FQDN kümenin veya genel IP adresi ile. Değiştirin \<username > ve \<parola > SSH kullanıcı adı ve parola küme için.
+    Kümeyi oluşturduğunuzda, bir SSH kullanıcı adı ve parola belirtmeniz gerekir. Bir işlem hedefi olarak HDInsight'ı kullanmaya gerek duyduğunuzda, bu değerleri not alın.
+    
+    Küme oluşturulduktan sonra ana bilgisayar adı ile bağlanmak \<clustername >-ssh.azurehdinsight.net, burada \<clustername >, küme için sağlanan addır. 
 
-> [!NOTE]
-> Kümeniz için FQDN bulmak için Azure portalına gidin ve HDInsight kümenizi seçin. Altında __genel bakış__, FQDN gördüğünüz __URL__ girişi. FQDN almak için https Kaldır:\// girişin başından önek.
+1. **Ekleme**: Bir HDInsight kümesi işlem hedefi olarak eklemek için ana bilgisayar adı, kullanıcı adı ve parola HDInsight kümesi için sağlamanız gerekir. Aşağıdaki örnek, bir küme çalışma alanınıza eklemek için SDK'sını kullanır. Bu örnekte değiştirin \<clustername > değerini kümenizin adıyla. Değiştirin \<username > ve \<parola > SSH kullanıcı adı ve parola küme için.
 
-![Azure portalında bir HDInsight kümesi için FQDN'yi alma](./media/how-to-set-up-training-targets/hdinsight-overview.png)
+  ```python
+ from azureml.core.compute import ComputeTarget, HDInsightCompute
+ from azureml.exceptions import ComputeTargetException
 
-```python
-from azureml.core.compute import HDInsightCompute, ComputeTarget
+ try:
+    # if you want to connect using SSH key instead of username/password you can provide parameters private_key_file and private_key_passphrase
+    attach_config = HDInsightCompute.attach_configuration(address='<clustername>-ssh.azureinsight.net', 
+                                                          ssh_port=22, 
+                                                          username='<ssh-username>', 
+                                                          password='<ssh-pwd>')
+    hdi_compute = ComputeTarget.attach(workspace=ws, 
+                                       name='myhdi', 
+                                       attach_configuration=attach_config)
 
-try:
-    # Attach an HDInsight cluster as a compute target
-    attach_config = HDInsightCompute.attach_configuration(address = "fqdn-or-ipaddress",
-                                                          ssh_port = 22,
-                                                          username = "username",
-                                                          password = None, #if using ssh key
-                                                          private_key_file = "path-to-key-file",
-                                                          private_key_phrase = "key-phrase")
-    compute = ComputeTarget.attach(ws, "myhdi", attach_config)
-except UserErrorException as e:
+ except ComputeTargetException as e:
     print("Caught = {}".format(e.message))
-    print("Compute config already attached.")
 
-# Configure the HDInsight run
-# Load the runconfig object from the myhdi.runconfig file generated in the previous attach operation
-run_config = RunConfiguration.load(project_object = project, run_config_name = 'myhdi')
+ hdi_compute.wait_for_completion(show_output=True)
+  ```
 
-# Ask the system to prepare the conda environment automatically when it's used for the first time
-run_config.auto_prepare_environment = True
-```
+  HDInsight kümesi çalışma alanınıza eklemek veya [Azure portalını kullanarak](#portal-reuse).
 
-## <a name="submit-training-runs"></a>Eğitim çalıştırmalarının gönderin
+1. **Yapılandırma**: HDI işlem hedefi için bir çalıştırma yapılandırması oluşturun. 
 
-Bir eğitim çalıştırma göndermek için iki yolu vardır:
+ [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/hdi.py?name=run_hdi)]
 
-* Bir eğitim çalıştırmak gönderme bir `ScriptRunConfig` nesne.
-* Bir eğitim çalıştırmak gönderme bir `Pipeline` nesne.
 
-> [!IMPORTANT]
-> Azure Databricks ve Azure Datalake Analytics hedefleri yalnızca bir işlem hattında kullanılabilen işlem.
->
-> Yerel işlem hedefi, bir işlem hattında kullanılamaz.
+İşlem bağlı ve çalıştırma yapılandırılmış göre sonraki adım olarak [eğitim çalıştırma gönderme](#submit).
 
-### <a name="scriptrunconfig-object"></a>ScriptRunConfig nesnesi
 
-Bir eğitim göndermek için kod desenini çalıştırmasını `ScriptRunConfig` nesnedir aynı işlem hedefleri tüm türleri için:
+## <a name="set-up-compute-in-the-azure-portal"></a>Azure Portalı'nda işlem ayarlama
 
-1. Oluşturma bir `ScriptRunConfig` işlem hedefi için bir çalıştırma yapılandırma kullanarak nesne.
-1. Çalıştırma gönderin.
-1. Çalıştırmak için bekleyin.
+Azure portalında bir çalışma alanınız ile ilişkili olan işlem hedefleri erişebilirsiniz.  Portala kullanabilirsiniz:
 
-Aşağıdaki örnek, sistem tarafından yönetilen yerel işlem hedefi daha önce oluşturduğunuz yapılandırmayı kullanır:
+* [Görünüm işlem hedeflerini](#portal-view) çalışma alanınıza bağlı
+* [İşlem hedefi oluşturmak](#portal-create) çalışma alanınızdaki
+* [Var olan işlem hedefleri yeniden kullanma](#portal-reuse)
+
+Bir hedef oluşturulur ve çalışma alanınıza bağlı sonra onu çalıştırması yapılandırmanızdaki kullanacaksınız bir `ComputeTarget` nesnesi: 
 
 ```python
-src = ScriptRunConfig(source_directory = script_folder, script = 'train.py', run_config = run_config_system_managed)
-run = exp.submit(src)
-run.wait_for_completion(show_output = True)
+from azureml.core.compute import ComputeTarget
+myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 ```
 
+### <a id="portal-view"></a>İşlem hedefleri görüntüle
 
-### <a name="pipeline-object"></a>İşlem hattı nesnesi
-
-Bir eğitim göndermek için kod desenini çalıştırma ile bir `Pipeline` nesnedir aynı işlem hedefleri tüm türleri için:
-
-1. Bir adım eklemek `Pipeline` işlem kaynak nesnesi.
-1. Bir işlem hattını kullanarak gönderin.
-1. Çalıştırmak için bekleyin.
-
-Aşağıdaki örnek, daha önce oluşturduğunuz Azure Databricks işlem hedefini kullanır:
-
-```python
-dbStep = DatabricksStep(
-    name="databricksmodule",
-    inputs=[step_1_input],
-    outputs=[step_1_output],
-    num_workers=1,
-    notebook_path=notebook_path,
-    notebook_params={'myparam': 'testparam'},
-    run_name='demo run name',
-    databricks_compute=databricks_compute,
-    allow_reuse=False
-)
-
-# List of steps to run
-steps = [dbStep]
-pipeline = Pipeline(workspace=ws, steps=steps)
-pipeline_run = Experiment(ws, 'Demo_experiment').submit(pipeline)
-pipeline_run.wait_for_completion()
-```
-
-Machine learning işlem hatlarını hakkında daha fazla bilgi için bkz. [işlem hatları ve Azure Machine Learning](concept-ml-pipelines.md).
-
-Örneğin bir işlem hattı kullanarak bir model eğitip göstermektedir Jupyter not defterleri bkz [ https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline ](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline).
-
-## <a name="access-computes-in-the-azure-portal"></a>Azure portalında erişim hesaplar
-
-Azure portalında bir çalışma alanınız ile ilişkili olan işlem hedefleri erişebilirsiniz. 
-
-### <a name="view-compute-targets"></a>İşlem hedefleri görüntüle
 
 Çalışma alanınız için işlem hedefleri görmek için aşağıdaki adımları kullanın:
 
-1. Gidin [Azure portalında](https://portal.azure.com) ve, çalışma alanını açın.
+1. Gidin [Azure portalında](https://portal.azure.com) ve, çalışma alanını açın. 
 1. Altında __uygulamaları__seçin __işlem__.
 
-    ![İşlem hedefleri görüntüle](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)
+    ![Görünüm işlem sekmesi](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)
 
-### <a name="create-a-compute-target"></a>İşlem hedefi oluşturmak
+### <a id="portal-create"></a>İşlem hedefi oluşturmak
 
-İşlem hedeflerin listesini görüntülemek için önceki adımları izleyin. Ardından işlem hedefi oluşturmak için aşağıdaki adımları kullanın:
+İşlem hedeflerin listesini görüntülemek için önceki adımları izleyin. Ardından işlem hedefi oluşturmak için aşağıdaki adımları kullanın: 
 
 1. İşlem hedefi eklemek için artı işaretini (+) seçin.
 
-    ![İşlem hedefi ekleyin](./media/how-to-set-up-training-targets/add-compute-target.png)
+    ![İşlem hedefi ekleyin](./media/how-to-set-up-training-targets/add-compute-target.png) 
 
-1. İşlem hedefi için bir ad girin.
-1. Seçin **Machine Learning işlem** kullanılmak üzere işlem türü olarak __eğitim__.
+1. İşlem hedefi için bir ad girin. 
 
-    > [!IMPORTANT]
-    > Eğitim için yönetilen işlem kaynağı olarak yalnızca bir Azure Machine Learning işlem ortamını oluşturabilirsiniz.
+1. Seçin **Machine Learning işlem** kullanılmak üzere işlem türü olarak __eğitim__. 
 
-1. Formu doldurun. Gerekli özellikleri için değerleri sağlayın, özellikle **VM ailesi**ve **en fazla düğüme** hesaplamayı dönmesi için kullanılacak. 
+    >[!NOTE]
+    >Azure Machine Learning işlemi Azure portalında oluşturabileceğiniz yalnızca yönetilen-işlem kaynağıdır.  Oluşturulduktan sonra diğer tüm işlem kaynaklarını eklenebilir.
+
+1. Formu doldurun. Gerekli özellikleri için değerleri sağlayın, özellikle **VM ailesi**ve **en fazla düğüme** hesaplamayı dönmesi için kullanılacak.  
+
+    ![Formu doldurun](./media/how-to-set-up-training-targets/add-compute-form.png) 
+
 1. __Oluştur__’u seçin.
+
+
 1. İşlem hedef listeden seçerek oluşturma işleminin durumunu görüntüleyin:
 
     ![Oluşturma işlemi durumunu görüntülemek için bir işlem hedef seçin](./media/how-to-set-up-training-targets/View_list.png)
 
-1. Ardından işlem hedef ayrıntılarına bakın:
+1. Ardından işlem hedef ayrıntılarına bakın: 
 
-    ![Bilgisayar hedef ayrıntıları görüntüleyin](./media/how-to-set-up-training-targets/compute-target-details.png)
-
-Şimdi daha önce anlatıldığı gibi bilgisayarı hedeflere karşı çalıştırma gönderebilirsiniz.
+    ![Bilgisayar hedef ayrıntıları görüntüleyin](./media/how-to-set-up-training-targets/compute-target-details.png) 
 
 
-### <a name="reuse-existing-compute-targets"></a>Var olan işlem hedefleri yeniden kullanma
 
-İşlem hedeflerin listesini görüntülemek için daha önce açıklanan adımları izleyin. Ardından bir işlem hedefine yeniden kullanmak için aşağıdaki adımları kullanın:
+### <a id="portal-reuse"></a>Var olan işlem hedefleri yeniden kullanma
 
-1. İşlem hedefi eklemek için artı işaretini (+) seçin.
-1. İşlem hedefi için bir ad girin.
+İşlem hedeflerin listesini görüntülemek için daha önce açıklanan adımları izleyin. Ardından bir işlem hedefine yeniden kullanmak için aşağıdaki adımları kullanın: 
+
+1. İşlem hedefi eklemek için artı işaretini (+) seçin. 
+1. İşlem hedefi için bir ad girin. 
 1. İçin eklemek için işlem türünü seçin __eğitim__:
 
     > [!IMPORTANT]
-    > Tüm işlem, türleri, Azure portalından eklenebilir.
-    > Eğitim için şu anda eklenebilecek işlem türleri şunlardır:
+    > Tüm işlem, türleri, Azure portalından eklenebilir. Eğitim için şu anda eklenebilecek işlem türleri şunlardır:
     >
     > * Uzak VM
-    > * Azure Databricks
-    > * Azure Data Lake Analytics
+    > * Azure Databricks (için machine learning işlem hatlarını kullanın)
+    > * Azure Data Lake Analytics (için machine learning işlem hatlarını kullanın)
     > * Azure HDInsight
 
 1. Formu doldurun ve gerekli özellikleri için değerler sağlayın.
@@ -561,15 +320,60 @@ Azure portalında bir çalışma alanınız ile ilişkili olan işlem hedefleri 
     > * [Oluşturma ve Linux veya Macos'ta SSH anahtarlarını kullanma](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
     > * [Oluşturma ve Windows üzerinde SSH anahtarlarını kullanma](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)
 
-1. Seçin __ekleme__.
+1. Seçin __ekleme__. 
 1. İşlem hedef listeden seçerek iliştirme işlemi durumunu görüntüleyin.
 
-Gönderebilmek için artık bu karşı çalıştırma işlem hedeflerini daha önce açıklandığı gibi.
+## <a name="set-up-compute-with-the-cli"></a>CLI ile işlem ayarlama
+
+Kullanarak çalışma ile ilişkilendirilen işlem hedefleri erişebileceğiniz [CLI uzantısını](reference-azure-machine-learning-cli.md) Azure Machine Learning hizmeti için.  CLI'yı kullanabilirsiniz:
+
+* Yönetilen işlem hedefi oluşturmak
+* Güncelleştirme yönetilen işlem hedefi
+* Bir yönetilmeyen işlem hedefi ekleme
+
+Daha fazla bilgi için [kaynak yönetimi](reference-azure-machine-learning-cli.md#resource-management).
+
+
+## <a id="submit"></a>Çalıştırma eğitim gönderin
+
+Bir çalıştırma yapılandırma oluşturduktan sonra denemenizi çalıştırmak için kullanın.  Eğitim çalıştırma göndermek için kod desenini işlem hedefleri tüm türleri için de aynıdır:
+
+1. Çalıştırmak için bir deneme oluşturma
+1. Çalıştırma gönderin.
+1. Çalıştırmak için bekleyin.
+
+### <a name="create-an-experiment"></a>Deneme oluşturma
+
+İlk olarak, bir denemeyi çalışma alanınızda oluşturun.
+
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/local.py?name=experiment)]
+
+### <a name="submit-the-experiment"></a>Denemeyi gönderme
+
+İle deneme gönderme bir `ScriptRunConfig` nesne.  Bu nesne içerir:
+
+* **kaynak_dizin**: Eğitim komut dosyanızı içeren kaynak dizini
+* **betik**: Eğitim betiği tanımlayın
+* **run_config**: Eğitim gerçekleşeceği sırayla tanımlayan çalıştırma yapılandırmasına.
+
+Bir eğitim çalıştırma gönderdiğinizde, eğitim komut dosyalarınızı içeren dizine anlık görüntüsünü oluşturulur ve işlem hedefine gönderildi. Daha fazla bilgi için [anlık görüntüleri](concept-azure-machine-learning-architecture.md#snapshot).
+
+Örneğin, kullanılacak [yerel hedef](#local) yapılandırma:
+
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/local.py?name=local_submit)]
+
+Farklı işlem hedefte farklı bir çalıştırma yapılandırma gibi kullanarak çalıştırmak için aynı denemeyi geçiş [amlcompute hedef](#amlcompute):
+
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=amlcompute_submit)]
+
+Veya, şunları yapabilirsiniz:
+
+* İle deneme gönderme bir `Estimator` nesne gösterildiği [estimators Train ML modelleriyle](how-to-train-ml-models.md). 
+* Bir denemeyi göndermek [CLI uzantısını kullanarak](reference-azure-machine-learning-cli.md#experiments).
 
 ## <a name="notebook-examples"></a>Not Defteri örnekleri
 
-Not Defterleri şu konumlarda örnekler için bkz:
-
+Bu not defterlerini eğitim çeşitli işlem hedefleri olan örnekler için bkz:
 * [Yardım-How-to-kullanın-azureml/eğitimi](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
 * [öğreticiler/img-sınıflandırma-bölüm 1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
 
@@ -577,7 +381,6 @@ Not Defterleri şu konumlarda örnekler için bkz:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Azure Machine Learning SDK başvurusu](https://aka.ms/aml-sdk)
-* [Öğretici: Bir model eğitip](tutorial-train-models-with-aml.md)
-* [Modelleri dağıtılacağı yeri](how-to-deploy-and-where.md)
-* [Machine learning işlem hatlarını Azure Machine Learning hizmeti ile derleme](concept-ml-pipelines.md)
+* [Öğretici: Bir model eğitip](tutorial-train-models-with-aml.md) bir modeli eğitmek için yönetilen işlem hedefi kullanır.
+* Eğitilen bir modelin aldıktan sonra bilgi [nasıl ve nerede modelleri dağıtma](how-to-deploy-and-where.md).
+* Görünüm [RunConfiguration sınıfı](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) SDK başvurusu.

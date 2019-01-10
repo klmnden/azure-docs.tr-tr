@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: fafa680f877060f1e7d96c60f52e3033eeb38553
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d6e4cc585c1239d6a1b81b371f39fc19e3ff37ea
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190654"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157182"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>İle bir Linux veri bilimi sanal makinesi Azure üzerinde veri bilimi
 Bu izlenecek yol, Linux veri bilimi sanal makinesi ile çeşitli genel veri bilimi görevlerini gerçekleştirmek nasıl gösterir. Linux veri bilimi sanal makinesi (DSVM) veri analizi ve makine öğrenimi için yaygın olarak kullanılan araçları koleksiyonu ile önceden yüklenmiş olan Azure üzerinde kullanılabilir bir sanal makine görüntüsüdür. Anahtar yazılım bileşenleri içinde listelenen [Linux veri bilimi sanal makinesi sağlama](linux-dsvm-intro.md) konu. VM görüntüsü, yüklemek ve araçların her biri ayrı ayrı yapılandırmak zorunda kalmadan, dakikalar içinde veri bilimi yapmaya başlayın kolaylaştırır. Kolayca VM'yi, gerekirse ölçeği ve kullanımda olmadığında durdurun. Bu nedenle bu kaynak, esnek ve maliyet açısından verimli içindir.
@@ -101,7 +101,7 @@ Bu, her bir değişken ve ilk birkaç değer türü veri kümesini gösterir.
 
     data$spam <- as.factor(data$spam)
 
-Bazı keşif analizi yapmak için [ggplot2](http://ggplot2.org/) paketini, sanal makinede zaten yüklü R için popüler bir grafik kitaplığı. , Daha önce gösterilen özet verileri biz Özet istatistikleri ünlem işareti karakter sıklığı temel unutmayın. Şimdi bu frekansları burada aşağıdaki komutları kullanarak Çiz:
+Bazı keşif analizi yapmak için [ggplot2](https://ggplot2.tidyverse.org/) paketini, sanal makinede zaten yüklü R için popüler bir grafik kitaplığı. , Daha önce gösterilen özet verileri biz Özet istatistikleri ünlem işareti karakter sıklığı temel unutmayın. Şimdi bu frekansları burada aşağıdaki komutları kullanarak Çiz:
 
     library(ggplot2)
     ggplot(data) + geom_histogram(aes(x=char_freq_exclamation), binwidth=0.25)

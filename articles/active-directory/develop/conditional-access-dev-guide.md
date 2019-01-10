@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: 9f0a4369d794eda047185844d5fafa49bc8a2e0d
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 24644faab85305f18fe4b657d3e982a306a41c16
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337929"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157085"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim için Geliştirici Kılavuzu
 
@@ -92,11 +92,11 @@ Aşağıdaki bölümlerde, daha karmaşık yaygın senaryolar açıklanmaktadır
 
 ## <a name="scenario-app-accessing-microsoft-graph"></a>Senaryo: Uygulama Microsoft Graph erişme
 
-Bu senaryoda, bir web uygulaması Microsoft Graph erişimi nasıl ister öğrenin. Koşullu erişim ilkesi, bu durumda, SharePoint, Exchange veya Microsoft Graph üzerinden bir iş yükü olarak erişilen başka bir hizmet de atanabilir. Bu örnekte, Sharepoint Online'da koşullu erişim ilkesi yoktur varsayalım.
+Bu senaryoda, bir web uygulaması Microsoft Graph erişimi nasıl ister öğrenin. Koşullu erişim ilkesi, bu durumda, SharePoint, Exchange veya Microsoft Graph üzerinden bir iş yükü olarak erişilen başka bir hizmet de atanabilir. Bu örnekte, SharePoint Online'da koşullu erişim ilkesi yoktur varsayalım.
 
 ![Uygulama Microsoft Graph Akış Diyagramı erişme](./media/conditional-access-dev-guide/app-accessing-microsoft-graph-scenario.png)
 
-Uygulama koşullu erişimi olmayan aşağı akış bir iş yüküne erişmeye gerektiren Microsoft Graph yetkilendirme ilk ister. Herhangi bir ilke çağırmadan istek başarılı olur ve uygulama için Microsoft Graph simgeleri alır. Bu noktada, uygulama erişim belirteci bir taşıyıcı istekte istenen uç noktası için kullanabilir. Şimdi, uygulama bir Sharepoint Online uç noktası, Microsoft Graph, örneğin erişmesi gerekir: `https://graph.microsoft.com/v1.0/me/mySite`
+Uygulama koşullu erişimi olmayan aşağı akış bir iş yüküne erişmeye gerektiren Microsoft Graph yetkilendirme ilk ister. Herhangi bir ilke çağırmadan istek başarılı olur ve uygulama için Microsoft Graph simgeleri alır. Bu noktada, uygulama erişim belirteci bir taşıyıcı istekte istenen uç noktası için kullanabilir. Şimdi, uygulama bir SharePoint Online uç noktası, Microsoft Graph, örneğin erişmesi gerekir: `https://graph.microsoft.com/v1.0/me/mySite`
 
 Yeni istek yeni bir belirteç verilen olmadan gerçekleştirebilmesi için uygulamayı Microsoft Graph için geçerli bir belirteç zaten sahip. Bu isteği başarısız olur ve talep zor Microsoft Graph şeklinde bir HTTP 403 Yasak ile verilen bir ```WWW-Authenticate``` sınaması.
 
@@ -108,7 +108,7 @@ error=insufficient_claims
 www-authenticate="Bearer realm="", authorization_uri="https://login.windows.net/common/oauth2/authorize", client_id="<GUID>", error=insufficient_claims, claims={"access_token":{"polids":{"essential":true,"values":["<GUID>"]}}}"
 ```
 
-Talep içinde zorluktur ```WWW-Authenticate``` talep parametresi sonraki istek için ayıklamak üzere ayrıştırılabilecek üst bilgisi. Yeni isteğine eklenir sonra Azure AD koşullu erişim ilkesi kullanıcı oturum açarken değerlendirilecek bilir ve uygulamaya koşullu erişim ilkesine uygun olarak sunulmuştur. Sharepoint Online uç noktasına istek yinelenen başarılı olur.
+Talep içinde zorluktur ```WWW-Authenticate``` talep parametresi sonraki istek için ayıklamak üzere ayrıştırılabilecek üst bilgisi. Yeni isteğine eklenir sonra Azure AD koşullu erişim ilkesi kullanıcı oturum açarken değerlendirilecek bilir ve uygulamaya koşullu erişim ilkesine uygun olarak sunulmuştur. SharePoint Online uç noktasına istek yinelenen başarılı olur.
 
 ```WWW-Authenticate``` Üstbilgi benzersiz yapısına sahip ve değerlerini ayıklamak için ayrıştırılacak Önemsiz değildir. Yardımcı olmak için kısa bir yöntem aşağıda verilmiştir.
 

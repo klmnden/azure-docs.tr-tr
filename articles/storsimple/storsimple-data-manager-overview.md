@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure StorSimple veri Yöneticisi'ne genel bakış | Microsoft Docs
-description: StorSimple veri Yöneticisi hizmetini genel bir bakış sağlar
+description: StorSimple veri Yöneticisi hizmetine genel bir bakış sağlar
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/21/2018
 ms.author: vidarmsft
-ms.openlocfilehash: 5845fd246b20d29739eb6d60bbc8621489ccc0d6
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: fe4d332859b3ec0ba03e64f9a830b7710586aa17
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009171"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158826"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>StorSimple veri Yöneticisi çözümüne genel bakış
 
@@ -84,7 +84,7 @@ Veri Yöneticisi bölgeniz, iş tanımı bölgeden farklı ise, hangi veri/meta 
 
 ## <a name="managing-personal-information"></a>Kişisel bilgilerini yönetme
 
-StorSimple veri Yöneticisi'ni toplamaz veya herhangi bir kişisel bilgi görüntüler. Daha fazla bilgi için Microsoft Privacy ilke gözden geçirme [Güven Merkezi](https://www.microsoft.com/trustcenter).
+StorSimple veri Yöneticisi'ni toplamaz veya herhangi bir kişisel bilgi görüntüler. Daha fazla bilgi için, [Güven Merkezi](https://www.microsoft.com/trustcenter)’nde Microsoft Gizlilik ilkesini gözden geçirin.
 
 ## <a name="known-limitations"></a>Bilinen Sınırlamalar
 

@@ -10,22 +10,22 @@ ms.topic: article
 ms.service: azure-stack
 ms.author: mabrigg
 ms.reviewer: scottnap
-ms.openlocfilehash: de98387b0c7d5eb3c5ca99f9aa31619397e2aadf
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 4aa62319ee37b2f82455d1a3c7ad2d224988d93e
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944588"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54160072"
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Azure Stack ağ iletişimi için dikkat edilmesi gerekenler
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 Azure Stack ağ iletişimi, Azure ağ tarafından sağlanan özelliklerin birçoğuna sahiptir. Ancak, bir Azure Stack ağ dağıtmadan önce anlamanız gereken bazı temel farklar vardır.
 
 Bu makalede, Azure Stack ağ iletişimi ve özelliklerini benzersiz konularına genel bir bakış sağlar. Azure Stack ve Azure arasında üst düzey farklılıklar hakkında bilgi edinmek için bkz. [anahtar konuları](azure-stack-considerations.md) makalesi.
 
-## <a name="cheat-sheet-networking-differences"></a>Kopya kağıdı: ağ farkları
+## <a name="cheat-sheet-networking-differences"></a>Kopya kağıdı: Ağ farkları
 
 | Hizmet | Özellik | Azure (Genel) | Azure Stack |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -54,7 +54,6 @@ Bu makalede, Azure Stack ağ iletişimi ve özelliklerini benzersiz konularına 
 |  | Varsayılan ağ geçidi sitesi | Azure, zorlamalı tünel için varsayılan site yapılandırmasını destekler. | Henüz desteklenmiyor. |
 |  | Ağ geçidini yeniden boyutlandırma | Azure, dağıtımdan sonra ağ geçidini yeniden boyutlandırma destekler. | Desteklenen yeniden boyutlandırma değil. |
 |  | Aktif/Aktif yapılandırma | Desteklenen | Henüz desteklenmiyor. |
-|  | IKE/IPSec ilkeleri | Azure destekleyen özel IPSec ilkesi yapılandırması. | Henüz desteklenmiyor. |
 |  | UsePolicyBasedTrafficSelectors | Azure, ilke tabanlı trafik seçicileri ile rota tabanlı ağ geçidi bağlantıları kullanmayı destekler. | Henüz desteklenmiyor. |
 | Yük dengeleyici | SKU | Temel ve standart Load balancer'ları desteklenir | Temel yük dengeleyici desteklenir.  SKU özelliği desteklenmiyor. |
 |  | Bölgeler | Kullanılabilirlik alanları desteklenir. | Henüz desteklenmiyor |
@@ -65,11 +64,9 @@ Bu makalede, Azure Stack ağ iletişimi ve özelliklerini benzersiz konularına 
 |  | Geçerli ACL'ler Al | Desteklenen | Henüz desteklenmiyor. |
 |  | Hızlandırılmış ağ iletişimi etkinleştirin | Desteklenen | Henüz desteklenmiyor. |
 |  | IP İletimi | Varsayılan olarak devre dışıdır.  Etkinleştirilebilir. | Bu ayarın açılıp desteklenmiyor.  Üzerinde varsayılan olarak. |
-|  | Arabirim başına birden fazla IP yapılandırması | Desteklenen | Henüz desteklenmiyor. |
 |  | Uygulama Güvenlik Grupları | Desteklenen | Henüz desteklenmiyor. |
 |  | İç DNS ad etiketi | Desteklenen | Henüz desteklenmiyor. |
 |  | Özel IP adresi sürümü | IPv6 ve IPv4 desteklenir. | Yalnızca IPv4 desteklenir. |
-|  | Birincil IP yapılandırması | Destekleniyor. Birincil IP yapılandırması arabirimde tanımlar. | Henüz desteklenmiyor. |
 | Ağ İzleyicisi | Ağ İzleyicisi Kiracı ağ izleme kapasiteleri | Desteklenen | Henüz desteklenmiyor. |
 | CDN | Content Delivery Network profilleri | Desteklenen | Henüz desteklenmiyor. |
 | Uygulama ağ geçidi | 7. Katman Yük Dengeleme | Desteklenen | Henüz desteklenmiyor. |

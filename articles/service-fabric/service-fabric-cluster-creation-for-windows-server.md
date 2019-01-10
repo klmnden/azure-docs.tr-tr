@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
 ms.author: dekapur
-ms.openlocfilehash: f91a6b305a3d531aa1c733685f6d896ed07054ae
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 321a69768935a9cb220bf5c2ae96c30274dc590d
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257614"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159461"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Windows Server üzerinde çalışan tek başına küme oluşturma
 Azure Service Fabric, tüm sanal makineleri veya Windows Server çalıştıran bilgisayarlarda, Service Fabric kümeleri oluşturmak için kullanabilirsiniz. Bu, dağıtmak ve Service Fabric uygulamaları Windows Server bilgisayarları birbirine bağlı bir dizi içeren herhangi bir ortamında çalıştırmak, şirket içinde veya tüm bulut sağlayıcıları ile de gösterir. Service Fabric, tek başına Windows Server paketi adlı Service Fabric kümeleri oluşturmak için bir kurulum paketi sağlar.
@@ -74,7 +74,7 @@ Ortam Kurulumu kısmına bakın [planlama ve küme dağıtımınızı hazırlama
 
 Çalışan geliştirme senaryolarını tamamlandıysa, Service Fabric kümesine makineden bölümdeki adımları başvurarak kaldırabilirsiniz "[küme kaldırma](#removecluster_anchor)". 
 
-### <a name="step-1b-create-a-multi-machine-cluster"></a>Adım 1B: çok makineli bir küme oluşturma
+### <a name="step-1b-create-a-multi-machine-cluster"></a>Adım 1B: Çok makineli bir küme oluşturma
 Planlama aracılığıyla gitti ve hazırlık adımları ayrıntılı sonra [planlama ve küme dağıtımınızı hazırlama](service-fabric-cluster-standalone-deployment-preparation.md), küme yapılandırma dosyanızı kullanarak üretim kümenizi oluşturmak hazır olursunuz.
 
 Kümeyi dağıtan ve yapılandıran küme yöneticisinin bilgisayarda yönetici ayrıcalıklarına sahip olması gerekir. Service Fabric’i bir etki alanı denetleyicisine yükleyemezsiniz.
@@ -104,7 +104,7 @@ Kümeyi dağıtan ve yapılandıran küme yöneticisinin bilgisayarda yönetici 
     Passed                     : True
     ```
 
-2. Küme oluşturma: çalıştırma *CreateServiceFabricCluster.ps1* yapılandırmasındaki her makine üzerinde Service Fabric kümesi dağıtmayı betiği. 
+2. Kümeyi oluşturun:  Çalıştırma *CreateServiceFabricCluster.ps1* yapılandırmasındaki her makine üzerinde Service Fabric kümesi dağıtmayı betiği. 
     ```powershell
     .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.json -AcceptEULA
     ```
@@ -124,7 +124,7 @@ Service Fabric çalışma zamanı paketi küme oluşturma sırasında otomatik o
 
 *.\ClusterConfig.JSON* ve *.\MicrosoftAzureServiceFabric.cab* küme yapılandırmasını ve çalışma zamanı .cab dosyası için sırasıyla yollardır.
 
-### <a name="step-2-connect-to-the-cluster"></a>2. adım: kümeye bağlanma
+### <a name="step-2-connect-to-the-cluster"></a>2. Adım: Kümeye bağlanma
 Kümenin çalışır ve kullanılabilir olup olmadığını doğrulamak için kümeye bağlanın. ServiceFabric PowerShell modülü çalışma zamanıyla birlikte yüklenir.  Küme düğümlerinin birinden veya Service Fabric çalışma zamanı ile uzak bir bilgisayardan, kümeye bağlanabilirsiniz.  [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet’i, kümeyle bir bağlantı kurar.
 
 Güvenli olmayan bir kümeye bağlanmak için aşağıdaki PowerShell komutunu çalıştırın:
@@ -150,7 +150,7 @@ NodeDeactivationInfo NodeName IpAddressOrFQDN NodeType  CodeVersion  ConfigVersi
                      vm0      localhost       NodeType0 5.6.220.9494 0                     Up 00:02:43   00:00:00              OK
 ```
 
-### <a name="step-3-visualize-the-cluster-using-service-fabric-explorer"></a>3. adım: Service Fabric explorer'ı kullanarak kümeyi Görselleştirme
+### <a name="step-3-visualize-the-cluster-using-service-fabric-explorer"></a>3. Adım: Service Fabric Explorer’ı kullanarak kümeyi görselleştirme
 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md), kümenizi görselleştirmek ve uygulamaları yönetmek için iyi bir araçtır.  Service Fabric Explorer giderek bir tarayıcı kullanarak erişim kümede çalışan bir hizmet olan [ http://localhost:19080/Explorer ](http://localhost:19080/Explorer).
 
 Küme panosu, kümenize uygulama ve düğüm durumunun özetini de içeren bir genel bakış sağlar. Düğüm görünümü, kümenin fiziksel düzenini gösterir. Belirli bir düğümde, hangi uygulamalara kod dağıtıldığını denetleyebilirsiniz.
@@ -201,7 +201,7 @@ Varsayılan olarak, ürün ürünü geliştirmek için Service Fabric kullanım 
 * CommitQueueLength
 * Düğüm sayısı
 * IsContextComplete: True/False
-* Lclusterıd: Her küme için rastgele oluşturulmuş bir GUID budur
+* Lclusterıd: Her küme için rastgele oluşturulmuş bir GUID budur.
 * ServiceFabricVersion
 * Sanal makine veya makinenin içinden telemetriyi karşıya IP adresi
 

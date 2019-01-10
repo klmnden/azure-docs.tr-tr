@@ -1,25 +1,25 @@
 ---
-title: Tehdit algılama - Azure SQL veritabanı yönetilen örneği | Microsoft Docs
+title: Yapılandırma tehdit algılama - Azure SQL veritabanı yönetilen örneği | Microsoft Docs
 description: Tehdit algılama, yönetilen bir örneği veritabanına olası güvenlik tehditlerini gösteren anormal veritabanı etkinliklerini algılar.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: howto
 author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto
 manager: craigg
 ms.date: 12/06/2018
-ms.openlocfilehash: c59d0ea489343dbf748412910c4f759f601de0e2
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: f87b7093a732639db8a53ebec68fcae8f29735f3
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042385"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158678"
 ---
-# <a name="azure-sql-database-managed-instance-threat-detection-preview"></a>Azure SQL veritabanı yönetilen örnek tehdit algılama (Önizleme)
+# <a name="configure-threat-detection-preview-in-azure-sql-database-managed-instance"></a>Tehdit algılama (Önizleme) Azure SQL veritabanı yönetilen örneği'nde yapılandırın.
 
 Azure SQL [tehdit algılama](sql-database-threat-detection-overview.md) için [SQL veritabanı yönetilen örneği](sql-database-managed-instance-index.yml) erişim veritabanı açıklıklarından yararlanmaya yönelik sıra dışı ve zararlı olabilecek girişimleri gösteren anormal etkinlikleri algılar. Tehdit algılama belirleyebilir **olası SQL ekleme**, **olağan dışı konum veya veri merkezi erişim**, **yabancı sorumlu veya potansiyel olarak zararlı uygulamadanerişim**, ve **yanılma SQL kimlik bilgileri** -daha fazla bilgi [tehdit algılama uyarıları](sql-database-threat-detection-overview.md#azure-sql-database-threat-detection-alerts).
 

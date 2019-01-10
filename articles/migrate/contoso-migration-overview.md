@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: f18af40c67195ee2e1e74c04c0834eea06fb14d1
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 1f5eb085239ac985aa3355b1e91dac9639827339
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191963"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54155091"
 ---
 # <a name="contoso-migration-overview"></a>Contoso geçişi: Genel Bakış
 
@@ -39,7 +39,7 @@ Buluta geçiş stratejileri dört kategoriden ayrılır: barındırma, yeniden d
 **Yeniden barındırma** | Genellikle için bir "lift-and-shift" geçiş adlandırılır. Bu seçeneği, kod değişikliği gerektirmez ve şimdi, mevcut uygulamalarınızı Azure'a hızlıca geçirin. Her uygulama, riskini ve maliyetini ilişkili bir kod değişikliği olmadan bulutun avantajlarından avantajlarından yararlanmanın tam olarak geçirilir. | Uygulamaları hızla buluta taşımak gerektiğinde.<br/><br/> Bir uygulamayı değiştirmeden taşımak istediğinizde.<br/><br/> Ne zaman uygulamalarınızı desteklemesi için bunlar yararlanabilir, böylece [Azure Iaas](https://azure.microsoft.com/overview/what-is-iaas/) ölçeklenebilirlik geçişten sonra.<br/><br/> Ne zaman uygulamaları işletmeniz için önemli olan, ancak uygulama özellikleri Acil değişiklikler gerekmez.
 **Yeniden düzenleme** | Böylece bağlanabilecekleri genellikle "yeniden paketleme olarak" adlandırılan, yeniden düzenleme uygulamalar, küçük değişiklikler gerektirir [Azure PaaS](https://azure.microsoft.com/overview/what-is-paas/)ve bulut teklifleri kullanın.<br/><br/> Örneğin, Azure App Service veya Azure Kubernetes Service (AKS) için mevcut uygulamaları geçirebilirsiniz.<br/><br/> Alternatif olarak, PostgreSQL ve Azure Cosmos DB için Azure SQL veritabanı yönetilen örneği, MySQL için Azure veritabanı, Azure veritabanı gibi seçenekler halinde ilişkisel ve ilişkisel olmayan veritabanlarının yeniden. | Uygulamanızı Azure'da çalışması için kolayca paketlenebilir durumunda.<br/><br/> Uygulamak istiyorsanız yenilikçi DevOps uygulamalarını Azure tarafından sağlanan veya iş yükleri için bir kapsayıcı stratejisi kullanarak Devops'a hakkında düşünmek.<br/><br/> Yeniden düzenleme, varolan kod tabanı ve mevcut geliştirme becerilerinizi taşınabilirliği hakkında düşünmeniz gerekir.
 **Yeniden oluşturma** | Geçiş için işleve bölmenize değiştirme ve işlevini ve uygulama mimarisi bulut ölçeklenebilirlik sağlamak için en iyi duruma getirmek için kod tabanının genişletme odaklanır.<br/><br/> Örneğin, bir grubun bir kolayca ölçeklendirin ve birlikte çalışan mikro hizmetler tek parça bir uygulamayı aşağı bozar.<br/><br/> Veya Azure SQL veritabanı yönetilen örneği, MySQL için Azure veritabanı, PostgreSQL ve Azure Cosmos DB için Azure veritabanı gibi tam olarak yönetilen bir DBaaS çözümleri için ilişkisel ve ilişkisel olmayan veritabanları yeniden oluşturma. | Uygulamalarınıza yeni özellikler eklemek veya bir bulut platformunda etkili bir şekilde çalışması için önemli düzeltmeler gerektiğinde.<br/><br/> Uygulama ilişkin mevcut yatırım kullanmak istediğinizde, ölçeklenebilirlik gereksinimlerini karşılamak, yenilikçi Azure DevOps uygulamalarını uygulamak ve sanal makinelerin kullanımını en aza indirin.
-**Yeniden oluşturma** | Azure bulut teknolojilerini kullanarak sıfırdan bir uygulama yeniden tarafından adım bir şeyler daha fazla sürer yeniden oluşturun.<br/><br/> Örneğin, Azure işlevleri, Azure yapay ZEKA, Azure SQL veritabanı yönetilen örneği ve Azure Cosmos DB gibi yerel bulut teknolojileriyle yeşil alan uygulamalar da oluşturabilirsiniz. | Hızlı geliştirme istediğiniz ve işlevsellik ve kullanım ömrü mevcut uygulamaları sınırlı.<br/><br/> (Azure tarafından sağlanan DevOps uygulamaları dahil) işinizde yeniliği hızlandırmak hazır olduğunuzda, yerel bulut teknolojilerini kullanarak yeni uygulamalar oluşturmak ve yapay ZEKA, blok zinciri ve IOT geliştirmeleri avantajlarından yararlanın.
+**Yeniden oluşturma** | Azure bulut teknolojilerini kullanarak sıfırdan bir uygulama yeniden tarafından adım bir şeyler daha fazla sürer yeniden oluşturun.<br/><br/> Örneğin, yeşil alan uygulamalarla oluşturabilirsiniz [bulutta yerel](http://azure.com/cloudnative) teknolojiler, Azure işlevleri, Azure yapay ZEKA, Azure SQL veritabanı yönetilen örneği ve Azure Cosmos DB ister. | Hızlı geliştirme istediğiniz ve işlevsellik ve kullanım ömrü mevcut uygulamaları sınırlı.<br/><br/> (Azure tarafından sağlanan DevOps uygulamaları dahil) işinizde yeniliği hızlandırmak hazır olduğunuzda, yerel bulut teknolojilerini kullanarak yeni uygulamalar oluşturmak ve yapay ZEKA, blok zinciri ve IOT geliştirmeleri avantajlarından yararlanın.
 
 ## <a name="migration-articles"></a>Geçiş makaleleri
 

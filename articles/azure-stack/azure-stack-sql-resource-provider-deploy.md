@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2019
+ms.date: 01/09/2019
 ms.author: jeffgilb
 ms.reviewer: georgel
-ms.openlocfilehash: 7c8e788f00aacdc7e386d104cb9db9de11c5a146
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 035284e23d3b600cbf1cbd5500a9821c2c628b05
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120079"
+ms.locfileid: "54156213"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>Azure Stack'te SQL Server Kaynak sağlayıcısı dağıtma
 
@@ -39,7 +39,7 @@ Azure Stack SQL kaynak sağlayıcısını dağıtmadan önce karşılanması ger
 
   |Azure Stack en düşük sürüm|SQL RP sürümü|
   |-----|-----|
-  |Sürüm 1811 (1.1811.0.101)|[SQL RP 1.1.33.0 sürümü](https://aka.ms/azurestacksqlrp11330)|  
+  |Sürüm 1808 (1.1808.0.97)|[SQL RP 1.1.33.0 sürümü](https://aka.ms/azurestacksqlrp11330)|  
   |Sürüm 1808 (1.1808.0.97)|[SQL RP 1.1.30.0 sürümü](https://aka.ms/azurestacksqlrp11300)|
   |Sürüm 1804 (1.0.180513.1)|[SQL RP 1.1.24.0 sürümü](https://aka.ms/azurestacksqlrp11240)
   |     |     |

@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/11/2018
-ms.openlocfilehash: fc6b1484d43d0798f9ff70049017c8d360f027d4
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 4f3712a45fdb2474eedeb8d4eac034060723010d
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050413"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156553"
 ---
 # <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Ansible kullanarak Azure’da sanal makine ölçek kümelerine uygulama dağıtma
 Ansible, ortamınızdaki kaynakların dağıtımını ve yapılandırılmasını otomatikleştirmenizi sağlar. Uygulamalarınızı Azure'a dağıtmak için Ansible kullanabilirsiniz. Bu makalede bir Azure sanal makine ölçek kümesine (VMSS) bir Java uygulamasının nasıl dağıtılacağı gösterilmektedir.  
@@ -150,7 +150,7 @@ Ansible playbook'un aşağıdaki bölümü JRE'yi (Java Runtime Environment) **s
 Önceki örnek Ansible playbook'u `vmss-setup-deploy.yml` olarak kaydedebilir veya [örnek playbook'un tamamını indirebilirsiniz](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss). 
 
 Ssh bağlantı türünü parola ile kullanmak için sshpass programını yüklemeniz gerekir. 
-  - Ubunto 16.04 için `apt-get install sshpass` komutunu çalıştırın.
+  - Ubuntu 16.04 için komutu çalıştırmak `apt-get install sshpass`.
   - CentOS 7.4 için `yum install sshpass` komutunu çalıştırın.
 
 Şuna benzer bir hata mesajı görebilirsiniz: **Using an SSH password instead of a key is not possible because Host Key checking is enabled and sshpass does not support this. Add this host's fingerprint to your known_hosts file to manage this host.** (Ana Bilgisayar Anahtarı kontrolü etkin olduğu ve sshpass bunu desteklemediği için anahtar yerine SSH parolası kullanmak mümkün değil. Bu ana bilgisayarı yönetmek için bu ana bilgisayarın parmak izini known_hosts dosyanıza ekleyin.) Bu hatayı görürseniz, aşağıdaki satırı `/etc/ansible/ansible.cfg` veya `~/.ansible.cfg` dosyasına ekleyerek ana bilgisayar anahtarı kontrolünü devre dışı bırakabilirsiniz:

@@ -4,31 +4,31 @@ description: Modüller IOT Edge cihazına dağıtmak için Visual Studio Code'u 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/04/2019
+ms.date: 01/09/2019
 ms.topic: conceptual
 ms.reviewer: ''
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 345b8d0ab2a45e87ccc3465c31dbe53861154b70
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 91a074cf98291b105864a69730314efff3482254
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054146"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54155023"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-visual-studio-code"></a>Visual Studio code'dan Azure IOT Edge modüllerini dağıtmak
 
-IOT Edge modülleri, iş mantığı ile oluşturduktan sonra bunları ucuna çalışılacak cihazlarınıza dağıtmak istiyorsanız. Toplamak ve veri işlemek için birlikte çalışan birden çok modül varsa, bunları tamamını aynı anda dağıtabilir ve bunları bağlayan yönlendirme kurallarını bildirin. 
+IOT Edge modülleri, iş mantığı ile oluşturduktan sonra bunları ucuna çalışılacak cihazlarınıza dağıtmak istiyorsanız. Toplamak ve veri işlemek için birlikte çalışan birden çok modül varsa, bunları tamamını aynı anda dağıtabilir ve bunları bağlayan yönlendirme kurallarını bildirin.
 
 Bu makalede, bir JSON dağıtım bildirimi oluşturun, sonra IOT Edge cihazına dağıtım göndermek için bu dosyayı kullanma gösterilmektedir. Birden fazla cihazda kendi paylaşılan etiketlere göre hedefleyen bir dağıtım oluşturma hakkında daha fazla bilgi için bkz. [dağıtma ve izleme uygun ölçekte IOT Edge modülleri](how-to-deploy-monitor.md)
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Bir [IOT hub'ı](../iot-hub/iot-hub-create-through-portal.md) Azure aboneliğinizdeki. 
-* Bir [IOT Edge cihazı](how-to-register-device-portal.md) yüklü olan bir IOT Edge çalışma zamanı ile. 
+* Bir [IOT hub'ı](../iot-hub/iot-hub-create-through-portal.md) Azure aboneliğinizdeki.
+* Bir [IOT Edge cihazı](how-to-register-device-portal.md) yüklü olan bir IOT Edge çalışma zamanı ile.
 * [Visual Studio Code](https://code.visualstudio.com/).
-* [Azure IOT Araçları](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools#overview) Visual Studio Code için. 
+* [Azure IOT Araçları](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools#overview) Visual Studio Code için.
 
 ## <a name="configure-a-deployment-manifest"></a>Bir dağıtım bildirimi yapılandırma
 
@@ -101,52 +101,53 @@ Visual Studio Code kullanarak modüllerini dağıtmak için dağıtım bildirimi
      }
    }
    ```
-   
+
 ## <a name="sign-in-to-access-your-iot-hub"></a>IOT hub'ınıza erişmek için oturum açın
 
 Visual Studio Code için Azure IOT uzantıları, IOT hub'ınıza işlemleri gerçekleştirmek için kullanabilirsiniz. Bu işlemleri çalışmak Azure hesabınızda oturum açın ve üzerinde çalıştığınız IOT hub'ı seçmek gerekir.
 
 1. Visual Studio Code'da açmak **Gezgini** görünümü.
 
-2. Explorer alt kısmında, Genişlet **Azure IOT Hub cihazları** bölümü. 
+1. Explorer alt kısmında, Genişlet **Azure IOT Hub cihazları** bölümü.
 
    ![Azure IOT Hub cihazları bölümü genişletin](./media/how-to-deploy-modules-vscode/azure-iot-hub-devices.png)
 
-3. Tıklayarak **...**  içinde **Azure IOT Hub cihazları** bölüm başlığı. Üç nokta simgesini görmüyorsanız, üst bilgisinin üzerinde gezdirin. 
+1. Tıklayarak **...**  içinde **Azure IOT Hub cihazları** bölüm başlığı. Üç nokta simgesini görmüyorsanız, üst bilgisinin üzerinde gezdirin.
 
-4. Seçin **IOT hub'ını seçin**.
+1. Seçin **IOT hub'ını seçin**.
 
-5. Azure hesabınızda oturum açmadınız, bunu yapmak için yönergeleri izleyin. 
+1. Azure hesabınızda oturum açmadınız, bunu yapmak için yönergeleri izleyin.
 
-6. Azure aboneliğinizi seçin. 
+1. Azure aboneliğinizi seçin.
 
-7. IOT hub'ınızı seçin. 
-
+1. IOT hub'ınızı seçin.
 
 ## <a name="deploy-to-your-device"></a>Cihazınıza dağıtma
 
-Modül bilgileri yapılandırdığınız dağıtım bildirimini uygulayarak modülleri cihazınıza dağıtın. 
+Modül bilgileri yapılandırdığınız dağıtım bildirimini uygulayarak modülleri cihazınıza dağıtın.
 
-1. Visual Studio Code Gezgini görünümünde genişletin **Azure IOT Hub cihazları** bölümü. 
+1. Visual Studio Code Gezgini görünümünde genişletin **Azure IOT Hub cihazları** bölümü.
 
-2. Dağıtım bildirimi ile yapılandırmak istediğiniz cihaza sağ tıklayın. 
+1. Dağıtım bildirimi ile yapılandırmak istediğiniz IOT Edge cihazı sağ tıklayın.
 
-3. Seçin **tek cihaz için dağıtım oluşturma**. 
+    > [!TIP]
+    > Seçtiğiniz cihazın IOT Edge cihazı olduğunu onaylamak için bu modüllerin listesini genişletin ve varlığını doğrulamak için seçin **$edgeHub** ve **$edgeAgent**. Her IOT Edge cihazı, bu iki modül dahildir.
 
-4. Kullanmak istediğiniz dağıtım bildirim JSON dosyasına gidin ve tıklayın **Edge dağıtım bildirimi seçin**. 
+1. Seçin **tek cihaz için dağıtım oluşturma**.
+
+1. Kullanmak istediğiniz dağıtım bildirim JSON dosyasına gidin ve tıklayın **Edge dağıtım bildirimi seçin**.
 
    ![Edge dağıtım bildirimi seçin](./media/how-to-deploy-modules-vscode/select-deployment-manifest.png)
 
-
-Dağıtımınızın sonuçlarını, VS Code çıktısında yazdırılır. Başarılı dağıtımlarında hedef cihaza çalışıyorsa birkaç dakika içinde uygulanan ve internet'e bağlı. 
+Dağıtımınızın sonuçlarını, VS Code çıktısında yazdırılır. Başarılı dağıtımlarında hedef cihaza çalışıyorsa birkaç dakika içinde uygulanan ve internet'e bağlı.
 
 ## <a name="view-modules-on-your-device"></a>Cihazınızda modülleri görüntüleme
 
-Cihazınıza modülleri dağıttıktan sonra bunların tümünün görüntüleyebilirsiniz **Azure IOT Hub cihazları** bölümü. Genişletmek için IOT Edge cihazınızın yanındaki oku seçin. Çalışmakta olan tüm modülleri görüntülenir. 
+Cihazınıza modülleri dağıttıktan sonra bunların tümünün görüntüleyebilirsiniz **Azure IOT Hub cihazları** bölümü. Genişletmek için IOT Edge cihazınızın yanındaki oku seçin. Çalışmakta olan tüm modülleri görüntülenir.
 
-Kısa bir süre önce yeni modülleri bir cihaza dağıtılan, üzerine **Azure IOT Hub cihazları** bölüm başlığı ve Görünümü güncelleştirmek için yenile simgesini seçin. 
+Kısa bir süre önce yeni modülleri bir cihaza dağıtılan, üzerine **Azure IOT Hub cihazları** bölüm başlığı ve Görünümü güncelleştirmek için yenile simgesini seçin.
 
-Bir modül, modül ikizi görüntüleyip adına sağ tıklayın. 
+Bir modül, modül ikizi görüntüleyip adına sağ tıklayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

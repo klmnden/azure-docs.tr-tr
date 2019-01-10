@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/07/2019
+ms.date: 01/08/2019
 ms.author: barclayn
-ms.openlocfilehash: cf43dd5e0dde2a878d2668e8de27414f0bbe507a
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 9b57dfcd6ecd00f9f1bb8ec752e0996ee52305db
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078941"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159052"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>Hızlı Başlangıç: Ayarlayın ve Azure CLI kullanarak Azure Key Vault gizli dizi alma
 
@@ -43,7 +43,7 @@ CLI aracılığıyla oturum açma seçenekleri hakkında daha fazla bilgi için 
 Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Aşağıdaki örnek *eastus* konumunda *ContosoResourceGroup* adlı bir kaynak grubu oluşturur.
 
 ```azurecli
-az group create --name 'ContosoResourceGroup' --location eastus
+az group create --name "ContosoResourceGroup" --location eastus
 ```
 
 ## <a name="create-a-key-vault"></a>Anahtar kasası oluşturma
@@ -55,7 +55,7 @@ Daha sonra, önceki adımda oluşturulan kaynak grubunda bir Key Vault oluştura
 - **Doğu ABD** konumu.
 
 ```azurecli
-az keyvault create --name 'Contoso-Vault2' --resource-group 'ContosoResourceGroup' --location eastus
+az keyvault create --name "Contoso-Vault2" --resource-group "ContosoResourceGroup" --location eastus
 ```
 
 Bu cmdlet’in çıktısı, yeni oluşturulan Key Vault’un özelliklerini gösterir. Aşağıda listelenen iki özelliği not edin:
@@ -72,7 +72,7 @@ Kasaya bir gizli dizi eklemek için birkaç ek adım uygulamanız gerekir. Bu pa
 Key Vault’ta **Pa$$w0rd** değerini depolayacak **ExamplePassword** adlı bir gizli dizi oluşturmak için aşağıdaki komutları yazın:
 
 ```azurecli
-az keyvault secret set --vault-name 'Contoso-Vault2' --name 'ExamplePassword' --value 'Pa$$w0rd'
+az keyvault secret set --vault-name "Contoso-Vault2" --name "ExamplePassword" --value "Pa$$w0rd"
 ```
 
 Artık Azure Key Vault'a eklediğiniz bu parolaya URI'sini kullanarak başvurabilirsiniz. Geçerli sürümü almak için **https://ContosoVault.vault.azure.net/secrets/ExamplePassword** komutunu kullanın. 
@@ -80,7 +80,7 @@ Artık Azure Key Vault'a eklediğiniz bu parolaya URI'sini kullanarak başvurabi
 Gizli dizi içindeki değeri düz metin olarak görüntülemek için:
 
 ```azurecli
-az keyvault secret show --name 'ExamplePassword' --vault-name 'Contoso-Vault2'
+az keyvault secret show --name "ExamplePassword" --vault-name "Contoso-Vault2"
 ```
 
 Artık bir Key Vault oluşturdunuz, bir gizli dizli depoladınız ve bunu aldınız.
