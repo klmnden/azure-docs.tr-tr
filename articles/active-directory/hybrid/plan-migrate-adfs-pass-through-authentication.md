@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: dcb2d1741a8e62bd317881d3f224d3358cad8778
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: c7d236769d5e9adca0402affc2d0eccdf78a6837
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557215"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107761"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-ad"></a>Geçişli kimlik doğrulaması için Azure AD için Federasyon seçeneğinden geçirme
 Aşağıdaki belge, AD FS'den doğrudan kimlik doğrulama için taşıma rehberlik sağlar.
@@ -121,9 +121,9 @@ Federe yönetilen dönüştürmeden önce nasıl AD FS bugün Azure AD/Office 36
 |-|-|
 | AD FS için diğer bu uygulamaları korumak için oluşturacaksınız.| Hem AD FS ve Azure AD kullanma ve son kullanıcı deneyimi sonucunda göz önünde bulundurmanız gerekir. Kullanıcılar, iki kez bazı senaryolarda, bir kez (bunlar nereden SSO ve sonraki sürümlerde diğer uygulamalara Office 365 gibi) Azure ad kimlik doğrulaması gerekebilir ve yeniden yine de AD FS bağlı olan taraf güveni olarak ilişkili tüm uygulamalar için. |
 | AD FS yoğun olarak özelleştirilmiş ve Azure AD'de yinelenen onload.js dosyasındaki belirli özelleştirme ayarları sayfalarında (kullanıcılar yalnızca bir SamAccountName biçimi için kullanıcı adı olarak girin, örneğin, oturum açma deneyimini değiştirdiniz bir UPN veya yoğun markalı oturum açma deneyimi)| Devam etmeden önce Azure AD tarafından geçerli özelleştirme gereksinimlerinizi karşılayabilirsiniz doğrulamanız gerekir. Daha fazla bilgi ve yönergeler için AD FS markası ve AD FS özelleştirmesi bölümlerine bakın.|
-| AD FS aracılığıyla eski kimlik doğrulama istemcilerini engelliyor.| AD FS ile birlikte üzerinde mevcut sürümden eski bir kimlik doğrulama istemcilerin engellenip engellenmeyeceğini denetimleri değiştirmeyi göz önüne alın [koşullu erişim için eski bir kimlik doğrulama denetimleri](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) ve [Exchange Online istemci erişimi Kuralları](http://aka.ms/EXOCAR). |
+| AD FS aracılığıyla eski kimlik doğrulama istemcilerini engelliyor.| AD FS ile birlikte üzerinde mevcut sürümden eski bir kimlik doğrulama istemcilerin engellenip engellenmeyeceğini denetimleri değiştirmeyi göz önüne alın [koşullu erişim için eski bir kimlik doğrulama denetimleri](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) ve [Exchange Online istemci erişimi Kuralları](https://aka.ms/EXOCAR). |
 | Kullanıcıların AD FS'ye kimlik doğrulaması yapılırken bir şirket içi MFA sunucusu çözümü karşı MFA gerçekleştirmesini gerektirir.| Bir kez etki alanı ileride dönüştürülür Bunu yapmak için Azure MFA hizmetinde kullanabilirsiniz ancak bir MFA testini şirket içi MFA çözüm aracılığıyla yönetilen bir etki alanı için kimlik doğrulaması akışı eklemesine mümkün olmayacaktır. Daha sonra kullanıcıları Azure mfa'yı bugün kullanmıyorsanız bu hazırlayın ve iletişim kurmak için son kullanıcılarınızın olacak onetime son kullanıcı kayıt adımı içerir. |
-| Erişim denetim ilkeleri (AuthZ kuralları) AD FS, Office 365 erişimi denetlemek için kullandığınız.| Bu eşdeğer Azure AD ile değiştirmeyi göz önüne alın [koşullu erişim ilkeleri](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) ve [Exchange Online istemci erişim kuralları](http://aka.ms/EXOCAR).|
+| Erişim denetim ilkeleri (AuthZ kuralları) AD FS, Office 365 erişimi denetlemek için kullandığınız.| Bu eşdeğer Azure AD ile değiştirmeyi göz önüne alın [koşullu erişim ilkeleri](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) ve [Exchange Online istemci erişim kuralları](https://aka.ms/EXOCAR).|
 
 ### <a name="considerations-for-common-ad-fs-customizations"></a>Ortak AD FS özelleştirmelerini dikkate alınacak noktalar
 
@@ -333,7 +333,7 @@ Dönüştürme, Azure AD PowerShell modülü kullanılarak gerçekleştirilir.
 
 Kiracınızın Federasyon kullanırken, kullanıcıları Azure AD oturum açma sayfasından AD FS ortamınıza yönlendiriliyorsa. Kiracı yerine Federasyon geçişli kimlik doğrulaması kullanmak üzere yapılandırılmış, kullanıcıları AD FS'ye yeniden yönlendirilir değil ve bunun yerine doğrudan Azure AD oturum açma sayfasının oturum açacaksınız.
 
-Internet Explorer otomatik olarak oturum açma sorunsuz SSO önlemek ve Office 365 oturum açma sayfasına gitmek için InPrivate Modu Aç ([http://portal.office.com](http://portal.office.com/)). Tür **UPN** tıklayın ve kullanıcı **sonraki**. Şirket içi Active Directory'nizden eşitlenen ve kimin daha önce Federal karma kullanıcının UPN'sini yazdığınızdan emin olun. Kullanıcının kullanıcı adı ve parola yazmak için bir ekran görürsünüz.
+Internet Explorer otomatik olarak oturum açma sorunsuz SSO önlemek ve Office 365 oturum açma sayfasına gitmek için InPrivate Modu Aç ([https://portal.office.com](https://portal.office.com/)). Tür **UPN** tıklayın ve kullanıcı **sonraki**. Şirket içi Active Directory'nizden eşitlenen ve kimin daha önce Federal karma kullanıcının UPN'sini yazdığınızdan emin olun. Kullanıcının kullanıcı adı ve parola yazmak için bir ekran görürsünüz.
 
 ![Resim 18](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image27.png)
 
