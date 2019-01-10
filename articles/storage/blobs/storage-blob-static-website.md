@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/19/18
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: 8f88bf6b0de8296de14dccd51b38ee6ca480f059
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 2bae07643407e8672ef26fb59da588661eb9f0d1
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065095"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191828"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Azure Depolama'da statik Web sitesi barındırma
 Azure depolama ve GPv2 hesapları doğrudan adlı bir depolama kapsayıcısındaki statik içerik (HTML, CSS, JavaScript ve görüntü dosyaları) sunmak izin *$web*. Azure Depolama'da barındırma yararlanma dahil olmak üzere sunucusuz mimarileri kullanmanıza olanak verir [Azure işlevleri](/azure/azure-functions/functions-overview) ve diğer PaaS Hizmetleri.
@@ -21,16 +21,16 @@ Azure depolama ve GPv2 hesapları doğrudan adlı bir depolama kapsayıcısında
 Statik Web sitesi barındırma aksine, sunucu tarafı kodu bağımlı dinamik siteleri en iyi kullanarak barındırılan [Azure App Service](/azure/app-service/overview).
 
 ## <a name="how-does-it-work"></a>Nasıl çalışır?
-Statik Web sitesi etkinleştirdiğinizde, depolama hesabı, barındırma, varsayılan dosyanızın adını seçin ve isteğe bağlı olarak Özel 404 sayfa yolu sağlayın. Özelliğin etkin olduğu gibi bir kapsayıcı adlı *$web* önceden yoksa oluşturulur. 
+Statik Web sitesi etkinleştirdiğinizde, depolama hesabı, barındırma, varsayılan dosyanızın adını seçin ve isteğe bağlı olarak Özel 404 sayfa yolu sağlayın. Özelliğin etkin olduğu gibi bir kapsayıcı adlı *$web* önceden yoksa oluşturulur.
 
 Dosyalar *$web* kapsayıcı şunlardır:
 
 - Anonim erişim istekleri aracılığıyla sunulan
 - yalnızca okuma işlemlerini nesnesi aracılığıyla kullanılabilir
 - büyük küçük harfe duyarlı
-- Bu düzen aşağıdaki genel Web kullanılabilir: 
+- Bu düzen aşağıdaki genel Web kullanılabilir:
     - `https://<ACCOUNT_NAME>.<ZONE_NAME>.web.core.windows.net/<FILE_NAME>`
-- Bu düzen aşağıdaki Blob Depolama uç noktası aracılığıyla kullanılabilir: 
+- Bu düzen aşağıdaki Blob Depolama uç noktası aracılığıyla kullanılabilir:
     - `https://<ACCOUNT_NAME>.blob.core.windows.net/$web/<FILE_NAME>`
 
 Blob Depolama uç noktası, dosyaları karşıya yüklemek için kullanın. Örneğin, dosyayı bu konuma karşıya:
@@ -100,7 +100,7 @@ az storage account show -n <ACCOUNT_NAME> -g <RESOURCE_GROUP> --query "primaryEn
 Nesnelere karşıya *$web* kaynak dizinden kapsayıcı. Başvuru için doğru kaçış mutlaka *$web* komutu kapsayıcıda. Örneğin, Azure portalında Azure CLI'dan CloudShell kullanıyorsanız, kaçış *$web* gösterildiği gibi kapsayıcı:
 
 ```azurecli-interactive
-az storage blob upload-batch -s <SOURCE_PATH> -d `$web --account-name <ACCOUNT_NAME>
+az storage blob upload-batch -s <SOURCE_PATH> -d \$web --account-name <ACCOUNT_NAME>
 ```
 
 ## <a name="deployment"></a>Dağıtım
@@ -120,7 +120,7 @@ Statik Web sitesi sayfalarınıza ölçümleri etkinleştirmek üzere tıklayın
 
 Ölçüm verilerini farklı ölçümlerinde API'leri takma tarafından oluşturulur. Portal, yalnızca belirli bir zaman dilimi içinde yalnızca veri döndüren üyelerde odaklanabilmek için kullanılan API üyelerini görüntüler. Gerekli API üye seçebilir emin olmak için zaman aralığını genişletmek için ilk adım olacaktır.
 
-Zaman çerçevesini düğmesine tıklayıp **son 24 saat** ve ardından **Uygula** 
+Zaman çerçevesini düğmesine tıklayıp **son 24 saat** ve ardından **Uygula**
 
 ![Azure depolama statik Web siteleri ölçümleri zaman aralığı](./media/storage-blob-static-website/storage-blob-static-website-metrics-time-range.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Vm'leri Önizleme için Azure İzleyici dağıtma | Microsoft Docs
+title: Azure İzleyici (Önizleme) VM'ler için dağıtma | Microsoft Docs
 description: Bu makalede nasıl dağıtıp dağıtılmış uygulamanızı nasıl performans gösterdiğini anlamak başlatabilmeniz, VM'ler için Azure İzleyici yapılandırın ve hangi durumu sorunları belirlenmiştir açıklar.
 services: azure-monitor
 documentationcenter: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/07/2018
 ms.author: magoedte
-ms.openlocfilehash: 3d408c2a2f9de69d8a12a394df68acff8f3d0bf7
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 3c1caa2485437768781ada2c7271445ccd3c19e1
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121676"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190347"
 ---
-# <a name="deploy-azure-monitor-for-vms-preview"></a>Azure İzleyici Vm'leri Önizleme için dağıtma
-Bu makalede, Azure İzleyici ' VM'ler için ayarlanacak açıklar. Hizmet, Azure sanal makinelerinizi (VM) ve sanal makine ölçek kümeleri ve sanal makineleri ortamınızda işletim sistemi durumunu izler. Bu izleme, bulma ve bunlar üzerinde barındırılabilir uygulama bağımlılıkları eşleme içerir.
+# <a name="deploy-azure-monitor-for-vms-preview"></a>Azure İzleyici (Önizleme) VM'ler için dağıtma
+Bu makalede, Azure İzleyici ' VM'ler için ayarlanacak açıklar. Hizmet, Azure sanal makinelerinizi (VM) ve sanal makine ölçek kümeleri ve sanal makineleri ortamınızda işletim sistemi durumunu izler. Bu izleme, bulma ve bunlar üzerinde barındırılabilir uygulama bağımlılıkları eşleme içerir. 
 
 VM'ler için Azure İzleyici aşağıdaki yöntemlerden birini kullanarak etkinleştirin:
 

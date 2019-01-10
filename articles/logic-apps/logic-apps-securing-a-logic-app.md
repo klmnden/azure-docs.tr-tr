@@ -1,6 +1,6 @@
 ---
 title: Azure Logic Apps erişimin güvenliğini sağlama | Microsoft Docs
-description: Azure Logic Apps için Tetikleyiciler, girişler ve çıkışlar, eylem parametrelerini ve Hizmetleri iş akışlarında erişimi koruma
+description: Güvenlik tetikleyicileri, girdileri ve çıktıları, parametreleri ve diğer hizmetleri de dahil olmak üzere Azure Logic Apps için ekleyin
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,262 +9,362 @@ ms.author: klam
 ms.reviewer: estfan, LADocs
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
-ms.date: 11/22/2016
-ms.openlocfilehash: 0fe35b67a424caedcea2c71885d1757943ace9d1
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.date: 01/08/2019
+ms.openlocfilehash: a7d34b76eb6184e546c8217aa6b3723819be70be
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232605"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189539"
 ---
 # <a name="secure-access-in-azure-logic-apps"></a>Azure Logic apps'te güvenli erişim
 
-Mantıksal uygulamanızın farklı bileşenlerine erişimi güvenliğini sağlayabilirsiniz yollar şunlardır:
+Mantıksal uygulamanızı nerede erişim güvenliğini sağlayabilirsiniz öğeleri şunlardır:
 
-* HTTP isteği tetikleyicisi olan bir mantıksal uygulama iş akışı tetiklemek için erişimi güvenli hale getirin.
-* Güvenli erişimi yönetme, düzenleme veya mantıksal uygulama okuma için.
-* Bir mantıksal uygulama çalıştırması için giriş ve çıkışları içine içeriklere erişimi güvenli hale getirin.
-* Parametreleri veya bir mantıksal uygulama iş akışı eylemi için girişler güvenli hale getirin.
-* Bir mantıksal uygulama iş akışından isteklerini alacak hizmetlerine erişimi güvenli hale getirin.
+* [İstek veya Web kancası Tetikleyicileri](#secure-triggers)
+* [Yönetme, düzenleme veya görüntüleme gibi işlemler](#secure-operations) mantıksal uygulamanızı
+* [Giriş ve çıkışları](#secure-run-history) mantıksal uygulamanızdan ait çalıştırma geçmişi
+* [Eylem parametreleri ve girişleri](#secure-action-parameters)
+* [Get istekleri Hizmetleri](#secure-requests) mantıksal uygulamanızdan
 
-## <a name="secure-access-to-trigger"></a>Tetiklemek için güvenli erişim
+<a name="secure-triggers"></a>
 
-Bir HTTP isteği ile tetiklenen mantıksal uygulama çalışırken ([istek](../connectors/connectors-native-reqres.md) veya [Web kancası](../connectors/connectors-native-webhook.md)), böylece yalnızca yetkili istemcilerin mantıksal uygulama tetikleyebilir erişimi kısıtlayabilirsiniz. Tüm istekleri bir mantıksal uygulama ile şifrelenir ve SSL ile güvenli.
+## <a name="secure-access-to-request-triggers"></a>Tetikleyiciler istemek için güvenli erişim
 
-### <a name="shared-access-signature"></a>Paylaşılan erişim imzası
+Mantıksal uygulamanızı kullandığında talep tabanlı bir HTTP tetikleyicisi gibi [isteği](../connectors/connectors-native-reqres.md) veya [Web kancası](../connectors/connectors-native-webhook.md) tetikleyici kısıtlayabileceğiniz erişimi yalnızca yetkili istemcilerin mantıksal uygulamanızı başlatabilmeniz. Bir mantıksal uygulama tarafından alınan tüm istekler şifrelenir ve Güvenli Yuva Katmanı (SSL) protokolü ile güvenli hale getirilmiş. Bu tetikleyici türü için erişim güvenliğini sağlayabilirsiniz farklı yolu vardır:
 
-Mantıksal uygulama için her istek uç noktası içeren bir [paylaşılan erişim imzası (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md) URL'SİNİN bir parçası olarak. Her URL içeren bir `sp`, `sv`, ve `sig` sorgu parametresi. Tarafından belirtilen izinleri `sp`ve izin verilen, HTTP yöntemleri için karşılık gelen `sv` oluşturmak için kullanılan sürümü ve `sig` tetiklemek için kimlik doğrulaması yapmak için kullanılır. İmza, tüm özellikleri ve URL yolu bir gizli anahtar SHA256 algoritmasını kullanarak oluşturulur. Gizli anahtar hiçbir zaman kullanıma sunulan ve yayımlanan ve şifrelenmiş ve mantıksal uygulamanın parçası olarak saklı tutulur. Mantıksal uygulamanız yalnızca gizli anahtar hatalı oluşturulmuş geçerli bir imzaya sahip Tetikleyiciler yetkisi verir.
+* [Paylaşılan erişim imzaları oluşturma](#sas)
+* [Gelen IP adreslerini kısıtlamak](#restrict-incoming-IP)
+* [Azure Active Directory, OAuth veya diğer güvenlik ekleme](#add-authentication)
+
+<a name="sas"></a>
+
+### <a name="generate-shared-access-signatures"></a>Paylaşılan erişim imzaları oluşturma
+
+Her istek uç noktasında bir mantıksal uygulama içeren bir [paylaşılan erişim imzası (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md) uç noktanın URL. Her URL içeren bir `sp`, `sv`, ve `sig` sorgu parametresi:
+
+* `sp` izin verilen HTTP yöntemleri kullanmak için eşleyen izinleri belirtir.
+* `sv` imza oluşturmak için kullanılan sürümünü belirtir.
+* `sig` Tetikleyici erişimi kimlik doğrulaması için kullanılır.
+
+İmza, tüm özellikleri ve URL yolu bir gizli erişim anahtarı ile SHA256 algoritmasını kullanarak oluşturulur. Gizli anahtar hiçbir zaman kullanıma sunulan veya yayımlanan ve şifrelenmiş ve mantıksal uygulama ile saklı tutulur. Mantıksal uygulamanızı, gizli anahtar hatalı oluşturulmuş geçerli bir imzaya sahip Tetikleyiciler yetkisi verir. 
+
+Paylaşılan erişim imzası ile erişim güvenliğini sağlama hakkında daha fazla bilgi aşağıda verilmiştir:
+
+* [Erişim anahtarlarını yeniden oluştur](#access-keys)
+* [Süresi dolan geri çağırma URL'ler oluşturma](#expiring-URLs)
+* [Birincil veya ikincil anahtarıyla URL'ler oluşturma](#primary-secondary-key)
+
+<a name="access-keys"></a>
 
 #### <a name="regenerate-access-keys"></a>Erişim anahtarlarını yeniden oluştur
 
-Yeni bir güvenli anahtar, REST API'si veya Azure portalından dilediğiniz zaman yeniden oluşturabilirsiniz. Daha önce eski anahtarı kullanılarak oluşturulan tüm geçerli URL'leri geçersiz kılındı ve mantıksal uygulama ateşlenmesine artık yetkili.
+Dilediğiniz zaman yeni bir güvenli erişim anahtarı yeniden oluşturmak için Azure portalı ve Azure REST API'si kullanın. Daha önce oluşturulan tüm mantıksal uygulama tetikleyicisi için eski anahtarı geçersiz kılınır ve artık yetkili URL'lerini. Anahtarınızın yeniden oluşturulması oturumunuz sonra yeni bir erişim anahtarı ile aldığınız URL'leri.
 
-1. Bir anahtar oluşturmak istediğiniz mantıksal uygulamayı Azure portalında açın
-1. Tıklayın **erişim anahtarlarını** menü öğesi altında **ayarları**
-1. Yeniden oluşturun ve işlemi tamamlamak için tuşuna basın
+1. Azure portalında yeniden oluşturmak istediğinizden anahtara sahip mantıksal uygulamayı açın.
 
-Yeniden oluşturma tamamlandıktan sonra alma URL'leri yeni erişim anahtarı ile imzalanmıştır.
+1. Mantıksal uygulama menüsünde, altında **ayarları**seçin **erişim anahtarlarını**.
 
-#### <a name="creating-callback-urls-with-an-expiration-date"></a>Geri çağırma URL'leri bir sona erme tarihi ile oluşturma
+1. Yeniden oluşturun ve işlemi tamamlamak için istediğiniz anahtarı seçin.
 
-URL ile diğer taraflara paylaşıyorsanız, özel anahtarları ve gerektiğinde sona erme tarihleri ile URL'leri oluşturabilirsiniz. Daha sonra sorunsuz bir şekilde anahtarları alma veya bir uygulama ateşlenmesine erişim belirli bir timespan sınırlı olduğundan emin olun. Bir URL yolu için bir sona erme tarihi belirtin [logic apps REST API](https://docs.microsoft.com/rest/api/logic/workflowtriggers):
+<a name="expiring-urls"></a>
 
-``` http
-POST 
-/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/triggers/{triggerName}/listCallbackUrl?api-version=2016-06-01
-```
+#### <a name="create-callback-urls-with-expiration-dates"></a>Geri çağırma URL'leri ile sona erme tarihleri oluşturma
 
-Özelliğini ve gövde içeren `NotAfter` JSON tarih dizesi yalnızca kadar geçerli olan bir geri çağırma URL'sini döndürür `NotAfter` tarih ve saat.
-
-#### <a name="creating-urls-with-primary-or-secondary-secret-key"></a>URL'ler ile birincil veya ikincil gizli anahtar oluşturma
-
-Oluşturduğunuz veya talep tabanlı Tetikleyicileri için geri çağırma URL'leri listesi, hangi anahtar URL'sini imzalamak için kullanılacak de belirtebilirsiniz.  Belirli bir anahtar ile imzalanmış bir URL oluşturabilirsiniz [logic apps REST API](https://docs.microsoft.com/rest/api/logic/workflowtriggers) gibi:
+Bir tetikleyici istek tabanlı uç noktasının URL'sini diğer kişilerle paylaşmak, geri çağırma URL'leri özel anahtarlar ve sona erme tarihleri gerektiği gibi oluşturabilirsiniz. Daha sonra sorunsuz bir şekilde anahtarları alma veya erişimi belirli bir zaman aralığı için mantıksal uygulamanız tetikleme. Bir URL kullanarak bir sona erme tarihi belirtebilirsiniz [Logic Apps REST API](https://docs.microsoft.com/rest/api/logic/workflowtriggers), örneğin:
 
 ``` http
 POST 
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/triggers/{triggerName}/listCallbackUrl?api-version=2016-06-01
 ```
 
-Özelliğini ve gövde içeren `KeyType` olarak `Primary` veya `Secondary`.  Bu, belirtilen güvenli anahtar tarafından imzalanmış bir URL döndürür.
+Gövdesinde dahil `NotAfter`kullanan bir JSON özellik tarih dizesi. Bu özellik yalnızca kadar geçerli bir geri çağırma URL'sini döndürür `NotAfter` tarih ve saat.
+
+<a name="primary-secondary-key"></a>
+
+#### <a name="create-urls-with-primary-or-secondary-secret-key"></a>Birincil veya ikincil gizli anahtar ile URL'ler oluşturma
+
+Ne zaman oluşturduğunuz veya listesi geri çağırma URL'leri istek tabanlı tetikleyiciler için URL imzalama için kullanılacak anahtarı da belirtebilirsiniz. Belirli bir anahtar kullanılarak imzalanmış bir URL oluşturabilirsiniz [Logic Apps REST API](https://docs.microsoft.com/rest/api/logic/workflowtriggers), örneğin:
+
+``` http
+POST 
+/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/triggers/{triggerName}/listCallbackUrl?api-version=2016-06-01
+```
+
+Gövdesinde dahil `KeyType` özelliği olarak ya da `Primary` veya `Secondary`. Bu özellik belirtilen güvenli anahtarı ile imzalanmış bir URL döndürür.
+
+<a name="restrict-incoming-ip"></a>
 
 ### <a name="restrict-incoming-ip-addresses"></a>Gelen IP adreslerini kısıtlamak
 
-Paylaşılan erişim imzası ek olarak, bir mantıksal uygulama yalnızca belirli istemcilerden çağırma kısıtlamak isteyebilirsiniz.  Örneğin, Azure API Management aracılığıyla uç noktanızı yönetiyorsanız, yalnızca API Management örneği IP adresinden istek geldiğinde isteği kabul etmek için mantıksal uygulama kısıtlayabilirsiniz.
+Paylaşılan erişim imzası yanı sıra, mantıksal uygulamayı çağırabilir, belirli istemcileri sınırlamak isteyebilirsiniz.  
+Örneğin, Azure API Management ile istek uç noktanızı yönetiyorsanız, mantıksal uygulamanız yalnızca API Management örneğinin IP adresinden gelen istekleri kabul edecek şekilde kısıtlayabilirsiniz. 
 
-Bu ayar, mantıksal uygulama ayarlarında yapılandırılabilir:
+#### <a name="set-ip-ranges---azure-portal"></a>IP aralıklarını ayarlama - Azure portalı
 
-1. IP adresi sınırlamaları eklemek istediğiniz mantıksal uygulamayı Azure portalında açın
-1. Tıklayın **iş akışı ayarları** menü öğesi altında **ayarları**
-1. Tetik tarafından kabul edilmesi için IP adresi aralıkları listesini belirtin
+Azure portalında bu kısıtlama ayarlamak için mantıksal uygulamanızın ayarlarına gidin: 
 
-Geçerli bir IP aralığı biçimini alır `192.168.1.1/32`. Mantıksal uygulamanın yalnızca iç içe geçmiş mantıksal uygulama harekete istiyorsanız belirleyin **yalnızca diğer mantıksal uygulamalar** seçeneği. Bu seçenek, anlamı yalnızca hizmetin kendisini (üst mantıksal uygulamalar) çağırır kaynak için boş bir dizi Yazar başarıyla yangın.
+1. Azure portalında mantıksal Uygulama Tasarımcısı'nda mantıksal uygulamanızı açın. 
+
+1. Mantıksal uygulama menüsünde, altında **ayarları**seçin **iş akışı ayarları**.
+
+1. Altında **erişim denetimi Yapılandırması** > 
+**izin verilen gelen IP adresleri**seçin **belirli IP aralıkları**.
+
+1. Altında **Tetikleyiciler için IP aralıkları**, tetikleyici kabul eden IP adresi aralıklarını belirtin. Geçerli bir IP aralığı Bu biçimler kullanır: *x.x.x.x/x* veya *x.x.x.x-x.x.x.x* 
+
+Mantıksal uygulamanız yalnızca bir iç içe geçmiş mantıksal uygulama, gelen ateşlenmesine istiyorsanız **izin verilen gelen IP adresleri** listesinden **yalnızca diğer mantıksal uygulamalar**. Bu seçenek, Logic Apps hizmetinin (üst mantıksal uygulamalar) yalnızca çağrılarından iç içe geçmiş mantıksal uygulamayı tetikleyebilirsiniz. Bu nedenle, mantıksal uygulama kaynağı için boş bir dizi yazar.
 
 > [!NOTE]
-> Yine de bir mantıksal uygulama istek tetikleyicisi ile REST API aracılığıyla çalıştırabileceğiniz / Yönetim `/triggers/{triggerName}/run` IP ne olursa olsun. Bu senaryo Azure REST API'sine karşı kimlik doğrulaması gerektirir ve tüm olayları Azure denetim günlüğünde görünür. Kümesi erişimi ilkeleri buna göre denetler.
+> IP adresi bağımsız olarak kullanarak talep tabanlı tetikleyicisine sahip bir mantıksal uygulama yine de çalıştırabilirsiniz `/triggers/{triggerName}/run` Azure REST API'sini veya API Management aracılığıyla. Ancak, bu senaryo yine de Azure REST API'sine karşı kimlik doğrulaması gerektirir ve tüm olaylar Azure denetim günlüğünde görünür. Erişim denetimi ilkeleri buna göre ayarladığınızdan emin olun.
 
-#### <a name="setting-ip-ranges-on-the-resource-definition"></a>Kaynak tanımında IP aralıklarını ayarlama
+#### <a name="set-ip-ranges---logic-app-deployment-template"></a>IP aralıklarını ayarlama - mantıksal uygulama dağıtım şablonu
 
-Kullanıyorsanız bir [dağıtım şablonu](logic-apps-create-deploy-template.md) dağıtımlarınızı otomatikleştirin kaynak şablonunda IP aralığı ayarları yapılandırılabilir.  
+Mantıksal uygulama dağıtımlarını kullanarak otomatikleştiriyorsanız bir [Azure Resource Manager dağıtım şablonu](logic-apps-create-deploy-template.md), şablon içinde örneğin IP aralıklarını ayarlayabilirsiniz:
 
 ``` json
 {
-    "properties": {
-        "definition": {
-        },
-        "parameters": {},
-        "accessControl": {
-            "triggers": {
-                "allowedCallerIpAddresses": [
-                    {
-                        "addressRange": "192.168.12.0/23"
-                    },
-                    {
-                        "addressRange": "2001:0db8::/64"
-                    }
-                ]
-            }
-        }
-    },
-    "type": "Microsoft.Logic/workflows"
+   "properties": {
+      "definition": {},
+      "parameters": {},
+      "accessControl": {
+         "triggers": {
+            "allowedCallerIpAddresses": [
+               {
+               "addressRange": "192.168.12.0/23"
+               },
+               {
+                  "addressRange": "2001:0db8::/64"
+               }
+            ]
+         }
+      }
+   },
+   "type": "Microsoft.Logic/workflows",
 }
-
 ```
 
-### <a name="adding-azure-active-directory-oauth-or-other-security"></a>Azure Active Directory, OAuth veya diğer güvenlik ekleme
+<a name="add-authentication"></a>
 
-Daha fazla yetkilendirme protokolleri üzerinde bir mantıksal uygulama eklemek için [Azure API Management](https://azure.microsoft.com/services/api-management/) zengin izleme, güvenlik, ilke ve belgeleri için herhangi bir uç noktası ile bir mantıksal uygulama bir API olarak açığa olanağı sunar. Azure API Management, Azure Active Directory, sertifika, OAuth veya diğer güvenlik standartlarını kullanabilirsiniz mantıksal uygulama için bir genel veya özel uç nokta üzerinden kullanıma sunabilirsiniz. Bir istek alındığında, Azure API Yönetimi (tüm gerekli dönüştürmeleri veya kısıtlamaları uçuşan gerçekleştirerek) mantıksal uygulama isteği iletir. Mantıksal uygulama gelen IP aralığı ayarları, yalnızca API Yönetimi'nden tetiklenmesi için mantıksal uygulama izin vermek için kullanabilirsiniz.
+### <a name="add-azure-active-directory-oauth-or-other-security"></a>Azure Active Directory, OAuth veya diğer güvenlik ekleme
 
-## <a name="secure-access-to-manage-or-edit-logic-apps"></a>Güvenli erişimi yönetmek ya da mantıksal uygulamaları düzenleme
+Daha fazla yetkilendirme protokolleri mantıksal uygulamanıza eklemek için kullanmayı [Azure API Management](https://azure.microsoft.com/services/api-management/). Bu hizmet, zengin izleme, güvenlik, ilke ve herhangi bir uç nokta için belgeler sağlar ve mantıksal uygulamanızı API olarak açığa yapma olanağı tanır. API Management, Azure Active Directory, OAuth, sertifika veya diğer güvenlik standartlarını kullanabilirsiniz sonra mantıksal uygulamanız için bir genel veya özel uç nokta üzerinden kullanıma sunabilirsiniz. API yönetimi bir istek aldığında, hizmet tüm gerekli dönüştürmeleri veya yol üzerindeki kısıtlamaları da yaparak mantıksal uygulamanızı isteği gönderir. Mantıksal uygulamanızı tetikleyecek yalnızca API Management izin vermek için mantıksal uygulamanızın gelen IP aralığı ayarları kullanabilirsiniz. 
 
-Yalnızca belirli kullanıcılar veya gruplar kaynak üzerinde işlemler gerçekleştirmek mümkün olmasını sağlamak için bir mantıksal uygulama yönetim işlemlerini erişimi kısıtlayabilirsiniz. Azure Logic apps kullanın [rol tabanlı erişim denetimi (RBAC)](../role-based-access-control/role-assignments-portal.md) özellik ve aynı araçlarla özelleştirilebilir.  Aboneliğinize üyeleri de atayabilirsiniz birkaç yerleşik rolü vardır:
+<a name="secure-operations"></a>
 
-* **Mantıksal uygulama katkıda bulunanı** -görüntüleme, düzenleme ve bir mantıksal uygulama güncelleştirmek için erişim sağlar.  Kaynak kaldıramaz veya yönetim işlemleri gerçekleştirin.
-* **Mantıksal uygulama operatörü** - mantıksal uygulama görüntüleyebilir ve çalıştırma geçmişi ve etkinleştirebilir/devre dışı.  Düzenleyemez veya tanımını güncelleştirin.
+## <a name="secure-access-to-logic-app-operations"></a>Mantıksal uygulama işlemlerini güvenli erişim
 
-Ayrıca [Azure kaynak kilidi](../azure-resource-manager/resource-group-lock-resources.md) değiştirme veya logic apps silmeden önlemek için. Bu özellik, üretim kaynaklardan değişiklikleri veya silme işlemlerini önlemek için değerlidir.
+Yalnızca belirli kullanıcılar veya mantıksal uygulamanızı işlemleri çalıştırma gruplarına izin vermek için yönetmek, düzenleme ve görüntüleme gibi görevleri erişimi kısıtlayabilirsiniz. Logic Apps destekler [Azure rol tabanlı Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md), özelleştirme veya örneğin, aboneliğinizde yerleşik roller üyelerine atayın:
 
-## <a name="secure-access-to-contents-of-the-run-history"></a>Çalıştırma geçmişini içeriğini erişimin güvenliğini sağlama
+* **Mantıksal uygulama katkıda bulunanı**: Kullanıcılar görüntülemek, düzenlemek ve mantıksal uygulamanızı güncelleştirin. Bu rol, mantıksal uygulamanızı silme veya yönetici işlemleri çalıştırın.
+* **Mantıksal uygulama operatörü**: Kullanıcıların mantıksal uygulamanız ve çalıştırma geçmişini görüntülemek ve etkinleştirebilir veya mantıksal uygulama devre dışı bırakın. Bu rol, düzenlemek veya mantıksal uygulamanızı güncelleştirin.
 
-Önceki çalıştırmalardan belirli IP adresi aralıkları için giriş veya çıkış içeriği için erişimi kısıtlayabilirsiniz.  
+Mantıksal uygulamanızı silme veya değiştirme diğerlerinden önlemek için kullanabileceğiniz [Azure kaynak kilidi](../azure-resource-manager/resource-group-lock-resources.md). Bu özellik, değiştirme veya silme üretim kaynakları diğerlerinden engellemenize yardımcı olur.
 
-Bir iş akışı çalıştırması içindeki tüm veriler aktarımda ve bekleme sırasında şifrelenir. Çalıştırma geçmişi için bir çağrı yapıldığında hizmet isteğin kimliğini doğrular ve isteği ve yanıtı giriş ve çıkışları için bağlantılar sağlar. Belirtilen IP adresi aralığındaki içeriği görüntülemek için yalnızca istek içeriği döndürülmesi için bu bağlantıyı korunabilir. Ek erişim denetimi için bu özelliği kullanabilirsiniz. Bir IP adresi gibi bile belirtebilirsiniz `0.0.0.0` hiç girdiler/çıktılar erişim. Yalnızca yönetici izinlerine sahip bir kişi, bu kısıtlama, 'just-in-time' iş akışı içeriklere erişimi için olanağı sağlayarak kaldırabilirsiniz.
+<a name="secure-run-history"></a>
 
-Bu ayar, Azure portal'ın kaynak ayarlarında yapılandırılabilir:
+## <a name="secure-access-to-logic-app-run-history"></a>Mantıksal uygulama çalıştırma geçmişi güvenli erişim
 
-1. IP adresi sınırlamaları eklemek istediğiniz mantıksal uygulamayı Azure portalında açın
-2. Tıklayın **erişim denetimi Yapılandırması** menü öğesi altında **ayarları**
-3. İçeriğe erişim için IP adresi aralıkları listesini belirtin
+Giriş veya çıkış olarak önceki mantıksal uygulama çalıştırmaları ' geçirilen içeriği korumak için belirli IP adresi aralıkları için erişimi kısıtlayabilirsiniz. Bu özellik, daha fazla erişim denetimi olanağı sunuyor. Tüm verileri bir mantıksal uygulamanın çalışma sırasında aktarım ve bekleme sırasında şifrelenir. Bir mantıksal uygulamanın çalıştırma geçmişi istediğinde, Logic Apps bu isteğin kimliğini doğrular ve girişleri bağlantılar sağlar ve istekleri ve yanıtları mantıksal uygulamanızın iş akışında çıkarır. Bu içerik yalnızca belirli bir IP adresi isteklerinden döndürülmesi için bu bağlantıları koruyabilirsiniz. Örneğin, hatta bir IP adresi gibi belirtebilirsiniz `0.0.0.0-0.0.0.0` hiç giriş ve çıkışları erişebilmek için. Yalnızca yönetici izinlerine sahip bir kişi, mantıksal uygulamanızın içeriğini "just-in-time" erişim olanağı sağlayarak bu kısıtlama, kaldırabilirsiniz.
 
-#### <a name="setting-ip-ranges-on-the-resource-definition"></a>Kaynak tanımında IP aralıklarını ayarlama
+### <a name="set-ip-ranges---azure-portal"></a>IP aralıklarını ayarlama - Azure portalı
 
-Kullanıyorsanız bir [dağıtım şablonu](logic-apps-create-deploy-template.md) dağıtımlarınızı otomatikleştirin kaynak şablonunda IP aralığı ayarları yapılandırılabilir.  
+Azure portalında bu kısıtlama ayarlamak için mantıksal uygulamanızın ayarlarına gidin:
+
+1. Azure portalında mantıksal Uygulama Tasarımcısı'nda mantıksal uygulamanızı açın. 
+
+1. Mantıksal uygulama menüsünde, altında **ayarları**seçin **iş akışı ayarları**.
+
+1. Altında **erişim denetimi Yapılandırması** > 
+**izin verilen gelen IP adresleri**seçin **belirli IP aralıkları**.
+
+1. Altında **içerikler için IP aralıkları**, girdileri ve çıktıları içeriğe erişebilir IP adresi aralıklarını belirtin. Geçerli bir IP aralığı Bu biçimler kullanır: *x.x.x.x/x* veya *x.x.x.x-x.x.x.x* 
+
+### <a name="set-ip-ranges---logic-app-deployment-template"></a>IP aralıklarını ayarlama - mantıksal uygulama dağıtım şablonu
+
+Mantıksal uygulama dağıtımlarını kullanarak otomatikleştiriyorsanız bir [Azure Resource Manager dağıtım şablonu](logic-apps-create-deploy-template.md), şablon içinde örneğin IP aralıklarını ayarlayabilirsiniz:
 
 ``` json
 {
-    "properties": {
-        "definition": {
-        },
-        "parameters": {},
-        "accessControl": {
-            "contents": {
-                "allowedCallerIpAddresses": [
-                    {
-                        "addressRange": "192.168.12.0/23"
-                    },
-                    {
-                        "addressRange": "2001:0db8::/64"
-                    }
-                ]
-            }
-        }
-    },
-    "type": "Microsoft.Logic/workflows"
+   "properties": {
+      "definition": {},
+      "parameters": {},
+      "accessControl": {
+         "contents": {
+            "allowedCallerIpAddresses": [
+               {
+               "addressRange": "192.168.12.0/23"
+               },
+               {
+                  "addressRange": "2001:0db8::/64"
+               }
+            ]
+         }
+      }
+   },
+   "type": "Microsoft.Logic/workflows",
 }
 ```
 
-## <a name="secure-parameters-and-inputs-within-a-workflow"></a>Güvenli parametreleri ve bir iş akışındaki girişleri
+<a name="secure-action-parameters"></a>
 
-Ortamlar arasında dağıtımı için bir iş akışı tanımı bazı yönlerini Parametreleştirme isteyebilirsiniz. Ayrıca, bazı parametreler güvenli parametreleri gibi bir istemci kimliği ve istemci gizli anahtarı için bir iş akışı düzenlerken görünmesini istemiyorsanız olabilir [Azure Active Directory kimlik doğrulaması](../connectors/connectors-native-http.md#authentication) HTTP eylem.
+## <a name="secure-action-parameters-and-inputs"></a>Eylem parametreleri ve girişleri güvenliğini sağlama
 
-### <a name="using-parameters-and-secure-parameters"></a>Parametreleri ve güvenli parametreleri kullanma
+Çeşitli ortamlar genelinde dağıtırken, mantıksal uygulamanızın iş akışı tanımında belirli yönlerini isteyebileceğiniz. Örneğin parametrelerinde belirtebilirsiniz [Azure Resource Manager dağıtım şablonu](../azure-resource-manager/resource-group-authoring-templates.md#parameters). Çalışma zamanı sırasında bir kaynağın parametre değeri erişmek için kullanabileceğiniz `@parameters('parameterName')` tarafından sağlanan ifadenin [iş akışı tanımlama dili](https://aka.ms/logicappsdocs). 
 
-Çalışma zamanında, bir kaynak parametresinin değeri erişmeye [iş akışı tanımlama dili](https://aka.ms/logicappsdocs) sağlayan bir `@parameters()` işlemi. Ayrıca, [kaynak dağıtım şablonunun parametrelerini belirtin](../azure-resource-manager/resource-group-authoring-templates.md#parameters). Ancak parametre türü olarak belirtirseniz `securestring`, parametre kaynak tanımı geri kalanı ile döndürülen olmaz ve dağıtımdan sonra kaynak görüntüleyerek erişilebilir olmaz.
+Ayrıca kullandığınızda, mantıksal uygulamanızın iş akışı düzenleme sırasında görüntülenen istemediğiniz belirli parametreleri güvenli hale getirebilirsiniz `securestring` parametre türü. Örneğin, bir HTTP eylem ile kimlik doğrulaması için kullanılan istemci gizli anahtarı ve istemci kimliği gibi parametreleri güvenliğini sağlayabilirsiniz [Azure Active Directory](../connectors/connectors-native-http.md#authentication).
+Bir parametrenin türü olarak belirttiğinizde `securestring`, parametrenin kaynak tanımıyla döndürülmez ve dağıtımdan sonra kaynak görüntüleyerek erişilebilir durumda değil. 
 
 > [!NOTE]
-> Parametreniz üstbilgileri veya bir istek gövdesi kullanılırsa, parametre görünür çalıştırma geçmişi ve giden HTTP istek erişerek olabilir. İçerik erişim ilkelerinizi uygun şekilde ayarladığınızdan emin olun.
-> Yetkilendirme üst bilgileri hiçbir zaman giriş veya çıkış görülebilir. Bu nedenle gizli dizi var. kullanılıyorsa, gizli dizi alınabilir değil.
+> Bir isteğin üstbilgileri veya gövdesi bir parametresini kullandığınızda, bu parametre, mantıksal uygulamanızın çalıştırma geçmişi ve giden HTTP istek erişirken görünür olabilir. İçerik erişim ilkelerinizi uygun şekilde ayarladığınızdan emin olun.
+> Yetkilendirme üst bilgileri hiçbir zaman giriş veya çıkış görülebilir. Bu nedenle bir gizli dizi var. kullandıysanız, gizli dizi alınabilir değil.
 
-#### <a name="resource-deployment-template-with-secrets"></a>Gizli kaynak dağıtım şablonu
+Bu örnek, birden fazla çalışma zamanı parametresiyle birlikte kullanan bir Azure Resource Manager dağıtım şablonu gösterir `securestring` türü: 
 
-Aşağıdaki örnek, güvenli bir parametre olarak başvuran bir dağıtımı gösterir `secret` zamanında. Ayrı Parametreler dosyasında, ortam değeri belirtebilirsiniz `secret`, veya [Azure Resource Manager KeyVault](../azure-resource-manager/resource-manager-keyvault-parameter.md) almak için zaman, gizli dizileri dağıtma.
+* `armTemplatePasswordParam`, mantıksal uygulama tanımının için giriş `logicAppWfParam` parametresi
 
-``` json
+* `logicAppWfParam`, temel kimlik doğrulaması kullanarak HTTP eylemi için giriş
+
+Ayrı Parametreler dosyasında, ortam değeri belirtebilirsiniz `armTemplatePasswordParam` parametresi veya alabilir gizli dizileri dağıtım sırasında kullanarak [Azure Resource Manager KeyVault](../azure-resource-manager/resource-manager-keyvault-parameter.md).
+İç `parameters` dış sırasında mantıksal uygulamanızın iş akışı tanımı bölümüne ait `parameters` bölümüne ait dağıtım şablonunuza.
+
+```json
 {
    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
    "contentVersion": "1.0.0.0",
    "parameters": {
-      "secretDeploymentParam": {
-         "type": "securestring"
+      "logicAppName": {       
+         "type": "string",
+         "minLength": 1,
+         "maxLength": 80,
+         "metadata": {         
+            "description": "Name of the Logic App."       
+         }     
+      },
+      "armTemplatePasswordParam": {
+         "type": "securestring"     
+      },     
+      "logicAppLocation": {       
+         "type": "string",
+         "defaultValue": "[resourceGroup().location]",
+         "allowedValues": [         
+            "[resourceGroup().location]",
+            "eastasia",
+            "southeastasia",
+            "centralus",
+            "eastus",
+            "eastus2",
+            "westus",
+            "northcentralus",
+            "southcentralus",
+            "northeurope",
+            "westeurope",
+            "japanwest",
+            "japaneast",
+            "brazilsouth",
+            "australiaeast",
+            "australiasoutheast",
+            "southindia",
+            "centralindia",
+            "westindia",
+            "canadacentral",
+            "canadaeast",
+            "uksouth",
+            "ukwest",
+            "westcentralus",
+            "westus2"
+         ],
+         "metadata": {
+            "description": "Location of the Logic App."
+         }
       }
    },
    "variables": {},
-   "resources": [ {
-      "name": "secret-deploy",
-      "type": "Microsoft.Logic/workflows",
-      "location": "westus",
-      "tags": {
-         "displayName": "LogicApp"
-      },
-      "apiVersion": "2016-06-01",
-      "properties": {
-         "definition": {
-            "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
-            "actions": {
-               "Call_External_API": {
-                  "type": "Http",
-                  "inputs": {
-                     "headers": {
-                        "Authorization": "@parameters('secret')"
+   "resources": [
+      {       
+         "name": "[parameters('logicAppName')]",
+         "type": "Microsoft.Logic/workflows",
+         "location": "[parameters('logicAppLocation')]",
+         "tags": {
+            "displayName": "LogicApp"
+         },
+         "apiVersion": "2016-06-01",
+         "properties": {
+            "definition": {
+               "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-0601/workflowdefinition.json#",
+               "actions": {
+                  "HTTP": {
+                     "type": "Http",
+                     "inputs": {
+                        "method": "GET",
+                        "uri": "http://www.microsoft.com",
+                        "authentication": {
+                           "type": "Basic",
+                           "username": "username",
+                              "password": "@parameters('logicAppWfParam')"
+                        }
                      },
-                     "body": "This is the request"
-                  },
                   "runAfter": {}
-               }
+                  }
+               },
+               "parameters": { 
+                  "logicAppWfParam": {
+                     "type": "securestring"
+                  }
+               },
+               "triggers": {
+                  "manual": {
+                     "type": "Request",
+                     "kind": "Http",
+                     "inputs": {
+                        "schema": {}
+                     }
+                  }
+               },
+               "contentVersion": "1.0.0.0",
+               "outputs": {}
             },
             "parameters": {
-               "secret": {
-                  "type": "SecureString"
+               "logicAppWfParam": {
+                  "value": "[parameters('armTemplatePasswordParam')]"
                }
-            },
-            "triggers": {
-               "manual": {
-                  "type": "Request",
-                  "kind": "Http",
-                  "inputs": {
-                     "schema": {}
-                  }
-               }
-            },
-            "contentVersion": "1.0.0.0",
-            "outputs": {}
-         },
-         "parameters": {
-            "secret": {
-               "value": "[parameters('secretDeploymentParam')]"
             }
          }
       }
-   } ],
-   "outputs": {}
-}
+   ],
+   "outputs": {} 
+}   
 ```
 
-## <a name="secure-access-to-services-receiving-requests-from-a-workflow"></a>Bir iş akışından istekleri alma hizmetlerine güvenli erişim
+<a name="secure-requests"></a>
 
-Mantıksal uygulamanın erişmesi gereken herhangi bir uç nokta güvenliğini sağlamak için birçok yolu vardır.
+## <a name="secure-access-to-services-receiving-requests"></a>İstekleri hizmetlerine güvenli erişim
 
-### <a name="using-authentication-on-outbound-requests"></a>Giden istekler için kimlik doğrulaması kullanma
+Mantıksal uygulamanızı nerede erişmesi ve istekleri gönderir herhangi bir uç nokta güvenliğini sağlamak için bazı yollar şunlardır.
 
-Bir HTTP, HTTP + Swagger (açık API) veya Web kancası eylemi ile çalışırken, gönderilen istek için kimlik doğrulama ekleyebilirsiniz. Temel kimlik doğrulaması, sertifika kimlik doğrulaması veya Azure Active Directory kimlik doğrulaması dahil olabilir. Bu kimlik doğrulaması yapılandırma hakkında daha fazla bilgi bulunabilir [bu makaledeki](../connectors/connectors-native-http.md#authentication).
+### <a name="add-authentication-on-outbound-requests"></a>Giden istekler için kimlik doğrulaması ekleme
 
-### <a name="restricting-access-to-logic-app-ip-addresses"></a>Mantıksal uygulama IP adreslerine erişimi kısıtlama
+Bir HTTP, HTTP + Swagger (açık API) veya Web kancası eylemi ile çalışırken, mantıksal uygulamanız tarafından gönderilen istek için kimlik doğrulama ekleyebilirsiniz. Örneğin, temel kimlik doğrulaması, sertifika kimlik doğrulaması veya Azure Active Directory kimlik doğrulaması kullanabilirsiniz. Daha fazla bilgi için [Tetikleyiciler veya Eylemler kimlik doğrulaması](logic-apps-workflow-actions-triggers.md#connector-authentication) ve [HTTP eylemler için kimlik doğrulaması](../connectors/connectors-native-http.md#authentication).
 
-Belirli bir bölge başına IP adresleri kümesini mantıksal uygulamalardan tüm çağrıları gelir. Ek yalnızca belirlenen bu IP adreslerinden gelen istekleri kabul edecek şekilde filtre ekleyebilirsiniz. Bu IP adresleri listesi için bkz. [logic Apps sınırları ve yapılandırma](logic-apps-limits-and-config.md#configuration).
+### <a name="restrict-access-to-logic-app-ip-addresses"></a>Mantıksal uygulama IP adreslerine erişimi kısıtlama
 
-### <a name="on-premises-connectivity"></a>Şirket içi bağlantı
+Mantıksal uygulamalardan tüm çağrıları atanmış özel IP adresleri bölgeye göre gelir. Bu IP adreslerinden yalnızca isteklerini kabul eden filtreleme ekleyebilirsiniz. Bu IP adresleri için bkz: [limitler ve yapılandırma için Azure Logic Apps](logic-apps-limits-and-config.md#configuration).
 
-Logic apps, güvenli ve güvenilir sağlamak için çeşitli Hizmetleri ile tümleştirme şirket iletişimi sağlar.
+### <a name="secure-on-premises-connectivity"></a>Güvenli şirket içi bağlantı
+
+Azure Logic Apps, güvenli ve güvenilir için bu hizmetleri ile tümleştirme şirket iletişimi sağlar.
 
 #### <a name="on-premises-data-gateway"></a>Şirket içi veri ağ geçidi
 
-Logic apps için birçok yönetilen bağlayıcılar, şirket içi sistemlere, dosya sistemi, SQL, SharePoint, DB2 ve daha fazlası dahil olmak üzere güvenli bağlantı sağlar. Ağ geçidi, şifrelenmiş kanallarda Azure Service Bus aracılığıyla şirket içi kaynaklardan gelen verileri geçirir. Tüm trafiği, ağ geçidi aracının giden trafiği güvenli olarak kaynaklanır. Daha fazla bilgi edinin [veri ağ geçidi nasıl çalıştığını](logic-apps-gateway-install.md#gateway-cloud-service).
+Azure Logic Apps için birçok yönetilen bağlayıcılar, şirket içi sistemler, dosya sistemi, SQL, SharePoint, DB2 ve diğerleri gibi güvenli bağlantılar sağlar. Ağ geçidi, şifrelenmiş kanallarda Azure Service Bus aracılığıyla şirket içi kaynaklardan verileri gönderir. Tüm trafiği, ağ geçidi aracının giden trafiği güvenli olarak kaynaklanır. Bilgi [şirket içi veri ağ geçidi nasıl çalıştığını](logic-apps-gateway-install.md#gateway-cloud-service).
 
 #### <a name="azure-api-management"></a>Azure API Management
 
-[Azure API Management](https://azure.microsoft.com/services/api-management/) güvenli proxy'si için siteden siteye VPN ve ExpressRoute tümleştirme ve şirket içi sistemler ile iletişim dahil olmak üzere şirket içi bağlantı seçenekleri vardır. Logic Apps Tasarımcısı'nda, şirket içi sistemlere hızlı erişim sağlayarak Azure API Management'ı bir iş akışı içinde kullanıma sunulan bir API hızlı bir şekilde seçebilirsiniz.
+[Azure API Management](https://azure.microsoft.com/services/api-management/) siteden siteye sanal özel ağ ve ExpressRoute tümleştirme güvenli proxy ve şirket içi sistemler ile iletişim gibi şirket içi bağlantı seçenekleri sunar. Logic Apps Tasarımcısı'nda, şirket içi sistemlere hızlı erişim sağlayarak mantıksal uygulamanızın iş akışından API Management tarafından sunulan bir API seçebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Dağıtım şablonu oluşturma](logic-apps-create-deploy-template.md)  
-[Özel durum işleme](logic-apps-exception-handling.md)  
-[Mantıksal uygulamalarınızı izleyin](logic-apps-monitor-your-logic-apps.md)  
-[Mantıksal uygulama hatalarını ve sorunlarını tanılama](logic-apps-diagnosing-failures.md)  
+
+* [Dağıtım şablonu oluşturma](logic-apps-create-deploy-template.md)  
+* [Özel durum işleme](logic-apps-exception-handling.md)  
+* [Mantıksal uygulamalarınızı izleyin](logic-apps-monitor-your-logic-apps.md)  
+* [Mantıksal uygulama hatalarını ve sorunlarını tanılayın](logic-apps-diagnosing-failures.md)  

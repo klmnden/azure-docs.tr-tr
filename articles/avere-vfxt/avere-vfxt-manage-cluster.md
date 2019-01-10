@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 82b5e175f0340aae7e35b177d9faa4831982984c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: a47b18972e945e495e5a5d3dd90e383390612865
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999056"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189618"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Avere vFXT kümesini yönetme
 
@@ -63,11 +63,11 @@ Kapatma, yeniden başlatma veya bir düğümü kaldırmak için üzerinde listes
 > [!NOTE] 
 > Etkin düğüm sayısını değiştiğinde, IP adresleri küme düğümleri arasında taşıyabilirsiniz.
 
-Okuma [küme > düğümler FXT](<http://library.averesystems.com/ops_guide/4_7/gui_fxt_nodes.html#gui-fxt-nodes>) Avere küme ayarları Kılavuzu daha fazla bilgi için.
+Okuma [küme > düğümler FXT](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_fxt_nodes.html#gui-fxt-nodes>) Avere küme ayarları Kılavuzu daha fazla bilgi için.
 
 ### <a name="stop-or-reboot-the-cluster-with-avere-control-panel"></a>Durdurma veya küme Avere Denetim Masası ile yeniden başlatma
 
-**Sistem Bakımı** Ayarları sayfası, Küme Hizmetleri yeniden başlatma, kümeyi yeniden başlatma veya güvenli bir şekilde aşağı küme destekleyen komutları içerir. Okuma [Yönetim > Sistem Bakımı](<http://library.averesystems.com/ops_guide/4_7/gui_system_maintenance.html#gui-system-maintenance>) (Avere içinde küme ayarları Kılavuzu) Ayrıntılar için.
+**Sistem Bakımı** Ayarları sayfası, Küme Hizmetleri yeniden başlatma, kümeyi yeniden başlatma veya güvenli bir şekilde aşağı küme destekleyen komutları içerir. Okuma [Yönetim > Sistem Bakımı](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_system_maintenance.html#gui-system-maintenance>) (Avere içinde küme ayarları Kılavuzu) Ayrıntılar için.
 
 Bir küme kapatılıyor, durum iletileri gönderir. **Pano** ilk sekmesi. Birkaç dakika sonra Avere Denetim Masası'ndaki oturumunu yanıt vermeyi anlamına kümeye kapatıldı durdurur.
 
@@ -83,7 +83,7 @@ Avere Denetim Masası'nda gibi değiştirilen verileri kalıcı olarak arka uç 
 
 vfxt.PY VM kümesi denetleyicisinde önceden yüklenir. <!-- (If you want to install it on another system, refer to https://github.com/Azure/AvereSDK) xxx change when this repo goes  public -->
 
-Tam vfxt.py Kullanım Kılavuzu, GitHub üzerinde kullanılabilir: [bulut vfxt.py ile küme yönetimi](https://github.com/azure/averesdk/blob/master/docs/README.md)
+Tam vfxt.py Kullanım Kılavuzu, GitHub üzerinde kullanılabilir: [Bulut vfxt.py ile küme yönetimi](https://github.com/azure/averesdk/blob/master/docs/README.md)
 
 ### <a name="add-cluster-nodes-with-vfxtpy"></a>Vfxt.py ile küme düğümleri Ekle
 

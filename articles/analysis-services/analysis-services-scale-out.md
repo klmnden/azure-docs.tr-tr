@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/13/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8cfbc72e239a7a5b38cee6752803e79735e2adc9
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 775de554f39df8359c3852a2d7fa876fd12199d2
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321283"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190864"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services ölçeğini genişletme
 
@@ -74,15 +74,19 @@ Yeni sorgu çoğaltmaları sağladığınızda, Azure Analysis Services Modeller
 ![Ölçek genişletme kaydırıcı](media/analysis-services-scale-out/aas-scale-out-sync.png)
 
 ### <a name="rest-api"></a>REST API
+
 Kullanım **eşitleme** işlemi.
 
 #### <a name="synchronize-a-model"></a>Bir modeli Eşitle   
+
 `POST https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
 
 #### <a name="get-sync-status"></a>Eşitleme durumunu Al  
+
 `GET https://<region>.asazure.windows.net/servers/<servername>/models/<modelname>/sync`
 
 ### <a name="powershell"></a>PowerShell
+
 PowerShell'i kullanarak önce [yükleme veya en son AzureRM modülünü güncelleştirme](https://github.com/Azure/azure-powershell/releases). 
 
 Sorgu yinelemelerinin sayısı ayarlamak için kullanın [Set-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver). İsteğe bağlı belirtin `-ReadonlyReplicaCount` parametresi.
@@ -101,9 +105,9 @@ Azure işlev uygulamaları ve ÇYN, SSMS, SSDT ve PowerShell bağlantı dizeleri
 
 ## <a name="troubleshoot"></a>Sorun giderme
 
-**Sorun:** kullanıcılar alma hatası **sunucusu bulunamıyor '\<sunucusunun adı >' bağlantı modunda 'ReadOnly' örneği.**
+**Sorun:** Kullanıcılar alma hatası **sunucusu bulunamıyor '\<sunucusunun adı >' bağlantı modunda 'ReadOnly' örneği.**
 
-**Çözüm:** seçerken **işleme sunucusunu sorgulama havuzundan ayırın** seçeneği, varsayılan bağlantı dizesini kullanarak istemci bağlantıları (olmadan: rw) sorgu havuzu kopyaya yönlendirilirsiniz. Eşitleme değildir, çünkü sorgu havuzundaki çoğaltmalar henüz çevrimiçi henüz tamamlanmamış, yeniden yönlendirilen istemci bağlantıları başarısız olabilir. Başarısız bağlantılar önlemek için tam bir ölçek genişletme ve eşitleme işlemi kadar işleme sunucusunu sorgulama havuzundan ayırın değil seçin. Bellek ve QPU ölçümleri eşitleme durumunu izlemek için kullanabilirsiniz.
+**Çözüm:** Seçerken **işleme sunucusunu sorgulama havuzundan ayırın** seçeneği, varsayılan bağlantı dizesini kullanarak istemci bağlantıları (olmadan: rw) sorgu havuzu kopyaya yönlendirilirsiniz. Eşitleme değildir, çünkü sorgu havuzundaki çoğaltmalar henüz çevrimiçi henüz tamamlanmamış, yeniden yönlendirilen istemci bağlantıları başarısız olabilir. Başarısız bağlantılar önlemek için tam bir ölçek genişletme ve eşitleme işlemi kadar işleme sunucusunu sorgulama havuzundan ayırın değil seçin. Bellek ve QPU ölçümleri eşitleme durumunu izlemek için kullanabilirsiniz.
 
 ## <a name="related-information"></a>İlgili bilgiler
 

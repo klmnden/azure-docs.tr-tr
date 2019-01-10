@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: juliako
-ms.openlocfilehash: f9ad7fcf414e90acc40ee5cd42e322a3b9e47f17
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 93222129b80592ef5b4e1ed2e1420d975fe9f108
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49381285"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190754"
 ---
 # <a name="generate-a-thumbnail-sprite"></a>Küçük resim sprite oluştur 
 
@@ -70,7 +70,7 @@ Küçük resim Sprite Önayarı oluşturmak için Medya Kodlayıcısı standart'
 
 1.  Görüntü tek bir satır içeren bir sprite görüntüsü oluşturmak mümkün değildir (SpriteColumn görüntüdeki tek bir sütunla 1 sonuçları =).
 2.  Orta boyutlu JPEG görüntüleri sprite görüntülerini Öbekleme henüz desteklenmiyor. Bu nedenle, sonuç birleştirilmiş küçük resim Sprite 8 M piksel geçici bir çözüm ya da daha az olması küçük resimler ve bunların boyutu, sayısını sınırlamak için dikkatli olunmalıdır.
-3.  Azure Media Player, Edge, Chrome ve Firefox tarayıcılarda dokunuşunu destekler. VTT ayrıştırma ıe11'de desteklenmiyor.
+3.  Azure Media Player, Microsoft Edge, Chrome ve Firefox tarayıcılarda dokunuşunu destekler. VTT ayrıştırma ıe11'de desteklenmiyor.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

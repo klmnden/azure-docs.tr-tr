@@ -12,15 +12,15 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2018
+ms.date: 01/07/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: a1d733e918d4b53ea9dd220f5e379e0c8133c03a
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 787c10ab75a3534a73e04f1bd60462ea02fcf42a
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540665"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191726"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Bir Azure Batch havuzunda işlem düğümleri için VM boyutu seçme
 
@@ -42,6 +42,16 @@ Sanal makine yapılandırmasında batch havuzları destekleyen tüm VM boyutlar�
 | Temel A serisi | Basic_A0 (A0) |
 | A Serisi | Standard_A0 |
 | B serisi | Tümü |
+| DC serisi | Tümü | 
+| Aşırı bellek için iyileştirilmiş | Tümü |
+| HB serisi<sup>1</sup> | Tümü | 
+| HC serisi<sup>1</sup> | Tümü |
+| Lsv2 serisi | Tümü |
+| NDv2 serisi<sup>1</sup> | Tümü |
+| NVv2 serisi<sup>1</sup> | Tümü |
+| SAP HANA | Tümü |
+
+<sup>1</sup> şu anda desteklenmez ancak gelecekte desteklenecektir.
 
 Aşağıdaki VM boyutları, yalnızca düşük öncelikli düğümleri için desteklenir:
 

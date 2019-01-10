@@ -12,16 +12,16 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: f6c289c87f4f58fdad8950bdf61fa68016fe8d3e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: d5bb914de1cded7c70516bfb4bfdaa93c83fe0e4
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042079"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188683"
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>RecoveryManager sınıfı ile parça eşleme sorunlarını düzeltme
 
-[RecoveryManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.aspx) sınıfı ADO.Net uygulamaları kolayca algılayıp genel parça eşleme (GSM) parçalı veritabanlarını ortamında yerel parça eşlemesinin (LSM) arasındaki tutarsızlıkları düzeltmek olanağı sağlar.
+[RecoveryManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager) sınıfı ADO.Net uygulamaları kolayca algılayıp genel parça eşleme (GSM) parçalı veritabanlarını ortamında yerel parça eşlemesinin (LSM) arasındaki tutarsızlıkları düzeltmek olanağı sağlar.
 
 Parçalı bir ortamda her bir veritabanı eşleme LSM ve GSM izleyin. Bazen, bir kesme LSM GSM arasında gerçekleşir. Bu durumda, algılamak ve sonu onarmak için RecoveryManager sınıfı kullanın.
 
@@ -49,7 +49,7 @@ Azure SQL veritabanı elastik veritabanı araçları, coğrafi çoğaltma ve ger
 
 ## <a name="retrieving-recoverymanager-from-a-shardmapmanager"></a>Bir ShardMapManager RecoveryManager alınıyor
 
-İlk adım bir RecoveryManager örneği oluşturmaktır. [GetRecoveryManager yöntemi](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getrecoverymanager.aspx) geçerli kurtarma Yöneticisi döndürür [ShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx) örneği. Parça eşlemesi bulunan tüm tutarsızlıkları gidermenin ilk belirli parça eşlemesi için RecoveryManager alınması gerekir.
+İlk adım bir RecoveryManager örneği oluşturmaktır. [GetRecoveryManager yöntemi](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getrecoverymanager) geçerli kurtarma Yöneticisi döndürür [ShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager) örneği. Parça eşlemesi bulunan tüm tutarsızlıkları gidermenin ilk belirli parça eşlemesi için RecoveryManager alınması gerekir.
 
    ```java
     ShardMapManager smm = ShardMapManagerFactory.GetSqlShardMapManager(smmConnnectionString,  
@@ -83,7 +83,7 @@ Veritabanı silme işlemi kasıtlı varsayıldığından son yönetim temizleme 
 
 ## <a name="to-detect-mapping-differences"></a>Eşleme farkları algılamak için
 
-[DetectMappingDifferences yöntemi](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.detectmappingdifferences.aspx) seçer ve her iki parça eşlemesi (GSM ve LSM) eşleşmeleri uzlaştırır parça eşlemesi (yerel veya genel) gerçekte kaynağı olarak döndürür.
+[DetectMappingDifferences yöntemi](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.detectmappingdifferences) seçer ve her iki parça eşlemesi (GSM ve LSM) eşleşmeleri uzlaştırır parça eşlemesi (yerel veya genel) gerçekte kaynağı olarak döndürür.
 
    ```java
    rm.DetectMappingDifferences(location, shardMapName);
@@ -94,19 +94,19 @@ Veritabanı silme işlemi kasıtlı varsayıldığından son yönetim temizleme 
 
 ## <a name="to-resolve-mapping-differences"></a>Eşleme farklılıkları çözmeye
 
-[ResolveMappingDifferences yöntemi](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.resolvemappingdifferences.aspx) parça eşlemesi (yerel veya genel) birini gerçeklik kaynağı olarak seçer ve her iki parça eşlemesi (GSM ve LSM) eşleşmeleri uzlaştırır.
+[ResolveMappingDifferences yöntemi](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.resolvemappingdifferences) parça eşlemesi (yerel veya genel) birini gerçeklik kaynağı olarak seçer ve her iki parça eşlemesi (GSM ve LSM) eşleşmeleri uzlaştırır.
 
    ```java
    ResolveMappingDifferences (RecoveryToken, MappingDifferenceResolution.KeepShardMapping);
    ```
 
 * *RecoveryToken* parametre eşlemeleri GSM ve belirli parça için LSM arasındaki farklılıkları numaralandırır.
-* [MappingDifferenceResolution numaralandırma](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.mappingdifferenceresolution.aspx) parça eşlemeleri arasındaki farkı çözmek için yöntem belirtmek için kullanılır.
+* [MappingDifferenceResolution numaralandırma](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.mappingdifferenceresolution) parça eşlemeleri arasındaki farkı çözmek için yöntem belirtmek için kullanılır.
 * **MappingDifferenceResolution.KeepShardMapping** doğru eşleme LSM içerdiğinde ve bu nedenle parça eşlemesindeki kullanılmalıdır önerilir. Bir yük devretme ise genellikle böyledir: parça artık yeni bir sunucuda yer alır. (RecoveryManager.DetachShard yöntemi kullanılarak) GSM parça kaldırılmalıdır olduğundan, bir eşleme üzerinde GSM artık yok. Bu nedenle, LSM parça eşlemesini yeniden oluşturmak için kullanılması gerekir.
 
 ## <a name="attach-a-shard-to-the-shardmap-after-a-shard-is-restored"></a>Bir parça geri yüklendikten sonra ShardMap için parça ekleme
 
-[AttachShard yöntemi](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.attachshard.aspx) verilen parça parça eşlemesine ekler. Parça eşleme tutarsızlıkları algılar ve eşlemeleri parça parça geri noktasında eşleşecek şekilde güncelleştirir. Zaman içinde nokta geri yüklemesi, eklenen zaman damgasına sahip yeni bir veritabanı varsayılan olarak bu yana (parça kurulduğu önce) özgün veritabanı adı yansıtacak şekilde veritabanı da yeniden adlandırılır varsayılır.
+[AttachShard yöntemi](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.attachshard) verilen parça parça eşlemesine ekler. Parça eşleme tutarsızlıkları algılar ve eşlemeleri parça parça geri noktasında eşleşecek şekilde güncelleştirir. Zaman içinde nokta geri yüklemesi, eklenen zaman damgasına sahip yeni bir veritabanı varsayılan olarak bu yana (parça kurulduğu önce) özgün veritabanı adı yansıtacak şekilde veritabanı da yeniden adlandırılır varsayılır.
 
    ```java
    rm.AttachShard(location, shardMapName)

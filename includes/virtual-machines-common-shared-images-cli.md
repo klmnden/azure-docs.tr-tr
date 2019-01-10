@@ -8,18 +8,24 @@ ms.topic: include
 ms.date: 09/13/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 830deb7569772b610b7e6abde649830b7ad67a92
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 547e0b08b2a57b4b9192f11907f77160142d4466
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47048287"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54192134"
 ---
+## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell'i başlatma
+
+Azure Cloud Shell, bu makaledeki adımları çalıştırmak için kullanabileceğiniz ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. 
+
+Cloud Shell'i açmak için kod bloğunun sağ üst köşesinden **Deneyin**'i seçmeniz yeterlidir. İsterseniz [https://shell.azure.com/bash](https://shell.azure.com/bash) adresine giderek Cloud Shell'i ayrı bir tarayıcı sekmesinde de başlatabilirsiniz. **Kopyala**’yı seçerek kod bloğunu kopyalayın, Cloud Shell’e yapıştırın ve Enter tuşuna basarak çalıştırın.
+
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu makalede örneği tamamlamak için bir genelleştirilmiş VM'nin yönetilen görüntüsü mevcut olmalıdır. Daha fazla bilgi için [öğretici: Azure CLI 2.0 ile Azure VM'deki özel görüntüsünü oluşturma](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). 
+Bu makalede örneği tamamlamak için bir genelleştirilmiş VM'nin yönetilen görüntüsü mevcut olmalıdır. Daha fazla bilgi için [Öğreticisi: Azure CLI 2.0 ile Azure VM'deki özel görüntüsünü oluşturma](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). 
 
-## <a name="preview-register-the-feature"></a>Önizleme: özelliği Kaydet
+## <a name="preview-register-the-feature"></a>Önizleme: Özelliği kaydet
 
 Paylaşılan resim galerileri Önizleme aşamasındadır ancak özelliğini kullanabilmeniz için önce kaydetmeniz gerekir. Paylaşılan resim galerileri özelliği kaydetmek için:
 

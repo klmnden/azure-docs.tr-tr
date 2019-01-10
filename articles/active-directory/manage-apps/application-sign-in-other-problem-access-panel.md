@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 830fc1d96825e28aad41aac9afee499b9bc1f7ae
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 02aa4eb37437861d428c6f361b3ff21def56b49b
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357789"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189839"
 ---
 # <a name="problems-signing-in-to-an-application-from-the-access-panel"></a>Bir uygulamaya erişim panelinden oturum açmada sorun
 
@@ -68,7 +68,7 @@ Parola tabanlı SSO için son kullanıcının tarayıcılar olabilir:
 
 -   Internet Explorer 8, 9, 10, 11 – Windows 7 veya üzeri
 
--   Edge Windows 10 Anniversary Edition veya sonrası
+-   Windows 10 Anniversary Edition veya sonrası, Microsoft Edge
 
 -   Chrome--Üzerinde Windows 7 ve daha sonra ve MacOS x veya sonrası
 
@@ -92,11 +92,11 @@ Erişim paneli tarayıcı uzantısını yüklemek için aşağıdaki adımları 
 
 7.  Erişim paneline oturum açın ve, varsa görebilirsiniz **başlatma** parola SSO uygulamalarınız
 
-Ayrıca uzantısı Chrome ve Edge'dir için aşağıdaki doğrudan bağlantılardan indirebilirsiniz:
+Ayrıca uzantısı Chrome ve Microsoft Edge için aşağıdaki doğrudan bağlantılardan indirebilirsiniz:
 
 -   [Chrome erişim paneli uzantısı](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
--   [Edge erişim paneli uzantısı](https://www.microsoft.com/store/apps/9pc9sckkzk84)
+-   [Microsoft Edge erişim paneli uzantısı](https://www.microsoft.com/store/apps/9pc9sckkzk84)
 
 ## <a name="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Federasyon çoklu oturum açma Azure AD galeri uygulaması için yapılandırma
 
@@ -500,7 +500,7 @@ Bir veya daha fazla kullanıcıları uygulamaya doğrudan atamak için aşağıd
 
 11. Üzerine **kullanıcı** göstermek için listedeki bir **onay kutusu**. Kullanıcının profil fotoğrafı veya kullanıcı için eklenecek logosu yanındaki onay kutusuna tıklayın **seçili** listesi.
 
-12. **İsteğe bağlı:** isteyip istemediğini **birden fazla kullanıcı eklemek**, başka bir tür **tam adı** veya **e-posta adresi** içine **adına göre arama veya e-posta adresi** arama kutusuna ve bu kullanıcıyı eklemek için onay kutusunu **seçili** listesi.
+12. **İsteğe bağlı:** İsteyip istemediğini **birden fazla kullanıcı eklemek**, başka bir tür **tam adı** veya **e-posta adresi** içine **adına veya e-posta adresine göre arama** Arama kutusuna ve bu kullanıcıyı eklemek için onay kutusunu **seçili** listesi.
 
 13. Kullanıcı seçme işlemini tamamladığınızda, tıklayın **seçin** uygulamaya atanan kullanıcıların ve grupların listesi eklemek için düğme.
 

@@ -8,24 +8,28 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3e760f7b9fa1bb332ff6467545dd01a1bf611f52
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: e1905f6a13dcb596d60a588757c55250253a6b54
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426218"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189074"
 ---
 # <a name="azure-analysis-services-samples"></a>Azure Analysis Services örnekleri
+
 Aşağıdaki örnek kaynaklar hakkında bilgi edinin ve test ortamınız için Analysis Services yardımcı olması için kullanın.
 
 ## <a name="code-samples"></a>Kod örnekleri
+
 [Analysis Services](https://github.com/Microsoft/Analysis-Services) depo GitHub üzerinde açık kaynak kod örnekleri ve topluluk projeleri içerir. 
 
 ## <a name="tabular-model-project-and-database-samples"></a>Tablosal model projesi ve veritabanı örnekleri
+
 [Analysis Services için Adventure Works](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks-analysis-services) en yaygın kullanılan örnek tablosal model projesi, GitHub üzerinde bulunur. Bir VS projesine veya tamamlanmış örnek tablo modelli bir veritabanı indirebilirsiniz.
 
 
 ## <a name="sample-databases-on-github"></a>GitHub üzerinde örnek veritabanları
+
 Github'da Bu örnek veritabanları oluşturmak ve kendi modelleri test etmek için kullanılabilir. 
 
 [Adventure Works örnek veritabanları](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks2014)
@@ -33,6 +37,7 @@ Github'da Bu örnek veritabanları oluşturmak ve kendi modelleri test etmek iç
 [Wide World Importers örnek veritabanları](https://github.com/Microsoft/sql-server-samples/releases/tag/wide-world-importers-v1.0)
 
 ## <a name="adventure-works-internet-sales-sample-model-in-azure-portal"></a>Adventure Works Internet satışları örnek model Azure portalında
+
 Azure portalında bir Analysis Services sunucunuz varsa, hızla ve kolayca bir örnek model oluşturma. Sunucunuzun genel bakış sayfasında Azure Portalı'nda tıklatın **yeni modeli**ve ardından **veri kaynağı seçin**seçin **örnek verileri**.
 
 

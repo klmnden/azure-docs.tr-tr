@@ -1,5 +1,5 @@
 ---
-title: VM'ler (Önizleme) için Azure İzleyici günlüklerinden sorgulama | Microsoft Docs
+title: Azure İzleyici (Önizleme) VM'ler için sorgu günlüklerini nasıl | Microsoft Docs
 description: VM çözümü için Azure İzleyici ölçümleri iletir ve günlük verileri Log Analytics ve bu makalede kayıtları açıklar ve örnek sorgular içerir.
 services: azure-monitor
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 676baa6947eaf8b3842b0100657f42a1e6438061
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: e9e00dd9d05ff7339a6b5fd93e86bae61fbbf5ee
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184891"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188445"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Azure İzleyici günlüklerinden VM'ler (Önizleme) için sorgulama
 VM'ler için Azure İzleyici, performansı ve bağlantı ölçümler, bilgisayar ve envanter verileri işlemek ve sistem durumu bilgilerini toplar ve Azure İzleyici'de Log Analytics veri deposuna iletir.  Bu veriler için kullanılabilir [arama](../../azure-monitor/log-query/log-query-overview.md) Log analytics'te. Geçiş planlaması kapasite analizi, bulma ve isteğe bağlı performans sorunlarını giderme senaryoları için bu verileri uygulayabilirsiniz.

@@ -5,25 +5,24 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3adf0c9c2e2b264904e66b82716447d634aaeee7
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 47223f22c797d892bc7cbdc0086439ee9cae9fcb
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209658"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187731"
 ---
 # <a name="import-a-power-bi-desktop-file"></a>Power BI Desktop dosyasını içeri aktarın
 
-Azure Analysis Services'e Power BI Desktop dosyası (pbıx) veri modelinde içeri aktarabilirsiniz. Model meta verileri, önbelleğe alınmış verileri ve veri kaynağı bağlantıları içeri aktarılır. Raporlar ve görselleştirmeler içeri aktarılmaz. Power BI Desktop'tan modelleri kullanarak 1400 uyumluluk düzeyinde veri alma işlemi.
+Azure Analysis Services'e Power BI Desktop dosyası (pbıx) veri modelinde içeri aktarabilirsiniz. Model meta verileri, önbelleğe alınmış verileri ve veri kaynağı bağlantıları içeri aktarılır. Raporlar ve görselleştirmeler içeri aktarılmaz. İçeri aktarılan veri modelleri Power BI Desktop'tan 1400 ve 1465 uyumluluk düzeyinde verilir.
 
 > [!IMPORTANT]
 > Bu özellik kullanım dışı bırakılmıştır. Kaldırılan veya gelecek bir güncelleştirmede önemli ölçüde değiştirilmiş olabilir. Bu özelliği ileride yapılacak güncelleştirmelerle uyumluluğu korumak için yeni ve mevcut projelerinde'ni kullanmayı Sonlandırabileceğiniz önerilir. Daha gelişmiş model geliştirme ve test için Visual Studio (SSDT) ve SQL Server Management Studio (SSMS) en iyisidir.
 
-**Kısıtlamaları**   
-
+## <a name="restrictions"></a>Kısıtlamalar  
 
 - Power BI Desktop'ta veri modelinizi oluşturduysanız Temmuz 2018 Güncelleştirmesi (2.60.5169.3201) veya daha sonra hiçbir Önizleme özelliklerinin etkin olduğu emin olun. Önizleme özellikleri, Azure Analysis Services'de henüz desteklenmiyor. İçeri aktarılırken aşağıdaki hata iletisini alırsanız pbıx dosyasını henüz Azure Analysis Services'de desteklenmemektedir etkin Önizleme özellikleri vardır.
 

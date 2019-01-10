@@ -1,19 +1,19 @@
 ---
-title: 'Azure Analysis Services öğreticisi - 6. Ders: Ölçü oluşturma | Microsoft Docs'
+title: 'Azure Analysis Services Öğreticisi 6. Ders: Ölçü oluşturma | Microsoft Docs'
 description: Azure Analysis Services öğretici projesinde ölçülerin nasıl oluşturulacağını açıklar.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ce38cac7a0b175004fbb670069ddbeefb53e96e7
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 0e9f798917b557d99259ece4773cce0853b15237
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428581"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191692"
 ---
 # <a name="create-measures"></a>Ölçü oluşturma
 
@@ -25,10 +25,10 @@ Bu derste, modelinize eklenecek ölçüleri oluşturursunuz. Oluşturduğunuz he
   
 Bu derste, hem formül çubuğuna bir DAX formülü girerek hem de Otomatik Toplam özelliğini kullanarak ölçüler oluşturursunuz.  
   
-Bu dersin tahmini tamamlanma süresi: **30 dakika**  
+Bu dersi tamamlamak için tahmini süre: **30 dakika**  
   
 ## <a name="prerequisites"></a>Önkoşullar  
-Bu konu başlığı, sırayla tamamlanması gereken bir tablosal modelleme öğreticisinin parçasıdır. Bu dersteki görevleri gerçekleştirmeden önce, bir önceki dersi tamamlamış olmanız gerekir: [5. Ders: Hesaplanan sütunlar oluşturma](../tutorials/aas-lesson-5-create-calculated-columns.md).  
+Bu konu başlığı, sırayla tamamlanması gereken bir tablosal modelleme öğreticisinin parçasıdır. Bu dersteki görevleri gerçekleştirmeden önce bir önceki dersi tamamlamış olmanız gerekir: [5. Ders: Hesaplanan sütunlar oluşturma](../tutorials/aas-lesson-5-create-calculated-columns.md).  
   
 ## <a name="create-measures"></a>Ölçü oluşturma  
   
@@ -122,6 +122,6 @@ Bu konu başlığı, sırayla tamamlanması gereken bir tablosal modelleme öğr
 FactInternetSales tablosu için oluşturulan ölçüler, kullanıcının seçtiği filtre tarafından tanımlanan öğeler için satış, maliyet ve kar marjı gibi kritik finansal verileri analiz etmek için kullanılabilir.  
   
 ## <a name="whats-next"></a>Sırada ne var?
-[7. Ders: Önemli Performans Göstergeleri oluşturma](../tutorials/aas-lesson-7-create-key-performance-indicators.md).  
+[7. Ders: Ana performans göstergeleri oluşturma](../tutorials/aas-lesson-7-create-key-performance-indicators.md).  
 
   

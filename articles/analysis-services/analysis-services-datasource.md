@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7d8bde6beeb4bd0c6234d7c5aa63be9e150953f5
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: e1a001a60151136be6bde9de38f971807cf0c288
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427255"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188411"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services'da desteklenen veri kaynakları
 
@@ -85,7 +85,7 @@ Bağlanan veri kaynaklarından ve Azure AS sunucusuna bir şirket içi ağ geçi
 
 ## <a name="specifying-a-different-provider"></a>Farklı bir sağlayıcı belirtme
 
-Azure Analysis Services veri modelleri, belirli veri kaynaklarına bağlanırken görüntülenen farklı veri sağlayıcıları gerektirebilir. Bazı durumlarda, tablosal modeller SQL Server Native Client (SQLNCLI11) gibi yerel sağlayıcılarını kullanarak veri kaynaklarına bağlanan bir hata döndürebilir. SQLOLEDB dışındaki yerel sağlayıcıları kullanıyorsanız, hata iletisini görebilirsiniz: **'SQLNCLI11.1' kayıtlı değil sağlayıcısı**. Ya da şirket içi veri kaynaklarına bağlanma bir DirectQuery modeli kullandığınız ve yerel sağlayıcıları kullanıyorsanız hata iletisini görebilirsiniz: **OLE DB satır kümesi oluşturulurken hata oluştu. 'LIMIT' yakınındaki sözdizimi yanlış**.
+Azure Analysis Services veri modelleri, belirli veri kaynaklarına bağlanırken görüntülenen farklı veri sağlayıcıları gerektirebilir. Bazı durumlarda, tablosal modeller SQL Server Native Client (SQLNCLI11) gibi yerel sağlayıcılarını kullanarak veri kaynaklarına bağlanan bir hata döndürebilir. SQLOLEDB dışındaki yerel sağlayıcılarını kullanarak hata iletisini görebilirsiniz: **Sağlayıcı 'SQLNCLI11.1' kayıtlı değil**. Ya da şirket içi veri kaynaklarına bağlanma bir DirectQuery modeli kullandığınız ve yerel sağlayıcıları kullanıyorsanız hata iletisini görebilirsiniz: **OLE DB satır kümesi oluşturulurken hata oluştu. 'LIMIT' yakınındaki sözdizimi yanlış**.
 
 Azure Analysis Services için bir şirket içi SQL Server Analysis Services tablolu modeli geçiş yaparken, sağlayıcı değiştirmek gerekli olabilir.
 

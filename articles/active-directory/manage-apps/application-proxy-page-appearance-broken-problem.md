@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 6354b4b0224effb1eef063779dba736cb6263286
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 21634c5eeacd9a52c6a970d24b0f8afa3a0d9345
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141637"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191641"
 ---
 # <a name="application-page-does-not-display-correctly-for-an-application-proxy-application"></a>Uygulama sayfası için bir uygulama proxy'si uygulaması düzgün görüntülenmiyor
 
@@ -28,7 +28,7 @@ Bu makalede sayfasına gidin, ancak sayfadaki bir şey doğru görünmüyor Azur
 ## <a name="overview"></a>Genel Bakış
 Bir uygulama proxy'si uygulama yayımladığınızda, uygulamaya erişirken yalnızca, kök altında sayfalarını daha erişilebilir. Uygulama için kullanılan kök İç URL sayfası doğru görüntülenmiyor, bazı sayfa kaynaklar eksik olabilir. Çözümlemek için yayımladığınız emin olun *tüm* kaynaklar için sayfa, uygulamanızın bir parçası olarak.
 
-Eksik sorunun Ağ İzleyicisi'ni açarak olup olmadığını doğrulayabilirsiniz (Fiddler veya F12 gibi araçları Internet Explorer/Edge), sayfa yükleme ve 404 hatalarını aranıyor. Bu sayfa şu anda bulunamıyor ve bunları yayımlamak gereken gösterir.
+Eksik sorunun Ağ İzleyicisi'ni açarak olup olmadığını doğrulayabilirsiniz (Fiddler veya F12 gibi araçları Internet Explorer/Microsoft edge'de), sayfa yükleme ve 404 hatalarını aranıyor. Bu sayfa şu anda bulunamıyor ve bunları yayımlamak gereken gösterir.
 
 Bu durumda bir örnek olarak, dahili URL'yi kullanarak masrafları uygulama yayımladığınız varsayılmaktadır http://myapps/expenses, ancak stil uygulamanın kullandığı http://myapps/style.css. Bu durumda, stil sayfası, masrafları uygulama yükleme durum için bir 404 hatası style.css yüklenmeye çalışılırken, uygulamanızda yayımlanmaz. Bu örnekte, bir iç URL uygulamayla yayımlayarak Sorun çözülene http://myapp/.
 

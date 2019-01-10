@@ -1,23 +1,23 @@
 ---
-title: 'Azure Analysis Services öğreticisi 11. ders: Rol oluşturma | Microsoft Docs'
+title: 'Azure Analysis Services Öğreticisi 11. Ders: Rol oluşturma | Microsoft Docs'
 description: Azure Analysis Services öğretici projesinde rollerin nasıl oluşturulacağını açıklar.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1a9ecea835e42c90ce7d71617666d210182fe465
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 5b89051cab7e89f79a2b62a392173e6dc234e48d
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428918"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189754"
 ---
 # <a name="create-roles"></a>Rol oluşturma
 
-Bu derste rol oluşturacaksınız. Roller, erişimi yalnızca rol üyesi olan kullanıcılarla sınırlayarak model veritabanı nesnesi ve veri güvenliği sağlar. Her rol tek bir izinle tanımlanır: Hiçbiri, Okuma, Okuma ve İşlem, İşlem veya Yönetici. Roller, Rol Yöneticisi kullanılarak model yazma sırasında tanımlanabilir. Bir model dağıtıldıktan sonra SQL Server Management Studio’yu (SSMS) kullanarak rolleri yönetebilirsiniz. Daha fazla bilgi için bkz. [Roller](https://docs.microsoft.com/sql/analysis-services/tabular-models/roles-ssas-tabular).
+Bu derste rol oluşturacaksınız. Roller, erişimi yalnızca rol üyesi olan kullanıcılarla sınırlayarak model veritabanı nesnesi ve veri güvenliği sağlar. Her rol tek bir izinle tanımlanır: Hiçbiri, okuma, okuma ve işlem, işlem veya yönetici. Roller, Rol Yöneticisi kullanılarak model yazma sırasında tanımlanabilir. Bir model dağıtıldıktan sonra SQL Server Management Studio’yu (SSMS) kullanarak rolleri yönetebilirsiniz. Daha fazla bilgi için bkz. [Roller](https://docs.microsoft.com/sql/analysis-services/tabular-models/roles-ssas-tabular).
   
 > [!NOTE]  
 > Bu öğreticinin tamamlanması için rol oluşturmak gerekli değildir. Varsayılan olarak, o anda oturum açmış olduğunuz hesap, model üzerinde Yönetici ayrıcalıklarına sahiptir. Ancak kuruluşunuzdaki diğer kullanıcıların bir raporlama istemcisi kullanarak göz atması için, Okuma izinlerine sahip en az bir rol oluşturmanız ve bu kullanıcıları üye olarak eklemeniz gerekir.  
@@ -30,12 +30,12 @@ Bu derste rol oluşturacaksınız. Roller, erişimi yalnızca rol üyesi olan ku
   
 -   **Yönetici** – Bu rol, model veritabanında yönetici görevleri gerçekleştirmek için sınırsız erişim ve izinler veren Yönetici iznine sahip olmasını istediğiniz kullanıcıları içerebilir.  
   
-Kuruluşunuzdaki Windows kullanıcı ve grup hesapları benzersiz olduğu için, kuruluşunuzdan üyelere hesaplar ekleyebilirsiniz. Ancak bu öğretici için, üyeleri boş da bırakabilirsiniz. Her bir rolün etkisini daha sonra 12. Ders: Excel’de çözümleme dersinde test edeceksiniz.  
+Kuruluşunuzdaki Windows kullanıcı ve grup hesapları benzersiz olduğu için, kuruluşunuzdan üyelere hesaplar ekleyebilirsiniz. Ancak bu öğretici için, üyeleri boş da bırakabilirsiniz. Daha sonra 12. Ders her rolün etkisini test edin: Excel'de analiz edin.  
   
-Bu dersin tahmini tamamlanma süresi: **15 dakika**  
+Bu dersi tamamlamak için tahmini süre: **15 dakika**  
   
 ## <a name="prerequisites"></a>Önkoşullar  
-Bu konu, sırayla tamamlanması gereken bir tablo modelleme öğreticisinin bir parçasıdır. Bu dersteki görevleri gerçekleştirmeden önce, bir önceki dersi tamamlamış olmanız gerekir: [10. Ders: Bölümleme oluşturma](../tutorials/aas-lesson-10-create-partitions.md).  
+Bu konu başlığı, sırayla tamamlanması gereken bir tablosal modelleme öğreticisinin parçasıdır. Bu dersteki görevleri gerçekleştirmeden önce bir önceki dersi tamamlamış olmanız gerekir: [10. Ders: Bölüm oluşturma](../tutorials/aas-lesson-10-create-partitions.md).  
   
 ## <a name="create-roles"></a>Rol oluşturma  
   
@@ -51,7 +51,7 @@ Bu konu, sırayla tamamlanması gereken bir tablo modelleme öğreticisinin bir 
 
     ![aas-lesson11-new-role](../tutorials/media/aas-lesson11-new-role.png) 
   
-5.  İsteğe bağlı: **Üyeler** sekmesine ve ardından **Ekle**’ye tıklayın. **Kullanıcı veya Grup Seçin** iletişim kutusunda, kuruluşunuzda role dahil etmek istediğiniz Windows kullanıcılarını veya gruplarını girin.  
+5.  İsteğe bağlı: **Üyeler** sekmesine ve ardından **Ekle**'ye tıklayın. **Kullanıcı veya Grup Seçin** iletişim kutusunda, kuruluşunuzda role dahil etmek istediğiniz Windows kullanıcılarını veya gruplarını girin.  
   
 #### <a name="to-create-a-sales-analyst-us-user-role"></a>Satış Analisti ABD kullanıcı rolü oluşturmak için  
   
@@ -70,7 +70,7 @@ Bu konu, sırayla tamamlanması gereken bir tablo modelleme öğreticisinin bir 
     Satır Filtresi formülü bir Boole (TRUE/FALSE) değerine çözümlenmelidir. Bu formülde, yalnızca Ülke Bölge Kodu “US” olan satırların kullanıcıya görünür olacağını belirlersiniz.  
     ![aas-lesson11-role-filter](../tutorials/media/aas-lesson11-role-filter.png) 
   
-6.  İsteğe bağlı: **Üyeler** sekmesine ve ardından **Ekle**’ye tıklayın. **Kullanıcı veya Grup Seçin** iletişim kutusunda, kuruluşunuzda role dahil etmek istediğiniz Windows kullanıcılarını veya gruplarını girin.  
+6.  İsteğe bağlı: **Üyeler** sekmesine ve ardından **Ekle**'ye tıklayın. **Kullanıcı veya Grup Seçin** iletişim kutusunda, kuruluşunuzda role dahil etmek istediğiniz Windows kullanıcılarını veya gruplarını girin.  
   
 #### <a name="to-create-an-administrator-user-role"></a>Yönetici kullanıcı rolü oluşturmak için  
   
@@ -80,11 +80,11 @@ Bu konu, sırayla tamamlanması gereken bir tablo modelleme öğreticisinin bir 
   
 3.  Bu role **Yönetici** izni verin.  
   
-4.  İsteğe bağlı: **Üyeler** sekmesine ve ardından **Ekle**’ye tıklayın. **Kullanıcı veya Grup Seçin** iletişim kutusunda, kuruluşunuzda role dahil etmek istediğiniz Windows kullanıcılarını veya gruplarını girin. 
+4.  İsteğe bağlı: **Üyeler** sekmesine ve ardından **Ekle**'ye tıklayın. **Kullanıcı veya Grup Seçin** iletişim kutusunda, kuruluşunuzda role dahil etmek istediğiniz Windows kullanıcılarını veya gruplarını girin. 
   
   
 ## <a name="whats-next"></a>Sırada ne var?
-[12. Ders: Excel’de çözümleme](../tutorials/aas-lesson-12-analyze-in-excel.md).
+[12. Ders: Excel'de Çözümle](../tutorials/aas-lesson-12-analyze-in-excel.md).
 
   
   

@@ -10,12 +10,12 @@ ms.date: 01/08/19
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 07f77a8390edcde1128a7381a54d622611637d78
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: ff7fb909e3f6e26846114c4b7bfdddccd07526ec
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118311"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188905"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack veri merkezi tümleştirmesi - kimlik
 Kimlik sağlayıcısı Azure Stack, Azure Active Directory (Azure AD) veya Active Directory Federasyon Hizmetleri (AD FS) kullanarak dağıtabilirsiniz. Azure Stack dağıtmadan önce seçim yapmanız gerekir. AD FS dağıtımı da bağlantı kesik moddayken Azure Stack dağıtımı olarak adlandırılır.
@@ -278,7 +278,7 @@ El ile komutları çalıştırmak karar verirseniz, aşağıdaki adımları izle
    > [!IMPORTANT]  
    > AD FS MMC ek bileşenini Windows Server 2012 veya 2012 R2 AD FS kullanırken verme yetkilendirme kurallarını yapılandırmak için kullanmanız gerekir.
 
-4. Azure Stack erişmek için Internet Explorer veya Edge Tarayıcısı'ı kullandığınızda, belirteç bağlamaları yoksay gerekir. Aksi takdirde, oturum açma denemesi başarısız. AD FS örneğinizin veya bir grup üyesi, aşağıdaki komutu çalıştırın:
+4. Azure Stack erişmek için Internet Explorer veya Microsoft Edge Tarayıcısı'ı kullandığınızda, belirteç bağlamaları yoksay gerekir. Aksi takdirde, oturum açma denemesi başarısız. AD FS örneğinizin veya bir grup üyesi, aşağıdaki komutu çalıştırın:
 
    > [!note]  
    > Bu adım, Windows Server 2012 veya 2012 R2 AD FS kullanırken geçerli değildir. Bu komut atla ve devam et ile tümleştirme güvenlidir.

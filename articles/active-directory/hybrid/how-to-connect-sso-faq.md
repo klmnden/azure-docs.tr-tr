@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e47dcda90682bd1f83dbb5fdc6a106f80853d2d0
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 0672fc06130ce58ae3155672c66ac06ae96bc7b9
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424842"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190645"
 ---
-# <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory sorunsuz çoklu oturum açma: sık sorulan sorular
+# <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory sorunsuz çoklu oturum açma: Sık sorulan sorular
 
 Bu makalede, biz sık sorulan sorular hakkında Azure Active Directory sorunsuz çoklu oturum açma (sorunsuz çoklu oturum açma) adresi. Yeni içerik için geri kontrol etmeyi unutmayın.
 
@@ -65,7 +65,7 @@ Evet. Sorunsuz çoklu oturum açmayı destekleyen `Alternate ID` gösterildiği 
 
 ## <a name="what-is-the-difference-between-the-single-sign-on-experience-provided-by-azure-ad-joinactive-directory-azureadjoin-overviewmd-and-seamless-sso"></a>Hangi çoklu oturum açma deneyimini arasındaki farkı tarafından sağlanan [Azure AD'ye katılımı](../active-directory-azureadjoin-overview.md) ve sorunsuz çoklu oturum açma?
 
-[Azure AD'ye katılım](../active-directory-azureadjoin-overview.md) cihazlarını Azure AD'ye kaydedildiyse, kullanıcılara SSO sağlar. Bu cihazlar mutlaka etki alanına katılmış olması gerekmez. SSO kullanarak sağlanan *birincil yenileme belirteçleri* veya *PRTs*ve Kerberos değil. Windows 10 cihazlarda en iyi kullanıcı deneyimi. SSO, Edge tarayıcının otomatik olarak gerçekleşir. Bir tarayıcı uzantısı kullanımı ile Chrome üzerinde de çalışır.
+[Azure AD'ye katılım](../active-directory-azureadjoin-overview.md) cihazlarını Azure AD'ye kaydedildiyse, kullanıcılara SSO sağlar. Bu cihazlar mutlaka etki alanına katılmış olması gerekmez. SSO kullanarak sağlanan *birincil yenileme belirteçleri* veya *PRTs*ve Kerberos değil. Windows 10 cihazlarda en iyi kullanıcı deneyimi. SSO, Microsoft Edge tarayıcısında otomatik olarak gerçekleşir. Bir tarayıcı uzantısı kullanımı ile Chrome üzerinde de çalışır.
 
 Kiracınızda Azure AD Join ve sorunsuz çoklu oturum açma kullanabilirsiniz. Bu iki özellik tamamlayıcıdır. Her iki özelliği açıksa, Azure AD'ye katılım'nden SSO sorunsuz çoklu oturum açma öncelik kazanır.
 

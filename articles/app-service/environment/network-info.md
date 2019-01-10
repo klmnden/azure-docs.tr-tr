@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 3939d8dce641d066a2470612068df7102b317a70
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: d22b181baa9b9e6d01fb92a3644078ecbd6af7be
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630470"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191607"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>App Service ortamı ağ konuları #
 
@@ -131,7 +131,7 @@ ILB ASE'NİZİN etki alanı adı ise *contoso.net* ve uygulama adınız *testapp
 
 ## <a name="functions-and-web-jobs"></a>İşlevler ve Web işleri ##
 
-Hem işlevler hem de Web işleri üzerinde SCM sitesine bağlıdır ancak tarayıcınız SCM sitesine ulaşabileceği sürece ILB ASE'de, uygulamalarınızı olsa bile, portalı kullanmak için desteklenir.  ILB ASE'nizi bir otomatik olarak imzalanan sertifika kullanıyorsanız, o sertifikaya güvenmek için tarayıcınızı etkinleştirmeniz gerekir.  IE ve sertifika anlamına gelir Edge için bilgisayar güven deposunda olması gerekir.  Tarayıcıdaki sertifika daha önce büyük olasılıkla scm sitesine doğrudan tuşlarına basarak kabul ettiğiniz anlamına gelir Chrome kullanıyorsanız.  En iyi çözüm, tarayıcının güven zincirinde olan ticari bir sertifika kullanmaktır.  
+Hem işlevler hem de Web işleri üzerinde SCM sitesine bağlıdır ancak tarayıcınız SCM sitesine ulaşabileceği sürece ILB ASE'de, uygulamalarınızı olsa bile, portalı kullanmak için desteklenir.  ILB ASE'nizi bir otomatik olarak imzalanan sertifika kullanıyorsanız, o sertifikaya güvenmek için tarayıcınızı etkinleştirmeniz gerekir.  IE ve sertifika anlamına gelir Microsoft Edge için bilgisayar güven deposunda olması gerekir.  Tarayıcıdaki sertifika daha önce büyük olasılıkla scm sitesine doğrudan tuşlarına basarak kabul ettiğiniz anlamına gelir Chrome kullanıyorsanız.  En iyi çözüm, tarayıcının güven zincirinde olan ticari bir sertifika kullanmaktır.  
 
 ## <a name="ase-ip-addresses"></a>ASE IP adresleri ##
 

@@ -5,21 +5,22 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 657800c6f96560c68e690ccbd1dfb166c5034812
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 51a0f560a0e4b6ff791d5ed3f9f221eb2eeb9b4d
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430145"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191352"
 ---
 # <a name="analysis-services-high-availability"></a>Analysis Services yüksek kullanılabilirlik
+
 Bu makalede, Azure Analysis Services sunucuları için yüksek kullanılabilirlik işlemlerini açıklar. 
 
-
 ## <a name="assuring-high-availability-during-a-service-disruption"></a>Yüksek oranda kullanılabilir bir hizmet kesintisi sırasında işlemlerini
+
 Ender olsa da bir Azure veri merkezinde bir kesinti olabilir. Bir kesinti oluştuğunda, bu işlem birkaç dakika sürebilecek veya saatler alacak neden olur. Yüksek kullanılabilirlik çoğunlukla server yedekliliği ile sağlanır. Azure Analysis Services ile ek, İkincil sunucuları bir veya daha fazla bölgede oluşturarak yedeklilik elde edebilirsiniz. Verileri ve meta verileri bu sunucular üzerinde yapıldığından emin olmak için yedekli sunucuları, oluşturma eşitlenmiş olduğunda bir bölgede sunucusuyla, çevrimdışı duruma geçti, şunları yapabilirsiniz:
 
 * Diğer bölgelerde yedekli sunuculara modelleri dağıtın. Bu yöntem, hem birincil sunucu hem de yedekli sunucular-paralel veri işleme gerektirir, tüm sunucuların işlemlerini eşitlenmiş.
@@ -31,6 +32,7 @@ Her iki durumda da, birincil sunucu, bir kesinti oluşursa raporlama istemcileri
 Raporlama istemcilerde bağlantı dizelerini değiştirmek zorunda kalmamak için bir sunucu oluşturabilirsiniz [diğer](analysis-services-server-alias.md) birincil sunucunuzun. Birincil sunucunun arıza yaparsa, diğer ad başka bir bölgede yedekli bir sunucuya işaret edecek şekilde değiştirebilirsiniz. Diğer ad, birincil sunucuda bir uç nokta sistem durumu denetimi kodlayarak sunucu adı için otomatik hale getirebilirsiniz. Sistem durumu denetimi başarısız olursa aynı uç noktasına başka bir bölgede yedekli sunucusuna yönlendirebilirsiniz. 
 
 ## <a name="related-information"></a>İlgili bilgiler
+
 [Yedekleme ve geri yükleme](analysis-services-backup.md)   
 [Azure Analysis Services'ı yönetme](analysis-services-manage.md)   
 [Diğer sunucu adları](analysis-services-server-alias.md) 

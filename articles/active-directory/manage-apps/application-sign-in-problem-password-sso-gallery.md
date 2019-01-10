@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 6af369c9ba1621dcedc2adf74f0c25321422f3c4
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 0008384b53671b76e5cc0a6a405d3aa4986e73d2
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357705"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191777"
 ---
 # <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>Parola çoklu oturum açma için yapılandırılmış Azure AD galeri uygulamasında oturum açma sorunları
 
@@ -40,7 +40,7 @@ Parola tabanlı SSO için son kullanıcının tarayıcılar olabilir:
 -   Firefox 26,0 veya daha sonra - Windows XP SP2 veya üstü ve Mac OS X 10,6 veya sonraki bir sürümü üzerinde
 
 >[!NOTE]
->Parola tabanlı SSO uzantısı kullanılabilir hale gelir için Windows 10'daki Edge tarayıcı uzantıları için Edge desteklendiğinde haline gelir.
+>Parola tabanlı SSO uzantısı kullanılabilir hale gelir için Windows 10'daki Microsoft Edge tarayıcı uzantıları için Microsoft Edge desteklendiğinde haline gelir.
 >
 >
 
@@ -76,7 +76,7 @@ Uzaktan erişim paneli uzantısını Internet Explorer için kullanıcılarını
 
 -   Ayarlamış olduğunuz [Active Directory Domain Services](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx), ve kullanıcılarınızın makineleri etki alanınıza katılmış.
 
--   Grup İlkesi nesnesi (GPO) düzenlemek için "Ayarları düzenleme" izniniz olmalıdır. Varsayılan olarak, şu güvenlik gruplarının üyeleri bu izne sahip: etki alanı yöneticileri, kuruluş yöneticileri ve Group Policy Creator Owners. [Daha fazla bilgi edinin](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx).
+-   Grup İlkesi nesnesi (GPO) düzenlemek için "Ayarları düzenleme" izniniz olmalıdır. Varsayılan olarak, şu güvenlik gruplarının üyeleri bu izne sahiptir: Etki alanı yöneticileri, kuruluş yöneticileri ve Grup İlkesi Oluşturucu Sahipleri. [Daha fazla bilgi edinin](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx).
 
 Öğreticiyi izleyin [Grup İlkesi'ni kullanarak Internet Explorer için erişim paneli uzantısını dağıtma](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-group-policy) Grup İlkesi yapılandırmak ve kullanıcılara dağıtma konusunda adım adım yönergeler için.
 
@@ -172,7 +172,7 @@ Bir veya daha fazla kullanıcıları uygulamaya doğrudan atamak için aşağıd
 
 11. Üzerine **kullanıcı** göstermek için listedeki bir **onay kutusu**. Kullanıcının profil fotoğrafı veya kullanıcı için eklenecek logosu yanındaki onay kutusuna tıklayın **seçili** listesi.
 
-12. **İsteğe bağlı:** isteyip istemediğini **birden fazla kullanıcı eklemek**, başka bir tür **tam adı** veya **e-posta adresi** içine **adına göre arama veya e-posta adresi** arama kutusuna ve bu kullanıcıyı eklemek için onay kutusunu **seçili** listesi.
+12. **İsteğe bağlı:** İsteyip istemediğini **birden fazla kullanıcı eklemek**, başka bir tür **tam adı** veya **e-posta adresi** içine **adına veya e-posta adresine göre arama** Arama kutusuna ve bu kullanıcıyı eklemek için onay kutusunu **seçili** listesi.
 
 13. Kullanıcı seçme işlemini tamamladığınızda, tıklayın **seçin** uygulamaya atanan kullanıcıların ve grupların listesi eklemek için düğme.
 

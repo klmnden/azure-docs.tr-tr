@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: barbkess
 ms.reviewer: arvindh
-ms.openlocfilehash: 627bd114504de20517abcd05f45dc6c58fe80117
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: b7e75753f8d7a9316dd1cc644dc22c42ef284736
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322713"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190108"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory'de uygulamalar için çoklu oturum açma
 Uygulamaları Azure Active Directory (Azure AD) yapılandırırken en uygun çoklu oturum açma yöntemi seçin öğrenin. 
@@ -79,7 +79,7 @@ Kullanım parola tabanlı çoklu oturum açma zaman:
 Parola tabanlı çoklu oturum açma bir HTML tabanlı oturum açma sayfası olan tüm bulut tabanlı uygulama için desteklenir. Kullanıcı aşağıdaki tarayıcılardan herhangi birini kullanabilirsiniz:
 
 - Internet Explorer 11 Windows 7 veya üzeri
-- Edge Windows 10 Anniversary Edition veya sonrası 
+- Windows 10 Anniversary Edition veya sonrası, Microsoft Edge 
 - Chrome Windows 7 ve daha sonra ve MacOS x veya sonrası
 - Firefox 26,0 veya daha sonra Windows XP SP2 veya üzeri ve Mac OS X 10.6 üzerinde veya üzeri
 

@@ -1,19 +1,19 @@
 ---
-title: 'Azure Analysis Services öğreticisi - 12. ders: Excel’de çözümleme | Microsoft Docs'
+title: "Azure Analysis Services Öğreticisi 12. Ders: Excel'de çözümleme | Microsoft Docs"
 description: Azure Analysis Services öğretici projesinde, Excel’de çözümleme özelliğinin nasıl kullanılacağını açıklar.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 425c3a351c75c63cb07df66d6122f4d900b4932e
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: e5ac04c7bd8174f823cacc67401af8a98b3d8170
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429771"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54186490"
 ---
 # <a name="analyze-in-excel"></a>Excel'de çözümleme
 
@@ -24,7 +24,7 @@ Bu dersi tamamlamak için Excel’in Visual Studio ile aynı bilgisayarda yükl�
 Bu dersi tamamlamak için tahmini süre: **Beş dakika**  
   
 ## <a name="prerequisites"></a>Önkoşullar  
-Bu konu başlığı, sırayla tamamlanması gereken bir tablosal modelleme öğreticisinin parçasıdır. Bu dersteki görevleri gerçekleştirmeden önce, bir önceki dersi tamamlamış olmanız gerekir: [11. Ders: Rol oluşturma](../tutorials/aas-lesson-11-create-roles.md).  
+Bu konu başlığı, sırayla tamamlanması gereken bir tablosal modelleme öğreticisinin parçasıdır. Bu dersteki görevleri gerçekleştirmeden önce bir önceki dersi tamamlamış olmanız gerekir: [11. Ders: Rolleri oluşturma](../tutorials/aas-lesson-11-create-roles.md).  
   
 ## <a name="browse-using-the-default-and-internet-sales-perspectives"></a>Varsayılan ve İnternet Satışları perspektiflerini kullanarak göz atma  
 Bu ilk görevlerde, tüm model nesnelerinizi içeren varsayılan perspektifi ve daha önceki İnternet Satışları perspektifini kullanarak modelinize göz atacaksınız. İnternet Satışları perspektifi, Müşteri tablo nesnesini içermez.  

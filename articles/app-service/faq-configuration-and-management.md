@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 4cd6b375385326889226f6d4284815dfa0f47c49
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 14f74c26822ac1dc9e781ada82809bf3a4166f18
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971316"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190910"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure'daki Web uygulamaları için yapılandırma ve yönetim hakkında SSS
 
@@ -188,7 +188,7 @@ F12 izleme dosyası yakalama işleminde için iki seçeneğiniz vardır:
 3. Doğrulayın **ağ** sekmesi seçili olduğundan ve yeşil seçip **Play** düğmesi.
 4. Sorunu yeniden oluşturma adımları uygulayın.
 5. Kırmızı seçin **Durdur** düğmesi.
-6. Seçin **Kaydet** düğmesine (disk simgesi) ve (Internet Explorer ve Edge) HAR dosyasını kaydedin *veya* HAR dosyasını sağ tıklayın ve ardından **içerikle HAR olarak Kaydet** (içinde Chrome).
+6. Seçin **Kaydet** düğmesine (disk simgesi) ve (Internet Explorer ve Microsoft Edge) HAR dosyasını kaydedin *veya* HAR dosyasını sağ tıklayın ve ardından **içerikleHARolarakKaydet**(chrome'da).
 
 ### <a name="f12-console-output"></a>F12 konsol çıktısı
 

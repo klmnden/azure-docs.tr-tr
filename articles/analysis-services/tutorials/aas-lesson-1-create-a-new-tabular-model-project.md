@@ -1,25 +1,25 @@
 ---
-title: 'Azure Analysis Services öğreticisi 1. ders: Yeni tablosal model projesi oluşturma | Microsoft Docs'
+title: 'Azure Analysis Services Öğreticisi Ders 1: Yeni bir tablosal model projesi oluşturma | Microsoft Docs'
 description: Yeni bir Azure Analysis Services öğretici projesinin nasıl oluşturulacağını açıklar.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/15/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b9d3e9df62ffd31a6a01ea427fec8d5a3d168bfa
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 3291721847d34b0fa9a6259bfeb6ec6fa06ed2b5
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42055617"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188020"
 ---
 # <a name="create-a-tabular-model-project"></a>Tablosal model projesi oluşturma
 
 Bu derste, Visual Studio Analiz Hizmetleri projeleri veya SQL Server veri Araçları (SSDT) kullanarak 1400 uyumluluk düzeyinde yeni bir tablosal model projesi oluşturmak için kullanın. Yeni projeniz oluşturulduktan sonra, veri eklemeye ve modelinizi yazmaya başlayabilirsiniz. Bu ders, Visual Studio’da tablosal model yazma ortamı hakkında temel bilgiler de sağlamaktadır.  
   
-Bu dersin tahmini tamamlanma süresi: **10 dakika**  
+Bu dersi tamamlamak için tahmini süre: **10 dakika**  
   
 ## <a name="prerequisites"></a>Önkoşullar  
 Bu konu, tablosal model yazma öğreticisindeki ilk derstir. Bu dersi tamamlamak için karşılamanız gereken çeşitli ön koşullar vardır. Daha fazla bilgi edinmek için bkz. [Azure Analysis Services - Adventure Works Öğreticisi](../tutorials/aas-adventure-works-tutorial.md).  
@@ -74,7 +74,7 @@ Tablosal modeller yazmaya özgü bu çeşitli özelliklerin iletişim kutuların
   
 
 ## <a name="whats-next"></a>Sırada ne var?
-[2. Ders: Verileri alma](../tutorials/aas-lesson-2-get-data.md).
+[2. Ders: Veri alma](../tutorials/aas-lesson-2-get-data.md).
 
   
   

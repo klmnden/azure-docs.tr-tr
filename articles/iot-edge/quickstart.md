@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 2295ed6d3d1b22d70f95d0c9ac4542b59c7ddc09
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: e0ad51bd2370cd8b7569d76e5d91b606928eea6d
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972099"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189363"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Hızlı Başlangıç: İlk IOT Edge modülü Azure portalından bir Windows cihazına dağıtma - Önizleme
 
@@ -113,7 +113,7 @@ IOT Edge cihazları sınıflardır ve tipik bir IOT cihazlarında farklı yönet
 Azure IoT Edge çalışma zamanını IoT Edge cihazınıza yükleyin ve cihaz bağlantı dizesiyle yapılandırın.
 ![Diyagram - cihazda çalışma zamanını başlatma](./media/quickstart/start-runtime.png)
 
-IoT Edge çalışma zamanı tüm IoT Edge cihazlarına dağıtılır. Üç bileşeni vardır. **IoT Edge güvenlik daemon'u** bir Edge cihazı her başladığında çalışır ve IoT Edge aracısını çalıştırarak cihazı önyükler. **IoT Edge aracısı**, IoT Edge hub'ı dahil olmak üzere IoT Edge cihazındaki modüllerin dağıtımını ve izlenmesini kolaylaştırır. **IoT Edge hub'ı** IoT Edge cihazındaki modüller ve cihaz ile IoT Hub'ı arasındaki iletişimi yönetir.
+IoT Edge çalışma zamanı tüm IoT Edge cihazlarına dağıtılır. Üç bileşeni vardır. **IOT Edge güvenlik arka plan programı** her zaman bir IOT Edge cihazı önyüklenir ve cihazın IOT Edge Aracısı'nı başlatarak bootstraps başlatır. **IOT Edge Aracısı** dağıtım ve modülleri IOT Edge hub'ı dahil olmak üzere IOT Edge cihazı izlemeyi yönetir. **IOT Edge hub'ı** IOT Edge cihazı bulunan modüller arasındaki ve IOT Hub ve cihaz arasındaki iletişimleri işler.
 
 Yükleme betiği, IOT Edge Cihazınızda kapsayıcı görüntülerini yönetir Moby adlı bir kapsayıcı altyapısı da içerir. 
 
@@ -175,14 +175,16 @@ IoT Edge cihazınız yapılandırıldı. Bulutta dağıtılan modülleri çalı�
 
 ## <a name="deploy-a-module"></a>Modül dağıtma
 
-Azure IoT Edge cihazınızı, IoT Hub'ına telemetri verileri gönderecek bir modül dağıtmak için buluttan yönetin.
+Azure IOT Edge Cihazınızı IOT Hub'ına telemetri verileri gönderen bir modül dağıtmak için buluttan yönetin.
 ![Diyagram - modülü buluttan cihaza dağıtın](./media/quickstart/deploy-module.png)
 
 [!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
 
 ## <a name="view-generated-data"></a>Oluşturulan verileri görüntüleme
 
-Bu hızlı başlangıçta, yeni bir IoT Edge cihazı oluşturdunuz ve üzerine IoT Edge çalışma zamanını yüklediniz. Ardından, cihazda bir değişiklik yapmak zorunda kalmadan çalışacak bir IoT Edge modülünü göndermek için Azure portalını kullandınız. Bu örnekte gönderdiğiniz modül öğreticiler için kullanabileceğiniz ortam verilerini oluşturmaktadır.
+Bu hızlı başlangıçta, bir IOT Edge cihazı kayıtlı ve IOT Edge çalışma zamanı yüklü. Ardından, Azure portalı, cihazı için değişiklik yapmak zorunda kalmadan cihazda çalıştırılacak bir IOT Edge modülü dağıtmak için kullanılır. 
+
+Bu durumda, test etmek için kullanabileceğiniz örnek veriler gönderdiğiniz modülü oluşturur. Sanal sıcaklık algılayıcısı modülü, daha sonra test etmek için kullanabileceğiniz ortam verilerini oluşturur. Benzetimli algılayıcı hem bir makine hem de ortama makine geçici izler. Örneğin, bu algılayıcı sunucu odasına bir Fabrika katı veya bir Rüzgar türbini olabilir. Ortam sıcaklığı ve nem, makine sıcaklığı ve basıncı ve zaman damgasını ileti içerir. Test verileri analiz için olarak bu modülü tarafından oluşturulan verileri IOT Edge öğreticileri kullanın.
 
 Buluttan dağıtılan modülün IoT Edge cihazınızda çalıştığından emin olun.
 
@@ -204,6 +206,7 @@ iotedge logs SimulatedTemperatureSensor -f
    ![Verileri modülünüzden görüntüleme](./media/quickstart/iotedge-logs.png)
 
 Kullanarak IOT hub'ınıza gelen iletileri izlemek isterseniz [Visual Studio Code için Azure IOT hub'ı Toolkit uzantısını](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (eski adıyla Azure IOT Toolkit uzantısını). 
+
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
@@ -230,26 +233,9 @@ IoT Edge çalışma zamanını kaldırın. IOT Edge yeniden yüklenmesine planl�
    Uninstall-SecurityDaemon -DeleteConfig -DeleteMobyDataRoot
    ```
 
-IoT Edge çalışma zamanı kaldırıldığında, oluşturduğu kapsayıcılar durdurulur, ancak cihazınızda yer almaya devam eder. Tüm kapsayıcıları görüntüleyin.
-
-   ```powershell
-   docker -H npipe:////./pipe/iotedge_moby_engine ps -a
-   ```
-
-   >[!TIP]
-   >**-H** docker komutları (ana) bayrağı noktası IOT Edge çalışma zamanıyla birlikte yüklenen moby altyapısı. Aynı makinede docker hem moby kullanırsanız, konak bayrağı belirli bir komut için kullandığınız hangi altyapısı belirtmenizi sağlar. Yalnızca moby kullanmak istiyorsanız, ayarlayabileceğiniz **DOCKER_HOST** npipe:///./pipe/iotedge_moby_engine için işaret edecek şekilde ortam değişkeni.
-
-IoT Edge çalışma zamanı tarafından cihazınızda oluşturulan kapsayıcıları silin. 
-
-   ```powershell
-   docker -H npipe:////./pipe/iotedge_moby_engine rm -f SimulatedTemperatureSensor
-   docker -H npipe:////./pipe/iotedge_moby_engine rm -f edgeHub
-   docker -H npipe:////./pipe/iotedge_moby_engine rm -f edgeAgent
-   ```
-   
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta yeni bir IoT Edge cihazı oluşturdunuz ve cihaza kod dağıtmak için Azure IoT Edge bulut arabirimini kullandınız. Artık ortamı hakkında ham veri üreten bir test cihazınız var.
+Bu hızlı başlangıçta, bir IOT Edge cihazı oluşturdunuz ve Azure IOT Edge bulut arabirimi cihaza kodu dağıtmak için kullanılır. Artık ortamı hakkında ham veri üreten bir test cihazınız var.
 
 Azure IoT Edge'in bu verileri Edge'de iş içgörüsüne dönüştürmenize nasıl yardımcı olabileceğini öğrenmek için diğer öğreticilere devam etmeye hazırsınız.
 

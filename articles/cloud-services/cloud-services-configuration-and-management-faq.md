@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: ce171aa32e4f17e974a6d8a9752189ac78bf73fe
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: dd7351d2948526905c91f2eac52e48b25cf063ac
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53387004"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191437"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Yapılandırma ve yönetim sorunları Azure bulut Hizmetleri için: Sık sorulan sorular (SSS)
 
@@ -208,7 +208,7 @@ Böylece her yeni bir PaaS örneği oluşturulduğunda, yukarıda sistem kayıt 
 Bunu yaptıktan sonra HTTP/2 etkin olup olmadığını veya değil aşağıdaki yöntemlerden birini kullanarak doğrulayabilirsiniz:
 
 - IIS günlükler protokol sürümünde etkinleştirmek ve IIS günlüklerine bakın. Günlüklerde HTTP/2 gösterilir. 
-- F12 Geliştirici aracı Internet Explorer/Edge etkinleştirmek ve protokolü doğrulamak için ağ sekmesine gidin. 
+- Internet Explorer/Microsoft edge'de F12 Geliştirici aracı etkinleştirmek ve protokolü doğrulamak için ağ sekmesine gidin. 
 
 Daha fazla bilgi için [HTTP/2 IIS'de](https://blogs.iis.net/davidso/http2).
 

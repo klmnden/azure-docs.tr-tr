@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 951a202f8d57c736af8c17af91859ce89e9efc7d
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 4e2feb1f5b0cad9a05f796d160a0a641622d6b59
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53717968"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189228"
 ---
 # <a name="luis-bot-in-c-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>LUIS bot içinde C# ile Bot Framework 3.x ve Azure Web app botu
 
@@ -161,6 +161,8 @@ Daha fazla bilgi edinin [Bot Framework](https://dev.botframework.com/) ve [3.x](
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bot hizmeti iletişim kutuları için işleme ve LUIS hedefleri ekleme **yardımcı**, **iptal**, ve **Karşılama** amacı. Unutmayın eğitmek, yayımlama ve [derleme](#build-the-bot) web app botu. LUIS hem bot aynı hedefleri olması gerekir.
+
+Daha fazla bilgi bkz [örnekleri](https://github.com/Microsoft/AI) damıtarak konuşma bağlamında kullanılabilen bot ile. 
 
 > [!div class="nextstepaction"]
 > [Hedef ekleme](./luis-how-to-add-intents.md)

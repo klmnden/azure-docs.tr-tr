@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 09/29/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 7c3a37ede07f98174191c8a4847c8a3d9075b21a
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 4d35ab9df17055b798207aafd0e0bdf3b17426fb
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156315"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188479"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Öğretici: Karşıya yüklenen görüntüleri yeniden boyutlandırmayı Event Grid kullanarak otomatikleştirme
 
@@ -27,7 +27,7 @@ Bu öğretici, Depolama öğreticileri serisinin ikinci bölümüdür. [Önceki 
 
 Var olan bir görüntü yükleme uygulamasına yeniden boyutlandırma işlevini eklemek için Azure CLI ve Azure portalını kullanabilirsiniz.
 
-![Edge tarayıcısında web uygulaması yayımlama](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
+![Microsoft Edge tarayıcısında yayımlanan web uygulaması](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -183,7 +183,7 @@ Web uygulamasında görüntü yeniden boyutlandırmayı test etmek için, yayım
 
 Karşıya yüklenen görüntü kaybolduktan sonra **Oluşturulan küçük resimler** döngüsünde karşıya yüklenen görüntünün bir kopyasının gösterildiğine dikkat edin. Bu görüntü, işlev tarafından yeniden boyutlandırılmış, *thumbnails* kapsayıcısına eklenmiş ve web istemcisi tarafından indirilmiştir.
 
-![Edge tarayıcısında web uygulaması yayımlama](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
+![Microsoft Edge tarayıcısında yayımlanan web uygulaması](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

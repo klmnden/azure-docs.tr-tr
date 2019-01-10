@@ -5,23 +5,23 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 0351ab3213ac75559cc025f2ef71e2f098a7504c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 198e7d8d32e7142a266881e2f4ddbc3ed573c521
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993193"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187292"
 ---
-# <a name="quickstart-configure-server-firewall---portal"></a>Hızlı başlangıç: Sunucu güvenlik duvarını yapılandırma - Portal
+# <a name="quickstart-configure-server-firewall---portal"></a>Hızlı Başlangıç: Sunucu güvenlik duvarını - Portal yapılandırma
 
 Bu hızlı başlangıç Azure Analysis Services sunucunuz için güvenlik duvarını yapılandırmanıza yardımcı olur. Güvenlik duvarını etkinleştirmek ve yalnızca sunucunuza erişen bilgisayarlar için IP adresi aralıkları yapılandırmak, sunucunuzu ve verilerinizi güvenlik altına almanın önemli bir parçasıdır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- Aboneliğinizde bir Analysis Services sunucusu. Daha fazla bilgi edinmek için bkz. [Hızlı başlangıç: Sunucu oluşturma - Portal](analysis-services-create-server.md) veya [Hızlı başlangıç: Sunucu oluşturma - PowerShell](analysis-services-create-powershell.md)
+- Aboneliğinizde bir Analysis Services sunucusu. Daha fazla bilgi için bkz: [hızlı başlangıç: Sunucu Portal oluşturma -](analysis-services-create-server.md) veya [hızlı başlangıç: Bir sunucu oluşturma - PowerShell](analysis-services-create-powershell.md)
 - İstemci bilgisayarlar için bir veya birden çok IP adresi aralığı (gerekiyorsa).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure portalında oturum açın 
@@ -46,4 +46,4 @@ Artık ihtiyacınız kalmadığında, IP adresi aralıklarını silin veya güve
 Bu hızlı başlangıçta, sunucunuz için güvenlik duvarı yapılandırmayı öğrendiniz. Artık sunucunuz olduğuna ve bir güvenlik duvarıyla sunucunun güvenliğini sağladığınıza göre, ona portaldan temel bir örnek veri modeli ekleyebilirsiniz. Örnek modelin olması, model veritabanı rollerini yapılandırma ve istemci bağlantılarını test etme işlemlerini öğrenmeye yardımcı olur. Daha fazla bilgi edinmek için, örnek model ekleme öğreticisiyle devam edin.
 
 > [!div class="nextstepaction"]
-> [Öğretici: Sunucunuza örnek model ekleme](analysis-services-create-sample-model.md)
+> [Öğretici: Sunucunuza bir örnek model ekleme](analysis-services-create-sample-model.md)

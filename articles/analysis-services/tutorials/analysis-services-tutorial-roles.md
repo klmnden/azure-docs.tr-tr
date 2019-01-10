@@ -5,17 +5,17 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 12/06/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: a1e6e04c4019086d56cc0eb25176a507e514c477
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 4c1a3f52c37dcaad4bc2f84d6d2fa04b61376cf1
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000641"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188785"
 ---
-# <a name="tutorial-configure-server-administrator-and-user-roles"></a>Öğretici: Sunucu yöneticisi ve kullanıcı rollerini yapılandırma
+# <a name="tutorial-configure-server-administrator-and-user-roles"></a>Öğretici: Sunucu Yönetici ve kullanıcı rollerini yapılandırma
 
  Bu öğreticide, sunucu yöneticisi ve model veritabanı rollerini yapılandırmak üzere Azure sunucunuza bağlanmak için SQL Server Management Studio (SSMS) kullanacaksınız. Ayrıca [Tabular Model Scripting Language (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200) ile tanışacaksınız. TMSL, 1200 ve daha yüksek uyumluluk düzeylerindeki tablo modelleri için JSON tabanlı bir betik dilidir. Pek çok tablo modelleme görevini otomatikleştirmek için kullanılabilir. TMSL çoğunlukla PowerShell ile kullanılır, ancak bu öğreticide SSMS'deki XMLA sorgu düzenleyicisini kullanacaksınız. Bu öğreticide aşağıdaki görevleri tamamlayacaksınız: 
   

@@ -9,14 +9,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/25/2018
+ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: 113e5769ee6a58785a46182064684bea5825c12c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: d233f1df40d9580edfaaeb6b819c014952ad3b0c
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138952"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189293"
 ---
 # <a name="tutorial-luis-bot-in-c-with-the-bot-framework-4x-and-the-azure-web-app-bot"></a>Öğretici: LUIS bot içinde C# ile Bot Framework 4.x ve Azure Web app botu
 C# kullanarak, dil anlama (LUIS) ile tümleşik bir sohbet robotu geliştirebilirsiniz. Bu robot, bir robot çözümünü gerçekleştirmek için HomeAutomation uygulamasını kullanır. Robot, [Bot Framework sürümü](https://github.com/Microsoft/botbuilder-js) v4 ile Azure [Web uygulaması robotu](https://docs.microsoft.com/azure/bot-service/) kullanılarak geliştirilmiştir.
@@ -301,6 +301,7 @@ Azure Bot hizmeti, Bot Framework SDK'sını kullanır. SDK ve bot çerçevesi ha
 
 Azure bot hizmeti oluşturdunuz, robot gizli dizisini ve `.bot` dosyasının yolunu kopyaladınız, kodun zip dosyasını indirdiniz. Önceden oluşturulmuş HomeAutomation etki alanını yeni Azure robot hizmeti kapsamında oluşturulan LUIS uygulamasına eklediniz, sonra da uygulamayı yeniden eğittiniz ve yayımladınız. Kod projesini ayıkladınız, ortam dosyası (`.env`) oluşturdunuz ve bot gizli dizisiyle `.bot` dosyasının yolunu ayarladınız. Bot.js dosyasında, iki yeni amacı işleyecek kodu eklediniz. Ardından yeni amaçlardan birinin konuşmasına LUIS yanıtını görmek için robot öykünücüsünde robotu test ettiniz. 
 
+Daha fazla bilgi bkz [örnekleri](https://github.com/Microsoft/AI) damıtarak konuşma bağlamında kullanılabilen bot ile. 
 
 > [!div class="nextstepaction"]
 > [LUIS'de özel etki alanı oluşturma](luis-quickstart-intents-only.md)

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 1e5782ce3421cc5f0d2e0e51484d4bbe6b9eb6ab
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: d9f3ba642a5d00594aa6bdef597d5db43c2fc121
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978647"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188989"
 ---
 # <a name="preview-azure-ad-password-protection-monitoring-reporting-and-troubleshooting"></a>Önizleme: Azure AD parola koruması izleme, raporlama ve sorun giderme
 
@@ -274,7 +274,7 @@ Etki alanı ve orman ilgili tüm durum temizleme ve genel Önizleme yazılımın
 
    ```Powershell
    $passwordProtectonConfigContainer = "CN=Azure AD Password Protection,CN=Services," + (Get-ADRootDSE).configurationNamingContext
-   Remove-ADObject $passwordProtectonConfigContainer
+   Remove-ADObject -Recursive $passwordProtectonConfigContainer
    ```
 
 6. El ile tüm sysvol durumu tarafından el ile ilgili kaldırın, aşağıdaki klasör ve tüm içeriğini silme:

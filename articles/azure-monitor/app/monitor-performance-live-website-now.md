@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 333edfc4041e7ab0dfbe6d45f306b1450e6b9946
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 1558d8e8392ff49e2661e9f8bc41e41c5bbc6dd5
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103155"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189857"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>Application Insights Durum İzleyicisi ile çalışma zamanında web uygulamalarını izleme
 
@@ -88,6 +88,23 @@ Koda Application Insights eklemeden yeniden yayımlamak istiyorsanız, dağıtı
 
 
 ## <a name="troubleshoot"></a>Sorun giderme
+
+### <a name="confirm-a-valid-installation"></a>Geçerli bir yükleme işlemini onaylayın 
+
+Bu, yüklemenin başarılı olduğunu onaylamak için gerçekleştirebileceğiniz bazı adımlardır.
+
+- Applicationınsights.config dosyasını hedef uygulama dizinde mevcut olduğundan ve ikey içeren onaylayın.
+
+- Veriler eksik olduğundan şüpheleniyorsanız, basit bir sorgu çalıştırabilirsiniz [Analytics](../log-query/get-started-portal.md) şu anda telemetri gönderdiği tüm bulut rollerini listelemek için.
+
+```Kusto
+union * | summarize count() by cloud_RoleName, cloud_RoleInstance
+```
+
+- Application Insights olduğunu onaylamak gerekiyorsa başarıyla kullanıma açıldı çalıştırabileceğiniz [Sysinternals tanıtıcı](https://docs.microsoft.com/sysinternals/downloads/handle) bir komut penceresi bu applicationinsights.dll onaylamak için IIS tarafından yüklendi.
+
+`handle.exe /p w3wp.exe`
+
 
 ### <a name="cant-connect-no-telemetry"></a>Bağlanamıyor musunuz? Telemetri yok mu?
 

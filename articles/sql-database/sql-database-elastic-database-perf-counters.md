@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: 84bd1283020492ef6724aabd7daad4e153b11717
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: ce5ba5f827b790e4ca91d1aed91dfad47cedac4e
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043694"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191403"
 ---
 # <a name="performance-counters-for-shard-map-manager"></a>Parça eşleme yöneticisi için performans sayaçları
 
@@ -34,7 +34,7 @@ Sayaçları performansını izlemek için kullanılan [verilere bağımlı yönl
 
 ## <a name="create-performance-category-and-counters"></a>Performans kategorisi ve sayaçları oluşturma
 
-Sayaçlarınızı oluşturma işlemleri CreatePerformanceCategoryAndCounters yöntemini çağırabilirsiniz. [ShardMapManagementFactory sınıfı](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.aspx). Yalnızca yönetici yöntem yürütebilirsiniz:
+Sayaçlarınızı oluşturma işlemleri CreatePerformanceCategoryAndCounters yöntemini çağırabilirsiniz. [ShardMapManagementFactory sınıfı](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory). Yalnızca yönetici yöntem yürütebilirsiniz:
 
     ShardMapManagerFactory.CreatePerformanceCategoryAndCounters()  
 
@@ -42,7 +42,7 @@ Ayrıca [bu](https://gallery.technet.microsoft.com/scriptcenter/Elastic-DB-Tools
 Yöntemi aşağıdaki performans sayaçları oluşturur:  
 
 * **Önbelleğe alınmış eşlemeleri**: Parça eşlemesi için önbelleğe alınmış eşlemeleri sayısı.
-* **DDR işlemi/sn**: Parça eşlemesi için veri bağımlı yönlendirme işlemlerinin hızıdır. Bu sayaç, bir çağrı zaman güncelleştirilir [OpenConnectionForKey()](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx) başarılı bir bağlantı hedef parçaya sonuçlanıyor.
+* **DDR işlemi/sn**: Parça eşlemesi için veri bağımlı yönlendirme işlemlerinin hızıdır. Bu sayaç, bir çağrı zaman güncelleştirilir [OpenConnectionForKey()](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey) başarılı bir bağlantı hedef parçaya sonuçlanıyor.
 * **Arama Önbelleği İsabetli Okuma/sn eşleme**: Parça eşlemesindeki eşlemeleri için başarılı bir önbellek arama işlemlerinin hızıdır.
 * **Arama önbellek isabetsizliği/sn eşleme**: Eşlemeleri parça eşlemesindeki başarısız önbellek arama işlemlerinin hızıdır.
 * **Eşlemeleri eklendiğinde veya Önbellek/sn**: Hangi eşlemelerin eklenmesi veya önbelleğinde parça eşlemesi için güncelleştirilmiş olan oranı.
@@ -54,7 +54,7 @@ Performans sayaçları, işlem başına her önbelleğe alınmış parça eşlem
 
 Aşağıdaki olaylar, performans sayaçları oluşturma tetikleyin:  
 
-* Başlatma [ShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx) ile [istekli yükleme](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerloadpolicy.aspx), her parça eşlemesi ShardMapManager içerir. Bunlar [GetSqlShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx?f=255&MSPPError=-2147217396#M:Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.ShardMapManagerFactory.GetSqlShardMapManager%28System.String,Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.ShardMapManagerLoadPolicy%29) ve [TryGetSqlShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx) yöntemleri.
+* Başlatma [ShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager) ile [istekli yükleme](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerloadpolicy), her parça eşlemesi ShardMapManager içerir. Bunlar [GetSqlShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager?f=255&MSPPError=-2147217396#M:Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.ShardMapManagerFactory.GetSqlShardMapManager%28System.String,Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.ShardMapManagerLoadPolicy%29) ve [TryGetSqlShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager) yöntemleri.
 * Parça eşleme başarılı arama (kullanarak [GetShardMap()](https://msdn.microsoft.com/library/azure/dn824215.aspx), [GetListShardMap()](https://msdn.microsoft.com/library/azure/dn824212.aspx) veya [GetRangeShardMap()](https://msdn.microsoft.com/library/azure/dn824173.aspx)).
 * Parça eşlemesi CreateShardMap() kullanarak başarıyla oluşturuldu.
 

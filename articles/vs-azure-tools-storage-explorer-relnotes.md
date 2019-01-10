@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 94c1f255d7aae63d6faf44cc500c48c68bf6d3fc
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: bd6384dcd132ffb53e3531707c600465e8d0b649
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608962"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190026"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Microsoft Azure Depolama Gezgini sürüm notları
 
@@ -27,15 +27,18 @@ Bu makale, Azure Depolama Gezgini 1.4.3 yayın yönelik sürüm notlarına yanı
 
 [Microsoft Azure Depolama Gezgini](./vs-azure-tools-storage-manage-with-storage-explorer.md) Windows, macOS ve Linux'ta Azure depolama verileriyle kolayca çalışmanızı sağlayan bir tek başına uygulamadır.
 
-## <a name="version-161"></a>Sürümü 1.6.1
-18/12/2018
+## <a name="version-162"></a>Sürüm 1.6.2
+1/9/2019
 
-### <a name="download-azure-storage-explorer-161"></a>Azure Depolama Gezgini 1.6.1 indirin
-- [Windows için Azure Depolama Gezgini 1.6.1](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Mac için Azure Depolama Gezgini 1.6.1](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Linux için Azure Depolama Gezgini 1.6.1](https://go.microsoft.com/fwlink/?LinkId=722418)
+### <a name="download-azure-storage-explorer-162"></a>Azure Depolama Gezgini 1.6.2 indirin
+- [Windows için Azure Depolama Gezgini 1.6.2](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Mac için Azure Depolama Gezgini 1.6.2](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Linux için Azure Depolama Gezgini 1.6.2](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="hotfixes"></a>Düzeltmeler
+* 1.6.1 içinde kullanıcıların değildi ADLS Gen2 ACL'ler için objectID tarafından eklenen varlıklar her zaman gruplar olarak eklendi. Şimdi, yalnızca gruplar, grupları ve ilkeleri kullanıcılar olarak eklenen kurumsal uygulamalar andService gibi varlıkları olarak eklenir. [#1049](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1049)
+* ADLS Gen2'ye depolama hesabınız kapsayıcı sahipti ve adı ve anahtarı ile ilişkili olduğu, sonra Depolama Gezgini'ni depolama hesabındaki ADLS Gen2 olduğunu algılamamak. Bu düzeltilmiştir. [#1048](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1048)
+* 1.6.0 kopyalama ve yapıştırma sırasında çakışma çözümlemesi için istemleri. Bunun yerine, çakışan kopyalama basitçe başarısız olur. Şimdi ilk çakışma, çözülmesi için nasıl istediğinizi istenecektir. [#1014](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1014)
 * API sınırlamaları nedeniyle, tüm doğrulama ObjectIds erişimi Yönet iletişim kutusunda, devre dışı bırakıldı. Şimdi, doğrulama yalnızca kullanıcının UPN meydana gelir. [#954](https://www.github.com/Microsoft/AzureStorageExplorer/issues/954)
 * ADLS Gen2 erişimi Yönet iletişim kutusunda, bir grup için izinleri değiştirilemedi. Bu düzeltilmiştir. [#958](https://www.github.com/Microsoft/AzureStorageExplorer/issues/958)
 * Eklenen sürükle ve bırak desteği ADLS Gen2 düzenleyiciye karşıya yükleyin. [#953](https://www.github.com/Microsoft/AzureStorageExplorer/issues/953)
@@ -103,6 +106,7 @@ Bu makale, Azure Depolama Gezgini 1.4.3 yayın yönelik sürüm notlarına yanı
 
 ## <a name="previous-releases"></a>Önceki sürümler
 
+* [Sürümü 1.6.1](#version-161)
 * [Sürüm 1.6.0](#version-160)
 * [Sürüm 1.5.0](#version-150)
 * [Sürüm 1.4.4](#version-144)
@@ -135,6 +139,75 @@ Bu makale, Azure Depolama Gezgini 1.4.3 yayın yönelik sürüm notlarına yanı
 * [Sürüm 0.7.20160129.1](#version-07201601291)
 * [Sürüm 0.7.20160105.0](#version-07201601050)
 * [Sürüm 0.7.20151116.0](#version-07201511160)
+
+## <a name="version-161"></a>Sürümü 1.6.1
+18/12/2018
+
+### <a name="hotfixes"></a>Düzeltmeler
+* API sınırlamaları nedeniyle, tüm doğrulama ObjectIds erişimi Yönet iletişim kutusunda, devre dışı bırakıldı. Şimdi, doğrulama yalnızca kullanıcının UPN meydana gelir. [#954](https://www.github.com/Microsoft/AzureStorageExplorer/issues/954)
+* ADLS Gen2 erişimi Yönet iletişim kutusunda, bir grup için izinleri değiştirilemedi. Bu düzeltilmiştir. [#958](https://www.github.com/Microsoft/AzureStorageExplorer/issues/958)
+* Eklenen sürükle ve bırak desteği ADLS Gen2 düzenleyiciye karşıya yükleyin. [#953](https://www.github.com/Microsoft/AzureStorageExplorer/issues/953)
+* Bazen ADLS Gen2'ye dosya ve klasörler için Özellikler iletişim kutusunda URL'si özelliği eksik bir '/'. Bu düzeltilmiştir. [#960](https://www.github.com/Microsoft/AzureStorageExplorer/issues/960)
+* Geçerli izinler ADLS Gen2 kapsayıcısı için alma, dosya veya klasör başarısız olur ve artık etkinlik günlüğü'nde görüntülenen propertly hatadır. [#965](https://www.github.com/Microsoft/AzureStorageExplorer/issues/965)
+* Dosyaları açmak için oluşturulan geçici yol üzerinde Windows MAX_PATH daha uzun bir yol oluşturma olasılığını azaltmak için kısaltıldı. [#93](https://www.github.com/Microsoft/AzureStorageExplorer/issues/93)
+* Bağlan iletişim kutusu artık doğru şekilde oturum açmış olan kullanıcı yok ve kaynak bağlı görünür. [#944](https://www.github.com/Microsoft/AzureStorageExplorer/issues/944)
+* 1.6.0 içinde HNS BLOB ve dosyalar için özellikleri kaydetme, her özelliğin değerini kodlayın. Bu, yalnızca ASCII karakterler bulunan değerleri gereksiz kodlama sonuçlandı. Şimdi, ASCII olmayan karakterler içeriyorsa değerleri yalnızca şifrelenecek. [#986](https://www.github.com/Microsoft/AzureStorageExplorer/issues/986)
+* Bir HNS Blob kapsayıcısına bir klasöre yüklemek, SAS kullanıldı ve SAS okuma izni olmaması durumunda başarısız olur. Bu düzeltilmiştir. [#970](https://www.github.com/Microsoft/AzureStorageExplorer/issues/970)
+* AzCopy aktarımı iptal etme başarısız oldu. Bu düzeltilmiştir. [#943](https://www.github.com/Microsoft/AzureStorageExplorer/issues/943)
+* AzCopy, klasör adında boşluklar varsa, bir klasöre bir ADLS Gen2 Blob kapsayıcısından karşıdan yüklemeye çalışırken başarısız olur. Bu düzeltilmiştir. [#990](https://www.github.com/Microsoft/AzureStorageExplorer/issues/990)
+* CosmosDB Düzenleyicisi içinde 1.6.0 bozuk. Artık sabittir. [#950](https://www.github.com/Microsoft/AzureStorageExplorer/issues/950)
+        
+### <a name="new"></a>Yeni
+
+* Artık Depolama Gezgini aracılığıyla Blob verilerinize erişmek için kullanabileceğiniz [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Oturum açtıktan ve Depolama Gezgini'ni depolama hesabınız için anahtarları alamıyor, OAuth belirteci verilerinizle etkileşim kurulurken kimlik doğrulaması için kullanılır.
+* Depolama Gezgini, artık ADLS Gen2 depolama hesaplarını destekler. Depolama Gezgini, hiyerarşik ad alanı için bir depolama hesabı etkin algıladığında, şunları yapacaksınız depolama hesabınızın adının yanında "(ADLS Gen2 Preview)" bakın. Depolama Gezgini, oturum açtığınızda hiyerarşik ad alanı etkin olup olmadığını ya da depolama hesabınızın adı ve anahtarıyla eklediyseniz algılayabilir. ADLS Gen2 depolama hesapları için Depolama Gezgini'ni kullanabilirsiniz:
+    * Oluşturun ve kapsayıcıları Sil
+    * Kapsayıcı özellikleri ve izinleri (sol taraf) yönetme
+    * Kapsayıcı içinde veri gitmek ve görüntülemek
+    * Yeni klasör oluşturma
+    * Yükleme, indirme, yeniden adlandırın ve dosya ve klasörleri Sil
+    * Dosya ve klasör özelliklerini ve izinleri (sağ taraf) yönetin.
+    
+    Geçici silme ve anlık görüntüleri gibi diğer tipik Blob özellikler şu anda kullanılamıyor. İzinleri yönetme de yalnızca oturum açarken kullanılabilir. Ayrıca, bir ADLS Gen2 depolama hesabında çalışırken, Depolama Gezgini AzCopy tüm karşıya ve karşıdan yüklemeler ve adını ve anahtar kimlik bilgileri tüm işlemler için kullanılabilir değilse varsayılan olarak kullanır.
+* Güçlü kullanıcı geri bildirim sonra kesme kira yine aynı anda birden çok bloblarda kiraları bölümlere ayırmak için kullanılabilir.
+
+### <a name="known-issues"></a>Bilinen Sorunlar
+
+* Zaten aktarılan dosyaların varsa, bir ADLS Gen2 depolama hesabından indirirken AzCopy bazen kilitleniyor. Bu işlem yaklaşan bir düzeltmeyi düzeltilecektir.
+* Bir blob kapsayıcısı gibi SAS URI'sini eklenen bir kaynağından ayırma doğru gösteren gelen diğer ekleri engelleyen hataya neden olabilir. Bu sorunu çözmek için yalnızca Grup düğümünü yenileyin. #537 daha fazla bilgi için bkz.
+* Mac için VS kullanın ve özel bir AAD yapılandırmasına hiç olmadığı kadar oluşturdunuz, oturum açma alınamıyor olabilir. Sorunu çözmek için içeriğini silin. ~ /. IdentityService/AadConfigurations. Bunun yapılması durumunda, bu sorunla ilgili yorum engeli değil.
+* Azurite henüz tam olarak tüm depolama API'leri uygulamadı. Bu nedenle, beklenmeyen hatalar veya olabilir davranışı Azurite geliştirme depolaması için kullanılırken.
+* Nadiren de olsa, ağaç odağı Hızlı erişimi takılabilir. Odağı Ayır için Tümünü Yenile yapabilirsiniz.
+* Nodejs'de bir hata nedeniyle, OneDrive klasöründen karşıya çalışmaz. Hata düzeltildi, ancak henüz Elektron tümleşik. Bu sorun için karşıya yüklenirken veya indirilirken bir blob kapsayıcısından geçici olarak çözmek için Deneysel AzCopy özelliğini kullanabilirsiniz.
+* Azure Stack hedeflerken, ekleme blobları gibi belirli dosyaları karşıya yükleme başarısız olabilir.
+* "İptal" görevde tıklandıktan sonra onu iptal etmek bu görev için biraz zaman alabilir. İptal filtre geçici kullanıyoruz çünkü burada açıklanmıştır.
+* Yanlış PIN/akıllı kart sertifikası seçeneğini belirlerseniz, depolama Gezgini'nin kararı unutursanız studio'durdurup yeniden başlatmanız gerekir.
+* BLOB'ları (ayrı ayrı veya yeniden adlandırılmış blob kapsayıcının içinde) yeniden adlandırma, anlık görüntüler korumaz. Diğer tüm özellikleri ve meta verileri bloblar, dosyalar ve varlıklar için bir yeniden adlandırma sırasında korunur.
+* Azure Stack aşağıdaki özellikleri desteklemez. Azure Stack ile çalışırken bu özellikleri kullanmak deneyen kaynakları beklenmeyen hatalarına neden olabilir.
+   * Dosya paylaşımları
+   * Erişim katmanları
+   * Geçici silme
+* Depolama Gezgini tarafından kullanılan Elektron Kabuk bazı GPU (grafik işlem birimi) Donanım hızlandırmalı sorun vardır. Depolama Gezgini (boş) bir boş ana penceresi görüntüleniyorsa, deneyebileceğiniz Depolama Gezgini komut satırından başlatmak ve ekleyerek GPU hızlandırmasını devre dışı bırakma `--disable-gpu` geçin:
+
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
+
+* Linux kullanıcıları için yüklemeniz gerekecek [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Ubuntu 14.04 kullanıcıları için GCC güncel - bu aşağıdaki komutları çalıştırıp makinenizi yeniden başlatarak yapılabilir emin olmak gerekir:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Ubuntu 17.04 kullanıcıları, GConf yüklemeniz gerekir - bu aşağıdaki komutları çalıştırıp makinenizi yeniden başlatarak yapılabilir:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
 
 ## <a name="version-160"></a>Sürüm 1.6.0
 12/5/2018

@@ -5,24 +5,24 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ef4099130878813378fb277c45b5d352cbe822a7
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 4e9080cfc863b4253a4eb4d427f21df74bb08874
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000161"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54186745"
 ---
-# <a name="quickstart-create-a-server---portal"></a>Hızlı başlangıç: Sunucu oluşturma - Portal
+# <a name="quickstart-create-a-server---portal"></a>Hızlı Başlangıç: Bir sunucu - Portal oluşturma
 
 Bu hızlı başlangıçta, portalı kullanarak Azure aboneliğinizde bir Analysis Services sunucusu kaynağı oluşturma adımları açıklanmaktadır.
 
 ## <a name="prerequisites"></a>Önkoşullar 
 
-* **Azure aboneliği**: Hesap oluşturmak için [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/offers/ms-azr-0044p/)’nü ziyaret edin.
-* **Azure Active Directory**: Aboneliğinizin bir Azure Active Directory Kiracısı ile ilişkilendirilmiş olması gerekir. Ayrıca bu Azure Active Directory içindeki bir hesapla Azure'da oturum açmış olmanız gerekir. Daha fazla bilgi edinmek için bkz. [Kimlik doğrulaması ve kullanıcı izinleri](analysis-services-manage-users.md).
+* **Azure aboneliği**: Ziyaret [Azure ücretsiz deneme sürümü](https://azure.microsoft.com/offers/ms-azr-0044p/) hesap oluşturmak için.
+* **Azure Active Directory**: Aboneliğinizin Azure Active Directory kiracısı ile ilişkilendirilmesi gerekir. Ayrıca bu Azure Active Directory içindeki bir hesapla Azure'da oturum açmış olmanız gerekir. Daha fazla bilgi edinmek için bkz. [Kimlik doğrulaması ve kullanıcı izinleri](analysis-services-manage-users.md).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure portalında oturum açın 
 
@@ -31,20 +31,20 @@ Bu hızlı başlangıçta, portalı kullanarak Azure aboneliğinizde bir Analysi
 
 ## <a name="create-a-server"></a>Sunucu oluşturma
 
-1. **+ Kaynak oluştur** > **Veri ve Analiz** > **Analysis Services**'e tıklayın.
+1. Tıklayın **+ kaynak Oluştur** > **Analytics** > **Analysis Services**.
 
     ![Portal](./media/analysis-services-create-server/aas-create-server-portal.png)
 
 2. **Analysis Services** sayfasında gerekli alanları doldurduktan sonra **Oluştur**'a basın.
    
-   * **Sunucu adı**: Sunucuya başvurmak için kullanılacak benzersiz bir ad yazın.
-   * **Abonelik**: Bu sunucuyla ilişkilendirilecek aboneliği seçin.
-   * **Kaynak grubu**: Yeni bir kaynak grubu oluşturun veya zaten var olan bir kaynak grubunu seçin. Kaynak grupları, bir Azure kaynağı koleksiyonunu yönetmenize yardımcı olmak üzere tasarlanmıştır. Daha fazla bilgi edinmek için bkz. [kaynak grupları](../azure-resource-manager/resource-group-overview.md).
-   * **Konum**: Sunucuyu barındıran Azure veri merkezi konumudur. En büyük kullanıcı tabanınıza en yakın konumu seçin.
-   * **Fiyatlandırma katmanı**: Bir fiyatlandırma katmanı seçin. Test yapıyorsanız ve örnek model veritabanını yükleyecekseniz ücretsiz **D1** katmanını seçin. Daha fazla bilgi için bkz. [Azure Analysis Services fiyatlandırması](https://azure.microsoft.com/pricing/details/analysis-services/). 
-    * **Yönetici**: Varsayılan olarak oturum açmış olduğunuz hesap olacaktır. Azure Active Directory'den farklı bir hesap seçebilirsiniz.
-    * **Yedekleme Depolama Alanı**: İsteğe bağlıdır. [Depolama hesabınız](../storage/common/storage-introduction.md) varsa model yedekleme veritabanı olarak varsayılan yapabilirsiniz. [Yedekleme ve geri yükleme](analysis-services-backup.md) ayarlarını daha sonra da yapabilirsiniz.
-    * **Depo anahtarı süre sonu**: İsteğe bağlıdır. Depo anahtarı için süre sonu belirtin.
+   * **Sunucu adı**: Sunucu başvurmak için kullanılan benzersiz bir ad yazın.
+   * **Abonelik**: Bu sunucu ile ilişkili aboneliği seçin.
+   * **Kaynak grubu**: Yeni bir kaynak grubu oluşturun veya zaten seçin. Kaynak grupları, bir Azure kaynağı koleksiyonunu yönetmenize yardımcı olmak üzere tasarlanmıştır. Daha fazla bilgi edinmek için bkz. [kaynak grupları](../azure-resource-manager/resource-group-overview.md).
+   * **Konum**: Bu Azure veri merkezi konumu sunucu barındırır. En büyük kullanıcı tabanınıza en yakın konumu seçin.
+   * **Fiyatlandırma katmanı**: Fiyatlandırma katmanını seçin. Test yapıyorsanız ve örnek model veritabanını yükleyecekseniz ücretsiz **D1** katmanını seçin. Daha fazla bilgi için bkz. [Azure Analysis Services fiyatlandırması](https://azure.microsoft.com/pricing/details/analysis-services/). 
+   * **Yönetici**: Varsayılan olarak, bu, oturum açmış olduğunuz hesap olacaktır. Azure Active Directory'den farklı bir hesap seçebilirsiniz.
+   * **Yedekleme depolama ayarı**: İsteğe bağlı. [Depolama hesabınız](../storage/common/storage-introduction.md) varsa model yedekleme veritabanı olarak varsayılan yapabilirsiniz. [Yedekleme ve geri yükleme](analysis-services-backup.md) ayarlarını daha sonra da yapabilirsiniz.
+   * **Depo anahtarı süre sonu**: İsteğe bağlı. Depo anahtarı için süre sonu belirtin.
 
 Sunucunun oluşturulması genellikle bir dakikadan kısa sürer. **Portala Ekle**'yi seçtiyseniz yeni sunucunuzu görmek için portalınıza gidin. Ya da **Tüm hizmetler** > **Analysis Services** yolunu izleyerek sunucunuzun hazır olup olmadığına bakabilirsiniz.
 
@@ -59,6 +59,6 @@ Sunucunun oluşturulması genellikle bir dakikadan kısa sürer. **Portala Ekle*
 Bu hızlı başlangıçta Azure aboneliğinizde sunucu oluşturmayı öğrendiniz. Sunucuyu oluşturduğunuza göre bir sunucu güvenlik duvarı yapılandırarak (isteğe bağlı) güvenliğinin sağlanmasına yardımcı olacaksınız. Sunucunuza doğrudan portaldan örnek bir veri modeli de ekleyebilirsiniz. Örnek modelin olması, model veritabanı rollerini yapılandırma ve istemci bağlantılarını test etme işlemlerini öğrenme konusunda yardımcı olur. Daha fazla bilgi edinmek için, örnek model ekleme öğreticisiyle devam edin.
 
 > [!div class="nextstepaction"]
-> [Hızlı başlangıç: Sunucu güvenlik duvarını yapılandırma - Portal](analysis-services-qs-firewall.md)   
+> [Hızlı Başlangıç: Sunucu güvenlik duvarını - Portal yapılandırma](analysis-services-qs-firewall.md)   
 > [!div class="nextstepaction"]
-> [Öğretici: Sunucunuza örnek model ekleme](analysis-services-create-sample-model.md)
+> [Öğretici: Sunucunuza bir örnek model ekleme](analysis-services-create-sample-model.md)

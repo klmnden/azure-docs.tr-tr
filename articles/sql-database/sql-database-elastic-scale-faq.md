@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: f1047d5ad17afbac55b5ea9215ce592d36918174
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: f3192aafb6f19695bc99310dd980382510bc633b
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042589"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188127"
 ---
 # <a name="elastic-database-tools-frequently-asked-questions-faq"></a>Esnek veritabanı araçlarını sık sorulan sorular (SSS)
 
@@ -39,7 +39,7 @@ Kimlik bilgileri biçiminde kullanma "kullanıcı kimliği =username@servername"
 
 ## <a name="do-i-need-to-create-a-shard-map-manager-and-populate-shards-every-time-i-start-my-applications"></a>Parça eşleme Yöneticisi oluşturma ve uygulamalarım'ı her başlattığınızda parçalar doldurmak gerekiyor mu
 
-Hayır; parça eşleme Yöneticisi oluşturma (örneğin, [ShardMapManagerFactory.CreateSqlShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager.aspx)) tek seferlik bir işlemdir.  Uygulamanızın çağrı kullanması gerekir [ShardMapManagerFactory.TryGetSqlShardMapManager()](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx) uygulama başlatma zaman.  Uygulama etki alanı başına yalnızca bir tür çağrısı var olmalıdır.
+Hayır; parça eşleme Yöneticisi oluşturma (örneğin, [ShardMapManagerFactory.CreateSqlShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager)) tek seferlik bir işlemdir.  Uygulamanızın çağrı kullanması gerekir [ShardMapManagerFactory.TryGetSqlShardMapManager()](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager) uygulama başlatma zaman.  Uygulama etki alanı başına yalnızca bir tür çağrısı var olmalıdır.
 
 ## <a name="i-have-questions-about-using-elastic-database-tools-how-do-i-get-them-answered"></a>Esnek veritabanı araçlarını kullanma hakkında sorularım, nasıl yanıtlanmış edinilir
 

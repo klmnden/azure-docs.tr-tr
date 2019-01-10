@@ -6,12 +6,12 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 1/8/2019
 ms.author: victorh
-ms.openlocfilehash: d5d8ed09da2b05de079bc1b62066bb4008a659d8
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 1ada74f5c85ef327957ec4981e83f68bcafea858
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118378"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188768"
 ---
 # <a name="url-path-based-routing-overview"></a>URL Yolu Tabanlı Yönlendirmeye genel bakış
 
@@ -65,7 +65,7 @@ UrlPathMap öğesi, arka uç sunucu havuzu eşlemeleri için Yol desenleri belir
 
 PathPattern, eşleştirilecek yol desenlerinin listesidir. Her biri / ile başlamalıdır. "*" işareti, yalnızca "/" işaretinin ardından en sona koyulabilir. Eşleştiricisine dize birinciden sonra herhangi bir metin içermez? veya # yanı sıra, bu karakterlere burada kullanılamaz. Aksi takdirde, bir URL'de izin verilen herhangi bir karakter Pathpattern'da izin verilir.
 
-Desteklenen desenler, Application Gateway v1 veya v2 dağıttığınız bağlıdır:
+Desteklenen desenler olup, Application Gateway v1 veya v2 dağıttığınız üzerinde bağlıdır:
 
 #### <a name="v1"></a>V1
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 09/20/2018
 ms.author: akjosh; cynthn
 ms.custom: ''
-ms.openlocfilehash: 0aaa912a06136edbe04e6956d86faa47cf88136f
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 41e2eee491141be3a7e39a70bccf8440890e2982
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54116649"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54186507"
 ---
 # <a name="create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-cli-20"></a>Oluşturma ve Azure CLI 2.0 ile sanal makine ölçek kümeleri için paylaşılan görüntülerini kullanma
 
@@ -32,7 +32,6 @@ ms.locfileid: "54116649"
 > * Paylaşılan görüntü tanımı oluşturma
 > * Paylaşılan görüntü sürümü oluşturma
 > * Paylaşılan bir görüntüden VM oluşturma
-> * Bir kaynakları silme
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 

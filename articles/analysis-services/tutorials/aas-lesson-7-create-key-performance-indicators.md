@@ -1,28 +1,28 @@
 ---
-title: 'Azure Analysis Services öğreticisi 7. ders: Ana Performans Göstergeleri Oluşturma | Microsoft Docs'
+title: 'Azure Analysis Services Öğreticisi 7. Ders: Ana performans göstergeleri oluşturma | Microsoft Docs'
 description: Azure Analysis Services öğretici projesinde Ana Performans Göstergelerinin nasıl oluşturulacağını açıklar.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1e7fc5cd684610a5d96b5986f5c169741055c9b8
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: d238b3bf159a5e540eb9c72ecbcee188bd357b05
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426830"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54186541"
 ---
 # <a name="create-key-performance-indicators"></a>Ana Performans Göstergeleri oluşturma
 
 Bu derste Ana Performans Göstergeleri (KPI) oluşturursunuz. KPI’lar bir *Temel* ölçü ile tanımlanmış bir değerin performansını, yine bir ölçü ya da mutlak değerle tanımlanmış bir *Hedef* değere göre ölçmek için kullanılır. Raporlama istemci uygulamalarında KPI’lar, iş uzmanlarına iş başarısı özetini anlamanın veya eğilimleri belirlemenin hızlı ve kolay bir yöntemini sunabilir. Daha fazla bilgi için bkz. [KPI’lar](https://docs.microsoft.com/sql/analysis-services/tabular-models/kpis-ssas-tabular)
   
-Bu dersin tahmini tamamlanma süresi: **15 dakika**  
+Bu dersi tamamlamak için tahmini süre: **15 dakika**  
   
 ## <a name="prerequisites"></a>Önkoşullar  
-Bu konu başlığı, sırayla tamamlanması gereken bir tablosal modelleme öğreticisinin parçasıdır. Bu dersteki görevleri gerçekleştirmeden önce, bir önceki dersi tamamlamış olmanız gerekir: [6. Ders: Ölçü oluşturma](../tutorials/aas-lesson-6-create-measures.md).   
+Bu konu başlığı, sırayla tamamlanması gereken bir tablosal modelleme öğreticisinin parçasıdır. Bu dersteki görevleri gerçekleştirmeden önce bir önceki dersi tamamlamış olmanız gerekir: [6. Ders: Ölçü oluşturma](../tutorials/aas-lesson-6-create-measures.md).   
   
 ## <a name="create-key-performance-indicators"></a>Ana Performans Göstergeleri oluşturma  
   

@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: 7e04ae151d5fe992bf17e9b76f6ed276e91d3c2c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 77d21a9db54a34d3f9981929bb90dfd3b54e23dd
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023286"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190604"
 ---
 # <a name="virtual-network-service-endpoints"></a>Sanal Ağ Hizmeti Uç Noktaları
 
@@ -58,7 +58,7 @@ Hizmet uç noktaları aşağıdaki avantajları sağlar:
 
 - Bu özellik yalnızca Azure Resource Manager dağıtım modeli üzerinden dağıtılmış olan sanal ağlarda kullanılabilir.
 - Uç noktalar Azure sanal ağlarında yapılandırılmış olan alt ağlarda etkindir. Uç noktalar şirket içi ortamdan Azure hizmetlerine giden trafik için kullanılamaz. Daha fazla bilgi için bkz. [Azure hizmetine erişimi şirket içi ortamla sınırlama](#securing-azure-services-to-virtual-networks).
-- Azure SQL için, hizmet uç noktası yalnızca sanal ağ ile aynı bölgedeki Azure hizmeti trafiği için geçerlidir. Azure Depolama için, RA-GRS ve GRS trafiğinin desteklenmesi için özelliğin kapsamı sanal ağın dağıtılmış olduğu eşleştirilmiş bölgeye uzatılır. [Azure eşleştirilmiş bölgeleri](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions) hakkında daha fazla bilgi edinin.
+- Azure SQL için, hizmet uç noktası yalnızca sanal ağ ile aynı bölgedeki Azure hizmeti trafiği için geçerlidir. Azure depolama ve ADLS Gen 1 için RA-GRS ve GRS trafiğinin desteklemek için uç noktaları da burada sanal ağın dağıtılmış olduğu eşleştirilmiş bölgeye içerecek şekilde genişletir. [Azure eşleştirilmiş bölgeleri](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions) hakkında daha fazla bilgi edinin.
 
 ## <a name="securing-azure-services-to-virtual-networks"></a>Azure hizmetlerini sanal ağlar ile sınırlama
 

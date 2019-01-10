@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
-ms.openlocfilehash: c225761f18a89539ea4966fab620104a25d1270e
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 45bf554e457e48704684fe8ac3b32c29f3f646b2
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50098231"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189295"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Windows 10 dolaşım ayarları başvurusu
 Dolaşıma açıldı veya Windows 10'da yedeklenen tüm ayarları tam bir listesi verilmiştir. 
@@ -44,15 +44,15 @@ Aşağıdaki ayar grubu, son kullanıcılar, Windows 10 cihazlarında ayarları 
 
 * Tema: Masaüstü arka plan, kullanıcı kutucuğunda, görev çubuğunun konumu, vb. 
 * Internet Explorer ayarlarını: gözatma geçmişi, URL'ler, Sık Kullanılanlar yazdınız. 
-* Parolalar: Wi-Fi profilleri de dahil olmak üzere Windows kimlik bilgisi Yöneticisi 
+* Parola: Wi-Fi profilleri de dahil olmak üzere Windows kimlik bilgileri Yöneticisi 
 * Dil Tercihleri: yazım sözlük, Sistem dil ayarları 
 * Erişim Kolaylığı: Ekran Okuyucusu, ekran klavyesi, Büyüteç 
 * Diğer Windows ayarları: Windows ayarları ayrıntıları bakın
-* Edge tarayıcı ayarları: Microsoft Edge Sık Kullanılanlar okuma listesi ve diğer ayarları
+* Microsoft Edge tarayıcı ayarları: Microsoft Edge Sık Kullanılanlar okuma listesi ve diğer ayarları
 
 ![](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
-Edge tarayıcısı ayar grubu (Sık Kullanılanlar, okuma listesi) eşitleniyor etkinleştirilebilir veya son kullanıcıların Edge tarayıcısı ayarları menü seçeneğini devre dışı.
+Microsoft Edge tarayıcı ayarları Grup (Sık Kullanılanlar, okuma listesi) eşitlemeyi etkinleştirilebilir veya Microsoft Edge tarayıcı ayarları menü seçeneğini aracılığıyla son kullanıcılar tarafından devre dışı.
 
 ![](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-edge.png)
 
@@ -74,8 +74,8 @@ Dolaşımda yoksa ayarlar veya eşitleme grubuna ait değil.
 | **Uygulama verilerini**: tek tek uygulamalar verileri Eşitle |Eşitleme yedekleme |Eşitleme yedekleme |İç |
 | **Uygulama listesi**: yüklü uygulamalar listesi |X |yedekleme |Diğer |
 | **Bluetooth**: tüm Bluetooth ayarları |X |X | |
-| **Komut İstemi**: komut istemi "Varsayılan" ayarları |eşitle |X |İç |
-| **Kimlik bilgileri**: kimlik bilgileri kasası |eşitle |eşitle |password |
+| **Komut İstemi**: Komut istemi "Varsayılan" ayarları |eşitle |X |İç |
+| **kimlik bilgileri**: Kimlik bilgileri kasası |eşitle |eşitle |password |
 | **Tarih, saat ve bölge**: otomatik saat (Internet zaman eşitleme) |eşitle |eşitle |language |
 | **Tarih, saat ve bölge**: 24 saatlik düzende |eşitle |X |language |
 | **Tarih, saat ve bölge**: tarih ve saat |eşitle |X |language |
@@ -93,23 +93,23 @@ Dolaşımda yoksa ayarlar veya eşitleme grubuna ait değil.
 | **Masaüstü kişiselleştirme**: görev çubuğu ayarları (konum, otomatik gizleme, vb.) |eşitle |X |Tema |
 | **Masaüstü kişiselleştirme**: Başlangıç ekranı düzeni |X |yedekleme | |
 | **Cihazları**: paylaşılan yazıcılara için bağlı |X |X |diğer |
-| **Edge tarayıcısı**: listesini okuma |eşitle |eşitle |İç |
-| **Edge tarayıcısı**: Sık Kullanılanlar |eşitle |eşitle |İç |
-| **Edge tarayıcısı**: üst siteleri <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
-| **Edge tarayıcısı**: URL'ler yazılan <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
-| **Edge tarayıcısı**: Sık Kullanılanlar çubuğu ayarları <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
-| **Edge tarayıcısı**: Giriş düğmesini göster <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
-| **Edge tarayıcısı**: açılır pencereleri engelle <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
-| **Edge tarayıcısı**: her indirme yapmanız gerekenler sor <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
-| **Edge tarayıcısı**: parolaları kaydetmek için teklif <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
-| **Edge tarayıcısı**: gönderme istekleri izleme <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
-| **Edge tarayıcısı**: form girişlerinin Kaydet <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
-| **Edge tarayıcısı**: yazarken arama ve site önerilerini göster <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
-| **Edge tarayıcısı**: tanımlama bilgilerini tercih <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
-| **Edge tarayıcısı**: korumalı medya lisansları cihazıma Kaydet siteleri izin <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
-| **Edge tarayıcısı**: ekran okuyucu ayarlama <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
-| **Yüksek Karşıtlık**: veya kapat |eşitle |X |Erişim Kolaylığı |
-| **Yüksek Karşıtlık**: tema ayarları |eşitle |X |Erişim Kolaylığı |
+| **Microsoft Edge tarayıcısı**: listesini okuma |eşitle |eşitle |İç |
+| **Microsoft Edge tarayıcısı**: Sık Kullanılanlar |eşitle |eşitle |İç |
+| **Microsoft Edge tarayıcısı**: üst siteleri <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
+| **Microsoft Edge tarayıcısı**: URL'ler yazılan <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
+| **Microsoft Edge tarayıcısı**: Sık Kullanılanlar çubuğu ayarları <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
+| **Microsoft Edge tarayıcısı**: Giriş düğmesini göster <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
+| **Microsoft Edge tarayıcısı**: açılır pencereleri engelle <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
+| **Microsoft Edge tarayıcısı**: her indirme yapmanız gerekenler sor <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
+| **Microsoft Edge tarayıcısı**: parolaları kaydetmek için teklif <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
+| **Microsoft Edge tarayıcısı**: gönderme istekleri izleme <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
+| **Microsoft Edge tarayıcısı**: form girişlerinin Kaydet <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
+| **Microsoft Edge tarayıcısı**: yazarken arama ve site önerilerini göster <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
+| **Microsoft Edge tarayıcısı**: tanımlama bilgilerini tercih <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
+| **Microsoft Edge tarayıcısı**: korumalı medya lisansları cihazıma Kaydet siteleri izin <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
+| **Microsoft Edge tarayıcısı**: ekran okuyucu ayarlama <sup> [[1]](#footnote-1)</sup> |eşitle |eşitle |İç |
+| **Yüksek Karşıtlık**: Veya kapat |eşitle |X |Erişim Kolaylığı |
+| **Yüksek Karşıtlık**: Tema Ayarları |eşitle |X |Erişim Kolaylığı |
 | **Internet Explorer**: sekmeler (URL ve başlık) açın |eşitle |eşitle |Internet Explorer |
 | **Internet Explorer**: listesini okuma |eşitle |eşitle |Internet Explorer |
 | **Internet Explorer**: yazılan URL'leri |eşitle |eşitle |Internet Explorer |
@@ -123,20 +123,20 @@ Dolaşımda yoksa ayarlar veya eşitleme grubuna ait değil.
 | **Klavye**: Filtre Tuşlarını etkinleştir (varsayılan olarak kapalıdır) |eşitle |X |Erişim Kolaylığı |
 | **Klavye**: geçiş tuşlarını etkinleştir (varsayılan olarak kapalıdır) |eşitle |X |Erişim Kolaylığı |
 | **Internet Explorer**: etki alanı dil: Çince (CHS) - QWERTY etkinleştirme kendi kendine öğrenme |eşitle |X |Dil |
-| **Dil**: QWERTY CHS - derecelendirme dinamik aday etkinleştir |eşitle |X |Dil |
-| **Dil**: kümesi Basitleştirilmiş Çince CHS QWERTY - char grafiği |eşitle |X |Dil |
-| **Dil**: kümesi Geleneksel Çince CHS QWERTY - char grafiği |eşitle |X |Dil |
-| **Dil**: QWERTY CHS - belirsiz PinYin'e |eşitle |yedekleme |Dil |
-| **Dil**: QWERTY CHS - belirsiz çiftleri |eşitle |yedekleme |Dil |
-| **Dil**: QWERTY CHS - tam PinYin'e |eşitle |X |Dil |
-| **Dil**: QWERTY CHS - çift PinYin'e |eşitle |X |Dil |
-| **Dil**: CHS otomatik düzeltme okuma QWERTY - |eşitle |X |Dil |
-| **Dil**: QWERTY CHS - C/E anahtarı anahtar, kaydırma |eşitle |X |Dil |
-| **Dil**: QWERTY CHS - C/E anahtar tuşu, Ctrl |eşitle |X |Dil |
+| **Dil**: CHS QWERTY - derecelendirme dinamik aday etkinleştir |eşitle |X |Dil |
+| **Dil**: QWERTY - CHS char-Basitleştirilmiş Çince set |eşitle |X |Dil |
+| **Dil**: QWERTY - CHS char-Geleneksel Çince set |eşitle |X |Dil |
+| **Dil**: CHS QWERTY - belirsiz PinYin'e |eşitle |yedekleme |Dil |
+| **Dil**: CHS QWERTY - belirsiz çiftleri |eşitle |yedekleme |Dil |
+| **Dil**: CHS QWERTY - tam PinYin'e |eşitle |X |Dil |
+| **Dil**: CHS QWERTY - çift PinYin'e |eşitle |X |Dil |
+| **Dil**: Otomatik Düzeltme okuma CHS QWERTY- |eşitle |X |Dil |
+| **Dil**: CHS QWERTY - C/E anahtarı anahtar, kaydırma |eşitle |X |Dil |
+| **Dil**: Ctrl tuşu CHS QWERTY - C/E geçiş |eşitle |X |Dil |
 | **Dil**: CHS WUBI - tek karakter giriş modu |eşitle |X |Dil |
 | **Dil**: CHS WUBI - adayı kodlama kalan Göster |eşitle |X |Dil |
-| **Dil**: 4 kodlama geçersiz olduğunda CHS WUBI - bip sesi |eşitle |X |Dil |
-| **Dil**: CHT Bopomofo - CJK Ext A içerir |eşitle |X |Dil |
+| **Dil**: CHS WUBI - 4 kodlama geçersiz olduğunda bip sesi |eşitle |X |Dil |
+| **Dil**: -CHT Bopomofo CJK Ext A içerir |eşitle |X |Dil |
 | **Dil**: Japonca IME - Tahmine dayalı yazma ve özel sözcük |eşitle |eşitle |Dil |
 | **Dil**: Kore dili (KOR) IME |X |X |Dil |
 | **Dil**: el yazısı tanıma |X |X |Dil |

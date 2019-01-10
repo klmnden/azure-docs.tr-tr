@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e5bf7cc199fc8a439b5071faa89cce2e3ed47a75
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: e115db18770ef304d823ff9c35d7d2cf302d5ccf
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724324"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187771"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Azure Active Directory B2C'de dil özelleştirme
 
@@ -26,9 +26,9 @@ Dil özelleştirme, kullanıcı akışınızı kullanılabilir diller seçmek i�
 
 Müşterinizin görür hangi dilleri üzerinde denetim düzeyi gerekmeyebilir. Sağlamıyorsa bir `ui_locales` parametresi, müşteri deneyimi, tarayıcı ayarları tarafından belirlenir.  Kullanıcı akışınızı desteklenen bir dil ekleyerek çevrilir dilleri yine de denetleyebilirsiniz. Bir müşterinin tarayıcı desteklemek istemediğiniz bir dili göstermek üzere ayarlarsanız, bunun yerine varsayılan olarak desteklenen kültürler seçtiğiniz dil gösterilir.
 
-- **kullanıcı arabirimi yerel belirtilen dil**: dil özelleştirme etkinleştirdikten sonra kullanıcı akışınızı burada belirtilen dile çevrilir.
+- **kullanıcı arabirimi yerel belirtilen dil**: Dil özelleştirme etkinleştirdikten sonra kullanıcı akışınızı burada belirtilen dile çevrilir.
 - **Tarayıcı istenen dil**: Hayır ise `ui_locales` parametre belirtildi, kullanıcı akışınızı tarayıcı tarafından istenen dili için çevrilmiş *dil destekleniyorsa*.
-- **İlkenin varsayılan dili**: tarayıcı bir dil belirtmiyor veya desteklenmeyen bir belirtir, kullanıcı akışı kullanıcı akışı varsayılan dile çevrilir.
+- **İlkenin varsayılan dili**: Tarayıcı, bir dil belirtmeyen ya da desteklenmeyen bir belirtir, kullanıcı akışı kullanıcı akışı varsayılan dile çevrilir.
 
 >[!NOTE]
 >Özel kullanıcı öznitelikleri kullanıyorsanız, kendi çevirilerinizi sağlamanız gerekir. Daha fazla bilgi için [dizelerinizi özelleştirme](#customize-your-strings).
@@ -175,7 +175,7 @@ Microsoft, şu anda sağdan sola diller için destek sağlamaz. Bu, özel yerel 
 ### <a name="social-identity-provider-translations"></a>Sosyal kimlik sağlayıcısı çevirileri
 Microsoft'un sağladığı `ui_locales` OIDC parametresi sosyal oturum açma bilgileri. Ancak, Facebook ve Google gibi bazı sosyal kimlik sağlayıcıları dikkate yok. 
 ### <a name="browser-behavior"></a>Tarayıcı davranışı
-Chrome ve Firefox hem de set dillerini isteyin. Desteklenen bir dil etkinleştirilmişse, önce varsayılan görüntülenir. Edge şu anda bir dil istemez ve düz varsayılan dili gider.
+Chrome ve Firefox hem de set dillerini isteyin. Desteklenen bir dil etkinleştirilmişse, önce varsayılan görüntülenir. Microsoft Edge şu anda bir dil istemez ve düz varsayılan dili gider.
 
 ### <a name="supported-languages"></a>Desteklenen diller
 

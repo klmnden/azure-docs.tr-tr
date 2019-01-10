@@ -6,14 +6,14 @@ ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 01/09/2019
 ms.custom: mvc
-ms.openlocfilehash: 19c1952a25e6a6db9b81b74f79bdcd2970cb2c78
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 0a629b9b068694960178c1c5727ba2f38b0e8af7
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538763"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190349"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Azure CLI kullanarak MariaDB için Azure Veritabanı sunucusu oluşturma
 
@@ -71,6 +71,10 @@ Aşağıdaki örnekte Batı ABD bölgesinde **mydemoserver** adında bir sunucu 
 ```azurecli-interactive
 az mariadb server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 10.2
 ```
+
+> [!NOTE]
+> Temel fiyatlandırma katmanını kullanarak göz önünde bulundurun hafif işlem ve g/ç iş yükünüz için yeterli olup olmadığını. Temel fiyatlandırma katmanında oluşturulan sunucular daha sonra genel amaçlı veya bellek için iyileştirilmiş ölçeklendirilemiyor olduğunu unutmayın. Bkz: [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/mariadb/) daha fazla bilgi için.
+> 
 
 ## <a name="configure-a-firewall-rule"></a>Güvenlik duvarı kuralını yapılandırma
 

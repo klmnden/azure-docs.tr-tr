@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
-ms.openlocfilehash: dcedf27f6105dcc1ea6e43feb32d254b491842c7
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 9d91ccd04ed06fb6c256a2d9911202d7df6d08a5
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974446"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188309"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Azure Backup’ta çevrimdışı yedekleme iş akışı
 Azure Backup, azure'a veri ilk tam yedekleme sırasında ağ ve depolama maliyetlerinden tasarruf birkaç yerleşik verimliliği sahiptir. Genellikle ilk tam yedeklemeler büyük miktarlarda veri aktarmanıza ve yalnızca deltaları/incrementals aktarmak sonraki yedeklemelerle karşılaştırıldığında daha fazla ağ bant genişliği gerektirecektir. Çevrimdışı dengeli dağıtım işlemi boyunca, Azure Backup diskler Çevrimdışı Yedekleme verileri Azure'a karşıya yüklemek için kullanabilirsiniz.
@@ -109,7 +109,7 @@ Bu bölümde, böylece verilerinizi Azure veri merkezi için sunulan ve Azure de
     * Kopya bilgisayar hazırlama konumu çevrimdışı dengeli dağıtım iş akışı için sunulan aynı ağ yolunu kullanarak erişebilirsiniz **çevrimdışı yedekleme başlatmak** iş akışı.
     * Kopyalama bilgisayarda BitLocker etkin.
     * Azure PowerShell 3.7.0 yüklenir.
-    * En son uyumlu tarayıcıları (Edge veya Internet Explorer 11) yüklü ve JavaScript'in etkinleştirilmiş. 
+    * En son uyumlu tarayıcıları (Microsoft Edge veya Internet Explorer 11) yüklü ve JavaScript'in etkinleştirilmiş. 
     * Kopya bilgisayar Azure portala erişebilirsiniz. Gerekirse, kopya bilgisayar kaynak bilgisayarla aynı olabilir.
     
     > [!IMPORTANT] 

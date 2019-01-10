@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/7/2018
+ms.date: 01/09/2019
 ms.author: shlo
-ms.openlocfilehash: afaa5ae622f962dcffec52dbdbea8a754ba260ab
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 323d22363ee52ff6ccf7575b00c6b8b31a0fa156
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025394"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188503"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Azure Data Factory'de görsel yazma
 Görsel olarak yazma ve herhangi bir kod yazmak zorunda kalmadan, veri fabrikanızın kaynakları dağıtma Azure Data Factory kullanıcı arabirimi deneyimi (UX) sağlar. Etkinlikler bir işlem hattı tuvaline sürükleyin, test çalıştırmaları yapın, yinelemeli olarak, hata ayıklama ve dağıtabilir ve işlem hattı çalıştırmalarınızı izleyin. Görsel yazma gerçekleştirmek için kullanıcı Deneyimini kullanarak iki yaklaşım vardır:
@@ -76,11 +76,11 @@ Bir yapılandırma bölmesi görüntülenir. Yapılandırma ayarları hakkında 
 
 ![UX yazmak için kod deposu ayarlarını yapılandırma](media/author-visually/configure-repo-2.png)
 
-## <a name="use-a-different-azure-active-directory-tenant"></a>Farklı bir Azure Active Directory kiracısı kullanma
+### <a name="use-a-different-azure-active-directory-tenant"></a>Farklı bir Azure Active Directory kiracısı kullanma
 
 Bir Azure depoları Git deposu içinde farklı bir Azure Active Directory kiracısı oluşturabilirsiniz. Farklı bir belirtmek için Azure AD kiracısına sahip kullanmakta olduğunuz Azure aboneliği için yönetici izinlerine sahip olması.
 
-## <a name="use-your-personal-microsoft-account"></a>Kişisel Microsoft hesabınızı kullanın
+### <a name="use-your-personal-microsoft-account"></a>Kişisel Microsoft hesabınızı kullanın
 
 Git tümleştirmesi için kişisel bir Microsoft hesabı kullanmak için kuruluşunuzun Active Directory ile kişisel Azure deponuzu bağlayabilirsiniz.
 
@@ -94,7 +94,7 @@ Bu yapılandırma adımları sonra Data Factory kullanıcı arabiriminde Git tü
 
 Kuruluşunuzun Active Directory ile Azure depoları bağlanma hakkında daha fazla bilgi için bkz. [Azure DevOps kuruluşunuz Azure Active Directory'ye bağlamanın](/azure/devops/organizations/accounts/connect-organization-to-azure-ad).
 
-## <a name="switch-to-a-different-git-repo"></a>Farklı bir Git deposuna geçin
+### <a name="switch-to-a-different-git-repo"></a>Farklı bir Git deposuna geçin
 
 Farklı bir Git deposuna geçiş yapmak için aşağıdaki ekran görüntüsünde gösterildiği gibi Data Factory'ye genel bakış sayfasında, sağ üst köşesindeki simgeyi bulun. Simge göremiyorsanız, yerel tarayıcınızın önbelleğini temizleyin. Geçerli depo ilişkilendirmesini kaldırmak için simgeyi seçin.
 
@@ -102,7 +102,7 @@ Geçerli depo ilişkilendirmesini kaldırdıktan sonra farklı bir depoyu kullan
 
 ![Geçerli bir Git deposu ile ilişkilendirmesini Kaldır](media/author-visually/remove-repo.png)
 
-## <a name="use-version-control"></a>Sürüm denetimi kullanın
+### <a name="use-version-control"></a>Sürüm denetimi kullanın
 Sürüm denetimi sistemlerinden (olarak da bilinen _kaynak denetimi_) kod için temel yapılan kod ve değişiklikleri izleyin üzerinde işbirliği geliştiricilerin olanak sağlar. Kaynak denetimi çok geliştirme projeleri için önemli bir araçtır.
 
 Data factory ile ilişkili her Azure depoları Git deposuna bir işbirliği dalı yok. (`master` varsayılan işbirliği dalı). Kullanıcılar ayrıca oluşturabilir özellik dalları tıklayarak **+ yeni dal** ve özellik dalları geliştirme yapın.
@@ -113,7 +113,7 @@ Data factory ile ilişkili her Azure depoları Git deposuna bir işbirliği dal�
 
 ![Yeni çekme isteği oluştur](media/author-visually/create-pull-request.png)
 
-## <a name="configure-publishing-settings"></a>Yayımlama ayarlarını yapılandırma
+### <a name="configure-publishing-settings"></a>Yayımlama ayarlarını yapılandırma
 
 Diğer bir deyişle, burada Resource Manager şablonları kaydedilir - dal yayımlama dal - yapılandırmak için Ekle bir `publish_config.json` işbirliği dalın kök klasörüne dosya. Data Factory, bu dosyayı okur, alan için arama yapar `publishBranch`ve (zaten yoksa), sağlanan değer ile yeni bir dal oluşturur. Sonra tüm Resource Manager şablonları belirtilen konuma kaydeder. Örneğin:
 
@@ -131,13 +131,39 @@ Yeni bir yayımlama dal belirttiğinizde, Data Factory önceki yayımlama dal si
 
 Yalnızca veri fabrikası okur `publish_config.json` Fabrika yüklediğinde, dosya. Portalda yüklenen Fabrika zaten varsa, etkili, değişiklik yapmak için tarayıcıyı yenileyin.
 
-## <a name="publish-code-changes"></a>Kod değişiklikleri Yayımla
+### <a name="publish-code-changes"></a>Kod değişiklikleri Yayımla
 İşbirliği dala değişiklikleri birleştirdiğiniz sonra (`master` varsayılandır) seçeneğini **Yayımla** el ile kod değişikliklerinizi ana daldaki Data Factory hizmetine yayımlamak.
 
 ![Değişiklikleri Data Factory hizmetinde yayımlayın](media/author-visually/publish-changes.png)
 
 > [!IMPORTANT]
 > Ana dal Data Factory hizmetinde dağıtılan temsili değildir. Ana dal *gerekir* yayımlanacağı el ile Data Factory hizmetinde yayımlayın.
+
+### <a name="advantages-of-git-integration"></a>Git tümleştirmesi avantajları
+
+-   **Kaynak denetimi**. Data factory iş yüklerinizi önemli olduğunda, aşağıdaki gibi birçok kaynak denetimi Avantajdan yararlanmak için Git fabrikanızı tümleştirmek istersiniz:
+    -   Değişiklik izleme/denetim olanağı.
+    -   Hatanın değişiklikleri geri al olanağı.
+-   **Kısmi kaydeder**. Fabrikanızı içinde çok sayıda değişiklik yaptığınız gibi normal Canlı modda, değişiklikleriniz taslak olarak hazır olmayan veya bilgisayarın kilitlenmesi durumda değişikliklerinizi kaybetmek istemediğiniz için kaydedilemiyor olduğunu fark edeceksiniz. Git Tümleştirmesi ile artımlı olarak değişikliklerinizi kaydetmeye devam etmek ve yalnızca hazır olduğunuzda factory'de yayımlamak. İçin tatmininizi değişikliklerinizi test kadar Git için iş hazırlama bir yer olarak görev yapar.
+-   **İşbirliği ve Denetim**. Birden çok takım üyeleri için aynı Fabrika katılan varsa, kodunuza bir kod incelemesi süreci birbirleriyle işbirliği yapmak isteyebilirsiniz. Her katılımcı factory'ye factory'ye dağıtırsınız iznine sahip olacak şekilde, Fabrika de ayarlayabilirsiniz. Takım üyeleri yalnızca Git aracılığıyla değişiklik yapmak için izin verilmiyor olabilir ancak yalnızca belirli kişiler takım "Yayımla" Fabrika değişiklikleri izin verilir.
+-   **Farkları gösteren**. Git modunda hakkındadır yükü iyi farkı görmek bilgi almak için Fabrika yayımlanmış. Bu fark, tüm kaynakları/değişiklik/eklenen/silinen factory'nize yayımlanan son Time alındı varlıkları gösterir. Bu fark üzerinde bağlı olarak, ya da devam ederek yayımlama ile daha fazla veya geri dönün ve değişikliklerinizi denetleyin ve ardından daha sonra tekrar deneyin.
+-   **Daha iyi bir CI/CD**. Git modu kullanıyorsanız, yayın işlem hattınızı otomatik olarak geliştirme fabrikada yapılan değişiklikler olduğundan hemen tetiklemek için yapılandırabilirsiniz. Resource Manager şablonunda parametreler olarak kullanılabilir olan özellikleri Fabrikanızdaki özelleştirmek alın. Yalnızca gerekli özellikleri olarak parametreler kümesi tutun ve her şeyi başka sabit kodlanmış olması için yararlı olabilir.
+-   **Daha iyi performans**. Kaynakları Git yüklenir çünkü bir ortalama fabrikası normal Canlı modda Git modunda hızlı 10 x kez yükler.
+
+### <a name="best-practices-for-git-integration"></a>Git tümleştirmesi için en iyi uygulamalar
+
+-   **İzinleri**. Genellikle Fabrika güncelleştirmek için izinlere sahip için tüm takım üyelerini istemezsiniz.
+    -   Tüm takım üyelerini data factory'ye Okuma izinlerine sahip.
+    -   Yalnızca bir grup kişi factory'ye ve için "Data Factory Katılımcısı" rol Fabrika üzerinde bir parçası olarak gerek yayımlamak için izin verilmelidir.
+    -   Kaynak denetimi en iyi yöntemler de doğrudan iadeler işbirliği dalına izin vermeyecek şekilde biridir. Bu gereksinim, her iade bir çekme isteği işlem sırasında geçebileceği hataları önler.
+-   **Modlar arasında geçiş yapmak**.
+    -    Git modunda olduğunda, öncelikle Canlı modda yapılan tüm değişiklikleri değil görülme çünkü Git'e geri değiştirdiğinizde, İleri ve geri Canlı moduna geçmek için önermemekteyiz. Git modunda kendisini değişiklikleri yapın ve ardından bunları bir kullanıcı Arabirimi yayımlama deneyin.
+    -   Benzer şekilde, bunlar doğrudan Canlı Fabrika için sağlanan değişiklikleri uygulayarak aynı etkiyi elde gibi herhangi bir veri fabrikası powershell cmdlet'leri, kullanmayın.
+-   **Azure Key vault'tan parolalarını**.
+    -   Herhangi bir bağlantı dizelerini veya DataFactory bağlı hizmetler için parolaları depolamak için AzureKeyVault kullanarak öneririz.
+    -   Biz gibi gizli bilgiler Git'te (güvenlik nedeniyle), böylece tüm bağlı hizmetler değişiklikler hemen Canlı factory'ye yayımlanır depolamayın. Değişiklikleri sınanmamış gibi bu hemen yayımlama bazen, git'in amacını boşa çıkarır, istenildiği gibi.
+    -   Sonuç olarak, tüm gizli bağlı hizmetlerinden tabanlı Azure Key Vault'u kullanın getirilmesi gerekir.
+    -   Anahtar kasası kullanmanın diğer avantajları bazıları CICD, gizli dizileri sırasında Resource Manager şablon dağıtımı sağlamanıza yapmayarak kolaylaştırır emin olur.
 
 ## <a name="author-with-github-integration"></a>GitHub Tümleştirmesi ile içerik oluşturma
 

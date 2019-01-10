@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: lizross
 ms.reviewer: japere
-ms.openlocfilehash: b4229ca7ff96a9806ac82cf9452de496d858f6b4
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: a761e6a42e478aafca75709689a022edec2a64db
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705693"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191046"
 ---
 # <a name="troubleshoot-issues-with-accessing-and-using-the-myapps-portal"></a>Erişme ve MyApps portalında kullanarak sorunlarını giderme
 
@@ -49,7 +49,7 @@ MyApps portalında JavaScript destekleyen bir tarayıcı gerektirir ve CSS etkin
 
 Tarayıcı aşağıdaki gereksinimleri karşıladığından emin olun:
 
-- **Edge**: Windows 10 Anniversary Edition veya sonrası.
+- **Microsoft Edge**: Windows 10 Anniversary Edition veya sonrası.
 - **Chrome**: Windows 7 veya daha sonra ve Mac OS X veya üzeri.
 - **26,0 veya üzeri Firefox**: Windows XP SP2 veya sonraki sürümlerde ve Mac OS X 10.6 veya daha sonra.
 - **Internet Explorer 11**: Windows 7 veya üzeri (sınırlı destek).
@@ -90,7 +90,7 @@ Uzantıyı yükledikten ve sorunları yaşamaya aşağıdakileri deneyin:
        Son üç uygulamaları kullandığınız görüntülenen **kısa süre önce kullanılan** kısayol listesi.
 
 > [!NOTE]
-> Bu seçenekler yalnızca Edge, Chrome ve Firefox için kullanılabilir.
+> Bu seçenekler, yalnızca Microsoft Edge, Chrome ve Firefox için kullanılabilir.
 
 ## <a name="how-do-i-add-a-new-app"></a>Yeni bir uygulama nasıl ekleyebilirim?
 

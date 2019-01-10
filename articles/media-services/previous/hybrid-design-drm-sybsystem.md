@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: willzhan;juliako
-ms.openlocfilehash: 84e2eb6a16ce9ee4889eacbf394754c5c2544f7a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9026cab0651cd5f8433f9a8a7db0366a6ab13464
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245316"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190264"
 ---
 # <a name="hybrid-design-of-drm-subsystems"></a>DRM subsystem(s) sisteminin karma tasarımı
 
@@ -68,8 +68,8 @@ Kapsamlı bir bulut video platformu bir parçası olarak, Azure Media Services D
 
 ### <a name="drm-license-delivery"></a>DRM lisansı verme
 
-* AMS: DRM lisans AMS lisans teslimat hizmeti tarafından sağlanır.
-* Üçüncü taraf: AMS dışında bir üçüncü taraf DRM lisans sunucusu tarafından DRM lisans teslim edilir.
+* AMS: DRM lisansı AMS lisans teslimat hizmeti tarafından sağlanır.
+* Üçüncü taraf: DRM lisansı, bir üçüncü taraf DRM lisans sunucusu AMS dışında teslim edilir.
 
 ## <a name="configure-based-on-your-hybrid-scenario"></a>Yapılandırma, karma senaryo temel alınarak
 
@@ -102,7 +102,7 @@ Varlık teslim ilkesi yapılandırma yoluyla, AMS dinamik Paketleyici ve AMS ak�
 |AMS|Üçüncü taraf|Dış|Hayır|Hayır|Örnek 4|
 |Üçüncü taraf|Üçüncü taraf|AMS|Evet|Hayır|    
 
-Örnekler, hem DASH hem de kesintisiz akış için PlayReady korumalı çalışır. Aşağıdaki video URL'leri, kesintisiz akış URL'lerini. Karşılık gelen DASH URL'leri almak için yalnızca URL'ye "(biçim mpd-time-CSF)". Kullanabileceğinizi [azure media player test](https://aka.ms/amtest) tarayıcıda test etmek için. Hangi teknik altında kullanılacak hangi Akış Protokolü yapılandırmanıza olanak sağlar. Ie11 ve Windows 10 MS Edge EME üzerinden PlayReady destekler. Daha fazla bilgi için [test aracı hakkındaki ayrıntıları](https://blogs.msdn.microsoft.com/playready4/2016/02/28/azure-media-test-tool/).
+Örnekler, hem DASH hem de kesintisiz akış için PlayReady korumalı çalışır. Aşağıdaki video URL'leri, kesintisiz akış URL'lerini. Karşılık gelen DASH URL'leri almak için yalnızca URL'ye "(biçim mpd-time-CSF)". Kullanabileceğinizi [azure media player test](https://aka.ms/amtest) tarayıcıda test etmek için. Hangi teknik altında kullanılacak hangi Akış Protokolü yapılandırmanıza olanak sağlar. Ie11 ve Windows 10 Microsoft Edge EME üzerinden PlayReady destekler. Daha fazla bilgi için [test aracı hakkındaki ayrıntıları](https://blogs.msdn.microsoft.com/playready4/2016/02/28/azure-media-test-tool/).
 
 ### <a name="sample-1"></a>Örnek 1
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 7c7891d8a73142c78b1ca80027d685b93a062d06
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 6a9b8e25b8c64d39606ee5c2582098839e349630
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317917"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189771"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Azure haritalar'ı kullanarak bir depolama Bulucu
 
@@ -109,7 +109,7 @@ Projeyi oluşturmak için kullanabileceğiniz [Visual Studio](https://visualstud
 
 Kullanıcı arabirimi oluşturmak için kodu ekleyin. *index.html*:
 
-1. Aşağıdaki `meta` için etiketler `head` , *index.html*. Etiketler (UTF-8) karakter kümesi tanımlamak, Internet Explorer ve Edge son tarayıcı sürümlerini kullanan söyleyin ve hızlı yanıt veren düzenleri için de geçerlidir bir Görünüm penceresi belirtin.
+1. Aşağıdaki `meta` için etiketler `head` , *index.html*. Etiketleri (UTF-8) karakter kümesi tanımlamak, Internet Explorer ve Microsoft Edge tarayıcı en son sürümleri kullanın söyleyin ve hızlı yanıt veren düzenleri için de geçerlidir bir Görünüm penceresi belirtin.
 
     ```HTML
     <meta charset="utf-8" /> 

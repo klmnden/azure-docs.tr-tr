@@ -6,15 +6,15 @@ ms.service: container-service
 author: iainfoulds
 ms.author: iainfou
 ms.topic: article
-ms.date: 09/27/2018
-ms.openlocfilehash: d252e275280ed2a5c2129f6b228e9989a33b37fd
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.date: 01/09/2019
+ms.openlocfilehash: 470ba6df76741dd5c9e9eed055cd7848d341082f
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853641"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188462"
 ---
-# <a name="tutorial-deploy-from-github-to-azure-kubernetes-service-aks-with-jenkins-continuous-integration-and-deployment"></a>Öğretici: Jenkins sürekli tümleştirme ve dağıtım ile Github'dan Azure Kubernetes Service (AKS) dağıtma
+# <a name="tutorial-deploy-from-github-to-azure-kubernetes-service-aks-with-jenkins-continuous-integration-and-deployment"></a>Öğretici: Github'dan Azure Kubernetes Service (AKS) Jenkins sürekli tümleştirme ve dağıtım ile dağıtma
 
 Bu öğretici için github'dan örnek uygulama dağıtan bir [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) kurarak sürekli tümleştirme (CI) ve Jenkins sürekli dağıtım (CD) kümesi. Github'a geçirdik, işlemeleri ileterek uygulamanızı güncelleştirdiğinizde bu şekilde, Jenkins otomatik olarak yeni bir kapsayıcı derlemesi çalıştırır, kapsayıcı görüntülerini Azure Container Registry (ACR) gönderir ve ardından uygulamanızı AKS çalıştırır. 
 
@@ -229,11 +229,6 @@ Seçin, Jenkins portalı giriş sayfasından **yeni öğe** sol taraftaki:
 1. Girin *azure-vote* iş adı olarak. Seçin **Serbest tarzda proje**, ardından **Tamam**
 1. **Genel** bölümünden **GitHub projesi**’ni seçip çatalı oluşturulan deponuzun URL’sini *https://github.com/\<your-github-account\>/azure-voting-app-redis* şeklinde girin
 1. **Kaynak kodu yönetimi** bölümünden **Git**’i seçip çatalı oluşturulan deponuzun *.git* URL’sini *https://github.com/\<your-github-account\>/azure-voting-app-redis.git* şeklinde girin
-    - Kimlik bilgileri için tıklayın ve **Ekle** > **Jenkins**
-    - Altında **tür**seçin **gizli metin** girin, [GitHub kişisel erişim belirteci] [ git-access-token] gizli dizi olarak.
-    - Seçin **Ekle** işiniz bittiğinde.
-
-    ![GitHub kimlik](media/aks-jenkins/github-creds.png)
 
 1. Altında **derleme Tetikleyicileri** bölümünden **Gıtscm yoklaması için GitHub kanca tetikleyicisi**
 1. Altında **yapı ortamı**seçin **gizli metin veya dosyaları kullanma**

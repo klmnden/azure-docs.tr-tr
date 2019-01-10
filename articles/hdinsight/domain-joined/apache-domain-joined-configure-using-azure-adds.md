@@ -9,12 +9,12 @@ ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.custom: seodec18
-ms.openlocfilehash: ced7964fc96138ad7b18ab72d6c479e8db7eab8a
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 115604d9b2aa21018742bbedbc737405b52599e4
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436237"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188955"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services'ı kullanarak bir HDInsight kümesi Kurumsal güvenlik paketi ile yapılandırma
 
@@ -82,6 +82,8 @@ Hem Azure AD DS'yi örneği hem de HDInsight küme aynı Azure sanal ağında ye
 Sanal ağlar eşlendikten sonra HDInsight VNET özel bir DNS sunucusu kullanın ve Azure AD DS'yi özel IP'ler girişi DNS sunucusu adreslerini yapılandırın. Her iki Vnet'in aynı DNS sunucularını kullandığınızda, özel etki alanı adınızı doğru IP çözer ve HDInsight ' erişilebilir. Etki alanı adınızı "contoso.com" daha sonra Bu adımdan sonra ping "contoso.com" Azure AD DS IP sağa çözümlenmelidir örneğin. 
 
 ![Eşlenen sanal ağ için özel DNS sunucuları yapılandırma](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-peered-vnet-configuration.png)
+
+Ağ güvenlik grupları (NSG) kuralları, HDInsight alt ağda kullanıyorsanız, izin vermeniz gerekir [IP'ler gerekli](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-extend-hadoop-virtual-network#hdinsight-ip-1) hem gelen hem de giden trafiği için. 
 
 **Sınanacak** ağınızın doğru şekilde ayarlanıp ayarlanmadığını windows VM HDInsight VNET/alt ağına katılın ve etki alanı adı (çözmek için bir IP) ping ve ardından çalıştırın **Ldp.exe'yi** Azure AD DS etki alanını erişmek için. Ardından **bu windows VM onaylamak için etki alanına** istemci ve sunucu tüm gerekli RPC çağrıları başarılı. Ayrıca **nslookup** (örneğin, dış Hive meta veri deposu veya Ranger DB) kullanıyor olabileceğiniz herhangi bir dış DB veya depolama hesabınız için ağ erişimi onaylamak için.
 Emin olmanız gerekir tüm [gerekli bağlantı noktaları](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)#communication-to-domain-controllers) AAD DS bir NSG tarafından sağlanıyorsa AAD DS alt ağ güvenlik grubu kurallarını güvenilir listededir. Bu windows etki alanına katılma VM başarılı olur sonraki adıma geçin ve ESP kümeleri oluşturma.

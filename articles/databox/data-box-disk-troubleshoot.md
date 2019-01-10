@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 83b3a271006df38744b9de49ed6350bea3aeef4d
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 8e75aa31941fe7368ef56f344db14d9b376e6238
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159392"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191709"
 ---
 # <a name="troubleshoot-issues-in-azure-data-box-disk"></a>Azure Data Box Disk de sorunlarını giderme
 
@@ -86,7 +86,76 @@ Etkinlik günlükleri 90 gün boyunca saklanır. Başlangıç tarihi 90 günden 
 |[Bilgi] Hedef dosya veya dizin adı NTFS uzunluk sınırını aşıyor. |Bu ileti hedef dosya uzun dosya yolu nedeniyle yeniden adlandırıldığında bildirilir.<br> Bu davranışı denetlemek için `config.json` dosyasındaki değerlendirme seçeneğini değiştirin.|
 |[Hata] Özel durum: Hatalı JSON kaçış dizisi. |Bu ileti config.json dosyasında geçersiz biçim olduğunda bildirilir. <br> Dosyayı kaydetmeden önce [JSONlint](https://jsonlint.com/) kullanarak `config.json` için doğrulama gerçekleştirin.|
 
+## <a name="deployment-issues-for-linux"></a>Linux dağıtım sorunları
 
+Bu bölümde Data Box Disk dağıtımı sırasında bir Linux istemcisi için veri kopyalama kullanılırken karşılaşılan en önemli sorunlardan bazıları açıklanmaktadır.
+
+### <a name="issue-drive-getting-mounted-as-read-only"></a>Sorun: Sürücü salt okunur olarak bağlanmış
+ 
+**Bunun nedeni** 
+
+Bu, bir şekilde çoğaltamaması dosya sistemi nedeniyle olabilir. 
+
+- Bir sürücü olarak kaldırmadan veri kutusu disk ile çalışmaz. Bu senaryo dislocker tarafından şifresi sürücülerle desteklenir. 
+- Okuma-yazma kaldırmadan çalışmaz. Aşağıdaki komutu kullanarak cihaz başarıyla yeniden: 
+
+    `# mount -o remount, rw / mnt / DataBoxDisk / mountVol1 ß`
+
+   Başarılı kaldırmadan rağmen verilerin kalıcı olmaz.
+
+**Çözümleme**
+
+Yukarıdaki hatasını görürseniz, aşağıdaki çözümlerden birini deneyebilirsiniz:
+
+- Yükleme [ `ntfsfix` ](https://linux.die.net/man/8/ntfsfix) (kullanılabilir `ntfsprogs` paket) ve ilgili bölümü karşı çalıştırabilirsiniz.
+
+- Windows sistemine erişimi varsa
+
+    - Sürücü Windows sistemine yükleyin.
+    - Yönetici ayrıcalıklarıyla bir komut istemi açın. Çalıştırma `chkdsk` birimde.
+    - Güvenli bir şekilde birimi kaldırın ve yeniden deneyin.
+ 
+### <a name="issue-error-with-data-not-persisting-after-copy"></a>Sorun: Kopyalamadan sonra kalıcı değil verilerle hata
+ 
+**Bunun nedeni** 
+
+Sonra drive'ınızdaki verileri yok görürseniz (veri için kopyalandığı rağmen) sürücü salt okunur olarak oluşturulmasından sonra bir sürücü okuma-yazma olarak geri takılmazsa mümkündür, çıkarılamadı.
+
+**Çözümleme**
+ 
+Bu durumda, bakmalarını için [salt okunur olarak bağlanmış sürücüleri](#issue-drive-getting-mounted-as-read-only).
+
+Bu durumda, olmadıysa [tanılama günlüklerini indirin](#download-diagnostic-logs) sisteminizden ve [Microsoft Support başvurun](data-box-disk-contact-microsoft-support.md).
+
+## <a name="deployment-issues-for-windows"></a>Windows için dağıtım sorunları
+
+Bu bölümde Data Box Disk dağıtımı sırasında bir Linux istemcisi için veri kopyalama kullanılırken karşılaşılan en önemli sorunlardan bazıları açıklanmaktadır.
+
+### <a name="issue-could-not-unlock-drive-from-bitlocker"></a>Sorun: BitLocker sürücüsünden kilidi açılamadı
+ 
+**Bunun nedeni** 
+
+BitLocker'ı iletişim kutusunda veya kullanılan parolayı ve BitLocker'ı aracılığıyla disk kilidi açılmaya çalışılırken sürücüler iletişim kilidini açın. Bu çalışmaz. 
+
+**Çözümleme**
+
+Veri kutusu disk kilidini açmak için veri kutusu Disk kilidini aracını kullanın ve Azure portalından parolayı girmeniz gerekir.
+ 
+### <a name="issue-could-not-unlock-or-verify-some-volumes-contact-microsoft-support"></a>Sorun: Yüklenemedi kilidini veya bazı birimler doğrulayın. Microsoft Desteği'ne başvurun.
+ 
+**Bunun nedeni** 
+
+Hata günlüğünde yer alan aşağıdaki hatayı görebilirsiniz ve kilidini ya da bazı birimler doğrulamak mümkün değildir.
+
+`Exception System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Management.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.`
+ 
+Bu, büyük olasılıkla uygun Windows PowerShell sürümünü Windows istemciniz üzerinde eksik olduğunu gösterir.
+
+**Çözümleme**
+
+Yükleyebileceğiniz [Windows PowerShell v 5.0](https://www.microsoft.com/download/details.aspx?id=54616) ve işlemi yeniden deneyin.
+ 
+Birimlerinin kilidini açmak hala bırakamıyorsanız varsa [Microsoft Support başvurun](data-box-disk-contact-microsoft-support.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

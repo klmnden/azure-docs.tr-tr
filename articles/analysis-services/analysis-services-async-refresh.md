@@ -5,17 +5,18 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/08/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e797f1faf249a1ad1eebbd46984829de5f087936
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: f10bae780ebb05d3450f4dab7e53fa87fe25b022
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958678"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189562"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>REST API ile zaman uyumsuz yenileme
+
 REST çağrılarını destekleyen herhangi bir programlama dilini kullanarak, Azure Analysis Services tablosal Modellerinizi zaman uyumsuz veri yenileme işlemleri gerçekleştirebilirsiniz. Bu, eşitleme için sorgu genişleme salt okunur çoğaltmaların içerir. 
 
 Veri yenileme işlemleri, veri hacmi, bölümler, vb. kullanarak iyileştirmesi düzeyi dahil olmak üzere bir dizi etkene bağlı olarak biraz zaman alabilir. Bu işlem geleneksel olarak kullanma gibi mevcut yöntemleri ile çağrılabilir [TOM](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (tablolu nesne modeli) [PowerShell](https://docs.microsoft.com/sql/analysis-services/powershell/analysis-services-powershell-reference) cmdlet'lerini veya [TMSL](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) (Tablosal Model Komut dosyası dili). Ancak, bu yöntemler genellikle güvenilir olmayan, uzun süren HTTP bağlantıları gerektirebilir.
@@ -94,6 +95,7 @@ Gövde aşağıdakine benzeyebilir:
 ```
 
 ### <a name="parameters"></a>Parametreler
+
 Parametreleri belirterek, gerekli değildir. Varsayılan olarak uygulanır.
 
 |Ad  |Tür  |Açıklama  |Varsayılan  |
@@ -184,11 +186,11 @@ Eşitleme işlemi durumunu denetlemek için işlem kimliği bir parametre olarak
 
 Değerleri `syncstate`:
 
-- 0: çoğaltılıyor. Veritabanı dosyaları hedef klasöre çoğaltılır.
-- 1: dolduruluyor. Veritabanı salt okunur server örnekleri üzerinde rehydrated.
-- 2: tamamlandı. Eşitleme işlemi başarıyla tamamlandı.
-- 3: başarısız oldu. Eşitleme işlemi başarısız oldu.
-- 4: sonlandırılıyor. Eşitleme işlemi tamamlandı ancak temizleme adımları gerçekleştiriyor.
+- 0: Çoğaltılıyor. Veritabanı dosyaları hedef klasöre çoğaltılır.
+- 1: Dolduruluyor. Veritabanı salt okunur server örnekleri üzerinde rehydrated.
+- 2: Tamamlandı. Eşitleme işlemi başarıyla tamamlandı.
+- 3: Başarısız. Eşitleme işlemi başarısız oldu.
+- 4: Sonlandırılıyor. Eşitleme işlemi tamamlandı ancak temizleme adımları gerçekleştiriyor.
 
 ## <a name="code-sample"></a>Kod örneği
 

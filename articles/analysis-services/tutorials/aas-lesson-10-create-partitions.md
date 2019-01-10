@@ -1,28 +1,28 @@
 ---
-title: 'Azure Analysis Services öğreticisi 10. Ders: Bölüm oluşturma | Microsoft Docs'
+title: 'Azure Analysis Services Öğreticisi 10. Ders: Bölüm oluşturma | Microsoft Docs'
 description: Azure Analysis Services öğretici projesinde bölümlerin nasıl oluşturulacağını açıklar.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5aaaee6f9a69f9cb619935f18f614d7572a755d7
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 11be6d10589d981335d1f63d06933dba5265348a
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429728"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191845"
 ---
 # <a name="create-partitions"></a>Bölüm oluşturma
 
 Bu derste, FactInternetSales tablosunu diğer bölümlerden bağımsız olarak işlenebilecek (yenilenebilecek) daha küçük mantıksal kısımlara ayıran bölümler oluşturursunuz. Varsayılan olarak, modelinize eklediğiniz her tablonun tablodaki tüm sütun ve satırları içeren tek bir bölümü vardır. FactInternetSales tablosu için verileri yıla göre bölmek, yani tablodaki beş yılın her biri için birer bölüm oluşturmak istiyoruz. Daha sonra her bölüm bağımsız olarak işlenebilir. Daha fazla bilgi edinmek için bkz. [Bölümler](https://docs.microsoft.com/sql/analysis-services/tabular-models/partitions-ssas-tabular). 
   
-Bu dersin tahmini tamamlanma süresi: **15 dakika**  
+Bu dersi tamamlamak için tahmini süre: **15 dakika**  
   
 ## <a name="prerequisites"></a>Önkoşullar  
-Bu konu başlığı, sırayla tamamlanması gereken bir tablosal modelleme öğreticisinin parçasıdır. Bu dersteki görevleri gerçekleştirmeden önce, bir önceki dersi tamamlamış olmanız gerekir: [9. Ders: Hiyerarşi Oluşturma](../tutorials/aas-lesson-9-create-hierarchies.md).  
+Bu konu başlığı, sırayla tamamlanması gereken bir tablosal modelleme öğreticisinin parçasıdır. Bu dersteki görevleri gerçekleştirmeden önce bir önceki dersi tamamlamış olmanız gerekir: [9. Ders: Hiyerarşi oluşturma](../tutorials/aas-lesson-9-create-hierarchies.md).  
   
 ## <a name="create-partitions"></a>Bölüm oluşturma  
   
@@ -40,7 +40,7 @@ Bu konu başlığı, sırayla tamamlanması gereken bir tablosal modelleme öğr
 
     ![aas-lesson10-query-editor](../tutorials/media/aas-lesson10-query-editor.png)
 
-6.  Satırları Filtrele iletişim kutusunda, **Şu satırları göster: OrderDate** bölümünde **şundan sonra veya şuna eşit** seçeneğini değiştirmeyin ve tarih alanına **1/1/2010** yazın. **And** işlecini seçili halde bırakıp **şundan önce:** seçeneğini belirleyin ve tarih alanına **1/1/2011** yazıp **Tamam**’a tıklayın.
+6.  Satırları Filtrele iletişim kutusunda, **satırları göster: OrderDate**, bırakın **sonra veya eşittir**ve tarih alanına enter **1/1/2010**. **And** işlecini seçili halde bırakıp **şundan önce:** seçeneğini belirleyin ve tarih alanına **1/1/2011** yazıp **Tamam**’a tıklayın.
 
     ![aas-lesson10-filter-rows](../tutorials/media/aas-lesson10-filter-rows.png)
     
@@ -109,4 +109,4 @@ Bölüm Yöneticisi’nde, oluşturduğunuz her yeni bölüme ait **Son İşlenm
     ![aas-lesson10-process-complete](../tutorials/media/aas-lesson10-process-complete.png)
   
  ## <a name="whats-next"></a>Sırada ne var?
-Sonraki derse gidin: [11. Ders: Rol Oluşturma](../tutorials/aas-lesson-11-create-roles.md). 
+Sonraki derse gidin: [11. Ders: Rolleri oluşturma](../tutorials/aas-lesson-11-create-roles.md). 

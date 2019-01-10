@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 5/4/18
 ms.author: barbkess
 ms.reviewer: japere,asteen
-ms.openlocfilehash: aa0602ec0ecb97e9174fe6ef552b88fc30900d09
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 46f1d49e210a483b8e7645d7eba84ad21ed477da
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357482"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190535"
 ---
 # <a name="install-the-access-panel-browser-extension"></a>Erişim paneli tarayıcı uzantısını yükleme
 
@@ -36,7 +36,7 @@ En azından CSS etkin olduğundan ve erişim paneli JavaScript destekleyen bir t
 
 Parola tabanlı SSO için aşağıdaki tarayıcılardan herhangi birini kullanabilirsiniz:
 
-- **Edge**: Windows 10 Anniversary Edition veya sonrası. 
+- **Microsoft Edge**: Windows 10 Anniversary Edition veya sonrası. 
 - **Chrome**: Windows 7 ve daha sonra ve MacOS x veya sonrası.
 - **26,0 veya üzeri Firefox**: Windows XP SP2 veya sonraki sürümlerde ve Mac OS X 10.6 veya daha sonra.
 
@@ -59,10 +59,10 @@ Erişim paneli tarayıcı uzantısını yüklemek için aşağıdakileri yapın:
 
 7.  Erişim paneli ve onay için parola tabanlı SSO uygulamalarınızı başlayıp başlamayacağını görmek için oturum açın.
 
-Uzantı, Chrome ve Edge'dir aşağıdaki sitelerden doğrudan için de indirebilirsiniz:
+Uzantı, Chrome ve aşağıdaki sitelerden doğrudan Microsoft Edge için de indirebilirsiniz:
 
 - [Chrome uzantısı](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
-- [Edge uzantısı](https://www.microsoft.com/store/apps/9pc9sckkzk84) 
+- [Microsoft Edge uzantısı](https://www.microsoft.com/store/apps/9pc9sckkzk84) 
 
 ## <a name="use-the-my-apps-secure-sign-in-extension"></a>Kullanım uygulamalarım güvenli oturum açma uzantısı
 * My Apps URL dışında kullanıyorsanız `https://myapps.microsoft.com`, aşağıdakileri yaparak, varsayılan URL yapılandırın:
@@ -93,7 +93,7 @@ Uzantı, Chrome ve Edge'dir aşağıdaki sitelerden doğrudan için de indirebil
     4. Artık uzaktan çalışırken bile şirket içi URL'sine göz atabilirsiniz
 
 > [!NOTE]
-> Yukarıdaki seçeneklerden yalnızca Edge, Chrome ve Firefox için kullanılabilir.
+> Yukarıdaki seçeneklerden yalnızca Microsoft Edge, Chrome ve Firefox için kullanılabilir.
 
 ## <a name="set-up-a-group-policy-for-internet-explorer"></a>Internet Explorer için bir Grup İlkesi ayarlama
 
@@ -112,7 +112,7 @@ Grup İlkesi yapılandırma ve kullanıcılara dağıtma hakkında adım adım y
 Bir tanılama aracı ve Internet Explorer uzantısı yapılandırma hakkında bilgi erişmek için bkz: [erişim paneli uzantısını Internet Explorer için sorun giderme](manage-access-panel-browser-extension.md).
 
 > [!NOTE]
-> Internet Explorer üzerinde sınırlı desteği ve yeni yazılım güncelleştirmeleri artık almaz. Edge önerilen tarayıcısıdır.
+> Internet Explorer üzerinde sınırlı desteği ve yeni yazılım güncelleştirmeleri artık almaz. Microsoft Edge, önerilen tarayıcısıdır.
 
 ## <a name="if-the-preceding-steps-do-not-resolve-the-issue"></a>Yukarıdaki adımlar sorunu çözmezse
 

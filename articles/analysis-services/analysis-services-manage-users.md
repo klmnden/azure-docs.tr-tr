@@ -5,17 +5,18 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6280544a42d0d5012b01446ec8c3bc386ef861dd
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 7673b115a3ad2e6ca7aec34b1cfabfb38d2a16f4
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428428"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191369"
 ---
 # <a name="authentication-and-user-permissions"></a>Kimlik doğrulaması ve kullanıcı izinleri
+
 Azure Analysis Services Kimlik Yönetimi ve kullanıcı kimlik doğrulaması için Azure Active Directory (Azure AD) kullanır. Herhangi bir kullanıcı oluşturma, yönetme veya bir Azure Analysis Services'e bağlanma sunucusu geçerli kullanıcı kimlik olmalı bir [Azure AD kiracısı](../active-directory/fundamentals/active-directory-administer.md) aynı abonelikte.
 
 Azure Analysis Services destekler [Azure AD B2B işbirliği](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md). B2B ile bir kuruluş dışından kullanıcılar Azure AD dizini Konuk kullanıcı davet edebilir. Konuklar, başka bir Azure AD Kiracı dizini veya herhangi bir geçerli e-posta adresi olabilir. Bir kez davet ve kullanıcı davet gönderilen e-posta ile Azure'nın sunduğu kullanıcı kimliği Kiracı dizinine eklenir kabul eder. Bu kimlik, güvenlik grupları veya sunucu yöneticisi veya veritabanı rolünün üyeleri olarak eklenebilir.
@@ -23,6 +24,7 @@ Azure Analysis Services destekler [Azure AD B2B işbirliği](../active-directory
 ![Azure Analysis Services kimlik doğrulama mimarisi](./media/analysis-services-manage-users/aas-manage-users-arch.png)
 
 ## <a name="authentication"></a>Kimlik Doğrulaması
+
 Bir veya daha fazla Analysis Services'ın tüm istemci uygulamaları ve araçları kullanın [istemci kitaplıkları](analysis-services-data-providers.md) (bir sunucuya bağlanmak için MSOLAP, olan AMO ADOMD). 
 
 İstemci kitaplıklarının üçünü hem Azure AD etkileşimli akışı ve etkileşimli olmayan kimlik doğrulama yöntemleri için destek. İki etkileşimli olmayan yöntemleri, Active Directory parolası ve Active Directory tümleşik kimlik doğrulaması yöntemleri AMOMD ve MSOLAP kullanan uygulamalarda kullanılabilir. Bu iki yöntem hiçbir zaman açılır iletişim kutularında neden.
@@ -36,6 +38,7 @@ Power BI Desktop, SSDT ve SSMS Active Directory Evrensel kimlik doğrulaması, A
 Bir Windows hesabı ve evrensel kimlik doğrulaması seçilmemiş kullanarak veya kullanılabilir (Excel), Azure'da oturum açma, [Active Directory Federasyon Hizmetleri (AD FS)](../active-directory/hybrid/how-to-connect-fed-azure-adfs.md) gereklidir. Federasyon, Azure AD ile Office 365 kullanıcıları, şirket içi kimlik bilgilerini kullanarak kimlik doğrulaması ve Azure kaynaklarına erişebilirsiniz.
 
 ### <a name="sql-server-management-studio-ssms"></a>SQL Server Management Studio (SSMS)
+
 Azure Analysis Services sunucuları desteği bağlantılarından [SSMS V17.1](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ve Windows kimlik doğrulaması, Active Directory parola kimlik doğrulaması ve Active Directory Evrensel kimlik doğrulaması'nı kullanarak daha yüksek. Genel olarak, çünkü'de Active Directory Evrensel kimlik doğrulaması kullanmanız önerilir:
 
 *  Etkileşimli ve etkileşimli olmayan kimlik doğrulama yöntemleri destekler.
@@ -45,12 +48,15 @@ Azure Analysis Services sunucuları desteği bağlantılarından [SSMS V17.1](ht
 *  Çok faktörlü kimlik doğrulaması (MFA) destekler. Azure MFA erişimi korumaya yardımcı olur ve doğrulama seçenekleri ile uygulamalarınıza: telefon araması, SMS mesajı, akıllı kartlar ve PIN ya da mobil uygulama bildirimi. Azure AD ile etkileşimli MFA doğrulama için bir açılır iletişim kutusu neden olabilir.
 
 ### <a name="sql-server-data-tools-ssdt"></a>SQL Server Veri Araçları (SSDT)
+
 SSDT, Azure Analysis Services için MFA desteği ile Active Directory Evrensel kimlik doğrulaması kullanarak bağlanır. Kullanıcı ilk dağıtımı Azure'da oturum açmanız istenir. Kullanıcıların azure'a dağıtım yaptığınız sunucuyu Sunucu Yöneticisi izinlerine sahip bir hesapla oturum açmalısınız. Azure'a ilk kez oturum açarken bir belirteç atanır. SSDT belirteci bellek içi gelecekteki yeniden bağlantılar için önbelleğe alır.
 
 ### <a name="power-bi-desktop"></a>Power BI Desktop
+
 Power BI Desktop Azure Analysis Services MFA desteği ile Active Directory Evrensel kimlik doğrulaması kullanarak bağlanır. Kullanıcılar, ilk bağlantı Azure'da oturum açmanız istenir. Kullanıcıların Azure'a bir sunucu yöneticisi veya veritabanı rolüne dahil edilen bir hesapla oturum açmalısınız.
 
 ### <a name="excel"></a>Excel
+
 Excel kullanıcılar, bir Windows hesabı, bir kuruluş kimliği (e-posta adresi) veya bir dış e-posta adresi kullanarak bir sunucuya bağlanabilir. Dış e-posta kimlikleri, bir Konuk kullanıcı olarak Azure AD'de mevcut olması gerekir.
 
 ## <a name="user-permissions"></a>Kullanıcı izinleri
@@ -65,15 +71,12 @@ Excel kullanıcılar, bir Windows hesabı, bir kuruluş kimliği (e-posta adresi
 
 Kullanıcılara veya portalında veya Azure Resource Manager şablonları kullanarak tamamlanabilir görevleri gerçekleştirmek için gereken hesaplar rolleri bu düzeyde uygulanır. Daha fazla bilgi için bkz. [rol tabanlı erişim denetimi](../role-based-access-control/overview.md). 
 
-
 ## <a name="database-roles"></a>Veritabanı rolleri
 
  Bir tablosal model için tanımlanmış veritabanı rolleri rolleridir. Diğer bir deyişle, rolleri Azure AD kullanıcılarının oluşan üyeleri içerir ve güvenlik gruplarını, bu üyeler eylemi tanımlayan belirli izinlere sahip bir model veritabanında alabilir. Veritabanı rolü, veritabanında ayrı bir nesne olarak oluşturulur ve yalnızca bu rolün oluşturulduğu veritabanı için geçerli olur.   
   
  Yeni bir tablosal model projesi oluşturduğunuzda varsayılan olarak, model projesi herhangi bir rolü yok. Rolleri, Rol Yöneticisi iletişim kutusunda SSDT kullanarak tanımlanabilir. Rolleri modeli proje tasarım sırasında tanımlandığında, bunlar yalnızca model çalışma alanı veritabanına uygulanır. Model dağıtıldığında, aynı rol dağıtılan modele uygulanır. Bir model dağıtıldıktan sonra rolleri ve üyeleri, sunucu ve Veritabanı yöneticileri SSMS kullanarak yönetebilirsiniz. Daha fazla bilgi için bkz. [veritabanı rolleri ve kullanıcıları yönetme](analysis-services-database-users.md).
   
-
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
 [Azure Active Directory grupları ile kaynaklara erişimi yönetme](../active-directory/fundamentals/active-directory-manage-groups.md)   

@@ -1,33 +1,33 @@
 ---
-title: 'Azure Analysis Services öğreticisi 2. Ders: Verileri alma| Microsoft Docs'
+title: 'Azure Analysis Services Öğreticisi 2. Ders: Veri alma | Microsoft Docs'
 description: Azure Analysis Services öğretici projesinde verilerin nasıl alınacağını ve içeri aktarılacağını açıklar.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b7aaadb6237a3b16d166d3bc931fddc70fb4a792
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 6643d0851be1ad9d2827f51af3662a469020654c
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427629"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189329"
 ---
 # <a name="get-data"></a>Verileri alma
 
 Bu derste, SSDT’deki Verileri Al özelliğini kullanarak AdventureWorks örnek veritabanına erişir, verileri seçer, önizleme ve filtreleme uygular ve sonra model çalışma alanınıza aktarırsınız.  
   
-Verileri Al’ı kullanarak birçok farklı kaynaktaki verileri içeri aktarabilirsiniz: Azure SQL Veritabanı, Oracle, Sybase, OData Feed, Teradata, dosyalar ve daha fazlası. Veriler bir Power Query M formül ifadesi kullanılarak da sorgulanabilir.
+Veri Al'ı kullanarak, çeşitli kaynaklardan verileri içeri aktarabilirsiniz: Azure SQL veritabanı, Oracle, Sybase, OData akışı, Teradata, dosyalar ve daha fazlası. Veriler bir Power Query M formül ifadesi kullanılarak da sorgulanabilir.
 
 > [!NOTE]
 > Bu öğreticideki görevler ve görüntüler şirket içi sunucuda AdventureWorksDW2014 veritabanına bağlanmayı gösterir. Bazı durumlarda Azure'daki AdventureWorks veritabanı farklı olabilir.
   
-Bu dersin tahmini tamamlanma süresi: **10 dakika**  
+Bu dersi tamamlamak için tahmini süre: **10 dakika**  
   
 ## <a name="prerequisites"></a>Önkoşullar  
-Bu konu, sırayla tamamlanması gereken bir tablosal modelleme öğreticisinin bir parçasıdır. Bu dersteki görevleri gerçekleştirmeden önce, bir önceki dersi tamamlamış olmanız gerekir: [1. Ders: Yeni tablosal model projesi oluşturma](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md).  
+Bu konu başlığı, sırayla tamamlanması gereken bir tablosal modelleme öğreticisinin parçasıdır. Bu dersteki görevleri gerçekleştirmeden önce bir önceki dersi tamamlamış olmanız gerekir: [1. Ders: Yeni bir tablosal model projesi oluşturma](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md).  
   
 ## <a name="create-a-connection"></a>Bağlantı oluşturma  
   
@@ -52,7 +52,7 @@ Bu konu, sırayla tamamlanması gereken bir tablosal modelleme öğreticisinin b
   
 5.  Gezgin’de **AdventureWorksDW2014** veritabanını seçip **Tamam**’a tıklayın. Bunu yaptığınızda veritabanı bağlantısı oluşturulur. 
   
-6.  Gezgin'de şu tabloların onay kutusunu seçin: **DimCustomer**, **DimDate**, **DimGeography**, **DimProduct**,  **DimProductCategory**, **DimProductSubcategory**, ve **Factınternetsales**ve ardından **Düzenle**.
+6.  Gezgin'de şu tabloların onay kutusunu seçin: **DimCustomer**, **DimDate**, **DimGeography**, **DimProduct**, **DimProductCategory**,  **DimProductSubcategory**, ve **Factınternetsales**ve ardından **Düzenle**.
 
     ![aas-lesson2-select-tables](../tutorials/media/aas-lesson2-select-tables.png)
   
@@ -151,7 +151,7 @@ Model projenizi sık sık kaydetmeniz önemlidir.
 -   **Dosya** > **Tümünü Kaydet**’e tıklayın.  
   
 ## <a name="whats-next"></a>Sırada ne var?
-[3. Ders: Tarih Tablosu Olarak İşaretleme](../tutorials/aas-lesson-3-mark-as-date-table.md).
+[3. Ders: Tarih tablosu olarak işaretle](../tutorials/aas-lesson-3-mark-as-date-table.md).
 
   
   

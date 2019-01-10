@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 42850cc5f8280b29811f9607557f38507262694a
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 1fff32896ef794a26f223cae4ae491a2995d9acf
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034412"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191148"
 ---
 # <a name="working-with-javascript-language-integrated-query-api-with-azure-cosmos-db"></a>JavaScript dil ile tümleşik sorgu API'si ile Azure Cosmos DB ile çalışma
 
@@ -64,7 +64,7 @@ Aşağıdaki tabloda, çeşitli SQL sorguları ve karşılık gelen JavaScript s
 
 Kavramları ve nasıl yapılır yazma daha fazla bilgi edinin ve saklı yordamlar, tetikleyiciler ve kullanıcı tanımlı işlevler, Azure Cosmos DB'de kullanın:
 
-- [Saklı yordamları ve Tetikleyicileri Javascript sorgu API'si kullanarak yazma](how-to-write-javascript-query-api.md#)
+- [Saklı yordamları ve Tetikleyicileri Javascript sorgu API'si kullanarak yazma](how-to-write-javascript-query-api.md)
 - [Azure Cosmos DB ile çalışma saklı yordamlar, tetikleyiciler ve kullanıcı tanımlı işlevler](stored-procedures-triggers-udfs.md)
 - [Azure Cosmos DB'de saklı yordamlar, Tetikleyiciler, kullanıcı tanımlı işlevler kullanma](how-to-use-stored-procedures-triggers-udfs.md)
 - [Azure Cosmos DB JavaScript sunucu tarafı API Başvurusu](https://azure.github.io/azure-cosmosdb-js-server)

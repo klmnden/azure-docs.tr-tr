@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 94f7239bdcdc5ddc91f3ed8b49b59378309711e8
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 08cd16cb9edc5606a18fc5d425910185f7747179
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844966"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187561"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>Azure Active Directory B2C hakkında kullanıcı arabirimi özelleştirme
 
@@ -36,7 +36,7 @@ Başlamadan önce aşağıdaki yönergeleri gözden geçirin:
 - Azure AD B2C sayfalarınıza HTML içeriğini birleştirir. Yoksa, kopyalama ve Azure AD B2C sağlar varsayılan içerik değiştirmeyi deneyin. HTML içeriğinizi sıfırdan oluşturmak ve varsayılan içerik referans olarak kullanmak en iyisidir.
 - Güvenlik nedenleriyle, JavaScript, içeriğinizi dahil etmek için izin verilmez.
 - Desteklenen bir tarayıcı sürümleri şunlardır: 
-    - Internet Explorer 11, 10 ve kenar
+    - Internet Explorer 11, 10 ve Microsoft Edge
     - Internet Explorer 9 ve 8 için sınırlı destek
     - Google Chrome 42.0 ve üzeri
     - Mozilla Firefox 38.0 ve üzeri
@@ -118,6 +118,6 @@ Etkinleştirerek, HTML içeriği yerelleştirmek [dil özelleştirme](active-dir
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Kullanıcı akışları kullanıyorsanız öğreticisiyle kullanıcı Arabirimi özelleştirme başlayabilirsiniz: [uygulamalarınızı Azure Active Directory B2C, kullanıcı arabirimini özelleştirme](tutorial-customize-ui.md).
-- Özel ilkeleri kullanıyorsanız, makale ile kullanıcı arabirimini özelleştirme başlayabilirsiniz: [özel bir ilke kullanarak Azure Active Directory B2C'de, uygulamanızın kullanıcı arabirimini özelleştirme](active-directory-b2c-ui-customization-custom.md).
+- Kullanıcı akışları kullanıyorsanız öğreticisiyle kullanıcı Arabirimi özelleştirme başlayabilirsiniz: [Uygulamalarınızı Azure Active Directory B2C, kullanıcı arabirimini özelleştirme](tutorial-customize-ui.md).
+- Özel ilkeleri kullanıyorsanız, makale ile kullanıcı arabirimini özelleştirme başlayabilirsiniz: [Azure Active Directory B2C'de bir özel ilke kullanarak uygulamanızın kullanıcı arabirimini özelleştirme](active-directory-b2c-ui-customization-custom.md).
 

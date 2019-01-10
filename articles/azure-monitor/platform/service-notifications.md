@@ -5,15 +5,15 @@ author: dkamstra
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 4/12/2017
+ms.date: 4/12/2018
 ms.author: dukek
 ms.component: logs
-ms.openlocfilehash: e4cb22866fa2885208b912c88d56243ac7826480
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 2dec2b1f9bdca8c83669b753d424204218f7a9ae
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159256"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190706"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Azure portalını kullanarak hizmet durumu bildirimlerini görüntüleme
 
@@ -58,43 +58,27 @@ Properties.Stage | Olası değerler için **olay**, ve **güvenlik** olan **etki
 Properties.communicationId | Bu olay ile ilişkili olduğu iletişimi.
 
 ### <a name="details-on-service-health-level-information"></a>Hizmet durumu düzeyi bilgileri hakkında ayrıntılı bilgi
-  <ul>
-    <li><b>Eylem gerekiyor</b> (properties.incidentType == eylem gereklidir) <dl>
-            <dt>Bilgilendirme</dt>
-            <dd>Var olan hizmetleri etkiyi önlemek için gereken yönetici eylemi</dd>
-        </dl>
-    </li>
-    <li><b>Bakım</b> (properties.incidentType bakım ==) <dl>
-            <dt>Uyarı</dt>
-            <dd>Acil bakım<dd>
-            <dt>Bilgilendirme</dt>
-            <dd>Standart planlı bakım</dd>
-        </dl>
-    </li>
-    <li><b>Bilgi</b> (properties.incidentType bilgilendirici ==) <dl>
-            <dt>Bilgilendirme</dt>
-            <dd>Yönetici, mevcut hizmetlere etkiyi önlemek için gerekli</dd>
-        </dl>
-    </li>
-    <li><b>Güvenlik</b> (properties.incidentType güvenlik ==) <dl>
-            <dt>Hata</dt>
-            <dd>Müşteriler çok geniş bir yelpazedeki etkileyen yaygın sorunları birden çok bölgede birden fazla hizmetlerine erişme.</dd>
-            <dt>Uyarı</dt>
-            <dd>Belirli hizmetlere ve/veya özel bölgeler erişme konusunda sorun müşteri alt kümesini etkileyen.</dd>
-            <dt>Bilgilendirme</dt>
-            <dd>Yönetim işlemleri ve/veya gecikme süresi, hizmet kullanılabilirliği etkileyen değil etkileyen sorunları.</dd>
-        </dl>
-    </li>
-    <li><b>Hizmet sorunları</b> (properties.incidentType olay ==) <dl>
-            <dt>Hata</dt>
-            <dd>Müşteriler çok geniş bir yelpazedeki etkileyen yaygın sorunları birden çok bölgede birden fazla hizmetlerine erişme.</dd>
-            <dt>Uyarı</dt>
-            <dd>Belirli hizmetlere ve/veya özel bölgeler erişme konusunda sorun müşteri alt kümesini etkileyen.</dd>
-            <dt>Bilgilendirme</dt>
-            <dd>Yönetim işlemleri ve/veya gecikme süresi, hizmet kullanılabilirliği etkileyen değil etkileyen sorunları.</dd>
-        </dl>
-    </li>
-  </ul>
+
+**Eylem gerekiyor** (properties.incidentType == eylem gereklidir)
+    - Bilgilendirici - mevcut hizmetlere etkiyi önlemek için gereken yönetici eylemi
+    
+**Bakım** (properties.incidentType bakım ==)
+    - Uyarı - Acil bakım
+    - Bilgilendirici - standart planlı bakım
+
+**Bilgi** (properties.incidentType bilgi ==)
+    - Bilgi - yönetici, mevcut hizmetlere etkiyi önlemek için gerekebilir
+
+**Güvenlik** (properties.incidentType güvenlik ==)
+    - Hata - yaygın sorunları birden çok bölgede birden fazla hizmetlere erişen müşteriler çok geniş bir yelpazedeki etkileyen.
+    - Uyarı - sorunları erişimi belirli hizmetlere ve/veya müşteri alt kümesini etkileyen özel bölgeler.
+    - Hizmet kullanılabilirliği etkileyen değil bilgilendirici - yönetim işlemleri ve/veya gecikme süresi, etkileyen sorunları.
+
+**Hizmet sorunları** (properties.incidentType olay ==)
+    - Hata - yaygın sorunları birden çok bölgede birden fazla hizmetlere erişen müşteriler çok geniş bir yelpazedeki etkileyen.
+    - Uyarı - sorunları erişimi belirli hizmetlere ve/veya müşteri alt kümesini etkileyen özel bölgeler.
+    - Hizmet kullanılabilirliği etkileyen değil bilgilendirici - yönetim işlemleri ve/veya gecikme süresi, etkileyen sorunları.
+
 
 ## <a name="view-your-service-health-notifications-in-the-azure-portal"></a>Azure portalında, hizmet durumu bildirimlerini görüntüleme
 1.  İçinde [Azure portalında](https://portal.azure.com)seçin **İzleyici**.

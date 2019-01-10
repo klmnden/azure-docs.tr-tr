@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: seozerca
-ms.openlocfilehash: 74240298b0c8bec46ab2beab6fcdfbb59fd7b12a
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 9c35dff9b9587334e7001f3653ea7e2e8a4919eb
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53579983"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191624"
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>Azure için Açık Hizmet Aracısı (OSBA) kullanarak Azure tarafından yönetilen hizmetlerle tümleştirme
 
@@ -47,13 +47,13 @@ helm repo add svc-cat https://svc-catalog-charts.storage.googleapis.com
 Son olarak, Hizmet Kataloğunu Helm grafiğiyle yükleyin. Kümenizde RBAC etkinse bu komutu çalıştırın.
 
 ```azurecli-interactive
-helm install svc-cat/catalog --name catalog --namespace catalog --set controllerManager.healthcheck.enabled=false
+helm install svc-cat/catalog --name catalog --namespace catalog --set apiserver.storage.etcd.persistence.enabled=true --set apiserver.healthcheck.enabled=false --set controllerManager.healthcheck.enabled=false --set apiserver.verbosity=2 --set controllerManager.verbosity=2
 ```
 
 Kümenizde RBAC etkin değilse bu komutu çalıştırın.
 
 ```azurecli-interactive
-helm install svc-cat/catalog --name catalog --namespace catalog --set rbacEnable=false --set controllerManager.healthcheck.enabled=false
+helm install svc-cat/catalog --name catalog --namespace catalog --set rbacEnable=false --set apiserver.storage.etcd.persistence.enabled=true --set apiserver.healthcheck.enabled=false --set controllerManager.healthcheck.enabled=false --set apiserver.verbosity=2 --set controllerManager.verbosity=2
 ```
 
 Helm grafik çalıştırıldıktan sonra aşağıdaki komutun çıktısında `servicecatalog` ifadesinin göründüğünü doğrulayın:

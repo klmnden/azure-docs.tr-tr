@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 146467ef50c605f730fe6f65c349fc8a3a1fd045
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 92bab3e6dcea0b6b234d361a346698be15088fc0
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426252"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191522"
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services - Adventure Works Öğreticisi
 
@@ -45,7 +45,7 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 -   **Örnek AdventureWorksDW veritabanını** içeren bir [Azure SQL Veri Ambarı](../../sql-data-warehouse/create-data-warehouse-portal.md) veya [Adventure Works örnek veritabanını](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks) içeren bir SQL Server Veri Ambarı.
 
-    **Önemli:** Örnek veritabanını bir şirket içi SQL Server Veri Ambarına, modelinizi ise bir Azure Analysis Services sunucusuna yüklerseniz [Şirket içi veri ağ geçidi](../analysis-services-gateway.md) gerekir.
+    **Önemli:** Bir şirket içi SQL Server veri ambarına örnek veritabanını yüklemek ve modelinizi bir Azure Analysis Services sunucusuna bir [şirket içi veri ağ geçidi](../analysis-services-gateway.md) gereklidir.
 
 -   Visual Studio için [SQL Server Veri Araçları](https://msdn.microsoft.com/library/mt204009.aspx)’nın (SSDT) en son sürümü.
 
@@ -93,7 +93,7 @@ Bu dersler öğreticinin tamamlanması için gerekli değildir, ancak gelişmiş
 
   
 ## <a name="next-steps"></a>Sonraki adımlar  
-Başlamak için bkz. [1. Ders: Yeni Tablosal Model Projesi Oluşturma](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md).  
+Başlamak için bkz: [1. Ders: Yeni bir Tablosal Model projesi oluşturma](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md).  
   
   
   

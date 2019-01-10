@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: 87a46a0b6d5dda9f59e49a3b052dc7528df7410f
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: e6c7d682d9b16266208baeeff14168b3da157251
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039971"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54186633"
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Elastik veritabanı istemci kitaplığı erişmek için kullanılan kimlik bilgileri
 
@@ -31,7 +31,7 @@ Ayrıca bkz: [veritabanlarını ve oturum açma bilgileri Azure SQL veritabanı'
 
 ## <a name="about-management-credentials"></a>Yönetim kimlik bilgileri ayrıntıları
 
-Yönetim kimlik bilgilerini oluşturmak için kullanılan bir **ShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)) parça eşlemesi işlemek uygulamalar için nesne. (Örneğin, [esnek veritabanı araçlarını kullanarak bir parça ekleme](sql-database-elastic-scale-add-a-shard.md) ve [verilere bağımlı yönlendirme](sql-database-elastic-scale-data-dependent-routing.md)). Esnek ölçek istemcisi kitaplığını kullanıcısı SQL oturum açma bilgileri ve SQL kullanıcılar oluşturur ve her genel parça eşleme veritabanını ve tüm parça veritabanlarına de okuma/yazma izinleri verilir emin olur. Bu kimlik bilgileri, parça eşlemesine değişiklikleri gerçekleştirildiğinde genel parça eşleme ve yerel parça eşlemesi korumak için kullanılır. Örneğin, parça eşleme Yöneticisi nesnesi oluşturmak için gereken yönetim kimlik bilgilerini kullanın (kullanarak **GetSqlShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.getsqlshardmapmanager), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx)):
+Yönetim kimlik bilgilerini oluşturmak için kullanılan bir **ShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)) parça eşlemesi işlemek uygulamalar için nesne. (Örneğin, [esnek veritabanı araçlarını kullanarak bir parça ekleme](sql-database-elastic-scale-add-a-shard.md) ve [verilere bağımlı yönlendirme](sql-database-elastic-scale-data-dependent-routing.md)). Esnek ölçek istemcisi kitaplığını kullanıcısı SQL oturum açma bilgileri ve SQL kullanıcılar oluşturur ve her genel parça eşleme veritabanını ve tüm parça veritabanlarına de okuma/yazma izinleri verilir emin olur. Bu kimlik bilgileri, parça eşlemesine değişiklikleri gerçekleştirildiğinde genel parça eşleme ve yerel parça eşlemesi korumak için kullanılır. Örneğin, parça eşleme Yöneticisi nesnesi oluşturmak için gereken yönetim kimlik bilgilerini kullanın (kullanarak **GetSqlShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.getsqlshardmapmanager), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager)):
 
 ```java
 // Obtain a shard map manager.
@@ -59,7 +59,7 @@ Kullanımına dikkat edin **smmReadOnlyConnectionString** adına bu erişimi iç
 
 ## <a name="connection-credentials"></a>Bağlantı kimlik bilgileri
 
-Ek kimlik bilgileri kullanırken gereken **OpenConnectionForKey** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.listshardmapper.openconnectionforkey), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx)) bir parçalama anahtarı ile ilişkili bir parçaya erişimi için yöntemi. Bu kimlik bilgilerinin parça üzerinde bulunan yerel parça eşleme tablolarını salt okunur erişim için gerekli izinleri sağlamanız gerekir. Bu, parça verilere bağımlı yönlendirme için bağlantı doğrulamayı gerçekleştirmek için gereklidir. Bu kod parçacığı verilere bağımlı yönlendirme bağlamında veri erişimi sağlar:
+Ek kimlik bilgileri kullanırken gereken **OpenConnectionForKey** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.listshardmapper.openconnectionforkey), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey)) bir parçalama anahtarı ile ilişkili bir parçaya erişimi için yöntemi. Bu kimlik bilgilerinin parça üzerinde bulunan yerel parça eşleme tablolarını salt okunur erişim için gerekli izinleri sağlamanız gerekir. Bu, parça verilere bağımlı yönlendirme için bağlantı doğrulamayı gerçekleştirmek için gereklidir. Bu kod parçacığı verilere bağımlı yönlendirme bağlamında veri erişimi sağlar:
 
 ```csharp
 using (SqlConnection conn = rangeMap.OpenConnectionForKey<int>(targetWarehouse, smmUserConnectionString, ConnectionOptions.Validate))

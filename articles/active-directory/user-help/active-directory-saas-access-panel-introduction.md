@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: 129f77ec9ea4d4e2633e1ea0b02795bc0df26433
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 1f51fb1d92fdec93fdb57fd25f8ca1cbaeb4fc46
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834715"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188938"
 ---
 # <a name="what-is-the-myapps-portal"></a>MyApps portalında nedir?
 
@@ -65,7 +65,7 @@ Yükleyici mimarisi özeldir. İndirme bağlantısına tıklarsanız, yalnızca 
 
 
 MyApps portal uzantısı şu anda kullanılabilir:
-- **Edge**: Windows 10 Anniversary Edition veya sonrası. 
+- **Microsoft Edge**: Windows 10 Anniversary Edition veya sonrası. 
 - **Chrome**: Windows 7 ve daha sonra ve MacOS x veya sonrası.
 - **26,0 veya üzeri Firefox**: Windows XP SP2 veya sonraki sürümlerde ve Mac OS X 10.6 veya daha sonra.
 - **Internet Explorer 11**: Windows 7 veya üzeri (sınırlı destek).
@@ -79,7 +79,7 @@ Parola tabanlı çoklu oturum açma için oturum açmak için uzantı kullanman�
 - Şirket içi URL'ler uzaktan çalışırken kullanabileceğiniz [uygulama proxy'si](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started)
 
 > [!NOTE]
-> Ek özellikler, yalnızca Edge, Chrome ve Firefox için kullanılabilir.
+> Ek özellikler, yalnızca Microsoft Edge, Chrome ve Firefox için kullanılabilir.
 >
 Uzantı aşağıdaki sitelerden doğrudan indirebilirsiniz:
 - [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)

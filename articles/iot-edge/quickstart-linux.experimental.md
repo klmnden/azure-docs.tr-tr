@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 44b47a595c422f62cae13fb1aeb582e0c15787d6
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 181addbcf4d0cfd51e74a24677de63f66e6fec1d
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973511"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190536"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Hızlı Başlangıç: Bir Linux x64 cihaza, ilk IOT Edge modülü dağıtma
 
@@ -179,7 +179,9 @@ Azure IoT Edge cihazınızı, IoT Hub'ına telemetri verileri gönderecek bir mo
 
 ## <a name="view-generated-data"></a>Oluşturulan verileri görüntüleme
 
-Bu hızlı başlangıçta, yeni bir IoT Edge cihazı oluşturdunuz ve üzerine IoT Edge çalışma zamanını yüklediniz. Ardından, cihazda bir değişiklik yapmak zorunda kalmadan çalışacak bir IoT Edge modülünü göndermek için Azure portalını kullandınız. Bu örnekte gönderdiğiniz modül öğreticiler için kullanabileceğiniz ortam verilerini oluşturmaktadır.
+Bu hızlı başlangıçta, yeni bir IoT Edge cihazı oluşturdunuz ve üzerine IoT Edge çalışma zamanını yüklediniz. Ardından, Azure portalı, cihazı için değişiklik yapmak zorunda kalmadan cihazda çalıştırılacak bir IOT Edge modülü dağıtmak için kullanılır. 
+
+Bu durumda, test etmek için kullanabileceğiniz örnek veriler gönderdiğiniz modülü oluşturur. Sanal sıcaklık algılayıcısı modülü, daha sonra test etmek için kullanabileceğiniz ortam verilerini oluşturur. Benzetimli algılayıcı hem bir makine hem de ortama makine geçici izler. Örneğin, bu algılayıcı sunucu odasına bir Fabrika katı veya bir Rüzgar türbini olabilir. Ortam sıcaklığı ve nem, makine sıcaklığı ve basıncı ve zaman damgasını ileti içerir. Test verileri analiz için olarak bu modülü tarafından oluşturulan verileri IOT Edge öğreticileri kullanın.
 
 IOT Edge Cihazınızda bir komut istemi yeniden açın veya Azure CLI SSH bağlantısından kullanın. Buluttan dağıtılan modülün IoT Edge cihazınızda çalıştığından emin olun:
 
@@ -199,8 +201,6 @@ Sıcaklık algılayıcısı modülünden gönderilmekte olan iletileri görünt�
    >Modül adlarını söz konusu olduğunda, IOT Edge komutları büyük küçük harfe duyarlıdır.
 
    ![Verileri modülünüzden görüntüleme](./media/quickstart-linux/iotedge-logs.png)
-
-Sıcaklık algılayıcısı modülü günlükte gördüğünüz son satır olması durumunda, Edge hub'a bağlanmak için bekliyor olabilir **taşıma Mqtt_Tcp_Only kullanarak**. Deneyin modülü durdurma ve yeniden Edge aracısı sağlar. Komutu ile Durdur `sudo docker stop SimulatedTemperatureSensor`.
 
 Kullanarak IOT hub'ınıza gelen iletileri izlemek isterseniz [Visual Studio Code için Azure IOT hub'ı Toolkit uzantısını](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (eski adıyla Azure IOT Toolkit uzantısını). 
 
@@ -226,20 +226,6 @@ IoT Edge çalışma zamanını kaldırın.
 
    ```bash
    sudo apt-get remove --purge iotedge
-   ```
-
-IoT Edge çalışma zamanı kaldırıldığında, oluşturduğu kapsayıcılar durdurulur, ancak cihazınızda yer almaya devam eder. Tüm kapsayıcıları görüntüleyin.
-
-   ```bash
-   sudo docker ps -a
-   ```
-
-IoT Edge çalışma zamanı tarafından cihazınızda oluşturulan kapsayıcıları silin. 
-
-   ```bash
-   sudo docker rm -f SimulatedTemperatureSensor
-   sudo docker rm -f edgeHub
-   sudo docker rm -f edgeAgent
    ```
 
 Kapsayıcı çalışma zamanını kaldırın.

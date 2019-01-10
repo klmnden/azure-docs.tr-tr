@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/21/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: b891995fab9e7def4b9b72f8bd8630d6b7e11d27
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: cb604bec1860da25e18c1c3a56a012882e5ea58e
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023871"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189522"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Nasıl yapılır: Azure AD katılımınızı uygulamayı planlama
 
@@ -167,7 +167,7 @@ Aşağıdaki bölümlerde farklı türlerde uygulamalar ve kaynaklar için konul
 
 ### <a name="cloud-based-applications"></a>Bulut tabanlı uygulamalar
 
-Bir uygulama için Azure AD uygulama galerisinde eklenirse, kullanıcılar Azure AD'ye katılmış cihazlar SSO alır. Ek yapılandırma gereklidir. Hem de kullanıcıların get SSO, Edge ve Chrome tarayıcı. Chrome için dağıtmanız gereken [Windows 10 hesapları uzantısı](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). 
+Bir uygulama için Azure AD uygulama galerisinde eklenirse, kullanıcılar Azure AD'ye katılmış cihazlar SSO alır. Ek yapılandırma gereklidir. Kullanıcılar, Microsoft Edge ve Chrome tarayıcı SSO alır. Chrome için dağıtmanız gereken [Windows 10 hesapları uzantısı](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). 
 
 Tüm Win32 uygulamalarını:
 

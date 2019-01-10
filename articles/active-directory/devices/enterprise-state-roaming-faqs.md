@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
-ms.openlocfilehash: 24c7ddff1eea16fc2be3f99d04abd90ee0791f4c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9f3d171a8f0e353d5860f410a8c32149f8872338
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247305"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189397"
 ---
 # <a name="settings-and-data-roaming-faq"></a>Ayarlar ve veri dolaşımı hakkında SSS
 Bu makalede, BT yöneticileri, ayarları ve uygulama verilerini eşitleme hakkında olabilir. bazı sorular yanıtlanmaktadır.
@@ -31,13 +31,13 @@ Bu makalede, BT yöneticileri, ayarları ve uygulama verilerini eşitleme hakkı
 
 * *Tema*, Masaüstü tema ve görev ayarları gibi özellikler içerir.
 * *Internet Explorer ayarlarını*en son açılan sekmeleri ve Sık Kullanılanlar dahil olmak üzere.
-* *Edge tarayıcı ayarlarını*Sık Kullanılanlar ve okuma listesi gibi.
+* *Microsoft Edge tarayıcı ayarlarını*Sık Kullanılanlar ve okuma listesi gibi.
 * *Parolalar*Internet parolaları, Wi-Fi profilleri ve diğerleri dahil olmak üzere.
 * *Dil Tercihleri*, klavye düzenleri, Sistem dili, tarih ve saat ve daha fazlası için ayarları içerir.
 * *Özelliklere erişim kolaylığı*, yüksek karşıtlıklı tema ve ekran okuyucusu Büyüteç gibi.
 * *Diğer Windows ayarları*, fare ayarları gibi.
 
-**Uygulama verileri**: Evrensel Windows uygulamaları, ayarları veri gezici bir klasöre yazabilirsiniz ve bu klasöre yazılan tüm veriler otomatik olarak eşitlenir. Bu özellikten faydalanmak için bir uygulama tasarlamak için tek tek uygulama geliştiriciye aittir. Dolaşım kullanan bir evrensel Windows uygulaması geliştirme hakkında daha fazla ayrıntı için bkz. [appdata depolama API'si](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) ve [Geliştirici blog Dolaşım Windows 8 appdata](https://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
+**Uygulama verileri**: Evrensel Windows uygulamaları için gezici bir klasör ayarları veri yazabilirsiniz ve bu klasöre yazılan tüm veriler otomatik olarak eşitlenir. Bu özellikten faydalanmak için bir uygulama tasarlamak için tek tek uygulama geliştiriciye aittir. Dolaşım kullanan bir evrensel Windows uygulaması geliştirme hakkında daha fazla ayrıntı için bkz. [appdata depolama API'si](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) ve [Geliştirici blog Dolaşım Windows 8 appdata](https://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
 
 ## <a name="what-account-is-used-for-settings-sync"></a>Hangi hesap ayarlarını eşitleme için kullanılır?
 Ayarları eşitleme, Windows 8.1 tüketici Microsoft hesapları her zaman kullanılır. Kurumsal kullanıcıların bir Microsoft hesabı ayarlarının eşitlenmesinin erişim elde etmek için Active Directory etki alanı hesabına bağlanma yeteneğini gerekiyordu. Windows 10'da bu işlevselliği bir birincil/ikincil hesap çerçevesiyle değiştirilmekte olan bir Microsoft hesabı bağlı.
@@ -63,7 +63,7 @@ Bağlantılı bir Microsoft hesabı ile Windows 8.1 çalıştıran Active Direct
 
 Şirket içi Active Directory etki alanı ile Azure AD connect, cihazınız bağlı kullanarak ayarlarını eşitlemek deneyecek Azure AD hesabı. Azure AD Yöneticisi, Kurumsal durumda dolaşım, uygulamanızın bağlı etkinleştirmez, Azure AD hesap ayarlarını eşitleme durdurur. Windows 10 kullanıcıysanız ve bir Azure AD kimlik bilgilerinizle oturum açın, windows ayarları Azure AD üzerinden ayarları eşitleme yöneticinize sağlar hemen sonra eşitleme başlar.
 
-Kişisel verileri şirket Cihazınızda depolanan, Windows işletim sistemi ve uygulama verileri için Azure AD eşitleme başlayacağımızı farkında olmalıdır. Bu, aşağıdaki olası etkilere sahiptir:
+Kişisel verileri şirket Cihazınızda depolanan, Windows işletim sistemi ve uygulama verileri için Azure AD eşitleme başlayacağımızı farkında olmalıdır. Bu, aşağıdaki anlamlara geliyor:
 
 * Kişisel Microsoft hesap ayarlarınızı dışında ayarları üzerinde çalışmanız kayma veya Okul Azure AD hesapları. Microsoft hesabı ve Azure AD ayarları eşitleme olmasıdır artık ayrı hesaplar kullanıyorsunuz.
 * Wi-Fi parolalar, web kimlik bilgilerini ve bağlı bir Microsoft hesabı ile önceden eşitlenmiş olan Internet Explorer Sık Kullanılanlar gibi kişisel veriler Azure AD'ye eşitlenecektir.

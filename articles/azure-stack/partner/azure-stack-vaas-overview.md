@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/20/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: dea93fefc69664e4830efdab2052d2e1ca0fd2fa
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 1e081eb98b1d9c076fd85c0b542d0bf4ae309935
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54102491"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190417"
 ---
 # <a name="what-is-validation-as-a-service-for-azure-stack"></a>Azure Stack için hizmet olarak doğrulama nedir?
 
@@ -62,7 +62,7 @@ Daha fazla bilgi için [hızlı başlangıç: Doğrulama, ilk test zamanlamak i�
 | Doğrulama iş akışı | Gerekli testleri |
 |----|------------|
 | [Yeni çözüm doğrulama](azure-stack-vaas-validate-solution-new.md) | Bulut benzetimi altyapısı<br>SDK'sı işletimsel Suite işlem<br>Disk kimliği Test<br>KeyVault uzantı SDK'sı işletimsel paketi<br>KeyVault SDK işletimsel paketi<br>Ağ SDK işletimsel paketi<br>Depolama hesabı SDK işletimsel paketi<br> |
-| [Yeni çözüm doğrulama](azure-stack-vaas-validate-oem-package.md) | OEM uzantı paketi doğrulama<br>Bulut benzetimi altyapısı |
+| [OEM paketi doğrulama](azure-stack-vaas-validate-oem-package.md) | OEM uzantı paketi doğrulama<br>Bulut benzetimi altyapısı |
 | [Aylık güncelleştirme doğrulama](azure-stack-vaas-validate-microsoft-updates.md) | Aylık AzureStack güncelleştirme doğrulama<br>Bulut benzetimi altyapısı<br> |
 
 ## <a name="next-steps"></a>Sonraki adımlar

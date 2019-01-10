@@ -28,6 +28,7 @@
 # Başvuru
 ## [Kod örnekleri](https://azure.microsoft.com/resources/samples/?service=data-catalog)
 ## [REST](/rest/api/datacatalog/)
+## [Resource Manager Şablonu](/azure/templates/microsoft.datacatalog/catalogs)
 ## [Arama söz dizimi başvurusu](/rest/api/datacatalog/data-catalog-search-syntax-reference)
 ## [Geliştirici kavramları](data-catalog-developer-concepts.md)
 

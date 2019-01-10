@@ -7,18 +7,18 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: 6750276cf31d0c804b38cdf3ea6e41a4505c93f1
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: ccdfbc38cb39f2c0aa839dc56022192e9e389d95
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971827"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187426"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Uygulama ağ geçidi (genel Önizleme) ile yeniden yazma HTTP üstbilgileri
 
 HTTP üstbilgileri, istemci ve sunucu istek veya yanıt ek bilgilerle geçmesine izin verin. Güvenlikle ilgili üstbilgi ekleme gibi birkaç önemli senaryoları görevi bu HTTP üstbilgileri yardımcı yeniden yazma alanları HSTS gibi / X XSS koruma veya yanıt üstbilgi alanlarını kaldırma, hangi arka uç sunucu adı gibi hassas bilgileri açığa.
 
-Application Gateway, gelen HTTP isteklerini, hem de giden HTTP yanıt üst bilgilerini yeniden yazabilme becerisine artık desteklemektedir. Ekleyin, kaldırın veya istek/yanıt paketleri istemci ve arka uç havuzları arasında taşırken HTTP istek ve yanıt üstbilgileri güncelleştirmeniz mümkün olacaktır. Her iki standart yazabilirsiniz (tanımlanan [RFC 2616](https://www.ietf.org/rfc/rfc2616.txt)) standart üstbilgi alanlarını yanı sıra.
+Application Gateway, gelen HTTP isteklerini, hem de giden HTTP yanıt üst bilgilerini yeniden yazabilme becerisine artık desteklemektedir. Ekleyin, kaldırın veya istek/yanıt paketleri istemci ve arka uç havuzları arasında taşırken HTTP istek ve yanıt üstbilgileri güncelleştirmeniz mümkün olacaktır. Hem standart hem de standart üstbilgi alanlarını yazabilirsiniz.
 
 > [!NOTE] 
 >
@@ -84,7 +84,11 @@ Birden çok http üst bilgisi yeniden yazma kuralı kümesi oluşturabilir ve he
 
 - Yukarıdaki bir birleşim.
 
-Yukarıda belirtilen sunucu değişkenleri sunucu hakkındaki bilgileri, bağlantı istemci ve geçerli istek bağlantı sağlayan değişkenlerdir. Bu özellik aşağıdaki sunucu değişkenleri yazmaksızın üstbilgileri destekler:
+## <a name="server-variables"></a>Sunucu değişkenleri
+
+Sunucu değişkenleri, bir web sunucusunda yararlı bilgileri depolar. Bu değişkenler, istemcinin IP adresini veya web tarayıcı türü gibi bağlantı sunucusu, istemcinin geçerli istek ile bağlantı hakkında bilgi sağlar. Yeni sayfa yüklendiğinde veya form gönderildikten gibi dinamik olarak değişir.  Bu değişkenler kullanıcılar'ı kullanarak istek üst bilgileri ve bunun yanı sıra yanıt üst bilgilerini ayarlayabilirsiniz. 
+
+Bu özellik aşağıdaki sunucu değişkenleri yazmaksızın üstbilgileri destekler:
 
 | Desteklenen sunucu değişkenleri | Açıklama                                                  |
 | -------------------------- | :----------------------------------------------------------- |
@@ -100,7 +104,7 @@ Yukarıda belirtilen sunucu değişkenleri sunucu hakkındaki bilgileri, bağlan
 | HTTP_STATUS                | oturum durumu, örn: 200, 400, 403 vs.                       |
 | http_version               | İstek protokolü, genellikle "HTTP/1.0", "HTTP/1.1" veya "HTTP/2.0" |
 | QUERY_STRING               | değişken değeri listesi çiftlerini izleyen "?" İstenen URL. |
-| received_byte              | İstek uzunluğu (istek satırı, başlık ve istek gövdesi dahil) |
+| received_bytes             | İstek uzunluğu (istek satırı, başlık ve istek gövdesi dahil) |
 | request_query              | İstek satırı bağımsız değişkenleri                                |
 | request_scheme             | İstek düzeni, "http" veya "https"                            |
 | request_urı                | tam özgün istekle URI'si (bağımsız değişkenler)                   |

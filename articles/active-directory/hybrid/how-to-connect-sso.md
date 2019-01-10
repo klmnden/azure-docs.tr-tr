@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 8b74cf533c0fe59a0967b7063791df2cfc9a7a77
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: c0533f0609539645c462c9e6f5b514a82f1162a1
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913940"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187578"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory sorunsuz çoklu oturum açma
 
@@ -32,7 +32,7 @@ Azure Active Directory Sorunsuz Çoklu Oturum Açma (Azure AD Sorunsuz SSO) öze
 
 Sorunsuz çoklu oturum açma ile birleştirilebilir [parola karması eşitleme](how-to-connect-password-hash-synchronization.md) veya [geçişli kimlik doğrulaması](how-to-connect-pta.md) oturum açma yöntemleri. Sorunsuz çoklu oturum açma olan _değil_ Active Directory Federasyon Hizmetleri (ADFS) için geçerlidir.
 
-![Sorunsuz çoklu oturum açma](./media/how-to-connect-sso/sso1.png)
+![Sorunsuz Çoklu Oturum Açma](./media/how-to-connect-sso/sso1.png)
 
 >[!IMPORTANT]
 >Sorunsuz çoklu oturum açma olması için kullanıcının cihazı gerekiyor **etki alanına katılmış**, cihazın olmasını gerektirmez, ancak [Azure AD katıldı](../active-directory-azureadjoin-overview.md).
@@ -60,7 +60,7 @@ Sorunsuz çoklu oturum açma ile birleştirilebilir [parola karması eşitleme](
 - Ücretsiz bir özelliktir ve kullanmak için Azure AD Ücretli tüm sürümleri ihtiyacınız yoktur.
 - Web tarayıcı tabanlı istemcileri ve destekleyen Office istemcilerinde desteklenir [modern kimlik doğrulaması](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) Platform ve Kerberos kimlik doğrulaması özellikli tarayıcılar:
 
-| OS\Browser |Internet Explorer|Edge|Google Chrome|Mozilla Firefox|Safari|
+| OS\Browser |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
 |Windows 10|Evet\*|Hayır|Evet|Evet\*\*\*|Yok
 |Windows 8.1|Evet\*|Yok|Evet|Evet\*\*\*|Yok

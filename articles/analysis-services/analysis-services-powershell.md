@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b4aec7ff560b0695175a18c9c7e429a8ab733345
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 9e7683883963db2cf1911405225fcdbf289de2bb
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633717"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187549"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Azure Analysis Services PowerShell ile yönetme
 
@@ -22,11 +22,13 @@ Bu makalede, Azure Analysis Services sunucusu ve veritabanı yönetim görevleri
 Oluşturma veya sunucu silme, askıya alma veya sürdürme sunucu işlemleri veya hizmet düzeyi (katman) değiştirme gibi sunucu yönetimi görevleri, Azure Resource Manager (kaynak) cmdlet'leri ve Analysis Services (sunucu) cmdlet'lerini kullanın. Veritabanını yönetme ile ilgili diğer görevler, ekleme veya Rol üyeleri, işleme veya dahil edilen SQL Server Analysis Services ile aynı SqlServer modülündeki cmdlet'ler bölümleme gibi.
 
 ## <a name="permissions"></a>İzinler
-Çoğu PowerShell görevleri, yönettiğiniz Analysis Services sunucusunda yönetici ayrıcalıkları gerektirir. Zamanlanmış PowerShell görevleri katılımsız işlemlerdir. Zamanlayıcı'yı çalıştıran hesap veya hizmet asıl Analysis Services sunucusunda yönetici ayrıcalıkları olmalıdır. 
+
+Çoğu PowerShell görevleri, yönettiğiniz Analysis Services sunucusunda yönetici ayrıcalıkları gerektirir. Zamanlanmış PowerShell görevleri katılımsız işlemlerdir. Hesap veya hizmet sorumlusu Zamanlayıcı tarafından çalıştırılan Analysis Services sunucusunda yönetici ayrıcalıkları olmalıdır. 
 
 AzureRm cmdlet'leri kullanarak sunucu işlemleri için hesabınızı veya Zamanlayıcı çalıştıran hesabı da kaynak sahibi rolüne ait olmalıdır [Azure rol tabanlı Access Control (RBAC)](../role-based-access-control/overview.md). 
 
 ## <a name="resource-management-operations"></a>Kaynak yönetimi işlemleri 
+
 Modül - [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices)
 
 |Cmdlet|Açıklama| 

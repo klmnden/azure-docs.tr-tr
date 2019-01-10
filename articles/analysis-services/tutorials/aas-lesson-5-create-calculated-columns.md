@@ -1,19 +1,19 @@
 ---
-title: 'Azure Analysis Services öğreticisi 5. Ders: Hesaplanan sütunlar oluşturma | Microsoft Docs'
+title: 'Azure Analysis Services Öğreticisi 5. Ders: Hesaplanan sütunlar oluşturma | Microsoft Docs'
 description: Azure Analysis Services öğretici projesinde hesaplanan sütunların nasıl oluşturulacağını açıklar.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2d92edd0bda15ecd57a5a29375adae3a51c661c2
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: bb0a17d4b7e11dd83439d943abf0bdd34ef915ae
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428139"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187459"
 ---
 # <a name="create-calculated-columns"></a>Hesaplanan sütunlar oluşturma
 
@@ -23,10 +23,10 @@ Bu derste, hesaplanan sütunlar ekleyerek modelinizde veri oluşturursunuz. Veri
 
 Veri Çözümleme İfadeleri’ni (DAX) de ilk olarak bu derste kullanırsınız. DAX, tablosal modeller için yüksek oranda özelleştirilebilen formül ifadeleri oluşturmaya yönelik özel bir dildir. Bu öğreticide, DAX dilini kullanarak hesaplanan sütunlar, ölçüler ve rol filtreleri oluşturursunuz. Daha fazla bilgi edinmek için bkz. [Tablosal modellerde DAX](https://docs.microsoft.com/sql/analysis-services/tabular-models/understanding-dax-in-tabular-models-ssas-tabular). 
   
-Bu dersin tahmini tamamlanma süresi: **15 dakika**  
+Bu dersi tamamlamak için tahmini süre: **15 dakika**  
   
 ## <a name="prerequisites"></a>Önkoşullar  
-Bu konu başlığı, sırayla tamamlanması gereken bir tablosal modelleme öğreticisinin parçasıdır. Bu dersteki görevleri gerçekleştirmeden önce, bir önceki dersi tamamlamış olmanız gerekir: [4. Ders: İlişki oluşturma](../tutorials/aas-lesson-4-create-relationships.md). 
+Bu konu başlığı, sırayla tamamlanması gereken bir tablosal modelleme öğreticisinin parçasıdır. Bu dersteki görevleri gerçekleştirmeden önce bir önceki dersi tamamlamış olmanız gerekir: [4. Ders: İlişki oluşturma](../tutorials/aas-lesson-4-create-relationships.md). 
   
 ## <a name="create-calculated-columns"></a>Hesaplanan sütunlar oluşturma  
   

@@ -5,15 +5,15 @@ services: storage
 author: kuhussai
 ms.service: storage
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 01/09/2018
 ms.author: kuhussai
 ms.component: blobs
-ms.openlocfilehash: e12e29a5a627110ce845cd44be6dd97b717f9b26
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 21e442c7a0cdd0edcce77c862b11ae368d4a3abc
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014506"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191675"
 ---
 # <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Azure Blob Depolama: Premium (Önizleme), sık erişimli, seyrek erişimli ve Arşiv depolama katmanları
 
@@ -62,8 +62,8 @@ Bu katmanı kullanmak için yeni bir blok blobu depolama hesabı sağlayın ve k
 Önizleme sırasında Premium erişim katmanı:
 
 - Yerel olarak yedekli depolama (LRS) kullanılabilir
-- Yalnızca şu bölgelerde kullanılabilir: Doğu ABD 2, ABD Orta ve ABD Batı
-- Otomatik katmanlama ve veri yaşam döngüsü yönetimini desteklemez
+- Yalnızca şu bölgelerde kullanılabilir: ABD Doğu 2, ABD Orta ve ABD Batı
+- Nesne düzeyinde katmanlandırma veya otomatik katmanlama ile veri yaşam döngüsü yönetimini desteklemez
 
 Premium erişim katmanı önizlemesi için kaydetme hakkında bilgi için bkz: [Azure Premium Blob Depolama ile tanışın](https://aka.ms/premiumblob).
 
@@ -86,7 +86,8 @@ Seyrek erişimli depolama katmanı, daha düşük depolama maliyetleri ve sık e
 
 Arşiv depolama, en düşük depolama maliyetine ve sık erişimli ve seyrek erişimli depolamaya kıyasla daha yüksek veri alma maliyetine sahiptir. Bu katman, birkaç saatlik alma gecikmesinden etkilenmeyecek ve Arşiv katmanında en az 180 gün boyunca kalacak verilere yöneliktir.
 
-Bir blob arşiv depolamasında bulunduğu, çevrimdışı olduğundan ve okuma (dışında çevrimiçi ve kullanılabilir olan meta veriler), kopyalanamaz, ancak üzerine yazılmasını veya değiştirilmiş. Ya da arşiv depolamasında bir blobun anlık görüntüsünü alabilirsiniz. Ancak, silme, listeleme, blob özelliklerini/meta verilerini alma işlemleri için mevcut işlemleri kullanabilir ve blob katmanını değiştirebilirsiniz.
+Bir blob arşiv depolamasında olsa da, blob veriler çevrimdışı ve kopyalanan, üzerine veya değiştirilen okunamıyor. Ya da arşiv depolamasında bir blobun anlık görüntüsünü alabilirsiniz. Ancak, çevrimiçi ve kullanılabilir, böylece blob ve özellikleri listelemek blob meta verilerini kalır. Arşiv’deki bloblar için yalnızca GetBlobProperties, GetBlobMetadata, ListBlobs, SetBlobTier ve DeleteBlob işlemleri geçerlidir. 
+
 
 Arşiv depolama katmanı için örnek kullanım senaryoları şunları içerir:
 
@@ -110,20 +111,27 @@ Aynı hesapta üç farklı depolama katmanına sahip bloblar birlikte bulunabili
 > [!NOTE]
 > Arşiv depolama ve blob düzeyinde katman ayarlama, yalnızca blok bloblarını destekler. Anlık görüntüleri olan bir blok blobun katmanını da değiştiremezsiniz.
 
-Premium erişim katmanında depolanan veriler kullanılamaz katmanlı sık erişimli, seyrek erişimli veya arşiv kullanarak [Blob katmanını ayarlama](/rest/api/storageservices/set-blob-tier) veya Azure Blob Depolama Yaşam Döngüsü Yönetimi'ni kullanma. Verileri taşımak için zaman uyumlu olarak blobları Premium erişimden sık erişimli kullanarak kopyalamanız gerekir [API URL'si gelen blok yerleştirme](/rest/api/storageservices/put-block-from-url) veya AzCopy destekleyen bu API sürümü. *URL'den blok yerleştirme* kopyalar zaman uyumlu olarak, sunucu üzerindeki verileri API çağrısını tamamlar yalnızca bir kez tüm verilerin, özgün sunucu konumundan hedef konuma taşınır anlamına gelir.
+> [!NOTE]
+> Premium erişim katmanında depolanan veriler olamaz şu anda katmanlı sık erişimli, seyrek erişimli veya arşiv kullanarak [Blob katmanını ayarlama](/rest/api/storageservices/set-blob-tier) veya Azure Blob Depolama Yaşam Döngüsü Yönetimi'ni kullanma. Verileri taşımak için zaman uyumlu olarak blobları Premium erişimden sık erişimli kullanarak kopyalamanız gerekir [API URL'si gelen blok yerleştirme](/rest/api/storageservices/put-block-from-url) veya AzCopy destekleyen bu API sürümü. *URL'den blok yerleştirme* kopyalar zaman uyumlu olarak, sunucu üzerindeki verileri API çağrısını tamamlar yalnızca bir kez tüm verilerin, özgün sunucu konumundan hedef konuma taşınır anlamına gelir.
 
 ### <a name="blob-lifecycle-management"></a>BLOB yaşam döngüsü yönetimi
 BLOB Depolama yaşam döngüsü yönetimi (Önizleme), verilerinizi en iyi erişim katmanına geçiş yapmak ve veri yaşam döngüsü sonunda süresi dolacak şekilde kullanabileceğiniz zengin, kural tabanlı bir ilke sunar. Bkz: [Azure Blob Depolama yaşam döngüsünü yönetme](storage-lifecycle-management-concepts.md) daha fazla bilgi için.  
 
 ### <a name="blob-level-tiering-billing"></a>Blob düzeyinde katman ayarlama faturalandırması
 
-Bir blobu bir katmana taşındığında (sık erişilen -> seyrek erişilen, sık erişilen -> Arşiv veya seyrek erişilen -> Arşiv), işlem nerede yazma işlemi (10.000 başına) ve hedef katmanın veri yazma (GB başına) ücretleri geçerli hedef katmanın yazma işlemi olarak faturalandırılır. Bir blob daha sık erişilen bir katmana taşınırsa (arşiv -> seyrek erişilen, arşiv -> sık erişilen veya seyrek erişimli -> sık erişilen), işlem nerede okuma işlemi (10.000 başına) ve kaynak katmanın veri alma (GB başına) ücretleri geçerli kaynak katmandan okuma olarak faturalandırılır.
+Bir blobu bir katmana taşındığında (sık erişilen -> seyrek erişilen, sık erişilen -> Arşiv veya seyrek erişilen -> Arşiv), işlem nerede yazma işlemi (10.000 başına) ve hedef katmanın veri yazma (GB başına) ücretleri geçerli hedef katmanın yazma işlemi olarak faturalandırılır. Bir blob daha sık erişilen bir katmana taşındığında (arşiv -> seyrek erişilen, arşiv -> sık erişilen veya seyrek erişimli -> sık erişilen), işlem nerede okuma işlemi (10.000 başına) ve kaynak katmanın veri alma (GB başına) ücretleri geçerli kaynak katmandan okuma olarak faturalandırılır.
+
+| | **Ücretsiz olarak yazma** | **Ücretsiz olarak edinin** 
+| ---- | ----- | ----- |
+| **SetBlobTier yönü** | Sık erişilen -> seyrek erişilen, sık erişilen, arşiv -> seyrek erişilen, arşiv -> | Arşiv -> seyrek erişilen, arşiv -> sık erişimli, seyrek erişimli -> sık erişilen
 
 Hesap katmanını sık erişimli'den seyrek erişilene değiştirirseniz yalnızca GPv2 hesaplarında ayarlanmış katmanı olmayan tüm bloblar için yazma işlemleri (10.000 başına) için ücretlendirilirsiniz. Blob Depolama hesaplarında bu değişikliğin bir ücret yoktur. Blob Depolama veya GPv2 hesabına seyrek erişilenden sık erişilene değiştirirseniz hem okuma işlemleri (10.000 başına) hem de veri alma (GB başına) için ücretlendirilirsiniz. Seyrek erişimli veya arşiv katmanı dışına taşınmış tüm bloblar için erken silme ücretleri de uygulanabilir.
 
 ### <a name="cool-and-archive-early-deletion"></a>Sık Erişimli ve Arşiv erken silme
 
 Ek olarak GB aylık ücrete, (yalnızca GPv2 hesapları) seyrek erişimli katmanına taşınan tüm bloblar bir erken silme dönemine 30 gün içinde tabidir ve Arşiv katmanına taşınan tüm bloblar bir arşiv erken silme dönemine 180 gün tabidir. Bu ücret eşit olarak bölünür. Örneğin bir blob arşive taşınır ve ardından silinir veya sık erişimli katmanına taşınırsa, 45 gün sonra 135 (180 eksi 45) eşdeğer bir erken silme ücreti ödersiniz bu blobu Arşiv'de depolama gün.
+
+Blob özelliğini kullanarak erken silme hesaplayabilir **oluşturulma zamanı**katman değişiklikleri erişimi yok, olmuştur. Aksi takdirde erişim katmanını seyrek erişimli veya arşiv blob özelliği'ni görüntüleyerek son değiştirildiği kullanabilirsiniz: **erişim katmanını değiştirme zamanı**. Blob özellikleri hakkında daha fazla bilgi için bkz. [Blob özelliklerini alma](https://docs.microsoft.com/rest/api/storageservices/get-blob-properties).
 
 ## <a name="comparison-of-the-storage-tiers"></a>Depolama katmanlarının karşılaştırması
 
@@ -140,7 +148,7 @@ Sık erişimli bir karşılaştırmasını aşağıdaki tabloda gösterilmektedi
 | **Ölçeklenebilirlik ve Performans Hedefleri** | Genel amaçlı depolama hesaplarıyla aynı | Genel amaçlı depolama hesaplarıyla aynı | Genel amaçlı depolama hesaplarıyla aynı |
 
 > [!NOTE]
-> Blob Storage hesapları, genel amaçlı depolama hesaplarıyla aynı performans ve ölçeklenebilirlik hedeflerini destekler. Daha fazla bilgi için bkz. [Azure Storage Ölçeklenebilirlik ve Performans Hedefleri](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+> Blob Storage hesapları, genel amaçlı depolama hesaplarıyla aynı performans ve ölçeklenebilirlik hedeflerini destekler. Daha fazla bilgi için [Azure Storage ölçeklenebilirlik ve performans hedefleri](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). 
 
 ## <a name="quickstart-scenarios"></a>Hızlı Başlangıç senaryoları
 
@@ -157,7 +165,7 @@ Bu bölümde Azure portalı kullanarak aşağıdaki senaryolar gösterilmektedir
 
 3. Ayarlar dikey penceresinde **Yapılandırma**’ya tıklayarak hesap yapılandırmasını görüntüleyin ve/veya değiştirin.
 
-4. Gereksinimlerinize uygun depolama katmanını seçin: **Erişim katmanı** ayarını **Seyrek Erişimli** veya **Sık Erişimli** olarak belirleyin.
+4. Gereksinimlerinize uygun depolama katmanını seçin: Ayarlama **erişim katmanı** ya da **seyrek erişimli** veya **etkin**.
 
 5. Dikey pencerenin en üstündeki Kaydet seçeneğine tıklayın.
 
@@ -176,11 +184,11 @@ Bu bölümde Azure portalı kullanarak aşağıdaki senaryolar gösterilmektedir
 Tüm depolama hesapları Blob Depolama her blobun katmanını temel alan bir fiyatlandırma modelini kullanır. Aşağıdaki fatura değerlendirmeleri göz önünde bulundurun:
 
 * **Depolama maliyetleri**: Depolanan veri miktarına ek olarak, veri depolamanın maliyeti depolama katmanına bağlı olarak değişir. Katmanın erişim sıklığı düştükçe gigabayt başına ücret de azalır.
-* **Veri erişimi maliyetleri**: Katmanın erişimi sıklığı düştükçe veri erişimi ücretleri artar. Verileri seyrek erişimli ve Arşiv depolama katmanı için okuma gigabayt başına veri erişim ücreti ödersiniz.
-* **İşlem maliyetleri**: Tüm katmanlarda, erişim sıklığı düştükçe artan bir işlem başına ücret uygulanır.
-* **Coğrafi Çoğaltma veri aktarımı maliyetleri**: Bu ücret, GRS ve RA-GRS dahil olmak üzere yalnızca coğrafi çoğaltma yapılandırılmış hesaplara uygulanır. Coğrafi çoğaltma veri aktarımı gigabayt başına ücret doğurur.
-* **Giden veri aktarımı maliyetleri**: Giden veri aktarımları (bir Azure bölgesinin dışına aktarılan veriler), genel amaçlı depolama hesapları ile tutarlı şekilde gigabayt başına esaslı olarak bant genişliği kullanımı için fatura doğurur.
-* **Depolama katmanının değiştirilmesi**: hesap depolama katmanını seyrek erişimliden sık erişimli'den değiştirme, depolama hesabında varolan tüm verilerin okunmasına eşit bir ücret doğurur. Ancak, hesap depolama katmanını sık erişimli'den seyrek Erişimliye değiştirmek, tüm verileri seyrek erişilen katmana (yalnızca GPv2 hesapları) yazma eşit bir ücret doğurur.
+* **Veri erişim maliyetleri**: Düştükçe veri erişimi artış ücretleri. Verileri seyrek erişimli ve Arşiv depolama katmanı için okuma gigabayt başına veri erişim ücreti ödersiniz.
+* **İşlem maliyetleri**: Tüm katmanlar için düştükçe artıran işlem başına ücret yoktur.
+* **Coğrafi çoğaltma veri aktarımı maliyetleri**: Bu ücret, yalnızca coğrafi yapılandırılmış, GRS ve RA-GRS dahil olmak üzere çoğaltma ile hesapları için geçerlidir. Coğrafi çoğaltma veri aktarımı gigabayt başına ücret doğurur.
+* **Giden veri aktarımı maliyetleri**: Giden veri aktarımları (bir Azure bölgesinin dışına aktarılan veriler), genel amaçlı depolama hesapları ile tutarlı, gigabayt başına esaslı olarak bant genişliği kullanımı için fatura doğurur.
+* **Depolama katmanının değiştirilmesi**: Hesap Depolama katmanını seyrek erişimliden sık erişimli'den değiştirme depolama hesabında varolan tüm verilerin okunmasına eşit bir ücret doğurur. Ancak, hesap depolama katmanını sık erişimli'den seyrek Erişimliye değiştirmek, tüm verileri seyrek erişilen katmana (yalnızca GPv2 hesapları) yazma eşit bir ücret doğurur.
 
 > [!NOTE]
 > Blob Depolama hesapları için fiyatlandırma hakkında daha fazla bilgi için bkz. [Azure depolama fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/) sayfası. Giden veri aktarımı ücretlerine ilişkin daha fazla bilgi için [Veri Aktarımları Fiyatlandırma Bilgileri](https://azure.microsoft.com/pricing/details/data-transfers/) sayfasına bakın.

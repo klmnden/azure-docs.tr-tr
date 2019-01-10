@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ab238e31ba022427dc55fec842f3e89e72fa530a
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 7f8c410f368c5c63bd24bed25b9807b8061180be
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238888"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189805"
 ---
 # <a name="manage-database-roles-and-users"></a>Veritabanı rolleri ve kullanıcıları yönetme
 
@@ -45,7 +45,7 @@ Bir tablosal model projesi oluştururken, rolleri oluşturma ve SSDT'de Rol Yön
   
     |İzin|Açıklama|  
     |----------------|-----------------|  
-    |**Yok**|Üyeleri model şeması değiştirilemez ve verileri sorgulayamaz.|  
+    |**Yok.**|Üyeleri model şeması değiştirilemez ve verileri sorgulayamaz.|  
     |**Okuma**|Üyeler (satır filtreleri temel alarak) verileri sorgulayabilirsiniz ancak model şeması değiştiremezsiniz.|  
     |**Okuma ve işleme**|Üye verileri (bağlı olarak satır düzeyi filtreleri) ve çalıştırma işlemi ve işlemin tüm işlemleri sorgulayabilirsiniz ancak model şeması değiştirilemez.|  
     |**İşlem**|Üye işlemi ve işlemin tüm işlemleri de çalıştırabilirsiniz. Model şeması değiştirilemez ve verileri sorgulayamaz.|  
@@ -63,6 +63,7 @@ Bir tablosal model projesi oluştururken, rolleri oluşturma ve SSDT'de Rol Yön
 
 
 ## <a name="to-add-or-manage-roles-and-users-in-ssms"></a>Eklemek veya roller ve kullanıcılar ssms'de yönetmek için
+
 Roller ve kullanıcılar için bir dağıtılan model veritabanı eklemek için sunucuya olarak sunucu yöneticisi veya yönetici izinlerine sahip bir veritabanı rolü zaten bağlı gerekir.
 
 1. Nesne Exporer içinde sağ **rolleri** > **yeni rol**.
@@ -83,6 +84,7 @@ Roller ve kullanıcılar için bir dağıtılan model veritabanı eklemek için 
 5. Oluşturduğunuz rolü okuma izni varsa, bir DAX formülü kullanarak satır filtreleri ekleyebilirsiniz. Tıklayın **satır filtreleri**, bir tablo seçin ve ardından bir DAX formülüne yazın **DAX filtresi** alan. 
 
 ## <a name="to-add-roles-and-users-by-using-a-tmsl-script"></a>TMSL betik kullanarak rolleri ve kullanıcıları ekleme
+
 XMLA penceresinde SSMS veya PowerShell kullanarak bir TMSL betiği çalıştırabilirsiniz. Kullanım [CreateOrReplace](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/createorreplace-command-tmsl) komut ve [rolleri](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-objects/roles-object-tmsl) nesne.
 
 **Örnek TMSL betiği**
@@ -116,6 +118,7 @@ Bu örnekte, dış B2B kullanıcısı ve grubu SalesBI veritabanı için Okuma i
 ```
 
 ## <a name="to-add-roles-and-users-by-using-powershell"></a>PowerShell kullanarak rolleri ve kullanıcıları ekleme
+
 [SqlServer](https://msdn.microsoft.com/library/hh758425.aspx) göreve özel veritabanı yönetimi cmdlet'leri ve bir Tablosal Model betik dili (TMSL) sorgu veya betik kabul genel amaçlı Invoke-ASCmd cmdlet'i modülü sağlar. Aşağıdaki cmdlet, veritabanı rolleri ve kullanıcıları yönetmek için kullanılır.
   
 |Cmdlet|Açıklama|
@@ -125,6 +128,7 @@ Bu örnekte, dış B2B kullanıcısı ve grubu SalesBI veritabanı için Okuma i
 |[Çağırma ASCmd](https://msdn.microsoft.com/library/hh479579.aspx)|TMSL betiğini yürütün.|
 
 ## <a name="row-filters"></a>Satır filtreleri  
+
 Bir tablodaki satırları belirli bir rolü üyeleri tarafından sorgulanabilir satır filtrelerini tanımlayın. Satır filtreleri, DAX formülleri kullanarak modeldeki her tablo için tanımlanır.  
   
 Satır filtreleri, yalnızca rolleri okuma ve okuma için tanımlanabilir ve işlem izinleri. Belirli bir tablo için bir satır filtresi tanımlanmazsa başka bir tablodan çapraz filtreleme uygulanır sürece varsayılan olarak, tablodaki tüm satırları üyeleri sorgulayabilirsiniz.
@@ -144,6 +148,7 @@ Satır filtreleri belirtilen satırları ve ilişkili satırları uygulanır. Bi
  Filtre kullanabileceğiniz *=FALSE()* tablonun tamamını tüm satırlara erişimi reddetmek için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
   [Sunucu yöneticilerini yönetme](analysis-services-server-admins.md)   
   [Azure Analysis Services PowerShell ile yönetme](analysis-services-powershell.md)  
   [Tablosal Model betik dili (TMSL) başvurusu](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d727c9c3a9add701263e799dba778b37e637adef
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: bc9892882cfd4c3f68118648baaaf278133bb2a8
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194292"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191930"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Yenilikler için arşiv? Azure Active Directory'de
 
@@ -75,7 +75,7 @@ Azure AD kullanım koşulları için yönetim işlemi Microsoft Graph API'leri e
 ### <a name="use-internal-urls-to-access-apps-from-anywhere-with-our-my-apps-sign-in-extension-and-the-azure-ad-application-proxy"></a>Her yerden uygulamalara erişmek için iç URL'lerini kullanan My Apps oturum açma Uzantımızı ve Azure AD uygulama proxy'si ile
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Uygulamaların  
+**Hizmet kategorisi:** Uygulamalarım  
 **Ürün özelliği:** SSO
  
 Kullanıcılar artık uygulamalar üzerinden şirket ağınıza olduğunda bile dışında İç URL My Apps güvenli oturum açma uzantısı için Azure AD'yi kullanarak erişebilirsiniz. Bu, Azure AD uygulama ara sunucusu, ayrıca erişim paneli tarayıcı uzantısının yüklü olan herhangi bir tarayıcı üzerinde kullanarak yayımladığınız herhangi bir uygulama ile çalışır. URL yeniden yönlendirme işlevi, uzantısı'na bir kullanıcı oturumu sonra otomatik olarak etkinleştirilir. Uzantı, ücretsiz olarak kullanılabilir [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176), [Chrome](https://go.microsoft.com/fwlink/?linkid=866367), ve [Firefox](https://go.microsoft.com/fwlink/?linkid=866366).
@@ -438,7 +438,7 @@ Daha fazla bilgi için bkz.
 
 **Türü:** Yeni özellik  
 **Hizmet kategorisi:** Uygulama Proxy'si  
-**Ürün özelliği:** Access Control
+**Ürün özelliği:** Erişim Denetimi
  
 Uygulama proxy'si cmdlet'leri için desteği Powershell GA modülünde sunuldu! Bu Powershell modülleri - daha fazla bir yıl, bazı cmdlet'ler hale gelirse çalışmayı durdurabilir güncel gerektirir. 
 
@@ -837,7 +837,7 @@ Daha fazla bilgi için bkz. [Azure Active Directory risk olayları](https://docs
 ### <a name="hide-office-365-applications-from-end-users-access-panels"></a>Son kullanıcı erişim panellerinde Office 365 uygulamalarından gizleme
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Uygulamaların  
+**Hizmet kategorisi:** Uygulamalarım  
 **Ürün özelliği:** SSO
 
 Artık, nasıl Office 365 uygulamaları üzerinde yeni bir kullanıcı ayarı ile kullanıcı erişim panellerinde görünmesi daha iyi yönetebilirsiniz. Bu seçenek Office uygulamalarını yalnızca Office Portalı'nda gösterilecek tercih ederseniz bir kullanıcının erişim panellerinde uygulamaları sayısını azaltmak için yararlıdır. Ayar bulunan **kullanıcı ayarları** ve olarak etiketlenen **kullanıcılar yalnızca Office 365 uygulamaları Office 365 portalında görebilir**.
@@ -849,7 +849,7 @@ Daha fazla bilgi için [bir uygulamadan Azure Active Directory'de kullanıcı de
 ### <a name="seamless-sign-into-apps-enabled-for-password-sso-directly-from-apps-url"></a>Uygulamanın URL'sini doğrudan parola SSO için etkinleştirildiği uygulamalar sorunsuz oturum 
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Uygulamaların  
+**Hizmet kategorisi:** Uygulamalarım  
 **Ürün özelliği:** SSO
 
 Uygulamalarım tarayıcı uzantısı aracılığıyla uygulamalarım çoklu oturum tarayıcınızda bir kısayol olarak özellik hakkında size uygun bir aracı kullanıma sunuldu. Kullanıcının yükledikten sonra tarayıcılarında bunları uygulamalarına hızlı erişim sağlayan bir waffle menüsü simgesi görürsünüz. Kullanıcılar artık yararlanabilirsiniz:
@@ -857,7 +857,7 @@ Uygulamalarım tarayıcı uzantısı aracılığıyla uygulamalarım çoklu otur
 - Özelliği doğrudan uygulamanın oturum açma sayfasında parola tabanlı SSO uygulamaları için oturum açın
 - Hızlı arama özelliğini kullanarak herhangi bir uygulama başlatın
 - Uzantı son kullanılan uygulamalar için kısayollar
-- Uzantı, Edge, Chrome ve Firefox için kullanılabilir.
+- Uzantı, Microsoft Edge, Chrome ve Firefox için kullanılabilir.
  
 Daha fazla bilgi için [My Apps güvenli oturum açma uzantısı](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction#my-apps-secure-sign-in-extension).
 
@@ -1279,7 +1279,7 @@ Bu yeni özellikler nedeniyle/Reports uç nokta altında API'ler rapor kullanım
 ### <a name="automatic-sign-in-field-detection"></a>Otomatik oturum açma alanı algılaması
 
 **Türü:** Sabit   
-**Hizmet kategorisi:** Uygulamaların  
+**Hizmet kategorisi:** Uygulamalarım  
 **Ürün özelliği:** Çoklu oturum açma  
 
 Azure AD, bir HTML kullanıcı adı ve parola alanı işlemek uygulamalar için otomatik oturum açma alanı algılaması destekler. Bu adımları bölümünde belgelendirilen [nasıl otomatik olarak bir uygulama için oturum açma alanlarını Yakala](https://docs.microsoft.com/azure/active-directory/application-config-sso-problem-configure-password-sso-non-gallery#how-to-manually-capture-sign-in-fields-for-an-application). Bu özellik ekleyerek bulabilirsiniz bir *galeri dışı* uygulaması **kurumsal uygulamalar** sayfasını [Azure portalında](https://aad.portal.azure.com). Buna ek olarak, yapılandırabileceğiniz **çoklu oturum açma** bu yeni uygulama modu **parola tabanlı çoklu oturum açma**web URL'si girin ve ardından sayfanın kaydedin.
@@ -1361,7 +1361,7 @@ Daha fazla bilgi için [Azure AD erişim gözden geçirmeleri](https://docs.micr
 ### <a name="hide-third-party-applications-from-my-apps-and-the-office-365-app-launcher"></a>Üçüncü taraf uygulamalardan uygulamalarım ve Office 365 uygulama başlatıcısında Gizle
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Uygulamaların  
+**Hizmet kategorisi:** Uygulamalarım  
 **Ürün özelliği:** Çoklu oturum açma  
 
 Şimdi yeni bir aracılığıyla kullanıcılarınızın portalı üzerinde görünen uygulamalar daha iyi yönetebilirsiniz **uygulama Gizle** özelliği. Arka uç hizmetlerine veya yinelenen kutucukları ve dağınıklık kullanıcıların uygulama launchers uygulama kutucuklarına burada görünmesi durumlarda yardımcı olması için uygulamanızı gizleyebilirsiniz. İki durumlu düğme bulunduğu **özellikleri** üçüncü taraf uygulama bölümünü ve etiketli **kullanıcıya görünür?** Ayrıca PowerShell üzerinden program aracılığıyla uygulama gizleyebilirsiniz. 

@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 01/09/2019
 ms.author: douglasl
-ms.openlocfilehash: 1a0bf0e6057f26fd8d38dadde5689e41b4f1e165
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 23114a1d2fff081c802ddedc7bf5430938c45b3b
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017285"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191794"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Sürekli tümleştirme ve teslim (CI/CD) Azure Data factory'de
 
@@ -161,7 +161,7 @@ Gizli dizileri işlemek için iki yolu vardır:
     ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
 ### <a name="grant-permissions-to-the-azure-pipelines-agent"></a>Azure işlem hatları aracısına izin ver
-Azure Key Vault Görev ilk kez bir erişim reddedildi hatası ile başarısız olabilir. Yayın günlükleri indirmek ve bulun `.ps1` Azure işlem hatları aracıya izin vermek için komut dosyası. Komutu doğrudan çalıştırabilirsiniz veya asıl kimliği dosyasından kopyalayın ve erişim ilkesi, Azure portalında el ile ekleyin. (*Alma* ve *listesi* olan gerekli en düşük izinleri).
+Azure Key Vault görev fIntegration Runtimest zaman erişim reddedildi hatası ile başarısız olabilir. Yayın günlükleri indirmek ve bulun `.ps1` Azure işlem hatları aracıya izin vermek için komut dosyası. Komutu doğrudan çalıştırabilirsiniz veya asıl kimliği dosyasından kopyalayın ve erişim ilkesi, Azure portalında el ile ekleyin. (*Alma* ve *listesi* olan gerekli en düşük izinleri).
 
 ### <a name="update-active-triggers"></a>Güncelleştirme etkin Tetikleyicileri
 Etkin Tetikleyicileri güncelleştirmeye çalışırsanız, dağıtım başarısız olabilir. Etkin Tetikleyicileri güncelleştirmek için el ile sonlandırmasına ve bunları dağıtımdan sonra başlatmak gerekir. Aşağıdaki örnekte gösterildiği gibi bu amaç için bir Azure Powershell görev ekleyebilirsiniz:
@@ -183,7 +183,7 @@ Etkin Tetikleyicileri güncelleştirmeye çalışırsanız, dağıtım başarıs
 Benzer adımları izleyin ve benzer bir kod kullanın (ile `Start-AzureRmDataFactoryV2Trigger` işlevi) Tetikleyiciler dağıtımdan sonra yeniden başlatmak için.
 
 > [!IMPORTANT]
-> Sürekli tümleştirme ve dağıtım senaryoları, tümleştirme çalışma zamanı türü farklı ortamlar genelinde aynı olmalıdır. Örneğin, bir *şirket içinde barındırılan* Integration Runtime (IR) geliştirme ortamında, aynı IR türde olmalıdır *şirket içinde barındırılan* test ve üretim gibi diğer ortamlarda da. Tümleştirme çalışma zamanları arasında birden çok aşama paylaşıyorsanız, benzer şekilde, IRS olarak yapılandırmak kullandığınız *bağlı şirket içinde barındırılan* , geliştirme, test ve üretim gibi tüm ortamlarda.
+> Sürekli tümleştirme ve dağıtım senaryoları, tümleştirme çalışma zamanı türü farklı ortamlar genelinde aynı olmalıdır. Örneğin, bir *şirket içinde barındırılan* Integration Runtime (IR) geliştirme ortamında, aynı IR türde olmalıdır *şirket içinde barındırılan* test ve üretim gibi diğer ortamlarda da. Tümleştirme çalışma zamanları arasında birden çok aşama paylaşıyorsanız, benzer şekilde, tümleştirme çalışma zamanları olarak yapılandırmak kullandığınız *bağlı şirket içinde barındırılan* , geliştirme, test ve üretim gibi tüm ortamlarda.
 
 ## <a name="sample-deployment-template"></a>Örnek dağıtım şablonu
 
@@ -853,7 +853,7 @@ Resource Manager şablonuna yönelik özel parametreler tanımlayabilirsiniz. Ad
 
 Özel parametre dosyasını yazarken kullanmak için bazı yönergeler aşağıda verilmiştir. Bu söz dizimi örneklerini görmek için aşağıdaki bölüme bakın [örnek özel parametreler dosyası](#sample).
 
-1. Dizi tanımı dosyasında belirttiğinizde, şablonda eşleşen özellik dizisi olduğunu belirtir. Veri Fabrikası ilk dizi nesnesinde belirtilen tanım kullanarak dizi içindeki tüm nesneler gezinir. Dize, ikinci nesne, her yineleme için parametre adı olarak kullanılan özelliğin adı olur.
+1. Dizi tanımı dosyasında belirttiğinizde, şablonda eşleşen özellik dizisi olduğunu belirtir. Veri Fabrikası dizinin fIntegration Runtimest nesnesinde belirtilen tanım kullanarak dizi içindeki tüm nesneler gezinir. Dize, ikinci nesne, her yineleme için parametre adı olarak kullanılan özelliğin adı olur.
 
     ```json
     ...
@@ -977,7 +977,7 @@ Aşağıdaki örnek, örnek bir parametreler dosyası gösterir. Bu örnek, kend
 
 ## <a name="linked-resource-manager-templates"></a>Bağlantılı Resource Manager şablonları
 
-Sürekli tümleştirmeyi ve dağıtım (CI/CD), veri fabrikaları için ayarladıysanız, fabrikanızı büyük büyüdükçe, Resource Manager şablonu sınırları sayısı veya kaynaklar bir kaynak en fazla yük gibi yaşadığınız, gözlemleyin Yöneticisi şablonu. Data Factory, tam bir Resource Manager şablonu için bir Fabrika oluşturma yanı sıra bu gibi senaryolar için bağlantılı Resource Manager şablonları artık oluşturur. Sonuç olarak, belirtilen sınırları çalışmasını önlemek için birkaç dosyalarına ayrılmış tüm fabrikanızın yükü sahip olursunuz.
+Sürekli tümleştirmeyi ve dağıtım (CI/CD), veri fabrikaları için ayarladıysanız, fabrikanızı büyük büyüdükçe, Resource Manager şablonu sınırları, kaynaklar veya kaynak en fazla yüke sayısı gibi yaşadığınız, gözlemleyin Yöneticisi şablonu. Data Factory, tam bir Resource Manager şablonu için bir Fabrika oluşturma yanı sıra bu gibi senaryolar için bağlantılı Resource Manager şablonları artık oluşturur. Sonuç olarak, belirtilen sınırları çalışmasını önlemek için birkaç dosyalarına ayrılmış tüm fabrikanızın yükü sahip olursunuz.
 
 Yapılandırılan Git varsa, bağlı şablonların oluşturulur ve tüm Resource Manager şablonları ile birlikte kaydedilmiş `adf_publish` adlı yeni bir klasör altında bir dal `linkedTemplates`.
 
@@ -988,3 +988,23 @@ Bağlantılı Resource Manager şablonları, genellikle bir ana şablon ve asıl
 Önce ve sonra dağıtım görevi, CI/CD işlem hattı, Data Factory komut eklemeyi unutmayın.
 
 Yapılandırılan Git yoksa, bağlı şablonların aracılığıyla erişilebilir **dışarı ARM şablonu** hareketi.
+
+## <a name="best-practices-for-cicd"></a>CI/CD için en iyi uygulamalar
+
+Git Tümleştirmesi ile veri fabrikanızı kullanıyorsanız ve değişikliklerinizi geliştirme, Test ve sonra üretime taşır. bir CI/CD işlem hattı varsa aşağıdaki en iyi öneririz:
+
+-   **Git tümleştirmesi**. Yalnızca geliştirme veri fabrikanıza Git tümleştirmesiyle yapılandırmak için gereklidir. Değişiklikleri Test ve üretim için CI/CD dağıtılır ve bunlar Git tümleştirmesi olması gerekmez.
+
+-   **Data Factory CI/CD komut**. CI/CD, Resource Manager dağıtım adımı önce tetikleyiciler ve farklı türde bir Fabrika temizleme durdurma gibi şeyler ilgileniriz gerekir. Kullanmanızı öneririz [bu betik](#sample-script-to-stop-and-restart-triggers-and-clean-up) gibi tüm bu işlemler üstlenir. Dağıtımdan önce bir kez ve tamamladıktan sonra uygun bayrakları kullanarak betiği çalıştırın.
+
+-   **Tümleştirme çalışma zamanları ve Paylaşım**. Tümleştirme çalışma zamanları daha az sıklıkta değişiklik yapmak ve CI/CD tüm aşamaları boyunca benzer altyapısal bileşenleri, data factory'de biridir. Sonuç olarak, Data Factory tümleştirme çalışma zamanları, CI/CD tüm aşamaları boyunca aynı türde ve aynı ada sahip olmasını bekliyor. Tümleştirme çalışma zamanları - Örneğin, şirket içinde barındırılan tümleştirme çalışma zamanları - tüm aşamaları paylaşmak istiyorsanız paylaşmak için bir paylaşılan tümleştirme çalışma zamanları içeren için Üçlü bir factory'de şirket içinde barındırılan IR barındırarak yoludur. Ardından, bunları geliştirme/Test/üretim bağlı IR türü olarak kullanabilirsiniz.
+
+-   **Anahtar kasası**. Önerilen kullandığınızda Azure anahtar kasası tabanlı bağlı hizmetler, geliştirme/Test/Prod için büyük olasılıkla ayrı anahtar kasalarını tutarak kendi avantajları bir düzey daha fazla sürebilir. Ayrıca bunların her biri için ayrı izin düzeylerini yapılandırabilirsiniz. Takım üyelerinizin üretim gizli dizileri izinlerine sahip olmasını istemeyebilirsiniz. Ayrıca, tüm aşamaları aynı gizli adların tutmanızı öneririz. Aynı adları tutarsanız, değiştirilmesi gereken tek şey, Resource Manager şablon parametrelerinden biri olan anahtar kasası adı olduğundan, Resource Manager şablonları CI/CD arasında değiştirmeniz gerekmez.
+
+## <a name="unsupported-features"></a>Desteklenmeyen özellikler
+
+-   Data factory varlıklarını birbirine bağımlı olduğundan tek tek kaynakları yayımlanamıyor. Örneğin, işlem hatları Tetikleyiciler bağlıdır, işlem hatları, veri kümeleri ve diğer işlem hatları, vb. üzerinde bağlıdır. Değişen bağımlılıkları izleme zordur. El ile yayımlamak için gereken kaynakları seçmek mümkün ise, yalnızca bir alt kümesinin tamamını yayımladıktan sonra şeyler beklenmeyen davranışa neden, değişikliklerin çekme mümkün olacaktır.
+
+-   Özel dallardan yayımlanamıyor.
+
+-   Bitbucket projelerde barındıramaz.

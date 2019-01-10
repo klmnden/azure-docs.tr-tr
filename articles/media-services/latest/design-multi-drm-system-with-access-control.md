@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: 7b3f6410e65e9a43578d50d6aacaec0ea4ec4684
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 3e9909de5ec05710214279357134112804ab4ceb
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753498"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191250"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Erişim denetimi ile birden çok DRM içerik koruma sisteminin tasarımı 
 
@@ -51,7 +51,7 @@ Aşağıdaki tabloda, farklı platformlarda yerel DRM desteği ve farklı taray�
 | **İstemci Platformu** | **Yerel DRM** | **EME** |
 | --- | --- | --- | --- |
 | **Akıllı TV, STB** | PlayReady, Widevine ve/veya diğer | Katıştırılmış tarayıcı/EME için PlayReady ve/veya Widevine|
-| **Windows 10** | PlayReady | MS Edge/ıe11 için PlayReady|
+| **Windows 10** | PlayReady | Microsoft Edge/ıe11 için PlayReady|
 | **Android cihazlar (telefonlar, tabletler, TV)** |Widevine |Chrome için Widevine |
 | **iOS** | FairPlay | FairPlay için Safari (itibaren iOS 11.2) |
 | **macOS** | FairPlay | FairPlay (itibaren Safari Mac OS X 10.11 + El Capitan üzerinde 9 +) için Safari|

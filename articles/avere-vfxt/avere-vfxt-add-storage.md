@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: procedural
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: d38fe1cab27cfade3e6e4d2f6764f455896ac470
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: a7036f6fbab771dc090e97034a6191cf82b707a7
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001966"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190866"
 ---
 # <a name="configure-storage"></a>Depolama alanını yapılandırma
 
@@ -38,7 +38,7 @@ Bu adımları Avere Denetim Masası'nı kullanın. Okuma [vFXT kümeye erişmek]
 
 ## <a name="create-a-core-filer"></a>Bir çekirdek dosyalayıcı oluşturma
 
-"Çekirdek dosyalayıcı", bir arka uç depolama sistemi vFXT bir terimdir. Depolama, bir donanım NAS Gereci NetApp veya Isilon gibi veya Bulut nesne deposu olabilir. Çekirdek filtreleri hakkında daha fazla bilgi bulunabilir [Avere içinde küme ayarları Kılavuzu](http://library.averesystems.com/ops_guide/4_7/settings_overview.html#managing-core-filers).
+"Çekirdek dosyalayıcı", bir arka uç depolama sistemi vFXT bir terimdir. Depolama, bir donanım NAS Gereci NetApp veya Isilon gibi veya Bulut nesne deposu olabilir. Çekirdek filtreleri hakkında daha fazla bilgi bulunabilir [Avere içinde küme ayarları Kılavuzu](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#managing-core-filers).
 
 Bir çekirdek dosyalayıcı eklemek için iki ana tür çekirdek filtrelerin birini seçin:
 
@@ -70,7 +70,7 @@ Aşağıdaki adımlar bir NAS çekirdek gösterecek şekilde ekleyin:
   
    * Tıklayın **sonraki** ve önbellek İlkesi'ni seçin. 
    * Tıklayın **dosyalayıcı ekleme**.
-   * Daha ayrıntılı bilgi için bkz [yeni bir NAS ekleme çekirdek dosyalayıcı](http://library.averesystems.com/ops_guide/4_7/new_core_filer_nas.html) Avere içinde küme ayarları Kılavuzu.
+   * Daha ayrıntılı bilgi için bkz [yeni bir NAS ekleme çekirdek dosyalayıcı](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_nas.html) Avere içinde küme ayarları Kılavuzu.
 
 Ardından, devam [bir birleşim oluşturma](#create-a-junction).  
 
@@ -133,7 +133,7 @@ Küme oluşturulduktan sonra BLOB Depolama eklemek için aşağıdaki adımları
    | Abonelik | Abonelik kimliği |
    | Depolama Erişim Anahtarı | Azure depolama hesabı anahtarı (önceki adımda kopyaladığınız) | 
 
-   Tıklayın **gönderme**.
+   **Gönder**'e tıklayın.
 
    ![Bulut kimlik bilgisi form Avere Denetim Masası'ndaki tamamlandı](media/avere-vfxt-new-credential-submit.png)
 
@@ -156,7 +156,7 @@ Küme oluşturulduktan sonra BLOB Depolama eklemek için aşağıdaki adımları
    * İsteğe bağlı olarak, **şifreleme türü** için **hiçbiri**.  Azure depolama, varsayılan olarak şifrelenir.
    * Tıklayın **dosyalayıcı ekleme**.
 
-  Daha ayrıntılı bilgi için okuma [yeni bir bulut çekirdek dosyalayıcı ekleme](<http://library.averesystems.com/ops_guide/4_7/new_core_filer_cloud.html>) Avere küme yapılandırma kılavuzu. 
+  Daha ayrıntılı bilgi için okuma [yeni bir bulut çekirdek dosyalayıcı ekleme](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html>) Avere küme yapılandırma kılavuzu. 
 
 Sayfa yenilenir ve yeni çekirdek gösterecek şekilde görüntülemek için sayfayı yenileyebilirsiniz.
 
@@ -168,7 +168,7 @@ Bir birleşim istemciler için oluşturduğunuz bir yoludur. İstemciler, bağla
 
 Örneğin, aşağıdakileri oluşturabilirsiniz `/avere/files` , NetApp çekirdek gösterecek şekilde eşlemek için `/vol0/data` dışarı aktarma ve `/project/resources` alt.
 
-Merkezleriyle hakkında daha fazla bilgi bulunabilir [Avere küme yapılandırma Kılavuzu'nun ad alanı bölümünde](http://library.averesystems.com/ops_guide/4_7/gui_namespace.html).
+Merkezleriyle hakkında daha fazla bilgi bulunabilir [Avere küme yapılandırma Kılavuzu'nun ad alanı bölümünde](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_namespace.html).
 
 Avere Denetim Masası Ayarları arabirimi aşağıdaki adımları izleyin:
 

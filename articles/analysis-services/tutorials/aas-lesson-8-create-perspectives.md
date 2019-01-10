@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e92e86f59058f1f226c67f873530cd9c06b5d5fc
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: c26da5d047a1e904510f96b44d81632b6e98689e
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428343"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190978"
 ---
 # <a name="create-perspectives"></a>Perspektif oluşturma
 
@@ -23,10 +23,10 @@ Bu derste oluşturacağınız Internet Sales perspektifinde DimCustomer tablo ne
   
 Bu dersin amacı perspektiflerin nasıl oluşturulacağını açıklamak ve tablosal model yazma araçları ile çalışmaya başlamaktır. Daha sonra başka tablolar ekleyerek bu modeli genişletirseniz modelin farklı bakış açılarını (örneğin, Stok ve Satış) tanımlamak üzere ek perspektifler oluşturabilirsiniz.  
   
-Bu dersin tahmini tamamlanma süresi: **Beş dakika**  
+Bu dersi tamamlamak için tahmini süre: **Beş dakika**  
   
 ## <a name="prerequisites"></a>Önkoşullar  
-Bu konu başlığı, sırayla tamamlanması gereken bir tablosal modelleme öğreticisinin parçasıdır. Bu dersteki görevleri gerçekleştirebilmek için bir önceki dersi tamamlamış olmanız gerekir: [7. Ders: Ana Performans Göstergeleri Oluşturma](../tutorials/aas-lesson-7-create-key-performance-indicators.md).  
+Bu konu başlığı, sırayla tamamlanması gereken bir tablosal modelleme öğreticisinin parçasıdır. Bu dersteki görevleri gerçekleştirmeden önce bir önceki dersi tamamlamış olmanız gerekir: [7. Ders: Ana performans göstergeleri oluşturma](../tutorials/aas-lesson-7-create-key-performance-indicators.md).  
   
 ## <a name="create-perspectives"></a>Perspektif oluşturma  
   

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: kumud
-ms.openlocfilehash: 521a9dd49abee8fdeaa42b1ea8c13b9a648f1875
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d4a51551fb0f9067929df1fdf074e7286938004b
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187378"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187714"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Trafik Yöneticisi'nde çoklu değer yönlendirme yöntemini yapılandırma
 
@@ -47,9 +47,9 @@ En düşük gecikme süresine uç noktaya göndererek kullanıcı trafiği yönl
     | Abonelik            | Aboneliğinizi seçin.                          |
     | Kaynak grubu          | Seçin *myResourceGroupTM1*. |
     | Konum                | Bu ayar, kaynak grubunun konumunu ifade eder ve genel olarak dağıtılacak Traffic Manager profilini etkilemez.                              |
-    
+   |        |           | 
   
-    ![Traffic Manager profili oluşturma](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
+  ![Traffic Manager profili oluşturma](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
 
 ## <a name="add-traffic-manager-endpoints"></a>Traffic Manager uç noktalarını ekleme
 
@@ -69,7 +69,7 @@ En düşük gecikme süresine uç noktaya göndererek kullanıcı trafiği yönl
 4. 2 ve 3 adlı başka bir uç nokta ekleme *myEndpoint2*, için **tam etki alanı adı (FQDN) veya IP**, ikinci uç nokta genel IP adresini girin.
 5.  Her iki uç noktanın eklenmesi tamamlandığında, **Çevrimiçi** izleme durumuyla birlikte **Traffic Manager profili** bölümünde gösterilir.
 
-    ![Traffic Manager uç noktası ekleme](./media/traffic-manager-multivalue-routing-method/add-endpoint.png)
+   ![Traffic Manager uç noktası ekleme](./media/traffic-manager-multivalue-routing-method/add-endpoint.png)
  
 ## <a name="next-steps"></a>Sonraki adımlar
 

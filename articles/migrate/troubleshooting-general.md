@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 9bf445b54ab6ac2d3edf53fcc4bbcc39ee475a81
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 9a6b40aa86d4d81482d9c3724f0e230e0b811276
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119110"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189505"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Azure Geçişi sorunlarını giderme
 
@@ -245,14 +245,14 @@ Olay izleme için Windows toplamak için aşağıdakileri yapın:
 2. Geliştirici Araçları'nı başlatmak için F12 tuşuna basın. Gerekirse ayarı temizlemek **Gezinti girdilerini temizleyin**.
 3. Tıklayın **ağ** sekmesini ve ağ trafiği Yakalamayı Başlat:
  - Chrome'da, seçin **Koru günlük**. Kayıt otomatik olarak başlayacaktır. Kırmızı bir daire trafik yakalama verdiğini gösterir. Görünmüyorsa, Siyah daire başlatmak için tıklayın
- - Edge/IE, kaydı otomatik olarak başlayacaktır. Bu gereksinimleri karşılamıyorsa yeşil YÜRÜT düğmesine tıklayın.
+ - Microsoft Edge/IE, kaydı otomatik olarak başlayacaktır. Bu gereksinimleri karşılamıyorsa yeşil YÜRÜT düğmesine tıklayın.
 4. Hatayı yeniden oluşturmaya çalışın.
 5. Kaydetme hatası karşılaştığınız sonra kaydı durdurmak ve kayıtlı etkinliği bir kopyasını kaydedin:
  - Chrome'da, sağ tıklatıp **içerikle HAR olarak Kaydet**. Bu, zıps ve günlükleri .har dosyası olarak dışarı aktarır.
- - Edge/IE, tıklayın **dışarı aktarma yakalanan trafiği** simgesi. Bu, zıps ve günlük dışarı aktarır.
+ - Microsoft Edge/IE, tıklayın **dışarı aktarma yakalanan trafiği** simgesi. Bu, zıps ve günlük dışarı aktarır.
 6. Gidin **konsol** için uyarıları veya hataları denetlemek için sekmesinde. Konsol günlüğüne kaydetmek için:
  - Chrome'da, konsol günlüğüne herhangi bir yere sağ tıklayın. Seçin **Kaydet**, dışarı aktarma ve günlük zip.
- - Edge/IE, sağ tıklatın ve hataları **Tümünü Kopyala**.
+ - Microsoft Edge/IE, sağ tıklatın ve hataları **Tümünü Kopyala**.
 7. Geliştirici Araçları'nı kapatın.
 
 ## <a name="collector-error-codes-and-recommended-actions"></a>Toplayıcı hata kodları ve Önerilen Eylemler

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.component: compliance
 ms.date: 12/20/2018
 ms.author: rolyon
-ms.openlocfilehash: 0a5d58d0403471d591ce2aa2ed9de9092127ea15
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 859d81239cfad9eb5396a30f5db316bc73285831
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744114"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188443"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory Kullanım Koşulları özelliği
 Azure AD Kullanım Koşulları, kuruluşların son kullanıcılara bilgi sağlamak için kullanabileceği basit bir yöntem sunar. Bu sunum, kullanıcıların yasal gereksinimler veya uyumluluk gereksinimleriyle ilgili bildirimleri görmesi sağlar. Bu makalede kullanım koşulları ile çalışmaya başlama işlemini açıklamaktadır.
@@ -263,7 +263,7 @@ Yazılım ve desteklenen platformlar listesi aşağıda verilmiştir.
 > |  | iOS | Android | Windows 10 | Diğer |
 > | --- | --- | --- | --- | --- |
 > | **Yerel uygulama** | Evet | Evet | Evet |  |
-> | **Edge** | Evet | Evet | Evet |  |
+> | **Microsoft Edge** | Evet | Evet | Evet |  |
 > | **Internet Explorer** | Evet | Evet | Evet |  |
 > | **Chrome (uzantısı ile)** | Evet | Evet | Evet |  |
 
@@ -342,43 +342,43 @@ Microsoft Intune kaydı uygulama için bir koşullu erişim ilkesini yapılandı
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
 **S: Nasıl görebilirim ne zaman / kullanıcı kullanım koşullarını kabul ettiğini?**<br />
-Y: Kullanım dikey koşullarınızda altındaki sayıya tıklayın **kabul edilen**. Ayrıca görüntüleyebilir veya Azure AD'de arama kabul etkinliğine denetim günlükleri. Daha fazla bilgi için [kimin kabul ve reddedilen, raporu görüntüle](#view-who-has-accepted-and-declined) ve [görünümü Azure AD denetim günlüklerini](#view-azure-ad-audit-logs).
+C: Kullanım dikey koşullarınızda altındaki sayıya tıklayın **kabul edilen**. Ayrıca görüntüleyebilir veya Azure AD'de arama kabul etkinliğine denetim günlükleri. Daha fazla bilgi için [kimin kabul ve reddedilen, raporu görüntüle](#view-who-has-accepted-and-declined) ve [görünümü Azure AD denetim günlüklerini](#view-azure-ad-audit-logs).
 
 **S: Ne kadar süreyle depolanan bilgilerin mi?**<br />
-Y: Kullanım raporu ve kimin kabul ve reddedilen kullanım koşulları süresince depolanan şartları kullanıcı sayar. Azure AD denetim günlükleri, 30 gün boyunca saklanır.
+C: Kullanım raporu ve kimin kabul ve reddedilen kullanım koşulları süresince depolanan şartları kullanıcı sayar. Azure AD denetim günlükleri, 30 gün boyunca saklanır.
 
 **S: Denetim günlükleri koşullarını ve Azure AD kullanım raporunun bir onayları farklı sayıda neden görüyorum?**<br />
-Y: Rapor kullanım koşullarını ömrü boyunca, Azure AD denetim günlükleri 30 gün boyunca saklanır, kullanım koşullarını depolanır. Ayrıca, kullanım raporu koşulları yalnızca görüntüler kullanıcıların geçerli onayı durumu. Örneğin, bir kullanıcı azalma ve ardından kabul eder, kullanım raporu koşulları yalnızca bu kullanıcının gösterir kabul edin. Geçmişini görmek gerekirse, Azure AD kullanabilirsiniz. Denetim günlükleri.
+C: Rapor kullanım koşullarını ömrü boyunca, Azure AD denetim günlükleri 30 gün boyunca saklanır, kullanım koşullarını depolanır. Ayrıca, kullanım raporu koşulları yalnızca görüntüler kullanıcıların geçerli onayı durumu. Örneğin, bir kullanıcı azalma ve ardından kabul eder, kullanım raporu koşulları yalnızca bu kullanıcının gösterir kabul edin. Geçmişini görmek gerekirse, Azure AD kullanabilirsiniz. Denetim günlükleri.
 
 **S: Ayrıntılar için kullanım koşullarını düzenlerseniz, kullanıcıların yeniden kabul etmesini gerektiriyor mu?**<br />
-Y: Hayır, bir yönetici kullanım koşulları için ayrıntıları düzenlerse (adı, görünen ad, kullanıcıların genişletmesini gerekli kıl veya bir dil Ekle), kullanıcıların yeni koşulları yeniden kabul etmesini gerektirmek gerektirmez.
+C: Hayır, bir yönetici kullanım koşulları için ayrıntıları düzenlerse (adı, görünen ad, kullanıcıların genişletmesini gerekli kıl veya bir dil Ekle), kullanıcıların yeni koşulları yeniden kabul etmesini gerektirmek gerektirmez.
 
 **S: Bir mevcut kullanım koşulları belgesi güncelleştirebilirim?**<br />
-Y: Şu anda bir var olan kullanım koşulları belgesi güncelleştirilemiyor. Bir kullanım koşulları belgesi değiştirmek için yeni bir kullanım örneği koşullarını oluşturmanız gerekir.
+C: Şu anda bir var olan kullanım koşulları belgesi güncelleştirilemiyor. Bir kullanım koşulları belgesi değiştirmek için yeni bir kullanım örneği koşullarını oluşturmanız gerekir.
 
 **S: Köprüler kullanım koşulları PDF belgesi içinde ise son kullanıcılar bunları'ye erişebilirler mi?**<br />
-Y: Köprüler tıklanabilir olmadıklarından PDF bir JPEG, varsayılan olarak işlenir. Kullanıcıların tercih yapma seçeneğine sahip **görüntüleme konusunda sorun mu yaşıyorsunuz? Buraya**, işleyen PDF dosyasını yerel olarak köprüler burada desteklenir.
+C: Köprüler tıklanabilir olmadıklarından PDF bir JPEG, varsayılan olarak işlenir. Kullanıcıların tercih yapma seçeneğine sahip **görüntüleme konusunda sorun mu yaşıyorsunuz? Buraya**, işleyen PDF dosyasını yerel olarak köprüler burada desteklenir.
 
 **S: Bir kullanım koşulları belgesi birden çok dili destekleyebilir mi?**<br />
-Y: Evet. Şu anda bir yöneticinin tek bir yapılandırabilir 108 farklı dillerde mevcuttur kullanım koşulları. Bir yönetici, birden çok PDF belgeleri karşıya yüklemesine ve bu belgelerle (en fazla 108) karşılık gelen bir dil etiketi. Son kullanıcılar oturum açtığında, biz kendi tarayıcı dil tercihi arayın ve eşleşen belge görüntüler. Eşleşme yoksa, biz karşıya yüklenen belge ilk varsayılan belgeyi görüntüler.
+C: Evet. Şu anda bir yöneticinin tek bir yapılandırabilir 108 farklı dillerde mevcuttur kullanım koşulları. Bir yönetici, birden çok PDF belgeleri karşıya yüklemesine ve bu belgelerle (en fazla 108) karşılık gelen bir dil etiketi. Son kullanıcılar oturum açtığında, biz kendi tarayıcı dil tercihi arayın ve eşleşen belge görüntüler. Eşleşme yoksa, biz karşıya yüklenen belge ilk varsayılan belgeyi görüntüler.
 
 **S: Tetiklenen kullanım koşulları ne zaman uygulanır?**<br />
-Y: Kullanım koşulları oturum açma deneyimi sırasında tetiklenir.
+C: Kullanım koşulları oturum açma deneyimi sırasında tetiklenir.
 
 **S: Kullanım koşullarını hangi uygulamalara hedefleyebilirim?**<br />
-Y: Modern kimlik doğrulaması kullanarak kurumsal uygulamalar üzerinde bir koşullu erişim ilkesi oluşturabilirsiniz. Daha fazla bilgi için bkz. [Kurumsal uygulamalar](./../manage-apps/view-applications-portal.md).
+C: Modern kimlik doğrulaması kullanarak kurumsal uygulamalar üzerinde bir koşullu erişim ilkesi oluşturabilirsiniz. Daha fazla bilgi için bkz. [Kurumsal uygulamalar](./../manage-apps/view-applications-portal.md).
 
 **S: Birden çok kullanım koşulları belirli bir kullanıcı veya uygulama için ekleyebilir miyim?**<br />
-Y: Evet, bu grup veya uygulamaları hedefleyen birden çok koşullu erişim ilkesi oluşturarak. Bir kullanıcı birden çok kullanım koşulları kapsamında denk gelirse, tek bir zaman kullanım koşullarını kabul edin.
+C: Evet, bu grup veya uygulamaları hedefleyen birden çok koşullu erişim ilkesi oluşturarak. Bir kullanıcı birden çok kullanım koşulları kapsamında denk gelirse, tek bir zaman kullanım koşullarını kabul edin.
 
 **S: Bir kullanıcı kullanım koşullarını reddederse ne olur?**<br />
-Y: Kullanıcının uygulamaya erişimi engellenir. Kullanıcı yeniden oturum açın ve erişmek için koşulları kabul etmesi gerekir.
+C: Kullanıcının uygulamaya erişimi engellenir. Kullanıcı yeniden oturum açın ve erişmek için koşulları kabul etmesi gerekir.
 
 **S: Daha önce kabul edildi kullanım koşullarını unaccept mümkündür?**<br />
-Y: Yapabilecekleriniz [gözden geçirme, daha önce kullanım koşullarını kabul](#how-users-can-review-their-terms-of-use), ancak şu anda unaccept bir yolu yoktur.
+C: Yapabilecekleriniz [gözden geçirme, daha önce kullanım koşullarını kabul](#how-users-can-review-their-terms-of-use), ancak şu anda unaccept bir yolu yoktur.
 
 **S: Intune hüküm ve koşulları kullanma da ne olur?**<br />
-Y: Her iki Azure AD Kullanım Koşulları'nı yapılandırdıysanız ve [Intune hüküm ve koşulları](/intune/terms-and-conditions-create), kullanıcının her ikisini de kabul etmek için gerekli. Daha fazla bilgi için [koşulları, kuruluş blog gönderisi için çözüm seçme hakkını](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
+C: Her iki Azure AD Kullanım Koşulları'nı yapılandırdıysanız ve [Intune hüküm ve koşulları](/intune/terms-and-conditions-create), kullanıcının her ikisini de kabul etmek için gerekli. Daha fazla bilgi için [koşulları, kuruluş blog gönderisi için çözüm seçme hakkını](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
