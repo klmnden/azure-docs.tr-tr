@@ -19,7 +19,7 @@ ms.lasthandoff: 01/04/2019
 ms.locfileid: "54025629"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Azure Data Factory'de Spark etkinliğini kullanarak verileri dönüştürme
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Kullanmakta olduğunuz Data Factory servisinin sürümünü seçin:"]
 > * [Sürüm 1](v1/data-factory-spark.md)
 > * [Geçerli sürüm](transform-data-using-spark.md)
 
