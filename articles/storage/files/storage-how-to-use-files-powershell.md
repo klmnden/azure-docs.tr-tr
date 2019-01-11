@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: a8ac01850c090b36a5b9d896f6de6c122edfbcaa
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 64e041d61c628a54b7a55b11fceba0973f3f427b
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53628434"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214972"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>Hızlı Başlangıç: Oluşturma ve Azure PowerShell ile bir Azure dosya paylaşımı yönetme 
 Bu kılavuzda, PowerShell kullanarak [Azure dosya paylaşımlarıyla](storage-files-introduction.md) çalışmanın temel bilgileri gösterilmektedir. Azure dosya paylaşımları diğer dosya paylaşımları gibidir, ancak bulutta depolanır ve Azure platformu tarafından desteklenir. Azure dosya paylaşımları endüstri standardı SMB protokolünü destekler ve birden çok makine, uygulama ve örnek arasında dosya paylaşmayı olanaklı kılar. 
@@ -51,7 +51,7 @@ $storageAcct = New-AzStorageAccount `
 ```
 
 ## <a name="create-an-azure-file-share"></a>Azure dosya paylaşımı oluşturma
-Artık ilk Azure dosya paylaşımınızı oluşturabilirsiniz. Kullanarak bir dosya paylaşımı oluşturabilirsiniz [yeni AzStorageShare](/powershell/module/azure.storage/new-AzStorageshare) cmdlet'i. Bu örnek, `myshare` adlı bir paylaşım oluşturur.
+Artık ilk Azure dosya paylaşımınızı oluşturabilirsiniz. Kullanarak bir dosya paylaşımı oluşturabilirsiniz [yeni AzStorageShare](/powershell/module/az.storage/New-AzStorageShare) cmdlet'i. Bu örnek, `myshare` adlı bir paylaşım oluşturur.
 
 ```azurepowershell-interactive
 New-AzStorageShare `
@@ -81,7 +81,7 @@ Kullanabilmeyi umduğunuz uygulama ve araçlarını kullanmanıza izin vereceği
 Aşağıdaki örnekler, Azure PowerShell modülünü Azure dosya paylaşımınıza dosya REST protokolü ile işlemek için nasıl kullanılacağını gösterir. 
 
 #### <a name="create-directory"></a>Dizin oluşturma
-Adlı yeni bir dizin oluşturmak için *myDirectory* Azure dosya paylaşımınızın kökünde kullanın [yeni AzStorageDirectory](/powershell/module/azure.storage/new-AzStoragedirectory) cmdlet'i.
+Adlı yeni bir dizin oluşturmak için *myDirectory* Azure dosya paylaşımınızın kökünde kullanın [yeni AzStorageDirectory](/powershell/module/az.storage/New-AzStorageDirectory) cmdlet'i.
 
 ```azurepowershell-interactive
 New-AzStorageDirectory `
@@ -91,7 +91,7 @@ New-AzStorageDirectory `
 ```
 
 #### <a name="upload-a-file"></a>Dosyayı karşıya yükleme
-Kullanarak bir dosyayı karşıya yükleme işlemini göstermek için [kümesi AzStorageFileContent](/powershell/module/azure.storage/set-AzStoragefilecontent) cmdlet'i, biz önce karşıya yüklemek üzere PowerShell Cloud Shell'inizin karalama sürücüsünün içinde bir dosya oluşturmanız gerekir. 
+Kullanarak bir dosyayı karşıya yükleme işlemini göstermek için [kümesi AzStorageFileContent](/powershell/module/az.storage/Set-AzStorageFileContent) cmdlet'i, biz önce karşıya yüklemek üzere PowerShell Cloud Shell'inizin karalama sürücüsünün içinde bir dosya oluşturmanız gerekir. 
 
 Bu örnek, karalama sürücünüzdeki yeni bir dosyaya geçerli tarih ve saati ekler, sonra dosyayı dosya paylaşımına yükler.
 
@@ -109,14 +109,14 @@ Set-AzStorageFileContent `
 
 PowerShell’i yerel olarak çalıştırıyorsanız, `C:\Users\ContainerAdministrator\CloudDrive\` bölümünün yerine makinenizde var olan bir yol kullanmalısınız.
 
-Kullanabileceğiniz bir dosyayı karşıya yükledikten sonra [Get-AzStorageFile](/powershell/module/Azure.Storage/Get-AzStorageFile) cmdlet'ini kullanarak dosyanın Azure dosya paylaşımınızı yüklenen emin olun. 
+Kullanabileceğiniz bir dosyayı karşıya yükledikten sonra [Get-AzStorageFile](/powershell/module/Az.Storage/Get-AzStorageFile) cmdlet'ini kullanarak dosyanın Azure dosya paylaşımınızı yüklenen emin olun. 
 
 ```azurepowershell-interactive
 Get-AzStorageFile -Context $storageAcct.Context -ShareName "myshare" -Path "myDirectory" 
 ```
 
 #### <a name="download-a-file"></a>Dosya indirme
-Kullanabileceğiniz [Get-AzStorageFileContent](/powershell/module/azure.storage/get-AzStoragefilecontent) cmdlet'ini yüklediğiniz Cloud Shell'inizin karalama sürücüsüne için dosyanın bir kopyasını indirin.
+Kullanabileceğiniz [Get-AzStorageFileContent](/powershell/module/az.storage/Get-AzStorageFilecontent) cmdlet'ini yüklediğiniz Cloud Shell'inizin karalama sürücüsüne için dosyanın bir kopyasını indirin.
 
 ```azurepowershell-interactive
 # Delete an existing file by the same name as SampleDownload.txt, if it exists because you've run this example before.
@@ -139,7 +139,7 @@ Get-ChildItem -Path "C:\Users\ContainerAdministrator\CloudDrive"
 ``` 
 
 #### <a name="copy-files"></a>Dosyaları kopyalama
-Yaygın görevlerden biri dosyaları bir dosya paylaşımından diğerine veya Azure Blob depolama kapsayıcısına/kapsayıcısından kopyalamaktır. Bu işlevi göstermek için yeni bir paylaşım oluşturabilir ve yüklediğiniz yeni paylaşımı kullanarak bu dosyayı kopyalama [başlangıç AzStorageFileCopy](/powershell/module/azure.storage/start-AzStoragefilecopy) cmdlet'i. 
+Yaygın görevlerden biri dosyaları bir dosya paylaşımından diğerine veya Azure Blob depolama kapsayıcısına/kapsayıcısından kopyalamaktır. Bu işlevi göstermek için yeni bir paylaşım oluşturabilir ve yüklediğiniz yeni paylaşımı kullanarak bu dosyayı kopyalama [başlangıç AzStorageFileCopy](/powershell/module/az.storage/Start-AzStorageFileCopy) cmdlet'i. 
 
 ```azurepowershell-interactive
 New-AzStorageShare `
@@ -173,7 +173,7 @@ Azure dosya paylaşımıyla yerine getirebileceğiniz kullanışlı bir diğer g
 - NTFS ve ReFS gibi Windows dosya sistemleri için [Birim Gölge Kopyası Hizmeti (VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal)
 - Linux sistemleri için [Mantıksal Birim Yöneticisi (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) anlık görüntüleri
 - macOS için [Apple Dosya Sistemi (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) anlık görüntüleri. 
- Kullanarak bir paylaşım için paylaşım anlık görüntüsü oluşturabilirsiniz `Snapshot` alınan yöntemi PowerShell nesnesinde bir dosya paylaşımı için [Get-AzStorageShare](/powershell/module/azure.storage/get-AzStorageshare) cmdlet'i. 
+ Kullanarak bir paylaşım için paylaşım anlık görüntüsü oluşturabilirsiniz `Snapshot` alınan yöntemi PowerShell nesnesinde bir dosya paylaşımı için [Get-AzStorageShare](/powershell/module/az.storage/Get-AzStorageShare) cmdlet'i. 
 
 ```azurepowershell-interactive
 $share = Get-AzStorageShare -Context $storageAcct.Context -Name "myshare"
@@ -213,7 +213,7 @@ Start-AzStorageFileCopy `
 ```
 
 ### <a name="delete-a-share-snapshot"></a>Paylaşım anlık görüntüsünü silme
-Kullanarak bir paylaşım anlık görüntüsünü silebilirsiniz [Remove-AzStorageShare](/powershell/module/azure.storage/remove-AzStorageshare) içeren değişken ile cmdlet'ini `$snapshot` başvurusu `-Share` parametresi.
+Kullanarak bir paylaşım anlık görüntüsünü silebilirsiniz [Remove-AzStorageShare](/powershell/module/az.storage/Remove-AzStorageShare) içeren değişken ile cmdlet'ini `$snapshot` başvurusu `-Share` parametresi.
 
 ```azurepowershell-interactive
 Remove-AzStorageShare -Share $snapshot

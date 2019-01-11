@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/14/2017
 ms.author: rogarana
 ms.component: queues
-ms.openlocfilehash: fef6858383028d62a16472bd530bf456d01ee7d3
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 016d6b1991085e3ed881deb68317dbde0ee46326
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634431"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213238"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Azure PowerShell ile Azure kuyruk depolama işlemleri
 
@@ -77,7 +77,7 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-queue"></a>Bir kuyruk oluşturma
 
-Aşağıdaki örnek, ilk Azure depolama hesabı adını ve erişim anahtarını içeren depolama hesabı bağlamını kullanarak depolama bağlantı kurar. Ardından, çağıran [yeni AzStorageQueue](/powershell/module/azure.storage/new-AzStoragequeue) cmdlet'ini 'queuename' adında bir kuyruk oluşturun.
+Aşağıdaki örnek, ilk Azure depolama hesabı adını ve erişim anahtarını içeren depolama hesabı bağlamını kullanarak depolama bağlantı kurar. Ardından, çağıran [yeni AzStorageQueue](/powershell/module/az.storage/New-AzStorageQueue) cmdlet'ini 'queuename' adında bir kuyruk oluşturun.
 
 ```powershell
 $queueName = "howtoqueue"
@@ -88,7 +88,7 @@ Azure kuyruk hizmeti için adlandırma kuralları hakkında bilgi için bkz: [ad
 
 ## <a name="retrieve-a-queue"></a>Bir kuyruğa alma
 
-Sorgulamak ve belirli bir kuyruğa veya bir depolama hesabındaki tüm kuyrukların listesini alır. Aşağıdaki örnekler, depolama hesabındaki tüm kuyrukları ve belirli bir kuyruğa alma göstermektedir; Her iki komutları [Get-AzStorageQueue](/powershell/module/azure.storage/get-AzStoragequeue) cmdlet'i.
+Sorgulamak ve belirli bir kuyruğa veya bir depolama hesabındaki tüm kuyrukların listesini alır. Aşağıdaki örnekler, depolama hesabındaki tüm kuyrukları ve belirli bir kuyruğa alma göstermektedir; Her iki komutları [Get-AzStorageQueue](/powershell/module/az.storage/Get-AzStorageQueue) cmdlet'i.
 
 ```powershell
 # Retrieve a specific queue

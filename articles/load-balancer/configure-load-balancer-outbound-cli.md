@@ -1,5 +1,5 @@
 ---
-title: Standart yük Azure CLI kullanarak dengeleyici Yük Dengeleme ve giden kuralları yapılandırma
+title: Yük Dengeleme ve Azure CLI'yı kullanarak giden kuralları yapılandırın
 titlesuffix: Azure Load Balancer
 description: Bu makalede, Azure CLI kullanarak nasıl standart yük dengeleyici Yük Dengeleme veya giden kuralları yapılandırılacağı gösterilmektedir.
 services: load-balancer
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: 97a7e09994ab93eb75881a2eae2b49821ca8289f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a1fbe541d9cb2f9b5a839d90fcfa9c7b017efce9
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53085017"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198517"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-using-azure-cli"></a>Standart yük Azure CLI kullanarak dengeleyici Yük Dengeleme ve giden kuralları yapılandırma
 

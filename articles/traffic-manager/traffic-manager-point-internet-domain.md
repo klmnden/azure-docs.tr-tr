@@ -1,22 +1,21 @@
 ---
-title: Bir şirketin Internet etki alanını bir Azure Traffic Manager etki alanı adına yönlendirme | Microsoft Docs
+title: Bir şirketin Internet etki alanını bir Azure Traffic Manager etki alanı adına yönlendirme
 description: Bu makale, şirketinizin etki alanı adını Traffic Manager etki alanı adına yönlendirmenize yardımcı olacaktır.
 services: traffic-manager
-documentationcenter: ''
 author: kumudd
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: kumud
-ms.openlocfilehash: 2b9b718a61d13790de38ea82f9b479e372e9de63
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: c11d8ddcd9a1c1f051ab779a66710ab3d968acab
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052692"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200590"
 ---
 # <a name="point-a-company-internet-domain-to-an-azure-traffic-manager-domain"></a>Bir şirketin İnternet etki alanını Azure Traffic Manager etki alanına yönlendirme
 

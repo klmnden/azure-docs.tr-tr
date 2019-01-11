@@ -14,18 +14,18 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 1a341bf36842e49faf8e39f4056232c97cc4232c
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: b2c0dbfbf474cccdf2d1253b77869c59fd449591
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53197361"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214564"
 ---
 # <a name="windows-remote-management-over-https"></a>HTTPS üzerinden Windows Uzak Yönetimi
 
 Bu bölümde, yönetilen ve PowerShell ile uzaktan dağıtılması için Azure'da barındırılan, Windows tabanlı bir VM yapılandırma açıklanmaktadır.  PowerShell uzaktan iletişimini etkinleştirmek için hedef sanal Makineyi bir Windows Uzaktan Yönetim (WinRM) HTTPS uç noktasını açığa çıkarmalıdır.  PowerShell uzaktan iletişimi hakkında daha fazla bilgi için bkz: [çalıştıran uzak komutları](https://docs.microsoft.com/powershell/scripting/core-powershell/running-remote-commands?view=powershell-6).  WinRM hakkında daha fazla bilgi için bkz: [Windows Uzaktan Yönetimi](https://docs.microsoft.com/windows/desktop/WinRM/portal).
 
-"Klasik" Azure yaklaşımlardan birini kullanarak bir VM oluşturduysanız — Azure Service Manager Portal'ı veya kullanım dışı [Azure Hizmet Yönetimi API'sini] (https://docs.microsoft.com/previous-versions/azure/ee460799(v=azure.100)— sonra bir WinRM uç noktasıyla otomatik olarak yapılandırılır.  Ancak, bir VM oluşturursanız, aşağıdakilerden herhangi birini kullanarak "modern" Aure yaklaşıyor sonra VM'nizi olacak *değil* , HTTPS üzerinden WinRM için yapılandırılmış.  
+"Klasik" Azure yaklaşımlardan birini kullanarak bir VM oluşturduysanız — Azure Service Manager portalı veya kullanım dışı [Azure Hizmet Yönetimi API'si](https://docs.microsoft.com/previous-versions/azure/ee460799(v=azure.100))— sonra bir WinRM uç noktasıyla otomatik olarak yapılandırılır.  Ancak, bir VM oluşturursanız, aşağıdakilerden herhangi birini kullanarak "modern" Aure yaklaşıyor sonra VM'nizi olacak *değil* , HTTPS üzerinden WinRM için yapılandırılmış.  
 
 - Kullanarak [Azure portalında](https://portal.azure.com/), genellikle bölümünde açıklandığı gibi onaylı bir temel gelen [Azure ile uyumlu bir VHD oluşturun](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-vhd)
 - [Azure Resource Manager şablonlarını kullanma](https://docs.microsoft.com/azure/virtual-machines/windows/ps-template)

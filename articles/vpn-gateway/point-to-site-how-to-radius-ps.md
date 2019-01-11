@@ -1,5 +1,5 @@
 ---
-title: 'Bir bilgisayarı noktadan siteye ve RADIUS kimlik doğrulaması kullanarak bir sanal ağa bağlama: PowerShell | Azure'
+title: 'Bir bilgisayar, bir sanal ağa noktadan siteye ve RADIUS kimlik doğrulaması kullanarak bağlanın: PowerShell | Azure'
 description: Windows ve Mac OS X istemcileri, P2S ve RADIUS kimlik doğrulaması kullanarak bir sanal ağa güvenli bir şekilde bağlanın.
 services: vpn-gateway
 author: cherylmc
@@ -7,14 +7,14 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: cherylmc
-ms.openlocfilehash: b5d69b8f9f004da93e5bed05b86e46f6e4214d63
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: bd74aca180d291042e597ba6893009c38aa22555
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847363"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200913"
 ---
-# <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Bir RADIUS kimlik doğrulaması kullanarak bir sanal ağa noktadan siteye bağlantısı yapılandırma: PowerShell
+# <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>RADIUS kimlik doğrulaması kullanarak bir sanal ağa noktadan siteye bağlantı yapılandırma: PowerShell
 
 Bu makalede, RADIUS kimlik doğrulaması kullanan bir noktadan siteye bağlantı ile VNet oluşturma işlemini gösterir. Bu yapılandırma yalnızca Resource Manager dağıtım modeli için kullanılabilir.
 
@@ -64,28 +64,28 @@ Azure aboneliğiniz olduğunu doğrulayın. Henüz Azure aboneliğiniz yoksa [MS
 
 ### <a name="sign-in"></a>Oturum aç
 
-[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps login.md)]
+[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
 
 ### <a name="example"></a>Örnek değerler
 
 Örnek değerleri kullanarak bir test ortamı oluşturabilir veya bu makaledeki örnekleri daha iyi anlamak için bu değerlere bakabilirsiniz. İzlenecek yol olarak adımları kullanıp değerleri değiştirmeden uygulayabilir veya ortamınızı yansıtacak şekilde değiştirebilirsiniz.
 
-* **Ad: VNet1**
+* **Adı: VNet1**
 * **Adres alanı: 192.168.0.0/16** ve **10.254.0.0/16**<br>Bu örnekte, bu yapılandırmanın birden çok adres alanıyla çalıştığını göstermek için birden fazla adres alanı kullanıyoruz. Ancak, bu yapılandırma için birden çok adres alanı gerekli değildir.
-* **Alt ağ adı: FrontEnd**
+* **Alt ağ adı: Ön uç**
   * **Alt ağ adres aralığı: 192.168.1.0/24**
-* **Alt ağ adı: BackEnd**
+* **Alt ağ adı: Arka uç**
   * **Alt ağ adres aralığı: 10.254.1.0/24**
 * **Alt ağ adı: GatewaySubnet**<br>VPN ağ geçidinin çalışması için Alt Ağ adı olarak *GatewaySubnet*'in kullanılması zorunludur.
-  * **Ağ Geçidi Alt Ağ adres aralığı: 192.168.200.0/24** 
+  * **Adres aralığı: 192.168.200.0/24** 
 * **VPN istemcisi adres havuzu: 172.16.201.0/24**<br>Sanal ağa, bu Noktadan Siteye bağlantıyı kullanarak bağlanan VPN istemcileri, VPN istemci adresi havuzundan bir IP adresi alır.
-* **Abonelik:** Birden fazla aboneliğiniz varsa doğru aboneliği kullandığınızdan emin olun.
-* **Kaynak Grubu: TestRG**
+* **Abonelik:** Birden fazla aboneliğiniz varsa doğru olanı kullandığınızı doğrulayın.
+* **Kaynak grubu: TestRG**
 * **Konum: Doğu ABD**
 * **DNS sunucusu: IP adresi** ağınız için ad çözümlemesi için kullanmak istediğiniz DNS sunucusunun. (isteğe bağlı)
-* **Ağ Geçidi Adı: Vnet1GW**
-* **Ortak IP adı: VNet1GWPIP**
-* **VpnType: RouteBased** 
+* **Ağ geçidi adı: Vnet1GW**
+* **Genel IP adı: VNet1GWPIP**
+* **VPN türü: RouteBased** 
 
 ## 1. <a name="vnet"></a>Kaynak grubu, sanal ağ ve genel IP oluşturma adresi
 

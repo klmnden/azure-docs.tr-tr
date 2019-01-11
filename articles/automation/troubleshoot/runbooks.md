@@ -8,12 +8,12 @@ ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: f5663842a4d861ed6eb76de859b870aa7114cb04
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 3968b05f119227552f88a50e96d3acbce6a19143
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063650"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199128"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook'ları ile hatalarını giderme
 
@@ -397,7 +397,7 @@ Bir modül başarıyla Azure Otomasyonu'na ekleme alabilir olmayan bazı yaygın
 * Yapı Otomasyonu olması gereken yapısı eşleşmiyor.
 * Modül, Otomasyon hesabınıza dağıtmamış başka bir modül bağımlıdır.
 * Modülün bağımlılıklarını klasöründe eksik.
-* `New-AzureRmAutomationModule` Cmdlet modülü ve tam depolama yolu verildiğinde have't karşıya yüklemek için kullanılan veya modülü genel olarak erişilebilir bir URL kullanarak yüklenen henüz.
+* `New-AzureRmAutomationModule` Cmdlet'i, modül karşıya yüklemek için kullanılıyor ve tam depolama yolu verildiğinde yapmadıysanız veya modülü genel olarak erişilebilir bir URL kullanarak yüklenen henüz.
 
 #### <a name="resolution"></a>Çözüm
 

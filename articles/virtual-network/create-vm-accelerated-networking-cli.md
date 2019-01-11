@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/02/2018
+ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: b6aaf98ca3b5581691b6c70783be5250b506056c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 53945559be01b6e9f5778f5df096f7fcbb24a03f
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990969"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214496"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Hızlandırılmış ağ ile bir Linux sanal makinesi oluşturma
 
@@ -31,14 +31,14 @@ Bu öğreticide, hızlandırılmış ağ ile bir Linux sanal makinesini (VM) olu
 
 Hızlandırılmış ağ bağlantısı olmadan konak ve sanal anahtar ve VM'ye giden tüm ağ trafiğini çapraz gerekir. Sanal anahtarı, ağ güvenlik grupları, erişim denetim listeleri, yalıtım ve diğer ağ trafiğini sanallaştırılmış Ağ Hizmetleri gibi tüm ilke zorlaması sağlar. Sanal anahtarlar hakkında daha fazla bilgi edinmek için [Hyper-V ağ sanallaştırma ve sanal anahtar](https://technet.microsoft.com/library/jj945275.aspx) makalesi.
 
-Hızlandırılmış ağlı ağ trafiğini sanal makinenin ağ arabirimine (NIC) ulaşır ve ardından VM iletilir. Sanal anahtarın uygulandığı tüm ağ ilkeleri artık Boşaltılan ve donanım uygulanır. Donanım ilkede uygulama konak ve sanal anahtar konağa uygulanan tüm ilke korurken atlayarak doğrudan VM ağ trafiği NIC'ye sağlar.
+Hızlandırılmış ağlı ağ trafiğini sanal makine'nin ağ arabirimine (NIC) ulaşır ve ardından VM iletilir. Sanal anahtarın uygulandığı tüm ağ ilkeleri artık Boşaltılan ve donanım uygulanır. Donanım ilkede uygulama konak ve sanal anahtar konağa uygulanan tüm ilke korurken atlayarak doğrudan VM ağ trafiği NIC'ye sağlar.
 
 Hızlandırılmış ağ avantajları yalnızca üzerinde etkin VM için de geçerlidir. En iyi sonuçlar için en az iki VM aynı Azure sanal ağa (VNet) bağlı bu özelliği etkinleştirmek idealdir. Bu özellik, sanal ağlar veya şirket bağlantı iletişim kurarken, toplam gecikme süresi çok az etkisi sahiptir.
 
 ## <a name="benefits"></a>Avantajlar
-* **Daha düşük gecikme süresi / daha yüksek paket / saniye (pps):** sanal anahtarı datapath kaldırılıyor ana bilgisayar ilke işleme için paketler için harcadığınız zamanı kaldırır ve sanal makine içinde işlenebilecek paketlerin sayısını artırır.
-* **Değişimi azaltılmış:** sanal anahtar uygulanması gereken ilke miktarını ve iş yükü işleme yapılıyor CPU işleme bağlıdır. İlke zorlaması için donanım yük boşaltma, konak VM iletişim ve tüm yazılım kesmelerini ve bağlam anahtarları kaldırılıyor doğrudan VM paketleri sunarak bu değişkenlik kaldırır.
-* **Düşük CPU kullanımı:** daha az CPU kullanımı, ağ trafiğini işlemek için müşteri adayları konakta sanal anahtar atlama.
+* **Daha düşük gecikme süresi / daha yüksek paket / saniye (pps):** Sanal anahtar datapath kaldırılıyor ana bilgisayar ilke işleme için paketler için harcadığınız zamanı kaldırır ve sanal makine içinde işlenebilecek paketlerin sayısını artırır.
+* **Daha az değişim:** Sanal anahtar işleme uygulanması gereken ilke miktarını ve işleme yapılıyor CPU iş yüküne bağlıdır. İlke zorlaması için donanım yük boşaltma, konak VM iletişim ve tüm yazılım kesmelerini ve bağlam anahtarları kaldırılıyor doğrudan VM paketleri sunarak bu değişkenlik kaldırır.
+* **Düşük CPU kullanımı:** Konakta sanal anahtar atlayarak ağ trafiğini işlemek için daha az CPU kullanımına neden olur.
 
 ## <a name="supported-operating-systems"></a>Desteklenen işletim sistemleri
 Azure Galerisi hazır aşağıdaki dağıtımlar desteklenir: 
@@ -53,17 +53,18 @@ Azure Galerisi hazır aşağıdaki dağıtımlar desteklenir:
 ## <a name="limitations-and-constraints"></a>Sınırlamalar ve kısıtlamalar
 
 ### <a name="supported-vm-instances"></a>Desteklenen sanal makine örnekleri
-Hızlandırılmış ağ en genel amaçlı ve işlem için iyileştirilmiş örnek boyutları Vcpu, 2 veya daha fazla ile desteklenir.  Bu desteklenen serileri değildir: D/DSv2 ve F/Fs
+Hızlandırılmış ağ en genel amaçlı ve işlem için iyileştirilmiş örnek boyutları Vcpu, 2 veya daha fazla ile desteklenir.  Bu desteklenen serisi şunlardır: D/DSv2 ve F/Fs
 
-Hiper iş parçacığı destek örneklerinde, hızlandırılmış ağ ile Vcpu, 4 veya daha fazla VM örneklerinde desteklenir. Desteklenen serileri değildir: D/DSv3, E/ESv3 Fsv2 ve Ms/Mms.
+Hiper iş parçacığı destek örneklerinde, hızlandırılmış ağ ile Vcpu, 4 veya daha fazla VM örneklerinde desteklenir. Desteklenen serisi şunlardır: D/DSv3, E/ESv3, Fsv2 ve Ms/Mms.
 
 Sanal makine örnekleri hakkında daha fazla bilgi için bkz. [Linux VM boyutları](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ### <a name="regions"></a>Bölgeler
 Azure kamu Bulutları yanı sıra tüm genel Azure bölgelerinde kullanılabilir.
 
-### <a name="network-interface-creation"></a>Ağ arabirimi oluşturma 
-Hızlandırılmış ağ yalnızca yeni bir NIC için etkinleştirilebilir Mevcut bir NIC için etkinleştirilemiyor
+<!-- ### Network interface creation 
+Accelerated networking can only be enabled for a new NIC. It cannot be enabled for an existing NIC.
+removed per issue https://github.com/MicrosoftDocs/azure-docs/issues/9772 -->
 ### <a name="enabling-accelerated-networking-on-a-running-vm"></a>Hızlandırılmış ağ çalışan bir VM'deki etkinleştirme
 Desteklenen bir VM boyutu hızlandırılmış ağ etkin olmadan yalnızca özelliğinin durdurulur ve serbest etkin olabilir.  
 ### <a name="deployment-through-azure-resource-manager"></a>Azure Resource Manager üzerinden dağıtım

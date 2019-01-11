@@ -1,19 +1,19 @@
 ---
 title: Giriş sayfası, uygulamanızın Azure IOT Central'ı yapılandırma | Microsoft Docs
 description: Bir oluşturucu giriş sayfası, Azure IOT Central uygulamanızın yapılandırmayı öğrenin.
-author: tbhagwat3
-ms.author: tanmayb
+author: dominicbetts
+ms.author: dobett
 ms.date: 07/10/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: peterpr
-ms.openlocfilehash: 6a86b5db5e5c79916325ebb547d65c9a30bf3e6a
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+manager: philmea
+ms.openlocfilehash: a03ac0ef66f4ffdce53d0bd2a35839bbe1615d0b
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410151"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199094"
 ---
 # <a name="configuring-homepage"></a>Giriş sayfası yapılandırma
 

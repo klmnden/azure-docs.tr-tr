@@ -2,8 +2,7 @@
 title: 'Hızlı başlangıç: Azure portalı kullanarak uygulamalarda yüksek kullanılabilirlik için bir Traffic Manager profili oluşturma'
 description: Bu hızlı başlangıç makalesinde yüksek oranda kullanılabilir web uygulaması oluşturmak için bir Traffic Manager profili oluşturma adımlarını anlatılmaktadır.
 services: traffic-manager
-documentationcenter: ''
-author: kumudd
+dauthor: kumudd
 Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: traffic-manager
 ms.devlang: na
@@ -12,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: kumud
-ms.openlocfilehash: 5520b78ce3899c39167663ac426fa6702369c944
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: f24bcebb04c3cb17b5e0420695504541c54e88f3
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634787"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198228"
 ---
-# <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application"></a>Hızlı başlangıç: Yüksek oranda kullanılabilir web uygulaması için Traffic Manager profili oluşturma
+# <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application"></a>Hızlı Başlangıç: Yüksek oranda kullanılabilir web uygulaması için bir Traffic Manager profili oluşturma
 
 Bu hızlı başlangıçta, web uygulamanız için yüksek kullanılabilirlik sağlayan bir Traffic Manager profilinin nasıl oluşturulacağını açıklar.
 

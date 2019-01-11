@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 883f521040c67cb8fe9578bc5c490bc3dfccba28
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 1a2ec0e0513e0bcdcc3427a9e24385dc415ae651
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624667"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215040"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory portalındaki denetim etkinliği raporları 
 
@@ -45,7 +45,7 @@ Bu makalede, Denetim raporuna genel bir bakış sağlar.
 
 ## <a name="audit-logs"></a>Denetim günlükleri
 
-Azure AD denetim günlükleri uyumluluk amacıyla sistem etkinliklerinin kayıtlarını sağlar. Denetim raporuna erişebilmek için seçin **denetim günlükleri** içinde **etkinlik** bölümünü **Azure Active Directory**. 
+Azure AD denetim günlükleri uyumluluk amacıyla sistem etkinliklerinin kayıtlarını sağlar. Denetim raporuna erişebilmek için seçin **denetim günlükleri** içinde **etkinlik** bölümünü **Azure Active Directory**. Kadar bu görevi tamamladıktan sonra portalda gösterilmesi denetim etkinlik verilerini uzun sürebilir denetim günlüklerini saat, en fazla bir gecikme olabileceğini unutmayın.
 
 ![Denetim günlükleri](./media/concept-audit-logs/61.png "Denetim günlükleri")
 

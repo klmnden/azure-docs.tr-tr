@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 904387def0fd8842f196e80cfcf72d9dd1639458
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 3d747f3b8f54dfefe7e96c378eddbce320bcc8f7
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957717"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215125"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Azure sanal makinesine Uzak Masaüstü Hizmetleri başlatma değil
 
@@ -37,14 +37,14 @@ Bir VM'ye bağlanmaya çalıştığınızda, aşağıdaki senaryolarda karşıla
 
 - Uzaktan olay günlüklerini VM ile Olay Görüntüleyicisi'ni kullanarak görüntüleyin. Uzak Masaüstü Hizmetleri, TermService, başlangıç değil veya başlatılamıyor görürsünüz. Aşağıdaki günlük kaydı, bir örnek verilmiştir:
 
-    **Oturum adı**: Sistem </br>
-    **Kaynak**: Hizmet Denetimi Yöneticisi </br>
-    **Tarih**: 16/12/2017 11:19:36: 00</br>
-    **Olay Kimliği**: 7022</br>
-    **Görev kategorisi**: yok</br>
-    **Düzey**: hata</br>
-    **Anahtar sözcükler**: Klasik</br>
-    **Kullanıcı**: yok</br>
+    **Oturum adı**:      Sistem </br>
+    **Kaynak**:        Hizmet Denetimi Yöneticisi </br>
+    **Tarih**:          16/12/2017 11:19:36: 00</br>
+    **Olay Kimliği**:      7022</br>
+    **Görev kategorisi**: None</br>
+    **Düzey**:         Hata</br>
+    **Anahtar sözcükler**:      Klasik</br>
+    **Kullanıcı**:          Yok</br>
     **Bilgisayar**: vm.contoso.com</br>
     **Açıklama**: Uzak Masaüstü Hizmetleri hizmeti başlatılırken askıya alındı. 
 
@@ -112,7 +112,7 @@ Bu sorunu gidermek için seri Konsolu kullanın. Veya başka [çevrimdışı VM'
     
 #### <a name="termservice-service-is-stopped-because-of-an-access-denied-problem"></a>Erişim reddedildi bir sorun nedeniyle TermService'nin durduruldu
 
-1. Bağlanma [seri konsol](serial-console-windows.md#) ve PowerShell örneği açın.
+1. Bağlanma [seri konsol](serial-console-windows.md) ve PowerShell örneği açın.
 2. İşlem izleme aracı, aşağıdaki komutu çalıştırarak yükleyin:
 
    ```
@@ -221,6 +221,6 @@ Bu sorunu gidermek için seri Konsolu kullanın. Veya başka [çevrimdışı VM'
 
 4. [İşletim sistemi diskini ve VM yeniden](../windows/troubleshoot-recovery-disks-portal.md). Daha sonra sorun çözülmüş olup olmadığını denetleyin.
 
-## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun
+## <a name="need-help-contact-support"></a>Yardıma mı ihtiyacınız var? Desteğe başvurun
 
 Hala yardıma ihtiyacınız varsa [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) çözümlenen sorununuzun için.

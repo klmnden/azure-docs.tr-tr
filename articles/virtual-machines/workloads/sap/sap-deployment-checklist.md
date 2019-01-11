@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/07/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 29ec56f3b360a4a19269555c1504ae7ff6446f8e
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 901dfc502470e52600e3a0fafe3f6b91b7686197
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189159"
+ms.locfileid: "54201338"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>SAP iş yüküne Azure planlama ve dağıtım denetim listesi 
 
@@ -83,7 +83,7 @@ Bu aşamada, bir Azure genel bulut üzerinde SAP iş yükü geçişi planlanmakt
 Pilot proje planlama ve hazırlama için paralel ya da önce çalıştırabilirsiniz. Aşama yaklaşımlar ve tasarım planlama ve hazırlık aşamasında yapılan test etmek için de kullanılabilir. Pilot aşaması, gerçek bir kavram kanıtı için uzatılmış. Ayarlama ve tam bir HA/DR çözümü doğrulamak için önerilen bir pilot dağıtım sırasında güvenlik tasarımı yanı sıra. Bazı müşteri durumlarda ölçeklenebilirlik testleri bu aşamada yürütülebilecek. Diğer müşteriler SAP sanal sistemlerinin dağıtımını pilot aşaması kullanın. Bir pilot çalıştırmak amacıyla Azure'a geçirmek istediğiniz bir sistem tanımlanan varsayıyoruz şekilde.
 
 1.  Azure'a veri aktarımı iyileştirin. Yüksek oranda bağımlı müşteri durumları aktarımı [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) şirket içinden Express bağlantı hattı bant genişliği yeterli olsaydı hızlı oldu. Diğer müşteriler ile İnternet'e giderek daha hızlı olmasını anladığınızda
-2.  Bir SAP durumunda bir dışarı aktarma ve içeri aktarma ilişkin Veritabanı verilerinin içerir, heterojen platform geçişi, test edin ve dışarı aktarma en iyi duruma getirmek ve aşamaları alın. Hedef platformu olarak SQL Server içeren büyük geçişler için öneriler bulunabilir [burada](https://blogs.msdn.microsoft.com/saponsqlserver/2017/05/08/sap-osdb-migration-to-sql-server-faq-v6-2-april-2017/). Birleştirilmiş sürüm yükseltme gerekmez durumunda geçiş İzleyici/SWPM yaklaşım alabilir veya [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) işlem geçiş SAP sürüm yükseltmesi ile birleştirerek ve belirli bir kaynak ve hedef DBMS platformu Karşılama birleşimleri, örneğin, belgelenen olarak [toplam 2.0 SP04, veritabanı geçiş seçeneği (DMO)](https://launchpad.support.sap.com/#/notes/2644872). 
+2.  Bir SAP durumunda bir dışarı aktarma ve içeri aktarma ilişkin Veritabanı verilerinin içerir, heterojen platform geçişi, test edin ve dışarı aktarma en iyi duruma getirmek ve aşamaları alın. Hedef platformu olarak SQL Server içeren büyük geçişler için öneriler bulunabilir [burada](https://blogs.msdn.microsoft.com/saponsqlserver/2017/05/08/sap-osdb-migration-to-sql-server-faq-v6-2-april-2017/). Birleştirilmiş sürüm yükseltme gerekmez durumunda geçiş İzleyici/SWPM yaklaşım alabilir veya [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) işlem geçiş SAP sürüm yükseltmesi ile birleştirerek ve belirli bir kaynak ve hedef DBMS platformu Karşılama birleşimleri, örneğin, belgelenen olarak [toplam 2.0 SP03, veritabanı geçiş seçeneği (DMO)](https://launchpad.support.sap.com/#/notes/2631152). 
     1.  Azure ve alma performansını dışarı aktarma dosyası yükleme kaynağı olarak dışarı aktarın.  Dışarı ve içeri aktarma arasında çakışma en üst düzeye çıkarın
     2.  Veritabanı, altyapı boyutlandırma yansıtmak için hedef ve hedef platform arasında sesini değerlendirecek    
     3.  Doğrulama ve zamanlama en iyi duruma getirme 

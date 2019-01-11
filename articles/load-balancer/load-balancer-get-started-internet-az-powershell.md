@@ -1,7 +1,7 @@
 ---
-title: Azure PowerShell ile bölgesel olarak yedekli ön uç ile standart yük dengeleyici oluşturma
+title: Bölgesel olarak yedekli frontend - Azure PowerShell ile bir yük dengeleyici oluşturma
 titlesuffix: Azure Load Balancer
-description: PowerShell kullanarak bir bölgesel olarak yedekli genel IP adresi ön ile genel Load Balancer Standard oluşturma konusunda bilgi edinin
+description: PowerShell kullanarak bir bölgesel olarak yedekli genel IP adresi ön ile genel Standard Load Balancer oluşturma konusunda bilgi edinin
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: kumud
-ms.openlocfilehash: b6730b624cc0416354fecfdbe747f643540f9e89
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: ccf30e435ef04f1e4e874c1b7fc78c86a494a3d9
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138755"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198125"
 ---
-#  <a name="create-a-standard-balancer-with-zone-redundant-frontend-using-azure-powershell"></a>Azure PowerShell ile bölgesel olarak yedekli ön uç ile standart dengeleyici oluşturma
+#  <a name="create-a-standard-load-balancer-with-zone-redundant-frontend-using-azure-powershell"></a>Azure PowerShell ile bölgesel olarak yedekli ön uç ile standart yük dengeleyici oluşturma
 
-Bu makalede adımları genel oluşturma işleminde [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) genel IP standart bir adres kullanarak bölgesel olarak yedekli bir ön uç ile.
+Bu makalede adımları genel oluşturma işleminde [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) genel IP standart bir adres kullanarak bölgesel olarak yedekli bir ön uç ile.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -86,7 +86,7 @@ $probe = New-AzureRmLoadBalancerProbeConfig -Name 'myHealthProbe' -Protocol Http
 ```
 
 ## <a name="create-a-load-balancer"></a>Yük dengeleyici oluşturma
-Bir yük dengeleyici aşağıdaki komutu kullanarak standart oluşturun:
+Aşağıdaki komutu kullanarak bir Standard Load Balancer oluşturun:
 
 ```powershell
 $lb = New-AzureRmLoadBalancer -ResourceGroupName myResourceGroup -Name 'MyLoadBalancer' -Location westeurope `

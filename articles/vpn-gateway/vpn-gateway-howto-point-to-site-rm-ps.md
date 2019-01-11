@@ -1,5 +1,5 @@
 ---
-title: 'Noktadan Siteye bağlantısı ve yerel Azure sertifika doğrulaması kullanarak bir bilgisayarı Azure sanal ağına bağlama: PowerShell | Microsoft Docs'
+title: 'Bir bilgisayarı noktadan siteye ve yerel Azure sertifika doğrulaması kullanarak bir Azure sanal ağına bağlama: PowerShell | Microsoft Docs'
 description: P2S ve otomatik olarak imzalanan veya CA tarafından verilen sertifikaları kullanarak Windows ve Mac OS X istemcilerini bir Azure sanal ağa güvenli bir şekilde bağlayın. Bu makalede PowerShell kullanılmıştır.
 services: vpn-gateway
 author: cherylmc
@@ -7,14 +7,14 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: cherylmc
-ms.openlocfilehash: c579bb32fdd43c95f027e6c9f5a6ef656d059d60
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f688c0e277f807ff27731c103ca407807052c9d3
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847414"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199757"
 ---
-# <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Yerel Azure sertifika doğrulaması kullanarak Noktadan Siteye sanal ağ bağlantısını yapılandırma: PowerShell
+# <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Yerel Azure sertifika doğrulaması kullanarak bir sanal ağa noktadan siteye bağlantı yapılandırma: PowerShell
 
 Bu makale, Windows veya Mac OS X çalıştıran bireysel istemcileri bir Azure VNet’e güvenli bir şekilde bağlamanıza yardımcı olur. Noktadan Siteye VPN bağlantıları, ev veya bir konferans gibi uzak bir noktadan Vnet'inize bağlanmak istediğinizde faydalıdır. Bir sanal ağa bağlanması gereken yalnızca birkaç istemciniz olduğunda Siteden Siteye VPN yerine P2S’yi de kullanabilirsiniz. Noktadan Siteye bağlantılar için bir VPN cihazına veya genel kullanıma yönelik bir IP adresine gerek yoktur. P2S, VPN bağlantısını SSTP (Güvenli Yuva Tünel Protokolü) veya IKEv2 üzerinden oluşturur. Noktadan Siteye VPN hakkında daha fazla bilgi edinmek için bkz. [Noktadan Siteye VPN hakkında](point-to-site-about.md).
 
@@ -39,22 +39,22 @@ Azure aboneliğiniz olduğunu doğrulayın. Henüz Azure aboneliğiniz yoksa [MS
 
 Örnek değerleri kullanarak bir test ortamı oluşturabilir veya bu makaledeki örnekleri daha iyi anlamak için bu değerlere bakabilirsiniz. Değişkenler makalenin [1](#declare). bölümünde ayarlanır. İzlenecek yol olarak adımları kullanıp değerleri değiştirmeden uygulayabilir veya ortamınızı yansıtacak şekilde değiştirebilirsiniz.
 
-* **Ad: VNet1**
+* **Adı: VNet1**
 * **Adres alanı: 192.168.0.0/16** ve **10.254.0.0/16**<br>Bu örnekte, bu yapılandırmanın birden çok adres alanıyla çalıştığını göstermek için birden fazla adres alanı kullanılır. Ancak, bu yapılandırma için birden çok adres alanı gerekli değildir.
-* **Alt ağ adı: FrontEnd**
+* **Alt ağ adı: Ön uç**
   * **Alt ağ adres aralığı: 192.168.1.0/24**
-* **Alt ağ adı: BackEnd**
+* **Alt ağ adı: Arka uç**
   * **Alt ağ adres aralığı: 10.254.1.0/24**
 * **Alt ağ adı: GatewaySubnet**<br>VPN ağ geçidinin çalışması için Alt Ağ adı olarak *GatewaySubnet*'in kullanılması zorunludur.
-  * **Ağ Geçidi Alt Ağ adres aralığı: 192.168.200.0/24** 
+  * **Adres aralığı: 192.168.200.0/24** 
 * **VPN istemcisi adres havuzu: 172.16.201.0/24**<br>Sanal ağa, bu Noktadan Siteye bağlantıyı kullanarak bağlanan VPN istemcileri, VPN istemci adresi havuzundan bir IP adresi alır.
-* **Abonelik:** Birden fazla aboneliğiniz varsa doğru aboneliği kullandığınızdan emin olun.
-* **Kaynak Grubu: TestRG**
+* **Abonelik:** Birden fazla aboneliğiniz varsa doğru olanı kullandığınızı doğrulayın.
+* **Kaynak grubu: TestRG**
 * **Konum: Doğu ABD**
-* DNS Sunucusu: Ad çözümlemesi için kullanmak istediğiniz **DNS sunucusunun IP adresi**. (isteğe bağlı)
-* **Ağ Geçidi Adı: Vnet1GW**
-* **Ortak IP adı: VNet1GWPIP**
-* **VpnType: RouteBased** 
+* **DNS sunucusu: IP adresi** ad çözümlemesi için kullanmak istediğiniz DNS sunucusunun. (isteğe bağlı)
+* **Ağ geçidi adı: Vnet1GW**
+* **Genel IP adı: VNet1GWPIP**
+* **VPN türü: RouteBased** 
 
 ## <a name="declare"></a>1. Oturum açın ve değişkenleri ayarlama
 
@@ -62,7 +62,7 @@ Bu bölümde, oturum açın ve bu yapılandırma için kullanılan değerleri bi
 
 ### <a name="sign-in"></a>Oturum aç
 
-[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps login.md)]
+[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
 
 ### <a name="declare-variables"></a>Değişkenleri bildirin
 
@@ -399,4 +399,4 @@ Parmak izini, iptal edilen istemci sertifikaları listesinden kaldırarak bir is
 ## <a name="next-steps"></a>Sonraki adımlar
 Bağlantınız tamamlandıktan sonra sanal ağlarınıza sanal makineler ekleyebilirsiniz. Daha fazla bilgi için bkz. [Sanal Makineler](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). Ağ ve sanal makineler hakkında daha fazla bilgi edinmek için, bkz. [Azure ve Linux VM ağına genel bakış](../virtual-machines/linux/azure-vm-network-overview.md).
 
-P2S sorun giderme bilgileri için [Sorun giderme: Azure noktadan siteye bağlantısı sorunları](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).
+P2S sorun giderme bilgileri için [sorunlarını giderme: Azure noktadan siteye bağlantı sorunları](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

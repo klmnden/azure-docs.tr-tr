@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-ms.openlocfilehash: a7b91bfdc616e19fde9f74246d05cf14ecbd335e
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 5ba596a85abbb529990efdf7b15ac50515de011b
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117274"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214462"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Sürekli Azure İzleyici ile izleme
 
@@ -47,7 +47,7 @@ Uygulamalar yalnızca, temel alınan altyapı olarak güvenilirdir. İzleme alty
 - Ekleme [izleme çözümleri](insights/solutions-inventory.md) farklı uygulama ve hizmetler, ortamınızdaki.
 
 
-[Kod olarak altyapı](/devops/learn/what-is-infrastructure-as-code) kullanım için kaynak kodu DevOps ekipleri gibi aynı sürüm oluşturma kullanarak, açıklayıcı bir modelde altyapı yönetimi. Bu, güvenilirlik ve ölçeklenebilirlik ortamınıza ekler ve uygulamalarınızı yönetmek için kullanılan benzer süreçlerden yararlanmanızı sağlar.
+[Kod olarak altyapı](/azure/devops/learn/what-is-infrastructure-as-code) kullanım için kaynak kodu DevOps ekipleri gibi aynı sürüm oluşturma kullanarak, açıklayıcı bir modelde altyapı yönetimi. Bu, güvenilirlik ve ölçeklenebilirlik ortamınıza ekler ve uygulamalarınızı yönetmek için kullanılan benzer süreçlerden yararlanmanızı sağlar.
 
 -  Kullanım [Resource Manager şablonları](platform/template-workspace-configuration.md) izlemeyi etkinleştir ve uyarılar üzerinde büyük bir kaynak kümesini yapılandırmak için.
 - Kullanım [Azure İlkesi](../governance/policy/overview.md) , kaynaklarınız üzerinden farklı kuralları uygulamak için. Bu, bu kaynakları, Kurumsal standartlarınız ve hizmet düzeyi sözleşmeleri ile uyumlu kalmasını sağlar. 
@@ -63,7 +63,7 @@ Sürekli Tümleştirme / sürekli dağıtım sayesinde otomatik olarak tümleşt
 
 
 - Kullanım [Azure işlem hatları](/azure/devops/pipelines) sürekli dağıtımı uygulamak ve, kod tamamlama kadar tüm süreci, CI/CD testleri temel üretime otomatikleştirmek için.
-- Kullanım [kalite kapıları](/devops/pipelines/release/approvals/gates) , dağıtım öncesi veya dağıtım sonrası izleme tümleştirmek için. Bu, temel sistem durumu/performans ölçümlerini (KPI'ler) uygulamalarınızı, üretim ve farkları altyapı ortamında geliştirme taşıdığınızda veya ölçek olumsuz Kpı'lerinizi etkileyen değil ulaşmanızı sağlar.
+- Kullanım [kalite kapıları](/azure/devops/pipelines/release/approvals/gates) , dağıtım öncesi veya dağıtım sonrası izleme tümleştirmek için. Bu, temel sistem durumu/performans ölçümlerini (KPI'ler) uygulamalarınızı, üretim ve farkları altyapı ortamında geliştirme taşıdığınızda veya ölçek olumsuz Kpı'lerinizi etkileyen değil ulaşmanızı sağlar.
 - [Ayrı izleme örnekleri korumak](../azure-monitor/app/separate-resources.md) , geliştirme, Test, Kanarya ve üretim gibi farklı dağıtım ortamları arasında. Bu, toplanan veriler ilişkili uygulama ve altyapı arasında uygun olmasını sağlar. Ortamlar arasında verilerin bağıntısını gerekiyorsa, kullanabileceğiniz [ölçüm Gezgini'nde birden çok kaynak grafikleri](../azure-monitor/platform/metrics-charts.md) veya oluşturma [kaynaklar arası sorgular Log analytics'te](log-query/cross-workspace-query.md).
 
 
