@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: alkohli
-ms.openlocfilehash: 88880fbfe0f6020a0a982c42b6df0e9eb71b2fc9
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: fa0883c18e0d586e6e9b35fb19dbe304388045b5
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53550612"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215295"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Öğretici: Azure veri kutusu Blob Depolama REST API'leri aracılığıyla veri kopyalama  
 
@@ -73,7 +73,7 @@ Bağlantı https üzerinden Azure Blob Depolama REST API'leri için aşağıdaki
 
 Bu adımların her biri, aşağıdaki bölümlerde açıklanmıştır.
 
-### <a name="download-certificate"></a>Sertifika indir
+### <a name="download-certificate"></a>Sertifikayı indir
 
 Sertifika indirmek için Azure portalını kullanın.
 
@@ -154,7 +154,7 @@ Bloblar her zaman bir kapsayıcıya yüklenir çünkü ilk adımı bir kapsayıc
 
    ![BLOB kapsayıcıları bağlam menüsü oluşturma](media/data-box-deploy-copy-data-via-rest/create-blob-container-1.png)
 
-4. Bir metin kutusu altında görünen **Blob kapsayıcıları** klasör. Blob kapsayıcınızın adını girin. Bkz: [kapsayıcı oluşturma ve izinleri ayarlama](/articles/storage/blobs/storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions) blob kapsayıcılarını adlandırmayla ilgili kural ve kısıtlamaların hakkında bilgi için.
+4. Bir metin kutusu altında görünen **Blob kapsayıcıları** klasör. Blob kapsayıcınızın adını girin. Bkz: [kapsayıcı oluşturma ve izinleri ayarlama](../storage/blobs/storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions) blob kapsayıcılarını adlandırmayla ilgili kural ve kısıtlamaların hakkında bilgi için.
 5. Tuşuna **Enter** blob kapsayıcısı oluşturma işlemi tamamlandığında veya **Esc** iptal etmek için. Blob kapsayıcısı başarıyla oluşturulduktan sonra altında gösterilir **Blob kapsayıcıları** seçili depolama hesabı için bir klasör.
 
    ![Oluşturulan blob kapsayıcısı](media/data-box-deploy-copy-data-via-rest/create-blob-container-2.png)

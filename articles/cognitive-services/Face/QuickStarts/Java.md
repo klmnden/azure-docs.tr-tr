@@ -10,14 +10,14 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: 7656d8247cfb16df9989638b7e8ad2ffd3ff445f
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 2c035734d443eba01af6f167681ae289401dbcb4
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51851679"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54212881"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>Hızlı Başlangıç: REST API ve Java kullanarak bir görüntüdeki yüzleri algılama
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>Hızlı Başlangıç: Java ve REST API ile bir resimdeki yüz algılama
 
 Bu hızlı başlangıçta, bir resimdeki İnsan yüzlerini algılamak için Java ile Azure yüz REST API'sini kullanır.
 
@@ -31,8 +31,10 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 ## <a name="create-the-java-project"></a>Java projesi oluşturma
 
 IDE'nizi içinde yeni bir komut satırı Java uygulaması oluşturma ve ekleme bir **ana** sınıfıyla birlikte bir **ana** yöntemi. Ardından, aşağıdaki genel kitaplıkları Maven deposuna indirmesine `lib` projenizin dizin:
-* `org.apache.httpcomponents:httpclient:4.2.4`
+* `org.apache.httpcomponents:httpclient:4.5.6`
+* `org.apache.httpcomponents:httpcore:4.4.10`
 * `org.json:json:20170516`
+* `commons-logging:commons-logging:1.1.2`
 
 ## <a name="add-face-detection-code"></a>Yüz algılama kodu ekleyin
 
@@ -54,7 +56,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.client.utils.URIBuilder;
-import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -92,7 +94,7 @@ private static final String faceAttributes =
 Aşağıdaki yöntemi ekleyin **ana** yöntemi. Uzak görüntüde yüz bilgilerini algılamak için yüz tanıma API'si için REST çağrısı oluşturur ( `faceAttributes` dizesini almak için hangi yüz öznitelikleri belirtir). Ardından bir JSON dizesine çıktı verilerini yazar.
 
 ```Java
-HttpClient httpclient = new DefaultHttpClient();
+HttpClient httpclient = HttpClientBuilder.create().build();
 
 try
 {
@@ -249,4 +251,4 @@ Kodu derleyin ve çalıştırın. Başarılı bir yanıt yüz verileri kolay oku
 Bu hızlı başlangıçta, bir resimdeki yüz algılama ve onların öznitelikleri döndürmek için Azure yüz tanıma API'SİYLE REST çağrılarını kullanan basit bir Java konsol uygulaması oluşturdunuz. Ardından, daha fazlasını yapma hakkında bilgi bu işleviyle bir Android uygulaması.
 
 > [!div class="nextstepaction"]
-> [Öğretici: algılayıp yüzleri çerçeve için bir Android uygulaması oluşturma](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)
+> [Öğretici: Algılayıp yüzleri çerçeve Android uygulaması oluşturma](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)

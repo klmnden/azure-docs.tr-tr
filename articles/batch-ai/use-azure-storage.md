@@ -12,12 +12,12 @@ ms.date: 08/14/2018
 ms.author: danlep
 ms.custom: mvc
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1e9a4c6355c60b18bb78aae362c1e2f142e2d864
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: c1ebcae04b51fbf18da22872e3e4160a37a7e2fe
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408009"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201168"
 ---
 # <a name="store-batch-ai-job-input-and-output-with-azure-storage"></a>Batch AI işi girdi ve çıktı Azure depolama ile Store
 
@@ -79,7 +79,7 @@ Azure CLI ile oluşturulmuş bir işi bir Azure depolama birimine bağlamak `mou
 - < FILE_SHARE_NAME > - Dosya Paylaşımı adı
 - < BLOB_CONTAINER_NAME > - Blob kapsayıcısı adı
 
-Azure Batch AI SDK'ları ile Azure depolama birimleri bağlamak için ayarlanmış `mount_volumes` (Python) veya `MountVolumes` (C#, Java) özelliği `JobCreateParameters`. Azure Batch AI SDK'ları birimlerle bağlarken depolama hesabının kimlik bilgilerini sağlamanız gerekir. Birimleri, bağlama şemalarını görüntüleme [Python](https://docs.microsoft.com/python/api/azure-mgmt-batchai/azure.mgmt.batchai.models.MountVolumes?view=azure-python), [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.batchai.models.mountvolumes?view=azure-dotnet), ve [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.management.batchai._mount_volumes?view=azure-java-stable).
+Azure Batch AI SDK'ları ile Azure depolama birimleri bağlamak için ayarlanmış `mount_volumes` (Python) veya `MountVolumes` (C#, Java) özelliği `JobCreateParameters`. Azure Batch AI SDK'ları birimlerle bağlarken depolama hesabının kimlik bilgilerini sağlamanız gerekir. Birimleri, bağlama şemalarını görüntüleme [Python](https://docs.microsoft.com/python/api/azure-mgmt-batchai/azure.mgmt.batchai.models.MountVolumes?view=azure-python), [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.batchai.models.mountvolumes?view=azure-dotnet), ve [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.management.batchai.mountvolumes?view=azure-java-stable).
 
 ### <a name="mount-volumes-to-a-cluster"></a>Bir kümeye bağlı birimleri
 

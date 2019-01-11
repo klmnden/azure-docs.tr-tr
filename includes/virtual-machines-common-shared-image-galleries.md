@@ -5,20 +5,17 @@ services: virtual-machines
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/20/2018
+ms.date: 01/09/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 48404c8b6f45ab79a9136154c44c7fd44572a3e6
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: c65fb1f0f635e79d594a7f080124827e3218f612
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51678232"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193498"
 ---
-Paylaşılan görüntü Galerisi yapısı ve özel VM görüntülerinizi etrafında kuruluş oluşturmanıza yardımcı olan bir hizmettir. Paylaşılan görüntü Galerisi üç temel değer önermeleri sağlar:
-- Basit yönetim
-- Kendi özel görüntülerinizi ölçeklendirin
-- Görüntülerinizin Paylaş - görüntülerinizi farklı kullanıcılar, hizmet sorumluları ya da çok bölgeli çoğaltma kullanarak farklı bölgelerdeki yanı sıra, kuruluş içindeki AD grupları paylaşın
+Paylaşılan görüntü Galerisi yapısı ve kendi özel VM görüntülerinizi yönetilen etrafında kuruluş oluşturmanıza yardımcı olan bir hizmettir. Paylaşılan görüntü Galerisi kullanarak görüntülerinizi farklı kullanıcılar, hizmet sorumluları veya AD grupları kuruluşunuzun içinde paylaşabilirsiniz. Paylaşılan görüntüleri, dağıtımlarınıza daha hızlı ölçeklendirme için birden fazla bölgeyi çoğaltılabilir.
 
 Yönetilen bir görüntü (herhangi bir bağlı veri diskleri dahil) bir tam VM veya yalnızca bir kopya olduğundan görüntü oluşturma bağlı olarak, işletim sistemi diski. Görüntüden VM oluşturduğunuzda, VHD'leri görüntüde bir kopyasını yeni VM için disk oluşturmak için kullanılır. Yönetilen bir görüntü depolama alanında kalır ve yeni sanal makineler oluşturmak için tekrar tekrar kullanılabilir.
 
@@ -28,10 +25,10 @@ Paylaşılan görüntü Galerisi özelliği, birden çok kaynak türü vardır:
 
 | Kaynak | Açıklama|
 |----------|------------|
-| **Yönetilen bir görüntü** | Bu, tek başına kullanılan veya birden çok oluşturmak için kullanılan bir temel görüntü **görüntü sürümleri paylaşılan** bir görüntü galerisinde.|
+| **Yönetilen bir görüntü** | Bu, tek başına kullanılan veya oluşturmak için kullanılan bir temel görüntü, bir **görüntü sürümü** bir görüntü galerisinde. Yönetilen bir görüntü genelleştirilmiş sanal makinelerinden oluşturulur. Yönetilen bir görüntü, birden çok sanal makine sağlamak için kullanılabilir ve artık paylaşılan görüntü sürümlerini oluşturmak için kullanılan VHD özel türüdür. |
 | **Görüntü Galerisi** | Azure Marketi gibi bir **görüntü Galerisi** yönetmek ve görüntüler, ancak kimlerin erişebildiğini siz denetlersiniz paylaşımı için bir depodur. |
-| **Galeri görüntüsü** | Görüntüleri bir galeri içindeki tanımlanır ve görüntü ve dahili olarak kullanma gereksinimleri hakkında bilgi Yürüt. Bu, görüntünün Windows veya Linux, sürüm notları ve minimum ve maksimum bellek gereksinimleri olup olmadığını içerir. Bu tür bir görüntüyü Resource Manager dağıtım modeli içinde bir kaynaktır, ancak doğrudan VM'ler oluşturmak için kullanılmaz. Görüntü türü bir tanımıdır. |
-| **Paylaşılan görüntü sürümü** | Bir **görüntü sürümü** bir galeri kullanırken bir VM oluşturmak için kullanın. Görüntünün birden çok sürümü, ortamınız için gerektiği şekilde olabilir. Yönetilen bir görüntü kullanırken gibi bir **görüntü sürümü** bir VM oluşturmak için görüntü sürümü sanal makine için yeni bir disk oluşturmak için kullanılır. Yansıma sürümü birden çok kez kullanılabilir. |
+| **Görüntü tanımı** | Görüntüleri bir galeri içindeki tanımlanır ve görüntü ve dahili olarak kullanma gereksinimleri hakkında bilgi Yürüt. Bu, görüntünün Windows veya Linux, sürüm notları ve minimum ve maksimum bellek gereksinimleri olup olmadığını içerir. Görüntü türü bir tanımıdır. |
+| **Görüntü sürümü** | Bir **görüntü sürümü** bir galeri kullanırken bir VM oluşturmak için kullanın. Görüntünün birden çok sürümü, ortamınız için gerektiği şekilde olabilir. Yönetilen bir görüntü kullanırken gibi bir **görüntü sürümü** bir VM oluşturmak için görüntü sürümü sanal makine için yeni bir disk oluşturmak için kullanılır. Yansıma sürümü birden çok kez kullanılabilir. |
 
 <br>
 
@@ -44,21 +41,19 @@ Paylaşılan resim galerileri için bölgesel destek, sınırlı Önizleme aşam
 
 | Galeride oluşturma  | Sürüm çoğaltın |
 |--------------------|----------------------|
-| Batı Orta ABD    |Orta Güney ABD|
-| Doğu ABD 2          |Doğu ABD|
-| Orta Güney ABD   |Doğu ABD 2|
-| Güneydoğu Asya     |Batı ABD|
-| Batı Avrupa        |Batı ABD 2|
-|                    |Orta ABD|
-|                    |Orta Kuzey ABD|
-|                    |Orta Kanada|
-|                    |Doğu Kanada|
-|                    |Kuzey Avrupa|
-|                    |Batı Avrupa|
-|                    |Güney Hindistan|
-|                    |Güneydoğu Asya|
+| Batı Orta ABD    |Tüm genel bölgelerde&#42;|
+| Doğu ABD 2          ||
+| Orta Güney ABD   ||
+| Güneydoğu Asya     ||
+| Batı Avrupa        ||
+| Batı ABD            ||
+| Doğu ABD            ||
+| Orta Kanada     ||
+|                    ||
 
 
+
+&#42;Avustralya Orta ve Avustralya Orta 2 için çoğaltmak için abonelik izin verilenler listesinde olması gerekir. Beyaz listeye ekleme isteği için şuraya gidin: https://www.microsoft.com/en-au/central-regions-eligibility/
 
 ## <a name="scaling"></a>Ölçeklendirme
 Paylaşılan görüntü Galerisi görüntülerini korumak için Azure istediğiniz yinelemeleri sayısını belirtmenizi sağlar. VM dağıtımları için tek bir kopyasını aşırı yükleme nedeniyle aşarak işleme örnek oluşturma olasılığını azaltmak farklı yinelemeler yayılabilen gibi çoklu VM dağıtım senaryolarında bu yardımcı olur.
@@ -67,7 +62,9 @@ Paylaşılan görüntü Galerisi görüntülerini korumak için Azure istediğin
 
 
 ## <a name="replication"></a>Çoğaltma
-Paylaşılan görüntü Galerisi için başka Azure bölgelerindeki görüntülerinizin otomatik olarak çoğaltılmasını sağlar. Her paylaşılan görüntü sürümü, kuruluşunuz için hangi anlamlı bağlı olarak farklı bölgelere çoğaltılabilir. Her zaman en yeni görüntüyü birden çok bölgede çoğaltma tüm eski sürümlerini yalnızca 1 bölgesinde kullanılabilir ancak bir örnektir. Bu kaydetme depolama maliyetlerine paylaşılan görüntü sürümleri için yardımcı olabilir. Paylaşılan görüntü sürümü çoğaltılır bölgeleri oluşturma zamanından sonra güncelleştirilebilir. Kopyalanan veri miktarı ve bölge sayısı sürüm çoğaltılır farklı bölgelere çoğaltma süresini bağlıdır. Bazı durumlarda bu işlem birkaç saat sürebilir. Çoğaltma gerçekleştiği sırada, bölge başına çoğaltma durumunu görüntüleyebilirsiniz. Bir bölgede görüntü çoğaltma tamamlandıktan sonra ardından bir VM veya VMSS bölgede, görüntü sürümü kullanarak dağıtabilirsiniz.
+Paylaşılan görüntü Galerisi için başka Azure bölgelerindeki görüntülerinizin otomatik olarak çoğaltılmasını sağlar. Her paylaşılan görüntü sürümü, kuruluşunuz için hangi anlamlı bağlı olarak farklı bölgelere çoğaltılabilir. Her zaman en yeni görüntüyü birden çok bölgede çoğaltma tüm eski sürümlerini yalnızca 1 bölgesinde kullanılabilir ancak bir örnektir. Bu kaydetme depolama maliyetlerine paylaşılan görüntü sürümleri için yardımcı olabilir. 
+
+Paylaşılan görüntü sürümü çoğaltılır bölgeleri oluşturma zamanından sonra güncelleştirilebilir. Kopyalanan veri miktarı ve bölge sayısı sürüm çoğaltılır farklı bölgelere çoğaltma süresini bağlıdır. Bazı durumlarda bu işlem birkaç saat sürebilir. Çoğaltma gerçekleştiği sırada, bölge başına çoğaltma durumunu görüntüleyebilirsiniz. Bir bölgede görüntü çoğaltma tamamlandıktan sonra ardından bir VM veya VMSS bölgede, görüntü sürümü kullanarak dağıtabilirsiniz.
 
 ![Görüntüleri nasıl çoğaltabilirsiniz gösteren grafik](./media/shared-image-galleries/replication.png)
 
@@ -87,6 +84,25 @@ Paylaşılan görüntü Galerisi, paylaşılan bir görüntü ve paylaşılan g�
 Paylaşılan görüntü Galerisi bu hizmeti kullanmak için fazladan bir ücret yoktur. Aşağıdaki kaynaklar için ücretlendirilirsiniz:
 - Depolama maliyetini paylaşılan görüntü sürümlerini depolamak için. Bu sürümde çoğaltmaların sayısı ve bölge sayısı sürüm çoğaltılır bağlıdır.
 - Çıkış ücretlerini çoğaltma kaynak bölgeden sürümünün bölgelerde için ağ.
+
+## <a name="sdk-support"></a>SDK desteği
+
+Aşağıdaki Sdk'lardan, paylaşılan resim galerileri oluşturmayı destekler:
+
+- [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet)
+- [Java](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
+- [Node.js](https://docs.microsoft.com/javascript/api/azure-arm-compute/?view=azure-node-latest)
+- [Python](https://docs.microsoft.com/python/api/overview/azure/virtualmachines?view=azure-python)
+- [Go](https://docs.microsoft.com/go/azure/)
+
+## <a name="templates"></a>Şablonlar
+
+Paylaşılan görüntü Galerisi kaynak şablonlarını kullanarak oluşturabilirsiniz. Çeşitli Azure hızlı başlangıç şablonları mevcuttur: 
+
+- [Paylaşılan bir görüntü Galerisi oluşturma](https://azure.microsoft.com/resources/templates/101-sig-create/)
+- [Paylaşılan bir görüntü galerisinde bir görüntü tanımı oluşturun](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
+- [Paylaşılan bir görüntü galerisinde görüntü sürümü oluşturma](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
+- [Resmi sürümden bir VM oluşturma](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular 
 
@@ -135,11 +151,11 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
  
  A. Evet. 3 senaryonun etkinleştirmiş olabilirsiniz görüntülerin türlerine bağlı vardır.
 
- Senaryo 1: yönetilen bir görüntü varsa, daha sonra bir görüntü tanımı ve görüntü sürümü ondan oluşturabilirsiniz.
+ Senaryo 1: Yönetilen bir görüntü varsa, daha sonra bir görüntü tanımı ve görüntü sürümü ondan oluşturabilirsiniz.
 
- Senaryo 2: Yönetilmeyen genelleştirilmiş görüntü varsa, yönetilen bir görüntü ondan oluşturabilir ve ondan sonra bir görüntü tanımı ve görüntü sürümü oluşturun. 
+ Senaryo 2: Yönetilmeyen genelleştirilmiş görüntü varsa, yönetilen bir görüntü oluşturun ve ondan sonra bir görüntü tanımı ve görüntü sürümü oluşturun. 
 
- Senaryo 3: yerel dosya sisteminizde bir VHD varsa, ardından VHD'yi karşıya yükleme, oluşturma ve resim tanımı ve görüntü sürümünden sonra yönetilen bir görüntü oluşturmak için ihtiyacınız. 
+ Senaryo 3: Yerel dosya sisteminizde bir VHD varsa, ardından VHD'yi karşıya yükleme, oluşturma ve resim tanımı ve görüntü sürümünden sonra yönetilen bir görüntü oluşturmak için ihtiyacınız. 
     - Windows sanal Makinesini VHD ise bkz [genelleştirilmiş VHD yükleme](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed).
     - Bir Linux VM için VHD'yi ise bkz [bir VHD'yi karşıya yükleme](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd)
 
@@ -221,7 +237,7 @@ Görüntü sürümü:
 1. Bölge başına oluşturmak istediğiniz yinelemeleri sayısını belirten bölgesel yineleme sayısı. 
 2. Varsayılan bölge sayısı başına bölgesel yineleme sayısı belirtilmemiş durumda olan genel yineleme sayısı. 
 
-Bölgesel çoğaltma sayısını belirtmek için bu bölgede bu gibi oluşturmak istediğiniz çoğaltmaları sayısının yanı sıra konumu geçirin: "Güney Orta ABD 2 =". 
+Bölgesel çoğaltma sayısını belirtmek için bu bölgede bu gibi oluşturmak istediğiniz çoğaltmaları sayısının yanı sıra konumu geçirin: "Orta Güney ABD 2 =". 
 
 Ardından bölgesel yineleme sayısı ile her konum belirtilmemişse, varsayılan yineleme sayısını belirttiğiniz yaygın çoğaltma sayısını olacaktır. 
 

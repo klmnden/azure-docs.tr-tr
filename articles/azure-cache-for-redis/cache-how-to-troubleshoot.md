@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: wesmc
-ms.openlocfilehash: fd5e62138d47622417bde658bf0d05308594d64e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 154f5200872dbc06550f396717cb215f3db4f7dd
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104157"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199587"
 ---
 # <a name="how-to-troubleshoot-azure-cache-for-redis"></a>Azure önbelleği için Redis sorunlarını giderme
 Bu makalede, Azure Cache aşağıdaki kategorileri Redis sorunlarına yönelik sorun giderme kılavuzu sağlar.
@@ -233,7 +233,7 @@ Bu hata iletisi sorunun nedenini ve olası çözümü noktası yardımcı olabil
 6. Yüksek Redis sunucu yükü, zaman aşımı neden olabilir. Sunucu iş yükü izleyerek izleyebilirsiniz `Redis Server Load` [performans ölçümü önbelleğe](cache-how-to-monitor.md#available-metrics-and-reporting-intervals). Bir sunucu yükü 100 (en yüksek değer), redis sunucusunun istekleri işleme boş kalma süresi ile meşgul olduğunu gösterir. Belirli isteklerini tüm sunucu özelliğine sürüyor durumunda görmek için önceki paragrafta açıklandığı gibi Slowlog'u komutu çalıştırın. Daha fazla bilgi için [yüksek CPU kullanımı / sunucu yükü](#high-cpu-usage-server-load).
 7. İstemci tarafında ağ blip neden olan herhangi bir olay oluştu? (Web, çalışan rolü veya bir Iaas VM) istemcide istemci örneklerinin sayısını artırma veya azaltma gibi bir olay oluştu veya yeni bir otomatik ölçeklendirme ve istemci sürümünü dağıtmaya etkin kontrol? Test işlemlerimizi, bu otomatik ölçeklendirme veya büyütme bulduk/aşağı neden giden ağ bağlantısını için birkaç saniye kaybolabilir. StackExchange.Redis kod böyle olaylara esnektir ve yeniden bağlanır. Yeniden bağlama bu süre boyunca sırasındaki tüm istekler zaman aşımı olabilir.
 8. Birçok küçük istek zaman aşımına uğradı Redis için Azure Cache için önceki büyük bir istek vardı? Parametre `qs` hata iletisi, kaç istek istemciden sunucuya gönderilen, ancak bir yanıt henüz işlenmemiş bildirir. StackExchange.Redis tek bir TCP bağlantısını kullanır ve bir yanıt aynı anda yalnızca okuyabilir çünkü bu değer büyüyen tutun. İlk işlem zaman aşımına uğradı olsa da, sunucunun içine/dışına gönderilen veri durdurmaz ve büyük isteği tamamlanmadan zaman aşımı neden diğer istekleri engellenir. Önbelleğinizi yükünüz için yeterince büyük olduğundan emin olmanın ve büyük değerler daha küçük öbeklere ayırma zaman aşımları olasılığını en aza indirmek bir çözümdür. Başka bir olası çözümü havuzu kullanmaktır `ConnectionMultiplexer` istemcinizde nesneleri ve az yüklenen seçin `ConnectionMultiplexer` yeni bir isteği gönderirken. Bu tek bir zaman aşımı da zaman aşımı giden diğer isteklerin neden olmasını engeller.
-9. Kullanıyorsanız `RedisSessionStateprovider`, ayarladığınız yeniden deneme zaman aşımı doğru emin olun. `retrytimeoutInMilliseconds` daha yüksek olmalıdır `operationTimeoutinMilliseonds`, aksi takdirde, yeniden deneme yok oluşur. Aşağıdaki örnekte `retrytimeoutInMilliseconds` 3000 olarak ayarlanır. Daha fazla bilgi için [Redis için Azure Cache için ASP.NET oturum durumu sağlayıcısı](cache-aspnet-session-state-provider.md) ve [çıktı önbelleği sağlayıcısı ile oturum durumu sağlayıcısı ve yapılandırma parametrelerini kullanma](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration).
+9. Kullanıyorsanız `RedisSessionStateProvider`, ayarladığınız yeniden deneme zaman aşımı doğru emin olun. `retryTimeoutInMilliseconds` daha yüksek olmalıdır `operationTimeoutInMilliseconds`, aksi takdirde, yeniden deneme yok oluşur. Aşağıdaki örnekte `retryTimeoutInMilliseconds` 3000 olarak ayarlanır. Daha fazla bilgi için [Redis için Azure Cache için ASP.NET oturum durumu sağlayıcısı](cache-aspnet-session-state-provider.md) ve [çıktı önbelleği sağlayıcısı ile oturum durumu sağlayıcısı ve yapılandırma parametrelerini kullanma](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration).
 
     <add
       name="AFRedisCacheSessionStateProvider"

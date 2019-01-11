@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/09/2018
 ms.author: kuhussai
 ms.component: blobs
-ms.openlocfilehash: 21e442c7a0cdd0edcce77c862b11ae368d4a3abc
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 19a9ef3e3f6a33e1f8e4d1e47ddc7562c0b90e37
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191675"
+ms.locfileid: "54197683"
 ---
 # <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Azure Blob Depolama: Premium (Önizleme), sık erişimli, seyrek erişimli ve Arşiv depolama katmanları
 
@@ -47,15 +47,15 @@ Bu veri senaryolarının her biri, belirli erişim düzeni için optimize edilmi
 
 ## <a name="storage-accounts-that-support-tiering"></a>Katman ayarlamayı destekleyen depolama hesapları
 
-Yalnızca nesne depolama verilerinizi sık erişimli, seyrek erişimli veya Blob Depolama veya genel amaçlı v2 (GPv2) hesapları arşiv katmanı. Genel Amaçlı v1 (GPv1) hesaplar katman ayarlamayı desteklemez. Bununla birlikte, müşteriler Azure portalında basit bir tek tıklama işlemiyle var olan GPv1 veya Blob depolama hesaplarını GPv2 hesaplarına kolayca dönüştürebilir. GPv2, bloblar, dosyalar ve kuyruklar için yeni bir fiyatlandırma yapısı ve yeni diğer birçok depolama özelliğine de erişim sağlar. Ayrıca, bazı yeni özelliklere geçmek ve fiyat indirimleri yalnızca GPv2 hesaplarda sunulur. Bu nedenle, müşteriler GPv2 hesaplarını kullanmayı değerlendirmeli ancak bazı iş yükleri GPv2’de GPv1’den daha pahalı olabileceği için bu hesapları yalnızca tüm hizmetlerin fiyatlarını gözden geçirdikten sonra kullanmalıdır. Daha fazla bilgi için bkz. [Azure depolama hesabına genel bakış](../common/storage-account-overview.md).
+Yalnızca nesne depolama verilerinizi sık erişimli, seyrek erişimli veya Blob Depolama ve genel amaçlı v2 (GPv2) hesapları arşiv katmanı. Genel Amaçlı v1 (GPv1) hesaplar katman ayarlamayı desteklemez. Bununla birlikte, müşteriler Azure portalında basit bir tek tıklama işlemiyle var olan GPv1 veya Blob depolama hesaplarını GPv2 hesaplarına kolayca dönüştürebilir. GPv2, bloblar, dosyalar ve kuyruklar için yeni bir fiyatlandırma yapısı ve yeni diğer birçok depolama özelliğine de erişim sağlar. Ayrıca, bazı yeni özelliklere geçmek ve fiyat indirimleri yalnızca GPv2 hesaplarda sunulur. Bu nedenle, müşteriler GPv2 hesaplarını kullanmayı değerlendirmeli ancak bazı iş yükleri GPv2’de GPv1’den daha pahalı olabileceği için bu hesapları yalnızca tüm hizmetlerin fiyatlarını gözden geçirdikten sonra kullanmalıdır. Daha fazla bilgi için bkz. [Azure depolama hesabına genel bakış](../common/storage-account-overview.md).
 
 BLOB Depolama ve GPv2 hesapları sunmaya **erişim katmanı** varsayılan depolama katmanını sık veya seyrek erişimli ayarlanmış açık bir katmanı olmayan depolama hesabındaki tüm bloblar için olarak belirtmenizi sağlar hesap düzeyinde özniteliği Nesne düzeyinde. Katmanı nesne düzeyinde ayarlanan nesnelerde hesap katmanı geçerli olmaz. Arşiv katmanı yalnızca nesne düzeyinde uygulanabilir. Bu depolama katmanları arasında istediğiniz zaman geçiş yapabilirsiniz.
 
 ## <a name="premium-access-tier"></a>Premium erişim katmanı
 
-Bir Premium erişim katmanı sık erişilen verilerin yüksek performanslı donanıma kullanılabilir hale getirir, önizlemede kullanılabilir. Bu katmanında depolanan veriler, geleneksel sabit sürücüler için daha yüksek bir işlem fiyatları kıyasla daha düşük gecikme süresi için iyileştirilmiş katı hal sürücülerinde depolanır. Blok blobu depolama hesabı türü yalnızca Premium erişim katmanı kullanılabilir.
+Bir Premium erişim katmanı sık erişilen verilerin yüksek performanslı donanıma kullanılabilir hale getirir, önizlemede kullanılabilir. Bu katmanında depolanan veriler, daha düşük gecikme süresi ve geleneksel sabit sürücüler kıyasla daha yüksek işlem hızları için iyileştirilmiş katı hal sürücülerinde depolanır. Blok blobu depolama hesabı türü yalnızca Premium erişim katmanı kullanılabilir.
 
-Bu katman, hızlı ve tutarlı yanıt süreleri gerektiren iş yükleri için idealdir. Etkileşimli video düzenleme, statik web içeriğini, çevrimiçi işlemler ve bunun gibi Premium erişim katmanı için iyi bir aday olan gibi son kullanıcılara içeren veriler. Bu katman, telemetri verilerini yakalama, Mesajlaşma ve veri dönüştürme gibi çok sayıda küçük işlemler gerçekleştiren iş yükleri için uyarlanmıştır.
+Bu katman, hızlı ve tutarlı yanıt süreleri gerektiren iş yükleri için idealdir. Etkileşimli video düzenleme, statik web içeriğini, çevrimiçi işlemler ve bunun gibi Premium erişim katmanı için iyi adaylar olduğu gibi son kullanıcılara içeren veriler. Bu katman, telemetri verilerini yakalama, Mesajlaşma ve veri dönüştürme gibi çok sayıda küçük işlemler gerçekleştiren iş yükleri için uyarlanmıştır.
 
 Bu katmanı kullanmak için yeni bir blok blobu depolama hesabı sağlayın ve kapsayıcılar ve bloblar kullanarak oluşturmaya başlamak [Blob hizmeti REST API'si](/rest/api/storageservices/blob-service-rest-api), [AzCopy](/azure/storage/common/storage-use-azcopy), veya [Azure Depolama Gezgini](https://azure.microsoft.com/features/storage-explorer/).
 
@@ -119,9 +119,9 @@ BLOB Depolama yaşam döngüsü yönetimi (Önizleme), verilerinizi en iyi eriş
 
 ### <a name="blob-level-tiering-billing"></a>Blob düzeyinde katman ayarlama faturalandırması
 
-Bir blobu bir katmana taşındığında (sık erişilen -> seyrek erişilen, sık erişilen -> Arşiv veya seyrek erişilen -> Arşiv), işlem nerede yazma işlemi (10.000 başına) ve hedef katmanın veri yazma (GB başına) ücretleri geçerli hedef katmanın yazma işlemi olarak faturalandırılır. Bir blob daha sık erişilen bir katmana taşındığında (arşiv -> seyrek erişilen, arşiv -> sık erişilen veya seyrek erişimli -> sık erişilen), işlem nerede okuma işlemi (10.000 başına) ve kaynak katmanın veri alma (GB başına) ücretleri geçerli kaynak katmandan okuma olarak faturalandırılır.
+Bir blobu bir katmana taşındığında (sık erişilen -> seyrek erişilen, sık erişilen -> Arşiv veya seyrek erişilen -> Arşiv), işlem nerede yazma işlemi (10.000 başına) ve hedef katmanın veri yazma (GB başına) ücretleri geçerli hedef katmanın yazma işlemi olarak faturalandırılır. Bir blob daha sık erişilen bir katmana taşındığında (arşiv -> seyrek erişilen, arşiv -> sık erişilen veya seyrek erişimli -> sık erişilen), işlem nerede okuma işlemi (10.000 başına) ve kaynak katmanın veri alma (GB başına) ücretleri geçerli kaynak katmandan okuma olarak faturalandırılır. Katman değişiklikleri nasıl faturalandırılır aşağıdaki tabloda özetlenmiştir.
 
-| | **Ücretsiz olarak yazma** | **Ücretsiz olarak edinin** 
+| | **Yazma ücretleri (işlem + erişim)** | **Okuma ücretleri (işlem + erişim)** 
 | ---- | ----- | ----- |
 | **SetBlobTier yönü** | Sık erişilen -> seyrek erişilen, sık erişilen, arşiv -> seyrek erişilen, arşiv -> | Arşiv -> seyrek erişilen, arşiv -> sık erişimli, seyrek erişimli -> sık erişilen
 
@@ -141,7 +141,7 @@ Sık erişimli bir karşılaştırmasını aşağıdaki tabloda gösterilmektedi
 | ---- | ----- | ----- | ----- |
 | **Kullanılabilirlik** | %99,9 | %99 | Yok |
 | **Kullanılabilirlik** <br> **(RA-GRS okumaları)**| %99,99 | %99,9 | Yok |
-| **Kullanım ücretleri** | Yüksek depolama maliyeti, düşük erişim ve işlem maliyetleri | Düşük depolama maliyeti, yüksek erişim ve işlem maliyetleri | En düşük depolama maliyeti, en yüksek erişim ve işlem maliyetleri |
+| **Kullanım ücretleri** | Daha yüksek depolama maliyetleri, daha düşük erişim ve işlem maliyetleri | Daha düşük depolama maliyetleri, daha yüksek erişim ve işlem maliyetleri | En düşük depolama maliyeti, yüksek erişim ve işlem maliyetleri |
 | **En düşük nesne boyutu** | Yok | Yok | Yok |
 | **En az depolama süresi** | Yok | 30 gün (yalnızca GPv2) | 180 gün
 | **Gecikme süresi** <br> **(İlk bayta kadar süre)** | milisaniye | milisaniye | < 15 sa
@@ -237,7 +237,7 @@ Her blob her zaman blobun tarafından belirtilen katmana göre faturalandırıl�
 
 **Bir erken silme ücreti siliniyor veya bir blobun seyrek erişimli veya arşiv katmanı taşıma ödemem, nasıl belirlerim?**
 
-Silinen veya seyrek erişimli (yalnızca GPv2 hesapları) ya da arşiv katmanından ve 180 günden önce 30 dışında sırasıyla taşınan tüm bloblar eşit dağıtılmış bir erken silme ücreti ödenmesini gerektirir. Nasıl bir blob seyrek erişimli veya arşiv katmanında denetleyerek süredir belirleyebilirsiniz **erişim katmanı değişim zamanı** blob son katman değişikliğinin bir damgasını sağlayan özelliği. Bkz: [seyrek erişimli ve Arşiv erken silme](#cool-and-archive-early-deletion) ayrıntılı bilgi için.
+Silinen veya seyrek erişimli (yalnızca GPv2 hesapları) ya da arşiv katmanından ve 180 günden önce 30 dışında sırasıyla taşınan tüm bloblar eşit dağıtılmış bir erken silme ücreti ödenmesini gerektirir. Nasıl bir blob seyrek erişimli veya arşiv katmanında denetleyerek süredir belirleyebilirsiniz **erişim katmanı değişim zamanı** blob son katman değişikliğinin bir damgasını sağlayan özelliği. Daha fazla bilgi için [seyrek erişimli ve Arşiv erken silme](#cool-and-archive-early-deletion).
 
 **Hangi Azure Araçları ve SDK'lar blob düzeyinde katman ayarlamayı ve Arşiv depolamayı destekliyor?**
 

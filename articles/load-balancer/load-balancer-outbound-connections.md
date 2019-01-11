@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2018
 ms.author: kumud
-ms.openlocfilehash: 09de0a3aa0303e169d0b90690016909b29dc4a9b
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d8ca70efd3b1ba77b1b1bb0e11a9234e5fd440c4
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190977"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201389"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure'da giden bağlantıları
 
@@ -91,9 +91,9 @@ Burada, uygulama yoğun hedefleri sınırlı sayıda giden bağlantılar kullan�
 
 ### <a name="multife"></a> Birden çok ön uç için giden akışlar
 
-#### <a name="load-balancer-standard"></a>Load Balancer Standart
+#### <a name="standard-load-balancer"></a>Standart Load Balancer
 
-Load Balancer standart kullanan tüm aday aynı giden akışlar için saati [birden çok (Genel) IP ön uç](load-balancer-multivip-overview.md) mevcuttur. Her ön uç, giden bağlantılar için Yük Dengeleme kuralı etkinse, kullanılabilir ön tahsis SNAT bağlantı noktalarının sayısı çarpar.
+Standart yük dengeleyici kullanan tüm aday aynı giden akışlar için saati [birden çok (Genel) IP ön uç](load-balancer-multivip-overview.md) mevcuttur. Her ön uç, giden bağlantılar için Yük Dengeleme kuralı etkinse, kullanılabilir ön tahsis SNAT bağlantı noktalarının sayısı çarpar.
 
 Bir ön uç IP adresi ile yeni bir Yük Dengeleme kuralı seçenek giden bağlantılar için kullanılmasını engellemek seçebilirsiniz:
 

@@ -8,16 +8,16 @@ ms.topic: article
 ms.author: mstewart
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 73a00756928fd476b723e0b43accf46378ae14cc
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 1674a54ea78e7fea2cc39cb26fefc52b8764bc4c
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093293"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200862"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms"></a>Iaas VM'ler için Azure Disk şifrelemesi
 
-Microsoft Azure, veri gizliliği ve veri egemenliği sağlamaya yönelik taahhüt eder. Azure, Azure'da barındırılan verilerinizi şifrelemek için Denetim ve şifreleme anahtarlarını ve veri denetimi ve Denetim erişimi yönetmek için Gelişmiş teknolojilerden bir dizi aracılığıyla denetlemenize olanak tanıyor. Bu denetim, Azure müşterilerine iş gereksinimlerini en iyi karşılayan çözümü seçme esnekliği sağlar. Bu makale için bir teknoloji çözümü sunar: "Azure Disk şifrelemesi" Windows ve Linux Iaas sanal makineler (VM). Bu teknoloji, Kurumsal güvenlik ve uyumluluk taahhütlerinizi yerine verilerinizi koruyarak yardımcı olur. 
+Microsoft Azure, veri gizliliği ve veri egemenliği sağlamaya yönelik taahhüt eder. Azure, Azure'da barındırılan verilerinizi şifrelemek için Denetim ve şifreleme anahtarlarını ve veri denetimi ve Denetim erişimi yönetmek için Gelişmiş teknolojilerden bir dizi aracılığıyla denetlemenize olanak tanıyor. Bu denetim, Azure müşterilerine iş gereksinimlerini en iyi karşılayan çözümü seçme esnekliği sağlar. Bu makale için bir teknoloji çözümü sunar: "Azure için Disk şifreleme Windows ve Linux Iaas sanal makineleri (VM'ler)." Bu teknoloji, Kurumsal güvenlik ve uyumluluk taahhütlerinizi yerine verilerinizi koruyarak yardımcı olur. 
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 

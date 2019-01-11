@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 7ba1c4e0f358a2168c06ab9172229525cd4c136c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 4543982f731feb44a8f02581c11714dec2b206f9
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016146"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214513"
 ---
 # <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory"></a>Hadoop MapReduce etkinliği Azure Data Factory kullanarak verileri dönüştürme
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -25,9 +25,9 @@ ms.locfileid: "54016146"
 
 HDInsight MapReduce etkinliği bir Data factory'de [işlem hattı](concepts-pipelines-activities.md) üzerinde bir MapReduce programını çağırır [kendi](compute-linked-services.md#azure-hdinsight-linked-service) veya [üzerine](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) HDInsight kümesi. Bu makalede yapılar [veri dönüştürme etkinlikleri](transform-data.md) makalesi, veri dönüştürme ve desteklenen dönüştürme etkinliklerinin genel bir bakış sunar.
 
-Azure Data Factory kullanmaya yeni başladıysanız, okumak [Azure Data Factory'ye giriş](introduction.md) ve öğretici uygulayın: [Öğretici: verileri dönüştürme](tutorial-transform-data-spark-powershell.md) bu makaleyi okuduktan önce. 
+Azure Data Factory kullanmaya yeni başladıysanız, okumak [Azure Data Factory'ye giriş](introduction.md) ve öğretici uygulayın: [Öğretici: verileri dönüştürme](tutorial-transform-data-spark-powershell.md) bu makaleyi okuduktan önce.
 
-Bkz: [Pig](transform-data-using-hadoop-pig.md) ve [Hive](transform-data-using-hadoop-hive.md) Pig/Hive çalıştırma hakkında ayrıntılar için komut dosyalarını bir HDInsight üzerinde bir işlem hattından HDInsight Pig ve Hive etkinlikleri kullanarak küme. 
+Bkz: [Pig](transform-data-using-hadoop-pig.md) ve [Hive](transform-data-using-hadoop-hive.md) Pig/Hive çalıştırma hakkında ayrıntılar için komut dosyalarını bir HDInsight üzerinde bir işlem hattından HDInsight Pig ve Hive etkinlikleri kullanarak küme.
 
 ## <a name="syntax"></a>Sözdizimi
 
@@ -49,10 +49,10 @@ Bkz: [Pig](transform-data-using-hadoop-pig.md) ve [Hive](transform-data-using-ha
         "jarFilePath": "MyAzureStorage/jars/sample.jar",
         "getDebugInfo": "Failure",
         "arguments": [
-          "-SampleHadoopJobArgument1"
+            "-SampleHadoopJobArgument1"
         ],
         "defines": {
-          "param1": "param1Value"
+            "param1": "param1Value"
         }
     }
 }
@@ -79,7 +79,7 @@ Bkz: [Pig](transform-data-using-hadoop-pig.md) ve [Hive](transform-data-using-ha
 ## <a name="example"></a>Örnek
 HDInsight MapReduce etkinliği bir HDInsight kümesi üzerinde bir MapReduce jar dosyasını çalıştırmak için kullanabilirsiniz. Aşağıdaki örnek JSON tanımında bir işlem hattı, bir Mahout JAR dosyasını çalıştırmak için HDInsight faaliyet yapılandırılır.
 
-```json   
+```json
 {
     "name": "MapReduce Activity for Mahout",
     "description": "Custom MapReduce to generate Mahout result",
@@ -113,7 +113,7 @@ HDInsight MapReduce etkinliği bir HDInsight kümesi üzerinde bir MapReduce jar
 MapReduce programı için herhangi bir bağımsız değişken belirtebilirsiniz **bağımsız değişkenleri** bölümü. Çalışma zamanında, gördüğünüz bazı ek bağımsız değişkenler (örneğin: mapreduce.job.tags) MapReduce çerçeveden. MapReduce bağımsız değişkenleriyle değişkenleriniz ayırt etmek için hem seçeneği hem de değer bağımsız değişken olarak aşağıdaki örnekte gösterildiği gibi kullanmayı düşünün (- s, giriş,--çıktısı, vb. değerlerine göre hemen ardından seçenekleri olan).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Anlatan farklı yollarla verileri dönüştürmek aşağıdaki makalelere bakın: 
+Anlatan farklı yollarla verileri dönüştürmek aşağıdaki makalelere bakın:
 
 * [U-SQL etkinliği](transform-data-using-data-lake-analytics.md)
 * [Hive etkinliği](transform-data-using-hadoop-hive.md)

@@ -1,5 +1,5 @@
 ---
-title: Azure Traffic Manager - sık sorulan sorular | Microsoft Docs
+title: Azure Traffic Manager - sık sorulan sorular
 description: Bu makalede, Traffic Manager hakkında sık sorulan soruların yanıtlarını sağlar
 services: traffic-manager
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: kumud
-ms.openlocfilehash: f4c687ff0d02c78b88b24834f6c3acfc563ecbfc
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: a6a8fee942edf4cec98a6d2f46eb2f63b7595c09
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963581"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200056"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager'ın sık sorulan sorular (SSS)
 
@@ -437,8 +437,8 @@ Evet. Bir profili içinde farklı türde uç noktalar birleştirerek nasıl hiç
 
 Traffic Manager faturalandırması, iki bileşenden oluşur: uç nokta sistem durumu denetimleri ve DNS sorgularının sayısı
 
-* Uç nokta durum denetimleri: bir üst profilinde bir uç noktası olarak yapılandırıldığında bir alt ağ profili için bir ücret yoktur. Alt profilinde bir uç nokta izleme, her zamanki gibi faturalandırılır.
-* DNS sorguları: her sorgu yalnızca bir kez sayılır. Bir uç nokta, alt profilinden döndüren bir üst profili yönelik bir sorgu yalnızca üst profili karşı sayılır.
+* Uç nokta durum denetimlerinin: Bir üst profilinde bir uç noktası olarak yapılandırıldığında bir alt ağ profili için bir ücret yoktur. Alt profilinde bir uç nokta izleme, her zamanki gibi faturalandırılır.
+* DNS sorguları: Her sorgu yalnızca bir kez sayılır. Bir uç nokta, alt profilinden döndüren bir üst profili yönelik bir sorgu yalnızca üst profili karşı sayılır.
 
 Tüm Ayrıntılar için bkz. [Traffic Manager fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/traffic-manager/).
 

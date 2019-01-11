@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 1/7/2019
 ms.author: dkshir
-ms.openlocfilehash: 0112853bf36c6b7b594400d303234d204b2ea24a
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: ff8638042fa10c939ff9c5fa7af99a660fcdc753
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54108296"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198652"
 ---
 # <a name="how-to-query-azure-digital-twins-apis-for-common-tasks"></a>Azure dijital İkizlerini API'leri için ortak görevler sorgulama
 
@@ -26,7 +26,7 @@ Bu makalede, yaygın senaryoları Azure dijital İkizlerini örneğinizin yürü
 
 Bu bölümde, sağlanan alanları hakkında daha fazla bilgi almak için örnek sorgular gösterilmiştir. Yer tutucuları kurulumunuzu değerlerle değiştirerek örnek sorguları kimliği doğrulanmış GET HTTP istekleriyle olun. 
 
-- Kök düğümleri alın.
+- Kök düğümleri olan alanları alın.
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/spaces?$filter=ParentSpaceId eq null
@@ -38,7 +38,7 @@ Bu bölümde, sağlanan alanları hakkında daha fazla bilgi almak için örnek 
     YOUR_MANAGEMENT_API_URL/spaces?name=Focus Room A1&includes=fullpath,devices,sensors,values,sensorsvalues
     ```
 
-- Ana belirli bir alanı kimliğidir alanları alın ve bağımlılıkları içerecek. 
+- Alanları ve ana verilen alanı kimliği ve iki ila beş düzey olan cihaz/sensör bilgilerini yeniden [belirli alan göreli](how-to-navigate-apis.md#api-navigation). 
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/spaces?spaceId=YOUR_SPACE_ID&includes=fullpath,devices,sensors,values,sensorsvalues&traverse=Down&minLevel=1&minRelative=true&maxLevel=5&maxRelative=true
@@ -91,7 +91,7 @@ Bu bölümde, roller ve onların atamaları hakkında daha fazla bilgi almak iç
     YOUR_MANAGEMENT_API_URL/roleassignments?path=/A_SPATIAL_PATH
     ```
 
-## <a name="queries-for-device-management"></a>Cihaz yönetimi için sorgular
+## <a name="queries-for-devices"></a>Cihazlar için sorgular
 
 Bu bölümde, cihazlarınızı hakkında ayrıntılı bilgi almak için yönetim API'leri nasıl kullanabileceğiniz bazı örnekler gösterilmektedir. Tüm API çağrıları, kimliği doğrulanmış GET HTTP isteklerini gerekecektir.
 
@@ -167,7 +167,7 @@ Bu bölümde, cihazlarınızı hakkında ayrıntılı bilgi almak için yönetim
     YOUR_MANAGEMENT_API_URL/devices?spaceId=YOUR_SPACE_ID&traverse=Span&minLevel=0&minRelative=true&maxLevel=0&maxRelative=true
     ```
 
-- Belirli bir cihaz IOT hub bağlantı dizesini alın.
+- Cihazınız için IOT Hub cihaz bağlantı dizesini alın.
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/devices/YOUR_DEVICE_ID?includes=ConnectionString

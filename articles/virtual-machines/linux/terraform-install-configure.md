@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/19/2018
 ms.author: echuvyrov
-ms.openlocfilehash: 0943bd1bffb3df7beda97ea0619f1aced4ca3a41
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 71cf07b227a75e53119f2f35e79ccd7926b551e7
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946791"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200709"
 ---
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>VM'ler ve diğer altyapı Azure'a sağlamak için Terraform'u yükleme ve yapılandırma
  
@@ -59,7 +59,7 @@ Seçili bir aboneliği kullanmak için abonelik için bu oturumla ayarlamak [az 
 az account set --subscription="${SUBSCRIPTION_ID}"
 ```
 
-Şimdi, Terraform ile kullanım için bir hizmet sorumlusu oluşturabilirsiniz. Kullanım [az ad sp create-for-rbac]/cli/azure/ad/sp#az-ad-sp-create-for-rbac) ve *kapsam* aboneliğinize aşağıdaki gibi:
+Şimdi, Terraform ile kullanım için bir hizmet sorumlusu oluşturabilirsiniz. Kullanım [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac), ayarlayıp *kapsam* aboneliğinize aşağıdaki gibi:
 
 ```azurecli-interactive
 az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${SUBSCRIPTION_ID}"

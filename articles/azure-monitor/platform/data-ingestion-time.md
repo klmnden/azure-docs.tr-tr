@@ -10,14 +10,14 @@ ms.service: log-analytics
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2018
+ms.date: 01/08/2019
 ms.author: bwren
-ms.openlocfilehash: d8d8e344ce9ee317a7f864492514162b1dc085f9
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 5db963b1ffea656455c06092c82ac95e85d87826
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52883460"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213136"
 ---
 # <a name="data-ingestion-time-in-log-analytics"></a>Log analytics'te veri alım zamanı
 Azure Log Analytics, binlerce müşteri terabaytlarca veriyi her ay büyüyen bir hızda gönderme yapan bir Azure İzleyici'de büyük ölçekli veri hizmetidir. Genellikle verileri toplandıktan sonra Log Analytics'te kullanılabilir olana kadar geçen süreyi hakkında sorular vardır. Bu makalede, bu gecikme süresini etkileyen faktörleri farklı açıklanmaktadır.
@@ -46,7 +46,7 @@ Aracılar ve yönetim çözümleri farklı stratejiler gecikme süresini etkiley
 Log Analytics aracısını basit olmasını sağlamak için aracı günlüklerini arabelleğe alır ve bunları düzenli aralıklarla Log Analytics'e gönderir. Karşıya yükleme ve veri türüne bağlı olarak 2 dakika 30 saniye arasında sıklığı değişir. 1 dakika içinde en çok veriyi karşıya yüklendi. Ağ koşulları, bu veriler, Log Analytics alma noktası ulaşmak için gecikme süresini olumsuz yönde etkileyebilir.
 
 ### <a name="azure-logs-and-metrics"></a>Azure günlükleri ve ölçümler 
-Etkinlik günlüğü verileri Log Analytics'e başlatılabilmek için yaklaşık 5 dakika sürer. Tanılama günlükleri ve ölçüm verilerini Azure hizmete bağlı olarak kullanılabilir hale gelmesi için 1-5 dakika sürebilir. Ardından bir ek 30-60 Log Analytics alımı noktasına gönderilecek saniye günlükleri ve ölçüm verileri için 3 dakika sürer.
+Etkinlik günlüğü verileri Log Analytics'e başlatılabilmek için yaklaşık 5 dakika sürer. Tanılama günlükleri ve ölçüm verilerini işleme, bağlı olarak Azure hizmeti için kullanılabilir hale gelmesi için 1-15 dakika sürebilir. Kullanılabilir olduğunda, ardından bir ek 30-60 Log Analytics alımı noktasına gönderilecek saniye günlükleri ve ölçüm verileri için 3 dakika sürer.
 
 ### <a name="management-solutions-collection"></a>Yönetim çözümleri toplama
 Bazı çözümler verilerine bir Aracıdan toplamaz ve ek gecikme sağlayan bir koleksiyon yöntemi kullanabilir. Bazı çözümler, neredeyse gerçek zamanlı koleksiyon denemeden, düzenli aralıklarla veri toplayın. Belirli örnekler aşağıdakileri içerir:
@@ -73,22 +73,60 @@ Bu işlem şu anda yaklaşık 5 dakika sürer. daha yüksek veri fiyatları üze
 
 
 ## <a name="checking-ingestion-time"></a>Alım zamanı
-Kullanabileceğiniz **sinyal** gecikme verilerini aracılardan kestirmek için tablo. Bir kez sinyal gönderildiğinden bu yana bir dakika, son sistem durumu kaydı geçerli saati arasındaki farkı ideal olarak bir dakika olarak mümkün olduğunca yakın olacaktır.
+Alma süresi, farklı koşullarda farklı kaynaklar için değişiklik gösterebilir. Ortamınızı belirli davranışını tanımlamak için günlük sorguları kullanabilirsiniz.
 
-En yüksek gecikme süresiyle bilgisayarları listelemek için aşağıdaki sorguyu kullanın.
+### <a name="ingestion-latency-delays"></a>Alma Gecikme gecikmeleri
+Belirli bir kaydı gecikme süresini sonucunu karşılaştırarak ölçebilirsiniz [ingestion_time()](/azure/kusto/query/ingestiontimefunction) işlevi _TimeGenerated_ alan. Bu veri alımı gecikme nasıl davranacağını bulmak için çeşitli toplamalar ile kullanılabilir. Bazı yüzdebirlik büyük miktarda veri öngörüleri almak için alma süresini inceleyin. 
 
-    Heartbeat 
-    | summarize IngestionTime = now() - max(TimeGenerated) by Computer 
-    | top 50 by IngestionTime asc
+Örneğin, aşağıdaki sorguyu hangi bilgisayarların en yüksek alma geçerli gün içinde yansımamış gösterir: 
 
+``` Kusto
+Heartbeat
+| where TimeGenerated > ago(8h) 
+| extend E2EIngestionLatency = ingestion_time() - TimeGenerated 
+| summarize percentiles(E2EIngestionLatency,50,95) by Computer 
+| top 20 by percentile_E2EIngestionLatency_95 desc  
+```
  
-Büyük ortamlarda aşağıdaki sorguyu kullanın, toplam bilgisayar sayısı farklı yüzdelerini gecikme sürelerini özetler.
+Bir süre boyunca belirli bir bilgisayar için alma zamanında detaya gitmek grafikteki verileri görselleştiren aşağıdaki sorguyu kullanın: 
 
-    Heartbeat 
-    | summarize IngestionTime = now() - max(TimeGenerated) by Computer 
-    | summarize percentiles(IngestionTime, 50,95,99)
+``` Kusto
+Heartbeat 
+| where TimeGenerated > ago(24h) and Computer == "ContosoWeb2-Linux"  
+| extend E2EIngestionLatencyMin = todouble(datetime_diff("Second",ingestion_time(),TimeGenerated))/60 
+| summarize percentiles(E2EIngestionLatencyMin,50,95) by bin(TimeGenerated,30m) 
+| render timechart  
+```
+ 
+Bunlar, kendi IP adresine göre bulunur bilgisayar alma süresi ülkeye göre göstermek için aşağıdaki sorguyu kullanın: 
 
+``` Kusto
+Heartbeat 
+| where TimeGenerated > ago(8h) 
+| extend E2EIngestionLatency = ingestion_time() - TimeGenerated 
+| summarize percentiles(E2EIngestionLatency,50,95) by RemoteIPCountry 
+```
+ 
+Önceki sorguların diğer türleri ile kullanılabilecek şekilde Aracıdan gelen farklı veri türleri farklı alımı gecikme süresi olabilir. Çeşitli Azure Hizmetleri alma süresini incelemek için aşağıdaki sorguyu kullanın: 
 
+``` Kusto
+AzureDiagnostics 
+| where TimeGenerated > ago(8h) 
+| extend E2EIngestionLatency = ingestion_time() - TimeGenerated 
+| summarize percentiles(E2EIngestionLatency,50,95) by ResourceProvider
+```
+
+### <a name="resources-that-stop-responding"></a>Yanıt vermemeye kaynakları 
+Bazı durumlarda, veri gönderen bir kaynak durdurabilirsiniz. Bir kaynak veya veri gönderiyor, anlamak için standardı tarafından tanımlanan, en son kaydını bakın _TimeGenerated_ alan.  
+
+Kullanım _sinyal_ aracı tarafından gönderilen bir sinyal bir dakikadan beri bir sanal makine kullanılabilirliğini kontrol etmek için tablo. Sinyal son raporlanmayan etkin bilgisayarları listelemek için aşağıdaki sorguyu kullanın: 
+
+``` Kusto
+Heartbeat  
+| where TimeGenerated > ago(1d) //show only VMs that were active in the last day 
+| summarize NoHeartbeatPeriod = now() - max(TimeGenerated) by Computer  
+| top 20 by NoHeartbeatPeriod desc 
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Okuma [hizmet düzeyi sözleşmesi (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_1/) Log Analytics için.

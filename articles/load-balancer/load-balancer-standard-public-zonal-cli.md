@@ -1,7 +1,7 @@
 ---
 title: Azure CLI kullanarak bölgesel ön uç ile standart yük dengeleyici oluşturma
 titlesuffix: Azure Load Balancer
-description: Azure CLI kullanarak bölgesel genel IP adresi ön uç ile bir genel Load Balancer Standard oluşturma konusunda bilgi edinin
+description: Azure CLI kullanarak bölgesel genel IP adresi ön uç ile genel bir Standard Load Balancer oluşturma konusunda bilgi edinin
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: f1a6777a99c2237fc4d201fa5c87eaea88117866
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 813f11dae31261b4211480570a4801de19e74437
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185639"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199214"
 ---
-#  <a name="create-a-public-load-balancer-standard-with-zonal-frontend-using-azure-cli"></a>Azure CLI kullanarak bölgesel ön uç ile bir genel Load Balancer Standard oluşturma
+#  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-cli"></a>Azure CLI kullanarak bölgesel ön uç ile standart yük dengeleyici oluşturma
 
-Bu makalede adımları genel oluşturma işleminde [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) genel IP standart bir adres kullanarak bölgesel bir ön uç ile. Bu senaryoda, veri yolunuzu ve kaynaklarınızı belirli bir bölge ile hizalamak amacıyla ön uç ve arka uç örnekleriniz için belirli bir bölge belirtirsiniz.
+Bu makalede adımları genel oluşturma işleminde [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) genel IP standart bir adres kullanarak bölgesel bir ön uç ile. Bu senaryoda, veri yolunuzu ve kaynaklarınızı belirli bir bölge ile hizalamak amacıyla ön uç ve arka uç örnekleriniz için belirli bir bölge belirtirsiniz.
 
 Standart Yük Dengeleyici ile Kullanılabilirlik alanlarını kullanma hakkında daha fazla bilgi için [Standart Yük Dengeleyici ve Kullanılabilirlik Alanları](load-balancer-standard-availability-zones.md).
 
@@ -61,7 +61,7 @@ az network public-ip create \
 --zone 1
 ```
 
-## <a name="create-azure-load-balancer-standard"></a>Azure Load Balancer Standard oluşturma
+## <a name="create-azure-standard-load-balancer"></a>Azure Standard Load Balancer oluşturma
 Bu bölümde yük dengeleyicinin aşağıdaki bileşenlerini nasıl oluşturabileceğiniz ve yapılandırabileceğiniz açıklanmaktadır:
 - Yük dengeleyicideki gelen ağ trafiğini alan bir ön uç IP havuzu.
 - Ön uç havuzunun yük dengelemesi yapılmış ağ trafiğini gönderdiği bir arka uç IP havuzu.
@@ -69,7 +69,7 @@ Bu bölümde yük dengeleyicinin aşağıdaki bileşenlerini nasıl oluşturabil
 - Trafiğin sanal makinelere dağıtımını tanımlayan bir yük dengeleyici kuralı.
 
 ### <a name="create-the-load-balancer"></a>Yük dengeleyiciyi oluşturma
-Bir Standard load balancer ile oluşturma [az ağ lb oluşturma](/cli/azure/network/lb#az-network-lb-create). Aşağıdaki örnekte adlı bir yük dengeleyici oluşturur *myLoadBalancer* ve atar *Mypublicıp* ön uç IP yapılandırmasını adresi.
+Bir Standard Load Balancer ile oluşturma [az ağ lb oluşturma](/cli/azure/network/lb#az-network-lb-create). Aşağıdaki örnekte adlı bir yük dengeleyici oluşturur *myLoadBalancer* ve atar *Mypublicıp* ön uç IP yapılandırmasını adresi.
 
 ```azurecli-interactive
 az network lb create \

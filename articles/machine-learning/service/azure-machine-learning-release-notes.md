@@ -11,16 +11,18 @@ ms.author: haining
 ms.reviewer: j-martens
 ms.date: 12/20/2018
 ms.custom: seodec18
-ms.openlocfilehash: 157591897adb7495382b540dc1517c4c652a2632
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: a7a15e4cd8670e71e1000bc6b1827a4b9292302b
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190755"
+ms.locfileid: "54200624"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning hizmeti sürüm notları
 
 Bu makalede, Azure Machine Learning hizmet sürümleri hakkında bilgi edinin. 
+
+## <a name="2019-01-09"></a>2019-01-09
 
 ### <a name="azure-machine-learning-data-prep-sdk-v106"></a>Azure Machine Learning veri hazırlama SDK v1.0.6
 
@@ -29,7 +31,7 @@ Bu makalede, Azure Machine Learning hizmet sürümleri hakkında bilgi edinin.
 + **Hata düzeltmeleri**
   + Spark üzerinde okunabilir ortak Azure Blob kapsayıcıları okumaya ile ilgili hata düzeltildi
 
-## <a name="2018-12-20"></a>2018-12-20: 
+## <a name="2018-12-20"></a>2018-12-20 
 
 ### <a name="azure-machine-learning-sdk-for-python-v106"></a>Azure Machine SDK için Python v1.0.6 Learning
 

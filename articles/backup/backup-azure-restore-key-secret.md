@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6ac3c3d8f2a5ae37f1d32f9781f0cdbec0b293e8
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: b3bcd752f14f5d43c8cb8f686534e016690c7c40
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42060876"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198074"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Azure Backup kullanarak şifreli VM'ler için Key Vault anahtarını ve gizli anahtarı geri yükleme
 Bu makalede, anahtar ve gizli anahtar kasasında mevcut değilse Azure VM yedeklemesi şifrelenmiş Azure Vm'lerini geri yükleme gerçekleştirmek için kullanma hakkında konuşuyor. Geri yüklenen VM için ayrı bir anahtar (anahtar şifreleme anahtarı) ve gizli dizi (BitLocker şifreleme anahtarı) kopyasını tutmak istiyorsanız şu adımları da kullanılabilir.
@@ -28,8 +28,8 @@ Bu makalede, anahtar ve gizli anahtar kasasında mevcut değilse Azure VM yedekl
 
 > [!NOTE]
 > Şifrelenmiş sanal makine için disk geri yüklendikten sonra emin olun:
-> 1. $details belirtildiği gibi geri yükleme disk iş ayrıntıları ile doldurulmuş [PowerShell diskleri bölümüne geri yükleme adımları](backup-azure-vms-automation.md#restore-an-azure-vm)
-> 2. VM yalnızca geri yüklenen disklerden oluşturulması **anahtar ve gizli dizi geri sonra anahtar kasasına**.
+> * $details belirtildiği gibi geri yükleme disk iş ayrıntıları ile doldurulmuş [PowerShell diskleri bölümüne geri yükleme adımları](backup-azure-vms-automation.md#restore-an-azure-vm)
+> * VM yalnızca geri yüklenen disklerden oluşturulması **anahtar ve gizli dizi geri sonra anahtar kasasına**.
 >
 >
 
@@ -61,7 +61,10 @@ PS C:\> Restore-AzureKeyVaultKey -VaultName '<target_key_vault_name>' -InputFile
 ```
 
 ## <a name="restore-secret"></a>Gizli anahtarı geri yükleme
-Gizli anahtar kasasında gizli dizi (BEK) geri put cmdlet'ini ayarlamak için yukarıdaki'gizli dizi adı ve değeri alın ve bu akışı oluşturulan JSON dosyası kullanın. **BEK ve KEK kullanarak VM'nizi şifreli değilse bu cmdlet'leri kullanın.**
+
+Azure AD olmadan Azure VM şifreli değilse BEK kullanarak yalnızca (Windows ve Linux Vm'leri için), yukarıdaki komutların değer katar ve gizli dizi adı oluşturmak ve ayarlamak anahtar kasasında gizli dizi (BEK) koymak için gizli cmdlet'i için akış.
+
+**Windows VM'nizi BEK ve KEK kullanılarak şifrelendiyse, bu cmdlet'leri kullanın.**
 
 ```
 PS C:\> $secretdata = $encryptionObject.OsDiskKeyAndSecretDetails.SecretData
@@ -71,17 +74,27 @@ PS C:\> $Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncry
 PS C:\> Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -SecretValue $Secret -ContentType  'Wrapped BEK' -Tags $Tags
 ```
 
-Sanal makinenizin ise **BEK yalnızca kullanılarak şifrelenmiş**JSON'dan gizli blob dosyası oluşturmak ve onu gizli cmdlet'i anahtar kasasında gizli dizi (BEK) moduna geri yüklemek için akış.
+**BEK ve KEK kullanarak Linux VM şifreli değilse bu cmdlet'leri kullanın.**
+
+```
+PS C:\> $secretdata = $encryptionObject.OsDiskKeyAndSecretDetails.SecretData
+PS C:\> $Secret = ConvertTo-SecureString -String $secretdata -AsPlainText -Force
+PS C:\> $secretname = 'B3284AAA-DAAA-4AAA-B393-60CAA848AAAA'
+PS C:\> $Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncryptionKeyFileName' = 'LinuxPassPhraseFileName';'DiskEncryptionKeyEncryptionKeyURL' = $encryptionObject.OsDiskKeyAndSecretDetails.KeyUrl;'MachineName' = 'vm-name'}
+PS C:\> Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -SecretValue $Secret -ContentType  'Wrapped BEK' -Tags $Tags
+```
+
+AD ile Azure VM ise **BEK yalnızca kullanılarak şifrelenmiş**JSON'dan gizli blob dosyası oluşturmak ve onu gizli cmdlet'i anahtar kasasında gizli dizi (BEK) moduna geri yüklemek için akış.
 
 ```
 PS C:\> $secretDestination = 'C:\secret.blob'
 PS C:\> [io.file]::WriteAllBytes($secretDestination, [System.Convert]::FromBase64String($encryptionObject.OsDiskKeyAndSecretDetails.KeyVaultSecretBackupData))
 PS C:\> Restore-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -InputFile $secretDestination -Verbose
-```
+  ```
 
 > [!NOTE]
-> 1. Değer $secretname $encryptionObject.OsDiskKeyAndSecretDetails.SecretUrl çıkışına başvuran ve sonra gizli metin kullanılarak edinilebilir / örn çıkış gizli URL'si için https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 ve gizli dizi adı B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
-> 2. Etiket DiskEncryptionKeyFileName gizli dizi adı aynı değeri.
+> * Değer $secretname $encryptionObject.OsDiskKeyAndSecretDetails.SecretUrl çıkışına başvuran ve sonra gizli metin kullanılarak edinilebilir / örn çıkış gizli URL'si için https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 ve gizli dizi adı B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
+> * Etiket DiskEncryptionKeyFileName gizli dizi adı aynı değeri.
 >
 >
 
@@ -111,9 +124,9 @@ PS C:\> Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secr
 ```
 
 > [!NOTE]
-> 1. $Secretname için değer $rp1 çıkışına başvurarak elde edilebilir. KeyAndSecretDetails.SecretUrl ve sonra gizli metin kullanarak / çıkış parolası URL'si örn, https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 ve gizli dizi adı B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
-> 2. Etiket DiskEncryptionKeyFileName gizli dizi adı aynı değeri.
-> 3. DiskEncryptionKeyEncryptionKeyURL değeri elde edilebilir anahtar kasasından anahtarlar geri geri yükleme ve kullanma sonra [Get-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/get-azurekeyvaultkey) cmdlet'i
+> * $Secretname için değer $rp1 çıkışına başvurarak elde edilebilir. KeyAndSecretDetails.SecretUrl ve sonra gizli metin kullanarak / çıkış parolası URL'si örn, https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 ve gizli dizi adı B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
+> * Etiket DiskEncryptionKeyFileName gizli dizi adı aynı değeri.
+> * DiskEncryptionKeyEncryptionKeyURL değeri elde edilebilir anahtar kasasından anahtarlar geri geri yükleme ve kullanma sonra [Get-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/get-azurekeyvaultkey) cmdlet'i
 >
 >
 

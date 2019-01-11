@@ -14,12 +14,12 @@ ms.date: 11/07/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: a64f92df7592b4df419e5f70a32f631ca0504c6c
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 148a657b1a5db5b1b33c94e27d695e7c24dfb265
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994224"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214650"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory'de gruplar için dinamik Üyelik kuralları
 
@@ -348,7 +348,7 @@ Aşağıdaki cihaz öznitelikleri kullanılabilir.
  accountEnabled | doğru yanlış | (device.accountEnabled - eq true)
  displayName | herhangi bir dize değeri |(device.displayName - eq "Rob Iphone")
  deviceOSType | herhangi bir dize değeri | (cihaz.cihazostürü - eq "iPad")- veya (cihaz.cihazostürü - eq "iPhone")
- deviceOSVersion | herhangi bir dize değeri | (cihaz. OSVersion - eq "9.1")
+ deviceOSVersion | herhangi bir dize değeri | (device.deviceOSVersion - eq "9.1")
  deviceCategory | Geçerli cihaz kategorisi adı | (device.deviceCategory - eq "KCG")
  deviceManufacturer | herhangi bir dize değeri | (device.deviceManufacturer - eq "Samsung")
  deviceModel | herhangi bir dize değeri | (device.deviceModel - eq "iPad hava")

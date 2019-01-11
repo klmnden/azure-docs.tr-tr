@@ -1,22 +1,22 @@
 ---
 title: Azure IoT Central'da yeni bir cihaz türü tanımlama | Microsoft Docs
 description: Bu öğreticide, bir oluşturucu olarak Azure IoT Central uygulamanızda yeni bir cihaz türünü nasıl tanımlayacağınız gösterilir. Türünüz için telemetriyi, durumu, özellikleri ve ayarları tanımlarsınız.
-author: tbhagwat3
-ms.author: tanmayb
+author: dominicbetts
+ms.author: dobett
 ms.date: 10/30/2018
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-manager: peterpr
-ms.openlocfilehash: dd81c10bcda6665de7ffabe94a4c1be991687797
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
-ms.translationtype: HT
+manager: philmea
+ms.openlocfilehash: d50059fb6fe03309609c91b56fb3763bad32e46b
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963614"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199978"
 ---
-# <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Öğretici: Azure IoT Central uygulamanızda yeni bir cihaz türü tanımlama
+# <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Öğretici: Azure IOT Central, uygulamanızda yeni bir cihaz türünü tanımlayın
 
 Bu öğreticide, bir oluşturucu olarak Microsoft Azure IoT Central uygulamanızda yeni bir cihaz türü tanımlamak için cihaz şablonunu nasıl tanımlayacağınız gösterilir. Cihaz şablonu, cihaz türünüz için telemetriyi, durumu, özellikleri ve ayarları tanımlar.
 
@@ -43,7 +43,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Komutları kullanma
 > * Simülasyon cihazınızı panoda görüntüleme
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için bir Azure IoT Central uygulamanızın olması gerekir. [Azure IoT Central uygulamasını oluşturma](quick-deploy-iot-central.md) hızlı başlangıcını tamamladıysanız, hızla başlangıçta oluşturduğunuz uygulamayı yeniden kullanabilirsiniz. Aksi takdirde, aşağıdaki adımları tamamlayarak boş bir Azure IoT Central uygulaması oluşturun:
 
@@ -405,7 +405,7 @@ Artık **Bağlı Klima** cihaz şablonunuzu tanımladığınıza göre, **Panosu
 
     | Ayar      | Değer       |
     | ------------ | ----------- |
-    | Başlık        | Sıcaklık |
+    | Unvan        | Sıcaklık |
     | Zaman Aralığı   | Son 30 dakika |
     | Ölçüler     | sıcaklık (**sıcaklık** öğesinin yanındaki **Görünürlük** düğmesini seçin) |
 
@@ -417,7 +417,7 @@ Artık **Bağlı Klima** cihaz şablonunuzu tanımladığınıza göre, **Panosu
 
     | Ayar      | Değer       |
     | ------------ | ----------- |
-    | Başlık        | Olaylar |
+    | Unvan        | Olaylar |
     | Zaman Aralığı   | Son 30 dakika |
     | Ölçüler     | Fan Motoru Hatası (**Fan Motoru Hatası**'nın yanındaki **Görünürlük** düğmesini seçin) |
 
@@ -429,7 +429,7 @@ Artık **Bağlı Klima** cihaz şablonunuzu tanımladığınıza göre, **Panosu
 
     | Ayar      | Değer       |
     | ------------ | ----------- |
-    | Başlık        | Fan Modu |
+    | Unvan        | Fan Modu |
     | Zaman Aralığı   | Son 30 dakika |
     | Ölçüler | Fan Modu (**Fan Modu** öğesinin yanındaki **Görünürlük** düğmesini seçin) |
 
@@ -445,7 +445,7 @@ Artık **Bağlı Klima** cihaz şablonunuzu tanımladığınıza göre, **Panosu
 
     | Ayar                 | Değer         |
     | ----------------------- | ------------- |
-    | Başlık                   | Hedef sıcaklığı ayarlama |
+    | Unvan                   | Hedef sıcaklığı ayarlama |
     | Ayarlar ve Özellikler | Sıcaklığı Ayarla |
 
     Ayarlar ve Özellikler sayfalarında önceden tanımlamış olduğunuz ayarlar ve özellikler, Kullanılabilir Sütunlar bölümünde gösterilir. 
@@ -462,7 +462,7 @@ Artık **Bağlı Klima** cihaz şablonunuzu tanımladığınıza göre, **Panosu
 
     | Ayar                 | Değer         |
     | ----------------------- | ------------- |
-    | Başlık                   | Seri numarası |
+    | Unvan                   | Seri numarası |
     | Ayarlar ve Özellikler | Seri numarası |
 
     ![Seri numarası özellik ayarları](./media/tutorial-define-device-type/propertysettings5.png)
@@ -477,7 +477,7 @@ Artık **Bağlı Klima** cihaz şablonunuzu tanımladığınıza göre, **Panosu
 
     | Ayar                 | Değer            |
     | ----------------------- | ---------------- |
-    | Başlık                   | Üretici yazılımı sürümü |
+    | Unvan                   | Üretici yazılımı sürümü |
     | Ayarlar ve Özellikler | Üretici yazılımı sürümü |
 
     ![Seri numarası özellik ayarları](./media/tutorial-define-device-type/propertysettings6.png)

@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e5ceae2959f79c677f5b89c0c3f0a487f92ad1c6
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: c6d36f3e1cef4fffbe38b0a70d42069577590627
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623188"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54212269"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory raporlama gecikmeleri
 
@@ -40,10 +40,14 @@ Aşağıdaki tabloda, etkinlik raporları gecikme bilgileri listeler.
 > **Gecikme süresi (yüzde 95'lik dilim)** olarak %95 günlükler bildirilir, süresi başvurur ve **gecikme (99. yüzdebirlik dilimde)** olarak %99 günlükler bildirilir süresini gösterir. 
 >
 
-| Rapor | Gecikme süresi (yüzde 95'lik dilim) |Gecikme (99. yüzdebirlik dilimde)|
-| :-- | --- | --- | 
-| Denetim günlükleri | 2 dk.  | 5 dk.  |
-| Oturum açma işlemleri | 2 dk.  | 5 dk. |
+| Rapor | Gecikme süresi (yüzde 95'lik dilim) |Gecikme (99. yüzdebirlik dilimde)|Zaman aralığı içinde günlükleri raporlanır.|
+| :-- | --- | --- | --- |
+| Denetim günlükleri | 2 dk.  | 5 dk.  | 2-60 dakika |
+| Oturum açma işlemleri | 2 dk.  | 5 dk. | 2-120 dakika |
+
+### <a name="how-soon-can-i-see-activities-data-after-getting-a-premium-license"></a>Etkinlikler verileri bir premium lisansı aldıktan sonra en kısa sürede nasıl görebilirim?
+
+Etkinlikleri veriler, ücretsiz lisansa zaten varsa, daha sonra bunu hemen yükseltmeyi görebilirsiniz. Herhangi bir veri yoksa, raporlarda görünmesi için bir premium lisansı yükselttikten sonra verilerin bir veya iki gün sürebilir.
 
 ## <a name="security-reports"></a>Güvenlik raporları
 

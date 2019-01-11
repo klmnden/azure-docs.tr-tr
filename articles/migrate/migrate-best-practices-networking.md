@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: raynew
-ms.openlocfilehash: c6a995c20beefb3a939aa1421eed537137037922
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 6d679cc3d24e2f0f2cb79eb2c9f02422d0818c80
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994972"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215278"
 ---
 # <a name="best-practices-to-set-up-networking-for-workloads-migrated-to-azure"></a>İş yükleri için ağ kurma için en iyi uygulamaları için Azure geçişi
 
@@ -185,7 +185,7 @@ Siteden siteye VPN ayarlama, aşağıdakileri yapın:
 **Daha fazla bilgi edinin:**
 
 - [Gözden geçirme](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices) uyumlu şirket içi VPN cihazları.
-- [Genel bakışın](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateway) VPN ağ geçitlerini.
+- [Genel bakışın](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) VPN ağ geçitlerini.
 - [Hakkında bilgi edinin](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-highlyavailable) yüksek oranda kullanılabilir VPN bağlantıları.
 - [Hakkında bilgi edinin](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design) planlayıp tasarlarken bir VPN ağ geçidi.
 - [Gözden geçirme](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku) VPN gateway ayarları.

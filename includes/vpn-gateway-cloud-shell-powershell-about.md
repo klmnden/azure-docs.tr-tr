@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 10/25/2018
+ms.date: 01/09/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 6a0ea318f2e9b8f392ac7c0a1f1091c062c59d41
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: d0f43a4e031ccd24ced5bc66ea33564e3a0e44c3
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52852373"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193494"
 ---
 Bu makalede PowerShell cmdlet'lerini kullanır. Cmdlet'leri çalıştırmak için Azure Cloud Shell, kullanabileceğiniz ücretsiz bir etkileşimli Kabuk. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. **Kopyala**’ya tıklayarak kodu kopyalayın, Cloud Shell’e yapıştırın ve Enter tuşuna basarak çalıştırın. Cloud Shell’i başlatmanın birkaç yolu vardır:
 
@@ -26,4 +26,4 @@ Bu makalede PowerShell cmdlet'lerini kullanır. Cmdlet'leri çalıştırmak içi
 
 Azure Cloud Shell'i kullanmak istemiyorsanız, PowerShell'i yerel olarak bunun yerine yükleyebilirsiniz. PowerShell'i yerel olarak yükleyip kullanmayı seçerseniz, en yeni özelliklerin işlevselliğine sahip olmak için Azure Resource Manager PowerShell cmdlet'lerinin en son sürümünü yüklediğinizden emin olun.
 
-Yerel olarak çalışan PowerShell sürümünü bulmak için 'Get-Module - ListAvailable AzureRM' cmdlet'ini kullanın. Güncelleştirmek için bkz: [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). Daha fazla bilgi için bkz. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/overview).
+Yerel olarak çalışan PowerShell sürümünü bulmak için 'Get-Module - ListAvailable AzureRM' cmdlet'ini kullanın. Güncelleştirmek için bkz: [Azure PowerShell modülünü yükleme](/powershell/azure/azurerm/install-azurerm-ps). Daha fazla bilgi için bkz. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/azurerm/overview).

@@ -1,7 +1,7 @@
 ---
 title: Azure CLI ile bölgesel olarak yedekli VMs Yük Dengelemesi
 titlesuffix: Azure Load Balancer
-description: Azure CLI kullanarak bölge yedekli ön uç ile bir genel Load Balancer Standard oluşturma konusunda bilgi edinin
+description: Azure CLI kullanarak bölge yedekli ön uç ile genel bir Standard Load Balancer oluşturma konusunda bilgi edinin
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: kumud
-ms.openlocfilehash: 82bb0387d8f1603b4b436bfe70d75d19b88f28b1
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 7359be235135098779478eebc8a8927e34904ac1
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250816"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54197802"
 ---
 #  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>Azure CLI kullanarak tüm kullanılabilirlik alanları genelinde Yük Dengeleme sanal makineleri
 
-Bu makalede adımları genel oluşturma işleminde [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) bölge artıklığı birden çok DNS kayıtlarını bağımlılığı olmadan elde etmek için bölgesel olarak yedekli bir ön uç ile. Tek bir ön uç IP adresi otomatik olarak bölgesel olarak yedekli.  Tek bir IP adresi ile yük dengeleyiciniz için bir bölge yedekli ön uç kullanarak, tüm kullanılabilirlik alanları genelinde bir bölgedeki bir sanal ağdaki herhangi bir VM artık ulaşabilirsiniz. Uygulamalarınızı beklenmeyen hatalardan veya tüm veri merkezinin kaybedilmesinden korumak için kullanılabilirlik alanlarından yararlanın.
+Bu makalede adımları genel oluşturma işleminde [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) bölge artıklığı birden çok DNS kayıtlarını bağımlılığı olmadan elde etmek için bölgesel olarak yedekli bir ön uç ile. Tek bir ön uç IP adresi otomatik olarak bölgesel olarak yedekli.  Tek bir IP adresi ile yük dengeleyiciniz için bir bölge yedekli ön uç kullanarak, tüm kullanılabilirlik alanları genelinde bir bölgedeki bir sanal ağdaki herhangi bir VM artık ulaşabilirsiniz. Uygulamalarınızı beklenmeyen hatalardan veya tüm veri merkezinin kaybedilmesinden korumak için kullanılabilirlik alanlarından yararlanın.
 
 Standart Yük Dengeleyici ile Kullanılabilirlik alanlarını kullanma hakkında daha fazla bilgi için [Standart Yük Dengeleyici ve Kullanılabilirlik Alanları](load-balancer-standard-availability-zones.md).
 
@@ -60,7 +60,7 @@ az network public-ip create \
 --sku Standard
 ```
 
-## <a name="create-azure-load-balancer-standard"></a>Azure Load Balancer Standard oluşturma
+## <a name="create-azure-standard-load-balancer"></a>Azure Standard Load Balancer oluşturma
 Bu bölümde yük dengeleyicinin aşağıdaki bileşenlerini nasıl oluşturabileceğiniz ve yapılandırabileceğiniz açıklanmaktadır:
 - Yük dengeleyicideki gelen ağ trafiğini alan bir ön uç IP havuzu.
 - Ön uç havuzunun yük dengelemesi yapılmış ağ trafiğini gönderdiği bir arka uç IP havuzu.

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 6d15715379b06f55e1e190ebf5410995e3703d70
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 3b49d568b1ca19a99359314bb181712f56ca5615
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053339"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201066"
 ---
 # <a name="control-access-to-iot-hub"></a>IoT Hub’a erişimi denetleme
 
@@ -418,7 +418,7 @@ Belirteç Hizmeti deseninin ana adımlar şunlardır:
 4. Cihaz/modül Bu belirteci doğrudan IOT hub ile kullanır.
 
 > [!NOTE]
-> .NET sınıf kullanabileceğiniz [SharedAccessSignatureBuilder](https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx) veya Java sınıfı [IotHubServiceSasToken](/java/api/com.microsoft.azure.sdk.iot.service.auth._iot_hub_service_sas_token) belirteci hizmetinizde bir belirteç oluşturmak için.
+> .NET sınıf kullanabileceğiniz [SharedAccessSignatureBuilder](https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx) veya Java sınıfı [IotHubServiceSasToken](/java/api/com.microsoft.azure.sdk.iot.service.auth.iothubservicesastoken) belirteci hizmetinizde bir belirteç oluşturmak için.
 
 Belirteç Hizmeti, belirteci süre sonu istediğiniz gibi ayarlayabilirsiniz. Belirtecin süresi dolduğunda, IOT hub cihaz/modülü bağlantı sunucularından. Ardından, cihaz/modül belirteci Hizmeti'nden yeni bir belirteç isteği göndermelidir. Kısa bir süre sonu zamanı cihaz/modülü hem belirteci hizmet üzerindeki yükü artırır.
 

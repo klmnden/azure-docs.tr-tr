@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: ccdfbc38cb39f2c0aa839dc56022192e9e389d95
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 3e40dbb96b27df4b228c52e7a8f70d047a556c31
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187426"
+ms.locfileid: "54198534"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Uygulama ağ geçidi (genel Önizleme) ile yeniden yazma HTTP üstbilgileri
 
@@ -116,8 +116,6 @@ Bu özellik aşağıdaki sunucu değişkenleri yazmaksızın üstbilgileri deste
 ## <a name="limitations"></a>Sınırlamalar
 
 - HTTP üstbilgileri yeniden yazmak için bu özelliği şu anda yalnızca Azure PowerShell, Azure API ve Azure SDK'sı kullanılabilir. Portal ve Azure CLI aracılığıyla destek yakında kullanıma sunulacak.
-
-- Application Gateway'iniz üstbilgi yeniden uyguladıktan sonra portal özelliği, portalı desteklenen kadar sonraki değişiklikler, uygulama ağ geçidine yapmak için kullanmamanız gerekir. Bir yeniden yazma kuralı uyguladıktan sonra uygulama ağ geçidine değişiklik yapmak için portalı kullanıyorsanız, üstbilgi kuralı yeniden yazın. Azure PowerShell, Azure API'leri veya Azure SDK'sını kullanarak değişiklik yapmaya devam.
 
 - HTTP üst bilgisi yeniden yazma desteği yalnızca yeni SKU üzerinde desteklenir [Standard_V2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant). Bu özellik eski SKU üzerinde desteklenmez.
 

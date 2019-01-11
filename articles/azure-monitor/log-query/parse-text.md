@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
-ms.openlocfilehash: 03268981bcfe90f14f35c74effe5799dd31e4ac0
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 0d589156824c7b9f3f6a8c31591d69479d11780a
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185792"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214139"
 ---
 # <a name="parse-text-data-in-log-analytics"></a>Log analytics'te metin verileri ayrıştırma
 Bazı veriler, log Analytics tarafından toplanan bilgilerin birden çok parça içinde tek bir özellik içerir. Bu veriler birden çok özelliklerini ayrıştırma kolaylaştıran sorguları kullanın. Bir ortak örnek bir [özel günlük](../../log-analytics/log-analytics-data-sources-custom-logs.md) , tek bir özellikte birden çok değer içeren bir tüm günlük girdisi toplar. Farklı değerleri için ayrı özellikler oluşturarak, arama yapabilirsiniz ve her toplama.
@@ -98,7 +98,7 @@ AzureActivity
 
 
 ### <a name="regular-expressions"></a>Normal ifadeler
-Normal bir ifade ile verilerinizi tanımlanabilir, kullanabileceğiniz [normal ifadeler kullanan işlevler](/azure/kusto/query/re2) bireysel değerlerini ayıklamak için. Aşağıdaki örnekte [ayıklamak](/kusto/query/extractfunction) şekilde _UPN_ alanını _AzureActivity_ kaydeder ve sonra ayrı kullanıcıların dönün.
+Normal bir ifade ile verilerinizi tanımlanabilir, kullanabileceğiniz [normal ifadeler kullanan işlevler](/azure/kusto/query/re2) bireysel değerlerini ayıklamak için. Aşağıdaki örnekte [ayıklamak](/azure/kusto/query/extractfunction) şekilde _UPN_ alanını _AzureActivity_ kaydeder ve sonra ayrı kullanıcıların dönün.
 
 ```Kusto
 AzureActivity

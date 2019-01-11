@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2018
+ms.date: 01/11/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.openlocfilehash: 15f358f76504436dd6a3cf6a39b10531a9e1b376
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: f5826b2a6935bb448a7a3ef94d9a5f27f1ed9426
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055175"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214598"
 ---
 # <a name="azure-stack-1811-update"></a>Azure Stack 1811 güncelleştirme
 
@@ -82,9 +82,9 @@ Azure Stack düzeltmeleri düzenli olarak serbest bırakır. Yüklediğinizden e
     then resume the update.
     Exception: The Certificate path does not exist: [certificate path here]` 
  
-    Düzgün bir şekilde zorunlu uzantısı ana bilgisayar sertifikaları içe aktardıktan sonra yönetici portalından 1811 güncelleştirme devam edebilir. Microsoft Azure Stack operatörlerinin ölçek birimi güncelleştirme işlemi sırasında bakım moduna yerleştirmek için önerir, ancak bir hata nedeniyle eksik uzantı ana bilgisayar sertifikaları var olan iş yükleri veya hizmetleri etkilememesi gerekir.  
+    Düzgün bir şekilde zorunlu uzantısı ana bilgisayar sertifikaları içe aktardıktan sonra yönetici portalından 1811 güncelleştirme devam edebilir. Microsoft Azure Stack operatörleri güncelleştirme işlemi sırasında bir bakım penceresi zamanlamak üzere önerir, ancak bir hata nedeniyle eksik uzantı ana bilgisayar sertifikaları var olan iş yükleri veya hizmetleri etkilememesi gerekir.  
 
-    Bu güncelleştirmenin yüklenmesi sırasında Azure Stack Kullanıcı Portalı uzantısı konağı yapılandırılırken kullanılamaz. Uzantı konağın yapılandırmasını 5 saate kadar sürebilir. Bu süre boyunca, bir güncelleştirmenin durumunu denetleyebilir, veya kullanarak bir başarısız güncelleştirme yüklemesi devam [Azure Stack yönetici PowerShell veya ayrıcalıklı uç nokta](azure-stack-monitor-update.md).
+    Bu güncelleştirmenin yüklenmesi sırasında Azure Stack Kullanıcı Portalı uzantısı konağı yapılandırılırken kullanılamaz. Uzantı konağın yapılandırmasını 5 saate kadar sürebilir. Bu süre boyunca bir güncelleştirmenin durumunu denetleyebilir veya [Azure Stack Yöneticisi PowerShell veya ayrıcalıklı uç noktayı](azure-stack-monitor-update.md) kullanarak başarısız bir güncelleştirme yüklemesini sürdürebilirsiniz.
 
 ## <a name="new-features"></a>Yeni Özellikler
 
@@ -195,7 +195,7 @@ Bu güvenlik açıkları hakkında daha fazla bilgi için yukarıdaki bağlantı
 
 - Çalıştırırken [Test AzureStack](azure-stack-diagnostic-test.md), ya da **AzsInfraRoleSummary** veya **AzsPortalApiSummary** test başarısız olursa, çalıştırmanız istenir  **Test-AzureStack** ile `-Repair` bayrağı.  Bu komutu çalıştırırsanız, şu hata iletisiyle başarısız olur:  `Unexpected exception getting Azure Stack health status. Cannot bind argument to parameter 'TestResult' because it is null.`  Bu sorun gelecekteki bir sürümde düzeltilecektir.
 
-- 1811 güncelleştirme yüklemesi sırasında Azure Stack kullanım portal uzantısı konağı yapılandırılırken kullanılamıyor. Uzantı konağın yapılandırmasını 5 saate kadar sürebilir. Bu süre boyunca, bir güncelleştirmenin durumunu denetleyebilir, veya kullanarak bir başarısız güncelleştirme yüklemesi devam [Azure Stack yönetici PowerShell veya ayrıcalıklı uç nokta](azure-stack-monitor-update.md). 
+- 1811 güncelleştirme yüklemesi sırasında Azure Stack kullanım portal uzantısı konağı yapılandırılırken kullanılamıyor. Uzantı konağın yapılandırmasını 5 saate kadar sürebilir. Bu süre boyunca bir güncelleştirmenin durumunu denetleyebilir veya [Azure Stack Yöneticisi PowerShell veya ayrıcalıklı uç noktayı](azure-stack-monitor-update.md) kullanarak başarısız bir güncelleştirme yüklemesini sürdürebilirsiniz. 
 
 - 1811 güncelleştirme yüklemesi sırasında kullanıcı portalı Pano kullanılamayabilir ve özelleştirmeler kaybolmuş olabilir. Portal ayarlarını açıp seçerek Güncelleştirme tamamlandıktan sonra varsayılan ayarı Pano geri yükleyebilirsiniz **varsayılan ayarları geri**.
 
@@ -254,6 +254,12 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 ### <a name="compute"></a>İşlem
 
 - Yeni bir Windows sanal makine (VM), oluştururken **ayarları** dikey gerektirir devam edebilmek için bir ortak gelen bağlantı noktası seçin. 1811, bu ayar gerekli değildir, ancak hiçbir etkisi olmaz. Azure güvenlik duvarı, Azure Stack'te uygulanmadı özelliğin bağımlı olmasıdır. Seçebileceğiniz **Hayır ortak gelen bağlantı noktası**, ya da VM oluşturma işlemine devam etmek için diğer seçeneklerden herhangi biri. Ayarın hiçbir etkisi olmaz.
+
+- Yeni bir Windows sanal makine (VM) oluştururken, aşağıdaki hata görüntülenebilir:
+
+   `'Failed to start virtual machine 'vm-name'. Error: Failed to update serial output settings for VM 'vm-name'`
+
+   Bir VM'de önyükleme tanılamalarını etkinleştirir, ancak önyükleme tanılama depolama hesabınızı silerseniz bu hata oluşur. Bu sorunu çözmek için önceden kullanılmış şekilde aynı ada sahip depolama hesabını yeniden oluşturun.
 
 <!-- 3235634 – IS, ASDK -->
 - Vm'leri içeren boyutları ile dağıtmak için bir **v2** soneki; Örneğin, **işler için standart_a2_v2**, sonek olarak belirtmek **işler için standart_a2_v2** (küçük harf v). Kullanmayın **işler için standart_a2_v2** (Büyük Harf V). Bu genel Azure'da çalışır ve Azure Stack'te bir tutarsızlık olduğunu.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: a2213ac9b31623aed18855ce87e7e00870b05247
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: c3aef8c0c05c8f018a3218e15fd102163b89084f
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107236"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214751"
 ---
 # <a name="log-analytics-faq"></a>Log Analytics SSS
 Bu Microsoft FAQ, Microsoft azure'da Log Analytics hakkında sık sorulan soruların listesini içerir. Log Analytics hakkında ek sorularınız varsa, Git [tartışma forumuna](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) ve sorularınızı gönderin. Sık sorulan bir soru, böylece hızla ve kolayca bulunabilir, bu makaleye ekleriz.
@@ -63,7 +63,7 @@ C: Sanal makine günlükleri görüntülemek için VM günlüklerine depolayan o
 
 ### <a name="q-why-can-i-can-access-my-workspace-in-oms-portal-but-i-get-the-error-you-have-no-access-in-the-azure-portal"></a>S. OMS portalında çalışma Alanım erişebilirim, ancak hata alıyorum neden "Azure portalında erişiminiz yok"?  
 
-C: Azure'da bir çalışma alanına erişmek için atanan Azure izinleri olmalıdır. Burada uygun erişim izni olmayabilir bazı durumlar vardır. Bu gibi durumlarda yöneticinize Azure.See de izinlerle sağlamanız gerekir [Azure'a taşıyarak OMS portalında](/../../azure-monitor/platform/oms-portal-transition.md) daha fazla bilgi için.
+C: Azure'da bir çalışma alanına erişmek için atanan Azure izinleri olmalıdır. Burada uygun erişim izni olmayabilir bazı durumlar vardır. Bu gibi durumlarda yöneticinize Azure.See de izinlerle sağlamanız gerekir [Azure'a taşıyarak OMS portalında](oms-portal-transition.md) daha fazla bilgi için.
 
 ### <a name="q-why-cant-i-cant-see-view-designer-entry-in-logs"></a>S. Neden Görünüm Tasarımcısı giriş günlüklerinde göremiyorum olamaz? 
 C: Görünüm Tasarımcısı yalnızca katkıda bulunan izinlerine sahip ya da daha yüksek atanan kullanıcılar için günlüklerde kullanılabilir.

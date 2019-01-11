@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a1e9647e64556a7c7f2444fa2711a2eb61d230a3
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 36c16cd48ffba704b9cc8b0884491c3b92543b5c
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874592"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215499"
 ---
 # <a name="azure-logging-and-auditing"></a>Azure günlük kaydı ve denetim
 
@@ -187,9 +187,9 @@ Depolama analizi, aşağıdaki türde kimliği doğrulanmış ve anonim istekler
 ### <a name="azure-networking-logs"></a>Azure ağ günlükleri
 Günlüğe kaydetme ve Azure'da izleme ağ kapsamlı ve iki geniş kategoriye kapsar:
 
-* [Ağ İzleyicisi](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-watcher): Senaryo tabanlı ağ izleme Ağ İzleyicisi özellikleri ile birlikte sağlanır. Bu hizmet içeren paket yakalama, sonraki atlama IP akışı doğrulama, güvenlik grubu görünümü, NSG akış günlükleri. Senaryo düzeyi izleme ağ kaynaklarını tek tek ağ kaynak izleme aksine bir uçtan uca görünümünü sağlar.
+* [Ağ İzleyicisi](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-watcher): Senaryo tabanlı ağ izleme Ağ İzleyicisi özellikleri ile sağlanır. Bu hizmet içeren paket yakalama, sonraki atlama IP akışı doğrulama, güvenlik grubu görünümü, NSG akış günlükleri. Senaryo düzeyi izleme ağ kaynaklarını tek tek ağ kaynak izleme aksine bir uçtan uca görünümünü sağlar.
 
-* [Kaynak İzleme](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-resource-level-monitoring): kaynak düzeyi izleme dört özellikleri, tanılama günlükleri, ölçümler, sorun giderme ve kaynak durumu oluşur. Bu özelliklerin tümü ağ kaynak düzeyinde oluşturulur.
+* [Kaynak İzleme](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-resource-level-monitoring): Kaynak düzeyi izleme dört özellikleri, tanılama günlükleri, ölçümler, sorun giderme ve kaynak durumu oluşur. Bu özelliklerin tümü ağ kaynak düzeyinde oluşturulur.
 
 ![Azure ağ günlükleri](./media/azure-log-audit/azure-log-audit-fig4.png)
 
@@ -219,19 +219,19 @@ Ağ İzleyicisi, bir tanılama günlükleri görünümü sağlar. Bu görünüm,
 
 
 Yukarıda açıklanan günlük özelliklere ek olarak Ağ İzleyicisi şu anda aşağıdaki özellikleri içerir:
-- [Topoloji](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-overview): çeşitli bağlantılar ve bir kaynak grubundaki ağ kaynakları arasındaki ilişkileri gösteren bir ağ düzeyinde görünümü sağlar.
+- [Topoloji](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-overview): Çeşitli bağlantılar ve bir kaynak grubundaki ağ kaynakları arasındaki ilişkileri gösteren bir ağ düzeyinde görünümü sağlar.
 
-- [Değişken paket yakalama](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview): bir sanal makine içine ve dışına paket verilerini yakalar. Gelişmiş filtreleme seçenekleri ve zaman ve boyut sınırlaması ayarları gibi ince ayar yapma denetimleri yönlülük sağlar. Paket verileri blob depolama veya yerel diskte depolanan *.cap* dosya biçimi.
+- [Değişken paket yakalama](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview): Bir sanal makine içine ve dışına paket verilerini yakalar. Gelişmiş filtreleme seçenekleri ve zaman ve boyut sınırlaması ayarları gibi ince ayar yapma denetimleri yönlülük sağlar. Paket verileri blob depolama veya yerel diskte depolanan *.cap* dosya biçimi.
 
-* [IP akışı doğrulama](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview): temel akış bilgileri 5-tuple paket parametrelere (diğer bir deyişle, hedef IP, kaynak IP, hedef bağlantı noktası, kaynak bağlantı noktası ve protokol) bir paket izin verilip verilmediğini denetler. Paket bir güvenlik grubu tarafından reddedilirse, kural ve paketi reddeden Grup döndürülür.
+* [IP akışı doğrulama](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview): Bir paket izin verilip verilmediğini denetler akış bilgileri 5-tuple paket parametrelere (diğer bir deyişle, hedef IP, kaynak IP, hedef bağlantı noktası, kaynak bağlantı noktası ve protokol) bağlı. Paket bir güvenlik grubu tarafından reddedilirse, kural ve paketi reddeden Grup döndürülür.
 
-* [Sonraki atlama](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview): kullanıcı tanımlı yollar Azure ağ dokusunda, böylece tüm tanılayabilirsiniz yönlendirilmek paketleri yanlış sonraki atlama belirler.
+* [Sonraki atlama](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview): Yapılandırılmış tüm kullanıcı tanımlı yollar tanılayabilirsiniz. böylece Azure ağ dokusunda yönlendirilen paketler için sonraki atlama belirler.
 
-* [Güvenlik grubu görünümü](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview): bir sanal makine üzerinde uygulanan etkili ve uygulanan güvenlik kuralları alır.
+* [Güvenlik grubu görünümü](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview): Bir VM'de uygulanan etkili ve uygulanan güvenlik kuralları alır.
 
-* [Sanal ağ geçidi ve bağlantı sorunlarını giderme](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest): sanal ağ ağ geçitleriniz ve bağlantılarınızı gidermenize yardımcı olur.
+* [Sanal ağ geçidi ve bağlantı sorunlarını giderme](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest): Sanal ağ ağ geçitleriniz ve bağlantılarınızı gidermenize yardımcı olur.
 
-* [Ağ aboneliği sınırı](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-subscription-limits): ağ kaynak kullanımı sınırlarını karşı görüntülemenizi sağlar.
+* [Ağ aboneliği sınırı](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-subscription-limits): Ağ kaynak kullanımı sınırlarını karşı görüntülemenizi sağlar.
 
 ### <a name="application-insights"></a>Application Insights
 
@@ -245,25 +245,25 @@ Bu, şirket içinde barındırılan platformlar, .NET, Node.js ve J2EE, bunlar k
 
 Geliştirme takımına yönelik olan Application Insights, uygulamanızın performansını ve nasıl kullanıldığını anlamanıza yardımcı olur. Şunları izler:
 
-* **Oranları, yanıt süreleri ve hata oranları istek**: hangi sayfaların günün hangi zamanlarda en popüler olduğunu öğrenmek ve kullanıcılarınızın bulunduğu. En iyi performansı hangi sayfaların gösterdiğini görün. Daha fazla istek olduğunda yanıt süreleriniz ve hata oranları yüksek giderseniz, oranlarınız bir sorun olabilir.
+* **Oranları, yanıt süreleri ve hata oranları istek**: Hangi sayfaların günün hangi zamanlarda en popüler olduğunu öğrenmek ve kullanıcılarınızın bulunduğu. En iyi performansı hangi sayfaların gösterdiğini görün. Daha fazla istek olduğunda yanıt süreleriniz ve hata oranları yüksek giderseniz, oranlarınız bir sorun olabilir.
 
-* **Bağımlılık oranları, yanıt süreleri ve hata oranları**: olup dış hizmetler, yavaşlatmadan öğrenin.
+* **Bağımlılık oranları, yanıt süreleri ve hata oranları**: Olup dış hizmetler, yavaşlatmadan öğrenin.
 
-* **Özel durumlar**: Toplu istatistikleri analiz edin veya belirli örnekler seçin ve yığın izlemesi ve ilgili isteklerin detayına gidin. Hem sunucu hem de tarayıcı özel durumları raporlanır.
+* **Özel durumlar**: Toplu istatistikleri analiz edin veya belirli örnekler seçin ve yığın izlemesi ve ilgili isteklerin ayrıntılarına girmek. Hem sunucu hem de tarayıcı özel durumları raporlanır.
 
-* **Sayfa görüntüleme sayısı ve yükleme performansı**: kullanıcılarınızın tarayıcılarından raporları alın.
+* **Sayfa görüntüleme sayısı ve yükleme performansı**: Kullanıcılarınızın tarayıcılarından raporları alın.
 
 * **AJAX çağrıları**: Web sayfası oranları, yanıt süreleri ve hata oranları alın.
 
 * **Kullanıcı ve oturum sayıları**.
 
-* **Performans sayaçları**: veri alma, Windows veya Linux server makineleri gibi CPU, bellek ve ağ kullanımı.
+* **Performans sayaçları**: Windows veya Linux sunucu makinelerinizin CPU, bellek ve ağ kullanımı gibi veri alın.
 
 * **Konak tanılama**: Docker veya Azure veri alın.
 
-* **Tanılama izleme günlükleri**: izleme olayları ile istekler ilişkilendirebilmek veri uygulamanızdan Al.
+* **Tanılama izleme günlükleri**: İzleme olayları ile istekler ilişkilendirebilmek, uygulamanızdan veri alın.
 
-* **Özel olaylar ve ölçümler**: kendiniz satılan öğeler gibi iş olaylarını izlemek için istemci veya sunucu kodu ya da kazanılan yazma veri al.
+* **Özel olaylar ve ölçümler**: Kendiniz satılan öğeler gibi iş olaylarını izlemek için istemci veya sunucu kodu ya da kazanılan yazma verileri elde edersiniz.
 
 Aşağıdaki tabloda, listeler ve tümleştirme senaryoları açıklanmıştır:
 
@@ -271,9 +271,9 @@ Aşağıdaki tabloda, listeler ve tümleştirme senaryoları açıklanmıştır:
 | --------------------- | :---------- |
 |[Uygulama Haritası](https://docs.microsoft.com/azure/application-insights/app-insights-app-map)|Uygulamanızın bileşenlerinin yanı sıra önemli ölçüm ve uyarılar.||
 |[Tanılama verileri örneği için arama](https://docs.microsoft.com/azure/application-insights/app-insights-diagnostic-search)| İstekler, özel durumlar, bağımlılık çağrıları, günlük izlemeleri ve sayfa görüntülemeleri gibi olaylarda arama yapın ve bunları filtreleyin.||
-|[Toplu veriler için ölçüm Gezgini](https://docs.microsoft.com/azure/application-insights/app-insights-metrics-explorer)|İstek, hata ve özel durum oranları; yanıt süreleri, sayfa yükleme süreleri gibi toplu verileri keşfedin, filtreleyin ve bölümlere ayırın.||
+|[Toplu veriler için ölçüm Gezgini](https://docs.microsoft.com/azure/azure-monitor/app/metrics-explorer)|İstek, hata ve özel durum oranları; yanıt süreleri, sayfa yükleme süreleri gibi toplu verileri keşfedin, filtreleyin ve bölümlere ayırın.||
 |[Panolar](https://docs.microsoft.com/azure/application-insights/app-insights-dashboards#dashboards)|Birden çok kaynaktan toplanan verileri birleştirin ve başkalarıyla paylaşın. Çok bileşenli uygulamalar ve takım odasında sürekli görüntüleme için idealdir.||
-|[Canlı ölçümleri Stream](https://docs.microsoft.com/azure/application-insights/app-insights-live-stream)|Yeni bir derleme dağıttığınızda, her şeyin beklendiği gibi çalıştığından emin olmak için bu neredeyse gerçek zamanlı performans göstergelerini izleyin.||
+|[Canlı ölçümleri Stream](https://docs.microsoft.com/azure/azure-monitor/app/live-stream)|Yeni bir derleme dağıttığınızda, her şeyin beklendiği gibi çalıştığından emin olmak için bu neredeyse gerçek zamanlı performans göstergelerini izleyin.||
 |[Analizler](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)|Bu güçlü sorgulama dilini kullanarak uygulamanızın performansı ve kullanımıyla ilgili zor soruları yanıtlayın.||
 |[Otomatik ve el ile uyarılar](https://docs.microsoft.com/azure/application-insights/app-insights-alerts)|Otomatik uyarılar, uygulamanızın normal telemetri desenlerini uyum ve olduğunda ve normal desenin dışında bir şey tetiklenir. Belirli özel veya standart ölçüm düzeylerinde de uyarılar ayarlayabilirsiniz.||
 |[Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)|Koddaki performans verilerini görüntüleyin. Yığın izlemelerinden koda gidin.||
@@ -290,9 +290,9 @@ Güvenlik Merkezi, imza tabanlı yaklaşımların ötesine geçen gelişmiş gü
 
 * **Tümleşik tehdit bilgileri**: Microsoft ürünleri ve Hizmetleri, Microsoft dijital Suçlar birimi (DCU), Microsoft Güvenlik Yanıt Merkezi (MSRC) ve dış akışların küresel tehdit zekasını uygulayarak bilinen kötü aktörleri arar.
 
-* **Davranış analizi**: kötü amaçlı davranışları bulmak için bilinen modelleri uygular.
+* **Davranış analizi**: Kötü amaçlı davranışları bulmak için bilinen modelleri uygular.
 
-* **Anomali algılama**: geçmiş taban çizgisi oluşturmak için istatistiksel profil oluşturmayı kullanır. Olası bir saldırı vektörüne uygun olan yerleşik taban çizgilerinden sapmalar konusunda uyarır.
+* **anomali algılama**: Geçmiş taban çizgisi oluşturmak için istatistiksel profil oluşturmayı kullanır. Olası bir saldırı vektörüne uygun olan yerleşik taban çizgilerinden sapmalar konusunda uyarır.
 
 Birçok güvenlik işlemleri ve olay yanıt ekiplerinin bir SIEM çözüm üzerinde güvenlik uyarılarının ve önceliklendirmek için başlangıç noktası olarak kullanır. Azure günlük Tümleştirmesi ile Güvenlik Merkezi uyarıları ve sanal makine, Azure tanılama ve Denetim günlükleri, Log Analytics veya SIEM çözümünüze neredeyse gerçek zamanlı ile tarafından toplanan güvenlik olaylarını eşitleyebilirsiniz.
 
@@ -371,19 +371,19 @@ Windows olay günlükleri, Azure aboneliği, Azure Güvenlik Merkezi uyarıları
 
 Tümleştirme senaryoları için SIEM:
 
-* [İş ortağı yapılandırma adımları](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/): Bu blog gönderisini Splunk, HP ArcSight ve IBM QRadar iş ortağı çözümleri ile çalışmak için Azure günlük Tümleştirmesi'ni yapılandırma işlemi gösterilmektedir.
+* [İş ortağı yapılandırma adımları](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/): Bu blog gönderisini Splunk, HP ArcSight ve IBM QRadar iş ortağı çözümleri ile çalışmak için Azure günlük tümleştirmesi yapılandırma gösterilmektedir.
 
-* [Azure günlük tümleştirme SSS](https://docs.microsoft.com/azure/security/security-azure-log-integration-faq): Bu makalede Azure günlük tümleştirmesi hakkında sorular yanıtlanmaktadır.
+* [Azure günlük tümleştirmesi SSS](https://docs.microsoft.com/azure/security/security-azure-log-integration-faq): Bu makalede, Azure günlük tümleştirmesi hakkında sorular yanıtlanmaktadır.
 
-* [Azure günlük Tümleştirmesi ile Güvenlik Merkezi uyarılarını tümleştirme](https://docs.microsoft.com/azure/security-center/security-center-integrating-alerts-with-log-integration): Güvenlik Merkezi uyarıları, Azure tanılama günlükleri tarafından toplanan sanal makine güvenlik olaylarını eşitleme anlatılmaktadır ve Log Analytics ya da SIEM ile Azure denetim günlükleri Çözüm.
+* [Azure günlük Tümleştirmesi ile Güvenlik Merkezi uyarılarını tümleştirme](https://docs.microsoft.com/azure/security-center/security-center-integrating-alerts-with-log-integration): Bu makalede, Güvenlik Merkezi uyarıları, Azure tanılama günlükleri tarafından toplanan sanal makine güvenlik olaylarını eşitlenecek anlatılmaktadır ve Log Analytics veya SIEM çözümünüzle birlikte Azure denetim günlükleri.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Denetim ve günlük](https://docs.microsoft.com/azure/security/security-management-and-monitoring-overview): Görünürlük koruma ve hızlı bir şekilde zamanında güvenlik uyarılarını yanıtlama verileri koruyun.
 
-- [Azure'da güvenlik günlük kaydı ve denetim günlüğü koleksiyon](https://azure.microsoft.com/resources/videos/security-logging-and-audit-log-collection/): Azure örneklerinizin doğru güvenlik ve Denetim günlükleri toplamaya emin olmak için bu ayarları zorunlu tutma.
+- [Azure'da güvenlik günlük kaydı ve denetim günlüğü koleksiyon](https://azure.microsoft.com/resources/videos/security-logging-and-audit-log-collection/): Azure örneklerinizin doğru güvenlik ve Denetim günlükleri toplamaya emin olmak için bu ayarları uygular.
 
-- [Bir site koleksiyonu için denetim ayarları yapılandırma](https://support.office.com/article/Configure-audit-settings-for-a-site-collection-A9920C97-38C0-44F2-8BCB-4CF1E2AE22D2?ui=&rs=&ad=US): bir site koleksiyonu yöneticisi değilseniz, bireysel kullanıcıların eylemlerini geçmişini ve belirli bir tarih aralığı içinde gerçekleştirilen eylemlerin geçmişi Al. 
+- [Bir site koleksiyonu için denetim ayarları yapılandırma](https://support.office.com/article/Configure-audit-settings-for-a-site-collection-A9920C97-38C0-44F2-8BCB-4CF1E2AE22D2?ui=&rs=&ad=US): Bir site koleksiyonu yöneticisi değilseniz, bireysel kullanıcıların eylemlerini geçmişini ve belirli bir tarih aralığı içinde gerçekleştirilen eylemlerin geçmişi alın. 
 
 - [Office 365 güvenlik ve uyumluluk Merkezi'nde denetim günlüğü arama](https://support.office.com/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=&rs=&ad=US): Office 365 güvenlik ve uyumluluk Merkezi'nde birleşik denetim günlüğünde arama yapma ve Office 365 kuruluşunuzdaki kullanıcı ve yönetici etkinliğini görüntülemek için kullanın.
 

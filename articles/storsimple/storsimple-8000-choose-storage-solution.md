@@ -7,20 +7,20 @@ ms.service: storsimple
 ms.topic: article
 ms.date: 11/12/2018
 ms.author: alkohli
-ms.openlocfilehash: c28eaf22d05bfda5085f9e269bda85ca0d46a7d3
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: b5ced2814aff51317304cd44c41b04ab9a954844
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578136"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213204"
 ---
 # <a name="compare-storsimple-with-azure-file-sync-and-data-box-edge-data-transfer-options"></a>StorSimple ile Azure dosya eşitleme ve veri kutusu Edge veri aktarımı seçeneklerini karşılaştırma 
  
 Bu belge, Azure'da şirket içi veri aktarımı için seçeneklerine genel bakış sağlar. karşılaştırma: Veri kutusu Edge ile. Azure dosya eşitleme ile. StorSimple 8000 serisi.
 
-- **[Veri kutusu Edge](/azure/databox-online/data-box-edge-overview.md)**  – veri kutusu Edge olan verileri azure'a veya Azure dışına taşır ve verileri karşıya yükleme sırasında önceden işlemek için işlem Edge yapay ZEKA özellikli olan bir şirket içi ağ cihazı. Bu Ignite 2018 Duyuruldu ve genel Önizleme aşamasındadır. Veri kutusu ağ geçidi cihazı ile aynı veri aktarımı özellikleri sanal bir sürümüdür.
-- **[Azure dosya eşitleme](/azure/storage/files/storage-sync-files-deployment-guide.md)**  – Azure dosya eşitleme, kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için kullanılabilir. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. Azure dosya eşitleme'nin genel kullanılabilirliğinin önceki 2018'de Duyuruldu.
-- **[StorSimple](/azure/storsimple/storsimple-overview.md)**  – StorSimple olan kuruluşlar ile sıkı bir şekilde tümleştirerek birincil depolama, veri koruma, arşivleme ve olağanüstü durum kurtarma tek bir çözüm için kendi depolama altyapınızı birleştirin yardımcı olan bir karma cihaz Azure depolama. StorSimple için ürün yaşam döngüsü bulunabilir [burada](https://support.microsoft.com/lifecycle/search?alpha=Azure%20StorSimple%208000%20Series).
+- **[Veri kutusu Edge](/azure/databox-online/data-box-edge-overview)**  – veri kutusu Edge olan verileri azure'a veya Azure dışına taşır ve verileri karşıya yükleme sırasında önceden işlemek için işlem Edge yapay ZEKA özellikli olan bir şirket içi ağ cihazı. Bu Ignite 2018 Duyuruldu ve genel Önizleme aşamasındadır. Veri kutusu ağ geçidi cihazı ile aynı veri aktarımı özellikleri sanal bir sürümüdür.
+- **[Azure dosya eşitleme](/azure/storage/files/storage-sync-files-deployment-guide)**  – Azure dosya eşitleme, kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için kullanılabilir. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. Azure dosya eşitleme'nin genel kullanılabilirliğinin önceki 2018'de Duyuruldu.
+- **[StorSimple](/azure/storsimple/storsimple-overview)**  – StorSimple olan kuruluşlar ile sıkı bir şekilde tümleştirerek birincil depolama, veri koruma, arşivleme ve olağanüstü durum kurtarma tek bir çözüm için kendi depolama altyapınızı birleştirin yardımcı olan bir karma cihaz Azure depolama. StorSimple için ürün yaşam döngüsü bulunabilir [burada](https://support.microsoft.com/lifecycle/search?alpha=Azure%20StorSimple%208000%20Series).
 
 ## <a name="comparison-summary"></a>Karşılaştırma özeti
 

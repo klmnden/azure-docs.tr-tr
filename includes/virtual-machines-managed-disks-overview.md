@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6ca819b20bd033cc4081fb98a0c22c23aed05a28
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 403f1cee04da17086a55adfbaed28388afd24d29
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264060"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54211925"
 ---
 # <a name="azure-managed-disks-overview"></a>Azure yönetilen disklere genel bakış
 
@@ -37,7 +37,7 @@ Yönetilen diskler sağlayan daha fazla güvenilirlik için kullanılabilirlik k
 
 ### <a name="highly-durable-and-available"></a>Yüksek oranda dayanıklı ve kullanılabilir
 
-Azure Diskleri %99,999 kullanılabilirlik sunacak şekilde tasarlanmıştır. Daha kolay, yüksek düzeyde dayanıklılık sayesinde verilerinizin üç kopyasını olduğunu bilmenin rahatlığını yaşayın. Çoğaltmaların birinde hatta ikisinde sorunlarla karşılaşılırsa, kalan çoğaltmalar verilerinizin kalıcı olmasını ve başarısızlıklara karşı yüksek tolerans gösterilmesini sağlar. Azure bu mimari sayesinde IaaS diskleri için tutarlı bir şekilde kurumsal düzeyde dayanıklılık sunarak sektördeki en başarılı %SIFIR Yıllık Hata Oranını elde etmektedir. 
+Azure Diskleri %99,999 kullanılabilirlik sunacak şekilde tasarlanmıştır. Daha kolay, yüksek düzeyde dayanıklılık sayesinde verilerinizin üç kopyasını olduğunu bilmenin rahatlığını yaşayın. Çoğaltmaların birinde hatta ikisinde sorunlarla karşılaşılırsa, kalan çoğaltmalar verilerinizin kalıcı olmasını ve başarısızlıklara karşı yüksek tolerans gösterilmesini sağlar. Azure bu mimari sayesinde IaaS diskleri için tutarlı bir şekilde kurumsal düzeyde dayanıklılık sunarak sektördeki en başarılı %SIFIR Yıllık Hata Oranını elde etmektedir.
 
 ### <a name="granular-access-control"></a>Ayrıntılı erişim denetimi
 
@@ -45,7 +45,7 @@ Kullanabileceğiniz [Azure rol tabanlı Access Control (RBAC)](../articles/role-
 
 ### <a name="azure-backup-service-support"></a>Azure Backup hizmeti desteği
 
-Azure Backup hizmeti, bir yedekleme işi zaman tabanlı yedeklemeler, kolay VM geri yükleme ve yedek bekletme ilkeleri oluşturmak için yönetilen diskler ile kullanın. Yönetilen diskler, çoğaltma seçeneği olarak yalnızca yerel olarak yedekli depolama (LRS) destekler. Tek bir bölgede üç veri kopyası tutulur. Bölgesel bir olağanüstü durum kurtarma için farklı bir bölgeye kullanarak bir sanal makine disklerinizi yedeklemelisiniz [Azure Backup hizmeti](../articles/backup/backup-introduction-to-azure-backup.md) ve yedekleme kasasıyla GRS depolama hesabı. Şu anda Azure Backup, 4 TB disk kadar disk boyutları desteklemektedir. Şunları yapmanız [yükseltme VM yedek yığını v2](../articles/backup/backup-upgrade-to-vm-backup-stack-v2.md) 4 TB disk desteği. Daha fazla bilgi için [yönetilen disklere sahip VM'ler için Azure Backup'ı kullanarak hizmeti](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
+Azure Backup hizmeti, bir yedekleme işi zaman tabanlı yedeklemeler, kolay VM geri yükleme ve yedek bekletme ilkeleri oluşturmak için yönetilen diskler ile kullanın. Yönetilen diskler, çoğaltma seçeneği olarak yalnızca yerel olarak yedekli depolama (LRS) destekler. Tek bir bölgede üç veri kopyası tutulur. Bölgesel bir olağanüstü durum kurtarma için farklı bir bölgeye kullanarak bir sanal makine disklerinizi yedeklemelisiniz [Azure Backup hizmeti](../articles/backup/backup-introduction-to-azure-backup.md) ve yedekleme kasasıyla GRS depolama hesabı. Şu anda Azure Backup, disk boyutu 4 TB'tan büyük disklere kadar destekler, bkz: [anında geri yükleme](../articles/backup/backup-instant-restore-capability.md) 4 TB disk desteği. Daha fazla bilgi için [yönetilen disklere sahip VM'ler için Azure Backup'ı kullanarak hizmeti](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
 
 ## <a name="pricing-and-billing"></a>Fiyatlandırma ve Faturalama
 
@@ -63,35 +63,35 @@ Yönetilen diskleri kullanırken aşağıdaki fatura değerlendirmeleri geçerli
 
 Bu seçenekler daha yakın bir göz atalım.
 
-**Depolama türü:** yönetilen diskler 3 performans katmanı sunar: [standart HDD](../articles/virtual-machines/windows/standard-storage.md), [standart SSD](../articles/virtual-machines/windows/disks-standard-ssd.md), ve [Premium](../articles/virtual-machines/windows/premium-storage.md). Faturalama yönetilen disk depolama türü için disk üzerinde seçmiş olduğunuz bağlıdır.
+**Depolama türü:** Yönetilen diskler teklifler 3 performans katmanları [Standart HDD](../articles/virtual-machines/windows/standard-storage.md), [standart SSD](../articles/virtual-machines/windows/disks-standard-ssd.md), ve [Premium](../articles/virtual-machines/windows/premium-storage.md). Faturalama yönetilen disk depolama türü için disk üzerinde seçmiş olduğunuz bağlıdır.
 
-**Disk boyutu**: yönetilen diskler için faturalandırma, sağlanan disk boyutuna bağlıdır. Azure aşağıdaki tablolarda belirtildiği gibi en yakın yönetilen diskler seçeneğini (yuvarlanır) sağlanan boyut eşlenir. Her yönetilen disk desteklenen sağlanan boyutları birine eşlenir ve buna göre faturalandırılır. Örneğin, standart yönetilen disk oluşturma ve 200 GB sağlanan boyutlu belirtin, S15 Disk türünü fiyatlandırmasına göre faturalandırılır.
+**Disk boyutu**: Yönetilen diskler için faturalandırma, sağlanan disk boyutuna bağlıdır. Azure aşağıdaki tablolarda belirtildiği gibi en yakın yönetilen diskler seçeneğini (yuvarlanır) sağlanan boyut eşlenir. Her yönetilen disk desteklenen sağlanan boyutları birine eşlenir ve buna göre faturalandırılır. Örneğin, standart yönetilen disk oluşturma ve 200 GB sağlanan boyutlu belirtin, S15 Disk türünü fiyatlandırmasına göre faturalandırılır.
 
 Premium yönetilen disk için kullanılabilir disk boyutları İşte, yıldız işareti ile gösterilen boyutları şu anda Önizleme aşamasındadır:
 
 | **Yönetilen premium SSD <br>Disk türü** | **P4** | **P6** | **P10** | **P15** | **P20** | **P30** | **P40** | **P50** | **P60*** | **P70*** | **P80*** |
 |------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
-| Disk Boyutu        | 32 giB  | 64 giB  | 128 GiB | 256 giB | 512 GiB | 1024 (1 TiB) giB | 2.048 giB (2 tib'a kadar) | 4.095 giB (4 tib'a kadar) | Olmak üzere 8.192 giB (8 tib'a kadar) | 16,384 giB (16 tib'a kadar) | 32.767 giB (TiB) |
+| Disk Boyutu        | 32 GiB  | 64 GiB  | 128 GiB | 256 giB | 512 GiB | 1,024 GiB (1 TiB) | 2,048 GiB (2 TiB) | 4,095 GiB (4 TiB) | 8,192 GiB (8 TiB) | 16,384 giB (16 tib'a kadar) | 32.767 giB (TiB) |
 
 İşte yönetilen disk için bir standart SSD disk boyutu, bir yıldız işaretiyle gösterilen boyutları şu anda Önizleme aşamasındadır:
 
 | **Standart SSD yönetilen <br>Disk türü** | **E10** | **E15** | **E20** | **E30** | **E40** | **E50** | **E60*** | **E70*** | **E80*** |
 |------------------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
-| Disk Boyutu        | 128 GiB | 256 giB | 512 GiB | 1024 (1 TiB) giB | 2.048 giB (2 tib'a kadar) | 4.095 giB (4 tib'a kadar) | Olmak üzere 8.192 giB (8 tib'a kadar) | 16,384 giB (16 tib'a kadar) | 32.767 giB (TiB) |
+| Disk Boyutu        | 128 GiB | 256 giB | 512 GiB | 1,024 GiB (1 TiB) | 2,048 GiB (2 TiB) | 4,095 GiB (4 TiB) | 8,192 GiB (8 TiB) | 16,384 giB (16 tib'a kadar) | 32.767 giB (TiB) |
 
 İşte yönetilen disk için standart bir HDD kullanılabilir disk boyutu, bir yıldız işaretiyle gösterilen boyutları şu anda Önizleme aşamasındadır:
 
 | **Yönetilen standart HDD <br>Disk türü** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60*** | **S70*** | **S80*** |
 |------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
-| Disk Boyutu        | 32 giB  | 64 giB  | 128 GiB | 256 giB | 512 GiB | 1024 (1 TiB) giB | 2.048 giB (2 tib'a kadar) | 4.095 giB (4 tib'a kadar) | Olmak üzere 8.192 giB (8 tib'a kadar) | 16,384 giB (16 tib'a kadar) | 32.767 giB (TiB) |
+| Disk Boyutu        | 32 GiB  | 64 GiB  | 128 GiB | 256 giB | 512 GiB | 1,024 GiB (1 TiB) | 2,048 GiB (2 TiB) | 4,095 GiB (4 TiB) | 8,192 GiB (8 TiB) | 16,384 giB (16 tib'a kadar) | 32.767 giB (TiB) |
 
-**İşlem sayısı**: standart yönetilen disk üzerinde gerçekleştirdiğiniz işlem sayısı için faturalandırılırsınız.
+**İşlem sayısı**: Standart yönetilen disk üzerinde gerçekleştirdiğiniz işlem sayısı için faturalandırılırsınız.
 
 Standart SSD Disk GÇ birim boyutu 256 KB'ı kullanın. Aktarılan veriler 256 KB'den küçük ise, 1 g/ç birim olarak kabul edilir. Büyük g/ç boyutları sayılır olarak birden çok g/ç boyutu 256 KB. Örneğin, bir 1.100 KB g/ç beş g/ç birimleri sayılır.
 
 Premium yönetilen disk işlemleri herhangi bir maliyet yoktur.
 
-**Giden veri aktarımları**: [giden veri aktarımları](https://azure.microsoft.com/pricing/details/data-transfers/) (Azure veri merkezlerinden çıkan veriler) bant genişliği kullanımı için fatura doğurur.
+**Giden veri aktarımları**: [Giden veri aktarımları](https://azure.microsoft.com/pricing/details/data-transfers/) (Azure veri merkezlerinden çıkan veriler) bant genişliği kullanımı için fatura doğurur.
 
 Yönetilen diskler için fiyatlandırma hakkında ayrıntılı bilgi için bkz: [yönetilen diskler fiyatlandırma](https://azure.microsoft.com/pricing/details/managed-disks).
 

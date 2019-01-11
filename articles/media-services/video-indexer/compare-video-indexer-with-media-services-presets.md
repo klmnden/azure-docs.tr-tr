@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: juliako
-ms.openlocfilehash: 758a3b30717e3bf516c1bceb5c255c397a6072cc
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 968614d183fe6857336ea92791ba4f1d279a5016
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291413"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198108"
 ---
 # <a name="compare-azure-media-services-v3-presets-and-video-indexer"></a>Azure Media Services v3 hazır ve Video Indexer'ı karşılaştırma 
 
@@ -33,7 +33,7 @@ Bu makalede yeteneklerini karşılaştırır **Video Indexer API** ve **Media Se
 |Medya öngörüleri|[Gelişmiş](video-indexer-output-json-v2.md) |[Temel Konular](../latest/intelligence-concept.md)|
 |Deneyimleri|Desteklenen özelliklerin tam listesine bakın: <br/> [Genel Bakış](video-indexer-overview.md)|Video içgörüleri yalnızca döndürür|
 |Faturalandırma|[Media Services fiyatlandırma](https://azure.microsoft.com/pricing/details/media-services/#analytics)|[Media Services fiyatlandırma](https://azure.microsoft.com/pricing/details/media-services/#analytics)|
-|Uyumluluk|TBD|Media Services, birçok sertifikaları ile uyumludur. Kullanıma [Azure uyumluluk Offerings.pdf](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) ve ilgilendiğiniz bir sertifika ile uyumlu olmadığını görmek "Media Services" için arama yapın.|
+|Uyumluluk|[Azure uyumluluk](https://aka.ms/AzureCompliance)|Media Services, birçok sertifikaları ile uyumludur. Kullanıma [Azure uyumluluk Offerings.pdf](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) ve ilgilendiğiniz bir sertifika ile uyumlu olmadığını görmek "Media Services" için arama yapın.|
 |Ücretsiz Deneme|Doğu ABD|Kullanılamaz|
 |Kullanılabilirlik |Batı ABD, Doğu Asya, Kuzey Avrupa|Bkz: [Azure durumu](https://azure.microsoft.com/global-infrastructure/services/?products=media-services).|
 

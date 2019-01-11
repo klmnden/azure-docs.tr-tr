@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 7/10/2018
 ms.author: sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 40f8f1e9470201292c9dee27187d2155c879e13b
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 6793a83002029c009e3d4e124b4386feabecd5f8
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53583077"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201083"
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Yedekleme ve Azure Backup ile şifrelenmiş sanal makineleri geri yükleme
 Bu makalede Azure Backup'ı kullanarak sanal makineleri (VM'ler) geri adım hakkında konuşuyor. Ayrıca hata durumları için desteklenen senaryolar, önkoşulları ve sorun giderme adımları hakkında ayrıntılar sağlar.
@@ -128,6 +128,8 @@ Yedekleme için anahtar kasasına erişim ve şifrelenmiş vm'leri Yedekleme ger
 İzinler başarıyla sağlandıktan sonra şifreli VM'ler için yedekleme etkinleştirme işlemiyle devam edebilirsiniz.
 
 ## <a name="restore-an-encrypted-vm"></a>Şifrelenmiş bir sanal Makineyi geri yükleme
+Azure Backup artık destekliyor geri yüklemesi [Azure, Azure AD olmayan VM şifreli](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-prerequisites-aad) yanı sıra önceki teklifi geri yükleme desteği Azure için Azure AD ile VM şifreli.<br>
+
 Şifrelenmiş bir sanal Makineyi geri yüklemek için önce diskleri "yedeklenen diskleri geri yükleme" kısmında bulunan adımları izleyerek geri [bir VM geri yükleme yapılandırması seçin](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration). Bundan sonra aşağıdaki seçeneklerden birini kullanabilirsiniz:
 
 * PowerShell adımları izleyin [geri yüklenen diskten VM oluşturma](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) geri yüklenen disklerden tam bir VM oluşturmak için.

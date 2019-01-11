@@ -14,16 +14,16 @@ ms.workload: infrastructure-services
 ms.date: 05/17/2018
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 18b5f82a5181f0bbf7024b302b802684ef676c8f
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: b24871a12020d351eceef2bb556e12ca5c137f5e
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255345"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54197760"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak bir Standard Load Balancer ile kullanılabilirlik bölgelerindeki Yük Dengeleme sanal makineleri
 
-Yük dengeleme, gelen istekleri birden çok sanal makineye dağıtarak yüksek düzeyde kullanılabilirlik sunar. Bu öğretici, kullanılabilirlik alanları arasındaki VM’lerde yük dengelemesi yapan bir genel Standart Yük Dengeleyici oluşturma adımlarını gösterir. Bu, uygulamalarınızı beklenmeyen hatalardan veya tüm veri merkezinin kaybedilmesinden korumaya yardımcı olur. Bölgesel olarak yedeklilik sayesinde bir veya daha fazla kullanılabilirlik alanı başarısız olurken bölgedeki bir alan sağlıklı kaldıkça veri yolu etkin olmaya devam eder. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
+Yük dengeleme, gelen istekleri birden çok sanal makineye dağıtarak yüksek düzeyde kullanılabilirlik sunar. Yükleyen genel standart yük dengeleyici oluşturma ile Bu öğretici adımlarını, kullanılabilirlik alanında VM dengeler. Bu, uygulamalarınızı beklenmeyen hatalardan veya tüm veri merkezinin kaybedilmesinden korumaya yardımcı olur. Bölgesel olarak yedeklilik sayesinde bir veya daha fazla kullanılabilirlik alanı başarısız olurken bölgedeki bir alan sağlıklı kaldıkça veri yolu etkin olmaya devam eder. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 > [!div class="checklist"]
 > * Standart Yük Dengeleyici oluşturma

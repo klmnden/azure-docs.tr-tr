@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/5/2018
 ms.author: rimman
-ms.openlocfilehash: 44fe262dc28a016af9eb01f28278b2c3d81d9034
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 50e8e63c9508aa9e81222f242ca330637075e42d
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034099"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199077"
 ---
 # <a name="index-types-in-azure-cosmos-db"></a>Azure Cosmos DB'de dizin türleri
 
@@ -29,6 +29,9 @@ Azure Cosmos DB, dize veya sayı veri türleri için yapılandırılmış her bi
 
 - **Karma dizine** verimli eşitlik ve JOIN sorgularını destekler. Kullanım örnekleri için varsayılan değer 3 bayt daha yüksek bir duyarlık karma dizinler gerekmez. Veri türü dize veya sayı olabilir.
 
+  > [!NOTE]
+  > Azure Cosmos kapsayıcıları, artık karma dizin türünü kullanan yeni bir dizin düzenini destekler. Bir karma dizine tür üzerinde dizin oluşturma ilkesini belirtirseniz, CRUD istekler kapsayıcı üzerindeki dizin türü sessizce yoksayar ve kapsayıcı yanıttan yalnızca aralık dizin türü içerir. Tüm yeni Cosmos kapsayıcılar, varsayılan olarak yeni dizin düzeni kullanın. 
+  
 - **Aralık dizini** verimli eşitlik sorguları, aralık sorguları destekler (kullanarak >, <>, =, < =,! =) ve ORDER BY sorgular. ORDER By sorguları varsayılan olarak, ayrıca maksimum dizin duyarlık (-1) gerektirir. Veri türü dize veya sayı olabilir.
 
 - **Uzamsal dizin** destekler verimli uzamsal (içinde ve uzaklık) sorgular. Veri türü, nokta, çokgen veya LineString olabilir. Azure Cosmos DB, nokta, çokgen veya LineString veri türleri için belirtilebilir her yol için uzamsal dizin türü de destekler. Değer belirtilen yolda gibi geçerli bir GeoJSON parçası olmalıdır {"type": "Nokta", "koordinatları": [0.0, 10.0]}. Azure Cosmos DB, otomatik dizin oluşturma noktası Çokgen ve LineString veri türlerini destekler.
@@ -58,6 +61,9 @@ Uzaysal dizinler, hizmet için kullanılabilir ve karma, sorgu aralığı örnek
 - Uzaysal dizinler, her zaman varsayılan dizini duyarlık tüm türleri için (Point, LineString ve Çokgen) kullanın. Uzaysal dizinler için varsayılan dizin duyarlık geçersiz kılınamaz.
 
 Bir sorgu ORDER BY kullanır ancak karşı en yüksek duyarlık sorgulanan yoluyla bir aralık dizini yok, azure Cosmos DB, bir hata döndürür.
+
+> [!NOTE]
+> Azure Cosmos kapsayıcıları, en yüksek duyarlık value(-1) dışında özel dizin kesinliği artık gerektiren yeni bir dizin düzenini destekler. Bu yöntemle yolları ile verilen duyarlık her zaman dizine eklenir. Dizin oluşturma ilkesi duyarlık değeri belirtirseniz, kapsayıcılar bir CRUD istekleri duyarlık değeri sessizce yoksayar ve kapsayıcı yanıttan yalnızca en yüksek duyarlık value(-1) içerir.  Tüm yeni Cosmos kapsayıcılar, varsayılan olarak yeni dizin düzeni kullanın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

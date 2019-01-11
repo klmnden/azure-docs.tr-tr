@@ -11,19 +11,19 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/21/2018
-ms.openlocfilehash: b8ff482f2aec406ef4c1c545db7844a861317518
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.date: 1/9/2019
+ms.openlocfilehash: b11eb08a960e81ab938a9b15a1153c44706231c5
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994428"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198296"
 ---
 # <a name="quickstart-create-an-azure-sql-database-in-the-azure-portal"></a>Hızlı Başlangıç: Azure portalında Azure SQL veritabanı oluşturma
 
 Azure SQL veritabanı, bir *hizmet olarak veritabanı* olanak tanıyan bulutta yüksek oranda kullanılabilir SQL Server veritabanlarını çalıştırıp ölçeklendirmenize. Bu hızlı başlangıçta oluşturmaya ve ardından Azure portalını kullanarak Azure SQL veritabanını sorgulamaya başlayın gösterilmektedir. 
 
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
+Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun.
 
 Bu hızlı Başlangıçta tüm adımları için oturum açın [Azure portalında](https://portal.azure.com/).
 
@@ -35,36 +35,36 @@ AdventureWorksLT örnek verilerini içeren bir SQL veritabanı oluşturmak için
 
 1. Azure portalının sol üst köşesinde bulunan **Kaynak oluştur** öğesini seçin.
    
-1. Seçin **veritabanları**ve ardından **SQL veritabanı**.
+1. Seçin **veritabanları** seçip **SQL veritabanı**.
    
-1. İçinde **SQL veritabanı** form yazın veya aşağıdaki değerleri seçin: 
+1. İçinde **SQL veritabanı oluşturma** form yazın veya aşağıdaki değerleri seçin: 
    
-   - **Veritabanı adı**: Tür *mySampleDatabase*.
-   - **Abonelik**: Açılan menü ve görünmüyorsa doğru aboneliği seçin.  
+   - **Veritabanı adı**: Girin *mySampleDatabase*.
+   - **Abonelik**: Açılan menü ve görünmüyorsa doğru aboneliği seçin.
    - **Kaynak grubu**: Seçin **Yeni Oluştur**, türü *myResourceGroup*seçip **Tamam**. 
-   - **Kaynak Seç**: Açılır listesine tıklayıp **örnek (AdventureWorksLT)**. 
-   
-   >[!IMPORTANT]
-   >Seçtiğinizden emin olun **örnek (AdventureWorksLT)** bu ve bu verileri kullanan diğer Azure SQL veritabanı hızlı başlangıçları izleyebilmeniz veri. 
-   
+   - **Kaynak Seç**: Açılır listesine tıklayıp **örnek (AdventureWorksLT)**.
+    
+    >[!IMPORTANT]
+    >Seçtiğinizden emin olun **örnek (AdventureWorksLT)** bu ve bu verileri kullanan diğer Azure SQL veritabanı hızlı başlangıçları izleyebilmeniz veri.
+  
    ![Azure SQL veritabanı oluşturma](./media/sql-database-get-started-portal/create-database-1.png)
    
-1. Seçin **sunucu**ve ardından **yeni sunucu oluştur**. 
+1. Altında **sunucu**seçin **Yeni Oluştur**. 
    
 1. İçinde **yeni sunucu** form yazın veya aşağıdaki değerleri seçin: 
    
-   - **Sunucu adı**: Tür *mysqlserver*.
+   - **Sunucu adı**: Girin *mysqlserver*.
    - **Sunucu Yöneticisi oturum açma**: Tür *azureuser*. 
-   - **Parola**: Tür *Azure1234567*. 
+   - **Parola**: Girin *Azure1234567*. 
    - **Parolayı onaylayın**: Parolayı yeniden yazın.
    - **Konum**: Açılan menü ve herhangi bir geçerli konumu seçin.  
    
    >[!IMPORTANT]
-   >Sunucu Yöneticisi oturum açma ve parola, sunucu ve veritabanları için bu ve diğer hızlı başlangıçlar oturum açabilmek kaydetmek veya unutmayın. Oturum açma veya parolayı unutursanız, oturum açma adı veya parola sıfırlamasına **SQL server** sayfası. Açmak için **SQL server** sayfasında, veritabanı sunucu adını seçin **genel bakış** veritabanı oluşturulduktan sonra sayfa.
+   >Sunucu Yöneticisi oturum açma ve parola, sunucu ve veritabanları için bu ve diğer hızlı başlangıçlar oturum açabilmek kaydetmeyi unutmayın. Oturum açma veya parolayı unutursanız, oturum açma adı veya parola sıfırlamasına **SQL server** sayfası. Açmak için **SQL server** sayfasında, veritabanı sunucu adını seçin **genel bakış** veritabanı oluşturulduktan sonra sayfa.
    
-1. Seçin **seçin**.
-   
-   ![Sunucu oluşturma](./media/sql-database-get-started-portal/create-database-server.png)
+    ![Sunucu oluşturma](./media/sql-database-get-started-portal/create-database-server.png)
+
+1. **Seç**’i seçin.
    
 1. Üzerinde **SQL veritabanı** form, select **fiyatlandırma katmanı**. Dtu ve her hizmet katmanı için kullanılabilir depolama miktarını keşfedin.
    
@@ -94,7 +94,7 @@ Yerleşik sorgu aracını Azure portalında bir Azure SQL veritabanı oluşturdu
    
    ![Sorgu Düzenleyicisi oturum açın](./media/sql-database-get-started-portal/query-editor-login.png)
    
-1. Oturum açma bilgilerinizi yazın ve seçin **Tamam**.
+1. Oturum açma bilgilerinizi girin ve seçin **Tamam**.
    
 1. Aşağıdaki sorguyu girin **sorgu Düzenleyicisi** bölmesi.
    
@@ -113,18 +113,18 @@ Yerleşik sorgu aracını Azure portalında bir Azure SQL veritabanı oluşturdu
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Bu kaynak grubu, SQL server ve SQL veritabanı için gitmek isterseniz tutmak [sonraki adımlar](#next-steps) ve bağlanmak ve birkaç farklı yöntemler kullanarak veritabanını sorgulama hakkında bilgi edinin. 
+Bu kaynak grubu, SQL server ve SQL veritabanı için gitmek isterseniz tutmak [sonraki adımlar](#next-steps). Sonraki adımlar bağlanın ve farklı yöntemler kullanarak veritabanını sorgulama işlemini göstermektedir. 
 
 Bu kaynakları kullanarak tamamladığınızda, aşağıda gösterildiği gibi silebilirsiniz:
 
 1. Azure portalında sol menüden seçim yapın **kaynak grupları**ve ardından **myResourceGroup**.
 1. Kaynak grubu sayfanızda seçin **kaynak grubunu Sil**. 
-1. Tür *myResourceGroup* alan ve ardından **Sil**.
+1. Girin *myResourceGroup* alan ve ardından **Sil**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Şirket içi veya uzak Araçlar, Azure SQL veritabanınıza bağlanmak için bir sunucu düzeyinde güvenlik duvarı kuralı oluşturmanız gerekir. Daha fazla bilgi için [sunucu düzeyinde güvenlik duvarı kuralı oluşturma](sql-database-get-started-portal-firewall.md).
-- Sunucu düzeyinde güvenlik duvarı kuralı oluşturduktan sonra [bağlanma ve sorgulama](sql-database-connect-query.md) birkaç farklı araçları ve dilleri kullanarak veritabanınızı. 
+- Şirket içi veya uzak Araçlar, Azure SQL veritabanınıza bağlanmak için sunucu düzeyinde güvenlik duvarı kuralı oluşturun. Daha fazla bilgi için [sunucu düzeyinde güvenlik duvarı kuralı oluşturma](sql-database-get-started-portal-firewall.md).
+- Bir sunucu düzeyinde güvenlik duvarı kuralı oluşturduktan sonra [bağlanma ve sorgulama](sql-database-connect-query.md) birkaç farklı araçları ve dilleri kullanarak veritabanınızı. 
   - [SQL Server Management Studio kullanarak bağlanma ve sorgulama](sql-database-connect-query-ssms.md)
   - [Azure Data Studio kullanarak bağlanma ve sorgulama](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
 - Azure CLI kullanarak Azure SQL veritabanı oluşturmak için bkz [Azure CLI örnekleri](sql-database-cli-samples.md).

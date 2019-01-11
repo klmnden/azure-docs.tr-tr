@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: a0f002266764ace07482023a0412366b90acec63
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 2c4c2982febf1d81aaaa81bb9c894785b860503b
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789866"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200095"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup hatalarında sorunları giderme: Aracı veya uzantı ile ilgili sorunlar
 
@@ -52,7 +52,7 @@ Kaydolun ve bir VM için Azure Backup hizmeti zamanlama sonra yedekleme zaman i�
 * Bu sorun ayrıca birden çok yedekleme günde tetiklenen oluşabilir. RPs 7 gün boyunca bekletilir anlık olarak günde yalnızca bir yedekleme şu anda öneririz ve 18 yalnızca anlık RPs herhangi bir zamanda bir VM ile ilişkili olabilir. <br>
 
 Önerilen eylem:<br>
-Bu sorunu çözmek için VM kaynak grubu üzerindeki kilidi kaldırın ve temizleme tetiklemek için işlemi yeniden deneyin. 
+Bu sorunu çözmek için VM kaynak grubu üzerindeki kilidi kaldırın ve temizleme tetiklemek için işlemi yeniden deneyin.
 > [!NOTE]
     > Yedekleme hizmeti, geri yükleme noktası koleksiyonu depolamak için sanal makinenin kaynak grubundan ayrı bir kaynak grubu oluşturur. Müşterilerin, Backup hizmeti tarafından kullanım için oluşturduğunuz kaynak grubunda değil kilitlemek için önerilir. Backup hizmeti tarafından oluşturulan kaynak grubunun adlandırma biçimi şu şekildedir: AzureBackupRG_`<Geo>`_`<number>` örn: AzureBackupRG_northeurope_1
 
@@ -105,14 +105,14 @@ Kaydolun ve bir VM için Azure Backup hizmeti zamanlama sonra yedekleme zaman i�
 **Hata kodu**: UserErrorUnsupportedDiskSize <br>
 **Hata iletisi**: Şu anda Azure Backup 1023 GB’tan büyük disk boyutlarını desteklememektedir <br>
 
-Kasanız, Azure VM yedekleme yığını v2'ye yükseltilmemiş olduğundan disk boyutu 1023 GB'tan büyük ile VM'yi yedeklerken, yedekleme işlemi başarısız olabilir. Yükseltme için Azure VM yedekleme yığını V2 sağlayacak 4 TB'a kadar destekler. Bu gözden [avantajları](backup-upgrade-to-vm-backup-stack-v2.md), [konuları](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade)ve ardından izleyerek yükseltmeye devam edin [yönergeleri](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).  
+Kasanız için anında geri yükleme yükseltilmez olduğundan disk boyutu 1023 GB'tan büyük ile VM'yi yedeklerken, yedekleme işlemi başarısız olabilir. Anında geri yükleme için yükseltme sağlayacağı 4 TB'a kadar destek, bkz. Bu [makale](backup-instant-restore-capability.md).  
 
 ## <a name="usererrorstandardssdnotsupported---currently-azure-backup-does-not-support-standard-ssd-disks"></a>Standart SSD disk şu anda Azure Backup UserErrorStandardSSDNotSupported - desteklemiyor
 
 **Hata kodu**: UserErrorStandardSSDNotSupported <br>
 **Hata iletisi**: Standart SSD disk şu anda Azure Backup desteklemiyor <br>
 
-Şu anda Azure Backup, Azure VM yedekleme yığını v2'ye yükseltilmiş kasaları için standart SSD diskleri destekler. Bu gözden [avantajları](backup-upgrade-to-vm-backup-stack-v2.md), [konuları](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade)ve ardından izleyerek yükseltmeye devam edin [yönergeleri](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).
+Şu anda Azure Backup için yükseltilmiş kasaları için standart bir SSD diskleri destekler [anında geri yükleme](backup-instant-restore-capability.md).
 
 
 ## <a name="causes-and-solutions"></a>Nedenler ve çözümler

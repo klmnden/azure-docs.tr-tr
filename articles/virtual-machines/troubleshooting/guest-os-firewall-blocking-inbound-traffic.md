@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 19ba7013b461917c4aea8ae96f689d7e39859652
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 0a0da446385c592bfeda2e01e209ef1fb75b7de3
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134446"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213120"
 ---
 # <a name="azure-vm-guest-os-firewall-is-blocking-inbound-traffic"></a>Azure VM konuk işletim sistemi güvenlik duvarı gelen trafiği engelliyor
 
@@ -112,8 +112,8 @@ Bağlanma [seri konsolu ve bir PowerShell örneği açın](serial-console-window
 
     > [!Note]
     > Nasıl ayarlandığına bağlı olarak güvenlik duvarı ilkesi, aşağıdaki kurallar uygulanır:
-    >    * *BlockInbound*: aslında o trafiğe izin verecek bir kural olmadığı sürece tüm gelen trafik engellenir.
-    >    * *BlockInboundAlways*: tüm güvenlik duvarı kurallarını göz ardı edilir ve tüm trafik engellenir.
+    >    * *BlockInbound*: Aslında o trafiğe izin verecek bir kural yoksa, tüm gelen trafik engellenir.
+    >    * *BlockInboundAlways*: Tüm güvenlik duvarı kurallarını göz ardı edilir ve tüm trafik engellenir.
 
 2.  Düzen *DefaultInboundAction* bu profiller ayarlanacak **izin** trafiği. Bunu yapmak için aşağıdaki komutu çalıştırın:
 
@@ -142,7 +142,7 @@ Bağlanma [seri konsolu ve bir PowerShell örneği açın](serial-console-window
 
 #### <a name="mitigation-1"></a>1 risk azaltma
 
-Bkz: [nasıl bir konuk işletim sistemi belge etkinleştirme-devre dışı bırakma için bir güvenlik duvarı kuralı]().
+Bkz: [nasıl bir konuk işletim sisteminde etkinleştirme-devre dışı bırakma için bir güvenlik duvarı kuralı](enable-disable-firewall-rule-guest-os.md).
 
 #### <a name="mitigation-2"></a>Risk azaltma 2
 

@@ -26,6 +26,7 @@
 # Başvuru
 ## [Azure PowerShell](/powershell/module/azurerm.scheduler)
 ## [REST API](/rest/api/scheduler)
+## [Resource Manager Şablonu](/azure/templates/microsoft.scheduler/allversions)
 
 # Kaynaklar
 ## [Azure Scheduler yol haritası](https://azure.microsoft.com/updates/?product=scheduler)

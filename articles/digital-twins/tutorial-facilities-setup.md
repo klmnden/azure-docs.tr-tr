@@ -6,14 +6,14 @@ author: dsk-2015
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 10/15/2018
+ms.date: 12/17/2018
 ms.author: dkshir
-ms.openlocfilehash: b21e5a87561757e2991a7b9addce0d1f3383204f
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 28433f8f3f181c507521cb12f064df045ae21d9d
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557725"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54212201"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-and-configure-a-spatial-graph"></a>Öğretici: Azure dijital İkizlerini dağıtma ve uzamsal graph'ı yapılandırma
 
@@ -33,9 +33,7 @@ Bu serinin ilk öğreticisinde aşağıdakilerin nasıl yapılacağını öğren
 > * Dijital İkizlerini örnek bir uygulama değiştirin.
 > * Yapı sağlayın.
 
-
 Bu öğreticilerde [uygun odaları bulma hızlı başlangıcındaki](quickstart-view-occupancy-dotnet.md) örnekler kullanılmakta, kavramlar daha ayrıntılı bir şekilde ele alınmaktadır.
-
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -45,7 +43,7 @@ Bu öğreticilerde [uygun odaları bulma hızlı başlangıcındaki](quickstart-
 
 - Örnek kodu incelemek için [Visual Studio Code](https://code.visualstudio.com/). 
 
-<a id="deploy" />
+<a id="deploy"></a>
 
 ## <a name="deploy-digital-twins"></a>Digital Twins'i dağıtma
 
@@ -53,8 +51,7 @@ Azure dijital İkizlerini hizmetinin yeni bir örneğini oluşturmak için bu b�
 
 [!INCLUDE [create-digital-twins-portal](../../includes/digital-twins-create-portal.md)]
 
-
-<a id="permissions" />
+<a id="permissions"></a>
 
 ## <a name="grant-permissions-to-your-app"></a>Uygulamanıza izin verme
 
@@ -64,19 +61,20 @@ Bir uygulama kaydı zaten varsa, Örneğiniz için yeniden kullanabilirsiniz. An
 
 [!INCLUDE [digital-twins-permissions](../../includes/digital-twins-permissions.md)]
 
-
 ## <a name="configure-the-digital-twins-sample"></a>Dijital İkizlerini örnek yapılandırma
 
 Bu bölümde, iletişim kuran Azure dijital İkizlerini uygulamanın size [dijital İkizlerini REST API'leri](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index). 
 
 ### <a name="download-the-sample"></a>Örneği indirme
+
 [Uygun odaları bulma hızlı başlangıcı](quickstart-view-occupancy-dotnet.md) için bu örnekleri daha önce indirdiyseniz bu adımları atlayabilirsiniz.
 
-1. İndirme [dijital İkizlerini .NET örnekleri](https://github.com/Azure-Samples/digital-twins-samples-csharp/archive/master.zip). 
-2. Makinenizde posta klasörünün içeriğini ayıklayın. 
+1. İndirme [dijital İkizlerini .NET örnekleri](https://github.com/Azure-Samples/digital-twins-samples-csharp/archive/master.zip).
+2. Makinenizde posta klasörünün içeriğini ayıklayın.
 
 ### <a name="explore-the-sample"></a>Örneği keşfetme
-Ayıklanan örnek klasöründe dosyasını açın **digital-twins-samples-csharp\digital-twins-samples.code-workspace** Visual Studio code'da. Bu dosyada iki proje bulunur: 
+
+Ayıklanan örnek klasöründe dosyasını açın **digital-twins-samples-csharp\digital-twins-samples.code-workspace** Visual Studio code'da. Bu dosyada iki proje bulunur:
 
 * Sağlama örneği kullanabilirsiniz **doluluk-quickstart** yapılandırmak ve sağlamak için bir [uzamsal zeka graf](concepts-objectmodel-spatialgraph.md#graph). Bu grafik, fiziksel alanları ve bunları kaynakları sayısal görüntüsüdür. Bunu kullanan bir [nesne modeli](concepts-objectmodel-spatialgraph.md#model), nesneler için akıllı bir yapı tanımlar. Dijital İkizlerini nesneleri ve REST API'lerinin tam listesi için ziyaret [bu REST API belgelerini](https://docs.westcentralus.azuresmartspaces.net/management/swagger) veya yönetim API'si URL'si için oluşturulan [örneğinizin](#deploy).
 
@@ -89,6 +87,7 @@ Ayıklanan örnek klasöründe dosyasını açın **digital-twins-samples-csharp
 * Benzetim örneği **cihaz bağlantısı** sensör verilerini benzetimini yapar ve dijital İkizlerini Örneğiniz için sağlanan IOT hub'ına gönderir. Bu örnekte kullanacağınız [uzamsal grafınızı sağladıktan sonra sonraki öğreticiye](tutorial-facilities-udf.md#simulate). Bu örneği yapılandırmak için kullandığınız sensör ve cihaz tanımlayıcıları grafınızı sağlamak için kullanacaksınız ile aynı olması gerekir.
 
 ### <a name="configure-the-provisioning-sample"></a>Sağlama örneğini yapılandırma
+
 1. Bir komut penceresi açın ve indirilen örneğe gidin. Şu komutu çalıştırın:
 
     ```cmd/sh
@@ -101,10 +100,10 @@ Ayıklanan örnek klasöründe dosyasını açın **digital-twins-samples-csharp
     dotnet restore
     ```
 
-1. Visual Studio Code'da açmak **appSettings.json** dosyası **doluluk-quickstart** proje. Aşağıdaki değerleri güncelleştirin:
+1. Visual Studio Code'da açmak [appSettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/appSettings.json) dosyası **doluluk-quickstart** proje. Aşağıdaki değerleri güncelleştirin:
    * **ClientID**: Azure AD uygulama kaydınızı uygulama Kimliğini girin. Bölümünde bu kimliği not ettiğiniz Burada, [uygulama izinleri ayarla](#permissions).
    * **Kiracı**: Dizin kimliği girin, [Azure AD kiracısı](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant). Ayrıca bu kimliği bölümünde belirtildiği Burada, [uygulama izinleri ayarla](#permissions).
-   * **BaseUrl**: Dijital İkizlerini örneğinizin URL'sini girin. Bu URL'yi almak için şu URL'deki yer tutucuları örneğinize ait değerlerle değiştirin: _https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/_. Yönetim API'si URL'den değiştirerek bu URL'yi alabilirsiniz [dağıtım bölümü](#deploy). Değiştirin **swagger /** ile **api/v1.0/**.
+   * **BaseUrl**: Dijital İkizlerini örneğinizin URL'sini girin. Bu URL almak için değerlerle Örneğiniz için bu URL'yi içindeki yer tutucuları değiştirin: `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Yönetim API'si URL'den değiştirerek bu URL'yi alabilirsiniz [dağıtım bölümü](#deploy). Değiştirin **swagger /** ile **api/v1.0/**.
 
 1. Örnek kullanarak keşfedebilirsiniz dijital İkizlerini özelliklerin bir listesi bakın. Şu komutu çalıştırın:
 
@@ -112,10 +111,11 @@ Ayıklanan örnek klasöründe dosyasını açın **digital-twins-samples-csharp
     dotnet run
     ```
 
-<a id="provision-spaces" />
+<a id="provision-spaces"></a>
 
 ## <a name="understand-the-provisioning-process"></a>Sağlama işlemini anlama
-Bu bölümde örnekte binanın uzamsal grafının nasıl sağlandığı gösterilmektedir. 
+
+Bu bölümde örnekte binanın uzamsal grafının nasıl sağlandığı gösterilmektedir.
 
 Visual Studio Code'da Gözat **doluluk quickstart\src\actions** klasörü ve dosyayı açın **provisionSample.cs**. Aşağıdaki işleve dikkat edin:
 
@@ -137,15 +137,16 @@ public static async Task<IEnumerable<ProvisionResults.Space>> ProvisionSample(Ht
 
 ```
 
-Bu işlev kullanır **provisionSample.yaml** aynı klasörde yer alan. Bu dosyayı açın ve bir ofis binasındaki hiyerarşisini dikkat edin: *Mekan*, *kat*, *alan*, ve *odaları*. Bu fiziksel alanların herhangi birinde *cihazlar* ve *sensörler* bulunabilir. Her girişin bir önceden tanımlanmış sahip `type` &mdash;Örneğin, Floor, yer. 
+Bu işlev kullanır [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml) aynı klasörde yer alan. Bu dosyayı açın ve bir ofis binasındaki hiyerarşisini dikkat edin: *Mekan*, *kat*, *alan*, ve *odaları*. Bu fiziksel alanların herhangi birinde *cihazlar* ve *sensörler* bulunabilir. Her girişin bir önceden tanımlanmış sahip `type` &mdash;Örneğin, Floor, yer.
 
 Örnek **yaml** dosyasını kullanan olan bir uzamsal grafiği gösterir `Default` dijital İkizlerini nesne modeli. Bu model türlerinin çoğu için genel adlar sağlar. Genel adlar bir yapı için yeterlidir. Örnek SensorDataType için sıcaklık ve için SpaceBlobType eşleyin. Bir örnek alanı subtypes FocusRoom oda, ConferenceRoom ve benzeri türüdür. 
 
 Fabrika gibi farklı bir mekan için uzamsal graf oluşturmanız gerekmesi durumunda başka bir nesne modeline ihtiyaç duyabilirsiniz. Hangi modelleri komutunu çalıştırarak kullanılabilir olduğunu öğrenmek `dotnet run GetOntologies` sağlama örneğinin komut satırında. 
 
-Uzamsal graflar ve nesne modelleri hakkında daha fazla bilgi için okuma [dijital İkizlerini anlama modelleri ve uzamsal zeka graf nesnesi](concepts-objectmodel-spatialgraph.md). 
+Uzamsal graflar ve nesne modelleri hakkında daha fazla bilgi için okuma [dijital İkizlerini anlama modelleri ve uzamsal zeka graf nesnesi](concepts-objectmodel-spatialgraph.md).
 
 ### <a name="modify-the-sample-spatial-graph"></a>Örnek uzamsal grafiğe değiştirme
+
 **ProvisionSample.yaml** dosyası aşağıdaki düğümleri içerir:
 
 - **Kaynakları**: `resources` Kurulumunuzu aygıtları ile iletişim kurmak için bir Azure IOT hub'ı kaynak düğümü oluşturur. IOT hub'ı, grafiğin kök düğümde, tüm cihazlardan ve sensörlerden grafınızı ile iletişim kurabilir.  
@@ -168,22 +169,19 @@ ProvisionSample.yaml dosyasını kaydedip kapatın. Sonraki öğreticide, daha f
 > [!TIP]
 > Görüntüleyebilir ve uzamsal graph aracılığıyla değiştirmek [Azure dijital İkizlerini graf Görüntüleyicisi](https://github.com/Azure/azure-digital-twins-graph-viewer).
 
-
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
 Bu noktada Azure dijital İkizlerini keşfetmeye durdurmak istiyorsanız, bu öğreticide oluşturulan kaynakları silmek çekinmeyin:
 
 1. Sol menüden [Azure portalında](http://portal.azure.com)seçin **tüm kaynakları**dijital İkizlerini kaynak grubunuzu seçin ve seçin **Sil**.
-   
+
     > [!TIP]
     > Dijital İkizlerini örneğinizin silme sorun olduysa, bir hizmet güncelleştirmesi düzeltme alındı. Örneğiniz silme yeniden deneyin.
 
-1. Gerekirse, iş makinenizde örnek uygulamayı silin. 
-
+1. Gerekirse, iş makinenizde örnek uygulamayı silin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Koşullar oluşturma Örneğinizdeki izlemek için özel bir mantıksal uygulama hakkında bilgi edinmek için serideki sonraki öğretici gidin: 
 > [!div class="nextstepaction"]
 > [Öğretici: Yapı ve koşullar çalışma İzleyici sağlayın](tutorial-facilities-udf.md)
-

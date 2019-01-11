@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
-ms.openlocfilehash: 2823772787adf56dfbe216a68161f633eadba255
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 519fd063e52d1e202ea76db0fd4be15ebd117cd0
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001625"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214938"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Bir Linux VM'ye veri diski için portalı kullanma 
 Bu makalede Azure portalı üzerinden bir Linux sanal makinesi için yeni ve var olan diskleri ekleme gösterilmektedir. Ayrıca [Azure portalında bir Windows sanal makinesine veri diski](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -96,7 +96,12 @@ dmesg | grep SCSI
 [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
 ```
 
-Burada, *sdc* istiyoruz disktir. İle diski bölümlendirin `fdisk`birincil disk 1 bölüme kolaylaştırır ve diğer Varsayılanları kabul edin. Aşağıdaki örnek başlatır `fdisk` üzerinde işlem */dev/sdc*:
+Burada, *sdc* istiyoruz disktir. 
+
+### <a name="partion-a-new-disk"></a>Yeni bir disk partion
+Verileri içeren varolan bir diski kullanıyorsanız, disk takılamadı için atlayın. Yeni bir disk bağlıyorsanız, disk bölümleme gerekir.
+
+Kullanım `fdisk` disk bölümleme için bölüm 1 üzerinde birincil disk kolaylaştırır ve diğer Varsayılanları kabul edin. Aşağıdaki örnek başlatır `fdisk` üzerinde işlem */dev/sdc*:
 
 ```bash
 sudo fdisk /dev/sdc
@@ -176,8 +181,8 @@ Writing inode tables: done
 Creating journal (32768 blocks): done
 Writing superblocks and filesystem accounting information: done
 ```
-
-Şimdi kullanarak dosya sistemini bağlamak için bir dizin oluşturun `mkdir`. Aşağıdaki örnek, bir dizin oluşturur. */datadrive*:
+### <a name="mount-the-disk"></a>Diski bağlayın
+Kullanarak dosya sistemini bağlamak için bir dizin oluşturma `mkdir`. Aşağıdaki örnek, bir dizin oluşturur. */datadrive*:
 
 ```bash
 sudo mkdir /datadrive

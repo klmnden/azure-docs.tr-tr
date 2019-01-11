@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: cac219414418277ace09ba3a0b442f3bf74e6025
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 67d81387a347bb2061457bfd24553f304e965f38
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107438"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198771"
 ---
 # <a name="about-azure-vm-backup"></a>Azure VM yedeklemesi hakkında
 
@@ -132,11 +132,10 @@ Geri yükleme işlemi iki ana görevden oluşur: seçilen depolama hesabına ger
 
 VM yedeklemeleri yapılandırılırken bu yöntemler aşağıdaki öneririz:
 
-- Kasaları için anında RP yükseltin. Bu gözden [avantajları](backup-upgrade-to-vm-backup-stack-v2.md), [konuları](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade)ve ardından izleyerek yükseltmeye devam edin [yönergeleri](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).  
 - Varsayılan ilke zaman değiştirmeyi düşünün (için örnek. Varsayılan ilke sürenizi 12: 00'da göz önünde bulundurun dakika artan ise), veri anlık görüntüleri kaynakları en iyi şekilde kullanılan emin olmak için.
 - Premium VM için yedekleme anlık RP olmayan özelliğini ~ % 50'hesap toplam depolama alanı ayırır. Yedekleme hizmeti Kasası'na aktarılması ve aynı depolama hesabını anlık görüntüyü kopyalamak için bu alanı gerektirir.
 - Vm'leri tek bir kasadan geri yüklemek için farklı kullanmak için önerilir [v2 depolama hesaplarının](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) hedef depolama hesabı olmayan kısıtlanan emin olmak için. Örneğin, her VM (ise 10 Vm'leri geri sonra 10 farklı depolama hesabı kullanmayı düşünün) farklı bir depolama hesabı olmalıdır.
-- (Aynı depolama hesabı olduğundan) 1. katman depolama katmanından (snapshot) geri yükleme işlemleri saat sürebilir, Katman-2 depolama katmanı karşı (kasa) birkaç dakika içinde tamamlanır. Kullanmanızı öneririz [anlık RP](backup-upgrade-to-vm-backup-stack-v2.md) veri kullanılabildiği Katman-1'de (veri saat sürer ardından kasadan geri yüklenmesi gerekiyorsa) çalışması için daha hızlı geri yüklemeler için özellik.
+- (Aynı depolama hesabı olduğundan) 1. katman depolama katmanından (snapshot) geri yükleme işlemleri saat sürebilir, Katman-2 depolama katmanı karşı (kasa) birkaç dakika içinde tamamlanır. Kullanmanızı öneririz [anında geri yükleme](backup-instant-restore-capability.md) veri kullanılabildiği Katman-1'de (veri saat sürer ardından kasadan geri yüklenmesi gerekiyorsa) çalışması için daha hızlı geri yüklemeler için özellik.
 - Depolama hesabı başına disk sayısı sınırına göre yükün diskleri Iaas VM üzerinde çalışan uygulamalar tarafından erişildiği ' dir. Tek bir depolama hesabında birden fazla disk barındırılıyorsa, doğrulayın. 5-10 diskleri veya daha fazla tek bir depolama hesabında mevcut olması durumunda, genel bir yöntem olarak, depolama hesabı ayırmak için bazı diskler taşıyarak Yük Dengelemesi yapın.
 
 ## <a name="backup-costs"></a>Yedekleme maliyetleri

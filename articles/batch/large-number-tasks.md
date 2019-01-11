@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 08/24/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 3c683b24db2899ee680988c7bedc760d6bb8ec73
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: a3327c2c6f9684efe0d86b0cf923886f7310e1b0
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43053503"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199793"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Çok sayıda Batch işi görevlere gönderin
 
@@ -45,7 +45,7 @@ Tek bir çağrıda ekleyebileceğiniz görev koleksiyonu en büyük boyutunu kul
 * Aşağıdaki API'leri, çok daha büyük görev koleksiyonlar - RAM kullanılabilirliğine gönderen istemci tarafından yalnızca sınırlı destekler. Bu API'ler ayrıca görevlerin başarısız olursa görev koleksiyonu "öbeklere" alt düzey API'ler ve yeniden deneme için bölme şeffaf bir şekilde işleyin.
 
     * [.NET API’si](/dotnet/api/microsoft.azure.batch.cloudjob.addtaskasync?view=azure-dotnet)
-    * [Java API’si](/java/api/com.microsoft.azure.batch.protocol._tasks.addcollectionasync?view=azure-java-stable)
+    * [Java API’si](/java/api/com.microsoft.azure.batch.protocol.tasks.addcollectionasync?view=azure-java-stable)
     * [Azure Batch CLI uzantısı](batch-cli-templates.md) Batch CLI şablonlarını ile
     * [Python SDK'sı uzantısı](https://pypi.org/project/azure-batch-extensions/)
 
@@ -128,7 +128,7 @@ Azure Batch CLI uzantıları kullanarak [Batch CLI şablonlarını](batch-cli-te
 ```
 Şablonu ile bir işi çalıştırmak için bkz: [kullanımı Azure Batch CLI şablonlarını ve dosya aktarımı](batch-cli-templates.md).
 
-## <a name="example-batch-python-sdk-extension"></a>Örnek: Batch Python SDK'sını uzantısı
+## <a name="example-batch-python-sdk-extension"></a>Örnek: Toplu işlem Python SDK'sı uzantısı
 
 Azure Batch Python SDK'sını uzantısını kullanmak için ilk Python SDK'sını ve uzantıyı yükleyin:
 

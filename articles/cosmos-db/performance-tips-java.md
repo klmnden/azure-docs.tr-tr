@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 01/02/2018
 ms.author: sngun
-ms.openlocfilehash: 62b561d35d4cacd27555163ce666e98c12d792d8
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 221dd8a26f0d01d79d066c214bd53f7e881e5554
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044136"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201236"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-java"></a>Azure Cosmos DB ve Java için performans ipuçları
 
@@ -31,10 +31,10 @@ Açmanızı isteyen, "nasıl veritabanı performansımı geliştirebilirim şeki
 
 1. **Bağlantı modu: DirectHttps kullanın**
 
-    Bir istemci, Azure Cosmos DB'ye nasıl bağlanır? performansını gözlemler istemci tarafı gecikme süresi açısından özellikle önemli etkilere sahiptir. İstemciyi yapılandırmak için kullanılabilen bir anahtar yapılandırma [ConnectionPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy) – [ConnectionMode](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_mode).  İki kullanılabilir ConnectionModes şunlardır:
+    Bir istemci, Azure Cosmos DB'ye nasıl bağlanır? performansını gözlemler istemci tarafı gecikme süresi açısından özellikle önemli etkilere sahiptir. İstemciyi yapılandırmak için kullanılabilen bir anahtar yapılandırma [ConnectionPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionpolicy) – [ConnectionMode](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionmode).  İki kullanılabilir ConnectionModes şunlardır:
 
-   1. [Ağ Geçidi (varsayılan)](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_mode)
-   2. [DirectHttps](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_mode)
+   1. [Ağ Geçidi (varsayılan)](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionmode)
+   2. [DirectHttps](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionmode)
 
     Ağ geçidi modu, tüm SDK platformlarında desteklenir ve yapılandırılmış varsayılandır.  Uygulamanız, kurumsal ağ içinden katı güvenlik duvarı kısıtlamalarıyla çalışıyorsa, standart HTTPS bağlantı noktası ve tek bir uç nokta kullandığından ağ geçidi en iyi seçenektir. Performansta düşüş, ancak veri okuma veya Azure Cosmos DB için yazılan her zaman ağ geçidi modu ek ağ atlama içermesidir. Bu nedenle, DirectHttps modu daha az ağ atlamaları nedeniyle daha iyi performans sunar. 
 
@@ -69,28 +69,28 @@ Açmanızı isteyen, "nasıl veritabanı performansımı geliştirebilirim şeki
     Azure Cosmos DB SDK'ları en iyi performansı sağlamak için sürekli geliştirilen. Bkz: [Azure Cosmos DB SDK'sı](documentdb-sdk-java.md) sayfalarının en son SDK'sı belirlemek ve geliştirmeleri gözden geçirin.
 2. **Tek bir Azure Cosmos DB istemci uygulama ömrü boyunca kullanın**
 
-    Her [DocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client) örneği iş parçacığı açısından güvenli ve verimli bağlantı yönetimi ve doğrudan modunda çalışırken, adresi önbelleğe alma gerçekleştirir. Etkin bağlantı yönetimi ve daha iyi performans DocumentClient tarafından izin vermek için tek bir uygulama etki alanı başına DocumentClient örneğini uygulama ömrü boyunca kullanılması önerilir.
+    Her [DocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclient) örneği iş parçacığı açısından güvenli ve verimli bağlantı yönetimi ve doğrudan modunda çalışırken, adresi önbelleğe alma gerçekleştirir. Etkin bağlantı yönetimi ve daha iyi performans DocumentClient tarafından izin vermek için tek bir uygulama etki alanı başına DocumentClient örneğini uygulama ömrü boyunca kullanılması önerilir.
 
    <a id="max-connection"></a>
 3. **Ağ geçidi modunu kullanırken, ana bilgisayar başına MaxPoolSize artırın**
 
-    Azure Cosmos DB, ağ geçidi modunu kullanırken HTTPS/REST yapılır ve olan istekleri için konak adı veya IP adresi başına varsayılan bağlantı üst sınırına tabi. İstemci Kitaplığı, Azure Cosmos DB için çok sayıda eşzamanlı bağlantıyı kullanabilir, böylece daha yüksek bir değere (200-1000) MaxPoolSize ayarlamanız gerekebilir. Varsayılan değer için Java SDK'sında [ConnectionPolicy.getMaxPoolSize](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy.getmaxpoolsize) 100'dür. Kullanım [setMaxPoolSize]( https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy.setmaxpoolsize) değeri değiştirmek için.
+    Azure Cosmos DB, ağ geçidi modunu kullanırken HTTPS/REST yapılır ve olan istekleri için konak adı veya IP adresi başına varsayılan bağlantı üst sınırına tabi. İstemci Kitaplığı, Azure Cosmos DB için çok sayıda eşzamanlı bağlantıyı kullanabilir, böylece daha yüksek bir değere (200-1000) MaxPoolSize ayarlamanız gerekebilir. Varsayılan değer için Java SDK'sında [ConnectionPolicy.getMaxPoolSize](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionpolicy.getmaxpoolsize) 100'dür. Kullanım [setMaxPoolSize]( https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionpolicy.setmaxpoolsize) değeri değiştirmek için.
 
 4. **Bölümlenmiş koleksiyonlar için paralel sorgular ayarlama**
 
     Azure Cosmos DB SQL Java SDK'sı sürüm 1.9.0 ve üstü bölünmüş bir koleksiyona paralel sorgu sağlayan destek paralel sorgular. Daha fazla bilgi için [kod örnekleri](https://github.com/Azure/azure-documentdb-java/tree/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples) SDK'ları ile çalışmayla ilgili. Paralel sorgular seri kendi karşılığı sorgunun gecikme süresi ve aktarım hızı artırmak için tasarlanmıştır.
 
-    (a) ***setMaxDegreeOfParallelism ayarlama\:***  paralel iş birden çok bölümü paralel sorgulayarak sorgular. Ancak, verileri ayrı bölünmüş bir koleksiyona göre sorgu seri olarak getirilir. Bu nedenle, kullanın [setMaxDegreeOfParallelism](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._feed_options.setmaxdegreeofparallelism) en yüksek performanslı sorgu başarmaya maksimum olasılığını olan bölüm sayısı ayarlamak için sağlanan tüm sistem koşullar aynı kalır. Bölüm sayısı bilmiyorsanız, setMaxDegreeOfParallelism yüksek bir sayı ayarlamak için kullanabileceğiniz ve sistem (bölüm, kullanıcı tarafından sağlanan giriş sayısı) en düşük maksimum paralellik derecesi seçer. 
+    (a) ***setMaxDegreeOfParallelism ayarlama\:***  paralel iş birden çok bölümü paralel sorgulayarak sorgular. Ancak, verileri ayrı bölünmüş bir koleksiyona göre sorgu seri olarak getirilir. Bu nedenle, kullanın [setMaxDegreeOfParallelism](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedoptions.setmaxdegreeofparallelism) en yüksek performanslı sorgu başarmaya maksimum olasılığını olan bölüm sayısı ayarlamak için sağlanan tüm sistem koşullar aynı kalır. Bölüm sayısı bilmiyorsanız, setMaxDegreeOfParallelism yüksek bir sayı ayarlamak için kullanabileceğiniz ve sistem (bölüm, kullanıcı tarafından sağlanan giriş sayısı) en düşük maksimum paralellik derecesi seçer. 
 
     Sorgu ile ilgili tüm bölümler arasında verileri eşit olarak dağıtılmış, paralel sorgular en iyi avantajları oluşturduğunun dikkat edin önemlidir. Bölünmüş bir koleksiyona birkaç bölümlerde (bir bölüm en kötü durumda) tüm veya bir sorgu tarafından döndürülen verilerin çoğunu yoğunlaşmıştır ve ardından sorgu performansını bu bölümler tarafından performansı düşürdüğünü gösterir şekilde bölümlenmiş durumunda.
 
-    (b) ***setMaxBufferedItemCount ayarlama\:***  paralel sorgu sonuçları istemci tarafından sonuçlarının geçerli toplu iş işlenirken önceden getirme için tasarlanmıştır. Önceden getirme, bir sorgunun toplam gecikme süresi gelişme yardımcı olur. setMaxBufferedItemCount önceden getirilen sonuç sayısını sınırlar. Ayarlayarak [setMaxBufferedItemCount](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._feed_options.setmaxbuffereditemcount) beklenen döndürülen sonuç sayısı (veya daha yüksek bir sayı) için bu en büyük avantajı önceden getirme almak sorgu sağlar.
+    (b) ***setMaxBufferedItemCount ayarlama\:***  paralel sorgu sonuçları istemci tarafından sonuçlarının geçerli toplu iş işlenirken önceden getirme için tasarlanmıştır. Önceden getirme, bir sorgunun toplam gecikme süresi gelişme yardımcı olur. setMaxBufferedItemCount önceden getirilen sonuç sayısını sınırlar. Ayarlayarak [setMaxBufferedItemCount](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedoptions.setmaxbuffereditemcount) beklenen döndürülen sonuç sayısı (veya daha yüksek bir sayı) için bu en büyük avantajı önceden getirme almak sorgu sağlar.
 
     Önceden getirme Maxanalyticsunits bağımsız olarak aynı şekilde çalışır ve tüm bölümleri veriler için tek bir arabellek yoktur.  
 
 5. **Geri alma getRetryAfterInMilliseconds aralıklarla uygulayın**
 
-    Performans testi sırasında istekleri küçük bir oranını kısıtlanan kadar yük yükseltmeniz gerekir. Kısıtlanmış, istemci uygulama kısıtlama üzerinde geri alma için sunucu tarafından belirtilen yeniden deneme aralığı gerekir. Geri alma uyarak bekleme süresi yeniden denemeler arasındaki en az miktarda harcama sağlar. Yeniden deneme ilkesi desteği dahildir sürümünde 1.8.0 ve üstü, [Java SDK'sı](documentdb-sdk-java.md). Daha fazla bilgi için [getRetryAfterInMilliseconds](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client_exception.getretryafterinmilliseconds).
+    Performans testi sırasında istekleri küçük bir oranını kısıtlanan kadar yük yükseltmeniz gerekir. Kısıtlanmış, istemci uygulama kısıtlama üzerinde geri alma için sunucu tarafından belirtilen yeniden deneme aralığı gerekir. Geri alma uyarak bekleme süresi yeniden denemeler arasındaki en az miktarda harcama sağlar. Yeniden deneme ilkesi desteği dahildir sürümünde 1.8.0 ve üstü, [Java SDK'sı](documentdb-sdk-java.md). Daha fazla bilgi için [getRetryAfterInMilliseconds](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclientexception.getretryafterinmilliseconds).
 
 6. **İstemci iş yükü ölçeklendirin**
 
@@ -103,17 +103,17 @@ Açmanızı isteyen, "nasıl veritabanı performansımı geliştirebilirim şeki
    <a id="tune-page-size"></a>
 8. **Daha iyi performans için sorgu/okuma akışlarına yönelik sayfa boyutunu ayarlama**
 
-    Akışı, bir toplu gerçekleştirme belgeleri okuma kullanarak okuma (örneğin, [readDocuments]( https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.readdocuments#com_microsoft_azure_documentdb__document_client_readDocuments_String_FeedOptions_c) veya sonuç kümesi çok büyükse bir SQL sorgusu gönderirken, sonuçları bölümlenmiş bir biçimde döndürülür. Varsayılan olarak, sonuçları 100 öğe 1 MB veya öbekler halinde döndürülür, ilk isabet sınırlarından hangisi.
+    Akışı, bir toplu gerçekleştirme belgeleri okuma kullanarak okuma (örneğin, [readDocuments](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclient.readdocuments#com.microsoft.azure.documentdb.documentclient.readDocumentsStringFeedOptionsc)) ya da sonuç kümesi çok büyükse bir SQL sorgusu gönderirken, sonuçları bölümlenmiş bir biçimde döndürülür. Varsayılan olarak, sonuçları 100 öğe 1 MB veya öbekler halinde döndürülür, ilk isabet sınırlarından hangisi.
 
     Sayısını azaltmak için ağ gidiş dönüşleri yürürlükteki tüm sonuçları almak için gereken, sayfa boyutu kullanarak artırabilirsiniz [x-ms-max-item-count](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) en fazla 1000 istek üstbilgisi. Yalnızca birkaç sonuçları görüntülemek için gerek duyduğunuz durumlarda Örneğin, kullanıcı arabirimi veya uygulama API'nizi yalnızca 10 döndürürse birer sonuçları, 10 okuma ve sorgular için kullanılan aktarım hızını azaltmak için sayfa boyutunu da azaltabilirsiniz.
 
-    Sayfa boyutu kullanarak da ayarlayabilir [setPageSize yöntemi](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._feed_options_base.setpagesize#com_microsoft_azure_documentdb__feed_options_base_setPageSize_Integer).
+    Sayfa boyutu kullanarak da ayarlayabilir [setPageSize yöntemi](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedoptionsbase.setpagesize#com.microsoft.azure.documentdb.feedoptionsbase.setPageSizeInteger).
 
 ## <a name="indexing-policy"></a>Dizin Oluşturma İlkesi
  
 1. **Kullanılmayan yolları daha hızlı yazmalar için dizine elmadan hariç tut**
 
-    Azure Cosmos DB'nin dizin oluşturma ilkesini dahil etmek veya dizin yolları yararlanarak dizine elmadan hariç tutmak için hangi belge yolları belirtmenize olanak verir ([setIncludedPaths](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._indexing_policy.setincludedpaths) ve [setExcludedPaths](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._indexing_policy.setexcludedpaths)). Dizin oluşturma maliyetleri doğrudan dizini benzersiz yollara sayısını bağıntılı olan gibi dizin yolları kullanımını geliştirilmiş yazma performansını ve sorgu desenleri önceden bilinmektedir senaryoları için daha düşük dizin depolaması sunabilir.  Örneğin, aşağıdaki kod belgeleri bölümünün tamamını (diğer adıyla) hariç tutmak nasıl gösterir bir alt ağacı) dizin oluşturma kullanarak "*" joker karakter.
+    Azure Cosmos DB'nin dizin oluşturma ilkesini dahil etmek veya dizin yolları yararlanarak dizine elmadan hariç tutmak için hangi belge yolları belirtmenize olanak verir ([setIncludedPaths](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.indexingpolicy.setincludedpaths) ve [setExcludedPaths](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.indexingpolicy.setexcludedpaths)). Dizin oluşturma maliyetleri doğrudan dizini benzersiz yollara sayısını bağıntılı olan gibi dizin yolları kullanımını geliştirilmiş yazma performansını ve sorgu desenleri önceden bilinmektedir senaryoları için daha düşük dizin depolaması sunabilir.  Örneğin, aşağıdaki kod belgeleri bölümünün tamamını (diğer adıyla) hariç tutmak nasıl gösterir bir alt ağacı) dizin oluşturma kullanarak "*" joker karakter.
 
     ```Java
     Index numberIndex = Index.Range(DataType.Number);
@@ -138,7 +138,7 @@ Açmanızı isteyen, "nasıl veritabanı performansımı geliştirebilirim şeki
 
     Kaç tane istek birimi bir işlem için kullanılan bir sorgu karmaşıklığı etkiler. Sorgu işlemlerinin maliyetini doğrulamaları sayısı, koşullarına, UDF'ler sayısı ve boyutu, kaynak veri kümesinin tüm genel yapısını etkiler.
 
-    Herhangi bir işlem yükü ölçmek için (oluşturma, güncelleştirme veya silme) İnceleme [x-ms-istek-ücretsiz olarak](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) üst bilgisi (veya eşdeğer RequestCharge özelliği [ResourceResponse<T> ](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._resource_response) veya [FeedResponse<T> ](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._feed_response) bu işlemleri tarafından kullanılan istek birimleri sayısını ölçmek için.
+    Herhangi bir işlem yükü ölçmek için (oluşturma, güncelleştirme veya silme) İnceleme [x-ms-istek-ücretsiz olarak](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) üst bilgisi (veya eşdeğer RequestCharge özelliği [ResourceResponse<T> ](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.resourceresponse) veya [FeedResponse<T> ](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedresponse) bu işlemleri tarafından kullanılan istek birimleri sayısını ölçmek için.
 
     ```Java
     ResourceResponse<Document> response = client.createDocument(collectionLink, documentDefinition, null, false);
@@ -158,7 +158,7 @@ Açmanızı isteyen, "nasıl veritabanı performansımı geliştirebilirim şeki
 
     SDK'ları tüm örtük olarak bu yanıt catch, sunucu tarafından belirtilen retry-after üst bilgisi saygı ve isteği yeniden deneyin. Hesabınızda aynı anda birden çok istemci tarafından erişilen sürece sonraki yeniden deneme işlemi başarılı olur.
 
-    Üst üste istek hızı tutarlı bir şekilde çalışan birden fazla istemciniz varsa, 9 istemci tarafından dahili olarak ayarlanmış varsayılan yeniden deneme sayısı yeterli değil; Bu durumda, istemci oluşturur bir [DocumentClientException](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client_exception) 429 uygulama durumuyla kod. Varsayılan yeniden deneme sayısı kullanarak değiştirilebilir [setRetryOptions](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy.setretryoptions) üzerinde [ConnectionPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy) örneği. İstek, istek hızı üzerinde çalışmaya devam ederse varsayılan olarak, durum kodu 429 DocumentClientException 30 saniye sonra bir toplam bekleme süresi döndürülür. Bu geçerli bir yeniden deneme sayısı en fazla yeniden deneme sayısından daha az olduğunda bile oluşur, varsayılan 9 veya kullanıcı tanımlı bir değer olmalıdır.
+    Üst üste istek hızı tutarlı bir şekilde çalışan birden fazla istemciniz varsa, 9 istemci tarafından dahili olarak ayarlanmış varsayılan yeniden deneme sayısı yeterli değil; Bu durumda, istemci oluşturur bir [DocumentClientException](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclientexception) 429 uygulama durumuyla kod. Varsayılan yeniden deneme sayısı kullanarak değiştirilebilir [setRetryOptions](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionpolicy.setretryoptions) üzerinde [ConnectionPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionpolicy) örneği. İstek, istek hızı üzerinde çalışmaya devam ederse varsayılan olarak, durum kodu 429 DocumentClientException 30 saniye sonra bir toplam bekleme süresi döndürülür. Bu geçerli bir yeniden deneme sayısı en fazla yeniden deneme sayısından daha az olduğunda bile oluşur, varsayılan 9 veya kullanıcı tanımlı bir değer olmalıdır.
 
     Dayanıklılık ve kullanılabilirlik uygulamalarının çoğu için iyileştirmek için otomatik yeniden deneme davranışı yardımcı olsa da, bu performans kıyaslamaları, özellikle gecikme süresini ölçme olduğunda yaparken at odds gelebilir.  Denemeyi sunucu kısıtlama denk gelir ve istemci SDK'sı sessiz bir şekilde yeniden denemek için neden olan istemci gözlemlenen gecikme çıkmasına. Ani gecikme süresi artışlarına sırasında performans denemelerini önlemek için her bir işlem tarafından döndürülen ücret ölçün ve istekleri ayrılmış istek hızı altında çalıştığından emin olun. Daha fazla bilgi için [istek birimi](request-units.md).
 3. **Daha yüksek verimliğe yönelik daha küçük belgeleri için Tasarım**

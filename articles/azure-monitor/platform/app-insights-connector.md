@@ -11,21 +11,21 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/29/2018
+ms.date: 01/10/2019
 ms.author: magoedte
-ms.openlocfilehash: 6b725d7912fa4b0d6b46acb35eda80ae66e4a38c
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 4c9fe269ffa351c1efdb3f94a15a10bae65432d8
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121422"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199659"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Application Insights Bağlayıcısı yönetim çözümü (Önizleme)
 
 ![Application Insights simgesi](./media/app-insights-connector/app-insights-connector-symbol.png)
 
 >[!NOTE]
-> Desteğiyle [kaynaklar arası sorgular](../../azure-monitor/log-query/cross-workspace-query.md), Application Insights Bağlayıcısı yönetim çözümü, artık gerekli değildir ve kullanım dışı bırakılacaktır. Temmuz itibaren yeni bir Application Insights kaynaklarını Log Analytics çalışma alanına bağlamak mümkün olmayacaktır. Var olan bağlantıları ve panolar Kasım 2018'e kadar çalışmaya devam eder. Daha fazla bilgi için [Azure'a taşıyarak OMS portalında](../../azure-monitor/platform/oms-portal-transition.md).
+> Desteğiyle [kaynaklar arası sorgular](../../azure-monitor/log-query/cross-workspace-query.md) ve [birden çok Azure İzleyici Application Insights kaynaklarını görüntüleme](../log-query/unify-app-resource-data.md), Application Insights Bağlayıcısı yönetim çözümü gerekli olmaz. Application Insights Bağlayıcısı kullanım dışı ve resmi olarak 15 Ocak 2019 üzerinde Azure ABD kamu Bulutu ve Azure ticari bulutundaki için devre dışı bırakma OMS portalı kullanımdan kaldırma ile birlikte Azure Marketi'nden kaldırıldı, resmi olarak Mart'ta Çekildi 30, 2019. Varolan bağlantılar 30 Haziran 2019 kadar çalışmaya devam eder. OMS portalı kullanımdan kaldırma ile yapılandırmak ve mevcut bağlantıları Portalı'ndan kaldırmak için hiçbir yolu yoktur. Bu Ocak 2019 içinde kullanılabilir hale getirilir REST API'sini kullanarak desteklenmeyecek ve bildirim tarihinde gönderildi [Azure güncelleştirmeleri](https://azure.microsoft.com/updates/). Daha fazla bilgi için [Azure'a taşıyarak OMS portalında](../../azure-monitor/platform/oms-portal-transition.md).
 
 Uygulama öngörüleri Bağlayıcısı çözümü performans sorunlarını tanılayın ve ile izlenen kullanıcıların uygulamanızla ne yaptığını anlamanıza yardımcı olur. [Application Insights](../../azure-monitor/app/app-insights-overview.md). Log Analytics'te Application Insights'ta geliştiricilerin gördüğü aynı uygulama telemetrisini görünümlerini kullanılabilir. Ancak, Application Insights uygulamalarınızı Log Analytics ile tümleştirdiğinizde, uygulamalarınızın görünürlüğünü işlemi ve uygulama verilerini tek bir yerde sağlayarak artar. Aynı görünümleri olan, uygulama geliştiricilere işbirliği yapmasına yardımcı olur. Sık kullanılan görünümler, algılamak ve hem uygulama hem de platformu sorunları çözmek için gereken süreyi azaltmaya yardımcı olabilir.
 

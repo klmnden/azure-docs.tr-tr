@@ -9,12 +9,12 @@ ms.date: 12/05/2018
 ms.author: anshan
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: c2aeab6888cf93be75742028b0354c45a1834d51
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 58b19a039bb6aebcd2687ab80cdd29c5f378645e
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537291"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200216"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>Öğretici: Azure Time Series Insights ortamı oluşturma
 
@@ -41,7 +41,7 @@ Azure oturum açma hesabının aynı zamanda aboneliğin Sahip rolüne üye olma
 
 ## <a name="overview"></a>Genel Bakış
 
-TSI ortamı, cihaz verilerinin toplanıp depolandığı yerdir. TSI ortamına depolandıktan sonra, [TSI Gezgini](time-series-quickstart.md) ve [TSI Sorgu API’sini](/rest/api/time-series-insights/time-series-insights-reference-queryapi) kullanarak verileri sorgulayıp çözümleyebilirsiniz.
+TSI ortamı, cihaz verilerinin toplanıp depolandığı yerdir. TSI ortamına depolandıktan sonra, [TSI Gezgini](time-series-quickstart.md) ve [TSI Sorgu API’sini](/rest/api/time-series-insights/ga-query-api) kullanarak verileri sorgulayıp çözümleyebilirsiniz.
 
 Sanal veya fiziksel tüm cihazlar gibi IoT Hub da Azure bulutuna güvenli bir şekilde bağlanmak ve veri aktarmak için cihazlar tarafından kullanılan bağlantı noktasıdır. [TSI’ya Genel Bakış](time-series-insights-overview.md) bölümünde ele alındığı gibi, IoT Hub aynı zamanda TSI ortamına veri akışı yapmaya yarayan bir olay kaynağı olarak görev yapar. 
 

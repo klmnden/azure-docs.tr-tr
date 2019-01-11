@@ -3,7 +3,7 @@ title: Linux için Azure N serisi GPU sürücü kurulumu | Microsoft Docs
 description: Azure'da Linux çalıştıran N serisi VM'ler için NVIDIA GPU sürücülerini ayarlama
 services: virtual-machines-linux
 documentationcenter: ''
-author: dlepow
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
-ms.author: danlep
+ms.date: 01/09/2019
+ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2bd9f8508f67a3c4b87533fb514854b5f66a5f6b
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: df78852e309054bb5c27a779b37bb2310d9f7a01
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017272"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201049"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Linux çalıştıran N serisi Vm'lerde NVIDIA GPU sürücüleri yükleyin
 
@@ -51,9 +51,9 @@ lspci | grep -i NVIDIA
 
 Ardından, dağıtım için belirli çalışma yükleme komutları.
 
-### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
+### <a name="ubuntu"></a>Ubuntu 
 
-1. CUDA sürücüleri yükleyip yeniden açın.
+1. Sürücüleri indirin ve CUDA NVIDIA Web sitesinden yükleyin. Ubuntu 16.04 LTS için örneğin:
   ```bash
   CUDA_REPO_PKG=cuda-repo-ubuntu1604_10.0.130-1_amd64.deb
 
@@ -97,7 +97,7 @@ sudo apt-get install cuda-drivers
 sudo reboot
 ```
 
-### <a name="centos-or-red-hat-enterprise-linux-73-or-74"></a>CentOS veya Red Hat Enterprise Linux 7.4 ya da 7.3
+### <a name="centos-or-red-hat-enterprise-linux"></a>CentOS veya Red Hat Enterprise Linux
 
 1. (Önerilen) çekirdek güncelleştirin. Çekirdek güncelleştirmeyi tercih ederseniz sürümleri emin `kernel-devel` ve `dkms` , çekirdek için uygundur.
 
@@ -174,7 +174,7 @@ RDMA özellikli N serisi sanal makineler N serisi Vm'lerde RDMA bağlantısı de
 
 NV veya NVv2 serisi VM'ler, NVIDIA GRID sürücüleri yüklemek için her VM için bir SSH bağlantısı ve Linux dağıtımınız için adımları izleyin. 
 
-### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
+### <a name="ubuntu"></a>Ubuntu 
 
 1. `lspci` komutunu çalıştırın. NVIDIA M60 kartın veya kartları PCI cihazlar olarak görünür olduğundan emin olun.
 

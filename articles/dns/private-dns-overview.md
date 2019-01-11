@@ -5,20 +5,20 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 012/5/2018
+ms.date: 1/10/2019
 ms.author: victorh
-ms.openlocfilehash: 4d817e71cffd782bdcfdfb91492dbd5d08fb8479
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e426e38ce5366f7c0d8b8bc20a639d827ea9e261
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967104"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200537"
 ---
 # <a name="use-azure-dns-for-private-domains"></a>Özel etki alanları için Azure DNS kullanma
 
 DNS veya etki alanı adı sistemi çevirmek için sorumludur (veya çözümleme) bir hizmet adı, IP adresi. Bir barındırma hizmeti DNS etki alanları için Microsoft Azure altyapısı kullanarak Azure DNS ad çözümlemesi sağlar. İnternet'e yönelik DNS etki alanlarınızı hizmetinin yanı sıra, Azure DNS artık ayrıca özel DNS etki alanı bir önizleme özelliği olarak destekler.
 
-Azure DNS, yönetmek ve özel bir DNS çözümü ekleme gerek kalmadan bir sanal ağdaki etki alanı adlarını çözümlemek için güvenilir, güvenli DNS hizmeti sağlar. Özel DNS bölgelerini kullanarak, Azure tarafından sağlanan mevcut adların yerine kendi özel etki alanı adlarını kullanabilirsiniz. Özel etki alanı adlarını kullanarak, sanal ağ Mimarinizi en iyi karşılayacak şekilde uyarlamak için kuruluşunuzun gereksinimlerine yardımcı olur. Sanal makineler (VM) bir sanal ağdaki ve sanal ağlar arasında ad çözümleme sağlar. Ayrıca, bölge adlarını özel ve Genel DNS bölgelerinin aynı adı paylaşmasını sağlayan ve split-horizon görünümünde ile yapılandırabilirsiniz.
+Azure DNS, yönetmek ve özel bir DNS çözümü ekleme gerek kalmadan bir sanal ağdaki etki alanı adlarını çözümlemek için güvenilir, güvenli DNS hizmeti sağlar. Özel DNS bölgelerini kullanarak, Azure tarafından sağlanan mevcut adların yerine kendi özel etki alanı adlarını kullanabilirsiniz. Özel etki alanı adlarını kullanarak, sanal ağ Mimarinizi en iyi karşılayacak şekilde uyarlamak için kuruluşunuzun gereksinimlerine yardımcı olur. Sanal makineler (VM) bir sanal ağdaki ve sanal ağlar arasında ad çözümleme sağlar. Ayrıca, bölge adlarını özel ve Genel DNS bölgelerinin adı paylaşmasına izin veren bir split-horizon görünümünde ile yapılandırabilirsiniz.
 
 Kayıt sanal ağı belirtirseniz, özel bölgeye kaydedilen Vm'lerden söz konusu sanal ağ için DNS kayıtlarını görüntülenebilir veya Azure Powershell ve Azure CLI API'leri alınabilir değildir, ancak VM kayıtları gerçekten kaydedilir ve olur başarılı bir şekilde çözün.
 
@@ -57,11 +57,11 @@ Azure DNS, aşağıdaki özellikleri sağlar:
 
 * **İleriye doğru DNS çözümlemesi, özel bölgesiyle bağlantılı çözümleme sanal ağları sanal ağlar desteklenir**. DNS çözümlemesi arası sanal ağ için olduğunu açık bağımlılığı olmayan sanal ağlar birbiriyle eşlenmiş gibi. Bununla birlikte, müşteriler (örneğin, HTTP trafiğini) diğer senaryolar için sanal ağları eşleyebilme isteyebilirsiniz.
 
-* **Geriye doğru DNS araması sanal ağ kapsamı içinde desteklenen**. Özel bir bölgesi için atanmış sanal ağ içindeki özel bir IP için ters DNS Arama soneki bölge adı yanı sıra konak/kayıt adını içeren FQDN döndürür.
+* **Geriye doğru DNS araması sanal ağ kapsamı içinde desteklenen**. Özel bir bölgesi için atanmış sanal ağ içindeki özel bir IP için ters DNS araması konak/kayıt adı ve bölge adı soneki içeren FQDN döndürür.
 
 ## <a name="limitations"></a>Sınırlamalar
 
-Azure DNS, aşağıdaki sınırlamalara tabi şöyledir:
+Azure DNS, aşağıdaki sınırlamalara sahiptir:
 
 * Özel bölge başına yalnızca bir kayıt sanal ağı izin verilir.
 * En fazla 10 çözümleme sanal ağları özel bölge başına izin verilir.
@@ -70,14 +70,14 @@ Azure DNS, aşağıdaki sınırlamalara tabi şöyledir:
 * Kayıt sanal ağı belirtirseniz, özel bölgeye kaydedilen Vm'lerden söz konusu sanal ağ için DNS kayıtlarını görüntülenebilir veya Azure Powershell ve Azure CLI API'leri alınabilir değil. VM kayıtları gerçekten kaydedilir ve başarıyla çözülecektir.
 * Kayıt sanal ağ özel IP alanı için yalnızca geriye doğru DNS çalışır.
 * Ters DNS özel bölgesi (örneğin, bölge bağlantılı çözümleme sanal ağı özel bir sanal ağdaki bir sanal makine için bir özel IP) kayıtlı değilse bir özel IP döndürür için *internal.cloudapp.net* DNS son eki. Ancak bu sonek çözümlenebilir değil.
-* Sanal ağ boş olması gerekir (diğer bir deyişle, VM kayıt yok) olduğunda, başlangıçta (diğer bir deyişle, ilk kez) bağlantılar, özel bir bölgeye kayıt veya çözümleme sanal ağı olarak. Ancak, sanal ağ boş ardından olabilir bir kayıt veya çözümleme sanal ağ özel diğer bölgelere gelecekteki bağlama.
-* Şu anda koşullu iletme (örneğin, Azure ve şirket içi ağlar arasındaki çözümleme etkinleştirmek için) desteklenmiyor. Müşteriler, bu senaryo başka mekanizmalar aracılığıyla nasıl hayata geçirebilirsiniz hakkında daha fazla bilgi için bkz: [VM'ler ve rol örnekleri için ad çözümlemesi](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+* Sanal ağ özel bir bölgeye kayıt veya çözümleme sanal ağı olarak bağlantı ilk kez tamamen boş olmalıdır. Ancak, sanal ağ boş ardından olabilir bir kayıt veya çözümleme sanal ağ özel diğer bölgelere gelecekteki bağlama.
+* Şu anda koşullu iletme (örneğin, Azure ve şirket içi ağlar arasında çözüm etkinleştirme için) desteklenmiyor. Müşteriler, bu senaryo başka mekanizmalar aracılığıyla nasıl hayata geçirebilirsiniz hakkında daha fazla bilgi için bkz: [VM'ler ve rol örnekleri için ad çözümlemesi](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 Yaygın sorular ve yanıtlar hakkında Azure DNS özel bölgeleri için belirli bir DNS kaydı ve çözümleme davranışı dahil olmak üzere, belirli türde operasyonlar beklediğiniz, bakın [SSS](./dns-faq.md#private-dns).  
 
 ## <a name="pricing"></a>Fiyatlandırma
 
-Özel DNS bölgeleri özelliği genel Önizleme süresince ücretsizdir. Genel kullanıma sunulduğunda özellik sunan bir kullanım tabanlı fiyatlandırma modeli, var olan Azure DNS için benzer sunacaktır. 
+Özel DNS bölgeleri özelliği genel Önizleme süresince ücretsizdir. Genel kullanıma sunulduğunda özellik bir kullanım tabanlı fiyatlandırma modeli, var olan Azure DNS için benzer sunar. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

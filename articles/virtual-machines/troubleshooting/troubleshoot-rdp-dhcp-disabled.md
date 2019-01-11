@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 2299dd6c723aa3059c293170c655918e5236ca0e
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 5842c5edd0402d61f564ab15e34e8f69c0e718d7
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138169"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213459"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>DHCP İstemci hizmetini devre dışı olduğundan, Azure sanal makinelerinde RDP olamaz
 
@@ -34,10 +34,10 @@ VM'yi DHCP İstemci hizmetini devre dışı olduğundan, Azure'da bir VM ile RDP
 **Kaynak**: Hizmet Denetimi Yöneticisi </br>
 **Tarih**: 16/12/2015 11:19:36: 00 </br>
 **Olay Kimliği**: 7022 </br>
-**Görev kategorisi**: yok </br>
-**Düzey**: hata </br>
+**Görev kategorisi**: None </br>
+**Düzey**: Hata </br>
 **Anahtar sözcükler**: Klasik</br>
-**Kullanıcı**: yok </br>
+**Kullanıcı**: Yok </br>
 **Bilgisayar**: myvm.cosotos.com</br>
 **Açıklama**: DHCP istemci hizmeti başlatılırken askıya alındı.</br>
 
@@ -62,7 +62,7 @@ Bu sorunu çözmek için DHCP etkinleştirmek için seri denetimi kullanın veya
 
 ### <a name="use-serial-control"></a>Seri denetimini kullanma
 
-1. Bağlanma [seri konsol ve örnek CMD Aç](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
+1. Bağlanma [seri konsol ve örnek CMD Aç](serial-console-windows.md#use-cmd-or-powershell-in-serial-console).
 ). Seri konsol sanal makinenizde etkinleştirilmemiş olmadığını [sıfırlama ağ arabirimi](reset-network-interface.md).
 2. DHCP ağ arabiriminde devre dışı bırakılıp bırakılmadığını kontrol edin:
 
@@ -95,7 +95,7 @@ Bu sorunu çözmek için DHCP etkinleştirmek için seri denetimi kullanın veya
 
 #### <a name="dhcp-client-service-is-stopped-because-of-an-access-denied-error"></a>DHCP istemci hizmeti erişim reddedildi hatası nedeniyle durduruldu
 
-1. Bağlanma [seri konsol](serial-console-windows.md#) ve PowerShell örneği açın.
+1. Bağlanma [seri konsol](serial-console-windows.md) ve PowerShell örneği açın.
 2. İşlem izleme aracı, aşağıdaki komutu çalıştırarak yükleyin:
 
    ```

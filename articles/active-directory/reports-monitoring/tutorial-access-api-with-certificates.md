@@ -15,14 +15,14 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 7535aad95f7410d25ada232b4946fe52ebc4ba67
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 5714ed552c81d28a253aa57ad6e2ba1d67e543a1
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961969"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214275"
 ---
-# <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Öğretici: Azure Active Directory'ı sertifikalarla raporlama API'sini kullanarak veri alma
+# <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Öğretici: Sertifikalarla Azure Active Directory raporlama API’sini kullanarak veri alma
 
 [Azure Active Directory (Azure AD) raporlama API'leri](concept-reporting-api.md), bir dizi REST tabanlı API aracılığıyla verilere programlı erişim sağlar. Çeşitli programlama dilleri ve araçlarından bu API'leri çağırabilirsiniz. Azure AD raporlama API'sini kullanıcı müdahalesi olmadan erişmek istiyorsanız, erişiminizi sertifikalarını kullanacak şekilde yapılandırmanız gerekir.
 
@@ -30,24 +30,28 @@ Bu öğreticide, bir test sertifikası raporlama için MS Graph API'sine erişme
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-1. İlk olarak [Azure Active Directory raporlama API'SİYLE erişmek için Önkoşullar](howto-configure-prerequisites-for-reporting-api.md). 
+1. Oturum açma verilerine erişmek için bir premium (ö1/ö2) lisansına sahip bir Azure Active Directory kiracınız olduğundan emin olun. Bkz: [Azure Active Directory Premium ile çalışmaya başlama](../fundamentals/active-directory-get-started-premium.md) , Azure Active Directory sürümünü yükseltmek için. Yükseltme öncesinde tüm etkinlikleri veri yoksa, birkaç gün raporlarda görünmesi için bir premium lisansı yükselttikten sonra verilerin gerektiğine dikkat edin. 
 
-2. İndirme ve yükleme [Azure AD PowerShell V2](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/docs-conceptual/azureadps-2.0/install-adv2.md).
+2. Oluşturma veya geçiş için bir kullanıcı hesabında **genel yönetici**, **Güvenlik Yöneticisi**, **güvenlik okuyucusu** veya **rapor okuyucu** Kiracı için rolü. 
 
-3. Yükleme [MSCloudIdUtils](https://www.powershellgallery.com/packages/MSCloudIdUtils/). Bu modül aşağıdaki çeşitli yardımcı program cmdlet'lerini sağlar:
+3. Tamamlamak [Azure Active Directory raporlama API'SİYLE erişmek için Önkoşullar](howto-configure-prerequisites-for-reporting-api.md). 
+
+4. İndirme ve yükleme [Azure AD PowerShell V2](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/docs-conceptual/azureadps-2.0/install-adv2.md).
+
+5. Yükleme [MSCloudIdUtils](https://www.powershellgallery.com/packages/MSCloudIdUtils/). Bu modül aşağıdaki çeşitli yardımcı program cmdlet'lerini sağlar:
     - ADAL kimlik doğrulaması için gereken kitaplıkları
     - ADAL kullanarak kullanıcı, uygulama anahtarları ve sertifikalardan erişim belirteçleri
     - Disk belleğine alınmış Graph API işleme sonuçları
 
-4. İlk kez çalıştırma modülü ise **yükleme MSCloudIdUtilsModule**, aksi takdirde kullanarak içe aktarın **Import-Module** Powershell komutu. Oturumunuz bu ekrana benzer olmalıdır: ![Windows Powershell](./media/tutorial-access-api-with-certificates/module-install.png)
+6. İlk kez çalıştırma modülü ise **yükleme MSCloudIdUtilsModule**, aksi takdirde kullanarak içe aktarın **Import-Module** Powershell komutu. Oturumunuz şu ekran gibi görünmelidir: ![Windows Powershell](./media/tutorial-access-api-with-certificates/module-install.png)
   
-5. Kullanım **New-SelfSignedCertificate** bir test sertifikası oluşturmak için Powershell komutu.
+7. Kullanım **New-SelfSignedCertificate** bir test sertifikası oluşturmak için Powershell komutu.
 
    ```
    $cert = New-SelfSignedCertificate -Subject "CN=MSGraph_ReportingAPI" -CertStoreLocation "Cert:\CurrentUser\My" -KeyExportPolicy Exportable -KeySpec Signature -KeyLength 2048 -KeyAlgorithm RSA -HashAlgorithm SHA256
    ```
 
-6. Kullanım **sertifika verme** bir sertifika dosyasına aktarmak için komutu.
+8. Kullanım **sertifika verme** bir sertifika dosyasına aktarmak için komutu.
 
    ```
    Export-Certificate -Cert $cert -FilePath "C:\Reporting\MSGraph_ReportingAPI.cer"

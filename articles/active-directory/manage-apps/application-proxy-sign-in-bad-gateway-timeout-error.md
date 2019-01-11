@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: c26f9c319a8260f4c19933d640310923b9c36db7
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 768a9d930314882f88eab630365475d69aa5f83b
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134837"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213731"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Uygulama proxy'si uygulaması kullanılırken "Şirket bu uygulamaya erişemezsiniz" hatası
 
@@ -29,11 +29,11 @@ Bu makale bir Azure AD uygulama proxy'si uygulaması "Bu şirket uygulama erişi
 ## <a name="overview"></a>Genel Bakış
 Bu hatayı gördüğünüzde, durum kodu hata sayfasında bulabilirsiniz. Bu kodu, aşağıdaki durum kodları biri olabilir.:
 
--   **Ağ geçidi zaman aşımı**: uygulama proxy'si Hizmeti Bağlayıcısı ulaşamıyoruz. Bağlayıcıyı ağ kuralları ya da bu hata genellikle bağlayıcının kendisi, bağlayıcı atama ile ilgili bir sorun olduğunu gösterir.
+-   **Ağ geçidi zaman aşımı**: Uygulama proxy'si Hizmeti Bağlayıcısı ulaşamıyoruz. Bağlayıcıyı ağ kuralları ya da bu hata genellikle bağlayıcının kendisi, bağlayıcı atama ile ilgili bir sorun olduğunu gösterir.
 
--   **Hatalı ağ geçidi**: arka uç uygulaması erişemiyor Bağlayıcıdır. Bu hata, yanlış yapılandırma uygulamanın olduğunu gösteriyor olabilir.
+-   **Hatalı ağ geçidi**: Arka uç uygulaması erişemiyor Bağlayıcıdır. Bu hata, yanlış yapılandırma uygulamanın olduğunu gösteriyor olabilir.
 
--   **Yasak**: kullanıcının uygulamaya erişim yetkisi yok. Kullanıcı Azure Active Directory'de uygulama atanmadığında veya arka uçta kullanıcının uygulamaya erişim izni yoksa, bu hata oluşabilir.
+-   **Yasak**: Kullanıcının uygulamaya erişim yetkisi yok. Kullanıcı Azure Active Directory'de uygulama atanmadığında veya arka uçta kullanıcının uygulamaya erişim izni yoksa, bu hata oluşabilir.
 
 Kodu bulmak için "Durum kodu" alanı için hata iletisinin alt sol metin bakın. Sayfanın alt kısmındaki herhangi bir ek ipuçları da arayın.
 
@@ -62,7 +62,7 @@ Hatalı ağ geçidi hatasına bağlayıcı arka uç uygulaması ulaşamadık old
 
 Yasak hatası görürseniz, kullanıcının uygulamaya atanmadı. Azure Active Directory'de veya arka uç uygulaması, bu hata olabilir.
 
-Azure'daki uygulama için kullanıcı atama hakkında bilgi edinmek için [yapılandırma belgelerine](https://docs.microsoft.com/azure/active-directory/application-proxy-add-on-premises-application#add-a-test-user).
+Azure'daki uygulama için kullanıcı atama hakkında bilgi edinmek için [yapılandırma belgelerine](application-proxy-add-on-premises-application.md#test-the-application).
 
 Azure'daki uygulama için kullanıcının atandığı onaylayın, arka uç uygulaması, kullanıcı yapılandırmasını denetleyin. Kerberos Kısıtlı temsilci/tümleşik Windows kimlik doğrulaması kullanıyorsanız, KCD sorun giderme sayfası yönergeleri için bkz.
 
@@ -84,9 +84,9 @@ Uygulamayı doğrulamak için bağlayıcı grubunda çalışan atanır:
 
   * Etkin bir bağlayıcı grubuna taşıyın: Bu gruba ait olmalıdır ve görebilmesi hedef arka uç uygulaması için olan bir etkin bağlayıcı varsa, bağlayıcı atanan grubuna taşıyabilirsiniz. Bunu yapmak için bağlayıcı'yı tıklayın. "Bağlayıcı grubu" alanında doğru grubunu seçin ve Kaydet'e tıklayın için açılan listeyi kullanın.
 
-  * Bu grup için yeni bir bağlayıcı indirmek: Bu sayfadan bağlantısını alın [yeni bir bağlayıcı indirmek](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). Bağlayıcıyı doğrudan görebilmesi için arka uç uygulaması ile bir makineye yükleyin. Typicall, bağlayıcı, uygulamanın aynı sunucuya yüklenir. Bağlayıcı bağlantısını indirin, hedef makineye bir bağlayıcı indirmek için kullanın. Ardından, Bağlayıcısı'nı tıklatın ve "Bağlayıcı grubu" açılan doğru gruba ait emin olmak için kullanın.
+  * Bu grup için yeni bir bağlayıcı indirin: Bu sayfadan bağlantısını alın [yeni bir bağlayıcı indirmek](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). Bağlayıcıyı doğrudan görebilmesi için arka uç uygulaması ile bir makineye yükleyin. Typicall, bağlayıcı, uygulamanın aynı sunucuya yüklenir. Bağlayıcı bağlantısını indirin, hedef makineye bir bağlayıcı indirmek için kullanın. Ardından, Bağlayıcısı'nı tıklatın ve "Bağlayıcı grubu" açılan doğru gruba ait emin olmak için kullanın.
 
-  * Etkin olmayan bir bağlayıcı araştırın: bağlayıcıyı devre dışı olarak gösteriyorsa, hizmete bağlanamıyoruz. Bu hata genellikle engellenme bazı gerekli bağlantı noktaları nedeniyle kaynaklanır. Bu sorunu çözmek için "Beyaz listeye tüm bağlantı noktaları olduğundan emin olun." geçin
+  * Etkin olmayan bir bağlayıcı araştırın: Bağlayıcıyı devre dışı olarak gösteriyorsa, hizmete bağlanamıyoruz. Bu hata genellikle engellenme bazı gerekli bağlantı noktaları nedeniyle kaynaklanır. Bu sorunu çözmek için "Beyaz listeye tüm bağlantı noktaları olduğundan emin olun." geçin
 
 Kullandıktan sonra uygulama bağlayıcıları, çalışma ile bir gruba atanmış emin olmak için aşağıdaki adımları uygulamayı yeniden sınayın. Yine de çalışmazsa sonraki bölüme devam edin.
 

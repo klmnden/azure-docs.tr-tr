@@ -10,12 +10,12 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: f09b9a93956c9d23e17c742c5f6ec4730591933b
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 365b15f11409f985b71c9bba4372552321f162f2
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302322"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54212558"
 ---
 # <a name="designing-tables-in-azure-sql-data-warehouse"></a>Azure SQL veri ambarı tabloları tasarlama
 
@@ -45,7 +45,7 @@ SQL veri ambarı'nda tablolar organizasyonu göstermek için tablo adları için
 | Wideworldımportersdw tablo  | Tablo türü | SQL Server | SQL Veri Ambarı |
 |:-----|:-----|:------|:-----|
 | Şehir | Boyut | Dimension.City | wwi. DimCity |
-| Sipariş verme | Olgusu | Fact.Order | wwi.FactOrder |
+| Sipariş verme | Olgu | Fact.Order | wwi.FactOrder |
 
 
 ## <a name="table-persistence"></a>Tablo kalıcılığı 
@@ -93,7 +93,7 @@ Tablo kategori tablo dağıtılmasında seçmek için hangi seçeneği genellikl
 
 | Tablo kategorisi | Önerilen dağıtım seçeneği |
 |:---------------|:--------------------|
-| Olgusu           | Kümelenmiş columnstore dizini ile karma dağıtım kullanın. İki karma tabloları aynı dağıtım sütunu katıldığında performansını artırır. |
+| Olgu           | Kümelenmiş columnstore dizini ile karma dağıtım kullanın. İki karma tabloları aynı dağıtım sütunu katıldığında performansını artırır. |
 | Boyut      | Çoğaltılmış daha küçük tablolar için kullanın. Karma dağıtılmış tablo her işlem düğümünde depolamak için çok büyük ise kullanın. |
 | Hazırlanıyor        | Hepsini bir kez deneme hazırlama tablosu için kullanın. CTAS yüküyle hızlıdır. Veri hazırlama tablosunda eklendiğinde, INSERT kullanın... Bir üretim tablolarına veri taşımak için bu seçeneği seçin. |
 
@@ -103,7 +103,7 @@ Bölümlenmiş bir tablodaki depoları ve veri aralıkları göre tablo satırla
 ## <a name="columnstore-indexes"></a>Columnstore dizinleri
 Varsayılan olarak, SQL veri ambarı, bir tablo kümelenmiş bir columnstore dizini depolar. Bu form, veri depolama, yüksek veri sıkıştırma ve sorgu performansı büyük tablolar üzerindeki ulaşır.  Kümelenmiş columnstore dizinini genellikle en iyi seçenektir, ancak bazı durumlarda bir kümelenmiş dizin veya bir yığın uygun depolama yapısıdır.
 
-Columnstore özelliklerinin listesi için bkz. [columnstore dizinlerinde yenilikler](/sql/relational-databases/indexes/columnstore-indexes-whats-new). Columnstore dizini performansını artırmak için bkz: [satır grubu kaliteli columnstore dizinleri için en üst düzeye](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
+Columnstore özelliklerinin listesi için bkz. [columnstore dizinlerinde yenilikler](/sql/relational-databases/indexes/columnstore-indexes-what-s-new). Columnstore dizini performansını artırmak için bkz: [satır grubu kaliteli columnstore dizinleri için en üst düzeye](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
 ## <a name="statistics"></a>İstatistikler
 Bir sorgu yürütme planı oluşturduğunda, sütun düzeyindeki istatistikleri sorgu iyileştiricisi kullanır. Sorgu performansını artırmak için tek tek sütun, özellikle sorgu birleşimlerde kullanılan sütun istatistikleri oluşturmak önemlidir. İstatistikleri oluşturma ve güncelleştirme otomatik olarak gerçekleştirilmez. [İstatistik oluşturma](/sql/t-sql/statements/create-statistics-transact-sql) tablo oluşturduktan sonra. Çok sayıda satır eklenen veya değiştirilen sonra istatistikleri güncelleştirin. Örneğin, bir yükleme sonrası istatistikleri güncelleştirin. Daha fazla bilgi için [istatistikleri Kılavuzu](sql-data-warehouse-tables-statistics.md).
@@ -133,7 +133,7 @@ SQL veri ambarı birçok destekler, ancak bazıları, tablo özellikleri diğer 
 - [Dizin oluşturulmuş görünümler](/sql/relational-databases/views/create-indexed-views)
 - [Dizisi](/sql/t-sql/statements/create-sequence-transact-sql)
 - [Seyrek sütun](/sql/relational-databases/tables/use-sparse-columns)
-- [Vekil anahtarlar](). İle uygulama [kimlik](sql-data-warehouse-tables-identity.md).
+- Vekil anahtar. İle uygulama [kimlik](sql-data-warehouse-tables-identity.md).
 - [Eş anlamlıları](/sql/t-sql/statements/create-synonym-transact-sql)
 - [Tetikleyiciler](/sql/t-sql/statements/create-trigger-transact-sql)
 - [Benzersiz dizinler](/sql/t-sql/statements/create-index-transact-sql)

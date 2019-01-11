@@ -8,12 +8,12 @@ ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: 42cca961d58b9fd58e8a9c1b2fc2ddc369deb6d0
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: c3392c3fd169ceed84368ed9e8b8d81cab7baea4
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017207"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54212948"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>Hızlı Başlangıç: Azure PowerShell kullanarak Stream Analytics işi oluşturma
 
@@ -95,7 +95,7 @@ Aşağıdaki Azure CLI kod bloğu, iş için gereken girdi verilerini hazırlama
    az iot hub device-identity create --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice"
    ```
 
-4. Cihaz bağlantı dizesi kullanarak [az IOT hub cihaz kimliği show-connection-string]() komutu. Tüm bağlantı dizesini kopyalayın ve Raspberry Pi simülatör oluştururken için kaydedin.
+4. Cihaz bağlantı dizesi kullanarak [az IOT hub cihaz kimliği show-connection-string](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity#ext-azure-cli-iot-ext-az-iot-hub-device-identity-show-connection-string) komutu. Tüm bağlantı dizesini kopyalayın ve Raspberry Pi simülatör oluştururken için kaydedin.
 
    ```azurecli
    az iot hub device-identity show-connection-string --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice" --output table

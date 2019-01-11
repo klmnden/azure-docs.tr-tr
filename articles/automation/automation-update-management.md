@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/11/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0066a4ea5d91369bf6724dbaea4743a10bd8db0b
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: d8df48511f2bfd2500dbc0a1dfaa95e488fad63b
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631864"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215006"
 ---
 # <a name="update-management-solution-in-azure"></a>Güncelleştirme yönetimi çözümünü azure'da
 
@@ -125,6 +125,15 @@ System Center Operations Manager yönetim grubunuzun bir Log Analytics çalışm
 > [!NOTE]
 > Operations Manager Aracısı ile sistemler için güncelleştirme yönetimi tarafından tam olarak yönetilmeye Aracısı Microsoft Monitoring Agent'olarak güncelleştirilmesi gerekir. Aracı güncelleştirme hakkında bilgi edinmek için bkz: [bir Operations Manager Aracısı yükseltme](https://docs.microsoft.com/system-center/scom/deploy-upgrade-agents).
 
+## <a name="onboard"></a>Güncelleştirme yönetimini etkinleştirme
+
+Sistemlerine yama yapma başlamak için güncelleştirme yönetimi çözümünü etkinleştirmeniz gerekir. Güncelleştirme yönetimi için makine birçok yolu vardır. Aşağıdaki önerilen bağlıdır ve çözüm yollarını desteklenir:
+
+* [Bir sanal makineden](automation-onboard-solutions-from-vm.md)
+* [Birden çok makine gözatmanızı](automation-onboard-solutions-from-browse.md)
+* [Otomasyon hesabınızdan](automation-onboard-solutions-from-automation-account.md)
+* [Azure Otomasyonu runbook'u ile](automation-onboard-solutions.md)
+  
 ### <a name="confirm-that-non-azure-machines-are-onboarded"></a>Azure olmayan makineler eklenmedi olduğundan emin olun
 
 Doğrudan bağlı makineleri birkaç dakika sonra Log Analytics ile iletişim kurduğunu onaylamak için bir aşağıdaki günlük aramaları çalıştırabilirsiniz.

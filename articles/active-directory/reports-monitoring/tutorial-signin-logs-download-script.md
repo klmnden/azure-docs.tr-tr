@@ -16,14 +16,14 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 8b9097a62ca4bfa67fb5eb35e06f7834df6691e7
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 07239e3411bc8df06cdff731343649867b59a3c9
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622814"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213103"
 ---
-# <a name="tutorial-how-to-download-and-use-a-script-to-access-sign-in-logs"></a>Öğretici: nasıl indirin ve oturum açma günlüklerine erişmek için bir betik kullan
+# <a name="tutorial-how-to-download-and-use-a-script-to-access-sign-in-logs"></a>Öğretici: Karşıdan yükleme ve oturum açma günlüklerine erişmek için bir betik kullan
 
 Azure portalının dışında çalışmak istiyorsanız oturum açma etkinlik verilerini indirebilirsiniz. **İndirme** seçeneği Azure portalında, bir CSV dosyası en son 5000 kayıt oluşturur. Daha fazla esneklik gerekiyorsa, örneğin, 5000'den fazla kayıt aynı anda yüklemek veya zamanlanan aralıklarla günlükleri indirmek için kullanabileceğiniz **betik** verilerinizi yüklemek için bir PowerShell betiği oluşturmak için düğme.
 
@@ -33,7 +33,7 @@ Bu öğreticide, son 24 saat tüm oturum açma günlükleri indirmek ve her gün
 
 İhtiyacın var
 
-* Azure Active Directory kiracısı (ö1/ö2) premium lisansına sahip. 
+* Azure Active Directory kiracısı (ö1/ö2) premium lisansına sahip. Yükseltme öncesinde tüm etkinlikleri veri yoksa, birkaç gün raporlarda görünmesi için bir premium lisansı yükselttikten sonra verilerin gerektiğine dikkat edin. 
 * İçinde olan bir kullanıcı **genel yönetici**, **Güvenlik Yöneticisi**, **güvenlik okuyucusu** veya **rapor okuyucu** kiracının rol. Ayrıca, herhangi bir kullanıcı kendi oturum açma etkinliklerine erişebilir. 
 * İndirdiğiniz betiğin Windows 10 makinenizde çalıştırmak istiyorsanız [AzureRM modülünü kurun ve yürütme İlkesi](concept-sign-ins.md#running-the-script-on-a-windows-10-machine).
 

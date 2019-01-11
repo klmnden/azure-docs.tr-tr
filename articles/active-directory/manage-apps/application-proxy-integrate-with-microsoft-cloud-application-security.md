@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 33da0b09339460d66650c492ec125461bc0980b0
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 3be75f2fe004939eff6bf6cc960759db69bfb93a
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731622"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215108"
 ---
 # <a name="configure-real-time-application-access-monitoring-with-microsoft-cloud-app-security-and-azure-active-directory"></a>Microsoft Cloud App Security ve Azure Active Directory ile gerçek zamanlı uygulama erişim izlemeyi yapılandırma
 Microsoft Cloud App Security (MCAS) kullanmak için bir şirket içi uygulamanızı Azure Active Directory'de (Azure AD), gerçek zamanlı izleme için yapılandırma. İzlemek için koşullu erişim uygulaması denetimi MCAS kullanır ve gerçek zamanlı denetim oturumları koşullu erişim ilkelerine bağlı. Azure Active Directory (Azure AD) uygulama ara sunucusu kullanan şirket içi uygulamalar için bu ilkeler uygulayabilirsiniz.
@@ -27,7 +27,7 @@ MCAS ile oluşturduğunuz ilke türleri bazı örnekleri aşağıda verilmiştir
 - İstemci sertifikaları ya da cihaz uyumluluğunu yönetilmeyen cihazlardan belirli uygulamalara erişimi engellemek için kullanın.
 - Kullanıcı oturumlarını, şirket dışı ağlardan kısıtlayın. Şirket ağınızın dışından gelen bir uygulamaya erişen kullanıcılar için kısıtlı erişim verebilirsiniz. Örneğin, bu kısıtlı erişim hassas belgeler indiriliyor kullanıcının engelleyebilirsiniz.
 
-Daha fazla bilgi için [Microsoft Cloud App Security koşullu erişim uygulaması denetimi ile uygulamaları koruma](/cloud-app-security/proxy-intro-aad.md).
+Daha fazla bilgi için [Microsoft Cloud App Security koşullu erişim uygulaması denetimi ile uygulamaları koruma](/cloud-app-security/proxy-intro-aad).
 
 ## <a name="requirements"></a>Gereksinimler
 

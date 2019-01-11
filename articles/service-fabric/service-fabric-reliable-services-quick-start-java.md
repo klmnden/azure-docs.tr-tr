@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: d4e3419241d44744f8a692896848edb6cebb56a0
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 84a495274ffadfe816ced21cd095f7a5e18d7f89
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049703"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199553"
 ---
 # <a name="get-started-with-reliable-services"></a>Reliable Services özelliğini kullanmaya başlayın
 > [!div class="op_single_selector"]
@@ -39,10 +39,10 @@ Bu örneği ayarlamanız gerekirse, Git [Mac üzerinde çalışmaya başlama](se
 ## <a name="basic-concepts"></a>Temel kavramlar
 Reliable Services ile çalışmaya başlamak için yalnızca birkaç temel kavramları anlamanız gerekir:
 
-* **Hizmet türünü**: hizmet uygulamanızın budur. Genişleten yazdığınız sınıfı tarafından tanımlanır `StatelessService` ve diğer kodu veya bağımlılıkları, bir ad ve bir sürüm numarası ile birlikte kullanılır.
-* **Hizmet örneği adlı**: bir sınıf türünün nesne örneklerini oluşturmak gibi hizmetinizi çalıştırmak için adlandırılmış örneklerde, hizmet türünün çok oluşturduğunuz. Hizmet örnekleri, aslında yazdığınız, hizmet sınıfı nesne öğesinin örneklemeleri olan.
-* **Hizmet ana bilgisayarı**: oluşturduğunuz adlandırılmış hizmet örnekleri bir konak içinde çalıştırmanız gerekir. Hizmet ana bilgisayarı, hizmetin örneklerine çalıştırdığı yalnızca bir işlemdir.
-* **Hizmet kayıt**: kayıt araya her şey. Çalıştırmak için Service Fabric çalışma zamanıyla bir hizmet ana örneği oluşturmak Service Fabric izin vermek için hizmet türü kayıtlı olması gerekir.  
+* **Hizmet türünü**: Hizmet uygulamanız budur. Genişleten yazdığınız sınıfı tarafından tanımlanır `StatelessService` ve diğer kodu veya bağımlılıkları, bir ad ve bir sürüm numarası ile birlikte kullanılır.
+* **Hizmet örneği adlı**: Sınıf türü nesne örneklerini oluşturmak gibi hizmetinizi çalıştırmak için adlandırılmış örneklerde, hizmet türünün çok oluşturun. Hizmet örnekleri, aslında yazdığınız, hizmet sınıfı nesne öğesinin örneklemeleri olan.
+* **Hizmet ana bilgisayarı**: Konak içinde çalıştırmak oluşturduğunuz adlandırılmış hizmet örnekleri gerekir. Hizmet ana bilgisayarı, hizmetin örneklerine çalıştırdığı yalnızca bir işlemdir.
+* **Hizmet kayıt**: Kayıt olan her şeyi birlikte sunar. Çalıştırmak için Service Fabric çalışma zamanıyla bir hizmet ana örneği oluşturmak Service Fabric izin vermek için hizmet türü kayıtlı olması gerekir.  
 
 ## <a name="create-a-stateless-service"></a>Durum bilgisi olmayan hizmet oluşturma
 Service Fabric uygulaması oluşturarak başlayın. Linux için Service Fabric SDK'sı bir Yeoman içeren bir durum bilgisi olmayan hizmet ile bir Service Fabric uygulaması için iskele sağlamak için oluşturucu. Aşağıdaki Yeoman çalıştırarak komutu:
@@ -201,7 +201,7 @@ protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
 ReliableHashMap<String,Long> map = this.stateManager.<String, Long>getOrAddReliableHashMapAsync("myHashMap")
 ```
 
-[ReliableHashMap](https://docs.microsoft.com/java/api/microsoft.servicefabric.data.collections._reliable_hash_map) güvenilir hizmeti durumunu depolamak için kullanabileceğiniz bir sözlük uygulamasıdır. Service Fabric ve güvenilir HashMaps, hizmetiniz bir dış kalıcı depoya gerek kalmadan doğrudan veri depolayabilirsiniz. Güvenilir HashMaps verilerinizi yüksek oranda kullanılabilir yap. Service Fabric gerçekleştirir, bu, oluşturma ve birden çok yönetme *çoğaltmaları* hizmetinizin sizin için. Ayrıca, yinelemeler ve bunların durumu geçişleri yönetme karmaşasından dengelediği bir API sağlar.
+[ReliableHashMap](https://docs.microsoft.com/java/api/microsoft.servicefabric.data.collections.reliablehashmap) güvenilir hizmeti durumunu depolamak için kullanabileceğiniz bir sözlük uygulamasıdır. Service Fabric ve güvenilir HashMaps, hizmetiniz bir dış kalıcı depoya gerek kalmadan doğrudan veri depolayabilirsiniz. Güvenilir HashMaps verilerinizi yüksek oranda kullanılabilir yap. Service Fabric gerçekleştirir, bu, oluşturma ve birden çok yönetme *çoğaltmaları* hizmetinizin sizin için. Ayrıca, yinelemeler ve bunların durumu geçişleri yönetme karmaşasından dengelediği bir API sağlar.
 
 Güvenilir koleksiyonlar birkaç uyarılar, özel türler dahil olmak üzere, herhangi bir Java türü depolayabilir:
 

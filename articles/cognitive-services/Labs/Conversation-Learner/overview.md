@@ -10,18 +10,18 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 0d2cca335206ee59b922a31ed3cf3ba24ef4ecd7
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 63d13235ec7244978193ed97aac8d11b2ff65eeb
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790784"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198142"
 ---
 # <a name="what-is-conversation-learner"></a>Konuşma Öğrenici nedir?
 
 Konuşma Öğrenici örnek etkileşimlerinden öğrenin damıtarak konuşma bağlamında kullanılabilen arabirimleri öğretmek ve oluşturmanıza olanak sağlar. 
 
-Geleneksel yaklaşım, konuşma Öğrenici yanıtları artırmak ve daha ilgi çekici kullanıcı deneyimleri için bir iletişim kutusu uçtan uca bağlamında göz önünde bulundurur. Kapsayan çok sayıda görev odaklı kullanım örnekleri, konuşma Öğrenici robotlar ve akıllı aracıları kullanıcıları rahatsız, ek müşteri hizmeti ücrete neden olma olasılığını hale getirmek için arka planda machine learning uygulanır ve daha fazla spur daha sezgisel etkileşimler.
+Geleneksel yaklaşım, konuşma Öğrenici yanıtları artırmak ve daha ilgi çekici kullanıcı deneyimleri için bir iletişim kutusu uçtan uca bağlamında göz önünde bulundurur. Çok sayıda görev odaklı kapsayan kullanım örnekleri, makine öğrenimi robotlar ve daha sezgisel etkileşimleri spur kullanıcıları rahatsız ve ek müşteri hizmeti ücrete neden olma olasılığını akıllı aracıları arka planda konuşma Öğrenici uygular.
 
 Geliştiriciler, girdiklerini taklit ederek istedikleri Prototipik iletişim kutuları girerek başlayın. Daha fazla iletişim kutuları girildiği gibi Model öğrenir. Bot, modeli de çalışmaya başladığında, son kullanıcılara dağıtılabilir. Konuşma Öğrenici konuşmaları kullanıcılarla kaydeder ve geliştirici gözden geçirebilirsiniz. Hataları anlaþýlmaz, geliştirici üzerinde--nokta düzeltme yapabilir ve hemen retrained ve kullanılabilir modelidir.
 

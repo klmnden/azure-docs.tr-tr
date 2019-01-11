@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: 85f88d9234acbb1831ea76188d06ef47199703ca
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 53281af4cf3ce49272ffe9fc48ab0f85cea276b2
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074096"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213630"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Azure Market ve Appsource'ta yönelik Danışmanlık Hizmetleri
 Danışmanlık Hizmetleri Azure Market ve AppSource Microsoft iş ortakları, iş hedefleri ve Hizmetleri ile bağlantı müşterilerin Azure kullanımını genişleten ve desteklemek için hedef sağlar. 
@@ -69,7 +69,7 @@ Appsource'ta listelenmesi Microsoft Dynamics 365, Office 365 ve Power BI dayalı
 |Finans ve operasyon, Enterprise edition için Dynamics 365  |  Silver veya Gold [kurumsal kaynak planlama](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) uzmanlığı ve sondaki 12 ay içinde en az gelir, $25 K bulut işlemleri.       |
 |Dynamics 365 için finans ve operasyon, işletme sürümü  |  Görevi gören [bulut hizmeti sağlayıcısı (CSP)](https://partner.microsoft.com/cloud-solution-provider) veya [dijital iş ortağı, kaydı (DPOR)](https://partner.microsoft.com/membership/digital-partner-of-record) en az bir müşteri için      |
 |Power BI, Power BI özel görselleri | Karşılamak [çözüm iş ortağı ölçütleri](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=/Hosted%20Documents/BI%20Partner%20Program%20Overview%20%26%20Incentives.pdf).|
-|PowerApps | Yayımlanan bir sahip [iş ortağı gösterimi]() çözümü
+|PowerApps | Yayımlanan bir sahip [iş ortağı gösterimi](https://appsource.microsoft.com/partners) çözümü
 
 <b> Daha fazla bilgi için [aracılığıyla Microsoft iş ortağı ağı uzmanlıklar](https://partner.microsoft.com/membership/competencies). </b>
  

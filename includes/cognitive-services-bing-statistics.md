@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/09/2018
 ms.author: scottwhi
 ms.custom: include file
-ms.openlocfilehash: a8d588b186652ab86ee1e8152bd9be08f0f1ef04
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 6016b13fe7d3e1f3b673bd2446d2f68b04878cd6
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52978789"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193500"
 ---
 Bing Statistics, Bing arama API'leri için analiz sağlar. Analytics çağrı hacmi, en iyi sorgu dizeleri, coğrafi dağılımı ve daha fazlasını içerir. Bing Statistics, Bing arama Ücretli aboneliği etkinleştirmek için gidin, [Azure panosuna](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7), ücretli aboneliğinizi seçin ve Bing Statistics Etkinleştir'e tıklayın. Bing Statistics etkinleştirme artırır, abonelik oranı biraz (bkz [fiyatlandırma](https://aka.ms/bingstatisticspricing)).
 
@@ -35,7 +35,7 @@ Varsayılan olarak, grafikler ve graflar erişimi olan tüm ölçüm verileri ya
 
 - **Kaynak Kimliği**: Azure aboneliğinizi tanımlayan benzersiz bir kaynak kimliği. Birden fazla Bing arama API'si katmana abone olursanız liste birden çok kimliği içerir. Tüm kaynaklar varsayılan olarak seçilir.  
   
-- **Pazarlara**: sonuçları nereden geldiğini pazarlara. Örneğin, en-us (İngilizce, Amerika Birleşik Devletleri). Varsayılan olarak, tüm pazarlar seçilir. Bing arama bir pazar belirtmezse kullanan piyasadaki en WW markettir ve Bing kullanıcının Pazar belirlenemiyor unutmayın.  
+- **Pazarlara**: Sonuçları nereden geldiğini marketlere. Örneğin, en-us (İngilizce, Amerika Birleşik Devletleri). Varsayılan olarak, tüm pazarlar seçilir. Bing arama bir pazar belirtmezse kullanan piyasadaki en WW markettir ve Bing kullanıcının Pazar belirlenemiyor unutmayın.  
   
 - **Uç noktalar**: Bing arama API'si uç noktaları. Ücretli bir aboneliğe sahip tüm uç noktalar listesi içerir. Varsayılan olarak, tüm uç noktalar seçilir.  
 
@@ -62,12 +62,12 @@ For example, if you don't include the User-Agent header in your calls, the dashb
 
 Aşağıdaki olası ölçümleridir. Her ölçüm bitiş noktası kısıtlamaları notlar.
 
-- **Toplu arama**: raporlama döneminde yapılan çağrıların sayısını gösterir. Raporlama süresi bir gün için ise, grafik saatlik yapılan çağrıların sayısını gösterir. Aksi takdirde, grafik raporlama döneminde günde yapılan çağrıların sayısını gösterir.  
+- **Toplu arama**: Raporlama döneminde yapılan çağrıların sayısını gösterir. Raporlama süresi bir gün için ise, grafik saatlik yapılan çağrıların sayısını gösterir. Aksi takdirde, grafik raporlama döneminde günde yapılan çağrıların sayısını gösterir.  
   
   > [!NOTE]
   > Çağrı hacmi, genellikle yalnızca başarılı çağrı içeren faturalama raporlardan farklı olabilir.
 
-- **En çok yapılan sorgular**: raporlama döneminde en sık kullanılan sorgular ve her bir sorguyu oluşum sayısını gösterir. Gösterilen sorguların sayısını yapılandırabilirsiniz. Örneğin, üst 25, 50 veya 75 sorguları gösterebilirsiniz. En sık kullanılan sorgular için aşağıdaki uç noktaların kullanılabilir değil:  
+- **En çok yapılan sorgular**: Raporlama döneminde en sık kullanılan sorgular ve her bir sorguyu oluşum sayısını gösterir. Gösterilen sorguların sayısını yapılandırabilirsiniz. Örneğin, üst 25, 50 veya 75 sorguları gösterebilirsiniz. En sık kullanılan sorgular için aşağıdaki uç noktaların kullanılabilir değil:  
 
   - /images/trending
   - / Resimler/ayrıntıları
@@ -81,15 +81,15 @@ Aşağıdaki olası ölçümleridir. Her ölçüm bitiş noktası kısıtlamalar
   > [!NOTE]  
   > Bazı sorgu terimleriyle bastırılabilir vb. gibi e-posta, telefon numaraları, SSN, gizli bilgileri kaldırmak için.
 
-- **Coğrafi dağıtım**: sonuçları nereden geldiğini pazarlara. Örneğin, en-us (İngilizce, Amerika Birleşik Devletleri). Bing kullanan `mkt` belirtilen sorgu parametresi marketiyle ilgili belirlemek için. Aksi takdirde, Bing, Pazar belirlemek için sinyal arayan IP adresi gibi kullanır.
+- **Coğrafi dağıtım**: Sonuçları nereden geldiğini marketlere. Örneğin, en-us (İngilizce, Amerika Birleşik Devletleri). Bing kullanan `mkt` belirtilen sorgu parametresi marketiyle ilgili belirlemek için. Aksi takdirde, Bing, Pazar belirlemek için sinyal arayan IP adresi gibi kullanır.
 
-- **Yanıt kodu dağıtımı**: raporlama dönemi boyunca tüm çağrıları HTTP durum kodları.
+- **Yanıt kodu dağıtımı**: HTTP durum kodları raporlama dönemi boyunca tüm çağrıları.
 
-- **Kaynak dağıtım çağrısı**: kullanıcı tarafından kullanılan tarayıcılar türleri. Örneğin, Edge, Chrome, Safari ve FireFox. Botlar, Postman ya da bir konsol uygulamasından curl kullanarak gibi bir tarayıcı dışında yapılan çağrılar kitaplıkları altında gruplandırılır. Kaynak, isteğin Kullanıcı aracısını üstbilgi değeri kullanılarak belirlenir. İsteğin kullanıcı aracısını üst bilgisi içermiyorsa, Bing, kaynağı diğer sinyaller türetilen dener.  
+- **Kaynak dağıtım çağrısı**: Kullanıcı tarafından kullanılan tarayıcılar türleri. Örneğin, Microsoft Edge, Chrome, Safari ve FireFox. Botlar, Postman ya da bir konsol uygulamasından curl kullanarak gibi bir tarayıcı dışında yapılan çağrılar kitaplıkları altında gruplandırılır. Kaynak, isteğin Kullanıcı aracısını üstbilgi değeri kullanılarak belirlenir. İsteğin kullanıcı aracısını üst bilgisi içermiyorsa, Bing, kaynağı diğer sinyaller türetilen dener.  
 
-- **Güvenli arama dağıtım**: güvenli arama bir değerler dağıtımı. Örneğin, Orta veya katı kapalı. `safeSearch` Sorgu parametresi değeri belirtilmişse içeriyor. Aksi takdirde, Bing, orta değer varsayılan olarak.  
+- **Güvenli arama dağıtım**: Güvenli arama değerler dağıtımı. Örneğin, Orta veya katı kapalı. `safeSearch` Sorgu parametresi değeri belirtilmişse içeriyor. Aksi takdirde, Bing, orta değer varsayılan olarak.  
 
-- **Yanıt, istenen dağıtım**: Web araması API'si, istenen yanıt `responseFilter` sorgu parametresi.  
+- **Yanıtlar istenen dağıtım**: Web araması API'si, istenen yanıt verir `responseFilter` sorgu parametresi.  
 
 - **Yanıtlar döndürülen dağıtım**: Web araması API'si yanıtta döndürülen yanıt.
 

@@ -2,7 +2,6 @@
 title: Azure Traffic Manager uç nokta izleme | Microsoft Docs
 description: Bu makalede, Traffic Manager uç nokta izleme ve otomatik bir uç nokta yük devretme yüksek kullanılabilirlik uygulamalarını dağıtmalarını Azure müşterilerine yardımcı olmak için nasıl kullandığını anlamanıza yardımcı olabilir
 services: traffic-manager
-documentationcenter: ''
 author: KumudD
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: kumud
-ms.openlocfilehash: 27057f16d10d0859a486551091e135bfb9160813
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 923c2aae6d426e736e34c06fc84025ca98fe4f48
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890356"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199639"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Traffic Manager uç nokta izleme
 
@@ -37,7 +36,7 @@ Uç nokta izleme yapılandırmak için aşağıdaki ayarları Traffic Manager pr
 
     ![Traffic Manager uç nokta izleme](./media/traffic-manager-monitoring/endpoint-monitoring-settings.png)
 
-    **Şekil: Traffic Manager uç nokta izleme**
+    **Şekil:  Traffic Manager uç nokta izleme**
 
 ## <a name="how-endpoint-monitoring-works"></a>Uç nokta izleme nasıl çalışır
 
@@ -112,7 +111,7 @@ Zaman çizelgesinde aşağıdaki şekilde aşağıdaki ayarlara sahip bir Traffi
 
 ![Traffic Manager uç nokta yük devretme ve yeniden çalışma dizisi](./media/traffic-manager-monitoring/timeline.png)
 
-**Şekil: Yük devretme ve kurtarma Traffic manager uç nokta dizisi**
+**Şekil:  Traffic manager uç nokta yük devretme ve kurtarma dizisi**
 
 1. **ALMA**. Her uç nokta için sistemin izlenmesi Traffic Manager İzleme ayarlarında belirtilen yolda bir GET isteği yapar.
 2. **Belirtilen izleme ayarlarını Traffic Manager profili 200 Tamam'ı veya özel kod aralığı** . Bir HTTP 200 OK izleme sistemi bekliyor veya veya özel kod aralığı 10 saniye içinde döndürülecek ayarları ileti izleme Traffic Manager profili belirtilmedi. Bu yanıt aldığında, hizmet kullanılabilir tanır.

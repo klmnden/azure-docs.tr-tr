@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: raynew
-ms.openlocfilehash: ee7a9c407a26f9334a854c98793db8fc01244e2a
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: a7a2d8729e1abdafa89eff912faf84d8f247b442
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994683"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215448"
 ---
 # <a name="prepare-to-back-up-azure-vms"></a>Azure sanal makinelerini yedeklemek hazırlama
 
@@ -285,5 +285,5 @@ Backup'ı etkinleştirdikten sonra:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Ortaya herhangi bir sorunu gidermeye [Azure VM aracıları](/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) veya [Azure VM yedeklemesi](backup-azure-vms-troubleshoot.md).
+- Ortaya herhangi bir sorunu gidermeye [Azure VM aracıları](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) veya [Azure VM yedeklemesi](backup-azure-vms-troubleshoot.md).
 - [Azure VM'lerini yedekleme](backup-azure-vms-first-look-arm.md)

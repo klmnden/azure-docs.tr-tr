@@ -1,7 +1,7 @@
 ---
-title: Bölgesel bir ön uç IP adresi - Azure portalı ile bir Standard Load Balancer oluşturma
+title: Yük Dengeleyici - Azure portalı gibi bölgesel bir ön ile oluşturma
 titlesuffix: Azure Load Balancer
-description: Azure portalı ile bölgesel genel IP adresi ön uç ile bir genel Load Balancer Standard oluşturma konusunda bilgi edinin
+description: Azure portalı ile bölgesel ön uç ile standart yük dengeleyici oluşturmayı öğrenin
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: e109504fe8657436d73870cc022ed4bc81c559f5
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 2cbfa0232421bf6b0673ed87b4541564eb588979
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53095345"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200488"
 ---
-#  <a name="create-a-public-load-balancer-standard-with-zonal-public-ip-address-frontend-using-azure-portal"></a>Azure portalını kullanarak bölgesel genel IP adresi ön uç ile bir genel Load Balancer Standard oluşturma
+#  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-portal"></a>Azure portalını kullanarak bölgesel ön uç ile standart yük dengeleyici oluşturma
 
-Bu makalede adımları genel oluşturma işleminde [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) bölgesel bir ön uç ile. Kullanılabilirlik alanları standart Load Balancer ile nasıl çalıştığını anlamak için bkz: [Standard Load Balancer ve kullanılabilirlik bölgeleri](load-balancer-standard-availability-zones.md). 
+Bu makalede adımları genel oluşturma işleminde [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) bölgesel ön uç IP yapılandırmasına sahip. Kullanılabilirlik alanları standart Load Balancer ile nasıl çalıştığını anlamak için bkz: [Standard Load Balancer ve kullanılabilirlik bölgeleri](load-balancer-standard-availability-zones.md). 
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -48,7 +48,7 @@ https://portal.azure.com adresinden Azure portalında oturum açın.
 7. İçin **kaynak grubu**, tıklayın **Yeni Oluştur**, Anahtar'a tıklayın ve **myResourceGroupZLB** kaynak grubunun adı.
 8. İçin **konumu**seçin **Batı Avrupa**ve ardından **Tamam**. Yük dengeleyici dağıtımı başlar ve birkaç dakika içinde başarıyla tamamlanır.
 
-    ![Azure portalı ile bölgesel olarak yedekli Load Balancer Standard oluşturma](./media/load-balancer-get-started-internet-availability-zones-zonal-portal/load-balancer-zonal-frontend.png)
+    ![Azure portalı ile bölgesel olarak yedekli standart yük dengeleyici oluşturma](./media/load-balancer-get-started-internet-availability-zones-zonal-portal/load-balancer-zonal-frontend.png)
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

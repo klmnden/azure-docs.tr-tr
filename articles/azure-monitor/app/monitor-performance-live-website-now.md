@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1558d8e8392ff49e2661e9f8bc41e41c5bbc6dd5
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 463b2e8c7e349fa46737a9d630bd027fb28e7780
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189857"
+ms.locfileid: "54199394"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>Application Insights Durum İzleyicisi ile çalışma zamanında web uygulamalarını izleme
 
@@ -96,14 +96,14 @@ Bu, yüklemenin başarılı olduğunu onaylamak için gerçekleştirebileceğini
 - Applicationınsights.config dosyasını hedef uygulama dizinde mevcut olduğundan ve ikey içeren onaylayın.
 
 - Veriler eksik olduğundan şüpheleniyorsanız, basit bir sorgu çalıştırabilirsiniz [Analytics](../log-query/get-started-portal.md) şu anda telemetri gönderdiği tüm bulut rollerini listelemek için.
-
 ```Kusto
 union * | summarize count() by cloud_RoleName, cloud_RoleInstance
 ```
 
 - Application Insights olduğunu onaylamak gerekiyorsa başarıyla kullanıma açıldı çalıştırabileceğiniz [Sysinternals tanıtıcı](https://docs.microsoft.com/sysinternals/downloads/handle) bir komut penceresi bu applicationinsights.dll onaylamak için IIS tarafından yüklendi.
-
-`handle.exe /p w3wp.exe`
+```cmd
+handle.exe /p w3wp.exe
+```
 
 
 ### <a name="cant-connect-no-telemetry"></a>Bağlanamıyor musunuz? Telemetri yok mu?
@@ -113,17 +113,17 @@ union * | summarize count() by cloud_RoleName, cloud_RoleInstance
 ### <a name="unable-to-login"></a>Oturum açılamıyor
 
 * Durum İzleyicisi için oturum açamıyor, yoksa bir komut satırı yükleme yerine. Durum İzleyicisi, ikey toplamak için oturum açma girişiminde, ancak bu komutu kullanılarak el ile sağlayın: 
-```
+```powershell
 Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll
 Start-ApplicationInsightsMonitoring -Name appName -InstrumentationKey 00000000-000-000-000-0000000
 ```
 
 ### <a name="could-not-load-file-or-assembly-systemdiagnosticsdiagnosticsource"></a>Dosya veya 'System.Diagnostics.DiagnosticSource' derlemesi yüklenemedi
 
-Uygulaması Insights'ı etkinleştirdikten sonra bu hatayı alabilirsiniz. Yükleyici bu dll bin dizinindeki değiştirdiğinden budur.
+Application Insights'ı etkinleştirdikten sonra bu hatayı alabilirsiniz. Yükleyici bu dll bin dizinindeki değiştirdiğinden budur.
 Düzeltmek için web.config güncelleştirin:
 
-```
+```xml
 <dependentAssembly>
     <assemblyIdentity name="System.Diagnostics.DiagnosticSource" publicKeyToken="cc7b13ffcd2ddd51"/>
     <bindingRedirect oldVersion="0.0.0.0-4.*.*.*" newVersion="4.0.2.1"/>

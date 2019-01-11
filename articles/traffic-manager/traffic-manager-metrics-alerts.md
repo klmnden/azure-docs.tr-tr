@@ -1,8 +1,7 @@
 ---
-title: Ölçümler ve uyarılar içinde Azure Traffic Manager | Microsoft Docs
+title: Ölçümler ve uyarılar Azure Traffic Manager'da
 description: Bu makalede, Azure Traffic Manager için mevcut olan ölçümler açıklanır.
 services: traffic-manager
-documentationcenter: ''
 author: KumudD
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,28 +10,28 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/11/2018
 ms.author: kumud
-ms.openlocfilehash: bb7817b082da11de3071925d01a3402902410a6f
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 0bce0d407246ceab05c3951dc976884dd6f15b08
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437978"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200199"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>Traffic Manager ölçümleri ve Uyarıları
 
-Traffic Manager DNS tabanlı Yük Dengeleme içeren birden fazla yönlendirme yöntemleri ve uç nokta izleme seçenekleri sunar. Bu makalede, Ölçümler ve müşterileri tarafından kullanılabilir ilişkili uyarıları açıklanır. 
+Traffic Manager DNS tabanlı yük birden fazla yönlendirme yöntemleri ve uç nokta izleme seçenekleri içeren Dengeleme ile sunar. Bu makalede, Ölçümler ve müşterileri tarafından kullanılabilir ilişkili uyarıları açıklanır. 
 
 ## <a name="metrics-available-in-traffic-manager"></a>Trafik Yöneticisi'nde mevcut olan ölçümler 
 
-Traffic Manager, Traffic manager'ın kullanımları ve uç noktaları altında bu profili durumunu anlamak için müşteriler tarafından kullanılabilen bir profil başına temelinde aşağıdaki ölçümleri sunar.  
+Traffic Manager profili başına temelinde müşteriler kullanımlarını Traffic manager'ın ve uç noktaları altında bu profili durumunu anlamak için kullanabileceğiniz aşağıdaki ölçümleri sunar.  
 
 ### <a name="queries-by-endpoint-returned"></a>Sorgu tarafından döndürülen uç noktası
-Kullanım [Bu ölçüm](../azure-monitor/platform/metrics-supported.md) belirtilen bir süredeki bir Traffic Manager profili tarafından işlenen toplam sorgu sayısı görüntülemek için. Birden çok kez bir uç nokta nasıl anlamanıza yardımcı, trafik Yöneticisi'nden sorgu yanıt döndürüldü bir uç nokta düzeyine ayrıntılı, aynı bilgileri de görüntüleyebilirsiniz.
+Kullanım [Bu ölçüm](../azure-monitor/platform/metrics-supported.md) belirtilen bir süredeki bir Traffic Manager profili işler sorguların sayısını görüntülemek için. Birden çok kez bir uç nokta nasıl anlamanıza yardımcı, trafik Yöneticisi'nden sorgu yanıt döndürüldü bir uç nokta düzeyine ayrıntılı, aynı bilgileri de görüntüleyebilirsiniz.
 
-Aşağıdaki örnekte, Şekil 1 Traffic Manager profili tarafından döndürülen tüm sorgu yanıtlarını görüntüler. 
+Aşağıdaki örnekte, Şekil 1, Traffic Manager profilini döndüren sorgu yanıtlarını görüntüler. 
 
   
-![Traffic Manager ölçümleri - tüm sorguların toplam görüntüleme](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-queries-aggregate-view.png)
+![Tüm sorguların toplam görüntüleme](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-queries-aggregate-view.png)
 
 *Şekil 1: Tüm sorguları birleşik görünüm*
   
@@ -44,10 +43,10 @@ Aşağıdaki örnekte, Şekil 1 Traffic Manager profili tarafından döndürüle
 
 ## <a name="endpoint-status-by-endpoint"></a>Uç nokta olarak uç nokta durumu
 Kullanım [Bu ölçüm](../azure-monitor/platform/metrics-supported.md#microsoftnetworktrafficmanagerprofiles) profilinde bir uç nokta sistem durumunu anlamak için. Bu iki değerleri alır:
- - kullanma **1** , uç nokta çalışıyor.
+ - kullanma **1** uç nokta çalışıyorsa.
  - kullanma **0** uç noktası kapalı olduğunda.
 
-Bu ölçüm tüm ölçümler (Şekil 3) durumunu temsil eden bir toplam değer olarak gösterilemeyecek kadar veya bunu (bkz: Şekil 4) belirli Uç noktalara durumunu göstermek için bölünebilir. İlk olarak toplama düzeyinde seçtiyseniz, söz konusu olduğunda **ortalama**, bu değeri tüm uç noktalar durumunu aritmetik ortalamasını unsurdur. Örneğin, iki uç nokta bir profili varsa ve yalnızca biri sağlıklı olup, bu ölçüm değerine sahip **0,50** Şekil 3'te gösterildiği gibi. 
+Bu ölçüm tüm ölçümler (Şekil 3) durumunu temsil eden bir toplam değer olarak gösterilemeyecek kadar veya bunu (bkz: Şekil 4) belirli Uç noktalara durumunu göstermek için bölünebilir. Eski, eğer olarak toplama düzeyinde seçtiyseniz **ortalama**, tüm uç noktalar durumunu aritmetik ortalamasını bu ölçüm değeri. Örneğin, iki uç nokta bir profili var ve yalnızca biri sağlıklı olup, bu ölçüm bir değeri vardır **0,50** Şekil 3'te gösterildiği gibi. 
 
 
 ![Traffic Manager ölçümleri - endpoint durumunun birleşik görünümünü](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-endpoint-status-composite-view.png)
@@ -66,4 +65,4 @@ Azure İzleyici, işleme ve trafik Yöneticisi'nden ölçümü görüntüleniyor
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Daha fazla bilgi edinin [Azure İzleyici hizmeti](../azure-monitor/platform/metrics-supported.md)
-- Bilgi edinmek için nasıl [Azure İzleyicisi'ni kullanarak yeni bir grafik oluşturun](../azure-monitor/platform/metrics-charts.md#create-a-new-chart)
+- Bilgi edinmek için nasıl [Azure İzleyicisi'ni kullanarak bir grafik oluşturma](../azure-monitor/platform/metrics-charts.md#create-a-new-chart)

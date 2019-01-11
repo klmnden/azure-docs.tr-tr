@@ -6,16 +6,16 @@ ms.service: automation
 ms.component: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/12/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 27bacb12c66ac57a0bf1aea88a447d395b6dde8c
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 1d08471a3e0faa99cb245709cf72f9af097bc495
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408927"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213221"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Değişiklik izleme çözümüyle ortamınızdaki Değişiklikleri İzle
 
@@ -51,15 +51,14 @@ Resmi olarak desteklenen aşağıdaki Linux dağıtımları. Ancak, Linux Aracı
 * Debian GNU/Linux 8 ve 9
 * Ubuntu Linux 14.04 LTS ve 16.04 LTS
 
-## <a name="enable-change-tracking-and-inventory"></a>Değişiklik İzlemeyi ve Sayımı Etkinleştirme
+## <a name="onboard"></a>Değişiklik izleme ve stok özelliklerini etkinleştirme
 
-Değişiklikleri izlemeye başlamak için Automation hesabınız için değişiklik izleme ve stok çözümü etkinleştirmek gerekir.
+Değişiklikleri izlemeyi başlatmak için değişiklik izleme ve stok çözümü etkinleştirmek gerekir. Değişiklik izleme ve stok makine birçok yolu vardır. Aşağıdaki önerilen olan ve çözüm yollarını desteklenir.
 
-1. Azure portalında, Otomasyon hesabınıza gidin
-2. Seçin **değişiklik izleme** altında **yapılandırma**.
-3. Mevcut bir Log analytics çalışma alanı seçin veya **yeni çalışma alanı oluştur** tıklatıp **etkinleştirme**.
-
-Bu, automation hesabınız için bir çözüm sağlar. Çözümü etkinleştirmek 15 dakika kadar sürebilir. Mavi renkli bir başlık, çözüm etkinleştirildiğinde size bildirir. Geri gidin **değişiklik izleme** çözümü yönetmek için sayfa.
+* [Bir sanal makineden](automation-onboard-solutions-from-vm.md)
+* [Birden çok makine gözatmanızı](automation-onboard-solutions-from-browse.md)
+* [Otomasyon hesabınızdan](automation-onboard-solutions-from-automation-account.md)
+* [Azure Otomasyonu runbook'u ile](automation-onboard-solutions.md)
 
 ## <a name="configuring-change-tracking-and-inventory"></a>Değişiklik izleme ve stok yapılandırma
 

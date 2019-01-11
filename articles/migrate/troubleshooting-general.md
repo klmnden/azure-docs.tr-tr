@@ -4,14 +4,14 @@ description: Azure geçişi hizmeti ve sorun giderme ipuçları için sık karş
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 01/10/2019
 ms.author: raynew
-ms.openlocfilehash: 9a6b40aa86d4d81482d9c3724f0e230e0b811276
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: cb97725d61f899f2408dbb44d052c1dd4e6bc561
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189505"
+ms.locfileid: "54201305"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Azure Geçişi sorunlarını giderme
 
@@ -28,6 +28,18 @@ Sürekli bulma Gereci yalnızca performans verilerini sürekli olarak toplar, ş
    ![Keşfi durdur](./media/troubleshooting-general/stop-discovery.png)
 
 - VM silme: Bulma durdurup bile gereç tasarlandığı şekilde nedeniyle, VM'ler silinmesini yansıtılmaz. Bunun nedeni takip eden keşiflerin eski keşiflerin üzerine yazılması yerine bunlara eklenmesidir. Bu durumda grubunuzdan kaldırarak ve değerlendirmeyi yeniden hesaplayarak portaldaki VM’yi yoksayabilirsiniz.
+
+### <a name="deletion-of-azure-migrate-projects-and-associated-log-analytics-workspace"></a>Azure geçişi projeleri ve ilişkili Log Analytics çalışma alanını silme
+
+Bir Azure geçişi projesi sildiğinizde grupları ve değerlendirmeler ile birlikte geçiş projesini siler. Projeye bir Log Analytics çalışma alanı eklediyseniz, ancak bunu otomatik olarak Log Analytics çalışma alanı silinmez. Aynı Log Analytics çalışma alanı için birden çok kullanım örnekleri kullanılabilir olmasıdır. De Log Analytics çalışma alanını silmek istiyorsanız, el ile yapmanız gerekir.
+
+1. Projeye bağlı Log Analytics çalışma alanına göz atın.
+   a. Geçiş projesi henüz silmemeniz, bağlantıyı çalışma alanına proje genel bakış sayfasından temel bileşenler bölümünde bulabilirsiniz.
+   
+   ![LA çalışma](./media/troubleshooting-general/LA-workspace.png)
+
+   b. Geçiş projesi zaten silinmişse tıklayın **kaynak grupları** sol bölmesinde Azure portalında ve çalışma alanı oluşturuldu ve buna göz atamaz kaynak grubuna gidin.
+2. Yönergeleri izleyerek [bu makaledeki](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace) çalışma alanını silmek için.
 
 ### <a name="migration-project-creation-failed-with-error-requests-must-contain-user-identity-headers"></a>Geçiş projesi oluşturma başarısız oldu, hata *istekler kullanıcı kimlik üst bilgileri içermelidir*
 
@@ -80,7 +92,7 @@ Gidebilirsiniz **Essentials** konusundaki **genel bakış** meta verilerin depol
 
    ![Proje konumu](./media/troubleshooting-general/geography-location.png)
 
-## <a name="collector-errors"></a>Toplayıcı hataları
+## <a name="collector-issues"></a>Toplayıcı sorunları
 
 ### <a name="deployment-of-azure-migrate-collector-failed-with-the-error-the-provided-manifest-file-is-invalid-invalid-ovf-manifest-entry"></a>Azure geçişi toplayıcısı dağıtımı işlemi şu hatayla başarısız oldu: Sağlanan bildirim dosyası geçersiz: Geçersiz OVF bildirim girişi.
 
@@ -156,6 +168,17 @@ Sorunu hala en son sürümde olursa, Toplayıcı makinesi belirtilen bağlantı 
 2. 1 adım başarısız olursa, IP adresi üzerinden vCenter Server’a bağlanmayı deneyin.
 3. vCenter’a bağlanmak için doğru bağlantı noktasını belirleyin.
 4. Son olarak vCenter Server’ın çalışır durumda olup olmadığını denetleyin.
+
+### <a name="antivirus-exclusions"></a>Virüsten koruma dışlamaları
+
+Azure geçişi Gereci sağlamlaştırmak için gereç bulunan aşağıdaki klasörler virüs koruma yazılımı taramasından hariç gerekir:
+
+- Azure geçişi hizmeti için ikili dosyaları içeren klasör. Tüm alt klasörleri hariç tutun.
+  %ProgramFiles%\ProfilerService  
+- Azure geçişi Web si. Tüm alt klasörleri hariç tutun.
+  %SystemDrive%\inetpub\wwwroot
+- Veritabanı ve günlük dosyaları için yerel önbelleği. Azure geçişi hizmeti bu klasöre RW erişimi gerekir.
+  %SystemDrive%\Profiler
 
 ## <a name="dependency-visualization-issues"></a>Bağımlılık görselleştirme sorunları
 

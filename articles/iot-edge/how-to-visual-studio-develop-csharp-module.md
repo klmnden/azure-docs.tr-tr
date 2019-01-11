@@ -5,16 +5,16 @@ services: iot-edge
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 01/04/2019
+ms.date: 01/10/2019
 ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 9a6c892a71c452a0c6c0dcd43509e345280a810e
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 8fec963dfce8c55cc618f2ce6877d4d591a9cf27
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054940"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215227"
 ---
 # <a name="use-visual-studio-2017-to-develop-and-debug-c-modules-for-azure-iot-edge-preview"></a>Geliştirmek ve Azure IOT Edge (Önizleme) için C# modülleri hata ayıklamak için Visual Studio 2017 kullanın
 
@@ -27,8 +27,11 @@ Visual Studio için Azure IOT Edge araçları aşağıdaki avantajları sağlar:
 - Azure IOT modüllerinizi C# ' de, tüm Visual Studio geliştirme avantajları yaparken kodu.
 - Azure IOT Edge cihazları ve kullanıcı Arabirimi modülleri yönetir.
 
-Bu makalede, C# IOT Edge modülleri geliştirmek için Visual Studio 2017 için Azure IOT Edge araçlarını kullanmayı gösterir. Ayrıca, projenizi Azure IOT Edge cihazınıza dağıtmayı öğrenin.
+Bu makalede, C# IOT Edge modülleri geliştirmek için Visual Studio 2017 için Azure IOT Edge araçlarını kullanmayı gösterir. Ayrıca, projenizi Azure IOT Edge cihazınıza dağıtmayı öğrenin. 
 
+  > [!TIP]
+  > Visual Studio tarafından oluşturulan IOT Edge Proje yapısı Visual Studio Code ile aynı değil.
+  
 ## <a name="prerequisites"></a>Önkoşullar
 
 Bu makalede, bir bilgisayar veya geliştirme makinenize Windows çalıştıran sanal makine kullandığınızı varsayar. IOT Edge Cihazınızı başka bir fiziksel cihaz olabilir.

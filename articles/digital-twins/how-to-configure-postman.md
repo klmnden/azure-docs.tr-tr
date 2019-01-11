@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: adgera
-ms.openlocfilehash: 824c0caf0d54e8484093304c39c9f5dc05c83298
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 705d96225c699c6e9824dadbd7fa1272ba5ddb2d
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117528"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213289"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Azure dijital çiftleri için Postman'ı yapılandırma
 
@@ -52,7 +52,7 @@ OAuth 2.0 örtülü izin akışı kullanmak için Azure Active Directory uygulam
 
 Ardından, ayarlama ve Azure Active Directory belirteci almak için Postman'ı yapılandırma. Ardından, kimliği doğrulanmış bir HTTP isteği Azure dijital alınan belirteciyle İkizlerini olun:
 
-1. Git [www.getpostman.com]([https://www.getpostman.com/) uygulamayı indirmek için.
+1. Git [www.getpostman.com](https://www.getpostman.com/) uygulamayı indirmek için.
 1. Doğrulayın, **yetkilendirme URL'si** doğrudur. Bu biçim sürer:
 
     ```plaintext

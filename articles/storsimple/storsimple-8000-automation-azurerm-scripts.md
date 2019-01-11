@@ -1,6 +1,6 @@
 ---
-title: StorSimple cihazları yönetmek için Azure Resource Manager betiklerini kullanın | Microsoft Docs
-description: StorSimple işleri otomatikleştirmek için Azure Resource Manager komut dosyaları kullanmayı öğrenin
+title: StorSimple cihazları yönetmek için Azure Resource Manager betikleri kullanma | Microsoft Docs
+description: StorSimple işleri otomatik hale getirmek için Azure Resource Manager betiklerini kullanmayı öğrenin
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,72 +14,72 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 10/03/2017
 ms.author: alkohli
-ms.openlocfilehash: f4456200d6f497a87424f12a23034dbff00c75aa
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: d9c428e3fa8d9fe964b83ae345bb70fd49a6ce1a
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26373950"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215312"
 ---
-# <a name="use-azure-resource-manager-sdk-based-scripts-to-manage-storsimple-devices"></a>StorSimple cihazları yönetmek için Azure Resource Manager SDK tabanlı komut dosyaları kullanma
+# <a name="use-azure-resource-manager-sdk-based-scripts-to-manage-storsimple-devices"></a>StorSimple cihazları yönetmek için Azure Resource Manager SDK tabanlı betik kullanma
 
-Bu makalede Azure Resource Manager SDK tabanlı nasıl betikler StorSimple 8000 serisi Cihazınızı yönetmek için kullanılabilir. Bu komut dosyalarını çalıştırmak üzere ortamınızı yapılandırma adımları boyunca size yol için bir örnek komut dosyası da bulunur.
+Bu makalede Azure Resource Manager SDK tabanlı nasıl betikler StorSimple 8000 serisi Cihazınızı yönetmek için kullanılabilir. Örnek betik, bu betikleri çalıştırmak için ortamınızı yapılandırma adımları uygulamak için de bulunur.
 
-Bu makale, yalnızca Azure portalında çalışan StorSimple 8000 serisi cihazlar için geçerlidir.
+Bu makale, yalnızca Azure Portal'da çalıştıran StorSimple 8000 serisi cihazlar için geçerlidir.
 
 ## <a name="sample-scripts"></a>Örnek komut dosyaları
 
-Aşağıdaki örnek komut dosyaları çeşitli StorSimple işleri otomatikleştirmek kullanılabilir.
+Aşağıdaki örnek komut, çeşitli StorSimple işlemleri otomatik hale getirmek kullanılabilir.
 
 #### <a name="table-of-azure-resource-manager-sdk-based-sample-scripts"></a>Azure Resource Manager SDK tabanlı örnek betikler tablosu
 
-| Azure Kaynak Yöneticisi komut dosyası                    | Açıklama                                                                                                                                                                                                       |
+| Azure Resource Manager betiği                    | Açıklama                                                                                                                                                                                                       |
 |--------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Yetki ServiceEncryptionRollover.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Authorize-ServiceEncryptionRollover.ps1)          | Bu komut, hizmet verileri şifreleme anahtarı değiştirmek için StorSimple Cihazınızı yetkilendirmek sağlar.                                                                                                           |
-| [Oluşturma StorSimpleCloudAppliance.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Create-StorSimpleCloudAppliance.ps1)              | Bu komut dosyasını bir 8010 veya 8020 bir StorSimple bulut uygulaması oluşturur. Bulut uygulaması yapılandırılmış ve StorSimple veri Yöneticisi hizmetiniz ile kayıtlı.                                                       |
-| [CreateOrUpdate Volume.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/CreateOrUpdate-Volume.ps1)                        | Bu komut dosyasını oluşturur veya StorSimple birimlerini değiştirir.                                                                                                                                                             |
-| [Get-DeviceBackup.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Get-DeviceBackup.ps1)                             | Bu komut, StorSimple cihaz Yöneticisi hizmetine kayıtlı bir cihaz için tüm yedeklemeler listeler.                                                                                                          |
+| [Yetkilendirme ServiceEncryptionRollover.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Authorize-ServiceEncryptionRollover.ps1)          | Bu betik, hizmet veri şifreleme anahtarını değiştirmek için StorSimple cihaz yetkilendirme sağlar.                                                                                                           |
+| [Oluşturma StorSimpleCloudAppliance.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Create-StorSimpleCloudAppliance.ps1)              | Bu betik bir 8010 veya 8020 bir StorSimple Cloud Appliance oluşturur. Bulut Gereci yapılandırılmış ve ile StorSimple veri Yöneticisi hizmetine kayıtlı.                                                       |
+| [CreateOrUpdate Volume.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/CreateOrUpdate-Volume.ps1)                        | Bu betik oluşturur veya StorSimple birimlerini değiştirir.                                                                                                                                                             |
+| [Get-DeviceBackup.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Get-DeviceBackup.ps1)                             | Bu betik, StorSimple cihaz Yöneticisi hizmetine kayıtlı bir cihaz için tüm yedeklemeler listelenir.                                                                                                          |
 | [Get-DeviceBackupPolicy.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Get-DeviceBackupPolicy.ps1)                       | Bu yedekleme ilkelerini StorSimple cihazınız için komut dosyası.                                                                                                                                                 |
-| [Get-DeviceJobs.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Get-DeviceJobs.ps1)                               | Bu komut, StorSimple cihaz Yöneticisi hizmeti üzerinde çalışan tüm StorSimple işleri alır.                                                                                                                     |
-| [Get-DeviceUpdateAvailability.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Get-DeviceUpdateAvailability.ps1)                 | Bu komut dosyasını güncelleştirme sunucusunu tarar ve, StorSimple Cihazınızda yüklemek kullanılabilir güncelleştirmeler varsa bilmenizi sağlar.                                                                                          |
-| [Yükleme DeviceUpdate.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Install-DeviceUpdate.ps1)                         | Bu komut, StorSimple Cihazınızda kullanılabilir güncelleştirmeleri yükler.                                                                                                                                           |
-| [Yönetme CloudSnapshots.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Manage-CloudSnapshots.ps1)                        | Bu komut dosyasını el ile bulut anlık görüntüsü başlatır ve bulut anlık görüntüleri belirtilen bekletme günden eski siler.                                                                                                   |
-| [İzleyici Backups.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Monitor-Backups.ps1)                              | Bu Azure Automation Runbook PowerShell komut dosyası tüm yedekleme işleri durumunu raporlar.                                                                                                              |
-| [Remove-DeviceBackup.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Remove-DeviceBackup.ps1)                          | Bu komut dosyasını tek bir yedekleme nesneyi siler.                                                                                                                                                           |
-| [Start-DeviceBackupJob.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Start-DeviceBackupJob.ps1)                        | Bu komut dosyasını el ile yedekleme StorSimple Cihazınızda başlatır.                                                                                                                                       |
-| [Güncelleştirme CloudApplianceServiceEncryptionKey.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Update-CloudApplianceServiceEncryptionKey.ps1)    | Bu komut, 8010/8020 StorSimple bulut cihazları StorSimple cihaz Yöneticisi hizmetiniz ile kaydedilen tüm hizmet verileri şifreleme anahtarı güncelleştirir.                                     |
-| [Doğrulama BackupScheduleAndBackup.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Verify-BackupScheduleAndBackup.ps1)               | Bu komut dosyasını eksik yedeklemeler yedekleme ilkeleri ile ilişkili tüm zamanlamalar çözümledikten sonra vurgular. Ayrıca, yedekleme kataloğu kullanılabilir yedeklemeleri listesi ile doğrular.             |
+| [Get-DeviceJobs.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Get-DeviceJobs.ps1)                               | Bu betik, StorSimple cihaz Yöneticisi hizmetinizde çalıştıran tüm StorSimple işleri alır.                                                                                                                     |
+| [Get-DeviceUpdateAvailability.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Get-DeviceUpdateAvailability.ps1)                 | Bu betik, güncelleştirme sunucusunu tarar ve güncelleştirmeler StorSimple cihazınıza yüklemeniz varsa bildirir.                                                                                          |
+| [Yükleme DeviceUpdate.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Install-DeviceUpdate.ps1)                         | Bu betik, StorSimple Cihazınızda kullanılabilir güncelleştirmeleri yükler.                                                                                                                                           |
+| [CloudSnapshots.ps1 yönetme](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Manage-CloudSnapshots.ps1)                        | Bu betik, el ile bulut anlık görüntüsü başlatır ve belirtilen bekletme gün sayısından eski bulut anlık görüntüleri siler.                                                                                                   |
+| [İzleyici Backups.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Monitor-Backups.ps1)                              | Bu Azure Otomasyonu Runbook PowerShell Betiği, tüm yedekleme işlerinin durumunu raporlar.                                                                                                              |
+| [Remove-DeviceBackup.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Remove-DeviceBackup.ps1)                          | Bu betik, tek bir yedekleme nesneyi siler.                                                                                                                                                           |
+| [Başlangıç DeviceBackupJob.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Start-DeviceBackupJob.ps1)                        | Bu betik, StorSimple Cihazınızda el ile yedekleme başlatır.                                                                                                                                       |
+| [Güncelleştirme CloudApplianceServiceEncryptionKey.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Update-CloudApplianceServiceEncryptionKey.ps1)    | Bu betik, 8010/8020 StorSimple bulut Gereçleri, StorSimple cihaz Yöneticisi hizmetine kayıtlı tüm hizmet veri şifreleme anahtarını güncelleştirir.                                     |
+| [BackupScheduleAndBackup.ps1 doğrulayın](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Verify-BackupScheduleAndBackup.ps1)               | Bu betik, yedekleme ilkeleri ile ilişkili tüm zamanlamalar çözümledikten sonra eksik yedeklemeleri vurgular. Ayrıca, yedekleme kataloğunu kullanılabilir yedekler listesiyle doğrular.             |
 
 
 
 
-## <a name="configure-and-run-a-sample-script"></a>Yapılandırma ve bir örnek komut dosyası çalıştırma
+## <a name="configure-and-run-a-sample-script"></a>Yapılandırma ve bir örnek betiği çalıştırma
 
-Bu bölümde, örnek komut dosyası alır ve komut dosyasını çalıştırmak için gereken çeşitli adımları ayrıntıları.
+Bu bölümde, bir örnek betiği alır ve betiği çalıştırmak için gereken çeşitli adımlarını ayrıntılı şekilde açıklar.
 
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 
 Başlamadan önce şunları yapın:
 
 *   Azure PowerShell yüklü. Azure PowerShell modüllerini yüklemek için:
-    * Bir Windows ortamı adımları [yükleyin ve Azure PowerShell yapılandırma](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0). Azure PowerShell, Windows Server konağında StorSimple için birini kullanıyorsanız yükleyebilirsiniz.
-    * Bir Linux veya MacOS ortamında adımları [yükleyin ve MacOS veya Linux Azure PowerShell yapılandırın](https://docs.microsoft.com/powershell/azure/install-azurermps-maclinux?view=azurermps-4.4.0).
+    * Bir Windows ortamında adımları [yüklemek ve Azure PowerShell yapılandırma](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0). Azure PowerShell, Windows Server konağında StorSimple'ınızı birini kullanıyorsanız yükleyebilirsiniz.
+    * Bir Linux veya Macos'ta ortamında adımları [yüklemek ve Azure PowerShell'i MacOS veya Linux'ta yapılandırma](https://docs.microsoft.com/powershell/azure/azurerm/install-azurermps-maclinux?view=azurermps-4.4.0).
 
-Azure PowerShell'i kullanma hakkında daha fazla bilgi için Git [kullanarak Azure PowerShell ile çalışmaya başlama](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.4.0).
+Azure PowerShell kullanma hakkında daha fazla bilgi için Git [kullanarak Azure PowerShell ile çalışmaya başlama](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.4.0).
 
-### <a name="run-azure-powershell-script"></a>Azure PowerShell komut dosyasını çalıştır
+### <a name="run-azure-powershell-script"></a>Azure PowerShell Betiği çalıştırma
 
-Bu örnekte kullanılan komut dosyasını bir StorSimple cihaz üzerindeki tüm işleri listeler. Bu, başarılı, başarısız oldu veya devam eden işler içerir. Karşıdan yükleme ve komut dosyasını çalıştırmak için aşağıdaki adımları gerçekleştirin.
+Bu örnekte kullanılan betiği, bir StorSimple cihazında tüm işler listelenir. Bu, başarılı, başarısız oldu veya devam eden işleri içerir. Bir betik indirip çalıştırmak için aşağıdaki adımları gerçekleştirin.
 
-1. Azure PowerShell’i çalıştırın. Yeni bir klasör oluşturun ve yeni klasöre dizini değiştirin.
+1. Azure PowerShell’i çalıştırın. Yeni bir klasör oluşturun ve yeni klasörüne dizin değiştirin.
 
     ```
         mkdir C:\scripts\StorSimpleSDKTools
         cd C:\scripts\StorSimpleSDKTools
     ```    
-2. [NuGet CLI karşıdan](http://www.nuget.org/downloads) önceki adımda oluşturduğunuz klasörü altında. Çeşitli sürümü vardır _nuget.exe_. SDK'sına karşılık gelen sürümünü seçin. Her karşıdan yükleme bağlantısı doğrudan işaret eden bir _.exe_ dosya. Sağ tıklayın ve dosyayı bilgisayarınıza kaydedin emin yerine tarayıcıdan çalışıyor.
+2. [NuGet CLI'yı indirme](http://www.nuget.org/downloads) önceki adımda oluşturduğunuz klasöre altında. Çeşitli sürümleri vardır _nuget.exe_. SDK'nızı için karşılık gelen sürümü seçin. Her bir indirme bağlantısı doğrudan işaret eden bir _.exe_ dosya. Sağ tıklayın ve dosyayı bilgisayarınıza kaydetmek mutlaka yerine tarayıcıda çalışıyor.
 
-    Ayrıca, karşıdan yüklemek ve betik daha önce oluşturduğunuz aynı klasörde depolamak için aşağıdaki komutu çalıştırabilirsiniz.
+    Ayrıca, karşıdan yüklemek ve betik, daha önce oluşturduğunuz aynı klasöre depolamak için aşağıdaki komutu çalıştırabilirsiniz.
     
     ```
         wget https://dist.nuget.org/win-x86-commandline/latest/nuget.exe -Out C:\scripts\StorSimpleSDKTools\nuget.exe
@@ -91,14 +91,14 @@ Bu örnekte kullanılan komut dosyasını bir StorSimple cihaz üzerindeki tüm 
         C:\scripts\StorSimpleSDKTools\nuget.exe install Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.28.3
         C:\scripts\StorSimpleSDKTools\nuget.exe install Microsoft.Rest.ClientRuntime.Azure.Authentication -Version 2.2.9-preview
     ```    
-4. Komut dosyası örneği GitHub projeden indirin.
+4. Betik örnek GitHub projesinden indirmeniz gerekir.
 
     ```
         wget https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Get-DeviceJobs.ps1 -Out Get-DeviceJobs.ps1
 
     ```
 
-5. Betiği çalıştırın. Kimlik doğrulaması yapmak isteyip istemediğiniz sorulduğunda Azure kimlik bilgilerinizi sağlayın. Bu komut, StorSimple Cihazınızda tüm işlerin filtre uygulanmış bir listesini çıktı.
+5. Betiği çalıştırın. Kimlik doğrulaması için istendiğinde Azure kimlik bilgilerinizi sağlayın. Bu betik, StorSimple cihazınızdaki tüm işleri filtrelenmiş bir listesini oluşturmalıdır.
            
     ```           
         .\Get-StorSimpleJob.ps1 -SubscriptionId [subid] -TenantId [tenant id] -DeviceName [name of device] -ResourceGroupName [name of resource group] -ManagerName[name of device manager] -FilterByStatus [Filter for job status] -FilterByJobType [Filter for job type] -FilterByStartTime [Filter for start date time] -FilterByEndTime [Filter for end date time]
@@ -107,7 +107,7 @@ Bu örnekte kullanılan komut dosyasını bir StorSimple cihaz üzerindeki tüm 
 
 ### <a name="sample-output"></a>Örnek çıktı
 
-Örnek komut dosyasını çalıştırdığınızda, aşağıdaki çıkış sunulur. Çıkış, 25 Eylül 2017 üzerinde başlatıldı ve 2 Ekim 2017 tamamlanmış bir kayıtlı cihazda çalışan tüm işleri içerir.
+Örnek komut dosyasını çalıştırdığınızda aşağıdaki çıkış sunulur. Çıktı, 25 Eylül 2017'de başlangıç ve 2 Ekim 2017 tarafından tamamlanan bir kayıtlı cihazda çalışan tüm işleri içerir.
 
 ```
 -----------------------------------------
@@ -176,4 +176,4 @@ PS C:\Scripts\StorSimpleSDKTools>
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[StorSimple Cihazınızı yönetmek için Aygıt Yöneticisi'ni StorSimple hizmeti](storsimple-8000-manager-service-administration.md).
+[StorSimple Cihazınızı yönetmek için StorSimple cihaz Yöneticisi'ni kullanın hizmet](storsimple-8000-manager-service-administration.md).

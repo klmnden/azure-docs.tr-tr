@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/08/2017
 ms.author: cshoe
-ms.openlocfilehash: bc7ed9051f95877760bccec65ff2fa7f49e44993
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 5a5154d8d3a4922dead686c3d5002eaae818ff5a
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002152"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201372"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure işlevleri için Azure Event Hubs bağlamaları
 
@@ -59,9 +59,9 @@ Her bir olay hub'ı ile tetiklenen bir işlev örneği yalnızca biri tarafında
 
 * **Yeni işlev örnekleri gerekmeyen**: `Function_0` ölçeklendirme mantıksal devreye girer işlevleri önce tüm 1000 olayları işleyebilir. Bu durumda, tüm 1000 iletileri tarafından işlenen `Function_0`.
 
-* **Ek işlev örneği eklenen**: mantıksal ölçeklendirme işlevleri belirler `Function_0` , işleyebileceğinden daha fazla ileti yok. Bu durumda, yeni bir işlev uygulaması örneğinde (`Function_1`), yanı sıra yeni oluşturulan [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) örneği. Olay hub'ları algılar iletileri okumak yeni bir ana bilgisayar örneği çalışıyor. Olay hub'ları yük dengeleyen bölümler arasında kendi ana bilgisayar örneği. Örneğin, 0-4 bölüm için atanabilir `Function_0` ve 5-9 bölümleri `Function_1`.
+* **Ek işlev örneği eklenen**: İşlevleri belirleyen mantıksal ölçeklendirme `Function_0` , işleyebileceğinden daha fazla ileti yok. Bu durumda, yeni bir işlev uygulaması örneğinde (`Function_1`), yanı sıra yeni oluşturulan [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) örneği. Olay hub'ları algılar iletileri okumak yeni bir ana bilgisayar örneği çalışıyor. Olay hub'ları yük dengeleyen bölümler arasında kendi ana bilgisayar örneği. Örneğin, 0-4 bölüm için atanabilir `Function_0` ve 5-9 bölümleri `Function_1`.
 
-* **Daha fazla işlev örneği eklenir N**: mantıksal ölçeklendirme işlevleri belirler hem `Function_0` ve `Function_1` bunlar işleyebileceğinden daha fazla ileti sahip. Yeni işlev uygulaması örnekleri `Function_2`... `Functions_N` nerede oluşturulduğunu, `N` olay hub'ı bölümleri sayısından büyüktür. Yük dengeleyen bölümleri, bu durumda örneklerinde Örneğimizde, Event Hubs yeniden `Function_0`... `Functions_9`.
+* **Daha fazla işlev örneği eklenir N**: İşlevleri belirleyen mantıksal ölçeklendirme hem `Function_0` ve `Function_1` bunlar işleyebileceğinden daha fazla ileti vardır. Yeni işlev uygulaması örnekleri `Function_2`... `Functions_N` nerede oluşturulduğunu, `N` olay hub'ı bölümleri sayısından büyüktür. Yük dengeleyen bölümleri, bu durumda örneklerinde Örneğimizde, Event Hubs yeniden `Function_0`... `Functions_9`.
 
 Dikkat edin işlevleri ölçeklenir `N` olay hub'ı bölümleri sayısından daha büyük bir sayı olan örnekleri. Bu her zaman emin olmak için gerçekleştirilir [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) örneği diğer örneklerin kullanılabilir oldukça bölümler kilitler elde etmek kullanılabilir. Yalnızca işlev örneği yürütüldüğünde kullanılan kaynaklar için ücret ödersiniz; Bu hızlı sağlama için ücretlendirilmez.
 
@@ -452,7 +452,7 @@ Bkz: [kod örnekleri](#trigger---example) bu makalenin önceki bölümlerinde bu
 
 Event Hubs çıkış olayları için olay akışının yazmaya bağlaması kullanın. Olaylar için yazma olay hub'ına gönderme izni olmalıdır.
 
-Gerekli paket başvuruları yerinde olduğundan emin olun: [1.x işlevleri](#packages---functions-1.x) veya [2.x işlevleri](#packages---functions-2.x)
+Gerekli paket başvuruları karşılandığından emin olun: [1.x işlevleri](#packages---functions-1.x) veya [2.x işlevleri](#packages---functions-2.x)
 
 ## <a name="output---example"></a>Çıkış - örnek
 
@@ -659,7 +659,7 @@ public String sendTime(
  }
  ```
 
-İçinde [Java Çalışma Zamanı Kitaplığı işlevleri](/java/api/overview/azure/functions/runtime), kullanın `@EventHubOutput` ek açıklama parametreleri değeri, olay hub'ına poublished olacaktır.  Tür parametresi olmalıdır `OutputBinding<T>` , burada T bir POJO'ya veya herhangi bir yerel Java türü.
+İçinde [Java Çalışma Zamanı Kitaplığı işlevleri](/java/api/overview/azure/functions/runtime), kullanın `@EventHubOutput` ek açıklama parametreleri değeri, olay Hub'ına yayımlanan.  Tür parametresi olmalıdır `OutputBinding<T>` , burada T bir POJO'ya veya herhangi bir yerel Java türü.
 
 ## <a name="output---attributes"></a>Çıkış - öznitelikleri
 

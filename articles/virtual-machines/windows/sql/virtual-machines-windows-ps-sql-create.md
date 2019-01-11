@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: bb7a0b8c2d0511088282e180a108f8d925f0e4e8
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 059c227f9a5a5701e3fceca94b643c30d006ce67
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42057423"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199961"
 ---
 # <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>Azure PowerShell ile SQL Server sanal makineleri sağlama
 
@@ -63,7 +63,7 @@ $StorageName = $ResourceGroupName + "storage"
 $StorageSku = "Premium_LRS"
 ```
 
-### <a name="network-properties"></a>Ağ Özellikleri
+### <a name="network-properties"></a>Ağ özellikleri
 Ağ arabirimi, TCP/IP'yi ayırma yöntemi, sanal ağ adı, sanal alt ağ adı, IP adresi aralığı için sanal ağ, IP adresi aralığı için kullanılacak alt ağı ve genel etki alanı ad etiketi tanımlamak için aşağıdaki değişkenleri kullanın Sanal makinedeki ağ tarafından kullanılmak üzere.
 
 İstediğiniz gibi değiştirin ve ardından bu değişkenlerini başlatmak için aşağıdaki cmdlet'i çalıştırın.
@@ -310,7 +310,7 @@ Sanal makine oluşturulur.
 > [!NOTE]
 > Önyükleme tanılaması hakkında hatayı yoksayabilirsiniz. Belirtilen depolama hesabı için sanal makinenin disk bir premium depolama hesabı olduğu için önyükleme tanılaması için standart depolama hesabı oluşturulur.
 
-## <a name="install-the-sql-iaas-agent"></a>SQL Iaas Aracısı'nı yükleme
+## <a name="install-the-sql-iaas-agent"></a>SQL Iaas Aracısı yükleme
 SQL Server sanal makineleri ile otomatik yönetim özelliklerini destekleyen [SQL Server Iaas Aracısı uzantısı](virtual-machines-windows-sql-server-agent-extension.md). Aracıyı yeni VM'ye yüklemek için oluşturulduktan sonra aşağıdaki komutu çalıştırın.
 
    ```PowerShell

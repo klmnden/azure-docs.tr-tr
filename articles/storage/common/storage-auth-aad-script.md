@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: b5a129c2a92c18b979a3b0c2eeea7fa19791551c
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 29b44e4b281ded635359148e251527c44efaa6d4
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633774"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214054"
 ---
 # <a name="use-an-azure-ad-identity-to-access-azure-storage-with-cli-or-powershell-preview"></a>CLI veya PowerShell (Önizleme) ile Azure depolamaya erişmek için bir Azure AD kimliğini kullanın.
 
@@ -84,7 +84,7 @@ Bir Azure AD kimlik bilgilerinizle oturum açmak için Azure PowerShell kullanma
    Install-Module Az.Storage -Repository PSGallery -AllowPrerelease -AllowClobber -Force
    ```
 1. PowerShell penceresini kapatıp yeniden açın.
-1. Çağrı [yeni AzStorageContext](https://docs.microsoft.com/powershell/module/azure.storage/new-AzStoragecontext) bir bağlam oluşturur ve eklemek için cmdlet `-UseConnectedAccount` parametresi. 
+1. Çağrı [yeni AzStorageContext](https://docs.microsoft.com/powershell/module/az.storage/new-azstoragecontext) bir bağlam oluşturur ve eklemek için cmdlet `-UseConnectedAccount` parametresi. 
 1. Cmdlet ile bir Azure AD kimlik çağırmak için yeni oluşturulan bağlamı cmdlet'e geçirin.
 
 Aşağıdaki örnek, bir Azure AD kimliğini kullanarak Azure powershell'den bir kapsayıcıdaki blobları listelemek nasıl gösterir. Yer tutucu hesabı ve kapsayıcı adları kendi değerlerinizle değiştirdiğinizden emin olun: 

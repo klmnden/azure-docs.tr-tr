@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: 2a862a6f1165b0cdd4dfe46e638dc6b10eae9ee5
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 46febbeb2675c38bf68c6ba0b911f799b268e208
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191335"
+ms.locfileid: "54201117"
 ---
 # <a name="use-data-dependent-routing-to-route-a-query-to-appropriate-database"></a>Veri bağımlı bir sorgu için uygun veritabanı yönlendirmek için yönlendirme kullanın
 
@@ -68,7 +68,7 @@ public SqlConnection OpenConnectionForKey<TKey>(TKey key, string connectionStrin
 
 * **Anahtar** parametre bir arama anahtarı parça eşlemesine istek için uygun veritabanı belirlemek için kullanılır.
 * **ConnectionString** yalnızca istenen bağlantı kullanıcı kimlik bilgilerini geçirmek için kullanılır. Hiçbir veritabanı adı veya sunucu adı bu dahildir *connectionString* yöntemi veritabanı ve sunucu kullanarak belirler. bu yana **ShardMap**.
-* **ConnectionOptions** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper._connection_options), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.connectionoptions)) ayarlanmalıdır **ConnectionOptions.Validate** nerede parça eşlemeleri Mayıs bir ortam ise değişiklik ve satır bölme ve birleştirme işlemleri sonucu olarak başka bir veritabanına taşınabilir. Bu doğrulama hedef yerel parça eşlemesine kısa bir sorgu içerir bağlantı uygulamaya teslim edilmeden önce veritabanı (değil genel parça eşleme için).
+* **ConnectionOptions** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.connectionoptions), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.connectionoptions)) ayarlanmalıdır **ConnectionOptions.Validate** nerede parça eşlemeleri Mayıs bir ortam ise değişiklik ve satır bölme ve birleştirme işlemleri sonucu olarak başka bir veritabanına taşınabilir. Bu doğrulama hedef yerel parça eşlemesine kısa bir sorgu içerir bağlantı uygulamaya teslim edilmeden önce veritabanı (değil genel parça eşleme için).
 
 (Önbellek yanlış olduğunu belirten) yerel parça eşlemesi karşı doğrulama başarısız olursa, parça eşleme Yöneticisi, arama için yeni doğru değeri elde etmek, önbellek, güncelleştirme ve elde ve uygun veritabanı bağlantısı dönmek için global parça eşleme sorgular. .
 

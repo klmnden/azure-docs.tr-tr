@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/16/2018
 ms.author: trinadhk
-ms.openlocfilehash: 063b13f76e2fcbe4df0b13d7e77e34718ec756d4
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: ec7de756a5b3c8e713fa8e73c18cebee32b83e28
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041297"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201321"
 ---
 # <a name="frequently-asked-questions-azure-backup"></a>Sık sorulan sorular Azure Backup
 
@@ -57,14 +57,13 @@ Azure Backup hizmeti, kaynak grubunu kilitlerseniz, eski geri yükleme noktalar�
 Hayır. Tarih ve saat yerel bilgisayarınızdaki yerel geçerli gün ışığından tasarruf uygulanır. Zamanlanmış yedeklemeler için ayarlanan saate DST nedeniyle yerel zamandan farklı olabilir.
 
 ### <a name="how-many-data-disks-can-i-attach-to-a-vm-backed-up-by-azure-backup"></a>Azure Backup tarafından yedeklenen VM'ye kaç veri diskinin ekleyebilir miyim?
-Azure yedekleme ile 16 adede kadar disk sanal makinelerini yedekleyebilirsiniz. 16 diskler için destek sağlanır [en son sürümü](backup-upgrade-to-vm-backup-stack-v2.md) V2 Azure VM yedekleme yığını.
+Azure yedekleme ile 16 adede kadar disk sanal makinelerini yedekleyebilirsiniz. 16 diskler için destek sağlanır [anında geri yükleme](backup-instant-restore-capability.md).
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disk"></a>Yoksa Azure yedekleme desteği standart SSD yönetilen disk?
-Azure Backup'ın destekledikleri [SSD standart yönetilen diskler](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). SSD yönetilen diskler, Azure Vm'leri için yeni bir tür dayanıklı depolama sağlar. SSD yönetilen diskler için destek sağlanır [en son sürümü](backup-upgrade-to-vm-backup-stack-v2.md) V2 Azure VM yedekleme yığını.
+Azure Backup'ın destekledikleri [SSD standart yönetilen diskler](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). SSD yönetilen diskler, Azure Vm'leri için yeni bir tür dayanıklı depolama sağlar. SSD yönetilen diskler için destek sağlanır [anında geri yükleme](backup-instant-restore-capability.md).
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>Yazma Hızlandırıcı WA etkinleştirilmiş bir disk sahip bir VM yedekleyebilir miyim?
-Anlık görüntüleri WA özellikli diskte alınamaz. Ancak, Azure Backup hizmeti yedekleme dosyasından WA etkin disk hariç tutabilirsiniz. WA etkinleştirilmiş disklerle sanal makineler için disk dışlama, yalnızca Azure VM yedekleme yığını v2'ye yükseltme abonelikleri için desteklenir. Azure VM yedekleme yığını v2'ye yükseltmek için bu bkz [makale](backup-upgrade-to-vm-backup-stack-v2.md). Bu özellik şu anda Japonya Doğu, Kuzey Avrupa, Güneydoğu Asya, Doğu ABD, Batı abd2, Batı Avrupa ve Doğu ABD 2 kullanılabilir.
-
+Anlık görüntüleri WA özellikli diskte alınamaz. Ancak, Azure Backup hizmeti yedekleme dosyasından WA etkin disk hariç tutabilirsiniz. WA etkinleştirilmiş disklerle sanal makineler için disk dışlama, yalnızca anlık geri yüklemek için yükseltilmiş abonelikleri için desteklenir.
 
 ### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>Yazma Hızlandırıcı (WA) disklerle bir VM sahibim ve SAP HANA yüklenir. Nasıl yapılır? yedekleyin
 Azure yedekleme WA etkin disk yedekleyemezsiniz, ancak yedeklemeden hariç tutabilirsiniz. Ancak, WA özellikli diskteki bilgileri yedeklenmediğini nedeniyle yedekleme veritabanı tutarlılığını sağlamaz. İşletim sistemi diskini yedekleme ve WA etkin olmayan disk yedekleme istiyorsanız bu yapılandırmayı disklerle yedekleyebilirsiniz.
@@ -104,7 +103,7 @@ Evet. VM silme olsa bile, karşılık gelen yedekleme gidebilirsiniz kasaya öğ
 Yönetilen Disk Azure VM için kullanılabilirlik kümeleri için geri yükleme, yönetilen diskler olarak geri yüklenirken bir seçenek şablonunda sağlayarak etkinleştirilir. Bu şablon, adlı giriş parametresinin **kullanılabilirlik kümeleri**.
 
 ### <a name="how-do-we-get-faster-restore-performances"></a>Daha hızlı geri yükleme performanslarını nasıl aldığımız?
-Daha hızlı geri yükleme performansı için VM yedekleme yığını v2'ye taşıyın ve kullanmanızı öneririz [anlık RP özellik](backup-upgrade-to-vm-backup-stack-v2.md).
+Daha hızlı geri yükleme performansı için biz geçiş yapıyorsanız [anında geri yükleme](backup-instant-restore-capability.md) yeteneği.
 
 ## <a name="manage-vm-backups"></a>VM yedeklemelerini yönetme
 

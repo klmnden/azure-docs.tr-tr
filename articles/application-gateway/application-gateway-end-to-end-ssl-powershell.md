@@ -2,22 +2,17 @@
 title: Azure Application Gateway ile uçtan uca SSL'yi yapılandırma
 description: Bu makalede PowerShell kullanarak Azure Application Gateway ile uçtan uca SSL'yi yapılandırma
 services: application-gateway
-documentationcenter: na
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/23/2018
+ms.date: 1/10/2019
 ms.author: victorh
-ms.openlocfilehash: 5ea022d38970122b88ae35c592af3e4a9351190b
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 32dd31c659e1906e8cf59f4c6d06c2b4436284cd
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945340"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214071"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>Application Gateway ve PowerShell kullanarak uçtan uca SSL'yi yapılandırma
 
@@ -25,7 +20,7 @@ ms.locfileid: "49945340"
 
 Azure Application Gateway, trafiğin uçtan uca şifrelenmesini destekler. Uygulama ağ geçidi, application Gateway SSL bağlantısını sonlandırır. Ağ geçidini daha sonra yönlendirme kurallarını trafiğe uygular, paketi yeniden şifreler ve tanımlanan yönlendirme kurallarına göre uygun arka uç sunucusuna iletir. Web sunucusundan alınan herhangi bir yanıt, son kullanıcıya dönerken aynı süreci izler.
 
-Application Gateway, özel SSL seçeneklerini tanımlama destekler. Ayrıca aşağıdaki protokol sürümleri devre dışı bırakmayı destekler: **TLSv1.0**, **TLSv1.1**, ve **TLSv1.2**, ayrıca kullanmak için hangi şifre paketleri ve tercih sırasına göre tanımlama . Yapılandırılabilir SSL seçenekleri hakkında daha fazla bilgi edinmek için [SSL ilkesine genel bakış](application-gateway-SSL-policy-overview.md).
+Application Gateway, özel SSL seçeneklerini tanımlama destekler. Ayrıca, aşağıdaki protokol sürümleri devre dışı bırakmayı destekler: **TLSv1.0**, **TLSv1.1**, ve **TLSv1.2**, ayrıca kullanmak için hangi şifre paketleri ve tercih sırasına göre tanımlama. Yapılandırılabilir SSL seçenekleri hakkında daha fazla bilgi edinmek için [SSL ilkesine genel bakış](application-gateway-SSL-policy-overview.md).
 
 > [!NOTE]
 > SSL 2.0 ve SSL 3.0 varsayılan olarak devre dışıdır ve etkinleştirilemez. Bunlar, güvenli olarak kabul edilir ve Application Gateway ile kullanılamaz.
@@ -45,9 +40,9 @@ Bu senaryo olur:
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bir uygulama ağ geçidi ile uçtan uca SSL'yi yapılandırmak için bir sertifika ağ geçidi için gereklidir ve arka uç sunucuları için sertifikaları gereklidir. Ağ geçidi sertifikası, şifreleme ve SSL üzerinden gönderilen trafiği şifresini çözmek için kullanılır. Ağ geçidi sertifikası kişisel bilgi değişimi (PFX) biçiminde olması gerekir. Bu dosya biçimi, uygulama ağ geçidi tarafından şifreleme ve şifre çözme trafik gerçekleştirmek için gerekli olan özel anahtarı dışarı olanak tanır.
+Bir uygulama ağ geçidi ile uçtan uca SSL'yi yapılandırmak için bir sertifika ağ geçidi için gereklidir ve arka uç sunucuları için sertifikaları gereklidir. Ağ geçidi sertifikası, bir simetrik anahtar SSL protokolü belirtimi uyarınca türetmek için kullanılır. Ardından kullanılan simetrik anahtarı şifrelemek ve şifresini çözmek için ağ geçidi gönderilen trafik. Ağ geçidi sertifikası kişisel bilgi değişimi (PFX) biçiminde olması gerekir. Bu dosya biçimi, uygulama ağ geçidi tarafından şifreleme ve şifre çözme trafik gerçekleştirmek için gerekli olan özel anahtarı dışarı olanak tanır.
 
-Uçtan uca SSL şifrelemesi için arka uç uygulama ağ geçidiyle Güvenilenler listesinde olmalıdır. Ortak sertifika arka uç sunucuları uygulama ağ geçidine yüklemeniz gerekir. Sertifika ekleme, uygulama ağ geçidi yalnızca bilinen arka uç örnekleriyle iletişim sağlar. Bu daha fazla uçtan uca iletişimin güvenliğini sağlar.
+Uçtan uca SSL şifrelemesi için arka uç uygulama ağ geçidiyle Güvenilenler listesinde olmalıdır. Ortak sertifikayı arka uç sunucuları uygulama ağ geçidine yükleyin. Sertifika ekleme, uygulama ağ geçidi yalnızca bilinen arka uç örnekleriyle iletişim sağlar. Bu daha fazla uçtan uca iletişimin güvenliğini sağlar.
 
 Yapılandırma işlemini aşağıdaki bölümlerde açıklanmıştır.
 
@@ -258,7 +253,7 @@ $appgw = New-AzureRmApplicationGateway -Name appgateway -SSLCertificates $cert -
 
    ```
 
-   3. Son olarak, ağ geçidi güncelleştirin. Bu son adım, uzun süre çalışan bir görev olduğunu unutmayın. İşlem tamamlandığında, uygulama ağ geçidinde uçtan uca SSL yapılandırılır.
+   3. Son olarak, ağ geçidi güncelleştirin. Uzun süre çalışan bir görev bu son adımdır. İşlem tamamlandığında, uygulama ağ geçidinde uçtan uca SSL yapılandırılır.
 
    ```powershell
    $gw | Set-AzureRmApplicationGateway

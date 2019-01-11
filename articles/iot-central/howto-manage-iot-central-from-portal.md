@@ -3,17 +3,17 @@ title: IOT Central'ı Azure portalından yönetin | Microsoft Docs
 description: IOT Central, Azure portalından yönetin.
 services: iot-central
 ms.service: iot-central
-author: tbhagwat3
-ms.author: tanmayb
+author: dominicbetts
+ms.author: dobett
 ms.date: 08/30/2018
 ms.topic: conceptual
-manager: peterpr
-ms.openlocfilehash: 20b1c7500587324f6f7dbb5cc679a3603eff56bd
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+manager: philmea
+ms.openlocfilehash: 73c8d64c53e23601b19a775a07b0b630c675b91f
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963836"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200486"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>Azure portalından IOT Central'ı yönetme 
 Oluşturma ve IOT Central Web sitesinden IOT Central uygulamaları yönetmeye ek olarak, IOT Central Azure portalından yönetebilirsiniz. Bu makalede, nelerin mümkün olduğunu ve bunun nasıl yapıldığını göstereceğiz.

@@ -1,6 +1,6 @@
 ---
-title: Java kullanarak Azure Service Fabric hizmeti remoting | Microsoft Docs
-description: Service Fabric uzak istemciler ve hizmetler uzaktan yordam çağrısı kullanarak Java Hizmetleri ile iletişim kurmasına olanak sağlar.
+title: Java kullanarak Azure Service Fabric'te hizmet uzaktan iletişimini | Microsoft Docs
+description: Service Fabric uzak istemciler ve hizmetler uzak yordam çağrısı kullanarak Java hizmetlerle iletişim sağlar.
 services: service-fabric
 documentationcenter: java
 author: PavanKunapareddyMSFT
@@ -13,29 +13,29 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: 3215ee4adf907524626b4919b637ce23b9e0e782
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: eb991df64f0454fa6103c9104e5c0e9991503a43
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36750189"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198278"
 ---
-# <a name="service-remoting-in-java-with-reliable-services"></a>Java Reliable Services ile hizmet uzaktan iletişim
+# <a name="service-remoting-in-java-with-reliable-services"></a>Reliable Services ile Java'da Service uzaktan iletişim
 > [!div class="op_single_selector"]
 > * [Windows üzerinde C#](service-fabric-reliable-services-communication-remoting.md)
 > * [Linux üzerinde Java](service-fabric-reliable-services-communication-remoting-java.md)
 >
 >
 
-Belirli bir iletişim protokolü veya Webapı, Windows Communication Foundation (WCF) veya diğerleri gibi yığın bağlı olmayan hizmetler için uzak yordam çağrıları için hızlı ve kolay bir şekilde ayarlamak için uzaktan iletişim mekanizması Reliable Services çerçevesi sağlar Hizmetler.  Bu makalede nasıl Java ile yazılmış hizmetler için uzaktan yordam çağrılarını ayarlanacağı açıklanmaktadır.
+Belirli bir iletişim protokolü veya Webapı, Windows Communication Foundation (WCF) veya diğerleri gibi bir yığın bağlı olmayan hizmetler için Reliable Services framework uzak yordam çağrıları için hızlı ve kolay bir şekilde ayarlamak için uzaktan iletişim mekanizması sağlar Hizmetler.  Bu makalede nasıl Java ile yazılmış hizmetler için uzak yordam çağrılarını ayarlanacağı açıklanmaktadır.
 
-## <a name="set-up-remoting-on-a-service"></a>Bir hizmeti uzaktan iletişim ayarlama
-Bir hizmet için uzaktan iletişim kurma iki basit adımda gerçekleştirilir:
+## <a name="set-up-remoting-on-a-service"></a>Bir hizmeti uzaktan iletişim ayarlamak
+Bir hizmet için uzaktan iletişim kurma, iki basit adımda gerçekleştirilir:
 
-1. Hizmetinizin uygulamak bir arabirim oluşturun. Bu arabirim, hizmeti uzaktan yordam çağrısı için kullanılabilen yöntemleri tanımlar. Görev döndüren yöntemler olmalıdır zaman uyumsuz yöntemleri. Arabirimi uygulamalıdır `microsoft.serviceFabric.services.remoting.Service` hizmet remoting arabirimi olduğunu göstermek için.
-2. Remoting dinleyici hizmetinizi kullanın. Bu bir `CommunicationListener` remoting özellikleri sağlayan uygulama. `FabricTransportServiceRemotingListener` Varsayılan remoting aktarım protokolünü kullanarak bir uzak dinleyicisi oluşturmak için kullanılabilir.
+1. Bir arabirim uygulamak hizmet oluşturun. Bu arabirim, hizmetinizde bir uzak yordam çağrısı için kullanılabilen yöntemleri tanımlar. Görev döndüren yöntemler olmalıdır zaman uyumsuz yöntemler. Arabirimi uygulamalıdır `microsoft.serviceFabric.services.remoting.Service` hizmet uzaktan iletişim arabirimi olduğunu göstermek için.
+2. Uzaktan iletişim dinleyicisi hizmetinizde kullanın. Bu bir `CommunicationListener` remoting özellikleri sağlayan uygulama. `FabricTransportServiceRemotingListener` Varsayılan uzaktan iletişim aktarım protokolünü kullanarak uzak bir dinleyici oluşturmak üzere kullanılabilir.
 
-Örneğin, aşağıdaki durum bilgisiz hizmeti üzerinden bir uzak yordam çağrısı "Hello World" almak için tek bir yöntemi gösterir.
+Örneğin, aşağıdaki durum bilgisi olmayan hizmet uzaktan prosedür çağrılarında "Hello World" almak için tek bir yöntemi gösterir.
 
 ```java
 import java.util.ArrayList;
@@ -70,12 +70,12 @@ class MyServiceImpl extends StatelessService implements MyService {
 ```
 
 > [!NOTE]
-> Bağımsız değişkenler ve hizmet arayüzündeki dönüş türleri basit, karmaşık veya özel türleri olabilir, ancak bunlar Serileştirilebilir olmalıdır.
+> Bağımsız değişkenler ve hizmet arabirimi dönüş türlerinde herhangi bir basit, karmaşık veya özel türü olabilir, ancak seri hale getirilebilir olması gerekir.
 >
 >
 
 ## <a name="call-remote-service-methods"></a>Uzak Hizmet yöntemleri çağırma
-Uzaktan iletişim yığını kullanarak bir hizmet yöntemleri çağırma yapılır yerel bir proxy üzerinden hizmete kullanarak `microsoft.serviceFabric.services.remoting.client.ServiceProxyBase` sınıfı. `ServiceProxyBase` Yöntemi hizmeti uygulayan aynı arabirimini kullanarak yerel bir proxy oluşturur. Proxy ile yalnızca yöntemleri arabirimde uzaktan çağırabilirsiniz.
+Uzaktan iletişim yığını kullanarak bir hizmet yöntemleri çağırma yapılır bir yerel ara sunucu üzerinden hizmete kullanarak `microsoft.serviceFabric.services.remoting.client.ServiceProxyBase` sınıfı. `ServiceProxyBase` Yöntemi hizmeti uygulayan aynı arabirimi kullanarak yerel bir proxy oluşturur. Proxy ile yalnızca yöntemleri arabirimde uzaktan çağırabilirsiniz.
 
 ```java
 
@@ -85,24 +85,24 @@ CompletableFuture<String> message = helloWorldClient.helloWorldAsync();
 
 ```
 
-Remoting framework istemciye hizmet sırasında oluşturulan özel durumları yayar. Bu nedenle özel durum işleme mantığı kullanarak istemcide `ServiceProxyBase` doğrudan hizmet oluşturur özel durumlar işleyebilir.
+Uzaktan iletişimini framework hizmetin istemciye oluşturulan özel durumları yayar. Bu nedenle özel durum işleme mantığı kullanılarak istemcide `ServiceProxyBase` doğrudan hizmet oluşturduğu özel durumları işleyebilir.
 
-## <a name="service-proxy-lifetime"></a>Hizmet Proxy ömrü
-ServiceProxy oluşturma hafif bir işlem olduğundan, gereksinim duyduğunuz kadar çok oluşturabilirsiniz. Gerekli olan sürece hizmeti proxy'si örneği yeniden kullanılabilir. Uzaktan yordam çağrısı bir özel durum oluşturursa, hala aynı proxy örneği yeniden kullanabilirsiniz. Her ServiceProxy kablo üzerinden ileti göndermek için kullanılan bir iletişim istemcisi içerir. Uzak çağrılar istenirken iç denetimleri iletişimi istemci geçerli olup olmadığını belirlemek için gerçekleştirilir. Bu denetimlerini sonuçlarına bağlı olarak iletişim istemci gerektiğinde yeniden oluşturulur. Bir özel durum oluşursa, bu nedenle, yeniden oluşturmanız gerekmez `ServiceProxy`.
+## <a name="service-proxy-lifetime"></a>Hizmet ara sunucu ömrünü
+ServiceProxy oluşturma hafif bir işlem olduğundan, ihtiyacınız kadar oluşturabilirsiniz. Gerekli olan sürece hizmet proxy'si örneği yeniden kullanılabilir. Uzak yordam çağrısı, bir özel durum oluşturursa, yine de aynı proxy örneği yeniden kullanabilirsiniz. Her ServiceProxy kablo üzerinden ileti göndermek için kullanılan bir iletişim istemcisi içerir. Uzak çağrılar çağrılırken, dahili denetimler iletişim istemci geçerli olup olmadığını belirlemek için gerçekleştirilir. Bu denetimlerin sonuçlarına göre iletişim istemci gerekirse yeniden oluşturulur. Bir özel durum oluşursa, bu nedenle, yeniden oluşturmak ihtiyacınız olmayan `ServiceProxy`.
 
-### <a name="serviceproxyfactory-lifetime"></a>ServiceProxyFactory yaşam süresi
-[FabricServiceProxyFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client._fabric_service_proxy_factory) farklı remoting arabirimleri için proxy oluşturan bir üreteci değil. API kullanırsanız `ServiceProxyBase.create` proxy oluşturmak, ardından framework oluşturan bir `FabricServiceProxyFactory`.
-Geçersiz kılmak gerektiğinde el ile oluşturmak kullanışlıdır [ServiceRemotingClientFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client._service_remoting_client_factory) özellikleri.
-Fabrika pahalı bir işlemdir. `FabricServiceProxyFactory` iletişim istemci önbelleğini korur.
-En iyi uygulamadır önbelleğine `FabricServiceProxyFactory` mümkün olduğunca uzun bir süredir.
+### <a name="serviceproxyfactory-lifetime"></a>ServiceProxyFactory ömrü
+[FabricServiceProxyFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client.fabric_service_proxy_factory) olan farklı bir uzak arabirimler için proxy oluşturan bir üreteci. API kullanırsanız `ServiceProxyBase.create` proxy oluşturmak, sonra framework oluşturur bir `FabricServiceProxyFactory`.
+Geçersiz kılmak gerektiğinde el ile oluşturmak kullanışlıdır [ServiceRemotingClientFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client.service_remoting_client_factory) özellikleri.
+Fabrika pahalı bir işlemdir. `FabricServiceProxyFactory` Önbellek iletişim istemcilerin tutar.
+En iyi uygulamadır önbelleğine `FabricServiceProxyFactory` olabildiğince uzun bir süre için.
 
-## <a name="remoting-exception-handling"></a>Remoting özel durum işleme
-Hizmeti API'si tarafından oluşturulan tüm uzak özel durum gönderilir istemciye RuntimeException veya FabricException olarak.
+## <a name="remoting-exception-handling"></a>Uzak özel durum işleme
+Hizmet API'si tarafından oluşturulan tüm uzak özel durumu gönderildiğinde istemciye RuntimeException veya FabricException olarak.
 
-ServiceProxy için oluşturulan hizmet bölümü için tüm yük devretme özel durumu işler. Yük devretme Exceptions(Non-Transient Exceptions) ise uç noktaları yeniden çözümlediği ve doğru uç nokta çağrısıyla yeniden dener. Yük devretme özel durumu için yeniden deneme sayısı belirsiz.
+ServiceProxy, için oluşturulan hizmet bölümü için tüm yük devretme özel durumu işle. Yük devretme Exceptions(Non-Transient Exceptions) ise uç noktaları yeniden çözer ve doğru uç noktası ile çağrı yeniden denenir. Yeniden deneme özel durum yük devretme için belirsiz.
 TransientExceptions durumunda çağrı yalnızca deneme.
 
-[OperationRetrySettings] tarafından sağlanan varsayılan yeniden deneme parametreleridir. (https://docs.microsoft.com/java/api/microsoft.servicefabric.services.communication.client._operation_retry_settings) OperationRetrySettings ServiceProxyFactory oluşturucusuna geçirerek bu değerleri yapılandırabilirsiniz.
+Varsayılan yeniden deneme [OperationRetrySettings] tarafından bulunduğunda parametrelerdir. (https://docs.microsoft.com/java/api/microsoft.servicefabric.services.communication.client.operation_retry_settings) OperationRetrySettings ServiceProxyFactory oluşturucusuna geçirerek bu değerleri yapılandırabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Güvenilir hizmetler için iletişimin güvenliğini sağlama](service-fabric-reliable-services-secure-communication-java.md)
+* [Reliable Services için iletişimin güvenliğini sağlama](service-fabric-reliable-services-secure-communication-java.md)

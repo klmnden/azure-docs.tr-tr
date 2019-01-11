@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: 842a9354cf20648393c3262736c0a1e9654a3c70
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: f7d5fcf1905200bc214a3ff42db9b7b511768dd0
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53628349"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214904"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>PowerShell kullanarak Azure bağımsız bulutlarda depolama yönetme
 
@@ -37,7 +37,7 @@ Azure depolama bağımsız bulutlarda birini kullanmak için Azure genel yerine,
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
-Çalıştırma [Get-AzEnvironment](/powershell/module/az.profile/get-Azenvironment) kullanılabilir Azure ortamları görmek için cmdlet:
+Çalıştırma [Get-AzEnvironment](/powershell/module/az.accounts/get-azenvironment) kullanılabilir Azure ortamları görmek için cmdlet:
    
 ```powershell
 Get-AzEnvironment
@@ -71,7 +71,7 @@ Bu ortamların her birinde için uç nokta soneki Azure genel uç noktasından f
 
 ### <a name="get-endpoint-using-get-azenvironment"></a>Get-AzEnvironment kullanarak uç noktasını alın 
 
-Uç nokta son eki kullanarak almak [Get-AzEnvironment](/powershell/module/az.profile/get-azenvironment). Uç nokta *StorageEndpointSuffix* ortam özelliği. Aşağıdaki kod parçacıkları, bunun nasıl yapılacağını gösterir. Bu komutların tümü bir şey iade "core.cloudapp.net" veya "core.cloudapi.de", vb. gibi. Bu, bu hizmete erişmek için depolama hizmeti ekleyin. Örneğin, "queue.core.cloudapi.de" Almanca bulutta kuyruk hizmeti erişim sağlar.
+Uç nokta son eki kullanarak almak [Get-AzEnvironment](/powershell/module/az.accounts/get-azenvironment). Uç nokta *StorageEndpointSuffix* ortam özelliği. Aşağıdaki kod parçacıkları, bunun nasıl yapılacağını gösterir. Bu komutların tümü bir şey iade "core.cloudapp.net" veya "core.cloudapi.de", vb. gibi. Bu, bu hizmete erişmek için depolama hizmeti ekleyin. Örneğin, "queue.core.cloudapi.de" Almanca bulutta kuyruk hizmeti erişim sağlar.
 
 Bu kod parçacığı tüm ortamları ve her biri için uç nokta sonekini alır.
 

@@ -14,23 +14,23 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
 ms.author: ryanwi
-ms.openlocfilehash: 191471d3538a9151827ee24a5887aa559383345b
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 78812f7bcce82090802672e3e232e713f0d047d1
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785673"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214122"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>Parmak izi yerine sertifika ortak adını kullanan bir Service Fabric kümesi dağıtma
 İki sertifika küme sertifika geçişi veya yönetim zorlaştırır aynı parmak olabilir. Ancak, aynı ortak adı veya konu birden çok sertifika sahip olabilir.  Sertifika ortak adları kullanarak bir küme, sertifika yönetimi çok daha kolay hale getirir. Bu makalede, sertifika ortak adına sertifika parmak izi yerine kullanılacak bir Service Fabric kümesi dağıtmayı açıklar.
  
 ## <a name="get-a-certificate"></a>Sertifika alma
-İlk olarak, bir sertifika alın bir [sertifika yetkilisi (CA)](https://wikipedia.org/wiki/Certificate_authority).  Sertifikanın ortak adı, kümenin ana bilgisayar adı olmalıdır.  Örneğin, "myclustername.southcentralus.cloudapp.azure.com".  
+İlk olarak, bir sertifika alın bir [sertifika yetkilisi (CA)](https://wikipedia.org/wiki/Certificate_authority).  Sertifikanın ortak adı için özel etki alanı kendi ve bir etki alanı kayıt şirketi'ndan satın olmalıdır. Örneğin, "azureservicefabricbestpractices.com"; Microsoft çalışanları olmayan kişilerin MS etki alanlarına yönelik sertifikaları sertifikanız için yaygın olarak kullanılan adları olarak LB veya Traffic Manager DNS adlarını kullanamazsınız ve sağlamak için ihtiyacınız olacak şekilde sağlayabilirsiniz değil bir [Azure DNS bölgesi](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns) , kendi özel Azure'da çözülebilir olması için etki alanı. Ayrıca, diğer kümeniz için özel etki alanını yansıtacak şekilde portalı istiyorsanız, kümenin "managementEndpoint" kendi özel etki alanınızı bildirmek isteyeceksiniz.
 
 Test amacıyla, ücretsiz veya açık bir sertifika yetkilisinden bir CA imzalı bir sertifika alabilir.
 
 > [!NOTE]
-> Azure portalında bir Service Fabric küme dağıtılırken oluşturulan dahil olmak üzere otomatik olarak imzalanan sertifikalar desteklenmiyor.
+> Azure portalında bir Service Fabric küme dağıtılırken oluşturulan dahil olmak üzere otomatik olarak imzalanan sertifikalar desteklenmiyor. 
 
 ## <a name="upload-the-certificate-to-a-key-vault"></a>Bir anahtar kasasına sertifika yükleme
 Azure'da bir sanal makine ölçek kümesi üzerinde bir Service Fabric kümesine dağıtılır.  Sertifikayı bir anahtar Kasası'na yükleyin.  Kümeye dağıttığında, sertifikayı kümesi çalıştıran sanal makine ölçek kümesinde yükler.

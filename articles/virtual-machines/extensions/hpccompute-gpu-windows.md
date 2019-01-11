@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 12/5/2018
+ms.date: 01/09/2019
 ms.author: roiyz
-ms.openlocfilehash: 2a29cae6e7f391dfee75e89ea91525268db3fa62
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 4bb27959bb57f3d59621e5bbbfaba9aa0c331432
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971972"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200692"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Windows için NVIDIA GPU sürücüsünün uzantısı
 
@@ -37,7 +37,7 @@ Bu uzantı şu OSs destekler:
 
 | Dağıtım | Sürüm |
 |---|---|
-| Windows 10 | Çekirdek |
+| Windows 10 (en fazla sürüm 1803)| Çekirdek |
 | Windows Server 2016 | Çekirdek |
 | Windows Server 2012R2 | Çekirdek |
 
@@ -163,7 +163,7 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
 | :---: | --- | --- |
 | 0 | İşlem başarılı |
 | 1 | İşlem başarılı. Yeniden başlatma gerekli. |
-| 100 | İşlem değil, desteklenen veya tamamlanamadı. | Olası nedenler: PowerShell sürümü desteklenmiyor, VM boyutu, veri indirme hatası bir N serisi VM'LERİNDEN değil. Hatanın nedenini belirlemek için günlük dosyalarına bakın. |
+| 100 | İşlem değil, desteklenen veya tamamlanamadı. | Olası nedenler: PowerShell sürümü desteklenmiyor, VM boyutu, veri indirme hatası bir N-serisi VM değil. Hatanın nedenini belirlemek için günlük dosyalarına bakın. |
 | 240, 840 olan | İşlem zaman aşımı. | İşlemi yeniden deneyin. |
 | -1 | Özel durum oluştu. | Özel durumun nedenini belirlemek için günlük dosyalarına bakın. |
 | -5 x | İşlem nedeniyle yeniden başlatma kesildi. | VM'yi yeniden başlatın. Yükleme yeniden başlatıldıktan sonra devam edecek. Kaldırma el ile çağrılmalıdır. |

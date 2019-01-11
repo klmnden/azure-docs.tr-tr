@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/20/2018
 ms.author: sharadag
-ms.openlocfilehash: c4032f7c33cec7b7a7864ccff07a05b87c945949
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
-ms.translationtype: HT
+ms.openlocfilehash: 68da9a0255cde6cbad5c675901c80193888bf255
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988634"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214887"
 ---
 # <a name="how-to-set-up-a-geo-filtering-policy-for-your-front-door"></a>Front Door hizmetiniz için bir coğrafi filtreleme ilkesi hazırlama
 Bu öğreticide, örnek bir coğrafi filtreleme ilkesi oluşturmak ve bu ilkeyi mevcut bir Front Door ön uç konağı ile ilişkilendirmek için Azure PowerShell kullanma gösterilmektedir. Bu örnek coğrafi filtreleme ilkesi, Birleşik Devletler dışındaki diğer tüm ülkelerden gelen istekleri engeller.
@@ -47,7 +47,7 @@ Install-Module -Name AzureRM.FrontDoor -AllowPrerelease
 ```
 
 ## <a name="2-define-geo-filtering-match-conditions"></a>2. Coğrafi filtreleme eşleşme koşullarını tanımlama
-Önce "ABD"'den gelmeyen istekleri seçen örnek bir eşleşme koşulu oluşturun. Bir eşleşme koşulu oluştururken parametreler konusunda PowerShell [kılavuzuna](https://docs.microsoft.com/azure/frontdoor/new-azurermfrontdoormatchconditionobject) başvurun. Ülke eşleme için iki harflik ülke kodu [burada](/Protection/GeoFiltering) sağlanmıştır.
+Önce "ABD"'den gelmeyen istekleri seçen örnek bir eşleşme koşulu oluşturun. Bir eşleşme koşulu oluştururken parametreler konusunda PowerShell [kılavuzuna](https://docs.microsoft.com/azure/frontdoor/new-azurermfrontdoormatchconditionobject) başvurun. Ülke eşleme için iki harflik ülke kodu [burada](front-door-geo-filtering.md) sağlanmıştır.
 
 ```
 $nonUSGeoMatchCondition = New-AzureRmFrontDoorMatchConditionObject -MatchVariable RemoteAddr -OperatorProperty GeoMatch -NegateCondition $true -MatchValue "US"

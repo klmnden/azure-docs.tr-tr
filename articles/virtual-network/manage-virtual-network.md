@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/09/2018
+ms.date: 01/10/2019
 ms.author: jdial
-ms.openlocfilehash: 3f158d040654b251faebceaa2e89d0462f13c217
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: ea78176b9e35643698acf3901b30520b7c7be3c2
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016049"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214412"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Oluşturma, değiştirme veya bir sanal ağı silme
 
@@ -99,7 +99,13 @@ Bu makalenin bir bölümündeki adımları tamamlamadan önce aşağıdaki göre
 
 ## <a name="add-or-remove-an-address-range"></a>Bir adres aralığı Ekle Kaldır
 
-Ekleyebilir ve sanal ağ için adres aralıklarını kaldırın. Bir adres aralığı CIDR gösteriminde belirtilmelidir ve aynı sanal ağdaki başka adres aralıklarıyla çakışamaz. Tanımladığınız adres aralıkları, genel veya özel (RFC 1918) olabilir. Genel veya özel olarak adres aralığını tanımlamak olsun, adres aralığı yalnızca birbirine bağlı sanal ağlar ve sanal ağa bağlı tüm şirket içi ağlarınızı sanal ağ içindeki erişilebiliyor. Aşağıdaki adresi aralıklarını eklenemiyor:
+Ekleyebilir ve sanal ağ için adres aralıklarını kaldırın. Bir adres aralığı CIDR gösteriminde belirtilmelidir ve aynı sanal ağdaki başka adres aralıklarıyla çakışamaz. Tanımladığınız adres aralıkları, genel veya özel (RFC 1918) olabilir. Genel veya özel olarak adres aralığını tanımlamak olsun, adres aralığı yalnızca birbirine bağlı sanal ağlar ve sanal ağa bağlı tüm şirket içi ağlarınızı sanal ağ içindeki erişilebiliyor. 
+
+<!-- You can decrease the address range for a given virtual network if you don't have any subnets associated with it. Otherwise, you can only extend the address range; for example, changing a /16 to /8 is possible. We recommend that you begin with a small address range, and then extend it later or add additional ranges.
+
+the last two sentences above are added per GitHub issue https://github.com/MicrosoftDocs/azure-docs/issues/20572 -->
+
+Aşağıdaki adresi aralıklarını eklenemiyor:
 
 - 224.0.0.0/4 (çok noktaya yayın)
 - 255.255.255.255/32 (yayın)

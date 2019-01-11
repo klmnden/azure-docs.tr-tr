@@ -5,15 +5,15 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 1/8/2019
+ms.date: 1/10/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 203168f27e06d58c192bc5009db077461738011a
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 2e9e4fe06f4d3802f6c0b3ff13e6cf6cdc218050
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54122794"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54211922"
 ---
 Veri Fabrikası yerde müşteri aboneliklerini birbirlerinin iş yüklerini korunan emin olmak için aşağıdaki varsayılan sınırlara sahip çok kiracılı bir hizmettir. Çoğu sınırlarını kolayca sınırına kadar aboneliğinizin destekle iletişim kurarak yükseltilebilir.
 
@@ -26,6 +26,7 @@ Veri Fabrikası yerde müşteri aboneliklerini birbirlerinin iş yüklerini koru
 | Bir abonelik altında Azure-SSIS tümleştirme Runtime(s) için toplam CPU Çekirdeği | 256 | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | (Tüm işlem hatları fabrikasında arasında paylaşılan) veri fabrikası başına eşzamanlı işlem hattını çalışır | 10,000  | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | (Kapsayıcılar için iç etkinlikler dahil) işlem hattı başına en fazla etkinlikleri | 40 | 40 |
+| Bağlantılı Integration Runtime karşı tek bir şirket içinde barındırılan tümleştirme çalışma zamanı oluşturulabilecek en fazla sayısı | 20 | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | İşlem hattı başına en fazla parametreleri | 50 | 50 |
 | ForEach öğeleri | 100.000 | 100.000 |
 | ForEach paralelliği | 20 | 50 |

@@ -1,6 +1,6 @@
 ---
 title: Python için Azure işlevleri Geliştirici Başvurusu
-description: Pythong işlevleriyle Geliştirme işlemini anlama
+description: Python ile işlevleri Geliştirme işlemini anlama
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: 619db07204b88609314d0d3d06709eaa93cb7a43
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 624dcae6cadefd27b663699552068b37e658d9bf
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53188043"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198868"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure işlevleri Python Geliştirici Kılavuzu
 

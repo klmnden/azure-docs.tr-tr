@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Event Hubs kullanarak Azure Databricks’e veri akışı yapma '
+title: 'Öğretici: Event Hubs kullanarak Azure Databricks’e veri akışı sağlama '
 description: Twitter’dan akış verilerini almak ve verileri gerçek zamanlıya yakın şekilde okumak için Event Hubs ile Azure Databricks kullanmayı öğrenin.
 services: azure-databricks
 author: lenadroid
@@ -10,14 +10,14 @@ ms.topic: tutorial
 ms.workload: Active
 ms.date: 06/21/2018
 ms.author: alehall
-ms.openlocfilehash: 6e75e549486fb260f3ccbdead7fe1dea02593f3c
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 16095dabb0e5e3e303e82126c7f57cb4ff3fe8dd
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51707155"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200935"
 ---
-# <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>Öğretici: Event Hubs kullanarak Azure Databricks’e veri akışı yapma
+# <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>Öğretici: Event Hubs kullanarak Azure Databricks’e veri akışı sağlama
 
 Bu öğreticide bir veri alımı sistemini Azure Databricks’e bağlayarak gerçek zamanlıya yakın şekilde verileri bir Apache Spark kümesinde akışa alacaksınız. Azure Event Hubs kullanarak veri alımı sistemi oluşturacak ve sonra gelen iletileri işlemek üzere Azure Databricks’e bağlayacaksınız. Bir veri akışına erişmek için, Twitter API’lerini kullanarak tweet’leri Event Hubs’a alacaksınız. Verileri Azure Databricks’e aldıktan sonra daha ayrıntılı analiz etmek için analiz işleri gerçekleştirebilirsiniz. 
 
@@ -168,7 +168,7 @@ Bu bölümde, Databricks çalışma alanında aşağıdaki adlarla iki not defte
 
 ## <a name="send-tweets-to-event-hubs"></a>Event Hubs’a tweet’ler gönderme
 
-**SendTweetsToEventHub** not defterine aşağıdaki kodu yapıştırın ve yer tutucuları, daha önce oluşturduğunuz Twitter uygulamasının ve Event Hubs ad alanınızın değerleriyle değiştirin. Bu not defteri, gerçek zamanlı olarak "Azure" anahtar sözcüğünü içeren tweet’leri Event Hubs’ta akışa alır.
+İçinde **SendTweetsToEventHub** not defterine aşağıdaki kodu yapıştırın ve yer tutucuları, daha önce oluşturduğunuz Twitter uygulamasının ve Event Hubs ad alanı için değerlerle değiştirin. Bu not defteri, gerçek zamanlı olarak "Azure" anahtar sözcüğünü içeren tweet’leri Event Hubs’ta akışa alır.
 
 ```scala
     import java.util._
@@ -384,4 +384,4 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 Azure Databricks ve [Microsoft Bilişsel Hizmetler API’si](../cognitive-services/text-analytics/overview.md) kullanarak akış verileri üzerinde yaklaşım analizi gerçekleştirme hakkında bilgi edinmek için sonraki öğreticiye ilerleyin.
 
 > [!div class="nextstepaction"]
->[Azure Databricks kullanarak akış verileri üzerinde yaklaşım analizi](databricks-sentiment-analysis-cognitive-services.md)
+>[Azure Databricks kullanarak akış verileri üzerinde yaklaşım analizi ](databricks-sentiment-analysis-cognitive-services.md)

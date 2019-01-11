@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/11/2018
 ms.author: robinsh
-ms.openlocfilehash: 2480aa92dec8d8e8879db813b1cfcddc26f77b7e
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: e1cb588d68153a88d8b55b2696b376c4eb8704f5
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792535"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199296"
 ---
 # <a name="what-is-azure-internet-of-things-iot"></a>Azure nesnelerin interneti (IOT) nedir?
 
@@ -34,6 +34,8 @@ Cihazlar genellikle İnternet'e bir bağlantı hattı panonun bağlı sensörler
 * Durum algılayıcılar odada
 
 Prototip oluşturma için sık kullanılan iki temel MX yonga IOT Devkit cihazlardan, Microsoft ile Raspberry PI cihazlardır. MX yonga Devkit sıcaklık, baskısı, nem, hem de bir ilgili jiroskop ve ivme ölçer, bir magnetometer ve Wi-Fi yonga için yerleşik algılayıcılara sahiptir. Raspberry PI senaryonuz için gerekenleri tam olarak seçebilmeniz için sensörlerden, birçok farklı türde ekleyebilirsiniz, IOT bir cihazdır. 
+
+Endüstrinin en büyük kullanılabilir IOT cihazları hakkında daha fazla bilgi için kontrol [IOT için sertifikalı cihaz Kataloğu](https://catalog.azureiotsolutions.com/alldevices).
 
 [IOT cihaz SDK'ları](../iot-hub/iot-hub-devguide-sdks.md) , gereksinim duyduğunuz görevleri yapabilmeniz cihazlarınızda çalışan uygulamalar oluşturmanıza olanak tanır. SDK'ları ile IOT hub'ınıza telemetri göndermek, IOT Hub'ından iletiler ve güncelleştirmeleri almak ve benzeri.
 

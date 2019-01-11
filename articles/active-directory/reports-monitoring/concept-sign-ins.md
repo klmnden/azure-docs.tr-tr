@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5607dd0f3c682915f1a64edcc5e946491bab5279
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: d322a0027f786be0603e7147eb3ba24341dd7fbf
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653365"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214870"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory portalındaki oturum açma etkinlik raporları
 
@@ -44,7 +44,7 @@ Bu konu, oturum açma işlemleri raporu genel bir bakış sağlar.
 * Ayrıca, herhangi bir kullanıcı (Yönetici olmayanlar) kendi oturum açma etkinliklerine erişebilir 
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>Oturum açma etkinliğine erişebilmek için hangi Azure AD lisansınızın olması gerekir?
-* Kiracınızın tüm oturum açma etkinliği raporunu görebilmeniz için kendisiyle ilişkili bir Azure AD Premium lisansı olması gerekir. Bkz: [Azure Active Directory Premium ile çalışmaya başlama](../fundamentals/active-directory-get-started-premium.md) , Azure Active Directory sürümünü yükseltmek için.
+* Kiracınızın tüm oturum açma etkinliği raporunu görebilmeniz için kendisiyle ilişkili bir Azure AD Premium lisansı olması gerekir. Bkz: [Azure Active Directory Premium ile çalışmaya başlama](../fundamentals/active-directory-get-started-premium.md) , Azure Active Directory sürümünü yükseltmek için. Yükseltme öncesinde tüm etkinlikleri veri yoksa, birkaç gün raporlarda görünmesi için bir premium lisansı yükselttikten sonra verilerin gerektiğine dikkat edin.
 
 ## <a name="sign-ins-report"></a>Oturum açma işlemleri raporu
 
@@ -54,7 +54,7 @@ Kullanıcı oturum açma işlemleri raporu aşağıdaki soruların yanıtların�
 * Bir hafta içerisinde kaç kullanıcı oturum açtı?
 * Bu açılan oturumların durumu nedir?
 
-Oturum açma işlemleri raporu seçerek erişebilirsiniz **oturum açma işlemleri** içinde **etkinlik** bölümünü **Azure Active Directory** dikey penceresinde [Azureportalı](https://portal.azure.com).
+Oturum açma işlemleri raporu seçerek erişebilirsiniz **oturum açma işlemleri** içinde **etkinlik** bölümünü **Azure Active Directory** dikey penceresinde [Azureportalı](https://portal.azure.com). Bu en fazla bazı oturum açma kayıt Portalı'nda görünmesi için iki saat sürebileceğini unutmayın.
 
 ![Oturum açma etkinliği](./media/concept-sign-ins/61.png "oturum açma etkinliği")
 

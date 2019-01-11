@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 12/04/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: e67edf382a49839d890d2c1dec50c44bbb19705a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 9160a5f4e3a452682787ff500199e43e7fad0c77
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966832"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213698"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-october-2018"></a>Azure SQL veri ambarı'nda yenilikler nelerdir? Ekim 2018
 Azure SQL veri ambarı, sürekli olarak iyileştirmeler alır. Bu makalede, Ekim 2018'de sunulan değişiklikler ve yeni özellikleri açıklar.
@@ -41,7 +41,7 @@ Gelişmiş Azure SQL veri ambarı (SQL DW) yalnızca ayarlama ek veri ambarı ö
 Azure SQL veri ambarı hızlandırılmış veritabanı kurtarma (ADR), artık genel Önizleme aşamasındadır. ADR bir yeni SQL Server tamamen geçerli kurtarma işlemini baştan yedekleme WINS'i tarafından veritabanı kullanılabilirlik, özellikle uzun süre çalışan işlemler varlığını önemli ölçüde artıran altyapısıdır. ADR başlıca yararları şunlardır: hızlı ve tutarlı bir veritabanını kurtarma ve anlık bir işlem geri alma.
 
 ## <a name="azure-monitor-diagnostics-logs"></a>Azure İzleyici tanılama günlükleri
-SQL veri ambarı'nı (SQL DW) artık doğrudan Azure İzleyici tanılama günlükleri ile tümleştirerek analitik iş yükleri hakkında gelişmiş Öngörüler sağlar. Bu yeni özellik, geliştiricilerin uzun bir süre boyunca iş yükü davranışını analiz edin ve bilgiye dayalı kararlar sorgu iyileştirme veya kapasite yönetimi sağlar. Artık bir dış günlüğe kaydetme işlemi aracılığıyla ekledik [Azure İzleyici tanılama günlükleri](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json#logs) , veri ambarı iş yükü ek Öngörüler sağlar. Tek bir düğmeye tıklatma ile artık özelliklerini kullanarak sorun giderme geçmiş sorgu performansı için tanılama günlüklerini yapılandırmak için [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-queries). Azure İzleyici tanılama günlükleri denetim amacıyla, bir depolama hesabına neredeyse gerçek zamanlı telemetri ınsights ve Log Analytics kullanarak günlüklerini çözümleme özelliği, event hubs'a akış günlükleri yeteneği günlükleri kaydederek özelleştirilebilir bekletme süreleri destekler. ile [oturum sorguları](). Tanılama günlükleri, veri ambarınızın SQL Veri Ambarı için en sık kullanılan performans sorunlarını giderme DMV’lerine eşdeğer telemetri görünümlerinden oluşur. Bu ilk sürümde aşağıdaki sistem dinamik yönetim görünümleri için görünümleri etkinleştirdik:
+SQL veri ambarı'nı (SQL DW) artık doğrudan Azure İzleyici tanılama günlükleri ile tümleştirerek analitik iş yükleri hakkında gelişmiş Öngörüler sağlar. Bu yeni özellik, geliştiricilerin uzun bir süre boyunca iş yükü davranışını analiz edin ve bilgiye dayalı kararlar sorgu iyileştirme veya kapasite yönetimi sağlar. Artık bir dış günlüğe kaydetme işlemi aracılığıyla ekledik [Azure İzleyici tanılama günlükleri](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json#logs) , veri ambarı iş yükü ek Öngörüler sağlar. Tek bir düğmeye tıklatma ile artık özelliklerini kullanarak sorun giderme geçmiş sorgu performansı için tanılama günlüklerini yapılandırmak için [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-queries). Azure İzleyici tanılama günlükleri denetim amacıyla, bir depolama hesabına neredeyse gerçek zamanlı telemetri ınsights ve Log Analytics kullanarak günlüklerini çözümleme özelliği, event hubs'a akış günlükleri yeteneği günlükleri kaydederek özelleştirilebilir bekletme süreleri destekler. Günlük sorguları ile. Tanılama günlükleri, veri ambarınızın SQL Veri Ambarı için en sık kullanılan performans sorunlarını giderme DMV’lerine eşdeğer telemetri görünümlerinden oluşur. Bu ilk sürümde aşağıdaki sistem dinamik yönetim görünümleri için görünümleri etkinleştirdik:
 
 - [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql)
 - [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql)

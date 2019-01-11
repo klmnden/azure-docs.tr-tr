@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 577147ad91c6a35a45fd40ca9e6424863ea196d6
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: c2ffa623ad7a6c6da5b799d2c7d5f35c9f65e503
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340792"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215414"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>Dayanıklı işlevler (Azure işlevleri) HTTP API'leri
 
@@ -96,9 +96,9 @@ Tüm HTTP API'lerini aşağıdaki parametreleri uzantısı sınav zamanı taraf�
 | taskHub    | Sorgu dizesi    | Adını [görev hub](durable-functions-task-hubs.md). Belirtilmezse, geçerli işlevi uygulamanın görev hub adı varsayılır. |
 | bağlantı | Sorgu dizesi    | **Adı** depolama hesabı için bağlantı dizesi. Belirtilmemişse, işlev uygulaması için varsayılan bağlantı dizesini kabul edilir. |
 | systemKey  | Sorgu dizesi    | API'yi çağırmak için gereken yetkilendirme anahtar. |
-| showInput  | Sorgu dizesi    | İsteğe bağlı parametre. Varsa kümesine `false`, yürütme giriş dahil edilmeyecek yanıt yükünde.|
-| showHistory| Sorgu dizesi    | İsteğe bağlı parametre. Varsa kümesine `true`, orchestration yürütme geçmişini yanıt yükünde dahil edilir.|
-| showHistoryOutput| Sorgu dizesi    | İsteğe bağlı parametre. Varsa kümesine `true`, etkinlik çıkışı dahil edilecek düzenleme yürütme geçmişi.|
+| showInput  | Sorgu dizesi    | İsteğe bağlı bir parametre; yalnızca tek örnekli istek. Varsa kümesine `false`, yürütme giriş dahil edilmeyecek yanıt yükünde.|
+| showHistory| Sorgu dizesi    | İsteğe bağlı bir parametre; yalnızca tek örnekli istek. Varsa kümesine `true`, orchestration yürütme geçmişini yanıt yükünde dahil edilir.|
+| showHistoryOutput| Sorgu dizesi    | İsteğe bağlı bir parametre; yalnızca tek örnekli istek. Varsa kümesine `true`, etkinlik çıkışı dahil edilecek düzenleme yürütme geçmişi.|
 | createdTimeFrom  | Sorgu dizesi    | İsteğe bağlı parametre. Belirtildiğinde, sırasında veya belirtilen ISO8601 zaman damgasından sonra oluşturulan döndürülen örneklerinin listesini filtreler.|
 | createdTimeTo    | Sorgu dizesi    | İsteğe bağlı parametre. Bu seçenek belirtildiğinde, sırasında veya belirtilen ISO8601 zaman damgasından önce oluşturulan döndürülen örneklerinin listesini filtreler.|
 | runtimeStatus    | Sorgu dizesi    | İsteğe bağlı parametre. Bu seçenek belirtildiğinde, filtreleri döndürülen örneklerinin listesini çalışma zamanı durumlarına göre. Olası çalışma zamanı durum değerlerinin listesini görmek için bkz: [örnekleri sorgulama](durable-functions-instance-management.md) konu. |
@@ -146,7 +146,7 @@ Yanıt yükü **HTTP 200** ve **HTTP 202** durumda şu alanlara sahip bir JSON n
 | çıkış          | JSON      | Örnek JSON çıkışı. Bu alan `null` örneği tamamlanmış durumda değilse. |
 | oluşturulma zamanı     | dize    | Örneği oluşturulduğu zaman. ISO 8601 genişletilmiş gösterimi kullanır. |
 | lastUpdatedTime | dize    | Hangi örneğinin son kalıcı saat. ISO 8601 genişletilmiş gösterimi kullanır. |
-| historyEvents   | JSON      | Orchestration yürütme geçmişini içeren bir JSON dizisi. Bu alan `null` sürece `showHistory` sorgu dizesi parametresi ayarlandığında `true`.  |
+| historyEvents   | JSON      | Orchestration yürütme geçmişini içeren bir JSON dizisi. Bu alan `null` sürece `showHistory` sorgu dizesi parametresi ayarlandığında `true`. |
 
 Orchestration yürütme geçmişini ve etkinlik çıktıları (okunabilmesi için biçimlendirilmiştir) dahil olmak üzere bir örnek yanıt yükü şu şekildedir:
 

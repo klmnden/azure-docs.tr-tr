@@ -1,5 +1,5 @@
 ---
-title: Azure portalını kullanarak bölgesel olarak yedekli ön uç ile standart yük dengeleyici oluşturma
+title: Bölgesel olarak yedekli frontend - Azure portalı ile bir yük dengeleyici oluşturma
 titlesuffix: Azure Load Balancer
 description: Azure portalı ile bölgesel olarak yedekli genel IP adresi ön uç ile genel bir Standard Load Balancer oluşturma konusunda bilgi edinin
 services: load-balancer
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: fc5dcd76ca8ecfb820a8d157fee9cc0a92bd2d5b
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: bdd890d85fa72098fecaf86a2782a25ceee783b7
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135704"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201134"
 ---
-#  <a name="create-a-public-standard-load-balancer-with-zone-redundant-frontend-using-azure-portal"></a>Azure portalını kullanarak bölgesel olarak yedekli ön uç ile genel bir Standard Load Balancer oluşturma
+#  <a name="create-a-standard-load-balancer-with-zone-redundant-frontend-using-azure-portal"></a>Azure portalını kullanarak bölgesel olarak yedekli ön uç ile standart yük dengeleyici oluşturma
 
-Bu makalede adımları genel oluşturma işleminde [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) genel IP standart bir adres kullanarak bölgesel olarak yedekli bir ön uç ile. Bölgesel olarak yedekli varsayılan olarak standart yük dengeleyici üzerindeki bir tek bir ön uç IP adresi.
+Bu makalede adımları genel oluşturma işleminde [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) genel IP standart bir adres kullanarak bölgesel olarak yedekli bir ön uç ile. Bölgesel olarak yedekli varsayılan olarak standart yük dengeleyici üzerindeki bir tek bir ön uç IP adresi.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 

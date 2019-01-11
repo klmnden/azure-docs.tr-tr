@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 01/10/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2ba34a6d1ecc33e8a4d355aeacb0da8a764a784d
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 3897225ef6ed7fcc0db75e82058e5b5b273ccbd4
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679538"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214037"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Birden çok makine için güncelleştirmeleri yönetme
 
@@ -82,11 +82,11 @@ Makineleriniz için güncelleştirme yönetimini etkinleştirdikten sonra seçer
 
 Güncelleştirme yönetimi için yakın zamanda etkinleştirilmiş bilgisayarlar henüz değerlendirilmemiş değil. Bu bilgisayarların uyumluluk durumu durumu **değerlendirilmeyen**. Uyumluluk durumu için olası değerler listesi aşağıda verilmiştir:
 
-- **Uyumlu**: eksik kritik güncelleştirmeleri veya güvenlik güncelleştirmeleri olan bilgisayarlar.
+- **Uyumlu**: Eksik kritik güncelleştirmeleri veya güvenlik güncelleştirmeleri olan bilgisayarlar.
 
-- **Uyumlu olmayan**: en az bir kritik eksik olan bilgisayarlar veya güvenlik güncelleştirmesi.
+- **Uyumlu olmayan**: En az bir kritik veya güvenlik eksik olan bilgisayarlar güncelleştirin.
 
-- **Değerlendirilmedi**: güncelleştirme Değerlendirme verileri beklenen zaman çerçevesi içinde bilgisayardan alınan edilmemiş. Linux bilgisayarlar için beklenen zaman çerçevesi içinde son 3 saat ' dir. Windows bilgisayarlar, son 12 saat içinde beklenen zaman çerçevesi içindir.
+- **Değerlendirilmedi**: Güncelleştirme Değerlendirme verileri beklenen zaman çerçevesi içinde bilgisayardan alınan edilmemiş. Linux bilgisayarlar için beklenen zaman çerçevesi içinde son 3 saat ' dir. Windows bilgisayarlar, son 12 saat içinde beklenen zaman çerçevesi içindir.
 
 Aracı durumunu görüntülemek için bağlantıyı seçin **güncelleştirme ARACISI hazırlığı** sütun. Bu seçeneğin belirlenmesi açılır **karma çalışanı** bölmesinde ve karma çalışanı durumunu gösterir. Aşağıdaki görüntüde, uzun bir süre için güncelleştirme yönetimini üzere bağlanmamış bir aracı örneği gösterilmektedir:
 
@@ -113,7 +113,11 @@ Aşağıdaki tabloda bu çözüm tarafından desteklenen bağlı kaynaklar açı
 
 ### <a name="collection-frequency"></a>Toplama sıklığı
 
-Bir tarama yönetilen her Windows bilgisayarı için günde iki kez çalıştırır. Her 15 dakikada bir Windows API'si çağrılarak son güncelleştirme zamanı durumu değişip değişmediğini belirlemek için sorgulanamıyor. Durum değiştiyse, bir Uyumluluk taraması başlatılır. Yönetilen her Linux bilgisayarı için 3 saatte bir tarama çalıştırır.
+Bilgisayar güncelleştirme uyumluluğu taraması tamamlandıktan sonra aracıyı Azure Log Analytics'e toplu bilgiler iletir. Bir Windows bilgisayarda Uyumluluk taraması varsayılan olarak her 12 saatte bir çalıştırılır.
+
+Tarama zamanlamasına ek olarak, güncelleştirme yüklemesi öncesinde ve güncelleştirme yüklemesi sonrasında yeniden başlatılmadan MMA 15 dakika içinde güncelleştirme uyumluluğu için tarama başlatılır.
+
+Bir Linux bilgisayar için Uyumluluk taraması varsayılan olarak her 3 saatte bir gerçekleştirilir. MMA aracısını yeniden başlatılması durumunda 15 dakika içinde Uyumluluk taraması başlatılır.
 
 30 dakika ve Panoda yönetilen bilgisayarlardan gelen güncelleştirilmiş verilerin görüntülenmesi için 6 saat arasında sürebilir.
 
@@ -125,14 +129,14 @@ Altında bir veya daha fazla sanal makineler için yeni bir güncelleştirme da�
 
 İçinde **yeni güncelleştirme dağıtım** bölmesinde aşağıdaki bilgileri belirtin:
 
-- **Ad**: güncelleştirme dağıtımını tanımlamak için benzersiz bir ad girin.
-- **İşletim sistemi**: seçin **Windows** veya **Linux**.
-- **Güncelleştirilecek gruplar (önizleme)**: Dağıtımınıza dahil edilecek Azure sanal makinelerinin dinamik grubunu derlemek için bir abonelik, kaynak grupları, konumlar ve etiketler birleşimine göre bir sorgu tanımlayın. Daha fazla bilgi edinmek için bkz. [Dinamik Gruplar](automation-update-management.md#using-dynamic-groups)
-- **Güncelleştirilecek makineler**: kayıtlı arama, içeri aktarılan grubu seçin ya da güncelleştirmek istediğiniz makineleri seçin için makineleri seçin. **Makineler**'i seçerseniz makinenin hazır olma durumu **GÜNCELLEŞTİRME ARACISI HAZIRLIĞI** sütununda gösterilir. Güncelleştirme dağıtımı zamanlayabilirsiniz önce bilgisayarın sistem durumunu görebilirsiniz. Log Analytics'te bilgisayar grupları oluşturmaya yönelik farklı yöntemler hakkında bilgi edinmek için bkz. [Computer groups in Log Analytics (Log Analytics'te bilgisayar grupları)](../azure-monitor/platform/computer-groups.md)
+- **Ad**: Güncelleştirme dağıtımını tanımlamak için benzersiz bir ad girin.
+- **İşletim sistemi**: Seçin **Windows** veya **Linux**.
+- **(Önizleme) güncelleştirmek için grupları**: Abonelik, kaynak grupları, konumları ve etiketleri, dağıtımınızdaki dahil etmek için Azure vm'leri dinamik bir grup oluşturmak için bir birleşimini temel bir sorgu tanımlarsınız. Daha fazla bilgi edinmek için bkz. [Dinamik Gruplar](automation-update-management.md#using-dynamic-groups)
+- **Güncelleştirilecek makineler**: Kayıtlı arama, içeri aktarılan grubu veya güncelleştirmek istediğiniz makineleri seçin için makineleri seçin. **Makineler**'i seçerseniz makinenin hazır olma durumu **GÜNCELLEŞTİRME ARACISI HAZIRLIĞI** sütununda gösterilir. Güncelleştirme dağıtımı zamanlayabilirsiniz önce bilgisayarın sistem durumunu görebilirsiniz. Log Analytics'te bilgisayar grupları oluşturmaya yönelik farklı yöntemler hakkında bilgi edinmek için bkz. [Computer groups in Log Analytics (Log Analytics'te bilgisayar grupları)](../azure-monitor/platform/computer-groups.md)
 
   ![Yeni güncelleştirme dağıtım bölmesi](./media/manage-update-multi/update-select-computers.png)
 
-- **Güncelleştirme sınıflandırması**: güncelleştirme dağıtımına dahil edilecek yazılım türlerini seçin. Sınıflandırma türleri açıklaması için bkz: [güncelleştirme sınıflandırmaları](automation-update-management.md#update-classifications). Sınıflandırma türleri şunlardır:
+- **Güncelleştirme sınıflandırması**: Güncelleştirme dağıtımına dahil edilecek yazılım türlerini seçin. Sınıflandırma türleri açıklaması için bkz: [güncelleştirme sınıflandırmaları](automation-update-management.md#update-classifications). Sınıflandırma türleri şunlardır:
   - Kritik güncelleştirmeler
   - Güvenlik güncelleştirmeleri
   - Güncelleştirme paketleri
@@ -144,14 +148,14 @@ Altında bir veya daha fazla sanal makineler için yeni bir güncelleştirme da�
 
 - **Dahil edilecek/dışlanacak güncelleştirmeler** - Böylece **Dahil Et / Dışla** sayfası açılır. Dahil edilecek veya dışlanacak güncelleştirmeler ayrı sekmelerdedir. Dahil etmenin nasıl işleneceği hakkında ek bilgi için bkz. [dahil etme davranışı](automation-update-management.md#inclusion-behavior)
 
-- **Zamanlama ayarları** - Geçerli saatten 30 dakika sonrası olan varsayılan tarih ve saati kabul edebilirsiniz. Farklı bir saat de belirtebilirsiniz.
+- **Zamanlama ayarları**: Varsayılan tarih ve saat, 30 dakika sonrasını kabul edebilir. Farklı bir saat de belirtebilirsiniz.
 
    Ayrıca, dağıtımın bir kez veya yinelenen bir zamanlamaya göre gerçekleşeceğini belirtebilirsiniz. Yinelenen bir zamanlama ayarlamak altında için **yinelenme**seçin **yinelenen**.
 
    ![Zamanlama Ayarları iletişim kutusu](./media/manage-update-multi/update-set-schedule.png)
 
-- **Ön betikler + Son betikler**: Dağıtımınızdan önce ve sonra çalıştırılacak betikleri seçin. Daha fazla bilgi için bkz. [Ön ve Son betikleri yönetme](pre-post-scripts.md).
-- **Bakım penceresi (dakika)**: güncelleştirme dağıtımının gerçekleşmesini istediğiniz süreyi belirtin. Bu ayar, değişikliklerin sizin tanımladığınız hizmet pencereleri içinde gerçekleştirilmesini sağlar.
+- **Önceden komutlar + sonrası betiklerini**: Önce ve sonra dağıtımınız betiklerin seçin. Daha fazla bilgi için bkz. [Ön ve Son betikleri yönetme](pre-post-scripts.md).
+- **Bakım penceresi (dakika)**: Güncelleştirme dağıtımının gerçekleşmesini istediğiniz süreyi belirtin. Bu ayar, değişikliklerin sizin tanımladığınız hizmet pencereleri içinde gerçekleştirilmesini sağlar.
 
 - **Denetim yeniden** -Bu ayar, yeniden başlatmalar güncelleştirme dağıtımı için nasıl işleneceğini belirler.
 
@@ -181,7 +185,7 @@ Bir güncelleştirme dağıtımının panosunu görmek için tamamlanan dağıt�
 
 **Güncelleştirme sonuçları** bölmesinde toplam güncelleştirme sayısı ve sanal makine için dağıtım sonuçları gösterilir. Sağdaki tabloda her güncelleştirmenin ve yükleme sonuçları ayrıntılı bir dökümü verir. Yükleme sonuçları aşağıdaki değerlerden biri olabilir:
 
-- **Denenmedi**: tanımlanan bakım penceresi süresine göre yeterli süre kullanılabilir olmadığından güncelleştirme yüklenmedi.
+- **Denenmedi**: Tanımlanan bakım penceresi süresine göre yeterli süre kullanılabilir olmadığından güncelleştirme yüklenmedi.
 - **Başarılı**: Güncelleştirme başarılı oldu.
 - **Başarısız**: Güncelleştirme başarısız oldu.
 

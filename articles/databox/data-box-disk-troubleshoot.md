@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 01/10/2019
 ms.author: alkohli
-ms.openlocfilehash: 8e75aa31941fe7368ef56f344db14d9b376e6238
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 13e42ae9b25c769a468a8c9839fd1aaf0abf2787
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191709"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213153"
 ---
 # <a name="troubleshoot-issues-in-azure-data-box-disk"></a>Azure Data Box Disk de sorunlarını giderme
 
@@ -96,12 +96,11 @@ Bu bölümde Data Box Disk dağıtımı sırasında bir Linux istemcisi için ve
 
 Bu, bir şekilde çoğaltamaması dosya sistemi nedeniyle olabilir. 
 
-- Bir sürücü olarak kaldırmadan veri kutusu disk ile çalışmaz. Bu senaryo dislocker tarafından şifresi sürücülerle desteklenir. 
-- Okuma-yazma kaldırmadan çalışmaz. Aşağıdaki komutu kullanarak cihaz başarıyla yeniden: 
+Bir sürücü okuma-yazma olarak kaldırmadan veri kutusu disk ile çalışmaz. Bu senaryo dislocker tarafından şifresi sürücülerle desteklenir. Aşağıdaki komutu kullanarak cihaz başarıyla yeniden: 
 
     `# mount -o remount, rw / mnt / DataBoxDisk / mountVol1 ß`
 
-   Başarılı kaldırmadan rağmen verilerin kalıcı olmaz.
+Başarılı kaldırmadan rağmen verilerin kalıcı olmaz.
 
 **Çözümleme**
 
@@ -125,11 +124,11 @@ Sonra drive'ınızdaki verileri yok görürseniz (veri için kopyalandığı ra�
  
 Bu durumda, bakmalarını için [salt okunur olarak bağlanmış sürücüleri](#issue-drive-getting-mounted-as-read-only).
 
-Bu durumda, olmadıysa [tanılama günlüklerini indirin](#download-diagnostic-logs) sisteminizden ve [Microsoft Support başvurun](data-box-disk-contact-microsoft-support.md).
+Bir durum değilse, günlükleri veri kutusu Disk kilidini aracın klasörüne kopyalayın ve [Microsoft Support başvurun](data-box-disk-contact-microsoft-support.md).
 
 ## <a name="deployment-issues-for-windows"></a>Windows için dağıtım sorunları
 
-Bu bölümde Data Box Disk dağıtımı sırasında bir Linux istemcisi için veri kopyalama kullanılırken karşılaşılan en önemli sorunlardan bazıları açıklanmaktadır.
+Bu bölümde Data Box Disk dağıtımı sırasında bir Windows istemci için veri kopyalama kullanırken karşılaşılan en önemli sorunlardan bazıları açıklanmaktadır.
 
 ### <a name="issue-could-not-unlock-drive-from-bitlocker"></a>Sorun: BitLocker sürücüsünden kilidi açılamadı
  
@@ -139,7 +138,7 @@ BitLocker'ı iletişim kutusunda veya kullanılan parolayı ve BitLocker'ı arac
 
 **Çözümleme**
 
-Veri kutusu disk kilidini açmak için veri kutusu Disk kilidini aracını kullanın ve Azure portalından parolayı girmeniz gerekir.
+Veri kutusu disk kilidini açmak için veri kutusu Disk kilidini aracını kullanın ve Azure portalından parolayı girmeniz gerekir. Daha fazla bilgi için Git [Öğreticisi: Cihazınızı kutusundan çıkarma, bağlama ve Azure Data Box Disk kilidini](data-box-disk-deploy-set-up.md#connect-to-disks-and-get-the-passkey).
  
 ### <a name="issue-could-not-unlock-or-verify-some-volumes-contact-microsoft-support"></a>Sorun: Yüklenemedi kilidini veya bazı birimler doğrulayın. Microsoft Desteği'ne başvurun.
  
@@ -155,7 +154,7 @@ Bu, büyük olasılıkla uygun Windows PowerShell sürümünü Windows istemcini
 
 Yükleyebileceğiniz [Windows PowerShell v 5.0](https://www.microsoft.com/download/details.aspx?id=54616) ve işlemi yeniden deneyin.
  
-Birimlerinin kilidini açmak hala bırakamıyorsanız varsa [Microsoft Support başvurun](data-box-disk-contact-microsoft-support.md).
+Birimlerin kilidini açması hala kaldıramıyorsanız, günlükleri veri kutusu Disk kilidini aracın klasörüne kopyalayın ve [Microsoft Support başvurun](data-box-disk-contact-microsoft-support.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

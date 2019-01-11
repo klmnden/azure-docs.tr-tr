@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 697815aeca9b8a07e3cece877d610436b2b8ac83
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: c60f835939b790a05bb536388b961a277e3101e3
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278296"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215346"
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 Başlatma, durdurma ve kaos raporda test hizmeti.
@@ -47,9 +47,9 @@ Kaos olayları sonraki segmentini almak için ContinuationToken belirtebilirsini
 |Bağımsız Değişken|Açıklama|
 | --- | --- |
 | --devamlılık belirteci | Devamlılık belirteci parametresi, sonraki sonuç kümesini almak için kullanılır. Sistem sonuçlardan tek bir yanıtta uymayan bir devamlılık belirteci boş olmayan bir değer ile API yanıt olarak dahil edilir. Bu değer geçirilen zaman sonraki API çağrısı, API, sonraki sonuç kümesini döndürür. Daha fazla sonuç varsa, devamlılık belirteci bir değer içermiyor. Bu parametrenin değeri, URL kodlanmış olmamalıdır. |
-| --Bitiş zamanı utc | Windows Saati Chaos rapor oluşturulacak olduğu zaman aralığının son saati temsil eden dosya. Başvurun [DateTime.ToFileTimeUtc yöntemi](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) Ayrıntılar için. |
+| --Bitiş zamanı utc | Windows Saati Chaos rapor oluşturulacak olduğu zaman aralığının son saati temsil eden dosya. Başvurun [DateTime.ToFileTimeUtc yöntemi](https://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) Ayrıntılar için. |
 | --en fazla sonuç | En fazla disk belleğine alınan sorguları bir parçası olarak döndürülecek sonuç sayısı. Bu parametre, döndürülen sonuç sayısı üzerindeki üst sınırını tanımlar. İletinin en büyük ileti boyutu kısıtlamaları göre uymayan, belirtilen en fazla sonuç değerinden yapılandırmada tanımlanabilir sonuç döndürmedi. Bu parametre sıfıra eşit ya da belirtilmemiş disk belleğine alınan sorgu dönüş iletiye sığmayacak mümkün olduğunca çok sonuçları içerir. |
-| --Başlangıç zamanı utc | Windows Saat Chaos rapor oluşturulacak olduğu zaman aralığı başlangıç saati temsil eden dosya. Başvurun [DateTime.ToFileTimeUtc yöntemi](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) Ayrıntılar için. |
+| --Başlangıç zamanı utc | Windows Saat Chaos rapor oluşturulacak olduğu zaman aralığı başlangıç saati temsil eden dosya. Başvurun [DateTime.ToFileTimeUtc yöntemi](https://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) Ayrıntılar için. |
 | --zaman aşımı -t | Sunucu zaman aşımı saniye.  Varsayılan\: 60. |
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenleri

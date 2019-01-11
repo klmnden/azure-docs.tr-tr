@@ -5,15 +5,15 @@ services: storage
 author: yuemlu
 ms.service: storage
 ms.topic: include
-ms.date: 06/05/2018
+ms.date: 01/08/2019
 ms.author: yuemlu
 ms.custom: include file
-ms.openlocfilehash: e266b239a44907e8e38e60cfc217aa21e46ab17e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ad57d373422e0fc310e51ac31f2a2e76999abf22
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51263901"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193495"
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>Uygun maliyetli standart depolama ile yönetilmeyen ve yönetilen Azure VM diskleri
 
@@ -25,7 +25,7 @@ Bu makalede, SSD ve HDD standart diskler kullanımı üzerinde odaklanır. Depol
 
 Standart diskler, Azure Vm'leri için oluşturmanın iki yolu vardır:
 
-**Yönetilmeyen diskler**: Bu tür bir disk özgün, VM diskleri için karşılık gelen VHD dosyalarını depolamak için kullanılan depolama hesapları yönettiğiniz yöntemidir. VHD dosyaları, depolama hesaplarındaki sayfa blobları olarak depolanır. Yönetilmeyen diskler, öncelikle DSv2 ve GS serisi gibi Premium depolama kullanan VM'ler dahil olmak üzere, herhangi bir Azure VM boyutu iliştirilebilir. Azure sanal makineler en fazla 256 Tib'a kadar depolama alanı sağlayan birkaç standart diskler, iliştirilmeyi destekler. Önizleme disk boyutları kullanırsanız, sanal makine başına yaklaşık 2 PiB kadar olabilir.
+**Yönetilmeyen diskler**: Bu tür bir disk, VM diskleri için karşılık gelen VHD dosyalarını depolamak için kullanılan depolama hesapları yönettiğiniz özgün yöntemidir. VHD dosyaları, depolama hesaplarındaki sayfa blobları olarak depolanır. Yönetilmeyen diskler, öncelikle DSv2 ve GS serisi gibi Premium depolama kullanan VM'ler dahil olmak üzere, herhangi bir Azure VM boyutu iliştirilebilir. Azure sanal makineler en fazla 256 Tib'a kadar depolama alanı sağlayan birkaç standart diskler, iliştirilmeyi destekler. Önizleme disk boyutları kullanırsanız, sanal makine başına yaklaşık 2 PiB kadar olabilir.
 
 [**Azure yönetilen diskler**](../articles/virtual-machines/windows/managed-disks-overview.md): Bu özellik, VM diskleri için kullanılan depolama hesapları yönetir. Türü (Premium SSD, standart SSD veya HDD standart) ve boyutunu belirtmeniz duyduğunuz disk ve Azure oluşturur ve diski oluşturup yönetebilmesi. Diskler her şeyi Azure gerçekleştirir, sizin için--depolama hesapları için ölçeklenebilirlik sınırları içinde kalmasını sağlamak için birden çok depolama hesabında yerleştirme hakkında endişelenmeniz gerekmez.
 
@@ -42,15 +42,15 @@ Yönetilen disklerle bir VM oluşturma hakkında daha fazla bilgi için aşağı
 
 Standart depolama özelliklerinden bazılarını gösteren bir göz atalım. Daha fazla ayrıntı için lütfen bkz [Azure Storage'a giriş](../articles/storage/common/storage-introduction.md).
 
-**Standart depolama**: Azure Standard Storage, Azure diskleri, Azure Blobları, Azure dosyaları, Azure tabloları ve Azure kuyruklarının destekler. İle standart depolama hizmetlerini kullanmak için başlangıç [bir Azure depolama hesabı oluşturma](../articles/storage/common/storage-quickstart-create-account.md).
+**Standart depolama**: Azure standart depolama, Azure diskleri, Azure Blobları, Azure dosyaları, Azure tabloları ve Azure kuyruklarının destekler. İle standart depolama hizmetlerini kullanmak için başlangıç [bir Azure depolama hesabı oluşturma](../articles/storage/common/storage-quickstart-create-account.md).
 
-**Standart SSD disk:** standart SSD disk standart HDD diskleri daha daha güvenilir performans sağlar ve şu anda kullanılabilir. Standart SSD disk bölge kullanılabilirliği hakkında daha fazla bilgi için bkz. [bölge kullanılabilirliği standart SSD disk](../articles/virtual-machines/windows/faq-for-disks.md#standard-ssds-azure-regions).
+**Standart SSD disk:** Standart SSD diskleri HDD standart diskleri daha daha güvenilir performans sağlar ve şu anda kullanılabilir. Standart SSD disk bölge kullanılabilirliği hakkında daha fazla bilgi için bkz. [bölge kullanılabilirliği standart SSD disk](../articles/virtual-machines/windows/faq-for-disks.md#standard-ssds-azure-regions).
 
-**Standart HDD diskler:** HDD standart diskler, Premium depolama sayesinde, DSv2 ve GS serisi gibi kullanılan boyutu serisi VM'ler dahil olmak üzere tüm Azure vm'lere eklenebilir. Standart HDD disk yalnızca bir VM'ye iliştirilebilir. Ancak, bu VM boyutu için tanımlanan en fazla disk sayısı kadar bir VM için bir veya daha fazla bu diskleri ekleyebilirsiniz. Standart depolama ölçeklenebilirlik ve performans hedefleri aşağıdaki bölümde, biz özellikleri daha ayrıntılı açıklanmaktadır.
+**Standart HDD diskler:** Standart HDD diskler, Premium depolama sayesinde, DSv2 ve GS serisi gibi kullanılan boyutu serisi VM'ler dahil olmak üzere tüm Azure vm'lere eklenebilir. Standart HDD disk yalnızca bir VM'ye iliştirilebilir. Ancak, bu VM boyutu için tanımlanan en fazla disk sayısı kadar bir VM için bir veya daha fazla bu diskleri ekleyebilirsiniz. Standart depolama ölçeklenebilirlik ve performans hedefleri aşağıdaki bölümde, biz özellikleri daha ayrıntılı açıklanmaktadır.
 
 **Standard sayfa blobu**: Standart sayfa blobları, sanal makineler için kalıcı diskler tutmak için kullanılır ve doğrudan Azure BLOB'ları diğer türleri gibi REST aracılığıyla da erişilebilir. [Sayfa blobları](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) rastgele okuma ve yazma işlemleri için iyileştirilmiş 512 baytlık sayfaları oluşan bir koleksiyondur. 
 
-**Depolama çoğaltması:** çoğu bölgede standart depolama hesabındaki verileri birden çok veri merkezinde yerel olarak çoğaltılmış veya coğrafi olarak çoğaltılmış olabilir. Çoğaltma kullanılabilir dört türleri, yerel olarak yedekli depolama (LRS), bölgesel olarak yedekli depolama (ZRS), coğrafi olarak yedekli depolama (GRS) ve okuma erişimli coğrafi olarak yedekli depolama (RA-GRS) şunlardır. Standart depolama yönetilen diskleri şu anda yalnızca yerel olarak yedekli depolama (LRS) destekler. Daha fazla bilgi için lütfen bkz [depolama çoğaltma](../articles/storage/common/storage-redundancy.md).
+**Depolama çoğaltması:** Çoğu bölgede yerel olarak çoğaltılmış veya coğrafi olarak çoğaltılmış bir standart depolama hesabındaki verileri birden çok veri merkezleri arasında olabilir. Çoğaltma kullanılabilir dört türleri, yerel olarak yedekli depolama (LRS), bölgesel olarak yedekli depolama (ZRS), coğrafi olarak yedekli depolama (GRS) ve okuma erişimli coğrafi olarak yedekli depolama (RA-GRS) şunlardır. Standart depolama yönetilen diskleri şu anda yalnızca yerel olarak yedekli depolama (LRS) destekler. Daha fazla bilgi için lütfen bkz [depolama çoğaltma](../articles/storage/common/storage-redundancy.md).
 
 ## <a name="scalability-and-performance-targets"></a>Ölçeklenebilirlik ve Performans Hedefleri
 
@@ -75,15 +75,7 @@ Uygulamanızın ihtiyaçlarını tek bir depolama hesabı ölçeklenebilirlik he
 
 ### <a name="standard-disks-limits"></a>Standart diskler sınırları
 
-Premium diskler, giriş/çıkış işlemi (IOPS) ve standart disk aktarım hızı (bant) başına sağlanmadı. Standart disk performansı diskin bağlı olduğu için disk boyutu için VM boyutu göre değişir. Aşağıdaki tabloda listelenen performans sınıra kadar elde etmek prensibini.
-
-**Standart diskler sınırları (yönetilen ve yönetilmeyen)**
-
-| **VM katmanı**            | **Temel katman sanal makine** | **Standart katman sanal makine** |
-|------------------------|-------------------|----------------------|
-| En fazla Disk boyutu          | 32.767 giB           | 32.767 giB        |
-| Disk başına en fazla 8 KB IOPS | En fazla 2.000         | En fazla 2.000        |
-| Disk başına en fazla bant genişliği | En fazla 500 MB/sn     | En fazla 500 MB/sn      |
+Premium diskler, giriş/çıkış işlemi (IOPS) ve standart disk aktarım hızı (bant) başına sağlanmadı. Standart diskler performansını VM boyutuna göre değişir, diskin eklendiği ve diskin boyutu.
 
 İş yükünüz yüksek performanslı ve düşük gecikme süreli disk desteği gerektiriyorsa, Premium depolama kullanmayı düşünmeniz gerekir. Daha fazla Premium depolama avantajlarını öğrenmek için ziyaret [yüksek performanslı Premium depolama ile Azure VM diskleri](../articles/virtual-machines/windows/premium-storage.md).
 
@@ -117,18 +109,18 @@ Standart depolama kullanırken aşağıdaki fatura değerlendirmeleri geçerlidi
 * Giden veri aktarımları
 * İşlemler
 
-**Yönetilmeyen depolama diski ve veri boyutu:** yönetilmeyen diskler ve diğer veri (BLOB'lar, tablolar, kuyruklar ve dosyalar), kullanmakta olduğunuz alanı miktarı ücretlendirilir. Bir VM'niz varsa örneğin, sayfa blobu 127 GB, ancak VM sağlandıktan gerçekten olan 10 GB alanı kullanarak yalnızca alanı 10 GB için faturalandırılırsınız. Standart depolama kadar destekliyoruz 8191 GB ve standart yönetilmeyen diskler 4095 GB'a kadar. 
+**Yönetilmeyen depolama diski ve veri boyutu:** Yönetilmeyen diskler ve diğer veri (BLOB'lar, tablolar, kuyruklar ve dosyalar), kullanmakta olduğunuz alanı miktarı ücretlendirilir. Bir VM'niz varsa örneğin, sayfa blobu 127 GB, ancak VM sağlandıktan gerçekten olan 10 GB alanı kullanarak yalnızca alanı 10 GB için faturalandırılırsınız. Standart depolama kadar destekliyoruz 8191 GB ve standart yönetilmeyen diskler 4095 GB'a kadar. 
 
-**Yönetilen diskler:** faturalandırma standart yönetilen diskler için sağlanan disk boyutuna bağlıdır. Azure aşağıdaki tablolarda belirtildiği gibi en yakın yönetilen diskler seçeneğini (yuvarlanır) sağlanan boyut eşlenir. Her yönetilen disk desteklenen sağlanan boyutları birine eşlenir ve buna göre faturalandırılır. Örneğin, standart yönetilen disk oluşturma ve 200 GiB sağlanan bir boyutunu belirtin, S15 Disk türünü fiyatlandırmasına göre faturalandırılır.
+**Yönetilen diskler:** Standart yönetilen diskler için faturalandırma, sağlanan disk boyutuna bağlıdır. Azure aşağıdaki tablolarda belirtildiği gibi en yakın yönetilen diskler seçeneğini (yuvarlanır) sağlanan boyut eşlenir. Her yönetilen disk desteklenen sağlanan boyutları birine eşlenir ve buna göre faturalandırılır. Örneğin, standart yönetilen disk oluşturma ve 200 GiB sağlanan bir boyutunu belirtin, S15 Disk türünü fiyatlandırmasına göre faturalandırılır.
 
 Bir yıldız işaretiyle gösterilen boyutları şu anda Önizleme aşamasındadır.
 
 | **Yönetilen standart HDD <br>Disk türü** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60*** | **S70*** | **S80*** |
 |------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
-| Disk Boyutu        | 32 giB  | 64 giB  | 128 GiB | 256 giB | 512 GiB | 1024 (1 TiB) giB | 2.048 giB (2 tib'a kadar) | 4.095 giB (4 tib'a kadar) | Olmak üzere 8.192 giB (8 tib'a kadar) | 16,385 giB (16 tib'a kadar) | 32.767 giB (32 tib'a kadar) |
+| Disk Boyutu        | 32 GiB  | 64 GiB  | 128 GiB | 256 giB | 512 GiB | 1,024 GiB (1 TiB) | 2,048 GiB (2 TiB) | 4,095 GiB (4 TiB) | 8,192 GiB (8 TiB) | 16,385 giB (16 tib'a kadar) | 32.767 giB (32 tib'a kadar) |
 
 
-**Anlık görüntüleri**: standart diskler, anlık görüntüler, anlık görüntüler görüntülenerek kullanılan ek kapasite için faturalandırılır. Anlık görüntüleri hakkında daha fazla bilgi için bkz: [bir blobun anlık görüntüsünü oluşturma](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
+**Anlık görüntüleri**: Standart diskler, anlık görüntüler, anlık görüntüler görüntülenerek kullanılan ek kapasite için faturalandırılırsınız. Anlık görüntüleri hakkında daha fazla bilgi için bkz: [bir blobun anlık görüntüsünü oluşturma](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
 
 **Giden veri aktarımları**: [giden veri aktarımları](https://azure.microsoft.com/pricing/details/data-transfers/) (Azure veri merkezlerinden çıkan veriler) bant genişliği kullanımı için fatura doğurur.
 

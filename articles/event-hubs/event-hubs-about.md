@@ -10,18 +10,17 @@ ms.topic: overview
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: cffa9f566c6b2f4feb0fd7426eeea54a4644fda8
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 43f8af4f2afc0f7210e49dc5b483a8d2757e6aba
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140158"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215363"
 ---
-# <a name="azure-event-hubs---a-big-data-streaming-platform-and-event-ingestion-service"></a>Azure Event Hubs - büyük bir veri akışı platformu ve olay alma hizmetidir
+# <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Azure Event Hubs — akışı platformu ve olay alma hizmetidir bir büyük veri
+Azure Event Hubs, büyük bir veri akışı platformu ve olay alma hizmetidir. Bu bildirimleri alabilen ve saniye başına milyonlarca olayı işleme. Bir olay hub’ına gönderilen veriler, herhangi bir gerçek zamanlı analiz sağlayıcısı ve işlem grubu oluşturma/depolama bağdaştırıcıları kullanılarak dönüştürülüp depolanabilir.
 
-Azure Event Hubs saniyede milyonlarca olay alıp işleme kapasitesine sahip olan bir Büyük Veri akış platformu ve olay alma hizmetidir. Event Hubs dağıtılan yazılımlar ve cihazlar tarafından oluşturulan olayları, verileri ve telemetrileri işleyebilir ve depolayabilir. Bir olay hub’ına gönderilen veriler, herhangi bir gerçek zamanlı analiz sağlayıcısı ve işlem grubu oluşturma/depolama bağdaştırıcıları kullanılarak dönüştürülüp depolanabilir. 
-
-Event Hubs, aşağıdaki yaygın senaryoların bazılarında kullanılır:
+Aşağıdaki senaryolarda, Event Hubs kullanabileceğiniz senaryolardan bazıları şunlardır:
 
 - Anomali algılama (sahte/aykırı değer)
 - Uygulama günlüğüne kaydetme
@@ -34,21 +33,21 @@ Event Hubs, aşağıdaki yaygın senaryoların bazılarında kullanılır:
 
 ## <a name="why-use-event-hubs"></a>Event Hubs’ı neden kullanmalıyım?
 
-Veriler ancak kolay bir şekilde işlenebildiğinde ve veri kaynaklarından tam zamanında içgörüler alındığında değerlidir. Event Hubs; düşük gecikme süresine sahip dağıtılmış bir akış işleme platformu ile tam kapsamlı Büyük Veri işlem hattınızı oluşturmak için Azure içindeki ve dışındaki veriler ve analiz hizmetleriyle sorunsuz bir tümleştirme sunar.
+Veriler ancak kolay bir şekilde işlenebildiğinde ve veri kaynaklarından tam zamanında içgörüler alındığında değerlidir. Event Hubs, düşük gecikme süresi ve veri ve Analiz Hizmetleri içindeki ve dışındaki tüm büyük veri işlem hattınızı oluşturma-Azure ile sorunsuz tümleştirme ile dağıtılmış bir akış işleme platformu sağlar.
 
-Event Hubs bir olay işlem hattı için "ön kapı" görevi yapar ve çözüm mimarilerinde genelde *olay alıcı* olarak adlandırılır. Olay yutucu, bir olay akışının üretimini ilgili olayların kullanılmasına ayıran, olay yayımcıları ile olay tüketicileri arasında duran bir bileşen veya hizmettir. Event Hubs tutma süresi arabelleğine sahip birleştirilmiş akış platformu sunarak olay oluşturucuları olay tüketicilerinden ayırır. 
+Event Hubs bir olay işlem hattı için "ön kapı" görevi yapar ve çözüm mimarilerinde genelde *olay alıcı* olarak adlandırılır. Olay yutucu, bir olay akışının üretimini ilgili olayların kullanılmasına ayıran, olay yayımcıları ile olay tüketicileri arasında duran bir bileşen veya hizmettir. Event Hubs olay tüketicileri olay üreticilerden ayırma süresi bekletme arabelleği ile birleştirilmiş bir akış platformu sağlar. 
 
 Aşağıdaki bölümlerde Azure Event Hubs hizmetinin temel özellikleri anlatılmaktadır: 
 
 ## <a name="fully-managed-paas"></a>Tam olarak yönetilen PaaS 
 
-Event Hubs, çok az yapılandırmaya veya yönetim yüküne sahip olan yönetilen bir hizmet olduğundan işletme çözümlerinize odaklanmanızı sağlar. [Apache Kafka ekosistemleri için Event Hubs](event-hubs-for-kafka-ecosystem-overview.md), kümelerinizi yönetmeye, yapılandırmaya veya çalıştırmaya gerek kalmadan PaaS Kafka deneyimi sunar.
+Event Hubs, bir tam olarak yönetilen platformu-bir hizmet olarak (PaaS) az yapılandırma veya yönetim yükü ile işletme çözümlerinizi odaklanın. [Apache Kafka ekosistemleri için Event Hubs](event-hubs-for-kafka-ecosystem-overview.md), kümelerinizi yönetmeye, yapılandırmaya veya çalıştırmaya gerek kalmadan PaaS Kafka deneyimi sunar.
 
 ## <a name="support-for-real-time-and-batch-processing"></a>Gerçek zamanlı ve toplu işlem desteği
 
-Eyleme dönüştürülebilir içgörüler elde etmek için akışınızı gerçek zamanlı olarak ekleyin, arabelleğe alın, depolayın ve işleyin. Event Hubs, [bölümlenmiş tüketici modeli](event-hubs-features.md#partitions) kullanarak birden fazla uygulamanın akışı aynı anda işlemesini ve bu sayede işleme hızını denetlemenizi sağlar.
+Eyleme dönüştürülebilir içgörüler elde etmek için akışınızı gerçek zamanlı olarak ekleyin, arabelleğe alın, depolayın ve işleyin. Event Hubs kullanan bir [bölümlenmiş tüketici modelinin](event-hubs-features.md#partitions), aynı anda birden çok uygulama için işlem akış etkinleştirme ve işleme hızını denetlemenize izin vererek.
 
-Verilerinizi neredeyse gerçek zamanlı olarak [yakalayıp](event-hubs-capture-overview.md) uzun süreli saklama veya mikro toplu işlem için bir [Azure Blob depolama alanında](https://azure.microsoft.com/services/storage/blobs/) veya [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) içinde depolayın. Bunu gerçek zamanlı analiz elde etmek için kullandığınız akış üzerinde gerçekleştirebilirsiniz. Capture özelliği hızlıdır, çalıştırmak için yönetim maliyeti yoktur ve Event Hubs  [aktarım hızı birimleriyle](event-hubs-features.md#throughput-units) otomatik olarak ölçeklendirilir. Event Hubs Capture, verileri yakalamak yerine işlemeye odaklanmanızı sağlar.
+[Yakalama](event-hubs-capture-overview.md) verilerinizi neredeyse gerçek zamanlı bir [Azure Blob Depolama](https://azure.microsoft.com/services/storage/blobs/) veya [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/) uzun süreli saklama veya mikro toplu işleme için. Gerçek zamanlı analiz türetmek için kullandığınız aynı akışta bu davranışı elde edebilirsiniz. Olay verilerini yakalama ayarı hızlıdır. Çalıştırmak için hiçbir yönetim maliyeti yoktur ve Event Hubs ile otomatik olarak ölçeklenen [üretilen iş birimleri](event-hubs-features.md#throughput-units). Olay hub'ları olanak odak veri yakalama yerine veri işleme.
 
 Azure Event Hubs, sunucusuz mimari için [Azure İşlevleri](/azure/azure-functions/) ile de tümleştirilebilir.
 
@@ -58,19 +57,18 @@ Event Hubs ile megabayt boyutunda veri akışlarıyla başlayıp gigabayt veya t
 
 ## <a name="rich-ecosystem"></a>Zengin ekosistem
 
-[Apache Kafka için Event Hubs ekosistemleri](event-hubs-for-kafka-ecosystem-overview.md), [Apache Kafka (1.0 ve üzeri)](https://kafka.apache.org/) istemcilerinin ve uygulamalarının küme yönetmeye gerek kalmadan Event Hubs ile iletişim kurmasını sağlar.
+[Event Hubs için Apache Kafka ekosistemlerini](event-hubs-for-kafka-ecosystem-overview.md) sağlayan [Apache Kafka (1.0 ve üzeri)](https://kafka.apache.org/) istemciler ve uygulamalar için Event Hubs bahsedeceğiz. Ayarlamak, yapılandırmak ve kendi Kafka kümelerini yönetme gerekmez.
  
-Çeşitli [dillerde (.NET, Java, Python, Go, Node.js)](https://github.com/Azure/azure-event-hubs) kullanılabilen geniş ekosistem sayesinde akışlarınızı Event Hubs'dan işlemeye kolayca başlayabilirsiniz. Desteklenen tüm istemci dilleri, düşük düzeyde tümleştirme sağlar. Ekosistem, Stream Analytics ve Azure İşlevleri gibi Azure hizmetlerine sorunsuz tümleştirme sunarak sunucusuz mimariler oluşturmanızı da sağlar.
+Çeşitli [dillerde (.NET, Java, Python, Go, Node.js)](https://github.com/Azure/azure-event-hubs) kullanılabilen geniş ekosistem sayesinde akışlarınızı Event Hubs'dan işlemeye kolayca başlayabilirsiniz. Desteklenen tüm istemci dilleri, düşük düzeyde tümleştirme sağlar. Bir ekosistem, ayrıca, Azure Stream Analytics ve Azure işlevleri gibi Azure Hizmetleri ile sorunsuz tümleştirme sağlar ve bu nedenle, sunucusuz mimariler oluşturmanızı sağlar.
 
 ## <a name="key-architecture-components"></a>Temel mimari bileşenler
-
-Event Hubs, ileti akışı işleme olanağı sağlar ancak geleneksel kurumsal mesajlaşmadan farklı özelliklere sahiptir. Event Hubs özellikleri, yüksek işleme ve olay işleme senaryoları üzerine inşa edilmiştir. Event Hubs şu [temel bileşenleri](event-hubs-features.md) içerir:
+Event Hubs şu [temel bileşenleri](event-hubs-features.md) içerir:
 
 - **Olay üreticilerinden**: Olay hub'ına veri gönderen herhangi bir varlık. Olay yayımcıları HTTPS, AMQP 1.0 veya Apache Kafka (1.0 ve üzeri) kullanarak olayları yayımlayabilir
 - **Bölümler**: Her tüketici, yalnızca belirli alt ya da ileti akışı bölümü okur.
-- **Tüketici grupları**: Bir görünümüdür (durum, konum veya uzaklık) tüm olay hub'ı. Tüketici grupları birden çok tüketen uygulamayı her biri olay akışının ayrı bir görünümüne sahip olacak ve akışı kendi hızlarında ve kendi sapmalarıyla bağımsız bir şekilde okuyacak şekilde etkinleştirir.
+- **Tüketici grupları**: Bir görünümüdür (durum, konum veya uzaklık) tüm olay hub'ı. Tüketici grupları etkinleştir tüketen uygulamayı her olay akışının ayrı bir görünümüne sahip. Bağımsız olarak kendi hızlarında ve kendi uzaklıkları ile akış okurlar.
 - **Üretilen iş birimleri**: Event hubs işleme kapasitesi denetleyen önceden satın alınan kapasite birimleridir.
-- **Olay alıcıları**: Bir olay hub'ından olay verilerini okuyan herhangi bir varlık. Tüm Event Hubs tüketicileri AMQP 1.0 oturumu üzerinden bağlanır ve olaylar, kullanılabilir olduğu anda oturum üzerinden iletilir. Tüm Kafka tüketicileri Kafka protokol 1.0 ve üzeri ile bağlanır.
+- **Olay alıcıları**: Bir olay hub'ından olay verilerini okuyan herhangi bir varlık. Tüm Event Hubs tüketicileri AMQP 1.0 oturumu üzerinden bağlanır. Event Hubs hizmeti kullanıma sunuldukça oturumu aracılığıyla olayları sağlar. Tüm Kafka tüketicileri Kafka protokol 1.0 ve üzeri ile bağlanır.
 
 Aşağıdaki şekilde Event Hubs akış işleme mimarisi gösterilmektedir:
 
