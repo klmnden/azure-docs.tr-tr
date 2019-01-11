@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: hub-page
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: fcda4fba376fbe1f527d60aa5a27f7e7f0713e3e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 09e0debba88ed87ab84b567e797d3ae63ec32a81
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977715"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157114"
 ---
 <h1>Azure Data Box</h1>
 <p>Farklı depolama kapasitelerine sahip ürünlerden oluşan Azure Data Box ailesi, terabaytlarca (TB) verinin Azure'a hızlı, uygun maliyetli ve güvenilir bir şekilde gönderilmesine yardımcı olur. Microsoft, çevrimdışı veya ağ üzerinden veri aktarımını mümkün kılan özel depolama cihazları göndererek güvenli veri aktarımını hızlandırır.</p>
@@ -35,7 +35,7 @@ ms.locfileid: "46977715"
                             </div>
                         </div>
                         <div class="cardText">
-                            <p><b>Data Box Disk <SUP>Önizleme</SUP></b>, 40 TB altındaki veriler için. Microsoft, verilerinizi kopyalayıp geri göndermeniz için size 1 ile 5 arasında şifrelenmiş katı hal sürücüsü (SSD) gönderir.</p>
+                            <p><b>Data Box Disk</b>, 40 TB üzerindeki veriler için. Microsoft, verilerinizi kopyalayıp geri göndermeniz için size 1 ile 5 arasında şifrelenmiş katı hal sürücüsü (SSD) gönderir.</p>
                         </div>
                     </div>
                 </div>

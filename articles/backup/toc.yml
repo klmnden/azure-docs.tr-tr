@@ -122,8 +122,8 @@ items:
         href: backup-azure-vms-encryption.md
       - name: VM oluşturma sırasında VM yedeklemeyi etkinleştirme
         href: backup-during-vm-creation.md
-      - name: VM yedek yığını V2’ye yükseltme
-        href: backup-upgrade-to-vm-backup-stack-v2.md
+      - name: Anında Geri Yükleme özelliği
+        href: backup-instant-restore-capability.md
     - name: VM’leri yönetme ve izleme
       items:
       - name: Azure portalında Azure VM yedeklemelerini yönetme
@@ -240,6 +240,8 @@ items:
     href: /rest/api/backup/
   - name: REST- Kurtarma Hizmetleri kasası
     href: /rest/api/recoveryservices/
+  - name: Resource Manager şablonu
+    href: /azure/templates/microsoft.recoveryservices/allversions
 - name: Kaynaklar
   items:
   - name: Azure Yol Haritası
@@ -254,9 +256,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=backup
   - name: Videolar
     href: https://azure.microsoft.com/documentation/videos/index/?services=backup
-ms.openlocfilehash: dfa3bca01fc237aa62cc893e707aa08b9055dd7d
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 44ab1f24ba3bcae8902d8fa953b09f48630e7822
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104821"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199274"

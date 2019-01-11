@@ -1,13 +1,14 @@
 ---
 layout: HubPage
-hide_bc: True
+hide_bc: true
 title: Microsoft Azure Belgeleri
-description: "Microsoft Azure Cloud Services’ı kullanarak güçlü uygulamalar oluşturmayı ve yönetmeyi öğrenin. Belgelere, örnek kodlara, öğreticilere ve çok daha fazlasına ulaşın."
+description: Microsoft Azure Cloud Services’ı kullanarak güçlü uygulamalar oluşturmayı ve yönetmeyi öğrenin. Belgelere, örnek kodlara, öğreticilere ve çok daha fazlasına ulaşın.
 ms.openlocfilehash: aba00d7c90d173ecf58fedc1b8af5d1be418358c
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23854637"
 ---
 <div id="main" class="v2">
     <div class="container">

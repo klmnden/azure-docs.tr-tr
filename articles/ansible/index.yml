@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 5e2b31671a8f08bae1cba66e05d6ae72f960cf9e
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: f7225fece81672e539858567039e1ff086d97c2c
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050940"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54197734"
 documentType: LandingData
 title: Azure üzerinde Ansible belgeleri
 metadata:
@@ -53,6 +53,9 @@ sections:
     - html: <a href="./ansible-deploy-app-vmss">Azure’da sanal makine ölçek kümelerine uygulama dağıtın.</a>
     - html: <a href="./ansible-create-configure-aks">Azure Kubernetes Service kümeleri oluşturun ve yönetin.</a>
     - html: <a href="./ansible-create-configure-application-gateway">Bir Azure uygulama ağ geçidi ile web trafiğini yönetin.</a>
+    - html: <a href="./ansible-auto-scale-vmss">Ansible'ı kullanarak Azure'da sanal makine ölçek kümesini otomatik olarak ölçeklendirin.</a>
+    - html: <a href="./ansible-scale-azure-web-apps">Ansible'ı kullanarak Azure App Service web uygulamalarını ölçeklendirin.</a>
+    - html: <a href="./ansible-create-configure-route-table">Ansible'ı kullanarak Azure yol tablosunu oluşturun, değiştirin veya silin.</a>
 - title: Başvuru
   items:
   - type: list
