@@ -28,8 +28,8 @@ Bu konuda doğrudan uygulanan her konu listeler **SQL Server Stretch Database** 
 | ---:|:--- |:--- |
 | 1 |[Stretch Database Danışmanı'nı çalıştırarak Stretch Database için veritabanlarını ve tabloları belirleme](sql-server-stretch-database-identify-databases.md) |Stretch Database için aday niteliği taşıyan veritabanlarını ve tabloları tanımlamak öğrenin. |
 | 2 |[Stretch Database sınırlamaları](sql-server-stretch-database-limitations.md) |Stretch Database sınırlamalar hakkında bilgi edinin. |
-| 3 |[Stretch Database genel bakış](sql-server-stretch-database-overview.md) |Esnetme Veritabanı'nın soğuk verilerinizi şeffaf ve güvenli bir şekilde Microsoft Azure bulutuna nasıl geçirdiğini öğrenin. |
-| 4 |[Veritabanını etkinleştirme Uzat sihirbazını çalıştırarak kullanmaya başlama](sql-server-stretch-database-wizard.md) |Esnetme İçin Veritabanını Etkinleştirme Sihirbazını çalıştırarak, bir veritabanının Esnetme Veritabanı için nasıl yapılandırılacağını öğrenin. |
+| 3 |[Stretch Database genel bakış](sql-server-stretch-database-overview.md) |Stretch Database’in soğuk verilerinizi şeffaf ve güvenli bir şekilde Microsoft Azure bulutuna nasıl geçirdiğini öğrenin. |
+| 4 |[Veritabanını etkinleştirme Uzat sihirbazını çalıştırarak kullanmaya başlama](sql-server-stretch-database-wizard.md) |Esnetme İçin Veritabanını Etkinleştirme Sihirbazını çalıştırarak, bir veritabanının Stretch Database için nasıl yapılandırılacağını öğrenin. |
 
 ## <a name="enable"></a>Etkinleştirme
 | &nbsp; | Unvan | Açıklama |

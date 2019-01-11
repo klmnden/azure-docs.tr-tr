@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 81f76b31f7af3643e2b654e8e26c70d0481d60b8
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 507927934c442c8b217ed8fea371f505bb517d35
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017115"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198720"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Azure işlev proxy'leri ile çalışma
 
@@ -151,7 +151,7 @@ Her bir proxy gibi bir kolay ad sahip *proxy1* önceki örnekte. Karşılık gel
 
 ### <a name="disableProxies"></a> Bireysel proxy'leri devre dışı bırak
 
-Ekleyerek bireysel proxy'leri devre dışı bırakabilirsiniz `"disabled": true` proxy'sine `proxies.json` dosya. Bu, 404 döndüren matchCondidtion toplantı tüm istekleri neden olur.
+Ekleyerek bireysel proxy'leri devre dışı bırakabilirsiniz `"disabled": true` proxy'sine `proxies.json` dosya. Bu, 404 döndüren matchCondition toplantı tüm istekleri neden olur.
 ```json
 {
     "$schema": "http://json.schemastore.org/proxies",

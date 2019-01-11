@@ -578,7 +578,7 @@ items:
   - name: SQL Database
     tocHref: /azure/sql-database/
     topicHref: /azure/sql-database/
-  - name: SQL Server Esnetme Veritabanı
+  - name: SQL Server Stretch Database
     tocHref: /azure/sql-server-stretch-database/
     topicHref: /azure/sql-server-stretch-database/
   - name: Depolama

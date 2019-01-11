@@ -460,7 +460,7 @@ PowerShell betiklerini kullanarak Azure görevlerini otomatikleştirme </a>
                                         <li>
                                             <a href="/azure/sql-server-stretch-database/">
                                                 <img src="media/index/SQLDatabase.svg" alt="" />
-                                                <p>SQL Server Esnetme Veritabanı</p>
+                                                <p>SQL Server Stretch Database</p>
                                             </a>
                                         </li>
                                         <li>
@@ -3087,7 +3087,7 @@ PowerShell betiklerini kullanarak Azure görevlerini otomatikleştirme </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>SQL Server Esnetme Veritabanı</h3>
+                                                    <h3>SQL Server Stretch Database</h3>
                                                     <p>Şirket içi SQL Server veritabanlarını dinamik olarak esnetin</p>
                                                 </div>
                                             </div>

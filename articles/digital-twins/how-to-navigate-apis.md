@@ -2,18 +2,18 @@
 title: Azure dijital İkizlerini API'leri gidin | Microsoft Docs
 description: Bilgi Azure dijital İkizlerini yönetim API'leri sorgulama ortak desenler nasıl.
 author: dsk-2015
-manager: bertvanhoof
+manager: philmea
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 1/7/2019
 ms.author: dkshir
-ms.openlocfilehash: 2221e8b22450a353da42564e5b93342a11e59f71
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 9cfcdc879e36b93e21bff6f91886536d799553bb
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54108324"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200964"
 ---
 # <a name="how-to-use-azure-digital-twins-management-apis"></a>Azure dijital İkizlerini yönetim API'leri kullanma
 
@@ -25,11 +25,11 @@ Aşağıdaki liste, dijital İkizlerini API'leri bileşenlerini gösterir.
 
 * [/ boşluk](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Spaces): Bu API'ler, kurulumunuzu fiziksel konumlarda ile etkileşim kurun. Bunlar, oluşturma, silme ve fiziksel konumlarınıza biçiminde dijital eşlemeleri yönetmek yardımcı bir [uzamsal graf](concepts-objectmodel-spatialgraph.md#spatial-intelligence-graph).
 
-* [/Resources](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Resources): Bu API'ler dijital İkizlerini Örneğiniz için bir IOT hub gibi kaynakları ayarlamanıza yardımcı olur.
-
 * [/Devices](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Devices): Bu API'ler kurulumunuzu aygıtları ile etkileşim kurun. Bu cihazlar, algılayıcılar, bir veya daha fazla yönetebilirsiniz. Örneğin, bir cihaz, telefonunuz veya bir Raspberry Pi algılayıcı pod ya da bir Lora ağ geçidi vb.
 
 * [/Sensors](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Sensors): Bu API'ler, cihazlarınızı ve fiziksel konumlarınıza ilişkili sensörlerden ile iletişim kurmanıza yardımcı olur. Algılayıcılar, kaydedin ve uzamsal ortamınızı yönetmek için kullanılabilen ortam değerleri gönderebilirsiniz.  
+
+* [/Resources](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Resources): Bu API'ler dijital İkizlerini Örneğiniz için bir IOT hub gibi kaynakları ayarlamanıza yardımcı olur.
 
 * [/ türleri](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Types): Bu API'ler, genişletilmiş türleri bu nesnelere belirli özellikleri eklemek için dijital İkizlerini nesnelerinizi ilişkilendirmek izin verir. Bu tür kolay filtreleme ve kullanıcı Arabirimi ve telemetri verilerinizi işleyen özel işlevler nesnelerin gruplama sağlar. Genişletilmiş tür örnekleri *DeviceType*, *sınıfın*, *SensorDataType*, *SpaceType*, *SpaceSubType* , *SpaceBlobType*, *SpaceResourceType*ve benzeri.
 

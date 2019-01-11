@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/27/2018
+ms.date: 01/09/2018
 ms.author: bwren
-ms.openlocfilehash: dc1de1bb43295d2ff9f260613ae568cdd2fbe6ae
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 624091d4b5c1e17a301d9087f56ec5f9b0fecc5c
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103521"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198789"
 ---
 # <a name="custom-logs-in-log-analytics"></a>Log analytics'te özel günlükler
 Log analytics'te özel günlükleri veri kaynağı, hem Windows hem de Linux bilgisayarlarda metin dosyalarından olaylarını toplamanıza olanak sağlar. Birçok uygulama için Windows olay günlüğü veya Syslog gibi standart günlük hizmetlerinin yerine metin dosyaları bilgileri günlüğe kaydetmek. Toplandığında, verileri ayrı ayrı alanlara sorgularınızdaki ayrıştırmak veya sırasında ayrı alanlar koleksiyonuna olan verileri ayıklayın.
@@ -164,6 +164,18 @@ Bir sorgu kullandığımız *türü MyApp_CL =* toplanan günlük tüm kayıtlar
 Özel alanları tanımlamak için kullanırız *EventTime*, *kod*, *durumu*, ve *ileti* alanları ve kayıtları farkı görebilirsiniz Bu sorgu tarafından döndürülür.
 
 ![Özel alanlarla günlük sorgusu](media/data-sources-custom-logs/query-02.png)
+
+## <a name="alternatives-to-custom-logs"></a>Özel günlükler için alternatifleri
+Özel günlükler verilerinize hakkında listelenen ölçütlere uyan, ancak aşağıdaki gibi durumlar kullanışlı olsa da, başka bir strateji gereken:
+
+- Veriler, zaman damgası farklı bir biçimde sahip gibi gerekli yapısı sığmıyor.
+- Günlük dosyası, dosya kodlama gibi gereksinimleri veya desteklenmeyen klasör yapısı uymayan.
+- Veri ön işleme veya önce koleksiyonu filtreleme gerektirir. 
+
+Burada özel günlükleri ile verilerinizi toplanamıyor durumlarda aşağıdaki alternatif stratejiler göz önünde bulundurun:
+
+- Veri yazılan özel bir betiği veya başka bir yöntem kullanmak [Windows olayları](data-sources-windows-events.md) veya [Syslog](data-sources-syslog.md) Log Analytics tarafından toplanır. 
+- Log Analytics kullanarak doğrudan verileri Gönder [HTTP veri toplayıcı API'sini](data-collector-api.md). Azure Otomasyonu'nda runbook'ları kullanarak bir örnek sağlanır [Azure Otomasyonu runbook'u ile Log analytics'te verileri toplama](runbook-datacollect.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Bkz [ayrıştırma metin verilerini Log analytics'te](../log-query/parse-text.md) her ayrıştırmak yöntemler için birden çok özellik günlük girişine içeri aktarıldı.

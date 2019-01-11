@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2018
 ms.author: bwren
-ms.openlocfilehash: 9b160c011a8a9507698443446ad5fe908b32fb9e
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 94769ea0ff05565ee11f7c167e28f239ca304d3d
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54049971"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213748"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Azure İzleyici verilerini Görselleştirme
 Bu makalede, günlük ve ölçüm verilerini Azure İzleyici'de depolanan görselleştirmek için kullanılabilen yöntemler bir özetini sağlar.
@@ -32,7 +32,7 @@ Grafikler gibi görselleştirmelerin detaya gitme sorunları ve desenleri tanım
 ### <a name="advantages"></a>Yararları
 - Azure kapsamlı tümleştirme. Görselleştirmeler, ölçümleri analiz, log analytics ve Application Insights da dahil olmak üzere birden çok Azure sayfalarından panolara sabitlenebilir.
 - Ölçüm ve günlükleri hem destekler.
-- Çıkışı dahil olmak üzere birden çok kaynaktan alınan verileri birleştirin [ölçüm Gezgini](../azure-monitor/platform/metrics-charts.md), [Log Analytics sorguları](../azure-monitor/log-query/log-query-overview.md), ve [eşler](../azure-monitor/app/app-map.md) ve [kullanılabilirlik]()Application ınsights.
+- Çıkışı dahil olmak üzere birden çok kaynaktan alınan verileri birleştirin [ölçüm Gezgini](../azure-monitor/platform/metrics-charts.md), [Log Analytics sorguları](../azure-monitor/log-query/log-query-overview.md), ve [eşler](../azure-monitor/app/app-map.md) ve Application ınsights kullanılabilirlik.
 - Kişisel veya paylaşılan panolar için seçenek. Azure ile tümleşik [rol tabanlı kimlik doğrulaması (RBAC)](../role-based-access-control/overview.md).
 - Otomatik yenileme. Ölçümleri Yenile zaman aralığı en az beş dakika ile bağlıdır. Günlükleri bir dakikada yenileyin.
 - Zaman damgası ve özel parametrelerle parametreli ölçümleri panolar.

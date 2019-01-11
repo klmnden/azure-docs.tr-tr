@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: f1151c845797d74bbb9a5e50feeeb288a4ab349b
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 917f9a5ff2f6f9f6101b19dccee05fe5ab25c5a9
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714858"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214785"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>Öğretici: Azure ve Azure Stack ile coğrafi olarak dağıtılmış bir uygulama çözümü oluşturma
 
@@ -106,7 +106,7 @@ DNS bölge dosyasını foCreate web uygulamaları ve publishr etki alanını gü
 Azure ve Azure Stack Web uygulamasına dağıtmak için karma CI/CD ayarlama ve her iki bulut için otomatik anında iletme değiştirir.
 
 > [!Note]  
-> Azure Stack çalıştırma (Windows Server ve SQL) ve App Service dağıtımı için genel olarak uygun görüntülerle gereklidir. App Service belgelerini inceleyin "[Azure Stack'te App Service ile çalışmaya başlamadan önce](/articles/azure-stack/azure-stack-app-service-before-you-get-started)" bölümünde Azure Stack operatörü için.
+> Azure Stack çalıştırma (Windows Server ve SQL) ve App Service dağıtımı için genel olarak uygun görüntülerle gereklidir. App Service belgelerini inceleyin [Azure Stack'te App Service ile çalışmaya başlamadan önce](../azure-stack-app-service-before-you-get-started.md) Azure Stack operatörü bölümü.
 
 #### <a name="add-code-to-azure-repos"></a>Azure depoları için kod ekleyin
 

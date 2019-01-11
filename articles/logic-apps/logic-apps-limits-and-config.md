@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: e5c5d1a3e0316c96a6df7e01e6d6796d6a72506a
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 94ccd3f437f74b27ef158a5e373b6ff315b5eb42
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159035"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214853"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limitler ve yapılandırma bilgilerini Azure Logic Apps
 
@@ -323,7 +323,7 @@ Bir bölgede tüm logic apps, aynı IP adresi aralıklarını kullanın. Logic a
 
 ### <a name="managed-connectors"></a>Yönetilen bağlayıcılar
 
-Çağrıları desteklemek için [Microsoft tarafından yönetilen Bağlayıcılar](../connectors/apis-list.md) yapma, logic apps bulunduğu bölge için belirtilen tüm giden IP adresleri içerirler. Bu nedenle, güvenlik duvarı yapılandırmaları ayarlayın. İçin [Azure kamu](/azure-government/documentation-government-welcome) ve [Azure Çin 21Vianet](/azure/china/china-welcome), ayrılmış IP adresleri için bağlayıcılar şu anda kullanıma sunulmaz.
+Çağrıları desteklemek için [Microsoft tarafından yönetilen Bağlayıcılar](../connectors/apis-list.md) yapma, logic apps bulunduğu bölge için belirtilen tüm giden IP adresleri içerirler. Bu nedenle, güvenlik duvarı yapılandırmaları ayarlayın. İçin [Azure kamu](../azure-government/documentation-government-welcome.md) ve [Azure Çin 21Vianet](/azure/china/china-welcome), ayrılmış IP adresleri için bağlayıcılar şu anda kullanıma sunulmaz.
 
 > [!IMPORTANT]
 > 

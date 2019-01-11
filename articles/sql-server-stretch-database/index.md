@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Server Esnetme Veritabanı Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs
-description: Sorguları veya uygulamaları değiştirmeden soğuk verilerinizi güvenli bir şekilde Azure’a geçirmek için SQL Server Esnetme Veritabanı’nı kullanmayı öğrenin. Öğreticiler ve diğer belgeler.
+title: Azure SQL Server Stretch Database Belgeleri - Öğreticiler| Microsoft Docs
+description: Sorguları veya uygulamaları değiştirmeden soğuk verilerinizi güvenli bir şekilde Azure’a geçirmek için SQL Server Stretch Database’i kullanmayı öğrenin. Öğreticiler ve diğer belgeler.
 services: sql-server-stretch-database
 author: czeumault
 manager: carolz
@@ -18,9 +18,9 @@ ms.contentlocale: tr-TR
 ms.lasthandoff: 12/21/2018
 ms.locfileid: "53742125"
 ---
-# <a name="sql-server-stretch-database-documentation"></a>SQL Server Esnetme Veritabanı Belgeleri
+# <a name="sql-server-stretch-database-documentation"></a>SQL Server Stretch Database Belgeleri
 
-Soğuk verilerinizi şeffaf ve güvenli bir şekilde Azure bulutuna geçirmek için SQL Server Esnetme Veritabanı’nı kullanmayı öğrenin. Öğreticiler ve diğer belgeler, seyrek olarak kullanılan veriler içeren veritabanları için uygun maliyetli kullanılabilirlik seçeneklerini, mevcut sorgular veya uygulamalar için ücret ödemek zorunda kalmadan ayarlamanıza yardımcı olur.
+Soğuk verilerinizi şeffaf ve güvenli bir şekilde Azure bulutuna geçirmek için SQL Server Stretch Database’i kullanmayı öğrenin. Öğreticiler ve diğer belgeler, seyrek olarak kullanılan veriler içeren veritabanları için uygun maliyetli kullanılabilirlik seçeneklerini, mevcut sorgular veya uygulamalar için ücret ödemek zorunda kalmadan ayarlamanıza yardımcı olur.
 
 
 <ul class="panelContent cardsFTitle">
@@ -35,7 +35,7 @@ Soğuk verilerinizi şeffaf ve güvenli bir şekilde Azure bulutuna geçirmek i�
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure SQL Server Esnetme Veritabanı hakkında bilgi edinin</h3>
+                        <h3>Azure SQL Server Stretch Database hakkında bilgi edinin</h3>
                     </div>
                 </div>
             </div>
@@ -53,7 +53,7 @@ Soğuk verilerinizi şeffaf ve güvenli bir şekilde Azure bulutuna geçirmek i�
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure SQL Server Esnetme Veritabanı Video Kitaplığı</h3>
+                        <h3>Azure SQL Server Stretch Database Video Kitaplığı</h3>
                     </div>
                 </div>
             </div>
@@ -71,7 +71,7 @@ Soğuk verilerinizi şeffaf ve güvenli bir şekilde Azure bulutuna geçirmek i�
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>SQL Server Esnetme Veritabanı’nı kullanmaya başlama</h3>
+                        <h3>SQL Server Stretch Database’i kullanmaya başlama</h3>
                     </div>
                 </div>
             </div>
@@ -89,7 +89,7 @@ Soğuk verilerinizi şeffaf ve güvenli bir şekilde Azure bulutuna geçirmek i�
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>SQL Server Esnetme Veritabanı’nı kullanmaya başlama sihirbazı</h3>
+                        <h3>SQL Server Stretch Database’i kullanmaya başlama sihirbazı</h3>
                     </div>
                 </div>
             </div>
