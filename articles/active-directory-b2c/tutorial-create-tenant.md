@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/26/2018
+ms.date: 01/11/2019
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7571e5f4d95320ab92fa3b69b0ea1f05ff9c771f
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 982932f538f13ac3cb8f842a32f9439f717d971f
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47408411"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247784"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Öğretici: Azure Active Directory B2C kiracısı oluşturma
 
@@ -34,7 +34,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 ## <a name="create-an-azure-ad-b2c-tenant"></a>Azure AD B2C kiracısı oluşturma
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
-2. Tıklayarak aboneliğinizi içeren dizine kullandığınızdan emin olun **dizin ve abonelik filtresi** üst menü ve onu içeren dizine seçme. Bu, Azure AD B2C kiracınızı içerecek olandan farklı bir dizindir.
+2. Tıklayarak aboneliğinizi içeren dizine kullandığınızdan emin olun **dizin ve abonelik filtresi** üst menü ve onu içeren dizine seçme. Bu dizin, Azure AD B2C kiracınızı içerecek hesaptan farklıdır.
 
     ![Abonelik dizinine geçin](./media/tutorial-create-tenant/switch-directory-subscription.png)
 
@@ -44,10 +44,11 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
     ![Kiracı oluşturma](./media/tutorial-create-tenant/create-tenant.png)
 
-    Bu örnekte contoso0926Tenant.onmicrosoft.com Kiracı adı:
+    Bu örnekte, contoso0926Tenant.onmicrosoft.com Kiracı adıdır
 
-6. Üzerinde **yeni B2C Kiracısı oluşturun veya mevcut bir Kiracınız için bağlantı** sayfasında **Azure Aboneliğimi bağlantı var olan bir Azure AD B2C Kiracısına**, oluşturduğunuz Kiracı seçin, aboneliğinizi seçin,'a tıklayın **Yeni Oluştur** ve Kiracı içeren, konumu seçin ve ardından kaynak grubu için bir ad girin **Oluştur**.
-7. Yeni Kiracı kullanmaya başlamak için Azure AD B2C kiracınızı tıklayarak içeren dizine kullandığınızdan emin olun **dizin ve abonelik filtresi** üst menü ve onu içeren dizine seçme.
+6. Üzerinde **yeni B2C Kiracısı oluşturun veya mevcut bir Kiracınız için bağlantı** sayfasında **Azure Aboneliğimi bağlantı var olan bir Azure AD B2C Kiracısına**, oluşturduğunuz Kiracı seçin, aboneliğinizi seçin ve ardından tıklayın **Yeni Oluştur**.
+7. Kiracı içeren, konumu seçin ve ardından kaynak grubu için bir ad girin **Oluştur**.
+8. Yeni Kiracı kullanmaya başlamak için Azure AD B2C kiracınızı tıklayarak içeren dizine kullandığınızdan emin olun **dizin ve abonelik filtresi** üst menü ve onu içeren dizine seçme.
 
     ![Dizin Kiracı anahtarı](./media/tutorial-create-tenant/switch-directories.png)
 
@@ -60,4 +61,4 @@ Bu makalede, öğrendiğiniz nasıl yapılır:
 > * Kiracı aboneliğinize bağlayın
 
 > [!div class="nextstepaction"]
-> [Hesaplarla kimlik doğrulaması bir web uygulamasını etkinleştir](active-directory-b2c-tutorials-web-app.md)
+> [Uygulamalarınızı kaydetme](tutorial-register-applications.md)

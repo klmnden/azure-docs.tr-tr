@@ -1,5 +1,5 @@
 ---
-title: Dizinleri - Azure Search'nı sorgulamak için Azure portalında arama Gezgini
+title: Azure portal - Azure Search verileri sorgulamak için arama Gezgini aracı
 description: Azure Search'te sorgu dizini arama Gezgini gibi Azure portal araçlarını kullanın. Arama terimleri veya Gelişmiş söz dizimi ile tam arama dizesini girin.
 manager: cgronlun
 author: HeidiSteen
@@ -9,48 +9,25 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 2aa372d1f917608de753007cc75ab0d608cafbba
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 85e574a56380384b10d0916385a8816fd26c2eeb
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188734"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244809"
 ---
-# <a name="how-to-use-search-explorer-to-query-indexes-in-azure-search"></a>Azure Search'te sorgu dizinler için arama Gezgini'ni kullanma 
+# <a name="search-explorer-for-querying-data-in-azure-search"></a>Azure Search'te veri sorgulamak için arama Gezgini 
 
-Bu makale, mevcut bir Azure Search dizini kullanarak nasıl sorgulanacağını gösterir **arama Gezgini** Azure portalında. Hizmetinizde var olan bir dizine basit veya tam Lucene sorgu dizeleri göndermek için arama Gezgini'ni kullanabilirsiniz.
-
-## <a name="start-search-explorer"></a>Arama Gezgini'ni başlatın
-
-1. İçinde [Azure portalında](https://portal.azure.com), panodan arama hizmeti sayfasını açın veya [hizmetinizi bulma](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) Hizmet listesinde.
-
-2. Hizmet genel bakış sayfasında tıklatın **arama Gezgini**.
+Bu makale, mevcut bir Azure Search dizini kullanarak nasıl sorgulanacağını gösterir **arama Gezgini** Azure portalında. Hizmetinizde var olan bir dizine basit veya tam Lucene sorgu dizeleri göndermek için arama Gezgini'ni kullanabilirsiniz. 
 
    ![Arama Gezgini komut portalında](./media/search-explorer/search-explorer-cmd2.png "portalında arama Gezgini komutu")
 
-3. Sorgu dizini seçin.
 
-   ![Sorgu dizini seçin](./media/search-explorer/search-explorer-changeindex-se2.png "dizini seçin")
-
-4. İsteğe bağlı olarak, API sürümünü ayarlama. Varsayılan olarak, geçerli genel kullanıma sunulan API sürümü seçilir, ancak bir önizleme seçebilir veya söz dizimi kullanmak istiyorsanız, eski sürüme özgü bir API'dir.
-
-5. Dizin ve API sürümü seçili, arama terimleri veya tam sorgu ifadeleri arama çubuğunda girin ve tıklayın **arama** yürütülecek.
-
-   ![Arama terimleri girin ve Ara](./media/search-explorer/search-explorer-query-string-example.png "Enter arama koşulları ve Ara")
-
-Arama ipuçları **arama Gezgini**:
-
-+ Belge yapısı ve içeriği tamamen görüntüleyebilmek sonuçları ayrıntılı JSON belgeleri olarak döndürülür. Sorgu ifadeleri, hangi alanların döndürülen sınırı örneklerde gösterilen kullanabilirsiniz.
-
-+ Belgeler olarak işaretlenmiş tüm alanlardan oluşur **alınabilir** dizinde. Portalda dizin özniteliklerini görüntülemek için tıklayın *realestate-us-sample* içinde **dizinleri** arama genel bakış sayfasında listesi.
-
-+ Serbest biçimli sorguları, bir ticari web tarayıcısında ne girebilirsiniz için benzer bir son kullanıcı deneyimi test etmek için kullanışlıdır. Örneğin, yerleşik realestate örnek dizini varsayıldığında, "Seattle apartmanlar lake washington" girebilirsiniz ve arama sonuçlarını içindeki terimler bulmak için Ctrl-F sonra kullanabilirsiniz. 
-
-+ Azure arama tarafından desteklenen bir söz dizimi, sorgu ve filtre ifadeleri geliştirilmiştir gerekir. Varsayılan bir [basit söz dizimi](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), ancak isteğe bağlı olarak kullanabileceğiniz [tam Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) daha güçlü sorgular yapmak için. [Filtre ifadelerini](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) bir OData söz dizimini olan.
+Başlangıç konusunda yardım için bkz. [Aramaya Başla Gezgini](#start-search-explorer).
 
 ## <a name="basic-search-strings"></a>Temel arama dizeleri
 
-Aşağıdaki örneklerde, yerleşik realestate örnek dizini varsayılmaktadır. Bu dizin oluşturma hakkında daha fazla bilgi için bkz. [hızlı başlangıç: İçeri aktarma, dizin ve Azure portalındaki sorgu](search-get-started-portal.md).
+Aşağıdaki örneklerde, yerleşik realestate örnek dizini varsayılmaktadır. Bu dizin oluşturmanıza yardımcı olması için bkz: [hızlı başlangıç: İçeri aktarma, dizin ve Azure portalındaki sorgu](search-get-started-portal.md).
 
 ### <a name="example-1---empty-search"></a>Örnek 1 - boş arama
 
@@ -128,6 +105,37 @@ Ekleme **$orderby** arama puanı yanı sıra başka bir alana göre sonuçları 
    ![Výraz OrderBy](./media/search-explorer/search-explorer-example-ordery.png "sıralama düzenini değiştirme")
 
 Her ikisi de **$filter** ve **$orderby** OData yapılarını ifadelerdir. Daha fazla bilgi edinmek için bkz. [OData söz dizimini filtreleme](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
+
+<a name="start-search-explorer"></a>
+
+## <a name="how-to-start-search-explorer"></a>Arama Gezgini başlatma
+
+1. İçinde [Azure portalında](https://portal.azure.com), panodan arama hizmeti sayfasını açın veya [hizmetinizi bulma](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) Hizmet listesinde.
+
+2. Hizmet genel bakış sayfasında tıklatın **arama Gezgini**.
+
+   ![Arama Gezgini komut portalında](./media/search-explorer/search-explorer-cmd2.png "portalında arama Gezgini komutu")
+
+3. Sorgu dizini seçin.
+
+   ![Sorgu dizini seçin](./media/search-explorer/search-explorer-changeindex-se2.png "dizini seçin")
+
+4. İsteğe bağlı olarak, API sürümünü ayarlama. Varsayılan olarak, geçerli genel kullanıma sunulan API sürümü seçilir, ancak bir önizleme seçebilir veya söz dizimi kullanmak istiyorsanız, eski sürüme özgü bir API'dir.
+
+5. Dizin ve API sürümü seçili, arama terimleri veya tam sorgu ifadeleri arama çubuğunda girin ve tıklayın **arama** yürütülecek.
+
+   ![Arama terimleri girin ve Ara](./media/search-explorer/search-explorer-query-string-example.png "Enter arama koşulları ve Ara")
+
+Arama ipuçları **arama Gezgini**:
+
++ Belge yapısı ve içeriği tamamen görüntüleyebilmek sonuçları ayrıntılı JSON belgeleri olarak döndürülür. Sorgu ifadeleri, hangi alanların döndürülen sınırı örneklerde gösterilen kullanabilirsiniz.
+
++ Belgeler olarak işaretlenmiş tüm alanlardan oluşur **alınabilir** dizinde. Portalda dizin özniteliklerini görüntülemek için tıklayın *realestate-us-sample* içinde **dizinleri** arama genel bakış sayfasında listesi.
+
++ Serbest biçimli sorguları, bir ticari web tarayıcısında ne girebilirsiniz için benzer bir son kullanıcı deneyimi test etmek için kullanışlıdır. Örneğin, yerleşik realestate örnek dizini varsayıldığında, "Seattle apartmanlar lake washington" girebilirsiniz ve arama sonuçlarını içindeki terimler bulmak için Ctrl-F sonra kullanabilirsiniz. 
+
++ Azure arama tarafından desteklenen bir söz dizimi, sorgu ve filtre ifadeleri geliştirilmiştir gerekir. Varsayılan bir [basit söz dizimi](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), ancak isteğe bağlı olarak kullanabileceğiniz [tam Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) daha güçlü sorgular yapmak için. [Filtre ifadelerini](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) bir OData söz dizimini olan.
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

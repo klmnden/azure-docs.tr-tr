@@ -9,20 +9,20 @@ ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2017
+ms.date: 01/11/2019
 ms.author: barclayn
-ms.openlocfilehash: 9c02dc386852a32814669d38df6260822a5e4f99
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 17372076f06cbaa833c437121a01f0dcaaf0e757
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53308808"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54243651"
 ---
 # <a name="security-recommendations-for-azure-marketplace-images"></a>Azure Market görüntüleri için güvenlik önerileri
 
-Her çözüm aşağıdaki güvenlik yapılandırma önerileri ile uyumlu öneririz. Bu, yüksek düzeyde bir iş ortağı çözümü görüntüleri Azure Market'te güvenlik bakımı yardımcı olur.
+Her çözüm aşağıdaki güvenlik yapılandırma önerileri ile uyumlu öneririz. Bu durum, yüksek düzeyde bir iş ortağı çözümü görüntüleri Azure Market'te güvenlik korumasına yardımcı olur.
 
-Bu önerileri görüntüleri Azure Market'te olmayan kuruluşlar için yararlı olabilir. Aşağıdaki tablolarda bulunan yönergeleri karşı şirketinizin Windows ve Linux görüntüsü yapılandırmalarını kontrol edin isteyebilirsiniz.
+Bu önerileri görüntüleri Azure Market'te olmayan kuruluşlar için yararlı olabilir. Şirketinizin Windows ve Linux görüntü yapılandırmaları aşağıdaki tablolarda bulunan yönergeleri karşı denetlemek isteyebilirsiniz:
 
 ## <a name="open-source-based-images"></a>Açık kaynak tabanlı görüntüler
 
@@ -31,7 +31,7 @@ Bu önerileri görüntüleri Azure Market'te olmayan kuruluşlar için yararlı 
 | **Kategori**                                                 | **Onay**                                                                                                                                                                                                                                                                              |
 | Güvenlik                                                     | Tüm en son düzeltme eklerini Linux dağıtımı için yüklenir.                                                                                                                                                                                                              |
 | Güvenlik                                                     | Sanal makine görüntüsü için ilgili Linux dağıtımına güvenliğini sağlamak için endüstri yönergeleri izlediyseniz.                                                                                                                                                                                     |
-| Güvenlik                                                     | Saldırı yüzeyini tarafından tutma minimum ayak izini yalnızca gerekli Windows Server rolleri, özellikleri, hizmetleri ve ağ bağlantı noktaları ile sınırlayın.                                                                                                                                               |
+| Güvenlik                                                     | Saldırı yüzeyini tutma minimum ayak izini yalnızca gerekli Windows Server rolleri, özellikleri, hizmetleri ve ağ bağlantı noktaları sınırlayın.                                                                                                                                               |
 | Güvenlik                                                     | Kaynak kodu ve sonuçta elde edilen sanal makine görüntüsü kötü amaçlı yazılım için tarama.                                                                                                                                                                                                                                   |
 | Güvenlik                                                     | VHD görüntüsü yalnızca etkileşimli oturum açma izin varsayılan parolalarına sahip olmaması gereken kilitli hesaplar içerir; arka kapı yok.                                                                                                                                           |
 | Güvenlik                                                     | Güvenlik duvarı kuralları devre dışıdır, bu sürece bir güvenlik duvarı Gereci gibi bunlar üzerinde işlevsel olarak uygulama kullanır.                                                                                                                                                                             |
@@ -41,7 +41,7 @@ Bu önerileri görüntüleri Azure Market'te olmayan kuruluşlar için yararlı 
 | Güvenlik                                                     | Bash/Kabuk geçmişi girdileri temizlenmelidir                                                                                                                                                                                                                                             |
 | Ağ                                                   | SSH sunucusu varsayılan olarak eklenmelidir. Sshd config seçeneğiyle SSH keep alive ayarlayın: Satırını Clientaliveınterval 180                                                                                                                                                        |
 | Ağ                                                   | Görüntü, herhangi bir özel ağ yapılandırması içermemelidir. Resolv.conf silin: `rm /etc/resolv.conf`                                                                                                                                                                                |
-| Dağıtım                                                   | En son Azure Linux aracısı yüklü olması gerekir </br> -Aracıyı RPM veya Deb paketini kullanarak yüklenmesi gerekir.  </br> -El ile yükleme işlemini de kullanabilirsiniz, ancak Eğer yükleyici paketleri önerilen ve tercih edilen. </br> -Aracının GitHub deposundan el ile yükleme, ilk kopyalama `waagent` dosyasını `/usr/sbin` ve (kök) çalıştırın: </br>`# chmod 755 /usr/sbin/waagent` </br>`# /usr/sbin/waagent -install` </br>Aracı yapılandırma dosyasını, yerleştirilecek `/etc/waagent.conf`.    |
+| Dağıtım                                                   | En son Azure Linux aracısı yüklü olması gerekir </br> -Aracıyı RPM veya Deb paketini kullanarak yüklenmesi gerekir.  </br> -El ile yükleme işlemini de kullanabilirsiniz, ancak Eğer yükleyici paketleri önerilen ve tercih edilen. </br> -Aracının GitHub deposundan el ile yükleme, ilk kopyalama `waagent` dosyasını `/usr/sbin` ve (kök) çalıştırın: </br>`# chmod 755 /usr/sbin/waagent` </br>`# /usr/sbin/waagent -install` </br>Aracı yapılandırma dosyasını yerleştirilmiş olması `/etc/waagent.conf`.    |
 | Dağıtım                                                   | Azure destek ortaklarımızla birlikte seri konsol gerektiği ve işletim sistemi disk bağlama bulut depolama için yeterli zaman aşımı sağlamak çıkışı sağlamasına olanak tanır. Görüntü aşağıdaki parametreleri Kernel önyükleme satırına eklemiş olmanız gerekir: `console=ttyS0 earlyprintk=ttyS0 rootdelay=300` |
 | Dağıtım                                                   | İşletim sistemi diski üzerinde takas bölümü yok. Takas Linux Aracısı kullanılarak yerel kaynak oluşturma için istenebilir.         |
 | Dağıtım                                                   | İşletim sistemi diski için tek bir kök bölümü oluşturmanız önerilir.      |
@@ -56,7 +56,7 @@ Bu önerileri görüntüleri Azure Market'te olmayan kuruluşlar için yararlı 
 | Güvenlik                                                         | Tüm son güvenlik güncelleştirmelerini yükleyin.                                                                                                                                     |
 | Güvenlik                                                         | Uygulamalar, kısıtlı kullanıcı adları yönetici, kök ve yönetici gibi bir bağımlılık olmamalıdır                                                                |
 | Güvenlik                                                         | BitLocker Sürücü Şifrelemesi, işletim sistemi sabit diskinde desteklenmiyor. BitLocker, veri diskleri üzerinde kullanılabilir.                                                            |
-| Güvenlik                                                         | Saldırı yüzeyini tutma minimum ayak izini yalnızca gerekli Windows Server rolleri, özellikleri, hizmetleri ve etkin ağ bağlantı noktaları ile sınırlayın.                         |
+| Güvenlik                                                         | Saldırı yüzeyini en az alana yayılma olanağıyla yalnızca gerekli Windows Server rolleri, özellikleri, hizmetleri tutarak ve bağlantı noktaları etkin ağ sınırlayın.                         |
 | Güvenlik                                                         | Kaynak kodu ve sonuçta elde edilen sanal makine görüntüsü kötü amaçlı yazılım için tarama.                                                                                                                     |
 | Güvenlik                                                         | Otomatik güncelleştirme için Windows Server görüntüleri Güvenlik Güncelleştirmesi'ni ayarlayın.                                                                                                                |
 | Güvenlik                                                         | VHD görüntüsü yalnızca etkileşimli oturum açma izin varsayılan parolalarına sahip olmaması gereken kilitli hesaplar içerir; arka kapı yok.                             |

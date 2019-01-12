@@ -5,6 +5,7 @@ description: Bu öğreticide, Azure portalını kullanarak Standard Load Balance
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 Customer intent: I want to create and Standard Load balancer so that I can load balance internet traffic to VMs and add and remove VMs from the load-balanced set.
 ms.service: load-balancer
 ms.devlang: na
@@ -14,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 08/20/18
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 76d7f0b959037808c3358c2b78b837a783117457
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: c22f69764447ffd4f8b67e9162fd8b45b40b175b
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53260013"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230042"
 ---
 # <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak sanal makineleri internet trafiği Yük Dengelemesi
 
@@ -195,7 +196,7 @@ Uygulamanızı çalıştıran VM’lerde işletim sistemi güncelleştirmelerini
 2. **Ayarlar**'ın altında **Arka uç havuzları**'na tıklayın, ardından arka uç havuzunun listesinde **myBackendPool**'a tıklayın.
 3. **myBackendPool** sayfasındaki **Hedef ağ IP yapılandırmaları**'nın altında, arka uçtan *VM1*'i kaldırmak için **Sanal makine:myVM1**'in yanındaki sil simgesine tıklayın
 
-Artık *myVM1* arka uç adres havuzunda yer almadığından, *myVM1* üzerinde yazılım güncelleştirmelerini yükleme gibi tüm bakım görevlerini gerçekleştirebilirsiniz. Şimdi * VM1 ** sanal makinesinin eksikliğinde, yük *myVM2* ile *myVM3* arasında dengelenir. 
+Artık *myVM1* arka uç adres havuzunda yer almadığından, *myVM1* üzerinde yazılım güncelleştirmelerini yükleme gibi tüm bakım görevlerini gerçekleştirebilirsiniz. Şimdi *VM1** sanal makinesinin eksikliğinde, yük *myVM2* ile *myVM3* arasında dengelenir. 
 
 *myVM1*'i arka uç havuzuna yeniden eklemek için, bu makalenin *Arka uç havuzuna VM ekleme* bölümündeki yordamı izleyin.
 

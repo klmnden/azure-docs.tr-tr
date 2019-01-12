@@ -11,19 +11,19 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 3f4a120e2aaf2925805bec26f721d5cfb4194bf1
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 01/11/2019
+ms.openlocfilehash: 330726eecc19659d978b1072ad02ad6d5a4ccb8b
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041552"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244384"
 ---
 # <a name="azure-sql-database-threat-detection-for-single-database"></a>Tek veritabanı için Azure SQL veritabanı tehdit algılama
 
 Azure SQL [tehdit algılama](sql-database-threat-detection-overview.md) için [SQL veritabanı](sql-database-technical-overview.md) tek veritabanlarına erişim veritabanı açıklıklarından yararlanmaya yönelik sıra dışı ve zararlı olabilecek girişimleri gösteren anormal etkinlikleri algılar. Tehdit algılama belirleyebilir **olası SQL ekleme**, **olağan dışı konum veya veri merkezi erişim**, **yabancı sorumlu veya potansiyel olarak zararlı uygulamadanerişim**, ve **yanılma SQL kimlik bilgileri** -daha fazla bilgi [tehdit algılama uyarıları](sql-database-threat-detection-overview.md#azure-sql-database-threat-detection-alerts).
 
-Algılanan tehditler hakkında bildirim alabilir [e-posta bildirimleri](sql-database-threat-detection-overview.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event) veya [Azure portalı](sql-database-threat-detection.md#explore-threat-detection-alerts-for-your-database-in-the-azure-portal)
+Algılanan tehditler hakkında bildirim alabilir [e-posta bildirimleri](sql-database-threat-detection-overview.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event) veya [Azure portalı](sql-database-threat-detection-overview.md#explore-threat-detection-alerts-for-your-database-in-the-azure-portal)
 
 [Tehdit algılama](sql-database-threat-detection-overview.md) parçasıdır [SQL Gelişmiş tehdit koruması](sql-advanced-threat-protection.md) Gelişmiş SQL güvenlik özellikleri için birleştirilmiş bir pakettir (ATP) teklifi. Tehdit algılama, erişilebilir ve merkezi SQL ATP portalı üzerinden yönetilebilir. Tehdit algılama hizmetine 15$ / ay başına mantıksal sunucusu, ilk 30 gün ile ücretsiz olarak ücretlendirilir.
 

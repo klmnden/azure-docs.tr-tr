@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/04/2018
 ms.author: sethm
-ms.reviewer: ''
-ms.openlocfilehash: 61562450d484f34385b4e6e111bf62326eaca159
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.reviewer: unknown
+ms.openlocfilehash: 2cfa789b9817562eba5224257a365f8552cdf833
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888384"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245949"
 ---
 # <a name="validate-azure-identity"></a>Azure kimlik doğrulama 
 Azure Active Directory (Azure AD) Azure Stack ile kullanmak hazır olduğunu doğrulamak için Azure Stack hazırlık Denetleyicisi Aracı (AzsReadinessChecker) kullanın. Azure Stack dağıtıma başlamadan önce Azure kimlik çözümü doğrulayın.  
@@ -137,7 +137,7 @@ Invoke-AzsAzureIdentityValidation Completed
 ````
 **Neden** -hesap belirtilen Azure Active Directory'ye (AADDirectoryTenantName) oturum açamaz. Bu örnekte, *AzureChinaCloud* olarak belirtilen *AzureEnvironment*.
 
-**Çözüm** -hesap belirtilen Azure ortam için geçerli olduğunu doğrulayın. PowerShell'de, hesap için belirli bir ortama geçerli olduğunu doğrulamak için aşağıdaki komutu çalıştırın: Login-AzureRmAccount-EnvironmentName AzureChinaCloud 
+**Çözüm** -hesap belirtilen Azure ortam için geçerli olduğunu doğrulayın. PowerShell'de hesabının belirli bir ortam için geçerli olup olmadığını doğrulamak için aşağıdaki komutu çalıştırın:   Login-AzureRmAccount-EnvironmentName AzureChinaCloud 
 ### <a name="account-is-not-an-administrator"></a>Hesap bir yönetici değil 
  
 ````PowerShell

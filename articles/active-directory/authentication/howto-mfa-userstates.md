@@ -5,19 +5,20 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 01/11/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 4726383d96b0bd17f346f7391ed968c5f96bef1e
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 5b88fda9252b4547a87b192ef662330912d67d1a
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239262"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247223"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Bir kullanıcı için iki aşamalı doğrulama gerektirme
+
 İkisi de bir genel yönetici hesabını kullanarak gerektiren iki aşamalı doğrulama gerektirme iki yaklaşımdan birini alabilir. İlk seçenek, her bir kullanıcı Azure multi-Factor Authentication (MFA) etkinleştirmektir. Kullanıcıları tek tek etkinleştirildiğinde, iki aşamalı doğrulama her zaman oturum gerçekleştirdikleri (güvenilen IP oturum gibi bazı özel durumlar adresleri veya _hatırlanan cihazlar_ özellik açık). İkinci seçenek belirli koşullar altında iki aşamalı doğrulama gerektiren bir koşullu erişim ilkesi ayarlamaktır.
 
 > [!TIP]
@@ -25,7 +26,7 @@ ms.locfileid: "50239262"
 
 ## <a name="choose-how-to-enable"></a>Etkinleştirme seçin
 
-**Kullanıcı durumunu değiştirerek etkin** -Bu, iki aşamalı doğrulama gerektirme geleneksel yöntemidir ve bu makalede ele alınmıştır. Bu, hem de bulutta Azure MFA ve Azure MFA sunucusu ile çalışır. Bu yöntemi kullanarak, kullanıcıların iki aşamalı doğrulamanın gerektirir **her** oturum açın ve koşullu erişim ilkeleri geçersiz kılar.
+**Kullanıcı durumunu değiştirerek etkin** -Bu, iki aşamalı doğrulama gerektirme geleneksel yöntemidir ve bu makalede ele alınmıştır. Bu, hem de bulutta Azure MFA ve Azure MFA sunucusu ile çalışır. Bu yöntemi kullanarak, kullanıcıların iki aşamalı doğrulamanın gerektirir **her** oturum açın ve koşullu erişim ilkeleri geçersiz kılar. Office 365 veya Microsoft 365 iş lisansları olanlar için koşullu erişim özelliklerini içermez olarak kullanılan yöntem budur.
 
 Koşullu erişim ilkesi tarafından - etkin kullanıcılarınız için iki aşamalı doğrulamayı etkinleştirmek için en esnek yolu budur. Yalnızca koşullu erişim ilkesi kullanarak etkinleştirmek için bulutta Azure MFA çalışır ve Azure AD premium özelliğidir. Bu yöntem hakkında daha fazla bilgi bulunabilir [Azure multi-Factor Authentication'ı bulut tabanlı dağıtım](howto-mfa-getstarted.md).
 

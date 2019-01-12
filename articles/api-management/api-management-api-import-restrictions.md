@@ -14,27 +14,39 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apipm
-ms.openlocfilehash: bad87931feb11012f23f0ef19bd853b38566c07c
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: a4f9147008ceb0de32e0f5879a194b45bd4c6421
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106833"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245404"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API içeri aktarma kısıtlamaları ve bilinen sorunlar
 ## <a name="about-this-list"></a>Bu liste hakkında
 API içeri aktarılırken arasında bazı kısıtlamalar gelen veya başarıyla içeri aktarmadan önce düzeltilmesi gereken sorunları belirlemek. Bu makalede belgeleri bunlar düzenlenmiş tarafından API içeri aktarma biçimi.
 
 ## <a name="open-api"> </a>Openapı/Swagger
-Openapı belgenizi alma hataları alıyorsanız, doğrulandı, - ya da Azure portalında (Tasarım - ön uç - Openapı belirtimi Düzenleyicisi), tasarımcıyı kullanarak sağlamak veya bir üçüncü taraf aracı gibi <a href="https://editor.swagger.io">Swagger Editor</a>.
 
-* Yalnızca JSON biçimi için Openapı desteklenir.
-* Gerekli parametreleri yolu hem de sorgu genelinde benzersiz adlara sahip olmalıdır. (Openapı bir parametre adı yalnızca içinde örneğin yol, sorgu, üst bilgisi bir konumu benzersiz olması gerekir.  Ancak, API Yönetimi'nde (Bu Openapı desteklemez) yolu hem de sorgu parametreleri tarafından ayrılmış işlemleri izin veriyoruz. Bu nedenle parametre adları tüm URL şablonu içinde benzersiz olması zorunlu kılarız.)
-* Kullanarak başvurulan şemalar **$ref** özellikleri diğer içeremez **$ref** özellikleri.
+Openapı belgenizi alma hataları almaya önceden doğruladınız emin olun. Her iki Tasarımcı (Tasarım - ön uç - Openapı belirtimi Düzenleyicisi) Azure portalında veya üçüncü taraf aracı gibi kullanarak bunu yapabilirsiniz <a href="https://editor.swagger.io">Swagger Editor</a>.
+
+### <a name="open-api-general"> </a>Genel
+
+* Gerekli parametreleri yolu hem de sorgu genelinde benzersiz adlara sahip olmalıdır. (Openapı bir parametre adı yalnızca içinde örneğin yol, sorgu, üst bilgisi bir konumu benzersiz olması gerekir. Ancak, API Yönetimi'nde (Bu, Openapı desteklemeyen) yolu hem de sorgu parametreleri tarafından ayrılmış işlemleri izin veriyoruz. That's neden parametre adları tüm URL şablonu içinde benzersiz olması zorunlu kılarız.)
 * **$ref** işaretçileri, harici dosyalara başvuruda bulunamaz.
 * **x-ms-yolları** ve **x sunucuları** uzantıları yalnızca desteklenir.
-* Özel uzantılar içeri aktarma işlemi sırasında yok sayılır ve kaydedilmez veya dışarı aktarma için korunur.
-* **Özyineleme** -olan tanımlara yinelemeli olarak tanımlanan (kendilerini gibi bakın) APIM tarafından desteklenmez.
+* Özel uzantılar içeri aktarma işlemi sırasında yok sayılır ve olmayan kaydedilmiş veya de dışarı aktarma için korunur.
+* **Özyineleme** -API Management, tanımlanan tanımları yinelemeli olarak (örneğin, kendilerini kaynağa başvuran) desteklemez.
+* Kaynak dosya URL'si (varsa) için göreli sunucu URL'leri uygulanır.
+
+### <a name="open-api-v2"> </a>Openapı sürüm 2
+
+* Yalnızca JSON biçimi desteklenmiyor.
+
+### <a name="open-api-v3"> </a>Openapı sürüm 3
+
+* Çok sayıda varsa **sunucuları** belirtilirse, API Management, ilk HTTPs URL'sini seçmek çalışır. -İlk HTTP URL'si HTTPs URL'leri değilseniz. HTTP URL'leri - değilse sunucu URL'si boş olur.
+* **Örnekler** desteklenmez, ancak **örnek** olduğu.
+* **Multipart/form-data** desteklenmiyor.
 
 > [!IMPORTANT]
 > OpenAPI içeri aktarma ile ilgili önemli bilgiler ve ipuçları için bu [belgeye](https://blogs.msdn.microsoft.com/apimanagement/2018/04/11/important-changes-to-openapi-import-and-export/) bakın.
@@ -43,9 +55,9 @@ Openapı belgenizi alma hataları alıyorsanız, doğrulandı, - ya da Azure por
 WSDL dosyaları, SOAP doğrudan API'ları oluşturmak veya bir SOAP ve REST API arka uç olarak sunmak için kullanılır.
 * **SOAP bağlamaları** -style "belgesi" ve "değişmez" kodlama yalnızca SOAP bağlamaları desteklenir. "Rpc" stil veya SOAP kodlamasına için desteği yoktur.
 * **WSDL: import** -bu özniteliği desteklenmiyor. Müşteriler, bir belgeye Imports birleştirmeniz gerekir.
-* **Birden çok bölümü olan iletiler** -iletileri bu tür desteklenmiyor.
-* **WCF wsHttpBinding** -Windows Communication Foundation ile oluşturulan SOAP Hizmetleri basicHttpBinding kullanması gereken - wsHttpBinding desteklenmiyor.
-* **MTOM** - MTOM kullanan hizmetler <em>olabilir</em> çalışır. Resmi destek şu anda sunulmaz.
+* **Birden çok bölümü olan iletiler** -bu tür iletileri desteklenmez.
+* **WCF wsHttpBinding** -Windows Communication Foundation ile oluşturulan SOAP Hizmetleri basicHttpBinding kullanması gereken - wsHttpBinding desteklenmez.
+* **MTOM** - MTOM kullanan hizmetler <em>olabilir</em> çalışır. Resmi destek şu anda sunulan değil.
 * **Özyineleme** -türlere yinelemeli olarak tanımlanan (örneğin, bir dizi kendileri için bakın) APIM tarafından desteklenmez.
 * **Birden çok ad** - birden çok ad şemada kullanılabilir, ancak yalnızca hedef ad alanı, ileti bölümlerini tanımlamak için kullanılabilir. Giriş veya çıkış diğer öğeleri tanımlamak için kullanılan ad alanları hedefinden korunmaz. Böyle bir WSDL belgesi aktarılabilen olsa da, dışarı aktarma üzerinde tüm ileti bölümleri WSDL hedef ad alanı olacaktır.
 

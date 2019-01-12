@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2018
+ms.date: 01/11/2019
 ms.author: barclayn
-ms.openlocfilehash: eed545c88b840f942ad763793595ef5b9c3cd19d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 69c4f08d93ee87a93d575d60e12890a0aebb1807
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233703"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244928"
 ---
 # <a name="microsoft-services-in-cybersecurity"></a>Microsoft siber güvenlik hizmetleri
 
-Microsoft Services güvenlik, kimlik ve siber güvenlik kapsamlı bir yaklaşım sağlar. Microsoft Services stratejisi planlama, uygulama ve sürekli destek arasında bir dizi güvenlik ve kimlik hizmetleri sağlar. Bu hizmetler Kurumsal müşteriler, stratejik hedefleriyle aynı doğrultuda ilerlemesini bütünsel güvenliği çözümlerini uygulamayı yardımcı olabilir.
+Microsoft Services güvenlik, kimlik ve siber güvenlik kapsamlı bir yaklaşım sağlar. Bir dizi güvenlik ve kimlik Hizmetleri stratejisi planlama, uygulama ve sürekli destek içerirler. Bu hizmetler Kurumsal müşteriler, stratejik hedefleriyle aynı doğrultuda ilerlemesini güvenliği çözümlerini uygulamayı yardımcı olabilir.
 
-Ürün geliştirme ekipleri, doğrudan erişim ile tümleştirilen çözümler oluşturabilmek ve en son güvenlik ve müşterilerimizin iş açılın ve yenilik hızını korumaya yardımcı olmak için kimlik özelliklerini ürünlerimizi geliştirmek.
+Microsoft Hizmetleri tümleştirme çözümleri oluşturabilir ve en son güvenlik ve iş ve yenilikleri korumaya yardımcı olmak için kimlik özelliklerini ürünlerimizi geliştirmek.
 
-Farklı grubumuz teknik uzmanları korumak ve dünyanın en büyük kuruluşların yardımcı olan tasarlamaları, çok sayıda güvenlik ve kimlik deneyimi sunan eğitimli uzmanlar oluşur.
+Teknik uzmanları ekibimiz, çok sayıda güvenlik ve kimlik deneyimi sunan eğitimli uzmanlar oluşur.
 
 Microsoft Services tarafından sağlanan hizmetleri hakkında daha fazla bilgi edinin:
 

@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: b656a82bab9be6f6c24ba0d418df9142a6a6c117
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 2c71b0abd5069aeb00b63fde8b76e5bb0fc0beda
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199774"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246441"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile modelleri dağıtma
 
@@ -410,3 +410,4 @@ Kayıtlı bir model silmek için kullanın `model.delete()`.
 * [Azure Machine Learning web hizmetleri SSL ile güvenli hale getirme](how-to-secure-web-service.md)
 * [Bir web hizmeti olarak ML modeli kullanma](how-to-consume-web-service.md)
 * [Batch Öngörüler çalıştırma](how-to-run-batch-predictions.md)
+* [Azure Machine Learning hizmeti ile Azure sanal ağları kullanın.](how-to-enable-virtual-network.md)

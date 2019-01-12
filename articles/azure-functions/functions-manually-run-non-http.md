@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 12/12/2018
 ms.author: cshoe
-ms.openlocfilehash: 00a72c8c7fb42c763a8b0bad1fa3914ac27c496f
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 6c77e58e626ba370a6278a0f01b09578930cba09
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53406939"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247121"
 ---
 # <a name="manually-run-a-non-http-triggered-function"></a>HTTP ile tetiklenmeyen bir işlevi el ile çalıştırma
 
@@ -51,19 +51,20 @@ Ana anahtarı kopyaladıktan sonra kod dosyası penceresine dönmek için işlev
 
 Postman'ı açın ve aşağıdaki adımları izleyin:
 
-1. Girin **URL'si metin kutusuna bir konum ister**. 
-2. **Tıklayın** üzerinde **üstbilgileri** sekmesi.
-3. Girin **x-işlevler-key** ilk olarak **anahtarı** ve ana anahtarı (panodan) yapıştırın **değer** kutusu.
-4. Girin **Content-Type** ikinci olarak **anahtarı** girin **application/json** olarak **değer**.
+1. Girin **URL'si metin kutusuna bir konum ister**.
+2. HTTP yöntemi ayarlandığından emin olun **POST**.
+3. **Tıklayın** üzerinde **üstbilgileri** sekmesi.
+4. Girin **x-işlevler-key** ilk olarak **anahtarı** ve ana anahtarı (panodan) yapıştırın **değer** kutusu.
+5. Girin **Content-Type** ikinci olarak **anahtarı** girin **application/json** olarak **değer**.
 
     ![Postman üstbilgi ayarları](./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png)
 
-5. **Tıklayın** üzerinde **gövdesi** sekmesi.
-6. Girin **{"Giriş": "test"}** istek gövdesi olarak.
+6. **Tıklayın** üzerinde **gövdesi** sekmesi.
+7. Girin **{"Giriş": "test"}** istek gövdesi olarak.
 
     ![Postman gövdesi ayarları](./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png)
 
-7. Tıklayın **Gönder**.
+8. Tıklayın **Gönder**.
 
     ![Postman isteği gönderme](./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png)
 

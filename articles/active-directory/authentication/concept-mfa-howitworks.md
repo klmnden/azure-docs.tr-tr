@@ -10,14 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 4a90dc1d97121426e7b161b1d5c92df78b0925a6
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 4e1dc4ded48330f19a11db193fa5fe400326b420
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114167"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232830"
 ---
-# <a name="how-it-works-azure-multi-factor-authentication"></a>Nasıl çalıştığını: Azure multi-Factor Authentication
+# <a name="how-it-works-azure-multi-factor-authentication"></a>Nasıl çalışır? Azure Multi-Factor Authentication
 
 İki aşamalı doğrulama, güvenlik, katmanlı bir yaklaşım arasındadır. Birden çok kimlik doğrulama faktörleri ödün saldırganlar için önemli bir sınama gösterir. Bir saldırgan kullanıcı parolasının öğrenmek yönetir olsa bile, bu da ek kimlik doğrulama yöntemi olarak sahip zorunda kalmadan kullanışsızdır. İki veya daha fazla aşağıdaki kimlik doğrulama yöntemlerini isteyerek çalışır:
 
@@ -27,7 +27,7 @@ ms.locfileid: "49114167"
 
 <center>![Kavramsal kimlik doğrulama yöntemleri görüntüsü](./media/concept-mfa-howitworks/methods.png)</center>
 
-Azure multi-Factor Authentication (MFA) erişimi korumaya yardımcı olur ve kolaylık olması için kullanıcıların sürdürürken uygulamalarınıza. İkinci bir form kimlik doğrulaması gerektirerek ek güvenlik sağlar ve kullanımı kolay bir dizi aracılığıyla güçlü kimlik doğrulaması sağladığını [kimlik doğrulama yöntemleri](concept-authentication-methods.md).
+Azure multi-Factor Authentication (MFA) erişimi korumaya yardımcı olur ve kolaylık olması için kullanıcıların sürdürürken uygulamalarınıza. İkinci bir form kimlik doğrulaması gerektirerek ek güvenlik sağlar ve kullanımı kolay bir dizi aracılığıyla güçlü kimlik doğrulaması sağladığını [kimlik doğrulama yöntemleri](concept-authentication-methods.md). Kullanıcılar olabilir veya yönetici sağlayan yapılandırma kararları dayalı mfa beden değil.
 
 ## <a name="how-to-get-multi-factor-authentication"></a>Multi-Factor Authentication'ı almak nasıl?
 

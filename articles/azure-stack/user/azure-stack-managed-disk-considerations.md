@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: jiahan
-ms.openlocfilehash: 3445974cf832b7ed594f704615482e1d9b0e351c
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 78cb969aa96378dd84243545be1678ae4eaf0e0e
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159375"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232541"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack yönetilen diskler: farklılıklar ve dikkat edilmesi gerekenler
 
@@ -65,14 +65,14 @@ Azure Stack yönetilen diskler aşağıdaki API sürümlerini destekler:
 
 - 2017-03-30
 
-## <a name="known-issues"></a>Bilinen Sorunlar
+## <a name="configuration"></a>Yapılandırma
 
-1808 sonra güncelleştirmeleri uygulandıktan sonra yönetilen disklere sahip VM'ler dağıtırken aşağıdaki sorunlarla karşılaşabilirsiniz:
+1808 uyguladıktan sonra güncelleştirme veya daha sonra yönetilen diskler kullanmadan önce aşağıdaki yapılandırma gerçekleştirmeniz gerekir:
 
-- Yönetilen disklerle bir VM dağıtma 1808 güncelleştirmeden önce Abonelik oluşturulurken bir iç hata iletisi ile başarısız olabilir. Hatayı gidermek için her abonelik için şu adımları izleyin:
+- Bir abonelik 1808 güncelleştirmeden önce oluşturulduysa, abonelik güncelleştirmek için aşağıdaki adımları izleyin. Aksi takdirde, bu abonelikte Vm'leri dağıtma "Disk yöneticisinde iç hata." hata iletisi ile başarısız olabilir
    1. Kiracı Portalı'nda Git **abonelikleri** ve aboneliği bulunamıyor. Tıklayın **kaynak sağlayıcıları**, ardından **Microsoft.Compute**ve ardından **yeniden kaydettirin**.
    2. Aynı abonelik altında Git **erişim denetimi (IAM)**, doğrulayın **Azure Stack – yönetilen Disk** listelenir.
-- Bir konuk dizin ile ilişkili bir abonelik içindeki Vm'leri dağıtma, çok kiracılı bir ortam yapılandırdıysanız, bir iç hata iletisi ile başarısız olabilir. Hatayı gidermek için aşağıdaki adımları izleyin. [bu makalede](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) her Konuk dizinlerinizi yeniden yapılandırmak için.
+- Çok kiracılı bir ortam kullanıyorsanız her Konuk dizinlerinizi yeniden isteyin, bulut işleci (Mayıs hizmet sağlayıcısından ya da kendi kuruluşunuzda) aşağıdaki adımları izleyin [bu makalede](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory). Aksi takdirde, bir konuk dizin ile ilişkili bir abonelik içindeki Vm'leri dağıtma "Disk yöneticisinde iç hata." hata iletisi ile başarısız olabilir
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

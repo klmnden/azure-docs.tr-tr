@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: ecb95f0440751a6cdbf81dbf02c62bed6b5e780b
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 88904b27e114c27dc7b1051c755d3c831c90554f
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51286699"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232482"
 ---
 # <a name="about-v20"></a>v2.0 Hakkında
 
@@ -30,13 +30,13 @@ Platform ve v2.0 uç noktası önizleme aşamasında bulunmuş ve sürekli olara
 > [!NOTE]
 > MSAL Android, iOS ve .NET için hala geliştirilmekte olan özellikler bulunmaktadır. Bunları kullanarak uygulamalar oluşturabilir ve bize geri bildirim gönderebilirsiniz.
 
-ADAL ve MSAL ile oluşturulmuş tüm uygulamalarınızı içermek ve kullanılabilirliğini artırmak için Azure portal geliştirici deneyimi önemli ölçüde güncelleştirilmiştir.
+Azure portalında [uygulama kayıtları (Önizleme)](quickstart-register-app.md) deneyimini önemli ölçüde güncelleştirildi artık ADAL veya MSAL ile oluşturulmuş tüm uygulamalarınızı içerir ve kullanılabilirliği iyileştirmek için.
 
 Geçmişte Azure Active Directory’deki (Azure AD) hem kişisel Microsoft hesaplarını hem de iş hesaplarını desteklemek isteyen uygulama geliştiricilerinin iki farklı sistemi kullanarak tümleştirmesi gerekirdi. V2.0 uç noktası ve platformu, bu süreci basitleştiren bir kimlik doğrulaması API sürümü sağlar. Bu, tek bir tümleştirme aracılığıyla iki hesap türünden de oturum açılabilmesini sağlar. V2.0 uç noktasını kullanan uygulamalar da iki hesap türünden birini kullanarak [Microsoft Graph API](https://developer.microsoft.com/graph)’deki REST API’lerini tüketebilir.
 
 ## <a name="getting-started"></a>Başlarken
 
-Microsoft açık kaynaklı kütüphane ve çerçevelerini kullanarak bir uygulama oluşturmak için aşağıdaki listeden favori platformunuzu seçin. Bir kimlik doğrulaması kütüphanesi kullanmadan doğrudan protokol iletileri almak ve göndermek için aynı zamanda OAuth 2.0 ve OpenID Connect protokollerini kullanabilirsiniz.
+Tercih ettiğiniz platform Microsoft kullanarak bir uygulama oluşturmak için aşağıdaki listeden açık kaynak kitaplıkları ve çerçeveleri seçin:
 
 [!INCLUDE [v2.0 endpoint platforms](../../../includes/active-directory-v2-quickstart-table.md)]
 
@@ -46,14 +46,12 @@ Azure AD v2.0 uç noktası ile yapabilecekleriniz hakkında bilgi edinin:
 
 * [Azure AD v2.0 uç noktası ile oluşturabileceğiniz uygulama türlerini](v2-app-types.md) keşfedin.
 * Azure AD v2.0 uç noktasının [sınırlamalarını, kısıtlamalarını ve engellerini](active-directory-v2-limitations.md) anlayın.
-* Azure AD v2.0 uç noktasına genel bir bakış için bu videoyu izleyin:
-
->[!VIDEO https://channel9.msdn.com/Events/Build/2017/P4031/player]
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 V2.0 hakkında ayrıntılı bilgileri keşfedin:
 
+* [Microsoft kimlik platformu hakkında](about-microsoft-identity-platform.md)
 * [v2.0 protokolleri başvurusu](active-directory-v2-protocols.md)
 * [Erişim belirteçleri başvurusu](access-tokens.md)
 * [Kimlik belirteçleri başvurusu](id-tokens.md)

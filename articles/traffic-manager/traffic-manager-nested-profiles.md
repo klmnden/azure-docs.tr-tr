@@ -1,9 +1,11 @@
 ---
-title: İç içe traffic Manager profilleri | Microsoft Docs
+title: Azure'da iç içe Traffic Manager profilleri
+titlesuffix: Azure Traffic Manager
 description: Bu makalede, Azure Traffic Manager'ın 'İç içe profiller' özelliği açıklanmaktadır.
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -11,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/22/2018
 ms.author: kumud
-ms.openlocfilehash: 876305c7195a186671c30c4bdd9bb0c6b5331e9a
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 6fb6b3e4476efec87b15d175d354afab777e6830
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648607"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54228835"
 ---
 # <a name="nested-traffic-manager-profiles"></a>İç İçe Traffic Manager profilleri
 
@@ -26,7 +28,7 @@ Traffic Manager profillerine tek bir trafik yönlendirme yöntemini belirtir. An
 
 Aşağıdaki örnekler, çeşitli senaryolarda iç içe Traffic Manager profilleri kullanmayı gösterir.
 
-## <a name="example-1-combining-performance-and-weighted-traffic-routing"></a>Örnek 1: Birleştirme 'Performans' ve 'Ağırlıklı' trafik yönlendirme
+## <a name="example-1-combining-performance-and-weighted-traffic-routing"></a>Örnek 1: 'Performans' ve 'Ağırlıklı' trafik yönlendirme birleştirme
 
 Bir uygulama aşağıdaki Azure bölgeleri içinde dağıttığınız varsayalım: Batı ABD, Batı Avrupa ve Doğu Asya. Kullanıcıya en yakın bölgeyi trafiği dağıtmak için Traffic Manager'ın 'Performans' trafik yönlendirme yöntemini kullanın.
 
@@ -61,7 +63,7 @@ Aşağıdaki şekilde, bu yapılandırma gösterilmektedir:
 > [!NOTE]
 > Trafik yönlendirme 'Öncelik' yöntemi, tek bir uç nokta tüm trafiği dağıtır. Bu nedenle var. az amaçlı '1' dışındaki bir MinChildEndpoints ayarı için bir alt profili
 
-## <a name="example-3-prioritized-failover-regions-in-performance-traffic-routing"></a>Örnek 3: 'Performans' trafik yönlendirme, yük devretme bölge öncelik
+## <a name="example-3-prioritized-failover-regions-in-performance-traffic-routing"></a>Örnek 3: 'Performans' trafik yönlendirme, öncelikli yük devretme bölgeleri
 
 Son kullanıcılara en düşük ağ gecikme süresi açısından "en yakın" uç noktasına yönlendirilir farklı coğrafi konumlarda uç noktaları varsa varsayılan 'Performans' trafik yönlendirme yöntemini davranışıdır.
 
@@ -73,7 +75,7 @@ Her iki bitiş noktası çevrimiçi olduğunda tüm trafiğin, Batı Avrupa uç 
 
 Bu düzen tüm bölgeler için yineleyebilirsiniz. Üst profilinde üç tüm uç noktalar her öncelikli yük devretme sırası sağlayan üç alt profil ile değiştirin.
 
-## <a name="example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region"></a>Örnek 4: 'Performans' aynı bölgede birden fazla uç noktalar arasında trafiği yönlendirme denetleme
+## <a name="example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region"></a>Örnek 4: Aynı bölgede birden fazla uç noktalar arasında trafiği 'Performans' yönlendirmesi denetleme
 
 Belirli bir bölgede birden fazla uç noktası olan bir profilde kullanılan trafik yönlendirme yöntemini 'Performans' varsayalım. Varsayılan olarak, bu bölgeye yönlendirilen trafik, bu bölgedeki tüm kullanılabilir uç noktalar arasında eşit olarak dağıtılır.
 

@@ -6,14 +6,14 @@ author: dsk-2015
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 10/26/2018
+ms.date: 12/27/2018
 ms.author: dkshir
-ms.openlocfilehash: 077dee19bbe32379bc88919117b3c61177828094
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 465dd2a69ad42b8b6a88268eb35a1aa7d8d922c5
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556110"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229405"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>Öğretici: Yapı ve Azure dijital İkizlerini koşullarla çalışma İzleyici sağlayın
 
@@ -30,6 +30,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 ## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticide, sahibi olduğunuzu varsayar [Azure dijital İkizlerini kurulumunuzu tamamlandı](tutorial-facilities-setup.md). Devam etmeden önce aşağıdakilere sahip olduğunuzdan emin olun:
+
 - Bir [Azure hesabı](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Çalışan bir Digital Twins örneği. 
 - Çalışma makinenize indirilmiş ve ayıklanmış [Digital Twins C# örnekleri](https://github.com/Azure-Samples/digital-twins-samples-csharp). 
@@ -37,6 +38,7 @@ Bu öğreticide, sahibi olduğunuzu varsayar [Azure dijital İkizlerini kurulumu
 - Örnek kodu incelemek için [Visual Studio Code](https://code.visualstudio.com/). 
 
 ## <a name="define-conditions-to-monitor"></a>İzleme koşullarını tanımlama
+
 Bir dizi adlı cihaz veya algılayıcı verileri, izlemek için belirli koşullar tanımlayabilirsiniz *matchers*. Daha sonra çağrılan işlevlerin tanımlayabilirsiniz *kullanıcı tanımlı işlevleri*. Kullanıcı tanımlı işlevleri matchers tarafından belirtilen koşullar meydana geldiğinde, boşluk ve cihazlar, söz konusu veriler üzerinde özel mantığı yürütün. Daha fazla bilgi için okuma [veri işleme ve kullanıcı tanımlı işlevleri](concepts-user-defined-functions.md). 
 
 Gelen **doluluk-quickstart** örnek proje, dosyayı açma **src\actions\provisionSample.yaml** Visual Studio code'da. **matchers** türü ile başlayan bölümü bulun. Her girişin altında bu tür bir Eşleştiricisi belirtilen oluşturur **adı**. Eşleştiricisi algılayıcı türündeki izleyecektir **dataTypeValue**. Adlı alanın nasıl ilişkili olduğunu fark *odak odası A1*, sahip olduğu bir **cihazları** birkaç algılayıcıdan içeren düğüm. Bu sensörlerden birini izleyeceği Eşleştiricisi sağlamak için emin olun, **dataTypeValue** algılayıcının eşleşen **dataType**. 
@@ -48,14 +50,15 @@ Aşağıdaki Eşleştiricisi mevcut matchers altına ekleyin. Anahtarları hizal
         dataTypeValue: Temperature
 ```
 
-Bu Eşleştiricisi eklediğiniz SAMPLE_SENSOR_TEMPERATURE algılayıcı izleyeceği [ilk öğreticide](tutorial-facilities-setup.md). Bu satırlar da içinde mevcut *provisionSample.yaml* dosyası olarak geçersiz kılınan satır. Bunları kaldırarak açıklamasını `#` önünde her satırın karakter. 
+Bu Eşleştiricisi eklediğiniz SAMPLE_SENSOR_TEMPERATURE algılayıcı izleyeceği [ilk öğreticide](tutorial-facilities-setup.md). Bu satırlar da içinde mevcut *provisionSample.yaml* dosyası olarak geçersiz kılınan satır. Bunları kaldırarak açıklamasını `#` önünde her satırın karakter.
 
-<a id="udf" />
+<a id="udf"></a>
 
 ## <a name="create-a-user-defined-function"></a>Kullanıcı tanımlı işlev oluşturma
+
 Kullanıcı tanımlı işlevler, sensör verileriniz işlenmesini özelleştirmek için kullanabilirsiniz. Azure dijital İkizlerini örneğinizin içinde matchers tarafından açıklandığı gibi belirli koşullar meydana geldiğinde çalıştırılabilen özel JavaScript kodu oldukları. Matchers ve izlemek istediğiniz her bir algılayıcı için kullanıcı tanımlı işlevler oluşturabilirsiniz. Daha fazla bilgi için okuma [veri işleme ve kullanıcı tanımlı işlevleri](concepts-user-defined-functions.md). 
 
-Türü ile başlayan bir bölümde örnek provisionSample.yaml dosyasında arayın **userdefinedfunctions**. Bu bölüm olan bir kullanıcı tanımlı işlev sağlayan bir verilen **adı**. Altında matchers listesi bu UDF gerçekleştirildiği **matcherNames**. UDF için kendi JavaScript dosyanızı **script** bölümünde sağlayabilirsiniz. 
+Türü ile başlayan bir bölümde örnek provisionSample.yaml dosyasında arayın **userdefinedfunctions**. Bu bölüm olan bir kullanıcı tanımlı işlev sağlayan bir verilen **adı**. Altında matchers listesi bu UDF gerçekleştirildiği **matcherNames**. UDF için kendi JavaScript dosyanızı **script** bölümünde sağlayabilirsiniz.
 
 Ayrıca **roleassignments** adlı bölüme de dikkat edin. Bu alan Yönetici rolü için kullanıcı tanımlı işlevi atar. Bu rol herhangi sağlanan alanları gelen olayları erişmesine izin verir. 
 
@@ -188,7 +191,7 @@ Ayrıca **roleassignments** adlı bölüme de dikkat edin. Bu alan Yönetici rol
 > [!TIP]
 > Benzer bir hata iletisi alırsanız "g/ç işlemi bir iş parçacığı çıkış veya bir uygulama isteği nedeniyle ortasında sağlama iptal edildi", komutu yeniden çalıştırmayı deneyin. HTTP istemcisi bir ağ sorunu zaman aşımına uğradı alıyorsa bu durum gerçekleşebilir.
 
-<a id="simulate" />
+<a id="simulate"></a>
 
 ## <a name="simulate-sensor-data"></a>Sensör verilerinin simülasyonunu yapma
 
@@ -202,13 +205,13 @@ Bu bölümde, adlı proje kullanacağınız *cihaz bağlantısı* örnekteki. Ha
     dotnet restore
     ```
 
-1. Açık **appSettings.json** Düzenleyicisi'nde dosya ve aşağıdaki değerleri düzenleyin:
+1. Açık [appsettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json) Düzenleyicisi'nde dosya ve aşağıdaki değerleri düzenleyin:
 
    a. **DeviceConnectionString**: Değeri atamak `ConnectionString` çıktı penceresinde önceki bölümde. Simülatör ile IOT hub'ı düzgün şekilde bağlanabilmesi için bu dize tamamen tırnak içine kopyalayın.
 
    b. **HardwareId** içinde **algılayıcılar** dizisi: Azure dijital İkizlerini Örneğinize sağlanan sensörlerden alınan olayları benzetiminin yapıldığı için donanım Kimliğini ve bu dosyadaki algılayıcı adlarını eşleşmelidir `sensors` provisionSample.yaml dosyasının düğümü.
 
-      Sıcaklık algılayıcı için yeni bir giriş ekleyin. **Algılayıcılar** appSettings.json düğümünde, aşağıdaki gibi görünmelidir:
+      Sıcaklık algılayıcı için yeni bir giriş ekleyin. **Algılayıcılar** appsettings.json düğümünde, aşağıdaki gibi görünmelidir:
 
       ```JSON
       "Sensors": [{
@@ -233,6 +236,7 @@ Bu bölümde, adlı proje kullanacağınız *cihaz bağlantısı* örnekteki. Ha
    > Benzetim örneği doğrudan dijital İkizlerini örneğinizle iletişim kurmaz olduğundan, sizden kimlik doğrulaması yapmanızı gerektirmez.
 
 ## <a name="get-results-of-the-user-defined-function"></a>Kullanıcı tanımlı işlevin sonuçlarını Al
+
 Örneğiniz cihaz ve sensör verilerini her aldığında kullanıcı tanımlı işlev çalışır. Bu bölümde, kullanıcı tanımlı işlev sonuçlarını almak için Azure dijital İkizlerini örneğinizin sorgular. Oda uzaktan canlıyken ve sıcaklık doğru kullanılabilir olduğunda, neredeyse gerçek zamanlı olarak görürsünüz. 
 
 1. Örnek veya yeni bir komut penceresi sağlamak ve Git için kullanılan komut penceresi açın **doluluk quickstart\src** örnek yeniden klasörü.

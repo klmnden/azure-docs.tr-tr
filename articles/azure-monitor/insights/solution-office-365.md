@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: a97a3330ff99cada3921f98b76cf08ed7a464bcc
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 3eb1228ed9d15fb976f94df114f8725a8c41599d
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156570"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230467"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Office 365 Yönetim çözümüne (Önizleme)
 
@@ -516,7 +516,7 @@ Aşağıdaki özellikler, tüm Office 365 kayıtlarına yaygındır.
 | İşlem | Kullanıcı veya yönetici etkinliğinin adı.  |
 | OrganizationId | Kuruluşunuzun Office 365 kiracısı için GUID. Bu değer her zaman içinde gerçekleştiği Office 365 hizmet ne olursa olsun, kuruluşunuz için aynı olacaktır. |
 | RecordType | Gerçekleştirilen işlem türü. |
-| ResultStatus | Eylemin (Operation özelliğinde belirtilen) başarılı olup olmadığını gösterir. Olası değerler şunlardır: Succeeded, PartiallySucceded veya Failed. Exchange yönetim etkinliği için ya da True değeridir ya da yanlış. |
+| ResultStatus | Eylemin (Operation özelliğinde belirtilen) başarılı olup olmadığını gösterir. Olası değerler şunlardır: başarılı oldu, kısmen başarılı veya başarısız oldu. Exchange yönetim etkinliği için ya da True değeridir ya da yanlış. |
 | UserId | UPN'sini (kullanıcı asıl adı) günlüğe kaydedilmesini kaydında sonuçlanan eylemi gerçekleştiren kullanıcının; Örneğin, my_name@my_domain_name. Sistem hesapları (sharepoınt\system veya gibi ntauthority\system adlı) tarafından gerçekleştirilen etkinlik kayıtları da dahil edilir. | 
 | UserKey | Kullanıcı Kimliği özelliğinde belirtilen kullanıcı için alternatif bir kimliği.  Örneğin, bu özellik, kullanıcıların SharePoint, OneDrive iş ve Exchange için gerçekleştirilen olayları için passport benzersiz Tanımlayıcısı (PUID) ile doldurulur. Bu özellik, diğer hizmetler ve sistem hesapları tarafından gerçekleştirilen olayları gerçekleşen olayları için kullanıcı kimliği özelliği olarak aynı değeri de belirtebilirsiniz|
 | UserType | İşlemi gerçekleştiren kullanıcının türü.<br><br>Yönetim Bölgesi<br>Uygulama<br>DcAdmin<br>Normal<br>Ayrılmış<br>ServicePrincipal<br>Sistem |

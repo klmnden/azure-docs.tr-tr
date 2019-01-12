@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/18/2018
 ms.author: mabrigg
-ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: e4da34be5b1e9eb2675f540fe4069cfd3dc1d056
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.reviewer: anajod
+ms.openlocfilehash: 95fcb98e9ca6ff85e37ee88d5a5122ffa6887bb4
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49410302"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245217"
 ---
 # <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>Öğretici: Azure ve Azure Stack ile karma bulut çözümü dağıtma
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 Bu öğreticide, Azure genel bulutunda ve Azure Stack özel bulut kullanan bir karma bulut çözümü dağıtma işlemini göstermektedir.
 
@@ -194,7 +194,7 @@ App Service'nın Azure Vnet ile nasıl tümleştirildiği hakkında daha fazla b
 
 Yerel ağ geçidi Azure Stack sanal ağ trafiği yönlendirmek için App Service noktadan siteye adres aralığından yapılandırılması gerekir.
 
-1. Azure Stack'te gidin **yerel ağ geçidi**. Altında **ayarları**seçin **yapılandırma**.
+1. Azure Stack'te gidin **yerel ağ geçidi**. **Ayarlar** altında **Yapılandırma**'yı seçin.
 
     ![Ağ geçidi yapılandırma seçeneği](media/azure-stack-solution-hybrid-cloud/image14.png)
 

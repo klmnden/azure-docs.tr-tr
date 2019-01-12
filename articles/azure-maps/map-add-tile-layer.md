@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: b61602d221c71fd756a23f338f2817561e9f5d09
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 8e18822fff852a82b367acfa45e3d55048b4e54c
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215091"
+ms.locfileid: "54232609"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>Döşeme katmanı haritaya eklemek
 
@@ -27,7 +27,7 @@ Kutucuklarda bir sunucudan bir kutucuk. Katman yük. Bu görüntüleri önceden 
 * Görüntü biçimi belirtmek için sınırlayıcı kutu - sınırlama kutusu koordinatları kullanılabilir `{west},{south},{east},{north}` yaygın olarak kullanılan tarafından [Web eşleme Hizmetleri (WMS)](https://www.opengeospatial.org/standards/wms).
 
 > [!TIP]
-> A [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) harita üzerinde büyük veri kümeleri görselleştirmek için harika bir yoludur. Yalnızca bir görüntüden bir döşeme katmanı oluşturulabilir ancak vektör verilerini de bir döşeme katmanı çok işlenebilir. Döşeme katmanı olarak vektör verilerini işleyerek harita denetiminin yalnızca temsil ettikleri vektör verilerini dosya boyutu çok küçük olabilen kutucukları yüklemesi gerekir. Bu teknik, harita üzerinde veri satırı milyonlarca işlemek için gereken çoğu tarafından kullanılır.
+> A [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) harita üzerinde büyük veri kümeleri görselleştirmek için harika bir yoludur. Yalnızca bir görüntüden bir döşeme katmanı oluşturulabilir ancak vektör verilerini de bir döşeme katmanı çok işlenebilir. Döşeme katmanı olarak vektör verilerini işleyerek harita denetiminin yalnızca temsil ettikleri vektör verilerini dosya boyutu çok küçük olabilen kutucukları yüklemesi gerekir. Bu teknik, milyonlarca satır harita üzerinde veri işlemek için gereken çoğu tarafından kullanılır.
 
 Bir döşeme katmanı geçirilen kutucuk URL'si TileJSON kaynak veya aşağıdaki parametreleri kullanan bir kutucuk URL şablonu bir http/https URL'si olması gerekir: 
 

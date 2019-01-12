@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 01/20/2017
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 140e45270cf29eec48df260efa29b8aacac2d855
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: cb8964bdbdfe575630f6e65a79d53aac76a76d45
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580476"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232116"
 ---
 # <a name="how-to-analyze-videos-in-real-time"></a>Gerçek Zamanlı Videoları Analiz Etme
 Bu kılavuzda, canlı video akışından alınan karelerde nasıl gerçek zamanlıya yakın analiz gerçekleştirileceği gösterilmektedir. Böyle bir sistemdeki temel bileşenler şunlardır:
@@ -195,12 +195,6 @@ Bu örneği kullanmaya başlamak için şu adımları izleyin:
         
 
 Tümleştirmeye hazır olduğunuzda **kendi projelerinizden VideoFrameAnalyzer kitaplığına başvurmanız yeterlidir.** 
-
-
-
-## <a name="developer-code-of-conduct"></a>Geliştirici Kullanım Kuralları
-Tüm Bilişsel Hizmetler’de olduğu gibi, API’lerimiz ve örneklerimizle geliştirme yapan Geliştiricilerin "[Microsoft Bilişsel Hizmetler için Geliştirici Kullanım Kuralları](https://azure.microsoft.com/support/legal/developer-code-of-conduct/)"nı izlemesi gerekir. 
-
 
 VideoFrameAnalyzer görüntü, ses, video veya metin anlama özellikleri, Azure Bilişsel Hizmetler’i kullanır. Microsoft, (bu uygulama aracılığıyla) karşıya yüklediğiniz görüntüleri, ses, video ve diğer verileri alır ve hizmeti iyileştirme amacıyla bunları kullanabilir. Uygulamanızın verilerini Azure Bilişsel Hizmetler’e gönderdiği kişilerin korunması için yardımınızı rica ediyoruz. 
 

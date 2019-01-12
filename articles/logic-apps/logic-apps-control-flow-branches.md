@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: 68f7df2ab004477fae5df1d200fcd44929465e93
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 2e1c155a371fa96e4f772f632a9585948b012e54
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233132"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232252"
 ---
 # <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>Oluşturun veya Azure Logic Apps'te iş akışı eylemi için paralel dallarından katılın
 
@@ -37,7 +37,7 @@ Bağımsız adım aynı anda çalıştırmak için var olan bir adım yanında, 
 
 ![Paralel çalıştırma adımları](media/logic-apps-control-flow-branches/parallel.png)
 
-Mantıksal uygulamanızı tüm dallar, iş akışı devam etmeden önce tamamlanmasını bekler. Paralel dalları yalnızca çalıştırma kendi `runAfter` özellik değerlerini eşleşen tamamlanmış üst adımının durumu. Örneğin, her ikisi de `branchAction1` ve `branchAction2` yalnızca çalıştırmayı ayarlamak `parentAction` ile tamamlandıktan `Succeded` durumu.
+Mantıksal uygulamanızı tüm dallar, iş akışı devam etmeden önce tamamlanmasını bekler. Paralel dalları yalnızca çalıştırma kendi `runAfter` özellik değerlerini eşleşen tamamlanmış üst adımının durumu. Örneğin, her ikisi de `branchAction1` ve `branchAction2` yalnızca çalıştırmayı ayarlamak `parentAction` ile tamamlandıktan `Succeeded` durumu.
 
 > [!NOTE]
 > Başlamadan önce mantıksal uygulamanız zaten bir adım, paralel dallarından ekleyebileceğiniz olması gerekir.

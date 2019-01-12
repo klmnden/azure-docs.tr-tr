@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 200f36ee5312c92bed7dc9a7ffa29a0ee4993c43
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: ddef3ba2f1fa14445b0a06670d8f18abe76911ab
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103375"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230365"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Event Hubs kullanarak Azure Tanılama verileri etkin yolu akış
 Azure Tanılama, bulut Hizmetleri sanal makinelerden (VM'ler) ölçümlerini ve günlüklerini toplamak ve sonuçları Azure depolama alanına aktarmak için esnek bir yol sağlar. Mart 2016 (SDK 2.9) zaman çerçevesinde başlayarak, özel veri kaynakları için Tanılama verileri gönderme ve sık kullanılan yol veri aktarma saniyeler içinde kullanarak [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/).
@@ -35,7 +35,7 @@ Bu makalede Azure tanılama Event Hubs ile uçtan uca yapılandırma gösterilme
 * Bağlantı sorunlarını giderme  
 
 ## <a name="prerequisites"></a>Önkoşullar
-Olay hub'ları receieving Azure Tanılama'yı verilerden bulut Hizmetleri, VM'ler, sanal makine ölçek kümeleri ve Service Fabric karşılık gelen Azure Araçları ve Azure SDK 2.9 ile Visual Studio için başlangıç desteklenir.
+Event Hubs'a, Azure tanılama verilerini alma, bulut Hizmetleri, VM'ler, sanal makine ölçek kümeleri ve Service Fabric karşılık gelen Azure Araçları ve Azure SDK 2.9 ile Visual Studio için başlangıç desteklenir.
 
 * Azure tanılama uzantısını 1.6 ([veya daha sonra .NET 2.9 için Azure SDK](https://azure.microsoft.com/downloads/) varsayılan olarak bu hedefler)
 * [Visual Studio 2013 veya üzeri](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)

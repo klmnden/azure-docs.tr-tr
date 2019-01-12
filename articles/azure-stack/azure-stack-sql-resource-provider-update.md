@@ -11,30 +11,30 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2019
+ms.date: 01/11/2019
 ms.author: jeffgilb
-ms.reviewer: georgel
-ms.openlocfilehash: b39cc799218a4c6f865acac8b98f5fb977c83bdc
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.reviewer: jiahan
+ms.openlocfilehash: 00a7644663b4628d20dbe598def158bc120a7aee
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117801"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245472"
 ---
 # <a name="update-the-sql-resource-provider"></a>SQL kaynak sağlayıcısını güncelle
 
 *Uygulama hedefi: Azure Stack tümleşik sistemleri.*
 
-Yeni bir SQL kaynak sağlayıcısı, Azure Stack için yeni bir derleme güncelleştirildiğinde yayımlanan. Mevcut bağdaştırıcısı çalışmaya devam eder, ancak için en son sürüme mümkün olan en kısa sürede güncelleştirilmesi öneririz.
+Yeni bir SQL kaynak sağlayıcısı, Azure Stack için yeni bir derleme güncelleştirildiğinde yayımlanan. Mevcut kaynak sağlayıcısını çalışmaya devam eder, ancak için en son sürüme mümkün olan en kısa sürede güncelleştirilmesi öneririz. 
 
-> [!IMPORTANT]
-> Güncelleştirmeleri yayımlandıktan sırayla yüklemeniz gerekir. Sürümleri atlayamazsınız. Sürümleri listesinde başvurmak [kaynak sağlayıcı önkoşulları dağıtma](./azure-stack-sql-resource-provider-deploy.md#prerequisites).
-
-## <a name="overview"></a>Genel Bakış
+SQL kaynak sağlayıcısı sürüm 1.1.33.0 sürümünden başlayarak, güncelleştirmeleri birikmeli özelliktedir ve yayımlanmış olan yüklü olması gerekmez; Başlangıç 1.1.24.0 sürümünden veya üzeri olduğu sürece. SQL kaynak sağlayıcısı 1.1.24.0 sürümünü çalıştırıyorsanız, örneğin, ardından 1.1.33.0 sürümüne veya daha sonra ilk sürümünü 1.1.30.0 yüklemeye gerek olmadan yükseltebilirsiniz. Kullanılabilir kaynak sağlayıcısı sürümleri ve üzerinde desteklenir, Azure Stack sürümünü gözden geçirmek için sürümleri listesinde bakın [kaynak sağlayıcı önkoşulları dağıtma](./azure-stack-sql-resource-provider-deploy.md#prerequisites).
 
 Kaynak Sağlayıcısı'nı güncelleştirmek için *UpdateSQLProvider.ps1* betiği. Bu betik yeni SQL kaynak Sağlayıcısı'nin karşıdan yüklemesiyle dahil edilir. Güncelleştirme işlemi için kullanılan işleme benzer [kaynak sağlayıcısı dağıtma](./azure-stack-sql-resource-provider-deploy.md). Güncelleştirme betiğini DeploySqlProvider.ps1 komut dosyası olarak aynı bağımsız değişkenleri kullanır ve sertifika bilgilerini sağlamanız gerekir.
 
-### <a name="update-script-processes"></a>Güncelleştirme betik işlemleri
+ > [!IMPORTANT]
+ > Kaynak Sağlayıcısı'nı yükseltmeden önce yeni işlevler, düzeltmeler ve dağıtımınızı etkileyebilecek bilinen sorunlar hakkında bilgi edinmek için sürüm notlarını gözden geçirin.
+
+## <a name="update-script-processes"></a>Güncelleştirme betik işlemleri
 
 *UpdateSQLProvider.ps1* betik en son kaynak sağlayıcı kodu ile yeni bir sanal makine (VM) oluşturur.
 
@@ -47,11 +47,26 @@ Sonra *UpdateSQLProvider.ps1* betik yeni bir VM oluşturur, betik aşağıdaki a
 * barındırma sunucusu bilgileri
 * gerekli DNS kaydı
 
-### <a name="update-script-powershell-example"></a>PowerShell örnek betiği güncelleştir
+## <a name="update-script-parameters"></a>Betik parametreleri güncelleştirin
 
-Düzenle ve yükseltilmiş bir PowerShell ISE'den aşağıdaki betiği çalıştırın. 
+Programını çalıştırdığınızda, komut satırından aşağıdaki parametreleri belirtebilirsiniz **UpdateSQLProvider.ps1** PowerShell Betiği. Yoksa veya herhangi bir parametre doğrulaması başarısız olursa, gerekli parametreleri sağlamanız istenir.
 
-Ortamınız için gerektiği şekilde parola ve hesap bilgilerini değiştirmeyi unutmayın.
+| Parametre adı | Açıklama | Açıklama veya varsayılan değeri |
+| --- | --- | --- |
+| **CloudAdminCredential** | Ayrıcalıklı uç nokta erişmek için gerekli bulut Yöneticisi kimlik bilgileri. | _Gerekli_ |
+| **AzCredential** | Azure Stack hizmet yönetici hesabının kimlik bilgileri. Azure Stack dağıtmak için kullanılan kimlik bilgilerini kullanın. | _Gerekli_ |
+| **VMLocalCredential** | SQL kaynak sağlayıcısı VM yerel yönetici hesabı için kimlik bilgileri. | _Gerekli_ |
+| **PrivilegedEndpoint** | Ayrıcalıklı uç noktasının DNS adı veya IP adresi. |  _Gerekli_ |
+| **AzureEnvironment** | Azure Stack dağıtmak için kullanılan hizmet yönetici hesabının Azure ortamı. Yalnızca Azure AD dağıtımları için gereklidir. Desteklenen ortam adları **AzureCloud**, **AzureUSGovernment**, veya bir Azure AD, Çin kullanıyorsanız **AzureChinaCloud**. | AzureCloud |
+| **DependencyFilesLocalPath** | Ayrıca, sertifika .pfx dosyasını bu dizinde yerleştirmeniz gerekir. | _Çok düğümlü zorunlu ancak tek bir düğüm için isteğe bağlı_ |
+| **DefaultSSLCertificatePassword** | .Pfx sertifika için parola. | _Gerekli_ |
+| **MaxRetryCount** | Her işlem bir hata olursa yeniden denemek istiyor sayısı.| 2 |
+| **RetryDuration** |Saniye cinsinden yeniden denemeler arasındaki zaman aşımı aralığı. | 120 |
+| **Kaldırma** | Kaynak sağlayıcısı ile ilişkili tüm kaynakları kaldırır. | Hayır |
+| **DebugMode** | Otomatik temizleme başarısız engeller. | Hayır |
+
+## <a name="update-script-powershell-example"></a>PowerShell örnek betiği güncelleştir
+Kullanımının bir örneği verilmiştir *UpdateSQLProvider.ps1* yükseltilmiş bir PowerShell konsolundan çalıştırarak betiği. Değişken bilgileri ve parolaları gerektiği şekilde değiştirdiğinizden emin olun:  
 
 > [!NOTE]
 > Bu güncelleştirme işlemi, yalnızca Azure Stack tümleşik sistemleri için geçerlidir.
@@ -101,24 +116,6 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
   -DependencyFilesLocalPath $tempDir\cert `
 
  ```
-
-## <a name="updatesqlproviderps1-parameters"></a>UpdateSQLProvider.ps1 parametreleri
-
-Betiği çalıştırdığınızda, komut satırından aşağıdaki parametreleri belirtebilirsiniz. Yoksa veya herhangi bir parametre doğrulaması başarısız olursa, gerekli parametreleri sağlamanız istenir.
-
-| Parametre adı | Açıklama | Açıklama veya varsayılan değeri |
-| --- | --- | --- |
-| **CloudAdminCredential** | Ayrıcalıklı uç nokta erişmek için gerekli bulut Yöneticisi kimlik bilgileri. | _Gerekli_ |
-| **AzCredential** | Azure Stack hizmet yönetici hesabının kimlik bilgileri. Azure Stack dağıtmak için kullanılan kimlik bilgilerini kullanın. | _Gerekli_ |
-| **VMLocalCredential** | SQL kaynak sağlayıcısı VM yerel yönetici hesabı için kimlik bilgileri. | _Gerekli_ |
-| **PrivilegedEndpoint** | Ayrıcalıklı uç noktasının DNS adı veya IP adresi. |  _Gerekli_ |
-| **AzureEnvironment** | Azure Stack dağıtmak için kullanılan hizmet yönetici hesabının Azure ortamı. Yalnızca Azure AD dağıtımları için gereklidir. Desteklenen ortam adları **AzureCloud**, **AzureUSGovernment**, veya bir Azure AD, Çin kullanıyorsanız **AzureChinaCloud**. | AzureCloud |
-| **DependencyFilesLocalPath** | Ayrıca, sertifika .pfx dosyasını bu dizinde yerleştirmeniz gerekir. | _Çok düğümlü zorunlu ancak tek bir düğüm için isteğe bağlı_ |
-| **DefaultSSLCertificatePassword** | .Pfx sertifika için parola. | _Gerekli_ |
-| **MaxRetryCount** | Her işlem bir hata olursa yeniden denemek istiyor sayısı.| 2 |
-| **RetryDuration** |Saniye cinsinden yeniden denemeler arasındaki zaman aşımı aralığı. | 120 |
-| **Kaldırma** | Kaynak sağlayıcısı ile ilişkili tüm kaynakları kaldırır. | Hayır |
-| **DebugMode** | Otomatik temizleme başarısız engeller. | Hayır |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

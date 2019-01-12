@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 71987fcde08c5098d98d21405ce79e61d3094424
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 6c8f48ce71e11d1de0c28b4dab5327ab03e54f28
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186064"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231793"
 ---
 # <a name="manage-workspaces"></a>Çalışma alanlarını yönetme
 
@@ -40,7 +40,7 @@ Günümüzde bir çalışma alanı aşağıdakileri sağlar:
 
 * Veri depolama için coğrafi bir konum
 * Farklı kullanıcı erişim haklarını tanımlamak için veri yalıtımı
-* Kapsam yapılandırmasına yönelik bekletme ve veri capping gibi ayarları
+* Kapsam ayarlarının yapılandırılması için ister [fiyatlandırma katmanı](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), [bekletme](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period) ve [veri capping](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-cost-storage#daily-cap) 
 
 Tüketimi açısından, mümkün olduğunca az çalışma alanları oluşturma öneririz. Yönetim ve sorgu deneyimi daha kolay ve hızlı kolaylaştırır. Ancak, önceki özelliklere bağlı olarak, durumlarda birden çok çalışma alanı oluşturmak isteyebilirsiniz:
 
@@ -145,96 +145,6 @@ Bu rolleri, kullanıcılara farklı kapsamlarda erişim vermek için kullanın:
 - Kaynak - Yalnızca belirtilen çalışma alanına erişim
 
 Doğru erişim denetimi sağlamak için atamaları kaynak düzeyinde (çalışma alanında) gerçekleştirmenizi öneririz.  Gereken özel izinlere sahip rolleri oluşturmak için [özel rolleri](../../role-based-access-control/custom-roles.md) kullanın.
-
-## <a name="link-an-existing-workspace-to-an-azure-subscription"></a>Mevcut bir çalışma alanını Azure aboneliğine bağlama
-26 Eylül 2016'dan sonra oluşturulan tüm çalışma alanları, oluşturma zamanında bir Azure aboneliğine bağlanmalıdır. Bu tarihten önce oluşturulan çalışma alanları, oturum açtığınızda bir çalışma alanına bağlanmalıdır. Çalışma alanını Azure portalından oluşturduğunuzda veya çalışma alanınızı bir Azure aboneliğine bağladığınızda, Azure Active Directory'niz kuruluş hesabınız olarak bağlanır.
-
-### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-azure-portal"></a>Çalışma alanını, Azure portalında bir Azure aboneliğine bağlama
-1. Azure portalında **Tüm hizmetler**’e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.  
-
-2. Log Analytics abonelikleri bölmesinde tıklatın **Ekle**.  
-
-    ![çalışma alanlarının listesi](./media/manage-access/workspace-link-existing-01.png)
-
-3. Gelen **Log Analytics çalışma alanı** bölmesinde tıklayın **bağlamak varolan**.  
-
-4. **Gerekli ayarları yapılandır**'a tıklayın.  
-
-5. Henüz Azure hesabınıza bağlanmamış olan çalışma alanlarının listesini görürsünüz. Çalışma alanını seçin.  
-   
-6. Gerekirse şu öğelere ilişkin değerleri değiştirebilirsiniz:
-   * Abonelik
-   * Kaynak grubu
-   * Konum
-   * Fiyatlandırma katmanı  
-
-7. **Tamam** düğmesine tıklayın. Çalışma alanı artık Azure hesabınıza bağlı.
-
-> [!NOTE]
-> Bağlamak istediğiniz çalışma alanını görmüyorsanız Azure aboneliğinizin, OMS portalını kullanarak oluşturduğunuz çalışma alanına erişimi yoktur.  OMS portalından bu hesaba erişim vermek için bkz. [Mevcut bir çalışma alanına kullanıcı ekleme](#add-a-user-to-an-existing-workspace).
->
->
-
-## <a name="upgrade-a-workspace-to-a-paid-plan"></a>Çalışma alanını ücretli plana yükseltme
-OMS için üç çalışma alanı plan türü vardır: **Ücretsiz**, **tek başına**, ve **OMS**.  *Ücretsiz* plandaysanız bir günde Log Analytics’e gönderilebilecek veriler için üst sınır 500 MB’dir.  Bu miktarı aşarsanız bu sınırın üzerinde veri toplanmasını önlemek için çalışma alanınızı ücretli bir planla değiştirmeniz gerekir. Plan türünüzü istediğiniz zaman değiştirebilirsiniz.  OMS fiyatlandırması hakkında daha fazla bilgi için bkz. [Fiyatlandırma Ayrıntıları](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite-pricing).
-
-### <a name="using-entitlements-from-an-oms-subscription"></a>Bir OMS aboneliğinden gelen destek haklarını kullanma
-OMS E1, OMS E2 OMS veya System Center için OMS Eklentisi satın alındıktan sonra sunulan destek haklarını kullanmak için OMS Log Analytics’in *OMS* planını seçin.
-
-Bir OMS aboneliği satın aldığınızda, destek hakları Kurumsal Anlaşmanıza eklenir. Bu anlaşma kapsamında oluşturulan herhangi bir Azure aboneliği bu destek haklarını kullanabilir. Bu aboneliklerdeki tüm çalışma alanları OMS yetkilendirmelerini kullanır.
-
-Çalışma alanı kullanımının, OMS aboneliğinden gelen destek haklarınıza uygulandığından emin olmak için şunları yapmanız gerekir:
-
-1. OMS aboneliğini içeren Kurumsal Anlaşmanın parçası olan Azure aboneliğinde çalışma alanınızı oluşturma
-
-2. Çalışma alanı için *OMS* planını seçme
-
-> [!NOTE]
-> Çalışma alanınız 26 Eylül 2016’dan önce oluşturulduysa ve Log Analytics fiyatlandırma planınız *Premium* ise, bu çalışma alanı System Center için OMS Eklentisi’nden gelen destek haklarını kullanır. Destek haklarınızı, *OMS* fiyatlandırma katmanına geçerek de kullanabilirsiniz.
->
->
-
-OMS aboneliği destek hakları Azure Portalı'nda görünmez. Destek haklarını ve kullanımı Enterprise Portal'da görebilirsiniz.  
-
-Çalışma alanınızın bağlı olduğu Azure aboneliğini değiştirmeniz gerekiyorsa Azure PowerShell [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) cmdlet'ini kullanabilirsiniz.
-
-### <a name="using-azure-commitment-from-an-enterprise-agreement"></a>Kurumsal Anlaşmadaki bir Azure Taahhüdünü Kullanma
-OMS aboneliğiniz yoksa OMS’nin her bir bileşeni için ayrı olarak ödeme yaparsınız ve kullanım Azure faturanızda görünür.
-
-Azure aboneliklerinizin bağlı olduğu kurumsal kayıt anlaşmasında bir Azure parasal taahhüdünüz varsa Log Analytics kullanımı, kalan parasal taahhüde otomatik olarak eklenir.
-
-Çalışma alanının bağlı olduğu Azure aboneliğini değiştirmeniz gerekiyorsa Azure PowerShell [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) cmdlet'ini kullanabilirsiniz.  
-
-### <a name="change-a-workspace-to-a-paid-pricing-tier-in-the-azure-portal"></a>Azure portalında çalışma alanını ücretli fiyatlandırma katmanı olarak değiştirme
-1. Azure portalında Log Analytics abonelikleri bölmesinde, bir çalışma alanı seçin.
-
-2. Çalışma Alanı bölmesinden altında **genel**seçin **fiyatlandırma katmanı**.  
-
-3. Altında **fiyatlandırma katmanı**, bir fiyatlandırma katmanı seçin ve ardından **seçin**.  
-    ![Seçili fiyatlandırma planı](./media/manage-access/workspace-pricing-tier-info.png)
-
-> [!NOTE]
-> Çalışma alanınız bir Otomasyon hesabıyla bağlantılıysa, *Tek Başına (GB başına)* fiyatlandırma katmanını seçebilmeniz için tüm **Otomasyon ve Denetim** çözümlerini silmeniz ve Otomasyon hesabının bağlantısını kaldırmanız gerekir. Çalışma alanı dikey penceresindeki **Genel** altında **Çözümler**’e tıklayıp çözümleri silin. Bir Otomasyon hesabının bağlantısını kaldırmak için **Fiyatlandırma katmanı** dikey penceresinde Otomasyon hesabının adına tıklayın.
->
->
-
-### <a name="change-a-workspace-to-a-paid-pricing-tier-in-the-oms-portal"></a>OMS portalında çalışma alanını ücretli fiyatlandırma katmanı olarak değiştirme
-
-OMS portalını kullanarak fiyatlandırma katmanını değiştirmek için, bir Azure aboneliğine sahip olmanız gerekir.
-
-1. OMS portalında **Ayarlar** kutucuğuna tıklayın.
-
-2. **Hesaplar** sekmesine ve ardından **Azure Aboneliği ve Veri Planı** sekmesine tıklayın.
-
-3. Kullanmak istediğiniz fiyatlandırma katmanına tıklayın.
-
-4. **Kaydet**’e tıklayın.  
-
-    ![abonelik ve veri planları](./media/manage-access/subscription-tab.png)
-
-Yeni veri planınız, web sayfanızın üst kısmındaki OMS portalı şeridinde görüntülenir.
-
-![OMS şeridi](./media/manage-access/data-plan-changed.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Bkz: [Log Analytics Aracısı genel bakış](../../azure-monitor/platform/log-analytics-agent.md) veri merkezinizde veya diğer bulut ortamında bulunan bilgisayarlardaki verileri toplamak için.

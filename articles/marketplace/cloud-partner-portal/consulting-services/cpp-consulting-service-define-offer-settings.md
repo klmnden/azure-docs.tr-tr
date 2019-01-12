@@ -14,48 +14,49 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 9cb52aea56e9c1183af9ca76201ab65c62a58f22
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 590aa440f35f97e854fa827b0d8db1c3f9211faf
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972180"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231946"
 ---
 # <a name="offer-settings-tab"></a>Teklif ayarları sekmesi
 
 Üzerinde **yeni teklif** ekranı, ilk adımıdır Teklif kimliği oluşturmak için. Teklif kimliği, üç bölümden oluşur: **Teklif kimliği**, **yayımcı kimliği**, ve **adı**. Bu parçaların her biri, aşağıdaki bölümlerde ele alınmıştır.
 
-![Yeni danışmanlık hizmet teklifi - teklif ayarları sekmesi oluşturma](media/consultingoffer-settings-tab.png)
+![Yeni danışmanlık hizmet teklifi oluştur - Ayarlar sekmesinde sunar](media/consultingoffer-settings-tab.png)
 
-*Teklif kimliği*
+### <a name="offer-id"></a>Teklif Kimliği
 
-Bu tanımlayıcı, ilk teklif gönderdiğiniz oluşturduğunuzda benzersiz bir addır. Yalnızca küçük harf alfasayısal karakterler, kısa çizgi veya alt çizgi oluşmalıdır. **Teklif kimliği** URL'SİNDE görünür ve arama motoru sonuçları etkiler. Örneğin, *yourcompanyname_exampleservice*
+Bu tanımlayıcı, ilk teklif gönderdiğiniz oluşturduğunuzda benzersiz bir addır. Yalnızca küçük harf alfasayısal karakterler, kısa çizgi veya alt çizgi oluşmalıdır. **Teklif kimliği** URL'SİNDE görünür ve arama motoru sonuçlarına etkiler. Bir örnek *yourcompanyname_exampleservice*.
 
-Örnekte gösterildiği gibi **Teklif kimliği** benzersiz tanımlayıcısını oluşturmak için yayımcı kimliği eklenmiş. Bu, arama motorları tarafından dizine eklenir ve ayrılabileceğini kalıcı bir bağlantı olarak gösterilir.
+Örnekte gösterildiği gibi **Teklif kimliği** benzersiz tanımlayıcısını oluşturmak için yayımcı kimliği eklenir. Bu benzersiz tanımlayıcı ayrılabileceğini ve arama motorları tarafından dizine kalıcı bir bağlantı olarak kullanıma sunulur.
 
-*Bir teklif Canlı olduktan sonra tanımlayıcısını güncelleştirilemiyor*
+>[!Note]
+>Bir teklif Canlı olduktan sonra tanımlayıcısını güncelleştirilemiyor.
 
-*Yayımcı kimliği*
+### <a name="publisher-id"></a>Yayımcı kimliği
 
-Bu tanımlayıcı, hesabınıza ilişkilidir. Kuruluş hesabınızla oturum açtıktan sonra **yayımcı** kimliği görünecektir açılan menüde.
+Bu tanımlayıcı, hesabınıza ilişkilidir. Kuruluş hesabınızla oturum sonra **yayımcı kimliği** açılan menüde gösterilir.
 
-*Ad*
+### <a name="name"></a>Ad
 
-AppSource veya Azure Marketi'nde teklif adı olarak ne görüntüler bu dizedir. *Adı* alan 50 karakterle sınırlıdır.  Gözden Geçiren süreli teklif adı ekleme için izin vermek için başlığı düzenlemek ve Teklif türü gerekebilir.
+Bu dize, AppSource ya da Azure Marketi'nde teklif adını görüntüler. **Adı** kutusu 50 karakterle sınırlıdır. Gözden Geçiren ekleme süresi ve Teklif türü için teklif adınızı, başlığı düzenlemek gerekebilir.
 
-Teklif adı nasıl derlenip Edgewater Fullscope aşağıdaki örnekte gösterilmektedir. Teklif adı aşağıdaki gibi görünür:
+Aşağıdaki örnek, teklif adı nasıl derlenip gösterir. 
 
 ![Yeni danışmanlık hizmet teklifi oluşturma](media/cppsampleconsultingoffer.png)
 
-Teklif adı dört bölümden oluşur:
+Teklif adı, dört bölümden oluşur:
 
--   **Süresi:** - tanımlanan **mağaza ayrıntıları** Düzenleyicisi sekmesi. Süre, saat, gün veya hafta içinde belirtilebilir.
--   **Hizmet türü:** - tanımlanan **mağaza ayrıntıları** Düzenleyicisi sekmesi. Hizmetleri türleridir `Assessment`, `Briefing`, `Implementation`, `Proof of concept`, ve `Workshop`.
--   **Preposition:** - Gözden Geçiren tarafından eklenen
--   **Ad:** - tanımlanan **teklif ayarları** sayfası.
+-   **Süresi:** Üzerinde tanımlanan **mağaza ayrıntıları** Düzenleyicisi sekmesi. Süre, saat, gün veya hafta içinde belirtilebilir.
+-   **Hizmet türü:** Üzerinde tanımlanan **mağaza ayrıntıları** Düzenleyicisi sekmesi. Hizmetleri türleridir `Assessment`, `Briefing`, `Implementation`, `Proof of concept`, ve `Workshop`.
+-   **Preposition:** Gözden Geçiren eklendi.
+-   **Adı:** Üzerinde tanımlanan **teklif ayarları** sayfası.
 
 >[!Note]
->Ad alanı, 50 karakterle sınırlıdır. Gönderdiğiniz adı süresi için izin verme veya Teklif türü adına eklenecek gözden geçirenin düzenlenmesi gerekebilir.
+>**Adı** kutusu 50 karakterle sınırlıdır. Gözden Geçiren ekleme süresi ve Teklif türü için teklif adınızı, başlığı düzenlemek gerekebilir.
 
 Aşağıdaki listede, çeşitli iyi adlandırılmış teklif adları sağlar:
 
@@ -71,8 +72,8 @@ Aşağıdaki listede, çeşitli iyi adlandırılmış teklif adları sağlar:
 -   CRM hızlı başlangıç: 1 günlük Atölyesi
 -   Dynamics 365 satış için: 2 gün değerlendirmesi
 
-Tamamladıktan sonra **teklif ayarları** sekmesi, Gönderiminizi kaydedebilir. Teklif adı Düzenleyicisi artık görünür ve geri tüm sunar içinde bulabilirsiniz.
+Doldurduğunuz sonra **teklif ayarları** sekmesi, Gönderiminizi kaydedin. Teklif adı Düzenleyicisi görünür ve içinde bulabilirsiniz **tüm sunar**.
 
-**Sonraki adımlar**
+## <a name="next-steps"></a>Sonraki adımlar
 
 Girdiğiniz artık [mağaza ayrıntıları ve Azure Market veya appsource'ta yayımlama belirlemek](./cpp-consulting-service-storefront-details.md).

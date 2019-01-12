@@ -9,12 +9,12 @@ ms.topic: overview
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: f1ebbc10109563b771c5417a0449efec12138526
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: bea01e8f017622f1407bbac993e50112140cc472
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967700"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246254"
 ---
 # <a name="what-is-azure-blueprints"></a>Azure Blueprints nedir?
 
@@ -48,7 +48,7 @@ Resource Manager şablonu ile şema arasında seçim yapmanıza gerek yoktur. He
 
 Şema içine bir ilkenin dahil edilmesi, şema ataması sırasında doğru desenin veya tasarımın oluşturulmasını da sağlar. Bu ilke şemanın amacıyla uyumluluk sağlamak için ortamda yalnızca onaylanan veya beklenen değişikliklerin yapılmasını garanti eder.
 
-İlke, bir şema tanımına dahil edilen _yapıtlardan_ biri olabilir. Şemalar ayrıca ilkeler ve girişimlerle parametrelerin kullanılmasını da destekler.
+Bir ilke birçok biri olarak dahil edilebilir _yapıtları_ bir şema tanımı. Şemalar ayrıca ilkeler ve girişimlerle parametrelerin kullanılmasını da destekler.
 
 ## <a name="blueprint-definition"></a>Şema tanımı
 

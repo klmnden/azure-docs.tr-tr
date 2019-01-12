@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2018
 ms.author: magoedte
-ms.openlocfilehash: 9355e5ffaaa5ca89f57f7e358d946b24d5fcb3ca
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: dbf62d460a6bc8f8c98080411b2148b81b42e415
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213863"
+ms.locfileid: "54232813"
 ---
 # <a name="how-to-onboard-azure-monitor-for-containers"></a>Kapsayıcılar için yerleşik Azure izleme  
 Bu makalede Kubernetes ortamlara dağıtılmış ve barındırılan iş yüklerinin performansını izlemek için Azure İzleyici'kapsayıcıları için kurma [Azure Kubernetes hizmeti](https://docs.microsoft.com/azure/aks/).
@@ -372,7 +372,7 @@ omsagent   2         2         2         2            2           beta.kubernete
 Kullanım `aks show` etkin çözüm olduğu gibi ayrıntılarını almak için komut, Log Analytics çalışma alanı ResourceId nedir ve küme hakkında özet ayrıntıları.  
 
 ```azurecli
-az aks show -g <resoourceGroupofAKSCluster> -n <nameofAksCluster>
+az aks show -g <resourceGroupofAKSCluster> -n <nameofAksCluster>
 ```
 
 Birkaç dakika sonra komut tamamlanır ve JSON biçimli çözümü hakkında bilgi döndürür.  Komutun sonuçlarını izleme eklenti profilini göstermesi gerekir ve aşağıdaki örnek çıktıya benzer:

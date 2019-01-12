@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/22/2018
 ms.author: sethm
-ms.reviewer: ''
-ms.openlocfilehash: e9365008c47c2aac71d3983a16db37b0c5ea62ea
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.reviewer: unknown
+ms.openlocfilehash: ee247dcadd7ba8574bbdae1e25b0e39ca1ebc2da
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648114"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246237"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Azure Stack, Azure ExpressRoute kullanarak Azure'a bağlanma
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 Bu makalede bir Azure Stack sanal ağı kullanarak bir Azure sanal ağına bağlanmak gösterilmektedir bir [Microsoft Azure ExpressRoute](/azure/expressroute/) doğrudan bağlantı.
 
@@ -134,7 +134,7 @@ Gerekli ağ kaynaklarına Azure Stack için bir kiracı oluşturmak için aşağ
 1. Altında **Azure Marketi**seçin **ağ**.
 1. Ağ kaynakları listesinden **Sanal ağ geçidi**’ni seçin.
 1. İçinde **adı** alanına **GW1**.
-1. Seçin **sanal ağ**.
+1. **Sanal ağ**'ı seçin.
 1. Seçin **Tenant1VNet1** aşağı açılan listeden.
 1. Seçin **genel IP adresi**, ardından **genel IP adresi seçin**ve ardından **Yeni Oluştur**.
 1. İçinde **adı** alanına **GW1-PiP**ve ardından **Tamam**.

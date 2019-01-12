@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: msfussell
-ms.openlocfilehash: ae7eba9997c4f567eb7b07e23ab42c9ac7740698
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 511cd5c8304201fe6dfd101ac95b8f6c72806648
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388118"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232269"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Partition Service Fabric güvenilir Hizmetleri
 Bu makalede, Azure Service Fabric güvenilir Hizmetleri bölümleme temel kavramlar tanıtılmaktadır. Makalesinde kullanılan kaynak kodu de kullanılabilir [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
@@ -234,7 +234,7 @@ Tam anlamıyla harfi her bir bölüm olmasını istiyoruz gibi kendi anahtarın�
             return String.Format(
                 "User {0} {1}",
                 user,
-                addResult ? "sucessfully added" : "already exists");
+                addResult ? "successfully added" : "already exists");
         }
     }
     ```

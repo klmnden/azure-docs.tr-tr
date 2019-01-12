@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 0bc44dc31de4a45127468b956d01d7c3f8d92985
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 47b58e74f57640098751b38c1a4fb504838c9ced
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54122828"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54242371"
 ---
 Toplama, görüntüleme ve çözümleme tanılama Vm'lerinizi izleme için birçok fırsat avantajlarından yararlanın ve verilerini günlüğe kaydedebilirsiniz. Basit yapmak için [izleme](../articles/azure-monitor/overview.md) VM'NİZDE, Azure portalında sanal makine için genel bakış ekranını kullanabilirsiniz. Kullanabileceğiniz [uzantıları](../articles/virtual-machines/windows/extensions-features.md) Vm'lerinizde ek ölçüm verilerini toplamak için tanılamayı yapılandırmak için. Gibi daha gelişmiş izleme seçeneklerini kullanabilirsiniz [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) ve [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md).
 
@@ -31,7 +31,7 @@ Ayarlama ve izleme koleksiyonunu [tanılama verilerini](https://docs.microsoft.c
 
 ## <a name="alerts"></a>Uyarılar
 
-Oluşturabileceğiniz [uyarılar](../articles/azure-monitor/platform/alerts-overview.md) belirli performans ölçümlerine bağlı. Ortalama CPU kullanımı belirli bir eşiği aştığında veya kullanılabilir boş disk alanı belirli bir miktarın altına düşünceye, hakkında uyarı almak sorunları örnekleridir. Uyarılar yapılandırılabilir [Azure portalında](../articles/monitoring-and-diagnostics/insights-alerts-portal.md)kullanarak [Azure PowerShell](../articles/monitoring-and-diagnostics/insights-alerts-powershell.md), veya [Azure CLI](../articles/monitoring-and-diagnostics/insights-alerts-command-line-interface.md).
+Oluşturabileceğiniz [uyarılar](../articles/azure-monitor/platform/alerts-overview.md) belirli performans ölçümlerine bağlı. Ortalama CPU kullanımı belirli bir eşiği aştığında veya kullanılabilir boş disk alanı belirli bir miktarın altına düşünceye, hakkında uyarı almak sorunları örnekleridir. Uyarılar yapılandırılabilir [Azure portalında](../articles/azure-monitor/platform/alerts-classic-portal.md)kullanarak [Azure PowerShell](../articles/azure-monitor/platform/alerts-classic-portal.md#with-powershell), veya [Azure CLI](../articles/azure-monitor/platform/alerts-classic-portal.md#with-azure-cli).
 
 ## <a name="azure-service-health"></a>Azure Hizmet Durumu
 

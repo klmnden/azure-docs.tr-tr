@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 10/6/2018
+ms.date: 1/11/2019
 ms.author: victorh
-ms.openlocfilehash: 9cb14e5076379e5095ca88dc749a954e9e5d5aa4
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: d80e1394d4c4159c17eabff93ff44fdefbaf21b7
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994870"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247512"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Application Gateway için sık sorulan sorular
 
@@ -25,7 +25,7 @@ Azure Application Gateway bir uygulama teslim denetleyicisi (ADC) hizmet olarak,
 
 ### <a name="what-features-does-application-gateway-support"></a>Hangi özellikleri, uygulama ağ geçidi destekliyor mu?
 
-Application Gateway, otomatik ölçeklendirme, SSL yük boşaltma ve uçtan uca SSL, Web uygulaması güvenlik duvarı, tanımlama bilgilerine dayalı oturum benzeşimi, url yolu tabanlı yönlendirme, çoklu site barındırmayı ve diğerleri destekler. Desteklenen özelliklerin tam bir listesi için bkz. [Application Gateway'e giriş](application-gateway-introduction.md).
+Application Gateway, otomatik ölçeklendirme, SSL yük boşaltma ve uçtan uca SSL, Web uygulaması güvenlik duvarı, tanımlama bilgilerine dayalı oturum benzeşimi, url yolu tabanlı yönlendirme, çoklu site barındırma ve diğerleri destekler. Desteklenen özelliklerin tam bir listesi için bkz. [Application Gateway'e giriş](application-gateway-introduction.md).
 
 ### <a name="what-is-the-difference-between-application-gateway-and-azure-load-balancer"></a>Azure Load Balancer ile uygulama ağ geçidi arasındaki fark nedir?
 
@@ -53,7 +53,7 @@ Arka uç havuzları, ağ, sanal makine ölçek kümeleri, genel IP'ler birleşti
 
 ### <a name="what-regions-is-the-service-available-in"></a>Hangi bölgeler kullanılabilir hizmet?
 
-Uygulama ağ geçidi, tüm genel Azure bölgelerinde kullanılabilir. Ayrıca kullanılabilir, [Azure Çin](https://www.azure.cn/) ve [Azure kamu](https://azure.microsoft.com/overview/clouds/government/)
+Uygulama ağ geçidi, tüm genel Azure bölgelerinde kullanılabilir. Ayrıca kullanılabilir, [Azure Çin 21Vianet](https://www.azure.cn/) ve [Azure kamu](https://azure.microsoft.com/overview/clouds/government/)
 
 ### <a name="is-this-a-dedicated-deployment-for-my-subscription-or-is-it-shared-across-customers"></a>Bu adanmış bir dağıtım için Aboneliğimi veya müşteriler arasında paylaşılır?
 
@@ -126,7 +126,7 @@ Hayır, ancak alt ağdaki diğer uygulama ağ geçitleri dağıtabilir.
 
 Ağ güvenlik grupları (Nsg'ler), uygulama ağ geçidi alt ağının aşağıdaki kısıtlamalarla aşağıdakilerde desteklenmektedir:
 
-* Özel durumlar için gelen trafiği 65503 65534 noktalarına v1 SKU ve bağlantı noktaları 65200-65535 Application Gateway için v2 SKU için yerleştirilmesi gereken. Bu bağlantı noktası aralığı, Azure altyapı iletişimi için gereklidir. Bunlar Azure sertifikaları tarafından korunur (kilitlenir). Uygun sertifikaları olmadan, bu ağ geçitlerinin müşterileri dahil dış varlıklar, bu uç noktalarında herhangi bir değişiklik başlatmak mümkün olmayacaktır.
+* Özel durumlar için gelen trafiği 65503 65534 noktalarına v1 SKU ve bağlantı noktaları 65200-65535 Application Gateway için v2 SKU için yerleştirilmesi gereken. Bu bağlantı noktası aralığı, Azure altyapı iletişimi için gereklidir. Bunlar Azure sertifikaları tarafından korunur (kilitlenir). Uygun sertifikaları olmadan, bu ağ geçitlerinin müşterileri dahil dış varlıklar, bu uç noktalarında herhangi bir değişiklik başlatmak mümkün değildir.
 
 * Giden internet bağlantısı engellenemez.
 
@@ -137,6 +137,8 @@ Ağ güvenlik grupları (Nsg'ler), uygulama ağ geçidi alt ağının aşağıda
 Uçtan uca istek/yanıt iletişim değiştirmeyin sürece, kullanıcı tanımlı yollar (Udr) uygulama ağ geçidi alt ağı üzerinde desteklenir.
 
 Örneğin, uygulama ağ geçidi alt ağındaki UDR paket incelemesi için bir güvenlik duvarı Gereci işaret edecek şekilde ayarlayabilirsiniz ancak paket, istenen hedef posta İnceleme ulaşabildiğimizden emin olmanız gerekir. Bunun yapılmaması, yanlış sistem durumu araştırma ya da trafiği yönlendirme davranışını neden olabilir. Bu öğrenilen rotalar veya sanal ağ, ExpressRoute veya VPN ağ geçitleri tarafından yayılan varsayılan 0.0.0.0/0 yolları içerir.
+
+Uygulama ağ geçidi alt ağı üzerinde Udr'ler olan **değil** v2 SKU üzerinde desteklenir. Daha fazla bilgi için [otomatik ölçeklendirme ve bölgesel olarak yedekli (genel Önizleme) Application Gateway](application-gateway-autoscaling-zone-redundant.md#known-issues-and-limitations).
 
 ### <a name="what-are-the-limits-on-application-gateway-can-i-increase-these-limits"></a>Application Gateway'de sınırları nelerdir? Bu limitler artırabilirim?
 
@@ -164,7 +166,7 @@ Mikro hizmet mimarisi desteklenir. Farklı bağlantı noktalarını araştırma 
 
 ### <a name="how-are-rules-processed"></a>Kuralları nasıl işlenir?
 
-Kurallar, bunların sırayla işlenir. Temel kural önce değerlendirilen kural çok siteli bağlantı trafiğini BC gibi bu trafiğin olasılığını azaltmak için uygun arka uca yönlendirilir temel kuralları önce çok siteli kuralları yapılandırıldığını önerilir.
+Kurallar, bunların sırayla işlenir. Temel kural bağlantı noktası çok siteli kuralı, değerlendirilen göre trafiği BC gibi bu trafiğin olasılığını azaltmak için uygun arka uca yönlendirilir temel kuralları önce çok siteli kuralları yapılandırıldığını önerilir.
 
 ### <a name="what-does-the-host-field-for-custom-probes-signify"></a>Hangi özel araştırmalar için ana bilgisayar adı alanı geldiğiniz?
 
@@ -206,7 +208,7 @@ Evet, uygulama ağ geçidi v2 SKU otomatik ölçeklendirmeyi destekler. Daha faz
 
 ### <a name="does-manual-scale-updown-cause-downtime"></a>El ile ölçeklendirmenin yukarı/aşağı neden kapalı kalma süresi mu?
 
-Kapalı kalma süresi, örnekleri, yükseltme etki alanları ve hata etki alanları arasında dağıtılır.
+Kapalı kalma süresi yoktur. Örnekleri, yükseltme etki alanları ve hata etki alanları arasında dağıtılır.
 
 ### <a name="does-application-gateway-support-connection-draining"></a>Application Gateway bağlantı boşaltma destekliyor mu?
 
@@ -292,7 +294,7 @@ Evet, [şifre paketleri yapılandırmasını](application-gateway-ssl-policy-ove
 
 ### <a name="how-many-ssl-certificates-are-supported"></a>Kaç tane SSL sertifikası desteklenir mi?
 
-En fazla 20 SSL sertifikaları desteklenir.
+En fazla 100 SSL sertifikaları desteklenir.
 
 ### <a name="how-many-authentication-certificates-for-backend-re-encryption-are-supported"></a>Arka uç tekrar şifrelenmesi için kaç tane kimlik doğrulama sertifikası desteklenir mi?
 
@@ -374,13 +376,13 @@ Evet, Application Gateway uyarıları desteklemiyor. Uyarılar, ölçümler üze
 
 ### <a name="how-do-i-analyze-traffic-statistics-for-application-gateway"></a>Application Gateway için nasıl trafiği istatistikleri analiz?
 
-Görüntüleyebilir ve birkaç Azure Log Analytics, Excel, Power BI vb. gibi mekanizmalar aracılığıyla erişim günlüklerini analiz edin.
+Görüntüleyebilir ve Azure Log Analytics, Excel, Power BI vb. gibi çeşitli mekanizmalar aracılığıyla erişim günlüklerini analiz edin.
 
 Ayrıca, yükler ve popüler çalışan Resource Manager şablonu yayımladık [GoAccess](https://goaccess.io/) Çözümleyicisi uygulama ağ geçidi günlüklerine erişim için oturum açın. GoAccess benzersiz ziyaretçiler, istenen dosyaları, konaklar, işletim sistemleri, tarayıcılar, HTTP durum kodları ve daha fazlası gibi değerli HTTP trafiğini istatistikler sağlar. Daha fazla ayrıntı için lütfen bkz [GitHub Resource Manager şablonu bir klasörde Benioku dosyası](https://aka.ms/appgwgoaccessreadme).
 
 ### <a name="backend-health-returns-unknown-status-what-could-be-causing-this-status"></a>Arka uç sistem durumu bilinmeyen durum, bu durum çözebilmek amacıyla sorunun döndürür?
 
-Arka uç erişimi bir NSG ya da özel DNS tarafından engelleniyor en yaygın nedenidir. Bkz: [arka uç sistem durumu, tanılama günlükleri ve ölçümler için Application Gateway](application-gateway-diagnostics.md) daha fazla bilgi için.
+Bir NSG ya da özel DNS tarafından arka uç erişimi engellenir en yaygın nedenidir. Bkz: [arka uç sistem durumu, tanılama günlükleri ve ölçümler için Application Gateway](application-gateway-diagnostics.md) daha fazla bilgi için.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 

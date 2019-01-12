@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/17/2018
+ms.date: 01/11/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 6da0bddc3f6c90d0ecd3a554988f510e1063caac
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 6d6a06af90c02dee0a7711d7362d0604018cb4a5
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043048"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246594"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Lisans gereksinimleri için Azure AD Self Servis parola sıfırlama
 
@@ -33,15 +33,15 @@ Azure AD Self Servis parola sıfırlama, kullanıcı başına lisanslanır, uyum
 * Bulut kullanıcıları için Self Servis Parola Sıfırlama
    * Ben bir **yalnızca bulut kullanıcı** ve parolamı unutmuş.
       * İstiyorum **sıfırlama** parolamı biliyorum bir şey.
-   * Bu işlev, Azure AD temel, Premium P1 veya Premium P2 sürümlerinde bulunur.
+   * Bu işlev, Azure AD temel, Premium P1 veya P2 veya Microsoft 365 iş dahil edilir.
 
 * Self Servis parola sıfırlama/değiştirme/kilidini açma **ile şirket içi geri yazma**
    * Ben bir **karma kullanıcı** my şirket içi Active Directory kullanıcı hesabı Azure AD Connect kullanarak Azure AD hesabımla eşitlenir. Parolamı değiştirme, parolamı unuttunuz veya kilitli istiyorum.
       * Parolamı değiştirme veya bir şeye miyim bilmiyorsanız veya Hesabımı kilidini sıfırlama istiyorum **ve** geri eşitlenmiş değişiklik Active Directory şirket olduğunu.
-   * Bu işlev, Azure AD Premium P1 veya Premium P2 sürümleri dahildir.
+   * Bu işlev, Azure AD Premium P1 veya P2 ya da Microsoft 365 iş dahildir.
 
 > [!WARNING]
-> Tek başına Office 365 planları lisanslama *"Self Servis parola sıfırlama/değiştirme/kilidini açma şirket içi geri yazma ile" desteklemeyen* ve Azure AD Premium P1 veya Premium P2 sürümleri için bu işlevleri içeren bir planı gerekir İş.
+> Tek başına Office 365 planları lisanslama *"Self Servis parola sıfırlama/değiştirme/kilidini açma şirket içi geri yazma ile" desteklemeyen* ve Azure AD Premium P1, Premium P2 veya Microsoft 365 iş bu içeren bir planı gerekir çalışmak için işlev.
 >
 
 Maliyetleri de dahil olmak üzere ek lisans bilgileri şu sayfalarda yer bulunabilir:
@@ -50,6 +50,7 @@ Maliyetleri de dahil olmak üzere ek lisans bilgileri şu sayfalarda yer bulunab
 * [Azure Active Directory özellikleri ve yetenekleri](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
 * [Microsoft 365 Kurumsal](https://www.microsoft.com/microsoft-365/enterprise)
+* [Microsoft 365 iş hizmet açıklaması](/office365/servicedescriptions/microsoft-365-business-service-description.md)
 
 ## <a name="enable-group-or-user-based-licensing"></a>Grup veya kullanıcı tabanlı lisanslama etkinleştir
 

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2018
+ms.date: 01/12/2019
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 97b7defded39e572a1fecae3e93d389014b15a6b
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 4cbbc482a05e125f92efd98b0824ec38ae1ddefd
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077972"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244707"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 güncelleştirme
 
@@ -251,6 +251,8 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 - Düşük bellek uyarısı alırsanız ve Kiracı sanal makinelerini başarısız ile dağıtmak bir Azure Stack operatörü bir **Fabric VM oluşturma hatası**, Azure Stack damga kullanılabilir bellek yetersiz olabilir. Kullanım [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) iş yükleriniz için kapasite en iyi anlamak için.
 
 ### <a name="compute"></a>İşlem
+
+- Oluştururken bir [Dv2 serisi VM](./user/azure-stack-vm-considerations.md#virtual-machine-sizes), D11-14v2 Vm'leri sırasıyla 4, 8, 16 ve 32 veri diskleri oluşturmanıza izin. Ancak, 8, 16, 32 ve 64 veri diski oluştur VM bölmesi gösterir.
 
 <!-- 3235634 – IS, ASDK -->
 - Vm'leri içeren boyutları ile dağıtmak için bir **v2** soneki; Örneğin, **işler için standart_a2_v2**, sonek olarak lütfen **işler için standart_a2_v2** (küçük harf v). Kullanmayın **işler için standart_a2_v2** (Büyük Harf V). Bu genel Azure'da çalışır ve Azure Stack'te bir tutarsızlık olduğunu.

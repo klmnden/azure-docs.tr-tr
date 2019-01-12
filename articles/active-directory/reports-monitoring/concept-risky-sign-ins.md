@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2e4406a75ea1d9f1968d994ae2294b39ca7613d5
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 8e92288883a7779130e3b7f7a8433b61f76aa18c
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623868"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244724"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Azure Active Directory portalındaki riskli oturum açma işlemleri raporu
 
@@ -85,12 +85,11 @@ Bu rapor ayrıca size şu seçeneği sağlar:
 
 ![Riskli Oturum Açma İşlemleri](./media/concept-risky-sign-ins/93.png)
 
-
 ## <a name="risky-sign-ins-report-for-azure-ad-premium-editions"></a>Azure AD premium sürümleri için riskli oturum açma işlemleri raporu
 
 Azure AD premium sürümlerindeki riskli oturum açma işlemleri raporu aşağıdakileri sağlar:
 
-- Algılanan [risk olayı türleri](concept-risk-events.md) hakkında toplu bilgiler
+- Hakkında toplu bilgiler [risk olayı türleri](concept-risk-events.md) algılanan. İle **Azure AD Premium P1 edition**, lisansınızı tarafından kapsanmaz algılamalar risk olayı görünür **ek risk algılandı ile oturum açma**. İle **Azure AD Premium P2 sürümünü**, temel alınan tüm algılamalar hakkında en ayrıntılı bilgileri alın.
 
 - Raporu indirme seçeneği
 

@@ -1,5 +1,5 @@
 ---
-title: 'Örnek: Gerçek zamanlı video analizi - Yüz Tanıma API’si'
+title: "Örnek: Gerçek zamanlı video analizi - yüz tanıma API'si"
 titleSuffix: Azure Cognitive Services
 description: Canlı video akışından alınan karelerde gerçek zamanlıya yakın analiz gerçekleştirmek için Yüz Tanıma API’sini kullanın.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 007b35c1338f2837187ae55817bf815072f6f0c7
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
-ms.translationtype: HT
+ms.openlocfilehash: 6aac7d99e002413406022388eaa7ad1a98ae7b34
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127270"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232167"
 ---
 # <a name="example-how-to-analyze-videos-in-real-time"></a>Örnek: Gerçek Zamanlı Videoları Analiz Etme
 
@@ -34,7 +34,7 @@ Video akışlarında gerçek zamanlıya yakın analiz çalıştırma sorununu ç
 
 ### <a name="a-simple-approach"></a>Basit Bir Yaklaşım
 
-Gerçek zamanlıya yakın bir analiz sistemi için en basit tasarım, her yinelemede bir kare yakalayıp bunu analiz ettiğimiz ve sonra sonucu kullandığımız sonsuz bir döngüdür:
+Neredeyse gerçek zamanlı analiz sistemi için en basit tasarım sonsuz döngü burada her yinelemede çerçeve Dallarınızla çözümlediği ve ardından sonucu tüketir şöyledir:
 
 ```CSharp
 while (true)
@@ -48,7 +48,7 @@ while (true)
 }
 ```
 
-Analizimiz hafif bir istemci algoritmasından oluştuysa bu yaklaşım uygun olacaktır. Ancak analizimiz bulutta gerçekleşirken oluşan gecikme, bir API çağrısının birkaç saniye sürebileceği anlamına gelir; bu süre zarfında görüntü yakalamayız ve iş parçacığımız esasta herhangi bir şey yapmaz. Maksimum kare hızımız, API çağrılarının gecikme süresiyle sınırlıdır.
+Analizimiz hafif bir istemci algoritmasından oluştuysa bu yaklaşım uygun olacaktır. Ancak, analiz bulutta gerçekleştiğinde, gecikme süresi dahil olan bir API çağrısı birkaç saniye sürebilir anlamına gelir. Bu süre boyunca biz görüntüleri yakalama değil ve müşterilerimizin iş parçacığı aslında hiçbir şey yapıyor. Maksimum kare hızımız, API çağrılarının gecikme süresiyle sınırlıdır.
 
 ### <a name="parallelizing-api-calls"></a>API Çağrılarını Paralelleştirme
 
@@ -69,22 +69,22 @@ while (true)
 }
 ```
 
-Bu yaklaşım her bir analizi ayrı bir Görevde başlatır ve biz yeni kareleri ele geçirirken görev arka planda çalıştırılabilir. Bu, bir API çağrısının döndürülmesi beklenirken ana iş parçacığının engellenmesini önler, ancak basit sürümün sağladığı garantilerden bazılarını kaybettik; paralel olarak birden çok API çağrısı olabilir ve sonuçlar yanlış sırayla döndürülebilir. Bu yaklaşım, birden çok iş parçacığının eş zamanlı olarak ConsumeResult() işlevi girmesine neden olabilir; işlev iş parçacığı açısından güvenli değilse bu tehlikeli olabilir. Son olarak bu basit kod, oluşturulan Görevleri takip etmez, bu nedenle özel durumlar sessizce kaybolur. Bu nedenle eklememiz gereken son bileşen, analiz görevlerini izleyecek, özel durumları ortaya çıkaracak, uzun süre çalıştırılan görevleri durduracak ve sonuçların birer birer doğru sırayla kullanılmasını sağlayacak bir “tüketici” iş parçacığı eklemektir.
+Bu kod her bir analizi ayrı bir Görevde başlatır ve biz yeni kareleri ele geçirirken görev arka planda çalıştırılabilir. Bu yöntemle biz döndürmek bir API çağrısı için beklenirken ana iş parçacığı engellemekten kaçınacak ancak biz bazı basit sürümü sağlanan garantileri kaybetmiş. Paralel olarak birden çok API çağrısı oluşabilir ve sonuçları yanlış sırada döndürülen. Bu işlev, iş parçacığı güvenli değilse, tehlikeli olabilecek ConsumeResult() işlevi eşzamanlı olarak girmeyi birden çok iş parçacığı da neden olabilir. Son olarak bu basit kod, oluşturulan Görevleri takip etmez, bu nedenle özel durumlar sessizce kaybolur. Bu nedenle, son adım analiz görevlerini izlemek, yükseltmek özel durumlar, uzun süre çalışan görevleri sonlandırın ve sonuçları doğru sırayla tüketilen emin olun "Müşteri" iş parçacığı eklemektir.
 
 ### <a name="a-producer-consumer-design"></a>Üretici-Tüketici Tasarımı
 
-Son “üretici-tüketici” sistemimizde, önceki sonsuz döngümüze çok benzer görünen bir üretici iş parçacığımız vardır. Ancak üretici, kullanılabilir olduğu anda analiz sonuçlarını kullanmak yerine görevleri takip etmek için bir kuyruğa koyar.
+Son “üretici-tüketici” sistemimizde, önceki sonsuz döngümüze benzer görünen bir üretici iş parçacığımız vardır. Ancak üretici, kullanılabilir olduğu anda analiz sonuçlarını kullanmak yerine görevleri takip etmek için bir kuyruğa koyar.
 
 ```CSharp
 // Queue that will contain the API call tasks. 
 var taskQueue = new BlockingCollection<Task<ResultWrapper>>();
-     
+     
 // Producer thread. 
 while (true)
 {
     // Grab a frame. 
     Frame f = GrabFrame();
- 
+ 
     // Decide whether to analyze the frame. 
     if (ShouldAnalyze(f))
     {
@@ -110,7 +110,7 @@ while (true)
 }
 ```
 
-Ayrıca görevleri kuyruktan çıkaran, tamamlanmasını bekleyen ve sonucu görüntüleyen veya oluşturulan özel durumu ortaya çıkaran bir tüketici iş parçacığımız da vardır. Kuyruğu kullanarak, sistemin maksimum kare hızını sınırlamadan sonuçların birer birer doğru sırayla kullanılmasını garanti edebiliriz.
+Kuyruk görevleri alır, bunları tamamlanması ve görüntüler için sonucu bekler ya da oluşan özel durum harekete bir tüketicinin iş parçacığıyla de sahibiz. Kuyruğu kullanarak, sistemin maksimum kare hızını sınırlamadan sonuçların birer birer doğru sırayla kullanılmasını garanti edebiliriz.
 
 ```CSharp
 // Consumer thread. 
@@ -118,10 +118,10 @@ while (true)
 {
     // Get the oldest task. 
     Task<ResultWrapper> analysisTask = taskQueue.Take();
- 
+ 
     // Await until the task is completed. 
     var output = await analysisTask;
-     
+     
     // Consume the exception or result. 
     if (output.Exception != null)
     {
@@ -138,18 +138,18 @@ while (true)
 
 ### <a name="getting-started"></a>Başlarken
 
-Uygulamanızı mümkün olduğunda hızlı şekilde çalışır duruma getirmek için, bir yandan kullanılabilir olmasını sağlarken diğer yandan birçok senaryoyu uygulamak için yeterince esnek olmak amacıyla yukarıda açıklanan sistemi uyguladık. Koda erişmek için [https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis) bölümüne gidin.
+Uygulamanızı ve mümkün olan en kısa sürede çalışır duruma için yukarıda açıklanan sistem esnek bir uyarlamasını kullanır. Koda erişmek için [https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis) sayfasına gidin.
 
-Kitaplık, bir web kamerasından gelen video karelerini işlemek için yukarıda açıklanan üretici-tüketici sistemini uygulayan FrameGrabber sınıfını içerir. Kullanıcı, API çağrısının tam formunu belirtebilir ve sınıf, çağırma kodunun ne zaman yeni bir kare alındığını veya yeni bir analiz sonucunun mevcut olduğunu bilmesini sağlamak için olayları kullanır.
+Kitaplık uygulayan bir Web kamerası video çerçevelerden işlemek için yukarıda açıklanan üretici-tüketici sistem FrameGrabber sınıfı içerir. Sınıfı ne zaman yeni bir çerçeve elde veya yeni bir analiz sonucu kullanılabilir çağıran kod izin vermek için olayları kullanır ve kullanıcının tam API çağrısının biçimi belirtebilirsiniz.
 
-Bazı olasılıkları göstermek için, kitaplığı kullanan iki örnek uygulama vardır. Birincisi basit bir konsol uygulamasıdır ve bunun basitleştirilmiş bir sürümü aşağıda oluşturulmuştur. Varsayılan web kamerasından kareleri ele geçirir ve yüz algılama için Yüz Tanıma API’sine bunları gönderir.
+Bazı olasılıkları göstermek için, kitaplığı kullanan iki örnek uygulama vardır. İlk basit bir konsol uygulamasıdır ve Basitleştirilmiş bir sürümünü aşağıda çoğaltılamaz. Varsayılan web kamerasından kareleri ele geçirir ve yüz algılama için Yüz Tanıma API’sine bunları gönderir.
 
 ```CSharp
 using System;
 using VideoFrameAnalyzer;
 using Microsoft.ProjectOxford.Face;
 using Microsoft.ProjectOxford.Face.Contract;
-     
+     
 namespace VideoFrameConsoleApplication
 {
     class Program
@@ -191,9 +191,9 @@ namespace VideoFrameConsoleApplication
 
 İkinci örnek uygulama biraz daha ilginçtir ve video karelerinde hangi API’yi çağıracağınızı seçmenize olanak sağlar. Sol kısımda uygulama, canlı videonun bir önizlemesini gösterir, sağ kısımdaysa ilgili karenin üzerine yerleştirilmiş şekilde en son API sonucunu gösterir.
 
-Çoğu modda, soldaki canlı video ile sağdaki görselleştirilmiş analiz arasında görünür bir gecikme olacaktır. Bu gecikme, API çağrısı yapmak için geçen süredir. Bunun istisnası, Bilişsel Hizmetler’e görüntü göndermeden önce OpenCV kullanarak istemci bilgisayarda yerel olarak yüz algılama gerçekleştiren "EmotionsWithClientFaceDetect" modunda söz konusudur. Bunu yaparak, algılanan yüzü hemen görselleştirebilir ve sonra API çağrısı döndürüldükten sonra duyguları güncelleştirebilirsiniz. Bu, istemcide bazı basit işlemlerin gerçekleştirildiği ve gerektiğinde daha gelişmiş analizle bunu genişletmek için Bilişsel Hizmetler API’sinin kullanılabildiği "hibrit" yaklaşım olasılığını göstermektedir.
+Çoğu modda, soldaki canlı video ile sağdaki görselleştirilmiş analiz arasında görünür bir gecikme olacaktır. Bu gecikme, API çağrısı yapmak için geçen süredir. Bir özel durum yüz algılama OpenCV, Bilişsel hizmetler için herhangi bir görüntü göndermeden önce kullanarak istemci bilgisayarda yerel olarak gerçekleştirir. "EmotionsWithClientFaceDetect" modudur. Bu şekilde, biz algılanan yüz anında görselleştirin ve API çağrısı döndüğünde duyguları güncelleştirin. Bu, burada istemci bazı basit işlemler gerçekleştirebilir ve daha gelişmiş analiz ile gerekli olduğunda bu Bilişsel hizmetler API'leri genişletebilirsiniz "karma" yaklaşım, örneğidir.
 
-![HowToAnalyzeVideo](../../Video/Images/FramebyFrame.jpg)
+![Video analiz etme](../../Video/Images/FramebyFrame.jpg)
 
 ### <a name="integrating-into-your-codebase"></a>Kod temelinizle tümleştirme
 
@@ -201,31 +201,23 @@ Bu örneği kullanmaya başlamak için şu adımları izleyin:
 
 1. [Abonelikler](https://azure.microsoft.com/try/cognitive-services/)’den Görüntü İşleme API’leri için API anahtarlarını alın. Video karesi analizi için geçerli API’ler şunlardır:
     - [Görüntü İşleme API’si](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)
-    - [Duygu Tanıma API’si](https://docs.microsoft.com/azure/cognitive-services/emotion/home)
+    - [Duygu Tanıma API'si](https://docs.microsoft.com/azure/cognitive-services/emotion/home)
     - [Yüz Tanıma API’si](https://docs.microsoft.com/azure/cognitive-services/face/overview)
 
-2. [Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) GitHub deposunu kopyalama
+2. [Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) GitHub deposunu kopyalayın
 
-3. Visual Studio 2015’te örneği açın, örnek uygulamaları derleyip çalıştırın:
-    - BasicConsoleSample için Yüz Tanıma API’si doğrudan [BasicConsoleSample/Program.cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs) dizininde sabit kodlanmıştır.
+3. Visual Studio 2015'te örneği açın ve örnek uygulamalar oluşturup çalıştırın:
+    - Doğrudan sabit kodlanmış BasicConsoleSample için yüz tanıma API'si anahtarı [BasicConsoleSample/Program.cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs).
     - LiveCameraSample için anahtarlar, uygulamanın Ayarlar bölmesine girilmelidir. Oturumlarda kullanıcı verileri olarak kalıcı duruma getirilir.
         
 
-Tümleştirmeye hazır olduğunuzda **kendi projelerinizden VideoFrameAnalyzer kitaplığına başvurmanız yeterlidir.** 
-
-
-
-## <a name="developer-code-of-conduct"></a>Geliştirici Kullanım Kuralları
-
-Tüm Bilişsel Hizmetler’de olduğu gibi, API’lerimiz ve örneklerimizle geliştirme yapan Geliştiricilerin "[Microsoft Bilişsel Hizmetler için Geliştirici Kullanım Kuralları](https://azure.microsoft.com/support/legal/developer-code-of-conduct/)"nı izlemesi gerekir. 
-
-VideoFrameAnalyzer’ın görüntü, ses, video veya metin anlama özellikleri, Microsoft Bilişsel Hizmetler’i kullanır. Microsoft, (bu uygulama aracılığıyla) karşıya yüklediğiniz görüntüleri, ses, video ve diğer verileri alır ve hizmeti iyileştirme amacıyla bunları kullanabilir. Uygulamanızın verilerini Microsoft Bilişsel Hizmetler’e gönderdiği kişilerin korunması için yardımınızı rica ediyoruz. 
+Tümleştirmek hazır olduğunuzda **kendi projelerden VideoFrameAnalyzer Kitaplığı Başvurusu.** 
 
 ## <a name="summary"></a>Özet
 
-Bu kılavuzda, Yüz Tanıma, Görüntü İşleme ve Duygu Tanıma API’lerini kullanarak canlı video akışlarında nasıl gerçek zamanlıya yakın analiz çalıştıracağınızı ve başlamak için örnek kodumuzu nasıl kullanabileceğinizi öğrendiniz.  [Microsoft Bilişsel Hizmetler kayıt sayfasında](https://azure.microsoft.com/try/cognitive-services/) ücretsiz API anahtarları ile uygulamanızı derlemeye başlayabilirsiniz. 
+Bu kılavuzda, yüz tanıma, görüntü işleme ve duygu tanıma API'leri kullanarak canlı video akışları neredeyse gerçek zamanlı analiz gerçekleştirme ve kullanmaya başlamak için örnek kodumuz kullanmayı öğrendiniz. Uygulamanızı ücretsiz API anahtarları, yapı başlayabilirsiniz [Azure Bilişsel hizmetler kayıt sayfasına](https://azure.microsoft.com/try/cognitive-services/). 
 
-Lütfen [GitHub deposunda](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) rahatça geri bildirim ve öneriler sağlayın veya daha kapsamlı API geri bildirimi için [UserVoice sitemize](https://cognitive.uservoice.com/) bakın.
+Geri bildirim ve öneri iletmekten çekinmeyin [GitHub deposu](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) veya daha geniş API görüş üzerinde bizim [UserVoice sitesinde](https://cognitive.uservoice.com/).
 
 ## <a name="related-topics"></a>İlgili Konular
 - [Görüntüdeki Yüzleri Belirleme](HowtoIdentifyFacesinImage.md)

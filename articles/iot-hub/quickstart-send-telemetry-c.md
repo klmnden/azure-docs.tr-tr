@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 08/27/2018
 ms.author: wesmc
-ms.openlocfilehash: 1bb21f6decc725c47f135c9842a2ba6d8989f693
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: df183f73feb1c87fb9deda8f647c5107f6c460cc
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515180"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245462"
 ---
-# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-c"></a>Hızlı Başlangıç: Bir cihazdan IoT hub’ına telemetri gönderme ve arka uç uygulaması ile hub’dan telemetriyi okuma (C)
+# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-c"></a>Hızlı Başlangıç: Bir IOT hub'ına bir CİHAZDAN telemetri gönderme ve arka uç uygulaması (C) okuyun
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
@@ -44,11 +44,11 @@ Aşağıdaki ortamlar için paketleri ve kitaplıkları yükleyerek SDK’yı ku
 
 * **Linux**: apt-get paketleri; amd64, arm64, armhf ve i386 CPU mimarileri kullanılarak Ubuntu 16.04 ve 18.04 için kullanılabilir. Daha fazla bilgi için bkz. [Ubuntu’da C cihaz istemcisi oluşturmak için apt-get kullanma](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/ubuntu_apt-get_sample_setup.md).
 
-* **mbed**: Mbed platformunda cihaz uygulamaları oluşturan geliştiriciler için, dakikalar içinde Azure IoT Hub’ı kullanmaya başlamanızı sağlayacak bir kitaplık ve örnekler yayımladık. Daha fazla bilgi için bkz. [Mbed kitaplığını kullanma](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#mbed).
+* **mbed**: Mbed platformunda cihaz uygulamaları oluşturan geliştiriciler için bir kitaplık ve Azure IOT hub'ı dakikalar içinde başlamanıza yardımcı örnekler yayımladık. Daha fazla bilgi için bkz. [Mbed kitaplığını kullanma](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#mbed).
 
-* **Arduino**: Arduino üzerinde geliştirme yapıyorsanız, Arduino IDE kitaplık yöneticisinde kullanılabilir olan Azure IoT kitaplığından yararlanabilirsiniz. Daha fazla bilgi için bkz. [Arduino için Azure IoT Hub kitaplığı](https://github.com/azure/azure-iot-arduino).
+* **Arduino**: Arduino üzerinde geliştiriyorsanız Azure IOT kitaplık Arduino IDE Kitaplık Yöneticisi'nde kullanılabilir yararlanabilirsiniz. Daha fazla bilgi için bkz. [Arduino için Azure IoT Hub kitaplığı](https://github.com/azure/azure-iot-arduino).
 
-* **iOS**: IoT Hub Cihaz SDK’sı, Mac ve iOS cihaz geliştirmesi için CocoaPods olarak kullanılabilir. Daha fazla bilgi için bkz. [Microsoft Azure IoT için iOS Örnekleri](https://cocoapods.org/pods/AzureIoTHubClient).
+* **iOS**: IOT Hub cihazı SDK'sı, Mac ve iOS cihaz geliştirme CocoaPods kullanılabilir. Daha fazla bilgi için bkz. [Microsoft Azure IoT için iOS Örnekleri](https://cocoapods.org/pods/AzureIoTHubClient).
 
 Ancak bu bölümde, GitHub’dan [Azure IoT C SDK’sını](https://github.com/Azure/azure-iot-sdk-c) kopyalamak ve derlemek için kullanılan bir geliştirme ortamı hazırlayacaksınız. GitHub üzerindeki SDK, bu hızlı başlangıçta yer alan örnek kodu içerir. 
 
@@ -122,9 +122,9 @@ Bir cihazın bağlanabilmesi için IoT hub’ınıza kaydedilmesi gerekir. Bu b�
 
 1. Aşağıdaki komutları Azure Cloud Shell'de çalıştırarak IoT Hub CLI uzantısını ekleyin ve cihaz kimliğini oluşturun. 
 
-   **YourIoTHubName**: Bu yer tutucusunu IoT hub'ınız için seçtiğiniz adla değiştirin.
+   **YourIoTHubName** : Aşağıda bu yer tutucu IOT hub'ınız için seçtiğiniz adıyla değiştirin.
 
-   **MyCDevice**: Kaydedilen cihaza verilen addır. Gösterilen MyCDevice değerini kullanın. Cihazınız için farklı bir ad seçerseniz bu makalenin geri kalan bölümünde aynı adı kullanmanız ve örnek uygulamaları çalıştırmadan önce bunlarda da cihaz adını güncelleştirmeniz gerekir.
+   **MyCDevice** : Bu, kayıtlı bir cihaz için verilen addır. Gösterilen MyCDevice değerini kullanın. Cihazınız için farklı bir ad seçerseniz bu makalenin geri kalan bölümünde aynı adı kullanmanız ve örnek uygulamaları çalıştırmadan önce bunlarda da cihaz adını güncelleştirmeniz gerekir.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
@@ -133,7 +133,7 @@ Bir cihazın bağlanabilmesi için IoT hub’ınıza kaydedilmesi gerekir. Bu b�
 
 2. Yeni kaydettiğiniz cihazın _cihaz bağlantı dizesini_ almak için aşağıdaki komutları Azure Cloud Shell'de çalıştırın:
 
-   **YourIoTHubName**: Bu yer tutucusunu IoT hub'ınız için seçtiğiniz adla değiştirin.
+   **YourIoTHubName** : Aşağıda bu yer tutucu IOT hub'ınız için seçtiğiniz adıyla değiştirin.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyCDevice --output table
@@ -192,7 +192,7 @@ Bu bölümde, simülasyon cihazı tarafından gönderilen cihaz iletilerini izle
 
 1. Azure Cloud Shell'i kullanarak, IoT hub’ınızdan gelen iletilere bağlanmak ve bu iletileri okumak için aşağıdaki komutu çalıştırın:
 
-   **YourIoTHubName**: Bu yer tutucusunu IoT hub'ınız için seçtiğiniz adla değiştirin.
+   **YourIoTHubName** : Aşağıda bu yer tutucu IOT hub'ınız için seçtiğiniz adıyla değiştirin.
 
     ```azurecli-interactive
     az iot hub monitor-events --hub-name YourIoTHubName --output table

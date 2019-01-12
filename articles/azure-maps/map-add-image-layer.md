@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 8d0ad34496963c32c842033e81bdffb375a27412
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 5396fefca3a60dea7a503f8b4e84cc575753ea30
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214683"
+ms.locfileid: "54229124"
 ---
 # <a name="add-an-image-layer-to-a-map"></a>Bir görüntü katmanı haritaya eklemek
 
@@ -40,7 +40,7 @@ Bu örnek nasıl görüntüsü kaplama gösterir bir [1922, Newark New Jersey'de
 
 Yukarıdaki kod, kod bloğunun ilk harita nesnesi oluşturur. Gördüğünüz [bir harita oluşturmak](./map-create.md) yönergeler için.
 
-İkinci kod bloğu içinde bir [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) bir URL bir görüntü ve dört bir yanından biçimde koordinatları iletilmesiyle oluşturulur `[Top Left Corner, Top Right Corner, Bottom Right Conter, Bottom Left Corner]`.
+İkinci kod bloğu içinde bir [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) bir URL bir görüntü ve dört bir yanından biçimde koordinatları iletilmesiyle oluşturulur `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]`.
 
 ## <a name="import-a-kml-ground-overlay"></a>KML zemin kaplama içeri aktarma
 

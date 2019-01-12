@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: d54820acf8742ad2f95e8cc8527d9e252ffe3c30
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 971d0181cb8e38b952c3dd3dd1d7e5e1cbec5128
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720144"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244666"
 ---
 # <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Oluşturma, listeleme, silme veya Azure portalını kullanarak bir kullanıcı tarafından atanan yönetilen kimlik için rol atama
 
@@ -42,9 +42,9 @@ Kullanıcı tarafından atanan bir yönetilen kimlik oluşturmak için hesabın�
 2. Arama kutusuna *yönetilen kimlikleri*, altında **Hizmetleri**, tıklayın **yönetilen kimlikleri**.
 3. Tıklayın **Ekle** altında aşağıdaki alanlarda değerleri girin **oluşturma kullanıcı tarafından atanan yönetilen** kimlik bölmesi:
    - **Kaynak adı**: Bu kullanıcı tarafından atanan yönetilen kimliğinizi, örneğin UAI1 adıdır.
-   - **Abonelik**: kullanıcı tarafından atanan yönetilen kimlik altında oluşturulacağı aboneliği seçin
-   - **Kaynak grubu**: kullanıcı tarafından atanan yönetilen kimliğinizi içeren veya seçmek için yeni bir kaynak grubu oluşturma **var olanı kullan** kullanıcı tarafından atanan bir yönetilen kimlik mevcut bir kaynak grubu oluşturmak için.
-   - **Konum**: kullanıcı tarafından atanan yönetilen kimlik, örneğin dağıtmak için bir konum seçin **Batı ABD**.
+   - **Abonelik**: Kullanıcı tarafından atanan yönetilen kimlik altında oluşturulacağı aboneliği seçin
+   - **Kaynak grubu**: Kullanıcı tarafından atanan yönetilen kimliğinizi içeren veya seçmek için yeni bir kaynak grubu oluşturma **var olanı kullan** kullanıcı tarafından atanan bir yönetilen kimlik mevcut bir kaynak grubu oluşturmak için.
+   - **Konum**: Kullanıcı tarafından atanan yönetilen kimlik, örneğin dağıtmak için bir konum seçin **Batı ABD**.
 4. **Oluştur**’a tıklayın.
 
 ![Kullanıcı tarafından atanan yönetilen kimlik oluşturma](./media/how-to-manage-ua-identity-portal/create-user-assigned-managed-identity-portal.png)
@@ -62,6 +62,8 @@ Kullanıcı tarafından atanan bir yönetilen kimlik listesi/okuma için hesabı
 ## <a name="delete-a-user-assigned-managed-identity"></a>Kullanıcı tarafından atanan bir yönetilen kimlik Sil
 
 Kullanıcı tarafından atanan bir yönetilen kimlik silmek için hesabınızın gerekli [yönetilen kimlik Katılımcısı](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) rol ataması.
+
+Bir kullanıcı tarafından atanan kimliği siliniyor, bu VM veya kaynağı atanmış kaldırmaz.  Bir VM bakın, kullanıcı tarafından atanan kimlik kaldırmak için [kullanıcı tarafından atanan bir yönetilen kimlik bir sanal makineden kaldırın](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#remove-a-user-assigned-managed-identity-from-a-vm).
 
 1. Oturum [Azure portalında](https://portal.azure.com) kullanıcı tarafından atanan bir yönetilen kimlik silmek için Azure aboneliği ile ilişkili bir hesap kullanarak.
 2. Kullanıcı tarafından atanan bir yönetilen kimlik seçip tıklayın **Sil**.

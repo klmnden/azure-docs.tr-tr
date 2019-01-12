@@ -5,15 +5,15 @@ services: digital-twins
 author: kingdomofends
 ms.service: digital-twins
 ms.topic: include
-ms.date: 01/02/2019
+ms.date: 01/10/2019
 ms.author: adgera
 ms.custom: include file
-ms.openlocfilehash: 6eb7993b4dbec3ab4901dc7071d18eae98ab8ae4
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 47f66fc61fdd397350efb934bf21f488960a27a2
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54079264"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54233068"
 ---
 > [!NOTE]
 > Çok parçalı istek, genellikle üç parça gerektirir:
@@ -26,10 +26,10 @@ ms.locfileid: "54079264"
 >
 > **İçerik türü** ve **Content-Disposition** kullanım senaryosuna bağlı olarak farklılık gösterir.
 
-Çok bölümlü istekleri program aracılığıyla yapılabilir (aracılığıyla C#), bir REST istemcisi veya gibi aracı üzerinden [Postman](https://www.getpostman.com/). REST istemcisi araçları destek karmaşık çok bölümlü istekleri için değişen düzeylerde olabilir. Hangi aracı ihtiyaçlarınıza en uygun olduğunu doğrulayın.
+Çok bölümlü istekleri program aracılığıyla yapılabilir (aracılığıyla C#), bir REST istemcisi veya gibi aracı üzerinden [Postman](https://docs.microsoft.com/azure/digital-twins/how-to-configure-postman#multi). REST istemcisi araçları destek karmaşık çok bölümlü istekleri için değişen düzeylerde olabilir. Hangi aracı ihtiyaçlarınız için en uygun olduğunu doğrulayın.
 
 > [!IMPORTANT]
-> Azure dijital İkizlerini yönetim API'leri için çok bölümlü isteklerini iki bölümden oluşur:
+> Azure dijital İkizlerini yönetim API'leri için genellikle yaptığınız çok parçalı istek, iki bölümden oluşur:
 > * Tarafından bildirilen blob meta verileri (örneğin, ilişkili bir MIME türü) **Content-Type** ve **Content-Disposition**
 > * Karşıya yüklenecek bir dosya yapılandırılmamış içeriğini içeren blob içeriği
 >

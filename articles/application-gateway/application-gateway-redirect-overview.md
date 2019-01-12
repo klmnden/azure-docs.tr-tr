@@ -1,6 +1,6 @@
 ---
-title: Azure uygulama ağ geçidi için genel bakış yönlendirmek | Microsoft Docs
-description: Azure uygulama ağ geçidi yeniden yönlendirme özelliği hakkında bilgi edinin
+title: Genel bakış, Azure Application Gateway için yeniden yönlendirme | Microsoft Docs
+description: Azure Application Gateway'de yeniden yönlendirme özelliği hakkında bilgi edinin
 services: application-gateway
 documentationcenter: na
 author: amsriva
@@ -14,25 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/18/2017
 ms.author: amsriva
-ms.openlocfilehash: e6352873ea055965b433fbf3e6e46162890e5fec
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: d05d509b67fd26c958e0e2fa2bbd877db26e6521
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33200714"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232218"
 ---
-# <a name="application-gateway-redirect-overview"></a>Uygulama ağ geçidi yeniden yönlendirmeye genel bakış
+# <a name="application-gateway-redirect-overview"></a>Application Gateway yeniden yönlendirmeye genel bakış
 
-Birçok web uygulamaları için yaygın bir senaryo, şifrelenmiş bir yolu üzerinden uygulama ve onun kullanıcıları arasındaki tüm iletişimi sağlamak için otomatik HTTP HTTPS yeniden yönlendirmesi için desteklemektir. Geçmişte, müşteriler, HTTPS için http aldığı isteklerini yeniden yönlendirmek için tek amacı olan bir adanmış arka uç havuzu oluşturma gibi teknikler kullandınız.  Uygulama ağ geçidi artık uygulama ağ geçidi trafiği yönlendirmek için özelliğini destekler. Bu uygulama yapılandırmasını basitleştirir, kaynak kullanımını en iyi duruma getirir ve genel ve yol tabanlı yönlendirme dahil olmak üzere yeni yeniden yönlendirme senaryoları destekler. Uygulama ağ geçidi yeniden yönlendirme desteği için HTTP sınırlı değildir HTTPS yeniden yönlendirmesi tek başına ->. Uygulama ağ geçidi başka bir dinleyici için bir dinleyici adresindeki alınan trafik yeniden yönlendirilmesine izin veren bir genel yönlendirme mekanizması budur. Ayrıca, yeniden yönlendirme bir dış siteye de destekler. Uygulama ağ geçidi yeniden yönlendirme desteği aşağıdaki özellikleri sunar:
+HTTPS yeniden yönlendirmesi için otomatik HTTP şifrelenmiş bir yolu, kullanıcıların uygulama arasındaki tüm iletişimi sağlamak için birçok web uygulamaları için yaygın bir senaryo desteklemektir. Geçmişte, müşteriler, HTTP, HTTPS için aldığı isteklerini yeniden yönlendirmek için tek amacı olan bir adanmış arka uç havuzu oluşturma gibi teknikler kullandınız.  Application gateway, uygulama ağ geçidinde trafiği yeniden yönlendirme özelliği artık desteklemektedir. Bu uygulama yapılandırmasını basitleştiren, kaynak kullanımını en iyi duruma getirir ve genel ve yol tabanlı yeniden yönlendirme de dahil olmak üzere yeni yeniden yönlendirme senaryoları destekler. Uygulama ağ geçidi yeniden yönlendirme desteği için HTTP sınırlı değildir -> yalnızca HTTPS yeniden yönlendirmesi. Uygulama ağ geçidi üzerinde başka bir dinleyici için tek bir dinleyici geliş trafiği yeniden yönlendirme izin veren bir genel yönlendirme mekanizma budur. Ayrıca, bir dış siteye yönlendirmeyi de destekler. Application Gateway yeniden yönlendirme desteği aşağıdaki özellikleri sunar:
 
-1. Ağ geçidi başka bir dinleyici için genel yönlendirmesi bir dinleyici gelen. Bu, bir sitede HTTPS yeniden yönlendirmesi için HTTP sağlar.
-2. Yol tabanlı yönlendirmesi. Bu tür bir yeniden yönlendirme HTTP HTTPS yeniden yönlendirme yalnızca belirli site alanında, örneğin bir alışveriş sepeti alanı/Sepeti/gösterilen sağlar *.
-3. Dış sitesine yeniden yönlendirebilir.
+1. Ağ geçidi üzerinde başka bir dinleyici için genel yönlendirme gelen bir dinleyici. Bu özellik, bir sitede HTTP’den HTTPS’ye yeniden yönlendirmeyi sağlar.
+2. Yol tabanlı yönlendirme. Bu tür bir yeniden yönlendirme HTTP yalnızca belirli bir site alanı üzerinde HTTPS yeniden yönlendirmesi/Sepeti/bir alışveriş sepeti alanı örneğin gösterilen sağlar *.
+3. Dış siteye yeniden yönlendirme.
 
 ![yeniden yönlendirme](./media/application-gateway-redirect-overview/redirect.png)
 
-Bu değişiklikle, müşteriler hedef dinleyici belirten yeni yeniden yönlendirme yapılandırma nesnesi veya yeniden yönlendirme istenen dış site oluşturmanız gerekir. Yapılandırma öğesi de yeniden yönlendirilen URL URI yol ve sorgu dizesini ekleyerek etkinleştirmek için seçeneklerini destekler. Müşteriler, yeniden yönlendirme geçici (HTTP durum kodu 302) ya da kalıcı bir yeniden yönlendirme (HTTP durum kodu 301) olup olmadığını da tercih edebilirsiniz. Bu yeniden yönlendirme yapılandırması oluşturulduktan sonra yeni bir kural aracılığıyla kaynak dinleyicisi bağlı. Temel bir kural kullanırken, yeniden yönlendirme yapılandırma kaynağı dinleyicisi ile ilişkili ve genel bir yeniden yönlendirme. Yol tabanlı bir kural kullanıldığında, yeniden yönlendirme yapılandırması URL yolu haritada tanımlanır ve bu nedenle yalnızca bir sitenin belirli yol alanına uygular.
+Bu değişiklik, müşterilere bir hedef dinleyici belirten yeni yeniden yönlendirme yapılandırma nesnesi veya dış siteye yeniden yönlendirme istenildiği gibi oluşturmanız gerekir. Yapılandırma öğesi, URI yolu ve sorgu dizesini URL'ye yeniden yönlendirilen ekleyerek etkinleştirmek için seçeneklerini de destekler. Müşteriler, yeniden yönlendirme (HTTP durum kodu 302) geçici veya kalıcı bir yeniden yönlendirme (HTTP durum kodu 301) olup olmadığını da seçebilirsiniz. Bu yeniden yönlendirme yapılandırması oluşturduktan sonra yeni bir kural aracılığıyla kaynak dinleyicisi eklenir. Temel kural kullanırken, yeniden yönlendirme yapılandırması kaynak dinleyici ile ilişkili ve genel bir yeniden yönlendirme. Yola dayalı kural kullanıldığında, yeniden yönlendirme yapılandırması URL yolu haritada tanımlanır ve bu nedenle yalnızca bir sitenin belirli bir yol alanı için geçerlidir.
 
 ### <a name="next-steps"></a>Sonraki adımlar
 
-[Bir uygulama ağ geçidinde URL yeniden yönlendirmeyi yapılandırma](application-gateway-configure-redirect-powershell.md)
+[Bir uygulama ağ geçidinde HTTPS yeniden yönlendirmesi için HTTP yapılandırın](redirect-http-to-https-portal.md)

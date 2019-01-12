@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 7e90fb6bcfa1bfab59177cbc6c717fefc163a67a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 3671f6a3e3832a384e968fbf38128aff6bfb2252
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960107"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247682"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Azure IOT Central, cihaz bağlantısı
 
@@ -54,17 +54,16 @@ Tek bir cihaz IOT Central için SAS kullanarak kolayca bağlayıp yalnızca birk
 
     Kullanmak istediğiniz diğer diller için başvuruları aşağıdadır.
 
-    *   **C dili:** C kullanıyorsanız izleyin [bu C örnek cihaz istemcisi](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md) örnek cihaz bağlayamama. Örnekte aşağıdaki ayarları kullanın.   
+    *   **C dili:** C kullanıyorsanız izleyin [bu C örnek cihaz istemcisi](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md) örnek cihaz bağlayamama. Örnekte aşağıdaki ayarları kullanın.   
 
          ```
          hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
-         
-         static const char* const SYMMETRIC_KEY_VALUE = "Enter Primary Symmetric key here";
 
-         static const char* const REGISTRATION_NAME = "Enter Device Id here";
+         ## Enter the Device Id and Symmetric keys 
+         prov_dev_set_symmetric_key_info("<Device Id>", "<Enter Primary Symmetric key here>");
         ```
 
-    *   **Node.js:** Node.js kullanmak istiyorsanız [adım adım yönergeleri burada kullanmak](tutorial-add-device.md#prepare-the-client-code), bölümünden Başlat **istemci kodu hazırlama**.
+    *   **Node.js:**  Node.js kullanmak istiyorsanız [adım adım yönergeleri burada kullanmak](tutorial-add-device.md#prepare-the-client-code), bölümünden Başlat **istemci kodu hazırlama**.
 
 
 
@@ -102,7 +101,7 @@ Uygulamanızdan dışarı aktarma cihazları toplu olarak:
 1.  Dışarı aktarma ve ardından istediğiniz cihazları seçin **dışarı** eylem.
 1.  Dışarı aktarma işlemi tamamlandıktan sonra bir başarı iletisi oluşturulan dosyasını indirmek için bir bağlantı ile birlikte gösterilir.
 1.  Başarılı iletisi, disk üzerindeki yerel bir klasöre dosyasını indirmek için tıklayın.
-1.  Dışarı aktarılan CSV dosyasını aşağıdaki sütunları bilgilere sahip olacağı: **cihaz kimliği, cihaz adı, cihaz birincil/ikincil anahtarları ve birincil/ikincil sertifika parmak izleri**
+1.  Dışarı aktarılan CSV dosyasını aşağıdaki sütunları bilgileri olacaktır: **Cihaz kimliği, cihaz adı, cihaz birincil/ikincil anahtarları ve birincil/ikincil sertifika parmak izleri**
     *   IOTC_DEVICEID
     *   IOTC_DEVICENAME
     *   IOTC_SASKEY_PRIMARY
@@ -118,14 +117,14 @@ Kullanıyorsanız **MxChip** izleyin bağlanmak için cihaz [adım adım yönerg
 
 Kullanmak istediğiniz diğer diller için başvuruları aşağıdadır.
 
-   *   **C dili:** C izleyin kullanıyorsanız [bu C örnek cihaz istemcisi](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md) örnek cihaz bağlayamama. Örnekte aşağıdaki ayarları kullanın.   
+   *   **C dili:** C izleyin kullanıyorsanız [bu C örnek cihaz istemcisi](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md) örnek cihaz bağlayamama. Örnekte aşağıdaki ayarları kullanın.   
          ```
          hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
 
-         static const char* const SYMMETRIC_KEY_VALUE = "Enter Primary Symmetric key here";
-         static const char* const REGISTRATION_NAME = "Enter Device Id here";
+         ## Enter the Device Id and Symmetric keys 
+         prov_dev_set_symmetric_key_info("<Device Id>", "<Enter Primary Symmetric key here>");
         ```
-    * **Node.js:** Node.js kullanmak istiyorsanız [adım adım yönergeleri burada kullanmak](tutorial-add-device.md#prepare-the-client-code), bölümünden Başlat **istemci kodu hazırlama**.
+    * **Node.js:**  Node.js kullanmak istiyorsanız [adım adım yönergeleri burada kullanmak](tutorial-add-device.md#prepare-the-client-code), bölümünden Başlat **istemci kodu hazırlama**.
 
 
 ## <a name="connect-devices-using-x509-certificates"></a>X509 kullanarak cihazları bağlayın sertifikaları
@@ -138,7 +137,7 @@ Cihazları IOT için bağlamak için X509 kullanarak merkezi sertifikaları, bur
     *   **X509 ekleme kök veya Ara sertifikayı** yaprak cihaz sertifikalarını oluşturmak için kullandığınız. Yönetim gidin > cihaz bağlantısı > sertifikalar. 
     
         ![Bağlantı ayarları](media/concepts-connectivity/connection-settings.PNG)
-    *   **Sertifika doğrulama:** sertifika sahipliğini doğrulayarak sertifikanın uploader sertifikanın özel anahtarı elinde olmasını sağlar. Sertifikayı doğrulamak için
+    *   **Sertifika doğrulama:** Sertifika sahipliğini doğrulayarak sertifikanın uploader sertifikanın özel anahtarı elinde olmasını sağlar. Sertifikayı doğrulamak için
         *  Doğrulama kodu oluştur, doğrulama kodunu oluşturmak için bir doğrulama kodu alanın yanındaki düğmeye tıklayın. 
         *  Sertifikayı bir .cer dosyası olarak kaydetme doğrulama kodunu içeren bir X.509 doğrulama sertifikası oluşturun. 
         *  İmzalı doğrulama sertifikasını karşıya yükleyin ve tıklatın doğrulayın.
@@ -160,7 +159,7 @@ Cihazları IOT için bağlamak için X509 kullanarak merkezi sertifikaları, bur
 
 1. **Cihazları kaydetme** bunları bir CSV dosyası IOT Central alarak.
 
-1. **Cihaz Kurulumu** : karşıya yüklenen bir kök sertifikayı kullanarak yaprak sertifikalar oluşturur. Kullandığınızdan emin olun **cihaz kimliği** yaprak CNAME olarak sertifikaları ve içinde **küçük**. İşte bir [komut satırı aracı](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md ) yönelik yaprak/cihaz sertifikaları oluşturulacak **yalnızca test AMAÇLI**.
+1. **Cihaz Kurulumu** : Karşıya yüklenen bir kök sertifikayı kullanarak yaprak sertifikalar oluşturur. Kullandığınızdan emin olun **cihaz kimliği** yaprak CNAME olarak sertifikaları ve içinde **küçük**. İşte bir [komut satırı aracı](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md ) yönelik yaprak/cihaz sertifikaları oluşturulacak **yalnızca test AMAÇLI**.
 
     Cihaz sağlama hizmeti bilgilerini açık olduğunda uygulama ataması IOT Central ve bağlantı ayrıntılarını almak için etkinleştirme ile program.    
 
@@ -186,12 +185,12 @@ Bu özelliği kullanarak cihazları bağlamak için akış aşağıda verilmişt
 Cihaz kimlik doğrulaması düzeni (X509/SA) ettiğiniz alarak adımlarını izleyin
 
 1. **bağlantı ayarları** 
-    * **X509 sertifikaları:** [Ekle ve kök/Ara sertifikayı doğrulamak](#connect-devices-using-x509-certificates) ve bir sonraki adımda cihaz sertifikaları oluşturmak için kullanın.
-    * **SAS:** (Bu IOT Central uygulamasına grubu SAS anahtarı ise bu anahtar) kullanarak PRIMARY Key'i kopyalayın ve bir sonraki adımda cihaz SAS anahtarları oluşturmak için kullanın. 
+    * **X509 sertifikaları:** [Ekleme ve doğrulama kök/Ara sertifikayı](#connect-devices-using-x509-certificates) ve bir sonraki adımda cihaz sertifikaları oluşturmak için kullanın.
+    * **SAS:** (Bu grup SAS anahtarı için bu IOT Central uygulamasına anahtarıdır) kullanarak PRIMARY Key'i kopyalayın ve bir sonraki adımda cihaz SAS anahtarları oluşturmak için kullanın. 
 ![SAS bağlantı ayarları](media/concepts-connectivity/connection-settings-sas.png)
 
 1. **Cihaz kimlik bilgileri oluştur** 
-    *   **Sertifikaları X509:** için bu uygulamaya eklediğiniz kök/Ara sertifikayı kullanarak cihazlarınızı yaprak sertifikalar oluşturur. Kullandığınızdan emin olun **cihaz kimliği** bir cname yaprak sertifikalar olarak ve  **<span style="color:Red">(küçük harf olması gerekir)</span>**. İşte bir [komut satırı aracı](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md ) Test yaprak/cihaz sertifikaları oluşturulacak.
+    *   **Sertifikaları X509:** Bu uygulamaya eklediğiniz kök/Ara sertifikayı kullanarak cihazlarınız için yaprak sertifikalar oluşturur. Kullandığınızdan emin olun **cihaz kimliği** bir cname yaprak sertifikalar olarak ve  **<span style="color:Red">(küçük harf olması gerekir)</span>**. İşte bir [komut satırı aracı](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md ) Test yaprak/cihaz sertifikaları oluşturulacak.
     *   **SAS** cihaz SAS anahtarları, bunu kullanarak oluşturulabilir [komut satırı aracını](https://www.npmjs.com/package/dps-keygen). Önceki adımdan birincil SAS anahtarı (Grup SAS anahtarı) kullanın. Cihaz kimliği emin  **<span style="color:Red">alt durumda</span>**.
 
         Kullanımı cihaz SAS anahtarı oluşturma yönergeleri aşağıda           
@@ -210,13 +209,13 @@ Cihaz kimlik doğrulaması düzeni (X509/SA) ettiğiniz alarak adımlarını izl
     
      Cihazla flash **kapsam kimliği, cihaz kimliği, cihaz sertifika/SAS anahtarı** ve cihazın IOT Central uygulamasına bağlanmak için etkinleştirin.
 
-1. **Cihazı IOT Central bağlayın:** kez açık cihazları kayıt için DPS/IOT Central uygulamasına bağlayın.
+1. **Cihaz IOT Central bağlanın:** Bir kez açık cihazları kayıt için DPS/IOT Central uygulamasına bağlayın.
 
-1. **Bir şablon için cihaz ilişkilendirme:** bağlı cihaza görünür **ilişkilendirilmemiş cihazları** içinde **Device Explorer**. Sağlama durumu cihaz **kayıtlı**. **İlişkilendirme** uygun cihaz şablonu cihaza ve cihazı IOT Central uygulamasına bağlanmak için onaylayın. Cihaz IOT Central bağlantısı ayrıntılarını alır, bağlanır ve veri göndermeye başlar. Cihaz provioning tamamlandığında artık ve *sağlama durumu* kapatır **sağlanan**.
+1. **Cihaz için bir şablon ilişkilendirin:** Bağlı cihaz görünür **ilişkilendirilmemiş cihazları** içinde **Device Explorer**. Sağlama durumu cihaz **kayıtlı**. **İlişkilendirme** uygun cihaz şablonu cihaza ve cihazı IOT Central uygulamasına bağlanmak için onaylayın. Cihaz IOT Central bağlantısı ayrıntılarını alır, bağlanır ve veri göndermeye başlar. Cihaz provioning tamamlandığında artık ve *sağlama durumu* kapatır **sağlanan**.
 
 ## <a name="device-provisioning-status"></a>Cihaz sağlama durumu
 Bir dizi adım kullanılan vardır gerçek bir cihaz için Azure IOT Central bağlı olduğunda 
-1. **Kayıtlı**: cihaz ilk **kayıtlı**, yani cihazın IOT Central içinde oluşturulur ve cihaz için cihaz Kimliğine sahip.
+1. **Kayıtlı**: Cihazın ilk **kayıtlı**, yani cihazın IOT Central içinde oluşturulur ve cihaz için cihaz Kimliğine sahip.
 Cihazdır Registeretd olduğunda  
     *   Yeni bir gerçek cihaz üzerinde eklenir **Gezgini**
     *   Bir cihaz kümesini kullanarak eklendiğinden **alma** üzerinde **Gezgini**
@@ -224,9 +223,9 @@ Cihazdır Registeretd olduğunda
 
     Yukarıdaki durumların tümünde *sağlama durumu* olduğu **kayıtlı**
 
-1. **Sağlanan**: cihaz, geçerli kimlik bilgileriyle bağlandığında, sonraki adım ise IOT Central (cihaz IOT Hub'ında oluşturarak) sağlama adımı tamamlar. Daha sonra cihaza bağlanmak ve veri göndermeye başlamak için bağlantı dizesini döndürür. Cihaz *sağlama durumu* gelen artık kapatır **kayıtlı** için **sağlanan**.
+1. **Sağlanan**: Cihaz, geçerli kimlik bilgileriyle bağlandığında, sonraki adım ise IOT Central (cihaz IOT Hub'ında oluşturarak) sağlama adımı tamamlar. Daha sonra cihaza bağlanmak ve veri göndermeye başlamak için bağlantı dizesini döndürür. Cihaz *sağlama durumu* gelen artık kapatır **kayıtlı** için **sağlanan**.
 
-1.  **Engellenen**: cihaz engellenir sonra işleci bir cihaz engelleyebilirsiniz veri IOT Central gönderilemiyor ve sıfırlanması gerekir. Engellenmiş cihazların sahip *sağlama durumu* , **bloke**. İşleci ayrıca cihazın engelini kaldırma. Bir kez cihazın engellemesini *sağlama durumu* dönün, önceki *sağlama durumu* (kayıtlı veya sağlanan). 
+1.  **Engellenen**: Bir cihaz engellenir sonra işleci bir cihaz engelleyebilirsiniz veri IOT Central gönderilemiyor ve sıfırlanması gerekir. Engellenmiş cihazların sahip *sağlama durumu* , **bloke**. İşleci ayrıca cihazın engelini kaldırma. Bir kez cihazın engellemesini *sağlama durumu* dönün, önceki *sağlama durumu* (kayıtlı veya sağlanan). 
 
 ## <a name="getting-device-connection-string"></a>Cihaz bağlantı dizesini alma
 Aşağıdaki adımları kullanarak IOT hub cihaz bağlantı dizesini Azure IOT hub'ına alabilirsiniz. 

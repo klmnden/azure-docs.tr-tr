@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kasparks
-ms.openlocfilehash: 963960657fb8c16307dbf062c0b16cd74a4a7b3f
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 53571fa0c29c4b9bf5493a1e558356eba38fe617
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54101726"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244425"
 ---
 # <a name="advisor-performance-recommendations"></a>Danışmanı performans önerileri
 
@@ -32,7 +32,7 @@ Azure Danışmanı, yapılandırılmış için uzun bir TTL Traffic Manager prof
 
 ## <a name="improve-database-performance-with-sql-db-advisor"></a>SQL DB Danışmanı ile veritabanı performansını artırın
 
-Danışman, öneriler tüm Azure kaynaklarınız için tutarlı ve birleştirilmiş bir görünümünü sağlar. SQL Azure veritabanınızın performansını artırmak için önerileri getirmek için SQL veritabanı Danışmanı ile tümleştirilir. SQL veritabanı Danışmanı, kullanım geçmişinizi analiz ederek SQL Azure veritabanlarınızın performansını değerlendirir. Ardından, veritabanının tipik iş yükünü çalıştırmak için en uygun adaylardır öneriler sunar. 
+Danışman, öneriler tüm Azure kaynaklarınız için tutarlı ve birleştirilmiş bir görünümünü sağlar. SQL Azure veritabanınızın performansını artırmak için önerileri getirmek için SQL veritabanı Danışmanı ile tümleştirilir. SQL veritabanı Danışmanı, kullanım geçmişinizi analiz ederek SQL Azure veritabanlarınızın performansını değerlendirir. Ardından, veritabanının tipik iş yükünü çalıştırmak için en uygun adaylardır öneriler sunar.
 
 > [!NOTE]
 > Öneriler almak için bir veritabanı kullanımının bir hafta hakkında sahip olmalıdır ve bu hafta içinde var. bazı tutarlı etkinlik olması gerekir. SQL veritabanı Danışmanı daha kolay etkinlik rastgele ani artışlar için tutarlı sorgu desenleri için en iyi duruma getirebilirsiniz.
@@ -43,7 +43,7 @@ SQL veritabanı Danışmanı hakkında daha fazla bilgi için bkz: [SQL veritaba
 
 Azure Danışmanı, uygulama hizmetleri deneyiminizi geliştirmek ve ilgili platform özelliklerini keşfetmek için en iyi yöntem önerilerini tümleştirir. Uygulama Hizmetleri önerileri örnekleri şunlardır:
 * Algılama örnekleri burada bellek veya CPU kaynaklarını azaltma seçenekleri ile uygulama çalışma zamanı tarafından bitti.
-* Algılama örnekleri burada collocating kaynak web uygulamaları ve veritabanları gibi performans ve düşük maliyetli artırabilir. 
+* Algılama örnekleri burada collocating kaynak web uygulamaları ve veritabanları gibi performans ve düşük maliyetli artırabilir.
 
 Uygulama Hizmetleri öneriler hakkında daha fazla bilgi için bkz. [Azure App Service için en iyi](https://azure.microsoft.com/documentation/articles/app-service-best-practices/).
 
@@ -75,7 +75,9 @@ Danışman, çoğaltılmış tablolar olmayan ancak dönüştürmenizi avantaj e
 
 ## <a name="migrate-your-storage-account-to-azure-resource-manager-to-get-all-of-the-latest-azure-features"></a>Depolama hesabınızı tüm en yeni Azure özellikleri almak için Azure Resource Manager'a geçiş
 
-Depolama hesabı, dağıtım modeli için Azure Resource Manager (şablon dağıtımları, ek güvenlik seçenekleri ve Azure Depolama'nın en son özelliklerin kullanımı bir GPv2 hesabına yükseltme olanağı yararlanmak için ARM) geçirin. Danışman, Klasik dağıtım modelini kullanarak herhangi bir tek başına bir depolama hesabı tanımlayacak ve ARM dağıtım modeline geçirilmesi önerir. 
+Depolama hesabı, dağıtım modeli için Azure Resource Manager (şablon dağıtımları, ek güvenlik seçenekleri ve Azure Depolama'nın en son özelliklerin kullanımı bir GPv2 hesabına yükseltme olanağı yararlanmak için ARM) geçirin. Danışman, Klasik dağıtım modelini kullanarak herhangi bir tek başına bir depolama hesabı tanımlayacak ve ARM dağıtım modeline geçirilmesi önerir.
+
+Azure İzleyici'de klasik uyarılar duyurulan Haziran 2019 ' devre dışı bırakmak için yeni uyarı platformuyla uyarı işlevselliği korumak için ARM için Klasik depolama hesabı yükseltmeniz kesinlikle önerilir. Daha fazla bilgi için [Klasik uyarılar devre dışı bırakılması](https://azure.microsoft.com/en-us/updates/classic-alerting-monitoring-retirement/).
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Nasıl Danışmanı performans önerileri
 
@@ -92,4 +94,3 @@ Danışman önerileri hakkında daha fazla bilgi için bkz:
 * [Advisor maliyet önerileri](advisor-performance-recommendations.md)
 * [Advisor yüksek kullanılabilirlik önerisi](advisor-high-availability-recommendations.md)
 * [Advisor güvenlik önerileri](advisor-security-recommendations.md)
-

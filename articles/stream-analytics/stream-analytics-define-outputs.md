@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6d7c8aa73f72f6db93c6ef78c333c36e1d26b74e
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 805df837d5d33c5f21799e39145c62e71afdb4b5
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53995074"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231402"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Azure Stream Analytics çıkışları anlama
 Bu makalede, Azure Stream Analytics işi için çıktıların farklı türde açıklanır. Çıkış, depolamak ve Stream Analytics işi sonuçlarını kaydetmek olanak tanır. Yapabileceğiniz çıktı verilerini kullanarak, İş analizi ve veri depolama verilerinizi daha fazla.
@@ -73,6 +73,8 @@ Yetkilendirme, yenilemek için **Durdur** işinizi > Data Lake Store çıkışı
 | Kullanıcı adı | Veritabanına yazma erişimi olan kullanıcı. Stream Analytics, yalnızca SQL kimlik doğrulamasını da destekler. |
 | Parola | Veritabanına bağlanmak için parola. |
 | Tablo | Çıkış yazıldığı tablo adı. Tablo adı büyük/küçük harfe duyarlıdır ve bu tablonun şeması alanları ve bunların türlerini, iş çıktısı tarafından oluşturulan sayısı tam olarak eşleşmesi gerekir. |
+|Bölüm düzeni devral| Bu tablo için birden çok yazarları içeren tam olarak paralel topolojisi etkinleştirmek için önceki bir sorgu adımına bölümleme düzeni devralmak sağlar. Daha fazla bilgi için [Azure SQL veritabanı için Azure Stream Analytics çıkış](stream-analytics-sql-output-perf.md).|
+|Eşleşme toplu iş sayısı| Önerilen boyut üst sınırı kayıt sayısı, gönderilen her toplu ile işlem ekleyin.|
 
 > [!NOTE]
 > Şu anda Azure SQL veritabanı teklifi, Stream Analytics işi çıktısında için desteklenir. Ancak, eklenen bir veritabanı ile SQL Server çalıştıran bir Azure sanal makinesi için desteklenmiyor. Gelecekteki sürümlerde değişebilir budur.

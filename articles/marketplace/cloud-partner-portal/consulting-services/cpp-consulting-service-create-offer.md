@@ -1,5 +1,5 @@
 ---
-title: Azure ve Dynamics 365 danışmanlık hizmeti sunan - teklif oluşturma | Microsoft Docs
+title: Azure ve Dynamics 365 danışmanlık hizmet teklifinin - teklif oluşturma | Microsoft Docs
 description: Bulut iş ortağı portalında bir Azure veya Dynamics 365 danışmanlık hizmet teklifi oluşturmak için kılavuz.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
@@ -14,32 +14,32 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 6dbcee3ef5f1d58c78d088d21382c0ad6e731381
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: f130f20643ba80bf706b8b5ba8f4b7eab0acaa59
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53346575"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231453"
 ---
-# <a name="create-offer"></a>Teklif oluşturma
+# <a name="create-an-offer"></a>Teklif oluşturma
 
 Bu makalede, oluşturma ve danışmanlık bir hizmet teklifi yayımlama açıklanır.
 
 ## <a name="define-your-offer"></a>Teklifinizi tanımlayın
 
-Paketlenmiş danışmanlık hizmet teklifinizin tanımlayın. Sabit fiyat tahmini, süre, sabit sabit kapsam odaklanın (veya ücretsiz) ve öncelikli olarak öncesi-sales odaklı teklifleri için tek bir müşteri. Popüler ve sizin için yeni iş sürüş en etkili paket yinelenebilir angajmanları seçin.
+Paketlenmiş danışmanlık hizmet teklifinizin tanımlayın. Odak süresi, tahmini sabit fiyat sabit sabit kapsam (veya ücretsiz) ve öncelikli olarak yönelik satış öncesi teklifler için tek bir müşteri. Popüler ve sizin için yeni iş sürüş verimli paket yinelenebilir angajmanları seçin.
 
 ## <a name="create-a-new-offer"></a>Yeni bir teklif oluşturun
 
-Yeni bir teklif oluşturmak için aşağıdaki adımları tamamlayın:
+Yeni bir teklif oluşturmak için aşağıdaki adımları izleyin.
 1. Bulut iş ortağı portalı ana menüsünde **yeni teklif**.
-1. İçinde **yeni teklif** menüsünde **danışmanlık hizmeti**.
+1. Üzerinde **yeni teklif** menüsünde **danışmanlık hizmeti**.
 
     ![Yeni danışmanlık hizmet teklifi oluşturma](media/cppselectnewconsultingoffer.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-*Yeni teklif* sayfası danışmanlık hizmeti Teklif türü sekme ve yeni bir teklif oluşturmak için kullanacağınız form alanlarını sunmaktadır. Aşağıdaki makalelerdeki her vitrin, yeni teklif ayrıntılarını ve teklif ayarları tanımlamak için sekmesinde kullanmayı açıklar.
+**Yeni teklif** sayfası danışmanlık hizmeti Teklif türü sekme ve yeni bir teklif oluşturmak için kullandığınız form alanlarını sunmaktadır. Aşağıdaki makalelere yeni teklife mağaza ayrıntılarını ve teklif ayarları tanımlamak için sekmesinde nasıl kullanıldığını açıklar:
 
-1.  [Teklif ayarları tanımlama](./cpp-consulting-service-define-offer-settings.md)
-1.  [Mağaza ayrıntıları ve Azure Market veya appsource'ta yayınlanıp yayınlanmayacağını girin](./cpp-consulting-service-storefront-details.md)
+-   [Teklif ayarları tanımlama](./cpp-consulting-service-define-offer-settings.md)
+-   [Mağaza ayrıntıları ve Azure Market veya appsource'ta yayınlanıp yayınlanmayacağını girin](./cpp-consulting-service-storefront-details.md)

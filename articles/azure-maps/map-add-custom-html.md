@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 21689cf7fe3df7ca7e362ba49824fadd5daaa3ea
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 5df3b9541dafad64e012519802b09b19ef199a03
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888783"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231743"
 ---
 # <a name="add-html-markers-to-the-map"></a>HTML işaretçileri haritaya eklemek
 
@@ -24,7 +24,7 @@ Bu makalede bir HTML işaretçisi olarak eşlemesine bir görüntü dosyası gib
 > HTML işaretçileri veri kaynaklarına bağlantı. Bunun yerine konum bilgileri işaretçiye doğrudan eklenir ve işaretin eşlenir eklenir `markers` özelliğinin bir [HtmlMarkerManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkermanager?view=azure-iot-typescript-latest).
 
 > [!IMPORTANT]
-> İşleme için WebGL kullanan çoğu katmanlarında Azure haritalar Web denetimi, HTML işaretçileri işleme için geleneksel DOM öğeleri kullanın. Bu nedenle, daha fazla HTML işaretlerinin bir sayfa vardır, daha fazla DOM öğeleri eklendi. Birkaç hundered HTML işaretçileri ekledikten sonra performansı düşürebilir. Büyük veri kümeleri için verilerinizi Kümelemesi ya da sembol veya kabarcık katmanını kullanarak göz önünde bulundurun.
+> İşleme için WebGL kullanan çoğu katmanlarında Azure haritalar Web denetimi, HTML işaretçileri işleme için geleneksel DOM öğeleri kullanın. Bu nedenle, daha fazla HTML işaretlerinin bir sayfa vardır, daha fazla DOM öğeleri eklendi. Birkaç yüz HTML işaretçileri ekledikten sonra performansı düşürebilir. Büyük veri kümeleri için verilerinizi Kümelemesi ya da sembol veya kabarcık katmanını kullanarak göz önünde bulundurun.
 
 ## <a name="add-an-html-marker"></a>Bir HTML işaretleyici Ekle
 

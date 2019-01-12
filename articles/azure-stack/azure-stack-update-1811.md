@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 01/12/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.openlocfilehash: f5826b2a6935bb448a7a3ef94d9a5f27f1ed9426
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 4f5558d17e2f290ed7255350f304ed2057a6d783
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214598"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247631"
 ---
 # <a name="azure-stack-1811-update"></a>Azure Stack 1811 güncelleştirme
 
@@ -40,9 +40,9 @@ Azure Stack 1811 güncelleştirmenin yapı numarasıdır **1.1811.0.101**.
 Azure Stack düzeltmeleri düzenli olarak serbest bırakır. Yüklediğinizden emin olun [en son Azure Stack düzeltme](#azure-stack-hotfixes) Azure Stack için 1811 güncelleştirmeden önce 1809 için.
 
 > [!TIP]  
-> Aşağıdaki abone olmak *RRS* veya *Atom* Azure Stack düzeltmelerle birlikte kalmasını sağlamak için akışları:
-> - RRS: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss ... 
-> - Atom: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom ...
+> Aşağıdaki abone olmak *RSS* veya *Atom* Azure Stack düzeltmelerle birlikte kalmasını sağlamak için akışları:
+> - [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss)
+> - [Atom](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom)
 
 ### <a name="azure-stack-hotfixes"></a>Azure Stack düzeltmeler
 
@@ -260,6 +260,8 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
    `'Failed to start virtual machine 'vm-name'. Error: Failed to update serial output settings for VM 'vm-name'`
 
    Bir VM'de önyükleme tanılamalarını etkinleştirir, ancak önyükleme tanılama depolama hesabınızı silerseniz bu hata oluşur. Bu sorunu çözmek için önceden kullanılmış şekilde aynı ada sahip depolama hesabını yeniden oluşturun.
+
+- Oluştururken bir [Dv2 serisi VM](./user/azure-stack-vm-considerations.md#virtual-machine-sizes), D11-14v2 Vm'leri sırasıyla 4, 8, 16 ve 32 veri diskleri oluşturmanıza izin. Ancak, 8, 16, 32 ve 64 veri diski oluştur VM bölmesi gösterir.
 
 <!-- 3235634 – IS, ASDK -->
 - Vm'leri içeren boyutları ile dağıtmak için bir **v2** soneki; Örneğin, **işler için standart_a2_v2**, sonek olarak belirtmek **işler için standart_a2_v2** (küçük harf v). Kullanmayın **işler için standart_a2_v2** (Büyük Harf V). Bu genel Azure'da çalışır ve Azure Stack'te bir tutarsızlık olduğunu.

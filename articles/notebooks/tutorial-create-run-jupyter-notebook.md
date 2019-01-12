@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 123365f1aa149c0df158eedcc156280a3fe771d2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 110ba7f13b2a0d44277c881d67f0c794c8658cd1
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106691"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244603"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Öğretici: oluşturma ve Python ile Jupyter not defteri çalıştırma
 
@@ -40,7 +40,7 @@ Tamamlanan not defterini bulunabilir [GitHub - Azure not defterleri örnekleri](
 
 1. İçinde **yeni proje oluştur** görünen açılan girin veya aşağıdaki bilgileri ayarlayın ve ardından **Oluştur**:
 
-    - **Proje adı**: doğrusal regresyon örnek - Cricket cıvıltılarını
+    - **Proje adı**: Doğrusal regresyon örnek - Cricket cıvıltılarını
     - **Proje kimliği**: gerileme örnek doğrusal
     - **Genel proje**: (Seçili)
     - **Bir Benioku.MD oluşturma**: (Seçili)
@@ -411,17 +411,13 @@ Bir not defteri ile işiniz bittiğinde kullanın **dosya** > **Kapat ve durdurm
 
 ## <a name="debug-notebooks-using-visual-studio-code"></a>Not defterlerini kullanarak Visual Studio Code hata ayıklama
 
-Kod hücreleri defterinizdeki beklediğiniz şekilde davranır yoksa, kod hataları veya diğer hatalar olabilir. Ancak, dışında kullanarak `print` deyimlerini Jupyter not defteri değil herhangi bir hata ayıklama özellikleri sunan, değişkenlerin değerini gösterir.
+Kod hücreleri defterinizdeki beklediğiniz şekilde davranır yoksa, kod hataları veya diğer hatalar olabilir. Ancak, dışında kullanarak `print` deyimlerini tipik bir Jupyter ortam olmayan herhangi bir hata ayıklama özellikleri sunan, değişkenlerin değerini gösterir.
 
-Neyse ki, Visual Studio Code için Python uzantısı doğrudan Jupyter Not Defteri, açıklamalarda Markdown hücrelerle tek bir kod dosyası olarak içeri aktarabilirsiniz. Ardından, kodunuzda adım adım ilerleyin, kesme noktaları ayarlayın, durumunu incelemek vb. için Visual Studio Code hata ayıklayıcı çalıştırabilirsiniz. 
+Neyse ki, not defterinin indirebileceğiniz *.ipynb* dosya, sonra Python uzantısını kullanarak Visual Studio Code'da açın. Uzantı doğrudan bir not defteri, Markdown hücrelerde açıklamaları koruma tek bir kod dosyası olarak içeri aktarır. Not defterini aktardıktan sonra kodunuzda adım adım ilerleyin, kesme noktaları ayarlayın, durumunu inceleyebilir vb. için Visual Studio Code Hata Ayıklayıcısı'nı kullanabilirsiniz. Kodunuzda düzeltmeler yapıldıktan sonra ardından dışa *.ipynb* dosya Visual Studio Code'dan ve geri Azure not defterlerine yükleyin.
 
-Kod düzeltmeleri yaptıktan sonra Kaydet *.ipynb* dosya ve ardından Azure not defterlerine karşıya yükleyin.
+Daha fazla bilgi için [Jupyter not defteri hata ayıklama](https://code.visualstudio.com/docs/python/jupyter-support#debug-a-jupyter-notebook) Visual Studio Code belgelerindeki.
 
-Daha fazla bilgi için Visual Studio Code belgelerinde aşağıdaki makalelere bakın:
-
-- [VS code'da Jupyter not defterleri genel bakış](https://code.visualstudio.com/docs/languages/python#_jupyter-notebooks)
-- [Python Öğreticisi - yapılandırın ve hata ayıklayıcı çalıştırın](https://code.visualstudio.com/docs/python/python-tutorial#_configure-and-run-the-debugger)
-- [Düzenleme - Jupyter kod hücreleri](https://code.visualstudio.com/docs/python/editing#_jupyter-code-cells)
+Ayrıca bkz: [Visual Studio Code - Jupyter Destek](https://code.visualstudio.com/docs/python/jupyter-support) Jupyter not defterleri için ek özelliklerini Visual Studio Code için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

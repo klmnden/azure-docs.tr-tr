@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 0b38c61f4fe884137204cba6d99d5e383b3259a0
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: bae4c0dccb0ce336c319fe94936be72ab6fc9a8e
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338899"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230382"
 ---
 # <a name="speech-service-rest-apis"></a>Konuşma hizmeti REST API'leri
 
@@ -272,7 +272,7 @@ Bu tablo, Konuşmayı metne istekler için gerekli ve isteğe bağlı üst bilgi
 |------|-------------|---------------------|
 | `Ocp-Apim-Subscription-Key` | Konuşma hizmeti abonelik anahtarınız. | Ya da bu üst bilgi veya `Authorization` gereklidir. |
 | `Authorization` | Bir yetkilendirme belirteci word tarafından öncesinde `Bearer`. Daha fazla bilgi için bkz. [Kimlik doğrulaması](#authentication). | Ya da bu üst bilgi veya `Ocp-Apim-Subscription-Key` gereklidir. |
-| `Content-type` | Sağlanan ses verisi codec ve biçim açıklar. Kabul edilen değerler `audio/wav; codec=audio/pcm; samplerate=16000` ve `audio/ogg; codec=audio/pcm; samplerate=16000`. | Gerekli |
+| `Content-type` | Sağlanan ses verisi codec ve biçim açıklar. Kabul edilen değerler `audio/wav; codecs=audio/pcm; samplerate=16000` ve `audio/ogg; codecs=opus`. | Gerekli |
 | `Transfer-Encoding` | Öbekli ses, tek bir dosya yerine gönderilen veri olduğunu belirtir. Yalnızca ses verileri varsa bu üstbilgiyi kullanır. | İsteğe bağlı |
 | `Expect` | Öbekli aktarım kullanıyorsanız, gönderme `Expect: 100-continue`. Konuşma hizmeti, ilk istek bildirir ve ek veri bekler.| Öbekli ses veri gönderen gereklidir. |
 | `Accept` | Sağlanırsa, olmalıdır `application/json`. Konuşma hizmeti, json'da sonuçlar sağlar. Bir uyumsuz varsayılan değer her zaman için iyi bir uygulama, bu nedenle, bir belirtmezseniz dahil bazı Web isteği çerçeveleri sağlar `Accept`. | İsteğe bağlı, ancak önerilir. |
@@ -296,7 +296,7 @@ Bu tipik bir HTTP isteğidir. Aşağıdaki örnek, ana bilgisayar adı ve gerekl
 ```HTTP
 POST speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed HTTP/1.1
 Accept: application/json;text/xml
-Content-Type: audio/wav; codec=audio/pcm; samplerate=16000
+Content-Type: audio/wav; codecs=audio/pcm; samplerate=16000
 Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
 Host: westus.stt.speech.microsoft.com
 Transfer-Encoding: chunked
@@ -330,7 +330,7 @@ Bu kod örneği, nasıl öbekler halinde ses gönderileceğini gösterir. Yalnı
     request.Method = "POST";
     request.ProtocolVersion = HttpVersion.Version11;
     request.Host = host;
-    request.ContentType = @"audio/wav; codec=""audio/pcm""; samplerate=16000";
+    request.ContentType = @"audio/wav; codecs=audio/pcm; samplerate=16000";
     request.Headers["Ocp-Apim-Subscription-Key"] = args[1];
     request.AllowWriteStreamBuffering = false;
 

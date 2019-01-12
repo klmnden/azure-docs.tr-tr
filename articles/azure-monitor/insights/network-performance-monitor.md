@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 7f7fe545c10d80fc5a201923679b7d61623786fb
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 1ba1f11029e98f6bf324466627c465507829dc4d
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193799"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229855"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Ağ Performansı İzleyicisi çözüm azure'da
 
@@ -109,7 +109,7 @@ Ağ Performansı İzleyicisi yapay işlemler, kaynak ve hedef aracılar arası a
 
 4. Üzerinde **Kurulum** sayfasında Log Analytics aracılarını yükleyin ve izleme için aracıları yapılandırmak için bu seçeneği görürsünüz **ortak ayarları** görünümü. Log Analytics aracılarını yükleyip, daha önce anlatıldığı olarak, seçin **Kurulum** özelliğini yapılandırmak için kullanmak istediğiniz görünümü. 
 
-   **Performans İzleyicisi**: Sentetik işlemler için kullanılacak protokolü seçin **varsayılan** Performans İzleyicisi Kuralı ' nı seçip **Kaydet ve devam et**. Bu protokol seçimi yalnızca sistem tarafından oluşturulan varsayılan kural bulunur. Performans İzleyicisi kuralı açıkça oluşturulan her durumda Protokolü seçmeniz gerekebilir. Her zaman taşıyabilirsiniz **varsayılan** kural ayarları **Performans İzleyicisi** sekme (göründüğü 0 gün yapılandırmanızı tamamladıktan sonra) ve daha sonra değişiklik protokolü. İzleyici özelliği rPerfomance istemiyorsanız varsayılan kuralından devre dışı bırakabilirsiniz **varsayılan** kural ayarları **Performans İzleyicisi** sekmesi.
+   **Performans İzleyicisi**: Sentetik işlemler için kullanılacak protokolü seçin **varsayılan** Performans İzleyicisi Kuralı ' nı seçip **Kaydet ve devam et**. Bu protokol seçimi yalnızca sistem tarafından oluşturulan varsayılan kural bulunur. Performans İzleyicisi kuralı açıkça oluşturulan her durumda Protokolü seçmeniz gerekebilir. Her zaman taşıyabilirsiniz **varsayılan** kural ayarları **Performans İzleyicisi** sekme (göründüğü 0 gün yapılandırmanızı tamamladıktan sonra) ve daha sonra değişiklik protokolü. Performans İzleyicisi özelliği istemiyorsanız varsayılan kuralından devre dışı bırakabilirsiniz **varsayılan** kural ayarları **Performans İzleyicisi** sekmesi.
 
    ![Performans izleme görünümü](media/network-performance-monitor/npm-synthetic-transactions.png)
     
@@ -249,7 +249,7 @@ Haritada gösterilen topolojisi Katman 3 topolojisi ve Katman 2 cihazları ve ba
 
 ## <a name="log-analytics-search"></a>Log Analytics arama 
 
-Ağ Performansı İzleyicisi Panosu aracılığıyla kullanıma sunulan grafik ve detaya gitme sayfaları tüm verileri yerel olarak kullanılabilir ayrıca [Log Analytics arama](../../azure-monitor/log-query/log-query-overview.md). Depoda etkileşimli veri analizi gerçekleştirmek ve farklı kaynaklardaki verileri ilişkilendirin. Ayrıca özel uyarılar ve görünümler oluşturma ve verileri, Excel, Power BI veya paylaşılabilir bağlantı verin. Ortak  **sorgular** panosunda yer alan kendi sorgular ve raporlar oluşturmak için başlangıç noktası olarak kullanabileceğiniz bazı yararlı sorgular sahiptir. 
+Ağ Performansı İzleyicisi Panosu aracılığıyla kullanıma sunulan grafik ve detaya gitme sayfaları tüm verileri yerel olarak kullanılabilir ayrıca [Log Analytics arama](../../azure-monitor/log-query/log-query-overview.md). Depoda etkileşimli veri analizi gerçekleştirmek ve farklı kaynaklardaki verileri ilişkilendirin. Ayrıca özel uyarılar ve görünümler oluşturma ve verileri, Excel, Power BI veya paylaşılabilir bağlantı verin.  **Ortak sorgular** panosunda yer alan kendi sorgular ve raporlar oluşturmak için başlangıç noktası olarak kullanabileceğiniz bazı yararlı sorgular sahiptir. 
 
 ## <a name="alerts"></a>Uyarılar
 
@@ -270,7 +270,7 @@ Azure Portalı aracılığıyla bir uyarı oluşturan bir NPM kullanıcı varsa:
 4. Uyarı başarıyla oluşturulduktan sonra Uyarıları Yönet bağlantısına Uyarıları yönetmek için kullanabilirsiniz. 
 
 Her zaman bir uyarı oluşturmak, Azure İzleyicisi'nde NPM sorgu tabanlı günlük uyarı kuralı oluşturur. Bu sorguyu 5 dakikada bir varsayılan triggerred olduğu. Azure İzleyici değil ücret ilk 250 günlük uyarısı kuralları oluşturulan ve 250 günlük uyarı kuralları sınırlamak uyarı kuralları yukarıdaki olarak başına faturalandırılır [uyarılar Azure fiyatlandırma sayfasını İzleyicisi'nde fiyatlandırma](https://azure.microsoft.com/en-us/pricing/details/monitor/).
-Bildirimleri ücretlendirilir olarak başına [Azure İzleyici pricig sayfasında fiyatlandırma bildirimleri](https://azure.microsoft.com/en-us/pricing/details/monitor/).
+Bildirimleri ücretlendirilir olarak başına [Azure fiyatlandırma sayfasını İzleyicisi'nde fiyatlandırma bildirimleri](https://azure.microsoft.com/en-us/pricing/details/monitor/).
 
 
 ## <a name="pricing"></a>Fiyatlandırma

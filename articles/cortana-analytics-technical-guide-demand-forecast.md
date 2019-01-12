@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/16/2016
 ms.author: garye
-ms.openlocfilehash: 88f6a27d4092e638403c641d72916ed9d2540708
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d055b6775c9c788ecbb3a868055fa2402a537a83
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427072"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231181"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>Cortana Intelligence çözüm şablonu enerji tahmini talebi teknik Kılavuzu
 ## <a name="overview"></a>**Genel Bakış**
@@ -163,8 +163,8 @@ Aşağıdaki adımları, Çözüm dağıtımı sırasında oluşturulan Stream A
 
 1. Power BI çıkışına Azure Stream Analytics (ASA) ekleyin.
 
-   * Bölümündeki yönergeleri gerek [Azure Stream Analytics ve Power BI: akış verilerini gerçek zamanlı görünürlük için gerçek zamanlı analiz Pano](stream-analytics/stream-analytics-power-bi-dashboard.md) çıktısını Azure Stream Analytics işinizi Power BI panonuz olarak ayarlamak için .
-   * Stream analytics işinde bulun, [Azure portalında](https://portal.azure.com). İş adı olmalıdır: YourSolutionName + "streamingjob" + rastgele sayı + "asapbi" (yani demostreamingjob123456asapbi).
+   * Bölümündeki yönergeleri gerek [Azure Stream Analytics ve Power BI: Bir akış verilerini gerçek zamanlı görünürlük gerçek zamanlı analiz Panosu](stream-analytics/stream-analytics-power-bi-dashboard.md) çıktısını Azure Stream Analytics işinizi Power BI panonuz olarak ayarlamak için.
+   * Stream analytics işinde bulun, [Azure portalında](https://portal.azure.com). İş adı olması gerekir: YourSolutionName + "streamingjob" + rastgele sayı + "asapbi" (yani demostreamingjob123456asapbi).
    * ASA işi için bir Power BI çıkışına ekleyin. Ayarlama **çıkış diğer adı** olarak **'PBIoutput'**. Ayarlama, **veri kümesi adı** ve **tablo adı** olarak **'EnergyStreamData'**. Çıkış ekledikten sonra tıklayın **"Başlat"** Stream Analytics işi başlatmak için sayfanın alt kısmındaki. Bir onay iletisi (örneğin, "Başlangıç stream analytics başarılı myteststreamingjob12345asablob iş") almanız gerekir.
 2. Oturum [çevrimiçi Power BI](https://www.powerbi.com)
 
@@ -185,7 +185,7 @@ Aşağıdaki adımları, Çözüm dağıtımı sırasında oluşturulan Stream A
 Durgun yoldaki veri işlem hattı, her bölgenin talep tahminini temel hedeftir. Power BI, veri kaynağı olarak tahmin sonuçlarını depolandığı bir Azure SQL veritabanına bağlanır.
 
 > [!NOTE]
-> 1) Pano için yeterince tahmin sonuçlarını toplamak için birkaç saat sürer. 2-3 saat veri oluşturucuyu yemek sonra bu işlemi başlatmak öneririz. 2) ücretsiz yazılım indirip önkoşul bu adımında, [Power BI desktop](https://powerbi.microsoft.com/desktop).
+> (1) Pano için yeterince tahmin sonuçlarını toplamak için birkaç saat sürer. 2-3 saat veri oluşturucuyu yemek sonra bu işlemi başlatmak öneririz. 2) ücretsiz yazılım indirip önkoşul bu adımında, [Power BI desktop](https://powerbi.microsoft.com/desktop).
 >
 >
 
@@ -200,7 +200,7 @@ Durgun yoldaki veri işlem hattı, her bölgenin talep tahminini temel hedeftir.
 2. Güncelleştirme Durgun yoldaki Power BI dosyasını veri kaynağı
 
    * En son sürümünü yüklediğinizden emin olun [Power BI desktop](https://powerbi.microsoft.com/desktop).
-   * İçinde **"DemandForecastingDataGeneratorv1.0"** indirdiğiniz klasörü, çift **'Power BI Template\DemandForecastPowerBI.pbix'** dosya. İlk görselleştirmeler işlevsiz verileri temel alır. **Not:** bir hata iletisi görürseniz Power BI Desktop'ın en son sürümünü yüklediğinizden emin olun.
+   * İçinde **"DemandForecastingDataGeneratorv1.0"** indirdiğiniz klasörü, çift **'Power BI Template\DemandForecastPowerBI.pbix'** dosya. İlk görselleştirmeler işlevsiz verileri temel alır. **Not:** Bir hata iletisi görürseniz Power BI Desktop'ın en son sürümünü yüklediğinizden emin olun.
 
      Dosyanın üst kısmında, açtıktan sonra tıklayın **'Sorguları Düzenle'**. Büyütme penceresi, çift **'Source'** sağ paneldeki.
      ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic1.png)
@@ -218,7 +218,7 @@ Durgun yoldaki veri işlem hattı, her bölgenin talep tahminini temel hedeftir.
 4. (İsteğe bağlı) Veri kaynağını yenilenmesini zamanlayabilirsiniz.
 
    * Veri yenileme zamanlama için fareyi üzerine **EnergyBPI son** dataset tıklayın ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic3.png) seçip **yenilemeyi zamanla**.
-     **Not:** tıklayın, bir uyarı massage görürseniz **bilgilerini Düzenle** ve veritabanı kimlik bilgilerinizi 1. adımda açıklanan aynı olduğundan emin olun.
+     **Not:** ' A tıklayın, bir uyarı massage görürseniz **bilgilerini Düzenle** ve veritabanı kimlik bilgilerinizi 1. adımda açıklanan aynı olduğundan emin olun.
 
      ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic4.png)
    * Genişletin **yenilemeyi zamanla** bölümü. "Verilerinizi güncel tutun" etkinleştirin.

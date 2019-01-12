@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 12/04/2018
+ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 2640316ce8915018df30fc94df0e1fbb207e894b
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: ba06e568b3d7b0125d5868c1ad4a85e5e42f7e18
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713616"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246220"
 ---
 # <a name="overview-of-azure-notebooks"></a>Azure not defterleri genel bakış
 
@@ -57,7 +57,7 @@ Kısacası, Azure not defterleri işlerinizi daha verimli bir şekilde gerçekle
 
 Azure not defterleri, ücretsiz bir hizmettir ancak her 4 GB bellek ve kötüye kullanımı önlemek için 1 GB'lık veri için sınırlı bir projedir. Bu sınırları aşan kullanıcıların dizüstü çalıştırmaya devam etmek için bir Captcha testini bakın.
 
-Tüm sınırları serbest bırakmak için premium bilgi işlem katmanı seçmenize olanak sağlayan bir Azure aboneliği ile hesabınızı ilişkilendirin.
+Tüm sınırları serbest bırakmak için Azure Active Directory (bir kurumsal hesap gibi) kullanarak bir hesapla Azure not defterlerine oturum. Bu hesabı bir Azure aboneliği ile ilişkili ise, Azure veri bilimi sanal makinesi bilgi işlem katmanını kullanabilirsiniz.
 
 ## <a name="available-kernels-and-environments"></a>Kullanılabilen çekirdekler ve ortamları
 

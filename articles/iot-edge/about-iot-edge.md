@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 06/12/2018
 ms.author: kgremban
 ms.custom: mvc
-ms.openlocfilehash: 08a6134d61c4f93f891488ef24a7b81e81645897
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6bd72fd91190c9ed54b4dfd3e7b1e957c375bd4c
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089811"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230569"
 ---
 # <a name="what-is-azure-iot-edge"></a>Azure IoT Edge nedir?
 
@@ -27,7 +27,7 @@ Azure IoT Edge bulut analizini ve özel iş mantığını cihazlara taşıyarak 
 Analizler IoT çözümlerinin iş değerini artırır, aman tüm analizlerin bulutta olması gerekmez. Bir cihazın acil durumlara mümkün olduğunca hızlı tepki vermesini istiyorsanız, cihazın kendisinde anomali algılama gerçekleştirebilirsiniz. Benzer şekilde, bant genişliği maliyetlerini azaltmak ve terabaytlarca ham veri aktarımını önlemek istiyorsanız, veri temizleme ve toplama işlemlerini yerel olarak yapabilirsiniz. Sonra da öngörüleri buluta gönderirsiniz. 
 
 Azure IoT Edge üç bileşenden oluşur:
-* IoT Edge modülleri, Azure hizmetlerini, üçüncü taraf hizmetleri ve sizin kendi kodunuzu çalıştıran kapsayıcılardır. Bunlar IoT Edge cihazlarına dağıtılır ve bu cihazlarda yerel olarak yürütülür. 
+* IOT Edge modülleri, Azure hizmetlerini, üçüncü taraf hizmetleri veya kendi kodunuzu çalıştıran kapsayıcılardır. Modüller, IOT Edge cihazlarına dağıtılır ve bu cihazlarda yerel olarak yürütün. 
 * IoT Edge çalışma zamanı her IoT Edge cihazında çalıştırılır ve her cihaza dağıtılan modülleri yönetir. 
 * Bulut tabanlı bir arabirim, IoT Edge cihazlarını uzaktan izlemenize ve yönetmenize olanak tanır.
 
@@ -37,35 +37,33 @@ IoT Edge modülleri, şu anda Docker uyumlu kapsayıcılar olarak uygulanan ve i
 
 ### <a name="artificial-intelligence-on-the-edge"></a>Uç cihazlarında yapay zeka
 
-Azure IoT Edge kendiniz yazmadan karmaşık olay işleme, makine öğrenme, resim tanıma ve diğer değerli yapay zeka (AI) özelliklerini dağıtmanızı sağlar. Azure İşlevleri, Azure Stream Analytics ve Azure Machine Learning gibi Azure işlevleri Azure IoT Edge üzerinden şirket içinde çalıştırılabilir; bununla birlikte Azure işlevleriyle sınırlı değilsiniz. Herkes AI modülleri oluşturabilir ve bunları topluluğun kullanımına sunabilir. 
+Azure IOT Edge, şirket içinde yazmadan karmaşık olay işleme, makine öğrenme, resim tanıma ve diğer değerli yapay ZEKA dağıtmanıza olanak tanır. Azure işlevleri, Azure Stream Analytics gibi Azure Hizmetleri ve Azure Machine Learning tüm şirket içi Azure IOT Edge üzerinden çalıştırılabilir, ancak Azure işlevleriyle sınırlı değildir. Herkes AI modülleri oluşturabilir ve bunları topluluğun kullanımına sunabilir. 
 
 ### <a name="bring-your-own-code"></a>Kendi kodunuzu getirin
 
-Cihazlarınıza kendi kodunuzu dağıtmak istediğinizde, Azure IoT Edge bunu da destekler. Azure IoT Edge, diğer Azure IoT hizmetleriyle alnı programlama modeline sahiptir. Aynı kod hem cihazda hem de bulutta çalıştırılabilir. Azure IoT Edge hem Linux'ı hem de Windows'u desteklediğinden, kendi seçtiğiniz platform için kod yazabilirsiniz. Java, .NET Core 2.0, Node.js, C ve Python'ı destekler; dolayısıyla geliştiricileriniz zaten bildikleri bir dilde kod yazabilir ve sıfırdan yazmak zorunda kalmadan mevcut iş mantığını kullanabilir.
+Cihazlarınıza kendi kodunuzu dağıtmak istediğinizde, Azure IoT Edge bunu da destekler. Azure IoT Edge, diğer Azure IoT hizmetleriyle alnı programlama modeline sahiptir. Aynı kod hem cihazda hem de bulutta çalıştırılabilir. Azure IoT Edge hem Linux'ı hem de Windows'u desteklediğinden, kendi seçtiğiniz platform için kod yazabilirsiniz. Bu Java, .NET Core 2.0, Node.js, C ve Python destekler, dolayısıyla Geliştiricileriniz zaten bildikleri ve var olan iş mantığındaki kullanan bir dilde kod yazabilirsiniz.
 
 ## <a name="iot-edge-runtime"></a>IoT Edge çalışma zamanı
 
 Azure IoT Edge çalışma zamanı, IoT Edge cihazlarında özel mantığa ve bulut mantığına olanak tanır. IoT Edge cihazında durur; yönetim ve iletişim işlemlerini gerçekleştirir. Çalışma zamanı çeşitli işlevler gerçekleştirir:
 
-* Cihazda iş yüklerini yükler ve güncelleştirir.
-* Cihazda Azure IoT Edge güvenlik standartlarını korur.
-* IoT Edge modüllerinin her zaman çalıştırılmasını güvence altına alır.
-* Uzaktan izleme için modül durumunu buluta bildirir.
-* Aşağı akış yaprak cihazlarıyla IoT Edge cihazı arasındaki iletişimi kolaylaştırır.
-* IoT Edge cihazında bulunan modüller arasındaki iletişimi kolaylaştırır.
-* IoT Edge cihazıyla bulut arasındaki iletişimi kolaylaştırır.
+* Yükleme ve cihazda iş yüklerini güncelleştirin.
+* Cihazda Azure IOT Edge güvenlik standartlarını korur.
+* IOT Edge modüllerinin her zaman çalıştığından emin olun.
+* Bulutta Uzaktan izleme için modül durumunu rapor.
+* Aşağı Akış yaprak cihazlarıyla IOT Edge cihazı arasındaki, bir IOT Edge cihazında modüller arasında ve bulut ile IOT Edge cihazı arasındaki iletişimi yönetin.
 
 ![IoT Edge çalışma zamanı öngörüleri ve raporları IoT Hub'ına gönderir](./media/about-iot-edge/runtime.png)
 
-Azure IoT Edge cihazını nasıl kullanacağınız tamamen size bağlıdır. Çalışma zamanı çoğunlukla ağ geçitlerine AI dağıtımı için kullanılır ve bu ağ geçitleri diğer birden çok şirket içi cihazından verileri toplar ve işler; ama bu, seçeneklerden yalnızca biridir. Yaprak cihazlar da, bir ağ geçidine mi yoksa doğrudan buluta mı bağlı olduklarına bakılmaksızın Azure IoT Edge cihazları olabilir.
+Azure IOT Edge cihazı nasıl kullandığınıza size bağlıdır. Bu dağıtım modeli seçeneklerden yalnızca biridir ancak çalışma zamanı çoğunlukla birden çok diğer şirket içi yapay ZEKA ağ geçitleri için hangi verileri toplar ve işler dağıtmak için kullanılır. Yaprak cihazlar da, bir ağ geçidine mi yoksa doğrudan buluta mı bağlı olduklarına bakılmaksızın Azure IoT Edge cihazları olabilir.
 
-Azure IoT Edge çalışma zamanı çok geniş bir IoT cihazları kümesinde çalıştırılarak çalışma zamanının çok çeşitli yollarla kullanılabilmesi sağlanır. Hem Linux hem de Windows işletim sistemlerini destekler ve donanım ayrıntılarını çıkarır. Çok fazla veri işlemiyorsanız Raspberry Pi 3'ten daha küçük bir cihaz kullanın veya yoğun kaynak içeren iş yüklerini çalıştırmak için ölçeğini endüstri sunucusuna artırın.
+Azure IoT Edge çalışma zamanı çok geniş bir IoT cihazları kümesinde çalıştırılarak çalışma zamanının çok çeşitli yollarla kullanılabilmesi sağlanır. Bu, hem Linux hem de Windows işletim sistemlerini destekler ve donanım ayrıntılarını çıkarır. Bir cihaz, kadar veri işlenmiyor veya kaynak kullanımı yoğun iş yüklerini çalıştırmak için bir industrialized sunucusu kullanmak daha küçük bir Raspberry Pi 3'ten kullanın.
 
 ## <a name="iot-edge-cloud-interface"></a>IoT Edge bulut arabirimi
 
 Kurumsal cihazlarda yazılım yaşam döngüsünü yönetmek karmaşık bir işlemdir. Milyonlarca heterojen IoT cihazında yazılım yaşam döngüsünün yönetimi daha da zordur. Belirli bir cihaz türü için iş yüklerinin oluşturulması ve yapılandırılması, çözümünüzdeki milyonlara varan cihaza dağıtılması ve hatalı davranan cihazları yakalamak için izlenmesi gerekir. Bu cihazlar tek tek cihazlar temelinde yapılamaz, belirli bir ölçekte yapılmalıdır.
 
-Azure IoT Edge, Azure IoT çözüm hızlandırıcıları ile rahatça tümleştirildiğinden, çözümünüzün gereksinimlerini karşılayacak tek bir denetim düzlemi sağlar. Bulut hizmetleriyle kullanıcılar:
+Azure IoT Edge, Azure IoT çözüm hızlandırıcıları ile rahatça tümleştirildiğinden, çözümünüzün gereksinimlerini karşılayacak tek bir denetim düzlemi sağlar. Bulut hizmetleri sağlar:
 
 * Belirli bir tür cihaz üzerinde çalıştırılacak bir iş yükü oluşturabilir ve yapılandırılabilir.
 * İş yükünü bir dizi cihaza gönderebilir.

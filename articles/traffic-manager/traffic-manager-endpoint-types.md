@@ -4,6 +4,7 @@ description: Bu makalede, Azure Traffic Manager ile kullanılan uç noktaların�
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -11,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: kumud
-ms.openlocfilehash: acdae15af1e81bf194bb9e599b97152af98ef5d4
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: fb8922424de064bc63f793479d8c3a98b506b844
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139797"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232524"
 ---
 # <a name="traffic-manager-endpoints"></a>Traffic Manager uç noktaları
 Microsoft Azure Traffic Manager, farklı veri merkezlerinde çalışan uygulama dağıtımları için ağ trafiğini nasıl dağıtıldığını denetlemenize olanak sağlar. Trafik Yöneticisi'nde ' de her uygulama dağıtımı 'endpoint' olarak yapılandırın. Traffic Manager DNS isteği aldığında, DNS yanıtında döndürmek için kullanılabilir uç nokta seçer. Traffic manager, geçerli uç nokta durumu ve trafik yönlendirme yöntemi seçimi alır. Daha fazla bilgi için [Traffic Manager nasıl çalışır](traffic-manager-how-it-works.md).

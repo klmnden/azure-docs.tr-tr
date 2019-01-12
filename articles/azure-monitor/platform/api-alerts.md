@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
-ms.openlocfilehash: d4701143a24fdf89b1c61744a9661fffdbb61ed3
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: d6096967c33866f9498f413a4a73fc1d7eae9ede
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278058"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231368"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Oluşturma ve REST API ile Log analytics'teki uyarı kurallarını yönet
 Log Analytics uyarı REST API oluşturma ve Log analytics'teki uyarılar yönetmenize olanak sağlar.  Bu makalede, farklı işlemler gerçekleştirmek için API ve birkaç örnek ayrıntılarını sağlar.
@@ -255,7 +255,7 @@ Bir uyarı eylem grubu ilişkisini eklemek için uyarı tanımında eylem grubu 
       "properties": {
         "Type": "Alert",
         "Name": "test-alert",
-        "Description": "I need to put a descriptio here",
+        "Description": "I need to put a description here",
         "Threshold": {
           "Operator": "gt",
           "Value": 12
@@ -289,7 +289,7 @@ Varsayılan olarak, uyarılar için e-posta konusu şöyledir: Uyarı bildirimin
       "properties": {
         "Type": "Alert",
         "Name": "test-alert",
-        "Description": "I need to put a descriptio here",
+        "Description": "I need to put a description here",
         "Threshold": {
           "Operator": "gt",
           "Value": 12
@@ -323,7 +323,7 @@ ActionGroup ayrıntılarını birlikte göndermek ve Özelleştir Web kancası a
       "properties": {
         "Type": "Alert",
         "Name": "test-alert",
-        "Description": "I need to put a descriptio here",
+        "Description": "I need to put a description here",
         "Threshold": {
           "Operator": "gt",
           "Value": 12

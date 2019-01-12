@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 01/11/2019
 ms.author: kumud
-ms.openlocfilehash: 2d4808aaccd704f4c54d44cfe7d45ddd84cf0e17
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 15a67bb5d42028f945cc44a75a7210f132a434c3
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198686"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245181"
 ---
 # <a name="azure-standard-balancer-overview"></a>Azure standart Balancer'a genel bakış
 
@@ -210,7 +210,12 @@ Standart Load Balancer, % 99,99 SLA ile kullanılabilir.  Gözden geçirme [stan
 
 ## <a name="pricing"></a>Fiyatlandırma
 
-Standart Load Balancer, Yük Dengeleme kuralları yapılandırılmış sayısına göre ücretlendirilir ürün ve işlenen tüm gelen ve giden veri ' dir. Standart fiyatlandırma bilgileri için yük dengeleyici, ziyaret [Load Balancer fiyatlandırması](https://aka.ms/lbpricing) sayfası.
+Standart Load Balancer kullanım ücretlendirilir.
+
+- Sayı yapılandırılmış Yük Dengeleme ve giden kurallar kuralları (gelen NAT kuralları yok sayma toplam kural sayısı karşı)
+- Veri miktarı, gelen ve giden bakılmadan, kural işlendi. 
+
+Standart Load Balancer fiyatlandırma bilgileri için [Load Balancer fiyatlandırması](https://azure.microsoft.com/pricing/details/load-balancer/) sayfasını inceleyin.
 
 ## <a name="limitations"></a>Sınırlamalar
 

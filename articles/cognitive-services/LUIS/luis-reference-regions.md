@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: diberry
-ms.openlocfilehash: 55caecd2f0d57bcff3e6993d13bf8da784303304
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 655a2c0e2a7ee483dccbf129f36611d0b36df61f
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213799"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246322"
 ---
 # <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>Bölgeler ve ilişkili anahtarları yayımlama ve yazma
 
@@ -50,7 +50,7 @@ Yazma bölgesi uygulama yalnızca bir karşılık gelen yayımlanabilir bölge y
 | Asya | `westus`<br>[www.luis.ai][www.luis.ai]| Japonya Doğu<br>`japaneast`     |   https://japaneast.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
 | Asya | `westus`<br>[www.luis.ai][www.luis.ai]| Japonya Batı<br>`japanwest`     |   https://japanwest.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
 | Asya | `westus`<br>[www.luis.ai][www.luis.ai]| Kore Orta<br>`koreacentral`     |   https://koreacentral.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
-| Asya | `westus`<br>[www.luis.ai][www.luis.ai]| Güneydoğu Asya<br>`souteastasia`     |   https://southeastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
+| Asya | `westus`<br>[www.luis.ai][www.luis.ai]| Güneydoğu Asya<br>`southeastasia`     |   https://southeastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
 | *[Avustralya](#publishing-to-australia) | `australiaeast`<br>[AU.luis.ai][au.luis.ai]| Avustralya Doğu<br>`australiaeast`     |  https://australiaeast.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
 | *[Avrupa](#publishing-to-europe)| `westeurope`<br>[EU.luis.ai][eu.luis.ai]| Fransa Orta<br>`francecentral`     | https://francecentral.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   | 
 | *[Avrupa](#publishing-to-europe)| `westeurope`<br>[EU.luis.ai][eu.luis.ai]| Kuzey Avrupa<br>`northeurope`     | https://northeurope.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   | 

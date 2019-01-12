@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/09/2018
 ms.author: patricka
-ms.reviewer: ''
-ms.openlocfilehash: 1bc4fcda360a899fb2f58e2ac26270d160227a65
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.reviewer: unknown
+ms.openlocfilehash: 53c739c17007b99d90cd146e6bf01ea4a120cabd
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902850"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245693"
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Azure Stack için kimlik genel bakış
 
@@ -33,8 +33,8 @@ Tercih ettiğiniz ya da Azure AD veya AD FS, Azure Stack dağıttığınız modu
 
 Azure Stack ortamınıza bağlıdır, seçenekleriniz hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
 
-- Azure Stack Dağıtım Seti: [kimlik konuları](azure-stack-datacenter-integration.md#identity-considerations).
-- Azure Stack tümleşik sistemleri: [dağıtım planlama kararları için Azure Stack tümleşik sistemleri](azure-stack-deployment-decisions.md).
+- Azure Stack Dağıtım Seti: [Kimlik konuları](azure-stack-datacenter-integration.md#identity-considerations).
+- Azure Stack tümleşik sistemleri: [Dağıtım Planlama kararları için Azure Stack tümleşik sistemleri](azure-stack-deployment-decisions.md).
 
 ## <a name="common-concepts-for-identity"></a>Kimlik için genel kavramlar
 
@@ -80,17 +80,17 @@ Uygulamalar Azure AD veya AD FS için kayıt ve ardından kuruluşunuzdaki kulla
 
 Uygulamalar şunlardır:
 
-- **Web uygulaması**: örneklerindendir Azure portalı ve Azure Resource Manager. Bunlar, Web API çağrılarını destekler.
-- **Yerel istemci**: Azure PowerShell, Visual Studio ve Azure CLI örnek verilebilir.
+- **Web uygulaması**: Azure portalı ve Azure Resource Manager verilebilir. Bunlar, Web API çağrılarını destekler.
+- **Yerel istemci**: Azure PowerShell, Visual Studio ve Azure CLI örnekleri içerir.
 
 Kiralama iki tür uygulamaları destekler:
 
-- **Tek kiracılı**: kullanıcılar ve hizmetler yalnızca uygulamanın kayıtlı olduğu aynı dizinden destekler.
+- **Tek kiracılı**: Kullanıcılar ve hizmetler yalnızca uygulama burada kayıtlı aynı dizinden destekler.
 
   > [!NOTE]
   > AD FS yalnızca tek bir dizin desteklediğinden, bir AD FS topolojisi oluşturma, tasarım gereği, tek kiracılı uygulamalar uygulamalardır.
 
-- **Çok kiracılı**: kullanıcıların ve hizmetlerin uygulamanın kayıtlı olduğu dizine ve ek Kiracı dizinleri kullanım destekler. Çok kiracılı uygulamaları, kullanıcıların başka bir kiracı dizinine (başka bir Azure AD kiracısı) can'ın, uygulamanız için oturum açın. 
+- **Çok kiracılı**: Kullanıcılar ve hizmetler burada uygulamanın kayıtlı dizin ve ek Kiracı dizinler destekler kullanın. Çok kiracılı uygulamaları, kullanıcıların başka bir kiracı dizinine (başka bir Azure AD kiracısı) can'ın, uygulamanız için oturum açın. 
 
   Çok kiracılı modeli hakkında daha fazla bilgi için bkz: [çok kiracılı modeli etkinleştirme](azure-stack-enable-multitenancy.md).
 
@@ -98,9 +98,9 @@ Kiralama iki tür uygulamaları destekler:
 
 Bir uygulamayı kaydettiğinizde, iki nesne oluşturun:
 
-- **Uygulama nesnesi**: tüm kiracılar genelinde uygulama genel temsili. Bu ilişki yazılım uygulama ile bire bir ve yalnızca uygulama ilk kayıtlı olduğu dizinde bulunmaktadır.
+- **Uygulama nesnesi**: Tüm kiracılar genelinde uygulama genel gösterimi. Bu ilişki yazılım uygulama ile bire bir ve yalnızca uygulama ilk kayıtlı olduğu dizinde bulunmaktadır.
 
-- **Hizmet sorumlusu nesnesi**: Burada uygulamanın ilk kayıtlı dizinindeki bir uygulama için oluşturulan bir kimlik bilgisi. Bir hizmet sorumlusu da uygulama kullanıldığı her bir ek Kiracı dizininde oluşturulur. Bu ilişki tek-çok yazılım uygulamayla olabilir.
+- **Hizmet sorumlusu nesnesi**: Uygulama ilk kayıtlı olduğu dizine bir uygulama için oluşturulan bir kimlik bilgisi. Bir hizmet sorumlusu da uygulama kullanıldığı her bir ek Kiracı dizininde oluşturulur. Bu ilişki tek-çok yazılım uygulamayla olabilir.
 
 Uygulama ve hizmet sorumlusu nesneleri hakkında daha fazla bilgi için bkz: [uygulaması ve Azure Active Directory'de Hizmet sorumlusu nesneleri](/azure/active-directory/develop/active-directory-application-objects).
 
@@ -155,10 +155,10 @@ Uygulamalar ve kullanıcılar için Azure Stack mimarisinin dört katmanı taraf
 
 Kimlik sağlayıcı ile kimlik doğrulaması ve bir JSON Web belirteci almak için aşağıdaki bilgilere sahip olmalıdır:
 
-1. **Kimlik sistemi (yetkili) URL'sini**: URL, kimlik sağlayıcınız ulaşılabilir. Örneğin, *https://login.windows.net*.
-2. **Uygulama Kimliği URI'si için Azure Resource Manager**: Azure kaynak kimliği sağlayıcınızdan kayıtlı Yöneticisi için benzersiz tanımlayıcı. Ayrıca, her Azure Stack yüklemesine de benzersizdir.
-3. **Kimlik bilgileri**: kimlik doğrulaması için kullandığınız kimlik sağlayıcılarıyla kimlik bilgisi.
-4. **URL için Azure Resource Manager**: URL, Azure Resource Manager hizmet konumudur. Örneğin, *https://management.azure.com* veya *https://management.local.azurestack.external*.
+1. **Kimlik sistemi (yetkili) URL'sini**: Kimlik sağlayıcınız ulaşılabilir URL'si. Örneğin, *https://login.windows.net*.
+2. **Uygulama Kimliği URI'si için Azure Resource Manager**: Azure kaynak kimliği sağlayıcınızdan kayıtlı Yöneticisi için benzersiz tanımlayıcısı. Ayrıca, her Azure Stack yüklemesine de benzersizdir.
+3. **kimlik bilgileri**: Kimlik bilgisi, kimlik sağlayıcısı ile kimlik doğrulaması yapmak için kullanın.
+4. **Azure Resource Manager için URL**: Azure Resource Manager hizmet konumu URL'dir. Örneğin, *https://management.azure.com* veya *https://management.local.azurestack.external*.
 
 (Bir istemci, uygulama veya kullanıcı) sorumlu bir kaynağa erişmek için kimlik doğrulama isteği yaptığında, istek şunları içermelidir:
 

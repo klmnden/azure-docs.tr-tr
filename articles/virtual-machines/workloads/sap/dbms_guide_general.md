@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5e514f35567f4be0932c7bcc591cbd0f05cd9814
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 87d3a44b01dff81242f935c7737bd170fe744536
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606767"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246883"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP iş yükü Azure sanal makineleri DBMS dağıtım konuları
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -133,7 +133,11 @@ Azure, bir veri disk başına IOPS kotası zorlar. Bu kotalar, Azure standart de
 
 > [!NOTE]
 > Azure'dan yararlanmak için benzersiz [tek bir sanal makine SLA'sı](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) bağlı tüm diskleri temel VHD dahil olmak üzere, Azure Premium depolama türünde olması gerekir.
->
+
+
+> [!NOTE]
+> Konak ana veritabanı dosyalarını (veri ve günlük dosyaları) SAP veritabanlarının Azure veri merkezlerine bitişik üçüncü taraf birlikte bulunan veri merkezlerinde bulunan depolama donanımı için desteklenmiyor. Yerel Azure temsil edilen SAP iş yükü yalnızca depolama için hizmet veri ve işlem günlük dosyaları SAP veritabanları için desteklenir.
+> 
 
 Veritabanı dosyalarını ve günlük/Yinele dosyaları ve Azure kullanılan depolamanın türü yerleşimini IOPS, gecikme ve üretilen iş gereksinimlerine göre tanımlanmalıdır. Yeterli IOPS sahip olmak için birden çok diskler'den yararlanmaya ya da daha büyük bir Premium depolama disk kullanmak üzere zorlanabilirsiniz. Birden çok disk kullanarak olması durumunda, veri dosyalarını içeren veya günlük/dosyaları Yinele disklerde yazılım stripe oluşturmayı tercih. Böyle durumlarda, IOPS ve disk aktarım hızı SLA'ları temel alınan Premium depolama diskleri veya ulaşılabilir maksimum IOPS, Azure standart depolama diskleri için sonuç kümesi biriktirici.
 

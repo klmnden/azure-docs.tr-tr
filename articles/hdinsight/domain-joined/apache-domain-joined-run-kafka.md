@@ -8,12 +8,12 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: 0d9ad11ab9a53cf5de51dd3f262dc16054be5d85
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 753be2b1738e57d5dcef033f8e51043c7ab37eb2
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438617"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247427"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Öğretici: HDInsight, Kurumsal güvenlik paketi (Önizleme) ile Apache Kafka ilkeleri yapılandırma
 
@@ -50,7 +50,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 **sales_user** ve **marketing_user** etki alanı kullanıcılarını nasıl oluşturacağınızı öğrenmek için [Kurumsal Güvenlik Paketi ile HDInsight kümesi oluşturma](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds#create-a-domain-joined-hdinsight-cluster) bölümünü ziyaret edin. Bir üretim senaryosunda, etki alanı kullanıcıları Active Directory kiracınızdan gelir.
 
-## <a name="create-ranger-policy"></a>Ranger ilkesini oluşturma 
+## <a name="create-ranger-policy"></a>Ranger ilkesini oluşturma
 
 **sales_user** ve **marketing_user** için Ranger ilkesi oluşturun.
 
@@ -74,7 +74,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
    ![Apache Ranger Yönetici Arabirimi Oluşturma İlkesi](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png)   
 
-   >[!NOTE]   
+   >[!NOTE]
    >**Select User** için bir etki alanı kullanıcısı otomatik olarak doldurulmazsa, Ranger’ın Azure AD ile eşitlenmesi için birkaç dakika bekleyin.
 
 4. **Add**’e tıklayarak ilkeyi kaydedin.
@@ -94,17 +94,15 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 ## <a name="create-topics-in-a-kafka-cluster-with-esp"></a>ESP ile Kafka kümesinde konu oluşturma
 
-**salesevents** ve **marketingspend** adlı iki konu oluşturmak için:
+İki Konular oluşturmak için `salesevents` ve `marketingspend`:
 
 1. Kümeye SSH bağlantısı açmak için aşağıdaki komutu kullanın:
 
    ```bash
-   ssh SSHUSER@CLUSTERNAME-ssh.azurehdinsight.net
+   ssh DOMAINADMIN@CLUSTERNAME-ssh.azurehdinsight.net
    ```
 
-   `SSHUSER` değerini, kümenizin SSH kullanıcısı ile, `CLUSTERNAME` değerini kümenizin adıyla değiştirin. İstendiğinde, SSH kullanıcı hesabının parolasını girin. HDInsight ile `scp` kullanma hakkında daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix).
-
-   Bir üretim senaryosunda, küme oluşturma sırasında oluşturulan kullanıcılar kümede SSH kullanabilir.
+   Değiştirin `DOMAINADMIN` sırasında yapılandırılan kümeniz için yönetici kullanıcı ile [küme oluşturma](https://docs.microsoft.com/en-us/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds#create-a-hdinsight-cluster-with-esp)ve yerine `CLUSTERNAME` değerini kümenizin adıyla. İstenirse, yönetici kullanıcı hesabı için parolayı girin. HDInsight ile `SSH` kullanma hakkında daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix).
 
 2. Küme adını bir değişkene kaydedip JSON ayrıştırma yardımcı programını (`jq`) yüklemek için aşağıdaki komutları kullanın. İstendiğinde, Kafka kümesi adını girin.
 
@@ -113,14 +111,15 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
    read -p 'Enter your Kafka cluster name:' CLUSTERNAME
    ```
 
-3. Kafka aracısı ve Apache Zookeeper konakları almak için aşağıdaki komutları kullanın. İstendiğinde, küme yöneticisi hesabı için parolayı girin.
+3. Konaklar Kafka Aracısı almak için aşağıdaki komutları kullanın. İstendiğinde, küme yöneticisi hesabı için parolayı girin.
 
    ```bash
-   export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`; \
    export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`; \
    ```
-> [!Note]  
-> Devam etmeden önce henüz ayarlamadıysanız geliştirme ortamınızı ayarlamanız gerekebilir. Java JDK, Apache Maven ve scp desteğine sahip bir SSH istemcisine ihtiyacınız olacaktır. Ayrıntılı bilgi için bu [kurulum yönergelerini](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer) inceleyin.
+
+   > [!Note]  
+   > Devam etmeden önce henüz ayarlamadıysanız geliştirme ortamınızı ayarlamanız gerekebilir. Java JDK, Apache Maven ve scp desteğine sahip bir SSH istemcisine ihtiyacınız olacaktır. Daha fazla ayrıntı için [kurulum yönergeleri](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer).
+   
 1. [Apache Kafka etki alanına katılmış üretici tüketici örneklerini](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer) indirin.
 
 1. Adım 2 ve 3 altında izleyin **oluşturun ve örnek dağıtın** içinde [Öğreticisi: Apache Kafka üretici ve tüketici API'lerini kullanma](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-producer-consumer-api#build-and-deploy-the-example)
@@ -132,13 +131,9 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
    java -jar -Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/config/kafka_client_jaas.conf kafka-producer-consumer.jar create marketingspend $KAFKABROKERS
    ```
 
-   >[!NOTE]   
-   >Yalnızca kök gibi Kafka hizmetinin süreç sahibi Zookeeper znodes `/config/topics` öğesine yazabilir. Ayrıcalıklı olmayan bir kullanıcı bir konu oluşturduğunda Ranger ilkeleri zorlanmaz. Bunun nedeni, `kafka-topics.sh` betiğinin konuyu oluşturmak için Zookeeper ile doğrudan iletişim kurmasıdır. Girdiler Zookeeper düğümlerine eklenir ve aracı tarafındaki izleyiciler konuları buna göre izler ve oluşturur. Yetkilendirme Ranger eklentisi aracılığıyla yapılamaz ve yukarıdaki komut Kafka aracısı üzerinden `sudo` kullanılarak yürütülür.
-
-
 ## <a name="test-the-ranger-policies"></a>Ranger ilkelerini test etme
 
-Yapılandırılan Ranger ilkelerine bağlı olarak, **sales_user** **salesevents** konusunu üretebilir/kullanabilir ancak **marketingspend** konusunu üretemez/kullanamaz. Buna karşılık, **marketing_user** **marketingspend** konusunu üretebilir/kullanabilir ancak **salesevents** konusunu üretemez/kullanamaz.
+Yapılandırılmış, Ranger ilkelerine bağlı **sales_user** üretim tüketebileceği/konu `salesevents` ancak değil konu `marketingspend`. Buna karşılık, **marketing_user** üretim tüketebileceği/konu `marketingspend` ancak değil konu `salesevents`.
 
 1. Kümeye yeni bir SSH bağlantısı açın. **sales_user1** olarak oturum açmak için aşağıdaki komutu kullanın:
 
@@ -152,59 +147,51 @@ Yapılandırılan Ranger ilkelerine bağlı olarak, **sales_user** **salesevents
    export KAFKA_OPTS="-Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/config/kafka_client_jaas.conf"
    ```
 
-3. Aşağıdaki ortam değişkenlerini ayarlamak için önceki adımdan aracı ve Zookeeper adlarını kullanın:
+3. Aracısı adları, aşağıdaki ortam değişkenlerini ayarlamak için önceki bölümden kullanın:
 
    ```bash
-   export KAFKABROKERS=<brokerlist>:9092 
+   export KAFKABROKERS=<brokerlist>:9092
    ```
 
    Örnek: `export KAFKABROKERS=wn0-khdicl.contoso.com:9092,wn1-khdicl.contoso.com:9092`
 
+4. Adım 3'altında izleyin **oluşturun ve örnek dağıtın** içinde [Öğreticisi: Apache Kafka üretici ve tüketici API'lerini kullanma](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-producer-consumer-api#build-and-deploy-the-example) emin olmak için `kafka-producer-consumer.jar` da kullanılabilir **sales_user**.
+
+5. Doğrulayın **sales_user1** konuya üretebilir `salesevents` aşağıdaki komutu yürüterek:
+
    ```bash
-   export KAFKAZKHOSTS=<zklist>:2181
+   java -jar kafka-producer-consumer.jar producer salesevents $KAFKABROKERS
    ```
 
-   Örnek: `export KAFKAZKHOSTS=zk1-khdicl.contoso.com:2181,zk2-khdicl.contoso.com:2181`
-
-4. **sales_user1** kullanıcısının **salesevents** konusuna üretebildiğini doğrulayın.
-   
-   **salesevents** konusu için konsol üreticisini başlatmak için aşağıdaki komutu yürütün:
+6. Konu başlığından kullanmak için aşağıdaki komutu yürütün `salesevents`:
 
    ```bash
-   /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $KAFKABROKERS --topic salesevents --security-protocol SASL_PLAINTEXT
+   java -jar kafka-producer-consumer.jar consumer salesevents $KAFKABROKERS
    ```
 
-   Daha sonra, konsolda birkaç ileti girin. Konsol üreticisinden çıkmak için **Ctrl + C** tuşlarına basın.
+   İletileri okuyabilir doğrulayın.
 
-5. **salesevents** konusundan öğeleri kullanmak için aşağıdaki komutu yürütün:
-
-   ```bash
-   /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $KAFKAZKHOSTS --topic salesevents --security-protocol PLAINTEXTSASL --from-beginning
-   ```
- 
-6. Önceki adımda girdiğiniz iletilerin göründüğünü ve **sales_user1** kullanıcısının **marketingspend** konusuna üretim yapamadığını doğrulayın.
-
-   Yukarıdakiyle aynı ssh penceresinden, **marketingspend** konusuna üretim yapmak için aşağıdaki komutu çalıştırın:
+7. Doğrulayın **sales_user1** konuya üretemiyor `marketingspend` yürüterek aşağıdaki aynı ssh penceresi:
 
    ```bash
-   /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $KAFKABROKERS --topic marketingspend --security-protocol SASL_PLAINTEXT
+   java -jar kafka-producer-consumer.jar producer marketingspend $KAFKABROKERS
    ```
 
-   Bir yetkilendirme hatası oluşur ve bu yok sayılabilir. 
+   Bir yetkilendirme hatası oluşur ve bu yok sayılabilir.
 
-7. **marketing_user1** kullanıcısından **salesevents** konusundan öğeleri kullanamayacağına dikkat edin.
+8. Dikkat **marketing_user1** konu başlığından kullanamıyor `salesevents`.
 
-   Yukarıdaki 1-3. adımları bu kez **marketing_user1** olarak yineleyin.
+   Yukarıdaki ancak bu kez olarak 1-4 adımları yineleyin **marketing_user1**.
 
-   **salesevents** konusundan öğeleri kullanmak için aşağıdaki komutu yürütün:
+   Konu başlığından kullanmak için aşağıdaki komutu yürütün `salesevents`:
 
    ```bash
-   /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $KAFKAZKHOSTS --topic marketingspend --security-protocol PLAINTEXTSASL --from-beginning
+   java -jar kafka-producer-consumer.jar consumer salesevents $KAFKABROKERS
    ```
 
    Önceki iletiler görülemez.
 
-8. Ranger kullanıcı arabiriminden denetim erişimi olaylarını görüntüleyin.
+9. Ranger kullanıcı arabiriminden denetim erişimi olaylarını görüntüleyin.
 
    ![Ranger Kullanıcı Arabirimi Denetim İlkesi](./media/apache-domain-joined-run-kafka/apache-ranger-admin-audit.png)
 

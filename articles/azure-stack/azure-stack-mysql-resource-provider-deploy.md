@@ -11,15 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 01/11/2019
+ms.lastreviewed: 01/11/2019
 ms.author: jeffgilb
-ms.reviewer: georgel
-ms.openlocfilehash: c7b002a0730e94e9507aed273b9be4fe35de5bf0
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.reviewer: jiahan
+ms.openlocfilehash: 5609cb3cfeab7cbaae493403aac68b0ce56d299a
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159409"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244622"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>Azure Stack'te MySQL kaynak sağlayıcısı dağıtma
 
@@ -65,7 +66,10 @@ _Tümleşik sistemler yüklemeleri_. İsteğe bağlı PaaS sertifikaları bölü
 
 ## <a name="deploy-the-resource-provider"></a>Kaynak sağlayıcısı dağıtma
 
-Tümünde Önkoşullar kendinizi çalıştırılmak **DeployMySqlProvider.ps1** MYSQL kaynak sağlayıcısı dağıtma için betiği. DeployMySqlProvider.ps1 betiği, Azure Stack sürümünüz için indirdiğiniz MySQL kaynak sağlayıcısı ikili bir parçası olarak ayıklanır.
+Tüm Önkoşullar yükledikten sonra çalıştırabileceğiniz **DeployMySqlProvider.ps1** MySQL kaynak sağlayıcısı dağıtma için betiği. DeployMySqlProvider.ps1 betiği, Azure Stack sürümünüz için indirdiğiniz MySQL kaynak Sağlayıcı yükleme dosyalarının bir parçası olarak ayıklanır.
+
+ > [!IMPORTANT]
+ > Kaynak sağlayıcısını dağıtmadan önce yeni işlevler, düzeltmeler ve dağıtımınızı etkileyebilecek bilinen sorunlar hakkında bilgi edinmek için sürüm notlarını gözden geçirin.
 
 MySQL kaynak sağlayıcısı dağıtma için yeni yükseltilmiş bir PowerShell penceresi (PowerShell ISE değil) açın ve MySQL kaynak sağlayıcısı ikili dosyaları ayıkladığınız dizine geçin. Zaten yüklenmiş olan PowerShell modülleri tarafından kaynaklanan olası sorunları önlemek için yeni bir PowerShell penceresi kullanmanızı öneririz.
 
@@ -134,6 +138,10 @@ $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("mysq
 # And the cloudadmin credential required for privileged endpoint access.
 $CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass)
+
+# Clear the existing login information from the Azure PowerShell context.
+Clear-AzureRMContext -Scope CurrentUser -Force
+Clear-AzureRMContext -Scope Process -Force
 
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force

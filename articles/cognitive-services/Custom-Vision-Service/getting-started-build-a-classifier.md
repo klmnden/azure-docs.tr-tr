@@ -1,60 +1,52 @@
 ---
 title: Custom Vision Service'e - sınıflandırıcı oluşturma
 titlesuffix: Azure Cognitive Services
-description: Custom Vision Service'e nesneleri olarak keşfedilir bir sınıflandırıcı oluşturmak için kullanmayı öğrenin.
+description: Özel görüntü işleme Web sitesi bir görüntü sınıflandırma modeli oluşturmak için kullanmayı öğrenin.
 services: cognitive-services
 author: anrothMSFT
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: conceptual
-ms.date: 05/02/2018
+ms.date: 01/10/2019
 ms.author: anroth
-ms.openlocfilehash: 998900e72511a95336e4a94289c794e2a8e59feb
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: f6ab2d8bcf1ae02df95b0cf36eacffa90964d43e
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364259"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54243263"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Özel görüntü ile bir sınıflandırıcı oluşturma
 
-Özel görüntü işleme hizmeti kullanmak için öncelikle bir sınıflandırıcı oluşturmanız gerekir. Bu belgede, tarayıcınız üzerinden sınıflandırıcı oluşturma konusunda bilgi edinin.
+Custom Vision Service'e görüntü sınıflandırması için kullanılacak bir sınıflandırıcı modeli oluşturmalısınız. Bu kılavuzda, özel görüntü işleme Web sitesi üzerinden sınıflandırıcı oluşturma öğreneceksiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Sınıflandırıcı oluşturma için öncelikle olması gerekir:
-
-- Geçerli bir [Microsoft hesabı](https://account.microsoft.com/account) veya Azure Active Directory Orgıd ("iş veya Okul hesabı"), customvision.ai oturum açabilir ve kullanmaya başlayın.
+- Geçerli bir [Microsoft hesabı](https://account.microsoft.com/account) veya bir Azure Active Directory (AAD) hesabı ("iş veya Okul hesabı").
 
     > [!IMPORTANT] 
-    > Orgıd oturum açma için Azure Active Directory (Azure AD) kullanıcıları [Ulusal Bulutlar](https://www.microsoft.com/en-us/trustcenter/cloudservices/nationalcloud) şu anda desteklenmiyor.
-
-- Resimler, sınıflandırıcınızı (ile 30 görüntüleri etiket başına en az) eğitmek için bir dizi.
-
-- Sınıflandırıcınızı sınıflandırıcı eğitildi sonra test etmek için birkaç görüntüler.
-
-- İsteğe bağlı: Microsoft Account veya Orgıd ile ilişkili bir Azure aboneliği. Azure aboneliğiniz yoksa, oluşturabileceğiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) başlamadan önce.
-
-    > [!IMPORTANT]
-    > Bir Azure aboneliği, yalnızca oluşturmak mümkün olmayacak __sınırlı deneme__ projeleri. Bir Azure aboneliğiniz varsa, özel görüntü işleme hizmeti eğitim ve tahmin kaynakları oluşturmak için istenir [Azure portalında](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision) proje oluşturma sırasında.   
+    > Oturum açma AAD kullanıcıları için [Microsoft Ulusal Bulutlar](https://www.microsoft.com/en-us/trustcenter/cloudservices/nationalcloud) şu anda desteklenmiyor.
+- Sınıflandırıcınızı eğitmek görüntüleri bir dizi. Görüntüleri seçme hakkında ipuçları için aşağıya bakın.
+- İsteğe bağlı olarak: Microsoft hesabınızı veya AAD hesabı ile ilişkili bir Azure aboneliği. Azure aboneliğiniz yoksa, oluşturabileceğiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) başlamadan önce. Bir Azure aboneliği, yalnızca iki oluşturmak mümkün olmayacak __sınırlı deneme__ projeleri.
 
 ## <a name="create-a-new-project"></a>Yeni bir proje oluşturma
 
-Yeni bir proje oluşturmak için aşağıdaki adımları kullanın:
+Web tarayıcınızda gidin [Custom Vision web sayfası](https://customvision.ai) seçip __oturum__.
 
-1. Web tarayıcınızda gidin [Custom Vision web sayfası](https://customvision.ai). Seçin __oturum__ Service'i kullanmaya başlamak için.
+![Oturum açma sayfasının görüntüsü](./media/browser-home.png)
 
-    ![Oturum açma sayfasının görüntüsü](./media/getting-started-build-a-classifier/custom-vision-web-ui.png)
+Bir Azure hesabınız varsa, özel görüntü işleme hizmeti eğitim ve tahmin kaynakları oluşturmak için istenir [Azure portalında](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision) proje oluşturma sırasında.
 
-    > [!NOTE]
-    > Özel görüntü işleme hizmeti için oturum açtıktan sonra projelerin bir listesini sunulur. Test etmek için iki "sınırlı deneme" projeler dışında bir Azure kaynakla ilişkilendirilen projelerdir. Bir Azure kullanıcısıysanız, ilişkili tüm projeleri göreceğiniz [Azure kaynaklarını](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#grant-access-to-resources) erişim sahibi. 
-
-2. İlk projenizi oluşturmak için Seç **yeni proje**. İlk projeniz için hizmet koşullarını kabul etmeniz istenir. Onay kutusunu işaretleyin ve ardından **kabul ediyorum** düğmesi. **Yeni proje** iletişim kutusu görüntülenir.
+1. İlk projenizi oluşturmak için Seç **yeni proje**. **Yeni proje oluştur** iletişim kutusu görüntülenir.
 
     ![Yeni Proje iletişim kutusu, adını, açıklamasını ve etki alanları için alanlar içerir.](./media/getting-started-build-a-classifier/new-project.png)
 
-3. Bir ad ve proje için bir açıklama girin. Kullanılabilir etki alanlarını birini seçin. Aşağıdaki tabloda açıklandığı gibi her etki alanı görüntüleri, belirli türde bir sınıflandırıcı iyileştirir:
+1. Bir ad ve proje için bir açıklama girin. Ardından, bir kaynak grubu seçin. Oturum açtığınız hesabınız bir Azure hesabı ile ilişkili ise, kaynak grubu açılan bir özel görüntü işleme hizmeti kaynağı içeren Azure kaynak gruplarınızdaki tüm görüntüler. Her iki durumda da seçebilirsiniz __sınırlı deneme__ bu açılır listesinden.
+
+1. Seçin __sınıflandırma__ altında __proje türleri__. Ardından, altında __sınıflandırma türleri__, seçin ya da **Multilabel** veya **veya çoklu sınıflar**kullanım Örneğinize bağlı olarak. (Gönderdiğiniz her resim büyük olasılıkla etiketine sıralanacağını) tek kategorilere görüntüleri sınıflı sınıflandırma sıralar sırada multilabel sınıflandırma etiketleri herhangi bir sayıda görüntüye (sıfır veya daha fazla) uygulanır. İsterseniz daha sonra sınıflandırma türünü değiştirmek mümkün olacaktır.
+
+1. Ardından, mevcut etki alanlarından birini seçin. Aşağıdaki tabloda açıklandığı gibi her etki alanı görüntüleri, belirli türde bir sınıflandırıcı iyileştirir. İsterseniz daha sonra etki alanını değiştirmek mümkün olacaktır.
 
     |Domain|Amaç|
     |---|---|
@@ -64,70 +56,80 @@ Yeni bir proje oluşturmak için aşağıdaki adımları kullanın:
     |__Perakende__|Bir alışveriş katalog veya alışveriş Web sitesinde bulunan görüntüleri için en iyi duruma getirilmiş. Elbiselerini pants ve gömlekler arasında yüksek duyarlık sınıflandırmak istiyorsanız, bu etki alanını kullanın.|
     |__Yetişkin__|Yetişkinlere yönelik içerik ve yetişkin olmayan içerik daha iyi tanımlamak için en iyi duruma getirilmiş. Örneğin, görüntüleri bathing cins insanların engellemek istiyorsanız, bu etki alanı, bunu yapmak için özel bir sınıflandırıcı oluşturmanıza olanak sağlar.|
     |__Compact etki alanları__| Mobil cihazlarda gerçek zamanlı sınıflandırma kısıtlamaları için en iyi duruma getirilmiş. Compact etki alanları tarafından oluşturulan modelleri, yerel olarak çalıştırmak için verilebilir.|
+    
+1. Son olarak, seçin __proje oluştur__.
 
-    İsterseniz, etki alanı daha sonra değiştirebilirsiniz.
+## <a name="choose-training-images"></a>Eğitim resmi seçin
 
-4. Bir kaynak grubu seçin. Kaynak grubu açılan tüm özel görüntü işleme hizmeti kaynakları içeren Azure kaynak gruplarınızdaki gösterir. Select oluşturabilirsiniz __sınırlı deneme__. Sınırlı deneme giriş, Azure dışı kullanıcı arasından seçim yapmanız mümkün olacaktır yalnızca kaynak grubudur.
+Minimum olarak ilk eğitimi kümesinde etiket başına en az 30 görüntüleri kullanmanızı öneririz. Bunu eğitildi sonra modelinizi test etmek için birkaç fazladan görüntüleri toplamak isteyebilirsiniz.
 
-    Projeyi oluşturmak için Seç __proje oluştur__.
+Etkili bir şekilde, modeli eğitmek için görsel çeşitli ile görüntüleri kullanın. Seçim, görüntülerle göre değişiklik gösterir:
+* Kamera Açısı
+* aydınlatma
+* Arka plan
+* Görsel stili
+* kişi ve gruplandırılmış subject(s)
+* boyut
+* type
 
-## <a name="upload-and-tag-images"></a>Karşıya yükleme ve etiket görüntüleri
+Ayrıca, tüm eğitim görüntülerinizin aşağıdaki ölçütleri karşıladığından emin olun:
+* .jpg, .png veya .bmp biçimi
+* en fazla 6MB boyutunda (öngörü görüntülerini 4MB)
+* kısa kenarı en az 256 piksel; Bu değerden daha kısa herhangi bir görüntü otomatik olarak özel görüntü işleme hizmeti tarafından ölçeklendirileceği
 
-1. Görüntüleri bir sınıflandırıcı eklemek için __görüntüleri ekleme__ düğmesine ve ardından __yerel dosyalara Gözat__. Seçin __açık__ etiketleme için taşınır.
+## <a name="upload-and-tag-images"></a>Görüntüleri karşıya yükleme ve etiketleme
 
-    > [!TIP]
-    > Görüntüleri seçtikten sonra bunları etiketlemeniz gerekir. Etiket, görüntü kullanmayı planladığınız etiketlere göre görüntüleri karşıya yüklemek daha kolay olabilir, karşıya yüklemek için seçtiğiniz gruba uygulanır. Etiketlenmiş ve karşıya sonra etiketi seçilen görüntüler için de değiştirebilirsiniz.
+Bu bölümde karşıya yükleme ve sınıflandırıcı eğitmenize yardımcı olmak için görüntüleri el ile etiketleyin. 
 
-    > [!TIP]
-    > Farklı Kamera Açısı, aydınlatma, arka plan, türleri, stiller, grupları, boyutları, vb. ile görüntüleri karşıya yükleyin. Sınıflandırıcınızı değil ağırlıklı ve iyi genelleştirebilirsiniz emin olmak için çeşitli fotoğraf türlerini kullanın.
-
-    Özel görüntü işleme hizmeti kabul eder, .jpg, .png, .bmp biçimi eğitim resmi görüntü başına en fazla 6 MB. (Öngörü görüntülerini görüntü başına en fazla 4 MB olabilir.) Görüntüleri kısa kenarı 256 piksel olmasını öneririz. Kısa kenarı 256 piksel daha kısa herhangi bir görüntü, özel görüntü işleme hizmeti tarafından ölçeklenir.
+1. Görüntüleri eklemek için tıklatın __görüntüleri ekleme__ düğmesine ve ardından __yerel dosyalara Gözat__. Seçin __açık__ etiketleme için taşınır. Etiket seçiminizi istenen etiketlerine göre farklı gruplardaki görüntüleri karşıya yüklemek kolaydır, bu nedenle, karşıya yüklemek için seçtiğiniz görüntüleri grubunun uygulanır. Karşıya yüklediğiniz sonra da ayrı görüntüleri için etiketleri değiştirebilirsiniz.
 
     ![Denetim Ekle görüntüleri, sol üst ve alt merkezinde düğme olarak gösterilir.](./media/getting-started-build-a-classifier/add-images01.png)
 
-    >[!NOTE] 
-    > REST API, URL'lerden eğitim resimleri yüklemek için kullanılabilir.
 
-2. Etiket ayarlamak için metin girin __My etiketleri__ alan ve ardından __+__ düğmesi. Görüntüleri karşıya yüklemek ve bunları etiketi için kullandığınız __[sayı] dosyaları karşıya yükleme__ düğmesi. Birden fazla etiket görüntüleri ekleyebilirsiniz. 
-
-    > [!NOTE]
-    > Karşıya yükleme zamanı sayısına ve seçtiğiniz resimlerin boyutunu göre değişir.
+1. Bir etiket oluşturmak için metin girin __My etiketleri__ alanına girin ve Enter tuşuna basın. Etiket zaten varsa, açılan menüde görünür. Multilabel bir projede birden fazla etiket görüntülerinizin ekleyebilirsiniz, ancak bir çok sınıflı projesinde yalnızca bir tane ekleyebilirsiniz. Görüntüleri karşıya yükleme işlemini tamamlamak için kullanmak __[sayı] dosyaları karşıya yükleme__ düğmesi. 
 
     ![Etiket ve karşıya yükleme sayfasının görüntüsü](./media/getting-started-build-a-classifier/add-images03.png)
 
-3. Seçin __Bitti__ görüntüleri karşıya yüklendikten sonra.
+1. Seçin __Bitti__ görüntüleri karşıya yüklendikten sonra.
 
     ![İlerleme çubuğu, tamamlanan tüm görevleri gösterir.](./media/getting-started-build-a-classifier/add-images04.png)
 
-4. Başka bir dizi görüntüleri karşıya yüklemek için 1. adıma dönün. Örneğin, köpek ve ponies ayırt etmek istiyorsanız, karşıya yükleme ve ponies görüntülerini etiketleyin.
+Başka bir dizi görüntüleri karşıya yüklemek için bu bölümde dön ve adımları yineleyin. Projenizdeki belirli bir noktada eklemeniz gerekebilir _negatif örnekleri_ sınıflandırıcınızı daha doğru hale getirilmesine yardımcı olacak. Negatif örnekleri diğer etiketlerden herhangi birini eşleşmeyen olanlardır. Bu görüntüleri karşıya yüklediğinizde, özel uygulama **negatif** için bunları etiketleyin.
 
-## <a name="train-and-evaluate-the-classifier"></a>Eğitme ve değerlendirme Sınıflandırıcısı
+## <a name="train-the-classifier"></a>Sınıflandırıcıyı eğitme
 
-Sınıflandırıcı eğitmek için seçin **eğitme** düğmesi.
+Sınıflandırıcı eğitmek için seçin **eğitme** düğmesi. Sınıflandırıcı, tüm geçerli görüntüleri her etiketin visual kalitelerini tanımlayan bir model oluşturmak için kullanır.
 
-![Tarayıcı penceresinin sağ üst kısımda train düğmesidir.](./media/getting-started-build-a-classifier/train01.png)
+![Üst eğit düğmesine web sayfasının üst araç çubuğunun sağ](./media/getting-started-build-a-classifier/train01.png)
 
-Yalnızca bir sınıflandırıcı eğitmek için birkaç dakika sürer. Bu süre boyunca eğitim süreci hakkında bilgi görüntülenir.
+Eğitim işlemini yalnızca birkaç dakika sürer. Eğitim süreci hakkında bilgi görüntülenir bu süre boyunca **performans** sekmesi.
 
-![Tarayıcı penceresinin sağ üst kısımda train düğmesidir.](./media/getting-started-build-a-classifier/train02.png)
+![Tarayıcı penceresini ana bölümünde bir eğitim iletişim kutusu](./media/getting-started-build-a-classifier/train02.png)
 
-Eğitim sonra __performans__ görüntülenir. Duyarlık ve geri çağırma göstergeleri sınıflandırıcınızı otomatik teste dayanan olduğunu ne kadar iyi size söyler. Özel görüntü işleme hizmeti adlı bir işlemi kullanarak bu sayıları hesaplamak eğitimi için size gönderilen görüntüleri kullanan [k mızın çapraz doğrulama](https://en.wikipedia.org/wiki/Cross-validation_(statistics)).
+## <a name="evaluate-the-classifier"></a>Sınıflandırıcı değerlendir
+
+Alıştırma tamamlandıktan sonra modelin performans tahmini ve görüntülenir. Custom Vision Service'e duyarlık ve geri çağırırsanız, bir işlem kullanılarak hesaplamak eğitim adlı için size gönderilen görüntüleri kullanan [k mızın çapraz doğrulama](https://en.wikipedia.org/wiki/Cross-validation_(statistics)). Duyarlık ve geri çağırma verimliliğine dair bir sınıflandırıcı iki farklı ölçümler şunlardır:
+
+- **Duyarlık** doğru tanımlanan sınıflandırmalar bölümünü gösterir. Örneğin, model 100 görüntü köpekler olarak tanımlanır ve bunların 99 köpekler aslında olan, ardından Duyarlığı % 99 olabilir.
+- **Geri çağırma** doğru olarak tanımlanmıştı gerçek sınıflandırmaları bölümünü gösterir. Örneğin, gerçekte 100 görüntülerini elma vardı ve model 80 elma olarak tanımlanmış geri çağırma % 80 olacaktır.
 
 ![Eğitim sonuçları genel kesinlik ve geri çağırma ve duyarlık Göster ve sınıflandırıcı her etiket için geri çağırma.](./media/getting-started-build-a-classifier/train03.png)
 
-> [!NOTE] 
-> Seçtiğiniz her zaman **eğitme** düğmesi, sınıflandırıcınızı, yeni bir yineleme oluşturun. Eski tüm yinelemelerini görebilirsiniz **performans** sekmesinde silebilirsiniz herhangi eski olabilir. Bir yineleme sildiğinizde, benzersiz olarak kendisiyle ilişkilendirilmiş herhangi bir görüntü silme yukarı sonlandırın.
+### <a name="probability-threshold"></a>Olasılık eşiği
 
-Sınıflandırıcı tüm görüntüleri her etiket tanımlayan bir model oluşturmak için kullanır. Model kalitesini test etmek için her görüntü modeli bulur görmek üzere modeli üzerinde sınıflandırıcı çalışır.
+Not **olasılık eşiği** sol bölmesinde slider'da **performans** sekmesi. Duyarlık ve geri çağırma ile ilgili işlem yapılırken doğru olarak değerlendirilmesi tahmin edilen bir olasılık eşiği budur.
 
-Kalitelerini sınıflandırıcı sonuçları görüntülenir.
+Tahmin çağrısı ile yüksek olasılık eşiği yorumlama eğilimlidir yüksek duyarlık geri çekme çoğaltamaz sonuçları döndürmek için (bulunan sınıflandırmaları doğru, ancak çoğu bulunamadı); düşük olasılık eşiği tersi yok (gerçek sınıflandırmaları çoğunu bulundu, ancak bu kümesi içinde hatalı pozitif sonuçları vardır). Bunu aklınızda olasılık eşiği projeniz belirli ihtiyaçlarına göre ayarlamanız gerekir. Daha sonra istemci tarafında aynı olasılık Eşiği değeri filtre olarak tahmin sonuçlarını modelden alırken kullanmanız gerekir.
 
-|Sözleşme Dönemi|Tanım|
-|---|---|
-|__Duyarlık__|Ne zaman, nasıl büyük olasılıkla bir görüntü sınıflandırma sınıflandırıcınızı görüntünün doğru şekilde sınıflandırmak için mi? Sınıflandırıcı (köpek ve ponies) eğitmek için kullanılan tüm görüntüleri dışında ne kadarlık bir model doğru mu? 100 görüntüleri 99 doğru etiketler % 99 duyarlığını sağlar.|
-|__Geri çağırma__|Doğru sınıflandırılmış tüm görüntüleri dışında kaç sınıflandırıcınızı doğru tanımlamak? Geri çağırma işlemi % 100 sınıflandırıcı eğitmek için kullanılan görüntüleri 38 köpek görüntüleri varsa, sınıflandırıcı 38 köpekler bulunan anlamına gelir.|
+## <a name="manage-training-iterations"></a>Eğitim yinelemelerini yönetme
+
+Her zaman sınıflandırıcınızı eğitmek, yeni oluşturduğunuz _yineleme_ kendi güncelleştirilmiş performans ölçümleri ile. Tüm yinelemelerinizi'nın sol bölmesinde görüntüleyebileceğiniz **performans** sekmesi. Bunlardan birini seçtiğinizde bunu yapma seçeneğiniz vardır _varsayılan yineleme_ tıklayarak **varsayılan yap** üstünde düğme. _Varsayılan yineleme_ tahmin API aracılığıyla sorguladığınızda, varsayılan olarak kullanılacak modelidir (bir uygulamadan örneği için). Güncelleştirilecek reddetmeniz durumunda _varsayılan yineleme_, uygulamanızın geçerli davranışını; etkilemeden modelinizi eğitmek devam edebilirsiniz ve ardından, geliştirilmiş modeliyle memnun olduğunuzda, varsayılan güncelleştirebilirsiniz.
+
+Sol bölmede, ayrıca bulacaksınız **Sil** düğmesi, eski ise, bir yineleme silmek için kullanabilirsiniz. Bir yineleme sildiğinizde, benzersiz olarak onunla ilişkili tüm görüntüleri silin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Modeli yeniden eğitme ve test](test-your-model.md)
+Bu kılavuzda, özel görüntü işleme Web sitesini kullanarak bir görüntü sınıflandırma modeli eğitmek ve oluşturma hakkında bilgi edindiniz. Ardından, modelinizi geliştirme, yinelemeli işlemi hakkında daha fazla bilgi alın.
+
+[Modeli test etme ve yeniden eğitme](test-your-model.md)
 

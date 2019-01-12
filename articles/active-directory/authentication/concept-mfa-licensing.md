@@ -5,17 +5,17 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 01/11/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 15a528bfdc1f23c932d1206dbca4b05af8bd58ba
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 0f85aa1a3efb4ea058c22870ae96069a2a1070ad
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186710"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247308"
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Azure multi-Factor Authentication'ı edinme
 
@@ -31,7 +31,7 @@ Aşağıdaki tabloda, çok faktörlü kimlik doğrulaması için üç sürümü 
 
 | Sürüm | Açıklama |
 | --- | --- |
-| Office 365 için Multi-Factor Authentication |Bu sürümü, özel olarak Office 365 uygulamalarıyla çalışır ve Office 365 portalından yönetilir. Yöneticiler, [Office 365 kaynakları iki aşamalı doğrulama ile güvenli hale getirme](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6). Bu sürümü, bir Office 365 aboneliğinizin bir parçasıdır. |
+| Office 365 için Multi-Factor Authentication <br> Microsoft 365 İş |Bu sürümü, özel olarak Office 365 uygulamalarıyla çalışır ve Office 365 veya Microsoft 365 portalından yönetilir. Yöneticiler, [Office 365 kaynakları iki aşamalı doğrulama ile güvenli hale getirme](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6). Bu sürüm, Office 365 veya Microsoft 365 iş aboneliğinin bir parçasıdır. |
 | Azure AD yöneticileri için multi-Factor Authentication | Azure AD kiracıları, Azure AD genel Yönetici rolüne atanan kullanıcılar hiçbir ek ücret ödemeden iki aşamalı doğrulamayı etkinleştirebilirsiniz.|
 | Azure Multi-Factor Authentication | Genellikle için "tam" sürüm olarak adlandırılan, Azure multi-Factor Authentication en zengin özellik kümesi sunar. Aracılığıyla ek yapılandırma seçenekleri sağlar [Azure portalında](https://portal.azure.com), Gelişmiş raporlama ve şirket içi bir dizi için destek ve bulut uygulamalarına. Azure multi-Factor Authentication'ın bir özelliğidir [Azure Active Directory Premium](https://www.microsoft.com/cloud-platform/azure-active-directory-features)ve bulutta veya şirket içinde dağıtılabilir. |
 

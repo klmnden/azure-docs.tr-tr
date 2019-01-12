@@ -5,6 +5,7 @@ description: Bu hızlı başlangıçta, PowerShell kullanarak bir Temel Yük Den
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
 ms.devlang: na
@@ -14,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/20/2018
 ms.author: kumud
 ms:custom: seodec18
-ms.openlocfilehash: 5d76a1ac58606df82fc7e25dc8071d91da8298f5
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: dfb9db14f37efeb5ad83ef54fcc4613724d28a15
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261033"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229749"
 ---
 # <a name="get-started"></a>Hızlı Başlangıç: Azure PowerShell kullanarak bir genel yük dengeleyici oluşturma
 Bu hızlı başlangıçta, Azure PowerShell kullanarak Temel Yük Dengeleyici oluşturma işlemi gösterilmektedir. Yük dengeleyiciyi test etmek için, Windows sunucusu çalıştıran iki sanal makine (VM) dağıtın ve sanal makineler arasında bir web uygulamasının yük dengelemesini yapın.

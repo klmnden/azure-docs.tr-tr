@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 10/04/2018
+ms.date: 01/11/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: ce1bcb26b3a3510b22ced57471016999156bb0cf
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: f64331c2b75df84f44486f192e17a744b43fcf9b
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040668"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244911"
 ---
 # <a name="how-to-configure-password-writeback"></a>Nasıl yapılır: Parola geri yazmayı yapılandırın
 
@@ -52,6 +52,7 @@ Parola geri yazma özelliğini kullanmak için kiracınızda atanan aşağıdaki
 * Microsoft 365 E3 veya A3
 * Microsoft 365 E5 veya A5
 * Microsoft 365 F1
+* Microsoft 365 İş
 
 > [!WARNING]
 > Tek başına Office 365 planları lisanslama *"Self Servis parola sıfırlama/değiştirme/kilidini açma şirket içi geri yazma ile" desteklemeyen* ve çalışmak bu işlev için önceki planlardan birine sahip olması gerekir.

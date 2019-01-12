@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 1d092d0afcb4c9689a55f9af2940884867a17089
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: b5f1247c43dcbd836c684dbf41bafd0d319e5f7c
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104599"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230484"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure tanılama 1.3 ve üzeri yapılandırma şeması
 > [!NOTE]
@@ -613,7 +613,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |Öznitelik|Tür|Açıklama|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|**unsignedInt**|İsteğe bağlı. Belirtilen veriler için kullanılabilen dosya sistemi depolama miktarını belirtir.<br /><br /> Varsayılan değer 0'dır.|  
-|**scheduledTransferLogLevelFilterr**|**dize**|İsteğe bağlı. Aktarılan günlük girişlerini için en düşük önem derecesini belirtir. Varsayılan değer **tanımlanmamış**, tüm günlükleri aktarır. Diğer olası değerler (en az bilgi sırasına göre) **ayrıntılı**, **bilgi**, **uyarı**, **hata**ve **Kritik**.|  
+|**scheduledTransferLogLevelFilter**|**dize**|İsteğe bağlı. Aktarılan günlük girişlerini için en düşük önem derecesini belirtir. Varsayılan değer **tanımlanmamış**, tüm günlükleri aktarır. Diğer olası değerler (en az bilgi sırasına göre) **ayrıntılı**, **bilgi**, **uyarı**, **hata**ve **Kritik**.|  
 |**scheduledTransferPeriod**|**Süresi**|İsteğe bağlı. Zamanlanmış aktardığı veriler, en yakın dakikaya yuvarlanır arasındaki aralığı belirtir.<br /><br /> PT0S varsayılandır.|  
 |**havuzlar** |**dize**| 1.5 eklendi. İsteğe bağlı. Bir havuzu de Tanılama verileri gönder konumuna işaret eder. Örneğin, Application Insights veya olay hub'ları.|  
 

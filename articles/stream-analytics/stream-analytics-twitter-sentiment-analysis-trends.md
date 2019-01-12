@@ -9,12 +9,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/29/2017
-ms.openlocfilehash: de0ddbc041d6f177e5bfcd24d593b8d63a8e1e23
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 86fa7fab6897802fd4f18936f2d7bb0700829837
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248736"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231147"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Azure Stream analytics'te gerçek zamanlı Twitter yaklaşım analizi
 
@@ -24,7 +24,7 @@ Sosyal medya analizi araçları, kuruluşların popüler konularını anlamanız
 
 Diyez etiketi abonelik modeli (diyez etiketlerini) belirli anahtar sözcükler için dinleme ve akışın yaklaşım analizi geliştirme sağladığından gerçek zamanlı Twitter eğilim analizi bir analiz aracı harika bir örnektir.
 
-## <a name="scenario-social-media-sentiment-analysis-in-real-time"></a>Senaryo: Sosyal medya gerçek zamanlı duygu analizi
+## <a name="scenario-social-media-sentiment-analysis-in-real-time"></a>Senaryo: Gerçek zamanlı sosyal medya yaklaşım analizi
 
 Haber medya Web sitesi olan bir şirket, kendi okuyucularına hemen ilgili site içeriğin bulunduğu tarafından rakiplere üzerinde bir avantaj elde içinde ilgilenmektedir. Şirket, sosyal medya analizi Twitter verilerini gerçek zamanlı duygu çözümlemesi yaparak okuyucularına ilgilendiren konular kullanır.
 
@@ -36,7 +36,7 @@ Bu öğreticide, Twitter'a bağlanır ve (hangi ayarlayabilirsiniz) belirli bir 
 * Bir Azure aboneliği
 * Bir Twitter hesabı 
 * Bir Twitter uygulaması ve [OAuth erişim belirteci](https://dev.twitter.com/oauth/overview/application-owner-access-tokens) o uygulama için. Daha sonra bir Twitter uygulaması oluşturma hakkında üst düzey yönergeler sağlarız.
-* TwitterWPFClient uygulama Twitter akışı okur. Bu uygulama edinmek için indirme [TwitterWPFClient.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip) dosyasını Github'dan ve bilgisayarınızdaki bir klasöre, sonra paketin sıkıştırmasını açın. Kaynak kodu ve uygulamanın bir hata ayıklayıcıda çalışmasını görmek istiyorsanız, kaynak kodu alabilirsiniz [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator). 
+* TwitterWPFClient uygulama Twitter akışı okur. Bu uygulama edinmek için indirme [TwitterWPFClient.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip) dosyasını Github'dan ve bilgisayarınızdaki bir klasöre, sonra paketin sıkıştırmasını açın. Kaynak kodu ve uygulamanın bir hata ayıklayıcıda çalışmasını görmek istiyorsanız, kaynak kodu alabilirsiniz [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TwitterClient). 
 
 ## <a name="create-an-event-hub-for-streaming-analytics-input"></a>Streaming Analytics girişi için bir olay hub'ı oluşturma
 
@@ -214,13 +214,13 @@ Tweet olayları Twitter gerçek zamanlı akış, bu olaylar gerçek zamanlı ola
 
 2. İçinde **girişleri** dikey penceresinde tıklayın  **+ &nbsp;Ekle** ve sonra dikey penceresini aşağıdaki değerlerle doldurun:
 
-    * **Giriş diğer adı**: adı `TwitterStream`. Farklı bir ad kullanırsanız, daha sonra ihtiyacınız olduğundan bunu not edin.
-    * **Kaynak türü**: seçin **veri akışı**.
-    * **Kaynak**: seçin **olay hub'ı**.
-    * **İçeri aktarma seçeneği**: seçin **kullanımı olay hub'ından geçerli abonelik**. 
-    * **Service bus ad alanı**: daha önce oluşturduğunuz olay hub'ı ad alanını seçin (`<yourname>-socialtwitter-eh-ns`).
-    * **Olay hub'ı**: daha önce oluşturduğunuz olay hub'ı seçin (`socialtwitter-eh`).
-    * **Olay hub'ı ilke adı**: daha önce oluşturduğunuz erişim ilkesi seçin (`socialtwitter-access`).
+    * **Giriş diğer adı**: Adı `TwitterStream`. Farklı bir ad kullanırsanız, daha sonra ihtiyacınız olduğundan bunu not edin.
+    * **Kaynak türü**: Seçin **veri akışı**.
+    * **Kaynak**: Seçin **olay hub'ı**.
+    * **İçeri aktarma seçeneği**: Seçin **kullanımı olay hub'ından geçerli abonelik**. 
+    * **Service bus ad alanı**: Daha önce oluşturduğunuz olay hub'ı ad alanını seçin (`<yourname>-socialtwitter-eh-ns`).
+    * **Olay hub'ı**: Daha önce oluşturduğunuz olay hub'ı seçin (`socialtwitter-eh`).
+    * **Olay hub'ı ilke adı**: Daha önce oluşturduğunuz erişim ilkesi seçin (`socialtwitter-access`).
 
     ![Yeni giriş için akış analizi işi oluşturma](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-new-input.png)
 
@@ -297,9 +297,9 @@ Bu öğreticide, toplanan tweet olayları Azure Blob depolama alanına işi sorg
 
 2. İçinde **çıkışları** dikey penceresinde tıklayın  **+ &nbsp;Ekle** ve sonra dikey penceresini aşağıdaki değerlerle doldurun:
 
-    * **Çıkış diğer adı**: adı `TwitterStream-Output`. 
-    * **Havuz**: seçin **Blob Depolama**.
-    * **İçeri aktarma seçenekleri**: seçin **geçerli abonelik kullanım blob depolamadan**.
+    * **Çıkış diğer adı**: Adı `TwitterStream-Output`. 
+    * **Havuz**: **Blob depolama**'yı seçin.
+    * **İçeri aktarma seçenekleri**: Seçin **geçerli abonelik kullanım blob depolamadan**.
     * **Depolama hesabı**. Seçin **yeni bir depolama hesabı oluşturun.**
     * **Depolama hesabı** (ikinci kutusu). Girin `YOURNAMEsa`burada `YOURNAME` adınızı veya başka bir benzersiz bir dize. Ad yalnızca küçük harflerden ve rakamlardan kullanabilirsiniz ve Azure genelinde benzersiz olmalıdır. 
     * **Kapsayıcı**. `socialtwitter` yazın.

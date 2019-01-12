@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 01/11/2019
 ms.author: anwestg
-ms.openlocfilehash: a3703133e5dc5f0525638562fab98f9416bcf26e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: db4c0f2d1197a190b33bd297bb597fd19057d875
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104667"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230348"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>AD FS tarafından güvenliği bağlantısı kesilmiş bir Azure Stack ortamına bir App Service kaynak sağlayıcısı ekleme
 
@@ -27,14 +27,15 @@ ms.locfileid: "54104667"
 
 > [!IMPORTANT]
 > Azure Stack tümleşik sisteminize 1809 güncelleştirmesini veya Azure App Service 1.4 dağıtmadan önce en son Azure Stack geliştirme Seti'ni dağıtın.
->
->
 
 Bu makalede bulunan yönergeleri izleyerek yükleyebilirsiniz [App Service kaynak sağlayıcısı](azure-stack-app-service-overview.md) bir Azure Stack ortamı için:
 
 - Internet'e bağlı değil
 - Active Directory Federasyon Hizmetleri (AD FS) tarafından güvenli.
 
+ > [!IMPORTANT]
+ > Kaynak sağlayıcısını dağıtmadan önce yeni işlevler, düzeltmeler ve dağıtımınızı etkileyebilecek bilinen sorunlar hakkında bilgi edinmek için sürüm notlarını gözden geçirin.
+ 
 App Service kaynak sağlayıcısı çevrimdışı Azure Stack dağıtımınıza eklemek için bu üst düzey görevleri tamamlamanız gerekir:
 
 1. Tamamlamak [önkoşul adımlarını](azure-stack-app-service-before-you-get-started.md) (sertifikaları satın gibi hangi gerçekleştirebileceğiniz almak için birkaç gün).

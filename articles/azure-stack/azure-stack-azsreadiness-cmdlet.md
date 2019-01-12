@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/04/2018
 ms.author: sethm
-ms.reviewer: ''
-ms.openlocfilehash: 1dbfd668c2d233d299ee673da92ca203e72942fe
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: unknown
+ms.openlocfilehash: af959507fc2e0d1b68f547d2856eb7020d3ed5c6
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957435"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247593"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Başlangıç AzsReadinessChecker cmdlet başvurusu
 
@@ -169,7 +169,7 @@ Start-AzsReadinessChecker
 
 ## <a name="examples"></a>Örnekler
 
-### <a name="example-generate-certificate-signing-request"></a>Örnek: Sertifika imzalama isteği oluşturma
+### <a name="example-generate-certificate-signing-request"></a>Örnek: Sertifika imzalama isteği oluştur
 
 ```PowerShell
 $regionName = 'east'
@@ -189,7 +189,7 @@ Start-AzsReadinessChecker -CertificatePath .\Certificates\ -PfxPassword $passwor
 
 Bu örnekte, PFX parolasını güvenli bir şekilde istenir ve geçerli bir AAD dağıtımı "Doğu" ve "azurestack.contoso.com" dış FQDN'si için bir bölge adı ile sertifikalar için göreli klasörü "Sertifikalar" Başlangıç AzsReadinessChecker denetler
 
-### <a name="example-validate-certificates-with-deployment-data-deployment-and-support"></a>Örnek: sertifikaları dağıtım verileri (dağıtım ve destek) ile doğrulama
+### <a name="example-validate-certificates-with-deployment-data-deployment-and-support"></a>Örnek: Dağıtım verileri (dağıtım ve destek) sertifikalarıyla doğrula
 
 ```PowerShell
 $password = Read-Host -Prompt "Enter PFX Password" -AsSecureString
@@ -238,7 +238,7 @@ Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -Azur
 
 Bu örnekte, hizmet yönetici hesabının kimlik bilgilerini güvenli bir şekilde istenir ve Azure Active Directory ve Azure hesabı, geçerli bir AAD dağıtımı "azurestack.contoso.com" için bir kiracı dizin adı ile başlangıç AzsReadinessChecker denetler.
 
-### <a name="example-validate-azure-identity-with-deployment-data-deployment-support"></a>Örnek: Veri dağıtımı (dağıtım desteği) ile Azure kimlik doğrulama
+### <a name="example-validate-azure-identity-with-deployment-data-deployment-support"></a>Örnek: Dağıtım verileri (dağıtım desteği) ile Azure kimlik doğrulama
 
 ```PowerSHell
 $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service Administrator of Azure Active Directory Tenant e.g. serviceadmin@contoso.onmicrosoft.com"
@@ -258,7 +258,7 @@ Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -Registra
 
 Bu örnekte, abonelik sahibi kimlik bilgilerini güvenli bir şekilde istenir ve başlangıç AzsReadinessChecker belirli bir hesaba karşı doğrulama gerçekleştirir ve abonelik emin olmak için Azure Stack kayıt için kullanılabilir. 
 
-### <a name="example-validate-azure-registration-with-deployment-data-deployment-team"></a>Örnek: Veri dağıtımı (dağıtım ekibi) ile Azure kaydı doğrula
+### <a name="example-validate-azure-registration-with-deployment-data-deployment-team"></a>Örnek: Dağıtım verileri (dağıtım ekibi) ile Azure kaydı doğrula
 
 ```PowerShell
 $registrationCredential = Get-Credential -Message "Enter Credentials for Subscription Owner e.g. subscriptionowner@contoso.onmicrosoft.com"
@@ -277,7 +277,7 @@ Start-AzsReadinessChecker -PfxPassword $password -PfxPath .\certificates\ssl.pfx
 
 Bu örnekte, PFX parolasını güvenli bir şekilde istenir. Ssl.pfx dosya yerel makine sertifika deposuna ve aynı parola ile yeniden dışarı ve ssl_new.pfx kaydedilir.  Sertifika doğrulaması yerel makine öznitelik kümesi özel bir anahtara sahip değil, sertifika zinciri bozuk, ilgisiz sertifikaların PFX'e mevcut olduğunu veya sertifika zinciri yanlış sırada bayrak eklendiğinde bu yordamı için kullanılır.
 
-### <a name="example-view-validation-report-deployment-support"></a>Örnek: Görünüm doğrulama raporu (dağıtım desteği)
+### <a name="example-view-validation-report-deployment-support"></a>Örnek: Doğrulama raporunu görüntüle (dağıtım desteği)
 
 ```PowerShell
 Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json
@@ -285,7 +285,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json
 
 Bu örnekte, dağıtım veya destek ekibi hazırlık raporu (Contoso) müşteriden almak ve başlangıç AzsReadinessChecker Contoso gerçekleştirilen doğrulama yürütme durumunu görüntülemek için kullanın.
 
-### <a name="example-view-validation-report-summary-for-certificate-validation-only-deployment-and-support"></a>Örnek: sertifika doğrulaması yalnızca (dağıtım ve destek) Özet doğrulama raporunu görüntüle
+### <a name="example-view-validation-report-summary-for-certificate-validation-only-deployment-and-support"></a>Örnek: Sertifika doğrulama yalnızca (dağıtım ve destek) Özet doğrulama raporunu görüntüle
 
 ```PowerShell
 Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSections Certificate -Summary

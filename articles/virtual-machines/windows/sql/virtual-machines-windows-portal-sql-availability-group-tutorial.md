@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: 42a4ea1e4dc352e56fbd65f69c9ed71e3b0c1038
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 1605fdc5e49d2b8e95a2876dea8dff378ee33e2e
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "51238084"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232286"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Yapılandırma Always On kullanılabilirlik grubu Azure VM'de el ile
 
@@ -296,7 +296,7 @@ Aşağıdaki adımları kullanarak bir kullanılabilirlik grubunu yapılandırma
 
     ![Yeni AG Sihirbazı, ilk veri eşitlemeyi seçin](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/66-endpoint.png)
 
-8. İçinde **ilk veri eşitlemesini Seç** sayfasında **tam** ve paylaşılan bir ağ konumu belirtin. Konumu için [, oluşturduğunuz yedek paylaşımı](#backupshare). Bu örnekte olduğu, **\\\\\<ilk SQL Server\>\Backup\**. **İleri**’ye tıklayın.
+8. İçinde **ilk veri eşitlemesini Seç** sayfasında **tam** ve paylaşılan bir ağ konumu belirtin. Konumu için [, oluşturduğunuz yedek paylaşımı](#backupshare). Olduğu, örnekte  **\\ \\ \<ilk SQL Server\>\Backup\\**. **İleri**’ye tıklayın.
 
    >[!NOTE]
    >Tam eşitleme, SQL Server'ın ilk örneğinde veritabanının tam yedekleme gerçekleştirir ve ikinci örneğine geri yükler. Büyük veritabanları için tam eşitleme önerilmez uzun sürebilir. El ile bir veritabanının yedeğini almak ve ile geri bu süreyi kısaltabilirsiniz `NO RECOVERY`. Veritabanı zaten ile geri `NO RECOVERY` ikinci SQL kullanılabilirlik grubunu yapılandırmadan önce sunucuda seçin **sadece Birleştir**. Kullanılabilirlik grubu yapılandırıldıktan sonra yedekleme almak istiyorsanız seçin **ilk veri eşitlemeyi atla**.

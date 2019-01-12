@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeffgilb
 ms.reviewer: thoroet
-ms.openlocfilehash: 3ce74cdb610f2902133459b913f53bb7809cb4b7
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: ff068ff5aa4401a80f2220df79fdac93db21cfb3
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983006"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232881"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Azure Stack'te ek ölçek birimi düğümleri Ekle
 
@@ -105,6 +105,7 @@ PowerShell kullanarak aşağıdaki gibi ölçek birimi ve ölçek birimi düğü
 
 ### <a name="status-for-the-add-node-operation"></a>Düğüm ekleme işlemi durumu 
 **Bir ölçek birimi için:**
+
 |Durum               |Açıklama  |
 |---------------------|---------|
 |Çalışıyor              |Tüm düğümler etkin bir şekilde ölçek birimi katılıyor.|
@@ -115,6 +116,7 @@ PowerShell kullanarak aşağıdaki gibi ölçek birimi ve ölçek birimi düğü
 
 
 **Bir ölçek birimi düğümü için:**
+
 |Durum                |Açıklama  |
 |----------------------|---------|
 |Çalışıyor               |Düğüm, etkin bir şekilde ölçek birimi katılıyor.|
@@ -128,16 +130,16 @@ PowerShell kullanarak aşağıdaki gibi ölçek birimi ve ölçek birimi düğü
 ## <a name="troubleshooting"></a>Sorun giderme
 Bir düğüm ekleme sırasında görülen yaygın sorunlar aşağıda verilmiştir. 
 
-**Senaryo 1:** ölçek birimi düğüm ekleme işlemi başarısız olur, ancak bir veya daha fazla düğüm durdurulmuş durumuyla listelenir.  
-- Düzeltme: bir veya daha fazla düğüm onarmak için onarım işlemi kullanın. Yalnızca tek bir onarım işlemi aynı anda çalıştırabilirsiniz.
+**Senaryo 1:**  Ölçek birimi düğüm ekleme işlemi başarısız olur, ancak bir veya daha fazla düğüm durdurulmuş durumuyla listelenir.  
+- Düzeltme: Bir veya daha fazla düğüm onarmak için onarım işlemi kullanın. Yalnızca tek bir onarım işlemi aynı anda çalıştırabilirsiniz.
 
-**Senaryo 2:** bir veya daha fazla ölçek birimi düğüm eklenmiştir, ancak depolama genişletme başarısız oldu. Bu senaryoda, Ölçek birimi düğüm nesnesi çalıştırma durumunu bildirir ancak Vmm'de depolamayı yapılandırma görevi başlattığınız değil.  
-- Düzeltme: ayrıcalıklı uç noktası aşağıdaki PowerShell cmdlet'ini çalıştırarak depolama durumunu gözden geçirmek için kullanın:
+**Senaryo 2:** Bir veya daha fazla ölçek birimi düğüm eklenmiştir, ancak depolama genişletme başarısız oldu. Bu senaryoda, Ölçek birimi düğüm nesnesi çalıştırma durumunu bildirir ancak Vmm'de depolamayı yapılandırma görevi başlattığınız değil.  
+- Düzeltme: Ayrıcalıklı uç noktası, aşağıdaki PowerShell cmdlet'ini çalıştırarak depolama durumunu gözden geçirmek için kullanın:
   ```powershell
      Get-VirtualDisk -CimSession s-cluster | Get-StorageJob
   ```
  
-**Senaryo 3:** depolama ölçeklendirme işi başarısız oldu belirten bir uyarı alındı.  
+**Senaryo 3:** Depolama ölçeklendirme işi başarısız oldu belirten bir uyarı aldığınızı.  
 - Düzeltme: Bu durumda, depolama yapılandırma görevi başarısız oldu. Bu sorun, destek ile iletişime geçmenizi gerektirir.
 
 

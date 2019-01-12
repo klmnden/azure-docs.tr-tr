@@ -4,14 +4,14 @@ description: Azure geçişi hakkında sık sorulan sorular adresleri
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 01/11/2019
 ms.author: snehaa
-ms.openlocfilehash: 0d01715922286743b9442ae1c656b34c37a7d795
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 2efa450b6b0cfa299370df3941224f4f64e91b4b
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201202"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230773"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure geçişi - sık sorulan sorular (SSS)
 
@@ -53,6 +53,7 @@ Azure geçişi şu anda Avrupa, ABD ve Azure kamu proje coğrafi destekler. Geç
 **Coğrafya** | **Meta veri depolama konumu**
 --- | ---
 Azure Kamu | ABD Devleti Virginia
+Asya | Güneydoğu Asya
 Avrupa | Kuzey Avrupa veya Batı Avrupa
 Durumları sahip | Batı Orta ABD, Doğu ABD
 
@@ -63,6 +64,17 @@ Bağlantı ortak eşleme ExpressRoute kullanabilir veya internet üzerinden olab
 ### <a name="can-i-harden-the-vm-set-up-with-the-ova-template"></a>Ben OVA şablonu ile ayarlanmış bir VM sağlamlaştırmak?
 
 İletişim ve güvenlik duvarı kuralları çalışmak Azure geçişi Gereci için gerekli olduğu gibi bırakılır sürece ek bileşenler (örneğin, virüsten koruma) OVA şablonlarına eklenebilir.   
+
+### <a name="to-harden-the-azure-migrate-appliance-what-are-the-recommended-antivirus-av-exclusions"></a>Azure geçişi Gereci sağlamlaştırmak için önerilen (AV) virüsten koruma dışlamaları nelerdir?
+
+Virüsten koruma taraması için gereç bulunan aşağıdaki klasörler hariç yapmanız gerekir:
+
+- Azure geçişi hizmeti için ikili dosyaları içeren klasör. Tüm alt klasörleri hariç tutun.
+  %ProgramFiles%\ProfilerService  
+- Azure geçişi Web si. Tüm alt klasörleri hariç tutun.
+  %SystemDrive%\inetpub\wwwroot
+- Veritabanı ve günlük dosyaları için yerel önbelleği. Azure geçişi hizmeti bu klasöre RW erişimi gerekir.
+  %SystemDrive%\Profiler
 
 ## <a name="discovery"></a>Bulma
 
@@ -136,16 +148,6 @@ Kiracılar genelinde paylaşılan bir ortamda varsa ve bir kiracının başka bi
 
 Tek geçişi projesinde 1500 sanal makineler bulabilir. Daha fazla makine şirket içi ortamınızda varsa [daha fazla bilgi edinin](how-to-scale-assessment.md) hakkında Azure Geçişi'ndeki büyük bir ortamı nasıl bulabilir.
 
-### <a name="to-harden-the-azure-migrate-appliance-what-are-the-recommended-antivirus-av-exclusions"></a>Azure geçişi Gereci sağlamlaştırmak için önerilen (AV) virüsten koruma dışlamaları nelerdir?
-
-Virüsten koruma taraması için gereç bulunan aşağıdaki klasörler hariç yapmanız gerekir:
-
-- Azure geçişi hizmeti için ikili dosyaları içeren klasör. Tüm alt klasörleri hariç tutun.
-  %ProgramFiles%\ProfilerService  
-- Azure geçişi Web si. Tüm alt klasörleri hariç tutun.
-  %SystemDrive%\inetpub\wwwroot
-- Veritabanı ve günlük dosyaları için yerel önbelleği. Azure geçişi hizmeti bu klasöre RW erişimi gerekir.
-  %SystemDrive%\Profiler
 
 ## <a name="assessment"></a>Değerlendirme
 

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.openlocfilehash: 9cc08920c5b8814a3e4b649f4518dce78c7cb38e
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 0cf301b98e5fa530b234dbd5953746241c0021ee
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54160602"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244248"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mariadb"></a>Ölçümler ile ilgili uyarılar için Azure veritabanı MariaDB için ayarlamak için Azure portalını kullanma
 
@@ -25,10 +25,9 @@ Bir uyarı tetiklendiğinde aşağıdaki işlemleri yapmak için yapılandırabi
 * Web kancası çağırma
 
 Yapılandırın ve uyarı kuralları kullanma hakkında bilgi edinin:
-* [Azure portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
-* [PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
-* [Komut satırı arabirimi (CLI)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
-* [Azure İzleyici REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [Azure portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
+* [Azure CLI](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
+* [Azure İzleyici REST API](https://docs.microsoft.com/en-us/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric"></a>Bir ölçüme göre uyarı kuralı oluşturma
 1. İçinde [Azure portalında](https://portal.azure.com/), izlemek istediğiniz MariaDB için Azure veritabanı'nı seçin.
@@ -49,7 +48,7 @@ Yapılandırın ve uyarı kuralları kullanma hakkında bilgi edinin:
    
    ![Ölçüm seçin](./media/howto-alert-metric/6-configure-signal-logic.png)
 
-7. Uyarı mantığı dahil olmak üzere yapılandırma **koşul** (ör. "Büyüktür"), **eşiği** (ör. yüzde 85 '), **zaman toplama**, **süresi** süresini (ör. uyarı tetiklenmeden önce ölçüm kuralının sağlanmalıdır "Üzerinden, son 30 dakika", ve **sıklığı**.
+7. Uyarı mantığı dahil olmak üzere yapılandırma **koşul** (ör. "Büyüktür"), **eşiği** (ör. yüzde 85 '), **zaman toplama**, **süresi** süresini (ör. uyarı tetiklenmeden önce ölçüm kuralının sağlanmalıdır "Üzerinden, son 30 dakika"), ve **sıklığı**.
    
    Seçin **Bitti** tamamlandığında.
 

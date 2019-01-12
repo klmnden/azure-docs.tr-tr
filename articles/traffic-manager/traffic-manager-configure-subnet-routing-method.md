@@ -1,9 +1,10 @@
 ---
-title: Azure Traffic Manager'ı kullanarak alt ağ trafik yönlendirme yöntemini yapılandırma | Microsoft Docs
+title: Azure Traffic Manager'ı kullanarak alt ağ trafiği yönlendirme yöntemini yapılandırma
 description: Bu makalede, Traffic Manager, belirli alt ağlardan trafiği yönlendirmek için yapılandırma açıklanmaktadır.
 services: traffic-manager
 documentationcenter: ''
 author: KumudD
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -11,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kumud
-ms.openlocfilehash: 624bbb9fa8841b0c43800f318e83c54d6d408a09
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: e3a3a9fdc2ab7f03db2d3a646eaeec7a02f88692
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987452"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231555"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Traffic Manager'ı kullanarak trafiği kullanıcı alt ağına göre belirli uç noktalara yönlendirme
 
@@ -102,7 +103,7 @@ Bu bölümde *myIISVMEastUS*  & *myIISVMWEurope* adlı iki VM'ye IIS sunucusunu 
     #Add custom htm file
      Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from my test website server - " + $env:computername)
     ```
-8. RDP bağlantısıyla kapatmak *myIISVMEastUS*.
+8. *myIISVMEastUS* ile RDP bağlantısını kapatın.
 9. VM ile RDP bağlantısı oluşturarak 1-6 adımlarını yineleyin *myIISVMWEurope* içinde *myResourceGroupTM2* IIS yüklemek ve varsayılan web sayfasını özelleştirmek için kaynak grubu.
 10. Başlatma Windows PowerShell'i temel *myIISVMWEurope* ve aşağıdaki komutları kullanarak IIS sunucusu yüklemek ve varsayılan htm dosyasını güncelleştirin.
     ```powershell-interactive
@@ -118,12 +119,12 @@ Bu bölümde *myIISVMEastUS*  & *myIISVMWEurope* adlı iki VM'ye IIS sunucusunu 
 
 #### <a name="configure-dns-names-for-the-vms-running-iis"></a>IIS çalıştıran VM'lerin DNS adlarını yapılandırma
 
-Traffic Manager, kullanıcı trafiğini hizmet uç noktalarının DNS adına göre yönlendirir. Bu bölümde, IIS sunucuları - DNS adlarını yapılandırma *myIISVMEastUS* ve *myIISVMWEurope*.
+Traffic Manager, kullanıcı trafiğini hizmet uç noktalarının DNS adına göre yönlendirir. Bu bölümde *myIISVMEastUS* ve *myIISVMWEurope* adlı IIS sunucularının DNS adlarını yapılandıracaksınız.
 
-1. Tıklayın **tüm kaynakları** sol taraftaki menüden, seçin ve sonra kaynak listesinden, *myIISVMEastUS* bulunan *myResourceGroupTM1* kaynak grubu.
+1. Sol menüden **Tüm kaynaklar**’a tıklayın ve kaynak listesinden, *myResourceGroupTM1* kaynak grubunda bulunan *myIISVMEastUS* öğesini seçin.
 2. **Genel bakış** sayfasının **DNS adı** bölümünde **Yapılandır**'ı seçin.
 3. **Yapılandır** sayfasının DNS adı bölümünde benzersiz bir ad ekleyip **Kaydet**'i seçin.
-4. 1-3 ' adlı VM için adımlarını *myIISVMWEurope* bulunan *myResourceGroupTM1* kaynak grubu.
+4. 1-3 arası adımları *myResourceGroupTM1* kaynak grubunda bulunan *myIISVMWEurope* adlı VM için tekrarlayın.
 
 ### <a name="create-test-vms"></a>Test amaçlı VM'leri oluşturma
 
@@ -191,7 +192,7 @@ IIS çalıştıran iki sanal makine ekleme sunucuları - *myIISVMEastUS*  & *myI
     | Tür                    | Azure uç noktası                                   |
     | Ad           | myTestWebSiteEndpoint                                        |
     | Hedef kaynak türü           | Genel IP Adresi                          |
-    | Hedef kaynak          | Genel IP adresine sahip kaynakların aynı abonelik altında listelenmesi için **Genel IP adresi seçin**. İçinde **kaynak**, adlı ortak IP adresi seçin *myIISVMEastUS IP*. Bu, Doğu ABD bölgesindeki IIS sunucusu VM'sinin IP adresidir.|
+    | Hedef kaynak          | Genel IP adresine sahip kaynakların aynı abonelik altında listelenmesi için **Genel IP adresi seçin**. **Kaynak** bölümünde *myIISVMEastUS-ip* adlı genel IP adresini seçin. Bu, Doğu ABD bölgesindeki IIS sunucusu VM'sinin IP adresidir.|
     |  Alt ağ yönlendirme ayarları    |   IP adresini ekleyin *myVMEastUS* VM test edin. Bu sanal makineden kaynaklanan herhangi bir kullanıcı sorgu yönlendirilirsiniz *myTestWebSiteEndpoint*.    |
 
 4. 2 ve 3 adlı başka bir uç nokta ekleme *myProductionEndpoint* genel IP adresi için *myIISVMWEurope IP* IIS sunucusu adlı VM ile ilişkili *myIISVMWEurope* . İçin **alt ağ yönlendirme ayarları**, test sanal makinesi - IP adresini ekleyin *myVMWestEurope*. VM uç noktaya - yönlendirilecek bu test herhangi bir kullanıcı sorgu *myProductionWebsiteEndpoint*.
@@ -220,12 +221,12 @@ Traffic Manager profilinizin DNS adını belirlemek için şu adımları izleyin
 ### <a name="view-traffic-manager-in-action"></a>Traffic Manager'ın nasıl çalıştığını görün
 Bu bölümde Traffic Manager'ın nasıl çalıştığını görebilirsiniz. 
 
-1. Seçin **tüm kaynakları** tıklatın soldaki menüden ve ardından kaynak listesinden *myVMEastUS* bulunan *myResourceGroupTM1* kaynak grubu.
+1. Sol menüden **Tüm kaynaklar**’ı seçin ve kaynak listesinden, *myResourceGroupTM1* kaynak grubunda bulunan *myVMEastUS* öğesine tıklayın.
 2. **Genel Bakış** sayfasında **Bağlan**'a tıklayın ve **Sanal makineye bağlanma** bölümünde **RDP dosyasını indir**'i seçin. 
 3. İndirilen rdp dosyasını açın. İstendiğinde **Bağlan**’ı seçin. Sanal makine oluştururken belirttiğiniz kullanıcı adını ve parolayı girin. Sanal makineyi oluştururken girdiğiniz kimlik bilgilerini belirtmek için **Diğer seçenekler**’i ve sonra **Farklı bir hesap kullan** seçeneğini belirlemeniz gerekebilir. 
 4. **Tamam**’ı seçin.
 5. Oturum açma işlemi sırasında bir sertifika uyarısı alabilirsiniz. Uyarı alırsanız, bağlantıya devam etmek için **Evet**’i veya **Bağlan**’ı seçin. 
-1. VM üzerinde bir web tarayıcısında *myVMEastUS*, Traffic Manager profilinizin, Web sitesini görüntülemek için DNS adını yazın. VM beri *myVMEastUS* uç noktası ile ilişkili IP adresi *myIISVMEastUS*, Test Web sunucusu - web tarayıcısını başlatır *myIISVMEastUS*.
+1. Web sitesini görüntülemek için *myVMEastUS* adlı VM'de bir web tarayıcısında Traffic Manager profilinizin DNS adını yazın. VM beri *myVMEastUS* uç noktası ile ilişkili IP adresi *myIISVMEastUS*, Test Web sunucusu - web tarayıcısını başlatır *myIISVMEastUS*.
 
    ![Traffic Manager profilini test etme](./media/traffic-manager-subnet-routing-method/test-traffic-manager.png)
 

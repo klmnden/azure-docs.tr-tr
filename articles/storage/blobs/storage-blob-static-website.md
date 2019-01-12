@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/19/18
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: 2bae07643407e8672ef26fb59da588661eb9f0d1
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 0663f569edd0dec47949053b6ecf7fe49fa24a17
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191828"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229311"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Azure Depolama'da statik Web sitesi barındırma
 Azure depolama ve GPv2 hesapları doğrudan adlı bir depolama kapsayıcısındaki statik içerik (HTML, CSS, JavaScript ve görüntü dosyaları) sunmak izin *$web*. Azure Depolama'da barındırma yararlanma dahil olmak üzere sunucusuz mimarileri kullanmanıza olanak verir [Azure işlevleri](/azure/azure-functions/functions-overview) ve diğer PaaS Hizmetleri.
@@ -144,7 +144,7 @@ Son olarak, yanındaki kutuyu işaretleyin **GetWebContent** içinde *değerleri
 
 ![Azure depolama statik Web siteleri ölçümleri GetWebContent](./media/storage-blob-static-website/storage-blob-static-website-metrics-getwebcontent.png)
 
-Biri etkinleştirildiğinde, trafiği istatistikleri dosyalarda *$web* kapsayıcı ölçümleri panosunda bildirdi.
+Etkinleştirildikten sonra dosyalarda istatistikleri trafiği *$web* kapsayıcı ölçümleri panosunda bildirilir.
 
 ## <a name="faq"></a>SSS
 

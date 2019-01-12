@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: anwestg
-ms.reviewer: ''
-ms.openlocfilehash: 80948b973e6d20b4760e97311c5a65886cf91f8f
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.reviewer: anwestg
+ms.openlocfilehash: b721545f27135e36b2999de5acc61e77539a94b2
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51617016"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247325"
 ---
 # <a name="app-service-on-azure-stack-update-4-release-notes"></a>Güncelleştirme 4 sürüm notları Azure Stack üzerinde App Service'e
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 Bu sürüm notları, iyileştirmeler ve düzeltmeler Azure uygulama Hizmeti'nde Azure Stack güncelleştirme 4 ve tüm bilinen sorunlar açıklanmaktadır. Bilinen sorunlar doğrudan dağıtım, güncelleştirme işlemi ve sorunları (yükleme sonrası) yapı ile ilgili sorunlar ayrılır.
 
@@ -204,14 +204,14 @@ Doğrulama
 - Çalışanları App Service, var olan bir sanal ağda dağıtılır ve dosya sunucusu yalnızca Azure Stack dağıtım belgeleri üzerinde Azure App Service'te adlandırıldığı gibi özel ağda kullanılabilir dosya sunucusuna erişemiyor.
 
 Mevcut bir sanal ağ ve dosya sunucunuza bağlanmak için bir dahili IP adresine dağıtmayı seçerseniz, çalışan alt ağ ve dosya sunucusu arasında SMB trafiği etkinleştirme bir giden güvenlik kuralı eklemeniz gerekir. Yönetim Portalı'nda WorkersNsg gidin ve aşağıdaki özelliklere sahip bir giden güvenlik kuralı ekleyin:
- * Kaynak: tüm
+ * Kaynak: Herhangi biri
  * Kaynak bağlantı noktası aralığı: *
- * Hedef: IP adresleri
- * Hedef IP adresi aralığı: dosya sunucusu için IP aralığı
+ * Hedef: IP Adresleri
+ * Hedef IP adresi aralığı: Dosya sunucusu için IP aralığı
  * Hedef bağlantı noktası aralığı: 445
  * Protokol: TCP
- * Eylem: izin ver
- * Öncelik: 700
+ * Eylem: İzin Ver
+ * Önceliği: 700
  * Ad: Outbound_Allow_SMB445
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Azure Stack üzerinde Azure App Service'te çalışan bulut yöneticileri için bilinen sorunlar

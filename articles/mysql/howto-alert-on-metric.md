@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 999b1d03ad8cb0b27de10ff6457c0e6cc9112ee7
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/10/2019
+ms.openlocfilehash: 1287df97f10033472c9717309688cf89887a66ed
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548740"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54242974"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql"></a>Ölçümler ile ilgili uyarılar için Azure veritabanı için MySQL ayarlamak için Azure portalını kullanma 
 
@@ -25,48 +25,54 @@ Bir uyarı tetiklendiğinde aşağıdaki işlemleri yapmak için yapılandırabi
 * Web kancası çağırma
 
 Yapılandırın ve uyarı kuralları kullanma hakkında bilgi edinin:
-* [Azure portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
-* [PowerShell](../azure-monitor/platform/alerts-classic-portal.md)
-* [Komut satırı arabirimi (CLI)](../azure-monitor/platform/alerts-classic-portal.md)
-* [Azure İzleyici REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [Azure portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
+* [Azure CLI](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
+* [Azure İzleyici REST API](https://docs.microsoft.com/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Azure portalından bir ölçüm üzerinde uyarı kuralı oluşturma
 1. İçinde [Azure portalında](https://portal.azure.com/), izlemek istediğiniz MySQL sunucusu için Azure veritabanı'nı seçin.
 
-2. Altında **izleme** select yan bölümünü **uyarı kuralları** gösterildiği gibi:
+2. Altında **izleme** select yan bölümünü **uyarılar** gösterildiği gibi:
 
-   ![Uyarı kuralları seçin](./media/howto-alert-on-metric/1-alert-rules.png)
+   ![Uyarı kuralları seçin](./media/howto-alert-on-metric/2-alert-rules.png)
 
-3. Seçin **ölçüm uyarısı Ekle** (+ simgesi). 
+3. Seçin **ölçüm uyarısı Ekle** (+ simgesi).
 
-4. **Kuralı Ekle** sayfası aşağıda gösterildiği gibi açılır.  Gerekli bilgileri doldurun:
+4. **Oluşturma kuralı** sayfası aşağıda gösterildiği gibi açılır. Gerekli bilgileri doldurun:
 
-   ![Ölçüm uyarı formu Ekle](./media/howto-alert-on-metric/2-add-rule-form.png)
+   ![Ölçüm uyarı formu Ekle](./media/howto-alert-on-metric/4-add-rule-form.png)
 
-   | Ayar | Açıklama  |
-   |---------|---------|
-   | Ad | Uyarı kuralı için bir ad belirtin. Bu değer uyarı bildirim e-postayla gönderilir. |
-   | Açıklama | Uyarı kuralı kısa bir açıklamasını sağlayın. Bu değer uyarı bildirim e-postayla gönderilir. |
-   | Uyarı verilecek olay | Seçin **ölçümleri** bu tür bir uyarı için. |
-   | Abonelik | Bu alan, MySQL için Azure veritabanınızı barındıran abonelik ile doldurulur. |
-   | Kaynak grubu | Bu alan, MySQL için Azure veritabanı ile kaynak grubu doldurulur. |
-   | Kaynak | Bu alan, MySQL için Azure veritabanı adıyla doldurulur. |
-   | Ölçüm | Uyarı vermek istediğiniz ölçümü seçin. Örneğin, **depolama yüzdesi**. |
-   | Koşul | İle Karşılaştırılacak ölçüm için koşul seçin. Örneğin, **büyüktür**. |
-   | Eşik | Ölçüm için eşik değeri, örneğin 85 (yüzde). |
-   | Dönem | Uyarı tetiklenmeden önce ölçüm kuralının karşılanması gereken sürede. Örneğin, **son 30 dakikadan**. |
+5. İçinde **koşul** bölümünden **koşul Ekle**.
 
-   Örneği temel alarak, uyarı % 85 üzerinde depolama yüzde 30 dakikalık dönem boyunca arar. Ortalama depolama yüzde %85 30 dakika boyunca olduğunda bu uyarı tetikler. İlk tetikleyici gerçekleşir sonra ortalama depolama yüzdesi %85 30 dakika içinde olduğunda tekrar tetikler.
+6. Uyarı almak sinyalleri listesinden bir ölçüm seçin. Bu örnekte, "Depolama yüzdesi" seçin.
+   
+   ![Ölçüm seçin](./media/howto-alert-on-metric/6-configure-signal-logic.png)
 
-5. Uyarı kuralı için istediğiniz bildirim yöntemini seçin. 
+7. Uyarı mantığı dahil olmak üzere yapılandırma **koşul** (ör. "Büyüktür"), **eşiği** (ör. yüzde 85 '), **zaman toplama**, **süresi** süresini (ör. uyarı tetiklenmeden önce ölçüm kuralının sağlanmalıdır "Üzerinden, son 30 dakika"), ve **sıklığı**.
+   
+   Seçin **Bitti** tamamlandığında.
 
-   Denetleme **e-posta sahipleri, Katkıda Bulunanlar ve okuyucular** abonelik yöneticilerine ve ortak yöneticilerin uyarı tetiklendiğinde almayacağınızı istiyorsanız seçeneği.
+   ![Ölçüm seçin](./media/howto-alert-on-metric/7-set-threshold-time.png)
 
-   Uyarı tetiklendiğinde bildirim alacak başka e-postalar istiyorsanız, bunları eklemek **ek yönetici email(s)** alan. Noktalı virgülle - birden çok e-postaları ayırın  *email@contoso.com;email2@contoso.com*
+8. İçinde **Eylem grupları** bölümünden **Yeni Oluştur** Uyarı bildirimlerini alacak yeni bir grup oluşturmak için.
 
+9. Ad, kısa adı, abonelik ve kaynak grubu "Eylem Grup Ekle" formunu doldurun.
+
+10. Yapılandırma bir **e-posta/SMS/anında iletme/ses** eylem türü.
+    
+   "E-posta Azure Resource Manager abonelik sahipleri, Katkıda Bulunanlar ve okuyucular bildirimleri almak için seçmek için rolü" seçin.
+   
    İsteğe bağlı olarak, geçerli bir URI sağlayın **Web kancası** adlı bir uyarı tetiklendiğinde istiyorsanız alan.
 
-6. Seçin **Tamam** uyarı oluşturmak için.
+   Seçin **Tamam** tamamlandığında.
+
+   ![Eylem grubu](./media/howto-alert-on-metric/10-action-group-type.png)
+
+11. Bir uyarı kuralı adını, açıklamasını ve önem derecesini belirtin.
+
+   ![Eylem grubu](./media/howto-alert-on-metric/11-name-description-severity.png) 
+
+12. Seçin **uyarı kuralı oluştur** uyarı oluşturmak için.
 
    Birkaç dakika içinde uyarı etkin ve daha önce açıklandığı gibi tetikler.
 

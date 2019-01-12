@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/14/2017
+ms.date: 01/11/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2d87642b93d58d92660a2df71f2561ffe502315a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 17e51c91d2857ac91b0ebf998c016ebcf56c0de0
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257274"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244792"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>StorSimple sanal Dizini'ni dağıtma - Azure portal'ı hazırlama
 
@@ -43,7 +43,7 @@ StorSimple Virtual Array'iniz dağıtmak için önceden belirlenmiş bir sırada
 | **#** | **Bu adımda** | **Bunu...** | **Ve bu belgeleri kullanın.** |
 | --- | --- | --- | --- |
 | 1. |**Azure portal'ı ayarlama** |Oluşturun ve StorSimple sanal dizisi sağlama önce StorSimple cihaz Yöneticisi hizmetinize yapılandırın. |[Portalı hazırlama](storsimple-virtual-array-deploy1-portal-prep.md) |
-| 2. |**Sanal dizin sağlayın** |Hyper-v, sağlama ve StorSimple sanal dizisi Windows Server 2012 R2, Windows Server 2012 veya Windows Server 2008 R2 üzerinde Hyper-V çalıştıran bir konak sisteminde bağlanın. <br></br> <br></br> VMware için sağlayın ve VMware ESXi 5.0, 5.5 ve 6.0 çalıştıran bir konak sisteminde bir StorSimple Virtual Array için bağlanın.<br></br> |[Hyper-V'de bir sanal dizin sağlayın](storsimple-virtual-array-deploy2-provision-hyperv.md) <br></br> <br></br> [Bir sanal dizin vmware'de sağlama](storsimple-virtual-array-deploy2-provision-vmware.md) |
+| 2. |**Sanal dizin sağlayın** |Hyper-v, sağlama ve StorSimple sanal dizisi Windows Server 2012 R2, Windows Server 2012 veya Windows Server 2008 R2 üzerinde Hyper-V çalıştıran bir konak sisteminde bağlanın. <br></br> <br></br> VMware için sağlayın ve VMware ESXi 5.0, 5.5, 6.0 veya 6.5 çalıştıran bir konak sisteminde bir StorSimple Virtual Array için bağlanın.<br></br> |[Hyper-V'de bir sanal dizin sağlayın](storsimple-virtual-array-deploy2-provision-hyperv.md) <br></br> <br></br> [Bir sanal dizin vmware'de sağlama](storsimple-virtual-array-deploy2-provision-vmware.md) |
 | 3. |**Sanal dizi Kurulumu ayarlayın** |Dosya sunucunuz için ilk kurulum gerçekleştirmek, StorSimple dosya sunucunuzu kaydedin ve cihaz kurulumunu tamamlayın. Ardından SMB paylaşımlarını sağlayabilirsiniz. <br></br> <br></br> İSCSI sunucunuz için ilk kurulum gerçekleştirmek, StorSimple iSCSI sunucunuzu kaydedin ve cihaz kurulumunu tamamlayın. Ardından, iSCSI birimleri sağlayabilirsiniz. |[Sanal dizi Kurulumu dosya sunucusu olarak ayarlama](storsimple-virtual-array-deploy3-fs-setup.md)<br></br> <br></br>[Sanal dizi Kurulumu iSCSI sunucusu olarak ayarlama](storsimple-virtual-array-deploy3-iscsi-setup.md) |
 
 Artık Azure portalını ayarlamaya başlayabilirsiniz.
@@ -71,7 +71,7 @@ Başlamadan önce aşağıdakilerden emin olun:
 
 Sanal dizi dağıtmadan önce emin olun:
 
-* Bir Windows Server 2008 R2 veya sonraki sürümlerde Hyper-V çalıştıran bir konak sistemi ya da olabilir (ESXi 5.0, 5.5 veya 6.0) VMware erişiminiz bir sağlamak için kullanılan bir cihaz.
+* Bir Windows Server 2008 R2 veya sonraki sürümlerde Hyper-V çalıştıran bir konak sistemi ya da olabilir (ESXi 5.0, 5.5, 6.0 veya 6.5) VMware erişiminiz bir sağlamak için kullanılan bir cihaz.
 * Konak sisteminin, sanal diziyi sağlamak için aşağıdaki kaynakları ayırmanız olanağına sahip:
   
   * En az 4 çekirdek.
@@ -90,7 +90,7 @@ Başlamadan önce aşağıdakilerden emin olun:
 
 Portalınız için StorSimple cihaz Yöneticisi hizmeti hazırlamak için aşağıdaki adım adım yönergeleri kullanın.
 
-## <a name="step-1-create-a-new-service"></a>1. Adım: Yeni bir hizmet oluşturun
+## <a name="step-1-create-a-new-service"></a>1. Adım: Yeni hizmet oluşturma
 
 Birden çok StorSimple sanal dizisi, StorSimple cihaz Yöneticisi hizmetinin tek bir örneğini yönetebilir. StorSimple Cihaz Yöneticisi hizmetinin bir örneğini oluşturmak için aşağıdaki adımları gerçekleştirin. Sanal diziler yönetmek için mevcut bir StorSimple cihaz Yöneticisi hizmeti varsa, bu adımı atlayın ve Git [2. adım: Hizmet kayıt anahtarı alma](#step-2-get-the-service-registration-key).
 
@@ -100,11 +100,11 @@ Birden çok StorSimple sanal dizisi, StorSimple cihaz Yöneticisi hizmetinin tek
 > Hizmetinizle birlikte bir depolama hesabının otomatik olarak oluşturulmasını etkinleştirmediyseniz, bir hizmeti başarıyla oluşturduktan sonra en az bir depolama hesabı oluşturmanız gerekir.
 > 
 > * Otomatik olarak bir depolama hesabı oluşturmadıysanız, ayrıntılı yönergeler için [Hizmet için yeni bir depolama hesabı yapılandırma](#optional-step-configure-a-new-storage-account-for-the-service) bölümüne gidin.
-> * Bir depolama hesabının otomatik olarak oluşturulmasını etkinleştirdiyseniz, [2. Adım: Hizmet kayıt anahtarını alın](#step-2-get-the-service-registration-key) bölümüne gidin.
+> * Bir depolama hesabı otomatik olarak oluşturulmasını etkinleştirdiyseniz, Git [2. adım: Hizmet kayıt anahtarı alma](#step-2-get-the-service-registration-key).
 > 
 > 
 
-## <a name="step-2-get-the-service-registration-key"></a>2. Adım: Hizmet kayıt anahtarını alın
+## <a name="step-2-get-the-service-registration-key"></a>2. Adım: Hizmet kayıt anahtarı alma
 
 StorSimple Cihaz Yöneticisi hizmeti çalışır duruma geldikten sonra, hizmet kayıt anahtarını almanız gerekir. Bu anahtar StorSimple cihazınızı kaydetmek ve hizmete bağlamak için kullanılır.
 
@@ -117,7 +117,7 @@ StorSimple Cihaz Yöneticisi hizmeti çalışır duruma geldikten sonra, hizmet 
 > 
 > 
 
-## <a name="step-3-download-the-virtual-array-image"></a>3. adım: sanal dizi görüntüsünü indir
+## <a name="step-3-download-the-virtual-array-image"></a>3. Adım: Sanal dizi görüntüsünü indir
 
 Hizmet kayıt anahtarını aldıktan sonra ana bilgisayar sisteminizin üzerinde bir sanal diziyi sağlamak için uygun sanal dizi görüntüsünü indir gerekecektir. Sanal dizi görüntüleri, belirli işletim sistemi ve Azure portalında hızlı başlangıç sayfasından indirilebilir.
 
@@ -137,10 +137,10 @@ Hizmet kayıt anahtarını aldıktan sonra ana bilgisayar sisteminizin üzerinde
    
    * Hyper-V Windows Server 2012 ve üzeri için VHDX
    * Hyper-V Windows Server 2008 R2 ve üzeri için VHD
-   * VMWare ESXi 5.0, 5.5 veya 6.0 için VMDK
+   * VMWare ESXi 5.0, 5.5, 6.0 veya 6.5 için VMDK
 5. Dosyayı yerel sürücüye indirin ve sıkıştırmasını açın. Sıkıştırması açılan dosyanın konumunu not alın.
 
-## <a name="optional-step-configure-a-new-storage-account-for-the-service"></a>İsteğe bağlı adım: hizmet için yeni bir depolama hesabı yapılandırın
+## <a name="optional-step-configure-a-new-storage-account-for-the-service"></a>İsteğe bağlı adım: Hizmet için yeni bir depolama hesabı yapılandırın
 
 Bu adım isteğe bağlıdır ve yalnızca, bir depolama hesabı otomatik olarak oluşturulmasını hizmetinizle etkinleştirmediyseniz gerçekleştirilmelidir.
 

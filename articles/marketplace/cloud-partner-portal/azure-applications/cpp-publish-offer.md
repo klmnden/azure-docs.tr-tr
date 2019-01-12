@@ -1,5 +1,5 @@
 ---
-title: Azure uygulama teklifi yayımlama | Microsoft Docs
+title: Azure uygulama teklifi - Azure Marketi'nde yayımlama | Microsoft Docs
 description: İşlem ve Azure uygulaması Azure Marketi'nde teklif yayımlamak için gereken adımları açıklar.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
@@ -12,40 +12,77 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 01/10/2018
 ms.author: pbutlerm
-ms.openlocfilehash: fff751d531864faee7bd234ddcf543ae2992a617
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: cfcb33f9586033db9f4197a341227365d43601cc
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53197240"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232728"
 ---
 # <a name="publish-azure-application-offer"></a>Azure uygulama teklifi yayımlama
 
-Şirket bilgileri sağlayarak yeni bir teklif oluşturduktan sonra **yeni teklif** sayfasında teklif yayımlayabilirsiniz. Seçin **Yayımla** yayımlama işlemini başlatmak için.
+Şirket bilgileri sağlayarak bir teklif oluşturduktan sonra **yeni teklif** sayfasında teklif yayımlayabilirsiniz. Seçin **Yayımla** yayımlama işlemini başlatmak için.
 
 Aşağıdaki diyagramda "Canlı gitmek" bir teklif için yayımlama işlemi ana adımları gösterir.
 
-  ![Teklif yayımlama adımları](./media/offer-publishing-steps.png)
+![Teklif yayımlama adımları](./media/offer-publishing-steps.png)
 
 ## <a name="detailed-description-of-publishing-steps"></a>Yayımlama adımları ayrıntılı bir açıklaması
 
-Aşağıdaki tabloda her adımı tamamlamak için bir zaman tahmin (maksimum) olan her yayımlama adımlarını açıklar.
-Aşağıdaki tabloda her yayımlama adımlarını açıklar. Her adımı tamamlamak için tahmini bir saat de verilir.
-
+Aşağıdaki tabloda, listeler ve her yayımlama adımlarını açıklar ve her adımı tamamlamak için tahmini süre sağlar.  "Gün" iş günü tanımlanan tahmin, hafta sonları ve tatiller hariç tutun.
 
 |  **Yayımlama Adım**           | **saat**    | **Açıklama**                                                            |
 |  -------------------           | --------    | ---------------                                                            |
-| Önkoşulları doğrulama         | 15 dakika   | Bilgi sunan ve ayarlar doğrulanır sunar.                        |
-| Sertifika                  | 1 hafta | Teklif, Azure sertifika ekibi tarafından analiz edilir. Bu teklif, virüsler, kötü amaçlı yazılım, emniyet uyumluluk ve güvenlik sorunları için taranır. Bu teklif, tüm uygunluk ölçütlerini karşıladığını görmek için denetlenir. Daha fazla bilgi için [önkoşulları](./cpp-prerequisites.md). Bir sorun bulunursa geri bildirim'ın sağlanır. |
-| Paketleme | 1 saat  | Teklife ilişkin teknik varlıkları müşteri kullanılmak üzere hazırlanmıştır ve müşteri adayı sistemleri yapılandırılır ve kurulumu. |
-|  Yayımcı oturum kapatma             |  -        | Son yayımcı gözden geçirme ve teklif Canlı geçmeden önce onay. Teklifinizi (adımlarda teklif bilgi) seçili Aboneliklerdeki tüm gereksinimleri karşıladığından emin doğrulamak için dağıtabilirsiniz.  Seçin **Go Live** için teklifinizi sonraki adıma geçebilirsiniz. |
-| Paketleme                 | 1 saat | Tamamlanmış teklif Market üretim sistemlerine ve bölgelerde çoğaltılır. | 
-| Canlı                           | 4 gün |Teklif serbest, gerekli bölgelerde çoğaltılır ve genel kullanıma sunulan. |
+| Önkoşulları doğrulama         | < 15 dk    | Bilgi sunan ve ayarlar doğrulanır sunar.                        |
+| Gelir etkileyen ayarları doğrulama | < 15 dk  |      |
+| Sertifika                  | < 1 gün     | Teklif, Azure sertifika ekibi tarafından analiz edilir. Bu teklif, virüsler, kötü amaçlı yazılım, emniyet uyumluluk ve güvenlik sorunları için taranır. Bu teklif, tüm uygunluk ölçütlerini karşıladığını görmek için denetlenir. Daha fazla bilgi için [önkoşulları](./cpp-prerequisites.md). Bir sorun bulunursa geri bildirim sağlanır. |
+| Sürücü doğrulama testi          | < 2 saat   | (İsteğe bağlı) Bir Test sürüşüne varsa, Microsoft, dağıtılan çoğaltılan ve olduğunu doğrular.  |
+| Paketleme ve müşteri adayı oluşturma kaydı | 1 saatten az  | Teklife ilişkin teknik varlıkları müşteri kullanılmak üzere hazırlanmıştır ve müşteri adayı sistemleri yapılandırılmalı ve dağıtılmalıdır. |
+|  Yayımcı oturum kapatma             |  El ile    | Son yayımcı gözden geçirme ve teklif Canlı geçmeden önce onay. Teklif Önizleme için kullanıma sunulmuştur.  Teklifinizi (adımlarda teklif bilgi) seçili Aboneliklerdeki tüm gereksinimleri karşıladığından emin doğrulamak için dağıtabilirsiniz.  Teklif doğruladıktan sonra seçin **Go Live** için teklifinizi sonraki adıma geçebilirsiniz. |
+| Microsoft gözden geçirme                | 7 - 14 gün * | Bütünlüklü olarak Microsoft Azure uygulamanızı inceler ve sorunları bulunursa size e-posta.  * Nadiren de olsa Bu adım uygulama ve belirlenen sorunları karmaşıklığına bağlı olarak 14 günden daha uzun sürebilir.  |
+| Canlı                           | < 1 gün | Teklif serbest, belirli bölgelerde çoğaltılır ve genel kullanıma sunulan. |
+|   |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|   |
+ 
+Yayımlama işlemini izleyebilirsiniz **durumu** bulut iş ortağı Portalı'nda teklifinizi için sekmesinde.
 
-Yayımlama işleminin tamamlanması 10 iş günü için izin ve teklif yayımlanır. Yayımlama işlemini tamamladıktan sonra teklifinizi listelenir [Microsoft Azure Marketi](https://azuremarketplace.microsoft.com/marketplace/apps/).
+![Bir Azure uygulaması teklif durumu sekmesi](./media/offer-status-tab.png)
+
+Yayımlama işlemini tamamladıktan sonra teklifinizi listelenir [Microsoft Azure Marketi'nde uygulama kategorisi](https://azuremarketplace.microsoft.com/marketplace/apps/).
+
+
+## <a name="errors-and-review-feedback"></a>Hatalar ve gözden geçirme geri bildirimi
+
+Teklifiniz, Yayımlama durumunu görüntüleme yanı sıra **durumu** sekmesi de görüntülenir hata iletileri ve görüşleri **Microsoft gözden geçirme** adım.  Genellikle, gözden geçirme sorunlar, çekme isteği (PR) başvurulur.  Her çekme isteği, bir çevrimiçi Visual Studio Team Services için bağlı (VSTS, olarak yeniden adlandırıldı [Azure DevOps](https://azure.microsoft.com/services/devops/)) sorun hakkında ayrıntılar içeren öğe.  Aşağıdaki resimde PR gözden geçirme başvuru örneği görüntüler.  Daha karmaşık durumlarda, gözden geçirme ve destek ekipleri size e-posta. 
+
+![Durum sekmesinde görüntüleme gözden geçirme geri bildirim](./media/status-tab-ms-review.png)
+
+Teklifi yayımlama işlemine devam etmeden önce rapor edilen her sorun incelemeniz gerekir.  Aşağıdaki diyagram, bu geri bildirim süreci için yayımlama işlemi ilişkisini gösterir.
+
+![VSTS görüş yayımlama adımları](./media/pub-flow-vsts-access.png)
+
+
+### <a name="vsts-access"></a>VSTS erişim
+
+Gözden geçirme geri bildirim başvurulan VSTS öğeleri görüntülemek için uygun yetkilendirme yayımcılar verilmesi gerekir.  Aksi takdirde, yeni yayımcılar almak bir `401 - Not Authorized` yanıt sayfası.  Teklif gözden geçirme VSTS sisteme erişim izni istemek için aşağıdaki adımları gerçekleştirin:
+
+1. Aşağıdaki bilgileri toplayın:
+    - Yayımcı adı ve kimliği
+    - Teklif türü (Azure uygulamasına), adı ve SKU kimliği
+    - Örneğin çekme isteği bağlantı `https://solutiontemplates.visualstudio.com/marketplacesolutions/_git/jfrog/pullrequest/<number>`.  Bu URL, bildirim iletisini veya 401 yanıt sayfasının adresini alınabilir.
+    - Yayımlama kuruluşunuzdan için erişim izni istediğiniz kişilerin e-posta adresi.  Bu, bulut iş ortağı Portalı'nda bir yayımcı olarak kaydolurken sağladığınız sahibi adresleri içermelidir.
+2. Bir destek olayı oluşturun.  Bulut iş ortağı portalı başlık çubuğunda **yardımcı** düğmesine ve ardından **Destek** menüsünde.  Web varsayılan tarayıcıyı başlatın ve Microsoft yeni destek olay sayfasına gidin.  (Oturum açmanız gerekebilir.)
+3. Belirtin **sorun türü** olarak **Market ekleme** ve **kategori** olarak **erişim sorunu**, ardından **Başlat İstek**.
+
+    ![Destek bileti kategorisi](./media/support-incident1.png)
+
+4. İçinde **adım 1 / 2** sayfasında, iletişim bilgilerinizi girin ve seçin **devam**.
+5. İçinde **adım 2 / 2** sayfasında, bir olay başlığı belirtin ve (yukarıda) İlk adımda toplanan bilgiler sağlayın.  Okuma ve sözleşmesini kabul edin ve ardından **Gönder**.
+
+Olay oluşturma başarılı olduysa, bir onay sayfası görüntülenir.  Onay bilgileri daha sonra başvurmak üzere kaydedin.  Microsoft desteğine erişim isteğiniz birkaç iş günü içinde yanıt.
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Mevcut teklifi güncelleştirme](./cpp-update-existing-offer.md)
+Azure uygulama yayınlandıktan sonra yapabilecekleriniz [mevcut teklifi güncelleştirme](./cpp-update-existing-offer.md) değişen iş ya da teknik gereksinimlerine yansıtacak şekilde. 

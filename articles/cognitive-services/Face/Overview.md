@@ -9,12 +9,12 @@ ms.component: face-api
 ms.topic: overview
 ms.date: 10/29/2018
 ms.author: sbowles
-ms.openlocfilehash: a15b6678b15bf5d1a3078494e12da3a08c57bed3
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 1916aa94dcf7528ce898ef37eac29c1017f03f15
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633470"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231895"
 ---
 # <a name="what-is-the-azure-face-api"></a>Azure Yüz Tanıma API’si nedir?
 
@@ -64,7 +64,7 @@ Veritabanı oluşturulup eğitildikten sonra, yeni algılanan yüzün bulunduğu
 
 Kişi tanımlama hakkında daha fazla bilgi için bkz. [Tanımlama API'si](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
 
-## <a name="use-containers"></a>Kapsayıcılar kullanma
+## <a name="use-containers"></a>Kapsayıcıları kullanma
 
 [Yüz tanıma kapsayıcınızı kullanmak](face-how-to-install-containers.md) algılamak için tanı ve yüzleri, verilerinizi daha yakın standartlaştırılmış bir Docker kapsayıcısı yükleyerek belirleyin.
 
@@ -72,10 +72,14 @@ Kişi tanımlama hakkında daha fazla bilgi için bkz. [Tanımlama API'si](https
 
 Aşağıdaki örnek uygulamalarda, Yüz Tanıma API'sinin kullanılabileceği birkaç yol gösterilir.
 
-- [Microsoft Yüz Tanıma API'si: Windows İstemci Kitaplığı ve Örnek](https://github.com/Microsoft/Cognitive-Face-Windows) - birçok Yüz algılama, analiz ve tanımlama senaryosunu gösteren WPF uygulaması.
+- [Microsoft yüz tanıma API'si: Windows istemci kitaplığı ve örnek](https://github.com/Microsoft/Cognitive-Face-Windows) -yüz algılama, analiz ve kimlik çeşitli senaryolar gösterir bir WPF uygulaması.
 - [FamilyNotes UWP uygulaması](https://github.com/Microsoft/Windows-appsample-familynotes) - Bir aile not paylaşım senaryosunda yüz tanımlamayı konuşma, Cortana, mürekkep ve kamerayla birlikte kullanan Evrensel Windows Platformu (UWP) uygulaması.
+
+## <a name="data-privacy-and-security"></a>Veri gizliliği ve güvenliği
+
+Tüm Bilişsel hizmetler gibi yüz tanıma hizmeti kullanan geliştiriciler Microsoft'un müşteri verilerini ilkeleri haberdar olmanız gerekir. Bkz: [Bilişsel Hizmetler sayfasına](https://www.microsoft.com/en-us/trustcenter/cloudservices/cognitiveservices) daha fazla bilgi için Microsoft Trust Center.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Kodda basit bir yüz algılama senaryosu uygulamak için hızlı başlangıcı izleyin.
-- [Hızlı Başlangıç: C# ile .NET SDK'yı kullanarak bir görüntüdeki yüzleri algılama](quickstarts/csharp.md) (başka diller de mevcuttur)
+- [Hızlı Başlangıç: .NET SDK'sı ile kullanarak görüntüdeki yüzleri algılayın C# ](quickstarts/csharp.md) (diğer diller kullanılabilir)

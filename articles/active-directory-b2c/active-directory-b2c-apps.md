@@ -7,21 +7,21 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 01/11/2019
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 91102b9fe57b2291ce1d1678b71b3a8b0b834864
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 5d90e9440758f457aca591e5c2792c6670868685
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721978"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245489"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Active Directory B2C'de kullanılabilir uygulama türleri
 
 Azure Active Directory (Azure AD) B2C, çeşitli modern uygulama mimarilerinin için kimlik doğrulamasını destekler. Bunların tümü [OAuth 2.0](active-directory-b2c-reference-protocols.md) veya [OpenID Connect](active-directory-b2c-reference-protocols.md) endüstri standardı protokollerine dayalıdır. Bu belge, oluşturabileceğiniz uygulama türleri açıklayan, dilden veya platformdan bağımsız tercih ettiğiniz. Ayrıca, uygulama oluşturmaya başlamadan önce üst düzey senaryoları anlamanıza yardımcı olur.
 
-Azure AD B2C'yi kullanan her uygulamanın kayıtlı olması gerekir, [Azure AD B2C kiracısı](active-directory-b2c-get-started.md) kullanarak [Azure portalı](https://portal.azure.com/). Uygulama kayıt işlemi toplar ve değerleri gibi atar:
+Azure AD B2C'yi kullanan her uygulamanın kayıtlı olması gerekir, [Azure AD B2C kiracısı](active-directory-b2c-get-started.md) kullanarak [Azure portalında](https://portal.azure.com/). Uygulama kayıt işlemi toplar ve değerleri gibi atar:
 
 * Bir **uygulama kimliği** , uygulamanızın benzersiz olarak tanımlar.
 * A **yanıt URL'si** yanıtları uygulamanıza geri yönlendirmek için kullanılabilir.
@@ -41,7 +41,7 @@ Bu adımlar biraz oluşturmakta uygulama türüne göre değişebilir.
 
 ## <a name="web-applications"></a>Web uygulamaları
 
-Bir sunucuda barındırılan ve tarayıcı aracılığıyla erişilen (.NET, PHP, Java, Ruby, Python ve Node.js dahil) web uygulamaları için Azure AD B2C'yi destekleyen [Openıd Connect](active-directory-b2c-reference-protocols.md) tüm kullanıcı deneyimleri. Buna oturum açma, kaydolma ve profil yönetimi dahildir. Openıd Connect'e ilişkin Azure AD B2C uygulamasında web uygulamanız, Azure AD'ye kimlik doğrulaması istekler göndererek bu kullanıcı deneyimlerini başlatır. İstek sonucu `id_token` şeklindedir. Bu güvenlik belirteci, kullanıcının kimliğini temsil eder. Ayrıca kullanıcı hakkındaki bilgileri talep biçiminde sağlar:
+Bir sunucuda barındırılan ve tarayıcı aracılığıyla erişilen (.NET, PHP, Java, Ruby, Python ve Node.js dahil) web uygulamaları için Azure AD B2C'yi destekleyen [Openıd Connect](active-directory-b2c-reference-protocols.md) tüm kullanıcı deneyimleri. Openıd Connect'e ilişkin Azure AD B2C uygulamasında, web uygulamanızı Azure AD'ye kimlik doğrulaması istekler göndererek kullanıcı deneyimlerini başlatır. İstek sonucu `id_token` şeklindedir. Bu güvenlik belirteci, kullanıcının kimliğini temsil eder. Ayrıca kullanıcı hakkındaki bilgileri talep biçiminde sağlar:
 
 ```
 // Partial raw id_token
@@ -68,7 +68,7 @@ Bir web uygulaması, her yürütmesinden bir [ilke](active-directory-b2c-referen
 6. `id_token` Doğrulanır ve oturum tanımlama bilgisinin ayarlanır.
 7. Güvenli bir sayfa, kullanıcıya döndürülür.
 
-Azure AD'den alınan bir ortak imzalama anahtarı kullanarak `id_token` doğrulaması yapma, kullanıcının kimliğini doğrulamak için yeterlidir. Bu ayrıca sonraki sayfa isteklerinde kullanıcı kimliğini belirlemek için kullanılabilecek oturum tanımlama bilgisi belirler.
+Azure AD'den alınan bir ortak imzalama anahtarı kullanarak `id_token` doğrulaması yapma, kullanıcının kimliğini doğrulamak için yeterlidir. Bu işlem ayrıca sonraki sayfa isteklerinde kullanıcı tanımlamak için kullanılan bir oturum tanımlama bilgisini ayarlar.
 
 Bu senaryoyu çalışırken görmek için web uygulaması oturum açma kodu örneklerinden birini deneyin bizim [Başlarken bölümümüzdeki](active-directory-b2c-overview.md).
 
@@ -124,58 +124,18 @@ Uzun süre çalışan işlemler içeren veya bir kullanıcı varlığı çalış
 
 #### <a name="web-api-chains-on-behalf-of-flow"></a>Web API'si zincirleri (temsili akış)
 
-Çoğu mimari başka bir aşağı akış web API'si çağırmayı gerektiren bir web API'si içerir; her iki API de Azure AD B2C tarafından güvence altına alınır. Bu senaryo, Web API'si arka ucuna sahip yerel istemcilerde yaygındır. Bu, ardından Azure AD Graph API'si gibi bir Microsoft çevrimiçi hizmetini çağırır.
+Çoğu mimari başka bir aşağı akış web API'si çağırmayı gerektiren bir web API'si içerir; her iki API de Azure AD B2C tarafından güvence altına alınır. Bu senaryo, bir Web API'si arka ucuna sahip yerel istemcilerde yaygındır ve bir Azure AD Graph API gibi Microsoft çevrimiçi hizmeti çağırır.
 
 Bu zincirli web API'si senaryosu, temsili akış olarak da bilinen OAuth 2.0 JWT taşıyıcı kimlik bilgisi yetkisi kullanılarak desteklenebilir.  Ancak temsili akış şu anda Azure AD B2C’de uygulanmamıştır.
 
-### <a name="reply-url-values"></a>Yanıt URL'si değeri
-
-Şu anda Azure AD B2C’ye kayıtlı uygulamalar sınırlı sayıda yanıt URL'si değeri ile kısıtlıdır. Web uygulamaları ve hizmetlerine yönelik yanıt URL’si, `https` şemasıyla başlamalı ve tüm yanıt URL’si değerleri tek bir DNS etki alanını paylaşmalıdır. Örneğin, şu yanıt URL'lerinden birine sahip bir web uygulamasını kaydedemezsiniz:
-
-`https://login-east.contoso.com`
-
-`https://login-west.contoso.com`
-
-Kayıt sistemi mevcut yanıt URL'sinin tam DNS adını, eklemekte olduğunuz yanıt URL'sinin DNS adı ile karşılaştırır. Aşağıdaki koşullardan biri geçerli olduğunda DNS adı ekleme isteği başarısız olur:
-
-- Yeni yanıt URL'sinin tam DNS adı, mevcut yanıt URL'sinin DNS adı ile eşleşmiyorsa.
-- Yeni yanıt URL'sinin tam DNS adı, mevcut yanıt URL'sinin alt etki alanı değilse.
-
-Örneğin, uygulamanın yanıt URL'si şu ise:
-
-`https://login.contoso.com`
-
-Aşağıdaki gibi ekleme yapabilirsiniz:
-
-`https://login.contoso.com/new`
-
-Bu durumda, DNS adı tam olarak eşleşir. Ya da şunu yapabilirsiniz:
-
-`https://new.login.contoso.com`
-
-Bu durumda, login.contoso.com DNS alt etki alanına başvurursunuz. Yanıt URL’leri login-east.contoso.com ve login-west.contoso.com olan bir uygulamanızın olmasını istiyorsanız, bu yanıt URL’lerini şu sırayla eklemeniz gerekir:
-
-`https://contoso.com`
-
-`https://login-east.contoso.com`
-
-`https://login-west.contoso.com`
-
-Sonraki iki yanıt URL’si, ilk yanıt URL'si olan contoso.com’un alt etki alanları olduğu için bunları ekleyebilirsiniz. 
-
-Mobil/yerel uygulamalar oluştururken, tanımladığınız bir **yeniden yönlendirme URI'si** yerine bir **yeniden yürütme URL'si**. Bir yeniden yönlendirme URI'si seçerken iki önemli noktalar vardır:
-
-- **Benzersiz**: Yeniden yönlendirme URI’si şeması her uygulama için benzersiz olmalıdır. Örnekte `com.onmicrosoft.contoso.appname://redirect/path`, `com.onmicrosoft.contoso.appname` düzenidir. Bu düzen gelmelidir. İki uygulama aynı şemayı paylaşıyorsa, kullanıcının gördüğü bir **uygulamayı seçin** iletişim. Kullanıcı yanlış seçim yaparsa, oturum açma başarısız olur.
-- **Tam**: Yeniden yönlendirme URI’sinin bir şeması ve yolu olmalıdır. Yol, etki alanından sonra en az bir eğik çizgi içermelidir. Örneğin, `//contoso/` çalışır ve `//contoso` başarısız olur. Yeniden yönlendirme URI'si, alt çizgi gibi özel karakterler olmadığından emin olun.
-
 ### <a name="faulted-apps"></a>Hatalı uygulamalar
 
-Azure AD B2C uygulamaları düzenlenmemelidir:
+Azure AD B2C uygulamaları şu yollarla düzenlemeyin:
 
 - Diğer uygulama yanıt portallarında gibi [uygulama kayıt portalı](https://apps.dev.microsoft.com/).
 - Graph API'si veya PowerShell kullanarak.
 
-Azure portalında dışında Azure AD B2C uygulamasını düzenlerseniz, hatalı bir uygulama haline gelir ve Azure AD B2C ile artık kullanılamaz. Uygulamayı silip yeniden oluşturmanız gerekir.
+Azure portalında dışında Azure AD B2C uygulamasını düzenlerseniz, hatalı bir uygulama haline gelir ve Azure AD B2C ile artık kullanılamaz. Uygulamayı silip yeniden oluşturun.
 
 Uygulamayı silmek için Git [uygulama kayıt portalı](https://apps.dev.microsoft.com/) ve uygulamayı silin. Uygulamanın görünür olması için uygulamanın sahibi olmanız (ve yalnızca kiracının yöneticisi olmamanız) gerekir.
 

@@ -13,12 +13,13 @@ ms.topic: quickstart
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 0608da33e816b40f7fadbeb1b5da3feb926c28aa
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ROBOTS: NOINDEX
+ms.openlocfilehash: f0ffb4a4c4ea12292639b5a94b7f2990db6e45bd
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334066"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247818"
 ---
 # <a name="deploy-the-local-agent"></a>Yerel aracı dağıtma
 
@@ -138,4 +139,4 @@ Bir aracıyı adlarıyla benzersiz olarak tanımlanır. Varsayılan olarak, bura
 
 - [Hizmet olarak doğrulama sorunlarını giderme](azure-stack-vaas-troubleshoot.md)
 - [Hizmet temel kavramları olarak doğrulama](azure-stack-vaas-key-concepts.md)
-- [Hızlı Başlangıç: doğrulama ilk test zamanlamak için bir servis portalı kullanma](azure-stack-vaas-schedule-test-pass.md)
+- [Hızlı Başlangıç: Doğrulama, ilk test zamanlamak için bir servis portalı kullanın.](azure-stack-vaas-schedule-test-pass.md)

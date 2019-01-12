@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 12/20/2018
+ms.date: 01/10/2019
 ms.author: rolyon
-ms.openlocfilehash: 859d81239cfad9eb5396a30f5db316bc73285831
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 341565bf621fa63ad578489cd04bcfff3510265b
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188443"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229481"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory Kullanım Koşulları özelliği
 Azure AD Kullanım Koşulları, kuruluşların son kullanıcılara bilgi sağlamak için kullanabileceği basit bir yöntem sunar. Bu sunum, kullanıcıların yasal gereksinimler veya uyumluluk gereksinimleriyle ilgili bildirimleri görmesi sağlar. Bu makalede kullanım koşulları ile çalışmaya başlama işlemini açıklamaktadır.
@@ -87,9 +87,7 @@ Kullanım Koşulları belgenize son şeklini verdikten sonra, bunları eklemek i
 
 1. Son kabul etmeden önce kullanım koşullarını görüntülemek kullanıcılar gerektirecek şekilde **kullanıcıların kullanım koşullarını genişletmesini gerekli kıl** için **üzerinde**.
 
-1. Bunlar erişmesini her bir cihazdaki kullanım koşullarınızı kabul etmek son kullanıcıların gerektirecek şekilde **kullanıcıların her cihazda kabul etmesini zorunlu tut** için **üzerinde**.
-
-    Görmüyorsanız, **kullanıcıların her cihazda kabul etmesini zorunlu tut** bu özelliği bölgenizi için henüz dağıtılmadı ayarını olmasıdır. Bu özellik, erken Ocak 2019 tarafından tam olarak dağıtılması beklenir. Daha fazla bilgi için [cihaz başına kullanım koşullarını](#per-device-terms-of-use).
+1. Bunlar erişmesini her bir cihazdaki kullanım koşullarınızı kabul etmek son kullanıcıların gerektirecek şekilde **kullanıcıların her cihazda kabul etmesini zorunlu tut** için **üzerinde**. Daha fazla bilgi için [cihaz başına kullanım koşullarını](#per-device-terms-of-use).
 
 1. Süresi dolacak şekilde istiyorsanız kullanım koşulları, bir zamanlamaya göre toplanmasına onay verir, Ayarla **onayları sona** için **üzerinde**. Üzerinde ayarlandığında, iki ek zamanlama ayarları görüntülenir.
 
@@ -253,9 +251,6 @@ Aşağıdaki yordam, dil kullanım koşullarını eklemeyi açıklar.
 ## <a name="per-device-terms-of-use"></a>Cihaz başına kullanım koşulları
 
 **Kullanıcıların her cihazda kabul etmesini zorunlu tut** ayar, son kullanıcıların bunlar erişmesini her bir cihazdaki kullanım koşullarınızı kabul etmesini gerektirmek etkinleştirir. Son kullanıcı cihazlarını Azure AD'ye katılmak için gerekli olacaktır. Cihazı alanına katıldığında, cihaz kimliği her cihazda kullanım koşullarını uygulamak için kullanılır.
-
-> [!NOTE]
-> Görmüyorsanız, **kullanıcıların her cihazda kabul etmesini zorunlu tut** ne zaman ayarı bu özelliği bölgenizi için henüz dağıtılmadı yeni bir kullanım koşulları oluşturma, olmasıdır. Bu özellik, erken Ocak 2019 tarafından tam olarak dağıtılması beklenir.
 
 Yazılım ve desteklenen platformlar listesi aşağıda verilmiştir.
 

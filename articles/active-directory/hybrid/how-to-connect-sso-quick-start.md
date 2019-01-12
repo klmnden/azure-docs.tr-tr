@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 01/10/2019
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2a842646d2696c0d7d26ad7218d298d2df0be1a1
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 2aab7929539fb4a4b9001da89770730d8afbe286
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187647"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244689"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory sorunsuz çoklu oturum açma: Hızlı başlangıç
 
@@ -192,7 +192,7 @@ MacOS çalıştıran makinenin AD'ye katıldığından emin olun. Yönergeler AD
 
 Siz kıldıysanız [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) veya [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) ilke ayarları, ortamınızda olun Azure AD'nin URL'si ekleyin (`https://autologon.microsoftazuread-sso.com`) onlara de.
 
-#### <a name="google-chrome-macos-only"></a>Google Chrome (yalnızca macOS)
+#### <a name="google-chrome-macos-and-other-non-windows-platforms"></a>Google Chrome (macOS ve Windows olmayan diğer platformları)
 
 Mac OS ve diğer Windows olmayan platformlar için Google Chrome, başvurmak [Chromium proje Policy List](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) nasıl beyaz liste ile kimlik doğrulaması için Azure AD URL'sini tümleştirilmiş hakkında bilgi.
 

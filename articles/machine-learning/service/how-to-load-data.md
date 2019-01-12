@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: fda0f600fa7cb130511f2bd8b53543acfbcc7759
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 87096e1507c080f68652ea27b368364d9ac7952a
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054308"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232507"
 ---
 # <a name="load-and-read-data-with-azure-machine-learning"></a>Yükleme ve Azure Machine Learning ile veri okuma
 
@@ -27,7 +27,19 @@ Bu makalede, farklı yöntemler kullanarak verileri yükleme bilgi [Azure Machin
 * Tür-dönüştürme çıkarımı kullanılarak sırasında dosya yükleniyor
 * MS SQL Server ve Azure Data Lake Storage bağlantı desteği
 
-## <a name="load-text-line-data"></a>Metin satırı veri yükleme 
+## <a name="load-data-automatically"></a>Otomatik olarak veri yükleme
+
+Dosya türü belirtmeden verileri otomatik olarak yüklemek için kullanmak `auto_read_file()` işlevi. Dosya ve okumak için gerekli bağımsız değişken türü olayla otomatik olarak.
+
+```python
+import azureml.dataprep as dprep
+
+dataflow = dprep.auto_read_file(path='./data/any-file.txt')
+```
+
+Bu işlev, dosya türü açıkça bilinmiyor yararlıdır. Kullanım örneği yüzlerce veri akışı nesnelerine dönüştürmek için farklı türlerde dosyaları içeren bir dizindir. Her dosya yolu üzerinden yineleme ve çağıran `auto_read_file()` , dizindeki dosyaların bir veri akışı nesneleri listesine kolayca işlemenizi sağlar.
+
+## <a name="load-text-line-data"></a>Metin satırı veri yükleme
 
 Bir veri akışı basit metin verileri okumak için kullanın `read_lines()` isteğe bağlı parametreleri belirtmeden.
 
@@ -188,7 +200,7 @@ dataflow = dprep.read_fwf('./data/fixed_width_file.txt',
 
 SDK Ayrıca verileri bir SQL kaynağı'ndan yükleyin. Şu anda yalnızca Microsoft SQL Server desteklenir. Oluşturma bir SQL server verilerini okumak için bir `MSSQLDataSource` bağlantı parametrelerini içeren nesne. Parola parametresi `MSSQLDataSource` kabul eden bir `Secret` nesne. Gizli bir nesne iki şekilde oluşturabilirsiniz:
 
-* Gizli anahtarı ve değeri yürütme altyapısı ile kaydedin. 
+* Gizli anahtarı ve değeri yürütme altyapısı ile kaydedin.
 * Gizli dizi ile yalnızca oluşturma bir `id` (gizli değer zaten yürütme ortamında kayıtlı olup olmadığını) kullanarak `dprep.create_secret("[SECRET-ID]")`.
 
 ```python
@@ -232,7 +244,7 @@ az account show --query tenantId
 dataflow = read_csv(path = DataLakeDataSource(path='adl://dpreptestfiles.azuredatalakestore.net/farmers-markets.csv', tenant='microsoft.onmicrosoft.com')) head = dataflow.head(5) head
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > Kullanıcı hesabınızın birden fazla Azure kiracısının bir üyesiyse, Kiracı, AAD URL ana bilgisayar adı biçiminde belirtmeniz gerekir.
 
 ### <a name="create-a-service-principal-with-the-azure-cli"></a>Azure CLI ile hizmet sorumlusu oluşturma
@@ -256,7 +268,7 @@ Azure Data Lake Store dosya sistemine ACL yapılandırmak için kullanıcının 
 az ad sp show --id "8dd38f34-1fcb-4ff9-accd-7cd60b757174" --query objectId
 ```
 
-Yapılandırmak için `Read` ve `Execute` erişim Azure Data Lake Store dosya sistemi için ACL klasörleri ve dosyaları için ayrı ayrı yapılandırın. Ana HDFS ACL modelini devralmayı desteklemez. Bunun nedeni, budur. 
+Yapılandırmak için `Read` ve `Execute` erişim Azure Data Lake Store dosya sistemi için ACL klasörleri ve dosyaları için ayrı ayrı yapılandırın. Ana HDFS ACL modelini devralmayı desteklemez. Bunun nedeni, budur.
 
 ```azurecli
 az dls fs access set-entry --account dpreptestfiles --acl-spec "user:e37b9b1f-6a5e-4bee-9def-402b956f4e6f:r-x" --path /

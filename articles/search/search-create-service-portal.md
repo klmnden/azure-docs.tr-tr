@@ -9,22 +9,22 @@ ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 5165dd16b77a242ca83d3e5864b6e60f3e12a567
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: dfb6ccac01933ea114694de361c2f1d4d5a649b0
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002646"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230535"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Portalda Azure Search hizmeti oluşturma
 
-Azure arama, bir arama deneyimi için özel uygulamalar eklemek için kullanılan tek başına bir kaynaktır. Azure Search kolayca diğer birçok Azure hizmetleriyle tümleştirilmiştir olsa da, kendisi tarafından Ayrıca ağ sunucularda barındırılan uygulamaları veya diğer bulut platformlarında çalışan yazılımı ile kullanabilirsiniz. 
+Azure arama, bir arama deneyimi özel uygulamalarda takın için kullanılan tek başına bir kaynaktır. Diğer Azure Hizmetleri ile Azure Search bir kolayca tümleşir olsa da, kendisi tarafından Ayrıca ağ sunucularında uygulamaları veya diğer bulut platformlarında çalışan yazılımı ile kullanabilirsiniz. 
 
 Bu makalede, bir Azure Search kaynağı oluşturmayı öğrenin [Azure portalında](https://portal.azure.com/). 
 
 ![Portalda Azure Search kaynak](media/search-create-service-portal/azure-search-resource-label.png)
 
-PowerShell’i mi tercih ediyorsunuz? Azure Resource Manager [hizmet şablonunu](https://azure.microsoft.com/resources/templates/101-azure-search-create/) kullanın. Başlangıç konusunda yardım için [PowerShell ile Azure Search’ü yönetme](search-manage-powershell.md) bölümüne bakarak arka planı öğrenin.
+PowerShell’i mi tercih ediyorsunuz? Azure Resource Manager [hizmet şablonunu](https://azure.microsoft.com/resources/templates/101-azure-search-create/) kullanın. Başlangıç konusunda yardım için bkz. [PowerShell ile Azure Search yönetme](search-manage-powershell.md).
 
 ## <a name="subscribe-free-or-paid"></a>Abone olma (ücretsiz veya ücretli)
 

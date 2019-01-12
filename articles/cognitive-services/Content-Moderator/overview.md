@@ -10,12 +10,12 @@ ms.component: content-moderator
 ms.topic: overview
 ms.date: 10/22/2018
 ms.author: sajagtap
-ms.openlocfilehash: 076948e7434802af7f0ad47f279335009817d40e
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.openlocfilehash: fabbbace7aeefd708a58a0874f9bbfa316d2b3f2
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209611"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230823"
 ---
 # <a name="what-is-azure-content-moderator"></a>Azure Content Moderator nedir?
 
@@ -57,6 +57,9 @@ Content Moderator hizmeti, web tabanlı [insan inceleme aracını](Review-Tool-U
 ![Content Moderator insan inceleme aracı giriş sayfası](images/homepage.PNG)
 
 İnceleme APı'lerini kullanarak belirlediğiniz filtrelere göre metin, görüntü ve video içeriğinde inceleme gerçekleştirecek bir ekip oluşturabilirsiniz. Ardından insan denetiminden geçirerek son kararları belirleyebilirsiniz. İnsan girişi hizmeti eğitmez ancak hizmetin ve insanlardan oluşan ekibin birlikte kullanılması, geliştiricilerin verimlilik ve doğruluk arasındaki doğru dengeyi yakalamasını sağlar.
+
+## <a name="data-privacy-and-security"></a>Veri gizliliği ve güvenliği
+Olarak tüm Bilişsel hizmetler, Content Moderator hizmeti kullanan geliştiricilerin Microsoft'un müşteri verilerini ilkelerinin bilmeniz gerekir. Bkz: [Bilişsel Hizmetler sayfasına](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) daha fazla bilgi için Microsoft Trust Center.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

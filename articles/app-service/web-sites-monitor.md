@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: d9f25b7a10b7a50663198120a895220b02818d7b
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 3a49b30caa087295bbdcffe8762796fdc92f154b
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994955"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247283"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Azure App Service'te uygulamaları izleme
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) web uygulamaları, mobil arka uçlar ve API uygulamaları, yerleşik izleme işlevselliği sağlayan [Azure portalında](https://portal.azure.com).
@@ -72,7 +72,7 @@ Bir uygulama için kullanılabilir ölçümleri şunlardır:
 | Ölçüm | Açıklama |
 | --- | --- |
 | **Ortalama yanıt süresi** | Milisaniye cinsinden istek, hizmet uygulaması için geçen ortalama süre. |
-| **Ortalama bellek çalışma kümesi** | Ortalama mebibytes (MIB), uygulama tarafından kullanılan bellek miktarı. |
+| **Ortalama bellek çalışma kümesi** | Ortalama megabayt (MIB), uygulama tarafından kullanılan bellek miktarı. |
 | **CPU süresi** | Saniyeler içinde uygulama tarafından tüketilen CPU miktarı. Bu ölçüm hakkında daha fazla bilgi için bkz: [CPU zamanı vs CPU yüzdesi](#cpu-time-vs-cpu-percentage). |
 | **Verileri** | Uygulamada MIB tarafından gelen bant genişliği miktarı. |
 | **Veri çıkışı** | Uygulamada MIB tarafından tüketilen giden bant genişliği miktarı. |
@@ -141,14 +141,12 @@ Kotalar bulmak için seçin **ayarları** > **kotalar**. Grafikte gözden geçir
 ## <a name="alerts-and-autoscale"></a>Uyarıları ve otomatik ölçeklendirme
 Bir uygulama veya bir App Service planı ölçümleri için uyarılar bağlanabilir. Daha fazla bilgi için bkz. [Uyarı bildirimleri alma](../monitoring-and-diagnostics/insights-alerts-portal.md).
 
-Temel, standart veya Premium App Service planları destek autoscale barındırılan app Service uygulamaları. Otomatik ölçeklendirme sayesinde, App Service planı ölçümleri izleme kuralları yapılandırabilirsiniz. Kuralları artırabilir veya gerektiği gibi ek kaynaklar sağlayan örnek sayısını azaltabilirsiniz. Kurallar, uygulamanın aşırı sağlanan tam kapasiteye ulaşmadığında tasarruf da yardımcı olabilir. 
+Temel, standart veya Premium App Service planları destek autoscale barındırılan app Service uygulamaları. Otomatik ölçeklendirme sayesinde, App Service planı ölçümleri izleme kuralları yapılandırabilirsiniz. Kuralları artırabilir veya gerektiği gibi ek kaynaklar sağlayan örnek sayısını azaltabilirsiniz. Kurallar, uygulamanın aşırı sağlanan tam kapasiteye ulaşmadığında tasarruf da yardımcı olabilir.
 
 Otomatik ölçeklendirme hakkında daha fazla bilgi için bkz: [ölçeklendirme](../monitoring-and-diagnostics/insights-how-to-scale.md) ve [Azure İzleyici otomatik ölçeklendirme için en iyi yöntemler](../azure-monitor/platform/autoscale-best-practices.md).
 
 [fzilla]:https://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]:https://go.microsoft.com/fwlink/?LinkID=309169
-
-
 
 <!-- Images. -->
 [http403]: ./media/web-sites-monitor/http403.png

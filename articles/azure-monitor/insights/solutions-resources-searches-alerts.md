@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6f16325183f0a13382dd4533fd867a518f1750c3
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: a2c45807f846dbe9d1c6bd91ce8c87958949ab17
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344304"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231334"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Log Analytics ekleme aramaları ve Uyarıları kaydedilen yönetim çözümü (Önizleme)
 
@@ -153,7 +153,7 @@ Eylem kaynağı tarafından belirtilen iki tür vardır **türü** özelliği.  
 Uyarı eylemleri aşağıdaki yapıya sahiptir.  Kopyalayabilir ve bu kod parçacığı, çözüm dosyasına yapıştırın ve parametre adlarını değiştirmek için bu genel değişkenler ve parametreler içerir. 
 
 
-```
+```json
     {
         "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name, '/', variables('Schedule').Name, '/', variables('Alert').Name)]",
         "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions",
@@ -290,7 +290,7 @@ Web kancası eylemi kaynakların özellikleri aşağıdaki tablolarda açıklanm
 |:--|:--|:--|
 | type | Evet | Eylem türü.  Bu **Web kancası** Web kancası işlemleri için. |
 | ad | Evet | Eylem görünen adı.  Bu konsolunda görüntülenmez. |
-| wehookUri | Evet | Web kancası için URI. |
+| WebhookUri | Evet | Web kancası için URI. |
 | customPayload | Hayır | Web kancası'na gönderilecek özel yükü. Biçim, Web kancası bekleniyor üzerinde bağlıdır. |
 
 
@@ -304,7 +304,7 @@ Aşağıdaki kaynakları içeren bir çözümü bir örnek aşağıda verilmişt
 
 Örnek kullanır [standart çözüm parametreleri]( solutions-solution-file.md#parameters) yaygın olarak kaynak tanımlarında runbook'a kod değerleri aksine bir çözümde kullanılan değişkenler.
 
-```
+```json
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0",
@@ -462,7 +462,7 @@ Aşağıdaki kaynakları içeren bir çözümü bir örnek aşağıda verilmişt
 ```
 
 Şu parametre dosyası, bu çözüm için örnek değerler sağlar.
-```
+```json
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
         "contentVersion": "1.0.0.0",

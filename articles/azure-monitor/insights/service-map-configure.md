@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/07/2018
 ms.author: bwren
-ms.openlocfilehash: ee0de5d03de29adddd8f77efbe7491603cc0e4c4
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: ea1c44d95dfb00fdb2b0af9e5cd8560fdee3d361
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53188801"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231351"
 ---
 # <a name="configure-service-map-in-azure"></a>Azure'da hizmet eşlemesi yapılandırma
 Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulur ve hizmetler arasındaki iletişimi eşler. Bunları--kritik Hizmetleri sunmak birbirine sistemleri düşündüğünüz sunucularınızın görüntülemek için kullanabilirsiniz. Hizmet eşlemesi, tüm TCP bağlantılı mimarisi, gerekli bir aracı yüklemesini dışında hiçbir yapılandırma boyunca sunucuları, işlemler ve bağlantı noktaları arasındaki bağlantıları gösterir.
@@ -335,7 +335,7 @@ Node localhost
 ```
 
 ## <a name="remove-the-dependency-agent"></a>Bağımlılık aracısını Kaldır
-### <a name="uinstall-agent-on-windows"></a>Windows aracısını Uinstall
+### <a name="uninstall-agent-on-windows"></a>Windows aracısını kaldırma
 Bir yönetici, Windows Denetim Masası'ndan için bağımlılık Aracısı kaldırabilirsiniz.
 
 Bir yönetici, %Programfiles%\Microsoft bağımlılık Aracısı'nı kaldırmak için bağımlılık Agent\Uninstall.exe olarak da çalıştırabilirsiniz.

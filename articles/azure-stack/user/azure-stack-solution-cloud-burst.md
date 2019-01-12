@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
-ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 57624133b249a8ec2ece90eac4a64729e4d15151
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: anajod
+ms.openlocfilehash: d2bdb351b72c9280a223381b62c01fff7ca5ca00
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968212"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244741"
 ---
-# <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>Öğretici: Azure ile Bulutlar arası ölçeklendirme çözümleri oluşturma
+# <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>Öğretici: Azure ile Bulutlar arası ölçeklendirme çözümleri oluşturun
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 Bir Azure yığını geçiş yapmak için el ile tetiklenen bir işlem barındırılan web uygulaması, trafik Yöneticisi, esnek ve ölçeklenebilir bulut yardımcı programı, yük altında sağlayarak aracılığıyla otomatik olarak ölçeklendirme ile web uygulaması için bir Azure barındırılan sağlamak için bir Bulutlar arası çözümü oluşturmayı öğrenin.
 
@@ -273,7 +273,7 @@ Kullanım [Azure Resource Manager şablonları gibi web](https://azure.microsoft
 
 #### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>Uygulama hizmetleri için kendi içinde bir web uygulaması dağıtımı her iki bulut oluşturma
 
-1.  Düzen **WebApplication.csproj** dosya: seçin **Runtimeidentifier** ve win10 x64 ekleyin. Daha fazla bilgi için [müstakil dağıtım](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) belgeleri.
+1.  Düzen **WebApplication.csproj** dosyası: Seçin **Runtimeidentifier** ve win10 x64 ekleyin. Daha fazla bilgi için [müstakil dağıtım](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) belgeleri.
 
 2.  Azure depolara kodunu denetlemek için Takım Gezgini'ni kullanın.
 

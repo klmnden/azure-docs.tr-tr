@@ -13,15 +13,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/18/2018
 ms.author: borisb
-ms.openlocfilehash: f178ac06b4ebfeef534233c2782423a7358f0c10
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: dbef04710e1a91cfda8b039605b517de9524ee19
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719638"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229583"
 ---
 # <a name="red-hat-enterprise-linux-images-in-azure"></a>Azure'da Red Hat Enterprise Linux görüntüleri
-Bu makalede Azure Market'te kendi adlandırma ve saklama ilkeleri ile birlikte kullanılabilen Red Hat Enterprise Linux (RHEL) görüntüleri
+Bu makalede Azure Market'te kendi adlandırma ve saklama ilkeleri ile birlikte kullanılabilir Red Hat Enterprise Linux (RHEL) görüntüler.
+
+RHEL tüm sürümleri için Red Hat destek ilkeleri hakkında daha fazla bilgi bulunabilir [Red Hat Enterprise Linux yaşam döngüsü](https://access.redhat.com/support/policy/updates/errata) sayfası.
 
 ## <a name="images-available-in-the-ui"></a>Kullanıcı Arabiriminde kullanılabilen görüntüleri
 Market'te veya Azure portalı kullanıcı arabirimini bir kaynak oluştururken "Red Hat" için arama yaptığınızda kullanılabilir RHEL görüntülerinin ve ilgili Red Hat ürünlerini bir alt kümesini görürsünüz. Her zaman eksiksiz bir listesi kullanılabilir VM görüntüleri Azure CLI/PowerShell/API'sini kullanarak elde edebilirsiniz.
@@ -108,3 +110,4 @@ Geçerli ilkemizi tüm daha önce yayımlanmış görüntülerin tutmaktır. Her
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Azure Red Hat güncelleştirme altyapısı hakkında daha fazla bilgi [burada](https://aka.ms/rhui-update).
+* RHEL tüm sürümleri için Red Hat destek ilkeleri hakkında daha fazla bilgi bulunabilir [Red Hat Enterprise Linux yaşam döngüsü](https://access.redhat.com/support/policy/updates/errata) sayfası.

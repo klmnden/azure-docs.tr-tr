@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 08/22/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4c952c847aa56b385065a878b664b3d1d98763f4
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: cd4eca669936a206241069f1f8a8d9440f45be33
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584029"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229787"
 ---
 # <a name="what-is-computer-vision"></a>Görüntü İşleme nedir?
 
@@ -69,6 +69,10 @@ Görüntü İşleme, şu gereksinimleri karşılayan görüntüleri analiz edebi
 - Görüntünün dosya boyutunun 4 megabayt (MB) değerini aşmaması gerekir
 - Görüntünün boyutlarının 50 x 50 pikselden büyük olması gerekir  
   OCR için görüntü boyutlarının 50 x 50 ile 4200 x 4200 piksel arasında olması gerekir
+
+## <a name="data-privacy-and-security"></a>Veri gizliliği ve güvenliği
+
+Olarak tüm Bilişsel hizmetler görüntü işleme hizmeti kullanan geliştiricilerin Microsoft'un müşteri verilerini ilkelerinin bilmeniz gerekir. Bkz: [Bilişsel Hizmetler sayfasına](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) daha fazla bilgi için Microsoft Trust Center.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

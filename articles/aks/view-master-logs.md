@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 9cf0c378271841277e6dfd770bf8d186494b9d48
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: a8fefdf352507f0e0c0757625297f667907eb9bc
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040753"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230603"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Kubernetes Azure Kubernetes Service (AKS) ana düğüm günlüklerini gözden geçirin ve etkinleştirin
 
@@ -36,6 +36,19 @@ Log Analytics etkin ve Azure portalında yönetilir. Kubernetes AKS kümenizde a
     * Bir çalışma alanı oluşturmanız gerekiyorsa, bir ad, bir kaynak grubu ve bir konum sağlayın.
 1. Kullanılabilir günlükleri listesinde, etkinleştirmek istediğiniz günlükleri'ni seçin. Varsayılan olarak, *kube-apiserver*, *kube Denetleyici Yöneticisi*, ve *kube-Zamanlayıcı* Günlükleri etkinleştirildi. Gibi ek günlükleri etkinleştirebilirsiniz *kube denetim* ve *küme ölçeklendiriciyi*. Dönün ve Log Analytics etkinleştirildikten sonra toplanan günlükleri değiştirin.
 1. Hazır olduğunuzda seçin **Kaydet** seçili günlüklerin toplanmasını etkinleştirmek için.
+
+> [!NOTE]
+> AKS, yalnızca oluşturulan veya aboneliğinizde özellik bayrağı etkinleştirildikten sonra yükseltilen kümeleri için denetim günlüklerini yakalar. Kaydedilecek *AKSAuditLog* özellik bayrağı, kullanın [az özelliği kayıt] [ az-feature-register] komutu aşağıdaki örnekte gösterildiği gibi:
+>
+> `az feature register --name AKSAuditLog --namespace Microsoft.ContainerService`
+>
+> Durumunu göstermesini bekleyin *kayıtlı*. Kayıt kullanarak durumu denetleyebilirsiniz [az özellik listesi] [ az-feature-list] komutu:
+>
+> `az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSAuditLog')].{Name:name,State:properties.state}"`
+>
+> Hazır olduğunuzda kullanarak AKS kaynak sağlayıcısının kaydını Yenile [az provider register] [ az-provider-register] komutu:
+>
+> `az provider register --namespace Microsoft.ContainerService`
 
 Aşağıdaki örnekte portalı ekran görüntüsü gösterildiği *tanılama ayarları* penceresi ve sonra bir Log Analytics çalışma alanı oluşturma seçeneği:
 
@@ -133,3 +146,6 @@ Bu makalede, etkinleştirmek ve Kubernetes AKS kümenizde ana bileşenleri için
 [analyze-log-analytics]: ../azure-monitor/learn/tutorial-viewdata.md
 [kubelet-logs]: kubelet-logs.md
 [aks-ssh]: ssh.md
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register

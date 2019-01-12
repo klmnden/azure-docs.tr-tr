@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 01/11/2019
 ms.author: jeffgilb
-ms.reviewer: quying
-ms.openlocfilehash: 360661402289ab9b06eb01be447dc98942c93302
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.reviewer: jiahan
+ms.openlocfilehash: 68665cc588f8a6340de393330c7a248503b07125
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364107"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244996"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>SQL kaynak sağlayıcısı bakım işlemleri
 
@@ -32,16 +32,6 @@ SQL kaynak sağlayıcısı, Azure Stack bir parçası olarak bir eklenti bileşe
 ### <a name="provider-virtual-machine"></a>Sağlayıcı sanal makine
 
 Kaynak sağlayıcının çalıştığından bir *kullanıcı* sanal makinenin gereksinim yayınlanacak gerekli düzeltme eklerini ve güncelleştirmeleri uygulamak. VM için güncelleştirmeleri uygulamak için düzeltme ve güncelleştirme döngüsü bir parçası olarak sağlanan Windows güncelleştirme paketlerini kullanabilirsiniz.
-
-## <a name="backuprestoredisaster-recovery"></a>Yedekleme/geri yükleme/olağanüstü durum kurtarma
-
- SQL kaynak sağlayıcısı, bir eklenti bileşeni olduğundan, bir Azure Stack iş sürekliliği olağanüstü durum kurtarma (BCDR) işleminin bir parçası yedeklenmediğini. Şu işlemler için betikler sağlanacaktır:
-
-- Yedekleme durumu bilgilerini (bir Azure Stack depolama hesabında depolanır.)
-- Kaynak sağlayıcısı, tam yığın kurtarma gerekiyorsa geri yükleniyor.
-
->[!NOTE]
->Bir kurtarma yapmanız gerekiyorsa, kaynak sağlayıcısı geri yüklenmeden önce veritabanı sunucularının kurtarılmaları gerekir.
 
 ## <a name="updating-sql-credentials"></a>SQL kimlik bilgileri güncelleştiriliyor
 
@@ -122,7 +112,7 @@ SQL ve MySQL kaynak sağlayıcılarını kullanarak Azure Stack ile tümleştiri
 
 ### <a name="known-issues"></a>Bilinen sorunlar
 
-**Sorunu**: gizli anahtarları döndürme günlükleri.<br>
+**Sorunu**: Gizli dizileri döndürme günlükleri.<br>
 Gizli döndürme özel betik çalıştırıldığında başarısız olursa gizli anahtarları döndürme için günlükleri otomatik olarak toplanan değildir.
 
 **Geçici çözüm**:<br>

@@ -4,15 +4,15 @@ description: Azure Geçişi hizmetine genel bir bakış sağlar.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 01/02/2019
+ms.date: 01/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: c511ef8fc4ae580f869ef90da3e2c8764a146881
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: ab8841e2c5cb01e28264edc2b5ab3306d611a9c7
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969140"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232082"
 ---
 # <a name="about-azure-migrate"></a>Azure Geçişi Hakkında
 
@@ -38,6 +38,7 @@ Azure Geçişi şunları yapmanıza yardımcı olur:
     **Coğrafya** | **Depolama konumu**
     --- | ---
     Azure Kamu | ABD Devleti Virginia
+    Asya | Güneydoğu Asya
     Avrupa | Kuzey Avrupa veya Batı Avrupa
     Durumları sahip | Doğu ABD ve Batı Orta ABD
 

@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 01/07/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 509125e7c93f34b9ce28c58cb1ec96db1074d995
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 315e050f9ff8768cfeb8ff5417834e8e163ce334
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119654"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231436"
 ---
 # <a name="associate-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Azure Search'te bir beceri kümesi bir Bilişsel hizmetler kaynağı ilişkilendirmek 
 
-Sürüş yapay ZEKA algoritmalarının [bilişsel arama](cognitive-search-concept-intro.md) yapılandırılmamış verileri işlemek için işlem hatları temel [ **Bilişsel hizmetler kaynakları**](https://azure.microsoft.com/services/cognitive-services/). Kaynakları istediğiniz [ **görüntü işleme** ](https://azure.microsoft.com/services/cognitive-services/computer-vision/) görüntü analizi ve optik karakter tanıma (OCR) metin ve görüntü dosyaları dışında yapısı ayıklanması sırasında [ **metin Analytics** ](https://azure.microsoft.com/services/cognitive-services/text-analytics/) doğal dil işleme birkaç varlık tanıma ve anahtar ifade ayıklama gibi sağlar.
+Sürüş yapay ZEKA algoritmalarının [bilişsel arama işlem hatları](cognitive-search-concept-intro.md) yapılandırılmamış verileri işlemek için temel alan [ **Bilişsel hizmetler kaynakları**](https://azure.microsoft.com/services/cognitive-services/). Kaynakları ister [ **görüntü işleme** ](https://azure.microsoft.com/services/cognitive-services/computer-vision/) görüntü analizi ve optik karakter tanıma (OCR) metin ve görüntü dosyaları dışında yapısı ayıklanmasında sağlar ancak [ **metin Analytics** ](https://azure.microsoft.com/services/cognitive-services/text-analytics/) doğal dil işleme birkaç varlık tanıma ve anahtar ifade ayıklama gibi sağlar.
 
-Belgeler sınırlı sayıda ücretsiz zenginleştirebilirsiniz veya daha büyük ve daha sık iş yükleri için Faturalanabilir bir Bilişsel hizmetler kaynağı ekleyebilirsiniz. Bu makalede, Bilişsel hizmetler kaynağı bilişsel becerilerinizi dizin oluşturma sırasında veri zenginleştirme ile ilişkilendirmek nasıl öğrenin.
+Belgeler sınırlı sayıda ücretsiz zenginleştirin ya da daha büyük ve daha sık iş yükleri için Faturalanabilir bir Bilişsel hizmetler kaynağı ekleyin. Bu makalede, Bilişsel hizmetler kaynağı bilişsel becerilerinizi dizin oluşturma sırasında veri zenginleştirme ile ilişkilendirmek nasıl öğrenin.
 
 İşlem hattınızı özel oluşuyorsa [özel becerileri](cognitive-search-create-custom-skill-example.md), Bilişsel hizmetler kaynağı eklemek gerekmez.
 

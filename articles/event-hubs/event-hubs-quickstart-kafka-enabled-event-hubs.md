@@ -8,12 +8,12 @@ ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: seodec18
 ms.date: 12/06/2018
-ms.openlocfilehash: d6e293b80df1ab227a3100040a54b189f48d8027
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 541095ddff19f16e3050d79846a339d4e5bad2b8
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53102818"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244299"
 ---
 # <a name="stream-into-event-hubs-for-the-apache-kafka"></a>Apache Kafka için Event Hubs’da akış yapma
 Bu hızlı başlangıçta, protokol istemcilerinizi değiştirmenize veya kendi kümelerinizi çalıştırmanıza gerek kalmadan Kafka etkin Event Hubs’a nasıl akış oluşturulacağı gösterilir. Yalnızca uygulamalarınızdaki bir yapılandırma değişikliğiyle Kafka etkin Event Hubs ile konuşmak için üreticilerinizi ve tüketicilerinizi nasıl kullanacağınızı öğrenirsiniz. Azure Event Hubs [Apache Kafka sürüm 1.0](https://kafka.apache.org/10/documentation.html)’ı destekler.
@@ -34,13 +34,13 @@ Bu hızlı başlangıcı tamamlamak için aşağıdaki önkoşulların karşıla
 
 ## <a name="create-a-kafka-enabled-event-hubs-namespace"></a>Kafka etkin Event Hubs ad alanı oluşturma
 
-1. [Azure portalda][Azure portalda] oturum açın ve ekranın sol üst köşesindeki **Kaynak oluştur**'a tıklayın.
+1. Oturum [Azure portalında](https://portal.azure.com), tıklatıp **kaynak Oluştur** , ekranın sol üst köşesindeki.
 
 2. Event Hubs araması yapın ve burada gösterilen seçenekleri belirleyin:
     
     ![Portalda Event Hubs arama](./media/event-hubs-create-kafka-enabled/event-hubs-create-event-hubs.png)
  
-3. Benzersiz bir ad belirtin ve ad alanında Kafka'yı etkinleştirin. **Oluştur**’a tıklayın.
+3. Benzersiz bir ad belirtin ve ad alanında Kafka'yı etkinleştirin. **Oluştur**’a tıklayın. Not: Event Hubs Kafka için yalnızca standart tarafından desteklenen ve adanmış katmanı Event Hubs. Event Hubs temel katman yanıt herhangi bir Kafka işlem olarak bir konu Yetkilendirme hatası döndürür.
     
     ![Ad alanı oluşturma](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.jpg)
  

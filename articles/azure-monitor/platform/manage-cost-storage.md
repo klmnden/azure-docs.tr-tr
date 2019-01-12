@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 01/10/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: a20e4d713440ca6fe1adaf5b89bff347a8fd0bde
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: ed720b0db68a11c573a763c4269349db97977eff
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744097"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231079"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics"></a>Log Analytics için kullanımı ve maliyetleri yönetme
 
@@ -99,6 +99,25 @@ Aşağıdaki adımları ne kadar günlük verileri çalışma alanınızda taraf
 
 Bir kurumsal anlaşması olan müşteriler 1 Temmuz 2018'den önce imzalanmış veya zaten bir Log Analytics çalışma alanı bir abonelikte oluşturan kişi, yine de erişiminiz *ücretsiz* planı. Mevcut bir EA kaydına için aboneliğinize bağlı değildir, *ücretsiz* katmanı kullanılabilir değil, bir çalışma alanı 2 Nisan 2018'den sonra yeni bir abonelik oluşturduğunuzda.  7 gün bekletme için sınırlı veri *ücretsiz* katmanı.  Eski için *tek başına* veya *düğüm başına* geçerli 2018 tek fiyatlandırma katmanı, toplanan verilerin yanı sıra, katmanları son 31 gün boyunca kullanılabilir. *Ücretsiz* katmanda 500 MB günlük alımı sınırı vardır ve tutarlı bir şekilde toplu izin miktarları aşan fark ederseniz, bu sınırı aşan miktarda veri toplamak için başka bir plan için çalışma alanınızı değiştirebilirsiniz. 
 
+> [!NOTE]
+> OMS E1 paketi, OMS E2 Suite veya System Center için OMS eklentisi satın alındıktan sonra sunulan destek haklarını kullanmak için Log Analytics seçin *düğüm başına* fiyatlandırma katmanı.
+
+## <a name="changing-pricing-tier"></a>Fiyatlandırma katmanını değiştirme
+
+Log Analytics çalışma alanınızın eski fiyatlandırma katmanları arasında değiştirmek için eski fiyatlandırma katmanları erişimi varsa:
+
+1. Azure portalında Log Analytics abonelikleri bölmesinde, bir çalışma alanı seçin.
+
+2. Çalışma Alanı bölmesinden altında **genel**seçin **fiyatlandırma katmanı**.  
+
+3. Altında **fiyatlandırma katmanı**, bir fiyatlandırma katmanı seçin ve ardından **seçin**.  
+    ![Seçili fiyatlandırma planı](media/manage-cost-storage/workspace-pricing-tier-info.png)
+
+Çalışma alanınızdaki geçerli fiyatlandırma katmanına taşımak istiyorsanız, yapmanız [aboneliğinizin Azure İzleyicisi'nde fiyatlandırma modeli izleme değiştirme](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/usage-estimated-costs#moving-to-the-new-pricing-model) bu Abonelikteki tüm çalışma alanlarını fiyatlandırma katmanını değiştirir.
+
+> [!NOTE]
+> Çalışma alanınız bir Otomasyon hesabıyla bağlantılıysa, *Tek Başına (GB başına)* fiyatlandırma katmanını seçebilmeniz için tüm **Otomasyon ve Denetim** çözümlerini silmeniz ve Otomasyon hesabının bağlantısını kaldırmanız gerekir. Çalışma alanı dikey penceresindeki **Genel** altında **Çözümler**’e tıklayıp çözümleri silin. Bir Otomasyon hesabının bağlantısını kaldırmak için **Fiyatlandırma katmanı** dikey penceresinde Otomasyon hesabının adına tıklayın.
+
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Log Analytics, artık veri topluyor neden sorunlarını giderme
 Eski ücretsiz fiyatlandırma katmanı olan ve bir günde 500 MB veri göndermiş, günün geri kalanı için veri toplamayı durdurur. Günlük sınıra ulaşılması Log Analytics Veri toplamayı durdurur ya da veri eksik gibi görünüyor yaygın bir nedenidir.  Log Analytics'e veri toplamayı başlatır ve durdurur ' % s'olay türü işlemi oluşturur. Aramada, günlük sınırınıza ulaşmanız ve verileri eksik olursa denetlemek için aşağıdaki sorguyu çalıştırın: 
@@ -136,22 +155,55 @@ Bkz: veri eğilimlerini IIS günlükler nedeniyle verileri incelemek isterseniz,
 
 ### <a name="nodes-sending-data"></a>Veri gönderen düğüm
 
-Geçen ay verilerini raporlamaya düğüm sayısını undersand için kullanın
+Geçen ayın her günü raporlama verilerini bilgisayarların (düğümlerin) sayısını anlamak için kullanın
 
 `Heartbeat | where TimeGenerated > startofday(ago(31d))
-| summarize dcount(ComputerIP) by bin(TimeGenerated, 1d)    
+| summarize dcount(Computer) by bin(TimeGenerated, 1d)    
 | render timechart`
 
-Bilgisayar başına alınan olayların sayısını görmek için kullanın
+Gönderme bilgisayarların listesini almak için **veri türleri faturalandırılır** (bazı veri türleri, ücretsiz), yararlanarak `_IsBilled` özelliği:
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize TotalVolumeBytes=sum(_BilledSize) by computerName`
+
+Bu `union withsource = tt *` arasında veri veri typres taramaları çalıştırmak pahalı olduğundan tutumlu sorgular. 
+
+Veri türleri gönderen bilgisayarlar / saat sayısı faturalandırılır döndürmek için Genişletilebilir:
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc`
+
+Görmek için **boyutu** Faturalanabilir olayların, bilgisayar başına alınan `_BilledSize` bayt cinsinden boyut sağlayan özelliği:
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last `
+
+Bu sorgu, bu kullanım veri türüyle sorgulama eski biçimini değiştirir. 
+
+Görmek için **sayısı** bilgisayar başına alınan olayların kullanın
 
 `union withsource = tt *
-| summarize count() by Computer |sort by count_ nulls last`
+| summarize count() by Computer | sort by count_ nulls last`
 
-Yürütmek pahalı olduğundan bu sorgu tedbirli şekilde kullanın. Sendng veri belirli bir bilgisayar için hangi veri türlerini görmek istiyorsanız bu seçeneği kullanın:
+Bilgisayar başına alınan Faturalanabilir olayların sayısını görmek için kullanın 
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| summarize count() by Computer  | sort by count_ nulls last`
+
+Sayıları Faturalandırılabilir veri türleri için belirli bir bilgisayar için veri gönderdiğini görmek istiyorsanız, bu seçeneği kullanın:
 
 `union withsource = tt *
-| where Computer == "*computer name*"
-| summarize count() by tt |sort by count_ nulls last `
+| where Computer == "computer name"
+| where _IsBillable == true 
+| summarize count() by tt | sort by count_ nulls last `
 
 > [!NOTE]
 > Bazı kullanım veri türünde alanlar yine de şema sırada, kullanım dışı bırakıldı ve değerlerine artık doldurulur olur. Bunlar **bilgisayar** alımıyla ilgili alanları yanı sıra (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**,  **BatchesCapped** ve **AverageProcessingTimeMs**.

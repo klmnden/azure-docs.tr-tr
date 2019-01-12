@@ -1,23 +1,18 @@
 ---
-title: Application Gateway için erişim günlükleri, performans günlükleri, arka uç sistem durumu ve ölçümleri izleme
-description: Etkinleştirme ve erişim günlükleri ve performans günlüklerini için uygulama ağ geçidi yönetme hakkında bilgi edinin
+title: Azure Application Gateway için erişim günlükleri, performans günlükleri, arka uç sistem durumu ve ölçümleri izleme
+description: Etkinleştirme ve erişim günlükleri ve performans günlüklerini Azure Application Gateway için yönetme hakkında bilgi edinin
 services: application-gateway
-author: amitsriva
-manager: rossort
-tags: azure-resource-manager
+author: vhorne
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 6/20/2018
+ms.date: 1/11/2019
 ms.author: amitsriva
-ms.openlocfilehash: 45a13bca32593895e51fa7fe3c5bd7ce1ba547e6
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 6cd21448742778b0a2a27aea41f7940b1a216cdc
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437478"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231113"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Arka uç sistem durumu, tanılama günlükleri ve ölçümler için Application Gateway
 
@@ -98,7 +93,7 @@ Aşağıdaki kod parçacığı bir yanıt örneği gösterilmektedir:
 Azure'da günlükleri farklı türde, yönetme ve sorun giderme application gateway'ler için kullanabilirsiniz. Bu günlüklerden bazılarına portaldan erişebilirsiniz. Tüm günlükler Azure Blob depolama alanından ayıklanır ve gibi farklı araçlarında görüntülenen [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md), Excel ve Power BI. Günlükleri aşağıdaki listeden farklı türleri hakkında daha fazla bilgi edinebilirsiniz:
 
 * **Etkinlik günlüğü**: Kullanabileceğiniz [Azure etkinlik günlüklerini](../monitoring-and-diagnostics/insights-debugging-with-events.md) (eski adıyla işletimsel ve Denetim günlükleri), Azure aboneliğinizin ve durumlarını gönderilen tüm işlemleri görüntülemek için. Etkinlik günlüğü girişleri varsayılan olarak toplanır ve bunları Azure portalda görüntüleyebilirsiniz.
-* **Erişim günlüğü**: Bu günlük, uygulama ağ geçidi erişim desenlerini görüntülemek ve arayanın IP, istenen URL, yanıt gecikme süresi, dönüş kodu ve bayt açma ve kapatma gibi önemli bilgileri analiz etmek için kullanabilirsiniz. Bir erişim günlüğü, her 300 saniyede toplanır. Bu günlük, uygulama ağ geçidi örneği başına tek bir kayıt içerir. Uygulama ağ geçidi örneğinin InstanceId özelliği tarafından tanımlanır.
+* **Erişim günlüğü**: Bu günlük, uygulama ağ geçidi erişim desenlerini görüntülemek ve önemli bilgileri analiz etmek için kullanabilirsiniz. Bu çağrı sahibinin IP, istenen URL, yanıt gecikme süresi, dönüş kodu ve bayt giriş ve çıkış içerir. Bir erişim günlüğü, her 300 saniyede toplanır. Bu günlük, uygulama ağ geçidi örneği başına tek bir kayıt içerir. Uygulama ağ geçidi örneğinin InstanceId özelliği tarafından tanımlanır.
 * **Performans günlük**: Bu günlük, Application Gateway örneğinden nasıl performans gösterdiğini görüntülemek için kullanabilirsiniz. Bu günlük hizmet, toplam istekleri dahil olmak üzere her bir örnek için aktarım hızı bayt performans bilgileri yakalar, toplam istek sunulan, başarısız istek sayısı ve sağlıklı ve sağlıksız arka uç örnek sayısı. 60 saniyede bir performans günlük toplanır.
 * **Güvenlik Duvarı günlük**: Bu günlük, web uygulaması güvenlik duvarı ile yapılandırılmış bir uygulama Ağ Geçidi algılama veya önleme modu aracılığıyla oturum isteklerini görmek için kullanabilirsiniz.
 
@@ -217,7 +212,7 @@ Yalnızca, önceki adımlarda açıklandığı her uygulama ağ geçidi örneği
 |HealthyHostCount     | Arka uç havuzundaki sağlıklı konakların sayısı.        |
 |unHealthyHostCount     | Arka uç havuzunda iyi durumda olmayan konak sayısı.        |
 |RequestCount     | Hizmet isteklerinin sayısı.        |
-|gecikme | Örnek isteklerine hizmet istekleri arka uç gecikme süresi (milisaniye cinsinden). |
+|gecikme | Hizmet istekleri arka uç örneğinden gelen isteklerin ortalama gecikme süresi (milisaniye cinsinden). |
 |failedRequestCount| Başarısız istek sayısı.|
 |Aktarım hızı| Ortalama aktarım hızını saniye başına bayt cinsinden son günlüğü itibaren.|
 

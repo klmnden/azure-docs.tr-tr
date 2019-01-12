@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 08/28/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 8640d89c5fb9e38fc6c982e21147361ad690964a
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: f4f588ad9123ec98cbae9f9bf03c08ec551a31a5
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584454"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232762"
 ---
 # <a name="tutorial-build-an-image-processing-app---c35"></a>Öğretici: App - C işleme bir görüntü oluşturun&#35;
 
@@ -97,9 +97,6 @@ Nasıl, siz ve görüntü işleme istemci kitaplığı ile oluşturma küçük r
    |Metin (OCR) tanıması | Kullanan [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) görüntüden tanıması ve ayıklamak için işlem yazdırılan metin. Kullanılacak dili seçin veya görüntü işleme otomatik dil algılama sağlar. |
    |Metin V2 tanımak (İngilizce) | Kullanan [metni tanı](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) ve [tanımak metin işleminin sonucunu Al](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) işlemlerini zaman uyumsuz olarak tanımak ve bir görüntüden yazdırılan veya el yazısı metinleri ayıklamak için. |
    |Küçük resmini Al | Kullanan [küçük resim alma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) için yerel veya uzak bir görüntüyü küçük resim oluşturma işlemi. |
-
-   > [!IMPORTANT]
-   > Microsoft, görüntüleri karşıya yükleme ve bunları görüntü işleme API'si ve ilgili hizmetleri geliştirmek için kullanabiliriz alır. Görüntü göndererek [Geliştirici Kullanım Kurallarımıza](https://azure.microsoft.com/support/legal/developer-code-of-conduct/) uyduğunuzu onaylamış olursunuz.
 
    Aşağıdaki ekran görüntüsünde bir örnek görüntü çözümledikten sonra analiz görüntü senaryosu için sağlanan sayfası gösterilmektedir.
    ![Analiz görüntü sayfasının ekran görüntüsü](../Images/Analyze_Image_Example.PNG)

@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 11/21/2018
+ms.date: 01/09/2019
 ms.author: juliako
-ms.openlocfilehash: a16360fe74efe7394c061118bc4e6fa34e484858
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: bf80f78cc464fe274e83eca2f8afa420c2a8c453
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198551"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229975"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 sürüm notları
 
@@ -33,6 +33,15 @@ ms.locfileid: "54198551"
 > Şu anda Azure portalında v3 kaynakları yönetmek için kullanamazsınız. Kullanım [REST API](https://aka.ms/ams-v3-rest-sdk), CLI, desteklenen Sdk'lardan birini veya.
 
 Daha fazla bilgi için [Media Services v2'den v3 taşımak için geçiş kılavuzunu](migrate-from-v2-to-v3.md#known-issues).
+
+## <a name="december-2018"></a>Aralık 2018
+
+GA sürümündeki V3 API'yi güncelleştirmeleri içerir:
+       
+* **PresentationTimeRange** özellikleri gereklidir artık ' için ' **AssetFilters** ve **AccountFilters**. 
+* $Top ve $skip sorgu seçeneklerini **işleri** ve **dönüştüren** kaldırıldı ve $orderby eklendi. Yeni sipariş işlevselliği ekleme bir parçası olarak uygulanan değil olsa da $top ve $skip seçeneklerini yanlışlıkla daha önce açığa bulundu.
+* Numaralandırma genişletilebilirliği tekrar etkinleştirilecektir. Bu özellik SDK preview sürümleri etkinleştirildikten ve yanlışlıkla GA sürümünde devre dışı.
+* Önceden tanımlanmış iki akış ilke yeniden adlandırıldı. **SecureStreaming** artık **MultiDrmCencStreaming**. **SecureStreamingWithFairPlay** artık **Predefined_MultiDrmStreaming**.
 
 ## <a name="november-2018"></a>Kasım 2018
 

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2018
+ms.date: 01/12/2019
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 86f4e99401278d13a17f40c4c021060e8bd15f8a
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 8d477997e71843307f6c756a6974a23267842015
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754552"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244979"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 güncelleştirme
 
@@ -254,6 +254,8 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 - Düşük bellek uyarısı alırsanız ve Kiracı sanal makinelerini başarısız ile dağıtmak bir Azure Stack operatörü bir **Fabric VM oluşturma hatası**, Azure Stack damga kullanılabilir bellek yetersiz olabilir. Kullanım [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) iş yükleriniz için kapasite en iyi anlamak için.
 
 ### <a name="compute"></a>İşlem
+
+- Oluştururken bir [Dv2 serisi VM](./user/azure-stack-vm-considerations.md#virtual-machine-sizes), D11-14v2 Vm'leri sırasıyla 4, 8, 16 ve 32 veri diskleri oluşturmanıza izin. Ancak, 8, 16, 32 ve 64 veri diski oluştur VM bölmesi gösterir.
 
 <!-- 3164607 – IS, ASDK -->
 - Aynı ada ve LUN ile aynı sanal makine (VM) için ayrılmış bir diski yeniden bağlanması başarısız bir hata ile gibi **veri diski 'datadisk', 'vm1' VM'sine iliştirilemiyor**. Disk şu anda ayrılmakta veya son ayırma işlemi başarısız oldu hata oluşur. Lütfen disk tamamen ayrılmış kadar bekleyin ve sonra yeniden deneyin veya silme/diski açıkça tekrar ayırın. Geçici çözüm, farklı bir adla veya farklı bir LUN üzerinde yeniden sağlamaktır. 

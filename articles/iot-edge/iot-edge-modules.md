@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 90fb6eadb2edb92d4516d8565d8c2c2bd5120c05
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 976b46a26d95b5e252b0df2383ea94b4dd280d24
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094194"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229634"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Azure IoT Edge modüllerini anlama
 
@@ -30,7 +30,7 @@ Azure IOT Edge dağıtma ve yönetmenize olanak sağlar biçiminde edge üzerind
 IOT Edge modülü görüntüler, yönetim, güvenlik ve IOT Edge çalışma zamanı iletişim özelliklerini yararlanarak uygulamalar içerir. Kendi modül görüntüleri geliştirin veya bir Azure Stream Analytics gibi desteklenen bir Azure hizmet verin.
 Bulutta görüntü var ve bunlar güncelleştirilebilir, değiştirilmiş ve farklı çözümler dağıtılan. Örneğin, bir insansız hava aracı ile denetlemek için görüntü işleme kullanan bir modül daha ayrı bir görüntü olarak üretim satırı çıkışı tahmin etmek için makine öğrenimini kullanıyor bir modül bulunmaktadır. 
 
-Bir modül görüntüsü bir cihaza dağıtılan ve IOT Edge çalışma zamanı tarafından başlatılan her zaman bu modülü yeni bir örneğini oluşturulur. İki cihazı dünyanın farklı bölümleri aynı modülü görüntüsü kullanabilirsiniz; Ancak, modül cihazda başlatıldığında her kendi modül örneğinin sahip olacaktır. 
+Bir modül görüntüsü bir cihaza dağıtılan ve IOT Edge çalışma zamanı tarafından başlatılan her zaman bu modülü yeni bir örneğini oluşturulur. Dünyanın farklı kısımlarını iki cihazları modülü görüntünün aynısını kullanabilir. Ancak, modül cihazda başlatıldığında her bir cihaz kendi modül örneğinin sahip olacaktır. 
 
 ![Diyagram - bulutta modül görüntüleri, cihazlarda modülü örnekleri](./media/iot-edge-modules/image_instance.png)
 
@@ -53,7 +53,7 @@ Açıkça görülebileceği gibi senaryolarda, birden çok kez aynı cihazda, bi
 
 Her bir modül örneğinin modülü örneği yapılandırmak için kullanabileceğiniz karşılık gelen bir modül ikizi de vardır. Örnek ve ikizi birbiriyle modül kimliği ile ilişkilendirilir. 
 
-Modül ikizi modülü bilgilerine ve yapılandırma özelliklerini depolayan bir JSON belgesidir. Bu kavramı parallels [cihaz ikizi](../iot-hub/iot-hub-devguide-device-twins.md) kavramı IOT Hub'ından. Modül ikizi yapısını tam olarak bir cihaz çifti ile aynıdır. İkizlerini her iki tür ile etkileşim kurmak için kullanılan API'ler de aynı olur. İkisi arasındaki tek fark, istemci SDK'sı örneği oluşturmak için kullanılan kimliktir. 
+Modül ikizi modülü bilgilerine ve yapılandırma özelliklerini depolayan bir JSON belgesidir. Bu kavramı parallels [cihaz ikizi](../iot-hub/iot-hub-devguide-device-twins.md) kavramı IOT Hub'ından. Modül ikizi yapısı, bir cihaz çifti ile aynıdır. İkizlerini her iki tür ile etkileşim kurmak için kullanılan API'ler de aynı olur. İkisi arasındaki tek fark, istemci SDK'sı örneği oluşturmak için kullanılan kimliktir. 
 
 ```csharp
 // Create a ModuleClient object. This ModuleClient will act on behalf of a 
@@ -73,9 +73,9 @@ Azure IOT Edge, IOT Edge cihazlarınıza çevrimdışı işlemleri destekler. Ş
 IOT Edge modülleri, aşağıdaki gereksinimlerin karşılandığından sürece uzun süreler çevrimdışı olabilir: 
 
 * **İleti yaşam süresi (TTL) süresinin geçmemiş**. İki saat ileti TTL'si için varsayılan değer olan ancak Store içinde değiştirilen daha yüksek veya düşük ve IOT Edge yapılandırmasında hub ayarları iletebilir. 
-* **Modüller, IOT Edge hub'ı ile çevrimdışı durumdayken yeniden kimlik doğrulamaya zorlayabilir gerekmez**. Modüller yalnızca IOT hub'ı etkin bir bağlantı olan Edge hub'ları ile kimlik doğrulaması yapabilir. Modüller için herhangi bir nedenle yeniden başlatıldığında yeniden kimlik doğrulamanız gerekir. Kimliklerini SAS belirteci süresi dolduktan sonra modülleri hala Edge hub'a iletileri gönderebilir. Bağlantı geri döndüğünde, Edge hub'ı yeni bir belirteç modülün istekleri ve IOT hub'ı ile doğrular. Başarılı olursa, Edge hub'ı saklanan, modül iletileri modülün belirtecin süresi sona erdi olsa bile gönderilen iletiler gönderir. 
-* **Hata iletileri gönderilen modülü bağlantı çıktığında çevrimdışı hala çalıştığından**. Edge hub'ı, IOT Hub'ına bağlandıklarında (önceki bir tarihte dolduysa) modülü iletileri iletebilir önce yeni bir modül belirteci doğrulamak gerekir. Modül yeni bir belirteç sağlamak kullanılabilir durumda değilse, Edge hub'ı üzerinde depolanan iletilerinize modülün davranamaz. 
-* **Edge hub'ı iletileri depolamak için disk alanı olan**. Varsayılan olarak, iletiler Edge hub'ı kapsayıcının dosya sistemi içinde saklanır. Bunun yerine iletileri depolamak için bir bağlı birimini belirtmek için bir yapılandırma seçeneği yoktur. Her iki durumda da var. ertelenmiş teslim IOT hub'ına iletileri depolamak kullanılabilir alan olması gerekir.  
+* **Modüller, IOT Edge hub'ı ile çevrimdışı durumdayken yeniden kimlik doğrulamaya zorlayabilir gerekmez**. Modüller yalnızca, etkin bir bağlantınız bir IOT hub ile IOT Edge hub'ları ile kimlik doğrulaması yapabilir. Herhangi bir nedenle yeniden başlatıldığında yeniden kimlik doğrulamaya zorlayabilir modülleri gerekir. Kimliklerini SAS belirteci süresi dolduktan sonra modülleri hala IOT Edge hub'a iletileri gönderebilir. Bağlantı geri döndüğünde, IOT Edge hub'ı yeni bir belirteç modülün istekleri ve IOT hub'ı ile doğrular. Başarılı olursa, depoladığı modülü iletileri IOT Edge hub'ı iletir, modülün belirtecin süresi sona erdi sırada gönderilen iletileri bile. 
+* **Hata iletileri gönderilen modülü bağlantı çıktığında çevrimdışı hala çalıştığından**. IOT Hub'ına bağlanıldığında, IOT Edge hub'ı (önceki bir tarihte dolduysa) modülü iletileri iletebilir önce yeni bir modül belirteci doğrulamak gerekir. Modül yeni bir belirteç sağlamak kullanılabilir durumda değilse, IOT Edge hub'ı üzerinde depolanan iletilerinize modülün davranamaz. 
+* **IOT Edge hub'a iletileri depolamak için disk alanı olan**. Varsayılan olarak, iletileri IOT Edge hub'ı kapsayıcının dosya sistemi içinde depolanır. Bunun yerine iletileri depolamak için bir bağlı birimini belirtmek için bir yapılandırma seçeneği yoktur. Her iki durumda da var. ertelenmiş teslim IOT hub'ına iletileri depolamak kullanılabilir alan olması gerekir.  
 
 Ek çevrimdışı özellikleri, genel önizlemede kullanılabilir. Daha fazla bilgi için [anlayın cihazları, modülleri ve alt cihazlar bu çevrimdışı özellikleri IOT Edge için Genişletilmiş](offline-capabilities.md).
 

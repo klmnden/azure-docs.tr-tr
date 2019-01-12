@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 08/24/2016
+ms.date: 01/10/2019
 ms.author: mbullwin
-ms.openlocfilehash: c0478b320afca1b82a79fa43e7b60c29a2cb2e7c
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: ceab5152d6dc6db573a7fea8c673157068009ebe
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53997937"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54228818"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Bağımlılıklar, yakalanan özel durumların ve yöntemi yürütme sürelerini Java web uygulamalarını izleme
 
@@ -89,6 +89,32 @@ Xml dosyasının içeriği ayarlayın. İstediğiniz dahil etmek veya özellikle
 Raporlar özel durumu ve her bir yöntem yöntemi zamanlamasını etkinleştirmek zorunda.
 
 Varsayılan olarak, `reportExecutionTime` true'dur ve `reportCaughtExceptions` false'tur.
+
+### <a name="spring-boot-agent-additional-config"></a>Yay önyükleme aracı ek yapılandırma
+
+`java -javaagent:/path/to/agent.jar -jar path/to/TestApp.jar`
+
+> [!NOTE]
+> Yapay ZEKA Agent.xml ve aracı jar dosyasını aynı klasörde olmalıdır. Bunlar genellikle birlikte yerleştirilir `/resources` proje klasörü. 
+
+#### <a name="enable-w3c-distributed-tracing"></a>W3C dağıtılmış izlemeyi etkinleştirme
+
+AI için aşağıdakileri ekleyin-Agent.xml:
+
+```xml
+<Instrumentation>
+        <BuiltIn enabled="true">
+            <HTTP enabled="true" W3C="true" enableW3CBackCompat="true"/>
+        </BuiltIn>
+    </Instrumentation>
+```
+
+> [!NOTE]
+> Geriye dönük uyumluluk modu varsayılan olarak etkindir ve enableW3CBackCompat parametresi isteğe bağlıdır ve yalnızca devre dışı bırakmak istediğinizde kullanılmalıdır. 
+
+İdeal olarak tüm hizmetler SDK'ları W3C protokolü destekleyen daha yeni sürüme güncelleştirilip güncelleştirilmediğini olduğunda bu durum olabilir. SDK'ları sürüme W3C desteğiyle olabildiğince çabuk taşımak için önerilir.
+
+Emin olun **hem [gelen](correlation.md#w3c-distributed-tracing) ve giden (aracı) yapılandırmalarını** tam olarak aynıdır.
 
 ## <a name="view-the-data"></a>Verileri görüntüleme
 Application Insights kaynağını toplanan uzaktan bağımlılık ve Yöntem yürütme sürelerini görünür [performans bölmesi altında][metrics].

@@ -10,18 +10,18 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 0b232ed8bacfeb896fd5ee6ff9e2a58b71dc1517
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
-ms.translationtype: HT
+ms.openlocfilehash: 92c493a59cc14d61b09e59bdf0fa23be72b7137a
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39163005"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232558"
 ---
 # <a name="what-methods-are-available-for-authentication"></a>Hangi kimlik doğrulama yöntemleri kullanılabilir?
 
 Her gün çalınan parolalar ve gizliliği tehlikeye giren kimliklerle ilgili yeni haberler görüyoruz. Parolaya ek olarak ikinci bir adımın eklenmesi, kuruluşunuzun güvenliğini anında artıran yöntemlerden biridir. Microsoft Azure Active Directory (Azure AD), ek kimlik doğrulama yöntemleri ile yöneticilerin kuruluşlarının ve kullanıcılarının güvenliğini korumasına yardımcı olmak için Azure Multi-Factor Authentication (Azure MFA) ve Azure AD self servis parola sıfırlama (SSPR) gibi özellikler sunmaktadır.
 
-Hassas bir uygulamaya erişmek, parolasını sıfırlamak, Windows Hello'yu etkinleştirmek isteyen kullanıcıların kimliklerini doğrulamak için ek adımlardan geçmeleri istenebilir.
+Dahil birçok senaryo vardır: Windows Hello ve diğerleri etkinleştirme parolasını sıfırlama bir uygulamada oturum açarken, kullanıcılarınızın ek doğrulama kimin söyledikleri olmalarını sağlamak için istenebilir.
 
 Ek doğrulama adımları aşağıdaki gibi kimlik doğrulama yöntemleri olabilir:
 
@@ -42,9 +42,9 @@ Self servis parola sıfırlama, kullanıcıların istediği yerden ve istediği 
 
 Self servis parola sıfırlama şu adımlardan oluşur:
 
-* **Parola değiştirme:** Parolamı biliyorum ancak değiştirmek istiyorum.
-* **Parola sıfırlama:** Oturum açamıyorum ve onaylı kimlik doğrulama yöntemlerinden birini veya daha fazlasını kullanarak parolamı sıfırlamak istiyorum.
-* **Hesap kilidini açma:** Hesabım kilitlendiğinden oturum açamıyorum ve onaylı kimlik doğrulama yöntemlerinden birini veya daha fazlasını kullanarak hesabımın kilidini açmak istiyorum.
+* **Parola değiştirme:** Parolamı biliyorum, ancak yeni bir şeyle değiştirmek istediğiniz bildirimi.
+* **Parola sıfırlama:** Ben oturum açamaz ve bir veya daha fazla onaylanmış kimlik doğrulama yöntemleri kullanan parolamı sıfırlamak istiyor.
+* **Hesap kilidinizi açın:** Hesabımı kilitli ve bir veya daha fazla onaylanmış kimlik doğrulama yöntemleri kullanarak kilidini açmak istediğiniz olduğundan oturum açamıyorum.
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
@@ -56,6 +56,6 @@ Bir sonraki adım self servis parola sıfırlama ve Azure Multi-Factor Authentic
 
 Self servis parola sıfırlama özelliğini kullanmaya başlamak için bkz. [SSPR 'yi etkinleştirme hızlı başlangıç makalesi](quickstart-sspr.md).
 
-Self servis parola sıfırlama özelliği hakkında daha fazla bilgi için bkz. [Nasıl çalışır? Azure AD self servis parola sıfırlama](concept-sspr-howitworks.md)
+Self Servis parola sıfırlama makalede hakkında daha fazla bilgi [nasıl çalışır: Azure AD Self Servis parola sıfırlama](concept-sspr-howitworks.md)
 
-Azure Multi-Factor Authentication hakkında daha fazla bilgi için bkz. [Nasıl çalışır? Azure Multi-Factor Authentication](concept-mfa-howitworks.md)
+Makalede, Azure multi-Factor Authentication hakkında daha fazla bilgi edinin [nasıl çalışır: Azure çok faktörlü kimlik doğrulaması](concept-mfa-howitworks.md)

@@ -12,14 +12,14 @@ ms.topic: overview
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/20/2018
+ms.date: 01/11/2019
 ms.author: kumud
-ms.openlocfilehash: 7b0a837bf23145c5ac5e5775d4324582fa3a6b20
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: e66acd6a94b891ac3f727fddb7a88a9c56f465d3
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120844"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246577"
 ---
 # <a name="what-is-azure-load-balancer"></a>Azure Load Balancer nedir?
 
@@ -153,7 +153,13 @@ Bir iç Load Balancer, trafiği yalnızca bir sanal ağın içindeki veya Azure 
 *Şekil: Çok katmanlı uygulamalar hem genel hem de iç Yük Dengeleyiciyi kullanarak yük dengelemenin*
 
 ## <a name="pricing"></a>Fiyatlandırma
-Standart Load Balancer kullanımı, yapılandırılan yük dengeleme kuralı sayısının yanı sıra işlenen gelen ve giden veri miktarına göre ücretlendirilir. Standart Load Balancer fiyatlandırma bilgileri için [Load Balancer fiyatlandırması](https://azure.microsoft.com/pricing/details/load-balancer/) sayfasını inceleyin.
+
+Standart Load Balancer kullanım ücretlendirilir.
+
+- Sayı yapılandırılmış Yük Dengeleme ve giden kurallar kuralları (gelen NAT kuralları yok sayma toplam kural sayısı karşı)
+- Veri miktarı, gelen ve giden bakılmadan, kural işlendi. 
+
+Standart Load Balancer fiyatlandırma bilgileri için [Load Balancer fiyatlandırması](https://azure.microsoft.com/pricing/details/load-balancer/) sayfasını inceleyin.
 
 Temel Load Balancer ücretsiz olarak sunulur.
 

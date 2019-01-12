@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 238d84c32a145c00648ce3923efaa86a8fa3d08e
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: f71f1e086e584d1d26b067de001bf83d15bf7961
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971725"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54243687"
 ---
 # <a name="discover-and-use-sample-notebooks"></a>Bulma ve örnek not defterlerini kullanma
 
@@ -33,7 +33,7 @@ Keşfetmek istediğiniz bir not defteri belirledikten sonra öğrenmek isteyecek
 
 - [Azure not defterleri için başlangıç kümesi](https://notebooks.azure.com/#sample-redirect) tanıtımlar için Python, R, içerir ve F#, veri erişimi, Azure Machine Learning Hizmetleri ve birkaç veri bilimi alıştırmaları gösteren not defterleri ile birlikte.
 - [Jupyter not defterleri giriş](https://nbviewer.jupyter.org/github/jupyter/notebook/blob/master/docs/source/examples/Notebook/Notebook%20Basics.ipynb) (jupyter.org)
-- [Veri bilimi giriş](https://github.com/jakevdp/PythonDataScienceHandbook/tree/master/code_listings) Jake Vanderplas tarafından.
+- [Veri bilimi giriş](https://github.com/jakevdp/PythonDataScienceHandbook/tree/master/notebooks) Jake Vanderplas tarafından.
 - [İlgi çekici not defterlerini Galerisi](https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks) (GitHub üzerinde Jupyter Proje)
 - [nbviewer.jupyter.org](https://nbviewer.jupyter.org)
 - Fizik yönergesinden [fizik bölümü, İngiliz College London'dan,](https://notebooks.azure.com/cvanbreu/libraries)

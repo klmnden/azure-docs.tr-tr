@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: overview
-ms.date: 10/26/2018
+ms.date: 01/10/2019
 ms.author: anroth
-ms.openlocfilehash: 5e8e675b32bfd4c741b82b1ab341a80adbb0529d
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
-ms.translationtype: HT
+ms.openlocfilehash: d9b5473e87d83912dd2f33c00e983e346226e4aa
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741649"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54242956"
 ---
 # <a name="what-is-azure-custom-vision"></a>Azure Özel Görüntü İşleme nedir?
 
@@ -27,7 +27,7 @@ Azure Özel Görüntü İşleme API'si, özel görüntü sınıflandırıcılar�
 
 ### <a name="classification-and-object-detection"></a>Sınıflandırma ve nesne algılama
 
-Özel Görüntü İşleme hizmeti iki bölüme ayrılabilir. **Görüntü sınıflandırma**, her görüntüyü belirli sınıflara atar. **Nesne algılama** da benzer bir özelliktir ancak uygulanan etiketlerin görüntünün neresinde olduğunu da koordinatlarla döndürür.
+Özel Görüntü İşleme hizmeti iki bölüme ayrılabilir. **Görüntü sınıflandırma**, her görüntüyü belirli sınıflara atar. Veya çoklu sınıflar (bir etiket görüntü başına) hem de multilabel (görüntü başına etiket herhangi sayısı) sınıflandırma modelleri desteklenmektedir. **Nesne algılama** multilabel sınıflandırma için benzerdir, ancak ayrıca koordinatları görüntüde uygulanan etiketler bulunabileceği döndürür.
 
 ### <a name="optimization"></a>İyileştirme
 
@@ -39,6 +39,10 @@ Ayrıca önemli yerler veya perakende eşyalar gibi belirli malzemeler için iyi
 Özel Görüntü İşleme Hizmeti, yerel SDK'lara ek olarak [Özel Görüntü İşleme giriş sayfası](https://customvision.ai/) üzerinden web tabanlı arabirim aracılığıyla da sunulmaktadır. İstediğiniz arabirimi veya ikisini birlikte kullanarak model oluşturabilir, test edebilir ve eğitebilirsiniz.
 
 ![Chrome tarayıcı penceresinde Özel Görüntü İşleme giriş sayfası](media/browser-home.png)
+
+## <a name="data-privacy-and-security"></a>Veri gizliliği ve güvenliği
+
+Olarak tüm Bilişsel hizmetler Custom Vision Service'i kullanan geliştiricilerin Microsoft'un müşteri verilerini ilkelerinin bilmeniz gerekir. Bkz: [Bilişsel Hizmetler sayfasına](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) daha fazla bilgi için Microsoft Trust Center.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

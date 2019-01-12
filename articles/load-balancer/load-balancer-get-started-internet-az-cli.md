@@ -5,6 +5,7 @@ description: Azure CLI ile bölgesel olarak yedekli genel IP adresi ön uç ile 
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: f10dfa7d834e24b558f3361a8d83fbbf8d22ddb9
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: b0d7c61ea7469b68c3cd6859745cd0892a565b95
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198159"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247478"
 ---
 #  <a name="create-a-standard-load-balancer-with-zone-redundant-frontend-using-azure-cli"></a>Azure CLI ile bölgesel olarak yedekli ön uç ile standart yük dengeleyici oluşturma
 

@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeffgilb
-ms.reviewer: ''
-ms.openlocfilehash: e4e1701a145a36fce93db3812b67c307b342da5c
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.reviewer: unknown
+ms.openlocfilehash: 754a0002aca52462910abe50825cff0254a7068f
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127491"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244163"
 ---
 # <a name="overview-of-offering-services-in-azure-stack"></a>Azure stack'teki hizmetleri sunan genel bakış
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 [Microsoft Azure Stack](azure-stack-poc.md) merkezinizden Hizmetleri elde etmenizi sağlayan bir karma bulut platformudur. Bir hizmet sağlayıcısı olarak, kiracılarınıza hizmet sunabilir. Bir iş veya kamu kurumunda içinde çalışanlarınıza şirket içi hizmet sunabilir. 
 
@@ -47,11 +47,11 @@ Kullanıcılarınız için bu hizmetleri sunmak için oluşturmanız gerekir [pl
 
 Tekliflerinizi planlıyorsanız, aşağıdaki noktaları göz önünde bulundurun:
 
-**Deneme tekliflerinden**: deneme tekliflerinden daha sonra ek Hizmetleri'ne yükseltebilirsiniz yeni kullanıcılar çekmek için kullanabilirsiniz. Bir deneme teklifi oluşturmak için küçük bir oluşturma [temel plan](azure-stack-plan-offer-quota-overview.md#base-plan) isteğe bağlı daha büyük bir eklenti planı ile.
+**Deneme tekliflerinden**: Deneme tekliflerinden daha sonra ek Hizmetleri'ne yükseltebilirsiniz yeni kullanıcılar çekmek için kullanabilirsiniz. Bir deneme teklifi oluşturmak için küçük bir oluşturma [temel plan](azure-stack-plan-offer-quota-overview.md#base-plan) isteğe bağlı daha büyük bir eklenti planı ile.
 
-**Kapasite planlama**: büyük miktarlarda kaynakları ve tüm kullanıcılar için sistem tıka basa dolduruyor alın kullanıcıların endişe olabilir. Performans yardımcı olmak için [planlarınızı kotaları yapılandırın](azure-stack-plan-offer-quota-overview.md#plans) harf kullanımı.
+**Kapasite planlama**: Kaynaklar ve tüm kullanıcılar için sistem tıka basa dolduruyor büyük miktarlarda alın kullanıcıların endişe olabilir. Performans yardımcı olmak için [planlarınızı kotaları yapılandırın](azure-stack-plan-offer-quota-overview.md#plans) harf kullanımı.
 
-**Sağlayıcı temsilcisi**: başkalarının ortamınızda Teklifler oluşturma olanağı verebilirsiniz. Örneğin, bir hizmet sağlayıcı barındırıyorsanız, yapabilecekleriniz [temsilci](azure-stack-delegated-provider.md) , satıcıları bu yeteneği. Veya, siz bir kuruluş gibiyseniz, diğer bölümler/kuruluşlarının devredebilirsiniz.
+**Sağlayıcı temsilcisi**: Başkalarının oluşturma olanağı sunan, ortamınızda verebilirsiniz. Örneğin, bir hizmet sağlayıcı barındırıyorsanız, yapabilecekleriniz [temsilci](azure-stack-delegated-provider.md) , satıcıları bu yeteneği. Veya, siz bir kuruluş gibiyseniz, diğer bölümler/kuruluşlarının devredebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

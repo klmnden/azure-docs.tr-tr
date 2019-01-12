@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/23/2018
 ms.author: sethm
-ms.reviewer: ''
-ms.openlocfilehash: 1b2b06c02dc54c4369dd8490b714d1444d4b3b01
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.reviewer: unknown
+ms.openlocfilehash: 0eed7943d782bda134c2df2de6cf9eeeb58bfa3b
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986194"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54243874"
 ---
 # <a name="azure-stack-validation-report"></a>Azure Stack doğrulama raporu
 Dağıtım ve bir Azure Stack ortamı hizmet verme desteği doğrulamaları çalıştırmak için Azure Stack hazırlık Denetleyicisi aracını kullanın. Araç sonuçları bir .json rapor dosyasına yazar. Raporu, Azure Stack dağıtım önkoşulları durumuyla ilgili ayrıntılı ve Özet verileri görüntüler. Rapor, ayrıca var olan Azure Stack dağıtımları için gizli dizileri döndürme hakkında bilgi görüntüler.  

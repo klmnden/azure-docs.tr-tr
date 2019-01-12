@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: magoedte
-ms.openlocfilehash: 4a56812a8a10e890f50afb669a54291ea064098d
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: e402cc214f25447407754bc6269300f4f052af4f
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54102729"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232745"
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Log Analytics, Azure Resource Manager şablonlarını kullanarak yönetme
 Kullanabileceğiniz [Azure Resource Manager şablonları](../../azure-resource-manager/resource-group-authoring-templates.md) oluşturmak ve Log Analytics çalışma alanları yapılandırmak için. Şablonlar ile gerçekleştirebileceğiniz görevler örnekleri şunlardır:
@@ -117,7 +117,7 @@ Aşağıdaki parametreleri varsayılan değeri ayarlayın:
     ```
 2. Gereksinimlerinizi karşılayacak şekilde şablonunu düzenleyin.  Gözden geçirme [Microsoft.OperationalInsights/workspaces şablon](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) başvuru hangi özellikler ve değerler desteklendiğini öğrenin. 
 3. Bu dosyayı farklı Kaydet **deploylaworkspacetemplate.json** yerel bir klasöre.
-4. Bu şablonu dağıtmaya hazırsınız. PowerShell veya komut satırına cretae çalışma alanını kullanırsınız.
+4. Bu şablonu dağıtmaya hazırsınız. Çalışma alanı oluşturmak için PowerShell veya komut satırı'nı kullanın.
 
    * PowerShell için şablonu içeren klasörden aşağıdaki komutları kullanın:
    

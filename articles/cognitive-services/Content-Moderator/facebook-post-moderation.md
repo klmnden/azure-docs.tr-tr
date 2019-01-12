@@ -10,12 +10,12 @@ ms.component: content-moderator
 ms.topic: tutorial
 ms.date: 09/18/2017
 ms.author: sajagtap
-ms.openlocfilehash: 048f2f40714fd7675c073337825d75443e58039b
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 2b655e488b15b4520bc1de24b730f97269bddb4b
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255440"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231810"
 ---
 # <a name="tutorial-facebook-content-moderation-with-content-moderator"></a>Öğretici: Content Moderator ile Facebook içerik denetleme
 
@@ -152,10 +152,6 @@ Azure İşlevlerinizi oluşturmak için [Azure Yönetim Portalı](https://portal
 ## <a name="license"></a>Lisans
 
 Tüm Microsoft Bilişsel Hizmetler SDK'ları ve örnekler, MIT Lisansı ile lisanslanmıştır. Diğer ayrıntılar için bkz. [LİSANS](https://microsoft.mit-license.org/).
-
-## <a name="developer-code-of-conduct"></a>Geliştirici Kullanım Kuralları
-
-Bu istemci kitaplığı ve örnek de dahil olmak üzere Bilişsel Hizmetler'i kullanan geliştiricilerin, http://go.microsoft.com/fwlink/?LinkId=698895 adresinde bulunan "Microsoft Bilişsel Hizmetler için Geliştirici Kullanım Kuralları"na uyması beklenir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

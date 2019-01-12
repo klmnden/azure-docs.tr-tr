@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: cd55e97edb6cd0b4a2a3eceee406ce5718db8bd4
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 041cc302f05b109de2b79697dd048a6bc0752a4f
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186506"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232932"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Azure'da hizmet eşlemesi çözümünü kullanma
 Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulur ve hizmetler arasındaki iletişimi eşler. Hizmet eşlemesi ile bunları düşündüğünüz gibi sunucularınızı görüntüleyebilirsiniz: kritik Hizmetleri sunmak birbirine sistemleri olarak. Bir aracı yüklemesini dışında hiçbir yapılandırma tüm TCP bağlantılı mimarisi arasında bağlantı noktaları gerekli ve hizmet eşlemesi sunucuları, işlemler, gelen ve giden bağlantı gecikmesi arasındaki bağlantıları gösterir.
@@ -269,7 +269,7 @@ Her iki çözüm de etkin ve Log Analytics çalışma alanınızda yapılandır�
 ![Makine güvenlik bölmesi](media/service-map/machine-security.png)
 
 ## <a name="updates-integration"></a>Güncelleştirmeleri tümleştirme
-Güncelleştirme yönetimi ile tümleştirme hizmet eşlemesi, her iki çözüm de etkin ve yapılandırılmış günlük Anlaytics çalışma alanınızda otomatiktir.
+Güncelleştirme yönetimi ile tümleştirme hizmet eşlemesi, her iki çözüm de etkin ve Log Analytics çalışma alanınızda yapılandırılmış otomatiktir.
 
 **Makine güncelleştirmeleri** bölmesinde seçtiğiniz sunucu için güncelleştirme yönetimi çözümünü verileri görüntüler. Bölmesi, seçilen zaman aralığında sunucusu için eksik güncelleştirmeleri özetini listeler.
 

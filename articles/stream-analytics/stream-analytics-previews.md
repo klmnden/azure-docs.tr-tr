@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.openlocfilehash: 9b721ab614bf1797604fe342de117c78ba703f96
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.date: 01/10/2019
+ms.openlocfilehash: c84b814ddc06c583fc2f07288c7aa5cd65cc70a0
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557606"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232133"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure Stream Analytics Önizleme özellikleri
 
@@ -26,10 +26,6 @@ Aşağıdaki özellikler, genel Önizleme aşamasındadır. Bu özelliklerin bug
 ### <a name="integration-with-azure-machine-learning"></a>Azure Machine Learning ile tümleştirme
 
 Machine Learning (ML) işlevleri olan Stream Analytics işlerini ölçeklendirme yapabilir. ML işlevleri, Stream Analytics işinde nasıl kullanabileceğiniz hakkında daha fazla bilgi edinmek için [Stream Analytics işinizi Azure Machine Learning işlevleriyle ölçeklendirme](stream-analytics-scale-with-machine-learning-functions.md). Gerçek dünya senaryosuyla kullanıma [Azure Stream Analytics ve Azure Machine Learning kullanarak yaklaşım analizi gerçekleştirme](stream-analytics-machine-learning-integration-tutorial.md).
-
-### <a name="session-windows"></a>Windows oturumu
-
-Stream Analytics, geliştiricilerin çok az bir çabayla Yazar karmaşık akış işleme işlerini Pencereleme işlevleri için yerel desteğe sahiptir. [Oturum windows](https://msdn.microsoft.com/azure/stream-analytics/reference/session-window-azure-stream-analytics) Grup benzer zamanlarda gelen olayları süreler filtreleme bulunduğu veri yok. Pencereleme işlevleri hakkında daha fazla bilgi edinmek için [Pencereleme işlevleri Stream Analytics'e giriş](stream-analytics-window-functions.md).
 
 ### <a name="blob-output-partitioning-by-custom-time"></a>Blob çıktı özel zamanına göre bölümleme
 

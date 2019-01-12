@@ -14,25 +14,25 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 126ad48ee5df9212d65750abde71dfc18b82566f
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 786be89b575246b92903ec968e956e9b25337ab8
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53346587"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230093"
 ---
 # <a name="consulting-service-prerequisites"></a>Danışmanlık hizmeti önkoşulları
 
-Aşağıdaki ürünlerden birini yönelik danışmanlık hizmeti teklifler göndermek için önce bir veya daha fazla ilgili gereksinimleri karşılamak gerekir.
+Danışmanlık hizmeti aşağıdaki ürünlerden birini sunar göndermek için bir veya daha fazla ilgili gereksinimleri karşılayan:
 
 * **Dynamics 365 müşteri katılımı için**: İş ortaklarının, Silver veya Gold sertifika için olmalıdır [bulut müşteri ilişkileri yönetimi uzmanlığı](https://partner.microsoft.com/membership/cloud-customer-relationship-management-competency). 
-* **Finans ve operasyon için Dynamics 365**: İş ortaklarının, Silver veya Gold sertifika için olmalıdır [kurumsal kaynak planlama uzmanlığı](https://partner.microsoft.com/membership/enterprise-resource-planning-competency)ve en az bir gelir, $25 K bulut işlemleri sondaki 12 ay içinde.
-* **Dynamics 365 business central**: İş ortaklarına bulut çözümü sağlayıcısı (CSP) veya dijital iş ortağı, kaydı (DPOR) olarak en az bir müşteri için işlem gerekir.
-    * **CSP**: Bkz: [alma CSP'yi kullanmaya](https://partner.microsoft.com/cloud-solution-provider/get-started) bir CSP haline öğrenmek için.
-    * **ABONELİĞE DPOR**: Bkz: [DPOR genel bakış](https://partner.microsoft.com/membership/digital-partner-of-record#Membership_Digital_Partner_of_Record_Navigated_Rich_Text_Node1) DPOR gereksinimleri.
-* **Power BI**: Power BI iş ortağı gösterimi üzerinde listelenmesini sağlayın. Bkz: [çözüm iş ortağı ölçütleri](https://powerbi.microsoft.com/become-a-partner) daha fazla bilgi için.
-* **PowerApps**: İş ortakları, yayımlanan bir çözüm olmalıdır [iş ortağı gösterimi](https://powerapps.microsoft.com/partner-showcase).
+* **Finans ve operasyon için Dynamics 365**: İş ortaklarının, Silver veya Gold sertifika için olmalıdır [kurumsal kaynak planlama uzmanlığı](https://partner.microsoft.com/membership/enterprise-resource-planning-competency). İş ortakları da en az bir 25.000 ABD Doları geliri bulut işlemleri sondaki 12 ay içinde olmalıdır.
+* **Dynamics 365 Business Central**: Bir bulut çözümü sağlayıcısı (CSP) veya bir dijital iş ortağı, kaydı (DPOR) için en az bir müşteri olarak iş ortakları etkilediği gerekir.
+    * **CSP**: Bir CSP haline hakkında daha fazla bilgi için bkz. [CSP olarak başlama](https://partner.microsoft.com/cloud-solution-provider/get-started).
+    * **ABONELİĞE DPOR**: Aboneliğe DPOR gereksinimleri için bkz [DPOR genel bakış](https://partner.microsoft.com/membership/digital-partner-of-record#Membership_Digital_Partner_of_Record_Navigated_Rich_Text_Node1).
+* **Power BI**: Power BI iş ortağı gösterimi üzerinde listelenmesini sağlayın. Daha fazla bilgi için [çözüm iş ortağı ölçütleri](https://powerbi.microsoft.com/become-a-partner).
+* **PowerApps**: İş ortakları, yayımlanan bir çözüm olmalıdır [iş ortağı çözümü gösterimi](https://powerapps.microsoft.com/partner-showcase).
 
-**Sonraki adımlar**
+## <a name="next-steps"></a>Sonraki adımlar
 
-Yukarıdaki gereksinimleri karşılanırsa, hazır olduğunuz [bir danışmanlık hizmetleri teklifi oluşturma](./cpp-consulting-service-create-offer.md).
+Yukarıdaki gereksinimleri karşılanıyor, hazır [bir danışmanlık hizmetleri teklifi oluşturma](./cpp-consulting-service-create-offer.md).

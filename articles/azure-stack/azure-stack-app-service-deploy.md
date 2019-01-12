@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2018
+ms.date: 01/11/2019
 ms.author: anwestg
-ms.openlocfilehash: 504cd5a0bfbae1ff91f7914abe12aa35b699ee80
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: bbb8e39e60500a2d8310159cfbac5659964fc387
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104769"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230025"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Azure Stack'e bir App Service kaynak sağlayıcısı ekleme
 
@@ -46,6 +46,9 @@ App Service kaynak Sağlayıcısı'nı yükleme, en az bir saat sürer. Kaç rol
  - App Service için bir DNS bölgesi ve girişleri oluşturun.
  - App Service kaynak sağlayıcısını kaydedin.
  - App Service galeri öğelerini kaydedin.
+
+ > [!IMPORTANT]
+ > Kaynak sağlayıcısını dağıtmadan önce yeni işlevler, düzeltmeler ve dağıtımınızı etkileyebilecek bilinen sorunlar hakkında bilgi edinmek için sürüm notlarını gözden geçirin.
 
 App Service kaynak sağlayıcısı dağıtmak için aşağıdaki adımları izleyin:
 

@@ -11,15 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 01/11/2019
+ms.lastreviewed: 01/11/2019
 ms.author: jeffgilb
-ms.reviewer: georgel
-ms.openlocfilehash: 035284e23d3b600cbf1cbd5500a9821c2c628b05
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.reviewer: jiahan
+ms.openlocfilehash: ea8669189b5fc8d797fc03f579ea52e7c11a7078
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156213"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246968"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>Azure Stack'te SQL Server Kaynak sağlayıcısı dağıtma
 
@@ -59,8 +60,11 @@ _Tümleşik sistemler yüklemeleri_. İsteğe bağlı PaaS sertifikaları bölü
 
 ## <a name="deploy-the-sql-resource-provider"></a>SQL kaynak sağlayıcısı dağıtma
 
-Tümünde Önkoşullar kendinizi çalıştırılmak **DeploySqlProvider.ps1** SQL kaynak sağlayıcısı dağıtma için betiği. DeploySqlProvider.ps1 betiği, Azure Stack sürümünüz için indirdiğiniz SQL kaynak sağlayıcısı ikili bir parçası olarak ayıklanır.
+Tüm Önkoşullar yükledikten sonra çalıştırabileceğiniz **DeploySqlProvider.ps1** SQL kaynak sağlayıcısı dağıtma için betiği. DeploySqlProvider.ps1 betiği, Azure Stack sürümünüz için indirdiğiniz SQL kaynak sağlayıcısı ikili bir parçası olarak ayıklanır.
 
+ > [!IMPORTANT]
+ > Kaynak sağlayıcısını dağıtmadan önce yeni işlevler, düzeltmeler ve dağıtımınızı etkileyebilecek bilinen sorunlar hakkında bilgi edinmek için sürüm notlarını gözden geçirin.
+ 
 SQL kaynak sağlayıcısı dağıtmak için açık bir **yeni** yükseltilmiş bir PowerShell penceresi (PowerShell ISE değil) ve SQL kaynak sağlayıcısı ikili dosyaları ayıkladığınız dizine. Zaten yüklenmiş olan PowerShell modülleri tarafından kaynaklanan olası sorunları önlemek için yeni bir PowerShell penceresi kullanmanızı öneririz.
 
 Aşağıdaki görevleri tamamlar DeploySqlProvider.ps1 betiği çalıştırın:
@@ -133,6 +137,10 @@ $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domai
 
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+
+# Clear the existing login information from the Azure PowerShell context.
+Clear-AzureRMContext -Scope CurrentUser -Force
+Clear-AzureRMContext -Scope Process -Force
 
 # Change to the directory folder where you extracted the installation files. Do not provide a certificate on ASDK!
 . $tempDir\DeploySQLProvider.ps1 `

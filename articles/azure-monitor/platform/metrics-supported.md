@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 1e81f165c3ab38fffae7523efc6cb2ae307a1a25
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 02678738c225742db1795a2e168b6eac1320aead
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53549641"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232898"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure İzleyici ile desteklenen ölçümler
 Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini veya bunları sorgulama gibi ölçümleri ile etkileşim kurmak için çeşitli yollar sağlar PowerShell veya CLI kullanarak. Aşağıda tüm ölçümler tam listesi ile Azure İzleyicisi'nin ölçüm ardışık düzen şu anda kullanılabilir. Diğer ölçümleri portalı veya eski API'leri kullanarak mevcut olabilir. Bu listede yalnızca birleştirilmiş Azure İzleyici ölçüm ardışık düzeni'ni kullanarak mevcut olan ölçümler içerir. Sorgulamak ve erişmek için bu ölçümleri lütfen [2018-01-01 API sürümü](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -119,12 +119,12 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |PoolResizeCompleteEvent|Havuz yeniden boyutlandırma tam olayları|Sayı|Toplam|Tamamlanan havuzu yeniden boyutlandırır toplam sayısı|Boyut yok|
 |PoolDeleteStartEvent|Havuz silme başlangıç olayları|Sayı|Toplam|Başlatmış havuzu siler toplam sayısı|Boyut yok|
 |PoolDeleteCompleteEvent|Havuzu tüm olayları Sil|Sayı|Toplam|Tamamlanan havuzu siler toplam sayısı|Boyut yok|
-|JobDeleteCompleteEvent|İşin tüm olayları Sil|Sayı|Toplam|Başarıyla silindi olan işlerin toplam sayısı.|Boyut yok|
+|JobDeleteCompleteEvent|İşin tüm olayları Sil|Sayı|Toplam|Başarıyla silinen işlerin toplam sayısı.|Boyut yok|
 |JobDeleteStartEvent|Proje başlangıç olayları Sil|Sayı|Toplam|Silinecek istenen işlerin toplam sayısı.|Boyut yok|
-|JobDisableCompleteEvent|İşi devre dışı bırakma tamamlandı olayları|Sayı|Toplam|Başarıyla devre dışı olan işlerin toplam sayısı.|Boyut yok|
+|JobDisableCompleteEvent|İşi devre dışı bırakma tamamlandı olayları|Sayı|Toplam|Başarıyla devre dışı bırakılmış işlerin toplam sayısı.|Boyut yok|
 |JobDisableStartEvent|İşi devre dışı başlangıç olayları|Sayı|Toplam|Devre dışı bırakılması istenen işlerin toplam sayısı.|Boyut yok|
-|JobStartEvent|Proje başlangıç olayları|Sayı|Toplam|Başarıyla başlatıldı olan işlerin toplam sayısı.|Boyut yok|
-|JobTerminateCompleteEvent|İşi sonlandırmak tam olayları|Sayı|Toplam|Başarıyla sonlandırıldı olan işlerin toplam sayısı.|Boyut yok|
+|JobStartEvent|Proje başlangıç olayları|Sayı|Toplam|Başarıyla başlatıldı işlerin toplam sayısı.|Boyut yok|
+|JobTerminateCompleteEvent|İşi sonlandırmak tam olayları|Sayı|Toplam|Başarıyla sonlandırıldı işlerin toplam sayısı.|Boyut yok|
 |JobTerminateStartEvent|İşi sonlandırmak başlangıç olayları|Sayı|Toplam|Sonlandırılacak istenen işlerin toplam sayısı.|Boyut yok|
 
 ## <a name="microsoftcacheredis"></a>Microsoft.Cache/redis
@@ -816,7 +816,7 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |ClusterDataCapacityFactor|Önbellek kullanımı|Yüzde|Ortalama|Küme kapsamında kullanım düzeyi|Boyut yok|
 |QueryDuration|Sorgu süresi|Milisaniye|Ortalama|Saniye cinsinden sorgu süresi|QueryStatus|
 |IngestionsLoadFactor|Alımı kullanımı|Yüzde|Ortalama|Kümede kullanılan alma yuvası oranı|Boyut yok|
-|IsEngineAnsweringQuery|Canlı|Sayı|Ortalama|Sorgular için küme respondes sağlamlık onay gösterir|Boyut yok|
+|IsEngineAnsweringQuery|Canlı|Sayı|Ortalama|Küme sorgulara yanıt sağlamlık denetimi gösterir.|Boyut yok|
 |IngestCommandOriginalSizeInMb|Alma birim (MB cinsinden)|Sayı|Toplam|Genel (MB cinsinden) kümeye içe alınan veri hacmi|Boyut yok|
 |EventAgeSeconds|Alma gecikmesi (saniye cinsinden)|Saniye|Ortalama|Alma süresi (örneğin ileti içinde EventHub) kaynak kümeye saniye|Boyut yok|
 |EventReceivedFromEventHub|(Event Hubs için) işlenen olaylar|Sayı|Toplam|Olay Hub'ından başlayan kümeniz, küme tarafından işlenen olay sayısı|Boyut yok|

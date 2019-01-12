@@ -14,30 +14,30 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: pbutlerm
-ms.openlocfilehash: cb3730718c366cbf3fe9caecceeb4e65855ac8c4
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: dae86dcdd3ada10164be0120b49a8f5f7b642ccd
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53346620"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231640"
 ---
-# <a name="publish-consulting-service-offer"></a>Danışmanlık hizmet teklifi yayımlama
+# <a name="publish-a-consulting-service-offer"></a>Danışmanlık bir hizmet teklifi yayımlama
 
-Tamamladıktan sonra **teklif ayarları**, **mağaza ayrıntıları**, ve **kişiler**seçin **Yayımla** ve bir e-posta adresi sağlayın. Microsoft, teklifinizi yayımlamaya hazır olduğunda, Canlı geçmeden önce önizlemesini görüntülemek için bir e-posta alırsınız. Zaman içinde herhangi bir noktada teklifinizi durumunu denetlemek için portala dönebilirsiniz.
+Bitirdikten sonra **teklif ayarları**, **mağaza ayrıntıları**, ve **kişiler**seçin **Yayımla** ve bir e-posta adresi sağlayın. Microsoft, teklifinizi yayımlamaya hazır olduğunda, Canlı geçmeden önce önizlemesini görüntülemek için bir e-posta alırsınız. Teklifinizi istediğiniz zaman durumunu denetlemek için portalına geri dönebilirsiniz.
 
-Teklifleri yayımlama işlemi sırasında bir "Yayımlama iptal edildi" veya "Yayımlama başarısız oldu" durumu görüntülenir. Bu durum işlem normal bir parçasıdır ve teklifinizi düzenlemeler Microsoft'a sağlar. Görürseniz "Yayımla" iptal edildi, teklife bırakın, bu durumda.
+Teklifleri yayımlama işlemi sırasında bir "Yayımlama iptal edildi" veya "Yayımlama başarısız oldu" durumu görüntülenir. Bu gösterimleri işlem normal bir parçasıdır ve Microsoft'un teklifinizin düzenlemeler izin verin. Teklifinizi "olarak Yayımla iptal edildi" görünüyorsa, bu durum bırakın.
 
-**Hedef yol**
+## <a name="lead-destination"></a>Hedef yol
 
-Müşteri adayı depolanacağı bir CRM sistemine seçebilirsiniz. Burada seçtiğiniz CRM biz uygulamanızı appsource'ta (müşteri adayları) deneyin son kullanıcıların ayrıntıları burada yazacak sistemidir.
+Müşteri adayı depolandığı bir CRM sistemine seçebilirsiniz. Burada seçtiğiniz CRM biz uygulamanızı appsource'ta deneyen kullanıcılar hakkında bilgileri nerede yazma sistemidir.
 
-CRM sistemine bağlı olarak seçin, karşılık gelen URL'yi aşağıya alanlar sonraki kümesini tamamlamak hakkında daha fazla bilgi için tıklayın
+Seçtiğiniz CRM sistemine bağlı olarak, karşılık gelen URL'yi sonraki alanları kümesini doldurmak hakkında bilgi için aşağıdaki listeden seçin.
 
-* Seçin [Azure tablo](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) aşağıdaki CRM sistemleri birine sahipseniz: Salesforce, Marketo, Microsoft Dynamics CRM. 
+Seçin [Azure tablo](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) aşağıdaki CRM sistemleri birine sahipseniz:  
 * [Marketo](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo)
 * [Microsoft Dynamics CRM](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)
 * [Salesforce](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce)
 
-**Sonraki adımlar**
+## <a name="next-steps"></a>Sonraki adımlar
 
-Yayımlama sunmaya devam edin.
+Teklifinizi yayımlayın öğrenmek devam.

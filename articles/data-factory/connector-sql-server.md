@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: jingwang
-ms.openlocfilehash: 776b1eb71b4f15c3376644de92205a4eeb77e4b2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 1c58c77cb20f269c3a11615ccebf0bdc9cce0d86
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020532"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230824"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>İçin ve SQL Server'dan Azure Data Factory kullanarak veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -531,7 +531,7 @@ Saklı yordam özellik yararlanır [Table-Valued parametreleri](https://msdn.mic
     Bkz: [etkinleştirmek veya sunucu ağ protokolünü devre dışı](https://msdn.microsoft.com/library/ms191294.aspx) Ayrıntılar ve TCP/IP protokolünü etkinleştirme alternatif yolu.
 
 3. Aynı pencerede çift **TCP/IP'yi** başlatmak için **TCP/IP özelliklerini** penceresi.
-4. Geçiş **IP adresleri** sekmesi. Görmek için aşağı kaydırın **IPAll** bölümü. Not ** TCP bağlantı noktası ** (varsayılan değer **1433**).
+4. Geçiş **IP adresleri** sekmesi. Görmek için aşağı kaydırın **IPAll** bölümü. Not **TCP bağlantı noktası** (varsayılan değer **1433**).
 5. Oluşturma bir **Windows Güvenlik Duvarı Kuralı** Bu bağlantı noktası üzerinden gelen trafiğe izin vermek için makinede.  
 6. **Bağlantıyı doğrulama**: Tam adı kullanılarak SQL Server'a bağlanmak için farklı bir makinede SQL Server Management Studio'yu kullanın. Örneğin: `"<machine>.<domain>.corp.<company>.com,1433"`.
 
