@@ -20,7 +20,7 @@ ms.lasthandoff: 01/04/2019
 ms.locfileid: "54014496"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>MySQL Azure Data Factory kullanarak verileri kopyalama
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Kullanmakta olduğunuz Data Factory servisinin sürümünü seçin:"]
 > * [Sürüm 1](v1/data-factory-onprem-mysql-connector.md)
 > * [Geçerli sürüm](connector-mysql.md)
 
