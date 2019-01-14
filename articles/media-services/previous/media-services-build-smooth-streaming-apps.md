@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: juliako
-ms.openlocfilehash: 953cd536c390e571ee4c40dc670316197718eff2
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 7b742840f461744e0be8c7a4ab4d9b392238de4e
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279203"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232694"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Sorunsuz bir akış Windows Store uygulaması oluşturma
 
@@ -47,7 +47,7 @@ Tamamlanan çözümü her ders için MSDN geliştirici kodu örnekleri (kod Gale
 * [Ders 3](https://code.msdn.microsoft.com/A-Windows-8-Smooth-883c3b44) - Windows 8 sorunsuz bir akış Media Player ile Stream seçimi  
 * [Ders 4](https://code.msdn.microsoft.com/A-Windows-8-Smooth-aa9e4907) - Windows 8 sorunsuz bir parça seçimi Media Player akış.
 
-## <a name="lesson-1-create-a-basic-smooth-streaming-store-application"></a>Ders 1: temel bir kesintisiz akış Store uygulaması oluşturma
+## <a name="lesson-1-create-a-basic-smooth-streaming-store-application"></a>1. Ders: Bir temel kesintisiz akış Store uygulaması oluşturma
 
 Bu derste, bir Windows Store uygulaması kesintisiz Stream yürütülecek MediaElement denetimi içerik oluşturacaksınız.  Çalışan uygulamayı şu şekilde görünür:
 
@@ -95,7 +95,7 @@ Başvuru ekledikten sonra hedef Platformu (x64 veya x86) seçmeniz gerekir, ekle
 
 1. Çözüm Gezgini'nde çift tıklayarak **MainPage.xaml** Tasarım Görünümü'nde açın.
 2. Bulun **&lt;kılavuz&gt;** ve **&lt;/Grid&gt;** XAML dosya etiketleri ve iki etiketleri arasına aşağıdaki kodu yapıştırın:
-```xml
+   ```xml
          <Grid.RowDefinitions>
 
             <RowDefinition Height="20"/>    <!-- spacer -->
@@ -138,7 +138,7 @@ Başvuru ekledikten sonra hedef Platformu (x64 veya x86) seçmeniz gerekir, ekle
                FontSize="16" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" />
             <TextBox x:Name="txtStatus" FontSize="10" Width="700" VerticalAlignment="Center"/>
          </StackPanel>
-```
+   ```
    MediaElement denetimi medya kayıttan yürütme için kullanılır. Kaydırıcı denetimi sliderProgress adlı bir sonraki derste medya ilerleme durumunu denetlemek için kullanılır.
 3. Tuşuna **CTRL + S** dosyayı kaydetmek için.
 
@@ -160,7 +160,7 @@ Bu XAML dosyasında bazı olay işleyicileri denetimleri ile ilişkilendirilir. 
         extensions.RegisterByteStreamHandler("Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", ".ism", "text/xml");
         extensions.RegisterByteStreamHandler("Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", ".ism", "application/vnd.ms-sstr+xml");
 5. Sonunda **MainPage** sınıfında, aşağıdaki kodu yapıştırın:
-```csharp
+   ```csharp
          # region UI Button Click Events
          private void btnPlay_Click(object sender, RoutedEventArgs e)
          {
@@ -202,7 +202,7 @@ Bu XAML dosyasında bazı olay işleyicileri denetimleri ile ilişkilendirilir. 
          mediaElement.Position = new TimeSpan(0, 0, (int)(sliderProgress.Value));
          }
          # endregion
-```
+   ```
 SliderProgress_PointerPressed olay işleyicisi burada tanımlanır.  Bu öğreticinin bir sonraki derste ele bunu çalıştırmak, için daha fazla works vardır.
 6. Tuşuna **CTRL + S** dosyayı kaydetmek için.
 
@@ -221,7 +221,7 @@ Tamamlanmış arka plan kod dosyasında şöyle:
 
 Lesson1 tamamladınız.  Bu derste, kesintisiz akış içeriği kayıttan MediaElement denetimi kullanın.  Sonraki derste, kesintisiz akış içeriği, ilerleme durumunu denetlemek için bir kaydırıcı ekleyeceksiniz.
 
-## <a name="lesson-2-add-a-slider-bar-to-control-the-media-progress"></a>2. Ders: medya ilerleme durumunu denetlemek için bir kaydırıcı çubuğu Ekle
+## <a name="lesson-2-add-a-slider-bar-to-control-the-media-progress"></a>2. Ders: Medya ilerleme durumunu denetlemek için bir kaydırıcı çubuğu Ekle
 
 Ders 1'de, kayıttan yürütme kesintisiz akış medya içeriği için bir MediaElement XAML denetimi ile bir Windows Store uygulaması oluşturdunuz.  Bu, başlatma, durdurma ve duraklatma gibi bazı temel medya işlevleri birlikte gelir.  Bu derste, uygulamayı bir kaydırıcı çubuğu denetimi ekleyeceksiniz.
 
@@ -242,25 +242,29 @@ Bu ders, aşağıdaki yordamları içerir:
 
 1. Çözüm Gezgini'nden sağ tıklayın **MainPage.xaml**ve ardından **kodu görüntüle**.
 2. Dosyasının başında, aşağıdaki ekleyin using deyimi:
-```csharp
+
+   ```csharp
         using Microsoft.Media.AdaptiveStreaming;
-```
+   ```
 3. MainPage sınıfının başına aşağıdaki veri üyelerini ekleyin:
-```csharp
+
+   ```csharp
          private Windows.Foundation.Collections.PropertySet propertySet = new Windows.Foundation.Collections.PropertySet();             
          private IAdaptiveSourceManager adaptiveSourceManager;
-```
+   ```
 4. İçinde **MainPage** oluşturucusu, sonra aşağıdaki kodu ekleyin **bu. Components() başlatılamıyor;**  satır ve kayıt kodu bir önceki derste yazılan satır:
-```csharp
+
+   ```csharp
         // Gets the default instance of AdaptiveSourceManager which manages Smooth 
         //Streaming media sources.
         adaptiveSourceManager = AdaptiveSourceManager.GetDefault();
         // Sets property key value to AdaptiveSourceManager default instance.
         // {A5CE1DE8-1D00-427B-ACEF-FB9A3C93DE2D}" must be hardcoded.
         propertySet["{A5CE1DE8-1D00-427B-ACEF-FB9A3C93DE2D}"] = adaptiveSourceManager;
-```
+   ```
 5. İçinde **MainPage** oluşturucusunu eklemek için iki RegisterByteStreamHandler yöntemleri değiştirme İleri parametreleri:
-```csharp
+
+   ```csharp
          // Registers Smooth Streaming byte-stream handler for ".ism" extension and, 
          // "text/xml" and "application/vnd.ms-ss" mime-types and pass the propertyset. 
          // http://*.ism/manifest URI resources will be resolved by Byte-stream handler.
@@ -276,18 +280,20 @@ Bu ders, aşağıdaki yordamları içerir:
             ".ism", 
             "application/vnd.ms-sstr+xml", 
          propertySet);
-```
+   ```
 6. Tuşuna **CTRL + S** dosyayı kaydetmek için.
 
 **Uyarlamalı kaynak yöneticisi düzeyinde olay işleyicisi eklemek için**
 
 1. Çözüm Gezgini'nden sağ tıklayın **MainPage.xaml**ve ardından **kodu görüntüle**.
 2. İçinde **MainPage** sınıfında, aşağıdaki veri üyesi ekleyin:
-```csharp
+
+   ```csharp
      private AdaptiveSource adaptiveSource = null;
-```
+   ```
 3. Sonunda **MainPage** sınıfında, aşağıdaki olay işleyicisini ekleyin:
-```csharp
+
+   ```csharp
          # region Adaptive Source Manager Level Events
          private void mediaElement_AdaptiveSourceOpened(AdaptiveSource sender, AdaptiveSourceOpenedEventArgs args)
          {
@@ -296,24 +302,27 @@ Bu ders, aşağıdaki yordamları içerir:
          }
 
          # endregion Adaptive Source Manager Level Events
-```
+   ```
 4. Sonunda **MainPage** oluşturucusu, Uyarlamalı kaynak açık olaya abone olmak için aşağıdaki satırı ekleyin:
-```csharp
+
+   ```csharp
          adaptiveSourceManager.AdaptiveSourceOpenedEvent += 
            new AdaptiveSourceOpenedEventHandler(mediaElement_AdaptiveSourceOpened);
-```
+   ```
 5. Tuşuna **CTRL + S** dosyayı kaydetmek için.
 
 **Uyarlamalı kaynak düzeyi olay işleyicileri eklemek için**
 
 1. Çözüm Gezgini'nden sağ tıklayın **MainPage.xaml**ve ardından **kodu görüntüle**.
 2. İçinde **MainPage** sınıfında, aşağıdaki veri üyesi ekleyin:
-```csharp
+
+   ```csharp
      private AdaptiveSourceStatusUpdatedEventArgs adaptiveSourceStatusUpdate; 
      private Manifest manifestObject;
-```
+   ```
 3. Sonunda **MainPage** sınıfında, aşağıdaki olay işleyicisini ekleyin:
-```csharp
+
+   ```csharp
          # region Adaptive Source Level Events
          private void mediaElement_ManifestReady(AdaptiveSource sender, ManifestReadyEventArgs args)
          {
@@ -335,8 +344,10 @@ Bu ders, aşağıdaki yordamları içerir:
          }
 
          # endregion Adaptive Source Level Events
-4. At the end of the **mediaElement AdaptiveSourceOpened** method, add the following code to subscribe to the events:
-   
+   ```
+4. Sonunda **mediaElement AdaptiveSourceOpened** yöntemi, olaylara abone olmak için aşağıdaki kodu ekleyin:
+
+   ```csharp
          adaptiveSource.ManifestReadyEvent +=
 
                     mediaElement_ManifestReady;
@@ -346,7 +357,7 @@ Bu ders, aşağıdaki yordamları içerir:
          adaptiveSource.AdaptiveSourceFailedEvent += 
 
             mediaElement_AdaptiveSourceFailed;
-```
+   ```
 5. Tuşuna **CTRL + S** dosyayı kaydetmek için.
 
 Aynı olayları, uygulamadaki tüm ortam öğeleri için ortak işlevselliği işlemek için kullanılan Uyarlamalı kaynak yöneticisi düzeyinde de kullanılabilir. Her AdaptiveSource kendi olaylarını içerir ve tüm AdaptiveSource olayları altında AdaptiveSourceManager basamaklı.
@@ -355,7 +366,8 @@ Aynı olayları, uygulamadaki tüm ortam öğeleri için ortak işlevselliği i�
 
 1. Çözüm Gezgini'nden sağ tıklayın **MainPage.xaml**ve ardından **kodu görüntüle**.
 2. Sonunda **MainPage** sınıfında, aşağıdaki olay işleyicisini ekleyin:
-```csharp
+
+   ```csharp
          # region Media Element Event Handlers
          private void MediaOpened(object sender, RoutedEventArgs e)
          {
@@ -376,35 +388,40 @@ Aynı olayları, uygulamadaki tüm ortam öğeleri için ortak işlevselliği i�
          }
 
          # endregion Media Element Event Handlers
-```
+   ```
 3. Sonunda **MainPage** oluşturucusu, alt simge olaylar için aşağıdaki kodu ekleyin:
-```csharp
+
+   ```csharp
          mediaElement.MediaOpened += MediaOpened;
          mediaElement.MediaEnded += MediaEnded;
          mediaElement.MediaFailed += MediaFailed;
-```
+   ```
 4. Tuşuna **CTRL + S** dosyayı kaydetmek için.
 
 **İlgili kod kaydırıcı çubuğu Ekle**
 
 1. Çözüm Gezgini'nden sağ tıklayın **MainPage.xaml**ve ardından **kodu görüntüle**.
 2. Dosyasının başında, aşağıdaki ekleyin using deyimi:
-```csharp
+
+   ```csharp
         using Windows.UI.Core;
-```
+   ```
 3. İçinde **MainPage** sınıfında, aşağıdaki veri üyelerini ekleyin:
-```csharp
+
+   ```csharp
          public static CoreDispatcher _dispatcher;
          private DispatcherTimer sliderPositionUpdateDispatcher;
-```
+   ```
 4. Sonunda **MainPage** Oluşturucu aşağıdaki kodu ekleyin:
-```csharp
+
+   ```csharp
          _dispatcher = Window.Current.Dispatcher;
          PointerEventHandler pointerpressedhandler = new PointerEventHandler(sliderProgress_PointerPressed);
          sliderProgress.AddHandler(Control.PointerPressedEvent, pointerpressedhandler, true);    
-```
+   ```
 5. Sonunda **MainPage** sınıfında, aşağıdaki kodu ekleyin:
-```csharp
+
+   ```csharp
          # region sliderMediaPlayer
          private double SliderFrequency(TimeSpan timevalue)
          {
@@ -486,30 +503,32 @@ Aynı olayları, uygulamadaki tüm ortam öğeleri için ortak işlevselliği i�
          }
 
          # endregion sliderMediaPlayer
-```
+   ```
 
->[!NOTE]
->CoreDispatcher olmayan UI iş parçacığından UI iş parçacığı için değişiklik yapmak için kullanılır. Dağıtıcı iş parçacığı üzerinde performans sorunu durumunda, geliştirici, dağıtıcı UI derse güncelleştirme amaçlayan öğesi tarafından sağlanan kullanmayı seçebilirsiniz.  Örneğin:
+   > [!NOTE]
+   > CoreDispatcher olmayan UI iş parçacığından UI iş parçacığı için değişiklik yapmak için kullanılır. Dağıtıcı iş parçacığı üzerinde performans sorunu durumunda, geliştirici, dağıtıcı UI derse güncelleştirme amaçlayan öğesi tarafından sağlanan kullanmayı seçebilirsiniz.  Örneğin:
 
-```csharp
+   ```csharp
          await sliderProgress.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { TimeSpan 
 
          timespan = new TimeSpan(adaptiveSourceStatusUpdate.EndTime); 
          double absvalue  = (int)Math.Round(timespan.TotalSeconds, MidpointRounding.AwayFromZero); 
 
          sliderProgress.Maximum = absvalue; }); 
-```
+   ```
 6. Sonunda **mediaElement_AdaptiveSourceStatusUpdated** yöntemine aşağıdaki kodu ekleyin:
-```csharp
+
+   ```csharp
          setSliderStartTime(args.StartTime);
          setSliderEndTime(args.EndTime);
-```
+   ```
 7. Sonunda **MediaOpened** yöntemine aşağıdaki kodu ekleyin:
-```csharp
+
+   ```csharp
          sliderProgress.StepFrequency = SliderFrequency(mediaElement.NaturalDuration.TimeSpan);
          sliderProgress.Width = mediaElement.Width;
          setupTimer();
-```
+   ```
 8. Tuşuna **CTRL + S** dosyayı kaydetmek için.
 
 **Derleme ve uygulamayı test etme**
@@ -522,7 +541,7 @@ Aynı olayları, uygulamadaki tüm ortam öğeleri için ortak işlevselliği i�
 
 Ders 2 tamamladınız.  Bu derste bir kaydırıcı uygulamaya eklenir. 
 
-## <a name="lesson-3-select-smooth-streaming-streams"></a>3. Ders: Akış, kesintisiz akış seçin
+## <a name="lesson-3-select-smooth-streaming-streams"></a>3. Ders: Kesintisiz akış akışları seçin
 Kesintisiz akış, içerik akışı görüntüleyicileri tarafından seçilebilir birden çok dil ses izleri ile yeteneğine sahiptir.  Bu derste, akışları seçilecek görüntüleyiciler olanak tanır. Bu ders, aşağıdaki yordamları içerir:
 
 1. XAML dosyasını değiştirme
@@ -533,7 +552,8 @@ Kesintisiz akış, içerik akışı görüntüleyicileri tarafından seçilebili
 
 1. Çözüm Gezgini'nden sağ **MainPage.xaml**ve ardından **Görünüm Tasarımcısı**.
 2. Bulun &lt;Grid.RowDefinitions&gt;ve RowDefinitions görünür gibi değiştirin:
-```xml
+
+   ```xml
          <Grid.RowDefinitions>            
             <RowDefinition Height="20"/>
             <RowDefinition Height="50"/>
@@ -541,9 +561,10 @@ Kesintisiz akış, içerik akışı görüntüleyicileri tarafından seçilebili
             <RowDefinition Height="80"/>
             <RowDefinition Height="50"/>
          </Grid.RowDefinitions>
-```
+   ```
 3. İçinde &lt;kılavuz&gt;&lt;/Grid&gt; etiketler, böylece kullanıcılar kullanılabilir akışları listesini görmek ve akış'ı seçin, bir listbox denetimi tanımlamak için aşağıdaki kodu ekleyin:
-```xml
+
+   ```xml
          <Grid Name="gridStreamAndBitrateSelection" Grid.Row="3">
             <Grid.RowDefinitions>
                 <RowDefinition Height="300"/>
@@ -567,14 +588,15 @@ Kesintisiz akış, içerik akışı görüntüleyicileri tarafından seçilebili
                 </ListBox>
             </StackPanel>
          </Grid>
-```
+   ```
 4. Tuşuna **CTRL + S** değişiklikleri kaydedin.
 
 **Arka plan kod dosyasında değiştirmek için**
 
 1. Çözüm Gezgini'nden sağ **MainPage.xaml**ve ardından **kodu görüntüle**.
 2. SSPlayer ad alanı içinde yeni bir sınıf ekleyin:
-```csharp
+
+   ```csharp
         #region class Stream
    
         public class Stream
@@ -619,16 +641,17 @@ Kesintisiz akış, içerik akışı görüntüleyicileri tarafından seçilebili
             }
         }
         #endregion class Stream
-```
+   ```
 3. MainPage sınıfının başına aşağıdaki değişken tanımları ekleyin:
-```csharp
+
+   ```csharp
          private List<Stream> availableStreams;
          private List<Stream> availableAudioStreams;
          private List<Stream> availableTextStreams;
          private List<Stream> availableVideoStreams;
-```
+   ```
 4. MainPage sınıfının içinde şu bölge ekleyin:
-```csharp
+   ```csharp
         #region stream selection
         ///<summary>
         ///Functionality to select streams from IManifestStream available streams
@@ -764,15 +787,15 @@ Kesintisiz akış, içerik akışı görüntüleyicileri tarafından seçilebili
             }
         }
         #endregion stream selection
-```
+   ```
 5. MediaElement_ManifestReady yöntemini bulun, işlevin sonuna aşağıdaki kodu ekleyin:
-```csharp
+   ```csharp
         getStreams(manifestObject);
         refreshAvailableStreamsListBoxItemSource();
-```
-    So when MediaElement manifest is ready, the code gets a list of the available streams, and populates the UI list box with the list.
+   ```
+    Bu nedenle MediaElement bildirimi hazır olduğunda, kod kullanılabilir akışlarının listesini alır ve UI liste kutusu listesi ile doldurur.
 6. MainPage sınıfının içinde kullanıcı Arabirimi bulun düğmeler olayları bölge'ye tıklayın ve ardından aşağıdaki işlevi ekleyin:
-```csharp
+   ```csharp
         private void btnChangeStream_Click(object sender, RoutedEventArgs e)
         {
             List<IManifestStream> selectedStreams = new List<IManifestStream>();
@@ -783,7 +806,7 @@ Kesintisiz akış, içerik akışı görüntüleyicileri tarafından seçilebili
             // Change streams on the presentation
             changeStreams(selectedStreams);
         }
-```
+   ```
 **Derleme ve uygulamayı test etme**
 
 1. Tuşuna **F6** Projeyi derlemek için. 
@@ -805,7 +828,7 @@ Birden fazla video dosyaları farklı kalite düzeylerine (bit hızlarında) ve 
 
 1. Çözüm Gezgini'nden sağ **MainPage.xaml**ve ardından **Görünüm Tasarımcısı**.
 2. Bulun &lt;kılavuz&gt; etiket adıyla **gridStreamAndBitrateSelection**, etiket sonuna aşağıdaki kodu ekleyin:
-```xml
+   ```xml
          <StackPanel Name="spBitRateSelection" Grid.Row="1" Grid.Column="1">
          <StackPanel Orientation="Horizontal">
              <TextBlock Name="tbBitRate" Text="Available Bitrates:" FontSize="16" VerticalAlignment="Center"/>
@@ -820,14 +843,14 @@ Birden fazla video dosyaları farklı kalite düzeylerine (bit hızlarında) ve 
              </ListBox.ItemTemplate>
          </ListBox>
          </StackPanel>
-```
+   ```
 3. Tuşuna **CTRL + S** he değişiklikleri kaydetmek için
 
 **Arka plan kod dosyasında değiştirmek için**
 
 1. Çözüm Gezgini'nden sağ **MainPage.xaml**ve ardından **kodu görüntüle**.
 2. SSPlayer ad alanı içinde yeni bir sınıf ekleyin:
-```csharp
+   ```csharp
         #region class Track
         public class Track
         {
@@ -864,13 +887,13 @@ Birden fazla video dosyaları farklı kalite düzeylerine (bit hızlarında) ve 
             //public Track() { }
         }
         #endregion class Track
-```
+   ```
 3. MainPage sınıfının başına aşağıdaki değişken tanımları ekleyin:
-```csharp
+   ```csharp
         private List<Track> availableTracks;
-```
+   ```
 4. MainPage sınıfının içinde şu bölge ekleyin:
-```csharp
+   ```csharp
         #region track selection
         /// <summary>
         /// Functionality to select video streams
@@ -967,14 +990,14 @@ Birden fazla video dosyaları farklı kalite düzeylerine (bit hızlarında) ve 
             }
         }
         #endregion track selection
-```
+   ```
 5. MediaElement_ManifestReady yöntemini bulun, işlevin sonuna aşağıdaki kodu ekleyin:
-```csharp
+   ```csharp
          getTracks(manifestObject);
          refreshAvailableTracksListBoxItemSource();
-```
+   ```
 6. MainPage sınıfının içinde kullanıcı Arabirimi bulun düğmeler olayları bölge'ye tıklayın ve ardından aşağıdaki işlevi ekleyin:
-```csharp
+   ```csharp
          private void btnChangeStream_Click(object sender, RoutedEventArgs e)
          {
             List<IManifestStream> selectedStreams = new List<IManifestStream>();
@@ -985,7 +1008,7 @@ Birden fazla video dosyaları farklı kalite düzeylerine (bit hızlarında) ve 
             // Change streams on the presentation
             changeStreams(selectedStreams);
          }
-```
+   ```
 **Derleme ve uygulamayı test etme**
 
 1. Tuşuna **F6** Projeyi derlemek için. 

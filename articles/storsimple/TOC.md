@@ -209,7 +209,7 @@
 ## Başvuru
 ### [REST API](https://docs.microsoft.com/rest/api/storsimple)
 ### [StorSimple cmdlet’leri için Windows PowerShell](https://technet.microsoft.com/library/dn688168.aspx)
-
+### [Resource Manager Şablonu](/azure/templates/microsoft.storsimple/allversions)
 
 # StorSimple Data Manager
 
@@ -235,7 +235,7 @@
 ## Sürüm notları
 ### [StorSimple sürüm notları](https://aka.ms/storsimple-virtual-array-latest-relnote)
 ### [CSP sürüm notları](https://partner.microsoft.com/Support/whats-new)
-### [CSP için StorSimple: Sık Sorulan Sorular](storsimple-partner-csp-faq.md)
+### [CSP için StorSimple: SSS](storsimple-partner-csp-faq.md)
 
 # İlgili
 ## [StorSimple 5000-7000 Series](http://onlinehelp.storsimple.com)

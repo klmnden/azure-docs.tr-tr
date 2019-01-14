@@ -9,15 +9,15 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/10/2019
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: a6937b5b6b3b85dd51d80a928de02a00c361cc0e
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 8b31a85abf1c6034aaff511f23d96fae9ee64561
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117614"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230059"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application ınsights telemetri bağıntısı
 
@@ -101,6 +101,43 @@ public void ConfigureServices(IServiceCollection services)
     // ....
 }
 ```
+
+#### <a name="enable-w3c-distributed-tracing-support-for-java-apps"></a>Java uygulamalarını W3C dağıtılmış İzleme desteğini etkinleştirme
+
+Gelen:
+
+**J2EE uygulamaları** ekleyin `<TelemetryModules>` Applicationınsights.XML içinde etiketi
+
+```xml
+<Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebRequestTrackingTelemetryModule>
+   <Param name = "W3CEnabled" value ="true"/>
+   <Param name ="enableW3CBackCompat" value = "true" />
+</Add>
+```
+
+**Önyükleme uygulamaları Bahar** aşağıdaki özellikleri ekleyin:
+
+`azure.application-insights.web.enable-W3C=true`
+`azure.application-insights.web.enable-W3C-backcompat-mode=true`
+
+Giden:
+
+AI için aşağıdakileri ekleyin-Agent.xml:
+
+```xml
+<Instrumentation>
+        <BuiltIn enabled="true">
+            <HTTP enabled="true" W3C="true" enableW3CBackCompat="true"/>
+        </BuiltIn>
+    </Instrumentation>
+```
+
+> [!NOTE]
+> Geriye dönük uyumluluk modu varsayılan olarak etkindir ve enableW3CBackCompat parametresi isteğe bağlıdır ve yalnızca devre dışı bırakmak istediğinizde kullanılmalıdır. 
+
+İdeal olarak tüm hizmetler SDK'ları W3C protokolü destekleyen daha yeni sürüme güncelleştirilip güncelleştirilmediğini olduğunda bu durum olabilir. SDK'ları sürüme W3C desteğiyle olabildiğince çabuk taşımak için önerilir. 
+
+Emin olun her ikisi de **gelen ve giden yapılandırmaları tam olarak aynı**.
 
 ## <a name="open-tracing-and-application-insights"></a>Açık izleme ve Application Insights
 

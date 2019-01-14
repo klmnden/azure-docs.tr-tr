@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 26bccc07e402288db696bce8a2371cab9ef7aff9
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 1ae0be44be524e4cb4e8d446e2279a1bfd800a04
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055090"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231623"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IOT hub'ı terimler sözlüğü
 Bu makalede IOT hub'ı makalelerinde kullanılan yaygın terimlerin bazıları listelenmektedir.
@@ -40,7 +40,7 @@ Vardır _cihaz SDK'ları_ oluşturmanıza olanak sağlayan birden çok dil için
 ## <a name="azure-iot-service-sdks"></a>Azure IOT hizmeti SDK'ları
 Vardır _hizmet SDK'ları_ oluşturmanıza olanak sağlayan birden çok dil için kullanılabilir [arka uç uygulamaları](#back-end-app) bir IOT hub'ı ile etkileşim. IOT hub'ı öğreticiler bu hizmet SDK'ları kullanmayı gösterir. Kaynak kodu ve hizmet SDK'ları hakkında daha fazla bilgi bu Github'da bulabilirsiniz [depo](https://github.com/Azure/azure-iot-sdks).
 
-## <a name="azure-iot-tools"></a>Azure IOT araçları
+## <a name="azure-iot-tools"></a>Azure IoT Araçları
 [Azure IOT Araçları](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) yardımcı olan bir platformlar arası, açık kaynak Visual Studio Code uzantısı, Azure IOT Hub ve VS code'da cihazları yönetmek olan. Azure IOT araçları ile birlikte IOT geliştiriciler kolaylıkla VS Code'da projeyi IOT geliştirebilir.
 
 ## <a name="azure-portal"></a>Azure portal
@@ -59,7 +59,7 @@ Vardır _hizmet SDK'ları_ oluşturmanıza olanak sağlayan birden çok dil içi
 [Azure depolama](../storage/common/storage-introduction.md) bir bulut depolama çözümüdür. Bu, yapılandırılmamış nesne verilerini depolamak için kullanabileceğiniz Blob Depolama hizmetinin içerir. Blob depolama bazı IOT hub'ı öğreticileri kullanın.
 
 ## <a name="back-end-app"></a>Arka uç uygulaması
-Bağlamında [IOT hub'ı](#iot-hub), bir arka uç uygulaması, bir IOT hub'ında hizmet dönük uç noktalardan biri bağlandığı bir uygulamadır. Örneğin, bir arka uç uygulaması alacağı [CİHAZDAN buluta](#device-to-cloud)yönetmek veya iletileri [kimlik kayıt defteri](#identity-registry). Genellikle, bir arka uç uygulaması bulutta çalışır, ancak birçok öğreticileri arka uca yerel geliştirme makinenizde çalışan konsol uygulamaları uygulamalardır.
+Bağlamında [IOT hub'ı](#iot-hub), bir arka uç uygulaması, bir IOT hub'ında hizmet dönük uç noktalardan biri bağlandığı bir uygulamadır. Örneğin, bir arka uç uygulaması alacağı [CİHAZDAN buluta](#device-to-cloud) yönetmek veya iletileri [kimlik kayıt defteri](#identity-registry). Genellikle, bir arka uç uygulaması bulutta çalışır, ancak birçok öğreticileri arka uca yerel geliştirme makinenizde çalışan konsol uygulamaları uygulamalardır.
 
 ## <a name="built-in-endpoints"></a>Yerleşik uç noktaları
 Her IOT hub'ı içeren yerleşik bir [uç nokta](iot-hub-devguide-endpoints.md) Event Hub ile uyumlu diğer bir deyişle. Bu uç noktadan CİHAZDAN buluta iletileri okumak için Event Hubs ile çalışan herhangi bir mekanizma kullanabilirsiniz.
