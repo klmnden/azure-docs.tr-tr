@@ -9,18 +9,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 06/13/2018
+ms.date: 01/07/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: ab752799c9e64e47abe0200a26215f9e01c489f6
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 39682ac04b914809aec36f46889feb5c4b59af51
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139695"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54243891"
 ---
 # <a name="delete-an-azure-active-directory-tenant"></a>Azure Active Directory kiracısı Sil
+
 Bir kiracı silindiğinde, kiracıda bulunan tüm kaynaklar da silinir. Kiracı, silmeden önce ilişkili kaynakları en aza indirerek hazırlamanız gerekir. Yalnızca Azure Active Directory (Azure AD) genel yönetici portalından Azure AD kiracısı silebilirsiniz.
 
 ## <a name="prepare-the-tenant-for-deletion"></a>Kiracı silme işlemi için hazırlama
@@ -59,17 +60,17 @@ Abonelik durumu | Veriler | Veri erişimi
 Etkin (deneme sürümü için 30 gün)  | Tüm erişilebilir veri    | <li>Kullanıcıların Office 365 dosyalar veya uygulamalar için normal erişimi<li>Yöneticilerin Office 365 Yönetim merkezine ve kaynaklara normal erişimi 
 Süresi dolan (30 gün)   | Tüm erişilebilir veri    | <li>Kullanıcıların Office 365 dosyalar veya uygulamalar için normal erişimi<li>Yöneticilerin Office 365 Yönetim merkezine ve kaynaklara normal erişimi
 Devre dışı (30 gün) | Verileri yalnızca Yöneticisi için erişilebilir  | <li>Kullanıcılar Office 365 dosyalar veya uygulamalar erişemez.<li>Yöneticileri Office 365 Yönetim Merkezine erişim ancak olamaz lisansları atayabilir veya güncelleştirme
-Sağlaması (30 gün sonra devre dışı) | Silinen verileri (otomatik olarak silinmesini başka bir hizmetler kullanılıyorsa) | <li>Kullanıcılar Office 365 dosyalar veya uygulamalar erişemez.<li>Yöneticiler satın alın ve diğer Aboneliklerini yönetmek için Office 365 Yönetim merkezine erişebilirsiniz 
+Sağlaması (30 gün sonra devre dışı) | Silinen verileri (otomatik olarak silinmesini başka bir hizmetler kullanılıyorsa) | <li>Kullanıcılar Office 365 dosyalar veya uygulamalar erişemez.<li>Yöneticiler satın alın ve diğer Aboneliklerini yönetmek için Office 365 Yönetim merkezine erişebilirsiniz
 
 Bir aboneliğe koyabilirsiniz bir **Deprovisoned** durumu iş Yönetim Merkezi için Microsoft Store kullanarak 3 gün içinde silinecek. Bu özellik, Office 365 Yönetim merkezine yakında kullanıma sunulacaktır.
 
 1. Oturum [iş Yönetim Merkezi için Microsoft Store](https://businessstore.microsoft.com/manage/) kiracısında genel yönetici olan bir hesapla. İlk varsayılan etki alanı contoso.onmicrosoft.com olan "Contoso" kiracısını silmeye çalışıyorsanız, bir UPN ile aşağıdaki gibi oturum admin@contoso.onmicrosoft.com.
 
-2. Git **Yönet** sekmenize **ürünleri ve Hizmetleri**, iptal etmek istediğiniz aboneliği seçin. Tıkladıktan sonra **iptal**, sayfayı yenileyin.
+2. Git **Yönet** sekmenize **ürünleri ve Hizmetleri**, iptal edin ve istediğiniz aboneliği seçin **Sil**.
   
   ![Aboneliği silmek için bağlantısını Sil](./media/directory-delete-howto/delete-command.png)
   
-3. Seçin **Sil** abonelik silip hüküm ve koşulları kabul edin. Tüm verileri kalıcı olarak üç gün içinde silinecek. Fikrinizi değiştirirseniz üç gün boyunca abonelik yeniden etkinleştirebilir.
+3. Seçin **Sil abonelik** hüküm ve koşulları kabul etmek ve aboneliğini silmek için. Tüm verileri kalıcı olarak üç gün içinde silinir. Fikrinizi değiştirirseniz abonelik sonraki üç gün boyunca yeniden etkinleştirebilir.
   
   ![hüküm ve koşullar](./media/directory-delete-howto/delete-terms.png)
 
