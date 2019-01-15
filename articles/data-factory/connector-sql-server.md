@@ -20,7 +20,7 @@ ms.lasthandoff: 01/11/2019
 ms.locfileid: "54230824"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>İçin ve SQL Server'dan Azure Data Factory kullanarak veri kopyalama
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Kullanmakta olduğunuz Data Factory servisinin sürümünü seçin:"]
 > * [Sürüm 1](v1/data-factory-sqlserver-connector.md)
 > * [Geçerli sürüm](connector-sql-server.md)
 
