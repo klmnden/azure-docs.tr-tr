@@ -1,6 +1,7 @@
 ---
-title: Genel Bakış - Azure Machine Learning Studio | Microsoft Docs
-description: Kullanıma hazır bir algoritmalar ve modüller kitaplığından hızla model oluşturmaya yönelik bir sürükle ve bırak aracı olan Azure ML Studio'ya genel bakış.
+title: Nedir
+titleSuffix: Azure Machine Learning Studio
+description: Azure Machine Learning Studio, modelleri kullanıma hazır algoritmalar ve modüller kitaplığından hızla oluşturmaya yönelik bir Sürükle ve bırak aracıdır.
 keywords: azure machine learning,azure ml, ml studio
 services: machine-learning
 documentationcenter: ''
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 03/28/2018
-ms.openlocfilehash: b1c0d3da6dba4bf56baaf583d89c58fdc13ef83f
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 04c9803909fb5dfd1072840a0c1d7e33814ad1a3
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250527"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264369"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Azure Machine Learning Studio nedir?
 Microsoft Azure Machine Learning Studio, verilerinizde tahmine dayalı analiz çözümleri oluşturma, test etme ve dağıtma amacıyla kullanabileceğiniz bir işbirliğine dayalı sürükle ve bırak aracıdır. Machine Learning Studio, modelleri özel uygulamalar veya Excel gibi BI araçları tarafından kolayca kullanılabilen web hizmetleri olarak yayımlar.
