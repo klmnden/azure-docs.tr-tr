@@ -1,21 +1,21 @@
 ---
 title: Görüntü incelemeleri .NET - Content Moderator'ı kullanarak oluşturma
 titlesuffix: Azure Cognitive Services
-description: Content Moderator SDK'sını kullanarak .NET için nasıl ekran oluşturulacağını gözden geçirmeleri
+description: Bu makalede bilgiler ve kod örnekleri, hızlı bir şekilde yardımcı olmak için Content Moderator SDK'sı ile kullanmaya başlama C# video incelemeleri oluşturmak için.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 01/18/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 284ee24bbb0a15d107acf85e2d58072a0ecbbc6e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: e9fb82c864c721a9df2e3b31d04e68c824404f81
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219049"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262520"
 ---
 # <a name="create-video-reviews-using-net"></a>Görüntü incelemeleri .NET kullanarak oluşturun
 
@@ -33,22 +33,21 @@ Bu makalede, sahibi olduğunuzu varsayar [video aracılı (bkz. Hızlı Başlang
 
 Bu makalede ayrıca, zaten Visual Studio ve C# ile ilgili bilgi sahibi olduğunuz varsayılır.
 
-## <a name="sign-up-for-content-moderator"></a>Content Moderator için kaydolun
+## <a name="sign-up-for-content-moderator"></a>Content Moderator için kaydolma
 
-Content Moderator Hizmetleri REST API veya SDK aracılığıyla kullanabilmeniz için önce bir abonelik anahtarı gerekir.
-Başvurmak [hızlı](quick-start.md) anahtarı nasıl edinebilirsiniz öğrenin.
+REST API veya SDK aracılığıyla Content Moderator hizmetlerini kullanabilmeniz için önce bir abonelik anahtarınız olması gerekir. Content Moderator'a abone olmak ve anahtarınızı almak için [Bilişsel Hizmetler hesabı oluşturma](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) yönergelerini izleyin.
 
-## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>Önceki adımda tamamlanmamış olursa bir gözden geçirme aracı hesabı için kaydolun
+## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>Önceki adımda yapmadıysanız bir inceleme araç hesabına kaydolun
 
-Content Moderator, Azure portalından da aldığınız varsa [gözden geçirme aracı hesabı için kaydolun](https://contentmoderator.cognitive.microsoft.com/) ve bir gözden geçirme ekibi oluşturun. Takım Kimliği ve bir iş başlatabilir ve gözden geçirmeleri gözden geçirme Aracı'nda görüntülemek için gözden geçirme API'sini çağırmak için gözden geçirme aracı ihtiyacınız var.
+Content Moderator’ı Azure portaldan aldıysanız, [inceleme aracı hesabına da kaydolun](https://contentmoderator.cognitive.microsoft.com/) ve bir inceleme takımı oluşturun. Bir İşi başlatmak ve inceleme aracındaki incelemeleri görüntülemek üzere inceleme API'sini çağırmak için ekip kimliği ve inceleme aracı gerekir.
 
-## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Gözden geçirme oluşturmak için API anahtarınızı gözden geçirme API çağrısı emin olun.
+## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>API anahtarınızın inceleme oluşturma amacıyla inceleme API'sini çağırabildiğinden emin olun
 
-Azure Portalı'ndan başlattıysanız önceki adımları tamamladıktan sonra iki Content Moderator anahtarlarla bitirebilirsiniz. 
+Önceki adımları tamamladıktan sonra, başlangıcı Azure portaldan yaptıysanız şu anda iki Content Moderator anahtarınız olmalıdır. 
 
-SDK'sı örneğinizi Azure tarafından sağlanan API anahtarı kullanmayı planlıyorsanız, belirtilen adımları izleyin [gözden geçirme API kullanarak Azure anahtarla](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) bölümünde uygulamanız gözden geçirme API çağrısı ve gözden geçirmeler oluşturmak izin vermek için.
+SDK örneğinizde Azure tarafından sağlanan API anahtarını kullanmayı planlıyorsanız, uygulamanızın inceleme API’sini çağırmasına ve incelemeler oluşturmasına izin vermek için [inceleme API'siyle Azure anahtarını kullanma](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) bölümünde anlatılan adımları izleyin.
 
-Gözden geçirme aracı tarafından oluşturulan ücretsiz deneme sürümü anahtarı kullanırsanız, gözden geçirme aracı hesabınızı anahtarı hakkında zaten bilir ve bu nedenle, ek adımlar gereklidir.
+İnceleme aracı tarafından oluşturulan ücretsiz deneme anahtarını kullanırsanız, inceleme aracı hesabınız anahtarı zaten tanıdığından ek bir adım gerekmez.
 
 ### <a name="prepare-your-video-and-the-video-frames-for-review"></a>Videonuzu ve video kareleri gözden geçirmeniz için hazırlama
 
@@ -69,13 +68,13 @@ Video kareleri için (görüntüleri) şu görüntüleri kullanın:
 | :---: | :---: | :---: |
 [Çerçeve 1](https://blobthebuilder.blob.core.windows.net/sampleframes/ams-video-frame1-00-17.PNG) | [Çerçeve 2](https://blobthebuilder.blob.core.windows.net/sampleframes/ams-video-frame-2-01-04.PNG) | [Çerçeve 3](https://blobthebuilder.blob.core.windows.net/sampleframes/ams-video-frame-3-02-24.PNG) |
 
-## <a name="create-your-visual-studio-project"></a>Visual Studio projenizi oluşturun
+## <a name="create-your-visual-studio-project"></a>Visual Studio projenizi oluşturma
 
-1. Yeni bir **konsol uygulaması (.NET Framework)** çözümünüze bir proje.
+1. Çözümünüze yeni bir **Console uygulaması (.NET Framework)** projesi ekleyin.
 
 1. Projeyi adlandırın **VideoReviews**.
 
-1. Bu proje, çözüm için tek bir başlangıç projesi olarak seçin.
+1. Bu projeyi çözümün tek başlatma projesi olarak seçin.
 
 ### <a name="install-required-packages"></a>Gerekli paketleri yükleme
 
@@ -86,7 +85,7 @@ TermLists projesi için aşağıdaki NuGet paketlerini yükleyin.
 - Microsoft.Rest.ClientRuntime.Azure
 - Newtonsoft.Json
 
-### <a name="update-the-programs-using-statements"></a>Deyimleri kullanarak program güncelleştirme
+### <a name="update-the-programs-using-statements"></a>Programı deyimler kullanarak güncelleştirme
 
 Değiştirme program gibi deyimleri kullanarak.
 
@@ -100,7 +99,7 @@ Değiştirme program gibi deyimleri kullanarak.
     using Newtonsoft.Json;
 
 
-### <a name="add-private-properties"></a>Özel Özellikler ekleme
+### <a name="add-private-properties"></a>Özel özellikler ekleme
 
 Aşağıdaki özel özellikleri ad VideoReviews, Program sınıfı ekleyin.
 
@@ -168,7 +167,7 @@ Aşağıdaki yöntem tanımını ad alanına VideoReviews, Program sınıfı ekl
 
 ## <a name="create-a-video-review"></a>Bir video gözden geçirmesi oluşturma
 
-İle video bir gözden geçirme oluşturmak **ContentModeratorClient.Reviews.CreateVideoReviews**. Daha fazla bilgi için [API Başvurusu](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4).
+İle video bir gözden geçirme oluşturmak **ContentModeratorClient.Reviews.CreateVideoReviews**. Daha fazla bilgi için bkz. [API başvurusu](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4).
 
 **CreateVideoReviews** aşağıdaki parametreler gereklidir:
 1. "Application/json." olması gereken bir MIME türü içeren bir dize 
@@ -217,13 +216,13 @@ Aşağıdaki yöntem tanımını ad alanına VideoReviews, Program sınıfı ekl
     }
 
 > [!NOTE]
-> Content Moderator hizmet anahtarınız bir istek başına ikinci (RP'ler) hız sınırı vardır ve sınırını aşarsanız, SDK'sı, 429 hata koduna sahip bir özel durum oluşturur. 
+> Content Moderator hizmet anahtarınızın saniye başına istek (RPS) hız sınırı vardır ve bu sınırı aşarsanız SDK 429 hata kodu ile bir özel durum oluşturur. 
 >
-> Ücretsiz katmanı anahtarı bir RPS oranı sınırı vardır.
+> Ücretsiz katman anahtarı bir RPS'lik hız sınırına sahiptir.
 
 ## <a name="add-video-frames-to-the-video-review"></a>Video kareleri video gözden geçirici ekleyin
 
-Video İnceleme ile video kareleri eklediğiniz **ContentModeratorClient.Reviews.AddVideoFrameUrl** (video çerçevelerinizi çevrimiçi barındırılmıyorsa) veya **ContentModeratorClient.Reviews.AddVideoFrameStream** () video çerçevelerinizi yerel olarak barındırılıyorsa). Bu hızlı başlangıçta, video kareleri çevrimiçi barındırılan ve bu nedenle kullanır varsayar **AddVideoFrameUrl**. Daha fazla bilgi için [API Başvurusu](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/59e7b76ae7151f0b10d451fd).
+Video İnceleme ile video kareleri eklediğiniz **ContentModeratorClient.Reviews.AddVideoFrameUrl** (video çerçevelerinizi çevrimiçi barındırılmıyorsa) veya **ContentModeratorClient.Reviews.AddVideoFrameStream** () video çerçevelerinizi yerel olarak barındırılıyorsa). Bu hızlı başlangıçta, video kareleri çevrimiçi barındırılan ve bu nedenle kullanır varsayar **AddVideoFrameUrl**. Daha fazla bilgi için bkz. [API başvurusu](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/59e7b76ae7151f0b10d451fd).
 
 **AddVideoFrameUrl** aşağıdaki parametreler gereklidir:
 1. "Application/json." olması gereken bir MIME türü içeren bir dize
@@ -373,7 +372,7 @@ Aşağıdaki yöntem tanımını ad alanına VideoReviews, Program sınıfı ekl
         Thread.Sleep(throttleRate);
     }
 
-## <a name="putting-it-all-together"></a>Hepsini birleştirme
+## <a name="putting-it-all-together"></a>Hepsini bir araya getirme
 
 Ekleme **ana** yöntem tanımını ad alanına VideoReviews, Program sınıfı. Son olarak, Program sınıfına ve VideoReviews ad alanı kapatın.
 
@@ -407,7 +406,7 @@ Ekleme **ana** yöntem tanımını ad alanına VideoReviews, Program sınıfı. 
         }
     }
 
-## <a name="run-the-program-and-review-the-output"></a>Programı çalıştırın ve çıktıyı gözden geçirin
+## <a name="run-the-program-and-review-the-output"></a>Programı çalıştırma ve çıktıyı gözden geçirme
 Uygulamayı çalıştırdığınızda, aşağıdaki satırları bir çıktı görmeniz gerekir:
 
     Creating a video review.

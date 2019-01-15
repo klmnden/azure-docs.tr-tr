@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: cd45220326221490b461c5706620df2aab55a5d6
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: bbfa5ce0e277df3648e98be29fe91a44b15a52b7
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53137846"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262294"
 ---
 # <a name="azure-vm-guest-os-firewall-is-misconfigured"></a>Azure VM konuk işletim sistemi güvenlik duvarı yanlış yapılandırılmış
 
@@ -49,13 +49,13 @@ Bağlanma [seri konsolu ve bir PowerShell örneği açın](serial-console-window
 
 Aşağıdaki kuralları ya da VM (RDP) üzerinden erişim sağlamak veya sorun giderme daha kolay bir deneyim sağlamak üzere düzenlenebilir:
 
-*   Uzak Masaüstü (TCP-Gelen): Bu birincil erişim sağlayan VM Azure'da RDP vererek standart kuralıdır.
+*   Uzak Masaüstü (TCP-Gelen): Bu birincil erişim sağlayan VM Azure'da RDP vererek standart bir kuraldır.
 
-*   Windows Uzaktan Yönetim (HTTP-gelen): Bu kural, PowerShell, Azure, bu tür bir erişim sağlar uzaktan komut dosyası ve sorun giderme betik açısını kullandığınız'ı kullanarak sanal Makineye bağlanmanızı sağlar.
+*   Windows Uzaktan Yönetim (HTTP-gelen): PowerShell, Azure, bu tür bir erişim'ı kullanarak sanal Makineye bağlanmanızı sağlar bu kural uzak komut dosyası ve sorun giderme komut dosyası çalıştırma kullanılmasına izin verir.
 
-*   Dosya ve Yazıcı Paylaşımı (SMB-gelen): Bu kural, sorun giderme seçeneği olarak ağ paylaşımı erişimi sağlar.
+*   Dosya ve Yazıcı Paylaşımı (SMB-gelen): Bu kural, bir sorun giderme seçeneği olarak ağ paylaşımı erişimi sağlar.
 
-*   Dosya ve Yazıcı Paylaşımı (yankı isteği - Icmpv4 gelen): Bu kural, VM ping olanak sağlar.
+*   Dosya ve Yazıcı Paylaşımı (yankı isteği - Icmpv4 gelen): Bu kural, VM ping olanak tanır.
 
 Seri konsol erişimi örnekte, güvenlik duvarı kuralı geçerli durumunu sorgulayabilirsiniz.
 
@@ -68,7 +68,7 @@ Seri konsol erişimi örnekte, güvenlik duvarı kuralı geçerli durumunu sorgu
 *   Yerel uygulama tarafından kullanılan bağlantı noktasını kullanarak sorgu:
 
     ```cmd
-    netsh advfirewall firewall show rule dir=in name=all | select-string -pattern "(LocalPort.*<APPLICAITON PORT>)" -context 9,4 | more
+    netsh advfirewall firewall show rule dir=in name=all | select-string -pattern "(LocalPort.*<APPLICATION PORT>)" -context 9,4 | more
     ```
 
 *   Uygulamanın kullandığı yerel IP adresi kullanarak sorgu:

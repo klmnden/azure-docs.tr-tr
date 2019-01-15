@@ -10,12 +10,12 @@ ms.date: 01/08/19
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: ff7fb909e3f6e26846114c4b7bfdddccd07526ec
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 63ac30728cceae76f869f5529905cd6d3dde9ae2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188905"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263807"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack veri merkezi tümleştirmesi - kimlik
 Kimlik sağlayıcısı Azure Stack, Azure Active Directory (Azure AD) veya Active Directory Federasyon Hizmetleri (AD FS) kullanarak dağıtabilirsiniz. Azure Stack dağıtmadan önce seçim yapmanız gerekir. AD FS dağıtımı da bağlantı kesik moddayken Azure Stack dağıtımı olarak adlandırılır.
@@ -171,7 +171,7 @@ Aşağıdaki bilgiler gereklidir Otomasyon parametreler için giriş olarak:
 |Parametre|Açıklama|Örnek|
 |---------|---------|---------|
 |CustomAdfsName|Talep sağlayıcı adı. AD FS giriş sayfasında bu şekilde görünür.|Contoso|
-|CustomADFSFederationMetadataFileContent|Meta veri içeriği|$using: federationMetadataFileContent|
+|CustomADFSFederationMetadataFileContent|Meta veri içeriği|$using:federationMetadataFileContent|
 
 ### <a name="create-federation-metadata-file"></a>Federasyon meta veri dosyası oluşturma
 
@@ -319,7 +319,7 @@ Ortam, artık burada doğrulanabilir bir durumda bırakır bir hata oluşursa, b
 2. Ardından, aşağıdaki cmdlet'i çalıştırın:
 
    ```PowerShell  
-   Reset-DatacenterIntegationConfiguration
+   Reset-DatacenterIntegrationConfiguration
    ```
 
    Geri alma eylemi çalıştırdıktan sonra tüm yapılandırma değişiklikleri geri alınır. Yalnızca kimlik doğrulaması ile yerleşik **CloudAdmin** kullanıcı mümkündür.

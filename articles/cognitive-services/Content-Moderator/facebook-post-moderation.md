@@ -1,25 +1,25 @@
 ---
 title: 'Öğretici: Facebook içerik denetleme - Azure Content Moderator'
 titlesuffix: Azure Cognitive Services
-description: Facebook sayfalarını Content Moderator ile denetleyin.
+description: Bu öğreticide, Orta Facebook gönderilerinizi ve açıklamalar yardımcı olması için makine öğrenme tabanlı Content Moderator kullanmayı öğreneceksiniz.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: tutorial
-ms.date: 09/18/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 2b655e488b15b4520bc1de24b730f97269bddb4b
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 085ddaf757f2a11b4db4aadb22ad16009d29231e
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231810"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260456"
 ---
 # <a name="tutorial-facebook-content-moderation-with-content-moderator"></a>Öğretici: Content Moderator ile Facebook içerik denetleme
 
-Bu öğreticide, makine öğrenmesi tabanlı Content Moderator'ı kullanarak Facebook gönderilerini ve yorumlarını denetlemeyi öğreniyoruz.
+Bu öğreticide, Orta Facebook gönderilerinizi ve açıklamalar yardımcı olması için makine öğrenme tabanlı Content Moderator kullanmayı öğreneceksiniz.
 
 Öğretici, şu adımlarda size yol gösterir:
 
@@ -35,7 +35,7 @@ Aşağıdaki şekilde, çözümün yapı taşları gösterilir.
 
 ## <a name="create-a-content-moderator-team"></a>Content Moderator takımı oluşturma
 
-Content Moderator'a kaydolmak ve takım oluşturmak için [Hızlı Başlangıç](quick-start.md) sayfasına bakın.
+Başvurmak [deneyin Content Moderator Web'de](quick-start.md) Content Moderator için kaydolun ve bir takım oluşturmak için hızlı başlangıç.
 
 ## <a name="configure-image-moderation-workflow-threshold"></a>Görüntü moderasyonu iş akışını (eşik) yapılandırma
 

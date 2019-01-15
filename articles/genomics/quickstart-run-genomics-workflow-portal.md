@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı Başlangıç: Microsoft Genomiks aracılığıyla iş akışı çalıştırma'
+title: 'Hızlı Başlangıç: Microsoft Genomics bir iş akışı çalıştırma'
 description: Bu hızlı başlangıçta giriş verilerini Azure Blob Depolama'ya yükleme ve Microsoft Genomiks hizmeti üzerinden iş akışı çalıştırma adımları gösterilir.
 services: genomics
 author: grhuynh
@@ -7,26 +7,26 @@ manager: cgronlun
 ms.author: grhuynh
 ms.service: genomics
 ms.topic: quickstart
-ms.date: 12/07/2017
-ms.openlocfilehash: 152aa51c6dee12216dc9e5fac70f43f638c2c8da
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.date: 01/11/2019
+ms.openlocfilehash: 4c8d488021ca12a704a5c0a06bb0c491588bcaed
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242866"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261698"
 ---
-# <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Hızlı Başlangıç: Microsoft Genomiks hizmeti üzerinden iş akışı çalıştırma
+# <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Hızlı Başlangıç: Microsoft Genomics hizmeti üzerinden iş akışı çalıştırma
 
 Bu hızlı başlangıçta, giriş verilerini Azure Blob Depolama'ya yükleme ve Microsoft Genomiks hizmeti üzerinden iş akışı çalıştırma adımları gösterilir. Microsoft Genomiks, ham okumalardan başlayarak hizalanmış okumalar ve varyant ilanları üreten, bir genomu hızlı bir şekilde işleyebilen ikincil analize yönelik ölçeklenebilir ve güvenli bir hizmettir. 
 
 Birkaç adımda kullanmaya başlayabilirsiniz: 
-1.  Kurulum: Azure portalından bir Microsoft Genomiks hesabı oluşturup Microsoft Genomiks Genomics Python istemcisini yerel ortamınıza yükleyin. 
-2.  Giriş verilerini yükleme: Azure portalından bir Microsoft Azure depolama hesabı yükleyip giriş dosyalarını yükleyin. Giriş dosyalarının uç okumalarında eşleştirilmesi gerekir (fastq veya bam dosyaları).
-3.  Çalıştırma: Microsoft Genomiks komut satırı arabirimini kullanarak Microsoft Genomiks hizmeti üzerinden iş akışlarını çalıştırabilirsiniz. 
+1.  Ayarlayın: Azure portalından bir Microsoft Genomics hesabı oluşturup Microsoft Genomics Python istemcisini yerel ortamınıza yükleyin. 
+2.  Giriş verilerini yükleyin: Azure portalı üzerinden Microsoft Azure depolama hesabı oluşturma ve giriş dosyalarını yükleyin. Giriş dosyalarının uç okumalarında eşleştirilmesi gerekir (fastq veya bam dosyaları).
+3.  Çalıştırın: Microsoft Genomics hizmeti üzerinden iş akışlarını çalıştırmak için Microsoft Genomics komut satırı arabirimini kullanın. 
 
 Microsoft Genomiks hakkında daha fazla bilgi için bkz. [Microsoft Genomiks nedir?](overview-what-is-genomics.md)
 
-## <a name="set-up-create-a-microsoft-genomics-account-in-the-azure-portal"></a>Kurulum: Azure portalında bir Microsoft Genomiks hesabı oluşturma
+## <a name="set-up-create-a-microsoft-genomics-account-in-the-azure-portal"></a>Ayarlayın: Azure portalında Microsoft Genomics hesabı oluşturma
 
 Microsoft Genomiks hesabı oluşturmak için [Azure portalına](https://portal.azure.com/#create/Microsoft.Genomics) gidin. Azure aboneliğiniz yoksa Microsoft Genomiks hesabı oluşturmadan bir hesap açın. 
 
@@ -38,9 +38,9 @@ Genomiks hesabınızı bir önceki resimde gösterildiği gibi aşağıdaki bilg
 
  |**Ayar**          |  **Önerilen değer**  | **Alan açıklaması** |
  |:-------------       |:-------------         |:----------            |
- |Hesap adı         | MyGenomicsAccount     |Benzersiz bir hesap tanımlayıcı seçin. Geçerli adlar için bkz. [Adlandırma Kuralları](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
  |Abonelik         | Aboneliğinizin adı|Bu, Azure hizmetleriniz için faturalandırma birimidir. Aboneliğiniz hakkında ayrıntılı bilgi için bkz. [Abonelikler](https://account.azure.com/Subscriptions) |      
  |Kaynak grubu       | MyResourceGroup       |  Kaynak grupları kolay yönetim için birden fazla Azure kaynağını (depolama hesabı, genomiks hesabı vs.) tek bir grupta toplamanızı sağlar. Daha fazla bilgi için bkz. [Kaynak Grupları](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups). Geçerli kaynak grubu adları için bkz. [Adlandırma Kuralları](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
+ |Hesap adı         | MyGenomicsAccount     |Benzersiz bir hesap tanımlayıcı seçin. Geçerli adlar için bkz. [Adlandırma Kuralları](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
  |Konum                   | Batı ABD 2                    |    Bu hizmet Batı ABD 2, Batı Avrupa ve Güneydoğu Asya konumlarında kullanılabilir |
 
 
@@ -51,7 +51,7 @@ Dağıtım işlemini izlemek için üst menü çubuğundaki Bildirimler'e tıkla
 
 
 
-## <a name="set-up-install-the-microsoft-genomics-python-client"></a>Kurulum: Microsoft Genomiks Python istemcisini yükleme
+## <a name="set-up-install-the-microsoft-genomics-python-client"></a>Ayarlayın: Microsoft Genomics Python istemcisini yükleme
 
 Kullanıcıların hem Python hem de Microsoft Genomiks Python istemcisini yerel ortamlarına yüklemesi gerekir. 
 
@@ -59,7 +59,7 @@ Kullanıcıların hem Python hem de Microsoft Genomiks Python istemcisini yerel 
 
 Microsoft Genomiks Python istemcisi Python 2.7 ile uyumludur. 12 veya üzeri 2.7.xx sürümü; 2.7.15, bu makalenin yazıldığı sırada en yeni sürümdür; 2.7.14 önerilen sürümdür. Dosyayı [buradan](https://www.python.org/downloads/) indirebilirsiniz. 
 
-NOT: Python 3.x, Python 2.7.xx ile uyumlu değildir.  MSGen bir Python 2.7 uygulamasıdır. MSGen'i çalıştırırken etkin Python ortamınızda Python'un 2.7.xx sürümünün kullanıldığından emin olun. MSGen'i Python 3.x sürümüyle kullanmaya çalışırsanız hatalarla karşılaşabilirsiniz.
+NOT: Python 3.x Python 2.7.xx ile uyumlu değil.  MSGen bir Python 2.7 uygulamasıdır. MSGen'i çalıştırırken etkin Python ortamınızda Python'un 2.7.xx sürümünün kullanıldığından emin olun. MSGen'i Python 3.x sürümüyle kullanmaya çalışırsanız hatalarla karşılaşabilirsiniz.
 
 
 ### <a name="install-the-microsoft-genomics-client"></a>Microsoft Genomiks istemcisini yükleme
@@ -112,28 +112,22 @@ Azure depolama hesabınızda veri varsa Genomiks hesabınızla aynı konumda old
 
 ![Depolama oluşturma dikey penceresi](./media/quickstart-run-genomics-workflow-portal/genomics-storage-create-blade.png "Depolama oluşturma dikey penceresi")
 
-Depolama hesabınızı bir önceki resimde gösterildiği gibi aşağıdaki bilgilerle yapılandırın. Depolama hesabı için standart seçenekleri kullanın ve yalnızca hesabın genel amaçlı değil blob depolama için olduğunu belirtin. Blob depolama indirme ve yükleme işlemlerinde 2-5 kat daha yüksek hız sunabilir. 
+Depolama hesabınızı bir önceki resimde gösterildiği gibi aşağıdaki bilgilerle yapılandırın. Depolama hesabı için standart seçenekleri kullanın ve yalnızca hesabın genel amaçlı değil blob depolama için olduğunu belirtin. Blob depolama indirme ve yükleme işlemlerinde 2-5 kat daha yüksek hız sunabilir.  Kaynak Yöneticisi, varsayılan dağıtım modeli önerilir.  
 
 
  |**Ayar**          |  **Önerilen değer**  | **Alan açıklaması** |
  |:-------------------------       |:-------------         |:----------            |
- |Adı         | MyStorageAccount     |Benzersiz bir hesap tanımlayıcı seçin. Geçerli adlar için bkz. [Adlandırma Kuralları](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
- |Dağıtım Modeli         | Resource Manager| Önerilen dağıtım modeli Resource Manager'dır. Daha fazla bilgi için bkz. [Resource Manager dağıtımını anlama](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) |      
- |Hesap türü       | Blob depolama       |  Blob depolama indirme ve yükleme işlemlerinde genel amaçlı depolama alanından 2-5 kat daha yüksek hız sunabilir. |
- |Performans                  | Standart                   | Varsayılan olarak standart seçeneği kullanılır. Standart ve premium depolama hesapları hakkında daha fazla bilgi için bkz. [Microsoft Azure Depolama'ya giriş](https://docs.microsoft.com/azure/storage/common/storage-introduction)    |
- |Çoğaltma                  | Yerel olarak yedekli depolama                  | Yerel olarak yedekli depolama, verilerinizi depolama hesabınızı oluşturduğunuz bölgedeki veri merkezi içinde çoğaltır. Daha fazla bilgi için bkz. [Azure Depolama çoğaltma](https://docs.microsoft.com/azure/storage/common/storage-redundancy)    |
- |Güvenli aktarım gerekir                  | Devre dışı                 | Varsayılan olarak devre dışı seçeneği kullanılır. Veri aktarımı güvenliği hakkında daha fazla bilgi için bkz. [Güvenli aktarım gerektir](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)    |
- |Erişim katmanı                  | Sık Erişimli                   | Sık erişimli seçeneği, depolama hesabındaki nesnelere erişimin daha sık olduğunu belirtir.    |
  |Abonelik         | Azure aboneliğiniz |Aboneliğiniz hakkında daha ayrıntılı bilgi için bkz. [Abonelikler](https://account.azure.com/Subscriptions) |      
  |Kaynak grubu       | MyResourceGroup       |  Genomiks hesabınızla aynı kaynak grubunu seçebilirsiniz. Geçerli kaynak grubu adları için bkz. [Adlandırma Kuralları](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
- |Konum                  | Batı ABD 2                  | Çıkış ücretlerini ve gecikme süresini azaltmak için genomiks hesabınızla aynı konumu kullanın. Genomiks hizmeti Batı ABD 2, Batı Avrupa ve Güneydoğu Asya konumlarında kullanılabilir    |
- |Sanal ağlar                | Devre dışı                   | Varsayılan olarak devre dışı seçeneği kullanılır. Daha fazla bilgi için bkz. [Azure Sanal Ağları](https://docs.microsoft.com/azure/storage/common/storage-network-security)    |
+ |Depolama hesabı adı         | MyStorageAccount     |Benzersiz bir hesap tanımlayıcı seçin. Geçerli adlar için bkz. [Adlandırma Kuralları](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
+ |Konum                  | Batı ABD 2                  | Çıkış ücretlerini ve gecikme süresini azaltmak için genomiks hesabınızla aynı konumu kullanın.  | 
+ |Performans                  | Standart                   | Varsayılan olarak standart seçeneği kullanılır. Standart ve premium depolama hesapları hakkında daha fazla bilgi için bkz. [Microsoft Azure Depolama'ya giriş](https://docs.microsoft.com/azure/storage/common/storage-introduction)    |
+ |Hesap türü       | Blob depolama       |  Blob depolama indirme ve yükleme işlemlerinde genel amaçlı depolama alanından 2-5 kat daha yüksek hız sunabilir. |
+ |Çoğaltma                  | Yerel olarak yedekli depolama                  | Yerel olarak yedekli depolama, verilerinizi depolama hesabınızı oluşturduğunuz bölgedeki veri merkezi içinde çoğaltır. Daha fazla bilgi için bkz. [Azure Depolama çoğaltma](https://docs.microsoft.com/azure/storage/common/storage-redundancy)    |
+ |Erişim katmanı                  | Sık Erişimli                   | Sık erişimli seçeneği, depolama hesabındaki nesnelere erişimin daha sık olduğunu belirtir.    |
 
 
-
-
-
-Ardından depolama hesabınızı oluşturmak için Oluştur'a tıklayın. Genomiks Hesabınızı oluşturma işlemlerinde olduğu gibi üst menü çubuğundaki Bildirimler'e tıklayarak dağıtım işlemini izleyebilirsiniz. 
+Ardından `Review + create` depolama hesabınızı oluşturmak için. Genomiks Hesabınızı oluşturma işlemlerinde olduğu gibi üst menü çubuğundaki Bildirimler'e tıklayarak dağıtım işlemini izleyebilirsiniz. 
 
 
 ## <a name="upload-input-data-to-your-storage-account"></a>Giriş verilerini depolama hesabınıza yükleyin
@@ -156,6 +150,11 @@ Genomiks hesabınızdan indirdiğiniz config.txt dosyasını açın. Belirtmeniz
 
 
 ![Genomiks yapılandırması](./media/quickstart-run-genomics-workflow-portal/genomics-config.png "Genomiks yapılandırması")
+
+
+GATK4 çalıştırmak istiyorsanız, ayarlama `process_name` gatk4 veya gatk4 promosyon parametresi. GATK4 yükseltme hakkında daha fazla bilgi için ziyaret [bu sayfayı](https://aka.ms/msgatk4).
+
+Varsayılan olarak, Genomiks hizmeti VCF dosyaları çıkarır. Yerine bir VCF çıktısını bir gVCF gibi çıktısını alırsanız (eşdeğer `-emitRefConfidence` GATK içinde 3.x ve `emit-ref-confidence` GATK içinde 4.x), ekleme `emit_ref_confidence` parametresi, `config.txt` ve `gvcf`, yukarıdaki şekilde gösterildiği gibi.  VCF çıkışı değiştirmek için ya da kaldırabilirsiniz `config.txt` ayarlayın ya da dosya `emit_ref_confidence` parametresi `none`. 
 
 ### <a name="submit-your-workflow-to-the-microsoft-genomics-service-the-microsoft-genomics-client"></a>İş akışınızı Microsoft Genomiks hizmetine ve Microsoft Genomiks istemcisine gönderme
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: pbutlerm
-ms.openlocfilehash: cfcb33f9586033db9f4197a341227365d43601cc
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 0a18bcf9f9e1217b674bda5f5ae698908f1911a8
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232728"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262923"
 ---
 # <a name="publish-azure-application-offer"></a>Azure uygulama teklifi yayımlama
 
@@ -70,7 +70,7 @@ Gözden geçirme geri bildirim başvurulan VSTS öğeleri görüntülemek için 
 1. Aşağıdaki bilgileri toplayın:
     - Yayımcı adı ve kimliği
     - Teklif türü (Azure uygulamasına), adı ve SKU kimliği
-    - Örneğin çekme isteği bağlantı `https://solutiontemplates.visualstudio.com/marketplacesolutions/_git/jfrog/pullrequest/<number>`.  Bu URL, bildirim iletisini veya 401 yanıt sayfasının adresini alınabilir.
+    - Çekme isteği bağlantı, örneğin: `https://solutiontemplates.visualstudio.com/marketplacesolutions/_git/contoso/pullrequest/<number>`  Bu URL, bildirim iletisini veya 401 yanıt sayfasının adresini alınabilir.
     - Yayımlama kuruluşunuzdan için erişim izni istediğiniz kişilerin e-posta adresi.  Bu, bulut iş ortağı Portalı'nda bir yayımcı olarak kaydolurken sağladığınız sahibi adresleri içermelidir.
 2. Bir destek olayı oluşturun.  Bulut iş ortağı portalı başlık çubuğunda **yardımcı** düğmesine ve ardından **Destek** menüsünde.  Web varsayılan tarayıcıyı başlatın ve Microsoft yeni destek olay sayfasına gidin.  (Oturum açmanız gerekebilir.)
 3. Belirtin **sorun türü** olarak **Market ekleme** ve **kategori** olarak **erişim sorunu**, ardından **Başlat İstek**.
@@ -78,7 +78,7 @@ Gözden geçirme geri bildirim başvurulan VSTS öğeleri görüntülemek için 
     ![Destek bileti kategorisi](./media/support-incident1.png)
 
 4. İçinde **adım 1 / 2** sayfasında, iletişim bilgilerinizi girin ve seçin **devam**.
-5. İçinde **adım 2 / 2** sayfasında, bir olay başlığı belirtin ve (yukarıda) İlk adımda toplanan bilgiler sağlayın.  Okuma ve sözleşmesini kabul edin ve ardından **Gönder**.
+5. İçinde **adım 2 / 2** sayfasında, bir olay başlığı belirtin (örneğin `Request VSTS access`) ve (yukarıda) İlk adımda toplanan bilgileri sağlayın.  Okuma ve sözleşmesini kabul edin ve ardından **Gönder**.
 
 Olay oluşturma başarılı olduysa, bir onay sayfası görüntülenir.  Onay bilgileri daha sonra başvurmak üzere kaydedin.  Microsoft desteğine erişim isteğiniz birkaç iş günü içinde yanıt.
 

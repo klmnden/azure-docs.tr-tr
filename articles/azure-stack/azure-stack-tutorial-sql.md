@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 50f5662fa574b512ab607e17dbdfcf1861e2f5c6
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: b123caebfdba94b8b5e1c7bcf1c8a998d5199fda
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954921"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259759"
 ---
-# <a name="tutorial-offer-highly-available-sql-databases"></a>Öğretici: yüksek oranda kullanılabilir SQL veritabanı teklifi
+# <a name="tutorial-offer-highly-available-sql-databases"></a>Öğretici: Yüksek oranda kullanılabilir SQL veritabanı teklifi
 
 Azure Stack operatör, SQL Server veritabanlarını barındırmak için server Vm'leri yapılandırabilirsiniz. Sonra bir SQL barındırma sunucusu başarıyla, oluşturulan ve Azure Stack tarafından yönetilen SQL veritabanları SQL hizmetlerine abone olan kullanıcılar kolayca oluşturabilirsiniz.
 
@@ -163,7 +163,7 @@ Sonra SQL kullanılabilirlik grubu oluşturulduğundan, yapılandırılmış ve 
 
 3. Seçin **SKU** uygun SQL barındırma sunucusu kullanmak için SKU seçin. Bu örnekte, Azure Stack operatörü oluşturduğu **Kurumsal-HA** SQL AlwaysOn Kullanılabilirlik grupları için yüksek kullanılabilirliği desteklemek için SKU.
 
-   ![SKU'ları seçin](./media/azure-stack-tutorial-sqlrp/createdb2.png)
+   ![Select SKU](./media/azure-stack-tutorial-sqlrp/createdb2.png)
 
 4. Seçin **oturum açma** > **yeni bir oturum açma oluşturma** ve ardından yeni veritabanı için kullanılacak SQL kimlik doğrulaması kimlik bilgilerini sağlayın. İşiniz bittiğinde tıklayın **Tamam** ardından **Oluştur** veritabanı dağıtım işlemini başlatmak için.
 

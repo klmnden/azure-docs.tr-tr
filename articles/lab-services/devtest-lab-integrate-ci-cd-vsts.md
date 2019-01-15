@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 459b06df954d9cc913b6d1503c9f876f93b494e9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: bcc39f2d8cf1ca0440f8028464d9041435914477
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082960"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263416"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-devops-continuous-integration-and-delivery-pipeline"></a>Azure DevTest Labs, Azure DevOps, sürekli tümleştirme ve teslim işlem hattı tümleştirme
 Kullanabileceğiniz *Azure DevTest Labs görevlerini* Azure DevOps kolayca yüklenir uzantısı, Azure DevTest Labs ile CI/CD derleme ve yayın işlem hattınızı tümleştirin. Üç görevin uzantıyı yükleyen: 
@@ -85,7 +85,7 @@ Bu bölümde, isteğe bağlı bir Azure sanal makinesi oluşturmak için kulland
 
 1. Betik, kaynak denetim sistemine iade edin. Şöyle adlandırın **GetLabVMParams.ps1**.
 
-   Bu betik, aracıda sürüm ardışık düzeninin bir parçası olarak çalıştırmak ve görev adımları gibi kullanırsanız *Azure dosya kopyalama* veya *PowerShell hedef makinede*, komut dosyası için gereken değerleri toplar. Uygulamanızı VM dağıtın. Normalde, uygulamalarını bir Azure VM dağıtmak için bu görevleri kullanmanız gerekir. Görevler, VM kaynak grubu adı, IP adresi ve tam etki alanı adı (FDQN) gibi değerleri gerektirir.
+   Bu betik, aracıda sürüm ardışık düzeninin bir parçası olarak çalıştırmak ve görev adımları gibi kullanırsanız *Azure dosya kopyalama* veya *PowerShell hedef makinede*, komut dosyası için gereken değerleri toplar. Uygulamanızı VM dağıtın. Normalde, uygulamalarını bir Azure VM dağıtmak için bu görevleri kullanmanız gerekir. Görevler, VM kaynak grubu adı, IP adresi ve tam etki alanı adı (FQDN) gibi değerleri gerektirir.
 
 ## <a name="create-a-release-pipeline-in-release-management"></a>Release Management'ta yayın işlem hattı oluşturma
 Yayın işlem hattı oluşturmak için aşağıdakileri yapın:

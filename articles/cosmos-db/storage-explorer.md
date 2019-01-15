@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: dech
 ms.custom: seodec18
-ms.openlocfilehash: d19aaa6e486732cb1453e3299c8e598e8fd2f507
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 24df1cb5b7a9cc1209940bbaaa1217a80ea74918
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044629"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259657"
 ---
 # <a name="manage-azure-cosmos-db-resources-using-azure-storage-explorer"></a>Azure Depolama Gezgini'ni kullanarak Azure Cosmos DB kaynaklarını yönetme
 
@@ -266,7 +266,7 @@ Bir hesabı kaldıramıyorsanız veya yeniden kimlik doğrulama bağlantısı bi
   - .extaccounts
 - SAS bağlı Depolama kaynaklarını kaldırmak istiyorsanız şunları silin:
   - Windows için %AppData%/StorageExplorer klasörü
-  - Mac için /Users/<your_name>/Library/Applicaiton SUpport/StorageExplorer
+  - /Users/ < your_name >/Library/Application SUpport/StorageExplorer Mac için
   - Linux için ~/.config/StorageExplorer
   - Bu dosyaları silerseniz **tüm kimlik bilgilerinizi yeniden girmeniz gerekir**
 

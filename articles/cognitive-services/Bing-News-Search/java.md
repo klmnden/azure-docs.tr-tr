@@ -8,107 +8,103 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: quickstart
-ms.date: 9/21/2017
+ms.date: 1/10/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 9933f1c54e6081ed3f1004712543610a7883736b
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: f8a98133d68cb73958664dd04bb2d959c97195cf
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53260965"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263858"
 ---
 # <a name="quickstart-perform-a-news-search-using-java-and-the-bing-news-search-rest-api"></a>Hızlı Başlangıç: Java ve Bing haber arama REST API'si kullanarak bir haber arama yapın
 
-Bu makale, Azure'daki Microsoft Bilişsel Hizmetleri'nin parçası olan Bing Arama API'sini kullanmayı göstermektedir. Bu makalede Java kullanılmakla birlikte, API, HTTP istekleri yapabilecek ve JSON ayrıştırabilecek her programlama diliyle uyumlu bir RESTful Web hizmetidir. 
+Bu hızlı başlangıçta, Bing haber arama API'si, ilk çağrı yapmak ve JSON yanıtı görüntülemek için kullanın. Bu basit bir Java uygulaması API için bir haber arama sorgu gönderir ve yanıtını görüntüler.
 
-Örnek kod, Java 7 ile bir konsol uygulaması olarak çalışmak üzere yazılmıştır.
+Bu uygulama Java ile yazılmış olmakla birlikte API, çoğu programlama diliyle uyumlu bir RESTful Web hizmetidir.
 
-API'lerle ilgili teknik ayrıntılar için [API başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)'na bakın.
+Bu örnek için kaynak kodu kullanılabilir [github'da](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingNewsSearchv7.java) 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-**Bing Arama API'leri**'nde bir [Bilişsel Hizmetler API hesabınız](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) olması gerekir. [Ücretsiz deneme](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) bu hızlı başlangıç için yeterlidir. Ücretsiz denemenizi etkinleştirdiğinizde sağlanan erişim anahtarınız olması veya Azure panonuzdan ücretli bir abonelik anahtarı kullanmanız gerekir. Ayrıca bkz: [Bilişsel hizmetler fiyatlandırması - Bing arama API'si](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+* [Java Development Kit (JDK) 7 veya 8](https://aka.ms/azure-jdks)
 
-## <a name="bing-news-search"></a>Bing Haber Arama
+* [Gson kitaplığı](https://github.com/google/gson)
 
-[Bing Haber Arama API'si](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) Bing arama motorundan haber sonuçları döndürür.
 
-1. [Gson kitaplığı](https://github.com/google/gson)’nı indirip yükleyin.
-2. Tercih ettiğiniz IDE veya düzenleyicide bir Java projesi oluşturun.
-3. Aşağıda sağlanan kodu ekleyin.
-4. `subscriptionKey` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
-5. Programı çalıştırın.
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
-```java
-import java.net.*;
-import java.util.*;
-import java.io.*;
-import javax.net.ssl.HttpsURLConnection;
+Ayrıca bkz: [Bilişsel hizmetler fiyatlandırması - Bing arama API'si](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
-/*
- * Gson: https://github.com/google/gson
- * Maven info:
- *     groupId: com.google.code.gson
- *     artifactId: gson
- *     version: 2.8.1
- *
- * Once you have compiled or downloaded gson-2.8.1.jar, assuming you have placed it in the
- * same folder as this file (BingNewsSearch.java), you can compile and run this program at
- * the command line as follows.
- *
- * javac BingNewsSearch.java -classpath .;gson-2.8.1.jar -encoding UTF-8
- * java -cp .;gson-2.8.1.jar BingNewsSearch
- */
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+## <a name="create-and-initialize-a-project"></a>Proje oluşturma ve başlatma
 
-public class BingNewsSearch {
+1. Sık kullandığınız IDE ortamında veya düzenleyicide yeni bir Java projesi oluşturun ve aşağıdaki kitaplıkları içeri aktarın.
 
-// ***********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+    ```java
+    import java.net.*;
+    import java.util.*;
+    import java.io.*;
+    import javax.net.ssl.HttpsURLConnection;
+    import com.google.gson.Gson;
+    import com.google.gson.GsonBuilder;
+    import com.google.gson.JsonObject;
+    import com.google.gson.JsonParser;
+    ```
 
-    // Replace the subscriptionKey string value with your valid subscription key.
-    static String subscriptionKey = "enter key here";
+2. Değişkenleri için abonelik anahtarınızı API uç noktası ile yeni bir sınıf oluşturun ve arama terimi.
 
-    // Verify the endpoint URI.  At this writing, only one endpoint is used for Bing
-    // search APIs.  In the future, regional endpoints may be available.  If you
-    // encounter unexpected authorization errors, double-check this value against
-    // the endpoint for your Bing Web search instance in your Azure dashboard.
-    static String host = "https://api.cognitive.microsoft.com";
-    static String path = "/bing/v7.0/news/search";
-
-    static String searchTerm = "Microsoft";
-
+    ```java
     public static SearchResults SearchNews (String searchQuery) throws Exception {
-        // construct URL of search request (endpoint + query string)
+        static String subscriptionKey = "enter key here";
+        static String host = "https://api.cognitive.microsoft.com";
+        static String path = "/bing/v7.0/news/search";
+        static String searchTerm = "Microsoft";
+    //...
+    }
+    ```
+
+## <a name="construct-the-search-request-and-recieve-a-json-response"></a>Arama isteği oluşturun ve bir JSON yanıtı alırsınız.
+
+1. API isteğine yönelik bir arama URL’sini biçimlendirmek için son adımdaki değişkenleri kullanın. Arama teriminizin isteğe eklenmeden önce URL olarak kodlanmış olması gerektiğini unutmayın.
+
+    ```java
+    public static SearchResults SearchNews (String searchQuery) throws Exception {
+        // construct the search request URL (in the form of URL + query string)
         URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8"));
         HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
         connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
-
-        // receive JSON body
-        InputStream stream = connection.getInputStream();
-        String response = new Scanner(stream).useDelimiter("\\A").next();
-
-        // construct result object for return
-        SearchResults results = new SearchResults(new HashMap<String, String>(), response);
-
-        // extract Bing-related HTTP headers
-        Map<String, List<String>> headers = connection.getHeaderFields();
-        for (String header : headers.keySet()) {
-            if (header == null) continue;      // may have null key
-            if (header.startsWith("BingAPIs-") || header.startsWith("X-MSEdge-")) {
-                results.relevantHeaders.put(header, headers.get(header).get(0));
-            }
-        }
-
-        stream.close();
-        return results;
     }
+    ```
 
+2. Bing haber arama API'si JSON yanıtını alma ve sonuç nesnesi oluşturur.
+
+    ```java
+    // receive JSON body
+    InputStream stream = connection.getInputStream();
+    String response = new Scanner(stream).useDelimiter("\\A").next();
+    // construct result object for return
+    SearchResults results = new SearchResults(new HashMap<String, String>(), response);
+    ```
+
+## <a name="process-the-json-response"></a>İşlem JSON yanıtı
+
+1. Bing ilgili HTTP üstbilgileri JSON gövdesinden ayıran sonra akış kapatın ve sonra da API yanıtı döndürür.
+    ```java
+    // extract Bing-related HTTP headers
+    Map<String, List<String>> headers = connection.getHeaderFields();
+    for (String header : headers.keySet()) {
+        if (header == null) continue;      // may have null key
+        if (header.startsWith("BingAPIs-") || header.startsWith("X-MSEdge-")) {
+            results.relevantHeaders.put(header, headers.get(header).get(0));
+        }
+    }
+    stream.close();
+    return results;
+    ```
+
+2. JSON reserialize ve ayrıştırmak için bir yöntem oluşturma
+    ```java
     // pretty-printer for JSON; uses GSON parser to parse and re-serialize
     public static String prettify(String json_text) {
         JsonParser parser = new JsonParser();
@@ -116,39 +112,23 @@ public class BingNewsSearch {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         return gson.toJson(json);
     }
+    ```
 
-    public static void main (String[] args) {
-        try {
-            System.out.println("Searching the Web for: " + searchTerm);
-
-            SearchResults result = SearchNews(searchTerm);
-
-            System.out.println("\nRelevant HTTP Headers:\n");
-            for (String header : result.relevantHeaders.keySet())
-                System.out.println(header + ": " + result.relevantHeaders.get(header));
-
-            System.out.println("\nJSON Response:\n");
-            System.out.println(prettify(result.jsonResponse));
-        }
-        catch (Exception e) {
-            e.printStackTrace(System.out);
-            System.exit(1);
-        }
+3. Ana yöntemde, uygulamanızın arama yöntemini çağırın ve sonuçları görüntüler.
+    ```csharp
+   public static void main (String[] args) {
+       System.out.println("Searching the Web for: " + searchTerm);
+       SearchResults result = SearchNews(searchTerm);
+    
+       System.out.println("\nRelevant HTTP Headers:\n");
+       for (String header : result.relevantHeaders.keySet())
+             System.out.println(header + ": " + result.relevantHeaders.get(header));  
+    System.out.println("\nJSON Response:\n");
+    System.out.println(prettify(result.jsonResponse));
     }
-}
+    ```
 
-// Container class for search results encapsulates relevant headers and JSON data
-class SearchResults{
-    HashMap<String, String> relevantHeaders;
-    String jsonResponse;
-    SearchResults(HashMap<String, String> headers, String json) {
-        relevantHeaders = headers;
-        jsonResponse = json;
-    }
-}
-```
-
-**Yanıt**
+## <a name="json-response"></a>JSON yanıtı
 
 Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür:
 
@@ -247,8 +227,4 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Haberleri sayfalara bölme](paging-news.md)
-> [Metni vurgulamak için süsleme işaretçilerini kullanma](hit-highlighting.md)
-> [Web'de haber arama](search-the-web.md)   
-> [Deneyin](https://azure.microsoft.com/services/cognitive-services/bing-news-search-api/)
-
+> [Tek sayfalı web uygulaması oluşturma](tutorial-bing-news-search-single-page-app.md)

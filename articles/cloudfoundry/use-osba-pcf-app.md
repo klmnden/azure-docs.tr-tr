@@ -5,17 +5,17 @@ manager: jeconnoc
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.author: zarhoads
-ms.date: 01/18/2019
+ms.date: 01/11/2019
 ms.topic: tutorial
 description: İçin Azure veritabanı kullanan bir açık hizmet aracısı için Pivotal Cloud Foundry uygulamasının nasıl yapılandırılacağını açıklar
 keywords: Pivotal Cloud Foundry, Cloud Foundry açık hizmet Aracısı, Azure için açık hizmet Aracısı
 tags: Cloud-Foundry
-ms.openlocfilehash: cbaf1bc65950abb88630e90a62c4c1f5a8d3e7ec
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: d553cd09ef42e47e3a10fb96039063b8aae665cb
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244095"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258895"
 ---
 # <a name="tutorial-use-an-open-service-broker-for-azure-database-with-an-application-on-pivotal-cloud-foundry"></a>Öğretici: Bir açık hizmet aracısı için Azure veritabanı ile Pivotal Cloud Foundry üzerinde bir uygulama kullanma
 

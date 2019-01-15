@@ -7,16 +7,16 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 01/30/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 0948251c18ad8eece974914ee33dff18b5930553
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 03545d61bf385c4d2e7bd29099be5af47aee74c9
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53535812"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259062"
 ---
-# <a name="text-moderation"></a>Metin denetimi
+# <a name="learn-text-moderation-concepts"></a>Metin denetimi kavramları öğrenin
 
 Content Moderator'ın makine destekli metin denetimi kullanın ve [insan tarafından İnceleme](Review-Tool-User-Guide/human-in-the-loop.md) metin içeriğini denetlemek özellikleri.
 

@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/4/2018
+ms.date: 1/4/2019
 ms.author: rkarlin
-ms.openlocfilehash: f9cc6f5c35b528d3a545293b9a946bc3eda3d7ac
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 52af6051b4534ba65b4822205cb5395a59ef9d6a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339341"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259973"
 ---
 # <a name="working-with-security-policies"></a>Güvenlik ilkeleriyle çalışma
 
@@ -28,12 +28,15 @@ Bu makalede, güvenlik ilkeleri nasıl yapılandırılır ve bunları Güvenlik 
 
 PowerShell kullanarak ilkeler ayarlama konusunda yönergeler için bkz: [hızlı başlangıç: Azure RM PowerShell modülünü kullanarak uyumlu olmayan kaynakları belirlemek üzere bir ilke ataması oluşturma](../azure-policy/assign-policy-definition-ps.md).
 
+>[!NOTE]
+> Güvenlik Merkezi tümleştirmesi, Azure İlkesi ile başlatıldı. Mevcut müşteriler, Azure İlkesi ' nde yerleşik yeni girişim yerine önceki Güvenlik Merkezi'nde güvenlik ilkeleri için otomatik olarak geçirilecektir. Bu değişiklik, kaynakları veya Azure İlkesi'nde yeni girişim varlığını dışında ortamının etkilemez.
+
 ## <a name="what-are-security-policies"></a>Güvenlik ilkeleri nedir?
 Güvenlik ilkesi iş yüklerinizin istenen yapılandırmasını tanımlar ve şirketin veya yasal düzenlemelerin gerektirdiği güvenlik gereksinimlerine uyum sağlanmasına yardımcı olur. Azure İlkesi'nde Azure Abonelikleriniz için ilkeler tanımlayın ve bunları iş yükü türüne veya verilerinizin duyarlılığına göre uygun hale getirin. Örneğin, kişisel bilgiler gibi düzenlenen veriler kullanan uygulamalar, diğer iş yükleri yüksek seviyede güvenliği gerektirebilir. Abonelikler arasında ya da Yönetim grupları bir ilke ayarlamak için bunları kümesinde [Azure İlkesi](../azure-policy/azure-policy-introduction.md).
 
-
-
 Güvenlik ilkelerinizi size Azure Güvenlik Merkezi'nde güvenlik önerilerini. Uyumluluk, olası zayıflıkları belirlemek ve tehditleri önlemeye yardımcı olmak için onlarla izleyebilirsiniz. Listesini sizin için uygun seçeneği belirleme hakkında daha fazla bilgi için bkz. [yerleşik güvenlik ilkeleri](security-center-policy-definitions.md).
+
+Güvenlik Merkezi'ni etkinleştirdiğinizde, yerleşik Güvenlik Merkezi güvenlik ilkesi, yerleşik bir girişim kategorisi Güvenlik Merkezi altında olarak Azure İlkesi'nde yansıtılır. Yerleşik intitiative tüm Güvenlik Merkezi kayıtlı abonelikler (ücretsiz veya standart katmanları) otomatik olarak atanır. Yerleşik girişim yalnızca denetim ilkeleri içerir. 
 
 
 ### <a name="management-groups"></a>Yönetim grupları
@@ -57,8 +60,6 @@ Bir Azure ilkesi aşağıdaki bileşenlerden oluşur:
 - Bir **girişim** ilkeleri oluşan bir koleksiyondur.
 - Bir **atama** bir ilke veya girişim uygulama belirli bir kapsama (Yönetim grubu, abonelik veya kaynak grubu).
 
-Bir kaynak, kendisine atanmış olan ilkelere göre değerlendirilir ve kaynağın uyumlu olduğu ilke sayısına göre bir uyumluluk oranına sahip olur.
-
 ## <a name="view-security-policies"></a>Güvenlik ilkelerini görüntüleme
 
 Güvenlik Merkezi'nde güvenlik ilkelerinizi görüntüleme:
@@ -76,12 +77,9 @@ Güvenlik Merkezi'nde güvenlik ilkelerinizi görüntüleme:
   Tablodaki sütunlar şunları gösterir:
 
  - **İlke girişimi atama** – Güvenlik Merkezi [yerleşik ilkeleri](security-center-policy-definitions.md) ve bir abonelik veya yönetim grubuna atanmış olan girişim.
- - **Uyumluluk** – genel bir yönetim grubu, abonelik veya çalışma alanı için Uyumluluk puanı. Puan, atamaların ağırlıklı ortalamasıdır. Ağırlıklı ortalama, tek bir atamadaki ilke sayısını ve atamanın uygulandığı kaynak sayısını etkiler.
-
- Örneğin aboneliğinizde iki VM ve atanmış beş ilkeli bir girişim varsa aboneliğinizde 10 atama olur. VM'lerin biri ilkelerin ikisiyle uyumlu değilse aboneliğinizin genel uyumluluk puanı %80 olur.
-
  - **Kapsamı** – boş veya yönetim grubu, abonelik veya çalışma çalıştığı standart fiyatlandırma katmanı tanımlar.  Güvenlik Merkezi’nin fiyatlandırma katmanları hakkında daha fazla bilgi almak için bkz. [Fiyatlandırma](security-center-pricing.md).
  - **Ayarları** – aboneliğiniz bağlantıyı **ayarlarını Düzenle**. Seçme **ayarlarını Düzenle** güncelleştirmenize olanak tanır, [Güvenlik Merkezi Ayarları](security-center-policies-overview.md) her abonelik veya yönetim grubu için.
+ - **Güvenli puanı** - [güvenli puanı](security-center-secure-score.md) nasıl güvenli bir iş yükü güvenlik duruşunu bir ölçü sağlar ve iyileştirme önerileri önceliğini belirlemeye yardımcı olur.
 
 2. İlkeleri görüntülemek istediğiniz abonelik veya yönetim grubunu seçin.
 
@@ -157,7 +155,7 @@ Bu örnekte, yerleşik Güvenlik Merkezi girişimine aboneliği devre dışı a�
 
 - Sistem güncelleştirmeleri ("systemUpdatesMonitoringEffect") 
 
-- Güvenlik yapılandırmalarını ("systemConfigurationsMonitoringEffect") 
+- Security configurations ("systemConfigurationsMonitoringEffect") 
 
 - Uç nokta Koruması ("endpointProtectionMonitoringEffect") 
 

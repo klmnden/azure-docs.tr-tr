@@ -8,19 +8,19 @@ author: derek1ee
 ms.author: deli
 ms.reviewer: klam, estfan, LADocs
 ms.topic: article
-ms.date: 08/25/2018
-ms.openlocfilehash: 0c30ffec58b1542fa80cf0c9873a0e6df8641104
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.date: 01/13/2019
+ms.openlocfilehash: b58059727a383e978691bfbbee77a1f6b04692ce
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232554"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264335"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Azure Logic Apps ile şirket içi dosya sistemlerine bağlanın
 
 Dosya sistemi Bağlayıcısı ve Azure Logic Apps ile otomatik görevler oluşturabilir ve bir şirket içi dosya çubuğunda dosyaları oluşturmak ve yönetmek, iş akışları paylaşın, örneğin:  
 
-- Oluşturma, alma, ekleme, güncelleştirme ve dosyaları sil
+- Oluşturma, alma, ekleme, güncelleştirme ve dosyaları silin.
 - Klasörleri veya kök klasörleri dosyalarını listeleyin.
 - Dosya içeriğini ve meta verileri alın.
 
@@ -28,13 +28,17 @@ Bu makalede bu örnek senaryo tarafından açıklandığı gibi bir şirket içi
 
 ## <a name="prerequisites"></a>Önkoşullar
 
+Örneği takip etmek için bu öğeler gerekir:
+
 * Azure aboneliği. Azure aboneliğiniz yoksa <a href="https://azure.microsoft.com/free/" target="_blank">ücretsiz bir Azure hesabı için kaydolun</a>. 
 
 * Şirket içi sistemlere mantıksal uygulamalar gibi dosya sistemi sunucunuza bağlanabilmesi için önce yapmanız [yükleyin ve bir şirket içi veri ağ geçidi ayarlama](../logic-apps/logic-apps-gateway-install.md). Böylece, ağ geçidi yüklemenizi mantıksal uygulamanızdan dosya sistemi bağlantısı oluştururken kullanılacak belirtebilirsiniz.
 
-* A [Drobox hesabı](https://www.dropbox.com/) ve kullanıcı kimlik bilgilerinizi
+* A [Drobox hesabı](https://www.dropbox.com/) ve hesap kimlik bilgilerinizi. DropBox kimlik bilgilerinizi, mantıksal uygulamanız ve Drobox hesabınız arasında bir bağlantı oluşturmak için gereklidir. 
 
-  Mantıksal uygulamanızı bir bağlantı oluşturup Drobox hesabınıza erişmek için kimlik bilgilerinizi yetkilendirin. 
+* Erişmek istediğiniz dosya sistemi olan bilgisayar hesabı kimlik bilgileriniz. Veri ağ geçidi, dosya sistemi ile aynı bilgisayara yüklerseniz, örneğin, daha sonra hesap kimlik bilgilerini o bilgisayar için gerekir. 
+
+* Office 365 Outlook, Outlook.com veya Gmail gibi Logic Apps tarafından desteklenen bir sağlayıcıdan e-posta hesabı. Diğer sağlayıcılar için [buradaki bağlayıcı listesini inceleyin](https://docs.microsoft.com/connectors/). Bu mantıksal uygulama bir Office 365 Outlook hesabı kullanır. Başka bir e-posta hesabı kullanıyorsanız genel adımlar aynıdır, ancak kullanıcı arabirimi biraz farklı olabilir. 
 
 * Hakkında temel bilgilere [mantıksal uygulamalar oluşturmak nasıl](../logic-apps/quickstart-create-first-logic-app-workflow.md). Bu örnekte, boş bir mantıksal uygulama gerekir.
 
@@ -44,7 +48,7 @@ Bu makalede bu örnek senaryo tarafından açıklandığı gibi bir şirket içi
 
 1. Oturum [Azure portalında](https://portal.azure.com)ve Logic Apps Tasarımcısı'nda mantıksal uygulamanızı açın, açık değilse.
 
-1. Arama kutusuna filtreniz olarak "dropbox" girin. Tetikleyiciler listesinden şu tetikleyiciyi seçin: **bir dosya oluşturulduğunda** 
+1. Arama kutusuna filtreniz olarak "dropbox" girin. Tetikleyiciler listesinden şu tetikleyiciyi seçin: **Bir dosya oluşturulduğunda** 
 
    ![Dropbox tetikleyicisini seçin](media/logic-apps-using-file-connector/select-dropbox-trigger.png)
 
@@ -56,7 +60,7 @@ Bu makalede bu örnek senaryo tarafından açıklandığı gibi bir şirket içi
 
 ## <a name="add-actions"></a>Eylemler ekleyin
 
-1. Tetikleyici altında seçin **sonraki adım**. Arama kutusuna filtreniz olarak "dosya sistemi" girin. Eylem listesinden şu eylemi seçin: **dosyası - dosya sistemi oluşturun**
+1. Tetikleyici altında seçin **sonraki adım**. Arama kutusuna filtreniz olarak "dosya sistemi" girin. Eylem listesinden şu eylemi seçin: **Dosya sistemi - dosya oluştur**
 
    ![Dosya sistemi bağlayıcısını bulun](media/logic-apps-using-file-connector/find-file-system-action.png)
 
@@ -64,13 +68,13 @@ Bu makalede bu örnek senaryo tarafından açıklandığı gibi bir şirket içi
 
    ![Bağlantı oluşturma](media/logic-apps-using-file-connector/file-system-connection.png)
 
-   | Özellik | Gerekli | Değer | Açıklama | 
+   | Özellik | Gereklidir | Değer | Açıklama | 
    | -------- | -------- | ----- | ----------- | 
    | **Bağlantı Adı** | Evet | <*Bağlantı adı*> | Bağlantınız için istediğiniz adı | 
-   | **Kök klasör** | Evet | <*kök klasör adı*> | Şirket içi veri ağ geçidinin yüklendiği bilgisayardaki yerel bir klasöre ya da klasör bilgisayarın erişebileceği bir ağ paylaşımı için gibi dosya sistemi için kök klasör. <p>Örneğin, `\\PublicShare\\DropboxFiles` <p>Kök klasörüne göreli yollar için dosya ile ilgili tüm eylemleri için kullanılan ana üst klasördür. | 
+   | **Kök klasör** | Evet | <*kök klasör adı*> | Örneğin, şirket içi veri ağ geçidinin yüklendiği bilgisayarda yerel bir klasör gibi şirket içi veri ağ geçidi yüklediyseniz, dosya sistemi için kök klasör veya bilgisayarın erişebileceği bir ağ paylaşımı için bir klasör. <p>Örneğin, `\\PublicShare\\DropboxFiles` <p>Kök klasörüne göreli yollar için dosya ile ilgili tüm eylemleri için kullanılan ana üst klasördür. | 
    | **Kimlik doğrulaması türü** | Hayır | <*kimlik doğrulama türü*> | Dosya sistemini kullanır, örneğin, kimlik doğrulaması türü **Windows** | 
-   | **Kullanıcı Adı** | Evet | <*etki alanı*>\\<*kullanıcı adı*> | Daha önce yüklenen veri ağ geçidiniz için kullanıcı adı | 
-   | **Parola** | Evet | <*Parolanızı*> | Daha önce yüklenen bir data gateway parolası | 
+   | **Kullanıcı Adı** | Evet | <*etki alanı*>\\<*kullanıcı adı*> | Dosya sisteminizi sahip olduğunuz bilgisayar için kullanıcı adı | 
+   | **Parola** | Evet | <*Parolanızı*> | Dosya sisteminizi sahip olduğu bilgisayar parolası | 
    | **Ağ geçidi** | Evet | <*yüklü-gateway-name*> | Daha önce yüklü ağ geçidi adı | 
    ||| 
 

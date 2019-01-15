@@ -12,19 +12,28 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/20/2018
+ms.date: 1/9/2018
 ms.author: rkarlin
-ms.openlocfilehash: 1948cee033ecb8b50fdd75513a07766490568600
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 3c2da9830a8ddbce842d959ba086bf4eb30d5fdb
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337266"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258773"
 ---
 # <a name="provide-security-contact-details-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde güvenlik kişi ayrıntılarını sağlama
 Azure Güvenlik Merkezi, henüz yapmadıysanız, Azure aboneliğiniz için güvenlik kişi ayrıntılarını sağlama önerir. Bu bilgiler, Microsoft Güvenlik Yanıt Merkezi (MSRC) müşteri verilerinize yasadışı veya yetkisiz bir tarafın eriştiğini belirlerse Microsoft tarafından sizinle iletişim kurmak için kullanılır. MSRC select güvenlik Azure ağ ve altyapı izleme gerçekleştirir ve Üçüncü taraflardan tehdit zekası ve kötüye kullanımı şikayetlerinin alır.
 
-İlk günlük örneğinde bir uyarı ve yalnızca yüksek önem düzeyindeki uyarılar için e-posta bildirimi gönderilir. E-posta tercihleri yalnızca abonelik ilkeleri için yapılandırılabilir. Bir abonelik içindeki kaynak grupları, bu ayarları devralır.
+İlk günlük örneğinde bir uyarı ve yalnızca yüksek önem düzeyindeki uyarılar için e-posta bildirimi gönderilir. E-posta tercihleri yalnızca abonelik ilkeleri için yapılandırılabilir. Bir abonelik içindeki kaynak grupları, bu ayarları devralır. 
+
+Uyarı e-posta bildirimi gönderilir:
+- Yalnızca yüksek önem düzeyindeki uyarılar için
+- Her gün başına uyarı türü için bir tek e-posta alıcı  
+- Tek bir günde gönderilen en fazla 3 e-posta iletileri için tek bir alıcı
+- Her e-posta iletisi olmayan bir toplama uyarıları tek bir uyarı içeriyor
+ 
+Bir RDP saldırısı hakkında uyarmak için zaten bir e-posta iletisi gönderildi, başka bir uyarı tetiklenir bile gibi aynı günde bir RDP saldırısı hakkında başka bir e-posta iletisi alırsınız değil. 
+ 
 
 > [!NOTE]
 > Bu belge, örnek bir dağıtım kullanarak hizmeti tanıtır.  Bu, adım adım ilerleyen bir kılavuz değildir.

@@ -1,42 +1,42 @@
 ---
-title: API Konsolu - Content Moderator özel listeleri kullanarak orta görüntüleri
+title: Özel listeler ve API Konsolu - Content Moderator ile orta görüntüleri
 titlesuffix: Azure Content Moderator
-description: Content Moderator API'si konsolunda özel görüntü listeleriyle test edin.
+description: Özel görüntüleri listesi oluşturmak için Azure Content Moderator listesi yönetim API'sini kullanın.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 08/05/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 5e573262879b6a16e3cd530757900b86228ae299
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: c42fdb037e1803db8255518f5c7ae7b2abd90c60
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219966"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259368"
 ---
 # <a name="moderate-with-custom-image-lists-in-the-api-console"></a>Özel görüntü listeleriyle API konsolundaki Orta
 
 Kullandığınız [listesi Yönetimi API'sini](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672) özel görüntüleri listesi oluşturmak için Azure Content Moderator içinde. Görüntü denetimi API'si ile özel görüntüleri listesini kullanın. Görüntü denetimi işlemi görüntünüzü değerlendirir. Özel listeler oluşturursanız, işlemi de listelerinizin özel görüntüleri karşılaştırır. Görüntü veya özel listeleri kullanabilirsiniz.
 
 > [!NOTE]
-> Bir maksimum sınırı **5 görüntü listeleri** her listesine ile **10.000 görüntüleri aşmayacak**.
+> Liste sayısı üst sınırı, her biri **10.000 görüntüyü aşmamak** kaydıyla **5 görüntü listesidir**.
 >
 
 Aşağıdaki görevleri gerçekleştirmek için listesi yönetim API'sini kullanın:
 
-- Bir liste oluşturur.
+- Liste oluşturma.
 - Görüntüleri bir listesine ekleyin.
 - Ekran görüntüleri karşı bir liste görüntüler.
 - Görüntüleri bir listeden silin.
-- Bir listeyi silin.
-- Liste bilgileri düzenleyin.
-- Listeye yeni bir tarama dahil edilmesini dizini yenileyin.
+- Listeyi silme.
+- Liste bilgileri düzenleme.
+- Listede yapılan değişikliklerin yeni taramaya eklenmesi için dizini yenileyin.
 
 ## <a name="use-the-api-console"></a>API Konsolu
-Çevrimiçi konsolunda API'yi test sürüşü önce abonelik anahtarınızı gerekir. Bu dosya çubuğunda bulunur **ayarları** sekmesinde **Ocp-Apim-Subscription-Key** kutusu. Daha fazla bilgi için [genel bakış](overview.md).
+Çevrimiçi konsolunda API'yi test sürüşü önce abonelik anahtarınızı gerekir. Bu dosya çubuğunda bulunur **ayarları** sekmesinde **Ocp-Apim-Subscription-Key** kutusu. Daha fazla bilgi için bkz. [Genel Bakış](overview.md).
 
 ## <a name="refresh-search-index"></a>Arama dizini Yenile
 
@@ -121,7 +121,7 @@ Bir görüntü veya ayrılmış bir listeyi silmek oldukça basittir. Aşağıda
 
 - Görüntüyü silin. (**Görüntü - Sil**)
 - Listenin silmeden bir listedeki tüm görüntüleri silin. (**Görüntü - tüm görüntüleri silin**)
-- Bir liste ve tüm içeriğini silin. (**Görüntü listeleri - silme**)
+- Listeyi ve tüm içeriğini silme. (**Görüntü listeleri - silme**)
 
 Bu örnek, tek bir görüntüyü siler:
 

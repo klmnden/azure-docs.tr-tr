@@ -1,6 +1,6 @@
 ---
-title: Azure kota hataları | Microsoft Docs
-description: Kaynak qouta hatalarını çözümlemeyi açıklar.
+title: Azure kotası hataları | Microsoft Docs
+description: Kaynak kotası hatalarını çözümlemeyi açıklar.
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6d9048ae531abedb89b70989ce1c962357c514cd
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 2cf9f914aeaee25cda8fd426454cb39a1afa0b4f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34357053"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260235"
 ---
-# <a name="resolve-errors-for-resource-quotas"></a>Kaynak kotaları hatalarını çözümleme
+# <a name="resolve-errors-for-resource-quotas"></a>Kaynak kotaları hataları çözün
 
-Bu makalede kaynakları dağıtırken karşılaşabileceğiniz kotasına hataları açıklanmaktadır.
+Bu makalede, kaynakları dağıtırken karşılaşabileceğiniz kotasını hataları açıklanır.
 
 ## <a name="symptom"></a>Belirti
 
-Azure kotaları aşan kaynakları oluşturan bir şablonu dağıtmak, benzer bir dağıtım hatası alırsınız:
+Azure, kotaları aşan kaynakları oluşturan bir şablonu dağıtmak, şuna benzer bir dağıtım hatası alırsınız:
 
 ```
 Code=OperationNotAllowed
@@ -45,8 +45,8 @@ please delete some resources of this type before creating a new one.
 
 ## <a name="cause"></a>Nedeni
 
-Kotalar, kaynak grubu, abonelikler, hesapları ve diğer kapsamları uygulanır. Örneğin, aboneliğinizi bir bölge için çekirdek sayısını sınırlamak için yapılandırılabilir. İzin verilen miktardan daha fazla çekirdeğe sahip bir sanal makineyi dağıtma girişiminde, kota aşıldı bildiren bir hata alırsınız.
-Tam kota bilgi için bkz: [Azure aboneliği ve hizmet sınırları, kotaları ve kısıtlamaları](../azure-subscription-service-limits.md).
+Kaynak grubu, Abonelikleri, hesapları ve diğer kapsamları kotaları geçerlidir. Örneğin, Aboneliğinize bir bölgedeki çekirdek sayısını sınırlamak için yapılandırılabilir. İzin verilen tutarından daha fazla çekirdeğe sahip sanal makineyi dağıtma girişiminde bulunursanız kotası aşıldı bildiren bir hata alırsınız.
+Eksiksiz bir kota için bilgi [Azure aboneliği ve hizmet limitleri, kotalar ve kısıtlamalar](../azure-subscription-service-limits.md).
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
@@ -58,7 +58,7 @@ Azure CLI için şunu kullanın `az vm list-usage` sanal makine kotaları bulmak
 az vm list-usage --location "South Central US"
 ```
 
-Hangi döndürür:
+Döndürür:
 
 ```azurecli
 [
@@ -76,13 +76,13 @@ Hangi döndürür:
 
 ### <a name="powershell"></a>PowerShell
 
-İçin PowerShell kullanın **Get-AzureRmVMUsage** sanal makine kotaları bulmak için komutu.
+PowerShell için şunu kullanın **Get-AzureRmVMUsage** sanal makine kotaları bulmak için komutu.
 
 ```powershell
 Get-AzureRmVMUsage -Location "South Central US"
 ```
 
-Hangi döndürür:
+Döndürür:
 
 ```powershell
 Name                             Current Value Limit  Unit
@@ -94,29 +94,29 @@ Virtual Machines                             0 10000 Count
 
 ## <a name="solution"></a>Çözüm
 
-Kota artışı isteği göndermek üzere, Portalı'na gidin ve bir destek sorununu dosya. Destek sorunu dağıtmak istediğiniz bölgeyi için kota artış isteyin.
+Bir kota artırım talebinde bulunmak portala gidin ve bir destek sorunu oluşturun. Destek sorunu, dağıtmak istediğiniz bölgeyi için kota artış istemek.
 
 > [!NOTE]
-> Kaynak grupları için tüm abonelik için tek tek her bölge için kota olduğunu unutmayın. Batı ABD 30 çekirdeğini dağıtımı yapmanız gerekirse, Batı ABD 30 Resource Manager çekirdekleri yapmasını istemek zorunda. Hangi bölgeleri hiçbirinde erişiminiz 30 çekirdek dağıtımı yapmanız gerekirse, tüm bölgelerde 30 Resource Manager çekirdekleri istemeniz gerekir.
+> Kaynak grupları için tüm abonelik için tek tek her bölge için kota olduğunu unutmayın. Batı ABD'deki 30 çekirdeği dağıtmanız gerekiyorsa, Batı ABD bölgesinde 30 Resource Manager çekirdekleri yapmasını istemek zorunda. Hangi bölgeler hiçbirinde erişiminiz 30 çekirdeği dağıtmanız gerekiyorsa, tüm bölgelerde 30 Resource Manager çekirdekleri istemeniz gerekir.
 >
 >
 
-1. Seçin **abonelikleri**.
+1. **Abonelikler**'i seçin.
 
    ![Abonelikler](./media/resource-manager-quota-errors/subscriptions.png)
 
-2. Artan bir kota gereken aboneliği seçin.
+2. Kotasını artırmanız gereken aboneliği seçin.
 
    ![Abonelik seçme](./media/resource-manager-quota-errors/select-subscription.png)
 
-3. Seçin **kullanım + kotaları**
+3. Seçin **kullanım ve kotalar**
 
-   ![Kullanım ve kotaları seçin](./media/resource-manager-quota-errors/select-usage-quotas.png)
+   ![Kullanım ve kotalar seçin](./media/resource-manager-quota-errors/select-usage-quotas.png)
 
-4. Sağ üst köşedeki seçin **isteği artış**.
+4. Sağ üst köşedeki seçin **istek artışı**.
 
    ![İstek artışı](./media/resource-manager-quota-errors/request-increase.png)
 
-5. Formlar artırmaya gereksinim kota türü için doldurun.
+5. Artırmanız gereken kota türünün formlarını doldurun.
 
    ![Formu doldurun](./media/resource-manager-quota-errors/forms.png)

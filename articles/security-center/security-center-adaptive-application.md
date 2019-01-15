@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/2/2018
+ms.date: 12/30/2018
 ms.author: rkarlin
-ms.openlocfilehash: b4023d45c3628df5006d076e01f32bb8f3aa80a6
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e4538127b39e01f2e30f8b219c2ccee56cb4d2bc
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846258"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262906"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Azure Güvenlik Merkezi'ndeki uyarlamalı uygulama denetimleri
 Bu kılavuzu kullanarak Azure Güvenlik Merkezi'ndeki uygulama denetimi özelliklerini yapılandırmayı öğrenebilirsiniz.
@@ -105,7 +105,7 @@ Oluşturma seçtikten sonra Azure Güvenlik Merkezi (AppLocker) Windows sunucula
 
   - **Ad**: aboneliğin ve grubun adı
   - **VM'ler**: Grup içindeki sanal makine sayısı
-  - **Modu**: Denetim modu; alınmamış uygulamaların çalıştırma girişimlerini günlüğe Zorunlu alınmamış uygulamaların çalışmasına izin verme
+  - **Modu**: Denetim modu alınmamış uygulamaların çalıştırma girişimlerini günlüğe kaydeder; Zorunlu alınmamış uygulamaların çalışmasına izin verme
   - **Uyarılar**: herhangi bir geçerli ihlal
 
 2. Bir grup değişiklik yapmak için tıklatın **uygulama denetim ilkesini Düzenle** sayfası.
@@ -122,7 +122,7 @@ Oluşturma seçtikten sonra Azure Güvenlik Merkezi (AppLocker) Windows sunucula
    > - Yukarıda belirtildiği gibi yeni uygulama denetimi ilkeleri her zaman *Denetim* modunda yapılandırılır. 
    >
 
-4. Altında **İlkesi uzantısı**, izin vermek istediğiniz herhangi bir uygulama yolu ekleyebilirsiniz. Bu yolları eklediğinizde Güvenlik Merkezi VM'lerin seçilen grup içindeki VM'ler üzerinde uygulama whielisting İlkesi güncelleştirmeleri ve yerinde zaten kuralların yanı sıra, uygulamalar için uygun kuralları oluşturur.
+4. Altında **İlkesi uzantısı**, izin vermek istediğiniz herhangi bir uygulama yolu ekleyebilirsiniz. Bu yolları eklediğinizde Güvenlik Merkezi sanal makinelerin seçilen grup içindeki VM'ler üzerinde uygulama beyaz listeye ekleme İlkesi güncelleştirmeleri ve yerinde zaten kuralların yanı sıra, uygulamalar için uygun kuralları oluşturur.
 
 5. Listelenen geçerli ihlallerini gözden geçirmek **son uyarılar** bölümü. Her satırda yönlendirilmesini tıklayın **uyarılar** sayfa içinde Azure Güvenlik Merkezi ve bağlantılı vm'lerdeki Azure Güvenlik Merkezi tarafından algılanan tüm uyarıları görüntüleyin.
   - **Uyarılar**: günlüğe kaydedilen herhangi bir ihlali.
@@ -130,9 +130,9 @@ Oluşturma seçtikten sonra Azure Güvenlik Merkezi (AppLocker) Windows sunucula
 
 6. Altında **beyaz listeye yayımcı ekleme kuralları**, **beyaz listeye yol ekleme kuralları**, ve **karma beyaz listeye ekleme kuralları** kurallardır, şu anda hangi uygulama beyaz listesini görebilirsiniz. bir grup içindeki VM'ler üzerinde bir kural koleksiyonu türünün göre yapılandırılmış. Her kural için görebilirsiniz:
 
-  - **Kural**: belirli parametreleri olan göre bir uygulama bir uygulama çalıştırmasına izin verilip verilmeyeceğini belirlemek için AppLocker tarafından incelenir.
-  - **Dosya türü**: belirli bir kuralı tarafından kapsanan dosya türleri. Bu, aşağıdakilerden biri olabilir: EXE, betik, MSI veya bunlardan herhangi bir sıralamaya dosya türleri.
-  - **Kullanıcılar**: adı veya bir uygulama beyaz listeye ekleme kuralı tarafından kapsanan bir uygulamayı çalıştırmak için izin verilen kullanıcıların sayısı.
+  - **Kural**: Belirli parametreleri göre bir uygulama bir uygulama çalıştırmasına izin verilip verilmeyeceğini belirlemek için AppLocker tarafından incelenir.
+  - **Dosya türü**: Belirli bir kuralı tarafından kapsanan dosya türleri. Bu, aşağıdakilerden biri olabilir: EXE, betik, MSI veya bunlardan herhangi bir sıralamaya dosya türleri.
+  - **Kullanıcılar**: Adı veya bir uygulama beyaz listeye ekleme kuralı tarafından kapsanan bir uygulamayı çalıştırmak için izin verilen kullanıcıların sayısı.
 
    ![Beyaz listeye ekleme kuralları](./media/security-center-adaptive-application/security-center-adaptive-application-fig9.png)
 

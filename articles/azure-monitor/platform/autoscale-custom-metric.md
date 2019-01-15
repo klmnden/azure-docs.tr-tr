@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 224756785d5609cf40bc0f62ff76a1ba44206b1b
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 2aa0b152a4fd50e8023df00ec5dd59d1b2a6e6b0
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53389073"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262243"
 ---
 # <a name="get-started-with-auto-scale-by-custom-metric-in-azure"></a>Otomatik ölçeklendirme ile azure'da özel bir ölçü olarak kullanmaya başlayın
 Bu makalede, Azure portalındaki özel ölçüm kaynağınızı ölçeklendirilmesine açıklar.
@@ -31,7 +31,7 @@ Bu makalede, application ınsights ile yapılandırılmış bir web uygulaması 
 > Not: App ınsights yapılandırılmış olan bir web uygulaması ile ilişkili bir app service planı aşağıdaki adımları kullanın.
 - Kaynak için ölçek ayarı dikey penceresinde, özel olarak geçerli örnek sayısını 1 olduğuna dikkat edin. 'Otomatik ölçeklendirmeyi etkinleştirme üzerinde' tıklayın.
   ![Yeni web uygulaması için ölçek ayarı][5]
-- Ölçek ayarı ve "Bir kural Ekle'yi" tıklayın için bir ad sağlayın. Bir bağlam bölmesinde sağ tarafı olarak açılır ölçek kuralı seçeneklerini dikkat edin. Varsayılan olarak, % 70'in CPU percetage kaynak aşarsa, örnek sayınız 1 ile ölçeklendirme seçeneği ayarlar. "Application Insights" üst ölçüm kaynağı değiştirme, app ınsights kaynağı 'Resource' açılır menüde seçip dayalı özel ölçüm ölçeklendirmek istediğiniz üzerinde.
+- Ölçek ayarı ve "Bir kural Ekle'yi" tıklayın için bir ad sağlayın. Bir bağlam bölmesinde sağ tarafı olarak açılır ölçek kuralı seçeneklerini dikkat edin. Varsayılan olarak, kaynak CPU yüzdesi % 70'i aşarsa, örnek sayınız 1 ile ölçeklendirme seçeneği ayarlar. "Application Insights" üst ölçüm kaynağı değiştirme, app ınsights kaynağı 'Resource' açılır menüde seçip dayalı özel ölçüm ölçeklendirmek istediğiniz üzerinde.
   ![Özel bir ölçüme göre ölçeklendirin][6]
 - Yukarıdaki adıma benzer şekilde, ölçeklendirme ve özel ölçüm eşiğin altında ise ölçek sayısı 1 ile azaltma ölçek kuralı ekleyin.
   ![CPU üzerinde göre ölçeklendirin][7]

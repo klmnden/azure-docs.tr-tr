@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: 20311f904356f16b34f64d0aaf6ed438ba692857
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 7e70fe52646c2f61e97b4eee2badd7884d95d5f5
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54155159"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260473"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>Sık sorulan sorular: Azure'dan Azure'a çoğaltma
 
@@ -74,10 +74,16 @@ Kilitlenmeyle tutarlı kurtarma noktası, sanki VM kilitlenmesi veya güç kablo
 
 Bugün, çoğu uygulama iyi kilitlenme ile tutarlı anlık görüntülerden kurtarabilirsiniz. Kilitlenmeyle tutarlı kurtarma noktası yeterince genellikle no-veritabanı işletim sistemleri ve dosya sunucuları, DHCP sunucuları ve yazdırma sunucuları gibi uygulamalar içindir.
 
+### <a name="what-is-the-frequency-of-crash-consistent-recovery-point-generation"></a>Kilitlenmeyle tutarlı kurtarma noktası oluşturma işlemi sıklığını nedir?
+Site Recovery, her 5 dakikada bir kilitlenme ile tutarlı kurtarma noktası oluşturur.
+
 ### <a name="what-is-an-application-consistent-recovery-point"></a>Uygulamayla tutarlı kurtarma noktası nedir? 
 Uygulamayla tutarlı kurtarma noktaları, uygulamayla tutarlı anlık görüntülerden oluşturulur. Uygulamayla tutarlı anlık görüntüler, bellekteki tüm verileri ve tüm işlemleri ile kilitlenme ile tutarlı anlık görüntüler aynı verileri yakalayın. 
 
 Ek içeriklerini nedeniyle uygulamayla tutarlı anlık görüntüleri en ilgili ve tanımladığımız gerçekleştirmek için gerçekleştirin. Veritabanı işletim sistemleri ve SQL Server gibi uygulamalar için uygulamayla tutarlı kurtarma noktalarını öneririz.
+
+### <a name="what-is-the-minimum-frequency-of-application-consistent-recovery-point-generation"></a>Uygulamayla tutarlı kurtarma noktası oluşturma işlemi en az sıklığı nedir?
+Site Recovery oluşturur bir uygulamayla tutarlı kurtarma noktası ile en az bir sıklığı 1 saat içinde.
 
 ### <a name="how-are-recovery-points-generated-and-saved"></a>Nasıl kurtarma noktaları oluşturulur ve kaydedildiğini?
 Nasıl Site Recovery kurtarma noktaları oluşturur anlamak için kurtarma 24 saatlik saklama aralığı ve 1 saatlik bir sıklığı uygulamayla tutarlı anlık görüntü noktası bir çoğaltma ilkesi örneği ele alalım.
@@ -153,6 +159,9 @@ Evet. Bu seçeneğe sahip diğer seçenekleri karşılaştırıldığında daha 
 
 ### <a name="if-im-replicating-between-two-azure-regions-what-happens-if-my-primary-region-experiences-an-unexpected-outage"></a>İki Azure bölgeleri arasında çoğaltma yapıyorsam, my birincil bölgeye beklenmeyen bir kesinti oluşursa ne olur?
 Kesinti bir yük devretme tetikleyebilirsiniz. Site Recovery, yük devretme gerçekleştirmek için birincil bölgeden bağlantı gerek yoktur.
+
+### <a name="what-is-a-rto-of-a-virtual-machine-failover-"></a>Sanal makine yük devretme bir RTO nedir?
+Site Recovery sahip bir [2 saat RTO SLA](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). Ancak, çoğu zaman, Site Recovery başarısız yükü Devredilmiş sanal makineleri dakikalar içinde. RTO hesaplayabilirsiniz saati gösteren yük devretme için işleri giderek VM'yi getirmek için işlem. RTO için kurtarma planında, bölüme bakın. 
 
 ## <a name="recovery-plan"></a>Kurtarma planı
 

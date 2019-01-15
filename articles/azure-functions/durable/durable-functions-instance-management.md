@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 8dbf7b6f6741998972070234d90e87baca1154a4
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 19abd905bbc5e8ab724f7a2f25cb6da90db82841
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042470"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262651"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>Azure'da dayanıklı işlevler örneklerini yönetme
 
@@ -23,7 +23,7 @@ ms.locfileid: "54042470"
 
 ## <a name="starting-instances"></a>Örnekleri başlatılıyor
 
-[StartNewAsync] (https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) metodunda [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) (.NET) veya `startNew` üzerinde `DurableOrchestrationClient` (JavaScript) bir düzenleyici işlevi yeni bir örneğini başlatır. Bu sınıfın örnekleri satın alınabilir kullanarak `orchestrationClient` bağlama. Bu yöntem kaybolmamasının ardından başlangıcını kullanan belirtilen ada sahip bir işlev tetikler denetim kuyruğuna bir ileti dahili olarak `orchestrationTrigger` bağlama tetikleyin.
+[StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) metodunda [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) (.NET) veya `startNew` üzerinde `DurableOrchestrationClient` (JavaScript) bir düzenleyici işlevi yeni bir örneğini başlatır. Bu sınıfın örnekleri satın alınabilir kullanarak `orchestrationClient` bağlama. Bu yöntem kaybolmamasının ardından başlangıcını kullanan belirtilen ada sahip bir işlev tetikler denetim kuyruğuna bir ileti dahili olarak `orchestrationTrigger` bağlama tetikleyin.
 
 Düzenleme işlemi başarıyla zamanlandı bu zaman uyumsuz işlemi tamamlar. Düzenleme işlemi, 30 saniye içinde başlamanız gerekir. Daha uzun sürerse bir `TimeoutException` oluşturulur.
 

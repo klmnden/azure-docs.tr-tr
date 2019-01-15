@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/21/2018
 ms.author: raynew
-ms.openlocfilehash: 716ddcaf61c4d7db40821056dc759667f9376023
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 552ba28a9635cdd484ccd598726dcea0b3bcbc60
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871352"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261511"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Kurtarma Hizmetleri kasalarını izleme ve yönetme
 
@@ -67,7 +67,7 @@ Kutucuklar (dışında yedekleme depolama alanı), ilişkili menüsünü açmak 
 
 ![Kritik uyarılar için filtrelenmiş yedekleme uyarıları menüsü](./media/backup-azure-manage-windows-server/critical-backup-alerts.png)
 
-Yukarıdaki görüntüde yedekleme uyarıları menüsünde göre filtrelenir: durumu: etkin, önem derecesi Kritik ve zaman önceki 24 saat.
+Yukarıdaki görüntüde yedekleme uyarıları menüsünde göre filtrelenir: Durumu etkin olduğu, kritik öneme sahip olduğundan ve zaman önceki 24 saattir.
 
 ## <a name="manage-backup-alerts"></a>Yedekleme Uyarıları yönetme
 
@@ -85,8 +85,8 @@ Yedekleme uyarıları listesi, filtrelenmiş uyarılar için seçilen bilgileri 
 
 | Uyarı düzeyi | Uyarılar üreten olaylar |
 | ----------- | ----------- |
-| Kritik | Kritik aldığınız uyarıları: yedekleme işlerinin başarısız, Kurtarma işleri başarısız olur, ve ne zaman bir sunucu üzerinde korumayı Durdur, ancak verileri korur.|
-| Uyarı | Uyarı aldığınız uyarıları: yedekleme işleri tamamlayın uyarılarla, örneğin, 100'den daha az dosya bozulması sorunları nedeniyle veya daha büyük olduğunda 1.000.000 dosyalar başarıyla yedeklendi daha yedeklenmez). |
+| Kritik | Kritik aldığınız uyarıları: Yedekleme işleri başarısız, Kurtarma işleri başarısız olur, ve ne zaman bir sunucu üzerinde korumayı durdurun, ancak verileri korur.|
+| Uyarı | Uyarı aldığınız uyarıları: Yedekleme işleri uyarılarla, örneğin, 100'den daha az dosya bozulması sorunları nedeniyle veya daha büyük olduğunda 1.000.000 dosyalar başarıyla yedeklendi daha yedeklenmez Tamamla). |
 | Bilgilendirici | şu anda hiçbir bilgilendirici uyarılar kullanımda olması. |
 
 ### <a name="viewing-alert-details"></a>Uyarı ayrıntılarını görüntüleme
@@ -239,19 +239,19 @@ Tüm durum ya da görüntüleyebilirsiniz. İki veya üç durumları seçemezsin
 * İptal edildi
 * Uyarılarla tamamlandı
 
-#### <a name="start-time"></a>Başlangıç zamanı
+#### <a name="start-time"></a>Başlangıç saati
 
 Gün ve sorgu başladığı zaman. 24 saatlik dönemde varsayılandır.
 
-#### <a name="end-time"></a>Bitiş zamanı
+#### <a name="end-time"></a>Sonlanma zamanı
 
 Gün ve saati sona erdiğinde sorgu.
 
-### <a name="export-jobs"></a>Dışarı aktarma işleri
+### <a name="export-jobs"></a>İşleri dışarı aktar
 
 Kullanım **dışarı aktarma işleri** tüm işleri menü bilgilerini içeren bir elektronik tablo oluşturun. Elektronik tablo, tüm işlerin bir özetini içeren bir sayfa ve her bir sayfaya her iş için vardır.
 
-İş bilgileri bir elektronik tabloya dışarı aktarmak için tıklayın **dışarı aktarma işleri**. Tarih ve kasa adını kullanarak bir speadsheet hizmeti oluşturur, ancak adını değiştirebilirsiniz.
+İş bilgileri bir elektronik tabloya dışarı aktarmak için tıklayın **dışarı aktarma işleri**. Tarih ve kasa adını kullanarak bir elektronik tablo hizmeti oluşturur, ancak adını değiştirebilirsiniz.
 
 ## <a name="monitor-backup-usage"></a>Yedekleme kullanımı izleme
 
@@ -281,9 +281,9 @@ Y3. Evet. Aşağıdaki durumlarda bildirimleri gönderilmez.
 
 ## <a name="troubleshooting-monitoring-issues"></a>İzleme ile ilgili sorunları giderme
 
-**Sorun:** işleri ve/veya Azure Backup Aracısı uyarıları, portalda görünmez.
+**Sorun:** İşleri ve/veya Azure Backup Aracısı'ndan uyarılar portalda görünmez.
 
-**Sorun giderme adımları:** işlem ```OBRecoveryServicesManagementAgent```, iş ve uyarı verileri Azure yedekleme hizmetine gönderir. Bu işlem bazen kalmış olur veya kapatma.
+**Sorun giderme adımları:** İşlem ```OBRecoveryServicesManagementAgent```, iş ve uyarı verileri Azure yedekleme hizmetine gönderir. Bu işlem bazen kalmış olur veya kapatma.
 
 1. İşlemi çalışmadığından doğrulamak için açık **Görev Yöneticisi'ni**ve ```OBRecoveryServicesManagementAgent``` çalışıyor.
 

@@ -12,17 +12,17 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/15/2018
+ms.date: 01/11/2019
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 9b72ca2a166e805d960eab47835f449e0f5b991e
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: d3ac0f6f8f6811117a515236de81eca1dc3d0e4d
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889523"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264147"
 ---
-# <a name="tutorial-remove-an-application-and-resources"></a>Öğretici: Bir uygulamayı ve kaynakları kaldırma
+# <a name="tutorial-remove-an-application-and-resources"></a>Öğretici: Bir uygulama ve kaynakları Kaldır
 
 Bu öğretici, bir serinin dördüncü bölümüdür. [Daha önce Service Fabric Mesh’e dağıtılmış](service-fabric-mesh-tutorial-template-deploy-app.md) bir çalışan uygulamayı kaldırmayı öğreneceksiniz. 
 

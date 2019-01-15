@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 17/07/2018
 ms.author: sedusch
-ms.openlocfilehash: 2a0934fa3bb46eebba02029a8292b9bee6b12c62
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: d5d344f47fa46e9fe0adea048db200ec67a3fadc
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52728234"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262598"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Azure için SAP LaMa Bağlayıcısı
 
@@ -98,15 +98,15 @@ Hizmet sorumlusu kullanarak Azure kaynaklarınızı varsayılan olarak erişim i
 
 SAP LaMa Web sitesini açın ve altyapı için gidin. Bulut yöneticileri sekmesine gidin ve Ekle'ye tıklayın. Microsoft Azure bulut bağdaştırıcıyı seçin ve İleri'ye tıklayın. Aşağıdaki bilgileri girin:
 
-* Etiket: bağlayıcı örneği için bir ad seçin
-* Kullanıcı adı: Hizmet sorumlusu uygulama kimliği
+* Etiket: Bağlayıcı örneği için bir ad seçin
+* Kullanıcı Adı: Hizmet Sorumlusu Uygulama Kimliği
 * Parola: Hizmet sorumlusu anahtarı/parolası
-* URL'si: Canlı varsayılan https://management.azure.com/
-* İzleme aralığı (saniye): en az 300 olmalıdır
-* Abonelik kimliği: Azure abonelik kimliği
-* Azure Active Directory Kiracı kimliği: Active Directory Kiracı Kimliğini
-* Proxy konağını: SAP LaMa internet'e bağlanmak için Ara sunucu gerekiyorsa proxy konak adı
-* Proxy bağlantı noktası: proxy TCP bağlantı noktası
+* URL: Varsayılan koruyun https://management.azure.com/
+* İzleme aralığı (saniye): En az 300 olmalıdır
+* Abonelik Kimliği: Azure abonelik kimliği
+* Azure Active Directory Kiracı kimliği: Active Directory kiracısının kimliği
+* Proxy ana bilgisayarı: SAP LaMa internet'e bağlanmak için Ara sunucu gerekiyorsa proxy konak adı
+* Proxy bağlantı noktası: Proxy TCP bağlantı noktası
 
 Girişinizi doğrulamak için test yapılandırmasına tıklayın. Görmeniz gerekir
 
@@ -116,7 +116,7 @@ Web sitesinin en altında.
 
 ## <a name="provision-a-new-adaptive-sap-system"></a>Yeni bir Uyarlamalı SAP sistemi sağlayın
 
-El ile yeni bir sanal makine dağıtma veya Azure şablonlarında birini [hızlı depo](https://github.com/Azure/azure-quickstart-templates). Şablonları içerdiği [SAP NetWeaver ASCS](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-ascs), [SAP NetWeaver uygulama sunucuları](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-apps)ve [veritabanı](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-db). Bu şablonlar, sistem kopyalama/kopya vb. bir parçası olarak yeni konaklarını sağlamak için de kullanabilirsiniz.
+El ile yeni bir sanal makine dağıtma veya Azure şablonlarında birini [hızlı depo](https://github.com/Azure/azure-quickstart-templates). Şablonları içerdiği [SAP NetWeaver ASCS](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-ascs), [SAP NetWeaver uygulama sunucuları](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-apps)ve [veritabanı](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-database). Bu şablonlar, sistem kopyalama/kopya vb. bir parçası olarak yeni konaklarını sağlamak için de kullanabilirsiniz.
 
 Ayrı bir alt ağ için tüm sanal SAP LaMa ile yönetmek istediğiniz ve IP adresi "Yeni sanal makineler dağıtırken çalarak" önlemek için dinamik IP adresi kullanmayın ve SAP örnekleri hazırlıksız başladığınız makineleri kullanmanızı öneririz.
 
@@ -170,7 +170,7 @@ SAP NetWeaver uygulama sunucusu veya bir sistem kopyalama/kopyalama hedefi olara
 Aşağıdaki en son kullanılabilir arşivler öğesinden indirme [SAP yazılım Market](https://support.sap.com/swdc) sanal makinelerin işletim sistemi için:
 
 1. SAPCAR 7.21
-1. KONAK ARACISI 7.21 SAP
+1. SAP HOST AGENT 7.21
 1. SAP UYARLAMALI UZANTISI 1.0 EXT
 
 Ayrıca aşağıdaki bileşenlerden indirme [Microsoft Download Center](https://www.microsoft.com/download)
@@ -184,27 +184,27 @@ Bileşenler, şablonu dağıtmak için gereklidir. Şablonu kullanılabilir hale
 
 * sapSystemId: SAP sistem kimliği Disk düzeni oluşturmak için kullanılır (örneğin/usr/sap/\<sapsid >).
 
-* computerName: yeni bir sanal makinenin bilgisayar adı. Bu parametre, SAP LaMa tarafından da kullanılır. Bir sistem kopyalama işleminin bir parçası olarak yeni bir sanal makine sağlamak için bu şablonu kullandığınızda, bu bilgisayar adı olan ana bilgisayara ulaşılana kadar SAP LaMa bekler.
+* computerName: Yeni sanal makinenin bilgisayar adı. Bu parametre, SAP LaMa tarafından da kullanılır. Bir sistem kopyalama işleminin bir parçası olarak yeni bir sanal makine sağlamak için bu şablonu kullandığınızda, bu bilgisayar adı olan ana bilgisayara ulaşılana kadar SAP LaMa bekler.
 
-* osType: dağıtmak istediğiniz işletim sistemi türü.
+* osType: Dağıtmak istediğiniz işletim sistemi türü.
 
-* DbType: veritabanı türü. Bu parametre, ne kadar ek IP yapılandırmaları eklenmesi gerekir ve nasıl disk düzeni görünmesi gerektiğini belirlemek için kullanılır.
+* DbType: Veritabanı türü. Bu parametre, ne kadar ek IP yapılandırmaları eklenmesi gerekir ve nasıl disk düzeni görünmesi gerektiğini belirlemek için kullanılır.
 
-* sapSystemSize: dağıtmak istediğiniz SAP sistemine boyutu. Sanal makine örneği türünü ve boyutunu belirlemek için kullanılır.
+* sapSystemSize: Dağıtmak istediğiniz SAP sistemine boyutu. Sanal makine örneği türünü ve boyutunu belirlemek için kullanılır.
 
-* adminUsername: sanal makine için kullanıcı adı.
+* adminUsername: Sanal makine için kullanıcı adı.
 
-* adminPassword: sanal makinenin parolası. SSH için bir ortak anahtar de sağlayabilirsiniz.
+* adminPassword: Sanal makinenin parolası. SSH için bir ortak anahtar de sağlayabilirsiniz.
 
-* sshKeyData: sanal makineler için genel SSH anahtarı. Yalnızca Linux işletim sistemleri için desteklenir.
+* sshKeyData: Sanal makineler için SSH ortak anahtarı. Yalnızca Linux işletim sistemleri için desteklenir.
 
-* Subnetıd: kullanmak istediğiniz alt ağ kimliği.
+* subnetId: Kullanmak istediğiniz alt ağ kimliği.
 
-* deployEmptyTarget: sanal makine veya benzer bir örneği yeniden Yerleştir için yalnızca bir hedef olarak kullanmak istiyorsanız, boş bir hedef dağıtabilirsiniz. Bu durumda, hiçbir ek diskler veya IP yapılandırmalarına eklenir.
+* deployEmptyTarget: Sanal makine veya benzer bir örneği yeniden Yerleştir için yalnızca bir hedef olarak kullanmak istiyorsanız, boş bir hedef dağıtabilirsiniz. Bu durumda, hiçbir ek diskler veya IP yapılandırmalarına eklenir.
 
-* sapcarLocation: dağıttığınız işletim sistemiyle eşleşen sapcar uygulama için konum. sapcar, diğer parametre sağladığınız arşivleri ayıklamak için kullanılır.
+* sapcarLocation: Dağıttığınız işletim sistemiyle eşleşen sapcar uygulaması için konum. sapcar, diğer parametre sağladığınız arşivleri ayıklamak için kullanılır.
 
-* sapHostAgentArchiveLocation: SAP konak Aracısı arşiv konumunu. SAP konak Aracısı, bu şablon dağıtımının bir parçası dağıtılır.
+* sapHostAgentArchiveLocation: SAP konak Aracısı Arşiv dosyasının konumu. SAP konak Aracısı, bu şablon dağıtımının bir parçası dağıtılır.
 
 * sapacExtLocation: SAP Uyarlamalı uzantıları konumu. SAP notu [2343511] Azure için gerekli en düşük düzeltme eki düzeyi listeler.
 
@@ -212,15 +212,15 @@ Bileşenler, şablonu dağıtmak için gereklidir. Şablonu kullanılabilir hale
 
 * odbcDriverLocation: ODBC sürücüsü yüklemek istediğiniz konumu. Yalnızca SQL Server için Microsoft ODBC sürücüsü desteklenir.
 
-* sapadmPassword: sapadm kullanıcının parolası.
+* sapadmPassword: Sapadm kullanıcı parolası.
 
-* sapadmId: Linux sapadm kullanıcının kullanıcı kimliği. Windows için gerekli değildir.
+* sapadmId: Linux kullanıcı sapadm kullanıcının kimliği. Windows için gerekli değildir.
 
-* sapsysGid: sapsys grubun Linux grubu kimliği. Windows için gerekli değildir.
+* sapsysGid: Linux grubu sapsys grubun kimliği. Windows için gerekli değildir.
 
-* _artifactsLocation: Bu şablon için gerekli yapıtları yerleştirildiği taban URI. Eşlik eden komut dosyalarını kullanarak şablon dağıtıldığında, abonelik özel bir konumda kullanılır ve bu değeri otomatik olarak oluşturulur. Github'dan şablon dağıtma değil, yalnızca gerekli.
+* _artifactsLocation: Bu şablon için gerekli yapıtları bulunduğu yere taban URI. Eşlik eden komut dosyalarını kullanarak şablon dağıtıldığında, abonelik özel bir konumda kullanılır ve bu değeri otomatik olarak oluşturulur. Github'dan şablon dağıtma değil, yalnızca gerekli.
 
-* _artifactsLocationSasToken: sasToken _artifactsLocation erişmek için gerekli. Eşlik eden komut dosyalarını kullanarak şablon dağıtıldığında bir sasToken otomatik olarak oluşturulur. Github'dan şablon dağıtma değil, yalnızca gerekli.
+* _artifactsLocationSasToken: _ArtifactsLocation erişmek için gerekli sasToken. Eşlik eden komut dosyalarını kullanarak şablon dağıtıldığında bir sasToken otomatik olarak oluşturulur. Github'dan şablon dağıtma değil, yalnızca gerekli.
 
 ### <a name="sap-hana"></a>SAP HANA
 
@@ -360,7 +360,7 @@ Kullanım *as1 di 0* için *PA'lar örneği ana bilgisayar adı* iletişim kutus
 
 * HDB userstore doğrulamada bir özel durum oluştu  
   * Günlük Görüntüleyici bakın  
-    com.sap.nw.lm.aci.monitor.api.validation.RuntimeValidationException: özel durumu doğrulayıcısı 'RuntimeHDBConnectionValidator' kimlikli (doğrulaması: 'VALIDATION_HDB_USERSTORE'): hdbuserstore alınamadı  
+    com.sap.nw.lm.aci.monitor.api.validation.RuntimeValidationException: Özel durum 'RuntimeHDBConnectionValidator' kimlikli doğrulayıcı (doğrulama: 'VALIDATION_HDB_USERSTORE'): Hdbuserstore alınamadı  
     HANA userstore doğru konumda değil
   * Çözüm  
     Bu /usr/sap/AH1/hdbclient/install/installation.ini doğru olduğundan emin olun
@@ -373,19 +373,19 @@ Kullanım *as1 di 0* için *PA'lar örneği ana bilgisayar adı* iletişim kutus
     HANA sistem kaynağında tüm veritabanlarının yedek Al
 
 * Sistem kopyalama adımı *Başlat* veritabanı örneği
-  * Konak aracısı işlemini '000D3A282BC91EE8A1D76CF1F92E2944' başarısız oldu (OperationException. FaultCode: '127', ileti: ' komutu yürütülemedi. : [Microsoft] [ODBC SQL Server sürücüsünü] [SQL Server] kullanıcı, 'AS2' veritabanını değiştirme izni yok, veritabanı yok veya veritabanı erişim denetimlerine izin veren bir durumda değil.')
+  * Konak aracısı işlemini '000D3A282BC91EE8A1D76CF1F92E2944' başarısız oldu (OperationException. FaultCode: '127', ileti: ' Komutu yürütülemedi. : [Microsoft] [ODBC SQL Server sürücüsünü] [SQL Server] kullanıcı, 'AS2' veritabanını değiştirme izni yok, veritabanı yok veya veritabanı erişim denetimlerine izin veren bir durumda değil.')
   * Çözüm  
     Emin olun *NT AUTHORITY\SYSTEM* SQL Server erişebilirsiniz. ' Lu SAP notuna bakın [2562184]
 
 ### <a name="errors-and-warnings-during-a-system-clone"></a>Hataları ve Uyarıları System kopyalama sırasında
 
 * Adımda örneği Aracısı kaydedilmeye çalışılırken hata oluştu *zorunlu kaydetmek ve örnek Aracısı başlangıç* ASCS veya uygulama sunucusu
-  * Örnek Aracısı kaydedilmeye çalışılırken hata oluştu. (RemoteException: 'örnek verilerini profilinden yüklenemedi'\\as1 ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1 di 0': profiline erişilemiyor '\\as1 ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1 di 0': Böyle bir dosya veya dizin.')
+  * Örnek Aracısı kaydedilmeye çalışılırken hata oluştu. (RemoteException: 'Profilinden örnek verileri yüklemek için başarısız oldu'\\as1 ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1 di 0':  Profiline erişilemiyor '\\as1 ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1 di 0': Böyle dosya veya dizin yok.')
   * Çözüm  
    ASCS/SCS sapmnt paylaşımında SAP_AS1_GlobalAdmin için tam erişime sahip olduğundan emin olun
 
 * Adımda hata *kopya için başlangıç korumayı etkinleştir*
-  * Dosya açılamadı '\\as1 ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1 di 0' neden: Böyle bir dosya veya dizin
+  * Dosya açılamadı '\\as1 ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1 di 0' neden: Böyle dosya veya dizin yok
   * Çözüm  
     Uygulama sunucusunun bilgisayar hesabı profili yazma erişimi olmalıdır
 
@@ -409,36 +409,36 @@ Kullanım *as1 di 0* için *PA'lar örneği ana bilgisayar adı* iletişim kutus
     ASCS ASCS HostAgent profiline dışarı aktaran ekleyin. ' Lu SAP notuna bakın [2628497]
 
 * ASCS yeniden konumlandırma, uygulanmadı işlevi
-  * Komut çıktısı: exportfs: ana bilgisayar: / usr/sap/AX1: işlev uygulanmadı
+  * Komut çıktısı: exportfs: ana bilgisayar: / usr/sap/AX1: Uygulanmadı işlevi
   * Çözüm  
     NFS Sunucusu hizmeti yeniden Yerleştir hedef sanal makinede etkin olduğundan emin olun
 
 ### <a name="errors-and-warnings-during-application-server-installation"></a>Hataları ve Uyarıları uygulama sunucusu yüklemesi sırasında
 
 * SAPinst adımı yürütülürken hata oluştu: getProfileDir
-  * Hata: (son adımı tarafından bildirilen hata: modül çağrısında ESAPinstException yakalandı: adımın Doğrulayıcısı ' | NW_DI | ul | ul | ul | ul | 0 | 0 | NW_GetSidFromProfiles | ul | ul | ul | ul | getSid | 0 | NW_readProfileDir | ul | ul | ul | ul | readProfile | 0 | getProfileDir' bir hata bildirdi: düğüm \\\as1-ascs\sapmnt\AS1\SYS\profile mevcut değil. Bu sorunu çözmek için etkileşimli modda SAPinst Başlangıç)
+  * HATA: (Son adımı tarafından bildirilen hata: Yakalanan ESAPinstException modülü çağrısında: Doğrulayıcı adımının ' | NW_DI | ul | ul | ul | ul | 0 | 0 | NW_GetSidFromProfiles | ul | ul | ul | ul | getSid | 0 | NW_readProfileDir | ul | ul | ul | ul | readProfile | 0 | getProfileDir' bir hata bildirdi: Düğüm \\\as1-ascs\sapmnt\AS1\SYS\profile mevcut değil. Bu sorunu çözmek için etkileşimli modda SAPinst Başlangıç)
   * Çözüm  
     SWPM profili erişimi olan bir kullanıcı ile çalıştığından emin olun. Bu kullanıcı Uygulama Sunucusu Kurulum Sihirbazı'nda yapılandırılabilir
 
 * SAPinst adımı yürütülürken hata oluştu: askUnicode
-  * Hata: (son adımı tarafından bildirilen hata: modül çağrısında ESAPinstException yakalandı: adımın Doğrulayıcısı ' | NW_DI | ul | ul | ul | ul | 0 | 0 | NW_GetSidFromProfiles | ul | ul | ul | ul | getSid | 0 | NW_getUnicode | ul | ul | ul | ul | unicode | 0 | askUnicode' bir hata bildirdi: SAPinst etkileşimli modda başlatmak bu sorunu çözmek için)
+  * HATA: (Son adımı tarafından bildirilen hata: Yakalanan ESAPinstException modülü çağrısında: Doğrulayıcı adımının ' | NW_DI | ul | ul | ul | ul | 0 | 0 | NW_GetSidFromProfiles | ul | ul | ul | ul | getSid | 0 | NW_getUnicode | ul | ul | ul | ul | unicode | 0 | askUnicode' bir hata bildirdi: Bu sorunu çözmek için etkileşimli modda SAPinst Başlangıç)
   * Çözüm  
     Yeni bir SAP çekirdek kullanırsanız SWPM sistem artık ASCS ileti sunucusu kullanılarak bir unicode sistem olup olmadığını belirleyemiyor. ' Lu SAP notuna bakın [2445033] daha fazla ayrıntı için.  
     Yeni bir destek paketi/düzeltme eki içinde SAP LaMa Bu sorun çözülecektir.  
     Profil parametre OS_UNICODE SAP sisteminizin bu sorunu çözmek için varsayılan profilde uc =.
 
 * SAPinst adımı yürütülürken hata oluştu: dCheckGivenServer
-  * SAPinst adımı yürütülürken hata oluştu: dCheckGivenServer "Sürüm"1.0"hata =: (son adımı tarafından bildirilen hata: \<p > yükleme kullanıcı tarafından iptal edildi. \</p >
+  * SAPinst adımı yürütülürken hata oluştu: dCheckGivenServer "Sürüm"1.0"hata =: (Son adımı tarafından bildirilen hata: \<p > yükleme kullanıcı tarafından iptal edildi. \</p >
   * Çözüm  
     SWPM profili erişimi olan bir kullanıcı ile çalıştığından emin olun. Bu kullanıcı Uygulama Sunucusu Kurulum Sihirbazı'nda yapılandırılabilir
 
 * SAPinst adımı yürütülürken hata oluştu: checkClient
-  * SAPinst adımı yürütülürken hata oluştu: checkClient "Sürüm"1.0"hata =: (son adımı tarafından bildirilen hata: \<p > yükleme kullanıcı tarafından iptal edildi. \</p >)
+  * SAPinst adımı yürütülürken hata oluştu: checkClient "Sürüm"1.0"hata =: (Son adımı tarafından bildirilen hata: \<p > yükleme kullanıcı tarafından iptal edildi. \</p >)
   * Çözüm  
     Sanal uygulama sunucusu yüklemek istediğiniz makinede SQL Server için Microsoft ODBC sürücüsü yüklü olduğundan emin olun
 
 * SAPinst adımı yürütülürken hata oluştu: copyScripts
-  * Son adım tarafından bildirilen hata: sistem çağrısı başarısız oldu. : Hata 13 (0x0000000d) (izni reddedildi) yürütme sisteminin çağrısı AYRINTILARINDA 'FopenU' parametre ile (\\\as1-ascs/sapmnt/AS1/SYS/exe/uc/NTAMD64/strdbs.cmd, w), dosya (\bas/bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/ satır (494) src/syslib/FileSystem/syxxcfstrm2.cpp), yığın izleme:  
+  * Adımı tarafından bildirilen son hata: Sistem çağrısı başarısız oldu. AYRINTILAR: Hata 13 (0x0000000d) (izni reddedildi) yürütme sisteminin çağrı parametresi ' fopenU' (\\\as1-ascs/sapmnt/AS1/SYS/exe/uc/NTAMD64/strdbs.cmd, w), dosya (\bas/bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/src/syslib satır (494) / filesystem/syxxcfstrm2.cpp), yığın izleme:  
   CThrThread.cpp: 85: CThrThread::threadFunction()  
   CSiServiceSet.cpp: 63: CSiServiceSet::executeService()  
   CSiStepExecute.cpp: 913: CSiStepExecute::execute()  
@@ -456,7 +456,7 @@ Kullanım *as1 di 0* için *PA'lar örneği ana bilgisayar adı* iletişim kutus
     SWPM profili erişimi olan bir kullanıcı ile çalıştığından emin olun. Bu kullanıcı Uygulama Sunucusu Kurulum Sihirbazı'nda yapılandırılabilir
 
 * SAPinst adımı yürütülürken hata oluştu: askPasswords
-  * Son adım tarafından bildirilen hata: sistem çağrısı başarısız oldu. AYRINTILAR: Hata 5 (0x00000005) (erişim engellendi.) yığın izlemesini sistem çağrısı 'NetValidatePasswordPolicy' parametresi (...) (\bas/bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/src/syslib/account/synxcaccmg.cpp) dosyasında (359) satırı ile yürütülmesi içinde:  
+  * Adımı tarafından bildirilen son hata: Sistem çağrısı başarısız oldu. AYRINTILAR: Hata (0x00000005) 5 (erişim engellendi.) yığın izlemesini sistem çağrısı 'NetValidatePasswordPolicy' parametresi (...) (\bas/bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/src/syslib/account/synxcaccmg.cpp) dosyasında (359) satırı ile yürütülmesi içinde:  
   CThrThread.cpp: 85: CThrThread::threadFunction()  
   CSiServiceSet.cpp: 63: CSiServiceSet::executeService()  
   CSiStepExecute.cpp: 913: CSiStepExecute::execute()  
@@ -470,7 +470,7 @@ Kullanım *as1 di 0* için *PA'lar örneği ana bilgisayar adı* iletişim kutus
   iaxxcaccount.cpp: 107: iastring CIaOsAccountConnect::callMemberFunction (iastring const & adına args_t const ve args)  
   iaxxcaccount.cpp: 1186: iastring CIaOsAccountConnect::validatePasswordPolicy (const args_t & _args)  
   iaxxbaccount.cpp: 430: CIaOsAccount::validatePasswordPolicy_impl()  
-  synxcaccmg.cpp: 297: const ISyAccountMgt::PasswordValidationMessage CSyAccountMgtImpl::validatePasswordPolicy(saponazure,***))
+  synxcaccmg.cpp: 297: Const ISyAccountMgt::PasswordValidationMessage CSyAccountMgtImpl::validatePasswordPolicy(saponazure,***))
   * Çözüm  
     Adımda bir konak kural eklediğinizden emin olun *yalıtım* etki alanı denetleyicisini VM'den iletişime izin vermek
 

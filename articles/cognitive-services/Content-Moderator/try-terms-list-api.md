@@ -1,44 +1,44 @@
 ---
 title: Özel terim listeleri - Content Moderator ile orta metni
 titlesuffix: Azure Cognitive Services
-description: Content Moderator API'si konsolunda özel terim listeleri test edin.
+description: Özel metin denetimi API'si ile kullanmak için koşullarını listesini oluşturmak için listesi yönetim API'sini kullanın.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 08/05/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 99df9fda2cc56f169a61ec215a976de28fc13d27
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: fea671df0609b9c4dca9eaae99d1bfe667616837
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220287"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259436"
 ---
 # <a name="moderate-with-custom-term-lists-in-the-api-console"></a>API konsolunda özel terim listeleri ile orta
 
-Varsayılan Genel Azure Content Moderator koşullarını çoğu içerik denetimi ihtiyaçları için yeterli listesidir. Ancak, kuruluşunuz için belirli koşulların ekran gerekebilir. Örneğin, daha fazla inceleme için rakip etiketlerden isteyebilirsiniz. 
+Azure Content Moderator'daki varsayılan genel terim listesi, içerik moderasyonu ihtiyaçlarının büyük bölümü için yeterlidir. Bununla birlikte, kuruluşunuza özgü terimleri elemek gerekebilir. Örneğin, daha fazla incelemek üzere rakiplerin adlarını etiketlemek isteyebilirsiniz. 
 
 Kullanma [listesi Yönetimi API'sini](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) özel metin denetimi API'si ile kullanmak için koşullarını listesini oluşturmak için. **Metin - ekran** işlemi metninizi küfür tarar ve ayrıca özel ve paylaşılan kara karşı metni karşılaştırır.
 
 > [!NOTE]
-> Bir maksimum sınırı **5 terim listeleri** her listesine ile **10.000 koşulları aşmayacak**.
+> En çok **5 terim listeniz** olabilir ve her listedeki **terimlerin sayısı 10.000'i aşmamalıdır**.
 >
 
 Listeyi yönetim API'si, aşağıdaki görevleri gerçekleştirmek için kullanabilirsiniz:
-- Bir liste oluşturur.
-- Koşulları bir listesine ekleyin.
-- Bir liste koşullarını karşı ekran koşulları.
-- Koşulları listeden silin.
-- Bir listeyi silin.
-- Liste bilgileri düzenleyin.
-- Listeye yeni bir tarama dahil edilmesini dizini yenileyin.
+- Liste oluşturma.
+- Listeye terimleri ekleme.
+- Terimleri listedeki terimlere göre eleme.
+- Listeden terim silme.
+- Listeyi silme.
+- Liste bilgileri düzenleme.
+- Listede yapılan değişikliklerin yeni taramaya eklenmesi için dizini yenileyin.
 
 ## <a name="use-the-api-console"></a>API Konsolu
 
-Çevrimiçi konsolunda API'yi test sürüşü önce abonelik anahtarınızı gerekir. Bu anahtar bulunan **ayarları** sekmesinde **Ocp-Apim-Subscription-Key** kutusu. Daha fazla bilgi için [genel bakış](overview.md).
+Çevrimiçi konsolunda API'yi test sürüşü önce abonelik anahtarınızı gerekir. Bu anahtar bulunan **ayarları** sekmesinde **Ocp-Apim-Subscription-Key** kutusu. Daha fazla bilgi için bkz. [Genel Bakış](overview.md).
 
 ## <a name="refresh-search-index"></a>Arama dizini Yenile
 
@@ -119,13 +119,13 @@ Bir terimi listesine değişiklikler yaptıktan sonra gelecekteki taramalarında
  
 13. Birkaç daha fazla koşulları ekleyin. Özel terimleri listesini oluşturduğunuza göre deneyin [metin tarama](try-text-api.md) kullanarak özel terim listesi. 
 
-## <a name="delete-terms-and-lists"></a>Hüküm ve listeleri sil
+## <a name="delete-terms-and-lists"></a>Terimleri ve listeleri silme
 
-Bir terimi veya ayrılmış bir listeyi silmek oldukça basittir. Aşağıdaki görevleri gerçekleştirmek için API'yi kullanın:
+Terim veya listeyi silmek basit bir işlemdir. Aşağıdaki görevleri gerçekleştirmek için API'yi kullanın:
 
-- Bir terimi silin. (**Terim - Sil**)
-- Bir listedeki tüm koşulları, listenin silmeden silin. (**Terim - tüm koşulları Sil**)
-- Bir liste ve tüm içeriğini silin. (**Terim listeleri - silme**)
+- Terim silme. (**Terim - Sil**)
+- Listeyi silmeden listedeki tüm terimleri silme. (**Terim - tüm koşulları Sil**)
+- Listeyi ve tüm içeriğini silme. (**Terim listeleri - silme**)
 
 Bu örnek, tek bir terim siler.
 

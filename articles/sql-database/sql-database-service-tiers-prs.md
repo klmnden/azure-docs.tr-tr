@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/13/2018
-ms.openlocfilehash: 98b1072dc560de79e40fc4f802203459633dda28
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: e6ce99e70d57fd8d29b0f5cb2bd1084accfc4757
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53440943"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262974"
 ---
 # <a name="azure-sql-database-premium-rs-service-tier-preview-is-being-retired---options-for-migration"></a>Azure SQL veritabanı Premium RS hizmet Katmanı (Önizleme) kullanımdan - geçiş seçenekleri
 
@@ -27,7 +27,7 @@ Geçiş hedefler ve Premium RS müşteriler için uygun bir fiyatlandırma seçe
 
 - Sanal çekirdek hizmet katmanları
 
-  **Genel amaçlı** ve **iş açısından kritik** hizmet katmanlarında [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md). Bu iki hizmet katmanları genel kullanılabilirlik sunumundaki. Sanal çekirdek tabanlı satın alma modeli de sunar **hiper ölçekli** isteğe bağlı veritabanı başına en fazla 100 TB otomatik ölçeklendirme ile İş yükünüzün gereksinimlerine uyum sağlayan bir hizmet katmanındaki (genel Önizleme). G/ç performansı için Premium hizmet katmanında karşılaştırılabilir hiper ölçekli hizmet katmanı sunar [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) fiyattan daha yakın Premium RS hizmet katmanı için.
+  **Genel amaçlı** ve **iş açısından kritik** hizmet katmanlarında [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md). Bu iki hizmet katmanı, genel kullanım aşamasındadır. Sanal çekirdek tabanlı satın alma modeli de sunar **hiper ölçekli** isteğe bağlı veritabanı başına en fazla 100 TB otomatik ölçeklendirme ile İş yükünüzün gereksinimlerine uyum sağlayan bir hizmet katmanındaki (genel Önizleme). G/ç performansı için Premium hizmet katmanında karşılaştırılabilir hiper ölçekli hizmet katmanı sunar [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) fiyattan daha yakın Premium RS hizmet katmanı için.
 - Geliştirme ve Test fiyatlandırması
 
   [Geliştirme ve test fiyatlandırması](https://azure.microsoft.com/pricing/dev-test/) Visual Studio aboneliğinizle %55 lisansın dahil edildiği oranları karşı varan tasarruf sağlar.

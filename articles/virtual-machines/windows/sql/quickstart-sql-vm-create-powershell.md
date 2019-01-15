@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 02/15/2018
+ms.date: 12/21/2018
 ms.author: jroth
-ms.openlocfilehash: 6c8751bdfd0a9d1c49a2d759f3674b17562513e5
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 313f77481025f0851fb1fd09033dc198072b2190
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199315"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259464"
 ---
 # <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>Hızlı Başlangıç: Azure PowerShell ile SQL Server Windows sanal makinesi oluşturma
 
@@ -47,11 +47,11 @@ Bu hızlı başlangıç, Azure PowerShell modülü 3.6 veya sonraki bir sürüm�
    Connect-AzureRmAccount
    ```
 
-1. Kimlik bilgilerinizi girebileceğiniz bir oturum açma ekranı görmeniz gerekir. Azure portala giriş yapmak için aynı e-posta adresini ve parolayı kullanın.
+1. Kimlik bilgilerinizi girmeniz için bir ekran görürsünüz. Azure portala giriş yapmak için aynı e-posta adresini ve parolayı kullanın.
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-1. Benzersiz kaynak grubu adına sahip bir değişken tanımlayın. Hızlı başlangıcın geri kalanını kolaylaştırmak için sonraki komutlarda bu ad diğer kaynak adlarının temeli olarak kullanılmaktadır.
+1. Benzersiz kaynak grubu adına sahip bir değişken tanımlayın. Hızlı başlangıcın geri kalanını kolaylaştırmak için kalan komutlar bu ad diğer kaynak adlarının temeli olarak kullanın.
 
    ```PowerShell
    $ResourceGroupName = "sqlvm1"
@@ -122,11 +122,11 @@ Bu hızlı başlangıç, Azure PowerShell modülü 3.6 veya sonraki bir sürüm�
 
 ## <a name="create-the-sql-vm"></a>SQL VM'sini oluşturma
 
-1. VM'de oturum açmak için kimlik bilgilerinizi tanımlayın. Kullanıcı adı: "azureadmin". Komutu çalıştırmadan önce parolayı değiştirmeyi unutmayın.
+1. VM'de oturum açmak için kimlik bilgilerinizi tanımlayın. Kullanıcı adı: "azureadmin" dir. Değiştirdiğiniz emin \<parola > komutu çalıştırmadan önce.
 
    ``` PowerShell
    # Define a credential object
-   $SecurePassword = ConvertTo-SecureString 'Change.This!000' `
+   $SecurePassword = ConvertTo-SecureString '<password>' `
       -AsPlainText -Force
    $Cred = New-Object System.Management.Automation.PSCredential ("azureadmin", $securePassword)
    ```
@@ -136,7 +136,7 @@ Bu hızlı başlangıç, Azure PowerShell modülü 3.6 veya sonraki bir sürüm�
    ```PowerShell
    # Create a virtual machine configuration
    $VMName = $ResourceGroupName + "VM"
-   $VMConfig = New-AzureRmVMConfig -VMName $VMName -VMSize Standard_DS13 | `
+   $VMConfig = New-AzureRmVMConfig -VMName $VMName -VMSize Standard_DS13_V2 | `
       Set-AzureRmVMOperatingSystem -Windows -ComputerName $VMName -Credential $Cred -ProvisionVMAgent -EnableAutoUpdate | `
       Set-AzureRmVMSourceImage -PublisherName "MicrosoftSQLServer" -Offer "SQL2017-WS2016" -Skus "SQLDEV" -Version "latest" | `
       Add-AzureRmVMNetworkInterface -Id $Interface.Id
@@ -150,7 +150,7 @@ Bu hızlı başlangıç, Azure PowerShell modülü 3.6 veya sonraki bir sürüm�
 
 ## <a name="install-the-sql-iaas-agent"></a>SQL Iaas Aracısı yükleme
 
-Portal tümleştirmesi ve SQL VM özelliklerini kullanabilmek için [SQL Server IaaS Aracısı Uzantısı](virtual-machines-windows-sql-server-agent-extension.md)'nı yükleyin. Aracıyı yeni VM'ye yüklemek için oluşturulduktan sonra aşağıdaki komutu çalıştırın.
+Portal tümleştirmesi ve SQL VM özelliklerini kullanabilmek için [SQL Server IaaS Aracısı Uzantısı](virtual-machines-windows-sql-server-agent-extension.md)'nı yükleyin. Aracıyı yeni VM'ye yüklemek için VM oluşturulduktan sonra aşağıdaki komutu çalıştırın.
 
    ```PowerShell
    Set-AzureRmVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "1.2" -Location $Location
@@ -158,37 +158,37 @@ Portal tümleştirmesi ve SQL VM özelliklerini kullanabilmek için [SQL Server 
 
 ## <a name="remote-desktop-into-the-vm"></a>VM'ye uzak masaüstü bağlantısı kurma
 
-1. Aşağıdaki komutu kullanarak yeni VM'nin Genel IP adresini alabilirsiniz.
+1. Yeni VM için genel IP adresini almak için aşağıdaki komutu kullanın.
 
    ```PowerShell
    Get-AzureRmPublicIpAddress -ResourceGroupName $ResourceGroupName | Select IpAddress
    ```
 
-1. Ardından döndürülen IP adresini alıp yeni VM'ye Uzak Masaüstü oturumu başlatmak için **mstsc** komutuna komut satırı parametresi olarak iletin.
+1. Döndürülen IP adresini bir komut satırı parametresi olarak geçirin **mstsc** yeni VM'ye Uzak Masaüstü oturumu başlatmak için.
 
    ```
    mstsc /v:<publicIpAddress>
    ```
 
-1. Kimlik bilgileri istendiğinde farklı bir hesabın kimlik bilgilerini girme seçeneğini belirleyin. Bu hızlı başlangıcın önceki bölümlerinde ayarladığınız kullanıcı adını ters eğik çizgiyle (örneğin, `\azureadmin`) ve parolayı girin.
+1. Kimlik bilgileri istendiğinde farklı bir hesabın kimlik bilgilerini girme seçeneğini belirleyin. Önceki ters eğik çizgi ile kullanıcı adını girin (örneğin, `\azureadmin`) ve bu hızlı başlangıçta daha önce ayarladığınız parolayı.
 
 ## <a name="connect-to-sql-server"></a>SQL Server'a bağlanma
 
-1. Uzak Masaüstü oturumu açtıktan sonra başlat menüsünden **SQL Server Management Studio 2017**'yi çalıştırın.
+1. Uzak Masaüstü oturumunda oturum açtıktan sonra Başlat **SQL Server Management Studio 2017** Başlat menüsünden.
 
-1. **Sunucuya Bağlan** iletişim kutusunda varsayılan değerleri kullanın. Sunucu adı, VM'nin adıdır. Kimlik doğrulaması, **Windows Kimlik Doğrulaması** olarak ayarlanmıştır. **Bağlan**'a tıklayın.
+1. İçinde **sunucuya Bağlan** iletişim kutusunda, varsayılan değerleri koruyun. Sunucu adı, VM'nin adıdır. Kimlik doğrulaması, **Windows Kimlik Doğrulaması** olarak ayarlanmıştır. **Bağlan**’ı seçin.
 
-SQL Server'a yerel olarak bağlanmış olursunuz. Uzaktan bağlanmak istiyorsanız [bağlantı yapılandırmasını](virtual-machines-windows-sql-connect.md) portaldan veya el ile yapmanız gerekir.
+SQL Server'a yerel olarak bağlandınız. Uzaktan bağlanmak istiyorsanız, şunları yapmalısınız [bağlantısı yapılandırma](virtual-machines-windows-sql-connect.md) portaldan veya el ile.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-VM'nin sürekli çalıştırılması gerekmiyorsa, kullanımda olmadığında durdurarak gereksiz ödeme yapmaktan kaçının. Aşağıdaki komut VM'yi durdurur ancak özelliği daha sonra kullanılmak üzere muhafaza eder.
+Sanal Makinenin sürekli olarak çalışmasını gerekmiyorsa, kullanımda olmadığında durdurarak gereksiz ödeme yapmaktan kaçının. Aşağıdaki komut VM'yi durdurur ancak özelliği daha sonra kullanılmak üzere muhafaza eder.
 
 ```PowerShell
 Stop-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
 ```
 
-Ayrıca **Remove-AzureRmResourceGroup** komutuyla sanal makineyle ilişkilendirilmiş olan tüm kaynakları kalıcı olarak silebilirsiniz. Bu işlem sanal makineyi de kalıcı olarak sildiğinden, bu komutu dikkatli kullanın.
+Ayrıca **Remove-AzureRmResourceGroup** komutuyla sanal makineyle ilişkilendirilmiş olan tüm kaynakları kalıcı olarak silebilirsiniz. Sanal makineyi de kalıcı olarak bunu siler, bu komutu dikkatli kullanın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

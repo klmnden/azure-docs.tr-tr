@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/5/2018
+ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 88aa9a9003363f86db9214c62adff962bbd345cf
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: d1c948527c919ed8f81f16cf30a986591b414662
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344168"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263576"
 ---
 # <a name="what-is-azure-security-center"></a>Azure Güvenlik Merkezi nedir?
 
@@ -52,9 +52,11 @@ Ayrıca, Güvenlik Merkezi Azure dışı sunucular ve sanal makineleri bulutta v
 
 Aracılardan gelen ve azure'dan toplanan olayları, iş yüklerinizi güvenli olduğundan emin olmak için izleyin ve tehdit algılama uyarıları (görevleri sağlamlaştırma) öneriler, uyarlanmış sağlamak için güvenlik analiz altyapısı bağıntılı olan. Olabildiğince çabuk kötü amaçlı saldırıları, iş yükleriniz üzerinde gerçekleşen olmayan emin olmak için bu tür uyarılar araştırmanız gerekir.
 
+Güvenlik Merkezi'ni etkinleştirdiğinizde, yerleşik Güvenlik Merkezi güvenlik ilkesi Azure İlkesi'nde Güvenlik Merkezi kategori altında yerleşik bir girişim olarak yansıtılır. Yerleşik girişim, tüm Güvenlik Merkezi kayıtlı abonelikler (ücretsiz veya standart katmanları) otomatik olarak atanır. Yerleşik girişim yalnızca denetim ilkeleri içerir. Azure İlkesi'nde Güvenlik Merkezi ilkeleri hakkında daha fazla bilgi için bkz. [güvenlik ilkeleriyle çalışma](tutorial-security-policy.md).
+
 ## <a name="strengthen-security-posture"></a>Güvenlik duruşunu güçlendirme
 
-Azure Güvenlik Merkezi, güvenlik duruşunuzu güçlendirin olanak tanır. Başka bir deyişle, en iyi güvenlik uygulamaları önerilen sağlamlaştırma görevlerini gerçekleştirmek ve bunları makineler, veri hizmetleri ve uygulamaları arasında uygulama yardımcı olur. Bu yönetme ve güvenlik ilkelerini zorunlu içerir ve emin olun, Azure sanal makineler, Azure dışı sunucular ve Azure PaaS hizmetlerine uyumludur. Güvenlik Merkezi, ağ güvenlik Emlak üzerinde odaklı görünürlük ile iş yüklerinizi kuş göz görünümünde sağlamak için ihtiyacınız olan araçları sağlar.
+Azure Güvenlik Merkezi, güvenlik duruşunuzu güçlendirin olanak tanır. Başka bir deyişle, en iyi güvenlik uygulamaları önerilen sağlamlaştırma görevlerini gerçekleştirmek ve bunları makineler, veri hizmetleri ve uygulamaları arasında uygulama yardımcı olur. Bu yönetme ve güvenlik ilkelerini zorunlu içerir ve emin olun, Azure sanal makineler, Azure dışı sunucular ve Azure PaaS hizmetlerine uyumludur. Güvenlik Merkezi, ağ güvenlik Emlak üzerinde odaklı görünürlük ile iş yüklerinizi kuş göz görünümünde sağlamak için ihtiyacınız olan araçları sağlar. 
 
 ### <a name="manage-organization-security-policy-and-compliance"></a>Kuruluşunuzun güvenlik ilkesi ve uyumluluğunu yönetmek
 

@@ -1,6 +1,6 @@
 ---
 title: Ethereum iş kavram consortium çözüm şablonu
-description: Çoklu üyeli bir konsorsiyum Ethereum ağ yapılandırmak ve dağıtmak Etherereum kavram iş Consortium çözüm şablonu kullanın
+description: Çoklu üyeli bir konsorsiyum Ethereum ağ yapılandırmak ve dağıtmak Ethereum kavram iş Consortium çözüm şablonu kullanın
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: fa58ecf4607efc1d212e40b98d199756d4b987f8
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 16bf68a5fdb1df2a4f60de9167893a42295cbc52
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231806"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260542"
 ---
 # <a name="ethereum-proof-of-work-consortium-solution-template"></a>Ethereum iş kavram consortium çözüm şablonu
 
@@ -67,7 +67,7 @@ Bu işlem, birkaç sanal makine ölçek kümeleri dağıtma destekleyebilir ve y
 
 Bir abonelik güvenli hale getirildikten sonra Azure portalına gidin. Seçin **+ kaynak Oluştur**, Market (bkz: tümü), araması **Ethereum kavram iş Consortium**.
 
-Şablon dağıtımı ilk üyenin ayak izini ağ yapılandırması için size yol gösterir. Dağıtım akışı beş adımlarına ayrılmıştır: temel, Operations Management Suite, dağıtım bölgeleri, ağ boyutu ve performansı, Ethereum ayarları.
+Şablon dağıtımı ilk üyenin ayak izini ağ yapılandırması için size yol gösterir. Dağıtım akışı beş adımlarına ayrılmıştır: Temel bilgileri, Operations Management Suite, dağıtım bölgeleri, ağ boyutu ve performansı, Ethereum ayarları.
 
 ### <a name="basics"></a>Temel Bilgiler
 
@@ -215,7 +215,7 @@ Ana bilgisayar adları yönetim sitesinden veya Azure Portalı'ndan elde edilebi
 
 Azure portalı ana bilgisayar adı| Gerçek ana bilgisayar adı
 ---|---
-MN ethwvu reg1_0| MN ethwvu reg1000000
+mn-ethwvu-reg1_0| mn-ethwvu-reg1000000
 MN ethwvu reg1_1 |MN ethwvu reg1000001
 MN ethwvu reg1_2 |MN ethwvu reg1000002
 
@@ -225,13 +225,13 @@ MN ethwvu reg1_2 |MN ethwvu reg1000002
 
 İlk üye (veya bağlı üye) Consortium katılın ve kendi bağlantı kurmak için bazı bilgilere diğer üyeleri vermeniz gerekir. Bu avantajlar şunlardır:
 
-1. **Yapılandırma verilerini Consortium paylaşılan**: iki üyeleri arasındaki Ethereum bağlantıyı düzenlemek için kullanılan veri kümesi yok. Genesis blok, consortium ağ kimliği ve önyükleme düğümleri dahil olmak üzere gerekli bilgileri, işlem düğümlerinde Öncü veya başka bir dağıtılan üye bir dosyaya yazılır. Bu dosyanın konumu adlı şablon dağıtımı çıkış parametresinde listelenen **CONSORTIUM veri**.
-2. **Bilgileri endpoint eş**: liderleri ya da başka bir üyesinin dağıtım Ethereum ağa bağlı tüm düğümleri zaten bilgi almak için eş bilgileri kayıt uç noktası. Her düğüm ile ilgili bilgi kümesi DB depoları düğümün ana bilgisayar adı, özel gibi bilgileri ağ IP adresi vb. bağlı. Adlı şablon dağıtımı çıkış parametresi budur **PEER_INFO_ENDPOINT**.
-3. **Eş birincil anahtar bilgisi**: Eş bilgisi Kaydedici birincil anahtarı öncü 's veya diğer üyenin eş bilgileri birincil anahtara erişmek için kullanılır. Adlı şablon dağıtımı çıkış parametresi budur **PEER_INFO_PRIMARY_KEY**.
+1. **Yapılandırma verilerini Consortium paylaşılan**: İki üyeleri arasındaki Ethereum bağlantıyı düzenlemek için kullanılan veri kümesi yok. Genesis blok, consortium ağ kimliği ve önyükleme düğümleri dahil olmak üzere gerekli bilgileri, işlem düğümlerinde Öncü veya başka bir dağıtılan üye bir dosyaya yazılır. Bu dosyanın konumu adlı şablon dağıtımı çıkış parametresinde listelenen **CONSORTIUM veri**.
+2. **Bilgileri endpoint eş**: Zaten liderleri ya da başka bir üyesinin dağıtım Ethereum ağa bağlı tüm düğümleri almak için eş bilgileri kayıt uç noktası. Her düğüm ile ilgili bilgi kümesi DB depoları düğümün ana bilgisayar adı, özel gibi bilgileri ağ IP adresi vb. bağlı. Adlı şablon dağıtımı çıkış parametresi budur **PEER_INFO_ENDPOINT**.
+3. **Eş birincil anahtar bilgisi**: Eş bilgisi Kaydedici birincil anahtarı öncü 's veya diğer üyenin eş bilgisi birincil anahtarı erişim elde etmek için kullanılır. Adlı şablon dağıtımı çıkış parametresi budur **PEER_INFO_PRIMARY_KEY**.
 
 
-4. **VNET ağ geçidi**: her üye varolan bir üye ile tüm blok zinciri ağa bir bağlantı kurar. Sanal AĞA bağlamak için VNET ağ geçidinin bağlanmakta olduğunuz üyenin kaynak yolu gerekir. Adlı şablon dağıtımı çıkış parametresi budur **CONSORTIUM_MEMBER_GATEWAY_ID**.
-5. **Paylaşılan anahtar**: A önceden belirlenmiş gizli arasında bağlantı kurma iki Konsorsiyum ağı üyesi. Dağıtım bağlamı dışında üzerinde anlaşılan alfasayısal bir dize (1 ile 128 karakter arasında) budur. (Örneğin, **MySharedKeyAbc123**)
+4. **VNET ağ geçidi**: Her üye, varolan bir üye ile tüm blok zinciri ağa bir bağlantı kurar. Sanal AĞA bağlamak için VNET ağ geçidinin bağlanmakta olduğunuz üyenin kaynak yolu gerekir. Adlı şablon dağıtımı çıkış parametresi budur **CONSORTIUM_MEMBER_GATEWAY_ID**.
+5. **Paylaşılan anahtar**: Önceden oluşturulmuş bir gizli dizi arasında bağlantı kurma iki Konsorsiyum ağı üyesi. Dağıtım bağlamı dışında üzerinde anlaşılan alfasayısal bir dize (1 ile 128 karakter arasında) budur. (Örneğin, **MySharedKeyAbc123**)
 
 ### <a name="acceptance-of-new-member"></a>Yeni üye kabulü
 
@@ -261,24 +261,24 @@ Ardından, modülü içeri aktarın:
 
 Son olarak, uygun girişle işlevi çalıştırın:
 
-- **MyGatewayResourceId:** geçidinizin kaynak yolu. Adlı şablon dağıtımı çıkış parametresi budur **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **OtherGatewayResourceId:** katılma üyenin ağ geçidinin kaynak yolu. Bu katılan bir üyesi tarafından sağlanır ve şablon dağıtımı çıktı parametresi olarak da adlandırılır **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **ConnectionName:** , bu ağ geçidi bağlantısı tanımlamak bir ad.
-- **Paylaşılan anahtar:** önceden oluşturulmuş gizli arasında bağlantı kurma iki Konsorsiyum ağı üyesi.
+- **MyGatewayResourceId:** Ağ geçidi kaynak yolu. Adlı şablon dağıtımı çıkış parametresi budur **CONSORTIUM_MEMBER_GATEWAY_ID**.
+- **OtherGatewayResourceId:** Katılma üyenin ağ geçidi kaynak yolu. Bu katılan bir üyesi tarafından sağlanır ve şablon dağıtımı çıktı parametresi olarak da adlandırılır **CONSORTIUM_MEMBER_GATEWAY_ID**.
+- **ConnectionName:** Bu ağ geçidi bağlantısı belirleyebilmeniz için bir ad.
+- **Paylaşılan anahtar:** Bağlantı kurma iki Konsorsiyum ağı üyeleri arasında önceden oluşturulmuş gizli anahtarı.
 
 **CreateConnection** -MyGatewayResourceId <resource path of your Gateway> - OtherGatewayResourceId < katılma üyenin ağ geçidinin kaynak yolu > - ConnectionName myConnection - SharedKey "MySharedKeyAbc123"
 
-**xPlat CLI: bağlantı**
+**xPlat CLI: Bağlantı**
 
 Azure CLI betiği indirip yerel olarak depolar. Azure CLI betiği konumunu adlı şablon dağıtım parametresinde belirtilen **çifti-GATEWAY-AZURE-CLI-BETİK**.
 
 Uygun giriş ile betiği çalıştırın:
 
-- **MyGatewayResourceId:** geçidinizin kaynak yolu. Adlı şablon dağıtımı çıkış parametresi budur **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **OtherGatewayResourceId:** katılma üyenin ağ geçidinin kaynak yolu. Bu Birleşen üye tarafından sağlanan ve şablon dağıtım parametresi olarak da adlandırılan bunların dağıtım **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **ConnectionName:** , bu ağ geçidi bağlantısı tanımlamak bir ad.
-- **Paylaşılan anahtar:** önceden oluşturulmuş gizli arasında bağlantı kurma iki Konsorsiyum ağı üyesi.
-- **Konum:** , ağ geçidi kaynağı dağıtıldığı Azure bölgesi.
+- **MyGatewayResourceId:** Ağ geçidi kaynak yolu. Adlı şablon dağıtımı çıkış parametresi budur **CONSORTIUM_MEMBER_GATEWAY_ID**.
+- **OtherGatewayResourceId:** Katılma üyenin ağ geçidi kaynak yolu. Bu Birleşen üye tarafından sağlanan ve şablon dağıtım parametresi olarak da adlandırılan bunların dağıtım **CONSORTIUM_MEMBER_GATEWAY_ID**.
+- **ConnectionName:** Bu ağ geçidi bağlantısı belirleyebilmeniz için bir ad.
+- **Paylaşılan anahtar:** Bağlantı kurma iki Konsorsiyum ağı üyeleri arasında önceden oluşturulmuş gizli anahtarı.
+- **Konum:** Ağ geçidi kaynağınızı dağıtıldığı Azure bölgesi.
 
 ``` powershell
 az network vpn-connection create --name $ConnectionName --resource-group

@@ -1,21 +1,21 @@
 ---
 title: Dil desteği - Content Moderator API'si
 titleSuffix: Azure Cognitive Services
-description: Doğal Content Moderator API'si tarafından desteklenen dillerin listesi.
+description: Content Moderator API'si destekleyen doğal dillerin bir listesi budur.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 5c170fd2871d0e487f705e1e7274fdfdda4049e6
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 95e7f5ce52f4bcf45153b4e455c1427f7117641c
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276389"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263687"
 ---
 # <a name="language-support-for-content-moderator-api"></a>Content Moderator API'si için dil desteği
 
@@ -29,12 +29,12 @@ ms.locfileid: "52276389"
 | -------------------- |-------------|--------|---------------------|
 | Arapça (Romanized)   | Afrikaner dili   | Arapça   | Arapça
 | Bali dili | Arnavutça | Çince (Basitleştirilmiş)    | Danca
-| Bengali | Amhara dili | Çince (Geleneksel)     | Felemenkçe
+| Bengali | Amhara dili | Geleneksel Çince     | Felemenkçe
 | Bugi dili | Arapça | Çekçe                     | Türkçe
 | Buhid | Ermenice | Danca                     | Fince
 | Carian | Assam dili | Felemenkçe                     | Fransızca 
 | Çince (Basitleştirilmiş) | Azerice | Türkçe  | Yunanca (modern)
-| Çince (Geleneksel) | Bangla - Bangladeş | Fince  | İtalyanca
+| Geleneksel Çince | Bangla - Bangladeş | Fince  | İtalyanca
 | Church (Slavca) | Bangla - Hindistan | Fransızca      | Korece
 | Koptikleri | Bask dili | Almanca                       | Norveççe
 | Çekçe |  Belarusça | Yunanca (modern)         | Lehçe
@@ -53,7 +53,7 @@ ms.locfileid: "52276389"
 | İtalyanca | Danca | İspanyolca 
 | Japonca | Dari dili | İsveççe
 | Korece | Felemenkçe | Türkçe
-| Kürtçe (Arapça) | Türkçe
+| Kurdish (Arabic) | Türkçe
 | Kürtçe (Latin) | Estonca
 | Lepça dili | Filipin dili
 | Limbu dili | Fince
@@ -97,7 +97,7 @@ ms.locfileid: "52276389"
 | | Marathi dili
 | | Moğolca
 | | Nepal dili
-| | Norveççe (Bokmal)
+| | Norwegian (Bokmål)
 | | Norveççe (Nynorsk)
 | | Odia
 | | Peştuca
@@ -115,7 +115,7 @@ ms.locfileid: "52276389"
 | | Sırpça (Kiril)
 | | Sırpça (Kiril, Bosna ve Hersek)
 | | Sırpça (Latin)
-| | Kuzey
+| | Sesotho
 | | Kuzey Sesotho dili
 | | Setsvana dili
 | | Sindhi dili

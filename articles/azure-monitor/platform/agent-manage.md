@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: magoedte
-ms.openlocfilehash: 0680140d9f4f4e77b5029c30c37f4c531652c6f2
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 7701ef463124fafd4c750fbb9f23aa03d6bc25ab
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119127"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262498"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Windows ve Linux için Log Analytics aracısını korumak ve yönetme
 
@@ -175,7 +175,7 @@ Komut satırı veya Kurulum Sihirbazı'nı kullanarak Windows veya Linux aracıs
 Aracı için indirilen dosyayı, IExpress ile oluşturulan kendi içinde yükleme paketidir. Destekleyici dosyaları ve aracı için Kurulum programı, pakette yer alan ve doğru bir şekilde aşağıdaki örnekte gösterilen komut satırını kullanarak kaldırmak için ayıklanacak gerekir.
 
 1. Yönetici haklarına sahip bir hesapla bilgisayarda oturum açın.
-2. Çalıştırma yükseltilmiş komut isteminden aracı yükleme dosyalarını ayıklamak için `extract MMASetup-<platform>.exe` ve bu dosyaları ayıklamak yol, ister. Alternatif olarak, bağımsız değişkenleri geçirme olan yolu belirtebilirsiniz `extract MMASetup-<platform>.exe /c:<Path> /t:<Path>`. IExpress tarafından desteklenen komut satırı swtiches hakkında daha fazla bilgi için bkz. [IExpress için komut satırı anahtarları](https://support.microsoft.com/help/197147/command-line-switches-for-iexpress-software-update-packages) ve sonra örneği gereksinimlerinize uyacak şekilde güncelleştirin.
+2. Çalıştırma yükseltilmiş komut isteminden aracı yükleme dosyalarını ayıklamak için `extract MMASetup-<platform>.exe` ve bu dosyaları ayıklamak yol, ister. Alternatif olarak, bağımsız değişkenleri geçirme olan yolu belirtebilirsiniz `extract MMASetup-<platform>.exe /c:<Path> /t:<Path>`. IExpress tarafından desteklenen komut satırı anahtarları hakkında daha fazla bilgi için bkz. [IExpress için komut satırı anahtarları](https://support.microsoft.com/help/197147/command-line-switches-for-iexpress-software-update-packages) ve sonra örneği gereksinimlerinize uyacak şekilde güncelleştirin.
 3. İsteminde `%WinDir%\System32\msiexec.exe /x <Path>:\MOMAgent.msi /qb`.
 
 ### <a name="linux-agent"></a>Linux Aracısı

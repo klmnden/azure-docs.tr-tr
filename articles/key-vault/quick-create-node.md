@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 860294ebc7fbadd3eeefc4298ec740ca7f704587
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
-ms.translationtype: HT
+ms.openlocfilehash: 2b114a4aed812a91a9f6c4ed43f57411e47ea677
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714403"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260037"
 ---
-# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-a-node-web-app"></a>Hızlı başlangıç: Node Web Uygulaması kullanarak Azure Key Vault'tan gizli dizi ayarlama ve alma 
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-a-node-web-app"></a>Hızlı Başlangıç: Ayarlayın ve bir düğüm Web uygulaması kullanarak Azure Key Vault gizli dizi alma 
 
 Bu hızlı başlangıçta Anahtar Kasasında gizli dizi depolama ve bunu Web uygulaması kullanarak alma adımları gösterilmektedir. Gizli dizi değerini görmek için bunu Azure'da çalıştırmanız gerekir. Bu hızlı başlangıçta, Azure kaynakları için yönetilen kimlikler ve Node.js kullanılmaktadır.
 
@@ -33,9 +33,9 @@ Bu hızlı başlangıçta Anahtar Kasasında gizli dizi depolama ve bunu Web uyg
 Devam etmeden önce [temel kavramlar](key-vault-whatis.md#basic-concepts) hakkında bilgi sahibi olduğunuzdan emin olun.
 
 >[!NOTE]
-Aşağıdaki öğreticinin neden en iyi yöntem olduğunu anlamak için bilmeniz gereken birkaç kavram vardır. Key Vault, gizli dizilerin program aracılığıyla depolandığı merkezi bir depodur. Bunu yapmak için uygulamaların/kullanıcıların gizli dizi sunarak Key Vault kimlik doğrulamasından geçmesi gerekir. Güvenlikle ilgili en iyi yöntemlerin uygulanması için bu ilk gizli dizinin de düzenli olarak döndürülmesi gerekir. Ancak [Azure kaynakları için yönetilen kimlikler](../active-directory/managed-identities-azure-resources/overview.md) sayesinde Azure’da çalıştırılan uygulamalara otomatik olarak Azure tarafından yönetilen bir kimlik verilir. Bu da **Gizli Dizi Belirleme Sorununu** çözerek kullanıcıların/uygulamaların en iyi yöntemleri uygulamasına ve ilk gizli diziyi döndürme konusunda endişelenmemesine yardımcı olur.
+Aşağıdaki öğreticinin neden en iyi yöntem olduğunu anlamak için bilmeniz gereken birkaç kavram vardır. Key Vault, gizli dizilerin program aracılığıyla depolandığı merkezi bir depodur. Bunu yapmak için uygulamaların/kullanıcıların gizli dizi sunarak Key Vault kimlik doğrulamasından geçmesi gerekir. Güvenlikle ilgili en iyi yöntemlerin uygulanması için bu ilk gizli dizinin de düzenli olarak döndürülmesi gerekir. Ancak [kimliklerini Azure kaynakları için yönetilen](../active-directory/managed-identities-azure-resources/overview.md) Azure'da çalışan uygulamalar, Azure tarafından otomatik olarak yönetilen bir kimlik verilir. Bu da **Gizli Dizi Belirleme Sorununu** çözerek kullanıcıların/uygulamaların en iyi yöntemleri uygulamasına ve ilk gizli diziyi döndürme konusunda endişelenmemesine yardımcı olur.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * [Node JS](https://nodejs.org/en/)
 * [Git](https://www.git-scm.com/)

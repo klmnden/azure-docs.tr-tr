@@ -1,23 +1,23 @@
 ---
 title: Denetimi - Content Moderator resim
 titlesuffix: Azure Cognitive Services
-description: Orta uygunsuz görüntüleri için görüntü denetimi kullanın
+description: Content Moderator'ın makine Yardımlı resim denetimi ve orta görüntüleri için İnsan-de--döngü gözden geçirme aracı yetişkinlere yönelik ve müstehcen içeriği için kullanın.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 01/20/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 044aa9a127aa8130340719147314961ddb38167a
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 952777af0a233f0233f14c749fe0ebfdeaa8344a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852716"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262940"
 ---
-# <a name="image-moderation"></a>Görüntü denetimi
+# <a name="learn-image-moderation-concepts"></a>Görüntü denetimi kavramları öğrenin
 
 Content Moderator'ın makine Yardımlı resim denetimi kullanın ve [İnsan içinde--döngüsü gözden geçirme aracı](Review-Tool-User-Guide/human-in-the-loop.md) yetişkinlere yönelik ve müstehcen içerikleri için görüntüleri denetlemek. Metin içeriği için görüntü tarama, metin ayıklama ve yüzleri algılayın. Başka bir işlem yapmanıza ve özel listeler karşı görüntüleri eşleşmiyor.
 

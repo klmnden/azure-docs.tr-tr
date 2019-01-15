@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
-ms.openlocfilehash: 5a97a4e35f4d2a5f8ec2884c93329e180172f9e1
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 11372894e1dbcac6a49205ff56d8b30ffb6ee976
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185231"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261273"
 ---
 # <a name="create-custom-fields-in-log-analytics"></a>Log Analytics'te özel alanlar oluşturma
 
 > [!NOTE]
-> Bu makale, Log analytics'te metin verileri toplandıktan olarak ayrıştırılacak açıklamaktadır. Bölümünde anlatıldığı gibi toplandıktan sonra metin elinden sorgu ayrıştırma avantajları vardır [ayrıştırma metin verilerini Log analytics'te](../log-query/parse-text.md).
+> Bu makale, Log analytics'te metin verileri toplandıktan olarak ayrıştırılacak açıklamaktadır. Bölümünde anlatıldığı gibi toplandıktan sonra bir sorguda metin verilerini ayrıştırma avantajları vardır [ayrıştırma metin verilerini Log analytics'te](../log-query/parse-text.md).
 
 **Özel alanlar** özelliği Log Analytics, Log analytics'te var olan kayıtların kendi arama yapılabilir alanlar ekleyerek genişletebilir olanak tanır.  Özel alanlar, diğer özellikleri aynı kaydın ayıklanan verilerden otomatik olarak doldurulur.
 

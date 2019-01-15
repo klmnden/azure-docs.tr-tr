@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: jomolesk
-ms.openlocfilehash: 50a49a8bcb6bec6c177823ea61cc340da6876357
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 9bfd748e6b10106587e3fce64e15d7f1f6d50e59
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602095"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261596"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-fedramp"></a>Azure güvenlik ve uyumluluk planı: FedRAMP için PaaS Web uygulaması
 
@@ -165,7 +165,7 @@ Ayrıca, aşağıdaki izleme çözümleri Bu mimarinin bir parçası olarak dahi
 
 Bu başvuru mimarisine yönelik veri akış diyagramı kullanılabilir [indirme](https://aka.ms/fedrampPaaSWebAppDFD) veya altında bulunabilir. Bu model, değişiklikler yaparken sistemi altyapısında potansiyel risk puanları anlamasına yardımcı olabilir.
 
-![PaaS Web uygulaması için FedRAMP tehdit modeli](images/fedramp-paaswa-threat-model.png?raw=true "PaaS Web uygulaması için FedRAMP tehdit modeli")
+![PaaS Web uygulaması için FedRAMP tehdit modeli](images/fedramp-paaswa-threat-model.png?raw=true "FedRAMP tehdit modeli için PaaS Web uygulaması")
 
 ## <a name="compliance-documentation"></a>Uyumluluk belgeleri
 [Azure güvenlik ve uyumluluk planı - FedRAMP yüksek müşteri sorumluluk matris](https://aka.ms/blueprinthighcrm) FedRAMP yüksek temeli tarafından gerekli tüm güvenlik denetimleri listeler. Matris, her denetimi uyarlamasını Microsoft, müşterinin sorumluluğundadır veya ikisi arasında paylaşılan gösterir.

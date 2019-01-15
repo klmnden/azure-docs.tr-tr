@@ -8,266 +8,52 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: overview
-ms.date: 06/21/2016
+ms.date: 01/10/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: 17383d38b1401149003ad9d1794b3e69284f9033
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 32c18508d07fc911366ffc77ebe347efd3c1b6fa
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253102"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261460"
 ---
 # <a name="what-is-the-bing-news-search-api"></a>Bing haber arama API'si nedir?
 
-Bing Haber Arama API’si, [Bing Haberler](https://www.bing.com/news) ile benzer (tam olarak aynı değil) bir deneyim sağlar. Bing Haber Arama API’si, Bing’e bir arama sorgusu göndermenize ve ilgili haber makalelerinin bir listesini geri almanıza olanak tanır.
+Bing haber arama API'si, Bing'ın bilişsel haber arama özellikleri uygulamalarınızla tümleştirin kolaylaştırır. Benzer bir deneyim için API'nin sağladığı [Bing Haberler](https://www.bing.com/news), süreniz arama sorguları göndermek ve ilgili haber makalelerini alırsınız.
 
-Kullanıcının arama sorgusuyla ilgili haberleri bulmak için yalnızca haber içeren bir arama sonuçları sayfası oluşturuyorsanız daha genel [Bing Web Araması API'si](../bing-web-search/search-the-web.md) yerine bu API'yi çağırın. Haberlerin yanı sıra web sayfaları, görüntüler ve videolar gibi diğer içerik türlerini de istiyorsanız Bing Web Araması API'sini çağırın.
+Bing haber arama API'si, haber arama sonuçları yalnızca sağladığını unutmayın. Kullanım [Bing Web araması API'si](../bing-web-search/search-the-web.md), [Video arama API'si](../bing-video-search/search-the-web.md) ve [resim arama API'si](../bing-image-search/overview.md) diğer web içeriği türleri için.
 
-## <a name="suggesting--using-search-terms"></a>Arama terimlerini önerme ve kullanma
+## <a name="bing-news-search-api-features"></a>Bing haber arama API'si özellikleri
 
-Kullanıcıların arama terimlerini gireceği bir arama kutusu sağlıyorsanız deneyimi geliştirmek için [Bing Otomatik Öneri API'sini](../bing-autosuggest/get-suggested-search-terms.md) kullanın. API, kullanıcı yazarken kısmi arama terimlerine dayalı önerilen sorgu dizelerini yönetin.
+Bing haber arama API'si, öncelikli olarak bulur ve ilgili haber makalelerini döndürür, ancak Web Akıllı ve odaklanmış haberleri almak için çeşitli özellikler sağlar.
 
-Kullanıcı arama terimini girdikten sonra [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#query) sorgu parametresini ayarlamadan önce terimi URL ile kodlayın. Örneğin kullanıcı *sailing dinghies* terimini girerse `q` öğesini `sailing+dinghies` veya `sailing%20dinghies` olarak ayarlayın.
+|Özellik  |Açıklama  |
+|---------|---------|
+|[Önermek ve arama terimlerini kullanma](concepts/search-for-news.md#suggest-and-use-search-terms)     | Kullanarak arama deneyiminizi geliştirmeye [Bing otomatik öneri API'si](../bing-autosuggest/get-suggested-search-terms.md) yazıldığı gibi önerilen arama terimlerini görüntülenecek.         |
+|[Genel haberleri alın](concepts/search-for-news.md#get-general-news)     | Bing haber arama API'si için bir arama sorgusu gönderme ve ilgili haber makalelerini listesini geri alamazsınız haber bulun.           |
+|[Günümüzün en güncel](concepts/search-for-news.md#get-todays-top-news)      | Üst haberleri gün için tüm kategorilerde geride alın.       |
+|[Haberleri kategoriye göre](concepts/search-for-news.md)     | Belirli kategorileri haberler için arama yapın.        | 
+|[Başlık Haberleri](concepts/search-for-news.md)     | Üst başlıkları için tüm kategorilerde geride arayın.         |
 
-## <a name="getting-general-news"></a>Genel haberleri alma
+## <a name="workflow"></a>İş akışı
 
-Web'den kullanıcının arama terimiyle ilgili genel haber makalelerini almak için aşağıdaki GET isteğini gönderin:
+Bing haber arama API'si bir RESTful web, HTTP istekleri ve JSON Ayrıştır tüm programlama dilinden çağrı kolaylaştırma hizmetidir. REST API veya SDK'sını kullanarak hizmetini kullanabilirsiniz.
 
-```http
-GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=sailing+dinghies&mkt=en-us HTTP/1.1
-Ocp-Apim-Subscription-Key: 123456789ABCDE
-User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)
-X-Search-ClientIP: 999.999.999.999
-X-Search-Location: lat:47.60357;long:-122.3295;re:100
-X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
-Host: api.cognitive.microsoft.com
-```
+1. Bing arama API'leri erişimi olan bir Bilişsel hizmetler API hesabı oluşturma. Azure aboneliğiniz yoksa, şunları yapabilirsiniz [ücretsiz bir hesap oluşturma](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-news-api).
 
-Bing API'lerinden birini ilk kez çağırıyorsanız istemci kimliği üst bilgisini eklemeyin. İstemci kimliğini yalnızca önceden bir Bing API'sini çağırdıysanız ve Bing, kullanıcı ve cihaz birleşimi için bir istemci kimliği döndürdüyse dahil edin.
+2. Geçerli bir arama sorgusuyla API'sine bir istek gönderin.
 
-Belirli bir etki alanındaki haberleri almak için [site:](https://msdn.microsoft.com/library/ff795613.aspx) sorgu işlecini kullanın.
-
-```http
-GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us HTTP/1.1
-```
-
-Aşağıda, bir önceki sorgunun yanıtı gösterilmektedir. Her haber makalesini yanıtta iletilen sırayla görüntülemeniz gerekir. Makalede kümelenmiş makaleler varsa, ilgili makalelerin mevcut olduğunu belirtmeniz ve kullanıcının görmeyi istemesi durumunda görüntülemeniz gerekir.
-
-```json
-{
-    "_type" : "News",
-    "readLink" : "https:\/\/api.cognitive.microsoft.com\/bing\/v5\/news\/search?q=sailing+dinghies",
-    "totalEstimatedMatches" : 88400,
-    "value" : [{
-        "name" : "Sailing Vies for Four Trophies",
-        "url" : "http:\/\/www.bing.com\/cr?IG=CCE2F06CA750455891FE99A72...",
-        "image" : {
-            "thumbnail" : {
-                "contentUrl" : "https:\/\/www.bing.com\/th?id=ON.9C23AA5...",
-                "width" : 650,
-                "height" : 341
-            }
-        },
-        "description" : "College Rankings, presented by Zim...",
-        "provider" : [{
-            "_type" : "Organization",
-            "name" : "contoso.com"
-        }],
-        "datePublished" : "2017-04-14T15:28:00"
-    },
-
-    ...
-
-    {
-        "name" : "Fabrikam Sailing Club to host Mirror Dinghy...",
-        "url" : "http:\/\/www.bing.com\/cr?IG=CCE2F06CA750455891F...",
-        "image" : {
-            "thumbnail" : {
-                "contentUrl" : "https:\/\/www.bing.com\/th?id=ON.36...",
-                "width" : 448,
-                "height" : 300
-            }
-        },
-        "description" : "The sailing club that trained Olympian Ben...",
-        "provider" : [{
-            "_type" : "Organization",
-            "name" : "Contoso"
-        }],
-        "datePublished" : "2017-04-04T11:02:00",
-        "category" : "Sports"
-    }]
-}
-```
-
-[news](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference#news) yanıtı, Bing’in sorguyla ilgili olduğunu düşündüğü haber makalelerini listeler. `totalEstimatedMatches` alanı, görüntülenebilecek tahmini makale sayısını içerir. Makaleler arasında gezinme hakkında bilgi için bkz. [Haberleri Sayfalama](./paging-news.md).
-
-Listedeki her [haber makalesi](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference#newsarticle), makalenin adı, açıklaması ve konağın web sitesindeki makalenin URL’sini içerir. Makale bir görüntü içeriyorsa, nesne görüntünün küçük resmini içerir. Kullanıcıyı konağın sitesindeki haber makalesine götüren bir köprü bağlantı oluşturmak için `name` ve `url` kullanın. Makale bir görüntü içeriyorsa, `url` kullanarak görüntüyü de tıklanabilir hale getirin. Makaleyi ilişkilendirmek için `provider` kullandığınızdan emin olun.
-
-Bing haber makalesinin kategorisini belirleyebiliyorsa, makale `category` alanını içerir.
-
-## <a name="getting-todays-top-news"></a>Günün en önemli haberlerini alma
-
-Günün en önemli haber makalelerini almak için `q` ayarını yapmadan bırakmanız dışında genel haberleri alırken yaptığınız isteğin aynısını yaparsınız.
-
-```http
-GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=&mkt=en-us HTTP/1.1
-Ocp-Apim-Subscription-Key: 123456789ABCDE
-User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)
-X-Search-ClientIP: 999.999.999.999
-X-Search-Location: lat:47.60357;long:-122.3295;re:100
-X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
-Host: api.cognitive.microsoft.com
-```
-
-En önemli haberleri alma isteğine verilen yanıt, genel haberleri alma ile neredeyse aynıdır. Ancak, belirli sayıda sonuç olduğu için `news` yanıtı `totalEstimatedMatches` alanını içermez. En önemli haber makalelerinin sayısı, haber döngüsüne bağlı olarak farklılık gösterebilir. Makaleyi ilişkilendirmek için `provider` kullandığınızdan emin olun.
-
-## <a name="getting-news-by-category"></a>Kategoriye göre haber alma
-
-Önemli spor veya eğlence haberleri gibi kategoriye göre haber makalelerini almak için, Bing’e aşağıdaki GET isteğini gönderin:
-
-```http
-GET https://api.cognitive.microsoft.com/bing/v7.0/news?category=sports&mkt=en-us HTTP/1.1
-Ocp-Apim-Subscription-Key: 123456789ABCDE
-User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)
-X-Search-ClientIP: 999.999.999.999
-X-Search-Location: lat:47.60357;long:-122.3295;re:100
-X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
-Host: api.cognitive.microsoft.com
-```
-
-Alınacak makale kategorilerini belirtmek için [category](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#category) sorgu parametresini kullanın. Belirtebileceğiniz olası haber kategorilerinin listesi için bkz. [Pazara Göre Haber Kategorileri](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news-categories-by-market).
-
-Haberleri kategoriye göre alma isteğine verilen yanıt, genel haberleri alma ile neredeyse aynıdır. Ancak, makalelerin tümü belirtilen kategoriye aittir.
-
-## <a name="getting-headline-news"></a>Manşet haberlerini alma
-
-Manşet haber makalelerini istemek ve tüm haber kategorilerinden makaleler almak için, Bing’e aşağıdaki GET isteğini gönderin:
-
-```http
-GET https://api.cognitive.microsoft.com/bing/v7.0/news?mkt=en-us HTTP/1.1
-Ocp-Apim-Subscription-Key: 123456789ABCDE
-User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)
-X-MSEdge-ClientIP: 999.999.999.999
-X-Search-Location: lat:47.60357;long:-122.3295;re:100
-X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
-Host: api.cognitive.microsoft.com
-```
-
-[category](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#category) sorgu parametresini dahil etmeyin.
-
-Manşet haberlerini alma isteğine verilen yanıt, günün önemli haberlerini alma ile neredeyse aynıdır. Makale bir manşet makalesi ise `headline` alanı **true** olarak ayarlanır.
-
-Varsayılan olarak, yanıt 12 adede kadar manşet makalesi içerir. Döndürülecek manşet makalelerinin sayısını değiştirmek için [headlineCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#headlinecount) sorgu parametresini belirtin. Yanıt ayrıca her haber kategorisinde manşet olmayan dört makale içerebilir.
-
-Yanıt, kümeleri tek bir makale olarak sayar. Bir kümede birden fazla makale olabileceği için, yanıt 12’den fazla manşet makalesi ve kategoriye göre manşet olmayan dörtten fazla makale içerebilir.
-
-## <a name="getting-trending-news"></a>Popüler haberler alma
-
-Sosyal ağlarda popüler olan haber başlıklarını almak için Bing’e aşağıdaki GET isteğini gönderin:
-
-```http
-GET https://api.cognitive.microsoft.com/bing/v7.0/news/trendingtopics?mkt=en-us HTTP/1.1
-Ocp-Apim-Subscription-Key: 123456789ABCDE
-User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)
-X-Search-ClientIP: 999.999.999.999
-X-Search-Location: lat:47.60357;long:-122.3295;re:100
-X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
-X-MSAPI-UserState: <blobFromPriorResponseGoesHere>
-Host: api.cognitive.microsoft.com
-```
-
-> [!NOTE]
-> Popüler Konular yalnızca en-US ve zh-CN pazarlarında kullanılabilir.
-
-Aşağıdaki JSON, önceki isteğin yanıtıdır. Her popüler haber makalesi ilgili bir görüntü, flaş haber bayrağı ve makalenin Bing arama sonuçlarının URL’sini içerir. Kullanıcıyı Bing arama sonuçları sayfasına götürmek için `webSearchUrl` alanındaki URL’yi kullanın. Veya sonuçları kendiniz görüntülemek isterseniz sorgu metnini kullanarak [Web Araması API'sini](../bing-web-search/search-the-web.md) çağırın.
-
-```json
-{
-    "_type" : "TrendingTopics",
-    "value" : [{
-        "name" : "Canada pot measure",
-        "image" : {
-            "url" : "https:\/\/www.bing.com\/th?id=OPN.RTNews_hHD...",
-            "provider" : [{
-                "_type" : "Organization",
-                "name" : "Contoso Images"
-            }]
-        },
-        "webSearchUrl" : "https:\/\/www.bing.com\/cr?IG=070292D8CEDD...",
-        "isBreakingNews" : false,
-        "query" : {
-            "text" : "Canada marijuana"
-        }
-    },
-    {
-        "name" : "Down on Vegas move",
-        "image" : {
-            "url" : "https:\/\/www.bing.com\/th?id=OPN.RTNews_Bfbmg8h...",
-            "provider" : [{
-                "_type" : "Organization",
-                "name" : "Contoso"
-            }]
-        },
-        "webSearchUrl" : "https:\/\/www.bing.com\/cr?IG=070292D8CEDD...",
-        "isBreakingNews" : false,
-        "query" : {
-            "text" : "Marcus Appel Las Vegas"
-        }
-    },
-
-    ...
-
-    ]
-}
-```
-
-## <a name="getting-related-news"></a>İlgili haberleri alma
-
-Bir haber makalesiyle ilgili başka makaleler varsa, haber makalesi [clusteredArticles](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle-clusteredarticles) alanını içerebilir. Kümelenmiş makaleleri içeren bir makale aşağıda gösterilmiştir.
-
-```json
-    {
-        "name" : "Playoffs 2017: Betting lines, point spreads...",
-        "url" : "http:\/\/www.bing.com\/cr?IG=4B7056CEC271408997D115...",
-        "image" : {
-            "thumbnail" : {
-                "contentUrl" : "https:\/\/www.bing.com\/th?id=ON.D7B1...",
-                "width" : 700,
-                "height" : 393
-            }
-        },
-        "description" : "April 14, 2017 3:37pm EDT April 14, 2017 3:34pm...",
-        "provider" : [{
-            "_type" : "Organization",
-            "name" : "Contoso"
-        }],
-        "datePublished" : "2017-04-14T19:43:00",
-        "category" : "Sports",
-        "clusteredArticles" : [{
-            "name" : "Playoffs 2017: Betting odds, favorites to win...",
-            "url" : "http:\/\/www.bing.com\/cr?IG=4B7056CEC271408997D1159E...",
-            "description" : "April 14, 2017 3:30pm EDT April 14, 2017 3:27pm...",
-            "provider" : [{
-                "_type" : "Organization",
-                "name" : "Contoso"
-            }],
-            "datePublished" : "2017-04-14T19:37:00",
-            "category" : "Sports"
-        }]
-    },
-```
-
-## <a name="throttling-requests"></a>İstekleri azaltma
-
-[!INCLUDE [cognitive-services-bing-throttling-requests](../../../includes/cognitive-services-bing-throttling-requests.md)]
+3. Döndürülen JSON iletisini ayrıştırarak API yanıtını işleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-İlk isteğinizi hızlı bir şekilde başlatmak için bkz. [İlk İsteğinizi Yapma](./quickstart.md).
+İlk olarak, deneyin [etkileşimli tanıtım](https://azure.microsoft.com/services/cognitive-services/bing-news-search-api/) Bing haber arama API'si için. Bu Tanıtım, nasıl hızlı bir şekilde bir arama sorgusu özelleştirebilir ve Web'de haber bulma gösterir.
 
-[Bing Haber Arama API’si v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) başvurusunu inceleyin. Başvuruda arama sonuçlarını istemek için kullanabileceğiniz uç noktaların, üst bilgilerin ve sorgu parametrelerinin listesi yer alır. Ayrıca yanıt nesnelerinin tanımları da bulunur.
+İlk API isteğinizle birlikte hızlıca başlamak için hızlı başlangıç için deneyin [REST API](quickstart.md) veya biri [SDK'ları](sdk.md).
 
-Arama kutusu kullanıcı deneyiminizi geliştirmek için bkz. [Bing Otomatik Öneri API'si](../bing-autosuggest/get-suggested-search-terms.md). Kullanıcı sorgu terimini girerken bu API'yi çağırarak başkaları tarafından kullanılan ilgili sorgu terimlerini alabilirsiniz.
+## <a name="see-also"></a>Ayrıca bkz.
 
-Arama sonuçlarını kullanma kurallarına uygun hareket ettiğinizden emin olmak için [Bing Kullanım ve Görüntüleme Gereksinimleri](./useanddisplayrequirements.md)'ni okumayı unutmayın.
+* [Bing haber arama API'si v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) başvuru bölümünde, tanımları ve uç noktaları, üst bilgileri, API yanıtları ve görüntü tabanlı arama sonuçları istemek için kullanabileceğiniz sorgu parametreleri hakkında bilgi içerir.
+
+* Bing Arama API'leri ile edinilen içeriğin ve bilgilerin kabul edilebilir kullanımları [Bing Kullanımı ve Görüntü Gereksinimleri](./useanddisplayrequirements.md) konusunda belirtilmektedir.

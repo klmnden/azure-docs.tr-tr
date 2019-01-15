@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: adgera
-ms.openlocfilehash: a5d0b6abdee44bdd1e174fa2c8551fbeac768e5d
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 49b073952b0923b940204b19680dcc9a1ffa44b5
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232643"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259283"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Azure dijital çiftleri için Postman'ı yapılandırma
 
@@ -76,7 +76,7 @@ Ardından, ayarlama ve Azure Active Directory belirteci almak için Postman'ı y
     | İstemci Kimliği | Kullanım **uygulama kimliği** oluşturulmuş veya başka bir amaçla kullanılması önceki bölümden Azure Active Directory uygulaması |
     | Kapsam | Boş bırakın |
     | Durum | Boş bırakın |
-    | İstemci Kimlik Doğrulaması | `Send as Basic Auth header` |
+    | İstemci kimlik doğrulaması | `Send as Basic Auth header` |
 
 1. Şimdi, istemci olarak görünmesi gerekir:
 
@@ -102,7 +102,7 @@ Ardından, ayarlama ve Azure Active Directory belirteci almak için Postman'ı y
 
 1. Metin olmayan veri dosyalarıyla serileştirir. JSON verilerini bir JSON dosyası olarak kaydedilmesi.
 1. Altında **gövdesi** sekmesi, her dosya atayarak ekleme bir **anahtarı** name, seçerek `file` veya `text`.
-1. Dosya seçip **Dosya Seç** düğmesi.
+1. Her dosyanın üzerinden seçip **Dosya Seç** düğmesi.
 
    ![Postman istemci örneği][5]
 

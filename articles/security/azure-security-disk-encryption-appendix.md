@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 12/12/2018
+ms.date: 01/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: f10a3c02e98db5777b5231aec04951a7ed1ad9ad
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: b6d0b702a334bf1127f570bff026fa4332331209
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310693"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260150"
 ---
 # <a name="appendix-for-azure-disk-encryption"></a>Ek Azure Disk şifrelemesi 
 
@@ -103,7 +103,7 @@ Başlamadan önce gözden [önkoşulları](azure-security-disk-encryption-prereq
      ```
 
 ### <a name="bkmk_prereq-script"></a> Azure Disk şifrelemesi önkoşulları PowerShell Betiği kullanma
-Zaten Azure Disk şifrelemesi önkoşulları alışık olduğunuz, kullanabileceğiniz [Azure Disk şifrelemesi önkoşulları PowerShell Betiği](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Bu PowerShell Betiği kullanma örneği için bkz: [VM hızlı başlangıç şifrelemek](quick-encrypt-vm-powershell.md). Satırında 211, mevcut bir kaynak grubunda var olan VM'ler için tüm diskler şifrelemek için başlatma komut dosyasının bir bölümünden açıklamaları kaldırabilirsiniz. 
+Zaten Azure Disk şifrelemesi önkoşulları alışık olduğunuz, kullanabileceğiniz [Azure Disk şifrelemesi önkoşulları PowerShell Betiği](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Bu PowerShell Betiği kullanma örneği için bkz: [VM hızlı başlangıç şifrelemek](quick-encrypt-vm-powershell.md). Satırında 211, mevcut bir kaynak grubunda var olan VM'ler için tüm diskler şifrelemek için başlatma komut dosyasının bir bölümünden açıklamaları kaldırabilirsiniz. 
 
 Aşağıdaki tabloda, PowerShell betik parametreleri kullanılabileceğini gösterir: 
 

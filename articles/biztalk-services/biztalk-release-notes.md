@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: f990aa086997d51e59df4285aabeccd31dcce822
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 10e790c2edb22b3c7926216535d76c50261589f3
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253440"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260344"
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Azure BizTalk Hizmetleri için sürüm notları
 
@@ -35,7 +35,7 @@ Microsoft Azure BizTalk Hizmetleri için sürüm notları, bu sürümdeki biline
 ## <a name="update-history"></a>Güncelleştirme geçmişi
 ### <a name="october-update"></a>Ekim güncelleştirme
 * Kuruluş hesapları desteklenmektedir:  
-  * **Senaryo**: bir Microsoft hesabı kullanarak BizTalk hizmeti dağıtım kayıtlı (gibi user@live.com). Bu senaryoda, BizTalk Hizmetleri portalını kullanarak BizTalk hizmeti yalnızca Microsoft Account kullanıcıları yönetebilir. Bir kuruluş hesabı kullanılamaz.  
+  * **Senaryo**: Bir Microsoft hesabı kullanarak BizTalk hizmeti dağıtım kayıtlı (gibi user@live.com). Bu senaryoda, BizTalk Hizmetleri portalını kullanarak BizTalk hizmeti yalnızca Microsoft Account kullanıcıları yönetebilir. Bir kuruluş hesabı kullanılamaz.  
   * **Senaryo**: Azure Active Directory'de bir kurumsal hesap kullanarak BizTalk hizmeti dağıtım kayıtlı (gibi user@fabrikam.com veya user@contoso.com). Bu senaryoda, yalnızca Azure Active Directory kullanıcıları aynı kuruluş içindeki BizTalk Hizmetleri portalını kullanarak BizTalk hizmeti yönetebilir. Bir Microsoft hesabı kullanılamaz.  
 * BizTalk Hizmetleri Portalı'nda, BizTalk hizmeti oluşturduğunuzda, otomatik olarak kaydedilir.
   * **Senaryo**: BizTalk hizmeti oluşturma, Azure'da oturum açın ve ardından **Yönet** ilk kez. BizTalk Hizmetleri portalında oturum açtığında, BizTalk hizmeti otomatik olarak kaydeder ve dağıtımlarınız için hazırdır.  
@@ -175,12 +175,12 @@ Aşağıdaki senaryoyu göz önünde bulundurun:
 ### <a name="bridges-do-not-use-updated-certificate-even-after-a-certificate-has-been-updated-in-the-artifact-store"></a>Yapıt deposunda sertifika bile güncelleştirildikten sonra köprüleri güncelleştirilmiş bir sertifika kullanmayın
 Aşağıdaki senaryoları düşünün:  
 
-**Senaryo 1: bir hizmet uç noktası için bir köprü gelen ileti aktarım güvenliğini sağlamak için parmak izi temel alarak sertifikaları kullanma**  
+**Senaryo 1: Hizmet uç noktası için bir köprü gelen ileti aktarım güvenliğini sağlamak için parmak izi temel alarak sertifikaları kullanma**  
 Parmak izi tabanlı sertifikalar BizTalk hizmeti projenizde kullandığınız bir senaryo düşünün. Aynı ada ancak farklı bir parmak izi ile BizTalk Hizmetleri portalında bir sertifikayı güncelleştirmek, ancak henüz BizTalk hizmeti projesini uygun şekilde güncelleştirmez. Böyle bir senaryoda, eski sertifika verileri kanal önbellekte olabileceğinden, iletileri işlemek üzere köprü devam edebilir. Bundan sonra ileti işleme başarısız olur.  
 
 **Geçici çözüm**: BizTalk hizmeti projesini bir sertifikayı güncelleştirmek ve projeyi yeniden dağıtın.  
 
-**2. Senaryo: bir hizmet uç noktası için bir köprü gelen ileti aktarım güvenliğini sağlamak için sertifikaları tanımlamak için ad tabanlı davranışları kullanma**
+**Senaryo 2: Hizmet uç noktası için bir köprü gelen ileti aktarım güvenliğini sağlamak için sertifikaları tanımlamak için ad tabanlı davranışları kullanma**
 
 Ad tabanlı davranışları sertifikaları BizTalk hizmeti projenizde tanımlamak için kullandığınız bir senaryo düşünün. BizTalk Hizmetleri portalında bir sertifikayı güncelleştirmek ancak BizTalk hizmeti projesini uygun şekilde güncelleştirmez. Böyle bir senaryoda, eski sertifika verileri kanal önbellekte olabileceğinden, iletileri işlemek üzere köprü devam edebilir. Bundan sonra ileti işleme başarısız olur.  
 
@@ -196,27 +196,27 @@ Bir köprünün özel kod içindeki bir XML ileti okumak için istediğiniz bir 
 ### <a name="sending-messages-to-a-bridge-using-wcf-does-not-scale"></a>WCF kullanarak bir köprüye gönderme ölçeklendirilemez
 WCF kullanarak bir köprüye gönderilen iletileri değil ölçeklendirin. Ölçeklenebilir bir istemci istiyorsanız, bunun yerine bir HttpWebRequest kullanmanız gerekir.
 
-### <a name="upgrade-token-provider-error-after-upgrading-from-biztalk-services-preview-to-general-availability-ga"></a>Yükseltme: belirteç sağlayıcı hatası genel kullanılabilirlik (GA için) BizTalk Services Önizlemesi'nden yükselttikten
+### <a name="upgrade-token-provider-error-after-upgrading-from-biztalk-services-preview-to-general-availability-ga"></a>YÜKSELTME: BizTalk Hizmetleri Preview'dan yükseltme yaptıktan sonra genel kullanılabilirlik (GA için) sağlayıcı hatası belirteci
 Etkin toplu işleri bir EDI veya AS2 sözleşmesi yoktur. BizTalk hizmeti genel kullanıma Preview sürümünden yükselttiğinizde, aşağıdaki ortaya çıkabilir:
 
-* Hata: Belirteç sağlayıcısı bir güvenlik belirteci sağlayamadı. Belirteç sağlayıcı iletiyi döndürdü: uzak ad çözümlenemedi.
+* Hata: Belirteç sağlayıcısı bir güvenlik belirteci sağlayamadı. Belirteç sağlayıcısı, döndürülen ileti: Uzak ad çözümlenemedi.
 * Batch görevleriniz iptal edilir.
 
-**Geçici çözüm**: sonra BizTalk hizmeti, genel kullanılabilirlik (GA için) güncelleştirilir, anlaşma yeniden dağıtın.  
+**Geçici çözüm**: BizTalk hizmeti genel kullanılabilirlik (GA için) güncelleştirildikten sonra anlaşmayı yeniden dağıtın.  
 
-### <a name="upgrade-toolbox-shows-the-old-bridge-icons-after-upgrading-the-biztalk-services-sdk"></a>Yükseltme: BizTalk Services SDK'sı yükselttikten araç kutusu eski köprüsü simgeleri gösterir
+### <a name="upgrade-toolbox-shows-the-old-bridge-icons-after-upgrading-the-biztalk-services-sdk"></a>YÜKSELTME: BizTalk Services SDK'sı yükselttikten sonra eski köprüsü simgeleri araç kutusu gösterir
 Köprüleri temsil eden eski simgeler 'D, BizTalk Hizmetleri SDK'ın önceki bir sürümünü yükseltmeden sonra araç köprüleri için eski simgeleri göstermek devam eder. Ancak, BizTalk hizmeti projesi Tasarımcı yüzeyine bir köprü eklerseniz, surface yeni simgeyi gösterir.  
 
 **Geçici çözüm**. Altında .tbd dosyaları silerek bu sorunu geçici olarak çalışabilir <system drive>: \Users\<kullanıcı > \AppData\Local\Microsoft\VisualStudio\11.0.  
 
-### <a name="upgrade-biztalk-portal-update-from-preview-to-ga-might-show-an-error-indicating-that-the-edi-capability-is-not-available"></a>Yükseltme: Genel kullanım için BizTalk Portal Önizleme Update'ten EDI özelliği kullanılabilir olmadığını belirten bir hata gösterebilir.
+### <a name="upgrade-biztalk-portal-update-from-preview-to-ga-might-show-an-error-indicating-that-the-edi-capability-is-not-available"></a>YÜKSELTME: Genel kullanım için BizTalk Portal Önizleme Update'ten EDI özelliği kullanılabilir olmadığını belirten bir hata gösterebilir.
 BizTalk Services genel kullanıma Preview'dan yükseltilirken BizTalk Hizmetleri portalında açarsanız, portalda şu hatayı alabilirsiniz:  
 
 Bu özellik kullanılabilir değil Microsoft Azure BizTalk Services'ın bu sürümünde bir parçası olarak. Kullanmak için bu özellikler için uygun bir sürümünün geçin.  
 
-**Çözüm**: portal, Kapat ve tarayıcıyı açın ve ardından portalda oturum oturumu kapatma.  
+**Çözüm**: Portaldan Kapat oturumunuzu tarayıcıyı açın ve ardından portalında oturum açın.  
 
-### <a name="upgrade-new-tracking-data-does-not-show-up-after-biztalk-services-is-upgraded-to-ga"></a>Yükseltme: BizTalk Hizmetleri için genel kullanım yükseltildikten sonra yeni izleme verilerini görünmüyor
+### <a name="upgrade-new-tracking-data-does-not-show-up-after-biztalk-services-is-upgraded-to-ga"></a>YÜKSELTME: BizTalk Services genel kullanıma yükseltildikten sonra yeni izleme verilerini görünmüyor
 BizTalk Hizmetleri Önizleme abonelikte dağıtılmış bir XML köprüsü sahip olduğu bir senaryoyu ele alalım. Köprüye ileti gönderme ve izleme verileri karşılık gelen BizTalk Hizmetleri portalında kullanılabilir. Artık, genel kullanım için BizTalk Hizmetleri portalını ve BizTalk Hizmetleri çalışma zamanı BITS yükseltilir ve daha önce dağıttığınız aynı köprüsü uç noktası için bir ileti gönderme, izleme verilerini yükseltme sonrasında gönderilen iletiler için görünmez.  
 
 ### <a name="pipelines-versus-bridges"></a>İşlem hatları köprüleri karşılaştırması

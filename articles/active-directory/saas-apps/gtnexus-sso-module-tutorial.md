@@ -1,6 +1,6 @@
 ---
-title: 'Öğretici: Esnek genel görünüm ile Azure Active Directory Tümleştirme | Microsoft Docs'
-description: Azure Active Directory ve esnek genel görünüm arasında çoklu oturum açmayı yapılandırmayı öğrenin.
+title: 'Öğretici: Azure Active Directory Tümleştirmesi GTNexus SSO sistemi | Microsoft Docs'
+description: Azure Active Directory ve GTNexus SSO sistemi arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,22 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/02/2019
+ms.date: 01/08/2019
 ms.author: jeedes
-ms.openlocfilehash: ae466dc4bce6ab7068622272651c22d70fc84fff
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 646c9b1c3a1f10cae678e6788379eb6bbd144e78
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54068893"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263501"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-flex-global-view"></a>Öğretici: Esnek genel görünüm ile Azure Active Directory Tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-gtnexus-sso-system"></a>Öğretici: Azure Active Directory Tümleştirmesi GTNexus SSO sistemi
 
-Bu öğreticide, Azure Active Directory (Azure AD) ile esnek genel görünüm tümleştirme konusunda bilgi edinin.
-Esnek genel görünüm Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
+Bu öğreticide, Azure Active Directory (Azure AD) ile GTNexus SSO sistemi tümleştirme konusunda bilgi edinin.
+Azure AD ile GTNexus SSO sistemi tümleştirme ile aşağıdaki avantajları sağlar:
 
-* Esnek genel görünüm erişimi, Azure AD'de kontrol edebilirsiniz.
-* Azure AD hesaplarına otomatik olarak esnek genel görünüme (çoklu oturum açma) oturum açmış, kullanıcıların etkinleştirebilirsiniz.
+* GTNexus SSO sistemi erişimi, Azure AD'de kontrol edebilirsiniz.
+* Azure AD hesaplarına otomatik olarak (çoklu oturum açma) GTNexus SSO sistemi için oturum açmış, kullanıcıların etkinleştirebilirsiniz.
 * Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
 Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -35,22 +35,22 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Esnek genel görünüm ile Azure AD tümleştirmesini yapılandırmak için aşağıdaki öğeler gerekir:
+Azure AD tümleştirmesi GTNexus SSO sistemi ile yapılandırmak için aşağıdaki öğeler gerekir:
 
 * Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/)
-* Genel Görünüm tek oturum açma etkin abonelik esnek
+* Abonelik GTNexus SSO sistemi çoklu oturum açma etkin
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 
 Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
 
-* Genel Görünüm destekleyen esnek **IDP** tarafından başlatılan
+* GTNexus SSO sistemi destekleyen **IDP** tarafından başlatılan
 
-## <a name="adding-flex-global-view-from-the-gallery"></a>Esnek genel görünümü galeri ekleme
+## <a name="adding-gtnexus-sso-system-from-the-gallery"></a>Galeriden GTNexus SSO sistemi ekleme
 
-Azure AD'de esnek genel görünüm tümleştirmesini yapılandırmak için esnek genel görünüm Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
+Azure AD'de GTNexus SSO sistemi tümleştirmesini yapılandırmak için GTNexus SSO sistemi Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
-**Galeriden esnek genel görünüm eklemek için aşağıdaki adımları gerçekleştirin:**
+**Galeriden GTNexus SSO sistemi eklemek için aşağıdaki adımları gerçekleştirin:**
 
 1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
@@ -64,31 +64,31 @@ Azure AD'de esnek genel görünüm tümleştirmesini yapılandırmak için esnek
 
     ![Yeni Uygulama düğmesi](common/add-new-app.png)
 
-4. Arama kutusuna **esnek Genel Görünüm**seçin **esnek Genel Görünüm** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+4. Arama kutusuna **GTNexus SSO sistemi**seçin **GTNexus SSO sistemi** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-     ![Sonuçlar listesinde genel görünüm esnek](common/search-new-app.png)
+     ![Sonuç listesinde GTNexus SSO sistemi](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma esnek adlı bir test kullanıcı tabanlı genel görünüm test **Britta Simon**.
-Tek iş için oturum açma için bir Azure AD kullanıcısı ve esnek Genel Görünümü'nde ilgili kullanıcı arasında bir bağlantı ilişki kurulması gerekir.
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açmayı test etme GTNexus SSO sistemi adlı bir test kullanıcı tabanlı **Britta Simon**.
+Tek iş için oturum açma için bir Azure AD kullanıcısı ve ilgili kullanıcı GTNexus SSO sistem arasında bir bağlantı ilişki kurulması gerekir.
 
-Yapılandırma ve Azure AD çoklu oturum açma esnek genel görünüm ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma GTNexus SSO sistemi sınamak için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Esnek genel görünümü çoklu oturum açmayı yapılandırma](#configure-flex-global-view-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
+2. **[GTNexus SSO sistemi çoklu oturum açmayı yapılandırma](#configure-gtnexus-sso-system-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
 3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
 4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[Esnek genel görünüm test kullanıcısı oluşturma](#create-flex-global-view-test-user)**  - görünümünde esnek genel kullanıcı Azure AD gösterimini bağlı Britta simon'un bir karşılığı vardır.
+5. **[GTNexus SSO sistemi test kullanıcısı oluşturma](#create-gtnexus-sso-system-test-user)**  - kullanıcı Azure AD gösterimini bağlı GTNexus SSO sistemi Britta simon'un bir karşılığı vardır.
 6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
 Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
 
-Azure AD çoklu oturum açma esnek genel görünüm ile yapılandırmak için aşağıdaki adımları gerçekleştirin:
+Azure AD çoklu oturum açma GTNexus SSO sistemi ile yapılandırmak için aşağıdaki adımları gerçekleştirin:
 
-1. İçinde [Azure portalında](https://portal.azure.com/), **esnek Genel Görünüm** uygulama tümleştirme sayfasında **çoklu oturum açma**.
+1. İçinde [Azure portalında](https://portal.azure.com/), **GTNexus SSO sistemi** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
     ![Çoklu oturum açma bağlantısı yapılandırma](common/select-sso.png)
 
@@ -110,7 +110,7 @@ Azure AD çoklu oturum açma esnek genel görünüm ile yapılandırmak için a�
 
     ![image](common/browse-upload-metadata.png)
 
-    c. Meta veri dosyası başarıyla karşıya yüklendikten sonra **tanımlayıcı** ve **yanıt URL'si** değerlerini alma Otomatik esnek genel görünüm bölümünde metin kutusunda doldurulur:
+    c. Meta veri dosyası başarıyla karşıya yüklendikten sonra **tanımlayıcı** ve **yanıt URL'si** değerlerini alma otomatik GTNexus SSO sistemi bölümü metin kutusunda doldurulur:
 
     ![image](common/idp-intiated.png)
 
@@ -121,9 +121,9 @@ Azure AD çoklu oturum açma esnek genel görünüm ile yapılandırmak için a�
 
     ![Sertifika indirme bağlantısı](common/metadataxml.png)
 
-### <a name="configure-flex-global-view-single-sign-on"></a>Esnek genel görünüm çoklu oturum açmayı yapılandırın
+### <a name="configure-gtnexus-sso-system-single-sign-on"></a>GTNexus SSO sistemi çoklu oturum açmayı yapılandırın
 
-Çoklu oturum açmayı yapılandırma **esnek Genel Görünüm** tarafını göndermek için ihtiyacınız **Federasyon meta verileri XML** için [genel görünüm esnek Destek ekibine](mailto:support@gtnexus.com). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+Çoklu oturum açmayı yapılandırma **GTNexus SSO sistemi** tarafını göndermek için ihtiyacınız **Federasyon meta verileri XML** için [GTNexus SSO sistemi Destek ekibine](mailto:support@gtnexus.com). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
@@ -152,15 +152,15 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-Bu bölümde, genel görünüme esnek erişim vererek, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
+Bu bölümde, GTNexus SSO sisteme erişim izni verdiğinizde, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
 
-1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **esnek Genel Görünüm**.
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **GTNexus SSO sistemi**.
 
     ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-2. Uygulamalar listesinde **esnek Genel Görünüm**.
+2. Uygulamalar listesinde **GTNexus SSO sistemi**.
 
-    ![Uygulamalar listesinde esnek genel görünüm bağlantısı](common/all-applications.png)
+    ![Uygulamalar listesinde GTNexus SSO sistemi bağlantısı](common/all-applications.png)
 
 3. Soldaki menüde **kullanıcılar ve gruplar**.
 
@@ -176,17 +176,17 @@ Bu bölümde, genel görünüme esnek erişim vererek, Azure çoklu oturum açma
 
 7. İçinde **atama Ekle** iletişim tıklatın **atama** düğmesi.
 
-### <a name="create-flex-global-view-test-user"></a>Esnek genel görünüm test kullanıcısı oluşturma
+### <a name="create-gtnexus-sso-system-test-user"></a>GTNexus SSO sistemi test kullanıcısı oluşturma
 
-Bu bölümde, esnek genel görünümünde Britta Simon adlı bir kullanıcı oluşturun. Çalışmak [genel görünüm esnek Destek ekibine](mailto:support@gtnexus.com) genel görünüm esnek platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+Bu bölümde, Britta Simon GTNexus SSO sistemde adlı bir kullanıcı oluşturun. Çalışmak [GTNexus SSO sistemi Destek ekibine](mailto:support@gtnexus.com) GTNexus SSO sistemi platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Esnek genel görünümü kutucuğu erişim Paneli'nde tıklattığınızda, otomatik olarak esnek genel SSO'yu ayarlama görünüme oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Erişim paneli GTNexus SSO sistemi kutucuğa tıkladığınızda, size otomatik olarak SSO'yu ayarlama GTNexus SSO sisteme oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Ek kaynaklar
+## <a name="additional-resources"></a>Ek Kaynaklar
 
 - [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: barbkess
 ms.reviewer: arvindh
-ms.openlocfilehash: 991199747f51f379ee6f3efe8009ab9166c33ac7
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 65ab6b62b1da925880b3197036f52407e868ece7
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832015"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263604"
 ---
 # <a name="configure-the-way-end-users-consent-to-an-application-in-azure-active-directory"></a>Son kullanıcılar Azure Active Directory'de bir uygulamaya onay şekilde yapılandırın
 Kullanıcılar uygulama izinleri onay şekilde yapılandırmayı öğrenin. Yönetici onayı vererek kullanıcı deneyimini kolaylaştırabilirsiniz. Bu makalede, kullanıcı onayı yapılandırabileceğiniz farklı yollar sunar. Azure Active Directory (Azure AD) kiracınız içindeki tüm son kullanıcılar için yöntemleri uygulayın. 
@@ -26,6 +26,8 @@ Uygulamalara yönelik daha fazla bilgi için bkz: [Azure Active Directory onay �
 ## <a name="prerequisites"></a>Önkoşullar
 
 Yönetici onayı verme genel yönetici, uygulama Yöneticisi veya bir bulut uygulaması Yöneticisi oturum açmanız gerekir.
+
+Uygulamalara erişimi kısıtlamak için kullanıcı atama isteme ve ardından kullanıcıları veya grupları uygulamaya atama gerekir.  Daha fazla bilgi için [kullanıcıları ve grupları atama yöntemleri](methods-for-assigning-users-and-groups.md).
 
 ## <a name="grant-admin-consent-to-enterprise-apps-in-the-azure-portal"></a>Azure portalının kurumsal uygulamalar için yönetici izni verme
 

@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: erikre
-ms.openlocfilehash: f4b5fccefb08597a13fcc91eda11bbf3eb122914
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 994f321a0bfcb6b8e9b7abc6f4b1f61abed618e0
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394855"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262022"
 ---
 # <a name="review-enterprise-enrollment-billing-using-rest-apis"></a>Kurumsal kayıt faturalandırma REST API'lerini kullanarak gözden geçirin
 
 Gözden geçirin ve Azure maliyetlerinizi yönetin, azure API'leri raporlama Yardımı.
 
-Bu makalede, fatura hesapları, bölüme veya Azure REST API'lerini kullanarak enterprtise anlaşma (EA) kayıt hesapları ile ilişkili faturalandırma bilgileri almak öğrenin. 
+Bu makalede, fatura hesapları, bölüme veya Azure REST API'lerini kullanarak kurumsal anlaşma (EA) kayıt hesapları ile ilişkili faturalandırma bilgileri almak öğrenin. 
 
 ## <a name="individual-account-billing"></a>Bireysel hesabı faturalama
 

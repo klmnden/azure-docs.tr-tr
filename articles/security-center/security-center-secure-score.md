@@ -12,21 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/5/2018
+ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 3a377441758fcd7dd91deefb5cae91579e881498
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 4bc426e291a47ae42e7628ad911e2960e654819f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007068"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261307"
 ---
 # <a name="improve-your-secure-score-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde güvenli puanınız geliştirin
 
 
 Güvenlik açısından faydalı sunan çok sayıda hizmetleriyle ilk güvenli ve iş yükünüz sağlamlaştırmak için hangi adımlar bilmek zordur. Azure güvenli puanı, güvenlik önerileri inceler ve ilk kez gerçekleştirmek için hangi önerilerin bilmesi bunları sizin için önceliklendirir. Bu araştırma önceliğini belirleyebilmek en önemli güvenlik açıklarını bulmanıza yardımcı olur. Güvenli puanı, iş yükü güvenlik duruşunuzu değerlendirmenize yardımcı olur. bir araçtır.
-
-![Puan Pano güvenliğini sağlama](./media/security-center-secure-score/secure-score-dashboard.png)
 
 ## <a name="secure-score-calculation"></a>Puan hesaplanmasında güvenliğini sağlama
 
@@ -43,11 +41,25 @@ Hangi önerileri en güvenli puanınız etkisi denetlemek için Güvenlik Merkez
 
 Genel güvenli puanınız görüntülemek için:
 
-1. Azure panosunda tıklayın **Güvenlik Merkezi** ve ardından **önerileri**.
-2. En üstünde, ilkeleri, seçili abonelik başına puanı temsil eden güvenli puanı görebilirsiniz. 
-2. Öneriler listeleyen aşağıdaki tabloda, her bir öneri olduğunu gösteren bir sütun görebilirsiniz **puanı etkisi güvenli**. Genel güvenli puanınız önerilerine uyarsanız ne kadar artıracak bu sayı temsil eder. Örneğin, aşağıdaki ekran içinde **kapsayıcı güvenlik yapılandırmalarını güvenlik açıklarını düzelt**, güvenli puanınız 35 noktalarıyla artacaktır.
+1. Azure panosunda tıklayın **Güvenlik Merkezi** ve ardından **güvenli puanı**.
+2. Üst kısmında, önemli puan güvenli görebilirsiniz:
+   - **Genel puan güvenli** ilkeleri, seçili abonelik başına puanı temsil eder
+   - **Kategoriye göre puan güvenli** hangi kaynakların en dikkat gerektiren gösterir
+   - **En popüler öneriler göre puan etkisi güvenli** en düzeltmek, güvenli puanınız artıracak öneriler listesini sağlar.
+ 
+   ![Güvenli puanı](./media/security-center-secure-score/secure-score-dashboard.png)
+
+3. Aşağıdaki tabloda, her abonelik sayınıza ve genel güvenli puanı her biri için görebilirsiniz.
+
+   > [!NOTE]
+   > Genel güvenli puanı her abonelik güvenli puanı toplamına eşit değil. Güvenli puanı sağlıklı kaynaklarınızı ve öneri, değil, abonelikler arasında güvenli puanlarının toplam başına toplam kaynaklarınız arasındaki oran dayalı bir hesaplamadır. 
+   >
+4. Tıklayın **görüntülemek önerileri** güvenli puanınız geliştirmek için düzeltebilir Bu abonelik için önerileri görmek için.
+4. Öneriler listesi içinde her bir öneri olduğunu gösteren bir sütun görebilirsiniz **puanı etkisi güvenli**. Genel güvenli puanınız önerilerine uyarsanız ne kadar artıracak bu sayı temsil eder. Örneğin, aşağıdaki ekran içinde **kapsayıcı güvenlik yapılandırmalarını güvenlik açıklarını düzelt**, güvenli puanınız 35 noktalarıyla artacaktır.
 
    ![Güvenli puanı](./media/security-center-secure-score/security-center-secure-score1.png)
+
+
 
 ## <a name="individual-secure-score"></a>Tek tek güvenli puanı
 
@@ -60,6 +72,12 @@ Ayrıca, tek tek güvenli puanları görmek için tek bir öneri dikey penceresi
 Öneri düzeltme adımlarını alınmaz, iş yükünüz Internet'e hangi tehditleri gösterir.
 
 ![tek bir öneri güvenli puanı](./media/security-center-secure-score/indiv-recommendation-secure-score.png)
+
+
+
+
+
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu makalede güvenlik duruşunu kullanarak iyileştirmek gösterildi **güvenli puanı** Azure Güvenlik Merkezi'nde. Güvenlik Merkezi hakkında daha fazla bilgi için bkz:

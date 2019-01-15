@@ -4,17 +4,17 @@ description: Oluşturma ve atama şemaları sorunları gidermeyi öğrenin
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/25/2018
+ms.date: 12/11/2018
 ms.topic: troubleshooting
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 40668fed2fcc2a04e39fa3a4d7e8e8923c75ae05
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 04c038eb11cc40cec3552feff183bea55b22bb57
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315541"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261936"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Kullanarak Azure şemaları hatalarıyla ilgili sorunları giderme
 
@@ -52,6 +52,20 @@ Bir ilke için pek çok dağıtımı ile çakışıyor:
 #### <a name="resolution"></a>Çözüm
 
 Hata ayrıntılarında ilkelerle çakışmadığından biçimde şemayı değiştirin. Bu değişiklik mümkün değilse, alternatif bir seçenek şema çakışıyor İlkesi artık, bu nedenle değiştirilen bir ilke ataması kapsamı sağlamaktır.
+
+### <a name="escape-function-parameter"></a>Senaryo: Blueprint parametresi bir işlev değil
+
+#### <a name="issue"></a>Sorun
+
+İşlevleri şema parametreleri yapıtları iletilmeden önce işlenir.
+
+#### <a name="cause"></a>Nedeni
+
+Blueprint parametresi geçirmeden kullanan bir işlev gibi `[resourceGroup().tags.myTag]`, dinamik işlevi yerine yapıt üzerinde ayarlanan işlevi gören sonucunu bir yapıt sonuçlanır.
+
+#### <a name="resolution"></a>Çözüm
+
+Bir işlev aracılığıyla bir parametre olarak geçirmek için tüm dize ile kaçış `[` blueprint parametresi şuna benzer şekilde `[[resourceGroup().tags.myTag]`. Kaçış karakteri değeri bir dize olarak şema işleme sırasında değerlendirilecek şemaları neden olur. Blueprint beklendiği gibi dinamik olarak izin veren yapıt üzerinde ardından işlev yerleştirir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

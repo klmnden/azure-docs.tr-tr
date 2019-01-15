@@ -10,18 +10,18 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: ce8c25ce6bb728c9d3a365821b3606613e322c11
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 2f16a8fdb124cd2ee69fbdef74f3999800b55157
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54081383"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262005"
 ---
 # <a name="start-monitoring-your-website"></a>Web sitenizi izlemeye başlama
 
 Azure İzleyici Application Insights ile web sitenizi kullanılabilirlik, performans ve kullanım bakımından kolayca izleyebilirsiniz. Ayrıca, bir kullanıcının bildirmesini beklemeden uygulamanızdaki hataları hızlıca tanımlayıp tespit edebilirsiniz. Application Insights hem sunucu tarafı izleme hem de istemci/tarayıcı tarafı izleme özellikleri sunar.
 
-Bu hızlı başlangıçta web sitenizin ziyaretçileri için istemci/tarayıcı tarafı deneyimi anlamanızı sağlayan [açık kaynak Application Insights JavaScript SDK'sını](https://github.com/Microsoft/ApplicationInsights-JS) ekleme yönergeleri gösterilmektedir.
+Bu hızlı başlangıçta, eklerken size kılavuzluk eder [açık kaynak Application Insights JavaScript SDK'sı](https://github.com/Microsoft/ApplicationInsights-JS) sitenizi ziyaret edenler için tarayıcı/istemci-tarafı deneyimini anlama sağlar.
 
 ## <a name="prerequisites"></a>Önkoşullar
 

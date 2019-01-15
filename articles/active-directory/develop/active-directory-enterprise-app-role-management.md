@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 01/07/2019
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 2bb9d69487b8576cdae60a1a613a341898495f06
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: a354d5d0242bfdbb618eb325c8157a7bed3d3b64
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48904425"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263691"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Nasıl yapılır: Kurumsal uygulamalar için SAML belirtecinde verilen rol talep yapılandırma
 
@@ -151,25 +151,29 @@ Uygulamanız SAML yanıt olarak geçirilecek özel roller görüyorsa, bu özell
 
 8. Güncelleştirme **öznitelikleri** rol talep özelleştirilmiş bir eşleme tablosunu.
 
-9. İçinde **kullanıcı öznitelikleri** bölümünü **çoklu oturum açma** iletişim kutusunda, SAML belirteci özniteliği resimde gösterildiği gibi yapılandırın ve aşağıdaki adımları gerçekleştirin.
+9. İçinde **kullanıcı öznitelikleri ve talepler** bölümünü **çoklu oturum açma** iletişim kutusunda, SAML belirteci özniteliği resimde gösterildiği gibi yapılandırın ve aşağıdaki adımları gerçekleştirin.
 
     | Öznitelik adı | Öznitelik değeri |
     | -------------- | ----------------|
     | Rol adı  | User.assignedroles |
 
-    a. Seçin **eklemek agentconfigutil** açmak için **öznitelik Ekle** bölmesi.
+    a. Tıklayın **Düzenle** açmak için düğmeyi **kullanıcı öznitelikleri** iletişim.
+
+      !["Öznitelik Ekle" düğmesi](./media/active-directory-enterprise-app-role-management/editattribute.png)
+
+    b. Seçin **eklemek agentconfigutil** açmak için **yönetmek, kullanıcı talepleri** bölmesi.
 
       !["Öznitelik Ekle" düğmesi](./media/active-directory-enterprise-app-role-management/tutorial_attribute_04.png)
 
       !["Öznitelik Ekle" bölmesi](./media/active-directory-enterprise-app-role-management/tutorial_attribute_05.png)
 
-    b. İçinde **adı** gerektiği şekilde öznitelik adı yazın. Bu örnekte **rol adı** talep adı.
-
-    c. Gelen **değer** listesinde, ilgili satır için gösterilen öznitelik değeri yazın.
+    c. İçinde **adı** gerektiği şekilde öznitelik adı yazın. Bu örnekte **rol adı** talep adı.
 
     d. Bırakın **Namespace** kutusunu boş.
 
-    e. **Tamam**’ı seçin.
+    e. Gelen **kaynak özniteliği** listesinde, ilgili satır için gösterilen öznitelik değeri yazın.
+
+    f. **Kaydet**’i seçin.
 
 10. Bir tek bir kimlik sağlayıcısı tarafından başlatılan oturum, uygulamanızı test etmek için oturum açın [erişim paneli](https://myapps.microsoft.com) ve, uygulama kutucuğunu seçin. SAML belirtecinde talep adıyla verdiğiniz kullanıcı için tüm atanan roller görmeniz gerekir.
 

@@ -11,17 +11,17 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/29/2018
+ms.date: 01/14/2019
 ms.author: mstewart
 ms.custom: seodec18
-ms.openlocfilehash: ee2a4be97b2b56f9c659639a34e821e37c188828
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6f94ec1a64108cde6ff69a572559960a988a1b7c
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087873"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261290"
 ---
-# <a name="quickstart-encrypt-a-windows-iaas-vm-with-azure-powershell"></a>Hızlı Başlangıç: Azure PowerShell ile bir Windows IaaS VM'ini Şifreleme
+# <a name="quickstart-encrypt-a-windows-iaas-vm-with-azure-powershell"></a>Hızlı Başlangıç: Azure PowerShell ile bir Windows Iaas VM'LERİNİ şifreleme
 
 Azure Disk Şifrelemesi, Windows ve Linux IaaS sanal makine disklerini şifrelemenize yardımcı olur. Çözüm ayrıca Azure Key Vault ile birlikte çalışarak disk şifreleme anahtarlarını ve gizli dizilerini denetlemenize ve yönetmenize yardımcı olur. Azure Disk Şifrelemesi'ni kullanarak, VM'lerinizin bekleme sırasında endüstri standardı şifreleme teknolojisi kullanılarak güvende tutulmasını sağlayabilirsiniz. Bu hızlı başlangıçta, Windows Server 2016 VM oluşturacak ve İşletim sistemi diskini şifreleyeceksiniz.
 
@@ -30,9 +30,9 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 ## <a name="prerequisites"></a>Önkoşullar
 
 - Windows PowerShell ISE
-- [Azure PowerShell'in en son sürümünü](/powershell/azure/install-azurerm-ps) yükleme veya bu sürüme güncelleştirme yapma
+- Yüklemeniz veya güncelleştirmeniz [AzureRM PowerShell modülünün en son sürümü](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0)
     - AzureRM modülü 6.0.0 veya sonraki bir sürümü gerekir. `Get-Module AzureRM -ListAvailable | Select-Object -Property Name,Version,Path`
-- [Azure Disk Şifrelemesi önkoşulları betiğinin](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1) bir kopyası.
+- [Azure Disk Şifrelemesi önkoşulları betiğinin](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1) bir kopyası.
     - Bu betiğe zaten sahipseniz, kısa süre önce değiştirildiği için yeni bir kopyasını indirin. 
     - Metnin tamamını seçmek için **CTRL-A**, seçtiğiniz tüm metni Not Defteri'ne kopyalamak için ise **CTRL-C** tuşlarına basın.
     - Dosyayı **ADEPrereqScript.ps1** olarak kaydetme
@@ -41,7 +41,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
 1. **Windows PowerShell ISE**'ye sağ tıklayın ve **Yönetici olarak çalıştır**'a tıklayın.
-1. **Yönetici: Windows PowerShell ISE** penceresinde **Görünüm**'e tıklayın ve ardından **Betik Bölmesini Göster**'e tıklayın.
+1. İçinde **yönetici: Windows PowerShell ISE** penceresinde tıklayın **görünümü** ve ardından **betik bölmesini göster**.
 1. Betik bölmesine şu cmdlet komutunu yazın: 
 
      ```azurepowershell
@@ -55,7 +55,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 ## <a name="bkmk_PrereqScript"></a> Azure Disk Şifrelemesi önkoşulları betiğini çalıştırma
  **ADEPrereqScript.ps1**, bir kaynak grubu ve anahtar kasası oluşturup anahtar kasası erişim ilkesini belirler. Betik, yanlışlıkla silinmeye karşı korunmasına yardımcı olmak üzere anahtar kasasında bir kaynak kilidi de oluşturur.  
 
-1. **Yönetici: Windows PowerShell ISE** penceresinde, **Dosya**'ya ve ardından, **Aç**'a tıklayın. **ADEPrereqScript.ps1** dosyasına gidin ve bu dosyaya çift tıklayın. Betik bölmesinde söz konusu betik açılır.
+1. İçinde **yönetici: Windows PowerShell ISE** penceresinde tıklayın **dosya** ve ardından **açık**. **ADEPrereqScript.ps1** dosyasına gidin ve bu dosyaya çift tıklayın. Betik bölmesinde söz konusu betik açılır.
 2. Betiği çalıştırmak için **Betiği Çalıştır** seçeneğine ilişkin yeşil oka tıklayın veya F5 tuşuna basın. 
 3. Yeni bir **kaynak grubu** ve **anahtar kasası** için ad girin. Kaynak grubunu daha sonra sileceğimizden, bu hızlı başlangıç için mevcut bir kaynak grubunu veya anahtar kasasını kullanmayın. 
 4. Kaynakları oluşturmak istediğiniz konumu (**EastUS** gibi) yazın. `Get-AzureRMLocation` komutu ile bir konum listesi alın.
@@ -69,7 +69,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 ## <a name="create-a-virtual-machine"></a>Sanal makine oluşturma 
 Şimdi de diskini şifreleyebilmek için bir sanal makine oluşturmanız gerekir. Kullanacağınız betik, 8 GB RAM ve 30 GB işletim sistemi diskine sahip bir Windows Server 2016 VM oluşturur. 
 
-1. Betiği **Yönetici: Windows PowerShell ISE** betik bölmesine kopyalayın ve en üstteki üç değişkeni değiştirin. Kaynak grubu ve konumun, [önkoşullar betiği](#bkmk_PrereqScript) için kullandıklarınızla aynı olması gerekir.  
+1. Betiğe kopyalama **yönetici: Windows PowerShell ISE** betik bölmesi ve ilk üç değişkenlerini değiştirin. Kaynak grubu ve konumun, [önkoşullar betiği](#bkmk_PrereqScript) için kullandıklarınızla aynı olması gerekir.  
 
    ```azurepowershell
     # Variables for common values

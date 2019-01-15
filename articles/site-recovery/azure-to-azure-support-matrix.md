@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: raynew
-ms.openlocfilehash: 09d3b698edfc99b9340772aa0ffc4e8de20b286d
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 7e5f72ca637cb657369a3b384aee666e0935b9d0
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103783"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263558"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Bir Azure bölgesinden diğerine çoğaltma için destek matrisi
 
@@ -44,9 +44,7 @@ Bu makalede, çoğaltma, yük devretme ve kurtarma Azure vm'leri bir Azure bölg
 
 Çoğaltma ve aynı coğrafi kümedeki herhangi iki bölgeleri arasında Vm'lere'ı kurtarın. Coğrafi kümeleri, veri gecikme süresi ve özerkliği göz önünde bulundurarak tanımlanır.
 
->[!NOTE]
->Coğrafi bir küme içindeki bir bölgeye çoğaltma etkinleştirme sırasında aboneliğinizi bu bölgede sanal makine oluşturmak için erişimi olduğundan emin olun görmeye mümkün değilse. Aksi halde daha "sorun türü" abonelik altında bir destek isteği oluşturun.
->
+
 **Coğrafi küme** | **Azure bölgeleri**
 -- | --
 Amerika | Kanada Doğu, Kanada Orta, Güney Orta ABD, Batı Orta ABD, Doğu ABD, Doğu ABD 2, Batı ABD, Batı ABD 2, Orta ABD, Kuzey Orta ABD
@@ -59,9 +57,13 @@ Almanya | Almanya Orta, Almanya Kuzeydoğu
 
 >[!NOTE]
 >
-> Güney Brezilya bölgesinde, çoğaltma ve aşağıdakilerden birini yük devretme: Orta Güney ABD, Batı Orta ABD, Doğu ABD, Doğu ABD 2, Batı ABD, Batı ABD 2 ve orta Kuzey ABD bölgeleri.
->
-> Site Recovery, Brezilya Güney, burada Vm'leri korunabilir gelen bir kaynak bölgesi olarak kullanılmak üzere yalnızca etkinleştirilmiş olduğu unutulmamalıdır. Orta Güney ABD gibi Azure bölgelerinden birini için bir hedef DR bölgesindeki kullanılamaz. Bunun nedeni gecikme süresi, Brezilya Güney dışındaki tüm diğer Amerika'nın bölgeyi seçmek için önerilen nedeniyle coğrafi uzaklıktan gözlemledik.
+> - İçin **Brezilya Güney** bölgeye çoğaltmak ve aşağıdakilerden birini yük devretme: Orta Güney ABD, Batı Orta ABD, Doğu ABD, Doğu ABD 2, Batı ABD, Batı ABD 2 ve orta Kuzey ABD bölgeleri. Site Recovery, Brezilya Güney, burada Vm'leri korunabilir gelen bir kaynak bölgesi olarak kullanılmak üzere yalnızca etkinleştirilmiş olduğu unutulmamalıdır. Bunu **bir hedef DR bölgesindeki kullanılamaz** Orta Güney ABD gibi Azure bölgelerinden birini için. Bunun nedeni gecikme süresi, Brezilya Güney dışındaki tüm diğer Amerika'nın bölgeyi seçmek için önerilen nedeniyle coğrafi uzaklıktan gözlemledik.
+> 
+> - Eğer **bir bölge görmek karşılaştırılamıyor** istediğiniz **bir kasa oluşturmak için** sonra aboneliğiniz, bu bölgede kaynakları oluşturmak için erişimi olduğundan emin olun. Örneğin: Fransa Güney bölgesinde kasası oluşturmak mümkün değilse, aboneliğinizin Fransa Güney bölgesine erişimi yok. Lütfen "diğer genel sorular" konu sorun türü "abonelik yönetimi" altında dosya destek bileti ve sorun türü "XXX whitlelist aboneliğinde Azure bölgesi"
+> 
+> - Kullanıyorsanız **bir bölge görmek karşılaştırılamıyor** coğrafi bir küme içindeki **çoğaltmayı etkinleştirme sırasında** sonra aboneliğiniz, bu bölgede sanal makine oluşturmak için erişimi olduğundan emin olun. Örneğin: Sanal makineler Fransa Orta için Fransa Güney korumaya çalışıyorsanız ve görmüyorsanız Fransa Güney bölgesi altındaki aşağı açılır liste sonra aboneliğiniz bu bölgedeki VM dağıtmak için erişime sahip değil. Lütfen "diğer genel sorular" konu sorun türü "abonelik yönetimi" altında dosya destek bileti ve sorun türü "XXX whitlelist aboneliğinde Azure bölgesi"
+> - Yukarıda belirtilen coğrafi kümeleri arasında bölgeleri seçemezsiniz.
+
 
 ## <a name="cache-storage"></a>Önbellek depolama
 
@@ -90,8 +92,8 @@ Windows Server 2008 R2 | SP1 çalıştıran veya üzeri
 
 **İşletim sistemi** | **Ayrıntılar**
 --- | ---
-Red Hat Enterprise Linux | 6.7, 6,8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6  
-CentOS | 6.5, 6.6, 6.7, 6,8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6
+Red Hat Enterprise Linux | 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6  
+CentOS | 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6
 Ubuntu 14.04 LTS Server | [Desteklenen bir çekirdek sürümleri](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 Ubuntu 16.04 LTS Server | [Desteklenen bir çekirdek sürümü](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> Ubuntu sunucuları bulut Vm'leri yapılandırmak için parola tabanlı kimlik doğrulaması ve oturum açma ve cloud-init'i paket kullanarak parola tabanlı oturum açma (cloudinit yapılandırması) bağlı olarak yük devretme devre dışı bırakılmış olabilir. Parola tabanlı oturum açma olabilir sanal makinede yeniden etkin desteği parolasını sıfırlayarak > sorun giderme > Ayarlar menüsünden (devredilen VM'nin Azure portalında.
 Debian 7 | [Desteklenen bir çekirdek sürümleri](#supported-debian-kernel-versions-for-azure-virtual-machines)
@@ -99,7 +101,7 @@ Debian 8 | [Desteklenen bir çekirdek sürümleri](#supported-debian-kernel-vers
 SUSE Linux Enterprise Server 12 | SP1, SP2 SP3. [(Desteklenen çekirdek sürümleri)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
 SUSE Linux Enterprise Server 11 | SP3<br/><br/> Makineler SP4 ' SP3'ü çoğaltmak yükseltme desteklenmiyor. Çoğaltılmış bir makineden yükseltildiyse, çoğaltmayı devre dışı bırakın ve yükseltmeden sonra çoğaltmayı yeniden etkinleştirmeniz gerekir.
 SUSE Linux Enterprise Server 11 | SP4
-Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6,8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5 <br/><br/> Red Hat uyumlu çekirdek veya kesilemeyen Enterprise çekirdeği sürüm 3 (UEK3) çalışıyor.
+Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5 <br/><br/> Red Hat uyumlu çekirdek veya kesilemeyen Enterprise çekirdeği sürüm 3 (UEK3) çalışıyor.
 
 
 #### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Azure sanal makineleri için desteklenen bir Ubuntu çekirdek sürümleri

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/09/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: aaf9fba7b3a2667577c26ade9cd88bcc87c60f61
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 0258bf34e57a0acad1e5fef061a1cf961be9d2f0
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243854"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262430"
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-net"></a>.NET çoklu bit hızına sahip akışlar oluşturmak üzere Azure Media Services’i kullanarak canlı akış gerçekleştirme
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ Aşağıdaki adımlar, ortak canlı akış uygulamaları oluşturmak için gerek
 > 
 > 
 
-1. Bilgisayara bir video kamera bağlayın. Şu protokollerin birinde tek bit hızlı bir akış çıktısı sağlayabilecek şirket içi bir gerçek zamanlı kodlayıcı başlatıp bunu yapılandırın: RTMP veya Kesintisiz Akış. Daha fazla bilgi için bkz. [Azure Media Services RTMP Desteği ve Gerçek Zamanlı Kodlayıcılar](https://go.microsoft.com/fwlink/?LinkId=532824).
+1. Bilgisayara bir video kamera bağlayın. Başlatın ve bir şu protokollerin birinde tek bit hızlı akış çıktısı alınabilen bir şirket içi Canlı Kodlayıcı yapılandırın: RTMP veya kesintisiz akış. Daha fazla bilgi için bkz. [Azure Media Services RTMP Desteği ve Gerçek Zamanlı Kodlayıcılar](https://go.microsoft.com/fwlink/?LinkId=532824).
 
     Bu adım, Kanalınızı oluşturduktan sonra da gerçekleştirilebilir.
 
@@ -88,7 +88,7 @@ Bu makalede aşağıdakilerin nasıl gerçekleştirileceği gösterilmektedir:
 7. Maskeleme görüntülerini gösterin ve gizleyin. Reklamları başlatın ve durdurun. Uzun süre çalışan API'ler kullanılacaktır.
 8. Kanalınızı ve ilişkili tüm kaynakları temizleyin.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Öğreticiyi tamamlamak için aşağıdakiler gereklidir.
 
 * Bir Azure hesabı. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). Ücretli Azure hizmetlerini denemek için kullanabileceğiniz krediler alırsınız. Krediler bitmiş olsa bile hesabı sürdürebilir ve Azure App Service’deki Web Apps özelliği gibi ücretsiz Azure hizmetlerinden faydalanabilirsiniz.
@@ -363,8 +363,8 @@ namespace EncodeLiveStreamWithAmsClear
             assetFile.Update();
 
             Log("Showing slate");
-            var showSlateOpeartion = channel.SendShowSlateOperation(TimeSpan.FromMinutes(1), slateAsset.Id);
-            TrackOperation(showSlateOpeartion, "Show slate");
+            var showSlateOperation = channel.SendShowSlateOperation(TimeSpan.FromMinutes(1), slateAsset.Id);
+            TrackOperation(showSlateOperation, "Show slate");
 
             Log("Hiding slate");
             var hideSlateOperation = channel.SendHideSlateOperation();

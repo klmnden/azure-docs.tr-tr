@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 87096e1507c080f68652ea27b368364d9ac7952a
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 2478a5dd3f5d685253ef9145bec0a68ff324c6c3
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232507"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263824"
 ---
 # <a name="load-and-read-data-with-azure-machine-learning"></a>Yükleme ve Azure Machine Learning ile veri okuma
 
@@ -37,7 +37,13 @@ import azureml.dataprep as dprep
 dataflow = dprep.auto_read_file(path='./data/any-file.txt')
 ```
 
-Bu işlev, dosya türü açıkça bilinmiyor yararlıdır. Kullanım örneği yüzlerce veri akışı nesnelerine dönüştürmek için farklı türlerde dosyaları içeren bir dizindir. Her dosya yolu üzerinden yineleme ve çağıran `auto_read_file()` , dizindeki dosyaların bir veri akışı nesneleri listesine kolayca işlemenizi sağlar.
+Bu işlev, dosya türü, kodlama ve diğer ayrıştırma bağımsız değişkenler tek bir kullanışlı giriş noktasından tüm otomatik olarak algılamak için yararlıdır. İşlev da otomatik olarak ayrılmış verileri yüklenirken yaygın olarak gerçekleştirilen aşağıdaki adımları gerçekleştirir:
+
+* Çıkarımını yapma ve sınırlayıcı ayarlama
+* Dosyanın üst boş kayıtları
+* Çıkarımını yapma ve üst bilgi satırı ayarlama
+
+Alternatif olarak, önceden yazın ve açıkça bu ayrıştırılır şeklini denetlemek istediğiniz dosyanın biliyorsanız, aşağıdaki özel SDK işlevleri görmek için bu makaleyi sunar devam edin.
 
 ## <a name="load-text-line-data"></a>Metin satırı veri yükleme
 

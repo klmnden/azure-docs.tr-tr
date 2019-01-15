@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/09/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: df3222c361e4a8f6451326d967d574b1eb8eed1b
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 0e7d624c77447f537e6d47ea19d9054c1117d742
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157454"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263688"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>Azure stack'teki Ruby ile API Sürüm profillerini kullanma
 
@@ -90,7 +90,7 @@ Azure Ruby SDK'sı, Azure Stack ile kullanmak için aşağıdaki değerleri giri
 | İstemci Kimliği | AZURE_CLIENT_ID | Hizmet sorumlusu uygulama kimliği bu belgenin önceki bölümde üzerinde hizmet sorumlusu oluşturulurken kaydedilen.  |
 | Abonelik Kimliği | AZURE_SUBSCRIPTION_ID | [Abonelik kimliği](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) nasıl, teklifler eriştiği Azure Stack'te. |
 | İstemci Gizli Anahtarı | AZURE_CLIENT_SECRET | Hizmet sorumlusu oluştururken hizmet sorumlusu uygulama gizli anahtarı kaydedildi. |
-| Resource Manager uç noktası | ARM_ENDPOINT | Bkz: [Azure Stack Kaynak Yöneticisi endpoin](#The-azure-stack-resource-manager-endpoint).  |
+| Resource Manager uç noktası | ARM_ENDPOINT | Bkz: [Azure Stack Kaynak Yöneticisi uç noktası](#The-azure-stack-resource-manager-endpoint).  |
 
 ### <a name="the-azure-stack-resource-manager-endpoint"></a>Azure Stack Kaynak Yöneticisi uç noktası
 

@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin, jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 5283782188eaebe3997b6de31b087da74cf10486
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: e118249cf2aaf07aeb4f337636a46d088102bca8
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620141"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261188"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>İzinler ve onay Azure Active Directory v2.0 uç noktası
 
@@ -48,7 +48,7 @@ Aynı durum Microsoft kimlik platformu ile tümleştirdik herhangi bir üçünc�
 
 * Kullanıcının Takvim okuyun
 * Kullanıcının takvim için yazma
-* Kullanıcı olarak posta gönderme
+* Bir kullanıcı olarak posta gönderme
 
 Bu tür izinler tanımlayarak kaynak verilerini ve API işlevselliğini nasıl sunulduğunu üzerinde ayrıntılı denetime sahiptir. Bir üçüncü taraf uygulaması kullanıcılar ve Yöneticiler, bu izinler isteyebilir kimin önce uygulama isteğini onaylaması veri erişebilir veya bir kullanıcı adına hareket. Daha küçük izin kümeleri kaynağın işlevsellik Öbekleme tarafından üçüncü taraf uygulamaları işlevleri gerçekleştirmek için ihtiyaç duydukları belirli izinleri istemek için oluşturulabilir. Tam olarak hangi verilerin uygulama erişimi olan kullanıcıların ve yöneticilerin bilebilirsiniz ve kötü amaçlı bir eyleme çalışmıyorsa doğrulayabilirse olabilir. Geliştiriciler için yalnızca işlev uygulamalarına ihtiyaç duydukları izinleri isteyen en az ayrıcalık kavramı tarafından her zaman uymanız.
 
@@ -145,7 +145,7 @@ Uygulamanızı kuruluşlar için kapsamları admin-kısıtlı erişim gerektiriy
 
 Yüksek ayrıcalıklı izinlere temsilci ve yönetici yönetici onay uç noktası aracılığıyla bu izinleri verir. Uygulamanın istediği, kiracıdaki tüm kullanıcılar için izin verilir.
 
-Uygulamanın uygulama izinleri isteyen bir yönetici uç noktası aracılığıyla yönetici bu izinleri kabul veriyorsa, belirli bir kullanıcı adına bu izni yapılmaz. Bunun yerine, istemci uygulama izinleri verilir *doğrudan*. Bu tür İzinler genellikle arka plan programı Services'ı ve arka planda çalışan etkileşimli olmayan diğer uygulamalar tarafından yalnızca kullanılır.
+Uygulamanın uygulama izinleri isteyen bir yönetici uç noktası aracılığıyla yönetici bu izinleri kabul veriyorsa, belirli bir kullanıcı adına bu izni yapılmaz. Bunun yerine, istemci uygulama izinleri verilir *doğrudan*. Bu tür İzinler genellikle daemon Hizmetleri ve arka planda çalışan etkileşimli olmayan diğer uygulamalar tarafından yalnızca kullanılır.
 
 ## <a name="using-the-admin-consent-endpoint"></a>Yönetici onay uç noktası kullanma
 
@@ -164,7 +164,7 @@ Bir uygulama için statik olarak istenen izinler listesini yapılandırmak için
 2. Bulun **Microsoft Graph izinleri** bölümüne ve ardından uygulamanız için gerekli izinleri ekleyin.
 3. **Kaydet** uygulama kaydı.
 
-### <a name="recommended-sign-the-user-in-to-your-app"></a>Önerilir: kullanıcı uygulamanızda oturum
+### <a name="recommended-sign-the-user-in-to-your-app"></a>Önerilen: Kullanıcı uygulamanızda oturum açın
 
 Genellikle, yönetici onayı uç noktası kullanan bir uygulama oluşturduğunuzda, uygulamanın bir sayfa ya da yönetici uygulamanın izinlerini onaylayabilir görünüm gerekir. Adanmış bir "Bağlan" akış olabilir veya bu sayfada uygulamanın kaydolma akışın, uygulamanın ayarlarının parçası parçası olabilir. Çoğu durumda, "yalnızca bir kullanıcı bir iş veya Okul hesabı Microsoft ile imzaladığı sonra bu göstermek uygulama için Görünüm Bağlan" mantıklıdır.
 
@@ -193,9 +193,9 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 
 | Parametre | Koşul | Açıklama |
 | --- | --- | --- |
-| `tenant` | Gerekli | İzni istemek için istediğiniz dizinin Kiracı. GUID veya kolay adı biçiminde sağlanan veya "Genel" ile örnekte görüldüğü gibi genel olarak başvurulan. |
-| `client_id` | Gerekli | Uygulama Kimliği [uygulama kayıt portalı](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) uygulamanıza atanan. |
-| `redirect_uri` | Gerekli |Yeniden yönlendirme URI'si, uygulamanızı işlemek gönderilecek yanıt istediğiniz. Yeniden yönlendirme uygulama kayıt Portalı'nda kayıtlı bir URI'leri biri tam olarak eşleşmesi gerekir. |
+| `tenant` | Gereklidir | İzni istemek için istediğiniz dizinin Kiracı. GUID veya kolay adı biçiminde sağlanan veya "Genel" ile örnekte görüldüğü gibi genel olarak başvurulan. |
+| `client_id` | Gereklidir | Uygulama Kimliği [uygulama kayıt portalı](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) uygulamanıza atanan. |
+| `redirect_uri` | Gereklidir |Yeniden yönlendirme URI'si, uygulamanızı işlemek gönderilecek yanıt istediğiniz. Yeniden yönlendirme uygulama kayıt Portalı'nda kayıtlı bir URI'leri biri tam olarak eşleşmesi gerekir. |
 | `state` | Önerilen | Belirteç yanıtta döndürülecek isteğinde bulunan bir değer. Bu, istediğiniz herhangi bir içerik dizesi olabilir. Durum, uygulama kullanıcının durumu hakkındaki bilgileri sayfasında ya da görünümü üzerinde oldukları gibi kimlik doğrulama isteği oluşmadan önce kodlamak için kullanın. |
 
 Bu noktada, Azure AD isteği tamamlamak oturum açmak bir kiracı Yöneticisi gerektirir. Yönetici uygulama kayıt portalında uygulamanıza için istenen tüm izinleri de onaylaması istenir.
@@ -254,4 +254,4 @@ OAuth 2.0 protokolünü ve erişim belirteçlerini almak nasıl hakkında daha f
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
-Siz veya uygulamanızın kullanıcıları onay işlemi sırasında beklenmeyen hatalar görüyorsanız, lütfen sorun giderme adımları için bu makalede başvuru: [bir uygulama için onay gerçekleştirirken beklenmeyen bir hata](../manage-apps/application-sign-in-unexpected-user-consent-error.md).
+Siz veya uygulamanızın kullanıcıları onay işlemi sırasında beklenmeyen hatalar görüyorsanız, lütfen sorun giderme adımları için bu makalede başvurun: [Bir uygulama için onay gerçekleştirirken beklenmeyen bir hata](../manage-apps/application-sign-in-unexpected-user-consent-error.md).

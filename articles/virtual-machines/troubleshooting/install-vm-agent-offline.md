@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 14b108a836424e92a251f50b42ed93963038a333
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: e9fc8351b5e9a4f2274f0906d4071f86dcbcff26
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192065"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259691"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>Azure sanal makine Aracısı çevrimdışı modda yükleme 
 
@@ -35,6 +35,14 @@ Aşağıdaki senaryolarda çevrimdışı modda VM aracısını yükleyin:
 ## <a name="how-to-install-the-vm-agent-in-offline-mode"></a>Çevrimdışı modda VM aracısını yükleme
 
 Çevrimdışı modda VM aracısını yüklemek için aşağıdaki adımları kullanın.
+
+> [!NOTE]
+> Çevrimdışı modda VM aracısını yükleme işlemi otomatik hale getirebilirsiniz.
+> Bunu yapmak için [Azure VM kurtarma betikleri](https://github.com/Azure/azure-support-scripts/blob/master/VMRecovery/ResourceManager/README.md). Azure VM kurtarma betiklerini kullanmayı seçerseniz, aşağıdaki yordamı kullanabilirsiniz:
+> 1. Etkilenen sanal Makinenin işletim sistemi diskini bir kurtarma VM'si eklemek için komut dosyalarını kullanarak 1. adıma geçin.
+> 2. Risk azaltma işlemleri uygulamak için 2-10 arasındaki adımları izleyin.
+> 3. VM yeniden oluşturmak için komut dosyalarını kullanarak 11. adıma geçin.
+> 4. 12. adımı izleyin.
 
 ### <a name="step-1-attach-the-os-disk-of-the-vm-to-another-vm-as-a-data-disk"></a>1. Adım: Sanal Makinenin işletim sistemi diskini başka bir VM'ye veri diski olarak ekleyin.
 
@@ -73,7 +81,7 @@ Aşağıdaki senaryolarda çevrimdışı modda VM aracısını yükleyin:
 
     1. VM gidericisinden aşağıdaki biçimi (.reg) kayıt defteri anahtarlarında dışarı aktarın: 
         - HKEY_LOCAL_MACHINE \SYSTEM\ControlSet001\Services\WindowsAzureGuestAgent
-        - HKEY_LOCAL_MACHINE \SYSTEM\ControlSet001\Services\WindowsAzureTelemetryService
+        - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\WindowsAzureTelemetryService
         - HKEY_LOCAL_MACHINE \SYSTEM\ControlSet001\Services\RdAgent
 
           ![Kayıt defteri alt anahtarları Dışarı Aktar](./media/install-vm-agent-offline/backup-reg.png)

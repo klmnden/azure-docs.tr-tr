@@ -8,83 +8,79 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: quickstart
-ms.date: 9/21/2017
+ms.date: 1/10/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 02b603c0a7e1f84b2677511f73f96eee20a613d9
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: ebb1e61c832ab60d95a1e8a5938410ebdc7a4a0c
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250238"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258891"
 ---
 # <a name="quickstart-perform-a-news-search-using-ruby-and-the-bing-news-search-rest-api"></a>Hızlı Başlangıç: Ruby ve Bing haber arama REST API'si kullanarak bir haber arama yapın
 
-Bu makale, Azure'daki Microsoft Bilişsel Hizmetleri'nin parçası olan Bing Haber Arama API'sini kullanmayı göstermektedir. Bu makalede Ruby kullanılmakla birlikte API HTTP istekleri gönderebilecek ve JSON ayrıştırabilecek her programlama diliyle uyumlu bir RESTful Web hizmetidir. 
+Bu hızlı başlangıçta, bir JSON yanıtı alıp Bing haber arama API'si, ilk çağrı yapmak için kullanın. Bu basit bir JavaScript uygulaması, API için bir arama sorgusu gönderir ve sonuçları işler.
 
-Örnek kod, Ruby 2.4 ile çalışmak üzere yazılmıştır.
-
-API'lerle ilgili teknik ayrıntılar için [API başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference)'na bakın.
+Bu uygulama Python'da yazılmıştır, ancak bir RESTful Web API'si, uyumlu, çoğu programlama dilinden hizmet. Bu örneğin kaynak kodu [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingNewsSearchv7.rb)’da mevcuttur.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-**Bing Arama API'leri**'nde bir [Bilişsel Hizmetler API hesabınız](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) olması gerekir. [Ücretsiz deneme](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) bu hızlı başlangıç için yeterlidir. Ücretsiz denemenizi etkinleştirdiğinizde sağlanan erişim anahtarı gerekir. Ayrıca bkz: [Bilişsel hizmetler fiyatlandırması - Bing arama API'si](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+* Ruby [2.4 veya sonraki bir sürümü](https://www.ruby-lang.org/downloads/)
 
-## <a name="bing-news-search"></a>Bing Haber Arama
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
-[Bing Haber Arama API'si](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) Bing arama motorundan haber sonuçları döndürür.
+Ayrıca bkz: [Bilişsel hizmetler fiyatlandırması - Bing arama API'si](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
-1. Sık kullandığınız IDE veya kod düzenleyicisinde yeni bir Ruby projesi oluşturun.
-2. Aşağıda sağlanan kodu ekleyin.
-3. `accessKey` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
-4. Programı çalıştırın.
+## <a name="create-and-initialize-the-application"></a>Uygulamayı oluşturma ve başlatma
+
+1. Aşağıdaki paketleri kod dosyanıza içeri aktarın.
+
+    ```ruby
+    require 'net/https'
+    require 'uri'
+    require 'json'
+    ```
+
+2. API uç noktası, haber arama URL'si, abonelik anahtarınız için değişkenler oluşturun ve arama terimi.
+
+    ```ruby
+    accessKey = "enter key here"
+    uri  = "https://api.cognitive.microsoft.com"
+    path = "/bing/v7.0/news/search"
+    term = "Microsoft"
+    ```
+
+## <a name="format-and-make-an-api-request"></a>API isteğini biçimlendirme ve API isteğinde bulunma
+
+API isteğine yönelik bir arama URL’sini biçimlendirmek için son adımdaki değişkenleri kullanın. Daha sonra isteği gönderin.
 
 ```ruby
-require 'net/https'
-require 'uri'
-require 'json'
-
-# **********************************************
-# *** Update or verify the following values. ***
-# **********************************************
-
-# Replace the accessKey string value with your valid access key.
-accessKey = "enter key here"
-
-# Verify the endpoint URI.  At this writing, only one endpoint is used for Bing
-# search APIs.  In the future, regional endpoints may be available.  If you
-# encounter unexpected authorization errors, double-check this value against
-# the endpoint for your Bing Search instance in your Azure dashboard.
-
-uri  = "https://api.cognitive.microsoft.com"
-path = "/bing/v7.0/news/search"
-
-term = "Microsoft"
-
 uri = URI(uri + path + "?q=" + URI.escape(term))
-
-puts "Searching news for: " + term
-
 request = Net::HTTP::Get.new(uri)
 request['Ocp-Apim-Subscription-Key'] = accessKey
-
 response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
-    http.request(request)
+   http.request(request)
 end
+```
 
+## <a name="process-and-print-the-json-response"></a>İşlem ve JSON yanıtı yazdırma
+
+Yanıt alındıktan sonra JSON Ayrıştır ve yanıt gövdesi hem kendi üst bilgileri yazdırın:
+
+```ruby
 puts "\nRelevant Headers:\n\n"
 response.each_header do |key, value|
-    # header names are coerced to lowercase
-    if key.start_with?("bingapis-") or key.start_with?("x-msedge-") then
-        puts key + ": " + value
-    end
+   # header names are coerced to lowercase
+   if key.start_with?("bingapis-") or key.start_with?("x-msedge-") then
+      puts key + ": " + value
+   end
 end
-
 puts "\nJSON Response:\n\n"
 puts JSON::pretty_generate(JSON(response.body))
 ```
 
-**Yanıt**
+## <a name="json-response"></a>JSON yanıtı
 
 Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür:
 
@@ -183,7 +179,4 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Haberleri sayfalara bölme](paging-news.md)
-> [Metni vurgulamak için süsleme işaretçilerini kullanma](hit-highlighting.md)
-> [Web'de haber arama](search-the-web.md)  
-> [Deneyin](https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/)
+> [Signle sayfaya uygulaması oluşturma](tutorial-bing-news-search-single-page-app.md)

@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 1/10/2019
 ms.author: v-gedod
-ms.openlocfilehash: a8f7ccdb199f934011b6d64d813eb36cc9dff952
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 1d8a46287d2b84735ffb6d5159346cb9b8243472
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804557"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264011"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Bing haber arama API'si için dil ve bölge desteği
 
@@ -34,9 +34,9 @@ Alternatif olarak, Pazar kullanarak belirtebilir `mkt` sorgu parametresi ve bir 
 |Ülke/bölge|Dil|Pazar kod|  
 |---------------------|--------------|-----------------|
 |Danimarka|Danca|v-DK|
-|Avusturya|Almanca|de-AT|
-|İsviçre|Almanca|de-CH|
-|Almanya|Almanca|de-DE|
+|Avusturya|Almanca |de-AT|
+|İsviçre|Almanca |de-CH|
+|Almanya|Almanca |de-DE|
 |Avustralya|Türkçe|tr-AU|
 |Kanada|Türkçe|CA tr|
 |Birleşik Krallık|Türkçe|en-GB|
@@ -47,32 +47,32 @@ Alternatif olarak, Pazar kullanarak belirtebilir `mkt` sorgu parametresi ve bir 
 |Yeni Zelanda|Türkçe|tr NZ|
 |Filipinler Cumhuriyeti|Türkçe|tr PH|
 |Singapur|Türkçe|tr SG|
-|Amerika Birleşik Devletleri|Türkçe|tr-TR|
+|Amerika Birleşik Devletleri|Türkçe|en-US|
 |Türkçe|Genel|tr WW|
 |Türkçe|Genel|XA tr|
 |Güney Afrika|Türkçe|tr-ZA|
-|Arjantin|İspanyolca|ES AR|
-|Şili|İspanyolca|ES-CL|
-|İspanya|İspanyolca|es-ES|
-|Meksika|İspanyolca|es-MX|
-|Amerika Birleşik Devletleri|İspanyolca|ES-ABD|
-|İspanyolca|Genel|ES XL|
+|Arjantin|İspanyolca |es-AR|
+|Şili|İspanyolca |ES-CL|
+|İspanya|İspanyolca |es-ES|
+|Meksika|İspanyolca |es-MX|
+|Amerika Birleşik Devletleri|İspanyolca |ES-ABD|
+|İspanyolca |Genel|ES XL|
 |Finlandiya|Fince|FI-FI|  
-|Fransa|Fransızca|FR-olabilir|
-|Kanada|Fransızca|fr-CA|
-|Belçika|Hollanda dili|NL-olabilir|
-|İsviçre|Fransızca|FR-CH|
-|Fransa|Fransızca|fr-FR|  
+|Fransa|Fransızca |FR-olabilir|
+|Kanada|Fransızca |fr-CA|
+|Belçika|Felemenkçe|NL-olabilir|
+|İsviçre|Fransızca |FR-CH|
+|Fransa|Fransızca |fr-FR|  
 |İtalya|İtalyanca|İt-IT|
-|Hong Kong ÖYB|Geleneksel Çince|zh-HK|  
+|Hong Kong Çin ÖİB|Geleneksel Çince|zh-HK|  
 |Tayvan|Geleneksel Çince|zh-TW|
 |Japonya|Japonca|ja-JP|  
-|Kore|Kore dili|ko-KR|  
-|Hollanda|Hollanda dili|NL-NL|  
+|Güney Kore|Korece|ko-KR|  
+|Hollanda|Felemenkçe|NL-NL|  
 |Çin Halk Cumhuriyeti|Çince|zh-CN|  
 |Brezilya|Portekizce|pt-BR|
 |Rusya|Rusça|ru-RU|  
-|İsveç|İsveç dili|sv-SE|  
+|İsveç|İsveççe|sv-SE|  
 |Türkiye|Türkçe|tr-TR|  
 
 ## <a name="supported-markets-for-news-endpoint"></a>Haber uç noktası için desteklenen pazarlar
@@ -83,17 +83,17 @@ Alternatif olarak, Pazar kullanarak belirtebilir `mkt` sorgu parametresi ve bir 
 |Ülke/bölge|Dil|Pazar kod|  
 |---------------------|--------------|-----------------|
 |Danimarka|Danca|v-DK|
-|Almanya|Almanca|de-DE|
+|Almanya|Almanca |de-DE|
 |Avustralya|Türkçe|tr-AU|
 |Birleşik Krallık|Türkçe|en-GB|
-|Amerika Birleşik Devletleri|Türkçe|tr-TR|
+|Amerika Birleşik Devletleri|Türkçe|en-US|
 |Türkçe|Genel|tr WW|
-|Şili|İspanyolca|ES-CL|
-|Meksika|İspanyolca|es-MX|
-|Amerika Birleşik Devletleri|İspanyolca|ES-ABD|
+|Şili|İspanyolca |ES-CL|
+|Meksika|İspanyolca |es-MX|
+|Amerika Birleşik Devletleri|İspanyolca |ES-ABD|
 |Finlandiya|Fince|FI-FI|  
-|Kanada|Fransızca|fr-CA|
-|Fransa|Fransızca|fr-FR|  
+|Kanada|Fransızca |fr-CA|
+|Fransa|Fransızca |fr-FR|  
 |İtalya|İtalyanca|İt-IT|
 |Brezilya|Portekizce|pt-BR|
 |Çin Halk Cumhuriyeti|Çince|zh-CN|
@@ -105,14 +105,14 @@ Alternatif olarak, Pazar kullanarak belirtebilir `mkt` sorgu parametresi ve bir 
 
 |Ülke/bölge|Dil|Pazar kod|  
 |---------------------|--------------|-----------------|
-|Almanya|Almanca|de-DE|
+|Almanya|Almanca |de-DE|
 |Avustralya|Türkçe|tr-AU|
 |Birleşik Krallık|Türkçe|en-GB|
-|Amerika Birleşik Devletleri|Türkçe|tr-TR|
+|Amerika Birleşik Devletleri|Türkçe|en-US|
 |Kanada|Türkçe|CA tr|
 |Hindistan|Türkçe|tr-giriş|
-|Fransa|Fransızca|fr-FR|
-|Kanada|Fransızca|fr-CA|
+|Fransa|Fransızca |fr-FR|
+|Kanada|Fransızca |fr-CA|
 |Brezilya|Portekizce|pt-BR|
 |Çin Halk Cumhuriyeti|Çince|zh-CN|
 
@@ -125,28 +125,28 @@ Belirttiğiniz ülke/bölge kodları şunlardır `cc` sorgu parametresi. Değiş
 |Ülke/bölge|Ülke kodu|  
 |---------------------|------------------|  
 |Arjantin|AR|  
-|Avustralya|Otomatik Olarak Güncelleştir|  
+|Avustralya|AU|  
 |Avusturya|AT|  
-|Belçika|OLABİLİR|  
+|Belçika|BE|  
 |Brezilya|BR|  
 |Kanada|CA|  
 |Şili|CL|  
 |Danimarka|DK|  
 |Finlandiya|FI|  
 |Fransa|GS|  
-|Almanya|GİZLE|  
-|Hong Kong ÖYB|HK|  
-|Hindistan|GİRİŞ|  
+|Almanya|DE|  
+|Hong Kong Çin ÖİB|HK|  
+|Hindistan|IN|  
 |Endonezya|Kimlik|  
 |İtalya|BT|  
 |Japonya|JP|  
-|Kore|KR|  
-|Malezya|BİLGİSAYARIM|  
+|Güney Kore|KR|  
+|Malezya|MY|  
 |Meksika|MX|  
 |Hollanda|NL|  
 |Yeni Zelanda|NZ|  
-|Norveç|HAYIR|  
-|Çin Halk Cumhuriyeti|CN =|  
+|Norveç|NO|  
+|Çin Halk Cumhuriyeti|CN|  
 |Polonya|PL|  
 |Portekiz|PT|  
 |Filipinler Cumhuriyeti|PH|  

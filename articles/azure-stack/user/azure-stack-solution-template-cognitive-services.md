@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/11/2018
 ms.author: mabrigg
 ms.reviewer: guanghu
-ms.openlocfilehash: 5af508714b5eae5cdd23c940af0ae21300c0c5b8
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: bf056c162684c021e3a8408edfdf82fe4590be48
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194694"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260643"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack"></a>Azure Bilişsel hizmetler için Azure Stack dağıtma
 
@@ -41,7 +41,7 @@ Kapsayıcı içinde bir uygulama veya hizmet, yapılandırması ve bağımlılı
   Uygulama sürümü ve bunların çözümünde dağıtılmış modelleri güncelleştirme kullanıcılara sağlar.
 
 - **Taşınabilir mimarisi**  
-  Taşınabilir uygulama mimarisi oluşturulmasını etkinleştirin; böylelikle, bir özel bulut üzerinde-üzerinden erişme veya Microsoft edge için genel bulut çözümünüzü dağıtın. Azure Stack içindeki bir Kubernetes kümesi veya Azure Kubernetes hizmeti, Azure Container Instances kapsayıcınızı dağıtabilirsiniz. Daha fazla bilgi için [Azure Stack dağıtma Kubernetes](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
+  Taşınabilir uygulama mimarisi oluşturulmasını etkinleştirin; böylelikle özel, genel bulut çözümünüzü dağıtabileceğiniz bulut şirket içinde veya uç cihazlarında. Azure Stack içindeki bir Kubernetes kümesi veya Azure Kubernetes hizmeti, Azure Container Instances kapsayıcınızı dağıtabilirsiniz. Daha fazla bilgi için [Azure Stack dağıtma Kubernetes](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
 
 - **Yüksek aktarım hızına ve düşük gecikme süresi**  
    Uygulama kullanıcılarınızın, ani trafik yüksek aktarım hızı ve düşük gecikme süresi ile ölçeklendirme olanağı sağlar. Azure Kubernetes hizmetinde, uygulama mantığı ve verileri yakın fiziksel olarak çalıştırmak, Bilişsel hizmetler sağlar.

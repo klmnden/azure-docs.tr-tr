@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: pbutlerm
-ms.openlocfilehash: fa1b043f94897e752f3aa6b638995d3c2aa1eae5
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 74f6d5989d86cc92371b060caf164f895b75511f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53197457"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263637"
 ---
 # <a name="azure-saas-application-offer"></a>SaaS uygulaması için Azure teklifi
 
@@ -49,7 +49,7 @@ Bu bölümde, bir SaaS teklifi yayımlama öğeleri açıklar ve Azure Marketi y
 
 - [Önkoşullar](./cpp-prerequisites.md) -oluşturma veya SaaS teklifi yayımlama için önce teknik ve iş gereksinimleri listelenir. 
 - [Teklif oluşturma](./cpp-create-offer.md) -bulut iş ortağı portalını kullanarak yeni bir SaaS teklifi girişi oluşturmak için gerekli adımları sağlar. 
-- [Teklifi yayımlama](./cpp-publish-offer.md) -Exlains teklifi Azure Marketi yayımlama için gönderme. 
+- [Teklifi yayımlama](./cpp-publish-offer.md) -teklifi Azure Marketi yayımlama için gönderme açıklanmaktadır. 
 
 ## <a name="saas-publishing-process"></a>SaaS yayımlama işlemi 
 

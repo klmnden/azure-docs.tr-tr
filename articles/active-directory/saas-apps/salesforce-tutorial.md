@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 9d9f9d1e9a87802960fd2f004f3e19f47fdd3fe0
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 5be86017926e09b5db5fd08f1c33d316b9031bc4
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971810"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264300"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>Öğretici: Salesforce ile Azure Active Directory Tümleştirme
 
@@ -180,7 +180,7 @@ Azure AD çoklu oturum açma ile Salesforce yapılandırmak için aşağıdaki a
 
     ![Çoklu oturum açmayı yapılandırın](./media/salesforce-tutorial/sf-edit-auth-config.png)
 
-11. İçinde **kimlik doğrulama Yapılandırması** bölümünde, onay **AzureSSO** olarak **kimlik doğrulaması listeleme** SAML SSO yapılandırmasını ve ardından **Kaydet** .
+11. İçinde **kimlik doğrulama Yapılandırması** bölümünde, onay **AzureSSO** olarak **kimlik doğrulama hizmeti** SAML SSO yapılandırmasını ve ardından  **Kaydet**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/salesforce-tutorial/sf-auth-config.png)
 

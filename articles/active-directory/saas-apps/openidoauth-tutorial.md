@@ -4,22 +4,22 @@ description: Bir Azure AD uygulama galerisinde Openıd/OAuth uygulamasından yap
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: eedebb76-e78c-428f-9cf0-5891852e79fb
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/25/2018
+ms.topic: tutorial
+ms.date: 01/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 04639e6d27854d9c25b97936b163cfaaa25fc375
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 1215e0060662e0d5261d3aeac4874e5833131ba3
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287447"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260848"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Bir Azure AD uygulama Galerisi Openıd/OAuth uygulaması yapılandırma
 
@@ -27,19 +27,19 @@ ms.locfileid: "51287447"
 
 1. İçinde [Azure portalında](https://portal.azure.com), sol bölmede seçin **Azure Active Directory**. 
 
-    ![Azure Active Directory düğmesi](./media/openidoauth-tutorial/tutorial_general_01.png)
+    ![Azure Active Directory düğmesi](common/select-azuread.png))
 
 2. Git **kurumsal uygulamalar** > **tüm uygulamaları**.
 
-    ![Kurumsal uygulamalar dikey penceresi](./media/openidoauth-tutorial/tutorial_general_02.png)
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
 3. Seçin **yeni uygulama** iletişim kutusunun üst kısmındaki.
 
-    ![Yeni Uygulama düğmesi](./media/openidoauth-tutorial/tutorial_general_03.png)
+    ![Yeni Uygulama düğmesi](common/add-new-app.png)
 
 4. Arama kutusuna, uygulama adı yazın. Sonuç panelden istediğiniz uygulamayı seçin ve uygulamaya kaydolun.
 
-    ![Uygulama ekleme](./media/openidoauth-tutorial/addfromgallery.png)
+    ![Sonuç listesinde Openıd](common/search-new-app.png)
 
     > [!NOTE]
     > Uygulamalar, Openıd Connect ve OAuth için **Ekle** düğmesi, varsayılan olarak devre dışıdır. Burada, Kiracı Yöneticisi kayıt seçmelisiniz düğmesi ve uygulamaya onay sağlayın. Uygulama ardından, nerede yapılandırmalar yapabilirsiniz müşteri kiracıya eklenir. Uygulamayı açıkça eklemenize gerek yoktur.

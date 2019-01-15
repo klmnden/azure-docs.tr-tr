@@ -8,12 +8,12 @@ ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.openlocfilehash: 786fc427e4cb631c4aedd0f795daebebd9fb15bc
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 3554151490215f128efc6725b7aaa0628d503366
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077445"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260148"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>Öğretici: Jenkins sürekli tümleştirme ve dağıtım ile Github'dan Azure App Service'e dağıtma
 
@@ -165,7 +165,7 @@ Tarafından oluşturulan çıktı şu şekildedir **`create-for-rbac`** komutu:
    | Özellik | Değer | Açıklama | 
    |----------|-------|-------------| 
    | **Abonelik kimliği** | <*yourAzureSubscription kimliği*> | Azure aboneliğiniz için GUID değeri <p>**İpucu**: Azure abonelik Kimliğinizi bilmiyorsanız, komut satırından veya Cloud shell'de bu Azure CLI komutunu çalıştırın ve ardından `id` GUID değeri: <p>`az account list` | 
-   | **İstemci kimliği** | <*yourAzureServicePrincipal kimliği*> | `appId` Azure hizmet sorumlunuz için daha önce oluşturulan için GUID değeri | 
+   | **İstemci kimliği** | <*yourAzureServicePrincipal kimliği*> | `appId` Azure hizmet sorumlunuz için daha önce oluşturulan GUID değeri | 
    | **İstemci gizli anahtarı** | <*yourSecurePassword*> | `password` , Değeri veya "gizli", Azure hizmet sorumlusu için sağlanan | 
    | **Kiracı kimliği** | <*yourAzureActiveDirectoryTenant kimliği*> | `tenant` Azure Active Directory kiracınız için GUID değeri | 
    | **ID** | <*yourAzureServicePrincipalName*> | `displayName` , Azure hizmet sorumlusu için değer | 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 5aa998ef7af157f84a3985fdb458c2800f2575f4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8ecc29e9422c1d427dd76059f1a427f3d49da38f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249379"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262380"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Azure için SLES veya openSUSE sanal makinesi hazırlama
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -49,7 +49,7 @@ Kendi VHD'nizi oluşturmaya alternatif olarak, SUSE de BYOS (Getir kendi aboneli
         # sudo zypper update
 5. Azure Linux Aracısı SLES depodan yükleyin:
    
-        # sudo zypper install WALinuxAgent
+        # sudo zypper install python-azure-agent
 6. İçinde chkconfig waagent "açık" ayarlanmış olup olmadığını denetleyin ve aksi takdirde, için AutoStart'ı etkinleştirin:
    
         # sudo chkconfig waagent on
@@ -140,7 +140,7 @@ Kendi VHD'nizi oluşturmaya alternatif olarak, SUSE de BYOS (Getir kendi aboneli
 7. Dosyayı düzenlemek için önerilen "/ etc/sysconfig/ağ/dhcp" olduğundan ve değiştirmek `DHCLIENT_SET_HOSTNAME` aşağıdaki parametre:
    
      DHCLIENT_SET_HOSTNAME="no"
-8. **Önemli:** "/ etc/sudoers", açıklama satırı yapın veya varsa, aşağıdaki satırları Kaldır:
+8. **Önemli:** "/ Etc/sudoers", açıklama satırı yapın veya varsa, aşağıdaki satırları Kaldır:
    
      Varsayılan olarak targetpw # hedef kullanıcının yani tüm ALL=(ALL) tüm kök parolası isteyin # uyarı! Yalnızca 'İle birlikte varsayılan targetpw' kullanın!
 9. SSH sunucusu yüklü ve önyükleme sırasında başlatılacak şekilde yapılandırılmış emin olun.  Bu, genellikle varsayılan değerdir.

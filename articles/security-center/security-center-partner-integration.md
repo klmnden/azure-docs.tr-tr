@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/13/2018
+ms.date: 1/3/2019
 ms.author: rkarlin
-ms.openlocfilehash: 97153f4e11f9346083718a83dc7bcd292dc503c7
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 25975739f7992a8e7a5318775b99d05715863ed1
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580748"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260145"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Azure Güvenlik Merkezi'ndeki tümleşik güvenlik çözümleri
 Bu belge Azure Güvenlik Merkezi'ne bağlanmış olan güvenlik çözümlerini yönetmenize ve yenilerini eklemenize yardımcı olur.
@@ -33,29 +33,12 @@ Güvenlik Merkezi, Azure'daki tümleşik güvenlik çözümlerini etkinleştirme
 
 Tümleşik güvenlik çözümleri şu anda aşağıdakileri içermektedir:
 
-- Uç nokta koruması ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://www.microsoft.com/windows/comprehensive-security) ve [System Center Endpoint Protection](https://docs.microsoft.com/sccm/protect/deploy-use/endpoint-protection))
 - Web uygulaması güvenlik duvarı ([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/products.html) ve [Azure Application Gateway](https://azure.microsoft.com/blog/azure-web-application-firewall-waf-generally-available/))
 - Yeni nesil güvenlik duvarı ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](http://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2), [Cisco](http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html) ve [Palo Alto Networks](https://www.paloaltonetworks.com/products))
 - Güvenlik açığı değerlendirmesi ([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/) ve [Rapid7](https://www.rapid7.com/products/insightvm/))
 
 > [!NOTE]
 > Güvenlik cihazı satıcılarının çoğu dış aracıların cihazlarında çalışmasını engellediğinden Güvenlik Merkezi, Microsoft Monitoring Agent uygulamasını iş ortağı sanal cihazlarına yüklemez.
->
->
-
-
-| Uç Nokta Koruması               | Platformlar                             | Güvenlik Merkezi Yüklemesi | Güvenlik Merkezi Bulma |
-|-----------------------------------|---------------------------------------|------------------------------|---------------------------|
-| Windows Defender (Microsoft Kötü Amaçlı Yazılım Koruması)                  | Windows Server 2016                   | Hayır, işletim sisteminde yerleşik           | Evet                       |
-| System Center Endpoint Protection (Microsoft Kötü Amaçlı Yazılım Koruması) | Windows Server 2012 R2, 2012, 2008 R2 (aşağıdaki nota bakın) | Uzantı ile                | Evet                       |
-| Trend Micro – Tüm sürümler         | Windows Server Ailesi                 | Hayır                           | Evet                       |
-| Symantec v12.1.1100+              | Windows Server Ailesi                 | Hayır                           | Evet                       |
-| McAfee v10+                       | Windows Server Ailesi                 | Hayır                           | Evet                       |
-| Kaspersky                         | Windows Server Ailesi                 | Hayır                           | Hayır                        |
-| Sophos                            | Windows Server Ailesi                 | Hayır                           | Hayır                        |
-
-> [!NOTE]
-> Algılama System Center Endpoint Protection (SCEP) bir Windows Server 2008 R2 sanal makine üzerinde SCEP PowerShell 3.0 (veya üst bir sürümünü) sonra yüklü olmasını gerektirir.
 >
 >
 
@@ -238,7 +221,7 @@ Birkaç uyarı veri çekmek için kullanabileceğiniz Splunk sorgu aşağıda ve
 | **Sorgu açıklaması** | **Sorgu** |
 |----|----|
 | Tüm Uyarılar| Dizin ana Microsoft.Security/locations/alerts =|
-| İşlem sayısı adlarına göre özetleyin.| Dizin ana sourcetype = = "amal: güvenlik" \| tabloda operationName \| istatistikleri operationName göre Say|
+| İşlem sayısı adlarına göre özetleyin.| index=main sourcetype="amal:security" \| table operationName \| stats count by operationName|
 | Uyarıları bilgi alın: Saat, adı, abonelik, durumu ve kimliği | Dizin ana Microsoft.Security/locations/alerts = \| tablo \_zaman, properties.eventName, durumu, properties.operationId am_subscriptionId |
 
 

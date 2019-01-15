@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: manayar
-ms.openlocfilehash: a476af9ceb1b664a458f7f07a5a7b3945b1ad881
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 601c23bbcddeaeff89e1d1b1a4be8cb6b0256e51
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036571"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258790"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Sanal makine ölçek kümesi şablonları hakkında bilgi edinin
 [Azure Resource Manager şablonları](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment), ilgili kaynak gruplarını dağıtmanın harika bir yoludur. Bu öğretici serisinde, en düşük uygun ölçek kümesi şablonunun nasıl oluşturulacağını ve çeşitli senaryolara uygun olarak bu şablonu nasıl değiştireceğiniz gösterilmektedir. Tüm örnekler buradan gelen [GitHub deposu](https://github.com/gatneil/mvss). 
@@ -35,7 +35,7 @@ En düşük uygun ölçek kümesi şablonunun gözden geçirmek için GitHub'ı 
 
 Bu öğreticide, fark inceleyelim (`git diff master minimum-viable-scale-set`) en düşük uygun ölçek oluşturmak için şablon parça parça ayarlayın.
 
-## <a name="define-schema-and-contentversion"></a>$Schema ve contentVersion tanımlayın
+## <a name="define-schema-and-contentversion"></a>Define $schema and contentVersion
 Öncelikle, tanımlamanız `$schema` ve `contentVersion` şablondaki. `$schema` Öğe şablonu dil sürümünü tanımlar ve Visual Studio söz dizimi vurgulama ve benzer doğrulama özellikleri için kullanılır. `contentVersion` Öğesi, Azure tarafından kullanılmaz. Bunun yerine, şablon sürümünü izlemenize yardımcı olur.
 
 ```json
@@ -70,7 +70,7 @@ Sonraki şablon kaynakları bölümünde bulunur. Burada, hangi gerçekten dağ�
    "resources": [
 ```
 
-Tüm kaynakları gerektiren `type`, `name`, `apiVersion`, ve `location` özellikleri. Bu örneğin ilk kaynak türünde [Microsft.Network/virtualNetwork](/azure/templates/microsoft.network/virtualnetworks), adı `myVnet`ve apiVersion `2016-03-30`. (Bir kaynak türü için en son API sürümü bulmak için bkz: [Azure Resource Manager şablon başvurusu](/azure/templates/).)
+Tüm kaynakları gerektiren `type`, `name`, `apiVersion`, ve `location` özellikleri. Bu örneğin ilk kaynak türünde [Microsoft.Network/virtualNetwork](/azure/templates/microsoft.network/virtualnetworks), adı `myVnet`ve apiVersion `2016-03-30`. (Bir kaynak türü için en son API sürümü bulmak için bkz: [Azure Resource Manager şablon başvurusu](/azure/templates/).)
 
 ```json
      {

@@ -1,21 +1,22 @@
 ---
-title: Azure AI Gallery - Azure Machine Learning Studio verilerini yönetme | Microsoft Docs
+title: Azure AI Gallery verileri yönetme
+titleSuffix: Azure Machine Learning Studio
 description: Dışarı aktarma ve ürün içi kullanıcı verilerinizi arabirimi veya yapay ZEKA Galerisi'ni Kataloğu API'sini kullanarak Azure AI Gallery Sil. Bu makalede, nasıl gösterir.
 services: machine-learning
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-ms.reviewer: jmartens, mldocs
 ms.service: machine-learning
 ms.component: studio
 ms.topic: conceptual
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
 ms.date: 05/25/2018
-ms.openlocfilehash: 2fc2d8a21a4090a02822607eac1695ed192eac27
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.reviewer: jmartens, mldocs
+ms.openlocfilehash: 14f46ffd45f0b1948dfc4892a45dc880dc378355
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250255"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264009"
 ---
 # <a name="view-and-delete-in-product-user-data-from-azure-ai-gallery"></a>Ve Azure AI Gallery ürün içi kullanıcı verilerini silme
 

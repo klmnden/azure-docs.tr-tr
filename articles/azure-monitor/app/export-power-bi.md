@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4a50cb5dc204a209c2b9d899c50ae7def55f4deb
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 4f8929182995445ff0b327bc22a9cdf75ec5641b
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118175"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262600"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Application Insights'tan Power BI akışı
 [Power BI](https://www.powerbi.com/) verileri analiz etmek ve öngörüleri paylaşmak yardımcı olan bir iş araçları paketidir. Her cihazda kullanılabilen zengin panolar. Analytics sorguları da dahil olmak üzere pek çok kaynaktan veri birleştirebilir [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
@@ -29,7 +29,7 @@ Application Insights verilerini Power BI'a verme üç yöntem vardır:
 * [**Power BI bağdaştırıcısı**](#power-pi-adapter). Grafikler dizi önceden tanımlanmış, ancak diğer kaynaklardan gelen kendi sorgularınızı ekleyebilirsiniz.
 
 > [!NOTE]
-> Power BI artık bağdaştırıcısıdır **kullanım dışı**. Bu çözüm için önceden tanımlanmış grafikleri statik düzenlenemez sorgular tarafından doldurulur. Bu sorguları düzenleme olanağına sahip değildir ve verilerinizin belirli özelliklerini bağlı olarak Power BI'ın başarılı olması için bağlantı mümkündür, ancak hiçbir veri doldurulur. Bu, sabit kodlanmış sorgu içinde ayarlanan hariç tutma kriterleri kaynaklanır. Bu çözüm, yine de bazı müşteriler için çalışabilir ancak bağdaştırıcısının flexiblity eksikliği nedeniyle kullanmak için önerilen çözüm olduğunu [ **Analytics sorgusu dışarı** ](#export-analytics-queries) işlevselliği.
+> Power BI artık bağdaştırıcısıdır **kullanım dışı**. Bu çözüm için önceden tanımlanmış grafikleri statik düzenlenemez sorgular tarafından doldurulur. Bu sorguları düzenleme olanağına sahip değildir ve verilerinizin belirli özelliklerini bağlı olarak Power BI'ın başarılı olması için bağlantı mümkündür, ancak hiçbir veri doldurulur. Bu, sabit kodlanmış sorgu içinde ayarlanan hariç tutma kriterleri kaynaklanır. Bu çözüm, yine de bazı müşteriler için çalışabilir ancak esneklik bağdaştırıcısının eksikliği nedeniyle kullanmak için önerilen çözüm olduğunu [ **Analytics sorgusu dışarı** ](#export-analytics-queries) işlevselliği.
 
 ## <a name="export-analytics-queries"></a>Analiz sorguları Dışarı Aktar
 Bu yol, beğendiğiniz veya kullanım Huniler ' dışarı aktarma Analytics sorgusunu yazmak ve ardından, bir Power BI panosuna dışarı sağlar. (Bağdaştırıcı tarafından oluşturulan bir panoya ekleyebilirsiniz.)

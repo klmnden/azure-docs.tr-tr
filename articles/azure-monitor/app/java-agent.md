@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: mbullwin
-ms.openlocfilehash: ceab5152d6dc6db573a7fea8c673157068009ebe
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: dbca662f38f13833a4b9e642a4d8f690017d999a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54228818"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262141"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Bağımlılıklar, yakalanan özel durumların ve yöntemi yürütme sürelerini Java web uygulamalarını izleme
 
@@ -34,7 +34,7 @@ Varsa [Java web uygulamanızı Application Insights ile izleme eklenmiş][java],
 Java aracı kullanmak için bunu sunucunuza yüklemeniz gerekir. Web apps ile gerçekleştirilmeyecek [Application Insights Java SDK'sı][java]. 
 
 ## <a name="install-the-application-insights-agent-for-java"></a>Java için Application Insights aracıyı yükleme
-1. Java sunucunuz makine üzerinde çalışan [aracıyı indirin](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest). Java Agent'ın aynı verson Application Insights Java SDK'sı core ve web paketleri olarak indirmek için lütfen emin olun.
+1. Java sunucunuz makine üzerinde çalışan [aracıyı indirin](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest). Application Insights Java SDK'sı core ve web paketleri aynı sürümde Java aracı, indirmek için lütfen emin olun.
 2. Uygulama sunucu başlangıç komut dosyasını düzenleyin ve aşağıdaki JVM ekleyin:
    
     `javaagent:`*Aracı JAR dosyasının tam yolu*

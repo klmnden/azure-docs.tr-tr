@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 11/07/2018
 ms.author: mabrigg
 ms.reviewer: anajod
-ms.openlocfilehash: 49f1d7e1fac1125984f7376cffdcaf2e60f5611b
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 984f6713445b53429758d616945a6e64245b42bc
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247886"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263229"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Öğretici: Azure ve Azure Stack’e uygulama dağıtma
 
@@ -254,11 +254,11 @@ Visual Studio Online (VSTO) derleme, uç noktaları oluşturarak, Azure Stack i�
 2. Üzerinde **ayarları**seçin **güvenlik**.
 3. İçinde **Azure DevOps Hizmetleri gruplarında**seçin **uç noktasını oluşturanlar**.
 
-    ![NorthwindCloud uç noktasını oluşturanlar](media/azure-stack-solution-hybrid-pipeline/013_endpoint_creators.png)
+    ![NorthwindCloud Endpoint Creators](media/azure-stack-solution-hybrid-pipeline/013_endpoint_creators.png)
 
 4. Üzerinde **üyeleri** sekmesinde **Ekle**.
 
-    ![Üye ekle](media/azure-stack-solution-hybrid-pipeline/014_members_tab.png)
+    ![Üye ekleme](media/azure-stack-solution-hybrid-pipeline/014_members_tab.png)
 
 5. İçinde **kullanıcılar ve gruplar ekleme**, bir kullanıcı adı girin ve kullanıcının kullanıcılar listesinden seçin.
 6. Seçin **değişiklikleri kaydetmek**.
@@ -387,7 +387,7 @@ Yayın işlem hattı oluşturmak, son adım, uygulamanızdaki yapı işlemi olur
 
 3. Üzerinde **bir şablon seçin**, seçin **Azure uygulama hizmeti dağıtımının**ve ardından **Uygula**.
 
-    ![Şablonu uygula](media/azure-stack-solution-hybrid-pipeline/102.png)
+    ![Şablonu Uygula](media/azure-stack-solution-hybrid-pipeline/102.png)
 
 4. Üzerinde **yapıt ekleme**, gelen **kaynak (derleme tanımı)** aşağı açılır menüsünde, Azure bulut yapı uygulamayı seçin.
 

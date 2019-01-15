@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 6/5/2018
 ms.author: raynew
-ms.openlocfilehash: 1e8c8efa590b6cce4543255dd33afbfd79aecef6
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 31052276f06c5afdf78bf094637b7f60be4acbec
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877176"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262736"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Azure Stack üzerinde Azure Backup Sunucusu'nu yükleme
 
@@ -36,7 +36,7 @@ Azure Backup Sunucusu'nu aşağıdaki Azure Stack sanal makine iş yüklerini ko
 | Windows Server yarı yıllık kanal - Datacenter/Enterprise/standart | Birimler, dosyalar, klasörler |
 | Windows Server 2016 - Datacenter/Enterprise/standart | Birimler, dosyalar, klasörler |
 | Windows Server 2012 R2 - Datacenter/Enterprise/standart | Birimler, dosyalar, klasörler |
-| Windows Server 2012 - Datacenter/Entprise/standart | Birimler, dosyalar, klasörler |
+| Windows Server 2012 - Datacenter/Enterprise/standart | Birimler, dosyalar, klasörler |
 | Windows Server 2008 R2 - Datacenter/Enterprise/standart | Birimler, dosyalar, klasörler |
 | SQL Server 2016 | Database |
 | SQL Server 2014 | Database |
@@ -90,7 +90,7 @@ Azure Backup sunucusu sanal makine bir etki alanına katılması gerekir. Yönet
 
 ## <a name="using-an-iaas-vm-in-azure-stack"></a>Azure Stack'te bir Iaas VM'si kullanma
 
-Azure Backup sunucusu için bir sunucu seçerken, bir Windows Server 2012 R2 Datacenter veya Windows Server 2016 Datacenter galeri görüntüsü ile başlayın. Makale [Azure portalında ilk Windows sanal makinenizi oluşturma](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), önerilen sanal makine ile Başlarken bir öğretici sağlar. Sanal makinede (VM) sunucusu için önerilen en düşük gereksinimleri olmalıdır: standart A2 iki çekirdek ve 3,5 GB RAM.
+Azure Backup sunucusu için bir sunucu seçerken, bir Windows Server 2012 R2 Datacenter veya Windows Server 2016 Datacenter galeri görüntüsü ile başlayın. Makale [Azure portalında ilk Windows sanal makinenizi oluşturma](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), önerilen sanal makine ile Başlarken bir öğretici sağlar. Sanal makinede (VM) sunucusu için önerilen en düşük gereksinimleri olmalıdır: Standart a2 iki çekirdek ve 3,5 GB RAM.
 
 Azure Backup sunucusu iş yüklerini koruma birçok küçük farklar vardır. Makale [bir Azure sanal makinesi olarak DPM yükleme](https://technet.microsoft.com/library/jj852163.aspx), yardımcı olur, bu küçük farklar açıklanmaktadır. Makine dağıtmadan önce tamamen bu makaleyi okuyun.
 
@@ -326,11 +326,11 @@ Azure bağlantı ve Azure aboneliğinin durumu öğrendikten sonra sunulan yedek
 
 | Bağlantı durumu | Azure Aboneliği | Azure'a yedekleme | Diske yedekleme | Azure'dan geri yükleme | Diskten geri yükleme |
 | --- | --- | --- | --- | --- | --- |
-| Bağlanıldı |Etkin |İzin Verilen |İzin Verilen |İzin Verilen |İzin Verilen |
-| Bağlanıldı |Süresi dolmuş |Durduruldu |Durduruldu |İzin Verilen |İzin Verilen |
-| Bağlanıldı |Yetki Kaldırıldı |Durduruldu |Durduruldu |Silinen durduruldu ve Azure kurtarma noktaları |Durduruldu |
+| Bağlı |Etkin |İzin Verilen |İzin Verilen |İzin Verilen |İzin Verilen |
+| Bağlı |Süresi Doldu |Durduruldu |Durduruldu |İzin Verilen |İzin Verilen |
+| Bağlı |Yetki Kaldırıldı |Durduruldu |Durduruldu |Silinen durduruldu ve Azure kurtarma noktaları |Durduruldu |
 | Kayıp bağlantı > 15 gün |Etkin |Durduruldu |Durduruldu |İzin Verilen |İzin Verilen |
-| Kayıp bağlantı > 15 gün |Süresi dolmuş |Durduruldu |Durduruldu |İzin Verilen |İzin Verilen |
+| Kayıp bağlantı > 15 gün |Süresi Doldu |Durduruldu |Durduruldu |İzin Verilen |İzin Verilen |
 | Kayıp bağlantı > 15 gün |Yetki Kaldırıldı |Durduruldu |Durduruldu |Silinen durduruldu ve Azure kurtarma noktaları |Durduruldu |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Bağlantı kaybından kurtarma

@@ -16,12 +16,12 @@ ms.custom: ''
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: ecdfb0f062ebad903d35401a2f5303d3e6d04b5d
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 91ac75f3cb41f73ea18595138969dfb7b1444173
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037388"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263520"
 ---
 # <a name="redeploy-the-asdk"></a>ASDK yeniden dağıtma
 Bu makalede, Azure Stack geliştirme Seti'ni (ASDK) bir üretim dışı ortamda yeniden öğrenin. ASDK yükseltme desteklenmediğinden, tamamen yeni bir sürüme taşımak için yeniden dağıtmanız gerekir. Ayrıca, yalnızca sıfırdan başlamak istiyorsanız dilediğiniz zaman ASDK yeniden dağıtabilirsiniz.
@@ -32,7 +32,7 @@ Bu makalede, Azure Stack geliştirme Seti'ni (ASDK) bir üretim dışı ortamda 
 ## <a name="remove-azure-registration"></a>Azure kaydı Kaldır 
 Azure ile daha önce ASDK yüklemenizi kayıtlıysanız, kayıt kaynağı ASDK yeniden dağıtmadan önce kaldırmanız gerekir. ASDK ASDK yeniden dağıtırken öğeleri Market'te kullanılabilirliğini etkinleştirmek için yeniden kaydedin. ASDK Azure aboneliğinizle daha önce kaydetmediyseniz, bu bölümü atlayabilirsiniz.
 
-Kayıt kaynak kaldırmak için **Remove-AzsRegistration** Azure Stack kaydını kaldırmak için cmdlet. Ardından, **Remove-AzureRMRsourceGroup** cmdlet'ini Azure Stack kaynak grubunu Azure aboneliğinizden silebilirsiniz:
+Kayıt kaynak kaldırmak için **Remove-AzsRegistration** Azure Stack kaydını kaldırmak için cmdlet. Ardından, **Remove-AzureRMResourceGroup** cmdlet'ini Azure Stack kaynak grubunu Azure aboneliğinizden silebilirsiniz:
 
 1. Ayrıcalıklı uç noktasına erişimi olan bir bilgisayarda bir yönetici olarak bir PowerShell konsolu açın. ASDK için Geliştirme Seti ana bilgisayar olmasıdır.
 

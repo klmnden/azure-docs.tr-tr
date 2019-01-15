@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/05/2018
 ms.author: magoedte
-ms.openlocfilehash: f0addcc0b6220bcf877c3cac20f2d1376eb19e61
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: c6a8322998b391b9021292a3a7213ded56b67feb
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191080"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263365"
 ---
 # <a name="how-to-disable-monitoring-of-your-virtual-machines-with-azure-monitor-for-vms-preview"></a>Sanal makinelerinizi (Önizleme) VM'ler için Azure İzleyici ile izleme devre dışı bırakma
 
@@ -31,7 +31,7 @@ VM'ler için Azure İzleyici, bir deneyim sunmak için aşağıdaki bileşenleri
 * İzleme verilerini saklayan bir Log Analytics çalışma alanında, VM'ler ve diğer kaynaklardan toplanan.
 * Tüm sanal makineler izleme yapılandırması güncelleştirmeleri çalışma alanında yapılandırılmış performans sayaçlarını toplamayı çalışma alanına bağlı.
 * Çalışma alanında - yapılandırılmış iki izleme çözümleri **InfrastructureInsights** ve **ServiceMap**, tüm sanal makineler için izleme yapılandırmasını güncelleştirme çalışma alanına bağlı.
-* İki Azure sanal makine uzantıları, **MicrosoftMonitoringAgent** ve **DepenendencyAgent**, toplamak ve çalışma alanına veri göndermek.
+* İki Azure sanal makine uzantıları, **MicrosoftMonitoringAgent** ve **DependencyAgent**, toplamak ve çalışma alanına veri göndermek.
 
 Aşağıdaki sanal makinelerinizi VM'ler için Azure İzleyici ile izleme devre dışı bırakmak hazırlık yaparken göz önünde bulundurun:
 
@@ -43,7 +43,7 @@ Aşağıdaki sanal makinelerinizi VM'ler için Azure İzleyici ile izleme devre 
 
 ## <a name="complete-removal-of-azure-monitor-for-vms"></a>VM'ler için Azure İzleyici kaldırılmasını tamamlamak
 
-Aşağıdaki adımlar, Log Analytics çalışma alanı yine de gerekliyse VM'ler için Azure İzleyici tamamen kaldırmak açıklanmaktadır. Kaldırmak için oluşturacağınız **InfastructureInsights** ve **ServiceMap** çözümleri çalışma alanından.  
+Aşağıdaki adımlar, Log Analytics çalışma alanı yine de gerekliyse VM'ler için Azure İzleyici tamamen kaldırmak açıklanmaktadır. Kaldırmak için oluşturacağınız **InfrastructureInsights** ve **ServiceMap** çözümleri çalışma alanından.  
 
 >[!NOTE]
 >Bu çözüm izleme çözümü VM'ler için Azure İzleyicisi'ni etkinleştirmek önce hizmet eşlemesi kullandığınız ve sunucuyu hala kullanan, aşağıda 6. adımda açıklandığı gibi kaldırmayın.  

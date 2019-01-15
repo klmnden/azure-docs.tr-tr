@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/23/2018
-ms.openlocfilehash: be9de3c10fdfd040b249dd8da568259c599d7215
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: c4f78d8bb43b26814dc3a4b94109dfd8719cb48f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050396"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258841"
 ---
 # <a name="create-and-configure-azure-kubernetes-service-clusters-in-azure-using-ansible"></a>Ansible'ı kullanarak Azure'da Azure Kubernetes Service kümeleri oluşturma ve yapılandırma
 Ansible, ortamınızdaki kaynakların dağıtımını ve yapılandırılmasını otomatikleştirmenizi sağlar. Ansible'ı kullanarak Azure Kubernetes Service (AKS) örneğinizi yönetebilirsiniz. Bu makalede Ansible'ı kullanarak Azure Kubernetes Service kümesi oluşturma ve yapılandırma adımları gösterilmektedir.
@@ -28,7 +28,10 @@ Ansible, ortamınızdaki kaynakların dağıtımını ve yapılandırılmasını
 > Bu öğreticideki örnek playbook'ları çalıştırmak için Ansible 2.6 gerekir. 
 
 ## <a name="create-a-managed-aks-cluster"></a>Yönetilen AKS kümesi oluşturma
-Aşağıdaki örnek Ansible playbook'u, bir kaynak grubu ve bu kaynak grubunun içinde bir AKS kümesi oluşturur:
+Bu bölümdeki kod, bir kaynak grubu ve kaynak grubunda bulunan bir AKS kümesi oluşturmak için örnek Ansible playbook sunar.
+
+> [!Tip]
+> İçin `your_ssh_key` yer tutucusu, tek satırlı biçimde (tırnak işaretleri olmadan) "ssh-rsa" ile başlayan - RSA ortak anahtarınızı girin. 
 
   ```yaml
   - name: Create Azure Kubernetes Service
@@ -99,7 +102,8 @@ Ansible ile AKS kümesi oluşturmak için önceki örnek playbook'u `azure_creat
 
 Önceki bölümde yer alan örnek playbook, iki düğüm tanımlar. Kümenizde daha az veya daha fazla kapsayıcı iş yüküne ihtiyacınız varsa düğüm sayısını kolayca ayarlayabilirsiniz. Bu bölümdeki örnek playbook, düğüm sayısını ikiden üçe çıkarır. Düğüm sayısını değiştirmek için **agent_pool_profiles** bloğundaki **count** değerini değiştirmeniz gerekir. 
 
-**service_principal** bloğuna kendi `ssh_key`, `client_id` ve `client_secret` değerlerinizi girin:
+> [!Tip]
+> İçin `your_ssh_key` yer tutucusu, tek satırlı biçimde (tırnak işaretleri olmadan) "ssh-rsa" ile başlayan - RSA ortak anahtarınızı girin. 
 
 ```yaml
 - name: Scale AKS cluster

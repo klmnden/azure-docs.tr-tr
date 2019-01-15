@@ -5,15 +5,15 @@ services: digital-twins
 author: kingdomofends
 ms.service: digital-twins
 ms.topic: include
-ms.date: 01/10/2019
+ms.date: 01/11/2019
 ms.author: adgera
 ms.custom: include file
-ms.openlocfilehash: 47f66fc61fdd397350efb934bf21f488960a27a2
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: ac6b008597b6d6e557a0cc412c00c2202231bc3d
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54233068"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267746"
 ---
 > [!NOTE]
 > Çok parçalı istek, genellikle üç parça gerektirir:
@@ -26,11 +26,11 @@ ms.locfileid: "54233068"
 >
 > **İçerik türü** ve **Content-Disposition** kullanım senaryosuna bağlı olarak farklılık gösterir.
 
-Çok bölümlü istekleri program aracılığıyla yapılabilir (aracılığıyla C#), bir REST istemcisi veya gibi aracı üzerinden [Postman](https://docs.microsoft.com/azure/digital-twins/how-to-configure-postman#multi). REST istemcisi araçları destek karmaşık çok bölümlü istekleri için değişen düzeylerde olabilir. Hangi aracı ihtiyaçlarınız için en uygun olduğunu doğrulayın.
+Çok bölümlü istekleri program aracılığıyla yapılabilir (aracılığıyla C#), bir REST istemcisi veya gibi aracı üzerinden [Postman](https://docs.microsoft.com/azure/digital-twins/how-to-configure-postman#multi). REST istemcisi araçları destek karmaşık çok bölümlü istekleri için değişen düzeylerde olabilir. Yapılandırma ayarları da biraz gelen için aracı farklılık gösterebilir. Hangi aracı ihtiyaçlarınız için en uygun olduğunu doğrulayın.
 
 > [!IMPORTANT]
 > Azure dijital İkizlerini yönetim API'leri için genellikle yaptığınız çok parçalı istek, iki bölümden oluşur:
-> * Tarafından bildirilen blob meta verileri (örneğin, ilişkili bir MIME türü) **Content-Type** ve **Content-Disposition**
+> * Tarafından bildirilen blob meta verileri (örneğin, ilişkili bir MIME türü) **Content-Type** ve/veya **Content-Disposition**
 > * Karşıya yüklenecek bir dosya yapılandırılmamış içeriğini içeren blob içeriği
 >
 > İki bölümü hiçbiri için gerekli olan **düzeltme eki** istekleri. Her ikisi için gerekli olan **POST** veya oluşturma işlemleri.

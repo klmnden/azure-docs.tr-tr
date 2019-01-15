@@ -1,29 +1,29 @@
 ---
-title: Nasıl yapılır sayfası aracılığıyla kullanılabilir haber makalelerini - Bing haber arama
+title: Bing haber arama sonuçları sayfasını nasıl
 titlesuffix: Azure Cognitive Services
-description: Tüm yeni Bing arama döndürebilir haber makalelerini sayfa işlemi gösterilmektedir.
+description: Bing haber arama API'si döndüren haber makalelerini sayfasında öğrenin.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: conceptual
-ms.date: 04/15/2017
+ms.date: 01/10/2019
 ms.author: scottwhi
-ms.openlocfilehash: 0507f2cfb1d75025d1b6aadccc442326a52ceebc
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 9acf0c26707dab9de443b06e7314de6d77913777
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739813"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258263"
 ---
-# <a name="paging-news"></a>Disk belleği Haberleri
+# <a name="how-to-page-through-news-search-results"></a>Haber arama sonuçları sayfasını nasıl
 
-Bing, haber arama API'si çağırdığınızda, sonuçların listesini döndürür. Liste, sorgu ile ilgili sonuç toplam sayısı bir alt kümesidir. Kullanılabilir sonuçları tahmin edilen toplam sayısını almak için yanıt nesnenin erişim [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news-totalmatches) alan.  
+Haber arama API'si arama, Bing, sorgu ile ilgili sonuçların listesini döndürür. Kullanılabilir sonuçları tahmin edilen toplam sayısını almak için yanıt nesnenin erişim [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news-totalmatches) alan.  
   
 Aşağıdaki örnekte gösterildiği `totalEstimatedMatches` haber yanıt içeren alan.  
-  
-```  
+
+```json
 {  
     "_type" : "News",  
     "readLink" : "https:\/\/api.cognitive.microsoft.com\/bing\/v7\/news\/search?q=sailing+dinghies",  
@@ -33,29 +33,31 @@ Aşağıdaki örnekte gösterildiği `totalEstimatedMatches` haber yanıt içere
 ```  
   
 Makalelerde sayfasında kullanın [sayısı](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#count) ve [uzaklığı](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#offset) sorgu parametreleri.  
-  
-`count` Parametre sonuçları yanıtta döndürülecek sayısını belirtir. Yanıtta isteyebilir sonuçları sayısının 100'dür. Varsayılan değer 10'dur. Teslim gerçek sayı istenenden daha az olabilir.
+ 
 
-`offset` Parametre atlanacak sonuç sayısını belirtir. `offset` Sıfır tabanlıdır ve olması gereken küçüktür (`totalEstimatedMatches` - `count`).  
+|Parametre  |Açıklama  |
+|---------|---------|
+|`count`     | Yanıtta döndürülecek sonuç sayısını belirtir. Yanıtta isteyebilir sonuçları sayısının 100'dür. Varsayılan değer 10'dur. Teslim gerçek sayı istenenden daha az olabilir.        |
+|`offset`     | Atlanacak sonuç sayısını belirtir. `offset` Sıfır tabanlıdır ve olması gereken küçüktür (`totalEstimatedMatches` - `count`).          |
 
-Sayfa başına 20 makaleleri görüntülemek istiyorsanız, ayarlarsınız `count` 20 ve `offset` ilk sayfasını almak için 0. Her bir sonraki sayfa için gerçekleştirilemediği `offset` 20 (örneğin, 20, 40) tarafından.  
+Örneğin, sayfa başına 20 makaleleri görüntülemek istiyorsanız, ayarlarsınız `count` 20 ve `offset` ilk sayfasını almak için 0. Her bir sonraki sayfa için gerçekleştirilemediği `offset` 20 (örneğin, 20, 40) tarafından.  
   
-Aşağıda, 40 uzaklıkta başlayan 20 haber makaleleri ister bir örnek gösterilmektedir.  
-  
-```  
+Aşağıdaki örnek, 40 uzaklıkta başlayan 20 haber makalelerini ister.  
+
+```
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=sailing+dinghies&count=20&offset=40&mkt=en-us HTTP/1.1  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
 Host: api.cognitive.microsoft.com  
 ```  
   
 Varsayılan `count` değer uygulamanız için çalışır, yalnızca belirtin `offset` sorgu parametresi aşağıdaki örnekte gösterildiği gibi:  
-  
+
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=sailing+dinghies&offset=40&mkt=en-us HTTP/1.1  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
 Host: api.cognitive.microsoft.com  
 ```  
-  
+
 > [!NOTE]
 > Disk belleği, yalnızca haber arama (arama/haber /) ve popüler konularını (/ haber/trendingtopics) veya haber kategorileri uygular (/ haber).
 

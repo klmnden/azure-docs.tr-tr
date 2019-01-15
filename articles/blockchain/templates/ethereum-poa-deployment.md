@@ -1,6 +1,6 @@
 ---
 title: Ethereum kavram yetki Consortium - Azure
-description: Çoklu üyeli bir konsorsiyum Ethereum ağ yapılandırmak ve dağıtmak Etherereum kavram yetki Consortium çözümü kullanın
+description: Çoklu üyeli bir konsorsiyum Ethereum ağ yapılandırmak ve dağıtmak Ethereum kavram yetki Consortium çözümü kullanın
 services: azure-blockchain
 keywords: ''
 author: CodyBorn
@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
-ms.openlocfilehash: 145dd36629286980c0f0e1692df3afb227764285
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 47f9dfea24dc3134e6a2f476affaaff7e60efe8c
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974055"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260389"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum yetkilisi kavram consortium
 
@@ -310,7 +310,7 @@ Yasal ve gizlilik koşullarını gözden geçirin ve dağıtmak için ' Satın A
 
 Dağıtım tamamlandıktan sonra gerekli parametreleri onay e-posta aracılığıyla veya Azure portalı üzerinden erişmesini mümkün olacaktır. Bu parametreleri bölümünde bulabilirsiniz:
 
--   Ethereum RPC bitiş noktası
+-   Ethereum RPC endpoint
 
 -   İdare Pano URL'si
 

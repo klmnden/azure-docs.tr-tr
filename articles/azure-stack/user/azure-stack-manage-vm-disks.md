@@ -14,16 +14,16 @@ ms.topic: get-started-article
 ms.date: 12/03/2018
 ms.author: mabrigg
 ms.reviewer: jiahan
-ms.openlocfilehash: 2e3cec4564c509cd225a9bcd43185f6f5b344e8c
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 473fb95de5da4a14c81d0fa3a5aafa33302d9ab2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833472"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258688"
 ---
 # <a name="provision-virtual-machine-disk-storage-in-azure-stack"></a>Azure stack'teki sanal makine disk depolama sağlama
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 Bu makalede, Azure Stack portalını kullanarak veya PowerShell kullanarak sanal makine disk depolama alanı sağlama işlemi açıklanır.
 
@@ -73,22 +73,22 @@ Eklediğiniz her bir yönetilmeyen disk içinde ayrı bir kapsayıcıya koymanı
     ![Örnek: Sanal makine Panosu'ndan](media/azure-stack-manage-vm-disks/vm-dashboard.png)
 
 2.  Daha önce sağlanmış bir sanal makineyi seçin.   
-    ![Örnek: bir VM Pano seçin.](media/azure-stack-manage-vm-disks/select-a-vm.png)
+    ![Örnek: Panoda bir VM seçin](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
 3.  Sanal makine için seçin **diskleri** > **iliştirme yeni**.       
-    ![Örnek: yeni bir disk VM'e ekleyin.](media/azure-stack-manage-vm-disks/Attach-disks.png)    
+    ![Örnek: VM'ye yeni bir disk ekleme](media/azure-stack-manage-vm-disks/Attach-disks.png)    
 
 4.  İçinde **yeni disk Attach** bölmesinde **konumu**. Varsayılan olarak, konum, işletim sistemi diskini barındıran aynı kapsayıcıya ayarlanır.      
-    ![Örnek: disk konumu ayarlayın](media/azure-stack-manage-vm-disks/disk-location.png)
+    ![Örnek: Disk konumu ayarlayın](media/azure-stack-manage-vm-disks/disk-location.png)
 
 5.  Seçin **depolama hesabı** kullanılacak. Ardından, **kapsayıcı** veri diski yerleştirmek istediğiniz. Gelen **kapsayıcıları** sayfası oluşturmak için kullanabileceğiniz yeni bir kapsayıcı istiyorsanız. Yeni disk konumu için kendi kapsayıcı daha sonra değiştirebilirsiniz. Her disk için ayrı bir kapsayıcı kullandığınızda, performansı geliştirebilir veri diski yerleşimini dağıtın. Seçin **seçin** seçimini kaydetmek için.     
-    ![Örnek: bir kapsayıcı seçin](media/azure-stack-manage-vm-disks/select-container.png)
+    ![Örnek: Bir kapsayıcı seçin](media/azure-stack-manage-vm-disks/select-container.png)
 
 6.  İçinde **yeni disk Attach** sayfasında, güncelleştirme **adı**, **türü**, **boyutu**, ve **ana bilgisayar önbelleğe alma** ayarları diski. Ardından **Tamam** VM için yeni disk yapılandırmasını kaydetmek için.  
     ![Örnek: Tam disk eki](media/azure-stack-manage-vm-disks/complete-disk-attach.png)  
 
 7.  Azure Stack disk oluşturur ve sanal makineye iliştirir sonra yeni disk sanal makinenin disk ayarları altında listelenir **veri DİSKLERİ**.   
-    ![Örnek: Görünüm disk](media/azure-stack-manage-vm-disks/view-data-disk.png)
+    ![Örnek: Diski görüntüleme](media/azure-stack-manage-vm-disks/view-data-disk.png)
 
 
 ### <a name="attach-an-existing-data-disk-to-a-vm"></a>Bir VM'ye olan bir veri diski ekleme
@@ -96,28 +96,28 @@ Eklediğiniz her bir yönetilmeyen disk içinde ayrı bir kapsayıcıya koymanı
 1.  [Bir .vhd dosyasını hazırlama](https://docs.microsoft.com/azure/virtual-machines/windows/classic/createupload-vhd) VM veri diski olarak kullanılmak için. Bu .vhd dosyası .vhd dosyasına eklemek istediğiniz VM ile kullandığınız bir depolama hesabına yükleyin.
 
   İşletim sistemi diskini barındıran kapsayıcı .vhd dosyasından tutmak için farklı bir kapsayıcıya kullanmayı planlayın.   
-  ![Örnek: bir VHD dosyasını karşıya yükleyin](media/azure-stack-manage-vm-disks/upload-vhd.png)
+  ![Örnek: Karşıya VHD dosyası yükleme](media/azure-stack-manage-vm-disks/upload-vhd.png)
 
 2.  .Vhd dosyası karşıya yüklendikten sonra bir VM için VHD'yi hazırsınız. Soldaki menüde **sanal makineler**.  
- ![Örnek: bir VM Pano seçin.](media/azure-stack-manage-vm-disks/vm-dashboard.png)
+ ![Örnek: Panoda bir VM seçin](media/azure-stack-manage-vm-disks/vm-dashboard.png)
 
 3.  Sanal makine listeden seçin.    
-  ![Örnek: bir VM Pano seçin.](media/azure-stack-manage-vm-disks/select-a-vm.png)
+  ![Örnek: Panoda bir VM seçin](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
 4.  Sanal makine için sayfasında seçin **diskleri** > **iliştirme varolan**.   
-  ![Örnek: var olan bir diski](media/azure-stack-manage-vm-disks/attach-disks2.png)
+  ![Örnek: Var olan bir diski kullanıma açın](media/azure-stack-manage-vm-disks/attach-disks2.png)
 
 5.  İçinde **mevcut diski** sayfasında **VHD dosyasını**. **Depolama hesapları** sayfası açılır.    
-  ![Örnek: bir VHD dosyasını seçin](media/azure-stack-manage-vm-disks/select-vhd.png)
+  ![Örnek: Bir VHD dosyasını seçin](media/azure-stack-manage-vm-disks/select-vhd.png)
 
 6.  Altında **depolama hesapları**, kullanılacak hesabı seçin ve ardından daha önce yüklenmiş .vhd dosyasını barındıran bir kapsayıcı seçin. .Vhd dosyasını seçin ve ardından **seçin** seçimini kaydetmek için.    
-  ![Örnek: bir kapsayıcı seçin](media/azure-stack-manage-vm-disks/select-container2.png)
+  ![Örnek: Bir kapsayıcı seçin](media/azure-stack-manage-vm-disks/select-container2.png)
 
 7.  Altında **mevcut diski**, seçtiğiniz dosya altında listelenen **VHD dosyasını**. Güncelleştirme **ana bilgisayar önbelleğe alma** disk ayarlama ve ardından **Tamam** VM için yeni disk yapılandırmasını kaydetmek için.    
   ![Örnek: VHD dosyasını ekleme](media/azure-stack-manage-vm-disks/attach-vhd.png)
 
 8.  Azure Stack disk oluşturur ve sanal makineye iliştirir sonra yeni disk sanal makinenin disk ayarları altında listelenir **veri diskleri**.   
-  ![Örnek: tam disk ekleme](media/azure-stack-manage-vm-disks/complete-disk-attach.png)
+  ![Örnek: Tam disk ekleme](media/azure-stack-manage-vm-disks/complete-disk-attach.png)
 
 
 ## <a name="use-powershell-to-add-multiple-unmanaged-disks-to-a-vm"></a>Bir VM'ye birden fazla yönetilmeyen disk eklemek için PowerShell'i kullanma
@@ -129,45 +129,45 @@ Bir VM sağlama ve yeni bir veri diski ekleyin veya önceden var olan eklemek i�
 Aşağıdaki örnekler, üç veri diskine bir VM oluşturmak için PowerShell komutlarını kullanın, her farklı bir kapsayıcıda yer.
 
 İlk komut, bir sanal makine oluşturur ve ardından depolar *$VirtualMachine* değişkeni. Komut, sanal makine için bir ad ve boyut atar.
-  ```
+  ```powershell
   $VirtualMachine = New-AzureRmVMConfig -VMName "VirtualMachine" `
                                       -VMSize "Standard_A2"
   ```
 
 Sonraki üç komutları üç veri diskleri yollarını atayın *$DataDiskVhdUri01*, *$DataDiskVhdUri02*, ve *$DataDiskVhdUri03* değişkenleri. Farklı kapsayıcılar diskleri dağıtmak için URL farklı bir yol adı tanımlayın.     
-  ```
+  ```powershell
   $DataDiskVhdUri01 = "https://contoso.blob.local.azurestack.external/test1/data1.vhd"
   ```
 
-  ```
+  ```powershell
   $DataDiskVhdUri02 = "https://contoso.blob.local.azurestack.external/test2/data2.vhd"
   ```
 
-  ```
+  ```powershell
   $DataDiskVhdUri03 = "https://contoso.blob.local.azurestack.external/test3/data3.vhd"
   ```
 
 Son üç komutlar, depolanan sanal makineye veri diski ekleme *$VirtualMachine*. Her komut, adı, konumu ve disk ek özelliklerini belirtir. Her disk URI'si depolanan *$DataDiskVhdUri01*, *$DataDiskVhdUri02*, ve *$DataDiskVhdUri03*.
-  ```
+  ```powershell
   $VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name 'DataDisk1' `
                   -Caching 'ReadOnly' -DiskSizeInGB 10 -Lun 0 `
                   -VhdUri $DataDiskVhdUri01 -CreateOption Empty
   ```
 
-  ```
+  ```powershell
   $VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name 'DataDisk2' `
                  -Caching 'ReadOnly' -DiskSizeInGB 11 -Lun 1 `
                  -VhdUri $DataDiskVhdUri02 -CreateOption Empty
   ```
 
-  ```
+  ```powershell
   $VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name 'DataDisk3' `
                   -Caching 'ReadOnly' -DiskSizeInGB 12 -Lun 2 `
                   -VhdUri $DataDiskVhdUri03 -CreateOption Empty
   ```
 
 VM için işletim sistemi disk ve ağ yapılandırması eklemek için aşağıdaki PowerShell komutlarını kullanın ve yeni VM'yi başlatın.
-  ```
+  ```powershell
   #set variables
   $rgName = "myResourceGroup"
   $location = "local"
@@ -192,7 +192,7 @@ VM için işletim sistemi disk ve ağ yapılandırması eklemek için aşağıda
   $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
       -AllocationMethod Dynamic
 
-  # Create a network security group cnfiguration
+  # Create a network security group configuration
   $nsgName = "myNsg"
   $rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name myRdpRule -Description "Allow RDP" `
       -Access Allow -Protocol Tcp -Direction Inbound -Priority 110 `
@@ -218,34 +218,34 @@ VM için işletim sistemi disk ve ağ yapılandırması eklemek için aşağıda
 ### <a name="add-data-disks-to-an-existing-virtual-machine"></a>Varolan bir sanal makineye veri diski ekleme
 Aşağıdaki örnekler, mevcut bir VM'ye üç veri diskleri eklemek için PowerShell komutlarını kullanın.
 İlk komut kullanarak VirtualMachine adlı sanal makine alır **Get-AzureRmVM** cmdlet'i. Komut sanal makinesinde depolayan *$VirtualMachine* değişkeni.
-  ```
+  ```powershell
   $VirtualMachine = Get-AzureRmVM -ResourceGroupName "myResourceGroup" `
                                   -Name "VirtualMachine"
   ```
 Sonraki üç komutları DataDiskVhdUri01 $ $DataDiskVhdUri02 ve $DataDiskVhdUri03 değişkenlere üç veri disklerinin yolları atayın.  Farklı kapsayıcılar için disk yerleştirme vhduri farklı yol adları gösterir.
-  ```
+  ```powershell
   $DataDiskVhdUri01 = "https://contoso.blob.local.azurestack.external/test1/data1.vhd"
   ```
-  ```
+  ```powershell
   $DataDiskVhdUri02 = "https://contoso.blob.local.azurestack.external/test2/data2.vhd"
   ```
-  ```
+  ```powershell
   $DataDiskVhdUri03 = "https://contoso.blob.local.azurestack.external/test3/data3.vhd"
   ```
 
 
   Sonraki üç komut depolanan sanal makine veri diskleri ekleme *$VirtualMachine* değişkeni. Her komut, adı, konumu ve disk ek özelliklerini belirtir. Her disk URI'si depolanan *$DataDiskVhdUri01*, *$DataDiskVhdUri02*, ve *$DataDiskVhdUri03*.
-  ```
+  ```powershell
   Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "disk1" `
                         -VhdUri $DataDiskVhdUri01 -LUN 0 `
                         -Caching ReadOnly -DiskSizeinGB 10 -CreateOption Empty
   ```
-  ```
+  ```powershell
   Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "disk2" `
                         -VhdUri $DataDiskVhdUri02 -LUN 1 `
                         -Caching ReadOnly -DiskSizeinGB 11 -CreateOption Empty
   ```
-  ```
+  ```powershell
   Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "disk3" `
                         -VhdUri $DataDiskVhdUri03 -LUN 2 `
                         -Caching ReadOnly -DiskSizeinGB 12 -CreateOption Empty
@@ -253,7 +253,7 @@ Sonraki üç komutları DataDiskVhdUri01 $ $DataDiskVhdUri02 ve $DataDiskVhdUri0
 
 
   Son komut, depolanan sanal makinenin durumunu güncelleştirir *$VirtualMachine* -*ResourceGroupName*.
-  ```
+  ```powershell
   Update-AzureRmVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
   ```
 <!-- Pending scripts  

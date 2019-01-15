@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 01/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: ab8841e2c5cb01e28264edc2b5ab3306d611a9c7
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 737dc40bafa519d59bcbc0ff6510a89cb3a840fa
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232082"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263212"
 ---
 # <a name="about-azure-migrate"></a>Azure Geçişi Hakkında
 
@@ -29,7 +29,7 @@ Azure Geçişi şunları yapmanıza yardımcı olur:
 
 ## <a name="current-limitations"></a>Geçerli sınırlamalar
 
-- Azure sanal makinelerine geçiş için yalnızca şirket içi VMware sanal makinelerini (VM) değerlendirebilirsiniz. VMware sanal makineleri, vCenter Server (sürüm 5.5, 6.0 veya 6.5) tarafından yönetilmelidir.
+- Azure sanal makinelerine geçiş için yalnızca şirket içi VMware sanal makinelerini (VM) değerlendirebilirsiniz. VMware sanal makineleri, vCenter Server (sürüm 5.5, 6.0, 6.5 veya 6.7) tarafından yönetilmelidir.
 - Hyper-V sanal makinelerini ve fiziksel sunucuları değerlendirmek istiyorsanız Hyper-V için [Azure Site Recovery Dağıtım Planlayıcısı](https://aka.ms/asr-dp-hyperv-doc)'nı, fiziksel makineler için de [iş ortaklarımız tarafından sunulan araçları](https://azure.microsoft.com/migration/partners/) kullanabilirsiniz.
 - Tek keşifte en fazla 1500 sanal makine ve tek projede en fazla 1500 sanal makine bulabilirsiniz. Ayrıca tek değerlendirmede en fazla 1500 sanal makineyi değerlendirebilirsiniz.
 - Daha büyük bir ortam keşfetmek istiyorsanız keşfi bölüp birden fazla proje oluşturabilirsiniz. [Daha fazla bilgi edinin](how-to-scale-assessment.md). Azure Geçişi, abonelik başına 20’ye kadar projeyi destekler.

@@ -4,15 +4,15 @@ description: Azure geçişi, Toplayıcı gerecini hakkında bilgi sağlar.
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 01/14/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 6f843fedafd68d4e04d181af2c6d7542baaf0144
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: b9387814b8bdab56117dec27de1e3d5b44ce39b4
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104225"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262617"
 ---
 # <a name="about-the-collector-appliance"></a>Toplayıcı gerecini hakkında
 
@@ -112,8 +112,8 @@ Bağlantı denetimi URL'lerin bir listesini bağlanarak doğrulanır.
 **URL** | **Ayrıntılar**  | **Önkoşul denetimi**
 --- | --- | ---
 *.portal.azure.com | Azure genel uygulanabilir. Zaman eşitleme ve Azure hizmet bağlantısını denetler. | Erişim URL'si gereklidir.<br/><br/> Bağlantı yoksa Önkoşul denetimi başarısız olur.
-*. portal.azure.us | Yalnızca Azure devlet kurumları için geçerlidir. Zaman eşitleme ve Azure hizmet bağlantısını denetler. | Erişim URL'si gereklidir.<br/><br/> Bağlantı yoksa Önkoşul denetimi başarısız olur.
-*.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *. powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| VCenter Powerclı PowerShell modülünü yüklemek için kullanılır. | İsteğe bağlı URL'lere erişim.<br/><br/> Önkoşul denetimi başarısız olmaz.<br/><br/> Toplayıcı VM üzerinde otomatik Modül yükleme başarısız olur. Modül el ile yüklemeniz gerekir.
+*.portal.azure.us | Yalnızca Azure devlet kurumları için geçerlidir. Zaman eşitleme ve Azure hizmet bağlantısını denetler. | Erişim URL'si gereklidir.<br/><br/> Bağlantı yoksa Önkoşul denetimi başarısız olur.
+*.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| VCenter Powerclı PowerShell modülünü yüklemek için kullanılır. | İsteğe bağlı URL'lere erişim.<br/><br/> Önkoşul denetimi başarısız olmaz.<br/><br/> Toplayıcı VM üzerinde otomatik Modül yükleme başarısız olur. Modül el ile yüklemeniz gerekir.
 
 
 ### <a name="install-vmware-powercli-module-manually"></a>VMware Powerclı modülünü el ile yükleme
@@ -126,12 +126,9 @@ Bağlantı denetimi URL'lerin bir listesini bağlanarak doğrulanır.
 
 Toplayıcı, vCenter Server'a bağlanır ve VM meta verileri ve performans sayaçları için sorgular. Bağlantı için ihtiyacınız olanlar aşağıda verilmiştir.
 
-- Yalnızca vCenter Server sürümleri 5.5, 6.0 ve 6.5 desteklenir.
+- Yalnızca vCenter Server 5.5, 6.0, 6.5 ve sürümleri 6.7 desteklenir.
 - Bulma için aşağıda özetlenen izinleri ile salt okunur bir hesabınız olması gerekir. Bulma için veri merkezlerinden erişilebilir hesapla yalnızca erişilebilir.
 - Varsayılan olarak bir FQDN veya IP adresine sahip vCenter Server'a bağlanın. VCenter sunucusu farklı bir bağlantı noktasında dinliyorsa, formu kullanarak bağlanma *IPAddress:Port_Number* veya *FQDN:Port_Number*.
-- Depolama ve ağ için performans verilerini toplamak için vCenter için istatistik ayarları düzeyini üç sunucu olarak ayarlanması gerekir.
-- Düzey üç düşükse bulma performans verileri toplanmaz çalışır. Bazı sayaçları toplanabilir, ancak diğer sıfır olarak ayarlanır.
-- Depolama ve ağ için performans verileri toplanmaz, değerlendirme boyut önerileri, CPU ve bellek ve disk ve ağ bağdaştırıcıları için yapılandırma verilerine göre performans verilerini demektir.
 - Toplayıcı, bir ağ görebilmesi için vCenter sunucusuna sahip olmalıdır.
 
 #### <a name="account-permissions"></a>Hesap izinleri
@@ -223,7 +220,7 @@ Toplayıcı gerecini her VM için aşağıdaki yapılandırma meta verileri bulu
 
 **Counter** |  **Etki değerlendirmesi**
 --- | ---
-CPU.Usage.average | Önerilen VM boyutu ve maliyet  
+cpu.usage.average | Önerilen VM boyutu ve maliyet  
 mem.Usage.average | Önerilen VM boyutu ve maliyet  
 virtualDisk.read.average | Disk boyutu, depolama maliyeti, VM boyutunu hesaplar
 virtualDisk.write.average | Disk boyutu, depolama maliyeti, VM boyutunu hesaplar

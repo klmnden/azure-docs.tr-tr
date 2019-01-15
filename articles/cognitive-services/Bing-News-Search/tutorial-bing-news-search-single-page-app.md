@@ -8,19 +8,19 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: tutorial
-ms.date: 10/30/2017
+ms.date: 01/10/2019
 ms.author: v-gedod
 ms.custom: seodec2018
-ms.openlocfilehash: 311abe4583d29098ebd26dfcf2214553aa1fe1c9
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 02cfd00b8ab1f51c46e745dae480e39dee2ed710
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53262053"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262345"
 ---
 # <a name="tutorial-create-a-single-page-web-app"></a>Öğretici: Tek sayfa web uygulaması oluşturma
 
-Bing Haber Arama API'si Web'de arama yapmanızı ve arama sorgusuna uyan haber türündeki sonuçları almanızı sağlar. Bu öğreticide, Bing Haber Arama API'sini kullanarak sayfada arama sonuçlarını görüntüleyen tek sayfalı bir Web uygulaması oluşturuyoruz. Uygulama HTML, CSS ve JavaScript bileşenlerini içeriyor.
+Bing Haber Arama API'si Web'de arama yapmanızı ve arama sorgusuna uyan haber türündeki sonuçları almanızı sağlar. Bu öğreticide, Bing Haber Arama API'sini kullanarak sayfada arama sonuçlarını görüntüleyen tek sayfalı bir Web uygulaması oluşturuyoruz. Uygulama HTML, CSS ve JavaScript bileşenlerini içeriyor. Bu örneğin kaynak kodu [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingNewsSearchApp.html)’da mevcuttur.
 
 <!-- Remove until we can replace it with sanitized copy
 ![Single-page Bing News Search app](media/news-search-singlepage.png)
@@ -39,8 +39,6 @@ Bing Haber Arama API'si Web'de arama yapmanızı ve arama sorgusuna uyan haber t
 > * Oluşabilecek hataları işleme
 
 Öğretici sayfası tamamen bağımsızdır; dışarıdan hiçbir kare, stil sayfası veya resim dosyası kullanmaz. Yalnızca yaygın olarak desteklenen JavaScript dilinin özelliklerini kullanır ve tüm önemli Web tarayıcılarının geçerli sürümlerinde çalışır.
-
-Bu öğreticide, kaynak kodun seçilen bölümlerini açıklıyoruz. [Kaynak kodun](tutorial-bing-news-search-single-page-app-source.md) tamamı sağlanır. Örneği çalıştırmak için, kaynak kodu kopyalayıp bir metin düzenleyiciye yapıştırın ve `bing.html` olarak kaydedin.
 
 ## <a name="app-components"></a>Uygulama bileşenleri
 Tüm tek sayfalı Web uygulamaları gibi bu öğreticinin uygulaması da üç bölümden oluşur:

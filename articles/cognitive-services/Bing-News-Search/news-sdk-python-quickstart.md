@@ -8,53 +8,68 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: quickstart
-ms.date: 02/14/2018
+ms.date: 01/10/2019
 ms.author: v-gedod
 ms.custom: seodec2018
-ms.openlocfilehash: 3489a9634cecd776afc8619a81acd72a2649ec36
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 7927e680194d682ab9ee48320afa42ba29c676dc
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261206"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259504"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-python"></a>Hızlı Başlangıç: Python için Bing haber arama SDK'sı ile haber araması
 
-Haber Arama SDK'sı, web sorguları ve sonuçları ayrıştırmak için REST API işlevselliğini içerir. 
+Bing haber arama SDK'sı ile haberler için Python için aramaya başlamak için bu Hızlı Başlangıç'ı kullanın. Bing haber arama çoğu programlama dilleri ile uyumlu bir REST API olsa da SDK hizmeti uygulamalarınızla tümleştirmek için kolay bir yol sağlar. Bu örnek için kaynak kodu bulunabilir [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/news_search_samples.py).
 
-[Python Bing Haber Arama SDK'sı örnekleri için kaynak kodu](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/news_search_samples.py) Git Hub'dan edinilebilir.
+## <a name="prerequisites"></a>Önkoşullar
 
-## <a name="application-dependencies"></a>Uygulama bağımlılıkları
-**Arama** altından bir [Bilişsel Hizmetler erişim anahtarı](https://azure.microsoft.com/try/cognitive-services/) alın.  Ayrıca bkz: [Bilişsel hizmetler fiyatlandırması - Bing arama API'si](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+* [Python](https://www.python.org/) 2.x veya 3.x
 
-Henüz yüklemediyseniz Python'ı yükleyin. SDK, Python 2.7, 3.3, 3.4, 3.5 ve 3.6 ile uyumludur.
+Kullanmak için önerilen bir [sanal ortam](https://docs.python.org/3/tutorial/venv.html) python geliştirme için. Yükleme ve sanal ortamıyla başlatmak [venv Modülü](https://pypi.python.org/pypi/virtualenv). Python 2.7 için bir virtualenv yüklemeniz gerekir. Sanal bir ortamda oluşturabilirsiniz:
 
-Python geliştirmesi için genel öneri [sanal bir ortam](https://docs.python.org/3/tutorial/venv.html) kullanmaktır. Sana ortamı [venv modülü](https://pypi.python.org/pypi/virtualenv) ile yükleyin ve başlatın. Python 2.7 için virtualenv dosyasını yüklemeniz gerekir.
-```
+```console
 python -m venv mytestenv
 ```
-Bing Haber Arama SDK'sı bağımlılıklarını yükleyin:
-```
-cd mytestenv
+
+Bu komutla birlikte Bing haber arama SDK bağımlılıklarını yükleyebilirsiniz:
+    
+```console
 python -m pip install azure-cognitiveservices-search-newssearch
 ```
-## <a name="news-search-client"></a>Haber Arama istemcisi
-*Arama* altından bir [Bilişsel Hizmetler erişim anahtarı](https://azure.microsoft.com/try/cognitive-services/) alın. İçeri aktarmaları ekleyin:
-```
-from azure.cognitiveservices.search.newssearch import NewsSearchAPI
-from msrest.authentication import CognitiveServicesCredentials
 
-subscription_key = "YOUR-SUBSCRIPTION-KEY"
-```
-`CognitiveServicesCredentials` örneği oluşturun. İstemciyi başlatın:
-```
-client = NewsSearchAPI(CognitiveServicesCredentials(subscription_key))
-```
-Sonuçları arayın ve ilk web sayfası sonucunu yazdırın:
-```
-news_result = client.news.search(query="Quantum Computing", market="en-us", count=10)
-print("Search news for query \"Quantum Computing\" with market and count")
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
+## <a name="create-and-initialize-the-application"></a>Uygulamayı oluşturma ve başlatma
+
+1. Sık kullandığınız IDE veya düzenleyici yeni bir Python dosyası oluşturun ve aşağıdaki kitaplıkları içeri aktarma. Abonelik anahtarınız ve arama için bir değişken oluşturun.
+
+    ```python
+    from azure.cognitiveservices.search.newssearch import NewsSearchAPI
+    from msrest.authentication import CognitiveServicesCredentials
+    subscription_key = "YOUR-SUBSCRIPTION-KEY"
+    search_term = "Quantum Computing"
+    ```
+
+## <a name="initialize-the-client-and-send-a-request"></a>İstemcisini başlatın ve bir istek gönderin
+
+1. `CognitiveServicesCredentials` örneği oluşturun. İstemciyi başlatın:
+    
+    ```python
+    client = NewsSearchAPI(CognitiveServicesCredentials(subscription_key))
+    ```
+
+2. Haber arama API'si için bir arama sorgusu gönderin, yanıtı depolayın.
+
+    ```python
+    news_result = client.news.search(query=search_term, market="en-us", count=10)
+    ```
+
+## <a name="parse-the-response"></a>Yanıt Ayrıştırma
+
+Tüm arama sonuçlarını bulunursa, ilk Web sayfası sonucu yazdırın:
+
+```python
 if news_result.value:
     first_news_result = news_result.value[0]
     print("Total estimated matches value: {}".format(news_result.total_estimated_matches))
@@ -66,97 +81,9 @@ if news_result.value:
     print("First news provider: {}".format(first_news_result.provider[0].name))
 else:
     print("Didn't see any news result data..")
-
-```
-`freshness` ve `sortBy` parametreleriyle "Artificial Intelligence" hakkındaki en güncel haberleri arayıp filtreleyin. Sonuç sayısını doğrulayın ve ilk haber öğesi sonucunun `totalEstimatedMatches`, `name`, `url`, `description`, `published time` ve `name of provider` verilerini yazdırın.
-```
-def news_search_with_filtering(subscription_key):
-
-    client = NewsSearchAPI(CognitiveServicesCredentials(subscription_key))
-
-    try:
-        news_result = client.news.search(
-            query="Artificial Intelligence",
-            market="en-us",
-            freshness="Week",
-            sort_by="Date"
-        )
-        print("\r\nSearch most recent news for query \"Artificial Intelligence\" with freshness and sortBy")
-
-        if news_result.value:
-            first_news_result = news_result.value[0]
-            print("News result count: {}".format(len(news_result.value)))
-            print("First news name: {}".format(first_news_result.name))
-            print("First news url: {}".format(first_news_result.url))
-            print("First news description: {}".format(first_news_result.description))
-            print("First published time: {}".format(first_news_result.date_published))
-            print("First news provider: {}".format(first_news_result.provider[0].name))
-        else:
-            print("Didn't see any news result data..")
-
-    except Exception as err:
-        print("Encountered exception. {}".format(err))
-
-```
-Güvenli aramayı etkinleştirerek film, TV ve eğlence kategorilerinde arama yapın. Sonuç sayısını doğrulayın ve ilk haber öğesi sonucunun `category`, `name`, `url`, `description`, `published time` ve `name of provider` verilerini yazdırın.
-```
-def news_category(subscription_key):
-
-    client = NewsSearchAPI(CognitiveServicesCredentials(subscription_key))
-
-    try:
-        news_result = client.news.category(
-            category="Entertainment_MovieAndTV",
-            market="en-us",
-            safe_search="strict"
-        )
-        print("\r\nSearch category news for movie and TV entertainment with safe search")
-
-        if news_result.value:
-            first_news_result = news_result.value[0]
-            print("News result count: {}".format(len(news_result.value)))
-            print("First news category: {}".format(first_news_result.category))
-            print("First news name: {}".format(first_news_result.name))
-            print("First news url: {}".format(first_news_result.url))
-            print("First news description: {}".format(first_news_result.description))
-            print("First published time: {}".format(first_news_result.date_published))
-            print("First news provider: {}".format(first_news_result.provider[0].name))
-        else:
-            print("Didn't see any news result data..")
-
-    except Exception as err:
-        print("Encountered exception. {}".format(err))
-
-
-```
-Bing'de popüler haber başlıklarını arayın.  Sonuç sayısını doğrulayın ve ilk haber sonucunun `name`, `text of query`, `webSearchUrl`, `newsSearchUrl` ve `image Url` verilerini yazdırın.
-```
-def news_trending(subscription_key):
-
-    client = NewsSearchAPI(CognitiveServicesCredentials(subscription_key))
-
-    try:
-        trending_topics = client.news.trending(market="en-us")
-        print("\r\nSearch news trending topics in Bing")
-
-        if trending_topics.value:
-            first_topic = trending_topics.value[0]
-            print("News result count: {}".format(len(trending_topics.value)))
-            print("First topic name: {}".format(first_topic.name))
-            print("First topic query: {}".format(first_topic.query.text))
-            print("First topic image url: {}".format(first_topic.image.url))
-            print("First topic webSearchUrl: {}".format(first_topic.web_search_url))
-            print("First topic newsSearchUrl: {}".format(first_topic.news_search_url))
-        else:
-            print("Didn't see any topics result data..")
-
-    except Exception as err:
-        print("Encountered exception. {}".format(err))
-
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Bilişsel Hizmetler Python SDK'sı örnekleri](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
-
-
+> [!div class="nextstepaction"]
+[Tek sayfalı web uygulaması oluşturma](tutorial-bing-news-search-single-page-app.md)

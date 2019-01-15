@@ -8,96 +8,85 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: quickstart
-ms.date: 9/21/2017
+ms.date: 1/10/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 17307aaac531924b02c92ac37151d10bfbc48143
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 82769655741fe6dcf1ccbd988e1ad0bfa2a5ec42
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252312"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262176"
 ---
 # <a name="quickstart-perform-a-news-search-using-nodejs-and-the-bing-news-search-rest-api"></a>Hızlı Başlangıç: Node.js ve Bing haber arama REST API'si kullanarak bir haber arama yapın
 
-Bu makale, Azure'daki Microsoft Bilişsel Hizmetleri'nin parçası olan Bing Haber Arama API'sini kullanmayı göstermektedir. Bu makalede Node.js kullanılmakla birlikte API HTTP istekleri gönderebilecek ve JSON ayrıştırabilecek her programlama diliyle uyumlu bir RESTful Web hizmetidir. 
+İlk Bing Resim Arama API’si çağrınızı yapmak ve bir JSON yanıtı almak için bu hızlı başlangıcı kullanın. Bu basit JavaScript uygulaması, API’ye bir arama sorgusu gönderir ve ham sonuçları görüntüler.
 
-Örnek JavaScript ile yazılmıştır ve Node.js 6 ile çalışır.
+Bu uygulama JavaScript ile yazılmış ve Node.js’de çalışıyor olmakla birlikte API, çoğu programlama diliyle uyumlu bir RESTful Web hizmetidir.
 
-API'lerle ilgili teknik ayrıntılar için [API başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)'na bakın.
+Bu örneğin kaynak kodu [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingNewsSearchv7.js)’da mevcuttur.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-**Bing Arama API'leri**'nde bir [Bilişsel Hizmetler API hesabınız](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) olması gerekir. [Ücretsiz deneme](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) bu hızlı başlangıç için yeterlidir. Ücretsiz denemenizi etkinleştirdiğinizde sağlanan erişim anahtarınız olması veya Azure panonuzdan ücretli bir abonelik anahtarı kullanmanız gerekir.  Ayrıca bkz: [Bilişsel hizmetler fiyatlandırması - Bing arama API'si](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+* [Node.js](https://nodejs.org/en/download/)’in en son sürümü.
 
-## <a name="bing-news-search"></a>Bing Haber Arama
+* [JavaScript isteği kitaplığı](https://github.com/request/request)
 
-[Bing Haber Arama API'si](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) Bing arama motorundan haber sonuçları döndürür.
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
-1. Sık kullandığınız IDE veya düzenleyicide yeni bir Node.js projesi oluşturun.
-2. Aşağıda sağlanan kodu ekleyin.
-3. `subscriptionKey` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
-4. Programı çalıştırın.
+Ayrıca bkz: [Bilişsel hizmetler fiyatlandırması - Bing arama API'si](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
-```javascript
-'use strict';
+## <a name="create-and-initialize-the-application"></a>Uygulamayı oluşturma ve başlatma
 
-let https = require('https');
+1. Sık kullandığınız IDE’de veya düzenleyicide yeni bir JavaScript dosyası oluşturun ve katılık ve https gereksinimlerini ayarlayın.
 
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+    ```javascript
+    'use strict';
+    let https = require('https');
+    ```
 
-// Replace the subscriptionKey string value with your valid subscription key.
-let subscriptionKey = 'enter key here';
+2. API uç noktası, görüntü API’si arama yolu, abonelik anahtarınız ve arama teriminiz için değişkenler oluşturun.
+    ```javascript
+    let subscriptionKey = 'enter key here';
+    let host = 'api.cognitive.microsoft.com';
+    let path = '/bing/v7.0/news/search';
+    let term = 'Microsoft';
+    ```
 
-// Verify the endpoint URI.  At this writing, only one endpoint is used for Bing
-// search APIs.  In the future, regional endpoints may be available.  If you
-// encounter unexpected authorization errors, double-check this host against
-// the endpoint for your Bing Search instance in your Azure dashboard.
-let host = 'api.cognitive.microsoft.com';
-let path = '/bing/v7.0/news/search';
+## <a name="handle-and-parse-the-response"></a>Yanıtı işleme ve ayrıştırma
 
-let term = 'Microsoft';
+1. HTTP çağrısı (`response`) alan `response_handler` adlı bir işlevi parametre olarak tanımlayın. Bu işlev içinde aşağıdaki adımları gerçekleştirin:
 
-let response_handler = function (response) {
-    let body = '';
-    response.on('data', function (d) {
-        body += d;
-    });
-    response.on('end', function () {
-        console.log('\nRelevant Headers:\n');
-        for (var header in response.headers)
-            // header keys are lower-cased by Node.js
-            if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
-                 console.log(header + ": " + response.headers[header]);
-        body = JSON.stringify(JSON.parse(body), null, '  ');
-        console.log('\nJSON Response:\n');
-        console.log(body);
-    });
-    response.on('error', function (e) {
-        console.log('Error: ' + e.message);
-    });
-};
+    1. JSON yanıtının gövdesini içerecek bir değişken tanımlayın.  
+        ```javascript
+        let response_handler = function (response) {
+            let body = '';
+        };
+        ```
 
-let bing_news_search = function (search) {
-  console.log('Searching news for: ' + term);
-  let request_params = {
-        method : 'GET',
-        hostname : host,
-        path : path + '?q=' + encodeURIComponent(search),
-        headers : {
-            'Ocp-Apim-Subscription-Key' : subscriptionKey,
-        }
-    };
+    2. **Veri** işareti çağrıldığında yanıtın gövdesini depolama
+        ```javascript
+        response.on('data', function (d) {
+            body += d;
+        });
+        ```
 
-    let req = https.request(request_params, response_handler);
-    req.end();
-}
-bing_news_search(term);
-```
+    3. Olduğunda bir **son** bayrak işareti, JSON ve üst bilgileri görüntülenebilir.
 
-**Yanıt**
+        ```javascript
+        response.on('end', function () {
+            console.log('\nRelevant Headers:\n');
+            for (var header in response.headers)
+                // header keys are lower-cased by Node.js
+                if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
+                     console.log(header + ": " + response.headers[header]);
+            body = JSON.stringify(JSON.parse(body), null, '  ');
+            console.log('\nJSON Response:\n');
+            console.log(body);
+         });
+        ```
+
+## <a name="json-response"></a>JSON yanıtı
 
 Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür: 
 
@@ -195,8 +184,4 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Haberleri sayfalara bölme](paging-news.md)
-> [Metni vurgulamak için süsleme işaretçilerini kullanma](hit-highlighting.md)
-> [Web'de haber arama](search-the-web.md)  
-> [Deneyin](https://azure.microsoft.com/services/cognitive-services/bing-news-search-api/)
-
+[Tek sayfalı web uygulaması oluşturma](tutorial-bing-news-search-single-page-app.md)

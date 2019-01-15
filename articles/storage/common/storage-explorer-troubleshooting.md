@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.component: common
-ms.openlocfilehash: ec12da6ccd5b681c85da87d53f944fc4430149b5
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 2434c04260c223fdcc03bc7f91a6fd147e1d8503
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616206"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264114"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Depolama Gezgini sorun giderme kılavuzu
 
@@ -21,7 +21,7 @@ Microsoft Azure Depolama Gezgini Windows, macOS ve Linux'ta Azure depolama veril
 
 Bu kılavuz depolama Gezgini'nde görülen yaygın sorunların çözümleri özetlenmektedir.
 
-## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Hata: Otomatik olarak imzalanan sertifika, sertifika zinciri (ve benzer hatalar)
+## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Hata: Sertifika zinciri (ve benzer hatalar) otomatik olarak imzalanan sertifika
 
 Sertifika hataları aşağıdaki durumlardan biri nedeniyle:
 
@@ -100,7 +100,7 @@ Başarıyla oturum açtıktan sonra aboneliklerinizi alınamıyor, aşağıdaki 
 Bir ekli hesabı veya kullanıcı Arabirimi aracılığıyla depolama kaynağı kaldırmak bulamıyorsanız, aşağıdaki klasörleri silerek tüm ekli kaynakları el ile silebilirsiniz:
 
 * Windows: `%AppData%/StorageExplorer`
-* macOS: `/Users/<your_name>/Library/Applicaiton Support/StorageExplorer`
+* macOS: `/Users/<your_name>/Library/Application Support/StorageExplorer`
 * Linux: `~/.config/StorageExplorer`
 
 > [!NOTE]
@@ -172,7 +172,7 @@ Yanlışlıkla geçersiz bir SAS URL'si kullanarak bağlı ve ayırma belirleyem
 ## <a name="linux-dependencies"></a>Linux bağımlılıkları
 
 Ubuntu 16.04 dışında Linux dağıtımları için bazı bağımlılıkları el ile yüklemeniz gerekebilir. Genel olarak, aşağıdaki paketler gereklidir:
-* [.NET core 2.x](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
+* [.NET Core 2.x](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
 * `libsecret`
 * `libgconf-2-4`
 * Güncel GCC

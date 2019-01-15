@@ -14,15 +14,31 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: rkarlin
-ms.openlocfilehash: 5f6334f80b9c48832facba97b816d254baeb94bc
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: b5cb1fe623062816955278da7b0a9e63cbc19254
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341312"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258484"
 ---
 # <a name="understand-azure-security-center-container-recommendations"></a>Azure Güvenlik Merkezi kapsayıcı önerilerini anlama
 
+Kritik çalıştırmak için tek uygulamalarınızı geçiş yaparken, kapsayıcılı bulutta yerel uygulamaları üretim kapsayıcılar, kolay ve hızlı dağıtım ve güncelleştirme gibi özelliklerinden yararlanabilirsiniz. Dağıtılan kapsayıcıları sayısını artırmak devam ettikçe güvenlik çözümlerini güvenlik durumuna ilişkin kapsayıcılarınızı görünürlük sağlar ve bunları tehditlere karşı korumaya yardımcı olmak için yapılması gerekir.
+
+Azure Güvenlik Merkezi, kapsayıcıları güvenli hale getirmeye yardımcı olacak aşağıdaki özellikleri sağlar:
+
+- **Iaas Linux makinelerinde barındırılan kapsayıcılar görünürlük**<br>Azure Güvenlik Merkezi'nde, Docker ile dağıtılan tüm sanal makineleri kapsayıcıları sekmesini görüntüler. Güvenlik Merkezi, bir sanal makine üzerinde güvenlik sorunlarını keşfetmek, Docker sürümü gibi makine ve ana bilgisayarda çalışan görüntülerinin sayısını kapsayıcılarında ilgili ek bilgiler sağlar.
+
+    ![kapsayıcı sekmesi](./media/security-center-container-recommendations/docker-recommendation.png)
+
+
+- **Docker için CIS Kıyaslama dayalı güvenlik önerileri**<br>Güvenlik Merkezi, Docker yapılandırmaları tarar ve değerlendirilen tüm başarısız kuralların listesi sağlayarak, yanlış yapılandırmalarını görünürlük sağlar. Güvenlik Merkezi, zamandan tasarruf edin ve bu sorunların hızla çözülmesine yardımcı olacak yönergeler sağlar. Güvenlik Merkezi, sürekli olarak Docker yapılandırmaları değerlendirir ve son durumlarını sağlar.
+
+    ![kapsayıcı sekmesi](./media/security-center-container-recommendations/container-cis-benchmark.png)
+
+- **Gerçek zamanlı kapsayıcı tehdit algılama**<br> Güvenlik Merkezi, gerçek zamanlı algılama için kapsayıcılarınızı AuditD bileşeni ile Linux makinelerinde sağlar. Konak, bir Docker kapsayıcısı ya da şifreleme madencilerinin kullanımını içinde çalışan güvenli Kabuk (SSH) sunucusunun göstergesidir ayrıcalıklı bir kapsayıcı oluşturma gibi birkaç şüpheli Docker etkinlik uyarıları belirleyin. Hızlı güvenlik sorunlarını düzeltmesine ve kapsayıcılarınızı güvenliğini artırmak için bu bilgileri kullanabilirsiniz.
+
+    ![kapsayıcı sekmesi](./media/security-center-container-recommendations/docker-threat-detection.png)
 
 ## <a name="recommendations"></a>Öneriler
 Aşağıdaki tablolara, Iaas Linux makineleri ve Docker yapılandırmalarına güvenlik değerlendirmesini üzerinde barındırılan kullanılabilir kapsayıcıları anlamanıza yardımcı olması için bir başvuru olarak kullanın.

@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 529a79fbc7b70ba6ea6a07a0ab6c523a193387a2
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 1513ea1c212d526b7fe2659855d4a80eabc9949b
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53326245"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261715"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Bir Windows sanal makine ölçek kümesi için bir Azure Resource Manager şablonu kullanarak konuk işletim sistemi ölçümler Azure İzleyici ölçüm depoya gönder
 
@@ -52,7 +52,7 @@ Açık **azuredeploy.parameters.json** dosyası:
 - İçin değerler girin **adminUsername** ve **adminPassword** için sanal makine ölçek kümesi. Bu parametreler ölçek kümesindeki sanal makineler için uzaktan erişim için kullanılır. Sağlayarak, sanal makinenizin zorunluluğundan **olmayan** dışındaki bu şablonu kullanın. Botlar internet kullanıcı adları ve parolalar genel GitHub depoları için tarayın. Bunlar, sanal makineleri ile bu varsayılan test olasılığınız vardır. 
 
 
-###  <a name="modify-azuredeployjson"></a>Azuredeploy.JSON değiştirme
+###  <a name="modify-azuredeployjson"></a>Modify azuredeploy.json
 Açık **azuredeploy.json** dosya. 
 
 Depolama hesabı bilgileri Resource Manager şablonunda tutacak bir değişken ekleyin. Azure İzleyici ölçüm deponun ve burada belirttiğiniz depolama hesabı için tüm günlükleri ya da performans sayaçları tanılama yapılandırma dosyasında belirtilen yazılır: 
@@ -89,7 +89,7 @@ Aşağıdaki kod MSI uzantıdan de yapılandırma ve tanılama uzantısı bir uz
           "extensionProfile": { 
             "extensions": [ 
             // BEGINNING of added code  
-            // Managed identites for Azure resources   
+            // Managed identities for Azure resources   
                 { 
                  "name": "VMSS-WAD-extension", 
                  "properties": { 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: fauhse
 ms.component: files
-ms.openlocfilehash: 3a1cc0a28ef5a4861d86373ce39258936639baab
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: aa01ffc196ba6ece41fac9a95db04b58ad962060
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333362"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259827"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Azure Dosya Eşitleme proxy’si ve güvenli duvarı ayarları
 Azure dosya eşitleme, şirket içi sunucularınızı Azure çok siteli eşitleme ve bulut katmanlaması özellikleri etkinleştirme dosyaları'na bağlanır. Bu nedenle, bir şirket içi sunucu internet'e bağlanması gerekir. Bir BT yöneticisi Azure bulut hizmetlerine erişmek sunucu için en iyi yolu karar vermeniz gerekir.
@@ -86,7 +86,7 @@ Makine genelinde proxy ayarlarını yapılandırmak için aşağıdaki adımlar�
 
       net stop filesyncsvc
 
-      Not: Depolama Eşitleme Aracı (filesyncsvc) hizmetini otomatik başlangıç bir kez durduruldu.
+      Not: Otomatik başlatma depolama Eşitleme Aracı (filesyncsvc) hizmeti durdurulduğunda.
 
 ## <a name="firewall"></a>Güvenlik duvarı
 Bir önceki bölümde belirtildiği gibi bağlantı noktası 443 gereksinimlerini olmasını giden açın. Veri Merkezi, dal veya bölgenizde ilkelerine bağlı olarak, daha fazla trafik Bu bağlantı noktası üzerinden belirli etki alanlarına erişimi kısıtlama istenen gerekli veya olabilir.
@@ -100,7 +100,7 @@ Aşağıdaki tabloda iletişim için gereken etki alanları açıklanmaktadır:
 | **Azure Active Directory** | https://graph.windows.net/ | Azure dosya eşitleme dağıtımı bir parçası olarak, aboneliğin Azure Active Directory'de Hizmet sorumlusu oluşturulur. Bu URL için kullanılır. Bu asıl hakları Azure dosya eşitleme hizmeti için en az bir dizi için temsilci seçme için kullanılır. Azure dosya eşitleme'nin ilk kurulum gerçekleştiren kullanıcı kimliği doğrulanmış bir kullanıcı abonelik sahibi ayrıcalıklara sahip olması gerekir. |
 | **Azure Depolama** | &ast;. core.windows.net | Sunucu bir dosya yüklediğinde, ardından sunucu, veri taşıma daha verimli bir şekilde doğrudan depolama hesabındaki Azure dosya paylaşımına konuşurken gerçekleştirir. Sunucuda yalnızca için hedeflenen dosya paylaşımına erişim veren bir SAS anahtarı var. |
 | **Azure dosya eşitleme** | &ast;.one.microsoft.com | İlk sunucu kayıt sonrasında sunucu bu bölgede Azure dosya eşitleme hizmeti örneği için bölgesel bir URL alır. Sunucu URL'sini doğrudan ve verimli bir şekilde eşitlendiğini işleme örneğiyle iletişim kurmak için kullanabilirsiniz. |
-| **Microsoft PKI** | http://www.microsoft.com/pki/mscorp  http://ocsp.msocsp.com | Azure dosya eşitleme Aracısı yüklendikten sonra PKI URL'si Azure dosya paylaşımı ve Azure dosya eşitleme hizmeti ile iletişim kurmak için gereken Ara sertifikaları yüklemek için kullanılır. OCSP URL'si bir sertifika durumunu denetlemek için kullanılır. |
+| **Microsoft PKI** | http://ocsp.msocsp.com | Azure dosya eşitleme Aracısı yüklendikten sonra PKI URL'si Azure dosya paylaşımı ve Azure dosya eşitleme hizmeti ile iletişim kurmak için gereken Ara sertifikaları yüklemek için kullanılır. OCSP URL'si bir sertifika durumunu denetlemek için kullanılır. |
 
 > [!Important]
 > Trafiğe izin verirken &ast;. one.microsoft.com, daha fazlasını eşitleme hizmeti trafiğini sunucudan mümkün. Alt etki alanları altında kullanılabilen pek çok daha fazla Microsoft hizmetleri vardır.
@@ -130,9 +130,9 @@ Varsa &ast;. one.microsoft.com çok geniş, Azure dosya eşitleme hizmeti yalnı
 
 - Genel olarak yedekli (GRS) depolama hesapları kullanıyorsanız, üç URL etkinleştirin.
 
-**Örnek:** depolama eşitleme hizmetinde dağıttığınız `"West US"` ve sunucunuz ile kaydedin. Bu durumda iletişim kurmak sunucu izni URL'ler şunlardır:
+**Örnek:** Depolama eşitleme hizmetinde dağıttığınız `"West US"` ve sunucunuz ile kaydedin. Bu durumda iletişim kurmak sunucu izni URL'ler şunlardır:
 
-> - https://kailani.one.microsoft.com (birincil uç nokta: Batı ABD)
+> - https://kailani.one.microsoft.com (birincil uç noktası: Batı ABD)
 > - https://kailani1.one.microsoft.com (yük devretme eşleştirilmiş bölge: Doğu ABD)
 > - https://tm-kailani.one.microsoft.com (birincil bölge bulma URL'si)
 

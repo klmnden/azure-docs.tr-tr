@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 5e83eb46a4d62c6aaf0862d4bb1aa046c5d64dde
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 02780a9e9702a41f677595d74b9861ea6a51b572
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120522"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260450"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway-preview"></a>Öğretici: Bağlanma, ayarlama, Azure veri kutusu ağ geçidi (Önizleme) etkinleştirme 
 
@@ -86,7 +86,7 @@ En sunuldu **Pano** cihazınızın.
     - Ağ Arabiriminizin IPv4 yapılandırabilirsiniz.
 
     >[!NOTE] 
-    > Cihaza bağlanmak için başka bir IP adresi yoksa yerel IP adresi DHCP, ağını arabirimin statik'den geçiş yapabilirim öneririz. Birini kullanıyorsanız, ağ arabirimi ve geçiş için DHCP, DHCP adresini belirlemek mümkün olacaktır. Bir DHCP adresi için değiştirmek istiyorsanız, cihazın hizmete kaydolduktan sonra kadar bekleyin ve sonra değiştirebilirsiniz. Ardından tüm adpaters IP'ler görüntüleyebilirsiniz **cihaz özelliklerini** hizmetiniz için Azure portalında.
+    > Cihaza bağlanmak için başka bir IP adresi yoksa ağ arabiriminden statik DHCP, yerel IP adresini geçme öneririz. Birini kullanıyorsanız, ağ arabirimi ve geçiş için DHCP, DHCP adresini belirlemek mümkün olacaktır. Bir DHCP adresi için değiştirmek istiyorsanız, cihazın hizmete kaydolduktan sonra kadar bekleyin ve sonra değiştirebilirsiniz. Ardından tüm adpaters IP'ler görüntüleyebilirsiniz **cihaz özelliklerini** hizmetiniz için Azure portalında.
 
 4. (İsteğe bağlı olarak), web Ara sunucusunu yapılandırın. Web proxy yapılandırması isteğe bağlı olsa da, bir web proxy kullanıyorsanız, yalnızca, burada yapılandırabilirsiniz olduğunu unutmayın.
    
@@ -94,7 +94,7 @@ En sunuldu **Pano** cihazınızın.
    
    İçinde **Web proxy** sayfası:
    
-   1. Tedarik **Web proxy URL'si** şu biçimde: *http://&lt;konak IP adresi veya FDQN&gt;: bağlantı noktası numarası*. HTTPS URL'leri desteklenmediğine dikkat edin.
+   1. Tedarik **Web proxy URL'si** şu biçimde: *http://&lt;konak IP adresi veya FQDN&gt;: bağlantı noktası numarası*. HTTPS URL'leri desteklenmediğine dikkat edin.
    2. Belirtin **kimlik doğrulaması** olarak **temel** veya **hiçbiri**.
    3. Kimlik doğrulama kullanılıyorsa, ayrıca sağlamanız gerekir bir **kullanıcıadı** ve **parola**.
    4. **Uygula**'ya tıklayın. Doğrulama ve yapılandırılmış web proxy ayarlarını uygulayın.

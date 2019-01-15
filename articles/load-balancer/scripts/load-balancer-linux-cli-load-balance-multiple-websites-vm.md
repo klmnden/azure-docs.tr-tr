@@ -15,14 +15,14 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: kumud
-ms.openlocfilehash: a8a7514624387d0fc00d32e4d47042e4a3b130f0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: HT
+ms.openlocfilehash: 41f8a403694eec897ba4a6eb147ab71757d5caa5
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444428"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263951"
 ---
-# <a name="azure-cli-script-example-load-balance-multiple-websites"></a>Azure CLI betik örneği: Birden çok web sitesinin yük dengelemesi
+# <a name="azure-cli-script-example-load-balance-multiple-websites"></a>Azure CLI betik örneği: Yük Dengeleme, birden fazla Web sitesi
 
 Bu Azure CLI betik örneği bir kullanılabilirlik kümesinin üyesi olan iki sanal makine (VM) ile bir sanal ağ oluşturur. Yük dengeleyici iki ayrı IP adresi için trafiği iki VM’ye yönlendirir. Betiği çalıştırdıktan sonra, web sunucusu yazılımını VM’lere dağıtabilir ve her biri kendi IP adresine sahip birden fazla web sitesi barındırabilirsiniz.
 

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 809d892c6238441f5a0bd93382acd7a783a4f0e9
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 2bc6f14eeb974ded462b8dcaf65d5401cc35291d
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53260727"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262226"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Büyük bir VMware ortamını bulma ve değerlendirme
 
@@ -19,7 +19,7 @@ Azure geçişi, proje başına 1500 makineyi sınırı vardır, bu makalede kull
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- **VMware**: Geçirmeyi planladığınız VM'ler, vCenter Server sürüm 5.5, 6.0 veya 6.5 ile yönetilmelidir. Ayrıca, 5.0 veya üzeri Toplayıcı VM'yi dağıtmak için bir ESXi ana çalışan sürümü gerekir.
+- **VMware**: Geçirmeyi planladığınız sanal makineleri, vCenter Server sürüm 5.5, 6.0, 6.5 veya 6.7 tarafından yönetilmelidir. Ayrıca, 5.0 veya üzeri Toplayıcı VM'yi dağıtmak için bir ESXi ana çalışan sürümü gerekir.
 - **vCenter hesabı**: VCenter Server'a erişmek için salt okunur bir hesap gerekir. Azure Geçişi, şirket içi VM’leri bulmak için bu hesabı kullanır.
 - **İzinleri**: VCenter Server'da, bir dosyayı OVA biçiminde içeri aktararak VM oluşturma izni gerekir.
 - **İstatistik ayarları**: Bu gereksinim yalnızca geçerlidir [tek seferlik modeli](https://docs.microsoft.com/azure/migrate/concepts-collector#discovery-methods) kullanım dışı şimdi. Dağıtımı başlatmadan önce tek seferlik modeli için vCenter Server için istatistik ayarları düzeyini 3 ayarlanması gerekir. İstatistik düzeyini 3 olarak her gün, haftanın günü ve ay toplama aralıkları için ayarlamanız sağlamaktır. Düzeyi üç toplama aralıkları için 3'ten daha düşük olan, değerlendirme çalışır, ancak depolama ve ağ için performans verileri toplanmaz. Boyut önerileri, CPU ve bellek için performans verilerini ve disk ve ağ bağdaştırıcıları için yapılandırma verilerini ardından hesaplanır.
@@ -286,7 +286,7 @@ Toplayıcı gerecini 20 saniyelik bir aralıkta ESXi konağından her VM için a
 
 **Counter** |  **Etki değerlendirmesi**
 --- | ---
-CPU.Usage.average | Önerilen VM boyutu ve maliyet  
+cpu.usage.average | Önerilen VM boyutu ve maliyet  
 mem.Usage.average | Önerilen VM boyutu ve maliyet  
 virtualDisk.read.average | Disk boyutu, depolama maliyeti, VM boyutunu hesaplar
 virtualDisk.write.average | Disk boyutu, depolama maliyeti, VM boyutunu hesaplar

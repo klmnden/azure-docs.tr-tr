@@ -1,23 +1,24 @@
 ---
-title: İçerik denetleyici Panoyu görebilmek | Microsoft Docs
-description: İçerik denetleyici Pano ölçümleri aracı inceleyen tüm içeriği görüntüler.
+title: Content Moderator - Content Moderator panosunu görüntüleyin
+titlesuffix: Azure Cognitive Services
+description: İçerik Moderator Pano ölçümleri gözden geçireni araç tüm içeriği görüntüler.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 639bee6a4eb132a79fd9343bab1f0834406a2964
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 430c088462f8d90e36aeeb44a4d897bdc8fb5154
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351437"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262872"
 ---
-# <a name="view-dashboard"></a>Panoyu görüntüleyin #
+# <a name="view-dashboard"></a>Panoyu görüntüleyin
 
-Tıklatın **Pano** aracın içinden yapılan tüm içerik İnceleme anahtar ölçümlerini görmek için SEKMESİ. Toplam, tamamlanmış ve devam eden incelemeler görüntüler ve metinler için görebilirsiniz. Ölçümleri, subteams ve varsayılan ekibiniz için görebilirsiniz.
+Tıklayın **Pano** aracın içinden yapılan tüm içerik İnceleme ilişkin ana ölçümleri görmek için SEKMESİNDE. Görüntü ve metin toplam, tamamlanan ve Süren gözden geçirmeleri görebilirsiniz. Varsayılan takım ve alt ekipler, ölçümlerini görebilir.
 
 ![Panoyu görüntüleyin](images/0-dashboard.png)

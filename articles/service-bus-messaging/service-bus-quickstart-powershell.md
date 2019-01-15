@@ -1,6 +1,6 @@
 ---
-title: Hızlı başlangıç - Azure Service Bus'ta iletileri gönderme ve alma | Microsoft Docs
-description: Bu hızlı başlangıçta, PowerShell ve .NET Standard istemcisini kullanarak Service Bus iletilerini göndermeyi ve almayı öğreneceksiniz
+title: Hızlı Başlangıç - Azure Service Bus kuyruğuna oluşturmak için PowerShell kullanma | Microsoft Docs
+description: Bu hızlı başlangıçta, Service Bus kuyruğu oluşturma için Azure PowerShell kullanmayı öğrenin. Ardından, kuyruktan ileti alma ve ileti göndermek için örnek bir uygulama kullanın.
 services: service-bus-messaging
 author: spelluru
 manager: timlt
@@ -8,17 +8,16 @@ ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 09/22/2018
+ms.date: 01/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 2669b3ad9abc2370b4ecb66596d6edde17c82ddd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 9fe9952c3885e0e6145141bac7db13694dcdbd11
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242441"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259674"
 ---
-# <a name="quickstart-send-and-receive-messages-using-azure-powershell-and-net"></a>Hızlı başlangıç: Azure PowerShell ve .NET kullanarak iletileri gönderme ve alma
-
+# <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>Hızlı Başlangıç: Azure PowerShell kullanarak bir Service Bus kuyruğu oluşturma
 Microsoft Azure Service Bus, güvenli mesajlaşma ve son derece yüksek güvenilirlik sağlayan bir kurumsal tümleştirme ileti aracısıdır. Tipik bir Service Bus senaryosunda çoğunlukla iki veya daha çok uygulama, hizmet veya işlem birbirinden ayrılır ve durum veya veri değişiklikleri aktarılır. Bu tür senaryolar başka bir uygulama veya hizmetlerde birden çok toplu işin zamanlanmasını veya sipariş karşılama işleminin tetiklenmesini içerebilir. Örneğin, bir perakende şirketi satış noktası verilerini yenileme ve stok güncelleştirmeleri için bir arka ofise veya bölgesel dağıtım merkezine gönderebilir. Bu senaryoda, istemci uygulaması Service Bus kuyruğuna iletiler gönderir ve o kuyruktan ileti alır.
 
 ![kuyruk](./media/service-bus-quickstart-powershell/quick-start-queue.png)
@@ -27,7 +26,7 @@ Bu hızlı başlangıçta, mesajlaşma ad alanı ve o ad alanı içinde bir kuyr
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap][] oluşturun.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için şunları yüklediğinizden emin olun:
 

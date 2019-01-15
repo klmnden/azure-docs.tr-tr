@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 12219e2df875d317aece73cabebdfb55115f7b41
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 51f9d2dbc8a0aef6dc84e76755a71eeb73149192
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021093"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262753"
 ---
 # <a name="border-connectivity"></a>Kenarlık bağlantısı 
 Tümleştirme ağ planlaması, başarılı Azure Stack tümleşik sistemleri dağıtımı, operasyon ve yönetimi için önemli bir önkoşuldur. Kenarlık bağlantı planlama, sınır ağ geçidi Protokolü (BGP) dinamik yönlendirme kullanılıp kullanılmayacağı seçerek başlar. Bu bir 16 bit BGP Otonom sistem numarası (genel veya özel) atama gerektirir veya statik yönlendirme kullanarak, burada statik bir varsayılan yol kenarlığı cihazlara atanır.

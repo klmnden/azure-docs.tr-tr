@@ -8,29 +8,31 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: quickstart
-ms.date: 9/21/2017
+ms.date: 1/10/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: f34f86fe7fba09bfbc5a05814fb4e39ee40c003b
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: cd9dabfc7e462eace8fb8ae5d01359d19010c137
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252448"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261834"
 ---
 # <a name="quickstart-perform-a-news-search-using-php-and-the-bing-news-search-rest-api"></a>Hızlı Başlangıç: PHP ve Bing haber arama REST API'si kullanarak bir haber arama yapın
 
-Bu makale, Azure'daki Microsoft Bilişsel Hizmetleri'nin parçası olan Bing Haber Arama API'sini kullanmayı göstermektedir. Bu makalede PHP kullanılmakla birlikte API HTTP istekleri gönderebilecek ve JSON ayrıştırabilecek her programlama diliyle uyumlu bir RESTful Web hizmetidir. 
+İlk Bing Resim Arama API’si çağrınızı yapmak ve bir JSON yanıtı almak için bu hızlı başlangıcı kullanın. Bu basit JavaScript uygulaması, API’ye bir arama sorgusu gönderir ve ham sonuçları görüntüler.
 
-Örnek kod PHP 5.6 ile çalışmak üzere yazılmıştır.
-
-API'lerle ilgili teknik ayrıntılar için [API başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference)'na bakın.
+Bu uygulama, PHP'de yazılmış olsa da bir RESTful Web API'si, uyumlu, çoğu programlama dilinden hizmet.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-**Bing Arama API'leri**'nde bir [Bilişsel Hizmetler API hesabınız](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) olması gerekir. [Ücretsiz deneme](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) bu hızlı başlangıç için yeterlidir. Ücretsiz denemenizi etkinleştirdiğinizde sağlanan erişim anahtarınız olması veya Azure panonuzdan ücretli bir abonelik anahtarı kullanmanız gerekir.  Ayrıca bkz: [Bilişsel hizmetler fiyatlandırması - Bing arama API'si](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+* PHP 5.6 veya üzeri
 
-## <a name="bing-news-search"></a>Bing Haber Arama
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
+
+Ayrıca bkz: [Bilişsel hizmetler fiyatlandırması - Bing arama API'si](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+
+## <a name="run-the-application"></a>Uygulamayı çalıştırma
 
 [Bing Haber Arama API'si](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) Bing arama motorundan haber sonuçları döndürür.
 
@@ -198,8 +200,4 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Haberleri sayfalara bölme](paging-news.md)
-> [Metni vurgulamak için süsleme işaretçilerini kullanma](hit-highlighting.md)
-> [Web'de haber arama](search-the-web.md)  
-> [Deneyin](https://azure.microsoft.com/services/cognitive-services/bing-news-search-api/)
-
+[Tek sayfalı web uygulaması oluşturma](tutorial-bing-news-search-single-page-app.md)

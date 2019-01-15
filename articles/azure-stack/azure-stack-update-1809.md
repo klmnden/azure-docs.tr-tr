@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/12/2019
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 4cbbc482a05e125f92efd98b0824ec38ae1ddefd
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: d47a90851777b3256474a88e5881afd8f52547f2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244707"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263331"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 güncelleştirme
 
@@ -79,7 +79,7 @@ Bu güncelleştirme Azure Stack için aşağıdaki geliştirmeleri içerir:
 - Yedekleme hizmet altyapı taşır gelen [genel altyapı ağı](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-infrastructure-network) için [genel VIP ağları](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-vip-network). Müşterilerin hizmet yedekleme depolama konumu genel VIP ağdan erişim sahip olmak gerekir.  
 
 > [!IMPORTANT]  
-> Dosya sunucusuna genel VIP ağları bağlantılara izin vermeyen bir güvenlik duvarınız varsa, bu değişiklik altyapı yedeklemeleri "ağ yolu bulunamadı hatası ile 53" başarısız olmasına neden olur Geçici çözüm yoktur makul olan bir değişiklik budur. Microsoft, müşteri geri bildirimi doğrultusunda, bu değişikliği, bir düzeltme döner. Lütfen inceleyin [güncelleştirme adımlar bölümüne gönderin](#post-update-steps) 1809 kullanılabilir düzeltmeler hakkında daha fazla bilgi için. Düzeltme kullanılabilir olduğunda, yalnızca ağ ilkelerinizi altyapı aboneliklerinin kaynaklarına erişmek genel VIP ağları izin vermiyorsa için 1809 güncelleştirdikten sonra uygulanacak emin olun. 1811 içinde tüm sistemler için bu değişiklik geçerli olacaktır. İçinde 1809 düzeltme uygulandığında, gereken başka bir işlem yoktur.  
+> Dosya sunucusuna genel VIP ağları bağlantılara izin vermeyen bir güvenlik duvarınız varsa, bu değişiklik altyapı yedeklemeleri "ağ yolu bulunamadı hatası ile 53" başarısız olmasına neden olur Geçici çözüm yoktur makul olan bir değişiklik budur. Microsoft, müşteri geri bildirimi doğrultusunda, bu değişikliği, bir düzeltme döner. Lütfen inceleyin [güncelleştirme adımlar bölümüne gönderin](#post-update-steps) 1809 kullanılabilir düzeltmeler hakkında daha fazla bilgi için. Düzeltme kullanılabilir olduğunda, yalnızca ağ ilkelerinizi genel VIP ağları altyapı kaynaklarına erişmesine izin vermiyorsa için 1809 güncelleştirdikten sonra uygulanacak emin olun. 1811 içinde tüm sistemler için bu değişiklik geçerli olacaktır. İçinde 1809 düzeltme uygulandığında, gereken başka bir işlem yoktur.  
 
 ### <a name="common-vulnerabilities-and-exposures"></a>Yaygın güvenlik açıklarına ve exposures'ı
 

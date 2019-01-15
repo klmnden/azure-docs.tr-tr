@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/14/2018
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: abbbec05dfb6d81a65941619a36b7f3afcdc1fba
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: fc02f754682046ead3f546fc1253e1c9ac0a63b9
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435574"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261478"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Öğretici: Azure PowerShell kullanarak hibrit bir ağda Azure Güvenlik Duvarı'nı dağıtma ve yapılandırma
 
@@ -49,9 +49,9 @@ Bu öğreticide PowerShell'i yerel olarak çalıştırmanızı gerektirir. Sonra
 
 Bu senaryonun doğru çalışması için üç önemli gereksinimi vardır:
 
-- Uç alt ağda varsayılan ağ geçidi olarak Azure Güvenlik Duvarı IP adresine işaret eden Kullanıcı Tanımlı Yol. Bu yol tablosunda BGP yol yaymanın **Devre Dışı** olması gerekir.
-- Hub ağ geçidi alt ağındaki Kullanıcı Tanımlı Yol, uç ağlara yönelik sonraki atlama olarak güvenlik duvarı IP adresine işaret etmelidir.
-- Azure Güvenlik Duvarı alt ağında Kullanıcı Tanımlı Yol gerekmez çünkü bu alt ağ yolları BGP'den öğrenir.
+- Bir kullanıcı tanımlı yol (UDR) varsayılan ağ geçidi Azure güvenlik duvarı IP adresine işaret eden uç alt ağında. Bu yol tablosunda BGP yol yaymanın **Devre Dışı** olması gerekir.
+- Hub ağ geçidi alt ağı üzerinde bir UDR bileşen ağlarını için sonraki atlama olarak güvenlik duvarı IP adresine işaret etmelidir.
+- BGP yolları öğrenir gibi hiçbir UDR Azure güvenlik duvarı alt ağda gereklidir.
 - VNet-Hub'ı VNet-Spoke'a eşlerken **AllowGatewayTransit** ayarladığınızdan ve VNet-Spoke'u VNet-Hub'a eşlerken de **UseRemoteGateways** ayarladığınızdan emin olun.
 
 Bu yolların nasıl oluşturulduğunu görmek için [Yolları Oluşturma](#create-routes) bölümüne bakın.
@@ -60,7 +60,7 @@ Bu yolların nasıl oluşturulduğunu görmek için [Yolları Oluşturma](#creat
 >Azure güvenlik duvarı, doğrudan internet bağlantısı olması gerekir. Şirket içi ExpressRoute veya uygulama ağ geçidi aracılığıyla zorlamalı tünel etkinleştirdiyseniz, UDR 0.0.0.0/0 ile yapılandırmanız gerekiyor **NextHopType** değer kümesini olarak **Internet**, için atayın **AzureFirewallSubnet**.
 
 >[!NOTE]
->Azure Güvenlik Duvarı varsayılan ağ geçidi için Opyalanan işaret ediyor olsa bile doğrudan eşlenmiş sanal ağlar arasındaki trafiği doğrudan yönlendirilir. Bu senaryoda bir güvenlik duvarı alt ağ için alt ağ trafiği göndermek için UDR her iki alt ağ üzerinde açıkça hedef alt ağ ön eki içermesi gerekir.
+>Azure Güvenlik Duvarı varsayılan ağ geçidi için bir UDR işaret ediyor olsa bile doğrudan eşlenmiş sanal ağlar arasındaki trafiği doğrudan yönlendirilir. Bu senaryoda bir güvenlik duvarı alt ağ için alt ağ trafiği göndermek için bir UDR her iki alt ağ üzerinde açıkça hedef alt ağ ön eki içermesi gerekir.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 

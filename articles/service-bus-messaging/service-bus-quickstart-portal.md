@@ -1,6 +1,6 @@
 ---
-title: Hızlı başlangıç - Azure Service Bus'tan iletileri gönderip almak için Azure portalını kullanma | Microsoft Docs
-description: Bu hızlı başlangıçta, Azure portalını kullanarak Service Bus iletilerini göndermeyi ve almayı öğreneceksiniz
+title: Hızlı Başlangıç - Azure portalını kullanarak bir Service Bus kuyruğu oluşturun | Microsoft Docs
+description: Bu hızlı başlangıçta, Azure portalını kullanarak Service Bus kuyruğuna oluşturulacağını öğrenin. Ardından, kuyruktan ileti alma ve ileti göndermek için örnek istemci uygulaması kullanın.
 services: service-bus-messaging
 author: spelluru
 manager: timlt
@@ -8,17 +8,16 @@ ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 09/22/2018
+ms.date: 01/12/2019
 ms.author: spelluru
-ms.openlocfilehash: bfe6c48b2e83c1ebbbad446f79cebd1f513db57e
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 69c9a6d2d059ffbac5fe3e0ddb103eaec51123c3
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002680"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264029"
 ---
-# <a name="quickstart-send-and-receive-messages-using-the-azure-portal-and-net"></a>Hızlı Başlangıç: Azure portalı ve .NET kullanarak ileti alma ve gönderme
-
+# <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>Hızlı Başlangıç: Service Bus kuyruğuna oluşturmak için Azure portalını kullanma
 Microsoft Azure Service Bus, güvenli mesajlaşma ve son derece yüksek güvenilirlik sağlayan bir kurumsal tümleştirme ileti aracısıdır. Tipik bir Service Bus senaryosunda çoğunlukla iki veya daha çok uygulama, hizmet veya işlem birbirinden ayrılır ve durum veya veri değişiklikleri aktarılır. Bu tür senaryolar başka bir uygulama veya hizmetlerde birden çok toplu işin zamanlanmasını veya sipariş karşılama işleminin tetiklenmesini içerebilir. Örneğin, bir perakende şirketi satış noktası verilerini yenileme ve stok güncelleştirmeleri için bir arka ofise veya bölgesel dağıtım merkezine gönderebilir. Bu senaryoda, istemci uygulaması Service Bus kuyruğuna iletiler gönderir ve o kuyruktan ileti alır.  
 
 ![kuyruk](./media/service-bus-quickstart-portal/quick-start-queue.png)

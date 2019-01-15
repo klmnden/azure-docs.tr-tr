@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: overview
-ms.date: 10/22/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: fabbbace7aeefd708a58a0874f9bbfa316d2b3f2
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: f7fef00cfff9295036d7545470f86e27314e6451
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230823"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258707"
 ---
 # <a name="what-is-azure-content-moderator"></a>Azure Content Moderator nedir?
 
@@ -63,4 +63,4 @@ Olarak tüm Bilişsel hizmetler, Content Moderator hizmeti kullanan geliştirici
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Content Moderator'ı kullanmaya başlamak için [Hızlı Başlangıç](quick-start.md)'ı izleyin.
+' Ndaki yönergeleri takip ederek Content Moderator hizmetini kullanmaya başlama [deneyin Content Moderator Web'de](quick-start.md).

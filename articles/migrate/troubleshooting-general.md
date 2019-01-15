@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: raynew
-ms.openlocfilehash: a018740a44424fd138b787b86b0f527d897f4188
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: f91f6386df01050cc67968d05a1e1562e0f9ed01
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230552"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261239"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Azure Geçişi sorunlarını giderme
 
@@ -98,7 +98,7 @@ Gidebilirsiniz **Essentials** konusundaki **genel bakış** meta verilerin depol
 
 1. Azure geçişi toplayıcısı OVA dosyasını doğru karma değerini denetleyerek indirilir olmadığını doğrulayın. Karma değerini doğrulamak için [bu makaleye](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance) bakın. Karma değeriyle eşleşmiyor, tekrar OVA dosyasını indirmek ve dağıtımı yeniden deneyin.
 2. Yine başarısız olursa ve OVF dağıtımı için VMware vSphere Client uygulamasını kullanıyorsanız vSphere Web Client üzerinden dağıtmayı deneyin. Yine başarısız olursa farklı web tarayıcısı kullanarak deneyin.
-3. VSphere web istemcisi kullanarak ve vCenter Server 6.5 dağıtılmaya çalışılırken, izleyerek doğrudan ESXi ana bilgisayarındaki OVA dağıtmayı deneyin aşağıdaki adımları:
+3. VSphere web istemcisi kullanarak ve vCenter Server 6.5 veya 6.7 dağıtılmaya çalışılırken, izleyerek doğrudan ESXi ana bilgisayarındaki OVA dağıtmayı deneyin aşağıdaki adımları:
   - ESXi Konağı (yerine doğrudan vCenter Server) bağlanma web istemcisi kullanarak (https:// <*ana bilgisayar IP adresi*> /ui)
   - Giriş gidin > envanteri
   - Dosyaya tıklayın > dağıtma OVF şablonu > OVA için göz atın ve dağıtımı tamamlandı
@@ -156,7 +156,7 @@ Bu sorun, VMware powerclı'yı yükleme ile ilgili bir sorun nedeniyle oluşabil
 2. En son Toplayıcı sürümü zaten varsa, el ile yükleme [VMware powerclı'yı 6.5.2](https://www.powershellgallery.com/packages/VMware.PowerCLI/6.5.2.6268016) ve sorunun çözülüp çözülmediğini denetleyin.
 3. Yukarıdaki değil sorunu çözün, C:\Program Files\ProfilerService klasöre gidin ve VMware.dll kaldırın ve VimService65.dll dosyaları klasöründe sunmak ve Windows hizmetlerini Yönet 'Azure geçişi Toplayıcısı' hizmeti yeniden başlatın (açık ' Çalıştır ' ve türü 'services.msc' Windows Hizmet Yöneticisi'ni açmak için).
 
-### <a name="error-unabletoconnecttoserver"></a>Hata UnableToConnectToServer
+### <a name="error-unabletoconnecttoserver"></a>Error UnableToConnectToServer
 
 Vcenter Server "Servername.com:9443" hatası nedeniyle bağlanılamıyor: Hiçbir uç noktası konumunda dinleme https://Servername.com:9443/sdk iletiyi kabul.
 

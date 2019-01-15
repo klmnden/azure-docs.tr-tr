@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/18/2018
+ms.date: 01/11/2019
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: af733b75780787f07ec28ff45bda6810c3d96baa
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 70620b5ec57f6bf4403ac959c4c69026ae80b887
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888129"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261409"
 ---
 # <a name="tutorial-scale-an-application-running-in-service-fabric-mesh"></a>Öğretici: Service Fabric Mesh’te çalışan bir uygulamayı ölçeklendirme
 
@@ -53,7 +53,7 @@ Bu öğreticiye başlamadan önce:
 
 Service Fabric Mesh’e uygulamaları dağıtmanın ana avantajlarından biri, hizmetlerinizin ölçeğini kolayca artırabilmeniz veya azaltabilmenizdir. Hizmetlerinizdeki değişen yük miktarlarını işlemek ve kullanılabilirliği artırmak için bu kullanılmalıdır.
 
-Bu öğreticide, örnek olarak, [önceden dağıtılmış olan](service-fabric-mesh-tutorial-template-deploy-app.md) ve şimdi çalışıyor olması gereken Yapılacaklar Listesi örneği kullanılmaktadır. Uygulamada iki hizmet vardır: WebFrontEnd ve ToDoService. Her hizmet başlangıçta 1 çoğaltma sayısı ile dağıtılmıştır.  WebFrontEnd hizmeti için çalıştırılan çoğaltma sayısını görüntülemek için aşağıdakileri çalıştırın:
+Bu öğreticide, örnek olarak, [önceden dağıtılmış olan](service-fabric-mesh-tutorial-template-deploy-app.md) ve şimdi çalışıyor olması gereken Yapılacaklar Listesi örneği kullanılmaktadır. Uygulama, iki hizmet vardır: WebFrontEnd ve ToDoService. Her hizmet başlangıçta 1 çoğaltma sayısı ile dağıtılmıştır.  WebFrontEnd hizmeti için çalıştırılan çoğaltma sayısını görüntülemek için aşağıdakileri çalıştırın:
 
 ```azurecli
 az mesh service show --resource-group myResourceGroup --name WebFrontEnd --app-name todolistapp --query "replicaCount"

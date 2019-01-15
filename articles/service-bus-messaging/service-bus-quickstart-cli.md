@@ -1,22 +1,22 @@
 ---
-title: Hızlı başlangıç - Azure Service Bus'tan iletileri gönderip almak için Azure CLI ve Java kullanma | Microsoft Docs
-description: Bu hızlı başlangıçta, Azure CLI ve örnek bir Java uygulaması kullanarak Azure Service Bus iletileri gönderip almayı öğrenirsiniz
+title: Hızlı Başlangıç - Azure CLI, Service Bus kuyruğuna oluşturmak için kullanın | Microsoft Docs
+description: Bu hızlı başlangıçta, bir Service Bus kuyruğu oluşturma için Azure CLI'yı kullanmayı öğrenin. Ardından, kuyruktan ileti alma ve ileti göndermek için örnek Java uygulamasından kullanın.
 services: service-bus-messaging
 author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 09/22/2018
+ms.date: 01/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 522447b73454016bff5188d07b27702fa21cb748
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 781bca5c3083df9db326e4dc71438c71a7c02bc3
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998685"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258333"
 ---
-# <a name="quickstart-send-and-receive-messages-using-azure-cli-and-java"></a>Hızlı Başlangıç: Azure CLI ve Java kullanarak ileti alma ve gönderme
+# <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>Hızlı Başlangıç: Service Bus kuyruğuna oluşturmak için Azure CLI'yi kullanma
 
 Microsoft Azure Service Bus, güvenli mesajlaşma ve yüksek güvenilirlik sağlayan bir kurumsal tümleştirme ileti aracısıdır. Tipik bir Service Bus senaryosu genellikle iki veya daha fazla uygulama, hizmet veya işlemi ayırmayı (uygulamaların aynı anda çevrimiçi olması gerekmez), durum veya veri değişikliklerini aktarmayı ve uygulamalar arasında ileti göndermeyi içerir. 
 
@@ -24,7 +24,7 @@ Microsoft Azure Service Bus, güvenli mesajlaşma ve yüksek güvenilirlik sağl
 
 ![kuyruk](./media/service-bus-quickstart-cli/quick-start-queue.png)
 
-Bu hızlı başlangıçta, Azure CLI ve Service Bus Java kitaplığını kullanarak Service Bus ile ileti gönderme ve alma açıklanmaktadır. Son olarak, daha teknik ayrıntılarla ilgileniyorsanız örnek kodun temel öğeleriyle ilgili [bir açıklamayı okuyabilirsiniz](#understand-the-sample-code).
+Bu hızlı başlangıçta, Azure CLI ve Service Bus Java Kitaplığı'nı kullanarak Service Bus ile ileti alma ve gönderme açıklar. Son olarak, daha teknik ayrıntılarla ilgileniyorsanız örnek kodun temel öğeleriyle ilgili [bir açıklamayı okuyabilirsiniz](#understand-the-sample-code).
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap][] oluşturabilirsiniz.
 
@@ -34,7 +34,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap][] oluşturabil
 
 Azure portalının sağ üst köşesindeki menüde Cloud Shell düğmesine tıklayın ve **Ortam seçin** açılır menüsünden **Bash**’i seçin. 
 
-## <a name="use-cli-to-create-resources"></a>Kaynak oluşturmak için CLI kullanma
+## <a name="use-the-azure-cli-to-create-resources"></a>Kaynakları oluşturmak için Azure CLI kullanma
 
 Cloud Shell’de, Service Bus kaynakları sağlamak için Bash komut isteminden aşağıdaki komutları verin. Tüm yer tutucuları uygun değerlerle değiştirdiğinizden emin olun:
 
@@ -266,7 +266,7 @@ void registerReceiver(QueueClient queueClient) throws Exception {
 Bu makalede, bir Service Bus alan adı ve bir kuyruktan ileti gönderip almak için gereken diğer kaynakları oluşturdunuz. İleti göndermek ve almak için kod yazma hakkında daha fazla bilgi edinmek için, aşağıdaki Service Bus öğreticisine geçin:
 
 > [!div class="nextstepaction"]
-> [CLI ve Java kullanarak envanteri güncelleştirme](./service-bus-tutorial-topics-subscriptions-cli.md)
+> [Java ve Azure CLI kullanarak Envanter güncelleştirme](./service-bus-tutorial-topics-subscriptions-cli.md)
 
 [ücretsiz bir hesap]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name

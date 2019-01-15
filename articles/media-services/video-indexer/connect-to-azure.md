@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 01/12/2019
 ms.author: juliako
-ms.openlocfilehash: f220aee3fa0d9a79723383fc31fec0eed2554bb4
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 55828ea2235e42920a5179846d81711b1ada5dc2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833695"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261562"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Azure'a bağlı bir Video Indexer hesabı oluşturun
 
@@ -68,7 +68,7 @@ Arama **Microsoft.Media** ve **Microsoft.EventGrid**. Durumda değil "Kaydedildi
 
     ![Video Indexer'ı Azure'a bağlanma](./media/create-account/connect-vi-to-azure-subscription.png)
 
-4. Desteklenen konumlardan Azure bölgesini seçin: Batı ABD 2, Kuzey Avrupa ve Doğu Asya.
+4. Bir Azure bölgesi desteklenen konumlardan seçin: Batı ABD 2, Kuzey Avrupa veya Güneydoğu Asya.
 5. Altında **Azure Media Services hesabı**, aşağıdaki seçeneklerden birini seçin:
 
     * Yeni bir Media Services hesabı oluşturmak için Seç **yeni kaynak grubu oluştur**. Kaynak grubunuz için bir ad sağlayın.
@@ -97,6 +97,9 @@ Arama **Microsoft.Media** ve **Microsoft.EventGrid**. Durumda değil "Kaydedildi
 ## <a name="connect-to-azure-manually-advanced-option"></a>El ile Azure'a bağlanabilirsiniz (Gelişmiş Seçenekler)
 
 Bir Azure bağlantısı başarısız olursa, el ile bağlanarak sorunu gidermek deneyebilirsiniz.
+
+> [!NOTE]
+> Aşağıdaki üç hesapları aynı bölgede olması önemle tavsiye edilir: Media Services hesabı, yanı sıra Azure depolama hesabı bağlandığınız Video Indexer hesabınız aynı Media Services hesabına bağlı.
 
 ### <a name="create-and-configure-a-media-services-account"></a>Bir Media Services hesabını oluşturma ve yapılandırma
 
@@ -168,7 +171,7 @@ Aşağıdaki Azure Media Services ilgili önemli noktalar geçerlidir:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Deneme hesabınız ile ve/veya'ndaki yönergeleri takip ederek azure'a bağlı Video Indexer hesaplarınızı ile program aracılığıyla etkileşim kurabilir: [kullanım API'leri](video-indexer-use-apis.md).
+Program aracılığıyla, deneme hesabıyla ve/veya'ndaki yönergeleri takip ederek azure'a bağlı Video Indexer hesaplarınızı ile etkileşim kurabilirsiniz: [API'leri kullanan](video-indexer-use-apis.md).
 
 Azure'a bağlanırken kullandığınız aynı Azure AD kullanıcı kullanmanız gerekir.
 

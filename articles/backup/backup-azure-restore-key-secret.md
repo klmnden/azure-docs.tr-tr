@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b3bcd752f14f5d43c8cb8f686534e016690c7c40
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 85c284c2a0e49d7fa20c0ec342878ffdf9d47387
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198074"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261171"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Azure Backup kullanarak şifreli VM'ler için Key Vault anahtarını ve gizli anahtarı geri yükleme
 Bu makalede, anahtar ve gizli anahtar kasasında mevcut değilse Azure VM yedeklemesi şifrelenmiş Azure Vm'lerini geri yükleme gerçekleştirmek için kullanma hakkında konuşuyor. Geri yüklenen VM için ayrı bir anahtar (anahtar şifreleme anahtarı) ve gizli dizi (BitLocker şifreleme anahtarı) kopyasını tutmak istiyorsanız şu adımları da kullanılabilir.
@@ -62,7 +62,7 @@ PS C:\> Restore-AzureKeyVaultKey -VaultName '<target_key_vault_name>' -InputFile
 
 ## <a name="restore-secret"></a>Gizli anahtarı geri yükleme
 
-Azure AD olmadan Azure VM şifreli değilse BEK kullanarak yalnızca (Windows ve Linux Vm'leri için), yukarıdaki komutların değer katar ve gizli dizi adı oluşturmak ve ayarlamak anahtar kasasında gizli dizi (BEK) koymak için gizli cmdlet'i için akış.
+Gizli anahtar kasasında gizli dizi (BEK) geri put cmdlet'ini ayarlamak için yukarıdaki'gizli dizi adı ve değeri alın ve bu akışı oluşturulan JSON dosyası kullanın. Bu cmdlet'leri kullanın, **VM BEK ve KEK kullanılarak şifrelenir**.
 
 **Windows VM'nizi BEK ve KEK kullanılarak şifrelendiyse, bu cmdlet'leri kullanın.**
 
@@ -84,7 +84,7 @@ PS C:\> $Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncry
 PS C:\> Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -SecretValue $Secret -ContentType  'Wrapped BEK' -Tags $Tags
 ```
 
-AD ile Azure VM ise **BEK yalnızca kullanılarak şifrelenmiş**JSON'dan gizli blob dosyası oluşturmak ve onu gizli cmdlet'i anahtar kasasında gizli dizi (BEK) moduna geri yüklemek için akış.
+Gizli anahtar kasasında gizli dizi (BEK) geri put cmdlet'ini ayarlamak için yukarıdaki'gizli dizi adı ve değeri alın ve bu akışı oluşturulan JSON dosyası kullanın. Bu cmdlet'leri kullanın, **VM BEK kullanılarak şifrelenir** yalnızca.
 
 ```
 PS C:\> $secretDestination = 'C:\secret.blob'

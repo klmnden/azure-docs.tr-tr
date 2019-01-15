@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2018
 ms.author: bwren
-ms.openlocfilehash: 94769ea0ff05565ee11f7c167e28f239ca304d3d
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: cea5cb924914cff1195520d6bd28a8b62fce8698
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213748"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264419"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Azure İzleyici verilerini Görselleştirme
 Bu makalede, günlük ve ölçüm verilerini Azure İzleyici'de depolanan görselleştirmek için kullanılabilen yöntemler bir özetini sağlar.

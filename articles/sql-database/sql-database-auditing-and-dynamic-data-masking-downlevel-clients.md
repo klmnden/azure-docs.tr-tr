@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 41509c1f35d42a1e8558299b4244ad515c36ec17
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 607351718ddffbea5fa4dbbae333d81aac230f9a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816064"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258960"
 ---
 # <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-table-auditing"></a>SQL veritabanı - alt düzey istemci desteği ve tablo denetimi için IP uç noktası değişiklikleri
 
@@ -43,7 +43,7 @@ Bağlantı dizesindeki değiştirilmiş sunucusu FQDN'si: <*sunucu adı*> .datab
 * JDBC (JDBC TDS 7.4 desteklese de TDS yeniden yönlendirme özelliği tam olarak desteklenmiyor)
 * (Node.JS için) tedious
 
-**Açıklama:** FDQN değişikliği üstteki sunucunun yapılandırma gereksinimini adım olmadan her veritabanında (geçici azaltma) de bir SQL sunucu düzeyi denetimi ilkesi uygulamak için yararlı olabilir.
+**Açıklama:** Yukarıdaki sunucunun FQDN değişikliği her bir veritabanındaki (geçici azaltma) bir yapılandırma adımı gerek olmadan bir SQL sunucu düzeyi denetimi ilkesi uygulamak için de yararlı olabilir.
 
 ## <a id="subheading-2"></a>Denetim etkinleştirilirken IP uç noktası değişiklikleri
 Tablo denetimi etkinleştirdiğinizde, IP uç veritabanınızın değişeceğini unutmayın. Katı güvenlik duvarı ayarları varsa, lütfen bu güvenlik duvarı ayarlarını güncelleştirin uygun şekilde.

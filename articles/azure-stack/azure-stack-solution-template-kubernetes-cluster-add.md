@@ -11,19 +11,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 01/11/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 0cac5658d5f6f32795b5988008b3b895024ecc06
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e89575323b87ba28ef4f062da098fea4f0e27035
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960543"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264063"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Kubernetes için Azure Stack Marketini Ekle
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 > [!note]  
 > Azure Stack'te Kubernetes önizlemeye sunuldu.
@@ -75,8 +75,8 @@ Ubuntu Server aşağıda Market'te ekleyin:
 1. Sunucu en yeni sürümünü seçin. Tam sürümünü denetleyin ve en yeni sürümüne sahip olduğunuzdan emin olun:
     - **Yayımcı**: Canonical
     - **Teklif**: UbuntuServer
-    - **Sürüm**: 16.04.201806120
-    - **SKU**: 16.04 LTS
+    - **Sürüm**: 16.04.201806120 (veya üzeri)
+    - **SKU**: 16.04-LTS
 
 1. Seçin **indirin.**
 
@@ -94,11 +94,11 @@ Kubernetes marketten ekleyin:
 
 1. Aşağıdaki profil komut dosyasını seçin:
     - **Teklif**: Linux 2.0 için özel betik
-    - **Sürüm**: 2.0.6
+    - **Sürüm**: 2.0.6 (veya üzeri)
     - **Yayımcı**: Microsoft Corp
 
     > [!Note]  
-    > Linux için özel betik birden fazla sürümünü listelenebilir. Eşleşen sürümünü eklemeniz gerekir. Kubernetes öğesi'nün tam sürümünü gerektirir.
+    > Linux için özel betik birden fazla sürümünü listelenebilir. Öğenin en son sürümünü eklemeniz gerekir.
 
 1. Seçin **indirin.**
 
@@ -149,7 +149,5 @@ Kubernetes öğeyi kaldırmak için:
 ## <a name="next-steps"></a>Sonraki adımlar
 
 [Bir Kubernetes için Azure Stack dağıtma](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)
-
-
 
 [Azure stack'teki hizmetleri sunan genel bakış](azure-stack-offer-services-overview.md)
