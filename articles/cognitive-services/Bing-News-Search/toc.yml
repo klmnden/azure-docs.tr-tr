@@ -3,43 +3,39 @@ items:
   href: index.yml
 - name: Genel Bakış
   items:
-  - name: Bing Haber Arama nedir?
+  - name: Bing Haber Arama API’si nedir?
     href: search-the-web.md
-- name: REST API Hızlı Başlangıçları
-  items:
-  - name: başlarken
-    href: quickstart.md
-  - name: C#
-    href: csharp.md
-  - name: Java
-    href: java.md
-  - name: Node.js
-    href: nodejs.md
-  - name: PHP
-    href: php.md
-  - name: Python
-    href: python.md
-  - name: Ruby
-    href: ruby.md
   expanded: true
-- name: SDK Hızlı başlangıçları
+- name: Hızlı Başlangıçlar
   items:
-  - name: SDK örneklerine genel bakış
-    href: sdk.md
-  - name: Haber Arama SDK’sı C# hızlı başlangıcı
-    href: news-search-sdk-quickstart.md
-  - name: Haber Arama SDK’sı Node.js hızlı başlangıcı
-    href: news-search-sdk-node-quickstart.md
-  - name: Haber Arama SDK’sı Python hızlı başlangıcı
-    href: news-sdk-python-quickstart.md
-  - name: Haber Arama SDK’sı Java hızlı başlangıcı
-    href: news-sdk-java-quickstart.md
+  - name: REST API
+    items:
+    - name: C# kullanma
+      href: csharp.md
+    - name: Java'yı kullanma
+      href: java.md
+    - name: Node.js'yi kullanma
+      href: nodejs.md
+    - name: PHP'yi kullanma
+      href: php.md
+    - name: Python’u kullanma
+      href: python.md
+    - name: Ruby'yi kullanma
+      href: ruby.md
+  - name: SDK
+    items:
+    - name: C# kullanma
+      href: news-search-sdk-quickstart.md
+    - name: Node.js'yi kullanma
+      href: news-search-sdk-node-quickstart.md
+    - name: Python’u kullanma
+      href: news-sdk-python-quickstart.md
+    - name: Java'yı kullanma
+      href: news-sdk-java-quickstart.md
 - name: Öğreticiler
   items:
-  - name: Tek sayfalı web uygulaması
+  - name: Tek sayfalı web uygulaması oluşturma
     href: tutorial-bing-news-search-single-page-app.md
-  - name: Tek sayfalı web uygulaması (kaynak kodu)
-    href: tutorial-bing-news-search-single-page-app-source.md
 - name: Örnekler
   items:
   - name: Kod örnekleri
@@ -54,12 +50,18 @@ items:
     href: paging-news.md
   - name: Küçük resimleri yeniden boyutlandırma ve kırpma
     href: resize-and-crop-thumbnails.md
-  - name: v5’ten v7’ye yükseltme
+  - name: API sürümünü v5’ten v7’ye yükseltme
     href: bing-news-upgrade-guide-v5-to-v7.md
   - name: Visual Studio ile çalışma
     items:
     - name: Bing Haber Arama Bağlı Hizmetini kullanma
       href: vs-bing-news-search-connected-service.md
+- name: Kavramlar
+  items:
+  - name: Arama sorguları gönderme
+    href: concepts/send-search-queries.md
+  - name: Haber arama
+    href: concepts/search-for-news.md
 - name: Başvuru
   items:
   - name: Bing Haber Arama API’si v7
@@ -102,9 +104,9 @@ items:
     href: language-support.md
   - name: Bing Haber Arama API'si Analizleri
     href: bing-news-stats.md
-ms.openlocfilehash: 9f702884dba94169eae71f98253a3ae1a94d8510
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: ed425db68d5c617f6442e9757531f02b0ab1cd38
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790553"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266221"

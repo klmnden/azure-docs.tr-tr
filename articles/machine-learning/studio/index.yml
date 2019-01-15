@@ -1,24 +1,24 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 73b8b8c0224382d0959203a1060868ad91cb4239
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 542bd4f23c32d4d59b11875ef96f8e1f261605ba
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546173"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302282"
 documentType: LandingData
 title: Azure Machine Learning Studio Belgeleri
 metadata:
-  title: Azure Machine Learning Studio Belgeleri
-  description: Azure Machine Learning Studio’yu nasıl kullanacağınızı öğrenin.
+  title: Belgeler - Azure Machine Learning Studio Öğreticileri, Başvurusu | Microsoft Docs
+  description: Azure Machine Learning Studio, verilerinizde tahmine dayalı analiz çözümleri oluşturma, test etme ve dağıtma amacıyla kullanabileceğiniz işbirliğine dayalı bir sürükle ve bırak aracıdır. Öğreticiler, videolar ve örnek modeller Studio’yu kullanarak makine öğrenimi modelleri oluşturma ve dağıtma konusunda bilgi sağlar.
   services: machine-learning
-  author: j-martens
   ms.service: machine-learning
   ms.component: studio
+  ms.topic: landing-page
+  author: j-martens
+  ms.author: jmartens
   ms.tgt_pltfrm: na
   ms.devlang: na
-  ms.topic: landing-page
   ms.date: 09/24/2018
-  ms.author: jmartens
 abstract:
   description: Azure Machine Learning Studio, verilerinizde tahmine dayalı analiz çözümleri oluşturma, test etme ve dağıtma amacıyla kullanabileceğiniz işbirliğine dayalı bir sürükle ve bırak aracıdır. Öğreticiler, videolar ve örnek modeller Studio’yu kullanarak makine öğrenimi modelleri oluşturma ve dağıtma konusunda bilgi sağlar.
 sections:
