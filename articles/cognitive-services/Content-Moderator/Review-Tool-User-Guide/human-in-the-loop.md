@@ -1,22 +1,23 @@
 ---
-title: Makine destekli içerik denetleme ve Content Moderator İnsan incelemelerine | Microsoft Docs
+title: İncelemelere içerik denetleme - Content Moderator dahil edilip derecelendirilir.
+titlesuffix: Azure Cognitive Services
 description: Nasıl makineler ve insanlar birlikte en iyi sonuçları içerik denetleme için sağlar
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
-ms.date: 03/16/2018
+ms.date: 01/10/2019
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
 ms.author: sajagtap
-ms.openlocfilehash: f1a3a401363866bdd803093e894615d90536f408
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 7d2e87ac5353f103e654f4dcb6656916e4b271ae
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854229"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264742"
 ---
-# <a name="review-tool-overview"></a>Gözden geçirme aracı genel bakış
+# <a name="learn-about-the-review-tool"></a>Gözden geçirme aracı hakkında bilgi edinin
 
 İnsanlar ve makineler birlikte içerik denetleme üzerinde çalışırken en iyi sonuçları alın. Makineleri etkili bir şekilde tahmin olasılık Yardımlı ya da bir gerçek dünya bağlamında geliştirildiğinde sahip olduğu incelemelere artırabilir. Sonuç gerçekleştiren insanlar ve makineler yalnızca çalışmakta olduğunuz, daha iyi bir karma içerik denetleme işlemidir.
 

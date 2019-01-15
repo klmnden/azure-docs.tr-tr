@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kasparks
-ms.openlocfilehash: 61e85861ab5829620699d07fe24b1ebfdfc7cbdc
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 928fb5421297fedbffabc45db35a89a74026477e
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839526"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305080"
 ---
 # <a name="advisor-high-availability-recommendations"></a>Advisor yüksek kullanılabilirlik önerisi
 
@@ -35,20 +35,16 @@ Uygulamanıza yedeklilik sağlamak için bir kullanılabilirlik kümesinde iki v
 
 Uygulamanıza yedeklilik sağlamak için bir kullanılabilirlik kümesinde iki veya daha fazla sanal makinenin gruplandırılması önerilir. Danışman, tek bir sanal makine içeren kullanılabilirlik kümeleri tanımlar ve bir veya daha fazla sanal makine eklemeyi önerir. Bu yapılandırma ya da bir planlı veya Plansız bakım olayı sırasında en az bir sanal makinenin kullanılabilir ve Azure sanal makine SLA'sına sağlar. Bir sanal makine oluşturun veya mevcut bir sanal makine kullanılabilirlik kümesine eklemek için seçebilirsiniz.  
 
+## <a name="use-managed-disks-to-improve-data-reliability"></a>Veri güvenilirliğini geliştirmek için Yönetilen Diskler kullanın
+Bir kullanılabilirlik kümesinde depolama hesaplarını veya depolama ölçek birimlerini paylaşan diskler ile olan sanal makineler kesintiler sırasında tek bir depolama ölçek birimi hatalarına karşı dayanıklı değildir. Danışman bu kullanılabilirlik kümeleri tanımlar ve Azure yönetilen diskler için geçiş yapmanızı öneririz. Bu işlem, kullanılabilirlik kümesindeki farklı sanal makinelerin diskleri bir tek hata noktasını önlemek için ayrı tutulmasını garanti eder. 
+
 ## <a name="ensure-application-gateway-fault-tolerance"></a>Uygulama ağ geçidi hataya dayanıklılık sağlamak
+
 Uygulama ağ geçidi tarafından desteklenen görev açısından kritik uygulamaların iş sürekliliği sağlamak için hataya dayanıklılık için yapılandırılmamış uygulama ağ geçidi örnekleri Advisor tanımlar ve, uygulayabileceğiniz düzeltme eylemi önerir. Orta ölçekli veya büyük tek örnekli uygulama ağ geçitleri Advisor tanımlar ve en az bir daha fazla örnek ekleyerek önerir. Ayrıca, tek veya çok instance kısa uygulama ağ geçitleri tanımlar ve orta ölçekli veya büyük SKU'lara geçiş önerir. Danışman, uygulama ağ geçidi örnekleri bu kaynaklar için geçerli SLA gereksinimlerini karşılamak için yapılandırıldığından emin olmak için bu eylemler önerir.
-
-## <a name="improve-the-performance-and-reliability-of-virtual-machine-disks"></a>Performans ve sanal makine disklerini güvenilirliğini artırın
-
-Advisor standart diskleri olan sanal makineleri tanımlar ve premium disklere yükseltme önerir.
- 
-Azure Premium depolama, g/Ç açısından yoğun iş yüklerini çalıştıran sanal makineleri için yüksek performanslı, düşük gecikme süreli disk desteği sunar. Premium depolama hesapları kullanan sanal makine disklerini verileri katı hal sürücülerine (SSD) depolar. Uygulamanız için en iyi performans için premium depolama yüksek IOPS gerektiren herhangi bir sanal makine disklerini geçirme öneririz. 
-
-Disklerinizi yüksek IOPS gerektirmeyen, standart depolama alanında tutarak maliyetleri sınırlayabilirsiniz. Standart depolama, SSD'ler yerine sabit disk sürücülerinin (HDD'ler) üzerinde sanal makine disk verilerini depolar. Sanal makine disklerinizi premium disklere geçirmek seçebilirsiniz. Premium diskler çoğu sanal makine SKU üzerinde desteklenir. Premium diskler kullanmak istiyorsanız ancak bazı durumlarda, size, sanal makine SKU'ları da yükseltmeniz gerekebilir.
 
 ## <a name="protect-your-virtual-machine-data-from-accidental-deletion"></a>Sanal makine verilerinizi yanlışlıkla silinmeye karşı koru
 
-Sanal makine yedekleme ayarı, iş açısından kritik verilerin kullanılabilirliğini sağlar ve kazayla silinme veya bozulmaya karşı koruma sağlar.  Advisor burada yedekleme etkin değildir ve bu yedekleme etkinleştirilmesini öneriyor sanal makineleri tanımlar. 
+Sanal makine yedekleme ayarı, iş açısından kritik verilerin kullanılabilirliğini sağlar ve kazayla silinme veya bozulmaya karşı koruma sağlar. Advisor burada yedekleme etkin değildir ve bu yedekleme etkinleştirilmesini öneriyor sanal makineleri tanımlar. 
 
 ## <a name="ensure-you-have-access-to-azure-cloud-experts-when-you-need-it"></a>İhtiyacınız olduğunda Azure bulut uzmanlara erişim olduğundan emin olun
 
@@ -69,6 +65,10 @@ Traffic Manager profili devre dışı coğrafi yönlendirme için yapılandırı
 ## <a name="use-soft-delete-on-your-azure-storage-account-to-save-and-recover-data-in-the-event-of-accidental-overwrite-or-deletion"></a>Yazılım kullanım kaydetmek ve verileri yanlışlıkla üzerine yaz veya silinmesi durumunda kurtarma için Azure depolama hesabı Sil
 
 Etkinleştirme [geçici silme](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) silinen blobları geçiş kalıcı olan yerine geçici silinen durumuna, depolama hesabınız silindi. Verilerin üzerine, verilerin üzerine yazılması durumunu kaydetmek için geçici silinen bir anlık görüntü oluşturulur. Bu, yanlışlıkla silinmesi durumunda kurtarmanıza olanak tanır veya üzerine yazar. Danışman, geçici silme etkinleştirilebilir yoksa bir Azure depolama hesapları tanımlar ve bu etkinleştirmenizi önerir.
+
+## <a name="configure-your-vpn-gateway-to-active-active-for-connection-resiliency"></a>Etkin-etkin VPN ağ geçidinizi yapılandırma bağlantı dayanıklılığı
+
+Etkin-etkin yapılandırmasında S2S VPN tünelinde şirket içi VPN cihazınız için hem bir VPN ağ geçidi örneklerini oluşturacaktır. Bir ağ geçidi örneğinde planlı bir bakım olayı veya planlanmamış bir olay gerçekleştiğinde, trafiğin diğer etkin IPSec tünel için otomatik olarak geçirilecek. Azure Danışmanı etkin-etkin olarak yapılandırılmamış bir VPN ağ geçitleri tanımlar ve bunları yüksek kullanılabilirlik için yapılandırma önerin.
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Yüksek kullanılabilirlik önerileri Danışman erişme
 

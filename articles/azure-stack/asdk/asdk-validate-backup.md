@@ -1,6 +1,6 @@
 ---
 title: ASDK kullanarak bir Azure Stack yedekleme doğrulama | Microsoft Docs
-description: Nasıl ASDK kullanarak bir Azure Stack integerated sistemleri yedeklemeyi doğrulayabilir.
+description: ASDK kullanarak bir Azure Stack tümleşik sistemleri yedeklemeyi doğrulama yapma.
 services: azure-stack
 author: jeffgilb
 manager: femila
@@ -10,18 +10,18 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 181f37fb72584e18cc963ba1ffde070379a1b0c6
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 12d5c2448bc6a5241f6aa4e283acdf9c5a0f602a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961477"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265660"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>Azure Stack yedekleme doğrulamak için ASDK kullanın
 Azure Stack dağıtma ve kullanıcı kaynaklarını tekliflerini, planları, kotalar ve abonelikler gibi sağlama sonra yapmanız gerekenler [Azure Stack altyapısını yedekleme etkinleştir](../azure-stack-backup-enable-backup-console.md). Zamanlama ve normal altyapı yedeklemeleri geri dönülemez bir donanım veya Hizmeti hatası olması durumunda altyapı Yönetimi veri kaybı olmadığından sağlayacaktır.
 
 > [!TIP]
-> Önerilir, [isteğe bağlı yedekleme çalıştırmak](../azure-stack-backup-back-up-azure-stack.md) son infrastrcuture verilerin bir kopyasını olduğundan emin olmak için bu yordamı başlamadan önce. Yedekleme başarıyla tamamlandıktan sonra yedekleme kimliği yakalamak emin olun. Bulut Kurtarma sırasında bu kimliği gerekli olacaktır. 
+> Önerilir, [isteğe bağlı yedekleme çalıştırmak](../azure-stack-backup-back-up-azure-stack.md) en son altyapı verilerin bir kopyasını olduğundan emin olmak için bu yordamı başlamadan önce. Yedekleme başarıyla tamamlandıktan sonra yedekleme kimliği yakalamak emin olun. Bulut Kurtarma sırasında bu kimliği gerekli olacaktır. 
 
 Azure Stack altyapısını yedekleme Azure Stack'i yeniden dağıtma sırasında geri bulutunuzu hakkında önemli verileri içerir. Bu yedeklemeler, üretim bulut etkilemeden doğrulamak için ASDK kullanabilirsiniz. 
 

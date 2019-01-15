@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: magoedte
-ms.openlocfilehash: 39dd475c776a3cdb4f2281b9b5468968745024ac
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: e3b118306b5a139ba31029bc6191368690b36666
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215176"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265218"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Birden çok Azure İzleyici Application Insights kaynaklarını birleştirin 
 Bu makalede, sorgu ve farklı Azure aboneliklerinde Application Insights Bağlayıcısı kullanımdan bir ardılı olarak olduklarında bile tüm Application Insights uygulama günlük verilerini tek bir yerde görüntüleyin açıklar.  
@@ -64,7 +64,7 @@ applicationsScoping //this brings data from Application Insights resources
 | where success == 'False' 
 | where duration > 1000 
 | union ( 
-    ApplicationInsights //this is Application Insights data in Log Analytics worspace 
+    ApplicationInsights //this is Application Insights data in Log Analytics workspace 
     | where TimeGenerated < (datetime("2018-12-01") 
     | where RequestSuccess == 'False' 
     | where RequestDuration > 1000 
@@ -82,7 +82,7 @@ Aşağıdaki tabloda, Log Analytics ve Application Insights şema farklılıklar
 
 | Günlük analizi çalışma alanı özellikleri| Application Insights kaynak özellikleri|
 |------------|------------| 
-| AnonUserId | USER_ID|
+| AnonUserId | user_id|
 | ApplicationId | appId|
 | ApplicationName | AppName|
 | ApplicationTypeVersion | application_Version |
@@ -108,12 +108,12 @@ Aşağıdaki tabloda, Log Analytics ve Application Insights şema farklılıklar
 | ExceptionMessage | message | 
 | ExceptionType | type |
 | Operationıd | operation_ıd |
-| OperationName | opeation_Name | 
+| OperationName | operation_Name | 
 | İşletim Sistemi | client_OS | 
 | PageViewCount | ItemCount |
 | PageViewDuration | süre | 
 | PageViewName | ad | 
-| ParentOpeartionID | operation_ıd | 
+| ParentOperationID | operation_ıd | 
 | RequestCount | ItemCount | 
 | RequestDuration | süre | 
 | RequestId | id | 

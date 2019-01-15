@@ -1,27 +1,8 @@
 ---
-title: Algoritma örnekleri - Azure Machine Learning Studio | Microsoft Docs
-description: Machine learning temel bilgileri anlaşılması kolay bir bakış algoritma örnekleri içerir. İndirilebilir bilgi grafiği çoğu machine learning soruları kapsar.
-keywords: machine learning yeni başlayanlar, machine learning soruları, popüler algoritmaları, algoritma bilgi grafiği Machine learning temel bilgileri, algoritma örnekleri
-services: machine-learning
-documentationcenter: ''
-author: garyericson
-ms.custom: seodc18
-ms.author: garye
-editor: cgronlun
-ms.assetid: cf4e2308-9285-4adc-9f00-408e3ee7931b
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 12/18/2017
-ms.openlocfilehash: df628447a441d1580fa1a3862275f2b461f8d18a
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275746"
+Başlık: Algoritma örnekleri titleSuffix: Azure Machine Learning Studio açıklaması: Machine learning temel bilgileri anlaşılması kolay bir bakış algoritma örnekleri içerir. İndirilebilir bilgi grafiği çoğu machine learning soruları kapsar.
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+
+Yazar: garyericson ms.author: garye MS.özel: seodc18 ms.date: 12/18/2017
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>İndirilebilir bilgi grafiği: Makine öğrenimi algoritma örnekleri ile temelleri
 Machine learning temel bilgileri yaygın machine learning soruları yanıtlamak için kullanılan popüler algoritmaları hakkında bilgi edinmek için bu bilgi grafiği anlaşılması kolay bakış indirin. Algoritma örnekleri hangi algoritmaları ve kullanıldıkları anlamak machine learning Acemi yardımcı olur.

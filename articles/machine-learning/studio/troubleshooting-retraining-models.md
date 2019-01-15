@@ -1,26 +1,8 @@
 ---
-title: Azure Machine Learning Studio Klasik web hizmeti - yeniden eğitme sorunlarını giderme | Microsoft Docs
-description: Tanımlamak ve bir Azure Machine Learning Studio web hizmeti için modeli yeniden eğitme, ortak sorunları aygıtındaki düzeltin.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 75cac53c-185c-437d-863a-5d66d871921e
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/01/2017
-ms.openlocfilehash: 97116c4ad6efbaad28aec6451b02fc0dee1ac79f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054869"
+Başlık: Bir Machine Learning Studio Klasik web hizmeti titleSuffix yeniden eğitme sorunlarını giderme: Azure Machine Learning Studio açıklaması: Tanımlamak ve bir Azure Machine Learning Studio web hizmeti için modeli yeniden eğitme, ortak sorunları aygıtındaki düzeltin.
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+
+Yazar: ericlicoding ms.author: amlstudiodocs MS.özel: önceki ms.author=yahajiza, yazar önceki = YasinMSFT ms.date: 11/01/2017
 ---
 # <a name="troubleshooting-the-retraining-of-an-azure-machine-learning-studio-classic-web-service"></a>Yeniden eğitme bir Azure Machine Learning Studio Klasik web hizmeti sorunlarını giderme
 ## <a name="retraining-overview"></a>Yeniden eğitme genel bakış

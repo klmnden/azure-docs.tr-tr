@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 06/07/2018
+ms.date: 01/14/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 0b27cd314dd03375b2d2e6ba537cda74e2ec4310
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: c01d911a59647956914518aa62a616823241ab3b
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313250"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304933"
 ---
 # <a name="integrate-azure-active-directory-audit-logs"></a>Azure Active Directory denetim günlüklerini tümleştirme
 
@@ -28,7 +28,7 @@ Azure Active Directory (Azure AD) denetim olayları, Azure Active Directory'de o
 
 
 >[!IMPORTANT]
-> Azure günlük tümleştirme özelliği 06/01/2019 tarafından kullanımdan kaldırılacaktır. 27 Haziran 2018 tarihine kadar AzLog indirmeler devre dışı bırakılır. Taşıma iletme gözden geçirme sonrası yapmanız gerekenler hakkında rehberlik için [SIEM araçlarla tümleştirmek için kullanım Azure İzleyici](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
+> Azure günlük tümleştirme özelliği 06/01/2019 tarafından kullanımdan kaldırılacaktır. AzLog yüklemeleri, 27 Haziran 2018'de devre dışı bırakıldı. Taşıma iletme gözden geçirme sonrası yapmanız gerekenler hakkında rehberlik için [SIEM araçlarla tümleştirmek için kullanım Azure İzleyici](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
 ## <a name="steps-to-integrate-azure-active-directory-audit-logs"></a>Azure Active Directory Tümleştirme adımları denetim günlükleri
 
@@ -74,6 +74,6 @@ Ayrıca açabileceğiniz bir [destek isteği](../azure-supportability/how-to-cre
 Azure günlük tümleştirmesi hakkında daha fazla bilgi için bkz:
 
 * [Microsoft Azure günlük tümleştirmesi Azure günlükleri](https://www.microsoft.com/download/details.aspx?id=53324): Bu İndirme Merkezi sayfasında, ayrıntıları, sistem gereksinimleri ve yükleme yönergeleri için Azure günlük tümleştirmesi sağlar.
-* [Azure günlük tümleştirmesine giriş](security-azure-log-integration-overview.md): Bu makale Azure günlük tümleştirmesi, önemli işlevleri ve nasıl çalıştığını tanıtır.
-* [Azure günlük tümleştirme SSS](security-azure-log-integration-faq.md): Bu makalede Azure günlük tümleştirmesi hakkında sorular yanıtlanmaktadır.
-* [Yeni özellikler için Azure tanılama ve Azure denetim günlükleri](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/): Bu blog gönderisinde size Azure denetim günlükleri tanıtır ve işlemler, Azure kaynaklarınızın yardımcı olan diğer özellikler hakkında bilgi.
+* [Azure günlük tümleştirmesine giriş](security-azure-log-integration-overview.md): Bu makalede Azure günlük tümleştirmesi, önemli işlevleri ve nasıl çalıştığını tanıtılmaktadır.
+* [Azure günlük tümleştirmesi SSS](security-azure-log-integration-faq.md): Bu makalede, Azure günlük tümleştirmesi hakkında sorular yanıtlanmaktadır.
+* [Yeni özellikler için Azure tanılama ve Azure denetim günlükleri](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/): Bu blog gönderisinde size Azure denetim günlükleri tanıtır ve yardımcı olan diğer özellikleri, Azure kaynaklarınızın işlemleri Öngörüler.

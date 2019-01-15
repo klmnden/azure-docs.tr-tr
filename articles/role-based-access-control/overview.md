@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/30/2018
+ms.date: 01/14/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9ddad471236877977fec620565d8f110e265ff72
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: c614ae9d157c6e4121701cb22213706020ee20a7
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867907"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303338"
 ---
 # <a name="what-is-role-based-access-control-rbac"></a>Rol tabanlı erişim denetimi (RBAC) nedir?
 
@@ -78,7 +78,7 @@ Azure, bir nesne içindeki verilere erişim izni vermenizi sağlayan veri işlem
 
 ### <a name="scope"></a>Kapsam
 
-*Kapsam*, erişimin geçerli olduğu sınırları belirtir. Bir rol atadığınızda kapsam tanımlayarak izin verilen eylemleri sınırlandırabilirsiniz. Bu özellik bir kullanıcıyı yalnızca bir kaynak grubu için [Web Sitesi Katılımcısı](built-in-roles.md#website-contributor) yapmak istediğiniz durumlarda kullanışlıdır.
+*Kapsam* erişim uygulanacağı kaynak kümesidir. Bir rol atadığınızda kapsam tanımlayarak izin verilen eylemleri sınırlandırabilirsiniz. Bu özellik bir kullanıcıyı yalnızca bir kaynak grubu için [Web Sitesi Katılımcısı](built-in-roles.md#website-contributor) yapmak istediğiniz durumlarda kullanışlıdır.
 
 Azure'da [yönetim grubu](../azure-resource-manager/management-groups-overview.md), abonelik, kaynak grubu veya kaynak olmak üzere birden fazla seviyede kapsam belirtebilirsiniz. Kapsamlar üst-alt öğe ilişkisiyle yapılandırılmıştır.
 
@@ -99,6 +99,12 @@ Aşağıdaki diyagramda rol ataması örneği gösterilmektedir. Bu örnekte Mar
 ![Erişim denetimi için rol ataması](./media/overview/rbac-overview.png)
 
 Rol atamalarını oluşturmak için Azure portal, Azure CLI, Azure PowerShell, Azure SDK'ları veya REST API'lerini kullanabilirsiniz. Her abonelikte en fazla 2000 rol ataması gerçekleştirebilirsiniz. Rol ataması oluşturmak ve kaldırmak için `Microsoft.Authorization/roleAssignments/*` iznine sahip olmanız gerekir. Bu izin, [Sahip](built-in-roles.md#owner) veya [Kullanıcı Erişimi Yöneticisi](built-in-roles.md#user-access-administrator) rolleriyle verilir.
+
+## <a name="multiple-role-assignments"></a>Birden çok rol atamaları
+
+Bu nedenle, birden çok çakışan rol atamaları varsa ne olur? RBAC eklenebilir bir modeli olduğundan rol atamalarınızı eklenmesi, etkili izinlerdir. Bir kullanıcı abonelik kapsamında katılımcı rolü ve okuyucu rolünün bir kaynak grubu üzerinde burada verilen aşağıdaki örneği inceleyin. Katkıda bulunan izinleri ve okuyucu izinler etkili bir şekilde kaynak grubu için katkıda bulunan rolü ektir. Bu nedenle, bu durumda, okuyucu rol ataması herhangi bir etkisi yoktur.
+
+![Birden çok rol atamaları](./media/overview/rbac-multiple-roles.png)
 
 ## <a name="deny-assignments"></a>Reddetme atamaları
 
@@ -126,7 +132,7 @@ Aşağıdakiler, RBAC'nin yönetim düzleminde bir kaynağa erişiminizin olup o
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Hızlı başlangıç: RBAC ve Azure portalı kullanarak bir kullanıcıya erişim izni verme](quickstart-assign-role-user-portal.md)
+- [Hızlı Başlangıç: RBAC ve Azure portalını kullanarak bir kullanıcı için erişim izni ver](quickstart-assign-role-user-portal.md)
 - [RBAC ve Azure portalı kullanarak erişimi yönetme](role-assignments-portal.md)
 - [Azure'daki farklı rolleri anlama](rbac-and-directory-admin-roles.md)
-- [Kurumsal Bulut Benimsemesi: Azure'da kaynak erişimi yönetimi](/azure/architecture/cloud-adoption/getting-started/azure-resource-access)
+- [Kurumsal Bulutu benimseme: Azure'da kaynak erişimi Yönetimi](/azure/architecture/cloud-adoption/getting-started/azure-resource-access)

@@ -15,16 +15,16 @@ ms.topic: get-started-article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: comartin
-ms.openlocfilehash: 6b73cf04d768381bcc0e27cc76b6c2a25d4d9a2c
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 190a80d5807dcc8ad9666d3ba450691bc6453b41
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341064"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265626"
 ---
 # <a name="azure-stack-telemetry"></a>Azure Stack telemetri
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 Azure Stack telemetrisini sistem verilerini bağlı kullanıcı deneyimi üzerinden Microsoft'a otomatik olarak yükler. Microsoft teams, müşteri deneyimlerini geliştirmek için Azure Stack telemetri toplayan verileri kullanın. Bu veriler, güvenlik, sistem durumu, kalite ve performans analizi için de kullanılır.
 
@@ -33,7 +33,7 @@ Azure Stack operatör için telemetri Kurumsal dağıtımlar değerli Öngörül
 > [!NOTE]
 > Azure Stack, kullanım bilgilerini faturalandırması Azure'a iletmek için de yapılandırabilirsiniz. Bu,-,-Kullandıkça Ödeme seçen çok düğümlü Azure Stack müşterileri için gereklidir. Kullanım raporlama alınan telemetri bağımsız olarak denetlenir ve kapasite modeli istemeyen çok düğümlü müşterilere veya Azure Stack geliştirme Seti'ni kullanıcılar gerekli değildir. Bu senaryolar için kullanım raporlama kapatılabilir [kayıt betiği kullanarak](https://docs.microsoft.com/azure/azure-stack/azure-stack-usage-reporting).
 
-Azure Stack telemetri kullanan Windows Server 2016 bağlı kullanıcı deneyimi ve Telemetri bileşeni, temel [olay izleme için Windows (ETW)](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx) TraceLogging teknoloji toplamak ve olayları ve verileri depolamak için. Azure Stack bileşenleri, olayları ve olay günlüğünü genel işletim sistemi ve API'leri izleme kullanarak topladığınız verileri yayımlamak için aynı teknolojiyi kullanın. Bu Azure Stack bileşenlerin örnekleri bu sağlayıcıları şunlardır: ağ kaynağı, depolama kaynağı, kaynak izleme ve güncelleştirme kaynağı. Bağlı kullanıcı deneyimi ve Telemetri bileşeni, SSL kullanarak verileri şifreler ve sertifika sabitleme Microsoft Veri Yönetimi hizmetine HTTPS üzerinden veri iletmek için kullanır.
+Azure Stack telemetri kullanan Windows Server 2016 bağlı kullanıcı deneyimi ve Telemetri bileşeni, temel [olay izleme için Windows (ETW)](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx) TraceLogging teknoloji toplamak ve olayları ve verileri depolamak için. Azure Stack bileşenleri, olayları ve olay günlüğünü genel işletim sistemi ve API'leri izleme kullanarak topladığınız verileri yayımlamak için aynı teknolojiyi kullanın. Bu sağlayıcıları bu Azure Stack bileşenlerin örnekleridir: Ağ kaynağı, depolama kaynağı, kaynak izleme ve kaynak güncelleştirin. Bağlı kullanıcı deneyimi ve Telemetri bileşeni, SSL kullanarak verileri şifreler ve sertifika sabitleme Microsoft Veri Yönetimi hizmetine HTTPS üzerinden veri iletmek için kullanır.
 
 > [!IMPORTANT]
 > Telemetri veri akışı etkinleştirmek için bağlantı noktası 443 (HTTPS), ağınızdaki açık olması gerekir. Microsoft Veri Yönetimi hizmetine bağlı kullanıcı deneyimi ve Telemetri bileşen bağlandığı https://v10.vortex-win.data.microsoft.com. Bağlı kullanıcı deneyimi ve Telemetri bileşeni de bağlandığı https://settings-win.data.microsoft.com yapılandırma bilgilerini indirilemedi.
@@ -112,7 +112,7 @@ Azure Stack dağıtmadan önce fiziksel ana bilgisayarda el ile telemetri düzey
 Azure Stack Geliştirme Seti konakta dağıtma önce CloudBuilder.vhdx önyükleme ve yükseltilmiş bir PowerShell penceresinde aşağıdaki betiği çalıştırın:
 
 ```powershell
-### Get current AllowTelmetry value on DVM Host
+### Get current AllowTelemetry value on DVM Host
 (Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
 -Name AllowTelemetry).AllowTelemetry
 ### Set & Get updated AllowTelemetry value for ASDK-Host

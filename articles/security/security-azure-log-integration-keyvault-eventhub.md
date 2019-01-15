@@ -8,20 +8,20 @@ editor: TomShinder
 ms.assetid: ''
 ms.service: security
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 01/14/2019
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: 8b03c3627d476ec83fda402545c7a7d73346385f
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 790f49f0fae98162b3443c78d813b1070e4514a0
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063922"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303896"
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Azure günlük tümleştirme Öğreticisi: Event Hubs kullanarak Azure Key Vault olayları işleyin
 
 >[!IMPORTANT]
-> Azure günlük tümleştirme özelliği 06/01/2019 tarafından kullanımdan kaldırılacaktır. 27 Haziran 2018 tarihine kadar AzLog indirmeler devre dışı bırakılır. Taşıma iletme gözden geçirme sonrası yapmanız gerekenler hakkında rehberlik için [SIEM araçlarla tümleştirmek için kullanım Azure İzleyici](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
+> Azure günlük tümleştirme özelliği 06/01/2019 tarafından kullanımdan kaldırılacaktır. AzLog yüklemeleri, 27 Haziran 2018'de devre dışı bırakıldı. Taşıma iletme gözden geçirme sonrası yapmanız gerekenler hakkında rehberlik için [SIEM araçlarla tümleştirmek için kullanım Azure İzleyici](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
 Günlüğe kaydedilen olayları alıp, güvenlik bilgileri ve Olay yönetimi (SIEM) sistemine ayıklanarak Azure günlük Tümleştirmesi'ni kullanabilirsiniz. Bu öğreticide, Azure günlük tümleştirmesi Azure Event Hubs'a alınan günlükleri işlemek için nasıl kullanılabileceğini örneği gösterilmektedir.
 
@@ -56,21 +56,21 @@ Bu makaledeki adımları tamamlayabilmeniz için aşağıdakiler gerekir:
  
 1. Azure günlük Tümleştirmesi'ni yükleme gereksinimlerini karşılayan internet erişimi olan bir sistemi. Sistem veya şirket içinde barındırılan bir bulut hizmeti üzerinde olabilir.
 
-1. [Azure günlük tümleştirmesi](https://www.microsoft.com/download/details.aspx?id=53324) yüklü. Yüklemek için:
+1. Azure günlük tümleştirmesi yüklü. Yüklemek için:
 
    a. 2. adımda bahsedilen sisteme bağlanmak için Uzak Masaüstü'nü kullanın.   
-   b. Azure günlük tümleştirmesi yükleyicisi, sunucuya kopyalayın. Yapabilecekleriniz [yükleme dosyalarının indirileceği](https://www.microsoft.com/download/details.aspx?id=53324).   
-   c. Yükleyiciyi başlatın ve Microsoft yazılım lisans koşullarını kabul edin.   
-   d. Telemetri bilgilerini sağlayacaksa onay kutusunu seçili bırakın. Yerine kullanım bilgilerini Microsoft'a gönderdiğiniz değil, onay kutusunu temizleyin.
-   
+   b. Azure günlük tümleştirmesi yükleyicisi, sunucuya kopyalayın. c. Yükleyiciyi başlatın ve Microsoft yazılım lisans koşullarını kabul edin.
+
+1. Telemetri bilgilerini sağlayacaksa onay kutusunu seçili bırakın. Yerine kullanım bilgilerini Microsoft'a gönderdiğiniz değil, onay kutusunu temizleyin.
+
    Azure günlük tümleştirmesi ve nasıl yükleneceği hakkında daha fazla bilgi için bkz. [Azure tanılama günlüğünü ve Windows Olay iletme'yi Azure günlük tümleştirme](security-azure-log-integration-get-started.md).
 
 1. En son PowerShell sürümü.
- 
+
    Windows Server 2016'ın yüklü olması durumunda en az PowerShell 5.0. Herhangi bir Windows Server sürümünü kullanıyorsanız, PowerShell'in önceki bir sürümü olabilir. Girerek sürümü denetleyebilirsiniz ```get-host``` bir PowerShell penceresinde. PowerShell 5.0 yüklü yoksa, şunları yapabilirsiniz [indirdiği](https://www.microsoft.com/download/details.aspx?id=50395).
 
    En az sonra PowerShell 5.0 devam edebilirsiniz en son sürümü yüklemek için:
-   
+
    a. Bir PowerShell penceresinde girin ```Install-Module Azure``` komutu. Yükleme adımlarını tamamlayın.    
    b. Girin ```Install-Module AzureRM``` komutu. Yükleme adımlarını tamamlayın.
 

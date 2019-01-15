@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 05/14/2018
 ms.author: jomolesk
-ms.openlocfilehash: 805c983c0c2db4256dade641f32363ca6514023c
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 1a99ffb751414d255f2aacfe514e5a8f474255bd
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600820"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267224"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-gdpr"></a>Azure güvenlik ve uyumluluk planı - GDPR için PaaS Web uygulaması
 
@@ -48,7 +48,7 @@ Bu çözüm, aşağıdaki Azure hizmetlerini kullanır. Dağıtım mimarisi ayr�
         - Kural kümesi: OWASP 3.0
         - Dinleyici: bağlantı noktası 443
 - Azure sanal ağı
-- ağ güvenlik grubu
+- Ağ güvenlik grupları
 - Azure DNS
 - Azure Storage
 - Azure İzleyici
@@ -181,7 +181,7 @@ Ayrıca, aşağıdaki izleme çözümleri Bu mimarinin bir parçası olarak dahi
 
 Bu başvuru mimarisine yönelik veri akış diyagramı kullanılabilir [indirme](https://aka.ms/gdprPaaSdfd) veya altında bulunabilir. Bu model, değişiklikler yaparken sistemi altyapısında potansiyel risk puanları anlamasına yardımcı olabilir.
 
-![PaaS Web uygulaması için GDPR tehdit modeli](images/gdpr-paaswa-threat-model.png?raw=true "PaaS Web uygulaması için GDPR tehdit modeli")
+![PaaS Web uygulaması için GDPR tehdit modeli](images/gdpr-paaswa-threat-model.png?raw=true "GDPR tehdit modeli için PaaS Web uygulaması")
 
 ## <a name="compliance-documentation"></a>Uyumluluk belgeleri
 [Azure güvenlik ve uyumluluk planı: GDPR müşteri sorumluluk matris](https://aka.ms/gdprCRM) tüm GDPR makaleler için denetleyici ve işlemci sorumlulukları listeler. Azure Hizmetleri için bir genellikle denetleyicisi ve Microsoft işlemcisi olarak davranır olduğunu lütfen unutmayın.

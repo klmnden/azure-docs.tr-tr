@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 01/14/2019
 ms.author: jeffgilb
 ms.reviewer: unknown
-ms.openlocfilehash: d4c5def3cc61c1920ae99d5aa9f97b46cbda0045
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 1b533c945fdcfc3d1072a7d8a513126ca3f1f72a
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244503"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303593"
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Temel özellikler ve kavramlar Azure Stack'te
 Microsoft Azure Stack için yeniyseniz, bu hüküm ve özellik açıklamaları faydalı olabilir.
@@ -129,23 +129,13 @@ Azure Queue depolama birimi, uygulama bileşenleri arasında bulut mesajlaşma �
 KeyVault RP, yönetimi ve parolalar ve sertifikalar gibi gizli denetlenmesini sağlar. Örneğin, bir kiracı yönetici parola veya anahtarlarını VM dağıtımı sırasında sağlamak için KeyVault RP kullanabilirsiniz.
 
 ## <a name="high-availability-for-azure-stack"></a>Azure Stack için yüksek kullanılabilirlik
-*Uygulama hedefi: Azure Stack 1802 veya daha sonraki sürümler*
+Bir çoklu VM üretim sisteminin azure'da yüksek kullanılabilirlik elde etmek için Vm'leri yerleştirilir bir [kullanılabilirlik kümesi](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) , bunları birden çok hata etki alanları ve güncelleme etki alanları arasında yayılır. Azure Stack daha küçük ölçek hata etki alanı bir kullanılabilirlik kümesinde tek bir düğüm ölçek birimi olarak tanımlanır.  
 
-Bir çoklu VM üretim sisteminin azure'da yüksek kullanılabilirlik elde etmek için birden çok hata etki alanları ve güncelleme etki alanları arasında yayılan bir kullanılabilirlik kümesindeki Vm'leri yerleştirilir. Bu şekilde [kullanılabilirlik kümelerinde dağıtılan Vm'leri](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) birbirinden fiziksel olarak yalıtılmış Aşağıdaki diyagramda da görüldüğü gibi hata dayanıklılığı için izin vermek için ayrı sunucu rafları üzerinde:
-
-  ![Azure Stack yüksek kullanılabilirlik](media/azure-stack-key-features/high-availability.png)
-
-### <a name="availability-sets-in-azure-stack"></a>Azure Stack'te kullanılabilirlik kümeleri
 Azure Stack altyapısını zaten hatalara karşı dayanıklı olsa da, bir donanım hatası olursa (Yük Devretme Kümelemesi) temel alınan teknoloji hala bazı kapalı kalma süresi VM'ler için etkilenen bir fiziksel sunucuda artmasına neden olur. Azure Stack, Azure ile tutarlı olacak şekilde en fazla üç hata etki alanı ile bir kullanılabilirlik sahip destekler.
 
 - **Hata etki alanları**. Vm'leri bir kullanılabilirlik kümesine yerleştirilir bunları mümkün olduğunca eşit olarak birden çok hata etki alanları üzerinde (Azure Stack düğüm) yayarak birbirinden fiziksel olarak izole edilmiş olur. Bir donanım hatası varsa, başarısız hata etki alanı Vm'lerden diğer hata etki alanları yeniden, ancak, mümkün olduğunda, aynı kullanılabilirlik kümesindeki diğer vm'lerden ayrı hata etki alanlarında tutulur. Donanım tekrar çevrimiçi olduğunda, yüksek kullanılabilirliği sürdürmek için Vm'leri yeniden Dengelenecek. 
  
 - **Güncelleme etki alanları**. Güncelleştirme etki alanlarını kullanılabilirlik kümelerinde yüksek kullanılabilirlik sağlayan başka bir Azure kavramdır. Bir güncelleme etki alanı, aynı anda bakımdan geçirilebilen temel alınan donanım mantıksal grubudur. Aynı güncelleştirme etki alanında bulunan VM'ler, planlanan bakım sırasında birlikte yeniden başlatılır. Kiracılar, bir kullanılabilirlik kümesinde VM'ler oluşturduğunuzda, Azure platformu otomatik olarak Vm'leri bunlar arasında dağıtır güncelleştirme etki alanı. Azure Stack'te kendi temel konak güncelleştirilmeden önce kümedeki çevrimiçi diğer konaklar arasında geçişi, Vm'leri Canlı. Bir konak güncelleştirme sırasında kapalı kalma süresi olmadan Kiracı olduğundan, Azure Stack'te güncelleştirme etki alanı özelliği yalnızca şablon Azure ile uyumluluk için bulunmaktadır. 
-
-### <a name="upgrade-scenarios"></a>Yükseltme senaryoları 
-Azure Stack sürüm 1802 verilir önce hatası ve güncelleme etki alanları sayısı varsayılan, oluşturulan kullanılabilirlik kümelerindeki VM'ler (1 ile 1 sırasıyla). Önceden mevcut olan bu kullanılabilirlik kümelerindeki VM'ler için yüksek kullanılabilirlik sağlamak için önce mevcut sanal makineleri silin ve yeni bir kullanılabilirlik ile doğru hatası ve güncelleme etki alanı sayıları açıklandığı kümesi içinde dağıtmanız [Değiştir Kullanılabilirlik kümesi için bir Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/change-availability-set). 
-
-Sanal makine ölçek kümeleri için kullanılabilirlik kümesi dahili olarak bir varsayılan hata etki alanı ve güncelleştirme etki alanı sayısı ile oluşturulur (3. ve 5 sırasıyla). Bir kullanılabilirlik kümesi 1802 güncelleştirme yerleştirileceği önce oluşturulan tüm sanal makine ölçek kümeleri varsayılan hata ve güncelleme etki alanı sayısı (1 ile 1 sırasıyla). Yeni forma elde etmek için bu sanal makine ölçek kümesi örneklerine güncelleştirmek için sanal makine ölçek kümeleri 1802 güncelleştirmeden önce mevcut örnekleri sayısına göre ölçeklendirin ve sanal makine ölçek kümeleri eski örneklerini silin. 
 
 ## <a name="role-based-access-control-rbac"></a>Rol tabanlı erişim denetimi (RBAC)
 Sistem yetkili kullanıcılar, gruplar ve Hizmetleri için bir abonelik, kaynak grubu veya tek başına bir kaynak düzeyinde rolleri atayarak erişim için RBAC kullanabilirsiniz. Her bir rol, bir kullanıcı, Grup veya hizmet Microsoft Azure Stack kaynaklara sahip erişim düzeyini tanımlar.

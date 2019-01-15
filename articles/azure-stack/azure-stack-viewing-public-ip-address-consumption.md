@@ -11,18 +11,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/10/2018
+ms.date: 1/14/2019
 ms.author: mabrigg
-ms.openlocfilehash: 6207a77555d0d4656c0728dddec769e483f4d762
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 072702b323a41e4c4c51edc7054ad41591dde4d7
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378253"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303540"
 ---
 # <a name="view-public-ip-address-consumption-in-azure-stack"></a>Azure Stack'te genel IP adresi kullanımını görüntüleme
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 Bulut Yöneticisi olarak, görüntüleyebilirsiniz:
  - Kiracılar için ayrılmış genel IP adresleri sayısı.

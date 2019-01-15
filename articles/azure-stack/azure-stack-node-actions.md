@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 12/06/2018
+ms.date: 1/14/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: ced6e2edb570e12b17d14e0552030902161b5d53
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 7e01feff1344557c90f23bb006520111f58e437a
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725261"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302689"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Azure stack'teki ölçek birimi düğüm eylemleri
 
@@ -74,7 +74,7 @@ Bir ölçek birimi düğüm hakkında bilgi görüntülediğinizde gibi düğüm
 
 Hangi seçenekler kullanılabilir düğüm işletimsel durumunu belirler.
 
-Azure Stack PowerShell modüllerini yüklemeniz gerekir. Bu cmdlet'ler bulunan **Azs.Fabric.Admin** modülü. Yükleme veya Azure Stack için PowerShell yüklemesini doğrulamak için bkz: [Azure Stack için PowerShell yükleme](azure-stack-powershell-install.md).
+Azure Stack PowerShell modül yüklemeniz gerekir. Bu cmdlet'ler bulunan **Azs.Fabric.Admin** modülü. Yükleme veya Azure Stack için PowerShell yüklemesini doğrulamak için bkz: [Azure Stack için PowerShell yükleme](azure-stack-powershell-install.md).
 
 ## <a name="stop"></a>Durdur
 

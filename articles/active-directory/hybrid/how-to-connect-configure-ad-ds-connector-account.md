@@ -7,19 +7,19 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 10/12/2018
+ms.date: 01/14/2019
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b05b3fee5c49f69979f5e778f897d4be863a3715
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: c7b1d74c7750a281f8c961789d39a7ae323f304e
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53809888"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304049"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: AD DS bağlayıcı hesap izinlerini yapılandırma 
 
-Adlı yeni bir PowerShell Modülü [ADSyncConfig.psm1](reference-connect-adsyncconfig.md) cmdlet'leri Azure AD'niz için doğru Active Directory izinlerini yapılandırmanıza yardımcı olması için bir koleksiyon içerir (Ağustos 2018'de yayımlanan) 1.1.880.0 yapı ile kullanılmaya başlandı Dağıtım bağlanın. 
+PowerShell modülü adlı [ADSyncConfig.psm1](reference-connect-adsyncconfig.md) cmdlet'leri Azure AD'niz için doğru Active Directory izinlerini yapılandırmanıza yardımcı olması için bir koleksiyon içerir (Ağustos 2018'de yayımlanan) 1.1.880.0 yapı ile kullanılmaya başlandı Dağıtım bağlanın. 
 
 ## <a name="overview"></a>Genel Bakış 
 Aşağıdaki PowerShell cmdlet'lerini, Azure AD'yi etkinleştirmeye yönelik anlatabilirsiniz her bir özellik AD DS bağlayıcı hesabının Kurulum Active Directory izinleri için kullanılabilir. Ormanınıza bağlanmak için bir özel etki alanı hesabı kullanarak Azure AD Connect'i yüklemek istediğiniz her sorunları önlemek için Active Directory izinlerini önceden hazırlamanız. Bu ADSyncConfig modülü, Azure AD Connect dağıtıldıktan sonra izinlerini yapılandırmak için de kullanılabilir.
@@ -280,7 +280,7 @@ Set-ADSyncRestrictedPermissions [-ADConnectorAccountDN] <String> [-Credential] <
 
 ``` powershell
 $credential = Get-Credential 
-Set-ADSyncRestrictedPermissions -ObjectDN 'CN=ADConnectorAccount,CN=Users,DC=Contoso,DC=com' -Credential $credential  
+Set-ADSyncRestrictedPermissions -ADConnectorAccountDN'CN=ADConnectorAccount,CN=Users,DC=Contoso,DC=com' -Credential $credential  
 ```
 
 Bu cmdlet şu izinler ayarlanır: 

@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
+ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 977c464e0c172a25d069fa7db55d8aefb78d89d9
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: f6267bd2d97dabd71c007bcb8112936093124f74
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339102"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267037"
 ---
 # <a name="protecting-azure-sql-service-and-data-in-azure-security-center"></a>Azure SQL hizmetini ve Azure Güvenlik Merkezi'nde veri koruma
 Azure Güvenlik Merkezi, Azure kaynaklarınızın güvenlik durumunu analiz eder. Güvenlik Merkezi olası güvenlik açıklarını belirlediğinde, gerekli denetimlerin yapılandırılması işlemi boyunca size rehberlik öneriler oluşturur.  Öneriler, Azure kaynak türleri için geçerlidir: sanal makineleri (VM'ler), ağ, SQL, veri ve uygulama.
 
-Bu makalede Azure SQL hizmet ve verilere uygulanır önerileri ele alır. Azure SQL sunucuları ve veritabanları, SQL veritabanları için şifreleme ve Azure depolama hesabınızın şifrelemesini etkinleştirmek için denetimi etkinleştirme etrafında önerileri Merkezi.  Aşağıdaki tabloda, hizmet ve veri kullanılabilir SQL önerileri ve uygulamanız durumunda her birinin yaptığı anlamanıza yardımcı olması için bir başvuru olarak kullanın.
+
 ### <a name="monitor-data-security"></a>Veri güvenliğini izleme
 
 **Önleme** bölümünde **Veri güvenliği**’ne tıkladığınızda, **Veri Kaynakları** bölümünü SQL ve Depolama’ya yönelik önerilerle birlikte açılır. Ayrıca, veritabanının genel sağlık durumu için [öneriler](security-center-sql-service-recommendations.md) içerir. Depolama şifrelemesi hakkında daha fazla bilgi için [Azure Güvenlik Merkezi'ndeki Azure depolama hesabı için şifrelemeyi etkinleştirme](security-center-enable-encryption-for-storage-account.md) bölümünü okuyun.
@@ -60,7 +60,6 @@ Denetimi etkinleştirmek için **Denetim** seçeneğinin altında **AÇIK**'ı s
 |SQL|15|SQL veritabanlarında denetimi etkinleştirme|Azure SQL veritabanları için denetimi etkinleştirin. (Yalnızca azure SQL Hizmeti. Sanal makineler üzerinde çalışan SQL dahil değildir.)|
 |Data lake analytics|15|Data Lake Analytics, bekleyen şifreleme etkinleştir|Saydam veri şifrelemesi, Data Lake Analytics bölgesinde, bekleyen verilerin güvenliğini sağlamak etkinleştirin. Bekleme sırasında şifreleme saydamdır, yani Data Lake Analytics kaydetmeden önce verileri otomatik olarak şifreler ve almadan öncesinde verilerin şifresini çözer. İçinde uygulamalar gereken değişiklik yok ve şifreleme nedeniyle Data Lake Analytics ile etkileşim kuran hizmetler. Bekleme sırasında şifreleme fiziksel hırsızlığa veri kaybı riski en aza indirir ve ayrıca yasal uyumluluk gereksinimlerini karşılamaya yardımcı olur.|
 |Data lake store|15|Data Lake Store için bekleyen şifrelemenin etkinleştir|Saydam veri şifrelemesi, Data Lake Store bekleyen veriler güvenli hale getirmek etkinleştirin. Bekleme sırasında şifreleme saydamdır, yani Data Lake Store kaydetmeden önce verileri otomatik olarak şifreler ve almadan öncesinde verilerin şifresini çözer. Uygulamalar ve hizmetler şifreleme uyum sağlamak için Data Lake Store ile etkileşimde bulunan herhangi bir değişiklik yapmanız gerekmez. Bekleme sırasında şifreleme fiziksel hırsızlığa veri kaybı riski en aza indirir ve ayrıca yasal uyumluluk gereksinimlerini karşılamaya yardımcı olur.|
-|Depolama hesabı|15|Azure Depolama Hesabı için şifrelemeyi etkinleştirin|Azure depolama hizmeti şifrelemesi, bekleyen veriler için etkinleştirin. Azure depolama alanına yazılır ve alma önce şifrelerini çözer, verileri şifreleyerek depolama hizmeti şifrelemesi (SSE) çalışır. SSE, şu anda yalnızca Azure Blob hizmeti için kullanılabilir ve blok blobları, sayfa blobları için kullanılabilir ve ekleme blobları.|
 |Data lake analytics|5|Data Lake analytics'te tanılama günlüklerini etkinleştirme|Günlükleri etkinleştirmek ve bunları bir yıla kadar korur. Bu, etkinlik kayıtlarını araştırma amacıyla bir güvenlik olayı ortaya veya ağınızın tehlikeye yeniden oluşturmanıza olanak sağlar. |
 |Data lake store|5|Azure Data Lake Store tanılama günlüklerine etkinleştir|Günlükleri etkinleştirmek ve bunları bir yıla kadar korur. Bu, etkinlik kayıtlarını araştırma amacıyla bir güvenlik olayı ortaya veya ağınızın tehlikeye yeniden oluşturmanıza olanak sağlar. |
 |SQL|30|SQL veritabanlarınızda güvenlik açıklarını düzeltin|SQL güvenlik açığı değerlendirmesi, veritabanınızı güvenlik açıkları için tarar ve yanlış yapılandırmalar, aşırı izinleri ve korumasız hassas veriler gibi en iyi sapmaları kullanıma sunar. Güvenlik açıkları bulundu çözme, veritabanı güvenliği stature büyük ölçüde artırabilir.|

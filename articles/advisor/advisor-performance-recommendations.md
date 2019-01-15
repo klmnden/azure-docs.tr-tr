@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kasparks
-ms.openlocfilehash: 53571fa0c29c4b9bf5493a1e558356eba38fe617
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 3caf838fec3a5c0ab847ded85b269df7a66859e0
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244425"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266754"
 ---
 # <a name="advisor-performance-recommendations"></a>Danışmanı performans önerileri
 
@@ -77,7 +77,8 @@ Danışman, çoğaltılmış tablolar olmayan ancak dönüştürmenizi avantaj e
 
 Depolama hesabı, dağıtım modeli için Azure Resource Manager (şablon dağıtımları, ek güvenlik seçenekleri ve Azure Depolama'nın en son özelliklerin kullanımı bir GPv2 hesabına yükseltme olanağı yararlanmak için ARM) geçirin. Danışman, Klasik dağıtım modelini kullanarak herhangi bir tek başına bir depolama hesabı tanımlayacak ve ARM dağıtım modeline geçirilmesi önerir.
 
-Azure İzleyici'de klasik uyarılar duyurulan Haziran 2019 ' devre dışı bırakmak için yeni uyarı platformuyla uyarı işlevselliği korumak için ARM için Klasik depolama hesabı yükseltmeniz kesinlikle önerilir. Daha fazla bilgi için [Klasik uyarılar devre dışı bırakılması](https://azure.microsoft.com/en-us/updates/classic-alerting-monitoring-retirement/).
+> [!NOTE]
+> Klasik uyarılar Azure İzleyici'de duyurulan Haziran 2019 ' devre dışı bırakmak için yeni platform ile uyarı işlevselliği korumak için ARM için Klasik depolama hesabı yükseltmeniz kesinlikle önerilir. Daha fazla bilgi için [Klasik uyarılar devre dışı bırakılması](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Nasıl Danışmanı performans önerileri
 

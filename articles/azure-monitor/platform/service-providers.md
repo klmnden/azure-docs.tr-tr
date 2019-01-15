@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: meirm
-ms.openlocfilehash: ac34cc467cc8ff7d231551683da130c0f7565800
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 294dd56a7eb62510c30f4fbb0dbeeafc81b790f2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340547"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264791"
 ---
 # <a name="log-analytics-for-service-providers"></a>Hizmet sağlayıcıları için log Analytics
 Log Analytics, yönetilen hizmet sağlayıcılarına (msp), büyük kuruluşlar, bağımsız yazılım satıcılarına (ISV) ve müşterinin şirket içi veya Bulut altyapı sunucularını izleme ve yönetme barındırma hizmeti sağlayıcılarına yardımcı olabilir. 
@@ -63,7 +63,7 @@ Bu mimari dezavantajları şunlardır:
 * Tek bir çalışma alanına birleştirildiğinde müşteriler arasındaki verileri ayrı zor olabilir. Bunu yapmak için en iyi yöntem bilgisayarın tam etki alanı adı (FQDN) kullanmak veya Azure aboneliği kimliği kullanmaktır 
 * Tüm müşterilerden gelen tüm veriler tek bir fatura ve aynı saklama ve yapılandırma ayarları ile aynı bölgede depolanır.
 * Azure yapısı ve PaaS Hizmetleri kaynak ile aynı kiracıda bu nedenle yönetim çalışma alanına günlükler gönderilemiyor olması için çalışma gibi Azure tanılama ve Azure denetim günlükleri gerektirir.
-* Tüm müşterilerden gelen tüm VM aracıları aynı çalışma alanı kimliği ve anahtarı kullanarak cental çalışma alanına doğrulanır. Belirli bir müşteri günlüklerinden diğer müşterilerin kesintiye uğratmadan engellemek için bir yöntem yoktur.
+* Tüm müşterilerden gelen tüm VM aracıları aynı çalışma alanı kimliği ve anahtarı kullanarak merkezi çalışma alanına doğrulanır. Belirli bir müşteri günlüklerinden diğer müşterilerin kesintiye uğratmadan engellemek için bir yöntem yoktur.
 
 
 ### <a name="3-hybrid---logs-are-stored-in-workspace-located-in-the-customers-tenant-and-some-of-them-are-pulled-to-a-central-location"></a>3. Karma - günlükleri müşteri kiracısında bulunan çalışma alanında depolanır ve bazıları merkezi bir konuma yeniden çekilir.

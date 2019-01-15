@@ -1,22 +1,23 @@
 ---
-title: Kimlik bilgileri Azure Content Moderator | Microsoft Docs
-description: Content Moderator kimlik bilgilerini, API'leri ile kullanılacak yönetin.
+title: Azure Content Moderator - Content Moderator kimlik bilgilerini yönetme
+titlesuffix: Azure Cognitive Services
+description: API'leri kullanmanız gerekecektir Content Moderator kimlik bilgilerini yönetin.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
-ms.date: 06/25/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 5910961ee54c953ea241baf9bce78b79b0dfeaea
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3d183870938f44cd71f1dab4105eec390ba12d94
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260100"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266154"
 ---
-# <a name="manage-credentials"></a>Kimlik bilgilerini yönetme
+# <a name="manage-content-moderator-service-credentials"></a>Content Moderator hizmet kimlik bilgilerini yönetme
 
 Content Moderator kimlik bilgilerinizi aşağıdaki konumlarda oluşturulur:
 

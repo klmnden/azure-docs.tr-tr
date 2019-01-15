@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: ningk
-ms.openlocfilehash: 8c04c9fffbb85bb4db7a369b0dbbad6279f5d6f6
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 5a5d052052be447ea2ccbd9231d3b03d38c7615c
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420090"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266952"
 ---
 # <a name="set-up-tomcat7-on-a-linux-virtual-machine-with-azure"></a>Azure ile bir Linux sanal makinesine tomcat7'yi ayarlayın
 Apache Tomcat (veya yalnızca Cakarta Tomcat adıysa ayrıca Tomcat) bir açık kaynak web sunucusu ve Apache Software Foundation (ASF) tarafından geliştirilen servlet kapsayıcısıdır. Tomcat, Java Servlet ve JavaServer sayfaları (JSP) belirtimlerine Sun Microsystems uygular. Tomcat, Java kodu çalıştırmak için saf Java HTTP web sunucusu ortamı sağlar. En basit yapılandırmadır, Tomcat, bir tek işletim sistemi işlemde çalıştırır. Bu işlem, Java sanal makinesi (JVM) çalışır. Her HTTP isteği bir tarayıcıdan Tomcat Tomcat işlemi ayrı bir iş parçacığı olarak işlenir.  
@@ -41,10 +41,10 @@ Azure aboneliğiniz zaten sahip olduğunuz varsayılır.  Ücretsiz bir deneme s
 
 Bu makalede, Tomcat ve Linux temel bilgiye sahip olduğunu varsayar.  
 
-## <a name="phase-1-create-an-image"></a>1. Aşama: görüntü oluşturma
+## <a name="phase-1-create-an-image"></a>1. Aşama: Görüntü oluştur
 Bu aşamada, Azure'da bir Linux görüntüsü kullanarak bir sanal makine oluşturacaksınız.  
 
-### <a name="step-1-generate-an-ssh-authentication-key"></a>1. adım: bir SSH kimlik doğrulama anahtarı oluştur
+### <a name="step-1-generate-an-ssh-authentication-key"></a>1. Adım: Bir SSH kimlik doğrulama anahtarı oluştur
 SSH, sistem yöneticileri için önemli bir araçtır. Ancak, insan tarafından belirlenen bir parola temelinde erişim güvenliğini yapılandırma önerilmez. Kötü niyetli kullanıcılar, bir kullanıcı adı ve zayıf bir parolaya göre sisteme bozabilir.
 
 Güzel bir haberimiz var uzaktan erişim açık bırakın ve parolaları hakkında endişe duymamanızı bir yolu yoktur. Bu yöntem, asimetrik şifreleme ile kimlik doğrulaması oluşur. Kullanıcının özel kimlik doğrulama veren bir anahtardır. Kullanıcı hesabının parola kimlik doğrulaması izin vermeyecek şekilde bile kilitleyebilirsiniz.
@@ -56,7 +56,7 @@ Bu yöntem başka bir avantajı, farklı sunuculara oturum açmak için farklı 
 SSH kimlik doğrulama anahtarını oluşturmak için aşağıdaki adımları izleyin.
 
 1. İndirip PuTTYgen şu konumdan yükleyin: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
-2. Puttygen.exe çalıştırın.
+2. Run Puttygen.exe.
 3. Tıklayın **Oluştur** anahtarları oluşturmak için. İşlem sırasında penceresinde boş alanı üzerinde fareyi hareket ettirerek doğrulukla artırabilirsiniz.  
    ![Generate yeni anahtar düğmesini gösteren puTTY anahtar Oluşturucu ekran görüntüsü][1]
 4. Oluşturma işleminden sonra yeni bir ortak anahtar sertifikanızı Puttygen.exe gösterilir.  
@@ -64,7 +64,7 @@ SSH kimlik doğrulama anahtarını oluşturmak için aşağıdaki adımları izl
 5. Seçin ve ortak anahtarı kopyalayın ve publicKey.pem adlı bir dosyaya kaydedin. Tıklamayın **ortak anahtarı Kaydet**kaydedilmiş ortak anahtarın dosya biçimi istiyoruz ortak anahtardan farklı olduğu için.
 6. Tıklayın **özel anahtarı Kaydet**ve privateKey.ppk adlı bir dosyaya kaydedin.
 
-### <a name="step-2-create-the-image-in-the-azure-portal"></a>2. adım: Azure portalında görüntü oluşturma
+### <a name="step-2-create-the-image-in-the-azure-portal"></a>2. Adım: Azure portalında görüntüsü oluşturma
 1. İçinde [portalı](https://portal.azure.com/), tıklayın **kaynak Oluştur** bir görüntü oluşturmak için görev çubuğunda. Ardından ihtiyaçlarınıza göre Linux görüntüsünü seçin. Aşağıdaki örnekte, Ubuntu 14.04 görüntü kullanır.
 ![Portal yeni düğmesini gösteren ekran görüntüsü][3]
 
@@ -75,10 +75,10 @@ SSH kimlik doğrulama anahtarını oluşturmak için aşağıdaki adımları izl
 
 4. Gerekirse diğer ayarları yapılandırın ve ardından **Oluştur**.  
 
-## <a name="phase-2-prepare-your-virtual-machine-for-tomcat7"></a>2. Aşama: tomcat7'yi için bir sanal makine hazırlama
+## <a name="phase-2-prepare-your-virtual-machine-for-tomcat7"></a>2. Aşama: Sanal makinenizi tomcat7'yi için hazırlama
 Bu aşamada, Tomcat trafiği bir uç noktasını yapılandırın ve ardından yeni sanal makinenize bağlanın.
 
-### <a name="step-1-open-the-http-port-to-allow-web-access"></a>1. adım: web erişim izni vermek için HTTP bağlantı noktasını açın
+### <a name="step-1-open-the-http-port-to-allow-web-access"></a>1. Adım: Web erişime izin vermek için HTTP bağlantı noktasını açın
 Uç noktalar Azure genel ve özel bir bağlantı noktalarının yanı sıra bir TCP veya UDP protokolünü oluşur. Özel bağlantı noktası, hizmet sanal makine üzerinde dinleme yaptığı bağlantı noktasıdır. Genel bağlantı noktası, Azure bulut hizmeti için dışarıdan, Internet üzerinden gelen trafiği dinlediği bağlantı noktasıdır.  
 
 TCP bağlantı noktası 8080 Tomcat dinlemek için kullandığı varsayılan bağlantı noktası numarasıdır. Bu bağlantı noktası bir Azure uç noktası ile açtıysanız, siz ve diğer Internet istemcilerinin Tomcat sayfalarına erişebilirsiniz.  
@@ -98,7 +98,7 @@ TCP bağlantı noktası 8080 Tomcat dinlemek için kullandığı varsayılan ba�
       ![Ekran görüntüsü, Ekle komutunu, genel bağlantı noktası ve özel bağlantı noktası gösteren kullanıcı Arabirimi][7]
 4. Tıklayın **Tamam** sanal makineniz için uç nokta ekleme.
 
-### <a name="step-2-connect-to-the-image-you-created"></a>2. adım: oluşturduğunuz görüntüye bağlanma
+### <a name="step-2-connect-to-the-image-you-created"></a>2. Adım: Oluşturduğunuz görüntüye bağlan
 Sanal makinenize bağlanmak için herhangi bir SSH aracını seçebilirsiniz. Bu örnekte, PuTTY kullanırız.  
 
 1. Portalda, sanal makinenin DNS adını alın.
@@ -114,7 +114,7 @@ Sanal makinenize bağlanmak için herhangi bir SSH aracını seçebilirsiniz. Bu
 4. İndirdikten sonra yürütülebilir dosya Putty.exe tıklayın. PuTTY yapılandırması, ana bilgisayar adıyla temel seçenekleri yapılandırın ve bağlantı noktası sanal makineniz özelliklerinden elde edilen numarası.   
 ![PuTTY yapılandırması ana bilgisayar adını ve bağlantı noktası seçeneklerini gösteren ekran görüntüsü][9]
 
-5. Sol bölmede **bağlantı** > **SSH** > **Auth**ve ardından **Gözat** belirtmek için privateKey.ppk dosyasının konumu. PrivateKey.ppk dosyayı PuTTYgen tarafından daha önce içinde oluşturulan özel anahtarı içeren "1. Aşama: görüntü oluşturma" bölümünde bu makalenin.  
+5. Sol bölmede **bağlantı** > **SSH** > **Auth**ve ardından **Gözat** belirtmek için privateKey.ppk dosyasının konumu. PrivateKey.ppk dosyayı PuTTYgen tarafından daha önce içinde oluşturulan özel anahtarı içeren "1. Aşama: Bu makalede bir görüntü oluşturma"bölümü.  
 ![Bağlantı dizin hiyerarşisi ve Gözat düğmesini gösteren ekran görüntüsü][10]
 
 6. **Aç**'a tıklayın. Bir ileti kutusu tarafından uyarı. DNS adı yapılandırdıysanız ve bağlantı noktası numarası doğru değilse tıklayın **Evet**.
@@ -123,10 +123,10 @@ Sanal makinenize bağlanmak için herhangi bir SSH aracını seçebilirsiniz. Bu
 7. Kullanıcı adınızı girmeniz istenir.  
 ![Kullanıcı adı girin nerede gösteren ekran görüntüsü][12]
 
-8. Sanal makineyi oluşturmak için kullanılan kullanıcı adı girin "1. Aşama: görüntü oluşturma" bölümünde bu makalenin önceki kısımlarında. Aşağıdaki gibi bir şey görürsünüz:  
+8. Sanal makineyi oluşturmak için kullanılan kullanıcı adı girin "1. Aşama: Görüntü oluşturma"bölümünde bu makalenin önceki kısımlarında. Aşağıdaki gibi bir şey görürsünüz:  
 ![Kimlik doğrulama gösteren ekran görüntüsü][13]
 
-## <a name="phase-3-install-software"></a>3. Aşama: Yazılımı yükleme
+## <a name="phase-3-install-software"></a>3. Aşama: Yazılım yükleme
 Bu aşamada Java Çalışma zamanı ortamı, tomcat7'yi ve diğer tomcat7'yi bileşenlerini yükleyin.  
 
 ### <a name="java-runtime-environment"></a>Java Çalışma zamanı ortamı
@@ -141,7 +141,7 @@ Tomcat, Java dilinde yazılır. Bkz: [Azure desteklenen jdk](https://aka.ms/azur
 Java Çalışma zamanı ortamı doğru yüklenip yüklenmediğini test etmek için aşağıdakine benzer bir komut kullanabilirsiniz:  
     Java-Sürüm  
 
-Aşağıdaki gibi bir ileti görmeniz gerekir: ![başarılı OpenJDK yükleme iletisi][14]
+Aşağıdaki gibi bir ileti görürsünüz: ![Başarılı OpenJDK yükleme iletisi][14]
 
 
 ### <a name="install-tomcat7"></a>Tomcat7'yi yükleme
@@ -164,7 +164,7 @@ Kullanım **sudo apt-cache arama tomcat7'yi** komut tüm kullanılabilir bileşe
 
     sudo apt-get install tomcat7-user         #tools to create user instances  
 
-## <a name="phase-4-configure-tomcat7"></a>4. Aşama: Tomcat7'yi yapılandırma
+## <a name="phase-4-configure-tomcat7"></a>4. Aşama: Configure Tomcat7
 Bu aşamada, Tomcat yönetebilirsiniz.
 
 ### <a name="start-and-stop-tomcat7"></a>Başlatma ve durdurma tomcat7'yi
@@ -212,7 +212,7 @@ Bağlandıktan sonra aşağıdakine benzer bir şey görmeniz gerekir:
 
   * Tomcat dinleme bağlantı noktası, sanal makinenin uç Tomcat trafiği için özel bağlantı noktası ile aynı değil.  
 
-     Genel bağlantı noktası ve özel bağlantı noktası uç nokta ayarları denetleyin ve Tomcat aynı bağlantı noktasını dinleme özel bağlantı noktası olduğundan emin olun. Bkz: "1. Aşama: görüntü oluşturma" uç noktaları sanal makineniz için yapılandırmaya ilişkin yönergeler için bu makalenin.  
+     Genel bağlantı noktası ve özel bağlantı noktası uç nokta ayarları denetleyin ve Tomcat aynı bağlantı noktasını dinleme özel bağlantı noktası olduğundan emin olun. Bkz: "1. Aşama: Bu makalede uç noktaları sanal makineniz için yapılandırmaya ilişkin yönergeler için görüntü oluşturma"bölümü.  
 
      Tomcat dinleme bağlantı noktasını belirlemek için /etc/httpd/conf/httpd.conf (Red Hat sürüm) veya /etc/tomcat7/server.xml (Debian sürüm) açın. Varsayılan olarak, Tomcat dinleme bağlantı noktası 8080'dir. Örnek aşağıda verilmiştir:  
 

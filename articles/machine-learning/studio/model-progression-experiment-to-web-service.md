@@ -1,26 +1,8 @@
 ---
-title: Nasıl bir web hizmeti - Azure Machine Learning Studio'da model olur | Microsoft Docs
-description: Nasıl bir geliştirme, Azure Machine Learning modeli ilerler çalışır hale getirilen bir Web hizmeti için deneme mekanizması genel bakış.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 25e0c025-f8b0-44ab-beaf-d0f2d485eb91
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/20/2017
-ms.openlocfilehash: 5cfa11042d269353cf33f99d1238265ff9657853
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253876"
+Başlık: Nasıl bir Machine Learning Studio modeli bir web hizmeti titleSuffix olur: Azure Machine Learning Studio açıklaması: Nasıl bir geliştirme, Azure Machine Learning modeli ilerler çalışır hale getirilen bir Web hizmeti için deneme mekanizması genel bakış.
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+
+Yazar: ericlicoding ms.author: amlstudiodocs MS.özel: önceki ms.author=yahajiza, yazar önceki = YasinMSFT ms.date: 03/20/2017
 ---
 # <a name="how-a-machine-learning-studio-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>Machine Learning Studio'da model denemeden bir çalışır hale getirilen Web hizmetine nasıl ilerlediğini
 Azure Machine Learning Studio geliştirin, çalıştırın, test etme ve yineleme olanak tanıyan etkileşimli bir tuvale sağlayan bir ***deneme*** Tahmine dayalı bir modeli temsil eden. Çok çeşitli için modüller vardır:

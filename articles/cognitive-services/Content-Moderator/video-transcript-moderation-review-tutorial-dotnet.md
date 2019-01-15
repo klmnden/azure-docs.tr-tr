@@ -1,27 +1,27 @@
 ---
 title: "Öğretici: Orta videoları ve. NET'te - Content Moderator dökümleri"
 titlesuffix: Azure Cognitive Services
-description: Content Moderator'ı kullanarak .NET'te videoları ve transkriptleri denetleme.
+description: Bu öğreticide makine Yardımlı resim denetimi ve İnsan içinde--döngüsü gözden geçirme oluşturma ile tam bir video ve döküm denetimi çözümü oluşturmak nasıl anlamanıza yardımcı olur.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: tutorial
-ms.date: 1/27/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: e5958eeb4aca4cdc41bbc263a4cc38378927874b
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 6f5a6c6ac4bd125fd7aa6358fe92f9453a0314b1
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118583"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266783"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Öğretici: Video ve döküm denetleme
 
 Content Moderator'ın video API'leri videoları denetlemenizi ve kullanıcı tarafından çalıştırılan gözden geçirme aracında video incelemeleri oluşturmanızı sağlar. 
 
-Bu ayrıntılı öğretici, makine destekli denetim ve kullanıcının da döngüye alındığı inceleme oluşturma ile eksiksiz bir video ve transkript denetimi çözümünün nasıl oluşturulduğunu anlamanıza yardımcı olur.
+Bu öğreticide makine Yardımlı resim denetimi ve İnsan içinde--döngüsü gözden geçirme oluşturma ile tam bir video ve döküm denetimi çözümü oluşturmak nasıl anlamanıza yardımcı olur.
 
 Bu öğretici için [C# konsol uygulamasını](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) indirin. Konsol uygulaması SDK'yı ve ilgili paketleri kullanarak aşağıdaki görevleri yerine getirir:
 

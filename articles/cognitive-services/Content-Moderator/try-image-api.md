@@ -1,28 +1,28 @@
 ---
 title: API Konsolu - Content Moderator ile orta görüntüleri
 titlesuffix: Azure Cognitive Services
-description: Görüntü denetimi Content Moderator API'si konsolunda test edin.
+description: Görüntü Denetim API'si, Azure Content Moderator görüntü içeriği için tarama ve gözden geçirme denetimi iş akışlarını başlatmak için kullanın.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 08/05/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: a88eb1e0fc91fb47a95c8b1fea84cfac32674266
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 154a7cd4855429bfe3274974a0f4ae5c8be841f2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224986"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265949"
 ---
 # <a name="moderate-images-from-the-api-console"></a>Orta görüntülerden API Konsolu
 
 Kullanım [görüntü denetim API'si](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c) Azure Content Moderator, görüntü içeriği için tarama ve gözden geçirme denetimi iş akışlarını başlatmak için de. Denetimi işi içeriğinizi küfür tarar ve özel ve paylaşılan kara karşı karşılaştırır.
 
 ## <a name="use-the-api-console"></a>API Konsolu
-Çevrimiçi konsolunda API'yi test sürüşü önce abonelik anahtarınızı gerekir. Bu dosya çubuğunda bulunur **ayarları** sekmesinde **Ocp-Apim-Subscription-Key** kutusu. Daha fazla bilgi için [genel bakış](overview.md).
+Çevrimiçi konsolunda API'yi test sürüşü önce abonelik anahtarınızı gerekir. Bu dosya çubuğunda bulunur **ayarları** sekmesinde **Ocp-Apim-Subscription-Key** kutusu. Daha fazla bilgi için bkz. [Genel Bakış](overview.md).
 
 1.  Git [görüntü denetim API'si başvurusu](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c).
 

@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 08/09/2018
-ms.openlocfilehash: b5d931225edce92590b9c2b7f28ad39630362e6d
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 2afdd3f78a99d9aae5e84bc2fdf1b21cbdc150d2
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213833"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306395"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>SQL Data Sync ile birden fazla Bulut ve şirket içi veritabanı arasında veri eşitleme
 
@@ -79,6 +79,14 @@ Bir eşitleme grubu, aşağıdaki özelliklere sahiptir:
 -   **Çakışmaları giderme:** Veri eşitleme çakışma çözümü için iki seçenek sağlar *Hub WINS* veya *üye WINS*.
     -   Seçerseniz *Hub WINS*, değişikliklerin hub'ında her zaman üyesi değişiklikleri üzerine.
     -   Seçerseniz *üye WINS*, üye değişikliklerin üzerine yaz hub'ında yapılan değişiklikler. Birden fazla üyesi ise, hangi üye eşitler son değeri bağlıdır.
+
+## <a name="compare-data-sync-with-transactional-replication"></a>İşlem çoğaltma ile veri eşitleme karşılaştırın
+
+| | Data Sync | İşlem çoğaltması |
+|---|---|---|
+| Yararları | -Etkin-etkin desteği<br/>İki yönlü şirket içi ve Azure SQL veritabanı arasında | -Daha düşük gecikme süresi<br/>-İşlem tutarlılığı<br/>-Mevcut topolojisi geçişten sonra yeniden kullanma |
+| Dezavantajları | -5 dakika veya daha fazla gecikme süresi<br/>-İşlem tutarlılığı<br/>-Daha yüksek performans etkisi | -Azure SQL veritabanı tek veritabanı yayımlanamıyor<br/>-Yüksek bakım maliyeti |
+| | | |
 
 ## <a name="get-started-with-sql-data-sync"></a>SQL Data Sync'yi kullanmaya başlayın
 

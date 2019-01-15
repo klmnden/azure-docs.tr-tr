@@ -1,59 +1,60 @@
 ---
-title: Diğer API'lara erişmek için Azure içerik Aracı alanında bağlayıcıları kullanın | Microsoft Docs
-description: Bağlayıcıları kullanarak içerik aracı iş akışları için diğer API'lere erişim öğrenin.
+title: İçerik - Content Moderator'ı yönetme çalışırken diğer hizmetlere bağlanma
+titlesuffix: Azure Cognitive Services
+description: Bağlayıcıları kullanarak diğer API'lere, Content Moderator iş akışları için öğrenin.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
-ms.date: 06/22/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: d8114457e7079ca8772cab830bd011dcddf372f5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 99d8b3603278a9c6c432ca32a1d85e9abe34e1da
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351604"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265592"
 ---
-# <a name="connectors"></a>Bağlayıcılar
+# <a name="connect-to-other-cognitive-services"></a>Bilişsel diğer hizmetlere bağlanma
 
-Azure içerik denetleyici iş akışlarını içerik denetleyici API'leri yanı sıra diğer API'leri kullanabilirsiniz. Diğer API'lara içerik Aracı alanında bir bağlayıcı kullanarak erişin. Bağlayıcı diğer API'leri için bir bağlantı sağlar.
+Azure Content Moderator iş akışları, Content Moderator API'sine yanı sıra diğer API'leri kullanabilirsiniz. Diğer API'ler, bağlayıcı Content Moderator ile erişin. Bağlayıcı bir API için bir bağlantı sağlar.
 
-İçerik denetleyici bu varsayılan bağlayıcıları içerir:
+Content Moderator, bu varsayılan bağlayıcıları içerir:
 
 * Duygu Tanıma API'si
 * Yüz Tanıma API'si
 * PhotoDNA bulut hizmeti
 
-![İçerik denetleyici kullanılabilir bağlayıcılar](images/connectors-1.png)
+![Content Moderator kullanılabilir bağlayıcılar](images/connectors-1.png)
 
 ## <a name="verify-your-credentials"></a>Kimlik bilgilerinizi doğrulayın 
 
-Bir iş akışı tanımlamadan önce kullanmak istediğiniz API Bağlayıcısı için geçerli kimlik bilgileri olduğundan emin olun:
+Bir iş akışı tanımlamadan önce kullanmak istediğiniz API Bağlayıcısı için geçerli kimlik bilgilerine sahip olduğunuzdan emin olun:
 
-1.  Gözden geçirme aracı üzerinde panonun seçin **ayarları** > **Bağlayıcılar**.
+1.  Gözden geçirme aracı üzerinde Pano seçin **ayarları** > **Bağlayıcılar**.
 
-  ![İçerik denetleyici select bağlayıcılar](images/connectors-2.png)
+  ![Content Moderator select bağlayıcılar](images/connectors-2.png)
 
 2.  Seçin **Düzenle** kimlik bilgilerini doğrulamak istediğiniz bağlayıcıyı yanındaki simge.
 
-  ![İçerik yöneticiyi Düzenle simgesi seçin](images/connectors-3.png)
+  ![Content Moderator düzenleme simgesini seçin](images/connectors-3.png)
 
-3.  Abonelik anahtarı görüntülenir. Tüm düzenlemeleri yapın, seçin **kaydetmek** işiniz bittiğinde.
+3.  Abonelik anahtarı görüntülenir. Tüm düzenlemeleri yapın, seçin **Kaydet** işiniz bittiğinde.
 
-  ![İçerik yöneticiyi Düzenle bağlayıcılar sayfası](images/connectors-4-1.png)
+  ![Content Moderator Düzenle bağlayıcılar sayfasında](images/connectors-4-1.png)
  
-## <a name="add-a-connector"></a>Bir bağlayıcı ekleme
+## <a name="add-a-connector"></a>Bağlayıcı Ekle
 
-1.  Bir bağlayıcı eklemeden önce bir abonelik anahtarı gerekir. Gözden geçirme aracı üzerinde panonun seçin **ayarları** > **kimlik bilgileri**. Seçme ve alanında değer kopyalama **Ocp-Admin-Subscription-Key** kutusu.
+1.  Bir bağlayıcı eklemeden önce bir abonelik anahtarı gerekir. Gözden geçirme aracı üzerinde Pano seçin **ayarları** > **kimlik bilgilerini**. Seçin ve içinde değerini kopyalayın **Ocp-Admin-Subscription-Key** kutusu.
 
-2.  Seçin **Bağlayıcılar**. Gözden geçirme aracı Pano görüntülenen kullanılabilir bağlayıcılar birini seçin. Ardından, seçin **Bağlan**. 
+2.  Seçin **Bağlayıcılar**. İnceleme aracını Panosu üzerinde görüntülenen bağlayıcıları birini seçin. Ardından, **Connect**. 
 
-  ![İçerik denetleyici Ekle bağlayıcı sayfası](images/connectors-5.png)
+  ![Content Moderator Ekle bağlayıcı sayfası](images/connectors-5.png)
 
 3.  İçinde **Ocp-Admin-Subscription-Key** kutusunda, kopyaladığınız anahtarını yapıştırın. Ardından **Kaydet**’i seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Bağlayıcılar kullanmayı öğrenin [özel iş akışları tanımlamak](workflows.md).
+* Bağlayıcılar için kullanmayı öğrenin [özel iş akışlarınızı tanımlamanızı](workflows.md).

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apipm
-ms.openlocfilehash: a4f9147008ceb0de32e0f5879a194b45bd4c6421
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 251caa840446e75ff13d9b4dcebcbae3a36473c8
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245404"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265456"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API içeri aktarma kısıtlamaları ve bilinen sorunlar
 ## <a name="about-this-list"></a>Bu liste hakkında
@@ -35,7 +35,7 @@ Openapı belgenizi alma hataları almaya önceden doğruladınız emin olun. Her
 * **$ref** işaretçileri, harici dosyalara başvuruda bulunamaz.
 * **x-ms-yolları** ve **x sunucuları** uzantıları yalnızca desteklenir.
 * Özel uzantılar içeri aktarma işlemi sırasında yok sayılır ve olmayan kaydedilmiş veya de dışarı aktarma için korunur.
-* **Özyineleme** -API Management, tanımlanan tanımları yinelemeli olarak (örneğin, kendilerini kaynağa başvuran) desteklemez.
+* **Özyineleme** -API Management, tanımlanan tanımları yinelemeli olarak (örneğin, kendilerini kaynağa başvuran şemaları) desteklemez.
 * Kaynak dosya URL'si (varsa) için göreli sunucu URL'leri uygulanır.
 
 ### <a name="open-api-v2"> </a>Openapı sürüm 2

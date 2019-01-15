@@ -1,26 +1,8 @@
 ---
-title: 'NET # sinir ağları - Azure Machine Learning Studio | Microsoft Docs'
-description: 'Net # kullanarak Azure Machine Learning Studio ile bir özel sinir ağı modelinin nasıl oluşturulacağını örnekleri ile birlikte belirtim dilinin söz dizimi için Net # sinir ağları.'
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: cfd1454b-47df-4745-b064-ce5f9b3be303
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: reference
-ms.date: 03/01/2018
-ms.openlocfilehash: ec33ac469d33a07d00f379beef2db9f4405e4679
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631134"
+Başlık: NET # sinir ağları titleSuffix: Azure Machine Learning Studio açıklaması: Net # kullanarak Azure Machine Learning Studio ile bir özel sinir ağı modelinin nasıl oluşturulacağını örnekleri ile birlikte belirtim dilinin söz dizimi için Net # sinir ağları.
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: başvuru
+
+Yazar: ericlicoding ms.author: amlstudiodocs MS.özel: Yazar önceki = heatherbshapiro, önceki ms.author=hshapiro ms.date: 03/01/2018
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio için NET # sinir ağı belirtim dili Kılavuzu
 

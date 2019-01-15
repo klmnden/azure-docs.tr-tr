@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6a9b44ed56774466bae2f0f5d48b5e012382721b
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 40e925fff9d87d8590ea3a83be9e7d93a84d6e26
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865242"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266663"
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Diğer görevlere bağlı görevlerin çalıştırılacak görev bağımlılıklarını oluşturma
 
@@ -79,7 +79,7 @@ Azure Batch hizmetinde kullanabileceğiniz üç basit görev bağımlılık sena
 |:---:| --- | --- |
 |  [Bire bir](#one-to-one) |*Görevb* bağlıdır *Göreva* <p/> *Görevb* kadar yürütme için zamanlanır değil *Göreva* başarıyla tamamlandı |![Diyagram: bire bir görev bağımlılığı][1] |
 |  [-Çok](#one-to-many) |*görevC* hem *görevA* hem de *görevB*’ye bağlıdır <p/> *Görevc* hem kadar yürütme için zamanlanır değil *Göreva* ve *Görevb* başarıyla tamamladınız |![Diyagram: bir-çok görev bağımlılığı][2] |
-|  [Görev Kimliği aralığı](#task-id-range) |*Görevd* bir dizi üzerinde bağlıdır <p/> *Görevd* kimlikleri görevlerle kadar yürütme için zamanlanır değil *1* aracılığıyla *10* başarıyla tamamladınız |![Diyagram: Görev kimliği aralığı bağımlılığı][3] |
+|  [Görev Kimliği aralığı](#task-id-range) |*Görevd* bir dizi üzerinde bağlıdır <p/> *Görevd* kimlikleri görevlerle kadar yürütme için zamanlanır değil *1* aracılığıyla *10* başarıyla tamamladınız |![Diyagram: Görev Kimliği aralığı bağımlılığı][3] |
 
 > [!TIP]
 > Oluşturabileceğiniz **çoktan çoğa** burada görevlere A ve b C, D, E ve F her görevleri bağlı gibi ilişkileri Bu, burada birden çok Yukarı Akış görevi çıkışı üzerinde görevleri bağımlı gibi paralel ön işleme senaryolarda kullanışlıdır.

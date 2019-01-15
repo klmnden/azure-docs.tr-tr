@@ -14,12 +14,13 @@ ms.topic: get-started-article
 ms.date: 12/03/2018
 ms.author: mabrigg
 ms.reviwer: xiaofmao
-ms.openlocfilehash: 1393dd32aea8cb6d348092ea1fc56752f659beab
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.lastreviewed: 12/03/2018
+ms.openlocfilehash: 947886a96ab31150cf81ebea0a3cdd69e0273b01
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53717883"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305766"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack Depolama: Farklılıklar ve dikkat edilmesi gerekenler
 
@@ -110,7 +111,7 @@ Azure Stack depolama aşağıdaki istemci kitaplıklardan destekler:
 | C++            | 2.4.0 3.1.0 için           | NuGet paketi:<br>https://www.nuget.org/packages/wastorage.v140/<br> <br>GitHub sürüm:<br>https://github.com/Azure/azure-storage-cpp/releases                                                                                                                                                                                          | Bağlantı dizesi kurulumu      |
 | PHP            | 0.15.0 1.0.0 için          | GitHub sürüm:<br>https://github.com/Azure/azure-storage-php/releases<br> <br>Oluşturucusu yükleyin (aşağıdaki ayrıntılara bakın)                                                                                                                                                                                                                  | Bağlantı dizesi kurulumu      |
 | Python         | 0.30.0 1.0.0 için          | GitHub sürüm:<br>https://github.com/Azure/azure-storage-python/releases                                                                                                                                                                                                                                                                | Hizmet örneği bildirimi |
-| Ruby           | 0.12.1 1.0.1 için          | RubyGems paketi:<br>Ortak:<br>https://rubygems.org/gems/azure-storage-common/<br>BLOB: https://rubygems.org/gems/azure-storage-blob/<br>Kuyruk: https://rubygems.org/gems/azure-storage-queue/<br>Tablo: https://rubygems.org/gems/azure-storage-table/<br> <br>GitHub sürüm:<br>https://github.com/Azure/azure-storage-ruby/releases | Bağlantı dizesi kurulumu      |
+| Ruby           | 0.12.1 1.0.1 için          | RubyGems paketi:<br>Ortak:<br>https://rubygems.org/gems/azure-storage-common/<br>Blob: https://rubygems.org/gems/azure-storage-blob/<br>Kuyruk: https://rubygems.org/gems/azure-storage-queue/<br>Tablo: https://rubygems.org/gems/azure-storage-table/<br> <br>GitHub sürüm:<br>https://github.com/Azure/azure-storage-ruby/releases | Bağlantı dizesi kurulumu      |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -1,26 +1,8 @@
 ---
-title: PowerShell - Azure ile yeni bir Machine Learning Studio web hizmetini yeniden eğitme | Microsoft Docs
-description: Program aracılığıyla bir modeli yeniden eğitme ve Azure Machine Learning Machine Learning Yönetimi PowerShell cmdlet'lerini kullanarak yeni eğitim modeli kullanmak için web hizmetini güncelleştirmek hakkında bilgi edinin.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 3953a398-6174-4d2d-8bbd-e55cf1639415
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/28/2017
-ms.openlocfilehash: 0dc41b001ecca26239c0a9e8f69e2709d6927fcd
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250592"
+Başlık: Yeni bir Machine Learning Studio web hizmeti PowerShell titleSuffix ile yeniden eğitme: Azure Machine Learning Studio açıklaması: Program aracılığıyla bir modeli yeniden eğitme ve Azure Machine Learning Machine Learning Yönetimi PowerShell cmdlet'lerini kullanarak yeni eğitim modeli kullanmak için web hizmetini güncelleştirmek hakkında bilgi edinin.
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/28/2017
 ---
 # <a name="retrain-a-new-resource-manager-based-studio-web-service-using-powershell"></a>PowerShell kullanarak yeni bir Studio Resource Manager tabanlı web hizmetini yeniden eğitme
 Yeni bir web hizmetini yeniden eğitme, Tahmine dayalı web hizmeti tanımının yeni eğitim modeli başvuru güncelleştirin.

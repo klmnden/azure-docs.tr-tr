@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload8: na
-ms.date: 06/07/2018
+ms.date: 01/14/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: eb81e5202b5705c59bae8e07cbf2ade43b03f075
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 928c7921ce184f5f17916c3b9e182ce3754b0115
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064483"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306276"
 ---
 # <a name="azure-log-integration-faq"></a>Azure günlük tümleştirmesi hakkında SSS
 
 Bu makalede, Azure günlük tümleştirmesi hakkında sık sorulan sorular (SSS) yanıtlarını.
 
 >[!IMPORTANT]
-> Azure günlük tümleştirme özelliği 06/01/2019 tarafından kullanımdan kaldırılacaktır. 27 Haziran 2018 tarihine kadar AzLog indirmeler devre dışı bırakılır. Taşıma iletme gözden geçirme sonrası yapmanız gerekenler hakkında rehberlik için [SIEM araçlarla tümleştirmek için kullanım Azure İzleyici](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
+> Azure günlük tümleştirme özelliği 06/01/2019 tarafından kullanımdan kaldırılacaktır. AzLog yüklemeleri, 27 Haziran 2018'de devre dışı bırakıldı. Taşıma iletme gözden geçirme sonrası yapmanız gerekenler hakkında rehberlik için [SIEM araçlarla tümleştirmek için kullanım Azure İzleyici](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
 Azure günlük tümleştirmesi, Azure kaynaklarınızı ham günlüklerinden, şirket içi güvenlik bilgileri ve Olay yönetimi (SIEM) sistemleriyle tümleştirmek için kullanabileceğiniz bir Windows işletim sistemi hizmetidir. Bu tümleştirme, tüm varlıklarınız için şirket içinde veya bulutta birleştirilmiş bir Pano sağlar. Ardından toplayın, ilişkilendirin, çözümleyebilir ve uygulamalarınızla ilişkili güvenlik olayları için uyarı.
 
@@ -49,7 +49,7 @@ Komutunu çalıştırın **AzLog kaynağı listesi**.
 
 Yerleştirilir denetim günlüklerini söz konusu olduğunda **AzureResourcemanagerJson** dizinleri, abonelik kimliği: günlük dosyası adında. Bu ayrıca günlükler için geçerlidir **AzureSecurityCenterJson** klasör. Örneğin:
 
-20170407T070805_2768037.0000000023. **1111e5ee-1111-111b-a11e-1e111e1111dc**.json
+20170407T070805_2768037.0000000023.**1111e5ee-1111-111b-a11e-1e111e1111dc**.json
 
 Azure Active Directory denetim günlüklerini adının bir parçası olarak Kiracı Kimliğini içerir.
 
@@ -82,7 +82,7 @@ Abonelik kimliği, kaynak eklenirken bir hata için kolay ad ekleyin:
     Azlog source add <sourcefriendlyname>.<subscription id> <StorageName> <StorageKey>  
 Abonelik kimliği de dahil olmak üzere aşağıdaki meta verileri XML olay vardır:
 
-![Olay XML][1]
+![Event XML][1]
 
 ## <a name="error-messages"></a>Hata iletileri
 ### <a name="when-i-run-the-command-azlog-createazureid-why-do-i-get-the-following-error"></a>Komutu çalıştırdığınızda miyim ```AzLog createazureid```, neden şu hatayı alıyorum?

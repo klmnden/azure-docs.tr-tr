@@ -1,26 +1,8 @@
 ---
-title: "4. adım: Tahmine dayalı analiz modellerini - Azure Machine Learning Studio'da eğitim | Microsoft Docs"
-description: "Adım 4 / geliştirme Tahmine dayalı çözüm Kılavuzu: Eğitme, Puanlama ve Azure Machine Learning Studio'da birden fazla modeli değerlendirin."
-services: machine-learning
-documentationcenter: ''
-author: garyericson
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: garye
-editor: cgronlun
-ms.assetid: d905f6b3-9201-4117-b769-5f9ed5ee1cac
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/23/2017
-ms.openlocfilehash: 2464ef0ba89f138834bedfdc9f29347092e5fe99
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53254522"
+Başlık: ' 4. adım: Tahmine dayalı analiz modellerini titleSuffix Eğitimi: Azure Machine Learning Studio açıklaması: ' Geliştir Tahmine dayalı çözüm Kılavuzu, adım 4: Eğitme, Puanlama ve Azure Machine Learning Studio'da birden fazla modeli değerlendirin.'
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+
+Yazar: garyericson ms.author: garye MS.özel: Yazar önceki = heatherbshapiro, önceki ms.author=hshapiro ms.date: 03/23/2017
 ---
 # <a name="walkthrough-step-4-train-and-evaluate-the-predictive-analytic-models-in-machine-learning-studio"></a>Kılavuz adımı 4: Eğitme ve Machine Learning Studio'da Tahmine dayalı analiz modellerini değerlendirme
 Bu konu örnek dördüncü adımı içeren [bir Azure Machine learning'de Tahmine dayalı analiz çözümü geliştirin](walkthrough-develop-predictive-solution.md)

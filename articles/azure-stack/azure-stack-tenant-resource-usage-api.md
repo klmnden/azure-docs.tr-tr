@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 1/14/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: ab5dad550e590cd70f54ad5c8d4727d0f6370190
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 5a9859fda2c6cac6acf08c8dcca3a0ce205d2e15
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379721"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302740"
 ---
 # <a name="tenant-resource-usage-api"></a>Kiracı kaynak kullanım API'si
 
@@ -31,7 +31,7 @@ Windows PowerShell cmdlet'ini kullanabilirsiniz **Get-UsageAggregates** Azure'da
 ### <a name="request"></a>İstek
 İstek tüketim ayrıntılarını ve istenen zaman çerçevesi için istenen abonelikleri alır. Hiçbir istek gövdesi yok.
 
-| **Yöntemi** | **İstek URI'si** |
+| **Yöntem** | **İstek URI'si** |
 | --- | --- |
 | GET |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce/usageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&api-version= 2015-06-01-preview & continuationToken {belirteci-value} = |
 
@@ -76,13 +76,13 @@ Windows PowerShell cmdlet'ini kullanabilirsiniz **Get-UsageAggregates** Azure'da
 ### <a name="response-details"></a>Yanıt Ayrıntıları
 | **Bağımsız değişken** | **Açıklama** |
 | --- | --- |
-| *Kimliği* |Kullanım toplamanın benzersiz kimliği |
+| *id* |Kullanım toplamanın benzersiz kimliği |
 | *Adı* |Kullanım toplamanın adı |
 | *type* |Kaynak tanımı |
 | *Subscriptionıd* |Azure kullanıcı abonelik tanımlayıcısı |
 | *usageStartTime* |Başlangıç ait olduğu için bu kullanım toplama kullanım demeti zamanı UTC |
 | *usageEndTime* |Bu kullanım toplama ait olduğu kullanım demeti bitiş zamanı UTC |
-| *instanceData* |Örnek ayrıntıları (yeni biçimde) anahtar-değer çiftleri:<br>  *resourceUri*: kaynak kimliği, kaynak grupları ve örnek adı dahil olmak üzere tam <br>  *Konum*: Bu hizmeti çalıştırıldığı bölge <br>  *etiketleri*: kullanıcının belirttiği kaynak etiketleri <br>  *Additionalınfo*: işletim sistemi sürümü veya görüntü türü ayrıntıları, örneğin, tüketilen kaynak hakkında daha fazla |
+| *instanceData* |Örnek ayrıntıları (yeni biçimde) anahtar-değer çiftleri:<br>  *resourceUri*: Kaynak grupları ve örnek adı dahil olmak üzere, tam kaynak kimliği <br>  *Konum*: Bu hizmetin çalıştırıldığı bölge <br>  *Etiketleri*: Kullanıcının belirttiği kaynak etiketleri <br>  *Additionalınfo*: Tüketilen, kaynak işletim sistemi sürümü veya görüntü hakkında daha fazla ayrıntı girin |
 | *Miktar* |Bu zaman çerçevesinde gerçekleşen kaynak tüketimi miktarı |
 | *meterId* |Tüketilen kaynak için benzersiz kimlik (olarak da adlandırılan *ResourceId*) |
 

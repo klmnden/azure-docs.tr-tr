@@ -1,25 +1,8 @@
 ---
-title: Machine Learning Studio işleri için Azure Batch hizmeti | Microsoft Docs
-description: Machine Learning işler için Azure Batch hizmetlerine genel bakış. Batch havuzu işleme toplu işleri gönderebilmek için havuzları oluşturmanıza olanak sağlar.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio | Microsoft Docs'
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.service: machine-learning
-ms.component: studio
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/19/2017
-ms.openlocfilehash: 44b63a51049e663e55cc59a623837cf65cab9ccc
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275202"
+Başlık: Azure Batch hizmeti için Machine Learning Studio işleri titleSuffix: Azure Machine Learning Studio açıklaması: Machine Learning işler için Azure Batch hizmetlerine genel bakış. Batch havuzu işleme toplu işleri gönderebilmek için havuzları oluşturmanıza olanak sağlar.
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+
+Yazar: ericlicoding ms.author: amlstudiodocs MS.özel: seodec18, önceki başlık =' ayrılmış kapasitesini toplu yürütme hizmeti işlerin - Azure Machine Learning Studio | Microsoft Docs' ms.date: 04/19/2017
 ---
 # <a name="azure-batch-service-for-azure-machine-learning-studio-jobs"></a>Azure Machine Learning Studio işleri için Azure Batch hizmeti
 

@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/09/2018
+ms.date: 01/14/2019
 ms.author: patricka
-ms.reviewer: unknown
-ms.openlocfilehash: 53c739c17007b99d90cd146e6bf01ea4a120cabd
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.reviewer: fiseraci
+ms.openlocfilehash: 4ffbf552b2c35039ceadfdf6940873a22cb194aa
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245693"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306548"
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Azure Stack için kimlik genel bakış
 
 Azure Stack, Azure Active Directory (Azure AD) veya Active Directory Federasyon Hizmetleri (AD FS), Active Directory kimlik sağlayıcısı tarafından desteklenen gerektirir. Sağlayıcı seçimi Azure Stack ilk kez dağıttığınızda oluşturan tek seferlik bir karardır. Kavramlar ve yetkilendirme ayrıntıları bu makalede arasında kimlik sağlayıcıları seçmenize yardımcı olabilir.
 
-Tercih ettiğiniz ya da Azure AD veya AD FS, Azure Stack dağıttığınız modu tarafından belirlenmiş olabilir:
+Tercih ettiğiniz ya da Azure AD veya AD FS, Azure Stack dağıttığınız modu tarafından belirlenir:
 
 - Bağlı modunda dağıttığınızda, Azure AD veya AD FS kullanabilirsiniz.
 - Yalnızca AD FS, bir internet bağlantısı olmadan bağlantısız bir modda dağıttığınızda desteklenir.

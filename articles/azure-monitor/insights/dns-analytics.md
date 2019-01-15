@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 5641792c058d10bba1bfd468f3c5c90b9217226e
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 29b76620494fbb325f8c43bf90a07c9df0faff56
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187662"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266342"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>DNS analizi Önizleme çözümü, DNS altyapısıyla ilgili Öngörüler toplayın
 
@@ -76,11 +76,11 @@ Aşağıdaki tabloda bu çözüm tarafından desteklenen bağlı kaynaklar açı
 
 Log Analytics çalışma alanınıza bağlanmak için Microsoft Monitoring Agent'ı kullanıyorsanız, aşağıdaki yönetim paketi yüklenir:
 
-- Microsoft DNS veri toplayıcı akıllı paketi (Microsft.IntelligencePacks.Dns)
+- Microsoft DNS veri toplayıcı akıllı paketi (Microsoft.IntelligencePacks.Dns)
 
 Operations Manager yönetim grubunuzu Log Analytics çalışma alanınıza bağlıysa, bu çözümü eklediğinizde, aşağıdaki yönetim paketlerini Operations Manager'da yüklenir. Gerekli yapılandırma veya bakım bu yönetim paketlerinin yoktur:
 
-- Microsoft DNS veri toplayıcı akıllı paketi (Microsft.IntelligencePacks.Dns)
+- Microsoft DNS veri toplayıcı akıllı paketi (Microsoft.IntelligencePacks.Dns)
 - Microsoft System Center Advisor DNS Analizi Yapılandırması (Microsoft.IntelligencePack.Dns.Configuration)
 
 Çözüm yönetim paketlerini güncelleştirme hakkında daha fazla bilgi için bkz. [Operations Manager'ı Log Analytics’e Bağlama](../../azure-monitor/platform/om-agents.md).

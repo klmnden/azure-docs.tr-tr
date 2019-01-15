@@ -1,26 +1,8 @@
 ---
-title: Azure AI Gallery - Azure Machine Learning Studio | Microsoft Docs
-description: Paylaşın ve analytics kaynakları ve daha fazlasını Azure AI Gallery keşfedin. Diğerlerinden öğrenmek ve topluluğa kendi katkı.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: cf518538-6046-4657-a7cb-a0bc487c67e6
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/31/2017
-ms.openlocfilehash: c9acd902eb536bbd252f0aca6d162ff92d9e6e00
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270969"
+Başlık: Azure AI Gallery titleSuffix: Azure Machine Learning Studio açıklaması: Paylaşın ve analytics kaynakları ve daha fazlasını Azure AI Gallery keşfedin. Diğerlerinden öğrenmek ve topluluğa kendi katkı.
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+
+Yazar: ericlicoding ms.author: amlstudiodocs MS.özel: Yazar önceki = heatherbshapiro, önceki ms.author=hshapiro ms.date: 03/31/2017
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Paylaşın ve Azure AI Gallery'de kaynakları keşfedin
 

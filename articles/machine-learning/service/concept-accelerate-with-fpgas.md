@@ -11,12 +11,12 @@ author: tedway
 ms.reviewer: jmartens
 ms.date: 10/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: bc08025f070fb31d83fed26bfec00cec11cee061
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 3aa98026d7293f1486f5450cc9ab17057807c031
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313641"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306140"
 ---
 # <a name="what-are-fpgas-and-project-brainwave"></a>FPGA ve Project Brainwave nedir?
 
@@ -33,13 +33,13 @@ Aşağıdaki tablo ve diyagram nasıl FPGA diğer işlemcilere karşılaştırma
 |İşlemci||Açıklama|
 |---|:-------:|------|
 |Özel uygulama tümleşik devreler|ASICS|Özel bağlantı hatları, Google TensorFlow işlemci birimi (TPU) gibi yüksek verimlilik sağlar. Gereksinimleriniz değiştikçe bunlar yapılandırılamaz.|
-|Alanda programlanabilir kapı dizileri|FPGA|FPGA, azure'da kullanılabilen gibi ASICS yakın bir performans sağlar. Bunlar ayrıca yeni mantığını uygulamak için zaman içinde esnek ve sunmanın.|
+|Alanda programlanabilir kapı dizileri|FPGA'lar|FPGA, azure'da kullanılabilen gibi ASICS yakın bir performans sağlar. Bunlar ayrıca yeni mantığını uygulamak için zaman içinde esnek ve sunmanın.|
 |Grafik işleme birimleri|GPU'ları|Yapay ZEKA hesaplamalar için popüler bir seçimdir. GPU'ları, daha hızlı CPU'lar daha görüntü işleme sırasında kolaylaştırır, paralel işleme özellikleri sunar.|
 |Merkezi işlem birimleri|CPU’lar|Genel amaçlı işlemcilerde, performansını, grafik ve video işleme için ideal değildir.|
 
 ## <a name="project-brainwave-on-azure"></a>Azure'da Project Brainwave
 
-[Project Brainwave](https://www.microsoft.com/research/project/project-brainwave/) Microsoft gelen donanım mimaridir. Bu, gerçek zamanlı AI hesaplamalar hızlandırmak için hangi veri bilimcilerine ve geliştiricilere kullanmak Intel FPGA cihazlarda temel alır. FPGA özellikli bu mimari, performans, esneklik ve ölçek sağlar ve Azure'da kullanıma sunuldu.
+[Project Brainwave](https://www.microsoft.com/en-us/research/project/project-brainwave/) Microsoft gelen donanım mimaridir. Bu, gerçek zamanlı AI hesaplamalar hızlandırmak için hangi veri bilimcilerine ve geliştiricilere kullanmak Intel FPGA cihazlarda temel alır. FPGA özellikli bu mimari, performans, esneklik ve ölçek sağlar ve Azure'da kullanıma sunuldu.
 
 FPGA gerçek zamanlı çıkarım istekleri için düşük gecikme süresine ulaşmanız mümkün kılar. Zaman uyumsuz istekler (toplu) gerekli değildir. Toplu işlem gecikme süresi, daha fazla veri işlenmesi gerektiğinden neden olabilir. Project Brainwave uygulamaları sinir işleme birimi, toplu işleme gerektirmez; Bu nedenle gecikmesi CPU ve GPU işlemcilerle karşılaştırıldığında birçok kez daha düşük olabilir.
 

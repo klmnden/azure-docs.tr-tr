@@ -1,5 +1,5 @@
 ---
-title: 'SaaS uygulamaları: Azure SQL veritabanı coğrafi olarak yedekli yedeklemeleri için olağanüstü durum kurtarma | Microsoft Docs'
+title: 'SaaS uygulamaları için: Azure SQL veritabanı coğrafi olarak yedekli yedeklemeleri için olağanüstü durum kurtarma | Microsoft Docs'
 description: Çok kiracılı bir SaaS uygulama kesinti durumunda kurtarmayı coğrafi olarak yedekli Azure SQL veritabanı yedeklemeleri kullanmayı öğrenin
 services: sql-database
 ms.service: sql-database
@@ -12,12 +12,12 @@ ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: a78632ed6215c467f53938569621cfb18f9e51ca
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: acc1b9e9561b9468a4638c7073a066e4cb34d911
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352957"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264759"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Coğrafi geri yükleme, çok kiracılı bir SaaS uygulaması, veritabanı yedeklerinden kurtarma için kullanın
 
@@ -50,7 +50,7 @@ Bu öğreticiye başlamadan önce aşağıdaki önkoşulları tamamlayın:
 Olağanüstü Durum Kurtarma (DR), uyumluluk nedenleriyle veya iş sürekliliği için birçok uygulama için önemli bir konu olmasına. Süren hizmet kesintisi ise iyi hazırlanmış bir kurtarma planı iş kesintileri en aza indirebilirsiniz. Bir kurtarma planı üzerinde coğrafi geri yükleme tabanlı çeşitli hedeflere ulaşmak gerekir:
  * Seçilen kurtarma bölgesindeki tüm gerekli kapasite Kiracı veritabanlarını geri yüklemek kullanılabilir olduğundan emin olmak için mümkün olan en kısa sürede saklı tutarız.
  * Özgün havuz ve veritabanı yapılandırmasını yansıtan bir Ayna görüntüsünü kurtarma ortamı oluşturun. 
- * Özgün bölge tekrar çevrimiçi olursa iptal edilmesi durumunda geri yükleme işleminin ortasında uçuştaki izin verin.
+ * Özgün bölge tekrar çevrimiçi olursa geri yükleme işleminin ortasında uçuştaki iptaline izin verin.
  * Yeni Kiracı ekleme mümkün olan en kısa sürede yeniden için hızlı sağlama Kiracı etkinleştirin.
  * Kiracılar öncelik sırasına geri yüklemek için en iyi duruma getirilmiş.
  * Pratik olduğunda paralel adımları uygulayarak çevrimiçi kiracılar'ı olabildiğince çabuk almak için en iyi duruma getirilmiş.
@@ -174,7 +174,7 @@ Kurtarma işlemi şunları yapar:
 
 1. PowerShell ISE'de ...\Learning Modules\Business sürekliliği ve olağanüstü durum Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 betikte aşağıdaki değeri ayarlayın:
 
-    $DemoScenario = 2: coğrafi olarak yedekli yedeklemelerden geri yükleyerek uygulamayı kurtarma bölgesine kurtarma.
+    $DemoScenario = 2: Uygulama, coğrafi olarak yedekli yedeklemelerden geri yükleyerek bir kurtarma bölgeye kurtarın.
 
 2. Betiği çalıştırmak için F5'i seçin.  
 
@@ -209,7 +209,7 @@ Hatta Kiracı veritabanlarını geri yüklenmeden önce kurtarma bölgesinde yen
 
 1. PowerShell ISE'de ...\Learning Modules\Business sürekliliği ve olağanüstü durum Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 betikte aşağıdaki özelliği ayarlayın:
 
-    $DemoScenario = 3: Kurtarma bölgesinde yeni bir kiracı sağlama.
+    $DemoScenario = 3: Kurtarma bölgesinde yeni bir kiracı sağlayın.
 
 2. Betiği çalıştırmak için F5'i seçin.
 
@@ -320,13 +320,13 @@ Adım 8'de, Kurtarma bölgesinde kurtarma sunucuları ve havuzları da dahil olm
   
 1. PowerShell ISE'de Modules\Business sürekliliği ve olağanüstü durum Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 betik ...\Learning Katalog eşitleme işlemi, PowerShell örneğinde hala çalıştığından emin olun. Gerekirse, ayarlayarak yeniden başlatın:
 
-    $DemoScenario = 1: Kiracı sunucu, havuz ve veritabanı yapılandırma bilgilerini kataloğa Eşitlemeyi Başlat.
+    $DemoScenario = 1: Kiracı sunucu, havuz ve veritabanı yapılandırma bilgilerini kataloğa eşitleme başlatın.
 
     Betiği çalıştırmak için F5'i seçin.
 
 2.  Ardından repatriation işlemini başlatmak için aşağıdakileri ayarlayın:
 
-    $DemoScenario = 5: uygulama, özgün bölgeye repatriate.
+    $DemoScenario = 5: Uygulama, kendi özgün bölgeye repatriate.
 
     Yeni bir PowerShell penceresi kurtarma betiği çalıştırmak için F5'i seçin. Repatriation birkaç dakika sürer ve PowerShell penceresinde izlenebilir.
 

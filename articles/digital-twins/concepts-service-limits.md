@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2019
 ms.author: dwalthermsft
-ms.openlocfilehash: 1e7b6ed7c401bed741142dfc02efc7990cf67f6e
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: cc873ad441c93a7fce54c275e9f7d52f0b044319
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118826"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302434"
 ---
 # <a name="public-preview-service-limits"></a>Genel önizleme hizmet sınırları
 
@@ -35,7 +35,7 @@ Genel Önizleme sırasında her bir Azure aboneliği oluşturun veya aynı anda 
 
 Buna karşılık her Azure dijital İkizlerini örneğine sahip olabilir:
 
-- Tam olarak bir **IoTHub** kaynak.
+- Tek bir gömülü **IoTHub** hizmet sağlanması sırasında otomatik olarak oluşturulan kaynak.
 - Tam olarak bir **EventHub** olay türü için uç nokta **DeviceMessage**.
 - En fazla üç **EventHub**, **ServiceBus**, veya **EventGrid** olay türündeki uç noktalar **SensorChange**, **SpaceChange** , **TopologyOperation**, veya **UdfCustom**.
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 67d81387a347bb2061457bfd24553f304e965f38
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 09464342bd39e57f6e637ce90adc7190d08340a9
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198771"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265422"
 ---
 # <a name="about-azure-vm-backup"></a>Azure VM yedeklemesi hakkında
 
@@ -55,6 +55,10 @@ Uygulamaları çalıştırırken anlık görüntülerini almak için Azure Backu
         [HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT]
         ""USEVSSCOPYBACKUP"="TRUE"
         ```
+        - Çalıştırma aşağıdaki yukarıdaki kayıt defteri anahtarını ayarlayın (yönetici olarak) yükseltilmiş komut isteminden komutu:
+          ```
+          REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent" /v USEVSSCOPYBACKUP /t REG_SZ /d TRUE /f
+          ```
 - **Linux Vm'leri**: Linux Vm'lerinizi Azure Backup, anlık görüntüsünü alır, uygulamayla tutarlı olmasını sağlamak için Linux betik öncesi ve betik sonrası çerçeve kullanabilirsiniz. VM anlık görüntüsünü alırken tutarlılığını sağlamak için kendi özel komut dosyaları yazabilirsiniz.
     -  Azure Backup yalnızca çağırır öncesi ve sonrası betikler, tarafından yazılmış.
     - Betik öncesi ve sonrası Komut başarıyla çalışırsa, Azure Backup kurtarma noktası uygulamayla tutarlı olarak işaretler. Ancak, özel betikler kullanarak uygulama tutarlılığı için sorumlu olursunuz.

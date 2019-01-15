@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/24/2016
 ms.author: garye
-ms.openlocfilehash: 195776cda0005b3a79aa82220660fcc328f6ee98
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d327c649fcf0f42fd8618161c184fa4f572e2b90
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426263"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306497"
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Talep tahmini enerji için Cortana Intelligence çözüm şablonu kitabı
 ## <a name="executive-summary"></a>Yönetici Özeti
@@ -172,7 +172,7 @@ Buluta, geçiş yeni başlayan bir şirket için yüksek oranda bulut geçişi y
 
 Öte yandan, bir bir enerji talebini tahmin etme (kısa veya uzun vadeli) çalışan iş değerini bir iyi anlamış olmanız gerekir. Aslında, tahmin her işlemin iş değerin anlaşılabilmesi önemlidir. Örneğin, doğru bir şekilde sonraki 24 saat boyunca yükünü tahmin overproduction engelleyebilir veya aşırı yükleme kılavuzundaki engellemeye yardımcı olabilir ve bu günlük olarak finansal tasarrufu açısından amaçlarıyla.
 
-İsteğe bağlı finansal avantajı hesaplamak için temel bir formül uygulanabilecek tahmin: ![isteğe bağlı finansal avantajı hesaplamak için temel formül tahmin çözümü](media/cortana-analytics-playbook-demand-forecasting-energy/financial-benefit-formula.png)
+İsteğe bağlı finansal avantajı hesaplamak için temel bir formül çözüm olacaktır tahmin: ![İsteğe bağlı finansal avantajı hesaplamak için temel formül çözümü tahmini](media/cortana-analytics-playbook-demand-forecasting-energy/financial-benefit-formula.png)
 
 Cortana Intelligence Suite, Kullandıkça Öde fiyatlandırma modeli sağlar olduğundan, bu formülü bir sabit maliyete bileşenine yansıtılmasını için gerek yoktur. Bu formül günlük, aylık veya yıllık olarak hesaplanabilir.
 
@@ -269,7 +269,7 @@ Cortana Intelligence Suite, CSV, TSV, JSON, en yaygın veri biçimlerini destekl
 ### <a name="data-ingestion"></a>Veri Alımı
 Enerji talebi tahmin sürekli ve sık bir şekilde tahmin olduğundan, biz ham veriler sağlam ve güvenilir veri alma işlemi yoluyla geçiyor emin olmanız gerekir. Alma işlemi, ham verileri gereken zaman tahmin işlemi için kullanılabilir olacağını garanti gerekir. Bu, veri alımı sıklığı tahmin sıklığından büyük olması gerektiğini anlamına gelir.
 
-Örneğin: tahmin çözümü bizim isteğe bağlı saat 8: 00'da her gün yeni bir tahmini oluşturur sonra tüm son 24 saat toplanan verileri o noktaya kadar bir tam olarak alınan ve hatta gerekir, son bir saat eklediğinizden emin olun gerekir  veriler.
+Örneğin: 8: 00'da her gün yeni tahmin tahmin çözümü bizim isteğe bağlı oluşturursanız sonra tüm son 24 saat toplanan verileri tam olarak alınan o noktadan kasa ve hatta veri son bir saat içermek zorundadır emin olmak ihtiyacımız var.
 
 Bunu gerçekleştirmek için Cortana Intelligence Suite güvenilir veri alma işlemini desteklemek için çeşitli yollar sunar. Bu daha ayrıntılı olarak açıklanmıştır **dağıtım** bu belgenin bölüm.
 
@@ -287,7 +287,7 @@ Ham verileri alınan sonra (bkz **veri alımı**) ve güvenli bir şekilde kald�
 
 Bu bölümde, biz enerjinin dahil edilen genel verileri özelliklerinden bazıları listesinde tahmin modellerini isteğe bağlı.
 
-**Özellik temelli zaman:** bu özellikler tarih/zaman damgası verilerden türetilir. Bunlar ayıklanır ve gibi kategorik özellikler dönüştürülür:
+**Özellik temelli süresi:** Bu özellikler, tarih/zaman damgası verilerden türetilir. Bunlar ayıklanır ve gibi kategorik özellikler dönüştürülür:
 
 * Saat gün saat değerleri 0 ile 23 arasında alan gün budur
 * Gün haftanın – Bu haftanın gününü temsil eder ve 1 arasında değerleri alır (Pazar) ile 7 (Cumartesi)
@@ -297,16 +297,16 @@ Bu bölümde, biz enerjinin dahil edilen genel verileri özelliklerinden bazıla
 * Tatil - bu değeri 0 veya 1 normal bir gün için bir tatil için alan bir ikili değer özelliğidir
 * Fourier – Fourier koşulları itibaren zaman damgası türetilir ve ' % s'mevsimsellik (döngüler) yakalamak için kullanılan ağırlıkları verileri terimlerdir. Biz birden çok sezonlar verilerimizi olabileceği birden çok Fourier koşulları ihtiyacımız. Örneğin, isteğe bağlı değerler yıllık, haftalık ve günlük sezonlar/3 Fourier koşullarını sonuçlanacak döngüleri olabilir.
 
-**Bağımsız ölçüm özellikleri:** adaylarının modelimizi de olarak kullanılacak istiyoruz tüm veri öğeleri bağımsız özellikler içerir. Burada, tahmin etmek için ihtiyacımız bağımlı özellik tutarız.
+**Bağımsız ölçüm özellikleri:** Bağımsız özellikler adaylarının modelimizi de olarak kullanılacak istiyoruz tüm veri öğeleri içerir. Burada, tahmin etmek için ihtiyacımız bağımlı özellik tutarız.
 
 * Lag özellik – bunlar zaman kaydırılacağı uzaklık değerleri gerçek isteğe bağlı. Örneğin, lag 1 özellikleri, isteğe bağlı değerin göreli geçerli zaman damgasını (saatlik veri varsayılarak) önceki saat içinde tutar. Benzer şekilde, biz 2 gecikme eklemek için 3, öteleme *vb*. Kullanılan lag özellikleri gerçek birleşimi, modelleme aşaması sırasında model sonuçlarını değerlendirmesi tarafından belirlenir.
 * Uzun süreli popüler: Bu özellik isteğe bağlı yılları arasında doğrusal artışı temsil eder.
 
-**Bağımlı özellik:** modelimizi tahmin etmek istiyoruz. veri sütunu bağımlı özelliğidir. İle [denetimli makine öğrenimi](https://en.wikipedia.org/wiki/Supervised_learning), önce (Bu aynı zamanda etiket olarak adlandırılır), bağımlı özellikleri kullanarak modeli eğitmek için oluşturmamız gerekir. Bu bağımlı özellikle ilişkilendirilen veri desenlerinde öğrenmek model sağlar. Tahmini enerji talebini genellikle gerçek talep tahmin etmek istiyoruz ve bu nedenle biz bağımlı bir özellik olarak kullanılır.
+**Bağımlı özellik:** Bağımlı modelimizi tahmin etmek istiyoruz. veri sütunu özelliğidir. İle [denetimli makine öğrenimi](https://en.wikipedia.org/wiki/Supervised_learning), önce (Bu aynı zamanda etiket olarak adlandırılır), bağımlı özellikleri kullanarak modeli eğitmek için oluşturmamız gerekir. Bu bağımlı özellikle ilişkilendirilen veri desenlerinde öğrenmek model sağlar. Tahmini enerji talebini genellikle gerçek talep tahmin etmek istiyoruz ve bu nedenle biz bağımlı bir özellik olarak kullanılır.
 
-**Eksik değerleri işleme:** veri hazırlama aşamasında, biz eksik değerleri işlemek için en iyi stratejisini belirlemek gerekir. Bu çeşitli istatistik kullanarak çoğunlukla yapılır [veri imputation yöntemleri](https://en.wikipedia.org/wiki/Imputation_\(statistics\)). Enerji talebi tahmin söz konusu olduğunda, biz genellikle eksik değerleri önceki kullanılabilir veri noktalarından hareketli ortalama kullanarak impute.
+**Eksik değerleri işleme:** Veri hazırlama aşamasında, biz eksik değerleri işlemek için en iyi stratejisini belirlemek gerekir. Bu çeşitli istatistik kullanarak çoğunlukla yapılır [veri imputation yöntemleri](https://en.wikipedia.org/wiki/Imputation_\(statistics\)). Enerji talebi tahmin söz konusu olduğunda, biz genellikle eksik değerleri önceki kullanılabilir veri noktalarından hareketli ortalama kullanarak impute.
 
-**Veri normalleştirme:** veri normalleştirme benzer bir ölçek Talep tahmini gibi tüm sayısal verileri getirmek için kullanılan dönüşümünün başka bir türdür. Bu, genellikle duyarlık ve doğruluğu artırmak yardımcı olur. Genellikle veri aralığına göre gerçek değeri bölerek bunu.
+**Veri normalleştirme:** Veri normalleştirme benzer bir ölçek Talep tahmini gibi tüm sayısal verileri getirmek için kullanılan dönüştürme başka bir türüdür. Bu, genellikle duyarlık ve doğruluğu artırmak yardımcı olur. Genellikle veri aralığına göre gerçek değeri bölerek bunu.
 Bu özgün değer -1 ile 1 arasında genellikle daha küçük bir aralıkta birleştirir, ölçeği.
 
 ## <a name="modeling"></a>Modelleme
@@ -320,21 +320,21 @@ Talep tahmini vermiyoruz söz konusu olduğunda, zamana göre sıralı geçmiş 
 Son yıllarda, zaman serisi tahmin uyum sağlamak için ve tahmin doğruluğunu artırmak için gelişmiş algoritmalar geliştirilmiştir. Kısaca birkaç tanesi burada ele alır.
 
 > [!NOTE]
-> Bu bölümde, makine öğrenimi ve genel bakış tahmin ancak Talep tahmini için yaygın olarak kullanılır teknikler modelleme çok kısa bir ankete olarak kullanılmak üzere tasarlanmamıştır. Daha fazla bilgi ve zaman serisi tahmini hakkında eğitim malzemesi için çevrimiçi kitap öneririz [tahmin: ilkeleri ve uygulama](https://www.otexts.org/book/fpp).
+> Bu bölümde, makine öğrenimi ve genel bakış tahmin ancak Talep tahmini için yaygın olarak kullanılır teknikler modelleme çok kısa bir ankete olarak kullanılmak üzere tasarlanmamıştır. Daha fazla bilgi ve zaman serisi tahmini hakkında eğitim malzemesi için çevrimiçi kitap öneririz [tahmin: ilkeleri ve uygulama](https://www.otexts.org/).
 > 
 > 
 
-#### <a name="ma-moving-averagehttpswwwotextsorgfpp62"></a>[**MA (hareketli ortalama)**](https://www.otexts.org/fpp/6/2)
+#### <a name="ma-moving-average"></a>**MA (hareketli ortalama)**
 Hareketli ortalama zaman serisi tahmini için kullanılan ilk analitik tekniklerden birini ve yine de bir en sık kullanılan teknikleri bugünden itibaren şeklindedir. Ayrıca tahmin tekniklerinin daha gelişmiş için bir temel niteliğindedir. Hareketli Ortalama biz burada K hareketli ortalama sırasını gösterir K en son noktaları ortalaması alınarak sonraki veri noktası tahmin.
 
 Hareketli Ortalama teknik tahmin düzgünleştirme etkisi vardır ve bu nedenle de büyük geçiciliğine veri yönetemeyen.
 
-#### <a name="ets-exponential-smoothinghttpswwwotextsorgfpp75"></a>[**ETS (Üstel düzeltme)**](https://www.otexts.org/fpp/7/5)
-Üstel düzgünleştirme (ETS), son veri noktalarını ağırlıklı ortalamasını sonraki veri noktası tahmin etmek için kullanabileceğiniz çeşitli yöntemler ailesidir. Daha yüksek ağırlıkları için daha yeni değerler atayın ve giderek eski ölçülen değerleri için bu ağırlığı olur. Birkaç farklı yöntemle bu aile, bunlardan bazıları veri mevsimsellik gibi işleme özelliğini içerecek [Holt-Winters dönemsel yöntemi](https://www.otexts.org/fpp/7/5).
+#### <a name="ets-exponential-smoothing"></a>**ETS (Üstel düzeltme)**
+Üstel düzgünleştirme (ETS), son veri noktalarını ağırlıklı ortalamasını sonraki veri noktası tahmin etmek için kullanabileceğiniz çeşitli yöntemler ailesidir. Daha yüksek ağırlıkları için daha yeni değerler atayın ve giderek eski ölçülen değerleri için bu ağırlığı olur. Bazı verileri gibi dönemsel yöntemi Holt-Winters mevsimsellik işlenmesi dahil, birkaç farklı yöntemle bu aile vardır.
 
 Bu yöntemlerden bazıları aynı zamanda verilerin mevsimsellik faktörü.
 
-#### <a name="arima-auto-regression-integrated-moving-averagehttpswwwotextsorgfpp8"></a>[**ARIMA (otomatik gerileme bütünleşik hareketli ortalama)**](https://www.otexts.org/fpp/8)
+#### <a name="arima-auto-regression-integrated-moving-average"></a>**ARIMA (otomatik gerileme bütünleşik hareketli ortalama)**
 Otomatik gerileme tümleşik hareketli ortalama (ARIMA) için zaman serisi tahmin yaygın olarak kullanılan başka bir yöntem ailesidir. Hareketli Ortalama otomatik gerileme yöntemleri bulundurmanızı birleştirir. Otomatik gerileme yöntemleri sonraki tarih noktası hesaplamak için önceki zaman seri değerlerini yararlanarak regresyon modellerini kullanın. ARIMA yöntemleri veri noktaları arasındaki farkı hesaplamak ve özgün ölçülen değeri yerine bu kullanarak içeren fark kayıt yöntemleri için de geçerlidir. Son olarak, ARIMA ayrıca yukarıda açıklanan hareketli ortalama teknikleri kullanır. Tüm bu yöntemleri çeşitli şekillerde ne ARIMA yöntemleri ailesi oluşturur birleşimidir.
 
 ETS hem de ARIMA yaygın bugün enerji Talep tahmini ve diğer birçok tahmin sorunları için kullanılır. Çoğu durumda bunlar birleştirilir birlikte çok doğru sonuçlar sağlamak için.

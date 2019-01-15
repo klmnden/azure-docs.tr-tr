@@ -1,27 +1,8 @@
 ---
-title: 'Başkalarının veri bilimi örnekler: Azure Machine Learning Studio kopyalama | Microsoft Docs'
-description: 'Veri bilimi, ticari sır: Diğer iş sizin için gerçekleştirmesini istemeniz alın. Machine learning örnekleri, Azure yapay ZEKA Galeriden alın.'
-keywords: Veri bilimi örnekler, kümeleme algoritması örnek kümeleme algoritması, machine learning örneği
-services: machine-learning
-documentationcenter: na
-author: garyericson
-ms.custom: seodec18
-ms.author: garye
-editor: cjgronlund
-ms.assetid: ec2be823-c325-4ad8-b8b2-3e664f1a44b4
-ms.service: machine-learning
-ms.component: studio
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/05/2018
-ms.openlocfilehash: acd0899396ac5a47dade5fac16e451b2029ec0c2
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53260387"
+Başlık: Başkalarının veri bilimi örnekler titleSuffix kopyalayın: Azure Machine Learning Studio açıklaması: ' Ticari sır veri bilimi: Diğer iş sizin için gerçekleştirmesini istemeniz alın. Machine learning örnekleri Azure yapay ZEKA galerideki alın.'
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+
+Yazar: garyericson ms.author: garye MS.özel: seodec18 ms.date: 01/05/2018
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Veri bilimi için başkalarının çalışmalarını kopyalama
 ## <a name="video-5-data-science-for-beginners-series"></a>Video 5: Seri yeni başlayanlar için veri bilimi

@@ -1,26 +1,8 @@
 ---
-title: Azure yapay ZEKA Galerisi'ni çözümleri - Azure Machine Learning Studio | Microsoft Docs
-description: Azure AI Galerisi'nde çözümleri keşfedin. Bir çözüm, Cortana Intelligence çözümleri, önceden yapılandırılmış çözümleri, başvuru mimarileri ve tasarım desenleri hızlıca oluşturmak için hızlı bir başlangıç sağlar.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: c0be3f10-9e54-4fc1-b5df-725c2e919f65
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/31/2017
-ms.openlocfilehash: 8bfcbac45dd50ebed5491b0411d5f1faa5b5f078
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271343"
+Başlık: Azure yapay ZEKA Galerisi'ni çözümleri titleSuffix: Azure Machine Learning Studio açıklaması: Azure AI Galerisi'nde çözümleri keşfedin. Bir çözüm, Cortana Intelligence çözümleri, önceden yapılandırılmış çözümleri, başvuru mimarileri ve tasarım desenleri hızlıca oluşturmak için hızlı bir başlangıç sağlar.
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/31/2017
 ---
 # <a name="discover-solutions-in-the-azure-ai-gallery"></a>Azure AI Galerisi'nde çözümleri keşfedin
 

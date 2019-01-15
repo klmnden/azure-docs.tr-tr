@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 9c163ddf7859246fcdaa28edfd4b598a24a32be2
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 48be60a7ba5770f8c329cb6323a5caa8fcf7f961
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53197228"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265065"
 ---
 # <a name="deploy-an-azure-vm-from-a-user-vhd"></a>VHD bir kullanıcıdan bir Azure VM dağıtma
 
@@ -41,7 +41,7 @@ Azure Resource Manager şablonu kopyalayın [VHD dağıtım](cpp-deploy-json-tem
 | vmName                     | Sanal makinenin adı                                                    |
 | VaultName                  | Anahtar kasasının adı                                                          |
 | vaultResourceGroup         | Anahtar kasasının kaynak grubu
-| certificateUrl             | Örneğin anahtar kasasında depolanan sürüm dahil olmak üzere sertifika URL'si:  https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7 |
+| certificateUrl             | Örneğin anahtar kasasında depolanan sürüm dahil olmak üzere sertifika URL'si:  `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7` |
 | vhdUrl                     | Sanal sabit disk URL'si                                                   |
 | vmSize                     | Sanal makine örnek boyutu                                           |
 | publicIPAddressName        | Genel IP adresinin adı                                                  |

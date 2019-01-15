@@ -1,5 +1,5 @@
 ---
-title: 'Azure yedekleme: Bir Windows Server sistem durumunu geri yükle'
+title: 'Azure yedekleme: Windows Server sistem durumunu geri yükle'
 description: Windows Server sistem durumunu azure'da bir yedekten geri yüklemek için adım açıklama adımla.
 services: backup
 author: saurabhsensharma
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/18/2017
 ms.author: saurse
-ms.openlocfilehash: 31784c44d7561c690278aa4764e98992fbca73ae
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 0b880d77004013d3b3eb1999b7e9344577b9fb4f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230793"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266493"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Windows Server sistem durumunu geri yükle
 
@@ -157,7 +157,7 @@ Bir kez sistem durumu olarak Azure kurtarma Hizmetleri Aracısı'nı kullanarak 
 
 10. Sistem durumu kurtarma konumunu seçin **özgün konumuna**, tıklatıp **sonraki**.
 
-11. Onay ayrıntıları gözden geçirin, yeniden başlatma ayarları doğrulayın ve tıklayın **kurtarmak** applly geri yüklenen sistem durumu için dosyaları.
+11. Onay ayrıntıları gözden geçirin, yeniden başlatma ayarları doğrulayın ve tıklayın **kurtarmak** geri yüklenen sistem durumu dosyaları uygulamak için.
 
     ![geri yükleme işlemi başlatma sistem durumu dosyaları](./media/backup-azure-restore-system-state/launch-ss-recovery.png)
 

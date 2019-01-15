@@ -1,26 +1,8 @@
 ---
-title: Azure AI Gallery öğretici - Azure Machine Learning Studio | Microsoft Docs
-description: Bul ve öğreticiler Azure AI Gallery'de paylaşın. En son eklenen ve popüler öğreticilerin bir listesi görüntülenir.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 70f0eb31-7dca-4907-a5d7-504357dcd889
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/31/2017
-ms.openlocfilehash: 5dcc8f497a8498b41e6ff7e802fc6e3d80935505
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274879"
+Başlık: Azure AI Gallery öğreticiler titleSuffix: Azure Machine Learning Studio açıklaması: Bul ve öğreticiler Azure AI Gallery'de paylaşın. En son eklenen ve popüler öğreticilerin bir listesi görüntülenir.
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/31/2017
 ---
 # <a name="discover-and-share-tutorials-in-azure-ai-gallery"></a>Bul ve öğreticiler Azure AI Gallery'de paylaşın
 

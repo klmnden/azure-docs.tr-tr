@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: 624dcae6cadefd27b663699552068b37e658d9bf
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: dadb645067a0f6cac436d638a829ac4c0937bd60
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198868"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304402"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure işlevleri Python Geliştirici Kılavuzu
 
@@ -317,7 +317,7 @@ The terminal process terminated with exit code: 1
 Otomatik olarak oluşturup gerekli ikili dosyaları, yapılandırma [Docker yükleme](https://docs.docker.com/install/) kullanarak yayımlamak için aşağıdaki komutu çalıştırın ve yerel makine üzerinde [Azure işlevleri çekirdek Araçları](functions-run-local.md#v2) (func). Değiştirmeyi unutmayın `<app name>` azure'daki işlev uygulamanızın adıyla. 
 
 ```bash
-func azure functionapp <app name> --build-native-deps
+func azure functionapp publish <app name> --build-native-deps
 ```
 
 Aslında, çalıştırmak için docker temel araçları kullanacağınız [mcr.microsoft.com/azure-functions/python](https://hub.docker.com/r/microsoft/azure-functions/) olarak yerel makinenizde kapsayıcı görüntüsü. Bu ortamı kullanarak ardından oluşturun ve bunları azure'a son dağıtım için paketleme önce kaynak dağıtım, gerekli modüllerini yükleyin.

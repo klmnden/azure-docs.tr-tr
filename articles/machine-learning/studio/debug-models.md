@@ -1,34 +1,17 @@
 ---
-title: Azure Machine Learning Studio'da model - hata ayıklama | Microsoft Docs
-description: Azure Machine Learning Studio'da modeli eğitme ve Score Model modülleri tarafından oluşturulan hataları ayıklamak nasıl.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 629dc45e-ac1e-4b7d-b120-08813dc448be
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/14/2017
-ms.openlocfilehash: 0464dec9e747e57e4b95a691aeb5a0992cf8d9cc
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268895"
+Başlık: Hata ayıklama, model titleSuffix: Azure Machine Learning Studio açıklaması: Azure Machine Learning Studio'da modeli eğitme ve Score Model modülleri tarafından oluşturulan hataları ayıklamak nasıl.
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/14/2017
 ---
 # <a name="debug-your-model-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio'da modelinizi hata ayıklama
 
-Bu makalede, neden ya da aşağıdaki iki hataları bir model çalıştırırken karşılaşılabilecek olası nedenleri açıklanmaktadır:
+Bir model çalıştırırken aşağıdaki hatalarla karşılaşırsanız çalıştırabilirsiniz:
 
 * [modeli eğitme] [ train-model] modül bir hata oluşturur 
 * [Score Model] [ score-model] modül hatalı sonuçlar oluşturur 
 
+Bu makalede, bu hataların olası nedenleri açıklanmaktadır.
 
 
 ## <a name="train-model-module-produces-an-error"></a>Train Model modülü bir hata oluşturur.
@@ -42,7 +25,7 @@ Bu makalede, neden ya da aşağıdaki iki hataları bir model çalıştırırken
 
 Bu modül, aşağıdaki durumlarda bir hata oluşturabilecek:
 
-1. Etiket sütununda hatalı şekilde belirtildi. Bu, birden fazla sütun etiketi olarak seçilir ya da yanlış sütun dizini seçili oluşabilir. Örneğin, bir sütun dizini 30 yalnızca 25 sütunları olan bir giriş veri kümesi ile kullanılıyorsa, ikinci koşul uygular.
+1. Etiket sütununda hatalı şekilde belirtildi. Bu, birden fazla sütun etiketi olarak seçilir ya da yanlış sütun dizini seçili oluşabilir. Örneğin, bir sütun dizini 30 yalnızca 25 sütuna sahip bir giriş veri kümesi ile kullanılıyorsa, ikinci koşul uygular.
 
 2. Veri kümesi herhangi bir özellik sütunu içermiyor. Örneğin, giriş veri kümesi etiketi sütun olarak işaretlenmiş, yalnızca bir sütun varsa olacaktır, modeli oluşturmak üzere hiçbir özellik. Bu durumda, [modeli eğitme] [ train-model] modül bir hata oluşturur.
 
@@ -59,15 +42,15 @@ Denetimli öğrenme için tipik bir eğitim ve test denemede [verileri bölme] [
 1. Eğitilen modelin çıktısını [modeli eğitme] [ train-model] modülü.
 2. Modeli eğitmek için kullanılan veri kümesinden farklı bir Puanlama veri kümesi.
 
-Rağmen deneme başarılı olduğunu, mümkündür [Score Model] [ score-model] modül hatalı sonuçlar oluşturur. Birkaç senaryoda bu oluşmasına neden olabilir:
+Rağmen deneme başarılı olduğunu, mümkündür [Score Model] [ score-model] modül hatalı sonuçlar oluşturur. Birkaç senaryo gerçekleştirilecek bu soruna neden olabilir:
 
 1. Belirtilen etiket kategorik veriler üzerinde bir regresyon modeli eğitilir, yanlış bir çıktı tarafından üretilen [Score Model] [ score-model] modülü. Regresyon sürekli yanıt değişkeni gerektirdiğinden budur. Bu durumda, bir sınıflandırma modelini kullanmak daha uygun olacaktır. 
 
-2. Benzer şekilde, etiket sütununda kayan nokta numarası sahip bir veri kümesi üzerinde bir sınıflandırma modeli eğitilir, istenmeyen sonuçlara neden olabilir. Yalnızca bu aralık değerleri sınıflarının sınırlı ve genellikle biraz küçük, küme üzerinde veren bir ayrık yanıt değişken Sınıflandırmayı gerektirmiyor olmasıdır.
+2. Benzer şekilde, etiket sütununda kayan nokta numarası sahip bir veri kümesi üzerinde bir sınıflandırma modeli eğitilir, istenmeyen sonuçlara neden olabilir. Yalnızca bu aralık değerleri sınıflarının sınırlı ve küçük, küme üzerinde veren bir ayrık yanıt değişken Sınıflandırmayı gerektirmiyor olmasıdır.
 
 3. Puanlama veri kümesi modeli eğitmek için kullanılan tüm özellikleri içermiyorsa [Score Model] [ score-model] bir hata oluşturur.
 
-4. Puanlama veri kümesi bir satır eksik veya özellikleri, herhangi bir sonsuz değerini içeriyorsa [Score Model] [ score-model] o satırına karşılık gelen herhangi bir çıktı oluşturmaz.
+4. Puanlama veri kümesi bir satır eksik veya özellikleri, herhangi bir sonsuz değerini içeriyorsa [Score Model] [ score-model] o satırına karşılık gelen herhangi bir çıktı üretmez.
 
 5. [Score Model] [ score-model] Puanlama kümesindeki tüm satırlar için aynı çıktı üretebilir. Bu, örneğin, örnek yaprak düğümü başına en düşük sayısı olması sayıdan fazla eğitim örnekleri kullanılabilir seçilirse karar ormanları kullanarak sınıflandırma çalışılırken gerçekleşebilir.
 

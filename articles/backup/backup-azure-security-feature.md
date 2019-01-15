@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2017
 ms.author: trinadhk
-ms.openlocfilehash: 62b2744494fcd4d98bf75892dc95d86130dd04bb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: fcb5941c56eda19f9c524a2c078a76483426b862
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261749"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267003"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Azure Backup kullanan karma yedeklemeler korumaya yardımcı olmak için güvenlik özellikleri
 Yetkisiz erişim, kötü amaçlı yazılım ve fidye yazılımı gibi güvenlik konularıyla ilgili endişelerini artmaktadır. Bu güvenlik sorunları para ve veri açısından pahalı olabilir. Bu tür saldırılara karşı korunmak için Azure Backup artık karma yedeklemeler korumaya yardımcı olmak için güvenlik özellikleri sağlar. Bu makalede bir Azure kurtarma Hizmetleri aracısını ve Azure Backup sunucusu kullanarak bu özelliklerin nasıl etkinleştirileceği anlatılmaktadır. Bu özellikler şunları içerir:
@@ -26,7 +26,7 @@ Yetkisiz erişim, kötü amaçlı yazılım ve fidye yazılımı gibi güvenlik 
 > Güvenlik özellikleri olarak hizmet (Iaas) sanal makine yedekleme altyapınızı kullanıyorsanız etkinleştirilmemelidir. Bu özellikler için bunları etkinleştirerek hiçbir etkisi olmaz henüz Iaas VM yedekleme için kullanılabilir değildir. Yalnızca kullanıyorsanız güvenlik özelliklerinin etkinleştirilmesi gerekir: <br/>
 >  * **Azure Backup Aracısı**. En düşük aracı sürümü olarak 2.0.9052. Bu özellikleri etkinleştirdikten sonra kritik işlemler gerçekleştirmek için bu aracı sürümüne yükseltmeniz gerekir. <br/>
 >  * **Azure Backup sunucusu**. En düşük Azure Yedekleme aracısı sürümü 2.0.9052'yi Azure Backup sunucusu ile güncelleştirme 1. <br/>
->  * **System Center Data Protection Manager**. En düşük Azure Yedekleme aracısı sürümü 2.0.9052'yi Data Protection Manager 2012 R2 UR12 veya Data Protection Manager 2016 UR2 ile. <br/> 
+>  * **System Center Data Protection Manager**. En düşük Azure Yedekleme aracısı sürümü 2.0.9052'yi Data Protection Manager 2012 R2 UR12 veya Data Protection Manager 2016 UR2 ile. <br/>
 
 
 > [!NOTE]
@@ -62,7 +62,7 @@ Yedekleme silinen yedekleme verileri ek 14 gün boyunca saklar ve bu silmez vars
 
 İçin **Azure kurtarma Hizmetleri aracısını** kullanıcılar:
 
-1. Yedekleme işleminin gerçekleştiği bilgisayar hala kullanılabilir haldeyse, kullanın [aynı makineye veri Kurtar](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine) tüm eski kurtarma noktalarından kurtarmak için Azure kurtarma Hizmetleri.
+1. Yedekleme işleminin gerçekleştiği bilgisayar hala kullanılabilir haldeyse, silinen veri kaynaklarını yeniden korumak ve kullanmak [aynı makineye veri Kurtar](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine) tüm eski kurtarma noktalarından kurtarmak için Azure kurtarma Hizmetleri.
 2. Bu bilgisayarın kullanılabilir değilse, [kurtarmak için başka bir makineyi](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) başka bir Azure kurtarma hizmetleri bilgisayar bu verileri almak için kullanılacak.
 
 İçin **Azure Backup sunucusu** kullanıcılar:
@@ -83,7 +83,7 @@ Kritik işlemler için kimlik doğrulaması ek bir koruma katmanı ekleme bir pa
 
 > [!NOTE]
 
-> Şu anda güvenlik PIN'i için desteklenmiyor **silme verilerle korumayı Durdur** DPM ve MABS için. 
+> Şu anda güvenlik PIN'i için desteklenmiyor **silme verilerle korumayı Durdur** DPM ve MABS için.
 
 Bu PIN'i almak için:
 
@@ -108,9 +108,9 @@ Bu makalede bahsedilen güvenlik özellikleri hedeflenmiş saldırılara karşı
 ## <a name="troubleshooting-errors"></a>Hatalarda sorun giderme
 | İşlem | Hata Ayrıntıları | Çözüm |
 | --- | --- | --- |
-| İlke değişikliği |Yedekleme İlkesi değiştirilemedi. Hata: Geçerli işlemi [0x29834] iç hizmet hatası nedeniyle başarısız oldu. Lütfen bir süre sonra işlemi yeniden deneyin. Sorun devam ederse lütfen Microsoft desteğine başvurun. |**Neden:**<br/>Bu hata güvenlik ayarı etkinleştirilirse, desteklenmeyen sürümü kullandığınızdan ve, yukarıda belirtilen minimum değerleri aşağıda bekletme aralığını azaltabilir çalıştığınızda gelir (desteklenen sürümleri, bu makalenin ilk Not belirtilir). <br/>**Önerilen eylem:**<br/> Bu durumda, yukarıda belirtilen en düşük bekletme (günlük, haftalık, üç hafta aylık veya yıllık yedekleme için bir yıl için dört hafta için yedi gün) Bekletme dönemi ayarlamalısınız ilgili güncelleştirmeleri İlkesi ile devam edin. İsteğe bağlı olarak, Azure Backup sunucusu ve/veya DPM UR tüm güvenlik güncelleştirmelerini yararlanmak için yedekleme aracısını güncelleştirmek için tercih edilen yaklaşım olacaktır. |
-| Parola değiştirme |Girilen güvenlik PIN'i hatalı. (KİMLİK: 100130) Bu işlemi tamamlamak için doğru güvenlik PIN'ini girin. |**Neden:**<br/> (Parola değişikliği gibi) kritik işlem gerçekleştirilirken güvenlik PIN'ini geçersiz veya süresi dolmuş girdiğinizde bu hatayı gelir. <br/>**Önerilen eylem:**<br/> İşlemi tamamlamak için geçerli güvenlik PIN'i girmeniz gerekir. PIN almak için Azure Portal'da oturum açın ve kurtarma Hizmetleri kasası > Ayarlar > Özellikler > Güvenlik PIN'i oluştur. Bu PIN, parolayı değiştirmek için kullanın. |
-| Parola değiştirme |İşlem başarısız oldu. ID: 120002 |**Neden:**<br/>Bu hata, güvenlik ayarları etkinleştirildiğinden, parola değiştirmeye ve desteklenmeyen bir sürümü (Bu makalenin ilk Not belirtilen geçerli sürümler) olan gelir.<br/>**Önerilen eylem:**<br/> Parolayı değiştirmek için ilk yedekleme aracı için en düşük sürümü olarak 2.0.9052 en düşük, en düşük güncelleştirme 1'için Azure Backup sunucusu güncelleştirmeniz gerekir ve/veya DPM sunucusuna en az DPM 2012 R2 UR12 veya DPM 2016 UR2 (indirme bağlantıları aşağıdaki), ardından geçerli güvenlik PIN'ini girin. PIN almak için Azure Portal'da oturum açın ve kurtarma Hizmetleri kasası > Ayarlar > Özellikler > Güvenlik PIN'i oluştur. Bu PIN, parolayı değiştirmek için kullanın. |
+| İlke değişikliği |Yedekleme İlkesi değiştirilemedi. Hata: Geçerli işlem bir [0x29834] iç hizmet hatası nedeniyle başarısız oldu. Lütfen bir süre sonra işlemi yeniden deneyin. Sorun devam ederse lütfen Microsoft desteğine başvurun. |**Neden:**<br/>Bu hata güvenlik ayarı etkinleştirilirse, desteklenmeyen sürümü kullandığınızdan ve, yukarıda belirtilen minimum değerleri aşağıda bekletme aralığını azaltabilir çalıştığınızda gelir (desteklenen sürümleri, bu makalenin ilk Not belirtilir). <br/>**Önerilen eylem:**<br/> Bu durumda, yukarıda belirtilen en düşük bekletme (günlük, haftalık, üç hafta aylık veya yıllık yedekleme için bir yıl için dört hafta için yedi gün) Bekletme dönemi ayarlamalısınız ilgili güncelleştirmeleri İlkesi ile devam edin. İsteğe bağlı olarak, Azure Backup sunucusu ve/veya DPM UR tüm güvenlik güncelleştirmelerini yararlanmak için yedekleme aracısını güncelleştirmek için tercih edilen yaklaşım olacaktır. |
+| Parola değiştirme |Girilen güvenlik PIN'i hatalı. (KİMLİK: 100130) bu işlemi tamamlamak için doğru güvenlik PIN'ini girin. |**Neden:**<br/> (Parola değişikliği gibi) kritik işlem gerçekleştirilirken güvenlik PIN'ini geçersiz veya süresi dolmuş girdiğinizde bu hatayı gelir. <br/>**Önerilen eylem:**<br/> İşlemi tamamlamak için geçerli güvenlik PIN'i girmeniz gerekir. PIN almak için Azure Portal'da oturum açın ve kurtarma Hizmetleri kasası > Ayarlar > Özellikler > Güvenlik PIN'i oluştur. Bu PIN, parolayı değiştirmek için kullanın. |
+| Parola değiştirme |İşlem başarısız oldu. Kimlik: 120002 |**Neden:**<br/>Bu hata, güvenlik ayarları etkinleştirildiğinden, parola değiştirmeye ve desteklenmeyen bir sürümü (Bu makalenin ilk Not belirtilen geçerli sürümler) olan gelir.<br/>**Önerilen eylem:**<br/> Parolayı değiştirmek için ilk yedekleme aracı için en düşük sürümü olarak 2.0.9052 en düşük, en düşük güncelleştirme 1'için Azure Backup sunucusu güncelleştirmeniz gerekir ve/veya DPM sunucusuna en az DPM 2012 R2 UR12 veya DPM 2016 UR2 (indirme bağlantıları aşağıdaki), ardından geçerli güvenlik PIN'ini girin. PIN almak için Azure Portal'da oturum açın ve kurtarma Hizmetleri kasası > Ayarlar > Özellikler > Güvenlik PIN'i oluştur. Bu PIN, parolayı değiştirmek için kullanın. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure kurtarma Hizmetleri kasası ile çalışmaya başlama](backup-azure-vms-first-look-arm.md) bu özellikleri etkinleştirmek için.

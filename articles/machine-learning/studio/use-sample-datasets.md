@@ -1,26 +1,8 @@
 ---
-title: Azure Machine Learning Studio'da örnek veri kümelerini - kullanma | Microsoft Docs
-description: Machine Learning Studio'da bulunan örnek modellerde kullanılan veri kümelerine açıklamaları. Bu örnek veri kümeleri için denemelerinizi kullanabilirsiniz.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 03a0b844-e8a7-4896-996f-d3c7a0db7a50
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/19/2018
-ms.openlocfilehash: 2fde43417ffc907a93b4e568b90ebbda228c4cfe
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270493"
+Başlık: Örnek veri kümeleri titleSuffix kullanın: Azure Machine Learning Studio açıklaması: Machine Learning Studio'da bulunan örnek modellerde kullanılan veri kümelerine açıklamaları. Bu örnek veri kümeleri için denemelerinizi kullanabilirsiniz.
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+
+Yazar: ericlicoding ms.author: amlstudiodocs MS.özel: Yazar önceki = heatherbshapiro, önceki ms.author=hshapiro ms.date: 01/19/2018
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio'da örnek veri kümelerini kullanma
 [top]: #machine-learning-sample-datasets
@@ -49,7 +31,7 @@ Bu veri kümelerini birini kendi denemenizde, deneme tuvaline sürükleyerek kul
 <p></p>
 <b>Kullanım:</b> Bir kişi yılı aşkın 50 bin işletmeyse olup olmadığını tahmin etmek için demografik bilgileri kullanan kişiler sınıflandırın.
 <p></p>
-<b>İlgili araştırma:</b> Kohavi, r, Becker, b, (1996). UCI makine öğrenimi depo <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar bilimleri </td>
+<b>İlgili araştırma:</b> Kohavi, R., Becker, B., (1996). UCI makine öğrenimi depo <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar bilimleri </td>
 </tr>
 
 <tr>
@@ -114,7 +96,7 @@ Machine learning belgeleri sık görüntülenen Oncology Enstitüsü tarafından
 <p></p>
 <b>Kullanım:</b> Kanser türünü sınıflandırmak, 9 özniteliklerine dayalı, bazıları doğrusal ve bazı kategorik. 
 <p></p>
-<b>İlgili araştırma:</b> Wohlberg, W.H., Sokak, W.N. ve Mangasarian, O.L. (1995). UCI makine öğrenimi depo <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar bilimleri </td>
+<b>İlgili araştırma:</b> Wohlberg, W.H., Street, W.N., & Mangasarian, O.L. (1995). UCI makine öğrenimi depo <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar bilimleri </td>
 </tr>
 
 <tr>
@@ -203,9 +185,9 @@ Sıcaklık ve nem dizinleri ve Rüzgar hızı gibi hava durumu verileri içerir.
 <p></p>
 <b>Kullanım:</b> Bu bir zor regresyon, bir yandan orman ateşlenir yazılan alanını tahmin olduğu görevdir. 
 <p></p>
-<b>İlgili araştırma:</b> Cortez, p & Morais, A. (2008). UCI makine öğrenimi depo <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar bilimleri
+<b>İlgili araştırma:</b> Cortez, P., & Morais, A. (2008). UCI makine öğrenimi depo <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar bilimleri
 <p></p>
-[Cortez ve Morais, 2007] P. Cortez ve A. Morais. Veri madenciliği yönelik bir yaklaşım tahmin orman rutin verileri kullanarak ateşlenir. J. Neves, M. f Santos ve J. Machado EDT, yapay zeka, Study of 13 EPIA 2007 - Portekizce konferansı tutanaklarında yapay zeka, aralık, Guimarães, Portekiz, ss. 512-523, 2007 yeni eğilimler. APPIA, ISBN 13 978-989-95618-0-9. Bulunabilir: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf"> http://www.dsi.uminho.pt/~pcortez/fires.pdf </a>.
+[Cortez ve Morais, 2007] P. Cortez ve A. Morais. Veri madenciliği yönelik bir yaklaşım tahmin orman rutin verileri kullanarak ateşlenir. In J. Neves, M. F. Santos ve J. Machado EDT, yapay zeka, Study of 13 EPIA 2007 - Portekizce konferansı tutanaklarında yapay zeka, aralık, Guimarães, Portekiz, ss. 512-523, 2007 yeni eğilimler. APPIA, ISBN 13 978-989-95618-0-9. Bulunabilir: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf"> http://www.dsi.uminho.pt/~pcortez/fires.pdf </a>.
   </td>
 </tr>
 
@@ -221,7 +203,7 @@ UCI Statlog (Almanca kredi kartı) veri kümesi (<a href="http://archive.ics.uci
 <tr>
   <td>IMDB başlık</td>
   <td>
-Veri kümesi Twitter tweetleri değerlendirildi filmlerle ilgili bilgiler içerir: IMDB film kimliği, film adı, türe ve üretim yılı. Veri kümesinde 17K filmler bulunur. Veri kümesi "S. kağıt kullanılmaya başlandı Dooms, t De Pessemier ve L. Martens. MovieTweetings: Veri kümesi derecelendirme film Twitter'dan toplanır. Atölyesi kitle kaynak ve İnsan hesaplama öneren sistemleri RecSys 2013'te CrowdRec."
+Veri kümesi Twitter tweetleri değerlendirildi filmlerle ilgili bilgiler içerir: IMDB film kimliği, film adı, türe ve üretim yılı. Veri kümesinde 17K filmler bulunur. Veri kümesi "S. kağıt kullanılmaya başlandı Dooms, T. De Pessemier and L. Martens. MovieTweetings: Veri kümesi derecelendirme film Twitter'dan toplanır. Atölyesi kitle kaynak ve İnsan hesaplama öneren sistemleri RecSys 2013'te CrowdRec."
   </td>
 </tr>
 
@@ -251,7 +233,7 @@ Verileri yakıt tüketim galon başına mil içindeki çeşitli otomobiller içi
 <p></p>
 <b>Kullanım:</b> Birden çok değerli üç farklı özniteliklerin ve sürekli beş özniteliğe dayalı yakıt ekonomi tahmin edin. 
 <p></p>
-<b>İlgili araştırma:</b> StatLib, Carnegie Mellon University (1993). UCI makine öğrenimi depo <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar bilimleri </td>
+<b>İlgili araştırma:</b> StatLib, Carnegie Mellon University, (1993). UCI makine öğrenimi depo <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar bilimleri </td>
 </tr>
 
 <tr>
@@ -373,14 +355,14 @@ Veri kümesi, müşteri verileri ve doğrudan bir posta kampanya yanıtını hak
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/lyrl2004_tokens_test.csv">lyrl2004_tokens_test.csv</a></td>
   <td>
-Test örneklerde RCV1 V2 Reuters haber veri kümesi özellikleri. 781 K haber makalelerini kimlikleri yanı sıra bir veri kümesine sahiptir (ilk sütun kümesi). Her makalede, stopworded, simgeleştirilmiş ve stemmed. Veri kümesi tarafından David sunulmuştur. D. Gamze.
+Test örneklerde RCV1 V2 Reuters haber veri kümesi özellikleri. 781 K haber makalelerini kimlikleri yanı sıra bir veri kümesine sahiptir (ilk sütun kümesi). Her makalede, stopworded, simgeleştirilmiş ve stemmed. Veri kümesi tarafından David sunulmuştur. D. Lewis.
   </td>
 </tr>
 
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/lyrl2004_tokens_train.csv">lyrl2004_tokens_train.csv</a></td>
   <td>
-Eğitim örneklerde RCV1 V2 Reuters haber veri kümesi özellikleri. 23 K haber makalelerini kimlikleri yanı sıra bir veri kümesine sahiptir (ilk sütun kümesi). Her makalede, stopworded, simgeleştirilmiş ve stemmed. Veri kümesi tarafından David sunulmuştur. D. Gamze.
+Eğitim örneklerde RCV1 V2 Reuters haber veri kümesi özellikleri. 23 K haber makalelerini kimlikleri yanı sıra bir veri kümesine sahiptir (ilk sütun kümesi). Her makalede, stopworded, simgeleştirilmiş ve stemmed. Veri kümesi tarafından David sunulmuştur. D. Lewis.
   </td>
 </tr>
 
@@ -396,7 +378,7 @@ Veri kümesi indirildi ve Azure Blob depolamada depolanan (<a href="https://azur
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/rcv1-v2.topics.qrels.csv">rcv1-v2.topics.qrels.csv</a></td>
   <td>
-Haber makaleleri RCV1 V2 Reuters haber kümesindeki konu atamaları. Haber makalesinin çeşitli konulara atanabilir. Her satır biçimi "&lt;konu adı&gt; &lt;belge kimliği&gt; 1". Veri kümesi 2,6 milyon konu atamaları içeriyor. Veri kümesi tarafından David sunulmuştur. D. Gamze.
+Haber makaleleri RCV1 V2 Reuters haber kümesindeki konu atamaları. Haber makalesinin çeşitli konulara atanabilir. Her satır biçimi "&lt;konu adı&gt; &lt;belge kimliği&gt; 1". Veri kümesi 2,6 milyon konu atamaları içeriyor. Veri kümesi tarafından David sunulmuştur. D. Lewis.
   </td>
 </tr>
 

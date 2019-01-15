@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/15/2018
 ms.author: erikre
-ms.openlocfilehash: bddb72f2b76d6e652dd26f2e383b7d06fded881b
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 297b1d5e683a8ad505a37c43ab74c8b888ec87f2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395466"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265762"
 ---
 # <a name="review-azure-resource-usage-using-the-rest-api"></a>REST API kullanarak Azure kaynak kullanımını gözden geçirin
 
@@ -39,7 +39,7 @@ Content-Type: application/json
 Authorization: Bearer
 ```
 
-`{subscriptionGuid}` Parametresi gereklidir ve kimlik bilgilerini provieed API belirteci kullanılarak okunabilir bir abonelik kimliği içermelidir. , `{reportName}`
+`{subscriptionGuid}` Parametresi gereklidir ve API belirteci sağlanan kimlik bilgileri kullanılarak okunabilir bir abonelik kimliği içermelidir. , `{reportName}`
 
 Aşağıdaki üst bilgiler gereklidir: 
 
@@ -146,7 +146,7 @@ Kullanım `ResourceType` rapor Azure SQL veritabanı maliyetleri, aboneliğinizd
 
 ### <a name="changing-timeframes"></a>Zaman çerçevelerini değiştirme
 
-Ayarlama `timeframe` tanımına `Custom` hafta dışında bir zaman çerçevesinde tarih ve ay seçeneklerinde yerleşik tarih ayarlamak için.
+Ayarlama `timeframe` tanımına `Custom` hafta dışında bir zaman çerçevesinde tarih ve tarih yerleşik seçenekleri aylık ayarlamak için.
 
 ```json
 "timeframe": "Custom",

@@ -1,27 +1,8 @@
 ---
-title: Azure Machine Learning Studio'da Python machine learning betikleri - yürütme | Microsoft Docs
-description: Anahatları Python betikleri Azure Machine Learning Studio, temel kullanım senaryoları, özellikler ve sınırlamalar için destek temel ilkeleri tasarlayın.
-keywords: python machine Learning, pandas python pandas, python betikleri python betiklerini yürütme
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: ee9eb764-0d3e-4104-a797-19fc29345d39
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/29/2017
-ms.openlocfilehash: f0fa2401e37e15137e9d5387d1395baf64b0fe61
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274080"
+Başlık: Python makine öğrenimi betiklerini titleSuffix yürütün: Azure Machine Learning Studio açıklaması: Anahatları Python betikleri Azure Machine Learning Studio, temel kullanım senaryoları, özellikler ve sınırlamalar için destek temel ilkeleri tasarlayın.
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+
+Yazar: ericlicoding ms.author: amlstudiodocs MS.özel: Yazar önceki = heatherbshapiro, önceki ms.author=hshapiro ms.date: 11/29/2017
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio’da Python machine learning betikleri yürütme
 
@@ -67,7 +48,7 @@ Azure Machine Learning Studio'da Python için birincil arabirim aracılığıyla
 [Python betiği yürütme] [ execute-python-script] modülü Azure ML Studio'daki en fazla üç girişleri kabul eder ve kendi R analog gibi (aşağıdaki bölümde açıklanmıştır) en fazla iki çıktılar üretir [R yürütün Betik] [ execute-r-script] modülü. Yürütülecek Python kodu olarak adlandırılmış bir özel parametre kutusuna girilen çağrılan işlev giriş noktası `azureml_main`. Bu modül uygulamak için kullanılan temel tasarım ilkeleri şunlardır:
 
 1. *Python kullanıcılar için kullanılan deyimsel olmalıdır.* Python kullanıcıların çoğu kodlarını modülleri içinde işlevler olarak faktörü. Bu nedenle, yürütülebilir deyimlerin çok en üst düzey bir modülde koyarak nispeten nadir olarak rastlanıyor. Sonuç olarak, komut dosyası kutusunu da deyimleri yalnızca bir dizi aksine özel olarak adlandırılmış bir Python işlevi alır. İşlevde kullanıma sunulan standart Python kitaplık türleri gibi nesnelerdir [Pandas](http://pandas.pydata.org/) veri çerçevelerini ve [NumPy](http://www.numpy.org/) dizileri.
-2. *Yüksek kaliteli yerel arasında olmalıdır ve bulut yürütme.* Python kodu yürütmek için kullanılan arka uç dayanır [Anaconda](https://store.continuum.io/cshop/anaconda/), platformlar arası bilimsel Python dağıtım yaygın olarak kullanılan. Bu, en yaygın Python paketlerini 200 yakın birlikte gelir. Bu nedenle, veri bilimcileri hata ayıklama ve Azure Machine Learning ile uyumlu Anaconda ortamlarının kendi kodlarına uygun. Ardından var olan bir geliştirme ortamı gibi kullanın [Ipython](http://ipython.org/) Not Defteri veya [Visual Studio için Python Araçları](https://aka.ms/ptvs), bir Azure ML deneme bir parçası olarak çalıştırmak için. `azureml_main` Giriş noktasıdır ve bu nedenle temel alınan bir Python işlevi **** Azure ML özgü kod veya yüklü SDK yazılabilir.
+2. *Yüksek kaliteli yerel arasında olmalıdır ve bulut yürütme.* Python kodu yürütmek için kullanılan arka uç dayanır [Anaconda](https://store.continuum.io/cshop/anaconda/), platformlar arası bilimsel Python dağıtım yaygın olarak kullanılan. Bu, en yaygın Python paketlerini 200 yakın birlikte gelir. Bu nedenle, veri bilimcileri hata ayıklama ve Azure Machine Learning ile uyumlu Anaconda ortamlarının kendi kodlarına uygun. Ardından var olan bir geliştirme ortamı gibi kullanın [Ipython](http://ipython.org/) Not Defteri veya [Visual Studio için Python Araçları](https://aka.ms/ptvs), bir Azure ML deneme bir parçası olarak çalıştırmak için. `azureml_main` Giriş noktasıdır ve bu nedenle temel alınan bir Python işlevi *** Azure ML özgü kod veya yüklü SDK yazılabilir.
 3. *Diğer Azure Machine Learning modüller ile birleştirilebilir sorunsuz olmalıdır.* [Python betiği yürütme] [ execute-python-script] modülü kabul eder, girdi ve çıktı, olarak standart Azure Machine Learning veri kümeleri. Temel çerçevesinde şeffaf ve verimli bir şekilde Azure ML ve Python çalışma zamanları arasında köprü. Bu nedenle Python, R ve SQLite çağıran de dahil olmak üzere mevcut Azure ML iş akışları ile birlikte kullanılabilir. Sonuç veri Bilimcisi iş akışları oluşturma:
    * ön işleme ve temizleme verileri için Python ve Pandas kullanma
    * birden fazla veri kümesi için form özelliklerini birleştirme, bir SQL dönüştürme için veri akışı

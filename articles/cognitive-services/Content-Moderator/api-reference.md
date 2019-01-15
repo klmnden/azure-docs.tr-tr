@@ -1,7 +1,7 @@
 ---
 title: API Başvurusu - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: İçerik denetleme hakkında bilgi edinin ve API'ler için Content Moderator gözden geçirin.
+description: Çeşitli içerik denetleme hakkında bilgi edinin ve API'ler için Content Moderator gözden geçirin.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
@@ -10,19 +10,19 @@ ms.component: content-moderator
 ms.topic: reference
 ms.date: 06/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: ecc22b097c14fc7597d8ee0e31f9691098a2211d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4a64b2f7ce54d5ace26ad18c0ca1a9facb66245e
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229756"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266971"
 ---
 # <a name="content-moderator-api-reference"></a>Content Moderator API'si başvurusu
 
-Aşağıdaki yollarla Azure Content Moderator API'leri ile çalışmaya başlama: (Ayrıca bkz: [kimlik bilgilerinin yönetimiyle](review-tool-user-guide/credentials.md).)
+Aşağıdaki yollarla Azure Content Moderator API'leri ile kullanmaya başlayın: (Ayrıca bkz: [kimlik bilgilerinin yönetimiyle](review-tool-user-guide/credentials.md).)
 
 - Azure portalında [Content Moderator API'sine için abone](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator).
-- Kaydolun [Content Moderator İnceleme aracı](https://contentmoderator.cognitive.microsoft.com/). Bkz: [hızlı](quick-start.md).
+- Kaydolun [Content Moderator İnceleme aracı](https://contentmoderator.cognitive.microsoft.com/). Bkz: [deneyin Content Moderator Web'de](quick-start.md).
 
 ## <a name="moderation-apis"></a>Yönetim API’leri
 

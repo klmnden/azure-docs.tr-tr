@@ -1,26 +1,8 @@
 ---
-title: Azure AI Gallery sektör çözümleri - Azure Machine Learning Studio | Microsoft Docs
-description: Azure AI Gallery sektörler bölümünü perakende, imalat, bankacılık ve sağlık hizmetleri gibi sektörlerde özgü çeşitli kaynakları bir araya getirir.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-editor: cgronlun
-ms.assetid: fd2ecf9a-ff76-4a0f-8d68-7f762249648c
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/31/2017
-ms.custom: previous-ms.author=garye, previous-author=garyericson
-ms.author: amlstudiodocs
-ms.openlocfilehash: 4f9495027c7027f659f877930b6aabc72b361ae8
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269337"
+Başlık: Azure AI Gallery sektör çözümleri titleSuffix: Azure Machine Learning Studio açıklaması: Azure AI Gallery sektörler bölümünü perakende, imalat, bankacılık ve sağlık hizmetleri gibi sektörlerde özgü çeşitli kaynakları bir araya getirir.
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+
+Yazar: ericlicoding ms.author: amlstudiodocs MS.özel: önceki ms.author=garye, yazar önceki = garyericson ms.date: 03/31/2017
 ---
 # <a name="discover-industry-specific-solutions-in-the-azure-ai-gallery"></a>Azure AI Gallery'de sektöre özgü çözümler keşfedin
 

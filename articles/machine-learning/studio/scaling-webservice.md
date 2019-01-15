@@ -1,27 +1,8 @@
 ---
-title: Azure Machine Learning Studio web hizmeti - ölçeklendirme | Microsoft Docs
-description: Ek uç noktaları ekleyerek eşzamanlılığı bir Azure Machine Learning Studio web hizmeti hakkında bilgi edinin.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
-ms.author: amlstudiodocs
-editor: cgronlun
-keywords: azure machine Learning web Hizmetleri, kullanıma hazır hale getirme, ölçeklendirme, uç nokta, eşzamanlılık
-ms.assetid: c2c51d7f-fd2d-4f03-bc51-bf47e6969296
-ms.service: machine-learning
-ms.component: studio
-ms.devlang: NA
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 01/23/2017
-ms.openlocfilehash: 736c27f5c8ad6efb2b4e36f44998ce06d7b69248
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256358"
+Başlık: Bir Machine Learning Studio web hizmeti titleSuffix ölçeğini genişletin: Azure Machine Learning Studio açıklaması: Ek uç noktaları ekleyerek eşzamanlılığı bir Azure Machine Learning Studio web hizmeti hakkında bilgi edinin.
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+
+Yazar: ericlicoding ms.author: amlstudiodocs MS.özel: seodec18, önceki ms.author=yahajiza, yazar önceki = YasinMSFT ms.date: 01/23/2017
 ---
 # <a name="scaling-an-azure-machine-learning-studio-web-service-by-adding-additional-endpoints"></a>Ek uç noktaları ekleyerek bir Azure Machine Learning Studio web hizmetini ölçeklendirme
 > [!NOTE]

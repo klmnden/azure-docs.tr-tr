@@ -1,26 +1,7 @@
 ---
-title: Machine Learning Studio çalışma alanı yönetme | Microsoft Docs
-description: Azure Machine Learning çalışma alanları, erişimi yönetmek ve dağıtmak ve ML API web hizmetlerini yönetme
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: daf3d413-7a77-4beb-9a7a-6b4bdf717719
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/27/2017
-ms.openlocfilehash: 8c5dfd82a7bf0d1985869c8de4e3b313ef885947
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270782"
+Başlık: Machine Learning Studio çalışma alanı titleSuffix yönetin: Azure Machine Learning Studio açıklaması: Azure Machine Learning çalışma alanları, erişimi yönetmek ve dağıtmak ve ML API web services hizmetlerini yönetme: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+
+Yazar: ericlicoding ms.author: amlstudiodocs MS.özel: Yazar önceki = heatherbshapiro, önceki ms.author=hshapiro ms.date: 02/27/2017
 ---
 # <a name="manage-an-azure-machine-learning-studio-workspace"></a>Bir Azure Machine Learning Studio çalışma alanını yönetme
 

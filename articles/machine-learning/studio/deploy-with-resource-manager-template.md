@@ -1,26 +1,7 @@
 ---
-title: Studio çalışma alanı ile Azure Resource Manager - Azure Machine Learning Studio'da dağıtma | Microsoft Docs
-description: Azure Resource Manager şablonu kullanarak Azure Machine Learning için bir çalışma alanı dağıtma
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 4955ac4d-ff99-4908-aa27-69b6bfcc8e85
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/05/2018
-ms.openlocfilehash: ac9cecd07d600189f0fb08771b0992d49236aea9
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268929"
+Başlık: Studio çalışma alanına Azure Resource Manager titleSuffix ile dağıtın: Azure Machine Learning Studio açıklaması: Azure Machine Learning kullanarak Azure Resource Manager şablonu Hizmetleri için bir çalışma alanı dağıtma: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 02/05/2018
 ---
 # <a name="deploy-azure-machine-learning-studio-workspace-using-azure-resource-manager"></a>Azure Machine Learning Studio çalışma alanına Azure Resource Manager kullanarak dağıtma
 

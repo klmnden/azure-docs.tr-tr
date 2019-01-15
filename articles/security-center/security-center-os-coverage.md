@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2018
+ms.date: 1/9/2019
 ms.author: rkarlin
-ms.openlocfilehash: 2dcc72e0e3b9caef9ab01d9f754671cb0365a358
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 98d2d29e7822d9ca97ba488fcf67298a0b40efbf
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608843"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265473"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Platformlar ve Azure Güvenlik Merkezi tarafından desteklenen özellikler
 
@@ -74,10 +74,10 @@ Bir bulut hizmetinde çalışan sanal makineleri de desteklenir. Üretim yuvalar
 |Ortam|Azure|Azure Dışı|Azure|Azure Dışı|
 |VMBA tehdit algılama uyarıları|✔|✔|✔ (üzerinde desteklenen sürümleri)|✔|
 |Ağ tabanlı tehdit algılama uyarıları|✔|X|✔|X|
-|Windows Defender ATP tümleştirme *|✔ (üzerinde desteklenen sürümleri)|✔|X|X|
+|Windows Defender ATP tümleştirme|✔ (üzerinde desteklenen sürümleri)|✔|X|X|
 |Yamaları eksik|✔|✔|✔|✔|
 |Güvenlik yapılandırmaları|✔|✔|✔|✔|
-|Kötü amaçlı yazılımdan koruma programları|✔|✔|X|X|
+|Uç nokta koruması|✔|✔|X|X|
 |JIT VM erişimi|✔|X|✔|X|
 |Uyarlamalı uygulama denetimleri|✔|X|X|X|
 |FIM|✔|✔|✔|✔|
@@ -88,8 +88,27 @@ Bir bulut hizmetinde çalışan sanal makineleri de desteklenir. Üretim yuvalar
 |Ağ eşlemesi|✔|X|✔|X|
 |Uyarlamalı ağ denetimleri|✔|X|✔|X|
 
-\* Bu özellikler şu anda genel önizlemede desteklenmektedir.
 
+### <a name="supported-endpoint-protection-solutions"></a>Desteklenen uç nokta koruma çözümleri
+
+Aşağıdaki tabloda bir matrisi verilmektedir:
+ - Olup Azure Güvenlik Merkezi, her çözüm için yüklemek için kullanabilirsiniz.
+ - Hangi uç nokta koruma çözümleri Güvenlik Merkezi bulabilir. Bu uç nokta koruma çözümleri bulunursa, Güvenlik Merkezi bir yükleme tavsiyede bulunmaz.
+
+| Uç Nokta Koruması| Platformlar | Güvenlik Merkezi Yüklemesi | Güvenlik Merkezi Bulma |
+|------|------|-----|-----|
+| Windows Defender (Microsoft Kötü Amaçlı Yazılım Koruması)| Windows Server 2016| Hayır, işletim sisteminde yerleşik| Evet |
+| System Center Endpoint Protection (Microsoft Kötü Amaçlı Yazılım Koruması) | Windows Server 2012 R2, 2012, 2008 R2 (aşağıdaki nota bakın) | Uzantı ile | Evet |
+| Trend Micro – Tüm sürümler | Windows Server Ailesi  | Hayır | Evet |
+| Symantec v12.1.1100+| Windows Server Ailesi  | Hayır | Evet |
+| McAfee v10+ | Windows Server Ailesi  | Hayır | Evet |
+| Kaspersky| Windows Server Ailesi  | Hayır | Hayır  |
+| Sophos| Windows Server Ailesi  | Hayır | Hayır  |
+
+> [!NOTE]
+> - Algılama System Center Endpoint Protection (SCEP) bir Windows Server 2008 R2 sanal makine üzerinde SCEP PowerShell 3.0 (veya üst bir sürümünü) sonra yüklü olmasını gerektirir.
+>
+>
 
 ## <a name="supported-paas-features"></a>Desteklenen PaaS özellikleri 
 
@@ -97,8 +116,8 @@ Bir bulut hizmetinde çalışan sanal makineleri de desteklenir. Üretim yuvalar
 |Hizmet|Öneriler|Tehdit algılama|
 |----|----|----|
 |SQL|✔| ✔|
-|PostGreSQL *|✔| ✔|
-|MySQL *|✔| ✔|
+|PostGreSQL*|✔| ✔|
+|MySQL*|✔| ✔|
 |Azure Blob Depolama hesapları *|✔| ✔|
 |Uygulama hizmetleri|✔| ✔|
 |Cloud Services|✔| X|
@@ -109,6 +128,8 @@ Bir bulut hizmetinde çalışan sanal makineleri de desteklenir. Üretim yuvalar
 |Abonelik|✔| ✔|
 
 \* Bu özellikler şu anda genel önizlemede desteklenmektedir. 
+
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

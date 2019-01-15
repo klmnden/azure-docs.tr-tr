@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/19/2018
 ms.author: ellacroi
-ms.openlocfilehash: 3cd0766fa4308df41172c323aa933e1c048f1e9d
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: c02bc75a978325f8cb0dc8733fb8d296e8710975
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074011"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264691"
 ---
 # <a name="requirements-by-listing-type"></a>Liste türü tarafından gereksinimleri  
 Teknik ve pazarlama içeriği gereksinimleri vitrini, Teklif türü ve liste türüne göre değişir. Uyumluluğunuzu doğrulamak için aşağıdaki özellikleri gözden geçirin.  
@@ -135,7 +135,7 @@ Liste türü listeleme vitrinler üzerinde aşağıdaki teklif türlerini Market
 |:---        |:---        | :--- |  
 | Azure uygulamaları için: Yönetilen uygulama | Azure Market | [Gereksinimler: Azure Market: Transact: Azure uygulamaları için: Yönetilen uygulama](#requirements-azure-marketplace-transact-azure-apps-managed-app) |  
 | Azure uygulamaları için: Çözüm şablonu | Azure Market | [Gereksinimler: Azure Market: Transact: Azure uygulamaları için: Çözüm şablonu](#requirements-azure-marketplace-transact-azure-apps-solution-template) |  
-| Kapsayıcılar | Azure Market | [Gereksinimler: Azure Market: Transact: Kapsayıcı](#requirements-azure-marketplace-transact-container) |  
+| Kapsayıcılar | Azure Market | [Gereksinimler: Azure Market: Transact: Container](#requirements-azure-marketplace-transact-container) |  
 | SaaS uygulama  | Azure Market | [Gereksinimler: Azure Market: Transact: SaaS uygulama](#requirements-azure-marketplace-transact-saas-app) |  
 | Sanal makine | Azure Market | [Gereksinimler: Azure Market: Transact: Sanal makine](#requirements-azure-marketplace-transact-virtual-machine) |  
 

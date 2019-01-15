@@ -1,26 +1,7 @@
 ---
-title: Metin analiz modelleri - Azure Machine Learning Studio'da oluşturma | Microsoft Docs
-description: Azure Machine Learning Studio'da metin ön işleme, N-gram veya özellik karma modüllerini kullanma, metin analiz modelleri oluşturma
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: ''
-ms.assetid: 08cd6723-3ae6-4e99-a924-e650942e461b
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/14/2018
-ms.openlocfilehash: 11f4ad4ff1e8e2eab688596d393e63009f7e5624
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255491"
+Başlık: Metin analiz modelleri titleSuffix oluşturun: Azure Machine Learning Studio açıklaması: Azure Machine Learning Studio modülleri için metin ön işleme, N-gram kullanarak metin analiz modelleri oluşturun veya karma services özellik: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/14/2018
 ---
 # <a name="create-text-analytics-models-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio’da metin analiz modelleri oluşturma
 Azure Machine Learning, oluşturun ve metin analiz modelleri oluşturup kullanıma hazır hale getirmek için kullanabilirsiniz. Bu modeller, örneğin, belge sınıflandırma veya yaklaşım analizi sorunlarını çözmenize yardımcı olabilir.
@@ -67,19 +48,19 @@ Ayrıca, tahmin hedefi olan en bağıntılı olan özellikler seçmek için öze
 
 Ayıklamak N-Gram özelliklerini kullanmak için alternatif bir yaklaşım, özellik karma modülünü kullanabilirsiniz. Ancak dikkat [özellik karma](https://msdn.microsoft.com/library/azure/dn906018.aspx) yerleşik özellik seçimi yetenekleri veya TF yok * IDF kolaylığı karşılaştırması.
 
-## <a name="step-3-train-classification-or-regression-model"></a>3. adım: Sınıflandırma veya regresyon modeli eğitme
+## <a name="step-3-train-classification-or-regression-model"></a>3. Adım: Sınıflandırma veya regresyon modeli eğitme
 Şimdi metin için sayısal özellik sütunu dönüştürülmüş. Sütunları Seç kümesinde dışında tutmak için kullanacağız veri kümesi önceki aşamalar dize sütunlarından yine de içerir.
 
 Ardından kullandığımız [iki sınıflı Lojistik regresyon](https://msdn.microsoft.com/library/azure/dn905994.aspx) Hedefimiz tahmin etmek için: yüksek veya düşük gözden geçirme puanı. Bu noktada, metin analizi sorun, bir normal sınıflandırma sorunla dönüştürülmüş. Modeli geliştirmek için Azure Machine Learning'de kullanılabilen araçları kullanabilirsiniz. Örneğin, farklı sınıflandırıcılar verdikleri nasıl doğru sonuçları bulmayı denemek veya hiper parametre ayarı doğruluğunu artırmak için kullanın.
 
 ![Eğitme ve puanı](./media/text-analytics-module-tutorial/scoring-text.png)
 
-## <a name="step-4-score-and-validate-the-model"></a>4. adım: Puanlama ve modelini doğrulama
+## <a name="step-4-score-and-validate-the-model"></a>4. Adım: Puanlama ve modelini doğrulama
 Nasıl eğitilen model doğrulama? Biz, test veri kümesinde puan ve doğruluğunu değerlendirin. Ancak, model N-gram ve eğitim kümesinden ağırlıkları sözlüğünü öğrendiniz. Bu nedenle, bu sözlük ve bu ağırlıkları özellikleri sözlük yenisini oluşturmak yerine test verileri ayıklanırken kullanmamız gereken. Bu nedenle, biz ayıklamak N-Gram özellikleri modülünü deneme Puanlama dalına ekleyin, çıkış sözlük eğitim daldan bağlanmak ve sözlük modunu salt okunur olarak ayarlayın. Biz de 1 örnek ve en fazla %100 için en düşük ayarlayarak N-gram sıklıkla filtresini devre dışı bırakın ve özellik seçimi devre dışı açın.
 
 Sayısal özellik sütunu için test verilerini metin sütunu dönüştürüldükten sonra dize sütunlarındaki eğitim dal gibi önceki aşamada gelen kapsam dışında tutarız. Ardından Model Puanlama modülü tahminler elde etmeye ve doğruluğunu değerlendirilecek Model değerlendirme modülü kullanıyoruz.
 
-## <a name="step-5-deploy-the-model-to-production"></a>5. adım: Üretim için model dağıtma
+## <a name="step-5-deploy-the-model-to-production"></a>5. Adım: Üretim için model dağıtma
 Model üretim ortamına dağıtılması neredeyse hazır. Web hizmeti olarak dağıtıldığında, serbest biçimli metin dizesi girdi olarak alır ve "Yüksek" veya "Düşük" Tahmin döndürür Öğrenilen N-gram sözlük, özellikler ve bu özelliği bir tahminde bulunmak için eğitilen Lojistik regresyon modeli metne dönüştürmek için kullanır. 
 
 Tahmine dayalı deneme ayarlama, biz ilk N-gram sözlüğü veri kümesi ve eğitilen Lojistik regresyon modelini denemeyi eğitim daldan kaydedin. Ardından, deneme, Tahmine dayalı denemeye için bir deneme grafiğini oluşturmak için "Farklı Kaydet" kullanarak kaydedin. Biz, deneme verileri bölme modülü ve eğitim dal kaldırın. Biz sonra önceden kaydedilmiş N-gram sözlük ve model N-Gram özellikleri ayıklayın ve Score Model modülleri, sırasıyla bağlanır. Biz de Evaluate Model modülü kaldırın.

@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 06/07/2018
+ms.date: 01/14/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: a6bbc61afcc1ed25d5eac8673b9abfa59e72dba9
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: bf39e22c0edc23d2e452d96103c8933e0a47af9e
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602197"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304422"
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Azure tanılama günlüğünü ve Windows Olay iletme'yi Azure günlük tümleştirmesi
 
 
 >[!IMPORTANT]
-> Azure günlük tümleştirme özelliği 06/01/2019 tarafından kullanımdan kaldırılacaktır. 27 Haziran 2018 tarihine kadar AzLog indirmeler devre dışı bırakılır. Taşıma iletme gözden geçirme sonrası yapmanız gerekenler hakkında rehberlik için [SIEM araçlarla tümleştirmek için kullanım Azure İzleyici](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
+> Azure günlük tümleştirme özelliği 06/01/2019 tarafından kullanımdan kaldırılacaktır. AzLog yüklemeleri, 27 Haziran 2018'de devre dışı bırakıldı. Taşıma iletme gözden geçirme sonrası yapmanız gerekenler hakkında rehberlik için [SIEM araçlarla tümleştirmek için kullanım Azure İzleyici](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
 Azure günlük tümleştirmesi, yalnızca kullanmalısınız bir [Azure İzleyici](../monitoring-and-diagnostics/monitoring-get-started.md) bağlayıcı güvenlik olayı ve Olay yönetimi (SIEM) satıcınızdan kullanılamaz.
 
@@ -85,7 +85,7 @@ Performansı artırmak için de Azure günlük tümleştirmesi hizmetini ölçek
 
 ## <a name="install-azure-log-integration"></a>Azure günlük Tümleştirmesi'ni yükleyin
 
-Azure günlük Tümleştirmesi'ni yüklemek için Yükle [Azure günlük tümleştirmesi](https://www.microsoft.com/download/details.aspx?id=53324) yükleme dosyası. Kurulum işlemi tamamlayın. Telemetri bilgilerini Microsoft'a vermelisiniz isteyip istemediğinizi seçin.
+Kurulum yordamı üzerinden çalıştırın. Telemetri bilgilerini Microsoft'a vermelisiniz isteyip istemediğinizi seçin.
 
 Azure günlük tümleştirmesi hizmeti, yüklü olduğu makinede telemetri verileri toplar.  
 
@@ -116,7 +116,7 @@ Temel kurulum tamamlandıktan sonra yükleme sonrası ve doğrulama adımların�
   ![LoadAzlogModule.ps1 komut çıktısının ekran görüntüsü](./media/security-azure-log-integration-get-started/loaded-modules.png)
 3. Ardından, belirli bir Azure ortamı kullanmak için Azure günlük tümleştirmesi yapılandırın. Bir *Azure ortamı* birlikte çalışmak istediğiniz Azure bulut veri merkezine türüdür. Olmakla birlikte birkaç Azure ortamları şu anda, uygun seçenekleri olan **AzureCloud** veya **AzureUSGovernment**. PowerShell'i yönetici olarak çalışan C:\Program Files\Microsoft Azure günlük Integration\ olduğundan emin olun. Ardından, bu komutu çalıştırın:
 
-  `Set-AzlogAzureEnvironment -Name AzureCloud` (için **AzureCloud**)
+  `Set-AzlogAzureEnvironment -Name AzureCloud` (for **AzureCloud**)
   
   ABD devlet kurumları Azure bulutuna kullanmak istiyorsanız, kullanın **AzureUSGovernment** için **-adı** değişkeni. Diğer Azure bulutlarını şu anda desteklenmiyor.  
 
@@ -245,7 +245,6 @@ Ayrıca açabileceğiniz bir [destek isteği](../azure-supportability/how-to-cre
 
 Azure günlük tümleştirmesi hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın: Bu makaledeki adımlarda denemeden önce Get başlatılan makalesini gözden geçirin ve orada adımları tamamlayın.
 
-* [Azure günlük tümleştirme için Azure günlükleri](https://www.microsoft.com/download/details.aspx?id=53324). İndirme Merkezi'nde, Ayrıntılar, sistem gereksinimleri ve yükleme yönergeleri için Azure günlük tümleştirmesi içerir.
 * [Azure günlük tümleştirmesine giriş](security-azure-log-integration-overview.md). Bu makalede Azure günlük tümleştirmesi, önemli işlevleri ve nasıl çalıştığını tanıtılmaktadır.
 * [İş ortağı yapılandırma adımları](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/). Bu blog gönderisini Splunk, HP ArcSight ve IBM QRadar iş ortağı çözümleri ile çalışmak için Azure günlük tümleştirmesi yapılandırma gösterilmektedir. Bu, SIEM bileşenleri yapılandırma hakkında geçerli kılavuzumuzu açıklar. Ek ayrıntılar için SIEM satıcınıza başvurun.
 * [Azure günlük tümleştirmesi hakkında sık sorulan sorular (SSS)](security-azure-log-integration-faq.md). Bu SSS, Azure günlük tümleştirmesi hakkında sık sorulan sorular yanıtlanmaktadır.

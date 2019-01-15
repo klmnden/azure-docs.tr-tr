@@ -1,26 +1,8 @@
 ---
-title: Mevcut bir Tahmine dayalı Studio web hizmetini - Azure Machine Learning Studio yeniden eğitme | Microsoft Docs
-description: Modeli yeniden eğitme ve Azure Machine Learning Studio'da eğitim yeni modeli kullanmak için web hizmetini güncelleştirmek hakkında bilgi edinin.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: cc4c26a2-5672-4255-a767-cfd971e46775
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/07/2017
-ms.openlocfilehash: d24cfd8dce42ee920c87fa2c3593a860468a6160
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250561"
+Başlık: Bir mevcut Tahmine dayalı Studio web hizmeti titleSuffix yeniden eğitme: Azure Machine Learning Studio açıklaması: Modeli yeniden eğitme ve Azure Machine Learning Studio'da eğitim yeni modeli kullanmak için web hizmetini güncelleştirmek hakkında bilgi edinin.
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+
+Yazar: ericlicoding ms.author: amlstudiodocs MS.özel: önceki ms.author=yahajiza, yazar önceki = YasinMSFT ms.date: 11/07/2017
 ---
 # <a name="retrain-an-existing-predictive-azure-machine-learning-studio-web-service"></a>Mevcut bir Tahmine dayalı Azure Machine Learning Studio web hizmetini yeniden eğitme
 

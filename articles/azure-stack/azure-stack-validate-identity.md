@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: 2cfa789b9817562eba5224257a365f8552cdf833
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 9ca777275aa4aa09a16c0248f6e3b1ecc76ac5b2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245949"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267343"
 ---
 # <a name="validate-azure-identity"></a>Azure kimlik doğrulama 
 Azure Active Directory (Azure AD) Azure Stack ile kullanmak hazır olduğunu doğrulamak için Azure Stack hazırlık Denetleyicisi Aracı (AzsReadinessChecker) kullanın. Azure Stack dağıtıma başlamadan önce Azure kimlik çözümü doğrulayın.  
@@ -48,7 +48,7 @@ Aşağıdaki önkoşulların karşılanması gerekir.
 **Azure Active Directory ortamı:**
  - Azure Stack için kullanacağınızı ve Azure Active Directory genel yönetici olduğundan emin olun, Azure AD hesabı belirleyin.
  - Azure AD Kiracı adınızın belirleyin. Kiracı adı olmalıdır *birincil* için Azure Active Directory etki alanı adı. Örneğin, *contoso.onmicrosoft.com*. 
- - Kullanacağınız AzureEnvironement belirleyin. AzureCloud, AzureChinaCloud veya kullanmakta olduğunuz hangi Azure aboneliğine bağlı olarak AzureUSGovernment ortam adı parametresi için desteklenen değerler.
+ - Kullanacağınız AzureEnvironment belirleyin. AzureCloud, AzureChinaCloud veya kullanmakta olduğunuz hangi Azure aboneliğine bağlı olarak AzureUSGovernment ortam adı parametresi için desteklenen değerler.
 
 ## <a name="validate-azure-identity"></a>Azure kimlik doğrulama 
 1. Önkoşulları karşılayan bir bilgisayarda, yönetici bir PowerShell istemi açın ve ardından AzsReadinessChecker yüklemek için aşağıdaki komutu çalıştırın:  

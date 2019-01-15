@@ -1,5 +1,5 @@
 ---
-title: Video içeriğinde içeriklere analiz edinC#
+title: Video içeriğinde içeriklere analiz C# -Content Moderator
 titlesuffix: Azure Cognitive Services
 description: Video içeriği için içerik Moderator SDK'sını kullanarak .NET için çeşitli içeriklere analiz etme
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 80635354b228edc1a8c1334e5d59cf530a10083e
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 70fe30e53635203d80aca2406c52b2ec08d0035c
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008292"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265524"
 ---
 # <a name="analyze-video-content-for-objectionable-material-in-c"></a>Video içeriğinde içeriklere analiz edinC#
 
@@ -24,7 +24,7 @@ Bu makalede bilgiler sağlanmaktadır ve yardımcı olması için kod örnekleri
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun. 
 
 ## <a name="prerequisites"></a>Önkoşullar
-- Herhangi bir sürümünü [Visual Studio 2015 veya 2017](https://www.visualstudio.com/downloads/)
+- [Visual Studio 2015 veya 2017](https://www.visualstudio.com/downloads/)'nin herhangi bir sürümü
 
 ## <a name="set-up-azure-resources"></a>Azure kaynakları ayarlama
 
@@ -55,18 +55,18 @@ Azure Media Services Gezgin AMS için kullanıcı dostu bir ön uç ' dir. AMS h
 ## <a name="create-the-visual-studio-project"></a>Visual Studio projesini oluşturma
 
 1. Visual Studio'da yeni bir oluşturma **konsol uygulaması (.NET Framework)** adlandırın ve proje **VideoModeration**. 
-1. Çözümünüzdeki diğer projelere varsa, bunu tek başlangıç projesi olarak seçin.
-1. Gerekli NuGet paketlerini alın. Çözüm Gezgini'nde projenize sağ tıklayıp **NuGet paketlerini Yönet**; ardından bulun ve aşağıdaki paketleri yükleyin:
+1. Çözümünüzde başka projeler de varsa, tek başlangıç projesi olarak bunu seçin.
+1. Gereken NuGet paketlerini alın. Çözüm Gezgini'nde projenize sağ tıklayın ve **NuGet Paketlerini Yönet**'i seçin; ardından aşağıdaki projeleri bulun ve yükleyin:
     - windowsazure.mediaservices
-    - windowsazure.mediaservices.Extensions
+    - windowsazure.mediaservices.extensions
 
 ## <a name="add-video-moderation-code"></a>Video denetimi kod ekleyin
 
-Ardından, kopyalama ve projenize bir temel içerik denetleme senaryoyu uygulamak için bu kılavuzu kodunu yapıştırın.
+Ardından, temel bir içerik moderasyonu senaryosu uygulamak için kodu bu kılavuzdan kopyalayıp projenize yapıştıracaksınız.
 
 ### <a name="update-the-programs-using-statements"></a>Programı deyimler kullanarak güncelleştirme
 
-Aşağıdaki `using` üst tarafına deyimlerini, _Program.cs_ dosya.
+Aşağıdaki `using` deyimlerini _Program.cs_ dosyanızın en üstüne ekleyin.
 
 ```csharp
 using System;
@@ -83,7 +83,7 @@ using System.Collections.Generic;
 
 ### <a name="set-up-resource-references"></a>Kaynak başvurularını Ayarla
 
-Aşağıdaki statik alanları ekleme **Program** sınıfını _Program.cs_. Bu alanlar, AMS aboneliğinize bağlanmak için gerekli bilgileri tutun. Bunları, yukarıdaki adımlarda aldığınız değerlerle doldurun. Unutmayın `CLIENT_ID` olduğu **uygulama kimliği** Azure AD uygulamanızı değerini ve `CLIENT_SECRET` "Bu uygulama için oluşturduğunuz VideoModKey" değeridir.
+Aşağıdaki statik alanları _Program.cs_ dosyasındaki **Program** sınıfına ekleyin. Bu alanlar, AMS aboneliğinize bağlanmak için gerekli bilgileri tutun. Bunları, yukarıdaki adımlarda aldığınız değerlerle doldurun. Unutmayın `CLIENT_ID` olduğu **uygulama kimliği** Azure AD uygulamanızı değerini ve `CLIENT_SECRET` "Bu uygulama için oluşturduğunuz VideoModKey" değeridir.
 
 ```csharp
 // declare constants and globals

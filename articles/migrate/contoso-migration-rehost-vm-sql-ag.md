@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 6db4de61f84280b7e34f8a9d5c3290ff6d4f97ab
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: c1fdd09023c07808226c95ed82d0c22e09d09ec4
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200078"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267394"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-azure-vms-and-sql-server-alwayson-availability-group"></a>Contoso geçişi: Bir şirket içi uygulama Azure sanal makineleri ve SQL Server AlwaysOn Kullanılabilirlik grubu üzerinde yeniden barındırma
 
@@ -107,7 +107,7 @@ Contoso, Artıları ve eksileri listesini birbirine koyarak önerilen tasarımla
 
 **Önemli noktalar** | **Ayrıntılar**
 --- | ---
-**Uzmanları** | WEBVM Azure'a geçiş basit hale değişikliğe gerek kalmadan taşınır.<br/><br/> SQL sunucusu katmanı, SQL Server 2017 ve Windows Server 2016 üzerinde çalışır. Bu, geçerli Windows Server 2008 R2 işletim sistemini kaldırdıktan ve SQL Server 2017'yi çalıştıran Contoso'nun teknik gereksinimlerini ve hedeflerini destekler. BT SQL Server 2008 R2 uzağa taşırken % 100 uyumluluk sağlar.<br/><br/> Contoso, Azure hibrit Avantajı'nı kullanarak, Yazılım Güvencesi yatırımları yararlanabilirsiniz.<br/><br/> Veri katmanı uygulaması artık tek bir yük devretme noktası böylece yüksek oranda kullanılabilir bir Azure SQL Server dağıtımında hataya dayanıklılık sağlar.
+**Uzmanları** | WEBVM Azure'a geçiş basit hale değişikliğe gerek kalmadan taşınır.<br/><br/> SQL sunucusu katmanı, SQL Server 2017 ve Windows Server 2016 üzerinde çalışır. Bu, geçerli Windows Server 2008 R2 işletim sistemini kaldırdıktan ve SQL Server 2017'yi çalıştıran Contoso'nun teknik gereksinimlerini ve hedeflerini destekler. BT SQL Server 2008 R2 uzağa taşırken % 100 uyumluluk sağlar.<br/><br/> Contoso, Azure hibrit Avantajı'nı kullanarak, Yazılım Güvencesi yatırımları yararlanabilirsiniz.<br/><br/> Veri katmanı uygulaması artık tek bir yük devretme noktası böylece yüksek oranda kullanılabilir bir SQL Server dağıtımını azure'da hataya dayanıklılık sağlar.
 **Simgeler** | Windows Server 2008 R2 WEBVM çalışıyor. İşletim sistemi için belirli rolleri (Temmuz 2018) Azure tarafından desteklenir. [Daha fazla bilgi edinin](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).<br/><br/> Uygulamanın web katmanı yük devretme tek bir noktadan devam edecektir.</br><br/> Contoso, Azure App Service gibi yönetilen bir hizmet taşımak yerine bir Azure VM olarak web katmanı destekleyen devam etmek gerekir.<br/><br/> Seçilen çözümü Azure SQL veritabanı yönetilen örneği gibi yönetilen bir platform taşımak yerine iki SQL Server Vm'leri yönetme devam etmek Contoso gerekir. Ayrıca, Yazılım Güvencesi içeren mevcut lisanslarını indirimli Azure SQL veritabanı yönetilen örneği için Contoso exchange.
 
 

@@ -16,12 +16,12 @@ ms.custom: mvc
 ms.date: 10/25/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 345d62f4045e7b9279d52acf70cc340d088f5db0
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: d2e849b4a6101cd10ce17e52056efdfe2f903381
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961340"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267122"
 ---
 # <a name="what-is-the-azure-stack-development-kit"></a>Azure Stack geliştirme Seti'ni nedir?
 [Microsoft Azure Stack tümleşik sistemleri](../azure-stack-poc.md) aralık boyutu 4-16 düğümlerden ve tüm dünyada bir donanım iş ortağı ve Microsoft tarafından desteklenir. Azure Stack tümleşik sistemleri, üretim iş yükleriniz için yeni senaryoları etkinleştirmek için kullanın. Tümleşik sistemler altyapıyı yöneten ve hizmetleri sunan Azure Stack operatörü kullanıyorsanız bkz bizim [operatör belgeleri](https://docs.microsoft.com/azure/azure-stack).

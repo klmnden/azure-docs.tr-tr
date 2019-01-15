@@ -10,17 +10,17 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/13/2018
+ms.date: 01/11/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 6a52355360ef2c892cb45af77366e09864cd7837
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: f4657209dfda2b515e29b4d462368ae6b5c1eae7
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51611803"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302502"
 ---
-# <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>Hızlı başlangıç: Visual Studio Code kullanılarak Azure Resource Manager şablonları oluşturma
+# <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>Hızlı Başlangıç: Visual Studio Code kullanarak Azure Resource Manager şablonları oluşturma
 
 Visual Studio Code ve Azure Resource Manager Araçları uzantısı kullanarak Azure Resource Manager şablonları oluşturmayı ve düzenlemeyi öğrenin. Uzantı olmadan Visual Studio Code'da Resource Manager şablonları oluşturabilirsiniz, ancak uzantı, şablon geliştirmeyi kolaylaştıran otomatik tamamlama seçenekleri sağlar. Azure çözümlerinizi dağıtma ve yönetmeyle ilgili kavramları anlamak için bkz. [Azure Resource Manager’a genel bakış](resource-group-overview.md).
 
@@ -55,7 +55,7 @@ Bu hızlı başlangıçta kullanılan şablon [Standart depolama hesabı oluştu
 
 ## <a name="edit-the-template"></a>Şablonu düzenleme
 
-Visual Studio Code kullanarak şablon düzenlemeyi öğrenmek için `outputs` bölümüne bir öğe daha eklersiniz.
+Visual Studio Code'u kullanarak bir şablon düzenleme deneyimi için daha fazla tek bir öğede eklemeniz `outputs` depolama URI'si göstermek için bölümü.
 
 1. Bir veya birden çok çıkışı dışarı aktarılan şablona ekleyin:
 
@@ -89,12 +89,12 @@ Visual Studio Code kullanarak şablon düzenlemeyi öğrenmek için `outputs` b�
 
 ## <a name="deploy-the-template"></a>Şablonu dağıtma
 
-Şablonları dağıtmak için birçok yöntem vardır.  Bu hızlı başlangıçta, Azure Cloud Shell'i kullanacaksınız. Cloud Shell hem Azure CLI'yi hem de Azure PowerShell'i destekler.
+Şablonları dağıtmak için birçok yöntem vardır.  Bu hızlı başlangıçta, Azure Cloud Shell'i kullanacaksınız. Cloud Shell'i herhangi bir yapılandırma gerektirmeyen bir web uygulamasıdır. Bu Azure CLI ve Azure PowerShell hem de destekler.
 
 1. [Azure Cloud Shell](https://shell.azure.com)'de oturum açın.
 
     ![Azure portal Cloud shell CLI](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-cli.png)
-2. Cloud Shell'in sol üst köşesinde **PowerShell** veya **Bash** ifadesi gösterilir. CLI kullanmak için bir Bash oturumu açmanız gerekir. PowerShell'i çalıştırmak için bir PowerShell oturumu açmanız gerekir. Bash ve PowerShell arasında geçiş yapmak için aşağı oku seçin. Önceki ekran görüntüsüne bakın. Geçiş yaptığınızda kabuğun yeniden başlatılması gerekir.
+2. Tercih ettiğiniz ortam ya da seçerek **PowerShell** veya **Bash** sol üst köşesinde bulunan. CLI kullanmak için bir Bash oturumu açmanız gerekir. Azure PowerShell'i çalıştırmak üzere bir PowerShell oturumu açmanız gerekir. Bash ve PowerShell arasında geçiş yapmak için aşağı oku seçin. Önceki ekran görüntüsüne bakın. Geçiş yaptığınızda kabuğun yeniden başlatılması gerekir.
 3. **Dosyaları karşıya yükle/indir**'i seçin ve sonra da **Karşıya Yükle**'yi seçin.
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)
@@ -107,9 +107,9 @@ Visual Studio Code kullanarak şablon düzenlemeyi öğrenmek için `outputs` b�
     
     ---
 
-    Kabuktan dağıtmadan önce şablon dosyasını karşıya yüklemeniz gerekir.
-5. Önceki bölümde kaydettiğiniz dosyayı seçin. Varsayılan ad **azuredeploy.json** olur.
-6. Cloud Shell'den **ls** komutunu çalıştırarak dosyanın başarılı bir şekilde karşıya yüklendiğini doğrulayın. Şablon içeriğini doğrulamak için **cat** komutunu da kullanabilirsiniz. Aşağıdaki resimde komutun Bash'ten çalıştırılması gösterilmektedir.  PowerShell oturumundan da aynı komutlar kullanılır.
+    Önceki bölümde kaydettiğiniz dosyayı seçin. Varsayılan ad **azuredeploy.json** olur. Şablon dosyası Kabuğu'ndan erişilebilir olmalıdır.
+
+    İsteğe bağlı olarak kullanabileceğiniz **ls** komut ve **cat** komut dosyası başarıyla karşıya doğrulayın. 
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)
 
@@ -120,7 +120,7 @@ Visual Studio Code kullanarak şablon düzenlemeyi öğrenmek için `outputs` b�
     ![Azure portal Cloud Shell dosya listeleme](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-list-file-powershell.png)
     
     ---
-7. Cloud Shell’den aşağıdaki komutları çalıştırın. PowerShell kodunu veya CLI kodunu gösteren sekmeyi seçin.
+4. Cloud Shell’den aşağıdaki komutları çalıştırın. PowerShell kodunu veya CLI kodunu gösteren sekmeyi seçin.
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)
     ```azurecli
@@ -163,7 +163,7 @@ Visual Studio Code kullanarak şablon düzenlemeyi öğrenmek için `outputs` b�
 
     Çıktı bölümündeki depolama hesabı adı ve depolama URL'si ekran görüntüsünde vurgulanmıştır. Bir sonraki adımda depolama hesabına ihtiyacınız olacak.
 
-7. Yeni oluşturulan depolama hesabını listelemek için aşağıdaki CLI komutunu çalıştırın:
+5. Yeni oluşturulan depolama hesabını listelemek için aşağıdaki CLI komutunu çalıştırın:
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)
     ```azurecli
@@ -184,6 +184,8 @@ Visual Studio Code kullanarak şablon düzenlemeyi öğrenmek için `outputs` b�
     
     ---
 
+Azure depolama hesapları kullanma hakkında daha fazla bilgi edinmek için [hızlı başlangıç: Karşıya yükleme, indirme ve Azure portalını kullanarak blobları listeleme](../storage/blobs/storage-quickstart-blobs-portal.md).
+
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
 Artık Azure kaynakları gerekli değilse, kaynak grubunu silerek dağıttığınız kaynakları temizleyin.
@@ -195,7 +197,7 @@ Artık Azure kaynakları gerekli değilse, kaynak grubunu silerek dağıttığı
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıcın ana odak noktası, Visual Studio Code kullanarak Azure Hızlı Başlangıç şablonlarındaki mevcut bir şablon düzenlemektir. Ayrıca,şablonu Azure Cloud Shell'den CLI'yi veya PowerShell'i kullanarak dağıtmayı da öğrendiniz. Azure Hızlı Başlangıç şablonlarındaki şablonlar size ihtiyacınız olan her şeyi sağlamayabilir. Sonraki öğreticide şifrelenmiş bir Azure Depolama hesabı oluşturmak için şablon referansından nasıl bilgi bulacağınız gösterilmektedir.
+Bu hızlı başlangıcın ana odak noktası, Visual Studio Code kullanarak Azure Hızlı Başlangıç şablonlarındaki mevcut bir şablon düzenlemektir. Ayrıca Azure Cloud shell'den CLI veya PowerShell kullanarak şablonu dağıtmak nasıl öğrendiniz. Azure Hızlı Başlangıç şablonlarındaki şablonlar size ihtiyacınız olan her şeyi sağlamayabilir. Sonraki öğreticide şifrelenmiş bir Azure Depolama hesabı oluşturmak için şablon referansından nasıl bilgi bulacağınız gösterilmektedir.
 
 > [!div class="nextstepaction"]
 > [Şifrelenmiş depolama hesabı oluşturma](./resource-manager-tutorial-create-encrypted-storage-accounts.md)

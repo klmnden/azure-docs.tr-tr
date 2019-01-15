@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/11/2018
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 1e51d55fcc20230dff20ca18d58a13e6ed32905b
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: ecac7216582fa07e9c25492ddeb25e9f155da563
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192300"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305192"
 ---
 # <a name="preview-create-a-shared-image-gallery-with-azure-powershell"></a>Önizleme: Azure PowerShell ile bir paylaşılan görüntü Galerisi oluşturma 
 
@@ -49,7 +49,7 @@ Bu makalede örneği tamamlamak için var olan yönetilen bir görüntü olması
  
 ## <a name="create-vms-from-an-image"></a>Bir görüntüden VM oluşturma
 
-Görüntü sürümü complte eklendiğinde, bir veya daha fazla yeni VM'ler oluşturabilirsiniz. Kullanarak Basitleştirilmiş parametre kümesi için [New-AzureRMVM]() cmdlet'i, yalnızca gereken görüntü sürümü görüntüsü kimliği sağlayın. 
+Görüntü sürümü tamamlandıktan sonra bir veya daha fazla yeni VM'ler oluşturabilirsiniz. Kullanarak Basitleştirilmiş parametre kümesi için [New-AzureRMVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm) cmdlet'i, yalnızca gereken görüntü sürümü görüntüsü kimliği sağlayın. 
 
 Bu örnek adlı bir VM oluşturur *Myımage*, *myResourceGroup* içinde *Doğu ABD* veri merkezi.
 

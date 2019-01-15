@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 1/07/2018
+ms.date: 1/14/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 9f5f3c4ce08cde81c883bfdac87012dcfd80b8a4
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 3bd86fe8708d2cbb8cbddac4ca35d5afdc68d2e3
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119739"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306089"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>Azure Stack'te bir sanal makine görüntüsü kullanılabilmesini
 
@@ -93,13 +93,13 @@ Görüntüleri bir blob depolama URI'si başvurulmak üzere kurabilmesi gerekir.
   ````
 
   **Ekle AzsPlatformimage** cmdlet'i, VM görüntüsünün başvurmak için Azure Resource Manager şablonları tarafından kullanılan değerleri belirtir. Değerler şunlardır:
-  - **Yayımcı**  
+  - **publisher**  
     Örneğin, `Canonical`  
     Bunlar görüntüsünü dağıtırken, kullanıcıların bir VM görüntüsü Yayımcı adı kesimi. Bir örnek **Microsoft**. Bu alanda bir boşluk veya diğer özel karakterleri dahil değildir.  
   - **Teklif**  
     Örneğin, `UbuntuServer`  
     Kullanıcı VM görüntüsü dağıttıklarında kullanan bir VM görüntüsü teklif adı kesimi. Bir örnek **WindowsServer**. Bu alanda bir boşluk veya diğer özel karakterleri dahil değildir.  
-  - **SKU**  
+  - **sku**  
     Örneğin, `14.04.3-LTS`  
     Kullanıcı VM görüntüsü dağıttıklarında kullanan bir VM görüntüsü SKU adı kesimi. Bir örnek **Datacenter2016**. Bu alanda bir boşluk veya diğer özel karakterleri dahil değildir.  
   - **Sürüm**  
@@ -144,7 +144,7 @@ Görüntüleri bir blob depolama URI'si başvurulmak üzere kurabilmesi gerekir.
   $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
   # For Azure Stack Development Kit, this value is set to https://graph.local.azurestack.external/. To get this value for Azure Stack integrated systems, contact your service provider.
-  $GraphAudience = "<GraphAuidence endpoint for your environment>"
+  $GraphAudience = "<GraphAudience endpoint for your environment>"
 
   # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
   Add-AzureRMEnvironment `
@@ -197,13 +197,13 @@ Karşıya yüklediğiniz sanal makine görüntüsü, artık gerektiğinde, aşa�
     -version "<version>" `
   ````
   **Remove-AzsPlatformImage** cmdlet'i, VM görüntüsünün başvurmak için Azure Resource Manager şablonları tarafından kullanılan değerleri belirtir. Değerler şunlardır:
-  - **Yayımcı**  
+  - **publisher**  
     Örneğin, `Canonical`  
     Bunlar görüntüsünü dağıtırken, kullanıcıların bir VM görüntüsü Yayımcı adı kesimi. Bir örnek **Microsoft**. Bu alanda bir boşluk veya diğer özel karakterleri dahil değildir.  
   - **Teklif**  
     Örneğin, `UbuntuServer`  
     Kullanıcı VM görüntüsü dağıttıklarında kullanan bir VM görüntüsü teklif adı kesimi. Bir örnek **WindowsServer**. Bu alanda bir boşluk veya diğer özel karakterleri dahil değildir.  
-  - **SKU**  
+  - **sku**  
     Örneğin, `14.04.3-LTS`  
     Kullanıcı VM görüntüsü dağıttıklarında kullanan bir VM görüntüsü SKU adı kesimi. Bir örnek **Datacenter2016**. Bu alanda bir boşluk veya diğer özel karakterleri dahil değildir.  
   - **Sürüm**  

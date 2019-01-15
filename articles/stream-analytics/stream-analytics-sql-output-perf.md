@@ -9,18 +9,18 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/21/2018
-ms.openlocfilehash: 623d03c96866392ef245fb924cbf6600e7850ffe
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 794e2f3db44c29707400f96970159578d9e83f2d
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47058033"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303284"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Azure SQL veritabanı için Azure Stream Analytics çıkışı
 
 Bu makalede, Azure Stream Analytics'i kullanarak SQL Azure veritabanına veri yükleme zaman daha iyi yazma aktarım hızı performansı elde etmek için ipuçları açıklanır.
 
-Azure Stream analytics'te SQL çıkış seçeneği olarak paralel yazılmasını destekler. Bu seçenek verir [tam olarak paralel](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#embarrassingly-parallel-jobs) iş yeri birden çok çıkış bölüm yazma paralel hedef tabloya topolojiler,. Azure Stream analytics'te bu seçeneğin etkinleştirilmesi ancak tablo şemasını ve SQL Azure veritabanı yapılandırması üzerinde önemli ölçüde bağlı olarak daha yüksek aktarım hızı elde etmek yeterli olmayabilir. Dizinler, anahtar ve dizini Doldurma faktörü sıkıştırma Kümelemesi, tercih ettiğiniz tablolarından yükleme zamanında bir etkisi vardır. SQL Azure veritabanınızın sorgu performansını ve iç ölçümlerinde temel performans yüklemek için en iyi duruma getirme hakkında daha fazla bilgi için bkz. [SQL database performans rehberi](https://docs.microsoft.com/azure/sql-database/sql-database-performance-guidance).
+Azure Stream analytics'te SQL çıkış seçeneği olarak paralel yazılmasını destekler. Bu seçenek verir [tam olarak paralel](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#embarrassingly-parallel-jobs) iş yeri birden çok çıkış bölüm yazma paralel hedef tabloya topolojiler,. Azure Stream analytics'te bu seçeneğin etkinleştirilmesi ancak tablo şemasını ve SQL Azure veritabanı yapılandırması üzerinde önemli ölçüde bağlı olarak daha yüksek aktarım hızı elde etmek yeterli olmayabilir. Dizinler, anahtar ve dizini Doldurma faktörü sıkıştırma Kümelemesi, tercih ettiğiniz tablolarından yükleme zamanında bir etkisi vardır. SQL Azure veritabanınızın sorgu performansını ve iç ölçümlerinde temel performans yüklemek için en iyi duruma getirme hakkında daha fazla bilgi için bkz. [SQL database performans rehberi](https://docs.microsoft.com/azure/sql-database/sql-database-performance-guidance). Yazmayı sıralama paralel SQL Azure veritabanına yazılırken garanti edilmez.
 
 Çözümünüzün genel performansını iyileştirmeye yardımcı olabilecek her hizmet içinde bazı yapılandırmalar şunlardır.
 

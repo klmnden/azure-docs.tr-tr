@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
-ms.openlocfilehash: e784185cfc7f2c588db354bab1cfb36934b9c417
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 8e577a95fc3cda3aafe1273cbc6b4e3c4fbb0317
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585875"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304386"
 ---
 # <a name="optimize-sql-server-performance"></a>SQL Server performansı en iyi duruma getirme
 
@@ -29,7 +29,7 @@ Bu makalede, Microsoft Azure Stack sanal makineler'de SQL Server performansını
 SQL Server görüntülerini oluştururken [Azure Stack portalında sanal makinelerinizi sağlamayı göz önünde bulundurun](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision). Azure Stack Yönetici portalında Market yönetimden SQL Iaas uzantısı'nı indirin ve kendi seçtiğiniz SQL sanal makinenin sanal sabit diskleri (VHD'ler) indirin. Bunlar, SQL2014SP2 SQL2016SP1 ve SQL2017 içerir.
 
 > [!NOTE]  
-> Makale genel Azure portalını kullanarak bir SQL Server sanal makinesi sağlama işlemini açıklamaktadır, ancak kılavuzu aşağıdaki farklarla Azure Stack için de geçerlidir.: işletim sistemi diski için SSD bulunmuyorsa, yönetilen diskler kullanılabilir değil ve depolama yapılandırması küçük farklılıklar vardır.
+> Makale genel Azure portalını kullanarak bir SQL Server sanal makinesi sağlama işlemini açıklamaktadır, ancak kılavuzu aşağıdaki farklar ile Azure Stack için de geçerlidir: SSD işletim sistemi diski için kullanılabilir değil, yönetilen diskleri kullanılabilir değil ve depolama yapılandırması küçük farklılıklar vardır.
 
 Başlama *en iyi* Azure Stack sanal makinelerde SQL Server için performansı, bu makalenin odak noktası. İş yükünüzü daha az zorlu ise, önerilen tüm en iyi duruma getirme gerekmeyebilir. Bu önerileri değerlendirin gibi iş yükü ve performans gereksinimlerini göz önünde bulundurun.
 
@@ -55,7 +55,7 @@ Daha fazla bilgi için *nasıl* ve *neden* bu iyileştirmeler yapmak için lütf
 
 Aşağıdaki performans açısından duyarlı uygulamalar için [sanal makine boyutları](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes) önerilir:
 
-- **SQL Server Enterprise edition:** DS3 veya üzeri
+- **SQL Server Enterprise sürümü:** DS3 veya üzeri
 
 - **SQL Server Standard edition ve Web edition:** DS2 veya üzeri
 
@@ -76,11 +76,11 @@ Bu özellik Azure Stack'te kullanılamadığından coğrafi çoğaltma seçeneğ
 
 Bir Azure Stack sanal makinede üç ana disk türü vardır:
 
-- **İşletim sistemi diski:** bir Azure Stack sanal makine oluşturduğunuzda, platform en az bir diski ekler (olarak etiketlenmiş **C** sürücü), işletim sistemi diski sanal makineye. Bu disk depodaki bir sayfa blobu olarak depolanan bir vhd'dir.
+- **İşletim sistemi diski:** Bir Azure Stack sanal makine oluşturduğunuzda, platform en az bir diski ekler (olarak etiketlenmiş **C** sürücü), işletim sistemi diski sanal makineye. Bu disk depodaki bir sayfa blobu olarak depolanan bir vhd'dir.
 
 - **Geçici disk:** Azure Stack sanal makineleri içeren başka bir disk geçici diski de denen (olarak etiketlenmiş **D** sürücüsü). Bu çalışma alanı için kullanılabilir düğüm üzerinde bir disktir.
 
-- **Veri diskleri:** ek diskler sanal makinenize veri diskleri ekleyebilir ve bu diskleri sayfa blobları depolama alanında depolanır.
+- **Veri diskleri:** Sanal makinenize ek diskler veri diskleri ekleyebilir ve bu diskleri sayfa blobları depolama alanında depolanır.
 
 Aşağıdaki bölümlerde, bu farklı diskler kullanarak önerileri açıklanmaktadır.
 
@@ -101,7 +101,7 @@ Her veri diski maksimum veri diski başına en fazla 2,300 IOPS sağladığında
 > [!NOTE]  
 > Portal'da bir SQL Server sanal makinesi sağladığınızda, depolama yapılandırmanızı düzenleme seçeneğiniz vardır. Yapılandırmanıza bağlı olarak, Azure Stack, bir veya daha fazla disk yapılandırır. Birden çok disk, bir tek bir depolama havuzu halinde birleştirilir. Veri ve günlük dosyaları, bu yapılandırmada birlikte yer alır.
 
-- **Disk bölümleme türüyle:** daha fazla aktarım hızı için ek veri diskleri ekleme ve disk bölümleme türüyle kullanın. Gereksinim duyduğunuz veri diski sayısı belirlemek için IOPS ve günlük dosyalarınızı ve verilerinizi ve TempDB dosyaları için gereken bant sayısını analiz edin. Sanal makine serisi ailesi tabanlı ve sanal makine boyutuna göre değil veri disk başına IOPS limitlerine olduğuna dikkat edin. Ağ bant genişliği sınırlarını, ancak sanal makine boyutunu temel alır. Tablolara bakın [sanal makine boyutları Azure Stack'te](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes) daha fazla ayrıntı için. Aşağıdaki yönergeleri kullanın:
+- **Disk bölümleme türüyle:** Daha fazla aktarım hızı için ek veri diskleri ekleyip disk bölümleme türüyle kullanabilirsiniz. Gereksinim duyduğunuz veri diski sayısı belirlemek için IOPS ve günlük dosyalarınızı ve verilerinizi ve TempDB dosyaları için gereken bant sayısını analiz edin. Sanal makine serisi ailesi tabanlı ve sanal makine boyutuna göre değil veri disk başına IOPS limitlerine olduğuna dikkat edin. Ağ bant genişliği sınırlarını, ancak sanal makine boyutunu temel alır. Tablolara bakın [sanal makine boyutları Azure Stack'te](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes) daha fazla ayrıntı için. Aşağıdaki yönergeleri kullanın:
 
     - Windows Server 2012 veya daha sonra kullanmanız [depolama alanları](https://technet.microsoft.com/library/hh831739.aspx) aşağıdaki yönergeleri ile:
 
@@ -120,8 +120,8 @@ Her veri diski maksimum veri diski başına en fazla 2,300 IOPS sağladığında
 
 - Depolama havuzunuz yük beklentilerinizi ilişkili disk sayısını belirler. Farklı sanal makine boyutlarına bağlı veri diskleri farklı sayıda izin vermek demektir unutmayın. Daha fazla bilgi için [Azure Stack'te desteklenen sanal makine boyutları](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes).
 - Veri diskleri için en fazla olası IOPS alabilmek için tarafından desteklenen veri diskleri en fazla sayıda eklemek için kullanılması önerilir, [sanal makine boyutu](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes) ve disk bölümleme türüyle kullanın.
-- **NTFS ayırma birimi boyutu:** veri diski biçimlendirme sırasında TempDB yanı sıra veri ve günlük dosyaları için 64 KB ayırma birimi boyutu kullanmanız önerilir.
-- **Disk Yönetimi uygulamalar:** bir veri diskinin kaldırılması, değişiklik sırasında SQL Server hizmetini durdurun. Ayrıca, herhangi bir performans iyileştirmeleri sağlamaz olarak disk üzerindeki önbellek ayarlarını değiştirmeyin.
+- **NTFS ayırma birimi boyutu:** Veri diski biçimlendirme sırasında TempDB yanı sıra veri ve günlük dosyaları için 64 KB ayırma birimi boyutu kullanmanız önerilir.
+- **Disk Yönetimi uygulamalar:** Bir veri diskinin kaldırılması, değişiklik sırasında SQL Server hizmetini durdurun. Ayrıca, herhangi bir performans iyileştirmeleri sağlamaz olarak disk üzerindeki önbellek ayarlarını değiştirmeyin.
 
 > [!WARNING]  
 > Bu işlemler sırasında SQL hizmetini durdurmak için hata veritabanında bozulmaya neden olabilir.

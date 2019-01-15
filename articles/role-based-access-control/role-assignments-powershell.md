@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/06/2018
+ms.date: 01/14/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 7a27fbb4530f8aca1c45888cdff0fae7dea667e0
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: a22b35ff9455f0849dd407df163ac3f8895dd874
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095037"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304644"
 ---
 # <a name="manage-access-using-rbac-and-azure-powershell"></a>RBAC ve Azure PowerShell kullanarak erişimini yönetme
 
@@ -175,7 +175,7 @@ Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourc
 Belirli bir kullanıcıya atanmış olan tüm rolleri listelemek için kullanın [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment).
 
 ```azurepowershell
-Get-AzureRmRoleAssignment -SignInName <user email>
+Get-AzureRmRoleAssignment -SignInName <email, userprincipalname>
 ```
 
 ```Example
@@ -189,7 +189,7 @@ Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourc
 Belirli bir kullanıcıya atanmış olan tüm rolleri ve kullanıcının ait olduğu gruplara atanan rollerini listelemek için kullanın [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment).
 
 ```azurepowershell
-Get-AzureRmRoleAssignment -SignInName <user email> -ExpandPrincipalGroups
+Get-AzureRmRoleAssignment -SignInName <email, userprincipalname> -ExpandPrincipalGroups
 ```
 
 ```Example
@@ -253,7 +253,7 @@ CanDelegate        : False
 Kaynak grubu kapsamındaki bir kullanıcı için erişim vermek için kullanın [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment).
 
 ```azurepowershell
-New-AzureRmRoleAssignment -SignInName <email of user> -RoleDefinitionName <role name in quotes> -ResourceGroupName <resource group name>
+New-AzureRmRoleAssignment -SignInName <email, userprincipalname> -RoleDefinitionName <role name in quotes> -ResourceGroupName <resource group name>
 ```
 
 ```Example
@@ -317,6 +317,6 @@ PS C:\> Remove-AzureRmRoleAssignment -SignInName alain@example.com -RoleDefiniti
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Öğretici: RBAC ve Azure PowerShell kullanarak bir gruba erişim](tutorial-role-assignments-group-powershell.md)
-- [Öğretici: Azure PowerShell kullanarak özel bir rol oluşturma](tutorial-custom-role-powershell.md)
+- [Öğretici: RBAC ve Azure PowerShell kullanarak bir grup için erişim izni ver](tutorial-role-assignments-group-powershell.md)
+- [Öğretici: Azure PowerShell kullanarak özel bir rol oluşturun](tutorial-custom-role-powershell.md)
 - [Azure PowerShell ile kaynakları yönetme](../azure-resource-manager/powershell-azure-resource-manager.md)

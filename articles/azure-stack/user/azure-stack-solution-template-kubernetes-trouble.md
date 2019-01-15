@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 472dfc04cea65cab39d177bb214c417d229b71d2
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e9eb3cc029e60acd18fc6611ca14817488a2d983
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956729"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266562"
 ---
 # <a name="troubleshoot-your-deployment-to-kubernetes-to-azure-stack"></a>Kubernetes için Azure Stack dağıtımınıza sorunlarını giderme
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 > [!Note]  
 > Azure Stack'te Kubernetes önizlemeye sunuldu.
@@ -45,10 +45,10 @@ Küme dağıtımı için genel süreç Aşağıdaki diyagramda gösterilmektedir
 1. Market öğesi giriş parametrelerini toplamak.
 
     Kubernetes kümesini ayarlamak için ihtiyacınız olan değerlere girin dahil olmak üzere:
-    -  **Kullanıcı adı**: Kubernetes kümesini ve DVM parçası olan bir Linux sanal makineleri için kullanıcı adı.
-    -  **SSH ortak anahtarı**: Kubernetes kümesini ve DVM bir parçası olarak oluşturulan tüm Linux makinelerinin yetkilendirme için kullanılan anahtar.
+    -  **Kullanıcı adı**: Kubernetes kümesi ve DVM parçası olan bir Linux sanal makineleri için kullanıcı adı.
+    -  **SSH ortak anahtarı**: Kubernetes kümesi ve DVM parçası olarak oluşturulan tüm Linux makinelerinin yetkilendirme için kullanılan anahtar.
     -  **Hizmet İlkesi**: Kubernetes Azure bulut sağlayıcısı tarafından kullanılan kimliği. İstemci kimliği, hizmet sorumlusu oluştururken sağladığınız uygulama kimliği olarak tanımlanır. 
-    -  **İstemci gizli anahtarı**:, hizmet sorumlusu oluştururken oluşturduğunuz anahtar bunlar.
+    -  **İstemci gizli anahtarı**: Bunlar, hizmet sorumlunuzu oluşturduğunuzda oluşturulan anahtar.
 
 2. VM dağıtımı oluşturmak ve özel betik uzantısı.
     -  Market Linux görüntüsü kullanarak Linux VM dağıtımı oluşturma **Ubuntu Server 16.04 LTS**.
@@ -90,7 +90,7 @@ Kubernetes kümenizi destekleyen sanal makinelere günlüklerini toplayabilir. A
 3.  VM oluşturma dosyalarınızı gözden geçirin. Aşağıdaki sorunları vardı:  
     - Ortak anahtar geçersiz olabilir. Oluşturduğunuz anahtarı gözden geçirin.  
     - VM oluşturma veya oluşturma hatası tetikleyen bir iç hata tetiklenen. Azure Stack aboneliğiniz için kapasite sınırlamaları dahil olmak üzere hata, bir dizi etkene neden olabilir.
-    - VM için tam etki alanı adı (FDQN) bir yinelenen öneki ile başladığından emin olun.
+    - Sanal makine için tam etki alanı adı (FQDN) bir yinelenen öneki ile başladığından emin olun.
 4.  VM **Tamam**, DVM değerlendirebilirsiniz. DVM bir hata iletisi varsa:
 
     - Ortak anahtar geçersiz olabilir. Oluşturduğunuz anahtarı gözden geçirin.  
@@ -154,9 +154,9 @@ Günlükleri almak için aşağıdaki adımları uygulayın:
     | Parametre           | Açıklama                                                                                                      | Örnek                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
     | -i,--dosya kimliği | Kubernetes ana VM bağlanmak için RSA özel anahtar dosyası. Anahtar ile başlamalıdır `-----BEGIN RSA PRIVATE KEY-----` | C:\data\privatekey.pem                                                        |
-    | y-,--konak          | Genel IP veya Kubernetes kümesi ana VM tam etki alanı adını (FQDN). VM adı ile başlayan `k8s-master-`.                       | IP: 192.168.102.37<br><br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |
+    | -h, --host          | Genel IP veya Kubernetes kümesi ana VM tam etki alanı adını (FQDN). VM adı ile başlayan `k8s-master-`.                       | IP: 192.168.102.37<br><br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |
     | u-,--kullanıcı          | Kubernetes küme ana VM kullanıcı adı. Market öğesi yapılandırdığınızda bu adını ayarlayın.                                                                    | azureuser                                                                     |
-    | -d--vmdhost       | Genel IP veya DVM FQDN'si. VM adı ile başlayan `vmd-`.                                                       | IP: 192.168.102.38<br><br>DNS: vmd dnsk8 frog.local.cloudapp.azurestack.external |
+    | -d, --vmdhost       | Genel IP veya DVM FQDN'si. VM adı ile başlayan `vmd-`.                                                       | IP: 192.168.102.38<br><br>DNS: vmd-dnsk8-frog.local.cloudapp.azurestack.external |
 
    Parametre değerleriniz eklediğinizde, aşağıdaki kodu şöyle görünebilir:
 

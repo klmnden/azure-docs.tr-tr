@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: e8f80e7d19a961c22b4e1e88556ac165d2558034
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 764088e7f463f0c249f176514d485944d9c9d76e
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083128"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264640"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-virtual-machine-scale-set-with-application-insights-profiler"></a>Bir Azure sanal makine veya sanal makine ölçek kümesi ile Application Insights Profiler çalışan profili web uygulamaları
 Ayrıca, Application Insights Profiler'ı bu hizmetlerin dağıtabilirsiniz:
@@ -53,7 +53,7 @@ Bu sayfa, Azure VM veya Azure sanal makine ölçek çalışan Application Insigh
 
    Değişiklikleri uygulamak için genellikle tam şablon dağıtımı kapsadığı veya alan bir bulut hizmeti, PowerShell cmdlet'lerini veya Visual Studio yayımlayabilirsiniz.  
 
-   Aşağıdaki powershell komutlarını yalnızca Azure tanılama uzantısını üzerinde alternatif bir yaklaşım mevcut sanal makineler var. Yalnızca Get-AzureRmVMDiagnosticsExtension komutu tarafından döndürülen config, yukarıda belirtildiği gibi ProfilerSink eklemeniz gerekir. Daha sonra güncelleştirilmiş yapılandırma kümesi AzureRmVMDiagnosticsExcension komuta geçirin.
+   Aşağıdaki powershell komutlarını yalnızca Azure tanılama uzantısını üzerinde alternatif bir yaklaşım mevcut sanal makineler var. Yalnızca Get-AzureRmVMDiagnosticsExtension komutu tarafından döndürülen config, yukarıda belirtildiği gibi ProfilerSink eklemeniz gerekir. Daha sonra güncelleştirilmiş yapılandırma kümesi AzureRmVMDiagnosticsExtension komuta geçirin.
 
     ```powershell
     $ConfigFilePath = [IO.Path]::GetTempFileName()

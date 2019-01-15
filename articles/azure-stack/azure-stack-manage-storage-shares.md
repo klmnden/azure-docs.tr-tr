@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 09/28/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 00fa1a78155e1add547b8b165f52cf3c1fba2dfe
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6d4a40b07ef70d8dd43eb410ba396057551cd483
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249906"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304423"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Azure Stack için depolama kapasitesi yönetme 
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 Bu makaledeki bilgiler, Azure Stack bulut işleci İzleyici yardımcı olur ve Azure Stack dağıtımı depolama kapasitesini yönetin. Azure Stack depolama altyapısının bir alt kümesi için kullanılacak Azure Stack dağıtımı, toplam depolama kapasitesinin ayırır **depolama hizmetleri**. Depolama Hizmetleri dağıtımı düğümlerine karşılık gelen birimlere paylaşımları bir kiracının verileri depolayın.
 
@@ -77,9 +77,9 @@ Ekli bir kapsayıcısı üzerinde alan boşaltmak için seçenekleri [sınırlı
 ## <a name="monitor-shares"></a>İzleyici paylaşımları
 Boş alan sınırlı olduğunda anlayabilmeniz paylaşımları izlemek için PowerShell veya Yönetim Portalı'nı kullanın. Portalı kullandığınızda, alan düşük paylaşımlar hakkında uyarılar alırsınız.    
 
-### <a name="use-powershell"></a>PowerShell'i kullanma
+### <a name="use-powershell"></a>PowerShell kullanma
 Bulut operatörü olarak, PowerShell kullanarak bir paylaşım depolama kapasitesini izleyebilirsiniz **Get-AzsStorageShare** cmdlet'i. Get-AzsStorageShare cmdlet toplam, ayrılmış ve boş alan bayt cinsinden her paylaşımları döndürür.   
-![Örnek: paylaşımları için boş alan döndürür](media/azure-stack-manage-storage-shares/free-space.png)
+![Örnek: Paylaşımları için boş alan döndürür](media/azure-stack-manage-storage-shares/free-space.png)
 
 - **Toplam Kapasite** paylaşımında kullanılabilir bayt cinsinden toplam alan. Bu alan, veri ve depolama hizmetleri tarafından korunur meta verileri için kullanılır.
 - **Kullanılan kapasite** tüm kapsamları kiracısına ilişkin veriler ve ilişkili meta verileri depolayan dosyalarından tarafından kullanılan veri bayt miktarı.
@@ -101,12 +101,12 @@ Yönetim Portalı'nı kullandığınızda, alan düşük paylaşımlar hakkında
 > [!IMPORTANT]
 > Bir bulut işleci olarak tam kullanım ulaşmasını paylaşımları tutun. Bir paylaşımı kullanılan, % 100 depolama olduğunda bu paylaşım için işlevleri artık hizmeti. Boş alan kurtarmak ve % 100 kullanılan bir paylaşımında işlemleri geri yüklemek için Microsoft Destek'e başvurmanız gerekir.
 
-**Uyarı**: bir dosya paylaşımı % 80'kullanılan üzerinde olduğunda, aldığınız bir *uyarı* Yönetim Portalı'nda Uyarı: ![örnek: uyarı](media/azure-stack-manage-storage-shares/alert-warning.png)
+**Uyarı**: Bir dosya paylaşımı % 80'kullanılan üzerinde olduğunda, aldığınız bir *uyarı* uyarı Yönetim Portalı'nda: ![Örnek: Uyarı bildirimi](media/azure-stack-manage-storage-shares/alert-warning.png)
 
 
-**Kritik**: bir dosya paylaşımı % kullanılan 90 üzerinde olduğunda, aldığınız bir *kritik* Yönetim Portalı'nda Uyarı: ![örnek: Kritik Uyarı](media/azure-stack-manage-storage-shares/alert-critical.png)
+**Kritik**: Bir dosya paylaşımı % kullanılan 90 üzerinde olduğunda, aldığınız bir *kritik* uyarı Yönetim Portalı'nda: ![Örnek: Kritik Uyarı](media/azure-stack-manage-storage-shares/alert-critical.png)
 
-**Ayrıntıları Görüntüle**: Yönetim Portalı'nda azaltma seçenekleri görmek bir uyarının ayrıntılarını açabilirsiniz: ![örnek: Uyarı ayrıntılarını görüntüleyin](media/azure-stack-manage-storage-shares/alert-details.png)
+**Ayrıntıları Görüntüle**: Yönetim Portalı'nda azaltma seçenekleri görmek bir uyarının ayrıntılarını açabilirsiniz: ![Örnek: Uyarı ayrıntılarını görüntüleme](media/azure-stack-manage-storage-shares/alert-details.png)
 
 
 ## <a name="manage-available-space"></a>Kullanılabilir alanı yönetme
@@ -119,7 +119,7 @@ Silinmiş Kiracı hesapları tarafından kullanılan kapasite kazanabilirsiniz. 
 
 Daha fazla bilgi için [kapasiteyi geri kazanmak](azure-stack-manage-storage-accounts.md#reclaim) içinde depolama kaynaklarını yönetin.
 
-### <a name="migrate-a-container-between-volumes"></a>Bir kapsayıcı birimler arasında geçirme
+### <a name="migrate-a-container-between-volumes"></a>Bir kapsayıcıyı birimler arasında geçirin
 *Bu seçenek, yalnızca çok düğümlü dağıtımlar için geçerlidir.*
 
 Kiracı kullanım düzenlerini nedeniyle bazı Kiracı paylaşımları diğerlerinden daha fazla alan kullanın. Göreceli olarak kullanılmayan diğer paylaşımları önce boşluk düşük çalışır bir paylaşımı sonucu olabilir.

@@ -9,12 +9,12 @@ ms.date: 01/10/2019
 ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 8fec963dfce8c55cc618f2ce6877d4d591a9cf27
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 3091e53b47d85e3e58c32b255dc9dcebd54ab2c5
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215227"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264946"
 ---
 # <a name="use-visual-studio-2017-to-develop-and-debug-c-modules-for-azure-iot-edge-preview"></a>Geliştirmek ve Azure IOT Edge (Önizleme) için C# modülleri hata ayıklamak için Visual Studio 2017 kullanın
 
@@ -61,7 +61,7 @@ Visual Studio 2017 hazır olduktan sonra aşağıdaki araçları ve bileşenleri
 
 1. Gelen **Araçları** menüsünde **Uzantılar ve güncelleştirmeler**. Genişletin **yüklü > Araçları** bulabilirsiniz **Azure IOT Edge araçlarını** ve **Visual Studio için Cloud Explorer**.
 
-1. Yüklü sürüm unutmayın. Bu sürüm Visual Studio Market'te en son sürümle karşılaştırabilirsiniz ([Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS), [Azure IOT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge))
+1. Yüklü sürüm unutmayın. Bu sürüm Visual Studio Market'te en son sürümle karşılaştırabilirsiniz ([Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS), [Azure IOT Edge](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools))
 
 1. Sürümünüzü Visual Studio Market'te kullanılabilir eskiyse, Visual Studio Araçları aşağıdaki bölümde gösterildiği gibi güncelleştirin.
 

@@ -11,16 +11,34 @@ ms.author: haining
 ms.reviewer: j-martens
 ms.date: 12/20/2018
 ms.custom: seodec18
-ms.openlocfilehash: a7a15e4cd8670e71e1000bc6b1827a4b9292302b
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 5341c4901ca2a7aa0b4935e13d06c8fb5a1f0d1b
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200624"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304116"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning hizmeti sürüm notları
 
 Bu makalede, Azure Machine Learning hizmet sürümleri hakkında bilgi edinin. 
+
+## <a name="2019-01-14"></a>2019-01-14
+
+### <a name="azure-machine-learning-sdk-for-python-v108"></a>Azure Machine SDK için Python v1.0.8 Learning
+
++ **SDK başvuru belgeleri**: https://aka.ms/aml-sdk
+
++ **Hata düzeltmeleri**: Bu sürüm, çoğunlukla küçük hata düzeltmeleri içerir
+
+### <a name="azure-machine-learning-data-prep-sdk-v107"></a>Azure Machine Learning veri hazırlama SDK v1.0.7
+
++ **SDK başvuru belgeleri**: https://aka.ms/data-prep-sdk
+
++ **Yeni Özellikler**
+  + Veri deposu geliştirmeleri (belirtilmiştir [Yardım How-to veri deposu-Kılavuzu](https://github.com/Microsoft/AMLDataPrepDocs/tree/master/how-to-guides/datastore.ipynb))
+    + Azure dosya paylaşımı ve ADLS veri depoları içinde ölçek büyütme yazma ve okuma özelliği eklendi.
+    + Veri depoları kullanırken, veri hazırlığı artık bir hizmet sorumlusu kimlik doğrulaması yerine etkileşimli kimlik doğrulaması kullanarak destekler.
+    + Wasb ve wasbs URL'ler için destek eklendi.
 
 ## <a name="2019-01-09"></a>2019-01-09
 
@@ -116,7 +134,7 @@ Azure Machine Learning işlem, Azure portal veya CLI kullanarak Python'da oluşt
   + Bilgi edinmek için nasıl [ilk işlem hattınızı oluşturun](how-to-create-your-first-pipeline.md)
   + Bilgi edinmek için nasıl [komut zincirlerini kullanarak batch Öngörüler çalıştırın](how-to-run-batch-predictions.md)
 + Azure Machine Learning işlem hedefi
-  + [Örnek not defterleri] (https://aka.ms/aml-notebooks) artık yeni yönetilen bir işlem kullanacak şekilde güncelleştirildi.
+  + [Örnek Not Defterleri](https://aka.ms/aml-notebooks) artık yeni yönetilen bir işlem kullanacak şekilde güncelleştirildi.
   + [Bu işlem hakkında bilgi edinin](how-to-set-up-training-targets.md#amlcompute)
 
 ### <a name="azure-portal-new-features"></a>Azure portalı: yeni özellikler
@@ -137,7 +155,7 @@ Azure Machine Learning işlem, Azure portal veya CLI kullanarak Python'da oluşt
 
 + **Bozucu değişiklikler** 
   * *azureml.Train.widgets* ad alanı taşındığı *azureml.widgets*.
-  * *azureml.core.compute.AmlCompute* aşağıdaki sınıflar - kullanımdan kaldırıldı *azureml.core.compute.BatchAICompute* ve *azureml.core.compute.DSVMCompute*. İkinci sınıfı sonraki sürümlerde kaldırılacak. AmlCompute sınıfı artık daha kolay bir tanıma sahip yalnızca bir vm_size ve max_nodes gerekir ve bir iş gönderildiğinde kümenize 0 max_nodes otomatik olarak ölçeklendirir. Bizim [örnek not defterleri] (https://github.com/Azure/MachineLearningNotebooks/tree/master/training) bu bilgilerle güncelleştirildi ve kullanım örnekleri vermeniz gerekir. Bu basitleştirme ve çok daha heyecan verici özelliklerin bir sonraki sürümde gelir gibi umuyoruz!
+  * *azureml.core.compute.AmlCompute* aşağıdaki sınıflar - kullanımdan kaldırıldı *azureml.core.compute.BatchAICompute* ve *azureml.core.compute.DSVMCompute*. İkinci sınıfı sonraki sürümlerde kaldırılacak. AmlCompute sınıfı artık daha kolay bir tanıma sahip yalnızca bir vm_size ve max_nodes gerekir ve bir iş gönderildiğinde kümenize 0 max_nodes otomatik olarak ölçeklendirir. Bizim [örnek not defterleri](https://github.com/Azure/MachineLearningNotebooks/tree/master/training) bu bilgilerle güncelleştirildi ve kullanım örnekleri vermeniz gerekir. Bu basitleştirme ve çok daha heyecan verici özelliklerin bir sonraki sürümde gelir gibi umuyoruz!
 
 ### <a name="azure-machine-learning-data-prep-sdk-v051"></a>Azure Machine Learning veri hazırlama SDK v0.5.1 
 

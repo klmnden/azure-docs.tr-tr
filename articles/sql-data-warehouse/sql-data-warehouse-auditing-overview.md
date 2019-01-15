@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 199095c3cffc8df7f9755f1f2c4bb5a1acba3748
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d35ac7cac5c14a7bd57913046e8f4c09a22f177a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260389"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267445"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Azure SQL veri ambarı'nda denetleme
 
@@ -107,7 +107,7 @@ Denetimi kullanıyorsanız onay denetim ayarlamadan önce bir ["Alt düzey istem
 
 5. Tıklayın **Tamam** depolama ayrıntıları yapılandırmayı kaydetmek için düğme.
 6. Altında **tarafından olay günlüğü**, tıklayın **başarı** ve **hatası** tüm olaylarını günlüğe kaydedecek ya da tek tek olay kategorilerini seçin.
-7. Bir veritabanı için Denetim yapılandırıyorsanız, verileri denetleme düzgün yakalandıktan emin olmak için istemci bağlantı dizesini değiştirmek gerekebilir. Denetleme [bağlantı dizesinde sunucu FDQN değiştirme](sql-data-warehouse-auditing-downlevel-clients.md) konu alt düzey istemci bağlantıları için.
+7. Bir veritabanı için Denetim yapılandırıyorsanız, verileri denetleme düzgün yakalandıktan emin olmak için istemci bağlantı dizesini değiştirmek gerekebilir. Denetleme [bağlantı dizesinde değişiklik Server FQDN](sql-data-warehouse-auditing-downlevel-clients.md) konu alt düzey istemci bağlantıları için.
 8. **Tamam** düğmesine tıklayın.
 
 ## <a id="subheading-3"></a>Denetim günlüklerini ve raporları analiz edin
@@ -176,7 +176,7 @@ Ayrıca, aşağıdaki Otomasyon araçları kullanarak Azure SQL veri ambarı'nda
    * [Remove-AzureRMSqlServerAuditing](/powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing)
    * [Set-AzureRMSqlDatabaseAuditingPolicy](/powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditingPolicy)
    * [Set-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditingPolicy)
-   * [Kullanımı-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Use-AzureRMSqlServerAuditingPolicy)
+   * [Use-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Use-AzureRMSqlServerAuditingPolicy)
 
 
 ## <a name="downlevel-clients-support-for-auditing-and-dynamic-data-masking"></a>Ve dinamik veri maskeleme için alt düzey istemci desteği
@@ -196,7 +196,7 @@ TDS 7.4 uygulayan herhangi bir istemciyi yeniden yönlendirme de desteklemelidir
 * JDBC (JDBC TDS 7.4 desteklese de TDS yeniden yönlendirme özelliği tam olarak desteklenmiyor)
 * (Node.JS için) tedious
 
-**Açıklama:** önceki sunucunun FDQN değiştirilme gereksinimi için bir yapılandırma adımı olmadan her veritabanında (geçici azaltma) de bir SQL sunucu düzeyi denetimi ilkesi uygulamak için yararlı olabilir.     
+**Açıklama:** Önceki sunucunun FQDN değişikliği her bir veritabanındaki (geçici azaltma) bir yapılandırma adımı gerek olmadan bir SQL sunucu düzeyi denetimi ilkesi uygulamak için de yararlı olabilir.     
 
 
 

@@ -1,28 +1,10 @@
 ---
-title: Machine Learning Studio sık sorulan sorular (SSS) - Azure | Microsoft Docs
-description: 'Azure Machine Learning Studio: faturalama, özellikler ve bir bulut hizmeti için kolaylaştırılmış Tahmine dayalı modelleme sınırlamaları kapsayan SSS.'
-keywords: machine learning giriş,tahmini modelleme,machine learning nedir
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-ms.assetid: a4a32a06-dbed-4727-a857-c10da774ce66
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 06/02/2017
-ms.openlocfilehash: 23de87bb566764540f1a7bf152d72bfdc0e3719f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091311"
+Başlık: Machine Learning Studio sık sorulan sorular (SSS) titleSuffix: Azure Machine Learning Studio açıklaması: ' Azure Machine Learning Studio: Faturalama, özellikler ve bir bulut hizmeti için kolaylaştırılmış Tahmine dayalı modelleme sınırlamaları kapsayan SSS.'
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: kavramsal
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 06/02/2017
 ---
-# <a name="azure-machine-learning-studio-faq-billing-capabilities-limitations-and-support"></a>Azure Machine Learning Studio sık sorulan sorular: Faturalama, özellikler, sınırlamalar ve Destek
+# <a name="azure-machine-learning-studio-faq-billing-capabilities-limitations-and-support"></a>Azure Machine Learning Studio SSS: Faturalama, özellikler, sınırlamalar ve Destek
 Aşağıda, tahmine dayalı modeller geliştirmeye ve web hizmetleri aracılığıyla çözümleri faaliyete geçirmeye yönelik bir bulut hizmeti olan Azure Machine Learning hakkında sık sorulan bazı sorular (SSS) ve yanıtları verilmiştir. Bu SSS bölümlerinde faturalama modeli, özellikler, sınırlamalar ve destek dahil olmak üzere hizmetin nasıl kullanılacağına ilişkin sorular sağlanır.
 
 **Burada olmayan bir sorunuz mu var?**
@@ -55,8 +37,8 @@ Machine Learning web hizmetleri, bir uygulama ile Machine Learning iş akışı 
 
 Azure Machine Learning iki tür web hizmeti içerir:
 
-* İstek-Yanıt Hizmeti (RRS): Machine Learning Studio kullanılarak oluşturulup dağıtılan durum bilgisiz modeller için bir arabirim sağlayan düşük gecikme süreli, yüksek düzeyde ölçeklenebilir bir hizmettir.
-* Toplu Yürütme Hizmeti (BES): Veri kayıtları için toplu iş yapan zaman uyumsuz bir hizmettir.
+* İstek-yanıt hizmeti (RRS): Düşük gecikme süreli, oluşturulan ve Machine Learning Studio kullanılarak dağıtılan durum bilgisiz modeller için arabirim sağlar yüksek oranda ölçeklenebilir bir hizmettir.
+* Toplu yürütme hizmeti (BES): Zaman uyumsuz bir hizmettir, veri kayıtları için toplu iş.
 
 REST API’sini kullanmanın ve web hizmetine erişmenin birkaç yolu vardır. Örneğin, web hizmetini dağıttığınızda sizin için oluşturulan örnek kodu kullanarak C#, R veya Python’da bir uygulama yazabilirsiniz.
 
@@ -271,7 +253,7 @@ Boyutu birkaç GB'den büyük olan veri kümeleri için verileri doğrudan bir y
 
 **Herhangi bir vektör boyutu sınırlaması var mı?**
 
-Satırların ve sütunların her biri 2.147.483.647 Maks. Tamsayısı .NET sınırlamasına tabidir.
+Satırları ve sütunları her maks .NET SORUMLULUĞUN sınırlı şunlardır: 2,147,483,647.
 
 **Web hizmetini çalıştıran sanal makinenin boyutunu değiştirebilir miyim?**
 
@@ -438,7 +420,7 @@ Yeni faturalandırma planları yeni web hizmetlerini desteklediğimiz üç üret
 
 Evet. Plan fiyatlandırması bölgeye göre değişir. Bir web hizmetini başka bir bölgeye dağıttığınızda, web hizmetine ilgili bölgeye özgü bir plan atamanız gerekir. Daha fazla bilgi için bkz. [Bölgelere göre kullanılabilir ürünler]( https://azure.microsoft.com/regions/services/).
 
-### <a name="new-web-services-overages"></a>Yeni web hizmetleri: Fazla kullanım
+### <a name="new-web-services-overages"></a>Yeni web Hizmetleri: Kapasite aşımları
 **Web hizmeti kullanım sınırımı aşıp aşmadığımı nasıl kontrol edebilirim?**
 
 Tüm planlarınızdaki kullanımı Azure Machine Learning Web Hizmetleri portalındaki Planlar sayfasından inceleyebilirsiniz. Portalda oturum açın ve **Planlar** menü seçeneğine tıklayın.
@@ -483,20 +465,20 @@ Azure Machine Learning API, hizmetin Klasik bir web hizmeti mi yoksa yeni (Resou
 
 Aşağıdaki ücretler aboneliğiniz için çalışma alanı başına toplanır.
 
-* Machine Learning Çalışma Alanı Aboneliği: Machine Learning çalışma alanı aboneliği, bir Machine Learning Studio çalışma alanına erişim sağlayan aylık bir ücrettir. Stüdyoda deneme çalıştırmak ve üretim API'lerini kullanmak için abonelik gerekir.
-* Studio Deneme saatleri: Bu ölçüm, Machine Learning Studio’da deneme çalıştırmaktan ve hazırlık ortamında üretim API’si çağrılarını çalıştırmaktan doğan tüm işlem ücretlerinin toplamıdır.
+* Machine Learning çalışma alanı aboneliği: Machine Learning çalışma alanı aboneliği bir Machine Learning Studio çalışma alanına erişim sağlayan aylık bir ücrettir. Stüdyoda deneme çalıştırmak ve üretim API'lerini kullanmak için abonelik gerekir.
+* Studio deneme saatleri: Bu ölçüm, Machine Learning Studio'daki çalışan denemeler ve hazırlık ortamında üretim API'si çağrılarını çalıştıran doğan tüm işlem ücretlerini toplar.
 * Modellerinizde eğitim ve puanlama amacıyla SQL Server çalıştıran bir şirket içi sunucuya bağlanarak verilere erişin.
 * Klasik web hizmetleri için:
-  * Üretim API’si İşlem Saatleri: Bu ölçüm, üretimde çalışan web hizmetlerinden doğan işlem ücretlerini içerir.
-  * Üretim API’si İşlemleri (1000’lik bloklar halinde): Bu ölçüm, üretim web hizmetine yapılan her çağrıdan doğan ücretleri içerir.
+  * Üretim API işlem saatleri: Bu ölçüm, üretimde çalışan web hizmetlerinden doğan işlem ücretlerini içerir.
+  * Üretim API'si işlemleri (1000'lik bloklar): Bu ölçüm, üretim web hizmetine çağrı başına doğan ücretleri içerir.
 
 Yukarıdaki ücretleri bir kenara bırakacak olursak, Resource Manager tabanlı bir web hizmeti söz konusu olduğunda ücretler seçili plana toplanır:
 
-* Standart S1/S2/S3 API Planı (Birim): Bu ölçümler, Resource Manager tabanlı web hizmetleri için seçilen örneğin türünü temsil eder.
-* Standart S2/S1/S3 Fazla Kullanım API İşlem Saatleri: Bu ölçüm, mevcut örneklerdeki dahil edilen miktarlar tüketildikten sonra üretimde çalışan Resource Manager tabanlı web hizmetlerinden doğan işlem ücretlerini içerir. Ek kullanım, S1/S2/S3 plan katmanıyla ilişkili fazla kullanım fiyatı üzerinden ücretlendirilir.
-* Standart S1/S2/S3 Fazla Kullanım API İşlemleri (1.000’lik bloklar) - Bu ölçüm, mevcut örneklerdeki dahil edilen miktarlar tüketildikten sonra Resource Manager tabanlı üretim web hizmetinize yapılan çağrı başına doğan ücretleri içerir. Ek kullanım, S1/S2/S3 plan katmanıyla ilişkili fazla kullanım fiyatından ücretlendirilir.
-* Dahil Edilen Miktar API İşlem Saatleri: Bu ölçüm, Resource Manager tabanlı web hizmetleri için dahil edilen API işlem saati miktarını temsil eder.
-* Dahil Edilen Miktar API İşlemleri (1000'lik bloklar): Bu ölçüm, Resource Manager tabanlı web hizmetleri için dahil edilen API işlemi miktarını temsil eder.
+* Standart S1/S2/S3 API planı (birimler): Bu ölçüm, Resource Manager tabanlı web hizmetleri için seçilen örneğin türünü temsil eder.
+* Standart S1/S2/S3 fazla kullanım API işlem saatleri: Bu ölçüm, mevcut örneklerdeki dahil edilen miktarlar tüketildikten sonra üretimde çalışan Resource Manager tabanlı web hizmetleri tarafından tahakkuk edilen işlem ücretlerini içerir. Ek kullanım, S1/S2/S3 plan katmanıyla ilişkili fazla kullanım fiyatı üzerinden ücretlendirilir.
+* Standart S1/S2/S3 fazla kullanım API işlemleri (1.000 saniye): Bu ölçüm, mevcut örneklerdeki dahil edilen miktarlar tüketildikten sonra üretim Resource Manager tabanlı web hizmeti çağrı başına doğan ücretleri içerir. Ek kullanım, S1/S2/S3 plan katmanıyla ilişkili fazla kullanım fiyatından ücretlendirilir.
+* Dahil edilen miktar API işlem saatleri: Resource Manager tabanlı web Hizmetleri ile bu ölçüm API işlem saatlerinin dahil edilen miktarını temsil eder.
+* Dahil edilen miktar API işlemleri (1.000 saniye): Resource Manager tabanlı web Hizmetleri ile bu ölçüm API işlemlerinin dahil edilen miktarını temsil eder.
 
 **Azure Machine Learning Ücretsiz katmanına nasıl kaydolabilirim?**
 

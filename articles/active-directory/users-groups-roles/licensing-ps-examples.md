@@ -13,12 +13,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 10/29/2018
 ms.author: curtand
-ms.openlocfilehash: d046b8e6c054131a4154654637f12dbdc26608a6
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 9e0e1a70926127389101c79121ffab03e411f56a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210440"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265158"
 ---
 # <a name="powershell-examples-for-group-based-licensing-in-azure-ad"></a>Azure AD'de grup tabanlı lisanslama için PowerShell örnekleri
 
@@ -32,11 +32,11 @@ Grup tabanlı lisanslama için tam işlevsellik aracılığıyla [Azure portalı
 
 ## <a name="view-product-licenses-assigned-to-a-group"></a>Bir gruba atanmış ürün lisansları görüntüle
 [Get-MsolGroup](/powershell/module/msonline/get-msolgroup?view=azureadps-1.0) cmdlet'i, Grup nesnesini almak ve denetlemek için kullanılabilir *lisansları* özelliği: gruba atanmış olan tüm ürün lisansları listeler.
-```
+```powershell
 (Get-MsolGroup -ObjectId 99c4216a-56de-42c4-a4ac-e411cd8c7c41).Licenses
 | Select SkuPartNumber
 ```
-Çıktı:
+Çıkış:
 ```
 SkuPartNumber
 -------------
@@ -52,7 +52,7 @@ Microsoft Graph'ten aynı verileri almak için aşağıdaki'ı kullanın
 ```
 GET https://graph.microsoft.com/beta/groups/99c4216a-56de-42c4-a4ac-e411cd8c7c41$select=assignedLicenses
 ```
-Çıktı:
+Çıkış:
 ```
 HTTP/1.1 200 OK
 {
@@ -78,18 +78,18 @@ HTTP/1.1 200 OK
 ## <a name="get-all-groups-with-licenses"></a>Tüm grupları ile lisans Al
 
 Tüm grupları aşağıdaki komutu çalıştırarak atanmış herhangi bir lisans ile bulabilirsiniz:
-```
+```powershell
 Get-MsolGroup | Where {$_.Licenses}
 ```
 Hangi ürünleri atanan hakkında daha fazla ayrıntı gösterilebilir:
-```
+```powershell
 Get-MsolGroup | Where {$_.Licenses} | Select `
     ObjectId, `
     DisplayName, `
     @{Name="Licenses";Expression={$_.Licenses | Select -ExpandProperty SkuPartNumber}}
 ```
 
-Çıktı:
+Çıkış:
 ```
 ObjectId                             DisplayName              Licenses
 --------                             -----------              --------
@@ -102,7 +102,7 @@ c2652d63-9161-439b-b74e-fcd8228a7074 EMSandOffice             {ENTERPRISEPREMIUM
 ## <a name="get-statistics-for-groups-with-licenses"></a>Lisans grupları için istatistikleri alma
 Lisans grupları için temel istatistikleri rapor edebilirsiniz. Aşağıdaki örnekte, kodun kendisi için lisans grubu tarafından atanamadı kullanıcı sayısı toplam kullanıcı sayısı ve lisans grubu tarafından zaten atanmış kullanıcıların sayısını listeler.
 
-```
+```powershell
 #get all groups with licenses
 Get-MsolGroup -All | Where {$_.Licenses}  | Foreach {
     $groupId = $_.ObjectId;
@@ -144,7 +144,7 @@ Get-MsolGroup -All | Where {$_.Licenses}  | Foreach {
 ```
 
 
-Çıktı:
+Çıkış:
 ```
 GroupName         GroupId                              GroupLicenses       TotalUserCount LicensedUserCount LicenseErrorCount
 ---------         -------                              -------------       -------------- ----------------- -----------------
@@ -160,10 +160,10 @@ Access to Offi... 11151866-5419-4d93-9141-0603bbf78b42 STANDARDPACK             
 
 ## <a name="get-all-groups-with-license-errors"></a>Tüm grupları ile lisans hataları Al
 Kendisi için lisanslar atanamadı bazı kullanıcıları içeren gruplar bulmak için:
-```
+```powershell
 Get-MsolGroup -HasLicenseErrorsOnly $true
 ```
-Çıktı:
+Çıkış:
 ```
 ObjectId                             DisplayName             GroupType Description
 --------                             -----------             --------- -----------
@@ -173,7 +173,7 @@ Microsoft Graph'ten aynı verileri almak için aşağıdaki'ı kullanın
 ```
 GET https://graph.microsoft.com/beta/groups?$filter=hasMembersWithLicenseErrors+eq+true
 ```
-Çıktı:
+Çıkış:
 ```
 HTTP/1.1 200 OK
 {
@@ -201,7 +201,7 @@ HTTP/1.1 200 OK
 
 Bazı lisans ile ilgili hataları içeren bir grubu göz önünde bulundurulduğunda, bu hataları tarafından etkilenen tüm kullanıcılar artık listeleyebilirsiniz. Bir kullanıcı, diğer gruplara hatalarından çok olabilir. Ancak, bu örnekte sınırlandırırız sonuçları yalnızca söz konusu grubuyla ilgili hataları kontrol ederek **ReferencedObjectId** her özellik **IndirectLicenseError** kullanıcı girişi.
 
-```
+```powershell
 #a sample group with errors
 $groupId = '11151866-5419-4d93-9141-0603bbf78b42'
 
@@ -209,7 +209,7 @@ $groupId = '11151866-5419-4d93-9141-0603bbf78b42'
 Get-MsolGroupMember -All -GroupObjectId $groupId |
     #get full information about user objects
     Get-MsolUser -ObjectId {$_.ObjectId} |
-    #filter out users without license errors and users with licenense errors from other groups
+    #filter out users without license errors and users with license errors from other groups
     Where {$_.IndirectLicenseErrors -and $_.IndirectLicenseErrors.ReferencedObjectId -eq $groupId} |
     #display id, name and error detail. Note: we are filtering out license errors from other groups
     Select ObjectId, `
@@ -217,7 +217,7 @@ Get-MsolGroupMember -All -GroupObjectId $groupId |
            @{Name="LicenseError";Expression={$_.IndirectLicenseErrors | Where {$_.ReferencedObjectId -eq $groupId} | Select -ExpandProperty Error}}
 ```
 
-Çıktı:
+Çıkış:
 ```
 ObjectId                             DisplayName      License Error
 --------                             -----------      ------------
@@ -227,7 +227,7 @@ Microsoft Graph'ten aynı verileri almak için aşağıdaki'ı kullanın
 ```
 GET https://graph.microsoft.com/beta/groups/11151866-5419-4d93-9141-0603bbf78b42/membersWithLicenseErrors
 ```
-Çıktı:
+Çıkış:
 ```
 HTTP/1.1 200 OK
 {
@@ -252,7 +252,7 @@ Aşağıdaki komut dosyası, lisans hataları gruplardan bir veya daha fazla sah
 > [!NOTE]
 > Bu betik, büyük kiracılar için en uygun olmayabilir kiracıdaki tüm kullanıcılar numaralandırır.
 
-```
+```powershell
 Get-MsolUser -All | Where {$_.IndirectLicenseErrors } | % {   
     $user = $_;
     $user.IndirectLicenseErrors | % {
@@ -265,7 +265,7 @@ Get-MsolUser -All | Where {$_.IndirectLicenseErrors } | % {
     }  
 ```
 
-Çıktı:
+Çıkış:
 
 ```
 UserName         UserId                               GroupId                              LicenseError
@@ -278,7 +278,7 @@ Drew Fogarty     f2af28fc-db0b-4909-873d-ddd2ab1fd58c 1ebd5028-6092-41d0-9668-12
 
 Lisans hataları içeren gruplar arar kodun başka bir hali aşağıdadır. Bunu daha burada birkaç gruplarıyla sorunları sahip olmayı beklediğiniz senaryoları için iyileştirilmiş olması olabilir.
 
-```
+```powershell
 $groupIds = Get-MsolGroup -HasLicenseErrorsOnly $true
     foreach ($groupId in $groupIds) {
     Get-MsolGroupMember -All -GroupObjectId $groupId.ObjectID |
@@ -296,7 +296,7 @@ $groupIds = Get-MsolGroup -HasLicenseErrorsOnly $true
 Bir kullanıcı nesnesi için belirli bir ürün lisans bir gruptan atanmamışsa veya doğrudan atanırsa denetlemek mümkündür.
 
 Aşağıdaki iki örnek işlevleri, tek bir kullanıcı atama türünü analiz etmek için kullanılabilir:
-```
+```powershell
 #Returns TRUE if the user has the license assigned directly
 function UserHasLicenseAssignedDirectly
 {
@@ -358,7 +358,7 @@ function UserHasLicenseAssignedFromGroup
 ```
 
 Bu betik, giriş olarak SKU kimliği kullanarak kiracıdaki her kullanıcı bu işlevleri yürütür.-Bu örnekte lisansını ilgileniriz *Enterprise Mobility + Security*, hangi bizim Kiracı kimliği ile temsil edilir  *contoso:EMS*:
-```
+```powershell
 #the license SKU we are interested in. use Msol-GetAccountSku to see a list of all identifiers in your tenant
 $skuId = "contoso:EMS"
 
@@ -370,7 +370,7 @@ Get-MsolUser -All | where {$_.isLicensed -eq $true -and $_.Licenses.AccountSKUID
     @{Name="AssignedFromGroup";Expression={(UserHasLicenseAssignedFromGroup $_ $skuId)}}
 ```
 
-Çıktı:
+Çıkış:
 ```
 ObjectId                             SkuId       AssignedDirectly AssignedFromGroup
 --------                             -----       ---------------- -----------------
@@ -383,7 +383,7 @@ Graf sonucu göstermek için basit bir yol yoktur, ancak bu API'SİNDEN görüle
 ```
 GET https://graph.microsoft.com/beta/users/e61ff361-5baf-41f0-b2fd-380a6a5e406a?$select=licenseAssignmentStates
 ```
-Çıktı:
+Çıkış:
 ```
 HTTP/1.1 200 OK
 {
@@ -436,7 +436,7 @@ Bu betik amacı, zaten aynı lisans bir gruptan devralınan kullanıcılardan ge
 > [!NOTE]
 > Kaldırılacak doğrudan lisans devralınan lisansı sayısından daha fazla hizmet işlevlerini etkinleştirmeyin ilk doğrulamak önemlidir. Aksi takdirde, doğrudan lisans kaldırma kullanıcıların hizmetlere ve veri erişimini devre dışı bırakabilir. Şu anda PowerShell üzerinden doğrudan devralınmış lisansları vs hangi hizmetler etkinleştirilir denetlemek mümkün değildir. Betikte, biz, karşı emin olmak için kullanıcıların beklenmedik bir şekilde hizmetlere erişimi kaybetmeyin asgari düzeyde bir gruptan devralınır ve kontrol biliyoruz Hizmetleri belirtin.
 
-```
+```powershell
 #BEGIN: Helper functions used by the script
 
 #Returns TRUE if the user has the license assigned directly
@@ -597,7 +597,7 @@ Get-MsolGroupMember -All -GroupObjectId $groupId |
 #END: executing the script
 ```
 
-Çıktı:
+Çıkış:
 ```
 UserId                               OperationResult                                                                                
 ------                               ---------------                                                                                

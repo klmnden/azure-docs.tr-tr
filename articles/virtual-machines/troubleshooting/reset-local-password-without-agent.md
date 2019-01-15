@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 31e675b101d903af5dd4a07fee3bc56fbc3353d9
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: bb5d7306558f46f84d1f4a1b7a61332bf767479f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412797"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267054"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Azure VM için çevrimdışı ile yerel Windows parola sıfırlama
 Kullanarak Azure'daki bir sanal makinenin yerel Windows parolasını sıfırlayabilir [Azure portal veya Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) sağlanan Azure Konuk Aracısı yüklenir. Bu yöntem, bir Azure sanal makinesi için bir parola sıfırlama için birincil yoludur. Azure Konuk aracısı yanıt vermiyor ile sorunlarla ya da özel bir resim karşıya yüklendikten sonra yüklemek başarısız, el ile yapabilecekleriniz Windows parola sıfırlama. Bu makalede, kaynak işletim sistemi sanal disk başka bir sanal makineye ekleyerek bir yerel hesap parolası sıfırlama işlemi açıklanmaktadır. Bu makalede açıklanan adımları Windows etki alanı denetleyicileri için geçerli değildir. 
 
 > [!WARNING]
-> Bu işlem yalnızca son çare olarak kullanın. Kullanarak parolalarını sıfırlamak her zaman deneyin [Azure portal veya Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ilk.
+> Bu işlemi yalnızca son çare olarak kullanın. Kullanarak parolalarını sıfırlamak her zaman deneyin [Azure portal veya Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ilk.
 > 
 > 
 
@@ -37,6 +37,19 @@ Azure Konuk aracısı için erişimi olmadığında sıfırlama azure'da bir Win
 * Sanal makinenin işletim sistemi diskini sorun giderme sanal makineden çıkarın.
 * Orijinal sanal diski kullanarak, bir VM oluşturmak için Resource Manager şablonu kullanın.
 * Yeni sanal makine önyüklendiğinde, oluşturduğunuz yapılandırma dosyaları gerekli kullanıcı parolasını güncelleştirin.
+
+> [!NOTE]
+> Aşağıdaki işlemleri otomatik hale getirebilirsiniz:
+>
+> - Sorun giderme sanal makinesi oluşturma
+> - İşletim sistemi diski ekleme
+> - Orijinal VM'yi yeniden oluşturuluyor
+> 
+> Bunu yapmak için [Azure VM kurtarma betikleri](https://github.com/Azure/azure-support-scripts/blob/master/VMRecovery/ResourceManager/README.md). Azure VM kurtarma betiklerini kullanmayı seçerseniz, aşağıdaki işlem "ayrıntılı adımlar" bölümünde kullanabilirsiniz:
+> 1. Etkilenen sanal Makinenin işletim sistemi diskini bir kurtarma VM'si eklemek için komut dosyalarını kullanarak Atla adım 1 ve 2.
+> 2. Risk azaltma işlemleri uygulamak için 3-6. adımları izleyin.
+> 3. Adım 7-9, VM'yi yeniden oluşturmak için komut dosyalarını kullanarak atlayın.
+> 4. 10 ve 11. adımları izleyin.
 
 ## <a name="detailed-steps"></a>Ayrıntılı adımlar
 
@@ -133,7 +146,7 @@ Kullanarak parolalarını sıfırlamak her zaman deneyin [Azure portal veya Azur
      ![Kopyalama-diski-URİ'si](./media/reset-local-password-without-agent/copy_source_vhd_uri.png)
 9. Kaynak sanal makinenin işletim sistemi diskinden VM oluşturma:
    
-   Kullanmak [bu Azure Resource Manager şablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-new-or-existing-vnet) özelleştirilmiş bir VHD'den VM oluşturma. Tıklayın `Deploy to Azure` düğmesini sizin için doldurulur şablonlu ayrıntılı Azure portalını açın.
+   * Kullanmak [bu Azure Resource Manager şablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-new-or-existing-vnet) özelleştirilmiş bir VHD'den VM oluşturma. Tıklayın `Deploy to Azure` düğmesini sizin için doldurulur şablonlu ayrıntılı Azure portalını açın.
    * VM için tüm önceki ayarları korumak isteyip istemediğinizi seçin *şablonu Düzen* mevcut bir VNet, alt ağ, ağ bağdaştırıcısı veya genel IP sağlamak için.
    * İçinde `OSDISKVHDURI` parametre metin kutusu, yapıştırma kaynağınızı VHD URI'si, önceki adımda elde:
      
@@ -143,9 +156,9 @@ Kullanarak parolalarını sıfırlamak her zaman deneyin [Azure portal veya Azur
     
     * %Windir%\System32
       * remove FixAzureVM.cmd
-    * %Windir%\System32\GroupPolicy\Machine\
+    * From %windir%\System32\GroupPolicy\Machine\
       * scripts.ini Kaldır
-    * %Windir%\System32\GroupPolicy
+    * From %windir%\System32\GroupPolicy
       * GPT.ini (gpt.ini daha önce mevcut ve gpt.ini.bak, .bak dosyası için gpt.ini geri yeniden adlandırma için adlandırdığınız varsa) Kaldır
 
 ## <a name="next-steps"></a>Sonraki adımlar

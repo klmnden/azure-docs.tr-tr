@@ -1,26 +1,8 @@
 ---
-title: Azure program aracılığıyla - Machine Learning Studio'da modelleri yeniden eğitme | Microsoft Docs
-description: Program aracılığıyla kullanarak modeli yeniden eğitme öğrenin C# ve Machine Learning Batch Execution hizmeti.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 7ae4f977-e6bf-4d04-9dde-28a66ce7b664
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/19/2017
-ms.openlocfilehash: 7a1381ce43056607486a27710cd6ee6181b9a5c1
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257402"
+Başlık: Retrain Machine Learning Studio'da, programlı olarak titleSuffix modelleri: Azure Machine Learning Studio açıklaması: Program aracılığıyla kullanarak modeli yeniden eğitme öğrenin C# ve Machine Learning Batch Execution hizmeti.
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 04/19/2017
 ---
 # <a name="retrain-azure-machine-learning-studio-models-programmatically"></a>Azure Machine Learning Studio modellerini programlama yoluyla yeniden eğitme
 Bu izlenecek yolda, program aracılığıyla bir Azure Machine Learning Studio web hizmeti kullanarak yeniden eğitme hakkında bilgi edineceksiniz C# ve Machine Learning Batch Execution hizmeti.

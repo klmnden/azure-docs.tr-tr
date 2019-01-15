@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.workload: infrastructure-services
 ms.date: 11/6/2018
 ms.author: victorh
-ms.openlocfilehash: bed406f90c8da62919337c1fa9f30221b0ba8d90
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 4e57181b62a6d9070c0b2e4de5008e47b62c56bf
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53752733"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54301908"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Web uygulaması güvenlik duvarı istek boyutu sınırları ve hariç tutma listeleri
 
@@ -25,7 +25,7 @@ Azure Application Gateway web uygulaması Güvenlik Duvarı (WAF), web uygulamal
 Web uygulaması güvenlik duvarı, kullanıcıların istek boyutu sınırları içinde alt ve üst sınırları yapılandırmasını sağlar. Aşağıdaki iki boyutu sınırlarını yapılandırma kullanılabilir:
 
 - En fazla istek gövdesi boyutu alanı KB'leri ve denetimler genel istek boyutu sınırı dışında herhangi bir dosya yükler belirtilir. Bu alanın 128 KB'lık maksimum değerine 1 KB'lık minimumdan değişebilir. 128 KB istek gövdesi boyutu için varsayılan değerdir.
-- Dosya karşıya yükleme sınırı alanı MB olarak belirtilir ve izin verilen en büyük dosya yükleme boyutunu yönetir. Bu alan 1 MB en düşük değerini ve en fazla 500 MB olabilir. Dosya karşıya yükleme sınırı için varsayılan değer 100 MB'dir.
+- Dosya karşıya yükleme sınırı alanı MB olarak belirtilir ve izin verilen en büyük dosya yükleme boyutunu yönetir. Orta SKU en fazla 100 MB'ın olsa Bu alan 1 MB en düşük değerini ve en fazla 500 MB büyük SKU örnekleri için sahip olabilir. Dosya karşıya yükleme sınırı için varsayılan değer 100 MB'dir.
 
 Ayrıca, WAF istek gövdesi İnceleme açıp kapatmak için yapılandırılabilir bir düğme sunar. İstek gövdesi İnceleme varsayılan olarak etkinleştirilir. İstek gövdesi İnceleme kapalıysa, WAF HTTP ileti gövdesi içeriğini değerlendirmez. Böyle durumlarda, üst bilgiler, tanımlama bilgileri ve URI WAF kurallarını zorunlu tutmak WAF devam eder. İstek gövdesi İnceleme kapalıysa, en büyük istek gövdesi boyutu alan geçerli değildir ve ayarlanamaz. İletiler için istek gövdesi İnceleme kapatmak için WAF gönderilecek 128 KB'tan büyük sağlar, ancak ileti gövdesi güvenlik açıklarına karşı inceledi değil.
 

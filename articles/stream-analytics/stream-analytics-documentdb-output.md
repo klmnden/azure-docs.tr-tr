@@ -7,14 +7,14 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 01/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: c5017817c0f823a149dd0f9bced48ecca9f3c488
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 1f142d7551859396b789ee0594880f077e4a7f9f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106575"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267139"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Azure Cosmos DB için Azure Stream Analytics çıkışı  
 Stream Analytics hedefleyebilir [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) yapılandırılmamış JSON verileri üzerinde veri arşivleme ve düşük gecikme süreli sorgular için JSON çıkışında, etkinleştirme. Bu belge, bu yapılandırmayı uygulamak için bazı en iyi uygulamaları kapsar.
@@ -58,16 +58,17 @@ Sabit Azure Cosmos DB koleksiyonları için Stream Analytics tam olduğunuzda ar
 Birden çok sabit kapsayıcı yazma kullanımdan kaldırılıyor ve Stream Analytics işinizi ölçeklendirmeye yönelik önerilen yaklaşım değildir. Makaleyi [bölümleme ve ölçeklendirme Cosmos DB'de](../cosmos-db/sql-api-partition-data.md) hakkında daha fazla ayrıntı sağlar.
 
 ## <a name="cosmos-db-settings-for-json-output"></a>Çıkış JSON için cosmos DB ayarları
-Stream analytics'te bir çıkış olarak Cosmos DB oluşturma, aşağıda görüldüğü gibi bilgileri için bir istem oluşturur. Bu bölüm, özellikleri tanımının bir açıklama sağlar.
 
+Stream analytics'te bir çıkış olarak Cosmos DB oluşturma, aşağıda görüldüğü gibi bilgileri için bir istem oluşturur. Bu bölüm, özellikleri tanımının bir açıklama sağlar.
 
 ![documentdb stream analytics çıkış ekranı](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-1.png)
 
-Alan           | Açıklama 
--------------   | -------------
-Çıktı Diğer Adı    | Bu çıkış ASA sorgunuzda başvurmak için bir diğer ad   
-Hesap Adı    | Adı veya URI'si Azure Cosmos DB hesabının uç noktası 
-Hesap Anahtarı     | Azure Cosmos DB hesabı için paylaşılan erişim anahtarı
-Database        | Azure Cosmos DB veritabanı adı
-Koleksiyon Adı | Kullanılacak bir koleksiyon için koleksiyon adı. `MyCollection` Örnek geçerli bir giriş - adlı bir koleksiyon olduğundan `MyCollection` mevcut olması gerekir.  
-Belge Kimliği     | İsteğe bağlı. Hangi ekleme veya güncelleştirme işlemleri dayanması benzersiz bir anahtar kullanılan çıkış olaylarındaki sütun adı. Boş bırakılırsa, tüm olayları güncelleştirme seçeneği ile eklenir.
+|Alan           | Açıklama|
+|-------------   | -------------|
+|Çıktı diğer adı    | Bu çıktı ASA sorgunuzda başvurmak için bir diğer ad.|
+|Abonelik    | Seçin, Azure aboneliği.|
+|Hesap Kimliği      | Adı veya uç noktası URI'si, Azure Cosmos DB hesabı.|
+|Hesap anahtarı     | Azure Cosmos DB hesabı için paylaşılan erişim anahtarı.|
+|Database        | Azure Cosmos DB veritabanının adı.|
+|Koleksiyon adı deseni | Kullanılacak bir koleksiyon için koleksiyon adı. `MyCollection` Örnek geçerli bir giriş - adlı bir koleksiyon olduğundan `MyCollection` mevcut olması gerekir.  |
+|Belge Kimliği     | İsteğe bağlı. Hangi ekleme veya güncelleştirme işlemleri dayanması benzersiz bir anahtar kullanılan çıkış olaylarındaki sütun adı. Boş bırakılırsa, tüm olayları güncelleştirme seçeneği ile eklenir.|

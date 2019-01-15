@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 10/18/2018
 ms.author: mabrigg
 ms.reviewer: anajod
-ms.openlocfilehash: 95fcb98e9ca6ff85e37ee88d5a5122ffa6887bb4
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 1629c4b62fb04e057c38261a33fd3bc759b279c1
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245217"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267411"
 ---
 # <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>Öğretici: Azure ve Azure Stack ile karma bulut çözümü dağıtma
 
@@ -77,7 +77,7 @@ Bu öğreticiye başlamadan önce aşağıdaki gereksinimleri karşılayabilecek
 
 2. Üzerinde **Pano**seçin **Market**.
 
-    ![Auzure Stack Marketini](media/azure-stack-solution-hybrid-cloud/image1.png)
+    ![Azure Stack Market](media/azure-stack-solution-hybrid-cloud/image1.png)
 
 3. İçinde **Market**seçin **işlem**ve ardından **daha fazla**. Altında **daha fazla**seçin **ücretsiz SQL Server Lisansı: Windows Server üzerinde SQL Server 2017 Developer** görüntü.
 

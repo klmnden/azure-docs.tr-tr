@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: d1b15e634cae0758f1f872750ffd9dd569e83a8e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 2769b78632e1a7f776359f2a4d768154c224aab5
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036248"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264623"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Azure Stack profilleri tarafından desteklenen kaynak sağlayıcısı API sürümleri
 
@@ -94,7 +94,7 @@ Kuruluşunuzdaki kullanıcıların kaynakları üzerinde gerçekleştirebileceğ
 | İlke Tanımları | 2016-12-01 |
 | Sağlayıcı işlemleri | 2015-07-01-Önizleme |
 | Rol Atamaları | 2015-07-01 |
-| Rol tanımları | 2015-07-01 |
+| Rol Tanımları | 2015-07-01 |
 
 ### <a name="microsoftcommerce"></a>Microsoft.Commerce
 
@@ -245,7 +245,7 @@ Depolama kaynak Sağlayıcısı'nı (SRP), depolama hesabı ve anahtarları prog
 | İlke Tanımları | 2016-12-01 |
 | Sağlayıcı işlemleri | 2015-07-01-Önizleme |
 | Rol Atamaları | 2015-07-01 |
-| Rol tanımları | 2015-07-01 |
+| Rol Tanımları | 2015-07-01 |
 
 ### <a name="microsoftcompute"></a>Microsoft.Compute
 
@@ -312,7 +312,7 @@ Depolama kaynak Sağlayıcısı'nı (SRP), depolama hesabı ve anahtarları prog
 | Abonelikler/kaynak grupları | 2016-09-01 |
 | Abonelikler/resourceGroups/kaynaklar | 2016-09-01 |
 | Abonelikler/kaynak | 2016-09-01 |
-| Subscriptiosn/tagNames | 2016-09-01 |
+| Abonelikler/tagNames | 2016-09-01 |
 | Abonelikler/tagNames/tagValues | 2016-09-01 |
 | Kiracılar | 2017-08-01 |
 

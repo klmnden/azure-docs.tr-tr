@@ -7,14 +7,14 @@ author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 01/14/2019
 ms.author: erhopf
-ms.openlocfilehash: 11259b99ea9d2486c8c0afde21398710ccc6ccd8
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 81a902c6cf6b9b3491933e4bc14dc1e774185869
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726299"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305460"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Azure Bilişsel hizmetler isteklerine kimlik doğrulaması
 
@@ -58,6 +58,8 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 --data-raw '[{ "text": "How much for the cup of coffee?" }]' | json_pp
 ```
 
+Aşağıdaki videoda, Bilişsel hizmetler anahtarı kullanmayı gösterir. 
+
 ## <a name="authenticate-with-a-multi-service-subscription-key"></a>Bir hizmet birden çok abonelik anahtarı ile kimlik doğrulaması
 
 >[!WARNING]
@@ -66,6 +68,8 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 Bu seçenek ayrıca isteklerinin kimliğini doğrulamak için bir abonelik anahtarı kullanır. İkisi arasındaki temel fark, bir abonelik anahtarı belirli bir hizmete bağlı değildir, bunun yerine, tek bir anahtar için birden çok Bilişsel hizmetler isteklerinin kimliğini doğrulamak için kullanılabilir olan. Bkz: [Bilişsel hizmetler fiyatlandırması](https://azure.microsoft.com/pricing/details/cognitive-services/) bölgesel kullanılabilirliği hakkında daha fazla bilgi için desteklenen özellikler ve fiyatlandırma.
 
 Abonelik anahtarı her istekte sağlanan `Ocp-Apim-Subscription-Key` başlığı.
+
+[![Bilişsel hizmetler için birden çok hizmet aboneliği anahtar Tanıtımı](./media/index/single-key-demonstration-video.png)](https://www.youtube.com/watch?v=psHtA1p7Cas&feature=youtu.be)
 
 ### <a name="supported-regions"></a>Desteklenen bölgeler
 

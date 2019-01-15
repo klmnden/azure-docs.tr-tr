@@ -1,4 +1,4 @@
-# [Genel Bakış](../overview.md)
+# Genel Bakış
 ## [VM uzantıları](agents-and-extensions-classic.md)
 ## [Kullanılabilirlik](configure-availability-classic.md)
 ## [SSS](faq-classic.md)
@@ -49,7 +49,6 @@
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [Azure CLI](/cli/azure/vm)
 ## [Java](/java/api)
-## [Resource Manager şablonları yazma](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Topluluk şablonları](https://azure.microsoft.com/documentation/templates)
 ## [İşlem REST](https://msdn.microsoft.com/library/jj157206.aspx)
 ## [Ağ REST](https://msdn.microsoft.com/library/jj157182.aspx)

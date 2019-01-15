@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 2c5e3664a9ef26319eb8a51d03ddef6a5392ffa9
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: fcba3aef29e1566f9dfb2b151c15fe683be94fdb
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103001"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266596"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Azure Blockchain Workbench'i dağıtma
 
@@ -119,7 +119,7 @@ Azure Blockchain Workbench, Azure AD, yapılandırma ve uygulama kayıtlarını 
 
     | Ayar | Açıklama  |
     |---------|--------------|
-    | Ethereum RPC bitiş noktası | Var olan PoA blok zinciri ağı RPC uç noktası sağlar. Uç nokta https:// veya http:// ile başlayan ve bir bağlantı noktası numarası ile sona erer. Örneğin, `http<s>://<network-url>:<port>` |
+    | Ethereum RPC Endpoint | Var olan PoA blok zinciri ağı RPC uç noktası sağlar. Uç nokta https:// veya http:// ile başlayan ve bir bağlantı noktası numarası ile sona erer. Örneğin, `http<s>://<network-url>:<port>` |
     | Azure Active Directory ayarları | Seçin **ekleyebilirsiniz**.</br>Not: İçin seçerseniz, [önceden Azure AD'yi yapılandırma](#azure-ad-configuration) veya tercih yeniden dağıtmaya gerek, *artık ekleme*. |
     | Sanal makine seçimi | Blok zinciri ağınız için tercih edilen VM boyutunu seçin. |
 
@@ -240,7 +240,7 @@ Ardından, uygulama rolleri Blockchain Workbench'i yöneticileri belirlemek içi
     > [!IMPORTANT]
     > Değer **yönetici** Blockchain Workbench'i Yöneticiler tanımlamak için gereklidir.
 
-4. Bildirimde, ayrıca değişiklik **Oauth2AllowImplictFlow** değerini **true**.
+4. Bildirimde, ayrıca değişiklik **Oauth2AllowImplicitFlow** değerini **true**.
 
     ``` json
     "oauth2AllowImplicitFlow": true,

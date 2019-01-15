@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 11/14/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 69ffd2dd4df8ca0a64036f7a96c88d5c83353211
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 2716838b28bc6dc5155ab7fbb6e1b4966b63f4dc
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685387"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266119"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>Öğretici - Azure CLI ile Azure disklerini yönetme
 
@@ -126,7 +126,7 @@ Bir disk sanal makineye eklendikten sonra, diskin kullanılması için işletim 
 Sanal makine ile bir SSH bağlantısı oluşturun. Örnek IP adresini, sanal makinenin genel IP adresiyle değiştirin.
 
 ```azurecli-interactive
-ssh azureuser@52.174.34.95
+ssh 10.101.10.10
 ```
 
 `fdisk` ile diski bölümlendirin.
@@ -196,12 +196,16 @@ Bir disk anlık görüntüsü aldığınızda, Azure diskin belirli bir noktadak
 Sanal makine diski anlık görüntüsü oluşturmadan önce diskin kimliği veya adı gerekir. Disk kimliğini döndürmek için [az vm show](/cli/azure/vm#az-vm-show) komutunu kullanın. Bu örnekte sonraki adımda kullanılabilmesi için disk kimliği bir değişken içinde saklanır.
 
 ```azurecli-interactive
-osdiskid=$(az vm show -g myResourceGroupDisk -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
+osdiskid=$(az vm show \
+   -g myResourceGroupDisk \
+   -n myVM \
+   --query "storageProfile.osDisk.managedDisk.id" \
+   -o tsv)
 ```
 
 Artık sanal makinenin kimliğine sahip olduğunuza göre aşağıdaki komut, diskin anlık görüntüsünü oluşturabilir.
 
-```azurcli
+```azurecli-interactive
 az snapshot create \
     --resource-group myResourceGroupDisk \
     --source "$osdiskid" \
@@ -213,7 +217,10 @@ az snapshot create \
 Bu anlık görüntü daha sonra, sanal makineyi yeniden oluşturmak için kullanılabilen bir disk e dönüştürülebilir.
 
 ```azurecli-interactive
-az disk create --resource-group myResourceGroupDisk --name mySnapshotDisk --source osDisk-backup
+az disk create \
+   --resource-group myResourceGroupDisk \
+   --name mySnapshotDisk \
+   --source osDisk-backup
 ```
 
 ### <a name="restore-virtual-machine-from-snapshot"></a>Sanal makineyi anlık görüntüden geri yükleme
@@ -221,7 +228,9 @@ az disk create --resource-group myResourceGroupDisk --name mySnapshotDisk --sour
 Sanal makineyi kurtarma işlemini gösterebilmemiz için varolan sanal makineyi silin.
 
 ```azurecli-interactive
-az vm delete --resource-group myResourceGroupDisk --name myVM
+az vm delete \
+--resource-group myResourceGroupDisk \
+--name myVM
 ```
 
 Anlık görüntü diskinden yeni bir sanal makine oluşturun.
@@ -241,13 +250,19 @@ Tüm veri disklerinin sanal makineye yeniden eklenmesi gerekir.
 Öncelikle [az disk list](/cli/azure/disk#az-disk-list) komutunu kullanarak veri diski adını bulun. Bu örnek, diskin adını *datadisk* adlı bir değişkene yerleştirir ve bu değişkeni sonraki adımda kullanabilirsiniz.
 
 ```azurecli-interactive
-datadisk=$(az disk list -g myResourceGroupDisk --query "[?contains(name,'myVM')].[name]" -o tsv)
+datadisk=$(az disk list \
+   -g myResourceGroupDisk \
+   --query "[?contains(name,'myVM')].[id]" \
+   -o tsv)
 ```
 
 Diski eklemek için [az vm disk attach](/cli/azure/vm/disk#az-vm-disk-attach) komutunu kullanın.
 
 ```azurecli-interactive
-az vm disk attach –g myResourceGroupDisk –-vm-name myVM –-disk $datadisk
+az vm disk attach \
+   –g myResourceGroupDisk \
+   --vm-name myVM \
+   --disk $datadisk
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

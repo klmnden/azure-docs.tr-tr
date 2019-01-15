@@ -1,29 +1,22 @@
 ---
-title: Azure VPN Gateways ile BGP'ye genel bakış | Microsoft Docs
+title: BGP ve Azure VPN ağ geçitleri'ne genel bakış | Microsoft Docs
 description: Bu makale Azure VPN Gateways ile BGP’ye genel bakış sağlar.
 services: vpn-gateway
-documentationcenter: na
 author: yushwang
 manager: rossort
-editor: ''
-tags: ''
-ms.assetid: f8c3985c-c128-4f34-835c-0e88742bf36e
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 01/12/2017
 ms.author: yushwang
-ms.openlocfilehash: 13a17eb3d78e70a09864bf218f1027d6e98486a6
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 91e9fe1eb6b3df0b64d05f2b1e300403a9e01db9
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38720059"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306531"
 ---
-# <a name="overview-of-bgp-with-azure-vpn-gateways"></a>Azure VPN Gateways ile BGP’ye genel bakış
-Bu makale Azure VPN Gateways içindeki BGP (Sınır Ağ Geçidi Protokolü) desteğine genel bakış sağlar.
+# <a name="about-bgp-with-azure-vpn-gateway"></a>Azure VPN ağ geçidi ile BGP hakkında
+Bu makalede Azure VPN ağ geçidinde BGP (sınır ağ geçidi Protokolü) desteğine genel bakış sağlar.
 
 BGP iki veya daha fazla ağ arasında yönlendirme ve ulaşılabilirlik bilgilerini takas etmek üzere İnternet’te yaygın olarak kullanılan standart yönlendirme protokolüdür. BGP, Azure Virtual Networks bağlamında kullanıldığında her iki ağ geçidini ön eklerin ilgili ağ geçitlerinden veya yönlendiricilerden geçmeye yönelik kullanılabilirliği ve ulaşılabilirliği konusunda bilgilendiren “yolları” değiştirmek amacıyla, Azure VPN Gateways’i ve BGP eşlikleri veya komşuları olarak adlandırılan şirket içi VPN cihazlarınızı etkinleştirir. BGP ayrıca bir BGP ağ geçidinin öğrendiği yolları bir BGP eşliğinden diğer tüm BGP eşliklerine yayarak birden fazla ağ arasında geçiş yönlendirmesi sağlayabilir. 
 

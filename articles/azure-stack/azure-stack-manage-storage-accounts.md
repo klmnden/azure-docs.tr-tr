@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: af7500d6bf12ef34e6919aa255185a87525310b3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8eed0b4f2d14d22bdd9eddac9dbb4c0e02404975
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240724"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302723"
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Azure stack'teki depolama hesapları yönetme
 Bulma, kurtarma ve iş ihtiyaçlarına göre depolama kapasiteyi geri kazanmak için Azure stack'teki depolama hesapları'nı yönetmeyi öğrenin.
@@ -45,7 +45,7 @@ Bölgede depolama hesaplarının listesi Azure yığını tarafından görüntü
 
 Varsayılan olarak, ilk 10 hesapları görüntülenir. Daha fazla bilgi almak seçebileceğiniz tıklayarak **daha fazla Yükle** listenin altındaki bağlantıyı.
 
-VEYA
+OR
 
 Belirli bir depolama hesabında – ilgileniyorsanız yapabilecekleriniz **filtrelemek ve ilgili hesapları fetch** yalnızca.
 
@@ -148,7 +148,7 @@ Ayrıca Bekletme dönemi açıkça geçersiz kılmak için PowerShell kullanın 
     Start-AzsReclaimStorageCapacity -FarmName $farm_name
 ````
 
-Daha fazla bilgi için [Azure Stack PowerShell belgeleri.](https://docs.microsoft.com/powershell/module/azurerm.azurestackstorage)
+Daha fazla bilgi için [Azure Stack PowerShell belgeleri](https://docs.microsoft.com/powershell/azure/azure-stack/overview).
  
 
 ## <a name="next-steps"></a>Sonraki adımlar

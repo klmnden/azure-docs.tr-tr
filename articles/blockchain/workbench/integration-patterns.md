@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 0b0307d167485712e06966dd36fa94e24ef33aa1
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 1e1bc16d32167d62d5f66f64bb383fcceeb79eb5
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48243265"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267156"
 ---
 # <a name="smart-contract-integration-patterns"></a>Akıllı sözleşme tümleştirme desenleri
 
@@ -180,7 +180,7 @@ Bu modelde burada standart bir biçimde bir ileti sözleşmesi iletişim doğrud
 
 Genel bir tümleştirme senaryosu akıllı bir sözleşme sensörlerden alınan telemetri verilerini eklenmesidir. Sensörleri tarafından sunulan veri bağlı olarak, nitelikli akıllı anlaşmalar bilgiye dayalı eylemleri ve sözleşmenin durumunu değiştirme.
 
-Örneğin, TIP sunan bir kamyon 110 derece oranında artırdı, sıcaklık olsaydı, ilaç verimliliğini etkileyebilir kamu güvenliği soruna neden olabilir değilse algılandı ve tedarik zinciri kaldırıldı. Bir sürücü için saat başına 100 mil kendi araba hızlandırılmış, Algılayıcı bilgilerine bir sigorta, sigorta sağlayıcı tarafından iptal tetikleyebilir. Araba kiralama araba, GPS veri kendi kiralama anlaşması kapsamında bir Coğrafya dışında sürücü gittiğini belirten ve bir ceza ücret alınır.
+Örneğin, TIP sunan bir kamyon 110 derece oranında artırdı, sıcaklık olsaydı, ilaç verimliliğini etkileyebilir kamu güvenliği soruna neden olabilir değilse algılandı ve tedarik zinciri kaldırıldı. Bir sürücü için saat başına 100 mil kendi araba hızlandırılmış, Algılayıcı bilgilerine, sigorta sağlayıcısı sigorta iptali tetikleyebilir. Araba kiralama araba, GPS veri kendi kiralama anlaşması kapsamında bir Coğrafya dışında sürücü gittiğini belirten ve bir ceza ücret alınır.
 
 Bu sensörlerden veri sürekli olarak teslim ve tüm bu verileri akıllı bir sözleşmeyi göndermek uygun değil zorluktur. İkincil bir depoya tüm iletileri sunarken blok zincirine gönderilen ileti sayısını sınırla tipik bir yaklaşımdır. Örneğin, yalnızca sabit aralık, örneğin, saatte bir ve içerdiği değer anlaşılmış dışında düştüğünde alınan iletilerin teslim akıllı bir sözleşme için aralığı temel alır. Toleranslar dışında kalan değerleri denetlemek, veri sözleşme iş mantığına uygun yürütülen ve alındığını sağlar. Aralık değeri denetleme algılayıcı hala raporlama onaylar. Tüm veriler gönderildiğinde bir ikincil raporlama depoya daha geniş raporlama, analiz ve makine öğrenimi etkinleştirmek için. Örneğin, GPS için sensör okumaları alma dakikada akıllı bir sözleşme için gerekli olmayabilir ancak raporları veya eşleme rotaları kullanılacak için ilginç verileri sağlayabilir.
 

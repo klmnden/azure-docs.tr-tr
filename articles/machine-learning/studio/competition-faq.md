@@ -1,26 +1,8 @@
 ---
-title: Cortana Intelligence Yarışmaları hakkında SSS - Azure Machine Learning Studio'da | Microsoft Docs
-description: Sık sorulan Microsoft Cortana Intelligence Yarışmaları hakkında sorular.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 9bac5154-a56c-4e78-9d67-34368b9d1624
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 12/18/2017
-ms.openlocfilehash: fe4da412aa779e9861446f8dcbb8a807c282c7c6
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268912"
+Başlık: Cortana Intelligence Yarışmaları hakkında SSS titleSuffix: Azure Machine Learning Studio açıklaması: Sık sorulan Microsoft Cortana Intelligence Yarışmaları hakkında sorular.
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 12/18/2017
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Microsoft Cortana Intelligence Yarışmaları Hakkında SSS
 **Cortana Intelligence Yarışmaları nedir?**

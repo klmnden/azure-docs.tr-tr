@@ -14,12 +14,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 11/21/2016
 ms.author: richrund
-ms.openlocfilehash: b8b3b28d2bf7fc75b9f70d145290af1edf44c94f
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: a77406fd6a466ed92f6eb3ed3401e987831e3da0
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063206"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267309"
 ---
 # <a name="manage-log-analytics-using-powershell"></a>PowerShell kullanarak Log Analytics’i yönetme
 Kullanabileceğiniz [Log Analytics PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) Log Analytics'te, komut satırından veya betik bir parçası olarak çeşitli işlevleri gerçekleştirmek için.  PowerShell ile gerçekleştirebileceğiniz görevler örnekleri şunlardır:
@@ -173,7 +173,7 @@ New-AzureRmOperationalInsightsLinuxPerformanceObjectDataSource -ResourceGroupNam
 Enable-AzureRmOperationalInsightsLinuxCustomLogCollection -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName
 
 # Linux Syslog
-New-AzureRmOperationalInsightsLinuxSyslogDataSource -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -Facility "kern" -CollectEmergency -CollectAlert -CollectCritical -CollectError -CollectWarning -Name "Example kernal syslog collection"
+New-AzureRmOperationalInsightsLinuxSyslogDataSource -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -Facility "kern" -CollectEmergency -CollectAlert -CollectCritical -CollectError -CollectWarning -Name "Example kernel syslog collection"
 Enable-AzureRmOperationalInsightsLinuxSyslogCollection -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName
 
 # Windows Event
@@ -190,17 +190,17 @@ Yukarıdaki örnekte regexDelimiter olarak tanımlanan "\\n" için yeni satır. 
 
 | Biçimlendir | JSON normal ifade biçimi kullanan iki \\ için her \ standart bir normal ifade, bunu bir normal ifade uygulamasında test azaltılırsa \\ için \ |
 | --- | --- |
-| YYYY-AA-GG SS: DD: | ((\\\\d{2})\|(\\\\d{4}))-([0-1]\\\\d) (([0-3]\\\\d)\|(\\ \\d)) \\ \\s ((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9] |
-| D.M.YYYY HH: MM: SS AM/PM | (([0-1]\\\\d)\|[0-9]) / (([0-3]\\\\d)\|(\\\\d)) / ((\\\\d{2})\|() \\ \\d{4}))\\\\s ((\\\\d)\|([0-1]\\\\d)\|(2[0-4])): [0-5] [0-9]: [ 0-5] [0-9]\\\\s (AM\|PM\|'M\|pm) |
+| YYYY-AA-GG SS: DD: | ((\\\\d{2})\|(\\\\d{4}))-([0-1]\\\\d)-(([0-3]\\\\d)\|(\\\\d))\\\\s((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9] |
+| D.M.YYYY HH: MM: SS AM/PM | (([0-1]\\\\d)\|[0-9])/(([0-3]\\\\d)\|(\\\\d))/((\\\\d{2})\|(\\\\d{4}))\\\\s((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]\\\\s(AM\|PM\|am\|pm) |
 | dd/MMM/yyyy ss: dd: | ((([0-3]\\\\d)\|(\\\\d)) / (Oca\|Şub\|Mar\|Mayıs\|Apr\|Tem\|Haz\|Ağu\|Eki\|Sep\|Kas\|Ara\|Oca\|Şub\|mar\|olabilir\|apr\|Tem\|Haz\|Ağu\|Eki\|sep\|Kas\|Ara) / ((\\\\d{2})\|(\\\\d{4})) \\ \\s ((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]) |
 | Dd MMM yyyy ss: dd: | (((?: Jan(?:uary)? \|Feb(?:ruary)? \|Mar(?:ch)? \|Apr(?:il)? \|Olabilir\|Jun(?:e)?\| Jul(?:y)? \|Aug(?:ust)? \|Sep(?:tember)? \|Kalkacaktır\|Oct(?:o ağlantı)? \|Nov(?:ember)? \|Dec(?:ember)?)). *? ((?: (?: [0-2]? \\ \\d{1})\|(?: [3] [01]{1}))) (?! [\\\\d]).* ? ((?: (?: [1]{1}\\\\d{1}\\\\d{1}\\\\d{1})\|(?: [2]{1} \\ \\d{3}))) (?! [\\\\d]). *? ((?: (?: [0-1][0-9])\|(?: [2][0-3])\|(?: [0-9])):(?:[0-5][0-9])(?::[0-5][0-9])? (?:\\\\s? (?: am\|AM\|pm\|PM))?)) |
-| YYAAGG ss: dd: | ([0-9]{2}([0] [1-9]\|[1][0-2]) ([0-2] [0-9]\|[3][0-1])\\\\s\\\\s? () [0-1]? [0-9] \|[2][0-3]):[0-5][0-9]:[0-5][0-9]) |
-| ddMMyy ss: dd: | (([0-2] [0-9]\|[3][0-1]) ([0] [1-9]\|[1][0-2]) [0-9]{2}\\\\s\\\\s? () [0-1]? [0-9] \|[2][0-3]):[0-5][0-9]:[0-5][0-9]) |
+| yyMMdd HH:mm:ss | ([0-9]{2}([0][1-9]\|[1][0-2])([0-2][0-9]\|[3][0-1])\\\\s\\\\s?([0-1]?[0-9]\|[2][0-3]):[0-5][0-9]:[0-5][0-9]) |
+| ddMMyy HH:mm:ss | (([0-2] [0-9]\|[3][0-1]) ([0] [1-9]\|[1][0-2]) [0-9]{2}\\\\s\\\\s? () [0-1]? [0-9] \|[2][0-3]):[0-5][0-9]:[0-5][0-9]) |
 | MMM d ss: dd: | (Oca\|Şub\|Mar\|Apr\|olabilir\|Haz\|Tem\|Ağu\|Sep\|Eki\|Kas\|Ara)\\ \\s\\\\s? () [0]? [1-9] \|[1 - 2] [0-9]\|[3][0-1])\\\\s ([0-1]? [ 0-9]\|[2][0-3]):([0-5][0-9]):([0-5][0-9]) |
 | MMM d ss: dd:<br> MMM sonra iki boşluk | (Oca\|Şub\|Mar\|Apr\|olabilir\|Haz\|Tem\|Ağu\|Sep\|Eki\|Kas\|Ara)\\ \\s\\\\s ([0]? [ 1-9]\|[1 - 2] [0-9]\|[3][0-1])\\\\s ([0] [0-9]\|[1][0-2]):([0-5][0-9]):([0-5][0-9]) |
 | MMM d ss: dd: | (Oca\|Şub\|Mar\|Apr\|olabilir\|Haz\|Tem\|Ağu\|Sep\|Eki\|Kas\|Ara)\\ \\s ([0]? [ 1-9]\|[1 - 2] [0-9]\|[3][0-1])\\\\s ([0] [0-9]\|[1][0-2]):([0-5][0-9]):([0-5][0-9]) |
 | dd/MMM/yyyy:HH:mm:ss + zzzz<br> Burada + + veya -<br> Burada zzzz saat uzaklığı | (([0-2] [1-9]\|[3][0-1])\\\\/ (Oca\|Şub\|Mar\|Apr\|Mayıs\|Haz\|Tem\|Ağu\|Sep \|Eki\|Kas\|Ara)\\\\/((19\|20) [0-9] [0-9]): ([0] [0-9]\|[1][0-2]):([0-5][0-9]):([0-5][0-9])\\ \\s [\\\\+\|\\\\-] [0-9]{4}) |
-| yyyy-MM-ddTHH<br> Bir değişmez değer Harf T T olduğu | ((\\\\d{2})\|(\\\\d{4}))-([0-1]\\\\d) (([0-3]\\\\d)\|(\\ \\d)) T ((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9] |
+| yyyy-MM-ddTHH<br> Bir değişmez değer Harf T T olduğu | ((\\\\d{2})\|(\\\\d{4}))-([0-1]\\\\d)-(([0-3]\\\\d)\|(\\\\d))T((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9] |
 
 ## <a name="configuring-log-analytics-to-index-azure-diagnostics"></a>Azure tanılama dizin için log Analytics'i yapılandırma
 Azure kaynaklarını aracısız izleme için kaynakları etkin ve Log Analytics çalışma alanına yazmak için yapılandırılmış Azure tanılama olması gerekir. Bu yaklaşım, doğrudan Log Analytics'e veri gönderir ve bir depolama hesabına yazılmasına izin gerektirmez. Desteklenen kaynaklar şunlardır:

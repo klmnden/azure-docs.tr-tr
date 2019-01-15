@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/25/2018
-ms.openlocfilehash: fd912885335b41e3d7ca8ee717b6bb1b9c88e729
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 905ea05d2b3bc58428831ae815238de818912928
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984154"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304440"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Stream analytics'te aramaları için başvuru verilerini kullanma
 Başvuru verileri (arama tablosu olarak da bilinir) statik veya yavaş doğası gereği, değişen bir arama gerçekleştirme ya da, veri akışı ile ilişkilendirmek için kullanılan sınırlı bir veri kümesi var. Azure Stream Analytics, düşük gecikme süreli akış işlemesi için bellek başvuru verileri yükler. Yapmak için Azure Stream Analytics işinizi başvuru verilerinde kullanımı, genel olarak kullanacağınız bir [başvuru veri birleştirme](https://msdn.microsoft.com/library/azure/dn949258.aspx) sorgunuzda. Stream Analytics, başvuru verileri için depolama katmanı olarak Azure Blob Depolama kullanır ve Azure Data Factory başvuru ile veri dönüştürülür ve/veya başvuru veriler olarak kullanmak için Azure Blob depolama alanına kopyalanır [çok sayıda bulut tabanlı ve Şirket içi veri depolarına](../data-factory/copy-activity-overview.md). Başvuru verileri blob adı, belirtilen tarih/saat, artan bloblar (giriş yapılandırmasında tanımlanmış) öğesinin bir dizisi olarak modellenir. Bunu **yalnızca** dizinin sonuna bir tarih/saat kullanarak eklemeyi destekler **büyük** dizideki son blob tarafından belirtilenden.
@@ -39,10 +39,10 @@ Başvuru veri yapılandırmak için önce türünde bir giriş oluşturmak için
 |Girdi Diğer Adı   | İşin sorgusunda bu giriş başvurmak için kullanılan bir kolay ad.   |
 |Depolama Hesabı   | Bloblarınızın bulunduğu depolama hesabının adıdır. Stream Analytics işinizi ile aynı abonelikte etkinleştirilmişse, açılan listeden seçebilirsiniz.   |
 |Depolama Hesabı Anahtarı   | Depolama hesabı ile ilişkili gizli anahtar. Stream Analytics işinizi ile aynı abonelikte depolama hesabı seçiliyse otomatik olarak doldurulur.   |
-|Depolama kapsayıcısı   | Kapsayıcıları Microsoft Azure Blob hizmetinde depolanan bloblar için mantıksal bir gruplandırmasını sağlar. Blob hizmeti için bir blob karşıya yüklediğinizde, bu blob kapsayıcısı belirtmeniz gerekir.   |
-|Yol Deseni   | Belirtilen kapsayıcı içinde bloblarınızın bulunması için kullanılan yol. Yol içinde şu 2 değişkenin bir veya daha fazla örneğini belirtmeyi seçebilirsiniz:<BR>{date} {time}<BR>Örnek 1: products/{date}/{time}/product-list.csv<BR>Örnek 2: products/{date}/product-list.csv<BR><br> Blob belirtilen yolda mevcut değilse, Stream Analytics işi süresiz olarak blob kullanılabilir olana kadar bekleyin.   |
-|Tarih biçimi [isteğe bağlı]   | {Date}, belirtilen yol deseni içinde kullandıysanız, açılan listeden desteklenen biçimlerden bloblarınızın düzenlenmiş tarih biçimi seçebilirsiniz.<BR>Örnek: YYYY/MM/DD, GG/AA/YYYY, vs.   |
-|Saat biçimi [isteğe bağlı]   | Belirttiğiniz yol deseni içinde {time} kullandıysanız, açılan listeden desteklenen biçimlerden bloblarınızın düzenlenmiş saat biçimi seçebilirsiniz.<BR>Örnek: Ss, ss/dd veya ss dd.  |
+|Depolama Kapsayıcısı   | Kapsayıcıları Microsoft Azure Blob hizmetinde depolanan bloblar için mantıksal bir gruplandırmasını sağlar. Blob hizmeti için bir blob karşıya yüklediğinizde, bu blob kapsayıcısı belirtmeniz gerekir.   |
+|Yol Deseni   | Belirtilen kapsayıcı içinde bloblarınızın bulunması için kullanılan yol. Yol içinde şu 2 değişkenin bir veya daha fazla örneğini belirtmeyi seçebilirsiniz:<BR>{date} {time}<BR>Örnek 1: products/{date}/{time}/product-list.csv<BR>Örnek 2: products/{date}/product-list.csv<BR>Örnek 3: product-list.csv<BR><br> Blob belirtilen yolda mevcut değilse, Stream Analytics işi süresiz olarak blob kullanılabilir olana kadar bekleyin.   |
+|Tarih biçimi [isteğe bağlı]   | {Date}, belirtilen yol deseni içinde kullandıysanız, açılan listeden desteklenen biçimlerden bloblarınızın düzenlenmiş tarih biçimi seçebilirsiniz.<BR>Örnek: YYYY/AA/GG/AA/GG/YYYY, vb.   |
+|Saat biçimi [isteğe bağlı]   | Belirttiğiniz yol deseni içinde {time} kullandıysanız, açılan listeden desteklenen biçimlerden bloblarınızın düzenlenmiş saat biçimi seçebilirsiniz.<BR>Örnek: HH, ss/dd veya ss dd.  |
 |Olay Serileştirme Biçimi   | Sorgularınızın beklediğiniz şekilde çalışıp çalışmadığından emin olmak için, Akış Analizi'nin gelen veri akışları için hangi serileştirme biçimini kullandığınızı bilmesi gerekir. Başvuru verileri için CSV ve JSON desteklenen biçimler şunlardır.  |
 |Encoding   | Şu anda desteklenen tek kodlama biçimi UTF-8'dir.  |
 

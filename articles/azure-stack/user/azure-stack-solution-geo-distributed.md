@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
-ms.openlocfilehash: 85400269be13295161aaff5936a6ae8c7d503b34
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: da6c9fa416d19916243860178d15619306aaf3c0
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245880"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305324"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>Öğretici: Azure ve Azure Stack ile coğrafi olarak dağıtılmış bir uygulama çözümü oluşturma
 
@@ -41,7 +41,7 @@ Coğrafi olarak dağıtılmış desen ile uygulamanızı yayılmış bölgeleri.
 
 #### <a name="scalability-considerations"></a>Ölçeklenebilirlik konusunda dikkat edilmesi gerekenler
 
-Bu öğreticiyle oluşturacağınız ölçeklenebilirlik değil uyum sağlayacak şekilde çözümüdür. Ancak, diğer Azure ve şirket içi teknolojileri ve çözümleri ile birlikte kullanıldığında ölçeklenebilirlik gereksinimlerini barındırabilir. Otomatik ölçeklendirme aracılığıyla trafik ile Yöneticisi hyrbid çözüm oluşturma hakkında daha fazla bilgi için bkz [Azure ile Bulutlar arası ölçeklendirme çözümleri oluşturun](azure-stack-solution-cloud-burst.md).
+Bu öğreticiyle oluşturacağınız ölçeklenebilirlik değil uyum sağlayacak şekilde çözümüdür. Ancak, diğer Azure ve şirket içi teknolojileri ve çözümleri ile birlikte kullanıldığında ölçeklenebilirlik gereksinimlerini barındırabilir. Yöneticisi aracılığıyla trafiği otomatik olarak ölçeklendirme ile karma bir çözüm oluşturma hakkında daha fazla bilgi için bkz: [Azure ile Bulutlar arası ölçeklendirme çözümleri oluşturun](azure-stack-solution-cloud-burst.md).
 
 #### <a name="availability-considerations"></a>Kullanılabilirlik konusunda dikkat edilmesi gerekenler
 
@@ -93,7 +93,7 @@ Bir Azure aboneliği ve Azure Stack yükleme gereklidir.
 
 ### <a name="obtain-a-custom-domain-and-configure-dns"></a>Özel bir etki alanı almak ve DNS yapılandırma
 
-DNS bölge dosyasını foCreate web uygulamaları ve publishr etki alanını güncelleştirin. Azure AD, ardından özel etki alanı adı sahipliğini doğrulayabilirsiniz. Kullanım [Azure DNS](https://docs.microsoft.com/azure/dns/dns-getstarted-portal) , azure'da Azure/Office 365/dış DNS kayıtları için veya, DNS girişini eklemesini [farklı bir DNS kayıt şirketi](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/).
+Etki alanı için DNS bölge dosyasını güncelleştirin. Azure AD, ardından özel etki alanı adı sahipliğini doğrulayabilirsiniz. Kullanım [Azure DNS](https://docs.microsoft.com/azure/dns/dns-getstarted-portal) , azure'da Azure/Office 365/dış DNS kayıtları için veya, DNS girişini eklemesini [farklı bir DNS kayıt şirketi](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/).
 
 1. Özel bir etki alanı, ortak bir kayıt şirketi ile kaydedin.
 
@@ -273,7 +273,7 @@ Etki alanı için DNS bölge dosyasını güncelleştirin. Azure AD'ye özel etk
 
 -   Azure AD tarafından sağlanan DNS girişini ekleyerek etki alanının DNS bölge dosyasını güncelleştirin.
 
-Örneğin, DNS girişlerini fornorthwindcloud.comand www.northwindcloud.com eklemek için thenorthwindcloud.com kök etki alanı için DNS ayarlarını yapılandırın.
+Örneğin, northwindcloud.com ve www.northwindcloud.com DNS girdileri eklemek üzere northwindcloud.com kök etki alanı için DNS ayarlarını yapılandırın.
 
 > [!Note]  
 >  Kullanarak bir etki alanı adı satın alınabilecek [Azure portalında](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain).  
@@ -302,7 +302,7 @@ DNS kayıtları sayfasının bir örneğini aşağıdaki ekran görüntüsünde 
 
 2.  Uygulamanın varsayılan konak adıyla bir alt etki alanı eşlemek için bir CNAME kaydı ekleyin.
 
-  Www.northwindcloud.comdomain örneğin namewwwto eşleyen bir CNAME kaydı ekleyin < app\_adı >. azurewebsites.net.
+  Www.northwindcloud.com etki alanı örneğin adına eşleyen bir CNAME kaydı ekleyin < app\_adı >. azurewebsites.net.
 
 CNAME ekledikten sonra DNS kayıtları sayfası aşağıdaki örnekteki gibi görünür:
 
@@ -549,7 +549,7 @@ Web uygulaması sayfasında seçin **SL ayarları**. Ardından **Yalnızca HTTPS
 
 İşlem tamamlandığında, herhangi bir uygulamaya işaret eden HTTP URL'leri gidin. Örneğin:
 
--   http://<app_name>.azurewebsites.NET
+-   http://<app_name>.azurewebsites.net
 -   http://northwindcloud.com
 -   <http://www.northwindcloud.com>
 

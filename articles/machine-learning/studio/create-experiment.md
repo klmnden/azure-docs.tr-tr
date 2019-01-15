@@ -1,28 +1,10 @@
 ---
-title: Basit deneme - Azure Machine Learning Studio | Microsoft Docs
-description: Bu makine öğrenimi öğreticisi kolay bir veri bilimi deneyinde size kılavuzluk etmektedir. Regresyon algoritması kullanarak bir arabanın fiyatını tahmin edeceğiz.
-keywords: deneme,doğrusal regresyon,makine öğrenimi algoritmaları,makine öğrenimi öğreticisi,tahmine dayalı modelleme teknikleri,veri bilimi deneyi
-services: machine-learning
-documentationcenter: ''
-author: garyericson
-ms.custom: seodec18
-ms.author: garye
-editor: cgronlun
-ms.assetid: b6176bb2-3bb6-4ebf-84d1-3598ee6e01c6
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: tutorial
-ms.date: 03/20/2017
-ms.openlocfilehash: b3d8aa709fefcf0eb8c16117f62cbe3bab8e319a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53262427"
+Başlık: Basit bir deneme titleSuffix: Azure Machine Learning Studio açıklaması: Bu makine öğrenimi öğreticisi kolay bir veri bilimi deneyinde size kılavuzluk etmektedir. Regresyon algoritması kullanarak bir arabanın fiyatını tahmin edeceğiz.
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: Öğreticisi
+
+Yazar: garyericson ms.author: garye MS.özel: seodec18 ms.date: 03/20/2017
 ---
+
 # <a name="tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Öğretici: Azure Machine Learning Studio'da ilk veri bilimi denemenizi oluşturma
 
 Daha önce **Azure Machine Learning Studio** kullanmadıysanız, bu öğretici sizin için hazırlanmıştır.
@@ -185,7 +167,7 @@ Denemede bu noktaya kadar yalnızca verileri temizledik. Temizlenen veri kümesi
 
 Artık veriler temizlendiğine göre, tahmine dayalı modelde hangi özellikleri kullanacağımızı belirtmeye hazırız.
 
-## <a name="step-3-define-features"></a>3. adım: Özellikleri tanımlama
+## <a name="step-3-define-features"></a>3. Adım: Özellikleri tanımlama
 
 Machine learning'de *özellikler*, ilgilendiğiniz bir şeyin tek tek ölçülebilir özellikleridir. Veri kümemizde her bir satır bir otomobili temsil eder ve her bir sütun da bu otomobilin bir özelliğidir.
 
@@ -218,7 +200,7 @@ Veri kümemizdeki bir alt özellikler kümesini kullanan bir model oluşturalım
 
 Bu yalnızca bir sonraki adımda kullanacağımız öğrenim algoritmasına geçirmek istediğimiz özellikleri içeren filtrelenmiş bir veri kümesi üretir. Daha sonra geri dönüp farklı özellikler seçerek yeniden deneyebilirsiniz.
 
-## <a name="step-4-choose-and-apply-a-learning-algorithm"></a>4. adım: Bir öğrenme algoritması seçme ve uygulama
+## <a name="step-4-choose-and-apply-a-learning-algorithm"></a>4. Adım: Bir öğrenme algoritması seçme ve uygulama
 
 Artık veriler hazır olduğuna göre, tahmine dayalı bir model oluşturmak için eğitim ve test etme gerekir. Modeli eğitmek ve sonra fiyatları tahmin etmeye ne kadar yaklaştığını görmek üzere modeli test etmek için verilerimizi kullanacağız.
 <!-- For now, don't worry about *why* we need to train and then test a model.-->
@@ -272,7 +254,7 @@ Verilerimizi modeli eğitmek ve verileri ayrı eğitim ve test kümelerine ayır
 <br/>
 ***Çalıştırdıktan sonra, deneme şimdi aşağıdakine benzer görünmelidir***
 
-## <a name="step-5-predict-new-automobile-prices"></a>5. adım: Yeni otomobil fiyatlarını tahmin etme
+## <a name="step-5-predict-new-automobile-prices"></a>5. Adım: Yeni otomobil fiyatlarını tahmin etme
 
 Verilerimizin yüzde 75'ini kullanarak modeli eğittiğimize göre, modelimizin ne kadar iyi işlediğini görmek için verilerimizin diğer yüzde 25'ini puanlama amacıyla kullanabiliriz.
 

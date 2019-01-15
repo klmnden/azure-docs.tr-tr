@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: ellacroi
-ms.openlocfilehash: 2a4343b036716e6c49f7a05a8a480c6e74463760
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 33607043e9b462c4611106c72192f41f1d56c0b8
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078006"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305919"
 ---
 # <a name="grow-your-business-with-appsource"></a>AppSource ile işletmenizi büyütün  
 Bulma, deneyin ve iş kolu satır yazılım (SaaS) hizmet olarak almak için iş müşterilerle etkileşim kurun AppSource kullanarak uygulamaları ve işle ilgili sonuçları desteklemek yardımcı olmak için değer süresini azaltmak için uygulama hizmetleri.  
@@ -67,7 +67,7 @@ Uygulama yayın ve müşteri odaklı talep oluşturma ve iş ortağı engagement
 Aşağıdaki denetim listesini pazarlama en iyi yöntemler ve Appsource'ta yayımlanmak üzere tekliflerini oluştururken dikkate alınması gereken kaynakları sağlar:  
 *   **Microsoft Trademark & marka yönergelerine unutmayın.**  
     Ne zaman uygulamanızı adlandırma ve Microsoft ticari markaları ve Microsoft yazılım ürünleri ve Hizmetleri adlarını başvuran Microsoft Trademark ve marka yönergelerine yanı sıra ilgili ürüne özgü yönergeleri izleyin.  
-    *   Microsoft ticari markaları ve markalama hakkında daha fazla bilgi için Microsoft Trademark ziyaret edin ve marka yönergelerine sayfasında bulunan [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx).  
+    *   Microsoft ticari markaları ve markalama hakkında daha fazla bilgi için Microsoft Trademark ziyaret edin ve marka yönergelerine sayfasında bulunan [ https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/ ](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/).
 *   **Artık deneyimi, bir get ücretsiz deneme teklifi etkinleştirin veya sürücü deneyimi için uygulamanızı test edin.**  
     İş kullanıcıları, uygulamanızın birinci elden deneyimi istiyorsunuz.  
 *   **Güçlü değer önerisi oluşturun.**  
@@ -104,7 +104,7 @@ Aşağıdaki tablolarda teklif listenizi doldurma her adım ayrıntılı olarak 
 
 | Teklif ayarı | En iyi uygulamalar | 
 |:---------------------------------------- |:----------------------------------------------------- |
-| **Ad** | **Teklifinizi adlandırma**<br />Uygulamanız için bir ad seçme önemli bir karardır. Avantajı tabanlı adları açıklayıcı adlar daha etkili olur. Uygulama adınız, çekirdek değer müşterileri alma iletişim kurmanız gerekir. Arama anahtar sözcükleri, uygulama başlık dahil olmak üzere arama motoru sonuçlarında yüksek derece verilecek uygulamanıza yardımcı olabilir. Microsoft ticari markaları ve Microsoft, yazılım, ürün ve hizmetlerinin adları için söz konusu olduğunda, Microsoft Trademark ve marka yönergelerine yanı sıra ilgili ürüne özgü yönergeleri izleyin.<ul> <li>Microsoft ticari markaları ve markalama hakkında daha fazla bilgi için Microsoft Trademark ziyaret edin ve marka yönergelerine sayfasında bulunan [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx).</li> </ul> |
+| **Ad** | **Teklifinizi adlandırma**<br />Uygulamanız için bir ad seçme önemli bir karardır. Avantajı tabanlı adları açıklayıcı adlar daha etkili olur. Uygulama adınız, çekirdek değer müşterileri alma iletişim kurmanız gerekir. Arama anahtar sözcükleri, uygulama başlık dahil olmak üzere arama motoru sonuçlarında yüksek derece verilecek uygulamanıza yardımcı olabilir. Microsoft ticari markaları ve Microsoft, yazılım, ürün ve hizmetlerinin adları için söz konusu olduğunda, Microsoft Trademark ve marka yönergelerine yanı sıra ilgili ürüne özgü yönergeleri izleyin.<ul> <li>Microsoft ticari markaları ve markalama hakkında daha fazla bilgi için Microsoft Trademark ziyaret edin ve marka yönergelerine sayfasında bulunan [ https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/ ](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/).</li> </ul> |
 
 **StoreFront ayrıntıları - teklifi ayrıntıları**  
 
@@ -127,7 +127,7 @@ Aşağıdaki tablolarda teklif listenizi doldurma her adım ayrıntılı olarak 
 | StoreFront ayarları | En iyi uygulamalar | 
 |:--- |:--- |
 | **Teklif logo (.png biçimi, 48 x 48)** | Logonuzu tasarlanmış ve dijital bir ortam için en iyi duruma getirilmiş.<br />PNG biçiminde teklifinizi arama sayfası için logoyu karşıya yükleyin. |
-| **Teklif logo (.png. 216 216 x)** | Logonuzu tasarlanmış ve dijital bir ortam için en iyi duruma getirilmiş.<br />Uygulama Ayrıntıları sayfası teklifinizin listeleme için PNG biçiminde logoyu karşıya yükleyin. |
+| **Teklif logo (.png. 216 x 216)** | Logonuzu tasarlanmış ve dijital bir ortam için en iyi duruma getirilmiş.<br />Uygulama Ayrıntıları sayfası teklifinizin listeleme için PNG biçiminde logoyu karşıya yükleyin. |
 | **Daha fazla bilgi** | "Daha fazla bilgi," altında varlıkları pazarlama ve satış destekleyen örnek, teknik incelemeler, broşürler, denetim listeleri, PowerPoint ve benzeri için içerir. Tüm dosyaları, PDF biçiminde olmalıdır. Satış değil, aday müşteri eğitin.<br />Tüm belgeleri, uygulama giriş sayfası bağlantı eklemek ve Ziyaretçiler ve deneme izlemenize yardımcı olması için URL parametreleri ekleyin. |
 | **Videolar** | En az bir video karşıya yükleyin, en fazla dört videoları izin verilir. Videonuzu teklifinizi değerini iletişim kurmanız gerekir. Aday müşteri öyküsünü değil şirketiniz hero olduğundan emin olun. Videonuzu sorumlusuna güçlükler ve hedeflerinden biri, çekirdek karar Oluşturucu kişi konuşun.<br />Önerilen uzunluğu: 60-90 saniye. Anahtar arama sözcükleri videoları adını dahil edilip derecelendirilir.<br />Nasıl yapılır video gibi ek video eklemeyi göz önünde bulundurun; bir video veya bir müşterinin görüşlerinin paylaşıldığı videoyu Başlarken. |
 | **Ekran görüntüleri** | En fazla beş ekran görüntüleri ekleyin, arama anahtar sözcükleri adları dahil edilip derecelendirilir. |

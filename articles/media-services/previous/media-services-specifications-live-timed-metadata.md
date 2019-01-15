@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: johndeu;
-ms.openlocfilehash: b4dec5430d93cd2634fc541ae688a6bc425f5491
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: f29efb9a58c0b269f64d637fa3c5d59bb3610bbc
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384692"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265899"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>Meta verileri canlı akış zaman aşımına sinyali
 
@@ -68,11 +68,11 @@ RTMP basit mod için Media Services ile şu biçimde "onAdCue" adlı tek bir AMF
 
 | Alan Adı | Alan türü | Gerekli mi? | Açıklamalar                                                                                                             |
 |------------|------------|----------|--------------------------------------------------------------------------------------------------------------------------|
-| işaret        | Dize     | Gerekli | Olay iletisi.  Basit mod belirtmek için "SpliceOut" splice olması.                                              |
-| id         | Dize     | Gerekli | Splice veya segment açıklayan benzersiz bir tanımlayıcı. Bu iletinin örneğini tanımlar                            |
-| süre   | Sayı     | Gerekli | Splice süresini. Kesirli saniye birimleridir.                                                                |
+| işaret        | Dize     | Gereklidir | Olay iletisi.  Basit mod belirtmek için "SpliceOut" splice olması.                                              |
+| id         | Dize     | Gereklidir | Splice veya segment açıklayan benzersiz bir tanımlayıcı. Bu iletinin örneğini tanımlar                            |
+| süre   | Sayı     | Gereklidir | Splice süresini. Kesirli saniye birimleridir.                                                                |
 | elapsed    | Sayı     | İsteğe bağlı | Sinyal desteklemek için yinelenen etkinliğindeki, bu alan süreyi splice başlamasından bu yana geçen sunu olacaktır. Kesirli saniye birimleridir. Basit mod kullanırken, bu değer özgün splice süresi aşmamalıdır.                                                  |
-| time       | Sayı     | Gerekli | Splice süresini sunu zamanda tutulamaz. Kesirli saniye birimleridir.                                     |
+| time       | Sayı     | Gereklidir | Splice süresini sunu zamanda tutulamaz. Kesirli saniye birimleridir.                                     |
 
 ---------------------------
 
@@ -80,16 +80,16 @@ RTMP basit mod için Media Services ile şu biçimde "onAdCue" adlı tek bir AMF
 
 | Alan Adı | Alan türü | Gerekli mi? | Açıklamalar                                                                                                             |
 |------------|------------|----------|--------------------------------------------------------------------------------------------------------------------------|
-| işaret        | Dize     | Gerekli | Olay iletisi.  SCTE-35 iletileri için bu base64 olmalıdır (IETF RFC 4648) ikili splice_info_section() [67 SCTE] uyduğunuzu HLS, kesintisiz ve tire istemcilere gönderilecek iletilerin sırada kodlanmış.                                              |
-| type       | Dize     | Gerekli | Bir URN veya ileti şeması tanımlayan URL. SCTE-35 iletileri için bu "urn: scte:scte35:2013a:bin" [67 SCTE] uyduğunuzu HLS, kesintisiz ve tire istemcilere gönderilecek iletilerin sırada olması gerekir.  |
-| id         | Dize     | Gerekli | Splice veya segment açıklayan benzersiz bir tanımlayıcı. Bu iletinin örneğini tanımlar.  Eşdeğer semantiğine sahip iletileri aynı değere sahip olamaz.|
-| süre   | Sayı     | Gerekli | Olay ya da ad splice-biliniyorsa segment, süresi. Bilinmiyorsa, değeri 0 olmalıdır.                                                                 |
+| işaret        | Dize     | Gereklidir | Olay iletisi.  SCTE-35 iletileri için bu base64 olmalıdır (IETF RFC 4648) ikili splice_info_section() [67 SCTE] uyduğunuzu HLS, kesintisiz ve tire istemcilere gönderilecek iletilerin sırada kodlanmış.                                              |
+| type       | Dize     | Gereklidir | Bir URN veya ileti şeması tanımlayan URL. SCTE-35 iletileri için bu "urn: scte:scte35:2013a:bin" [67 SCTE] uyduğunuzu HLS, kesintisiz ve tire istemcilere gönderilecek iletilerin sırada olması gerekir.  |
+| id         | Dize     | Gereklidir | Splice veya segment açıklayan benzersiz bir tanımlayıcı. Bu iletinin örneğini tanımlar.  Eşdeğer semantiğine sahip iletileri aynı değere sahip olamaz.|
+| süre   | Sayı     | Gereklidir | Olay ya da ad splice-biliniyorsa segment, süresi. Bilinmiyorsa, değeri 0 olmalıdır.                                                                 |
 | elapsed    | Sayı     | İsteğe bağlı | Bu alan, SCTE-35 ad sinyal etkinliğindeki için tekrarlanırsa, süreyi splice başlamasından bu yana geçen sunu olacaktır. Kesirli saniye birimleridir. SCTE-35 modunda, bu değer özgün belirtilen süre splice veya segment aşabilir.                                                  |
-| time       | Sayı     | Gerekli | Olay ya da ad sunu zamanını splice.  Sunu saatini ve süresini Stream erişim noktaları (SAP ile) 1 veya 2 türünde tanımlanan [ISO-14496-12] Annex bilgisinde hizalamanız gerekir. HLS çıkışı için zamanını ve süresini segment sınırları ile hizalamanız gerekir. Sunu saatini ve süresini farklı olay iletileri aynı olay akışının çakışmaması gerekir. Kesirli saniye birimleridir.
+| time       | Sayı     | Gereklidir | Olay ya da ad sunu zamanını splice.  Sunu saatini ve süresini Stream erişim noktaları (SAP ile) 1 veya 2 türünde tanımlanan [ISO-14496-12] Annex bilgisinde hizalamanız gerekir. HLS çıkışı için zamanını ve süresini segment sınırları ile hizalamanız gerekir. Sunu saatini ve süresini farklı olay iletileri aynı olay akışının çakışmaması gerekir. Kesirli saniye birimleridir.
 
 ---------------------------
 
-#### <a name="211-cancelation-and-updates"></a>2.1.1 iptal ve güncelleştirmeler
+#### <a name="211-cancellation-and-updates"></a>2.1.1 iptal ve güncelleştirmeler
 
 İletileri iptal edildi veya birden çok ileti aynı sunu zamanını ve kimliği ile göndererek güncelleştirildi Olay Kimliği ve sunu saat benzersiz şekilde tanımlamak ve öncesi kısıtlamalar karşılayan belirli bir sunu zaman için alınan son ileti üzerinde işlem iletisi. Güncelleştirilen etkinlik, daha önce alınan iletileri değiştirir. Öncesi kısıtlaması dört saniyedir. Sunu saatten önce en az dört saniye alınan iletilerin üzerinde yapılmasının.
 
@@ -101,12 +101,12 @@ Canlı bildirim sunucusu kutusunda seyrek izleme bildirilmelidir bir \<textstrea
 
 | **Öznitelik adı** | **Alan türü** | **Gerekli?** | **Açıklama**                                                                                                                                                                                                                                                 |
 |--------------------|----------------|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| systemBitrate      | Sayı         | Gerekli      | "0" olarak belirten bir parça ile bilinmeyen, değişken hızına sahip olması gerekir.                                                                                                                                                                                                 |
-| parentTrackName    | Dize         | Gerekli      | Seyrek izleme zaman kodlarını ölçeği hizalı olan ana izleme adı olmalıdır. Üst izleme seyrek bir parçası olamaz.                                                                                                                    |
-| manifestOutput     | Boole        | Gerekli      | "Seyrek izleme kesintisiz istemci bildiriminde gömülü belirtmek için true", olmalıdır.                                                                                                                                                               |
-| Alt tür            | Dize         | Gerekli      | GEREKEN olması dört karakter kodu "Veri".                                                                                                                                                                                                                         |
-| Düzeni             | Dize         | Gerekli      | İleti şeması tanımlayan bir URN veya URL olmalıdır. SCTE-35 iletileri için bu "urn: scte:scte35:2013a:bin" [67 SCTE] uyduğunuzu HLS, kesintisiz ve tire istemcilere gönderilecek iletilerin sırada olması gerekir. |
-| TrackName          | Dize         | Gerekli      | Seyrek izleme adı olmalıdır. TrackName aynı düzeni ile birden çok olay akışları ayırt etmek için kullanılabilir. Her benzersiz olay akışının benzersiz parça adı olmalıdır.                                                                           |
+| systemBitrate      | Sayı         | Gereklidir      | "0" olarak belirten bir parça ile bilinmeyen, değişken hızına sahip olması gerekir.                                                                                                                                                                                                 |
+| parentTrackName    | Dize         | Gereklidir      | Seyrek izleme zaman kodlarını ölçeği hizalı olan ana izleme adı olmalıdır. Üst izleme seyrek bir parçası olamaz.                                                                                                                    |
+| manifestOutput     | Boole        | Gereklidir      | "Seyrek izleme kesintisiz istemci bildiriminde gömülü belirtmek için true", olmalıdır.                                                                                                                                                               |
+| Alt tür            | Dize         | Gereklidir      | GEREKEN olması dört karakter kodu "Veri".                                                                                                                                                                                                                         |
+| Düzeni             | Dize         | Gereklidir      | İleti şeması tanımlayan bir URN veya URL olmalıdır. SCTE-35 iletileri için bu "urn: scte:scte35:2013a:bin" [67 SCTE] uyduğunuzu HLS, kesintisiz ve tire istemcilere gönderilecek iletilerin sırada olması gerekir. |
+| TrackName          | Dize         | Gereklidir      | Seyrek izleme adı olmalıdır. TrackName aynı düzeni ile birden çok olay akışları ayırt etmek için kullanılabilir. Her benzersiz olay akışının benzersiz parça adı olmalıdır.                                                                           |
 | Zaman Çizelgesi          | Sayı         | İsteğe bağlı      | Üst izleme ölçeğini olması gerekir.                                                                                                                                                                                                                      |
 
 -------------------------------------
@@ -119,14 +119,14 @@ Film kutusu ('moov'), Canlı sunucusu bildirim kutusu akış üst bilgisi seyrek
 
 | **Alan adı** | **Alan türü**          | **Gerekli?** | **Açıklama**                                                                                                |
 |----------------|-------------------------|---------------|----------------------------------------------------------------------------------------------------------------|
-| süre       | 64-bit işaretsiz tamsayı | Gerekli      | İzleme kutusunu sıfır örnekleri vardır ve İzle kutusunu örneklerinde toplam süresi 0 olduğundan 0 olmalıdır. |
+| süre       | 64-bit işaretsiz tamsayı | Gereklidir      | İzleme kutusunu sıfır örnekleri vardır ve İzle kutusunu örneklerinde toplam süresi 0 olduğundan 0 olmalıdır. |
 -------------------------------------
 
 'Moov' kutusu içermesi gereken bir **HandlerBox ('hdlr')** [ISO-14496-12'de] aşağıdaki kısıtlamalarla tanımlanan:
 
 | **Alan adı** | **Alan türü**          | **Gerekli?** | **Açıklama**   |
 |----------------|-------------------------|---------------|-------------------|
-| handler_type   | 32-bit işaretsiz tamsayı | Gerekli      | 'Meta' olmalıdır. |
+| handler_type   | 32-bit işaretsiz tamsayı | Gereklidir      | 'Meta' olmalıdır. |
 -------------------------------------
 
 'Stsd' kutusu [ISO-14496-12'de] tanımlandığı gibi bir kodlama adı MetaDataSampleEntry kutusuyla içermelidir.  Örneğin, SCTE-35 iletileri için kodlama adı 'scte' olmalıdır.
@@ -139,8 +139,8 @@ MovieFragmentBox ('moof') kutusuna içermelidir bir **TrackFragmentExtendedHeade
 
 | **Alan adı**         | **Alan türü**          | **Gerekli?** | **Açıklama**                                                                               |
 |------------------------|-------------------------|---------------|-----------------------------------------------------------------------------------------------|
-| fragment_absolute_time | 64-bit işaretsiz tamsayı | Gerekli      | Olayın geliş saati olması gerekir. Bu değer, iletinin üst izleme ile hizalar.   |
-| fragment_duration      | 64-bit işaretsiz tamsayı | Gerekli      | Olay süresi olması gerekir. Süresi, süresi bilinmeyen olduğunu belirtmek için sıfır olabilir. |
+| fragment_absolute_time | 64-bit işaretsiz tamsayı | Gereklidir      | Olayın geliş saati olması gerekir. Bu değer, iletinin üst izleme ile hizalar.   |
+| fragment_duration      | 64-bit işaretsiz tamsayı | Gereklidir      | Olay süresi olması gerekir. Süresi, süresi bilinmeyen olduğunu belirtmek için sıfır olabilir. |
 
 ------------------------------------
 
@@ -149,15 +149,15 @@ MediaDataBox ('mdat') kutusunda, aşağıdaki biçimde olmalıdır:
 
 | **Alan adı**          | **Alan türü**                   | **Gerekli?** | **Açıklama**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 |-------------------------|----------------------------------|---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| version                 | 32-bit işaretsiz tamsayı (uimsbf) | Gerekli      | 'Mdat' kutusunun içeriğini biçimini belirler. Tanınmayan sürüm göz ardı edilir. Şu anda desteklenen tek sürüm 1'dir.                                                                                                                                                                                                                                                                                                                                                      |
-| id                      | 32-bit işaretsiz tamsayı (uimsbf) | Gerekli      | Bu iletinin örneğini tanımlar. Eşdeğer semantiğine sahip iletileri aynı değere sahip olamaz; diğer bir deyişle, herhangi bir olay ileti kutusu aynı kimliğe sahip işleme yeterli olur.                                                                                                                                                                                                                                                                                                            |
-| presentation_time_delta | 32-bit işaretsiz tamsayı (uimsbf) | Gerekli      | Etkinliğin sunu saati TrackFragmentExtendedHeaderBox ve presentation_time_delta belirtilen fragment_absolute_time toplamı olması gerekir. Sunu saatini ve süresini Stream erişim noktaları (SAP ile) 1 veya 2 türünde tanımlanan [ISO-14496-12] Annex bilgisinde hizalamanız gerekir. HLS çıkışı için zamanını ve süresini segment sınırları ile hizalamanız gerekir. Sunu saatini ve süresini farklı olay iletileri aynı olay akışının çakışmaması gerekir. |
-| message                 | bayt dizisi                       | Gerekli      | Olay iletisi. [67 SCTE] başka bir şey önerir rağmen SCTE-35 iletileri için ikili splice_info_section() iletisidir. SCTE-35 iletileri için bu sırayla [67 SCTE] uyduğunuzu HLS, kesintisiz ve tire istemcilere gönderilecek iletilerin splice_info_section() olması gerekir. SCTE-35 iletileri için ikili splice_info_section() 'mdat' kutusu yüktür ve kodlanmış bir base64 değeri değil.                                                            |
+| version                 | 32-bit işaretsiz tamsayı (uimsbf) | Gereklidir      | 'Mdat' kutusunun içeriğini biçimini belirler. Tanınmayan sürüm göz ardı edilir. Şu anda desteklenen tek sürüm 1'dir.                                                                                                                                                                                                                                                                                                                                                      |
+| id                      | 32-bit işaretsiz tamsayı (uimsbf) | Gereklidir      | Bu iletinin örneğini tanımlar. Eşdeğer semantiğine sahip iletileri aynı değere sahip olamaz; diğer bir deyişle, herhangi bir olay ileti kutusu aynı kimliğe sahip işleme yeterli olur.                                                                                                                                                                                                                                                                                                            |
+| presentation_time_delta | 32-bit işaretsiz tamsayı (uimsbf) | Gereklidir      | Etkinliğin sunu saati TrackFragmentExtendedHeaderBox ve presentation_time_delta belirtilen fragment_absolute_time toplamı olması gerekir. Sunu saatini ve süresini Stream erişim noktaları (SAP ile) 1 veya 2 türünde tanımlanan [ISO-14496-12] Annex bilgisinde hizalamanız gerekir. HLS çıkışı için zamanını ve süresini segment sınırları ile hizalamanız gerekir. Sunu saatini ve süresini farklı olay iletileri aynı olay akışının çakışmaması gerekir. |
+| message                 | bayt dizisi                       | Gereklidir      | Olay iletisi. [67 SCTE] başka bir şey önerir rağmen SCTE-35 iletileri için ikili splice_info_section() iletisidir. SCTE-35 iletileri için bu sırayla [67 SCTE] uyduğunuzu HLS, kesintisiz ve tire istemcilere gönderilecek iletilerin splice_info_section() olması gerekir. SCTE-35 iletileri için ikili splice_info_section() 'mdat' kutusu yüktür ve kodlanmış bir base64 değeri değil.                                                            |
 
 ------------------------------
 
 
-### <a name="224-cancelation-and-updates"></a>2.2.4 iptal ve güncelleştirmeler
+### <a name="224-cancellation-and-updates"></a>2.2.4 iptal ve güncelleştirmeler
 İletileri iptal edildi veya birden çok ileti aynı sunu zamanını ve kimliği ile göndererek güncelleştirildi  Kimliği ve sunu saat olay benzersiz şekilde tanımlar. Öncesi kısıtlamalar karşılayan bir belirli bir sunu süre için alınan son ileti izlemede bir iletidir. İleti, daha önce alınan iletileri değiştirir.  Öncesi kısıtlaması dört saniyedir. Sunu saatten önce en az dört saniye alınan iletilerin üzerinde yapılmasının. 
 
 
@@ -225,12 +225,12 @@ Zamanlanmış meta verileri için Apple HTTP canlı akış (HLS), özel bir M3U 
 
 | **Öznitelik adı** | **Tür**                      | **Gerekli?**                             | **Açıklama**                                                                                                                                                                                                                                                                      |
 |--------------------|-------------------------------|-------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| İŞARET                | Tırnak işaretli dize                 | Gerekli                                  | Bir base64 dizesi olarak açıklandığı gibi kodlanmış ileti [IETF RFC 4648](http://tools.ietf.org/html/rfc4648). SCTE-35 iletileri için base64 olarak kodlanmış splice_info_section() budur.                                                                                                |
-| TÜR               | Tırnak işaretli dize                 | Gerekli                                  | Bir URN veya ileti şeması tanımlayan URL. SCTE-35 iletileri için türü özel "scte35" değerini alır.                                                                                                                                |
-| Kimlik                 | Tırnak işaretli dize                 | Gerekli                                  | Olay için benzersiz bir tanımlayıcı. Alınan ileti kimliği belirtilmedi, Azure Media Services benzersiz bir kimliği oluşturur.                                                                                                                                          |
-| SÜRE           | ondalık kayan nokta sayısı | Gerekli                                  | Olay süresi. Bilinmiyorsa, değeri 0 olmalıdır. Factional saniye birimleridir.                                                                                                                                                                                           |
+| İŞARET                | Tırnak işaretli dize                 | Gereklidir                                  | Bir base64 dizesi olarak açıklandığı gibi kodlanmış ileti [IETF RFC 4648](http://tools.ietf.org/html/rfc4648). SCTE-35 iletileri için base64 olarak kodlanmış splice_info_section() budur.                                                                                                |
+| TÜR               | Tırnak işaretli dize                 | Gereklidir                                  | Bir URN veya ileti şeması tanımlayan URL. SCTE-35 iletileri için türü özel "scte35" değerini alır.                                                                                                                                |
+| Kimlik                 | Tırnak işaretli dize                 | Gereklidir                                  | Olay için benzersiz bir tanımlayıcı. Alınan ileti kimliği belirtilmedi, Azure Media Services benzersiz bir kimliği oluşturur.                                                                                                                                          |
+| SÜRE           | ondalık kayan nokta sayısı | Gereklidir                                  | Olay süresi. Bilinmiyorsa, değeri 0 olmalıdır. Factional saniye birimleridir.                                                                                                                                                                                           |
 | GEÇEN            | ondalık kayan nokta sayısı | İsteğe bağlı, ancak kayan pencere için gerekli | Bu alan, sinyal kayan bir sunu pencere desteklemek için tekrarlanırsa, olay başlamasından bu yana, geçen süreyi sunu olması gerekir. Kesirli saniye birimleridir. Bu değer, özgün belirtilen süre splice veya segment aşabilir. |
-| TIME               | ondalık kayan nokta sayısı | Gerekli                                  | Etkinliğin sunu saati. Kesirli saniye birimleridir.                                                                                                                                                                                                                    |
+| TIME               | ondalık kayan nokta sayısı | Gereklidir                                  | Etkinliğin sunu saati. Kesirli saniye birimleridir.                                                                                                                                                                                                                    |
 
 
 HLS player uygulama katmanı, ileti biçimi belirlemek, iletisinin kodunu çözün, gerekli saat dönüşümleri uygulama ve olayı işlemek için türü kullanır.  Üst izleme segment çalma listesi eşitlenmesi olay zaman damgası göre olaylardır.  Bunlar, en yakın segment (#EXTINF etiketi) önce eklenir.
@@ -280,9 +280,9 @@ EventStream öğenin öznitelikleri şunlardır:
 
 | **Öznitelik adı** | **Tür**                | **Gerekli?** | **Açıklama**                                                                                                                                                                                                                                                                                   |
 |--------------------|-------------------------|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| scheme_id_uri      | dize                  | Gerekli      | İletinin düzenini tanımlar. Düzeni dinamik bildirim sunucusu kutusuna düzeni öznitelik değerine ayarlanır. Değer bir URN veya ileti şeması tanımlayan URL olmalıdır; Örneğin, "urn: scte:scte35:2013a:bin".                                                                |
+| scheme_id_uri      | dize                  | Gereklidir      | İletinin düzenini tanımlar. Düzeni dinamik bildirim sunucusu kutusuna düzeni öznitelik değerine ayarlanır. Değer bir URN veya ileti şeması tanımlayan URL olmalıdır; Örneğin, "urn: scte:scte35:2013a:bin".                                                                |
 | değer              | dize                  | İsteğe bağlı      | İleti semantiği özelleştirmek için Düzen sahipleri tarafından kullanılan bir ek dize değeri. Aynı düzeni ile birden çok olay akışı farklılaştırmak için değeri olay akışının (alma trackName kesintisiz için veya AMF ileti adı RTMP alma) adına ayarlanmalıdır. |
-| Timescale          | 32-bit işaretsiz tamsayı | Gerekli      | Ticks 'emsg' kutusunda saatleri ve süresi saniyede ölçeği.                                                                                                                                                                                                       |
+| Timescale          | 32-bit işaretsiz tamsayı | Gereklidir      | Ticks 'emsg' kutusunda saatleri ve süresi saniyede ölçeği.                                                                                                                                                                                                       |
 
 
 Sıfır veya daha fazla olay öğeler EventStream öğe içinde yer alır ve bunlar aşağıdaki özniteliklere sahiptir:
@@ -292,7 +292,7 @@ Sıfır veya daha fazla olay öğeler EventStream öğe içinde yer alır ve bun
 | presentation_time   | 64-bit işaretsiz tamsayı | İsteğe bağlı      | Medya sunu zamanını olayın döneminizin göreli olmalıdır. Sunu saatini ve süresini Stream erişim noktaları (SAP ile) 1 veya 2 türünde tanımlanan [ISO-14496-12] Annex bilgisinde hizalamanız gerekir. |
 | süre            | 32-bit işaretsiz tamsayı | İsteğe bağlı      | Olay süresi. Süre bilinmiyorsa, bu gözardı gerekir.                                                                                                                                                 |
 | id                  | 32-bit işaretsiz tamsayı | İsteğe bağlı      | Bu iletinin örneğini tanımlar. Eşdeğer semantiğine sahip iletileri aynı değere sahip olamaz. Alınan ileti kimliği belirtilmedi, Azure Media Services benzersiz bir kimliği oluşturur.             |
-| Olay öğe değeri | dize                  | Gerekli      | Olay iletisi açıklandığı bir base64 dizesi olarak [IETF RFC 4648](http://tools.ietf.org/html/rfc4648).                                                                                                                   |
+| Olay öğe değeri | dize                  | Gereklidir      | Olay iletisi açıklandığı bir base64 dizesi olarak [IETF RFC 4648](http://tools.ietf.org/html/rfc4648).                                                                                                                   |
 
 #### <a name="xml-syntax-and-example-for-dash-manifest-mpd-signaling"></a>XML sözdizimi ve tire örneğin (MPD) sinyal bildirimi
 
@@ -365,13 +365,13 @@ DASHEventMessageBox alanlarını aşağıda tanımlanmıştır:
 
 | **Alan adı**          | **Alan türü**          | **Gerekli?** | **Açıklama**                                                                                                                                                                                                                                                                                                                                                    |
 |-------------------------|-------------------------|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| scheme_id_uri           | dize                  | Gerekli      | İletinin düzenini tanımlar. Düzeni dinamik bildirim sunucusu kutusuna düzeni öznitelik değerine ayarlanır. Değer bir URN veya ileti şeması tanımlayan URL olmalıdır. [67 SCTE] başka bir şey önerir rağmen SCTE-35 iletileri için bu özel değer "urn: scte:scte35:2013a:bin" götürür. |
-| Değer                   | dize                  | Gerekli      | İleti semantiği özelleştirmek için Düzen sahipleri tarafından kullanılan bir ek dize değeri. Aynı düzeni ile birden çok olay akışı farklılaştırmak için değeri olay akışının (alma trackName kesintisiz için veya AMF ileti adı RTMP alma) adına ayarlanır.                                                                  |
-| Timescale               | 32-bit işaretsiz tamsayı | Gerekli      | Ticks 'emsg' kutusunda saatleri ve süresi saniyede ölçeği.                                                                                                                                                                                                                                                                        |
-| Presentation_time_delta | 32-bit işaretsiz tamsayı | Gerekli      | Etkinliğin sunu saati ve bu segmentteki en erken sunu zamanını medya sunu zaman aralığı. Sunu saatini ve süresini Stream erişim noktaları (SAP ile) 1 veya 2 türünde tanımlanan [ISO-14496-12] Annex bilgisinde hizalamanız gerekir.                                                                                            |
-| event_duration          | 32-bit işaretsiz tamsayı | Gerekli      | Olayın ya da bir bilinmeyen süresi belirtmek için 0xFFFFFFFF süresi.                                                                                                                                                                                                                                                                                          |
-| Kimlik                      | 32-bit işaretsiz tamsayı | Gerekli      | Bu iletinin örneğini tanımlar. Eşdeğer semantiğine sahip iletileri aynı değere sahip olamaz. Alınan ileti kimliği belirtilmedi, Azure Media Services benzersiz bir kimliği oluşturur.                                                                                                                                                    |
-| Message_data            | bayt dizisi              | Gerekli      | Olay iletisi. [67 SCTE] başka bir şey önerir rağmen SCTE-35 ileti için ileti ikili splice_info_section() verilerdir.                                                                                                                                                                                                                                 |
+| scheme_id_uri           | dize                  | Gereklidir      | İletinin düzenini tanımlar. Düzeni dinamik bildirim sunucusu kutusuna düzeni öznitelik değerine ayarlanır. Değer bir URN veya ileti şeması tanımlayan URL olmalıdır. [67 SCTE] başka bir şey önerir rağmen SCTE-35 iletileri için bu özel değer "urn: scte:scte35:2013a:bin" götürür. |
+| Değer                   | dize                  | Gereklidir      | İleti semantiği özelleştirmek için Düzen sahipleri tarafından kullanılan bir ek dize değeri. Aynı düzeni ile birden çok olay akışı farklılaştırmak için değeri olay akışının (alma trackName kesintisiz için veya AMF ileti adı RTMP alma) adına ayarlanır.                                                                  |
+| Timescale               | 32-bit işaretsiz tamsayı | Gereklidir      | Ticks 'emsg' kutusunda saatleri ve süresi saniyede ölçeği.                                                                                                                                                                                                                                                                        |
+| Presentation_time_delta | 32-bit işaretsiz tamsayı | Gereklidir      | Etkinliğin sunu saati ve bu segmentteki en erken sunu zamanını medya sunu zaman aralığı. Sunu saatini ve süresini Stream erişim noktaları (SAP ile) 1 veya 2 türünde tanımlanan [ISO-14496-12] Annex bilgisinde hizalamanız gerekir.                                                                                            |
+| event_duration          | 32-bit işaretsiz tamsayı | Gereklidir      | Olayın ya da bir bilinmeyen süresi belirtmek için 0xFFFFFFFF süresi.                                                                                                                                                                                                                                                                                          |
+| Kimlik                      | 32-bit işaretsiz tamsayı | Gereklidir      | Bu iletinin örneğini tanımlar. Eşdeğer semantiğine sahip iletileri aynı değere sahip olamaz. Alınan ileti kimliği belirtilmedi, Azure Media Services benzersiz bir kimliği oluşturur.                                                                                                                                                    |
+| Message_data            | bayt dizisi              | Gereklidir      | Olay iletisi. [67 SCTE] başka bir şey önerir rağmen SCTE-35 ileti için ileti ikili splice_info_section() verilerdir.                                                                                                                                                                                                                                 |
 
 ### <a name="332-dash-message-handling"></a>3.3.2 ileti işleme tire
 
@@ -400,7 +400,7 @@ Kesintisiz akış alma medya Data Box ('mdat') içermelidir gerektirir **splice_
 
 **[CANLI FMP4]**  [Azure Media Services bölünmüş MP4 Canlı alma belirtimi](https://docs.microsoft.com/azure/media-services/media-services-fmp4-live-ingest-overview)
 
-**[ISO-14496-12]**  ISO/IEC 14496-12: Dosya biçimi, dördüncü sürüm 2012-07-15 bölümü 12 ISO temel medya.
+**[ISO-14496-12]** ISO/IEC 14496-12: Dosya biçimi, dördüncü sürüm 2012-07-15 bölümü 12 ISO temel medya.
 
 **[RTMP]**  ["Adobe gerçek zamanlı Mesajlaşma Protokolü", 21 Kasım 2012](https://www.adobe.com/devnet/rtmp.html) 
 

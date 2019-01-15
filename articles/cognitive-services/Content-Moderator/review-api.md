@@ -1,23 +1,23 @@
 ---
 title: Denetimi işleri ve İnsan içinde--döngüsü incelemeleri - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: İnsan gözetiminin en iyi sonuçlar için makine Yardımlı resim denetimi için geçerlidir.
+description: İşletmeniz için en iyi sonuçları almak için Azure Content Moderator İnceleme API'si kullanarak makine Yardımlı resim denetimi İnsan içinde--döngüsü özellikleri ile birleştirin.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 1/21/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: b4a2f62b1c9cefb716cb217baf7389c3e7c790b8
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: a348b18d1ecc9c0e4405c54a8e554d932781ec92
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223268"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265354"
 ---
-# <a name="moderation-jobs-and-reviews"></a>Denetimi işleri ve gözden geçirmeler
+# <a name="content-moderation-jobs-and-reviews"></a>İçerik denetleme işler ve gözden geçirmeler
 
 Azure Content Moderator'ı kullanarak makine Yardımlı resim denetimi İnsan içinde--döngüsü özellikleriyle birleştirerek [gözden geçirme API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) işletmeniz için en iyi sonuçları almak için.
 
@@ -55,12 +55,12 @@ Kullanım `Job.Get` işlemi ve çalışan veya tamamlanmış bir işin ayrıntı
 
 Girişlerinizi aşağıdaki bilgileri ekleyin:
 
-- Gözden geçirme Takım Kimliği: önceki işlem tarafından döndürülen iş tanımlayıcısı
+- Gözden geçirme Takım Kimliği: Önceki işlem tarafından döndürülen iş tanımlayıcısı
 
 Yanıt aşağıdaki bilgileri içerir:
 
 - Oluşturulan gözden geçirme tanımlayıcısı. (Son gözden geçirme sonuçlarını almak için bu kimliği kullanın.)
-- (Tamamlanan veya devam eden) işin durumunu: atanan denetimi etiketleri (anahtar-değer çiftleri).
+- (Tamamlanan veya devam eden) iş durumu: Atanan denetimi etiketleri (anahtar-değer çiftleri).
 - İş yürütme raporu.
  
  
@@ -110,7 +110,7 @@ Yanıt aşağıdaki bilgileri içerir:
             ]
         }
  
-![İnsan Moderatörler için resim incelemesi](images/ocr-sample-image.PNG)
+![İnsan denetimciler için görüntü incelemesi](images/ocr-sample-image.PNG)
 
 ## <a name="review-operations"></a>Gözden geçirme işlemleri
 

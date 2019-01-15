@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: jroth
-ms.openlocfilehash: 5ffee3bb5cbeff4e2222307e2a1afb4691ae93d5
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 3d2873d83274e4f9bfd8aee7668162237083f452
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053049"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303063"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>SQL Server Aracısı uzantısı (Resource Manager) ile Azure sanal Makineler'de yönetim görevlerini otomatikleştirin
 > [!div class="op_single_selector"]
@@ -74,7 +74,7 @@ Set-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "
 ```
 
 > [!IMPORTANT]
-> Uzantı zaten yüklü değilse, uzantının yüklenmesi, SQL Server hizmetini yeniden başlatır.
+> Uzantı zaten yüklü değilse, uzantının yüklenmesi, SQL Server hizmetini yeniden başlatır. Ancak, SQL Iaas uzantısı güncelleştirme SQL Server hizmetini yeniden başlatmaz. 
 
 > [!NOTE]
 > SQL Server Iaas Aracısı uzantısı yalnızca desteklenir [SQL Server sanal makine galeri görüntüleri](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms) (Kullandıkça Öde veya Getir-kendi lisansını). SQL Server bir yalnızca işletim sistemi Windows Server sanal makinesi üzerinde el ile yüklerseniz veya özelleştirilmiş bir SQL Server VM VHD dağıtırsanız desteklenmiyor. Bu gibi durumlarda, yüklemek ve PowerShell kullanarak uzantıyı el ile yönetmek mümkün olabilir, ancak Azure portalında SQL Server yapılandırma ayarlarını almaz. Ancak, bunun yerine bir SQL Server VM galeri görüntüsü yükleyin ve ardından özelleştirmek için önerilir.
@@ -94,7 +94,7 @@ Ayrıca **Get-AzureRmVMSqlServerExtension** Azure PowerShell cmdlet'i.
     $sqlext.AutoPatchingSettings
     $sqlext.AutoBackupSettings
 
-## <a name="removal"></a>Çıkarma
+## <a name="removal"></a>Temizleme
 Azure Portalı'nda üç nokta simgesine tıklayarak uzantıyı kaldırabilirsiniz **uzantıları** , sanal makine özellikleri penceresi. Sonra **Sil**’e tıklayın.
 
 ![Azure portalında SQL Server Iaas Aracısı uzantısı kaldırma](./media/virtual-machines-windows-sql-server-agent-extension/azure-rm-sql-server-iaas-agent-uninstall.png)

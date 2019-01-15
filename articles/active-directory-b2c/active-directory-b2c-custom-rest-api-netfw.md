@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/30/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b8718e02bc0306db1ac8cd4f5b133ebdb17a4ec3
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: fb0ad8efcd73b304ea5c68f0d3c45a38ce1b80e8
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557300"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304916"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Kullanıcı girişini doğrulama, Azure AD B2C kullanıcı yolculuğunun talep alışverişlerine REST API tümleştirme
 
@@ -50,7 +50,7 @@ Genel Bakış:
 * RESTful hizmeti kullanıcı yolculuğunda kullanın.
 * Giriş talepleri göndermek ve bunları kodunuzda okuyun.
 * Kullanıcının ilk adını doğrulayın.
-* Bir bağlılık sayı geri gönderin. 
+* Bir bağlılık sayı geri gönderin.
 * Bağlılık numarası bir JSON Web Token (JWT için) ekleyin.
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -77,11 +77,11 @@ Bölümündeki adımları tamamlamanız [özel ilkeleri kullanmaya başlama](act
 ## <a name="step-2-prepare-the-rest-api-endpoint"></a>2. Adım: REST API uç noktası hazırlama
 
 ### <a name="step-21-add-data-models"></a>2.1. adım: Veri modelleri ekleme
-Modelleri giriş talepleri temsil eder ve veri RESTful hizmetinizdeki çıkış talep. Kodunuz, bir C# nesnesi (modeli) için bir JSON dizesi giriş talepleri modelden seri durumdan çıkarılırken girdi verilerini okur. ASP.NET web API, çıkış talep modeline geri JSON otomatik olarak çıkarır ve ardından HTTP yanıt iletisinin gövdesine seri hale getirilmiş verileri yazar. 
+Modelleri giriş talepleri temsil eder ve veri RESTful hizmetinizdeki çıkış talep. Kodunuz, bir C# nesnesi (modeli) için bir JSON dizesi giriş talepleri modelden seri durumdan çıkarılırken girdi verilerini okur. ASP.NET web API, çıkış talep modeline geri JSON otomatik olarak çıkarır ve ardından HTTP yanıt iletisinin gövdesine seri hale getirilmiş verileri yazar.
 
 Aşağıdakileri yaparak giriş talepleri temsil eden bir model oluşturun:
 
-1. Çözüm Gezgini açık değilse, seçin **görünümü** > **Çözüm Gezgini**. 
+1. Çözüm Gezgini açık değilse, seçin **görünümü** > **Çözüm Gezgini**.
 2. Çözüm Gezgini'nde **Modeller** klasörüne sağ tıklayın, **Ekle**'yi ve ardından **Sınıf**'ı seçin.
 
     ![Model ekleme](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-model.png)
@@ -128,7 +128,7 @@ Aşağıdakileri yaparak giriş talepleri temsil eden bir model oluşturun:
                 this.userMessage = message;
                 this.status = (int)status;
                 this.version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
-            }    
+            }
         }
     }
     ```
@@ -226,7 +226,7 @@ Web API'si, bir _denetleyicisi_ HTTP isteklerini işleyen bir nesnedir. Denetley
 
 6. Web uygulamasının URL'sini kopyalayın.
 
-## <a name="step-4-add-the-new-loyaltynumber-claim-to-the-schema-of-your-trustframeworkextensionsxml-file"></a>4. adım: Yeni Ekle `loyaltyNumber` TrustFrameworkExtensions.xml dosyanızın şemaya talep
+## <a name="step-4-add-the-new-loyaltynumber-claim-to-the-schema-of-your-trustframeworkextensionsxml-file"></a>4. Adım: Yeni Ekle `loyaltyNumber` TrustFrameworkExtensions.xml dosyanızın şemaya talep
 `loyaltyNumber` Talep bizim şemasında henüz tanımlanmadı. İçinde bir tanım ekleyin `<BuildingBlocks>` başında bulabileceğiniz öğesi *TrustFrameworkExtensions.xml* dosya.
 
 ```xml
@@ -241,20 +241,20 @@ Web API'si, bir _denetleyicisi_ HTTP isteklerini işleyen bir nesnedir. Denetley
 </BuildingBlocks>
 ```
 
-## <a name="step-5-add-a-claims-provider"></a>5. adım: Bir talep Sağlayıcı Ekle 
-Her talep sağlayıcısı uç noktaları ve protokolleri ve Talep sağlayıcı ile iletişim kurmak için gereken belirleyen bir veya daha fazla teknik profiller, olması gerekir. 
+## <a name="step-5-add-a-claims-provider"></a>5. Adım: Bir talep Sağlayıcı Ekle
+Her talep sağlayıcısı uç noktaları ve protokolleri ve Talep sağlayıcı ile iletişim kurmak için gereken belirleyen bir veya daha fazla teknik profiller, olması gerekir.
 
-Bir talep sağlayıcısı, birden fazla teknik profili çeşitli nedenlerden dolayı olabilir. Örneğin, birden fazla teknik profili, çünkü birden çok protokol talep sağlayıcının desteklediği, çeşitli özellikleri uç noktalarına sahip olabilir veya sürümler güvence düzeyleri çeşitli sahip talep içerebilir tanımlanabilir. Bir kullanıcı yolculuğu ancak başka bir hassas talep serbest bırakmak için kabul edilebilir olabilir. 
+Bir talep sağlayıcısı, birden fazla teknik profili çeşitli nedenlerden dolayı olabilir. Örneğin, birden fazla teknik profili, çünkü birden çok protokol talep sağlayıcının desteklediği, çeşitli özellikleri uç noktalarına sahip olabilir veya sürümler güvence düzeyleri çeşitli sahip talep içerebilir tanımlanabilir. Bir kullanıcı yolculuğu ancak başka bir hassas talep serbest bırakmak için kabul edilebilir olabilir.
 
 Aşağıdaki XML kod parçacığı, iki teknik profili ile bir talep sağlayıcı düğüm içerir:
 
-* **TechnicalProfile kimliği = "REST API SignUp"**: RESTful hizmetini tanımlar. 
-   * `Proprietary` bir RESTful tabanlı sağlayıcısı için protokol olarak tanımlanır. 
-   * `InputClaims` Azure AD B2C'den REST hizmeti için gönderilecek Talepleri tanımlar. 
+* **TechnicalProfile Id="REST-API-SignUp"**: RESTful hizmetini tanımlar.
+   * `Proprietary` bir RESTful tabanlı sağlayıcısı için protokol olarak tanımlanır.
+   * `InputClaims` Azure AD B2C'den REST hizmeti için gönderilecek Talepleri tanımlar.
 
    Bu örnekte, talep içeriğini `givenName` REST hizmeti gönderir `firstName`, talep içeriğini `surname` REST hizmeti gönderir `lastName`, ve `email` olarak gönderir. `OutputClaims` Öğesi, Azure AD B2C geri RESTful hizmetinden alınan talepleri tanımlar.
 
-* **TechnicalProfile kimliği = "LocalAccountSignUpWithLogonEmail"**: Doğrulama teknik profili, var olan bir teknik profilini (temel ilkede tanımlanan) ekler. Kaydolma yolculuğu teknik profil doğrulama teknik profili çağırır. RESTful hizmeti bir HTTP hatası 409 (çakışma hatası) döndürürse, kullanıcıya hata iletisi görüntülenir. 
+* **TechnicalProfile kimliği = "LocalAccountSignUpWithLogonEmail"**: Doğrulama teknik profili, var olan bir teknik profilini (temel ilkede tanımlanan) ekler. Kaydolma yolculuğu teknik profil doğrulama teknik profili çağırır. RESTful hizmeti bir HTTP hatası 409 (çakışma hatası) döndürürse, kullanıcıya hata iletisi görüntülenir.
 
 Bulun `<ClaimsProviders>` düğümünü ve ardından altına aşağıdaki XML parçacığını ekleyin `<ClaimsProviders>` düğüm:
 
@@ -297,7 +297,7 @@ Bulun `<ClaimsProviders>` düğümünü ve ardından altına aşağıdaki XML pa
 </ClaimsProvider>
 ```
 
-## <a name="step-6-add-the-loyaltynumber-claim-to-your-relying-party-policy-file-so-the-claim-is-sent-to-your-application"></a>6. adım: Ekleme `loyaltyNumber` talep uygulamanıza gönderilir. Bu nedenle, bağlı olan taraf ilke dosyanıza talep
+## <a name="step-6-add-the-loyaltynumber-claim-to-your-relying-party-policy-file-so-the-claim-is-sent-to-your-application"></a>6. Adım: Ekleme `loyaltyNumber` talep uygulamanıza gönderilir. Bu nedenle, bağlı olan taraf ilke dosyanıza talep
 Düzenleme, *SignUpOrSignIn.xml* bağlı olan taraf (RP) dosya ve TechnicalProfile kimliğini değiştirme = "PolicyProfile" öğesini aşağıdakileri ekleyin: `<OutputClaim ClaimTypeReferenceId="loyaltyNumber" />`.
 
 Yeni Talep ekledikten sonra bağlı olan taraf kodu şöyle görünür:
@@ -323,13 +323,13 @@ Yeni Talep ekledikten sonra bağlı olan taraf kodu şöyle görünür:
 </TrustFrameworkPolicy>
 ```
 
-## <a name="step-7-upload-the-policy-to-your-tenant"></a>7. adım: Kiracınız için ilkeyi karşıya yükle
+## <a name="step-7-upload-the-policy-to-your-tenant"></a>7. Adım: Kiracınız için ilkeyi karşıya yükle
 
 1. İçinde [Azure portalında](https://portal.azure.com), geçiş [Azure AD B2C kiracınızın bağlamında](active-directory-b2c-navigate-to-b2c-context.md)ve ardından açın **Azure AD B2C**.
 
 2. Seçin **kimlik deneyimi çerçevesi**.
 
-3. Açık **tüm ilkeleri**. 
+3. Açık **tüm ilkeleri**.
 
 4. Seçin **karşıya yükleme İlkesi**.
 
@@ -354,7 +354,7 @@ Yeni Talep ekledikten sonra bağlı olan taraf kodu şöyle görünür:
 
     ![İlkenizi test](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-test.png)
 
-4.  İçinde **verilen ad** ("Test" dışında) bir ad yazın.  
+4. İçinde **verilen ad** ("Test" dışında) bir ad yazın.  
     Azure AD B2C kullanıcı oturum açtığında ve ardından uygulamanızı bir loyaltyNumber gönderir. Bu JWT sayısında unutmayın.
 
 ```
@@ -381,7 +381,7 @@ Yeni Talep ekledikten sonra bağlı olan taraf kodu şöyle görünür:
 ## <a name="optional-download-the-complete-policy-files-and-code"></a>(İsteğe bağlı) Tüm ilke dosyaları ve kodu indirin
 * Tamamladıktan sonra [özel ilkeleri kullanmaya başlama](active-directory-b2c-get-started-custom.md) izlenecek yol, öneririz senaryonuz kendi özel ilke dosyalarını kullanarak oluşturun. Referans olması açısından sağladık [örnek ilke dosyaları](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw).
 * Tam koddan indirebileceğiniz [başvuru için örnek Visual Studio çözümü](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw/).
-    
+
 ## <a name="next-steps"></a>Sonraki adımlar
 * [(Kullanıcı adı ve parola) temel kimlik doğrulaması ile RESTful API'NİZİN güvenliğini sağlayın](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
 * [İstemci sertifikaları ile RESTful API'NİZİN güvenliğini sağlayın](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)

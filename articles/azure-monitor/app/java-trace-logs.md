@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: mbullwin
-ms.openlocfilehash: e1575afde326875558cea437de775515b8606f01
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: d3f8e5ac1f85483d04da99744809f4bc72295024
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53981091"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266203"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Application Insights izleme günlükleri Java keşfedin
 Logback veya Log4J kullanıyorsanız (v1.2 veya v2.0) için izleme, otomatik olarak burada keşfedin ve bunlar üzerinde arama Application ınsights'a gönderilen izleme günlüklerinizi sahip olabilir.
@@ -98,7 +98,7 @@ Ardından Proje bağımlılıklarını, ikili dosyaları indirmek için yenileyi
 ```
 
 #### <a name="otherwise-"></a>Aksi taktirde...
-El ile Application Insights Java SDK'sı (Maven Merkezi sayfasında ariving tıkladıktan sonra yükleme bölümünde 'jar' bağlantısına) jar için uygun ekleyici karşıdan yükleyin ve indirilen ekleyici jar projeye eklemek için yönergeleri izleyin.
+El ile Application Insights Java SDK'sı jar dosyasını (Maven Central Sayfası'nı tıklatın 'jar' bağlantısına yükleme bölümünde geldikten sonra) için uygun ekleyici karşıdan yükleyin ve indirilen ekleyici jar projeye eklemek için yönergeleri izleyin.
 
 | Günlükçü | İndirme | Kitaplık |
 | --- | --- | --- |
@@ -156,7 +156,7 @@ Application Insights appenders (Yukarıdaki kod örnekleri gösterildiği gibi) 
 ## <a name="explore-your-traces-in-the-application-insights-portal"></a>Application Insights portalında, izlemeleri keşfet
 Projenize Application Insights izlemelerini göndermek için yapılandırmış olduğunuz, görüntüleyebilir ve bu izlemelerin Application Insights portalında arama [arama] [ diagnostic] dikey penceresi.
 
-Özel durumlar gönderildiği konum: günlükçüleri aracılığıyla özel durum Telemetrisi portalda görüntülenir.
+Özel durum günlükçüleri gönderilen özel durum Telemetrisi portalda görüntülenir.
 
 ![Application Insights portalında arama açın](./media/java-trace-logs/10-diagnostics.png)
 

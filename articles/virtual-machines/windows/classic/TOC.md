@@ -1,5 +1,6 @@
 # Genel Bakış
-## [Sanal makineler hakkında](../../virtual-machines-windows-about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+## [VM uzantıları](agents-and-extensions-classic.md)
+## [Kullanılabilirlik](configure-availability-classic.md)
 ## [SSS](faq-classic.md)
 
 # başlarken
@@ -29,20 +30,17 @@
 ### [Bakım](planned-maintenance-schedule-classic.md)
 
 ## Yönetme
-### [Klasikten Resource Manager’a Geçiş](../../virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
+### [Klasikten Resource Manager’a Geçiş](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-deep-dive)
 ### [Azure PowerShell kullanarak sanal makinelerinizi yönetme](manage-psh-classic.md)
 ### [VM aracısı ve uzantıları hakkında](agents-and-extensions-classic.md)
 ### [VM uzantılarını yönetme](manage-extensions-classic.md)
 
 ## İş yüklerini yönetme
-### [Yüksek Performanslı Bilgi İşlem (HPC)](../../virtual-machines-windows-hpcpack-cluster-options.md)
+### Yüksek Performanslı Bilgi İşlem (HPC)
 #### [Kaynakları otomatik olarak ölçeklendirme](hpcpack-cluster-node-autogrowshrink.md)
 #### [İşlem düğümlerini yönetme](hpcpack-cluster-node-manage.md)
 #### [Küme oluşturma](hpcpack-cluster-powershell-script.md)
 #### [MPI uygulamaları çalıştırmak için bir küme oluşturma](hpcpack-rdma-cluster.md)
-#### [Excel ve SOA iş yükleri çalıştırma](../../virtual-machines-windows-excel-cluster-hpcpack.md)
-#### [Market görüntüsü ile baş düğümünü oluşturma](../../virtual-machines-windows-hpcpack-cluster-headnode.md)
-#### [Şirket içinden Azure'a iş gönderme](../../virtual-machines-windows-hpcpack-cluster-submit-jobs.md)
 ### [MySQL](mysql-2008r2.md)
 ### [Tomcat](java-run-tomcat-app-server.md)
 
@@ -57,7 +55,6 @@
 ## [Azure CLI](/cli/azure/vm)
 ## [Java](/java/api)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute)
-## [Resource Manager şablonları yazma](../../../resource-group-authoring-templates.md)
 ## [Topluluk şablonları](https://azure.microsoft.com/documentation/templates)
 ## [İşlem REST](https://msdn.microsoft.com/library/jj157206.aspx)
 ## [Ağ REST](https://msdn.microsoft.com/library/jj157182.aspx)

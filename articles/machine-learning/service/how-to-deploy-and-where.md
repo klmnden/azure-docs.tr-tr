@@ -11,16 +11,19 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 2c71b0abd5069aeb00b63fde8b76e5bb0fc0beda
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 3341dbc486ebd184979381fa6bef05ec9404aa98
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246441"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304117"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile modelleri dağıtma
 
 Azure Machine Learning hizmeti SDK'sını kullanarak eğitilen modelinizi dağıtabileceğiniz çeşitli yöntemler sağlar. Bu belgede, modelinizin Azure bulutta veya IOT edge cihazları için bir web hizmeti olarak dağıtmayı öğrenin.
+
+> [!IMPORTANT]
+> Model bir web hizmeti olarak dağıtırken, çıkış noktaları arası kaynak paylaşımı (CORS) şu anda desteklenmiyor.
 
 Modelleri için aşağıdaki işlem hedeflerine dağıtabilirsiniz:
 
@@ -31,41 +34,34 @@ Modelleri için aşağıdaki işlem hedeflerine dağıtabilirsiniz:
 | [Azure IoT Edge](#iotedge) | IOT Modülü | IOT cihazlarında modelleri dağıtın. Çıkarım cihazda'olmuyor. |
 | [Alanda programlanabilir kapı dizileri (FPGA)](#fpga) | Web hizmeti | Gerçek zamanlı çıkarım için son derece düşük gecikme süresi. |
 
+Tüm işlem hedeflerine yönelik bir model dağıtma işlemini benzer:
+
+1. Eğitme ve modeli kaydedin.
+1. Yapılandırma ve modeli kullanan bir görüntüyü kaydedin.
+1. Resim bir işlem hedefine dağıtın.
+1. Dağıtımı test etme
+
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Kwk3]
+
+
+Dağıtım iş akışı içinde ilgili kavramları hakkında daha fazla bilgi için bkz. [yönetin, dağıtın ve izleyin modeller Azure Machine Learning hizmeti ile](concept-model-management-and-deployment.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
+- Azure aboneliği. Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Deneyin [Azure Machine Learning hizmetinin ücretsiz veya Ücretli sürümüne](http://aka.ms/AMLFree) bugün.
+
 - Bir Azure Machine Learning hizmeti çalışma alanında ve yüklü Python için Azure Machine Learning SDK'sı. Kullanarak şu önkoşul olarak gerekenleri edinin öğrenin [Azure Machine Learning Hızlı Başlangıç ile çalışmaya başlama](quickstart-get-started.md).
 
-- Eğitilen bir modelin iki pickle içinde (`.pkl`) veya ONNX (`.onnx`) biçimi. Eğitilen bir modelin yoksa içindeki adımları kullanın [eğitme modelleri](tutorial-train-models-with-aml.md) eğitmek ve bir Azure Machine Learning hizmeti ile kaydetme öğretici.
+- Eğitilen bir modeli. Eğitilen bir modelin yoksa içindeki adımları kullanın [eğitme modelleri](tutorial-train-models-with-aml.md) eğitmek ve bir Azure Machine Learning hizmeti ile kaydetme öğretici.
 
-- Kod bölümleri varsayımında `ws` , machine learning çalışma alanı başvuruyor. Örneğin, `ws = Workspace.from_config()`.
+    > [!NOTE]
+    > Azure Machine Learning hizmeti ile Python 3'te yüklenebilen herhangi bir genel model çalışabilir ancak bu belgedeki örnekler pickle biçiminde depolanan bir modeli kullanarak gösterir.
+    > 
+    > ONNX modelleri kullanma hakkında daha fazla bilgi için bkz. [ONNX ve Azure Machine Learning](how-to-build-deploy-onnx.md) belge.
 
-## <a name="deployment-workflow"></a>Dağıtım iş akışı
+## <a id="registermodel"></a> Eğitilen bir modeli kaydedin
 
-Tüm işlem hedeflerine yönelik bir model dağıtma işlemini benzer:
-
-1. Bir model eğitip.
-1. Modeli kaydedin.
-1. Bir görüntü yapılandırması oluşturun.
-1. Görüntü oluşturun.
-1. Resim bir işlem hedefine dağıtın.
-1. Dağıtımı test etme
-1. (İsteğe bağlı) Yapıları temizleyin.
-
-    * Zaman **bir web hizmeti olarak dağıtma**, üç dağıtım seçeneği vardır:
-
-        * [Dağıtma](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-): Bu yöntemi kullanırken, modeli kaydedin veya görüntü oluşturmanız gerekmez. Ancak model veya görüntü adını kontrol edemezsiniz veya ilişkili etiketleri ve açıklamaları.
-        * [deploy_from_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-): Bu yöntemi kullanırken, bir görüntü oluşturmak gerekmez. Ancak, oluşturulan görüntünün adını denetime sahip değilsiniz.
-        * [deploy_from_image](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none-): Modeli kaydedin ve bu yöntem kullanmadan önce bir görüntü oluşturun.
-
-        Bu örneklerde belge kullanım `deploy_from_image`.
-
-    * Zaman **bir IOT Edge modülü dağıtma**, modeli kaydedin ve görüntü oluşturmanız gerekir.
-
-## <a name="register-a-model"></a>Bir modeli kaydedin
-
-Eğitilen modelleri yalnızca dağıtılabilir. Azure Machine Learning veya başka bir hizmet kullanarak modeli eğitilir. Bir model dosyasından kaydetmek için aşağıdaki kodu kullanın:
+Model kayıt depolamak ve eğitilen Modellerinizi Azure bulutunda düzenlemek için bir yoldur. Modeller Azure Machine Learning hizmeti çalışma alanınızda kaydedilir. Azure Machine Learning veya başka bir hizmet kullanarak modeli eğitilir. Bir model dosyasından kaydetmek için aşağıdaki kodu kullanın:
 
 ```python
 from azureml.core.model import Model
@@ -77,16 +73,15 @@ model = Model.register(model_path = "model.pkl",
                        workspace = ws)
 ```
 
-> [!NOTE]
-> Örnekte pickle dosya olarak depolanan bir model kullanarak gösterir, ancak aynı zamanda kullanılan ONNX modelleri kullanabilirsiniz. ONNX modelleri kullanma hakkında daha fazla bilgi için bkz. [ONNX ve Azure Machine Learning](how-to-build-deploy-onnx.md) belge.
+**Tahmini Süre**: Yaklaşık 10 saniye.
 
 Daha fazla bilgi için başvuru belgeleri için bkz. [Model sınıfı](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 
-## <a id="configureimage"></a> Bir görüntü yapılandırması oluşturma
+## <a id="configureimage"></a> Oluşturma ve bir görüntüyü kaydedin
 
 Dağıtılan modellerinde bir görüntü olarak paketlenir. Görüntü modeli çalıştırmak için gerekli olan bağımlılıklar içerir.
 
-İçin **Azure Container Instance**, **Azure Kubernetes hizmeti**, ve **Azure IOT Edge** dağıtımları `azureml.core.image.ContainerImage` sınıfı, bir görüntü yapılandırması oluşturmak için kullanılır. Görüntü yapılandırma, ardından yeni bir Docker görüntüsü oluşturmak için kullanılır. 
+İçin **Azure Container Instance**, **Azure Kubernetes hizmeti**, ve **Azure IOT Edge** dağıtımları [azureml.core.image.ContainerImage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py) sınıfı, bir görüntü yapılandırması oluşturmak için kullanılır. Görüntü yapılandırma, ardından yeni bir Docker görüntüsü oluşturmak için kullanılır. 
 
 Aşağıdaki kod, yeni bir görüntü yapılandırmasının nasıl oluşturulacağını gösterir:
 
@@ -102,24 +97,101 @@ image_config = ContainerImage.image_configuration(execution_script = "score.py",
                                                  )
 ```
 
-Bu yapılandırmayı kullanan bir `score.py` geçirmek için dosyayı modele ister. Bu dosya iki işlevleri içerir:
+**Tahmini Süre**: Yaklaşık 10 saniye.
 
-* `init()`: Genellikle bu işlev, genel bir nesnesine modeli yükler. Bu işlev, Docker kapsayıcısı başlatıldığında tek bir kez çalıştırılır. 
+Bu örnekte aşağıdaki tabloda açıklanan önemli parametreleri:
 
-* `run(input_data)`: Bu işlev, giriş verileri temel alan bir değer tahmin modelini kullanır. Çalıştırmanın girişleri ve çıkışlarında serileştirme ve seriden çıkarma için normal olarak JSON kullanılır ama başka biçimler de desteklenir.
-
-Bir örnek `score.py` bkz [görüntü sınıflandırma Öğreticisi](tutorial-deploy-models-with-aml.md#make-script). ONNX model kullanan bir örnek için bkz: [ONNX ve Azure Machine Learning](how-to-build-deploy-onnx.md) belge.
-
-`conda_file` Parametre conda ortam dosyası sağlamak amacıyla kullanılır. Bu dosya, dağıtılmış bir modelinin conda ortamı tanımlar. Bu dosya oluşturma hakkında daha fazla bilgi için bkz. [bir ortam dosyası (myenv.yml) oluşturma](tutorial-deploy-models-with-aml.md#create-environment-file).
+| Parametre | Açıklama |
+| ----- | ----- |
+| `execution_script` | Hizmete gönderilen istekleri almak için kullanılan bir Python betiği belirtir. Bu örnekte, komut dosyası içinde yer alan `score.py` dosya. Daha fazla bilgi için [yürütme betik](#script) bölümü. |
+| `runtime` | Görüntü Python kullandığını gösterir. Diğer seçenek `spark-py`, Apache Spark ile Python kullanır. |
+| `conda_file` | Conda ortam dosyası sağlamak için kullanılır. Bu dosya, dağıtılmış bir modelinin conda ortamı tanımlar. Bu dosya oluşturma hakkında daha fazla bilgi için bkz. [bir ortam dosyası (myenv.yml) oluşturma](tutorial-deploy-models-with-aml.md#create-environment-file). |
 
 Daha fazla bilgi için başvuru belgeleri için bkz. [ContainerImage sınıfı](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py)
 
-## <a id="createimage"></a> Görüntü oluşturma
+### <a id="script"></a> Betik yürütme
 
-Görüntü yapılandırması oluşturulduktan sonra bir görüntü oluşturmak için kullanabilirsiniz. Bu görüntü, çalışma alanınız için kapsayıcı kayıt defterinde depolanır. Oluşturulduktan sonra birden fazla hizmet için aynı görüntüsü dağıtabilirsiniz.
+Yürütme komut dağıtılan görüntüye gönderilen verileri alır ve modele geçirir. Sonra modeli tarafından döndürülen yanıtı alır ve istemciye döndürür. Betik, modelinize özeldir; Bunu, modelin bekliyor ve döndüren veri anlamanız gerekir. Betik, genellikle yük ve model çalıştırma iki işlev de içerir:
+
+* `init()`: Genellikle bu işlev, genel bir nesnesine modeli yükler. Bu işlev, Docker kapsayıcısı başlatıldığında tek bir kez çalıştırılır. 
+
+* `run(input_data)`: Bu işlev, giriş verileri temel alan bir değer tahmin modelini kullanır. Genellikle girişler ve çıkışlar farklı çalıştır JSON seri hale getirme ve serinin için kullanın. Ayrıca, ham ikili verileri ile çalışabilirsiniz. Veri modeline göndermeden önce veya istemciye döndürmeden önce dönüştürebilirsiniz. 
+
+#### <a name="working-with-json-data"></a>JSON verileriyle çalışma
+
+Kabul eder ve JSON verilerini döndüren bir örnek betiği verilmiştir. `run` İşlevi JSON verileri model bekler ve ardından döndürmeden önce JSON yanıtı dönüştürür bir biçime dönüştürür:
 
 ```python
-# Create the image from the image configuration
+# import things required by this script
+import json
+import numpy as np
+import os
+import pickle
+from sklearn.externals import joblib
+from sklearn.linear_model import LogisticRegression
+
+from azureml.core.model import Model
+
+# load the model
+def init():
+    global model
+    # retrieve the path to the model file using the model name
+    model_path = Model.get_model_path('sklearn_mnist')
+    model = joblib.load(model_path)
+
+# Passes data to the model and returns the prediction
+def run(raw_data):
+    data = np.array(json.loads(raw_data)['data'])
+    # make prediction
+    y_hat = model.predict(data)
+    return json.dumps(y_hat.tolist())
+```
+
+#### <a name="working-with-binary-data"></a>İkili verilerle çalışma
+
+Modelinizi kabul ediyorsa __ikili verileri__, kullanın `AMLRequest`, `AMLResponse`, ve `rawhttp`. İkili verileri kabul eder ve POST istekleri için ters bayt döndüren bir komut dosyası örneği verilmiştir. GET istekleri için yanıt gövdesinde tam URL'yi döndürür:
+
+```python
+from azureml.contrib.services.aml_request  import AMLRequest, rawhttp
+from azureml.contrib.services.aml_response import AMLResponse
+
+def init():
+    print("This is init()")
+
+# Accept and return binary data
+@rawhttp
+def run(request):
+    print("This is run()")
+    print("Request: [{0}]".format(request))
+    # handle GET requests
+    if request.method == 'GET':
+        respBody = str.encode(request.full_path)
+        return AMLResponse(respBody, 200)
+    # handle POST requests
+    elif request.method == 'POST':
+        reqBody = request.get_data(False)
+        respBody = bytearray(reqBody)
+        respBody.reverse()
+        respBody = bytes(respBody)
+        return AMLResponse(respBody, 200)
+    else:
+        return AMLResponse("bad request", 500)
+```
+
+> [!IMPORTANT]
+> `azureml.contrib` Ad değişiklikleri sık olarak hizmeti geliştirmek için çalışıyoruz. Bu nedenle, bu ad alanındaki herhangi bir şey önizleme olarak kabul ve tamamen Microsoft tarafından desteklenmiyor.
+>
+> Bu, yerel geliştirme ortamınıza test etmeniz, bileşenleri yükleyebilirsiniz `contrib` aşağıdaki komutu kullanarak ad alanı: 
+> ```shell
+> pip install azureml-contrib-services
+> ```
+
+### <a id="createimage"></a> Bir görüntüyü kaydedin
+
+Görüntü yapılandırması oluşturulduktan sonra görüntünün kaydetmek için kullanabilirsiniz. Bu görüntü, çalışma alanınız için kapsayıcı kayıt defterinde depolanır. Oluşturulduktan sonra birden fazla hizmet için aynı görüntüsü dağıtabilirsiniz.
+
+```python
+# Register the image from the image configuration
 image = ContainerImage.create(name = "myimage", 
                               models = [model], #this is the model object
                               image_config = image_config,
@@ -133,7 +205,7 @@ Aynı ada sahip birden fazla görüntü kayıt yaptırdığınızda görüntüle
 
 Daha fazla bilgi için başvuru belgeleri için bkz. [ContainerImage sınıfı](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py).
 
-## <a name="deploy-the-image"></a>Görüntüyü dağıtmak
+## <a id="deploy"></a> Görüntüyü dağıtmak
 
 Dağıtıma aldığınızda, dağıttığınız işlem hedef bağlı olarak biraz farklı bir işlemdir. Bilgileri dağıtma hakkında bilgi edinmek için aşağıdaki bölümlerdeki kullanın:
 
@@ -141,6 +213,17 @@ Dağıtıma aldığınızda, dağıttığınız işlem hedef bağlı olarak bira
 * [Azure Kubernetes hizmeti](#aks)
 * [Project Brainwave (alanda programlanabilir kapı dizileri)](#fpga)
 * [Azure IOT Edge cihazları](#iotedge)
+
+> [!NOTE]
+> Zaman **bir web hizmeti olarak dağıtma**, kullanabileceğiniz üç dağıtım yöntemi vardır:
+>
+> | Yöntem | Notlar |
+> | ----- | ----- |
+> | [deploy_from_image](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none-) | Modeli kaydedin ve bu yöntem kullanmadan önce bir görüntü oluşturmanız gerekir. |
+> | [Dağıtma](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) | Bu yöntemi kullanırken, modeli kaydedin veya görüntü oluşturmanız gerekmez. Ancak model veya görüntü adını kontrol edemezsiniz veya ilişkili etiketleri ve açıklamaları. |
+> | [deploy_from_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-) | Bu yöntemi kullanırken, bir görüntü oluşturmak gerekmez. Ancak, oluşturulan görüntünün adını denetime sahip değilsiniz. |
+>
+> Bu örneklerde belge kullanım `deploy_from_image`.
 
 ### <a id="aci"></a> Azure Container Instances'a dağıtma
 
@@ -179,75 +262,82 @@ Azure Kubernetes hizmeti, aşağıdaki özellikleri sağlar:
 * Model veri koleksiyonu
 * Web hizmetlerinizi hızlı yanıt süresi
 
-Azure Kubernetes Service'e dağıtmak için aşağıdaki adımları kullanın:
+#### <a name="create-a-new-cluster"></a>Yeni küme oluşturma
 
-1. Bir AKS kümesi oluşturmak için aşağıdaki kodu kullanın:
+Yeni bir Azure Kubernetes Service kümesi oluşturmak için aşağıdaki kodu kullanın:
 
-    > [!IMPORTANT]
-    > Olan bir AKS kümesi oluşturma işlemi için çalışma süresi. Oluşturulduktan sonra bu küme birden çok dağıtım için yeniden kullanabilirsiniz. Küme veya onu içeren kaynak grubunu silerseniz, sonraki açışınızda dağıtmanız gerekir. yeni bir küme oluşturmanız gerekir.
-    > İçin [ `provisioning_configuration()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py), büyüktür veya eşittir 12 sanal CPU'lara göre vm_size çarpılan agent_count emin olmanız gerekir daha sonra agent_count ve vm_size, özel değerleri seçin. Örneğin, bir vm_size 4 sanal CPU'lar varsa, "Standard_D3_v2" birini kullanırsanız, 3 veya daha büyük bir agent_count seçmeniz gerekir.
+> [!IMPORTANT]
+> Olan bir AKS kümesi oluşturma işlemi için çalışma süresi. Oluşturulduktan sonra bu küme birden çok dağıtım için yeniden kullanabilirsiniz. Küme veya onu içeren kaynak grubunu silerseniz, sonraki açışınızda dağıtmanız gerekir. yeni bir küme oluşturmanız gerekir.
+> İçin [ `provisioning_configuration()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py), büyüktür veya eşittir 12 sanal CPU'lara göre vm_size çarpılan agent_count emin olmanız gerekir daha sonra agent_count ve vm_size, özel değerleri seçin. Örneğin, bir vm_size 4 sanal CPU'lar varsa, "Standard_D3_v2" birini kullanırsanız, 3 veya daha büyük bir agent_count seçmeniz gerekir.
 
-    ```python
-    from azureml.core.compute import AksCompute, ComputeTarget
+```python
+from azureml.core.compute import AksCompute, ComputeTarget
 
-    # Use the default configuration (you can also provide parameters to customize this)
-    prov_config = AksCompute.provisioning_configuration()
+# Use the default configuration (you can also provide parameters to customize this)
+prov_config = AksCompute.provisioning_configuration()
 
-    aks_name = 'aml-aks-1' 
-    # Create the cluster
-    aks_target = ComputeTarget.create(workspace = ws, 
-                                        name = aks_name, 
-                                        provisioning_configuration = prov_config)
+aks_name = 'aml-aks-1' 
+# Create the cluster
+aks_target = ComputeTarget.create(workspace = ws, 
+                                    name = aks_name, 
+                                    provisioning_configuration = prov_config)
 
-    # Wait for the create process to complete
-    aks_target.wait_for_completion(show_output = True)
-    print(aks_target.provisioning_state)
-    print(aks_target.provisioning_errors)
-    ```
+# Wait for the create process to complete
+aks_target.wait_for_completion(show_output = True)
+print(aks_target.provisioning_state)
+print(aks_target.provisioning_errors)
+```
 
-    **Tahmini Süre**: Yaklaşık 20 dakika.
+**Tahmini Süre**: Yaklaşık 20 dakika.
 
-    > [!TIP]
-    > AKS kümesini Azure aboneliğinizde zaten ve sürüm 1.11. *, görüntünüzü dağıtmak için kullanın. Aşağıdaki kod, varolan bir kümenin çalışma alanınıza eklemek gösterilmektedir:
-    >
-    > ```python
-    > from azureml.core.compute import AksCompute, ComputeTarget
-    > # Set the resource group that contains the AKS cluster and the cluster name
-    > resource_group = 'myresourcegroup'
-    > cluster_name = 'mycluster'
-    > 
-    > # Attatch the cluster to your workgroup
-    > attach_config = AksCompute.attach_configuration(resource_group = resource_group,
-    >                                          cluster_name = cluster_name)
-    > aks_target = ComputeTarget.attach(ws, 'mycompute', attach_config)
-    > 
-    > # Wait for the operation to complete
-    > aks_target.wait_for_completion(True)
-    > ```
+#### <a name="use-an-existing-cluster"></a>Var olan bir küme kullanın
 
-2. Oluşturulan görüntüyü dağıtmak için [görüntüyü oluşturmaya](#createimage) bölümü bu belgede aşağıdaki kodu kullanın:
+AKS kümesini Azure aboneliğinizde zaten ve sürüm 1.11. *, görüntünüzü dağıtmak için kullanın. Aşağıdaki kod, varolan bir kümenin çalışma alanınıza eklemek gösterilmektedir:
 
-    ```python
-    from azureml.core.webservice import Webservice, AksWebservice
+```python
+from azureml.core.compute import AksCompute, ComputeTarget
+# Set the resource group that contains the AKS cluster and the cluster name
+resource_group = 'myresourcegroup'
+cluster_name = 'mycluster'
 
-    # Set configuration and service name
-    aks_config = AksWebservice.deploy_configuration()
-    aks_service_name ='aks-service-1'
-    # Deploy from image
-    service = Webservice.deploy_from_image(workspace = ws, 
-                                                name = aks_service_name,
-                                                image = image,
-                                                deployment_config = aks_config,
-                                                deployment_target = aks_target)
-    # Wait for the deployment to complete
-    service.wait_for_deployment(show_output = True)
-    print(service.state)
-    ```
+# Attatch the cluster to your workgroup
+attach_config = AksCompute.attach_configuration(resource_group = resource_group,
+                                         cluster_name = cluster_name)
+aks_target = ComputeTarget.attach(ws, 'mycompute', attach_config)
 
-    > [!TIP]
-    > Dağıtım sırasında bir hata varsa, kullanmak `service.get_logs()` AKS hizmeti günlükleri görüntülemek için. Günlüğe kaydedilen bilgileri hatanın nedenini gösterir.
+# Wait for the operation to complete
+aks_target.wait_for_completion(True)
+```
 
-Daha fazla bilgi için başvuru belgeleri için bkz. [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) ve [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice(class)?view=azure-ml-py) sınıfları.
+**Tahmini Süre**: Yaklaşık 3 dakika.
+
+#### <a name="deploy-the-image"></a>Görüntüyü dağıtmak
+
+Oluşturulan görüntüyü dağıtmak için [görüntüyü oluşturmaya](#createimage) bölümü Azure Kubernetes sunucu kümesine bu belgenin aşağıdaki kodu kullanın:
+
+```python
+from azureml.core.webservice import Webservice, AksWebservice
+
+# Set configuration and service name
+aks_config = AksWebservice.deploy_configuration()
+aks_service_name ='aks-service-1'
+# Deploy from image
+service = Webservice.deploy_from_image(workspace = ws, 
+                                            name = aks_service_name,
+                                            image = image,
+                                            deployment_config = aks_config,
+                                            deployment_target = aks_target)
+# Wait for the deployment to complete
+service.wait_for_deployment(show_output = True)
+print(service.state)
+```
+
+**Tahmini Süre**: Yaklaşık 3 dakika.
+
+> [!TIP]
+> Dağıtım sırasında bir hata varsa, kullanmak `service.get_logs()` AKS hizmeti günlükleri görüntülemek için. Günlüğe kaydedilen bilgileri hatanın nedenini gösterir.
+
+Daha fazla bilgi için başvuru belgeleri için bkz. [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) ve [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) sınıfları.
 
 ### <a id="fpga"></a> Alanda programlanabilir kapı dizileri (FPGA) dağıtma
 
@@ -375,7 +465,9 @@ prediction = service.run(input_data = test_sample)
 print(prediction)
 ```
 
-## <a name="update-the-web-service"></a>Web hizmetini güncelleştirmek
+Web hizmeti bir REST API olduğundan, çeşitli programlama dillerini istemci uygulamalar oluşturabilirsiniz. Daha fazla bilgi için [istemci uygulamalarının webservices'a kullanması için oluşturma](how-to-consume-web-service.md).
+
+## <a id="update"></a> Web hizmetini güncelleştirmek
 
 Web hizmetini güncelleştirmek için `update` yöntemi. Aşağıdaki kod, yeni görüntüyü kullanarak web hizmetini güncelleştirmek gösterilmektedir:
 
@@ -397,6 +489,8 @@ print(service.state)
 > [!NOTE]
 > Web hizmeti bir görüntüsünü güncelleştirdiğinizde otomatik olarak güncelleştirilmez. Ayrıca, yeni görüntüyü kullanmak istediğiniz her hizmet el ile güncelleştirmeniz gerekir.
 
+Daha fazla bilgi için başvuru belgeleri için bkz. [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) sınıfı.
+
 ## <a name="clean-up"></a>Temizleme
 
 Dağıtılmış bir web hizmetini silmek için kullanın `service.delete()`.
@@ -405,9 +499,14 @@ Görüntüyü silmek için kullanın `image.delete()`.
 
 Kayıtlı bir model silmek için kullanın `model.delete()`.
 
+Daha fazla bilgi için başvuru belgeleri için bkz. [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--), [Image.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image(class)?view=azure-ml-py#delete--), ve [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Azure Machine Learning web hizmetleri SSL ile güvenli hale getirme](how-to-secure-web-service.md)
 * [Bir web hizmeti olarak ML modeli kullanma](how-to-consume-web-service.md)
 * [Batch Öngörüler çalıştırma](how-to-run-batch-predictions.md)
+* [Azure Machine Learning Modellerinizi Application Insights ile izleme](how-to-enable-app-insights.md)
+* [Üretimde modelleri için veri toplama](how-to-enable-data-collection.md)
+* [Azure Machine Learning hizmeti SDK'sı](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
 * [Azure Machine Learning hizmeti ile Azure sanal ağları kullanın.](how-to-enable-virtual-network.md)

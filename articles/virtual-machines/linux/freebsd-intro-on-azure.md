@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: huishao
-ms.openlocfilehash: e6f284b2a3483b21901dc4ad26bff83b8fcd8848
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 1f2d3c40352d60d3cc7366aca6f38a8255a7a629
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843028"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302400"
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Azure üzerinde Freebsd'ye giriş
 Bu makalede, FreeBSD sanal makine Azure'da çalışan genel bir bakış sağlar.
@@ -42,7 +42,6 @@ FreeBSD gelecekteki sürümlerinde olduğu gibi güncel kalın ve FreeBSD yayın
 FreeBSD sanal makine dağıtma Azure portalından Azure Marketi'nden bir görüntü kullanarak bir işlemdir:
 
 - [FreeBSD 10.4 Azure Marketi'nde](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD104)
-- [FreeBSD 11.1 Azure Marketi'nde](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD111)
 - [FreeBSD 11.2 Azure Marketi'nde](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD112)
 
 ### <a name="create-a-freebsd-vm-through-azure-cli-on-freebsd"></a>Azure CLI aracılığıyla FreeBSD VM üzerinde Freebsd'ye oluşturma
@@ -134,4 +133,4 @@ Kullanarak isteğe bağlı olarak bir kök Kabuk edinebilirsiniz `sudo -s`.
 [Azure VM Konuk Aracısı](https://github.com/Azure/WALinuxAgent/) 2.2.2 sürümüne sahip bir [bilinen sorun](https://github.com/Azure/WALinuxAgent/pull/517) azure'da FreeBSD VM için sağlama hatası neden. Düzeltme tarafından yakalanan [Azure VM Konuk Aracısı](https://github.com/Azure/WALinuxAgent/) 2.2.3 Sürüm ve sonraki sürümleri. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Git [Azure Marketi](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD111) FreeBSD VM oluşturmak için.
+* Git [Azure Marketi](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD112) FreeBSD VM oluşturmak için.

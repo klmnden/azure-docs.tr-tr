@@ -1,27 +1,8 @@
 ---
-title: Machine Learning Studio web hizmetlerini API Management - Azure'ı kullanarak yönetme | Microsoft Docs
-description: API Management kullanarak AzureML web hizmetlerini yönetmek nasıl gösteren bir kılavuz. Kullanıcı erişimi, kullanımı azaltma ve izleme Panosu tanımlayarak, REST API uç noktalarını yönetin.
-keywords: machine Learning, API management
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 05150ae1-5b6a-4d25-ac67-fb2f24a68e8d
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: 8f82332b02d2e7bbf937a84de42714392e3fccd6
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53258194"
+Başlık: API Management titleSuffix kullanarak Machine Learning Studio web hizmetleri yönetin: Azure Machine Learning Studio açıklaması: API Management kullanarak AzureML web hizmetlerini yönetmek nasıl gösteren bir kılavuz. Kullanıcı erişimi, kullanımı azaltma ve izleme Panosu tanımlayarak, REST API uç noktalarını yönetin.
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 11/03/2017
 ---
 # <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>API Yönetimi'ni kullanarak Azure Machine Learning Studio web hizmetlerini yönetme
 ## <a name="overview"></a>Genel Bakış

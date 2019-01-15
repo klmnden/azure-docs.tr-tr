@@ -1,26 +1,7 @@
 ---
-title: Azure AI Gallery koleksiyonları - Azure Machine Learning Studio | Microsoft Docs
-description: Azure AI Gallery'de bir koleksiyon, denemeleri, API'leri ve belirli bir çözüm veya kavram için kullandığınız diğer galeri öğeleri gruplandırmak için kullanabilirsiniz. Bunları kullanmak için daha sonra başvurmak için kaydetmeye veya paylaşmak için gruplayabilirsiniz.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: c834a0dc-492f-4fa4-8a48-c86bba7b2b97
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/31/2017
-ms.openlocfilehash: b88489f826bbeab636903c7c9918f34d16b2f122
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271377"
+Başlık: Azure AI Gallery koleksiyonları titleSuffix: Azure Machine Learning Studio açıklaması: Azure AI Gallery'de bir koleksiyon, denemeleri, API'leri ve belirli bir çözüm veya kavram için kullandığınız diğer galeri öğeleri gruplandırmak için kullanabilirsiniz. Bunları kullanmak için daha sonra başvurmak için kaydetmeye veya paylaşmak için gruplayabilirsiniz.
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale  
+Yazar: ericlicoding ms.author: amlstudiodocs MS.özel: önceki ms.author=yahajiza, yazar önceki = YasinMSFT ms.date: 03/31/2017
 ---
 # <a name="discover-and-share-collections-in-azure-ai-gallery"></a>Bul ve Azure AI Gallery koleksiyonlarında paylaşın
 

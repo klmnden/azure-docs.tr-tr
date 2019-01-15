@@ -1,26 +1,8 @@
 ---
-title: Web hizmetini - Azure Machine Learning Studio kullanma | Microsoft Docs
-description: Bir machine learning hizmeti Azure Machine Learning Studio dağıtıldıktan sonra RESTFul Web hizmeti gerçek zamanlı istek-yanıt hizmeti ya da bir toplu yürütme hizmeti olarak kullanılabilir.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 804f8211-9437-4982-98e9-ca841b7edf56
-ms.service: machine-learning
-ms.component: studio
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: tbd
-ms.date: 06/02/2017
-ms.openlocfilehash: d7a48dcb56d2bed0e84714087bb9fda3fae65fc1
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273791"
+Başlık: Web hizmeti titleSuffix kullan: Azure Machine Learning Studio açıklaması: Bir machine learning hizmeti Azure Machine Learning Studio dağıtıldıktan sonra RESTFul Web hizmeti gerçek zamanlı istek-yanıt hizmeti ya da bir toplu yürütme hizmeti olarak kullanılabilir.
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 06/02/2017
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-web-service"></a>Bir Azure Machine Learning Studio web hizmetini kullanma
 

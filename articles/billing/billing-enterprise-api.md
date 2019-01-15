@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: erikre
-ms.openlocfilehash: d2021873b36a55bd36cf500eff168fe7311d944c
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 1319c44dab465ec2d1fa5ead99e7f3cba8965850
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53579439"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265643"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Kurumsal müşteriler için raporlama API'lerini genel bakış
 Raporlama API'lerini program aracılığıyla tercih edilen veri analizi Araçları Kullanım ve faturalandırma veri çekmek Kurumsal Azure müşterilerine etkinleştirin. Kurumsal müşteriler işaretli bir [Kurumsal Anlaşma (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) anlaşma parasal taahhütler olun ve Azure kaynakları için özel fiyatlandırma için erişim kazanmak için Azure ile.
@@ -58,7 +58,7 @@ Yukarıdaki API yanıtında Etag'ler döndürülür. Etag bir değişiklik veril
 |401| Yetkilendirilmemiş| API anahtarı bulunamadı, geçersiz, vb. süresi doldu.|
 |404| Kullanılamaz| Rapor bitiş noktası bulunamadı|
 |400| Bozuk İstek| Geçersiz params – tarih aralıkları EA numaralarını vb.|
-|500| Sunucu Hatası| İstek işleme Unexoected hatası| 
+|500| Sunucu Hatası| İstek işlenirken beklenmeyen hata oluştu| 
 
 
 

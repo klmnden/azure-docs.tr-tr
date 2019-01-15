@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/12/2018
-ms.openlocfilehash: 84f0c000f54852bbab60a53ecb686656ac86b3de
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 5f85f0a6b1869571a8db29586e5fe113e0f47433
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002663"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304848"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Anlayabilmemiz ve akış birimleri
 
@@ -58,6 +58,8 @@ SUs doğru sayıda seçme hakkında daha fazla bilgi için bu sayfaya bakın: [V
 Zamana bağlı sorgu (zaman tabanlı), durum bilgisi olan işleçleri Stream Analytics tarafından sağlanan dizi temel öğeleridir. Stream Analytics, kullanıcı adına bu işlemleri dahili olarak durumunu bellek tüketimi, dayanıklılık ve durumu kurtarma için denetim noktası hizmeti yükseltmeleri sırasında yöneterek yönetir. Stream Analytics, tamamen durumları yöneten olsa da, bir dizi kullanıcılar göz önünde bulundurmanız gereken en iyi yöntem önerileri vardır.
 
 Not bile, sürekli olarak giriş olayları alamayan, yüksek SU kullanım yüzdesi karmaşık sorgu mantığı ile bir iş olabilir. Bu, sonra giriş ve çıkış olayları ani bir artış oluşabilir. İş sorgusu karmaşıksa, bellekte durumunu korumak üzere devam edebilir.
+
+SU kullanım yüzdesi aniden beklenen düzeylerine geri dönmeyi önce kısa bir süre için 0 olarak düşebilir. Bu, geçici hatalar veya sistem tarafından başlatılan yükseltme işlemleri nedeniyle gerçekleşir.
 
 ## <a name="stateful-query-logicin-temporal-elements"></a>Durum bilgisi olan sorgu mantığının zamana bağlı öğeleri
 Azure Stream Analytics işi benzersiz yeteneğinin, pencereli toplamlar, zamana bağlı birleştirmeler ve geçici analiz işlevleri gibi durum bilgisi olan işlem gerçekleştirmektir. Bu işleçlerden her biri, durum bilgilerini tutar. Bu sorgu öğeleri için maksimum pencere boyutunu yedi gündür. 

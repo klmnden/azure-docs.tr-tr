@@ -10,18 +10,18 @@ ms.component: consume
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 09be96a4a6fd4e36412e4e0958683a14873e172d
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 3b83f6df85271f7f4c38a87c48ec4537025af053
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961833"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305528"
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>SQL veri ambarı veri tümleştirme iş ortakları
 Veri ambarı çözümünüzü oluşturmak için çok çeşitli sektör lideri araçları seçin. Bu makalede, Azure SQL veri ambarı destekleyen veri tümleştirme çözümleri ile Microsoft iş ortağı şirketlerden vurgulanır.
 
 ## <a name="data-integration-partners"></a>Veri tümleştirme iş ortakları
-| Partner | Açıklama | Bağlantılar | Videolar |
+| İş ortağı | Açıklama | Bağlantılar | Videolar |
 | --- | --- | --- | --- |
 | ![Alteryx][1] |**Alteryx**<br> Alteryx Tasarımcısı, daha kapsamlı içgörüler için değil, geleneksel yaklaşım tipik hafta saat olarak müşteri adayları Self Servis veri analizi için bir iş akışı sağlar! Alteryx Tasarımcısı, veri hazırlama, verileri ve Tahmine dayalı, istatistiksel ve uzamsal – aynı sezgisel kullanıcı arabirimini kullanarak Analiz – birleştirerek veri analistleri yardımcı olur. |[Market][alteryx_marketplace]<br>[Web sitesi][alteryx_designer_website]<br>[Teknik incelemesi][alteryx_whitepaper]<br>[Veri sayfası][alteryx_designer_datasheet]<br>[Twitter][alteryx_designer_twitter]<br>[YouTube][alteryx_designer_youtube] |[![Alteryx video](./media/sql-data-warehouse-partner-data-integration/alteryx_designer_video.jpg)](https://www.youtube.com/watch?v=CdqSDPyNDKc) |
 | ![Attunity][2] |**Attunity**<br>Attunity CloudBeam SQL Data warehouse'a veri yükleme için otomatik ve en iyi duruma getirilmiş bir çözüm sağlar. "'ye tıklayın yükleme" bir tasarım, basitleştirir ve hem toplu yükleme, hem de SQL Server, Oracle, DB2, Sybase ve mySQL gibi birçok heterojen veritabanlarında artımlı çoğaltma hızlandırır. |[Market][attunity_marketplace]<br>[Hızlı Başlangıç][attunity_quickstart]<br>[Web sitesi][attunity_cloudbeam_website]<br>[Veri sayfası][attunity_cloudbeam_datasheet]<br>[Twitter][attunity_cloudbeam_twitter]<br>[YouTube][attunity_cloudbeam_youtube] |[![Attunity video](./media/sql-data-warehouse-partner-data-integration/attunity_video.jpg)](https://www.youtube.com/watch?v=w14zuSjMlok) |
@@ -82,7 +82,7 @@ Diğer iş ortaklarıyla ilgili daha fazla bilgi için bkz. [iş zekası iş ort
 
 <!--[bryte_systems_marketplace]:https://azure.microsoft.com/marketplace/partners/bryte/bryteflow-cdc-free-trial/--> 
 
-[informatica_Cloud_Services_marketplace]:https://azuremarketplace.microsoft.com/marketplace/partners/informatica/informatica-cloud-services/
+[informatica_Cloud_Services_marketplace]:https://azuremarketplace.microsoft.com/marketplace/apps/informatica.ics-byol
 
 <!--[informatica_PowerCenter_std_marketplace]:https://azure.microsoft.com/marketplace/partners/informatica/informatica-powercenter-standard-10-0pc-std-10-0-windows/
 [informatica_PowerCenter_adv_marketplace]:https://azure.microsoft.com/marketplace/partners/informatica/informatica-powercenter-advanced-10-0pc-adv-10-0-ubuntu/-->

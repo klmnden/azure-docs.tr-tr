@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 11/26/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: fb72de7e9a61c874d4449a5b9c0422c787a7bdc0
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: c841fb8676cff8d15f54384aac84721bc8fb163b
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728457"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267530"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager kaynak sağlayıcısı işlemleri
 
@@ -1856,7 +1856,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.Devices/iotHubs/routing/$testall/Action | Bir iletiye karşı mevcut tüm yolları test edin |
 > | Eylem | Microsoft.Devices/iotHubs/routing/$testnew/Action | Bir ileti sağlanan bir test rota karşı test etme |
 > | Eylem | Microsoft.Devices/iotHubs/routingEndpointsHealth/Read | Bir IotHub için tüm yönlendirme uç noktaları durumunu alır |
-> | Eylem | Microsoft.Devices/iotHubs/skus/Read | Geçerli Iothub'SKU ' ları Al |
+> | Eylem | Microsoft.Devices/iotHubs/skus/Read | Get valid IotHub Skus |
 > | Eylem | Microsoft.Devices/iotHubs/Write | Iothub kaynak güncelle |
 > | Eylem | Microsoft.Devices/locations/operationresults/Read | Alma konumu temel işlem sonucu |
 > | Eylem | Microsoft.Devices/operationresults/Read | İşlem Sonucunu Al |
@@ -2512,7 +2512,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.Insights/Webtests/Read | Bir web testi yapılandırmasını okuma |
 > | Eylem | Microsoft.Insights/Webtests/Write | Bir web testi yapılandırmasına yazma |
 
-## <a name="microsoftintune"></a>Microsoft.ıntune
+## <a name="microsoftintune"></a>Microsoft.Intune
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Eylem Türü | İşlem | Açıklama |
@@ -3311,10 +3311,10 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.Network/expressRouteGateways/read | Express Route ağ geçidi Al |
 > | Eylem | Microsoft.Network/expressRoutePorts/delete | ExpressRoutePorts siler |
 > | Eylem | Microsoft.Network/expressRoutePorts/join/action | Birleştirmeler ExpressRoutePorts |
-> | Eylem | Microsoft.Network/expressRoutePorts/links/read | ExpressRouteLink alır |
-> | Eylem | Microsoft.Network/expressRoutePorts/read | ExpressRoutePorts alır |
+> | Eylem | Microsoft.Network/expressRoutePorts/links/read | Gets ExpressRouteLink |
+> | Eylem | Microsoft.Network/expressRoutePorts/read | Gets ExpressRoutePorts |
 > | Eylem | Microsoft.Network/expressRoutePorts/write | Oluşturur veya ExpressRoutePorts güncelleştirir |
-> | Eylem | Microsoft.Network/expressRoutePortsLocations/read | Get Express Route bağlantı noktaları konumları |
+> | Eylem | Microsoft.Network/expressRoutePortsLocations/read | Get Express Route Ports Locations |
 > | Eylem | Microsoft.Network/expressRouteServiceProviders/read | Express Route hizmet sağlayıcısı alır |
 > | Eylem | Microsoft.Network/frontDoors/backendPools/delete | Arka uç havuzu siler |
 > | Eylem | Microsoft.Network/frontDoors/backendPools/read | Arka uç havuzu alır |
@@ -3861,16 +3861,16 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.OperationalInsights/workspaces/savedSearches/delete | Kaydedilmiş bir arama sorgusunu siler |
 > | Eylem | Microsoft.OperationalInsights/workspaces/savedSearches/read | Kaydedilmiş arama sorgusu alır |
 > | Eylem | Microsoft.operationalinsights/Workspaces/savedsearches/Results/Read | Arama sonuçları kaydedilir. Kullanım Dışı |
-> | Eylem | Microsoft.operationalinsights/Workspaces/savedsearches/Schedules/Actions/DELETE | Zamanlanmış arama Eylemler silin. |
+> | Eylem | microsoft.operationalinsights/workspaces/savedsearches/schedules/actions/delete | Zamanlanmış arama Eylemler silin. |
 > | Eylem | Microsoft.operationalinsights/Workspaces/savedsearches/Schedules/Actions/Read | Zamanlanmış arama eylemleri Al. |
 > | Eylem | Microsoft.operationalinsights/Workspaces/savedsearches/Schedules/Actions/Write | Veya zamanlanmış arama eylemleri güncelleştirilemiyor. |
-> | Eylem | Microsoft.operationalinsights/Workspaces/savedsearches/Schedules/DELETE | Zamanlanmış aramaları silin. |
+> | Eylem | microsoft.operationalinsights/workspaces/savedsearches/schedules/delete | Zamanlanmış aramaları silin. |
 > | Eylem | Microsoft.operationalinsights/Workspaces/savedsearches/Schedules/Read | Zamanlanmış aramaları alın. |
 > | Eylem | Microsoft.operationalinsights/Workspaces/savedsearches/Schedules/Write | Veya zamanlanmış aramaları güncelleştirilemiyor. |
 > | Eylem | Microsoft.OperationalInsights/workspaces/savedSearches/write | Kaydedilmiş arama sorgusu oluşturur |
 > | Eylem | Microsoft.OperationalInsights/workspaces/schema/read | Çalışma alanı için arama şemasını alır.  Arama şeması, kullanıma sunulmuş alanları ve bunların türlerini içerir. |
 > | Eylem | Microsoft.OperationalInsights/workspaces/search/action | Arama sorgusu yürütür |
-> | Eylem | Microsoft.operationalinsights/Workspaces/Search/Read | Arama sonuçları alın. Kullanım dışı. |
+> | Eylem | microsoft.operationalinsights/workspaces/search/read | Arama sonuçları alın. Kullanım dışı. |
 > | Eylem | Microsoft.OperationalInsights/workspaces/sharedKeys/action | Çalışma alanı paylaşılan anahtarlarını alır. Bu anahtarlar, Microsoft operasyonel İçgörüler aracılarını çalışma alanına bağlamak için kullanılır. |
 > | Eylem | Microsoft.OperationalInsights/workspaces/sharedKeys/read | Çalışma alanı paylaşılan anahtarlarını alır. Bu anahtarlar, Microsoft operasyonel İçgörüler aracılarını çalışma alanına bağlamak için kullanılır. |
 > | Eylem | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/delete | Depolama yapılandırması siler. Bu, Microsoft operasyonel İçgörüler depolama hesabından veri okumasını durdurur. |
@@ -4107,7 +4107,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.RecoveryServices/Vaults/vaultTokens/read | Kasa düzeyi arka uç işlemlerine ait kasa Belirteci'ni almak için kasa belirteci işlemi kullanılabilir. |
 > | Eylem | Microsoft.RecoveryServices/Vaults/write | Kasa Oluştur işlemi, 'vault' türünde bir Azure kaynağı oluşturur |
 
-## <a name="microsoftrelay"></a>Sayısı
+## <a name="microsoftrelay"></a>Microsoft.Relay
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Eylem Türü | İşlem | Açıklama |
@@ -5142,22 +5142,22 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem Türü | İşlem | Açıklama |
 > | --- | --- | --- |
 > | Eylem | Microsoft.Web/apimanagementaccounts/apiacls/Read | API yönetim hesapları Apiacls alın. |
-> | Eylem | Microsoft.Web/apimanagementaccounts/apis/apiacls/DELETE | API yönetim hesapları API'leri Apiacls silin. |
+> | Eylem | microsoft.web/apimanagementaccounts/apis/apiacls/delete | API yönetim hesapları API'leri Apiacls silin. |
 > | Eylem | Microsoft.Web/apimanagementaccounts/apis/apiacls/Read | API yönetim hesapları API'leri Apiacls alın. |
 > | Eylem | Microsoft.Web/apimanagementaccounts/apis/apiacls/Write | API yönetim hesapları API'leri Apiacls güncelleştirin. |
 > | Eylem | Microsoft.Web/apimanagementaccounts/apis/connectionacls/Read | API yönetim hesapları API'leri Connectionacls alın. |
 > | Eylem | Microsoft.Web/apimanagementaccounts/apis/Connections/confirmconsentcode/Action | Onay kodu API yönetim hesapları API bağlantıları onaylayın. |
-> | Eylem | Microsoft.Web/apimanagementaccounts/apis/Connections/connectionacls/DELETE | API yönetim hesapları API bağlantıları Connectionacls silin. |
+> | Eylem | microsoft.web/apimanagementaccounts/apis/connections/connectionacls/delete | API yönetim hesapları API bağlantıları Connectionacls silin. |
 > | Eylem | Microsoft.Web/apimanagementaccounts/apis/Connections/connectionacls/Read | API yönetim hesapları API bağlantıları Connectionacls alın. |
 > | Eylem | Microsoft.Web/apimanagementaccounts/apis/Connections/connectionacls/Write | API yönetim hesapları API bağlantıları Connectionacls güncelleştirin. |
-> | Eylem | Microsoft.Web/apimanagementaccounts/apis/Connections/DELETE | API yönetim hesapları API bağlantıları silin. |
-> | Eylem | Microsoft.Web/apimanagementaccounts/apis/Connections/getconsentlinks/Action | API yönetim hesapları API bağlantıları için onay bağlantılarını alın. |
+> | Eylem | microsoft.web/apimanagementaccounts/apis/connections/delete | API yönetim hesapları API bağlantıları silin. |
+> | Eylem | microsoft.web/apimanagementaccounts/apis/connections/getconsentlinks/action | API yönetim hesapları API bağlantıları için onay bağlantılarını alın. |
 > | Eylem | Microsoft.Web/apimanagementaccounts/apis/Connections/listconnectionkeys/Action | Liste bağlantı anahtarları API yönetim hesapları API bağlantıları. |
 > | Eylem | Microsoft.Web/apimanagementaccounts/apis/Connections/listsecrets/Action | Liste gizli dizileri API yönetim hesapları API bağlantıları. |
 > | Eylem | Microsoft.Web/apimanagementaccounts/apis/Connections/Read | API yönetim hesapları API'leri bağlantılarını alın. |
 > | Eylem | Microsoft.Web/apimanagementaccounts/apis/Connections/Write | API yönetim hesapları API bağlantıları güncelleştirin. |
-> | Eylem | Microsoft.Web/apimanagementaccounts/apis/DELETE | API Management hesaplarını API'leri silin. |
-> | Eylem | Microsoft.Web/apimanagementaccounts/apis/localizeddefinitions/DELETE | API Management'ı silme hesapları API'leri yerelleştirilmiş tanımları. |
+> | Eylem | microsoft.web/apimanagementaccounts/apis/delete | API Management hesaplarını API'leri silin. |
+> | Eylem | microsoft.web/apimanagementaccounts/apis/localizeddefinitions/delete | API Management'ı silme hesapları API'leri yerelleştirilmiş tanımları. |
 > | Eylem | Microsoft.Web/apimanagementaccounts/apis/localizeddefinitions/Read | API Management alma hesapları API'leri yerelleştirilmiş tanımları. |
 > | Eylem | Microsoft.Web/apimanagementaccounts/apis/localizeddefinitions/Write | Tanımları güncelleştirme API yönetim hesapları API'leri yerelleştirilmiş. |
 > | Eylem | Microsoft.Web/apimanagementaccounts/apis/Read | API Management hesaplarını API'leri alın. |
@@ -5243,7 +5243,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.Web/serverfarms/firstpartyapps/Settings/DELETE | App Service planları birinci taraf uygulamalar ayarlarını silin. |
 > | Eylem | Microsoft.Web/serverfarms/firstpartyapps/Settings/Read | App Service planları birinci taraf uygulamalar ayarlarını alın. |
 > | Eylem | Microsoft.Web/serverfarms/firstpartyapps/Settings/Write | App Service planları birinci taraf uygulamalar ayarlarını güncelleştirin. |
-> | Eylem | Microsoft.Web/serverfarms/hybridconnectionnamespaces/relays/DELETE | App Service planları karma bağlantı ad alanları geçişleri silin. |
+> | Eylem | microsoft.web/serverfarms/hybridconnectionnamespaces/relays/delete | App Service planları karma bağlantı ad alanları geçişleri silin. |
 > | Eylem | Microsoft.Web/serverfarms/hybridconnectionnamespaces/relays/Read | App Service planları karma bağlantı ad alanları geçişleri alın. |
 > | Eylem | Microsoft.Web/serverfarms/hybridconnectionnamespaces/relays/Sites/Read | App Service planları karma bağlantı ad alanları geçişleri Web uygulamalarını alın. |
 > | Eylem | Microsoft.Web/serverfarms/hybridconnectionplanlimits/Read | App Service planları karma bağlantı planı sınırları alın. |
@@ -5274,7 +5274,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.Web/sites/backups/Read | Bir web uygulamasının yedekleme özelliklerini alma |
 > | Eylem | Microsoft.Web/Sites/Backups/Restore/Action | Web Apps yedeklemelerini geri yükleyin. |
 > | Eylem | Microsoft.Web/Sites/Backups/Write | Web Apps yedeklemelerini güncelleştirin. |
-> | Eylem | Microsoft.Web/Sites/config/DELETE | Web Apps Config silin. |
+> | Eylem | microsoft.web/sites/config/delete | Web Apps Config silin. |
 > | Eylem | Microsoft.Web/sites/config/list/Action | Kimlik bilgileri, uygulama ayarlarının ve bağlantı dizelerinin yayımlama gibi Web uygulamasının güvenlik hassas ayarları listesi |
 > | Eylem | Microsoft.Web/sites/config/Read | Web uygulaması yapılandırma ayarlarını alma |
 > | Eylem | Microsoft.Web/Sites/config/snapshots/Read | Web Apps Config anlık görüntüleri alın. |
@@ -5285,7 +5285,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.Web/Sites/continuouswebjobs/Start/Action | Web Apps sürekli Web işleri'ni başlatın. |
 > | Eylem | Microsoft.Web/Sites/continuouswebjobs/Stop/Action | Web Apps sürekli Web işleri'ni durdurun. |
 > | Eylem | Microsoft.Web/sites/Delete | Mevcut bir Web uygulamasını silme |
-> | Eylem | Microsoft.Web/Sites/Deployments/DELETE | Web Apps dağıtımları silin. |
+> | Eylem | microsoft.web/sites/deployments/delete | Web Apps dağıtımları silin. |
 > | Eylem | Microsoft.Web/Sites/Deployments/log/Read | Web Apps dağıtımları kayıt günlüklerini alın. |
 > | Eylem | Microsoft.Web/Sites/Deployments/Read | Web Apps dağıtımları alın. |
 > | Eylem | Microsoft.Web/Sites/Deployments/Write | Web Apps dağıtımları güncelleştirin. |
@@ -5303,7 +5303,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.Web/Sites/Diagnostics/loganalyzer/Read | Web Apps Tanılama Günlüğü Çözümleyicisi alın. |
 > | Eylem | Microsoft.Web/Sites/Diagnostics/Read | Web Apps tanılama kategorileri alın. |
 > | Eylem | Microsoft.Web/Sites/Diagnostics/runtimeavailability/Read | Web Apps tanılama çalışma zamanı kullanılabilirliğini Al. |
-> | Eylem | Microsoft.Web/Sites/Diagnostics/servicehealth/Read | Web Apps Tanılama Hizmeti durumunu alın. |
+> | Eylem | Microsoft.Web/Sites/Diagnostics/servicehealth/Read | Get Web Apps Diagnostics Service Health. |
 > | Eylem | Microsoft.Web/Sites/Diagnostics/sitecpuanalysis/Read | Web Apps tanılama Site CPU analizi alın. |
 > | Eylem | Microsoft.Web/Sites/Diagnostics/sitecrashes/Read | Web Apps tanılama Site kilitlenmeleri alın. |
 > | Eylem | Microsoft.Web/Sites/Diagnostics/sitelatency/Read | Web Apps tanılama Site gecikme alın. |
@@ -5319,16 +5319,16 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.Web/Sites/Functions/Action | İşlevler Web uygulamaları. |
 > | Eylem | Microsoft.Web/Sites/Functions/DELETE | Web Apps işlevleri silin. |
 > | Eylem | Microsoft.Web/Sites/Functions/listsecrets/Action | Liste gizli dizileri Web Apps işlevleri. |
-> | Eylem | Microsoft.Web/Sites/Functions/masterkey/Read | Web Apps işlevleri Masterkey alın. |
+> | Eylem | Microsoft.Web/Sites/Functions/masterkey/Read | Get Web Apps Functions Masterkey. |
 > | Eylem | Microsoft.Web/Sites/Functions/Read | Web Apps işlevleri alın. |
 > | Eylem | Microsoft.Web/Sites/Functions/Token/Read | Get Web Apps işlevleri belirteci. |
 > | Eylem | Microsoft.Web/Sites/Functions/Write | Web Apps işlevleri güncelleştirin. |
-> | Eylem | Microsoft.Web/Sites/hostnamebindings/DELETE | Web Apps konak adı bağlamaları silin. |
+> | Eylem | microsoft.web/sites/hostnamebindings/delete | Web Apps konak adı bağlamaları silin. |
 > | Eylem | Microsoft.Web/Sites/hostnamebindings/Read | Web Apps konak adı bağlamaları alın. |
 > | Eylem | Microsoft.Web/Sites/hostnamebindings/Write | Web Apps konak adı bağlamaları güncelleştirin. |
 > | Eylem | Microsoft.Web/sites/hostruntime/host/_master/read | Yönetim işlemleri için işlevi uygulamanın ana anahtarı alma |
 > | Eylem | Microsoft.Web/sites/hostruntime/host/action | İşlev uygulaması çalışma zamanı eylem Tetikleyicileri eşitleme, İşlevler eklemek, işlevleri çağırmak, delete vb. işlevleri gibi gerçekleştirin. |
-> | Eylem | Microsoft.Web/Sites/hybridconnection/DELETE | Web Apps karma bağlantıyı silin. |
+> | Eylem | microsoft.web/sites/hybridconnection/delete | Web Apps karma bağlantıyı silin. |
 > | Eylem | Microsoft.Web/Sites/hybridconnection/Read | Web Apps karma bağlantı alın. |
 > | Eylem | Microsoft.Web/Sites/hybridconnection/Write | Web Apps karma bağlantı güncelleştirin. |
 > | Eylem | Microsoft.Web/Sites/hybridconnectionnamespaces/relays/DELETE | Web Apps karma bağlantı ad alanları geçişleri silin. |
@@ -5336,11 +5336,11 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.Web/Sites/hybridconnectionnamespaces/relays/Read | Web Apps karma bağlantı ad alanları geçişleri alın. |
 > | Eylem | Microsoft.Web/Sites/hybridconnectionnamespaces/relays/Write | Web Apps karma bağlantı ad alanları geçişleri güncelleştirin. |
 > | Eylem | Microsoft.Web/Sites/hybridconnectionrelays/Read | Web Apps karma bağlantı geçişleri alın. |
-> | Eylem | Microsoft.Web/Sites/instances/Deployments/DELETE | Web Apps örnekleri dağıtımları silin. |
+> | Eylem | microsoft.web/sites/instances/deployments/delete | Web Apps örnekleri dağıtımları silin. |
 > | Eylem | Microsoft.Web/Sites/instances/Deployments/Read | Web Apps örnekleri dağıtımları alın. |
 > | Eylem | Microsoft.Web/Sites/instances/Extensions/log/Read | Web Apps örnekleri uzantıları kayıt günlüklerini alın. |
 > | Eylem | Microsoft.Web/Sites/instances/Extensions/Read | Web Apps örnekleri uzantılarını edinin. |
-> | Eylem | Microsoft.Web/Sites/instances/Processes/DELETE | Web Apps örnekleri işlemleri silin. |
+> | Eylem | microsoft.web/sites/instances/processes/delete | Web Apps örnekleri işlemleri silin. |
 > | Eylem | Microsoft.Web/Sites/instances/Processes/Read | Web Apps örnekleri işlemleri alın. |
 > | Eylem | Microsoft.Web/Sites/instances/Processes/Threads/Read | Web Apps örnekleri işlemleri iş parçacıkları alın. |
 > | Eylem | Microsoft.Web/Sites/instances/Read | Web Apps örneği alın. |
@@ -5348,24 +5348,24 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.Web/Sites/metricdefinitions/Read | Web Apps ölçüm tanımlarını alın. |
 > | Eylem | Microsoft.Web/Sites/Metrics/Read | Web Apps ölçümleri alın. |
 > | Eylem | Microsoft.Web/Sites/metricsdefinitions/Read | Web Apps ölçüm tanımlarını Al. |
-> | Eylem | Microsoft.Web/Sites/migratemysql/Action | MySql Web uygulamaları geçirin. |
-> | Eylem | Microsoft.Web/Sites/migratemysql/Read | Web alma uygulamaları MySql geçirin. |
+> | Eylem | microsoft.web/sites/migratemysql/action | MySql Web uygulamaları geçirin. |
+> | Eylem | microsoft.web/sites/migratemysql/read | Get Web Apps Migrate MySql. |
 > | Eylem | Microsoft.Web/Sites/networktrace/Action | Ağ izleme Web uygulamaları. |
 > | Eylem | Microsoft.Web/Sites/NewPassword/Action | NewPassword Web uygulamaları. |
-> | Eylem | Microsoft.Web/Sites/operationresults/Read | Web Apps İşlem sonuçlarını al. |
+> | Eylem | microsoft.web/sites/operationresults/read | Web Apps İşlem sonuçlarını al. |
 > | Eylem | Microsoft.Web/Sites/Operations/Read | Web Apps işlemleri Al. |
 > | Eylem | Microsoft.Web/Sites/perfcounters/Read | Web Apps performans sayaçları alın. |
-> | Eylem | Microsoft.Web/Sites/premieraddons/DELETE | Web Apps Premier Addons silin. |
+> | Eylem | microsoft.web/sites/premieraddons/delete | Web Apps Premier Addons silin. |
 > | Eylem | Microsoft.Web/Sites/premieraddons/Read | Web Apps Premier Addons alın. |
 > | Eylem | Microsoft.Web/Sites/premieraddons/Write | Web Apps Premier Addons güncelleştirin. |
 > | Eylem | Microsoft.Web/Sites/privateaccess/Read | Özel site erişimi etkinleştirme ve yetkili site erişebileceği ağlarda verileri elde edersiniz. |
 > | Eylem | Microsoft.Web/Sites/Processes/Read | Web Apps işlemleri Al. |
-> | Eylem | Microsoft.Web/Sites/publiccertificates/DELETE | Web Apps genel sertifikalarını silin. |
-> | Eylem | Microsoft.Web/Sites/publiccertificates/Read | Web Apps ortak sertifikaları Al. |
+> | Eylem | microsoft.web/sites/publiccertificates/delete | Web Apps genel sertifikalarını silin. |
+> | Eylem | microsoft.web/sites/publiccertificates/read | Web Apps ortak sertifikaları Al. |
 > | Eylem | Microsoft.Web/Sites/publiccertificates/Write | Web Apps ortak sertifikaları güncelleştirin. |
 > | Eylem | Microsoft.Web/sites/publish/Action | Bir Web uygulaması yayımlama |
 > | Eylem | Microsoft.Web/sites/publishxml/Action | Profil xml Web uygulaması için yayımlama Al |
-> | Eylem | Microsoft.Web/Sites/publishxml/Read | XML Web uygulamalarını yayımlama alın. |
+> | Eylem | microsoft.web/sites/publishxml/read | XML Web uygulamalarını yayımlama alın. |
 > | Eylem | Microsoft.Web/sites/Read | Bir Web uygulamasının özelliklerini alma |
 > | Eylem | Microsoft.Web/Sites/recommendationhistory/Read | Web Apps öneri geçmişi Al |
 > | Eylem | Microsoft.Web/Sites/Recommendations/disable/Action | Web Apps önerileri devre dışı bırakın. |
@@ -5377,9 +5377,9 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.Web/Sites/Restore/Read | Web Apps geri alın. |
 > | Eylem | Microsoft.Web/Sites/Restore/Write | Web Apps geri yükleyin. |
 > | Eylem | Microsoft.Web/Sites/restorefrombackupblob/Action | Web uygulamasını yedekleme Blobundan geri yükleme. |
-> | Eylem | Microsoft.Web/Sites/restorefromdeletedwebapp/Action | Web Apps, silinen uygulamadan geri yükleyin. |
+> | Eylem | microsoft.web/sites/restorefromdeletedwebapp/action | Web Apps, silinen uygulamadan geri yükleyin. |
 > | Eylem | Microsoft.Web/Sites/restoresnapshot/Action | Web Apps anlık görüntü geri yükleyin. |
-> | Eylem | Microsoft.Web/Sites/siteextensions/DELETE | Web Apps Site uzantılarını silin. |
+> | Eylem | microsoft.web/sites/siteextensions/delete | Web Apps Site uzantılarını silin. |
 > | Eylem | Microsoft.Web/Sites/siteextensions/Read | Web Apps Site uzantılarını edinin. |
 > | Eylem | Microsoft.Web/Sites/siteextensions/Write | Web Apps Site uzantıları güncelleştirin. |
 > | Eylem | Microsoft.Web/Sites/slots/analyzecustomhostname/Read | Web alma uygulamaları yuvaları analiz özel ana bilgisayar adı. |
@@ -5392,7 +5392,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.Web/Sites/slots/Backups/List/Action | Web Apps yuvaları yedekleri listele. |
 > | Eylem | Microsoft.Web/sites/slots/backups/Read | Bir web uygulaması yuvaları yedekleme özelliklerini alma |
 > | Eylem | Microsoft.Web/Sites/slots/Backups/Restore/Action | Web Apps yuvaları yedeklemeleri geri yükleyin. |
-> | Eylem | Microsoft.Web/Sites/slots/config/DELETE | Web Apps yuvalarını yapılandırma silin. |
+> | Eylem | microsoft.web/sites/slots/config/delete | Web Apps yuvalarını yapılandırma silin. |
 > | Eylem | Microsoft.Web/sites/slots/config/list/Action | Kimlik bilgileri, uygulama ayarlarının ve bağlantı dizelerinin yayımlama gibi Web uygulaması yuvanın güvenlik hassas ayarları listesi |
 > | Eylem | Microsoft.Web/sites/slots/config/Read | Web uygulaması yuvası'nın yapılandırma ayarlarını alma |
 > | Eylem | Microsoft.Web/sites/slots/config/Write | Web uygulaması yuvası'nın yapılandırma ayarlarını güncelleştirme |
@@ -5402,7 +5402,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.Web/Sites/slots/continuouswebjobs/Start/Action | Web Apps yuvaları sürekli Web işleri'ni başlatın. |
 > | Eylem | Microsoft.Web/Sites/slots/continuouswebjobs/Stop/Action | Web Apps yuvaları sürekli Web işleri'ni durdurun. |
 > | Eylem | Microsoft.Web/sites/slots/Delete | Mevcut bir Web uygulaması yuvası silme |
-> | Eylem | Microsoft.Web/Sites/slots/Deployments/DELETE | Web Apps yuvaları dağıtımları silin. |
+> | Eylem | microsoft.web/sites/slots/deployments/delete | Web Apps yuvaları dağıtımları silin. |
 > | Eylem | Microsoft.Web/Sites/slots/Deployments/log/Read | Web Apps yuvaları dağıtımları kayıt günlüklerini alın. |
 > | Eylem | Microsoft.Web/Sites/slots/Deployments/Read | Web Apps yuvaları dağıtımları alın. |
 > | Eylem | Microsoft.Web/Sites/slots/Deployments/Write | Web Apps yuvaları dağıtımları güncelleştirin. |
@@ -5432,22 +5432,22 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.Web/Sites/slots/Diagnostics/workerprocessrecycle/Read | Web uygulamaları yuvaları tanılama çalışan işlemi geri alın. |
 > | Eylem | Microsoft.Web/Sites/slots/domainownershipidentifiers/Read | Web Apps yuvaları etki alanı sahipliğini tanımlayıcıları alın. |
 > | Eylem | Microsoft.Web/Sites/slots/Functions/Read | Web Apps yuvaları işlevleri alın. |
-> | Eylem | Microsoft.Web/Sites/slots/hostnamebindings/DELETE | Web Apps yuvaları ana bilgisayar adı bağlamaları silin. |
+> | Eylem | microsoft.web/sites/slots/hostnamebindings/delete | Web Apps yuvaları ana bilgisayar adı bağlamaları silin. |
 > | Eylem | Microsoft.Web/Sites/slots/hostnamebindings/Read | Web Apps yuvaları ana bilgisayar adı bağlamaları alın. |
 > | Eylem | Microsoft.Web/Sites/slots/hostnamebindings/Write | Web Apps yuvaları ana bilgisayar adı bağlamaları güncelleştirin. |
-> | Eylem | Microsoft.Web/Sites/slots/hybridconnection/DELETE | Web Apps yuvaları karma bağlantıyı silin. |
+> | Eylem | microsoft.web/sites/slots/hybridconnection/delete | Web Apps yuvaları karma bağlantıyı silin. |
 > | Eylem | Microsoft.Web/Sites/slots/hybridconnection/Read | Web Apps yuvaları karma bağlantı alın. |
 > | Eylem | Microsoft.Web/Sites/slots/hybridconnection/Write | Web Apps yuvaları karma bağlantı güncelleştirin. |
-> | Eylem | Microsoft.Web/Sites/slots/hybridconnectionnamespaces/relays/DELETE | Web Apps yuvaları karma bağlantı ad alanları geçişleri silin. |
+> | Eylem | microsoft.web/sites/slots/hybridconnectionnamespaces/relays/delete | Web Apps yuvaları karma bağlantı ad alanları geçişleri silin. |
 > | Eylem | Microsoft.Web/Sites/slots/hybridconnectionnamespaces/relays/Write | Web Apps yuvaları karma bağlantı ad alanları geçişleri güncelleştirin. |
 > | Eylem | Microsoft.Web/Sites/slots/hybridconnectionrelays/Read | Web Apps yuvaları karma bağlantı geçişleri alın. |
 > | Eylem | Microsoft.Web/Sites/slots/instances/Deployments/Read | Web Apps yuvaları örnekleri dağıtımları alın. |
-> | Eylem | Microsoft.Web/Sites/slots/instances/Processes/DELETE | Web Apps yuvaları örnekleri işlemleri silin. |
+> | Eylem | microsoft.web/sites/slots/instances/processes/delete | Web Apps yuvaları örnekleri işlemleri silin. |
 > | Eylem | Microsoft.Web/Sites/slots/instances/Processes/Read | Web Apps yuvaları örnekleri işlemleri alın. |
 > | Eylem | Microsoft.Web/Sites/slots/instances/Read | Web yuvası örneği alın. |
 > | Eylem | Microsoft.Web/Sites/slots/metricdefinitions/Read | Web Apps yuvaları ölçüm tanımlarını Al |
 > | Eylem | Microsoft.Web/Sites/slots/Metrics/Read | Web Apps yuvaları ölçümleri alın. |
-> | Eylem | Microsoft.Web/Sites/slots/migratemysql/Read | Web alma uygulamaları yuvaları MySql geçirme. |
+> | Eylem | microsoft.web/sites/slots/migratemysql/read | Web alma uygulamaları yuvaları MySql geçirme. |
 > | Eylem | Microsoft.Web/Sites/slots/networktrace/Action | Ağ izleme Web Apps yuvası. |
 > | Eylem | Microsoft.Web/Sites/slots/NewPassword/Action | NewPassword Web Apps yuvası. |
 > | Eylem | Microsoft.Web/Sites/slots/operationresults/Read | Web Apps yuvaları İşlem sonuçlarını alır. |
@@ -5457,7 +5457,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.Web/Sites/slots/premieraddons/DELETE | Web Apps yuvaları Premier Addons silin. |
 > | Eylem | Microsoft.Web/Sites/slots/premieraddons/Read | Web Apps yuvaları Premier Addons alın. |
 > | Eylem | Microsoft.Web/Sites/slots/premieraddons/Write | Web Apps yuvaları Premier Addons güncelleştirin. |
-> | Eylem | Microsoft.Web/Sites/slots/publiccertificates/DELETE | Web Apps yuvaları ortak sertifikalar silin. |
+> | Eylem | microsoft.web/sites/slots/publiccertificates/delete | Web Apps yuvaları ortak sertifikalar silin. |
 > | Eylem | Microsoft.Web/Sites/slots/publiccertificates/Read | Web Apps yuvaları ortak sertifikaları edinin. |
 > | Eylem | Microsoft.Web/Sites/slots/publiccertificates/Write | Oluşturun veya Web Apps yuvaları ortak sertifikaları güncelleştirin. |
 > | Eylem | Microsoft.Web/sites/slots/publish/Action | Bir Web uygulaması yuvası yayımlama |
@@ -5470,9 +5470,9 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.Web/Sites/slots/Restore/Read | Web Apps yuvaları geri alın. |
 > | Eylem | Microsoft.Web/Sites/slots/Restore/Write | Web Apps yuvaları geri yükleyin. |
 > | Eylem | Microsoft.Web/Sites/slots/restorefrombackupblob/Action | Web Apps yuvası yedekleme Blobundan geri yükleyin. |
-> | Eylem | Microsoft.Web/Sites/slots/restorefromdeletedwebapp/Action | Web uygulaması yuvaları silindi uygulamadan geri yükleyin. |
+> | Eylem | microsoft.web/sites/slots/restorefromdeletedwebapp/action | Web uygulaması yuvaları silindi uygulamadan geri yükleyin. |
 > | Eylem | Microsoft.Web/Sites/slots/restoresnapshot/Action | Web Apps yuvaları anlık görüntü geri yükleyin. |
-> | Eylem | Microsoft.Web/Sites/slots/siteextensions/DELETE | Web Apps yuvaları Site uzantılarını silin. |
+> | Eylem | microsoft.web/sites/slots/siteextensions/delete | Web Apps yuvaları Site uzantılarını silin. |
 > | Eylem | Microsoft.Web/Sites/slots/siteextensions/Read | Web Apps yuvaları Site uzantılarını edinin. |
 > | Eylem | Microsoft.Web/Sites/slots/siteextensions/Write | Web Apps yuvaları Site uzantıları güncelleştirin. |
 > | Eylem | Microsoft.Web/sites/slots/slotsdiffs/Action | Web uygulaması yuvası arasındaki farklar yapılandırma Al |
@@ -5484,9 +5484,9 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.Web/sites/slots/start/Action | Bir Web uygulaması yuvası Başlat |
 > | Eylem | Microsoft.Web/sites/slots/stop/Action | Bir Web uygulaması yuvası Durdur |
 > | Eylem | Microsoft.Web/Sites/slots/Sync/Action | Web Apps yuvaları eşitleme. |
-> | Eylem | Microsoft.Web/Sites/slots/triggeredwebjobs/DELETE | Web Apps yuvaları Tetiklenmiş Web işleri'ni silin. |
+> | Eylem | microsoft.web/sites/slots/triggeredwebjobs/delete | Web Apps yuvaları Tetiklenmiş Web işleri'ni silin. |
 > | Eylem | Microsoft.Web/Sites/slots/triggeredwebjobs/Read | Web Apps yuvaları Tetiklenmiş Web işleri'ni alın. |
-> | Eylem | Microsoft.Web/Sites/slots/triggeredwebjobs/Run/Action | Web Apps yuvaları Tetiklenmiş Web işleri'ni çalıştırın. |
+> | Eylem | microsoft.web/sites/slots/triggeredwebjobs/run/action | Web Apps yuvaları Tetiklenmiş Web işleri'ni çalıştırın. |
 > | Eylem | Microsoft.Web/Sites/slots/usages/Read | Web Apps yuvaları kullanımları alın. |
 > | Eylem | Microsoft.Web/Sites/slots/virtualnetworkconnections/DELETE | Web Apps yuvaları sanal ağ bağlantılarını silin. |
 > | Eylem | Microsoft.Web/Sites/slots/virtualnetworkconnections/Gateways/Write | Web Apps yuvaları sanal ağ bağlantıları Gateway bileşenlerini güncelleştirin. |
@@ -5502,9 +5502,9 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.Web/sites/sourcecontrols/Write | Web uygulamasının kaynak denetiminin yapılandırma ayarlarını güncelleştirme |
 > | Eylem | Microsoft.Web/sites/start/Action | Bir Web uygulaması başlatın |
 > | Eylem | Microsoft.Web/sites/stop/Action | Bir Web uygulamasını Durdur |
-> | Eylem | Microsoft.Web/Sites/Sync/Action | Eşitleme Web uygulamaları. |
+> | Eylem | Microsoft.Web/Sites/Sync/Action | Sync Web Apps. |
 > | Eylem | Microsoft.Web/Sites/syncfunctiontriggers/Action | Web Apps için eşitleme işlevi tetikler. |
-> | Eylem | Microsoft.Web/Sites/triggeredwebjobs/DELETE | Web Apps Tetiklenmiş Web işleri silin. |
+> | Eylem | microsoft.web/sites/triggeredwebjobs/delete | Web Apps Tetiklenmiş Web işleri silin. |
 > | Eylem | Microsoft.Web/Sites/triggeredwebjobs/History/Read | Web Apps Tetiklenmiş Web işleri geçmişi Al |
 > | Eylem | Microsoft.Web/Sites/triggeredwebjobs/Read | Web Apps Tetiklenmiş Web işleri alın. |
 > | Eylem | Microsoft.Web/Sites/triggeredwebjobs/Run/Action | Web Apps Tetiklenmiş Web işleri'ni çalıştırın. |
@@ -5514,12 +5514,12 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.Web/Sites/virtualnetworkconnections/Gateways/Write | Web Apps sanal ağ bağlantıları Gateway bileşenlerini güncelleştirin. |
 > | Eylem | Microsoft.Web/Sites/virtualnetworkconnections/Read | Web Apps sanal ağ bağlantılarını alın. |
 > | Eylem | Microsoft.Web/Sites/virtualnetworkconnections/Write | Web Apps sanal ağ bağlantıları'nı güncelleştirin. |
-> | Eylem | Microsoft.Web/Sites/webjobs/Read | Web Apps WebJobs alın. |
+> | Eylem | Microsoft.Web/Sites/webjobs/Read | Get Web Apps WebJobs. |
 > | Eylem | Microsoft.Web/sites/Write | Yeni bir Web uygulaması oluşturma veya var olan bir güncelleştirme |
 > | Eylem | Microsoft.Web/skus/Read | SKU'ları alın. |
 > | Eylem | Microsoft.Web/sourcecontrols/Read | Kaynak Denetim alın. |
 > | Eylem | Microsoft.Web/sourcecontrols/Write | Kaynak Denetim güncelleştirin. |
-> | Eylem | Microsoft.Web/unregister/Action | Abonelik için Microsoft.Web kaynak sağlayıcısının kaydını siler. |
+> | Eylem | microsoft.web/unregister/action | Abonelik için Microsoft.Web kaynak sağlayıcısının kaydını siler. |
 > | Eylem | Microsoft.Web/Validate/Action | Doğrulayın. |
 > | Eylem | Microsoft.Web/verifyhostingenvironmentvnet/Action | Barındırma ortamı Vnet doğrulayın. |
 
