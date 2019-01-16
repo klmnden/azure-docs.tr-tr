@@ -17,14 +17,14 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 2ec2ac6508dfbf0c1a42f72dc393fa8b841ab877
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: ce2d69e26909231383f3538d51387f27d8202a43
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822475"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332481"
 ---
-# <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak sanal makineye gelen ve sanal makineden giden ağ trafiğini günlüğe kaydetme
+# <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak bir sanal makine gelen ve giden ağ trafiğini günlüğe kaydetme
 
 Ağ güvenlik grubu (NSG), bir sanal makineye gelen trafiği ve sanal makineden giden trafiği filtrelemenize olanak sağlar. Ağ İzleyicisinin NSG akış günlüğü özelliği ile NSG aracılığıyla akan trafiği günlüğe kaydedebilirsiniz. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -38,7 +38,7 @@ Ağ güvenlik grubu (NSG), bir sanal makineye gelen trafiği ve sanal makineden 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 > [!NOTE] 
-> Akış günlükleri sürüm 2 bulunan ve yalnızca Batı Orta ABD bölgesinde. Yapılandırma, Azure portalı ve REST API kullanılabilir. Sürüm 2 etkinleştirme sürüm 1 günlükleri depolama hesabınız için kaydedilen günlükleri desteklenmeyen bir bölgede de neden olur.
+> Akış günlükleri sürüm 2 bulunan ve yalnızca Batı Orta ABD bölgesinde. Sürüm 2 etkinleştirme günlükleri desteklenmeyen bir bölgede depolama hesabınıza yüzdelik sürüm 1 günlüklerinde neden olur.
 
 ## <a name="create-a-vm"></a>VM oluşturma
 
@@ -212,7 +212,7 @@ Aşağıdaki json, verileri günlüğe kaydedilen her akış için PT1H.json dos
 | T            | Protokol               | Akış protokolünün TCP (T) mi yoksa UDP (U) mi olduğu.                                  |
 | O            | Yön              | Trafiğin gelen (I) mi yoksa giden (O) mi olduğu.                                     |
 | A            | Eylem                 | Trafiğe izin mi verildiği (A) yoksa trafiğin ret mi edildiği (D).  
-| C            | Akış durumu **yalnızca sürüm 2** | Akış durumunu yakalar. Olası durumlar şunlardır **B**: bir akış oluşturulduğunda başlayın. İstatistikleri sağlanmayan. **C**: devam eden bir akış için devam. İstatistikleri, 5 dakikalık aralıklarla sağlanır. **E**: akış sonlandırıldığında son. İstatistikleri sağlanır. |
+| C            | Akış durumu **yalnızca sürüm 2** | Akış durumunu yakalar. Olası durumlar şunlardır **B**: Bir akış oluşturulduğunda başlar. İstatistikleri sağlanmayan. **C**: Devam eden bir akış için devam ediliyor. İstatistikleri, 5 dakikalık aralıklarla sağlanır. **E**: Bir akış sonlandırıldığında son. İstatistikleri sağlanır. |
 | 30 | Gönderilen - paketleri kaynaktan hedefe **yalnızca sürüm 2** | Kaynaktan hedefe son güncelleştirmeden bu yana gönderilen TCP veya UDP paketlerinin toplam sayısı. |
 | 16978 | Bayt gönderilen - kaynaktan hedefe **yalnızca sürüm 2** | Kaynaktan hedefe son güncelleştirmeden bu yana TCP veya UDP paket baytlarının toplam sayısı. Paket üst bilgisi ve yük paket bayt içerir. | 
 | 24 | Gönderilen - paket kaynağı hedefe **yalnızca sürüm 2** | TCP veya UDP paketlerini hedeften kaynağa son güncelleştirmeden bu yana gönderilen toplam sayısı. |

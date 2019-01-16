@@ -8,18 +8,19 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
+ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/16/2018
+ms.date: 01/15/2019
 ms.author: douglasl
-ms.openlocfilehash: 6dc702b4bcffc0d1dec299093aa05ba480e9bbf8
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: d9a649e3b49c71a24d06656e0667765ef9cc5508
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019988"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321346"
 ---
 # <a name="transform-data-using-hadoop-hive-activity-in-azure-data-factory"></a>Hadoop Hive etkinliği Azure Data Factory kullanarak verileri dönüştürme
-> [!div class="op_single_selector" title1="Kullanmakta olduğunuz Data Factory servisinin sürümünü seçin:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Sürüm 1](v1/data-factory-hive-activity.md)
 > * [Geçerli sürüm](transform-data-using-hadoop-hive.md)
 
@@ -55,17 +56,18 @@ Azure Data Factory kullanmaya yeni başladıysanız, okumak [Azure Data Factory'
 }
 ```
 ## <a name="syntax-details"></a>Söz dizimi ayrıntıları
-| Özellik            | Açıklama                              | Gereklidir |
-| ------------------- | ---------------------------------------- | -------- |
-| ad                | Etkinliğin adı                     | Evet      |
-| açıklama         | Etkinliğin ne için kullanıldığını açıklayan metin | Hayır       |
-| type                | Hive etkinliği için Hdınsighthive etkinliği türüdür | Evet      |
+| Özellik            | Açıklama                                                  | Gereklidir |
+| ------------------- | ------------------------------------------------------------ | -------- |
+| ad                | Etkinliğin adı                                         | Evet      |
+| açıklama         | Etkinliğin ne için kullanıldığını açıklayan metin                | Hayır       |
+| type                | Hive etkinliği için Hdınsighthive etkinliği türüdür        | Evet      |
 | linkedServiceName   | Data Factory öğesinde bağlantılı hizmet olarak HDInsight kümesine başvuru kayıtlı. Bu bağlı hizmeti hakkında bilgi edinmek için [işlem bağlı Hizmetleri](compute-linked-services.md) makalesi. | Evet      |
 | scriptLinkedService | Bir Azure depolama bağlı hizmeti başvuru yürütülecek Hive betiğini depolamak için kullanılır. Bu bağlı hizmeti belirtmezseniz, Azure depolama bağlı HDInsight bağlı hizmette tanımlanan hizmeti kullanılır. | Hayır       |
 | ScriptPath          | ScriptLinkedService tarafından başvurulan Azure storage'da depolanan betik dosyasının yolunu belirtin. Dosya adı büyük/küçük harfe duyarlıdır. | Evet      |
-| Getdebugınfo        | Günlük dosyaları Azure depolama için ne zaman kopyalanır belirtir HDInsight küme tarafından kullanılan (veya) scriptLinkedService tarafından belirtilen. İzin verilen değerler: None, her zaman veya hata. Varsayılan değer: Yok. | Hayır       |
+| getDebugInfo        | Günlük dosyaları Azure depolama için ne zaman kopyalanır belirtir HDInsight küme tarafından kullanılan (veya) scriptLinkedService tarafından belirtilen. İzin verilen değerler: None, her zaman veya hata. Varsayılan değer: Yok. | Hayır       |
 | bağımsız değişkenler           | Hadoop işi için bağımsız değişkenleri dizisini belirtir. Bağımsız değişkenleri, her görev için komut satırı bağımsız değişkenleri geçirilir. | Hayır       |
 | tanımlar             | Parametreler içinde Hive betiğine başvurmak için anahtar/değer çiftleri belirtin. | Hayır       |
+| queryTimeout        | Zaman aşımı değerini (dakika cinsinden) sorgulayın.  HDInsight küme Kurumsal güvenlik paketi etkin olduğunda uygulanabilir. | Hayır       |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Anlatan farklı yollarla verileri dönüştürmek aşağıdaki makalelere bakın: 

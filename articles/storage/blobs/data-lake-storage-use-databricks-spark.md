@@ -6,14 +6,14 @@ author: dineshmurthy
 ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
-ms.date: 12/06/2018
+ms.date: 01/14/2019
 ms.author: dineshm
-ms.openlocfilehash: b0382d31f9d16228ca3447ace9c7d4f171b206f6
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: e72a4f71a42a892d14fad076b124426f0c32ac7d
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548995"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321815"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>Öğretici: Spark'ı kullanarak Azure Databricks ile Data Lake depolama Gen2 önizlemesi verilere erişme
 
@@ -36,12 +36,31 @@ Bu öğreticide [Amerika Birleşik Devletleri Ulaştırma Bakanlığı](https://
 2. Seçin **indirme** ve sonuçları makinenize kaydedin.
 3. Dosya adını not ve indirme yolunu oluşturmak; Bu bilgiler sonraki adımda ihtiyacınız var.
 
-Bu öğreticiyi tamamlamak için bir depolama hesabı analitik özellikleriyle gerekir. Tamamlama öneririz bizim [hızlı](data-lake-storage-quickstart-create-account.md) oluşturmak için konu ile ilgili. Oluşturduktan sonra yapılandırma ayarlarını almak için depolama hesabına gidin.
+Bu öğreticiyi tamamlamak için bir depolama hesabı analitik özellikleriyle gerekir. Tamamlama öneririz bizim [hızlı](data-lake-storage-quickstart-create-account.md) oluşturmak için konu ile ilgili. 
 
-1. Altında **ayarları**seçin **erişim anahtarları**.
-2. Seçin **kopyalama** düğmesinin yanındaki **key1** anahtar değerini kopyalamak için.
+## <a name="set-aside-storage-account-configuration"></a>Depolama hesabı yapılandırmasını not alın
 
-Bu öğreticinin sonraki adımlarında kullanmanız gerekeceğinden hesap adını ve anahtarı not alın. Bir metin düzenleyici açıp hesap adını ve anahtarı daha sonra kullanmak üzere kaydedin.
+Depolama hesabınızın ve bir dosya sistemi uç noktası URI'si adı gerekir.
+
+Azure portalında depolama hesabınızın adını almak için seçtiğiniz **tüm hizmetleri** ve filtre terimini *depolama*. Ardından, **depolama hesapları** ve depolama hesabınızı bulun.
+
+Dosya sistemi uç noktası URI'si almak için seçtiğiniz **özellikleri**, Özellikler bölmesinde değerini bulun **birincil ADLS dosya sistemi uç noktası** alan.
+
+Hem bu değerleri bir metin dosyasına yapıştırın. Bunları yakında gerekir.
+
+<a id="service-principal"/>
+
+## <a name="create-a-service-principal"></a>Hizmet sorumlusu oluşturma
+
+Bu konudaki yönergeleri izleyerek bir hizmet sorumlusu oluşturun: [Nasıl yapılır: Azure AD'yi kaynaklara erişebilen uygulaması ve hizmet sorumlusu oluşturmak için portalı kullanma](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+
+Bu makaledeki adımları gerçekleştirmek gibi gerekir ve belirli birkaç şey var.
+
+:heavy_check_mark: Adımları gerçekleştirirken [bir Azure Active Directory uygulaması oluşturma](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application) bölümü makalenin ayarladığınızdan emin olun **oturum açma URL'si** alanını **Oluştur** iletişim kutusu uç nokta URI'si, az önce toplanan.
+
+:heavy_check_mark: Adımları gerçekleştirirken [uygulamanızı bir role atama](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) bölümü makalenin uygulamanıza atanacak emin **Blob Depolama katkıda bulunan rolü**.
+
+:heavy_check_mark: Adımları gerçekleştirirken [oturum açma için değerleri alma](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) makalesi, Yapıştır Kiracı kimliği, uygulama kimliği ve kimlik doğrulama anahtarı değerleri bir metin dosyasına bölümü. Bu kısa süre içinde olması gerekir.
 
 ## <a name="create-a-databricks-cluster"></a>Databricks kümesi oluşturma
 
@@ -63,22 +82,24 @@ Sonraki adım, veri çalışma alanı oluşturmak için Databricks kümesini olu
 14. İçinde tercih ettiğiniz bir ad girin **adı** alan ve seçim **Python** dili olarak.
 15. Diğer tüm alanlar varsayılan değerlerde bırakılabilir.
 16. **Oluştur**’u seçin.
-17. Aşağıdaki kodu yapıştırın **Cmd 1** hücre. Gösterilen örnekte kendi değerlerinizle köşeli ayraçlar içindeki yer tutucuları değiştirin:
+17. Kopyala ve ilk hücreye aşağıdaki kod bloğu yapıştırın, ancak bu kodun henüz çalışmıyor.
 
-    ```scala
-    %python%
+    ```Python
     configs = {"fs.azure.account.auth.type": "OAuth",
-        "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
-        "fs.azure.account.oauth2.client.id": "<service-client-id>",
-        "fs.azure.account.oauth2.client.secret": "<service-credentials>",
-        "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant-id>/oauth2/token"}
-        
+           "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
+           "fs.azure.account.oauth2.client.id": "<application-id>",
+           "fs.azure.account.oauth2.client.secret": "<authentication-id>",
+           "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant-id>/oauth2/token",
+           "fs.azure.createRemoteFileSystemDuringInitialization": "true"}
+
     dbutils.fs.mount(
-        source = "abfss://dbricks@<account-name>.dfs.core.windows.net/folder1",
-        mount_point = "/mnt/flightdata",
-        extra_configs = configs)
+    source = "abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/folder1",
+    mount_point = "/mnt/flightdata",
+    extra_configs = configs)
     ```
-18. Kod hücresini çalıştırmak için **SHIFT + ENTER** tuşlarına basın.
+18. Bu kod bloğunda değiştirin `storage-account-name`, `application-id`, `authentication-id`, ve `tenant-id` adımları tamamlandığında topladığınız değerleri bu kod bloğu içinde yer tutucu değerlerini [bir kenara depolama hesabı Yapılandırma](#config) ve [hizmet sorumlusu oluşturma](#service-principal) bu makalenin bölümler. Değiştirin `file-system-name` yer tutucu dosya sisteminize vermek istediğiniz herhangi bir ada sahip.
+
+19. Tuşuna **SHIFT + ENTER** bu blok kodu çalıştırmak için anahtarları.
 
 ## <a name="ingest-data"></a>Veriyi çekme
 

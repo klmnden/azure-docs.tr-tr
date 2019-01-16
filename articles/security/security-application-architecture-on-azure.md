@@ -12,30 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 01/14/2019
 ms.author: terrylan
-ms.openlocfilehash: 8ca9f0b75627e7ad366b3c02ec3126713a283ed2
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 4945978fdc27a298daf4de0604b894c53ba51dbe
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233744"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321440"
 ---
 # <a name="application-architecture-on-azure"></a>Azure’da uygulama mimarisi
 Güvenliğini sağlamaya yardımcı olmak için bulut tabanlı çözümlerinizi Microsoft azure'da güçlü bir mimari temel önemlidir. Mimarları, tasarımcılar ve uygulayıcılar sağlam bir uygulama ve Hizmetleri mimarisi bilgilerden yararlanın. Bu temel bilgi, bulut tabanlı çözümler tüm bileşenlerini anlayın ve güvenlik tasarımı ve uygulaması tüm yönlerini tümleştirmeyi kolaylaştırmak yardımcı olur.
 
 Tasarım ve mimari araştırmalar ile yardımcı olmak için şunları sunuyoruz:
 
-* Mimari infografikleri
 * Mimari şemalar
 * Bulut ve kurumsal simge kümesi
 * Hazırlanan 3B kavramsal tasarımı Visio şablonu
-
-## <a name="architectural-infographics"></a>Mimari infografikleri
-Microsoft, birkaç mimari ilgili posterler/infografikleri yayımlar. Bunlar:
-
-* [Gerçek hayatta kullanılan bulut uygulamaları oluşturma](https://azure.microsoft.com/documentation/infographics/building-real-world-cloud-apps/)
-* [Cloud Services ile ölçeklendirme](https://azure.microsoft.com/documentation/infographics/cloud-services/)
 
 ## <a name="architectural-blueprints"></a>Mimari şemalar
 Microsoft üst düzey bir dizi yayınlar [mimari kavramsal tasarımlar](https://aka.ms/azblueprints) gösteren belirli türde Microsoft ürünlerini kullanan sistemler oluşturma.

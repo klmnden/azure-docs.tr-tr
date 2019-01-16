@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 1/14/2019
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 87e6f2c956766011adef23ce9a8565625483a244
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 006a8172faae529ce9943773552da325bfae3f4b
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635553"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321543"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Azure dosya eşitleme Aracısı sürüm notları
 Azure Dosya Eşitleme aracısı şirket içi dosya sunucularının sağladığı esneklik, performans ve uyumluluk özelliklerinden vazgeçmeden kuruluşunuzun dosya paylaşımlarını Azure Dosyaları'nda toplamanızı sağlar. Windows Server yüklemeleriniz, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürülür. Verilere yerel olarak erişmek için Windows Server üzerinde kullanılabilen tüm protokolleri (SMB, NFS ve FTPS gibi) kullanabilirsiniz. Dünya çapında istediğiniz sayıda önbellek oluşturabilirsiniz.
@@ -25,25 +25,25 @@ Azure Dosya Eşitleme aracısı aşağıdaki sürümleri destekler:
 
 | Kilometre Taşı | Aracı sürüm numarası | Sürüm tarihi | Durum |
 |----|----------------------|--------------|------------------|
-| Güncelleştirme paketi - aralık [KB4459990](https://support.microsoft.com/help/4459990)| 4.2.0.0 | 10 Aralık 2018'e | Desteklenen (önerilen sürüm) |
-| Aralık güncelleştirme paketi | 4.1.0.0 | 4 Aralık 2018'e | Desteklenen |
+| Güncelleştirme paketi - Ocak 2019 [KB4481059](https://support.microsoft.com/help/4481059)| 4.3.0.0 | 14 Ocak 2019 | Desteklenen (önerilen sürüm) |
+| Aralık 2018'e güncelleştirme paketi - [KB4459990](https://support.microsoft.com/help/4459990)| 4.2.0.0 | 10 Aralık 2018'e | Desteklenen |
+| Aralık 2018'e güncelleştirme paketi | 4.1.0.0 | 4 Aralık 2018'e | Desteklenen |
 | V4 sürüm | 4.0.1.0 | 13 Kasım 2018 | Desteklenen |
-| Eylül güncelleştirme paketi | 3.3.0.0 | 24 Eylül 2018 | Desteklenen |
-| Ağustos güncelleştirme paketi | 3.2.0.0 | 15 Ağustos 2018 | Desteklenen |
+| Eylül 2018'e güncelleştirme paketi | 3.3.0.0 | 24 Eylül 2018 | Desteklenen |
+| Ağustos 2018 güncelleştirme paketi | 3.2.0.0 | 15 Ağustos 2018 | Desteklenen |
 | Genel kullanılabilirlik | 3.1.0.0 | 19 Temmuz 2018 | Desteklenen |
-| Haziran güncelleştirme paketi | 3.0.13.0 | 29 Haziran 2018'e | Desteklenmiyor - aracı sürümü 1 Ekim 2018 tarihinde süresi doldu |
-| 2 Yenile | 3.0.12.0 | 22 Mayıs 2018 | Desteklenmiyor - aracı sürümü 1 Ekim 2018 tarihinde süresi doldu |
-| Nisan güncelleştirme paketi | 2.3.0.0 | 8 Mayıs 2018 | Desteklenmiyor - aracı sürümü 1 Ekim 2018 tarihinde süresi doldu |
-| Mart güncelleştirme paketi | 2.2.0.0 | 12 Mart 2018 | Desteklenmiyor - aracı sürümü 1 Ekim 2018 tarihinde süresi doldu |
-| Şubat güncelleştirme paketi | 2.1.0.0 | 28 Şubat 2018 | Desteklenmiyor - aracı sürümü 1 Ekim 2018 tarihinde süresi doldu |
-| 1 Yenile | 2.0.11.0 | 8 Şubat 2018 | Desteklenmiyor - aracı sürümü 1 Ekim 2018 tarihinde süresi doldu |
-| Ocak güncelleştirme paketi | 1.4.0.0 | 8 Ocak 2018 | Desteklenmiyor - aracı sürümü 1 Ekim 2018 tarihinde süresi doldu |
-| Kasım güncelleştirme paketi | 1.3.0.0 | 30 Kasım 2017 | Desteklenmiyor - aracı sürümü 1 Ekim 2018 tarihinde süresi doldu |
-| Ekim güncelleştirme paketi | 1.2.0.0 | 31 Ekim 2017 | Desteklenmiyor - aracı sürümü 1 Ekim 2018 tarihinde süresi doldu |
-| İlk önizleme yayını | 1.1.0.0 | 26 Eylül 2017 | Desteklenmiyor - aracı sürümü 1 Ekim 2018 tarihinde süresi doldu |
+| Süresi dolmuş olan aracıları | 1.1.0.0 - 3.0.13.0 | Yok | Desteklenmiyor - Aracı sürümleri 1 Ekim 2018 tarihinde süresi doldu |
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Azure Dosya Eşitleme aracısı güncelleştirme ilkesi
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-4300"></a>Aracı sürümü 4.3.0.0
+Aşağıdaki sürüm notları 14 Ocak 2019 yayımlanan Azure dosya eşitleme aracısının sürümü için 4.3.0.0 ' dir. Bu Notlar 4.0.1.0 sürümü için listelenen sürüm notlarına ek olarak var.
+
+Bu sürümde giderilen sorunlar listesi:  
+- Dosyaları, Azure dosya eşitleme aracısının sürümüne yükselttikten sonra değil katmanlanır 4.x.
+- AfsUpdater.exe üzerinde Windows Server 2019 artık desteklenmektedir.
+- Eşitleme için çeşitli güvenilirlik geliştirmeleri. 
 
 ## <a name="agent-version-4200"></a>Aracı sürümü 4.2.0.0
 Aşağıdaki sürüm notları, 10 Aralık 2018'e yayımlanan Azure dosya eşitleme aracısının sürümü için 4.2.0.0 geçerlidir. Bu Notlar 4.0.1.0 sürümü için listelenen sürüm notlarına ek olarak var.

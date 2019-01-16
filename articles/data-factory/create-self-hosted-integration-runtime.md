@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/15/2019
 ms.author: abnarain
-ms.openlocfilehash: 9a3e061902de53859ea98791048453db8cf00085
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: f8827f3013ee83d8f4846e7e15d34ea7c6553f24
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021127"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331818"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Oluşturma ve şirket içinde barındırılan tümleştirme çalışma zamanını yapılandırma
 Integration runtime (IR) farklı ağ ortamları veri tümleştirme özellikleri sağlamak üzere Azure Data Factory kullanan işlem altyapısıdır. IR hakkında daha fazla ayrıntı için bkz: [tümleştirme çalışma zamanına genel bakış](concepts-integration-runtime.md).
@@ -86,7 +86,7 @@ Kendinden konak IR ile kopyalamak için adımların özeti için üst düzey ver
 ## <a name="install-and-register-self-hosted-ir-from-the-download-center"></a>Yükleme ve İndirme Merkezi'nden kendinden konak IR kaydetme
 
 1. Git [Microsoft tümleştirme çalışma zamanı indirme sayfası](https://www.microsoft.com/download/details.aspx?id=39717).
-2. Seçin **indirme**, uygun sürümünü seçin (**32-bit** veya **64-bit**) seçip **sonraki**.
+2. Seçin **indirme**, 64 bit sürümünü seçin (32-bit desteklenmez) seçip **sonraki**.
 3. MSI dosyası, doğrudan çalıştırmak veya sabit disk sürücünüze kaydedin ve çalıştırın.
 4. Üzerinde **Hoş Geldiniz** sayfasında, bir dil seçip **sonraki**.
 5. Microsoft Yazılımı Lisans koşullarını kabul edin ve seçin **sonraki**.

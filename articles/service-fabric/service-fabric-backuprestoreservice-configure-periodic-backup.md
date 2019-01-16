@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2018
 ms.author: hrushib
-ms.openlocfilehash: f2a1cd79a99e16460c96d28ebeb0a2bd68975361
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 91813e31c6237cf47a744a4290e3e2d7736195f0
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794252"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54322104"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Azure Service fabric'te düzenli yedekleme yapılandırması anlama
 
@@ -45,7 +45,7 @@ Bir yedekleme İlkesi, aşağıdaki yapılandırmaları oluşur:
 
 * **Yedekleme zamanlaması**: Düzenli yedeklemeler almak sıklığı ve zaman. Bir belirtilen zaman aralığı veya bir sabit anında yinelenen günlük / haftalık yedeklemeler zamanlayabilirsiniz.
 
-    1. **Yedekleme zamanlaması sıklığı tabanlı**: Bu zamanlama türü sabit aralıklarla veri yedek almak için gereken ise kullanılması gerekir. İki ardışık yedeklemeler arasındaki istenen zaman aralığını ISO8601 biçimini kullanarak tanımlanır. Yedekleme zamanlaması sıklığı tabanlı aralığı çözümleme en fazla dakika destekler.
+    1. **Yedekleme zamanlaması sıklığı tabanlı**: Bu zamanlama türü sabit aralıklarla veri yedek almak için gereken ise kullanılması gerekir. İki ardışık yedeklemeler arasındaki istenen zaman aralığını ISO8601 biçimini kullanarak tanımlanır. Yedekleme zamanlaması sıklığı tabanlı dakikalık bir aralığı çözüm destekler.
         ```json
         {
             "ScheduleKind": "FrequencyBased",

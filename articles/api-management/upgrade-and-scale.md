@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/18/2018
 ms.author: apimpm
-ms.openlocfilehash: 1b681b4344512f26f1edc4a5264e718deac569ae
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: ac8babf3a00c73b942ae64ac4cca00c7be7cfcfa
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441698"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319871"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Yükseltme ve ölçeklendirme Azure API Management örneği  
 
@@ -47,7 +47,7 @@ Bu makalede adımları için yapmanız gerekir:
 
 Dört katman arasında seçim yapabilirsiniz: **Geliştirici**, **temel**, **standart** ve **Premium**. **Geliştirici** katman hizmeti değerlendirmek için kullanılması gerekir; üretim için kullanılmamalıdır. **Geliştirici** katmanı SLA yoktur ve bu katmanda (ekleme/kaldırma birimleri) ölçek genişletilemiyor. 
 
-**Temel**, **standart** ve **Premium** SLA'sına sahip ve ölçeklendirilebilir üretim katmanlarıdır. **Temel** katmanı SLA olan ucuz katmanı ve ölçeklendirilmiş en fazla 2 birim olabilir **standart** katmanı için en fazla dört birim ölçeklenebilen. Herhangi bir sayıda birimine ekleyebilirsiniz **Premium** katmanı.
+**Temel**, **standart** ve **Premium** SLA'sına sahip ve ölçeklendirilebilir üretim katmanlarıdır. **Temel** katmanlıdır SLA olan ucuz katmanı ve en fazla 2 birim, ölçeklendirilebilir **standart** katmanı için en fazla dört birim ölçeklenebilen. Herhangi bir sayıda birimine ekleyebilirsiniz **Premium** katmanı.
 
 **Premium** katman tek bir Azure API Management örneği dağıtmak istediğiniz Azure bölgeleri arasında herhangi bir sayı olanak sağlar. Başlangıçta bir Azure API Management hizmeti oluşturduğunuzda, örneği yalnızca bir birim içeren ve tek bir Azure bölgesinde bulunur. İlk bölge olarak tanımlanan **birincil** bölge. Ek bölgeler bir kolayca eklenebilir. Bir bölge eklediğinizde, ayırmak istediğiniz birim sayısını belirtin. Bir birimi, olabilir **birincil** bölge ve başka bir bölgede beş birimleri. Sahip olduğunuz her bölgede trafiği birim sayısını uyarlayabilirsiniz. Daha fazla bilgi için [Azure API Management hizmet örneği birden çok Azure bölgesine dağıtma](api-management-howto-deploy-multi-region.md).
 

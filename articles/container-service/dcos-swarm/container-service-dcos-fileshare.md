@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 06/07/2017
 ms.author: juliens
 ms.custom: mvc
-ms.openlocfilehash: 728f8ddbda35f27c0f89e1d72e98fd2d7669320e
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: e6651fc5988a1e1830807219cda02ab057db9a4f
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999855"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329829"
 ---
 # <a name="deprecated-create-and-mount-a-file-share-to-a-dcos-cluster"></a>(KULLANIM DIŞI) Oluşturma ve bir DC/OS kümesi için bir dosya paylaşımını bağlama
 
@@ -35,7 +35,7 @@ Bu öğretici, Azure CLI 2.0.4 veya sonraki bir sürümü gerektirir. Sürümü 
 
 ## <a name="create-a-file-share-on-microsoft-azure"></a>Microsoft Azure'da dosya paylaşımı oluşturma
 
-Azure dosya paylaşımını ACS DC/OS kümesiyle kullamadan önce, depolama hesabı ve dosya paylaşımı oluşturulmalıdır. Depolamayı ve dosya paylaşımını oluşturmak için aşağıdaki betiği çalıştırın. Parametreleri kendi ortamınızın parametreleriyle güncelleştirin.
+Azure dosya paylaşımını ACS DC/OS kümesiyle kullamadan önce, depolama hesabı ve dosya paylaşımı oluşturulmalıdır. Depolamayı ve dosya paylaşımını oluşturmak için aşağıdaki betiği çalıştırın. Parametreleri ortamınızdaki değerlerle güncelleştirin.
 
 ```azurecli-interactive
 # Change these four parameters

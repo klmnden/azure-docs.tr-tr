@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/14/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 4ba55d58a24045141800efb97a0f523d2a9cd242
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 038a70f5cce5b78f6c0e95316e66de42fa529954
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/15/2019
-ms.locfileid: "54304508"
+ms.locfileid: "54321747"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Öğretici: ASP.NET Core Web API'si ön uç hizmeti ve durum bilgisi olan bir arka uç hizmetiyle uygulama oluşturma ve dağıtma
 
@@ -325,8 +325,6 @@ VotingWeb ön uç hizmeti oluşturulduğunda, Visual Studio hizmetin dinlemesi i
 ```
 
 Ayrıca Voting projesindeki Uygulama URL'si özellik değerini de güncelleştirin ve uygulamanızda hata ayıklaması yaptığınızda web tarayıcısının doğru bağlantı noktasına açılmasını sağlayın.  Çözüm Gezgini'nde, **Voting** projesini seçin ve **Uygulama URL'si** özelliğini **8080** olarak güncelleştirin.
-
-![Uygulama URL'si](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
 
 ### <a name="deploy-and-run-the-voting-application-locally"></a>Voting uygulamasını yerel olarak dağıtma ve çalıştırma
 Artık devam edip Voting uygulamasını hata ayıklama için çalıştırabilirsiniz. Visual Studio'da **F5**'e basarak uygulamayı yerel Service Fabric kümenize hata ayıklama modunda dağıtın. Daha önce Visual Studio'yu **yönetici** olarak açmadıysanız uygulama başarısız olur.

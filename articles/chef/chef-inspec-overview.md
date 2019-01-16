@@ -1,19 +1,19 @@
 ---
 title: Otomasyon için Uyumluluk, Azure altyapısının Inspec kullanın
 description: Azure dağıtımlarınızı sorunları algılamak için Inspec kullanmayı öğrenin
-keywords: Azure, chef, devops, sanal makineler, genel bakış, otomatikleştirin, inspce
+keywords: Azure, chef, devops, sanal makineler, genel bakış, otomatikleştirme, inspec
 ms.service: virtual-machines-linux
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: 9256a4daf6564761553b495e559805a46e4eae32
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: e854b140c32773fc5d64e828e7dd40fab1f6ca8d
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050736"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332379"
 ---
 # <a name="use-inspec-for-compliance-automation-of-your-azure-infrastructure"></a>Otomasyon için Uyumluluk, Azure altyapısının Inspec kullanın
 [İnSpec](https://www.chef.io/inspec/) test etmek ve uygulamalarınızın ve altyapınızın denetim için bir ücretsiz ve açık kaynak çerçevesidir. Kolay okuma ve yazma kolay InSpec kod içinde ifade belirttiğiniz istenen duruma gerçek durumuyla sisteminizin karşılaştırarak Inspec çalışır. Inspec ihlalleri algılar ve bir rapor biçiminde bulguları gösterir, ancak düzeltme denetiminde koyar. Azure'da çalışan sanal makinelerinizin durumunu doğrulamak için Inspec kullanabilirsiniz. Inspec taramak ve kaynaklarını ve kaynak gruplarını bir abonelik içinde durumunu doğrulamak için de kullanabilirsiniz.

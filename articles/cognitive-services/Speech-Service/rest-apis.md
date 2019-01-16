@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: bae4c0dccb0ce336c319fe94936be72ab6fc9a8e
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: b7f5d4683f0042b95399b86cd4f53c93518c3c56
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230382"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330685"
 ---
 # <a name="speech-service-rest-apis"></a>Konuşma hizmeti REST API'leri
 
@@ -469,7 +469,10 @@ Bu, her isteği olarak gönderilir ve ses desteklenen biçimler listesini `X-Mic
 
 ### <a name="request-body"></a>İstek gövdesi
 
-Metin bir HTTP gövdesi olarak gönderilen `POST` isteği. Düz metin (ASCII veya UTF-8) olabilir veya [konuşma sentezi biçimlendirme dili](speech-synthesis-markup.md) (SSML'yi) biçimi (UTF-8). Düz metin istekleri konuşma hizmetin varsayılan ses ve dil kullanın. SSML'yi ile dil ve ses belirtebilirsiniz.
+Her gövdesi `POST` isteği olarak gönderilecek [konuşma sentezi işaretleme dili (SSML'yi)](speech-synthesis-markup.md). SSML'yi sesi ve Sentezlenen konuşma metin okuma hizmet tarafından döndürülen dili seçmenize olanak sağlar. Desteklenen sesleri tam bir listesi için bkz. [dil desteği](language-support.md#text-to-speech).
+
+> [!NOTE]
+> Özel ses kullanıyorsanız, bir istek gövdesi (ASCII veya UTF-8) düz metin olarak gönderilebilir.
 
 ### <a name="sample-request"></a>Örnek istek
 

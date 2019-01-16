@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 1ffd1b96e721707f69c47a7cbf11d60f17f3a7d2
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 86dcd39ad7b9f1e207e9254ec72698db3998bbd6
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105432"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320489"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Azure Data Factory kullanarak MongoDB verilerini kopyalama
-> [!div class="op_single_selector" title1="Kullanmakta olduğunuz Data Factory servisinin sürümünü seçin:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Sürüm 1](v1/data-factory-on-premises-mongodb-connector.md)
 > * [Geçerli sürüm](connector-mongodb.md)
 
@@ -57,7 +57,7 @@ MongoDB bağlı hizmeti için aşağıdaki özellikleri destekler:
 | type |Type özelliği ayarlanmalıdır: **MongoDb** |Evet |
 | sunucu |IP adresi veya ana bilgisayar adı MongoDB sunucusunun. |Evet |
 | port |MongoDB sunucusunun istemci bağlantıları için dinlemek üzere kullandığı TCP bağlantı noktası. |Hayır (varsayılan değer 27017) |
-| DatabaseName |Erişmek istediğiniz MongoDB veritabanının adı. |Evet |
+| databaseName |Erişmek istediğiniz MongoDB veritabanının adı. |Evet |
 | authenticationType | MongoDB veritabanına bağlanmak için kullanılan kimlik doğrulaması türü.<br/>İzin verilen değerler şunlardır: **Temel**, ve **anonim**. |Evet |
 | kullanıcı adı |MongoDB erişmek için kullanıcı hesabı'nı tıklatın. |Evet (Temel kimlik doğrulaması kullanılıyorsa). |
 | password |Kullanıcının parolası. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). |Evet (Temel kimlik doğrulaması kullanılıyorsa). |
@@ -104,7 +104,7 @@ Bölümleri ve veri kümeleri tanımlamak için kullanılabilir olan özellikler
 
 ```json
 {
-     "name":  "MongoDbDataset",
+    "name": "MongoDbDataset",
     "properties": {
         "type": "MongoDbCollection",
         "linkedServiceName": {
@@ -205,14 +205,14 @@ Sanal tablolar normalleştirilmişlikten çıkarılmış verilere erişmek sür�
 
 Örneğin, burada ExampleTable her hücredeki – fatura, nesneleri içeren bir dizi içeren bir sütun ve skaler türler – derecelendirmeleri bir dizi içeren bir sütun bir MongoDB tablodur.
 
-| _kimliği | Müşteri adı | Faturalar | Hizmet Düzeyi | Derecelendirme |
+| _id | Müşteri adı | Faturalar | Hizmet Düzeyi | Derecelendirme |
 | --- | --- | --- | --- | --- |
 | 1111 |ABC |[{invoice_id: "123" öğesi: "toaster", price: "456" indirim: "0.2"}, {invoice_id: "124" öğesi: "fırın", price: "1235" indirim: "0.2"}] |Gümüş |[5,6] |
 | 2222 |XYZ |[{invoice_id: "135" öğesi: "fridge", price: "12543" indirim: "0.0"}] |Altın |[1,2] |
 
 Sürücü bu tek tabloda temsil etmek için birden çok sanal tablolar oluşturur. İlk sanal "örnekte gösterilen ExampleTable" adlı temel tablo tablosudur. Temel tablo özgün tablonun tüm verileri içerir, ancak dizileri verilerden çıkarıldı ve sanal tablolarında genişletilir.
 
-| _kimliği | Müşteri adı | Hizmet Düzeyi |
+| _id | Müşteri adı | Hizmet Düzeyi |
 | --- | --- | --- |
 | 1111 |ABC |Gümüş |
 | 2222 |XYZ |Altın |
@@ -225,7 +225,7 @@ Aşağıdaki tablolar, özgün diziler örnekte temsil eden sanal tablolar göst
 
 **Tablo "ExampleTable_Invoices":**
 
-| _kimliği | ExampleTable_Invoices_dim1_idx | invoice_id | Öğesi | price | İndirim |
+| _id | ExampleTable_Invoices_dim1_idx | invoice_id | Öğesi | price | İndirim |
 | --- | --- | --- | --- | --- | --- |
 | 1111 |0 |123 |toaster |456 |0.2 |
 | 1111 |1 |124 |Fırın |1235 |0.2 |
@@ -233,13 +233,12 @@ Aşağıdaki tablolar, özgün diziler örnekte temsil eden sanal tablolar göst
 
 **Tablo "ExampleTable_Ratings":**
 
-| _kimliği | ExampleTable_Ratings_dim1_idx | ExampleTable_Ratings |
+| _id | ExampleTable_Ratings_dim1_idx | ExampleTable_Ratings |
 | --- | --- | --- |
 | 1111 |0 |5 |
 | 1111 |1 |6 |
 | 2222 |0 |1 |
 | 2222 |1 |2 |
-
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure Data Factory kopyalama etkinliği tarafından kaynak ve havuz olarak desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](copy-activity-overview.md##supported-data-stores-and-formats).

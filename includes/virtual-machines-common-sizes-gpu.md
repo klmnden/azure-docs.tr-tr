@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/14/2018
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: db37515926bf3872a1183467e0449035f7bf6097
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: fd37c0c118812bb3554b19fec9bf5ae3f33a2fdc
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54122845"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54314105"
 ---
 GPU için iyileştirilmiş sanal makine boyutları olan özel sanal makineler tek veya birden çok NVIDIA GPU'ları ile kullanılabilir. Bu boyutları görselleştirme yoğun işlem gücü kullanımlı ve grafik kullanımlı iş yükleri için tasarlanmıştır. Bu makalede sayısı ve gpu'ları, Vcpu, veri diskleri ve NIC türü hakkında bilgi sağlar. Depolama aktarım hızı ve ağ bant genişliği de bu gruplandırmaki her boyut için dahil edilir. 
 
@@ -108,9 +108,9 @@ HPC, yapay ZEKA ve makine öğrenimi iş yükleri için tasarlanan GPU ailesine 
 <br>
 
 
-| Boyut              | vCPU'ın | GPU              | Bellek  | NIC'ler (Maks.) | En çok, Disk boyutu           | En çok, Veri diskleri (her biri 1.023 GB) | En fazla ağ bant genişliği | 
-|-------------------|-------------|-------------------|--------|------------------|---------|------------|--------------------------|--------------------|--------------------------------|-----------------------------------------|-----------------------|------------|
-| Standard_ND40s_v2 | 40     | 8 V100 (NVlilnk) | 672 giB | 8          | Geçici 1344 / 2948XIO | 32    | Yıllık 24.000 MB/sn             | 
+| Boyut              | Sanal işlemci | GPU              | Bellek  | NIC'ler (Maks.) | En çok, Disk boyutu           | En çok, Veri diskleri (her biri 1.023 GB) | En fazla ağ bant genişliği | 
+|-------------------|------|------------------|---------|------------|--------------------------|--------------------------------|-----------------------|
+| Standard_ND40s_v2 | 40   | 8 V100 (NVlilnk) | 672 GiB | 8          | Temporary 1344 / 2948XIO | 32                             | Yıllık 24.000 MB/sn           |
 
 ## <a name="nd-series"></a>ND serisi
 

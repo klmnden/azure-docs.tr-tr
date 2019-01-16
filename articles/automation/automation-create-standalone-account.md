@@ -6,21 +6,21 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/15/2018
+ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: dc369f5bc3d80a476e45d46cfe25541216484b1c
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 2e419da4ed84f3d202113f9616050c3e7c29f240
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958814"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54322053"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Tek başına Azure Otomasyonu hesabı oluşturma
 
 Bu makalede, Azure portalında Azure Otomasyonu hesabı oluşturma işlemini gösterir. Değerlendirmek ve ek yönetim çözümlerini veya tümleştirme, Azure Log Analytics ile kullanmadan Otomasyon hakkında bilgi edinmek için portal Otomasyon hesabı kullanabilirsiniz. Bu yönetim çözümlerini ekleyebilir veya Gelişmiş runbook işlerinin herhangi bir noktada gelecekte izlemek için Log Analytics ile tümleştirin.
 
-Bir Otomasyon hesabı ile Azure Resource Manager veya Klasik dağıtım modeli kaynakları yöneterek runbook'ların kimliğini doğrulayabilirsiniz. Bir Otomasyon hesabı, tüm bölgeler ve abonelikler belirli bir kiracının kaynakları yönetebilir.
+Bir Otomasyon hesabı ile Azure Resource Manager veya Klasik dağıtım modeli kaynakları yöneterek runbook'ların kimliğini doğrulayabilirsiniz. Bir Otomasyon Hesabı belirli bir kiracı için kaynakları tüm bölgelerde ve aboneliklerde yönetebilir.
 
 Bu hesaplar, Azure portalında bir Otomasyon hesabı oluşturduğunuzda otomatik olarak oluşturulur:
 
@@ -39,7 +39,7 @@ Oluşturulacak veya güncelleştirilecek bir Otomasyon hesabı ve bu makalede a�
 * Bir Otomasyon hesabı oluşturmak için Azure AD kullanıcı hesabınızın sahip rolüne eşdeğer izinlere sahip bir role eklenmesi gerekir **Microsoft. Otomasyon** kaynakları. Daha fazla bilgi için [Azure automation'da rol tabanlı erişim denetimi](automation-role-based-access-control.md).
 * Azure portalında altında **Azure Active Directory** > **Yönet** > **uygulama kayıtları**, **uygulama kayıtları**  ayarlanır **Evet**, Azure AD kiracınızdaki yönetici olmayan kullanıcılar [Active Directory uygulamaları kaydetme](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions). Varsa **uygulama kayıtları** ayarlanır **Hayır**, bu eylemi gerçekleştiren kullanıcının Azure AD'de genel yönetici olması gerekir.
 
-Aboneliğin genel yönetici/Abonelikteki rolüne eklenmeden önce aboneliğin Active Directory örneğine üye değilseniz Active Directory'ye konuk olarak eklenir. Bu senaryoda, bu ileti gördüğünüz **Otomasyon hesabı Ekle** sayfası: "Oluşturma izniniz yok."
+Aboneliğin genel yönetici/Abonelikteki rolüne eklenmeden önce aboneliğin Active Directory örneğine üye değilseniz Active Directory'ye konuk olarak eklenir. Bu senaryoda, bu ileti gördüğünüz **Otomasyon hesabı Ekle** sayfası: "Oluşturmak için izniniz yok."
 
 Bir kullanıcı, genel yönetici/Abonelikteki role eklendi, ilk olarak, aboneliğin Active Directory örneğinden kaldırın ve Active Directory'de tam bir kullanıcı rolüne rolleriniz.
 
@@ -69,7 +69,7 @@ Azure portalında bir Azure Otomasyonu hesabını oluşturmak için aşağıdaki
   >
   > ![Automation hesabı uyarısı ekleme](media/automation-create-standalone-account/create-account-without-perms.png)
 
-1. İçinde **Otomasyon hesabı Ekle** bölmesinde, **adı** kutusuna, yeni Automation hesabınız için bir ad girin. Bu ad, seçildikten sonra değiştirilemez. *Bölge ve kaynak grubu başına Otomasyon hesabı adları benzersizdir.*
+1. İçinde **Otomasyon hesabı Ekle** bölmesinde, **adı** kutusuna, yeni Automation hesabınız için bir ad girin. Bu ad, seçildikten sonra değiştirilemez. *Bölge ve kaynak grubu başına Otomasyon hesabı adları benzersizdir. Silinen bir Otomasyon hesapları için adları hemen kullanılamayabilir.*
 1. İçinde birden fazla aboneliğiniz varsa **abonelik** kutusunda, yeni hesap için kullanmak istediğiniz aboneliği belirtin.
 1. İçin **kaynak grubu**yeni veya mevcut bir kaynak grubu seçin veya girin.
 1. İçin **konumu**, bir Azure veri merkezi bölgesi seçin.

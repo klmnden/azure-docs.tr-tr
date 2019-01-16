@@ -10,12 +10,12 @@ ms.component: content-moderator
 ms.topic: tutorial
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 6f5a6c6ac4bd125fd7aa6358fe92f9453a0314b1
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 45f1b4d16bd982e17b67d6fb337e0d917f635851
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54266783"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332702"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Öğretici: Video ve döküm denetleme
 
@@ -241,7 +241,7 @@ Kod aşağıdaki adımları gerçekleştirir:
 
 - `App.config` dosyasındaki yapılandırmayı denetleyerek tüm gerekli verileri içerdiğinden emin olur
 - `ffmpeg` ikilisini denetleyerek var olduğundan emin olur
-- `_c.mp4` öğesini temel dosya adına ekleyerek çıkış dosya adını oluşturur (örneğin, `Example.mp4` -> `E>xample_c.mp4`)
+- `_c.mp4` öğesini temel dosya adına ekleyerek çıkış dosya adını oluşturur (örneğin, `Example.mp4` -> `Example_c.mp4`)
 - Dönüştürmeyi gerçekleştirmek için bir komut satırı dizesi oluşturur
 - Komut satırını kullanarak bir `ffmpeg` işlemi başlatır
 - Videonun işlenmesini bekler

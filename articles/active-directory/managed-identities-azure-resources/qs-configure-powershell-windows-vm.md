@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
-ms.openlocfilehash: a29980da64775ca39f103b7430239f38c98a43fc
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 4d4775169c40190e4cffb7b93c04abd58babc928
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578465"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320946"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-powershell"></a>PowerShell kullanarak bir Azure sanal makinesinde Azure kaynakları için yönetilen kimlik Yapılandır
 
@@ -88,6 +88,34 @@ Sistem tarafından atanan yönetilen kimlik olmadan ilk olarak sağlanan bir VM 
    ```
     > [!NOTE]
     > Azure örnek meta veri hizmeti (IMDS) kimlik endpoint de belirteçlerini almak için kullanabileceğiniz gibi bu adım isteğe bağlıdır.
+
+### <a name="add-vm-system-assigned-identity-to-a-group"></a>VM sistem tarafından atanan kimliği gruba ekleme
+
+Sistem tarafından atanan kimlik bir VM'de etkinleştirdikten sonra gruba ekleyebilirsiniz.  Aşağıdaki yordamda, bir sanal makinenin sistem tarafından atanan kimlik bir gruba ekler.
+
+1. Oturum açmak için Azure kullanarak `Login-AzureRmAccount`. VM içeren Azure aboneliği ile ilişkili olan bir hesap kullanın.
+
+   ```powershell
+   Login-AzureRmAccount
+   ```
+
+2. Alın ve Not `ObjectID` (belirtilmiş `Id` döndürülen değerleri alan) sanal makinenin hizmet sorumlusunun:
+
+   ```powerhshell
+   Get-AzureRmADServicePrincipal -displayname "myVM"
+   ```
+
+3. Alın ve Not `ObjectID` (belirtilmiş `Id` döndürülen değerleri alan) grubunun:
+
+   ```powershell
+   Get-AzureRmADGroup -searchstring "myGroup"
+   ```
+
+4. Sanal makinenin hizmet sorumlusu gruba ekleyin:
+
+   ```powershell
+   Add-AzureADGroupMember -ObjectId "<objectID of group>" -RefObjectId "<object id of VM service principal>"
+   ```
 
 ## <a name="disable-system-assigned-managed-identity-from-an-azure-vm"></a>Yönetilen kimlik sistem tarafından atanan bir Azure VM'den devre dışı bırak
 

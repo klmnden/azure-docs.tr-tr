@@ -11,24 +11,26 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 01/16/2019
 ms.author: sethm
 ms.reviewer: alfredop
-ms.openlocfilehash: e4e1b3cb823d08948c31aa6486c08a930a377dfa
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 147242e7d5d62204198360f580848cd997850d09
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161965"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332532"
 ---
-# <a name="report-azure-stack-usage-data-to-azure"></a>Azure Stack kullanım verileri Azure'a rapor 
+# <a name="report-azure-stack-usage-data-to-azure"></a>Azure Stack kullanım verileri Azure'a rapor
 
-Kullanım verileri, tüketim verilerini olarak da bilinir, kullanılan kaynakların miktarını temsil eder. 
+Kullanım verileri, tüketim verilerini olarak da bilinir, kullanılan kaynakların miktarını temsil eder.
 
 Kullanım tabanlı faturalandırma modeli kullandığınız azure Stack çok düğümlü sistemleri, faturalandırma için Azure'a kullanım verilerini bildirmeniz gerekir. Azure Stack operatörleri, kendi Azure Stack örneği kullanım verilerini raporlamaya azure'a yapılandırmanız gerekir.
 
-> [!NOTE]
-> Veri Kullanım raporlaması,-,-kullandıkça modeli altında lisans Azure Stack çok düğümlü kullanıcılar için gereklidir. İsteğe bağlı kapasite modeli altında lisans müşteriler için (bkz [sayfa satın alma](https://azure.microsoft.com/overview/azure-stack/how-to-buy/). Azure Stack operatörlerinin Azure Stack geliştirme Seti'ni kullanıcılar için kullanım verileri rapor ve özelliği test etmek. Ancak, kullanıcılar bunlara uygulanmaz kullanımı için ücretlendirilmez. 
+> [!IMPORTANT]
+> Tüm iş yükleri [Kiracı aboneliklerine altında dağıtılmalıdır](#are-users-charged-for-the-infrastructure-vms) lisans koşullarını Azure Stack ile uyum sağlamak için.
+
+Veri Kullanım raporlaması,-,-kullandıkça modeli altında lisans Azure Stack çok düğümlü kullanıcılar için gereklidir. İsteğe bağlı kapasite modeli altında lisans müşteriler için (bkz [sayfa satın alma](https://azure.microsoft.com/overview/azure-stack/how-to-buy/). Azure Stack operatörlerinin Azure Stack geliştirme Seti'ni kullanıcılar için kullanım verileri rapor ve özelliği test etmek. Ancak, kullanıcılar bunlara uygulanmaz kullanımı için ücretlendirilmez.
 
 ![Fatura akışı](media/azure-stack-usage-reporting/billing-flow.png)
 

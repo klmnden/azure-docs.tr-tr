@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: estfan, jonfan, LADocs
 ms.topic: article
 ms.date: 08/19/2018
-ms.openlocfilehash: bd31de8f60fff5630141f708714083fe76220d11
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: f60cb79324cad194877402203dbd1706727468d0
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410162"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330730"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Toplu işlem iletileri Azure Logic apps'te gönderme ve alma
 
@@ -50,20 +50,20 @@ Bir toplu iletileri göndermeden önce toplu iletiler göndermek burada hedef ol
 
 1. İçinde [Azure portalında](https://portal.azure.com) veya Visual Studio, bu ada sahip bir mantıksal uygulama oluşturun: "BatchReceiver" 
 
-2. Logic Apps Tasarımcısı'nda ekleme **Batch** mantıksal uygulama iş akışınızı başlatan bir tetikleyici. Arama kutusuna filtreniz olarak "toplu" girin. Şu tetikleyiciyi seçin: **toplu iletiler**
+2. Logic Apps Tasarımcısı'nda ekleme **Batch** mantıksal uygulama iş akışınızı başlatan bir tetikleyici. Arama kutusuna filtreniz olarak "toplu" girin. Şu tetikleyiciyi seçin: **Toplu işlem iletileri**
 
    !["İletileri toplu olarak" tetikleyici ekleme](./media/logic-apps-batch-process-send-receive-messages/add-batch-receiver-trigger.png)
 
-3. Batch, alıcı özellikleri ayarlayın: 
+3. Bu özellikler için toplu alıcı ayarlayın: 
 
    | Özellik | Açıklama | 
    |----------|-------------|
-   | **Toplu iş modu** | - **Satır içi**: yayın ölçütü toplu tetikleyici içinde tanımlama <br>- **Tümleştirme hesabı**: birden çok yayın ölçütleri yapılandırmalarını tanımlamak için bir [tümleştirme hesabı](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md). Bir tümleştirme hesabıyla bu yapılandırmalar, tek bir yerde yerine ayrı mantıksal uygulamalar bulundurabilirsiniz. | 
+   | **Toplu iş modu** | - **Satır içi**: Yayın ölçütü toplu tetikleyici içinde tanımlamak için <br>- **Tümleştirme hesabı**: Birden çok yayın ölçütleri yapılandırmalarını tanımlamak için bir [tümleştirme hesabı](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md). Bir tümleştirme hesabıyla bu yapılandırmalar, tek bir yerde yerine ayrı mantıksal uygulamalar bulundurabilirsiniz. | 
    | **Toplu işlem adı** | Bu örnekte "TestBatch" olması ve yalnızca, batch, adı **satır içi** toplu iş modu |  
-   | **Yayın ölçütü** | Yalnızca geçerli **satır içi** toplu iş modu ve her toplu işin işlenmeden önce karşılamak için ölçütleri seçer: <p>- **İleti sayısı tabanlı**: Toplu işlemde, örneğin, 10 ileti toplanacak ileti sayısı <br>- **Bağlı boyutu**: bayt, örneğin, 100 MB maksimum toplu iş boyutu <br>- **Zamanlama tabanlı**: aralık ve sıklık arasında toplu sürümleri, örneğin, 10 dakika. En az yinelenme 60 saniye veya 1 dakika ' dir. Kesirli dakika değerleri 1 dakika için etkili bir şekilde yuvarlanır. Başlangıç tarihini ve saatini belirtmek için **Gelişmiş Seçenekleri Göster**. <br>- **Tümünü Seç**: belirtilen ölçütleri kullanın. | 
+   | **Yayın ölçütü** | Yalnızca geçerli **satır içi** toplu iş modu ve her toplu işin işlenmeden önce karşılamak için ölçütleri seçer: <p>- **İleti sayısı tabanlı**: Toplu işlemde, örneğin, 10 ileti toplanacak ileti sayısı <br>- **Bağlı boyutu**: Örneğin, 10 MB bayt cinsinden maksimum toplu iş boyutu <br>- **Zamanlama tabanlı**: Toplu sürümler, örneğin, 10 dakika arasında bir sıklık ve aralığı. En az yinelenme 60 saniye veya 1 dakika ' dir. Kesirli dakika değerleri 1 dakika için etkili bir şekilde yuvarlanır. Başlangıç tarihini ve saatini belirtmek için **Gelişmiş Seçenekleri Göster**. <br>- **Tümünü Seç**: Belirtilen ölçütleri kullanın. | 
    ||| 
-   
-   Bu örnekte, tüm ölçütlerini seçer:
+
+   Bu örnekte, tüm ölçütleri gösterir, ancak kendi test etmek için yalnızca tek bir ölçüt seçin:
 
    ![Toplu tetikleyici ayrıntılarını sağlayın](./media/logic-apps-batch-process-send-receive-messages/batch-receiver-criteria.png)
 
@@ -76,12 +76,12 @@ Bir toplu iletileri göndermeden önce toplu iletiler göndermek burada hedef ol
 
    2. Arama kutusuna filtreniz olarak "e-posta gönder" yazın.
    E-posta sağlayıcınız bağlı olarak, bir e-posta bağlayıcısını seçin.
-      
+
       Örneğin, bir kişisel hesap gibi varsa @outlook.com veya @hotmail.com, Outlook.com bağlayıcısını seçin. 
       Gmail hesabına varsa, Gmail bağlayıcısını seçin. 
       Bu örnekte Office 365 Outlook kullanılmaktadır. 
 
-   3. Şu eylemi seçin: **- e-posta gönderin <*e-posta sağlayıcısı*>**
+   3. Şu eylemi seçin: **-E-posta gönderin <*e-posta sağlayıcısı*>**
 
       Örneğin:
 
@@ -98,7 +98,7 @@ Bir toplu iletileri göndermeden önce toplu iletiler göndermek burada hedef ol
 
      ![Dinamik içerik listesinden, "Bölüm adı" seçin](./media/logic-apps-batch-process-send-receive-messages/send-email-action-details.png)
 
-     Bir sonraki bölümde, hedef toplu işlem iletileri burada gönderebilir için mantıksal alt kümelerini ayıran benzersiz bir bölüm anahtarının belirtebilirsiniz. 
+     Daha sonra batch gönderici burada iletileri gönderebilir mantıksal altkümelere, hedef batch ayıran benzersiz bir bölüm anahtarı olarak belirtebilirsiniz. 
      Her batch gönderen mantıksal uygulama tarafından oluşturulan benzersiz bir numara ayarlanmış. 
      Bu özellik, birden çok alt kümeleri ile tek bir toplu iş kullanın ve her bir alt kümedeki, sağladığınız adla tanımlamak olanak tanır.
 
@@ -130,7 +130,7 @@ Bir toplu iletileri göndermeden önce toplu iletiler göndermek burada hedef ol
 1. Bu ada sahip başka bir mantıksal uygulama oluşturun: "BatchSender"
 
    1. Arama kutusuna filtreniz olarak "yinelenme" girin. 
-   Şu tetikleyiciyi seçin: **yinelenme - zamanlama**
+   Şu tetikleyiciyi seçin: **Yinelenme - zamanlama**
 
       !["– Zamanlama yinelenme" tetikleyicisi Ekle](./media/logic-apps-batch-process-send-receive-messages/add-schedule-trigger-batch-sender.png)
 
@@ -143,7 +143,7 @@ Bir toplu iletileri göndermeden önce toplu iletiler göndermek burada hedef ol
    1. Yinelenme tetikleyicisini altında seçin **yeni adım**.
 
    2. Arama kutusuna filtreniz olarak "toplu" girin. 
-   Seçin **eylemleri** listeleyin ve ardından şu eylemi seçin: **toplu işlem tetikleyicisi - toplu iletileri gönderme içeren bir Logic Apps iş akışı seçin**
+   Seçin **eylemleri** listeleyin ve ardından şu eylemi seçin: **Toplu işlem tetikleyicisi - toplu iletileri gönderme içeren bir Logic Apps iş akışı seçin**
 
       !["Toplu işlem tetikleyicisi içeren bir Logic Apps iş akışı seçin" seçin](./media/logic-apps-batch-process-send-receive-messages/send-messages-batch-action.png)
 
@@ -164,7 +164,7 @@ Bir toplu iletileri göndermeden önce toplu iletiler göndermek burada hedef ol
 
    | Özellik | Açıklama | 
    |----------|-------------| 
-   | **Toplu işlem adı** | Bu örnekte "TestBatch" olduğundan alıcı mantıksal uygulama tarafından tanımlanan toplu işlem adı <p>**Önemli**: toplu işlem adı, çalışma zamanında doğrulanacağı ve alıcı mantıksal uygulama tarafından belirtilen adla eşleşmelidir. Batch adının değiştirilmesi, batch gönderici başarısız olmasına neden olur. | 
+   | **Toplu işlem adı** | Bu örnekte "TestBatch" olduğundan alıcı mantıksal uygulama tarafından tanımlanan toplu işlem adı <p>**Önemli**: Toplu işlem adı, çalışma zamanında doğrulanacağı ve alıcı mantıksal uygulama tarafından belirtilen adla eşleşmelidir. Batch adının değiştirilmesi, batch gönderici başarısız olmasına neden olur. | 
    | **İleti içeriği** | Göndermek istediğiniz iletinin içeriği | 
    ||| 
 

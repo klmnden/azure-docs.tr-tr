@@ -3,7 +3,7 @@ title: Azure'da SQL Server için performans yönergeleri | Microsoft Docs
 description: Microsoft Azure sanal makinelerinde SQL Server performansını iyileştirmek için yönergeler sağlar.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 editor: ''
 tags: azure-service-management
@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 09/26/2018
-ms.author: jroth
-ms.openlocfilehash: 395994e2ac017bcdadaca4defad4ec0f910cea17
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: 120f88e6bb8b2c6a1408ef98eadfcbb520b5cdb3
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258138"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332668"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Azure sanal Makineler'de SQL Server için performans yönergeleri
 
@@ -41,7 +42,7 @@ Azure Virtual Machines'de SQL Server'ın en iyi performans için hızlı onay li
 | --- | --- |
 | [VM boyutu](#vm-size-guidance) |[DS3_v2](../sizes-general.md) veya SQL Enterprise edition için daha yüksek.<br/><br/>[DS2_v2](../sizes-general.md) veya üzeri SQL Standard ve Web sürümleri. |
 | [Depolama](#storage-guidance) |Kullanım [Premium depolama](../premium-storage.md). Standart depolama, yalnızca geliştirme/test için önerilir.<br/><br/>Tutun [depolama hesabı](../../../storage/common/storage-create-storage-account.md) ve SQL Server VM ile aynı bölgede.<br/><br/>Azure'ı devre dışı [coğrafi olarak yedekli depolama](../../../storage/common/storage-redundancy.md) (coğrafi çoğaltma) depolama hesabındaki. |
-| [Diskler](#disks-guidance) |En az 2 kullanın [P30 disk](../premium-storage.md#scalability-and-performance-targets) (günlük dosyaları ve tempdb'yi dahil olmak üzere veri dosyaları için 1 için 1).<br/><br/>Veritabanı depolama veya günlük kaydı için işletim sistemi veya geçici diskler kullanmaktan kaçının.<br/><br/>TempDB veri dosyaları ve veri dosyalarını barındıran diskler üzerinde okuma önbelleğini etkinleştirin.<br/><br/>Günlük dosyası barındırma diskler üzerinde önbelleğe alma etkinleştirmeyin.<br/><br/>Önemli: Azure VM disk için önbellek ayarları değiştirildiğinde SQL Server hizmetini durdurun.<br/><br/>Birden çok Azure veri diski daha yüksek g/ç aktarım hızı alma için stripe.<br/><br/>Belgelenen ayırma boyutları ile biçimlendirin. |
+| [Diskler](#disks-guidance) |En az 2 kullanın [P30 disk](../premium-storage.md#scalability-and-performance-targets) (günlük dosyaları ve tempdb'yi dahil olmak üzere veri dosyaları için 1 için 1).<br/><br/>Veritabanı depolama veya günlük kaydı için işletim sistemi veya geçici diskler kullanmaktan kaçının.<br/><br/>TempDB veri dosyaları ve veri dosyalarını barındıran diskler üzerinde okuma önbelleğini etkinleştirin.<br/><br/>Günlük dosyası barındırma diskler üzerinde önbelleğe alma etkinleştirmeyin.<br/><br/>Önemli: Bir Azure VM disk için önbellek ayarları değiştirildiğinde SQL Server hizmetini durdurun.<br/><br/>Birden çok Azure veri diski daha yüksek g/ç aktarım hızı alma için stripe.<br/><br/>Belgelenen ayırma boyutları ile biçimlendirin. |
 | [G/Ç](#io-guidance) |Veritabanı Sayfa sıkıştırmayı etkinleştirin.<br/><br/>Veri dosyaları için anında dosya başlatma etkinleştirin.<br/><br/>Veritabanında autogrowing sınırlayın.<br/><br/>Otomatik olarak küçültme veritabanında devre dışı bırakın.<br/><br/>Tüm veritabanları, sistem veritabanları dahil olmak üzere veri diskleri için taşıyın.<br/><br/>Veri diskleri için SQL Server hata günlüğü ve izleme dosya dizinleri taşıyın.<br/><br/>Varsayılan yedekleme ve veritabanı dosyası konumlarını ayarlayın.<br/><br/>Kilitli sayfalar sağlar.<br/><br/>SQL Server performans düzeltmeleri uygulayın. |
 | [Özelliğe özgü](#feature-specific-guidance) |Blob depolama alanına doğrudan yedekleyin. |
 
@@ -69,7 +70,7 @@ Ayrıca, aktarım gecikmelerini azaltmak için SQL Server sanal makineleri aynı
 
 Bir Azure sanal makinesinde üç ana disk türü vardır:
 
-* **İşletim sistemi diski**: platform, bir Azure sanal makine oluşturduğunuzda, en az bir disk tanıdığına (olarak etiketlenmiş **C** sürücü), işletim sistemi diski VM'ye. Bu disk depodaki bir sayfa blobu olarak depolanan bir vhd'dir.
+* **İşletim sistemi diski**: Bir Azure sanal makine oluşturduğunuzda, platform en az bir disk tanıdığına (olarak etiketlenmiş **C** sürücü), işletim sistemi diski VM'ye. Bu disk depodaki bir sayfa blobu olarak depolanan bir vhd'dir.
 * **Geçici disk**: Azure sanal makineleri içeren başka bir disk geçici diski de denen (olarak etiketlenmiş **D**: sürücü). Bu çalışma alanı için kullanılabilir düğüm üzerinde bir disktir.
 * **Veri diskleri**: Ayrıca ek diskler, sanal makineye veri diski ekleyebilirsiniz ve depolama alanında bunlar sayfa blobları depolanır.
 
@@ -91,15 +92,15 @@ Premium depolama (DS serisi, DSv2 serisi ve GS serisi) destekleyen VM'ler için 
 
 ### <a name="data-disks"></a>Veri diskleri
 
-* **Veri ve günlük dosyaları için veri diskleri kullanma**: disk bölümleme türüyle kullanmıyorsanız, iki Premium depolama kullanan [P30 disk](../premium-storage.md#scalability-and-performance-targets) burada bir disk günlük dosyaları ve diğer TempDB dosyaları ve verileri içerir. Makalesinde açıklandığı gibi her bir Premium depolama disk IOPS ve bant genişliği (MB/sn) boyutuna bağlı olarak birkaç sağlar [diskler için Premium depolama kullanan](../premium-storage.md). Depolama alanları gibi bir disk bölümleme türüyle teknik kullanıyorsanız, günlük dosyaları ve diğer veri dosyaları için iki havuz sağlayarak en iyi bir performansa ulaşın. Ancak, SQL Server Yük devretme kümesi örneği (FCI) kullanmayı planlıyorsanız, bir havuzu yapılandırmanız gerekir.
+* **Veri ve günlük dosyaları için veri diskleri kullanma**: Disk bölümleme türüyle kullanmıyorsanız, iki Premium depolama kullanan [P30 disk](../premium-storage.md#scalability-and-performance-targets) burada bir disk günlük dosyaları ve diğer TempDB dosyaları ve verileri içerir. Makalesinde açıklandığı gibi her bir Premium depolama disk IOPS ve bant genişliği (MB/sn) boyutuna bağlı olarak birkaç sağlar [diskler için Premium depolama kullanan](../premium-storage.md). Depolama alanları gibi bir disk bölümleme türüyle teknik kullanıyorsanız, günlük dosyaları ve diğer veri dosyaları için iki havuz sağlayarak en iyi bir performansa ulaşın. Ancak, SQL Server Yük devretme kümesi örneği (FCI) kullanmayı planlıyorsanız, bir havuzu yapılandırmanız gerekir.
 
    > [!TIP]
-   > Disk ve iş yükü çeşitli yapılandırmalarda test sonuçları almak için şu blog gönderisini inceleyin: [Azure vm'lerde SQL Server için depolama yapılandırma yönergeleri](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/).
+   > İçin test sonuçlarını çeşitli disk ve iş yükü yapılandırmaları için şu blog yayınına bakın: [Azure vm'lerde SQL Server için depolama yapılandırma yönergeleri](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/).
 
    > [!NOTE]
    > Bir SQL Server VM'si portalında sağladığınızda, depolama yapılandırmanızı düzenleme seçeneğiniz vardır. Yapılandırmanıza bağlı olarak, Azure, bir veya daha fazla disk yapılandırır. Birden çok disk bölümleme türüyle birlikte bir tek bir depolama havuzu halinde birleştirilir. Veri ve günlük dosyaları, bu yapılandırmada birlikte yer alır. Daha fazla bilgi için [SQL Server Vm'leri için depolama yapılandırması](virtual-machines-windows-sql-server-storage-configuration.md).
 
-* **Disk bölümleme türüyle**: daha fazla aktarım hızı için ek veri diskleri ekleme ve Disk bölümleme türüyle kullanın. Veri disk sayısını belirlemek için IOPS ve bant genişliği için günlük dosyalarınızı ve verilerinizi ve TempDB dosyaları için gerekli sayıda analiz etmeniz. Farklı VM boyutları farklı sınırlar IOPS ve bant genişliği desteklenen sayısına sahip olduğunu fark, şirket başına IOPS tablolara bakın [VM boyutu](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Aşağıdaki yönergeleri kullanın:
+* **Disk bölümleme türüyle**: Daha fazla aktarım hızı için ek veri diskleri ekleyip Disk bölümleme türüyle kullanabilirsiniz. Veri disk sayısını belirlemek için IOPS ve bant genişliği için günlük dosyalarınızı ve verilerinizi ve TempDB dosyaları için gerekli sayıda analiz etmeniz. Farklı VM boyutları farklı sınırlar IOPS ve bant genişliği desteklenen sayısına sahip olduğunu fark, şirket başına IOPS tablolara bakın [VM boyutu](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Aşağıdaki yönergeleri kullanın:
 
   * Windows 8/Windows için Server 2012 veya üzeri kullanın [depolama alanları](https://technet.microsoft.com/library/hh831739.aspx) aşağıdaki yönergeleri ile:
 
@@ -123,7 +124,7 @@ Premium depolama (DS serisi, DSv2 serisi ve GS serisi) destekleyen VM'ler için 
 
   * Premium depolama (geliştirme/test senaryoları) kullanmıyorsanız, tarafından desteklenen veri diskleri en fazla sayıda eklemek için kullanılması önerilir, [VM boyutu](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ve Disk bölümleme türüyle kullanın.
 
-* **Önbelleğe alma İlkesi**: önbelleğe alma İlkesi, depolama yapılandırmasına bağlı olarak aşağıdaki önerileri unutmayın.
+* **Önbelleğe alma İlkesi**: Önbelleğe alma İlkesi, depolama yapılandırmasına bağlı olarak aşağıdaki önerileri unutmayın.
 
   * Veri ve günlük dosyalarını ayrı diskler kullanıyorsanız, veri dosyaları ve TempDB veri dosyalarını barındıran veri disklerinde okuma önbelleğini etkinleştirin. Bu önemli bir performans avantaj olarak sonuçlanabilir. Günlük dosyası küçük bir performans düşüklüğü açacağından bulunduran disk üzerinde önbelleğe alma etkinleştirmeyin.
 
@@ -131,14 +132,14 @@ Premium depolama (DS serisi, DSv2 serisi ve GS serisi) destekleyen VM'ler için 
 
   * Önceki öneriler, Premium depolama diskleri için geçerlidir. Premium depolama kullanmıyorsanız, tüm veri disklerinde önbelleğe alma etkinleştirmeyin.
 
-  * Disk önbelleğe almayı yapılandırma ile ilgili yönergeler için aşağıdaki makalelere bakın. Klasik (ASM) dağıtım modeli için bkz: [kümesi AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) ve [kümesi AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx). Azure Resource Manager dağıtım modeli için bkz: [kümesi AzureRMOSDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk?view=azurermps-4.4.1) ve [Set-AzureRMVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmdatadisk?view=azurermps-4.4.1).
+  * Disk önbelleğe almayı yapılandırma ile ilgili yönergeler için aşağıdaki makalelere bakın. Dağıtım modeli Klasik (ASM) için bkz: [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) ve [kümesi AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx). Azure Resource Manager dağıtım modeli görmek için: [Set-AzureRMOSDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk?view=azurermps-4.4.1) ve [Set-AzureRMVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmdatadisk?view=azurermps-4.4.1).
 
      > [!WARNING]
      > Azure VM Disk önbellek ayarı veritabanında bozulma olasılığını önlemek için değiştirilirken SQL Server hizmetini durdurun.
 
-* **NTFS ayırma birimi boyutu**: veri diski biçimlendirme sırasında TempDB yanı sıra veri ve günlük dosyaları için 64 KB ayırma birimi boyutu kullanmanız önerilir.
+* **NTFS ayırma birimi boyutu**: Veri diski biçimlendirme sırasında TempDB yanı sıra veri ve günlük dosyaları için 64 KB ayırma birimi boyutu kullanmanız önerilir.
 
-* **Disk Yönetimi en iyi**: ne zaman veri diski kaldırma veya değiştirme, önbellek türü SQL Server hizmetini durdurun değişiklik sırasında. İşletim sistemi diskinde önbelleğe alma ayarlarını değiştiğinde, Azure VM'yi durdurur, önbellek türü değiştirir ve VM'yi yeniden başlatır. Bir veri diskinin önbellek ayarları değiştirildiğinde VM durdurulmadı, ancak veri diski sanal makineden değişiklik sırasında kullanımdan çıkarıldı ve ardından eklenemeyeceği.
+* **Disk Yönetimi en iyi**: Veri diski kaldırma veya değiştirme önbelleğinde yazdığınızda, değişiklik sırasında SQL Server hizmetini durdurun. İşletim sistemi diskinde önbelleğe alma ayarlarını değiştiğinde, Azure VM'yi durdurur, önbellek türü değiştirir ve VM'yi yeniden başlatır. Bir veri diskinin önbellek ayarları değiştirildiğinde VM durdurulmadı, ancak veri diski sanal makineden değişiklik sırasında kullanımdan çıkarıldı ve ardından eklenemeyeceği.
 
   > [!WARNING]
   > Bu işlemleri sırasında SQL Server hizmetini durdurmak için hata veritabanında bozulmaya neden olabilir.

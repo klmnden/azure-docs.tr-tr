@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/17/2018
-ms.openlocfilehash: 5d7a16ebda088d0ed42021e9def20a398e914ad9
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 29672a75408e42fb9239e5d826784b46e7280805
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158135"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332277"
 ---
 # <a name="create-change-or-delete-an-azure-route-table-using-ansible"></a>Oluşturma, değiştirme veya ansible'ı kullanarak bir Azure rota tablosunu sil
 Azure otomatik olarak Azure alt ağlar, sanal ağlar arasındaki trafiği yönlendirir ve şirket içi ağlara. Azure'da varsayılan yönlendirmeyi değiştirmek istiyorsanız, oluşturarak bunu bir [yol tablosu](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
@@ -51,7 +51,7 @@ ansible-playbook route_table_create.yml
 ## <a name="associate-a-route-table-to-a-subnet"></a>Yönlendirme tablosunu bir alt ağ ile ilişkilendirme
 Bir alt ağ ile ilişkili sıfır veya bir yol tablosu olabilir. Sıfır veya birden çok alt ağa bir yol tablosu ilişkilendirilebilir. Rota tabloları sanal ağlara ilişkili olmadığından bir yol tablosu ile ilişkili yol tablosuna istediğiniz her bir alt ağa ilişkilendirmeniz gerekir. Alt ağdan çıkan tüm trafiği rota tabloları içinde oluşturulmuş rotalar göre yönlendirilir [varsayılan yolları](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#default), ve yollar yayılan bir şirket içi ağdan sanal ağa bağlı olması durumunda bir Azure sanal ağ geçidi (için ExpressRoute veya VPN ağ geçidi ile BGP kullanıyorsanız, VPN). Yalnızca bir yol tablosu aynı Azure konumunda ve aboneliğinde yol tablosu olarak mevcut olan sanal ağlardaki alt ağlara ilişkilendirebilirsiniz.
 
-Bu bölümde, bir sanal ağ ve bir Gönder oluşturur, sonra alt ağa bir yol tablosu ilişkilendirir bir Ansible playbook sunar.
+Bu bölümde, bir sanal ağ ve bir alt ağ oluşturur, sonra alt ağa bir yol tablosu ilişkilendirir bir Ansible playbook sunar.
 
 ```yml
 - hosts: localhost

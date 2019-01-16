@@ -3,7 +3,7 @@ title: Anahtar kasası (Klasik) azure'da Windows sanal makinelerinde SQL Server 
 description: Azure Key Vault ile kullanmak için SQL Server şifreleme yapılandırmasını otomatikleştirme hakkında bilgi edinin. Bu konuda, SQL Server sanal makineleri Klasik dağıtım modelinde oluşturma ile Azure anahtar kasası tümleştirmeyi kullanmayı açıklar.
 services: virtual-machines-windows
 documentationcenter: ''
-author: rothja
+author: MashaMSFT
 manager: craigg
 editor: ''
 tags: azure-service-management
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/17/2017
-ms.author: jroth
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e5e156166ec9e085cf7a3c2dcb72aa9e87bbadf1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: 3711277ca11346cf73ff37c37ef4185d8bfdf6b9
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244958"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329880"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>Azure sanal makinelerinde (Klasik) SQL Server için Azure anahtar kasası tümleştirmesini yapılandırma
 > [!div class="op_single_selector"]
@@ -56,8 +56,8 @@ Aşağıdaki tabloda, sonraki bölümde PowerShell betiğini çalıştırmak iç
 | **$akvURL** |**Key vault URL'si** |"https://contosokeyvault.vault.azure.net/" |
 | **$spName** |**Hizmet asıl adı** |"fde2b411-33d5-4e11-af04eb07b669ccf2" |
 | **$spSecret** |**Hizmet sorumlusu gizli anahtarı** |"9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=" |
-| **$credName** |**Kimlik bilgisi adı**: AKV Tümleştirme, VM’nin anahtar kasasına erişim sağlamasına izin vererek, SQL Server’da bir kimlik bilgisi oluşturur Bu kimlik bilgisi için bir ad seçin. |"mycred1" |
-| **$vmName** |**Sanal makine adı**: önceden oluşturulmuş bir SQL VM adı. |"myvmname" |
+| **$credName** |**Kimlik bilgisi adı**: AKV tümleştirme VM'nin anahtar kasasına erişim sağlayan, SQL Server içinde bir kimlik bilgisi oluşturur. Bu kimlik bilgisi için bir ad seçin. |"mycred1" |
+| **$vmName** |**Sanal makine adı**: Önceden oluşturulmuş bir SQL VM adı. |"myvmname" |
 | **$serviceName** |**Hizmet adı**: SQL VM ile ilişkili bir bulut hizmeti adı. |"mycloudservicename" |
 
 ### <a name="enable-akv-integration-with-powershell"></a>PowerShell ile AKV tümleştirmesini etkinleştirme

@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 1/14/2019
 ms.author: victorh
-ms.openlocfilehash: 9d10383b84cbd1b85216cb9ae4582db4c7a10743
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 079790952263ae2ef68abc8e426b0330fef1c53f
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54268085"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321781"
 ---
 # <a name="integrate-azure-firewall-with-azure-standard-load-balancer"></a>Azure güvenlik duvarı Azure standart Load Balancer ile tümleştirin
 
@@ -26,7 +26,7 @@ Bir genel yük dengeleyici ile bir genel ön uç IP adresini yük dengeleyici da
 
 ### <a name="asymmetric-routing"></a>Asimetrik yönlendirme
 
-Asimetrik yönlendirme, burada, bir paket için hedef bir yolunu alır ve kaynak döndürülürken başka bir yol alır girebiliriz. Bir alt ağ Güvenlik Duvarı'nın özel IP adresi ve herkese açık yük dengeleyici için varsayılan yolu varsa bir sorun ortaya çıkabilir. Bu durumda, gelen yük dengeleyici trafik kendi genel IP adresi alınır ancak bir dönüş yolu güvenlik duvarının özel IP adresi üzerinden gider. Güvenlik Duvarı, durum bilgisi olduğundan, Güvenlik Duvarı bu tür bir yerleşik oturumu farkında olmadığından System.Numerics.vectors.dll gelen paket bırakılır.
+Asimetrik yönlendirme, burada, bir paket için hedef bir yolunu alır ve kaynak döndürülürken başka bir yol alır girebiliriz. Güvenlik duvarının özel IP adresine giderek varsayılan yol bir alt ağ olan ve herkese açık yük dengeleyici kullanıyorsanız bu sorun oluşur. Bu durumda, gelen yük dengeleyici trafik kendi genel IP adresi alınır ancak bir dönüş yolu güvenlik duvarının özel IP adresi üzerinden gider. Güvenlik Duvarı, durum bilgisi olduğundan, Güvenlik Duvarı bu tür bir yerleşik oturumu farkında olmadığından System.Numerics.vectors.dll gelen paket bırakılır.
 
 ### <a name="fix-the-routing-issue"></a>Yönlendirme sorunu düzeltin
 

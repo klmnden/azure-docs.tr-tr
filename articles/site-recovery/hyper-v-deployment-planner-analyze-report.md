@@ -2,18 +2,18 @@
 title: Azure'a Hyper-V vm'lerinin olağanüstü durum kurtarma için Azure Site Recovery dağıtım Planlayıcısı raporunu analiz etme | Microsoft Docs
 description: Bu makalede olağanüstü durum kurtarma Hyper-V vm'lerini azure'a Azure Site Recovery dağıtım Planlayıcısı tarafından oluşturulan raporu analiz etme.
 services: site-recovery
-author: nsoneji
-manager: garavd
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: nisoneji
-ms.openlocfilehash: 4c857afb6fbec8501c1f5836935dd6e78f89e67d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.author: mayg
+ms.openlocfilehash: 5fbcfd102518dc231ad61c54e626c14381bf5a02
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847754"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321628"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Azure Site Recovery dağıtım Planlayıcısı raporunu analiz etme
 Bu makalede, Hyper-V’den Azure’a dağıtım senaryosu için Azure Site Recovery Dağıtım Planlayıcısı tarafından oluşturulan Excel raporunda bulunan sayfalar ele alınmaktadır.
@@ -23,23 +23,23 @@ Bu makalede, Hyper-V’den Azure’a dağıtım senaryosu için Azure Site Recov
 
 ![Şirket içi özeti](media/hyper-v-deployment-planner-analyze-report/on-premises-summary-h2a.png)
 
-**Başlangıç tarihi** ve **Bitiş tarihi**: Rapor oluşturma için göz önünde bulundurulan profil oluşturma verilerinin başlangıç ve bitiş tarihleri. Varsayılan olarak, başlangıç tarihi profil oluşturmanın başladığı, bitiş tarihi ise profil oluşturmanın durdurulduğu tarihtir. Rapor bu parametrelerle oluşturulduysa bu bilgiler "StartDate" ve "EndDate" değerleri olabilir.
+**Başlangıç tarihi** ve **bitiş tarihi**: Rapor oluşturma için göz önünde bulundurulan profil oluşturma verilerinin başlangıç ve bitiş tarihleri. Varsayılan olarak, başlangıç tarihi profil oluşturmanın başladığı, bitiş tarihi ise profil oluşturmanın durdurulduğu tarihtir. Rapor bu parametrelerle oluşturulduysa bu bilgiler "StartDate" ve "EndDate" değerleri olabilir.
 
-**Profil oluşturulan toplam gün sayısı**: Raporun oluşturulduğu başlangıç ile bitiş tarihleri arasında profil oluşturulan toplam gün sayısı.
+**Profil oluşturma işleminin toplam sayısı**: Raporun oluşturulduğu başlangıç ve bitiş tarihleri arasında profil gün sayısı.
 
-**Uyumlu sanal makine sayısı**: Gerekli ağ bant genişliği, gerekli depolama hesabı sayısı ve Azure çekirdek sayısının hesaplandığı uyumlu sanal makinelerin toplam sayısı.
+**Uyumlu sanal makinelerin sayısı**: Gerekli ağ bant genişliği, gerekli depolama hesapları ve Azure çekirdek sayısı hesaplandığı uyumlu sanal makinelerin toplam sayısı.
 
-**Tüm uyumlu sanal makinelerdeki toplam disk sayısı**: Tüm uyumlu sanal makinelerdeki toplam disk sayısıdır.
+**Tüm uyumlu sanal makinelerdeki toplam disk sayısına**: Tüm uyumlu sanal disklerde toplam sayısı.
 
-**Bir uyumlu sanal makinedeki ortalama disk sayısı**: Tüm uyumlu sanal makinelerde hesaplanan ortalama disk sayısıdır.
+**Uyumlu sanal makinedeki disk ortalama sayısı**: Diskler, tüm uyumlu sanal makinelerde hesaplanan ortalama sayısı.
 
 **Ortalama disk boyutu (GB)**: Tüm uyumlu sanal makinelerde hesaplanan ortalama disk boyutudur.
 
-**İstenen RPO (dakika)**: Varsayılan kurtarma noktası hedefi veya rapor oluşturma sırasında gerekli bant genişliğini tahmin etmek üzere ‘DesiredRPO’ parametresi için geçirilen değer.
+**İstenen RPO (dakika)**: Varsayılan kurtarma noktası hedefi veya gerekli bant genişliğini tahmin etmek için rapor oluşturma sırasında "DesiredRPO" parametresi için geçirilen değer.
 
-**İstenen bant genişliği (Mb/sn)**: Rapor oluşturma sırasında ulaşılabilir kurtarma noktası hedefini (RPO) tahmin etmek üzere "Bandwidth" parametresi için geçirdiğiniz değer.
+**İstenen bant genişliği (MB/sn)**: Ulaşılabilir kurtarma noktası hedefi (RPO) tahmin etmek için rapor oluşturma sırasında "Bandwidth" parametresi için geçirilen değer.
 
-**Bir günde gözlemlenen tipik veri değişim sıklığı (GB)**: Profil oluşturulan tüm günlerde gözlemlenen ortalama veri değişim sıklığıdır.
+**(GB) günde gözlemlenen tipik veri değişim sıklığı**: Profil oluşturma tüm günlerde gözlemlenen ortalama veri değişim sıklığı.
 
 ## <a name="recommendations"></a>Öneriler 
 Hyper-V'den Azure'a dağıtım raporunun öneriler sayfasında, seçilen ve istenen RPO'ya göre aşağıdaki ayrıntılar yer alır:
@@ -49,31 +49,31 @@ Hyper-V'den Azure'a dağıtım raporunun öneriler sayfasında, seçilen ve iste
 ### <a name="profile-data"></a>Profil verileri
 ![Profil verileri](media/hyper-v-deployment-planner-analyze-report/profile-data-h2a.png)
 
-**Profili oluşturulmuş veri süresi**: Profil oluşturma işleminin gerçekleştirildiği süre. Varsayılan olarak, araç hesaplamadaki tüm profil verilerini içerir. Rapor oluşturma sırasında StartDate ve EndDate seçeneğini kullandıysanız belirli bir dönem için rapor oluşturulur. 
+**Profili oluşturulmuş veri dönemi**: Profil oluşturma sırasında hangi çalıştırıldığı süre. Varsayılan olarak, araç hesaplamadaki tüm profil verilerini içerir. Rapor oluşturma sırasında StartDate ve EndDate seçeneğini kullandıysanız belirli bir dönem için rapor oluşturulur. 
 
 **Profili oluşturulan Hyper-V sunucularının sayısı**: İçerdikleri sanal makinelerin raporu oluşturulan Hyper-V sunucularının sayısı. Hyper-V sunucularının adını görüntülemek için sayıyı seçin. Şirket İçi Depolama Gereksinimi sayfası açılır ve depolama gereksinimleriyle birlikte tüm sunucuları gösterir. 
 
-**İstenen RPO**: Dağıtımınıza yönelik kurtarma noktası hedefi. Varsayılan olarak, gerekli ağ bant genişliği 15, 30 ve 60 dakikalık RPO değerleri için hesaplanır. Seçim temel alınarak, etkilenen değerler sayfada güncelleştirilir. Raporu oluştururken DesiredRPOinMin parametresini kullandıysanız bu değer İstenen RPO sonucunda gösterilir.
+**İstenen RPO**: Dağıtımınız için kurtarma noktası hedefi. Varsayılan olarak, gerekli ağ bant genişliği 15, 30 ve 60 dakikalık RPO değerleri için hesaplanır. Seçim temel alınarak, etkilenen değerler sayfada güncelleştirilir. Raporu oluştururken DesiredRPOinMin parametresini kullandıysanız bu değer İstenen RPO sonucunda gösterilir.
 
 ### <a name="profiling-overview"></a>Profil oluşturmaya genel bakış
 ![Profil oluşturmaya genel bakış](media/hyper-v-deployment-planner-analyze-report/profiling-overview-h2a.png)
 
-**Profili Oluşturulan Toplam Sanal Makine Sayısı**: Profili oluşturulan verileri bulunan sanal makinelerin toplam sayısı. VMListFile dosyasında profili oluşturulmamış sanal makineler varsa, bu sanal makineler rapor oluşturma işleminde göz önünde bulundurulmaz ve profili oluşturulan toplam sanal makine sayısının dışında tutulur.
+**Toplam sanal makine profili**: Profili oluşturulan verileri kullanılabilir sanal makinelerin toplam sayısı. VMListFile dosyasında profili oluşturulmamış sanal makineler varsa, bu sanal makineler rapor oluşturma işleminde göz önünde bulundurulmaz ve profili oluşturulan toplam sanal makine sayısının dışında tutulur.
 
-**Uyumlu Sanal Makineler**: Azure Site Recovery kullanılarak Azure’da korunabilen sanal makine sayısı. Bu sayı, gerekli ağ bant genişliği, depolama hesabı sayısı ve Azure çekirdek sayısının hesaplandığı uyumlu sanal makinelerin toplam sayısıdır. Her uyumlu VM’nin ayrıntıları "Uyumlu VM’ler" bölümünde bulunabilir.
+**Uyumlu sanal makinelerin**: Azure Site Recovery kullanılarak Azure'da korunabilen sanal makineleri sayısı. Bu sayı, gerekli ağ bant genişliği, depolama hesabı sayısı ve Azure çekirdek sayısının hesaplandığı uyumlu sanal makinelerin toplam sayısıdır. Her uyumlu VM’nin ayrıntıları "Uyumlu VM’ler" bölümünde bulunabilir.
 
-**Uyumsuz Sanal Makineler**: Site Recovery ile koruma için uygun olmayan, profili oluşturulmuş sanal makine sayısı. Uyumsuzluğun nedenleri, “Uyumsuz VM’ler” bölümünde belirtilmiştir. VMListFile içinde profili oluşturulmamış bir sanal makinenin adı varsa, bu sanal makineler uyumsuz sanal makine sayısının dışında bırakılır. Bu sanal makineler, “Uyumsuz VM’ler” bölümünün sonunda “Veri bulunamadı” olarak listelenir.
+**Uyumsuz sanal makineler**: Site Recovery ile koruma için uygun olmayan profili oluşturulan sanal makinelerin sayısı. Uyumsuzluğun nedenleri, “Uyumsuz VM’ler” bölümünde belirtilmiştir. VMListFile içinde profili oluşturulmamış bir sanal makinenin adı varsa, bu sanal makineler uyumsuz sanal makine sayısının dışında bırakılır. Bu sanal makineler, “Uyumsuz VM’ler” bölümünün sonunda “Veri bulunamadı” olarak listelenir.
 
-**İstenen RPO**: Dakika cinsinden istediğiniz kurtarma noktası hedefi. Rapor üç RPO değeri için oluşturulur: 15 (varsayılan), 30 ve 60 dakika. Rapordaki bant genişliği önerisi, sayfanın sağ üst köşesinde bulunan **İstenen RPO** açılır listesindeki seçiminize göre değişir. Özel bir değer ile -DesiredRPO parametresini kullanarak raporu oluşturduysanız bu özel değer, **İstenen RPO** açılır listesinde varsayılan olarak gösterilir.
+**İstenen RPO**: Dakika cinsinden istenen kurtarma noktası hedefi. Rapor üç RPO değeri için oluşturulur: 15 (varsayılan), 30 ve 60 dakika. Rapordaki bant genişliği önerisi, sayfanın sağ üst köşesinde bulunan **İstenen RPO** açılır listesindeki seçiminize göre değişir. Özel bir değer ile -DesiredRPO parametresini kullanarak raporu oluşturduysanız bu özel değer, **İstenen RPO** açılır listesinde varsayılan olarak gösterilir.
 
 ### <a name="required-network-bandwidth-mbps"></a>Gerekli ağ bant genişliği (Mb/sn)
 ![Gerekli ağ bant genişliği](media/hyper-v-deployment-planner-analyze-report/required-network-bandwidth-h2a.png)
 
-**%100 RPO süresini karşılamak için**: İstediğiniz yüzde 100 RPO süresini karşılamak için Mb/sn cinsinden ayrılacak önerilen bant genişliği. Bu bant genişliği miktarı, herhangi bir RPO ihlalini önlemek üzere tüm uyumlu sanal makinelerinizin kararlı durum delta çoğaltması için ayrılmalıdır.
+**Sürenin % 100 RPO karşılamak için**: Önerilen bant genişliğini sürenin yüzde 100 istenen RPO karşılamak için ayrılacak MB/sn cinsinden. Bu bant genişliği miktarı, herhangi bir RPO ihlalini önlemek üzere tüm uyumlu sanal makinelerinizin kararlı durum delta çoğaltması için ayrılmalıdır.
 
-**%90 RPO süresini karşılamak için**: Geniş bant fiyatlandırması nedeniyle veya başka bir nedenle istediğiniz %100 RPO süresini karşılamak için gerekli bant genişliğini ayarlayamayabilirsiniz. Bu durumda, istediğiniz yüzde 90 RPO süresini karşılayabilecek daha düşük bir bant genişliği ayarı kullanabilirsiniz. Daha düşük olan bu bant genişliğini ayarlamanın etkilerini anlamak için, raporda beklenen RPO ihlallerinin sayısı ve süresine ilişkin bir ne yapmalı analizi sağlar.
+**Süresinin % 90 RPO karşılamak için**: Belki de geniş bant fiyatlandırması veya başka bir nedenle nedeniyle istenen RPO süresini yüzde 100 karşılamak için gereken bant genişliğini ayarlanamaz. Bu durumda, istediğiniz yüzde 90 RPO süresini karşılayabilecek daha düşük bir bant genişliği ayarı kullanabilirsiniz. Daha düşük olan bu bant genişliğini ayarlamanın etkilerini anlamak için, raporda beklenen RPO ihlallerinin sayısı ve süresine ilişkin bir ne yapmalı analizi sağlar.
 
-**Elde Edilen Aktarım Hızı**: Depolama hesabının bulunduğu Azure bölgesine GetThroughput komutunu çalıştırdığınız sunucudan aktarım hızı. Bu aktarım hızı sayısı, Site Recovery kullanarak uyumlu sanal makineleri koruduğunuzda elde edebileceğiniz tahmini düzeyi belirtir. Hyper-V sunucusunun depolama ve ağ özellikleri, aracı çalıştırdığınız sunucunun depolama ve ağ özellikleriyle aynı kalmalıdır.
+**Elde edilen aktarım hızı**: Depolama hesabının bulunduğu Azure bölgesine GetThroughput komutunu çalıştırırsanız üzerinde sunucudan aktarım. Bu aktarım hızı sayısı, Site Recovery kullanarak uyumlu sanal makineleri koruduğunuzda elde edebileceğiniz tahmini düzeyi belirtir. Hyper-V sunucusunun depolama ve ağ özellikleri, aracı çalıştırdığınız sunucunun depolama ve ağ özellikleriyle aynı kalmalıdır.
 
 Tüm kurumsal Site Recovery dağıtımları için [ExpressRoute](https://aka.ms/expressroute) kullanılması önerilir.
 
@@ -127,7 +127,7 @@ Bu özet, Site Recovery kullanarak tüm uyumlu sanal makinelerinizi Azure’da k
  
 Aylık veya yıllık maliyeti görüntüleyebilirsiniz. [Desteklenen hedef bölgeler](./hyper-v-deployment-planner-cost-estimation.md#supported-target-regions) ve [desteklenen para birimleri](./hyper-v-deployment-planner-cost-estimation.md#supported-currencies) hakkında daha fazla bilgi edinin.
 
-**Bileşenlere göre maliyet**: Toplam DR maliyeti dört bileşene bölünür: Bilgi işlem, depolama, ağ ve Site Recovery lisansı maliyeti. Maliyet, çoğaltma sırasında ve DR tatbikatı anında oluşan tüketime dayalı olarak hesaplanır. Hesaplamalar için bilgi işlem, depolama (premium ve standart), şirket içi site ve Azure arasında yapılandırılan ExpressRoute/VPN ve Site Recovery lisansı kullanılır.
+**Bileşenlere göre maliyet**: Toplam DR maliyeti dört bileşene bölünür: işlem, depolama, ağ ve Site Recovery lisans maliyeti. Maliyet, çoğaltma sırasında ve DR tatbikatı anında oluşan tüketime dayalı olarak hesaplanır. Hesaplamalar için bilgi işlem, depolama (premium ve standart), şirket içi site ve Azure arasında yapılandırılan ExpressRoute/VPN ve Site Recovery lisansı kullanılır.
 
 **Durumlara göre maliyet**: Toplam olağanüstü durum kurtarma maliyeti, iki farklı duruma göre kategorilere ayrılır: çoğaltma ve DR tatbikatı. 
 
@@ -135,7 +135,7 @@ Aylık veya yıllık maliyeti görüntüleyebilirsiniz. [Desteklenen hedef bölg
 
 **DR Tatbikatı maliyeti**: Yük devretme testi sırasında tahakkuk ettirilen maliyet. Site Recovery, yük devretme testi sırasında sanal makineleri çalıştırır. DR tatbikatı maliyeti, çalıştırılan sanal makinelerin bilgi işlem ve depolama maliyetini kapsar. 
 
-**Ay/Yıl başına Azure Depolama Maliyeti**: Çubuk grafik, çoğaltma ve DR tatbikatının premium ve standart depolaması için tahakkuk ettirilen toplam depolama maliyetini gösterir. [Maliyetini Tahmini](hyper-v-deployment-planner-cost-estimation.md) sayfasında VM başına ayrıntılı maliyet analizini görüntüleyebilirsiniz.
+**Ay/yıl başına Azure depolama maliyeti**: Çubuk grafik, premium ve standart depolaması için çoğaltma ve DR tatbikatı tahakkuk ettirilen toplam depolama maliyetini gösterir. [Maliyetini Tahmini](hyper-v-deployment-planner-cost-estimation.md) sayfasında VM başına ayrıntılı maliyet analizini görüntüleyebilirsiniz.
 
 ### <a name="growth-factor-and-percentile-values-used"></a>Kullanılan büyüme faktörü ve yüzdelik değerler
 Sayfanın alt kısmındaki bu bölümde, profili oluşturulan sanal makinelerin tüm performans sayaçları için kullanılan yüzdelik dilim değeri (varsayılan değer yüzde 95’lik dilim) gösterilmektedir. Ayrıca tüm hesaplamalarda kullanılan büyüme faktörünü de gösterir (varsayılan değer yüzde 30).
@@ -152,17 +152,17 @@ Site Recovery çoğaltması için x MB/sn’den fazla bant genişliği ayarlayam
 ## <a name="vm-storage-placement-recommendation"></a>VM-depolama yerleştirme önerisi 
 ![VM-depolama yerleşimi](media/hyper-v-deployment-planner-analyze-report/vm-storage-placement-h2a.png)
 
-**Disk Depolama Türü**: **Yerleştirilecek VM’ler** sütununda bahsedilen tüm ilgili sanal makineleri çoğaltmak için kullanılan standart veya premium depolama hesabıdır.
+**Disk depolama türü**: İçinde bahsedilen tüm ilgili sanal makineleri çoğaltmak için kullanılan herhangi bir standart veya premium depolama hesabı **yerleştirilecek VM'ler** sütun.
 
-**Önerilen Ön Ek**: depolama hesabını adlandırmak için kullanılabilecek, üç karakterli bir önerilen ön ektir. Kendi ön ekinizi kullanabilirsiniz, ancak aracın önerisi [depolama hesapları için bölüm adlandırma kuralına](https://aka.ms/storage-performance-checklist) uygundur.
+**Önerilen ön ek**: Depolama hesabını adlandırmak için kullanılabilecek önerilen üç karakterli önek. Kendi ön ekinizi kullanabilirsiniz, ancak aracın önerisi [depolama hesapları için bölüm adlandırma kuralına](https://aka.ms/storage-performance-checklist) uygundur.
 
-**Önerilen Hesap Adı**: Önerilen ön eki ekledikten sonra depolama hesabı adı. Köşeli ayraç (< ve >) içindeki adı özel girdinizle değiştirin.
+**Önerilen hesap adı**: Önerilen ön eki ekledikten sonra depolama hesabı adı. Köşeli ayraç (< ve >) içindeki adı özel girdinizle değiştirin.
 
-**Kayıt Depolama Hesabı:** Tüm çoğaltma kayıtları standart bir depolama hesabında depolanır. Premium depolama hesabına çoğaltılan sanal makineler için günlük depolamaya yönelik ek bir standart depolama hesabı oluşturun. Tek bir standart kayıt depolama hesabı, birden fazla premium çoğaltma depolama hesabı tarafından kullanılabilir. Standart depolama hesaplarına çoğaltılan sanal makineler, kayıtlarla aynı depolama hesabını kullanır.
+**Kayıt depolama hesabı**: Tüm çoğaltma kayıtları standart bir depolama hesabında depolanır. Premium depolama hesabına çoğaltılan sanal makineler için günlük depolamaya yönelik ek bir standart depolama hesabı oluşturun. Tek bir standart kayıt depolama hesabı, birden fazla premium çoğaltma depolama hesabı tarafından kullanılabilir. Standart depolama hesaplarına çoğaltılan sanal makineler, kayıtlarla aynı depolama hesabını kullanır.
 
-**Önerilen Günlük Hesabı Adı**: Önerilen ön eki ekledikten sonra depolama günlük hesabı adı. Köşeli ayraç (< ve >) içindeki adı özel girdinizle değiştirin.
+**Önerilen günlük hesabı adı**: Önerilen ön eki ekledikten sonra depolama günlük hesabı adı. Köşeli ayraç (< ve >) içindeki adı özel girdinizle değiştirin.
 
-**Yerleştirme Özeti**: Çoğaltma ve yük devretme testi veya yük devretme sırasında depolama hesabındaki toplam sanal makine yükünün özeti. Özet şunları içerir:
+**Yerleştirme özeti**: Toplam sanal makine yükünün özetini depolama hesabına çoğaltma zaman yükleyin ve yük devretme veya yük devretme testi. Özet şunları içerir:
 
 * Depolama hesabına eşlenen toplam sanal makine sayısı. 
 * Bu depolama hesabına yerleştirilen tüm sanal makineler arasındaki toplam okuma/yazma IOPS değeri.
@@ -170,16 +170,16 @@ Site Recovery çoğaltması için x MB/sn’den fazla bant genişliği ayarlayam
 * Tüm diskler arasındaki toplam kurulum boyutu.
 * Toplam disk sayısı.
 
-**Yerleştirilecek Sanal Makineler**: En iyi performans ve kullanım için belirli bir depolama hesabına yerleştirilmesi gereken tüm sanal makinelerin listesi.
+**Yerleştirilecek VM'ler**: En iyi performans ve kullanım için belirli bir depolama hesabına yerleştirilmesi gereken tüm sanal makinelerin listesi.
 
 ## <a name="compatible-vms"></a>Uyumlu VM’ler
 Site Recovery Dağıtım Planlayıcısı tarafından oluşturulan Excel raporu, "Uyumlu Sanal Makineler" sayfasında tüm uyumlu sanal makinelerin ayrıntılarını sağlar.
 
 ![Uyumlu VM’ler](media/hyper-v-deployment-planner-analyze-report/compatible-vms-h2a.png)
 
-**VM Adı**: Rapor oluşturulurken VMListFile içinde kullanılan VM adı. Bu sütunda ayrıca sanal makinelere bağlanan diskler de (VHD) listelenir. Adlar, profil oluşturma sırasında aracın sanal makineleri bulduğu Hyper-V konak adlarını içerir.
+**VM adı**: Bir rapor oluşturulurken VMListFile içinde kullanılan VM adı. Bu sütunda ayrıca sanal makinelere bağlanan diskler de (VHD) listelenir. Adlar, profil oluşturma sırasında aracın sanal makineleri bulduğu Hyper-V konak adlarını içerir.
 
-**VM Uyumluluğu**: Değerler **Evet** ve **Evet**\* şeklindedir. **Evet**\* değeri, VM’nin [Azure premium depolama](https://aka.ms/premium-storage-workload) için uygun olduğu örneklere yöneliktir. Burada, profili oluşturulan yüksek değişim sıklığı veya IOPS diski, diske eşlenen boyuttan daha büyük bir premium disk boyutuna sığar. Depolama hesabı, bir diskin boyutuna göre hangi premium depolama disk türüne eşleneceğine karar verir: 
+**VM uyumluluğu**: Değerler **Evet** ve **Evet**\*. **Evet**\* değeri, VM’nin [Azure premium depolama](https://aka.ms/premium-storage-workload) için uygun olduğu örneklere yöneliktir. Burada, profili oluşturulan yüksek değişim sıklığı veya IOPS diski, diske eşlenen boyuttan daha büyük bir premium disk boyutuna sığar. Depolama hesabı, bir diskin boyutuna göre hangi premium depolama disk türüne eşleneceğine karar verir: 
 * <128 GB bir P10’dur.
 * 128 GB ile 256 GB arası P15’tir.
 * 256 GB ile 512 GB arası P20'dir.
@@ -189,21 +189,21 @@ Site Recovery Dağıtım Planlayıcısı tarafından oluşturulan Excel raporu, 
 
 Örneğin, diskin iş yükü özellikleri diski P20 veya P30 kategorisine koyarken boyutu nedeniyle daha düşük bir premium depolama disk türüne eşleniyorsa, araç bu VM’yi **Evet**\* olarak işaretler. Araç ayrıca kaynak disk boyutunu önerilen premium depolama disk türüne uyacak şekilde değiştirmenizi veya hedef disk türünü yük devretme sonrasını değiştirmenizi önerir.
 
-**Depolama Türü**: Standart veya Premium.
+**Depolama türü**: Standart veya premium.
 
-**Önerilen Ön Ek**: Üç karakterli depolama hesabı ön ekidir.
+**Önerilen ön ek**: Üç karakterli depolama hesabı ön ekidir.
 
-**Depolama Hesabı**: Önerilen depolama hesabı ön ekini kullanan ad.
+**Depolama hesabı**: Önerilen depolama hesabı ön ekini kullanan ad.
 
-**En Yoğun Okuma/Yazma IOPS (Büyüme Faktörü ile)**: Gelecekteki büyüme faktörü (varsayılan değer yüzde 30’dur) ile birlikte disk üzerindeki en yoğun iş yükü okuma/yazma IOPS değeri (varsayılan değer yüzde 95’lik dilimdir). Sanal makinenin toplam okuma/yazma IOPS değeri her zaman sanal makinenin tek tek disklerinin okuma/yazma IOPS toplamı değildir. Sanal makinenin en yoğun okuma/yazma IOPS değeri, profil oluşturma döneminin her dakikasındaki tek tek disklerinin okuma/yazma IOPS değerinin en yüksek toplamıdır.
+**Okuma/yazma IOPS (büyüme faktörü ile) en üst seviyeye**: Yoğun iş yükü okuma/yazma IOPS disk üzerinde (varsayılan, 95'lik dilim) birlikte gelecekteki büyüme faktörünü de (varsayılan değer yüzde 30). Sanal makinenin toplam okuma/yazma IOPS değeri her zaman sanal makinenin tek tek disklerinin okuma/yazma IOPS toplamı değildir. Sanal makinenin en yoğun okuma/yazma IOPS değeri, profil oluşturma döneminin her dakikasındaki tek tek disklerinin okuma/yazma IOPS değerinin en yüksek toplamıdır.
 
-**MB/sn Cinsinden En Yoğun Veri Değişim Sıklığı (Büyüme Faktörü ile)**: Gelecekteki büyüme faktörü (varsayılan değer yüzde 30’dur) ile birlikte disk üzerindeki en yoğun veri değişim sıklığı (varsayılan değer yüzde 95’lik dilimdir). Sanal makinenin en yoğun veri değişim sıklığı her zaman sanal makinenin tek tek disklerinin veri değişim sıklığı toplamı değildir. Sanal makinenin en yoğun okuma/yazma IOPS değeri, profil oluşturma döneminin her dakikasındaki tek tek disklerinin okuma/yazma IOPS değerinin en yüksek toplamıdır.
+**En yoğun veri değişim sıklığı (büyüme faktörü ile) MB/sn cinsinden**: En yüksek erime oranı disk üzerinde (varsayılan, 95'lik dilim) birlikte gelecekteki büyüme faktörünü de (varsayılan değer yüzde 30). Sanal makinenin en yoğun veri değişim sıklığı her zaman sanal makinenin tek tek disklerinin veri değişim sıklığı toplamı değildir. Sanal makinenin en yoğun okuma/yazma IOPS değeri, profil oluşturma döneminin her dakikasındaki tek tek disklerinin okuma/yazma IOPS değerinin en yüksek toplamıdır.
 
-**Azure VM Boyutu**: Bu şirket içi sanal makine için eşlenen ideal Azure Cloud Services sanal makine boyutudur. Eşleme, şirket içi sanal makinenin belleğine, disk/çekirdek/ağ arabirimi sayısına ve okuma/yazma IOPS değerine bağlıdır. Her zaman şirket içi VM özelliklerinin tümüyle eşleşen en düşük Azure VM boyutunun kullanılması önerilir.
+**Azure VM boyutu**: Azure Cloud Services sanal makine boyutu bu şirket içi sanal makine için eşlenen ideal. Eşleme, şirket içi sanal makinenin belleğine, disk/çekirdek/ağ arabirimi sayısına ve okuma/yazma IOPS değerine bağlıdır. Her zaman şirket içi VM özelliklerinin tümüyle eşleşen en düşük Azure VM boyutunun kullanılması önerilir.
 
-**Disk Sayısı**: Sanal makine üzerindeki disklerin (VHD) toplam sayısı.
+**Disk sayısı**: Sanal makinedeki sanal makine diskleri (VHD) toplam sayısı.
 
-**Disk Boyutu (GB)**: Sanal makinenin tüm disklerinin toplam boyutu. Araç ayrıca sanal makinedeki ayrı diskler için disk boyutunu gösterir.
+**Disk boyutu (GB)**: Sanal Makinenin tüm disklerinin toplam boyutu. Araç ayrıca sanal makinedeki ayrı diskler için disk boyutunu gösterir.
 
 **Çekirdek**: Sanal makine üzerindeki CPU çekirdeği sayısı.
 
@@ -211,16 +211,16 @@ Site Recovery Dağıtım Planlayıcısı tarafından oluşturulan Excel raporu, 
 
 **NIC**: VM üzerindeki NIC sayısı.
 
-**Önyükleme Türü**: Sanal makinenin önyükleme türü. BIOS veya EFI olabilir.
+**Önyükleme türü**: Sanal Makinenin önyükleme türü. BIOS veya EFI olabilir.
 
 ## <a name="incompatible-vms"></a>Uyumsuz VM’ler
 Site Recovery Dağıtım Planlayıcısı tarafından oluşturulan Excel raporu, "Uyumsuz Sanal Makineler" sayfasında tüm uyumsuz sanal makinelerin ayrıntılarını sağlar.
 
 ![Uyumsuz VM’ler](media/hyper-v-deployment-planner-analyze-report/incompatible-vms-h2a.png)
 
-**VM Adı**: Rapor oluşturulurken VMListFile içinde kullanılan VM adı. Bu sütunda ayrıca sanal makinelere bağlanan diskler de (VHD) listelenir. Adlar, profil oluşturma sırasında aracın sanal makineleri bulduğu Hyper-V konak adlarını içerir.
+**VM adı**: Bir rapor oluşturulurken VMListFile içinde kullanılan VM adı. Bu sütunda ayrıca sanal makinelere bağlanan diskler de (VHD) listelenir. Adlar, profil oluşturma sırasında aracın sanal makineleri bulduğu Hyper-V konak adlarını içerir.
 
-**VM Uyumluluğu**: Belirli bir sanal makinenin, Site Recovery ile kullanım için neden uyumlu olmadığını gösterir. Sanal makinenin her uyumsuz diski için, yayımlanan [depolama sınırlarına](https://aka.ms/azure-storage-scalbility-performance) göre nedenler aşağıdakilerden biri olabilir:
+**VM uyumluluğu**: Neden belirli bir VM'nin Site Recovery ile kullanım için uyumlu olmadığını gösterir. Sanal makinenin her uyumsuz diski için, yayımlanan [depolama sınırlarına](https://aka.ms/azure-storage-scalbility-performance) göre nedenler aşağıdakilerden biri olabilir:
 
 * Disk boyutu, 4.095 GB’tan büyüktür. Azure Depolama şu anda 4.095 GB’tan büyük veri diski boyutlarını desteklememektedir.
 
@@ -252,13 +252,13 @@ Site Recovery Dağıtım Planlayıcısı tarafından oluşturulan Excel raporu, 
 
 * Hesaplanan anlık görüntü depolama alanı, 10 TB’lik desteklenen anlık görüntü depolama limitini aşıyor.
 
-**En Yoğun Okuma/Yazma IOPS (Büyüme Faktörü ile)**: Disk üzerinde gelecekteki büyüme faktörü (varsayılan değer yüzde 30’dur) ile birlikte en yoğun iş yükü IOPS değeridir (varsayılan değer yüzde 95’lik dilimdir). Sanal makinenin toplam okuma/yazma IOPS değeri her zaman sanal makinenin tek tek disklerinin okuma/yazma IOPS toplamı değildir. Sanal makinenin en yoğun okuma/yazma IOPS değeri, profil oluşturma döneminin her dakikasındaki tek tek disklerinin okuma/yazma IOPS değerinin en yüksek toplamıdır.
+**Okuma/yazma IOPS (büyüme faktörü ile) en üst seviyeye**: Disk üzerindeki en yoğun iş yükü IOPS (varsayılan, 95'lik dilim) birlikte gelecekteki büyüme faktörünü de (varsayılan değer yüzde 30). Sanal makinenin toplam okuma/yazma IOPS değeri her zaman sanal makinenin tek tek disklerinin okuma/yazma IOPS toplamı değildir. Sanal makinenin en yoğun okuma/yazma IOPS değeri, profil oluşturma döneminin her dakikasındaki tek tek disklerinin okuma/yazma IOPS değerinin en yüksek toplamıdır.
 
-**En Yoğun Veri Değişim Sıklığı (MB/sn) (Büyüme Faktörü ile)**: Gelecekteki büyüme faktörü (varsayılan değer yüzde 30’dur) ile birlikte disk üzerindeki en yoğun veri değişim sıklığı (varsayılan değer yüzde 95’lik dilimdir). Sanal makinenin toplam veri değişim sıklığı her zaman sanal makinenin tek tek disklerinin veri değişim sıklığı toplamı değildir. Sanal makinenin en yoğun okuma/yazma IOPS değeri, profil oluşturma döneminin her dakikasındaki tek tek disklerinin okuma/yazma IOPS değerinin en yüksek toplamıdır.
+**En yoğun veri değişim sıklığı (MB/sn) (büyüme faktörü ile)**: En yüksek erime oranı disk üzerinde (varsayılan, 95'lik dilim) birlikte gelecekteki büyüme faktörünü de (varsayılan değer yüzde 30). Sanal makinenin toplam veri değişim sıklığı her zaman sanal makinenin tek tek disklerinin veri değişim sıklığı toplamı değildir. Sanal makinenin en yoğun okuma/yazma IOPS değeri, profil oluşturma döneminin her dakikasındaki tek tek disklerinin okuma/yazma IOPS değerinin en yüksek toplamıdır.
 
-**Disk Sayısı**: Sanal makine üzerindeki toplam VHD sayısı.
+**Disk sayısı**: Sanal makine VHD'leri toplam sayısı.
 
-**Disk Boyutu (GB)**: Sanal makinenin tüm disklerinin toplam kurulum boyutu. Araç ayrıca sanal makinedeki ayrı diskler için disk boyutunu gösterir.
+**Disk boyutu (GB)**: Sanal Makinenin tüm disklerinin toplam kurulum boyutu. Araç ayrıca sanal makinedeki ayrı diskler için disk boyutunu gösterir.
 
 **Çekirdek**: Sanal makine üzerindeki CPU çekirdeği sayısı.
 
@@ -266,7 +266,7 @@ Site Recovery Dağıtım Planlayıcısı tarafından oluşturulan Excel raporu, 
 
 **NIC**: VM üzerindeki NIC sayısı.
 
-**Önyükleme Türü**: Sanal makinenin önyükleme türü. BIOS veya EFI olabilir.
+**Önyükleme türü**: Sanal Makinenin önyükleme türü. BIOS veya EFI olabilir.
 
 ## <a name="azure-site-recovery-limits"></a>Azure Site Recovery limitleri
 Aşağıdaki tablo, Site Recovery sınırlarını sağlar. Bu sınırlar, testleri temel alsa da mümkün olan tüm uygulama G/Ç birleşimlerini kapsayamaz. Gerçek sonuçlar, uygulamanızın G/Ç karışımına göre değişebilir. En iyi sonuçlar için, uygulamanın gerçek performans görüntüsünü elde etmek üzere, dağıtım planlamasından sonra bile yük devretme testi düzenleyerek kapsamlı uygulama testleri gerçekleştirin.
@@ -298,13 +298,13 @@ Bu sınırlar yüzde 30 G/Ç çakışmasını varsayan ortalama sayılardır. Si
 
 **Hyper-V konağı**: Profili oluşturulan Hyper-V sunucularının listesi. Sunucu bir Hyper-V kümesinin parçasıysa, tüm küme düğümleri birlikte gruplandırılır.
 
-**Birim (VHD yolu)**: VHD/VHDX'lerin bulunduğu Hyper-V konağının her birimi. 
+**Birim (VHD yolu)**: VHD/Vhdx'ler mevcut olduğu bir Hyper-V konağının her birimi. 
 
-**Kullanılabilir boş alan (GB)**: Birimde kullanılabilir olan boş alan.
+**Kullanılabilir boş alan (GB)**: Birimdeki kullanılabilir boş alan.
 
-**Birimde gereken toplam depolama alanı (GB)**: Başarılı bir ilk çoğaltma ve değişiklik çoğaltması için birimde bulunması gereken toplam boş depolama alanı. 
+**Toplam depolama alanı (GB) birimde gereken**: Başarılı bir ilk çoğaltma ve değişiklik çoğaltması için birimde gereken toplam boş depolama alanı. 
 
-**Başarılı bir çoğaltma için birimde sağlanacak toplam ek depolama alanı (GB)**: Başarılı bir ilk çoğaltma ve değişiklik çoğaltması için birimde sağlanması gereken toplam ek alan için öneride bulunur.
+**Ek depolama alanı (GB) başarılı bir çoğaltma için birimde sağlanacak toplam**: Başarılı bir ilk çoğaltma ve değişiklik çoğaltması için birimde sağlanması gereken toplam ek alan için öneride bulunur.
 
 ## <a name="initial-replication-batching"></a>İlk çoğaltma toplu işlemesi 
 
@@ -323,36 +323,36 @@ Her birim için şirket içi depolama gereksinimleri önerisine uyduktan sonra, 
 ### <a name="each-batch-provides-the-following-information"></a>Her toplu iş şu bilgileri sağlar 
 **Hyper-V konağı**: Korunacak sanal makinenin Hyper-V konağı.
 
-**Sanal Makine**: Korunacak olan sanal makine. 
+**Sanal makine**: Korunacak VM. 
 
-**Açıklamalar**: Sanal makinenin herhangi bir birimi için herhangi bir eylem gerekiyorsa, burada açıklama sağlanır. Örneğin, bir birimde yeterli boş alan yoksa açıklamada "Bu sanal makineyi korumak için depolama alanı ekleyin" ifadesi yer alır.
+**Açıklamalar**: Bir sanal makinenin belirli bir birim için herhangi bir eylem gerekiyorsa, burada açıklama sağlanır. Örneğin, bir birimde yeterli boş alan yoksa açıklamada "Bu sanal makineyi korumak için depolama alanı ekleyin" ifadesi yer alır.
 
-**Birim (VHD yolu)**: Sanal makinenin VHD’lerinin durduğu birimin adı. 
+**Birim (VHD yolu)**: Sanal makinenin Vhd'lerinin durduğu birimin adı. 
 
-**Birimdeki kullanılabilir boş alan (GB)**: Birimde sanal makine için kullanılabilen boş disk alanı. Birimlerdeki kullanılabilir boş alan hesaplanırken, VHD'leri aynı birimde yer alan önceki toplu işlerin sanal makineleri tarafından değişiklik çoğaltması için kullanılan disk alanını hesaba katar. 
+**(GB) birimdeki kullanılabilir boş alan**: VM için bir birimdeki kullanılabilir boş disk alanı. Birimlerdeki kullanılabilir boş alan hesaplanırken, VHD'leri aynı birimde yer alan önceki toplu işlerin sanal makineleri tarafından değişiklik çoğaltması için kullanılan disk alanını hesaba katar. 
 
 Örneğin, VM1, VM2 ve VM3 sanal makinelerinin E:\VHDyolu yolunda bulunduğunu varsayalım. Çoğaltma öncesinde, birimdeki boş alan 500 GB'dir. VM1, Toplu İş 1’in; VM2, Toplu İş 2’nin ve VM3 de Toplu İş 3’ün parçasıdır. VM1 için, kullanılabilir boş alan 500 GB olur. VM2 için, kullanılabilir boş alan 500 olur; bu, VM1’in değişiklik çoğaltması için gereken disk alanıdır. VM1, değişiklik çoğaltması için 300 GB gerektiriyorsa, VM2 için kullanılabilir boş alan 500 GB – 300 GB = 200 GB olur. Benzer biçimde, VM2'ye değişiklik çoğaltması için 300 GB gerektiğini varsayalım. VM3 için kullanılabilir boş alan 200 GB - 300 GB = -100 GB olur.
 
-**İlk çoğaltma için birimde gereken depolama alanı (GB)**: Sanal makinenin ilk çoğaltması için birimde gereken boş depolama alanı.
+**İlk çoğaltma (GB) için birimde gereken depolama alanı**: Sanal Makinenin ilk çoğaltması için birimde gereken boş depolama alanı.
 
-**Değişiklik çoğaltması için birimde gereken depolama alanı (GB)**: Değişiklik çoğaltması için sanal makineye ilişkin birimde gereken boş depolama alanı.
+**(GB) değişiklik çoğaltması için birimde gereken depolama alanı**: Sanal Makinenin değişiklik çoğaltması için birimde gereken boş depolama alanı.
 
-**Çoğaltmanın başarısız olmasını önlemek için eksiklik temelinde gereken ek depolama alanı (GB)**: Sanal makine için birimde gereken ek depolama alanı. Bu, ilk çoğaltma ile değişiklik çoğaltmasının en yüksek depolama alanı gereksiniminden, birimdeki kullanılabilir boş alanın çıkarılmasına eşittir.
+**Gereken ek depolama (GB) çoğaltma hatası önlemek için Eksiklik üzerinde**: Sanal makine için birimde gereken ek depolama alanı. Bu, ilk çoğaltma ile değişiklik çoğaltmasının en yüksek depolama alanı gereksiniminden, birimdeki kullanılabilir boş alanın çıkarılmasına eşittir.
 
-**İlk çoğaltma için gereken en düşük bant değişliği (Mb/sn)**: Sanal makinenin ilk çoğaltması için gereken en düşük bant genişliği.
+**İlk çoğaltma (Mbps) için gereken en düşük bant genişliği**: Sanal makine için ilk çoğaltma için gereken en düşük bant genişliği.
 
-**Değişiklik çoğaltması için gereken en düşük bant genişliği (Mb/sn)**: Sanal makinenin değişiklik çoğaltması için gereken en düşük bant genişliği.
+**En düşük bant genişliği (MB/sn) değişiklik çoğaltması için gereken**: VM için değişiklik çoğaltması için gereken en düşük bant genişliği.
 
 ### <a name="network-utilization-details-for-each-batch"></a>Her toplu iş için ağ kullanım ayrıntıları 
 Her toplu iş tablosunda, toplu işin ağ kullanımının özeti sağlanır.
 
-**Toplu iş için kullanılabilir bant genişliği**: Önceki toplu işin değişiklik çoğaltması bant genişliği dikkate alındıktan sonra toplu iş için kullanılabilir olan bant genişliği.
+**Toplu işlem için kullanılabilir bant genişliği**: Bant genişliği önceki toplu işin değişiklik çoğaltması bant genişliği dikkate alındıktan sonra toplu iş için kullanılabilir.
 
-**Toplu işin ilk çoğaltması için kullanılabilir yaklaşık bant genişliği**: Toplu işteki sanal makinelerin ilk çoğaltması için kullanılabilir bant genişliği. 
+**Toplu işin ilk çoğaltması için kullanılabilir yaklaşık bant genişliği**: Bant genişliği toplu işteki sanal makinelerin ilk çoğaltması için kullanılabilir. 
 
 **Toplu işin değişiklik çoğaltması için kullanılan yaklaşık bant genişliği**: Toplu işteki sanal makinelerin değişiklik çoğaltması için gereken bant genişliği. 
 
-**Toplu iş için tahmini ilk çoğaltma süresi (SS:DD)**: Saat:Dakika cinsinden tahmini ilk çoğaltma süresi.
+**Tahmini ilk çoğaltma süresi (ss: dd) toplu işlemi için**: Saat: dakika cinsinden tahmini ilk çoğaltma süresi.
 
 
 

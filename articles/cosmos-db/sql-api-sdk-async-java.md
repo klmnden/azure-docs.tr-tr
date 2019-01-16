@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 11/29/2018
+ms.date: 1/15/2019
 ms.author: moderakh
-ms.openlocfilehash: e64820377421a3eae80d77d464e48979a3bb30a5
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 760a54a09dd612cef93de0de1e8ac2fd59b04b26
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198635"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329387"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK'sı SQL API'si için: Sürüm Notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -50,6 +50,11 @@ SQL API Async Java SDK'sı desteği ile zaman uyumsuz işlemleri sağlayarak SQL
 </table></br>
 
 ## <a name="release-notes"></a>Sürüm notları
+
+### <a name="a-name231231"></a><a name="2.3.1"/>2.3.1
+* Çok büyük sorgu yanıtları işleme giderir.
+* Kaynak belirteci işleme istemci başlatılırken giderir ([github #78](https://github.com/Azure/azure-cosmosdb-java/issues/78)).
+* Yükseltme savunmasız bağımlılık jackson veri bağlama ([github #77](https://github.com/Azure/azure-cosmosdb-java/pull/77)).
 
 ### <a name="a-name230230"></a><a name="2.3.0"/>2.3.0
 * Bir kaynak sızıntısı hata düzeltildi.
@@ -125,6 +130,7 @@ Cosmos DB devre dışı bırakılan bir SDK'sını kullanarak yapılan tüm iste
 
 | Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
+| [2.3.1](#2.3.1) |15 Ocak 2019|--- |
 | [2.3.0](#2.3.0) |29 Kasım 2018|--- |
 | [2.2.2](#2.2.2) |8 Kasım 2018|--- |
 | [2.2.1](#2.2.1) |2 Kasım 2018|--- |

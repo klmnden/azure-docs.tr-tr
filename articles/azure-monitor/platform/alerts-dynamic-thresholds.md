@@ -6,14 +6,14 @@ services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/29/2018
-ms.author: Yaniv.Lavi
+ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: b9b56145c13cb83b1686004ce215b1960caced14
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: df75ff9a359620781743732f4f12a6d3e7ec51c6
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53183004"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331683"
 ---
 # <a name="alerts-with-dynamic-thresholds-in-azure-monitor-limited-private-preview"></a>Azure İzleyici (sınırlı özel Önizleme) içinde dinamik eşikler ile uyarılar
 
@@ -96,8 +96,8 @@ Dinamik eşikler ile uyarılar, uyarılar Azure İzleyici aracılığıyla yapı
 
 - S: Ölçüm yavaş zamanla değişirse, bu dinamik eşikler ile bir uyarı tetikleyecek?
 
-- Y: Büyük olasılıkla yok. Dinamik eşikler önemli sapmaları algılama yerine yavaş sorunları gelişen iyidir.
+- C: Büyük olasılıkla yok. Dinamik eşikler önemli sapmaları algılama yerine yavaş sorunları gelişen iyidir.
 
 - S: Bir API aracılığıyla dinamik eşikler yapılandırabilirim?
 
-- Y: Üzerinde çalışıyoruz.
+- C: Üzerinde çalışıyoruz.

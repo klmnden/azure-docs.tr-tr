@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2019
+ms.date: 01/14/2019
 ms.author: barclayn
-ms.openlocfilehash: 69c4f08d93ee87a93d575d60e12890a0aebb1807
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 6729a800450b9602bff1f85a3a40804edf05b048
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244928"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321764"
 ---
 # <a name="microsoft-services-in-cybersecurity"></a>Microsoft siber güvenlik hizmetleri
 
@@ -37,7 +37,6 @@ Microsoft Services tarafından sağlanan hizmetleri hakkında daha fazla bilgi e
 * [Gelişmiş Güvenlik Yönetim ortamı](https://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/enhanced-security-administrative-environment-solution-brief.pdf)
 * [Azure AD uygulama hizmetleri](https://download.microsoft.com/download/0/7/F/07FA8BFC-17D5-4F55-AD4F-3A987A7324AA/azure-active-directory-implementation-services-solution-brief.pdf)
 * [Hesap yanal hareket karşı güvenli hale getirme](https://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/pop-securing-lateral-account-movement.pdf)
-* [Microsoft tehdit algılama hizmetleri](https://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/microsoft-threat-detection-services-solution-brief.pdf)
 * [Olay yanıtı ve kurtarma](https://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/microsoft-incident-response-and-recovery-process-brief.pdf)
 
 [Daha fazla bilgi edinin](https://aka.ms/cyberserv) Microsoft Hizmetleri danışmanlık hizmetleri güvenliği hakkında.

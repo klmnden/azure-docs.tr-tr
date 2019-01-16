@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 01/14/2019
 ms.author: mahilleb
 ms.custom: seodec18
-ms.openlocfilehash: d41213d72d40555d8dc5aeab76040fc556dae774
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d302fc67225213ad55687797c97c7a2a8a17cc6d
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091654"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329516"
 ---
 # <a name="speech-service-supported-regions"></a>Konuşma hizmeti desteklenen bölgeler
 
@@ -46,11 +46,24 @@ Bu bölgeler için Speech SDK'sı kullanılabilir **konuşma tanıma** ve **çev
 
 ### <a name="intent-recognition"></a>Amaç tanıma
 
-**Amaç tanıma** Speech SDK'sı paylaşımları için LUIS bölgeleri destekler. Kullanılabilir bölgelerin tam listesi için bkz: [bölgeler ve uç noktaları - LUIS yayımlama](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions)
+Kullanılabilir bölgeler için **niyeti tanıma** Speech SDK'sı aşağıda verilmiştir:
 
-Kullanılabilir bölgeler için **niyeti tanıma** Speech SDK'sı listelenir [Language Understanding hizmeti bölge sayfası](/azure/cognitive-services/luis/luis-reference-regions).
+ Genel bölge | Bölge | Konuşma SDK parametresi
+ ------|-------|--------
+ Asya | Doğu Asya | `eastasia`
+ Asya | Güneydoğu Asya | `southeastasia`
+ Avustralya | Avustralya Doğu | `australiaeast`
+ Avrupa | Kuzey Avrupa | `northeurope`
+ Avrupa | Batı Avrupa | `westeurope`
+ Kuzey Amerika | Doğu ABD | `eastus`
+ Kuzey Amerika | Doğu ABD 2 | `eastus2`
+ Kuzey Amerika | Orta Güney ABD | `southcentralus`
+ Kuzey Amerika | Batı Orta ABD | `westcentralus`
+ Kuzey Amerika | Batı ABD | `westus`
+ Kuzey Amerika | Batı ABD 2 | `westus2`
+ Güney Amerika | Güney Brezilya | `brazilsouth`
 
-Listelenen her yayımlama bölge için sağlanan kullanın **API bölge adı**. Örneğin, `westus` Batı ABD.
+Bu, bir alt kümesi tarafından desteklenen yayımlama bölgeler [Language Understanding hizmeti (LUIS)](/azure/cognitive-services/luis/luis-reference-regions).
 
 ## <a name="rest-apis"></a>REST API'leri
 

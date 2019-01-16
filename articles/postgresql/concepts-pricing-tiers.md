@@ -5,13 +5,13 @@ author: jan-eng
 ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/10/2018
-ms.openlocfilehash: 3760e2a5ccae1d21574412ec223cade03bebda1e
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/15/2019
+ms.openlocfilehash: 49c9d908970425165fcdd76171c20ab65454f42a
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548944"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54318593"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Fiyatlandırma katmanları PostgreSQL için Azure veritabanı
 
@@ -20,7 +20,7 @@ PostgreSQL sunucusu için Azure veritabanı üç farklı fiyatlandırma katmanı
 |    | **Temel** | **Genel amaçlı** | **Bellek için iyileştirilmiş** |
 |:---|:----------|:--------------------|:---------------------|
 | İşlem oluşturma | Gen 4, 5. nesil | Gen 4, 5. nesil | 5. Nesil |
-| Sanal çekirdekler | 1, 2 | 2, 4, 8, 16, 32 ve 64 |2, 4, 8, 16, 32 |
+| Sanal çekirdekler | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
 | Sanal çekirdek başına bellek | 2 GB | 5 GB | 10 GB |
 | Depolama boyutu | 5 GB ila 1 TB | 5 GB ile 4 TB | 5 GB ile 4 TB |
 | Depolama türü | Azure standart depolama | Azure Premium Depolama | Azure Premium Depolama |
@@ -53,14 +53,14 @@ Bir sunucu oluşturduktan sonra sanal çekirdek, donanım oluşturma ve fiyatlan
 | Orta Güney ABD | X | X |
 | Batı ABD | X | X |
 | Batı ABD 2 |  | X |
+| Güney Brezilya | X | X |
 | Orta Kanada | X | X |
 | Doğu Kanada | X | X |
-| Güney Brezilya | X | X |
 | Kuzey Avrupa | X | X |
 | Batı Avrupa |  | X |
 | Fransa Orta |  | X |
-| Birleşik Krallık Batı |  | X |
 | Birleşik Krallık Güney |  | X |
+| Birleşik Krallık Batı |  | X |
 | Doğu Asya | X | X |
 | Güneydoğu Asya | X | X |
 | Avustralya Doğu |  | X |
@@ -68,17 +68,22 @@ Bir sunucu oluşturduktan sonra sanal çekirdek, donanım oluşturma ve fiyatlan
 | Avustralya Orta 2 |  | X |
 | Avustralya Güneydoğu |  | X |
 | Orta Hindistan | X | X |
-| Batı Hindistan | X | X |
 | Güney Hindistan |  | X |
+| Batı Hindistan | X | X |
 | Japonya Doğu | X | X |
 | Japonya Batı | X | X |
 | Kore Orta |  | X |
 | Kore Güney |  | X |
+| Çin Doğu 1 | X |  |
+| Çin Doğu 2 |  | X |
+| Çin Kuzey 1 | X |  |
+| Çin Kuzey 2 |  | X |
 | Almanya Orta |  | X |
 | US DoD Orta  | X |  |
 | US DoD Doğu  | X |  |
 | ABD Devleti Arizona |  | X |
 | ABD Devleti Texas |  | X |
+| ABD Devleti Virginia |  | X |
 
 ## <a name="storage"></a>Depolama
 
@@ -89,7 +94,7 @@ PostgreSQL sunucusu için Azure veritabanı'na kullanılabilir depolama kapasite
 | Depolama türü | Azure standart depolama | Azure Premium Depolama | Azure Premium Depolama |
 | Depolama boyutu | 5 GB ila 1 TB | 5 GB ile 4 TB | 5 GB ile 4 TB |
 | Depolama artırma boyutu | 1 GB | 1 GB | 1 GB |
-| IOPS | Değişken |3 IOPS/GB<br/>En az 100 IOPS<br/>En çok 6000 IOPS | 3 IOPS/GB<br/>En az 100 IOPS<br/>En çok 6000 IOPS |
+| IOPS | Değişken |3 IOPS/GB<br/>Min 100 IOPS<br/>En çok 6000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>En çok 6000 IOPS |
 
 Ek depolama kapasitesi, sırasında ve sunucunun oluşturulduktan sonra ekleyebilirsiniz. Temel katmanı, bir IOPS garanti sağlamaz. Genel amaçlı ve bellek için iyileştirilmiş fiyatlandırma katmanları, IOPS sağlanan depolama boyutu 3:1 oranını ölçeklendirin.
 

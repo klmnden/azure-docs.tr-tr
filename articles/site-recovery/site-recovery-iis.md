@@ -1,18 +1,18 @@
 ---
 title: Olağanüstü durum kurtarma ayarlama fo çok katmanlı bir Azure Site RECOVERY'yi kullanarak IIS tabanlı web uygulamasının | Microsoft Docs
 description: Azure Site RECOVERY'yi kullanarak IIS web grubu sanal makinelerini çoğaltma öğrenin.
-author: nsoneji
-manager: gauravd
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
-ms.author: nisoneji
-ms.openlocfilehash: 49435665ae1e99dd2b9696e5e5bb048e438dcc4c
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.author: mayg
+ms.openlocfilehash: aa42371692cd5d0dc96835db5b66fe0877b90665
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832965"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320506"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Çok katmanlı bir IIS tabanlı web uygulamasının olağanüstü durum kurtarmayı ayarlayın
 
@@ -60,8 +60,8 @@ Bu makaledeki örnekler için IIS 7.5 üzerinde Windows Server 2012 R2 Enterpris
 
 Senaryo | İkincil siteye | Azure’a
 --- | --- | ---
-Hyper-V | Evet | Evet
-VMware | Evet | Evet
+Hyper-V | Yes | Yes
+VMware | Yes | Yes
 Fiziksel sunucu | Hayır | Evet
 Azure|NA|Evet
 

@@ -1,6 +1,6 @@
 ---
-title: Azure otomasyonu kullanarak Azure Cloud Services yönetme | Microsoft Docs
-description: Nasıl Azure Otomasyon hizmetine ölçekte Azure bulut hizmetlerini yönetmek için kullanılabilir hakkında bilgi edinin.
+title: Azure Cloud Services, Azure otomasyonu kullanarak yönetme | Microsoft Docs
+description: Nasıl Azure Otomasyonu Azure bulut hizmetlerini uygun ölçekte yönetmek için kullanılabilir hakkında bilgi edinin.
 services: cloud-services, automation
 documentationcenter: ''
 author: jodoglevy
@@ -14,34 +14,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2016
 ms.author: timlt
-ms.openlocfilehash: 6b5acac1b8647c324988c316cd5602b3dba98a1d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 40e91b4ba7ee62976b49975769bd1d1e656525f2
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23842940"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54328877"
 ---
-# <a name="managing-azure-cloud-services-using-azure-automation"></a>Azure otomasyonu kullanarak Azure Cloud Services yönetme
-Bu kılavuz Azure Otomasyon hizmetine ve nasıl Azure bulut hizmetlerinizi yönetimini basitleştirmek için kullanılabilmesi için tanıtılacaktır.
+# <a name="managing-azure-cloud-services-using-azure-automation"></a>Azure Cloud Services, Azure Otomasyonu ile yönetme
+Bu kılavuzda Azure Otomasyonu ve nasıl bunu Azure bulut hizmetlerinizde yönetimini basitleştirmek için kullanılabileceğini başlatacaktır.
 
 ## <a name="what-is-azure-automation"></a>Azure Otomasyonu Nedir?
-[Azure Otomasyonu](https://azure.microsoft.com/services/automation/) işlem Otomasyonu aracılığıyla bulut yönetimi basitleştirmek için bir Azure hizmetidir. Azure otomasyonu kullanarak, uzun süre çalışan, el ile hatasız ve sık tekrarlanan görevleri güvenilirlik, verimliliği ve kuruluşunuz için değer süre artırmak için otomatik olarak yapılabilir.
+[Azure Otomasyonu](https://azure.microsoft.com/services/automation/) bulut yönetimini işlem Otomasyonu ile basitleştirmeyi için bir Azure hizmetidir. Azure otomasyonu kullanarak, güvenilirlik, verimlilik ve kuruluşunuz için değer süresini artırmak için uzun süre çalışan, el ile hata yapmaya açık ve sık sık tekrarlanan görevleri otomatikleştirilebilir.
 
-Azure Otomasyonu, kuruluşunuz büyüdükçe gereksinimlerinizi karşılayacak şekilde ölçekler bir yüksek oranda güvenilir ve yüksek oranda kullanılabilir iş akışı yürütme altyapısı sağlar. Tam olarak gerekli görevleri ortaya böylece Azure Otomasyonu'nda işlemleri el ile 3. taraf sistemleri tarafından veya zamanlanan aralıklarla artırılabilir devre dışı.
+Azure Otomasyonu, kuruluşunuz büyüdükçe, gereksinimlerinizi karşılayacak şekilde ölçeklendirilen bir yüksek oranda güvenilir ve yüksek oranda kullanılabilir iş akışı yürütme altyapısı sağlar. Görevleri tam olarak gerekli olduğunda gerçekleşir. böylece Azure Automation'da işlemleri el ile 3. taraf sistemleri tarafından veya zamanlanan aralıklarla çalıştırmasının.
 
-İşletimsel ek yükü azaltmak ve boşaltmak BT / iş ekler çalışmaları odaklanmaya DevOps personel değer Azure Automation'ın otomatik olarak çalıştırılmak üzere bulut yönetim görevlerinizi taşıyarak.
+Alt işlemsel yük ve boş BT / iş kazandıran işe odaklanmak için DevOps personeli, Azure Otomasyonu tarafından otomatik olarak çalıştırılmak için bulut Yönetimi görevlerinizi taşıyarak değer.
 
 ## <a name="how-can-azure-automation-help-manage-azure-cloud-services"></a>Azure Otomasyonu Azure bulut hizmetlerini yönetmenize nasıl yardımcı olabilir?
-Azure bulut hizmetlerine yönetilebilir Azure Otomasyonu'nda kullanılabilir PowerShell cmdlet'lerini kullanarak [Azure PowerShell Araçları](https://msdn.microsoft.com/library/azure/jj156055.aspx). Böylece tüm hizmet içinde bulut Hizmeti Yönetim görevlerinizi gerçekleştirmek azure Otomasyonu kutudan çıktığında, bu bulut hizmeti PowerShell cmdlet'leri kullanılabilir olur. Ayrıca Azure Automation bu cmdlet'leri Azure hizmeti ve 3. taraf sistemi arasında karmaşık görevleri otomatikleştirmek için diğer Azure Hizmetleri için cmdlet'leri ile eşleştirin.
+Azure bulut Hizmetleri yönetilen Azure Automation'da kullanılabilen PowerShell cmdlet'lerini kullanarak [Azure PowerShell Araçları](https://msdn.microsoft.com/library/azure/jj156055.aspx). Azure Otomasyonu bu bulut hizmeti PowerShell cmdlet'leri kullanılabilir yepyeni sahiptir; böylece tüm hizmet içinde bulut hizmeti yönetim görevlerini gerçekleştirebilirsiniz. Ayrıca, Azure automation'da bu cmdlet'ler Azure Hizmetleri ve 3. taraf sistemleri arasında karmaşık görevleri otomatikleştirmek için diğer Azure Hizmetleri için cmdlet'leri eşleşebileceğini denetleyebilmesi.
 
-Azure Otomasyonu, Azure bulut hizmetlerini yönetmek için bazı örnek kullanımları şunları içerir:
+Azure Otomasyonu, Azure bulut hizmetlerini yönetmek için bazı örnek kullanımları şunlardır:
 
-* [Bir bulut cscfg veya cspkg Azure Blob depolama alanına güncelleştirildiğinde hizmetin sürekli dağıtımı](https://gallery.technet.microsoft.com/scriptcenter/Continuous-Deployment-of-A-eeebf3a6)
-* [Bulut hizmeti örnekleri paralel, bir seferde bir yükseltme etki alanı yeniden başlatılıyor](https://gallery.technet.microsoft.com/scriptcenter/Reboot-Cloud-Service-PaaS-b337a06d)
+* [Azure Blob Depolama alanında cscfg veya cspkg güncelleştirildiğinde bir bulut hizmetinin sürekli dağıtım](https://gallery.technet.microsoft.com/scriptcenter/Continuous-Deployment-of-A-eeebf3a6)
+* [Bulut hizmeti örnekleri paralel olarak bir yükseltme etki alanı aynı anda yeniden başlatılıyor](https://gallery.technet.microsoft.com/scriptcenter/Reboot-Cloud-Service-PaaS-b337a06d)
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-Azure Otomasyonu ve nasıl Azure bulut hizmetlerini yönetmek için kullanılmadan öğrendiğinize göre Azure Otomasyonu hakkında daha fazla bilgi edinmek için aşağıdaki bağlantıları izleyin.
+Azure Otomasyonu ve nasıl Azure bulut hizmetlerini yönetmek için kullanılmadan ilişkin temel bilgileri öğrendiğinize göre Azure Otomasyonu hakkında daha fazla bilgi için bu bağlantıları izleyin.
 
-* [Azure Otomasyonu genel bakış](../automation/automation-intro.md)
+* [Azure Otomasyonu'na genel bakış](../automation/automation-intro.md)
 * [İlk runbook’um](../automation/automation-first-runbook-graphical.md)
 * [Azure Otomasyonu öğrenme Haritası](https://azure.microsoft.com/documentation/learning-paths/automation/)

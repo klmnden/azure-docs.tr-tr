@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: addd901e1b3a9bb537278082763081a7e39b21da
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 06130a5ade63e23fdcd139902a19694a510393a3
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824294"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332311"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Ağ güvenlik grupları için akış günlüğü giriş
 
@@ -33,10 +33,12 @@ Hedef Nsg akış günlükleri, ancak bunlar değil aynı diğer günlükleri ola
 ```
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
- 
+Akış günlüklerini analiz etme ve ağ trafiğini kullanarak öngörü [trafik analizi](traffic-analytics.md).
+
 Akış günlüklerini diğer günlükler için görülen aynı bekletme ilkeleri uygulayın. 1 günden 2147483647 gün için günlük bekletme ilkesi ayarlayabilirsiniz. Bekletme ilkesi ayarlanmazsa günlükler süresiz olarak saklanır.
 
-Ayrıca kullanarak akış günlüklerini analiz [trafik analizi](traffic-analytics.md).
+> [!NOTE] 
+> NSG akış günlüğü ile elde tutma ilkesi özelliği kullanarak, depolama işlemleri yüksek hacimli ve ilişkili maliyetleri neden olabilir. Elde tutma ilkesi özelliği gerekmiyorsa, bu değeri 0 olarak ayarlayın öneririz.
 
 
 ## <a name="log-file"></a>Günlük dosyası
@@ -63,7 +65,7 @@ Akış günlükleri aşağıdaki özellikleri içerir:
                     * **Protokol** -akışın protokol. Geçerli değerler **T** TCP için ve **U** UDP
                     * **Trafik akışı** -trafik akış yönü. Geçerli değerler **miyim** gelen ve **O** için giden.
                     * **Trafiği karar** - trafiğe izin verilen veya reddedilen olup olmadığını. Geçerli değerler **A** için izin verilen ve **D** için reddedildi.
-                    * **Akış durumu - yalnızca sürüm 2** -flow durumunu yakalar. Olası durumlar şunlardır **B**: bir akış oluşturulduğunda başlayın. İstatistikleri sağlanmayan. **C**: devam eden bir akış için devam. İstatistikleri, 5 dakikalık aralıklarla sağlanır. **E**: akış sonlandırıldığında son. İstatistikleri sağlanır.
+                    * **Akış durumu - yalnızca sürüm 2** -flow durumunu yakalar. Olası durumlar şunlardır **B**: Bir akış oluşturulduğunda başlar. İstatistikleri sağlanmayan. **C**: Devam eden bir akış için devam ediliyor. İstatistikleri, 5 dakikalık aralıklarla sağlanır. **E**: Bir akış sonlandırıldığında son. İstatistikleri sağlanır.
                     * **-Paket kaynağı hedefe - yalnızca sürüm 2** TCP veya UDP paketlerini kaynaktan hedefe son güncelleştirmeden bu yana gönderilen toplam sayısı.
                     * **Bayt gönderilen - kaynaktan hedefe - yalnızca sürüm 2** kaynaktan hedefe son güncelleştirmeden bu yana TCP veya UDP paket baytlarının toplam sayısı. Paket üst bilgisi ve yük paket bayt içerir.
                     * **Paketler - kaynak - yalnızca sürüm 2 için hedef** TCP veya UDP paketlerini hedeften kaynağa son güncelleştirmeden bu yana gönderilen toplam sayısı.
@@ -71,7 +73,7 @@ Akış günlükleri aşağıdaki özellikleri içerir:
 
 ## <a name="nsg-flow-logs-version-2"></a>Sürüm 2 NSG akış günlükleri
 > [!NOTE] 
-> Akış günlükleri sürüm 2 bulunan ve yalnızca Batı Orta ABD bölgesinde. Yapılandırma, Azure portalı ve REST API aracılığıyla kullanılabilir. Sürüm 2 etkinleştirme günlükleri desteklenmeyen bir bölgede depolama hesabınıza yüzdelik sürüm 1 günlüklerinde neden olur.
+> Akış günlükleri sürüm 2 bulunan ve yalnızca Batı Orta ABD bölgesinde. Sürüm 2 etkinleştirme günlükleri desteklenmeyen bir bölgede depolama hesabınıza yüzdelik sürüm 1 günlüklerinde neden olur.
 
 Sürüm 2 günlüklerinin akışı durumu tanıtır. Akış günlüklerini'nın hangi sürümünün aldığınız yapılandırabilirsiniz. Akış günlüklerini etkinleştirme hakkında bilgi için bkz: [etkinleştirme NSG akış günlüğü](network-watcher-nsg-flow-logging-portal.md).
 
@@ -79,13 +81,19 @@ Akış durumu *B* akış ne zaman başlatılacağını kaydedilir. Akış durumu
 
 Devamlılık için *C* ve son *E* akış durumları, bayt ve paket sayıları tarihten önceki akış demet kaydın toplam sayısı. Önceki örnek konuşma başvuran, aktarılan paketlerin toplam sayısı 1021 + 52 + 8005 + 47 = 9125. Aktarılan baytların toplam sayısı 588096 + 29952 + 4610880 + 27072 = 5256000.
 
-**Örnek**: Akış Gelen TCP konuşma 185.170.185.105:35370 10.2.0.4:23 arasındaki diziler:
+**Örnek**: Bir TCP konuşma 185.170.185.105:35370 10.2.0.4:23 arasındaki gelen akış diziler:
 
 "1493763938,185.170.185.105,10.2.0.4,35370,23,T,I,A,B,," "1493695838,185.170.185.105,10.2.0.4,35370,23,T,I,A,C,1021,588096,8005,4610880" "1493696138,185.170.185.105,10.2.0.4,35370,23,T,I,A,E,52,29952,47,27072"
 
 Devamlılık için *C* ve son *E* akış durumları, bayt ve paket sayıları tarihten önceki akış demet kaydın toplam sayısı. Önceki örnek konuşma başvuran, aktarılan paketlerin toplam sayısı 1021 + 52 + 8005 + 47 = 9125. Aktarılan baytların toplam sayısı 588096 + 29952 + 4610880 + 27072 = 5256000.
 
 Aşağıdaki metni, bir akış günlüğü örneğidir. Gördüğünüz gibi önceki bölümde açıklanan özellik listesi izleyen birden çok kayıt vardır.
+
+## <a name="nsg-flow-logging-considerations"></a>NSG akış günlüğü konuları
+
+**NSG akış günlüğü üzerinde tüm Nsg'ler bir kaynağa bağlı etkinleştirme**: Azure'da oturum akış NSG kaynağı olarak yapılandırılır. Bir akış yalnızca bir NSG kuralı ilişkilendirilir. Birden fazla Nsg burada kullanıldığı senaryolarda, NSG akış günlüğü üzerinde tüm Nsg'ler etkin olduğunu olan öneririz tüm trafiği kaydedildiğinden emin olmak için kaynak alt ağ veya ağ arabirimi uygulanır. Bkz: [trafik nasıl değerlendirilir](../virtual-network/security-overview.md#how-traffic-is-evaluated) ağ güvenlik grupları hakkında daha fazla bilgi için. 
+
+**Akış günlüğü maliyetleri**: NSG akış günlüğü, üretilen günlükleri hacmine göre faturalandırılır. Yüksek trafik hacmi büyük akış günlük birimi ve ilişkili maliyetleri neden olabilir. NSG akış günlüğü fiyatlandırması, temel alınan depolama maliyetlerini içermez. NSG akış günlüğü ile elde tutma ilkesi özelliği kullanarak, depolama işlemleri yüksek hacimli ve ilişkili maliyetleri neden olabilir. Elde tutma ilkesi özelliği gerekmiyorsa, bu değeri 0 olarak ayarlayın öneririz. Bkz: [Ağ İzleyicisi fiyatlandırma](https://azure.microsoft.com/en-us/pricing/details/network-watcher/) ve [Azure depolama fiyatlandırması](https://azure.microsoft.com/en-us/pricing/details/storage/) ek ayrıntılar için.
 
 ## <a name="sample-log-records"></a>Örnek günlük kayıtları
 

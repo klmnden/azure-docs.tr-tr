@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
+ms.date: 01/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: adb4b57ce304a3c6e369d6cc68dbb7c5857fb9fe
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: a481f5b073b7e8db9135d7b10cf602168290738a
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48243286"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331376"
 ---
 # <a name="manage-users-in-azure-blockchain-workbench"></a>Azure Blockchain Workbench'i kullanıcıları yönetme
 
@@ -49,7 +49,7 @@ Kullanıcıların dizine eklendikten sonra sonraki adımda hangi kullanıcılar�
 Kullanıcıları eklemek için **yönetici** grubunda Azure AD dizini:
 
 1.  [Azure Portal](https://portal.azure.com) oturum açın.
-2.  Sağ üst köşesinden hesabınızı seçerek Blockchain Workbench'i ilişkili Azure AD kiracısında olduğundan emin olun.
+2.  Sağ üst köşedeki hesabınızı seçerek Blockchain Workbench'i ilişkili Azure AD kiracısında olduğundan emin olun.
 3.  Seçin **Azure Active Directory > Kurumsal uygulamalar**.
 4.  Blockchain Workbench'i için Azure AD İstemci uygulamayı seçin
     
@@ -111,7 +111,7 @@ Blockchain Workbench uygulaması, consortium parçası olan kuruluşların yöne
 1. Geçerli üyelerin listesi görüntülemek için üye kutucuğu seçin.
 2. Değiştirmek istediğiniz bu kullanıcı için açılan listeyi tıklatın ve yeni rol seçin.
 
-    ![Rolü Değiştir](./media/manage-users/application-change-role.png)
+    ![Rolü değiştir](./media/manage-users/application-change-role.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

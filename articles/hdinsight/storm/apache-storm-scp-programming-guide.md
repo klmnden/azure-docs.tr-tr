@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2016
-ms.openlocfilehash: 9b3fc80d129a42e68e877f4d1210e3ab10e0664a
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: d017a2758ccd1530c4558f3dc92559f807df36b9
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631830"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332107"
 ---
 # <a name="scp-programming-guide"></a>SCP Programlama Kılavuzu
 SCP, güvenilir ve tutarlı, gerçek zamanlı oluşturmak için platform ve yüksek performanslı bilgi işlem uygulama ' dir. Üst kısmındaki yerleşik [Apache Storm](https://storm.incubator.apache.org/) --bir akış işleme sistemi OSS topluluklar göre tasarlanmıştır. Storm Nathan Marz tarafından tasarlanmıştır ve açık Twitter tarafından kaynaklanan oluştu. Bunu yararlanır [Apache ZooKeeper](https://zookeeper.apache.org/), işbirliği ve durum yönetimini son derece güvenilir etkinleştirmek için başka bir Apache projesi dağıtılmış. 
@@ -228,7 +228,7 @@ SCP uygulamaları kullanabilir `State` bazı bilgileri kalıcı hale getirmek i�
     /// <summary>
     /// Retrieve all states that were previously uncommitted, excluding all aborted states 
     /// </summary>
-    /// <returns>Uncommited States</returns>
+    /// <returns>Uncommitted States</returns>
     public IEnumerable<State> GetUnCommitted();
 
     /// <summary>
@@ -249,7 +249,7 @@ SCP uygulamaları kullanabilir `State` bazı bilgileri kalıcı hale getirmek i�
     /// List all the committed states
     /// </summary>
     /// <returns>Registries contain the Committed State </returns> 
-    public IEnumerable<Registry> Commited();
+    public IEnumerable<Registry> Committed();
 
     /// <summary>
     /// List all the Aborted State in the StateStore
@@ -359,7 +359,7 @@ SCP.NET işlem topolojileri tanımlamak için aşağıdaki işlevler eklemiştir
 | **tx batch bolt SCP** |Exec-name<br />args<br />alanlar |Bir işlem toplu Bolt tanımlayın. Uygulama ile çalıştığı ***exec-name*** kullanarak ***args.***<br /><br />Bolt çıktı alanlarını alanların olur. |
 | **tx işleme bolt SCP** |Exec-name<br />args<br />alanlar |Bir işlem tabanlı işleme bolt tanımlayın. Uygulama ile çalıştığı ***exec-name*** kullanarak ***args***.<br /><br />***Alanları*** bolt için çıkış alanlar |
 | **nontx topolopy** |Topoloji adı<br />spout eşleme<br />bolt eşleme |Topoloji adı ile bir işlem topolojisi tanımlayın&nbsp; tanımı Haritası ve bolt'lar tanımı harita spout'lar |
-| **SCP spout** |Exec-name<br />args<br />alanlar<br />parametreler |Bir işlem spout tanımlayın. Uygulama ile çalıştığı ***exec-name*** kullanarak ***args***.<br /><br />***Alanları*** spout için çıkış alanlar<br /><br />***Parametreleri*** "nontransactional.ack.enabled" gibi bazı parametreler belirtmek için kullanarak, isteğe bağlıdır. |
+| **scp-spout** |Exec-name<br />args<br />alanlar<br />parametreler |Bir işlem spout tanımlayın. Uygulama ile çalıştığı ***exec-name*** kullanarak ***args***.<br /><br />***Alanları*** spout için çıkış alanlar<br /><br />***Parametreleri*** "nontransactional.ack.enabled" gibi bazı parametreler belirtmek için kullanarak, isteğe bağlıdır. |
 | **SCP bolt** |Exec-name<br />args<br />alanlar<br />parametreler |İşleme uygun olmayan Bolt tanımlayın. Uygulama ile çalıştığı ***exec-name*** kullanarak ***args***.<br /><br />***Alanları*** bolt için çıkış alanlar<br /><br />***Parametreleri*** "nontransactional.ack.enabled" gibi bazı parametreler belirtmek için kullanarak, isteğe bağlıdır. |
 
 SCP.NET tanımlanan aşağıdaki anahtar sözcükler vardır:
@@ -369,8 +369,8 @@ SCP.NET tanımlanan aşağıdaki anahtar sözcükler vardır:
 | **: ad** |Topoloji adı tanımlayın |
 | **: topolojisi** |Önceki işlevlerini kullanarak topolojisi tanımlayın ve olanları içinde oluşturun. |
 | **: p** |Her spout veya Cıvata için paralellik ipucu tanımlayın. |
-| **: yapılandırma** |Tanımlama parametresini yapılandırabilir veya var olanları güncelleştir |
-| **: şema** |Stream şemasını tanımlar. |
+| **:config** |Tanımlama parametresini yapılandırabilir veya var olanları güncelleştir |
+| **:schema** |Stream şemasını tanımlar. |
 
 Ve sık kullanılan parametreler:
 

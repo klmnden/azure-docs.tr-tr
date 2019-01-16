@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 2aa0b152a4fd50e8023df00ec5dd59d1b2a6e6b0
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 275c954ac54aab5ab4b41f4d6f6610a01573483f
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262243"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319078"
 ---
 # <a name="get-started-with-auto-scale-by-custom-metric-in-azure"></a>Otomatik ölçeklendirme ile azure'da özel bir ölçü olarak kullanmaya başlayın
 Bu makalede, Azure portalındaki özel ölçüm kaynağınızı ölçeklendirilmesine açıklar.
@@ -39,7 +39,7 @@ Bu makalede, application ınsights ile yapılandırılmış bir web uygulaması 
 > Not: Kaynak ölçümlerin okunmasıyla bir sorun olduğunu ve geçerli kapasite, varsayılan kapasitenin altında olduğu durumda, ardından kaynak kullanılabilirliğini sağlamak için otomatik ölçeklendirme varsayılan değer olarak ölçeklendirilir. Geçerli kapasite, varsayılan kapasiteden zaten yüksektir, otomatik ölçeklendirme, ölçeği değil.
 - 'Kaydet' tıklayın
 
-Tebrikler. Ölçek kümenizi otomatik olarak ayarlanması başarıyla oluşturulmuş artık, web uygulamanıza özel bir ölçüme göre ölçeklendirin.
+Tebrikler. Artık web uygulamanıza özel bir ölçüme göre otomatik ölçeklendirme ayarını ölçek oluşturuldu.
 
 > Not: Aynı adımları VMSS veya Bulut hizmet rolü ile kullanmaya başlamak için geçerlidir.
 

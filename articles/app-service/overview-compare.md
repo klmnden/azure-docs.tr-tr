@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2cf73607f0cb286f06a5aa043fd8b30816e6a80f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 05afbd9a621752b8b665c7d2f68cd8cfcc8a1d1a
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53729724"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54322036"
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Azure App Service, Sanal Makineler, Service Fabric ve Cloud Services karşılaştırması
 
@@ -53,7 +53,7 @@ Aşağıdaki tabloda, en iyi seçimi yapmanıza yardımcı olmak için App Servi
 | Yeniden dağıtmadan ölçeği birden fazla örneğe genişletme |X |X |X |X |Sanal Makineler, ölçeği birden fazla örneğe genişletebilir ancak bunlar üzerinde çalışan hizmetler, bu ölçek genişletmeyi kullanabilecek şekilde yazılmış olmalıdır. İstekleri makineler arasında yönlendirmek için bir yük dengeleyici yapılandırmanız ve [kullanılabilirlik kümesinde](../virtual-machines/windows/manage-availability.md) birden fazla VM örneğine sahip olduğunuzdan emin olmanız gerekir. |
 | SSL desteği |X |X |X |X |App Service Web uygulamalarında özel etki alanı adlarına yönelik SSL yalnızca Temel ve Standart modlarında desteklenir. Web uygulamalarında SSL kullanma hakkında bilgi için bkz. [Azure Web sitesi için SSL sertifikası yapılandırma](app-service-web-tutorial-custom-ssl.md). |
 | Visual Studio ile tümleştirme |X |X |X |X | |
-| Uzaktan Hata Ayıklama |X |X |X | | |
+| Uzaktan Hata Ayıklama |X |X |X |X | |
 | TFS ile kod dağıtma |X |X |X |X | |
 | [Azure Sanal Ağı](/azure/virtual-network/) ile ağ yalıtımı |X |X |X |X |Ayrıca bkz. [Azure Web Siteleri Sanal Ağ Tümleştirmesi](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/) |
 | [Azure Traffic Manager](/azure/traffic-manager/) desteği |X |X |X |X | |

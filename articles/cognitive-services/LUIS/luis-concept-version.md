@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 12/18/2018
+ms.date: 01/15/2019
 ms.author: diberry
-ms.openlocfilehash: 522f1cff2d735081daecc8be6384badcd378fd75
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 547291fa5c4a49adff7a080db985388ef152d0b8
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599595"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319792"
 ---
 # <a name="understand-how-and-when-to-use-a-luis-version"></a>Nasıl ve ne zaman anlamak LUIS sürümünü kullanmak için
 
-Geleneksel programlama sürümlerinde sürümlerinde LUIS, benzer. Her sürüm, uygulamanın zaman içinde bir anlık görüntüdür. Uygulamada bir değişiklik yapmadan önce yeni bir sürümünü oluşturun. Unpeel denemek için tam uygulamasına ve uygulamanın amacını ve konuşma önceki bir duruma geri dönmek kolaydır. 
+Geleneksel programlama sürümlerinde sürümlerinde LUIS, benzer. Her sürüm, uygulamanın zaman içinde bir anlık görüntüdür. Uygulamada bir değişiklik yapmadan önce yeni bir sürümünü oluşturun. Tam sürüme geri dönün ve ardından hedefleri ve önceki bir duruma konuşma kaldırmaya kolaydır.
 
 İle aynı uygulamanın farklı modelleri oluşturma [sürümleri](luis-how-to-manage-versions.md). 
 

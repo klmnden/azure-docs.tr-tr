@@ -17,12 +17,12 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: e9de2c9b7f79dd6cba3050d84ccfa0795bc2d09a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: ce54ad77893557b595f9777dfc82939aacf41608
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962588"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321526"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>v2.0 protokolleri - örtük akışını kullanarak Spa'lar
 
@@ -54,7 +54,7 @@ Aşağıdaki diyagramda tüm örtük oturum açma akışı nasıl göründüğü
 İlk kullanıcı, uygulamada oturum açması için size gönderebilir bir [Openıd Connect](v2-protocols-oidc.md) yetkilendirme isteği ve get bir `id_token` v2.0 uç noktasından.
 
 > [!IMPORTANT]
-> Uygulama kaydı içinde bir kimlik belirteci başarıyla istek [kayıt portalı](https://apps.dev.microsoft.com) olmalıdır **izin örtük akış** Web istemcisi için etkin. Bunu etkin değilse, bir `unsupported_response` hata döndürülür: **'response_type' giriş parametresi için sağlanan değer bu istemci için izin verilmiyor. 'Code' beklenen değerdir**
+> Başarılı bir şekilde uygulama kaydında bir kimlik belirteci istemek için [kayıt portalı](https://apps.dev.microsoft.com) olmalıdır **izin örtük akış** Web istemcisi için etkin. Bunu etkin değilse, bir `unsupported_response` hata döndürülür: **'Response_type' giriş parametresi için sağlanan değer bu istemci için izin verilmiyor. 'Code' beklenen değerdir**
 
 ```
 // Line breaks for legibility only
@@ -111,7 +111,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | `token_type` |Dahil edilen if `response_type` içerir `token`. Her zaman `Bearer`. |
 | `expires_in`|Dahil edilen if `response_type` içerir `token`. Belirteç tarafından önbelleğe alma işlemleri için geçerli kaldığı saniye sayısını gösterir. |
 | `scope` |Dahil edilen if `response_type` içerir `token`. Access_token geçerli olacağı kapsamlar gösterir. (Durumunda, yalnızca AAD kapsamları oturum açmak için kişisel bir hesap kullanıldığında istenen) kullanıcı için geçerli değil, tüm istenen kapsam içermeyebilir. |
-| `id_token` | Bir imzalı JSON Web Token (JWT). Uygulama isteği açan kullanıcı hakkında bilgi için bu belirteci parçalarını çözebilen. Uygulama değerleri önbelleğe ve bunları görüntüleyebilirsiniz, ancak, bunlar üzerinde herhangi bir yetkilendirme veya güvenlik sınırları için doğrulamamalısınız. İd_tokens hakkında daha fazla bilgi için bkz: [ `id_token reference` ](id-tokens.md). <br> **Not:** yalnızca sağlanan if `openid` kapsam istendi. |
+| `id_token` | Bir imzalı JSON Web Token (JWT). Uygulama isteği açan kullanıcı hakkında bilgi için bu belirteci parçalarını çözebilen. Uygulama değerleri önbelleğe ve bunları görüntüleyebilirsiniz, ancak, bunlar üzerinde herhangi bir yetkilendirme veya güvenlik sınırları için doğrulamamalısınız. İd_tokens hakkında daha fazla bilgi için bkz: [ `id_token reference` ](id-tokens.md). <br> **Not:** Yalnızca belirtilen if `openid` kapsam istendi. |
 | `state` |State parametresi istekte yer alıyorsa aynı değeri yanıt olarak görünmelidir. Uygulama istek ve yanıt durum değerleri özdeş olduğunu doğrulamanız gerekir. |
 
 #### <a name="error-response"></a>Hata yanıtı
@@ -192,7 +192,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | `token_type` | Her zaman `Bearer`. |
 | `expires_in` | Belirteç tarafından önbelleğe alma işlemleri için geçerli kaldığı saniye sayısını gösterir. |
 | `scope` | Access_token geçerli olacağı kapsamlar gösterir. (Durumunda, yalnızca AAD kapsamları oturum açmak için kişisel bir hesap kullanıldığında istenen) kullanıcı için geçerli değil, tüm istenen kapsam içermeyebilir. |
-| `id_token` | Bir imzalı JSON Web Token (JWT). Dahil edilen if `response_type` içerir `id_token`. Uygulama isteği açan kullanıcı hakkında bilgi için bu belirteci parçalarını çözebilen. Uygulama değerleri önbelleğe ve bunları görüntüleyebilirsiniz, ancak, bunlar üzerinde herhangi bir yetkilendirme veya güvenlik sınırları için doğrulamamalısınız. İd_tokens hakkında daha fazla bilgi için bkz: [ `id_token` başvuru](id-tokens.md). <br> **Not:** yalnızca sağlanan if `openid` kapsam istendi. |
+| `id_token` | Bir imzalı JSON Web Token (JWT). Dahil edilen if `response_type` içerir `id_token`. Uygulama isteği açan kullanıcı hakkında bilgi için bu belirteci parçalarını çözebilen. Uygulama değerleri önbelleğe ve bunları görüntüleyebilirsiniz, ancak, bunlar üzerinde herhangi bir yetkilendirme veya güvenlik sınırları için doğrulamamalısınız. İd_tokens hakkında daha fazla bilgi için bkz: [ `id_token` başvuru](id-tokens.md). <br> **Not:** Yalnızca belirtilen if `openid` kapsam istendi. |
 | `state` |State parametresi istekte yer alıyorsa aynı değeri yanıt olarak görünmelidir. Uygulama istek ve yanıt durum değerleri özdeş olduğunu doğrulamanız gerekir. |
 
 

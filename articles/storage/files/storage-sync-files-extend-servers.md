@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: ccb34dac88825877a925b99d51ce5af9b10331d0
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 661df6039948539d6b50b4c8caf8ca7bd9b58730
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201234"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321509"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Öğretici: Windows dosya sunucularını Azure Dosya Eşitleme ile genişletme
 
@@ -181,7 +181,7 @@ Ardından, Windows Server 2016 Datacenter VM sunucuda Azure PowerShell modülün
 1. Şu komutu çalıştırın:
 
    ```powershell
-   Install-Module -Name Az -AllowClobber
+   Install-Module -Name AzureRm
    ```
 
    > [!NOTE]
@@ -200,7 +200,7 @@ Ardından, Windows Server 2016 Datacenter VM sunucuda Azure PowerShell modülün
 
 1. Yanıt **Evet** veya **Tümüne Evet** yüklemeye devam etmek için.
 
-`Az` modülü, Azure PowerShell cmdlet’leri için toplu bir modüldür. Bu modülü yüklediğinizde kullanılabilir durumdaki tüm Azure Resource Manager modülleri indirilir ve cmdlet’leri kullanıma sunulur.
+`AzureRM` modülü, Azure PowerShell cmdlet’leri için toplu bir modüldür. Bu modülü yüklediğinizde kullanılabilir durumdaki tüm Azure Resource Manager modülleri indirilir ve cmdlet’leri kullanıma sunulur.
 
 Bu noktada, Öğretici için ortamınızı ayarlama. Depolama eşitleme hizmeti dağıtmaya hazırsınız.
 

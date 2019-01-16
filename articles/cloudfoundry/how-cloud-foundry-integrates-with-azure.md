@@ -1,6 +1,6 @@
 ---
 title: Cloud Foundry Azure ile nasıl tümleştirildiğini | Microsoft Docs
-description: Enterprice deneyimini geliştirmek için Cloud Foundry can utlize Azure hizmetleri nasıl açıklar.
+description: Cloud Foundry Enterprice deneyimini geliştirmek için Azure hizmetlerinin nasıl kullanabileceği açıklar
 services: virtual-machines-linux
 documentationcenter: ''
 author: ningk
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
-ms.openlocfilehash: a9f5f22cbd6e7cb39e1abb2ef712ffcfc27f55a4
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 908b7e40c0509d7034b86985ac0775635726a6b9
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406152"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329812"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>Cloud Foundry ile Azure’ı tümleştirme
 
 [Cloud Foundry](https://docs.cloudfoundry.org/) , bulut sağlayıcıları Iaas platformu üzerinde çalışan bir PaaS platformudur. Bulut sağlayıcıları arasında tutarlı uygulama dağıtım deneyimi sunar. Ayrıca, ayrıca ölçeklenebilirliği, çeşitli Azure Hizmetleri, kurumsal sınıf, HA ile tümleştirin ve maliyet tasarrufu.
-Vardır [Cloud Foundry 6 alt](https://docs.cloudfoundry.org/concepts/architecture/), olabilecek esnek ölçek çevrimiçi olarak da dahil olmak üzere: yönlendirme, uygulama yaşam döngüsü yönetimi, hizmet yönetimi, Mesajlaşma ve izleme kimlik. Her alt sistemler için Cloud Foundry, correspondent Azure hizmeti kullanmak için yapılandırabilirsiniz. 
+Vardır [Cloud Foundry 6 alt](https://docs.cloudfoundry.org/concepts/architecture/), olabilecek esnek ölçek çevrimiçi olarak da dahil olmak üzere: Yönlendirme, Mesajlaşma ve izleme kimlik doğrulaması, uygulama yaşam döngüsü yönetimi, hizmet yönetimi. Her alt sistemler için Cloud Foundry, correspondent Azure hizmeti kullanmak için yapılandırabilirsiniz. 
 
 ![Azure tümleştirme mimarisi üzerinde cloud Foundry](media/CFOnAzureEcosystem-colored.png)
 

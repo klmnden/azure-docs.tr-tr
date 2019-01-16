@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d95534cceb11f7bf20f6966e0205694fc1db021d
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: af528f210f4464c973d88fab7eeb1572effc87bc
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017608"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330407"
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure Cosmos DB gelen ve giden veri taşıma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -28,9 +28,9 @@ ms.locfileid: "54017608"
 > [!NOTE]
 > Bu makale, Data Factory’nin 1. sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [V2'de Azure Cosmos DB Bağlayıcısı](../connector-azure-cosmos-db.md).
 
-Bu makalede, kopyalama etkinliği Azure Data Factory'de veri gönderip buralardan veri Azure Cosmos DB (SQL API) taşımak için nasıl kullanılacağı açıklanmaktadır. Yapılar [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) makalesi, kopyalama etkinliği ile verileri taşıma genel bir bakış sunar. 
+Bu makalede, kopyalama etkinliği Azure Data Factory'de veri gönderip buralardan veri Azure Cosmos DB (SQL API) taşımak için nasıl kullanılacağı açıklanmaktadır. Yapılar [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) makalesi, kopyalama etkinliği ile verileri taşıma genel bir bakış sunar.
 
-Tüm Azure Cosmos DB için desteklenen kaynak veri deposundan veya herhangi bir desteklenen havuz veri deposu için Azure Cosmos DB'den verileri kopyalayabilirsiniz. Kopyalama etkinliği tarafından kaynak ve havuz desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tablo. 
+Tüm Azure Cosmos DB için desteklenen kaynak veri deposundan veya herhangi bir desteklenen havuz veri deposu için Azure Cosmos DB'den verileri kopyalayabilirsiniz. Kopyalama etkinliği tarafından kaynak ve havuz desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tablo.
 
 > [!IMPORTANT]
 > Azure Cosmos DB Bağlayıcısı, yalnızca SQL API'sini destekler.
@@ -42,17 +42,17 @@ Farklı araçlar/API'lerini kullanarak Azure Cosmos DB/deposundan veri taşıyan
 
 Bir işlem hattı oluşturmanın en kolay yolu kullanmaktır **Kopyalama Sihirbazı'nı**. Bkz: [Öğreticisi: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma](data-factory-copy-data-wizard-tutorial.md) veri kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma hızlı bir kılavuz.
 
-Ayrıca, bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: **Azure portalında**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu**, **.NET API**ve  **REST API**. Bkz: [kopyalama etkinliği Öğreticisi](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için. 
+Ayrıca, bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: **Azure portalında**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu**, **.NET API**ve  **REST API**. Bkz: [kopyalama etkinliği Öğreticisi](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için.
 
-API'ler ve Araçlar kullanmanıza bakılmaksızın, bir havuz veri deposu için bir kaynak veri deposundan veri taşıyan bir işlem hattı oluşturmak için aşağıdaki adımları gerçekleştirin: 
+API'ler ve Araçlar kullanmanıza bakılmaksızın, bir havuz veri deposu için bir kaynak veri deposundan veri taşıyan bir işlem hattı oluşturmak için aşağıdaki adımları gerçekleştirin:
 
 1. Oluşturma **bağlı hizmetler** girdi ve çıktı verilerini bağlamak için veri fabrikanıza depolar.
-2. Oluşturma **veri kümeleri** kopyalama işleminin girdi ve çıktı verilerini göstermek için. 
-3. Oluşturma bir **işlem hattı** bir veri kümesini girdi ve çıktı olarak bir veri kümesini alan kopyalama etkinliği ile. 
+2. Oluşturma **veri kümeleri** kopyalama işleminin girdi ve çıktı verilerini göstermek için.
+3. Oluşturma bir **işlem hattı** bir veri kümesini girdi ve çıktı olarak bir veri kümesini alan kopyalama etkinliği ile.
 
-Sihirbazı'nı kullandığınızda, bu Data Factory varlıklarını (bağlı hizmetler, veri kümeleri ve işlem hattı) için JSON tanımları sizin için otomatik olarak oluşturulur. Araçlar/API'leri (dışında .NET API'si) kullandığınızda, bu Data Factory varlıkları JSON biçimini kullanarak tanımlayın.  / Cosmos DB'den verileri kopyalamak için kullanılan Data Factory varlıkları için JSON tanımları ile örnekleri için bkz [JSON örnekler](#json-examples) bu makalenin. 
+Sihirbazı'nı kullandığınızda, bu Data Factory varlıklarını (bağlı hizmetler, veri kümeleri ve işlem hattı) için JSON tanımları sizin için otomatik olarak oluşturulur. Araçlar/API'leri (dışında .NET API'si) kullandığınızda, bu Data Factory varlıkları JSON biçimini kullanarak tanımlayın. / Cosmos DB'den verileri kopyalamak için kullanılan Data Factory varlıkları için JSON tanımları ile örnekleri için bkz [JSON örnekler](#json-examples) bu makalenin.
 
-Aşağıdaki bölümler, Data Factory varlıklarını belirli Cosmos DB'ye tanımlamak için kullanılan JSON özellikleri hakkında ayrıntılı bilgi sağlar: 
+Aşağıdaki bölümler, Data Factory varlıklarını belirli Cosmos DB'ye tanımlamak için kullanılan JSON özellikleri hakkında ayrıntılı bilgi sağlar:
 
 ## <a name="linked-service-properties"></a>Bağlı hizmeti özellikleri
 Aşağıdaki tabloda, Azure Cosmos DB bağlı hizmeti için özel JSON öğeleri için bir açıklama sağlar.
@@ -105,7 +105,7 @@ TypeProperties bölümünün her tür veri kümesi için farklıdır ve verileri
 }
 ```
 ### <a name="schema-by-data-factory"></a>Veri fabrikası tarafından şeması
-Azure Cosmos DB gibi şemasız veri depoları için Data Factory hizmetinin şemayı aşağıdaki yollardan biriyle algılar:  
+Azure Cosmos DB gibi şemasız veri depoları için Data Factory hizmetinin şemayı aşağıdaki yollardan biriyle algılar:
 
 1. Verilerin yapısını kullanarak belirtirseniz **yapısı** veri kümesi tanımında, Data Factory hizmetinin özelliği, şema olarak bu yapı geliştirir. Bir satır bir sütun için bir değer içermiyorsa, bu durumda, bir null değer için sağlanır.
 2. Veri yapısını kullanarak belirtmezseniz **yapısı** özelliği veri kümesi tanımında, Data Factory hizmetinin çıkarsar şema verilerin ilk satırı kullanarak. Bu durumda, ilk satır, tam şema içermiyorsa, bazı sütunları kopyalama işleminin sonucunda eksik olacaktır.
@@ -142,7 +142,7 @@ Bu Cosmos DB Bağlayıcısı'nı kullanarak, kolayca yapabilecekleriniz
 * JSON belgelerini, çeşitli dosya tabanlı depoları Cosmos DB collecton ' dışarı aktarın.
 * İki Cosmos DB koleksiyonları arasında veri geçirme-olduğu.
 
-Bu tür şemadan kopyalama elde etmek için 
+Bu tür şemadan kopyalama elde etmek için
 * Kopyalama Sihirbazı'nı kullanırken, kontrol **"Dışarı Aktar-JSON dosyaları veya Cosmos DB koleksiyonu"** seçeneği.
 * Ne zaman JSON düzenleme, kullanarak belirtme "yapı" bölümü Cosmos DB veri kümelerindeki ya da "nestingSeparator" özelliği Cosmos DB üzerinde kaynak/havuz kopyalama etkinliği. JSON dosyalarına dışarı aktarmanızı / almak için dosya depolama kümesinde "JsonFormat", "filePattern" yapılandırma biçim türü belirtin ve rest biçimi ayarları atlamak için bkz [JSON biçimine](data-factory-supported-file-and-compression-formats.md#json-format) ayrıntıları bölümü.
 
@@ -249,13 +249,13 @@ Bir Cosmos DB veritabanı'nda kişinin koleksiyondaki örnek JSON belgesi:
 ```
 Cosmos DB hiyerarşik JSON belgelerini SQL gibi bir söz dizimi kullanarak belgelerin sorgulanmasını destekler.
 
-Örnek: 
+Örnek:
 
 ```sql
 SELECT Person.PersonId, Person.Name.First AS FirstName, Person.Name.Middle as MiddleName, Person.Name.Last AS LastName FROM Person
 ```
 
-Aşağıdaki işlem hattı verileri Azure blobuna Azure Cosmos DB veritabanı'nda kişinin koleksiyondan kopyalar. Veri kümeleri bölümü kopyalama etkinliğinin giriş ve çıkış belirtildi.  
+Aşağıdaki işlem hattı verileri Azure blobuna Azure Cosmos DB veritabanı'nda kişinin koleksiyondan kopyalar. Veri kümeleri bölümü kopyalama etkinliğinin giriş ve çıkış belirtildi.
 
 ```JSON
 {
@@ -298,7 +298,7 @@ Aşağıdaki işlem hattı verileri Azure blobuna Azure Cosmos DB veritabanı'nd
   }
 }
 ```
-## <a name="example-copy-data-from-azure-blob-to-azure-cosmos-db"></a>Örnek: Verileri Azure Blobundan Azure Cosmos DB'ye kopyalayın. 
+## <a name="example-copy-data-from-azure-blob-to-azure-cosmos-db"></a>Örnek: Verileri Azure Blobundan Azure Cosmos DB'ye kopyalayın.
 Aşağıdaki örnekte gösterilmektedir:
 
 1. Bağlı hizmet türü [DocumentDb](#azure-documentdb-linked-service-properties).
@@ -434,7 +434,7 @@ Aşağıdaki işlem hattı Azure Blobundan verileri Cosmos DB kişi koleksiyonda
             "nestingSeparator": ".",
             "writeBatchSize": 2,
             "writeBatchTimeout": "00:00:00"
-          }
+          },
           "translator": {
               "type": "TabularTranslator",
               "ColumnMappings": "FirstName: Name.First, MiddleName: Name.Middle, LastName: Name.Last, BusinessEntityID: BusinessEntityID, PersonType: PersonType, NameStyle: NameStyle, Title: Title, Suffix: Suffix, EmailPromotion: EmailPromotion, rowguid: rowguid, ModifiedDate: ModifiedDate"
@@ -487,7 +487,7 @@ Azure Cosmos DB iç içe geçmiş yapılar burada izin verilen bir NoSQL JSON be
     **Yanıt:** Hayır.
 2. **Soru:** Azure Cosmos DB'ye bir kopyasını yeniden denemek, zaten kopyalanan kayıtlarla nasıl dağıtılsın mı?
 
-    **Yanıt:** Kopyalama işlemi, kayıtları bir "ID" alanına sahip ve aynı Kimliğe sahip bir kayıt eklemek kopyalama işlemi çalışırsa bir hata oluşturur.  
+    **Yanıt:** Kopyalama işlemi, kayıtları bir "ID" alanına sahip ve aynı Kimliğe sahip bir kayıt eklemek kopyalama işlemi çalışırsa bir hata oluşturur.
 3. **Soru:** Data Factory desteklemiyor [aralığı veya karma tabanlı veri bölümleme](../../cosmos-db/sql-api-partition-data.md)?
 
     **Yanıt:** Hayır.

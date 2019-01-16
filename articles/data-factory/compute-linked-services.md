@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/31/2018
+ms.date: 01/15/2019
 ms.author: douglasl
-ms.openlocfilehash: 110005469d5ff42af10b29fcee97c2f130ecdc2d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 5e620b03f5588369fc73a62f2019d857766596fd
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873841"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321951"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory tarafından desteklenen ortam işlem
 Bu makalede, işlem veya dönüşüm veri için kullanabileceğiniz farklı işlem ortamlarında açıklanmaktadır. (İsteğe bağlı ve Getir kendi) farklı yapılandırmalar hakkında ayrıntılar bu bağlama bağlı hizmetler yapılandırırken Data Factory tarafından desteklenen bir Azure data factory'ye ortamları işlem sağlar.
@@ -27,18 +27,18 @@ Aşağıdaki tabloda Data Factory ve bunlar üzerinde çalışan etkinlikler tar
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [İsteğe bağlı HDInsight kümesi](#azure-hdinsight-on-demand-linked-service) veya [kendi HDInsight kümenizi](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [Pig](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [Hadoop akış](transform-data-using-hadoop-streaming.md) |
 | [Azure Batch](#azure-batch-linked-service)                   | [Özel](transform-data-using-dotnet-custom-activity.md)     |
-| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Machine Learning etkinlikleri: Toplu Yürütme ve Kaynak Güncelleştirme](transform-data-using-machine-learning.md) |
+| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Machine Learning etkinlikleri: Toplu yürütme ve kaynak güncelleştirme](transform-data-using-machine-learning.md) |
 | [Azure Data Lake Analytics'i](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md) |
 | [Azure SQL](#azure-sql-database-linked-service), [Azure SQL veri ambarı](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Saklı Yordam](transform-data-using-stored-procedure.md) |
 | [Azure Databricks](#azure-databricks-linked-service)         | [Not Defteri](transform-data-databricks-notebook.md), [Jar](transform-data-databricks-jar.md), [Python](transform-data-databricks-python.md) |
 
 >  
 
-## <a name="on-demand-compute-environment"></a>İsteğe bağlı işlem ortamı
+## <a name="on-demand-hdinsight-compute-environment"></a>İsteğe bağlı HDInsight işlem ortamı
 Bu tür yapılandırma, bilgi işlem ortamınız Azure Data Factory hizmeti tarafından tamamen yönetilir. Bir iş verileri işlemek için gönderilen ve iş tamamlandığında kaldırıldı önce Data Factory hizmeti tarafından otomatik olarak oluşturulur. İsteğe bağlı işlem ortamı için bağlı hizmet oluşturun, yapılandırın ve iş yürütme, küme yönetimi ve eylemleri önyükleme için ayrıntılı ayarları denetler.
 
 > [!NOTE]
-> İsteğe bağlı yapılandırma şu anda yalnızca Azure HDInsight kümeleri için desteklenir.
+> İsteğe bağlı yapılandırma şu anda yalnızca Azure HDInsight kümeleri için desteklenir. Azure Databricks işi kümelerini kullanarak isteğe bağlı işleri de destekler, başvurmak [Azure databricks bağlı hizmeti](#azure-databricks-linked-service) daha fazla ayrıntı için.
 
 ## <a name="azure-hdinsight-on-demand-linked-service"></a>Azure HDInsight isteğe bağlı hizmeti
 Azure Data Factory hizmetinin otomatik olarak verileri işlemek için bir isteğe bağlı HDInsight kümesi oluşturabilirsiniz. Küme, kümeyle ilişkili depolama hesabı (JSON özelliğinde linkedServiceName) ile aynı bölgede oluşturulur. Depolama hesabı genel amaçlı standart Azure depolama hesabı olmalıdır. 
@@ -48,7 +48,7 @@ Aşağıdakilere dikkat edin **önemli** noktaları hakkında isteğe bağlı HD
 * İsteğe bağlı HDInsight kümesi, Azure aboneliği altında oluşturulur. Azure portal'ınızın kümedeki küme yukarı olduğunda görmek mümkün ve çalışan olursunuz. 
 * Bir isteğe bağlı HDInsight kümesi üzerinde çalışan işler için günlükleri, HDInsight kümesi ile ilişkili depolama hesabına kopyalanır. ClusterUserName, clusterPassword clusterSshUserName, bağlı hizmet tanımında clusterSshPassword küme yaşam döngüsü boyunca ayrıntılı sorun giderme için küme oturum açmak için kullanılır. 
 * Yalnızca HDInsight kümesi yukarı olduğunda zaman ve çalışan işleri için ücretlendirilir.
-* Betik eylemi, artık Azure HDInsight üzerinde isteğe bağlı hizmeti ile desteklenmektedir.  
+* Kullanabileceğiniz bir **betik eylemi** bağlı hizmeti Azure HDInsight ile isteğe bağlı.  
 
 > [!IMPORTANT]
 > Genellikle sürer **20 dakika** ya da daha fazla isteğe bağlı bir Azure HDInsight kümesi sağlayın.
@@ -103,27 +103,27 @@ Aşağıdaki JSON, Linux tabanlı bir isteğe bağlı HDInsight bağlı hizmeti 
 | linkedServiceName            | Depolama ve veri işleme için isteğe bağlı küme tarafından kullanılacak azure depolama bağlı hizmeti. HDInsight kümesi bu Azure depolama hesabı ile aynı bölgede oluşturulur. Azure HDInsight, desteklediği her bir Azure bölgesinde kullanabileceğiniz toplam çekirdek sayısıyla ilgili sınırlamaya sahiptir. Bu Azure bölgesinde gerekli clusterSize karşılamak için yeterli çekirdek kotası olduğundan emin olun. Ayrıntılar için başvurmak [HDInsight Hadoop, Spark, Kafka ve daha fazlası ile kümelerini ayarlama](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)<p>Şu anda, bir Azure Data Lake Store depolama alanı olarak kullanan bir isteğe bağlı HDInsight kümesi oluşturulamıyor. HDInsight bir Azure Data Lake Store içinde işleme sonuç verileri depolamak istiyorsanız, Azure Data Lake Store için Azure Blob depolama alanından verileri kopyalamak için kopyalama etkinliğini kullanın. </p> | Evet      |
 | clusterResourceGroup         | HDInsight kümesi bu kaynak grubunda oluşturulur. | Evet      |
 | TimeToLive                   | İsteğe bağlı HDInsight kümesi için izin verilen boşta kalma süresi. Ne kadar süreyle isteğe bağlı HDInsight kümesi kümede hiç bir etkin iş olduğunda çalıştırmak bir etkinlik tamamlandıktan sonra canlı kalmasını belirtir. Değer izin verilen en az 5 dakikadır (00: 05:00).<br/><br/>Örneğin, bir etkinlik çalıştırması 6 dakika sürer ve timetolive 5 dakika olarak ayarlanmıştır, küme etkinlik işleme 6 dakika çalıştırdıktan sonra 5 dakika boyunca Canlı kalır. Başka bir etkinlik çalıştırması 6 dakika penceresiyle yürütülürse, aynı küme tarafından işlenir.<br/><br/>Bir isteğe bağlı HDInsight kümesi oluşturma bir yeniden bir isteğe bağlı HDInsight kümesi kullanarak veri fabrikası performansını artırmak için bu ayarı olarak gerekli bunu kullanmak, pahalı işlem (biraz sürebilir) bağlıdır.<br/><br/>Timetolive değeri 0 olarak ayarlarsanız etkinlik çalıştırma tamamlandıktan hemen sonra küme silinir. Yüksek bir değere ayarlarsanız, kümenin bazı sorun giderme için oturum açmanız için boşta kalır ancak amaçlı ancak içinde yüksek maliyetlere neden olabilir. Bu nedenle, ihtiyaçlarınıza uygun değeri ayarlamak önemlidir.<br/><br/>Timetolive özellik değeri uygun şekilde ayarlarsanız, birden fazla işlem hattını isteğe bağlı HDInsight kümesi örneğini paylaşabilirsiniz. | Evet      |
-| clusterType                  | Oluşturulacak HDInsight küme türü. İzin verilen değerler şunlardır: "hadoop" ve "spark". Belirtilmezse, varsayılan değer hadoop olur. Kurumsal güvenlik paketi etkin küme şu anda desteklenmiyor | Hayır       |
+| clusterType                  | Oluşturulacak HDInsight küme türü. İzin verilen değerler şunlardır: "hadoop" ve "spark". Belirtilmezse, varsayılan değer hadoop olur. Kurumsal güvenlik paketi etkin küme oluşturulamıyor isteğe bağlı, bunun yerine kullanmak bir [mevcut küme / kendi işlem Getir](#azure-hdinsight-linked-service). | Hayır       |
 | version                      | HDInsight küme sürümü. Belirtilmezse, geçerli HDInsight tanımlanan varsayılan sürümü kullanıyor. | Hayır       |
 | hostSubscriptionId           | HDInsight kümesi oluşturmak için kullanılan Azure abonelik kimliği. Belirtilmezse, abonelik kimliği, Azure oturum açma bağlamını kullanır. | Hayır       |
 | clusterNamePrefix           | HDI küme adı, bir zaman damgası öneki, küme adının sonunda otomatik olarak eklenir| Hayır       |
 | sparkVersion                 | Küme türü "Spark" ise spark sürümü | Hayır       |
 | additionalLinkedServiceNames | Ek depolama hesapları için HDInsight bağlı hizmeti Data Factory hizmetinin sizin adınıza kaydedebilmesi belirtir. Bu depolama hesaplarından linkedServiceName tarafından belirtilen depolama hesabı ile aynı bölgede oluşturulan HDInsight kümesi ile aynı bölgede olması gerekir. | Hayır       |
-| osType                       | İşletim sistemi türü. İzin verilen değerler: Linux ve Windows (yalnızca HDInsight 3.3 için). Linux varsayılandır. | Hayır       |
+| osType                       | İşletim sistemi türü. İzin verilen değerler şunlardır: Linux ve Windows (için HDInsight 3.3 yalnızca). Linux varsayılandır. | Hayır       |
 | hcatalogLinkedServiceName    | Azure SQL adını bağlı HCatalog veritabanına işaret eden hizmeti. Meta veri deposu olarak Azure SQL veritabanı kullanarak isteğe bağlı HDInsight kümesi oluşturulur. | Hayır       |
 | connectVia                   | Bu HDInsight bağlı hizmeti için etkinlikler gönderilmesi için kullanılacak Integration Runtime. İsteğe bağlı HDInsight bağlı hizmeti için yalnızca Azure Integration Runtime'ı destekler. Belirtilmezse, varsayılan Azure Integration Runtime kullanır. | Hayır       |
 | clusterUserName                   | Kümeye erişmek için kullanıcı adı. | Hayır       |
 | clusterPassword                   | Parola kümeye erişmek için güvenli dize türünde. | Hayır       |
 | clusterSshUserName         | SSH kullanıcı adı (Linux için) uzaktan küme düğümüne bağlanın. | Hayır       |
 | clusterSshPassword         | SSH için güvenli dize türünde parola (Linux için) uzaktan küme düğümüne bağlanın. | Hayır       |
+| scriptActions | Komut dosyası için belirtmek [HDInsight küme özelleştirmeleri](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux) talep üzerine küme oluşturma sırasında. <br />Şu anda, Azure Data Factory'nin kullanıcı arabirimi geliştirme aracı belirten yalnızca 1 betik eylemi destekler, ancak bu sınırlama, JSON aracılığıyla elde edebilirsiniz (birden çok betik eylemleri, JSON'da belirtin). | Hayır |
 
 
 > [!IMPORTANT]
 > HDInsight dağıtılabilir birden çok Hadoop küme sürümleri destekler. Her sürüm seçimi, Hortonworks Data Platform (HDP) dağıtım belirli bir sürümünü ve dağıtımı içinde bulunan bileşenler kümesi oluşturur. En yeni Hadoop ekosistemi bileşenleri ve düzeltmeleri sağlamak üzere güncelleştiriliyor desteklenen HDInsight sürümleri listesini tutar. En son bilgileri her zaman başvuran emin [desteklenen HDInsight sürüm ve işletim sistemi türü](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) HDInsight'ın desteklenen sürümünü kullandığınızdan emin olmak için. 
 >
-> 
 > [!IMPORTANT]
-> Şu anda bağlı hizmetler, HBase, etkileşimli sorgu (LLAP Hive), Storm ve kurumsal güvenlik (etki alanına katılmış) etkin desteklemiyor HDInsight kümeleri. 
+> HDInsight bağlı Hizmetleri şu anda, HBase, etkileşimli sorgu (LLAP) Hive, Storm desteklemez. 
 >
 > 
 
@@ -146,7 +146,7 @@ Aşağıdaki JSON, Linux tabanlı bir isteğe bağlı HDInsight bağlı hizmeti 
 
 Hizmet sorumlusu kimlik doğrulaması, aşağıdaki özellikleri belirterek kullanın:
 
-| Özellik                | Açıklama                              | Gerekli |
+| Özellik                | Açıklama                              | Gereklidir |
 | :---------------------- | :--------------------------------------- | :------- |
 | **servicePrincipalId**  | Uygulamanın istemci kimliği belirtin.     | Evet      |
 | **serviceprincipalkey değerleri** | Uygulama anahtarını belirtin.           | Evet      |
@@ -156,7 +156,7 @@ Hizmet sorumlusu kimlik doğrulaması, aşağıdaki özellikleri belirterek kull
 
 İsteğe bağlı HDInsight kümesinin ayrıntılı yapılandırma için aşağıdaki özellikleri belirtebilirsiniz.
 
-| Özellik               | Açıklama                              | Gerekli |
+| Özellik               | Açıklama                              | Gereklidir |
 | :--------------------- | :--------------------------------------- | :------- |
 | coreConfiguration      | Oluşturulacak HDInsight küme için çekirdek yapılandırma parametrelerini (olduğu gibi core-site.xml) belirtir. | Hayır       |
 | hBaseConfiguration     | HDInsight kümesi için HBase yapılandırma parametreleri (hbase-site.xml) belirtir. | Hayır       |
@@ -224,11 +224,11 @@ Hizmet sorumlusu kimlik doğrulaması, aşağıdaki özellikleri belirterek kull
 ### <a name="node-sizes"></a>Düğümü boyutları
 Baş, veri ve zookeeper düğümleri aşağıdaki özellikleri kullanarak boyutunu belirtebilirsiniz: 
 
-| Özellik          | Açıklama                              | Gerekli |
+| Özellik          | Açıklama                              | Gereklidir |
 | :---------------- | :--------------------------------------- | :------- |
-| headNodeSize      | Baş düğüm boyutunu belirtir. Varsayılan değer: işler için standart_d3. Bkz: **düğümü boyutları belirtme** ayrıntıları bölümü. | Hayır       |
-| dataNodeSize      | Veri düğümü boyutunu belirtir. Varsayılan değer: işler için standart_d3. | Hayır       |
-| zookeeperNodeSize | Zoo Keeper düğüm boyutunu belirtir. Varsayılan değer: işler için standart_d3. | Hayır       |
+| headNodeSize      | Baş düğüm boyutunu belirtir. Varsayılan değerdir: Standard_D3. Bkz: **düğümü boyutları belirtme** ayrıntıları bölümü. | Hayır       |
+| dataNodeSize      | Veri düğümü boyutunu belirtir. Varsayılan değerdir: Standard_D3. | Hayır       |
+| zookeeperNodeSize | Zoo Keeper düğüm boyutunu belirtir. Varsayılan değerdir: Standard_D3. | Hayır       |
 
 #### <a name="specifying-node-sizes"></a>Düğümü boyutları belirtme
 Bkz: [sanal makinelerinin boyutları](../virtual-machines/linux/sizes.md) makale için dize değerlerini önceki bölümde belirtilen özellikleri belirtmeniz gerekir. Değerleri uygun gerek **cmdlet'leri ve API'leri** makalede bahsedilen. Makalesinde görebileceğiniz gibi 7 GB bellek, senaryonuz için yeterince iyi olmayabilir (varsayılan) büyük boyuttaki veri düğümü vardır. 
@@ -240,7 +240,7 @@ Boyutlandırılmış D4 baş düğümü ve alt düğümü oluşturmak istiyorsan
 "dataNodeSize": "Standard_D4",
 ```
 
-Bu özellikler için yanlış bir değer belirtirseniz, aşağıdaki alabileceğiniz **hata:** küme oluşturulamadı. Özel durum: Küme oluşturma işlemi tamamlanamadı. İşlem '400' koduyla başarısız oldu. Küme geride bırakma durumu: 'Hata'. İleti: 'PreClusterCreationValidationFailure'. Bu hata iletisini aldığınızda, kullandığınızdan emin olun **CMDLET'i ve API'leri** tablosundan ad [sanal makinelerinin boyutları](../virtual-machines/linux/sizes.md) makalesi.        
+Bu özellikler için yanlış bir değer belirtirseniz, aşağıdaki alabileceğiniz **hata:** Küme oluşturulamadı. Özel durum: Küme oluşturma işlemi tamamlanamıyor. İşlem '400' koduyla başarısız oldu. Geride bırakma durumu küme: 'Error'. Mesaj: 'PreClusterCreationValidationFailure'. Bu hata iletisini aldığınızda, kullandığınızdan emin olun **CMDLET'i ve API'leri** tablosundan ad [sanal makinelerinin boyutları](../virtual-machines/linux/sizes.md) makalesi.        
 
 ## <a name="bring-your-own-compute-environment"></a>Kendi işlem ortamı getirin
 Bu tür yapılandırma, kullanıcılar, Data Factory öğesinde bağlantılı hizmet olarak zaten mevcut olan bir bilgi işlem ortamı kaydedebilirsiniz. Bilgi işlem ortamınız, kullanıcı tarafından yönetilir ve Data Factory hizmetinin etkinlikleri yürütmek için kullanır.
@@ -284,20 +284,21 @@ Kendi HDInsight kümenizi Data Factory'ye kaydetmeniz için bir Azure HDInsight 
 ```
 
 ### <a name="properties"></a>Özellikler
-| Özellik          | Açıklama                              | Gerekli |
-| ----------------- | ---------------------------------------- | -------- |
-| type              | Type özelliği ayarlanmalıdır **HDInsight**. | Evet      |
-| Küme Uri'si        | HDInsight küme URİ'si.        | Evet      |
+| Özellik          | Açıklama                                                  | Gerekli |
+| ----------------- | ------------------------------------------------------------ | -------- |
+| type              | Type özelliği ayarlanmalıdır **HDInsight**.            | Evet      |
+| Küme Uri'si        | HDInsight küme URİ'si.                            | Evet      |
 | kullanıcı adı          | Mevcut bir HDInsight kümesine bağlanmak için kullanılacak kullanıcı adını belirtin. | Evet      |
-| password          | Kullanıcı hesabı için parola belirtin.   | Evet      |
+| password          | Kullanıcı hesabı için parola belirtin.                       | Evet      |
 | linkedServiceName | HDInsight küme tarafından kullanılan Azure blob Depolama'ya başvuran Azure depolama bağlı hizmetin adı. <p>Şu anda bu özellik için bir Azure Data Lake Store bağlı belirtemezsiniz. HDInsight kümesi için Data Lake Store erişimi varsa, Azure Data Lake Store verileri Hive/Pig betiklerin erişebilir. </p> | Evet      |
-| connectVia        | Bu bağlı hizmeti için etkinlikler gönderilmesi için kullanılacak Integration Runtime. Azure tümleştirme çalışma zamanı veya şirket içinde barındırılan Integration Runtime'ı kullanabilirsiniz. Belirtilmezse, varsayılan Azure Integration Runtime kullanır. | Hayır       |
+| isEspEnabled      | Belirtin '*true*' HDInsight küme ise [Kurumsal güvenlik paketi](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-introduction) etkin. Varsayılan '*false*'. | Hayır       |
+| connectVia        | Bu bağlı hizmeti için etkinlikler gönderilmesi için kullanılacak Integration Runtime. Azure tümleştirme çalışma zamanı veya şirket içinde barındırılan Integration Runtime'ı kullanabilirsiniz. Belirtilmezse, varsayılan Azure Integration Runtime kullanır. <br />Kurumsal güvenlik paketi (ESP) HDInsight küme kullanımı görebilmesi kümesine sahip bir şirket içinde barındırılan tümleştirme çalışma zamanı etkin veya ESP HDInsight kümesi olarak aynı sanal ağ içindeki dağıtılmalıdır için. | Hayır       |
 
 > [!IMPORTANT]
 > HDInsight dağıtılabilir birden çok Hadoop küme sürümleri destekler. Her sürüm seçimi, Hortonworks Data Platform (HDP) dağıtım belirli bir sürümünü ve dağıtımı içinde bulunan bileşenler kümesi oluşturur. En yeni Hadoop ekosistemi bileşenleri ve düzeltmeleri sağlamak üzere güncelleştiriliyor desteklenen HDInsight sürümleri listesini tutar. En son bilgileri her zaman başvuran emin [desteklenen HDInsight sürüm ve işletim sistemi türü](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) HDInsight'ın desteklenen sürümünü kullandığınızdan emin olmak için. 
 >
 > [!IMPORTANT]
-> Şu anda bağlı hizmetler, HBase, etkileşimli sorgu (LLAP Hive), Storm ve kurumsal güvenlik (etki alanına katılmış) etkin desteklemiyor HDInsight kümeleri. 
+> HDInsight bağlı Hizmetleri şu anda, HBase, etkileşimli sorgu (LLAP) Hive, Storm desteklemez. 
 >
 > 
 
@@ -377,7 +378,7 @@ Bir Machine Learning batch Puanlama uç noktası bir data factory'ye kaydetmeniz
 ```
 
 ### <a name="properties"></a>Özellikler
-| Özellik               | Açıklama                              | Gerekli                                 |
+| Özellik               | Açıklama                              | Gereklidir                                 |
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
 | Tür                   | Type özelliği ayarlanmalıdır: **AzureML**. | Evet                                      |
 | mlEndpoint             | Toplu işlem Puanlama URL'si.                   | Evet                                      |
@@ -424,7 +425,7 @@ Oluşturduğunuz bir **Azure Data Lake Analytics** bir Azure Data Lake Analytics
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
 | type                 | Type özelliği ayarlanmalıdır: **AzureDataLakeAnalytics**. | Evet                                      |
 | accountName          | Azure Data Lake Analytics hesap adı.  | Evet                                      |
-| dataLakeAnalyticsUri | Azure Data Lake Analytics URI'si.           | Hayır                                       |
+| dataLakeAnalyticsUri | Azure Data Lake Analytics URI.           | Hayır                                       |
 | subscriptionId       | Azure abonelik kimliği                    | Hayır                                       |
 | resourceGroupName    | Azure kaynak grubu adı                | Hayır                                       |
 | servicePrincipalId   | Uygulamanın istemci kimliği belirtin.     | Evet                                      |
@@ -480,7 +481,7 @@ Oluşturabileceğiniz **Azure Databricks bağlı hizmeti** Databricks workloads(
 
 ### <a name="properties"></a>Özellikler
 
-| Özellik             | Açıklama                              | Gerekli                                 |
+| Özellik             | Açıklama                              | Gereklidir                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
 | ad                 | Bağlı hizmetin adı               | Evet   |
 | type                 | Type özelliği ayarlanmalıdır: **AzureDatabricks**. | Evet                                      |

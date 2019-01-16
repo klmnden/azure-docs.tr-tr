@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/26/2018
+ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 95355a6d1a0aff9829d75789df86f37768d25e22
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 94d948267286ad716aa200cb5aa858acf2eb2624
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342247"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330781"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Azure Otomasyonu’nda kaynak denetimi tümleştirmesi
 
@@ -52,13 +52,16 @@ Uygulama isteği izinleri sayfasında gözden geçirin ve tıklayın **kabul**.
 |Kaynak denetimi adı     | Kaynak denetimi için bir kolay ad        |
 |Kaynak Denetim türü     | Kaynak denetimi türü. Kullanılabilen seçenekler:</br> GitHub</br>Azure DevOps (Git)</br> Azure DevOps (TFVC)        |
 |Depo     | Depo veya projenin adı. Bu değer, kaynak denetimi deposundan alınır. Örnek: $/ ContosoFinanceTFVCExample         |
-|Dal     | Kaynak dosyalarını çekmek için dal. Dal hedefleyen TFVC kaynak denetimi türü için kullanılamıyor.          |
+|Şube     | Kaynak dosyalarını çekmek için dal. Dal hedefleyen TFVC kaynak denetimi türü için kullanılamıyor.          |
 |Klasör yolu     | Eşitleme için runbook'ları içeren klasör. Örnek: /Runbooks         |
-|Otomatik eşitleme     | Açar veya kaynak denetim deposunda bir işleme yapıldığında otomatik eşitleme devre dışı         |
-|Runbook yayımlama     | Varsa kümesine **üzerinde**, runbook'ları, bunlar otomatik olarak yayımlanacak kaynak denetiminden eşitlendiğinde.         |
+|Auto Sync     | Açar veya kaynak denetim deposunda bir işleme yapıldığında otomatik eşitleme devre dışı         |
+|Publish Runbook     | Varsa kümesine **üzerinde**, runbook'ları, bunlar otomatik olarak yayımlanacak kaynak denetiminden eşitlendiğinde.         |
 |Açıklama     | Ek ayrıntılar sağlamak için bir metin alanı        |
 
 ![Kaynak denetimi özeti](./media/source-control-integration/source-control-summary.png)
+
+> [!NOTE]
+> Kaynak denetimi yapılandırma sırasında doğru hesabıyla oturum emin olun. Bir şüpheli varsa, tarayıcınızda yeni bir sekme açın ve visualstudio.com veya github.com Oturumu Kapat ve bağlantı kaynak denetimine yeniden deneyin.
 
 ## <a name="syncing"></a>Eşitleniyor
 
@@ -115,9 +118,9 @@ Kaynak denetimi için kişisel erişim belirteçleri bazı minimum izinleri gere
 |Depo: durumu     | Erişim yürütme durumu         |
 |repo_deployment      | Erişim dağıtım durumu         |
 |public_repo     | Genel erişim depolar         |
-|**Admin: repo_hook**     |         |
-|yazma: repo_hook     | Depo kancaları yazma         |
-|Okuma: repo_hook|Okuma deposu kancaları|
+|**admin:repo_hook**     |         |
+|write:repo_hook     | Depo kancaları yazma         |
+|read:repo_hook|Okuma deposu kancaları|
 
 ### <a name="azure-devops"></a>Azure DevOps
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: bbe957d4327770daee51f8a46d90978373fed53a
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 3363b0bbd98b125f0108ca842d5c0b6b9941bf9e
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317024"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330398"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Azure Resource Manager ile yaygın Azure dağıtım hatalarını giderme
 
@@ -250,5 +250,7 @@ Ya da yanlışlıkla bağımlılıkları ayarlama ile ilgili olduğunu düşünd
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
+* Bir sorun giderme öğreticiyi incelemek için bkz: [Öğreticisi: Resource Manager şablon dağıtımları sorunlarını giderme](./resource-manager-tutorial-troubleshoot.md)
 * Eylemler denetleme hakkında bilgi edinmek için [Resource Manager denetim işlemleri](resource-group-audit.md).
 * Dağıtım sırasında hataları belirlemek için Eylemler hakkında bilgi edinmek için bkz. [dağıtım işlemlerini görüntüleme](resource-manager-deployment-operations.md).

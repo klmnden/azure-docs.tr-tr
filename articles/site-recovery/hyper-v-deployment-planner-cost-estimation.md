@@ -2,18 +2,18 @@
 title: Azure Site Recovery dağıtım Planlayıcısı maliyet tahmini raporunu Hyper-V Vm'lerini azure'a olağanüstü durum kurtarması için gözden geçirin | Microsoft Docs
 description: Bu makalede maliyet gözden geçirmek nasıl raporu oluşturulan Hyper-V azure'a olağanüstü durum kurtarma için Azure Site Recovery dağıtım Planlayıcısı tahmini.
 services: site-recovery
-author: nsoneji
-manager: garavd
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: nisoneji
-ms.openlocfilehash: eaccbc93fa1e78132527798dcef27babc8a2cc09
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.author: mayg
+ms.openlocfilehash: 03f71e4e10b65d9f295e13cdd8bc6881622c523d
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845034"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320300"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Azure Site Recovery Dağıtım Planlayıcısı maliyet tahmini raporu 
 
@@ -28,15 +28,15 @@ Bu özet Azure Site Recovery kullanarak tüm uyumlu sanal makinelerinizi korudu�
  
 Aylık veya yıllık maliyeti görüntüleyebilirsiniz. [Desteklenen hedef bölgeler](./hyper-v-deployment-planner-cost-estimation.md#supported-target-regions) ve [desteklenen para birimleri](./hyper-v-deployment-planner-cost-estimation.md#supported-currencies) hakkında daha fazla bilgi edinin.
 
-**Bileşenlere göre maliyet**: Toplam DR maliyeti dört bileşene bölünür: Bilgi işlem, depolama, ağ ve Site Recovery lisansı maliyeti. Maliyet, çoğaltma sırasında ve DR tatbikatı anında oluşan tüketime dayalı olarak hesaplanır. Hesaplamalar için bilgi işlem, depolama (premium ve standart), şirket içi site ve Azure arasında yapılandırılan ExpressRoute/VPN ve Site Recovery lisansı kullanılır.
+**Bileşenlere göre maliyet**: Toplam DR maliyeti dört bileşene bölünür: işlem, depolama, ağ ve Site Recovery lisans maliyeti. Maliyet, çoğaltma sırasında ve DR tatbikatı anında oluşan tüketime dayalı olarak hesaplanır. Hesaplamalar için bilgi işlem, depolama (premium ve standart), şirket içi site ve Azure arasında yapılandırılan ExpressRoute/VPN ve Site Recovery lisansı kullanılır.
 
-**Durumlara göre maliyet** Toplam olağanüstü durum kurtarma (DR) maliyeti, iki farklı duruma göre kategorilere ayrılır: Çoğaltma ve DR tatbikatı. 
+**Durumlara göre maliyet**: Toplam olağanüstü durum kurtarma (DR) maliyeti kategori iki farklı duruma bağlıdır: çoğaltma ve DR tatbikatı. 
 
 **Çoğaltma maliyeti**: Çoğaltma sırasında tahakkuk ettirilen maliyet. Depolama, ağ ve Site Recovery lisansı maliyetini kapsar. 
 
 **DR Tatbikatı maliyeti**: Yük devretme testi sırasında tahakkuk ettirilen maliyet. Site Recovery, yük devretme testi sırasında sanal makineleri çalıştırır. DR tatbikatı maliyeti, çalıştırılan sanal makinelerin işlem ve depolama maliyetlerini kapsar. 
 
-**Ay/Yıl başına Azure Depolama Maliyeti**: Çoğaltma ve DR tatbikatının premium ve standart depolaması için tahakkuk ettirilen toplam depolama maliyeti.
+**Ay/yıl başına Azure depolama maliyeti**: Premium ve standart depolaması için çoğaltma ve DR tatbikatı tahakkuk ettirilen toplam depolama maliyeti.
 
 ## <a name="detailed-cost-analysis"></a>Ayrıntılı maliyet analizi
 Azure'un işlem, depolama ve ağ fiyatları Azure bölgeleri arasında değişiklik gösterir. Aboneliğinize, aboneliğinizle ilişkili teklife ve belirtilen hedef Azure bölgenizle belirtilen para birimine göre Azure'un son fiyatları ile maliyet tahmini raporunu oluşturabilirsiniz. Varsayılan olarak araç, Batı ABD 2 Azure bölgesini ve ABD Doları (USD) para birimini kullanır. Başka bir bölge ve para birimi kullanırsanız, raporu abonelik kimliği, teklif kimliği, hedef bölge ve para birimi belirtmeden bir sonraki oluşturmanızda, araç maliyet tahmini için son kullanılan hedef bölgeyi ve para birimini kullanır.
@@ -50,7 +50,7 @@ Raporun tamamında, gri renkle işaretlenmiş hücreler salt okunurdur. Beyaz h�
 ### <a name="overall-dr-costs-by-components"></a>Bileşenlere göre genel DR maliyetleri
 İlk bölümde bileşenlere göre genel DR maliyeti ve durumlara göre DR maliyeti gösterilir. 
 
-**İşlem**: DR gereksinimleri için Azure'da çalıştırılan IaaS sanal makinelerinin maliyeti. DR tatbikatları (yük devretme testleri) sırasında Site Recovery tarafından oluşturulan VM’leri içerir. Ayrıca AlwaysOn kullanılabilirlik grupları ile SQL Server ve etki alanı denetleyicileri veya etki alanı ad sunucuları gibi Azure üzerinde çalışan VM’leri içerir.
+**İşlem**: DR gereksinimleri için Azure'da çalıştırılan Iaas Vm'lerinin maliyeti. DR tatbikatları (yük devretme testleri) sırasında Site Recovery tarafından oluşturulan VM’leri içerir. Ayrıca AlwaysOn kullanılabilirlik grupları ile SQL Server ve etki alanı denetleyicileri veya etki alanı ad sunucuları gibi Azure üzerinde çalışan VM’leri içerir.
 
 **Depolama**: DR gereksinimleri için Azure depolama alanı tüketiminin maliyeti. Çoğaltma ve DR tatbikatları sırasındaki depolama alanı tüketimini içerir.
 
@@ -74,9 +74,9 @@ Bu tabloda, çoğaltma ve DR tatbikatları için indirimli ve indirimsiz premium
 ### <a name="site-to-azure-network"></a>Azure'da site ağı
 Gereksinimlerinize göre uygun ayarı seçin. 
 
-**ExpressRoute**: Varsayılan olarak araç, değişiklik çoğaltması için gereken ağ bant genişliğiyle eşleyen en yakın ExpressRoute planını seçer. Gereksinimlerinize göre planı değiştirebilirsiniz.
+**ExpressRoute**: Varsayılan olarak, aracı değişiklik çoğaltması için gereken ağ bant genişliği ile eşleşen en yakın ExpressRoute planını seçer. Gereksinimlerinize göre planı değiştirebilirsiniz.
 
-**VPN Ağ Geçidi türü**: Ortamınızda varsa, Azure VPN Gateway'i seçin. Varsayılan olarak, Yok değeri gösterilir.
+**VPN ağ geçidi türü**: Ortamınızda varsa, Azure VPN ağ geçidi seçin. Varsayılan olarak, Yok değeri gösterilir.
 
 **Hedef bölge**: DR için belirtilen Azure bölgesi. Raporda işlem, depolama, ağ ve lisans için kullanılan fiyat, söz konusu bölgeye ilişkin Azure fiyatına bağlıdır. 
 
@@ -90,9 +90,9 @@ Azure iş ortağı veya müşterisiyseniz ve genel Azure fiyatlarında herhangi 
 Bu tabloda Windows ve Windows dışı sanal makinelerin sayısı ile bunların DR tatbikatı işlem maliyeti gösterilir.
 
 ### <a name="settings"></a>Ayarlar 
-**Yönetilen disk kullanarak**: Bu ayar DR tatbikatları sırasında bir yönetilen diskin kullanılıp kullanılmadığını belirtir. Varsayılan değer **Evet**’tir. **-UseManagedDisks** değerini **Hayır** olarak ayarlarsanız, maliyet hesaplamasında yönetilmeyen disk fiyatı kullanılır.
+**Yönetilen disk kullanarak**: Bu ayar DR tatbikatları sırasındaki bir yönetilen diskin kullanılıp kullanılmadığını belirtir. Varsayılan değer **Evet**’tir. **-UseManagedDisks** değerini **Hayır** olarak ayarlarsanız, maliyet hesaplamasında yönetilmeyen disk fiyatı kullanılır.
 
-**Para birimi**: Rapor oluşturulurken kullanılan para birimi.
+**Para birimi**: Raporun oluşturulduğu para birimi.
 
 **Maliyet süresi**: Aya veya yılın tamamına denk gelen tüm maliyetleri görüntüleyebilirsiniz. 
 
@@ -129,35 +129,35 @@ Sanal makineleri el ile eklemek için:
 
 1. Maliyeti güncelleştirmek için **Maliyeti yeniden hesapla** öğesini seçin.
 
-**VM Adı**: Sanal makinenin adı.
+**VM adı**: VM adı.
 
-**VM Sayısı**: Yapılandırmayla eşleşen sanal makine sayısı. Benzer yapılandırmadaki sanal makinelerin profili oluşturulmadıysa ancak bunlar korunuyorsa, mevcut sanal makinelerin sayısını güncelleştirebilirsiniz.
+**VM sayısı**: Bu yapılandırmayla eşleşen sanal makine sayısı. Benzer yapılandırmadaki sanal makinelerin profili oluşturulmadıysa ancak bunlar korunuyorsa, mevcut sanal makinelerin sayısını güncelleştirebilirsiniz.
 
-**IaaS boyutu (Öneri)**: Uyumlu sanal makinenin araç tarafından önerilen sanal makine rolü boyutu. 
+**Iaas boyutu (öneri)**: Uyumlu sanal makinenin araç tarafından önerilen sanal makine rolü boyutu. 
 
-**IaaS boyutu (Sizin seçiminiz)**: Varsayılan olarak, önerilen VM rolü boyutuyla aynıdır. İhtiyacınıza göre rolü değiştirebilirsiniz. İşlem maliyetinde seçtiğiniz sanal makine rolü boyutu temel alınır.
+**Iaas boyutu (sizin seçiminiz)**: Varsayılan olarak, boyutu önerilen VM rolü boyutuyla aynıdır. İhtiyacınıza göre rolü değiştirebilirsiniz. İşlem maliyetinde seçtiğiniz sanal makine rolü boyutu temel alınır.
 
 **Depolama türü**: Sanal makine tarafından kullanılan depolamanın türü. Bu, standart veya premium depolamadır.
 
-**VM toplam depolama alanı boyutu (GB)**: Sanal makinenin toplam depolama alanı.
+**VM toplam depolama alanı boyutu (GB)**: VM toplam depolama alanı.
 
-**Yıllık DR Tatbikatları sayısı**: Bir yılda gerçekleştirdiğiniz DR tatbikatlarının sayısı. Varsayılan olarak, yılda dört kez gerçekleştirilir. Süreyi belirli VM’ler için değiştirebilir veya yeni değeri tüm VM’lere uygulayabilirsiniz. Üst satıra yeni değeri girip **Tümüne uygula** öğesini seçin. Yıllık DR tatbikatları sayısı ve her DR tatbikatının süresi temelinde, toplam DR tatbikatı maliyeti hesaplanır. 
+**Yıllık DR Tatbikatları sayısı**: Bir yılda gerçekleştirdiğiniz DR tatbikatları sayısı. Varsayılan olarak, yılda dört kez gerçekleştirilir. Süreyi belirli VM’ler için değiştirebilir veya yeni değeri tüm VM’lere uygulayabilirsiniz. Üst satıra yeni değeri girip **Tümüne uygula** öğesini seçin. Yıllık DR tatbikatları sayısı ve her DR tatbikatının süresi temelinde, toplam DR tatbikatı maliyeti hesaplanır. 
 
-**Her DR Tatbikatının süresi (Gün)**: Her DR tatbikatının süresi. Varsayılan olarak, [Disaster Recovery Yazılım Güvencesi avantajına](https://azure.microsoft.com/pricing/details/site-recovery) göre her 90 günde bir 7 gündür. Süreyi belirli VM’ler için değiştirebilir veya yeni değeri tüm VM’lere uygulayabilirsiniz. Üst satıra yeni bir değer girip **Tümüne uygula** öğesini seçin. Toplam DR tatbikatı maliyeti, yıllık DR tatbikatlarının sayısıyla her DR tatbikatının süresi temel alınarak hesaplanır.
+**Her DR Tatbikatının süresi (gün)**: Her DR tatbikatının süresi. Varsayılan olarak, [Disaster Recovery Yazılım Güvencesi avantajına](https://azure.microsoft.com/pricing/details/site-recovery) göre her 90 günde bir 7 gündür. Süreyi belirli VM’ler için değiştirebilir veya yeni değeri tüm VM’lere uygulayabilirsiniz. Üst satıra yeni bir değer girip **Tümüne uygula** öğesini seçin. Toplam DR tatbikatı maliyeti, yıllık DR tatbikatlarının sayısıyla her DR tatbikatının süresi temel alınarak hesaplanır.
  
-**İşletim Sistemi Türü**: VM’nin işletim sistemi (OS) türü. Windows veya Linux'tır. İşletim sistemi türü Windows olduğunda, o sanal makineye Azure Hibrit Kullanım Teklifi uygulanabilir. 
+**İşletim sistemi türü**: Sanal Makinenin işletim sistemi (OS) türü. Windows veya Linux'tır. İşletim sistemi türü Windows olduğunda, o sanal makineye Azure Hibrit Kullanım Teklifi uygulanabilir. 
 
 **Veri yedekliği**: Yerel olarak yedekli depolama, coğrafi olarak yedekli depolama veya okuma erişimli coğrafi olarak yedekli depolama olabilir. Varsayılan değer yerel olarak yedekli depolamadır. Belirli sanal makineler için depolama hesabınız temelinde türü değiştirebilir veya yeni türü tüm sanal makinelere uygulayabilirsiniz. Üst satırın türünü değiştirip **Tümüne uygula** öğesini seçin. Çoğaltmanın depolama maliyeti, seçtiğiniz veri yedekliğinin fiyatı temel alınarak hesaplanır. 
 
-**Azure Hibrit Kullanım Teklifi**: Uygunsa, Windows sanal makinelerine Azure Hibrit Kullanım Teklifi'ni uygulayabilirsiniz. Varsayılan değer **Evet**’tir. Belirli VM’ler için ayarı değiştirebilir veya tüm VM’leri güncelleştirebilirsiniz. **Tümüne uygula**’yı seçin.
+**Azure hibrit kullanım teklifi**: Uygunsa, Windows Vm'leri için Azure hibrit kullanım teklifi'ni uygulayabilirsiniz. Varsayılan değer **Evet**’tir. Belirli VM’ler için ayarı değiştirebilir veya tüm VM’leri güncelleştirebilirsiniz. **Tümüne uygula**’yı seçin.
 
-**Toplam Azure tüketimi**: DR'niz için işlem, depolama ve Site Recovery lisans maliyetini içerir. Yaptığınız seçime göre, aylık veya yıllık maliyeti gösterir.
+**Toplam Azure tüketimi**: İşlem, depolama ve DR'niz için Site Recovery lisans maliyeti. Yaptığınız seçime göre, aylık veya yıllık maliyeti gösterir.
 
-**Durağan depolama maliyeti**: Çoğaltmanın depolama maliyeti.
+**Kararlı durum çoğaltma maliyeti**: Çoğaltmanın depolama maliyeti.
 
 **Toplam DR Tatbikatı maliyeti (ortalama)**: DR tatbikatlarının işlem ve depolama maliyeti.
 
-**ASR lisans maliyeti**: Site Recovery lisansının maliyeti.
+**ASR lisans maliyeti**: Site Recovery lisansı maliyeti.
 
 ## <a name="supported-target-regions"></a>Desteklenen hedef bölgeler
 Site Recovery Dağıtım Planlayıcısı aşağıdaki Azure bölgeleri için maliyet tahmini sağlar. Bölgeniz burada listelenmiyorsa, fiyatlandırması sizin bölgenize yakın olan aşağıdaki bölgelerden birini kullanabilirsiniz:

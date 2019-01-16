@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3fec0952f4b164327942d5dee108f89b17613042
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 3b5425bd9f86bce289cc1f60c088febfd8f05ee3
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015548"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332634"
 ---
 # <a name="copy-data-to-and-from-data-lake-storage-gen1-by-using-data-factory"></a>Data factory'yi kullanarak Data Lake depolama Gen1 gelen ve giden veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -45,7 +45,7 @@ Aşağıdaki veri depolarından veri kopyalayabilirsiniz **Azure Data Lake Store
 ## <a name="supported-authentication-types"></a>Kimlik doğrulaması türleri desteklenir
 Data Lake Store bağlayıcı, bu kimlik doğrulama türlerini destekler:
 * Hizmet sorumlusu kimlik doğrulaması
-* Kullanıcı kimlik bilgisi (OAuth) kimlik doğrulaması 
+* Kullanıcı kimlik bilgisi (OAuth) kimlik doğrulaması
 
 Özellikle bir zamanlanmış veri kopyalama için hizmet sorumlusu kimlik doğrulaması kullanmanızı öneririz. Belirteç sona erme davranış, kullanıcı kimlik bilgilerinin ile ortaya çıkabilir. Yapılandırma ayrıntıları için bkz. [bağlı hizmeti özellikleri](#linked-service-properties) bölümü.
 
@@ -58,12 +58,12 @@ Ayrıca, bir işlem hattı oluşturmak için aşağıdaki araçları kullanabili
 
 API'ler ve Araçlar kullanmanıza bakılmaksızın, bir havuz veri deposu için bir kaynak veri deposundan veri taşıyan bir işlem hattı oluşturmak için aşağıdaki adımları gerçekleştirin:
 
-1. Oluşturma bir **veri fabrikası**. Veri fabrikası, bir veya daha fazla işlem hattı içerebilir. 
-2. Oluşturma **bağlı hizmetler** girdi ve çıktı verilerini bağlamak için veri fabrikanıza depolar. Örneğin, bir Azure Data Lake Store için bir Azure blob depolamadan veri kopyalıyorsanız, Azure depolama hesabınızı ve Azure Data Lake store, veri fabrikanıza bağlamak için iki bağlı hizmet oluşturursunuz. Azure Data Lake Store için özel bağlı hizmeti özellikleri için bkz: [bağlı hizmeti özellikleri](#linked-service-properties) bölümü. 
+1. Oluşturma bir **veri fabrikası**. Veri fabrikası, bir veya daha fazla işlem hattı içerebilir.
+2. Oluşturma **bağlı hizmetler** girdi ve çıktı verilerini bağlamak için veri fabrikanıza depolar. Örneğin, bir Azure Data Lake Store için bir Azure blob depolamadan veri kopyalıyorsanız, Azure depolama hesabınızı ve Azure Data Lake store, veri fabrikanıza bağlamak için iki bağlı hizmet oluşturursunuz. Azure Data Lake Store için özel bağlı hizmeti özellikleri için bkz: [bağlı hizmeti özellikleri](#linked-service-properties) bölümü.
 2. Oluşturma **veri kümeleri** kopyalama işleminin girdi ve çıktı verilerini göstermek için. Son adımda bahsedilen örnekte, bir veri kümesi blob kapsayıcıyı ve girdi verilerini içeren klasörü belirtin oluşturun. Ayrıca, blob depolama alanından kopyalanan verileri tutan bir veri Gölü deposu klasör ve dosya yolu belirtmek için başka bir veri kümesi oluşturursunuz. Azure Data Lake Store için özel veri kümesi özellikleri için bkz: [veri kümesi özellikleri](#dataset-properties) bölümü.
-3. Oluşturma bir **işlem hattı** bir veri kümesini girdi ve çıktı olarak bir veri kümesini alan kopyalama etkinliği ile. Daha önce bahsedilen örnekte BlobSource bir kaynak ve AzureDataLakeStoreSink havuz olarak kopyalama etkinliği için kullanırsınız. Azure Data Lake Store ' Azure Blob depolama alanına kopyalanıyorsa, benzer şekilde, kümesinin kullanılması gerekir ve BlobSink kopyalama etkinliği kullanırsınız. Azure Data Lake Store için özel kopyalama etkinliği özellikleri için bkz: [kopyalama etkinliği özellikleri](#copy-activity-properties) bölümü. Bir kaynak veya havuz bir veri deposunu kullanma hakkında daha fazla ayrıntı için önceki bölümde veri deponuz için bağlantıya tıklayın.  
+3. Oluşturma bir **işlem hattı** bir veri kümesini girdi ve çıktı olarak bir veri kümesini alan kopyalama etkinliği ile. Daha önce bahsedilen örnekte BlobSource bir kaynak ve AzureDataLakeStoreSink havuz olarak kopyalama etkinliği için kullanırsınız. Azure Data Lake Store ' Azure Blob depolama alanına kopyalanıyorsa, benzer şekilde, kümesinin kullanılması gerekir ve BlobSink kopyalama etkinliği kullanırsınız. Azure Data Lake Store için özel kopyalama etkinliği özellikleri için bkz: [kopyalama etkinliği özellikleri](#copy-activity-properties) bölümü. Bir kaynak veya havuz bir veri deposunu kullanma hakkında daha fazla ayrıntı için önceki bölümde veri deponuz için bağlantıya tıklayın.
 
-Sihirbazı'nı kullandığınızda, bu Data Factory varlıklarını (bağlı hizmetler, veri kümeleri ve işlem hattı) için JSON tanımları sizin için otomatik olarak oluşturulur. Araçlar/API'leri (dışında .NET API'si) kullandığınızda, bu Data Factory varlıkları JSON biçimini kullanarak tanımlayın.  Veri gönderip buralardan bir Azure Data Lake Store kopyalamak için kullanılan Data Factory varlıkları için JSON tanımları ile örnekleri için bkz [JSON örnekler](#json-examples-for-copying-data-to-and-from-data-lake-store) bu makalenin.
+Sihirbazı'nı kullandığınızda, bu Data Factory varlıklarını (bağlı hizmetler, veri kümeleri ve işlem hattı) için JSON tanımları sizin için otomatik olarak oluşturulur. Araçlar/API'leri (dışında .NET API'si) kullandığınızda, bu Data Factory varlıkları JSON biçimini kullanarak tanımlayın. Veri gönderip buralardan bir Azure Data Lake Store kopyalamak için kullanılan Data Factory varlıkları için JSON tanımları ile örnekleri için bkz [JSON örnekler](#json-examples-for-copying-data-to-and-from-data-lake-store) bu makalenin.
 
 Aşağıdaki bölümler, Data Lake Store için belirli Data Factory varlıkları tanımlamak için kullanılan JSON özellikleri hakkında ayrıntılı bilgi sağlar.
 
@@ -80,7 +80,7 @@ Bağlı hizmet, bir veri deposuna bir veri fabrikasına bağlar. Bağlı hizmet 
 ### <a name="service-principal-authentication-recommended"></a>(Önerilen) hizmet sorumlusu kimlik doğrulaması
 Hizmet sorumlusu kimlik doğrulaması kullanmak için Azure Active Directory (Azure AD) uygulama varlığı Kaydet ve Data Lake Store erişimi verin. Ayrıntılı adımlar için bkz. [hizmetten hizmete kimlik doğrulaması](../../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Bağlı hizmetini tanımlamak için kullandığınız şu değerleri not edin:
 * Uygulama Kimliği
-* Uygulama anahtarı 
+* Uygulama anahtarı
 * Kiracı Kimliği
 
 > [!IMPORTANT]
@@ -233,7 +233,7 @@ Kod içinde kullanılan Data Factory sınıfları hakkında daha fazla bilgi iç
     ```
 
 ## <a name="dataset-properties"></a>Veri kümesi özellikleri
-Bir Data Lake Store, girdi verilerini temsil eden bir veri kümesi belirtmek için ayarladığınız **türü** veri kümesine özelliği **birlikte AzureDataLakeStore**. Ayarlama **linkedServiceName** özellik adı olarak Data Lake Store veri kümesinin bağlı hizmeti. JSON bölümler ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [veri kümeleri oluşturma](data-factory-create-datasets.md) makalesi. Bir veri kümesi, json'da bölümlerini gibi **yapısı**, **kullanılabilirlik**, ve **ilke**, tüm veri kümesi türleri için benzer (Azure SQL veritabanı, Azure blob ve Azure tablo için Örnek). **TypeProperties** bölümünde her veri kümesi türü için farklıdır ve konum ve verilerin veri deposundaki biçimi gibi bilgiler sağlar. 
+Bir Data Lake Store, girdi verilerini temsil eden bir veri kümesi belirtmek için ayarladığınız **türü** veri kümesine özelliği **birlikte AzureDataLakeStore**. Ayarlama **linkedServiceName** özellik adı olarak Data Lake Store veri kümesinin bağlı hizmeti. JSON bölümler ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [veri kümeleri oluşturma](data-factory-create-datasets.md) makalesi. Bir veri kümesi, json'da bölümlerini gibi **yapısı**, **kullanılabilirlik**, ve **ilke**, tüm veri kümesi türleri için benzer (Azure SQL veritabanı, Azure blob ve Azure tablo için Örnek). **TypeProperties** bölümünde her veri kümesi türü için farklıdır ve konum ve verilerin veri deposundaki biçimi gibi bilgiler sağlar.
 
 **TypeProperties** türü için bir veri kümesi bölümünü **birlikte AzureDataLakeStore** aşağıdaki özellikleri içerir:
 
@@ -264,14 +264,14 @@ Aşağıdaki örnekte, yıl, ay, gün ve saati de `SliceStart` tarafından kulla
 "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
 "fileName": "{Hour}.csv",
 "partitionedBy":
- [
+[
     { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
     { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
     { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },
     { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } }
 ],
 ```
-Zaman serisi veri kümeleri, zamanlama ve dilimleri hakkında daha fazla bilgi için bkz. [Azure Data factory'deki veri kümelerini](data-factory-create-datasets.md) ve [Data Factory zamanlama ve yürütme](data-factory-scheduling-and-execution.md) makaleler. 
+Zaman serisi veri kümeleri, zamanlama ve dilimleri hakkında daha fazla bilgi için bkz. [Azure Data factory'deki veri kümelerini](data-factory-create-datasets.md) ve [Data Factory zamanlama ve yürütme](data-factory-scheduling-and-execution.md) makaleler.
 
 
 ## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
@@ -284,7 +284,6 @@ Bulunan özelliklerin **typeProperties** etkinlik bölümünü her etkinlik tür
 | Özellik | Açıklama | İzin verilen değerler | Gereklidir |
 | --- | --- | --- | --- |
 | **özyinelemeli** |Belirtilen klasörün alt klasörleri ya da yalnızca veri yinelemeli olarak okunur olup olmadığını belirtir. |(Varsayılan değer) true, False |Hayır |
-
 
 **AzureDataLakeStoreSink** şu özelliklerde destekler **typeProperties** bölümü:
 
@@ -308,7 +307,7 @@ Bu bölümde, elde edilen davranışını özyinelemeli ve copyBehavior değer f
 Ayrıntılar için bkz [dosya ve sıkıştırma biçimleri Azure Data factory'de](data-factory-supported-file-and-compression-formats.md) makalesi.
 
 ## <a name="json-examples-for-copying-data-to-and-from-data-lake-store"></a>Data Lake Store gelen ve giden veri kopyalamak için JSON örnekleri
-Aşağıdaki örneklerde, örnek JSON tanımları sağlanır. Bu örnek tanımlarını kullanarak bir işlem hattı oluşturmak için kullanabileceğiniz [Azure portalında](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), veya [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Örnekler ve Data Lake Store ve Azure Blob depolama alanından verileri kopyalamak nasıl gösterir. Ancak, veriler kopyalanabilir _doğrudan_ herhangi birinden herhangi birine desteklenen kaynakları başlatır. Daha fazla bilgi için bkz: "desteklenen veri depoları ve biçimler" bölümündeki [kopyalama etkinliğiyle veri taşıma](data-factory-data-movement-activities.md) makalesi.  
+Aşağıdaki örneklerde, örnek JSON tanımları sağlanır. Bu örnek tanımlarını kullanarak bir işlem hattı oluşturmak için kullanabileceğiniz [Azure portalında](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), veya [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Örnekler ve Data Lake Store ve Azure Blob depolama alanından verileri kopyalamak nasıl gösterir. Ancak, veriler kopyalanabilir _doğrudan_ herhangi birinden herhangi birine desteklenen kaynakları başlatır. Daha fazla bilgi için bkz: "desteklenen veri depoları ve biçimler" bölümündeki [kopyalama etkinliğiyle veri taşıma](data-factory-data-movement-activities.md) makalesi.
 
 ### <a name="example-copy-data-from-azure-blob-storage-to-azure-data-lake-store"></a>Örnek: Azure Data Lake Store için Azure Blob depolamadan veri kopyalama
 Bu bölümdeki örnek kodu gösterir:
@@ -319,7 +318,7 @@ Bu bölümdeki örnek kodu gösterir:
 * Bir çıkış [veri kümesi](data-factory-create-datasets.md) türü [birlikte AzureDataLakeStore](#dataset-properties).
 * A [işlem hattı](data-factory-create-pipelines.md) kullanan bir kopyalama etkinlikli [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) ve [AzureDataLakeStoreSink](#copy-activity-properties).
 
-Zaman serisi verileri Azure Blob Depolama'dan nasıl olduğunu örnekler her saat için Data Lake Store kopyalanır. 
+Zaman serisi verileri Azure Blob Depolama'dan nasıl olduğunu örnekler her saat için Data Lake Store kopyalanır.
 
 **Azure Storage bağlı hizmeti**
 
@@ -428,68 +427,67 @@ Aşağıdaki örnek, Data Lake Store için veri kopyalar. Yeni veriler her saat 
 ```JSON
 {
     "name": "AzureDataLakeStoreOutput",
-      "properties": {
+    "properties": {
         "type": "AzureDataLakeStore",
         "linkedServiceName": "AzureDataLakeStoreLinkedService",
         "typeProperties": {
             "folderPath": "datalake/output/"
         },
         "availability": {
-              "frequency": "Hour",
-              "interval": 1
+            "frequency": "Hour",
+            "interval": 1
         }
-      }
+    }
 }
 ```
-
 
 **Blob kaynağı ve havuz Data Lake Store ile bir işlem hattındaki kopyalama etkinliği**
 
 Aşağıdaki örnekte, işlem hattının giriş ve çıkış veri kümesi için yapılandırılmış bir kopyalama etkinliği içeriyor. Kopyalama etkinliği, saatte çalışacak şekilde zamanlanır. JSON tanımı, işlem hattındaki `source` türü ayarlandığında `BlobSource`ve `sink` türü ayarlandığında `AzureDataLakeStoreSink`.
 
 ```json
-{  
+{
     "name":"SamplePipeline",
     "properties":
-    {  
+    {
         "start":"2014-06-01T18:00:00",
         "end":"2014-06-01T19:00:00",
         "description":"pipeline with copy activity",
         "activities":
-        [  
-              {
+        [
+            {
                 "name": "AzureBlobtoDataLake",
                 "description": "Copy Activity",
                 "type": "Copy",
                 "inputs": [
-                  {
-                    "name": "AzureBlobInput"
-                  }
+                    {
+                        "name": "AzureBlobInput"
+                    }
                 ],
                 "outputs": [
-                  {
-                    "name": "AzureDataLakeStoreOutput"
-                  }
+                    {
+                        "name": "AzureDataLakeStoreOutput"
+                    }
                 ],
                 "typeProperties": {
                     "source": {
                         "type": "BlobSource"
-                      },
-                      "sink": {
+                    },
+                    "sink": {
                         "type": "AzureDataLakeStoreSink"
-                      }
+                    }
                 },
-                   "scheduler": {
-                      "frequency": "Hour",
-                      "interval": 1
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
                 },
                 "policy": {
-                      "concurrency": 1,
-                      "executionPriorityOrder": "OldestFirst",
-                      "retry": 0,
-                      "timeout": "01:00:00"
+                    "concurrency": 1,
+                    "executionPriorityOrder": "OldestFirst",
+                    "retry": 0,
+                    "timeout": "01:00:00"
                 }
-              }
+            }
         ]
     }
 }
@@ -504,7 +502,7 @@ Bu bölümdeki örnek kodu gösterir:
 * Bir çıkış [veri kümesi](data-factory-create-datasets.md) türü [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
 * A [işlem hattı](data-factory-create-pipelines.md) kullanan bir kopyalama etkinlikli [kümesinin kullanılması gerekir](#copy-activity-properties) ve [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
-Kod zaman serisi verileri Data Lake Store ' Azure blobuna saatte kopyalar. 
+Kod zaman serisi verileri Data Lake Store ' Azure blobuna saatte kopyalar.
 
 **Azure Data Lake Store bağlı hizmeti**
 
@@ -547,7 +545,7 @@ Bu örnekte, ayarı `"external"` için `true` tablo harici veri fabrikasına ve 
 ```json
 {
     "name": "AzureDataLakeStoreInput",
-      "properties":
+    "properties":
     {
         "type": "AzureDataLakeStore",
         "linkedServiceName": "AzureDataLakeStoreLinkedService",
@@ -563,16 +561,16 @@ Bu örnekte, ayarı `"external"` için `true` tablo harici veri fabrikasına ve 
         "external": true,
         "availability": {
             "frequency": "Hour",
-              "interval": 1
+            "interval": 1
         },
         "policy": {
-              "externalData": {
+            "externalData": {
                 "retryInterval": "00:01:00",
                 "retryTimeout": "00:10:00",
                 "maximumRetry": 3
-              }
+            }
         }
-      }
+    }
 }
 ```
 **Azure Blob çıktı veri kümesi**
@@ -640,47 +638,47 @@ Aşağıdaki örnekte, veriler her saat yeni bir bloba yazılır (`"frequency": 
 Aşağıdaki örnekte, işlem hattının giriş ve çıkış veri kümesi için yapılandırılmış bir kopyalama etkinliği içeriyor. Kopyalama etkinliği, saatte çalışacak şekilde zamanlanır. JSON tanımı, işlem hattındaki `source` türü ayarlandığında `AzureDataLakeStoreSource`ve `sink` türü ayarlandığında `BlobSink`.
 
 ```json
-{  
+{
     "name":"SamplePipeline",
-    "properties":{  
+    "properties":{
         "start":"2014-06-01T18:00:00",
         "end":"2014-06-01T19:00:00",
         "description":"pipeline for copy activity",
-        "activities":[  
-              {
+        "activities":[
+            {
                 "name": "AzureDakeLaketoBlob",
                 "description": "copy activity",
                 "type": "Copy",
                 "inputs": [
-                  {
-                    "name": "AzureDataLakeStoreInput"
-                  }
+                    {
+                        "name": "AzureDataLakeStoreInput"
+                    }
                 ],
                 "outputs": [
-                  {
-                    "name": "AzureBlobOutput"
-                  }
+                    {
+                        "name": "AzureBlobOutput"
+                    }
                 ],
                 "typeProperties": {
                     "source": {
                         "type": "AzureDataLakeStoreSource",
-                      },
-                      "sink": {
+                    },
+                    "sink": {
                         "type": "BlobSink"
-                      }
+                    }
                 },
-                   "scheduler": {
-                      "frequency": "Hour",
-                      "interval": 1
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
                 },
                 "policy": {
-                      "concurrency": 1,
-                      "executionPriorityOrder": "OldestFirst",
-                      "retry": 0,
-                      "timeout": "01:00:00"
+                    "concurrency": 1,
+                    "executionPriorityOrder": "OldestFirst",
+                    "retry": 0,
+                    "timeout": "01:00:00"
                 }
-              }
-         ]
+            }
+        ]
     }
 }
 ```

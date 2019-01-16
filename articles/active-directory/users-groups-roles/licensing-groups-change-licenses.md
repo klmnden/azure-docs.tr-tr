@@ -1,10 +1,10 @@
 ---
-title: Güvenli bir şekilde kullanıcıları Azure Active Directory'de Grup tabanlı lisanslama kullanarak ürün lisansları arasında geçirme | Microsoft Docs
-description: Grup tabanlı lisanslama kullanarak kullanıcılar (Office 365 Kurumsal E1 ve E3) farklı ürün lisansları arasında geçirmek için önerilen işlemi açıklanır
+title: Kullanıcı grupları - Azure Active Directory ile ürün lisansları arasında geçirme | Microsoft Docs
+description: Önerilen kullanıcılar (Office 365 Kurumsal E1 ve E3) farklı ürün lisansları arasında geçirme işlemi açıklanmaktadır grup tabanlı lisanslama kullanma
 services: active-directory
 keywords: Azure AD lisanslama
 documentationcenter: ''
-author: piotrci
+author: curtand
 manager: mtillman
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/29/2018
-ms.author: piotrci
-ms.openlocfilehash: 643339545dac6ec35ab44f2a05fbe417dea2bb71
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.date: 01/14/2019
+ms.author: curtand
+ms.reviewer: sumitp
+ms.openlocfilehash: 68d4cdf3c7ba08f7cf37132936c6769c99c177cc
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211800"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319427"
 ---
 # <a name="how-to-safely-migrate-users-between-product-licenses-by-using-group-based-licensing"></a>Güvenli bir şekilde kullanıcıları grup tabanlı lisanslama kullanarak ürün lisansları arasında geçirme
 
@@ -66,15 +67,15 @@ Geçiş hedefi ise kullanıcı lisanslarını değiştirmek için Grup tabanlı 
 ### <a name="migrate-a-single-user-by-using-the-azure-portal"></a>Tek bir kullanıcı Azure portalını kullanarak geçirme
 Tek bir kullanıcı geçirme için basit bir anlatım budur.
 
-**1. adım**: kullanıcının bir *kaynak lisans* gruptan devralınır. Hiçbir doğrudan lisans atamaları vardır:
+**1. ADIM**: Kullanıcının sahip olduğu bir *kaynak lisans* gruptan devralınır. Hiçbir doğrudan lisans atamaları vardır:
 
 ![Bir kaynak lisansına sahip kullanıcı gruptan devralınan](./media/licensing-groups-change-licenses/UserWithSourceLicenseInherited.png)
 
-**2. adım**: hedef gruba eklenen kullanıcı ve grup tabanlı lisanslama değişikliği işler. Artık her ikisi de kullanıcının *kaynak lisans* ve *hedef lisans* gruplardan devralınan:
+**2. ADIM**: Hedef gruba eklenen kullanıcı ve grup tabanlı lisanslama değişikliği işler. Artık her ikisi de kullanıcının *kaynak lisans* ve *hedef lisans* gruplardan devralınan:
 
 ![Hem kaynak hem de hedef lisansına sahip kullanıcı gruptan devralınan](./media/licensing-groups-change-licenses/UserWithBothSourceAndTargetLicense.png)
 
-**3. adım**: Kullanıcı kaynak grubundan kaldırılır ve grup tabanlı lisanslama değişikliği işler. Artık yalnızca kullanıcının *hedef lisans*:
+**3. ADIM**: Kullanıcının kaynak grubundan kaldırılır ve grup tabanlı lisanslama değişikliği işler. Artık yalnızca kullanıcının *hedef lisans*:
 
 ![Bir hedef lisansına sahip kullanıcı gruptan devralınan](./media/licensing-groups-change-licenses/UserWithTargetLicenseAssigned.png)
 
@@ -176,7 +177,7 @@ Check passed for all users. Exiting check loop.
 ```
 
 ## <a name="migrate-users-between-products-that-have-conflicting-service-plans"></a>Çakışan hizmet planları var olan ürünleri arasında kullanıcıları geçirme
-Geçiş hedefi ise kullanıcı lisanslarını değiştirmek için Grup tabanlı lisanslama kullanmaktır bir *kaynak lisans* (Bu örnekte: Office 365 Kurumsal E1) için bir *hedef lisans* (Bu örnekte: Office 365 Kurumsal E3). Bu senaryoda iki ürün, kullanıcıların sorunsuz bir şekilde geçirmek için geçici bir çözüm çakışma çalışmak zorunda çakışan hizmet planları içerir. Bu çakışmaları hakkında daha fazla bilgi için bkz: [Active Directory grubu sorun çözümü lisans: çakışan hizmet planları](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans). Geçiş sırasında herhangi bir noktada kullanıcılar Hizmetleri ya da veri erişimini kaybeder. Geçiş küçük "toplu işler üzerinde." gerçekleştirilir. İşlemi sırasında oluşabilecek sorunları kapsamını en aza indirmek ve her toplu işin sonucunu doğrulayın. Genel olarak, işlem aşağıdaki gibidir:
+Geçiş hedefi ise kullanıcı lisanslarını değiştirmek için Grup tabanlı lisanslama kullanmaktır bir *kaynak lisans* (Bu örnekte: Office 365 Kurumsal E1) için bir *hedef lisans* (Bu örnekte: Office 365 Kurumsal E3). Bu senaryoda iki ürün, kullanıcıların sorunsuz bir şekilde geçirmek için geçici bir çözüm çakışma çalışmak zorunda çakışan hizmet planları içerir. Bu çakışmaları hakkında daha fazla bilgi için bkz: [Active Directory grubu sorun çözümü lisans: Çakışan hizmet planları](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans). Geçiş sırasında herhangi bir noktada kullanıcılar Hizmetleri ya da veri erişimini kaybeder. Geçiş küçük "toplu işler üzerinde." gerçekleştirilir. İşlemi sırasında oluşabilecek sorunları kapsamını en aza indirmek ve her toplu işin sonucunu doğrulayın. Genel olarak, işlem aşağıdaki gibidir:
 
 1.  Kullanıcılar bir kaynak grubu üyeleridir ve bunlar devral *kaynak lisans* gruptan.
 
@@ -195,15 +196,15 @@ Geçiş hedefi ise kullanıcı lisanslarını değiştirmek için Grup tabanlı 
 ### <a name="migrate-a-single-user-by-using-the-azure-portal"></a>Tek bir kullanıcı Azure portalını kullanarak geçirme
 Tek bir kullanıcı geçirme için basit bir anlatım budur.
 
-**1. adım**: kullanıcının bir *kaynak lisans* gruptan devralınır. Hiçbir doğrudan lisans atamaları vardır:
+**1. ADIM**: Kullanıcının sahip olduğu bir *kaynak lisans* gruptan devralınır. Hiçbir doğrudan lisans atamaları vardır:
 
 ![Bir kaynak lisansına sahip kullanıcı gruptan devralınan](./media/licensing-groups-change-licenses/UserWithSourceLicenseInheritedConflictScenario.png)
 
-**2. adım**: hedef gruba eklenen kullanıcı ve grup tabanlı lisanslama değişikliği işler. Kullanıcı yine de sahip olduğu *kaynak lisans*, *hedef lisans* içinde bir çakışma nedeniyle hata durumu:
+**2. ADIM**: Hedef gruba eklenen kullanıcı ve grup tabanlı lisanslama değişikliği işler. Kullanıcı yine de sahip olduğu *kaynak lisans*, *hedef lisans* içinde bir çakışma nedeniyle hata durumu:
 
 ![Bir kaynak lisansına sahip bir kullanıcı grubu ve hedef lisans hata durumunda devralındı](./media/licensing-groups-change-licenses/UserWithSourceLicenseAndTargetLicenseInConflict.png)
 
-**3. adım**: Kullanıcı kaynak grubundan kaldırılır ve grup tabanlı lisanslama değişikliği işler. *Hedef lisans* kullanıcıya uygulanan:
+**3. ADIM**: Kullanıcının kaynak grubundan kaldırılır ve grup tabanlı lisanslama değişikliği işler. *Hedef lisans* kullanıcıya uygulanan:
 
 ![Bir hedef lisansına sahip kullanıcı gruptan devralınan](./media/licensing-groups-change-licenses/UserWithTargetLicenseAssignedConflictScenario.png)
 

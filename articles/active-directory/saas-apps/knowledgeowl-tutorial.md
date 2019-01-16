@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle KnowledgeOwl | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile KnowledgeOwl | Microsoft Docs'
 description: Azure Active Directory ve KnowledgeOwl arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: jeedes
-ms.openlocfilehash: e902f5969611dd3b1074e899003abe5067857c04
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 80d8d1664100cdfbbf6d537b41823c2db0204040
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446156"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54318926"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-knowledgeowl"></a>Öğretici: Azure Active Directory KnowledgeOwl ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-knowledgeowl"></a>Öğretici: KnowledgeOwl ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile KnowledgeOwl tümleştirme konusunda bilgi edinin.
 
@@ -38,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD Tümleştirmesi ile KnowledgeOwl yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik KnowledgeOwl çoklu oturum açma etkin
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Azure AD'de KnowledgeOwl tümleştirmesini yapılandırmak için KnowledgeOwl Ga
 
 **Galeriden KnowledgeOwl eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -150,7 +150,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve K
 
 1. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda, önceki görüntüde gösterildiği gibi SAML belirteci özniteliği yapılandırın ve aşağıdaki adımları gerçekleştirin:
     
-    | Öznitelik adı | Öznitelik değeri | Ad alanı|
+    | Öznitelik Adı | Öznitelik Değeri | Ad alanı|
     | ------------------- | -------------------- | -----|
     | ssoid | User.Mail | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
     
@@ -186,7 +186,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve K
 
     ![KnowledgeOwl yapılandırma](./media/knowledgeowl-tutorial/configure1.png)
 
-1. En fazla aşağı **SAML SSO tümleştirme** ve aşağıdaki adımları gerçekleştirin:
+1. Kaydırma **SAML SSO tümleştirme** ve aşağıdaki adımları gerçekleştirin:
     
     ![KnowledgeOwl yapılandırma](./media/knowledgeowl-tutorial/configure2.png)
 
@@ -254,7 +254,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
 Bu bölümün amacı KnowledgeOwl Britta Simon adlı bir kullanıcı oluşturmaktır. KnowledgeOwl tam zamanında sağlama, varsayılan olarak etkin olan destekler. Bu bölümde, hiçbir eylem öğesini yoktur. Yeni bir kullanıcı, henüz yoksa KnowledgeOwl erişme denemesi sırasında oluşturulur.
 >[!Note]
->Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [KnowledgeOwl Destek ekibine](mailto:support@knowledgeowl.com).
+>Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [KnowledgeOwl Destek ekibine](mailto:support@knowledgeowl.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

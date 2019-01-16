@@ -7,19 +7,19 @@ ms.author: jamesbak
 ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
-ms.date: 12/06/2018
-ms.openlocfilehash: c820d2172c3e38d9d744e645d7c0e8b4749b42cd
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.date: 01/14/2019
+ms.openlocfilehash: 49039e742ebd4354f9a52572ffdc69e95bf7f85e
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743383"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321220"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak Azure Databricks'te Spark işini çalıştırma
 
-Bu hızlı başlangıçta Data Lake Storage 2. Nesil Önizleme sürümü etkin bir depolama hesabında depolanan verileri analiz etmek için Azure Databricks kullanarak bir Apache Spark işini çalıştırmayı öğreneceksiniz.
+Bu hızlı başlangıçta, Azure Data Lake depolama Gen2 önizleme özelliği etkinleştirilmiş olan bir depolama hesabına depolanan veriler üzerinde analiz gerçekleştirmek için Azure Databricks kullanarak bir Apache Spark işi çalıştırma işlemini göstermektedir.
 
-Spark işinin parçası olarak, demografiye dayalı ücretsiz/ücretli kullanıma yönelik öngörüler elde etmek için bir radyo kanalının abonelik verilerini analiz edeceksiniz.
+Spark işi bir parçası olarak, demografiye dayalı ücretsiz/Ücretli kullanımı hakkında Öngörüler elde etmek için bir radyo kanalının abonelik verilerini analiz.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
@@ -27,12 +27,31 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 
 - [Data Lake Storage 2. Nesil etkin bir depolama hesabı oluşturma](data-lake-storage-quickstart-create-account.md)
 
+<a id="config"/>
+
 ## <a name="set-aside-storage-account-configuration"></a>Depolama hesabı yapılandırmasını not alın
 
-> [!IMPORTANT]
-> Bu öğretici sırasında depolama hesabı adına ve erişim anahtarına erişim sahibi olmanız gerekir. Azure portalında **Tüm Hizmetler**'i seçin ve *depolama* ölçütüne göre filtreleyin. **Depolama hesapları**'nı seçip bu öğretici için oluşturduğunuz hesabı bulun.
->
-> **Genel bakış** bölümünden depolama hesabının **adını** bir metin düzenleyiciye kopyalayın. Ardından **Erişim anahtarları**'nı seçin ve **key1** değerini metin düzenleyicisine yapıştırın. Bu değerlerin ikisini de ilerleyen bölümlerdeki komutlarda kullanmanız gerekecek.
+Depolama hesabınızın ve bir dosya sistemi uç noktası URI'si adı gerekir.
+
+Azure portalında depolama hesabınızın adını almak için seçtiğiniz **tüm hizmetleri** ve filtre terimini *depolama*. Ardından, **depolama hesapları** ve depolama hesabınızı bulun.
+
+Dosya sistemi uç noktası URI'si almak için seçtiğiniz **özellikleri**, Özellikler bölmesinde değerini bulun **birincil ADLS dosya sistemi uç noktası** alan.
+
+Hem bu değerleri bir metin dosyasına yapıştırın. Bunları yakında gerekir.
+
+<a id="service-principal"/>
+
+## <a name="create-a-service-principal"></a>Hizmet sorumlusu oluşturma
+
+Bu konudaki yönergeleri izleyerek bir hizmet sorumlusu oluşturun: [Nasıl yapılır: Azure AD'yi kaynaklara erişebilen uygulaması ve hizmet sorumlusu oluşturmak için portalı kullanma](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+
+Bu makaledeki adımları gerçekleştirmek gibi gerekir ve belirli birkaç şey var.
+
+:heavy_check_mark: Adımları gerçekleştirirken [bir Azure Active Directory uygulaması oluşturma](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application) bölümü makalenin ayarladığınızdan emin olun **oturum açma URL'si** alanını **Oluştur** iletişim kutusu uç nokta URI'si, az önce toplanan.
+
+:heavy_check_mark: Adımları gerçekleştirirken [uygulamanızı bir role atama](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) bölümü makalenin uygulamanıza atanacak emin **Blob Depolama katkıda bulunan rolü**.
+
+:heavy_check_mark: Adımları gerçekleştirirken [oturum açma için değerleri alma](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) makalesi, Yapıştır Kiracı kimliği, uygulama kimliği ve kimlik doğrulama anahtarı değerleri bir metin dosyasına bölümü. Bu kısa süre içinde olması gerekir.
 
 ## <a name="create-an-azure-databricks-workspace"></a>Azure Databricks çalışma alanı oluşturma
 
@@ -58,7 +77,7 @@ Bu bölümde Azure portalını kullanarak bir Azure Databricks çalışma alanı
 
     **Panoya sabitle**’yi seçin ve sonra **Oluştur**’a tıklayın.
 
-3. Çalışma alanının oluşturulması birkaç dakika sürer. Çalışma alanı oluşturma sırasında portal sağ tarafta **Azure Databricks için dağıtım gönderiliyor** kutucuğunu gösterir. Kutucuğu görmek için panonuzu sağa kaydırmanız gerekebilir. Ayrıca, ekranın üst kısmında gösterilen bir ilerleme çubuğu vardır. İlerleme durumu için her iki alanı da izleyebilirsiniz.
+3. Çalışma alanı oluşturmak için zaman biraz sürdüğünü. Çalışma alanı oluşturulurken, **Azure Databricks için dağıtım gönderiliyor** kutucuk sağ tarafında görünür. Başlığını görmek için panonuzu sağa kaydırarak gerekebilir. Ekranın görünür bir ilerleme çubuğu de mevcuttur. İlerleme durumu için her iki alanı da izleyebilirsiniz.
 
     ![Databricks dağıtım kutucuğu](./media/data-lake-storage-quickstart-create-databricks-account/databricks-deployment-tile.png "Databricks dağıtım kutucuğu")
 
@@ -77,7 +96,7 @@ Bu bölümde Azure portalını kullanarak bir Azure Databricks çalışma alanı
     Aşağıdakiler dışında diğer tüm varsayılan değerleri kabul edin:
 
     * Küme için bir ad girin.
-    * Bir küme oluşturun **5.1 beta** çalışma zamanı.
+    * Bir küme oluşturun **5.1** çalışma zamanı.
     * **120 dakika işlem yapılmadığında sonlandır** onay kutusunu seçtiğinizden emin olun. Küme kullanılmazsa kümenin sonlandırılması için biz süre (dakika cinsinden) belirtin.
 
 4. **Küme oluştur**’u seçin. Küme çalışmaya başladıktan sonra kümeye not defterleri ekleyebilir ve Spark işleri çalıştırabilirsiniz.
@@ -100,49 +119,26 @@ Bu bölümde, Azure Databricks çalışma alanında bir not defteri oluşturacak
 
     **Oluştur**’u seçin.
 
-4. Databricks çalışma alanı ADLS Gen2 hesabınıza bağlanın. Bunu elde etmek için kullanabileceğiniz üç desteklenen mekanizma vardır: paylaşılan anahtar ile OAuth ve OAuth ile doğrudan erişim doğrudan erişim kullanan bağlama. 
+4. Kopyala ve ilk hücreye aşağıdaki kod bloğu yapıştırın, ancak bu kodun henüz çalışmıyor.
 
-    Her mekanizması, bir örnek gösterilir. Örnek sınanırken, gösterilen örnekte kendi değerlerinizle köşeli ayraçlar içindeki yer tutucuları değiştirmeniz unutmayın:
+   ```scala
+   spark.conf.set("fs.azure.account.auth.type.<storage-account-name>.dfs.core.windows.net", "OAuth")
+   spark.conf.set("fs.azure.account.oauth.provider.type.<storage-account-name>.dfs.core.windows.net", org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
+   spark.conf.set("fs.azure.account.oauth2.client.id.<storage-account-name>.dfs.core.windows.net", "<application-id>")
+   spark.conf.set("fs.azure.account.oauth2.client.secret.<storage-account-name>.dfs.core.windows.net", "<authentication-key>")
+   spark.conf.set("fs.azure.account.oauth2.client.endpoint.<account-name>.dfs.core.windows.net", "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
+   spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
+   dbutils.fs.ls("abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/")
+   spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
 
-    **OAuth kullanarak bağlayın**     
-        
-    ```scala
-    %python%
-    configs = {"fs.azure.account.auth.type": "OAuth",
-        "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
-        "fs.azure.account.oauth2.client.id": "<service-client-id>",
-        "fs.azure.account.oauth2.client.secret": "<service-credentials>",
-        "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant-id>/oauth2/token"}
-    
-    dbutils.fs.mount(
-        source = "abfss://<file-system-name>@<account-name>.dfs.core.windows.net/[<directory-name>]",
-        mount_point = "/mnt/<mount-name>",
-        extra_configs = configs)
-    ```
+   ```
+ 
+    > [!NOTE]
+    > Data Lake Gen2 uç noktası doğrudan erişir OAuth kullanarak bu kod bloğu, ancak Databricks çalışma alanı, Data Lake depolama Gen2 hesabınıza bağlanmak için farklı yöntemleri vardır. Örneğin, OAuth kullanarak dosya sistemini bağlamalarına veya paylaşılan anahtar ile doğrudan bir erişim kullanın. <br>Bu yaklaşımların örneklerini görmek için bkz: [Azure Data Lake depolama Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) makale Azure Databricks Web sitesinde.
 
-    **OAuth ile doğrudan erişim**
+5. Bu kod bloğunda değiştirin `storage-account-name`, `application-id`, `authentication-id`, ve `tenant-id` adımları tamamlandığında topladığınız değerleri bu kod bloğu içinde yer tutucu değerlerini [bir kenara depolama hesabı Yapılandırma](#config) ve [hizmet sorumlusu oluşturma](#service-principal) bu makalenin bölümler.  Ayarlama `file-system-name` örneğin adı için yer tutucu değerini istediğiniz dosya sistemi sağlar.
 
-    ```scala
-    spark.conf.set("fs.azure.account.auth.type.<account-name>.dfs.core.windows.net": "OAuth")
-    spark.conf.set("fs.azure.account.oauth.provider.type.<account-name>.dfs.core.windows.net", "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
-    spark.conf.set("fs.azure.account.oauth2.client.id.<account-name>.dfs.core.windows.net": "<service-client-id>")
-    spark.conf.set("fs.azure.account.oauth2.client.secret.<account-name>.dfs.core.windows.net": "<service-credentials>")
-    spark.conf.set("fs.azure.account.oauth2.client.endpoint.<account-name>.dfs.core.windows.net": "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
-
-    dbutils.fs.ls("abfss://<file-system-name>@<account-name>.dfs.core.windows.net/")
-    ```
-        
-    **Paylaşılan anahtar ile doğrudan erişim** 
-
-    ```scala    
-    spark.conf.set("fs.azure.account.key.<account-name>.dfs.core.windows.net", "<account-key>")
-
-    dbutils.fs.ls("abfss://<file-system-name>@<account-name>.dfs.core.windows.net/")
-    ```
-
-5. Kod ilk hücrenin ve enter tuşuna basın **SHIFT + ENTER** çalıştırmak için.
-
-Depolama hesabı için dosya sistemi oluşturulmuş olur.
+6. Tuşuna **SHIFT + ENTER** bu blok kodu çalıştırmak için anahtarları.
 
 ## <a name="ingest-sample-data"></a>Örnek verileri ekleme
 
@@ -154,7 +150,7 @@ Aşağıdaki kodu bir not defteri hücresine girin:
 
 Hücre içine basın **SHIFT + ENTER** kodu çalıştırmak için.
 
-Şimdi bunun altındaki yeni bir hücreye köşeli ayraçlardaki değerler, daha önce kullandığınız aynı değerlerle değiştirerek aşağıdaki kodu girin:
+Şimdi bunun altında yeni bir hücreye aşağıdaki kodu girin ve daha önce kullandığınız aynı değerlerle köşeli ayraçlar içindeki görülen değerleri değiştirin:
 
     dbutils.fs.cp("file:///tmp/small_radio_json.json", "abfss://<file-system>@<account-name>.dfs.core.windows.net/")
 
@@ -172,7 +168,7 @@ Verilerde bir Spark SQL işi çalıştırmak için aşağıdaki görevleri gerç
     CREATE TABLE radio_sample_data
     USING json
     OPTIONS (
-     path  "abfss://<file-system-name>@<account-name>.dfs.core.windows.net/<PATH>/small_radio_json.json"
+     path  "abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/<PATH>/small_radio_json.json"
     )
     ```
 
@@ -214,7 +210,7 @@ Verilerde bir Spark SQL işi çalıştırmak için aşağıdaki görevleri gerç
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Bu makaleyi tamamladıktan sonra kümeyi sonlandırabilirsiniz. Azure Databricks çalışma alanında **Kümeler**'i seçin ve sonlandırmak istediğiniz kümeyi bulun. Fare imlecini **Eylemler** sütununun altındaki üç noktanın üzerine götürün ve **Sonlandır** simgesini seçin.
+Bu makaleyle bitirdikten sonra kümeyi sonlandırabilirsiniz. Azure Databricks çalışma alanında **Kümeler**'i seçin ve sonlandırmak istediğiniz kümeyi bulun. Fare imlecini **Eylemler** sütununun altındaki üç noktanın üzerine götürün ve **Sonlandır** simgesini seçin.
 
 ![Databricks kümesini durdurma](./media/data-lake-storage-quickstart-create-databricks-account/terminate-databricks-cluster.png "Databricks kümesini durdurma")
 

@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 23e6d044a1c08fb585e01d61a97deaf87e24cbb9
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: aa221569cec6df298db4a90560ac7ea0992dd120
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743111"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54318737"
 ---
 # <a name="tutorial-uploading-images-to-the-bing-visual-search-api"></a>Öğretici: Bing görsel arama API'sine görüntüleri karşıya yükleme
 
@@ -628,7 +628,7 @@ Insights farklı eylemler için aşağıdaki işlevleri görüntüler. İşlevle
 
 ### <a name="products-insights"></a>Ürünleri öngörüleri
 
-`addProducts()` İşlevi alışveriş sonuçları listesi boyunca yineleme tarafından döndürülen herhangi için bir bağlantı oluşturur `Products` Eylemler ve ekleyerek bir `<img>` etiketlemek için dış `<div>` her.
+`addProducts()` İşlevi ürünleri sonuçları listesi boyunca yineleme tarafından döndürülen herhangi için bir bağlantı oluşturur `Products` Eylemler ve ekleyerek bir `<img>` etiketlemek için dış `<div>` her.
 
 ```javascript
 

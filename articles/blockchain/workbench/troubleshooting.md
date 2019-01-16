@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
+ms.date: 01/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: e205fce8b718e68200face33447e37cd3317298f
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 9f0f32bc1fb6b88dc85f09e13aebc60ff74ec723
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405493"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329744"
 ---
 # <a name="azure-blockchain-workbench-troubleshooting"></a>Azure Blockchain Workbench ile ilgili sorunları giderme
 
@@ -26,7 +26,7 @@ Bir PowerShell Betiği ile hata ayıklama Geliştirici Yardımcısı veya destek
 * Application Insights
 * Azure (Log Analytics'e) izleme
 
-Sonraki adımları belirlemek ve sorunların kök nedenini belirlemek için bilgileri kullanabilirsiniz. 
+Sonraki adımları belirlemek ve sorunların kök nedenini belirlemek için bilgileri kullanabilirsiniz.
 
 ## <a name="troubleshooting-script"></a>Betik sorunlarını giderme
 
@@ -46,7 +46,7 @@ collectBlockchainWorkbenchTroubleshooting.ps1 -SubscriptionID "<subscription_id>
 ```
 Betiği aşağıdaki parametreleri kabul eder:
 
-| Parametre  | Açıklama | Gerekli |
+| Parametre  | Açıklama | Gereklidir |
 |---------|---------|----|
 | Subscriptionıd | Subscriptionıd, oluşturma veya tüm kaynakları bulun. | Evet |
 | ResourceGroupName | Blockchain Workbench'i dağıtıldığı Azure kaynak grubunun adı. | Evet |
@@ -75,4 +75,4 @@ Betiği aşağıdaki parametreleri kabul eder:
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Azure Blockchain Workbench mimarisi](architecture.md)
+> [Azure Blockchain Workbench Application Insights sorun giderme kılavuzu](https://aka.ms/workbenchtroubleshooting)

@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 01/11/2019
-ms.openlocfilehash: 5db9e1f348fed9592d33e9240180db7f2667bb56
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: e658eba29368530c4c221496de98823c002985fe
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244554"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329477"
 ---
 # <a name="replication-with-sql-database-managed-instance"></a>Çoğaltma ile SQL veritabanı yönetilen örneği
 
@@ -29,13 +29,13 @@ Genel olarak, yayımcı ve dağıtıcı hem de Bulut veya şirket içinde olmas�
 
 - **Yayımcı ile yönetilen örneğinde yerel dağıtıcı**
 
-   ![Replication-With-Azure-SQL-DB-Single-Managed-instance-Publisher-Distributor](./media/replication-with-sql-database-managed-instance/01-single-instance-asdbmi-pubdist.png)
+   ![Replication-with-azure-sql-db-single-managed-instance-publisher-distributor](./media/replication-with-sql-database-managed-instance/01-single-instance-asdbmi-pubdist.png)
 
    Yayımcı ve dağıtıcı veritabanlarını tek bir yönetilen örneğinde yapılandırılır.
 
 - **İle yönetilen örneğinde hale getirirken uzak dağıtımcı yayımcı**
 
-   ![Replication-With-Azure-SQL-DB-separate-Managed-instances-Publisher-Distributor](./media/replication-with-sql-database-managed-instance/02-separate-instances-asdbmi-pubdist.png)
+   ![Replication-with-azure-sql-db-separate-managed-instances-publisher-distributor](./media/replication-with-sql-database-managed-instance/02-separate-instances-asdbmi-pubdist.png)
 
    Yayımcı ve dağıtıcı iki yönetilen örnekler üzerinde yapılandırılır. Bu yapılandırmada:
 
@@ -45,7 +45,7 @@ Genel olarak, yayımcı ve dağıtıcı hem de Bulut veya şirket içinde olmas�
 
 - **Yayımcı ve dağıtıcı ile şirket içi abone üzerinde yönetilen örnek**
 
-   ![Replication-from-on-Premises-to-Azure-SQL-DB-Subscriber](./media/replication-with-sql-database-managed-instance/03-azure-sql-db-subscriber.png)
+   ![Replication-from-on-premises-to-azure-sql-db-subscriber](./media/replication-with-sql-database-managed-instance/03-azure-sql-db-subscriber.png)
 
    Bu yapılandırmada, Azure SQL veritabanı abone durumda. Bu yapılandırma şirket içinden azure'a geçişi destekler. Abone rolünde yönetilen örnek, SQL veritabanı gerektirmez, ancak bir SQL veritabanı yönetilen örneği, bir adımda geçiş şirket içinden azure'a olarak kullanabilir. Azure SQL veritabanı abone hakkında daha fazla bilgi için bkz: [SQL veritabanı için çoğaltma](replication-to-sql-database.md).
 
@@ -199,4 +199,5 @@ Aşağıdaki özellikler desteklenmez:
 
 ## <a name="see-also"></a>Ayrıca Bkz.
 
+- [İşlem çoğaltması](sql-database-managed-instance-transactional-replication.md)
 - [Yönetilen örnek nedir?](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)

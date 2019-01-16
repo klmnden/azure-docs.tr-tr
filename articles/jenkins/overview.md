@@ -1,6 +1,6 @@
 ---
 title: Jenkins ve Azure'a genel bakış
-description: Jenkins'i kullanarak Azure'da otomasyon sunucusu oluşturup dağıtın, Azure işlem ve depolama kaynaklarını kullanarak da sürekli tümleştirme ve dağıtım (CI/CD) işlem hatlarınızı genişletin.
+description: Jenkins derleme barındırmak ve Azure Otomasyonu sunucusunu dağıtma ve sürekli tümleştirme ve dağıtım (CI/CD) işlem hatları genişletmek için Azure işlem ve depolama kaynaklarını kullanın.
 ms.service: jenkins
 keywords: jenkins, azure, devops, genel bakış
 author: tomarchermsft
@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: overview
 ms.date: 07/25/2018
-ms.openlocfilehash: 1f09e1711cbbbd8f05a982e620b1e09184320d13
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 69e9a49bf83be5b58faf3e71ab0ffbfb6c6f11a1
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078975"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329731"
 ---
 # <a name="azure-and-jenkins"></a>Azure ve Jenkins
 

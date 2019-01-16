@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
+ms.date: 01/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 4020500e20973e8818320424833815c1b5224f6c
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 0d806491c58c4b1881adc2fd830de7c7b9f0859d
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48243469"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331937"
 ---
 # <a name="get-information-about-your-azure-blockchain-workbench-database"></a>Azure Blockchain Workbench veritabanınızla ilgili bilgi edinin
 
@@ -23,7 +23,7 @@ Bu makalede Azure Blockchain Workbench veritabanınız hakkında nasıl ayrınt�
 
 ## <a name="overview"></a>Genel Bakış
 
-Uygulamalar, iş akışları ve akıllı sözleşme yürütme ile ilgili bilgiler Blockchain Workbench SQL DB’deki veritabanı görünümleri kullanılarak sağlanır. Geliştiriciler Microsoft Excel, PowerBI, Visual Studio ve SQL Server Management Studio gibi araçlarda bu bilgileri kullanabilir.
+Uygulamalar, iş akışları ve akıllı sözleşme yürütme ile ilgili bilgiler Blockchain Workbench SQL DB’deki veritabanı görünümleri kullanılarak sağlanır. Geliştiriciler, Microsoft Excel, Power BI, Visual Studio ve SQL Server Management Studio gibi araçlar kullanarak bu bilgileri kullanabilirsiniz.
 
 Bir geliştiricinin veritabanına bağlanabilmesi için önce şunlar gerekir:
 
@@ -34,7 +34,7 @@ Bir geliştiricinin veritabanına bağlanabilmesi için önce şunlar gerekir:
 
 Veritabanına bağlanmak için:
 
-1. Azure Blockchain Workbench kaynakları için **Sahip** izinleri olan bir hesapla Azure Portal’da oturum açın.
+1. Azure portalında olan bir hesapla oturum açın **sahibi** Azure Blockchain Workbench kaynaklar için izinleri.
 2. Sol gezinti bölmesinden **Kaynak Grupları**'nı seçin.
 3. Blockchain Workbench dağıtımınıza yönelik kaynak grubunun adını seçin.
 4. Kaynak listesini sıralamak için **Tür**’ü, sonra da **SQL sunucunuzu** seçin. Bir sonraki ekran görüntüsünde yer alan sıralı listede "master" adlı bir veritabanının yanı sıra **Kaynak ön eki** olarak "lhgn" kullanan bir veritabanı şeklinde iki SQL veritabanı gösterilir.

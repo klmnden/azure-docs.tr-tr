@@ -2,18 +2,18 @@
 title: Yeniden çalışma sırasında Azure Site Recovery ile olağanüstü durum kurtarma | Microsoft Docs
 description: Bu makalede, çeşitli türlerde geri dönme ve şirket içi dön yük boyunca Azure Site Recovery hizmeti ile olağanüstü durum kurtarma sırasında değerlendirilmesi için uyarılar genel bakış sağlar.
 services: site-recovery
-author: rajani-janaki-ram
-manager: guaravd
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 11/27/2018
-ms.author: rajanki
-ms.openlocfilehash: 9b181f21affa5b762dd6e9062953badc3a37191d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.topic: conceptual
+ms.date: 01/17/2019
+ms.author: raynew
+ms.openlocfilehash: 16233c9013e97a7db7ef799b79526abac4741612
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841889"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54318449"
 ---
 # <a name="overview-of-failback"></a>Yeniden çalışma genel bakış
 

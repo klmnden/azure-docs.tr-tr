@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: magattus
-ms.openlocfilehash: 54979bdaab3d3d49ab3d3a08868dd28e27423e7e
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 526f3522bff05618189ad4f8205fbb61afc47fdc
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091751"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320331"
 ---
 # <a name="optimize-azure-cdn-for-the-type-of-content-delivery"></a>Azure CDN, içerik teslim türü için en iyi duruma getirme
 
@@ -83,7 +83,7 @@ Genel web teslimatı en yaygın bir iyileştirme seçenektir. Web sayfalarını 
 Tipik bir Web sitesi, statik ve dinamik içerik içerir. Statik içerik, görüntü, JavaScript kitaplıklarını ve önbelleğe alınmış ve farklı kullanıcılar için teslim stil sayfaları içerir. Dinamik içerik, bir kullanıcı profili için uyarlanmış haber öğelerini gibi bireysel bir kullanıcı için kişiselleştirilmiş. Her kullanıcı için benzersiz olduğundan, alışveriş sepeti içeriği gibi dinamik içerik önbelleğe değil. Genel web teslimatı, tüm Web sitenizin en iyi duruma getirebilirsiniz. 
 
 > [!NOTE]
-> Kullanıyorsanız bir **akamai'den Azure CDN standart** profilini, ortalama dosyanızın boyutu 10 MB'den küçükse, bu en iyi duruma getirme türünü seçin. Ortalama dosyanızın boyutu 10 MB'den daha büyük ise Othewise seçin **büyük dosya indirme** gelen **için en iyi duruma getirilmiş** aşağı açılan listesi.
+> Kullanıyorsanız bir **akamai'den Azure CDN standart** profilini, ortalama dosyanızın boyutu 10 MB'den küçükse, bu en iyi duruma getirme türünü seçin. Ortalama dosyanızın boyutu 10 MB'den daha büyük ise, aksi takdirde seçin **büyük dosya indirme** gelen **için en iyi duruma getirilmiş** aşağı açılan listesi.
 
 ### <a name="general-media-streaming"></a>Genel medya akışı
 

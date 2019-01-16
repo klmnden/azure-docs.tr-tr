@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: alkohli
-ms.openlocfilehash: 6349ced07385ede42b21c9a8401dd3e0a23bcfbe
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 5f3e7164c0569422fe164283efaa8f282ccfe9f8
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790309"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54318952"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>Öğretici: SMB üzerinden Azure Data Box için veri kopyalama
 
@@ -38,7 +38,7 @@ Başlamadan önce aşağıdakilerden emin olun:
 
 ## <a name="connect-to-data-box"></a>Data Box'a bağlanma
 
-Seçilen depolama hesabına bağlı olarak, Data Box şunların tamamını veya bir bölümünü oluşturabilir:
+Seçilen depolama hesabına bağlı olarak, Data Box kadar oluşturur:
 - İlişkili her depolama hesabına GPv1 ve GPv2 için üç paylaşım.
 - Premium veya blob depolama hesabı için bir paylaşım.
 

@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1ccf66da14bbbd4993f29da2e40d996cb564864e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: aa6f891cc68d19e638bb2b7281f4b332de26bd26
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024918"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332651"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veya Oracle şirket içi veri kopyalayın
 
-> [!div class="op_single_selector" title1="Kullanmakta olduğunuz Data Factory servisinin sürümünü seçin:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Sürüm 1](data-factory-onprem-oracle-connector.md)
 > * [Sürüm 2 (geçerli sürüm)](../connector-oracle.md)
 
@@ -73,7 +73,7 @@ Bu Oracle Bağlayıcısı sürücülerin iki sürümlerini destekler:
 
     Seçerseniz **XCopy yükleme**, readme.htm dosyasında açıklanan adımları izleyin. Kullanıcı arabirimini (XCopy yükleyici değil) olan yükleyici seçmenizi öneririz.
 
-    Sağlayıcıyı yükledikten sonra hizmetler uygulamasını veya veri yönetimi ağ geçidi Yapılandırma Yöneticisi'ni kullanarak makinenize veri yönetimi ağ geçidi konak hizmetini yeniden başlatın.  
+    Sağlayıcıyı yükledikten sonra hizmetler uygulamasını veya veri yönetimi ağ geçidi Yapılandırma Yöneticisi'ni kullanarak makinenize veri yönetimi ağ geçidi konak hizmetini yeniden başlatın.
 
 Kopyalama Sihirbazı'nı kopyalama işlem hattını oluşturmak için kullandığınız sürücü autodetermined türüdür. Microsoft sürücüsü, ağ geçidi sürümü 2.7 sürümden daha eski veya havuz olarak Oracle seçtiğiniz sürece varsayılan olarak kullanılır.
 
@@ -87,12 +87,12 @@ Ayrıca aşağıdaki araçlardan birini bir işlem hattı oluşturmak için kull
 
 API'ler ve Araçlar kullanmanıza bakılmaksızın, bir havuz veri deposu için bir kaynak veri deposundan veri taşıyan bir işlem hattı oluşturmak için aşağıdaki adımları tamamlayın:
 
-1. Oluşturma bir **veri fabrikası**. Veri fabrikası, bir veya daha fazla işlem hattı içerebilir. 
+1. Oluşturma bir **veri fabrikası**. Veri fabrikası, bir veya daha fazla işlem hattı içerebilir.
 2. Oluşturma **bağlı hizmetler** girdi ve çıktı verilerini bağlamak için veri fabrikanıza depolar. Örneğin, Azure Blob depolama alanına bir Oracle veritabanından veri kopyalıyorsanız, Oracle database ve Azure depolama hesabına veri fabrikanıza bağlamak için iki bağlı hizmet oluşturursunuz. Oracle için özel bağlı hizmeti özellikleri için bkz: [bağlı hizmeti özellikleri](#linked-service-properties).
 3. Oluşturma **veri kümeleri** kopyalama işleminin girdi ve çıktı verilerini göstermek için. Örnekte önceki adımda, girdi verilerini içeren, Oracle veritabanında tablo belirtmek için bir veri kümesi oluşturun. Blob kapsayıcısını ve Oracle veritabanından kopyalanan verileri tutan klasörün belirtmek için başka bir veri kümesi oluşturursunuz. Oracle için özel veri kümesi özellikleri için bkz: [veri kümesi özellikleri](#dataset-properties).
-4. Oluşturma bir **işlem hattı** bir veri kümesini girdi ve çıktı olarak bir veri kümesini alan kopyalama etkinliği vardır. Önceki örnekte, kullandığınız **OracleSource** kaynağı olarak ve **BlobSink** kopyalama etkinliği için bir havuz olarak. Benzer şekilde, Azure Blob depolamadaki verileri bir Oracle veritabanına kopyalıyorsanız kullanmanız **BlobSource** ve **OracleSink** kopyalama etkinliğindeki. Bir Oracle veritabanına özel kopyalama etkinliği özellikleri için bkz: [kopyalama etkinliği özellikleri](#copy-activity-properties). Bir kaynak veya havuz olarak bir veri deposunu kullanma hakkında daha fazla bilgi için önceki bölümde veri deponuz için bağlantıyı seçin. 
+4. Oluşturma bir **işlem hattı** bir veri kümesini girdi ve çıktı olarak bir veri kümesini alan kopyalama etkinliği vardır. Önceki örnekte, kullandığınız **OracleSource** kaynağı olarak ve **BlobSink** kopyalama etkinliği için bir havuz olarak. Benzer şekilde, Azure Blob depolamadaki verileri bir Oracle veritabanına kopyalıyorsanız kullanmanız **BlobSource** ve **OracleSink** kopyalama etkinliğindeki. Bir Oracle veritabanına özel kopyalama etkinliği özellikleri için bkz: [kopyalama etkinliği özellikleri](#copy-activity-properties). Bir kaynak veya havuz olarak bir veri deposunu kullanma hakkında daha fazla bilgi için önceki bölümde veri deponuz için bağlantıyı seçin.
 
-Sihirbazı'nı kullandığınızda, bu Data Factory varlıkları için JSON tanımları otomatik olarak sizin için oluşturulur: bağlı hizmetler, veri kümeleri ve işlem hattı. Araç veya API'lerden (dışında .NET API'si) kullandığınızda, bu Data Factory varlıkları JSON biçimini kullanarak tanımlayın.  İçin veya bir şirket içi Oracle veritabanına veri kopyalamak için kullandığınız Data Factory varlıkları için JSON tanımları sahip örnekler için bkz: [JSON örnekler](#json-examples-for-copying-data-to-and-from-oracle-database).
+Sihirbazı'nı kullandığınızda, bu Data Factory varlıkları için JSON tanımları otomatik olarak sizin için oluşturulur: bağlı hizmetler, veri kümeleri ve işlem hattı. Araç veya API'lerden (dışında .NET API'si) kullandığınızda, bu Data Factory varlıkları JSON biçimini kullanarak tanımlayın. İçin veya bir şirket içi Oracle veritabanına veri kopyalamak için kullandığınız Data Factory varlıkları için JSON tanımları sahip örnekler için bkz: [JSON örnekler](#json-examples-for-copying-data-to-and-from-oracle-database).
 
 Aşağıdaki bölümler, Data Factory varlıkları tanımlamak için kullandığınız JSON özellikleri hakkında ayrıntılı bilgi sağlar.
 
@@ -136,8 +136,7 @@ Aşağıdaki tabloda, Oracle bağlantılı hizmete özgü JSON öğeleri açıkl
     "properties": {
         "type": "OnPremisesOracle",
         "typeProperties": {
-            "connectionString": "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=<host name>)(PORT=<port number>))(CONNECT_DATA=(SERVICE_NAME=<service ID>)));
-User Id=<user name>;Password=<password>;",
+            "connectionString": "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=<host name>)(PORT=<port number>))(CONNECT_DATA=(SERVICE_NAME=<service ID>))); User Id=<user name>;Password=<password>;",
             "gatewayName": "<gateway name>"
         }
     }
@@ -146,7 +145,7 @@ User Id=<user name>;Password=<password>;",
 
 ## <a name="dataset-properties"></a>Veri kümesi özellikleri
 
-Bölümleri ve veri kümeleri tanımlamak için kullanılabilir olan özellikleri tam listesi için bkz: [veri kümeleri oluşturma](data-factory-create-datasets.md). 
+Bölümleri ve veri kümeleri tanımlamak için kullanılabilir olan özellikleri tam listesi için bkz: [veri kümeleri oluşturma](data-factory-create-datasets.md).
 
 Yapı, kullanılabilirlik ve ilke gibi bir veri kümesi JSON dosyası bölümlerini (örneğin, Oracle, Azure Blob Depolama ve Azure tablo depolama) tüm veri kümesi türleri için benzerdir.
 
@@ -158,7 +157,7 @@ Yapı, kullanılabilirlik ve ilke gibi bir veri kümesi JSON dosyası bölümler
 
 ## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 
-Bölümleri ve etkinlikleri tanımlamak için kullanılabilir olan özellikleri tam listesi için bkz: [komut zincirleri oluşturma](data-factory-create-pipelines.md). 
+Bölümleri ve etkinlikleri tanımlamak için kullanılabilir olan özellikleri tam listesi için bkz: [komut zincirleri oluşturma](data-factory-create-pipelines.md).
 
 İlke adı ve açıklaması, girdi ve çıktı tabloları gibi özellikler, tüm etkinlik türleri için kullanılabilir.
 
@@ -188,7 +187,7 @@ Kopya etkinlikteki kaynak olduğunda, **OracleSource** türü, aşağıdaki öze
 
 ## <a name="json-examples-for-copying-data-to-and-from-the-oracle-database"></a>JSON örnekler ve Oracle veritabanından veri kopyalamak için
 
-Aşağıdaki örnekler kullanarak bir işlem hattı oluşturmak için kullanabileceğiniz örnek JSON tanımları sağlamak [Azure portalında](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), veya [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Örnekler öğesinden veya bir Oracle veritabanına ya da Azure Blob depolamadan/depolamaya veri kopyalama işlemini göstermektedir. Ancak, veriler herhangi bir listelenen havuzlarını kopyalanabilir [desteklenen veri depoları ve biçimler](data-factory-data-movement-activities.md#supported-data-stores-and-formats) Azure veri fabrikasında kopyalama etkinliği kullanarak.   
+Aşağıdaki örnekler kullanarak bir işlem hattı oluşturmak için kullanabileceğiniz örnek JSON tanımları sağlamak [Azure portalında](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), veya [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Örnekler öğesinden veya bir Oracle veritabanına ya da Azure Blob depolamadan/depolamaya veri kopyalama işlemini göstermektedir. Ancak, veriler herhangi bir listelenen havuzlarını kopyalanabilir [desteklenen veri depoları ve biçimler](data-factory-data-movement-activities.md#supported-data-stores-and-formats) Azure veri fabrikasında kopyalama etkinliği kullanarak.
 
 **Örnek: Oracle'dan Azure Blob depolama alanına veri kopyalama**
 
@@ -254,12 +253,12 @@ Ayarı **dış**: **true** Data Factory hizmetinin veri kümesi veri fabrikasın
             "anchorDateTime": "2014-02-27T12:00:00",
             "frequency": "Hour"
         },
-        "policy": {     
-            "externalData": {        
-                "retryInterval": "00:01:00",    
-                "retryTimeout": "00:10:00",       
-                "maximumRetry": 3       
-            }     
+        "policy": {
+            "externalData": {
+                "retryInterval": "00:01:00",
+                "retryTimeout": "00:10:00",
+                "maximumRetry": 3
+            }
         }
     }
 }
@@ -327,16 +326,16 @@ Veriler her saat yeni bir bloba yazılır (**sıklığı**: **saat**, **aralığ
 
 **Kopyalama etkinliği ile işlem hattı**
 
-İşlem hattının giriş ve çıkış veri kümelerini kullanmak üzere yapılandırılmış ve saatte bir çalışacak şekilde zamanlanmış bir kopyalama etkinliği içeriyor. JSON tanımı, işlem hattındaki **kaynak** türü ayarlandığında **OracleSource** ve **havuz** türü ayarlandığında **BlobSink**.  SQL sorgusunu kullanarak belirttiğiniz **oracleReaderQuery** özelliği veri kopyalamak için son bir saat içinde seçer.
+İşlem hattının giriş ve çıkış veri kümelerini kullanmak üzere yapılandırılmış ve saatte bir çalışacak şekilde zamanlanmış bir kopyalama etkinliği içeriyor. JSON tanımı, işlem hattındaki **kaynak** türü ayarlandığında **OracleSource** ve **havuz** türü ayarlandığında **BlobSink**. SQL sorgusunu kullanarak belirttiğiniz **oracleReaderQuery** özelliği veri kopyalamak için son bir saat içinde seçer.
 
 ```json
-{  
+{
     "name":"SamplePipeline",
-    "properties":{  
+    "properties":{
         "start":"2014-06-01T18:00:00",
         "end":"2014-06-01T19:00:00",
         "description":"pipeline for a copy activity",
-        "activities":[  
+        "activities":[
             {
                 "name": "OracletoBlob",
                 "description": "copy activity",
@@ -378,7 +377,7 @@ Veriler her saat yeni bir bloba yazılır (**sıklığı**: **saat**, **aralığ
 
 **Örnek: Azure Blob depolamadan/depolamaya veri Oracle'a kopyalama**
 
-Bu örnek bir Azure Blob Depolama hesabındaki bir şirket içi Oracle veritabanına veri kopyalama işlemi gösterilmektedir. Ancak, veri kopyalayabilirsiniz *doğrudan* herhangi listelenen kaynakları [desteklenen veri depoları ve biçimler](data-factory-data-movement-activities.md#supported-data-stores-and-formats) Azure veri fabrikasında kopyalama etkinliği kullanarak.  
+Bu örnek bir Azure Blob Depolama hesabındaki bir şirket içi Oracle veritabanına veri kopyalama işlemi gösterilmektedir. Ancak, veri kopyalayabilirsiniz *doğrudan* herhangi listelenen kaynakları [desteklenen veri depoları ve biçimler](data-factory-data-movement-activities.md#supported-data-stores-and-formats) Azure veri fabrikasında kopyalama etkinliği kullanarak.
 
 Örnek, aşağıdaki Data Factory varlıklarını sahiptir:
 
@@ -503,16 +502,16 @@ Veri alındığından yeni blobundan saatte (**sıklığı**: **saat**, **aralı
 
 **Kopyalama etkinliği ile işlem hattı**
 
-İşlem hattının giriş ve çıkış veri kümelerini kullanmak üzere yapılandırılmış ve saatte çalışacak şekilde zamanlanan bir kopyalama etkinliği içeriyor. JSON tanımı, işlem hattındaki **kaynak** türü ayarlandığında **BlobSource** ve **havuz** türü ayarlandığında **OracleSink**.  
+İşlem hattının giriş ve çıkış veri kümelerini kullanmak üzere yapılandırılmış ve saatte çalışacak şekilde zamanlanan bir kopyalama etkinliği içeriyor. JSON tanımı, işlem hattındaki **kaynak** türü ayarlandığında **BlobSource** ve **havuz** türü ayarlandığında **OracleSink**.
 
 ```json
-{  
+{
     "name":"SamplePipeline",
-    "properties":{  
+    "properties":{
         "start":"2014-06-01T18:00:00",
         "end":"2014-06-05T19:00:00",
         "description":"pipeline with a copy activity",
-        "activities":[  
+        "activities":[
             {
                 "name": "AzureBlobtoOracle",
                 "description": "Copy Activity",
@@ -558,7 +557,7 @@ Veri alındığından yeni blobundan saatte (**sıklığı**: **saat**, **aralı
 
 **hata iletisi**
 
-    Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: Unable to find the requested .Net Framework Data Provider. It may not be installed.  
+    Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: Unable to find the requested .Net Framework Data Provider. It may not be installed.
 
 **Olası nedenler**
 
@@ -584,7 +583,7 @@ Veri alındığından yeni blobundan saatte (**sıklığı**: **saat**, **aralı
 
 Tarihler, Oracle veritabanında nasıl yapılandırıldığına göre bir kopyalama etkinliği sorgu dizesinde ayarlamanız gerekebilir. Bir örnek aşağıda verilmiştir (kullanarak **to_date** işlevi):
 
-    "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= to_date(\\'{0:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\')  AND timestampcolumn < to_date(\\'{1:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') ', WindowStart, WindowEnd)"
+    "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= to_date(\\'{0:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') AND timestampcolumn < to_date(\\'{1:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') ', WindowStart, WindowEnd)"
 
 
 ## <a name="type-mapping-for-oracle"></a>Oracle için tür eşlemesi
@@ -604,7 +603,7 @@ Verileri Oracle'dan taşıdığınızda, aşağıdaki eşlemeler Oracle veri tü
 | CLOB |Dize |
 | DATE |DateTime |
 | KAYAN NOKTA |Ondalık, dize (olursa hassasiyet > 28) |
-| TAMSAYI |Ondalık, dize (olursa hassasiyet > 28) |
+| INTEGER |Ondalık, dize (olursa hassasiyet > 28) |
 | YIL AY ARALIĞI |Int32 |
 | İKİNCİ GÜN ARALIĞI |Zaman aralığı |
 | UZUN |Dize |

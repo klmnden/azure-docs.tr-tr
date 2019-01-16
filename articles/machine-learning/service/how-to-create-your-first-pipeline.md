@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: fb1ac992f174327d08a606549da7b2b094a7a88e
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 62be7412c93b846980ffab00b9964585e3644140
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157998"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319209"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Oluşturma ve Azure Machine Learning SDK'sını kullanarak bir makine öğrenimi işlem hattı çalıştırma
 
@@ -326,11 +326,11 @@ Bir işlem hattı çalıştırma için farklı girişlerle daha sonra yeniden ya
 
 3. Çağrıldığında bir parametre kabul eder Bu işlem hattı yayımlayın.
 
-```python
-published_pipeline1 = pipeline1.publish(
-    name="My_Published_Pipeline", 
-    description="My Published Pipeline Description")
-```
+   ```python
+   published_pipeline1 = pipeline1.publish(
+       name="My_Published_Pipeline", 
+       description="My Published Pipeline Description")
+   ```
 
 ## <a name="run-a-published-pipeline"></a>Yayımlanan bir işlem hattı çalıştırma
 

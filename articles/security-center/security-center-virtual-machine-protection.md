@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2018
+ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 9c1eff58be52b0b4bd9561db51986c9f509d64ee
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 3a2ccd04cd7ec36cafdf56830b9ad8249f89eb7e
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723238"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321609"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Makineleri ve Azure Güvenlik Merkezi'nde uygulamalarınızı koruma
 Azure Güvenlik Merkezi, Azure kaynaklarınızın güvenlik durumunu analiz eder. Güvenlik Merkezi olası güvenlik açıklarını belirlediğinde, gerekli denetimlerin yapılandırılması işlemi boyunca size rehberlik öneriler oluşturur. Öneriler, Azure kaynak türleri için geçerlidir: sanal makineleri (VM'ler) ve bilgisayarlar, uygulamalar, ağ, SQL ve kimlik ve erişim.
@@ -44,7 +44,6 @@ Altında **işlem ve uygulamalar**, aşağıdaki sekmeleri vardır:
 - **Cloud Services**: Güvenlik Merkezi tarafından izlenen web ve çalışan rollerinizin listesi.
 - **Uygulama Hizmetleri (Önizleme)**: App service ortamları ve her birinin geçerli güvenlik durumunu listesi.
 - **Kapsayıcılar (Önizleme)**: Iaas Linux makineleri ve Docker yapılandırmalarına güvenlik değerlendirmesini üzerinde barındırılan kapsayıcıları listesi.
-- **VM ölçek kümeleri (Önizleme)**: ölçek kümeleri ve her biri için öneriler listesi.
 - **İşlem kaynakları (Önizleme)**: Service Fabric kümeleri ile Event hubs gibi işlem kaynaklarınız için önerilerin bir listesi.
 
 Devam etmek için seçin **işlem ve uygulamalar** altında **kaynak güvenlik hygeine**.
@@ -162,24 +161,6 @@ Altında **uygulama hizmetleri**, App service ortamları listesini bulmak ve Gü
 
     ![App Service düzeltme](./media/security-center-virtual-machine-recommendations/app-service-remediation.png)
 
-## <a name="virtual-machine-scale-sets-preview"></a>Sanal makine ölçek kümeleri (Önizleme)
-Güvenlik Merkezi, Ölçek kümesine sahiptir ve bu ölçek kümeleri Microsoft Monitoring Agent yüklemenizi önerir olup olmadığını otomatik olarak bulur. 
-
-Microsoft Monitoring Agent'ı yüklemek için: 
-
-1. Bir öneri seçin **sanal makine ölçek kümesi üzerinde izleme Aracısı yükleme**. İzlenmeyen ölçek kümeleri listesini al
-2. Sağlıksız bir ölçek kümesi seçin. Mevcut bir doldurulmuş çalışma kullanarak izleme aracısını yüklemek için yönergeleri izleyin veya yeni bir tane oluşturun. Çalışma alanı ayarladığınızdan emin olun [fiyatlandırma katmanı](security-center-pricing.md) ayarlı değil ise.
-
- ![MMS yükleyin](./media/security-center-virtual-machine-recommendations/install-mms.png)
-
-Ayarlamak istiyorsanız Yeni ölçeği otomatik olarak Microsoft Monitoring Agent'ı yüklemek için ayarlar:
-1. Azure İlkesi'ne gidin ve tıklayın **tanımları**.
-2. İlke arama **Windows VM ölçek kümelerine dağıtma Log Analytics aracısını** ve tıklayın.
-3. **Ata**'ya tıklayın.
-4. Ayarlama **kapsam** ve **Log Analytics çalışma alanı** tıklatıp **atama**.
-
-Ölçek kümeleri, Azure İlkesi'nde Microsoft Monitoring Agent'ı yüklemek için tüm mevcut ayarlamak istiyorsanız gidin **düzeltme** ve mevcut ilkenin var olan ölçek kümeleri için geçerlidir.
-
 
 ## <a name="compute-and-app-recommendations"></a>İşlem ve uygulama önerileri
 |Kaynak türü|Güvenlik puanı|Öneri|Açıklama|
@@ -238,11 +219,7 @@ Ayarlamak istiyorsanız Yeni ölçeği otomatik olarak Microsoft Monitoring Agen
 |Makine|30|Sanal makinelerinize bir güvenlik açığı değerlendirme çözümü yükleyin|Sanal makinelerinize bir güvenlik açığı değerlendirme çözümü yükleyin|
 |Makine|1|Yeni Azure Resource Manager kaynaklarına sanal makineleri geçirme|Azure Resource Manager sanal makineleriniz için gibi güvenlik geliştirmeleri sağlamak için kullanın: yönetilen kimlik, anahtar kasası için erişim gizli dizileri, daha güçlü erişim denetimi (RBAC), daha iyi denetim, Resource Manager tabanlı bir dağıtım ve yönetim erişim Azure AD tabanlı kimlik doğrulaması ve etiketleri için destek ve daha kolay güvenlik yönetimi için kaynak grupları. |
 |Makine|30|Bir güvenlik açığı değerlendirme çözümü kullanarak güvenlik açıklarını düzeltin|Kendisi için bir güvenlik açığı değerlendirme 3 taraf çözümü dağıtılan sanal makinelerin sürekli olarak uygulama ve işletim sistemi güvenlik açıklarını karşı incelenen. Tür güvenlik açıklarına bulunduğunda, bunlar öneri bir parçası olarak daha fazla bilgi için kullanılabilir.|
-|Sanal makine ölçek kümesi |4|Sanal makine ölçek kümeleri, tanılama günlüklerini etkinleştirme|Günlükleri etkinleştirmek ve bunlar için bir yıla kadar Beklet. Bu, araştırma amacıyla etkinlik kayıtlarını yeniden oluşturmanıza olanak sağlar. Bu bir güvenlik olayı ortaya veya ağınızın tehlikeye yararlı olur.|
-|Sanal makine ölçek kümesi|35|Güvenlik Yapılandırması, sanal makine ölçek kümeleri üzerinde güvenlik açıklarını düzeltin|Sanal makine ölçek kümelerinizi saldırılardan korumak için güvenlik yapılandırmasındaki güvenlik açıklarını düzeltin. |
-|Sanal makine ölçek kümesi|5|Sanal makine ölçek kümelerinde Endpoint protection durum hataları düzeltme|Sanal makine ölçek kümelerinizi tehdit ve güvenlik açıklarından korumak için uç nokta koruma sistem durumu hatalarını düzeltin. |
-|Sanal makine ölçek kümesi|10|Sanal makine ölçek kümeleri üzerinde uç nokta koruma çözümüne yükleyin|Tehditleri ve güvenlik açıklarından korumak için sanal makine ölçek kümeleri, bir uç nokta koruma çözümüne yükleyin. |
-|Sanal makine ölçek kümesi|40|Sanal makine ölçek kümeleri üzerinde sistem güncelleştirmeleri yükle|Windows ve Linux sanal makine ölçek kümelerinizi korumak için eksik sistem güvenliği güncelleştirmelerini ve diğer kritik güncelleştirmeleri yükleyin. |
+
  
 
 

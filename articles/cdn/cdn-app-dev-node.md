@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 46ae8cd9775432d126cbde856c1fb06ea319297e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 70bae1558860b763d17d04e10d5d926b39300101
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38301574"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321254"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Azure CDN ile geliştirmeye başlama
 > [!div class="op_single_selector"]
@@ -340,7 +340,7 @@ function cdnDelete() {
 Biz artık Node.js programımız bizim sık kullanılan hata ayıklayıcıyı kullanarak çalıştırabilirsiniz veya Konsolu.
 
 > [!TIP]
-> Visual Studio Code, hata ayıklayıcı kullanıyorsanız, komut satırı parametreleri geçirmek için ortamı oluşturmanız gerekir.  Visual Studio Code bunu yapar **lanuch.json** dosya.  Adlı bir özellik arayın **args** ve dize değerleri, parametre için bir dizi ekleyebilirsiniz, böylece şuna benzer: `"args": ["list", "profiles"]`.
+> Visual Studio Code, hata ayıklayıcı kullanıyorsanız, komut satırı parametreleri geçirmek için ortamı oluşturmanız gerekir.  Visual Studio Code bunu yapar **launch.json** dosya.  Adlı bir özellik arayın **args** ve dize değerleri, parametre için bir dizi ekleyebilirsiniz, böylece şuna benzer: `"args": ["list", "profiles"]`.
 > 
 > 
 

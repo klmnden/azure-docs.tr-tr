@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 0a18bcf9f9e1217b674bda5f5ae698908f1911a8
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: deab8298d09972a4e60be5c72d6d7e43dc2683e6
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262923"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329999"
 ---
 # <a name="publish-azure-application-offer"></a>Azure uygulama teklifi yayımlama
 
@@ -41,7 +41,7 @@ Aşağıdaki tabloda, listeler ve her yayımlama adımlarını açıklar ve her 
 | Sürücü doğrulama testi          | < 2 saat   | (İsteğe bağlı) Bir Test sürüşüne varsa, Microsoft, dağıtılan çoğaltılan ve olduğunu doğrular.  |
 | Paketleme ve müşteri adayı oluşturma kaydı | 1 saatten az  | Teklife ilişkin teknik varlıkları müşteri kullanılmak üzere hazırlanmıştır ve müşteri adayı sistemleri yapılandırılmalı ve dağıtılmalıdır. |
 |  Yayımcı oturum kapatma             |  El ile    | Son yayımcı gözden geçirme ve teklif Canlı geçmeden önce onay. Teklif Önizleme için kullanıma sunulmuştur.  Teklifinizi (adımlarda teklif bilgi) seçili Aboneliklerdeki tüm gereksinimleri karşıladığından emin doğrulamak için dağıtabilirsiniz.  Teklif doğruladıktan sonra seçin **Go Live** için teklifinizi sonraki adıma geçebilirsiniz. |
-| Microsoft gözden geçirme                | 7 - 14 gün * | Bütünlüklü olarak Microsoft Azure uygulamanızı inceler ve sorunları bulunursa size e-posta.  * Nadiren de olsa Bu adım uygulama ve belirlenen sorunları karmaşıklığına bağlı olarak 14 günden daha uzun sürebilir.  |
+| Microsoft gözden geçirme                | 7 - 14 gün | Bütünlüklü olarak Microsoft Azure uygulamanızı inceler ve sorunları bulunursa size e-posta.  Bu adımı uzunluğunu uygulama, sorunları ortaya çıkardı ve onlara nasıl kısa bir süre içinde yanıt karmaşıklığına bağlıdır.  |
 | Canlı                           | < 1 gün | Teklif serbest, belirli bölgelerde çoğaltılır ve genel kullanıma sunulan. |
 |   |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|   |
  

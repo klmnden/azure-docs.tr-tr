@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
+ms.date: 01/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: b1020389ef28c18c03536d686cd47ef0c65b9204
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: e50a82f0f141fec266a8348c0a1a8b5fbdb38b45
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48243233"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329863"
 ---
 # <a name="using-azure-blockchain-workbench-data-with-microsoft-power-bi"></a>Azure Blockchain Workbench verilerini Microsoft Power BI ile kullanma
 
@@ -25,9 +25,9 @@ Bu makale, Azure Blockchain Workbench'in SQL Veritabanı’na PowerBI Desktop’
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* [PowerBI Desktop](https://aka.ms/pbidesktopstore)’ı indirin.
+* İndirme [Power BI Desktop](https://aka.ms/pbidesktopstore).
 
-## <a name="connecting-powerbi-to-data-in-azure-blockchain-workbench"></a>PowerBI uygulamasını Azure Blockchain Workbench’teki verilere bağlama
+## <a name="connecting-power-bi-to-data-in-azure-blockchain-workbench"></a>Power BI Azure Blockchain Workbench verilere bağlanma
 
 1.  Power BI Desktop’ı açın.
 2.  **Veri Al**’ı seçin.
@@ -49,7 +49,7 @@ Bu makale, Azure Blockchain Workbench'in SQL Veritabanı’na PowerBI Desktop’
 
     ![Gezgin](./media/data-powerbi/navigator.png)
 
-7.  Dahil etmek istediğiniz görünümleri seçin. Tanıtım amacıyla, bir sözleşmede gerçekleşen tüm eylemlerin ayrıntılarını sağlayan **vwContractAction** görünümünü ekleriz.
+7.  Dahil etmek istediğiniz görünümleri seçin. Gösterim amacıyla ekliyoruz **vwContractAction**, sözleşme üzerinde gerçekleştirilen eylemler hakkında ayrıntılar sağlar.
 
     ![Görünümleri seçin](./media/data-powerbi/select-views.png)
 

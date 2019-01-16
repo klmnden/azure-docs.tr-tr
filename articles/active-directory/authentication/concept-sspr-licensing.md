@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 12c75d67d9c58dd80796caac04a6a57303675cba
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 6a23ea08ee14efbc7850e555d9ad84daf855638f
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/15/2019
-ms.locfileid: "54303356"
+ms.locfileid: "54320744"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Lisans gereksinimleri için Azure AD Self Servis parola sıfırlama
 
@@ -50,7 +50,7 @@ Maliyetleri de dahil olmak üzere ek lisans bilgileri şu sayfalarda yer bulunab
 * [Azure Active Directory özellikleri ve yetenekleri](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
 * [Microsoft 365 Kurumsal](https://www.microsoft.com/microsoft-365/enterprise)
-* [Microsoft 365 iş hizmet açıklaması](/office365/servicedescriptions/microsoft-365-business-service-description)
+* [Microsoft 365 iş hizmet açıklaması](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-business-service-description)
 
 ## <a name="enable-group-or-user-based-licensing"></a>Grup veya kullanıcı tabanlı lisanslama etkinleştir
 

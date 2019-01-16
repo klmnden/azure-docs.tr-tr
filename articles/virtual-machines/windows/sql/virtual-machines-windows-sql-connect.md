@@ -3,7 +3,7 @@ title: Bir SQL Server sanal makinesine (Resource Manager) bağlanma | Microsoft 
 description: Azure'da bir sanal makinede çalışan SQL Server'a bağlanma hakkında bilgi edinin. Bu konuda, Klasik dağıtım modeli kullanır. Senaryo ağ yapılandırmasını ve istemcinin konumuna bağlı olarak farklılık gösterir.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/12/2017
-ms.author: jroth
-ms.openlocfilehash: 522ece2528e43c1037dc6bb707201ecda8074dd9
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: 3baa4a9b91e76b9072714229b6a46e9fca69bcdd
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38705971"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331393"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Azure'da bir SQL Server sanal makinesine bağlanma
 

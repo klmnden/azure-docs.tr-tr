@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 11/20/2018
 ms.author: alkohli
-ms.openlocfilehash: 7ba6bc2cf3cf5286719bc6da519aabb364302af3
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 646acca7eeb2e811f8683a1d35ff8c6efae130da
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53550588"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319020"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Öğretici: Azure Data Box NFS aracılığıyla veri kopyalayın 
 
@@ -38,7 +38,7 @@ Başlamadan önce aşağıdakilerden emin olun:
 
 ## <a name="connect-to-data-box"></a>Data Box'a bağlanma
 
-Seçilen depolama hesabına bağlı olarak, Data Box şunların tamamını veya bir bölümünü oluşturabilir:
+Seçilen depolama hesabına bağlı olarak, Data Box kadar oluşturur:
 - İlişkili her depolama hesabına GPv1 ve GPv2 için üç paylaşım.
 - Premium veya blob depolama hesabı için bir paylaşım. 
 
@@ -48,7 +48,7 @@ Aşağıdaki örneği inceleyin.
 
 - Depolama hesabı: *Mystoracct*
 - Blok blobu için paylaşımı: *Mystoracct_BlockBlob/my-kapsayıcı/blob*
-- Sayfa blobu için paylaşımı: *Mystoracct_PageBlob/my-kapsayıcı/blob*
+- Sayfa blobu için paylaşımı: *Mystoracct_PageBlob/my-container/blob*
 - Dosya Paylaşımı için: *Mystoracct_AzFile/my-paylaşma*
 
 Linux ana bilgisayarı kullanıyorsanız aşağıdaki adımları gerçekleştirerek Data Box'ı NFS istemcilerine izin verecek şekilde yapılandırın.

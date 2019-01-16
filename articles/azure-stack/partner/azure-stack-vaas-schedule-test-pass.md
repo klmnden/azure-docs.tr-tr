@@ -13,14 +13,14 @@ ms.topic: How to
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 3021fafe7d74f71450eec9b3720c974b04ada224
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 0e9ad89e504ce1cb86daad48bec9ffe9423e2cf1
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426936"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319554"
 ---
-# <a name="schedule-your-first-test"></a>İlk test zamanlama
+# <a name="scheduling-a-test"></a>Test planlama
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
@@ -35,8 +35,8 @@ Test geçiş iş akışı VaaS testlerden doğrulama iş akışları dahil olmak
 Bu hızlı başlangıçta izlemeden önce aşağıdaki öğeleri tamamlanmalıdır:
 
 - [Hizmet kaynakları olarak doğrulama ayarlayın](azure-stack-vaas-set-up-resources.md)
-- [Yerel aracı dağıtma](azure-stack-vaas-local-agent.md) (önerilir)
-- [Doğrulama Hizmeti temel kavramları olarak](azure-stack-vaas-key-concepts.md) (önerilir)
+- [Yerel aracı dağıtma](azure-stack-vaas-local-agent.md) (gerekli)
+- [Doğrulama Hizmeti temel kavramları olarak](azure-stack-vaas-key-concepts.md) (gerekli)
 
 ## <a name="start-a-workflow"></a>Bir iş akışını Başlat
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 632e605a6f7c9885f3854ca1f7b69ed337a1eacc
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 572f4535044e077ed245b0a231ccc9fa973a8a9b
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025887"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331664"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Etkinlik performansı ve ayarlama Kılavuzu kopyalayın
 
@@ -72,7 +72,7 @@ Bir başvuru, aşağıdaki tabloda şirket içi teste dayanan verilen kaynak ve 
     </tr>
     <tr>
         <td>Ağ</td>
-        <td>Internet arabirimi: 10 GB/sn; intranet arabiriminde: 40 GB/sn</td>
+        <td>Internet arabirimi: 10 GB/sn; intranet arabiriminde: 40 Gbps</td>
     </tr>
     </table>
 
@@ -108,7 +108,7 @@ A **bulut verisi taşıma birimi (DMU)** Data Factory içinde tek bir birim (CPU
 Bu varsayılanı geçersiz kılmak için bir değer belirtin. **cloudDataMovementUnits** özelliğini aşağıdaki gibi. **İzin verilen değerler** için **cloudDataMovementUnits** özelliği, 2, 4, 8, 16, 32 olan. **Bulut DMUs gerçek sayısını** eşit veya daha az, veri modelini bağlı olarak yapılandırılmış bir değeri, kopyalama işleminin çalışma zamanında kullanır. Özel kopyalama kaynağı ve havuz için daha fazla birimi yapılandırırken alabilirsiniz performans kazancı düzeyi hakkında bilgi için bkz [Performans başvurusu](#performance-reference).
 
 ```json
-"activities":[  
+"activities":[
     {
         "name": "Sample copy activity",
         "description": "",
@@ -135,7 +135,7 @@ Bu varsayılanı geçersiz kılmak için bir değer belirtin. **cloudDataMovemen
 ### <a name="parallelcopies"></a>parallelCopies
 Kullanabileceğiniz **parallelCopies** kopyalama etkinliği, kullanmak istediğiniz paralellik belirtmek için özelliği. Bu özellik veri kaynağınızdan okuyabilen veya, havuz veri depolarına paralel yazma kopyalama etkinliği içinde iş parçacığı sayısı olarak düşünebilirsiniz.
 
-Her kopya etkinlik çalıştırma için Data Factory veri depolamak ve için hedef veri deposu kaynak sunucudan veri kopyalamak için paralel kopya sayısını belirler. Varsayılan sayısıyla onu kullanan paralel kaynak ve havuz kullanmakta olduğunuz türüne bağlıdır.  
+Her kopya etkinlik çalıştırma için Data Factory veri depolamak ve için hedef veri deposu kaynak sunucudan veri kopyalamak için paralel kopya sayısını belirler. Varsayılan sayısıyla onu kullanan paralel kaynak ve havuz kullanmakta olduğunuz türüne bağlıdır.
 
 | Kaynak ve havuz | Hizmet tarafından belirlenen varsayılan paralel kopya sayısı |
 | --- | --- |
@@ -146,7 +146,7 @@ Her kopya etkinlik çalıştırma için Data Factory veri depolamak ve için hed
 Genellikle, varsayılan davranışı en iyi aktarım hızı vermeniz gerekir. Ancak, verilerinizi barındıran makinelerin yükünü denetlemek için depolar veya kopyalama performansı ayarlamak için varsayılan değeri geçersiz kılmak ve için bir değer belirtmek seçebilirsiniz **parallelCopies** özelliği. Değer 1 ile 32 (her ikisi de dahil) arasında olmalıdır. Çalışma zamanında, en iyi performans için ayarladığınız değerine eşit veya daha az olan bir değer kopyalama etkinliği kullanır.
 
 ```json
-"activities":[  
+"activities":[
     {
         "name": "Sample copy activity",
         "description": "",
@@ -176,7 +176,7 @@ Dikkat edilecek noktalar:
 >
 >
 
-Bu iki özellik daha iyi kullanmak ve veri taşıma aktarım hızınızı geliştirmek için bkz: [örnek kullanım durumları](#case-study-use-parallel-copy). Yapılandırmanız gerekmez **parallelCopies** varsayılan davranışı yararlanmak için. Yapılandırırsanız ve **parallelCopies** birden çok bulut DMUs değil tamamı kullanılana çok küçük.  
+Bu iki özellik daha iyi kullanmak ve veri taşıma aktarım hızınızı geliştirmek için bkz: [örnek kullanım durumları](#case-study-use-parallel-copy). Yapılandırmanız gerekmez **parallelCopies** varsayılan davranışı yararlanmak için. Yapılandırırsanız ve **parallelCopies** birden çok bulut DMUs değil tamamı kullanılana çok küçük.
 
 ### <a name="billing-impact"></a>Faturalama etkisi
 Sahip **önemli** tabanlı kopyalama işlemi toplam zamanında ücretlendirilir unutmayın. Bir kopyalama işi bir saat bir bulut birimiyle almak için kullanılan ve artık bu dört bulut birimiyle 15 dakika sürer, toplam fatura neredeyse aynı kalır. Örneğin, dört bulut birimi kullanın. Birinci bulut biriminin 10 dakika, ikinci bir geçirdiği 10 dakika, üçüncü bir, 5 dakika ve dördüncü 5 dakikada bir, her bir kopyalama etkinliği çalıştırma. 10 + 10 + 5 + 5 = 30 dakika toplam kopyalama (veri hareketi) süresi için ücretlendirilir. Kullanarak **parallelCopies** faturalama etkisi yoktur.
@@ -216,7 +216,7 @@ Yapılandırma **enableStaging** verileri Blob Depolama alanında çoğaltılmad
 Kopyalama etkinliği önceki tabloda açıklanan özellikler ile bir örnek tanımı aşağıda verilmiştir:
 
 ```json
-"activities":[  
+"activities":[
 {
     "name": "Sample copy activity",
     "type": "Copy",
@@ -273,9 +273,9 @@ Kopyalama etkinliği, Data Factory hizmetine performansını ayarlamak için aş
 3. **Tüm veri kümeniz Yapılandırması**. Yürütme sonuçları ve performans ile memnun kaldığınızda, tanım ve işlem hattı etkin dönemini tüm veri kümeniz kapsayacak şekilde genişletebilirsiniz.
 
 ## <a name="considerations-for-data-management-gateway"></a>Veri Yönetimi ağ geçidi için dikkat edilmesi gerekenler
-**Ağ geçidi**: Ana veri yönetimi ağ geçidi için ayrılmış bir makine kullanmanızı öneririz. Bkz: [veri yönetimi ağ geçidi kullanma konuları](data-factory-data-management-gateway.md#considerations-for-using-gateway).  
+**Ağ geçidi**: Ana veri yönetimi ağ geçidi için ayrılmış bir makine kullanmanızı öneririz. Bkz: [veri yönetimi ağ geçidi kullanma konuları](data-factory-data-management-gateway.md#considerations-for-using-gateway).
 
-**Ağ geçidi izleme ve yukarı/genişleme**: Tek bir mantıksal ağ geçidi ile bir veya daha fazla ağ geçidi düğümleri, aynı anda aynı anda birden fazla kopyalama etkinliği çalıştırma görebilir. Bir ağ geçidi makinesine Azure portalında sınırı karşı çalışan eşzamanlı iş sayısını gördüğünüz gibi iyi kaynak kullanımı (CPU, bellek, network(in/out) vb.) neredeyse gerçek zamanlı anlık görüntüsünü görüntüleyebileceğiniz [İzleyici ağ geçidiportalında](data-factory-data-management-gateway.md#monitor-gateway-in-the-portal). Karma veri hareketi çok sayıda eşzamanlı kopyalama etkinliği çalıştırma veya büyük miktarlarda veri kopyalamak için üzerinde ağır gerekmesi durumunda için göz önünde [ölçeğini artırır veya ağ geçidi](data-factory-data-management-gateway-high-availability-scalability.md#scale-considerations) sağlamak için ya da kaynağınızı daha iyi kullanmak için kopyalama güçlendirmek için daha fazla kaynak. 
+**Ağ geçidi izleme ve yukarı/genişleme**: Tek bir mantıksal ağ geçidi ile bir veya daha fazla ağ geçidi düğümleri, aynı anda aynı anda birden fazla kopyalama etkinliği çalıştırma görebilir. Bir ağ geçidi makinesine Azure portalında sınırı karşı çalışan eşzamanlı iş sayısını gördüğünüz gibi iyi kaynak kullanımı (CPU, bellek, network(in/out) vb.) neredeyse gerçek zamanlı anlık görüntüsünü görüntüleyebileceğiniz [İzleyici ağ geçidiportalında](data-factory-data-management-gateway.md#monitor-gateway-in-the-portal). Karma veri hareketi çok sayıda eşzamanlı kopyalama etkinliği çalıştırma veya büyük miktarlarda veri kopyalamak için üzerinde ağır gerekmesi durumunda için göz önünde [ölçeğini artırır veya ağ geçidi](data-factory-data-management-gateway-high-availability-scalability.md#scale-considerations) sağlamak için ya da kaynağınızı daha iyi kullanmak için kopyalama güçlendirmek için daha fazla kaynak.
 
 ## <a name="considerations-for-the-source"></a>Kaynağı için konular
 ### <a name="general"></a>Genel
@@ -404,7 +404,7 @@ Bu durumda, bzıp2 veri sıkıştırma tüm işlem hattını yavaşlatmasını. 
 
 **Senaryo II**: 500 MB'ın 20 blobları Blob depolamadan Data Lake Store Analytics'e kopyalayın ve ardından performansını ayarlama.
 
-**Analiz ve performans ayarlama**: Bu senaryoda, Data Factory verileri Blob depolamadan Data Lake Store için tek kopyası kullanarak kopyalar (**parallelCopies** 1 olarak ayarlayın) ve tek bulut veri taşıma birimleri. Aktarım hızı, inceleyin, yakın olarak açıklanacaktır [performans başvuru bölümüne](#performance-reference).   
+**Analiz ve performans ayarlama**: Bu senaryoda, Data Factory verileri Blob depolamadan Data Lake Store için tek kopyası kullanarak kopyalar (**parallelCopies** 1 olarak ayarlayın) ve tek bulut veri taşıma birimleri. Aktarım hızı, inceleyin, yakın olarak açıklanacaktır [performans başvuru bölümüne](#performance-reference).
 
 ![Senaryo 2](./media/data-factory-copy-activity-performance/scenario-2.png)
 

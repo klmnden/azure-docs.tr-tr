@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/16/2018
 ms.author: trinadhk
-ms.openlocfilehash: ec7de756a5b3c8e713fa8e73c18cebee32b83e28
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 31a708f3a0da76ab13e789b099f312cca1f86e08
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201321"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332260"
 ---
 # <a name="frequently-asked-questions-azure-backup"></a>Sık sorulan sorular Azure Backup
 
@@ -76,7 +76,7 @@ Azure yedekleme WA etkin disk yedekleyemezsiniz, ancak yedeklemeden hariç tutab
 ### <a name="how-do-i-decide-whether-to-restore-disks-only-or-a-full-vm"></a>Yalnızca diskleri geri yükle verilip verilmeyeceğini veya tam bir VM nasıl karar verebilirim?
 Bir VM geri yüklemesi için bir Azure VM hızlı oluşturma seçeneği olarak düşünün. Bu seçenek, disk adları, diskleri, genel IP adresleri ve ağ arabirimi adlarını tarafından kullanılan kapsayıcıları değiştirir. Bir VM oluşturulduğunda değişiklik benzersiz kaynakları tutar. Sanal Makineyi bir kullanılabilirlik kümesine eklenmez.
 
-İsterseniz geri yükleme disk seçeneği:
+İsterseniz geri yükleme disk seçeneği kullanabilirsiniz:
   * Oluşturulan VM özelleştirin. Örnek boyutunu değiştirin.
   * Yedekleme sırasında var olmayan yapılandırma ayarları Ekle
   * Oluşturulan kaynakların adlandırma kuralını denetleme.

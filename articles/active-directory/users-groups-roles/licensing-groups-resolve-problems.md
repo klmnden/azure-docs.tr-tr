@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 10/29/2018
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ee441a8c9a0d8a70a2797f090a143189cdb6872a
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 54e562cca800a19829b985e3fd529368350104a1
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211545"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329489"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Azure Active Directory'de bir grup için lisans atama sorunlarını tanımlama ve çözme
 
@@ -53,7 +53,7 @@ Aşağıdaki bölümlerde, her olası bir sorunu çözmek için yol ve bir açı
 
 ## <a name="not-enough-licenses"></a>Yeterli lisans yok
 
-**Sorun:** grubunda belirtilen ürünlerinden biri için yeterli sayıda kullanılabilir lisans yok. Ürün için daha fazla lisans satın almanıza veya diğer kullanıcıları veya grupları kullanılmayan lisanslarını boşaltmak gerekir.
+**Sorun:** Bir grup içinde belirtilen ürün için yeterli sayıda kullanılabilir lisans yok. Ürün için daha fazla lisans satın almanıza veya diğer kullanıcıları veya grupları kullanılmayan lisanslarını boşaltmak gerekir.
 
 Kaç tane lisansın kullanılabilir olduğunu görmek için Git **Azure Active Directory** > **lisansları** > **tüm ürünleri**.
 
@@ -63,7 +63,7 @@ Hangi kullanıcıların ve grupların lisanslarını kullanan görmek için bir 
 
 ## <a name="conflicting-service-plans"></a>Çakışan hizmet planları var
 
-**Sorun:** çakışan bir hizmet planı farklı bir ürünü aracılığıyla kullanıcıya zaten atanmış başka bir hizmet planı ile bir grup içinde belirtilen ürün içerir. Bazı hizmet planları, bunlar ilgili başka bir hizmet planı ile aynı kullanıcıya atanamaz bir şekilde yapılandırılır.
+**Sorun:** Grubunda belirtilen ürünlerinden biri için farklı bir ürünü aracılığıyla kullanıcı zaten atanmış başka bir hizmet planı ile çakışan bir hizmet planı içerir. Bazı hizmet planları, bunlar ilgili başka bir hizmet planı ile aynı kullanıcıya atanamaz bir şekilde yapılandırılır.
 
 Aşağıdaki örneği inceleyin. Bir kullanıcının Office 365 kuruluş için bir lisans *E1* doğrudan etkin tüm planlarla atanmış. Kullanıcının Office 365 Kurumsal olan bir gruba eklendi *E3* kendisine atanmış bir ürün. E3 ürün grubu lisans ataması "Çakışan hizmet planları" hatasıyla başarısız oluyor, böylece E1 dahil edilen planları ile çakışamaz hizmet planları içerir. Bu örnekte, çakışan hizmet planları şunlardır:
 
@@ -78,7 +78,7 @@ Bu çakışmayı çözmek için iki planları devre dışı bırakmak gerekir. D
 
 ## <a name="other-products-depend-on-this-license"></a>Bu lisansa bağımlı olan başka ürünler var
 
-**Sorun:** grubunda belirtilen ürünlerinden biri işlevi için başka bir ürün içinde başka bir hizmet planı için etkinleştirilmesi gereken bir hizmet planı içerir. Azure AD temel hizmet planı kaldırmaya çalıştığında bu hata oluşur. Örneğin, kullanıcı gruptan kaldırdığınızda bu durum oluşabilir.
+**Sorun:** Bir grup içinde belirtilen ürün işlevi için başka bir ürün içinde başka bir hizmet planı için etkinleştirilmesi gereken bir hizmet planına içeriyor. Azure AD temel hizmet planı kaldırmaya çalıştığında bu hata oluşur. Örneğin, kullanıcı gruptan kaldırdığınızda bu durum oluşabilir.
 
 Bu sorunu çözmek için başka bir yöntem kullanıcılara, gerekli planı yine de atanır veya bağımlı hizmetleri söz konusu kullanıcılar için devre dışı bırakıldığında emin olmanız gerekir. Böylece bu kullanıcıların Grup lisansı düzgün bir şekilde kaldırabilirsiniz.
 
@@ -86,7 +86,7 @@ Bu sorunu çözmek için başka bir yöntem kullanıcılara, gerekli planı yine
 
 ## <a name="usage-location-isnt-allowed"></a>Kullanım konumu izin verilmiyor
 
-**Sorun:** bazı Microsoft Hizmetleri tüm konumlarda yerel kanunlarınız ve düzenlemelerinizle nedeniyle kullanılamaz. Bir kullanıcıya bir lisans atamak için önce belirtmelisiniz **kullanım konumu** kullanıcı özelliği. Konum altında belirtebilirsiniz **kullanıcı** > **profili** > **ayarları** bölümünde Azure portalında.
+**Sorun:** Bazı Microsoft Hizmetleri yerel kanunlarınız ve düzenlemelerinizle nedeniyle tüm konumlarda mevcut değildir. Bir kullanıcıya bir lisans atamak için önce belirtmelisiniz **kullanım konumu** kullanıcı özelliği. Konum altında belirtebilirsiniz **kullanıcı** > **profili** > **ayarları** bölümünde Azure portalında.
 
 Azure AD grubu lisans, kullanım konumu desteklenmiyor kullanıcıya atamak denediğinde başarısız olur ve kullanıcının bir hata kaydeder.
 
@@ -118,6 +118,12 @@ Azure AD grubunda her kullanıcı için belirtilen tüm lisansları atamak çal�
 
 Atanır ve bu sorundan etkilenen hangi ürünler için başarısız oldu. kullanıcıları görebilirsiniz.
 
+## <a name="what-happens-when-a-group-with-licenses-assigned-is-deleted"></a>Atanmış lisansları olan bir grup olduğunda ne silindi mi?
+
+Grup silebilmeniz için önce bir gruba atanmış tüm lisansları kaldırmanız gerekir. Ancak, gruptaki tüm kullanıcılardan lisansları kaldırma zaman alabilir. Bir gruptan lisans ataması kaldırılırken olabilir hataları kullanıcının atanmış bağımlı bir lisans olup olmadığını veya lisans kaldırma önleyen bir proxy adresi çakışması sorunu ise. Bir kullanıcı bir lisans grubu silme işlemi nedeniyle kaldırılan bağımlı olduğu lisans varsa, kullanıcıya lisans ataması yönlendirmek için devralınan dönüştürülür.
+
+Örneğin, Office 365 E3/atanmış E5 ile birlikte bir Skype kurumsal iş hizmet planı etkin bir grup göz önünde bulundurun. Ayrıca grubun bazı üyeleri ses konferans lisansları doğrudan atanmış olduğunu hayal edin. Grup silindiğinde, Grup tabanlı lisanslama tüm kullanıcıların Office 365 E3/E5 kaldırmayı deneyecek. Ses konferans Skype Kurumsal'a bağımlı olduğundan, ses konferans sahip tüm kullanıcılar için atanan, Grup tabanlı lisanslama doğrudan lisans ataması için Office 365 E3/E5 lisansı dönüştürür.
+
 ## <a name="how-do-you-manage-licenses-for-products-with-prerequisites"></a>Önkoşullar ürünleriyle lisanslarını nasıl yönetir?
 
 Bazı Microsoft Online ürünleri olduğunuz *eklentileri*. Eklentiler, bir kullanıcı veya grup için bir lisans atanabilmesi için önce etkinleştirilmesi için bir önkoşul hizmet planı gerektirir. Grup tabanlı lisanslama ile sistem önkoşul ve eklenti hizmet planlarını aynı grubun var olmasını gerektirir. Bu gruba eklenen tüm kullanıcılar, tam olarak bir çalışma ürünü aldığından emin olmak için gerçekleştirilir. Aşağıdaki örnek düşünelim:
@@ -146,8 +152,6 @@ Artık bu gruba eklenen herhangi bir kullanıcı bir lisans E3 ürünün ve Work
 
 > [!TIP]
 > Her bir önkoşul hizmet planı için birden çok gruplar oluşturabilirsiniz. Örneğin, kullanıcılarınız için hem Office 365 Kurumsal E1 hem de Office 365 Kurumsal E3 kullanırsanız, iki gruba lisans Microsoft Workplace Analytics oluşturabilirsiniz: E1 önkoşul ve E3 kullanan diğer kullanan bir. Bu, eklenti E1 ve E3 kullanıcılara ek lisans kullanmasa bile Dağıt sağlar.
-
-
 
 ## <a name="how-do-you-force-license-processing-in-a-group-to-resolve-errors"></a>Hataları gidermek için bir gruptaki lisans işleme nasıl zorlama?
 

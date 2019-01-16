@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e1fe5af1769a0a1a83a3ce849a7eb1874369ce9a
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: fb0448e5ad5bd91c63c2fcde9887ec23544bed3f
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023381"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331359"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>İşlem hatları ve etkinlikler Azure Data factory'de
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -28,15 +28,15 @@ ms.locfileid: "54023381"
 > [!NOTE]
 > Bu makale, Data Factory’nin 1. sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [V2 işlem hatlarında](../concepts-pipelines-activities.md).
 
-Bu makale, Azure Data Factory’de işlem hatlarını ve etkinlikleri anlamanıza ve veri hareketi ile veri işleme senaryolarınız için uçtan uca veri odaklı iş akışları oluşturmak amacıyla bunları nasıl kullanacağınızı anlamanıza yardımcı olur.  
+Bu makale, Azure Data Factory’de işlem hatlarını ve etkinlikleri anlamanıza ve veri hareketi ile veri işleme senaryolarınız için uçtan uca veri odaklı iş akışları oluşturmak amacıyla bunları nasıl kullanacağınızı anlamanıza yardımcı olur.
 
 > [!NOTE]
-> Bu makalede çalıştınız olduğunu varsayar [Azure Data Factory'ye giriş](data-factory-introduction.md). Uygulamalı-on-veri fabrikaları oluşturma deneyimi ile yoksa oluşturulmak [veri dönüştürme öğreticisini](data-factory-build-your-first-pipeline.md) ve/veya [veri taşıma öğreticisini](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) bu makalede daha iyi anlamanıza yardımcı.  
+> Bu makalede çalıştınız olduğunu varsayar [Azure Data Factory'ye giriş](data-factory-introduction.md). Uygulamalı-on-veri fabrikaları oluşturma deneyimi ile yoksa oluşturulmak [veri dönüştürme öğreticisini](data-factory-build-your-first-pipeline.md) ve/veya [veri taşıma öğreticisini](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) bu makalede daha iyi anlamanıza yardımcı.
 
 ## <a name="overview"></a>Genel Bakış
-Bir veri fabrikasında bir veya daha fazla işlem hattı olabilir. İşlem hattı, bir araya geldiğinde bir görev gerçekleştiren mantıksal etkinlik grubudur. Bir işlem hattındaki etkinlikler, verilerinizde gerçekleştirilecek eylemleri tanımlar. Örneğin, kopyalama etkinliğini kullanarak şirket içi SQL Server’dan Azure Blob Depolama’ya veri kopyalayabilirsiniz. Ardından bir Azure HDInsight kümesinde Hive betiği çalıştıran bir Hive etkinliği kullanıp blob depolamadaki verileri işleyerek/dönüştürerek çıktı verileri üretebilirsiniz. Son olarak, ikinci bir kopyalama etkinliği kullanarak üzerinde iş zekası (BI) raporlama çözümlerinin oluşturulduğu bir Azure SQL Veri Ambarı’na çıktı verilerini kopyalayabilirsiniz. 
+Bir veri fabrikasında bir veya daha fazla işlem hattı olabilir. İşlem hattı, bir araya geldiğinde bir görev gerçekleştiren mantıksal etkinlik grubudur. Bir işlem hattındaki etkinlikler, verilerinizde gerçekleştirilecek eylemleri tanımlar. Örneğin, kopyalama etkinliğini kullanarak şirket içi SQL Server’dan Azure Blob Depolama’ya veri kopyalayabilirsiniz. Ardından bir Azure HDInsight kümesinde Hive betiği çalıştıran bir Hive etkinliği kullanıp blob depolamadaki verileri işleyerek/dönüştürerek çıktı verileri üretebilirsiniz. Son olarak, ikinci bir kopyalama etkinliği kullanarak üzerinde iş zekası (BI) raporlama çözümlerinin oluşturulduğu bir Azure SQL Veri Ambarı’na çıktı verilerini kopyalayabilirsiniz.
 
-Bir etkinliğin sıfır veya sıfırdan çok giriş [veri kümesi](data-factory-create-datasets.md) olabilir ve her etkinlik bir veya birden çok çıkış [veri kümesi](data-factory-create-datasets.md) oluşturabilir. Aşağıdaki diyagramda, Data Factory içindeki işlem hattı, etkinlik ve veri kümesi arasındaki ilişki gösterilmektedir: 
+Bir etkinliğin sıfır veya sıfırdan çok giriş [veri kümesi](data-factory-create-datasets.md) olabilir ve her etkinlik bir veya birden çok çıkış [veri kümesi](data-factory-create-datasets.md) oluşturabilir. Aşağıdaki diyagramda, Data Factory içindeki işlem hattı, etkinlik ve veri kümesi arasındaki ilişki gösterilmektedir:
 
 ![İşlem hattı, etkinlik ve veri kümesi arasındaki ilişki](media/data-factory-create-pipelines/relationship-pipeline-activity-dataset.png)
 
@@ -61,7 +61,7 @@ Daha fazla bilgi için [Veri Taşıma Etkinlikleri](data-factory-data-movement-a
 
 Daha fazla bilgi için [Veri Dönüştürme Etkinlikleri](data-factory-data-transformation-activities.md) makalesine bakın.
 
-### <a name="custom-net-activities"></a>Özel .NET etkinlikleri 
+### <a name="custom-net-activities"></a>Özel .NET etkinlikleri
 Kopyalama etkinliği değil desteği ya da kendi mantığınızı kullanarak verileri dönüştürme, oluşturma, veri gönderip buralardan veri deposuna taşımanız gerekiyorsa bir **özel bir .NET etkinliği**. Özel bir etkinlik oluşturma ve kullanma hakkında ayrıntılı bilgi için bkz. [Azure Data Factory işlem hattında özel etkinlikler kullanma](data-factory-use-custom-activities.md).
 
 ## <a name="schedule-pipelines"></a>Zamanlama işlem hatları
@@ -73,7 +73,7 @@ Bir işlem hattının JSON biçiminde nasıl tanımlandığına daha yakından b
 ```json
 {
     "name": "PipelineName",
-    "properties": 
+    "properties":
     {
         "description" : "pipeline description",
         "activities":
@@ -85,7 +85,7 @@ Bir işlem hattının JSON biçiminde nasıl tanımlandığına daha yakından b
         "isPaused": true/false,
         "pipelineMode": "scheduled/onetime",
         "expirationTime": "15.00:00:00",
-        "datasets": 
+        "datasets":
         [
         ]
     }
@@ -96,7 +96,7 @@ Bir işlem hattının JSON biçiminde nasıl tanımlandığına daha yakından b
 | --- | --- | --- |
 | ad |İşlem hattının adı. İşlem hattının gerçekleştirdiği eylemi temsil eden bir ad belirtin. <br/><ul><li>En fazla karakter sayısı: 260</li><li>Bir harf, sayı veya alt çizgi ile başlamalıdır (\_)</li><li>Karakterler kullanılamaz: ".", "+","?", "/", "<",">", "*", "%", "&", ":","\\"</li></ul> |Evet |
 | açıklama | İşlem hattının ne için kullanıldığını açıklayan metni belirtin. |Evet |
-| etkinlikler | **Etkinlikler** bölümünde tanımlanmış bir veya daha fazla etkinlik olabilir. Etkinliklerin JSON öğesi hakkında ayrıntılı bilgi için sonraki bölüme bakın. | Evet |  
+| etkinlikler | **Etkinlikler** bölümünde tanımlanmış bir veya daha fazla etkinlik olabilir. Etkinliklerin JSON öğesi hakkında ayrıntılı bilgi için sonraki bölüme bakın. | Evet |
 | start | İşlem hattının başlangıç tarihi / saati. Olmalıdır [ISO biçimi](http://en.wikipedia.org/wiki/ISO_8601). Örneğin: `2016-10-14T16:32:41Z`. <br/><br/>Yerel saati, örneğin bir Tah belirtmek mümkündür. Bir örnek aşağıda verilmiştir: `2016-02-27T06:00:00-05:00`", 6 AM tahmini olduğu<br/><br/>Başlangıç ve bitiş özellikleri işlem hattının etkin dönemini birlikte belirtin. Çıktı dilimleri yalnızca ile bu etkin dönem içinde oluşturulur. |Hayır<br/><br/>End özelliği için bir değer belirtirseniz, başlangıç özelliği için değer belirtmeniz gerekir.<br/><br/>Başlangıç ve bitiş saatleri hem de bir işlem hattı oluşturmak için boş olabilir. Çalıştırılacak işlem hattının etkin bir süresini ayarlamak için her iki değer belirtmeniz gerekir. Başlangıç ve bitiş zamanı belirtmezseniz, işlem hattını oluştururken, bunları daha sonra Set-AzureRmDataFactoryPipelineActivePeriod cmdlet'ini kullanarak ayarlayabilirsiniz. |
 | end | İşlem hattının son tarih-saat. Belirtilen ISO biçiminde olmalıdır. Örneğin, `2016-10-14T17:32:41Z` <br/><br/>Yerel saati, örneğin bir Tah belirtmek mümkündür. Bir örnek aşağıda verilmiştir: `2016-02-27T06:00:00-05:00`, 6 AM tahmini olduğu<br/><br/>İşlem hattını süresiz olarak çalıştırmak için 9999-09-09 son özelliğinin değeri olarak belirtin. <br/><br/> Bir işlem hattı yalnızca kendi başlangıç ve bitiş zamanı arasında etkin değil. Başlangıç zamanından önce veya sonra bitiş saati yürütülmez. İşlem hattı duraklatılmışsa, bağımsız olarak kendi başlangıç ve bitiş zamanı Yürütülmeyen. Çalıştırmak için işlem hattı için duraklatma değil. Bkz: [zamanlama ve yürütme](data-factory-scheduling-and-execution.md) zamanlama ve yürütme işleyişi Azure Data Factory'de anlamak için. |Hayır <br/><br/>Başlangıç özellik için bir değer belirtirseniz, end özelliği için değer belirtmeniz gerekir.<br/><br/>İçin Notlar'a bakın **Başlat** özelliği. |
 | isPaused | TRUE olarak işlem hattı çalışmazsa. Bunu duraklatılmış durumda. Varsayılan değer = false. Bu özellik, etkinleştirme veya devre dışı bir işlem hattı kullanabilirsiniz. |Hayır |
@@ -110,10 +110,10 @@ Bir işlem hattının JSON biçiminde nasıl tanımlandığına daha yakından b
 ```json
 {
     "name": "ActivityName",
-    "description": "description", 
+    "description": "description",
     "type": "<ActivityType>",
-    "inputs":  "[]",
-    "outputs":  "[]",
+    "inputs": "[]",
+    "outputs": "[]",
     "linkedServiceName": "MyLinkedService",
     "typeProperties":
     {
@@ -142,7 +142,6 @@ Aşağıdaki tabloda, etkinlik JSON tanımındaki özellikler açıklamaktadır:
 | ilke |Etkinliğin çalışma zamanı davranışını etkileyen ilkeler. Belirtilmezse, varsayılan ilkeler kullanılır. |Hayır |
 | Zamanlayıcı | "Zamanlayıcı" özelliği, istenen etkinlik için zamanlama tanımlamak için kullanılır. Onun alt dışındaki aynıdır [bir veri kümesi kullanılabilirlik özelliğinde](data-factory-create-datasets.md#dataset-availability). |Hayır |
 
-
 ### <a name="policies"></a>İlkeler
 Özellikle, bir tablonun dilim işlendiğinde ilkeler bir etkinliğin çalışma zamanı davranışını etkiler. Aşağıdaki tabloda ayrıntılar sağlar.
 
@@ -157,7 +156,7 @@ Aşağıdaki tabloda, etkinlik JSON tanımındaki özellikler açıklamaktadır:
 | longRetryInterval |Zaman aralığı |00:00:00 |Uzun yeniden deneme girişimleri arasındaki gecikme |
 
 ## <a name="sample-copy-pipeline"></a>Örnek kopyalama işlem hattı
-Aşağıdaki örnek işlem hattında, **Etkinlikler** bölümünde **Kopyalama** türünde olan bir etkinlik vardır. Bu örnekte [kopyalama etkinliği](data-factory-data-movement-activities.md), verileri Azure Blob depolama alanından Azure SQL veritabanına kopyalar. 
+Aşağıdaki örnek işlem hattında, **Etkinlikler** bölümünde **Kopyalama** türünde olan bir etkinlik vardır. Bu örnekte [kopyalama etkinliği](data-factory-data-movement-activities.md), verileri Azure Blob depolama alanından Azure SQL veritabanına kopyalar.
 
 ```json
 {
@@ -199,19 +198,19 @@ Aşağıdaki örnek işlem hattında, **Etkinlikler** bölümünde **Kopyalama**
     "start": "2016-07-12T00:00:00Z",
     "end": "2016-07-13T00:00:00Z"
   }
-} 
+}
 ```
 
 Aşağıdaki noktalara dikkat edin:
 
 * Etkinlikler bölümünde, **türü** **Copy** olarak ayarlanmış yalnızca bir etkinlik vardır.
-* Etkinlik girdisi **InputDataset** olarak, etkinlik çıktısı ise **OutputDataset** olarak ayarlanmıştır. JSON biçiminde veri kümeleri tanımlamak için [Veri Kümeleri](data-factory-create-datasets.md) makalesine bakın. 
-* **typeProperties** bölümünde **BlobSource** kaynak türü, **SqlSink** de havuz türü olarak belirtilir. İçinde [veri taşıma etkinlikleri](#data-movement-activities) bölümü, veri depolama, veri deposundan/veri taşıma hakkında daha fazla bilgi için bir kaynak veya havuz kullanmak istediğiniz tıklatın. 
+* Etkinlik girdisi **InputDataset** olarak, etkinlik çıktısı ise **OutputDataset** olarak ayarlanmıştır. JSON biçiminde veri kümeleri tanımlamak için [Veri Kümeleri](data-factory-create-datasets.md) makalesine bakın.
+* **typeProperties** bölümünde **BlobSource** kaynak türü, **SqlSink** de havuz türü olarak belirtilir. İçinde [veri taşıma etkinlikleri](#data-movement-activities) bölümü, veri depolama, veri deposundan/veri taşıma hakkında daha fazla bilgi için bir kaynak veya havuz kullanmak istediğiniz tıklatın.
 
-Bu işlem hattını oluşturmak üzere izlenecek tam yol için bkz: [Öğreticisi: Blob depolama alanından SQL veritabanı'na veri kopyalamak](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
+Bu işlem hattını oluşturmak üzere izlenecek tam yol için bkz: [Öğreticisi: Blob depolama alanından SQL veritabanı'na veri kopyalamak](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="sample-transformation-pipeline"></a>Örnek dönüştürme işlem hattı
-Aşağıdaki örnek işlem hattında, **etkinlikler** bölümünde **HDInsightHive** türünde olan bir etkinlik vardır. Bu örnekte [HDInsight Hive etkinliği](data-factory-hive-activity.md), bir Azure HDInsight Hadoop kümesinde Hive betik dosyası çalıştırarak verileri bir Azure Blob depolamadan dönüştürür. 
+Aşağıdaki örnek işlem hattında, **etkinlikler** bölümünde **HDInsightHive** türünde olan bir etkinlik vardır. Bu örnekte [HDInsight Hive etkinliği](data-factory-hive-activity.md), bir Azure HDInsight Hadoop kümesinde Hive betik dosyası çalıştırarak verileri bir Azure Blob depolamadan dönüştürür.
 
 ```json
 {
@@ -258,39 +257,38 @@ Aşağıdaki örnek işlem hattında, **etkinlikler** bölümünde **HDInsightHi
 }
 ```
 
-Aşağıdaki noktalara dikkat edin: 
+Aşağıdaki noktalara dikkat edin:
 
 * Etkinlikler bölümünde **türü** **HDInsightHive** olarak ayarlanmış yalnızca bir etkinlik vardır.
 * **partitionweblogs.hql** Hive betik dosyası Azure depolama hesabında (scriptLinkedService tarafından belirtilen **AzureStorageLinkedService** adıyla) ve **adfgetstarted** kapsayıcısındaki **betik** klasöründe depolanır.
 * `defines` Bölümü, hive betiğine Hive yapılandırma değerleri olarak geçirilen çalışma zamanı ayarlarını belirtmek için kullanılır (ör. `${hiveconf:inputtable}`, `${hiveconf:partitionedtable}`).
 
-**TypeProperties** bölümü her bir dönüştürme etkinliği için farklıdır. İçindeki bir dönüştürme etkinliği için desteklenen tür özellikleri hakkında bilgi edinmek için tıklayın [veri dönüştürme etkinlikleri](#data-transformation-activities) tablo. 
+**TypeProperties** bölümü her bir dönüştürme etkinliği için farklıdır. İçindeki bir dönüştürme etkinliği için desteklenen tür özellikleri hakkında bilgi edinmek için tıklayın [veri dönüştürme etkinlikleri](#data-transformation-activities) tablo.
 
-Bu işlem hattını oluşturmak üzere izlenecek tam yol için bkz: [Öğreticisi: Hadoop kümesi kullanarak verileri işlemek için ilk işlem hattınızı oluşturma](data-factory-build-your-first-pipeline.md). 
+Bu işlem hattını oluşturmak üzere izlenecek tam yol için bkz: [Öğreticisi: Hadoop kümesi kullanarak verileri işlemek için ilk işlem hattınızı oluşturma](data-factory-build-your-first-pipeline.md).
 
 ## <a name="multiple-activities-in-a-pipeline"></a>Bir işlem hattında birden çok etkinlik
-Önceki iki örnekte işlem hatları yalnızca bir etkinlik içeriyordu. Bir işlem hattında birden fazla etkinliğiniz olabilir.  
+Önceki iki örnekte işlem hatları yalnızca bir etkinlik içeriyordu. Bir işlem hattında birden fazla etkinliğiniz olabilir.
 
-Etkinlikler için giriş veri dilimi hazır olup olmadığını bir işlem hattında birden fazla etkinlik varsa ve bir etkinliğin çıktısını başka bir etkinliğin girdi, etkinlikler paralel olarak çalışabilir. 
+Etkinlikler için giriş veri dilimi hazır olup olmadığını bir işlem hattında birden fazla etkinlik varsa ve bir etkinliğin çıktısını başka bir etkinliğin girdi, etkinlikler paralel olarak çalışabilir.
 
 Çıkış veri kümesini diğer etkinliğin giriş veri kümesi olarak bir etkinlik sağlayarak iki etkinliği zincirleyebilirsiniz. İkinci etkinlik, yalnızca ilki başarıyla tamamlandığında yürütür.
 
 ![Aynı işlem hattındaki etkinlikler, zincirleme](./media/data-factory-create-pipelines/chaining-one-pipeline.png)
 
-Bu örnekte, işlem hattı iki etkinlik içerir: Activity1 ve Activity2. Activity1 Dataset1 girdi olarak alır ve bir çıkış üretir Dataset2. Etkinlik Dataset2 girdi olarak alır ve bir çıkış üretir Dataset3. Activity1 çıktısını beri (Dataset2) olan Activity2, etkinlik başarıyla tamamlandıktan ve Dataset2 dilim oluşturur sonra Activity2 çalıştırmalar girişi. Activity1 herhangi bir nedenden dolayı başarısız olur ve Dataset2 dilim üretmez, bu dilimle ilgili etkinlik 2 çalışmaz (örneğin: 9 10'da AM). 
+Bu örnekte, işlem hattı iki etkinlik içerir: Activity1 ve Activity2. Activity1 Dataset1 girdi olarak alır ve bir çıkış üretir Dataset2. Etkinlik Dataset2 girdi olarak alır ve bir çıkış üretir Dataset3. Activity1 çıktısını beri (Dataset2) olan Activity2, etkinlik başarıyla tamamlandıktan ve Dataset2 dilim oluşturur sonra Activity2 çalıştırmalar girişi. Activity1 herhangi bir nedenden dolayı başarısız olur ve Dataset2 dilim üretmez, bu dilimle ilgili etkinlik 2 çalışmaz (örneğin: 9 10'da AM).
 
 Ayrıca, farklı işlem hatlarında etkinlikleri zincirleyebilirsiniz.
 
 ![Zincirleme iki işlem hattı içindeki etkinlikleri](./media/data-factory-create-pipelines/chaining-two-pipelines.png)
 
-Bu örnekte, Pipeline1 Dataset1 girdi olarak alır ve çıktı olarak Dataset2 üretir, yalnızca bir etkinlik içerir. Pipeline2 de girdi ve çıktı olarak Dataset3 Dataset2 alan yalnızca bir etkinlik vardır. 
+Bu örnekte, Pipeline1 Dataset1 girdi olarak alır ve çıktı olarak Dataset2 üretir, yalnızca bir etkinlik içerir. Pipeline2 de girdi ve çıktı olarak Dataset3 Dataset2 alan yalnızca bir etkinlik vardır.
 
-Daha fazla bilgi için [zamanlama ve yürütme](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline). 
-
+Daha fazla bilgi için [zamanlama ve yürütme](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 ## <a name="create-and-monitor-pipelines"></a>Oluşturma ve işlem hatlarını izleme
-Bu araçlar ve SDK'lar birini kullanarak işlem hatları oluşturabilirsiniz. 
+Bu araçlar ve SDK'lar birini kullanarak işlem hatları oluşturabilirsiniz.
 
-- Kopyalama Sihirbazı'nı. 
+- Kopyalama Sihirbazı'nı.
 - Azure portal
 - Visual Studio
 - Azure PowerShell
@@ -299,15 +297,14 @@ Bu araçlar ve SDK'lar birini kullanarak işlem hatları oluşturabilirsiniz.
 - .NET API’si
 
 Bu araçlar ve SDK'lar birini kullanarak işlem hatları oluşturmaya yönelik adım adım yönergeler için aşağıdaki öğreticilere bakın.
- 
+
 - [Veri dönüştürme etkinliğine sahip işlem hattı oluşturma](data-factory-build-your-first-pipeline.md)
 - [Veri taşıma etkinliği ile işlem hattı oluşturma](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 
-Oluşturulan ve dağıtılan bir işlem hattı olduktan sonra yönetmek ve Azure portalı dikey pencerelerinin veya izleme ve yönetme uygulaması kullanılarak işlem hatlarınızı izlemek. Adım adım yönergeler için aşağıdaki konulara bakın. 
+Oluşturulan ve dağıtılan bir işlem hattı olduktan sonra yönetmek ve Azure portalı dikey pencerelerinin veya izleme ve yönetme uygulaması kullanılarak işlem hatlarınızı izlemek. Adım adım yönergeler için aşağıdaki konulara bakın.
 
 - [Azure portal dikey penceresi kullanılarak işlem hatlarını yönetmek ve izlemek](data-factory-monitor-manage-pipelines.md).
 - [İzleme ve işlem hatlarını izleme ve yönetme uygulaması'nı kullanarak yönetme](data-factory-monitor-manage-app.md)
-
 
 ## <a name="onetime-pipeline"></a>Tek seferlik işlem hattı
 Oluşturma ve zamanlama düzenli aralıklarla çalıştırmak için bir işlem hattı (örneğin: saatlik veya günlük) işlem hattı tanımında belirttiğiniz başlangıç ve bitiş saatleri içinde. Bkz: [etkinlikler zamanlamak](#scheduling-and-execution) Ayrıntılar için. Ayrıca, yalnızca bir kez çalışan bir işlem hattı oluşturabilirsiniz. Bunu yapmak için ayarladığınız **pipelineMode** özelliği için işlem hattı tanımındaki **onetime** aşağıdaki JSON örnekte gösterildiği gibi. Bu özellik için varsayılan değer **zamanlanmış**.
@@ -339,10 +336,10 @@ Oluşturma ve zamanlama düzenli aralıklarla çalıştırmak için bir işlem h
                     {
                         "name": "OutputDataset"
                     }
-                ]
+                ],
                 "name": "CopyActivity-0"
             }
-        ]
+        ],
         "pipelineMode": "OneTime"
     }
 }
@@ -351,13 +348,10 @@ Oluşturma ve zamanlama düzenli aralıklarla çalıştırmak için bir işlem h
 Şunlara dikkat edin:
 
 * **Başlangıç** ve **son** işlem hattının zamanları belirtilmedi.
-* **Kullanılabilirlik** giriş ve çıkış veri kümeleri belirtilen (**sıklığı** ve **aralığı**), Data Factory değerleri kullanmıyor olsa bile.  
+* **Kullanılabilirlik** giriş ve çıkış veri kümeleri belirtilen (**sıklığı** ve **aralığı**), Data Factory değerleri kullanmıyor olsa bile.
 * Diyagram görünümü, tek seferlik işlem hatları göstermez. Bu davranış tasarım gereğidir.
 * Tek seferlik işlem hatları güncelleştirilemiyor. Tek seferlik bir işlem hattı kopyalama, yeniden adlandırmak, özellikleri güncelleştirmek ve başka bir tane oluşturun dağıtalım.
 
-
-## <a name="next-steps"></a>Sonraki Adımlar
-- Veri kümeleri hakkında daha fazla bilgi için bkz. [veri kümeleri oluşturma](data-factory-create-datasets.md) makalesi. 
-- İşlem hatlarını nasıl zamanlanmış ve yürütülen hakkında daha fazla bilgi için bkz. [zamanlama ve yürütme Azure Data factory'de](data-factory-scheduling-and-execution.md) makalesi. 
-  
-
+## <a name="next-steps"></a>Sonraki adımlar
+- Veri kümeleri hakkında daha fazla bilgi için bkz. [veri kümeleri oluşturma](data-factory-create-datasets.md) makalesi.
+- İşlem hatlarını nasıl zamanlanmış ve yürütülen hakkında daha fazla bilgi için bkz. [zamanlama ve yürütme Azure Data factory'de](data-factory-scheduling-and-execution.md) makalesi.

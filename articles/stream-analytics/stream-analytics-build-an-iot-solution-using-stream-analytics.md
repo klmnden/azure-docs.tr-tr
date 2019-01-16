@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 820a918b9ab5dd7a399dc43bcfed29fb3b94e99b
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: f372c2a85a9a03c7ead779bd4db64722891c9a4c
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971112"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321577"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Stream Analytics kullanarak bir IOT çözümü oluşturma
 
@@ -36,7 +36,7 @@ Bu çözüm tamamlamak için aşağıdaki önkoşulları ihtiyacınız vardır:
 ## <a name="scenario-introduction-hello-toll"></a>Senaryo giriş: "Hello, ücretli!"
 Ücretli istasyonu ortak olguya ' dir. Bunların çoğu expressways, köprüler ve tüneller dünya genelindeki karşılaştığınız. Her bir Ücretli istasyonu birden fazla Ücretli booths sahiptir. El ile booths Ücretli bir Katılımcısı için ödeme durdurun. Otomatik booths Ücretli standına geçirirken, araç, ön için yapıştırılmış bir RFID kartını her standına üzerinde algılayıcı tarar. Bu Ücretli istasyonları aracılığıyla taşıtlardan geçişini üzerinden ilgi çekici işlemleri gerçekleştirilebilir bir olay akışı görselleştirmek kolay bir işlemdir.
 
-! [Resim Ücretli booths adresindeki arabaların birçoğu] (media/stream-analytics-build-an-iot-solution-using-stream-analytics/cars-in-toll-booth .jpg)
+![Ücretli booths adresindeki otomobiller resmi](media/stream-analytics-build-an-iot-solution-using-stream-analytics/cars-in-toll-booth.jpg)
 
 ## <a name="incoming-data"></a>Gelen veri
 Bu çözüm, iki veri akışları ile çalışır. Giriş ve çıkış Ücretli istasyonları yüklü sensörlerden ilk akışı üretir. İkinci akış vehicle kayıt veriler içeren bir statik arama veri kümesidir.

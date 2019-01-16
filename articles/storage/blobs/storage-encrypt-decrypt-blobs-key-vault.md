@@ -1,5 +1,5 @@
 ---
-title: "Öğretici: Şifreleme ve Azure anahtar Kasası'nı kullanarak Azure Depolama'daki blobları şifresini | Microsoft Docs"
+title: "Öğretici: Şifreleme ve şifre çözme Azure anahtar Kasası'nı kullanarak Azure Depolama'daki blobları | Microsoft Docs"
 description: Şifreleme ve şifre çözme için Azure Key Vault ile Microsoft Azure depolama istemci tarafı şifreleme kullanarak blob nasıl.
 services: storage
 author: tamram
@@ -8,14 +8,14 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: 092ffa5ed34a8e0a05b69c3fae86ab7299760ac2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 213190863702ec5a7f2ae764c8e2d892764740f9
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233108"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332209"
 ---
-# <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>Öğretici: Şifrelemek ve şifresini Azure anahtar Kasası'nı kullanarak Microsoft Azure depolama BLOB'ları
+# <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>Öğretici: Şifreleme ve şifre çözme Azure anahtar Kasası'nı kullanarak Microsoft Azure depolama BLOB'ları
 ## <a name="introduction"></a>Giriş
 Bu öğreticide nasıl yapılacağını kapsayan, Azure Key Vault ile istemci tarafı depolama şifrelemesi kullanın. Bu, şifreleme ve şifre çözme teknolojiler kullanarak bir konsol uygulamasında bir blob konusunda yol göstermektedir.
 
@@ -52,7 +52,7 @@ Aşağıda, istemci tarafı şifreleme nasıl çalışır hakkında kısa bir a�
 
 Azure Active Directory ile bir uygulama kaydı sırasında oluşturulan ClientSecret ve ClientID not edin.
 
-Her iki anahtar, anahtar Kasası'nda oluşturun. Bu öğreticinin geri kalanını için şu adı kullandığınızı varsayıyoruz: ContosoKeyVault ve TestRSAKey1.
+Her iki anahtar, anahtar Kasası'nda oluşturun. Biz, bu öğreticinin geri kalanını için şu adı kullandığınızı varsayar: ContosoKeyVault ve TestRSAKey1.
 
 ## <a name="create-a-console-application-with-packages-and-appsettings"></a>Paketler ve AppSettings ile bir konsol uygulaması oluşturun
 Visual Studio'da yeni bir konsol uygulaması oluşturun.
@@ -208,7 +208,7 @@ $enc = [System.Convert]::ToBase64String($b)
 $secretvalue = ConvertTo-SecureString $enc -AsPlainText -Force
 
 // Substitute the VaultName and Name in this command.
-$secret = Set-AzureKeyVaultSecret -VaultName 'ContoseKeyVault' -Name 'TestSecret2' -SecretValue $secretvalue -ContentType "application/octet-stream"
+$secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'TestSecret2' -SecretValue $secretvalue -ContentType "application/octet-stream"
 ```
 
 Konsol uygulamanızı olarak aynı çağrısından önce bu gizli bir SymmetricKey olarak almak için kullanabilirsiniz.

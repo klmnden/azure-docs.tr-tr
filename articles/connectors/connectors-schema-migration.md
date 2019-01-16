@@ -9,12 +9,12 @@ ms.author: estfan
 ms.assetid: 3e177e49-fd69-43e9-9b9b-218abb250c31
 ms.topic: article
 ms.date: 08/25/2018
-ms.openlocfilehash: 8a6925d79b225a34d980472d4fb3241ab9eb1017
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: bf27739bd42106550c18e3bbc27a1ff8b3770747
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127420"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321135"
 ---
 # <a name="migrate-logic-apps-to-latest-schema-version"></a>Mantıksal uygulamaları en son şema sürümüne geçirme
 
@@ -25,7 +25,7 @@ Mevcut mantıksal uygulamalarınızı yeni şemaya taşımak için şu adımlar�
 2. Mantıksal uygulama menüsünde, **genel bakış**. Araç çubuğunda **Şemayı Güncelleştir**.
 
    > [!NOTE]
-   > Olduğunda, seçeneklerinden birini de **Şemayı Güncelleştir**, Azure Logic Apps, otomatik olarak geçiş adımlarını çalışır ve size kod çıkışı sağlar. Bu çıkış, mantıksal uygulama tanımınızı güncelleştirmek için kullanabilirsiniz. Ancak, aşağıda açıklandığı gibi en iyi yöntemleri izlediğinizden emin olun **en iyi uygulamalar** bölümü.
+   > Seçeneğini belirlediğinizde **Şemayı Güncelleştir**, Azure Logic Apps, otomatik olarak geçiş adımlarını çalışır ve size kod çıkışı sağlar. Bu çıkış, mantıksal uygulama tanımınızı güncelleştirmek için kullanabilirsiniz. Ancak, aşağıda açıklandığı gibi en iyi yöntemleri izlediğinizden emin olun **en iyi uygulamalar** bölümü.
 
    ![Şemayı Güncelleştir](./media/connectors-schema-migration/update-schema.png)
 

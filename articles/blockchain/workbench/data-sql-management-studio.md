@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
+ms.date: 01/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 3a0b4db77e6dfb8be3a2f943052925001e5f7715
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 32606f988152b061fa1923c409207b2a650e64ba
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259792"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332464"
 ---
 # <a name="using-azure-blockchain-workbench-data-with-sql-server-management-studio"></a>Azure Blockchain Workbench verilerini SQL Server Management Studio ile kullanma
 
@@ -34,7 +34,7 @@ Microsoft SQL Server Management Studio hızla yazma ve sorgular Azure Blockchain
 
 3. **Sunucuya Bağlan** iletişim kutusuna sunucu adını ve veritabanınızın kimlik bilgilerini girin.
 
-    Azure Blockchain Workbench dağıtım işlemi tarafından oluşturulan kimlik bilgilerini kullanıyorsanız kullanıcı adı **dbadmin**, parola ise dağıtım sırasında belirttiğiniz parola olur.
+    Azure Blockchain Workbench dağıtım işlemi tarafından oluşturulan kimlik bilgilerini kullanıyorsanız kullanıcı adı **dbadmin**, parola ise dağıtım sırasında belirttiğiniz paroladır.
 
     ![SQL kimlik bilgilerini girin](./media/data-sql-management-studio/sql-creds.png)
 
@@ -43,7 +43,7 @@ Microsoft SQL Server Management Studio hızla yazma ve sorgular Azure Blockchain
     ![Veritabanı listesi](./media/data-sql-management-studio/db-list.png)
 
 5. Veritabanı görünümlerinin herhangi biri ile ilişkili verileri görüntülemek için aşağıdaki adımlarla otomatik olarak bir select deyimi oluşturabilirsiniz.
-6. Nesne Gezgini'nde veritabanı görünümlerinden herhangi birine sağ tıklayın.
+6. Nesne Gezgini'nde veritabanı görünümlerden herhangi birine sağ tıklayın.
 7. **Betiği Farklı Görüntüle** seçeneğini belirleyin.
 8. **Şuna kadar SEÇ:** seçeneğini belirleyin.
 9. **Yeni Sorgu Düzenleyicisi Penceresi**‘ni seçin.
