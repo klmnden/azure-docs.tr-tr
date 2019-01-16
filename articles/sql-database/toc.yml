@@ -307,6 +307,12 @@ items:
         href: sql-database-performance.md
       - name: Veritabanı danışmanı performans önerileri
         href: sql-database-advisor.md
+  - name: Verileri yükleme ve taşıma
+    items:
+    - name: SQL Data Sync
+      href: sql-database-sync-data.md
+    - name: İşlem çoğaltması
+      href: sql-database-managed-instance-transactional-replication.md
   - name: Veritabanlarının özellikleri
     items:
     - name: Veritabanlarının özellikleri
@@ -329,7 +335,7 @@ items:
       href: sql-database-cloud-migrate.md
     - name: Geçişten sonra SQL veritabanını yönetme
       href: sql-database-manage-after-migration.md
-    - name: İşlem çoğaltmasını yapılandırma
+    - name: Çoğaltmayı yapılandırma
       href: replication-to-sql-database.md
     - name: Tehdit algılamayı yapılandırma
       href: sql-database-threat-detection.md
@@ -439,8 +445,6 @@ items:
       href: sql-database-export.md
     - name: Veri eşitleme
       items:
-      - name: SQL Data Sync
-        href: sql-database-sync-data.md
       - name: Veri Eşitleme Aracısı
         href: sql-database-data-sync-agent.md
       - name: Şema değişikliklerini çoğaltma
@@ -682,9 +686,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Elastik işin yüklemesini kaldırma (kullanım dışı)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: 500fd22c19e0aab2cbecf0267329d5a86a5ccda2
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 634018a1807e23700141ac11a961bd1b1411b8a8
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230916"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331410"

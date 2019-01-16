@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 59354b7f4a1a82d1fa2fd105bd743ecb73526434
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 966536b7129a91f4c6fd8dd7bf0270be660bdf81
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716115"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332073"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Azure Cloud Services ve ASP.NET kullanmaya başlama
 
@@ -380,7 +380,7 @@ Bu bölümde, yerel olarak test etmek amacıyla Azure Storage ve SQL bağlantı 
 3. ContosoAdsCloudService projesinde **Roller** altındaki ContosoAdsWeb öğesine sağ tıklayın ve ardından **Özellikler**’e tıklayın.
 
     ![Rol özellikleri](./media/cloud-services-dotnet-get-started/roleproperties.png)
-4. **ContosAdsWeb [Rolü]** özellikleri penceresinde **Ayarlar** sekmesine ve ardından **Ayar Ekle** öğesine tıklayın.
+4. İçinde **ContosoAdsWeb [rol]** Özellikler penceresini tıklatın **ayarları** sekmesine ve ardından **ayar Ekle**.
 
     **Hizmet Yapılandırma** ayarını **Tüm Yapılandırmalar** olarak bırakın.
 5. *StorageConnectionString* adlı bir ayar ekleyin. **Tür** değerini *ConnectionString* olarak, **Değer** seçeneğini *UseDevelopmentStorage=true* olarak ayarlayın.
