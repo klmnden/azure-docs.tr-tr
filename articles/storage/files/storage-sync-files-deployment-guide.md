@@ -8,19 +8,17 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 737cb31fd4e33229e0317e6a0610fb098beed6f4
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: a1e315c7837f682e3b12624387902599138c957f
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191913"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54322019"
 ---
 # <a name="deploy-azure-file-sync"></a>Azure Dosya Eşitleme’yi dağıtma
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
 
 Okumanızı öneririz [bir Azure dosyaları dağıtımını planlama](storage-files-planning.md) ve [bir Azure dosya eşitleme dağıtımı planlama](storage-sync-files-planning.md) önce bu makalede açıklanan adımları tamamlayın.
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
 * Azure dosya eşitleme dağıtmak istediğiniz bölgede bir Azure depolama hesabı ve bir Azure dosya paylaşın. Daha fazla bilgi için bkz.
@@ -402,7 +400,7 @@ DFS-R dağıtımı için Azure dosya eşitleme geçirmek için:
 3. Bu sunucuyu kaydetmek ve ilk sunucunun geçirilmesi için sunucu uç noktası oluşturun. Bulut etkinleştirmeyin katmanlama.
 4. Tüm Azure dosya paylaşımınızı (bulut uç noktası) için veri eşitleme'nin olanak tanır.
 5. Yükleyin ve Azure dosya eşitleme aracısının kalan DFS-R sunucuların her birinde kaydedin.
-6. DFS-r devre dışı bırak 
+6. Disable DFS-R. 
 7. Sunucu uç noktası DFS-R sunucuların her birinde oluşturun. Bulut etkinleştirmeyin katmanlama.
 8. Eşitleme tamamlandıktan ve istediğiniz gibi topolojinizi test emin olun.
 9. DFS-r devre dışı bırakma

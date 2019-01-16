@@ -13,12 +13,12 @@ caps.latest.revision: 55
 author: jpconnock
 ms.author: jeconnoc
 manager: timlt
-ms.openlocfilehash: 2e487bd3fda787cf9f869cc352de4c97d5c1678b
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 90a11c5bb81a0d29f5f8a1c1696732453aa4b1ab
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002186"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331700"
 ---
 # <a name="azure-cloud-services-definition-workerrole-schema"></a>Azure Cloud Services tanım WorkerRole şeması
 Azure çalışan rolünü genelleştirilmiş geliştirme için yararlı olan ve bir web rolü için arka plan işlemlerini gerçekleştirebilir rolüdür.
@@ -41,11 +41,11 @@ Bir çalışan rolü içeren Hizmet tanım dosyası temel biçimi aşağıdaki g
       <InputEndpoint name="<input-endpoint-name>" protocol="[http|https|tcp|udp]" localPort="<local-port-number>" port="<port-number>" certificate="<certificate-name>" loadBalancerProbe="<load-balancer-probe-name>" />
       <InternalEndpoint name="<internal-endpoint-name" protocol="[http|tcp|udp|any]" port="<port-number>">
          <FixedPort port="<port-number>"/>
-         <FixedPortRange min="<minium-port-number>" max="<maximum-port-number>"/>
+         <FixedPortRange min="<minimum-port-number>" max="<maximum-port-number>"/>
       </InternalEndpoint>
      <InstanceInputEndpoint name="<instance-input-endpoint-name>" localPort="<port-number>" protocol="[udp|tcp]">
          <AllocatePublicPortFrom>
-            <FixedPortRange min="<minium-port-number>" max="<maximum-port-number>"/>
+            <FixedPortRange min="<minimum-port-number>" max="<maximum-port-number>"/>
          </AllocatePublicPortFrom>
       </InstanceInputEndpoint>
     </Endpoints>
@@ -210,7 +210,7 @@ Aşağıdaki tabloda özniteliklerini açıklayan `InputEndpoint` öğesi.
 |port|int|Gereklidir. Dış uç noktası için bağlantı noktası. Seçtiğiniz herhangi bir bağlantı noktası numarasını belirtebilirsiniz, ancak her rol için belirtilen bağlantı noktası numaraları benzersiz olması gerekir.<br /><br /> Olası değerler aralığı 1 ila 65535, kapsamlı (Azure SDK sürüm 1.7 veya üzerini).|
 |sertifika|dize|Bir HTTPS uç noktası için gereklidir. Tarafından tanımlanan bir sertifika adını bir `Certificate` öğesi.|
 |yerel bağlantı noktası|int|İsteğe bağlı. İç uç nokta bağlantıları için kullanılan bir bağlantı noktasını belirtir. `localPort` Özniteliği bir iç bağlantı noktasına bir rol üzerinde dış bağlantı uç noktasında eşler. Bu, burada bir rol bir bağlantı noktası iç bir bileşen için kullandığınızın dışında harici olarak kullanıma sunulduğunu iletişim kurması gereken senaryolarda yararlıdır.<br /><br /> Belirtilmezse, değerini `localPort` aynı `port` özniteliği. Değerini `localPort` için "*" çalışma zamanı API'si kullanılarak bulunabilir olduğundan ayrılmamış bir bağlantı noktası otomatik olarak atamak için.<br /><br /> Olası değerler aralığı 1 ila 65535, kapsamlı (Azure SDK sürüm 1.7 veya üzerini).<br /><br /> `localPort` Özniteliği, yalnızca Azure SDK'sı sürüm 1.3 kullanılarak kullanılabilirlik veya daha yüksek.|
-|ignoreRoleInstanceStatus|boole|İsteğe bağlı. Bu özniteliğin değeri ayarlandığında `true`, bir hizmetin durumunu göz ardı edilir ve uç nokta yük dengeleyici tarafından kaldırılmaz. Bu değeri ayarlamak `true` meşgul bir hizmetin örneklerine hata ayıklama için kullanışlıdır. Varsayılan değer `false` şeklindedir. **Not:** bile rolün hazır durumda olmadığında bir uç nokta hala trafik alabilir.|
+|ignoreRoleInstanceStatus|boole|İsteğe bağlı. Bu özniteliğin değeri ayarlandığında `true`, bir hizmetin durumunu göz ardı edilir ve uç nokta yük dengeleyici tarafından kaldırılmaz. Bu değeri ayarlamak `true` meşgul bir hizmetin örneklerine hata ayıklama için kullanışlıdır. Varsayılan değer `false` şeklindedir. **Not:** Bir uç nokta trafiği bile rolün hazır durumda değil yine de alabilirsiniz.|
 |loadBalancerProbe|dize|İsteğe bağlı. Giriş uç noktasıyla ilişkili yük dengeleyici araştırması adı. Daha fazla bilgi için [LoadBalancerProbe şeması](schema-csdef-loadbalancerprobe.md).|
 
 ##  <a name="InternalEndpoint"></a> InternalEndpoint
@@ -288,7 +288,7 @@ Aşağıdaki tabloda özniteliklerini açıklayan `Certificate` öğesi.
 
 `Imports` Öğesi, yalnızca Azure SDK'sı sürüm 1.3 kullanılarak kullanılabilirlik veya daha yüksek.
 
-##  <a name="Import"></a> İçeri aktarma
+##  <a name="Import"></a> içeri aktarma
 `Import` Öğesi konuk işletim sistemine eklemek için bir modüle belirtir.
 
 `Import` Öğesi, yalnızca Azure SDK'sı sürüm 1.3 kullanılarak kullanılabilirlik veya daha yüksek.
@@ -297,7 +297,7 @@ Aşağıdaki tabloda özniteliklerini açıklayan `Import` öğesi.
 
 | Öznitelik | Tür | Açıklama |
 | --------- | ---- | ----------- |
-|Modül adı|dize|Gereklidir. İçeri aktarmak için modülünün adı. Geçerli alma modülleri şunlardır:<br /><br /> -RemoteAccess<br />-RemoteForwarder<br />-Diagnostics<br /><br /> RemoteAccess ve RemoteForwarder modüllerini rol Örneğiniz için Uzak Masaüstü bağlantılarını yapılandırmanıza olanak sağlar. Daha fazla bilgi için [Uzak Masaüstü Bağlantısı etkinleştirme](cloud-services-role-enable-remote-desktop-new-portal.md).<br /><br /> Tanılama modülü bir rol örneği için Tanılama verileri toplamanızı sağlar|
+|Modül adı|dize|Gereklidir. İçeri aktarmak için modülünün adı. Geçerli alma modülleri şunlardır:<br /><br /> -   RemoteAccess<br />-RemoteForwarder<br />-Diagnostics<br /><br /> RemoteAccess ve RemoteForwarder modüllerini rol Örneğiniz için Uzak Masaüstü bağlantılarını yapılandırmanıza olanak sağlar. Daha fazla bilgi için [Uzak Masaüstü Bağlantısı etkinleştirme](cloud-services-role-enable-remote-desktop-new-portal.md).<br /><br /> Tanılama modülü bir rol örneği için Tanılama verileri toplamanızı sağlar|
 
 ##  <a name="Runtime"></a> Çalışma zamanı
 `Runtime` Denetleyen Azure ana bilgisayarı işlemlerinin çalışma zamanı ortamı için ortam değişkeni ayarlarının bir çalışan rolü koleksiyonunu açıklar. Bu öğenin üst öğesi değil `Environment` öğesi. Bu öğe isteğe bağlıdır ve yalnızca bir çalışma zamanı blok bir role sahip olabilir.
@@ -349,7 +349,7 @@ Aşağıdaki tabloda özniteliklerini açıklayan `NetFxEntryPoint` öğesi.
 
 | Öznitelik | Tür | Açıklama |
 | --------- | ---- | ----------- |
-|assemblyName|dize|Gereklidir. Giriş noktasını içeren derleme yolu ve dosya adı. Klasörüyle ilgili yol olduğu  **\\%ROLEROOT%\Approot** (belirtmeyin  **\\%ROLEROOT%\Approot** içinde `commandLine`, kabul edilir). **ROLEROOT %** bir ortam değişkeni, Azure tarafından korunur ve rolünüz için kök klasör konumunu gösterir. **\\%ROLEROOT%\Approot** klasör rolünüz için uygulama klasörü temsil eder.|
+|AssemblyName|dize|Gereklidir. Giriş noktasını içeren derleme yolu ve dosya adı. Klasörüyle ilgili yol olduğu  **\\%ROLEROOT%\Approot** (belirtmeyin  **\\%ROLEROOT%\Approot** içinde `commandLine`, kabul edilir). **ROLEROOT %** bir ortam değişkeni, Azure tarafından korunur ve rolünüz için kök klasör konumunu gösterir.  **\\%ROLEROOT%\Approot** klasör rolünüz için uygulama klasörü temsil eder.|
 |targetFrameworkVersion|dize|Gereklidir. Derlemeyi .NET framework sürümü. Örneğin, `targetFrameworkVersion="v4.0"`.|
 
 ##  <a name="ProgramEntryPoint"></a> ProgramEntryPoint

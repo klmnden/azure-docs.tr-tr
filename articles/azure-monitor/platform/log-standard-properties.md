@@ -10,14 +10,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 01/14/2019
 ms.author: bwren
-ms.openlocfilehash: d2db9d426da58b3783b07210165a55cc6ec27658
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: abcf3100dc5252db9e3a5e7b446417333a9b37ca
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185962"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321900"
 ---
 # <a name="standard-properties-in-log-analytics-records"></a>Log Analytics kayıtları standart özellikler
 Verileri [Log Analytics](../log-query/log-query-overview.md) kümesi her bir özellik kümesi olan bir özel veri türü ile kayıt olarak depolanır. Birçok veri türleri, birden çok türlerinde ortak olan standart özellikleri olacaktır. Bu makalede, bu özellikleri açıklar ve nasıl bunları sorgularında kullanabileceğiniz örnekler sağlar.
@@ -84,6 +84,70 @@ AzureActivity
    | summarize LoggedOnAccounts = makeset(Account) by _ResourceId 
 ) on _ResourceId  
 ```
+
+## <a name="isbillable"></a>\_IsBillable
+ **\_IsBillable** özelliği, içe alınan veri Faturalanabilir olup olmadığını belirtir. Verilerle  **\_IsBillable** eşit _false_ ücretsiz toplanan ve Azure hesabınızda faturalandırılmaz.
+
+### <a name="examples"></a>Örnekler
+Faturalandırılan veri türleri gönderme bilgisayarların listesini almak için aşağıdaki sorguyu kullanın:
+
+> [!NOTE]
+> İle sorguları kullanma `union withsource = tt *` yürütmek veri veri türlerinde taramalar pahalıdır gerektiğinde. 
+
+```Kusto
+union withsource = tt * 
+| where _IsBillable == true 
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize TotalVolumeBytes=sum(_BilledSize) by computerName
+```
+
+Veri türleri gönderen bilgisayarlar / saat sayısı faturalandırılır döndürmek için Genişletilebilir:
+
+```Kusto
+union withsource = tt * 
+| where _IsBillable == true 
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc
+```
+
+## <a name="billedsize"></a>\_BilledSize
+ **\_BilledSize** özelliği, Azure hesabınızda faturalandırılırsınız veri bayt cinsinden boyutunu belirtir  **\_IsBillable** geçerlidir.
+
+### <a name="examples"></a>Örnekler
+Bilgisayar başına alınan Faturalanabilir olayların boyutunu görmek için `_BilledSize` bayt cinsinden boyut sağlayan özelliği:
+
+```Kusto
+union withsource = tt * 
+| where _IsBillable == true 
+| summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last 
+```
+
+Bilgisayar başına alınan olayların sayısını görmek için aşağıdaki sorguyu kullanın:
+
+```Kusto
+union withsource = tt *
+| summarize count() by Computer | sort by count_ nulls last
+```
+
+Bilgisayar başına alınan Faturalanabilir olayların sayısını görmek için aşağıdaki sorguyu kullanın: 
+
+```Kusto
+union withsource = tt * 
+| where _IsBillable == true 
+| summarize count() by Computer  | sort by count_ nulls last
+```
+
+Sayıları Faturalandırılabilir veri türleri için belirli bir bilgisayar için veri gönderdiğini görmek istiyorsanız, aşağıdaki sorguyu kullanın:
+
+```Kusto
+union withsource = tt *
+| where Computer == "computer name"
+| where _IsBillable == true 
+| summarize count() by tt | sort by count_ nulls last 
+```
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
