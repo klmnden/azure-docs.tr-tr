@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 01/15/2019
 ms.author: dobett
-ms.openlocfilehash: 1ae0be44be524e4cb4e8d446e2279a1bfd800a04
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 3725117b90ec2574737686881e47967f3d9a9e39
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231623"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320099"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IOT hub'ı terimler sözlüğü
 Bu makalede IOT hub'ı makalelerinde kullanılan yaygın terimlerin bazıları listelenmektedir.
@@ -114,9 +114,6 @@ Cihaz verileri, IOT Hub'ında depolanan cihaz başına veri başvurduğu [kimlik
 ## <a name="device-identity"></a>Cihaz kimliği
 Cihaz kimliği, kayıtlı her cihaza atanan benzersiz tanımlayıcıdır [kimlik kayıt defteri](#identity-registry).
 
-## <a name="module-identity"></a>Modül kimliği
-Modül kimliği, bir cihaza ait her bir modüle atanan benzersiz tanımlayıcısıdır. Modül kimliği kayıtlı ayrıca [kimlik kayıt defteri](#identity-registry).
-
 ## <a name="device-management"></a>Cihaz yönetimi
 Cihaz yönetimi planlama, sağlama, yapılandırma, izleme ve devre dışı bırakma dahil olmak üzere, IOT çözümünüzün cihazların yönetimiyle ilgili tam yaşam döngüsünü kapsar.
 
@@ -131,15 +128,6 @@ Cihaz sağlama, ilk ekleme [cihaz verilerini](#device-data) çözümünüzdeki d
 
 ## <a name="device-twin"></a>Cihaz çifti
 A [cihaz ikizi](iot-hub-devguide-device-twins.md) meta veriler, yapılandırmalar ve koşullar gibi cihaz durumu bilgilerini depolayan JSON belgesidir. [IOT hub'ı](#iot-hub) IOT hub'ına sağlama her cihaz için bir cihaz çifti sürdürür. Cihaz ikizlerini eşitlemek üzere etkinleştirme [cihaz koşullar](#device-condition) ve yapılandırmalar arasında cihaz ve çözüm arka ucu. Belirli cihazlara bulun ve uzun süre çalışan işlemlerinin durumunu sorgulamak için cihaz ikizlerini sorgulayabilirsiniz.
-
-## <a name="module-twin"></a>Modül ikizi
-Cihaz ikizi, modül ikizi meta veriler, yapılandırmalar ve koşullar gibi modülü durum bilgilerini depolayan JSON belgesini benzer. IOT Hub, IOT hub'ınızda bir cihaz kimliği altında sağlamanız her bir modül kimliği için bir modül ikizi'ni kalıcıdır. Modül ikizlerini modülü koşullar ve yapılandırmaları modülü ve çözüm arka ucu arasında eşitleme sağlar. Modül ikizlerini belirli modüller bulun ve uzun süre çalışan işlemlerinin durumunu sorgulamak için sorgu oluşturabilirsiniz.
-
-## <a name="twin-queries"></a>Çifti sorguları
-[Cihaz ve modül ikizi sorgularını](iot-hub-devguide-query-language.md) cihaz ikizlerini ya da modül ikizlerini bilgileri almak için SQL benzeri IOT Hub sorgu dili kullanın. Aynı IOT Hub sorgu dili hakkında bilgi almak için kullanabileceğiniz [](#job) IOT hub'ına çalışıyor.
-
-## <a name="twin-synchronization"></a>İkiz eşitleme
-İkiz eşitleme kullandığı [istenen özellikleri](#desired-properties) cihazlar veya modülleri yapılandırmak ve almak için cihaz ikizlerini veya modül ikizlerini [bildirilen özellikler](#reported-properties) onlardan çiftine depolamak için.
 
 ## <a name="direct-method"></a>Doğrudan yöntem
 A [doğrudan yöntemini](iot-hub-devguide-direct-methods.md) IOT hub'ınızdaki bir API çağırarak bir cihazda çalıştırılacak bir yöntemi tetiklemek yoludur.
@@ -190,6 +178,17 @@ Azure IOT Çözüm Hızlandırıcıları, birden çok Azure hizmeti çözümleri
 
 ## <a name="job"></a>İş
 Çözüm arka ucunuz kullanabilirsiniz [işleri](iot-hub-devguide-jobs.md) zamanlayın ve IOT hub'ınıza kayıtlı cihazlar üzerinde etkinlikleri izlemek için. Etkinlikler içeren cihaz ikizi güncelleştirme [istenen özellikleri](#desired-properties), güncelleştirme cihaz ikizi [etiketleri](#tags)ve bunları çağırırken [doğrudan yöntemler](#direct-method). [IOT hub'ı](#iot-hub) için de kullanır [için içeri ve dışarı aktarma](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) gelen [kimlik kayıt defteri](#identity-registry).
+
+## <a name="modules"></a>Modüller
+Cihaz tarafında, IOT Hub cihazı SDK'ları etkinleştirmek oluşturmanızı [modülleri](iot-hub-devguide-module-twins.md) bağımsız bir IOT Hub bağlantısı her biri açılır burada. Bu işlev Cihazınızda farklı bileşenleri için ayrı ad alanları kullanmanıza olanak sağlar.
+
+Modül kimliği ve modül ikizi aynı özellikleri sağlayan [cihaz kimliği](#device-identity) ve [cihaz ikizi](#device-twin) ancak daha iyi tanecikli. Bu daha iyi tanecikli, işletim sistemi tabanlı cihazları gibi özellikli cihazlarda veya üretici yazılımı cihazları yapılandırma ve koşullar için bu bileşenlerin her birini yalıtmak için birden çok bileşen yönetimi sağlar.
+
+## <a name="module-identity"></a>Modül kimliği
+Modül kimliği, bir cihaza ait her bir modüle atanan benzersiz tanımlayıcısıdır. Modül kimliği kayıtlı ayrıca [kimlik kayıt defteri](#identity-registry).
+
+## <a name="module-twin"></a>Modül ikizi
+Cihaz ikizi, modül ikizi meta veriler, yapılandırmalar ve koşullar gibi modülü durum bilgilerini depolayan JSON belgesini benzer. IOT Hub, IOT hub'ınızda bir cihaz kimliği altında sağlamanız her bir modül kimliği için bir modül ikizi'ni kalıcıdır. Modül ikizlerini modülü koşullar ve yapılandırmaları modülü ve çözüm arka ucu arasında eşitleme sağlar. Modül ikizlerini belirli modüller bulun ve uzun süre çalışan işlemlerinin durumunu sorgulamak için sorgu oluşturabilirsiniz.
 
 ## <a name="mqtt"></a>MQTT
 [MQTT](http://mqtt.org/) olduğu bir Mesajlaşma protokolleri [IOT hub'ı](#iot-hub) cihazlarla iletişim için destekler. IOT hub'ın desteklediği Mesajlaşma protokolleri hakkında daha fazla bilgi için bkz. [göndermek ve IOT Hub ile ileti alma](iot-hub-devguide-messaging.md).
@@ -256,6 +255,12 @@ Cihazları Rüzgar hızı veya sıcaklık, gibi telemetri verileri toplama ve ku
 
 ## <a name="token-service"></a>Belirteç Hizmeti
 Cihazlarınız için bir kimlik doğrulama mekanizması uygulamak için bir belirteç hizmeti kullanabilirsiniz. IOT hub'ı kullanan [paylaşılan erişim ilkesi](#shared-access-policy) ile **DeviceConnect** oluşturma izni *cihaz kapsamlı* belirteçleri. Bu belirteçler, bir cihaz IOT hub'ınıza bağlanmak etkinleştirin. Bir cihaz, belirteç hizmeti ile kimlik doğrulaması için bir özel kimlik doğrulama mekanizması kullanır. Belirteç Hizmeti, cihazın kimliğini başarıyla doğrulayan, IOT hub'ınıza erişmek için kullanılacak cihaz için bir SAS belirteci verir.
+
+## <a name="twin-queries"></a>Çifti sorguları
+[Cihaz ve modül ikizi sorgularını](iot-hub-devguide-query-language.md) cihaz ikizlerini ya da modül ikizlerini bilgileri almak için SQL benzeri IOT Hub sorgu dili kullanın. Aynı IOT Hub sorgu dili hakkında bilgi almak için kullanabileceğiniz [](#job) IOT hub'ına çalışıyor.
+
+## <a name="twin-synchronization"></a>İkiz eşitleme
+İkiz eşitleme kullandığı [istenen özellikleri](#desired-properties) cihazlar veya modülleri yapılandırmak ve almak için cihaz ikizlerini veya modül ikizlerini [bildirilen özellikler](#reported-properties) onlardan çiftine depolamak için.
 
 ## <a name="x509-client-certificate"></a>X.509 istemci sertifikası
 Bir cihaz ile kimlik doğrulaması için bir X.509 sertifikası kullanabilirsiniz [IOT hub'ı](#iot-hub). X.509 sertifikası kullanmaktır kullanmaya alternatif bir [SAS belirteci](#shared-access-signature).
