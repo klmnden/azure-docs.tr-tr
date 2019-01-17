@@ -7,13 +7,13 @@ ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 6c7d4d8d4a16e0679722f9de007870a7ec7554b0
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.date: 1/14/2019
+ms.openlocfilehash: 8d5fc1c579fd09f1a71d63dce4d1673ef5a8652b
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636008"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354629"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Azure Veri Gezgini veri alımı
 
@@ -23,17 +23,17 @@ Veri alımı oluşturulacak veya güncelleştirilecek bir tablo Azure veri Gezgi
 
 Veri alımı için sorumlu olan Azure Veri Gezgini veri yönetim hizmeti, aşağıdaki işlevleri sağlar:
 
-1. **Veri çekme**: dış kaynaklardan (Event Hubs) veri çekme veya bir Azure kuyruktan alma istekleri okuyun.
+1. **Veri çekme**: (Event Hubs) dış kaynaklardan veri çekmek veya bir Azure kuyruktan alma istekleri okuyun.
 
-1. **Toplu işleme**: toplu verileri aynı veritabanı ve tablo alımı aktarım hızını iyileştirmek için giden.
+1. **Toplu işleme**: Toplu veriler aynı veritabanı ve tablo alımı aktarım hızını iyileştirmek için giden.
 
-1. **Doğrulama**: gerekli olursa ön doğrulama ve biçim dönüştürme.
+1. **Doğrulama**: Ön doğrulama ve biçim dönüştürme gerekirse.
 
-1. **Veri işleme**: düzenleme, dizin oluşturma, kodlama ve verileri sıkıştırma eşleşen şema.
+1. **Veri işleme**: Şema, düzenleme, dizin oluşturma, kodlama ve verileri sıkıştırma eşleşen.
 
-1. **Kalıcılık alım akışını belirli bir noktadaki**: alma yükü altyapısı ve tutamacı yeniden deneme sırasında geçici hataları yönetme.
+1. **Kalıcılık alım akışını belirli bir noktadaki**: Alma yük altyapısını yönetme ve bağlı geçici hataları yeniden deneme işlemlerini.
 
-1. **Veri alma işleme**: verileri sorgu için kullanılabilir hale getirir.
+1. **Veri alma işleme**: Verileri sorgu için kullanılabilir hale getirir.
 
 ## <a name="ingestion-methods"></a>Alma yöntemi
 
@@ -41,16 +41,19 @@ Azure Veri Gezgini, her biri kendi hedef senaryoları, avantajları ve dezavanta
 
 ### <a name="ingestion-using-pipelines"></a>Komut zincirlerini kullanarak alımı
 
-Azure Veri Gezgini, şu anda Azure portalında yönetim sihirbazını kullanarak yönetilen ardışık düzen olay hub'ı destekler. Daha fazla bilgi için [hızlı başlangıç: Azure veri Gezgini'ne olay Hub'ından veri alma](ingest-data-event-hub.md).
+Azure Veri Gezgini, şu anda Azure portalında yönetim sihirbazını kullanarak yönetilen ardışık düzen olay hub'ı destekler. Daha fazla bilgi için [hızlı başlangıç: Olay hub'ı Azure veri Gezgini'ne alabilen](ingest-data-event-hub.md).
 
 ### <a name="ingestion-using-connectors-and-plugins"></a>Bağlayıcılar ve eklentilerini kullanarak alımı
-Azure Veri Gezgini, şu anda Logstash eklentisini destekler. Daha fazla bilgi için [Azure Veri Gezgini için Logstash çıkış eklentisi](https://github.com/Azure/logstash-output-kusto/blob/master/README.md).
+
+* Azure Veri Gezgini, Logstash eklentisini destekler. Daha fazla bilgi için [Azure Veri Gezgini için Logstash çıkış eklentisi](https://github.com/Azure/logstash-output-kusto/blob/master/README.md).
+
+* Azure Veri Gezgini, bir Kafka bağlayıcıyı destekler. Daha fazla bilgi için [hızlı başlangıç: Azure veri Gezgini'ne kafka'dan veri alma](ingest-data-kafka.md)
 
 ### <a name="programmatic-ingestion"></a>Programlı alma
 
 Azure Veri Gezgini, sorgu ve veri alımı için kullanılabilir SDK'lar sağlar. Programlı alımı (COGs) alma maliyetleri azaltmak için depolama işlemleri sırasında ve alma işlemi izleyerek en aza indirerek iyileştirilmiştir.
 
-**Kullanılabilir SDK'lar ve açık kaynak projeleri**:
+**Kullanılabilir SDK'lar ve açık kaynaklı projelerin**:
 
 Kusto istemci alma ve verileri sorgulamak için kullanılan SDK'sı sunar:
 
@@ -68,7 +71,7 @@ Kusto istemci alma ve verileri sorgulamak için kullanılan SDK'sı sunar:
 
 * Azure Veri Gezgini veri yönetim hizmeti (yüksek performanslı ve güvenilir alımı) aracılığıyla veri almak:
 
-  * [**Batch alımı** ](/azure/kusto/api/netfx/kusto-ingest-queued-ingest-sample) (SDK'sı tarafından sağlanan): istemci verileri Azure Blob Depolama (Azure Veri Gezgini veri yönetim hizmeti tarafından atanan) yükler ve bir Azure kuyruğuna bir bildirim gönderir. Yüksek hacimli, güvenilir ve ucuz veri alımı için önerilen yöntem budur.
+    [**Batch alımı** ](/azure/kusto/api/netfx/kusto-ingest-queued-ingest-sample) (SDK'sı tarafından sağlanan): istemci verileri Azure Blob Depolama (Azure Veri Gezgini veri yönetim hizmeti tarafından atanan) yükler ve bir Azure kuyruğuna bir bildirim gönderir. Batch alımı ucuz veri alımı ve yüksek hacimli, güvenilir, için önerilen tekniği ' dir.
 
 * Azure Veri Gezgini altyapısı (en keşfi ve prototip oluşturma için uygun) doğrudan veri alma:
 
@@ -88,7 +91,7 @@ Kusto istemci alma ve verileri sorgulamak için kullanılan SDK'sı sunar:
 | **Kuyruğa alınmış alma** | Toplu işleme süresi + işleme süresi |
 | |
 
-İşleme süresi, genellikle küçüktür birkaç saniye veri boyutuna bağlıdır. Toplu işlem süresi varsayılan olarak 5 dakika.
+İşlem süresi kısa birkaç saniye veri boyutuna bağlıdır. Toplu işlem süresi varsayılan olarak 5 dakika.
 
 ## <a name="choosing-the-most-appropriate-ingestion-method"></a>En uygun alma yöntemi seçme
 
@@ -105,11 +108,11 @@ Veri alımı başlamadan önce kendiniz aşağıdaki soruları sormaya.
 * Gecikme süresi gereksinimleri nelerdir? 
 * Mevcut yönetilen alım işlem hatları biri kullanılabilir mi? 
 
-Olay hub'ı gibi bir ileti sistemi hizmeti dayalı mevcut bir altyapınız var olan kuruluşlar için bir bağlayıcı kullanarak büyük olasılıkla en uygun çözümüdür. Sıraya alınan alımı, büyük veri hacimleri için uygundur.
+Bir ileti sistemi hizmeti gibi olay hub'ı temel alan kuruluşlar için mevcut bir altyapınız var olan bir bağlayıcı kullanarak büyük olasılıkla en uygun çözümüdür. Sıraya alınan alımı, büyük veri hacimleri için uygundur.
 
 ## <a name="supported-data-formats"></a>Desteklenen veri biçimleri
 
-Azure Veri Gezgini, ayrıştırabilmesi için bu yöntemleri dışında sorgudan alma tüm alımı için verileri desteklenen veri biçimlerinden birini biçimlendirilmiş olması gerekir.
+Azure Veri Gezgini, ayrıştırabilmesi için bu yöntemleri dışında sorgudan alma tüm alımı için verileri biçimlendirin. Desteklenen veri biçimlerini şunlardır:
 
 * CSV, TSV, PSV, SCSV, SOH SÜRE SONU
 * JSON (satır ayrılmış, çok satırlı), Avro
@@ -119,21 +122,30 @@ Azure Veri Gezgini, ayrıştırabilmesi için bu yöntemleri dışında sorgudan
 > Veriler alınır, hedef tablo sütunları temel alan veri türleri algılanır. Bir kaydı eksik ya da bir alanın gerekli veri türü olarak ayrıştırılamaz karşılık gelen tablo sütunları null değerlerle doldurulur.
 
 ## <a name="ingestion-recommendations-and-limitations"></a>Alma gereksinimleri ve sınırlamaları
+
 * Alınan veri geçerli saklama İlkesi, veritabanının saklama İlkesi'nden elde edilir. Bkz: [Bekletme İlkesi](/azure/kusto/concepts/retentionpolicy) Ayrıntılar için. Veri alma gerektirir **tablo çıkışlara** veya **veritabanı çıkışlara** izinleri.
 * 5 GB'lık maksimum dosya boyutu alımı destekler. Dosyalar 100 MB ve 1 GB arasında alma önerilir.
 
 ## <a name="schema-mapping"></a>Şema eşleme
 
-Şema eşleme belirleyici kaynak veri alanları için hedef tablo sütun bağlama yardımcı olur.
+Şema eşleme, kaynak veri alanları için hedef tablo sütun bağlama yardımcı olur.
 
-* [CSV eşleme](/azure/kusto/management/mappings?branch=master#csv-mapping) sıra tabanlı biçimler (isteğe bağlı) çalışır ve alma komutunun parametre olarak geçirilen veya [tablosunda önceden oluşturulmuş](/azure/kusto/management/tables?branch=master#create-ingestion-mapping) ve başvurulan alma komutunun parametre.
-* [JSON eşleme](/azure/kusto/management/mappings?branch=master#json-mapping) (zorunlu) ve [Avro eşleme](/azure/kusto/management/mappings?branch=master#avro-mapping) (zorunlu) alma komut parametresi geçirilebilir veya [tablosunda önceden oluşturulmuş](/azure/kusto/management/tables#create-ingestion-mapping) ve başvurulan alma komutunun parametre.
+* [CSV eşleme](/azure/kusto/management/mappings?branch=master#csv-mapping) tüm sıra tabanlı biçimler (isteğe bağlı) çalışır. Alma komut parametresi kullanılarak gerçekleştirilebilir veya [tablosunda önceden oluşturulmuş](/azure/kusto/management/tables?branch=master#create-ingestion-mapping) ve başvurulan alma komutunun parametre.
+* [JSON eşleme](/azure/kusto/management/mappings?branch=master#json-mapping) (zorunlu) ve [Avro eşleme](/azure/kusto/management/mappings?branch=master#avro-mapping) (zorunlu) alma komut parametresi kullanılarak yapılabilir veya [tablosunda önceden oluşturulmuş](/azure/kusto/management/tables#create-ingestion-mapping) ve başvurulan alma komutu parametre.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Hızlı başlangıç: Verileri Olay Hub'ından Azure Veri Gezgini'ne alma](ingest-data-event-hub.md)
+> [!div class="nextstepaction"]
+> [Hızlı Başlangıç: Azure veri Gezgini'ne olay Hub'ından veri alma](ingest-data-event-hub.md)
 
-[Hızlı başlangıç: Azure Veri Gezgini Python kitaplığını kullanarak verileri alma](python-ingest-data.md)
+> [!div class="nextstepaction"]
+> [Hızlı Başlangıç: Azure veri Gezgini'ne kafka'dan veri alma](ingest-data-kafka.md)
 
-[Hızlı Başlangıç: Azure Veri Gezgini düğümü kitaplığını kullanarak veri alma](node-ingest-data.md)
+> [!div class="nextstepaction"]
+> [Hızlı Başlangıç: Azure Veri Gezgini Python kitaplığı kullanarak veri alma](python-ingest-data.md)
 
+> [!div class="nextstepaction"]
+> [Hızlı Başlangıç: Azure Veri Gezgini düğümü kitaplığını kullanarak veri alma](node-ingest-data.md)
+
+> [!div class="nextstepaction"]
+> [Hızlı Başlangıç: Azure Veri Gezgini .NET standart SDK'sı (Önizleme) kullanarak veri alma](net-standard-ingest-data.md)

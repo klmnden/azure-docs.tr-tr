@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9dbe88e1e179df4560d5094cf3f58ca770541323
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e6e0904efdb86376688710a94920cdb44c2804ec
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842281"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353133"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C: Bir iOS uygulaması kullanarak oturum açın
 
@@ -29,7 +29,7 @@ Microsoft kimlik platformu OAuth2 ve OpenID Connect gibi açık standartlar kull
 OAuth2 veya Openıd Connect kullanmaya yeni başladıysanız Bu örnek yapılandırmanın büyük kadar sizin için anlamlı olmayabilir. [burada belgelediğimiz protokolün genel bakışına](active-directory-b2c-reference-protocols.md) kısaca bakmanız önerilir.
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Azure AD B2C dizini alma
-Azure AD B2C'yi kullanabilmek için önce dizin veya kiracı oluşturmanız gerekir. Bir dizin, tüm kullanıcılarınız, uygulamalar, gruplar ve daha fazlası için bir kapsayıcıdır. Henüz yoksa devam etmeden önce [bir B2C dizini oluşturun](active-directory-b2c-get-started.md).
+Azure AD B2C'yi kullanabilmek için önce dizin veya kiracı oluşturmanız gerekir. Bir dizin, tüm kullanıcılarınız, uygulamalar, gruplar ve daha fazlası için bir kapsayıcıdır. Henüz yoksa devam etmeden önce [bir B2C dizini oluşturun](tutorial-create-tenant.md).
 
 ## <a name="create-an-application"></a>Uygulama oluşturma
 Ardından B2C dizininizde uygulama oluşturmanız gerekir. Uygulama kaydı, uygulamanız ile güvenli bir şekilde iletişim kurması için gereken bilgileri Azure AD'ye verir. Bir mobil uygulama oluşturmak için takip [bu yönergeleri](active-directory-b2c-app-registration.md). Şunları yaptığınızdan emin olun:
@@ -39,13 +39,11 @@ Ardından B2C dizininizde uygulama oluşturmanız gerekir. Uygulama kaydı, uygu
 * Ayarlanmış bir **yeniden yönlendirme URI'si** (örneğin, com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect) özel bir düzen ile. Daha sonra bu URI gerekir.
 
 ## <a name="create-your-user-flows"></a>Kullanıcı akışlarınızı oluşturun
-Azure AD B2C'de, her kullanıcı deneyimi tarafından tanımlanan bir [kullanıcı akışı](active-directory-b2c-reference-policies.md). Bu uygulama bir kimlik deneyimi içerir: birleşik bir oturum açma ve kaydolma. Bu kullanıcı akışını açıklandığı gibi oluşturmak [kullanıcı akışı başvurusu makalesinde](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow). İlkeyi oluştururken şunları yaptığınızdan emin olun:
+Azure AD B2C'de, her kullanıcı deneyimi tarafından tanımlanan bir [kullanıcı akışı](active-directory-b2c-reference-policies.md). Bu uygulama bir kimlik deneyimi içerir: birleşik bir oturum açma ve kaydolma. İlkeyi oluştururken şunları yaptığınızdan emin olun:
 
 * Altında **kaydolma özniteliklerini**, öznitelik seçin **görünen ad**.  Diğer öznitelikler de seçebilirsiniz.
 * Altında **uygulama taleplerini**, talepleri seçmek **görünen ad** ve **kullanıcının nesne kimliği**. Diğer talepleri de seçebilirsiniz.
 * Kopyalama **adı** oluşturduktan sonra her kullanıcı akış. Kullanıcı akışı adınızı ön ekine sahip `b2c_1_` kullanıcı akışı kaydettiğinizde.  Userjourney adı daha sonra gerekir.
-
-[!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 Kullanıcı akış oluşturduktan sonra uygulamanızı oluşturmaya hazırsınız.
 

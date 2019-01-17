@@ -1,59 +1,33 @@
 ---
-title: Çoğaltma ile Azure SQL veritabanı yönetilen örneği | Microsoft Docs
-description: Azure SQL veritabanı yönetilen örneği ile SQL Server çoğaltma kullanma hakkında bilgi edinin
+title: Azure SQL veritabanı yönetilen örneği'nde çoğaltma yapılandırması | Microsoft Docs
+description: Azure SQL veritabanı yönetilen örneği'nde işlem çoğaltma yapılandırma hakkında bilgi edinin
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: howto
 author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
-ms.date: 01/11/2019
-ms.openlocfilehash: e658eba29368530c4c221496de98823c002985fe
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.date: 01/16/2019
+ms.openlocfilehash: 568b239cf41c802cc5d25b638f6d1501f58eccdf
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329477"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54360097"
 ---
-# <a name="replication-with-sql-database-managed-instance"></a>Çoğaltma ile SQL veritabanı yönetilen örneği
+# <a name="configure-replication-in-azure-sql-database-managed-instance"></a>Azure SQL veritabanı yönetilen örneği'nde çoğaltmayı yapılandırma
 
-' Te genel önizlemesi için çoğaltma kullanılabilir [Azure SQL veritabanı yönetilen örneği](sql-database-managed-instance.md). Bir yönetilen örnek, yayımcı ve dağıtıcı abone veritabanlarını barındırabilir.
-
-## <a name="common-configurations"></a>Ortak yapılandırmaları
-
-Genel olarak, yayımcı ve dağıtıcı hem de Bulut veya şirket içinde olması gerekir. Aşağıdaki yapılandırmalar desteklenir:
-
-- **Yayımcı ile yönetilen örneğinde yerel dağıtıcı**
-
-   ![Replication-with-azure-sql-db-single-managed-instance-publisher-distributor](./media/replication-with-sql-database-managed-instance/01-single-instance-asdbmi-pubdist.png)
-
-   Yayımcı ve dağıtıcı veritabanlarını tek bir yönetilen örneğinde yapılandırılır.
-
-- **İle yönetilen örneğinde hale getirirken uzak dağıtımcı yayımcı**
-
-   ![Replication-with-azure-sql-db-separate-managed-instances-publisher-distributor](./media/replication-with-sql-database-managed-instance/02-separate-instances-asdbmi-pubdist.png)
-
-   Yayımcı ve dağıtıcı iki yönetilen örnekler üzerinde yapılandırılır. Bu yapılandırmada:
-
-  - Aynı sanal ağda hem yönetilen örnekleridir.
-
-  - Aynı konumda hem yönetilen örnekleridir.
-
-- **Yayımcı ve dağıtıcı ile şirket içi abone üzerinde yönetilen örnek**
-
-   ![Replication-from-on-premises-to-azure-sql-db-subscriber](./media/replication-with-sql-database-managed-instance/03-azure-sql-db-subscriber.png)
-
-   Bu yapılandırmada, Azure SQL veritabanı abone durumda. Bu yapılandırma şirket içinden azure'a geçişi destekler. Abone rolünde yönetilen örnek, SQL veritabanı gerektirmez, ancak bir SQL veritabanı yönetilen örneği, bir adımda geçiş şirket içinden azure'a olarak kullanabilir. Azure SQL veritabanı abone hakkında daha fazla bilgi için bkz: [SQL veritabanı için çoğaltma](replication-to-sql-database.md).
+İşlem çoğaltma verileri SQL Server veya Azure SQL veritabanı yönetilen örneği veritabanlarından yönetilen örneğe veya veritabanlarınızda yönetilen örneği, diğer SQL Server, Azure tek veritabanı veya diğer yapılan anında iletme değişiklikleri çoğaltmanıza olanak sağlar Yönetilen örnek. Çoğaltma üzerinde genel önizlemede olan [Azure SQL veritabanı yönetilen örneği](sql-database-managed-instance.md). Bir yönetilen örnek, yayımcı ve dağıtıcı abone veritabanlarını barındırabilir. Bkz: [işlem çoğaltması yapılandırmaları](sql-database-managed-instance-transactional-replication.md#common-configurations) kullanılabilir yapılandırmaları için.
 
 ## <a name="requirements"></a>Gereksinimler
 
 Yayımcı ve dağıtıcı Azure SQL veritabanı gerektirir:
 
-- Azure SQL veritabanı yönetilen örneği.
+- Azure SQL veritabanı yönetilen Geo-DR yapılandırmada değil örneği.
 
    >[!NOTE]
    >Yönetilen örnek sayesinde yapılandırılmamış olan Azure SQL veritabanları, yalnızca abone olabilir.
@@ -74,7 +48,13 @@ Desteklediği Özel Uygulamalar:
 
 - Aboneler, şirket içi, Azure SQL veritabanı'nda tek veritabanları veya havuza alınmış veritabanlarını Azure SQL veritabanı elastik havuzları olabilir.
 
-- Tek yönlü veya çift yönlü çoğaltma
+- Tek yönlü veya çift yönlü çoğaltma.
+
+Aşağıdaki özellikler desteklenmez:
+
+- Güncelleştirilebilir abonelikler.
+
+- Etkin coğrafi çoğaltma.
 
 ## <a name="configure-publishing-and-distribution-example"></a>Yayımlama ve dağıtım örneği yapılandırma
 
@@ -188,15 +168,7 @@ Desteklediği Özel Uygulamalar:
                 @job_password = N'<PASSWORD>'
    GO
    ```
-
-## <a name="limitations"></a>Sınırlamalar
-
-Aşağıdaki özellikler desteklenmez:
-
-- Güncelleştirilebilir abonelikler
-
-- Etkin coğrafi çoğaltma
-
+   
 ## <a name="see-also"></a>Ayrıca Bkz.
 
 - [İşlem çoğaltması](sql-database-managed-instance-transactional-replication.md)

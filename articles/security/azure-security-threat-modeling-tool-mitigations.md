@@ -1,11 +1,11 @@
 ---
-title: Azaltıcı Etkenler - Microsoft tehdit modelleme aracı - Azure | Microsoft Docs
-description: Microsoft tehdit modelleme en gösterilen olası çözümleri vurgulama aracı için Azaltıcı Etkenler sayfası tehditleri oluşturulur.
+title: Risk azaltma işlemleri - Microsoft tehdit modelleme aracı - Azure | Microsoft Docs
+description: Microsoft tehdit modelleme için sunulan en olası çözümleri vurgulama aracı için azaltma sayfası tehditleri oluşturulur.
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 ms.assetid: na
 ms.service: security
 ms.workload: na
@@ -14,43 +14,43 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 07ef1fd3d81d795c9164741d22b5a689f86bd720
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 24aa49fd4ccccda372d2632ef4aee22bd5cb2bf6
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23867986"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359145"
 ---
-# <a name="microsoft-threat-modeling-tool-mitigations"></a>Microsoft tehdit modelleme aracı Azaltıcı Etkenler
+# <a name="microsoft-threat-modeling-tool-mitigations"></a>Microsoft tehdit modelleme aracı risk azaltma işlemleri
 
-Tehdit modelleme Aracı'nı bir çekirdek Microsoft Security Development Lifecycle (SDL) öğesidir. Yazılım mimarları tanımlamak ve görece kolay ve çözümlemek için uygun maliyetli olduklarında erken, olası güvenlik sorunlarını azaltmak sağlar. Sonuç olarak, geliştirme toplam maliyetini büyük ölçüde azaltır. Ayrıca, biz uzmanlarla tehdit modelleme tüm geliştiriciler için oluşturma ve tehdit modelleri analiz etme konusunda açık yönergeler sağlayarak kolaylaştırma güvenlikle ilgili olmayan unutmayın, aracı tasarlanmıştır.
+Tehdit modelleme aracı bir çekirdek Microsoft Security Development Lifecycle (SDL) öğesidir. Yazılım mimarları belirleyip görece kolay ve gidermek için uygun maliyetli olması durumunda olası güvenlik sorunlarını erkenden gidermek sağlar. Sonuç olarak, geliştirme toplam maliyeti önemli ölçüde azaltır. Ayrıca, araç unutmayın, güvenlikle ilgili olmayan uzmanlarla tehdit modelleme tüm geliştiriciler için oluşturma ve tehdit modelleri analiz etme hakkında açık yönergeler sağlayarak kolaylaştıracak tasarladığımız.
 
-Ziyaret  **[tehdit modelleme aracı](./azure-security-threat-modeling-tool.md)**  bugün başlamak için!
+Ziyaret **[tehdit modelleme aracı](./azure-security-threat-modeling-tool.md)** hemen kullanmaya başlamak için!
 
-## <a name="mitigation-categories"></a>Azaltma kategorileri
+## <a name="mitigation-categories"></a>Risk azaltma kategorileri
 
-Tehdit modelleme aracı Azaltıcı Web uygulaması güvenlik aşağıdakilerden oluşur çerçevesi göre ayrılır:
+Tehdit modelleme aracı azaltmaları Web uygulaması güvenlik aşağıdakilerden oluşur çerçevesi göre kategorilere ayrılır:
 
 | Kategori | Açıklama |
 | -------- | ----------- |
-| **[Denetim ve günlük](./azure-security-threat-modeling-tool-auditing-and-logging.md)** | Kimin ne zaman ve ne oldu? Denetim ve günlüğe kaydetme, uygulamanızın güvenlikle ilgili olayları kayıtları nasıl için başvurun |
-| **[Kimlik doğrulaması](./azure-security-threat-modeling-tool-authentication.md)** | Kimsin? Kimlik doğrulaması, burada bir varlık genellikle bir kullanıcı adı ve parola gibi kimlik bilgilerini aracılığıyla başka bir varlık kimliğini kanıtlar işlemdir |
+| **[Denetim ve günlüğe kaydetme](./azure-security-threat-modeling-tool-auditing-and-logging.md)** | Kimin, ne ve ne zaman başladı? Uygulamanız ile ilgili olayları kümelerinin kayıtları için Denetim ve günlüğe kaydetme bakın |
+| **[Kimlik doğrulaması](./azure-security-threat-modeling-tool-authentication.md)** | Kimsiniz? Kimlik doğrulaması bir varlık, genellikle bir kullanıcı adı ve parola gibi kimlik bilgileri aracılığıyla başka bir varlığın kimliğini nerede kanıtlar işlemdir |
 | **[Yetkilendirme](./azure-security-threat-modeling-tool-authorization.md)** | Ne yapabilirsiniz? Yetkilendirme, kaynakları ve işlemleri için uygulamanızı erişim denetimleri nasıl sağladığını gerçekleşir. |
-| **[İletişim güvenliği](./azure-security-threat-modeling-tool-communication-security.md)** | Kim, konuşma? İletişim güvenliği yapılan tüm iletişimi olabildiğince güvenli sağlar |
-| **[Yapılandırma Yönetimi](./azure-security-threat-modeling-tool-configuration-management.md)** | Kullanan uygulamanızı olarak çalışıyor mu? Hangi veritabanlarının bağlamak? Uygulamanızı nasıl yönetilir? Bu ayarları güvenliği nasıl? Uygulamanız bu işletimsel sorunlar nasıl işlediğini için yapılandırma yönetimi başvurur |
-| **[Şifreleme](./azure-security-threat-modeling-tool-cryptography.md)** | Nasıl gizli (gizlilik) tutuyor musunuz? Yetkisiz değiştirmeye karşı sağlama şeklini veri veya kitaplıkları (bütünlüğü)? Nasıl oluştururken çekirdeği için şifreleme açısından güçlü rastgele değerler sağlama? Şifreleme nasıl uygulamanızı gizliliği ve bütünlük zorlayan için ifade eder. |
-| **[Özel durum yönetimi](./azure-security-threat-modeling-tool-exception-management.md)** | Uygulamanızdaki bir yöntem çağrısı başarısız olduğunda, uygulamanızın ne yapar? Ne kadar ortaya? Son kullanıcılar için kolay hata bilgilerini döndürmek? Değerli özel durum bilgilerini geri çağırana geçirmesini? Uygulamanızın düzgün biçimde başarısız oluyor? |
-| **[Giriş doğrulaması](./azure-security-threat-modeling-tool-input-validation.md)** | Nasıl uygulamanızı alır giriş geçerli ve güvenli olduğunu biliyor musunuz? Giriş doğrulaması nasıl uygulamanızı filtreleri, scrubs ya da ek işlemeden önce giriş reddeder anlamına gelir. Giriş noktaları üzerinden giriş sınırlama ve çıkış noktaları üzerinden çıktı kodlama göz önünde bulundurun. Veritabanları ve dosya paylaşımları gibi kaynaklardan veri güveniyor musunuz? |
-| **[Hassas veriler](./azure-security-threat-modeling-tool-sensitive-data.md)** | Uygulamanızın hassas verileri nasıl işler? Uygulamanızın ağ üzerinden bellekte veya kalıcı depoları korunması gereken herhangi bir veri nasıl işlediğini için hassas verileri ifade eder |
-| **[Oturum yönetimi](./azure-security-threat-modeling-tool-session-management.md)** | Nasıl yapar, uygulamanızın işlemek ve kullanıcı oturumlarını korumak? Bir kullanıcı, Web uygulamanızın arasındaki ilgili etkileşimleri bir dizi bir oturum başvurduğu |
+| **[İletişim güvenliği](./azure-security-threat-modeling-tool-communication-security.md)** | Kim, konuşma? İletişim güvenliği yapılan tüm iletişimin olabildiğince güvenli sağlar |
+| **[Yapılandırma Yönetimi](./azure-security-threat-modeling-tool-configuration-management.md)** | Uygulamanızı kullanan olarak çalıştırıyor mu? Hangi veritabanlarının bağlama? Uygulamanızı nasıl yönetilir? Bu ayarları nasıl korumalıdır? Yapılandırma yönetimi, uygulamanız bu işletimsel sorunları nasıl işlediğini için ifade eder. |
+| **[Şifreleme](./azure-security-threat-modeling-tool-cryptography.md)** | Nasıl gizli anahtarları (gizlilik) tutuyor musunuz? Yetkisiz sağlama şeklini veri veya kitaplıkları (bütünlüğü)? Nasıl çekirdekler için şifreleme açısından güçlü rastgele değerler sağlanmaktadır? Şifreleme nasıl uygulamanızı gizliliği ve bütünlüğü zorlar için ifade eder. |
+| **[Özel durum yönetimi](./azure-security-threat-modeling-tool-exception-management.md)** | Uygulamanızdaki bir yöntem çağrısının başarısız olduğunda, uygulamanızın ne yapar? Ne kadar açığa? Son kullanıcılara kolay hata bilgilerini döndürmek? Değerli bir özel durum bilgilerini çağırana geri geçirdiğiniz? Uygulamanızın düzgün biçimde başarısız oluyor? |
+| **[Giriş doğrulaması](./azure-security-threat-modeling-tool-input-validation.md)** | Nasıl giriş, uygulamanın aldığı geçerli ve güvenli olduğunu biliyor musunuz? Giriş doğrulaması nasıl uygulamanızı filtreler, scrubs veya ek işlemeden önce giriş reddeder ifade eder. Giriş noktaları girişini sınırlama ve çıkış noktaları çıkışını kodlama göz önünde bulundurun. Veritabanları ve dosya paylaşımları gibi kaynaklardaki verileri güveniyor musunuz? |
+| **[Hassas verileri](./azure-security-threat-modeling-tool-sensitive-data.md)** | Uygulamanız, hassas verileri nasıl işliyor? Hassas verileri, uygulamanızın bellek, ağ üzerinden veya kalıcı depolarında korunması gereken tüm verileri nasıl işlediğini için ifade eder. |
+| **[Oturum yönetimi](./azure-security-threat-modeling-tool-session-management.md)** | Nasıl uygulamanızı işlemek ve kullanıcı oturumlarını korumak? Bir kullanıcı ile Web uygulamanız arasındaki ilgili etkileşimlerin sırasını oturum başvurur |
 
-Bu belirlemenize yardımcı olur:
+Bu, belirlemenize yardımcı olur:
 
-* En yaygın hataları burada yapılır
-* En tıklatılabilir geliştirmeleri nerede
+* En yaygın hatalar burada yapılır
+* Eyleme dönüştürülebilir en iyileştirmeler nerede
 
-Sonuç olarak, bu kategorilere odak kullanın ve giriş doğrulama, kimlik doğrulama ve yetkilendirme kategorilerde en yaygın güvenlik sorunları ortaya biliyorsanız, var. başlayabilmeniz için güvenlik işinizin önceliğini. Daha fazla bilgi için ziyaret  **[bu patent bağlantı](https://www.google.com/patents/US7818788)**
+Sonuç olarak, bu kategorilere odak kullanın ve giriş doğrulama, kimlik doğrulama ve yetkilendirme kategoride en yaygın güvenlik sorunlarının biliyorsanız, orada başlayabilmesi güvenlik işinizin önceliğini belirlemeye. Daha fazla bilgi için ziyaret  **[bu patent bağlantı](https://www.google.com/patents/US7818788)**
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Ziyaret  **[tehdit modelleme aracı tehditleri](./azure-security-threat-modeling-tool-threats.md)**  Aracı'nı kullanır olası tasarım tehditleri oluşturmak için tehdit kategorileri hakkında daha fazla bilgi için.
+Ziyaret **[tehdit modelleme aracı tehditleri](./azure-security-threat-modeling-tool-threats.md)** aracını kullanan olası tasarım tehditleri oluşturmak için tehdit kategorileri hakkında daha fazla bilgi için.

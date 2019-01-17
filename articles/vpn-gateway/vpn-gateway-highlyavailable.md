@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2016
 ms.author: yushwang
-ms.openlocfilehash: c510bb060d5c0dc866c3802fab751c1cbeff3745
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 623ed10e155012780f039bf7b9148be34143454d
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42057419"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353286"
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>Yüksek Oranda Kullanılabilir Şirket İçi ve Dışı ile Sanal Ağdan Sanal Ağa Bağlantı
 Bu makalede Azure VPN gateways kullanan şirket içi ve dışı ile Sanal Ağdan Sanal Ağa bağlantınız için Yüksek Oranda Kullanılabilir yapılandırma seçeneklerine genel bakış sunulmaktadır.
@@ -49,7 +49,8 @@ Bu yapılandırma aynı Azure VPN ağ geçidinden aynı konumdaki şirket içi c
 3. Bu yapılandırma için BGP gereklidir. Bir VPN cihazını temsil eden her yerel ağ geçidinin "BgpPeerIpAddress" özelliğinde belirtilen benzersiz bir BGP eşleme IP adresi olmalıdır.
 4. Her yerel ağ geçidindeki AddressPrefix özellik alanı birbiriyle örtüşmemelidir. AddressPrefix alanında “BgpPeerIpAddress” özelliğini /32 CIDR biçiminde belirtmeniz gerekir; örneğin, 10.200.200.254/32.
 5. Aynı şirket içi ağ ön eklerini Azure VPN ağ geçidinize tanıtmak için BGP kullanmanız gerekir; bu durumda trafik bu tünellerden eşzamanlı olarak iletilir.
-6. Her bağlantı Azure VPN ağ geçidinizin en fazla tünel sayısına göre sayılır; Temel ve Standart SKU’lar için 10 ve Yüksek Performanslı SKU’lar için 30. 
+6. Eşit maliyet çoklu yol yönlendirme (ECMP) kullanmanız gerekir.
+7. Her bağlantı Azure VPN ağ geçidinizin en fazla tünel sayısına göre sayılır; Temel ve Standart SKU’lar için 10 ve Yüksek Performanslı SKU’lar için 30. 
 
 Bu yapılandırmada Azure VPN ağ geçidi hala etkin bekleme modundadır; bu nedenle [yukarıda](#activestandby) açıklanan yük devretme davranışının ve kısa kesintinin aynısı gerçekleşir. Ancak, bu kurulum şirket içi ağınızda ve VPN cihazlarınızda arıza ya da kesintilere karşı koruma sağlar.
 

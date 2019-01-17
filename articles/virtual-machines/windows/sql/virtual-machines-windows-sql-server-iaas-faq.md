@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 0956d9bdbf6390f2d64f15ca267545ca15289a46
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 837c9d2b4b7dc0ce2c5ee3b25106eb5fea4ed7ea
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339408"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358992"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Azure'da Windows sanal makineler üzerinde çalışan SQL Server için sık sorulan sorular
 
@@ -49,13 +49,19 @@ Bu makalede çalıştırma hakkında en yaygın soruların yanıtları sağlanı
 
    Evet. Azure, yalnızca tek bir görüntü ana sürüm ve sürüm bazında tutar. Örneğin, yeni bir SQL Server hizmet paketi yayımlandığında, Azure galeri için hizmet paketi için yeni bir görüntü ekler. SQL Server görüntüsü önceki hizmet paketi için hemen Azure portalından kaldırılır. Ancak, sonraki üç ay için Powershell'den sağlamak için kullanılabilir durumda kalır. Üç ay sonra önceki hizmet paketi görüntü artık kullanılamıyor. Yaşam döngüsü sonuna ulaştığında bir SQL Server sürümü desteklenmeyen hale gelirse, bu kaldırma İlkesi de geçerli.
 
+
+1. **Bu Azure Portalı'nda görünür olmayan bir SQL Server'ın daha eski bir görüntüsünü dağıtmak mümkün mü?**
+
+   Evet, PowerShell kullanarak. PowerShell kullanarak SQL Server Vm'leri dağıtma hakkında daha fazla bilgi için bkz. [Azure PowerShell ile SQL Server sanal makineler sağlamak nasıl](virtual-machines-windows-ps-sql-create.md).
+
 1. **Bir SQL Server sanal makinesinden bir VHD görüntüsü oluşturabilir miyim?**
 
    Evet, ancak burada birkaç faktörlerdir. Bu VHD azure'da yeni bir VM dağıtırsanız, portal SQL Server yapılandırma bölümünde değil ge yapın. Ardından, PowerShell aracılığıyla SQL Server yapılandırma seçenekleri de yönetmeniz gerekir. Ayrıca, görüntünüzü ilk temel SQL VM oranı üzerinden ücretlendirilirsiniz. Dağıtmadan önce SQL Server VHD'den kaldırılsa bile bu geçerlidir. 
 
 1. **(Örneğin Windows 2008 R2 + SQL Server 2012) için sanal makine galerisindeki gösterilmeyen yapılandırmaları ayarlamak mümkündür?**
 
-   Hayır. SQL Server içeren sanal makine galeri görüntüleri için sağlanan görüntülerden birini seçmeniz gerekir.
+   Hayır. SQL Server içeren sanal makine galeri görüntüleri için Azure portalı üzerinden ya da yoluyla sağlanan görüntülerden birini seçmelisiniz [PowerShell](virtual-machines-windows-ps-sql-create.md). 
+
 
 ## <a name="creation"></a>Oluşturma
 
@@ -102,11 +108,11 @@ Bu makalede çalıştırma hakkında en yaygın soruların yanıtları sağlanı
  
    Evet. Tüm müşteriler yeni SQL VM kaynak sağlayıcısı ile kaydolmak olanağına sahip olursunuz. Ancak, yalnızca Müşteriler Yazılım Güvencesi avantajı ile etkinleştirebilir [Azure hibrit Avantajı'nı (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/) (veya KLG) SQL Server VM üzerinde. 
 
-1. **_ İçin ne\*VM kaynağı taşıdıysanız veya bırakılan Microsoft.SqlVirtualMachine_\* kaynak?** 
+1. **_ İçin ne*VM kaynağı taşıdıysanız veya bırakılan Microsoft.SqlVirtualMachine_* kaynak?** 
 
    Ne zaman Microsoft.Compute/VirtualMachine kaynak bırakılmış veya ilişkili Microsoft.SqlVirtualMachine kaynak işlemi zaman uyumsuz olarak çoğaltmak için bildirim sonra taşındı.
 
-1. **VM, ne _\*Microsoft.SqlVirtualMachine_\* kaynak bırakıldı?**
+1. **VM, ne _* Microsoft.SqlVirtualMachine_* kaynak bırakıldı?**
 
    Microsoft.SqlVirtualMachine kaynak bırakıldığında Microsoft.Compute/VirtualMachine kaynak etkilenmez. Ancak, lisans değişikliklerinin özgün görüntü kaynağı için varsayılan olarak kullanılır. 
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: 7d451f7eae16426c85ed5540b35993cd9b218b83
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: d209e1f6924e5c7d6bba7512606504b7165f0ed3
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033171"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359434"
 ---
 # <a name="configure-an-ip-firewall-for-your-azure-cosmos-db-account"></a>Azure Cosmos DB hesabınız için bir IP Güvenlik Duvarı yapılandırma
 
@@ -145,10 +145,10 @@ Aşağıdaki seçenekleri kullanarak bir IP erişim denetimi İlkesi ile ilgili 
 Azure Cosmos DB hesabınız için bir IP erişim denetimi İlkesi etkinleştirerek, tüm istekleri hesabınıza izin verilen IP adresi aralıkları listesi dışındaki makinelerden engelleyin. Kapsayıcıları göz atma ve belgelerin sorgulanmasını gibi portal veri düzlemi işlemlerini etkinleştirmek için kullanarak Azure portala erişim açıkça izin vermeniz gerekir **Güvenlik Duvarı** portalındaki bölmesinde.
 
 ### <a name="sdks"></a>SDK’lar 
-İzin verilenler listesinde genel olmayan makineler SDK'larını kullanarak Azure Cosmos DB kaynaklarını eriştiğinizde **404 Bulunamadı** ek ayrıntı yok yanıt döndürülür. Hesabınız için izin verilen IP listesi doğrulayın ve doğru ilke yapılandırmasının Azure Cosmos DB hesabınıza uygulandığından emin olun. 
+İzin verilenler listesinde genel olmayan makineler SDK'larını kullanarak Azure Cosmos DB kaynaklarını eriştiğinizde **403 Yasak** ek ayrıntı yok yanıt döndürülür. Hesabınız için izin verilen IP listesi doğrulayın ve doğru ilke yapılandırmasının Azure Cosmos DB hesabınıza uygulandığından emin olun. 
 
 ### <a name="source-ips-in-blocked-requests"></a>Engellenen istekleri kaynak IP'leri
-Azure Cosmos DB hesabınızdaki tanılama günlük kaydını etkinleştirin. Bu günlükler her istek ve yanıt gösterir. Güvenlik Duvarı-ilgili iletiler bir 403 dönüş kodu ile dahili olarak kaydedilir. Bu iletiler filtreleyerek, Engellenen istekler için kaynak IP'leri görebilirsiniz. Bkz: [Azure Cosmos DB tanılama günlüğüne kaydetme](logging.md).
+Azure Cosmos DB hesabınızdaki tanılama günlük kaydını etkinleştirin. Bu günlükler her istek ve yanıt gösterir. Güvenlik Duvarı-ilgili iletiler 403 bir dönüş koduyla günlüğe kaydedilir. Bu iletiler filtreleyerek, Engellenen istekler için kaynak IP'leri görebilirsiniz. Bkz: [Azure Cosmos DB tanılama günlüğüne kaydetme](logging.md).
 
 ### <a name="requests-from-a-subnet-with-a-service-endpoint-for-azure-cosmos-db-enabled"></a>Azure Cosmos DB için hizmet uç noktası ile bir alt ağdan istekleri etkin
 Azure Cosmos DB hesaplarına sanal ağ ve alt ağ kimliği etkin Azure Cosmos DB için hizmet uç noktası olan bir sanal ağa bir alt ağdan gelen istekleri gönderir. IP filtreleri bunları reddetmek için bu istekleri genel IP kaynağı yok. Belirli alt ağlara erişimi sanal ağlarda izin vermek için bir erişim denetim listesi açıklandığı gibi ekleyin [sanal ağ ve alt ağ tabanlı erişim Azure Cosmos DB hesabınız için nasıl yapılandırılacağı](how-to-configure-vnet-service-endpoint.md). Bu güvenlik duvarı kurallarını uygulamak 15 dakika kadar sürebilir.

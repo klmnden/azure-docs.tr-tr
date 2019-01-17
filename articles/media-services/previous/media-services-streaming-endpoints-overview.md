@@ -7,20 +7,19 @@ author: Juliako
 writer: juliako
 manager: femila
 editor: ''
-ms.assetid: 097ab5e5-24e1-4e8e-b112-be74172c2701
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 01/16/2019
 ms.author: juliako
-ms.openlocfilehash: 06f219b9cf7d17e80699aebc1082b14e2de45c8b
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 6b4acf2a8effaef6d9572a4ca36b29af19f2970d
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240231"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359996"
 ---
 # <a name="streaming-endpoints-overview"></a>Akış uç noktalarına genel bakış 
 
@@ -28,20 +27,26 @@ ms.locfileid: "50240231"
 
 Microsoft Azure Media Services (AMS) içinde bir **akış uç noktası** içeriği doğrudan bir istemci Yürütücü uygulamasına veya daha fazla dağıtım bir içerik teslim ağı'için (CDN) teslim eden bir akış hizmetini temsil eder. Media Services, Azure CDN sorunsuz tümleştirme de sağlar. Giden akıştan StreamingEndpoint hizmetinin, canlı akış, bir video isteğe bağlı veya Media Services hesabı, varlığı aşamalı indirme olabilir. Her Azure Media Services hesabı bir varsayılan StreamingEndpoint içerir. Ek akış hesabı altında oluşturulabilir. Akış, 1.0 ve 2.0 iki sürümü vardır. 10 Ocak 2017'den itibaren yeni oluşturulan tüm AMS hesaplarını sürüm 2.0 içerecektir **varsayılan** StreamingEndpoint. Bu hesaba eklediğiniz ek akış uç noktaları, aynı zamanda sürüm 2.0 olacaktır. Bu değişiklik, mevcut hesapları etkilemez; Mevcut akış sürümü 1.0 ve 2.0 sürümüne yükseltilebilir. Bu değişiklikle birlikte olacaktır davranışı, faturalama ve özellik değişiklikleri (daha fazla bilgi için **akış türleri ve sürümleri** bölümde belgelenen aşağıda).
 
-Ayrıca, Azure Media Services (Ocak 2017'de yayımlanan) 2,15 sürümüyle başlayarak aşağıdaki özellikleri akış uç noktası varlığa eklendi: **CdnProvider**, **CdnProfile**, **FreeTrialEndTime**, **StreamingEndpointVersion**. Bu özelliklerin ayrıntılı bakış için bkz: [bu](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint). 
+Azure Media Services akış uç noktası varlığa şu özellikleri ekledi: **CdnProvider**, **CdnProfile**, **FreeTrialEndTime**, **StreamingEndpointVersion**. Bu özelliklerin ayrıntılı bakış için bkz: [bu](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint). 
 
 Standart akış uç noktası oluşturuldu uygulamasında varsayılan bir Azure Media Services hesabı oluşturduğunuzda, **durduruldu** durumu. Varsayılan akış uç noktası silinemiyor. Hedeflenen bölgede Azure CDN kullanılabilirliğine bağlı olarak, varsayılan olarak yeni oluşturulan varsayılan akış uç noktası "StandardVerizon" CDN yöntemlerine sağlayıcısı tümleştirme. 
-
->[!NOTE]
->Akış uç noktasını başlamadan önce Azure CDN tümleştirmesi devre dışı bırakılabilir.
+                
+> [!NOTE]
+> Akış uç noktasını başlamadan önce Azure CDN tümleştirmesi devre dışı bırakılabilir. `hostname` Ve CDN'yi etkinleştirme olup olmadığını akış URL'si aynı kalır.
 
 Bu konu, akış uç noktaları tarafından sağlanan ana işlevlerini genel bir bakış sağlar.
+
+## <a name="naming-conventions"></a>Adlandırma kuralları
+
+Varsayılan uç nokta için: `{AccountName}.streaming.mediaservices.windows.net`
+
+Tüm ek uç noktalar için: `{EndpointName}-{AccountName}.streaming.mediaservices.windows.net`
 
 ## <a name="streaming-types-and-versions"></a>Akış türleri ve sürümleri
 
 ### <a name="standardpremium-types-version-20"></a>Standart/Premium türleri (sürüm 2.0)
 
-Media Services'ın Ocak 2017 sürümünden başlayarak, iki akış tür vardır: **standart** ve **Premium**. Bu türler, akış uç noktası sürüm "2. 0" bir parçasıdır.
+Media Services'ın Ocak 2017 sürümünden başlayarak, iki akış tür vardır: **Standart** ve **Premium**. Bu türler, akış uç noktası sürüm "2. 0" bir parçasıdır.
 
 Tür|Açıklama
 ---|---
@@ -92,7 +97,7 @@ Aşamalı indirme|Evet|Evet
 
 ## <a name="migration-between-types"></a>Türler arasında geçiş
 
-Kimden | Alıcı | Eylem
+Başlangıç fiyatı | Alıcı | Eylem
 ---|---|---
 Klasik|Standart|Kabul etme gerekir
 Klasik|Premium| Ölçek (ek akış birimleri)

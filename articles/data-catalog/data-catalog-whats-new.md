@@ -8,12 +8,12 @@ ms.assetid: 1201f8d4-6f26-4182-af3f-91e758a12303
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 86c8e8c10811b1478ae2c853f1efef5b6b5caa83
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 782f68c52285e787b9dfc6d21352ab2d53876085
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406337"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353150"
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Azure veri Kataloğu'ndaki Yenilikler
 Güncelleştirmeleri **Azure veri Kataloğu** düzenli olarak kullanıma sunulur. Her sürüm bazı sürümler arka uç hizmeti özelliklerine odaklanan yeni kullanıcıya yönelik özellikler içerir. Bu sayfa Azure veri Kataloğu hizmetine eklenen yeni kullanıcıya yönelik özellikler vurgulamaktadır.
@@ -45,7 +45,7 @@ Ağustos 2017'den itibaren aşağıdaki özellikleri, Azure veri Kataloğu'na ek
 
 ## <a name="whats-new-for-july-2017"></a>Temmuz 2017 için yenilikler nelerdir? 
 Temmuz 2017'den itibaren aşağıdaki özellikleri, Azure veri Kataloğu'na eklenmiştir:
-*   Yasalar meta veri işlemleri de dahil olmak üzere üzerinde daha ayrıntılı denetim için destek:
+*   Dahil olmak üzere izin verilen bir meta veri işlemleri üzerinde daha ayrıntılı denetim için destek:
     - Katalog yöneticileri, kullanıcıların etiketleri ve ilgili meta veri Kataloğu'na katkıda yeteneğini Kataloğu salt okunur erişimi etkinleştirme kısıtlayabilirsiniz.
     - Katalog yöneticileri, kullanıcıların yeni veri kaynaklarını kataloğa kaydetme yeteneğini kısıtlayabilirsiniz.
     - Katalog yöneticileri, kullanıcıların katalogdaki veri varlık meta verilerini sahipliğini yeteneğini kısıtlayabilirsiniz.
@@ -137,8 +137,8 @@ Mayıs 2016 itibariyle, aşağıdaki özellikleri, Azure veri Kataloğu'na eklen
 
 * Katalog yöneticileri, iş terimlerini ve ortak bir iş sözlüğü oluşturmak için hiyerarşileri tanımlamanızı sağlayan bir iş sözlüğü. Kullanıcılar, kayıtlı veri varlıklarını bulmak ve kataloğun içeriği anlamak daha kolay hale getirmek için Sözlük terimlerini etiketleyebilir. Daha fazla bilgi için bkz. [İş Sözlüğünü Yönetilen Etiketleme için ayarlama](data-catalog-how-to-business-glossary.md)  
 * Tek bir işlemde birden çok sözlük terimleri güncelleştirmek kullanıcılara veri Kataloğu iş sözlüğünü geliştirmeler. Kullanıcılar, aşağıdaki alanları düzenlemek için birden çok kullanım koşulları seçebilirsiniz:
-  * Üst terim: Yeni bir üst terim kullanıcı seçebilir ve seçili olan tüm koşulları, seçili üst ermeden alt öğeleri olarak güncelleştirilir. Seçili tüm koşulları, aynı üst öğeye sahip, sonra da, üst metin kutusunda, aksi takdirde alanı üst terim gösterilir boş.   
-  * Etiketleri ve proje katılımcıları: kullanıcılar ekleyebilir ve etiketleri ve proje katılımcıları için birden fazla veri varlığına etiketleme olarak aynı deneyimi kullanarak birden fazla sözlük terimleri kaldırabilirsiniz.
+  * Üst terim: Kullanıcı yeni bir üst terim seçebilir ve seçili olan tüm koşulları seçili üst terim alt olacak şekilde güncelleştirilir. Seçili tüm koşulları, aynı üst öğeye sahip, sonra da, üst metin kutusunda, aksi takdirde alanı üst terim gösterilir boş.   
+  * Etiketleri ve proje katılımcıları: Kullanıcılar ekleyebilir ve etiketleri ve proje katılımcıları için birden fazla veri varlığına etiketleme olarak aynı deneyimi kullanarak birden fazla sözlük terimleri kaldırın.
 
 > [!NOTE]
 > İş sözlüğü, yalnızca, Azure veri Kataloğu standart sürümü içinde kullanılabilir. Ücretsiz sürüm için bir iş sözlüğünü yönetilen etiketleme veya özellikleri sağlamaz.
@@ -153,7 +153,7 @@ Mart 2016 itibariyle, aşağıdaki özellikleri, Azure veri Kataloğu: g eklenmi
 
 * Yeni baştan tasarlanan veri kaynağı seçimi Azure veri Kataloğu veri kaynağı kayıt aracını deneyin. Veri kaynağı kayıt aracını bulup veri kaynaklarından seçmek için Azure veri Kataloğu tarafından desteklenen kolaylaştırmak için güncelleştirildi.
 * Azure veri Kataloğu portalında ve veri kaynağı kayıt aracını 10 ek dil için destek. İngilizce ek olarak, Azure veri Kataloğu deneyimi Almanca, İspanyolca, Fransızca, İtalyanca, Japonca, Korece, Portekizce (Brezilya), Rusça, Basitleştirilmiş Çince ve Geleneksel Çince kullanıma sunulmuştur. Azure veri Kataloğu kullanıcı deneyimini, Windows veya kullanıcının web tarayıcısında ayarlamak dil tercihlerine göre yerelleştirilir.
-* Coğrafi çoğaltma, iş sürekliliği ve olağanüstü durum kurtarma için Azure veri Kataloğu veri desteği. Veri kaynağı meta verilerini ve kitle kaynaklı ek açıklamaları, dahil olmak üzere tüm Azure veri Kataloğu içeriği artık müşterilerine hiçbir ek ücret ödemeden iki Azure bölgeleri arasında çoğaltılır. Azure bölgeleri, en az 500 mil uzaklıkta önceden eşlenmiş ve eşleştirme açıklandığı gibi izleyin [iş sürekliliği ve olağanüstü durum kurtarma (BCDR): eşleştirilmiş Azure bölgeleri](../best-practices-availability-paired-regions.md).
+* Coğrafi çoğaltma, iş sürekliliği ve olağanüstü durum kurtarma için Azure veri Kataloğu veri desteği. Veri kaynağı meta verilerini ve kitle kaynaklı ek açıklamaları, dahil olmak üzere tüm Azure veri Kataloğu içeriği artık müşterilerine hiçbir ek ücret ödemeden iki Azure bölgeleri arasında çoğaltılır. Azure bölgeleri, en az 500 mil uzaklıkta önceden eşlenmiş ve eşleştirme açıklandığı gibi izleyin [iş sürekliliği ve olağanüstü durum kurtarma (BCDR): Azure eşleştirilmiş bölgeleri](../best-practices-availability-paired-regions.md).
 * Azure veri Kataloğu tarafından kullanılan Azure aboneliğinin değiştirmek için destek. Azure veri Kataloğu yöneticileri, faturalama amacıyla farklı bir Azure aboneliği seçmek için Azure veri Kataloğu Portalı'nda ayarlar sayfasını kullanabilirsiniz.
 
 ## <a name="whats-new-for-january-2016"></a>Ocak 2016 için Yenilikler
@@ -263,6 +263,6 @@ Ağustos 2015'ten itibaren aşağıdaki özellikleri, Azure veri Kataloğu'na ek
 * Kayıtlı veri kaynakları için erişim isteği bilgilerini sağlamak için destek. Herhangi bir kayıtlı veri varlığı için kullanıcılar artık var olan araçlarınız ve süreçlerinizle kolayca tümleştirmek amacıyla e-posta bağlantılarını veya URL'ler gibi erişim isteme yönergeleri sağlar.
 * Etiketleri ve hangi kullanıcıların hangi meta verileri için kayıtlı veri varlıklarını sağlamış bulmak daha kolay hale getirmek için uzmanları için araç ipuçları.
 * Bizim için üst gezinti çubuğundaki yeni "Kullanıcı" düğmesi ve menüsü ekledik. Azure veri Kataloğu'na oturum açmak için kullanılan hesap kullanıcı bu menüyü ve varsa oturumu kapatmak için istenen. Bu menü, ayrıca Azure veri Kataloğu REST API'si kullanan geliştiriciler için değerlidir katalog adı görüntüler.
-* Yalnızca standart sürüm: sahipleri veri varlıklarına eklerken, Azure veri Kataloğu artık hem kullanıcı hesaplarına hem de güvenlik grupları sahip olarak destekler. Seçili veri varlıkları için bir sahip olarak bir güvenlik grubu eklemek için varsa, grubun görünen adını veya grubun UPN e-posta adresi, girebilirsiniz.
+* Yalnızca standart sürüm: Veri varlıklarına sahipleri ekleme, Azure veri Kataloğu artık hem kullanıcı hesaplarına hem de güvenlik grupları sahip olarak destekler. Seçili veri varlıkları için bir sahip olarak bir güvenlik grubu eklemek için varsa, grubun görünen adını veya grubun UPN e-posta adresi, girebilirsiniz.
 * Azure Blob Depolama veri kaynakları için destek. Kullanıcılar artık kaydedebilir ve Azure depolama blobları ve dizinleri keşfedin.
 

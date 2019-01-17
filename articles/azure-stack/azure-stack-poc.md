@@ -16,12 +16,12 @@ ms.date: 10/25/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
 ms.custom: mvc
-ms.openlocfilehash: 89552bc568ce38c6153683e9c3b0f3f26f569083
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 530bb7b164ec7d7b31e6d4a58bca97aa17dc62fa
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959555"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54357887"
 ---
 # <a name="what-is-azure-stack"></a>Azure Stack nedir?
 
@@ -29,8 +29,6 @@ Microsoft Azure Stack, veri merkezinizde Azure Hizmetleri sunmanıza olanak sağ
 
 Azure Stack gereksinimlerinizi karşılamak için iki dağıtım seçeneği sunulur.
 
-## <a name="azure-stack-integrated-systems"></a>Azure Stack tümleşik sistemleri
-Azure Stack tümleşik sistemleri, bir Microsoft ortaklık sunulur ve [donanım iş ortaklarından](https://azure.microsoft.com/overview/azure-stack/integrated-systems/), bulut hızını belirleyebileceği yenilik sunan bir çözümü oluşturma ve yönetim Basitlik bilgi işlem. Azure Stack bir tümleşik donanım ve yazılım sistemi sunulan olduğundan, esneklik ve buluttan yenilik olanağı yanı sıra, gereken denetim sahip. Azure Stack tümleşik sistemleri boyutu 4-16 düğümlerden aralığı ve tüm dünyada donanım iş ortağı ve Microsoft tarafından desteklenir.  Yeni senaryoları oluşturabilir ve üretim iş yükleri için yeni çözümlerini dağıtmak için Azure Stack tümleşik sistemleri kullanın.
 
 ## <a name="azure-stack-development-kit"></a>Azure Stack Geliştirme Seti
 
@@ -45,8 +43,11 @@ ASDK aşağıdaki sınırlamalara sahiptir:
 * Azure Stack bileşenleri bir ana bilgisayara dağıtılan olduğundan, Kiracı kaynaklarına için sınırlı fiziksel kaynak yok. Bu yapılandırma, Ölçek veya performans değerlendirmesi için tasarlanmamıştır.
 * Ağ senaryoları NIC dağıtım gereksinimleri ve tek bir konak nedeniyle sınırlıdır.
 
+## <a name="azure-stack-integrated-systems"></a>Azure Stack tümleşik sistemleri
+Azure Stack tümleşik sistemleri, bir Microsoft ortaklık sunulur ve [donanım iş ortaklarından](https://azure.microsoft.com/overview/azure-stack/integrated-systems/), bulut hızını belirleyebileceği yenilik sunan bir çözümü oluşturma ve yönetim Basitlik bilgi işlem. Azure Stack bir tümleşik donanım ve yazılım sistemi sunulan olduğundan, esneklik ve buluttan yenilik olanağı yanı sıra, gereken denetim sahip. Azure Stack tümleşik sistemleri boyutu 4-16 düğümlerden aralığı ve tüm dünyada donanım iş ortağı ve Microsoft tarafından desteklenir.  Yeni senaryoları oluşturabilir ve üretim iş yükleri için yeni çözümlerini dağıtmak için Azure Stack tümleşik sistemleri kullanın.
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
 [Önemli özellikler ve kavramlar](azure-stack-key-features.md)
 
-[Azure Stack: Azure (pdf) uzantısıdır](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)
+[Azure Stack: (Pdf) bir Azure uzantısı](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)

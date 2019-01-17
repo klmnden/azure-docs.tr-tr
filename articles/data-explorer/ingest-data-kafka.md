@@ -8,16 +8,16 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/19/2018
-ms.openlocfilehash: 21eb28611c1e40695356d502c262c23013591986
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: b53c26f265cc5d944c8e15ae5bf436e8f71dcc2f
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117376"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352742"
 ---
 # <a name="quickstart-ingest-data-from-kafka-into-azure-data-explorer"></a>Hızlı Başlangıç: Azure veri Gezgini'ne kafka'dan veri alma
  
-Azure Veri Gezgini, günlük ve telemetri verileri için hızlı ve yüksek oranda ölçeklenebilir veri keşfetme hizmetidir. Azure Veri Gezgini, Kafka'dan alma (veriler yükleniyor) olanağı sağlar. Kafka güvenilir bir şekilde sistemleri veya uygulamalar arasında veri taşıma gerçek zamanlı akış verisi işlem hatları oluşturmayı sağlayan bir dağıtılmış akış platformudur. 
+Azure Veri Gezgini, günlük ve telemetri verileri için hızlı ve yüksek oranda ölçeklenebilir veri keşfetme hizmetidir. Azure Veri Gezgini, Kafka'dan alma (veriler yükleniyor) olanağı sağlar. Kafka güvenilir bir şekilde sistemleri veya uygulamalar arasında veri taşıma gerçek zamanlı akış verisi işlem hatları oluşturmayı sağlayan bir dağıtılmış akış platformudur.
  
 ## <a name="prerequisites"></a>Önkoşullar
  
@@ -30,9 +30,11 @@ Azure Veri Gezgini, günlük ve telemetri verileri için hızlı ve yüksek oran
 * Örnek uygulamayı çalıştırmak için [Visual Studio 2017 sürüm 15.3.2 veya üzeri](https://www.visualstudio.com/vs/)
  
 ## <a name="kafka-connector-setup"></a>Kafka bağlayıcı Kurulumu
-Kafka bağlanmak, Apache Kafka ve diğer sistemler arasında veri scalably ve güvenilir bir şekilde akış için bir araçtır. Büyük veri koleksiyonlarını içine ve dışına Kafka taşıma bağlayıcılar hızlıca tanımlamak basit sağlar. Kafka ADX havuz Kafka'dan bağlayıcı olarak görev yapar.
+
+Kafka bağlanmak için ölçeklenebilir ve güvenilir Apache Kafka ve diğer sistemler arasında veri akışını bir araçtır. Büyük veri koleksiyonlarını içine ve dışına Kafka taşıma bağlayıcılar hızlıca tanımlamak basit sağlar. Kafka ADX havuz Kafka'dan bağlayıcı olarak görev yapar.
  
-### <a name="bundle"></a>Paket 
+### <a name="bundle"></a>Paket
+
 Kafka yükleyebilirsiniz bir `.jar` özel bağlayıcı olarak davranan bir eklenti olarak. Örneğin üretmek için bir `.jar`, biz kodu yerel olarak kopyalayın ve Maven kullanarak oluşturun. 
 
 #### <a name="clone"></a>Kopyala
@@ -41,7 +43,7 @@ Kafka yükleyebilirsiniz bir `.jar` özel bağlayıcı olarak davranan bir eklen
 git clone git://github.com:Azure/kafka-sink-azure-kusto.git
 cd ./kafka-sink-azure-kusto/kafka/
 ```
- 
+
 #### <a name="build"></a>Oluşturma
 
 Yerel olarak oluşturmak için Maven ile derleme bir `.jar` bağımlılıkları ile tamamlandı.
@@ -55,9 +57,9 @@ Kök dizin içinde *havuz azure kusto kafka*çalıştırın:
 ```bash
 mvn clean compile assembly:single
 ```
- 
+
 ### <a name="deploy"></a>Dağıtma 
- 
+
 Kafka eklentisini yükleyin. Docker'ı kullanarak bir dağıtım örneği şu yolda bulunabilir: [havuz azure kusto kafka](https://github.com/Azure/kafka-sink-azure-kusto#deploy)
  
 
@@ -112,13 +114,16 @@ kusto.sink.flush_size=1000
 Kafka kümesi için ADX bağlıysa, kullanın [örnek uygulaması](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) verileri oluşturmak için indirilen.
 
 ### <a name="clone"></a>Kopyala
+
 Örnek uygulamayı yerel olarak kopyalayın:
 
 ```cmd
 git clone git://github.com:Azure/azure-kusto-samples-dotnet.git
 cd ./azure-kusto-samples-dotnet/kafka/
 ```
+
 ### <a name="run-the-app"></a>Uygulamayı çalıştırma
+
 1. Örnek uygulama çözümünü Visual Studio'da açın.
 
 1. İçinde `Program.cs` dosyası, güncelleştirme `connectionString` Kafka bağlantı dizenizi için sabit.
@@ -127,11 +132,11 @@ cd ./azure-kusto-samples-dotnet/kafka/
     const string connectionString = @"<YourConnectionString>";
     ```
 
-1. Uygulamayı derleyin ve çalıştırın. Uygulama için Kafka kümesinin iletileri gönderir ve her on saniye durumunu yazdırır.
+1. Uygulamayı derleyin ve çalıştırın. Uygulama için Kafka kümesinin iletileri gönderir ve 10 saniyede durumunu yazdırır.
 
 1. Uygulamayı birkaç ileti gönderdikten sonra sonraki adıma geçin.
  
-## <a name="query-and-review-the-data"></a>Sorgulamak ve verileri gözden geçirin 
+## <a name="query-and-review-the-data"></a>Sorgulamak ve verileri gözden geçirin
 
 1. Emin olmak için alımı sırasında hata oluştu:
 

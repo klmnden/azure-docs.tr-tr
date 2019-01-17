@@ -9,16 +9,16 @@ ms.date: 11/27/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: jeconnoc
-ms.openlocfilehash: ecdb36af786d96a5b343d11cd689642d59528445
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 81d9fc7babef7c1d14a0acc420d0c16c05b83215
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888545"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354340"
 ---
 # <a name="state-management-with-service-fabric"></a>Service Fabric ile durum yönetimi
 
-Service Fabric, birçok farklı seçenek için durumu depolama alanını destekler. Kavramsal genel bakış durum yönetimi düzenleri ve Service Fabric için bkz: [Service Fabric Kavramları: durum](/azure/service-fabric/service-fabric-concepts-state). Hizmetlerinizi içinde veya Service Fabric Mesh dışında çalışan tüm aynı kavramlar geçerlidir. 
+Service Fabric, birçok farklı seçenek için durumu depolama alanını destekler. Kavramsal genel bakış durum yönetimi düzenleri ve Service Fabric için bkz: [Service Fabric Kavramları: Durum](/azure/service-fabric/service-fabric-concepts-state). Hizmetlerinizi içinde veya Service Fabric Mesh dışında çalışan tüm aynı kavramlar geçerlidir. 
 
 Service Fabric Mesh ile kolayca yeni bir uygulama dağıtın ve Azure'da barındırılan mevcut bir veri deposuna bağlanın. Herhangi bir uzak veritabanı kullanmanın yanı sıra, hizmet yerel veya uzak depolama olup istediği bağlı olarak verileri depolamak için birkaç seçenek vardır. 
 
@@ -30,7 +30,7 @@ Kapsayıcılar genellikle olun geçici diskler kullanır. Yeni, geçici bir disk
 
 ### <a name="service-fabric-reliable-volume"></a>Service Fabric güvenilir birim
 
-Service Fabric güvenilir birim kapsayıcısına yerel bir birimi bağlamak için kullanılan bir Docker birim sürücüsüdür. Okuma ve yazma işlemleri yerel işlemler ve hızlı olan. Veriler varsayılan olarak, yüksek oranda kullanılabilir hale getirme ikincil düğüm için çıkış çoğaltılır. Yük devretme hızlı çalışır. Bir kapsayıcı kilitlendiğinde verilerinizin bir kopyasının zaten bir düğüme devreder. Bir örnek için bkz [Service Fabric güvenilir toplu bir uygulamayla dağıtma.](https://github.com/Azure-Samples/service-fabric-mesh/tree/2018-09-01-preview/templates/counter)
+Service Fabric güvenilir birim kapsayıcısına yerel bir birimi bağlamak için kullanılan bir Docker birim sürücüsüdür. Okuma ve yazma işlemleri yerel işlemler ve hızlı olan. Veriler varsayılan olarak, yüksek oranda kullanılabilir hale getirme ikincil düğüm için çıkış çoğaltılır. Yük devretme hızlı çalışır. Bir kapsayıcı kilitlendiğinde verilerinizin bir kopyasının zaten bir düğüme devreder. Bir örnek için bkz. [Service Fabric güvenilir toplu bir uygulamayla dağıtma](service-fabric-mesh-howto-deploy-app-sfreliable-disk-volume.md).
 
 ### <a name="azure-files-volume"></a>Azure dosya birimi
 

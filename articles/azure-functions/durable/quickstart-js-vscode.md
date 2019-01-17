@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf, cotresne, glenga
-ms.openlocfilehash: 0db76e80b2ff7400e7c2914efbd2bbcb24d9b005
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 4ee1c9edf8cb10cae1a8a6e1c15f9bcf6e9a8ff8
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034327"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359468"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>JavaScript'te dayanıklı ilk işlevinizi oluşturma
 
@@ -94,7 +94,7 @@ Etkinlik işlevlerini koordine etmek için bir düzenleyici ekledik. Artık baş
 
 ## <a name="create-an-activity-function"></a>Bir etkinlik işlevi oluşturma
 
-1. HTTP tetikleyicisi şablonunu kullanarak, üçüncü bir işlev oluşturmak için önceki bölümlerde yer alan adımları yineleyin. Ancak bu kez işlev adı `SayHello`.
+1. HTTP tetikleyicisi şablonunu kullanarak, üçüncü bir işlev oluşturmak için önceki bölümlerde yer alan adımları yineleyin. Ancak bu kez işlev adı `E1_SayHello`.
 
 2. Yeni işlev için index.js dosyasını açın ve içeriğini aşağıdaki kodla değiştirin:
 
@@ -121,9 +121,11 @@ Azure İşlevleri Temel Araçları, Azure İşlevleri projenizi yerel geliştirm
 
     ![Azure yerel çıktısı](../media/functions-create-first-function-vs-code/functions-vscode-f5.png)
 
-4. HTTP isteğinin URL'sini tarayıcınızın adres çubuğuna yapıştırın ve, orchestration durumunu görürsünüz.
+4. `{functionName}` yerine `OrchestratorFunction` yazın.
 
-5. Hata ayıklamayı durdurmak için Shift + F1 tuşuna basın.
+5. Bir aracı gibi kullanarak [Postman](https://www.getpostman.com/) veya [cURL](https://curl.haxx.se/), URL uç noktasına bir HTTP POST isteği gönderin.
+
+6. Hata ayıklamayı durdurmak için VS Code'da Shift + F1 tuşuna basın.
 
 İşlevin yerel bilgisayarınızda düzgün çalıştığını doğruladıktan sonra, projeyi Azure'da yayımlamanın zamanı gelmiştir.
 

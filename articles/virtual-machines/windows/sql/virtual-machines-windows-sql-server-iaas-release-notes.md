@@ -15,22 +15,34 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/13/2018
 ms.author: mathoma
-ms.openlocfilehash: 52036d8f5d25fc4a4f2d1b602428e9cba4762b7f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: e3f44181ca1a5ea64815aadf52aa7ea792a21416
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993150"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358584"
 ---
 # <a name="sql-server-on-azure-virtual-machine-release-notes"></a>SQL Server Azure sanal makine sürüm notları
 
 Azure SQL Server'ın yerleşik görüntü ile bir sanal makine dağıtmanıza olanak tanır. Bu makalede, dağıtılan Azure sanal makinesinde SQL Server'ın en son sürümünde bekleyebileceğiniz yenilikleri ve yeni özellikleri listeler. 
 
+## <a name="december-2018"></a>Aralık 2018
+
+| **Değişiklik** | Ayrıntılar |
+| --- | --- |
+| **Yeni SQL kümesine Grup kaynak sağlayıcısı** | Windows Yük devretme kümesi hakkındaki meta verileri tanımlayan yeni bir kaynak sağlayıcısı (Microsoft.SqlVirtualMachine/SqlVirtualMachineGroup) yoktur. Bir SQL Server VM'si için birleştirme *SqlVirtualMachineGroup* Windows Yük devretme kümesi hizmeti bootstraps ve VM kümeye ekler.  |
+|**Azure hızlı başlangıç şablonları ile bir kullanılabilirlik grubu dağıtımı ayarlama otomatikleştirin** |Artık, Windows Yük devretme kümesi oluşturma, SQL Server Vm'leri için katılın, dinleyiciyi oluşturun ve iç Load Balancer iki Azure hızlı başlangıç şablonları ile yapılandırmak mümkündür. Daha fazla bilgi için [WSFC oluşturmak, dinleyiciyi ve ILB Azure Hızlı Başlangıç şablonu ile bir SQL Server VM'de Always On kullanılabilirlik grubu için yapılandırma](virtual-machines-windows-sql-availability-group-quickstart-template.md). | 
+| **Otomatik SQL VM kaynak Sağlayıcısı kaydı** | SQL Server Vm'leri bu ay otomatik olarak kayıtlı sonra yeni SQL Server Kaynak sağlayıcısı ile dağıtılabilir. SQL Server bu ay önce dağıtılan Vm'leri yine de el ile kayıtlı olması gerekir. Daha fazla bilgi için [mevcut bir SQL VM ile yeni kaynak sağlayıcısını kaydetme](virtual-machines-windows-sql-ahb.md#register-existing-sql-server-vm-with-new-resource-provider).|
+| &nbsp; | &nbsp; |
+
 
 ## <a name="november-2018"></a>Kasım 2018
-- **Yeni SQL kaynak sağlayıcısı**: yeni bir kaynak sağlayıcısı için sanal makinenizin daha iyi yönetimine olanak SQL VM'ler için yoktur. VM'nizi kaydetme ile ilgili daha fazla bilgi için bkz: [mevcut bir SQL VM ile yeni kaynak sağlayıcısını kaydetme](virtual-machines-windows-sql-ahb.md#register-existing-sql-vm-with-new-resource-provider).
-- **Lisanslama modeli geçiş**: artık Azure CLI veya PowerShell kullanarak SQL vm'nizin kullanım başına ödeme ve Getir kendi lisans modeli arasında geçiş yapabilirsiniz. Daha fazla bilgi için [bir SQL VM için lisanslama modelini değiştirme](virtual-machines-windows-sql-ahb.md)
 
+| **Değişiklik** | Ayrıntılar |
+| --- | --- |
+| **Yeni SQL VM kaynak sağlayıcısı** |  İçin SQL Server VM'nize daha iyi yönetimine olanak tanıyan SQL Server Vm'leri (Microsoft.SqlVirtualMachine) için yeni bir kaynak sağlayıcısı yok. VM'nizi kaydetme ile ilgili daha fazla bilgi için bkz: [mevcut bir SQL VM ile yeni kaynak sağlayıcısını kaydetme](virtual-machines-windows-sql-ahb.md#register-existing-sql-server-vm-with-new-resource-provider). |
+|**Anahtar lisanslama modeli** |Şimdi Azure CLI veya Powershell kullanarak SQL vm'nizin kullanım başına ödeme ve Getir kendi lisans modeli arasında geçiş yapabilirsiniz. Daha fazla bilgi için [bir SQL VM için lisanslama modelini değiştirme](virtual-machines-windows-sql-ahb.md). | 
+| &nbsp; | &nbsp; |
 
 
 ## <a name="additional-resources"></a>Ek kaynaklar

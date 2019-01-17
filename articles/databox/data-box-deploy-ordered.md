@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/09/2019
+ms.date: 01/16/2019
 ms.author: alkohli
-ms.openlocfilehash: 00c001b5c0c2c3dab86477fca798ec651f7b6c93
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 5ce8217629cff702ecd3ec274d77918e54efacc6
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189975"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359128"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Öğretici: Azure Data Box'ı sırası
 
@@ -22,7 +22,7 @@ Azure Data Box, şirket içi verilerinizi Azure'a hızlı, kolay ve güvenilir b
 Bu öğreticide Azure Data Box sipariş etme adımları açıklanır. Bu öğreticide şunları öğrenirsiniz:
 
 > [!div class="checklist"]
-> * Data Box’a kaydolma
+> * Data Box dağıtımı önkoşulları
 > * Data Box sipariş etme
 > * Siparişi izleme
 > * Siparişi iptal etme
@@ -63,7 +63,7 @@ Cihaz sipariş etmek için Azure portalında aşağıdaki adımları izleyin.
 4. Data Box'ın bölgenizde kullanılabilir olup olmadığını kontrol edin. Aşağıdaki bilgileri girin veya seçin ve sonra **Uygula**'ya tıklayın. 
     |Ayar  |Değer  |
     |---------|---------|
-    |Abonelik     | Data Box hizmeti için bir EA, CSP veya kullandıkça öde aboneliği seçin. <br> Abonelik fatura hesabınıza bağlıdır.       |
+    |Abonelik     | Data Box hizmeti için bir kurumsal Anlaşma, CSP veya Azure sponsorluğu aboneliği seçin. <br> Abonelik fatura hesabınıza bağlıdır.       |
     |Aktarım türü     | **Azure’a içeri aktar**’ı seçin.        |
     |Kaynak ülke     |   Verilerinizin bulunduğu ülkeyi seçin.         |
     |Hedef Azure bölgesi     |     Verileri aktarmak istediğiniz Azure bölgesini seçin.        |
@@ -79,7 +79,7 @@ Cihaz sipariş etmek için Azure portalında aşağıdaki adımları izleyin.
     |Ad     |  Siparişi takip etmek için kullanılacak kolay bir ad girin. <br> Ad harf, rakam ve tirelerden oluşan 3-24 karakter arası uzunlukta olabilir. <br> Ad bir harf veya sayıyla başlamalı ve bitmelidir.      |
     |Kaynak grubu     |   Var olan bir taneyi kullanın veya yenisini oluşturun. <br> Kaynak grubu, birlikte yönetilebilen ve ya dağıtılabilen kaynaklardan oluşan mantıksal kapsayıcıdır.         |
     |Hedef Azure bölgesi     | Depolama hesabınız için bir bölge seçin. <br> Daha fazla bilgi için [bölge kullanılabilirliği](data-box-overview.md#region-availability)’ne gidin.        |
-    |Depolama hesapları     | Belirtilen Azure bölgesine göre filtrelenen listeden var olan bir veya daha fazla depolama hesabı seçin. Data Box en çok 10 depolama hesabına bağlanabilir. <br> Dilerseniz yeni bir **Genel amaçlı v1**, **Genel amaçlı v2** veya **Blob depolama hesabı** da oluşturabilirsiniz.        |
+    |Depolama hesapları     | Belirtilen Azure bölgesine göre filtrelenen listeden var olan bir veya daha fazla depolama hesabı seçin. Data Box en çok 10 depolama hesabına bağlanabilir. <br> Dilerseniz yeni bir **Genel amaçlı v1**, **Genel amaçlı v2** veya **Blob depolama hesabı** da oluşturabilirsiniz. Yapılandırılmış kurallara sahip depolama hesapları kullanılamaz. Depolama hesapları gereken **tüm ağlardan erişime izin ver** fireworks ve sanal ağlar bölümünde.|
     
 7. **Teslimat adresi**’ne adınızı, soyadınızı, şirket adını, posta adresini ve geçerli bir telefon numarasını girin. **Adresi doğrula**'ya tıklayın. Hizmet, teslimat adresinde hizmetin kullanılabilirlik durumunu doğrular. Hizmet belirtilen teslimat adresinde kullanılabilir durumdaysa bu konuda bir bildirim gönderilir. **İleri**’ye tıklayın.
 
@@ -94,7 +94,7 @@ Cihaz sipariş etmek için Azure portalında aşağıdaki adımları izleyin.
 
 ## <a name="track-the-order"></a>Siparişi izleme
 
-Siparişi verdikten sonra durumunu Azure portalından takip edebilirsiniz. Siparişinize gidin ve durumunu görüntülemek için **Genel bakış** sayfasını inceleyin. Portalda siparişin durumu **Sipariş edildi** olarak görünür.
+Siparişi verdikten sonra durumunu Azure portalından takip edebilirsiniz. Data Box Siparişiniz gidin ve ardından Git **genel bakış** durumunu görüntülemek için. Portalda siparişin durumu **Sipariş edildi** olarak görünür.
 
 Cihaz yoksa bir bildirim alırsınız. Cihaz varsa, Microsoft gönderilecek cihazı belirler ve gönderimi hazırlar. Cihaz hazırlanırken şu eylemler gerçekleştirilir:
 

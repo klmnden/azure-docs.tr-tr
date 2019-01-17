@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/05/2018
+ms.date: 01/15/2019
 ms.author: jgao
 ms.custom: include file
-ms.openlocfilehash: 711688b5b414e7b9a931190de3f7e6321d97ba3e
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 11bcfa1b4719d6def5bfc4a6a189bd2b58896b5b
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53729348"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54334320"
 ---
 ## <a name="quickstarts-and-tutorials"></a>Hızlı başlangıçlar ve öğreticiler
 
@@ -48,5 +48,6 @@ Kaynak yöneticisi şablonları geliştirmeyi öğrenmek için aşağıdaki hız
     |[SQL uzantıları dağıtma](../articles/azure-resource-manager/resource-manager-tutorial-deploy-sql-extensions-bacpac.md)|Uzantıları kullanarak dağıtım sonrası görevlerini gerçekleştirin. Öğreticide, bir müşteri betik uzantısını sanal makine üzerinde web sunucusu yüklemek için dağıtın. |
     |[Yapıtları güvenliğini sağlama](../articles/azure-resource-manager/resource-manager-tutorial-secure-artifacts.md)|Dağıtımı tamamlamak için gereken yapıtları güvenli hale getirin. Öğreticide dağıtma SQL uzantıları öğreticide kullanılan yapıt güvenli hale getirmeyi öğrenin. |
     |[Güvenli dağıtım uygulamaları kullanma](../articles/azure-resource-manager/deployment-manager-tutorial.md)|Azure Dağıtım Yöneticisi'ni kullanma. |
+    |[Öğretici: Resource Manager şablon dağıtımları sorunlarını giderme](../articles/azure-resource-manager/resource-manager-tutorial-troubleshoot.md)|Şablonu dağıtım sorunlarını giderme.|
 
 Bu öğreticiler ana Resource Manager şablonu geliştirme kavramları hakkında bilgi için ayrı ayrı veya bir dizi olarak kullanılabilir.

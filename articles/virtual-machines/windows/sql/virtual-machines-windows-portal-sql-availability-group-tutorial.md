@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: 1605fdc5e49d2b8e95a2876dea8dff378ee33e2e
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 65ccf45ea8ea1f8f553be0b2c599f5c1433fc3e8
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232286"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359723"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Yapılandırma Always On kullanılabilirlik grubu Azure VM'de el ile
 
@@ -51,6 +51,9 @@ Aşağıdaki tabloda, bu öğreticiye başlamadan önce tamamlanması gereken ö
 
 
 Öğreticiye başlamadan önce yapmanız [Azure sanal makinelerinde Always On kullanılabilirlik grupları oluşturmak için gerekli önkoşulları tamamlayın](virtual-machines-windows-portal-sql-availability-group-prereq.md). Bu Önkoşullar zaten tamamlanmışsa, atlayabilirsiniz [küme oluşturma](#CreateCluster).
+
+  >[!NOTE]
+  > Bu öğreticideki adımların birçok bir Azure Hızlı Başlangıç şablonu kullanarak otomatik olarak yapılabilir. Daha fazla bilgi için [WSFC oluşturmak, dinleyiciyi ve ILB Azure hızlı başlangıç şablonları ile bir SQL Server VM'de Always On kullanılabilirlik grubu için yapılandırma](virtual-machines-windows-sql-availability-group-quickstart-template.md).
 
 
 <!--**Procedure**: *This is the first “step”. Make titles H2’s and short and clear – H2’s appear in the right pane on the web page and are important for navigation.*-->

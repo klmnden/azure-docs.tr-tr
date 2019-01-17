@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: e1c563f33030795d52cc686bf52497f927ace6bc
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 3f13cb2626394d16a127b172bb69c4ab88121cdb
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017710"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352538"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>SQL Server saklı yordam etkinliği
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -76,7 +76,7 @@ Aşağıdaki kılavuzda bir Azure SQL veritabanında bir saklı yordam çağırm
 2. Aşağıdaki oluşturma **saklı yordamı** verileri için ekler **sampletable**.
 
     ```SQL
-    CREATE PROCEDURE sp_sample @DateTime nvarchar(127)
+    CREATE PROCEDURE usp_sample @DateTime nvarchar(127)
     AS
 
     BEGIN
@@ -108,7 +108,7 @@ Aşağıdaki kılavuzda bir Azure SQL veritabanında bir saklı yordam çağırm
    ![Data Factory giriş sayfası](media/data-factory-stored-proc-activity/data-factory-home-page.png)
 
 ### <a name="create-an-azure-sql-linked-service"></a>Bir Azure SQL bağlı hizmeti oluşturma
-Veri fabrikasını oluşturduktan sonra bir Azure SQL oluşturma sampletable tablo ve sp_sample içerir, Azure SQL veritabanına bağlanan bağlı hizmeti saklı yordamsa, veri fabrikanızın için.
+Veri fabrikasını oluşturduktan sonra bir Azure SQL oluşturma sampletable tablo ve usp_sample içerir, Azure SQL veritabanına bağlanan bağlı hizmeti saklı yordamsa, veri fabrikanızın için.
 
 1. Tıklayın **yazar ve dağıtma** üzerinde **Data Factory** dikey **SProcDF** Data Factory Düzenleyicisi'ni başlatmak için.
 2. Tıklayın **yeni veri deposu** komut çubuğu ve seçin **Azure SQL veritabanı**. Düzenleyici'de Azure SQL bağlı hizmeti oluşturmak için JSON betiğini görmeniz gerekir.
@@ -160,7 +160,7 @@ Saklı yordam herhangi bir veri oluşturmaz olsa bile bir çıktı veri kümesi 
 Aşağıdaki özelliklere dikkat edin: 
 
 - **Türü** özelliği **SqlServerStoredProcedure**. 
-- **StoredProcedureName** türü özellikler ayarlanır **sp_sample** (saklı yordamın adı).
+- **StoredProcedureName** türü özellikler ayarlanır **usp_sample** (saklı yordamın adı).
 - **StoredProcedureParameters** bölümü adlı bir parametre içeren **DateTime**. Adı ve büyük/küçük harf saklı yordam tanımında parametre adı ve parametre JSON içinde büyük küçük harfleri eşleşmesi gerekir. Bir parametre için null geçmesi, söz dizimini kullanın: `"param1": null` (tamamı küçük harflerle).
  
 1. Düğmeyi görmüyorsanız araç çubuğunda **... Daha fazla** tıklayın ve komut çubuğunda **yeni işlem hattı**.
@@ -174,7 +174,7 @@ Aşağıdaki özelliklere dikkat edin:
                 {
                     "type": "SqlServerStoredProcedure",
                     "typeProperties": {
-                        "storedProcedureName": "sp_sample",
+                        "storedProcedureName": "usp_sample",
                         "storedProcedureParameters": {
                             "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
                         }
@@ -340,7 +340,7 @@ CREATE CLUSTERED INDEX ClusteredID ON dbo.sampletable2(Id);
 **Saklı yordam:**
 
 ```SQL
-CREATE PROCEDURE sp_sample2 @DateTime nvarchar(127) , @Scenario nvarchar(127)
+CREATE PROCEDURE usp_sample2 @DateTime nvarchar(127) , @Scenario nvarchar(127)
 
 AS
 
@@ -355,7 +355,7 @@ END
 ```JSON
 "typeProperties":
 {
-    "storedProcedureName": "sp_sample",
+    "storedProcedureName": "usp_sample",
     "storedProcedureParameters":
     {
         "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)",
@@ -394,7 +394,7 @@ END
             {
                 "type": "SqlServerStoredProcedure",
                 "typeProperties": {
-                    "storedProcedureName": "sp_sample2",
+                    "storedProcedureName": "usp_sample2",
                     "storedProcedureParameters": {
                         "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)",
                         "Scenario": "Document sample"

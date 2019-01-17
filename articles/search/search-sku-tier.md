@@ -7,32 +7,32 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 01/15/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3c5e4d568e7118d50ce8779402526fca77ccdda7
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 664e31590f578b65da09f1e0fe8f57d579ed3cfc
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315563"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354561"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Azure arama için bir fiyatlandırma katmanı seçin
 
-Azure Search'te bir [sağlanan hizmet](search-create-service-portal.md) fiyatlandırma katmanı veya hizmet ömrü boyunca sabit SKU. Katmanlar **ücretsiz**, **temel**, veya **standart**burada **standart** yapılandırmaları ve kapasiteler içinde bulunabilir. Çoğu müşteri başlayın **ücretsiz** katmanı için değerlendirme ve ardından ölçeğine geçin **standart** geliştirme ve üretim dağıtımları için. Üzerindeki tüm Hızlı başlangıçlar ve öğreticilerle tamamlayabilirsiniz **ücretsiz** katmanı, kaynak kullanımı yoğun bilişsel arama için dahil olmak üzere. 
+Azure Search'te bir [kaynak oluşturulduğu](search-create-service-portal.md) fiyatlandırma katmanı veya hizmet ömrü boyunca sabit SKU. Katmanlar **ücretsiz**, **temel**, veya **standart**burada **standart** çeşitli yapılandırmaları ve kapasiteler kullanılabilir. Çoğu müşteri başlayın **ücretsiz** katmanı için değerlendirme ve ardından ölçeğine geçin **standart** geliştirme ve üretim dağıtımları için. Üzerindeki tüm Hızlı başlangıçlar ve öğreticilerle tamamlayabilirsiniz **ücretsiz** katmanı, kaynak kullanımı yoğun bilişsel arama için dahil olmak üzere. 
 
 Katmanları değil özellikleri, kapasite belirlemek ve tarafından ayrılır:
 
 + Oluşturabileceğiniz dizin sayısı
 + Boyutuna ve hızına bölümleri (fiziksel depolama)
 
-Tüm katmanları olsa da dahil olmak üzere **ücretsiz** katman, genellikle özellik eşliği teklif daha büyük iş yükleri, daha yüksek katmanlara yönelik gereksinimleri dikte. Örneğin, [bilişsel arama](cognitive-search-concept-intro.md) dizin sahip uzun süre çalışan becerileri, zaman aşımı ücretsiz bir hizmet veri kümesi çok daha düşük olacağını sürece.
+Tüm katmanları olsa da dahil olmak üzere **ücretsiz** katman, genellikle özellik eşliği teklif daha büyük iş yükleri, daha yüksek katmanlara yönelik gereksinimleri dikte. Örneğin, [bilişsel arama](cognitive-search-concept-intro.md) dizin sahip uzun süre çalışan becerileri, zaman aşımı ücretsiz bir hizmet veri kümesini küçük özelleştirmede sürece.
 
 > [!NOTE] 
 > Özellik eşliği istisnası [dizin oluşturucular](search-indexer-overview.md), hangi S3HD üzerinde mevcut değildir.
 >
 
-Bir katman içinde yapabilecekleriniz [çoğaltma ve bölüm kaynakları](search-capacity-planning.md) performans ayarlama. İki veya üç her ile başlayabilir ancak, işlem gücünü ağır bir dizin oluşturma iş yükü için geçici olarak oluşturabilen. Bir katman içinde kaynak düzeylerini ayarlama olanağı esneklik kazandırır ancak biraz da analiz karmaşık hale getirir. Daha düşük bir katmana daha yüksek kaynak/yinelemeler ile daha iyi değeri ve daha düşük kaynak ile daha yüksek bir katmana performans sunar görmek için denemeniz gerekebilir. Ne zaman ve neden kapasiteyi ayarlamak hakkında daha fazla bilgi için bkz: [performans ve iyileştirme konuları](search-performance-optimization.md).
+Bir katman içinde yapabilecekleriniz [çoğaltma ve bölüm kaynakları](search-capacity-planning.md) performans ayarlama. İki veya üç her ile başlamalı ve geçici olarak bir dizin oluşturma ağır iş yükü için işlem gücünü yükseltmek. Bir katman içinde kaynak düzeylerini ayarlama olanağı esneklik kazandırır ancak biraz da analiz karmaşık hale getirir. Daha düşük bir katmana daha yüksek kaynak/yinelemeler ile daha iyi değeri ve daha düşük kaynak ile daha yüksek bir katmana performans sunar görmek için denemeniz gerekebilir. Ne zaman ve neden kapasiteyi ayarlamak hakkında daha fazla bilgi için bkz: [performans ve iyileştirme konuları](search-performance-optimization.md).
 
 <!---
 The purpose of this article is to help you choose a tier. It supplements the [pricing page](https://azure.microsoft.com/pricing/details/search/) and [Service Limits](search-limits-quotas-capacity.md) page with a digest of billing concepts and consumption patterns associated with various tiers. It also recommends an iterative approach for understanding which tier best meets your needs. 
@@ -40,23 +40,46 @@ The purpose of this article is to help you choose a tier. It supplements the [pr
 
 ## <a name="how-billing-works"></a>Faturalandırma nasıl çalışır?
 
-Azure Search'te anlamak için en önemli fatura kavramdır bir *arama birimi* (SU). Azure Search çoğaltmaları hem işlevi bölümlere bağlı olduğundan, yalnızca birini veya diğerini tarafından faturalandırmak için anlam ifade etmez. Bunun yerine, her iki bileşik üzerinde üzerinden faturalandırılır. 
+Azure Search'te, portalda bir arama kaynak oluştururken maliyetler doğurduğuna dört yolu vardır:
+
+* Çoğaltmalar ve bölümler normal dizin oluşturma ve görevleri sorgulamak için kullanılan ekleniyor. Her biri ile başlayın, ancak birini veya ikisini eklemek için kapasite seçme ve ek kaynak düzeyleri için ödeme artırabilirsiniz. 
+* Dizin oluşturma sırasında veri çıkış ücretleri. Bir Azure SQL veritabanı veya Cosmos DB veri kaynağından veri çekme sırasında bu kaynaklar için fatura işlemde yönelik ücretleri görürsünüz.
+* İçin [bilişsel arama](cognitive-search-concept-intro.md) yalnızca görüntü ayıklama belge çözme sırasında belgelerinizden ayıklanan resimlerinin sayısı üzerinden faturalandırılır. Metin ayıklama şu anda ücretsiz olarak kullanılabilir.
+* İçin [bilişsel arama](cognitive-search-concept-intro.md) zenginleştirmelerinin yalnızca, temel alarak [yerleşik bilişsel beceriler](cognitive-search-predefined-skills.md) bir Bilişsel hizmetler kaynağı göre faturalandırılır. Bilişsel hizmetler kullanarak doğrudan görev gerçekleştirilen gibi zenginleştirmelerinin aynı oranda faturalandırılır.
+
+Kullanmıyorsanız, [bilişsel arama](cognitive-search-concept-intro.md) veya [Azure Search dizin oluşturucularında](search-indexer-overview.md), çoğaltmalar ve bölümler normal dizin oluşturma ve sorgu iş yükleri için etkin kullanımda yalnızca maliyetlerinizi ilgilidir.
+
+### <a name="billing-for-general-purpose-indexing-and-queries"></a>Genel amaçlı dizin oluşturma ve sorgular için faturalama
+
+Azure arama işlemleri için en önemli fatura kavramı anlamak için olan bir *arama birimi* (SU). Çoğaltmalar ve bölümler dizin oluşturma ve sorgular için Azure Search bağlı olduğundan, onu yalnızca birini veya diğerini tarafından faturalandırmak için anlam ifade etmez. Bunun yerine, her iki bileşik üzerinde üzerinden faturalandırılır. 
 
 SU olan çarpımını *çoğaltma* ve *bölümleri* hizmeti tarafından kullanılan: **`(R X P = SU)`**
 
-Her hizmetin en az 1 SU (bir çoğaltma bir bölüm ile çarpılmış) başlar. En büyük herhangi bir hizmet için birden çok yolla sağlanabilir 36 su şöyledir: 6 bölümler x 6 çoğaltmalar veya 3 bölümler x 12 çoğaltmalar. 
-
-Daha azını toplam kapasite kullanımı yaygındır. 9 SUs faturalandırılır. Örneğin, bir yineleme 3, 3 bölümlü hizmeti. 
+Her hizmetin en az bir SU (bir çoğaltma bir bölüm ile çarpılmış) başlar. En büyük herhangi bir hizmet için birden çok yolla sağlanabilir 36 su şöyledir: 6 bölümler x 6 çoğaltmalar veya 3 bölümler x 12 çoğaltmalar. Daha azını toplam kapasite kullanımı yaygındır. 9 SUs faturalandırılır. Örneğin, bir yineleme 3, 3 bölümlü hizmeti. 
 
 Fatura oranı **SU başına saatlik**, giderek daha yüksek fiyatlarla sahip her bir katman ile. Genel olarak daha yüksek bir saatlik ücret söz konusu katman için katkıda bulunan, daha büyük ve daha hızlı bölümleri olan daha yüksek katmanlarında sunulur. Her katmanın bulunabilir için derecelendirir [fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/search/). 
 
 Çoğu müşteri, toplam kapasite çevrimiçi olarak yalnızca bir kısmını rest yedekte bulunduran getirin. Faturalama bakımından, bölümler ve çoğaltmalar çevrimiçi, hesaplanmış, aslında saatlik olarak ödersiniz belirleyen SU formülü kullanarak Getir sayısıdır.
 
-### <a name="tips-for-reducing-costs"></a>Maliyetleri azaltmak için ipuçları
+### <a name="billing-for-image-extraction-in-cognitive-search"></a>Bilişsel arama görüntü ayıklama faturalandırması
+
+Bilişsel arama işlem hattı dizinleme dosyalarından görüntüleri ayıklıyorsanız, Azure Search faturanızda bu işlem için ücretlendirilirsiniz. Görüntü ayıklama tetikleyen parametre **imageAction** içinde bir [dizin oluşturucu yapılandırmasını](https://docs.microsoft.com/erest/api/searchservice/create-indexer#indexer-parameters). Varsa **imageAction** ayarlanır hiçbiri için (varsayılan), ücretsizdir görüntü ayıklama için.
+
+Fiyatlandırma, değiştirilebilir, ancak her zaman öğesinde belgelendirilen [fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/search/) Azure Search için sayfa. 
+
+### <a name="billing-for-built-in-skills-in-cognitive-search"></a>Bilişsel arama yerleşik yeteneklerinizi faturalandırması
+
+Zenginleştirme işlem hattı ayarladığınızda herhangi [yerleşik yetenekler](cognitive-search-predefined-skills.md) işlem hattında kullanılan makine öğrenimi modelleri üzerinde temel alır. Bu model, Bilişsel hizmetler tarafından sağlanır. Dizin oluşturma sırasında bu modelleri kullanımını doğrudan kaynak istenen gibi aynı fiyattan faturalandırılır.
+
+Örneğin, burada elde edilen metnini serbest biçimli arama sorguları için bir Azure Search dizinine gönderildiğinde taranmış görüntü JPEG dosyaları karşı optik karakter tanıma (OCR) oluşan bir işlem hattı varsayalım. Bir dizin oluşturucu ile dizin oluşturma işlem hattınızı verilebilir [OCR beceri](cognitive-search-skill-ocr.md), beceri yanıtlayabiliriz [Bilişsel hizmetler kaynağa bağlı](cognitive-search-attach-cognitive-services.md). Dizin Oluşturucu çalıştırdığınızda, ücretleri OCR yürütme için Bilişsel kaynakları faturanızda görünür.
+
+## <a name="tips-for-reducing-costs"></a>Maliyetleri azaltmak için ipuçları
 
 Fatura düşürmek için hizmeti Kapat olamaz. İşletimsel 24-hizmetinizin ömrü, özel kullanım için ayrılan 7, ayrılmış kaynaklardır. Çoğaltmalar ve bölümler hala kabul edilebilir performans sağlayan düşük bir düzeyde azaltarak tek yolu bir fatura daha düşük olan ve [SLA Uyumluluk](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
 
-Maliyetleri azaltmak için bir düzeyi daha düşük bir saatlik ücret bir katman seçmektir. Saatlik ücretler S1, S2 veya S3 ücretlerinden daha düşük. Uygulamanızın yük projeksiyonlar alt sonunda amaçlayan bir hizmet için kaynak sağlanamadı. Hizmet aşıyorsa, daha büyük katmanlı ikinci bir hizmet oluşturun, bu ikinci bir hizmet üzerinde yeniden ve ilk silin. Kapasite planlaması şirket içi sunucularda yaptığınız varsa, yaygın "Gelecekteki büyümeyi işleyebilmeniz kaydolabileceksiniz" olduğunu bilirsiniz. Ancak, belirli bir satın alma için kilitli çünkü bir bulut hizmeti ile daha fazla maliyet tasarrufu agresif daha sonra amacınızın. Geçerli yetersizse, daha yüksek katmanlı bir hizmet için her zaman geçiş yapabilirsiniz.
+Maliyetleri azaltmak için bir düzeyi daha düşük bir saatlik ücret bir katman seçmektir. Saatlik ücretler S1, S2 veya S3 ücretlerinden daha düşük. Hizmet aşıyorsa, daha düşük, yük projeksiyonlar sonunda amaçlayan bir hizmet sağlama varsayılarak, daha büyük katmanlı ikinci bir hizmet oluşturma, bu ikinci hizmetine yeniden ve ilk silin. 
+
+Kapasite planlaması şirket içi sunucularda yaptığınız varsa, yaygın "Gelecekteki büyümeyi işleyebilmeniz kaydolabileceksiniz" olduğunu bilirsiniz. Ancak, belirli bir satın alma için kilitli çünkü bir bulut hizmeti ile daha fazla maliyet tasarrufu agresif daha sonra amacınızın. Geçerli yetersizse, daha yüksek katmanlı bir hizmet için her zaman geçiş yapabilirsiniz.
 
 ### <a name="capacity-drill-down"></a>Kapasite detaya gitme
 
@@ -143,9 +166,9 @@ Sınırlarını depolama (bölümler) veya sınırlarını kaynaklar (dizin, diz
 
 **Sorgu toplu konuları**
 
-Sorguları saniye (QPS) performans ayarlama sırasında teklifleriyle kazandığında bir ölçüm, ancak gizliliğe çok yüksek sorgu toplu beklediğiniz sürece genellikle katmanını göz önünde bulundurarak değil.
+Sorguları saniye (QPS) performans ayarlama sırasında teklifleriyle kazandığında bir ölçüm, ancak gizliliğe yüksek sorgu toplu beklenenden sürece genellikle katmanını göz önünde bulundurarak değil.
 
-Tüm standart katmanların Ek çoğaltmalar aracılığıyla daha hızlı sorgu döngü paralel işleme karşı ve ek bölümleri yüklemek için destek, bölüm çoğaltmalarını dengesi sunabilir. Hizmet sağlandıktan sonra performans için ayarlayabilirsiniz.
+Standart katmanların Ek çoğaltmalar aracılığıyla daha hızlı sorgu döngü paralel işleme karşı ve ek bölümleri yüklemek için destek, bölüm çoğaltmalarını dengesi teslim edebilirsiniz. Hizmet sağlandıktan sonra performans için ayarlayabilirsiniz.
 
 Strong beklediğiniz müşteri gizliliğe birimlerden daha yüksek katmanlarında, daha güçlü donanım tarafından desteklenen dikkate almanız gereken sorgu Sürdürülen. Bölümleri ve çoğaltmalarını çevrimdışı duruma getirin veya gerçekleştirmek bu sorgu birimlerin başarısız olduğunda bile daha düşük bir katman hizmetine geçin. Sorgu aktarım hızını hesaplamaya yönelik hakkında daha fazla bilgi için bkz. [Azure Search performans ve iyileştirme](search-performance-optimization.md).
 
@@ -158,7 +181,7 @@ Strong beklediğiniz müşteri gizliliğe birimlerden daha yüksek katmanlarınd
 
 + Etkin dizinler oluşturmak nasıl ve hangi yenileme yöntemleri olan öğrenin az impactful. Öneririz [trafik analizi arama](search-traffic-analytics.md) sorgu etkinliği elde edilen içgörüleri için.
 
-+ Sorgular oluşturabilir ve kullanım biçimlerini (yoğun olmayan saatlerde dizin sorgular çalışma saatleri) geçici olarak veri toplamak ölçümlerin sabitlenmesine ve gelecek hizmet kararları sağlama bildirmek için bu verileri kullanın. Pratik bir saatlik veya günlük düzeyinde olsa da, bölümler ve düzeyleri eylemde garanti altına almak yeterince uzun tutarsanız planlı değişiklikler sorgu birimler, ya da planlanmamış ancak sürekli değişiklikler karşılamak için kaynakları dinamik olarak ayarlayabilirsiniz.
++ Sorgular oluşturabilir ve kullanım biçimlerini (yoğun olmayan saatlerde dizin sorgular çalışma saatleri) geçici olarak veri toplamak ölçümlerin sabitlenmesine ve gelecek hizmet kararları sağlama bildirmek için bu verileri kullanın. Pratik bir saatlik veya günlük temposu adresindeki olsa da, bölümler ve düzeyleri eylemde garanti altına almak yeterince uzun tutarsanız planlı değişiklikler sorgu birimler, ya da planlanmamış ancak sürekli değişiklikler karşılamak için kaynakları dinamik olarak ayarlayabilirsiniz.
 
 + Sağlama tek dezavantajı, Gerçek gereksinimler tahmini büyük olması durumunda bir hizmeti ayırma gerekebilir olduğunu unutmayın. Hizmet kesintisi yaşamamak için daha yüksek bir katmandan aynı abonelikte yeni bir hizmet oluşturmak ve çalıştırmak yan yana tüm uygulamaları ve istekleri yeni uç nokta hedef kadar.
 

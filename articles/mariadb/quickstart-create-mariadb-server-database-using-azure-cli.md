@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/09/2019
 ms.custom: mvc
-ms.openlocfilehash: 0a629b9b068694960178c1c5727ba2f38b0e8af7
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 7d45c11345312fe48312bd4e744433397a17a62d
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190349"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359332"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Azure CLI kullanarak MariaDB için Azure Veritabanı sunucusu oluşturma
 
@@ -59,10 +59,10 @@ version | **10.2** | MariaDB büyük altyapı sürümü.
 admin-user | **myadmin** | Yöneticinin oturum açma kullanıcı adı. **admin-user** parametresi **azure_superuser**, **admin**, **administrator**, **root**, **guest** veya **public** olamaz.
 admin-password | *parolanız* | Yönetici kullanıcının parolası. Parolanız 8 ile 128 arasında karakter içermelidir. Şu kategorilerin üçünden karakterler içermelidir: İngilizce harfler, İngilizce küçük harfler, sayılar ve alfasayısal olmayan karakterler büyük.
 
-**sku-name** parametresi, aşağıdaki örneklerde gösterildiği gibi *fiyatlandırma katmanı*\_*işlem nesli*\_*sanal çekirdek sayısı* düzenini izler:
-+ `--sku-name B_Gen5_4` Temel fiyatlandırma katmanı, 5. Nesil işlem ve 4 sanal çekirdek anlamına gelir.
-+ `--sku-name GP_Gen5_32` Genel Amaçlı fiyatlandırma katmanı, 5. Nesil işlem ve 32 sanal çekirdek anlamına gelir.
-+ `--sku-name MO_Gen5_2` Bellek İçin İyileştirilmiş fiyatlandırma katmanı, 5. Nesil işlem ve 2 sanal çekirdek anlamına gelir.
+sku-name parametresi değeri aşağıdaki örneklerde gösterildiği gibi {fiyatlandırma katmanı}\_{işlem oluşturma}\_{sanal çekirdek} kuralını kullanır:
++ `--sku-name B_Gen5_1` Temel ve 5. nesil 1 sanal çekirdek eşlenir. Bu seçenek en küçük SKU kullanılabilir olur.
++ `--sku-name GP_Gen5_32` Genel Amaçlı, Gen 5 ve 32 sanal çekirdekle eşleşir.
++ `--sku-name MO_Gen5_2` Bellek için iyileştirilmiş, Gen 5 ve 2 sanal çekirdekle eşleşir.
 
 Bölgelere ve katmanlara göre geçerli değerler hakkında bilgi için bkz. [Fiyatlandırma katmanları](./concepts-pricing-tiers.md).
 

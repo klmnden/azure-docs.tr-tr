@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: shnatara
-ms.openlocfilehash: abb77f59e49a98c1195dcd2e7b622b2b8e3fd7b8
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 151f6fa7880db03909c522147d9c1f74508f51a1
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087296"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351858"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Azure Stack'te bir Service Fabric kümesine dağıtma
 
@@ -118,7 +118,7 @@ Anahtar kasası oluşturmak ve eklemek için aşağıdaki betiği kullanın *kü
    ``` 
 
 
-Daha fazla bilgi için [yönetme anahtar kasası PowerShell ile Azure Stack'te](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-kv-manage-powershell).
+Daha fazla bilgi için [yönetme anahtar kasası PowerShell ile Azure Stack'te](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-key-vault-manage-powershell).
 
 ## <a name="deploy-the-marketplace-item"></a>Market öğesi dağıtma
 
@@ -138,10 +138,10 @@ Daha fazla bilgi için [yönetme anahtar kasası PowerShell ile Azure Stack'te](
 
    İçin *yönetici istemci sertifikası parmak izi*, parmak izini girin *yönetici istemci sertifikası*. (Bkz [önkoşulları](#prerequisites).)
    
-   - Kaynak Key Vault: tüm belirtin *keyVault kimliği* betik sonuçlarını dizeden. 
-   - Küme sertifikası URL'si: tüm URL'den belirtin *gizli kimliği* betik sonuçlarından. 
-   - Küme sertifikası parmak izi: belirtin *küme sertifikası parmak izi* betik sonuçlarından.
-   - Yönetici istemci sertifikası parmak izleri: Belirtin *yönetici istemci sertifikası parmak izi* önkoşullarda oluşturulur. 
+   - Kaynak Key Vault:  Tüm belirtin *keyVault kimliği* betik sonuçlarını dizeden. 
+   - Küme sertifikası URL'si: Tüm URL'den belirtin *gizli kimliği* betik sonuçlarından. 
+   - Küme sertifikası parmak izi: Belirtin *küme sertifikası parmak izi* betik sonuçlarından.
+   - Yönetici istemci sertifikası parmak izi: Belirtin *yönetici istemci sertifikası parmak izi* önkoşullarda oluşturulur. 
 
    ![Betik çıktısı](media/azure-stack-solution-template-service-fabric-cluster/image5.png)
 

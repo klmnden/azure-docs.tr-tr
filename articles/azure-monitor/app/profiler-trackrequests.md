@@ -1,6 +1,6 @@
 ---
 title: Azure Application Insights ile istekleri izlemek için kod yazma | Microsoft Docs
-description: Application Insights ile istekleri profilleri alabilmeniz için isteklerinizi izlemek için kod yazma
+description: İsteklerinizi için profilleri alabilmeniz için Application Insights ile istekleri izlemek için kod yazın.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -12,19 +12,20 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: bdbca30d31febe37e6b568894179c88d834d3a83
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 978f9a341eec2f16b9f6fe3d164e97805d7a8e93
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54266698"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359655"
 ---
 # <a name="write-code-to-track-requests-with-application-insights"></a>Application Insights ile istekleri izlemek için kod yazma
 
-Profilleri uygulamanız için performans sayfada görmek için Application Insights uygulamanız için istekleri izleme gerekir. Application Insights istek önceden, ASP.net ve ASP.Net Core gibi işaretlenmiş çerçeveleri üzerinde oluşturulan uygulamalar için otomatik olarak izleyebilirsiniz. Ancak Azure bulut hizmeti çalışan rolleri ve Service Fabric durum bilgisi olmayan API'leri, Application Insights isteklerinizi nereden başlamalı ve bitmelidir bildirmek için kod yazma gereksiniminizi gibi diğer uygulamalar için. Bir kez istek telemetri, Application Insights'a gönderilir ve profilleri bu istekleri için toplanacak performans sayfada telemetri görürsünüz, bu kod yazdığınız. 
+Profilleri uygulamanız için performans sayfada görüntülemek için uygulamanız için istekleri izlemek Azure Application Insights gerekir. Application Insights isteği zaten izlenen çerçeveleri üzerinde oluşturulan uygulamalar için otomatik olarak izleyebilirsiniz. ASP.NET ve ASP.NET Core iki örnek verilmiştir. 
 
-El ile istekleri izlemek için atmanız gereken adımlar şunlardır:
+Azure Cloud Services çalışan rolleri ve Service Fabric durum bilgisi olmayan API'leri gibi diğer uygulamalar için Application ınsights'ı isteklerinizi burada başlar ve son bildirmek için kod yazmanız gerekir. Bu kodu yazdıktan sonra istekleri telemetriyi Application Insights'a gönderilir. Performans sayfada telemetriyi görüntüleyebilir ve profilleri için bu istekleri toplanır. 
 
+El ile istekleri izlemek için aşağıdakileri yapın:
 
   1. Uygulama ömrü erken, aşağıdaki kodu ekleyin:  
 
@@ -36,7 +37,7 @@ El ile istekleri izlemek için atmanız gereken adımlar şunlardır:
         ```
       Bu genel bir izleme anahtarı yapılandırma hakkında daha fazla bilgi için bkz. [Application Insights ile kullanım Service Fabric](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/blob/dev/appinsights/ApplicationInsights.md).  
 
-  1. İzleme, eklemek istediğiniz kodu herhangi bir parçası için bir `StartOperation<RequestTelemetry>` **kullanma** çevresinde, aşağıdaki örnekte gösterildiği gibi deyimi:
+  1. İzleme, eklemek istediğiniz kodu herhangi bir parçası için bir `StartOperation<RequestTelemetry>` **kullanarak** çevresinde, aşağıdaki örnekte gösterildiği gibi deyimi:
 
         ```csharp
         using Microsoft.ApplicationInsights;

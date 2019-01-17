@@ -5,46 +5,52 @@ services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/30/2018
+ms.date: 01/14/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 73c8d64c53e23601b19a775a07b0b630c675b91f
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 89109dec83342a8f4b5962778b1803eb36656e42
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200486"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352230"
 ---
-# <a name="manage-iot-central-from-the-azure-portal"></a>Azure portalından IOT Central'ı yönetme 
-Oluşturma ve IOT Central Web sitesinden IOT Central uygulamaları yönetmeye ek olarak, IOT Central Azure portalından yönetebilirsiniz. Bu makalede, nelerin mümkün olduğunu ve bunun nasıl yapıldığını göstereceğiz.
+# <a name="manage-iot-central-from-the-azure-portal"></a>Azure portalından IOT Central'ı yönetme
+
+Oluşturma ve IOT Central'dan IOT Central uygulamaları yönetmek yerine [Uygulama Yöneticisi](https://aka.ms/iotcentral) kullanabileceğiniz sayfasında [Azure portalında](https://portal.azure.com) uygulamalarınızı yönetmek için.
 
 ## <a name="create-iot-central-applications"></a>IOT Central uygulamaları oluşturma
-Yeni bir uygulama oluşturmak için gidin [Azure portalında](https://ms.portal.azure.com) ve sol taraftaki ana gezinti menüsündeki "Kaynak Oluştur"'a tıklayın. 
+
+Bir uygulama oluşturmak için gidin [Azure portalında](https://ms.portal.azure.com) tıklatıp **kaynak Oluştur** sol taraftaki ana gezinti menüsünde.
 
 ![Yönetim Portalı: Gezinti Menüsü](media/howto-manage-iot-central-from-portal/image0.png)
 
-"IoT Central" terimi, arama çubuğu türü içinde.
+Arama çubuğuna **IOT Central**.
 
 ![Yönetim Portalı: arama](media/howto-manage-iot-central-from-portal/image0a.png)
 
-IOT Central uygulamasına satır öğesi arama sonuçlarında tıklayın.
+Tıklayın **IOT Central uygulamasına** arama sonuçlarında satır öğesi.
 
 ![Yönetim Portalı: arama sonuçları](media/howto-manage-iot-central-from-portal/image0b.png)
 
-Şimdi, doldurmanız gereken form görmek için "Oluştur" düğmesine tıklayın.
+Şimdi, tıklayın **Oluştur** düğmesi.
 
 ![Yönetim Portalı: IOT Central kaynak](media/howto-manage-iot-central-from-portal/image0c.png)
 
-Formdaki tüm alanları doldurun. Bu form, formun IOT Central Web sitesinden uygulamaları oluşturmak için doldurmak için ihtiyacınız benzerdir. Her alanı doldurun hakkında daha fazla bilgi için kullanıma [IOT Central uygulamasına oluşturma](quick-deploy-iot-central.md) hızlı başlangıç. 
+Formdaki tüm alanları doldurun. Bu form formun doldurduğunuz üzerinde IOT Central uygulamalar oluşturmak için benzer [Uygulama Yöneticisi](https://aka.ms/iotcentral) sayfası. Daha fazla bilgi için [IOT Central uygulamasına oluşturma](quick-deploy-iot-central.md) hızlı başlangıç.
 
 ![Yönetim Portalı: IOT Central kaynak oluştur](media/howto-manage-iot-central-from-portal/image1.png)  
 
-Tüm alanları doldurduktan sonra "Oluştur" düğmesine tıklayın.
+Tüm alanları doldurduktan sonra tıklatın **Oluştur** düğmesi.
 
 ## <a name="manage-existing-iot-central-applications"></a>Mevcut IOT Central uygulamaları yönetme
-Bir Azure IOT Central uygulamasına zaten varsa, silebilirsiniz taşıyabilirsiniz Azure portalında farklı bir abonelik veya kaynak grubu. Bu deneme aboneliği yedekler beri Azure portalında deneme uygulamalarını göremez.
 
-Başlamak için sol taraftaki ana gezinti menüsündeki "tüm kaynaklar" a tıklayın. Uygulamanızın adını yazın ve kaynak listesinde, bulmak için arama kutusunu kullanın. Yönetmek istediğiniz IOT Central uygulaması üzerinde'ye tıklayın.
+Bir Azure IOT Central uygulamasına silmeniz veya taşımanız, Azure portalında farklı bir abonelik veya kaynak grubu zaten varsa.
+
+> [!NOTE]
+> Aboneliğinizle ilişkili olmadığı için Azure portalında deneme uygulamalarını göremez.
+
+Başlamak için tıklayın **tüm kaynakları** sol taraftaki ana gezinti menüsünde. Kaynak listenizde bulmak için uygulamanızın adını yazmanız için arama kutusunu kullanın. Ardından yönetmek istediğiniz IOT Central uygulamasına tıklayın.
 
 ![Yönetim Portalı: kaynak yönetimi](media/howto-manage-iot-central-from-portal/image2.png)
 
@@ -52,7 +58,7 @@ Uygulamaya gidin, IOT Central uygulaması URL'Sİ'a tıklayın.
 
 ![Yönetim Portalı: kaynak yönetimi](media/howto-manage-iot-central-from-portal/image3.png)
 
-Uygulamayı farklı bir kaynak grubuna taşımak için tıklatın **değiştirme** bağlantı kaynak grubunun yanında. Bu uygulamada görüntülenen iletişim geçirmek istediğiniz kaynak grubunu seçin.
+Uygulamayı farklı bir kaynak grubuna taşımak için tıklayın **değiştirme** yanında kaynak grubu. Üzerinde **kaynakları taşıma** sayfasında, bu uygulamaya geçirmek istediğiniz kaynak grubunu seçin.
 
 ![Yönetim Portalı: kaynak yönetimi](media/howto-manage-iot-central-from-portal/image4.png)
 

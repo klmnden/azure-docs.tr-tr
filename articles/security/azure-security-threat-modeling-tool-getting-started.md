@@ -3,9 +3,9 @@ title: Çalışmaya başlama - Microsoft tehdit modelleme aracı - Azure | Micro
 description: Bu eylem tehdit modelleme aracı vurgulama daha ayrıntılı bir genel bakıştır.
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 ms.assetid: na
 ms.service: security
 ms.workload: na
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: rodsan
-ms.openlocfilehash: 340c92d2830069a9d957f4ece79416a707062629
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.author: jegeib
+ms.openlocfilehash: 6315e6d39a3b68854beb6563d075e3c79ca93a69
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096783"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359485"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Tehdit modelleme aracı ile çalışmaya başlama
 
-Bulut ve kurumsal güvenlik araçları takım tehdit modelleme aracı Önizleme bu yıl ücretsiz olarak sunulan  **[tıklatın indirme](https://aka.ms/tmtpreview)**. Teslim mekanizması değişiklik müşteriler için en son geliştirmeleri ve hata düzeltmeleri, Bakımı ve kullanımı kolay duruma aracın her açtığınızda anında iletme olanak sağlıyor.
+Microsoft tehdit modelleme aracı 2018 GA Eylül 2018'de ücretsiz yayımlanan  **[tıklatın indirme](https://aka.ms/threatmodelingtool)**. Teslim mekanizması değişiklik müşteriler için en son geliştirmeleri ve hata düzeltmeleri, Bakımı ve kullanımı kolay duruma aracın her açtığınızda anında iletme olanak sağlıyor.
 Bu makalede, Microsoft SDL tehdit modelleme yaklaşımı ile çalışmaya başlama işlemi boyunca size yol gösterir ve aracının güvenlik işleminin temel öğesi olarak harika tehdit modelleri geliştirmek için nasıl kullanılacağını gösterir.
 
 Bu makalede, var olan modelleme yaklaşımı SDL tehdit bilgisi üzerinde oluşturur. Hızlı bir inceleme için başvurmak **[tehdit modelleme Web uygulamaları](https://msdn.microsoft.com/library/ms978516.aspx)** ve arşivlenmiş bir sürümünü **[ortaya çıkarmaya güvenlik açıkları kullanarak adım yaklaşım](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)** MSDN makalesi, 2006'yayımladı.
@@ -67,22 +67,22 @@ Bu bölümde, biz izleyin:
 
 Bunlar, ilk tehdit modeli geliştirme sürecinde oluşturacaksınız.
 
-> Ricardo: Merhaba Cristina, tehdit modeli diyagram üzerinde çalıştım ve sana haber vermek istedik ayrıntıları sağ aldık. Bana kuruluşumuzun da yardımcı olabilir?
-> Cristina: kesinlikle. Şimdi bir göz atalım.
+> Ricardo: Merhaba Cristina miyim tehdit modeli diyagram üzerinde çalışan ve ayrıntıları sağ yapılandırdığımıza sana haber vermek istedik. Bana kuruluşumuzun da yardımcı olabilir?
+> Cristina: Kesinlikle. Şimdi bir göz atalım.
 > Ricardo aracı açılır ve Cristina ile kendi ekranını paylaşır.
 
 ![Temel bir tehdit modeli](./media/azure-security-threat-modeling-tool-feature-overview/basictmt.png)
 
-> Cristina: Tamam, doğrudan görünüyor ancak, bana üzerinden inceleyebileceğiniz?
-> Ricardo: emin! Dökümü aşağıda verilmiştir:
+> Cristina: Tamam, doğrudan görünür ancak, bana üzerinden inceleyebileceğiniz?
+> Ricardo: Emin! Dökümü aşağıda verilmiştir:
 > - İnsan kullanıcı Dış varlık olarak çizilir; bir kare
 > - Web Sunucumuz komutları gönderiyorsanız — daire
 > - Web sunucusu, bir veritabanı (paralel satırlarını) danışmanlığı
 
 Hangi Ricardo Cristina yalnızca gösterdi VAD, kısaltması olduğundan  **[veri akış diyagramı](https://en.wikipedia.org/wiki/Data_flow_diagram)**. Tehdit modelleme aracı kırmızı noktalı farklı varlıklar denetiminde nerede göstermek için satırlar tarafından belirtilen güven sınırları belirtme olanağı sağlar. Örneğin, Active Directory denetimi dışında bu nedenle BT yöneticilerinin kimlik doğrulama amacıyla bir Active Directory sistemi gerektirir.
 
-> Cristina: benim için en uygun arar. Tehditler hakkında neler diyeceksiniz?
-> Ricardo: size göstermek istiyorum.
+> Cristina: Benim için en uygun arar. Tehditler hakkında neler diyeceksiniz?
+> Ricardo: Size göstermek istiyorum.
 
 ## <a name="analyzing-threats"></a>Tehditleri çözümleme
 
@@ -111,7 +111,7 @@ Açıklama yapılan ona sahte kullanıcıların önlemek için bir kimlik doğru
 Bilgilerin açığa çıkması altında tehditleri içine Ricardo oluştu gibi kendisine erişim denetimi planı denetim ve rapor oluşturma için gerekli bazı salt okunur hesapları gerçekleşmiş. He bu yeni tehdit olmalıdır, ancak kendisine uygun şekilde tehdit belirtildiği şekilde azaltmaları aynı olan olup olmadığını hiç merak ettiniz.
 Kendisi ayrıca hakkında bilgilerin açığa çıkması biraz daha düşündük ve yedekleme bantlarının şifreleme, operasyon ekibinin iş gerek giderek gerçekleşmiş.
 
-Tehditleri tasarımı mevcut bir risk azaltma işlemleri ya da güvenlik nedeniyle uygulanamaz durumu açılan listeden garanti "Uygulanamaz" değiştirilebilir. Üç seçeneğiniz vardır: başlamadı – varsayılan seçimi, araştırma gerekir – tam olarak üzerinde çalıştığı sonra öğeleri ve Mitigated – izlemek için kullanılan.
+Tehditleri tasarımı mevcut bir risk azaltma işlemleri ya da güvenlik nedeniyle uygulanamaz durumu açılan listeden garanti "Uygulanamaz" değiştirilebilir. Üç seçeneğiniz vardır: Başlatılmamış – varsayılan seçimi, araştırma – gereken öğeleri ve Mitigated – tam olarak üzerinde çalıştığı sonra takip için kullanılır.
 
 ## <a name="reports--sharing"></a>Rapor & Paylaşımı
 
@@ -143,4 +143,4 @@ Biz Burada sunulan modelleme tehdit ne Microsoft geçmişte yapmış daha öneml
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-Soru, yorum ve konuları tmtextsupport@microsoft.com. **[İndirme](https://aka.ms/tmtpreview)**  kullanmaya başlamak için tehdit modelleme aracı.
+Soru, yorum ve konuları tmtextsupport@microsoft.com. **[İndirme](https://aka.ms/threatmodelingtool)**  kullanmaya başlamak için tehdit modelleme aracı.

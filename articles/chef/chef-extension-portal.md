@@ -8,26 +8,27 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: e5de21e8e493871150d302f1d2c0e31d067affde
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 336ac6b81a56797ad1c1254322dbeec3e36914f3
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051337"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358159"
 ---
 # <a name="install-the-chef-client-from-the-azure-portal"></a>Azure portalından Chef İstemcisi'ni yükleme
-Azure portalında bir Linux veya Windows sanal makine oluşturmak veya Chef uzantısı sanal makineye ekleyebilirsiniz. Bu makalede yeni bir Linux sanal makinesi kullanarak bu sürecinde yardımcı olur.
+Azure portalından Chef istemci uzantısını doğrudan üzerine bir Linux veya Windows makinesi ekleyebilirsiniz. Bu makalede yeni bir Linux sanal makine kullanarak işlemi boyunca size yol gösterir.
 
 ## <a name="prerequisites"></a>Önkoşullar
+
 - **Azure aboneliği**: Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) oluşturun.
 
-- **Chef**: Chef etkin bir hesabınız yoksa, oturum açmak için bir [ücretsiz deneme sürümü barındırılan Chef](https://manage.chef.io/signup). Bu makaledeki yönergeleri takip etmek için aşağıdaki değerleri Chef hesabınızdan gerekir: 
-    - organization_validation anahtarı
-    - RB
-    - run_list
+- **Chef**: Chef etkin bir hesabınız yoksa, oturum açmak için bir [ücretsiz deneme sürümü barındırılan Chef](https://manage.chef.io/signup). Bu makaledeki yönergeleri takip etmek için aşağıdaki değerleri Chef hesabınızdan gerekir:
+  - organization_validation anahtarı
+  - RB
+  - run_list
 
 ## <a name="install-the-chef-extension-on-a-new-linux-virtual-machine"></a>Yeni bir Linux sanal makinesinde Chef uzantısını yükle
-Bu bölümde, ilk Azure portalında bir Linux makine oluşturmak için kullanın. İşlemi sırasında Chef uzantısını yeni sanal makineye nasıl yükleyeceğiniz de görebilirsiniz.
+Bu bölümde, bir Linux makine oluşturmak için öncelikle Azure portalını kullanacaksınız. İşlem sırasında yeni bir sanal makine üzerinde Chef uzantıyı yüklemek nasıl görürsünüz.
 
 1. [Azure portala](http://portal.azure.com) gidin.
 
@@ -81,13 +82,13 @@ Bu bölümde, ilk Azure portalında bir Linux makine oluşturmak için kullanın
 
 1. Üzerinde **uzantı yükleme** sekmesinde, aşağıdaki değerleri belirtin ve ardından **Tamam**.
 
-    - **Chef sunucu URL'si** -Örneğin, kuruluş adını içeren Chef sunucu URL'si girin *https://api.chef.io/organization/hessco*.
+    - **Chef sunucu URL'si** -Örneğin, kuruluş adını içeren Chef sunucu URL'si girin *https://api.chef.io/organization/mycompany*.
     - **Chef düğüm adı** -Chef düğüm adı girin. Bu, herhangi bir değer olabilir.
     - **Çalıştırma listesi** -makineye eklenir Chef çalıştırma listesi girin. Bu boş bırakılabilir.
     - **İstemci adı doğrulama** -Chef doğrulama istemci adı girin. Örneğin, *tarcher Doğrulayıcı*.
-    - **Doğrulama anahtarı** -makinelerinizin önyükleme yaparken kullanılan doğrulama anahtarı içeren bir dosya seçin. 
+    - **Doğrulama anahtarı** -makinelerinizin önyükleme yaparken kullanılan doğrulama anahtarı içeren bir dosya seçin.
     - **İstemci yapılandırma dosyası** -chef istemci için bir yapılandırma dosyası seçin. Bu boş bırakılabilir.
-    - **Chef istemci sürümü** -yüklemek için chef istemci sürümü girin. Bu boş bırakılabilir. Boş bir değer, en son sürümü yüklü sonuçlanır. 
+    - **Chef istemci sürümü** -yüklemek için chef istemci sürümü girin. Bu boş bırakılabilir. Boş bir değer, en son sürümünü yükler.
     - **SSL doğrulama modu** -seçin **hiçbiri** veya **eş**. *Hiçbiri* Tanıtıma seçilmedi.
     - **Şef ortamının** -bu düğüm, bir üyesi olmalıdır Şef ortamının girin. Bu boş bırakılabilir.
     - **Databag gizlilik şifrelenmiş** -bu makine şifrelenmiş Databag erişimi olması gereken gizli dizi içeren bir dosya seçin. Bu boş bırakılabilir.
@@ -106,4 +107,5 @@ Oluşturma ve Chef uzantısı ile sanal makine dağıtma işlemi tamamlandığı
 ![Bir Linux sanal makinesinde Chef sunucusu yükleme](./media/chef-extension-portal/resource-created.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Chef kullanarak Azure'da Windows sanal makine oluşturma](/azure/virtual-machines/windows/chef-automation)
+
+- [Chef kullanarak Azure'da Windows sanal makine oluşturma](/azure/virtual-machines/windows/chef-automation)

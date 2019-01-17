@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: f7c8313e6216f10dccdfbb298bbf02036e21c138
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 03862f88bb5debc66940ebae5308771525f51b0b
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043014"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351655"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>İşlemci SDK'sı .NET değişiklik akışı: İndirme ve sürüm notları
 > [!div class="op_single_selector"]
@@ -71,7 +71,7 @@ ms.locfileid: "54043014"
 * Microsoft.Azure.DocumentDB SDK 2.0 destekler. Microsoft.Azure.DocumentDB 2.0 veya sonraki sürümünü gerektirir.
 
 ### <a name="a-name206206"></a><a name="2.0.6"/>2.0.6
-* Eklenen ChangeFeedEventHost.HostName ortak özelliği için compativility v1 ile.
+* Eklenen ChangeFeedEventHost.HostName ortak özellik v1 ile uyumluluk için.
 
 ### <a name="a-name205205"></a><a name="2.0.5"/>2.0.5
 * Bölümü Böl sırasında oluşan bir yarış durumu düzeltildi. Yarış durumu kira alınıyor ve hemen sırasında bölüm bölünmüş kaybetme ve Çekişme neden neden olabilir. Bu sürümle birlikte yarış durumu sorun çözüldüğünde.

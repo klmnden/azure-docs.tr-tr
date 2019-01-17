@@ -8,12 +8,12 @@ ms.assetid: 0c771e7a-6fcd-417f-9247-897177719567
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 07323f1b0541555ef71919e026ecaf2494056dad
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: ec646ad1e9e1330a7e0b3f3f0576cee9d58c08e1
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406507"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353269"
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Azure Veri Kataloğu'nu benimseme yaklaşımı ve işlemi
 Bu makale, kuruluşunuzda **Azure Veri Kataloğu**'nu benimsemeye başlamanıza yardımcı olacaktır. **Azure Veri Kataloğu**'nu başarıyla benimseyebilmek için üç temel öğeye odaklanırsınız: vizyonunuzu tanımlama, kuruluşunuz dahilindeki önemli iş kullanımı durumlarını belirleme ve pilot proje seçme.
@@ -66,7 +66,7 @@ Aşağıda durumları tanımlamaya yönelik birkaç ipucu verilmiştir:
 * **Ekibin hedeflerini tanımlayın** - Ekip hedeflerine nasıl ulaşır? Bu aşamada objektif olmak isteyeceğiniz için Veri Kataloğu'na odaklanmayın. Konunun teknoloji değil, iş sonuçları olduğunu unutmayın.
 * **İş sorununu tanımlayın** - Ekibin veri varlıklarını bulma ve bunlar hakkında bilgi edinme konusunda karşılaştığı sorunlar nelerdir? Örneğin, önemli veri kaynakları ile ilgili bilgiler bir ağ klasöründeki Excel çalışma kitaplarında bulunabilir ve ekip, çalışma kitaplarını bulmak için çok fazla zaman harcayabilir.
 * **Değişimle bağlantılı olarak ekip kültürünü anlayın** - Birçok benimseme zorluğu, yeni bir aracın uygulanmasından ziyade, değişime gösterilen dirençle ilgilidir. Bir ekibin değişime verdiği yanıt, kullanım durumlarının tanımlanması sırasında önem taşır. Bunun nedeni, var olan işlemin "her zaman böyle yapıldığı" için veya "bozuk olmayan bir şey neden düzeltilsin?" gerekçesi ile kullanımda olabileceği gerçeğidir. Herhangi bir yeni aracın veya işlemin benimsenmesi, durumdan etkilenen kişilerin değişimin getireceği değeri anlaması ve çözülecek sorunların önemini kabul etmesi durumunda her zaman çok daha kolay bir şekilde gerçekleşir.
-* **Odağın veri varlıklarıyla olan ilgisini koruyun** - Bir ekibin karşılaştığı iş sorunlarını ele alırken, önemsiz konuları geçmeniz ve kurumsal veri varlıklarının daha etkili kullanımı ile ilgili konulara odaklanmanız gerekir.
+* **Veri varlıklarına ilgili odağı** -bir ekibin karşılaştığı iş sorunlarını ele alırken, "weeds Kes" yapmanız ve kurumsal veri varlıklarının daha etkili bir şekilde yararlanarak ilgili içeriği odaklanın.
 
 Aşağıda Veri Kataloğu ile ilgili bazı örnek kullanım durumları verilmiştir:
 

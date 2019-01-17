@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 16026adc2eb0179cd2b42f449494cbbc6547b946
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: c2d121106218c0965cd8f4e07776cf8d2578543f
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651461"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354170"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Azure Active Directory Power BI içerik Paketi'ni kullanma
 
@@ -101,13 +101,45 @@ Power BI raporunuzun her gün yenilenmesi zamanlamak için Git **veri kümeleri*
 
 İçerik paketinin yeni sürümü beklendiği gibi çalıştığını doğruladıktan sonra bağlantılı raporlara ve veri kümeleri söz konusu içerik paketiyle ilişkili silerek gerekirse eski sürümü kaldırabilirsiniz.
 
-## <a name="still-having-issues"></a>Sorun yaşamaya devam mı ediyorsunuz? 
+## <a name="troubleshoot-content-pack-errors"></a>İçerik Paketi hatalarını giderme
 
-[Sorun giderme kılavuzumuzu](troubleshoot-content-pack.md) inceleyin. Power BI hakkında genel yardım için bu [yardım makalelerini inceleyin](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).
+İçerik Paketi ile çalışırken aşağıdaki hatalarla karşılaşırsanız çalıştırmak mümkündür: 
+
+- [Yenileme başarısız oldu](#refresh-failed) 
+- [Veri kaynağı kimlik bilgileri güncelleştirilemedi](#failed-to-update-data-source-credentials) 
+- [Veri alma çok uzun sürüyor](#data-import-is-too-slow) 
+
+Power BI hakkında genel yardım için bu [yardım makalelerini inceleyin](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).
+
+### <a name="refresh-failed"></a>Yenileme başarısız oldu 
+ 
+**Bu hatanın nasıl kullanıma sunulur**: Power BI veya yenileme geçmişi başarısız durumunda e-posta. 
+
+
+| Nedeni | Nasıl düzeltileceğini |
+| ---   | ---        |
+| İçerik paketine bağlanma kullanıcıların kimlik bilgilerini sıfırlama ancak içerik paketi bağlantı ayarlarında güncelleştirilmemiş hataları nedeniyle başarısız oldu yenileyin. | Power BI'da Azure AD etkinlik günlüklerini panoya karşılık gelen bulun (**Azure Active Directory etkinlik günlükleri**), yenileme zamanlama seçin ve ardından Azure AD kimlik bilgilerinizi girin. |
+| Yenileme, temel alınan içerik paketindeki veri sorunları nedeniyle başarısız olabilir. | [Bir destek bileti](../fundamentals/active-directory-troubleshooting-support-howto.md).|
  
+ 
+### <a name="failed-to-update-data-source-credentials"></a>Veri kaynağı kimlik bilgileri güncelleştirilemedi 
+ 
+**Bu hatanın nasıl kullanıma sunulur**: Azure AD etkinlik günlükleri içerik paketine yeniden bağlandığınızda Power BI,. 
+
+| Nedeni | Nasıl düzeltileceğini |
+| ---   | ---        |
+| Bağlanan kullanıcının genel yönetici veya güvenlik okuyucusu veya güvenlik yöneticisi değil. | Genel yönetici veya güvenlik okuyucusu veya Güvenlik Yöneticisi içerik paketlerine erişmek için bir hesap kullanın. |
+| Kiracınızın Premium Kiracı değil veya dosya Premium lisansı ile en az bir kullanıcı yok. | [Bir destek bileti](../fundamentals/active-directory-troubleshooting-support-howto.md).|
  
+### <a name="data-import-is-too-slow"></a>Veri içeri aktarma çok yavaş 
+ 
+**Bu hatanın nasıl kullanıma sunulur**: İçerik paketiniz bağlandıktan sonra Power BI'da veri içeri aktarma işlemi için Azure AD etkinlik panonuzu hazırlamak başlar. günlükleri. Şu iletiyle karşılaşırsınız: **Veri alınıyor...**  herhangi bir gelişme olmadan.  
+
+| Nedeni | Nasıl düzeltileceğini |
+| ---   | ---        |
+| Kiracınızın boyutuna bağlı olarak, bu adımı her yerde birkaç dakika veya 30 dakika sürebilir. | İleti bir saat içinde Panonuzda gösterecek şekilde değişmezse [bir destek bileti](../fundamentals/active-directory-troubleshooting-support-howto.md).|
+  
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Power BI içerik Paketi'ni yüklemek](quickstart-install-power-bi-content-pack.md).
-* [İçerik paketi hatalarını düzeltme](troubleshoot-content-pack.md).
 * [Azure AD raporlar nedir? ](overview-reports.md).

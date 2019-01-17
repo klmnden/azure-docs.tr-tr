@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 12/4/2018
+ms.date: 1/16/2019
 ms.author: victorh
-ms.openlocfilehash: 663ba97ce96244aa890bef45d1229c12ca170802
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 1d4182f491dae9597add4b688b89faa9dd291429
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52880157"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352941"
 ---
 # <a name="azure-dns-faq"></a>Azure DNS hakkında SSS
 
@@ -94,7 +94,7 @@ URL yeniden yönlendirme özelliği, Azure DNS biriktirme listesinde izlenir. Ku
 
 Evet. Azure DNS TXT kayıt kümeleri için ayarlanan kodlama genişletilmiş ASCII destekler. Ancak Azure REST API, SDK'ları, PowerShell ve CLI'yı en son sürümünü kullanmanız gerekir. 1 Ekim 2017'den daha eski sürümleri ya da SDK 2.1 genişletilmiş ASCII kümesi desteklemez. 
 
-Örneğin, bir kullanıcı bir dize değeri olarak genişletilmiş ASCII karakter \128 içeren bir TXT kaydı için sağlayabilir. "Abcd\128efgh." örneğidir Azure DNS, iç gösteriminde 128'dir, bu karakterin bayt değeri kullanır. DNS çözümlemesi zamanında yanıt olarak bu bayt değeri döndürülür. Ayrıca çözüm endişe kadar "abc" ve "\097\098\099" birbirinin yerine olduğunu unutmayın. 
+Örneğin, bir dize değeri olarak genişletilmiş ASCII karakter \128 içeren bir TXT kaydı için sağlayabilir. "Abcd\128efgh." örneğidir Azure DNS, iç gösteriminde 128'dir, bu karakterin bayt değeri kullanır. DNS çözümlemesi zamanında yanıt olarak bu bayt değeri döndürülür. Ayrıca çözüm endişe kadar "abc" ve "\097\098\099" birbirinin yerine olduğunu unutmayın. 
 
 Sizinle [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt) bölge dosyası ana biçim kaçış kuralları TXT kayıtları. Örneğin, `\` gerçekten çıkışları RFC başına her şey şimdi. Belirtirseniz `A\B` TXT kaydı değer olarak, bu temsil olup olarak çözümlendi `AB`. TXT kaydı için gerçekten istiyorsanız `A\B` çözünürlükte, kaçış karakteriyle `\` yeniden. Örneğin, belirtin `A\\B`.
 
@@ -195,7 +195,7 @@ Azure DNS'de IDN'ler yapılandırmak için kayıt kümesi adı ve bölge adını
 
 Özel etki alanı için destek özel bölgeleri özelliğini kullanarak uygulanır. Bu özellik şu anda genel önizlemede kullanılabilir. Özel bölgeler, internet'e yönelik Azure DNS bölgelerini aynı araçları kullanarak yönetilir. Bunlar, belirtilen sanal ağ dns'sinden yalnızca. Daha fazla bilgi için [genel bakış](private-dns-overview.md).
 
-Azure portalında özel bölgeleri şu anda desteklenmiyor. 
+Özel bölgeler Azure portalında şu anda desteklenmiyor.
 
 Azure'da diğer iç DNS seçenekleri hakkında daha fazla bilgi için bkz: [VM'ler ve rol örnekleri için ad çözümlemesi](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
@@ -217,7 +217,7 @@ Evet. Müşteriler, 10 adede kadar çözümleme sanal ağları tek bir özel bö
 
 ### <a name="can-a-virtual-network-that-belongs-to-a-different-subscription-be-added-as-a-resolution-virtual-network-to-a-private-zone"></a>Farklı bir aboneliğe ait bir sanal ağ özel bir bölgeye bir çözümleme sanal ağı eklenebilir?
 
-Evet. Kullanıcı, sanal ağlar ve özel DNS bölgesi yazma işlemi iznine sahip olmalıdır. Birkaç RBAC rolleri için yazma izni verilebilir. Örneğin, Klasik ağ Katılımcısı RBAC rolü sanal ağlar için yazma izinlerine sahiptir. RBAC rolleri hakkında daha fazla bilgi için bkz. [rol tabanlı erişim denetimi](../role-based-access-control/overview.md).
+Evet. Sanal ağlar ve özel DNS bölgesi yazma işlemi izni olmalıdır. Birkaç RBAC rolleri için yazma izni verilebilir. Örneğin, Klasik ağ Katılımcısı RBAC rolü sanal ağlar için yazma izinlerine sahiptir. RBAC rolleri hakkında daha fazla bilgi için bkz. [rol tabanlı erişim denetimi](../role-based-access-control/overview.md).
 
 ### <a name="will-the-automatically-registered-virtual-machine-dns-records-in-a-private-zone-be-automatically-deleted-when-the-virtual-machines-are-deleted-by-the-customer"></a>Özel bir bölge içinde otomatik olarak kayıtlı sanal makinenin DNS kayıtlarını otomatik olarak sanal makineler müşteri tarafından silindiğinde silinir?
 
@@ -257,7 +257,7 @@ Evet. Genel Önizleme sırasında aşağıdaki sınırlamalar bulunmaktadır.
 * Kayıt sanal ağı belirtilmediği takdirde, özel bölgeye kaydedilen Vm'lerden söz konusu sanal ağ için DNS kayıtlarını görüntülenemez veya PowerShell, CLI veya API'ler aracılığıyla alınan. VM kayıtları kaydedilir ve başarılı bir şekilde çözün.
 * Kayıt sanal ağ özel IP alanı için yalnızca geriye doğru DNS çalışır.
 * Ters DNS özel bölgesi içinde kayıtlı değil özel bir IP için DNS son eki "internal.cloudapp.net" döndürür. Bu sonekin çözümlenemiyor. Özel bir IP, özel bir bölgeye çözümleme sanal ağı olarak bağlı bir sanal ağdaki bir sanal makine için bir örnek verilmiştir.
-* Bir sanal ağ özel bir bölgeye kayıt veya çözümleme sanal ağı olarak ilk kez bağlantı bağlı bir NIC ile herhangi bir sanal makine sahip olamaz. Diğer bir deyişle, sanal ağ, boş olmalıdır. Sanal ağ sonra boş olabilir gelecekteki diğer özel bölgelerine kayıt veya çözümleme sanal ağı olarak bağlama. 
+* Bir sanal ağ, özel bir bölgeye kayıt veya çözümleme sanal ağı olarak ilk kez bağlantı boş olmalıdır. Sanal ağ sonra boş olabilir gelecekteki diğer özel bölgelerine kayıt veya çözümleme sanal ağı olarak bağlama.
 * Koşullu iletme, örneğin, Azure ve şirket içi ağlar arasındaki çözümleme etkinleştirmek için desteklenmiyor. Müşteriler, bu senaryo başka mekanizmalar aracılığıyla nasıl hayata geçirebilirsiniz öğrenin. Bkz: [VM'ler ve rol örnekleri için ad çözümlemesi](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 ### <a name="are-there-any-quotas-or-limits-on-zones-or-records-for-private-zones"></a>Herhangi bir kota veya bölgeler ve kayıtlar özel bölgeler için sınırlar var mıdır?

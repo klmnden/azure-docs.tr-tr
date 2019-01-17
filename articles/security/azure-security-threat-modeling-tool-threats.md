@@ -1,11 +1,11 @@
 ---
-title: -Microsoft tehdit modelleme aracı - Azure tehditler | Microsoft Docs
-description: Tehdit kategori sayfası Microsoft tehdit modelleme aracı için kullanıma sunulan tüm kategorileri içeren tehditleri oluşturulur.
+title: Tehditler - Microsoft tehdit modelleme aracı - Azure | Microsoft Docs
+description: Tehdit kategorisi sayfa Microsoft tehdit modelleme aracı için kullanıma sunulan tüm kategorileri içeren tehditleri oluşturulur.
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 ms.assetid: na
 ms.service: security
 ms.workload: na
@@ -14,38 +14,38 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 704f9995828866d4d2e4969e3aa922ed1e23c4ea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fd7c5fd929163dc7fcd22fbb045dee0fe3070394
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23867902"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359043"
 ---
-# <a name="microsoft-threat-modeling-tool-threats"></a>Microsoft tehdit modelleme aracı tehditleri
+# <a name="microsoft-threat-modeling-tool-threats"></a>Microsoft tehdit modelleme aracı tehditler
 
-Tehdit modelleme Aracı'nı bir çekirdek Microsoft Security Development Lifecycle (SDL) öğesidir. Yazılım mimarları tanımlamak ve görece kolay ve çözümlemek için uygun maliyetli olduklarında erken, olası güvenlik sorunlarını azaltmak sağlar. Sonuç olarak, geliştirme toplam maliyetini büyük ölçüde azaltır. Ayrıca, biz uzmanlarla tehdit modelleme tüm geliştiriciler için oluşturma ve tehdit modelleri analiz etme konusunda açık yönergeler sağlayarak kolaylaştırma güvenlikle ilgili olmayan unutmayın, aracı tasarlanmıştır.
+Tehdit modelleme aracı bir çekirdek Microsoft Security Development Lifecycle (SDL) öğesidir. Yazılım mimarları belirleyip görece kolay ve gidermek için uygun maliyetli olması durumunda olası güvenlik sorunlarını erkenden gidermek sağlar. Sonuç olarak, geliştirme toplam maliyeti önemli ölçüde azaltır. Ayrıca, araç unutmayın, güvenlikle ilgili olmayan uzmanlarla tehdit modelleme tüm geliştiriciler için oluşturma ve tehdit modelleri analiz etme hakkında açık yönergeler sağlayarak kolaylaştıracak tasarladığımız.
 
-> Ziyaret  **[tehdit modelleme aracı](./azure-security-threat-modeling-tool.md)**  bugün başlamak için!
+> Ziyaret **[tehdit modelleme aracı](./azure-security-threat-modeling-tool.md)** hemen kullanmaya başlamak için!
 
-Tehdit modelleme Aracı'nı olanlar gibi bazı soruları yanıtlamanıza yardımcı olur:
+Tehdit modelleme aracı aşağıdaki olanlar gibi bazı soruları yanıtlamanıza yardımcı olur:
 
 * Nasıl bir saldırgan, kimlik doğrulama verileri değiştirebilir miyim?
-* Bir saldırgan kullanıcı profili verilerini okuyabiliyorsanız etkisi nedir?
+* Bir saldırgan, kullanıcı profili verileri okuyabilirse etkisi nedir?
 * Kullanıcı profili veritabanına erişimi reddedilirse ne olur?
 
 ## <a name="stride-model"></a>STRIDE modeli
 
-Bu tür bir işaret soru formüle daha iyi yardım için Microsoft tehditleri farklı türlerde kategorilere ayırır ve genel güvenlik görüşmeleri basitleştiren STRIDE modeli kullanır.
+Daha iyi yardım için bu tür bir işaret soru formüle, Microsoft, tehditleri farklı kategorilere ayırır ve genel güvenlik görüşmeleri basitleştirir STRIDE modeli kullanır.
 
 | Kategori | Açıklama |
 | -------- | ----------- |
-| **Kimlik sahtekarlığı** | Yasadışı erişme ve kullanıcı adı ve parola gibi başka bir kullanıcının kimlik bilgileri kullanılarak içerir |
-| **Oynama** | Kötü amaçlı veri değiştirilmesini içerir. Gibi kalıcı verilerde yapılan yetkisiz değişiklikler Internet gibi açık bir ağ üzerinden iki bilgisayar arasında akıp bir veritabanı ve veri değişikliğinin tutulan örnekler |
-| **Geri çevirme** | Aksi takdirde kanıtlamak için herhangi bir şekilde sahip diğer taraflar eylemi gerçekleştirme Reddet kullanıcılarıyla ilişkili — Örneğin, bir kullanıcının yasaklanmış işlemlerini izleme olanağı eksik bir sistemde geçersiz bir işlem gerçekleştirir. İnkar sayaç ret tehditleri sisteme yeteneğini gösterir. Örneğin, bir öğe satın alan bir kullanıcı öğeyi alındığında kaydolmak olabilir. Satıcı imzalı giriş kullanıcı paket aldınız kanıt olarak kullanabilirsiniz |
-| **Bilgilerin açığa çıkmasına** | Erişiminiz olması değil kişiler bilgilerin olma içerir — örneğin, kullanıcıların bunlar erişimi verilmiş olmayan bir dosyayı okuma yeteneği veya yetkisiz bir kullanıcının iki bilgisayar arasında Aktarımdaki verileri okuma yeteneği |
-| **Hizmet reddi** | Hizmet (DoS) saldırısı reddi Reddet hizmeti geçerli kullanıcılara — Örneğin, yaparak bir Web sunucusu geçici olarak kullanılamıyor veya kullanılamaz. Belirli türde bir yalnızca sistem kullanılabilirliği ve güvenilirliği iyileştirmek için DoS tehditlerine karşı korumanız gerekir |
-| **Ayrıcalık yükseltme** | Ayrıcalıksız bir kullanıcı, ayrıcalıklı erişim kazanır ve böylece tehlikeye veya tüm sistemin yok etmek için yeterli erişimi vardır. Ayrıcalık tehditleri ayrıcalıkların güvenilir bir sistem kendisini gerçekten tehlikeli olabilecek bir durumda bir parçası haline gelir ve bu durumlarda, bir saldırganın etkin bir şekilde tüm sistem savunma penetrated içerir |
+| **Kimlik sahtekarlığı** | Her tür erişim ve daha sonra başka bir kullanıcının kullanıcı adı ve parola gibi kimlik doğrulama bilgilerini kullanılmasını içerir |
+| **Bozma** | Verilerin kötü amaçlı değiştirilmesini gerektirir. Kalıcı veri gibi yapılan yetkisiz değişiklikler Internet gibi açık bir ağ üzerinden iki bilgisayar arasında akan bir veritabanı ve veri değişikliğinin tutulan örnekler |
+| **Red** | Aksi takdirde kanıtlamak için herhangi bir şekilde olan diğer taraflara bir eylem gerçekleştiren Reddet kullanıcılar ile ilişkili — Örneğin, bir kullanıcı yasaklanmış işlemleri izleme olanağı bulunmayan bir sistem üzerinde geçersiz bir işlem gerçekleştirir. İnkar sayacı Red tehditleri sisteme yeteneğini gösterir. Örneğin, bir kullanıcı bir öğeyi satın alındığında öğe için oturum gerekebilir. Satıcı imzalı giriş kullanıcı paket aldınız kanıt kullanabilirsiniz |
+| **Bilgilerin açığa çıkması** | Kişiler erişimi olan görmemesi için bilgi açığa içerir — örneğin, onlara erişimi verilen değil bir dosyayı okumak için kullanıcıların açamamaları veya yetkisiz bir kullanıcının iki bilgisayar arasında aktarımda okuma yeteneği |
+| **Hizmet reddi** | Geçerli kullanıcı için hizmet (DoS) saldırısı reddi Reddet hizmet — Örneğin, bir Web sunucusu geçici olarak kullanılamıyor veya kullanılamaz hale getirme tarafından. Belirli türlerdeki yalnızca sistem kullanılabilirliği ve güvenilirliği iyileştirmek için DoS tehditlere karşı korumanız gerekir |
+| **Ayrıcalık yükseltme** | Ayrıcalıksız bir kullanıcı, ayrıcalıklı erişim kazanır ve böylece tehlikeye veya sistemin tamamını silmek için yeterli erişimi vardır. Tehditleri ayrıcalık yükselmesi güvenilen sisteme, tehlikeli durum gerçekten bir parçası haline gelir ve bu durum, bir saldırganın etkin bir şekilde tüm sistem savunmaları penetrated içerir |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-İle devam  **[tehdit modelleme aracı Azaltıcı](./azure-security-threat-modeling-tool-mitigations.md)**  Azure ile bu tehditleri azaltmak farklı yollarını öğrenmek için.
+Devam **[tehdit modelleme aracı azaltmaları](./azure-security-threat-modeling-tool-mitigations.md)** Azure ile bu tehditleri azaltmak farklı yollarını öğrenin.

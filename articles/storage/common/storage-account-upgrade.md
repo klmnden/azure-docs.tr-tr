@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: tamram
-ms.openlocfilehash: 7f97b72dc7b3456488d97009bde590b0e29918e6
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 500d5217a35cdc569964195558b6e4a2c023c614
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631449"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352147"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Genel amaçlı v2 depolama hesabı için yükseltme
 
@@ -21,7 +21,8 @@ Genel amaçlı v2 depolama hesabı için en son Azure depolama özelliklerini de
 Genel amaçlı v2 depolama hesabı, genel amaçlı v1'den veya Blob Depolama hesapları için yükseltme basit bir işlemdir. Azure portal, PowerShell veya Azure CLI kullanarak yükseltebilirsiniz. 
 
 > [!NOTE]
-> Depolama katmanının değiştirilmesi ek ücretlere neden olabilir. Daha fazla bilgi için [Fiyatlandırma ve faturalandırma](#pricing-and-billing) bölümüne bakın.
+> Depolama hesabınıza bir genel amaçlı v2 hesabına yükseltmek ücretsizdir.
+> Depolama erişim katmanının değiştirilmesi, faturanıza değişikliklerine neden olabilir. Daha fazla bilgi için [Fiyatlandırma ve faturalandırma](#pricing-and-billing) bölümüne bakın.
 
 ## <a name="upgrade-using-the-azure-portal"></a>Azure portalını kullanarak yükseltme
 
@@ -62,8 +63,8 @@ Erişim katmanı, beklenen kullanım düzenlerini esas alarak en uygun maliyetli
 
 Varsayılan olarak, sık erişimli erişim katmanında yeni bir depolama hesabı oluşturulur ve bir genel amaçlı v1 depolama hesabı için sık erişim katmanı yükseltilir. Veri sonrası yükseltme için kullanılacak hangi erişim katmanı araştırıyorsanız senaryonuz göz önünde bulundurun. Genel amaçlı v2 hesabına geçirmek için iki normal kullanıcı senaryosu vardır:
 
-* Varolan genel amaçlı v1 depolama hesabınız ve blob verilerini için doğru depolama katmanı ile bir genel amaçlı v2 depolama hesabı için bir değişiklik değerlendirmek istiyorsunuz.
-* Genel amaçlı v2 depolama hesabı kullanın veya zaten varsa ve sizin için blob verilerini sık veya seyrek erişimli depolama katmanı kullanıp kullanmayacağınızı değerlendirmek istiyorsunuz karar verdik.
+* Mevcut genel amaçlı v1 depolama hesabınız ve blob verilerini için doğru depolama erişim katmanı ile bir genel amaçlı v2 depolama hesabı için bir yükseltme değerlendirmek istiyorsunuz.
+* Genel amaçlı v2 depolama hesabı kullanın veya zaten varsa ve sizin için blob verilerini sık veya seyrek erişimli depolama erişim katmanı kullanıp kullanmayacağınızı değerlendirmek istiyorsunuz karar verdik.
 
 Her iki durumda da birinci öncelik depolanması, erişimi ve bir genel amaçlı v2 depolama hesabında depolanan verileriniz üzerinde işletim maliyetini tahmin etmek ve bu maliyetin mevcut maliyetlerinizle karşılaştırmak için olan.
 
@@ -71,9 +72,9 @@ Her iki durumda da birinci öncelik depolanması, erişimi ve bir genel amaçlı
 ## <a name="pricing-and-billing"></a>Fiyatlandırma ve Faturalama
 Tüm depolama hesapları, blob depolama için her blobun katmanını temel alan bir fiyatlandırma modelini kullanır. Bir depolama hesabını kullanırken aşağıdaki fatura değerlendirmeleri geçerlidir:
 
-* **Depolama maliyetleri**: Depolanan veri miktarına ek olarak, veri depolamanın maliyeti depolama katmanına bağlı olarak değişir. Katmanın erişim sıklığı düştükçe gigabayt başına ücret de azalır.
+* **Depolama maliyetleri**: Depolanan veri miktarına ek olarak, veri depolamanın maliyeti depolama erişim katmanına bağlı olarak değişir. Katmanın erişim sıklığı düştükçe gigabayt başına ücret de azalır.
 
-* **Veri erişim maliyetleri**: Düştükçe veri erişimi artış ücretleri. Seyrek erişimli depolama ve arşiv depolama katmanındaki verilerde, okuma işlemleri için erişilen gigabayt veri başına ücretlendirilirsiniz.
+* **Veri erişim maliyetleri**: Düştükçe veri erişimi artış ücretleri. Seyrek erişimli ve Arşiv depolama erişim katmanındaki veriler için okuma gigabayt başına veri erişim ücreti ödersiniz.
 
 * **İşlem maliyetleri**: Tüm katmanlar için düştükçe artıran işlem başına ücret yoktur.
 
@@ -81,7 +82,7 @@ Tüm depolama hesapları, blob depolama için her blobun katmanını temel alan 
 
 * **Giden veri aktarımı maliyetleri**: Giden veri aktarımları (bir Azure bölgesinin dışına aktarılan veriler), genel amaçlı depolama hesapları ile tutarlı, gigabayt başına esaslı olarak bant genişliği kullanımı için fatura doğurur.
 
-* **Depolama katmanının değiştirilmesi**: Hesap Depolama katmanını seyrek erişimliden sık erişimliye değiştirmek depolama hesabında varolan tüm verilerin okunmasına eşit bir ücret doğurur. Ancak, hesap depolama katmanını sık erişilenden seyrek erişilene değiştirmek, tüm verileri seyrek erişilen katmana yazma (yalnızca GPv2 hesapları) maliyetine eşit bir ücret yansıtır.
+* **Depolama erişim katmanını değiştirme**: Depolama hesabı erişim katmanını seyrek erişimliden sık erişimliye değiştirmek depolama hesabında varolan tüm verilerin okunmasına eşit bir ücret doğurur. Ancak, hesap erişim katmanını sık erişilenden seyrek tüm verileri seyrek erişilen katmana (yalnızca GPv2 hesapları) yazma eşit bir ücret doğurur.
 
 > [!NOTE]
 > Depolama hesaplarına ilişkin fiyatlandırma modeli hakkında daha fazla bilgi için [Azure Depolama Fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/) sayfasına bakın. Giden veri aktarımı ücretlerine ilişkin daha fazla bilgi için [Veri Aktarımları Fiyatlandırma Bilgileri](https://azure.microsoft.com/pricing/details/data-transfers/) sayfasına bakın.
@@ -156,7 +157,7 @@ Blob depolama hesaplarına ilişkin veri erişimi maliyetlerini hesaplamak için
 Blob depolama hesaplarında coğrafi çoğaltma veri aktarımı maliyeti de bir GRS veya RA-GRS depolama hesabı kullanılırken yazılan veri miktarı tahmini kullanılarak hesaplanabilir.
 
 > [!NOTE]
-> Seyrek veya sık erişimli bir depolama katmanını kullanma maliyetlerini hesaplama hakkında daha ayrıntılı bir örnek için *'Sık ve Seyrek Erişimli erişim katmanları nelerdir ve hangisinin kullanılacağını nasıl belirlemeliyim?'* başlıklı SSS bölümüne bakın bkz. [Azure Depolama Fiyatlandırma Sayfası](https://azure.microsoft.com/pricing/details/storage/).
+> Sık erişimli veya seyrek erişimli depolama erişim katmanını kullanma maliyetlerini hesaplama hakkında daha ayrıntılı bir örnek için başlıklı SSS Bölümüne göz atın *'sık ve seyrek erişimli erişim katmanları nelerdir ve hangisinin kullanılacağını nasıl belirlemeliyim?'* bkz. [Azure Depolama Fiyatlandırma Sayfası](https://azure.microsoft.com/pricing/details/storage/).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

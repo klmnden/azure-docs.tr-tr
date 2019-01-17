@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 01/16/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: e89575323b87ba28ef4f062da098fea4f0e27035
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: e11db0cacb14ab94c40ebbf6cac356a08cc016f1
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264063"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352691"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Kubernetes için Azure Stack Marketini Ekle
 
@@ -28,7 +28,7 @@ ms.locfileid: "54264063"
 > [!note]  
 > Azure Stack'te Kubernetes önizlemeye sunuldu.
 
-Kullanıcılarınız için bir Market öğesi Kubernetes sunabilir. Kullanıcılarınızın Kubernetes tek ve eşgüdümlü bir işlemle dağıtabilir.
+Kullanıcılarınız için bir Market öğesi Kubernetes sunabilir. Kullanıcılarınızın ardından, Kubernetes içinde tek ve eşgüdümlü bir işlemle dağıtabilir.
 
 Şu makaleye bakın dağıtmak ve tek başına bir Kubernetes kümesi için kaynakları sağlamak için bir Azure Resource Manager şablonu kullanarak. Azure Stack sürüm 1808 0.3.0 Kubernetes küme Market öğesi gerektirir. Başlamadan önce Azure Stack ve Azure genel Kiracı ayarlarını kontrol edin. Azure Stack hakkında gerekli bilgileri toplayın. Gerekli kaynakları kiracınız ve Azure Stack Marketini ekleyin. Bir Ubuntu sunucusu, özel komut dosyası ve Kubernetes öğeleri Market'te olması küme bağlıdır.
 
@@ -48,7 +48,7 @@ Bir plan, teklif ve Kubernetes Market öğesi için bir abonelik oluşturun. Ayr
 
 1. Seçin **durumunu değiştir**. Seçin **genel**.
 
-1. Seçin **+ kaynak Oluştur** > **sunar ve planları** > **abonelik** yeni bir abonelik oluşturmak için.
+1. Seçin **+ kaynak Oluştur** > **sunar ve planları** > **abonelik** bir abonelik oluşturmak için.
 
     a. Girin bir **görünen ad**.
 
@@ -59,6 +59,124 @@ Bir plan, teklif ve Kubernetes Market öğesi için bir abonelik oluşturun. Ayr
     d. Ayarlama **dizin Kiracı** Azure AD kiracınız için Azure Stack için. 
 
     e. Seçin **teklif**. Oluşturduğunuz teklif adını seçin. Abonelik kimliği not edin
+
+## <a name="create-a-service-principle-and-credentials-in-ad-fs"></a>' De AD FS hizmet İlkesi ve kimlik bilgileri oluşturma
+
+Kimlik Yönetimi hizmetiniz için Active Directory Federasyon Hizmetleri'nde (AD FS) kullanıyorsanız, bir Kubernetes kümesini dağıtırken kullanıcılar için bir hizmet ilkesi oluşturma gerekecektir.
+
+1. Oluşturun ve hizmet ilkesi oluşturmak için kullanılacak bir sertifika verin. Aşağıdaki kod parçacığı, otomatik olarak imzalanan bir sertifika oluşturma işlemi gösterilmektedir. 
+
+    - Şu bilgilere ihtiyacınız vardır:
+
+       | Değer | Açıklama |
+       | ---   | ---         |
+       | Parola | Sertifika parolası. |
+       | Yerel sertifika yolu | Sertifika yolu ve dosya adı. Örneğin, `path\certfilename.pfx` |
+       | Sertifika adı | Sertifika adı. |
+       | Sertifika depolama konumu |  Örneğin, `Cert:\LocalMachine\My` |
+
+    - PowerShell ile yükseltilmiş istemi açın. Değerlerinizi güncelleştirilmiş parametrelerle birlikte aşağıdaki betiği çalıştırın:
+
+        ```PowerShell  
+        # Creates a new self signed certificate 
+        $passwordString = "<password>"
+        $certlocation = "<local certificate path>.pfx"
+        $certificateName = "<certificate name>"
+        #certificate store location. Eg. Cert:\LocalMachine\My
+        $certStoreLocation="<certificate store location>"
+        
+        $params = @{
+        CertStoreLocation = $certStoreLocation
+        DnsName = $certificateName
+        FriendlyName = $certificateName
+        KeyLength = 2048
+        KeyUsageProperty = 'All'
+        KeyExportPolicy = 'Exportable'
+        Provider = 'Microsoft Enhanced Cryptographic Provider v1.0'
+        HashAlgorithm = 'SHA256'
+        }
+        
+        $cert = New-SelfSignedCertificate @params -ErrorAction Stop
+        Write-Verbose "Generated new certificate '$($cert.Subject)' ($($cert.Thumbprint))." -Verbose
+        
+        #Exports certificate with password in a .pfx format
+        $pwd = ConvertTo-SecureString -String $passwordString -Force -AsPlainText
+        Export-PfxCertificate -cert $cert -FilePath $certlocation -Password $pwd
+        ```
+
+2. Sertifika kullanarak bir hizmet ilkesi oluşturun.
+
+    - Şu bilgilere ihtiyacınız vardır:
+
+       | Değer | Açıklama                     |
+       | ---   | ---                             |
+       | ERCS IP | ASDK normalde ayrıcalıklı uç noktadır `AzS-ERCS01`. |
+       | Uygulama adı | Uygulama hizmet ilkesi için basit bir ad. |
+       | Sertifika depolama konumu | Bilgisayarınızdaki sertifika depoladığınız yolu. Örneğin, `Cert:\LocalMachine\My\<someuid>` |
+
+    - PowerShell ile yükseltilmiş istemi açın. Değerlerinizi güncelleştirilmiş parametrelerle birlikte aşağıdaki betiği çalıştırın:
+
+        ```PowerShell  
+        #Create service principle using the certificate
+        $privilegedendpoint="<ERCS IP>"
+        $applicationName="<application name>"
+        #certificate store location. Eg. Cert:\LocalMachine\My
+        $certStoreLocation="<certificate store location>"
+        
+        # Get certificate information
+        $cert = Get-Item $certStoreLocation
+        
+        # Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
+        $creds = Get-Credential
+
+        # Creating a PSSession to the ERCS PrivilegedEndpoint
+        $session = New-PSSession -ComputerName $privilegedendpoint -ConfigurationName PrivilegedEndpoint -Credential $creds
+
+        # Get Service Principle Information
+        $ServicePrincipal = Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name "$using:applicationName" -ClientCertificates $using:cert}
+
+        # Get Stamp information
+        $AzureStackInfo = Invoke-Command -Session $session -ScriptBlock { get-azurestackstampinformation }
+
+        # For Azure Stack development kit, this value is set to https://management.local.azurestack.external. This is read from the AzureStackStampInformation output of the ERCS VM.
+        $ArmEndpoint = $AzureStackInfo.TenantExternalEndpoints.TenantResourceManager
+
+        # For Azure Stack development kit, this value is set to https://graph.local.azurestack.external/. This is read from the AzureStackStampInformation output of the ERCS VM.
+        $GraphAudience = "https://graph." + $AzureStackInfo.ExternalDomainFQDN + "/"
+
+        # TenantID for the stamp. This is read from the AzureStackStampInformation output of the ERCS VM.
+        $TenantID = $AzureStackInfo.AADTenantID
+
+        # Register an AzureRM environment that targets your Azure Stack instance
+        Add-AzureRMEnvironment `
+        -Name "AzureStackUser" `
+        -ArmEndpoint $ArmEndpoint
+
+        # Set the GraphEndpointResourceId value
+        Set-AzureRmEnvironment `
+        -Name "AzureStackUser" `
+        -GraphAudience $GraphAudience `
+        -EnableAdfsAuthentication:$true
+        Add-AzureRmAccount -EnvironmentName "azurestackuser" `
+        -ServicePrincipal `
+        -CertificateThumbprint $ServicePrincipal.Thumbprint `
+        -ApplicationId $ServicePrincipal.ClientId `
+        -TenantId $TenantID
+
+        # Output the SPN details
+        $ServicePrincipal
+        ```
+
+    - Aşağıdaki kod parçacığında gibi hizmet asıl ayrıntıları bakın
+
+        ```Text  
+        ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
+        ClientId              : 3c87e710-9f91-420b-b009-31fa9e430145
+        Thumbprint            : 30202C11BE6864437B64CE36C8D988442082A0F1
+        ApplicationName       : Azurestack-MyApp-c30febe7-1311-4fd8-9077-3d869db28342
+        PSComputerName        : azs-ercs01
+        RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
+        ```
 
 ## <a name="add-an-ubuntu-server-image"></a>Ubuntu server resim ekleme
 
@@ -75,7 +193,7 @@ Ubuntu Server aşağıda Market'te ekleyin:
 1. Sunucu en yeni sürümünü seçin. Tam sürümünü denetleyin ve en yeni sürümüne sahip olduğunuzdan emin olun:
     - **Yayımcı**: Canonical
     - **Teklif**: UbuntuServer
-    - **Sürüm**: 16.04.201806120 (veya üzeri)
+    - **Sürüm**: 16.04.201806120 (veya en son sürüm)
     - **SKU**: 16.04-LTS
 
 1. Seçin **indirin.**
@@ -94,11 +212,11 @@ Kubernetes marketten ekleyin:
 
 1. Aşağıdaki profil komut dosyasını seçin:
     - **Teklif**: Linux 2.0 için özel betik
-    - **Sürüm**: 2.0.6 (veya üzeri)
+    - **Sürüm**: 2.0.6 (veya en son sürüm)
     - **Yayımcı**: Microsoft Corp
 
     > [!Note]  
-    > Linux için özel betik birden fazla sürümünü listelenebilir. Öğenin en son sürümünü eklemeniz gerekir.
+    > Linux için özel betik birden fazla sürümünü listelenebilir. Öğenin son sürümü eklemeniz gerekir.
 
 1. Seçin **indirin.**
 
@@ -124,7 +242,7 @@ Kubernetes marketten ekleyin:
 
 ## <a name="update-or-remove-the-kubernetes"></a>Güncelleştirme veya Kubernetes kaldırma 
 
-Kubernetes öğesi güncelleştirilirken Market'te öğeyi kaldırmak gerekir. Ardından, Kubernetes Market'te eklemek için bu makaledeki yönerge takip edebilirsiniz.
+Kubernetes öğesi güncelleştirilirken, önceki öğeyi Market'te kaldırırsınız. Market'te Kubernetes güncelleştirme eklemek için bu makalede verilen yönergeleri izleyin.
 
 Kubernetes öğeyi kaldırmak için:
 

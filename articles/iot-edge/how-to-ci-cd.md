@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 3c4f5d6888d581cb44702a8d76e1ebbb13845091
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: aef88a4fbc7d71ee1438333afd9773d1aba3ed9c
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582924"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359162"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Sürekli tümleştirme ve sürekli dağıtım için Azure IOT Edge
 
@@ -68,8 +68,8 @@ Bu bölümde, IOT Edge çözüm örnek değişiklikleri iade ettiğinizde otomat
 1. Ardışık Düzen Düzenleyicisi'nde, aracı havuzu seçin. 
     
     * Linux kapsayıcıları için platform amd64, modülleri oluşturmak istiyorsanız seçin **barındırılan Ubuntu 1604**
-    * Windows kapsayıcıları için platform amd64, modülleri derleme istiyorsanız seçin **Hosted VS2017** 
-    * Linux kapsayıcıları için platform arm32v7, modülleri oluşturmak ister misiniz kümesine kendi Yapı aracınızı ederek gerekirse **Yönet** düğmesi.
+    * Windows 1809 kapsayıcılar için platform amd64, modülleri oluşturmak ister misiniz için gerekirse [şirket içinde barındırılan Windows aracısında ayarlama](https://docs.microsoft.com/azure/devops/pipelines/agents/v2-windows?view=vsts).
+    * Linux kapsayıcıları için platform arm32v7, modülleri oluşturmak ister misiniz için gerekirse [Linux üzerinde şirket içinde barındırılan aracı ayarlama](https://blogs.msdn.microsoft.com/iotdev/2018/11/13/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent/).
     
     ![Derleme aracı havuzu yapılandırma](./media/how-to-ci-cd/configure-env.png)
 

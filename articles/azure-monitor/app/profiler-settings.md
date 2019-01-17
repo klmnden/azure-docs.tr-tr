@@ -1,6 +1,6 @@
 ---
-title: Azure Application Insights Profiler ayarlar dikey penceresi | Microsoft Docs
-description: Profil Oluşturucu durumunu görmek ve oturumları profilini oluşturmaya başla
+title: Azure Application Insights Profiler ayarlar bölmesini kullanın | Microsoft Docs
+description: Profiler durumunu görmek ve oturumları profilini oluşturmaya başla
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -12,109 +12,117 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: b656fb521ad72256e91de63e96aa261f1e94bd13
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 16e855d8c9c5863339ec09b48d41d6f011b3e836
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083445"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358688"
 ---
 # <a name="configure-application-insights-profiler"></a>Application Insights Profiler'ı Yapılandır
 
-## <a name="profiler-settings-page"></a>Profiler Ayarları sayfası
+## <a name="profiler-settings-pane"></a>Profiler ayarları bölmesi
 
-Profil Oluşturucu Ayarları sayfasında Application Insights performans sayfasından tuşlarına basarak açılabilir **Profiler** düğmesi.
+Azure Application Insights Profiler ayarlar bölmesini açmak için Application Insights performans bölmesine gidin ve ardından **Profiler** düğmesi.
 
-![Profil Oluşturucu bölmesi girişinin yapılandırın][configure-profiler-entry]
+![Profiler bölmesinde yapılandırın][configure-profiler-entry]
 
-Application Insights Profiler ' ı yapılandırma sayfası dört özellikleri içerir: 
-1. **Artık profil** -bu düğmeye tıklandığında Application Insights'ın bu örneğine bağlı olan tüm uygulamalar için başlatmak profil oluşturma oturumları neden olur
-1. **Bağlı uygulamalar** -profil oluşturucu bu Application Insights kaynağına gönderme uygulamaların listesi
-1. **Devam eden oturumları** - bastığınızda **profili artık**, oturum durumu burada görüntülenir)
-1. **Son oturumlar profil oluşturma** -geçmiş profil oluşturma oturumları hakkındaki bilgileri gösterir.
+**Application Insights Profiler ' ı yapılandırma** bölmesi, dört özellikleri içerir: 
+* **Artık profil**: Oturumlarının Application Insights'ın bu örneğine bağlı olan tüm uygulamalar için profil oluşturma başlar.
+* **Bağlı uygulamalar**: Profil oluşturma gönderen uygulamayı listeler bu Application Insights kaynağına veri.
+* **Devam eden oturumları**: Seçtiğinizde, oturum durumunu görüntüler **profili artık**. 
+* **Son oturumlar profil oluşturma**: Geçmiş profil oluşturma oturumları hakkındaki bilgileri görüntüler.
 
 ![Profiler isteğe bağlı][profiler-on-demand]
 
-## <a name="app-service-environments-ase"></a>App Service ortamları (ASE)
-ASE'NİZİN nasıl yapılandırıldığına bağlı olarak, aracı durumunu denetlemek için çağrı engellenmiş olabilir. Bu sayfa, aracının aslında onu olduğunda çalışmadığından emin yazar. Webjob emin olmak için uygulamanızı denetleyebilirsiniz. Ancak, tüm uygulama ayarlarının doğru belirlendiğinden ve App Insights site uzantısını uygulama yüklü değilse, profil oluşturucuyu çalışan ve uygulamanız için yeterli bir trafik varsa son profil oluşturma oturum listesinde görmeniz gerekir.
+## <a name="app-service-environment"></a>App Service Ortamı
+Azure App Service ortamınızı nasıl yapılandırıldığına bağlı olarak, aracı durumunu denetlemek için çağrı engellenebilir. Bölmesinde bile çalışırken aracı çalışmayan bir ileti görüntülenebilir. Bunun olduğundan emin olmak için uygulamanızın üzerinde webjob'ı denetleyin. Uygulama ayarları değerlerin doğru olduğundan ve Application Insights site uzantısını uygulama yüklü değilse Profiler çalışıyor. Son profil oluşturma oturumları uygulamanızı yeterli trafik alıyorsa, listede görüntülenmesi gerekir.
 
 ## <a id="profileondemand"></a> Profiler el ile tetikleme
 
-Profiler el ile bir düğme tıklatma ile tetiklenebilir. Web performans testi çalıştırdığınızı varsayın. Web uygulamanızı yük altında nasıl performans gösterdiğini anlamak için izlemeleri gerekir. Yük testi çalıştırma, ancak bu rastgele bir örnekleme aralığı kaçırabilirsiniz bildiğiniz izlemeleri olduğunda yakalandığını denetime sahip olmak önemlidir.
-Aşağıdaki adımlar, bu senaryoda nasıl çalıştığını göstermektedir:
+Profiler tek bir tıklamayla el ile tetikleyebilirsiniz. Web performans testini çalıştırdığınız varsayalım. Web uygulamanızı yük altında nasıl performans gösterdiğini anlamak için izlemeleri gerekir. Yük testi çalıştırırken bildiğiniz izlemeleri olduğunda yakalandığını denetime sahip olmak, çok önemlidir. Ancak, rastgele bir örnekleme aralığı eksik.
 
-### <a name="optional-step-1-generate-traffic-to-your-web-app-by-starting-a-web-performance-test"></a>(İsteğe bağlı) 1. adım: Web performans testi başlatarak web uygulamanıza trafiği oluşturur
+Sonraki bölümlerde, bu senaryoda nasıl çalıştığını göstermektedir:
+
+### <a name="step-1-optional-generate-traffic-to-your-web-app-by-starting-a-web-performance-test"></a>1. Adım: (İsteğe bağlı) Web performans testi başlatarak web uygulamanıza trafiği oluşturur
 
 Web uygulamanıza gelen trafik varsa veya trafiği el ile oluşturmak istiyorsanız, bu bölümü atlayın ve adım 2'ye geçin.
 
-Application Insights portalına gidin **yapılandırma > performans testi**. Yeni performans testi başlatmak için yeni düğmesine tıklayın.
+1. Application Insights portalında **yapılandırma** > **performans testi**. 
 
-![Yeni performans testi oluşturma][create-performance-test]
+1. Yeni performans testi başlatmak için **yeni** düğmesi.
 
-İçinde **yeni performans testi** bölmesinde test hedef URL'yi yapılandırın. Tüm varsayılan ayarları kabul edin ve yük testi çalıştırmaya başlayın.
+   ![Yeni performans testi oluşturma][create-performance-test]
 
-![Yük testi Yapılandır][configure-performance-test]
+1. İçinde **yeni performans testi** bölmesinde test hedef URL'yi yapılandırın. Tüm varsayılan ayarları kabul edin ve ardından **testi** yük testi çalıştırmaya başlamak için.
 
-Yeni test durumu 'Sürüyor' izleyen ilk olarak sıraya alınır görürsünüz.
+    ![Yük testi Yapılandır][configure-performance-test]
 
-![Yük testi gönderildi ve kuyruğa alındı][load-test-queued]
+    Yeni test durumu tarafından izlenen ilk olarak sıraya alınır *sürüyor*.
 
-![devam eden yük testi çalışırken][load-test-in-progress]
+    ![Yük testi gönderildi ve kuyruğa alındı][load-test-queued]
 
-### <a name="step-2-start-profiler-on-demand"></a>2. Adım: Profil Oluşturucu üzerine Başlat
+    ![devam eden yük testi çalışırken][load-test-in-progress]
 
-Yük testi çalışmaya başladığında, biz yük alırken web uygulamasında izlemeleri yakalamak amacıyla profil oluşturucu başlayabilirsiniz.
-Yapılandırma Profiler bölmesine gidin:
+### <a name="step-2-start-a-profiler-on-demand-session"></a>2. Adım: Profiler isteğe bağlı oturum başlatma
+
+1. Yük testi çalışırken yük alırken web uygulamasında izlemeleri yakalamak amacıyla Profiler'ı başlatın.
+
+1. Git **yapılandırma Profiler** bölmesi.
 
 
 ### <a name="step-3-view-traces"></a>3. Adım: Görünüm izlemeleri
 
-Profil Oluşturucu çalışmayı tamamladıktan sonra performans sayfası ve görünüm izlemeleri gitmek için bildirim yönergeleri izleyin.
+Profiler çalışmayı tamamladıktan sonra performans bölmesi ve görünüm izlemeleri gitmek için bildirim yönergeleri izleyin.
 
-## <a name="troubleshooting-on-demand-profiler"></a>İsteğe bağlı profil oluşturucu sorunlarını giderme
+## <a name="troubleshoot-the-profiler-on-demand-session"></a>Profiler isteğe bağlı oturumdaki sorunlarını giderme
 
-Bazen bir isteğe bağlı oturum sonra Profiler zaman aşımı hata iletisini görebilirsiniz:
+İsteğe bağlı oturumundan sonra bir Profiler zaman aşımı hata iletisini alabilirsiniz:
 
 ![Profiler zaman aşımı hatası][profiler-timeout]
 
-Bu hatayı neden gördüğünüz iki nedeni olabilir:
+Aşağıdaki nedenlerden biri bu hatayı alabilirsiniz:
 
-1. İsteğe bağlı Profil Oluşturucu oturumu başarılı oldu ancak Application Insights toplanan verileri işlemek için uzun sürdü. Verileri 15 dakika içinde işlenmekte olan bitmedi, portal bir zaman aşımı iletisi görüntüler. Bir süre sonra ancak Profiler izlemeleri gösterilir. Yalnızca bu durumda, hata iletisi şimdilik yoksayın. Etkin bir düzeltme üzerinde çalışıyoruz.
+* İsteğe bağlı Profiler oturum başarılı oldu ancak Application Insights toplanan verileri işlemek için beklenenden daha uzun sürdü.  
 
-1. Web uygulamanızın isteğe bağlı özellik yok Profiler Aracısı daha eski bir sürümü vardır. Application Insights profilinde önceden etkinleştirilmişse, isteğe bağlı özelliği kullanmaya başlamak için Profiler aracınızı güncelleştirmeye gerek duyduğunuz yüksektir.
+  Verileri 15 dakika içinde işlenen değil, portal bir zaman aşımı iletisi görüntüler. Bir süre sonra ancak Profiler izlemeleri gösterilir. Bir hata iletisi alırsanız, şimdilik yoksayın. Etkin bir düzeltme üzerinde çalışıyoruz.
+
+* Web Apps uygulamanız isteğe bağlı özellik yok Profiler Aracısı daha eski bir sürümü var.  
+
+  Application Insights Profiler ' ı daha önce etkin, isteğe bağlı özelliği kullanmaya başlamak için Profiler aracınızı güncelleştirin gerekebilir.
   
-En son Profiler'ı yüklemek ve denetlemek için aşağıdaki adımları izleyin:
+Uygulama Hizmetleri Git **uygulama ayarları** bölmesi ve aşağıdaki ayarları denetleyin:
+* **APPINSIGHTS_INSTRUMENTATIONKEY**: Application Insights için uygun bir izleme anahtarı ile değiştirin.
+* **APPINSIGHTS_PORTALINFO**: ASP.NET
+* **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0
 
-1. Uygulama Hizmetleri uygulama ayarlarına gidin ve aşağıdaki ayarları ayarlanıp ayarlanmadığını denetleyin:
-    * **APPINSIGHTS_INSTRUMENTATIONKEY**: Application Insights için uygun bir izleme anahtarı ile değiştirin.
-    * **APPINSIGHTS_PORTALINFO**: ASP.NET
-    * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0 Bu ayarlardan herhangi birini ayarlanmazsa, en son site uzantısını yüklemek için Application ınsights'ı etkinleştirme bölmesine gidin.
+Yukarıdaki değerlerden herhangi birini ayarlanmazsa, en son site uzantısı aşağıdaki adımları izleyerek yükleyin:
 
-1. Uygulama Hizmetleri Portalı'nda Application Insights bölmesine gidin.
+1. Git **Application Insights** App Services Portalı'nda bölmesi.
 
-    ![Uygulama Hizmetleri portalından Application Insights'ı etkinleştir][enable-app-insights]
+    ![Application Insights uygulama hizmetleri portalından etkinleştirme][enable-app-insights]
 
-1. Aşağıdaki sayfada bir 'Güncelleştirme' düğmesi görürseniz, en son Profiler Aracısı yükleyecek Application Insights site uzantısını güncelleştirmek için tıklayın.
+1. Varsa **Application Insights** bölmesini görüntüler bir **güncelleştirme** düğmesi, en son Profiler Aracısı yükleyecek Application Insights site uzantısını güncelleştirmek için seçin.
 
     ![Güncelleştirme site uzantısı][update-site-extension]
 
-1. Ardından **değiştirme** emin olmak için Profiler select açık olduğundan ve **Tamam** değişiklikleri kaydetmek için.
+1. Profiler açık olduğundan emin olmak için seçin **değişiklik**ve ardından **Tamam** değişiklikleri kaydedin.
 
     ![App ınsights kaydedin ve değiştirme][change-and-save-appinsights]
 
-1. Geri Git **uygulama ayarları** App Service uygulama ayarları aşağıdakileri denetleyin sekmesinde ayarlanır:
+1. Geri Git **uygulama ayarları** bölmesinde aşağıdaki değerleri ayarlandığından emin olmak App Service için:
     * **APPINSIGHTS_INSTRUMENTATIONKEY**: Application ınsights için uygun bir izleme anahtarı ile değiştirin.
-    * **APPINSIGHTS_PORTALINFO**: ASP.NET
+    * **APPINSIGHTS_PORTALINFO**: ASP.NET 
     * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0
 
-    ![Profil Oluşturucu için uygulama ayarları][app-settings-for-profiler]
+    ![Profiler için uygulama ayarları][app-settings-for-profiler]
 
-1. İsteğe bağlı olarak, uzantı sürümü ve kullanılabilir güncelleştirme yok sağlamaktan denetleyin.
+1. İsteğe bağlı olarak **uzantıları**, uzantı sürümü kontrol edin ve ardından bir güncelleştirme kullanılabilir olup olmadığını belirlemek.
 
     ![Uzantı güncelleştirme denetleme][check-for-extension-update]
 
-## <a name="next-steps"></a>Sonraki Adımlar
-[Profiler etkinleştirme ve görüntüleme izlemeleri](profiler-overview.md ?toc=/azure/azure-monitor/toc.json)
+## <a name="next-steps"></a>Sonraki adımlar
+[Profiler'ı etkinleştirme ve izlemeleri görüntüleme](profiler-overview.md?toc=/azure/azure-monitor/toc.json)
 
 [profiler-on-demand]: ./media/profiler-settings/Profiler-on-demand.png
 [configure-profiler-entry]: ./media/profiler-settings/configure-profiler-entry.png

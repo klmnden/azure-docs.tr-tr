@@ -16,18 +16,18 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: 2d8a98e6ab38f4156b6e2f5bda81b44e1789a6ed
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 11e255c8cc32f17efa9fc9e8f39e869fba032d75
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253083"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359842"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Azure sanal makinelerinde Always On kullanılabilirlik grupları oluşturmak için önkoşulları tamamlayın
 
 Bu öğreticide, oluşturma önkoşullarını tamamlamak gösterilir bir [SQL Server Always On kullanılabilirlik grubu'Azure sanal makinelerinde (VM'ler)](virtual-machines-windows-portal-sql-availability-group-tutorial.md). Bir etki alanı denetleyicisi, iki SQL Server Vm'leri ve bir Tanık önkoşulları bitirdiğinizde, tek bir kaynak grubu içinde sahiptir.
 
-**Tahmini Süre**: birkaç önkoşullarını tamamlamak için saat sürebilir. Bu süre çoğu sanal makine oluşturma harcanır.
+**Tahmini Süre**: Bu, birkaç önkoşullarını tamamlamak için saat sürebilir. Bu süre çoğu sanal makine oluşturma harcanır.
 
 Aşağıdaki diyagram, öğreticide yapı gösterir.
 
@@ -108,7 +108,7 @@ Adlı bir alt ağ, yeni bir sanal ağ olan **yönetici**. Etki alanı denetleyic
 
     Varsa **SQL-HA-RG** görünmeyen, sabitlemediyseniz bunu bulmak **kaynak grupları** ve kaynak grubu adına göre filtreleme.
 2. Tıklayın **autoHAVNET** kaynaklar listesi. 
-3. Üzerinde **autoHAVNET** sanal ağ, altında **ayarları** , tıklayın **alt ağlar**.
+3. Üzerinde **autoHAVNET** sanal ağ, altında **ayarları** seçin **alt ağlar**.
 
     Zaten oluşturduğunuz alt ağ unutmayın.
 
@@ -135,7 +135,7 @@ Ağ yapılandırması ayarları aşağıdaki tabloda özetlenmiştir:
 
 ## <a name="create-availability-sets"></a>Kullanılabilirlik kümeleri oluşturma
 
-Sanal makine oluşturmadan önce kullanılabilirlik kümeleri oluşturmak gerekir. Kullanılabilirlik kümeleri, planlı veya Plansız bakım olayları için kapalı kalma süresini azaltın. Azure kullanılabilirlik kümesi, Azure üzerinde fiziksel hata etki alanları ve güncelleme etki alanları yerleştirir kaynakların mantıksal bir gruptur. Hata etki alanı, kullanılabilirlik kümesi üyesi ayrı gücü ve ağ kaynaklarına sahip olmasını sağlar. Kullanılabilirlik kümesi üyeleri bakım için aynı anda getirildiği olmayan, bir güncelleştirme etki alanı sağlar. Ek bilgi için bkz: [sanal makinelerin kullanılabilirliğini yönetme](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Sanal makine oluşturmadan önce kullanılabilirlik kümeleri oluşturmak gerekir. Kullanılabilirlik kümeleri, planlı veya Plansız bakım olayları için kapalı kalma süresini azaltın. Azure kullanılabilirlik kümesi, Azure üzerinde fiziksel hata etki alanları ve güncelleme etki alanları yerleştirir kaynakların mantıksal bir gruptur. Hata etki alanı, kullanılabilirlik kümesi üyesi ayrı gücü ve ağ kaynaklarına sahip olmasını sağlar. Kullanılabilirlik kümesi üyeleri bakım için aynı anda getirildiği olmayan, bir güncelleştirme etki alanı sağlar. Daha fazla bilgi için [sanal makinelerin kullanılabilirliğini yönetme](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 İki kullanılabilirlik kümesi gerekir. Etki alanı denetleyicilerinin biridir. SQL Server Vm'leri için saniyedir.
 
@@ -178,7 +178,7 @@ Aşağıdaki tabloda, bu iki makine ayarlarını gösterilmektedir:
 | --- | --- |
 | **Ad** |İlk etki alanı denetleyicisi: *ad birincil dc*.</br>İkinci etki alanı denetleyicisi *ad ikincil dc*. |
 | **VM disk türü** |SSD |
-| **Kullanıcı adı** |Etki alanı yöneticisi |
+| **Kullanıcı adı** |DomainAdmin |
 | **Parola** |Contoso! 0000 |
 | **Abonelik** |*Aboneliğiniz* |
 | **Kaynak grubu** |SQL-HA-RG |
@@ -189,7 +189,7 @@ Aşağıdaki tabloda, bu iki makine ayarlarını gösterilmektedir:
 | **Alt ağ** |Yönetici |
 | **Genel IP adresi** |*VM adıyla aynı* |
 | **Ağ güvenlik grubu** |*VM adıyla aynı* |
-| **Kullanılabilirlik kümesi** |adavailabilityset </br>**Hata etki alanları**: 2</br>**Güncelleme etki alanları**: 2|
+| **Kullanılabilirlik kümesi** |adavailabilityset </br>**Hata etki alanları**: 2 </br>**Güncelleme etki alanları**: 2|
 | **Tanılama** |Etkin |
 | **Tanılama depolama hesabı** |*Otomatik olarak oluşturulur* |
 
@@ -234,7 +234,7 @@ Aşağıdaki adımlarda, yapılandırma **ad birincil dc** corp.contoso.com etki
     | --- | --- |
     | **Dağıtım Yapılandırması** |**Yeni orman Ekle**<br/> **Kök etki alanı adı** corp.contoso.com = |
     | **Etki alanı denetleyicisi seçenekleri** |**DSRM parolasını** Contoso =! 0000<br/>**Parolayı onaylayın** Contoso =! 0000 |
-14. Tıklayın **sonraki** sihirbazdaki diğer sayfalarına gitmek için. Üzerinde **Önkoşul denetimi** sayfasında, aşağıdaki iletisini gördüğünüzü doğrulayın: **tüm önkoşul denetimlerinden başarıyla geçti**. Uygulanabilir tüm uyarı iletilerini gözden geçirebilirsiniz, ancak yükleme işlemine devam etmek mümkündür.
+14. Tıklayın **sonraki** sihirbazdaki diğer sayfalarına gitmek için. Üzerinde **Önkoşul denetimi** sayfasında, aşağıdaki iletisini gördüğünüzü doğrulayın: **Tüm önkoşul denetimlerinden başarıyla geçti**. Uygulanabilir tüm uyarı iletilerini gözden geçirebilirsiniz, ancak yükleme işlemine devam etmek mümkündür.
 15. **Yükle**'ye tıklayın. **Ad birincil dc** sanal makine otomatik olarak yeniden başlatılır.
 
 ### <a name="note-the-ip-address-of-the-primary-domain-controller"></a>Birincil etki alanı denetleyicisinin IP adresini not alın
@@ -370,7 +370,7 @@ Ardından, üç VM--iki SQL Server Vm'leri ve ek bir düğümü için bir VM olu
 | Uygun galeri öğesi seçin |**Windows Server 2016 Datacenter** |**Windows Server 2016 üzerinde SQL Server 2016 SP1 Enterprise** |**Windows Server 2016 üzerinde SQL Server 2016 SP1 Enterprise** |
 | Sanal Makine Yapılandırması **temelleri** |**Adı** küme fsw =<br/>**Kullanıcı adı** DomainAdmin =<br/>**Parola** Contoso =! 0000<br/>**Abonelik** aboneliğinizi =<br/>**Kaynak grubu** SQL-HA-RG =<br/>**Konum** azure konumunuz = |**Adı** sqlserver-0 =<br/>**Kullanıcı adı** DomainAdmin =<br/>**Parola** Contoso =! 0000<br/>**Abonelik** aboneliğinizi =<br/>**Kaynak grubu** SQL-HA-RG =<br/>**Konum** azure konumunuz = |**Adı** sqlserver-1 =<br/>**Kullanıcı adı** DomainAdmin =<br/>**Parola** Contoso =! 0000<br/>**Abonelik** aboneliğinizi =<br/>**Kaynak grubu** SQL-HA-RG =<br/>**Konum** azure konumunuz = |
 | Sanal Makine Yapılandırması **boyutu** |**BOYUTU** DS1 =\_V2 (1 vCPU, 3,5 GB) |**BOYUTU** DS2 =\_V2 (2 Vcpu, 7 GB)</br>SSD depolama (Premium disk desteği. boyutu desteklemelidir )) |**BOYUTU** DS2 =\_V2 (2 Vcpu, 7 GB) |
-| Sanal Makine Yapılandırması **ayarları** |**Depolama**: yönetilen diskleri kullan.<br/>**Sanal ağ** autoHAVNET =<br/>**Alt ağ** sqlsubnet(10.1.1.0/24) =<br/>**Genel IP adresi** otomatik olarak oluşturulmuş.<br/>**Ağ güvenlik grubu** = yok<br/>**Tanılama izleme** = etkin<br/>**Tanılama depolama hesabı** = otomatik olarak oluşturulan depolama hesabı kullanın<br/>**Kullanılabilirlik kümesi** sqlAvailabilitySet =<br/> |**Depolama**: yönetilen diskleri kullan.<br/>**Sanal ağ** autoHAVNET =<br/>**Alt ağ** sqlsubnet(10.1.1.0/24) =<br/>**Genel IP adresi** otomatik olarak oluşturulmuş.<br/>**Ağ güvenlik grubu** = yok<br/>**Tanılama izleme** = etkin<br/>**Tanılama depolama hesabı** = otomatik olarak oluşturulan depolama hesabı kullanın<br/>**Kullanılabilirlik kümesi** sqlAvailabilitySet =<br/> |**Depolama**: yönetilen diskleri kullan.<br/>**Sanal ağ** autoHAVNET =<br/>**Alt ağ** sqlsubnet(10.1.1.0/24) =<br/>**Genel IP adresi** otomatik olarak oluşturulmuş.<br/>**Ağ güvenlik grubu** = yok<br/>**Tanılama izleme** = etkin<br/>**Tanılama depolama hesabı** = otomatik olarak oluşturulan depolama hesabı kullanın<br/>**Kullanılabilirlik kümesi** sqlAvailabilitySet =<br/> |
+| Sanal Makine Yapılandırması **ayarları** |**Depolama**: Yönetilen diskler kullanın.<br/>**Sanal ağ** autoHAVNET =<br/>**Alt ağ** sqlsubnet(10.1.1.0/24) =<br/>**Genel IP adresi** otomatik olarak oluşturulmuş.<br/>**Ağ güvenlik grubu** = yok<br/>**Tanılama izleme** = etkin<br/>**Tanılama depolama hesabı** = otomatik olarak oluşturulan depolama hesabı kullanın<br/>**Kullanılabilirlik kümesi** sqlAvailabilitySet =<br/> |**Depolama**: Yönetilen diskler kullanın.<br/>**Sanal ağ** autoHAVNET =<br/>**Alt ağ** sqlsubnet(10.1.1.0/24) =<br/>**Genel IP adresi** otomatik olarak oluşturulmuş.<br/>**Ağ güvenlik grubu** = yok<br/>**Tanılama izleme** = etkin<br/>**Tanılama depolama hesabı** = otomatik olarak oluşturulan depolama hesabı kullanın<br/>**Kullanılabilirlik kümesi** sqlAvailabilitySet =<br/> |**Depolama**: Yönetilen diskler kullanın.<br/>**Sanal ağ** autoHAVNET =<br/>**Alt ağ** sqlsubnet(10.1.1.0/24) =<br/>**Genel IP adresi** otomatik olarak oluşturulmuş.<br/>**Ağ güvenlik grubu** = yok<br/>**Tanılama izleme** = etkin<br/>**Tanılama depolama hesabı** = otomatik olarak oluşturulan depolama hesabı kullanın<br/>**Kullanılabilirlik kümesi** sqlAvailabilitySet =<br/> |
 | Sanal Makine Yapılandırması **SQL Server ayarları** |Uygulanamaz |**SQL Bağlantısı** özel (sanal ağ içinde) =<br/>**Bağlantı noktası** 1433 =<br/>**SQL kimlik doğrulaması** = devre dışı bırak<br/>**Depolama yapılandırması** genel =<br/>**Otomatik düzeltme eki uygulama** 2: 00'da Pazar =<br/>**Otomatik yedekleme** = devre dışı</br>**Azure Key Vault tümleştirmesi** = devre dışı |**SQL Bağlantısı** özel (sanal ağ içinde) =<br/>**Bağlantı noktası** 1433 =<br/>**SQL kimlik doğrulaması** = devre dışı bırak<br/>**Depolama yapılandırması** genel =<br/>**Otomatik düzeltme eki uygulama** 2: 00'da Pazar =<br/>**Otomatik yedekleme** = devre dışı</br>**Azure Key Vault tümleştirmesi** = devre dışı |
 
 <br/>
@@ -462,6 +462,10 @@ Yük devretme kümeleme özellikleri eklemek, hem SQL Server Vm'leri için aşa�
 6. Tıklayın **yükleme** özellikleri eklemek için.
 
 Bir SQL Server VM adımları tekrarlayın.
+
+  >[!NOTE]
+  > SQL Server Vm'leri için yük devretme kümesi, aslında katılma yanı sıra, bu adımı artık bir Azure Hızlı Başlangıç şablonu ile otomatik olarak yapılabilir. Daha fazla bilgi için [WSFC oluşturmak, dinleyiciyi ve ILB Azure Hızlı Başlangıç şablonu ile bir SQL Server VM'de Always On kullanılabilirlik grubu için yapılandırma](virtual-machines-windows-sql-availability-group-quickstart-template.md).
+
 
 ## <a name="a-nameendpoint-firewall-configure-the-firewall-on-each-sql-server-vm"></a><a name="endpoint-firewall"> Her SQL Server VM Güvenlik duvarını yapılandırma
 

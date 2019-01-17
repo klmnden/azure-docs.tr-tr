@@ -1,6 +1,6 @@
 ---
-title: Application Insights Profiler ile Azure sanal makinesinde çalışan web uygulamalarının profilini | Microsoft Docs
-description: Application Insights Profiler ile bir Azure VM üzerinde Web apps profil.
+title: Application Insights Profiler ' ı kullanarak bir Azure sanal makinesinde çalışan web uygulamalarının profilini | Microsoft Docs
+description: Application Insights Profiler ' ı kullanarak bir Azure VM üzerinde Web apps profil.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -12,28 +12,32 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 764088e7f463f0c249f176514d485944d9c9d76e
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 3f720cdf369e7377f16bb2ea9cba7e898097cc29
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264640"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359791"
 ---
-# <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-virtual-machine-scale-set-with-application-insights-profiler"></a>Bir Azure sanal makine veya sanal makine ölçek kümesi ile Application Insights Profiler çalışan profili web uygulamaları
-Ayrıca, Application Insights Profiler'ı bu hizmetlerin dağıtabilirsiniz:
+# <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-a-virtual-machine-scale-set-by-using-application-insights-profiler"></a>Application Insights Profiler ' ı kullanarak bir Azure sanal makine veya sanal makine ölçek çalışan profili web uygulamalarını ayarlama
+
+Ayrıca, bu hizmetleri Azure Application Insights Profiler dağıtabilirsiniz:
 * [Azure App Service](../../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
-* [Cloud Services](profiler-cloudservice.md ?toc=/azure/azure-monitor/toc.json)
-* [Service Fabric](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Azure Cloud Services](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
+* [Azure Service Fabric](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
-## <a name="deploy-profiler-on-a-virtual-machine-or-scale-set"></a>Bir sanal makine veya ölçek kümesinde Profiler'ı dağıtma
-Bu sayfa, Azure VM veya Azure sanal makine ölçek çalışan Application Insights Profiler'ı almak için ayarlanmış adımlarda size yol gösterir. Application Insights Profiler Windows Azure tanılama uzantısı ile sanal makineler için yüklenir. Uzantı profil oluşturucu çalışacak şekilde yapılandırılması gerekir ve App Insights SDK'sını uygulamanıza oluşturulmalıdır.
+## <a name="deploy-profiler-on-a-virtual-machine-or-a-virtual-machine-scale-set"></a>Bir sanal makine veya sanal makine ölçek kümesi üzerinde Profiler'ı dağıtma
+Bu makalede, Azure sanal makinesi (VM) veya Azure sanal makine ölçek kümesi üzerinde çalışan Application Insights Profiler ' ı almak nasıl gösterir. Profiler VM'ler için Azure tanılama uzantısı ile yüklenir. Profiler'ı çalıştırmak için uzantısını yapılandırın ve uygulamanıza Application Insights SDK'sını derleme.
 
-1. Application Insights SDK'sı eklemek için [ASP.Net uygulaması](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net) veya normal [.NET uygulaması.](https://docs.microsoft.com/azure/application-insights/app-insights-windows-services?toc=/azure/azure-monitor/toc.json) İstek telemetrisi Application Insights bakın profillere isteklerinizi için gönderme gerekir.
-1. Windows Azure tanılama uzantısı, sanal Makinenize yükleyin. Tam Resource Manager şablonu örnekleri için bkz:  
+1. Application Insights SDK'sini ekleyin, [ASP.NET uygulaması](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net) veya normal [.NET uygulaması](https://docs.microsoft.com/azure/application-insights/windows-services?toc=/azure/azure-monitor/toc.json).  
+  İsteklerinizi profillerini görüntülemek için Application Insights istek telemetrisi göndermeniz gerekir.
+
+1. Azure tanılama uzantısı, sanal Makinenize yükleyin. Tam Resource Manager şablonu örnekleri için bkz:  
     * [Sanal makine](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachine.json)
     * [Sanal makine ölçek kümesi](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachineScaleSet.json)
     
-    ApplicationInsightsProfilerSink WadCfg içinde önemli parçasıdır. Başka bir havuz için iKey veri göndermek profil oluşturucuyu etkinleştirme WAD bildirmek için bu bölümü ekleyin.
+    ApplicationInsightsProfilerSink WadCfg içinde önemli parçasıdır. Azure tanılama için iKey veri göndermek Profiler'ı etkinleştirmek için başka bir havuz bu bölümüne ekleyin.
+    
     ```json
       "SinksConfig": {
         "Sink": [
@@ -51,9 +55,9 @@ Bu sayfa, Azure VM veya Azure sanal makine ölçek çalışan Application Insigh
 
 1. Değiştirilmiş ortam dağıtım tanımı dağıtın.  
 
-   Değişiklikleri uygulamak için genellikle tam şablon dağıtımı kapsadığı veya alan bir bulut hizmeti, PowerShell cmdlet'lerini veya Visual Studio yayımlayabilirsiniz.  
+   Tam şablon dağıtımı değişiklikler genellikle uygulama içerir veya PowerShell cmdlet'lerini veya Visual Studio bir bulut hizmeti tabanlı yayımlama.  
 
-   Aşağıdaki powershell komutlarını yalnızca Azure tanılama uzantısını üzerinde alternatif bir yaklaşım mevcut sanal makineler var. Yalnızca Get-AzureRmVMDiagnosticsExtension komutu tarafından döndürülen config, yukarıda belirtildiği gibi ProfilerSink eklemeniz gerekir. Daha sonra güncelleştirilmiş yapılandırma kümesi AzureRmVMDiagnosticsExtension komuta geçirin.
+   Aşağıdaki PowerShell komutlarını yalnızca Azure tanılama uzantısını üzerinde alternatif bir yaklaşım mevcut sanal makineler var. Daha önce bahsedilen ProfilerSink Get-AzureRmVMDiagnosticsExtension komutu tarafından döndürülen yapılandırmasına ekleyin ve ardından güncelleştirilmiş config Set-AzureRmVMDiagnosticsExtension Command'e.
 
     ```powershell
     $ConfigFilePath = [IO.Path]::GetTempFileName()
@@ -66,7 +70,7 @@ Bu sayfa, Azure VM veya Azure sanal makine ölçek çalışan Application Insigh
 
 1. Hedeflenen uygulama çalışıyorsa [IIS](https://www.microsoft.com/web/downloads/platform.aspx), etkinleştirme `IIS Http Tracing` Windows özelliği.
 
-   a. Ortam için uzaktan erişim'kurmak ve sonra [Ekle Windows özellikleri]( https://docs.microsoft.com/iis/configuration/system.webserver/tracing/) penceresi ya da (yönetici olarak) PowerShell'de aşağıdaki komutu çalıştırın:  
+   a. Ortam için uzaktan erişim'kurmak ve sonra [Ekle Windows özellikleri]( https://docs.microsoft.com/iis/configuration/system.webserver/tracing/) penceresi. Veya, (yönetici olarak) PowerShell'de aşağıdaki komutu çalıştırın:  
 
     ```powershell
     Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All
@@ -79,11 +83,11 @@ Bu sayfa, Azure VM veya Azure sanal makine ölçek çalışan Application Insigh
 
 1. Uygulamanızı dağıtın.
 
-## <a name="can-profiler-run-on-on-premises-servers"></a>Profil Oluşturucu, şirket içi sunucularda çalıştırabilir miyim?
-Şirket içi sunucular için Application Insights Profiler ' ı desteklemek için herhangi bir plan sahibiz.
+## <a name="can-profiler-run-on-on-premises-servers"></a>Profiler, şirket içi sunucularda çalıştırabilir miyim?
+Şirket içi sunucular için Application Insights Profiler ' ı desteklemek için hiçbir plan sahibiz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Uygulamanız için trafiği oluşturur (örneğin, başlatma bir [kullanılabilirlik testi](https://docs.microsoft.com/azure/application-insights/app-insights-monitor-web-app-availability)). Ardından, izlemeleri Application Insights örneğine gönderilmek üzere başlatmak 10-15 dakika bekleyin.
-- Bkz: [Profiler izlemeleri](https://docs.microsoft.com/azure/application-insights/app-insights-profiler-overview?toc=/azure/azure-monitor/toc.json) Azure portalında.
-- Profil Oluşturucu sorunlarını giderme konusunda yardım alın [sorun giderme Profiler](profiler-troubleshooting.md ?toc=/azure/azure-monitor/toc.json).
+- Uygulamanız için trafiği oluşturur (örneğin, başlatma bir [kullanılabilirlik testi](https://docs.microsoft.com/azure/application-insights/monitor-web-app-availability)). Ardından, izlemeleri Application Insights örneğine gönderilmek üzere başlatmak 10-15 dakika bekleyin.
+- Bkz: [Profiler izlemeleri](https://docs.microsoft.com/azure/application-insights/profiler-overview?toc=/azure/azure-monitor/toc.json) Azure portalında.
+- Profiler sorunlarını giderme konusunda yardım için bkz: [sorun giderme Profiler](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).

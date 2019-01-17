@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 8282901dfcacb7ca0330274d114cd4c2990fdec1
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 321f6fc043147c0a1559c93fb5ada3d33d9e3dd9
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330459"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359978"
 ---
 # <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>Azure PowerShell ile SQL Server sanal makineleri sağlama
 
@@ -101,9 +101,10 @@ $OSDiskName = $VMName + "OSDisk"
 ```
 
 ### <a name="choose-a-sql-server-image"></a>Bir SQL Server görüntüsü seçin
-SQL Server sanal makine için kullanılacak görüntüyü tanımlayın.
 
-1. İlk olarak, tüm SQL Server görüntü teklifleriyle listesi **Get-Azurermvmımageoffer** komutu:
+Sanal makine için kullanılacak SQL Server görüntüsünü tanımlamak için aşağıdaki değişkenleri kullanın. 
+
+1. İlk olarak, tüm SQL Server görüntü teklifleriyle listesinde `Get-AzureRmVMImageOffer` komutu. Bu komut, Azure Portalı'nda kullanılabilir olan geçerli görüntüleri ve ayrıca yalnızca PowerShell ile yüklenebilir eski görüntüler listeler:
 
    ```PowerShell
    Get-AzureRmVMImageOffer -Location $Location -Publisher 'MicrosoftSQLServer'

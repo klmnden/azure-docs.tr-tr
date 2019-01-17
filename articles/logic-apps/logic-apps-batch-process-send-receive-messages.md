@@ -8,13 +8,13 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, jonfan, LADocs
 ms.topic: article
-ms.date: 08/19/2018
-ms.openlocfilehash: f60cb79324cad194877402203dbd1706727468d0
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.date: 01/16/2019
+ms.openlocfilehash: c33b1d46ecf710f050fc998ce27f6448337c6b78
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330730"
+ms.locfileid: "54352521"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Toplu işlem iletileri Azure Logic apps'te gönderme ve alma
 
@@ -60,10 +60,17 @@ Bir toplu iletileri göndermeden önce toplu iletiler göndermek burada hedef ol
    |----------|-------------|
    | **Toplu iş modu** | - **Satır içi**: Yayın ölçütü toplu tetikleyici içinde tanımlamak için <br>- **Tümleştirme hesabı**: Birden çok yayın ölçütleri yapılandırmalarını tanımlamak için bir [tümleştirme hesabı](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md). Bir tümleştirme hesabıyla bu yapılandırmalar, tek bir yerde yerine ayrı mantıksal uygulamalar bulundurabilirsiniz. | 
    | **Toplu işlem adı** | Bu örnekte "TestBatch" olması ve yalnızca, batch, adı **satır içi** toplu iş modu |  
-   | **Yayın ölçütü** | Yalnızca geçerli **satır içi** toplu iş modu ve her toplu işin işlenmeden önce karşılamak için ölçütleri seçer: <p>- **İleti sayısı tabanlı**: Toplu işlemde, örneğin, 10 ileti toplanacak ileti sayısı <br>- **Bağlı boyutu**: Örneğin, 10 MB bayt cinsinden maksimum toplu iş boyutu <br>- **Zamanlama tabanlı**: Toplu sürümler, örneğin, 10 dakika arasında bir sıklık ve aralığı. En az yinelenme 60 saniye veya 1 dakika ' dir. Kesirli dakika değerleri 1 dakika için etkili bir şekilde yuvarlanır. Başlangıç tarihini ve saatini belirtmek için **Gelişmiş Seçenekleri Göster**. <br>- **Tümünü Seç**: Belirtilen ölçütleri kullanın. | 
+   | **Yayın ölçütü** | Yalnızca geçerli **satır içi** toplu iş modu ve her toplu işin işlenmeden önce karşılamak için ölçütleri seçer: <p>- **İleti sayısı tabanlı**: Batch tarafından toplanan ileti sayısını göre toplu bırakın. <br>- **Bağlı boyutu**: Bu batch tarafından toplanan tüm iletileri için bayt cinsinden toplam boyut göre toplu bırakın. <br>- **Zamanlama**: Bir aralık ve sıklık belirten bir yinelenme zamanlamasına göre batch bırakın. Gelişmiş Seçenekler, bir saat dilimi seçin ve bir başlangıç tarihi ve saati belirtin. <br>- **Tümünü Seç**: Belirtilen ölçütleri kullanın. | 
+   | **İleti sayısı** | Toplu işlemde, örneğin, 10 ileti toplanacak ileti sayısı. Bir toplu işin 8000 iletileri sınırdır. | 
+   | **Toplu iş boyutu** | Toplu işlemde, örneğin, 10 MB toplamak için bayt cinsinden toplam boyutu. Bir toplu iş boyutu 80 MB'dir. | 
+   | **Zamanlama** | Toplu sürümler, örneğin, 10 dakika arasında bir sıklık ve aralığı. En az yinelenme 60 saniye veya 1 dakika ' dir. Kesirli dakika 1 dakika için etkili bir şekilde yuvarlanır. Bir saat dilimi veya başlangıç tarihini ve saatini belirtmek için **Gelişmiş Seçenekleri Göster**. | 
    ||| 
 
-   Bu örnekte, tüm ölçütleri gösterir, ancak kendi test etmek için yalnızca tek bir ölçüt seçin:
+   > [!NOTE]
+   > 
+   > Tetikleyici hala Gönderilmemiş iletileri toplu yayın ölçütü değiştirirseniz, tetikleyici güncelleştirilmiş yayın ölçütü Gönderilmemiş iletileri işlemek için kullanır. 
+
+   Bu örnekte, tüm ölçütleri gösterir, ancak kendi test etmek için yalnızca bir ölçütü deneyin:
 
    ![Toplu tetikleyici ayrıntılarını sağlayın](./media/logic-apps-batch-process-send-receive-messages/batch-receiver-criteria.png)
 

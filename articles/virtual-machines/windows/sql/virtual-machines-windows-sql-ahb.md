@@ -1,5 +1,5 @@
 ---
-title: Azure'da bir SQL sanal makinesi için lisanslama modelini değiştirme | Microsoft Docs
+title: Azure'da bir SQL Server sanal makinesi için lisanslama modelini değiştirme | Microsoft Docs
 description: Bir Azure SQL sanal makinesi için lisanslama nasıl değiştireceğinizi öğrenin.
 services: virtual-machines-windows
 documentationcenter: na
@@ -15,36 +15,38 @@ ms.workload: iaas-sql-server
 ms.date: 11/14/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: c516bf9b48164f2ef8dc7fea6fb834bdae00a0d1
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 1b1c7192eb8389d3ad3a1c7c935d9c7e2d8769a9
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332158"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359927"
 ---
 # <a name="how-to-change-the-licensing-model-for-a-sql-server-virtual-machine-in-azure"></a>Azure'da bir SQL Server sanal makinesi için lisanslama modelini değiştirme
-Bu makalede yeni kullanarak Azure'da bir SQL Server sanal makine için lisans modeli değiştirmek nasıl SQL kaynak sağlayıcısı - **Microsoft.SqlVirtualMachine**. İki lisans modelleri barındıran SQL Server - ödeme-başına kullanım, bir sanal makine (VM) ve kendi lisansınızı getirin (BYOL). Ve artık, PowerShell veya Azure CLI kullanarak kullanan SQL sanal makinenizin hangi lisans modeli değiştirebilirsiniz. 
+Bu makalede yeni kullanarak Azure'da bir SQL Server sanal makine için lisans modeli değiştirmek nasıl SQL VM kaynak sağlayıcısı - **Microsoft.SqlVirtualMachine**. İki lisans modelleri barındıran SQL Server - ödeme-başına kullanım, bir sanal makine (VM) ve kendi lisansınızı getirin (BYOL). Ve artık, PowerShell veya Azure CLI kullanarak kullanan SQL Server VM'nize hangi lisans modeli değiştirebilirsiniz. 
 
 **Kullanım başına ödeme** modeli anlamına gelir saniye başına maliyeti Azure VM'de çalışan SQL Server Lisans maliyetini içerir.
 
-**Getir-kendi lisansını** modelidir olarak da bilinen [Azure hibrit avantajı](https://azure.microsoft.com/pricing/hybrid-benefit/), ve SQL Server çalıştıran bir VM ile kendi SQL Server lisansınızı kullanmanıza olanak sağlar. Fiyatlar hakkında daha fazla bilgi için bkz: [SQL VM fiyatlandırma Kılavuzu](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance).
+**Getir-kendi lisansını** modelidir olarak da bilinen [Azure hibrit avantajı](https://azure.microsoft.com/pricing/hybrid-benefit/), ve SQL Server çalıştıran bir VM ile kendi SQL Server lisansınızı kullanmanıza olanak sağlar. Fiyatlar hakkında daha fazla bilgi için bkz: [SQL Server VM fiyatlandırma Kılavuzu](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance).
 
-İki lisans modelleri arasında geçiş doğurur **kapalı kalma süresi olmadan**, VM başlatmaz, ekler **ek ücret ödemeden** (aslında AHB etkinleştirme maliyeti azaltır) ve **hemen etkili**. 
+İki lisans modelleri arasında geçiş doğurur **kapalı kalma süresi olmadan**, VM başlatmaz, ekler **ek ücret ödemeden** (aslında AHB etkinleştirme *azaltır* maliyeti) ve **hemen etkili**. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 SQL VM kaynak sağlayıcısı SQL Iaas uzantısı gerektirir. Bu nedenle, ile SQL VM kaynak sağlayıcısı yararlanmaya devam etmek için aşağıdakiler gerekir:
 - Bir [Azure aboneliği](https://azure.microsoft.com/free/).
 - A [SQL Server VM](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) ile [SQL Iaas uzantısı](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) yüklü. 
 
-## <a name="register-existing-sql-vm-with-new-resource-provider"></a>Mevcut bir SQL VM ile yeni kaynak sağlayıcısını kaydetme
-Lisans modelleri arasında geçiş yapma özelliğini (Microsoft.SqlVirtualMachine) yeni SQL VM kaynak sağlayıcısı tarafından sağlanan bir özelliktir. Şu anda lisanslama modelinizin arasında geçiş yapabilmek için önce yeni sağlayıcısını aboneliğinize kaydetmeniz ve ardından, var olan bir VM ile yeni SQL VM kaynak sağlayıcısı kaydetme gerekecektir. SQL VM kaynak sağlayıcısını kullanmak için SQL Iaas uzantısı yüklemeniz gerekir. Bunun yapılması, dağıtılan bir sanal makine VHD ile kaydetmek izin verir. Daha fazla bilgi için [SQL Iaas uzantısı](virtual-machines-windows-sql-server-agent-extension.md). 
 
-  >[!IMPORTANT]
+## <a name="register-existing-sql-server-vm-with-new-resource-provider"></a>Mevcut SQL server VM ile yeni kaynak sağlayıcısını kaydetme
+Lisans modelleri arasında geçiş yapma özelliğini (Microsoft.SqlVirtualMachine) yeni SQL VM kaynak sağlayıcısı tarafından sağlanan bir özelliktir. SQL Server Vm'leri aralık 2018'e otomatik olarak kayıtlı sonra yeni bir kaynak sağlayıcısı ile dağıtılabilir. Ancak, bu tarihten önce dağıtılan mevcut sanal makinelerin, bir lisanslama modeli geçiş yönetmeden önce el ile kaynak sağlayıcısına kayıtlı gerekir. 
+
+
+
+
   > SQL VM kaynağınızı sürüklerseniz, görüntü sabit kodlanmış lisans ayarına geri geçer. 
-  
+
 
 ### <a name="powershell"></a>PowerShell
-
 
 Aşağıdaki kod parçacığı, Azure'a bağlanmak ve kullanmakta olduğunuz hangi abonelik Kimliğini doğrulayın. 
 ```PowerShell
@@ -59,13 +61,14 @@ Get-AzureRmContext
 Set-AzureRmContext -SubscriptionId <Subscription_ID>
 ```
 
-Aşağıdaki kod parçacığı, önce yeni SQL kaynak sağlayıcısı, aboneliğiniz için kaydeder ve ardından var olan SQL VM'nizi yeni kaynak sağlayıcısı ile kaydeder. 
+Aşağıdaki kod parçacığı ilk yeni SQL kaynak sağlayıcısı, aboneliğiniz için kaydeder ve ardından var olan SQL Server VM'nize yeni kaynak sağlayıcısı ile kaydeder. 
 
 ```powershell
 # Register the new SQL resource provider for your subscription
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 
-# Register your existing SQL VM with the new resource provider
+
+# Register your existing SQL Server VM with the new resource provider
 # example: $vm=Get-AzureRmVm -ResourceGroupName AHBTest -Name AHBTest
 $vm=Get-AzureRmVm -ResourceGroupName <ResourceGroupName> -Name <VMName>
 New-AzureRmResource -ResourceName $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location -ResourceType Microsoft.SqlVirtualMachine/sqlVirtualMachines -Properties @{virtualMachineResourceId=$vm.Id}
@@ -83,7 +86,7 @@ Portalı kullanarak yeni SQL VM kaynak sağlayıcısını da kaydedebilirsiniz. 
 
 
 ## <a name="use-powershell"></a>PowerShell kullanma 
-Lisanslama modelinizin değiştirmek için PowerShell kullanabilirsiniz.  SQL VM'nizi lisanslama modeli geçmeden önce yeni SQL kaynak sağlayıcısı ile kaydedilmiş olduğunu unutmayın. 
+Lisanslama modelinizin değiştirmek için PowerShell kullanabilirsiniz.  SQL Server VM'nize lisanslama modeli geçmeden önce yeni SQL kaynak sağlayıcısı ile kaydedilmiş olduğunu unutmayın. 
 
 Aşağıdaki kod parçacığı KLG (veya Azure hibrit Avantajı'nı kullanarak), lisans kullanım başına ödeme modeli geçer: 
 ```PowerShell
@@ -110,11 +113,11 @@ $SqlVm | Set-AzureRmResource -Force
 ```
 
   >[!NOTE]
-  > Lisansları arasında geçiş yapmak için yeni SQL VM kaynak sağlayıcısı kullanıyor gerekir. Yeni sağlayıcı ile SQL sanal makinenizin kaydetmeden önce bu komutları çalıştırmayı denerseniz, bu hatayla karşılaşabilirsiniz: `Get-AzureRmResource : The Resource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/AHBTest' under resource group 'AHBTest' was not found. The property 'sqlServerLicenseType' cannot be found on this object. Verify that the property exists and can be set. ` Bu hatayı görürseniz, lütfen [yeni kaynak sağlayıcısı ile SQL sanal makinenize kaydedin](#register-existing-SQL-vm-with-new-resource-provider). 
+  > Lisansları arasında geçiş yapmak için yeni SQL VM kaynak sağlayıcısı kullanıyor gerekir. Yeni sağlayıcı ile SQL Server VM'nize kaydetmeden önce bu komutları çalıştırmayı denerseniz, bu hatayla karşılaşabilirsiniz: `Get-AzureRmResource : The Resource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/AHBTest' under resource group 'AHBTest' was not found. The property 'sqlServerLicenseType' cannot be found on this object. Verify that the property exists and can be set. ` Bu hatayı görürseniz, lütfen [SQL Server VM'nize yeni bir kaynak sağlayıcısı ile kaydolmak](#register-existing-SQL-vm-with-new-resource-provider). 
  
 
 ## <a name="use-azure-cli"></a>Azure CLI kullanma
-Lisanslama modelinizin değiştirmek için Azure CLI'yı kullanabilirsiniz.  SQL VM'nizi lisanslama modeli geçmeden önce yeni SQL kaynak sağlayıcısı ile kaydedilmiş olduğunu unutmayın. 
+Lisanslama modelinizin değiştirmek için Azure CLI'yı kullanabilirsiniz.  SQL Server VM'nize lisanslama modeli geçmeden önce yeni SQL kaynak sağlayıcısı ile kaydedilmiş olduğunu unutmayın. 
 
 Aşağıdaki kod parçacığı KLG (veya Azure hibrit Avantajı'nı kullanarak), lisans kullanım başına ödeme modeli geçer:
 ```azurecli
@@ -129,14 +132,14 @@ az resource update -g <resource_group_name> -n <sql_virtual_machine_name> --reso
 ```
 
   >[!NOTE]
-  >Lisansları arasında geçiş yapmak için yeni SQL VM kaynak sağlayıcısı kullanıyor gerekir. Yeni sağlayıcı ile SQL sanal makinenizin kaydetmeden önce bu komutları çalıştırmayı denerseniz, bu hatayla karşılaşabilirsiniz: `The Resource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/AHBTest' under resource group 'AHBTest' was not found. ` Bu hatayı görürseniz, lütfen [yeni kaynak sağlayıcısı ile SQL sanal makinenize kaydedin](#register-existing-SQL-vm-with-new-resource-provider). 
+  >Lisansları arasında geçiş yapmak için yeni SQL VM kaynak sağlayıcısı kullanıyor gerekir. Yeni sağlayıcı ile SQL Server VM'nize kaydetmeden önce bu komutları çalıştırmayı denerseniz, bu hatayla karşılaşabilirsiniz: `The Resource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/AHBTest' under resource group 'AHBTest' was not found. ` Bu hatayı görürseniz, lütfen [SQL Server VM'nize yeni bir kaynak sağlayıcısı ile kaydolmak](#register-existing-SQL-vm-with-new-resource-provider). 
 
 ## <a name="view-current-licensing"></a>Geçerli görünümü lisanslama 
 
-Aşağıdaki kod parçacığı SQL sanal Makineniz için geçerli lisanslama modelinizin görüntülemenize olanak sağlar. 
+Aşağıdaki kod parçacığı için SQL Server VM'nize geçerli lisanslama modelinizin görüntülemenize olanak sağlar. 
 
 ```PowerShell
-# View current licensing model for your SQL VM
+# View current licensing model for your SQL Server VM
 #example: $SqlVm = Get-AzureRmResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_group_name> -ResourceName <VM_name>
 $SqlVm = Get-AzureRmResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_group_name> -ResourceName <VM_name>
 $SqlVm.Properties.sqlServerLicenseType

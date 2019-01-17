@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/26/2018
+ms.date: 01/15/2019
 ms.author: juliako
-ms.openlocfilehash: 3a2b3752926a3a4391ae9479ba636694533c97a8
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 91e24fb274c1f9895046e8e2e7d760d02d196ccd
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788217"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354187"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Canlı akış ile Azure Media Services v3
 
@@ -29,6 +29,22 @@ Azure Media Services Canlı etkinlikler müşterilerinizin Azure bulutunda dağ�
 - Alabilmek için etkinleştirmek, Media Services bileşenleri Önizleme, paket, kayıt, şifrelemek ve müşterilerinize veya başkalarına dağıtım için bir CDN için Canlı etkinlik yayını.
 
 Bu makalede ayrıntılı bir genel kılavuzluk sağlar ve Media Services ile canlı akış ilgili ana bileşen diyagramları içerir.
+
+## <a name="live-streaming-workflow"></a>Canlı akış iş akışı
+
+Canlı akış iş akışı için adımlar şunlardır:
+
+1. Oluşturma bir **canlı olay**.
+2. Yeni bir **varlık** nesne.
+3. Oluşturma bir **Canlı çıkış** oluşturduğunuz varlık adını kullanın.
+4. Oluşturma bir **akış ilke** ve **içerik anahtarı** DRM ile içeriğinizi şifrelemek istiyorsanız.
+5. DRM kullanılmıyorsa, oluşturun bir **akış Bulucu** yerleşik ile **akış ilke** türleri.
+6. Yolları listesini **akış ilke** kullanılacak URL'leri geri almak için (Bu belirleyici).
+7. Konak adı için alma **akış uç noktası** gelen akışla aktarmak istediğiniz (akış uç noktası çalıştığından emin olun). 
+8. Ana bilgisayar adı, tam bir URL almak için 7. adım adım 6 URL'den birleştirin.
+9. Kullanımını durdurmak istiyorsanız, **canlı olay** silerek olay akışı durdurmak zorunda görüntülenebilir, **akış Bulucu**.
+
+Daha fazla bilgi için bir [canlı akış öğretici](stream-live-tutorial-with-api.md) temel [Canlı .NET Core](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/Live) örnek.
 
 ## <a name="overview-of-main-components"></a>Ana bileşenlerini genel bakış
 
@@ -89,9 +105,10 @@ Livestream iki özelliklerinin karşılaştıran bir tablo makalesinin içerir: 
 
 A [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) giden canlı akış akışın ne kadar (örneğin, bulut DVR kapasitesini) kaydedilir ve canlı akış izleme görüntüleyiciler olup olmadığını başlayabilirsiniz gibi özellikleri denetlemenize olanak verir. Arasındaki ilişkiyi bir **Livestream** ve kendi **LiveOutput**s ilişki benzer geleneksel televizyon yayına verebileceğiniz bir kanal (**Livestream**) video ve bir kayıt sabit akışını temsil eder (**LiveOutput**) belirli bir zaman kesimine (örneğin, akşam haber 18:30:00 19:00:00 için) kapsamlıdır. Televizyon bir Dijital Video Kaydedici DVR kullanarak kaydedebilirsiniz: LiveEvents eşdeğer özelliği ArchiveWindowLength özelliği aracılığıyla yönetilir. Bu, DVR kapasitesini belirtir ve en az 3 dakika, en çok 25 saat için ayarlanabilir bir ISO 8601 zaman aralığı süresi (örneğin, PTHH:MM:SS) olur.
 
-
 > [!NOTE]
-> **LiveOutput**s oluşturma başlatıp silindiğinde durdurabilir. Sildiğinizde **LiveOutput**, arka plandaki silmezsiniz **varlık** ve varlık içeriği.  
+> **LiveOutput**s oluşturma başlatıp silindiğinde durdurabilir. Sildiğinizde **LiveOutput**, arka plandaki silmezsiniz **varlık** ve varlık içeriği. 
+>
+> Yayımladıysanız **akış Bulucu**s için varlık üzerinde **LiveOutput**, olay (en fazla DVR pencere uzunluğunun) kadar bitiş saati görüntülenebilir olmaya devam edecek **akış Bulucu**  veya Bulucu sildiğinizde kasa hangisinin önce geldiğine bağlı.   
 
 Daha fazla bilgi için [kullanarak bulut DVR](live-event-cloud-dvr.md).
 
@@ -110,21 +127,6 @@ Ayrıntılı bilgi için bkz. [durumları ve faturalandırma](live-event-states-
 ## <a name="latency"></a>Gecikme süresi
 
 LiveEvents gecikme süresi hakkında ayrıntılı bilgi için bkz: [gecikme](live-event-latency.md).
-
-## <a name="live-streaming-workflow"></a>Canlı akış iş akışı
-
-Canlı akış iş akışı için adımlar şunlardır:
-
-1. Bir Livestream oluşturun.
-2. Yeni bir varlık nesnesi oluşturur.
-3. Bir LiveOutput oluşturabilir ve oluşturduğunuz varlık adı kullanın.
-4. DRM ile içeriğinizi şifrelemek istiyorsanız bir akış ilke ve içerik anahtarı oluşturun.
-5. Aksi durumda, DRM kullanarak, yerleşik akış ilke türleri ile bir akış Bulucu oluşturun.
-6. Kullanılacak URL'leri geri dönmek için akış ilke yollarında Listele (bunların belirleyici).
-7. Gelen akışını yapmak istediğiniz akış uç için ana bilgisayar adını alın. 
-8. Ana bilgisayar adı, tam bir URL almak için 7. adım adım 6 URL'den birleştirin.
-
-Daha fazla bilgi için bir [canlı akış öğretici](stream-live-tutorial-with-api.md) temel [Canlı .NET Core](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/Live) örnek.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

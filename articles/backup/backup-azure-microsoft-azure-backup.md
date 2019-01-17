@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: adigan
-ms.openlocfilehash: f6a6a1deb55bf16c65982c0d58cd6d92559596af
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: a57161fd379269f69ce4e83730a29588d9028b7a
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52728285"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351620"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Yükleme ve Azure Backup sunucusu yükseltme
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ Bu makalede, Microsoft Azure Backup sunucusu (MABS) kullanarak iş yüklerini ye
 >
 >
 
-Azure'da sanal makineler gibi bir hizmet (Iaas) iş yükleri olarak altyapı da koruyabilir.
+Bir Azure sanal Makinesinde dağıtılan MABS sanal makinenin azure'a yedekleyebilirsiniz, ancak yedekleme işlemi etkinleştirmek için aynı etki alanında olması gerekir. Bir Azure VM yedekleme işlemi, sanal makineleri şirket içi yedekleme olarak aynı kalır, ancak azure'da MABS dağıtma bazı sınırlamaları vardır. Sınırlama hakkında daha fazla bilgi için bkz [bir Azure sanal makinesi olarak DPM](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)
 
 > [!NOTE]
 > Azure'da oluşturmaya ve kaynaklarla çalışmaya yönelik iki dağıtım modeli vardır: [Resource Manager ve klasik](../azure-resource-manager/resource-manager-deployment-model.md). Bu makalede, Resource Manager modeli kullanılarak dağıtılan Vm'leri geri yüklemek için bilgi ve yordamları verilmektedir.
@@ -43,7 +43,7 @@ Azure Backup sunucusu iş yükü yedekleme işlevselliğinin Data Protection Man
 Azure Backup sunucusu kullanmaya başlamak ve çalıştırmak doğrultusunda ilk adımı bir Windows Server'ı ayarlamaktır. Sunucunuz, Azure'da veya şirket içinde olabilir.
 
 ### <a name="using-a-server-in-azure"></a>Azure'da bir sunucu kullanarak
-Azure Backup sunucusu çalıştıran bir sunucu seçerken, bir galeri görüntüsü ile Windows Server 2012 R2 Datacenter, Windows Server 2016 Datacenter veya Windows Server 2019 Datacenter Başlat önerilir. Makale [Azure portalında ilk Windows sanal makinenizi oluşturma](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), hiçbir zaman Azure önce kullanmış olsanız için önerilen sanal makine azure'da kullanmaya başlama bir öğretici sağlar. Sanal makinede (VM) sunucusu için önerilen en düşük gereksinimleri olmalıdır: standart A2 iki çekirdek ve 3,5 GB RAM.
+Azure Backup sunucusu çalıştıran bir sunucu seçerken, bir galeri görüntüsü ile Windows Server 2012 R2 Datacenter, Windows Server 2016 Datacenter veya Windows Server 2019 Datacenter Başlat önerilir. Makale [Azure portalında ilk Windows sanal makinenizi oluşturma](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), hiçbir zaman Azure önce kullanmış olsanız için önerilen sanal makine azure'da kullanmaya başlama bir öğretici sağlar. Sanal makinede (VM) sunucusu için önerilen en düşük gereksinimleri olmalıdır: Standart a2 iki çekirdek ve 3,5 GB RAM.
 
 Azure Backup sunucusu iş yüklerini koruma birçok küçük farklar vardır. Makale [bir Azure sanal makinesi olarak DPM yükleme](https://technet.microsoft.com/library/jj852163.aspx), yardımcı olur, bu küçük farklar açıklanmaktadır. Makine dağıtmadan önce tamamen bu makaleyi okuyun.
 
@@ -263,7 +263,7 @@ MABS, depolama korurken yeni bir sunucuya taşımanız gerekiyorsa adımlar şun
 9. DPMDB'yi SQL geri yükleme
 10. Microsoft Azure Backup'a yeni server CD'sinde yönetici komut satırından konumu ve bin klasörüne yükleyin
 
-Örnek yol: C:\windows\system32 > cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\
+Örnek yol: C:\Windows\System32 > cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\
 Azure'a yedekleme çalıştırmak DPMSYNC-SYNC
 
 10) DPMSYNC çalıştırın-eşitleme Not eskileri taşıma yerine DPM depolama havuzuna yeni diskler ekledikten sonra çalıştırırsanız DPMSYNC - Reallocatereplica

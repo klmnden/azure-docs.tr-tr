@@ -9,12 +9,12 @@ ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
 ms.custom: seodec18
-ms.openlocfilehash: 34ec22550106f03bc90c95b407af088327b7837f
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 6cdfa7492a9916cc3e2300ad71e21acfb68e3d30
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036180"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352249"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Bir Node.js Mongoose uygulamasını Azure Cosmos DB'ye bağlanma
 
@@ -183,7 +183,7 @@ Varsayılan Mongoose davranışı, her Nesne modeli oluşturduğunuzda bir Mongo
 
 1. Şimdi, Azure Portal'a gittiğinizde, iki koleksiyon oluşturulduğunu Cosmos DB'de dikkat edin.
 
-    ![Node.js öğreticisi - Birden çok koleksiyon adının vurgulandığı Azure Cosmos DB hesabını gösteren Azure Portal ekran görüntüsü - Node veritabanı][mutiple-coll]
+    ![Node.js öğreticisi - Birden çok koleksiyon adının vurgulandığı Azure Cosmos DB hesabını gösteren Azure Portal ekran görüntüsü - Node veritabanı][multiple-coll]
 
 1. Cosmos DB'den son olarak, verileri okuyalım. Varsayılan Mongoose çalışma modelini kullandığımızdan, okuma işlemleri Mongoose'la yapılan diğer okuma işlemleriyle aynıdır.
 
@@ -313,4 +313,4 @@ Sizin de görebileceğiniz gibi, Mongoose ayırıcılarıyla çalışmak kolayd�
 - MongoDB keşfedin [örnekleri](mongodb-samples.md) Azure Cosmos DB'nin MongoDB API'si ile.
 
 [alldata]: ./media/mongodb-mongoose/mongo-collections-alldata.png
-[mutiple-coll]: ./media/mongodb-mongoose/mongo-mutliple-collections.png
+[multiple-coll]: ./media/mongodb-mongoose/mongo-mutliple-collections.png

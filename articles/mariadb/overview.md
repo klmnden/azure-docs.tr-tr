@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: overview
 ms.custom: mvc
 ms.date: 12/03/2018
-ms.openlocfilehash: 507425a6cffc6f3b49e117ebf5a604bf0d252164
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 7fecc280d4e92df88f5f8e9b9e571273328d2458
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542025"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352324"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>MariaDB için Azure Veritabanı nedir?
 
@@ -45,7 +45,7 @@ MariaDB hizmeti için Azure veritabanı, birkaç hizmet katmanı sunar: Temel, g
 
 ## <a name="monitoring-and-alerting"></a>İzleme ve uyarı
 
-Ölçeğin ne zaman artırılacağına veya azaltılacağına nasıl karar verirsiniz? MariaDB için Azure Veritabanı'nın yerleşik performans izleme ve uyarı özelliklerini, sanal çekirdekleri temel alan performans değerlendirmeleriyle birlikte kullanabilirsiniz. Bu araçları kullanarak geçerli veya projeye özgü performans ihtiyaçlarınıza göre sanal çekirdeklerin ölçeğini büyütme veya küçültme işlemlerinin etkisini hızla değerlendirebilirsiniz. <!--See [Alerts](howto-alert-on-metric.md) for details.-->
+Ölçeğin ne zaman artırılacağına veya azaltılacağına nasıl karar verirsiniz? MariaDB için Azure Veritabanı'nın yerleşik performans izleme ve uyarı özelliklerini, sanal çekirdekleri temel alan performans değerlendirmeleriyle birlikte kullanabilirsiniz. Bu araçları kullanarak geçerli veya projeye özgü performans ihtiyaçlarınıza göre sanal çekirdeklerin ölçeğini büyütme veya küçültme işlemlerinin etkisini hızla değerlendirebilirsiniz. Ayrıntılar için bkz. [Uyarılar](howto-alert-metric.md).
 
 ## <a name="keep-your-app-and-business-running"></a>Uygulamanızın ve işinizin hiç kesintiye uğramamasını sağlayın
 
@@ -55,7 +55,7 @@ Azure'nın sektörde lider % 99,99 kullanılabilirlik SLA'sı, Microsoft tarafı
 
 Azure veritabanı hizmetlerinin sahip olduğu veri güvenliği anlayışı, MariaDB için Azure Veritabanı'nda da devam etmektedir. MariaDB için Azure Veritabanı bekleyen ve hareket halindeki verileri koruyan, erişimi sınırlandıran ve etkinliği izlemenize yardımcı olan özellikler sunmaktadır. Azure'ın platform güvenliği hakkında bilgi edinmek için [Azure Güven Merkezi](https://www.microsoft.com/en-us/trustcenter/security)'ni ziyaret edin.
 
-MariaDB için Azure Veritabanı hizmeti bekleyen verilerde depolama şifrelemesini kullanır. Yedeklenen veriler dahil olmak üzere disk üzerindeki tüm veriler şifrelenir. (Sorgu çalıştırıldığında altyapı tarafından oluşturulan geçici dosyalar, diskte şifrelenmez.) Hizmet, Azure Depolama şifrelemesi kapsamında yer alan AES 256 bit şifrelemesini kullanır. Anahtarlar sistem tarafından yönetilir. Depolama şifrelemesi her zaman açıktır ve devre dışı bırakılamaz.
+MariaDB hizmeti için Azure veritabanı, bekleyen veri için depolama şifrelemesi kullanır ve FIPS 140-2 uyumludur. Yedeklenen veriler dahil olmak üzere disk üzerindeki tüm veriler şifrelenir. (Sorgu çalıştırıldığında altyapı tarafından oluşturulan geçici dosyalar, diskte şifrelenmez.) Hizmet, Azure Depolama şifrelemesi kapsamında yer alan AES 256 bit şifrelemesini kullanır. Anahtarlar sistem tarafından yönetilir. Depolama şifrelemesi her zaman açıktır ve devre dışı bırakılamaz.
 
 Varsayılan olarak, MariaDB için Azure Veritabanı hizmeti ağ genelinde hareket halindeki veriler için [SSL bağlantı güvenliğini](./concepts-ssl-connection-security.md) zorunlu tutacak şekilde yapılandırılmıştır. Veritabanı sunucunuzla istemci uygulamalarınız arasında SSL bağlantılarının zorunlu tutulması, sunucuya uygulamanız arasındaki veri akışını şifreleyerek "bağlantıyı izinsiz izleme" saldırılarına karşı korumaya yardımcı olur. İsteğe bağlı olarak, istemci uygulamanızın SSL bağlantısını desteklememesi durumunda veritabanı hizmetinize bağlanmak için SSL gereksinimini devre dışı bırakabilirsiniz.
 

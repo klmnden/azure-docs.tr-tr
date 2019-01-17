@@ -11,20 +11,21 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/02/2018
+ms.date: 01/15/2019
 ms.author: magoedte
-ms.openlocfilehash: 5236cff7a4afe508a8e11c6d75484fcdc9d43f91
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 551e7c0ca3b4b5e0e94aca39e19d9a35d08e4e05
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194241"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353048"
 ---
 # <a name="connect-computers-without-internet-access-using-the-log-analytics-gateway"></a>Bilgisayarları Log Analytics ağ geçidini kullanarak Internet erişimi olmadan bağlayın
 Bu belge, Azure Otomasyonu ile iletişim yapılandırılacağını açıklar ve bağlı olduğunda doğrudan Log Analytics ağ geçidi kullanarak Log Analytics'e veya Operations Manager'ın izlenen bilgisayarların Internet erişimi yoktur.  HTTP HTTP CONNECT komutunu kullanarak tüneli destekleyen bir HTTP iletim proxy'si olan Log Analytics ağ geçidi, veri toplamak ve Log Analytics ve Azure Otomasyonu ile kendi adınıza gönderin.  
 
 Log Analytics gateway destekler:
 
+* Raporlama kadar aynı dört Log Analytics çalışma alanları aracıları arkasındaki ile yapılandırılır.  
 * Azure Otomasyon karma Runbook çalışanları  
 * Microsoft İzleme Aracısı ile Windows bilgisayarları doğrudan Log Analytics çalışma alanına bağlı
 * Linux için Log Analytics Aracısı ile Linux bilgisayarları doğrudan Log Analytics çalışma alanına bağlı  
@@ -32,15 +33,15 @@ Log Analytics gateway destekler:
 
 BT güvenlik ilkeleriniz ağınızdaki noktası satışı (POS) cihazları veya BT Hizmetleri destekleyen sunucular gibi Internet'e bağlanmak için bilgisayarları nepovolit ancak bunları izlemek ve yönetmek için Azure Otomasyonu veya Log Analytics'e bağlanmak gerekiyorsa , yapılandırma ve gerçekleştirilemeyeceğine ilişkin verileri almak için doğrudan Log Analytics ağ geçidi ile iletişim kurmak için yapılandırılabilir.  Bu bilgisayarları doğrudan Log Analytics çalışma alanına bağlamak için Log Analytics aracısını ile yapılandırıldıysa, tüm bilgisayarları bunun yerine Log Analytics ağ geçidi ile iletişim kurar.  Ağ geçidi veri aracılardan hizmete doğrudan aktarır, bunu herhangi bir veri aktarım sırasında analiz etmez.
 
-Bir Operations Manager yönetim grubunu Log Analytics ile tümleştirildiğinde, yönetim sunucuları yapılandırma bilgilerini almak ve etkinleştirdiğiniz çözümüne bağlı olarak toplanan verileri göndermek için Log Analytics ağ geçidine bağlanmak için yapılandırılabilir.  Operations Manager aracıları Operations Manager uyarıları, yapılandırma değerlendirmesi, örnek alanı ve kapasite verileri gibi bazı verileri yönetim sunucusuna gönderir. IIS günlükleri, performans ve güvenlik olaylarını gibi diğer yüksek hacimli verileri doğrudan Log Analytics ağ geçidine gönderilir.  Güvenilmeyen Sistemleri'ni izlemek için bir DMZ veya diğer yalıtılmış ağda dağıtılan bir veya daha fazla Operations Manager Ağ Geçidi sunucuları varsa, bir Log Analytics ağ geçidi ile iletişim kuramıyor.  Operations Manager Ağ Geçidi sunucuları, yalnızca bir yönetim sunucusuna rapor edebilirsiniz.  Bir Operations Manager yönetim grubunu Log Analytics ağ geçidi ile iletişim kurmak için yapılandırıldığında proxy yapılandırma bilgileri için Log Analytics, hatta veri toplamak üzere yapılandırılmış tüm aracıyla yönetilen bilgisayara otomatik olarak dağıtılır ayarı boş ise.    
+Bir Operations Manager yönetim grubunu Log Analytics ile tümleştirildiğinde, yönetim sunucuları yapılandırma bilgilerini almak ve etkinleştirdiğiniz çözümüne bağlı olarak toplanan verileri göndermek için Log Analytics ağ geçidine bağlanmak için yapılandırılabilir.  Operations Manager aracıları Operations Manager uyarıları, yapılandırma değerlendirmesi, örnek alanı ve kapasite verileri gibi bazı verileri yönetim sunucusuna gönderir. IIS günlükleri, performans ve güvenlik olaylarını gibi diğer yüksek hacimli verileri doğrudan Log Analytics ağ geçidine gönderilir.  Güvenilmeyen Sistemleri'ni izlemek için bir DMZ veya diğer yalıtılmış ağda dağıtılan bir veya daha fazla Operations Manager Ağ Geçidi sunucuları varsa, Log Analytics-ağ geçidi ile iletişim kuramıyor.  Operations Manager Ağ Geçidi sunucuları, yalnızca bir yönetim sunucusuna rapor edebilirsiniz.  Bir Operations Manager yönetim grubunu Log Analytics ağ geçidi ile iletişim kurmak için yapılandırıldığında proxy yapılandırma bilgileri için Log Analytics, hatta veri toplamak üzere yapılandırılmış tüm aracıyla yönetilen bilgisayara otomatik olarak dağıtılır ayarı boş ise.    
 
 Yüksek kullanılabilirlik sağlamak için doğrudan bağlanabilir veya Log Analytics ile iletişim kurmak için ağ geçidinden Operations Yönetim grupları, Ağ Yükü Dengeleme yeniden yönlendirme ve trafik birden fazla ağ geçidi sunucusu arasında dağıtmak için kullanabilirsiniz.  Bir ağ geçidi sunucusu kalırsa, trafiği kullanılabilir başka bir düğüme yönlendirilir.  
 
-Log Analytics aracısını Log Analytics ağ geçidi ile iletişim kurmak ve izleme, performans veya olay verilerini analiz etmek için Log Analytics gateway için gereken hizmet uç noktaları tanımlamak sırayla çalıştıran bilgisayarda gereklidir.
+Log Analytics Windows aracısını Log Analytics ağ geçidi ile iletişim kurmak için gereken hizmet uç noktaları yalnızca tanımlamak için aynı zamanda rapor için sırayla aynı çalışma alanına çalıştıran bilgisayarda gereklidir, aracılar veya Operations Manager ağ geçidinin arkasındaki yönetim grubu ile yapılandırılır. Bu, ağ geçidinin kendi atanan çalışma alanına iletişim kurmasına izin vermek gereklidir. Bu çalışma alanlarının bir Windows aracısının desteklediği toplam sayısını olduğu en fazla dört çalışma alanları için birden çok girişli bir ağ geçidi olabilir.  
 
-Aracıları otomatik olarak ağ geçidi veri aktarmasına olanak veren her bir aracı kendi ağ geçidi için ağ bağlantısı olması gerekir. Ağ geçidini bir etki alanı denetleyicisine yüklenmesi önerilmez.
+Her bir aracı, aracıları otomatik olarak verileri azure'a veya dışarı aktarabilmesi ağ geçidi için ağ bağlantısı olması gerekir. Ağ geçidini bir etki alanı denetleyicisine yüklenmesi önerilmez.
 
-Doğrudan aracılardan Azure Otomasyonu ve ağ geçidi sunucusu kullanarak Log Analytics'e veri akışı aşağıdaki diyagramda gösterilmektedir.  Aracıları, ağ geçidi Log Analytics hizmetiyle iletişim kurmak için yapılandırılmış aynı bağlantı noktası eşleşmesi kendi proxy yapılandırmasına sahip olmalıdır.  
+Doğrudan aracılardan Azure Otomasyonu ve ağ geçidi sunucusu kullanarak Log Analytics'e veri akışı aşağıdaki diyagramda gösterilmektedir. Aracıları, Log Analytics ağ geçidi ile yapılandırılmış aynı bağlantı noktası eşleşmesi kendi proxy yapılandırmasına sahip olmalıdır.  
 
 ![Hizmetleri diyagramı ile doğrudan aracı iletişimi](./media/gateway/oms-omsgateway-agentdirectconnect.png)
 
@@ -56,7 +57,7 @@ Log Analytics ağ geçidini çalıştırmak için bir bilgisayar belirlerken, bu
 * Windows Server 2016, Windows Server 2012 R2'de, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 * .NET framework 4.5
 * En az bir 4 çekirdekli işlemci ve 8 GB bellek 
-* Windows için log Analytics aracısını 
+* [Windows için log Analytics aracısını](agent-windows.md) yüklenir ve ağ geçidi üzerinden iletişim kuran aracıları aynı çalışma alanına rapor için yapılandırılır.  
 
 ### <a name="language-availability"></a>Dil kullanılabilirlik
 
@@ -87,8 +88,8 @@ Aşağıdaki tabloda, desteklenen bir ağ geçidi sunucusu ile iletişim kuran a
 
 |Ağ geçidi |Yaklaşık desteklenen aracı sayısı|  
 |--------|----------------------------------|  
-|-CPU: Intel XEON 2660 CPU E5 v3 \@ 2,6 GHz 2 Çekirdek<br> -Bellek: 4 GB<br> -Ağ bant genişliği: 1 Gbps| 600|  
-|-CPU: Intel XEON 2660 CPU E5 v3 \@ 2,6 GHz 4 çekirdek<br> -Bellek: 8 GB<br> -Ağ bant genişliği: 1 Gbps| 1000|  
+|- CPU: Intel XEON 2660 CPU E5 v3 \@ 2,6 GHz 2 Çekirdek<br> -Bellek: 4 GB<br> -Ağ bant genişliği: 1 Gbps| 600|  
+|- CPU: Intel XEON 2660 CPU E5 v3 \@ 2,6 GHz 4 çekirdek<br> -Bellek: 8 GB<br> -Ağ bant genişliği: 1 Gbps| 1000|  
 
 ## <a name="download-the-log-analytics-gateway"></a>Log Analytics ağ geçidini indirin
 
@@ -124,7 +125,8 @@ Bir ağ geçidi yüklemek için aşağıdaki adımları gerçekleştirin.  Önce
 1. Microsoft Update etkin değilse, bunu etkinleştirmek seçebileceğiniz Microsoft Update sayfasında görünür. Bir seçim yapın ve ardından **sonraki**. Aksi halde, sonraki adıma devam edin.
 1. Üzerinde **hedef klasör** sayfasında varsayılan klasörü C:\Program Files\OMS ağ geçidi bırakın ya da ağ geçidi yüklemeniz ve ardından istediğiniz konumu yazın **sonraki**.
 1. Üzerinde **yüklenmeye hazır** sayfasında **yükleme**. Kullanıcı hesabı denetimi yükleme izni isteyen görünebilir. Öyleyse **Evet**.
-1. Kurulum tamamlandıktan sonra tıklayın **son**. Hizmeti services.msc ek bileşenini açarak çalışan ve doğrulayın doğrulayabilirsiniz **Log Analytics gateway** durumu ve Hizmetler listesinde görünür olan **çalıştıran**.<br><br> ![Hizmetleri – Log Analytics ağ geçidi](./media/gateway/gateway-service.png)  
+1. Kurulum tamamlandıktan sonra tıklayın **son**. Hizmeti services.msc ek bileşenini açarak çalışan ve doğrulayın doğrulayabilirsiniz **OMS ağ geçidi** durumu ve Hizmetler listesinde görünür olan **çalıştıran**.<br><br> ![Hizmetleri – Log Analytics ağ geçidi](./media/gateway/gateway-service.png)  
+
 
 ## <a name="configure-network-load-balancing"></a>Ağ Yükü Dengeleme yapılandırma 
 Ağ geçidi Ağ Yükü Dengeleme (NLB Microsoft Ağ Yükü Dengeleme (NLB) veya donanım tabanlı yük Dengeleyiciler kullanarak) kullanarak yüksek kullanılabilirlik için yapılandırabilirsiniz.  Yük dengeleyicinin trafiği istenen bağlantılar Log Analytics aracılardan veya Operations Manager yönetim sunucuları arasında düğümlerini yönlendirerek yönetir. Bir ağ geçidi sunucusu kalırsa, trafiğin diğer düğümlere yönlendirilir.
@@ -140,7 +142,11 @@ Tasarım ve bir Windows Server 2016 Ağ Yükü Dengeleme kümesi dağıtma hakk�
 Aşağıdaki bölümde, Azure Otomasyonu ya da günlük ile iletişim kurmak için Log Analytics ağ geçidi ile doğrudan bağlı Log Analytics aracılarını, bir Operations Manager yönetim grubu veya Azure Otomasyon karma Runbook çalışanlarını yapılandırma adımları içerir Analytics.  
 
 ### <a name="configure-standalone-log-analytics-agent"></a>Tek başına Log Analytics aracısını yapılandırma
-Gereksinimler ve Windows bilgisayarları doğrudan Log Analytics'e bağlanması Log Analytics aracısını yüklemek adımları anlamak için bkz [bağlanmak Windows bilgisayarlarını Log Analytics'e](agent-windows.md) veya Linux bilgisayarlar için bkz. [ Linux bilgisayarlarını Log Analytics'e bağlama](../../azure-monitor/learn/quick-collect-linux-computer.md). Aracısı yapılandırılırken bir ara sunucu belirtmek yerine, bu değer, bağlantı noktası numarası ile Log Analytics ağ geçidi sunucusu ve IP adresi ile değiştirin.  Bir ağ yük dengeleyicinin arkasına birden çok ağ geçidi sunucusu dağıttıysanız, Log Analytics Aracısı Ara sunucu yapılandırmasını NLB sanal IP adresi ' dir.  
+Gereksinimler ve Log Analytics aracısını Windows bilgisayarları doğrudan Log Analytics'e bağlanması ve ağ geçidi yüklemek adımları anlamak için bkz [bağlanmak Windows bilgisayarlarını Log Analytics'e](agent-windows.md) veya Linux için bilgisayarları bakın.[ Linux bilgisayarlarını Log Analytics'e bağlama](../../azure-monitor/learn/quick-collect-linux-computer.md). Aracısı yapılandırılırken bir ara sunucu belirtmek yerine, bu değer, bağlantı noktası numarası ile Log Analytics ağ geçidi sunucusu ve IP adresi ile değiştirin. Bir ağ yük dengeleyicinin arkasına birden çok ağ geçidi sunucusu dağıttıysanız, Log Analytics Aracısı Ara sunucu yapılandırmasını NLB sanal IP adresi ' dir.  
+
+Ağ Geçidi sunucusunda aracıyı yükledikten sonra çalışma alanına veya çalışma alanları aracıları ağ geçidine Konuşmayı bildirmek için yapılandırabilirsiniz. Log Analytics Windows Aracısı ağ geçidinde yüklü değilse, olay 300 yazılan **OMS ağ geçidi günlüğüne** olay günlüğünü aracı belirten yüklü olması gerekir. Aracı yüklü ancak üzerinden iletişim kuran aracıları aynı çalışma alanına rapor için yapılandırılmamış, olay 105 ağ geçidi aracıda t için Konuşmayı aracıları aynı çalışma alanına rapor için yapılandırılması gerekir belirten aynı olay günlüğüne yazılır He ağ geçidi.
+
+Yapılandırmayı tamamladıktan sonra yeniden başlatmanız **OMS ağ geçidi** değişikliklerin etkili olması hizmet. Aksi takdirde, ağ geçidi Log Analytics ve rapor olay kimliği 105 ile iletişim kurmaya çalışan aracıları reddeder **OMS ağ geçidi günlüğüne** olay günlüğü. Eklediğinizde veya aracı yapılandırması Ağ Geçidi sunucusunda bir çalışma alanı kaldırmak için de geçerlidir.   
 
 Otomasyon karma Runbook çalışanı için ilgili daha fazla bilgi için bkz: [karma Runbook çalışanı dağıtma](../../automation/automation-hybrid-runbook-worker.md).
 
@@ -149,18 +155,20 @@ Operations Manager ağ geçidi sunucusu eklemek için yapılandırın.  Ayarı b
 
 Operations Manager'ı desteklemek için ağ geçidini kullanmak için şunlara sahip olmalısınız:
 
-* Microsoft Monitoring Agent (aracı sürümü – **8.0.10900.0** veya üzeri) Ağ Geçidi sunucusunda yüklü ve istediğiniz iletişim kurmak bir Log Analytics çalışma alanları için yapılandırılmış.
+* Microsoft Monitoring Agent (aracı sürümü – **8.0.10900.0** veya üzeri) Ağ Geçidi sunucusuna ve yönetim grubunuzun raporlama yapacak şekilde yapılandırıldığını aynı Log Analytics çalışma alanları ile yapılandırılmış.
 * Ağ geçidi yapan bir proxy sunucusuna bağlanabilir veya Internet bağlantısı olması gerekir.
 
 > [!NOTE]
 > Ağ geçidi için bir değer belirtmezseniz, boş değerler için tüm aracılar itilir.
 > 
 
-Bu Operations Manager yönetim grubunuzun bir Log Analytics çalışma alanıyla kaydediyor ilk kez ise, yönetim grubu için proxy yapılandırmasını belirtme seçeneği Operations konsolunda kullanılabilir değil.  Bu seçeneğin sağlanması için önce yönetim grubunun hizmete başarıyla kaydedilmiş olması gerekir.  Tümleştirmeyi ve yönetim grubundaki tüm yönetim sunucularını yapılandırmak için Operations konsolunu çalıştırdığınız sistemde Netsh kullanarak sistem ara sunucu yapılandırmasını güncelleştirmeniz gerekir.  
+Yönetim grubu için proxy yapılandırmasını belirtme seçeneği, Operations Manager yönetim grubunuzun bir Log Analytics çalışma alanıyla kaydediyor ilk kez kullanıyorsanız, işletim konsolunda kullanılabilir değil.  Bu seçeneğin sağlanması için önce yönetim grubunun hizmete başarıyla kaydedilmiş olması gerekir.  Sistemde Netsh kullanarak sistem proxy yapılandırması, tümleştirme ve tüm yönetim sunucuları, yönetim grubunda yapılandırmak için işletim konsolunda çalışan güncelleştirin.  
 
 1. Yükseltilmiş bir komut istemi açın.
-   a. Git **Başlat** ve türü **cmd**.
-   b. Sağ **komut istemi** ve farklı çalıştır yönetici ** seçin.
+
+    a. Git **Başlat** ve türü **cmd**.  
+    b. Sağ **komut istemi** seçip **yönetici olarak çalıştır**.  
+
 1. Aşağıdaki komutu girin ve **Enter** tuşuna basın:
 
     `netsh winhttp set proxy <proxy>:<port>`
@@ -288,7 +296,7 @@ Aşağıdaki tabloda olay kimlikleri ve açıklamaları için Log Analytics ağ 
 | 103 |İstemciden bir HTTP bağlantısı komutu aldı |
 | 104 |Olmayan bir HTTP bağlantısı komutu |
 | 105 |Hedef sunucu izin verilenler listesinde değil veya hedef bağlantı noktası güvenli bağlantı noktası (443) değil <br> <br> Ağ geçidi sunucunuzda MMA aracısını ve ağ geçidi ile iletişim kuran aracıları bağlandığını aynı Log Analytics çalışma alanına emin olun. |
-| 105 |HATA TcpConnection – geçersiz istemci sertifikası: CN = ağ geçidi <br><br> Emin olun: <br>    <br> &#149;Bir ağ geçidi sürüm numarası 1.0.395.0 ile kullandığınız ya da daha büyük. <br> &#149;Ağ geçidi sunucunuzda MMA aracısını ve ağ geçidi ile iletişim kuran aracıları aynı Log Analytics çalışma alanına bağlı. |
+| 105 |HATA TcpConnection – geçersiz istemci sertifikası: CN=Gateway <br><br> Emin olun: <br>    <br> &#149;Bir ağ geçidi sürüm numarası 1.0.395.0 ile kullandığınız ya da daha büyük. <br> &#149;Ağ geçidi sunucunuzda MMA aracısını ve ağ geçidi ile iletişim kuran aracıları aynı Log Analytics çalışma alanına bağlı. |
 | 106 |Log Analytics ağ geçidi, yalnızca TLS 1.0, TLS 1.1 ve 1.2 destekler.  SSL desteklemez. Bir TLS/SSL protokolü için desteklenmeyen sürümü, olay kimliği 106 Log Analytics ağ geçidi oluşturur.|
 | 107 |TLS oturum doğrulandı |
 
@@ -307,7 +315,7 @@ Aşağıdaki tablo Log Analytics ağ geçidi için kullanılabilen performans sa
 
 ## <a name="get-assistance"></a>Yardım alın
 Azure portalında oturum açtığınızda, Log Analytics ağ geçidi veya herhangi başka Azure hizmeti veya özelliği bir hizmetin ile Yardım isteği oluşturabilirsiniz.
-Yardım isteğinde, portalın sağ üst köşesinde soru işareti simgesine tıklayın ve ardından **yeni destek isteği**. Ardından, yeni destek isteği formu doldurun.
+Yardım isteğinde, portalın sağ üst köşedeki soru işareti simgesine tıklayın ve ardından **yeni destek isteği**. Ardından, yeni destek isteği formu doldurun.
 
 ![Yeni destek isteği](./media/gateway/support.png)
 

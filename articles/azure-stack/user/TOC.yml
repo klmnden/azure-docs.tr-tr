@@ -131,10 +131,13 @@ items:
         href: azure-stack-ethereum.md
       - name: Bir Service Fabric kümesine dağıtma
         href: azure-stack-solution-template-service-fabric-cluster.md
-      - name: Kubernetes kümesi Ekle
+      - name: Bir Kubernetes kümesi dağıtın
+        href: azure-stack-solution-template-kubernetes-deploy.md
         items:
-        - name: Bir Kubernetes kümesi dağıtın
-          href: azure-stack-solution-template-kubernetes-deploy.md
+        - name: Kubernetes Azure AD kullanarak dağıtma
+          href: azure-stack-solution-template-kubernetes-azuread.md
+        - name: Kubernetes AD FS kullanarak dağıtma
+          href: azure-stack-solution-template-kubernetes-adfs.md
         - name: Kubernetes kümesinde sorun giderme
           href: azure-stack-solution-template-kubernetes-trouble.md
       - name: Bilişsel hizmetler dağıtma
@@ -220,9 +223,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: Eğitim ve sertifika
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: 16ad9c79aedad01cf6bd1c83740938f23b592b6a
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 256560806e1065ec1ca9cfa9ba1d9f4521755ee8
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189907"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351769"

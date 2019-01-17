@@ -6,14 +6,14 @@ author: jamesbak
 ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 01/15/2019
 ms.author: jamesbak
-ms.openlocfilehash: 95aff0bb37a91c1e2ac117f2f3b90c726e9f88d8
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 791598da593c25a135c05d72b6846053af3ff344
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792899"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353864"
 ---
 # <a name="quickstart-set-up-clusters-in-hdinsight"></a>Hızlı Başlangıç: HDInsight kümelerinde ayarlama
 
@@ -25,6 +25,10 @@ Bir Hadoop kümesi çeşitli görevleri dağıtılmış işlem için kullanılan
 >HDInsight kümesi faturalandırması küme oluşturulduğunda başlar ve küme silindiğinde sona erer. Fatura dakikalara eşit olarak dağıtıldığından, kullanılmayan kümelerinizi mutlaka silmelisiniz. Bilgi edinmek için nasıl [küme silme.](../../hdinsight/hdinsight-delete-cluster.md)
 
 Data Lake depolama Gen2 özelliklere sahip bir depolama hesabı, bu hızlı başlangıçta veri katmanı olarak kullanılır. Kendi hiyerarşik ad alanı hizmeti ile ve [Hadoop sürücü](data-lake-storage-abfs-driver.md), Data Lake depolama Gen2'ye dağıtılan işleme ve analiz için getirilmiştir. Data Lake depolama Gen2'ye etkin olan bir depolama hesabına depolanan verilerinizin bile bir HDInsight kümesi silindikten sonra devam ettirir.
+
+## <a name="prerequisites"></a>Önkoşullar
+
+- Kullanıcı tarafından atanan bir yönetilen kimlik oluşturmak ve sonra atamak ihtiyacınız olacak **Blob Depolama katkıda bulunan rolü** kimliği. Bkz: [oluşturun, liste, delete veya Azure portalını kullanarak bir kullanıcı tarafından atanan yönetilen kimlik rol atama](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
 
 ## <a name="cluster-setup-methods"></a>Küme kurulumu yöntemleri
 
@@ -104,8 +108,7 @@ Yapılandırma sırasında varsayılan depolama uç noktası için Data Lake Sto
 
 ![Küme depolama ayarları: HDFS uyumlu depolama uç noktaları](media/data-lake-storage-quickstart-create-connect-hdi-cluster/hdinsight-cluster-creation-storage2.png)
 
-> [!IMPORTANT]
-> Mutlaka **Data Lake Store erişimini devre dışı bırakma**. Bu ayarları başvuran eski *Data Lake Store* işlevselliği ve gereksinimleri için sırayla devre dışı bırakılması *Data Lake Storage* düzgün çalışması için özellikleri.
+İçinde **kullanıcı atanmış yönetilen kimlik**, bu makalenin önkoşul olarak, oluşturduğunuz kullanıcı tarafından yönetilen kullanıcı tarafından atanan yönetilen kimlik seçtiğinizden emin olun.
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../../includes/hdinsight-secure-transfer.md)]
 
@@ -221,7 +224,7 @@ Bazı durumlarda, aşağıdaki yapılandırma dosyalarını oluşturma işlemi s
 * Hive-site.xml
 * mapred-site
 * oozie-site.xml
-* oozie env.xml
+* oozie-env.xml
 * storm-site.xml
 * tez-site.xml
 * webhcat-site.xml

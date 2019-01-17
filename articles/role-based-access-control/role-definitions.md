@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/07/2018
+ms.date: 01/15/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 1c8af3e0d3d5d29531a2ba81abc745fcdca5fb08
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 065695f9ce0f0d8dfbb9a43877131c8ab7fada5e
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231912"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354328"
 ---
 # <a name="understand-role-definitions"></a>Rol tanımlarını anlama
 
@@ -173,7 +173,11 @@ Görüntülemek ve veri işlemleriyle çalışmak için doğru SDK'lar ve Araçl
 | [Python için Azure](/python/azure) | 0.40.0 veya üzeri |
 | [Ruby için Azure SDK](https://rubygems.org/gems/azure_sdk) | 0.17.1 veya üzeri |
 
-Azure portalında da göz atıp kuyruklar ve Blob içeriğini yönetmek kullanıcılara Azure AD ile kapsayıcıları Önizleme deneyimini. Bir kuyruk veya blob'a kapsayıcı içeriğini görmeyi ve yönetmeyi depolama hesabına genel bakış "Araştır verileri kullanarak Azure AD Önizleme" bağlantısına tıklayın.
+Görüntüleme ve veri işlemlerini REST API kullanma için ayarlamalısınız **api sürümü** parametre şu sürümü veya sonraki bir sürüme:
+
+- 2018-01-01-Önizleme
+
+Azure portalında da göz atıp kuyruklar ve Blob içeriğini yönetmek kullanıcılara Azure AD ile kapsayıcıları Önizleme deneyimini. Görmeyi ve yönetmeyi bir kuyruk veya blob'a kapsayıcı tıklama içeriğini **Azure AD Önizleme kullanarak verileri keşfedin** bir depolama hesabına genel bakış.
 
 ![Kuyruklar keşfedin ve Blob kapsayıcıları kullanarak Azure AD Önizleme](./media/role-definitions/rbac-dataactions-browsing.png)
 

@@ -12,12 +12,12 @@ manager: cgronlun
 ms.topic: conceptual
 ms.date: 01/14/2018
 ms.custom: seodec18
-ms.openlocfilehash: db853be456dbf893163f53bbc797cf12172d38b7
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 4ef62157644e55ed291562f581389228b5776f51
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261103"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353235"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning için bir geliştirme ortamı yapılandırma
 
@@ -264,15 +264,15 @@ Databricks kümenizi hazırlamak ve örnek not defterleri edinmek için:
 
 1. Yükleme ve Azure Machine Learning SDK paketini kümenize ekleyin.  
 
-    * [Bir kitaplığı oluşturma](https://docs.databricks.com/user-guide/libraries.html#create-a-library) (Bu seçeneklerden yalnızca birini seçin) bu ayarları biriyle:
+    * [Bir kitaplığı oluşturma](https://docs.databricks.com/user-guide/libraries.html#create-a-library) bu ayarları biriyle (_yalnızca bu seçeneklerden birini_):
     
-        * Azure Machine Learning SDK otomatik makine öğrenme özelliğini yüklemek için:
+        * Azure Machine Learning SDK yüklemek için _olmadan_ otomatik makine öğrenme özelliği:
             | Ayar | Değer |
             |----|---|
             |Kaynak | Python yükleme Yumurta veya Pypı
             |Pypı adı | azureml-sdk[databricks]
     
-        * Azure Machine Learning SDK'sını otomatik machine learning ile yüklemek için:
+        * Azure Machine Learning SDK yüklemek için _ile_ machine learning otomatik:
             | Ayar | Değer |
             |----|---|
             |Kaynak | Python yükleme Yumurta veya Pypı
@@ -286,9 +286,11 @@ Databricks kümenizi hazırlamak ve örnek not defterleri edinmek için:
 
     Eski bir SDK sürümü varsa, kümenin yüklü libs seçimini kaldırmak ve çöp kutusuna taşınacak. Yeni SDK sürümünü yükleyin ve küme yeniden başlatın. Bir sorun olduğunda bundan sonra ayırma ve kümenizi yeniden bağlayın.
 
-    İşiniz bittiğinde, aşağıdaki görüntüde gösterildiği gibi kitaplığa eklenir. Bu unutmayın [Databricks sorunların ortak](resource-known-issues.md#databricks).
+    İşiniz bittiğinde aşağıdaki görüntüde gösterildiği gibi kitaplığa eklenir. Bu unutmayın [Databricks sorunların ortak](resource-known-issues.md#databricks).
 
-   ![Databricks üzerinde yüklü SDK'sı ](./media/how-to-azure-machine-learning-on-databricks/sdk-installed-on-databricks.jpg)
+    * Azure Machine Learning SDK yüklediyseniz _olmadan_ machine learning otomatik ![SDK olmadan otomatik Databricks üzerinde yüklü makine öğrenimi ](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
+
+    * Azure Machine Learning SDK yüklediyseniz _ile_ machine learning otomatik ![SDK'sı ile makine öğrenimi Databricks üzerinde yüklü otomatik ](./media/how-to-configure-environment/automlonadb.jpg)
 
    Bu adım başarısız olursa aşağıdakileri yaparak kümenizi yeniden başlatın:
 

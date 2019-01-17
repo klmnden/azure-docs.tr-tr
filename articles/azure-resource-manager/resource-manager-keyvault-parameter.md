@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 06719f3a92dae805081ea85c346df97ebed0e0dc
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: a885fda23bb76091705ebe388f40a6eae7b56416
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078079"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351518"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Dağıtım sırasında güvenli bir parametre geçirmek için Azure Key Vault'u kullanma
 
@@ -84,14 +84,14 @@ Add-Type -AssemblyName System.Web
 [System.Web.Security.Membership]::GeneratePassword(16,3)
 ```
 
-Resource Manager şablonu kullanarak için: bkz [öğretici: Resource Manager şablon dağıtımı'da Azure anahtar kasası tümleştirme](./resource-manager-tutorial-use-key-vault.md#prepare-the-key-vault).
+Resource Manager şablonu kullanmak için: Bkz: [Öğreticisi: Resource Manager şablon dağıtımı Azure anahtar kasası tümleştirme](./resource-manager-tutorial-use-key-vault.md#prepare-the-key-vault).
 
 > [!NOTE]
-> Her bir Azure hizmeti, belirli parola gereksinimleri vardır. Örneğin, Azure sanal makine gereksinimleri bölümünde bulunabilir [parola gereksinimleri bir VM oluşturulurken nelerdir?](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
+> Her Azure hizmetinin parola gereksinimleri farklıdır. Örneğin, Azure sanal makine gereksinimleri bölümünde bulunabilir [parola gereksinimleri bir VM oluşturulurken nelerdir?](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
 ## <a name="enable-access-to-the-secret"></a>Gizli dizi erişimi etkinleştirme
 
-Dışında ayarlama `enabledForTemplateDeployment` için `true`, şablon dağıtımı kullanıcının olmalıdır `Microsoft.KeyVault/vaults/deploy/action` içeren kaynak grubunu ve anahtar kasası dahil olmak üzere anahtar kasası kapsam izni. [Sahibi](../role-based-access-control/built-in-roles.md#owner) ve [katkıda bulunan](../role-based-access-control/built-in-roles.md#contributor) rollerinin her ikisi de bu erişim verin. Key Vault oluşturun, böylece iznine sahip sahibi olursunuz. Key Vault farklı bir abonelik altında ise, Key Vault sahibi genel erişim gerekir.
+Dışında ayarlama `enabledForTemplateDeployment` için `true`, şablon dağıtımı kullanıcının olmalıdır `Microsoft.KeyVault/vaults/deploy/action` içeren kaynak grubunu ve anahtar kasası dahil olmak üzere anahtar kasası kapsam izni. [Sahibi](../role-based-access-control/built-in-roles.md#owner) ve [katkıda bulunan](../role-based-access-control/built-in-roles.md#contributor) rollerinin her ikisi de bu erişim verin. Key Vault oluşturun, böylece iznine sahip sahibi olursunuz. Key Vault farklı bir abonelik altında ise, Key Vault sahibi erişim vermeniz gerekir.
 
 Aşağıdaki yordam bir rolü ile en düşük permssion oluşturma ve kullanıcıya atamak nasıl gösterir
 1. Özel rol tanımı JSON dosyası oluşturun:

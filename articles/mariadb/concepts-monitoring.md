@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 11/10/2018
-ms.openlocfilehash: 476e74a4d167fb3e9158f07cc5c073f129a74daa
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 2ad641ae054f9542ec1ef42f5ebbe724ba4ecf87
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545901"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354034"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>MariaDB için Azure veritabanı'nda izleme
 İzleme verilerini sunucularınız hakkında sorun giderme ve iş yükünüz için iyileştirmenize yardımcı olur. MariaDB için Azure veritabanı sunucunuzu davranışını öngörü sunan çeşitli ölçümleri sağlar.
@@ -19,7 +19,7 @@ ms.locfileid: "53545901"
 ## <a name="metrics"></a>Ölçümler
 Tüm Azure ölçümleri bir dakikalık sıklığı, ve 30 günlük geçmişi her ölçüm sağlar. Ölçümler üzerinde uyarılar yapılandırabilirsiniz. Diğer görevler otomatik eylemleri ayarlama, Gelişmiş analiz gerçekleştirme ve geçmiş arşivleme içerir. Daha fazla bilgi için bkz. [Azure ölçümlerine genel bakış] (.. /Monitoring-and-Diagnostics/Monitoring-Overview-Metrics.MD).
 
-<!--For step by step guidance, see [How to set up alerts](howto-alert-on-metric.md). -->
+Adım adım yönergeler için bkz. [uyarıları ayarlamak nasıl](howto-alert-metric.md).
 
 ### <a name="list-of-metrics"></a>Ölçümlerin listesi
 Bu ölçümler, MariaDB için Azure veritabanı için kullanılabilir:
@@ -45,5 +45,4 @@ Yavaş sorgu günlüğü sunucunuzda etkinleştirebilirsiniz. Günlüğe kaydetm
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Erişim ve Azure portalı, REST API veya CLI kullanarak ölçümleri dışarı aktarma hakkında daha fazla bilgi için bkz. [Azure ölçümlerine genel bakış](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
-
-<!-- - See [How to set up alerts](howto-alert-on-metric.md) for guidance on creating an alert on a metric.-->
+ - Bkz: [uyarıları ayarlamak nasıl](howto-alert-metric.md) bir ölçüme göre bir uyarı oluşturma hakkında yönergeler için.

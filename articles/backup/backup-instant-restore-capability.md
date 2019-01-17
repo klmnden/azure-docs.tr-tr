@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: trinadhk
-ms.openlocfilehash: 64e012b84f863196592133da52b35736e486c9ce
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: a0cbb8650a818c3ae6c839d69bbc9b94f8d080ca
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54266935"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351405"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Geliştirilmiş yedeği almak ve performansı Azure Backup anında geri yükleme özelliğine sahip geri yükleme
 
@@ -55,14 +55,19 @@ Artımlı anlık anında kurtarma için kullanılan sanal makinenin depolama hes
 
 
 ## <a name="upgrading-to-instant-restore"></a>Yükseltme için anında geri yükleme
-Azure portalını kullanıyorsanız, kasa panosunda bir bildirim görür. Bu bildirim, büyük disk desteği ve yedekleme ve geri yükleme hızı geliştirmeleri ilişkilendirir. Alternatif olarak yükseltme seçeneği almak için kasa özellikleri sayfasına gidebilirsiniz.
 
+Azure portalını kullanıyorsanız, kasa panosunda bir bildirim görür. Bu bildirim, büyük disk desteği ve yedekleme ve geri yükleme hızı geliştirmeleri ilişkilendirir.
 
 ![Yedekleme işini VM yedek yığını Resource Manager dağıtım modelinde--destek bildirimi](./media/backup-azure-vms/instant-rp-banner.png)
 
 Anında geri yüklemek için yükseltmek için bir ekranı açmak için başlığı seçin.
 
 ![VM yedekleme yığını Resource Manager dağıtım modeli--yedekleme işinde yükseltme](./media/backup-azure-vms/instant-rp.png)
+
+Alternatif olarak gidebilirsiniz **özellikleri** almak için kasa sayfasının **yükseltme** altındaki **VM yedek yığını**.
+
+![Yedekleme işinde VM yedek yığını--Özellikler sayfası](./media/backup-azure-vms/instant-restore-capability-properties.png)
+
 
 ## <a name="upgrade-to-instant-restore-using-powershell"></a>PowerShell kullanarak anlık geri yüklemeniz yükseltme
 

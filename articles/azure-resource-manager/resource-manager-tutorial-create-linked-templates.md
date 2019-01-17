@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 12/07/2018
+ms.date: 01/16/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: fd2c5c0aab9b9b9f2977b3a38b9e08c51e98d451
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 9a63344df4aeea16aa89924b287a0dacafda4046
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973494"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352385"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Öğretici: Bağlı Azure Resource Manager şablonları oluşturma
 
@@ -158,7 +158,7 @@ Bağlı şablon bir depolama hesabı oluşturur. Bağlı şablon, bir depolama h
 
 ## <a name="upload-the-linked-template"></a>Bağlı şablonu karşıya yükleme
 
-Ana şablon ve bağlantılı şablon dağıtımı çalıştırdığı öğesinden erişilebilir olması gerekiyor. Bu öğreticide kullanılan aynı Cloud shell dağıtım yöntemi kullanarak [Öğreticisi: Bağımlı kaynaklarla Azure Resource Manager şablonları oluşturma](./resource-manager-tutorial-create-templates-with-dependent-resources.md). Ana şablon (azuredeploy.json) kabuğa yüklenir. Bağlantılı şablonu (linkedTemplate.json) olmalıdır bir yerden güvenli bir şekilde paylaşılan. Aşağıdaki PowerShell Betiği bir Azure depolama hesabı oluşturur, şablon depolama hesabına yükler ve ardından şablon dosyası sınırlı erişim vermek için bir SAS belirteci oluşturur. Öğretici için yalnızca betik tamamlanmış bağlı bir şablona paylaşılan bir konumdan indirir. Bağlı şablonun kullanmak istiyorsanız, oluşturduğunuz, kullanabileceğiniz [Cloud shell](https://shell.azure.com) bağlı şablonunuzu karşıya yükleyin ve ardından bağlantılı şablonunuzu kullanılacak betiği dosyasını değiştirin.
+Ana şablon ve bağlantılı şablon dağıtımı çalıştırdığı öğesinden erişilebilir olması gerekiyor. Bu öğreticide kullanılan aynı Cloud shell dağıtım yöntemi kullanarak [Öğreticisi: Bağımlı kaynaklarla Azure Resource Manager şablonları oluşturma](./resource-manager-tutorial-create-templates-with-dependent-resources.md). Ana şablon (azuredeploy.json) kabuğa yüklenir. Bağlantılı şablonu (linkedTemplate.json) olmalıdır bir yerden güvenli bir şekilde paylaşılan. Aşağıdaki PowerShell Betiği bir Azure depolama hesabı oluşturur, şablon depolama hesabına yükler ve ardından şablon dosyası sınırlı erişim vermek için bir SAS belirteci oluşturur. Öğreticiyi basitleştirmek için paylaşılan bir konumdan bağlı tamamlanmış bir şablona betik indirir. Bağlı şablonun kullanmak istiyorsanız, oluşturduğunuz, kullanabileceğiniz [Cloud shell](https://shell.azure.com) bağlı şablonunuzu karşıya yükleyin ve ardından bağlantılı şablonunuzu kullanılacak betiği dosyasını değiştirin.
 
 > [!NOTE]
 > Betik sekiz saat içinde kullanılacak SAS belirteci sınırlar. Bu öğreticiyi tamamlamak için daha fazla süreye ihtiyacınız varsa, sona erme saati artırın.

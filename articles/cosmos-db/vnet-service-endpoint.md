@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 148a83cb57675e2e8bda8147041987180df998f0
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 25a05df42029fe444b8d5ceddb2972f779f1b232
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037404"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358737"
 ---
 # <a name="access-azure-cosmos-db-resources-from-virtual-networks"></a>Erişim Azure Cosmos DB kaynaklarını sanal ağlardan
 
 Yalnızca sanal ağın (VNET) belirli bir alt ağından erişime izin vermek için Azure Cosmos hesabı yapılandırabilirsiniz. Etkinleştirerek [hizmet uç noktası](../virtual-network/virtual-network-service-endpoints-overview.md) bir sanal ağ içindeki alt ağdaki Azure Cosmos DB'ye erişmek için bu alt ağ trafiği için Azure Cosmos DB ile sanal ağ ve alt ağ kimliğini gönderilir. Azure Cosmos DB hizmet uç noktası etkinleştirildikten sonra Azure Cosmos hesabınıza ekleyerek alt ağa erişimi sınırlayabilirsiniz.
 
-Varsayılan olarak, isteğin bir geçerli bir yetkilendirme belirteciyle birlikte sunulduğu, bir Azure Cosmos hesabı herhangi bir kaynaktan erişilebilir. Sanal ağ içindeki bir veya daha fazla alt ağlar eklediğinizde, yalnızca bu alt ağlardan kaynaklanan isteklerin geçerli bir yanıt alırsınız. Başka bir kaynaktan gelen istekler, 404 (bulunamadı) yanıt alırsınız. 
+Varsayılan olarak, isteğin bir geçerli bir yetkilendirme belirteciyle birlikte sunulduğu, bir Azure Cosmos hesabı herhangi bir kaynaktan erişilebilir. Sanal ağ içindeki bir veya daha fazla alt ağlar eklediğinizde, yalnızca bu alt ağlardan kaynaklanan isteklerin geçerli bir yanıt alırsınız. Başka bir kaynaktan gelen istekler, 403 (Yasak) yanıt alırsınız. 
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
@@ -34,7 +34,7 @@ Bir alt ağdan Azure Cosmos hesabına erişimi sınırlamak için gereken iki ad
 
 ### <a name="will-virtual-network-acls-and-ip-firewall-reject-requests-or-connections"></a>Sanal ağ ACL'leri ve IP Güvenlik Duvarı, isteklerin veya bağlantıları reddeder? 
 
-IP Güvenlik Duvarı'nı veya sanal ağ erişim kuralları eklenir, yalnızca izin verilen kaynakları get Geçerli yanıtlar gelen istekleri. 404 (bulunamadı) ile diğer istekler reddedilir. Azure Cosmos hesabın güvenlik duvarı bir bağlantı düzeyi güvenlik duvarı ayırt etmek önemlidir. Kaynak hizmete bağlanmaya devam edebilirler ve bağlantıları reddedilen değildir.
+IP Güvenlik Duvarı'nı veya sanal ağ erişim kuralları eklenir, yalnızca izin verilen kaynakları get Geçerli yanıtlar gelen istekleri. Bir 403 (Yasak) ile diğer istekler reddedilir. Azure Cosmos hesabın güvenlik duvarı bir bağlantı düzeyi güvenlik duvarı ayırt etmek önemlidir. Kaynak hizmete bağlanmaya devam edebilirler ve bağlantıları reddedilen değildir.
 
 ### <a name="my-requests-started-getting-blocked-when-i-enabled-service-endpoint-to-azure-cosmos-db-on-the-subnet-what-happened"></a>İsteklerim miyim alt ağdaki hizmet uç noktası için Azure Cosmos DB etkinleştirildiğinde engellenen başlatıldı. Ne oldu?
 

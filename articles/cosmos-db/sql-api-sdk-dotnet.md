@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/09/2018
 ms.author: sngun
-ms.openlocfilehash: f135281ad8bfe8222fd799e3d18c4022c627d23c
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 470813b1a51db183476dd046dc102eb89d73debd
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051960"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354600"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB SQL API'si için .NET SDK: İndirme ve sürüm notları
 > [!div class="op_single_selector"]
@@ -66,7 +66,7 @@ ms.locfileid: "54051960"
 
 * Doğrudan/TCP taşıma tanılama için TransportException, SDK'sının bir iç özel durum türü eklediniz. Bu tür, mevcut olduğunda özel durum iletileri, istemci bağlantısı sorunlarını gidermek için ek bilgi yazdırır.
 
-* HttpClient istekleri (örn., HttpClientHandler) göndermek için kullanılacak HTTP işleyici yığını bir HttpMessageHandler alan eklenen yeni oluşturucu aşırı yükleme.
+* HttpClient istekleri (örn., HttpClientHandler) göndermek için kullanılacak HTTP işleyici yığını bir HttpMessageHandler alan eklenen yeni oluşturucu aşırı yüklemesi.
 
 * Burada üstbilgisi null değerlerle düzgün bir şekilde işlenmemiş olan hata düzeltildi.
 
@@ -265,7 +265,7 @@ ms.locfileid: "54051960"
 ### <a name="a-name180180"></a><a name="1.8.0"/>1.8.0
 * Çoklu bölge veritabanı hesapları için destek eklendi.
 * Yeniden deneme sırasında daraltılmış istekler için destek eklendi.  Kullanıcı sayısını yeniden denemeler ve en fazla bekleme zamanı ConnectionPolicy.RetryOptions özelliğini yapılandırarak özelleştirebilirsiniz.
-* Tüm DocumenClient özellik ve yöntem imzaları tanımlayan yeni IDocumentClient arabirimi eklendi.  Bu değişikliğin bir parçası olarak Iqueryable IOrderedQueryable DocumentClient sınıfındaki yöntemleri oluşturup genişletme yöntemleri de değiştirildi.
+* Tüm DocumentClient özellik ve yöntem imzaları tanımlayan yeni IDocumentClient arabirimi eklendi.  Bu değişikliğin bir parçası olarak Iqueryable IOrderedQueryable DocumentClient sınıfındaki yöntemleri oluşturup genişletme yöntemleri de değiştirildi.
 * Belirli Azure Cosmos DB uç noktası URI'si için ServicePoint.ConnectionLimit ayarlamak için ek yapılandırma seçeneği'ni kullanın.  ConnectionPolicy.MaxConnectionLimit 50 olarak ayarlandığını varsayılan değeri değiştirmek için kullanın.
 * Kullanım dışı IPartitionResolver ve uygulanması.  IPartitionResolver desteği artık kullanımdan kalkmıştır. Daha yüksek depolama ve aktarım hızı için bölümlenmiş koleksiyonlar kullanmanız önerilir.
 
@@ -282,7 +282,7 @@ ms.locfileid: "54051960"
 * Uygulanan [bölümlenmiş koleksiyonları](partition-data.md) ve [kullanıcı tanımlı performans düzeyleri](performance-levels.md). 
 
 ### <a name="a-name153153"></a><a name="1.5.3"/>1.5.3
-* **[Düzeltildi]**  Sorgulama Azure Cosmos DB uç noktası oluşturur: ' System.Net.Http.HttpRequestException: Bir akışa içeriği kopyalanırken hata oluştu '.
+* **[Düzeltildi]**  Sorgulama Azure Cosmos DB uç noktası oluşturur: 'System.Net.Http.HttpRequestException: Bir akışa içeriği kopyalanırken hata oluştu '.
 
 ### <a name="a-name152152"></a><a name="1.5.2"/>1.5.2
 * Genişletilmiş LINQ, disk belleği, koşullu ifade yeni işleçleri dahil olmak üzere destek ve karşılaştırma aralığı.

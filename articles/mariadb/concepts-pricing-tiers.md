@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: b85737adb8f1c9481fb4b7b2005d2856d2bce9f5
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: bb6e27f92f60712cce71ba6fca53b40af00ee714
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53544592"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354461"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Fiyatlandırma katmanları MariaDB için Azure veritabanı
 
@@ -49,12 +49,11 @@ Sağladığınız depolama MariaDB server için Azure veritabanı'na kullanılab
 | Depolama türü | Azure standart depolama | Azure Premium Depolama | Azure Premium Depolama |
 | Depolama boyutu | 5 GB ila 1 TB | 5 GB ile 4 TB | 5 GB ile 4 TB |
 | Depolama artırma boyutu | 1 GB | 1 GB | 1 GB |
-| IOPS | Değişken |3 IOPS/GB<br/>En az 100 IOPS<br/>En çok 6000 IOPS | 3 IOPS/GB<br/>En az 100 IOPS<br/>En çok 6000 IOPS |
+| IOPS | Değişken |3 IOPS/GB<br/>Min 100 IOPS<br/>En çok 6000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>En çok 6000 IOPS |
 
 Ek depolama kapasitesi, sırasında ve sunucunun oluşturulduktan sonra ekleyebilirsiniz. Temel katmanı, bir IOPS garanti sağlamaz. Genel amaçlı ve bellek için iyileştirilmiş fiyatlandırma katmanları, IOPS sağlanan depolama boyutu 3:1 oranını ölçeklendirin.
 
-G/ç tüketiminiz Azure portalında veya Azure CLI komutlarını kullanarak izleyebilirsiniz. İlgili ölçümleri izlemek için depolama sınırı, depolama yüzdesi, kullanılan depolama alanı ve yüzde GÇ ' dir.
-<!--[storage limit, storage percentage, storage used, and IO percent](concepts-monitoring.md)-->
+G/ç tüketiminiz Azure portalında veya Azure CLI komutlarını kullanarak izleyebilirsiniz. İlgili ölçümleri izlemek için [depolama sınırı, depolama yüzdesi, kullanılan depolama alanı ve g/ç yüzdesi](concepts-monitoring.md).
 
 ### <a name="reaching-the-storage-limit"></a>Depolama sınırı ulaşma
 
@@ -64,7 +63,7 @@ Hizmet sunucuyu salt okunur duruma getirdiğinde tüm yeni yazma işlemi istekle
 
 Salt okunur duruma girmesini önlemek için sunucu depolama alanınızın eşiği yaklaşırken bildiren bir uyarı ayarlamanızı öneririz. 
 
-<!--For more information, see the documentation on [how to set up an alert](howto-alert-on-metric.md).-->
+Daha fazla bilgi için şirket belgelerine bakın. [bir alarm ayarlama](howto-alert-metric.md).
 
 ## <a name="backup"></a>Backup
 

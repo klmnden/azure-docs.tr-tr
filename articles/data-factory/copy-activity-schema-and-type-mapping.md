@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 1a3855b7b95224e0f872764f6710f9fa907780a7
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: c2f58a3510699cdf74e3150d3ad5882929f4f05b
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025462"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358720"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Kopyalama etkinliğindeki şema eşleme
 Bu makalede Azure Data Factory kopyalama etkinliği, şema eşleme ve veri türü eşlemesi veri kaynağı verilerden nasıl yaptığını açıklar, veri kopyalama yürütün.
@@ -142,7 +142,7 @@ Söz dizimini kullanıyorsanız `"columnMappings": "UserId: MyUserId, Group: MyG
 
 ## <a name="schema-mapping"></a>Şema eşleme
 
-Şema eşleme hiyerarşik biçimli verileri ve tablo şeklinde verileri arasında veri kopyalamayı örn kopyaladığınızda, MongoDB/geri KALANINDAN metin dosyası ve SQL bir kopyasından Azure Cosmos DB MongoDB API'si için geçerlidir. Kopyalama etkinliği aşağıdaki özellikler desteklenir `translator` bölümü:
+Şema eşleme hiyerarşik biçimli verileri ve tablo şeklinde verileri, örneğin metin dosyası için MongoDB/REST Kopyala ve SQL bir kopyasından Azure Cosmos DB'nin MongoDB API'si için arasında veri kopyalama işlemi sırasında uygulanır. Kopyalama etkinliği aşağıdaki özellikler desteklenir `translator` bölümü:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |

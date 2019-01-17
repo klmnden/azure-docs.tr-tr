@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 1/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: 4de4a5a659f38577c1261b169a43df560bf05495
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: cd84948b5895a628fc94cc2946156d9fa2284369
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971275"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352334"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway-preview"></a>Azure VPN ağ geçidi (Önizleme) için OpenVPN istemcilerini yapılandırma
 
@@ -72,6 +72,10 @@ VPN ağ geçidiniz OpenVPN yapılandırma adımları tamamladığınızdan emin 
 7. İçinde tunnelblik profili oluşturmak için profili dosyasına çift tıklayın.
 8. Uygulamaları klasöründen Tunnelblik başlatın.
 9. Sistem tepsisindeki Tunnelblik simgesine tıklayın ve çekme bağlanın.
+
+> [!IMPORTANT]
+>Yalnızca iOS 11.0 ve yukarıdaki ve MacOS 10.13 ve yukarıdaki OpenVPN protokolü ile desteklenir.
+>
 
 ## <a name="linux"></a>Linux istemcileri
 

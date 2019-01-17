@@ -1,5 +1,5 @@
 ---
-title: Bilişsel hizmetler kaynağı bir beceri kümesi ile - Azure Search ilişkilendirin
+title: Bir beceri kümesi - Azure Search ile Bilişsel hizmetler kaynağı ekleme
 description: Azure Search'te bir bilişsel zenginleştirme ardışık düzenine bir Bilişsel hizmetler hepsi bir arada abonelik ekleme yönergeleri.
 manager: cgronlun
 author: LuisCabrer
@@ -7,36 +7,36 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 01/07/2018
+ms.date: 01/14/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 315e050f9ff8768cfeb8ff5417834e8e163ce334
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 5bffeacaa07f90a11c374061eb6c0d36fc8f86a9
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231436"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351467"
 ---
-# <a name="associate-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Azure Search'te bir beceri kümesi bir Bilişsel hizmetler kaynağı ilişkilendirmek 
+# <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Azure Search'te bir beceri kümesi ile bir Bilişsel hizmetler kaynağı ekleme 
 
 Sürüş yapay ZEKA algoritmalarının [bilişsel arama işlem hatları](cognitive-search-concept-intro.md) yapılandırılmamış verileri işlemek için temel alan [ **Bilişsel hizmetler kaynakları**](https://azure.microsoft.com/services/cognitive-services/). Kaynakları ister [ **görüntü işleme** ](https://azure.microsoft.com/services/cognitive-services/computer-vision/) görüntü analizi ve optik karakter tanıma (OCR) metin ve görüntü dosyaları dışında yapısı ayıklanmasında sağlar ancak [ **metin Analytics** ](https://azure.microsoft.com/services/cognitive-services/text-analytics/) doğal dil işleme birkaç varlık tanıma ve anahtar ifade ayıklama gibi sağlar.
 
-Belgeler sınırlı sayıda ücretsiz zenginleştirin ya da daha büyük ve daha sık iş yükleri için Faturalanabilir bir Bilişsel hizmetler kaynağı ekleyin. Bu makalede, Bilişsel hizmetler kaynağı bilişsel becerilerinizi dizin oluşturma sırasında veri zenginleştirme ile ilişkilendirmek nasıl öğrenin.
+Belgeler sınırlı sayıda ücretsiz zenginleştirin ya da daha büyük ve daha sık iş yükleri için Faturalanabilir bir Bilişsel hizmetler kaynağı ekleyin. Bu makalede, Bilişsel hizmetler kaynağı bilişsel becerilerinizi sırasında veri zenginleştirme ile ilişkilendirilecek öğrenin [Azure arama dizini oluşturma](search-what-is-an-index.md).
 
 İşlem hattınızı özel oluşuyorsa [özel becerileri](cognitive-search-create-custom-skill-example.md), Bilişsel hizmetler kaynağı eklemek gerekmez.
 
 > [!NOTE]
 > 21 aralık 2018'den itibaren Bilişsel hizmetler kaynağı bir Azure Search beceri kümesi ile ilişkilendirebilirsiniz. Bu beceri yürütmesi için ücret olanak tanır. Bu tarihte, biz de belge çözme aşamasının bir parçası olarak görüntü ayıklama için ücretlendirme başladı. Metin ayıklama belgelerden hiçbir ek ücret ödemeden sunulmaya devam eder.
 >
-> Yürütülmesini [yerleşik bilişsel beceriler](cognitive-search-predefined-skills.md) ücretlendirilir [Bilişsel hizmetler ödeme-olarak-, Git fiyat](https://azure.microsoft.com/pricing/details/cognitive-services/), adresindeki Azure Search bağımsız olarak görev gerçekleştirilen gibi aynı oranı. Görüntü ayıklama fiyatlandırma Önizleme fiyatlandırması üzerinden ücretlendirilir ve üzerinde açıklanmıştır [Azure fiyatlandırma sayfasını arama](https://go.microsoft.com/fwlink/?linkid=2042400).
+> Yürütülmesini [yerleşik bilişsel beceriler](cognitive-search-predefined-skills.md) ücretlendirilir [Bilişsel hizmetler ödeme-olarak-, Git fiyat](https://azure.microsoft.com/pricing/details/cognitive-services), adresindeki görevi doğrudan gerçekleştirilen gibi aynı oranı. Görüntü ayıklama şu anda Önizleme fiyatlandırması sunulan bir Azure Search Faturalanabilir olay ' dir. Ayrıntılar için bkz [Azure fiyatlandırma sayfasını arama](https://go.microsoft.com/fwlink/?linkid=2042400) veya [nasıl](search-sku-tier.md#how-billing-works).
 
 
 ## <a name="use-free-resources"></a>Ücretsiz kaynakları kullan
 
-Bilişsel arama öğretici ve hızlı başlangıç alıştırmalar tamamlamak için yeterli günlük aralıklarla 20 belge zenginleştirmelerinin için de yetki verir bir sınırlı, ücretsiz işleme seçeneği kullanabilirsiniz. 
+Bilişsel arama öğretici ve hızlı başlangıç alıştırmalar tamamlamak için sınırlı, ücretsiz işleme seçeneği kullanabilirsiniz. 
 
 > [!Important]
-> 1 Şubat 2019 başlangıç **serbest (sınırlı Zenginleştirmelerinin)** günde 20 belgelere sınırlıdır. 
+> 1 Şubat 2019 üzerinde başlayan **serbest (sınırlı Zenginleştirmelerinin)** günde 20 belgelere sınırlanır. 
 
 1. Açık **verileri içeri aktarma** Sihirbazı.
 

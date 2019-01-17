@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 4/12/2018
+ms.date: 1/16/2019
 ms.author: dukek
 ms.component: logs
-ms.openlocfilehash: 64b92a758d3d5f713b58a5e310a897ac1f11024d
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: d5e57442a163c8a93adc39517285bd88affab2fe
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714840"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353065"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure etkinlik günlüğü olay şeması
 **Azure etkinlik günlüğü** Azure'da gerçekleşen herhangi bir abonelik düzeyindeki olayların sağlayan günlüktür. Bu makalede veri kategorisini başına olay şeması. Portal, PowerShell, CLI veya karşı REST API aracılığıyla doğrudan veri okunuyorsa veri şeması bağlı olarak farklı [veri depolama veya günlük profilini kullanarak Event Hubs akış](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). Aşağıdaki örnekler, portal, PowerShell, CLI ve REST API kullanıma sunulan teklifinizle şema gösterir. Bu özellikler için bir eşleme [Azure tanılama günlükleri şema](./tutorial-dashboards.md) makalenin sonunda sağlanır.
@@ -279,7 +279,7 @@ Bu kategori, Azure kaynaklarınıza ortaya çıkan herhangi bir kaynak sistem du
 | properties.currentHealthStatus | Kaynağın geçerli sistem durumu. Aşağıdaki değerlerden biri: "Kullanılabilir olma", "Kullanılamıyor", "Düşük" ve "Bilinmeyen". |
 | properties.previousHealthStatus | Kaynak önceki sistem durumu. Aşağıdaki değerlerden biri: "Kullanılabilir olma", "Kullanılamıyor", "Düşük" ve "Bilinmeyen". |
 | Properties.Type | Kaynak sistem durumu olay türü açıklaması. |
-| Properties.Cause | Kaynak sistem durumu olayı nedenini açıklaması. "UserInitiated" ve "PlatformInitiated". |
+| properties.cause | Kaynak sistem durumu olayı nedenini açıklaması. "UserInitiated" ve "PlatformInitiated". |
 
 
 ## <a name="alert"></a>Uyarı
@@ -648,6 +648,123 @@ Bu kategori, hizmetlerinizi için oluşturulan yeni önerisi kaydını içerir. 
 | properties.recommendationCategory | Öneri kategorisi. "Yüksek kullanılabilirlik", "Performans", "Güvenlik" ve "Maliyet" olası değerler şunlardır: |
 | properties.recommendationImpact| Öneri etkisini. Olası değerler şunlardır: "Yüksek", "Orta", "Düşük" |
 | properties.recommendationRisk| Risk öneri. Olası değerler şunlardır: "Error"Uyarı",", "None" |
+
+## <a name="policy"></a>İlke
+
+Bu kategoride işlemlerinin tarafından gerçekleştirilen tüm etkin eylem kayıtları [Azure İlkesi](../../governance/policy/overview.md). Örnekler görmek Bu kategoride olay türlerini _denetim_ ve _Reddet_. İlke tarafından gerçekleştirilen her eylemi, bir kaynak üzerinde bir işlem olarak modellenir.
+
+### <a name="sample-policy-event"></a>Örnek ilke olayı
+
+```json
+{
+    "authorization": {
+        "action": "Microsoft.Resources/checkPolicyCompliance/read",
+        "scope": "/subscriptions/<subscriptionID>"
+    },
+    "caller": "33a68b9d-63ce-484c-a97e-94aef4c89648",
+    "channels": "Operation",
+    "claims": {
+        "aud": "https://management.azure.com/",
+        "iss": "https://sts.windows.net/1114444b-7467-4144-a616-e3a5d63e147b/",
+        "iat": "1234567890",
+        "nbf": "1234567890",
+        "exp": "1234567890",
+        "aio": "A3GgTJdwK4vy7Fa7l6DgJC2mI0GX44tML385OpU1Q+z+jaPnFMwB",
+        "appid": "1d78a85d-813d-46f0-b496-dd72f50a3ec0",
+        "appidacr": "2",
+        "http://schemas.microsoft.com/identity/claims/identityprovider": "https://sts.windows.net/1114444b-7467-4144-a616-e3a5d63e147b/",
+        "http://schemas.microsoft.com/identity/claims/objectidentifier": "f409edeb-4d29-44b5-9763-ee9348ad91bb",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "b-24Jf94A3FH2sHWVIFqO3-RSJEiv24Jnif3gj7s",
+        "http://schemas.microsoft.com/identity/claims/tenantid": "1114444b-7467-4144-a616-e3a5d63e147b",
+        "uti": "IdP3SUJGtkGlt7dDQVRPAA",
+        "ver": "1.0"
+    },
+    "correlationId": "b5768deb-836b-41cc-803e-3f4de2f9e40b",
+    "description": "",
+    "eventDataId": "d0d36f97-b29c-4cd9-9d3d-ea2b92af3e9d",
+    "eventName": {
+        "value": "EndRequest",
+        "localizedValue": "End request"
+    },
+    "category": {
+        "value": "Policy",
+        "localizedValue": "Policy"
+    },
+    "eventTimestamp": "2019-01-15T13:19:56.1227642Z",
+    "id": "/subscriptions/<subscriptionID>/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/contososqlpolicy/events/13bbf75f-36d5-4e66-b693-725267ff21ce/ticks/636831551961227642",
+    "level": "Warning",
+    "operationId": "04e575f8-48d0-4c43-a8b3-78c4eb01d287",
+    "operationName": {
+        "value": "Microsoft.Authorization/policies/audit/action",
+        "localizedValue": "Microsoft.Authorization/policies/audit/action"
+    },
+    "resourceGroupName": "myResourceGroup",
+    "resourceProviderName": {
+        "value": "Microsoft.Sql",
+        "localizedValue": "Microsoft SQL"
+    },
+    "resourceType": {
+        "value": "Microsoft.Resources/checkPolicyCompliance",
+        "localizedValue": "Microsoft.Resources/checkPolicyCompliance"
+    },
+    "resourceId": "/subscriptions/<subscriptionID>/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/contososqlpolicy",
+    "status": {
+        "value": "Succeeded",
+        "localizedValue": "Succeeded"
+    },
+    "subStatus": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "submissionTimestamp": "2019-01-15T13:20:17.1077672Z",
+    "subscriptionId": "<subscriptionID>",
+    "properties": {
+        "isComplianceCheck": "True",
+        "resourceLocation": "westus2",
+        "ancestors": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+        "policies": "[{\"policyDefinitionId\":\"/subscriptions/<subscriptionID>/providers/Microsoft.
+            Authorization/policyDefinitions/5775cdd5-d3d3-47bf-bc55-bb8b61746506/\",\"policyDefiniti
+            onName\":\"5775cdd5-d3d3-47bf-bc55-bb8b61746506\",\"policyDefinitionEffect\":\"Deny\",\"
+            policyAssignmentId\":\"/subscriptions/<subscriptionID>/providers/Microsoft.Authorization
+            /policyAssignments/991a69402a6c484cb0f9b673/\",\"policyAssignmentName\":\"991a69402a6c48
+            4cb0f9b673\",\"policyAssignmentScope\":\"/subscriptions/<subscriptionID>\",\"policyAssig
+            nmentParameters\":{}}]"
+    },
+    "relatedEvents": []
+}
+```
+
+### <a name="policy-event-property-descriptions"></a>İlke olay özellik açıklamaları
+
+| Öğe adı | Açıklama |
+| --- | --- |
+| Yetkilendirme | RBAC olay özelliklerinin dizisi. Yeni kaynaklar için eylem ve değerlendirme tetiklenen isteğinin kapsamı budur. Var olan kaynaklar için "Microsoft.Resources/checkPolicyCompliance/read" bir eylemdir. |
+| çağıran | Yeni kaynaklar için bir dağıtım tarafından başlatılan kimlik. Var olan kaynaklar için Microsoft Azure İlkesi Insights RP GUİD'si. |
+| kanallar | İlke olaylarını yalnızca "İşlem" kanal kullanın. |
+| Talep | Kullanıcı veya uygulama Kaynak Yöneticisi'nde bu işlemi gerçekleştirmek için kimlik doğrulaması için Active Directory tarafından kullanılan JWT belirteci. |
+| correlationId | Genellikle bir GUID dize biçiminde. Bir Correlationıd paylaşan olayları aynı uber eyleme ait. |
+| açıklama | İlke olaylarını Bu alan boştur. |
+| eventDataId | Olayın benzersiz tanımlayıcısı. |
+| EventName | "BeginRequest" veya "EndRequest". "BeginRequest" Gecikmeli auditIfNotExists ve Deployıfnotexists değerlendirmeleri ve Deployıfnotexists etkili bir şablon dağıtımı başladığı için kullanılır. Tüm diğer işlemler "EndRequest" döndürür. |
+| category | Etkinlik günlüğü olayında "ilkesi" olarak bildirir. |
+| eventTimestamp | Olay karşılık gelen isteği işlemeye Azure hizmeti tarafından bir olay oluşturulduğunda zaman damgası. |
+| id | Belirli kaynak olayı benzersiz tanımlayıcısı. |
+| düzey | Olay düzeyi. Denetim "Uyarı" ve "Error" Reddet kullanır. AuditIfNotExists veya Deployıfnotexists bir hata önem derecesine bağlı olarak, "Uyarı" veya "Error" oluşturabilirsiniz. Diğer tüm ilke olaylarını "Bilgilendirici" kullanın. |
+| operationId | Tek bir işleme karşılık gelen olaylar arasında paylaşılan bir GUID. |
+| operationName | İlke etkisi'için işlem adını ve doğrudan ilişkilendirir. |
+| resourceGroupName | Değerlendirilen kaynağı için kaynak grubunun adı. |
+| resourceProviderName | Değerlendirilen kaynağın kaynak sağlayıcısının adı. |
+| Kaynak türü | Yeni kaynaklar için değerlendirilen türüdür. Var olan kaynaklar için "Microsoft.Resources/checkPolicyCompliance" döndürür. |
+| resourceId | Değerlendirilen kaynağının kaynak kimliği. |
+| durum | İlke değerlendirme sonucu durumunu açıklayan bir dize. "Başarılı" çoğu ilke değerlendirmeleri döndürür, ancak reddetme etkisi "Başarısız" döndürür. Hataları auditIfNotExists veya Deployıfnotexists ayrıca "Başarısız" döndürür. |
+| alt durumu | İlke olaylarını Bu alan boştur. |
+| submissionTimestamp | Olay sorgulamak için kullanılabilen kalktığında zaman damgası. |
+| subscriptionId | Azure abonelik kimliği |
+| properties.isComplianceCheck | Yeni bir kaynak dağıtılır veya var olan bir kaynağın kaynak yöneticisi özellikleri güncelleştirildi "False" döndürür. Diğer tüm [değerlendirme Tetikleyicileri](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers) neden "True". |
+| properties.resourceLocation | Değerlendirilen kaynak Azure bölgesi. |
+| Properties.ancestors | Üst yönetim grupları virgülle ayrılmış bir listesi için en uzak dizinleriyle doğrudan üst öğeden sıralı. |
+| Properties.Policies | İlke tanımı, atama, etkili ve bu ilke değerlendirmesi sonucudur parametreleri hakkındaki ayrıntıları içerir. |
+| relatedEvents | İlke olaylarını Bu alan boştur. |
 
 ## <a name="mapping-to-diagnostic-logs-schema"></a>Tanılama günlükleri şemaya eşleme
 

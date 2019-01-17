@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: masoucou
-ms.openlocfilehash: 4a3c3f4b97da75d3e73f89866efe6f2fa4adeb65
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 127002dc59db6ab9940e4bc2a66678adecc33160
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043422"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354136"
 ---
 # <a name="azure-cosmos-db-build-a-todo-app-with-xamarin"></a>Azure Cosmos DB: Xamarin ile todo uygulaması derleme
 
@@ -200,7 +200,7 @@ ToDoItems çözümündeki kod şunları içerir:
     }
     ```
 
-    Yine, oluşturulup `DocumentClient.DeleteDocumentAsync` işlevine geçirilen benzersiz belge URI’sini not edin.
+    Belgenin benzersiz olan URI'si oluşturulur ve geçirilen yeniden unutmayın `DocumentClient.DeleteDocumentAsync` işlevi.
 
 ## <a name="run-the-app"></a>Uygulamayı çalıştırma
 

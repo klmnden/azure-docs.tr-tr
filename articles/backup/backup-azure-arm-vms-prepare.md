@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: raynew
-ms.openlocfilehash: a7a2d8729e1abdafa89eff912faf84d8f247b442
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 65e4c6d66e410e8cd761128028b7a47e21db86eb
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215448"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354510"
 ---
 # <a name="prepare-to-back-up-azure-vms"></a>Azure sanal makinelerini yedeklemek hazırlama
 
@@ -40,7 +40,7 @@ Bu makalede bir Azure VM yedekleme için hazırlamak nasıl bir [Azure Backup](b
    **Destek/sınırlama** | **Ayrıntılar**
    --- | ---
    **Windows işletim sistemi** | Windows Server 2008 R2 64 bit veya üstü.<br/><br/> Windows istemci 7 64-bit veya üstü.
-   **Linux işletim sistemi** | 64-bit Linux dağıtımları yedekleyebilirsiniz [Azure tarafından desteklenen](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), CoreOS Linux hariç.<br/><br/> Linux işletim sistemlerini gözden geçirin, [dosya geri yükleme desteği](backup-azure-restore-files-from-vm.md#for-linux-os).<br/><br/> Diğer Linux dağıtımlarına VM Aracısı VM üzerinde kullanılabilir olduğu sürece, çalışma ve Python desteği bulunduğu. Ancak, bu dağıtımları desteklenmez.
+   **Linux OS** | 64-bit Linux dağıtımları yedekleyebilirsiniz [Azure tarafından desteklenen](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), CoreOS Linux hariç.<br/><br/> Linux işletim sistemlerini gözden geçirin, [dosya geri yükleme desteği](backup-azure-restore-files-from-vm.md#for-linux-os).<br/><br/> Diğer Linux dağıtımlarına VM Aracısı VM üzerinde kullanılabilir olduğu sürece, çalışma ve Python desteği bulunduğu. Ancak, bu dağıtımları desteklenmez.
    **Bölge** | Tüm Azure sanal makinelerini yedekleyebilirsiniz [desteklenen bölgeler](https://azure.microsoft.com/regions/#services). Bir bölge desteklenmiyorsa, kasayı oluşturduğunuzda seçmek mümkün olmayacaktır.<br/><br/> Yedekleme ve geri yükleme Azure bölgeleri arasında olamaz. Yalnızca tek bir bölgede.
    **Veri disk sınırı** | 16'dan fazla veri diskleri ile Vm'leri yedekleyemezsiniz.
    **Paylaşılan depolama** | VM'lerin yedeklenmesi CSV veya genişleme dosya sunucusu kullanımı önerilmemektedir. CSV yazarları, büyük olasılıkla başarısız olur.
@@ -61,8 +61,6 @@ Bu makalede bir Azure VM yedekleme için hazırlamak nasıl bir [Azure Backup](b
     - Yedekleme verilerini depolamak için depolama hesaplarının belirtilmesi gerekmez. Kasa ve Azure Backup hizmeti, otomatik olarak işler.
 - VM Aracısı, yedeklemek istediğiniz bir Azure sanal makinelerinde yüklü olduğunu doğrulayın.
 
-
-
 ### <a name="install-the-vm-agent"></a>VM aracısını yükleyin
 
 Yedeklemeyi etkinleştirmek için Azure Backup (VM anlık görüntüsü veya VM anlık görüntüsü Linux) bir yedekleme uzantısı Azure VM üzerinde çalışan VM aracısı yükler.
@@ -79,12 +77,14 @@ Azure VM'yi yedekleme konusunda sorun varsa, Azure VM Aracısı sanal makinede d
 
 ### <a name="establish-network-connectivity"></a>Ağ bağlantısı kurma
 
-VM'de çalışan yedekleme uzantısı, Azure genel IP adreslerine giden erişime izin olmalıdır. Erişime izin vermek için şunları yapabilirsiniz:
+VM'de çalışan yedekleme uzantısı, Azure genel IP adreslerine giden erişime izin olmalıdır.
 
+> [!NOTE]
+> Azure Backup hizmeti ile iletişim kurmak için Azure sanal makinesi için hiçbir açık giden ağ erişimi gereklidir. Bazı eski sanal makineler ancak ve karşılaştığınız sorunlar şu hatayla başarısız **ExtensionSnapshotFailedNoNetwork**, bu hatayı gidermek için Azure'a iletişim kurmak yedekleme uzantısını izin vermek için aşağıdaki seçeneklerden birini belirleyin Yedekleme trafiği için bir yol sağlamak için genel IP adresleri.
 
-- **NSG kuralları**: İzin [Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653). Azure Backup hizmetini kullanarak erişimine izin verecek bir kural ekleyebileceğiniz bir [hizmet etiketi](../virtual-network/security-overview.md#service-tags), tek tek her adres aralığını sağlayan ve zaman içinde bunları yönetmek yerine.
+- **NSG kuralları**: İzin [Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653). Azure Backup hizmetini kullanarak erişimine izin verecek bir kural ekleyebileceğiniz bir [hizmet etiketi](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure), tek tek her adres aralığını sağlayan ve zaman içinde bunları yönetmek yerine. Hizmet etiketi hakkında daha fazla bilgi için bkz. Bu [makale](../virtual-network/security-overview.md#service-tags).
 - **Proxy**: Bir HTTP proxy sunucusu için trafiği yönlendirme dağıtın.
-- **Azure Güvenlik Duvarı**: Azure Backup hizmeti için bir FQDN etiketi kullanarak VM, Azure güvenlik duvarı üzerinden trafiğine izin verin.
+- **Azure Güvenlik Duvarı**: Azure Backup hizmeti için bir FQDN etiketi kullanarak VM, Azure güvenlik duvarı üzerinden trafiğine izin verin
 
 Seçenekler arasında karar verirken, ödün göz önünde bulundurun.
 
@@ -94,22 +94,17 @@ Seçenekler arasında karar verirken, ödün göz önünde bulundurun.
 **HTTP Ara sunucusu** | Depolama URL'leri üzerinde ayrıntılı denetim izin verilir.<br/><br/> VM'ler için tek noktası internet erişimi.<br/><br/> Ek maliyet proxy.
 **FQDN etiketleri** | Azure sanal ağ içindeki alt ağ ayarlama güvenlik duvarı varsa kullanımı kolaydır | Kendi FQDN etiketleri oluşturun veya FQDN'ler bir etiketi değiştirme.
 
-
-
 Azure yönetilen diskler kullanıyorsanız, güvenlik duvarları hakkında ek bağlantı noktası açma (bağlantı noktası 8443) gerekebilir.
-
-
 
 ### <a name="set-up-an-nsg-rule-to-allow-outbound-access-to-azure"></a>Azure'da giden erişime izin vermek için bir NSG kuralı ayarlama
 
 Azure VM bir NSG tarafından yönetilen erişimi varsa, gerekli aralıkları ve bağlantı noktaları için Yedekleme depolaması için giden erişim verin.
 
-
-
 1. VM > **ağ**, tıklayın **giden bağlantı noktası kuralı Ekle**.
-- Kuralın daha yüksek olması, erişimi reddettikten bir kuralı varsa, yeni izin verin. Örneğin, bir **Deny_All** kural öncelik, 1000, yeni bir kural kümesi için 1000'den daha az ayarlanmalıdır.
+
+  - Kuralın daha yüksek olması, erişimi reddettikten bir kuralı varsa, yeni izin verin. Örneğin, bir **Deny_All** kural öncelik, 1000, yeni bir kural kümesi için 1000'den daha az ayarlanmalıdır.
 2. İçinde **Giden Güvenlik Kuralı Ekle**, tıklayın **Gelişmiş**.
-3. Kaynağı seçin **VirtualNetwork**.
+3. İçinde **kaynak**seçin **VirtualNetwork**.
 4. İçinde **kaynak bağlantı noktası aralıkları**, herhangi bir bağlantı noktasından giden erişime izin vermek için yıldız işareti (*) yazın.
 5. İçinde **hedef**seçin **hizmet etiketi**. Listeden depolama alanını seçin. <region>. Bölge, kasa ve yedeklemek istediğiniz VM'lerin bulunduğu bölgedir.
 6. İçinde **hedef bağlantı noktası aralıkları**, bağlantı noktasını seçin.
@@ -117,9 +112,9 @@ Azure VM bir NSG tarafından yönetilen erişimi varsa, gerekli aralıkları ve 
     - VM ile yönetilmeyen diskler ve şifrelenmemiş bir depolama hesabı: 80
     - VM ile yönetilmeyen diskler ve şifrelenmiş depolama hesabı: 443 (varsayılan ayar)
     - Yönetilen sanal makine: 8443.
-1. İçinde **Protokolü**seçin **TCP**.
-2. İçinde **öncelik**, bir öncelik değeri vermek değerinden daha da kuralları'nı engelle.
-3. Bir ad ve kural için bir açıklama girin ve tıklatın **Tamam**.
+7. İçinde **Protokolü**seçin **TCP**.
+8. İçinde **öncelik**, bir öncelik değeri vermek değerinden daha da kuralları'nı engelle.
+9. Bir ad ve kural için bir açıklama girin ve tıklatın **Tamam**.
 
 Azure Backup için Azure giden erişime izin vermek için birden çok VM için bir NSG kuralı uygulayabilirsiniz.
 
@@ -127,12 +122,12 @@ Bu videoda sürecinde yardımcı olur.
 
 >[!VIDEO https://www.youtube.com/embed/1EjLQtbKm1M]
 
-
+> [!WARNING]
+> Depolama hizmet etiketleri Önizleme aşamasındadır. Bunlar yalnızca belirli bölgelerde kullanılabilir. Bölgelerin bir listesi için bkz. [hizmet etiketleri depolama](../virtual-network/security-overview.md#service-tags).
 
 ### <a name="route-backup-traffic-through-a-proxy"></a>Bir ara sunucu aracılığıyla yedekleme trafiği yönlendirme
 
 Bir ara sunucu aracılığıyla yedekleme trafiği yönlendirmek ve ardından proxy erişimi için gerekli Azure aralıkları sağlar.
-
 Aşağıdaki izin vermek için VM proxy yapılandırmanız gerekir:
 
 - Azure VM için genel internet Ara sunucusu üzerinden bağlı tüm HTTP trafiğini yönlendirme.
@@ -154,7 +149,7 @@ Bir sistem hesabı proxy sahip değilseniz, birini aşağıdaki ayarlamaları ya
         - Bu satırları ekleyin **/etc/waagent.conf** dosyası:
             - **HttpProxy.Host=proxy IP adresi**
             - **HttpProxy.Port=proxy bağlantı noktası**
-    - Windows makinelerinde, tarayıcı ayarlarınızı bir ara sunucu kullanılması gerektiğini belirtin. Bir kullanıcı hesabı şu anda bir ara sunucu kullanıyorsanız, system hesabına düzeyinde ayarları uygulamak için bu betiği kullanabilirsiniz.
+    - Windows makinelerinde, tarayıcı ayarlarınızı bir ara sunucu kullanılması gerektiğini belirtin. Bir kullanıcı hesabı şu anda bir ara sunucu kullanıyorsanız, sistem düzeyinde ayarları uygulamak için bu betiği kullanabilirsiniz.
         ```
        $obj = Get-ItemProperty -Path Registry::”HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections"
        Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" -Name DefaultConnectionSettings -Value $obj.DefaultConnectionSettings
@@ -167,8 +162,9 @@ Bir sistem hesabı proxy sahip değilseniz, birini aşağıdaki ayarlamaları ya
 
 #### <a name="allow-incoming-connections-on-the-proxy"></a>Proxy gelen bağlantılara izin verin
 
-1. Proxy ayarları gelen bağlantılara izin.
-2. Örneğin, açmak **Gelişmiş Güvenlik Özellikli Windows Güvenlik Duvarı**.
+Proxy ayarları gelen bağlantılara izin.
+
+- Örneğin, açmak **Gelişmiş Güvenlik Özellikli Windows Güvenlik Duvarı**.
     - Sağ **gelen kuralları** > **yeni kural**.
     - İçinde **kural türü** seçin **özel** > **sonraki**.
     - İçinde **Program**seçin **tüm programlar** > **sonraki**.
@@ -186,13 +182,13 @@ NSG üzerinde **NSF kilitleme**, 10.0.0.5 üzerinde herhangi bir bağlantı nokt
     Get-AzureNetworkSecurityGroup -Name "NSG-lockdown" |
     Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -Type Outbound -Priority 200 -SourceAddressPrefix "10.0.0.5/32" -SourcePortRange "*" -DestinationAddressPrefix Internet -DestinationPortRange "80-443"
     ```
+
 ### <a name="allow-firewall-access-with-fqdn-tag"></a>FQDN etiketi ile güvenlik duvarı erişime izin ver
 
 Ağ trafiği için Azure Backup giden erişime izin vermek için Azure güvenlik duvarını ayarlayabilirsiniz.
 
 - [Hakkında bilgi edinin](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal) Azure güvenlik duvarı dağıtılıyor.
 - [Hakkında bilgi edinin](https://docs.microsoft.com/azure/firewall/fqdn-tags) FQDN etiketler.
-
 
 ## <a name="create-a-vault"></a>Kasa oluşturma
 
@@ -227,7 +223,7 @@ Kasanız oluşturulduktan sonra kurtarma Hizmetleri kasaları listesinde görün
 
 ## <a name="set-up-storage-replication"></a>Depolama çoğaltmayı ayarlama
 
-Varsayılan olarak, kasanız sahip [coğrafi olarak yedekli depolama (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs). GRS için birincil yedeklemenizi öneririz, ancak kullanabileceğiniz[yerel olarak yedekli depolama](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) ucuz seçeneği. 
+Varsayılan olarak, kasanız sahip [coğrafi olarak yedekli depolama (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs). GRS için birincil yedeklemenizi öneririz, ancak kullanabileceğiniz[yerel olarak yedekli depolama](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) ucuz seçeneği.
 
 Depolama çoğaltma şu şekilde değiştirin:
 

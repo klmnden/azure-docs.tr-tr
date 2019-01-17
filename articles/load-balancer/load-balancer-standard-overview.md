@@ -5,6 +5,7 @@ description: Azure Standard Load Balancer özelliklerine genel bakış
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
@@ -13,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/11/2019
 ms.author: kumud
-ms.openlocfilehash: 15a67bb5d42028f945cc44a75a7210f132a434c3
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 2eb2fbb1d184bf58923748278d4989a271adf434
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245181"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352589"
 ---
-# <a name="azure-standard-balancer-overview"></a>Azure standart Balancer'a genel bakış
+# <a name="azure-standard-load-balancer-overview"></a>Azure standart Load Balancer'a genel bakış
 
 Azure Load Balancer, uygulamalarınızı ölçeklendirmenize ve hizmetleriniz için yüksek kullanılabilirlik sağlar. Yük Dengeleyici gelen yanı sıra giden senaryoları için kullanılabilir ve düşük gecikme süreli, yüksek aktarım hızı sağlar ve en fazla akışlar tüm TCP ve UDP uygulamaları için milyonlarca ölçeklendirir. 
 
 Bu makalede standart yük dengeleyici üzerinde odaklanır.  Azure Load Balancer için daha genel bir bakış için gözden [yük dengeleyiciye genel bakış](load-balancer-overview.md) de.
 
-## <a name="what-is-standard-load-balancer"></a>Standard Load Balancer nedir?
+## <a name="what-is-standard-load-balancer"></a>Standart Load Balancer nedir?
 
 Standart Load Balancer, temel Azure Load Balancer'a göre ayarlama genişletilmiş ve daha ayrıntılı bir özellik ile tüm TCP ve UDP uygulamaları için yeni bir yük dengeleyici ürünüdür.  Benzer olsa da, farklılıklar bu makalede ana hatlarıyla öğrenmeniz önemlidir.
 

@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 12/07/2018
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: d238e5e7c129241fc599e3b656d785d750b330c7
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 9ec8ecf7b875b32d0ea5715e407b444fa1b25c50
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332056"
+ms.locfileid: "54354476"
 ---
 # <a name="azure-cosmos-db-sql-language-reference"></a>Azure Cosmos DB SQL dil başvurusu 
 
@@ -2543,7 +2543,7 @@ SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"])
 ```  
   
 ####  <a name="bk_array_contains"></a> ARRAY_CONTAINS  
-Dizi belirtilen değeri içerip içermediğini gösteren bir Boole değeri döndürür. Tam veya kısmi eşleşme olup olmadığını belirtebilirsiniz. 
+Dizi belirtilen değeri içerip içermediğini gösteren bir Boole değeri döndürür. Komut içinde bir Boole ifadesi kullanarak bir nesne için bir kısmi veya tam eşleşme kontrol edebilirsiniz. 
 
  **Söz dizimi**  
   
@@ -2563,7 +2563,7 @@ ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])
 
 -   `bool_expr`  
   
-     Herhangi bir boolean ifadesi var.       
+     Herhangi bir boolean ifadesi var. Bu ayarlanırsa ' true'and belirtilen arama değeri bir nesne ise, komutu bir kısmi eşleşme (arama nesnesi nesnelerinden birine özelliklerinin bir alt kümesidir) için denetler. 'False' olarak ayarlanırsa komutu dizi içinde tüm nesnelerin bir tam eşleşme olup olmadığını denetler. Belirtilmezse, varsayılan değer false'tur. 
   
  **Dönüş türleri**  
   

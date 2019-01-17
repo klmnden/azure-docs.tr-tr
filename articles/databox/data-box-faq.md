@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 09/27/2018
+ms.date: 01/16/2019
 ms.author: alkohli
-ms.openlocfilehash: 09d982c98e830b957be8db43974e3a44df505967
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: c8aa08dc189a77a206ea24b535aedf64454838c7
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321067"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359417"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box'de: Sık Sorulan Sorular
 
@@ -114,6 +114,9 @@ A. Sistem hatası göstergesi LED ışığının yanması sisteminizin iyi durum
 
 ### <a name="q-i-cant-access-the-data-box-unlock-password-in-the-azure-portal-why-would-this-be"></a>S. Azure portalda Data Box kilit açma parolasına erişemiyorum. Neden olabilir?
 A. Azure portalda kilit açma parolasına erişemiyorsanız aboneliğinizin ve depolama hesabınızın izinlerini kontrol edin. Kaynak grubu düzeyinde katkıda bulunan veya sahip izinlerine sahip olduğunuzdan emin olun. Ardından, en az olması gerekiyorsa, erişim kimlik bilgileri görmek için veri kutusu operatörü rolü izni.
+
+### <a name="q-is-port-channel-configuration-supported-on-data-box-how-about-mpio"></a>S. Bağlantı noktası kanalı yapılandırması üzerinde Data Box destekleniyor mu? MPIO ne dersiniz?
+A. Bağlantı noktası kanalı yapılandırma, çok yollu GÇ (MPIO) yapılandırması veya vLAN yapılandırması üzerinde Data Box desteklemiyoruz.
 
 ## <a name="track-status"></a>Durumu izleme
 
@@ -223,17 +226,17 @@ A.  Azure Data Box hizmeti delil zinciri belgeleri için kullanabileceğiniz rap
 ### <a name="what-type-of-reporting-is-available-to-support-chain-of-custody"></a>Koruma zinciri desteği için sunulan rapor türleri nelerdir?
 A.  Koruma zinciri desteği için aşağıdaki rapor türleri sunulur:
 
-- DHL ve UPS şirketlerinden taşıma lojistik süreçleri.
+- UPS gelen Lojistik taşıma.
 - Cihazı açma ve kullanıcı paylaşımı erişimi günlükleri.
 - Data Box'a başarıyla eklenen her dosya için 64 bit dönüşsel artıklık denetimi (CRC-64) veya sağlama toplamı.
 - Azure depolama hesabına yükleme işlemi başarısız olan dosyaların bildirilmesi.
 - Veriler Azure depolama hesabınıza kopyalandıktan sonra Data Box cihazının temizlenmesi (NIST 800 88R1 standartlarına göre).
 
-### <a name="are-the-carrier-tracking-logs--from-upsdhl-available"></a>Sevkiyat takip günlükleri (UPS/DHL) mevcut mu? 
+### <a name="are-the-carrier-tracking-logs-from-ups-available"></a>Taşıyıcı izleme günlüklerinden (UPS) kullanılabilir misiniz? 
 A.  Taşıyıcı takip günlükleri, Data Box sipariş geçmişine kaydedilir. Bu rapor cihaz Azure veri merkezine iade edildikten ve cihaz üzerindeki veriler silindikten sonra sunulur. Daha erken ihtiyaç duymanız durumunda taşıyıcının web sitesine gidip sipariş takip numarasıyla takip bilgilerine ulaşabilirsiniz.
 
 ### <a name="can-i-transport-the-data-box-to-azure-datacenter"></a>Data Box'ı Azure veri merkezine kendim götürebilir miyim? 
-A.  Hayır. Azure veri merkezleri şu an için müşteriler veya UPS/DHL dışındaki taşıyıcılar tarafından gerçekleştirilen Data Box teslimatlarını kabul etmemektedir.
+A.  Hayır. Şu anda Azure veri merkezi teslim Data Box, müşterilerin veya operatörler UPS dışında kabul etmiyor.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

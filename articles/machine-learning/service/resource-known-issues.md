@@ -11,12 +11,12 @@ ms.component: core
 ms.topic: article
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 25131fdbc7a3633bf4ba9af05fdff9163f41f26b
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: e143c0c8ef09af49aed656d479bcad4dd35e2211
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265116"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351807"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Bilinen sorunlar ve sorun giderme Azure Machine Learning hizmeti
  
@@ -44,12 +44,8 @@ Web hizmeti dağıtılırken hata oluşturma görüntüsü. Geçici çözüm ola
 ## <a name="databricks"></a>Databricks
 
 Databricks ve Azure Machine Learning sorunları.
-
-1. Databricks kümesini öneri:
-   
-   Python 3 v4.x olarak Azure Databricks kümenizi oluşturun. Yüksek eşzamanlılık küme öneririz.
  
-2. AML SDK yükleme hatası Databricks üzerinde daha fazla paketleri yüklendiğinde.
+1. AML SDK yükleme hatası Databricks üzerinde daha fazla paketleri yüklendiğinde.
 
    Gibi bazı paketler `psutil`, çakışmaları neden olabilir. Yükleme hataları önlemek için paketleri dondurma LIB sürümüyle yükleyin. Bu sorun için Databricks ilgili ve Azure ML SDK ilgili olmayan - bunu diğer kitaplıklar ile çok karşılaşabilecekleri. Örnek:
    ```python
@@ -57,9 +53,10 @@ Databricks ve Azure Machine Learning sorunları.
    ```
    Alternatif olarak, yükleme sorunlarını Python kitaplıklar ile yan yana tutmak, init komut dosyalarını kullanabilirsiniz. Bu yaklaşım, resmi olarak desteklenen bir yaklaşım değildir. Başvurabilirsiniz [bu belge](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
 
-3. Machine Learning otomatik Databricks üzerinde kullanırken görürseniz `Import error: numpy.core.multiarray failed to import`
+2. Machine Learning otomatik Databricks üzerinde kullanırken bir çalışmayı iptal edip yeni bir deneme çalıştırma başlatmak istiyorsanız lütfen Azure Databricks kümenizi yeniden başlatın.
 
-   Geçici çözüm: Python kitaplığı içeri aktarma `numpy==1.14.5` , Databricks için kitaplığa oluşturma kümesi kullanarak [yükleme ve ekleme](https://docs.databricks.com/user-guide/libraries.html#create-a-library).
+3. Varsa otomatik ml ayarlar > 10 yinelemeden Lütfen False olarak ayarlanmış show_output çalıştırmanız gönderirken.
+
 
 ## <a name="azure-portal"></a>Azure portal
 Doğrudan paylaşım bağlantısı SDK veya portalından çalışma alanınızda görüntülemeye giderseniz, uzantı normal genel bakış sayfası ile abonelik bilgilerini görüntülemek mümkün olmayacaktır. Siz de başka bir çalışma alanına geçmeniz mümkün olmayacaktır. Başka bir çalışma alanını görüntülemek gerekiyorsa, doğrudan gitmek için geçici çözüm olan [Azure portalında](https://portal.azure.com) ve çalışma alanı adı arayın.

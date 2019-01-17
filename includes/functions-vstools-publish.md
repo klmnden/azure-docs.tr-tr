@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/02/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: b290cada86401d91313939a7673998810cb82551
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
-ms.translationtype: HT
+ms.openlocfilehash: 3ac7d8cc4705fe1b6e80f1e0c7e26d847d761cf6
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51028157"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54357015"
 ---
 1. **Çözüm Gezgini**'nde projeye sağ tıklayın ve **Yayımla**'yı seçin.
 
@@ -21,7 +21,7 @@ ms.locfileid: "51028157"
 
     ![Yayımlama hedefi seçme](./media/functions-vstools-publish/functions-visual-studio-publish-profile.png)
 
-    **Zip'ten çalıştır**'ı etkinleştirdiğinizde, Azure'da işlev uygulamanız doğrudan dağıtım paketinden çalıştırılır. Daha fazla bilgi için bkz. [Azure İşlevlerinizi paket dosyasından çalıştırma](../articles/azure-functions/run-functions-from-deployment-package.md).
+    Etkinleştirdiğinizde **Zip çalıştırma**, işlev uygulamanızı azure'da salt okunur moduna geçer ve doğrudan dağıtım paketinden çalıştırın. Daha fazla bilgi için bkz. [Azure İşlevlerinizi paket dosyasından çalıştırma](../articles/azure-functions/run-functions-from-deployment-package.md).
      
     >[!CAUTION]
     >**Varolanı Seç**'i seçtiğinizde, yerel projedeki dosyalar Azure'da mevcut işlev uygulamasındaki tüm dosyaların üzerine yazılır. Bu seçeneği yalnızca mevcut işlev uygulamasına yeniden güncelleştirme yayımlarken kullanın.

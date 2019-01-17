@@ -6,22 +6,22 @@ documentationcenter: ''
 author: juliako
 manager: femila
 editor: ''
-ms.assetid: b197fce8-3b9b-4189-8d08-486810c0426f
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 01/15/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: 337ee0edc3d6e644415b2b3f7524d829d0e3c692
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 5059e4c00fc3bcbee76f8f5a3746b4d8783d901b
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50246475"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359281"
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Media Encoder Premium iş akışı biçimleri ve codec bileşenleri
+
 > [!NOTE]
 > Premium Kodlayıcı sorular için e-posta mepd@microsoft.com.
 > 
@@ -38,9 +38,11 @@ Bu belge, girdi ve çıktı dosya biçimlerini ve genel Önizleme sürümü tara
 **Media Encoder Premium iş akışı** destekler Kapalı Açıklamalı Altyazı açıklanan [bu](#closed_captioning) bölümü. 
 
 ## <a id="input_formats"></a>Media Encoder Premium iş akışı giriş biçimleri ve codec bileşenleri
+
 Aşağıdaki bölümde, girdi olarak bu medya işlemci desteklediği codec bileşenleri ve dosya biçimlerini listelenmektedir.
 
 ### <a name="input-containerfile-formats"></a>Giriş kapsayıcısı/dosya biçimleri
+
 * Adobe® Flash® F4V
 * MXF/SMPTE 377M
 * GXF
@@ -51,6 +53,7 @@ Aşağıdaki bölümde, girdi olarak bu medya işlemci desteklediği codec bile�
 * AVI (sıkıştırılmamış 8 bit/10 bit)
 
 ### <a name="input-video-codecs"></a>Giriş video codec bileşenleri
+
 * AVC 8 bit/10-en fazla 4 bit: 2:2, avcıntra
 * Avid DNxHD (mxf biçiminde)
 * DVCPro/DVCProHD (in MXF)
@@ -61,9 +64,10 @@ Aşağıdaki bölümde, girdi olarak bu medya işlemci desteklediği codec bile�
 * Windows Media Video/VC-1
 
 ### <a name="input-audio-codecs"></a>Giriş ses codec bileşenleri
+
 * AES (SMPTE 331 M ve 302 M, AES3-2003)
 * Dolby® E
-* Dolby® dijital (AC3)
+* Dolby® Digital (AC3)
 * AAC (AAC-LC, AAC-HE ve AAC-HEv2; en fazla 5.1)
 * MPEG Katman 2
 * MP3 (MPEG-1 Ses Katmanı 3)
@@ -71,9 +75,11 @@ Aşağıdaki bölümde, girdi olarak bu medya işlemci desteklediği codec bile�
 * WAV/PCM
 
 ## <a id="output_format"></a>Media Encoder Premium iş akışı Çıkış biçimleri ve codec bileşenleri
+
 Aşağıdaki bölümde, bu ortam işlemciden çıktı olarak desteklenen codec bileşenleri ve dosya biçimlerini listelenmektedir.
 
 ### <a name="output-containerfile-formats"></a>Çıkış kapsayıcısı/dosya biçimleri
+
 * Adobe® Flash® F4V
 * MXF (OP1a, XDCAM ve AS02)
 * DPP (AS11 dahil)
@@ -85,6 +91,7 @@ Aşağıdaki bölümde, bu ortam işlemciden çıktı olarak desteklenen codec b
 * MPEG-TS 
 
 ### <a name="output-video-codecs"></a>Çıkış Video codec bileşenleri
+
 * AVC (H.264; 8-bit; yüksek profiline kadar 5.2; 4 K Ultra HD; düzeyi AVC içi)
 * Avid DNxHD (mxf biçiminde)
 * DVCPro/DVCProHD (in MXF)
@@ -92,10 +99,15 @@ Aşağıdaki bölümde, bu ortam işlemciden çıktı olarak desteklenen codec b
 * MPEG-1
 * Windows Media Video/VC-1
 * JPEG küçük resim oluşturma
+* HEVC (H.265; 8 bitlik ve ana ve ana 10 profili 10 bit)
+
+  Belirli senaryolarda HDR 10 için lütfen desteğe mepd@microsoft.com daha fazla bilgi için
+
 
 ### <a name="output-audio-codecs"></a>Çıkış ses codec bileşenleri
+
 * AES (SMPTE 331 M ve 302 M, AES3-2003)
-* Dolby® dijital (AC3)
+* Dolby® Digital (AC3)
 * Dolby® dijital artı (E-AC3) kadar 7.1
 * AAC (AAC-LC, AAC-HE ve AAC-HEv2; en fazla 5.1)
 * MPEG Katman 2
@@ -106,6 +118,7 @@ Aşağıdaki bölümde, bu ortam işlemciden çıktı olarak desteklenen codec b
 >Dolby® dijital için (AC3) kodlama, çıkış yalnızca bir ISO MP4 dosyasına yazılabilir.
 
 ## <a id="closed_captioning"></a>Kapalı açıklamalı alt yazı desteği
+
 Üzerinde içe alma, **Media Encoder Premium iş akışı** destekler:
 
 1. SCC dosyaları
@@ -122,14 +135,18 @@ Aşağıdaki bölümde, bu ortam işlemciden çıktı olarak desteklenen codec b
 5. SRT alt yazı dosyası
 6. DVB alt konu başlığını akışları
 
-Not: Yukarıdaki Çıkış biçimleri tüm Azure Media Services akış ile teslim için desteklenir.
+> [!NOTE]
+> Azure Media Services akış ile teslim için tüm yukarıdaki Çıkış biçimleri desteklenir.
 
 ## <a name="known-issues"></a>Bilinen sorunlar
+
 Girdi videonuzun içermiyorsa Kapalı Açıklamalı Altyazı, çıktı varlık hala boş bir TTML dosyası içerir. 
 
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
+
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Geri bildirimde bulunma
+
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

@@ -11,12 +11,12 @@ ms.devlang: rest-api
 ms.topic: conceptual
 robot: noindex
 ms.custom: seodec2018
-ms.openlocfilehash: 99f19f6595f2e3105c4b30a7c2e7ef1e296fad6e
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: a55652c8d19866b717cbafec4629030a7708bb50
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724884"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359502"
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Dizin oluşturucuları kullanarak Azure Search ile Cosmos DB'ye bağlanma
 
@@ -38,7 +38,7 @@ Aşağıdaki videoda, Azure Cosmos DB Program Yöneticisi Manager Andrew Liu nas
 <a name="supportedAPIs"></a>
 ## <a name="supported-api-types"></a>Desteklenen API türleri
 
-Azure Cosmos DB çeşitli veri modellerini ve API'lerini destekler; ancak, yalnızca SQL API'si için Azure Search dizin oluşturucu üretim desteği genişletir. Azure Cosmos DB için MongoDB API'si desteği şu anda genel Önizleme aşamasındadır.  
+Azure Cosmos DB çeşitli veri modellerini ve API'lerini destekler; ancak, yalnızca SQL API'si için Azure Search dizin oluşturucu üretim desteği genişletir. MongoDB için Azure Cosmos DB API desteği şu anda genel Önizleme aşamasındadır.  
 
 Ek API'ler için destek, gelecek. İlk desteklemek için hangilerinin belirlememize yardımcı olmak için oyunuzu User Voice web sitesinde dönüştürün:
 

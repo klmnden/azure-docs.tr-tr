@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: a5bf15289e91cc568524e8110702b5608118bc2d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 413a69f31125c6c8f18401bb997a490c0f99f948
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833933"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352096"
 ---
-# <a name="azure-ad-b2c-sign-in-using-an-android-application"></a>Azure AD B2C: Bir Android uygulaması kullanarak oturum açın
+# <a name="sign-in-using-an-android-application-in-azure-active-directory-b2c"></a>Bir Android uygulaması Azure Active Directory B2C kullanarak oturum açın
 
 Microsoft kimlik platformu OAuth2 ve OpenID Connect gibi açık standartlar kullanır. Bu standartlar, Azure Active Directory B2C ile tümleştirmek için istediğiniz herhangi bir kitaplıktan yararlanmasını sağlar. Diğer kitaplıkları kullanmanıza yardımcı olması için bunun gibi bir kılavuz 3 taraf kitaplıkların Microsoft identity platformuna bağlanmak için yapılandırma göstermek için kullanabilirsiniz. Uygulayan çoğu kitaplık [RFC6749 OAuth2 belirtimi](https://tools.ietf.org/html/rfc6749) Microsoft Identity platformuna bağlanabilirsiniz.
 
@@ -30,7 +30,7 @@ OAuth2 veya OpenID Connect kullanmaya yeni başladıysanız bu örnek yapıland�
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Azure AD B2C dizini alma
 
-Azure AD B2C'yi kullanabilmek için önce dizin veya kiracı oluşturmanız gerekir. Dizin; tüm kullanıcılarınız, uygulamalarınız, gruplarınız ve daha fazlası için bir kapsayıcıdır. Henüz yoksa devam etmeden önce [bir B2C dizini oluşturun](active-directory-b2c-get-started.md).
+Azure AD B2C'yi kullanabilmek için önce dizin veya kiracı oluşturmanız gerekir. Dizin; tüm kullanıcılarınız, uygulamalarınız, gruplarınız ve daha fazlası için bir kapsayıcıdır. Henüz yoksa devam etmeden önce [bir B2C dizini oluşturun](tutorial-create-tenant.md).
 
 ## <a name="create-an-application"></a>Uygulama oluşturma
 
@@ -42,13 +42,11 @@ Ardından B2C dizininizde uygulama oluşturmanız gerekir. Bu, uygulamanız ile 
 
 ## <a name="create-your-user-flows"></a>Kullanıcı akışlarınızı oluşturun
 
-Azure AD B2C'de, her kullanıcı deneyimi tarafından tanımlanan bir [kullanıcı akışı](active-directory-b2c-reference-policies.md), Azure AD davranışını denetleyen ilkeler kümesini olduğu. Bu uygulama bir kimlik deneyimi içerir: oturum açma ve kaydolma birleştirilmiş kullanıcı akışı. Açıklandığı gibi bu kullanıcı akışını oluşturmak gereken [kullanıcı akışı başvurusu makalesinde](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow). İlkeyi oluştururken şunları yaptığınızdan emin olun:
+Azure AD B2C'de, her kullanıcı deneyimi tarafından tanımlanan bir [kullanıcı akışı](active-directory-b2c-reference-policies.md), Azure AD davranışını denetleyen ilkeler kümesini olduğu. Bu uygulama, kullanıcının oturum açma ve kaydolma akış gerektirir. İlkeyi oluştururken şunları yaptığınızdan emin olun:
 
 * Seçin **görünen ad** kullanıcı akışınızı kaydolma bir özniteliği olarak.
 * Seçin **görünen ad** ve **nesne kimliği** uygulama her kullanıcı akışı talepleri. Diğer talepleri de seçebilirsiniz.
 * Kopyalama **adı** oluşturduktan sonra her kullanıcı akış. `b2c_1_` önekine sahip olmalıdır.  Userjourney adı daha sonra ihtiyacınız olacak.
-
-[!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 Kullanıcı akış oluşturduktan sonra uygulamanızı oluşturmaya hazırsınız.
 
@@ -134,6 +132,4 @@ AuthorizationRequest req = new AuthorizationRequest.Builder(
 ```
 
 Lütfen [AppAuth Kılavuzu](https://openid.github.io/AppAuth-Android/) nasıl işlemi tamamlayın. İle çalışan bir uygulamayı hızlıca başlamak ihtiyacınız varsa, kullanıma [örneğimizi](https://github.com/Azure-Samples/active-directory-android-native-appauth-b2c). Bağlantısındaki [README.md](https://github.com/Azure-Samples/active-directory-android-native-appauth-b2c/blob/master/README.md) kendi Azure AD B2C yapılandırmasını girmek için.
-
-Her zaman geri bildirim ve öneriler için açık duyuyoruz! Bu makalede herhangi bir güçlük sahip veya bu içeriğin geliştirilmesi için öneri, sayfanın sonundaki geri BİLDİRİMİNİZE değer veriyoruz. Özellik istekleri için ekleyebilmesi [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
 

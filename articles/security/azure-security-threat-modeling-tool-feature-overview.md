@@ -1,11 +1,11 @@
 ---
 title: Microsoft tehdit modelleme aracı - Azure | Microsoft Docs
-description: Tehdit modelleme aracında kullanılabilir tüm özellikler hakkında bilgi edinin
+description: Tehdit modelleme aracı sunulan tüm özellikleri hakkında bilgi edinin
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 ms.assetid: na
 ms.service: security
 ms.workload: na
@@ -14,69 +14,69 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 76e49fc0e680acbc2b7b7c62b69fbf72d6690acf
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 8bbc13aa77c50c6ae02ecc67869035e7ec85effa
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
-ms.locfileid: "26754754"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359349"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Tehdit modelleme aracı özelliğine genel bakış
 
-Tehdit modelleme aracı gereksinimlerini modelleme, tehdidin yardımcı olabilir. Aracı temel bir giriş için bkz: [tehdit modelleme aracı ile çalışmaya başlama](./azure-security-threat-modeling-tool-getting-started.md).
+Tehdit modelleme aracı gereksinimlerini modelleme, tehdidin yardımcı olabilir. Araç için temel bir giriş için bkz: [tehdit modelleme aracı ile çalışmaya başlama](./azure-security-threat-modeling-tool-getting-started.md).
 
 > [!NOTE]
->Tehdit modelleme Aracı'nı sık sık güncelleştirilen, genellikle, en son özellikleri ve geliştirmeleri görmek için bu kılavuzu kontrol edin.
+>Tehdit modelleme aracı sık sık güncelleştirilir, böylece müşterilerimize en son özellikler ve geliştirmeler genellikle görmek için bu kılavuzu denetleyin.
 
-Boş bir sayfa açmak için seçin **bir modeli oluşturma**.
+Boş bir sayfa açmak için seçmeniz **bir modeli oluşturma**.
 
-![Boş bir sayfa](./media/azure-security-threat-modeling-tool-feature-overview/tmtstart.png)
+![Boş sayfa](./media/azure-security-threat-modeling-tool-feature-overview/tmtstart.png)
 
-Aracı şu anda kullanılabilen özellikleri görmek için bizim ekibi tarafından oluşturulan tehdit modeli kullanın [başlama](./azure-security-threat-modeling-tool-getting-started.md) örnek.
+Aracı şu anda kullanılabilir özellikleri görmek için ekibimiz tarafından oluşturulan tehdit modeli kullanan [başlama](./azure-security-threat-modeling-tool-getting-started.md) örnek.
 
-![Temel tehdit modeli](./media/azure-security-threat-modeling-tool-feature-overview/basictmt.png)
+![Temel bir tehdit modeli](./media/azure-security-threat-modeling-tool-feature-overview/basictmt.png)
 
-## <a name="navigation"></a>Gezinti
+## <a name="navigation"></a>Gezinme
 
-Şimdi yerleşik özellikleri aşağıdakiler ele önce aracında bulunan ana bileşenlerini gözden geçirin.
+Yerleşik özellikler ele önce aracında bulunan ana bileşenleri gözden geçirelim.
 
 ### <a name="menu-items"></a>Menü öğeleri
 
-Diğer Microsoft ürünleri için benzer bir deneyim yaşanır. Şimdi en üst düzey menü öğeleri gözden geçirin.
+Diğer Microsoft ürünleri için benzer deneyimidir. Üst düzey menü öğeleri gözden geçirelim.
 
 ![Menü öğeleri](./media/azure-security-threat-modeling-tool-feature-overview/menuitems.png)
 
 | Etiket                               | Ayrıntılar      |
 | --------------------------------------- | ------------ |
-| **Dosya** | <ul><li>Açma, kaydetme ve dosyaları kapatın</li><li>Oturum açın ve OneDrive hesapları dışında imzalayın.</li><li>Bağlantılar (görüntüleme ve düzenleme) paylaşır.</li><li>Dosya bilgileri görüntüleyin.</li><li>Yeni bir şablon varolan modelleri için geçerlidir.</li></ul> |
-| **Düzenleme** | Geri alma ve Yinele Eylemler yanı sıra, kopyalama, yapıştırma ve silin. |
-| **Görünümü** | <ul><li>Arasında geçiş **analiz** ve **tasarım** görünümleri.</li><li>Kapalı pencereler (örneğin, şablonlar, öğe özellikleri ve iletileri).</li><li>Düzen, varsayılan ayarlarına sıfırlanır.</li></ul> |
-| **Diyagramı** | Ekleme ve diyagramları silme ve diyagramları sekmeler arasında taşıyın. |
-| **Raporlar** | Diğer kullanıcılarla paylaşmak için HTML raporlar oluşturun. |
-| **Yardım** | Aracı'nı kullanmanıza yardımcı olması için Kılavuzlar bulabilirsiniz. |
+| **Dosya** | <ul><li>Açın, kaydedin ve dosyaları kapatın</li><li>Oturumu açmak ve OneDrive hesabı dışında.</li><li>Bağlantılar (görüntüleme ve düzenleme) paylaşın.</li><li>Dosya bilgileri görüntüleyin.</li><li>Yeni bir şablonu mevcut modelleri için geçerlidir.</li></ul> |
+| **Düzenle** | Geri Al ve Yinele eylemleri yanı sıra, kopyalama, yapıştırma ve silin. |
+| **Görünümü** | <ul><li>Arasında geçiş **analiz** ve **tasarım** görünümleri.</li><li>Kapatılan pencereler (örneğin, şablonlar, öğe özelliklerinin ve iletileri).</li><li>Düzen, varsayılan ayarlarına sıfırlanır.</li></ul> |
+| **Diyagramı** | Ekleme ve diyagramları silin ve diyagramların sekmeler arasında taşıyın. |
+| **Raporlar** | HTML raporları başkalarıyla paylaşmak için oluşturun. |
+| **Yardım** | Aracı'nı kullanmanıza yardımcı olacak Kılavuzlar bulun. |
 
-Üst düzey menü kısayolları simgeler şunlardır:
+Simgeleri kısayolları en üst düzey menüler şunlardır:
 
-| Simgesi                               | Ayrıntılar      |
+| Sembol                               | Ayrıntılar      |
 | --------------------------------------- | ------------ |
-| **Açık** | Yeni bir dosya açar. |
-| **Kaydet** | Geçerli dosya kaydeder. |
+| **açın** | Yeni bir dosya açar. |
+| **Kaydet** | Geçerli dosyaya kaydeder. |
 | **Tasarım** | Açılır **tasarım** modelleri oluşturabileceğiniz görünümü. |
 | **Çözümleme** | Tehditler ve bunların özelliklerini gösterir oluşturulur. |
-| **Diyagrama ekleyin** | Yeni bir diyagram (Excel yeni sekmelerde benzer) ekler. |
-| **Diyagram Sil** | Geçerli diyagram siler. |
-| **Kes/kopyala/yapıştır** | Kopyalar, keser ve öğeleri gönderebilir. |
-| **Geri alma/yineleme** | Alır ve eylemleri yineler. |
-| **Yakınlaştırma / Uzaklaştır** | Ve daha iyi bir görünüm için diyagramı yakınlaştırır. |
-| **Geri Bildirim** | MSDN Forumu açar. |
+| **Diyagram ekleme** | Yeni bir diyagramda (Excel'de yeni sekmeler benzer) ekler. |
+| **Diyagram Sil** | Geçerli diyagrama siler. |
+| **Kes/kopyala/yapıştır** | Kopyalar, keser ve öğeleri yapıştırır. |
+| **Geri Al/Yinele** | Alır ve eylemleri yineler. |
+| **Yakınlaştırma / Uzaklaştır** | Daha iyi bir görünüm için diyagramın içine ve dışına yakınlaştırır. |
+| **Geri Bildirim** | MSDN Forumu açılır. |
 
-### <a name="canvas"></a>Tuvale
+### <a name="canvas"></a>Canvas
 
-Tuvale yere sürükleyin ve öğeleri bırakma bir alandır. Sürükle ve bırak yoludur modelleri oluşturmak için hızlı ve en iyi yoldur. Ayrıca, sağ tıklatın ve menüsünden gösterildiği gibi öğeleri, genel sürümleri eklemek için öğeleri seçin:
+Tuval burada sürükle ve bırak öğeleri bir alandır. Sürükle ve bırak, modelleri oluşturmak için hızlı ve en verimli yoludur. Ayrıca, sağ tıklayın ve menüden gösterildiği gibi genel sürümlerini öğeleri eklemek için öğeleri seçin:
 
-#### <a name="drop-the-stencil-on-the-canvas"></a>Tuvalde şablon bırak
+#### <a name="drop-the-stencil-on-the-canvas"></a>Şablon tuvaline sürükleyip bırakabilir.
 
-![Tuvale bırakma](./media/azure-security-threat-modeling-tool-feature-overview/canvasdrop1.png)
+![Canvas drop](./media/azure-security-threat-modeling-tool-feature-overview/canvasdrop1.png)
 
 #### <a name="select-the-stencil"></a>Bir şablon seçin
 
@@ -84,74 +84,74 @@ Tuvale yere sürükleyin ve öğeleri bırakma bir alandır. Sürükle ve bırak
 
 ### <a name="stencils"></a>Şablonlar
 
-Seçtiğiniz şablona göre kullanılabilir tüm şablonlar bulabilirsiniz. Sağ öğeleri bulamazsanız, başka bir şablon kullanın. Veya bir şablon gereksinimlerinize uyacak şekilde değiştirebilirsiniz. Genellikle, bu gibi kategoriler bileşimini bulabilirsiniz:
+Seçtiğiniz şablona bağlı olarak, kullanabileceğiniz tüm şablonlar bulabilirsiniz. Doğru öğeleri bulamazsanız, başka bir şablon kullanın. Veya bir şablon kendi gereksinimlerinize uyacak şekilde değiştirebilirsiniz. Genel olarak, bunlar gibi kategoriler birleşimi bulabilirsiniz:
 
 | Şablon adı                               | Ayrıntılar      |
 | --------------------------------------- | ------------ |
-| **İşlem** | Uygulamalar, tarayıcı eklentileri, iş parçacıkları, sanal makineler |
+| **İşlem** | Uygulamaları, tarayıcı eklentileri, iş parçacıkları, sanal makineler |
 | **Dış etkileşen** | Kimlik doğrulama sağlayıcıları, tarayıcılar, kullanıcılar, web uygulamaları |
-| **Veri deposu** | Önbelleği, depolama, yapılandırma dosyalarını, veritabanları, kayıt defteri |
+| **Veri deposu** | Önbellek, depolama, yapılandırma dosyaları, veritabanları, kayıt defteri |
 | **Veri akışı** | İkili, ALPC, HTTP, HTTPS/TLS/SSL, IOCTL, IPSec, adlandırılmış kanal, RPC/DCOM, SMB, UDP |
-| **Çizgi/Kenarlık sınır güven** | Şirket ağları, internet, makine, korumalı alan, kullanıcı/çekirdek modu |
+| **Satır/Kenarlık sınır güven** | Kurumsal ağlarda, internet, makine, korumalı alan, kullanıcı/çekirdek modu |
 
-### <a name="notesmessages"></a>Notlar/iletileri
+### <a name="notesmessages"></a>Notları/iletileri
 
 | Bileşen                               | Ayrıntılar      |
 | --------------------------------------- | ------------ |
-| **İletileri** | Öğeler arasında hiçbir veri akışları gibi bir hata olduğunda kullanıcıları uyarır iç aracı mantığı. |
-| **Notlar** | El ile notları dosyaya tasarım boyunca mühendislik ekipleri tarafından eklenir ve işlem gözden geçirin. |
+| **İletileri** | Öğeler arasındaki bir veri akışı gibi bir hata olduğunda kullanıcıları uyarır iç aracı mantığı. |
+| **Notlar** | El ile notları tasarım boyunca mühendislik ekipleri tarafından dosyasına eklenir ve işlemini gözden geçirin. |
 
 ### <a name="element-properties"></a>Öğe özellikleri
 
-Öğe özellikleri seçtiğiniz öğeler farklılık gösterir. Güven sınırları dışında üç genel seçimleri diğer tüm öğeleri içerir:
+Öğe özelliklerinin seçtiğiniz öğeler farklılık gösterir. Güven sınırları dışında diğer tüm öğeleri üç genel seçimleri içerir:
 
 | Öğe özelliği                               | Ayrıntılar      |
 | --------------------------------------- | ------------ |
-| **Ad** | Kolay tanınan bir adlandırma işlemleri, depolar, interactors ve akışlar için kullanışlıdır. |
-| **Kapsamının dışında** | Seçili olduğunda, öğe (önerilmez) tehdit nesil matris dışı alınır. |
-| **Kapsam dışında nedeni** | Kapsam dışında neden bilmesini sağlamak üzere gerekçe alanları seçilmedi. |
+| **Ad** | Böylece bir kolayca tanınan adlandırma işlemleri, depolar, interactors ve akışlar için kullanışlıdır. |
+| **Kapsam dışına** | Seçili öğe (önerilmez) tehdit nesil matris dışı alınır. |
+| **Kapsam dışında nedeni** | Neden kapsam dışında kullanıcılarınıza için gerekçe alanı seçilmiştir. |
 
-Özellikleri her öğe kategorisi altında değiştirilir. Kullanılabilir seçenekler incelemek için her bir öğe seçin. Veya daha fazla bilgi için şablon açabilirsiniz. Şimdi özellikleri gözden geçirin.
+Özellikleri, her öğe kategorisi altında değiştirilir. Kullanılabilir seçenekler incelemek için her bir öğe seçin. Veya daha fazla bilgi için şablon açabilirsiniz. Özellikleri gözden geçirelim.
 
 ## <a name="welcome-screen"></a>Hoş Geldiniz ekranı
 
-Uygulamasını açın, gördüğünüz **Hoş Geldiniz** ekran.
+Uygulamayı açtığınızda **Hoş Geldiniz** ekran.
 
-### <a name="open-a-model"></a>Bir model açın
+### <a name="open-a-model"></a>Model açma
 
-Üzerine gelerek **açık bir modeli** iki seçenek ortaya çıkarmak için: **açık bu bilgisayarı** ve **gelen açık OneDrive**. İlk seçeneği açılır **Dosya Aç** ekran. İkinci seçenek OneDrive oturum açma işlemini alır. Başarılı kimlik doğrulamasından sonra dosya ve klasörleri seçebilirsiniz.
+Üzerine **açık bir modeli** iki seçeneklerini görüntülemek için: **Bu bilgisayardan Aç** ve **Onedrive'dan açık**. İlk seçeneği açılır **Dosya Aç** ekran. İkinci seçenek için OneDrive oturum açma işlemine götürür. Başarılı kimlik doğrulamadan sonra klasörleri ve dosyaları seçebilirsiniz.
 
 ![Açık modeli](./media/azure-security-threat-modeling-tool-feature-overview/openmodel.png)
 
-![Bilgisayardan veya OneDrive Aç](./media/azure-security-threat-modeling-tool-feature-overview/openmodel2.png)
+![Bilgisayar veya OneDrive buradan Aç](./media/azure-security-threat-modeling-tool-feature-overview/openmodel2.png)
 
-### <a name="feedback-suggestions-and-issues"></a>Geri bildirim, öneriler ve sorunları
+### <a name="feedback-suggestions-and-issues"></a>Geribildirim, öneri ve sorunları
 
-Seçtiğinizde, **geri bildirim, öneriler ve sorunları**, MSDN Forumu için SDL araçları gidin. Geçici çözümler ve yeni fikirleri dahil olmak üzere aracı hakkında başkalarının ne dediğini okuyabilir.
+Seçtiğinizde, **geribildirim, öneri ve sorunları**, SDL araçları için MSDN forumuna gidin. Geçici çözümler ve yeni fikirler dahil olmak üzere aracı hakkında diğer kullanıcıların görüşlerini okuyabilirsiniz.
 
 ![Geri Bildirim](./media/azure-security-threat-modeling-tool-feature-overview/feedback.png)
 
 ## <a name="design-view"></a>Tasarım görünümü
 
-Açtığınızda veya yeni bir model oluşturmak **tasarım** görüntülemek açar.
+Açarken veya yeni bir model oluşturmak **tasarım** görüntülemek açar.
 
-### <a name="add-elements"></a>Öğeler ekleme
+### <a name="add-elements"></a>Öğeleri Ekle
 
-İki yolla kılavuz öğeleri ekleyebilirsiniz:
+İki yolla kılavuzundaki öğeler ekleyebilirsiniz:
 
-- **Sürükleme ve bırakma**: İstenen öğe kılavuza sürükleyin. Ardından ek bilgi sağlamak için öğe özelliklerini kullanın.
-- **Sağ**: herhangi bir yere kılavuzda sağ tıklayın ve açılan menüden öğeleri seçin. Seçtiğiniz öğe genel bir gösterimini ekranında görüntülenir.
+- **Sürükle ve bırak**: İstenen öğe kılavuza sürükleyin. Ardından öğe özelliklerini ek bilgi sağlamak için kullanın.
+- **Sağ**: Herhangi bir yere Kılavuzu'nun sağ tıklayın ve açılan menüden öğeleri seçin. Seçtiğiniz öğenin genel bir temsilini ekranda görünür.
 
-### <a name="connect-elements"></a>Öğeleri Bağlan
+### <a name="connect-elements"></a>Öğeleri bağlanma
 
 Öğeleri iki yolla bağlanabilir:
 
-- **Sürükleme ve bırakma**: İstenen veri akışı kılavuza sürükleyin ve uygun öğeleri için her iki ucuna bağlayın.
-- **Shift + tıklayın**: (veri gönderme) ilk öğesini tıklatın, tuşuna basın ve Shift tuşunu basılı tutun ve (veri alma) ikinci öğeyi seçin. Sağ tıklatın ve seçin **Bağlan**. İki yönlü veri akışı kullanırsanız, sırası gibi önemli değildir.
+- **Sürükle ve bırak**: İstenen veri akışı kılavuza sürükleyin ve ikisinde uygun öğelerine bağlanın.
+- **Shift + tıklayın**: (Veri gönderen) ilk öğe, tuşuna basın ve Shift tuşunu basılı tutun ve ardından (veri alma) ikinci öğeyi seçin. Sağ tıklatın ve seçin **Connect**. Bir çift yönlü veri akışı kullanırsanız, siparişin önemli değil.
 
 ### <a name="properties"></a>Özellikler
 
- Şablonlarda select şablon ve bilgiler değiştirilebilir özelliklerini görmek için uygun şekilde doldurur. Aşağıdaki örnek, önce ve sonra gösterir bir **veritabanı** şablon diyagram üzerine sürüklediğiniz:
+ Şablonlarda select şablon ve bilgiler değiştirilebilir özellikleri görmek için uygun şekilde doldurur. Aşağıdaki örnek, önceki ve sonraki gösterir bir **veritabanı** kalıbı diyagram üzerine sürüklediğiniz:
 
 #### <a name="before"></a>Önce
 
@@ -163,49 +163,49 @@ Açtığınızda veya yeni bir model oluşturmak **tasarım** görüntülemek a�
 
 ### <a name="messages"></a>İletiler
 
-Bir tehdit modeli oluşturmak ve veri akışları öğelere bağlanmak unutursanız, bir bildirim alırsınız. Bu iletiyi yoksayabilirsiniz veya sorunu düzeltmek için yönergeleri izleyin. 
+Bir tehdit modeli oluşturmak ve veri akışlarını öğeleri bağlanmak unutursanız, bir bildirim alırsınız. Bu iletiyi yoksayabilirsiniz veya sorunu düzeltmek için yönergeleri izleyebilirsiniz. 
 
 ![İletiler](./media/azure-security-threat-modeling-tool-feature-overview/messages.png)
 
 ### <a name="notes"></a>Notlar
 
-Notlar, diyagrama eklemek için geçmenize **iletileri** için sekme **notları** sekmesi.
+Diyagram için Not eklemek için geçmek **iletileri** için sekmesinde **notları** sekmesi.
 
 ## <a name="analysis-view"></a>Analiz görünümü
 
-Diyagram oluşturma sonra seçin **analiz** geçmek için kısayolları araç çubuğunda simge (Büyüteç) **analiz** görünümü.
+Diyagram derledikten sonra seçin **analiz** simgesi (Büyüteç) geçmek için kısayollar araç çubuğunda **analiz** görünümü.
 
 ![Analiz görünümü](./media/azure-security-threat-modeling-tool-feature-overview/analysisview.png)
 
 ### <a name="generated-threat-selection"></a>Oluşturulan tehdit seçimi
 
-Bir tehdit seçtiğinizde, üç ayrı işlev kullanabilirsiniz:
+Tehdit seçtiğinizde, üç ayrı işlev kullanabilirsiniz:
 
 | Özellik                               | Bilgi      |
 | --------------------------------------- | ------------ |
-| **Okuma göstergesi** | <p>Tehdit gözden öğeleri izlemenize yardımcı olan okundu olarak işaretlenir.</p><p>![Okuma/okunmamış göstergesi](./media/azure-security-threat-modeling-tool-feature-overview/readmode.png)</p> |
-| **Etkileşim odak** | <p>Etkileşim için bir tehdit ait diyagramda vurgulanır.</p><p>![Etkileşim odak](./media/azure-security-threat-modeling-tool-feature-overview/interactionfocus.png)</p> |
+| **Okuma göstergesi** | <p>Tehdit gözden geçirmeniz öğelerini izlemenize yardımcı olan okundu olarak işaretlenir.</p><p>![Okuma/okunmamış göstergesi](./media/azure-security-threat-modeling-tool-feature-overview/readmode.png)</p> |
+| **Etkileşim odağı** | <p>Tehdit ait olduğu diyagram etkileşiminde vurgulanır.</p><p>![Etkileşim odağı](./media/azure-security-threat-modeling-tool-feature-overview/interactionfocus.png)</p> |
 | **İş parçacığı özellikleri** | <p>Tehdit hakkında ek bilgi görünür **tehdit özellikleri** penceresi.</p><p>![İş parçacığı özellikleri](./media/azure-security-threat-modeling-tool-feature-overview/threatproperties.png)</p> |
 
-### <a name="priority-change"></a>Öncelik değiştirme
+### <a name="priority-change"></a>Öncelik değişikliği
 
-Oluşturulan her tehdit öncelik düzeyini değiştirebilirsiniz. Farklı renk yüksek, Orta ve düşük öncelikli tehditleri tanımlamak kolaylaştırır.
+Oluşturulan her tehdit öncelik düzeyini değiştirebilirsiniz. Farklı renkler, yüksek, Orta ve düşük öncelikli tehditler tanımlamak kolaylaştırır.
 
-![Öncelik değiştirme](./media/azure-security-threat-modeling-tool-feature-overview/prioritychange.png)
+![Öncelik değişikliği](./media/azure-security-threat-modeling-tool-feature-overview/prioritychange.png)
 
-### <a name="threat-properties-editable-fields"></a>Tehdit özellikleri düzenlenebilir alanları
+### <a name="threat-properties-editable-fields"></a>Tehdit özellikler düzenlenebilir alanları
 
-Önceki görüntüde görüldüğü gibi aracı tarafından oluşturulan bilgileri değiştirebilirsiniz. Düzeltme gibi bazı alanları bilgileri ekleyebilirsiniz. Bu alanların şablon tarafından üretilir. Her tehdit için daha fazla bilgiye ihtiyacınız varsa, değişiklikler yapabilirsiniz.
+Önceki görüntüde görüldüğü gibi araç tarafından oluşturulan bilgileri değiştirebilirsiniz. Gerekçe gibi belirli alanları bilgi ekleyebilirsiniz. Bu alanlar, şablon tarafından oluşturulur. Her tehdit için daha fazla bilgiye ihtiyacınız varsa, değişiklikler yapabilirsiniz.
 
 ![İş parçacığı özellikleri](./media/azure-security-threat-modeling-tool-feature-overview/threatproperties.png)
 
 ## <a name="reports"></a>Reports
 
-Önceliklerini değiştirmek ve oluşturulan her tehdit durumunu güncelleştirme tamamladıktan sonra siz dosyayı kaydedin veya bir raporu yazdırın. Git **rapor** > **tam rapor oluşturma**. Rapor adı ve aşağıdaki görüntüye benzer bir şey görmeniz gerekir:
+Önceliklerini değiştirmek ve oluşturulan her tehdit durumunu güncelleştirerek tamamladıktan sonra size dosyayı kaydedin ve/veya bir raporu yazdırın. Git **rapor** > **tam raporu oluşturma**. Rapor adı ve aşağıdaki görüntüye benzer bir şey görmeniz gerekir:
 
 ![Rapor](./media/azure-security-threat-modeling-tool-feature-overview/report.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Bir şablon için topluluğa katkıda bulunmak için Git bizim [GitHub](https://github.com/Microsoft/threat-modeling-templates) sayfası. 
-* Aracı ile çalışmaya başlamak için Git [karşıdan](https://aka.ms/tmtpreview) sayfası.
+* Aracı ile çalışmaya başlamak için Git [indirme](https://aka.ms/tmtpreview) sayfası.

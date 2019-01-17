@@ -9,25 +9,18 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 11/08/2017
 ms.custom: seodec2018
-ms.openlocfilehash: 40291b105eb39b44da0b0697f5808d819291e457
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 5a39021367c2f51125876081e9174eb372d7b9c9
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630222"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353167"
 ---
-# <a name="indexes-in-azure-search"></a>Azure Search'te dizinler
-> [!div class="op_single_selector"]
-> * [Genel Bakış](search-what-is-an-index.md)
-> * [Portal](search-create-index-portal.md)
-> * [.NET](search-create-index-dotnet.md)
-> * [REST](search-create-index-rest-api.md)
-> 
-> 
+# <a name="indexes-and-indexing-overview-in-azure-search"></a>Dizinler ve Azure Search'te dizin oluşturma genel bakış
 
-Azure Search'te *dizin*, *belgeler* ve Azure Search hizmeti tarafından kullanılan diğer yapılar için kalıcı bir depodur. Bir belge, dizininizdeki aranabilir verilerin tek bir birimidir. Örneğin, bir e-ticaret satıcısında sattığı her bir öğe için bir belge, bir haber kuruluşunda her bir makale için bir belge, vb. olabilir. Bu kavramları daha çok bilinen veritabanı eşdeğerlerine eşleyen bir *dizin*, kavramsal olarak bir *tabloya* benzer ve *belgeler* de bir tablodaki *satırlarla* kabaca eşdeğerdir.
+Azure Search'te bir *dizin* kalıcı bir deposudur *belgeleri* ve Azure Search Hizmeti filtrelenmiş ve tam metin araması için kullanılan diğer yapılar. Bir belge, dizininizdeki aranabilir verilerin tek bir birimidir. Örneğin, bir e-ticaret satıcısında sattığı her bir öğe için bir belge, bir haber kuruluşunda her bir makale için bir belge, vb. olabilir. Bu kavramları daha çok bilinen veritabanı eşdeğerlerine eşleyen bir *dizin*, kavramsal olarak bir *tabloya* benzer ve *belgeler* de bir tablodaki *satırlarla* kabaca eşdeğerdir.
 
-Azure Search'te belge eklediğinizde/yüklediğinizde ve arama sorguları gönderdiğinizde, isteklerinizi arama hizmetinizdeki belirli bir dizine gönderirsiniz.
+Ekleyin veya belgeleri karşıya yüklemesine veya Azure Search'e arama sorguları gönderme, arama hizmetinizdeki belirli bir dizine istekleri gönderiyorsunuz. Belgeler için bir dizin ekleme işlemini adlı *dizin*.
 
 ## <a name="field-types-and-attributes-in-an-azure-search-index"></a>Bir Azure Search dizinindeki alan türleri ve öznitelikleri
 Şemanızı tanımlarken, dizininizdeki her bir alan için ad, tür ve öznitelikler belirtmeniz gerekir. Alan türü, bu alanda depolanan verileri sınıflandırır. Öznitelikler, alanın nasıl kullanıldığını belirtmek için tek tek alanlarda ayarlanır. Aşağıdaki tablolar belirtebileceğiniz türleri ve öznitelikleri numaralandırır.

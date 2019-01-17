@@ -12,16 +12,23 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/08/2019
-ms.openlocfilehash: 1839ca0d2495a07f6fc734501540cddcdcb28e18
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: d94173f9b1940613c26451658b90c956c71876fb
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332904"
+ms.locfileid: "54353252"
 ---
 # <a name="transactional-replication-with-azure-sql-logical-server-and-azure-sql-managed-instance"></a>İşlem çoğaltma ile Azure SQL mantıksal sunucusu ve Azure SQL yönetilen örneği
 
 İşlem çoğaltma bir Azure SQL veritabanı yönetilen örneği ve Azure SQL veritabanındaki bir tablodan veri çoğaltma olanak tanıyan SQL Server veya SQL Server uzak veritabanlarında yerleştirilen tablolara özelliğidir. Bu özellik, birden fazla tablo farklı veritabanlarındaki eşitlemenize olanak tanır.
+
+## <a name="when-to-use-transactional-replication"></a>Ne zaman işlem çoğaltma kullanma
+
+İşlem çoğaltma, aşağıdaki senaryolarda kullanışlıdır:
+- Bir veya daha fazla veritabanı tablolarında yapılan değişiklikleri Yayımla ve abone değişikliklerini bir veya daha çok SQL Server veya Azure SQL veritabanlarına dağıtın.
+- Birden fazla dağıtılmış veritabanı eşitlenmiş durumda tutun.
+- Veritabanlarını bir SQL Server veya yönetilen örneği için başka bir veritabanına değişiklikleri sürekli olarak yayımlayarak geçirme.
 
 ## <a name="overview"></a>Genel Bakış 
 İşlem çoğaltma anahtar bileşenler aşağıdaki resimde gösterilmektedir:  
@@ -81,16 +88,19 @@ Genel olarak, yayımcı ve dağıtıcı ya da bulutta veya şirket içinde olmas
 
 ![Yayımcı ve dağıtıcı olarak tek örnek ](media/replication-with-sql-database-managed-instance/01-single-instance-asdbmi-pubdist.png)
 
-Yayımcı ve dağıtıcı tek bir yönetilen örnek içinde yapılandırılır. 
+İçinde tek bir yönetilen örnek, yayımcı ve dağıtıcı yapılandırılır ve değişiklikler diğer yönetilen örneği dağıtmak, tek veritabanı veya SQL Server şirket içi. Bu yapılandırmada, yayımcı/dağıtıcı yönetilen örnek yapılandırılamaz ile [coğrafi çoğaltma ve otomatik yük devretme grupları](sql-database-auto-failover-group.md).
 
 ### <a name="publisher-with-remote-distributor-on-a-managed-instance"></a>İle yönetilen bir örneği hale getirirken uzak dağıtımcı yayımcı
+
+Bu yapılandırmada, bir yönetilen örnek başka bir yönetilen hizmet birçok kaynak yönetilen örneği ve bir veya daha çok hedeflerde yönetilen örneği, tek veritabanı ve SQL Server değişikliklerini dağıtmak örneği yerleştirildiği dağıtıcı değişiklikleri yayımlar.
 
 ![Yayımcı ve dağıtıcı için ayrı örnekleri](media/replication-with-sql-database-managed-instance/02-separate-instances-asdbmi-pubdist.png)
 
 İki yönetilen örneği, yayımcı ve dağıtıcı yapılandırılır. Bu yapılandırmada
 
 - Hem yönetilen aynı vNet üzerinde örnekleridir.
-- Hem yönetilen örnekler aynı konumda olan. 
+- Hem yönetilen örnekler aynı konumda olan.
+- Yayımlanan barındıran yönetilen örnekleri ve dağıtımcısı veritabanları [coğrafi olarak çoğaltılmış otomatik yük devretme grupları kullanarak](sql-database-auto-failover-group.md).
 
 ### <a name="publisher-and-distributor-on-premises-with-a-subscriber-on-a-managed-instance-or-logical-server"></a>Yayımcı ve dağıtıcı ile şirket içi bir yönetilen örneği veya mantıksal sunucuda abone 
 

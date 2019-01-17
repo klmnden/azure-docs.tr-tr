@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 2c4c2982febf1d81aaaa81bb9c894785b860503b
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: c779344f4cb0544009952423b6771b75482c3061
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200095"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353974"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup hatalarında sorunları giderme: Aracı veya uzantı ile ilgili sorunlar
 
@@ -122,33 +122,8 @@ Dağıtım gereksinim, VM, internet erişimi yok. Veya, Azure altyapısı için 
 
 Düzgün çalışması için yedekleme uzantısını Azure genel IP adreslerine bağlantısı gerektirir. Uzantı komutları VM anlık görüntülerini yönetmek için bir Azure depolama uç noktasına (HTTPs URL'si) gönderir. Uzantı genel internet erişimi yoksa, yedekleme sonunda başarısız olur.
 
-Sanal makine trafiği yönlendirmek için bir ara sunucusunu dağıtmak mümkündür.
-##### <a name="create-a-path-for-https-traffic"></a>HTTPs trafiği için bir yol oluşturma
-
-1. Ağ kısıtlamaları (örneğin, bir ağ güvenlik grubu) yerinde varsa, trafiği yönlendirmek için bir HTTPs proxy sunucusu dağıtın.
-2. Erişim HTTPs Ara sunucunun internet'e izin vermek için kurallar varsa ağ güvenlik grubuna ekleyin.
-
-VM yedeklemeleri için bir HTTPs proxy'si kurma hakkında bilgi edinmek için bkz: [Azure sanal makinelerini yedeklemek için ortamınızı hazırlama](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
-
-Yedeklenen sanal makine ya da proxy sunucusu üzerinden trafik yönlendirilir Azure genel IP adreslerine erişim gerektirir.
-
 ####  <a name="solution"></a>Çözüm
-Sorunu çözmek için aşağıdaki yöntemlerden birini deneyin:
-
-##### <a name="allow-access-to-azure-storage-that-corresponds-to-the-region"></a>Bölgeyi karşılık gelen bir Azure depolama alanına erişime izin ver
-
-Kullanabileceğiniz [hizmet etiketleri](../virtual-network/security-overview.md#service-tags) belirli bir bölgenin depolama bağlantılara izin vermek için. Depolama hesabına erişime izin veren kuralın kural daha yüksek önceliğe söz konusu bloklar internet erişimi olduğundan emin olun.
-
-![Bir bölge için depolama etiketlere sahip ağ güvenlik grubu](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
-
-Hizmet etiketleri yapılandırmak için adım adım yordam anlamak için izleyin [bu videoyu](https://youtu.be/1EjLQtbKm1M).
-
-> [!WARNING]
-> Depolama hizmet etiketleri Önizleme aşamasındadır. Bunlar yalnızca belirli bölgelerde kullanılabilir. Bölgelerin bir listesi için bkz. [hizmet etiketleri depolama](../virtual-network/security-overview.md#service-tags).
-
-Azure yönetilen diskler kullanıyorsanız, güvenlik duvarları hakkında ek bağlantı noktası açma (bağlantı noktası 8443) gerekebilir.
-
-Ayrıca, giden Internet trafiği için bir yol alt ağınız yoksa, kendi alt ağına hizmet etiketi "Microsoft.Storage" olan bir hizmet uç noktası eklemeniz gerekir.
+Ağ sorunu çözmek için bkz [ağ bağlantısı kurma](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 ### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>VM Aracısı yüklendi, ancak (Windows VM'ler için) yanıt vermiyor
 

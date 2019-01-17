@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 01/11/2019
+ms.date: 01/16/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 66f33dd0edc44a490c3ccaf989d6d9308e615bb0
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 06a3ac4520a40369c095e57f8e92978fdb280b51
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246118"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359604"
 ---
 # <a name="what-is-password-writeback"></a>Parola geri yazma nedir?
 
@@ -42,7 +42,7 @@ Parola geri yazma sağlar:
 * **Herhangi bir gelen güvenlik duvarı kuralları gerektirmeyen**: Parola geri yazma, temel alınan bir iletişim kanalı bir Azure Service Bus geçişini kullanır. Tüm iletişim bağlantı noktası 443 üzerinden giden.
 
 > [!Note]
-> Parola geri yazma ile şirket içi Active Directory'de korumalı gruplardaki mevcut kullanıcı hesapları kullanılamaz. Korunan grupları hakkında daha fazla bilgi için bkz. [korumalı hesaplar ve gruplar Active Directory'de](https://technet.microsoft.com/library/dn535499.aspx).
+> Parola geri yazma ile şirket içi Active Directory'de korumalı gruplardaki mevcut kullanıcı hesapları kullanılamaz. İçinde mevcut yönetici hesapları, grupları korumalı şirket içi AD parola geri yazma ile kullanılabilir. Korunan grupları hakkında daha fazla bilgi için bkz. [korumalı hesaplar ve gruplar Active Directory'de](https://technet.microsoft.com/library/dn535499.aspx).
 >
 
 ## <a name="licensing-requirements-for-password-writeback"></a>Parola geri yazma için lisans gereksinimleri

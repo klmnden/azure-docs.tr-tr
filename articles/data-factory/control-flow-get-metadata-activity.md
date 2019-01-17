@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: shlo
-ms.openlocfilehash: e733b82e1b5870d98de5d65771bd621d9bffdf44
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 4188fb413cc1001b6e4813fe69518a016c8c0656
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024901"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354272"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Azure Data Factory'de etkinlik meta verilerini al
 GetMetadata etkinliği, almak için kullanılabilir **meta verileri** Azure Data factory'deki herhangi bir veri. Bu etkinlik, aşağıdaki senaryolarda kullanılabilir:
@@ -33,7 +33,7 @@ Aşağıdaki işlevleri denetim akışında kullanılabilir:
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 
-GetMetadata etkinliği, bir veri kümesi gerekli bir giriş olarak alır ve etkinlik çıkışı kullanılabilir meta veri bilgilerini çıkarır. Şu anda aşağıdaki bağlayıcılar alınabilir ilgili meta veriler ile desteklenir ve desteklenen en fazla meta veri boyutu en fazla olan **1MB**.
+GetMetadata etkinliği, bir veri kümesi gerekli bir giriş olarak alır ve etkinlik çıkışı kullanılabilir meta veri bilgilerini çıkarır. Şu anda aşağıdaki bağlayıcılar karşılık gelen alınabilir meta verileri ile desteklenir ve desteklenen en fazla meta veri boyutu en fazla olan **1MB**.
 
 >[!NOTE]
 >GetMetadata etkinliği şirket içinde barındırılan tümleştirme çalışma zamanı üzerinde çalıştırıyorsanız, en son özellik sürümü 3.6 veya sonraki sürümlere desteklenir. 
@@ -44,8 +44,8 @@ GetMetadata etkinliği, bir veri kümesi gerekli bir giriş olarak alır ve etki
 
 | Bağlayıcı/meta verileri | ItemName<br>(dosya/klasör) | Itemtype<br>(dosya/klasör) | boyut<br>(dosya) | oluşturuldu<br>(dosya/klasör) | Son değiştirme<br>(dosya/klasör) |childItems<br>(klasör) |contentMD5<br>(dosya) | yapısı<br/>(dosya) | columnCount<br>(dosya) | Var.<br>(dosya/klasör) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
-| Amazon S3 | √/√ | √/√ | √ | x/x | √ / √ * | √ | x | √ | √ | √ / √ * |
-| Azure Blob | √/√ | √/√ | √ | x/x | √ / √ * | √ | √ | √ | √ | √/√ |
+| Amazon S3 | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
+| Azure Blob | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
 | Azure Data Lake Store | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | Azure Dosya Depolama | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | Dosya Sistemi | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |

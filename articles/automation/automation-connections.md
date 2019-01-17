@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/15/2019
+ms.date: 01/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0bdf2d4e9c5ee659666eeb1a6e92c34c181ba805
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 9687276323598d8600aa6930df8ef18bcc171cc1
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331801"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358839"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Azure automation'da bağlantı varlıkları
 
@@ -24,6 +24,16 @@ Bir bağlantı oluşturduğunuzda belirtmeniz gerekir bir *bağlantı türü*. B
 
 >[!NOTE]
 >Azure automation'da güvenli varlıkların kimlik bilgileri, sertifikalar, bağlantılar ve şifrelenmiş değişkenler içerir. Bu varlıklar şifrelenir ve her Otomasyon hesabı için oluşturulan benzersiz bir anahtar kullanarak Azure automation'da depolanır. Bu anahtar depolanan bir sistem anahtar kasası yönetilen. Güvenli bir varlık depolamadan önce anahtarı Key Vault'tan yüklenir ve sonra varlık şifrelemek için kullanılır. Bu işlem, Azure Otomasyonu tarafından yönetilir.
+
+## <a name="connection-types"></a>Bağlantı türleri
+
+Azure Otomasyonu'nda yerleşik bağlantıları üç tür vardır:
+
+* **Azure** -Bu bağlantı, Klasik kaynakları yönetmek için kullanılabilir.
+* **AzureClassicCertificate** -Bu bağlantı tarafından kullanılan **AzureClassicRunAs** hesabı.
+* **AzureServicePrincipal** -Bu bağlantı tarafından kullanılan **AzureRunAs** hesabı.
+
+Çoğu durumda, oluşturduğunuzda oluşturulan bağlantı kaynağı oluşturma gerekmez bir [RunAs hesabı](manage-runas-account.md).
 
 ## <a name="windows-powershell-cmdlets"></a>Windows PowerShell Cmdlet'leri
 

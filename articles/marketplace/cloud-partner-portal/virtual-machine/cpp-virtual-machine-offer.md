@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: pbutlerm
-ms.openlocfilehash: d51fffad897ba2658c7bee51c26e7e3be9f10e88
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: bbe757ccd1d6a37cbcf04f3ecd6dd088ef1ff211
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53188767"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353031"
 ---
 # <a name="virtual-machine-offer"></a>Sanal makine teklifi
 
@@ -32,7 +32,7 @@ ms.locfileid: "53188767"
 
 Aşağıdaki videoda [en iyi duruma getirme bilgisayarınızı Azure Market teklifi](https://channel9.msdn.com/Events/Build/2017/P4026?ocid=player), kullanıcı deneyimini iyileştirmek nasıl (bir sanal makine çözümü kullanarak), bu Market'te yayımlama da dahil olmak üzere Azure marketi, geniş kapsamlı bir bakış sunar Ürün sayfası ve isteğe bağlı Test Sürüşü deneyimi sayesinde nasıl kullanıcı müşteri adayı oluşturulur ve nasıl bunları tüketme ve müşteri bağlılığı iyileştirin.
 
-> [!VIDEO https://channel9.msdn.com/Events/Build/2017/P4026]
+> [!VIDEO https://channel9.msdn.com/Events/Build/2017/P4026/player]
 
 
 ## <a name="vm-publishing-process-flow"></a>VM yayımlama işlem akışı

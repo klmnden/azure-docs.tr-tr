@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 11/19/2018
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: 854ac9d4441170dd3ba180437fcd80b573df9450
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 2024c4d8a251ad2066332a403db3d7f8c3dce975
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244571"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354119"
 ---
 # <a name="remediate-common-issues-for-azure-stack-pki-certificates"></a>Azure Stack PKI sertifikaları için ortak bir sorunu düzeltmenizi
 
@@ -32,7 +32,7 @@ Bu makaledeki bilgiler, anlamanıza ve Azure Stack PKI sertifikaları için yayg
 
 **Düzeltme** -dışarı aktarma PFX dosyaları ile **TripleDES SHA1** şifreleme. Bu Sertifika ek bileşenini veya kullanarak dışa aktarırken tüm Windows 10 istemcileri için varsayılan değerdir `Export-PFXCertificate`. 
 
-## <a name="read-pfx"></a>PFX okuyun
+## <a name="read-pfx"></a>Read PFX
 
 **Uyarı** -parola yalnızca özel bilgileri korur.  
 
@@ -117,7 +117,7 @@ Aşağıdaki Önkoşullar, aracın çalıştığı bilgisayarda yerinde olmalıd
 1. Önkoşulları karşılayan bir bilgisayarda, yönetici bir PowerShell istemi açın ve ardından AzsReadinessChecker yüklemek için aşağıdaki komutu çalıştırın:
   
    ```powershell
-   Install-Module Microsoft.AzureStack.ReadinessChecker- Force
+   Install-Module Microsoft.AzureStack.ReadinessChecker -Force
    ```
 
 2. PowerShell isteminden PFX parolasını ayarlamak için aşağıdaki cmdlet'i çalıştırın. Değiştirin *PFXpassword* gerçek parola ile:
@@ -131,7 +131,7 @@ Aşağıdaki Önkoşullar, aracın çalıştığı bilgisayarda yerinde olmalıd
    - İçin `-ExportPFXPath`, dışarı aktarma için PFX dosyasının adını ve konumunu belirtin. Aşağıdaki örnekte yoludur `.\certificates\ssl_new.pfx`:
 
    ```powershell
-   Repair-AzsPfxCertificate -PfxPassword $password -PfxPath .\certificates\ssl.pfx -ExportPFXPath .\certificates\ssl_new.pfx`
+   Repair-AzsPfxCertificate -PfxPassword $password -PfxPath .\certificates\ssl.pfx -ExportPFXPath .\certificates\ssl_new.pfx
    ```  
 
 4. Araç tamamladıktan sonra başarı için çıktıyı gözden geçirin:

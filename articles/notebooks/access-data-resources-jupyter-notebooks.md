@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: a034e41f5b12ffb8f043f14d90284617316f18d2
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 0e3022296dd1a3e1221bb44c94df787660df2a70
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723051"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359893"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Bir not defteri bulut verilerine erişim
 
@@ -69,7 +69,7 @@ Azure depolama, ilişkisel olmayan depolama, sahip olduğunuz veriler ve nasıl 
 Azure Cosmos DB tamamen dizinli bir NoSQL deposu için JSON belgelerini sağlar). Aşağıdaki makaleler birkaç python'dan Cosmos DB ile çalışmak için farklı yollar sunar:
 
 - [Python ile uygulama oluşturma bir SQL API'si](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-python)
-- [MongoDB API'si için Azure Cosmos DB ile bir Flask uygulaması derleme](https://docs.microsoft.com/azure/cosmos-db/create-mongodb-flask)
+- [MongoDB için Azure Cosmos DB'nin API'si ile bir Flask uygulaması derleme](https://docs.microsoft.com/azure/cosmos-db/create-mongodb-flask)
 - [Python ve Gremlin API kullanarak bir grafik veritabanı oluşturma](https://docs.microsoft.com/azure/cosmos-db/create-graph-python)
 - [Python ve Azure Cosmos DB ile Cassandra uygulaması derleme](https://docs.microsoft.com/azure/cosmos-db/create-cassandra-python)
 - [API uygulaması, Python ve Azure Cosmos DB ile tablo oluşturma](https://docs.microsoft.com/azure/cosmos-db/create-table-python)
@@ -88,4 +88,4 @@ Azure, bir dizi kullanabileceğiniz diğer veritabanı türleri sağlar. Aşağ�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Nasıl Yapılır: Proje veri dosyalarıyla çalışma](work-with-project-data-files.md)
+- [Nasıl yapılır: Proje veri dosyalarıyla çalışma](work-with-project-data-files.md)
