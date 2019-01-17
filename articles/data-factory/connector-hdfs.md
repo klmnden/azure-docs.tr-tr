@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/27/2018
+ms.date: 01/16/2019
 ms.author: jingwang
-ms.openlocfilehash: a5df9d4d323158ee52c872b0122fdd28d9f74979
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 161683b48ae66edc621981142c538f8bce44a2b6
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019869"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352181"
 ---
 # <a name="copy-data-from-hdfs-using-azure-data-factory"></a>Hdfs Azure Data Factory kullanarak veri kopyalama
-> [!div class="op_single_selector" title1="Kullanmakta olduğunuz Data Factory servisinin sürümünü seçin:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Sürüm 1](v1/data-factory-hdfs-connector.md)
 > * [Geçerli sürüm](connector-hdfs.md)
 
@@ -39,6 +39,9 @@ Verileri HDFS tüm desteklenen havuz veri deposuna kopyalayabilirsiniz. Kopyalam
 ## <a name="prerequisites"></a>Önkoşullar
 
 Genel olarak erişilebilir değil bir HDFS veri kopyalamak için şirket içinde barındırılan tümleştirme çalışma zamanını oluşturan gerekir. Bkz: [şirket içinde barındırılan tümleştirme çalışma zamanı](concepts-integration-runtime.md) daha fazla bilgi edinmek için makaleyi.
+
+> [!NOTE]
+> Emin Integration Runtime için erişebileceği **tüm** [ad sunucusu düğümü]: [ad, düğüm bağlantı noktası] ve [veri düğümü sunucuları]: [veri düğümü bağlantı noktası] Hadoop kümesi. 50070 varsayılan [ad düğümü bağlantı noktası] ve [veri düğümü bağlantı noktası] 50075 varsayılandır.
 
 ## <a name="getting-started"></a>Başlarken
 
