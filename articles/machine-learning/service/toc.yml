@@ -61,7 +61,7 @@ items:
     href: how-to-manage-workspace.md
   - name: Geliştirme ortamı ayarlama 
     items:
-    - name: Geliştirme ortamınızı yapılandırma
+    - name: Geliştirme ortamlarını yapılandırma
       displayName: local, remote, azure notebooks, notebook, jupyter, dsvm, Databricks, ADB
       href: how-to-configure-environment.md
     - name: Visual Studio Code uzantısı
@@ -107,9 +107,7 @@ items:
       displayName: automl automated auto ml
       href: how-to-auto-train-remote.md
   - name: ONNX modelleri
-    items:
-    - name: Oluşturma ve dağıtma
-      href: how-to-build-deploy-onnx.md
+    href: how-to-build-deploy-onnx.md
   - name: Modelleri dağıtma
     items:
     - name: Dağıtım nereye ve nasıl yapılır?
@@ -131,6 +129,7 @@ items:
   - name: Web hizmetlerini izleme
     items:
     - name: Model verilerini toplama ve değerlendirme
+      displayName: track production
       href: how-to-enable-data-collection.md
     - name: Application Insights ile izleme
       href: how-to-enable-app-insights.md
@@ -143,7 +142,7 @@ items:
     displayName: vnet
     href: how-to-enable-virtual-network.md
   - name: Machine Learning CLI’yı kullanma
-    displayName: cli command line command-line az ci/cd automate automated
+    displayName: cli extension command line command-line az ci/cd automate automated
     href: reference-azure-machine-learning-cli.md
   - name: Verileri dışarı aktarma ve silme
     displayName: gdpr
@@ -176,9 +175,9 @@ items:
     href: support-for-aml-services.md
   - name: Microsoft ML ürünlerini karşılaştırma
     href: overview-more-machine-learning.md
-ms.openlocfilehash: a6975a6aaefb3a750ee73b1e9738f534be24f2ba
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 471928ec98a4fe037078e121a38286f30919d186
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319740"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359213"

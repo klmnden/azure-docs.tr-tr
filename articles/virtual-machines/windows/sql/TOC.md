@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 050eb5e51ec4f589d160ac20322ffc02f77efc61
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358618"
+---
 # Genel Bakış
 ## [Windows SQL Server VM’leri hakkında](virtual-machines-windows-sql-server-iaas-overview.md) 
 ## [Sürüm notları](virtual-machines-windows-sql-server-iaas-release-notes.md) 
@@ -11,6 +19,12 @@
 ### [Performans için en iyi uygulamalar](virtual-machines-windows-sql-performance.md)
 ### [Güvenlikle ilgili dikkat edilmesi gerekenler](virtual-machines-windows-sql-security.md)
 ### [Uygulama desenleri](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
+## İş Sürekliliği
+### [Yüksek kullanılabilirlik seçenekleri](virtual-machines-windows-sql-high-availability-dr.md) 
+### [AlwaysOn kullanılabilirlik grubu](virtual-machines-windows-portal-sql-availability-group-overview.md)
+### [Yedekleme ve geri yükleme](virtual-machines-windows-sql-backup-recovery.md)
+### [SQL Server 2014 için otomatik yedekleme](virtual-machines-windows-sql-automated-backup.md)
+### [SQL Server 2016+ için otomatik yedekleme](virtual-machines-windows-sql-automated-backup-v2.md)
 ## Yönetim
 ### [Bir VM’ye bağlanma](virtual-machines-windows-sql-connect.md)
 ### [Depolama alanını yapılandırma](virtual-machines-windows-sql-server-storage-configuration.md)
@@ -18,22 +32,19 @@
 #### [SQL Server IaaS Aracısı Uzantısını kullanma](virtual-machines-windows-sql-server-agent-extension.md)
 #### [Otomatik Düzeltme Eki Uygulama](virtual-machines-windows-sql-automated-patching.md)
 #### [Azure Anahtar Kasası Tümleştirme Yapılandırması](virtual-machines-windows-ps-sql-keyvault.md)
-## Yedekleme ve geri yükleme
-### [Yedekleme ve geri yükleme](virtual-machines-windows-sql-backup-recovery.md)
-### [SQL Server 2014 için otomatik yedekleme](virtual-machines-windows-sql-automated-backup.md)
-### [SQL Server 2016+ için otomatik yedekleme](virtual-machines-windows-sql-automated-backup-v2.md)
-### [Yedekleme ve geri yükleme için Azure Depolama’yı Kullanma](virtual-machines-windows-use-storage-sql-server-backup-restore.md)
 
 # Nasıl yapılır kılavuzları
 ## SQL VM oluşturma
 ### [Portalı kullanma](virtual-machines-windows-portal-sql-server-provision.md)
 ### [Azure PowerShell’i kullanma](virtual-machines-windows-ps-sql-create.md)
+## [SQL VM için lisanslama modelini değiştirme](virtual-machines-windows-sql-ahb.md)
 ## Geçiş
 ### [SQL Server veritabanını geçirme](virtual-machines-windows-migrate-sql.md)
 ## Yüksek Kullanılabilirliği Yapılandırma
-### [Yüksek kullanılabilirlik seçenekleri](virtual-machines-windows-sql-high-availability-dr.md) 
-### [AlwaysOn kullanılabilirlik grubu](virtual-machines-windows-portal-sql-availability-group-overview.md)
-#### [Otomatik - şablon ile](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+### [Yedekleme ve geri yükleme için Azure Depolama’yı Kullanma](virtual-machines-windows-use-storage-sql-server-backup-restore.md)
+### AlwaysOn kullanılabilirlik grubu
+#### [Azure Portal Şablonunu Kullanma](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+#### [Hızlı Başlangıç Şablonlarını Kullanma](virtual-machines-windows-sql-availability-group-quickstart-template.md)
 #### [El ile - önkoşullar](virtual-machines-windows-portal-sql-availability-group-prereq.md)
 #### [El ile - öğretici](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
 #### [Yük dengeleyici - Azure portalı](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
@@ -41,7 +52,7 @@
 #### [Birden çok bölge](virtual-machines-windows-portal-sql-availability-group-dr.md)
 ### Yük Devretme Kümesi Örneği
 #### [Yapılandırma](virtual-machines-windows-portal-sql-create-failover-cluster.md)
-## [SQL VM için lisanslama modelini değiştirme](virtual-machines-windows-sql-ahb.md)
+
 
 # Başvuru
 ## [Azure PowerShell](/powershell/azure/overview)
