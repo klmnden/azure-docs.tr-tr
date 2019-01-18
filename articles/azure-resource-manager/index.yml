@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: de92f8d8be6744f7004da4cc662b31a387e8920a
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 9ead8d485a12a6c21b653bc6e1f8536781f762d1
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385593"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54380955"
 documentType: LandingData
 title: Azure üzerinde Resource Manager belgeleri
 metadata:
@@ -49,6 +49,7 @@ sections:
     items:
     - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts">Resource Manager şablon başvurusunu kullanma</a>.
     - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-create-multiple-instances">Azure kaynağının birden çok örneğini oluşturma</a>.
+    - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-move-resources">Kaynakları taşıma</a>.
     - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-create-templates-with-dependent-resources">Kaynak dağıtım sırasını ayarlama</a>.
     - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-use-conditions">Koşulları kullanma</a>.
     - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-use-key-vault">Azure Key Vault'u tümleştirme</a>.
@@ -57,6 +58,7 @@ sections:
     - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-deploy-sql-extensions-bacpac">SQL uzantılarını dağıtma</a>.
     - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-secure-artifacts">Güvenli şablon yapıtları</a>.
     - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/deployment-manager-tutorial">Güvenli dağıtım uygulamaları kullanma</a>.
+    - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot">Şablon dağıtımı sorunlarını giderme</a>.
 - title: Örnekler
   items:
   - type: paragraph
