@@ -18,8 +18,8 @@ ms.locfileid: "34600638"
 # <a name="consumption-model"></a>Tüketim modeli
 
 Çevrimiçi yönlendirme araç özgü tüketim modelini ayrıntılı bir açıklaması için bir parametre kümesi sağlar.
-Değerine bağlı olarak **vehicleEngineType**, iki asıl tüketim modelleri desteklenmektedir: _yanmalı_ ve _elektrik_. Aynı istekte farklı modele ait parametrelerini belirten bir hata var.
-Tüketim modelini birlikte kullanılamaz **travelMode** değerleri _bisiklet_ ve _Yaya_.
+Değerine bağlı olarak **vehicleEngineType**, iki asıl tüketim modelleri desteklenmektedir: _Combustion_ ve _Electric_. Aynı istekte farklı modele ait parametrelerini belirten bir hata var.
+Tüketim modelini birlikte kullanılamaz **travelMode** değerleri _bicycle_ ve _pedestrian_.
 
 ## <a name="parameter-constraints-for-consumption-model"></a>Tüketim modelini parametresi kısıtlamaları
 
@@ -38,7 +38,7 @@ Her iki tüketim modellerinde bazı parametreler açıkça belirtilmesi diğerle
 
 ## <a name="combustion-consumption-model"></a>Yanmalı tüketim modeli
 
-Yanmalı tüketim modeli kullanılan zaman **vehicleEngineType** ayarlanır _yanmalı_.
+Yanmalı tüketim modeli kullanılan zaman **vehicleEngineType** ayarlanır _combustion_.
 Bu modele ait parametre listesi olan aşağıda. Ayrıntılı açıklama parametreleri bölümüne bakın.
 
 * constantSpeedConsumptionInLitersPerHundredkm
@@ -53,7 +53,7 @@ Bu modele ait parametre listesi olan aşağıda. Ayrıntılı açıklama paramet
 
 ## <a name="electric-consumption-model"></a>Elektrik tüketim modeli
 
-Elektrik tüketim modeli kullanılan zaman **vehicleEngineType** ayarlanır _elektrik_.
+Elektrik tüketim modeli kullanılan zaman **vehicleEngineType** ayarlanır _electric_.
 Bu modele ait parametre listesi olan aşağıda. Ayrıntılı açıklama parametreleri bölümüne bakın.
 
 * constantSpeedConsumptionInkWhPerHundredkm
