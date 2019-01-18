@@ -149,7 +149,7 @@ def main(req: func.HttpRequest,
     logging.info(f'Python HTTP triggered function processed: {obj.read()}')
 ```
 
-İşlev çağrıldığında, HTTP isteği olarak işleve geçirilir `req`. Bir giriş temel Azure Blob depolama alanından alınan _kimliği_ yönlendirme URL'sindeki ve olarak kullanıma sunulan `obj` işlev gövdesindeki.
+İşlev çağrıldığında, HTTP isteği olarak işleve geçirilir `req`. Bir giriş temel Azure Blob depolama alanından alınan _id_ yönlendirme URL'sindeki ve olarak kullanıma sunulan `obj` işlev gövdesindeki.
 
 ## <a name="outputs"></a>Çıkışlar
 
