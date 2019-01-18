@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: d68215359d50ac153d6df3bbcce5a9b6171698bb
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: bf34d7e85632999056388eb74816140ce667ce10
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085448"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382357"
 ---
 # <a name="openshift-in-azure"></a>Azure'da OpenShift
 
@@ -35,12 +35,12 @@ OpenShift Kubernetes kapsayıcı düzenleme ve management içerir. Bu etkinleşt
 OpenShift birden çok sürümü kullanılabilir:
 
 - OpenShift Kapsayıcı Platformu
-- Azure üzerinde OpenShift (tam olarak yönetilen OpenShift erken CY2019 içinde kullanıma sunulacak)
+- Azure üzerinde OpenShift (tam olarak yönetilen OpenShift S1 CY2019 sonuna geçici olarak kullanıma sunulacak)
 - OKD (eski adıyla OpenShift Origin)
 - OpenShift dedicated
-- OpenShift çevrimiçi
+- OpenShift Online
 
-Beş sürümünü iki müşterilerin Azure'da dağıtmak hemen kullanılabilir yalnızca bu makalede ele: OpenShift kapsayıcı platformu ve OKD.
+Bu makalede ele alınan beş sürümünü yalnızca iki bugün müşterilerin Azure'da dağıtmak kullanılabilir: OpenShift kapsayıcı platformu ve OKD.
 
 ## <a name="openshift-container-platform"></a>OpenShift Kapsayıcı Platformu
 
@@ -50,7 +50,7 @@ Tüm platform müşteriler "sahip"olduğundan, bunlar kendi şirket içi veri me
 
 ## <a name="openshift-on-azure"></a>Azure üzerinde OpenShift
 
-Azure'da OpenShift, Azure'da çalıştırılan OpenShift tam olarak yönetilen bir tekliftir. Bu hizmet tüm dünyada yönetilen ve Microsoft ve Red Hat tarafından desteklenir. Küme, müşterinin Azure aboneliğinize dağıtırsınız. Hizmet şu anda özel Önizleme aşamasındadır ve GA erken CY 2019'de sunulması planlanmaktadır. Teklif tarife için daha yakından ettiği daha fazla bilgi sağlanacaktır
+Azure'da OpenShift, Azure'da çalıştırılan OpenShift tam olarak yönetilen bir tekliftir. Bu hizmet tüm dünyada yönetilen ve Microsoft ve Red Hat tarafından desteklenir. Küme, müşterinin Azure aboneliğinize dağıtırsınız. Hizmet şu anda özel Önizleme aşamasındadır ve S1 CY2019 sonuna etrafında GA sunulması planlanmaktadır. Özel önizlemeye katılmak isteyen müşteriler için lütfen doldurun [ADAYLIK formu](http://aka.ms/openshiftazureinterest).  Teklif tarife için daha yakından ettiği daha fazla bilgi sağlanacaktır
 
 ## <a name="okd-formerly-openshift-origin"></a>OKD (eski adıyla OpenShift Origin)
 
@@ -60,7 +60,7 @@ OKD olduğu bir [açık kaynaklı](https://www.okd.io/) desteklenen topluluğu, 
 
 Red Hat tarafından yönetilen adanmış *tek kiracılı* OpenShift kapsayıcı platformu kullanan OpenShift. Red Hat tüm altyapının (ağ, depolama vb. VM'ler, OpenShift küme.) yönetir. Küme, tek bir müşteriye özel ve genel bulut (örneğin, AWS veya Google) çalıştırır. Dört uygulama düğüm başlangıç kümesi içerir ve tüm maliyetler, ön maliyet yıllık ve Ücretli.
 
-## <a name="openshift-online"></a>OpenShift çevrimiçi
+## <a name="openshift-online"></a>OpenShift Online
 
 Red Hat tarafından yönetilen çevrimiçi *çok kiracılı* OpenShift kapsayıcı platformu kullanan. Red Hat tüm altyapının (örneğin, VM'ler, OpenShift küme, ağ ve depolama) yönetir. 
 

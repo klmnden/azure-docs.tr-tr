@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: e11db0cacb14ab94c40ebbf6cac356a08cc016f1
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 81a47a730978a9ecdda7a09bbad0707d436fb116
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352691"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388466"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Kubernetes için Azure Stack Marketini Ekle
 
@@ -60,11 +60,11 @@ Bir plan, teklif ve Kubernetes Market öğesi için bir abonelik oluşturun. Ayr
 
     e. Seçin **teklif**. Oluşturduğunuz teklif adını seçin. Abonelik kimliği not edin
 
-## <a name="create-a-service-principle-and-credentials-in-ad-fs"></a>' De AD FS hizmet İlkesi ve kimlik bilgileri oluşturma
+## <a name="create-a-service-principal-and-credentials-in-ad-fs"></a>AD FS'de bir hizmet sorumlusu ve kimlik bilgileri oluşturma
 
-Kimlik Yönetimi hizmetiniz için Active Directory Federasyon Hizmetleri'nde (AD FS) kullanıyorsanız, bir Kubernetes kümesini dağıtırken kullanıcılar için bir hizmet ilkesi oluşturma gerekecektir.
+Kimlik Yönetimi hizmetiniz için Active Directory Federasyon Hizmetleri'nde (AD FS) kullanıyorsanız, bir hizmet sorumlusu kullanıcıların bir Kubernetes kümesini dağıtırken oluşturmak gerekir.
 
-1. Oluşturun ve hizmet ilkesi oluşturmak için kullanılacak bir sertifika verin. Aşağıdaki kod parçacığı, otomatik olarak imzalanan bir sertifika oluşturma işlemi gösterilmektedir. 
+1. Oluşturun ve hizmet sorumlusu oluşturmak için kullanılacak bir sertifika verin. Aşağıdaki kod parçacığı, otomatik olarak imzalanan bir sertifika oluşturma işlemi gösterilmektedir. 
 
     - Şu bilgilere ihtiyacınız vardır:
 
@@ -104,20 +104,20 @@ Kimlik Yönetimi hizmetiniz için Active Directory Federasyon Hizmetleri'nde (AD
         Export-PfxCertificate -cert $cert -FilePath $certlocation -Password $pwd
         ```
 
-2. Sertifika kullanarak bir hizmet ilkesi oluşturun.
+2. Hizmet sorumlusu sertifikasını kullanarak oluşturun.
 
     - Şu bilgilere ihtiyacınız vardır:
 
        | Değer | Açıklama                     |
        | ---   | ---                             |
        | ERCS IP | ASDK normalde ayrıcalıklı uç noktadır `AzS-ERCS01`. |
-       | Uygulama adı | Uygulama hizmet ilkesi için basit bir ad. |
+       | Uygulama adı | Uygulama hizmet sorumlusu için basit bir ad. |
        | Sertifika depolama konumu | Bilgisayarınızdaki sertifika depoladığınız yolu. Örneğin, `Cert:\LocalMachine\My\<someuid>` |
 
     - PowerShell ile yükseltilmiş istemi açın. Değerlerinizi güncelleştirilmiş parametrelerle birlikte aşağıdaki betiği çalıştırın:
 
         ```PowerShell  
-        #Create service principle using the certificate
+        #Create service principal using the certificate
         $privilegedendpoint="<ERCS IP>"
         $applicationName="<application name>"
         #certificate store location. Eg. Cert:\LocalMachine\My
@@ -132,7 +132,7 @@ Kimlik Yönetimi hizmetiniz için Active Directory Federasyon Hizmetleri'nde (AD
         # Creating a PSSession to the ERCS PrivilegedEndpoint
         $session = New-PSSession -ComputerName $privilegedendpoint -ConfigurationName PrivilegedEndpoint -Credential $creds
 
-        # Get Service Principle Information
+        # Get Service principal Information
         $ServicePrincipal = Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name "$using:applicationName" -ClientCertificates $using:cert}
 
         # Get Stamp information
@@ -167,7 +167,7 @@ Kimlik Yönetimi hizmetiniz için Active Directory Federasyon Hizmetleri'nde (AD
         $ServicePrincipal
         ```
 
-    - Aşağıdaki kod parçacığında gibi hizmet asıl ayrıntıları bakın
+    - Aşağıdaki kod parçacığında gibi hizmet sorumlusu ayrıntıları bakın
 
         ```Text  
         ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356

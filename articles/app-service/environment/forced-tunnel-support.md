@@ -14,16 +14,16 @@ ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 89827cdc7d29a817c83fd16ec2a4340f06c8343c
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 36324ccd9b6e9470c93949efed6c29a9b8d3ab61
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272748"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389296"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>App Service Ortamınızı zorlamalı tünel ile yapılandırma
 
-App Service Ortamı (ASE), Azure App Service’in bir müşterinin Azure Sanal Ağındaki dağıtımıdır. Birçok müşteri, Azure sanal ağlarını VPN veya Azure ExpressRoute bağlantıları ile şirket içi ağlarının uzantıları olacak şekilde yapılandırır. İnternet’e bağlı trafiği bunun yerine VPN’nize veya sanal gerecinize yeniden yönlendirdiğinizde buna zorlamalı tünel denir. Bu genellikle tüm giden trafiği incelemek ve denetlemek için güvenlik gereksinimlerinin parçası olarak gerçekleştirilir. 
+App Service Ortamı (ASE), Azure App Service’in bir müşterinin Azure Sanal Ağındaki dağıtımıdır. Birçok müşteri, Azure sanal ağlarını VPN veya Azure ExpressRoute bağlantıları ile şirket içi ağlarının uzantıları olacak şekilde yapılandırır. İnternet’e bağlı trafiği bunun yerine VPN’nize veya sanal gerecinize yeniden yönlendirdiğinizde buna zorlamalı tünel denir. Sanal gereçler, genellikle incelemek ve giden ağ trafiğini denetlemek için kullanılır. 
 
 ASE’de, [App Service Ortamı ağ mimarisi][network] belgesinde açıklanan birkaç dış bağımlılık bulunur. Normalde tüm ASE giden bağımlılık trafiği, ASE ile sağlanan VIP’den geçmelidir. Aşağıdaki bilgileri izlemeden ASE’ye giden veya ASE’den gelen trafik için yönlendirmeyi değiştirirseniz ASE’niz çalışmayı durdurur.
 
@@ -62,28 +62,25 @@ Ağ zaten şirket içi trafiği yönlendiriyorsa, ASE’nizi barındırmak ve AS
 
 ## <a name="configure-your-ase-subnet-to-ignore-bgp-routes"></a>ASE alt yağınızı BGP rotalarını yoksayacak şekilde yapılandırma ## 
 
-ASE alt yağınızı BGP rotalarını yoksayacak şekilde yapılandırabilirsiniz.  Bu yapılandırmadan sonra ASE, sorunsuz bir şekilde bağımlılıklarına erişebilecektir.  Ancak uygulamalarınızın şirket içi kaynaklara erişmesini sağlamak için UDR'ler oluşturmanız gerekir.
+ASE alt yağınızı BGP rotalarını yoksayacak şekilde yapılandırabilirsiniz.  BGP yolları yok saymak için yapılandırıldığında, ASE bağımlılıklarını sorunsuz erişmek mümkün olacaktır.  Ancak uygulamalarınızın şirket içi kaynaklara erişmesini sağlamak için UDR'ler oluşturmanız gerekir.
 
 ASE alt yağınızı BGP rotalarını yoksayacak şekilde yapılandırmak için:
 
 * Mevcut değilse bir UDR oluşturun ve ASE alt ağınıza atayın.
 * Azure portalda ASE alt ağınıza atanmış olan rota tablosu arabirimini açın.  Yapılandırma'yı seçin.  BGP rota yayma özelliğini Devre dışı olarak ayarlayın.  Kaydet’e tıklayın. Bu özelliği kapatma adımları [Rota tablosu oluşturma][routetable] belgesinde belirtilmiştir.
 
-Bu işlemin ardından uygulamalarınız şirket içi kaynaklara erişemeyecektir. Bu durumu çözmek için ASE alt ağınıza atanmış olan UDR'yi düzenleyerek şirket içi adres aralıklarının rotasını ekleyin. Sonraki atlama türünün Sanal ağ geçidi olarak ayarlanması gerekir. 
+ASE alt tüm BGP yolları yok saymak için yapılandırdıktan sonra uygulamalarınızın artık şirket ulaşabildiğinden olacaktır. Uygulamalarınızı şirket kaynaklarına erişmesini sağlamak için ASE alt ağınız atanan UDR düzenleyin ve, şirket içi adres aralıkları için rotalar ekleyin. Sonraki atlama türünün Sanal ağ geçidi olarak ayarlanması gerekir. 
 
 
 ## <a name="configure-your-ase-with-service-endpoints"></a>Hizmet Uç Noktaları ile ASE’nizi yapılandırma ##
 
- > [!NOTE]
-   > SQL bulunan hizmet uç noktaları, US Government bölgelerinde ASE ile çalışmaz.  Aşağıdaki bilgiler yalnızca genel Azure bölgelerinde geçerlidir.  
-
 Azure SQL ve Azure Depolama’ya gidenler dışında, ASE’nizden çıkan tüm giden trafiği yönlendirmek için aşağıdaki adımları gerçekleştirin:
 
-1. Bir rota tablosu oluşturun ve bunu ASE alt ağınıza atayın. Burada bölgenizle eşleşen adresleri bulun: [App Service Ortamı yönetim adresleri][management]. Sonraki İnternet atlaması olan adresler için rotalar oluşturun. App Service Ortamı gelen yönetim trafiğinin, gönderildiği aynı adresten yanıt göndermesi gerektiğinden bu gereklidir.   
+1. Bir rota tablosu oluşturun ve bunu ASE alt ağınıza atayın. Burada bölgenizle eşleşen adresleri bulun: [App Service Ortamı yönetim adresleri][management]. Sonraki İnternet atlaması olan adresler için rotalar oluşturun. Bu yolları, App Service ortamı yönetim desteklediğinden gereklidir trafiği gönderildiği aynı adresten yanıt gerekir.   
 
 2. ASE alt ağınız ile Azure SQL ve Azure Depolama ile birlikte Hizmet Uç Noktalarını etkinleştirin.  Bu adım tamamlandıktan sonra zorlamalı tünel ile VNet’inizi yapılandırabilirsiniz.
 
-Tüm şirket içi trafiği yönlendirmek için önceden yapılandırılmış bir sanal ağ üzerinde ASE’nizi oluşturmak için, kaynak yöneticisi şablonunu kullanarak ASE’nizi oluşturmanız gerekir.  Önceden mevcut olan bir alt ağ içinde portal ile ASE oluşturulması mümkün değildir.  Şirket içi giden trafiği yönlendirmek için önceden yapılandırılmış bir VNet’e ASE’nizi dağıtırken, önceden mevcut olan bir alt ağ belirtmenize olanak sağlayan bir kaynak yöneticisi şablonu kullanarak ASE’nizi oluşturmanız gerekir. Bir şablon ile ASE dağıtma hakkında ayrıntılar için [Şablon kullanarak App Service Ortamı oluşturma][template] bölümünü okuyun.
+Tüm şirket içi trafiği yönlendirmek için önceden yapılandırılmış bir sanal ağ üzerinde ASE’nizi oluşturmak için, kaynak yöneticisi şablonunu kullanarak ASE’nizi oluşturmanız gerekir.  Önceden mevcut olan bir alt ağ içinde portal ile ASE oluşturulması mümkün değildir.  Şirket içi giden trafiği yönlendirmek için önceden yapılandırılmış bir VNet’e ASE’nizi dağıtırken, önceden mevcut olan bir alt ağ belirtmenize olanak sağlayan bir kaynak yöneticisi şablonu kullanarak ASE’nizi oluşturmanız gerekir. Bir şablon ile ASE dağıtma hakkında daha fazla ayrıntı için okuma [şablon kullanarak App Service ortamı oluşturma][template].
 
 Hizmet Uç Noktaları, çok kiracılı hizmetlere erişimi bir dizi Azure sanal ağı ve alt ağı ile kısıtlamanızı sağlar. [Sanal Ağ Hizmet Uç Noktaları][serviceendpoints] belgelerinde Hizmet Uç Noktaları hakkında daha fazla bilgi edinebilirsiniz. 
 
@@ -91,7 +88,7 @@ Bir kaynakta Hizmet Uç Noktalarını etkinleştirdiğinizde, diğer tüm yönle
 
 Azure SQL örneği içeren bir alt ağda Hizmet Uç Noktaları etkinleştirilirse, o alt ağa veya alt ağdan bağlanan tüm Azure SQL örnekleri için Hizmet Uç Noktaları etkinleştirilmiş olmalıdır. Aynı alt ağdan birden fazla Azure SQL örneğine erişmek istiyorsanız, tek bir Azure SQL örneğinde Hizmet Uç Noktalarını etkinleştirebilir, başka bir örnekte etkinleştiremezsiniz.  Azure Depolama, Azure SQL ile aynı şekilde hareket etmez.  Azure Depolama ile Hizmet Uç Noktalarını etkinleştirdiğinizde, alt ağınızdan o kaynağa erişimi kilitlersiniz, ancak Hizmet Uç Noktaları etkinleştirilmiş olmasa da diğer Azure Depolama hesaplarından erişmeye devam edebilirsiniz.  
 
-Bir ağ filtresi gereci ile zorlamalı tüneli yapılandırırsanız, ASE’nin Azure SQL ve Azure Depolama’ya ek olarak bağımlılıklar içerdiğini unutmayın. Bu bağımlılıklara yönelik trafiğe izin vermeniz gerekir; aksi takdirde ASE düzgün çalışmaz.
+Bir ağ filtresi gereci ile zorlamalı tüneli yapılandırırsanız, ASE’nin Azure SQL ve Azure Depolama’ya ek olarak bağımlılıklar içerdiğini unutmayın. Trafiği için bu bağımlılıkların engellenirse ASE düzgün çalışmaz.
 
 ![Hizmet uç noktaları ile zorlamalı tünel][2]
 
@@ -99,7 +96,7 @@ Bir ağ filtresi gereci ile zorlamalı tüneli yapılandırırsanız, ASE’nin 
 
 Azure Depolama’ya gidenler dışında, ASE’nizden çıkan tüm giden trafiğe tünel uygulamak için aşağıdaki adımları gerçekleştirin:
 
-1. Bir rota tablosu oluşturun ve bunu ASE alt ağınıza atayın. Burada bölgenizle eşleşen adresleri bulun: [App Service Ortamı yönetim adresleri][management]. Sonraki İnternet atlaması olan adresler için rotalar oluşturun. App Service Ortamı gelen yönetim trafiğinin, gönderildiği aynı adresten yanıt göndermesi gerektiğinden bu gereklidir. 
+1. Bir rota tablosu oluşturun ve bunu ASE alt ağınıza atayın. Burada bölgenizle eşleşen adresleri bulun: [App Service Ortamı yönetim adresleri][management]. Sonraki İnternet atlaması olan adresler için rotalar oluşturun. Bu yolları, App Service ortamı yönetim desteklediğinden gereklidir trafiği gönderildiği aynı adresten yanıt gerekir. 
 
 2. ASE alt ağınız ile Azure Depolama ile birlikte Hizmet Uç Noktalarını etkinleştirme
 

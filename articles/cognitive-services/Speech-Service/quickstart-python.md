@@ -1,23 +1,23 @@
 ---
-title: "Hızlı Başlangıç: Python'da konuşma hizmeti SDK'sını kullanarak konuşma tanıma"
+title: 'Hızlı Başlangıç: Python - konuşma Hizmetleri konuşma tanıma'
 titleSuffix: Azure Cognitive Services
-description: Python'da konuşma hizmeti SDK'sını kullanarak konuşma tanımayı öğrenmesine
+description: Python için Speech SDK'sı kullanarak bir konuşma metin konsol uygulaması oluşturmak için bu kılavuzu kullanın. İşiniz bittiğinde konuşmayı metne gerçek zamanlı dönüştürmek için bilgisayarınızın mikrofonunu kullanabilirsiniz.
 services: cognitive-services
 author: chlandsi
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 12/18/2018
+ms.date: 1/16/2019
 ms.author: chlandsi
-ms.openlocfilehash: 7610b12b351b2652df7ade603711d4d92e587292
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 40869457ce933368e17a2054dfca50fc4505fa22
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723918"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381581"
 ---
-# <a name="quickstart-using-the-speech-service-from-python"></a>Hızlı Başlangıç: Python'dan konuşma hizmeti kullanma
+# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-python"></a>Hızlı Başlangıç: Python için Speech SDK'sı ile Konuşma tanıma
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -39,7 +39,7 @@ Başlamadan önce önkoşullarının listesi aşağıda verilmiştir:
 
 * Ayrıca Windows üzerinde gerekir [Microsoft Visual C++ yeniden dağıtılabilir için Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) platformunuz için.
 
-## <a name="get-the-speech-sdk-python-package"></a>Konuşma SDK'sı Python paketini alma
+## <a name="install-the-speech-sdk"></a>Konuşma SDK'sını yükleme
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
@@ -61,7 +61,7 @@ Bir sorun olması ya da bir özellik eksik göz varsa bizim [destek sayfasını]
 
 ## <a name="create-a-python-application-using-the-speech-sdk"></a>Konuşma SDK'sını kullanarak bir Python uygulaması oluşturma
 
-### <a name="running-the-sample-in-a-terminal"></a>Örnek bir terminal içinde çalışan
+### <a name="run-the-sample"></a>Örneği çalıştırma
 
 Ya da kopyalayabilirsiniz [kod](#quickstart-code) bir kaynak dosyası için bu hızlı başlangıcı `quickstart.py` ve IDE'nizi veya konsolunda çalıştırın
 
@@ -71,11 +71,11 @@ python quickstart.py
 
 Bu hızlı başlangıç öğreticisinde olarak indirebilirsiniz bir [Jupyter](https://jupyter.org) not defterinden [Bilişsel hizmetler konuşma örnekleri depomuzdan](https://github.com/Azure-Samples/cognitive-services-speech-sdk/) ve not defteri olarak çalıştırın.
 
-### <a name="quickstart-code"></a>Hızlı Başlangıç kod
+### <a name="sample-code"></a>Örnek kod
 
 [!code-python[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/python/quickstart.py#code)]
 
-### <a name="installing-the-speech-sdk-python-package-and-running-the-sample-in-visual-studio-code"></a>Konuşma SDK'sı Python paketini yüklemek ve Visual Studio Code'da örneği çalıştırma
+### <a name="install-and-use-the-speech-sdk-with-visual-studio-code"></a>Yükleme ve Speech SDK'sı, Visual Studio Code ile kullanma
 
 1. [İndirme](https://www.python.org/downloads/) ve Python'ın 64 bit sürümünü (3.5 veya sonraki sürümler) bilgisayarınıza yükleyin.
 1. [İndirme](https://code.visualstudio.com/Download) ve Visual Studio Code yükleyin.

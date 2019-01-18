@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: a885fda23bb76091705ebe388f40a6eae7b56416
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: e04ee6b74be0bb7ec81166f43295a8a9377f8cf8
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54351518"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381531"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Dağıtım sırasında güvenli bir parametre geçirmek için Azure Key Vault'u kullanma
 
@@ -93,7 +93,7 @@ Resource Manager şablonu kullanmak için: Bkz: [Öğreticisi: Resource Manager 
 
 Dışında ayarlama `enabledForTemplateDeployment` için `true`, şablon dağıtımı kullanıcının olmalıdır `Microsoft.KeyVault/vaults/deploy/action` içeren kaynak grubunu ve anahtar kasası dahil olmak üzere anahtar kasası kapsam izni. [Sahibi](../role-based-access-control/built-in-roles.md#owner) ve [katkıda bulunan](../role-based-access-control/built-in-roles.md#contributor) rollerinin her ikisi de bu erişim verin. Key Vault oluşturun, böylece iznine sahip sahibi olursunuz. Key Vault farklı bir abonelik altında ise, Key Vault sahibi erişim vermeniz gerekir.
 
-Aşağıdaki yordam bir rolü ile en düşük permssion oluşturma ve kullanıcıya atamak nasıl gösterir
+Aşağıdaki yordam en az izni bir rolü nasıl oluşturulur ve kullanıcıya atanacak nasıl gösterir
 1. Özel rol tanımı JSON dosyası oluşturun:
 
     ```json

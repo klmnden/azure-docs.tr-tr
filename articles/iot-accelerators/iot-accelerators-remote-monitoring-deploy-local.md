@@ -6,14 +6,14 @@ manager: hegate
 ms.author: avneet723
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 10/25/2018
+ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: a30311f8b171d80e036b4e554b2f1026b43c8a67
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: e4a48312dc516010b7a7fe1471ba7e555a2f92f2
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604780"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382248"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio"></a>Uzaktan izleme çözüm Hızlandırıcısını yerel olarak - Visual Studio dağıtma
 
@@ -48,16 +48,9 @@ Yerel dağıtımını tamamlamak için aşağıdaki araçları, yerel geliştirm
 
 Bu bölümde, Uzaktan izleme mikro Hizmetleri çalıştırın. Web kullanıcı Arabirimi yerel olarak çalıştırdığınızda Docker cihaz benzetimi hizmetinde ve Visual Studio'da mikro hizmetler.
 
-### <a name="run-the-web-ui"></a>Web kullanıcı arabirimini çalıştırma
-
-Bu adımda, web kullanıcı Arabirimi başlatın. Gidin **webui** yerel klasöründe depoyu kopyalayın ve aşağıdaki komutları çalıştırın:
-
-```cmd
-npm install
-npm start
-```
-
 ### <a name="run-the-device-simulation-service"></a>Cihaz benzetimi hizmet çalıştırma
+
+Ayarlanan ortam değişkenlerine erişebilir emin olmak için yeni bir komut istemi penceresi açın **start.cmd** önceki bölümde betiği.
 
 Cihaz benzetimi hizmeti için Docker kapsayıcısı başlatmak için aşağıdaki komutu çalıştırın. Hizmeti cihazları için Uzaktan izleme çözümü benzetimini yapar.
 
@@ -91,14 +84,25 @@ Stream Analytics işi başlatmak için aşağıdaki adımları izleyin:
 
 1. [Azure portalına](https://portal.azure.com) gidin.
 1. Gidin **kaynak grubu** çözümünüz için oluşturulur. Kaynak grubunun adı çalıştırdığınızda çözümünüz için seçtiğiniz addır **start.cmd** betik **.
-1. Tıklayarak **Stream Analytics işi** kaynakları listesinde.
+1. Tıklayın **Stream Analytics işi** kaynakları listesinde.
 1. Stream Analytics işinde **genel bakış** sayfasında **Başlat** düğmesi. Ardından **Başlat** işini şimdi başlatmak için.
+
+### <a name="run-the-web-ui"></a>Web kullanıcı arabirimini çalıştırma
+
+Bu adımda, web kullanıcı Arabirimi başlatın. Ayarlanan ortam değişkenlerine erişebilir emin olmak için yeni bir komut istemi penceresi açın **start.cmd** betiği. Gidin **webui** yerel klasöründe depoyu kopyalayın ve aşağıdaki komutları çalıştırın:
+
+```cmd
+npm install
+npm start
+```
+
+Başlangıç tamamlandıktan sonra tarayıcınızı sayfası görüntüler **http://localhost:3000/dashboard**. Bu sayfadaki hataları beklenmektedir. Uygulama hatasız görüntülemek için aşağıdaki adımı tamamlayın.
 
 ### <a name="configure-and-run-nginx"></a>Yapılandırma ve NGINX çalıştırma
 
 Yerel makinenizde çalışan mikro hizmetler ve web uygulaması bağlamak için bir ters proxy sunucuyu ayarlayın:
 
-* Kopyalama **nginx.conf** dosya **webui\scripts\localhost** klasörüne **nginx\conf** yükleme dizini.
+* Kopyalama **nginx.conf** dosya **webui\scripts\localhost** deposunun yerel kopyasındaki klasör **nginx\conf** yükleme dizini.
 * Çalıştırma **ngınx**.
 
 Çalıştırma hakkında daha fazla bilgi için **ngınx**, bkz: [nginx Windows için](https://nginx.org/en/docs/windows.html).

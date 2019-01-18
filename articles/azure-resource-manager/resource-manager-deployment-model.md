@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: 704bbe5cc566833ef1279e84f0fab9f363dfaa11
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
-ms.translationtype: HT
+ms.openlocfilehash: 97dffa4952354864f90f75ffb909228eb4202e77
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841641"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382791"
 ---
-# <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure Resource Manager ile klasik dağıtım karşılaştırması: Dağıtım modellerini ve kaynaklarınızın durumunu anlama
+# <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure Resource Manager ve klasik dağıtım: Dağıtım modellerini ve kaynaklarınızın durumunu anlama
 
 > [!NOTE]
 > Bu makalede sağlanan bilgiler, yalnızca klasik dağıtımdan Azure Resource Manager dağıtımına geçiş yaptığınızda kullanılır.
@@ -153,6 +153,7 @@ Derlediğiniz tüm otomasyon ve betikler, Azure Hizmet Yönetimi modu altında o
 Yeni başlayanlar için kapsamlı bir şablon dizisi, [Azure Resource Manager Hızlı Başlangıç Şablonları](https://azure.microsoft.com/documentation/templates/) bölümünde bulunabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 * Sanal makine, depolama hesabı ve sanal ağı tanımlayan bir şablon oluşturma adımları için bkz. [Resource Manager şablon kılavuzu](resource-manager-template-walkthrough.md).
 * Şablon dağıtma komutlarını görmek için bkz. [Azure Resource Manager şablonu ile uygulama dağıtma](resource-group-template-deploy.md).
 

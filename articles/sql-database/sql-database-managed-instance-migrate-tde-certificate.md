@@ -11,13 +11,13 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: carlrab, jovanpop
 manager: craigg
-ms.date: 08/09/2018
-ms.openlocfilehash: 078a64bf625fad15b66a3c4e6e31e798f675fc33
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 01/17/2019
+ms.openlocfilehash: c6d0d2eec61375760ee3dc4e4b100b24cef2b405
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161786"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388800"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>Azure SQL veritabanı yönetilen örneği için sertifika TDE korunan veritabanını geçirme
 
@@ -39,7 +39,7 @@ Bu makaledeki adımları tamamlayabilmeniz için şu önkoşullar gereklidir:
 
 - Şirket içi sunucuya veya dosya olarak dışarı aktarılan sertifikaya erişimi olan başka bir bilgisayara yüklenmiş [Pvk2Pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx) komut satırı aracı. Pvk2Pfx aracı, tek başına kendi içinde bir komut satırı ortamı olan [Enterprise Windows Driver Kit](https://docs.microsoft.com/windows-hardware/drivers/download-the-wdk)'in bir parçasıdır.
 - [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell) sürüm 5.0 veya üstü yüklenmiş olmalıdır.
-- AzureRM PowerShell modülü [yüklenmiş ve güncelleştirilmiş](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) olmalıdır.
+- AzureRM PowerShell modülü [yüklenmiş ve güncelleştirilmiş](https://docs.microsoft.com/powershell/azure/install-az-ps) olmalıdır.
 - [AzureRM.Sql modülünün](https://www.powershellgallery.com/packages/AzureRM.Sql) sürümü 4.10.0 veya üzeri olmalıdır.
   PowerShell modülünü yüklemek/güncelleştirmek için PowerShell’de şu komutları çalıştırın:
 

@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/30/2018
+ms.date: 12/15/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3cf13dc7b3a57435e4e93d6f01da482a2b992bb9
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 03c86aa069300f88b61752ebd3223e424f6e9c96
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065316"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382620"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-web-uis"></a>Apache Ambari web kullanıcı Arabirimi, JobHistory, NameNode, Apache Oozie ve diğer web kullanıcı arabirimlerine erişim için SSH tünel oluşturmayı kullanma
 
@@ -29,7 +29,7 @@ Aşağıdaki Web kullanıcı arabirimleri SSH tüneli gerektirir:
 * JobHistory
 * NameNode
 * İş parçacığı yığınları
-* Oozie web kullanıcı Arabirimi
+* Oozie web UI
 * HBase Master ve günlükleri kullanıcı Arabirimi
 
 Betik eylemleri, kümenizin özelleştirmek için kullandığınız herhangi bir hizmet veya bir web hizmeti kullanıma sunmak, yüklediğiniz yardımcı programları SSH tüneli gerektirir. Örneğin, bir betik eylemi kullanarak Hue yüklemek, Hue web kullanıcı arabirimini erişmek için bir SSH tüneli kullanmanız gerekir.

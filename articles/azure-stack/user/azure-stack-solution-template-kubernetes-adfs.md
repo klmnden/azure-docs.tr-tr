@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: a161d2223dacb618f1e2eeb6443fffae18cc7259
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 3ae0a67a8aa2d403a72b0e20471c2044dbf557bf
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355748"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389074"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-active-directory-federated-services"></a>Kubernetes kullanarak Active Directory Federasyon Hizmetleri Azure Stack'e dağıtma
 
@@ -48,7 +48,7 @@ Başlamak için doğru izinlere sahip ve Azure Stack hazır olduğundan emin olu
 
 AD FS kimlik çözümünüz olarak kullanırken hizmet sorumlunuzu ayarlamak için Azure Stack yöneticinizle birlikte çalışmanız gerekiyor. Hizmet sorumlusu, uygulamanın Azure Stack kaynaklarına erişmenizi sağlar.
 
-1. Azure Stack yöneticinize bir sertifika ve hizmet ilkesi bilgilerini sağlar. Bu bilgiler gibi görünmelidir:
+1. Azure Stack yöneticinize bir sertifika ve hizmet sorumlusu bilgilerini sağlar. Bu bilgiler gibi görünmelidir:
 
     ```Text  
         ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
@@ -59,7 +59,7 @@ AD FS kimlik çözümünüz olarak kullanırken hizmet sorumlunuzu ayarlamak iç
         RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
     ```
 
-2. Uygulamanızın yeni hizmet ilkesi aboneliğinize katkıda bulunan olarak bir rol atayın. Yönergeler için [rol atama](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal#assign-role-to-service-principal).
+2. Yeni hizmet sorumlunuzu Aboneliğinize bir katkıda bulunan olarak bir rol atayın. Yönergeler için [rol atama](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal#assign-role-to-service-principal).
 
 3. Dağıtım için sertifikanızın depolanacağı key vault oluşturma.
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 5bffeacaa07f90a11c374061eb6c0d36fc8f86a9
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 776363278352ca3de365760d334e99ab43b14bb5
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54351467"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389555"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Azure Search'te bir beceri kümesi ile bir Bilişsel hizmetler kaynağı ekleme 
 
@@ -23,7 +23,7 @@ Sürüş yapay ZEKA algoritmalarının [bilişsel arama işlem hatları](cogniti
 
 Belgeler sınırlı sayıda ücretsiz zenginleştirin ya da daha büyük ve daha sık iş yükleri için Faturalanabilir bir Bilişsel hizmetler kaynağı ekleyin. Bu makalede, Bilişsel hizmetler kaynağı bilişsel becerilerinizi sırasında veri zenginleştirme ile ilişkilendirilecek öğrenin [Azure arama dizini oluşturma](search-what-is-an-index.md).
 
-İşlem hattınızı özel oluşuyorsa [özel becerileri](cognitive-search-create-custom-skill-example.md), Bilişsel hizmetler kaynağı eklemek gerekmez.
+İşlem hattınızı Bilişsel hizmetler API'leri için ilgisi olmayan beceriler oluşuyorsa, Bilişsel hizmetler kaynağı hala iliştirin, ancak bu becerilere için faturalandırılmaya olmaz. İlgisi olmayan yetenekleri içerir: [özel becerileri](cognitive-search-create-custom-skill-example.md), [metin birleştirme](cognitive-search-skill-textmerger.md), [metin ayırıcısı](cognitive-search-skill-textsplit.md), ve [shaper](cognitive-search-skill-shaper.md).
 
 > [!NOTE]
 > 21 aralık 2018'den itibaren Bilişsel hizmetler kaynağı bir Azure Search beceri kümesi ile ilişkilendirebilirsiniz. Bu beceri yürütmesi için ücret olanak tanır. Bu tarihte, biz de belge çözme aşamasının bir parçası olarak görüntü ayıklama için ücretlendirme başladı. Metin ayıklama belgelerden hiçbir ek ücret ödemeden sunulmaya devam eder.
@@ -52,7 +52,9 @@ Sonraki adıma devam **zenginleştirmelerinin ekleme**. Portalda mevcut becerile
 
 ## <a name="use-billable-resources"></a>Faturalanabilir kaynaklarını kullanma
 
-20'den fazla belgeleri günlük numaralandırma iş yükleri için Faturalanabilir bir Bilişsel hizmetler kaynağı gerekir.
+20'den fazla zenginleştirmelerinin günlük numaralandırma iş yükleri için Faturalanabilir bir Bilişsel hizmetler kaynağı eklemek gerekir. 
+
+Bilişsel hizmetler API'leri çağırmak için yetenekler yalnızca ücretlendirilir. API tabanlı olmayan beceriler ister [özel becerileri](cognitive-search-create-custom-skill-example.md), [metin birleştirme](cognitive-search-skill-textmerger.md), [metin ayırıcısı](cognitive-search-skill-textsplit.md), ve [shaper](cognitive-search-skill-shaper.md) becerileri faturalandırılmaz.
 
 1. İçinde **verileri içeri aktarma** sihirbazını **ekleme Bilişsel Hizmetler**, mevcut bir kaynağı seçin veya **yeni Bilişsel hizmetler kaynağı oluşturma**.
 

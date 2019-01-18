@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect eşitleme: filtrelemeyi yapılandırma | Microsoft Docs'
+title: 'Azure AD Connect eşitleme: Filtrelemeyi Yapılandırma | Microsoft Docs'
 description: Azure AD Connect eşitleme filtrelemeyi yapılandırma açıklanmaktadır.
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9ec136b418e78f82486d9d38f361e411c3d00c31
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: b4cb5975eb5be3236558d0b0b19551c6726f64de
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312287"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391036"
 ---
-# <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect Eşitleme: Filtrelemeyi yapılandırma
+# <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect eşitleme: Filtrelemeyi yapılandırma
 Filtreleme kullanarak, hangi nesnelerin Azure Active Directory (Azure AD) görüneceğini şirket içi dizininizden denetleyebilirsiniz. Varsayılan yapılandırma, yapılandırılmış Ormanlardaki etki alanlarındaki tüm nesneleri alır. Genel olarak, bu önerilen yapılandırmadır. E-posta gönderin ve herkesin çağırmak için eksiksiz bir genel adres listesi gibi Exchange Online ve Skype Kurumsal, Office 365 iş yükleri kullanarak kullanıcıların yararlanır. Varsayılan yapılandırma ile bir şirket içi Exchange veya Lync uygulamasıyla sahip olabileceği aynı deneyimi sahip.
 
 Bazı durumlarda ancak, gerekli bir varsayılan yapılandırmaya bazı değişiklikler yapın. İşte bazı örnekler:
@@ -77,7 +77,7 @@ Tüm filtre Değişikliklerinizi tamamladıktan sonra geri dönmeniz unutmayın 
 ## <a name="filtering-options"></a>Filtreleme seçenekleri
 Dizin eşitleme aracı için aşağıdaki filtreleme yapılandırma türlerine uygulayabilirsiniz:
 
-* [**Grup tabanlı**](#group-based-filtering): üzerinde tek bir grup tabanlı filtreleme yalnızca yapılandırılabilir ilk yüklemede Yükleme Sihirbazı'nı kullanarak.
+* [**Grup tabanlı**](#group-based-filtering): Üzerinde tek bir grup tabanlı filtreleme yalnızca ilk yüklemede Yükleme Sihirbazı kullanılarak yapılandırılabilir.
 * [**Etki alanı tabanlı**](#domain-based-filtering): Bu seçeneği kullanarak, hangi etki alanlarının Azure AD'ye eşitleyebilirsiniz seçebilirsiniz. Ayrıca, ekleyebilir ve Azure AD Connect Eşitleme'yi yükledikten sonra şirket içi altyapınızı değişiklikler yaptığınızda etki alanlarını eşitleme altyapısı yapılandırmasından kaldırın.
 * [**Kuruluş birimi (OU) – temel**](#organizational-unitbased-filtering): Bu seçeneği kullanarak, OU'ları Azure AD'ye eşitleyebilirsiniz seçebilirsiniz. Bu seçenek, seçili OU içindeki tüm nesne türleri için kullanılabilir.
 * [**Öznitelik tabanlı**](#attribute-based-filtering): Bu seçeneği kullanarak, nesneleri nesneleri öznitelik değerlerine göre filtreleyebilirsiniz. Ayrıca, farklı nesne türleri için farklı filtreler de sahip olabilir.
@@ -185,6 +185,9 @@ Bu yapılandırma ile ManagedObjects altında oluşturulan yeni bir OU eşitlenm
 
 ## <a name="attribute-based-filtering"></a>Öznitelik tabanlı filtreleme
 Kasım 2015 kullandığınızdan emin olun ([1.0.9125](reference-connect-version-history.md#1091250)) veya daha sonra çalışmaya için bu adımları yapı.
+
+> [!IMPORTANT]
+>Microsoft'un önerdiği varsayılan kuralları tarafından oluşturulan değiştirmek için **Azure AD Connect**. Kuralı değiştirmek istiyorsanız, kopyalayın ve özgün kuralı devre dışı bırakın. Kopyalanan kuralı tüm değişiklikleri yapın. Bunu yaptığınızda lütfen unutmayın (özgün kuralı devre dışı bırakma), herhangi bir hata düzeltmeleri veya bu kural aracılığıyla etkinleştirdiği özellikler eksik.
 
 Öznitelik tabanlı filtreleme, filtre nesnelere en esnek yolu budur. Gücünü kullanabileceğiniz [bildirim temelli sağlama](concept-azure-ad-connect-sync-declarative-provisioning.md) nesneyi Azure AD'ye eşitlenen zaman, neredeyse her açıdan denetlemek için.
 

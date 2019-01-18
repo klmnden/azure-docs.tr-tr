@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: e5f1f2fe3745ae2817b73b2500ee90a59fc283e1
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 1de0f9b77bd1248d77f182a2e32e490c2814f42b
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53607090"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382777"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>Sorguları izleme ve iş yükü performansı artırmak otomatik ayarlamayı etkinleştirme
 
@@ -87,6 +87,10 @@ T-SQL aracılığıyla tek tek otomatik ayarlama seçeneklerini yapılandırmak 
    ```
    
 Tek tek ayarlama seçeneği ON olarak ayarlanamadı, devralınan veritabanı tüm ayarını geçersiz kılın ve ayarlama seçeneğini etkinleştirin. OFF olarak ayarlamak, ayrıca devralınan veritabanı tüm ayarını geçersiz kılın ve ayarlama seçeneği devre dışı bırakın. Kendisi için varsayılan belirtilirse, otomatik ayarlama seçeneği yapılandırma veritabanı düzeyinden otomatik ayarlama ayarını devralır.  
+
+> [!IMPORTANT]
+> Durumunda, [etkin coğrafi çoğaltma](sql-database-auto-failover-group.md), otomatik ayarlama yalnızca birincil veritabanında yapılandırılması gerekir. Otomatik olarak uygulanan eylemler ayarlama, gibi örnek dizini oluşturma veya silme salt okunur ikincil otomatik olarak çoğaltılır olursunuz. T-SQL ikincil salt okunur otomatik ayarlamayı etkinleştirme çalışılıyor desteklenmiyor farklı bir ayarlama yapılandırmasını salt okunur ikincil sahip olarak bir hatasına neden olur.
+>
 
 Otomatik ayarlama yapılandırmak için bkz: T-SQL seçenekleri daha sonlandıran Bul [ALTER DATABASE SET seçenekleri (Transact-SQL) SQL veritabanı mantıksal sunucusu için](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current).
 

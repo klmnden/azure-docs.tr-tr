@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/14/2018
+ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 49d5761e3e37e1265938d1f1b27324de667a13ca
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 9408ae20246d7a48340434c201c4568bc02719cd
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51707104"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390500"
 ---
-# <a name="tutorial-track-usage-of-a-lab-in-azure-lab-service"></a>Öğretici: Azure Lab Services’teki bir laboratuvarın kullanımını izleme
+# <a name="tutorial-track-usage-of-a-lab-in-azure-lab-service"></a>Öğretici: Azure Laboratuvar servisi laboratuvarda kullanımını izleyin
 Bu öğreticide bir laboratuvar oluşturanın/sahibinin bir laboratuvarın kullanımını nasıl izleyebileceği gösterilmektedir.
 
 Bu öğreticide, aşağıdaki eylemleri gerçekleştireceksiniz:
@@ -37,7 +37,7 @@ Bu öğreticide, aşağıdaki eylemleri gerçekleştireceksiniz:
 1. [Azure Lab Services web sitesine](https://labs.azure.com) gidin. 
 2. **Oturum aç**’ı seçip kimlik bilgilerinizi girin. Azure Lab Services, kuruluş hesaplarını ve Microsoft hesaplarını destekler.
 3. **Laboratuvarlarım** sayfasında kullanımını izlemek istediğiniz laboratuvarı seçin. 
-4. **Kullanıcılar** sekmesini seçin. Laboratuvarınıza kayıtlı öğrencileri görürsünüz. **Kayıt bağlantısı**'nı seçin, bağlantıyı kopyalayın ve henüz laboratuvarınıza kaydolmamış yeni öğrencilere gönderin. 
+4. Seçin **kullanıcılar** sol menüde veya **kullanıcılar** Döşe. Laboratuvarınıza kayıtlı öğrencileri görürsünüz. **Kayıt bağlantısı**'nı seçin, bağlantıyı kopyalayın ve henüz laboratuvarınıza kaydolmamış yeni öğrencilere gönderin. 
 
     ![Kayıtlı kullanıcılar](../media/tutorial-track-usage/registered-users.png)
 
@@ -55,6 +55,8 @@ Fare bir sanal makinenin üzerinde listedeki satıra getirin (önceki bölümde 
 - VM başlatma
 - VM durdurma
 - VM silme
+
+Araç çubuğu düğmeleri, başlatma, durdurma veya VM silme için de kullanabilirsiniz. 
 
 
 

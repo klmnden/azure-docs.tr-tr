@@ -11,19 +11,19 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/29/2018
-ms.openlocfilehash: 366bdf73c6b62ffa98ce44076374df8be8b3de3c
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 01/17/2019
+ms.openlocfilehash: 93b7fb0cd303f34d4afadf461f8886aaac52e4c3
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865888"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388570"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Azure SQL veritabanı elastik havuzları oluşturma ve yönetme
 
 Bir elastik havuz ile elastik havuz, veritabanı iş yükünü işlemek için gerektirdiği kaynakların miktarını ve havuza alınmış her veritabanı için kaynakların miktarını belirler.
 
-## <a name="azure-portal-manage-elastic-pools-and-pooled-databases"></a>Azure portalı: elastik havuzlara ve havuza alınmış veritabanlarını yönetme
+## <a name="azure-portal-manage-elastic-pools-and-pooled-databases"></a>Azure portalı: Elastik havuzlara ve havuza alınmış veritabanlarını yönetme
 
 Tüm havuzu ayarları tek bir yerde bulunabilir: **havuzu Yapılandır** dikey penceresi. Buraya ulaşmak için elastik havuz portalı ve tıklatın bulma **havuzu Yapılandır** dikey penceresinin üst veya sol taraftaki kaynak menüsünde.
 
@@ -37,9 +37,9 @@ Buradan tüm bir toplu işlemde herhangi bir birleşimini kaydetmek ve aşağıd
 
 ![Elastik havuz yapılandırma dikey penceresi](./media/sql-database-elastic-pool-manage-portal/configure-pool.png)
 
-## <a name="powershell-manage-elastic-pools-and-pooled-databases"></a>PowerShell: elastik havuzlara ve havuza alınmış veritabanlarını yönetme
+## <a name="powershell-manage-elastic-pools-and-pooled-databases"></a>PowerShell: Elastik havuzlara ve havuza alınmış veritabanlarını yönetme
 
-SQL veritabanı elastik havuzları ve Azure PowerShell ile havuza alınan veritabanları oluşturmak ve yönetmek için aşağıdaki PowerShell cmdlet'lerini kullanın. Gerekirse yükleyin veya PowerShell yükseltmek için bkz [Azure PowerShell modülü yükleme](/powershell/azure/install-azurerm-ps). Oluşturma ve elastik havuzlar için mantıksal sunucuları yönetmek için bkz: [oluştur ve yönetilen mantıksal sunucuları](sql-database-logical-servers.md). Oluşturma ve güvenlik duvarı kurallarını yönetmek için bkz: [oluşturma ve PowerShell kullanarak güvenlik duvarı kurallarını yönetme](sql-database-firewall-configure.md#manage-firewall-rules-using-azure-powershell).
+SQL veritabanı elastik havuzları ve Azure PowerShell ile havuza alınan veritabanları oluşturmak ve yönetmek için aşağıdaki PowerShell cmdlet'lerini kullanın. Gerekirse yükleyin veya PowerShell yükseltmek için bkz [Azure PowerShell modülü yükleme](/powershell/azure/install-az-ps). Oluşturma ve elastik havuzlar için mantıksal sunucuları yönetmek için bkz: [oluştur ve yönetilen mantıksal sunucuları](sql-database-logical-servers.md). Oluşturma ve güvenlik duvarı kurallarını yönetmek için bkz: [oluşturma ve PowerShell kullanarak güvenlik duvarı kurallarını yönetme](sql-database-firewall-configure.md#manage-firewall-rules-using-azure-powershell).
 
 > [!TIP]
 > PowerShell örnek komut dosyaları için bkz: [elastik havuzlar oluşturma ve PowerShell kullanarak bir havuz dışına ve havuzlar arasında veritabanlarını taşıma](scripts/sql-database-move-database-between-pools-powershell.md) ve [PowerShell kullanarak izleme veAzureSQLveritabanındabirSQLelastikhavuzunuölçeklendirme](scripts/sql-database-monitor-and-scale-pool-powershell.md).
@@ -60,7 +60,7 @@ SQL veritabanı elastik havuzları ve Azure PowerShell ile havuza alınan verita
 > [!TIP]
 > Çok sayıda veritabanını bir elastik havuzdaki oluşturulmasını, portal veya aynı anda yalnızca tek bir veritabanı oluşturma PowerShell cmdlet'leri kullanılarak bittiğinde zaman alabilir. Bir elastik havuzun içine oluşturmayı otomatikleştirmek için bkz: [CreateOrUpdateElasticPoolAndPopulate](https://gist.github.com/billgib/d80c7687b17355d3c2ec8042323819ae).
 
-## <a name="azure-cli-manage-elastic-pools-and-pooled-databases"></a>Azure CLI: elastik havuzlara ve havuza alınmış veritabanlarını yönetme
+## <a name="azure-cli-manage-elastic-pools-and-pooled-databases"></a>Azure CLI: Elastik havuzlara ve havuza alınmış veritabanlarını yönetme
 
 Oluşturma ve SQL veritabanı elastik havuzları yönetme [Azure CLI](/cli/azure), aşağıdaki [Azure CLI SQL veritabanı](/cli/azure/sql/db) komutları. CLI’yi tarayıcınızda çalıştırmak için [Cloud Shell](/azure/cloud-shell/overview) kullanın veya macOS, Linux ya da Windows’da [yükleyin](/cli/azure/install-azure-cli).
 
@@ -77,7 +77,7 @@ Oluşturma ve SQL veritabanı elastik havuzları yönetme [Azure CLI](/cli/azure
 |[az sql elastic-pool update](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update)|Elastik havuz güncelleştirir.|
 |[az sql elastic-pool delete](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-delete)|Esnek havuz siler.|
 
-## <a name="transact-sql-manage-pooled-databases"></a>Transact-SQL: havuza alınmış veritabanlarını yönetme
+## <a name="transact-sql-manage-pooled-databases"></a>Transact-SQL: Havuza alınmış veritabanlarını yönetme
 
 Oluşturma ve veritabanlarını taşıma mevcut elastik havuzlar için ya da Transact-SQL ile SQL veritabanı elastik havuz hakkında bilgi döndürmek için aşağıdaki T-SQL komutlarını kullanın. Azure portalını kullanarak şu komutları verebilirsiniz [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs), veya bir Azure SQL Database sunucusuna bağlanma ve Transact-SQL geçirmek başka bir programı komutları. Oluşturma ve T-SQL'yi kullanarak güvenlik duvarı kurallarını yönetmek için bkz: [Transact-SQL kullanarak güvenlik duvarı kurallarını yönetme](sql-database-firewall-configure.md#manage-firewall-rules-using-transact-sql).
 
@@ -89,11 +89,11 @@ Oluşturma ve veritabanlarını taşıma mevcut elastik havuzlar için ya da Tra
 | --- | --- |
 |[Veritabanı (Azure SQL veritabanı) oluşturma](/sql/t-sql/statements/create-database-azure-sql-database)|Mevcut havuzlardan veya tek bir veritabanı olarak yeni bir veritabanı oluşturur. Yeni bir veritabanı oluşturmak için ana veritabanına bağlı olmanız gerekir.|
 | [ALTER DATABASE (Azure SQL veritabanı)](/sql/t-sql/statements/alter-database-azure-sql-database) |Bir veritabanı içine, dışı ya da elastik havuzlar arasında taşıyın.|
-|[Veritabanı (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Bir veritabanını siler.|
+|[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Bir veritabanını siler.|
 |[sys.elastic_pool_resource_stats (Azure SQL veritabanı)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|Bir mantıksal sunucu içinde elastik veritabanı havuzları için kaynak kullanım istatistiklerini döndürür. Her bir esnek veritabanı havuzu için her 15 saniyede penceresi (dakika başına dört satır) raporlama için bir satır yok. Bu CPU, GÇ, günlük, depolama alanı tüketimi ve eş zamanlı istek/oturum kullanımı havuzdaki tüm veritabanları tarafından içerir.|
 |[sys.database_service_objectives (Azure SQL veritabanı)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Edition (hizmet katmanı), hizmet hedefi (fiyatlandırma katmanı) ve elastik havuz adı varsa, Azure SQL veritabanına veya bir Azure SQL veri ambarı için döndürür. Azure SQL veritabanı sunucusu ana veritabanında oturum açtıysanız, tüm veritabanlarında bilgileri döndürür. Azure SQL veri ambarı için ana veritabanına bağlı olmanız gerekir.|
 
-## <a name="rest-api-manage-elastic-pools-and-pooled-databases"></a>REST API: elastik havuzlara ve havuza alınmış veritabanlarını yönetme
+## <a name="rest-api-manage-elastic-pools-and-pooled-databases"></a>REST API: Elastik havuzlara ve havuza alınmış veritabanlarını yönetme
 
 SQL veritabanı elastik havuzları ve havuza alınan veritabanları oluşturmak ve yönetmek için bu REST API istekleri'ni kullanın.
 

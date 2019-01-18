@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: lastcoolnameleft
-ms.openlocfilehash: 622cdd36a1ecf582c4cdb883b12753ee2a75d50e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 36e87550c90c1a5d4b05aa62f2fbe79b04b25445
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856820"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382443"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>İş sürekliliği ve olağanüstü durum kurtarma Azure Kubernetes Service (AKS) için en iyi uygulamalar
 
@@ -38,7 +38,7 @@ Bir AKS kümesi, tek bir bölgeye dağıtılır. Kendiniz bölge arızasına kar
 * [Azure eşleştirilmiş bölgeleri](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)
   * Bulunduğunuz coğrafi bölge için birbirleri ile eşleştirilmiş iki bölgeleri seçin. Bu bölgeler platformu güncelleştirmeleri koordine etmek ve kurtarma çalışmalarınızı öncelik gerektiğinde.
 * Kullanılabilirlik hizmet düzeyine (sık erişimli ve sık sık erişimli/yarı etkin, sıcak/soğuk)
-  * Tek bir bölge ile aynı anda iki bölgeleri çalıştırmak istiyor musunuz *hazır* sunma başlatmak için trafiği veya süresi gerektiren tek bir bölge almak trafiği sunmaya hazır.
+  * Tek bir bölge ile aynı anda iki bölgeleri çalıştırmak istiyor musunuz *hazır* trafiği veya zaman trafiğe hizmet verir hazır hale getirmek için gereken tek bir bölge sunan başlatmak için.
 
 AKS bölge kullanılabilirliği ve eşleştirilmiş bölgelerin birleşik göz önünde bulundurarak var. Bölge olağanüstü durum kurtarma birlikte yönetmek için tasarlanan eşleştirilmiş bölgeler, AKS kümeye dağıtın. Örneğin, AKS kullanılabilir *Doğu ABD* ve *Batı ABD*. Bu bölgeler de eşleştirilmiş. Bu iki bölgeleri, bir AKS BC/DR stratejisi oluştururken önerilen.
 

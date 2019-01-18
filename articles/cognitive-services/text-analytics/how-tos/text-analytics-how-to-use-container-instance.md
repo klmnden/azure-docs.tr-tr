@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 01/17/2019
 ms.author: diberry
-ms.openlocfilehash: 513067f09d8cac64ca747ff217c84667c5469d82
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 9f9ae8bb3aa1da51d2a9b81cf7d50d75c5229c11
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54248240"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382041"
 ---
 # <a name="deploy-the-language-detection-container-to-azure-kubernetes-service"></a>Dil algılama için Azure Kubernetes hizmeti dağıtma
 
@@ -38,7 +38,7 @@ Bu yordam, yüklü ve yerel olarak çalıştırma çeşitli araçlar gerektirir.
 
 Bu yordam, yükler ve dil algılama için Bilişsel Hizmetleri kapsayıcı örneği çalıştırır. Örnek istemci uygulaması biri diğeri Bilişsel hizmetler kapsayıcısı için iki kapsayıcı vardır. Hem bu görüntüleri kendi Azure Container Registry'ye gönderme gerekir. Kendi kayıt defterini oldukları sonra bu görüntüleri erişmek ve kapsayıcıları çalıştırmak için Azure Kubernetes hizmeti oluşturun. Kapsayıcıları çalışırken kullanması **kubectl** kapsayıcıları performansını izlemek için CLI. İstemci uygulaması ile bir HTTP isteği erişmek ve sonuçlarını görebilirsiniz. 
 
-
+![Örnek kapsayıcı çalıştırmanın kavramsal fikir](../media/how-tos/container-instance-sample/containers.png)
 
 ## <a name="the-sample-containers"></a>Örnek kapsayıcı
 
@@ -323,7 +323,7 @@ Bu bölümde kullanan **kubectl** CLI ile Azure Kubernetes hizmeti bahsedeceğiz
     |Dil dağıtım ayarları|Amaç|
     |--|--|
     |Satır 78<br> `image` Özelliği|Dil görüntüyü kapsayıcı kayıt defteriniz için görüntü konumu<br>`<container-registry-name>.azurecr.io/language:1.1.006770001-amd64-preview`|
-    |Satır 95<br> `name` Özelliği|Görüntüyü kapsayıcı kayıt defteri gizliliğini denir `<client-secret>` bir önceki bölümdeki.|
+    |Line 95<br> `name` Özelliği|Görüntüyü kapsayıcı kayıt defteri gizliliğini denir `<client-secret>` bir önceki bölümdeki.|
     |Satır 91<br> `apiKey` Özelliği|Metin analizi kaynak anahtarınız|
     |Satır 92<br> `billing` Özelliği|Metin analizi kaynağınızın fatura uç noktası.<br>`https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
 

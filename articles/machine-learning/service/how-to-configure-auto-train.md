@@ -9,14 +9,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3dedf5de1ac2c88a9a00fd5f62e0663b840c0fd9
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 981f974450c6761b7e649838abb52acaa9d37067
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438532"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382763"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Otomatik makine öğrenimi denemelerini yapılandırın
 
@@ -219,7 +219,8 @@ Bu tabloda parametre ayarlarını denemenizi ve varsayılan değerleri için kul
 `iteration_timeout_minutes` |   Belirli bir yinelemeye geçen süreyi (dakika) miktarını sınırlar. Bir yineleme belirtilen miktarı aşarsa, bu yineleme iptal. Aksi durumda ayarlama, yineleme işlemi tamamlanana kadar çalışmaya devam edecektir. |   None
 `n_cross_validations`   |Çapraz doğrulama bölmelerinin sayısı| None
 `validation_size`   |Tüm eğitim örnek bir yüzdesi olarak ayarlanmış doğrulama boyutu.|  None
-`preprocess` | True/False <br/>Giriş ön işleme gerçekleştirmek için doğru etkinleştirir deneyin. Aşağıdaki ön işleme'nın bir alt kümesidir<li>Eksik verileri: Eksik veri sayısal ortalama, çoğu geçişi ile birlikte metin ile imputes </li><li>Kategorik değerlere: Veri türü sayısal ve benzersiz değerlerin sayısını küçüktür yüzde 5 ', bir seyrek kodlama içine dönüştürür ise </li><li>Tam liste denetimi vb. [GitHub deposu](https://aka.ms/aml-notebooks)</li><br/>Not: veri seyrek ise kullanamazsınız önişle = true |  False | 
+`preprocess` | True/False <br/>Giriş ön işleme gerçekleştirmek için doğru etkinleştirir deneyin. Aşağıdaki ön işleme'nın bir alt kümesidir<li>Eksik verileri: Eksik veri sayısal ortalama, çoğu geçişi ile birlikte metin ile imputes </li><li>Kategorik değerlere: Veri türü sayısal ve benzersiz değerlerin sayısını küçüktür yüzde 5 ', bir seyrek kodlama içine dönüştürür ise </li><li>Tam liste denetimi vb. [GitHub deposu](https://aka.ms/aml-notebooks)</li><br/>Not: veri seyrek ise kullanamazsınız önişle = true |  False |
+`enable_cache`  | True/False <br/>Doğru etkinleştirir için ön işleme ayarını tamamladıktan ve yeniden tüm yinelemelerin aynı önceden işlenmiş verileri. | True |
 `blacklist_models`  | Otomatik makine öğrenimi denemesi çalışır birçok farklı algoritma vardır. Bazı algoritmalar deneme hariç tutmak için yapılandırın. Algoritmalarından kümeniz için iyi çalışmaz farkında olması durumunda yararlıdır. Algoritmalar hariç kaydettiğinizde kaynaklar ve eğitim süresini hesaplayabilirsiniz.<br/>Sınıflandırma için izin verilen değerler<br/><li>LogisticRegression</li><li>SGD</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>Regresyon için izin verilen değerler<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>Tahmin için izin verilen değerler<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|   None
 `whitelist_models`  | Otomatik makine öğrenimi denemesi çalışır birçok farklı algoritma vardır. Deneme için bazı algoritmalar içerecek şekilde yapılandırın. Algoritmalarından kümeniz için iyi iş farkında olması durumunda yararlıdır. <br/>Sınıflandırma için izin verilen değerler<br/><li>LogisticRegression</li><li>SGD</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>Regresyon için izin verilen değerler<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>Tahmin için izin verilen değerler<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|  None
 `verbosity` |En ayrıntılı ve kritik olan olan bilgileri günlüğe kaydetme düzeyini denetler en az. Ayrıntı düzeyi, python günlük paketinde tanımlanan aynı değerleri alır. İzin verilen değerler şunlardır:<br/><li>logging.INFO</li><li>günlüğe kaydetme. UYARI</li><li>günlüğe kaydetme. HATA</li><li>günlüğe kaydetme. KRİTİK</li>  | logging.INFO</li> 
@@ -272,7 +273,7 @@ Bir not defteri kullanıyorsanız, sonuçlarınızı bir pencere öğesi veya sa
 Aşağıdaki ölçümler, her yinelemede sınıflandırma görevi için kaydedilir.
 
 |Birincil Metrik|Açıklama|Hesaplama|Ek parametreler
---|--|--|--|--|
+--|--|--|--|
 AUC_Macro| AUC alıcı çalıştırma özellikleri eğrisi altında alandır. Her sınıf için AUC aritmetik ortalamasını makrodur.  | [Hesaplama](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | Ortalama "makrosu" =|
 AUC_Micro| AUC alıcı çalıştırma özellikleri eğrisi altında alandır. Mikro globably doğru pozitif sonuçlar ve hatalı pozitif sonuçları her sınıftaki birleştirilerek hesaplanır| [Hesaplama](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | Ortalama "micro" =|
 AUC_Weighted  | AUC alıcı çalıştırma özellikleri eğrisi altında alandır. Ağırlıklı ortalamasını puanın ağırlıklı true örnekleri her sınıfta sayısına göre her sınıf için olan| [Hesaplama](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html)|Ortalama "ağırlıklı" =
@@ -298,7 +299,7 @@ weighted_accuracy|Her örnek için verilen ağırlık o örneğin true sınıfı
 Aşağıdaki ölçümler, her yineleme için gerileme veya tahmin görev kaydedilir.
 
 |Birincil Metrik|Açıklama|Hesaplama|Ek parametreler
---|--|--|--|--|
+--|--|--|--|
 explained_variance|Anlatıldığı farkı, belirli bir veri kümesi çeşitlemesi için matematiksel bir model hesapları oranı ' dir. Sadece, varyans hataları varyansını özgün verilerin içinde azaltma yüzdesi değil. Hataların ortalaması 0 olduğunda anlatıldığı varyansı için eşittir.|[Hesaplama](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|None|
 r2_score|R2 belirleme veya karesi alınmış hataların ortalaması çıkaran bir temel modele kıyasla yüzde azalma katsayısıdır. Hataların ortalaması 0 olduğunda anlatıldığı varyansı için eşittir.|[Hesaplama](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|None|
 spearman_correlation|Spearman bağıntı iki veri kümesi arasındaki ilişkinin monotonicity nonparametric ölçüsüdür. Pearson bağıntı, iki veri kümesini normalde dağıtılmış Spearman bağıntı varsaymaz. Diğer korelasyon katsayısını gibi bunu -1 ve + ile hiçbir bağıntısı olduğunu belirtmek için 0 ile 1 arasında değişiklik gösterir. -1 veya + 1 bağıntılar tam bir monoton ilişki kapsıyor. Pozitif bağıntılar x olarak arttıkça, bu nedenle y yaptığı kapsıyor. Negatif bağıntılar olarak arttıkça, x y azaltır kapsıyor.|[Hesaplama](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.stats.spearmanr.html)|None|

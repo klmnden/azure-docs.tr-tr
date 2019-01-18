@@ -1,17 +1,17 @@
 ---
-Başlık: NET # sinir ağları titleSuffix: Azure Machine Learning Studio açıklaması: Net # kullanarak Azure Machine Learning Studio ile bir özel sinir ağı modelinin nasıl oluşturulacağını örnekleri ile birlikte belirtim dilinin söz dizimi için Net # sinir ağları.
+Başlık: Özel sinir ağları, Net # titleSuffix ile oluşturun: Azure Machine Learning Studio açıklaması: Net # sinir ağları belirtim dilinin söz dizimi Kılavuzu. Azure Machine Learning Studio'da özel sinir ağı modelleri oluşturmayı öğrenin.
 Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: başvuru
 
 Yazar: ericlicoding ms.author: amlstudiodocs MS.özel: Yazar önceki = heatherbshapiro, önceki ms.author=hshapiro ms.date: 03/01/2018
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio için NET # sinir ağı belirtim dili Kılavuzu
 
-NET # sinir ağı mimarileri tanımlamak için kullanılan Microsoft tarafından geliştirilmiş bir dildir. NET # sinir ağı yapısını tanımlamak için kullanarak, derin sinir ağı veya resim, ses veya video gibi veri çubuğunda öğrenme geliştirmek için bilinen rastgele boyutlarının convolutions gibi karmaşık yapıları tanımlamanızı mümkün kılar.
+NET # derin sinir ağı veya rastgele boyutlarının convolutions gibi karmaşık sinir ağı mimarileri tanımlamak için kullanılan Microsoft tarafından geliştirilmiş bir dildir. Karmaşık yapıları, öğrenme, resim, video veya ses gibi veri çubuğunda geliştirmek için kullanabilirsiniz.
 
 Bu bağlamda, Net # mimarisi belirtimi kullanabilirsiniz:
 
 + Microsoft Azure Machine Learning Studio'da tüm sinir ağı modülleri: [Çok sınıflı sinir ağı](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/multiclass-neural-network), [iki sınıflı sinir ağı](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-neural-network), ve [sinir ağı regresyon](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/neural-network-regression)
-+ MicrosoftML işlevlerde sinir ağı: [NeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) ve [rxNeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet)R dili için ve [rx_neural_network](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network) Python için.
++ Microsoft ML Server işlevlerde sinir ağı: [NeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) ve [rxNeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet)R dili için ve [rx_neural_network](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network) Python için.
 
 
 Bu makalede, Net # kullanarak özel bir sinir ağı geliştirmek için ihtiyaç duyulan sözdizimi ve temel kavramlar açıklanmaktadır: 
@@ -26,7 +26,7 @@ Bu makalede, Net # kullanarak özel bir sinir ağı geliştirmek için ihtiyaç 
 
 Sinir ağı yapısı katmanları ve ağırlıklı bağlantılar (veya kenarlar) düzenlenir düğümlerinin düğümleri arasında oluşur. Bağlantılar tek yönlü ve her bağlantının kaynak düğümü ve bir hedef düğümü vardır.  
 
-Bir veya daha fazla trainable her katman (gizli veya bir çıkış katmanı) sahip **bağlantı paketleri**. Bir bağlantı paket kaynak katman ve kaynak katmanın bağlantılarından belirtimini oluşur. Belirli bir paketteki tüm bağlantılar, aynı hedef katmanı ile aynı kaynak katman paylaşır. NET #'ta bir bağlantı paketi paketin hedef katmana ait olarak kabul edilir.
+Bir veya daha fazla trainable her katman (gizli veya bir çıkış katmanı) sahip **bağlantı paketleri**. Bir bağlantı paket kaynak katman ve kaynak katmanın bağlantılarından belirtimini oluşur. Belirli bir paketteki tüm bağlantılar, kaynak ve hedef katmanları paylaşır. NET #'ta bir bağlantı paketi paketin hedef katmana ait olarak kabul edilir.
 
 NET # çeşitli şekilde girişleri özelleştirmenize olanak sağlayan paketleri gizli katmanlara eşlenen ve çıktıları eşlenen bağlantı destekler.
 
@@ -34,9 +34,9 @@ Varsayılan veya standart bir paket bir **tam paket**, hedef katmanı kümedeki 
 
 Ayrıca, Gelişmiş bağlantı paketleri aşağıdaki dört tür Net # destekler:
 
-+ **Filtrelenmiş paketler**. Kullanıcı, bir koşul kaynağı katman ve hedef katmanın düğümlerini konumlarını kullanarak tanımlayabilirsiniz. Koşul True olduğunda düğümlerine bağlı.
++ **Filtrelenmiş paketler**. Bir koşul kaynağı katman ve hedef katmanın düğümlerini konumlarını kullanarak tanımlayabilirsiniz. Koşul True olduğunda düğümlerine bağlı.
 
-+ **Evrişimsel paketleri**. Kullanıcının kaynak katmanda düğümler küçük Semt tanımlayabilirsiniz. Hedef katmanın her düğüme bir Komşuları kaynak katmandaki düğüm bağlı.
++ **Evrişimsel paketleri**. Kaynak katmanda düğümler küçük Semt tanımlayabilirsiniz. Hedef katmanın her düğüme bir Komşuları kaynak katmandaki düğüm bağlı.
 
 + **Paketleri havuzu** ve **yanıt normalleştirme paketleri**. Kullanıcının kaynak katmanda düğümler küçük Semt tanımlar, bunlar evrişimsel paketleri için benzerdir. Bu paketleri kenarları ağırlıkları trainable olmayan farktır. Bunun yerine, önceden tanımlanmış bir işlevi hedef düğüm değeri belirlemek için kaynak düğüm değerlere uygulanır.
 

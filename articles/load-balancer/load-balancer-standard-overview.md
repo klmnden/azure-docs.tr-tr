@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/11/2019
 ms.author: kumud
-ms.openlocfilehash: 2eb2fbb1d184bf58923748278d4989a271adf434
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: d914242b6a29e05e5b97ad11a1bde6f894113e43
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352589"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382553"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Azure standart Load Balancer'a genel bakış
 
@@ -213,7 +213,7 @@ Standart Load Balancer, % 99,99 SLA ile kullanılabilir.  Gözden geçirme [stan
 
 Standart Load Balancer kullanım ücretlendirilir.
 
-- Sayı yapılandırılmış Yük Dengeleme ve giden kurallar kuralları (gelen NAT kuralları yok sayma toplam kural sayısı karşı)
+- Yapılandırılmış Yük Dengeleme veya giden kuralları sayısı (gelen NAT kuralları yok sayma toplam kural sayısı karşı)
 - Veri miktarı, gelen ve giden bakılmadan, kural işlendi. 
 
 Standart Load Balancer fiyatlandırma bilgileri için [Load Balancer fiyatlandırması](https://azure.microsoft.com/pricing/details/load-balancer/) sayfasını inceleyin.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 8bbc13aa77c50c6ae02ecc67869035e7ec85effa
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 601f3bf05388406c8f96a7351f7fb3aa4de2650a
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359349"
+ms.locfileid: "54389316"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Tehdit modelleme aracı özelliğine genel bakış
 
@@ -207,5 +207,5 @@ Oluşturulan her tehdit öncelik düzeyini değiştirebilirsiniz. Farklı renkle
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Bir şablon için topluluğa katkıda bulunmak için Git bizim [GitHub](https://github.com/Microsoft/threat-modeling-templates) sayfası. 
-* Aracı ile çalışmaya başlamak için Git [indirme](https://aka.ms/tmtpreview) sayfası.
+- Soru, yorum ve konuları tmtextsupport@microsoft.com. **[İndirme](https://aka.ms/threatmodelingtool)**  kullanmaya başlamak için tehdit modelleme aracı.
+- Bir şablon için topluluğa katkıda bulunmak için Git bizim [GitHub](https://github.com/Microsoft/threat-modeling-templates) sayfası.

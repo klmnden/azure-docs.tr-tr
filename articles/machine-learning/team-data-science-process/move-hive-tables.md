@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 5d88974fd1fb3d8784416ad3895fe139a3275e01
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: be257b49e5ad5acc47a6daeec203e8513995e52e
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134956"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390932"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Hive tabloları oluşturma ve Azure Blob depolamadan veri yükleme
 
@@ -137,19 +137,19 @@ Bir Hive tablosu oluşturur Hive sorgusu aşağıda verilmiştir.
 
 Açıklamaları takın gereken alanların ve diğer yapılandırmalar şunlardır:
 
-* **<database name>**: oluşturmak istediğiniz veritabanının adı. Varsayılan veritabanı sorgusunu kullanmak istiyorsanız *veritabanı oluşturun...*  atlanabilir.
-* **<table name>**: Belirtilen veritabanı içinde oluşturmak istediğiniz tablonun adı. Varsayılan veritabanı kullanmak istiyorsanız, tablonun doğrudan tarafından başvurulabilen *<table name>* olmadan <database name>.
-* **<field separator>**: veri dosyası Hive tablosuna karşıya yüklenecek alanları sınırlandıran ayırıcı.
-* **<line separator>**: veri dosyasındaki satır sınırlandıran ayırıcı.
-* **<storage location>**: Hive tablolarını verileri kaydetmek için Azure depolama konumu. Siz belirtmezseniz *konumu <storage location>* , veritabanı ve tabloları depolanır *hive/warehouse/* varsayılan olarak Hive kümenin varsayılan kapsayıcıda dizin. Depolama konumu belirtmek istiyorsanız, depolama konumu, tablo ve veritabanı için varsayılan kapsayıcı içinde olması gerekir. Bu konum biçimi kümenin varsayılan kapsayıcı göreli konumu olarak başvurulacak olan *' wasb: / / / < 1 dizini > /'* veya *' wasb: / / / < 1 dizini > / < 2 dizini > /'* vb. Sorgu yürütüldükten sonra göreli dizinleri varsayılan kapsayıcı içinde oluşturulur.
-* **TBLPROPERTIES("Skip.header.Line.Count"="1")**: veri dosyasındaki bir üst bilgi satırı varsa, bu özellik eklemek zorunda **sonunda** , *tablosu oluşturma* sorgu. Aksi takdirde, üstbilgi satırını tablosuna bir kayıt olarak yüklenir. Veri dosyasındaki bir üst bilgi satırı yoksa, bu yapılandırma sorguda atlanmış olabilir.
+* **\<Veritabanı adı\>**: oluşturmak istediğiniz veritabanının adı. Varsayılan veritabanı sorgusunu kullanmak istiyorsanız *veritabanı oluşturun...*  atlanabilir.
+* **\<Tablo adı\>**: Belirtilen veritabanı içinde oluşturmak istediğiniz tablonun adı. Varsayılan veritabanı kullanmak istiyorsanız, tablonun doğrudan tarafından başvurulabilen *\<tablo adı\>* olmadan \<veritabanı adı\>.
+* **\<alan ayırıcı\>**: veri dosyası Hive tablosuna karşıya yüklenecek alanları sınırlandıran ayırıcı.
+* **\<Satır ayırıcı\>**: veri dosyasındaki satır sınırlandıran ayırıcı.
+* **\<depolama konumu\>**: Hive tablolarını verileri kaydetmek için Azure depolama konumu. Siz belirtmezseniz *konumu \<depolama konumu\>*, veritabanı ve tabloları depolanır *hive/warehouse/* Hive küme tarafından varsayılan kapsayıcı içinde dizin Varsayılan. Depolama konumu belirtmek istiyorsanız, depolama konumu, tablo ve veritabanı için varsayılan kapsayıcı içinde olması gerekir. Bu konum biçimi kümenin varsayılan kapsayıcı göreli konumu olarak başvurulacak olan *' wasb: / / / < 1 dizini > /'* veya *' wasb: / / / < 1 dizini > / < 2 dizini > /'* vb. Sorgu yürütüldükten sonra göreli dizinleri varsayılan kapsayıcı içinde oluşturulur.
+* **TBLPROPERTIES("Skip.header.Line.Count"="1")**: Veri dosyasındaki bir üst bilgi satırı varsa, bu özellik eklemek zorunda **sonunda** , *tablosu oluşturma* sorgu. Aksi takdirde, üstbilgi satırını tablosuna bir kayıt olarak yüklenir. Veri dosyasındaki bir üst bilgi satırı yoksa, bu yapılandırma sorguda atlanmış olabilir.
 
 ## <a name="load-data"></a>Verileri Hive tablolarına yükleme
 Bir Hive tablosuna veri yükler Hive sorgusu aşağıda verilmiştir.
 
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 
-* **<path to blob data>**: Hive tablosu için yüklenecek blob HDInsight Hadoop kümesi varsayılan kapsayıcıda dosyasıysa *<path to blob data>* biçiminde olması gerektiğini *' wasb: / / /<directory in this container> / <blob file name>'*. Blob dosya HDInsight Hadoop kümesi ek bir kapsayıcı da olabilir. Bu durumda, *<path to blob data>* biçiminde olması gerektiğini *' wasb: / /<container name><storage account name>.blob.core.windows.net/<blob file name>'*.
+* **\<blob veri yoluna\>**: Hive tablosu için yüklenecek blob dosya HDInsight Hadoop kümesi varsayılan kapsayıcıda ise *\<blob veri yoluna\>* biçiminde olması gerektiğini *' wasb: / / /<directory in this container> /<blob file name>'*. Blob dosya HDInsight Hadoop kümesi ek bir kapsayıcı da olabilir. Bu durumda, *\<blob veri yoluna\>* biçiminde olması gerektiğini *' wasb: / /<container name><storage account name>.blob.core.windows.net/<blob file name>'*.
 
   > [!NOTE]
   > Hive tablosu yüklenmek üzere blob verilerini varsayılan veya ek kapsayıcı Hadoop kümesi için depolama hesabının olması gerekir. Aksi takdirde, *veri yükleme* sorgu başarısız olursa şikayetçi verilere erişemez.
@@ -216,7 +216,7 @@ Dış tablo adım 1, aynı alan sınırlayıcı ile aynı şemaya sahip iç tabl
             SELECT * FROM <database name>.<external textfile table name>;
 
 > [!NOTE]
-> Varsa TEXTFILE tablo  *<database name>.<external textfile table name>* bölümler, adım 3'te sahip `SELECT * FROM <database name>.<external textfile table name>` komutu döndürülen veri kümesindeki bir alan olarak bölüm değişkeni seçer. İçine ekleme  *<database name>.<ORC table name>* bu yana başarısız  *<database name>.<ORC table name>* Tablo şemasını alan olarak bölüm değişkeni yok. Bu durumda, özel alanlar için eklenecek seçmeniz gerekir  *<database name>.<ORC table name>* şu şekilde:
+> Varsa TEXTFILE tablo *\<veritabanı adı\>.\< Dış textfile tablo adı\>* bölüme, adım 3'te sahip `SELECT * FROM <database name>.<external textfile table name>` komutu döndürülen veri kümesindeki bir alan olarak bölüm değişkeni seçer. İçine ekleme *\<veritabanı adı\>.\< ORC tablo adı\>* bu yana başarısız *\<veritabanı adı\>.\< ORC tablo adı\>* tablo şemasını alan olarak bölüm değişkeni yok. Bu durumda, özel alanlar için eklenecek seçmeniz gerekir *\<veritabanı adı\>.\< ORC tablo adı\>* gibi:
 >
 >
 
@@ -225,7 +225,7 @@ Dış tablo adım 1, aynı alan sınırlayıcı ile aynı şemaya sahip iç tabl
            FROM <database name>.<external textfile table name>
            WHERE <partition variable>=<partition value>;
 
-Drop güvenlidir *<external textfile table name>* zaman sonraki tüm veriler aşağıdaki sorguyu kullanarak eklendiğine içine *<database name>.<ORC table name>*:
+Drop güvenlidir *\<dış textfile tablo adı\>* zaman sonraki tüm veriler aşağıdaki sorguyu kullanarak eklendiğine içine  *\<veritabanı adı\>.\< ORC tablo adı\>*:
 
         DROP TABLE IF EXISTS <database name>.<external textfile table name>;
 

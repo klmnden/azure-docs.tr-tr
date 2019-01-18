@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 451480f5046d5ed8a1bd7262fd8f6a800e66dfc7
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: e2b08dbbeb078a4e139400112e9cdd9416878214
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582505"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54383010"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Trafik analizi hakkında sık sorulan sorular
 
@@ -35,7 +35,6 @@ Trafik analizi, aşağıdaki önkoşulları gerektirir:
 
 Hesabınızı trafik Analizi'ni etkinleştirmek için aşağıdakilerden birini karşılaması gerekir:
 
-- Abonelik düzeyinde aşağıdaki rollerden biri için hesabınızda atanmış olmalıdır: Hesap Yöneticisi, Hizmet Yöneticisi veya ortak yönetici.
 - Hesabınıza abonelik kapsamında aşağıdaki rol tabanlı erişim denetimi (RBAC) rollerinden herhangi biri olmalıdır: sahibi, katkıda bulunan, okuyucu veya ağ Katılımcısı.
 - Hesabınızın daha önce listelenen rollerden biri atanmamışsa, aşağıdaki eylemler, abonelik düzeyinde atanmış bir özel rol atanması gerekir.
             
@@ -61,7 +60,7 @@ Bir abonelik için bir kullanıcıya atanan rollerin denetlemek için:
 Herhangi bir çıktı görmediğinizden, komutları çalıştırmak için erişim elde etmek için ilgili abonelik yöneticisine başvurun. Daha fazla ayrıntı için [rol tabanlı erişim denetimini Azure PowerShell ile yönetme](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
 
-## <a name="in-which-azure-regions-are-traffic-analytics-available"></a>Hangi Azure bölgeleri trafik analizi kullanılabilir?
+## <a name="in-which-azure-regions-is-traffic-analytics-available"></a>Hangi Azure bölgelerinde trafik analizi kullanılabilir mi?
 
 Trafik analizi, aşağıdaki desteklenen bölgelerden'nde Nsg'ler için kullanabilirsiniz:
 - Orta Kanada
@@ -133,7 +132,7 @@ Düzgün çalışması için günlük akışı Microsoft.ınsights sağlayıcıs
 
 Panoyu ilk kez görünmesi 30 dakika kadar sürebilir. Çözümü ilk kez, anlamlı Öngörüler için yeterli veri toplaması gerekir. Ardından bu raporları oluşturur. 
 
-## <a name="what-if-i-get-this-message-we-could-not-find-any-data-in-this-workspace-for-selected-time-interval-try-changing-the-time-interval-or-select-a-different-workspace"></a>Peki bu ileti alıyorum: "tüm veriler bu çalışma alanında seçili zaman aralığı için bulamadık. Zaman aralığını değiştirmeyi deneyin veya farklı bir çalışma alanı seçin. "?
+## <a name="what-if-i-get-this-message-we-could-not-find-any-data-in-this-workspace-for-selected-time-interval-try-changing-the-time-interval-or-select-a-different-workspace"></a>Peki bu ileti alıyorum: "Tüm veriler bu çalışma alanında seçili zaman aralığı için bulamadık. Zaman aralığını değiştirmeyi deneyin veya farklı bir çalışma alanı seçin. "?
 
 Aşağıdaki seçenekler deneyin:
 - Üst çubuğunda zaman aralığını değiştirebilirsiniz.
@@ -142,7 +141,7 @@ Aşağıdaki seçenekler deneyin:
     
 Sorun devam ederse, sorunları yükseltmek [User voice forumunu](https://feedback.azure.com/forums/217313-networking?category_id=195844).
 
-## <a name="what-if-i-get-this-message-analyzing-your-nsg-flow-logs-for-the-first-time-this-process-may-take-20-30-minutes-to-complete-check-back-after-some-time-2-if-the-above-step-doesnt-work-and-your-workspace-is-under-the-free-sku-then-check-your-workspace-usage-here-to-validate-over-quota-else-refer-to-faqs-for-further-information"></a>Peki bu ileti alıyorum: "analizi, NSG akış günlükleri ilk kez. Bu işlemin tamamlanması 20-30 dakika sürebilir. Süre sonra tekrar kontrol edin. 2) yukarıdaki adım işe yaramazsa çalışma alanınız ücretsiz SKU ise, ardından kota doğrulamak için burada çalışma alanı kullanımınızı denetleyin, başka SSS için daha fazla bilgi için bkz. "?
+## <a name="what-if-i-get-this-message-analyzing-your-nsg-flow-logs-for-the-first-time-this-process-may-take-20-30-minutes-to-complete-check-back-after-some-time-2-if-the-above-step-doesnt-work-and-your-workspace-is-under-the-free-sku-then-check-your-workspace-usage-here-to-validate-over-quota-else-refer-to-faqs-for-further-information"></a>Peki bu ileti alıyorum: "NSG akış günlüklerinizi ilk kez çözümleniyor. Bu işlemin tamamlanması 20-30 dakika sürebilir. Süre sonra tekrar kontrol edin. 2) yukarıdaki adım işe yaramazsa çalışma alanınız ücretsiz SKU ise, ardından kota doğrulamak için burada çalışma alanı kullanımınızı denetleyin, başka SSS için daha fazla bilgi için bkz. "?
 
 Çünkü bu iletiyi görebilirsiniz:
 - Trafik analizi, yakın zamanda etkinleştirildi ve henüz bu anlamlı Öngörüler için yeterli veri toplanan değil.
@@ -150,7 +149,7 @@ Sorun devam ederse, sorunları yükseltmek [User voice forumunu](https://feedbac
     
 Sorun devam ederse, sorunları yükseltmek [User voice forumunu](https://feedback.azure.com/forums/217313-networking?category_id=195844).
     
-## <a name="what-if-i-get-this-message-looks-like-we-have-resources-data-topology-and-no-flows-information-meanwhile-click-here-to-see-resources-data-and-refer-to-faqs-for-further-information"></a>Peki bu ileti alıyorum: "sahip olduğumuz kaynak verilerimiz (topoloji) ve akış bilgisi yok gibi görünüyor. Bu arada kaynak verilerini görmek ve daha fazla bilgi için SSS için başvurmak için buraya tıklayın. "?
+## <a name="what-if-i-get-this-message-looks-like-we-have-resources-data-topology-and-no-flows-information-meanwhile-click-here-to-see-resources-data-and-refer-to-faqs-for-further-information"></a>Peki bu ileti alıyorum: "Sahip olduğumuz kaynak verilerimiz (topoloji) ve akış bilgisi yok gibi görünüyor. Bu arada kaynak verilerini görmek ve daha fazla bilgi için SSS için başvurmak için buraya tıklayın. "?
 
 Kaynak bilgileri Panoda gördüğünüz; Ancak, hiçbir akış ile ilgili istatistikleri yok. Veri kaynakları arasındaki iletişimin akış nedeniyle mevcut olmayabilir. 60 dakika bekleyin ve durumu yeniden denetleyin. Sorun devam ederse ve kaynaklar arasında iletişimi akışlar mevcut olduğundan emin olarak sorunları yükseltmek [User voice forumunu](https://feedback.azure.com/forums/217313-networking?category_id=195844).
 
@@ -227,14 +226,14 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 
 Trafik analizi ölçülür. Kullanım ölçümü akış günlük verisi işleme hizmeti tarafından temel alır ve ortaya çıkan depolama günlükleri Log Analytics çalışma alanında Gelişmiş. 
 
-Örneğin, olarak başına [fiyatlandırma planını](https://azure.microsoft.com/pricing/details/network-watcher/), akış günlükleri verilerini trafik analizi tarafından işlenen bir depolama hesabında depolanan, Batı Orta ABD bölgesinde dikkate 10 GB'tır ve Log Analytics çalışma alanında alınan Gelişmiş günlük 1 GB'tır sonra Geçerli ücretlerdir: 10 x 2.3$ + 1 x 2.76$ 25.76 = $
+Örneğin, olarak başına [fiyatlandırma planını](https://azure.microsoft.com/pricing/details/network-watcher/), akış günlükleri verilerini trafik analizi tarafından işlenen bir depolama hesabında depolanan, Batı Orta ABD bölgesinde dikkate 10 GB'tır ve Log Analytics çalışma alanında alınan Gelişmiş günlük 1 GB'tır sonra Geçerli ücretleri şunlardır: 10 x 2.3$ + 1 x 2.76$ 25.76 = $
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>Coğrafi harita Görünümü'nde klavyeyi kullanarak nasıl gidebilirsiniz?
 
 Coğrafi harita sayfasında iki ana bölümleri içerir:
     
-- **Başlık**: coğrafi harita üst kısmındaki başlık trafik dağıtım filtreleri (örneğin, dağıtım, ülkelerinden trafiğini ve kötü amaçlı) seçmek için düğmeler sağlar. Bir düğmeyi seçerek ilgili filtre harita üzerinde uygulanır. Örneğin, etkin düğmesini seçerseniz, harita etkin veri merkezleri, dağıtımınızdaki vurgular.
-- **Harita**: başlığı, Azure veri merkezleri ve ülkeler arasındaki trafik dağılımı eşlemesi bölümü gösterilmektedir.
+- **Başlık**: Coğrafi harita üst kısmındaki başlık trafik dağıtım filtreleri (örneğin, dağıtım, ülkelerinden trafiğini ve kötü amaçlı) seçmek için düğmeler sağlar. Bir düğmeyi seçerek ilgili filtre harita üzerinde uygulanır. Örneğin, etkin düğmesini seçerseniz, harita etkin veri merkezleri, dağıtımınızdaki vurgular.
+- **Harita**: Başlığın altında harita bölümünde Azure veri merkezleri ve ülkeler arasındaki trafik dağılımı gösterilir.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>Klavye ile gezinme başlığındaki
     
@@ -263,8 +262,8 @@ Coğrafi harita sayfasında iki ana bölümleri içerir:
 
 Sanal ağ topolojisi sayfasında, iki ana bölümleri içerir:
     
-- **Başlık**: sanal ağlar topoloji üst kısmındaki başlık trafik dağıtım filtreleri (örneğin, bağlı sanal ağlar, bağlantısı kesilen sanal ağlar ve genel IP'ler) seçmek için düğmeler sağlar. Bir düğmeyi seçerek ilgili filtre topolojisini uygulanır. Örneğin, etkin düğmesini seçerseniz, dağıtımınızdaki etkin sanal ağlar topoloji vurgular.
-- **Topoloji**: başlığın altında sanal ağlar arasında trafik dağılımı topolojisi bölümünde gösterilir.
+- **Başlık**: Sanal ağlar topoloji üst kısmındaki başlık trafik dağıtım filtreleri (örneğin, bağlı sanal ağlar, bağlantısı kesilen sanal ağlar ve genel IP'ler) seçmek için düğmeler sağlar. Bir düğmeyi seçerek ilgili filtre topolojisini uygulanır. Örneğin, etkin düğmesini seçerseniz, dağıtımınızdaki etkin sanal ağlar topoloji vurgular.
+- **Topoloji**: Başlığın altında topolojisi bölümünde, sanal ağlar arasında trafik dağılımı gösterilir.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>Klavye ile gezinme başlığındaki
     
@@ -285,8 +284,8 @@ Sanal ağ topolojisi sayfasında, iki ana bölümleri içerir:
 
 Sanal alt ağlar topolojisi sayfasında, iki ana bölümleri içerir:
     
-- **Başlık**: sanal alt ağlar topoloji üst kısmındaki başlık trafik dağıtım filtreleri (örneğin, etkin, Orta ve ağ geçidi alt ağlar) seçmek için düğmeler sağlar. Bir düğmeyi seçerek ilgili filtre topolojisini uygulanır. Örneğin, etkin düğmesini seçerseniz, dağıtımınızdaki etkin sanal alt ağ topolojisi vurgular.
-- **Topoloji**: başlığın altında sanal alt ağlar arasında trafik dağıtım topolojisi bölümünde gösterilir.
+- **Başlık**: Sanal alt ağlar topoloji üst kısmındaki başlık trafik dağıtım filtreleri (örneğin, etkin, Orta ve ağ geçidi alt ağlar) seçmek için düğmeler sağlar. Bir düğmeyi seçerek ilgili filtre topolojisini uygulanır. Örneğin, etkin düğmesini seçerseniz, dağıtımınızdaki etkin sanal alt ağ topolojisi vurgular.
+- **Topoloji**: Başlığın altında sanal alt ağlar arasında trafik dağıtım topolojisi bölümünde gösterilir.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>Klavye ile gezinme başlığındaki
     

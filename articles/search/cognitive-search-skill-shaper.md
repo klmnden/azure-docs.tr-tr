@@ -8,32 +8,35 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 627c53f7339dbc35d822a0bf6038ca0f1ea5e653
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: b8cc69c45332d0779c6e57b5d74145ee1f5140cd
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313845"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391015"
 ---
 #   <a name="shaper-cognitive-skill"></a>Shaper bilişsel beceri
 
 **Shaper** beceri bileşik alanlarını (çok bölümlü alanlar olarak da bilinir) desteklemek için bir karmaşık türü oluşturur. Bir karmaşık tür alanı birden çok bölümden oluşur, ancak Azure Search dizini içinde tek bir öğe olarak kabul edilir. Birleştirilmiş alanlar arama senaryolarda yararlı bir tek bir alan, şehir ve tek alan veya adı durumuna ve doğum tarihi benzersiz kimliğini oluşturmak için tek bir alanına adı ve Soyadı birleştirme verilebilir.
 
-Shaper yetenek, aslında bir yapı oluşturmak, yapı üyelerinin adını tanımlayın ve her üye için değerler atayın olanak tanır.
+**Shaper** beceri temelde bir yapı oluşturmak, bu yapının üyelerine adını tanımlayın ve her üye için değerler atayın olanak tanır.
 
-Varsayılan olarak, bu teknik bir düzey derin olan nesneleri destekler. Daha karmaşık nesneler için çeşitli Shaper adımları zincirleyebilirsiniz.
+Varsayılan olarak, bu teknik bir düzey derin olan nesneleri destekler. Daha karmaşık nesneler için birkaç bağlayabilirsiniz(ekleyebilirsiniz) **Shaper** adımları.
 
-Yanıt olarak, çıkış adı her zaman "çıkış". Dahili olarak, işlem hattı farklı bir ad eşleyebilirsiniz, "çıkış" ancak Shaper aşağıdaki örneklerde "analyzedText" gibi beceri kendisini "çıkış" yanıt olarak döndürür. Özel bir yetenek oluşturun ve yanıt kendiniz yapılandırılması bu zenginleştirilmiş belgeleri hata ayıklaması yapıyorsanız ve adlandırma tutarsızlık dikkat edin veya önemli olabilir.
+Yanıt olarak, çıkış adı her zaman "çıkış". Dahili olarak, işlem hattı "analyzedText" gibi farklı bir ad "çıkış için", aşağıdaki örneklerde eşleyebilirsiniz ancak **Shaper** yetenek kendi yanıtta "çıkış" döndürür. Özel bir yetenek oluşturun ve yanıt kendiniz yapılandırılması bu zenginleştirilmiş belgeleri hata ayıklaması yapıyorsanız ve adlandırma tutarsızlık dikkat edin veya önemli olabilir.
+
+> [!NOTE]
+> Bu yetenek bir Bilişsel hizmetler API'sine bağlı değil ve bu beceri ile ilişkili ücret yoktur. Bununla birlikte, [Bilişsel hizmetler kaynağı ekleme](cognitive-search-attach-cognitive-services.md) yine de ücretsiz resource seçeneği geçersiz kılmak için günlük zenginleştirmelerinin az sayıda için sınırlar.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Util.ShaperSkill
 
 ## <a name="sample-1-complex-types"></a>Örnek 1: karmaşık türler
 
-Adlı bir yapı oluşturmak istediğiniz bir senaryo düşünün *analyzedText* iki üyesi olan: *metin* ve *yaklaşım*sırasıyla. Azure Search'te çok parçalı aranabilir bir alanı olarak adlandırılan bir *karmaşık tür*, ve kullanıma hazır henüz desteklenmiyor. Bu önizleme sürümünde Shaper beceri dizininizdeki bir karmaşık türü alanları oluşturmak için kullanılabilir. 
+Adlı bir yapı oluşturmak istediğiniz bir senaryo düşünün *analyzedText* iki üyesi olan: *metin* ve *yaklaşım*sırasıyla. Azure Search'te çok parçalı aranabilir bir alanı olarak adlandırılan bir *karmaşık tür*, ve kullanıma hazır henüz desteklenmiyor. Bu önizleme sürümünde bir **Shaper** yetenek, dizininizdeki bir karmaşık türü alanları oluşturmak için kullanılabilir. 
 
 Aşağıdaki örnekte, giriş olarak üye adları sağlar. Çıktı yapısını (Azure Search karmaşık, alan) aracılığıyla belirtilen *targetName*. 
 
@@ -62,7 +65,7 @@ Aşağıdaki örnekte, giriş olarak üye adları sağlar. Çıktı yapısını 
 ```
 
 ### <a name="sample-input"></a>Örnek Giriş
-Bu Shaper yetenek için kullanılabilir girişi sağlayan bir JSON belgesi olabilir:
+Bu kullanışlı girişi sağlayan bir JSON belgesi **Shaper** beceri olabilir:
 
 ```json
 {
@@ -80,7 +83,7 @@ Bu Shaper yetenek için kullanılabilir girişi sağlayan bir JSON belgesi olabi
 
 
 ### <a name="sample-output"></a>Örnek çıktı
-Shaper beceri adlı yeni bir öğe oluşturur *analyzedText* birleşik öğeleri *metin* ve *yaklaşım*. 
+**Shaper** beceri adlı yeni bir öğe oluşturur *analyzedText* birleşik öğeleri *metin* ve *yaklaşım*. 
 
 ```json
 {

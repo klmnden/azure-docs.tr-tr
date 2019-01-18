@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: danlep
-ms.openlocfilehash: 32b1788d73e1c323d93b40b778bc64a1ba45c4ad
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 8a2d19a09233e510055e147fa1cf95dd4471768b
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855842"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390673"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>Azure Container Registry'den Azure Container Instances ile kimlik doğrulaması
 
@@ -24,7 +24,7 @@ Bu makalede, oluşturmak ve bir Azure AD hizmet sorumlusu ile yapılandırmak bi
 
 ACI kimlik doğrulaması için bir hizmet sorumlusu kullanmalısınız **gözetimsiz senaryoları**kapsayıcı örnekleri otomatik olarak veya başka bir katılımsız şekilde oluşturmak, uygulamaları veya hizmetleri olduğu gibi.
 
-Örneğin, gecelik çalıştırır ve oluşturan otomatik bir betik varsa bir [görev tabanlı bir kapsayıcı örneği](../container-instances/container-instances-restart-policy.md) bazı verileri işlemek için bunu bir hizmet sorumlusu çoğaltılmadığı (Okuyucu) izinleriyle kayıt defterinde kimlik doğrulaması için kullanabilirsiniz. Ardından, hizmet sorumlusunun kimlik bilgilerini döndürme veya diğer hizmetler ve uygulamaları etkilemeden, erişimi tamamen iptal.
+Örneğin, gecelik çalıştırır ve oluşturan otomatik bir betik varsa bir [görev tabanlı bir kapsayıcı örneği](../container-instances/container-instances-restart-policy.md) bazı verileri işlemek için bunu bir hizmet sorumlusu çoğaltılmadığı izinlerle kayıt defterinde kimlik doğrulaması için kullanabilirsiniz. Ardından, hizmet sorumlusunun kimlik bilgilerini döndürme veya diğer hizmetler ve uygulamaları etkilemeden, erişimi tamamen iptal.
 
 Hizmet sorumluları olmalıdır ne zaman kullanılan kayıt defteri [yönetici kullanıcı](container-registry-authentication.md#admin-account) devre dışı bırakıldı.
 

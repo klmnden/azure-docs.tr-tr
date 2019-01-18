@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/17/2018
+ms.date: 01/14/2019
 ms.author: ramamill
-ms.openlocfilehash: 597b8f59ef6991f7868d3de481e98ed9a459077b
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: a720b264c4283498604d1446283c5a2242fdb8b3
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050804"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381791"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Yapılandırma sunucusu sorunlarını giderme
 
@@ -22,7 +22,7 @@ Bu makalede, yardımcı dağıtmak ve yönetmek, sorunlarını [Azure Site Recov
 
 Mobility Aracısı yüklediğinizde, kaynak makinenin yapılandırma sunucusuna kaydeder. Bu yönergeleri takip ederek, bu adım sırasında hataları ayıklayabilirsiniz:
 
-1. C:\ProgramData\ASR\home\svsystems\var\configurator_register_host_static_info.log dosyasını açın. (ProgramData klasörü gizli bir klasör olabilir. ProgramData klasörü dosya Gezgini'nde, üzerinde görmezseniz **görünümü** sekmesinde **Göster/Gizle** bölümünden **öğelerin gizli** onay kutusunu.) Hataları, birden çok sorunlarından kaynaklanıyor olabilir.
+1. Open the C:\ProgramData\ASR\home\svsystems\var\configurator_register_host_static_info.log file. (ProgramData klasörü gizli bir klasör olabilir. ProgramData klasörü dosya Gezgini'nde, üzerinde görmezseniz **görünümü** sekmesinde **Göster/Gizle** bölümünden **öğelerin gizli** onay kutusunu.) Hataları, birden çok sorunlarından kaynaklanıyor olabilir.
 
 2. Arama dizesi için **Hayır geçerli IP adresi bulunamadı**. Dize bulunursa:
     1. İstenen konak kimliği kaynak makinenin konak kimliği ile aynı olduğunu doğrulayın.
@@ -58,9 +58,20 @@ Mobility Aracısı yüklediğinizde, kaynak makinenin yapılandırma sunucusuna 
 
 Mobility Aracısı'nı yükleme ve yapılandırma sunucusu ile kayıt hizmet taşıma bağlantısından veriler okunamıyor olamaz bu hata oluşur. Sorunu çözmek için TLS 1.0, kaynak makinede etkinleştirildiğinden emin olun.
 
+## <a name="vcenter-discovery-failures"></a>vCenter bulma hatası
+
+VCenter bulma hataları çözmek için vCenter sunucusu için atlama listesi proxy ayarları eklenir emin olun. Bu etkinlik gerçekleştirmek için
+
+- PsExec aracını indirin [burada](https://aka.ms/PsExec) sistem kullanıcı içeriğe erişmek için.
+- Internet Explorer açın sistem kullanıcı içeriği aşağıdaki komut satırı psexec -s çalıştırarak -i "%ProgramFiles%\Internet Explorer\iexplore.exe"
+- Proxy ayarlarını IE'de ekleyin ve tmanssvc hizmetini yeniden başlatın.
+- DRA proxy ayarlarını yapılandırmak için cd C:\Program Files\Microsoft Azure Site Recovery Sağlayıcısı'nı çalıştırın
+- Ardından, DRCONFIGURATOR yürütün. EXE / /AddBypassUrls configure [Server sağlanan sırasında bir vCenter'ın IP adresini/FQDN'yi **vCenter sunucusu/vSphere ESXi sunucusunu yapılandır** adımında [yapılandırma sunucusu dağıtımı](vmware-azure-deploy-configuration-server.md#configure-settings)]
+
 ## <a name="change-the-ip-address-of-the-configuration-server"></a>Yapılandırma sunucusunun IP adresini değiştirme
 
 Yapılandırma sunucusunun IP adresini değiştirmemenizi öneririz. Yapılandırma sunucusuna atadığınız tüm IP adreslerini statik IP adresleri olduğundan emin olun. DHCP IP adresini kullanmayın.
+>>>>>>> c842cff5a0480caa5183dbb7afe5016a7061c7b9
 
 ## <a name="acs50008-saml-token-is-invalid"></a>ACS50008: SAML belirteci geçersiz.
 

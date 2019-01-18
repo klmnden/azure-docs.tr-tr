@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/7/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: cbf58f7e5553f10087c854428a6a369cbb8c3bf9
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d5a8187394fba8c7718a8d056cb2063f37347832
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53196623"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388385"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-umbrella"></a>Öğretici: Cisco terimdir ile Azure Active Directory Tümleştirme
 
@@ -78,8 +78,8 @@ Yapılandırma ve Azure AD çoklu oturum açma [uygulama adı] ile test etmek i�
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 2. **[Cisco terimdir çoklu oturum açmayı yapılandırma](#configure-cisco-umbrella-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
 3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-4. **[Cisco genel test kullanıcısı oluşturma](#create-cisco-umbrella-test-user)**  - kullanıcı Azure AD gösterimini bağlı Cisco terimdir Britta simon'un bir karşılığı vardır.
-5. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Cisco genel test kullanıcısı oluşturma](#create-cisco-umbrella-test-user)**  - kullanıcı Azure AD gösterimini bağlı Cisco terimdir Britta simon'un bir karşılığı vardır.
 6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
@@ -110,7 +110,7 @@ Azure AD çoklu oturum açma [uygulama adı] ile yapılandırmak için aşağıd
 
     c. İçinde **oturum açma URL'si** metin kutusuna bir URL: `https://login.umbrella.com/sso`
 
-4. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **meta veri XML**bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
+5. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **meta veri XML**bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 
     ![Sertifika indirme bağlantısı](common/metadataxml.png)
 
@@ -128,7 +128,7 @@ Azure AD çoklu oturum açma [uygulama adı] ile yapılandırmak için aşağıd
 
 1. Farklı bir tarayıcı penceresinde, Cisco terimdir şirketinizin sitesi için yönetici olarak oturum.
 
-2.  Menü Sol taraftan tıklayın **yönetici** gidin **kimlik doğrulaması** ve ardından **SAML**.
+2. Menü Sol taraftan tıklayın **yönetici** gidin **kimlik doğrulaması** ve ardından **SAML**.
 
     ![Yönetici](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_admin.png)
 
@@ -144,7 +144,6 @@ Azure AD çoklu oturum açma [uygulama adı] ile yapılandırmak için aşağıd
 
     ![Sonraki](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_next.png)
 
-
 6. İçinde **y: seçeneği XML dosyasını karşıya yükleyin**, karşıya yükleme **Federasyon meta verileri XML** Azure portalından ve meta verilerini karşıya yükledikten sonra indirilen dosya aşağıdaki değerlerden otomatik olarak doldurulur otomatik alma sonra **sonraki**.
 
     ![Choosefile ](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_choosefile.png)
@@ -155,7 +154,7 @@ Azure AD çoklu oturum açma [uygulama adı] ile yapılandırmak için aşağıd
 
 8. **KAYDET**'e tıklayın.
 
-### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
@@ -215,7 +214,7 @@ Cisco terimdir söz konusu olduğunda, sağlama bir el ile gerçekleştirilen bi
 
 1. Farklı bir tarayıcı penceresinde, Cisco terimdir şirketinizin sitesi için yönetici olarak oturum.
 
-2.  Menü Sol taraftan tıklayın **yönetici** gidin **hesapları**.
+2. Menü Sol taraftan tıklayın **yönetici** gidin **hesapları**.
 
     ![Hesap](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_account.png)
 
@@ -237,7 +236,7 @@ Cisco terimdir söz konusu olduğunda, sağlama bir el ile gerçekleştirilen bi
 
     g. Tıklayın **Oluştur**.
 
-### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
@@ -250,4 +249,3 @@ Erişim paneli Cisco terimdir kutucuğa tıkladığınızda, size otomatik olara
 - [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

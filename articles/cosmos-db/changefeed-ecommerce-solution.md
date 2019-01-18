@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: sngun
-ms.openlocfilehash: b04a31ec46194d68dbbc5e5a4eb2b600968d7be5
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 3f42e149b88c2405a37366c3c7b886c7a8613e00
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037115"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382543"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Kullanım Azure Cosmos DB değişiklik akışı, gerçek zamanlı veri analizi görselleştirmek için
 
@@ -47,7 +47,7 @@ Aşağıdaki diyagramda, veri akışı ve çözümde ilgili bileşenleri temsil 
 
 4. **Azure işlevi:** Azure işlevi yeni verileri işler ve bu kümeye gönderen bir [Azure olay hub'ı](../event-hubs/event-hubs-about.md).  
 
-5. **Olay hub'ı:** Azure olay hub'ı bu olayları depolar ve onlara gönderir [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) başka analizler yapmak için.  
+5. **Event Hub:** Azure olay hub'ı bu olayları depolar ve onlara gönderir [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) başka analizler yapmak için.  
 
 6. **Azure Stream Analytics:** Azure Stream Analytics olayları işlemek ve gerçek zamanlı veri analizi gerçekleştirmek için sorguları tanımlar. Bu veriler daha sonra gönderilir [Microsoft Power BI](https://docs.microsoft.com/power-bi/desktop-what-is-desktop).  
 

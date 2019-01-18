@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle Folloze | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile Folloze | Microsoft Docs'
 description: Azure Active Directory ve Folloze arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/03/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 121e5ec57dd8ec87c0b7156dc761e0d9bd7b76eb
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: e9adb084da818f96eb892864d2f27a90fe62a646
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52884187"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390077"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-folloze"></a>Öğretici: Azure Active Directory Folloze ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-folloze"></a>Öğretici: Folloze ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Folloze tümleştirme konusunda bilgi edinin.
 Azure AD ile Folloze tümleştirme ile aşağıdaki avantajları sağlar:
@@ -79,8 +79,8 @@ Yapılandırma ve Azure AD çoklu oturum açma Folloze ile test etmek için aşa
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 2. **[Folloze çoklu oturum açmayı yapılandırma](#configure-folloze-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
 3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-4. **[Folloze test kullanıcısı oluşturma](#create-folloze-test-user)**  - kullanıcı Azure AD gösterimini bağlı Folloze Britta simon'un bir karşılığı vardır.
-5. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Folloze test kullanıcısı oluşturma](#create-folloze-test-user)**  - kullanıcı Azure AD gösterimini bağlı Folloze Britta simon'un bir karşılığı vardır.
 6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın

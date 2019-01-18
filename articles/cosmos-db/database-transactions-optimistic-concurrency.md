@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: cbd09f141128f9103af88b695baf717eaa3c99d5
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 5af305a2e0d4754cf4fad8557db9d367c828ecc5
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038845"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389096"
 ---
 # <a name="database-transactions-and-optimistic-concurrency-control"></a>Veritabanı işlemleri ve iyimser eşzamanlılık denetimi
 
@@ -49,7 +49,7 @@ Doğrudan veritabanı altyapısının içinde JavaScript yürütme yeteneği, pe
 
 ## <a name="optimistic-concurrency-control"></a>İyimser eşzamanlılık denetimi 
 
-İyimser eşzamanlılık denetimi, kayıp güncelleştirmelerden sağlar ve siler. Eş zamanlı, çakışan işlemleri normal kötümser öğesine sahip mantıksal bölüm tarafından barındırılan Veritabanı Altyapısı'nın kilitleme için tabi. Ne zaman iki eş zamanlı görevleri bir mantıksal bölüm, bunlardan biri içinde bir öğe en son sürümünü güncelleştirilmeye çalışılıyor kazanır ve diğer başarısız olur. Daha eski bir öğenin değerini okuma aynı anda aynı öğesi güncelleştirilmeye çalışılıyor, bir veya iki işlemleri daha önce, ancak veritabanı ya da daha önce okunan değerle çakışan bir işlem olup olmadığını gerçekten bilmez öğesinin en son değeri. Neyse ki, veritabanı altyapısının içinde işlem sınırı girin iki işlem izin vermeden önce bu durum, iyimser eşzamanlılık denetimini (OCC) ile'e algılanabilir. OCC yanlışlıkla başkaları tarafından yapılan değişikliklerin üzerine yazmasını verilerinizi korur. Ayrıca diğerleri kendi değişikliklerini yanlışlıkla üzerine yazılmasını engeller.
+İyimser eşzamanlılık denetimi, kayıp güncelleştirmelerden sağlar ve siler. Eş zamanlı, çakışan işlemleri normal kötümser öğesine sahip mantıksal bölüm tarafından barındırılan Veritabanı Altyapısı'nın kilitleme için tabi. Mantıksal bölüm içindeki bir öğenin en son sürüme güncelleştirmek iki eş zamanlı işlem denediğinizde, bunlardan birini kazanma ve diğer başarısız olur. Daha eski bir öğenin değerini okuma aynı anda aynı öğesi güncelleştirilmeye çalışılıyor, bir veya iki işlemleri daha önce, ancak veritabanı ya da daha önce okunan değerle çakışan bir işlem olup olmadığını gerçekten bilmez öğesinin en son değeri. Neyse ki, veritabanı altyapısının içinde işlem sınırı girin iki işlem izin vermeden önce bu durum, iyimser eşzamanlılık denetimini (OCC) ile'e algılanabilir. OCC yanlışlıkla başkaları tarafından yapılan değişikliklerin üzerine yazmasını verilerinizi korur. Ayrıca diğerleri kendi değişikliklerini yanlışlıkla üzerine yazılmasını engeller.
 
 Bir öğenin eş zamanlı güncelleştirmelerin OCC için Azure Cosmos DB'nin iletişim protokolü katmanı tarafından tabi. Azure Cosmos veritabanı, (silinmesi ya da güncelleştirmekte) öğenin istemci tarafı sürümü Azure Cosmos kapsayıcısında öğenin sürümü ile aynı olmasını sağlar. Bu, başkalarının ve yazar tarafından yanlışlıkla üzerine yazma korunmasını garanti eder. Çok kullanıcılı bir ortamda, iyimser eşzamanlılık denetimi yanlışlıkla silme veya öğenin yanlış sürümünü güncelleştirme korur. Bu nedenle, öğeleri Meşhur "kayıp güncelleştirmesi" veya "kayıp Sil" sorunlara karşı korunur.
 

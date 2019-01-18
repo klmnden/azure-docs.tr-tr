@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/21/2018
+ms.date: 1/17/2019
 ms.author: srrengar
-ms.openlocfilehash: b66373b6847b96a4fcbc1a0c9da42d285d089a9d
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 4a23d8c1e72ec453724514e4d1638c5a223d1644
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727894"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389219"
 ---
 # <a name="eventstore-service-overview"></a>Eventstore'a hizmetine genel bakış
 
@@ -34,6 +34,7 @@ ms.locfileid: "52727894"
 * Yönetim eylemleri kümenizde sürüp işlenen doğru onaylayın
 * "Service Fabric belirli bir varlık ile nasıl etkileşim kurmanın anlık" Al
 
+![EventStore](media/service-fabric-diagnostics-eventstore/eventstore.png)
 
 Eventstore'a içinde kullanılabilir olayların tam listesi için bkz [Service Fabric olayları](service-fabric-diagnostics-event-generation-operational.md).
 
@@ -53,7 +54,7 @@ Eventstore'a hizmet, her varlık ve kümenizde varlık türü için kullanılabi
 * Bölüm çoğaltmalarını: tüm çoğaltmaların olaylar / örnekleri tarafından tanımlanan belirli bir bölüm içinde `partitionId`
 * Bölümü çoğaltması: belirli bir çoğaltma olaylardan / örneği ile tanımlanan `replicaId` ve `partitionId`
 
-[Eventstore'a API başvuru] denetleyin API hakkında daha fazla bilgi edinmek için ((https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-eventsstore).
+Bilgi edinmek için API hakkında daha fazla kullanıma [Eventstore'a API Başvurusu](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-eventsstore).
 
 Eventstore'a hizmeti, ayrıca, kümenizdeki olayları ilişkilendirmenize özelliğine sahiptir. Aynı anda birbirine etkilemiş olabilecek farklı varlıklardan yazılmış olayları bakarak, Eventstore'a hizmet bu olaylar, etkinlikler, kümenizdeki nedenleri tanımlamaya yardımcı olmak için bağlantı kuramıyor. Uygulamalarınızdan biri uyarılmış hiçbir değişiklik yapmadan sistem durumu ortaya çıkarsa gibi Eventstore'a ayrıca diğer olayları göz platform tarafından sunulan ve bununla ilişkilendirin mı bir `Error` veya `Warning` olay. Bu, daha hızlı hata algılama ile yardımcı olur ve kök neden analizi.
 

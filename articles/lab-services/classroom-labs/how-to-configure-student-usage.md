@@ -11,28 +11,33 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 30c033b487fe58d017080b02c257502f82338164
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 371751f2eb643c3699e5462fe44380d7792243ef
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51710049"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388298"
 ---
 # <a name="configure-usage-settings-and-policies"></a>Kullanım ayarları ve ilkeleri yapılandırma
-Bu makalede, Laboratuvar için kullanıcıların sayısını yapılandırın, bunları laboratuvarla kayıtlı almak için VM ve daha fazlasını kullanabilirsiniz saat sayısını denetlemek nasıl açıklar. 
+Bu makalede kullanıcıların laboratuvara ekleme, bunları laboratuvarla kayıtlı almak için VM ve daha fazlasını kullanabilirsiniz saat sayısını denetlemek nasıl açıklar. 
 
 
-## <a name="specify-the-number-of-users-allowed-into-the-lab"></a>Laboratuvarda izin verilen kullanıcı sayısını belirtin
+## <a name="add-users-to-the-lab"></a>Kullanıcılar laboratuvara ekleme
+Varsa **erişimi kısıtlama** etkin kullanıcılar (e-posta adresleri) listeye ekleyin.
 
-1. **Kullanım ilkesi**’ni seçin. 
-2. **Kullanım ilkesi**, ayarlar bölümüne, laboratuvarı kullanmasına izin verilen **kullanıcı sayısını** girin.
-3. **Kaydet**’i seçin. 
+1. Seçin **kullanıcılar** sol menüsünde.
+2. Seçin **kullanıcı ekleme** araç. 
+3. Üzerinde **kullanıcı ekleme** sayfasında, ayrı bir satırda veya tek bir satırda noktalı virgülle ayırarak kullanıcılar e-posta adreslerini girin. 
 
-    ![Kullanım ilkesi](../media/how-to-manage-classroom-labs/usage-policy-settings.png)
+    ![Kullanıcı e-posta ekleyin](../media/how-to-configure-student-usage/add-users-email-addresses.png)
+4. **Kaydet**’i seçin. E-posta adreslerini kullanıcıları ve bunların durumlarını (veya kayıtlı) listesinde görürsünüz. 
+
+    ![Kullanıcı listesi](../media/how-to-configure-student-usage/users-list-new.png)
 
 ## <a name="send-registration-link-to-students"></a>Öğrencilere kayıt bağlantısı gönderme
+Aşağıdaki yordam bir kayıt bağlantı kullanıcılara göndermek için adımları yok. Varsa **erişimi kısıtlama** yalnızca kullanıcılar listesindeki kullanıcıları için laboratuvar kaydetmek için kayıt bağlantısını kullanabilir Laboratuvar için etkinleştirilir. 
 
 1. Geçiş **kullanıcılar** görünümü seçerek **kullanıcılar** sol menüsünde. 
 2. Seçin **kayıt bağlantı alma** Döşe.
@@ -52,9 +57,10 @@ Bu makalede, Laboratuvar için kullanıcıların sayısını yapılandırın, bu
 
 Seçin **kullanıcılar** kullanıcıların listesini görmek için sol taraftaki menüde laboratuvarla kayıtlı. 
 
-![Laboratuvarla kayıtlı kullanıcıların bir listesi](../media/how-to-configure-student-usage/users-list.png)
+![Laboratuvarla kayıtlı kullanıcıların bir listesi](../media/how-to-configure-student-usage/users-list-new.png)
 
 ## <a name="set-quotas-per-user"></a>Kullanıcı başına kota ayarlama
+Aşağıdaki adımları kullanarak, kullanıcı başına kotaları ayarlayabilirsiniz: 
 
 1. Seçin **kullanıcılar** sol menüsünde.
 2. Seçin **kullanıcı başına kota: sınırsız** araç. 
@@ -62,21 +68,9 @@ Seçin **kullanıcılar** kullanıcıların listesini görmek için sol taraftak
 4. İçin **kaç saat her kullanıcıya vermek istediğiniz**saat sayısını girin ve seçin **Kaydet**. 
 
     ![Saat başına kullanıcı sayısı](../media/how-to-configure-student-usage/number-of-hours-per-user.png)
-5. Saat araç çubuğundaki göreceksiniz: **kullanıcı başına kota: &lt;saat sayısı&gt;**. 
+5. Saat araç çubuğundaki göreceksiniz: **Kullanıcı başına kota: &lt;saat sayısı&gt;**. 
 
     ![Kullanıcı başına kotası](../media/how-to-configure-student-usage/quota-per-user.png)
-
-## <a name="add-users-to-the-lab"></a>Kullanıcılar laboratuvara ekleme
-Varsa **erişimi kısıtlama** etkin kullanıcılar (e-posta adresleri) listeye ekleyin.
-
-1. Seçin **kullanıcılar** sol menüsünde.
-2. Seçin **kullanıcı ekleme** araç. 
-3. Üzerinde **kullanıcı ekleme** sayfasında, ayrı bir satırda veya tek bir satırda noktalı virgülle ayırarak kullanıcılar e-posta adreslerini girin. 
-
-    ![Kullanıcı e-posta ekleyin](../media/how-to-configure-student-usage/add-users-email-addresses.png)
-4. **Kaydet**’i seçin. E-posta adreslerini kullanıcıları ve bunların durumlarını (veya kayıtlı) listesinde görürsünüz. 
-
-    ![Kullanıcı listesi](../media/how-to-configure-student-usage/users-list-new.png)
 
 ### <a name="add-users-by-uploading-a-csv-file"></a>Bir CSV dosyasını karşıya yükleyerek kullanıcı ekleme
 Kullanıcıların e-posta adreslerini içeren bir CSV dosyası karşıya yükleyerek, kullanıcılar da ekleyebilirsiniz.
@@ -96,6 +90,16 @@ Bir öğrenci VM üzerinde aşağıdaki görevleri gerçekleştirebilirsiniz:
 - VM’ye bağlanın. 
 - VM'yi silin. 
 - Kullanıcıların sanal makine kullanılan saat sayısını görüntüleyin. 
+
+## <a name="update-number-of-virtual-machines-in-lab"></a>Laboratuvarındaki sanal makinelerde güncelleştirme sayısı
+Laboratuvar sanal makinelerin sayısını güncelleştirmek için aşağıdaki adımları uygulayın **sanal makineler** sayfası:
+
+1. Seçin **sanal makineler** sol menüsünde. 
+2. Seçin **Laboratuvar Kapasite: &lt;numarası&gt; makine** araç. 
+3. Girin **numarası** sanal makinelerin.
+4. **Kaydet**’i seçin.
+
+    ![Laboratuvarındaki sanal makinelerde](../media/how-to-configure-student-usage/number-virtual-machines.png)
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

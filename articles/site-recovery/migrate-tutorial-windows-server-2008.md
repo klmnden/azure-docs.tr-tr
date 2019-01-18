@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.date: 11/27/2018
 ms.author: bsiva
 ms.custom: MVC
-ms.openlocfilehash: 2497793ce5d24ed2516636e76b8b947417dd9f74
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: afcf64b79b08ae76f56f57569905945489c2933e
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039954"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382888"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Windows Server 2008 çalıştıran sunucuları Azure'a geçirme
 
@@ -119,7 +119,7 @@ Hedef kaynaklarını seçin ve doğrulayın.
 1. Yeni bir çoğaltma ilkesi oluşturmak için **Site Recovery altyapısı** > **Çoğaltma İlkeleri** > **+Çoğaltma İlkesi**’ne tıklayın.
 2. **Çoğaltma ilkesi oluştur** bölümünde bir ilke adı belirtin.
 3. **RPO eşiği** bölümünde kurtarma noktası hedefi (RPO) sınırını belirtin. Çoğaltma RPO değeri bu sınırı aştığında bir uyarı oluşturulur.
-4. **Kurtarma noktası bekletme** bölümünde, her kurtarma noktası için bekletme süresinin ne kadar olacağını (saat) belirtin. Çoğaltılan VM’ler bir aralıktaki herhangi bir noktaya kurtarılabilir. Premium depolama alanına çoğaltılan makineler için 24 saate, standart depolama için de 72 saate kadar bekletme desteklenir.
+4. **Kurtarma noktası bekletme** bölümünde, her kurtarma noktası için bekletme süresinin ne kadar olacağını (saat) belirtin. Çoğaltılmış sunucuları bu penceresinde herhangi bir noktaya kurtarılabilir. Premium depolama alanına çoğaltılan makineler için 24 saate, standart depolama için de 72 saate kadar bekletme desteklenir.
 5. **Uygulamayla tutarlı anlık görüntü sıklığı** ayarını **Kapalı** olarak ayarlayın. İlkeyi oluşturmak için **Tamam**’a tıklayın.
 
 İlke, yapılandırma sunucusu ile otomatik olarak ilişkilendirilir.
@@ -154,13 +154,13 @@ Geçirmek istediğiniz makineler için yük devretmeyi çalıştırın.
 2. **Yük devretme**’de yük devretmenin yapılacağı bir **Kurtarma Noktası** seçin. En son kurtarma noktasını seçin.
 3. **Yük devretmeyi başlatmadan önce makineyi kapatın** seçeneğini belirleyin. Site Recovery, yük devretmeyi tetiklemeden önce sunucuyu kapatmaya çalışır. Kapatma işlemi başarısız olsa bile yük devretme devam eder. Yük devretme işleminin ilerleme durumunu **İşler** sayfasında takip edebilirsiniz.
 4. Azure VM’nin Azure’da beklendiği gibi görüntülenip görüntülenmediğini kontrol edin.
-5. **Çoğaltılan öğeler** bölümünde VM’ye sağ tıklayıp **Geçişi Tamamla**’ya tıklayın. Bu, şunları yapar:
+5. İçinde **çoğaltılan öğeler**, sunucuya sağ tıklayın > **geçişi Tamamla**. Bu, şunları yapar:
 
-    - Geçiş işlemi tamamlanır, AWS VM için çoğaltma durdurulur ve sanal makine için Site Recovery Faturalaması durdurulur.
+    - Geçiş işlemi tamamlanır, sunucu için çoğaltma durdurulur ve hizmet etmesi için Site Recovery Faturalaması durdurulur.
     - Bu adım, çoğaltma verilerini temizler. Bu, geçirilen sanal makinelerin silmez.
 
    ![Geçişi tamamlama](media/migrate-tutorial-windows-server-2008/complete-migration.png)
 
 
 > [!WARNING]
-> **Devam eden bir yük devretme işlemini iptal etmeyin**: Yük devretme başlatılmadan önce VM çoğaltma durdurulur. Devam eden bir yük devretme işlemini iptal ederseniz yük devretme durdurulur, ancak VM yeniden çoğaltılmaz.
+> **Devam eden bir yük devretme işlemini iptal etmeyin**: Sunucu çoğaltma, yük devretme başlatılmadan önce durduruldu. Bir yük devretme devam ediyor, yük devretme durdurulur, iptal, ancak sunucu çoğaltmak devam olmaz

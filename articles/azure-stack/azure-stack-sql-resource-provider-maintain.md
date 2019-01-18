@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: jeffgilb
 ms.reviewer: jiahan
-ms.openlocfilehash: 68665cc588f8a6340de393330c7a248503b07125
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: fa2e834b142d5df4751b46f6dac2db9b3a10a463
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244996"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391318"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>SQL kaynak sağlayıcısı bakım işlemleri
 
-SQL kaynak sağlayıcısı kilitli bir sanal makinede çalıştırır. Bakım işlemlerini etkinleştirmek için sanal makinenin güvenlik güncelleştirmesi gerekir. En düşük öncelik ilkesini kullanarak bunu yapmak için kullanabileceğiniz [PowerShell yeterli yönetim (JEA)](https://docs.microsoft.com/powershell/jea/overview) uç nokta *DBAdapterMaintenance*. Kaynak Sağlayıcı yükleme paketi, bu işlem için bir betik içerir.
+SQL kaynak sağlayıcısı kilitli bir sanal makinede çalıştırır. Bakım işlemlerini etkinleştirmek için sanal makinenin güvenlik güncelleştirmesi gerekir. En az ayrıcalık sorumlusunu kullanarak bunu yapmak için kullanabileceğiniz [PowerShell yeterli yönetim (JEA)](https://docs.microsoft.com/powershell/jea/overview) uç nokta *DBAdapterMaintenance*. Kaynak Sağlayıcı yükleme paketi, bu işlem için bir betik içerir.
 
 ## <a name="patching-and-updating"></a>Düzeltme eki uygulama ve güncelleştirme
 

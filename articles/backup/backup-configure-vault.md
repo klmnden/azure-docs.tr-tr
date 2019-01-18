@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/5/2018
 ms.author: raynew
-ms.openlocfilehash: ff1aaadd77df9cb7678ad71141d15c96f2f12dc0
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 73074898c29a240e31b181025f8cc92f25de5061
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788404"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382755"
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Resource Manager dağıtım modelini kullanarak Windows Server veya istemcisini Azure’a yedekleme
 Bu makalede, Windows Server (veya Windows istemcisi) nasıl yedekleyeceğiniz açıklanmaktadır dosya ve klasörleri Azure Resource Manager dağıtım modelini kullanarak Azure Backup ile.
@@ -48,9 +48,9 @@ Kurtarma Hizmetleri kasası, tüm yedeklemeleri ve zaman içinde oluşturduğunu
 
 6. **Kaynak grubu** bölümünde:
 
-    * Yeni bir Kaynak grubu oluşturmak istiyorsanız **Yeni oluştur**’u seçin.
+    * tıklayın **var olanı Seç...**  kullanılabilir kaynak grubu listesini görmek için aşağı açılan menüsü.
     Veya
-    * **Var olanı kullan**’ı seçin ve açılır menüyü kullanarak mevcut Kaynak gruplarının listesine bakın.
+    * Yeni bir Kaynak grubu oluşturmak istiyorsanız **Yeni oluştur**’u seçin.
 
   Kaynak grupları hakkında eksiksiz bilgiler için bkz. [Azure Resource Manager’a genel bakış](../azure-resource-manager/resource-group-overview.md).
 
@@ -70,21 +70,21 @@ Bir Kurtarma Hizmetleri kasasını ilk oluşturduğunuzda depolamanın nasıl ç
 
 1. **Kurtarma Hizmetleri kasaları** dikey penceresinden yeni kasaya tıklayın.
 
-    ![Kurtarma Hizmetleri kasası listesinden yeni kasayı seçin](./media/backup-try-azure-backup-in-10-mins/rs-vault-list.png)
+    ![Kurtarma Hizmetleri kasası listesinden yeni kasayı seçin](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault.png)
 
-    Kasayı seçtiğinizde **Kurtarma Hizmetleri kasası** dikey penceresi daralır ve Ayarlar dikey penceresi (*en üstünde kasanın adı bulunur*) ve ile kasa ayrıntıları dikey penceresi açılır.
+    Kasayı seçtiğinizde, dikey penceresi daralır, Kurtarma Hizmetleri kasası ve **genel bakış** dikey (*en üstünde kasanın adı olan*) Kasa ayrıntıları dikey penceresini açın.
 
-    ![Yeni kasa için depolama yapılandırmasını görüntüleme](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-2.png)
+    ![Yeni kasa için depolama yapılandırmasını görüntüleme](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-overview.png)
 
-2. Yeni kasanın Ayarlar dikey penceresinde dikey kaydırma çubuğunu kullanarak Yönet bölümüne inin ve **Yedekleme Altyapısı**’na tıklayın.
+2. Yeni kasada **ayarları** bölümüne gidin **özellikleri**.
 
-  Yedekleme Altyapısı dikey penceresi açılır.
+  **Özellikleri** dikey penceresi açılır.
 
-3. Yedekleme Altyapısı dikey penceresinde, **Yedekleme Yapılandırması**’na tıklayarak **Yedekleme Yapılandırması** dikey penceresini açın.
+3. İçinde **özellikleri** dikey penceresinde tıklayın **güncelleştirme** altında **yedekleme yapılandırması** dikey penceresi. **Yedekleme yapılandırması** dikey penceresi açılır.
 
-  ![Yeni kasa için depolama yapılandırması ayarlama](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration.png)
+  ![Yeni kasa için depolama yapılandırması ayarlama](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
-4. Kasanız için uygun depolama çoğaltma seçeneğini belirleyin.
+4. Kasanız için uygun depolama çoğaltma seçeneğini belirleyin ve tıklayın **Kaydet**.
 
   ![depolama yapılandırması seçenekleri](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
@@ -183,7 +183,7 @@ Yedekleme İlkesi, Kurtarma noktaları alındığında zamanlamayı ve kurtarma 
 
 ### <a name="to-create-a-backup-schedule"></a>Bir yedekleme zamanlaması oluşturmak için
 
-Yedeklemek istediğiniz makineye yedekleme zamanlamasını ayarlayın. Azure Backup (DST) günışığından almadığı için yedekleme kümesi süre yerel bilgisayar zamanından farklı olabilir, hesaba unutmayın. 
+Yedeklemek istediğiniz makineye yedekleme zamanlamasını ayarlayın. Azure Backup (DST) günışığından almadığı için yedekleme kümesi süre yerel bilgisayar zamanından farklı olabilir, hesaba unutmayın.
 1. Microsoft Azure Backup Aracısı'nı açın. Bunu, makinenizde **Microsoft Azure Backup** aramasını yaparak bulabilirsiniz.
 
     ![Azure Backup aracısını başlatma](./media/backup-configure-vault/snap-in-search.png)

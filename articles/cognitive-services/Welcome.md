@@ -7,14 +7,14 @@ manager: cgronlund
 ms.service: cognitive-services
 ms.component: ''
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 01/17/2018
 ms.author: nitinme
-ms.openlocfilehash: f7a68aab4959c3793c7688504d73d2b539a26f83
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 4a398342382d21d9261c8f693b78f184876bfed3
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025404"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381927"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Azure Bilişsel hizmetler nelerdir?
 
@@ -89,6 +89,14 @@ Tüm API'ler, ücretsiz bir deneme planı sahip.  Her bir API için ücretli tek
 Bilişsel hizmetler API'leri, gittikçe büyüyen bir Microsoft tarafından yönetilen veri merkezleri ağı üzerinde barındırılır. Her API için bölgesel kullanılabilirlik bulabilirsiniz [Azure bölgesi listesi](https://azure.microsoft.com/regions).
 
 Bir bölge için arama henüz desteklemiyoruz? Üzerinde bir özellik isteği göndererek bize bildirin bizim [UserVoice forumumuzu](https://cognitive.uservoice.com/).
+
+## <a name="supported-cultural-languages"></a>Kültürel desteklenen diller
+
+ Bilişsel hizmetler, çok çeşitli hizmet düzeyinde kültürel dilleri destekler. Her API için dil kullanılabilirlik bulabilirsiniz [desteklenen dillerin listesi](language-support.md).
+
+ ## <a name="container-support"></a>Kapsayıcı desteği
+
+ Bilişsel hizmetler, Azure bulutta veya şirket içi dağıtım için kapsayıcılar sağlar. Daha fazla bilgi edinin [Bilişsel hizmet kapsayıcıları](cognitive-services-container-support.md).
 
 ## <a name="support"></a>Destek
 

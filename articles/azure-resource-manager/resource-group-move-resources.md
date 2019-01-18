@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5266959e3c08721b79af8c11eb50b7a659e70ffc
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 32298b78f3b98afb6754e07ad63467f4f995d84f
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158865"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382895"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıma
 
-Bu makalede, başka bir Azure aboneliğine veya başka bir kaynak grubuna aynı abonelik altında Azure kaynakları taşıma işlemini göstermektedir. Kaynakları taşıma için Azure portalı, Azure PowerShell, Azure CLI veya REST API'yi kullanabilirsiniz.
+Bu makalede, başka bir Azure aboneliğine veya başka bir kaynak grubuna aynı abonelik altında Azure kaynakları taşıma işlemini göstermektedir. Kaynakları taşıma için Azure portalı, Azure PowerShell, Azure CLI veya REST API'yi kullanabilirsiniz. Bir öğreticiyi incelemek için bkz: [Öğreticisi: Azure kaynakları başka bir kaynak grubuna veya aboneliğe taşıma](./resource-manager-tutorial-move-resources.md).
 
 Kaynak grubu hem de hedef grubu taşıma işlemi sırasında kilitlenir. Yazma ve silme işlemleri taşıma işlemi tamamlanana kadar kaynak gruplarında engellenir. Bu kilit ekleyemez, güncelleştirme veya kaynak gruplarındaki kaynakları silin, ancak kaynakları dondurulmuş gelmez anlamına gelir. Örneğin, bir SQL Server ve veritabanı yeni bir kaynak grubuna taşırsanız, veritabanı kullanan bir uygulama kapalı kalma süresi olmadan karşılaşır. Bunu hala okuyabilir ve veritabanına yazma.
 

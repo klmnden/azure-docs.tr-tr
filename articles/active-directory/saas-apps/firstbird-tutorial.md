@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle Firstbird | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile Firstbird | Microsoft Docs'
 description: Azure Active Directory ve Firstbird arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/03/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 4de6323d3cf6c642ea7714eabf45200e1be0c269
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 355d5a00c9a2d8bb6930113b35b2ed68c4b970ae
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52884148"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391288"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-firstbird"></a>Öğretici: Azure Active Directory Firstbird ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-firstbird"></a>Öğretici: Firstbird ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Firstbird tümleştirme konusunda bilgi edinin.
 Azure AD ile Firstbird tümleştirme ile aşağıdaki avantajları sağlar:
@@ -79,8 +79,8 @@ Yapılandırma ve Azure AD çoklu oturum açma [uygulama adı] ile test etmek i�
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 2. **[Firstbird çoklu oturum açmayı yapılandırma](#configure-firstbird-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
 3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-4. **[Firstbird test kullanıcısı oluşturma](#create-firstbird-test-user)**  - kullanıcı Azure AD gösterimini bağlı Firstbird Britta simon'un bir karşılığı vardır.
-5. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Firstbird test kullanıcısı oluşturma](#create-firstbird-test-user)**  - kullanıcı Azure AD gösterimini bağlı Firstbird Britta simon'un bir karşılığı vardır.
 6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
@@ -105,16 +105,16 @@ Azure AD çoklu oturum açma [uygulama adı] ile yapılandırmak için aşağıd
 
     ![Firstbird etki alanı ve URL'ler tek oturum açma bilgileri](common/idp_intiated.png)
 
-    a. İçinde **tanımlayıcı** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<company-domain>.auth.1brd.com/saml/sp`.
+    a. İçinde **tanımlayıcı** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<company-domain>.auth.1brd.com/saml/sp`
 
-    b. İçinde **yanıt URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<company-domain>.auth.1brd.com/saml/callback`.
+    b. İçinde **yanıt URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<company-domain>.auth.1brd.com/saml/callback`
 
 5. Tıklayın **ek URL'lerini ayarlayın** ve uygulamada yapılandırmak istiyorsanız, aşağıdaki adımı uygulayın **SP** başlatılan modu:
 
     ![Firstbird etki alanı ve URL'ler tek oturum açma bilgileri](common/metadata_upload_additional_signon.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<company-domain>.1brd.com/login`.
-    
+    İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:  `https://<company-domain>.1brd.com/login`
+
     > [!NOTE]
     > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. İlgili kişi [Firstbird istemci Destek ekibine](mailto:support@firstbird.com) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
@@ -154,7 +154,7 @@ Azure AD çoklu oturum açma [uygulama adı] ile yapılandırmak için aşağıd
 
 ### <a name="configure-firstbird-single-sign-on"></a>Firstbird tek oturum açmayı yapılandırın
 
-Bu adımları tamamladıktan sonra lütfen Firstbird Federasyon meta verileri XML e-posta aracılığıyla destek talebi göndermek [ support@firstbird.com ](mailto:support@firstbird.com) konulu: "SSO yapılandırması".
+Bu adımları tamamladıktan sonra lütfen Firstbird Federasyon meta verileri XML e-posta aracılığıyla destek talebi göndermek [ support@firstbird.com ](mailto:support@firstbird.com) konu ile: "SSO yapılandırması".
 
 Firstbird ardından yapılandırma sistemde uygun şekilde depolayın ve hesabınız için SSO'yu etkinleştirin. Bundan sonra destek personeli üyesi, yapılandırmayı doğrulamak için sizinle iletişim kurar.
 

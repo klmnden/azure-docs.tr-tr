@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
-ms.openlocfilehash: 5e09401c37d40c99d3f8bbb643d104c0105812f4
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 413473b856d76f9ebeff9669eb1facc54d89b509
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731448"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382535"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>App Service ve Azure işlevleri için yönetilen kimliklerini kullanma
 
@@ -260,7 +260,7 @@ App Service ve Azure işlevleri, bir belirteç almak için basit bir REST protok
 
 1. Başvuruları Ekle [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) ve tüm diğer gerekli NuGet paketlerini uygulamanıza. Aşağıdaki örnekte de kullanır [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault).
 
-2.  Aşağıdaki kodu doğru kaynağı hedeflemek için değiştirme uygulamanıza ekleyin. Bu örnek, Azure anahtar kasası ile çalışmak için iki yolunu gösterir:
+2. Aşağıdaki kodu doğru kaynağı hedeflemek için değiştirme uygulamanıza ekleyin. Bu örnek, Azure anahtar kasası ile çalışmak için iki yolunu gösterir:
 
 ```csharp
 using Microsoft.Azure.Services.AppAuthentication;
@@ -277,12 +277,12 @@ Microsoft.Azure.Services.AppAuthentication ve kullanıma sunduğu işlemleri hak
 ### <a name="using-the-rest-protocol"></a>REST protokolü kullanarak
 
 Yönetilen bir kimlik ile bir uygulama tanımlı iki ortam değişkenleri vardır:
+
 - MSI_ENDPOINT
 - MSI_SECRET
 
 **MSI_ENDPOINT** içinden uygulamanızın belirteçleri isteyebilir yerel bir URL. Bir kaynak için bir belirteç almak için aşağıdaki parametreleri de dahil olmak üzere bu uç nokta için bir HTTP GET isteği olun:
 
-> [!div class="mx-tdBreakAll"]
 > |Parametre adı|İçinde|Açıklama|
 > |-----|-----|-----|
 > |kaynak|Sorgu|AAD kaynak kaynağın URI'sini için bir belirteç elde edilmelidir. Bu, aşağıdakilerden biri olabilir [Azure Hizmetleri söz konusu destek Azure AD kimlik doğrulamasını](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication) veya başka bir kaynağa bir URI.|
@@ -290,10 +290,8 @@ Yönetilen bir kimlik ile bir uygulama tanımlı iki ortam değişkenleri vardı
 > |gizli dizi|Üst bilgi|MSI_SECRET ortam değişkeninin değeri.|
 > |ClientID|Sorgu|(İsteğe bağlı) Kullanılacak kullanıcı tarafından atanan kimlik kimliği. Atlanırsa, sistem tarafından atanan kimlik kullanılır.|
 
-
 Başarılı 200 Tamam yanıtı bir JSON gövdesi aşağıdaki özellikleri içerir:
 
-> [!div class="mx-tdBreakAll"]
 > |Özellik adı|Açıklama|
 > |-------------|----------|
 > |access_token|İstenen erişim belirteci. Çağıran web hizmeti, alıcı web hizmetinde kimlik doğrulaması için bu belirteci kullanabilirsiniz.|
@@ -301,24 +299,27 @@ Başarılı 200 Tamam yanıtı bir JSON gövdesi aşağıdaki özellikleri içer
 > |kaynak|Alıcı web hizmeti uygulama kimliği URI'si.|
 > |token_type|Belirteç türü değeri gösterir. Azure AD destekleyen tek taşıyıcı türüdür. Taşıyıcı belirteçleri hakkında daha fazla bilgi için bkz: [OAuth 2.0 yetkilendirme Framework: Taşıyıcı belirteç kullanımı (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt).|
 
-
 Bu yanıt aynıdır [AAD hizmetten hizmete erişim belirteci isteği için yanıt](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).
 
-> [!NOTE] 
+> [!NOTE]
 > Ortam değişkenlerini ayarlandığı işlemi ilk kez başlatıldığında, böylece uygulamanız için bir yönetilen kimlik etkinleştirdikten sonra uygulamanızı yeniden başlatın ya da kendi kod önce dağıtmanız gerekebilir `MSI_ENDPOINT` ve `MSI_SECRET` kodunuz için kullanılabilir.
 
 ### <a name="rest-protocol-examples"></a>REST Protokolü örnekleri
+
 Bir örnek istek aşağıdaki gibi görünebilir:
+
 ```
 GET /MSI/token?resource=https://vault.azure.net&api-version=2017-09-01 HTTP/1.1
 Host: localhost:4141
 Secret: 853b9a84-5bfa-4b22-a3f3-0b9a43d9ad8a
 ```
+
 Ve bir örnek yanıt aşağıdaki gibi görünebilir:
+
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json
- 
+
 {
     "access_token": "eyJ0eXAi…",
     "expires_on": "09/14/2017 00:00:00 PM +00:00",
@@ -328,7 +329,9 @@ Content-Type: application/json
 ```
 
 ### <a name="code-examples"></a>Kod örnekleri
+
 <a name="token-csharp"></a>Bu istekte bulunma C# için:
+
 ```csharp
 public static async Task<HttpResponseMessage> GetToken(string resource, string apiversion)  {
     HttpClient client = new HttpClient();
@@ -336,10 +339,12 @@ public static async Task<HttpResponseMessage> GetToken(string resource, string a
     return await client.GetAsync(String.Format("{0}/?resource={1}&api-version={2}", Environment.GetEnvironmentVariable("MSI_ENDPOINT"), resource, apiversion));
 }
 ```
+
 > [!TIP]
 > .NET dilleri için de kullanabilirsiniz [Microsoft.Azure.Services.AppAuthentication](#asal) oluşturmak yerine kendiniz isteyin.
 
 <a name="token-js"></a>Node.js'de:
+
 ```javascript
 const rp = require('request-promise');
 const getToken = function(resource, apiver, cb) {
@@ -355,6 +360,7 @@ const getToken = function(resource, apiver, cb) {
 ```
 
 <a name="token-powershell"></a>PowerShell'de:
+
 ```powershell
 $apiVersion = "2017-09-01"
 $resourceURI = "https://<AAD-resource-URI-for-resource-to-obtain-token>"
@@ -370,13 +376,13 @@ Bir sistem tarafından atanan kimliği, oluşturulduğu aynı şekilde portal, P
 ```json
 "identity": {
     "type": "None"
-}    
+}
 ```
 
 Bir sistem tarafından atanan kimliği bu şekilde kaldırarak Ayrıca, AAD'den siler. Uygulama kaynağı silindiğinde sistem tarafından atanan kimlikleri AAD'den da otomatik olarak kaldırılır.
 
-> [!NOTE] 
-> Ayarlanabilen, bir uygulama ayarı yalnızca yerel belirteç hizmeti devre dışı bırakan WEBSITE_DISABLE_MSI yoktur. Ancak, yerinde kimlik bırakır ve araçları yönetilen kimlik olarak "on" veya "etkin" hala Göster Sonuç olarak, bu seçeneğin önerilen değil.
+> [!NOTE]
+> Ayarlanabilen, bir uygulama ayarı yalnızca yerel belirteç hizmeti devre dışı bırakan WEBSITE_DISABLE_MSI yoktur. Ancak, yerinde kimlik bırakır ve araçları yönetilen kimlik olarak "on" veya "etkin" hala Göster Sonuç olarak, bu ayarın kullanılması önerilmez.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 1dd11e22361e25721effe2ed919f175d9cb1b9e4
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: e4fa42b6c32c3eb383eea4489ea109c0d496bdb9
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54249623"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54392743"
 ---
 Aşağıdaki tabloda, Azure depolama için varsayılan sınırlara açıklanmaktadır. *Giriş* sınırı bir depolama hesabına gönderilen tüm verileri (istekler) ifade eder. *Çıkış* sınırı bir depolama hesabından alınan tüm verileri (yanıtlar) ifade eder.
 
@@ -25,11 +25,11 @@ Aşağıdaki tabloda, Azure depolama için varsayılan sınırlara açıklanmakt
 | İstek hızı üst sınırı<sup>1</sup> depolama hesabı başına | saniyede 20.000 istekleri |
 | En büyük giriş<sup>1</sup> (ABD bölgeleri) depolama hesabı başına | RA-GRS/GRS etkinleştirilirse, LRS/ZRS için 20 GB/sn, 10 Gbps<sup>2</sup> |
 | En büyük giriş<sup>1</sup> (ABD dışı bölgeler) depolama hesabı başına | RA-GRS/GRS etkinleştirilirse, LRS/ZRS için 10 GB/sn 5 GB/sn<sup>2</sup> |
-| En fazla çıkışı için genel amaçlı v2 ve Blob Depolama hesapları (tüm bölge) | 50 GB/sn |
+| En fazla çıkışı için genel amaçlı v2 ve Blob Depolama hesapları (tüm bölge) | 50 Gbps |
 | Genel amaçlı v1 depolama hesapları (ABD bölgeleri) için en fazla çıkışı | RA-GRS/GRS etkinleştirilirse, 30 GB/sn LRS/ZRS için 20 GB/sn <sup>2</sup> |
 | Genel amaçlı v1 depolama hesapları (ABD dışı bölgeler) için en fazla çıkışı | RA-GRS/GRS etkinleştirilirse, 15 GB/sn LRS/ZRS için 10 GB/sn <sup>2</sup> |
 
-<sup>1</sup> azure depolama hesaplarının desteklediği sınırları daha yüksek giriş ve IOPS için istek tarafından. Hesabı sınırları artış istemek için lütfen başvurun [Azure Destek](https://azure.microsoft.com/support/faq/).
+<sup>1</sup> azure standart depolama hesapları için giriş sınırları daha yüksek isteğiyle destekler. Hesabı sınırları girişi için artış istemek için başvurun [Azure Destek](https://azure.microsoft.com/support/faq/).
 
 <sup>2</sup> [azure depolama çoğaltma](https://docs.microsoft.com/azure/storage/common/storage-redundancy) Seçenekler şunlardır:
 * **RA-GRS**: Okuma erişimli coğrafi olarak yedekli depolama. RA-GRS etkinleştirilirse, ikincil konumdaki çıkış hedeflerini birincil konumu olarak aynı olan.

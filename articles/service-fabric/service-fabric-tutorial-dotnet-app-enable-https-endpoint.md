@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/12/2018
+ms.date: 01/17/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 2e631a0605385f8d55c652a26739b23a0945674f
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 541d1473b21056e24c6b04b86414936a02b7d9d5
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077259"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382572"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Öğretici: Kestrel'i kullanarak bir ASP.NET Core Web API'si ön uç hizmetine HTTPS uç noktası ekleme
 
@@ -158,7 +158,9 @@ serviceContext =>
         }))
 ```
 
-Ayrıca, Kestrel’in konuyu kullanarak sertifikayı `Cert:\LocalMachine\My` deposunda bulabilmesi için aşağıdaki yöntemi ekleyin.  Değiştir "&lt;your_CN_value&gt;" ile "mytestcert" önceki PowerShell komutuyla otomatik olarak imzalanan bir sertifika oluşturduysanız, veya sertifikanızın CN değerini kullanın.
+Ayrıca, Kestrel’in konuyu kullanarak sertifikayı `Cert:\LocalMachine\My` deposunda bulabilmesi için aşağıdaki yöntemi ekleyin.  
+
+Değiştir "&lt;your_CN_value&gt;" ile "mytestcert" önceki PowerShell komutuyla otomatik olarak imzalanan bir sertifika oluşturduysanız, veya sertifikanızın CN değerini kullanın.
 
 ```csharp
 private X509Certificate2 GetCertificateFromStore()
@@ -347,7 +349,7 @@ Tüm dosyaları kaydedin ve F5’e basarak uygulamayı yerel olarak çalıştır
 
 ## <a name="install-certificate-on-cluster-nodes"></a>Küme düğümlerine sertifika yükleme
 
-Uygulamayı Azure'a dağıtmadan önce sertifikayı uzak küme düğümlerinin `Cert:\LocalMachine\My` deposuna yükleyin.  Ön uç web hizmeti bir küme düğümünde başladığında, başlangıç betiği sertifikayı arar ve erişim izinlerini yapılandırır.
+Uygulamayı azure'a dağıtmadan önce sertifikayı yükleme `Cert:\LocalMachine\My` tüm uzak küme düğümlerinin deposu.  Hizmetleri kümesinin farklı düğümlere taşıyabilirsiniz.  Ön uç web hizmeti bir küme düğümünde başladığında, başlangıç betiği sertifikayı arar ve erişim izinlerini yapılandırır.
 
 İlk olarak, sertifikayı bir PFX dosyasına aktarın. certlm.msc uygulamasını açın ve **Kişisel**>**Sertifikalar**’a gidin.  Sağ *mytestcert* seçin ve sertifika **tüm görevler**>**dışarı**.
 

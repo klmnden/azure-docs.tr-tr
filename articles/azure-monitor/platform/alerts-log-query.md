@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: bwren
 ms.component: alerts
-ms.openlocfilehash: 9cd745cedd6d870262e412709e4e104c1406558e
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: c1bcbf1245ef3256ceb1db098d6bcb014c7cd155
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54234087"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382013"
 ---
 # <a name="log-alert-queries-in-azure-monitor"></a>Azure İzleyici'de günlük uyarı sorguları
 [Uyarı kuralları Azure İzleyici günlüklerine göre](alerts-unified-log.md) düzenli aralıklarla çalıştırın, böylece emin olmanız gerekir, ek yükü ve gecikme süresini en aza indirmek için yazılır. Bu makalede, günlük uyarıları için etkili sorgular ve var olan sorguları dönüştürmek için bir işlem yazmaya öneriler sağlar. 
@@ -27,7 +27,7 @@ ms.locfileid: "54234087"
 SecurityEvent | where EventID == 4624 
 ```
 
-İle başlayan sorguları `search` veya `union` bir tablo veya hatta birden fazla tabloyu birden çok sütunu birden çok arama olanak sağlar. Arama terimi birden çok yöntem aşağıdaki örnekler _bellek_:
+İle başlayan sorguları `search` veya `union` bir tabloda birden fazla sütun veya bile birden çok tablo arasında arama olanak sağlar. Arama terimi birden çok yöntem aşağıdaki örnekler _bellek_:
 
 ```Kusto
 search "Memory"

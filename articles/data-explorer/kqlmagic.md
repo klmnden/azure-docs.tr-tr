@@ -8,26 +8,26 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 179cc133e755a317c70b84acc95aafc61f4e0e68
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 83c4ae7ff942579d55a5855c24a28809f60fdc62
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078176"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382456"
 ---
-# <a name="analyze-data-using-jupyter-notebook-and-kqlmagic"></a>Jupyter not defteri ve Kqlmagic kullanarak verileri analiz etme
+# <a name="analyze-data-using-jupyter-notebook-and-kql-magic"></a>Jupyter not defteri ve KQL Sihri kullanarak verileri analiz etme
 
 Jupyter not defteri oluşturmak ve Canlı kod, denklemleri, görselleştirmeler ve anlatım metnini içeren belgeleri paylaşmak olanak tanıyan bir açık kaynaklı web uygulamasıdır. Kullanım, veri temizleme ve dönüştürme, sayısal bir simülasyon, modelleme, veri Görselleştirme ve makine öğrenimi içerir.
-[Jupyter not defteri](https://jupyter.org/) ek komutlar destekleyerek çekirdek yeteneklerini genişletmek Sihirli işlevleri destekler. Kqlmagic Kusto dil sorguları yerel olarak çalıştırabilmeniz için Jupyter not defteri Python çekirdek yeteneklerini genişleten bir komuttur. Sorgulamak ve tümleşik Plot.ly kitaplığı ile zengin kullanarak verileri görselleştirmek için Python ve Kusto sorgu dilini kolayca birleştirebilirsiniz `render` komutları. Sorguları çalıştırmak için veri kaynakları desteklenir. Bu veri kaynakları, Azure Veri Gezgini, hızlı ve yüksek oranda ölçeklenebilir bir veri keşfetme hizmeti günlük ve telemetri verilerini, ve bunun yanı sıra Log Analytics ve Application Insights ekleyin. Kqlmagic Azure not defterleri, Jupyter Laboratuvar ve Visual Studio kod Jupyter uzantısı ile de çalışır.
+[Jupyter not defteri](https://jupyter.org/) ek komutlar destekleyerek çekirdek yeteneklerini genişletmek Sihirli işlevleri destekler. KQL Sihirli Kusto dil sorguları yerel olarak çalıştırabilmeniz için Jupyter not defteri Python çekirdek yeteneklerini genişleten bir komuttur. Sorgulamak ve tümleşik Plot.ly kitaplığı ile zengin kullanarak verileri görselleştirmek için Python ve Kusto sorgu dilini kolayca birleştirebilirsiniz `render` komutları. Sorguları çalıştırmak için veri kaynakları desteklenir. Bu veri kaynakları, Azure Veri Gezgini, hızlı ve yüksek oranda ölçeklenebilir bir veri keşfetme hizmeti günlük ve telemetri verilerini, ve bunun yanı sıra Log Analytics ve Application Insights ekleyin. KQL Sihirli Azure not defterleri, Jupyter Laboratuvar ve Visual Studio kod Jupyter uzantısı ile de çalışır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 - Azure Active Directory (AAD) bir üyesi olan Kuruluş e-posta hesabı.
 - Jupyter not defteri yerel makinenizde yüklü Azure not defterleri kullanma veya örneği kopyalayın [Azure not defteri](https://kustomagicsamples-manojraheja.notebooks.azure.com/j/notebooks/Getting%20Started%20with%20kqlmagic%20on%20Azure%20Data%20Explorer.ipynb)
 
-## <a name="install-kqlmagic-library"></a>Kqlmagic kitaplığını yükle
+## <a name="install-kql-magic-library"></a>KQL Sihirli kitaplığını yükle
 
-1. Kqlmagic yükleyin:
+1. KQL Sihirli yükleyin:
 
     ```python
     !pip install Kqlmagic --no-cache-dir  --upgrade
@@ -35,7 +35,7 @@ Jupyter not defteri oluşturmak ve Canlı kod, denklemleri, görselleştirmeler 
     > [!NOTE]
     > Azure not defterlerini kullanarak, bu adım gerekli değildir.
 
-1. Kqlmagic yükle:
+1. KQL Sihirli yükle:
 
     ```python
     reload_ext Kqlmagic
@@ -78,7 +78,7 @@ StormEvents
 
 ### <a name="customize-the-chart-colors"></a>Grafik renkleri özelleştirme
 
-Varsayılan renk paletindeki beğenmezseniz palet seçeneklerini kullanarak grafikleri özelleştirin. Kullanılabilir paletleri burada bulunabilir: [Kqlmagic sorgu grafik sonucunuz için renk paleti seçin](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FColorYourCharts.ipynb)
+Varsayılan renk paletindeki beğenmezseniz palet seçeneklerini kullanarak grafikleri özelleştirin. Kullanılabilir paletleri burada bulunabilir: [KQL Sihirli sorgu grafik sonucunuz için renk paleti seçin](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FColorYourCharts.ipynb)
 
 1. Paletleri listesi için:
 
@@ -99,7 +99,7 @@ Varsayılan renk paletindeki beğenmezseniz palet seçeneklerini kullanarak graf
 
 ## <a name="parameterize-a-query-with-python"></a>Python ile sorgu Parametreleştirme
 
-Kusto sorgu dili ve Python arasında basit bir değişim Kqlmagic sağlar. Daha fazla bilgi için: [Python ile Kqlmagic sorgunuzu Parametreleştirme](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FParametrizeYourQuery.ipynb)
+Kusto sorgu dili ve Python arasında basit bir değişim KQL Sihirli sağlar. Daha fazla bilgi için: [Python ile KQL Sihirli sorgunuzu Parametreleştirme](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FParametrizeYourQuery.ipynb)
 
 ### <a name="use-a-python-variable-in-your-kql-query"></a>Bir Python değişkeni KQL sorgunuzda kullanın
 
@@ -169,8 +169,8 @@ Birçok analiz senaryolarda, çok sayıda sorgu içeren ve sonuçları bir sorgu
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Desteklenen tüm özellikleri içeren aşağıdaki örnek not defterleri keşfetmek için Yardım komutu çalıştırın:
-- [Azure için Veri Gezgini'ni Kqlmagic ile çalışmaya başlama](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStart.ipynb) 
-- [Application Insights için Kqlmagic ile çalışmaya başlama](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStartAI.ipynb) 
-- [Log Analytics için Kqlmagic ile çalışmaya başlama](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStartLA.ipynb) 
-- [Python ile parametrize Kqlmagic sorgunuzu](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FParametrizeYourQuery.ipynb) 
-- [Kqlmagic sorgu grafik sonucunuz için renk paleti seçin](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FColorYourCharts.ipynb)
+- [Azure için Veri Gezgini ile KQL Sihirli kullanmaya başlayın](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStart.ipynb) 
+- [İçin Application Insights ile KQL Sihirli kullanmaya başlayın](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStartAI.ipynb) 
+- [Log Analytics için KQL ile Sihirli kullanmaya başlayın](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStartLA.ipynb) 
+- [Python ile parametrize KQL Sihirli sorgunuzu](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FParametrizeYourQuery.ipynb) 
+- [KQL Sihirli sorgu grafik sonucunuz için renk paleti seçin](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FColorYourCharts.ipynb)

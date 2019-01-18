@@ -14,12 +14,12 @@ ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: sijuman
 <!-- dev: viananth -->
-ms.openlocfilehash: cafae6d71401bc44813b2e366f8e72f7b806236b
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 8049db848e34b0aa9bc23f08169a8c63f765791a
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54062784"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389744"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>Azure stack'teki Python ile API Sürüm profillerini kullanma
 
@@ -29,11 +29,12 @@ ms.locfileid: "54062784"
 
 Python SDK'sı, Azure yığını ve genel Azure gibi farklı bulut platformları hedeflemek için API sürümü profillerini destekler. Hibrit bulut çözümleri oluşturma API profillerini kullanabilirsiniz. Python SDK'sı aşağıdaki API profillerini destekler:
 
-1. **en son**  
-    Profil, tüm hizmet sağlayıcıları Azure platformundaki için en son API sürümlerini hedefler.
-2. **2017-03-09-profile**  
-   **2017-03-09-profile**  
-   Profili Azure yığını tarafından desteklenen kaynak sağlayıcıları API sürümlerini hedefler.
+- **en son**  
+    Bu profil, tüm hizmet sağlayıcıları Azure platformundaki için en son API sürümlerini hedefler.
+- **2018-03-01-karma**     
+    Bu profil, Azure Stack platformda tüm kaynak sağlayıcıları için en son API sürümlerini hedefler.
+- **2017-03-09-profile**  
+    Bu profil, Azure Stack tarafından desteklenen kaynak sağlayıcıları en uyumlu API sürümlerini hedefler.
 
    API profilleri ve Azure Stack hakkında daha fazla bilgi için bkz. [yönetme API sürümü profillerini Azure Stack'te](azure-stack-version-profiles.md).
 
@@ -56,10 +57,19 @@ Azure Python SDK'sı, Azure Stack ile kullanmak için aşağıdaki değerleri gi
 | Abonelik Kimliği | AZURE_SUBSCRIPTION_ID | [Abonelik kimliği](../azure-stack-plan-offer-quota-overview.md#subscriptions) nasıl, teklifler eriştiği Azure Stack'te. |
 | İstemci Gizli Anahtarı | AZURE_CLIENT_SECRET | Hizmet sorumlusu oluşturulurken kaydedilen hizmet sorumlusu uygulama gizli anahtarı. |
 | Resource Manager uç noktası | ARM_ENDPOINT | Bkz: [Azure Stack Kaynak Yöneticisi uç noktası](azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
+| Kaynak Konumu | AZURE_RESOURCE_LOCATION | Azure Stack ortamınıza kaynak konumu.
 
 ## <a name="python-samples-for-azure-stack"></a>Azure Stack için Python örnekleri
 
-Aşağıdaki kod örnekleri, genel yönetim görevleri için sanal makineler, Azure Stack'te gerçekleştirmek için kullanabilirsiniz. Kod örnekleri için Göster:
+Python SDK'sını kullanarak Azure Stack için kullanılabilir kod örnekleri bazıları şunlardır:
+
+- [Kaynakları ve kaynak gruplarını yönetme](https://azure.microsoft.com/resources/samples/hybrid-resourcemanager-python-manage-resources/).
+- [Depolama hesabı yönetme](https://azure.microsoft.com/resources/samples/hybrid-storage-python-manage-storage-account/).
+- [Sanal makineleri yönetme](https://azure.microsoft.com/resources/samples/hybrid-compute-python-manage-vm/).
+
+## <a name="python-manage-virtual-machine-sample"></a>Sanal makine örnek Python'ı yönetme
+
+Aşağıdaki kod örneği, genel yönetim görevleri için sanal makineler, Azure Stack'te gerçekleştirmek için kullanabilirsiniz. Kod örneği gösterilir:
 
 - Sanal makineler oluşturun:
   - Linux sanal makinesi oluşturma
@@ -76,7 +86,7 @@ Aşağıdaki kod örnekleri, genel yönetim görevleri için sanal makineler, Az
 - Sanal makineler listesi
 - Sanal makineyi silme
 
-Bu işlemler gerçekleştiren kodu gözden geçirmek için bkz. **run_example()** Python betiğini işlevinde **Hybrid/unmanaged-disks/example.py** GitHub deposunda [ sanal makineler-python-yönetiminde](https://github.com/Azure-Samples/virtual-machines-python-manage).
+Bu işlemler gerçekleştiren kodu gözden geçirmek için bkz. **run_example()** Python betiğini işlevinde **example.py** GitHub deposunda [karma-Compute-Python-yönetme-VM](https://github.com/Azure-Samples/Hybrid-Compute-Python-Manage-VM).
 
 Her işlem, açıkça bir açıklama ve yazdırma işlevi ile etiketlenir. Örnekler mutlaka bu listede gösterilen sırada değildir.
 
@@ -99,13 +109,13 @@ Her işlem, açıkça bir açıklama ve yazdırma işlevi ile etiketlenir. Örne
 4. Deposunu kopyalayın:
 
     ```bash
-    git clone https://github.com/Azure-Samples/virtual-machines-python-manage.git
+    git clone https://github.com/Azure-Samples/Hybrid-Compute-Python-Manage-VM.git
     ```
 
 5. PIP kullanarak bağımlılıkları yükler:
 
     ```bash
-    cd virtual-machines-python-manage\Hybrid
+    cd Hybrid-Compute-Python-Manage-VM
     pip install -r requirements.txt
     ```
 
@@ -119,6 +129,7 @@ Her işlem, açıkça bir açıklama ve yazdırma işlevi ile etiketlenir. Örne
     export AZURE_CLIENT_SECRET={your client secret}
     export AZURE_SUBSCRIPTION_ID={your subscription id}
     export ARM_ENDPOINT={your AzureStack Resource Manager Endpoint}
+    export AZURE_RESOURCE_LOCATION={your AzureStack Resource location}
     ```
 
 8. Bu örneği çalıştırmak için Ubuntu 16.04 LTS ve Windows Server 2012 R2 Datacenter görüntüleri Azure Stack marketini mevcut olması gerekir. Bunlar olabilir [Azure'dan indirilen](../azure-stack-download-azure-marketplace-item.md), ya da eklenen [Platform görüntü deposuna](../azure-stack-add-vm-image.md).
@@ -126,17 +137,9 @@ Her işlem, açıkça bir açıklama ve yazdırma işlevi ile etiketlenir. Örne
 9. Örneği çalıştırın:
 
     ```python
-    python unmanaged-disks\example.py
+    python example.py
     ```
 
-## <a name="notes"></a>Notlar
-
-Kullanarak bir sanal makinenin işletim sistemi diski almayı denemek için fikri size cazip gelebilir `virtual_machine.storage_profile.os_disk`. Bazı durumlarda, bu, ancak size verir dikkat istediğinizi yapabilirsiniz bir **OSDisk** nesne. İşletim sistemi disk boyutu olarak güncelleştirmek için `example.py` işe, bir **Disk** nesnesi değil, bir **OSDisk** nesne. `example.py` alır **Disk** aşağıdaki özelliklere sahip nesne:
-
-```python
-os_disk_name = virtual_machine.storage_profile.os_disk.name
-os_disk = compute_client.disks.get(GROUP_NAME, os_disk_name)
-```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

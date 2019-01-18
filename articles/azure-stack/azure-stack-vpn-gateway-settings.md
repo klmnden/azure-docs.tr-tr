@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/27/2018
 ms.author: sethm
-ms.openlocfilehash: 05f198aa869bbff121d438688aaee89a292516c1
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: d5538ce94428f189fc83cfa1107c52b9d57a3d13
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53807985"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381552"
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Azure Stack için VPN gateway yapılandırma ayarları
 
@@ -51,9 +51,9 @@ Azure Stack, VPN ağ geçidi SKU'ları aşağıdaki tabloda gösterilen sunar.
 
 |   | VPN gateway performansı |VPN ağ geçidi en fazla IPSec tüneli |
 |-------|-------|-------|
-|**Temel SKU**  | 100 Mbps  | 10    |
-|**Standart SKU**           | 100 Mbps  | 10    |
-|**Yüksek performanslı SKU** | 200 Mbps    | 5 |
+|**Temel SKU**  | 100 Mbps  | 20    |
+|**Standart SKU**           | 100 Mbps  | 20    |
+|**Yüksek performanslı SKU** | 200 Mbps    | 10    |
 
 ### <a name="resizing-gateway-skus"></a>Ağ geçidi SKU'ları yeniden boyutlandırma
 
@@ -123,7 +123,7 @@ Aşağıdaki tabloda, VPN ağ geçitleri için gereksinimler listelenmektedir.
 |--|--|--|--|--|
 | **Siteden siteye bağlantı (S2S bağlantısı)** | Desteklenmiyor | RouteBased VPN yapılandırması | RouteBased VPN yapılandırması | RouteBased VPN yapılandırması |
 | **Kimlik doğrulama yöntemi**  | Desteklenmiyor | S2S bağlantısı için önceden paylaşılan anahtar  | S2S bağlantısı için önceden paylaşılan anahtar  | S2S bağlantısı için önceden paylaşılan anahtar  |   
-| **S2S bağlantılarının maksimum sayısı**  | Desteklenmiyor | 10 | 10| 5|
+| **S2S bağlantılarının maksimum sayısı**  | Desteklenmiyor | 20 | 20| 10|
 |**Etkin yönlendirme desteği (BGP)** | Desteklenmiyor | Desteklenmiyor | Desteklenen | Desteklenen |
 
 ### <a name="gateway-subnet"></a>Ağ geçidi alt ağı

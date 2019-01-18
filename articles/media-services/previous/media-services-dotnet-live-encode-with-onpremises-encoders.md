@@ -1,6 +1,6 @@
 ---
-title: .NET kullanarak şirket içi kodlayıcılarda canlı akış gerçekleştirme | Microsoft Docs
-description: Bu konu, .NET şirket içi kodlayıcılarla gerçek zamanlı kodlama gerçekleştirmek için nasıl kullanılacağını gösterir.
+title: .NET kullanarak şirket içi kodlayıcılarla canlı akış gerçekleştirme | Microsoft Docs
+description: Bu konuda, .NET şirket içi kodlayıcılarla live encoding özelliğinin kullanımı gösterilmektedir.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,14 +14,14 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: cenkdin;juliako
-ms.openlocfilehash: 32d456aee83c6f7c6d5d242a1ce039e7e370c0fd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 493383583513f94689b30b5eca615005137da4a9
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788658"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382696"
 ---
-# <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>.NET kullanarak şirket içi kodlayıcılarda canlı akış gerçekleştirme
+# <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>.NET kullanarak şirket içi kodlayıcılarla canlı akış gerçekleştirme
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
@@ -29,14 +29,14 @@ ms.locfileid: "33788658"
 > 
 > 
 
-Bu öğretici, oluşturmak üzere Azure Media Services .NET SDK'sını kullanma adımları bir **kanal** doğrudan teslimat için yapılandırılmış. 
+Bu öğreticide, Azure Media Services .NET SDK kullanarak oluşturma adımları açıklanmaktadır bir **kanal** doğrudan teslimat için yapılandırılmış. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 Öğreticiyi tamamlamak için aşağıdakiler gereklidir:
 
 * Bir Azure hesabı.
 * Bir Media Services hesabı.    Bir Media Services hesabı oluşturmak için bkz. [Media Services hesabı oluşturma](media-services-portal-create-account.md).
-* Geliştirme ortamınızı ayarlayın. Daha fazla bilgi için bkz: [ortamınızı ayarlama](media-services-set-up-computer.md).
+* Geliştirme ortamınızı ayarlayın. Daha fazla bilgi için [ortamınızı ayarlama](media-services-set-up-computer.md).
 * Bir Web kamerası. Örneğin, [Telestream Wirecast kodlayıcı](http://www.telestream.net/wirecast/overview.htm).
 
 Aşağıdaki makaleleri gözden geçirmeniz için önerilir:
@@ -49,17 +49,17 @@ Aşağıdaki makaleleri gözden geçirmeniz için önerilir:
 Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md) bölümünde açıklandığı gibi bağlantı bilgileriyle doldurun. 
 
 ## <a name="example"></a>Örnek
-Aşağıdaki kod örneğinde aşağıdaki görevlerin nasıl yerine getirileceğini gösterilmektedir:
+Aşağıdaki kod örneği, aşağıdaki görevleri elde etmek gösterilmektedir:
 
 * Media Services’e bağlanmak
 * Kanal oluşturma
-* Kanal güncelleştir
-* Kanalın giriş uç noktası alamadı. Giriş uç noktası şirket içi gerçek zamanlı kodlayıcıya sağlanmalıdır. Gerçek zamanlı Kodlayıcı dönüştürür sinyalleri kameradan kanalın girişine gönderilen akışlara (uç noktasını alın).
-* Kanal Önizleme uç noktasını alın
+* Güncelleştirme kanalı
+* Kanalın giriş uç noktasını alın. Giriş uç noktası, şirket içi gerçek zamanlı kodlayıcıya sağlanmalıdır. Kanalın giriş gönderilen akışlara kameradan gerçek zamanlı Kodlayıcı dönüştürür sinyaller (uç noktasını alın).
+* Kanal Önizleme uç noktası alma
 * Oluşturma ve bir program başlatma
-* Program erişmek için gerekli bir Bulucu oluşturun
+* Program erişmek için gerekli bir Bulucu oluşturma
 * Oluşturma ve bir StreamingEndpoint başlatma
-* Akış uç noktasını güncelleyin
+* Akış uç noktası güncellenemedi
 * Kapatma kaynakları
 
 >[!IMPORTANT]
@@ -68,7 +68,7 @@ Aşağıdaki kod örneğinde aşağıdaki görevlerin nasıl yerine getirileceğ
 >[!NOTE]
 >Farklı AMS ilkeleri için sınır 1.000.000 ilkedir (örneğin, Bulucu ilkesi veya ContentKeyAuthorizationPolicy için). Uzun süre boyunca kullanılmak için oluşturulan bulucu ilkeleri gibi aynı günleri / erişim izinlerini sürekli olarak kullanıyorsanız, aynı ilke kimliğini kullanmalısınız (karşıya yükleme olmayan ilkeler için). Daha fazla bilgi için [bu makaleye](media-services-dotnet-manage-entities.md#limit-access-policies) bakın.
 
-Gerçek zamanlı Kodlayıcı yapılandırma hakkında daha fazla bilgi için bkz: [Azure Media Services RTMP desteği ve gerçek zamanlı kodlayıcılar](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
+Gerçek zamanlı bir kodlayıcı yapılandırma hakkında daha fazla bilgi için bkz: [Azure Media Services RTMP desteği ve gerçek zamanlı kodlayıcılar](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
 
 ```csharp
 using System;
@@ -149,6 +149,7 @@ namespace AMSLiveTest
 
         private static ChannelInput CreateChannelInput()
         {
+        // When creating a Channel, you can specify allowed IP addresses in one of the following formats: IpV4 address with 4 numbers, CIDR address range.
             return new ChannelInput
             {
                 StreamingProtocol = StreamingProtocol.RTMP,
@@ -171,6 +172,7 @@ namespace AMSLiveTest
 
         private static ChannelPreview CreateChannelPreview()
         {
+         // When creating a Channel, you can specify allowed IP addresses in one of the following formats: IpV4 address with 4 numbers, CIDR address range.
             return new ChannelPreview
             {
                 AccessControl = new ChannelAccessControl
@@ -391,7 +393,7 @@ namespace AMSLiveTest
 ```
 
 ## <a name="next-step"></a>Sonraki adım
-Gözden geçirme Media Services'i öğrenme yolları
+Media Services öğrenme yollarını gözden geçirin
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

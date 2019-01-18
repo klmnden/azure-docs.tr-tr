@@ -11,12 +11,12 @@ author: hning86
 ms.reviewer: larryfr
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4d201669bf627cf9b591958f3372760c0c990db9
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: e5f569d5561050c9993ec48b096f60595d44b1b1
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53808103"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391169"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning hizmetinin nasıl çalıştığı: Mimari ve kavramları
 
@@ -28,7 +28,7 @@ Bu makalede, mimari ve Azure Machine Learning hizmeti için kavramlar açıklan�
 
 1. Makine öğrenimi betiklerini Eğitim geliştirme **Python**.
 1. Oluşturma ve yapılandırma bir **hedef işlem**.
-1. **Komut Gönderme** ortamında çalıştırmak için yapılandırılmış işlem hedefine. Eğitim sırasında işlem hedef çalışma kayıtlara depolar. bir **veri deposu**. Kayıtlar var. kaydedilir bir **deneme**.
+1. **Komut Gönderme** ortamında çalıştırmak için yapılandırılmış işlem hedefine. Eğitim sırasında komut dosyaları okuyabilir ya da yazma **veri deposu**. Ve yürütme kayıtlarını kaydetme olarak **çalıştıran** içinde **çalışma**, üzerinden bölümlenmiş **deneme**.
 1. **Denemeyi sorgu** için ölçümleri geçerli ve geçmiş çalıştırmalardan oturum. Ölçümler istenilen bir sonucu göstermediği, geri adım 1 ve betiklerinizi üzerinde yineleme döngüsü.
 1. Tatmin edici bir çalıştırma bulunduktan sonra kalıcı modelde kaydetme **modeli kayıt defteri**.
 1. Puanlama betiği geliştirin.

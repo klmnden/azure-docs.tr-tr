@@ -9,33 +9,35 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 ms.tgt_pltfrm: na
-ms.date: 05/01/2018
+ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: b07c71a9365fca3a2e5d7c837acf689af980afdd
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 88f7135cea00b3e8c6cf30a1abd2b94297681c4c
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075830"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391127"
 ---
 # <a name="ocr-cognitive-skill"></a>OCR bilişsel beceri
 
+Optik karakter tanıma (OCR) beceri görüntü dosyaları yazdırılan ve el yazısı metinde tanır. Bu yetenek, makine öğrenimi modellerini tarafından sağlanan kullanan [görüntü işleme](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) Bilişsel Hizmetler'e gösterdiğiniz. **OCR** yetenek aşağıdaki işlevsellik eşler:
+
++ TextExtractionAlgorithm için "yazısı", olarak ayarlandığında ["RecognizeText"](../cognitive-services/computer-vision/quickstarts-sdk/csharp-hand-text-sdk.md) işlevi kullanılır.
++ TextExtractionAlgorithm için "yazdırılan" olarak ayarlandığında ["OCR"](../cognitive-services/computer-vision/concept-extracting-text-ocr.md) işlevselliği, İngilizce dışındaki diller için kullanılır. İngilizce, yeni ["Metin tanıma"](../cognitive-services/computer-vision/concept-recognizing-text.md) işlevselliği yazdırılan metin için kullanılır.
+
 **OCR** beceri görüntü dosyalarından metin ayıklar. Desteklenen dosya biçimleri şunlardır:
 
-+ . JPEG
++ .JPEG
 + . JPG
-+ . PNG
++ .PNG
 + . BMP
-+ . GIF
++ .GIF
 
 > [!NOTE]
-> 21 aralık 2018 tarihinden itibaren Bilişsel hizmetler kaynağı bir Azure Search beceri kümesi ile ilişkilendirmek mümkün olmayacak. Bu beceri yürütmesi için ücretlendirme başlatmak için bize izin verir. Bu tarihte, biz de belge çözme aşamasının bir parçası olarak görüntü ayıklama için başlayacağız. Belgelerden metin ayıklama işlemi ek masraf olmadan sağlanmaya devam edecektir.
+> Yapabilecekleriniz 21 aralık 2018 tarihinden itibaren [Bilişsel hizmetler kaynağı ekleme](cognitive-search-attach-cognitive-services.md) ile bir Azure Search beceri kümesi. Bu beceri yürütmesi için ücretlendirmeye başlarız olanak tanır. Bu tarihte, biz de belge çözme aşamasının bir parçası olarak görüntü ayıklama için ücretlendirme başladı. Metin ayıklama belgelerden hiçbir ek ücret ödemeden sunulmaya devam eder.
 >
-> Var olan konumunda yerleşik yetenek yürütülmesini ücretlendirilir [Bilişsel hizmetler ödeme-olarak-, Git fiyat](https://azure.microsoft.com/pricing/details/cognitive-services/) . Görüntü ayıklama fiyatlandırma Önizleme fiyatıyla ücretlendirilirsiniz ve üzerinde açıklanmıştır [Azure fiyatlandırma sayfasını arama](https://go.microsoft.com/fwlink/?linkid=2042400). Bilgi [daha fazla](cognitive-search-attach-cognitive-services.md).
->
->  OCR yetenek aşağıdaki bilişsel hizmetler işlevselliğini eşler: TextExtractionAlgorithm için "yazısı", olarak ayarlandığında ["RecognizeText"](../cognitive-services/computer-vision/quickstarts-sdk/csharp-hand-text-sdk.md) işlevi kullanılır.
->  TextExtractionAlgorithm için "yazdırılan" olarak ayarlandığında ["OCR"](../cognitive-services/computer-vision/concept-extracting-text-ocr.md) işlevselliği, İngilizce dışındaki diller için kullanılır. İngilizce, yeni ["Metin tanıma"](../cognitive-services/computer-vision/concept-recognizing-text.md) işlevselliği yazdırılan metin için kullanılır.
+> Yerleşik yetenek yürütmesi, var olan konumunda faturalandırılır bir Bilişsel hizmetler ücreti [ödeme-olarak-, go fiyat](https://azure.microsoft.com/pricing/details/cognitive-services/) . Üzerinde açıklandığı Önizleme fiyatlandırması şu anda faturalandırılır, bir Azure Search ücret olan görüntü ayıklama fiyatlandırma [Azure fiyatlandırma sayfasını arama](https://go.microsoft.com/fwlink/?linkid=2042400). 
 
 ## <a name="skill-parameters"></a>Yetenek parametreleri
 
@@ -58,7 +60,7 @@ Parametreler büyük/küçük harfe duyarlıdır.
 | Çıkış adı     | Açıklama                   |
 |---------------|-------------------------------|
 | metin          | Düz metin görüntüden ayıklanır.   |
-| layoutText    | Karmaşık tür, ayıklanan metin, hem de metnin bulunduğu konumu açıklar.|
+| layoutText    | Karmaşık tür, ayıklanan metin ve metnin bulunduğu konumu açıklar.|
 
 
 ## <a name="sample-definition"></a>Örnek tanımı
@@ -136,7 +138,7 @@ Parametreler büyük/küçük harfe duyarlıdır.
 
 Metin birleştirme için yaygın bir kullanım örneği görüntülerini (OCR beceri veya görüntünün bir açıklamalı alt yazı metni) değerinin metinsel gösterimini birleştirmek için bir belge içerik alanına olanağıdır. 
 
-Aşağıdaki örnek becerilerine oluşturur bir *merged_text* alan OCRed metnin her görüntülerinin yanı sıra, belgenizi metinsel içeriğini içerecek şekilde, bu belgede katıştırılmış. 
+Aşağıdaki örnek becerilerine oluşturur bir *merged_text* alan. Bu alan, belge ve bu belgeye görüntülerin her OCRed metin metinsel içeriği içerir. 
 
 #### <a name="request-body-syntax"></a>İstek Gövdesi Sözdizimi
 ```json

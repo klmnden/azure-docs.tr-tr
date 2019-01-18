@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 12/21/2018
+ms.date: 01/17/2018
 ms.author: sethm
 ms.reviewer: thoroet
-ms.openlocfilehash: fe64011991732c7493d8efd06516efc664b674a4
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 9c99de88ee1e3054a04512c72b9f9f41886663da
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53752784"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391071"
 ---
 # <a name="install-powershell-for-azure-stack"></a>Azure Stack için PowerShell'i yükleme
 
@@ -84,7 +84,7 @@ Gerekli sürümü yüklemeden önce önceden yüklenmiş tüm Azure Stack AzureR
 
 ## <a name="4-connected-install-powershell-for-azure-stack-with-internet-connectivity"></a>4. Bağlı: PowerShell'i Azure Stack için Internet bağlantısına sahip yükleyin.
 
-Azure Stack gerektirir **2018-03-01-karma** Azure Stack sürümü 1808 için API Sürüm profili. Profili yüklenerek elde edilen **AzureRM.Bootstrapper** modülü. Ayrıca, AzureRM modülleri için de Azure Stack özel PowerShell modüllerine yüklemeniz gerekir. Azure Stack PowerShell modüllerini gerektirir ve API Sürüm profili olduğunuz Azure Stack sürümüne bağlıdır çalışıyor.
+Azure Stack gerektirir **2018-03-01-karma** Azure Stack 1808 veya sonraki bir sürümü için API Sürüm profili. Profili yüklenerek elde edilen **AzureRM.Bootstrapper** modülü. Ayrıca, AzureRM modülleri için de Azure Stack özel PowerShell modüllerine yüklemeniz gerekir. Azure Stack PowerShell modüllerini gerektirir ve API Sürüm profili olduğunuz Azure Stack sürümüne bağlıdır çalışıyor.
 
 Geliştirme iş istasyonunuzda bu modülleri yüklemek için aşağıdaki PowerShell betiğini çalıştırın:
 
@@ -120,8 +120,19 @@ Geliştirme iş istasyonunuzda bu modülleri yüklemek için aşağıdaki PowerS
 > [!Note]
 > Azure Powershell'den yükseltmek **2017-03-09-profile** için **2018-03-01-karma**, lütfen [Geçiş Kılavuzu](https://github.com/azure/azure-powershell/blob/AzureRM/documentation/migration-guides/Stack/migration-guide.2.3.0.md).
 
+- Azure Stack 1811 veya üzeri.
 
-- Azure Stack 1808 veya üzeri.
+    ```PowerShell
+    # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet
+    Install-Module -Name AzureRm.BootStrapper
+
+    # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
+    Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
+
+    Install-Module -Name AzureStack -RequiredVersion 1.6.0
+    ```
+
+- Azure Stack 1809 veya önceki bir sürümü.
 
     ```PowerShell
     # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet
@@ -132,14 +143,6 @@ Geliştirme iş istasyonunuzda bu modülleri yüklemek için aşağıdaki PowerS
 
     Install-Module -Name AzureStack -RequiredVersion 1.5.0
     ```
-
-- Azure Stack 1807 veya önceki bir sürümü.
-
-  ```PowerShell
-  Install-Module -Name AzureRm.BootStrapper
-  Use-AzureRmProfile -Profile 2017-03-09-profile -Force
-  Install-Module -Name AzureStack -RequiredVersion 1.4.0
-  ```
 
 Aşağıdaki komutu çalıştırarak yüklemeyi doğrulayın:
 
@@ -175,7 +178,18 @@ Internet bağlantısına sahip bir bilgisayarda oturum açın ve Azure Stack sü
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRm.Storage -Path $Path -Force -RequiredVersion 5.0.4
     ```
 
-  - Azure Stack 1808 veya üzeri.
+  - Azure Stack 1811 veya üzeri.
+
+    ```PowerShell
+    Import-Module -Name PowerShellGet -ErrorAction Stop
+    Import-Module -Name PackageManagement -ErrorAction Stop
+
+    $Path = "<Path that is used to save the packages>"
+    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
+    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.6.0
+    ```
+
+  - Azure Stack 1809 veya önceki bir sürümü.
 
     ```PowerShell
     Import-Module -Name PowerShellGet -ErrorAction Stop
@@ -184,20 +198,6 @@ Internet bağlantısına sahip bir bilgisayarda oturum açın ve Azure Stack sü
     $Path = "<Path that is used to save the packages>"
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.5.0
-    ```
-
-  - Azure Stack 1807 veya önceki bir sürümü.
-
-    > [!Note]
-    1.2.11 yükseltme sürümünü görmek [Geçiş Kılavuzu](https://aka.ms/azspowershellmigration).
-
-    ```PowerShell
-    Import-Module -Name PowerShellGet -ErrorAction Stop
-    Import-Module -Name PackageManagement -ErrorAction Stop
-
-    $Path = "<Path that is used to save the packages>"
-    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 1.2.11
-    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.4.0
     ```
 
 2. İndirilen paketler bir USB cihazına kopyalayın.

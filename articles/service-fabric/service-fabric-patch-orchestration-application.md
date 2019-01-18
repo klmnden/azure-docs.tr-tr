@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 58e853a3e9df0c3ba78b41f0c62e37bbcc3cdb5a
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 6bd71b7cecfb8a5decd3049152a2293dc7867bde
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754042"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382726"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric kümenizi Windows işletim sistemi düzeltme eki
 
@@ -141,7 +141,7 @@ Aynı anda birden çok küme düğümüne yeniden başlatabilirsiniz çünkü Wi
 
 Uygulamayı yükleme betikleri ile birlikte gelen indirilebilir [arşiv bağlantı](https://go.microsoft.com/fwlink/?linkid=869566).
 
-Uygulama sfpkg biçimde nden indirilebilir [sfpkg bağlantı](https://aka.ms/POA/POA_v1.2.2.sfpkg). Bu için kullanışlı gelir [Azure Resource Manager tabanlı uygulama dağıtımı](service-fabric-application-arm-resource.md).
+Uygulama sfpkg biçimde nden indirilebilir [sfpkg bağlantı](https://aka.ms/POA/POA.sfpkg). Bu için kullanışlı gelir [Azure Resource Manager tabanlı uygulama dağıtımı](service-fabric-application-arm-resource.md).
 
 ## <a name="configure-the-app"></a>Uygulamayı yapılandırma
 
@@ -153,11 +153,11 @@ Düzeltme eki düzenleme uygulamanın davranış şekli, gereksinimlerinizi kar�
 |TaskApprovalPolicy   |Sabit listesi <br> {NodeWise, UpgradeDomainWise}                          |Service Fabric küme düğümleri arasında Windows güncelleştirmeleri yüklemek için Düzenleyici hizmeti tarafından kullanılacak olan ilke TaskApprovalPolicy gösterir.<br>                         İzin verilen değerler şunlardır: <br>                                                           <b>NodeWise</b>. Windows güncelleştirme yüklü tek bir düğüm bir kerede olur. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update, aynı anda yüklü bir yükseltme etki alanıdır. (En bir yükseltme etki alanına ait olan tüm düğümleri için Windows Update gidebilirsiniz.)<br> Başvurmak [SSS](#frequently-asked-questions) , uygun ilke kümeniz için en iyi olduğuna karar vermeye yönelik bölümü.
 |LogsDiskQuotaInMB   |Uzun  <br> (Varsayılan: 1024)               |Yerel olarak düğümlerinde kalıcı MB, düzeltme eki düzenleme uygulama en büyük boyutunu kaydeder.
 | WUQuery               | dize<br>(Varsayılan: "IsInstalled = 0")                | Windows güncelleştirmeleri almak için sorgulayın. Daha fazla bilgi için [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
-| InstallWindowsOSOnlyUpdates | Boole <br> (varsayılan: Doğru)                 | Bu bayrak yüklenecek Windows işletim sistemi güncelleştirmeleri sağlar.            |
+| InstallWindowsOSOnlyUpdates | Boole <br> (varsayılan: true)                 | Hangi güncelleştirmelerin indirilmesi ve yüklenmesi denetlemek için bu bayrağı kullanın. Aşağıdaki değerlerine izin verilir. <br>TRUE - yalnızca Windows işletim sistemi güncelleştirmeleri yükler.<br>false - makinede sağlanan tüm güncelleştirmeleri yükler.          |
 | WUOperationTimeOutInMinutes | Int <br>(Varsayılan: 90)                   | (Arama ya da indirme veya yükleme) herhangi bir Windows güncelleştirme işlemi için zaman aşımını belirtir. İşlemi belirtilen süre içinde tamamlanmazsa, iptal edildi.       |
 | WURescheduleCount     | Int <br> (Varsayılan: 5)                  | Bir işlem kalıcı olarak başarısız olması durumunda en fazla kaç kez Windows hizmeti tarih değiştirdiğinde güncelleştirin.          |
 | WURescheduleTimeInMinutes | Int <br>(Varsayılan: 30) | Hata devam ederse durumunda, hizmet Windows update tarih değiştirdiğinde aralığı. |
-| WUFrequency           | Virgülle ayrılmış bir dize (varsayılan: "Haftalık, Çarşamba, 7:00:00")     | Windows güncelleştirme sıklığı. Biçim ve olası değerler şunlardır: <br>-Örneğin, aylık, 5, 12 aylık, gg ss: 22:32. <br> -Örneğin, haftalık, Salı, 12:22:32 için haftalık, gün, ss.  <br> -Örneğin, günlük, 12:22:32 günlük, ss.  <br> -Hiçbiri, Windows güncelleştirme yapılması olmamalıdır belirtir.  <br><br> Saatleri UTC biçiminde olduğunu unutmayın.|
+| WUFrequency           | Virgülle ayrılmış bir dize (varsayılan: "Haftalık, Çarşamba, 7:00:00")     | Windows güncelleştirme sıklığı. Biçim ve olası değerler şunlardır: <br>-Örneğin, aylık, 5, 12 aylık, gg ss: 22:32.<br>Alanın değerlerini izin gg (gün) olan numaraları arasındaki aralığı 1-28 "son". <br> -Örneğin, haftalık, Salı, 12:22:32 için haftalık, gün, ss.  <br> -Örneğin, günlük, 12:22:32 günlük, ss.  <br> -Hiçbiri, Windows güncelleştirme yapılması olmamalıdır belirtir.  <br><br> Saatleri UTC biçiminde olduğunu unutmayın.|
 | AcceptWindowsUpdateEula | Boole <br>(Varsayılan: true) | Bu bayrak ayarlandığında, uygulamayı Windows güncelleştirmesi için son kullanıcı lisans sözleşmesi makinenin sahibi adına kabul eder.              |
 
 > [!TIP]
@@ -397,8 +397,14 @@ Bir yönetici, müdahale ve uygulama veya küme neden Windows güncelleştirmesi
 
 - Küme ölçek azaltma iş akışında hata düzeltmesi. Çöp toplama mantıksal var olmayan düğümlerine ait POA onarım görevler için kullanıma sunuldu.
 
-### <a name="version-122-latest"></a>Sürüm 1.2.2 (son sürüm)
+### <a name="version-122"></a>Sürüm 1.2.2
 
 - Çeşitli hata düzeltmeleri.
 - İkili dosyaları artık imzalanmıştır.
-- sfpkg indirme bağlantısı artık belirli bir sürüme işaret eder.
+- Uygulama için sfpkg bağlantısı eklendi.
+
+### <a name="version-130"></a>Sürüm 1.3.0
+
+- False olarak InstallWindowsOSOnlyUpdates ayarı artık kullanılabilir tüm güncelleştirmeleri yükler.
+- Otomatik Güncelleştirmeler devre dışı bırakma mantığı değiştirildi. Bu, burada otomatik güncelleştirmeler Server 2016 ve üzeri devre dışı değil bir hatayı düzeltir.
+- Her iki Gelişmiş usecases için POA, mikro hizmetler için parametreli yerleştirme kısıtlaması.

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: cf3c30d33e618ae3fd9d4ad942c77d211a414e82
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 208526b745a117c9ee14bab21f8a5ce05accd1fe
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601160"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382235"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---docker"></a>Uzaktan izleme çözüm Hızlandırıcısını yerel olarak - Docker dağıtma
 
@@ -35,7 +35,7 @@ Yerel dağıtımını tamamlamak için aşağıdaki araçları, yerel geliştirm
 
 * [Git](https://git-scm.com/)
 * [Docker](https://www.docker.com)
-* [Visual Studio](https://visualstudio.microsoft.com/)
+* [Visual Studio](https://visualstudio.microsoft.com/) -, mikro hizmetler için değişiklik yapmayı düşünüyorsanız.
 * [Node.js v8](https://nodejs.org/) -bu yazılımları Azure kaynaklarını oluşturmayı betiklerini kullanan bilgisayarları CLI önkoşuldur. Node.js v10 kullanmayın.
 
 > [!NOTE]

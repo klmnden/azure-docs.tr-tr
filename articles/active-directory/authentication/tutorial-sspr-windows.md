@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 5c40e6c681a4f37c61519040eb32531d3c8f071c
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 3065a003dfe318aeffaee2ecd052fce97105f52a
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437155"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390559"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Öğretici: Oturum açma ekranından Azure AD parola sıfırlama
 
@@ -32,6 +32,7 @@ Bu öğreticide kullanıcıların parolalarını Windows 10 oturum açma ekranı
    * [Azure AD'ye katılmış makine](../device-management-azure-portal.md) veya
    * [Hibrit Azure AD'ye katıldı makine](../device-management-hybrid-azuread-joined-devices-setup.md), bir etki alanı denetleyicisine ağ bağlantısı ile.
 * Azure AD self servis parola sıfırlama etkinleştirilmelidir.
+* Windows 10 makinelerinizi bir proxy sunucusu veya güvenlik duvarı ise HTTPS (443) için trafiği. `passwordreset.microsoftonline.com` ve `ajax.aspnetcdn.com` izin verilmelidir.
 
 ## <a name="configure-reset-password-link-using-intune"></a>Intune'u kullanarak Parolayı sıfırla bağlantısını yapılandırma
 
@@ -126,8 +127,6 @@ Aşağıdaki ilke ayarlarını parolalarını sıfırlama olanağı müdahale bi
    * Explorer.exe özel bir kabuk ile değiştirilir
 
 Bu özellik, dağıtılan 802.1 x ağ kimlik doğrulaması ağlarla ve "Kullanıcı oturum açma işleminden hemen önce gerçekleştir" seçeneği için çalışmaz. 802.1 x ağ kimlik doğrulaması dağıtmış olan ağlar için bu özelliği etkinleştirmek için makine kimlik doğrulaması kullanmak için önerilir.
-
-Windows 10 makinelerinizi bir ara sunucu veya güvenlik duvarı arkasında ise, passwordreset.microsoftonline.com ve ajax.aspnetcdn.com adreslerine yönelik HTTPS trafiğine (443) izin verilmelidir.
 
 SSPR iş akışı bir Active Directory etki alanı denetleyicisi gerek kalmadan nerede tamamlayacak bir senaryo karma etki alanına katılmış senaryoları için var. Bir etki alanı denetleyicisi ile bağlantı, yeni parola ilk kez kullanmak için gereklidir.
 

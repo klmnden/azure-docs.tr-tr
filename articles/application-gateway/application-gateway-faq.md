@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 1/11/2019
 ms.author: victorh
-ms.openlocfilehash: d80e1394d4c4159c17eabff93ff44fdefbaf21b7
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 45751af66b1b050d4d36d1b8aee52dc6a5d8cc7b
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247512"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382403"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Application Gateway için sık sorulan sorular
 
@@ -213,22 +213,6 @@ Kapalı kalma süresi yoktur. Örnekleri, yükseltme etki alanları ve hata etki
 ### <a name="does-application-gateway-support-connection-draining"></a>Application Gateway bağlantı boşaltma destekliyor mu?
 
 Evet. Bağlantı boşaltma kesintiye uğratmadan arka uç havuzundaki üyelerini değiştirmek için yapılandırabilirsiniz. Bu, bu bağlantı kapalı ya da yapılandırılabilir bir zaman aşımı süresi kadar önceki hedeflerine gönderilecek devam etmek var olan bağlantılara izin verir. Yalnızca bağlantı boşaltma tamamlamak geçerli uçuşan bağlantıları için bekler. Uygulama ağ geçidi uygulaması oturum durumunu uyumlu değildir.
-
-### <a name="what-are-application-gateway-sizes"></a>Uygulama ağ geçidi boyutları nelerdir?
-
-Uygulama ağ geçidi, şu anda üç büyüklükte sunulmaktadır: **Küçük**, **orta**, ve **büyük**. Küçük örnek boyutları, geliştirme ve test senaryolarına yöneliktir.
-
-Application Gateway limitlerinin tam listesi için bkz. [Application Gateway hizmet limitleri](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
-
-Aşağıdaki tabloda, SSL boşaltmasının etkin olduğu her bir Application Gateway örneği için ortalama performans aktarım hızı gösterilmiştir:
-
-| Ortalama arka uç sayfa yanıtı boyutu | Küçük | Orta | Büyük |
-| --- | --- | --- | --- |
-| 6 KB |7,5 Mbps |13 Mbps |50 Mbps |
-| 100 KB |35 Mbps |100 Mbps |200 Mbps |
-
-> [!NOTE]
-> Bu değerler bir uygulama ağ geçidi verimliliği için yaklaşık değerlerdir. Gerçek verimlilik; ortalama sayfa boyutu, arka uç örneklerinin konumu ve bir sayfaya hizmet etmek için işleme süresi gibi çeşitli ortam ayrıntılarına bağlıdır. Tam performans rakamlarına ulaşmak için kendi testlerinizi çalıştırmanız gerekir. Bu değerler yalnızca kapasite planlama konusunda yardımcı olmak için verilmiştir.
 
 ### <a name="can-i-change-instance-size-from-medium-to-large-without-disruption"></a>Örnek boyutu ortamından kesintiye uğratmadan büyük değiştirebilirim?
 

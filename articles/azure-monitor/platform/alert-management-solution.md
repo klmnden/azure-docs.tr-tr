@@ -13,16 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 1dee53f633d8b5edf893e2f6c83430d7c1a69022
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 06532369efb802606eb13a4b38a8579a3528f999
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341601"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382946"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Azure Log analytics'teki uyarı yönetimi çözümü
 
 ![Uyarı Yönetimi simgesi](media/alert-management-solution/icon.png)
+
+> [!NOTE]
+>  Destekleyen gelişmiş yetenekleri için artık azure İzleyici [uygun ölçekte uyarılarınızı yönetme](https://aka.ms/azure-alerts-overview), tarafından oluşturulan dahil olmak üzere [izleme araçları SCOM, Zabbix veya Nagios gibi](https://aka.ms/managing-alerts-other-monitoring-services).
+>  
+
 
 Uyarı yönetimi çözümü tüm uyarıları Log Analytics deponuzdaki analiz etmenize yardımcı olur.  Bu uyarılar bir çeşitli kaynaklardan kaynaklar dahil olmak üzere gelmiş olabilir [Log Analytics tarafından oluşturulan](../../azure-monitor/platform/alerts-overview.md) veya [Nagios veya Zabbix içeri aktarılan](../../azure-monitor/learn/quick-collect-linux-computer.md). Çözüm ayrıca uyarılar herhangi aktarır [bağlı System Center Operations Manager Yönetim grupları](../../azure-monitor/platform/om-agents.md).
 

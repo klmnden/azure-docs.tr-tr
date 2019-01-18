@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: a5619db18ef326b160bf9f4a1fbacbd6b3e9f012
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 4e3a79c28fc0e67fbf22e4d0fde3de9528d3edf4
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319469"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382630"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - sık sorulan sorular
 Bu makalede, Azure Backup hizmeti hakkında sık sorulan sorular yanıtlanmaktadır.
@@ -230,7 +230,7 @@ Yeni bir ilke uygulandığında yeni ilkenin zamanlama ve ardından.
 
 ### <a name="is-the-data-sent-to-azure-encrypted"></a>Veriler Azure'a şifreli olarak mı gönderilir?
 
-Evet. Veriler AES256 kullanılarak şirket içi makinede şifrelenir. Veriler güvenli bir HTTPS bağlantısı üzerinden gönderilir.
+Evet. Veriler AES256 kullanılarak şirket içi makinede şifrelenir. Veriler güvenli bir HTTPS bağlantısı üzerinden gönderilir. Bulutta aktarılan veri depolama ve kurtarma hizmeti arasında yalnızca HTTPS bağlantısı korunur. iSCSI protokolü kurtarma hizmeti ve kullanıcı makine arasında aktarılan verilerin güvenliğini sağlar. Güvenli bir tünel iSCSI kanalı korumak için kullanılır.
 
 ### <a name="is-the-backup-data-on-azure-encrypted-as-well"></a>Azure üzerindeki yedekleme verileri de şifreli midir?
 

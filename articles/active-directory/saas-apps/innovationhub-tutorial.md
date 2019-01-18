@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/14/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 293c08a81ba675d42cd0e9f715e988b2186deb3d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: cc0b97eb794389989071fc4dec1d81e909d53a54
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794082"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390098"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-innoverse"></a>Öğretici: Innoverse ile Azure Active Directory Tümleştirme
 
@@ -79,8 +79,8 @@ Yapılandırma ve Azure AD çoklu oturum açma Innoverse ile test etmek için a�
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 2. **[Innoverse çoklu oturum açmayı yapılandırma](#configure-innoverse-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
 3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-4. **[Innoverse test kullanıcısı oluşturma](#create-innoverse-test-user)**  - kullanıcı Azure AD gösterimini bağlı Innoverse Britta simon'un bir karşılığı vardır.
-5. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Innoverse test kullanıcısı oluşturma](#create-innoverse-test-user)**  - kullanıcı Azure AD gösterimini bağlı Innoverse Britta simon'un bir karşılığı vardır.
 6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
@@ -114,7 +114,7 @@ Azure AD çoklu oturum açma ile Innoverse yapılandırmak için aşağıdaki ad
     ![Innoverse etki alanı ve URL'ler tek oturum açma bilgileri](common/metadata_upload_additional_signon.png)
 
     İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:  `https://<domainname>.innover.se/auth/saml2/login`
-    
+
     > [!NOTE]
     > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. İlgili kişi [Innoverse istemci Destek ekibine](mailto:support@readify.net) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 

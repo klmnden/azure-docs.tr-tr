@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 11/26/2018
+ms.date: 01/17/2019
 ms.author: alkohli
-ms.openlocfilehash: fb2ec4802ad2ecf25a8fca031553c8209dc4267d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 460a05ac25ca4af56b81fb2025e0886c7bda3070
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791328"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391154"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Öğretici: Kablo ve Azure Data Box için bağlanın
 
@@ -40,7 +40,7 @@ Başlamadan önce aşağıdakilerden emin olun:
     - Yüksek hızlı ağa bağlısınız. En az bir adet 10 GbE bağlantınızın olması önemle tavsiye edilir. 10 GbE bağlantı yoksa, 1 GbE veri bağlantısı kullanılabilir ancak kopyalama hızı etkilenir. 
 6. Data Box’ı yerleştirebileceğiniz düz bir yüzeye erişiminiz olmalıdır. Cihazı standart bir rafa yerleştirmek istiyorsanız, veri merkezi rafınızda bir 7U yuvası olmalıdır. Cihazı düz veya dik şekilde rafa yerleştirebilirsiniz.
 7. Data Box'ınızı ana bilgisayara bağlamak için aşağıdaki kabloları temin ettiniz.
-    - İki adet 10 GbE SFP+ Twinax bakır kablo (DATA 1, DATA 2 ağ arabirimleri ile kullanın)
+    - İki 10 GbE SFP + Twinax kabloları (veri 1, veri 2 ağ arabirimi ile kullanın) Bakır. Bu arabirimiyle uyumlu olan kabloları çalışması gerekir böylece veri kutusu Mellanox ConnectX®-3 Pro tr çift bağlantı noktası 10GBASE T bağdaştırıcıları PCI Express 3.0 ağ arabirimi sahiptir. Örneğin, bir CISCO SFP H10GB CU3M 10GBASE CU TWINMAX SFP + 3 M kablo inhouse sınama amacıyla kullanılmıştır.
     - Bir RJ-45 CAT 6 ağ kablosu (MGMT ağ arabirimi ile kullanın)
     - Bir RJ-45 CAT 6A VEYA bir RJ-45 CAT 6 ağ kablosu (sırasıyla 10 Gb/sn veya 1 Gb/sn olarak yapılandırılmış DATA 3 ağ arabirimi ile birlikte kullanın)
 

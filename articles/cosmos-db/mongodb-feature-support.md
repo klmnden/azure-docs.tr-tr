@@ -7,14 +7,14 @@ ms.topic: overview
 ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 08638f0b55c84a6b0e42d3782246ef5b2ce833f3
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: ed440b5d4a95689c6b6d9f1986dfe35ea47e4298
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359077"
+ms.locfileid: "54390370"
 ---
-# <a name="use-azure-cosmos-dbs-api-for-mongodb-support-for-mongodb-features-and-syntax"></a>MongoDB özellikleri ve söz dizimi için MongoDB desteği için Azure Cosmos DB'nin API'sini kullanın.
+# <a name="azure-cosmos-dbs-api-for-mongodb-supported-features-and-syntax"></a>Azure Cosmos DB'nin MongoDB API'si: desteklenen özellikleri ve söz dizimi
 
 Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Herhangi bir açık kaynak MongoDB istemcisi kullanarak MongoDB için Azure Cosmos DB API'si ile iletişim kurabilir [sürücüleri](https://docs.mongodb.org/ecosystem/drivers). Azure Cosmos DB MongoDB API'si, Mongodb'ye bağlı kalarak mevcut istemci sürücülerin kullanımını etkinleştirir [wire Protokolü](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 

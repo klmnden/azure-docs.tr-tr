@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/19/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 5be86017926e09b5db5fd08f1c33d316b9031bc4
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 197bff0b41c8a237006cf5e7ae6b6f7929bbba45
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264300"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390759"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>Öğretici: Salesforce ile Azure Active Directory Tümleştirme
 
@@ -82,8 +82,8 @@ Yapılandırma ve Azure AD çoklu oturum açma Salesforce ile test etmek için a
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 2. **[Salesforce çoklu oturum açmayı yapılandırma](#configure-salesforce-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
 3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-4. **[Salesforce test kullanıcısı oluşturma](#create-salesforce-test-user)**  - kullanıcı Azure AD gösterimini bağlı Salesforce Britta simon'un bir karşılığı vardır.
-5. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Salesforce test kullanıcısı oluşturma](#create-salesforce-test-user)**  - kullanıcı Azure AD gösterimini bağlı Salesforce Britta simon'un bir karşılığı vardır.
 6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
@@ -242,7 +242,7 @@ Bu bölümde, Azure çoklu oturum açma Salesforce'a erişim vererek kullanmak B
 
 Bu bölümde, Salesforce'ta Britta Simon adlı bir kullanıcı oluşturuldu. Salesforce tam zamanında sağlama, varsayılan olarak etkin olduğu destekler. Bu bölümde, hiçbir eylem öğesini yoktur. Salesforce erişmeye çalıştığında, Salesforce'ta bir kullanıcı zaten mevcut değilse yeni bir tane oluşturulur. Salesforce da destekler otomatik kullanıcı hazırlama, daha fazla ayrıntı bulabilirsiniz [burada](salesforce-provisioning-tutorial.md) otomatik kullanıcı sağlamayı yapılandırma.
 
-### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 

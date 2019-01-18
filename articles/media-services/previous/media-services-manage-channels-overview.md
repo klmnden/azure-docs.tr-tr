@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: juliako
-ms.openlocfilehash: 9e8dc926fd796e82ea531aba6cb3a682649dff41
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 3814041359884fc2862b0e90a58aabd1ad26c4cb
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42056185"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382134"
 ---
 # <a name="overview-of-live-streaming-using-azure-media-services"></a>Azure Media Services'i kullanarak canlı akış genel bakış
 
@@ -27,6 +27,7 @@ ms.locfileid: "42056185"
 > Canlı kanallar 12 Mayıs 2018 tarihinden itibaren artık RTP/MPEG-2 aktarım akışı destek alma protokolü. Lütfen RTP/MPEG-2'den RTMP veya parçalanmış MP4'e geçiş (kesintisiz akış) alma protokolleri.
 
 ## <a name="overview"></a>Genel Bakış
+
 Azure Media Services ile etkinliklerin canlı akış sunarken aşağıdaki bileşenler yaygın olarak kullanılır:
 
 * Etkinliği yayınlamak için kullanılan bir kamera.
@@ -43,7 +44,7 @@ Azure Media Services ile etkinliklerin canlı akış sunarken aşağıdaki bile�
 
 **Microsoft Azure Media Services** (AMS) canlı akış içeriğinizi alma, kodlama, önizleme, depolama ve teslim etme olanağı sağlar.
 
-İçeriğinizi müşterilere teslim ederken hedefiniz, farklı ağ koşulları altındaki çeşitli cihazlara yüksek kaliteli bir video sunmaktır. Bunu başarmak için gerçek zamanlı kodlayıcılar kullanarak akışınızı Çoklu bit hızlı (bit hızı Uyarlamalı) video akışına kodlayın kullanın.  Farklı cihazlarda akış yapmayı halletmek için Media Services [dinamik paketlemesini](media-services-dynamic-packaging-overview.md) kullanarak akışınızı dinamik olarak yeniden farklı protokollere paketleyin. Media Services şu bit hızı uyarlamalı akış teknolojilerinin dağıtımını destekler: HTTP Canlı Akışı (HLS), Kesintisiz Akış, MPEG DASH.
+İçeriğinizi müşterilere teslim ederken hedefiniz, farklı ağ koşulları altındaki çeşitli cihazlara yüksek kaliteli bir video sunmaktır. Bunu başarmak için gerçek zamanlı kodlayıcılar kullanarak akışınızı Çoklu bit hızlı (bit hızı Uyarlamalı) video akışına kodlayın kullanın.  Farklı cihazlarda akış yapmayı halletmek için Media Services [dinamik paketlemesini](media-services-dynamic-packaging-overview.md) kullanarak akışınızı dinamik olarak yeniden farklı protokollere paketleyin. Media Services teslim aşağıdaki hızı Uyarlamalı akış teknolojilerini destekler: HTTP canlı akış (HLS), kesintisiz akış, MPEG DASH.
 
 Azure Media Services’de **Kanallar**, **Programlar** ve **Akış Uç Noktaları**; alma biçimlendirme, DVR, güvenlik, ölçeklenebilirlik ve yedeklilik dahil olmak üzere tüm canlı akış işlevlerini idare eder.
 
@@ -55,7 +56,7 @@ Azure Media Services’de **Kanallar**, **Programlar** ve **Akış Uç Noktalar�
   > Uzun bir dönem içerisinde birden çok etkinlik gerçekleştirecekseniz ve zaten şirket içi kodlayıcılara yatırım yaptıysanız, doğrudan geçiş yöntemini kullanmak canlı akış yapmanın en ekonomik yoludur. [Fiyatlandırma](https://azure.microsoft.com/pricing/details/media-services/) detaylarına bakın.
   > 
   > 
-* Bir şirket içi Canlı Kodlayıcı aşağıdaki biçimlerden birinde Media Services ile gerçek zamanlı kodlama gerçekleştirmek için etkinleştirilmiş kanala tek bit hızlı akış gönderir: RTMP veya kesintisiz akış (parçalanmış MP4). Şu gerçek zamanlı kodlayıcılar RTMP çıktısı ile bu tür kanallarla çalışmayı bilinen: Telestream Wirecast, FMLE. Ardından Kanal, gelen tek bit hızlı akışın çoklu bit hızlı (uyarlamalı) bir video akışına gerçek zamanlı kodlanmasını gerçekleştirir. İstendiğinde, Media Services akışı müşterilere teslim eder.
+* Bir şirket içi Canlı Kodlayıcı, aşağıdaki biçimlerden birinde Media Services ile gerçek zamanlı kodlama gerçekleştirmek için etkinleştirilmiş kanala tek bit hızlı akış gönderir: RTMP veya kesintisiz akış (parçalanmış MP4). Şu gerçek zamanlı kodlayıcılar RTMP çıktısı ile bu tür kanallarla çalışmayı bilinmektedir: Telestream Wirecast, FMLE. Ardından Kanal, gelen tek bit hızlı akışın çoklu bit hızlı (uyarlamalı) bir video akışına gerçek zamanlı kodlanmasını gerçekleştirir. İstendiğinde, Media Services akışı müşterilere teslim eder.
 
 Kanal oluşturduğunuzda Media Services 2.10 sürüm ile başlayarak, kanalın akışınız gerçek zamanlı kodlama gerçekleştirmek için istediğiniz olup olmadığını ve hangi yolla kanalınızı giriş akışını almak istediğiniz belirtebilirsiniz. İki seçeneğiniz vardır:
 
@@ -63,6 +64,7 @@ Kanal oluşturduğunuzda Media Services 2.10 sürüm ile başlayarak, kanalın a
 * **Standart** – tek bit hızlı Canlı akışınızı Çoklu bit hızı akışına kodlama için Media Services kullanmayı planlıyorsanız, bu değeri seçin. Bu yöntem, sık erişilmeyen olayları hızla ölçek artırmaya yönelik daha ekonomiktir. Gerçek zamanlı kodlama için fatura bir etkisi yoktur ve bir canlı kodlama kanal "Çalışıyor" durumda bırakır fatura ücretler ödeyeceğinizi unutmayın unutmayın.  Ek saatlik ücretlerden kaçınmak için Canlı etkinlik akışı tamamlandıktan sonra hemen çalışan kanallarınızın durdurmanız önerilir.
 
 ## <a name="comparison-of-channel-types"></a>Kanal türlerinden karşılaştırması
+
 Aşağıdaki tabloda Media Services'da desteklenen iki kanallı türlerini karşılaştırma için bir kılavuz sağlar
 
 | Özellik | Doğrudan geçiş kanalı | Standart kanal |
@@ -80,6 +82,7 @@ Aşağıdaki tabloda Media Services'da desteklenen iki kanallı türlerini karş
 | Otomatik akışı kapatmaya kanal zaman giriş kayboluyor |Hayır |12 çalışan bir Program yok ise saat sonra |
 
 ## <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>Şirket içi kodlayıcılardan çoklu bit hızlı canlı akış alan Kanallar ile çalışma (doğrudan geçiş)
+
 Aşağıdaki diyagramda, AMS platformunun **doğrudan geçiş** iş akışında rol oynayan başlıca parçaları gösterilmektedir.
 
 ![Canlı iş akışı](./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png)
@@ -87,6 +90,7 @@ Aşağıdaki diyagramda, AMS platformunun **doğrudan geçiş** iş akışında 
 Daha fazla bilgi için bkz. [Şirket İçi Kodlayıcılardan Çoklu Bit Hızlı Canlı Akış Alan Kanallar ile Çalışma](media-services-live-streaming-with-onprem-encoders.md).
 
 ## <a name="working-with-channels-that-are-enabled-to-perform-live-encoding-with-azure-media-services"></a>Azure Media Services ile gerçek zamanlı kodlama gerçekleştirmek için etkinleştirilmiş Kanallar ile çalışma
+
 Aşağıdaki diyagramda, AMS platformunun bir Kanalın, Media Services ile kodlama gerçekleştirmek için etkinleştirildiği Canlı Akış iş akışında rol oynayan başlıca parçaları gösterilmektedir.
 
 ![Canlı iş akışı](./media/media-services-live-streaming-workflow/media-services-live-streaming-new.png)
@@ -94,12 +98,16 @@ Aşağıdaki diyagramda, AMS platformunun bir Kanalın, Media Services ile kodla
 Daha fazla bilgi için bkz. [Azure Media Services ile Gerçek Zamanlı Kodlama Gerçekleştirmek İçin Etkinleştirilmiş Kanallar ile Çalışma](media-services-manage-live-encoder-enabled-channels.md).
 
 ## <a name="description-of-a-channel-and-its-related-components"></a>Bir kanal ve ilgili bileşenlerini açıklaması
+
 ### <a name="channel"></a>Kanal
+
 Medya Hizmetleri'nde [kanal](https://docs.microsoft.com/rest/api/media/operations/channel)s canlı akış içeriğinin işlemekten sorumlu. Bir kanalın giriş uç noktası sağlar (alma URL'si) için Canlı bir işlenmesinde ardından sağlayın. Kanal, Canlı giriş akışları Canlı işlenmesinde alır ve bir veya daha fazla Akış akış için kullanılabilir hale getirir. Kanalları da daha fazla işleme edip teslime geçmeden önce akışınızı onaylama için kullandığınız bir önizleme uç noktası (Önizleme URL'si) sağlar.
 
 Kanıl oluşturduğunuzda alma URL'si ve önizleme URL'sini alabilirsiniz. Bu URL'ler almak için kanal başlatılmış durumda olması gerekmez. Kanal canlı bir işlenmesinde veri göndermeye başlamak hazır olduğunuzda, kanal başlatılması gerekir. Veri alma, Canlı işlenmesinde başladıktan sonra akışınızın önizlemesini.
 
 Her bir Media Services hesabı, birden çok kanalda, birden çok programları ve birden çok akış içerebilir. Bant genişliği ve güvenlik gereksinimlerine bağlı olarak, bir veya daha fazla kanala StreamingEndpoint Hizmetleri ayrılabilir. Herhangi bir kanaldan herhangi StreamingEndpoint çekmeden.
+
+Bir kanal oluşturulması, izin verilen IP adresleri aşağıdaki biçimlerden birinde belirtebilirsiniz: IPv4 adresi 4 sayılarla CIDR adres aralığı.
 
 ### <a name="program"></a>Program
 A [Program](https://docs.microsoft.com/rest/api/media/operations/program) yayımlanması ve depolanmasını Canlı akıştaki segmentlerin denetlemenizi sağlar. Kanallar, Programları yönetir. Kanal ve Program arasındaki ilişki, kanalın sürekli bir içerik akışının bulunduğu ve programın bu kanalda zamanlanmış bir olayı kapsadığı geleneksel medyadaki ilişkiye benzer.

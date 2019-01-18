@@ -5,21 +5,21 @@ services: iot-accelerators
 author: avneet723
 ms.service: iot-accelerators
 ms.topic: include
-ms.date: 10/29/2018
+ms.date: 01/17/2019
 ms.author: avneet723
 ms.custom: include file
-ms.openlocfilehash: 900d75f826830ea7336044a892506d3bec546e30
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: d4da1597ebed6c27cf6c12bab4a4e59be742c577
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283940"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54383112"
 ---
 ## <a name="download-the-source-code"></a>Kaynak kodunu indirebilir
 
-Uzaktan izleme kaynak kodu depoları, mikro Hizmetleri Docker görüntülerini çalıştırmak için gereken Docker yapılandırma dosyalarını içerir.
+Uzaktan izleme kaynak kodu depoları, kaynak kodu ve mikro Hizmetleri Docker görüntülerini çalıştırmak için gereken Docker yapılandırma dosyalarını içerir.
 
-Kopyalamak ve depoya yerel bir sürümünü oluşturmak için yerel makinenizde uygun bir klasöre gitmek için komut satırı ortamı kullanın. Ardından .NET veya Java depo komut ya da kopyalamak için aşağıdaki adımlardan birini çalıştırın:
+Kopyalamak ve depoya yerel bir sürümünü oluşturmak için yerel makinenizde uygun bir klasöre gitmek için komut satırı ortamı kullanın. Daha sonra .NET deposu komutların ya da kopyalamak için aşağıdaki adımlardan birini çalıştırın:
 
 .NET mikro hizmet uygulamaları en son sürümünü indirmek için çalıştırın:
 
@@ -32,7 +32,7 @@ cd azure-iot-pcs-remote-monitoring-dotnet
 git submodule foreach git pull origin master
 ```
 
-Java mikro hizmet uygulamaları en son sürümünü indirmek için çalıştırın:
+Bu makalede .NET mikro Hizmetleri kullandığınız varsayılır. Ayrıca Java uygulamaları kullanılabilir vardır. Java mikro hizmet uygulamaları en son sürümünü indirmek için çalıştırın:
 
 ```cmd/sh
 git clone --recurse-submodules https://github.com/Azure/azure-iot-pcs-remote-monitoring-java.git
@@ -70,11 +70,13 @@ Gerekli Azure kaynakları henüz oluşturduysanız, şu adımları izleyin:
 
     Betik, çözümünüzün adına ile Azure'da kaynak grubu oluşturur. Bu kaynak grubu, çözüm Hızlandırıcısını Azure kaynaklarını içerir. İlgili kaynaklara artık ihtiyacınız sonra bu kaynak grubunu silebilirsiniz.
 
-    Betik ayrıca bir ön ek ortam değişkenlerini kümesi ekler **bilgisayarları** yerel makinenize. Docker kapsayıcıları yerel olarak başlatıldığında, bu ortam değişkenlerinden yapılandırma değerlerine okuyun.
+    Betik ayrıca bir ön ek ortam değişkenlerini kümesi ekler **bilgisayarları** yerel makinenize. Docker kapsayıcıları ve mikro hizmet projeleri yerel olarak başlatıldığında, bu ortam değişkenlerinden yapılandırma değerlerine okuyun.
 
-> [!TIP]
-> Betik tamamlandığında ortam değişkenlerinin bir listesini görüntüler. Bu değerleri kaydederseniz **Hizmetleri\\betikleri\\yerel\\.env** dosyası kullanabileceğiniz bunları gelecekteki çözüm Hızlandırıcı dağıtımları için. Yerel makinenizde, herhangi bir ortam değişkenini değerleri geçersiz kıldığını unutmayın **Hizmetleri\\betikleri\\yerel\\.env** dosyasını çalıştırdığınızda **docker-compose**.
+    > [!TIP]
+    > Betik tamamlandığında, bu da adlı bir dosyaya ortam değişkenlerini kaydeder  **\<, giriş klasörü\>\\.pcs\\\<çözüm adı\>.env** . Gelecekteki çözüm Hızlandırıcı dağıtımları için bunları kullanabilirsiniz. Yerel makinenizde, herhangi bir ortam değişkenini değerleri geçersiz kıldığını unutmayın **Hizmetleri\\betikleri\\yerel\\.env** dosyasını çalıştırdığınızda **docker-compose**.
+
+1. Komut satırı ortamınızdan çıkın.
 
 ### <a name="use-existing-azure-resources"></a>Mevcut Azure kaynakları
 
-Gerekli Azure kaynakları zaten oluşturduysanız, yerel makinenizde karşılık gelen ortam değişkenleri oluşturun. Bu değerleri kaydettiğiniz **Hizmetleri\\betikleri\\yerel\\.env** son dağıtımınızın parçası olarak dosya. Yerel makinenizde ortam değişkenleri değerleri geçersiz kıldığını unutmayın **Hizmetleri\\betikleri\\yerel\\.env** dosyasını çalıştırdığınızda **docker-compose**.
+Gerekli Azure kaynakları zaten oluşturduysanız, yerel makinenizde karşılık gelen ortam değişkenleri oluşturun. Bunlar, kaydedilebilir  **\<, giriş klasörü\>\\.pcs\\\<çözüm adı\>.env** dağıtım dosyasından. Yerel makinenizde ortam değişkenleri değerleri geçersiz kıldığını unutmayın **Hizmetleri\\betikleri\\yerel\\.env** dosyasını çalıştırdığınızda **docker-compose**.

@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 38b7c478e3b90347086c2dd005630d239db7fd89
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 01/17/2019
+ms.openlocfilehash: 593388c143c31bb4736aa317522ed4c52a8a5296
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038220"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388331"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Azure SQL bağlantı mimarisi
 
@@ -129,7 +129,7 @@ Azure SQL veritabanı sunucusu için Azure SQL veritabanı bağlantı İlkesi de
 ## <a name="script-to-change-connection-settings-via-powershell"></a>PowerShell aracılığıyla bağlantı ayarlarını değiştirmek için komut dosyası
 
 > [!IMPORTANT]
-> Bu betik [Azure PowerShell Modülü](/powershell/azure/install-azurerm-ps).
+> Bu betik [Azure PowerShell Modülü](/powershell/azure/install-az-ps).
 
 Aşağıdaki PowerShell betiğini bağlantı ilkesini değiştirme işlemi gösterilmektedir.
 

@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 01/17/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: 7a744520fe2a3b53b1306d4c80a5eca7d86258a7
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: eed3cbbcdc02d0d2faa5f9076bd6fc2dd4328bd8
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104548"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391061"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-an-operator"></a>PowerShell ile Azure Stack operatör bağlanma
 
@@ -29,7 +29,7 @@ Azure Stack tekliflerini, planları, kotalar ve Uyarılar oluşturmak gibi kayna
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Aşağıdaki Önkoşullar'nden ya da çalıştırmak [Geliştirme Seti](./asdk/asdk-connect.md#connect-with-rdp) ya da Eğer bir Windows tabanlı dış istemciden [ASDK VPN aracılığıyla bağlı](./asdk/asdk-connect.md#connect-with-vpn). 
+Aşağıdaki Önkoşullar'nden ya da çalıştırmak [Geliştirme Seti](./asdk/asdk-connect.md#connect-with-rdp) veya size bir istemciden Windows tabanlı dış [ASDK VPN aracılığıyla bağlı](./asdk/asdk-connect.md#connect-with-vpn). 
 
  - Yükleme [Azure Stack ile uyumlu Azure PowerShell modüllerini](azure-stack-powershell-install.md).  
  - İndirme [Azure Stack ile çalışması için gereken araçları](azure-stack-powershell-download.md).  
@@ -67,15 +67,13 @@ PowerShell ile Azure Active Directory Federasyon Hizmetleri (Azure AD FS) ile Az
 
   # Sign in to your environment
 
-  $cred = get-credential
-
   Login-AzureRmAccount `
     -EnvironmentName "AzureStackAdmin" `
-    -TenantId $tenantId `
-    -Credential $cred
+    -TenantId $tenantId
   ```
 
-
+> [!Note]  
+> AD FS kullanıcı kimlikleri ile etkileşimli kimlik doğrulaması yalnızca destekler. Bir kimlik bilgisi nesnesi gerekiyorsa, bir hizmet sorumlusu (SPN) kullanmanız gerekir. Bir hizmet sorumlusu ile Azure Stack ve AS FS, Kimlik Yönetimi Hizmeti ayarlama hakkında daha fazla bilgi için bkz. [Yönet AD FS için hizmet sorumlusu](azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs).
 
 ## <a name="test-the-connectivity"></a>Bağlantısını test etme
 

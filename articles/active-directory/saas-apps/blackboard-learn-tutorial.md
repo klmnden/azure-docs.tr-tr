@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/25/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 9aa03146608796f1a2d26d44b4e76b0331f8c5be
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: bb66dca9c68535c2ab36e9a7286570d34a7ea310
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063565"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388707"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-blackboard-learn"></a>Öğretici: Azure Active Directory Tümleştirmesi ile Yazı tahtası öğrenin
 
@@ -79,8 +79,8 @@ Yapılandırma ve Azure AD çoklu oturum açma Yazı tahtası bilgi ile test etm
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 2. **[Yazı tahtası öğrenin çoklu oturum açmayı yapılandırma](#configure-blackboard-learn-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
 3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-4. **[Test kullanıcısı Yazı tahtası bilgi oluşturma](#create-blackboard-learn-test-user)**  - Yazı tahtası kullanıcı Azure AD gösterimini bağlı öğrenin Britta simon'un bir karşılığı vardır.
-5. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Test kullanıcısı Yazı tahtası bilgi oluşturma](#create-blackboard-learn-test-user)**  - Yazı tahtası kullanıcı Azure AD gösterimini bağlı öğrenin Britta simon'un bir karşılığı vardır.
 6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
@@ -117,7 +117,7 @@ Azure AD çoklu oturum açma Yazı tahtası bilgi ile yapılandırmak için aşa
     ![image](common/edit-attribute.png)
 
 6. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda, SAML belirteci öznitelikleri görüntüde gösterilen şekilde yapılandırın ve aşağıdaki adımları gerçekleştirin. Userprincipalname burada benzersiz kullanıcı özniteliği olarak eşlediğiniz ancak hangi kuruluştaki kullanıcı benzersiz olarak ayırt eder; Bu Yazı tahtası öğrenin kullanıcı adı alanına eşlendiğini uygun değere eşleyebilirsiniz.
-    
+
     | Ad | Kaynak özniteliği|
     | ---------------| --------------- |
     | urn:oid:1.3.6.1.4.1.5923.1.1.1.6 | User.userPrincipalName |
@@ -140,11 +140,11 @@ Azure AD çoklu oturum açma Yazı tahtası bilgi ile yapılandırmak için aşa
 
     g. **Kaydet**’e tıklayın.
 
-4. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **Federasyon meta veri XML**  bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
+7. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **Federasyon meta veri XML**  bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 
     ![Sertifika indirme bağlantısı](common/metadataxml.png)
 
-6. Üzerinde **Yazı tahtası öğrenin kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
+8. Üzerinde **Yazı tahtası öğrenin kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
 
     ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
 
@@ -226,4 +226,3 @@ Erişim panelinde Yazı tahtası öğrenin kutucuğa tıkladığınızda, otomat
 - [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

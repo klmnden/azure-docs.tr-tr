@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/11/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 33512b47eff75421ce07b02f9c17ae3028152568
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 3262720f52bc75ba5d430e941da25568a105fe0d
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276263"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391256"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Azure bağlantısı kesilmiş dağıtım planlama kararları için Azure Stack tümleşik sistemleri
 Karar verdim sonra [Azure Stack, hibrit bulut ortamına nasıl tümleştirilecek](azure-stack-connection-models.md), Azure Stack dağıtım kararlarınızı sonra sonlandır.
@@ -49,7 +49,7 @@ Azure Stack, bazı özellikler ve İşlevler engelli veya bağlantı kesik modda
 |Market – yeteneği seçin ve doğrudan Azure Marketi'nden galeri paketleri ekleyin|Engelli – Azure Stack'i bağlantısız bir modda (olmadan, herhangi bir Internet bağlantısı) dağıttığınızda, Azure Stack portalını kullanarak Market öğelerini indirme olamaz. Ancak, kullanabileceğiniz [Market dağıtım aracı](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item#download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) internet bağlantısı olan bir makineye Market öğelerini indirme ve sonra da bunları Azure Stack ortamınıza aktarın.|
 |Azure Stack dağıtımı yönetmek için Azure Active Directory Federasyon hesaplarını kullanma|Kullanılamıyor-bu özellik Azure bağlantısı gerektirir. Bunun yerine yerel bir Active Directory örneği ile AD FS kullanılması gerekir.|
 |Uygulama Hizmetleri|Engelli - Web uygulamaları için güncelleştirilmiş içerik Internet erişimi gerektirebilir.|
-|Komut Satırı Arabirimi (CLI)|CLI engelli – kimlik doğrulaması ve sağlama hizmeti ilkeleri açısından işlevselliği azalttı.|
+|Komut Satırı Arabirimi (CLI)|CLI, engelli – kimlik doğrulaması ve hizmet sorumluları, sağlama açısından işlevselliği azalttı.|
 |Visual Studio – bulut bulma|Engelli – Cloud Discovery, ya da farklı Bulutlar bulur veya hiç çalışmaz.|
 |Visual Studio – AD FS|Visual Studio Enterprise'ı AD FS destekler yalnızca – görme.
 Telemetri|Yok – Azure Stack için Telemetri verilerini telemetri verilerine bağlı her üçüncü taraf Galerisi paketler.|

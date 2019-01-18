@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/14/2019
 ms.author: ryanwi,mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 076ddbd722966709cbe386123acafb57f5def0be
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 194999ca7036e174e702d1f997f072da3e9a2dc5
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54318466"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382283"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Öğretici: Bir Service Fabric uygulamasının azure'da bir kümeye dağıtma
 
@@ -86,7 +86,7 @@ Bir sonraki adımda gerekli hizmet uç noktası not alın.  Mevcut bir kümeye d
 
 ![Küme oluşturma](./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png)
 
-İçinde **sertifika** sekmesinde, küme sertifikası için parola ve çıkış yolunu girin. Kendinden imzalı bir sertifika bir PFX dosyası olarak oluşturulur ve belirtilen çıkış yoluna kaydedilir.  Sertifika için düğümler için hem istemci düğüme güvenlik için kullanılır.  Kendinden imzalı sertifika üretim kümeleri için kullanılmamalıdır.  Bu sertifika, kümeyle kimlik doğrulaması ve uygulamaları dağıtmak için Visual Studio tarafından kullanılır. Seçin **sertifikayı içeri aktarma** PFX bilgisayarınızı CurrentUser\My sertifika deposuna yüklemek için.  **İleri**’ye tıklayın.
+İçinde **sertifika** sekmesinde, küme sertifikası için parola ve çıkış yolunu girin. Kendinden imzalı bir sertifika bir PFX dosyası olarak oluşturulur ve belirtilen çıkış yoluna kaydedilir.  Sertifika, düğümden düğüme hem istemci düğüme güvenlik için kullanılır.  Kendinden imzalı sertifika üretim kümeleri için kullanılmamalıdır.  Bu sertifika, kümeyle kimlik doğrulaması ve uygulamaları dağıtmak için Visual Studio tarafından kullanılır. Seçin **sertifikayı içeri aktarma** PFX bilgisayarınızı CurrentUser\My sertifika deposuna yüklemek için.  **İleri**’ye tıklayın.
 
 ![Küme oluşturma](./media/service-fabric-tutorial-deploy-app-to-party-cluster/certificate.png)
 

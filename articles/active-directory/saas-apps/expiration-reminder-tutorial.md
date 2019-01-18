@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle süre sonu anımsatıcı | Microsoft Docs'
+title: 'Öğretici: Süre sonu anımsatıcı ile Azure Active Directory Tümleştirme | Microsoft Docs'
 description: Azure Active Directory ve süre sonu anımsatıcı arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/6/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 04874eff4375ac57a8c8e15a11399ca650bd5c15
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 76860fa1e98bfcef180c4a50452739dd26de18d5
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53019092"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390608"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-expiration-reminder"></a>Öğretici: Azure Active Directory tümleştirmesiyle süre sonu anımsatıcı
+# <a name="tutorial-azure-active-directory-integration-with-expiration-reminder"></a>Öğretici: Süre sonu anımsatıcı ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile süre sonu anımsatıcı tümleştirme konusunda bilgi edinin.
 Süre sonu anımsatıcı Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
@@ -78,8 +78,8 @@ Yapılandırma ve Azure AD çoklu oturum açma süre sonu anımsatıcı ile test
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 2. **[Süre sonu anımsatıcı çoklu oturum açmayı yapılandırma](#configure-expiration-reminder-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
 3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-4. **[Süre sonu anımsatıcı test kullanıcısı oluşturma](#create-expiration-reminder-test-user)**  - kullanıcı Azure AD gösterimini bağlı süre sonu anımsatıcı Britta simon'un bir karşılığı vardır.
-5. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Süre sonu anımsatıcı test kullanıcısı oluşturma](#create-expiration-reminder-test-user)**  - kullanıcı Azure AD gösterimini bağlı süre sonu anımsatıcı Britta simon'un bir karşılığı vardır.
 6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
@@ -104,7 +104,7 @@ Azure AD çoklu oturum açma ile süre sonu anımsatıcı yapılandırmak için 
 
     ![Süre sonu anımsatıcı etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-signonurl.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna bir URL yazın: `https://app.expirationreminder.net/account/sso`.
+    İçinde **oturum açma URL'si** metin kutusuna bir URL yazın:  `https://app.expirationreminder.net/account/sso`
 
 5. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **sertifika (ham)** bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 

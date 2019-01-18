@@ -4,16 +4,16 @@ description: Azure Otomasyonu runbook'ları ile ilgili sorunları giderme hakkı
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/04/2019
+ms.date: 01/17/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 3968b05f119227552f88a50e96d3acbce6a19143
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 231dd3789a20b649efd99a6b88f6e429e2626bd3
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199128"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391337"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook'ları ile hatalarını giderme
 
@@ -128,6 +128,46 @@ Add-AzureAccount: AADSTS50079: Strong authentication enrollment (proof-up) is re
 Azure Klasik dağıtım modeli cmdlet'leriyle bir sertifikayı kullanmak için başvurmak [oluşturma ve Azure hizmetlerini yönetmek için bir sertifika ekleme.](https://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) Bir hizmet sorumlusu ile Azure Resource Manager cmdlet'lerini kullanmak için başvurmak [hizmet sorumlusu Azure portalını kullanarak oluşturma](../../active-directory/develop/howto-create-service-principal-portal.md) ve [Azure Resource Manager ile hizmet sorumlusu kimlik doğrulaması.](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Runbook'larla çalışırken sık karşılaşılan hatalar
+
+###<a name="child-runbook-object"></a>Çıkış akışına basit veri türleri yerine nesneleri içerdiğinde alt runbook hata döndürür.
+
+#### <a name="issue"></a>Sorun
+
+Bir childrunbook ile çağrılırken aşağıdaki hata iletisini `-Wait` anahtar ve çıkış akışına içerir ve nesne:
+
+```
+Object reference not set to an instance of an object
+```
+
+#### <a name="cause"></a>Nedeni
+
+Bilinen bir sorun olduğu [Start-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) nesneler içeriyorsa, çıkış akışına düzgün işlemez.
+
+#### <a name="resolution"></a>Çözüm
+
+Bunun yerine bir yoklama mantığı uygulamak ve kullanmak önerilir bu sorunu çözmek için [Get-AzureRmAutomationJobOutput](/powershell/module/azurerm.automation/get-azurermautomationjoboutput) çıktısını almak için cmdlet'i. Aşağıdaki örnekte bu mantığı örneği tanımlanır.
+
+```powershell
+$automationAccountName = "ContosoAutomationAccount"
+$runbookName = "ChildRunbookExample"
+$resourceGroupName = "ContosoRG"
+
+function IsJobTerminalState([string] $status) {
+    return $status -eq "Completed" -or $status -eq "Failed" -or $status -eq "Stopped" -or $status -eq "Suspended"
+}
+
+$job = Start-AzureRmAutomationRunbook -AutomationAccountName $automationAccountName -Name $runbookName -ResourceGroupName $resourceGroupName
+$pollingSeconds = 5
+$maxTimeout = 10800
+$waitTime = 0
+while((IsJobTerminalState $job.Status) -eq $false -and $waitTime -lt $maxTimeout) {
+   Start-Sleep -Seconds $pollingSeconds
+   $waitTime += $pollingSeconds
+   $job = $job | Get-AzureRmAutomationJob
+}
+
+$jobResults | Get-AzureRmAutomationJobOutput | Get-AzureRmAutomationJobOutputRecord | Select-Object -ExpandProperty Value
+```
 
 ### <a name="task-was-cancelled"></a>Senaryo: Runbook hatasıyla başarısız oluyor: Bir görev iptal edildi
 

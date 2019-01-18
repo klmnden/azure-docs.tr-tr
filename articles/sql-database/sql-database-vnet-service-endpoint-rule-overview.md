@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 1/16/2019
-ms.openlocfilehash: 2c022bd002700426eea2c6b38a667cd5a1381c02
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.date: 01/17/2019
+ms.openlocfilehash: 0a0a5a046bd1afefe3f4c72e713a0dafe0c856e4
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359859"
+ms.locfileid: "54390381"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql"></a>Azure SQL için sanal ağ hizmet uç noktaları ve kuralları kullanma
 
@@ -173,7 +173,7 @@ Azure depolama, Azure depolama hesabınızın bağlantısını sınırlamanıza 
 PolyBase, verileri Azure depolama hesaplarını Azure SQL Data Warehouse'a yüklemek için yaygın olarak kullanılır. Verilerden yüklenmekte olan Azure depolama hesabına yalnızca bir sanal ağ alt kümesine erişim getiriyorsa, PolyBase kullanılarak hesabı bağlantı çalışmamasına neden olur. Her iki PolyBase etkinleştirmek için alma ve senaryoları sanal ağa güvenli Azure Depolama'ya bağlanan Azure SQL veri ambarı ile dışarı aktarma, aşağıda belirtilen adımları izleyin:
 
 #### <a name="prerequisites"></a>Önkoşullar
-1.  Bunu kullanarak Azure PowerShell'i yükleyin [Kılavuzu](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+1.  Bunu kullanarak Azure PowerShell'i yükleyin [Kılavuzu](https://docs.microsoft.com/powershell/azure/install-az-ps).
 2.  Genel amaçlı v1 veya blob depolama hesabı varsa, genel amaçlı v2'ye yükseltmeniz gerekir bu kullanarak [Kılavuzu](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
 3.  Olmalıdır **güvenilen Microsoft hizmetlerinin bu depolama hesabına erişmesine izin ver** Azure depolama hesabı altında açık **güvenlik duvarları ve sanal ağları** ayarlar menüsü. Bu [Kılavuzu](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) daha fazla bilgi için.
  

@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/22/2016
+ms.date: 01/16/2018
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: de68c59987a7ec1198c344cc22978ebed09c75e8
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 6463759dbd217cd054f838c09c7cfcf99a06aa2c
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271368"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390826"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>App Service ortamları için özel yapılandırma ayarları
 ## <a name="overview"></a>Genel Bakış
-App Service ortamları tek bir müşteriye ayrılmış olduğu için yalnızca App Service ortamları için uygulanabilecek bazı yapılandırma ayarları vardır. Bu makale, App Service ortamları için kullanılabilen çeşitli belirli özelleştirmeleri içermektedir.
+App Service ortamları (ase) tek bir müşteriye ayrılmış olduğu için yalnızca App Service ortamları için uygulanabilecek bazı yapılandırma ayarları vardır. Bu makale, App Service ortamları için kullanılabilen çeşitli belirli özelleştirmeleri içermektedir.
 
 App Service ortamı yoksa bkz [bir App Service ortamı oluşturma](app-service-web-how-to-create-an-app-service-environment.md).
 
@@ -65,10 +65,11 @@ Alternatif olarak, App Service ortamı güncelleştirebilirsiniz [Azure kaynak G
 Değişiklik gönderdiğiniz ancak değişikliğin etkili olması için App Service Ortamı'nda ön uçlar sayısıyla çarpımı yaklaşık 30 dakika sürer.
 Örneğin, bir App Service ortamı dört ön uçlar varsa, tamamlanması yapılandırma güncelleştirmesi için yaklaşık iki saat sürer. Yapılandırma değişikliği kullanıma sunulacaktır, ancak başka bir ölçeklendirme işlemleri veya yapılandırma değişiklik işlemleri App Service Ortamı'nda yer alabilir.
 
-## <a name="disable-tls-10"></a>TLS 1.0 devre dışı bırak
-Yinelenen soru müşterilerden özellikle PCI uyumluluğu ile ilgilenen müşteriler denetimleri, açıkça uygulamalarını için TLS 1.0 devre dışı bırakma.
+## <a name="disable-tls-10-and-tls-11"></a>TLS 1.0 ve TLS 1.1 devre dışı bırak
 
-TLS 1.0 devre dışı bırakılabilir aşağıdaki aracılığıyla **clusterSettings** girişi:
+Bir uygulama tarafından temelinde TLS ayarları yönetmek istediğiniz sonra ile sağlanan yönergeleri kullanarak [zorunlu TLS ayarları](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl#enforce-tls-versions) belgeleri. 
+
+Tüm bir ase'deki uygulamalar için tüm gelen TLS 1.0 ve TLS 1.1 trafiği devre dışı bırakmak isterseniz, aşağıdakileri ayarlayabilirsiniz **clusterSettings** girişi:
 
         "clusterSettings": [
             {
@@ -76,6 +77,8 @@ TLS 1.0 devre dışı bırakılabilir aşağıdaki aracılığıyla **clusterSet
                 "value": "1"
             }
         ],
+
+1.0 ayarının adı söylüyor ancak yapılandırıldığında, TLS 1.0 ve TLS 1.1 bırakır.
 
 ## <a name="change-tls-cipher-suite-order"></a>TLS şifre paketi sırasını değiştir
 Bunlar, sunucu tarafından anlaşılan şifrelemeleri listesini değiştirebilirsiniz ve bu değiştirerek gerçekleştirilebilir müşterilerden başka bir soru ise **clusterSettings** aşağıda gösterildiği gibi. Şifre paketleri kullanılabilir listesini alınabilir [bu MSDN makalesinde](https://msdn.microsoft.com/library/windows/desktop/aa374757\(v=vs.85\).aspx).

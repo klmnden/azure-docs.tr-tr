@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/04/2017
+ms.date: 01/16/2019
 ms.author: tomsh
-ms.openlocfilehash: d0826d60d766874ddd186bcf406ea987134dab16
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 49c043853cede0a20e3d61011ded40e57d7a0303
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385878"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389435"
 ---
 # <a name="azure-service-fabric-security-checklist"></a>Azure Service Fabric güvenlik denetim listesi
 Bu makalede, Azure Service Fabric ortamınızın güvenliğini sağlamanıza yardımcı olacak bir kullanımı kolay denetim sağlar.
@@ -48,6 +48,8 @@ Yönetim ve yapılandırma güvenli Azure Service Fabric çözümünün önemli 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
+- [Service Fabric en iyi güvenlik uygulamaları](azure-service-fabric-security-best-practices.md)
 - [Service Fabric kümesini yükseltme işlemi ve sizden beklentileri](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade)
 - [Visual Studio'da Service Fabric uygulamalarınızı yönetmek](https://docs.microsoft.com/azure/service-fabric/service-fabric-manage-application-in-visual-studio).
 - [Service Fabric sistem durumu modeli giriş](https://docs.microsoft.com/azure/service-fabric/service-fabric-health-introduction).

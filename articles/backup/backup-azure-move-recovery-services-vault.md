@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 1/4/2019
 ms.author: sogup
-ms.openlocfilehash: e1df91a11a474faf3a10dbbb7c99ea058037d685
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: ee61381eabed9dd7ead7deb23bc6f27c94031d3b
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54108149"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382325"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups-limited-public-preview"></a>Azure abonelik ve kaynak gruplarında (sınırlı genel Önizleme) bir kurtarma Hizmetleri kasası Taşı
 
@@ -61,6 +61,12 @@ Aboneliği kaydetmek için **taşıma** kurtarma Hizmetleri kasasına, PowerShel
 
   ```
   Register-AzureRmProviderFeature -ProviderNamespace Microsoft.RecoveryServices -FeatureName RecoveryServicesResourceMove
+  ```
+
+4. Komutunu çalıştırın
+
+  ```
+  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
   ```
 
 Abonelik taşıma işlemi Azure portal veya PowerShell kullanarak başlamadan önce Güvenilenler listesine eklenmek 30 dakika bekleyin.

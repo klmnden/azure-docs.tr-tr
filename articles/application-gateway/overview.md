@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 1/11/2019
 ms.author: victorh
-ms.openlocfilehash: 21aac318542f9d30cb44d940392d05367f1f7b9f
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 9aab33eb4ba6a49d96bcacfc2151c3554fbebfaf
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246475"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382861"
 ---
 # <a name="what-is-azure-application-gateway"></a>Azure Application Gateway nedir?
 
@@ -113,6 +113,22 @@ HTTP üstbilgileri, istemci ve sunucu istek veya yanıt ek bilgilerle geçmesine
 Application Gateway, gelen HTTP isteklerini, hem de giden HTTP yanıt üst bilgilerini yeniden yazabilme becerisine artık desteklemektedir. Eklemek, kaldırmak veya HTTP istek ve yanıt üstbilgileri, istek/yanıt paketleri istemci ve arka uç havuzları arasında taşırken güncelleştirmek mümkün olacaktır. Her iki standart yazabilirsiniz (tanımlanan [RFC 2616](https://www.ietf.org/rfc/rfc2616.txt)) standart üstbilgi alanlarını yanı sıra.  
 
 Bu genel önizleme özelliği hakkında daha fazla bilgi için bkz. [yeniden HTTP üstbilgileri](rewrite-http-headers.md).
+
+## <a name="sizing"></a>Boyutlandırma
+
+Uygulama ağ geçidi, şu anda üç büyüklükte sunulmaktadır: **Küçük**, **orta**, ve **büyük**. Küçük örnek boyutları, geliştirme ve test senaryolarına yöneliktir.
+
+Application Gateway limitlerinin tam listesi için bkz. [Application Gateway hizmet limitleri](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
+
+Aşağıdaki tabloda, SSL boşaltmasının etkin olduğu her bir Application Gateway örneği için ortalama performans aktarım hızı gösterilmiştir:
+
+| Ortalama arka uç sayfa yanıtı boyutu | Küçük | Orta | Büyük |
+| --- | --- | --- | --- |
+| 6 KB |7,5 Mbps |13 Mbps |50 Mbps |
+| 100 KB |35 Mbps |100 Mbps |200 Mbps |
+
+> [!NOTE]
+> Bu değerler bir uygulama ağ geçidi verimliliği için yaklaşık değerlerdir. Gerçek verimlilik; ortalama sayfa boyutu, arka uç örneklerinin konumu ve bir sayfaya hizmet etmek için işleme süresi gibi çeşitli ortam ayrıntılarına bağlıdır. Tam performans rakamlarına ulaşmak için kendi testlerinizi çalıştırmanız gerekir. Bu değerler yalnızca kapasite planlama konusunda yardımcı olmak için verilmiştir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

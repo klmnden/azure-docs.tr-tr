@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/14/2017
+ms.date: 01/17/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: a130351131f59511ef4f60b579197da96f9334e6
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 27a114378cf72e766e894dc0dd6886197f56a841
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720740"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390266"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Öğretici: Bir Application Insights'ı kullanarak Service fabric'te ASP.NET Core uygulamasını izleme ve tanılama
 
@@ -59,7 +59,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ## <a name="set-up-an-application-insights-resource"></a>Application Insights kaynağını ayarlama
 
-Application Insights, Azure'un uygulama performansı yönetim platformu olduğu gibi, Service Fabric'in de uygulama izleme ve tanılama için önerilen platformudur. Application Insights kaynağı oluşturmak için [Azure Portal](https://portal.azure.com)'a gidin. Sol gezinti menüsünde **Kaynak oluştur**'a tıklayarak Azure Market'i açın. **İzleme ve Yönetim**'e ve ardından **Application Insights**'a tıklayın.
+Application Insights, Azure'un uygulama performansı yönetim platformu olduğu gibi, Service Fabric'in de uygulama izleme ve tanılama için önerilen platformudur. Application Insights kaynağı oluşturmak için [Azure Portal](https://portal.azure.com)'a gidin. Sol gezinti menüsünde **Kaynak oluştur**'a tıklayarak Azure Market'i açın. Tıklayarak **Application Insights**.
 
 ![Yeni AI kaynağı oluşturma](./media/service-fabric-tutorial-monitoring-aspnet/new-ai-resource.png)
 
@@ -76,13 +76,8 @@ Visual Studio 2017'yi yükseltilmiş ayrıcalıklarla başlatın. Bunu, Başlat 
 
 Hem VotingWeb hem de VotingData hizmetlerinde Application Insights'ı yapılandırmak için şu adımları izleyin:
 
-1. Hizmetin adına sağ tıklayın ve **Application Insights'ı Yapılandır...** seçeneğine tıklayın.
-
-    ![AI kaynağını yapılandırma](./media/service-fabric-tutorial-monitoring-aspnet/configure-ai.png)
->[!NOTE]
->Proje türüne bağlı olarak, hizmet adını sağ tıklatın, tıklaymanız gerekebilir, Ekle -> Application Insights Telemetrisi...
-
-2. **Ücretsiz Olarak Başla**'ya tıklayın.
+1. Hizmet adını sağ tıklatın ve seçin **Ekle -> Application Insights Telemetrisi...** .    
+2. Tıklayın **başlama**.
 3. Hesabınızda oturum açın (bu Azure aboneliğinizi ayarladığınız hesaptır) ve Application Insights kaynağını oluşturduğunuz aboneliği seçin. "Kaynak" açılan listesindeki *Mevcut Application Insights kaynağı*'nın altında kaynağı bulun. **Kaydet**'e tıklayarak hizmetinize Application Insights'ı ekleyin.
 
     ![AI kaynağını kaydetme](./media/service-fabric-tutorial-monitoring-aspnet/register-ai.png)
@@ -101,8 +96,8 @@ NuGet'i ayarlama adımları şunlardır:
 2. "NuGet - Çözüm" penceresinin üst gezinti menüsünde **Gözat**'a tıklayın ve arama çubuğunun yanındaki **Ön sürümü dahil et** kutusunu işaretleyin.
 3. `Microsoft.ApplicationInsights.ServiceFabric.Native` için arama yapın ve uygun NuGet paketine tıklayın.
 
->[!NOTE]
->Application Insights paketini yüklemeden önce, önceden yüklenmemişse Microsoft.ServiceFabric.Diagnostics.Internal paketini benzer şekilde yüklemeniz gerekebilir
+    >[!NOTE]
+    >Application Insights paketini yüklemeden önce, önceden yüklenmemişse Microsoft.ServiceFabric.Diagnostics.Internal paketini benzer şekilde yüklemeniz gerekebilir
 
 4. Sağ tarafta, uygulamadaki iki hizmetin (**VotingWeb** ve **VotingData**) yanında bulunan iki onay kutusuna tıklayın ve sonra da **Yükle**'ye tıklayın.
     ![AI sdk Nuget](./media/service-fabric-tutorial-monitoring-aspnet/ai-sdk-nuget-new.png)

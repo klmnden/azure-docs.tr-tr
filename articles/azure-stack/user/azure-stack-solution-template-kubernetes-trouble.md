@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: dc6994cd682997dd00e76b57b4996ebad1f73fbb
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 844feb7999f88f63c9406c9f430d1d076cd032df
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352406"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390684"
 ---
 # <a name="troubleshoot-your-deployment-to-kubernetes-to-azure-stack"></a>Kubernetes için Azure Stack dağıtımınıza sorunlarını giderme
 
@@ -47,7 +47,7 @@ Küme dağıtımı için genel süreç Aşağıdaki diyagramda gösterilmektedir
     Kubernetes kümesini ayarlamak için ihtiyacınız olan değerlere girin dahil olmak üzere:
     -  **Kullanıcı adı**: Kubernetes kümesi ve DVM parçası olan bir Linux sanal makineleri için kullanıcı adı.
     -  **SSH ortak anahtarı**: Kubernetes kümesi ve DVM parçası olarak oluşturulan tüm Linux makinelerinin yetkilendirme için kullanılan anahtar.
-    -  **Hizmet İlkesi**: Kubernetes Azure bulut sağlayıcısı tarafından kullanılan kimliği. İstemci kimliği, hizmet sorumlusu oluştururken sağladığınız uygulama kimliği olarak tanımlanır. 
+    -  **Hizmet sorumlusu**: Kubernetes Azure bulut sağlayıcısı tarafından kullanılan kimliği. İstemci kimliği, hizmet sorumlusu oluştururken sağladığınız uygulama kimliği olarak tanımlanır. 
     -  **İstemci gizli anahtarı**: Bunlar, hizmet sorumlunuzu oluşturduğunuzda oluşturulan anahtar.
 
 2. VM dağıtımı oluşturmak ve özel betik uzantısı.

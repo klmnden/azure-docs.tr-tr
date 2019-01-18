@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: 489eccf1b73e7f5df76a3ce681b4479893a9e0ac
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: acedfab277199c2ada6af17584bab3f222fe1a13
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843215"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390019"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>SQL Server'dan Azure SQL veritabanı yönetilen örnek T-SQL farklılıkları
 
@@ -124,7 +124,7 @@ Yönetilen Örnek, Windows klasörlerindeki dosya paylaşımlarına erişemediğ
 
 ### <a name="compatibility-levels"></a>Uyumluluk düzeyleri
 
-- Desteklenen uyumluluk düzeyleri: 100, 110, 120, 130, 140  
+- Desteklenen uyumluluk düzeyleri şunlardır: 100, 110, 120, 130, 140  
 - 100'den düşük bir uyumluluk düzeylerinde desteklenmez.
 - Yeni veritabanları için varsayılan uyumluluk düzeyinin 140 değeri. Geri yüklenen veritabanları için uyumluluk düzeyi 100 ise ve yukarıda değişmeden kalır.
 
@@ -235,7 +235,7 @@ Hiçbiri MSDTC ya da [elastik işlemler](https://docs.microsoft.com/azure/sql-da
 Bazı Windows özgü hedefler Xevent'ler için desteklenmez:
 
 - `etw_classic_sync target` desteklenmiyor. Store `.xel` dosyalarını Azure blob depolama. Bkz: [etw_classic_sync hedef](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#etwclassicsynctarget-target).
-- `event_file target`desteklenmiyor. Store `.xel` dosyalarını Azure blob depolama. Bkz: [event_file hedef](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#eventfile-target).
+- `event_file target`desteklenmiyor. Store `.xel` dosyalarını Azure blob depolama. Bkz: [event_file hedef](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#event_file-target).
 
 ### <a name="external-libraries"></a>Dış kitaplıkları
 
@@ -264,7 +264,7 @@ Daha fazla bilgi için [FILESTREAM](https://docs.microsoft.com/sql/relational-da
 
 Bağlı sunucuları yönetilen örneğinde hedefleri sınırlı sayıda destekler:
 
-- Hedefleri desteklenen: SQL Server ve SQL veritabanı
+- Desteklenen hedefleri: SQL Server ve SQL veritabanı
 - Hedefleri desteklenmez: dosya, Analysis Services ve diğer RDBMS.
 
 İşlemler
@@ -465,7 +465,7 @@ Yönetilen örnek'te mevcut hata günlüklerini kaybolacağından ve bunların b
 
 Yönetilen örnek hata günlüklerinde ayrıntılı bilgileri yerleştirir ve çoğu için uygun değildir. Hata günlüklerinde bilgi miktarını gelecekte de düşürülmesini.
 
-**Geçici çözüm**: özel bir yordam, filtre genişletme ilgili olmayan bazı girişler Hata günlüklerini okumak için kullanın. Ayrıntılar için bkz [Azure SQL DB yönetilen örneği – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
+**Geçici çözüm**: Özel yordam, filtre genişletme ilgili olmayan bazı girişler Hata günlüklerini okumak için kullanın. Ayrıntılar için bkz [Azure SQL DB yönetilen örneği – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
 
 ### <a name="transaction-scope-on-two-databases-within-the-same-instance-is-not-supported"></a>İşlem kapsamı aynı örneği içinde iki veritabanlarında desteklenmiyor
 
@@ -496,13 +496,13 @@ using (var scope = new TransactionScope())
 
 Bu kod içinde aynı örnek verilerle çalışır, ancak MSDTC gereklidir.
 
-**Geçici çözüm**: kullanın [SqlConnection.ChangeDatabase(String)](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) diğer veritabanı bağlantı bağlamı iki bağlantı kullanmak yerine kullanılacak.
+**Geçici çözüm**: Kullanma [SqlConnection.ChangeDatabase(String)](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) diğer veritabanı bağlantı bağlamı iki bağlantı kullanmak yerine kullanılacak.
 
 ### <a name="clr-modules-and-linked-servers-sometime-cannot-reference-local-ip-address"></a>CLR modülleri ve süre bağlı sunucular, yerel IP adresi başvuramaz
 
 Yönetilen örnek ve geçerli örnek süre başvuran bağlı sunucuları/dağıtılmış sorguları yerleştirilen CLR modülleri yerel örneğinin IP çözümlenemiyor. Bu hata geçici bir sorundur.
 
-**Geçici çözüm**: CLR modülünde, mümkün olduğunda bağlamı bağlantıları kullanın.
+**Geçici çözüm**: Bağlam bağlantılarını CLR modülünde mümkün olduğunda kullanın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

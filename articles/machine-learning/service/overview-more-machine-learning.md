@@ -9,32 +9,54 @@ ms.topic: overview
 ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
-ms.date: 12/04/2018
-ms.openlocfilehash: b2d7888234a05c82f1245bd58b98f505989d7f2d
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.date: 1/17/2019
+ms.openlocfilehash: d5660d1a4d5d2a26af57e2a2411552e3f6267379
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557895"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389138"
 ---
 # <a name="what-are-the-machine-learning-products-at-microsoft"></a>Microsoft'ta makine öğrenimi ürünlerini nelerdir?
 
 Makine öğrenmesi modellerinizi derlemek, dağıtmak ve yönetmek için Microsoft çeşitli ürün seçenekleri sağlar. Bu ürünleri karşılaştırın ve makine öğrenmesi çözümlerinizi en verimli şekilde geliştirmek için size gerekeni seçin.
 
-| Makine öğrenmesi ürünü | Nedir? | Bununla neler yapabilirsiniz? |
+
+**Bulut tabanlı seçenekleri**
+
+Aşağıdaki seçenekler, machine learning Azure bulutunda için kullanılabilir.
+
+| Bulut&nbsp;seçenekleri | Nedir? | Bununla neler yapabilirsiniz? |
 |-|-|-|
-| ***Bulutta*** | | |
 | [Azure Machine Learning hizmeti](#azure-machine-learning-services) | ML için yönetilen bulut hizmeti  | Python ve CLI kullanarak Azure’da modelleri eğitme, dağıtma ve yönetme |
-| [Azure Machine Learning Studio](#azure-machine-learning-studio) | Sürükleme&ndash;ve&ndash;ML için görsel arabirim bırakma | Önceden yapılandırılmış algoritmaları kullanarak modelleri derleme, deneme ve dağıtma |
+| [Azure Machine Learning Studio](#azure-machine-learning-studio) | Sürükleme&ndash;ve&ndash;ML için görsel arabirim bırakma | Derleme, denemeler yapın ve önceden yapılandırılmış algoritmalar (Python ve R) kullanarak modelleri dağıtma|
 | [Azure Databricks](#azure-databricks) | Spark tabanlı analiz platformu | Modelleri ve veri iş akışlarını derleme ve dağıtma |
 | [Azure Bilişsel Hizmetler](#azure-cognitive-services) | Önceden derlenmiş AI ve ML modellerine sahip Azure hizmetleri | Uygulamalarınıza akıllı özellikleri kolayca ekleme |
 | [Azure Veri Bilimi Sanal Makinesi](#azure-data-science-virtual-machine) | Önceden yüklenmiş veri bilimi araçlarına sahip sanal makine | Önceden yapılandırılmış bir ortamda ML çözümleri geliştirme |
-| ***Şirket içi***<br>*(sunucular, bulutta bir sanal makinede de çalıştırılabilir şirket içinde)* | | |
+
+**Şirket içi seçenekleri**
+
+Aşağıdaki seçenekler, şirket içi öğrenme makine için kullanılabilir. Şirket içi sunucular, buluttaki bir sanal makine içinde de çalıştırabilirsiniz.
+
+| Şirket içi&nbsp;seçenekleri | Nedir? | Bununla neler yapabilirsiniz? |
+|-|-|-|
 | [SQL Server Machine Learning Hizmetleri](#sql-server-machine-learning-services) | SQL'e eklenen analiz altyapısı | SQL Server içinde modelleri derleme ve dağıtma |
 | [Microsoft Machine Learning Server](#microsoft-machine-learning-server) | Tahmin analizi için tek başına kurumsal sunucu | R ve Python ile modelleri derleme ve dağıtma |
-| ***Geliştirici Araçları*** | | |
+
+**Geliştirme araçları**
+
+Aşağıdaki geliştirme araçları, machine learning için kullanılabilir.
+
+| Geliştirme&nbsp;araçları | Nedir? | Bununla neler yapabilirsiniz? |
+|-|-|-|
 | [ML.NET](#mlnet) | Açık kaynak, platformlar arası ML SDK'sı | .NET uygulamaları için ML çözümlerini geliştirme |
 | [Windows ML](#windows-ml) | Windows 10 ML platformu | Windows 10 cihazlarında eğitilen modelleri değerlendirme |
+
+
+
+
+
+
 
 ## <a name="azure-machine-learning-service"></a>Azure Machine Learning hizmeti
 

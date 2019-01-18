@@ -1,23 +1,23 @@
 ---
-title: "Hızlı Başlangıç: Konuşma hizmeti SDK'sını kullanarak node.js'de JavaScript dilinde konuşma tanıma"
+title: 'Hızlı Başlangıç: Node.js - konuşma Hizmetleri konuşma tanıma'
 titleSuffix: Azure Cognitive Services
-description: Konuşma hizmeti SDK'sını kullanarak node.js'de JavaScript dilinde Konuşma tanımayı öğrenmesine
+description: Speech SDK'sı için Node.js kullanarak bir konuşma metin konsol uygulaması oluşturmak için bu kılavuzu kullanın. İşiniz bittiğinde konuşmayı metne gerçek zamanlı dönüştürmek için bilgisayarınızın mikrofonunu kullanabilirsiniz.
 services: cognitive-services
 author: fmegen
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 12/18/2018
+ms.date: 1/16/2019
 ms.author: fmegen
-ms.openlocfilehash: 35652b169067bc545fa0d1fcc977bbaee79ec3aa
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: e0ae916687ca32835dd8daf6e5059b8f6eea0ff6
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724445"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382176"
 ---
-# <a name="quickstart-recognize-speech-in-javascript-in-nodejs-using-the-speech-service-sdk"></a>Hızlı Başlangıç: Konuşma hizmeti SDK'sını kullanarak node.js'de JavaScript dilinde konuşma tanıma
+# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-nodejs"></a>Hızlı Başlangıç: Node.js için Speech SDK'sı ile Konuşma tanıma
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -29,9 +29,9 @@ Microsoft Web tabanlı uygulaması [Bilişsel hizmetler konuşma SDK'sı](https:
 * Konuşma hizmeti için bir Azure aboneliği anahtarı. [Ücretsiz edinin](get-started.md).
 * Güncel bir sürümünü [Node.js](https://nodejs.org).
 
-## <a name="create-a-new-project-folder"></a>Yeni bir proje klasörü oluşturun
+## <a name="create-a-new-project"></a>Yeni bir proje oluşturma
 
-Yeni, boş bir klasör oluşturun ve yeni bir JavaScript ve Node.js projesi olarak başlatılamıyor.
+Yeni bir klasör oluşturun ve bir proje başlatın.
 
 ```sh
 npm init -f
@@ -39,13 +39,17 @@ npm init -f
 
 Bu varsayılan değerleri olan package.json dosyaları init olur. Daha sonra bu dosyayı düzenlemek büyük olasılıkla isteyeceksiniz.
 
-## <a name="install-the-speech-sdk-for-javascript-into-that-folder"></a>Konuşma SDK için JavaScript bu klasöre yükleyin.
+## <a name="install-the-speech-sdk"></a>Konuşma SDK'sını yükleme
 
-Konuşma SDK'sı aracılığıyla ekleme `npm install microsoft-cognitiveservices-speech-sdk` Node.js projenize.
+Speech SDK'sı için Node.js projenize ekleyin.
 
-Bu, indirin ve npmjs Speech SDK'sı ve gerekli Önkoşullar en son sürümünü yükleyin. SDK'sı yüklenecektir `node_modules` projeniz klasörü içinde dizin.
+```
+npm install microsoft-cognitiveservices-speech-sdk
+```
 
-## <a name="using-the-speech-sdk"></a>Konuşma SDK'sını kullanma
+Bu indirmeleri ve npmjs Speech SDK'sı ve gerekli Önkoşullar en son sürümünü yükler. SDK'sı yüklenecektir `node_modules` projeniz klasörü içinde dizin.
+
+## <a name="use-the-speech-sdk"></a>SDK'sı Konuşmayı kullanın
 
 Klasörde `index.js` adlı yeni bir dosya oluşturun ve bu dosyayı bir metin düzenleyiciyle açın.
 
@@ -58,7 +62,7 @@ Aşağıdaki JavaScript kodunu ekleyin:
 
 [!code-javascript[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/js-node/index.js#code)]
 
-## <a name="running-the-sample-from-command-line"></a>Örnek komut satırından çalıştırma
+## <a name="run-the-sample"></a>Örneği çalıştırma
 
 Uygulamayı başlatmak için uyum `YourSubscriptionKey`, `YourServiceRegion`, ve `YourAudioFile.wav` yapılandırmanıza. Ardından, aşağıdaki komutu çağırarak yürütebilirsiniz:
 
@@ -88,7 +92,7 @@ SpeechRecognitionResult {
 }
 ```
 
-## <a name="running-the-sample-from-visual-studio-code"></a>Visual Studio Code'dan örneği çalıştırma
+## <a name="install-and-use-the-speech-sdk-with-visual-studio-code"></a>Yükleme ve Speech SDK'sı, Visual Studio Code ile kullanma
 
 Visual Studio Code'dan örnek de çalıştırabilirsiniz. Yükleme, açın ve Hızlı Başlangıç'ı çalıştırmak için aşağıdaki adımları izleyin:
 

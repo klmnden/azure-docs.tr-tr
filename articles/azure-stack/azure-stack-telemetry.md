@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: comartin
-ms.openlocfilehash: 190a80d5807dcc8ad9666d3ba450691bc6453b41
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 471232fee5245426afce89993d9faebccc6a8ea8
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265626"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389389"
 ---
 # <a name="azure-stack-telemetry"></a>Azure Stack telemetri
 
@@ -40,7 +40,7 @@ Azure Stack telemetri kullanan Windows Server 2016 bağlı kullanıcı deneyimi 
 
 ## <a name="privacy-considerations"></a>Gizlilik konuları
 
-ETW hizmeti, geri korumalı bulut depolama alanına telemetri verilerini yönlendirir. En düşük öncelik ilkesini erişim için telemetri verilerini gösterir. Yalnızca geçerli bir iş gereksinimi olan Microsoft personeli, telemetri verileri için erişim verilir. Microsoft olmayan paylaşabilirsiniz kişisel müşteri verilerini üçüncü taraflarla dışında müşterinin takdirine bağlı olarak veya açıklanan sınırlı amacıyla [Microsoft gizlilik bildirimi](https://privacy.microsoft.com/PrivacyStatement). OEM'ler ve iş ortakları ile paylaşılan iş raporlar, toplu, anonimleştirilmiş veriler içerir. Veri paylaşımı kararlar, gizlilik, hukuk ve veri yönetim proje katılımcıları da dahil olmak üzere bir iç Microsoft ekibi tarafından yapılır.
+ETW hizmeti, geri korumalı bulut depolama alanına telemetri verilerini yönlendirir. En az ayrıcalık sorumlusu erişim telemetri verilerini gösterir. Yalnızca geçerli bir iş gereksinimi olan Microsoft personeli, telemetri verileri için erişim verilir. Microsoft olmayan paylaşabilirsiniz kişisel müşteri verilerini üçüncü taraflarla dışında müşterinin takdirine bağlı olarak veya açıklanan sınırlı amacıyla [Microsoft gizlilik bildirimi](https://privacy.microsoft.com/PrivacyStatement). OEM'ler ve iş ortakları ile paylaşılan iş raporlar, toplu, anonimleştirilmiş veriler içerir. Veri paylaşımı kararlar, gizlilik, hukuk ve veri yönetim proje katılımcıları da dahil olmak üzere bir iç Microsoft ekibi tarafından yapılır.
 
 Microsoft olarak düşündüğü ve bilgi küçültme yöntemler. Yalnızca gerekli değil ve bunun için yalnızca olduğu sürece bir hizmet sağlamak için gereken veya analiz için Depolama bilgileri toplamak için elimizden. Azure Stack sistemi ve Azure hizmetleri nasıl çalıştığını ilgili bilgilerin çoğunu altı ay içinde silinir. Özetlenen veya daha uzun bir süre için toplanan veriler korunur.
 

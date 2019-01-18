@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/28/2017
 ms.author: juliako
-ms.openlocfilehash: ae0ff36c7e83120a9571e0f87788c25193027616
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3e968c71b87f7227dc4bd2e3f4ee486719b65e40
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240146"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388145"
 ---
 # <a name="deliver-content-to-customers"></a>Müşterilere içerik teslim edin
 Müşterilere, akış ve isteğe bağlı video içerik teslim, amacınız farklı ağ koşulları altındaki çeşitli cihazlara yüksek kaliteli video teslim andır.
@@ -61,7 +61,7 @@ Kullanıcı akışı veya içerik indirmek için kullanılabilecek bir URL sağl
 * OnDemandOrigin bulucuları. Bu akış medya (örneğin, MPEG-DASH, HLS veya kesintisiz akış) için kullanılan veya dosyalarını aşamalı indirmek.
 * Paylaşılan erişim imzası (SAS) URL'si bulucular. Bunlar, yerel bilgisayarınıza medya dosyalarını indirmek için kullanılır.
 
-Bir *erişim ilkesi* izinleri (örneğin, okuma, yazma ve liste) tanımlamak için kullanılır ve süresi bir istemci belirli bir varlık için erişimine sahiptir. İzin (AccessPermissions.List) OrDemandOrigin bir Bulucu oluşturma kullanılmamalıdır unutmayın.
+Bir *erişim ilkesi* izinleri (örneğin, okuma, yazma ve liste) tanımlamak için kullanılır ve süresi bir istemci belirli bir varlık için erişimine sahiptir. İzin (AccessPermissions.List) OnDemandOrigin bir Bulucu oluşturma kullanılmamalıdır unutmayın.
 
 Bulucuların sona erme tarihi vardır. Azure portalında bir sona erme tarihi 100 yıl sonra bulucular için ayarlar.
 
@@ -77,7 +77,7 @@ Bulucular kullanıcı başına erişim denetimini yönetmek için tasarlanmamı�
 Bir Bulucu oluşturduğunuzda, gerekli depolama ve Azure depolama yayma işlemi nedeniyle 30 saniyelik gecikme olabilir.
 
 ## <a name="adaptive-streaming"></a>Akış Bağdaşık
-Bit hızı Uyarlamalı teknolojileri birkaç bit hızlarına dönüştürme ağ koşulları belirlemek ve video oynatıcı uygulamaları sağlar. Ağ iletişimi değerlerinde düşme olduğunda düşük video kalitesi ile kayıttan yürütme devam edebilmesi istemci daha düşük bir bit hızı seçebilirsiniz. Ağ koşulları arttıkça, istemci bir daha yüksek hızı ile geliştirilmiş video kalitesi geçiş yapabilirsiniz. Azure Media Services şu bit hızı Uyarlamalı teknolojilerini destekler: HTTP canlı akışı (HLS), kesintisiz akış ve MPEG-DASH.
+Bit hızı Uyarlamalı teknolojileri birkaç bit hızlarına dönüştürme ağ koşulları belirlemek ve video oynatıcı uygulamaları sağlar. Ağ iletişimi değerlerinde düşme olduğunda düşük video kalitesi ile kayıttan yürütme devam edebilmesi istemci daha düşük bir bit hızı seçebilirsiniz. Ağ koşulları arttıkça, istemci bir daha yüksek hızı ile geliştirilmiş video kalitesi geçiş yapabilirsiniz. Azure Media Services şu bit hızı Uyarlamalı teknolojilerini destekler: HTTP canlı akış (HLS), kesintisiz akış ve MPEG-DASH.
 
 Akış URL'lerini kullanıcılara sağlamak için önce bir OnDemandOrigin Bulucu oluşturmanız gerekir. Bulucu oluşturarak, içerik akışı yapmak istediğiniz içeren bir varlık için temel yol sunar. Ancak, bu içerik akışı yapmak için bu yolu daha da değiştirmeniz gerekir. Akış bildirim dosyasına tam bir URL oluşturmak için konum yol değeri ve ' % s'bildirimi (filename.ism) birleştirme dosya adı. Ardından Ekle **/MANIFEST** ve (gerekirse) uygun bir biçimde Bulucu yolu.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/14/2019
 ms.author: bwren
-ms.openlocfilehash: abcf3100dc5252db9e3a5e7b446417333a9b37ca
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 27c732a2ddd21401ffbefa727cbb8001ec288293
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321900"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381944"
 ---
 # <a name="standard-properties-in-log-analytics-records"></a>Log Analytics kayıtları standart özellikler
 Verileri [Log Analytics](../log-query/log-query-overview.md) kümesi her bir özellik kümesi olan bir özel veri türü ile kayıt olarak depolanır. Birçok veri türleri, birden çok türlerinde ortak olan standart özellikleri olacaktır. Bu makalede, bu özellikleri açıklar ve nasıl bunları sorgularında kullanabileceğiniz örnekler sağlar.
@@ -92,7 +92,7 @@ AzureActivity
 Faturalandırılan veri türleri gönderme bilgisayarların listesini almak için aşağıdaki sorguyu kullanın:
 
 > [!NOTE]
-> İle sorguları kullanma `union withsource = tt *` yürütmek veri veri türlerinde taramalar pahalıdır gerektiğinde. 
+> İle sorguları kullanma `union withsource = tt *` veri türlerinde taramaları çalıştırmak pahalı olduğundan gerektiğinde. 
 
 ```Kusto
 union withsource = tt * 

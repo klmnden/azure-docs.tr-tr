@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/15/2018
 ms.author: twhitney
-ms.openlocfilehash: c4add1034e4b149cbe9d3c76c03987d45ca587c4
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: d66e27d860d18a37ffd9c6355b8d769116f26d73
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993813"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391246"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Bir Service Fabric kapsayıcı hizmeti için günlükleri görüntüleyin
 Azure Service Fabric kapsayıcı Düzenleyicisi ve her ikisi de destekler [Linux ve Windows kapsayıcıları](service-fabric-containers-overview.md).  Bu makalede, böylece tanılayın ve sorunlarını giderme ölü kapsayıcı ya da çalışan bir kapsayıcı hizmeti kapsayıcı günlüklerini görüntülemeyi açıklar.
@@ -43,6 +43,8 @@ Service Fabric (6.1 veya üzeri sürümler), kapsayıcı başlatma hatalarının
  ```
 
 **ContainersRetentionCount** ayarı, başarısız olduğunda bekletilecek kapsayıcı sayısını belirtir. Negatif bir değer belirtilirse başarısız olan tüm kapsayıcılar bekletilir. Zaman **ContainersRetentionCount** özniteliği belirtilmezse, hiçbir kapsayıcı bekletilmez. **ContainersRetentionCount** özniteliği, kullanıcıların test ve üretim kümeleri için farklı değerler belirtebilmesi amacıyla Uygulama Parametrelerini destekler. Kapsayıcı hizmetinin diğer düğümlere taşınmasını önlemek için bu özellikler kullanılırken kapsayıcı hizmetinin belirli bir düğümü hedeflemesini sağlamak için yerleştirme kısıtlamaları kullanın. Bu özellik kullanılarak bekletilen tüm kapsayıcılar el ile kaldırılmalıdır.
+
+Ayar **RunInteractive** Docker's karşılık gelen `--interactive` ve `tty` [bayrakları](https://docs.docker.com/engine/reference/commandline/run/#options). Bu ayar ayarlandığında bu bayraklar kapsayıcı başlatmak için true bildirimi dosyasındaki kullanılır.  
 
 ### <a name="rest"></a>REST
 Kullanım [düğüm kapsayıcı günlüklerini dağıtılan alma](/rest/api/servicefabric/sfclient-api-getcontainerlogsdeployedonnode) çöken bir kapsayıcı için günlükleri alma işlemi. Kapsayıcıyı çalıştıran düğümün adı, uygulama adı, hizmet bildirim adını ve kod paket adı belirtin.  Belirtin `&Previous=true`. Kapsayıcı günlüklerini ölü kapsayıcısı kod paketi örneği için yanıt içerir.

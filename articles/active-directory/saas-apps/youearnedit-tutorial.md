@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/6/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: fd65d6a5d210b4b0549236ec39844e36480b10c9
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: e910fc3c685f3ffb3e77308dafa9ec7e6ce6a950
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790267"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390879"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-youearnedit"></a>Öğretici: YouEarnedIt ile Azure Active Directory Tümleştirme
 
@@ -78,8 +78,8 @@ Yapılandırma ve Azure AD çoklu oturum açma YouEarnedIt ile test etmek için 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 2. **[YouEarnedIt çoklu oturum açmayı yapılandırma](#configure-youearnedit-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
 3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-4. **[YouEarnedIt test kullanıcısı oluşturma](#create-youearnedit-test-user)**  - kullanıcı Azure AD gösterimini bağlı YouEarnedIt Britta simon'un bir karşılığı vardır.
-5. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[YouEarnedIt test kullanıcısı oluşturma](#create-youearnedit-test-user)**  - kullanıcı Azure AD gösterimini bağlı YouEarnedIt Britta simon'un bir karşılığı vardır.
 6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
@@ -104,22 +104,24 @@ Azure AD çoklu oturum açma ile YouEarnedIt yapılandırmak için aşağıdaki 
 
     ![YouEarnedIt etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-identifier.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna bir URL kullanarak aşağıdaki düzenler: 
+    a. İçinde **oturum açma URL'si** metin kutusuna bir URL kullanarak aşağıdaki düzenler:
+
     | Ortam  | Desen  |
     |:--- |:--- |
     | Üretim | `https://<company name>.youearnedit.com/users/sign_in` |
     | Korumalı Alan  |`https://<company name>.sandbox.youearnedit.com/users/sign_in` |
 
     b. İçinde **tanımlayıcı** metin kutusuna bir URL kullanarak aşağıdaki düzenler:
+
     | Ortam  | Desen  |
     |:--- |:--- |
     | Üretim | `<company name>.youearnedit.com` |
     | Korumalı Alan  |`<company name>.sandbox.youearnedit.com` |
 
-    > [!NOTE] 
+    > [!NOTE]
     > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. Bu değerleri almak için atanan YouEarnedIt müşteri başarı yöneticinize başvurun.
 
-4. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **sertifika (Base64)** bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
+5. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **sertifika (Base64)** bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 
     ![Sertifika indirme bağlantısı](common/certificatebase64.png)
 
@@ -192,11 +194,10 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için YouEarnedIt erişim vere
 
 Bu bölümde, Britta Simon YouEarnedIt içinde adlı bir kullanıcı oluşturun. Lütfen YouEarnedIt platform kullanıcıları eklemek için atanan YouEarnedIt müşteri başarısı Yöneticisi çalışın.
 
->[!NOTE]
->YouEarnedIt Nameıd öznitelik, bir EmailAddress veya kullanıcı adı sağlamak için kimlik sağlayıcısı bekler. Karşılık gelen bir kullanıcı adı veya EmailAddress veritabanı içinde bulunamadı veya tam olarak eşleşmiyor kimlik doğrulaması başarısız olur. Bu hesapları SSO tümleştirme (genellikle ya da API veya CSV içeri aktarma yoluyla) önce YouEarnedIt sistemine alınmasını gerektirir.
+> [!NOTE]
+> YouEarnedIt Nameıd öznitelik, bir EmailAddress veya kullanıcı adı sağlamak için kimlik sağlayıcısı bekler. Karşılık gelen bir kullanıcı adı veya EmailAddress veritabanı içinde bulunamadı veya tam olarak eşleşmiyor kimlik doğrulaması başarısız olur. Bu hesapları SSO tümleştirme (genellikle ya da API veya CSV içeri aktarma yoluyla) önce YouEarnedIt sistemine alınmasını gerektirir.
 
-
-### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
@@ -209,4 +210,3 @@ Erişim paneli YouEarnedIt kutucuğa tıkladığınızda, size otomatik olarak S
 - [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

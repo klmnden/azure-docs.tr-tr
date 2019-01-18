@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 120b97f69c8fad2daf3090441e8d0326e80115c3
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: d339908b9347843da891dd1c7fa038c45cee1dcb
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338592"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382838"
 ---
-# <a name="traffic-analytics"></a>Trafik analizi
+# <a name="traffic-analytics"></a>Trafik Analizi
 
 Trafik analizi, bulut ağlarındaki kullanıcı ve uygulama etkinliğiniz görünürlük sağlayan bir bulut tabanlı bir çözümdür. Trafik analizi, Azure bulut trafik akışını Öngörüler sağlamak için Ağ İzleyicisi ağ güvenlik grubu (NSG) akış günlüklerini analiz eder. Trafik Analizi ile şunları yapabilirsiniz:
 
@@ -99,9 +99,6 @@ Hesabınızda aşağıdaki Azure birine üye olmalıdır [yerleşik roller](../r
 |                   | Katılımcı            |
 |                   | Okuyucu                 |
 |                   | Ağ Katılımcısı    |
-|Klasik            | Hesap yöneticisi  |
-|                   | Hizmet yöneticisi  |
-|                   | Ortak yönetici       |
 
 Hesabınızı yerleşik rollerden biri atanmamışsa, atanmalıdır bir [özel rol](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) aşağıdaki eylemler, abonelik düzeyinde atanmış:
 

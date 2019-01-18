@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric en iyi güvenlik uygulamaları | Microsoft Docs
-description: Bu makalede Azure Service Fabric güvenlik için en iyi yöntemler kümesi sağlar.
+title: Azure Service Fabric en iyi güvenlik yöntemleri | Microsoft Docs
+description: Bu makalede, Azure Service Fabric güvenliği için en iyi yöntemler kümesi sağlar.
 services: security
 documentationcenter: na
 author: unifycloud
@@ -12,177 +12,179 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/16/2019
 ms.author: tomsh
-ms.openlocfilehash: b908589903d243b2d284e2a23b6111785229c16f
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 718b6b38121981bdec1f677537f9cd1180dfdb08
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894138"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391220"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Azure Service Fabric en iyi güvenlik uygulamaları
-Hızlı, kolay ve düşük maliyetli, Azure'da bir uygulamayı dağıtma. Bulut uygulamanızı üretime dağıtmadan önce uygulamanızda güvenli küme uygulamak için önemli ve önerilen en iyi yöntemler bizim listesini gözden geçirin.
+Hızlı, kolay ve uygun maliyetli, azure'da bir uygulamayı dağıtma. Bulut uygulamanızı üretime dağıtmadan önce uygulamanızda güvenli kümeleri uygulamak için önemli ve önerilen en iyi yöntemler listemizi gözden geçirin.
 
-Azure Service Fabric; ölçeklenebilir ve güvenilir mikro hizmetleri paketlemeyi, dağıtmayı ve yönetmeyi kolaylaştırmayı sağlayan bir dağıtılmış sistemler platformudur. Service Fabric ayrıca bulut uygulamalarını geliştirme ve yönetme sürecinde karşılaşılan başlıca sorunların giderilmesini de sağlar. Geliştiriciler ve yöneticiler, karmaşık altyapı sorunlarını çözmeye çalışmak yerine görev açısından kritik, zorlu iş yüklerini uygulamaya odaklanabilir. Service Fabric, bu iş yüklerinin ölçeklenebilir, güvenilir ve yönetilebilir olmasını sağlar. 
+Azure Service Fabric; ölçeklenebilir ve güvenilir mikro hizmetleri paketlemeyi, dağıtmayı ve yönetmeyi kolaylaştırmayı sağlayan bir dağıtılmış sistemler platformudur. Service Fabric ayrıca bulut uygulamalarını geliştirme ve yönetme sürecinde karşılaşılan başlıca sorunların giderilmesini de sağlar. Geliştiriciler ve yöneticiler, karmaşık altyapı sorunlarını çözmeye çalışmak yerine görev açısından kritik, zorlu iş yüklerini uygulamaya odaklanabilir. Service Fabric, bu iş yüklerinin ölçeklenebilir, güvenilir ve yönetilebilir olmasını sağlar.
 
-En iyi her uygulama için biz açıklamaktadır:
+En iyi her uygulama için biz açıklar:
 
--   Hangi en iyi bir uygulamadır.
--   Neden en iyi uygulama olarak uygulamanız gerekir.
--   En iyi uygulama uygulamaz oluşabileceklerden.
--   Nasıl en iyi uygulama olarak uygulamak bilgi edinebilirsiniz.
+-   Nelerin iyi bir uygulamadır.
+-   Neden en iyi uygulamalıdır.
+-   En iyi uygulamayıp ne meydana gelebilir.
+-   Nasıl en iyi uygulamak bilgi edinebilirsiniz.
 
-En iyi yöntemler aşağıdaki Azure Service Fabric güvenlik öneririz:
+Aşağıdaki Azure Service Fabric güvenlik en iyi öneririz:
 
--   Azure Resource Manager şablonları ve Service Fabric PowerShell modülü güvenli kümeleri oluşturmak için kullanın.
--   X.509 sertifikaları kullanın.
+-   Güvenli küme oluşturulması için Azure Resource Manager şablonları ve Service Fabric PowerShell modülünü kullanın.
+-   X.509 sertifikaları kullanma.
 -   Güvenlik ilkeleri yapılandırın.
--   Reliable Actors güvenlik yapılandırması uygular.
--   SSL için Azure Service Fabric yapılandırın.
--   Ağ yalıtımı ve güvenlik ile Azure Service Fabric kullanın.
--   Azure anahtar kasası için güvenlik yapılandırın.
+-   Reliable Actors güvenlik yapılandırmasını uygular.
+-   Azure Service Fabric için SSL'yi yapılandırma.
+-   Ağ yalıtımını ve güvenlik, Azure Service Fabric ile kullanın.
+-   Azure Key Vault için güvenliği yapılandırma.
 -   Kullanıcıları rollere atarsınız.
 
 
-## <a name="best-practices-for-securing-your-clusters"></a>Kümelerinizi güvenliğini sağlamak için en iyi uygulamalar
+## <a name="best-practices-for-securing-your-clusters"></a>Kümelerinize güvenliğini sağlamaya yönelik en iyi yöntemler
 
 Her zaman güvenli bir küme kullanın:
--   Küme güvenlik sertifikaları kullanarak uygular.
--   İstemci erişim sağlar (Yönetici ve salt okunur) Azure Active Directory (Azure AD) kullanarak.
+-   Küme güvenliği sertifikaları kullanarak uygulayın.
+-   İstemci erişim sağlamak (Yönetici ve salt okunur) kullanarak Azure Active Directory (Azure AD).
 
-Otomatik dağıtımları kullanın:
--   Komut dosyaları oluşturmak, dağıtmak ve gizli anahtarları alma için kullanın.
--   Gizli anahtarları Azure anahtar kasası depolayın ve diğer tüm istemci erişimi için Azure AD kullanın.
--   İnsan erişim gizli anahtarları için kimlik doğrulaması gerektirir.
+Otomatik dağıtımlar kullanın:
+-   Komut dosyaları oluşturmak, dağıtmak ve gizli dizileri almak için kullanın.
+-   Gizli dizileri Azure Key Vault'ta Store ve diğer tüm istemci erişimi için Azure AD'yi kullanın.
+-   Gizli dizileri İnsan erişim için kimlik doğrulaması gerektirir.
 
 Ayrıca, aşağıdaki yapılandırma seçeneklerini göz önünde bulundurun:
--   Çevre ağı (sivil bölge, DMZ'ler ve denetimli alt ağ olarak da bilinir) Azure ağ güvenlik grupları (Nsg'ler) kullanarak oluşturun.
--   Küme sanal makineleri (VM'ler) erişim veya Uzak Masaüstü Bağlantısı ile atlama sunucularını kullanarak kümenizi yönetebilirsiniz.
+-   Çevre ağları (arındırılmış bölge, DMZ'ler ve denetimli alt ağ olarak da bilinir), Azure ağ güvenlik grupları (Nsg'ler) kullanarak oluşturun.
+-   Küme sanal makinelerine (VM'ler) erişebilir veya atlama sunucuları ile Uzak Masaüstü bağlantısı kullanarak kümenize yönetin.
 
-Yetkisiz kullanıcılar bağlanmak, özellikle bir küme üretimde çalışırken engellemek için kümelerinizi güvenli hale getirilmelidir. Güvenli olmayan bir küme oluşturmak mümkün olsa da, küme yönetim uç noktalarının genel internet gösterir, anonim kullanıcılar kümenize bağlanabilir.
+Kümeleriniz, yetkisiz kullanıcıların bağlanma, özellikle de bir küme üretim ortamında çalışırken engellemek için güvenli hale getirilmelidir. Güvenli olmayan bir kümeye oluşturmak mümkün olsa da, küme yönetim uç noktalarını genel İnternet'e sunarsa, anonim kullanıcılar kümenize bağlanabilir.
 
-Üç [senaryoları](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) çeşitli teknolojiler kullanılarak küme güvenlik uygulamak için:
+Üç [senaryoları](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) çeşitli teknolojiler kullanarak küme güvenliği uygulamak için:
 
--   Düğümü düğümü güvenlik: Bu senaryo VM'ler ve kümedeki bilgisayarların arasındaki iletişimin güvenliğini sağlar. Bu form güvenlik uygulamaları ve Hizmetleri kümedeki Kümeye katılma yetkisi olan bilgisayarları barındırabilir sağlar.
-Bu senaryo, Azure üzerinde çalıştığı kümesi ya da Windows üzerinde çalışan tek başına kümeleri kullanabilirsiniz [sertifika güvenlik](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security) veya [Windows Güvenliği](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-windows-security) Windows Server makinelerini için.
--   İstemcisi düğümü güvenlik: Bu senaryo bir Service Fabric istemcisi ve bireysel düğümleri arasındaki iletişimin güvenliğini sağlar.
--   Rol tabanlı erişim denetimi (RBAC): Bu senaryo, ayrı kimlikleri kullanır (Sertifikalar, Azure AD, vb.) küme erişen her yönetici ve kullanıcı istemci rolü için. Kümeyi oluşturduğunuzda rol kimlikleri belirtin.
+-   Düğümden düğüme güvenlik için: Bu senaryo, Vm'leri kümedeki bilgisayarlar arasındaki iletişimi korur. Bu formu güvenlik uygulamaları ve Hizmetleri kümedeki Kümeye katılma yetkisi olan bilgisayarları barındırabilir sağlar.
+Bu senaryo, Azure'da çalıştırılan kümeleri veya Windows üzerinde çalışan tek başına kümeler kullanabilirsiniz [sertifika güvenlik](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security) veya [Windows Güvenlik](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-windows-security) için Windows Server makineleri.
+-   İstemci düğümü güvenlik: Bu senaryo, bir Service Fabric istemci kümedeki tek tek düğümler arasındaki iletişimi korur.
+-   Rol tabanlı erişim denetimi (RBAC): Bu senaryo ayrı kimlikleri kullanır (Sertifikalar, Azure AD, vb.) kümeye erişen her yönetici ve kullanıcı istemci rolü için. Kümeyi oluşturduğunuzda rol kimliklerini belirtin.
 
 >[!NOTE]
->**Azure kümeleri için güvenlik öneri:** istemcileri için ve sertifikaları düğümü düğümü güvenlik kimlik doğrulaması için kullanım Azure AD güvenlik.
+>**Azure kümeleri için güvenlik önerisi:** İstemciler ve düğümden düğüme güvenliği için sertifika kimlik doğrulaması için Azure AD güvenlik kullanın.
 
-Bir tek başına Windows kümesi yapılandırmak için bkz: [tek başına Windows kümesi yapılandırmak](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-manifest).
+Tek başına bir Windows kümesi yapılandırmak için bkz [tek başına bir Windows kümesi için ayarları yapılandırma](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-manifest).
 
-Azure Resource Manager şablonları ve Service Fabric PowerShell modülü güvenli bir küme oluşturmak için kullanın.
-Azure Resource Manager şablonları kullanarak güvenli bir Service Fabric kümesi oluşturmak adım adım yönergeler için bkz: [bir Service Fabric kümesi oluşturma](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm).
+Güvenli bir küme oluşturmak için Azure Resource Manager şablonları ve Service Fabric PowerShell modülünü kullanın.
+Azure Resource Manager şablonlarını kullanarak güvenli bir Service Fabric kümesi oluşturmak adım adım yönergeler için bkz: [bir Service Fabric kümesi oluşturma](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm).
 
 Azure Resource Manager şablonu kullanın:
--   VM sanal sabit diskler (VHD) için yönetilen depolama yapılandırmak için şablonu kullanarak kümenizi özelleştirin.
--   Sürücü kaynak grubunuz için kolay bir yapılandırma yönetim şablonu kullanarak ve denetim değiştirir.
+-   VM sanal sabit diskleri (VHD'ler) için yönetilen depolama yapılandırmak için bir şablon kullanarak kümenize özelleştirin.
+-   Sürücü, şablon için kolay yapılandırma yönetimi kullanarak ve denetim, kaynak grubunuza değiştirir.
 
-Küme yapılandırmasını kodu olarak kabul eder:
--   Dağıtım yapılandırmalarınızı denetlerken kapsamlı olabilir.
--   Doğrudan kaynaklarınızı değiştirmek için örtük komutları kullanmaktan kaçının.
+Küme yapılandırmanızı kod olarak işleyin:
+-   Dağıtım yapılandırmalarınızı denetlenirken kapsamlı olabilir.
+-   Örtük komutları doğrudan kaynaklarınızı değiştirmek için kullanmaktan kaçının.
 
-Pek çok görünüşünün [Service Fabric uygulama yaşam döngüsü](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-lifecycle) otomatikleştirilebilir. [Service Fabric PowerShell Modülü](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications#upload-the-application-package) dağıtma, yükseltme, kaldırma ve Azure Service Fabric uygulamaları test etmek için ortak görevleri otomatik hale getirir. Yönetilen API'ler ve HTTP API'leri uygulama yönetimi için de kullanılabilir.
+Birçok yönden [Service Fabric uygulama yaşam döngüsü](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-lifecycle) otomatikleştirilebilir. [Service Fabric PowerShell modülünü](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications#upload-the-application-package) dağıtma, yükseltme, kaldırma ve Azure Service Fabric uygulamalarını test etme için ortak görevleri otomatik hale getirir. Yönetilen API'ler ve uygulama yönetimi için HTTP API'lerini de mevcuttur.
 
-## <a name="use-x509-certificates"></a>X.509 sertifikaları kullan
-Her zaman kümelerinizi X.509 sertifikaları ya da Windows güvenliği kullanarak güvenli hale getirin. Güvenlik, yalnızca küme oluşturma sırasında yapılandırılır. Küme oluşturulduktan sonra güvenliği etkinleştirmek mümkün değildir.
+## <a name="use-x509-certificates"></a>X.509 sertifikaları kullanma
+Her zaman kümelerinizi X.509 sertifikaları veya Windows güvenliği kullanılarak güvenli hale getirin. Güvenlik yalnızca küme oluşturma sırasında yapılandırılır. Küme oluşturulduktan sonra güvenliği etkinleştirmek mümkün değildir.
 
-Belirtmek için bir [küme sertifika](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security), değerini **ClusterCredentialType** X509 özelliğine. Dış bağlantılar için bir sunucu sertifikası belirtmek için ayarlayın **ServerCredentialType** X509 özelliğine.
+Belirtmek için bir [küme sertifikası](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security), değerini **ClusterCredentialType** X509 özelliği. Dış bağlantıları için bir sunucu sertifikası belirtmek için ayarlayın **ServerCredentialType** X509 özelliği.
 
 Ayrıca, bu uygulamaları izleyin:
--   Üretim kümeleri için sertifikaları doğru yapılandırılmış bir Windows Server sertifika hizmeti kullanarak oluşturun. Ayrıca bir onaylanmış sertifika yetkilisinden (CA) sertifikaları elde edebilirsiniz.
--   Sertifika MakeCert.exe veya benzer bir araç kullanılarak oluşturulduysa, sertifikayı üretim kümeleri için test veya hiçbir zaman bir geçici kullanın.
--   Test kümelerindeki, ancak üretim kümeleri için otomatik olarak imzalanan bir sertifika kullanın.
+-   Üretim kümeleri için sertifikaları doğru şekilde yapılandırılmış bir Windows Server sertifika hizmetini kullanarak oluşturun. Ayrıca, onaylanmış bir sertifika yetkilisinden (CA) sertifikaları edinebilirsiniz.
+-   Hiçbir zaman geçici kullanın veya sertifika MakeCert.exe veya benzer bir araç kullanarak oluşturduysanız sertifika üretim kümeleri için test edebilirsiniz.
+-   Test kümeleri için ancak üretim kümeleri için otomatik olarak imzalanan bir sertifika kullanın.
 
-Küme güvensiz ise, herkes kümeye anonim olarak bağlanmasına ve yönetim işlemleri. Bu nedenle, her zaman üretim kümelerine X.509 sertifikaları ya da Windows güvenliği kullanarak güvenli hale getirme.
+Küme güvenli değildir, herkes anonim olarak kümeye bağlanın ve yönetim işlemleri. Bu nedenle, her zaman üretim kümeleri X.509 sertifikaları veya Windows güvenliği kullanılarak güvenli hale getirin.
 
-X.509 sertifikaları kullanma hakkında daha fazla bilgi edinmek için [Service Fabric kümesi için ekleme veya kaldırma sertifikaları](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security-update-certs-azure).
+X.509 sertifikaları kullanma hakkında daha fazla bilgi edinmek için [bir Service Fabric kümesi ekleme veya kaldırma sertifikalarını](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security-update-certs-azure).
 
-## <a name="configure-security-policies"></a>Güvenlik ilkelerini yapılandırma
-Service Fabric, ayrıca uygulamaları tarafından kullanılan kaynakların güvenliğini sağlar. Kaynak dosyaları, dizinleri, ister ve uygulama dağıtıldığında, sertifikaları kullanıcı hesapları altında depolanır. Bu özellik çalışan uygulamaları bile paylaşılan barındırılan bir ortamda birbirinden, daha güvenli hale getirir.
+## <a name="configure-security-policies"></a>Güvenlik ilkelerini yapılandır
+Service Fabric ayrıca uygulamalar tarafından kullanılan kaynakların güvenliğini sağlar. Kaynak dosyalar, dizinler, ister ve uygulama dağıtıldığında, sertifikaları kullanıcı hesapları altında depolanır. Bu özellik çalışan uygulamalar da paylaşılan barındırılan bir ortamda birbirinden, daha güvenli hale getirir.
 
--   Bir Active Directory etki alanı grubu veya kullanıcı kullanın: Active Directory kullanıcı veya grup hesabı için kimlik bilgileri altında hizmetini çalıştırmak. Active Directory şirket içi etki alanı ve Azure Active Directory içinde kullandığınızdan emin olun. Etki alanındaki bir etki alanı kullanıcısı veya grubu kullanarak izinleri verilmiş diğer kaynaklara erişim. Örneğin, dosya paylaşımları gibi kaynakları.
+-   Bir Active Directory etki alanı grubu veya kullanıcı kullanın: Bir Active Directory kullanıcı veya grup hesabı için kimlik bilgileri altında hizmet çalıştırın. Active Directory şirket içi Azure Active Directory ve etki alanı içinde kullandığınızdan emin olun. Etki alanındaki bir etki alanı kullanıcısı veya grubu kullanarak izinleri verilmiş olması diğer kaynaklara erişin. Örneğin, dosya paylaşımları gibi kaynaklar.
 
--   HTTP ve HTTPS uç noktaları için bir güvenlik erişim ilkesi atama: belirtin **SecurityAccessPolicy** uygulamak için özellik bir **RunAs** hizmet bildirimi uç noktası kaynakları bildirir, bir hizmete İlkesi HTTP ile. HTTP uç noktaları için ayrılmış bağlantı hizmetinin altında çalıştığı RunAs kullanıcı hesabı için doğru erişim kontrol listeleri noktalarıdır. İlke ayarlanmamışsa, http.sys hizmet için erişime sahip değil ve istemciden çağrıları hataları alabilirsiniz.
+-   HTTP ve HTTPS Uç noktalara yönelik güvenlik erişim ilkesi atayın: Belirtin **SecurityAccessPolicy** özelliği uygulamak için bir **RunAs** hizmet bildirimi HTTP uç noktası kaynaklarla bildirir, bir hizmet ilkesi. İçin HTTP uç noktalarını ayrılmış bağlantı noktaları doğru erişim kontrol altında çalışacağı RunAs kullanıcı hesabı için listeleridir. İlke ayarlanmamış, http.sys Erişim hizmetine sahip değil ve istemciden çağrıları sahip olan hatalar alabilirsiniz.
 
-Güvenlik ilkeleri bir Service Fabric kümesi kullanmayı öğrenmek için bkz: [uygulamanız için güvenlik ilkelerini yapılandırmak](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-runas-security).
+Bir Service Fabric kümesi güvenlik ilkelerini kullanma konusunda bilgi almak için bkz: [uygulamanıza yönelik güvenlik ilkeleri yapılandırma](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-runas-security).
 
-## <a name="implement-the-reliable-actors-security-configuration"></a>Reliable Actors güvenlik yapılandırmasını uygulamak
-Service Fabric Reliable Actors aktör tasarım deseni uygulamasıdır. Tüm yazılım tasarım deseni gibi belirli bir desene kullanmaya karar yazılım sorunu düzeni uygun üzerinde temel alır.
+## <a name="implement-the-reliable-actors-security-configuration"></a>Reliable Actors güvenlik yapılandırmasını uygulayın
+Service Fabric Reliable Actors aktör tasarım deseni uygulamasıdır. Tüm yazılım tasarım deseni ile gibi belirli bir desene karar yazılım sorunu deseni uygun üzerinde temel alır.
 
-Genel olarak, aşağıdaki yazılım sorunları veya güvenlik senaryoları için model çözümleri yardımcı olması için aktör tasarım deseni kullanın:
--   Çok sayıda sorunu alanınızı içerir (binlerce veya daha fazla) küçük, bağımsız ve yalıtılmış birim durumu ve mantığı sayısı.
--   Dış bileşenlerinden aktörler kümesi boyunca durumu sorgulama dahil olmak üzere önemli etkileşim gerektirmeyen tek iş parçacıklı nesnelerle çalışıyoruz.
--   Aktör örneklerinizi g/ç işlemleri vererek beklenmeyen gecikme ile arayanlar engelleme.
+Genel olarak, model çözüm aşağıdaki yazılım sorunlarının veya güvenlik senaryoları için yardımcı olmak için aktör tasarım deseni kullanın:
+-   Çok sayıda sorunu alanınızı içerir (binlerce veya daha fazlası) küçük, bağımsız ve ayrı birim durumu ve mantığı.
+-   Dış bileşenlerinden durumu aktörler kümesi sorgulama dahil olmak üzere önemli etkileşim gerektirmeyen tek iş parçacıklı nesnelerle çalışıyoruz.
+-   Aktör örneklerinizi çağıranlar beklenmeyen gecikmeler ile g/ç işlemleri göndererek engellemez.
 
-Service Fabric içinde aktörler Reliable Actors uygulama çerçevesi uygulanır. Bu çerçeve aktör deseni temel alınarak ve üstünde yerleşik [Service Fabric Reliable Services](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-introduction). Yazdığınız her güvenilir aktör hizmeti bir bölümlenmiş durum bilgisi olan güvenilir hizmetidir.
+Service Fabric'te Reliable Actors uygulaması framework aktörler uygulanır. Bu çerçeve aktör deseni temel alınarak ve üst kısmındaki yerleşik [Service Fabric güvenilir hizmetler](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-introduction). Yazdığınız her güvenilir aktör bölümlenmiş bir durum bilgisi olan reliable Services hizmetidir.
 
-Her aktör .NET türünün bir örneği bir .NET nesnesidir şekilde özdeş bir aktör türünün bir örneği olarak tanımlanır. Örneğin, bir **aktör türü** uygulayan çeşitli düğümlerde küme genelinde dağıtılan birçok aktörler bu tür bir hesap makinesi işlevselliğini sahip olabilir. Her dağıtılmış aktörler benzersiz olarak aktör tanımlayıcı tarafından belirlenir.
+Her aktör, bir .NET nesnesini .NET türünün bir örneği olduğu şekilde özdeş bir aktör türü örneği olarak tanımlanır. Örneğin, bir **aktör türü** uygulayan bir hesap makinesi işlevselliğini çeşitli düğümler bir küme genelinde dağıtılan birçok aktör türü olabilir. Her bir dağıtılmış aktörleri benzersiz bir aktör tanımlayıcısı tarafından belirlenir.
 
-[Çoğaltıcı güvenlik yapılandırmalarını](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-kvsactorstateprovider-configuration) çoğaltma sırasında kullanılır ve iletişim kanalının güvenliğini sağlamak için kullanılır. Bu yapılandırma Hizmetleri birbirlerinin çoğaltma trafiğini görmesini engeller ve yüksek oranda kullanılabilir veri güvenli olmasını sağlar. Varsayılan olarak, bir boş güvenlik yapılandırması bölümü çoğaltma güvenlik engeller.
-Çoğaltıcı yapılandırmaları aktör durumu sağlayıcısı durumu yüksek oranda güvenilir yapmaktan sorumlu çoğaltıcı yapılandırın.
+[Çoğaltıcı güvenlik yapılandırmalarını](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-kvsactorstateprovider-configuration) çoğaltma sırasında kullanılan iletişim kanalını güvenli hale getirmek için kullanılır. Bu yapılandırma Hizmetleri birbirlerini çoğaltma trafiğini görmesini engelleyen ve yüksek oranda kullanılabilir verileri güvenli olmasını sağlar. Varsayılan olarak, bir boş güvenlik yapılandırma bölümü çoğaltma güvenlik engeller.
+Çoğaltma, yüksek oranda güvenilir aktör durumu sağlayıcısı durumu yapmaktan sorumlu çoğaltıcı yapılandırmaları.
 
-## <a name="configure-ssl-for-azure-service-fabric"></a>Azure Service Fabric için SSL yapılandırma
-Sunucu kimlik doğrulama işlemi [kimliğini doğrulayan](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) bir yönetim istemcisi küme yönetim Uç noktalara. Yönetim istemcisi ardından gerçek kümeye Bahsediyor tanır. Bu sertifika ayrıca sağlar bir [SSL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) HTTPS yönetim API'si ve Service Fabric Explorer HTTPS üzerinden.
-Kümeniz için özel bir etki alanı adı edinmeniz gerekir. Bir sertifika yetkilisinden bir sertifika istediğinde, sertifikanın konu adı, kümeniz için kullandığınız özel etki alanı adı eşleşmelidir.
+## <a name="configure-ssl-for-azure-service-fabric"></a>Azure Service Fabric için SSL'yi yapılandırma
+Sunucu kimlik doğrulama işlemi [doğrular](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) küme yönetim uç noktalar için bir yönetim istemcisi. Yönetim istemci ardından gerçek bir küme Bahsediyor tanır. Bu sertifika ayrıca sağlar bir [SSL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) ve Service Fabric Explorer HTTPS üzerinden HTTPS yönetim API'si için.
+Kümeniz için özel bir etki alanı adı edinmeniz gerekir. Sertifikanın konu adı, bir sertifika yetkilisinden bir sertifika talep ettiğinizde, kümeniz için kullandığınız özel etki alanı adı eşleşmelidir.
 
-Bir uygulama için SSL yapılandırmak için önce bir CA tarafından imzalanmış bir SSL sertifikası edinmeniz gerekir. SSL güvenlik amacıyla sertifikaları veren güvenilen bir üçüncü taraf CA olduğunda. Bir SSL sertifikası yoksa, bir SSL sertifikalarını sattığı bir şirketten edinmeniz gerekir.
+Bir uygulama için SSL'yi yapılandırmak için önce bir CA tarafından imzalanmış bir SSL sertifikası edinmeniz gerekir. CA güvenlik amacıyla SSL sertifikaları veren güvenilen bir üçüncü taraf'dır. Bir SSL sertifikası zaten yoksa, bir SSL sertifikaları satan bir şirketten edinmeniz gerekir.
 
-Sertifika Azure SSL sertifikaları için aşağıdaki gereksinimleri karşılamalıdır:
--   Sertifika bir özel anahtar içermelidir.
+Sertifika, azure'da SSL sertifikaları için aşağıdaki gereksinimleri karşılaması gerekir:
+-   Sertifika özel anahtar içermelidir.
 
--   Sertifika anahtar değişimi için oluşturulmuş olması gerekir ve bir kişisel bilgi değişimi (.pfx) dosyası için verilebilir.
+-   Sertifika, anahtar değişimi için oluşturulmuş olması gerekir ve bir kişisel bilgi değişimi (.pfx) dosyasına dışarı aktarılabilir.
 
--   Sertifikanın konu adı bulut hizmetinize erişmek için kullanılan etki alanı adı eşleşmelidir.
+-   Sertifikanın konu adı, bulut hizmetine erişmek için kullanılan etki alanı adı eşleşmelidir.
 
     - Bulut hizmetinize erişmek için kullanılacak özel etki alanı adını alın.
-    - Hizmetinizin özel etki alanı adıyla eşleşen bir konu adına sahip bir CA'dan bir sertifika isteyin. Örneğin, özel etki alanı adınızı ise __contoso__**.com**, CA'nız sertifikadan konu adı olmalıdır **. contoso.com** veya __www__ **. contoso.com**.
+    - Hizmetinizin özel etki alanı adıyla eşleşen bir konu adına sahip bir CA'dan bir sertifika isteyin. Örneğin, özel etki alanı adınızı ise __contoso__**.com**, Sertifika yetkilinizden sertifikası konu adı olmalıdır **. contoso.com** veya __www__ **. contoso.com**.
 
     >[!NOTE]
-    >Bir CA için bir SSL sertifikası elde edemiyor __cloudapp__**.net** etki alanı.
-    
--   En az 2.048 bit şifreleme sertifikası kullanması gerekir.
+    >Bir CA için bir SSL sertifikası alınamıyor __cloudapp__**.net** etki alanı.
 
-HTTP protokolü güvenli olmayan ve gizli dinleme saldırılarına maruz ' dir. HTTP üzerinden aktarılan veriler web sunucusuna veya diğer uç noktalar arasında web tarayıcısından düz metin olarak gönderilir. Saldırganlar kesecek ve HTTP üzerinden gönderilen kredi kartı ayrıntıları ve hesap oturum açma bilgileri gibi hassas verileri görüntüleyebilir. Veri gönderilen ya da bir tarayıcı yoluyla HTTPS üzerinden gönderilen SSL hassas bilgileri şifrelenmiş ve kişiler tarafından ele güvenli olmasını sağlar.
+-   Sertifikanın en az 2.048 bit şifreleme kullanmanız gerekir.
 
-SSL sertifikalarının kullanımı hakkında daha fazla bilgi için bkz: [Azure uygulamaları için SSL yapılandırma](https://docs.microsoft.com/azure/cloud-services/cloud-services-configure-ssl-certificate).
+HTTP protokolü, güvenli ve İleri gizli dinleme saldırılarına maruz. HTTP üzerinden aktarılan veriler web sunucusuna veya diğer uç noktalar arasında web tarayıcısından düz metin olarak gönderilir. Saldırganlar kesebilir ve kredi kartı Detayları ve hesap oturum açma bilgileri gibi HTTP üzerinden gönderilen hassas verileri görüntüleyebilecek. Veri gönderildikten veya HTTPS aracılığıyla bir tarayıcı aracılığıyla gönderilen, SSL hassas bilgileri şifrelenmiş ve durdurma güvenli olmasını sağlar.
 
-## <a name="use-network-isolation-and-security-with-azure-service-fabric"></a>Ağ yalıtımı ve güvenlik ile Azure Service Fabric kullanın
-3 nodetype güvenli küme kullanarak ayarlama [Azure Resource Manager şablonu](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) örnek olarak. Ağ güvenlik grupları ve şablonu kullanarak gelen ve giden ağ trafiğini denetler.
+SSL sertifikalarının kullanılması hakkında daha fazla bilgi için bkz: [Azure uygulamaları için SSL yapılandırma](https://docs.microsoft.com/azure/cloud-services/cloud-services-configure-ssl-certificate).
 
-Şablon bir NSG her sanal makine ölçek kümeleri için sahip ve giden trafiği filtrelemek kümesi denetlemek için kullanılır. Kuralları sistem hizmetlerini ve şablonda belirtilen uygulama bağlantı noktaları için gerekli tüm trafiğine izin vermek için varsayılan olarak yapılandırılır. Bu kuralları gözden geçirin ve uygulamalarınız için yeni kuralları ekleme gibi gereksinimlerinize uyacak şekilde değişiklikleri yapın.
+## <a name="use-network-isolation-and-security-with-azure-service-fabric"></a>Ağ yalıtımını ve güvenlik, Azure Service Fabric ile kullanma
+Bir 3 nodetype güvenli kullanarak küme oluşturma [Azure Resource Manager şablonu](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) örnek olarak. Ağ güvenlik grupları ve şablon kullanarak gelen ve giden ağ trafiğini denetler.
 
-Daha fazla bilgi için bkz: [Azure Service Fabric genel ağ senaryoları](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking).
+Şablon, her sanal makine ölçek kümeleri için bir NSG bulunur ve kümenin içine ve dışına trafiği denetlemek için kullanılır. Varsayılan olarak tüm gerekli sistem hizmetleri ve şablonda belirtilen uygulama bağlantı noktaları için izin verecek şekilde yapılandırılmış bir kural. Bu kuralları gözden geçirin ve uygulamalarınız için yeni kurallar ekleme dahil olmak üzere, kendi gereksinimlerinize uyacak şekilde herhangi bir değişiklik yapın.
 
-## <a name="set-up-azure-key-vault-for-security"></a>Azure anahtar kasası için güvenlik ayarlama
-Service Fabric, kimlik doğrulaması ve şifreleme bir küme ve kendi uygulamalarına güvenli hale getirmek için sertifikaları kullanır.
+Daha fazla bilgi için [Azure Service Fabric genel ağ senaryoları](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking).
 
-Bir küme güvenli ve uygulama güvenlik özellikleri sağlamak için Service Fabric X.509 sertifikaları kullanır. Azure anahtar Kasası'na kullandığınız [sertifikaları yönetme](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security-update-certs-azure) Azure Service Fabric kümeleri için. Kümeleri oluşturur Azure kaynak sağlayıcısı, bir anahtar kasası sertifikalardan çeker. Azure üzerinde Küme dağıtıldığında sağlayıcı sanal makinelerin sonra sertifikaları yükler.
+## <a name="set-up-azure-key-vault-for-security"></a>Güvenlik için Azure anahtar kasası ayarlama
+Service Fabric, kimlik doğrulaması ve şifreleme için bir küme ile uygulamalarının güvenliğini sağlamak için sertifikaları kullanır.
 
-Arasında sertifika bir ilişki var. [Azure anahtar kasası](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), Service Fabric kümesi ve sertifikaları kullanan kaynak sağlayıcısı. Küme oluşturulduğunda, sertifika ilişki hakkında bilgi anahtar kasasında depolanır.
+Service Fabric küme güvenliğini sağlama ve uygulama güvenlik özellikleri sağlamak için X.509 sertifikaları kullanır. Azure anahtar Kasası'na kullandığınız [sertifikaları yönetme](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security-update-certs-azure) azure'da Service Fabric kümeleri için. Kümeleri oluşturan Azure kaynak sağlayıcısı sertifikaları key vault çeker. Azure'da küme dağıtıldığında sağlayıcı sertifikaları Vm'lerde ardından yükler.
 
-Bir anahtar kasasını ayarlamak için iki temel adımlar şunlardır:
+Bir sertifika ilişki arasında mevcut [Azure anahtar kasası](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), Service Fabric kümesine ve sertifikaları kullanan kaynak sağlayıcısı. Sertifika ilişki hakkında bilgi, küme oluşturulduğunda bir anahtar Kasası'nda depolanır.
+
+Bir anahtar kasası ayarlama için iki temel adım vardır:
 1. Özel anahtar kasanız için bir kaynak grubu oluşturun.
 
-    Anahtar kasası, kendi kaynak grubunda put öneririz. Bu eylem diğer kaynak gruplarının, depolama, hesaplama veya kümenizi içeren grubu gibi kaldırılırsa anahtarları ve gizli anahtarları kaybını önlemeye yardımcı olur. Anahtar kasanızı içeren kaynak grubu tarafından kullanıldığı kümesi ile aynı bölgede olması gerekir.
+    Anahtar Kasası'nı kendi kaynak grubuna ekleyin öneririz. Bu eylem, diğer kaynak gruplarını, depolama, işlem veya kümenizi içeren grubun gibi kaldırılırsa anahtarlarınızı ve gizli bilgilerinizi kaybı önlemeye yardımcı olur. Anahtar kasanızı içeren kaynak grubunu kullanıyorsa kümeyle aynı bölgede olması gerekir.
 
-2. Bir anahtar kasası yeni kaynak grubu oluşturun.
+2. Yeni kaynak grubunda bir anahtar kasası oluşturun.
 
-    Anahtar kasası dağıtım için etkinleştirilmesi gerekir. İşlem kaynak sağlayıcısı kasadan sertifikaları almak ve bunları VM örneklerinde yükleyin.
+    Anahtar kasası dağıtım için etkinleştirilmesi gerekir. İşlem kaynak sağlayıcısı sertifikaları kasadan almak ve bunları kullanarak VM örneklerine yükleyin.
 
-Bir anahtar kasasını oluşturup hakkında daha fazla bilgi için bkz: [Azure anahtar kasası ile çalışmaya başlama](https://docs.microsoft.com/azure/key-vault/key-vault-get-started).
+Bir anahtar kasası ayarlama hakkında daha fazla bilgi için bkz: [Azure anahtar kasası ile çalışmaya başlama](https://docs.microsoft.com/azure/key-vault/key-vault-get-started).
 
-## <a name="assign-users-to-roles"></a>Kullanıcıları rollere atama
-Kümenizin temsil etmek üzere uygulamalar oluşturduktan sonra kullanıcılarınızın Service Fabric tarafından desteklenen rolleri atayın: salt okunur ve yönetici Azure Portalı'nı kullanarak bu roller atayabilirsiniz.
+## <a name="assign-users-to-roles"></a>Kullanıcı rollerine atama
+Kümenizi temsil etmek için uygulamaları oluşturduktan sonra kullanıcılarınızın Service Fabric tarafından desteklenen roller atama: salt okunur ve yönetici Azure portalını kullanarak bu roller atayabilirsiniz.
 
 >[!NOTE]
-> Service Fabric rolleri kullanma hakkında daha fazla bilgi için bkz: [Service Fabric istemciler için rol tabanlı erişim denetimi](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security-roles).
+> Service Fabric'te rolleri hakkında daha fazla bilgi için bkz. [rol tabanlı Access Control Service Fabric istemciler için](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security-roles).
 
-Azure Service Fabric bağlanan istemciler için iki erişim denetim türlerini destekler bir [Service Fabric kümesi](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm): Yönetici ve kullanıcı. Küme Yöneticisi, erişim denetimi, belirli küme işlemleri farklı kullanıcı grupları için erişimi sınırlamak için kullanabilirsiniz. Erişim denetimi küme daha güvenli hale getirir.
+Azure Service Fabric, bağlı istemciler için iki erişim denetim türleri destekleyen bir [Service Fabric kümesi](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm): Yönetici ve kullanıcı. Küme Yöneticisi, belirli küme işlemleri farklı kullanıcı grupları için erişimi sınırlandırmak için erişim denetimini kullanabilirsiniz. Erişim denetimi, küme daha güvenli hale getirir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- , Service Fabric kümesi [geliştirme ortamı](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started).
+
+- [Service Fabric güvenlik denetim listesi](azure-service-fabric-security-checklist.md)
+- Service fabric'i ayarlama [geliştirme ortamı](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started).
 - Hakkında bilgi edinin [Service Fabric destek seçenekleri](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).
