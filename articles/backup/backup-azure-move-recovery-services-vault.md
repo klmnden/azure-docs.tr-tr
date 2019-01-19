@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 1/4/2019
 ms.author: sogup
-ms.openlocfilehash: ee61381eabed9dd7ead7deb23bc6f27c94031d3b
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 0ab626bffa3520af0ea23314cbaed118d66e280f
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382325"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401937"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups-limited-public-preview"></a>Azure abonelik ve kaynak gruplarında (sınırlı genel Önizleme) bir kurtarma Hizmetleri kasası Taşı
 
@@ -42,9 +42,9 @@ Kurtarma Hizmetleri kasaları ile kullanmak üzere yapılandırılmış **Azure 
 >
 >
 
-## <a name="register-the-subscription-to-move-your-recovery-services-vault"></a>Kurtarma Hizmetleri kasasına taşımak için aboneliği kaydedin
+## <a name="register-the-source-subscription-to-move-your-recovery-services-vault"></a>Kurtarma Hizmetleri kasasına taşımak için kaynak aboneliği Kaydet
 
-Aboneliği kaydetmek için **taşıma** kurtarma Hizmetleri kasasına, PowerShell terminalden aşağıdaki cmdlet'leri çalıştırın:
+Kaynak aboneliği kaydetmek için **taşıma** kurtarma Hizmetleri kasasına, PowerShell terminalden aşağıdaki cmdlet'leri çalıştırın:
 
 1. Azure hesabınızda oturum açma
 

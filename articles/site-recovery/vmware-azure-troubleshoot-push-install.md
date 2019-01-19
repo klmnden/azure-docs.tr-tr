@@ -6,13 +6,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
-ms.date: 12/12/2018
-ms.openlocfilehash: fef0cfd05fe0d44966cbb9f15ba1148f8473207d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.date: 01/18/2019
+ms.openlocfilehash: e397540d33df8a509e10f52fde41fc178cdba67e
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789916"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411756"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Mobility hizmeti anında yükleme sorunlarını giderme
 
@@ -141,6 +141,14 @@ Başka bir yaygın başarısızlık nedeni desteklenmeyen bir işletim sistemi n
 ## <a name="boot-and-system-partitions--volumes-are-not-the-same-disk-errorid-95309"></a>Önyükleme ve sistem bölümleri veya birimleri aynı diskte (errorID: 95309)
 
 Önce 9.20 sürümü, önyükleme ve sistem bölümleri / birimler farklı disklerde was'da desteklenmeyen bir yapılandırma. Gelen [9.20 sürüm](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), bu yapılandırma desteklenir. Bu destek için en son sürümünü kullanın.
+
+## <a name="boot-disk-not-found-errorid-95310"></a>Önyükleme diski bulunamadı (errorID: 95310)
+
+Bir önyükleme diski olmadan bir sanal makine korunamaz. Bu yük devretme işlemi sırasında kesintisiz kurtarma sanal makinesinin emin olmaktır. Yük devretmeden sonra makineyi önyüklemek için hata olmaması önyükleme diski sonuçlanır. Sanal makine önyükleme diski içerdiğinden emin olun ve işlemi yeniden deneyin. Ayrıca, aynı makinede birden fazla önyükleme diski desteklenmediğini unutmayın.
+
+## <a name="multiple-boot-disks-found-errorid-95311"></a>Birden çok önyükleme diski bulundu (errorID: 95311)
+
+Birden fazla önyükleme diski sanal makineyle değil bir [yapılandırma desteklenen](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage).
 
 ## <a name="system-partition-on-multiple-disks-errorid-95313"></a>Sistem bölümü birden çok diskte (errorID: 95313)
 

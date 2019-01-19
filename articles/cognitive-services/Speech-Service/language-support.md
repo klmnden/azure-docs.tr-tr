@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 27b952fb1a901ff716f25cc7d512f860f639fb02
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 688194c8d5ec0c2594d8c7178d8cae3925b8e482
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632627"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413385"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Konuşma hizmeti API'sini dil ve bölge desteği
 
@@ -63,6 +63,9 @@ Microsoft konuşma tanıma API'si aşağıdaki dilleri desteklemektedir. Farklı
 ## <a name="text-to-speech"></a>Metin okuma
 
 Her biri belirli bir dil ve yerel ayar tarafından tanımlanan diyalekti, destekler, bu seslerle metin okuma REST API destekler.
+
+> [!IMPORTANT]
+> Fiyatlandırma için standart, özel ve sinir sesleri değişir. Lütfen [fiyatlandırma](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) ek bilgiler sayfası.
 
 ### <a name="neural-voices-preview"></a>Sinir sesleri (Önizleme)
 

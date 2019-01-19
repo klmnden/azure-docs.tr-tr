@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: cd2399e25889cdc9c885b76e002e47415c0629e5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 977d40ba6fdb00f47f4ff32e60642ee3ab102da2
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984403"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413643"
 ---
 # <a name="using-the-azure-cli-with-azure-storage"></a>Azure Storage ile Azure CLI kullanma
 
@@ -31,7 +31,7 @@ Bu kılavuzda, Azure Depolama'nın temel kavramlarını anladığınızı varsay
 
 ### <a name="accounts"></a>Hesaplar
 * **Azure hesabı**: Azure aboneliğiniz yoksa, [ücretsiz bir Azure hesabı oluşturun](https://azure.microsoft.com/free/).
-* **Storage hesabı**: Bkz. [Azure Storage hesapları hakkında](storage-create-storage-account.md) sayfası, [Storage hesabı oluşturma](storage-quickstart-create-account.md) bölümü.
+* **Depolama hesabı**: Bkz: [depolama hesabı oluşturma](storage-quickstart-create-account.md) içinde [Azure depolama hesapları hakkında](storage-create-storage-account.md).
 
 ### <a name="install-the-azure-cli"></a>Azure CLI'yı yükleme
 
@@ -183,10 +183,10 @@ az storage account create \
     --sku <account_sku>
 ```
 
-* `--location` [Gerekli]: konum. Örneğin, "Batı ABD".
-* `--name` [Gerekli]: depolama hesabı adı. Ad 3 ile 24 karakter uzunluğunda olmalı ve yalnızca küçük harf alfasayısal karakterler kullanın.
-* `--resource-group` [Gerekli]: kaynak grubunun adı.
-* `--sku` [Gerekli]: depolama hesabı SKU'su. İzin verilen değerler:
+* `--location` [Gerekli]: Konum. Örneğin, "Batı ABD".
+* `--name` [Gerekli]: Depolama hesabı adı. Ad 3 ile 24 karakter uzunluğunda olmalı ve yalnızca küçük harf alfasayısal karakterler kullanın.
+* `--resource-group` [Gerekli]: Kaynak grubunun adı.
+* `--sku` [Gerekli]: Depolama hesabı SKU. İzin verilen değerler:
   * `Premium_LRS`
   * `Standard_GRS`
   * `Standard_LRS`
@@ -197,7 +197,7 @@ az storage account create \
 
 Azure aboneliğinizde birden fazla depolama hesabı olabilir. Tüm sonraki depolama komutlarını kullanmak için bunlardan birini seçmek için bu ortam değişkenleri ayarlayabilirsiniz:
 
-Öncelikle [az storage account keys list](/cli/azure/storage/account/keys#list) komutunu kullanarak depolama hesabı anahtarlarınızı görüntüleyin:
+Öncelikle [az storage account keys list](/cli/azure/storage/account/keys) komutunu kullanarak depolama hesabı anahtarlarınızı görüntüleyin:
 
 ```azurecli-interactive
 az storage account keys list \
@@ -242,9 +242,9 @@ az storage container create --name <container_name>
 
 İsteğe bağlı olarak belirterek üç düzeyinden birini okuma erişimi için yeni bir kapsayıcı ayarlayabilirsiniz `--public-access` bağımsız değişkeni:
 
-* `off` (varsayılan): kapsayıcı verileri için hesap sahibiyle özel.
-* `blob`: BLOB'lar için genel okuma erişimi.
-* `container`: Genel okuma ve liste erişimi kapsayıcının tamamı için.
+* `off` (varsayılan): Kapsayıcı verilerini hesap sahibine özeldir.
+* `blob`: Blobları için genel okuma erişimi.
+* `container`: Ortak okuma ve liste tüm kapsayıcıya erişimi.
 
 Daha fazla bilgi için bkz. [Kapsayıcılara ve bloblara anonim okuma erişimini yönetme](../blobs/storage-manage-access-to-resources.md).
 

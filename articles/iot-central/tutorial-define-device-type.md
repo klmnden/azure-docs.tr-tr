@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: d50059fb6fe03309609c91b56fb3763bad32e46b
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 0aef8c5e055eb43576ea0ecc7ef8bf09d22d6ed3
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199978"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412912"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Öğretici: Azure IOT Central, uygulamanızda yeni bir cihaz türünü tanımlayın
 
@@ -75,7 +75,7 @@ Bu öğreticiyi tamamlamak için bir Azure IoT Central uygulamanızın olması g
 
 ## <a name="create-a-new-custom-device-template"></a>Yeni özel cihaz şablonu oluşturma
 
-Bir oluşturucu olarak, uygulamanızda cihaz şablonları oluşturabilir ve bunları düzenleyebilirsiniz. Cihaz şablonunu oluşturduğunuzda, Azure IoT Central şablon için bir simülasyon cihazı oluşturur. Simülasyon cihazı, fiziksel bir cihaz bağlamadan önce uygulamanızın davranışını test etmenize olanak tanıyan telemetri verileri oluşturur.
+Bir oluşturucu olarak, uygulamanızda cihaz şablonları oluşturabilir ve bunları düzenleyebilirsiniz. Cihaz şablonunu oluşturduğunuzda, Azure IoT Central şablon için bir simülasyon cihazı oluşturur. Sanal cihaz uygulamanızın davranışını, gerçek bir cihaz bağlanmadan önce test olanak tanıyan telemetri oluşturur.
 
 Uygulamanıza yeni cihaz şablonu eklemek için **Uygulama Oluşturucu** sayfasına gitmelisiniz. Bunu yapmak için sol gezinti menüsünde **Uygulama oluşturucu**'yu seçin.
 
@@ -155,7 +155,7 @@ Aşağıdaki adımlar, uygulamanıza sıcaklık telemetrisi gönderen cihazlar i
 
 ## <a name="define-event-measurement"></a>Olay ölçümünü tanımlama
 
-Cihaz tarafından bir hata veya bileşen arızası gibi önemli bir duruma işaret etmek için gönderilmiş, zamanın belirli bir noktasına ilişkin verileri tanımlamak için Olay kullanabilirsiniz. Telemetri ölçümlerinde olduğu gibi, fiziksel cihazı bağlamadan önce uygulamanızın davranışını test edebilmeniz için Azure IoT Central cihaz olaylarının da simülasyonunu yapabilir. Cihaz türünüzün olay ölçümlerini **Ölçümler** görünümünde tanımlarsınız.
+Cihaz tarafından bir hata veya bileşen arızası gibi önemli bir duruma işaret etmek için gönderilmiş, zamanın belirli bir noktasına ilişkin verileri tanımlamak için Olay kullanabilirsiniz. Telemetri ölçümler gibi Azure IOT Central, gerçek bir cihaz bağlanmadan önce uygulamanızın davranışını test sağlamak için cihaz olaylarını benzetimini yapabilirsiniz. Cihaz türünüzün olay ölçümlerini **Ölçümler** görünümünde tanımlarsınız.
 
 1. **Fan Motoru Hatası** olay ölçümünü eklemek için **Yeni Ölçüm**'ü seçin. Ardından ölçüm türü olarak **Olay** seçin:
 
@@ -191,7 +191,7 @@ Cihaz tarafından bir hata veya bileşen arızası gibi önemli bir duruma işar
 
 ## <a name="define-state-measurement"></a>Durum ölçümünü tanımlama
 
-Belirli bir zaman süresince cihazın veya bileşeninin durumunu tanımlamak ve görselleştirmek için Durum ölçümünü kullanabilirsiniz. Telemetri ölçümlerinde olduğu gibi, fiziksel cihazı bağlamadan önce uygulamanızın davranışını test edebilmeniz için Azure IoT Central cihaz durumunun da simülasyonunu yapabilir. Cihaz türünüzün durum ölçümlerini **Ölçümler** görünümünde tanımlarsınız.
+Belirli bir zaman süresince cihazın veya bileşeninin durumunu tanımlamak ve görselleştirmek için Durum ölçümünü kullanabilirsiniz. Telemetri ölçümler gibi Azure IOT Central, gerçek bir cihaz bağlanmadan önce uygulamanızın davranışını test sağlamak için cihaz durumu benzetimini yapabilirsiniz. Cihaz türünüzün durum ölçümlerini **Ölçümler** görünümünde tanımlarsınız.
 
 1. **Fan Modu** ölçümünü eklemek için **Yeni Ölçüm**'ü seçin. Ardından ölçüm türü olarak **Durum** seçin:
 

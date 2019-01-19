@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: stewu
-ms.openlocfilehash: 43cec400a21671d47d1a6c390833a5e4c6517709
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 403d60232f6b22161031dd4eb1af062336c370ee
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975245"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401767"
 ---
 # <a name="tuning-azure-data-lake-storage-gen2-for-performance"></a>Azure Data Lake depolama Gen2 için performans ayarlama
 
@@ -47,7 +47,7 @@ Kaynak donanım giderdik ve ağ bağlantısı sorunları yukarıdaki sonra alım
 |--------------------|------------------------------------------------------|------------------------------|
 | DistCp            | -m (Eşleyici)   | [Bağlantı](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
 | Azure Data Factory| parallelCopies    | [Bağlantı](../../data-factory/copy-activity-performance.md)                          |
-| Sqoop           | FS.Azure.Block.size, -m (Eşleyici)    |   [Bağlantı](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/)        |
+| Sqoop           | fs.azure.block.size, -m (mapper)    |   [Bağlantı](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/)        |
 
 ## <a name="structure-your-data-set"></a>Veri kümeniz yapısı
 
@@ -133,7 +133,7 @@ Yukarıdaki genel yönergeleri ek olarak, her uygulama, belirli bir uygulama iç
 
 | İş yükü               | Parametre görevleri ayarlamak için                                                         |
 |--------------------|-------------------------------------------------------------------------------------|
-| [Hdınisight üzerinde Spark](data-lake-storage-performance-tuning-spark.md)       | <ul><li>Yürütücü sayısı</li><li>Bellek içi Yürütücü</li><li>Yürütücü çekirdek sayısı</li></ul> |
+| [HDInsight üzerinde Spark](data-lake-storage-performance-tuning-spark.md)       | <ul><li>Yürütücü sayısı</li><li>Bellek içi Yürütücü</li><li>Yürütücü çekirdek sayısı</li></ul> |
 | [HDInsight üzerinde hive](data-lake-storage-performance-tuning-hive.md)    | <ul><li>Hive.tez.Container.size</li></ul>         |
 | [HDInsight MapReduce](data-lake-storage-performance-tuning-mapreduce.md)            | <ul><li>Mapreduce.Map.Memory</li><li>Mapreduce.job.Maps</li><li>Mapreduce.reduce.Memory</li><li>Mapreduce.job.reduces</li></ul> |
 | [HDInsight üzerinde Storm](data-lake-storage-performance-tuning-storm.md)|  | <ul><li>Çalışan işlemi sayısı</li><li>Spout Yürütücü örneği sayısı</li><li>Bolt Yürütücü örneği sayısı </li><li>Spout görev sayısı</li><li>Bolt görev sayısı</li></ul>|

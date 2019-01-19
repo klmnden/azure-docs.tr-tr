@@ -1,23 +1,18 @@
 ---
-title: Azure DNS'yi kullanarak Azure kaynaklarınızı tümleştirme | Microsoft Docs
+title: Azure DNS'yi kullanarak Azure kaynaklarınızı tümleştirme
 description: Boyunca Azure DNS, DNS, Azure kaynaklarınızı sağlamak için kullanmayı öğrenin.
 services: dns
-documentationcenter: na
 author: vhorne
-manager: jeconnoc
 ms.service: dns
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 1/19/2018
+ms.date: 1/18/2019
 ms.author: victorh
-ms.openlocfilehash: 8e8a09ede66213247b306c77938dbff30651fee5
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: b513e898e25397f54b8f7f7590a4466523a705ff
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53727157"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401427"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Bir Azure hizmeti için özel etki alanı ayarları sağlamak için Azure DNS kullanma
 
@@ -33,7 +28,7 @@ Gösterim veya özel etki alanı için yapılandırabileceğiniz [Azure işlev u
 
 Azure işlev uygulamaları için özel bir etki alanı yapılandırmak için işlev uygulaması yapılandırmasına yanı sıra bir CNAME kaydı oluşturulur.
  
-Gidin **diğer** > **işlev uygulaması** ve işlev uygulamanızı seçin. Tıklayın **Platform özellikleri** altında **ağ** tıklayın **özel etki alanları**.
+Gidin **işlev uygulaması** ve işlev uygulamanızı seçin. Tıklayın **Platform özellikleri** altında **ağ** tıklayın **özel etki alanları**.
 
 ![işlev uygulaması dikey](./media/dns-custom-domain/functionapp.png)
 
@@ -51,9 +46,9 @@ DNS bölgenizi gelin ve tıklayın **+ kayıt kümesi**. Aşağıdaki bilgileri 
 |TTL birimi     | Saat        | Saatleri zaman ölçümü kullanılır         |
 |Diğer ad     | adatumfunction.azurewebsites.net        | DNS adı varsayılan olarak işlev uygulaması için sağlanan adatumfunction.azurewebsites.net DNS adı olduğu Bu örnekte, diğer oluşturuyorsunuz.        |
 
-İşlev uygulamanıza geri gidin, tıklayın **Platform özellikleri**, altında **ağ** tıklayın **özel etki alanları**, altında **ana bilgisayar adları**tıklayın **+ konak adı Ekle**.
+İşlev uygulamanıza geri gidin, tıklayın **Platform özellikleri**, altında **ağ** tıklayın **özel etki alanları**, altında **özel ana bilgisayar adları** tıklayın **+ konak adı Ekle**.
 
-Üzerinde **konak adı Ekle** dikey penceresinde, CNAME kaydı girin **hostname** metni alanına ve tıklayın **doğrulama**. Kayıt bulunacak, mümkün olduğunda **konak adı Ekle** düğmesi görünür. Tıklayın **konak adı Ekle** diğer ad eklemek için.
+Üzerinde **konak adı Ekle** dikey penceresinde, CNAME kaydı girin **hostname** metni alanına ve tıklayın **doğrulama**. Kaydı bulunamazsa, **konak adı Ekle** düğmesi görünür. Tıklayın **konak adı Ekle** diğer ad eklemek için.
 
 ![işlev uygulamaları konak adı dikey penceresi ekleme](./media/dns-custom-domain/functionaddhostname.png)
 
@@ -86,7 +81,7 @@ A kaydını oluşturulduktan sonra Çalıştır `nslookup` kayıt çözümler do
 
 Aşağıdaki adımları bir app service web uygulaması için özel bir etki alanı yapılandırma yoluyla uygulayın.
 
-Gidin **Web ve mobil** > **App Service** ve bir özel etki alanı adı yapılandırma ve tıklayın kaynağı seçin **özel etki alanları**.
+Gidin **App Service** ve bir özel etki alanı adı yapılandırma ve tıklayın kaynağı seçin **özel etki alanları**.
 
 Geçerli URL'sini not alın **özel etki alanları** dikey penceresinde, bu adresi diğer ad olarak oluşturulan DNS kaydı için kullanılır.
 
@@ -149,7 +144,7 @@ Ziyaret bir blob depolama uç noktasına özel etki alanı eşleme hakkında dah
 
 Aşağıdaki adımları cdnverify yöntemini kullanarak bir CDN uç noktası için bir CNAME kaydı nasıl yapılandıracağınız uygulayın. Bu yöntem, kapalı kalma süresi sağlar.
 
-Gidin **ağ** > **CDN profilleri**, CDN profilinizi seçin ve tıklayın **uç noktaları** altında **genel**.
+Gidin **ağ** > **CDN profilleri**, CDN profilinizi seçin.
 
 İle çalışma ve tıklayın uç noktayı seçin **+ özel etki alanı**. Not **uç noktası ana bilgisayar** CNAME kaydı için kaydı bu değeri olduğu gibi.
 

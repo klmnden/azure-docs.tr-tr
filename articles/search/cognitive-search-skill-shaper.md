@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: b8cc69c45332d0779c6e57b5d74145ee1f5140cd
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: a1f5a698ee76ebd0561bd19ff1a23d0f04be0771
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54391015"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54410124"
 ---
 #   <a name="shaper-cognitive-skill"></a>Shaper bilişsel beceri
 
@@ -29,7 +29,7 @@ Varsayılan olarak, bu teknik bir düzey derin olan nesneleri destekler. Daha ka
 Yanıt olarak, çıkış adı her zaman "çıkış". Dahili olarak, işlem hattı "analyzedText" gibi farklı bir ad "çıkış için", aşağıdaki örneklerde eşleyebilirsiniz ancak **Shaper** yetenek kendi yanıtta "çıkış" döndürür. Özel bir yetenek oluşturun ve yanıt kendiniz yapılandırılması bu zenginleştirilmiş belgeleri hata ayıklaması yapıyorsanız ve adlandırma tutarsızlık dikkat edin veya önemli olabilir.
 
 > [!NOTE]
-> Bu yetenek bir Bilişsel hizmetler API'sine bağlı değil ve bu beceri ile ilişkili ücret yoktur. Bununla birlikte, [Bilişsel hizmetler kaynağı ekleme](cognitive-search-attach-cognitive-services.md) yine de ücretsiz resource seçeneği geçersiz kılmak için günlük zenginleştirmelerinin az sayıda için sınırlar.
+> Bu yetenek bir Bilişsel hizmetler API'sine bağlı değil ve kullanmak için ücretlendirilmez. Hala [Bilişsel hizmetler kaynağı ekleme](cognitive-search-attach-cognitive-services.md), ancak geçersiz kılmak için **ücretsiz** , az sayıda gün başına günlük zenginleştirmelerinin sınırlar resource seçeneği.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Util.ShaperSkill

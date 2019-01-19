@@ -1,30 +1,30 @@
 ---
-title: 'Oluşturma ve Azure sertifika doğrulaması P2S VPN istemci yapılandırma dosyalarını yükleme: Azure | Microsoft Docs'
+title: 'Oluşturma ve Azure sertifika doğrulaması P2S VPN istemci yapılandırma dosyalarını yükleyin: Azure | Microsoft Docs'
 description: Oluşturun ve P2S sertifika kimlik doğrulaması için Windows, Linux, (strongSwan) Linux ve Mac OS X VPN istemcisi yapılandırma dosyalarını yükleyin.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 01/18/2019
 ms.author: cherylmc
-ms.openlocfilehash: 11d23102ca807ab1ddf41f1d0e72aed8a8513ac8
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 0f834c88a22aca52a861309681ea0da204b2a552
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636654"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412074"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Oluşturma ve yerel Azure sertifika doğrulaması P2S yapılandırmaları için VPN istemcisi yapılandırma dosyalarını yükleme
 
-VPN istemcisi yapılandırma dosyalarını bir zip dosyası içinde yer alır. Yapılandırma dosyaları, yerel Azure sertifika kimlik doğrulaması kullanan noktadan siteye bağlantılar üzerinden bir sanal ağa bağlanmak yerel bir Windows, Mac Ikev2 VPN ya da Linux istemcileri için gerekli olan ayarları sağlayın. Noktadan Siteye bağlantılar hakkında daha fazla bilgi edinmek için bkz. [Noktadan Siteye VPN hakkında](point-to-site-about.md).
+VPN istemcisi yapılandırma dosyalarını bir zip dosyası içinde yer alır. Yapılandırma dosyaları, yerel Azure sertifika kimlik doğrulaması kullanan noktadan siteye bağlantılar üzerinden bir sanal ağa bağlanmak yerel bir Windows, Mac Ikev2 VPN ya da Linux istemcileri için gerekli olan ayarları sağlayın.
+
+İstemci yapılandırma dosyalarını, sanal ağ için VPN yapılandırması özgüdür. Herhangi bir değişiklik varsa noktadan siteye VPN yapılandırması için VPN Protokolü türü veya kimlik doğrulama türü gibi bir VPN istemcisi yapılandırma dosyalarını oluşturduktan sonra kullanıcı cihazları için yeni VPN istemcisi yapılandırma dosyalarını oluşturma emin olun. 
+
+* Noktadan Siteye bağlantılar hakkında daha fazla bilgi edinmek için bkz. [Noktadan Siteye VPN hakkında](point-to-site-about.md).
+* OpenVPN yönergeler için bkz: [yapılandırma OpenVPN P2S için](vpn-gateway-howto-openvpn.md) ve [yapılandırma OpenVPN istemciler](vpn-gateway-howto-openvpn-clients.md).
 
 >[!IMPORTANT]
 >[!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
->
-
->[!NOTE]
->İstemci yapılandırma dosyalarını, sanal ağ için VPN yapılandırması özgüdür. Herhangi bir değişiklik varsa noktadan siteye VPN yapılandırması için VPN Protokolü türü veya kimlik doğrulama türü gibi bir VPN istemcisi yapılandırma dosyalarını oluşturduktan sonra kullanıcı cihazları için yeni VPN istemcisi yapılandırma dosyalarını oluşturma emin olun.
->
 >
 
 ## <a name="generate"></a>VPN istemcisi yapılandırma dosyalarını oluştur

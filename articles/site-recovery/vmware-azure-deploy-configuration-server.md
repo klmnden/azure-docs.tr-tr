@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/11/2018
 ms.author: mayg
-ms.openlocfilehash: 1efbd6bfb6f3bc3e5deae058b542f665b3153cdb
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 41511b27a84731df203d37d70d20df40f85af4fb
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794363"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54410770"
 ---
 # <a name="deploy-a-configuration-server"></a>Yapılandırma sunucusunu dağıtma
 
@@ -67,13 +67,16 @@ OVA şablonu ile sağlanan lisans bir deneme lisans 180 gün boyunca geçerli ol
 3. İçinde **Kaynak Seç**, indirilen OVF'nin konumunu girin.
 4. İçinde **gözden geçirme ayrıntıları**seçin **sonraki**.
 5. İçinde **ad ve klasör seçin** ve **yapılandırma seçin**, varsayılan ayarları kabul edin.
-6. **Depolama seçin** bölümünde en iyi performans için **Sanal disk biçimini seçin** bölümden **Thick Provision Eager Zeroed** seçeneğini belirleyin.
+6. **Depolama seçin** bölümünde en iyi performans için **Sanal disk biçimini seçin** bölümden **Thick Provision Eager Zeroed** seçeneğini belirleyin. Ölçülü kaynak sağlama seçeneği kullanımı, yapılandırma sunucusunun performansını etkileyebilir.
 7. Kalan sihirbaz sayfalarında varsayılan ayarları kabul edin.
 8. **Tamamlanmaya hazır** bölümünde:
 
     * VM’yi varsayılan ayarlarla kurmak için **Dağıtımdan sonra aç** > **Son** seçeneğini belirleyin.
 
     * Ek bir ağ arabirimi eklemek, temizlemek **dağıtımdan sonra Aç**ve ardından **son**. Varsayılan olarak, yapılandırma sunucusu şablonu tek bir NIC ile dağıtılır. Dağıtımdan sonra daha fazla NIC ekleyebilirsiniz.
+
+> [!IMPORTANT]
+> Dağıtımdan sonra kaynak yapılandırmaları (bellek/Çekirdek/CPU sınırlama), hizmetleri değiştirmek/yüklü silin veya yapılandırma sunucusundaki dosyaları değiştirmeyin. Bu, Azure hizmetleriyle yapılandırma sunucusunun kaydı ve yapılandırma sunucusunun performansını etkiler.
 
 ## <a name="add-an-additional-adapter"></a>Ek bağdaştırıcı ekleme
 
@@ -119,7 +122,7 @@ Yapılandırma sunucusuna Ek NIC eklemek istiyorsanız, sunucuyu kasaya kaydetme
 
 ## <a name="upgrade-the-configuration-server"></a>Yapılandırma sunucusunu yükseltme
 
-Yapılandırma sunucusunu en son sürüme yükseltmek için aşağıdaki adımları [adımları](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
+Yapılandırma sunucusunu en son sürüme yükseltmek için aşağıdaki adımları [adımları](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Tüm Site Recovery bileşenlerini yükseltme hakkında ayrıntılı yönergeler için tıklayın [burada](https://docs.microsoft.com/en-us/azure/site-recovery/service%20updates-how-to).
 
 ## <a name="manage-the-configuration-server"></a>Yapılandırma sunucusunu yönetme
 
@@ -141,20 +144,26 @@ Devam eden çoğaltma kesintileri önlemek için yapılandırma sunucusunu bir k
     Başvurmak [Vmware'den Azure'a çoğaltma mimarisi](vmware-azure-architecture.md) yapılandırma sunucusu ve onun işlevler hakkında daha fazla bilgi edinmek için.
 5. Yapılandırma sunucusunun en son sürümünü nereden bulabilirim?
 
-    Portal üzerinden yapılandırma sunucusunu yükseltmek adımlar için bkz: [yapılandırma sunucusunu yükseltme](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Ayrıca doğrudan buradan indirebilirsiniz [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
+    Portal üzerinden yapılandırma sunucusunu yükseltmek adımlar için bkz: [yapılandırma sunucusunu yükseltme](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Ayrıca doğrudan buradan indirebilirsiniz [Microsoft Download Center](https://aka.ms/asrconfigurationserver). Tüm Site Recovery bileşenlerini yükseltme hakkında ayrıntılı yönergeler için bkz [burada](https://docs.microsoft.com/en-us/azure/site-recovery/service%20updates-how-to).
 6. Yapılandırma sunucusu için parola nereden indirebilirim?
 
     Başvurmak [bu makalede](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) parola indirilemedi.
-7. Kasa kayıt anahtarlarının nereden indirebilirim?
+7. Parola değiştirebilirim?
+
+    **Hayır**, işiniz **parolayı değiştiremez önemle önerilir** yapılandırma sunucusu. Parola değişikliği korunan makinelerin çoğaltılması keser ve kritik sistem durumuna yol açıyor.
+8. Kasa kayıt anahtarlarının nereden indirebilirim?
 
     İçinde **kurtarma Hizmetleri kasası**, **yönetme** > **Site Recovery altyapısı** > **yapılandırmasunucusu**. Sunucularda seçin **indirme kayıt anahtarı** kasa kimlik bilgileri dosyası indirilemedi.
-8. Var olan bir yapılandırma sunucusu kopyalayın ve miyim çoğaltma düzenleme işlemi için kullanılmakta?
+9. Var olan bir yapılandırma sunucusu kopyalayın ve miyim çoğaltma düzenleme işlemi için kullanılmakta?
 
     **Hayır**, klonlanmış bir yapılandırma sunucusu bileşeni kullanımı desteklenmiyor.
 
-9. Yapılandırma sunucusu IP'si değiştirebilirim?
+10. Yapılandırma sunucusu IP'si değiştirebilirim?
 
     **Hayır**, yapılandırma sunucusunun IP adresini değiştirmek için kesinlikle önerilir. Yapılandırma sunucusuna atanan tüm IP'lere statik IP ve değil DHCP IP'ler olduğundan emin olun.
+11. Yapılandırma sunucusu azure'da ayarlayabilir miyim?
+
+    Yapılandırma sunucusu ile doğrudan satır görüş v-Center ile şirket içi ortamda ayarlama ve veri aktarımı gecikme süreleri en aza indirmek için önerilir. Zamanlanmış yedeklemeleri yapılandırma sunucusu için uygulayabileceğiniz [yeniden çalışma amacıyla](vmware-azure-manage-configuration-server.md#failback-requirements).
 
 ## <a name="troubleshoot-deployment-issues"></a>Dağıtım sorunlarını giderme
 

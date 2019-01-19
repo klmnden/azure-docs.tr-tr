@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 4d37d8b3bb52853885ab406a49154f8e70f54b56
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: a2bf61c167211e1ff62abe1453ac62227a137d53
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388180"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411382"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Varlık tanıma bilişsel beceri
 
@@ -25,7 +25,7 @@ ms.locfileid: "54388180"
 > [!NOTE]
 > Yapabilecekleriniz 21 aralık 2018 tarihinden itibaren [Bilişsel hizmetler kaynağı ekleme](cognitive-search-attach-cognitive-services.md) ile bir Azure Search beceri kümesi. Bu beceri yürütmesi için ücretlendirmeye başlarız olanak tanır. Bu tarihte, biz de belge çözme aşamasının bir parçası olarak görüntü ayıklama için ücretlendirme başladı. Metin ayıklama belgelerden hiçbir ek ücret ödemeden sunulmaya devam eder.
 >
-> Yerleşik yetenek yürütmesi, var olan konumunda faturalandırılır bir Bilişsel hizmetler ücreti [ödeme-olarak-, go fiyat](https://azure.microsoft.com/pricing/details/cognitive-services/) . Üzerinde açıklandığı Önizleme fiyatlandırması şu anda faturalandırılır, bir Azure Search ücret olan görüntü ayıklama fiyatlandırma [Azure fiyatlandırma sayfasını arama](https://go.microsoft.com/fwlink/?linkid=2042400). 
+> [Bilişsel yerleşik yetenek](cognitive-search-predefined-skills.md) yürütme ücretlendirilir [Bilişsel hizmetler ödeme-olarak-, Git fiyat](https://azure.microsoft.com/pricing/details/cognitive-services), adresindeki görevi doğrudan gerçekleştirilen gibi aynı oranı. Görüntü ayıklama şu anda Önizleme fiyatlandırması sunulan bir Azure Search ücrettir. Ayrıntılar için bkz [Azure fiyatlandırma sayfasını arama](https://go.microsoft.com/fwlink/?linkid=2042400) veya [nasıl](search-sku-tier.md#how-billing-works).
 
 
 ## <a name="odatatype"></a>@odata.type  
@@ -43,7 +43,7 @@ Parametreleri büyük küçük harfe duyarlıdır ve tümü isteğe bağlıdır.
 | kategoriler    | Ayıklanması gereken kategoriler dizisi.  Olası kategori türleri: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. Hiçbir kategori sağlanırsa, tüm türleri döndürülür.|
 |defaultLanguageCode |  Giriş metni dil kodu. Aşağıdaki dillerde desteklenmektedir: `de, en, es, fr, it`|
 |minimumPrecision | Kullanılmayan. Gelecekte kullanılmak üzere ayrılmış. |
-|includeTypelessEntites | Metin iyi bilinen bir varlık içerdiğinden, ancak desteklenen kategorilerden birini kategorilere olamaz, true olarak ayarlandığında, olacak bir parçası olarak döndürülen `"entities"` karmaşık çıkış alanı. Varsayılan değer `false` |
+|includeTypelessEntites | Metin, iyi bilinen bir varlık içerdiğinden, ancak desteklenen kategorilerden birini kategorilere olamaz, true olarak ayarlandığında, bunu bir parçası olarak döndürülecek `"entities"` karmaşık çıkış alanı. Varsayılan değer `false` |
 
 
 ## <a name="skill-inputs"></a>Beceri girişleri
@@ -67,7 +67,7 @@ Yalnızca _tr_, _es_ destek ayıklanmasıyla `"Quantity"`, `"Datetime"`, `"URL"`
 | tarih/saat  | Her bir dizenin temsil ettiği bir tarih/saat (metnin göründüğü gibi) dize dizisi değeri. |
 | URL'leri | Her dize bir URL temsil ettiği bir dize dizisi |
 | e-postalar | Her bir dizenin bir e-posta temsil ettiği bir dize dizisi |
-| namedEntities | Aşağıdaki alanlar içeren karmaşık bir tür dizisi: <ul><li>category</li> <li>değer (gerçek varlık adı)</li><li>uzaklık (Bu metnin bulunduğu konumu)</li><li>güvenle (şimdilik kullanılmayan. -1 değerine ayarlanır)</li></ul> |
+| namedEntities | Aşağıdaki alanları içeren bir dizi karmaşık türleri: <ul><li>category</li> <li>değer (gerçek varlık adı)</li><li>uzaklık (Bu metnin bulunduğu konumu)</li><li>güvenle (şimdilik kullanılmayan. -1 değerine ayarlanır)</li></ul> |
 | varlıklar | Şu alanlara sahip bir metin ayıklanan varlıkları hakkında zengin bilgiler içeren karmaşık bir tür dizisi <ul><li> ad (gerçek varlık adı. Bu, "normalleştirilmiş" form temsil eder)</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (Wikipedia sayfasında varlık için bir bağlantı)</li><li>bingId</li><li>türü (tanınan bir varlığın kategori)</li><li>alt tür (yalnızca belirli kategorileri için kullanılabilir, bu varlık türü daha ayrıntılı bir görünümünü sağlar)</li><li> (içeren karmaşık bir koleksiyon) eşleşir<ul><li>Metin (varlık için ham metin)</li><li>uzaklık (konum burada bulundu)</li><li>uzunluk (ham varlık metnin uzunluğunu)</li></ul></li></ul> |
 
 ##  <a name="sample-definition"></a>Örnek tanımı

@@ -10,17 +10,17 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 36db91cd7c4dad3c28c0c110ee837ca6d1284959
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 3b272dd1c5b12c9f171c7e8c7c346f4d6cd4b777
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575398"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413881"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Azure SQL Data warehouse'da dağıtılmış tablolar tasarlama hakkında rehberlik
 Azure SQL Data warehouse'da dağıtılmış karma dağıtılmış ve hepsini bir kez deneme tabloları tasarlama için öneriler sunar.
 
-Bu makalede, veri dağıtımı ve SQL veri ambarı'nda veri taşıma kavramlarını bildiğiniz varsayılmıştır.  Daha fazla bilgi için [Azure SQL veri ambarı - yüksek düzeyde paralel işleme (MPP) mimarisi](massively-parallel-processing-mpp-architecture.md). 
+Bu makalede, veri dağıtımı ve SQL veri ambarı'nda veri taşıma kavramlarını bildiğiniz varsayılmıştır.  Daha fazla bilgi için [Azure SQL veri ambarı - yüksek düzeyde paralel işleme (MPP) mimarisi](massively-parallel-processing-mpp-architecture.md). 
 
 ## <a name="what-is-a-distributed-table"></a>Dağıtılmış bir tablo nedir?
 Tek tablo olarak dağıtılmış bir tablo görünür, ancak satırları 60 dağıtımlar arasında gerçekten depolanır. Satırları, karma veya hepsini bir kez deneme algoritması ile dağıtılır.  
@@ -29,11 +29,11 @@ Tek tablo olarak dağıtılmış bir tablo görünür, ancak satırları 60 dağ
 
 Başka bir tablo depolama seçeneği, tüm işlem düğümleri arasında küçük bir tabloya çoğaltmak sağlamaktır. Daha fazla bilgi için [tasarım kılavuzunu çoğaltılmış tablolar için](design-guidance-for-replicated-tables.md). Dağıtılmış tablolar hızla üç seçenekten seçmek için bkz [tablolar genel bakış](sql-data-warehouse-tables-overview.md). 
 
-Tablo Tasarımı işleminin bir parçası olarak, verileriniz ve verileri nasıl sorgulanır hakkında mümkün olduğunca anlayın.  Örneğin, aşağıdaki soruları göz önünde bulundurun:
+Tablo Tasarımı işleminin bir parçası olarak, verileriniz ve verileri nasıl sorgulanır hakkında mümkün olduğunca anlayın.  Örneğin, aşağıdaki soruları göz önünde bulundurun:
 
-- Tablo ne kadar büyük?   
-- Tablo ne sıklıkla yenilenir?   
-- Olgu ve boyut tabloları bir veri ambarı'nda yok mu?   
+- Tablo ne kadar büyük?   
+- Tablo ne sıklıkla yenilenir?   
+- Olgu ve boyut tabloları bir veri ambarı'nda yok mu?   
 
 
 ### <a name="hash-distributed"></a>Karma dağıtılmış
@@ -147,7 +147,7 @@ where two_part_name in
     from dbo.vTableSizes
     where row_count > 0
     group by two_part_name
-    having min(row_count * 1.000)/max(row_count * 1.000) > .10
+    having (max(row_count * 1.000) - min(row_count * 1.000))/max(row_count * 1.000) >= .10
     )
 order by two_part_name, row_count
 ;

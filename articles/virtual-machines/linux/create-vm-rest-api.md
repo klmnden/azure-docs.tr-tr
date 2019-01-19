@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 3eeaee9bc6320231f10aa85227e2f43756181806
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 22a800e65c0f64dfa897433d1ea983006ed62250
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433489"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412198"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>REST API ile SSH kimlik doğrulaması kullanan bir Linux sanal makinesi oluşturma
 
@@ -35,7 +35,7 @@ Bu makalede yönetilen diskler ve SSH kimlik doğrulaması ile Ubuntu 18.04-LTS 
 Oluşturma ve isteği göndermek için önce ihtiyacınız olacak:
 
 * `{subscription-id}` Aboneliğiniz için
-  * Birden fazla aboneliğiniz varsa, bkz. [birden çok abonelik ile çalışma](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions)
+  * Birden fazla aboneliğiniz varsa, bkz. [birden çok abonelik ile çalışma](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)
 * A `{resourceGroupName}` önceden oluşturduğunuz
 * A [sanal ağ arabirimi](../../virtual-network/virtual-network-network-interface.md) aynı kaynak grubunda
 * SSH anahtar çifti (yapabilecekleriniz [yeni bir tane oluşturmanız](mac-create-ssh-keys.md) tane yoksa)
@@ -63,7 +63,7 @@ REST API istekleri ile çalışma hakkında genel bilgi için bkz. [bir REST API
 
 Aşağıdaki ortak tanımları, istek gövdesi oluşturmak için kullanılır:
 
-| Ad                       | Gerekli | Tür                                                                                | Açıklama  |
+| Ad                       | Gereklidir | Tür                                                                                | Açıklama  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
 | location                   | True     | dize                                                                              | Kaynak konumu. |
 | ad                       |          | dize                                                                              | Sanal makinenin adı. |

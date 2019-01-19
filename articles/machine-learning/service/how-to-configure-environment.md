@@ -10,14 +10,14 @@ ms.component: core
 ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
-ms.date: 01/14/2018
+ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4ef62157644e55ed291562f581389228b5776f51
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 91323ac904ee7a806283673a1f98c46c1c211f7f
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353235"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413133"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning için bir geliştirme ortamı yapılandırma
 
@@ -68,13 +68,15 @@ Azure not defterleri ile geliştirmeye başlamak için bkz: [Azure Machine Learn
 
 Özelleştirilmiş sanal makine (VM) görüntüsü dsvm'dir. Önceden yapılandırılmış bir veri bilimi iş için tasarlanmıştır:
 
-  - TensorFlow, PyTorch, Scikit-öğrenme, XGBoost ve Azure Machine Learning SDK gibi paketler.
-  - Spark tek başına ve detaylandırma gibi popüler veri bilimi araçları.
-  - Azure CLI, AzCopy ve Depolama Gezgini gibi Azure Araçları.
-  - Visual Studio Code belgeleri, PyCharm ve RStudio gibi tümleşik geliştirme ortamlarından (IDE'ler).
-  - Jupyter not defteri sunucusu. 
+  - TensorFlow, PyTorch, Scikit-öğrenme, XGBoost ve Azure Machine Learning SDK gibi paketleri
+  - Spark tek başına ve detaylandırma gibi popüler veri bilimi araçları
+  - Azure CLI, AzCopy ve Depolama Gezgini gibi Azure Araçları
+  - Visual Studio Code ve PyCharm gibi tümleşik geliştirme ortamlarından (IDE'ler)
+  - Jupyter Notebook sunucusu
 
-Azure Machine Learning SDK'sı, Windows veya Ubuntu DSVM sürümünde çalışır. DSVM bir geliştirme ortamı olarak kullanmak için aşağıdakileri yapın:
+Azure Machine Learning SDK'sı, Windows veya Ubuntu DSVM sürümünde çalışır. Ancak yalnızca Ubuntu DSVM da işlem hedefi kullanmayı planlıyorsanız, desteklenir.
+
+DSVM bir geliştirme ortamı olarak kullanmak için aşağıdakileri yapın:
 
 1. Bir DSVM aşağıdaki ortamları birini oluşturun:
 

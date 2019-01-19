@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: v-livech
-ms.openlocfilehash: acfdd9070b49805c20b8ef921b5387c151448aa1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 621cc79c23fa21401f9ec11ee15b84ae3b9b1288
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961510"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411125"
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>Sanal ağ arabirim kartları oluşturmak ve azure'da VM ad çözümlemesi için dahili DNS kullanma
 
@@ -34,7 +34,7 @@ Gereksinimler şunlardır:
 ## <a name="quick-commands"></a>Hızlı komutlar
 Hızlı bir şekilde bir görevi tamamlamak gerekiyorsa, gerekli komutları aşağıdaki bölümde ayrıntılı olarak açıklanmaktadır. Bilgi ve içerik her adım belgenin geri kalanında bulunabilir ayrıntılı [burada başlangıç](#detailed-walkthrough). Bu adımları gerçekleştirmek için en son gerekir [Azure CLI](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az login](/cli/azure/reference-index#az_login).
 
-Ön gereksinimleri: Kaynak grubu, sanal ağ ve alt ağ, ağ güvenlik grubu SSH gelen.
+Ön gereksinimleri: Kaynak grubu, sanal ağ ve alt ağ, ağ güvenlik grubu SSH ile gelen.
 
 ### <a name="create-a-virtual-network-interface-card-with-a-static-internal-dns-name"></a>Statik bir iç DNS adı ile bir sanal ağ arabirim kartı oluşturun
 Vnıc ile oluşturma [az ağ NIC oluşturup](/cli/azure/network/nic#az_network_nic_create). `--internal-dns-name` CLI bayrağı olduğu sanal ağ arabirim kartı (Vnıc) statik DNS adını sağlayan bir DNS etiketi ayarlamak için. Aşağıdaki örnekte adlı bir Vnıc oluşturur `myNic`, ona bağlanan `myVnet` sanal ağ ve adlı bir iç DNS adı kayıt oluşturur `jenkins`:
@@ -70,7 +70,7 @@ Tam bir sürekli tümleştirme ve sürekli dağıtım (Cıcd) azure'da altyapıy
 Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiştirin. Örnek parametre adlarında `myResourceGroup`, `myNic`, ve `myVM`.
 
 ## <a name="create-the-resource-group"></a>Kaynak grubunu oluşturma
-İlk olarak, kaynak grubu oluşturun [az grubu oluşturma](/cli/azure/group#az_group_create). Aşağıdaki örnekte adlı bir kaynak grubu oluşturur `myResourceGroup` içinde `westus` konumu:
+İlk olarak, kaynak grubu oluşturun [az grubu oluşturma](/cli/azure/group#az_group_create). Aşağıdaki örnek `westus` konumunda `myResourceGroup` adlı bir kaynak grubu oluşturur:
 
 ```azurecli
 az group create --name myResourceGroup --location westus
@@ -80,7 +80,7 @@ az group create --name myResourceGroup --location westus
 
 Sonraki adım, sanal makinelerde oturum başlatmak için bir sanal ağı oluşturmaktır. Sanal ağ, bu izlenecek yol için bir alt ağ içerir. Azure sanal ağları hakkında daha fazla bilgi için bkz. [sanal ağ oluşturma](../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network). 
 
-Sanal ağ oluşturma [az ağ sanal ağ oluşturma](/cli/azure/network/vnet#az_network_vnet_create). Aşağıdaki örnekte adlı bir sanal ağ oluşturur `myVnet` ve adlı alt ağ `mySubnet`:
+Sanal ağ oluşturma [az ağ sanal ağ oluşturma](/cli/azure/network/vnet). Aşağıdaki örnekte adlı bir sanal ağ oluşturur `myVnet` ve adlı alt ağ `mySubnet`:
 
 ```azurecli
 az network vnet create \
@@ -103,7 +103,7 @@ az network nsg create \
 ```
 
 ## <a name="add-an-inbound-rule-to-allow-ssh"></a>SSH izin vermek için bir gelen kuralı ekleyin
-Ağ güvenlik grubu için bir gelen kuralı Ekle [az ağ nsg kuralı oluşturmak](/cli/azure/network/nsg/rule#az_network_nsg_rule_create). Aşağıdaki örnekte adlı bir kural oluşturur `myRuleAllowSSH`:
+Ağ güvenlik grubu için bir gelen kuralı Ekle [az ağ nsg kuralı oluşturmak](/cli/azure/network/nsg/rule). Aşağıdaki örnekte adlı bir kural oluşturur `myRuleAllowSSH`:
 
 ```azurecli
 az network nsg rule create \

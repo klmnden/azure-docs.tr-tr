@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: cihaz geri yazmayı etkinleştirme | Microsoft Docs'
+title: 'Azure AD Connect: Cihaz geri yazma özelliğini etkinleştirme | Microsoft Docs'
 description: Bu belge, Azure AD Connect kullanarak cihaz geri yazmayı etkinleştirme işlemi açıklanmaktadır
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 05/08/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 389c519d5f63b311b2e9c2b1d48d6e09e02c7d81
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 82ccbe8e57ff35904b7e763e838a81660ab13f88
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49361079"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412827"
 ---
-# <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: cihaz geri yazmayı etkinleştirme
+# <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: Cihaz geri yazma özelliğini etkinleştirme
 > [!NOTE]
 > Cihaz geri yazma için Azure AD Premium aboneliği gereklidir.
 > 
@@ -38,10 +38,10 @@ Bu, ek güvenlik ve yalnızca güvenilen cihazlara verilen uygulamalara erişimi
 > <li>Cihazlar, kullanıcılar aynı ormandaki bulunması gerekir. Cihazları tek bir ormana geri yazılması gerekir olduğundan, bu özellik birden çok kullanıcı ormanı olan bir dağıtım şu anda desteklemiyor.</li>
 > <li>Şirket içi Active Directory ormanı için yalnızca bir cihaz kaydı yapılandırma nesnesi eklenebilir. Bu özellik şirket içi Active Directory birden çok Azure AD dizini için burada eşitlenmiş bir topoloji ile uyumlu değil.</li>
 
-## <a name="part-1-install-azure-ad-connect"></a>1. Kısım: Yükleme Azure AD'ye bağlanma
+## <a name="part-1-install-azure-ad-connect"></a>1. Bölüm: Azure AD Connect'i yükleme
 Azure AD Connect'i kullanarak özel veya hızlı ayarlar. Microsoft ile başlaması cihaz geri yazmayı etkinleştirme önce tüm kullanıcılar ve gruplar başarıyla eşitlendi önerir.
 
-## <a name="part-2-enable-device-writeback-in-azure-ad-connect"></a>2. Bölüm: Azure AD CONNECT'te etkin cihaz geri yazma
+## <a name="part-2-enable-device-writeback-in-azure-ad-connect"></a>2. Bölüm: Azure AD CONNECT'te cihaz geri yazmayı etkinleştirme
 1. Yükleme Sihirbazı'nı yeniden çalıştırın. Seçin **cihaz seçeneklerini yapılandır** ek görevler sayfasında ve tıklayın **sonraki**. 
 
     ![Cihaz seçeneklerini yapılandır](./media/how-to-connect-device-writeback/deviceoptions.png)
@@ -57,10 +57,10 @@ Azure AD Connect'i kullanarak özel veya hızlı ayarlar. Microsoft ile başlama
 
 4. **Cihaz kapsayıcı** sayfasında iki kullanılabilir seçeneklerden birini kullanarak active directory hazırlama bir seçenek sağlar:
 
-    a. **Kuruluş Yöneticisi kimlik bilgileri sağlama**: Burada cihazların bir yandan geri yazılması orman için kuruluş yöneticisi kimlik bilgilerini sağlanırsa, Azure AD Connect orman otomatik olarak yapılandırmasını sırasında hazırlar cihaz geri yazma.
+    a. **Kuruluş Yöneticisi kimlik bilgileri sağlama**: Azure AD Connect orman cihazlar geri yazılması gereken yere orman için kuruluş yöneticisi kimlik bilgilerini sağladıysanız cihaz geri yazma yapılandırması sırasında otomatik olarak hazırlar.
 
-    b. **PowerShell betiğini indir**: Azure AD Connect oluşturur otomatik active directory cihaz geri yazma için hazırlamak bir PowerShell Betiği. Kuruluş Yöneticisi kimlik bilgilerini Azure AD Connect'e bağlanan sağlanamaz durumda PowerShell betiğini indirmek için önerilir. İndirilen PowerShell betiğini sağlamak **CreateDeviceContainer.psq** nerede cihazları yazılacak geri için orman Kurumsal yöneticisine.
-    ![Etkin Dizin ormanı hazırlamak](./media/how-to-connect-device-writeback/devicecontainercreds.png)
+    b. **PowerShell betiğini indir**: Azure AD Connect otomatik-active directory cihaz geri yazma için hazırlamak bir PowerShell Betiği oluşturur. Kuruluş Yöneticisi kimlik bilgilerini Azure AD Connect'e bağlanan sağlanamaz durumda PowerShell betiğini indirmek için önerilir. İndirilen PowerShell betiğini sağlamak **CreateDeviceContainer.psq** nerede cihazları yazılacak geri için orman Kurumsal yöneticisine.
+    ![Active directory ormanı hazırlama](./media/how-to-connect-device-writeback/devicecontainercreds.png)
     
     Active directory ormanı hazırlamak için aşağıdaki işlemler gerçekleştirilir:
     * Bunlar zaten mevcut, oluşturur ve yeni kapsayıcılar ve nesneler CN altında ayarlarsa Device Registration Configuration, CN = Services, CN = Configuration, = [dn orman].
@@ -123,7 +123,7 @@ Active Directory yapılandırmasını doğrulayın:
 
 ![Sorun giderme, cihaz kaydı yapılandırma üzerindeki izinleri doğrulayın](./media/how-to-connect-device-writeback/troubleshoot6.png)
 
-## <a name="additional-information"></a>Ek Bilgiler
+## <a name="additional-information"></a>Ek Bilgi
 * [Koşullu erişim ile risk yönetme](../active-directory-conditional-access-azure-portal.md)
 * [Azure Active Directory cihaz kaydı hizmetini kullanarak şirket içi koşullu erişim ayarlama](../../active-directory/active-directory-device-registration-on-premises-setup.md)
 

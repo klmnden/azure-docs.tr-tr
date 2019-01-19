@@ -5,16 +5,16 @@ services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/04/2019
+ms.date: 01/18/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 426e4fe05890f1669859545db3d731943a12428a
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 2b99207f35bd83c9e02ad636a070ae538ae3472c
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260184"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412232"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Öğretici: SQL Server veritabanları ile uçta veri Store
 
@@ -36,7 +36,10 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 Bir Azure IoT Edge cihazı:
 
-* [Linux](quickstart-linux.md) veya [Windows cihazları](quickstart.md) için hızlı başlangıç adımlarını izleyerek dağıtım makinenizi veya sanal makinenizi bir Edge cihazı olarak kullanabilirsiniz. 
+* [Linux](quickstart-linux.md) veya [Windows cihazları](quickstart.md) için hızlı başlangıç adımlarını izleyerek dağıtım makinenizi veya sanal makinenizi bir Edge cihazı olarak kullanabilirsiniz.
+
+  > [!NOTE]
+  > SQL Server, yalnızca Linux kapsayıcıları destekler. Bu öğreticide bir Windows cihazı Edge Cihazınızı kullanarak test etmek isterseniz, Linux kapsayıcıları kullanmasını sağlayacak şekilde yapılandırmalısınız. Bkz: [Windows yükleme Azure IOT Edge çalışma zamanına](how-to-install-iot-edge-windows-with-linux.md) Önkoşullar ve yükleme adımları Windows üzerinde Linux kapsayıcıları için IOT Edge çalışma zamanı yapılandırma.
 
 Bulut kaynakları:
 
@@ -227,15 +230,9 @@ Aşağıdaki adımlar Visual Studio Code ve Azure IOT araçları kullanarak bir 
 
 1. Visual Studio Code gezgininde **deployment.template.json** dosyasını açın. 
 
-2. Bulma **modülleri** bölümü. Listede iki modül bulunmalıdır: Simülasyon verilerini oluşturan **tempSensor** ve **sqlFunction** modülünüz.
+1. Bulma **modülleri** bölümü. Listede iki modül bulunmalıdır: Simülasyon verilerini oluşturan **tempSensor** ve **sqlFunction** modülünüz.
 
-3. Windows kapsayıcılarını kullanıyorsanız, **sqlFunction.settings.image** bölümünü değiştirin.
-
-   ```json
-   "image": "${MODULES.sqlFunction.windows-amd64}"
-   ```
-
-4. Üçüncü bir modül bildirmek için aşağıdaki kodu ekleyin. sqlFunction bölümünden sonra bir virgül ekleyip aşağıdakileri ekleyin:
+1. Üçüncü bir modül bildirmek için aşağıdaki kodu ekleyin. sqlFunction bölümünden sonra bir virgül ekleyip aşağıdakileri ekleyin:
 
    ```json
    "sql": {
@@ -253,29 +250,7 @@ Aşağıdaki adımlar Visual Studio Code ve Azure IOT araçları kullanarak bir 
 
    ![Bildirim için SQL server Modül Ekle](./media/tutorial-store-data-sql-server/view_json_sql.png)
 
-5. IOT Edge Cihazınızı Docker kapsayıcılarında türüne bağlı olarak, güncelleştirme **sql** modül parametrelerini aşağıdaki kod ile:
-   * Windows kapsayıcıları:
-
-      ```json
-      "env": {
-        "ACCEPT_EULA": {"value": "Y"},
-        "SA_PASSWORD": {"value": "Strong!Passw0rd"}
-      },
-      "settings": {
-        "image": "microsoft/mssql-server-windows-developer",
-        "createOptions": {
-          "HostConfig": {
-            "Mounts": [{"Target": "C:\\mssql","Source": "sqlVolume","Type": "volume"}],
-            "PortBindings": {
-              "1433/tcp": [{"HostPort": "1401"}]
-            }
-          }
-        }
-      }
-      ```
-
-   * Linux kapsayıcıları:
-
+1. Güncelleştirme **sql** modül parametrelerini aşağıdaki kod ile:
       ```json
       "env": {
         "ACCEPT_EULA": {"value": "Y"},
@@ -295,9 +270,9 @@ Aşağıdaki adımlar Visual Studio Code ve Azure IOT araçları kullanarak bir 
       ```
 
    >[!Tip]
-   >Üretim ortamında bir SQL Server kapsayıcısı oluşturduğunuzda [varsayılan sistem yöneticisi parolasını değiştirmeniz gerekir](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker#change-the-sa-password).
+   >Üretim ortamında bir SQL Server kapsayıcısı oluşturduğunuzda [varsayılan sistem yöneticisi parolasını değiştirmeniz gerekir](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker).
 
-6. **deployment.template.json** dosyasını kaydedin.
+1. **deployment.template.json** dosyasını kaydedin.
 
 ## <a name="build-your-iot-edge-solution"></a>IoT Edge çözümünüzü derleyin
 
@@ -353,42 +328,16 @@ Dağıtım bildirimini cihazınıza uyguladığınızda üç modül çalışmaya
 IOT Edge Cihazınızda aşağıdaki komutları çalıştırın. Bu komutlar bağlanma **sql** modülü, cihaz üzerinde çalışan ve bir veritabanı ve kendisine gönderilen sıcaklık verileri tutmak için tablo oluşturun. 
 
 1. IOT Edge Cihazınızda bir komut satırı aracı veritabanınıza bağlanın. 
-   * Windows kapsayıcısı:
-   
-      ```cmd
-      docker exec -it sql cmd
-      ```
-    
-   * Linux kapsayıcısı: 
-
       ```bash
       sudo docker exec -it sql bash
       ```
 
 2. SQL komut aracını açın.
-   * Windows kapsayıcısı:
-
-      ```cmd
-      sqlcmd -S localhost -U SA -P "Strong!Passw0rd"
-      ```
-
-   * Linux kapsayıcısı: 
-
       ```bash
       /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
       ```
 
 3. Veritabanınızı oluşturun: 
-
-   * Windows kapsayıcısı
-      ```sql
-      CREATE DATABASE MeasurementsDB
-      ON
-      (NAME = MeasurementsDB, FILENAME = 'C:\mssql\measurementsdb.mdf')
-      GO
-      ```
-
-   * Linux kapsayıcısı
       ```sql
       CREATE DATABASE MeasurementsDB
       ON

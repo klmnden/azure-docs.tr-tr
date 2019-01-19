@@ -1,6 +1,6 @@
 ---
 title: Tümleştirme hesabı yapıt meta verileri - Azure Logic Apps yönetme | Microsoft Docs
-description: Azure Logic Apps Enterprise Integration Pack ile tümleştirme hesapları yapıt meta verileri almak veya ekleme
+description: Ekleme veya Azure Logic Apps Enterprise Integration Pack ile tümleştirme hesapları yapıt meta verileri alma
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,57 +9,101 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
-ms.date: 02/23/2018
-ms.openlocfilehash: 537014c2780fe94cfb35806759f8bcbd974c4c95
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.date: 01/17/2019
+ms.openlocfilehash: 2a5066a2dcb74051088b2fc67b5089e95ae4dd3f
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128812"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54410362"
 ---
-# <a name="manage-artifact-metadata-from-integration-accounts-in-azure-logic-apps-with-enterprise-integration-pack"></a>Yapıt meta verileri Azure Logic Apps Enterprise Integration Pack ile tümleştirme hesapları yönetin
+# <a name="manage-artifact-metadata-in-integration-accounts-with-azure-logic-apps-and-enterprise-integration-pack"></a>Azure Logic Apps ve Enterprise Integration Pack ile tümleştirme hesaplarındaki yapıt meta verileri yönetme
 
-Tümleştirme hesapları yapıtlar için özel meta verileri tanımlayabilir ve bu meta veri çalışma zamanı sırasında mantıksal uygulamanız için alınamıyor. Örneğin, anahtar-değer çiftleri kullanarak tüm meta veri depolama, iş ortakları, sözleşmeler, şemalar ve haritalar - gibi yapıtlar için meta verileri belirtebilirsiniz. 
+Tümleştirme hesapları yapıtlar için özel meta verileri tanımlamak ve kullanılacak mantıksal uygulamanızın çalışma zamanı sırasında bu meta verilerini al. Örneğin, meta verileri, iş ortakları, sözleşmeler, şemalar ve haritalar - gibi yapıtlar için anahtar-değer çiftleri kullanarak tüm depolama meta verileri sağlayabilirsiniz. 
 
-## <a name="add-metadata-to-artifacts-in-integration-accounts"></a>Tümleştirme hesapları yapılara meta verileri ekleme
+## <a name="prerequisites"></a>Önkoşullar
 
-1. Azure portalında oluşturma bir [tümleştirme hesabı](logic-apps-enterprise-integration-create-integration-account.md).
+* Azure aboneliği. Aboneliğiniz yoksa, <a href="https://azure.microsoft.com/free/" target="_blank">ücretsiz bir Azure hesabı için kaydolun</a>.
 
-2. Tümleştirme hesabına, örneğin bir yapıt ekleyin, [iş ortağı](logic-apps-enterprise-integration-partners.md), [sözleşmesi](logic-apps-enterprise-integration-agreements.md), veya [şema](logic-apps-enterprise-integration-schemas.md).
+* Temel bir [tümleştirme hesabı](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) meta verileri, örneğin eklemek istediğiniz yapıtlar vardır: 
 
-3. Bir yapı seçin, **Düzenle**ve meta verileri ayrıntılarını girin.
+  * [İş ortağı](logic-apps-enterprise-integration-partners.md)
+  * [Anlaşma](logic-apps-enterprise-integration-agreements.md)
+  * [Şema](logic-apps-enterprise-integration-schemas.md)
+  * [Harita](logic-apps-enterprise-integration-maps.md)
 
-   ![Meta verileri girin](media/logic-apps-enterprise-integration-metadata/image1.png)
+* Kullanmak istediğiniz bir mantıksal uygulama tümleştirme hesabı ve yapıt meta verilere bağlıdır. Mantıksal uygulamanız zaten bağlı değilse, bilgi [tümleştirme hesapları için logic apps'i bağlama](logic-apps-enterprise-integration-create-integration-account.md#link-account). 
 
-## <a name="retrieve-metadata-from-artifacts-for-logic-apps"></a>Logic apps için yapılardan meta verileri alma
+  Mantıksal uygulama henüz sahip değilseniz, bilgi [mantıksal uygulamalar oluşturmak nasıl](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
+  Tetikleyici ve Eylemler yapıt meta verileri yönetmek için kullanmak istediğiniz ekleyin. Veya yalnızca kendimiz denemek için bir tetikleyici gibi ekleme **istek** veya **HTTP** mantıksal uygulamanız için.
 
-1. Azure portalında oluşturma bir [mantıksal uygulama](quickstart-create-first-logic-app-workflow.md).
+## <a name="add-metadata-to-artifacts"></a>Yapıtlar için meta verileri ekleme
 
-2. Oluşturma bir [mantıksal uygulamanızın bir bağlantıdan tümleştirme hesabınıza](logic-apps-enterprise-integration-create-integration-account.md#link-account). 
+1. Azure hesabınızın kimlik bilgileriyle <a href="https://portal.azure.com" target="_blank">Azure portalında</a> oturum açın. Bulun ve tümleştirme hesabınızı açın.
 
-3. Logic Apps Tasarımcısı'nda gibi bir tetikleyici ekleme **istek** veya **HTTP** mantıksal uygulamanız için.
+1. Seçmek istediğiniz meta verileri ekleyin ve yapı **Düzenle**. Meta veri ayrıntıları bu yapıt için örneğin girin:
 
-4. Tetikleyici altında seçin **yeni adım** > **Eylem Ekle**. Arama "tümleştirme hesabı için" bulun ve ardından şu eylemi seçin: **tümleştirme hesabı - tümleştirme hesabı Yapıt arama**
+   ![Meta verileri girin](media/logic-apps-enterprise-integration-metadata/add-partner-metadata.png)
 
-   ![Tümleştirme hesabı Yapıt arama seçin](media/logic-apps-enterprise-integration-metadata/image2.png)
+1. İşiniz bittiğinde seçin **Tamam**.
 
-5. Seçin **Yapıt türü** ve **Yapıt adı**. Örneğin:
+1. Tümleştirme hesabı için JavaScript nesne gösterimi (JSON) tanımında bu meta verileri görüntülemek için seçin **JSON olarak Düzenle** böylece bu JSON Düzenleyicisi açılır: 
 
-   ![Yapıt türü seçin ve yapıt adını belirtin](media/logic-apps-enterprise-integration-metadata/image3.png)
+   ![İş ortağı meta veriler için JSON](media/logic-apps-enterprise-integration-metadata/partner-metadata.png)
 
-## <a name="example-retrieve-partner-metadata"></a>Örnek: Meta veri alınamadı iş ortağı
+## <a name="get-artifact-metadata"></a>Yapıt meta verilerini al
 
-Bu meta veriler ile bu iş ortağı sahip olduğunu varsayın `routingUrl` ayrıntıları:
+1. İstediğiniz tümleştirme hesabına bağlı olduğunda mantıksal uygulama Azure Portalı'nda açın. 
 
-![İş ortağı "routingURL" meta veri Bul](media/logic-apps-enterprise-integration-metadata/image6.png)
+1. Logic Apps Tasarımcısı'nda iş akışında tetikleyici veya son eylem altında meta veri alma adımı ekliyorsanız seçin **yeni adım** > **Eylem Ekle**. 
 
-1. Mantıksal uygulamanızı, tetikleyici ekleme bir **tümleştirme hesabı - tümleştirme hesabı Yapıt arama** , iş ortağı için eylem ve bir **HTTP** eylem, örneğin:
+1. Arama kutusuna "tümleştirme hesabı" girin. Arama kutusunun altındaki seçin **tüm**. Eylem listesinden şu eylemi seçin: **Tümleştirme hesabı Yapıt arama - tümleştirme hesabı**
 
-   ![Mantıksal uygulamanızın tetikleyici yapıt arama ve HTTP eylemi ekleme](media/logic-apps-enterprise-integration-metadata/image4.png)
+   !["Tümleştirme hesabı Yapıt arama" seçin](media/logic-apps-enterprise-integration-metadata/integration-account-artifact-lookup.png)
 
-2. Mantıksal Uygulama Tasarımcısı araç çubuğunda URI alınacak seçin **kod görünümü** mantıksal uygulamanız için. Mantıksal uygulama tanımınızı şu örnekteki gibi görünmelidir:
+1. Bulmak istediğiniz bu bilgileri yapıtı sağlayın:
 
-   ![Arama arama](media/logic-apps-enterprise-integration-metadata/image5.png)
+   | Özellik | Gereklidir | Değer | Açıklama | 
+   |----------|---------|-------|-------------| 
+   | **Yapıt türü** | Evet | **Şema**, **harita**, **iş ortağı**, **sözleşmesi**, ya da özel bir tür | İstediğiniz yapıt türü | 
+   | **Yapıt adı** | Evet | <*yapıt adı*> | İstediğiniz yapıt adı | 
+   ||| 
+
+   Örneğin, bir ticaret iş ortağı yapıt meta verilerini almak istediğinizi varsayalım:
+
+   ![Yapıt türü seçin ve yapıt adı girin](media/logic-apps-enterprise-integration-metadata/artifact-lookup-information.png)
+
+1. Örneğin, meta verilerin işlenmesi için istediğiniz eylemi ekleyin:
+
+   1. Altında **tümleştirme hesabı Yapıt arama** eylemi seçin **sonraki adım**seçip **Eylem Ekle**. 
+
+   1. Arama kutusuna "http" girin. Arama kutusunun altındaki seçin **yerleşik olanları**ve şu eylemi seçin: **HTTP - HTTP**
+
+      ![HTTP Eylem Ekle](media/logic-apps-enterprise-integration-metadata/http-action.png)
+
+   1. Yapıt meta verileri için yönetmek istediğiniz bilgileri sağlayın. 
+
+      Örneğin, almak istediğiniz varsayalım `routingUrl` bu konuda daha önce eklemiş meta verileri. Belirttiğiniz özellik değerleri şunlardır: 
+
+      | Özellik | Gereklidir | Değer | Açıklama | 
+      |----------|----------|-------|-------------| 
+      | **Yöntem** | Evet | <*işlem çalıştırma*> | Yapıt üzerinde çalıştırmak için HTTP işlemi. Örneğin, bu HTTP eylemi kullanır **alma** yöntemi. | 
+      | **URI** | Evet | <*meta verilerinin konumu*> | Erişim için `routingUrl` yapıdan meta veri değeri alınmış bir ifade, örneğin kullanabilirsiniz: <p>`@{outputs('Integration_Account_Artifact_Lookup')['properties']['metadata']['routingUrl']}` | 
+      | **Üst Bilgiler** | Hayır | <*Üstbilgi değerleri*> | Herhangi bir üst bilgisi, HTTP eyleme geçirmek istediğiniz tetikleyiciden çıkarır. Örneğin, tetikleyicinin içinde geçirilecek `headers` özellik değeri: Örneğin bir ifade kullanabilirsiniz: <p>`@triggeroutputs()['headers']` | 
+      | **Gövde** | Hayır | <*Gövde içeriği*> | HTTP eylem geçirmek istediğiniz diğer içerikleri `body` özelliği. Bu örnek yapı'nın geçirir `properties` HTTP eyleme değerleri: <p>1. İçine tıklayın **gövdesi** özelliğini dinamik içerik listesi görüntülenir. Hiçbir özellik görünüyorsa, seçin **daha fazla bilgi bkz**. <br>2. Dinamik içerik listesinden, altında **tümleştirme hesabı Yapıt arama**seçin **özellikleri**. | 
+      |||| 
+
+      Örneğin:
+
+      ![HTTP eylemi için ifadeleri ve değerleri belirtir](media/logic-apps-enterprise-integration-metadata/add-http-action-values.png)
+
+   1. HTTP eylemi için sağlanan bilgileri denetlemek için mantıksal uygulamanızın JSON tanımını görüntüleme. Mantıksal Uygulama Tasarımcısı araç çubuğunda **kod görünümü** nedenle uygulamanın JSON tanımı görünür, örneğin:
+
+      ![Mantıksal uygulama JSON tanımı](media/logic-apps-enterprise-integration-metadata/finished-logic-app-definition.png)
+
+      Geri mantıksal Uygulama Tasarımcısı'nı geçtikten sonra kullandığınız tüm ifadeleri artık örneğin çözümlenmiş olarak görünür:
+
+      ![Çözümlenen ifadelerinde mantıksal Uygulama Tasarımcısı](media/logic-apps-enterprise-integration-metadata/resolved-expressions.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

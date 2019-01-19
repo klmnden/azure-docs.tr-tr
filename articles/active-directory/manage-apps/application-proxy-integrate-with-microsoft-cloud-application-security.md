@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 3be75f2fe004939eff6bf6cc960759db69bfb93a
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 8de052175d93abdb82390d12d601c29bf0d4d462
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215108"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411875"
 ---
 # <a name="configure-real-time-application-access-monitoring-with-microsoft-cloud-app-security-and-azure-active-directory"></a>Microsoft Cloud App Security ve Azure Active Directory ile gerçek zamanlı uygulama erişim izlemeyi yapılandırma
 Microsoft Cloud App Security (MCAS) kullanmak için bir şirket içi uygulamanızı Azure Active Directory'de (Azure AD), gerçek zamanlı izleme için yapılandırma. İzlemek için koşullu erişim uygulaması denetimi MCAS kullanır ve gerçek zamanlı denetim oturumları koşullu erişim ilkelerine bağlı. Azure Active Directory (Azure AD) uygulama ara sunucusu kullanan şirket içi uygulamalar için bu ilkeler uygulayabilirsiniz.
@@ -64,7 +64,7 @@ Koşullu erişim uygulama denetimi ile uygulamanızı yapılandırmak için yön
 
 ## <a name="test-conditional-access-app-control"></a>Test koşullu erişim uygulama denetimi
 
-Azure AD uygulamaları koşullu erişim uygulama denetimi ile dağıtımı test etmek için'ndaki yönergeleri izleyin. [dağıtımı için Azure AD uygulamaları test etme](/cloud-app-security/proxy-deployment-aad#test-the-deployment).
+Azure AD uygulamaları koşullu erişim uygulama denetimi ile dağıtımı test etmek için'ndaki yönergeleri izleyin. [dağıtımı için Azure AD uygulamaları test etme](/cloud-app-security/proxy-deployment-aad).
 
 
 

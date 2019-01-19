@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 8d910ffcf966e98def33a42a6452baea9f4b3998
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 2794f45bf9d9d8d60f9be286fdf0e4d288a969fa
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357804"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412300"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Federasyon çoklu oturum açma için yapılandırılmış bir galeri uygulamasında oturum açma sorunları
 
@@ -34,7 +34,7 @@ Sorunu gidermek için izleme olarak Azure AD'de uygulama yapılandırmasını do
 
 ## <a name="application-not-found-in-directory"></a>Uygulama dizininde bulunamadı
 
-*Hata AADSTS70001: Uygulama, tanımlayıcısı 'https://contoso.com' dizininde bulunamadı*.
+*Hata AADSTS70001: Uygulama tanımlayıcısı ile 'https://contoso.com' dizininde bulunamadı*.
 
 **Olası nedeni**
 
@@ -133,7 +133,7 @@ Bir veya daha fazla kullanıcıları uygulamaya doğrudan atamak için aşağıd
 
 11. Üzerine **kullanıcı** göstermek için listedeki bir **onay kutusu**. Kullanıcının profil fotoğrafı veya kullanıcı için eklenecek logosu yanındaki onay kutusuna tıklayın **seçili** listesi.
 
-12. **İsteğe bağlı:** isteyip istemediğini **birden fazla kullanıcı eklemek**, başka bir tür **tam adı** veya **e-posta adresi** içine **adına göre arama veya e-posta adresi** arama kutusuna ve bu kullanıcıyı eklemek için onay kutusunu **seçili** listesi.
+12. **İsteğe bağlı:** İsteyip istemediğini **birden fazla kullanıcı eklemek**, başka bir tür **tam adı** veya **e-posta adresi** içine **adına veya e-posta adresine göre arama** Arama kutusuna ve bu kullanıcıyı eklemek için onay kutusunu **seçili** listesi.
 
 13. Kullanıcı seçme işlemini tamamladığınızda, tıklayın **seçin** uygulamaya atanan kullanıcıların ve grupların listesi eklemek için düğme.
 
@@ -228,7 +228,7 @@ Yukarıdaki 1. seçenek sizin için olmadıysa uygulamanın dizinden kaldırılm
 
 ## <a name="certificate-or-key-not-configured"></a>Sertifika veya anahtar yapılandırılmadı
 
-*Hata AADSTS50003: yapılandırılmış imzalama anahtarı yok.*
+*Hata AADSTS50003: İmzalama anahtarı yapılandırılmış.*
 
 **Olası nedeni**
 
@@ -261,6 +261,19 @@ Silin ve yeni bir sertifika oluşturmak için aşağıdaki adımları izleyin:
 10. Denetleme **yeni sertifikayı etkin hale getirin** etkin sertifikayı geçersiz kılmak için. ' A tıklayarak **Kaydet** Bölmenin üst kısmındaki ve geçiş sertifikasını etkinleştirmek için kabul edin.
 
 11. Altında **SAML imzalama sertifikası** bölümünde **Kaldır** kaldırmak için **kullanılmayan** sertifika.
+
+## <a name="saml-request-not-present-in-the-request"></a>SAML isteği istek yok
+
+*Hata AADSTS750054: SAMLRequest veya SAMLResponse sorgu dizesi parametreleri bağlama SAML yönlendirmek için HTTP isteği olarak mevcut olmalıdır.*
+
+**Olası nedeni**
+
+Azure AD SAML isteğini HTTP isteği URL'si parametrelerinde içinde belirlemek mümkün değildi. Uygulama yeniden yönlendirme, HTTP bağlama Azure AD'de SAML isteğini göndermek için kullanmıyorsa bu durum oluşabilir.
+
+**Çözümleme**
+
+HTTP yeniden yönlendirme bağlama kullanarak konum üst bilgisi içinde kodlanmış SAML isteği göndermek uygulama gerekir. Bunu gerçekleştirme hakkında daha fazla bilgi için HTTP yeniden yönlendirme bağlama bölümü içinde [SAML protokolü belirtimi belgesi](https://docs.oasis-open.org/security/saml/v2.0/saml-bindings-2.0-os.pdf).
+
 
 ## <a name="problem-when-customizing-the-saml-claims-sent-to-an-application"></a>Bir uygulama için gönderilen SAML talepleri özelleştirme sırasında sorun
 

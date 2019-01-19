@@ -15,12 +15,12 @@ ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 281c426170985d43401a13988218126ea3951634
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 17a2d1ac747b46ed9a55ceffeea3ba9f4b2f0bc7
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405623"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412057"
 ---
 # <a name="custom-roles-in-azure"></a>Azure'da özel roller
 
@@ -84,13 +84,13 @@ Aşağıdaki özel bir rol JSON biçiminde gösterilen gibi göründüğünü g�
 
     Özel rolünüz olduktan sonra beklendiği gibi çalıştığını doğrulamak için test etmek kullanabilirsiniz. Daha sonra ayarlamalar yapmanız gerekiyorsa, özel rol güncelleştirebilirsiniz.
 
-Özel rol oluşturma hakkında adım adım bir öğretici için bkz: [öğretici: Azure PowerShell kullanarak özel bir rol oluşturun](tutorial-custom-role-powershell.md) veya [öğretici: Azure CLI kullanarak bir özel rol oluşturma](tutorial-custom-role-cli.md).
+Özel rol oluşturma hakkında adım adım bir öğretici için bkz: [Öğreticisi: Azure PowerShell kullanarak özel bir rol oluşturun](tutorial-custom-role-powershell.md) veya [Öğreticisi: Azure CLI kullanarak bir özel rol oluşturma](tutorial-custom-role-cli.md).
 
 ## <a name="custom-role-properties"></a>Özel rol özellikleri
 
 Özel bir rol, aşağıdaki özelliklere sahiptir.
 
-| Özellik | Gerekli | Tür | Açıklama |
+| Özellik | Gereklidir | Tür | Açıklama |
 | --- | --- | --- | --- |
 | `Name` | Evet | Dize | Özel rol görünen adı. Rol tanımı bir abonelik düzeyinde kaynak olsa da, bir rol tanımı aynı Azure AD dizini paylaşan birden çok abonelik içinde kullanılabilir. Bu görünen ad, Azure AD dizini kapsamında benzersiz olması gerekir. Harf, sayı, boşluk ve özel karakterler içerebilir. En fazla karakter sayısı 128'dir. |
 | `Id` | Evet | Dize | Özel rol benzersiz kimliği. Yeni bir rol oluşturduğunuzda, Azure PowerShell ve Azure CLI için bu kimliği otomatik olarak oluşturulur. |
@@ -116,3 +116,4 @@ Yerleşik roller'olduğu gibi `AssignableScopes` özellik kapsamları rol atama 
 - [Azure PowerShell kullanarak özel roller oluşturma](custom-roles-powershell.md)
 - [Azure CLI'yı kullanarak özel roller oluşturma](custom-roles-cli.md)
 - [Rol tanımları anlama](role-definitions.md)
+- [Azure RBAC sorunlarını giderme](troubleshooting.md)

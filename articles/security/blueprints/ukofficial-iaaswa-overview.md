@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: d40e23a7cc113a9db297a7dbf00a2372063dfb52
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: d5b759fcde66a2a9be86cc15cba1ead1765ba248
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39060568"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413405"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Azure güvenlik ve uyumluluk planı - UK-OFFICIAL için üç katmanlı Iaas Web uygulaması
 
@@ -129,54 +129,54 @@ Depolama
 
 ### <a name="deployment-architecture"></a>Dağıtım mimarisi:
 
-**Şirket içi ağ**: bir kurum içinde uygulanan özel bir yerel ağ.
+**Şirket içi ağ**: Bir kuruluş içinde uygulanan bir özel yerel ağ.
 
-**Üretim VNet**: üretim [VNet](https://docs.microsoft.com/azure/Virtual-Network/virtual-networks-overview) uygulamayı ve Azure'da çalışan diğer işlem kaynakları (sanal ağ için) barındırır. Her sanal ağ yalıtma ve ağ trafiğini yönetmek için kullanılan çeşitli alt ağlar içeriyor olabilir.
+**Üretim VNet**: Üretim [VNet](https://docs.microsoft.com/azure/Virtual-Network/virtual-networks-overview) uygulamayı ve Azure'da çalışan diğer işlem kaynakları (sanal ağ için) barındırır. Her sanal ağ yalıtma ve ağ trafiğini yönetmek için kullanılan çeşitli alt ağlar içeriyor olabilir.
 
-**Web Katmanı**: gelen HTTP isteklerini işler. Bu katman ile yanıt döndürülür.
+**Web Katmanı**: Gelen HTTP isteklerini işler. Bu katman ile yanıt döndürülür.
 
-**İş katmanı**: iş süreçlerini ve sistemin işlevsel başka bir mantık uygular.
+**İş katmanı**: Implements iş süreçleri ve diğer sistem işlevsel mantığı.
 
-**Veritabanı katmanı**: sağlayan kalıcı veri depolamayı kullanarak [SQL Server Always On kullanılabilirlik grupları](https://msdn.microsoft.com/library/hh510230.aspx) yüksek kullanılabilirlik için. Müşterileri kullanabilir [Azure SQL veritabanı](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview) bir PaaS alternatif olarak.
+**Veritabanı katmanı**: Kalıcı veri depolama sağlar kullanarak [SQL Server Always On kullanılabilirlik grupları](https://msdn.microsoft.com/library/hh510230.aspx) yüksek kullanılabilirlik için. Müşterileri kullanabilir [Azure SQL veritabanı](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview) bir PaaS alternatif olarak.
 
 **Ağ geçidi**: [VPN ağ geçidi](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) şirket içi ağ yönlendiricileri ve üretim sanal ağ arasında bağlantı sağlar.
 
-**Internet Ağ ve genel IP adresi**: internet ağ uygulama hizmetleri kullanıcılara internet üzerinden kullanıma sunar. Bu hizmetlere erişen trafiği kullanarak güvenli bir [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) 7. Katman Yönlendirme ve Yük Dengeleme ile web uygulaması Güvenlik Duvarı (WAF) koruma özellikleri sunar.
+**Internet Ağ ve genel IP adresi**: İnternet ağ geçidi, internet üzerinden kullanıcılara uygulama hizmetleri sunar. Bu hizmetlere erişen trafiği kullanarak güvenli bir [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) 7. Katman Yönlendirme ve Yük Dengeleme ile web uygulaması Güvenlik Duvarı (WAF) koruma özellikleri sunar.
 
 **Yönetim sanal ağ**: Bu [VNet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) yönetim ve izleme işlevlerini VNet üretimde çalışan iş yükleri için uygulama kaynakları içerir.
 
-**Sıçrama kutusu**: olarak da adlandırılan bir [Burcu ana bilgisayarı](https://en.wikipedia.org/wiki/Bastion_host), ağ üzerinde yer alan yöneticilerin VNet üretimde Vm'lerine bağlanmak için kullandıkları güvenli bir VM olduğu. Sıçrama kutusunun sadece güvenli bir listede yer alan genel IP adreslerinden gelen uzak trafiğe izin veren bir NSG’si vardır. Uzak Masaüstü (RDP) trafiğine izin vermek için trafik kaynağını NSG'de tanımlanması gerekir. Üretim kaynak yönetimi, güvenli bir Sıçrama kutusu VM kullanarak RDP aracılığıyla değildir.
+**Sıçrama kutusu**: Olarak da adlandırılan bir [Burcu ana bilgisayarı](https://en.wikipedia.org/wiki/Bastion_host), ağ üzerinde yer alan yöneticilerin VNet üretimde Vm'lerine bağlanmak için kullandıkları güvenli bir VM olduğu. Sıçrama kutusunun sadece güvenli bir listede yer alan genel IP adreslerinden gelen uzak trafiğe izin veren bir NSG’si vardır. Uzak Masaüstü (RDP) trafiğine izin vermek için trafik kaynağını NSG'de tanımlanması gerekir. Üretim kaynak yönetimi, güvenli bir Sıçrama kutusu VM kullanarak RDP aracılığıyla değildir.
 
-**Kullanıcı tanımlı yollar**: [kullanıcı tanımlı yollar](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) Azure sanal ağları içindeki IP trafiğinin akışını tanımlamak için kullanılır.
+**Kullanıcı tanımlı yollar**: [Kullanıcı tanımlı yollar](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) Azure sanal ağları içindeki IP trafiğinin akışını tanımlamak için kullanılır.
 
-**Eşlenmiş sanal ağlarda ağ**: üretim ve Yönetim sanal ağlara bağlı kullanarak [VNet eşlemesi](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
+**Eşlenmiş sanal ağlarda ağ**: Kullanarak üretim ve Yönetim sanal ağlara bağlı [VNet eşlemesi](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
 Bu sanal ağ ayrı kaynaklar olarak yönetilmeye devam eder, ancak bu sanal makineler için tüm bağlantılarda tek olarak görünür. Bu ağlar birbiriyle doğrudan özel IP adresleri kullanarak iletişim kurar. VNet eşlemesi aynı Azure bölgesinde olan Vnet'ler tabidir.
 
 **Ağ güvenlik grupları**: [Nsg'ler](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) erişim denetimi izin veren veya reddeden trafiği bir sanal ağ içindeki listelerini içerir. Nsg bir alt ağ veya tek tek VM düzeyinde trafiği güvenli hale getirmek için kullanılabilir.
 
 **Active Directory etki alanı Hizmetleri (AD DS)**: Bu ayrılmış bir mimarisi [Active Directory Domain Services](https://technet.microsoft.com/library/hh831484.aspx) dağıtım.
 
-**Günlüğe kaydetme ve Denetim**: [Azure etkinlik günlüğü](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) işlemi gerçekleştiğinde, işlemin durumu ve değerleri işlemi kimin başlattığını gibi aboneliğinizdeki kaynaklar üzerinde gerçekleştirilen işlemleri yakalar. yardımcı olabilecek diğer özellikleri işlemi araştırın. Azure etkinlik günlüğü bir Abonelikteki tüm eylemleri yakalayan bir Azure platform hizmetidir. Günlükleri, arşivlenen veya gerekirse verilebilir.
+**Günlüğe kaydetme ve Denetim**: [Azure etkinlik günlüğü](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) işlemi gerçekleştiğinde işlem başlatan gibi aboneliğinizdeki kaynaklar üzerinde gerçekleştirilen yakalamaları işlemleri, işlemin durumunu ve yardımcı olabilecek diğer özelliklerin değerlerine araştırma işlem. Azure etkinlik günlüğü bir Abonelikteki tüm eylemleri yakalayan bir Azure platform hizmetidir. Günlükleri, arşivlenen veya gerekirse verilebilir.
 
-**Ağ izleme ve uyarı verme**: [Azure Ağ İzleyicisi](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) ağ traffics içinde sanal ağlarınız için bir platform hizmeti sağlamaktadır ağ paket yakalama, akış günlüğe kaydetme, topoloji araçları ve tanılama.
+**İzleme ve uyarı ağ**: [Azure Ağ İzleyicisi](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) ağ traffics içinde sanal ağlarınız için bir platform hizmeti sağlamaktadır ağ paket yakalama, akış günlüğe kaydetme, topoloji araçları ve tanılama.
 
 ## <a name="guidance-and-recommendations"></a>Yönerge ve öneriler
 
 ### <a name="business-continuity"></a>İş Sürekliliği
 
-**Yüksek kullanılabilirlik**: sunucu iş yükleri gruplanır bir [kullanılabilirlik kümesi](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) azure'daki sanal makinelerin yüksek kullanılabilirlik sağlamak için. Bu yapılandırma planlı veya Plansız bakım olayı sırasında en az bir sanal makine kullanılabilir ve % 99,95 oranında karşılamak emin olun yardımcı olur. Azure SLA'sı.
+**Yüksek kullanılabilirlik**: Sunucu iş yükleri gruplanır bir [kullanılabilirlik kümesi](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) azure'daki sanal makinelerin yüksek kullanılabilirlik sağlamak için. Bu yapılandırma planlı veya Plansız bakım olayı sırasında en az bir sanal makine kullanılabilir ve % 99,95 oranında karşılamak emin olun yardımcı olur. Azure SLA'sı.
 
 ### <a name="logging-and-audit"></a>Günlüğe kaydetme ve Denetim
 
 **İzleme**: [Azure İzleyici](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started) etkinlik günlüğü, ölçümleri ve tanılama günlüklerini tüm Azure kaynaklarınızın izlemek için tek bir kaynak sağlayan platform hizmetidir. Azure İzleyici görselleştirin, sorgu, yönlendirme, arşiv ve azure'daki kaynaklardan gelen günlükler ve ölçümler üzerinde işlem için yapılandırılabilir. Kaynak tabanlı erişim denetimi, denetim izi'ni kullanıcılar günlükleri değiştirme becerisi olmadığından emin olun yardımcı olmak için güvenli hale getirmek için kullandığınız önerilir.
 
-**Etkinlik günlükleri**: yapılandırma [Azure etkinlik günlüklerini](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) , aboneliğinizdeki kaynaklar üzerinde gerçekleştirilen işlemler hakkında bilgi sağlamak için.
+**Etkinlik günlükleri**: Yapılandırma [Azure etkinlik günlüklerini](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) , aboneliğinizdeki kaynaklar üzerinde gerçekleştirilen işlemler hakkında bilgi sağlamak için.
 
-**Tanılama günlükleri**: [tanılama günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) olan bir kaynak tarafından bir günlüklerdir. Bu günlükler, Windows olayı sistem günlükleri, blob, tablo ve kuyruk günlükleri dahil olabilir.
+**Tanılama günlükleri**: [Tanılama günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) olan bir kaynak tarafından bir günlüklerdir. Bu günlükler, Windows olayı sistem günlükleri, blob, tablo ve kuyruk günlükleri dahil olabilir.
 
 **Güvenlik duvarı günlükleri**: Application Gateway tam tanılama ve erişim günlükleri sağlar. Güvenlik duvarı günlükleri, WAF’nin etkin olduğu application gateway kaynakları için kullanılabilir.
 
-**Arşivleme oturum**: arşivleme ve tanımlanan saklama süresi veri depolama, merkezileştirilmiş bir Azure depolama alanına yazmak üzere yapılandırılabilir günlük hesabı. Azure Log Analytics kullanarak günlükleri işlenebilir veya üçüncü taraf SIEM sistemleri tarafından.
+**Günlük arşivleme**: Günlük veri depolama, arşivleme ve tanımlanan saklama süresi denetleyebileceği, merkezi bir Azure depolama hesabı için yazma yapılandırılabilir. Azure Log Analytics kullanarak günlükleri işlenebilir veya üçüncü taraf SIEM sistemleri tarafından.
 
 ### <a name="identity"></a>Kimlik
 
@@ -186,7 +186,7 @@ Bu sanal ağ ayrı kaynaklar olarak yönetilmeye devam eder, ancak bu sanal maki
 
 [Azure sanal makineler üzerinde Windows Server Active Directory dağıtma ilkeleri](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
-**Active Directory Tümleştirmesi**: ayrılmış bir AD DS mimarisi için alternatif olarak, müşteriler kullanmak isteyebileceğiniz [Azure Active Directory](https://docs.microsoft.com/azure/guidance/guidance-ra-identity#using-azure-active-directory) tümleştirme veya [Azure Active Directory'ye katılmış bir şirket içi Orman](https://docs.microsoft.com/azure/guidance/guidance-ra-identity#using-active-directory-in-azure-joined-to-an-on-premises-forest).
+**Active Directory Tümleştirmesi**: Ayrılmış bir AD DS mimarisi için alternatif olarak, müşteriler kullanmak isteyebileceğiniz [Azure Active Directory](https://docs.microsoft.com/azure/guidance/guidance-ra-identity) tümleştirme veya [Azure Active Directory'ye katılmış bir şirket içi ormana](https://docs.microsoft.com/azure/guidance/guidance-ra-identity#using-active-directory-in-azure-joined-to-an-on-premises-forest).
 
 ### <a name="security"></a>Güvenlik
 
@@ -194,19 +194,19 @@ Bu sanal ağ ayrı kaynaklar olarak yönetilmeye devam eder, ancak bu sanal maki
 
 Müşteriler de göz önünde bulundurmanız kullanarak bir [Gelişmiş Güvenlik yönetim modeli](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/securing-privileged-access) Yönetim sanal ağ ve Sıçrama kutusu bağlanırken ortam güvenliğini sağlamak için. Gelişmiş güvenlik için müşterilerin kullanmak önerilen bir [ayrıcalıklı erişim iş istasyonu](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/privileged-access-workstations#what-is-a-privileged-access-workstation-paw) ve RDGateway yapılandırma. Ağ sanal Gereçleri ve ortak/özel DMZ'ler daha fazla güvenlik geliştirmeleri sunar.
 
-**Ağ güvenliğini sağlama**: [ağ güvenlik grupları](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) (Nsg'ler), ikinci bir yanlış yapılandırılmış veya devre dışı ağ geçidi atlayan gelen trafiğe karşı bir koruma düzeyi sağlamak her alt ağ için önerilir. Örnek - [bir NSG dağıtmak için Resource Manager şablonu](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/networkSecurityGroups).
+**Ağ güvenliğini sağlama**: [Ağ güvenlik grupları](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) (Nsg'ler), ikinci bir yanlış yapılandırılmış veya devre dışı ağ geçidi atlayan gelen trafiğe karşı bir koruma düzeyi sağlamak her alt ağ için önerilir. Örnek - [bir NSG dağıtmak için Resource Manager şablonu](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/networkSecurityGroups).
 
-**Açık uç noktalarını güvenli hale getirme**: internet ağ uygulama hizmetleri kullanıcılara internet üzerinden kullanıma sunar. Bu hizmetlere erişen trafiği kullanarak güvenli bir [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction), bir Web uygulaması güvenlik duvarı ve HTTPS protokolü yönetim sağlar.
+**Açık uç noktalarını güvenli hale getirme**: İnternet ağ geçidi, internet üzerinden kullanıcılara uygulama hizmetleri sunar. Bu hizmetlere erişen trafiği kullanarak güvenli bir [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction), bir Web uygulaması güvenlik duvarı ve HTTPS protokolü yönetim sağlar.
 
-**IP aralıklarını**: IP aralıkları mimaride önerilen aralıklar:. Müşteriler, kendi ortamlarından göz önünde bulundurun ve uygun aralıkların kullanmak için önerilir.
+**IP aralıklarını**: IP aralıklarını mimaride önerilen aralıktır. Müşteriler, kendi ortamlarından göz önünde bulundurun ve uygun aralıkların kullanmak için önerilir.
 
-**Karma bağlantı**: bulut tabanlı iş yüklerini Azure VPN ağ geçidini kullanarak IPSec VPN aracılığıyla şirket içi veri merkezine bağlıdır. Müşteriler, uygun bir VPN ağ geçidi Azure'a bağlanmak için kullandığınız emin olmalısınız. Örnek - [VPN ağ geçidi Resource Manager şablonu](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection). Büyük ölçekli çalıştıran müşteriler, görev açısından kritik iş yükleri büyük veri gereksinimleri olan bir hibrit ağ mimarisi kullanmayı göz önünde hazırlandığını [ExpressRoute](https://docs.microsoft.com/azure/guidance/guidance-hybrid-network-expressroute) Microsoft'a özel ağ bağlantısı için bulut Hizmetleri.
+**Karma bağlantı**: Bulut tabanlı iş yükleri, Azure VPN ağ geçidini kullanarak IPSec VPN aracılığıyla şirket içi veri merkezine bağlıdır. Müşteriler, uygun bir VPN ağ geçidi Azure'a bağlanmak için kullandığınız emin olmalısınız. Örnek - [VPN ağ geçidi Resource Manager şablonu](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection). Büyük ölçekli çalıştıran müşteriler, görev açısından kritik iş yükleri büyük veri gereksinimleri olan bir hibrit ağ mimarisi kullanmayı göz önünde hazırlandığını [ExpressRoute](https://docs.microsoft.com/azure/guidance/guidance-hybrid-network-expressroute) Microsoft'a özel ağ bağlantısı için bulut Hizmetleri.
 
-**Görev ayrımı nettir**: yönetim işlemleri ve işletme işlemleri için sanal ağlar bu başvuru mimarisinde ayırır. Ayrı sanal ağlar ve alt ağlar arasında aşağıdaki ağ kesimlerini Nsg'leri kullanarak trafiği giriş ve çıkış kısıtlamaları da dahil olmak üzere, trafik yönetimi izin [Microsoft bulut Hizmetleri ve ağ güvenliği](https://docs.microsoft.com/azure/best-practices-network-security) en iyi uygulamalar.
+**Görev ayrımı nettir**: Bu başvuru mimarisi, sanal ağlar yönetim işlemleri ve işletme işlemleri için ayırır. Ayrı sanal ağlar ve alt ağlar arasında aşağıdaki ağ kesimlerini Nsg'leri kullanarak trafiği giriş ve çıkış kısıtlamaları da dahil olmak üzere, trafik yönetimi izin [Microsoft bulut Hizmetleri ve ağ güvenliği](https://docs.microsoft.com/azure/best-practices-network-security) en iyi uygulamalar.
 
 **Kaynak Yönetimi**: Vm'leri, sanal ağlar ve yük Dengeleyiciler gibi Azure kaynaklarını birbirine halinde gruplayarak yönetilen [Azure kaynak grupları](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groupsresource). Kaynak tabanlı erişim denetimi rolleri, ardından yalnızca yetkili kullanıcıların erişimini kısıtlamak için her bir kaynak grubuna atanabilir.
 
-**Erişim denetimi kısıtlamalarını**: kullanım [rol tabanlı erişim denetimi](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) (RBAC) kullanarak uygulama kaynaklarınızı yönetmek için [özel roller](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) RBAC işlemlerini kısıtlamak için kullanılabilir, DevOps, her katmanda gerçekleştirebileceği. İzin verirken kullanın [en az ayrıcalık ilkesini](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1). Tüm yapılandırma değişikliklerinin planlı olduğundan emin olmak için yönetim işlemlerinin tümünü günlüğe kaydedin ve normal denetimler gerçekleştirin.
+**Erişim denetimi kısıtlamalarını**: Kullanım [rol tabanlı erişim denetimi](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) (RBAC) kullanarak uygulama kaynaklarınızı yönetmek için [özel roller](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) RBAC, DevOps, her katmanda gerçekleştirebileceği işlemleri kısıtlamak için kullanılabilir. İzin verirken kullanın [en az ayrıcalık ilkesini](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1). Tüm yapılandırma değişikliklerinin planlı olduğundan emin olmak için yönetim işlemlerinin tümünü günlüğe kaydedin ve normal denetimler gerçekleştirin.
 
 **Internet erişimi**: Bu başvuru mimarisinde utilises [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) internet'e yönelik ağ geçidi ve yük dengeleyici olarak. Alternatif olarak güvenlik ağ ek katmanı için üçüncü taraf ağ sanal Gereçleri kullanarak bazı müşteriler de düşünebilirsiniz [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction).
 

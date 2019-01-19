@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: 70f07b3925eb91d91dfbd623f8f1611ac31a1b6f
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 2c0fd7bd811445cd6bda8315c9c90ff6646d2be0
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542518"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413916"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 protokol Kılavuzu Azure Service Bus ve Event Hubs
 
@@ -161,46 +161,46 @@ Aşağıdaki tabloda yer oklar performative akış yönü.
 | İstemci | Service Bus |
 | --- | --- |
 | --> () ekleme<br/>adı = {bağlantı adı}<br/>işleme {sayısal tanıtıcı} =<br/>Rol =**gönderen**,<br/>Kaynak = {istemci bağlantı kimliği}<br/>Hedef {varlık adı} =<br/>) |Eylem yok |
-| Eylem yok |<--(ekleme<br/>adı = {bağlantı adı}<br/>işleme {sayısal tanıtıcı} =<br/>Rol =**alıcı**,<br/>Kaynak = null,<br/>Hedef = null<br/>)<br/><br/><--(Ayır<br/>işleme {sayısal tanıtıcı} =<br/>Kapalı =**true**,<br/>hata = {hata bilgisi}<br/>) |
+| Eylem yok |<--(ekleme<br/>adı = {bağlantı adı}<br/>işleme {sayısal tanıtıcı} =<br/>Rol =**alıcı**,<br/>Kaynak = null,<br/>Hedef = null<br/>)<br/><br/><--(Ayır<br/>işleme {sayısal tanıtıcı} =<br/>closed=**true**,<br/>hata = {hata bilgisi}<br/>) |
 
 #### <a name="close-message-receiversender"></a>Alıcı iletiyi kapat/gönderen
 
 | İstemci | Service Bus |
 | --- | --- |
-| --> ayırma ()<br/>işleme {sayısal tanıtıcı} =<br/>Kapalı =**true**<br/>) |Eylem yok |
-| Eylem yok |<--(Ayır<br/>işleme {sayısal tanıtıcı} =<br/>Kapalı =**true**<br/>) |
+| --> ayırma ()<br/>işleme {sayısal tanıtıcı} =<br/>closed=**true**<br/>) |Eylem yok |
+| Eylem yok |<--(Ayır<br/>işleme {sayısal tanıtıcı} =<br/>closed=**true**<br/>) |
 
 #### <a name="send-success"></a>Gönder (başarılı)
 
 | İstemci | Service Bus |
 | --- | --- |
 | Aktarım ('--><br/>teslim-ID = {sayısal tanıtıcı}<br/>teslim etiketi {ikili tanıtıcı} =<br/>Kapatılan =**false**,, daha =**false**,<br/>Durum =**null**,<br/>sürdürme =**false**<br/>) |Eylem yok |
-| Eylem yok |<--değerlendirme ()<br/>Rol alıcı =<br/>ilk {teslim ID} =<br/>Son {teslim ID} =<br/>Kapatılan =**true**,<br/>Durum =**kabul edildi**<br/>) |
+| Eylem yok |<--değerlendirme ()<br/>Rol alıcı =<br/>ilk {teslim ID} =<br/>Son {teslim ID} =<br/>settled=**true**,<br/>Durum =**kabul edildi**<br/>) |
 
 #### <a name="send-error"></a>Gönder (hata)
 
 | İstemci | Service Bus |
 | --- | --- |
 | Aktarım ('--><br/>teslim-ID = {sayısal tanıtıcı}<br/>teslim etiketi {ikili tanıtıcı} =<br/>Kapatılan =**false**,, daha =**false**,<br/>Durum =**null**,<br/>sürdürme =**false**<br/>) |Eylem yok |
-| Eylem yok |<--değerlendirme ()<br/>Rol alıcı =<br/>ilk {teslim ID} =<br/>Son {teslim ID} =<br/>Kapatılan =**true**,<br/>Durum =**reddedilen**()<br/>hata = {hata bilgisi}<br/>)<br/>) |
+| Eylem yok |<--değerlendirme ()<br/>Rol alıcı =<br/>ilk {teslim ID} =<br/>Son {teslim ID} =<br/>settled=**true**,<br/>Durum =**reddedilen**()<br/>hata = {hata bilgisi}<br/>)<br/>) |
 
 #### <a name="receive"></a>Al
 
 | İstemci | Service Bus |
 | --- | --- |
 | Akış ('--><br/>bağlantı-kredi = 1<br/>) |Eylem yok |
-| Eylem yok |< (Aktarım<br/>teslim-ID = {sayısal tanıtıcı}<br/>teslim etiketi {ikili tanıtıcı} =<br/>Kapatılan =**false**,<br/>Daha fazla =**false**,<br/>Durum =**null**,<br/>sürdürme =**false**<br/>) |
-| Değerlendirme ('--><br/>Rol =**alıcı**,<br/>ilk {teslim ID} =<br/>Son {teslim ID} =<br/>Kapatılan =**true**,<br/>Durum =**kabul edildi**<br/>) |Eylem yok |
+| Eylem yok |< (Aktarım<br/>teslim-ID = {sayısal tanıtıcı}<br/>teslim etiketi {ikili tanıtıcı} =<br/>settled=**false**,<br/>Daha fazla =**false**,<br/>Durum =**null**,<br/>sürdürme =**false**<br/>) |
+| --> disposition(<br/>Rol =**alıcı**,<br/>ilk {teslim ID} =<br/>Son {teslim ID} =<br/>settled=**true**,<br/>Durum =**kabul edildi**<br/>) |Eylem yok |
 
 #### <a name="multi-message-receive"></a>Birden çok ileti alma
 
 | İstemci | Service Bus |
 | --- | --- |
 | Akış ('--><br/>bağlantı-kredi = 3<br/>) |Eylem yok |
-| Eylem yok |< (Aktarım<br/>teslim-ID = {sayısal tanıtıcı}<br/>teslim etiketi {ikili tanıtıcı} =<br/>Kapatılan =**false**,<br/>Daha fazla =**false**,<br/>Durum =**null**,<br/>sürdürme =**false**<br/>) |
-| Eylem yok |< (Aktarım<br/>teslim-ID = {sayısal tanıtıcı + 1}<br/>teslim etiketi {ikili tanıtıcı} =<br/>Kapatılan =**false**,<br/>Daha fazla =**false**,<br/>Durum =**null**,<br/>sürdürme =**false**<br/>) |
-| Eylem yok |< (Aktarım<br/>teslim-ID = {sayısal tanıtıcı + 2},<br/>teslim etiketi {ikili tanıtıcı} =<br/>Kapatılan =**false**,<br/>Daha fazla =**false**,<br/>Durum =**null**,<br/>sürdürme =**false**<br/>) |
-| Değerlendirme ('--><br/>Rol alıcı =<br/>ilk {teslim ID} =<br/>Son = {teslim kimliği + 2}<br/>Kapatılan =**true**,<br/>Durum =**kabul edildi**<br/>) |Eylem yok |
+| Eylem yok |< (Aktarım<br/>teslim-ID = {sayısal tanıtıcı}<br/>teslim etiketi {ikili tanıtıcı} =<br/>settled=**false**,<br/>Daha fazla =**false**,<br/>Durum =**null**,<br/>sürdürme =**false**<br/>) |
+| Eylem yok |< (Aktarım<br/>teslim-ID = {sayısal tanıtıcı + 1}<br/>teslim etiketi {ikili tanıtıcı} =<br/>settled=**false**,<br/>Daha fazla =**false**,<br/>Durum =**null**,<br/>sürdürme =**false**<br/>) |
+| Eylem yok |< (Aktarım<br/>teslim-ID = {sayısal tanıtıcı + 2},<br/>teslim etiketi {ikili tanıtıcı} =<br/>settled=**false**,<br/>Daha fazla =**false**,<br/>Durum =**null**,<br/>sürdürme =**false**<br/>) |
+| --> disposition(<br/>Rol alıcı =<br/>ilk {teslim ID} =<br/>Son = {teslim kimliği + 2}<br/>settled=**true**,<br/>Durum =**kabul edildi**<br/>) |Eylem yok |
 
 ### <a name="messages"></a>İletiler
 
@@ -227,7 +227,7 @@ AMQP için 's tanımlar için uygulaması gereken herhangi bir özellik eşlenme
 | - |Service Bus tarafından yorumlanır değil, hedef uygulama tanımlı tanımlayıcısı. |[Alıcı](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_To) |
 | konu |Service Bus tarafından yorumlanır değil, uygulama tarafından tanımlanan ileti amaçlı tanımlayıcısı. |[Etiket](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) |
 | Yanıtla |Uygulama tanımlı yanıt yolu göstergesi, Service Bus tarafından yorumlanır değil. |[replyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyTo) |
-| Bağıntı Kimliği |Service Bus tarafından yorumlanır değil, uygulama tanımlı bağıntı tanımlayıcısı. |[Bağıntı Kimliği](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_CorrelationId) |
+| Bağıntı Kimliği |Service Bus tarafından yorumlanır değil, uygulama tanımlı bağıntı tanımlayıcısı. |[Bağıntı Kimliği](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | içerik türü |İçerik türü, Service Bus tarafından yorumlanır değil gövdesi için uygulama tanımlı göstergesi. |[contentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ContentType) |
 | İçerik kodlama |Service Bus tarafından yorumlanır değil gövdesi için göstergesi içerik kodlamasını uygulama tanımlı. |Service Bus API'sini aracılığıyla erişilebilir değil. |
 | süre sonu mutlak |Hangi mutlak anında iletinin geçerlilik süresinin bildirir. Giriş (üstbilgisi TTL gözlemlenen değerdir), göz ardı çıktıyı yetkili. |[ExpiresAtUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ExpiresAtUtc) |
@@ -270,7 +270,7 @@ Bir işlem, iki veya daha fazla işlem yürütme kapsam birleştirerek grupland�
 | --- | --- | --- |
 | (ekleme<br/>adı = {bağlantı adı}<br/>... ,<br/>Rol =**gönderen**,<br/>Hedef =**Düzenleyicisi**<br/>) | ------> |  |
 |  | <------ | (ekleme<br/>adı = {bağlantı adı}<br/>... ,<br/>target=Coordinator()<br/>) |
-| Aktarım)<br/>teslim-id = 0,...)<br/>{AmqpValue (**Declare()**)}| ------> |  |
+| Aktarım)<br/>teslim-id = 0,...)<br/>{ AmqpValue (**Declare()**)}| ------> |  |
 |  | <------ | Değerlendirme) <br/> İlk = 0, 0 = <br/>Durum =**Declared**()<br/>**işlemleri kimliği**{işlem kimliği} =<br/>))|
 
 #### <a name="discharging-a-transaction"></a>Bir işlem discharging
@@ -281,11 +281,11 @@ Denetleyici göndererek işlem tabanlı iş sonucuna bir `discharge` Düzenleyic
 
 | İstemci (denetleyicisi) | | Hizmet veri yolu (Düzenleyicisi) |
 | --- | --- | --- |
-| Aktarım)<br/>teslim-id = 0,...)<br/>{AmqpValue (Declare())}| ------> |  |
+| Aktarım)<br/>teslim-id = 0,...)<br/>{ AmqpValue (Declare())}| ------> |  |
 |  | <------ | Değerlendirme) <br/> İlk = 0, 0 = <br/>Durum = bildirilen ()<br/>işlemleri kimliği = {işlem ID}<br/>))|
 | | . . . <br/>İşlem çalışma<br/>diğer bağlantılar<br/> . . . |
-| Aktarım)<br/>teslim-id = 57,...)<br/>{AmqpValue)<br/>**Taburcu (işlemleri-id = 0,<br/>başarısız = false)**)}| ------> |  |
-| | <------ | Değerlendirme) <br/> 57 önce =, son 57, = <br/>Durum =**kabul()**)|
+| Aktarım)<br/>teslim-id = 57,...)<br/>{ AmqpValue (<br/>**Taburcu (işlemleri-id = 0,<br/>başarısız = false)**)}| ------> |  |
+| | <------ | Değerlendirme) <br/> first=57, last=57, <br/>Durum =**kabul()**)|
 
 #### <a name="sending-a-message-in-a-transaction"></a>Bir işlemde bir ileti gönderme
 
@@ -293,7 +293,7 @@ Tüm işlem iş işlem teslim durumu ile yapılır `transactional-state` , işle
 
 | İstemci (denetleyicisi) | | Hizmet veri yolu (Düzenleyicisi) |
 | --- | --- | --- |
-| Aktarım)<br/>teslim-id = 0,...)<br/>{AmqpValue (Declare())}| ------> |  |
+| Aktarım)<br/>teslim-id = 0,...)<br/>{ AmqpValue (Declare())}| ------> |  |
 |  | <------ | Değerlendirme) <br/> İlk = 0, 0 = <br/>Durum = bildirilen ()<br/>işlemleri kimliği = {işlem ID}<br/>))|
 | Aktarım)<br/>tanıtıcı = 1,<br/>teslim-id = 1, <br/>**Durum =<br/>TransactionalState (<br/>işlemleri-id = 0)**)<br/>{} Yükü| ------> |  |
 | | <------ | Değerlendirme) <br/> ilk = 1, 1 = <br/>Durum =**TransactionalState (<br/>işlemleri-id = 0,<br/>outcome=Accepted()**))|
@@ -304,7 +304,7 @@ Tüm işlem iş işlem teslim durumu ile yapılır `transactional-state` , işle
 
 | İstemci (denetleyicisi) | | Hizmet veri yolu (Düzenleyicisi) |
 | --- | --- | --- |
-| Aktarım)<br/>teslim-id = 0,...)<br/>{AmqpValue (Declare())}| ------> |  |
+| Aktarım)<br/>teslim-id = 0,...)<br/>{ AmqpValue (Declare())}| ------> |  |
 |  | <------ | Değerlendirme) <br/> İlk = 0, 0 = <br/>Durum = bildirilen ()<br/>işlemleri kimliği = {işlem ID}<br/>))|
 | | <------ |Aktarım)<br/>tanıtıcı, 2 =<br/>teslim Kimliği 11 = <br/>Durum = null)<br/>{} Yükü|  
 | Değerlendirme) <br/> ilk 11 =, 11, son = <br/>Durum =**TransactionalState (<br/>işlemleri-id = 0,<br/>outcome=Accepted()**))| ------> |
@@ -403,8 +403,8 @@ Bu işlevler sayesinde, bir gönderici oluşturun ve bağlantısını kurmak `vi
 
 | İstemci | | Service Bus |
 | --- | --- | --- |
-| (ekleme<br/>adı = {bağlantı adı}<br/>Rol göndereni =<br/>Kaynak = {istemci bağlantı kimliği}<br/>Hedef =**{aracılığıyla-entity}**,<br/>**özellikleri harita = [(<br/>com.microsoft:transfer hedef adresi =<br/>{hedef varlık})]** ) | ------> | |
-| | <------ | (ekleme<br/>adı = {bağlantı adı}<br/>Rol alıcı =<br/>Kaynak = {istemci bağlantı kimliği}<br/>Hedef = {yoluyla varlık},<br/>özellik eşleme [() =<br/>com.Microsoft:transfer hedef adresi =<br/>{Hedef varlık})] ) |
+| (ekleme<br/>adı = {bağlantı adı}<br/>Rol göndereni =<br/>Kaynak = {istemci bağlantı kimliği}<br/>Hedef =**{aracılığıyla-entity}**,<br/>**properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )]** ) | ------> | |
+| | <------ | (ekleme<br/>adı = {bağlantı adı}<br/>Rol alıcı =<br/>Kaynak = {istemci bağlantı kimliği}<br/>Hedef = {yoluyla varlık},<br/>properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )] ) |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

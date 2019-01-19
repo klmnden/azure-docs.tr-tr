@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 3aa5a1c640cc46d677a66f5179f9f07a81e62b15
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 60c709108da041dc1e54ba69d3b1b153accebc19
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138084"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401410"
 ---
 # <a name="programming-guide-for-azure-event-hubs"></a>Azure Event hubs Programlama Kılavuzu
 Bu makalede, Azure Event Hubs'ı kullanarak kod yazma bazı yaygın senaryolar açıklanmaktadır. Burada Event Hubs’ın önceden bilindiği varsayılır. Event Hubs’a kavramsal genel bakış için bkz. [Event Hubs’a genel bakış](event-hubs-what-is-event-hubs.md).
@@ -92,7 +92,7 @@ Daha fazla bilgi ve kullanılabilirlik ile tutarlılık arasındaki dengelemeler
 
 Yardımcı olayların toplu olarak gönderilmesi üretilen işi artırabilir. Kullanabileceğiniz [CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) veri nesneleri daha sonra eklenebilir için bir toplu iş oluşturmak için API bir [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) çağırın.
 
-Tek bir toplu iş olayın 256 KB'lik sınırını aşmamalıdır. Ayrıca, toplu işteki her bir ileti aynı yayımcı kimliğini kullanır. Toplu işin en büyük olay boyutu aşmamasını sağlamak gönderenin sorumluluğundadır. Aşması durumunda bir istemci **Gönderme** hatası oluşturulur. Yardımcı yöntemi kullanabileceğiniz [EventHubClient.CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) batch 256 KB aşmadığından emin olmak için. Boş bir alma [EventDataBatch](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch) gelen [CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) API ve ardından [TryAdd](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch.tryadd) toplu iş oluşturmak için olay eklemek için. 
+Tek bir toplu iş olayın 1 MB sınırını aşmamalıdır. Ayrıca, toplu işteki her bir ileti aynı yayımcı kimliğini kullanır. Toplu işin en büyük olay boyutu aşmamasını sağlamak gönderenin sorumluluğundadır. Aşması durumunda bir istemci **Gönderme** hatası oluşturulur. Yardımcı yöntemi kullanabileceğiniz [EventHubClient.CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) toplu iş 1 MB aşmadığından emin olmak için. Boş bir alma [EventDataBatch](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch) gelen [CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) API ve ardından [TryAdd](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch.tryadd) toplu iş oluşturmak için olay eklemek için. 
 
 ## <a name="send-asynchronously-and-send-at-scale"></a>Zaman uyumsuz olarak gönderme ve ölçekli gönderme
 

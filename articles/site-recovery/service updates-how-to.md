@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/8/2019
 ms.author: rajanaki
-ms.openlocfilehash: c267fc8a3a40d5e1a4f34b607762e1f79e5940b3
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: eecd409c0256c42646edfc99208e180a42f1cb5b
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54383440"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401495"
 ---
 # <a name="service-updates-in-azure-site-recovery"></a>Azure Site Recovery hizmeti güncelleştirmeleri
 Bir kuruluş olarak plansız kesintiler ve verilerinizin güvenliğini korumak için nasıl gideceğinizi ve Planlı çalışan uygulamaları/iş yüklerini out şekil yapmanız gerekir. Azure Site Recovery, Vm'leri ve fiziksel sunucuları bir site dışı kalırsa kullanılabilir çalışan uygulamalarınızı tutarak, BCDR stratejinize katkıda bulunur. Site Recovery, VM ve fiziksel sunucularda çalışan iş yüklerini çoğaltarak birincil sitenin kullanılamaz hale gelmesi durumunda bunların ikincil bir konumda kullanılabilir kalmasını sağlar. Birincil site yeniden çalışmaya başladığında birincil sitede iş yüklerini kurtarır.
@@ -48,7 +48,7 @@ Azure Site Recovery destek matrisi ve hata düzeltmeleri varsa yeni özellikler,
 2. Başvuru bizim [hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=site-recovery) bileşenleri desteklemek için yükseltmek istediğiniz belirli versionn Site Recovery hangi sürümünün bulunacak.
 3. İlk olarak, son Site Kurtar sürüme yükseltin.
 4. Şimdi, işletim sistemi/çekirdek istenen sürümüne yükseltin.
-5. Gerçekleştirmek bir yeniden başlatma.
+5. Yeniden başlatma gerçekleştirin.
 6. Bu işletim sistemi/çekirdek sürümü makinelerinizde yükseltilir sağlayacak en son sürümü ve bu da, yeni sürüm desteği için gerekli olan en son Site Recovery değişiklikleri kaynak makinede de yüklenir.
 
 

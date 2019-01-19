@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 01/18/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 775de554f39df8359c3852a2d7fa876fd12199d2
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 213a695d99c50cea5962237c6210e6efcdbc5f6a
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190864"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411688"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services ölçeğini genişletme
 
@@ -107,7 +107,7 @@ Azure işlev uygulamaları ve ÇYN, SSMS, SSDT ve PowerShell bağlantı dizeleri
 
 **Sorun:** Kullanıcılar alma hatası **sunucusu bulunamıyor '\<sunucusunun adı >' bağlantı modunda 'ReadOnly' örneği.**
 
-**Çözüm:** Seçerken **işleme sunucusunu sorgulama havuzundan ayırın** seçeneği, varsayılan bağlantı dizesini kullanarak istemci bağlantıları (olmadan: rw) sorgu havuzu kopyaya yönlendirilirsiniz. Eşitleme değildir, çünkü sorgu havuzundaki çoğaltmalar henüz çevrimiçi henüz tamamlanmamış, yeniden yönlendirilen istemci bağlantıları başarısız olabilir. Başarısız bağlantılar önlemek için tam bir ölçek genişletme ve eşitleme işlemi kadar işleme sunucusunu sorgulama havuzundan ayırın değil seçin. Bellek ve QPU ölçümleri eşitleme durumunu izlemek için kullanabilirsiniz.
+**Çözüm:** Seçerken **işleme sunucusunu sorgulama havuzundan ayırın** seçeneği, varsayılan bağlantı dizesini kullanarak istemci bağlantıları (olmadan: rw) sorgu havuzu kopyaya yönlendirilirsiniz. Eşitleme değildir, çünkü sorgu havuzundaki çoğaltmalar henüz çevrimiçi henüz tamamlanmamış, yeniden yönlendirilen istemci bağlantıları başarısız olabilir. Başarısız bağlantılar önlemek için olmalıdır en az iki sunucu sorgu havuzundaki bir eşitleme yaparken. Her sunucu, tek tek diğer çevrimiçi kalırken eşitlenir. İşleme sunucusunu sorgu havuzu işleme sırasında yok. isterseniz, işleme için havuzundan kaldırın ve ardından havuza geri işleme tamamlandıktan sonra ancak eşitleme öncesindeki ekleyin seçebilirsiniz. Eşitleme durumunu izlemek için bellek ve QPU ölçümlerini kullanın.
 
 ## <a name="related-information"></a>İlgili bilgiler
 

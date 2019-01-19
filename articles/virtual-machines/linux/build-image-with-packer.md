@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/03/2018
 ms.author: cynthn
-ms.openlocfilehash: f84626c5a487d52f53a2c8bf492a124c87599ed0
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: e283f21b65706860e198e2deca933f1986073cab
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932403"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413235"
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Azure'da Linux sanal makine görüntüleri oluşturmak için Packer kullanma
 Azure'daki her sanal makine (VM) Linux dağıtımına ve işletim sistemi sürümünü tanımlayan bir görüntüden oluşturulur. Görüntüleri, önceden yüklenmiş uygulamalar ve yapılandırmalar içerebilir. Azure marketi, en yaygın dağıtım ve uygulama ortamları için birinci ve üçüncü taraf çok sayıda görüntü sağlar veya uygulamanızın ihtiyaçlarına yönelik kendi özel görüntülerinizi oluşturabilir. Bu makalede, açık kaynak aracı kullanma ayrıntılı [Packer](https://www.packer.io/) tanımlama ve azure'da özel görüntü oluşturma.
@@ -36,7 +36,7 @@ az group create -n myResourceGroup -l eastus
 ```
 
 
-## <a name="create-azure-credentials"></a>Azure kimlik bilgileri oluşturma
+## <a name="create-azure-credentials"></a>Azure kimlik bilgilerini oluşturma
 Packer ile Azure hizmet sorumlusu kullanarak kimliğini doğrular. Bir Azure hizmet sorumlusu, uygulamaları, hizmetleri ve Packer gibi Otomasyon araçları ile kullanabileceğiniz bir güvenlik kimliğidir. Denetim ve hizmet sorumlusu Azure'da gerçekleştirebilirsiniz ne gibi işlemler için izinler tanımlayın.
 
 Bir hizmet sorumlusu oluşturma [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) ve Packer gereken kimlik bilgilerini çıktı:
@@ -201,7 +201,7 @@ VM oluşturmak için provisioners çalıştırıp dağıtımını temizleme Pack
 
 
 ## <a name="create-vm-from-azure-image"></a>Azure görüntüsünden VM oluşturma
-Artık bir VM ile görüntüsünden oluşturabilirsiniz [az vm oluşturma](/cli/azure/vm#az_vm_create). İle oluşturduğunuz görüntüsünü belirtin `--image` parametresi. Aşağıdaki örnekte adlı bir VM oluşturur *myVM* gelen *myPackerImage* ve zaten mevcut değilse SSH anahtarlarını oluşturur:
+Artık bir VM ile görüntüsünden oluşturabilirsiniz [az vm oluşturma](/cli/azure/vm). İle oluşturduğunuz görüntüsünü belirtin `--image` parametresi. Aşağıdaki örnekte adlı bir VM oluşturur *myVM* gelen *myPackerImage* ve zaten mevcut değilse SSH anahtarlarını oluşturur:
 
 ```azurecli
 az vm create \

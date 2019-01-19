@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/26/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 8d0138d20e1a30ab3efc509eb71f17a6b1e4e8e5
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 9ed3ab89387afc78bd631416a683e11f4dc7054a
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287481"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402260"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Azure SQL veri ambarı'nda kaynak sınıfları ile iş yükü yönetimi
 Bellek ve sorgular, Azure SQL veri ambarı için eşzamanlılık yönetmek için kaynak sınıfları kullanmaya yönelik yönergeler.  
@@ -81,16 +81,16 @@ Dinamik kaynak sınıflarında Gen1 detayına olarak bakıldığında, davranı�
 
 | Kaynak Sınıfı | Bellek yüzdesi | Min eş zamanlı sorguları |
 |:--------------:|:-----------------:|:----------------------:|
-| smallrc        | % 3                | 32                     |
+| smallrc        | 3%                | 32                     |
 | mediumrc       | %10               | 10                     |
-| largerc        | % 22               | 4                      |
+| largerc        | 22%               | 4                      |
 | xlargerc       | %70               | 1                      |
 
 
 ### <a name="default-resource-class"></a>Varsayılan kaynak sınıfı
 Varsayılan olarak, her kullanıcı bir dinamik kaynak sınıfı üyesidir **smallrc**. 
 
-Hizmet Yöneticisi kaynak sınıfının sabittir ve değiştirilemez.  Sağlama işlemi sırasında oluşturulan kullanıcı hizmet yöneticisidir.
+Hizmet Yöneticisi kaynak sınıfının smallrc sabittir ve değiştirilemez.  Sağlama işlemi sırasında oluşturulan kullanıcı hizmet yöneticisidir.  Bu bağlamda bir Hizmet Yöneticisi, "Sunucu Yöneticisi oturumu" için belirtilen bir oturum açma bilgileri ise yeni bir SQL Data Warehouse örneğine sahip yeni bir sunucu oluşturma.
 
 > [!NOTE]
 > Hizmet yöneticileri Ayrıca, kullanıcılar veya gruplar Active Directory Yöneticisi olarak tanımlı değildir.
@@ -105,7 +105,7 @@ Kaynak sınıfları, veri yönetimi ve işleme etkinlikleri için performansı a
 
 Bu işlemler, kaynak sınıfları tarafından yönetilir:
 
-* INSERT SELECT, UPDATE, DELETE
+* INSERT-SELECT, UPDATE, DELETE
 * (Kullanıcı tablosu sorgulanırken) seçin
 * -ALTER INDEX REORGANIZE ya da yeniden oluşturma
 * ALTER TABLO YENİDEN OLUŞTURMA

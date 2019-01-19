@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 4d61810adb24bb56b849a0a07ad1f097a1c33744
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: cc6857750534dad2ded29178eb3f140fc25cce0d
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198091"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54410498"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Azure IOT Central uygulamanızı (Node.js) genel istemci uygulamaya bağlama
 
-Bu makalede, Microsoft Azure IOT Central uygulamanıza bir fiziksel cihazı temsil eden genel bir Node.js uygulaması bağlanmak için bir cihaz geliştirici olarak nasıl.
+Bu makalede, Microsoft Azure IOT Central uygulamanıza gerçek bir cihaz temsil eden genel bir Node.js uygulaması bağlanmak için bir cihaz geliştirici olarak nasıl.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
@@ -97,7 +97,7 @@ Azure IOT Central uygulamanızı oluşturun ve cihaz bağlantı dizesini not edi
 
 ### <a name="create-a-nodejs-application"></a>Node.js uygulaması oluşturma
 
-Aşağıdaki adımları uygulamaya eklenen gerçek cihaz uygulayan bir istemci uygulaması oluşturma işlemini göstermektedir. Burada Node.js uygulaması gerçek fiziksel cihazı temsil eder. 
+Aşağıdaki adımları uygulamaya eklenen gerçek cihaz uygulayan bir istemci uygulaması oluşturma işlemini göstermektedir. Burada Node.js uygulaması gerçek bir cihazı temsil eder. 
 
 1. Makinenizde `connected-air-conditioner-adv` adlı bir klasör oluşturun. Komut satırı ortamınızda bu klasöre gidin.
 

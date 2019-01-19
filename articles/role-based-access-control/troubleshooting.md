@@ -11,20 +11,44 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/23/2018
+ms.date: 01/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: d1a0e46fe348bbc60a4d02a4727a9bb27cb26742
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: e204beea5bdf72c2ec5ebcf661d3c983a2e0e6b4
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223305"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411246"
 ---
 # <a name="troubleshoot-rbac-in-azure"></a>Azure RBAC sorunlarını giderme
 
 Bu makalede, Azure portalı ve rolleri erişimi sorunlarını giderme kullanırken beklenmesi gerekenler öğrenmek için rol tabanlı erişim denetimi (RBAC) hakkında sık sorulan sorular yanıtlanmaktadır.
+
+## <a name="problems-with-rbac-role-assignments"></a>RBAC rol atamalarıyla ilgili sorunlar
+
+- Bir rol ataması çünkü ekleyemiyor **rol ataması Ekle** seçeneği devre dışı bırakıldı veya sahip bir rolü kullanarak bir izin hatasıyla aldığından denetleyin `Microsoft.Authorization/roleAssignments/*` çalıştığınız kapsam izni Rol atayın. Bu izne sahip değilseniz abonelik yöneticinize başvurun.
+- Kaynak oluşturmaya çalıştığınızda izinleri hata alırsanız, seçilen kapsamda kaynakları oluşturma izni olan bir rolü kullanarak denetleyin. Örneğin, bir katkıda bulunan olması gerekebilir. İznine sahip değilseniz, abonelik yöneticinize başvurun.
+- Oluşturulacak veya güncelleştirilecek bir destek bileti çalıştığınızda izinleri hata alırsanız, sahip bir rolü kullanarak kontrol `Microsoft.Support/*` izni gibi [destek isteği Katılımcısı](built-in-roles.md#support-request-contributor).
+- Bir rol atamayı denediğinizde rol atamaları sayısının aşıldığını belirten bir hata alırsanız, rolleri gruplara atayarak rol atamalarının sayısını azaltmaya çalışın. Azure kadar destekler **2000** abonelik başına rol atamaları.
+
+## <a name="problems-with-custom-roles"></a>Özel rollerle ilgili sorunlar
+
+- Mevcut bir özel rolü güncelleştirme bulamıyorsanız, olup olmadığını denetlemek `Microsoft.Authorization/roleDefinition/write` izni.
+- Mevcut bir özel rolü güncelleştirme kiracıda bir veya daha fazla atanabilir kapsamlarla silinip silinmediğini denetleyin. `AssignableScopes` Özelliği bir özel rol denetimleri için [kimlerin oluşturma, silme, güncelleştirme veya özel rolü görüntülemek](custom-roles.md#who-can-create-delete-update-or-view-a-custom-role).
+- Yeni bir rol oluşturmak, olmayan herhangi bir özel rolü silme bağlanmayı rol tanımı sınırı aşan bir hata alırsanız kullanılabilir. Birleştirme ya da var olan herhangi bir özel rolü yeniden deneyebilirsiniz. Azure kadar destekler **2000** bir kiracıdaki özel roller.
+- Bir özel rolü silmeyi özel rol hala bir veya daha fazla rol ataması kullanıp kullanmadığınızı denetleyin.
+
+## <a name="recover-rbac-when-subscriptions-are-moved-across-tenants"></a>Abonelikler kiracılar arasında taşınırken RBAC koşullarını kurtarma
+
+- Bir aboneliği farklı bir kiracıya devretme adımlarını görmek istiyorsanız bkz. [Bir Azure aboneliğinin sahipliğini başka bir hesaba devretme](../billing/billing-subscription-transfer.md).
+- Farklı bir kiracıya bir aboneliği aktardığınızda, tüm rol atamalarını kaynak kiracıdan kalıcı olarak silinir ve hedef kiracıya geçirilmez. Rol atamalarınızı hedef kiracıya yeniden oluşturmanız gerekir.
+- Genel Yönetim ve erişim için bir abonelik kaybetmiş kullanın **Azure kaynakları için Access management** geçici geçiş [erişiminizi yükseltmesine](elevate-access-global-admin.md) tekrar erişim kazanmak için Abonelik.
+
+## <a name="rbac-changes-are-not-being-detected"></a>RBAC değişikliklerin algılanmaz
+
+Azure Resource Manager bazen yapılandırmaları ve performansı artırmak için verileri önbelleğe alır. Rol atamaları silmesini veya yaratmasını, değişikliklerin etkili olması için 30 dakikaya kadar sürebilir. Azure portalı, Azure PowerShell veya Azure CLI kullanıyorsanız kapatıp açtıktan rol ataması değişikliklerinizi yenilemeye zorlayabilirsiniz. REST API çağrıları ile rol atamasını değişiklikler yapıyorsanız, erişim belirtecinizin yenileyerek yenilemeye zorlayabilirsiniz.
 
 ## <a name="web-app-features-that-require-write-access"></a>Yazma erişimi gerektiren bir web uygulaması özellikleri
 
@@ -93,10 +117,6 @@ Bazı özellikleri [Azure işlevleri](../azure-functions/functions-overview.md) 
 ![Uygulama erişimi işlevi](./media/troubleshooting/functionapps-noaccess.png)
 
 Bağlanabilmesi **Platform özellikleri** sekmesine ve ardından **tüm ayarlar** bazı ayarları görüntülemek için ilgili bir işlev uygulaması (bir web app ile benzer), ancak bu ayarlardan herhangi birini değiştiremezler.
-
-## <a name="rbac-changes-are-not-being-detected"></a>RBAC değişikliklerin algılanmaz
-
-Azure Resource Manager bazen yapılandırmaları ve performansı artırmak için verileri önbelleğe alır. Rol atamaları silmesini veya yaratmasını, değişikliklerin etkili olması için 30 dakikaya kadar sürebilir. Azure portalı, Azure PowerShell veya Azure CLI kullanıyorsanız kapatıp açtıktan rol ataması değişikliklerinizi yenilemeye zorlayabilirsiniz. REST API çağrıları ile rol atamasını değişiklikler yapıyorsanız, erişim belirtecinizin yenileyerek yenilemeye zorlayabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [RBAC ve Azure portalı kullanarak erişimi yönetme](role-assignments-portal.md)

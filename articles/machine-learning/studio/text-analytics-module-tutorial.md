@@ -1,9 +1,10 @@
 ---
-Başlık: Metin analiz modelleri titleSuffix oluşturun: Azure Machine Learning Studio açıklaması: Azure Machine Learning Studio modülleri için metin ön işleme, N-gram kullanarak metin analiz modelleri oluşturun veya karma services özellik: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+Başlık: Yaklaşım analizi modeli titleSuffix oluşturun: Azure Machine Learning Studio açıklaması: Azure Machine Learning Studio modülleri için metin ön işleme, N-gram kullanarak metin analiz modelleri oluşturun veya karma services özellik: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/14/2018
 ---
-# <a name="create-text-analytics-models-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio’da metin analiz modelleri oluşturma
+# <a name="create-a-sentiment-analysis-model-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio'da bir yaklaşım analizi model oluşturma
+
 Azure Machine Learning, oluşturun ve metin analiz modelleri oluşturup kullanıma hazır hale getirmek için kullanabilirsiniz. Bu modeller, örneğin, belge sınıflandırma veya yaklaşım analizi sorunlarını çözmenize yardımcı olabilir.
 
 Metin bir analiz denemesi genellikle gerekir:

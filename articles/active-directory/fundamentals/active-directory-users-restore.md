@@ -12,12 +12,12 @@ ms.date: 12/17/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 066c9189e0c3cea409a99217e0ab4b46002df1f9
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 92b3b3a2218486d41ab917472945b8485ccb4e12
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556790"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411807"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Geri yükleme ya da Azure Active Directory kullanarak son silinen bir kullanıcıyı kaldırma
 Bir kullanıcı sildikten sonra hesabı 30 gün için askıya alınmış durumda kalır. Bu 30 günlük penceresi sırasında kullanıcı hesabı, tüm özellikleriyle birlikte geri yüklenebilir. Bu 30 günlük penceresini geçtikten sonra kullanıcı, otomatik olarak ve kalıcı olarak silinir.
@@ -59,9 +59,6 @@ Bir kullanıcının hesabı askıya alındı, ancak tüm ilgili dizin bilgileri 
 2. Seçin **geri yükleme kullanıcı**.
 
     ![Kullanıcılar - geri yükleme kullanıcı seçeneğinin vurgulandığı ile silinen kullanıcılar sayfası](media/active-directory-users-restore/users-deleted-users-restore-user.png)
-
->[!NOTE]
->Daha önce bir kullanıcı şirket içi eşitleme kapsamından kaldırıldı ve bulutta silindi, hesap DirSyncEnabled durumunu deneyebileceğinizi "False" olarak ayarlandı. Daha sonra bu kullanıcının el ile Azure AD Geri Dönüşüm Kutusu'ndan geri yüklendi, "Yalnızca bulut" hesabının yanlış bir durum gösterilmiştir. Bu artık düzeltildi ve bir kullanıcı eşitleme kapsamından sonra kaldırıldığında DirSyncEnabled durum değeri her zaman "True" Azure AD Geri Dönüşüm Kutusu'ndan geçici olarak silinen ve el ile geri yüklenen tutulur.
 
 ## <a name="permanently-delete-a-user"></a>Bir kullanıcıyı kalıcı olarak sil
 Otomatik silme için 30 gün beklemeden dizininizdeki bir kullanıcı kalıcı olarak silebilirsiniz. Siz başka bir yönetici ya da Microsoft müşteri desteği tarafından kalıcı olarak silinmiş bir kullanıcıyı geri yüklenemez.

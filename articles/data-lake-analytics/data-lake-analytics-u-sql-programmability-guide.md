@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
-ms.openlocfilehash: 0fa695218bb1112324ef2ddac80e52f927a5971b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 9ff75cbd0a4915cdf7045be9a45d11075dda15bd
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045305"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402328"
 ---
 # <a name="u-sql-programmability-guide"></a>U-SQL Programlama Kılavuzu
 
@@ -504,7 +504,7 @@ Sınıfının Oluşturucusu:
 
 * SqlUserDefinedTypeAttribute (türü biçimlendiricisini)
 
-* Biçimlendirici yazın: gerekli bir UDT biçimlendirici--özellikle tanımlamak için parametre türü `IFormatter` arabirimi burada geçirilmelidir.
+* Biçimlendirici yazın: Gerekli bir UDT biçimlendirici--özellikle tanımlamak için parametre türü `IFormatter` arabirimi burada geçirilmelidir.
 
 ```
 [SqlUserDefinedType(typeof(MyTypeFormatter))]
@@ -531,15 +531,15 @@ public class MyTypeFormatter : IFormatter<MyType>
 
 * **Seri durumdan**: Sağlanan akış verileri serileştirir ve grafik nesnelerinin reconstitutes.
 
-* **Seri hale getirme**: bir nesne veya graf ile sağlanan akışına verilen kök nesnelerin Serileştirir.
+* **Seri hale getirme**: Bir nesne veya graf ile sağlanan akışına verilen kök nesnelerin serileştirir.
 
-`MyType` Örnek: tür örneği.  
-`IColumnWriter` yazıcı / `IColumnReader` okuyucu: temel alınan akışa sütun.  
-`ISerializationContext` Bağlam: kaynak veya hedef içerik akışı için serileştirme sırasında belirten bayrakları kümesini tanımlayan sabit listesi.
+`MyType` Örnek: Tür örneği.  
+`IColumnWriter` yazıcı / `IColumnReader` okuyucu: Temel alınan sütun akış.  
+`ISerializationContext` İçerik: Kaynak veya hedef içerik akışı için serileştirme sırasında belirten bayrakları kümesini tanımlayan sabit listesi.
 
-* **Ara**: kaynak veya hedef bağlam kalıcı bir depoya olmadığını belirtir.
+* **Ara**: Kaynak veya hedef bağlam kalıcı bir depoya olmadığını belirtir.
 
-* **Kalıcılık**: kaynak veya hedef bağlam kalıcı bir depoya olduğunu belirtir.
+* **Kalıcılık**: Kaynak veya hedef bağlam kalıcı bir depoya olduğunu belirtir.
 
 Bir normal C# türü olarak bir U-SQL UDT tanımından geçersiz kılmaları işleçleri içerebilir +/ == /! =. Ayrıca, statik yöntemler de içerebilir. U-SQL en az bir toplama işlevi için parametre olarak bu UDT kullanılacak kullanacağız, örneğin, biz tanımlamak zorunda < işleci geçersiz kılma.
 
@@ -945,9 +945,9 @@ Doğru giriş ve çıkış veri türlerinin bildirmek için sınıf tanımına a
 public abstract class IAggregate<T1, T2, TResult> : IAggregate
 ```
 
-* T1: ilk parametre Topla
-* T2: ilk parametre Topla
-* TResult: dönüş türü Sonlandır
+* T1: İlk parametresini Topla
+* T2: İlk parametresini Topla
+* TResult: Dönüş türünü Sonlandır
 
 Örneğin:
 
@@ -1057,7 +1057,7 @@ UDO genellikle açıkça U-SQL komut dosyasında aşağıdaki U-SQL deyimleri bi
 
 * EXTRACT
 * ÇIKIŞ
-* İŞLEM
+* SÜREÇ
 * BİRLEŞTİRME
 * AZALTIN
 
@@ -1067,11 +1067,11 @@ UDO genellikle açıkça U-SQL komut dosyasında aşağıdaki U-SQL deyimleri bi
 ## <a name="use-user-defined-extractors"></a>Kullanıcı tanımlı ayıklayıcıları kullanın
 U-SQL, dış veri ayıklama deyimi kullanılarak içeri aktarmanıza olanak sağlar. Bir ayıklama deyimi yerleşik UDO ayıklayıcıları kullanabilirsiniz:  
 
-* *Extractors.Text()*: sınırlandırılmış metin dosyalarından farklı kodlamaları ayıklanmasıyla sağlar.
+* *Extractors.Text()*: Sınırlandırılmış metin dosyalarından farklı kodlamaları ayıklanmasıyla sağlar.
 
-* *Extractors.Csv()*: ayıklama virgülle ayrılmış değer (CSV) dosyaların farklı kodlamaları sağlar.
+* *Extractors.Csv()*: Ayıklama virgülle ayrılmış değer (CSV) dosyaların farklı kodlamaları sağlar.
 
-* *Extractors.Tsv()*: ayıklama sekmeyle ayrılmış değer (TSV) dosyaların farklı kodlamaları sağlar.
+* *Extractors.Tsv()*: Ayıklama sekmeyle ayrılmış değer (TSV) dosyaların farklı kodlamaları sağlar.
 
 Özel ayıklayıcı geliştirmek yararlı olabilir. Aşağıdaki görevlerden herhangi birini yapmak isterseniz bu verileri içeri aktarma sırasında yararlı olabilir:
 
@@ -1219,9 +1219,9 @@ OUTPUT @rs0 TO @output_file USING Outputters.Text();
 ## <a name="use-user-defined-outputters"></a>Kullanıcı tanımlı çıktı kullanın
 Kullanıcı tanımlı outputter yerleşik bir U-SQL işlevlerini genişletmek izin veren başka bir U-SQL UDO ' dir. Benzer şekilde ayıklayıcısı, vardır birkaç yerleşik çıktı.
 
-* *Outputters.Text()*: verileri farklı kodlamaları sınırlandırılmış metin dosyasına yazar.
-* *Outputters.Csv()*: verileri farklı kodlamaları virgülle ayrılmış değer (CSV) dosyasına yazar.
-* *Outputters.Tsv()*: farklı kodlamaları için sekmesinde ayrılmış değerler (TSV) dosya verileri yazar.
+* *Outputters.Text()*: Verileri farklı kodlamaları sınırlandırılmış metin dosyasına yazar.
+* *Outputters.Csv()*: Verileri farklı kodlamaları virgülle ayrılmış değer (CSV) dosyasına yazar.
+* *Outputters.Tsv()*: Verileri farklı kodlamaları için sekmesinde ayrılmış değerler (TSV) dosyaları yazar.
 
 Özel outputter özel tanımlanmış bir biçimde veri yazmanıza olanak sağlar. Bu, aşağıdaki görevler için yararlı olabilir:
 
@@ -1300,7 +1300,7 @@ string val = row.Get<string>(col.Name)
 
 Bu yaklaşım, herhangi bir meta veri şema için esnek bir outputter oluşturmanıza olanak sağlar.
 
-Çıktı verilerini kullanarak dosyaya yazılır `System.IO.StreamWriter`. Akış parametre kümesine `output.BaseStrea` parçası olarak `IUnstructuredWriter output`.
+Çıktı verilerini kullanarak dosyaya yazılır `System.IO.StreamWriter`. Akış parametre kümesine `output.BaseStream` parçası olarak `IUnstructuredWriter output`.
 
 Her satır yinelemeden sonra dosyaya veri arabelleği temizlemek önemli olduğunu unutmayın. Ayrıca, `StreamWriter` nesne ile etkin tek kullanımlık özniteliğin (varsayılan) ile kullanılmalıdır **kullanarak** anahtar sözcüğü:
 
@@ -1775,7 +1775,7 @@ Bu kullanım örneği senaryosu kullanıcı tanımlı uygulayıcı araba Filo ö
 
 ```
 103 Z1AB2CD123XY45889   Ford,Explorer,2005,SUV,152345
-303 Y0AB2CD34XY458890   Shevrolet,Cruise,2010,4Dr,32455
+303 Y0AB2CD34XY458890   Chevrolet,Cruise,2010,4Dr,32455
 210 X5AB2CD45XY458893   Nissan,Altima,2011,4Dr,74000
 ```
 
@@ -1851,7 +1851,7 @@ public override IEnumerable<IRow> Combine(IRowset left, IRowset right,
 
 **SqlUserDefinedCombiner** Birleştirici modu özelliği tanımlamak için kullanılır. Kullanıcı tanımlı Birleştirici tanımı için isteğe bağlı bir özniteliktir.
 
-CombinerMode modu
+CombinerMode     Mode
 
 CombinerMode enum, şu değerleri alabilir:
 

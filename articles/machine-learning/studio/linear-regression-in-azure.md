@@ -1,45 +1,41 @@
 ---
-Başlık: Machine Learning Studio titleSuffix içinde doğrusal regresyon kullanma: Azure Machine Learning Studio açıklaması: Doğrusal regresyon modeli Excel'de ve Azure Machine Learning Studio Services karşılaştırması: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+Başlık: Analiz için Azure Machine Learning Studio titleSuffix Excel'den Geçir: Azure Machine Learning Studio açıklaması: Doğrusal regresyon modeli Excel'de ve Azure Machine Learning Studio Services karşılaştırması: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
 
 Yazar: ericlicoding ms.author: amlstudiodocs MS.özel: Yazar önceki = heatherbshapiro, önceki ms.author=hshapiro ms.date: 03/20/2017
 ---
-# <a name="using-linear-regression-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio'da doğrusal regresyon kullanma
-> *Kate Baroni* ve *Ben Boatman* Kurumsal çözüm mimarları, Microsoft'un veri öngörüleri mükemmel Merkezi olan. Bu makalede, bunlar Azure Machine Learning kullanarak bulut tabanlı bir çözüme varolan bir regresyon analiz paketini geçiş deneyimlerini açıklanmaktadır. 
-> 
-> 
+# <a name="migrate-analytics-from-excel-to-azure-machine-learning-studio"></a>Analytics, Azure Machine Learning Studio'da Excel'den geçirme
 
-&nbsp; 
-
-
+> *Kate Baroni* ve *Ben Boatman* Kurumsal çözüm mimarları, Microsoft'un veri öngörüleri mükemmel Merkezi olan. Bu makalede, bunlar Azure Machine Learning Studio'yu kullanarak bulut tabanlı bir çözüme varolan bir regresyon analiz paketini geçiş deneyimlerini açıklanmaktadır.
 
 ## <a name="goal"></a>Hedef
+
 İki hedefleri düşünerek Projemizin kullanmaya: 
 
 1. Bizim kuruluşun aylık gelir projeksiyonlar doğruluğunu artırmak için Tahmine dayalı analiz kullanın 
-2. Doğrulamak için en iyi duruma getirme, hızı, artırmak için Azure Machine Learning kullanın ve sonuçları ölçeğini. 
+2. Azure Machine Learning Studio kullanmak doğrulamak için en iyi duruma getirme, hızı, artırmak ve ettiğimiz sonuçların ölçeğini. 
 
-Gibi çok sayıda işletme, kuruluşumuz işlem tahmini aylık bir gelir gider. Küçük ekibimiz iş analistleri, işlem desteği ve tahmin doğruluğunu artırmak için Azure Machine Learning kullanmaya görevli. Takım, birden fazla kaynaktan veri toplama ve istatistiksel çözümleme hizmetleri satış tahmini ilgili kilit özniteliklerini tanımlayan aracılığıyla veri öznitelikleri çalışan birkaç ay ayırıyor. Sonraki adım, prototip oluşturma istatistiksel gerileme modeli Excel'de veri çubuğunda başlamak için oluştu. Birkaç hafta içinde geçerli bir alan ve işlemleri tahmin Finans geride bir Excel regresyon modeli vardı. Bu, temel tahmin sonuç hale geldi. 
+Gibi çok sayıda işletme, kuruluşumuz işlem tahmini aylık bir gelir gider. Küçük ekibimiz iş analistleri, işlem desteği ve tahmin doğruluğunu artırmak için Azure Machine Learning Studio kullanmaya görevli. Takım, birden fazla kaynaktan veri toplama ve istatistiksel çözümleme hizmetleri satış tahmini ilgili kilit özniteliklerini tanımlayan aracılığıyla veri öznitelikleri çalışan birkaç ay ayırıyor. Sonraki adım, prototip oluşturma istatistiksel gerileme modeli Excel'de veri çubuğunda başlamak için oluştu. Birkaç hafta içinde geçerli bir alan ve işlemleri tahmin Finans geride bir Excel regresyon modeli vardı. Bu, temel tahmin sonuç hale geldi. 
 
-Ardından bir sonraki adım için Machine Learning Tahmine dayalı performansı nasıl geliştirebileceği kullanıma bulmak için Azure Machine Learning, Tahmine dayalı analiz taşınmadan attık.
+Ardından sonraki adıma Studio Tahmine dayalı performansı nasıl geliştirebileceği kullanıma bulmak için Studio bizim Tahmine dayalı analiz taşınmadan için attık.
 
 ## <a name="achieving-predictive-performance-parity"></a>Tahmine dayalı performans eşlik elde edin
-Machine Learning ve Excel regresyon modelleri arasında denkliğini sağlamamız ilk bizim önceliğimiz oluştu. Eğitim ve test verileri için verilen, aynı verileri ve aynı bölme, Machine Learning ile Excel arasındaki eşlik öngörülebilir performans elde etmek istedik. Başlangıçta alamadık. Machine Learning modeli Excel modeline bırakmıştır. Machine Learning temel aracı ayarı anlayış eksikliği nedeniyle başarısız oldu. Machine Learning ürün ekibi ile bir eşitleme sonra size daha iyi bizim veri kümeleri için gerekli ayarını temel anlamak kısalttılar ve iki model arasındaki eşlik elde edebilirsiniz. 
+İlk bizim önceliğimiz, regresyon modelleri Studio ile Excel arasında denkliğini sağlamamız oluştu. Eğitim ve test verileri için verilen, aynı verileri ve aynı bölme, Excel ile Studio arasındaki öngörülebilir performans denkliğini sağlamamız istedik. Başlangıçta alamadık. Excel modeline Studio model bırakmıştır. Studio taban araç ayarında anlayış eksikliği nedeniyle başarısız oldu. Studio ürün takımı ile bir eşitleme sonra size daha iyi bir ayarı bizim veri kümeleri için gerekli temel anlayış kısalttılar ve iki model arasındaki eşlik elde edebilirsiniz. 
 
 ### <a name="create-regression-model-in-excel"></a>Excel'de regresyon modeli oluşturun
 Bizim Excel regresyon Excel çözümleme araç içinde bulunan standart doğrusal regresyon modeli kullanılır. 
 
-Biz hesaplanan *ortalama mutlak % Error* ve model için performans ölçümü kullanılır. Excel kullanarak bir çalışma modeli ulaşması için 3 ay sürdüğü. Biz çok learning içine sonuçta gereksinimleri anlamak yararlı olan Machine Learning Studio deneme yaptı.
+Biz hesaplanan *ortalama mutlak % Error* ve model için performans ölçümü kullanılır. Excel kullanarak bir çalışma modeli ulaşması için 3 ay sürdüğü. Biz çok learning içine sonuçta gereksinimleri anlamak yararlı Studio deneme yaptı.
 
-### <a name="create-comparable-experiment-in-azure-machine-learning"></a>Azure Machine Learning'de karşılaştırılabilir deneme oluşturma
-Machine Learning Studio'da bizim deneme oluşturmak için aşağıdaki adımları izlenen: 
+### <a name="create-comparable-experiment-in-studio"></a>Studio'da karşılaştırılabilir deneme oluşturma
+Bizim deneme Studio'da oluşturmak için aşağıdaki adımları izlenen: 
 
-1. Machine Learning Studio'ya (çok küçük dosyası) bir csv dosyası olarak veri kümesi karşıya yüklendi
+1. Veri kümesi Studio (çok küçük dosyası) bir csv dosyası olarak karşıya yüklendi
 2. Yeni bir deneme oluşturulur ve kullanılır [kümesindeki sütunları seçme] [ select-columns] modülü Excel'in kullanılan aynı veri özellikleri seçmek için 
 3. Kullanılan [verileri bölme] [ split] Modülü (ile *göreli ifade* modu) verileri Excel'de bitti olarak aynı eğitim kümelerine ayırmak için 
 4. İle deneme [doğrusal regresyon] [ linear-regression] Modülü (yalnızca varsayılan seçenek), belgelenmiş ve Excel regresyon modelimizi sonuçları karşılaştırma
 
 ### <a name="review-initial-results"></a>İlk sonuçlarını gözden geçirin
-İlk başta, Excel modeline açıkça Machine Learning Studio'da model ayları için: 
+İlk başta, Excel modeline açıkça Studio model ayları için: 
 
 |  | Excel | Studio |
 | --- |:---:|:---:|
@@ -51,13 +47,13 @@ Machine Learning Studio'da bizim deneme oluşturmak için aşağıdaki adımlar�
 
 Bizim işlemi ve sonuçları veri uzmanları ve geliştiriciler Machine Learning ekibi karşılaştık, bunlar bazı yararlı ipuçları hızla sağlanan. 
 
-* Kullanırken [doğrusal regresyon] [ linear-regression] modülü Machine Learning Studio'da iki yöntem sağlanır:
+* Kullanırken [doğrusal regresyon] [ linear-regression] Studio modülünde iki yöntem sağlanır:
   * Çevrimiçi gradyan düşüşü: Büyük ölçekli sorunları için daha uygun olabilir
   * Sıradan kareler: Çoğu kişi, doğrusal regresyon duyduğunuzda düşünün yöntem budur. Küçük veri kümeleri için sıradan kareler daha iyi bir seçim olabilir.
 * L2 Kurallaştırma ağırlığı parametresi, performansı artırmak için ince ayar yapma göz önünde bulundurun. 0,001 için varsayılan olarak ayarlanmış, ancak bizim küçük veri kümesi için performansı artırmak için 0.005 için ayarladık. 
 
 ### <a name="mystery-solved"></a>Çözülen sırrı!
-Öneriler uyguladığımız, Excel ile Machine Learning Studio'da aynı temel performans alanımız: 
+Öneriler uyguladığımız, Studio'yu olarak Excel ile aynı temel performans alanımız: 
 
 |  | Excel | Studio (Başlangıç) | En küçük kareler ile Studio |
 | --- |:---:|:---:|:---:|
@@ -85,7 +81,7 @@ Ayrıca, Excel katsayıları iyi özellik ağırlıkları Azure eğitilen modeli
 ## <a name="next-steps"></a>Sonraki Adımlar
 Machine Learning web hizmetini Excel'den kullanma istedik. Bizim iş analistleri Excel kullanan ve bir şekilde bir Excel veri satırı ile Machine Learning web hizmetini çağırın ve sahip tahmin edilen değer Excel'e ihtiyacımız. 
 
-Ayrıca modelimiz, en iyi duruma getirme seçenekleri ve Machine Learning Studio'da kullanılabilen algoritmaları kullanarak istedik.
+Ayrıca modelimiz, en iyi duruma getirme seçenekleri ve Studio'da kullanılabilen algoritmaları kullanarak istedik.
 
 ### <a name="integration-with-excel"></a>Excel ile tümleştirme
 Machine Learning regresyon modelimizi eğitilmiş modelden bir web hizmeti oluşturarak çalışır hale getirme Çözümümüzü oluştu. Birkaç dakika içinde web hizmeti oluşturuldu ve tahmin edilen gelire değerini döndürmek için doğrudan Excel'den diyoruz. 
@@ -103,7 +99,7 @@ Excel modelimizi temel vardı, önceden sunduğumuz Machine Learning doğrusal r
 
 Sonraki gibi ek algoritmaları içer planlıyoruz [Bayes] [ bayesian-linear-regression] veya [artırılmış karar ağaçları] [ boosted-decision-tree-regression] bizim denemede karşılaştırmak için performans. 
 
-Regresyonla denemek istiyorsanız, denemek için iyi bir veri kümesi sayısal öznitelikler çok sayıda olan enerji verimliliğini regresyon örnek veri kümesi var. Veri kümesi, Machine Learning Studio'da örnek veri kümelerini bir parçası olarak sağlanır. Öğrenme modülleri çeşitli ısıtma yük veya yük soğutma tahmin etmek için kullanabilirsiniz. Aşağıdaki grafik, enerji verimliliğini veri kümesi hedef değişkeni soğutma yük tahmin karşı farklı regresyon performans karşılaştırması öğrenir şöyledir: 
+Regresyonla denemek istiyorsanız, denemek için iyi bir veri kümesi sayısal öznitelikler çok sayıda olan enerji verimliliğini regresyon örnek veri kümesi var. Veri kümesi Studio'da örnek veri kümelerini bir parçası olarak sağlanır. Öğrenme modülleri çeşitli ısıtma yük veya yük soğutma tahmin etmek için kullanabilirsiniz. Aşağıdaki grafik, enerji verimliliğini veri kümesi hedef değişkeni soğutma yük tahmin karşı farklı regresyon performans karşılaştırması öğrenir şöyledir: 
 
 | Model | Mean Absolute Error | Kök ortalama karesi alınmış hata | Göreli mutlak hata | Göreli karesi alınmış hata | Katsayısı |
 | --- | --- | --- | --- | --- | --- |
@@ -113,11 +109,11 @@ Regresyonla denemek istiyorsanız, denemek için iyi bir veri kümesi sayısal �
 | Doğrusal regresyon (sıradan kareler) |1.428273 |1.984461 |0.163767 |0.042074 |0.957926 |
 
 ## <a name="key-takeaways"></a>Önemli dersler
-Çok tarafından çalışan Excel gerileme öğrendiğimiz ve Azure Machine Learning denemeleri paralel olarak. Temel modeli Excel'de oluşturma ve makine Öğrenimini kullanarak modelleriyle karşılaştırma [doğrusal regresyon] [ linear-regression] Yardım bize Azure Machine Learning öğrenin ve veri arttırmaya yönelik fırsatlar bulduk Seçim ve model performansı. 
+Çok tarafından çalışan Excel regresyon ve Studio denemeleri paralel öğrendik. Temel modeli Excel'de oluşturma ve makine Öğrenimini kullanarak modelleriyle karşılaştırma [doğrusal regresyon] [ linear-regression] Yardım bize Studio öğrenin ve veri seçimi ve model arttırmaya yönelik fırsatlar bulduk performans. 
 
-Ayrıca kullanmak için önerilir bulduk [özellik seçimi süzgeç tabanlı] [ filter-based-feature-selection] gelecekteki tahmini projeleri hızlandırmak için. Özellik Seçimi verilerinize uygulayarak ile daha iyi toplam performans Machine Learning'de Gelişmiş bir model oluşturabilirsiniz. 
+Ayrıca kullanmak için önerilir bulduk [özellik seçimi süzgeç tabanlı] [ filter-based-feature-selection] gelecekteki tahmini projeleri hızlandırmak için. Özellik Seçimi verilerinize uygulayarak, daha iyi bir genel performansı ile geliştirilmiş bir model Studio'da oluşturabilirsiniz. 
 
-Tahmine dayalı analiz Machine Learning hizmetinden Excel'e systemically tahmin taşıma imkanı önemli bir artış sonuçları geniş iş kullanıcının hedef kitlesine için başarılı bir şekilde sağlama olanağı sağlar. 
+Tahmine dayalı analiz Studio'dan Excel'e systemically tahmin taşıma imkanı önemli bir artış sonuçları geniş iş kullanıcının hedef kitlesine için başarılı bir şekilde sağlama olanağı sağlar. 
 
 ## <a name="resources"></a>Kaynaklar
 Regresyon ile çalışmanıza yardımcı olacak bazı kaynaklar aşağıda verilmiştir: 

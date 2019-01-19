@@ -1,5 +1,5 @@
 ---
-title: ".NET SDK'SI: Azure Data Lake depolama Gen1 gerçekleştirilen dosya sistemi işlemleri | Microsoft Docs"
+title: '.NET SDK: Azure Data Lake depolama Gen1 gerçekleştirilen dosya sistemi işlemleri | Microsoft Docs'
 description: Dosya sistemi işlemleri Data Lake depolama Gen1 gibi gerçekleştirmek için kullanım Azure Data Lake depolama Gen1 .NET SDK, klasörleri, vb. oluşturun.
 services: data-lake-store
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 57f4485e70bf91713539b3398fc93d6810c3c28e
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 929ce0d984e53586c46f15f21b9e5c90c6a34771
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163251"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402311"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Azure Data Lake depolama Gen1 .NET SDK'sı kullanılarak gerçekleştirilen dosya sistemi işlemleri
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "53163251"
 >
 >
 
-Bu makalede, Data Lake depolama Gen1 üzerinde .NET SDK kullanarak nasıl gerçekleştireceğinizi işlemlerini nasıl gerçekleştireceğinizi öğrenin. Dosya indirme gibi dosyaları karşıya yükleme, bir Data Lake depolama Gen1 hesabında klasör oluşturma, dosya sistemi işlemlerini içerir.
+Bu makalede .NET SDK'sı kullanılarak gerçekleştirilen dosya sistemi işlemleri Data Lake depolama Gen1 gerçekleştirmeyi öğrenin. Dosya indirme gibi dosyaları karşıya yükleme, bir Data Lake depolama Gen1 hesabında klasör oluşturma, dosya sistemi işlemlerini içerir.
 
 Data Lake depolama Gen1 hesap yönetim işlemlerini .NET SDK kullanarak gerçekleştirme talimatları için bkz. [hesap yönetim işlemlerini .NET SDK kullanarak Data Lake depolama Gen1](data-lake-store-get-started-net-sdk.md).
 

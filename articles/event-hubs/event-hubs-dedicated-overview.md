@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: ed1fedab45ce59af2c67ed8a2ef60714d26d5801
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d418715ab651721d03b67bd411eb90607391bf10
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091035"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402345"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Ayrılmış Event Hubs'a genel bakış
 
@@ -32,7 +32,7 @@ Aşağıdaki tablo, Event Hubs kullanılabilir hizmet katmanlarını karşılaş
 | --- |:---:|:---:|:---:|
 | Giriş olayları | Milyon olay başına ödeme yapın | Dahil |
 | Üretilen iş birimi (1 MB/sn giriş, 2 MB/sn çıkış) | Saat başına ödeme yapın | Dahil |
-| İleti Boyutu | 256 KB | 1 MB |
+| İleti Boyutu | 1 MB | 1 MB |
 | Yayımcı ilkeleri | Evet | Evet |   
 | Tüketici grupları | 20 | 20 |
 | İleti yeniden yürütme | Evet | Evet |
@@ -47,11 +47,10 @@ Aşağıdaki tablo, Event Hubs kullanılabilir hizmet katmanlarını karşılaş
 Event Hubs Dedicated kullanılırken aşağıdaki avantajlar kullanılabilir:
 
 * Tek bir kiracı ile diğer kiracılardan etkisiz barındırma.
-* Standart için 256 KB karşılaştırıldığında 1 MB ileti boyutunu artırır.
 * Tekrarlanabilir bir performans her zaman.
 * Veri bloğu ihtiyaçlarınızı karşılamak üzere kapasite garantisi.
 * İçerir [yakalama](event-hubs-capture-overview.md) mikro toplu ve uzun süreli saklamaya sahip tümleştirmesi sağlamak için Event Hubs özelliğidir.
-* Sıfır Bakım: Yük Dengeleme, işletim sistemi güncelleştirmeleri, güvenlik yamaları ve bölümleme hizmet yönetir.
+* Sıfır bakım gerektirir: Hizmet Yük Dengeleme, işletim sistemi güncelleştirmeleri, güvenlik yamaları ve bölümleme yönetir.
 * Saatlik fiyatlandırma düzeltildi.
 * Ek ücret ödemeden ile 7 gün yedekleme bekletme ileti.
 

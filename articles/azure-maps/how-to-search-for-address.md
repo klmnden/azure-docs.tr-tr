@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: d25142cecd62fc34a08939d5f1915ba9b2cee749
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: cd6927cccfa85c8409d612a40a4e708e81af746a
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387438"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413558"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Azure haritalar arama hizmetini kullanarak bir adres bulma
 
@@ -158,7 +158,7 @@ API arama adresine tam veya kısmi bir adres geçirin ve enlem ve boylam belediy
     |-----|------------|
     | number | true |
 
-    Varsa [numarası](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) sorgu parametresi istekle birlikte gönderilen, yanıt Sokak (sol/sağ) ve ayrıca kaydırmak için bu sayıyı tarafında içerebilir.
+    Varsa [numarası](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) sorgu parametresi istekle birlikte gönderilen, yanıt Sokak (sol/sağ) ve ayrıca kaydırmak için bu sayıyı tarafında içerebilir.
   
 6. Aşağıdaki anahtar eklemek / değer çiftine **Params** 'ye tıklayın **Gönder**:
 
@@ -166,7 +166,7 @@ API arama adresine tam veya kısmi bir adres geçirin ve enlem ve boylam belediy
     |-----|------------|
     | returnSpeedLimit | true |
   
-    Zaman [returnSpeedLimit](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) yanıtı döndürür gönderilen Hız sınırını sorgu parametresi ayarlanır.
+    Zaman [returnSpeedLimit](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) yanıtı döndürür gönderilen Hız sınırını sorgu parametresi ayarlanır.
 
 7. Aşağıdaki anahtar eklemek / değer çiftine **Params** 'ye tıklayın **Gönder**:
 
@@ -174,7 +174,7 @@ API arama adresine tam veya kısmi bir adres geçirin ve enlem ve boylam belediy
     |-----|------------|
     | returnRoadUse | true |
 
-    Zaman [returnRoadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) sorgu parametresi olarak ayarlanmışsa, ters geocodes Sokak düzeyinde için yol kullanmak dizi yanıtı döndürür.
+    Zaman [returnRoadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) sorgu parametresi olarak ayarlanmışsa, ters geocodes Sokak düzeyinde için yol kullanmak dizi yanıtı döndürür.
 
 8. Aşağıdaki anahtar eklemek / değer çiftine **Params** 'ye tıklayın **Gönder**:
 
@@ -182,7 +182,7 @@ API arama adresine tam veya kısmi bir adres geçirin ve enlem ve boylam belediy
     |-----|------------|
     | roadUse | true |
 
-    Yol kullanarak, belirli bir türe ters geocode sorgu kısıtlayabilirsiniz [roadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) sorgu parametresi.
+    Yol kullanarak, belirli bir türe ters geocode sorgu kısıtlayabilirsiniz [roadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) sorgu parametresi.
   
 ## <a name="search-for-the-cross-street-using-reverse-address-cross-street-search"></a>Çapraz sokak adresi arası Sokak arama ters kullanarak arayın
 

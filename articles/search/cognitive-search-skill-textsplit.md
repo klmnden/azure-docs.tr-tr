@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 05134ff59f87aaac71588057f1ac50015a769672
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: d5a8fa61307c278a77b33868a711970850a06f3e
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389830"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54410056"
 ---
 #   <a name="text-split-cognitive-skill"></a>Bilişsel beceri metni Böl
 
 **Metin bölme** beceri metin metin öbeklere böler. Metin cümleler veya sayfaları belirli bir süre sonu isteyip istemediğinizi belirtebilirsiniz. Bu yetenek, diğer aşağı yönde becerileri uzunluğu gereksinimleri en büyük metin varsa özellikle yararlıdır. 
 
 > [!NOTE]
-> Bu yetenek bir Bilişsel hizmetler API'sine bağlı değil ve bu beceri ile ilişkili ücret yoktur. Bununla birlikte, [Bilişsel hizmetler kaynağı ekleme](cognitive-search-attach-cognitive-services.md) yine de ücretsiz resource seçeneği geçersiz kılmak için günlük zenginleştirmelerinin az sayıda için sınırlar.
+> Bu yetenek bir Bilişsel hizmetler API'sine bağlı değil ve kullanmak için ücretlendirilmez. Hala [Bilişsel hizmetler kaynağı ekleme](cognitive-search-attach-cognitive-services.md), ancak geçersiz kılmak için **ücretsiz** , az sayıda gün başına günlük zenginleştirmelerinin sınırlar resource seçeneği.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.SplitSkill 

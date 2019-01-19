@@ -11,15 +11,15 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 11/13/2018
+ms.date: 01/17/2019
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9a7a3877970d5ecf3b86471b94fbb1bf6e5efbb4
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 7b27dbbf34f1c19efa0fc21af71339ce6cacd9d8
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621080"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54410827"
 ---
 # <a name="users-flagged-for-risk-report-in-the-azure-portal"></a>Azure portalında risk için işaretlenmiş kullanıcılar
 
@@ -55,19 +55,16 @@ Azure Active Directory'nin tüm sürümlerinde size riskli oldukları belirlenen
 
 ![Riskli Oturum Açma İşlemleri](./media/concept-user-at-risk/03.png)
 
-Bir kullanıcının seçilmesi, ilgili kullanıcı verileri dikey penceresini açar. Risk altındaki kullanıcılarla ilgili olarak kullanıcının oturum açma geçmişini gözden geçirebilir ve gerekirse parolasını sıfırlayabilirsiniz.
-
-![Riskli Oturum Açma İşlemleri](./media/concept-user-at-risk/46.png)
-
+Bir kullanıcının seçilmesi, oturum açma bilgilerini sağlar. Risk altındaki kullanıcılarla ilgili olarak kullanıcının oturum açma geçmişini gözden geçirebilir ve gerekirse parolasını sıfırlayabilirsiniz.
 
 Bu iletişim kutusu size şu seçeneği sunar:
 
 - Raporu indirme
-
 - Kullanıcılarda arama
 
-![Riskli Oturum Açma İşlemleri](./media/concept-user-at-risk/16.png)
+    ![Riskli Oturum Açma İşlemleri](./media/concept-user-at-risk/16.png)
 
+Daha ayrıntılı bilgi için bir premium lisansı gereklidir.
 
 ## <a name="users-at-risk-report-for-azure-ad-premium-editions"></a>Risk altındaki kullanıcılar raporu için Azure AD premium sürümleri
 

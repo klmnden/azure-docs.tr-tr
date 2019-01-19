@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: roiyz
-ms.openlocfilehash: 638ca5d1b1b68896ff5dcad70fedf27261ae96cb
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 20d806540b0aa814c88ef4ff69834283ba4a7722
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452063"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413847"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Yönetici kullanıcılar, SSH ve onay yönetmek veya VMAccess uzantısı ile Azure CLI kullanarak Linux vm'lerinde diskler onarın
 ## <a name="overview"></a>Genel Bakış
@@ -44,7 +44,7 @@ VM erişimi uzantısı bu Linux dağıtımları karşı çalıştırabilirsiniz:
 | Oracle Linux | 6.4+, 7.0+ |
 | SuSE | 11 ve 12 |
 | OpenSuse | openSUSE 42.2 + artık |
-| CentOS | CentOS 6.3 + 7.0 + |
+| CentOS | CentOS 6.3+, 7.0+ |
 | CoreOS | 494.4.0+ |
 
 ## <a name="ways-to-use-the-vmaccess-extension"></a>VMAccess uzantısını kullanmanın yolları
@@ -53,7 +53,7 @@ Linux Vm'lerinizi VMAccess uzantısı kullanabileceğiniz iki yolu vardır:
 * Azure CLI ve gerekli parametreleri kullanın.
 * [VMAccess uzantısı işlem ham JSON dosyalarını kullanmak](#use-json-files-and-the-vmaccess-extension) ve bunlar üzerinde işlem yapma.
 
-Aşağıdaki örneklerde [az vm kullanıcı](/cli/azure/vm/user) komutları. Bu adımları gerçekleştirmek için en son gerekir [Azure CLI](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az login](/cli/azure/reference-index#az_login).
+Aşağıdaki örneklerde [az vm kullanıcı](/cli/azure/vm/user) komutları. Bu adımları gerçekleştirmek için en son gerekir [Azure CLI](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az login](/cli/azure/reference-index).
 
 ## <a name="update-ssh-key"></a>SSH anahtarını güncelleştir
 Aşağıdaki örnek, kullanıcı için SSH anahtarı güncelleştirmeleri `azureuser` adlı VM'de `myVM`:
@@ -66,7 +66,7 @@ az vm user update \
   --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
-> **Not:** `az vm user update` komut ekler için yeni ortak anahtar metnini `~/.ssh/authorized_keys` VM'de yönetici kullanıcı için dosya. Bunun yerine veya mevcut bir SSH anahtarınız kaldırın. Bu, dağıtım süresini ya da sonraki güncelleştirmeler VMAccess uzantısı aracılığıyla ayarlanan önceki anahtarlar kaldırmaz.
+> **NOT:** `az vm user update` Komut ekler için yeni ortak anahtar metnini `~/.ssh/authorized_keys` VM'de yönetici kullanıcı için dosya. Bunun yerine veya mevcut bir SSH anahtarınız kaldırın. Bu, dağıtım süresini ya da sonraki güncelleştirmeler VMAccess uzantısı aracılığıyla ayarlanan önceki anahtarlar kaldırmaz.
 
 ## <a name="reset-password"></a>Parola sıfırlama
 Aşağıdaki örnek, kullanıcının parolasını sıfırlar `azureuser` adlı VM'de `myVM`:

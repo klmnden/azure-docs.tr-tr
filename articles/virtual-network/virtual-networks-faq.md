@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: jdial
-ms.openlocfilehash: 5a92f4543f865141d446f5b681674961f6fef046
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 769dcd3be33ec5dfecf0607ab3e45a11486c48d4
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021042"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412878"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure sanal ağına sık sorulan sorular (SSS)
 
@@ -52,7 +52,12 @@ Oluşturun veya bir sanal ağı yapılandırmak için aşağıdaki araçları ku
 * Ağ yapılandırma dosyası (yalnızca klasik sanal ağlar için - netcfg). Bkz: [ağ yapılandırma dosyası kullanarak bir sanal ağ yapılandırma](virtual-networks-using-network-configuration-file.md) makalesi.
 
 ### <a name="what-address-ranges-can-i-use-in-my-vnets"></a>Sanal Ağlarımın içinde hangi adres aralıkları kullanabilirim?
-Herhangi bir IP adresi aralığını tanımlanan [RFC 1918](http://tools.ietf.org/html/rfc1918). Örneğin: 10.0.0.0/16.
+Herhangi bir IP adresi aralığını tanımlanan [RFC 1918](http://tools.ietf.org/html/rfc1918). Örneğin: 10.0.0.0/16. Aşağıdaki adresi aralıklarını eklenemiyor:
+* 224.0.0.0/4 (çok noktaya yayın)
+* 255.255.255.255/32 (yayın)
+* 127.0.0.0/8 (geri döngü)
+* 169.254.0.0/16 (bağlantı-yerel)
+* 168.63.129.16/32 (iç DNS)
 
 ### <a name="can-i-have-public-ip-addresses-in-my-vnets"></a>Sanal Ağlarımın içinde genel IP adresleri olabilir mi?
 Evet. Genel IP adresi aralıkları hakkında daha fazla bilgi için bkz: [sanal ağ oluşturma](manage-virtual-network.md#create-a-virtual-network). Genel IP adresleri doğrudan internet'ten erişilemez.
@@ -367,7 +372,7 @@ Sanal ağ hizmet uç noktaları bir sanal ağdaki toplam sayısına bir sınır 
 |Azure Storage| 100|
 |Azure SQL| 128|
 |Azure SQL Veri Ambarı|  128|
-|Azure anahtar kasası|    127|
+|Azure KeyVault|    127|
 |Azure Cosmos DB|   64|
 |Azure Olay Hub'ı|   128|
 |Azure Service Bus| 128|

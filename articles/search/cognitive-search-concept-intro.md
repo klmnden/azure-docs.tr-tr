@@ -7,42 +7,42 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 08/07/2018
+ms.date: 01/18/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 2bb32ccaeb5960fa69dcdc356523abc199fd5f4f
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: d30a6446f40105985388d3c2ee077b36af32f208
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633802"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412215"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>"Bilişsel arama" Azure Search nedir?
 
-Bilişsel arama, bir dizini oluşturma ardışık düzeni için yapay ZEKA algoritmalarının ekleyerek aranabilir aranabilir olmayan içerik bilgilerini oluşturur. Yapay ZEKA tümleştirmedir aracılığıyla *bilişsel beceriler*, kaynak belgeleri arama dizini yoldaki zenginleştirilmesi. 
+Bilişsel arama, Azure Search, resimler, BLOB'ları ve diğer yapılandırılmamış veri kaynakları Azure Search dizini daha aranabilir yapmak için içerik zenginleştirilmesi - metin ayıklamak için kullanılan bir yapay ZEKA özelliğidir. Ayıklama ve zenginleştirme aracılığıyla uygulanır *bilişsel beceriler* bir dizinleme işlem hattına bağlı. Yapay ZEKA zenginleştirmelerinin aşağıdaki yollarla desteklenir: 
 
-**Doğal dil işleme** yetenekleri dahil [varlık tanıma](cognitive-search-skill-named-entity-recognition.md), dil algılama [anahtar ifade ayıklama](cognitive-search-skill-keyphrases.md), metin işleme ve yaklaşım algılama. Bu becerilere sahip yapılandırılmamış metinleri, aranabilir ve filtrelenebilir alanlara bir dizini eşlenmiş yapılandırılmış olur.
++ **Doğal dil işleme** yetenekleri dahil [varlık tanıma](cognitive-search-skill-entity-recognition.md), [dil algılama](cognitive-search-skill-language-detection.md), [anahtar ifade ayıklama](cognitive-search-skill-keyphrases.md), metin düzenleme ve [duyarlılık algılama](cognitive-search-skill-sentiment.md). Bu becerilere sahip yapılandırılmamış metin aranabilir ve filtrelenebilir alanlara bir dizin olarak eşlenmiş yeni biçimlerini kabul edilebilir.
 
-**Görüntü işleme** içerir [OCR](cognitive-search-skill-ocr.md) tanımlama ve [görsel özellikleri](cognitive-search-skill-image-analysis.md), yorumu gibi yüz algılama, görüntü, görüntü tanıma (ünlü kişiler ve yer işareti) veya öznitelikler, renkleri veya görüntü yönü gibi. Resim içeriği, Azure Search'ün tüm sorgu özelliklerini kullanarak aranabilir metin temsilleridir oluşturabilirsiniz.
++ **Görüntü işleme** yetenekleri dahil [optik karakter tanıma (OCR)](cognitive-search-skill-ocr.md) tanımlama ve [görsel özellikleri](cognitive-search-skill-image-analysis.md)yüz algılama, görüntü yorumu, resim tanıma (gibi ünlü kişiler ve yer işareti) veya renk veya görüntü yönü gibi öznitelikleri. Resim içeriği, Azure Search'ün tüm sorgu özelliklerini kullanarak aranabilir metin temsilleridir oluşturabilirsiniz.
 
 ![Bilişsel arama işlem hattı diyagramı](./media/cognitive-search-intro/cogsearch-architecture.png "Bilişsel arama işlem hattı genel bakış")
 
-Azure Search'te bilişsel beceriler Bilişsel hizmetler API'leri kullanılan aynı AI algoritmalarını dayanır: [Adlandırılmış varlık tanıma API'si](cognitive-search-skill-named-entity-recognition.md), [anahtar tümcecik ayıklama API](cognitive-search-skill-keyphrases.md), ve [OCR API](cognitive-search-skill-ocr.md) birkaçı şunlardır. 
+Azure Search'te bilişsel beceriler makine öğrenimi modelleri, Bilişsel hizmetler API'lerini temel alır: [Görüntü işleme](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) ve [metin analizi](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview). 
 
 Doğal dil ile görüntü işleme uygulanır veri alımı aşaması sırasında Azure Search'te arama yapılabilir bir dizin bir belgenin birleşimde parçası olma sonuçlarla. Veri kaynağı bir Azure veri kümesi ve ardından hangisi kullanarak bir dizini oluşturma ardışık düzeni gönderilen [yerleşik yetenekler](cognitive-search-predefined-skills.md) ihtiyacınız. Yerleşik yetenek yeterli değilse oluşturabilir ekleme ve mimari Genişletilebilir olduğundan [özel becerileri](cognitive-search-create-custom-skill-example.md) özel işleme tümleştirmek için. Örnekler, Finans, bilimsel yayınlar veya ilaç gibi belirli bir etki alanı hedefleyen bir özel varlık modül veya belge sınıflandırıcı olabilir.
 
 > [!NOTE]
-> 21 aralık 2018 tarihinden itibaren Bilişsel hizmetler kaynağı bir Azure Search beceri kümesi ile ilişkilendirmek mümkün olmayacak. Bu beceri yürütmesi için ücretlendirme başlatmak için bize izin verir. Bu tarihte, biz de belge çözme aşamasının bir parçası olarak görüntü ayıklama için başlayacağız. Belgelerden metin ayıklama işlemi ek masraf olmadan sağlanmaya devam edecektir.
+> Yapabilecekleriniz 21 aralık 2018 tarihinden itibaren [Bilişsel hizmetler kaynağı ekleme](cognitive-search-attach-cognitive-services.md) ile bir Azure Search beceri kümesi. Bu beceri yürütmesi için ücretlendirmeye başlarız olanak tanır. Bu tarihte, biz de belge çözme aşamasının bir parçası olarak görüntü ayıklama için ücretlendirme başladı. Metin ayıklama belgelerden hiçbir ek ücret ödemeden sunulmaya devam eder.
 >
-> Var olan konumunda yerleşik yetenek yürütülmesini ücretlendirilir [Bilişsel hizmetler ödeme-olarak-, Git fiyat](https://azure.microsoft.com/pricing/details/cognitive-services/) . Görüntü ayıklama fiyatlandırma Önizleme fiyatıyla ücretlendirilirsiniz ve üzerinde açıklanmıştır [Azure fiyatlandırma sayfasını arama](https://go.microsoft.com/fwlink/?linkid=2042400). Bilgi [daha fazla](cognitive-search-attach-cognitive-services.md).
+> Yerleşik yetenek yürütmesi, var olan konumunda faturalandırılır bir Bilişsel hizmetler ücreti [ödeme-olarak-, go fiyat](https://azure.microsoft.com/pricing/details/cognitive-services/) . Üzerinde açıklandığı Önizleme fiyatlandırması şu anda faturalandırılır, bir Azure Search ücret olan görüntü ayıklama fiyatlandırma [Azure fiyatlandırma sayfasını arama](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 ## <a name="components-of-cognitive-search"></a>Bilişsel arama bileşenleri
 
-Bilişsel arama, bir önizleme özelliğidir [Azure Search](search-what-is-azure-search.md), tüm katmanlarda Güney Orta ABD ve Batı Avrupa'da kullanılabilir. 
+Bilişsel arama, bir önizleme özelliğidir [Azure Search](search-what-is-azure-search.md), desteklenen [Bu bölgeler](#where-do-i-start). 
 
 Bilişsel arama işlem hattı dayanır [Azure Search *dizin oluşturucular* ](search-indexer-overview.md) gezinme veri kaynakları ve uçtan uca dizin işleme sağlar. Becerileri, artık kesintiye dizin oluşturucular için bağlı olan ve belgeleri becerilerine göre zenginleştirilmesi tanımlayın. Dizine sonra içerik arama istekleri aracılığıyla tüm erişebileceğiniz [sorgu türü Azure arama tarafından desteklenen](search-query-overview.md).  Dizin oluşturucular için yeni başladıysanız, bu bölümdeki adımlarda size yol gösterir.
 
-### <a name="source-data-and-document-cracking-phase"></a>Veri kaynağı ve belge çözme aşaması
+### <a name="step-1-connection-and-document-cracking-phase"></a>1. Adım: Bağlantı ve belge aşaması çözme
 
 İşlem hattı başlangıcında, sahip olduğunuz yapılandırılmamış metin veya metin olmayan içerik (örneğin, görüntü ve taranan belgeleri JPEG dosyaları). Verileri bir Azure veri depolama hizmetindeki bir dizin oluşturucu tarafından erişilebilen mevcut olması gerekir. Dizin oluşturucular "kaynak belgelerini veri kaynağından metin ayıklamak için çözebilir".
 
@@ -50,7 +50,7 @@ Bilişsel arama işlem hattı dayanır [Azure Search *dizin oluşturucular* ](se
 
  Azure blob depolama, Azure tablo depolama, Azure SQL veritabanı ve Azure Cosmos DB desteklenen kaynakları içerir. Aşağıdaki dosya türlerinden bir metin tabanlı içeriğin açılmasını: PDF, Word, PowerPoint, CSV dosyaları. Tam liste için bkz. [desteklenen biçimler](search-howto-indexing-azure-blob-storage.md#supported-document-formats).
 
-### <a name="cognitive-skills-and-enrichment-phase"></a>Bilişsel beceriler ve zenginleştirme aşaması
+### <a name="step-2-cognitive-skills-and-enrichment-phase"></a>2. Adım: Bilişsel beceriler ve zenginleştirme aşaması
 
 Zenginleştirme olduğunu adım *bilişsel beceriler* atomik işlemler gerçekleştirme. Örneğin, bir PDF gelen metin içeriğini aldıktan sonra varlık tanıma, dil algılama veya yerel olarak kaynak olarak mevcut olmayan yeni dizininize alanların üretmek için anahtar ifade ayıklama uygulayabilirsiniz. Tamamen becerileri, işlem hattında kullanılan koleksiyonu olarak da adlandırılır bir *beceri kümesi*.  
 
@@ -60,7 +60,7 @@ Bir beceri kümesi dayanır [bilişsel beceriler önceden tanımlanmış](cognit
 
 Dahili olarak, işlem hattı bir zenginleştirilmiş bir belge koleksiyonu oluşturur. Hangi parçalarının zenginleştirilmiş belgeleri search dizininizi dizinlenebilir alanlarına eşlenmelidir karar verebilirsiniz. Örneğin, anahtar ifadeleri ayıklama ve varlık tanıma yetenekleri uyguladıysanız, ardından bu yeni alanlar zenginleştirilmiş belgeyi bir parçası olacak ve dizininizi alanlarında eşlenebilir. Bkz: [ek açıklamaları](cognitive-search-concept-annotations-syntax.md) giriş/çıkış formations hakkında daha fazla bilgi edinmek için.
 
-### <a name="search-index-and-query-based-access"></a>Arama dizini ve sorgu tabanlı erişim
+### <a name="step-3-search-index-and-query-based-access"></a>3. Adım: Arama dizini ve sorgu tabanlı erişim
 
 İşleme tamamlandığında, zenginleştirilmiş belgeler, metin-Azure Search'te arama yapılabilen oluşan bir arama topluluğunuza sahip. [Dizini sorgulama](search-query-overview.md) geliştiriciler ve kullanıcılar nasıl işlem hattı tarafından oluşturulan zenginleştirilmiş içeriğin eriştiği. 
 
@@ -88,10 +88,11 @@ Dizinler, alanların özniteliklerini tanımlayan bir dizin şemasını oluştur
 | Veri Kaynağı  | Azure'da desteklenen türlerin bir dış veri kaynağına bağlanmak için bir dizin oluşturucu tarafından kullanılan nesne. | Bkz: [dizin oluşturucular](search-indexer-overview.md) |
 | Dizin oluşturma | Azure Search alan yapısı ve kullanım tanımlayan bir dizin şemasını yerleşik kalıcı arama topluluğunuza. | [Azure Search'te dizinler](search-what-is-an-index.md) | 
 
+<a name="where-do-i-start"></a>
 
 ## <a name="where-do-i-start"></a>Nereden başlamalıyım?
 
-**1. adım: Bir bölgede API'leri sağlayan bir arama hizmeti oluşturun** 
+**1. adım: [Bir Azure Search kaynağı oluşturun](search-create-service-portal.md) API'leri sağlayan bir bölgede** 
 
 + Batı Orta ABD
 + Orta Güney ABD

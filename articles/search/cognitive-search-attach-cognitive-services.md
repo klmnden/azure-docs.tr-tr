@@ -7,28 +7,28 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 01/14/2019
+ms.date: 01/18/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 776363278352ca3de365760d334e99ab43b14bb5
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: bfa9bbb9816148182b79a8231f2ddb3e46433804
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389555"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413252"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Azure Search'te bir beceri kümesi ile bir Bilişsel hizmetler kaynağı ekleme 
 
-Sürüş yapay ZEKA algoritmalarının [bilişsel arama işlem hatları](cognitive-search-concept-intro.md) yapılandırılmamış verileri işlemek için temel alan [ **Bilişsel hizmetler kaynakları**](https://azure.microsoft.com/services/cognitive-services/). Kaynakları ister [ **görüntü işleme** ](https://azure.microsoft.com/services/cognitive-services/computer-vision/) görüntü analizi ve optik karakter tanıma (OCR) metin ve görüntü dosyaları dışında yapısı ayıklanmasında sağlar ancak [ **metin Analytics** ](https://azure.microsoft.com/services/cognitive-services/text-analytics/) doğal dil işleme birkaç varlık tanıma ve anahtar ifade ayıklama gibi sağlar.
+Yapay ZEKA algoritmaları sürücü [bilişsel arama işlem hatları](cognitive-search-concept-intro.md) Azure Search dizini oluşturma işlemi yapılandırılmamış verileri işlemek için kullanılır. Bu algoritmalar dayalı [Bilişsel hizmetler kaynakları](https://azure.microsoft.com/services/cognitive-services/)de dahil olmak üzere [görüntü işleme](https://azure.microsoft.com/services/cognitive-services/computer-vision/) görüntü analizi ve optik karakter tanıma (OCR) ve [metin analizi](https://azure.microsoft.com/services/cognitive-services/text-analytics/)varlık tanıma, anahtar ifade ayıklama ve diğer zenginleştirmelerinin.
 
 Belgeler sınırlı sayıda ücretsiz zenginleştirin ya da daha büyük ve daha sık iş yükleri için Faturalanabilir bir Bilişsel hizmetler kaynağı ekleyin. Bu makalede, Bilişsel hizmetler kaynağı bilişsel becerilerinizi sırasında veri zenginleştirme ile ilişkilendirilecek öğrenin [Azure arama dizini oluşturma](search-what-is-an-index.md).
 
-İşlem hattınızı Bilişsel hizmetler API'leri için ilgisi olmayan beceriler oluşuyorsa, Bilişsel hizmetler kaynağı hala iliştirin, ancak bu becerilere için faturalandırılmaya olmaz. İlgisi olmayan yetenekleri içerir: [özel becerileri](cognitive-search-create-custom-skill-example.md), [metin birleştirme](cognitive-search-skill-textmerger.md), [metin ayırıcısı](cognitive-search-skill-textsplit.md), ve [shaper](cognitive-search-skill-shaper.md).
+Bilişsel hizmetler API'leri için ilgisi olmayan beceriler işlem hattınızı oluşuyorsa, Bilişsel hizmetler kaynağı hala iliştirin. Bu durumda geçersiz kılma işlemleri yapılması **ücretsiz** zenginleştirmelerinin günde küçük bir miktar için sınırlar kaynak. Bilişsel hizmetler API'leri için bağlı olmayan yetenekleri için ek ücret yoktur. Bu yetenekleri içerir: [özel becerileri](cognitive-search-create-custom-skill-example.md), [metin birleştirme](cognitive-search-skill-textmerger.md), [metin ayırıcısı](cognitive-search-skill-textsplit.md), ve [shaper](cognitive-search-skill-shaper.md).
 
 > [!NOTE]
 > 21 aralık 2018'den itibaren Bilişsel hizmetler kaynağı bir Azure Search beceri kümesi ile ilişkilendirebilirsiniz. Bu beceri yürütmesi için ücret olanak tanır. Bu tarihte, biz de belge çözme aşamasının bir parçası olarak görüntü ayıklama için ücretlendirme başladı. Metin ayıklama belgelerden hiçbir ek ücret ödemeden sunulmaya devam eder.
 >
-> Yürütülmesini [yerleşik bilişsel beceriler](cognitive-search-predefined-skills.md) ücretlendirilir [Bilişsel hizmetler ödeme-olarak-, Git fiyat](https://azure.microsoft.com/pricing/details/cognitive-services), adresindeki görevi doğrudan gerçekleştirilen gibi aynı oranı. Görüntü ayıklama şu anda Önizleme fiyatlandırması sunulan bir Azure Search Faturalanabilir olay ' dir. Ayrıntılar için bkz [Azure fiyatlandırma sayfasını arama](https://go.microsoft.com/fwlink/?linkid=2042400) veya [nasıl](search-sku-tier.md#how-billing-works).
+> [Bilişsel yerleşik yetenek](cognitive-search-predefined-skills.md) yürütme ücretlendirilir [Bilişsel hizmetler ödeme-olarak-, Git fiyat](https://azure.microsoft.com/pricing/details/cognitive-services), adresindeki görevi doğrudan gerçekleştirilen gibi aynı oranı. Görüntü ayıklama şu anda Önizleme fiyatlandırması sunulan bir Azure Search ücrettir. Ayrıntılar için bkz [Azure fiyatlandırma sayfasını arama](https://go.microsoft.com/fwlink/?linkid=2042400) veya [nasıl](search-sku-tier.md#how-billing-works).
 
 
 ## <a name="use-free-resources"></a>Ücretsiz kaynakları kullan

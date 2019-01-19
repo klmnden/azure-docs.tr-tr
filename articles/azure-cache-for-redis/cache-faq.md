@@ -3,7 +3,7 @@ title: Azure önbelleği için Redis SSS | Microsoft Docs
 description: Sık sorulan sorular, desenleri ve en iyi yanıtları Azure önbelleği için Redis için öğrenin.
 services: azure-cache-for-redis
 documentationcenter: ''
-author: wesmc7777
+author: yegu-ms
 manager: cfowler
 editor: ''
 ms.assetid: c2c52b7d-b2d1-433a-b635-c20180e5cab2
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
-ms.author: wesmc
-ms.openlocfilehash: 5d70e4beb97a23212bc85d529382d8e89f09336d
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.author: yegu
+ms.openlocfilehash: 3a0fb06acd9fc798f1528a1487ae0682135187ca
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199927"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402412"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Redis için Azure Önbelleği SSS
 Sık sorulan sorular, desenleri ve en iyi yanıtları Azure önbelleği için Redis için öğrenin.
@@ -138,10 +138,10 @@ Bu tabloda, size aşağıdaki sonuçları çizebilirsiniz:
 | **Standart önbellek boyutu** | | |**Megabit / sn (Mb/sn) / megabayt sayısı / sn (MB/sn)** |**İkinci (RP'ler) SSL olmayan başına istek sayısı** |**İkinci (RP'ler) SSL başına istek sayısı** |
 | C0 |250 MB |Paylaşılan |100 / 12.5 |15.000 |7.500 |
 | C1 |1 GB |1 |500 / 62.5 |38,000 |20,720 |
-| C2 |2,5 GB |2 |500 / 62.5 |41,000 |37.000 |
+| C2 |2,5 GB |2 |500 / 62.5 |41,000 |37,000 |
 | C3 |6 GB |4 |1000 / 125 |100.000 |90,000 |
 | C4 |13 GB |2 |500 / 62.5 |60,000 |55,000 |
-| C5 |26 GB |4 |1,000 / 125 |102.000 |93,000 |
+| C5 |26 GB |4 |1,000 / 125 |102,000 |93,000 |
 | C6 |53 GB |8 |2,000 / 250 |126,000 |120,000 |
 | **Premium önbellek boyutu** | |**Parça başına CPU çekirdekleri** | **Megabit / sn (Mb/sn) / megabayt sayısı / sn (MB/sn)** |**İkinci (RP'ler) SSL olmayan, parça başına başına istek sayısı** |**Parça başına ikinci (RP'ler) SSL başına istek sayısı** |
 | P1 |6 GB |2 |1,500 / 187.5 |180,000 |172,000 |
@@ -210,7 +210,7 @@ Genellikle istemcinin varsayılan değerler yeterlidir. Seçenekler, iş yükün
       * Bu kılavuz için daha fazla yol açabilir rahat bir gecikme süresi başına `ConnectionMultiplexer`.
 
 ### <a name="what-azure-cache-for-redis-clients-can-i-use"></a>Hangi Azure önbelleği için Redis istemcileri kullanabilirim?
-Redis hakkındaki harika şeylerden biri çok sayıda farklı geliştirme dili destekleyen birden çok istemci yoktur. İstemcileri güncel bir listesi için bkz. [Redis istemcileri](https://redis.io/clients). Birkaç farklı dilleri ve istemcilerin kapsayan öğreticiler için bkz. [Azure önbelleği için Redis kullanma](cache-dotnet-how-to-use-azure-redis-cache.md) makalenin üst kısmındaki dil değiştirici istenen dili tıklayın.
+Redis hakkındaki harika şeylerden biri çok sayıda farklı geliştirme dili destekleyen birden çok istemci yoktur. İstemcileri güncel bir listesi için bkz. [Redis istemcileri](https://redis.io/clients). Birkaç farklı dilleri ve istemcilerin kapsayan öğreticiler için bkz. [Azure önbelleği için Redis kullanma](cache-dotnet-how-to-use-azure-redis-cache.md) ve bu tablodaki eşdüzey makaleler İçindekiler.
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
@@ -259,7 +259,7 @@ Konusunda listelenen komutlardan herhangi birini kullanabilirsiniz [Redis komutl
 ### <a name="why-doesnt-azure-cache-for-redis-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services"></a>Neden Azure önbelleği için Redis bazı diğer Azure Hizmetleri gibi bir MSDN sınıf kitaplığı başvurusu yok?
 Microsoft Azure Cache Redis popüler Aç temel alınır, Azure önbelleği için Redis kaynak ve çok çeşitli tarafından erişilebilir [Redis istemcileri](https://redis.io/clients) birçok programlama dili için. Azure Cache, Redis örneğinin kullanılması için çağrılar kendi API her bir istemciye sahip [Redis komutları](https://redis.io/commands).
 
-Her bir istemciye farklı olduğu için MSDN'de değil bir merkezi sınıf başvurusu yok ve kendi başvuru belgeleri her istemci korur. Başvuru belgeleri yanı sıra farklı dilleri kullanarak Redis için Azure Cache kullanmaya başlama ve istemciler önbelleğe nasıl yapıldığını gösteren çeşitli öğreticiler vardır. Bu öğreticiler erişmek için bkz. [Azure önbelleği için Redis kullanma](cache-dotnet-how-to-use-azure-redis-cache.md) makalenin üst kısmındaki dil değiştirici istenen dili tıklayın.
+Her bir istemciye farklı olduğu için MSDN'de değil bir merkezi sınıf başvurusu yok ve kendi başvuru belgeleri her istemci korur. Başvuru belgeleri yanı sıra farklı dilleri kullanarak Redis için Azure Cache kullanmaya başlama ve istemciler önbelleğe nasıl yapıldığını gösteren çeşitli öğreticiler vardır. Bu öğreticiler erişmek için bkz: [Azure önbelleği için Redis kullanma](cache-dotnet-how-to-use-azure-redis-cache.md) ve bu tablodaki eşdüzey makaleler İçindekiler.
 
 ### <a name="can-i-use-azure-cache-for-redis-as-a-php-session-cache"></a>Azure önbelleği için Redis PHP oturum önbelleği olarak kullanabilir miyim?
 Evet, Azure önbelleği için Redis PHP oturum önbelleği olarak kullanmak için Azure önbelleği için Redis örneği için bağlantı dizesini belirtin. `session.save_path`.

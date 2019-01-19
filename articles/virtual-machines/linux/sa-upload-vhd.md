@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: 1926f0bcf7efca786e97bd973601888e5a8d4463
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1ca6f2a0f8246e730206ea2a431f7968273a6e8d
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966512"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412351"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Azure CLI ile bir özel diskten Linux VM oluşturma ve karşıya yükleme
 
@@ -35,13 +35,13 @@ En son sahip olduğunuzdan emin olun [Azure CLI](/cli/azure/install-az-cli2) yü
 
 Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiştirin. Örnek parametre adları dahil `myResourceGroup`, `mystorageaccount`, ve `mydisks`.
 
-Öncelikle [az group create](/cli/azure/group#az_group_create) komutuyla bir kaynak grubu oluşturun. Aşağıdaki örnekte adlı bir kaynak grubu oluşturur `myResourceGroup` içinde `WestUs` konumu:
+Öncelikle [az group create](/cli/azure/group#az_group_create) komutuyla bir kaynak grubu oluşturun. Aşağıdaki örnek `WestUs` konumunda `myResourceGroup` adlı bir kaynak grubu oluşturur:
 
 ```azurecli
 az group create --name myResourceGroup --location westus
 ```
 
-Sanal diskleri tutmak için depolama hesabı oluşturma [az depolama hesabı oluşturma](/cli/azure/storage/account#az_storage_account_create). Aşağıdaki örnekte adlı bir depolama hesabı oluşturur `mystorageaccount`:
+Sanal diskleri tutmak için depolama hesabı oluşturma [az depolama hesabı oluşturma](/cli/azure/storage/account). Aşağıdaki örnekte adlı bir depolama hesabı oluşturur `mystorageaccount`:
 
 ```azurecli
 az storage account create --resource-group myResourceGroup --location westus \
@@ -124,7 +124,7 @@ Ayrıca bkz: **[Linux yükleme notları](create-upload-generic.md#general-linux-
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 Kaynak grupları mantıksal olarak sanal ağ ve depolama gibi sanal makinelerinizi desteklemek için tüm Azure kaynaklarını bir araya getirin. Daha fazla bilgi kaynak grupları için bkz: [kaynak gruplarına genel bakış](../../azure-resource-manager/resource-group-overview.md). Özel diskinizi karşıya yükleme ve sanal makineleri oluşturma önce ilk ile bir kaynak grubu oluşturmak için ihtiyacınız [az grubu oluşturma](/cli/azure/group#az_group_create).
 
-Aşağıdaki örnekte adlı bir kaynak grubu oluşturur `myResourceGroup` içinde `westus` konumu:
+Aşağıdaki örnek `westus` konumunda `myResourceGroup` adlı bir kaynak grubu oluşturur:
 
 ```azurecli
 az group create --name myResourceGroup --location westus
@@ -132,7 +132,7 @@ az group create --name myResourceGroup --location westus
 
 ## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
 
-Özel disk ve VM içeren bir depolama hesabı oluşturma [az depolama hesabı oluşturma](/cli/azure/storage/account#az_storage_account_create). Bu disk aynı depolama hesabındaki olacak şekilde özel disk gereksiniminizi kaynağından oluşturduğunuz yönetilmeyen disklere sahip makineler. 
+Özel disk ve VM içeren bir depolama hesabı oluşturma [az depolama hesabı oluşturma](/cli/azure/storage/account). Bu disk aynı depolama hesabındaki olacak şekilde özel disk gereksiniminizi kaynağından oluşturduğunuz yönetilmeyen disklere sahip makineler. 
 
 Aşağıdaki örnekte adlı bir depolama hesabı oluşturur `mystorageaccount` daha önce oluşturduğunuz kaynak grubunda:
 

@@ -1,5 +1,5 @@
 ---
-title: Müşteri karmaşıklığı çözümleme
+title: Müşteri karmaşıklığını çözümleyin
 titleSuffix: Azure Machine Learning Studio
 description: Analiz etme ve Azure Machine Learning Studio ile müşteri karmaşıklığını puanlamaya yönelik tümleşik bir model geliştirme incelemesi.
 services: machine-learning
@@ -10,14 +10,14 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: dbe853172c0f0e49408bd4a2dd630a69659421d3
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 153ddcc1ba0da6171963ec91511fafe84023ecf8
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260610"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401986"
 ---
-# <a name="analyzing-customer-churn-using-azure-machine-learning-studio"></a>Azure Machine Learning Studio'yu kullanarak müşteri değişim sıklığını çözümleme
+# <a name="analyze-customer-churn-using-azure-machine-learning-studio"></a>Azure Machine Learning Studio'yu kullanarak müşteri değişim sıklığını çözümleme
 ## <a name="overview"></a>Genel Bakış
 Bu makalede, Azure Machine Learning kullanılarak oluşturulan bir müşteri karmaşıklığı çözümleme projesinin referans uygulaması gösterir. Bu makalede, ilişkili genel modellerini bütünlüklü olarak endüstriyel müşteri karmaşıklığı sorununu çözmek için ele alır. Biz de Machine Learning kullanılarak oluşturulan model doğruluğunu ölçmek ve daha fazla geliştirme yönergeleri değerlendirin.  
 

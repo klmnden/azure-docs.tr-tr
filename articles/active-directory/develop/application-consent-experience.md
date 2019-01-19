@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/11/2018
 ms.author: celested
 ms.reviewer: zawad
-ms.openlocfilehash: e3e333594b32cff018f02cd1d3b32eaf44c11a65
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 3193e9ac6ac5e90584bbf548142b7573d61c310a
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48904409"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413082"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Azure AD uygulama onay anlama deneyimleri
 
@@ -84,4 +84,4 @@ Bir kullanıcı ortak onay senaryolarda görebilirsiniz onay deneyimleri şunlar
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Adım adım bir bakış elde [Azure AD'ye onay çerçevesine onayı nasıl uyguladığını](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#overview-of-the-consent-framework).
-- Daha fazla ayrıntı için bilgi [çok kiracılı uygulama onay çerçevesine nasıl kullanabileceğinizi](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) "kullanıcı" ve "Yönetici" onayı, daha fazla destek uygulamak için çok katmanlı uygulama desenleri Gelişmiş.
+- Daha fazla ayrıntı için bilgi [çok kiracılı uygulama onay çerçevesine nasıl kullanabileceğinizi](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) "kullanıcı" ve "Yönetici" onayı, daha fazla destek uygulamak için çok katmanlı uygulama desenleri Gelişmiş.

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
-ms.openlocfilehash: caabc5a396c015b806778bfc5887b0708897101e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 34d60d82ff70ecf683b955b8b796b5d3269df53c
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54101930"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401920"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Azure Active Directory ile esnek erişim denetimi yönetim stratejisi oluşturma
 
@@ -119,30 +119,48 @@ Bir yedek koşullu erişim ilkesi bir **ilke devre dışı** , Azure MFA'yı ü�
 * Belirli bir kimlik doğrulama düzeyi yalnızca tam erişim dönülüyor yerine ulaşılan değil, bu uygulamaların içindeki erişimi kısıtlama ilkeleri kullanın. Örneğin:
   * Exchange ve SharePoint için sınırlı oturuma talep gönderen bir yedekleme ilkesi yapılandırın.
   * Kuruluşunuz Microsoft Cloud App Security kullanıyorsa MCAS ve MCAS sağlar, salt okunur erişim ilgilenir. ancak değil yükleyen bir ilke dönülüyor göz önünde bulundurun.
+* Bir kesinti sırasında bulmayı kolay olduğundan emin olmak için ilkelerinizi adlandırın. İlkenin adına aşağıdaki öğeleri içerir:
+  * A *etiket sayısı* ilkesi için.
+  * Göstermek için bu ilke, yalnızca acil durumlar için metin. Örneğin: **ACİL DURUMDA ETKİNLEŞTİR**
+  * *Kesintisi* için geçerlidir. Örneğin: **MFA kesintisi sırasında**
+  * A *sıra numarası* sırası göstermek için ilkeleri etkinleştirin.
+  * *Uygulamaları* için geçerlidir.
+  * *Denetimleri* geçerli olacaktır.
+  * *Koşullar* gerektirir.
+  
+Bu adlandırma standardı yedek ilkeleri şu şekilde olacaktır: 
 
-Aşağıdaki örnekte: **Örnek bir - erişimi için Görev açısından kritik İşbirliği uygulamaları geri yüklemek için yedek CA ilkesi**, tipik kurumsal tahminlere olduğu. Bu senaryoda, kuruluş, MFA genellikle tüm Exchange Online ve SharePoint Online'a erişimi gerektirir. ve (Azure MFA, şirket içi olmadığını MFA sağlayıcısı veya üçüncü taraf MFA) müşterinin MFA sağlayıcısı kesinti yaşandığında kesintisi bu durumda olur. Bu ilke, yalnızca, uygulama kendi güvenilen şirket ağından erişirken belirli hedeflenen kullanıcılar bu uygulamaları güvenilir Windows cihazlarından erişimine tarafından bu kesinti azaltır. Bu ayrıca Acil Durum hesapları ve çekirdek Yöneticiler bu kısıtlamaları dışında bırakır. Bu örnek bir adlandırılmış bir ağ konumuna gerektirecek **CorpNetwork** ve bir güvenlik grubu **ContingencyAccess** hedef kullanıcılarla adlı bir grubu **CoreAdmins** ile Çekirdek yöneticileri ve adlandırılmış grup **EmergencyAccess** Acil Durum erişim hesaplarına sahip. Yedek plan istenen erişim sağlamak için dört İlkesi gerektirir.
+`
+EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions]
+`
+
+Aşağıdaki örnekte: **Örnek bir - erişimi için Görev açısından kritik İşbirliği uygulamaları geri yüklemek için yedek CA ilkesi**, tipik kurumsal tahminlere olduğu. Bu senaryoda, kuruluş, MFA genellikle tüm Exchange Online ve SharePoint Online'a erişimi gerektirir. ve (Azure MFA, şirket içi olmadığını MFA sağlayıcısı veya üçüncü taraf MFA) müşterinin MFA sağlayıcısı kesinti yaşandığında kesintisi bu durumda olur. Bu ilke, yalnızca, uygulama kendi güvenilen şirket ağından erişirken belirli hedeflenen kullanıcılar bu uygulamaları güvenilir Windows cihazlarından erişimine tarafından bu kesinti azaltır. Bu ayrıca Acil Durum hesapları ve çekirdek Yöneticiler bu kısıtlamaları dışında bırakır. Diğer kullanıcıların kesinti nedeniyle uygulamalara erişim hala yoktur ancak hedeflenen kullanıcılara ardından Exchange Online'a ve SharePoint Online erişim sahibi. Bu örnek bir adlandırılmış bir ağ konumuna gerektirecek **CorpNetwork** ve bir güvenlik grubu **ContingencyAccess** hedef kullanıcılarla adlı bir grubu **CoreAdmins** ile Çekirdek yöneticileri ve adlandırılmış grup **EmergencyAccess** Acil Durum erişim hesaplarına sahip. Yedek plan istenen erişim sağlamak için dört İlkesi gerektirir. 
 
 **A - yedek CA ilkeleri erişimi için Görev açısından kritik İşbirliği uygulamaları geri yüklemek için örnek:**
 
 * İlke 1: Exchange ve SharePoint için etki alanına katılmış cihaz gerektir
+  * Ad: EM001 - ACİL DURUMDA ETKİNLEŞTİR: MFA kesintisi [1/4] - Exchange, SharePoint - hibrit Azure AD'ye katılma gerektirir
   * Kullanıcılar ve gruplar: ContingencyAccess içerir. CoreAdmins ve EmergencyAccess hariç tut
   * Bulut uygulamaları: Exchange Online ve SharePoint Online
   * Koşullar: Herhangi biri
   * İzin verme denetimi: Etki alanına katılmış gerektirir
   * Durum: Devre dışı
 * İlke 2: Windows dışındaki blok platformları
+  * Ad: EM002 - ACİL DURUMDA ETKİNLEŞTİR: MFA kesintisi Windows dışındaki 2/4 - Exchange SharePoint - blok erişimi
   * Kullanıcılar ve gruplar: Tüm kullanıcıları dahil edin. CoreAdmins ve EmergencyAccess hariç tut
   * Bulut uygulamaları: Exchange Online ve SharePoint Online
   * Koşullar: Cihaz platformu dahil tüm platformları, Windows Dışla
   * İzin verme denetimi: Engelle
   * Durum: Devre dışı
 * İlke 3: Blok ağları CorpNetwork dışında
+  * Ad: EM003 - ACİL DURUMDA ETKİNLEŞTİR: MFA kesintisi şirket ağı dışındaki 3/4 - Exchange SharePoint - blok erişimi
   * Kullanıcılar ve gruplar: Tüm kullanıcıları dahil edin. CoreAdmins ve EmergencyAccess hariç tut
   * Bulut uygulamaları: Exchange Online ve SharePoint Online
   * Koşullar: Konumları CorpNetwork hariç, herhangi bir yere ekleyin
   * İzin verme denetimi: Engelle
   * Durum: Devre dışı
 * İlke 4: EAS açıkça engelle
+  * Ad: EM004 - ACİL DURUMDA ETKİNLEŞTİR: MFA kesintisi 4/4 - Exchange - blok EAS tüm kullanıcılar için
   * Kullanıcılar ve gruplar: Tüm kullanıcıları
   * Bulut uygulamaları: Exchange Online içerir
   * Koşullar: İstemci uygulamaları: Exchange Active Sync
@@ -163,12 +181,14 @@ Bu sonraki örnekte **örnek B - Salesforce mobil erişmesine izin vermek için 
 **Örnek B - yedek CA ilkeleri:**
 
 * İlke 1: Herkes değil SalesContingency takım engelle
+  * Ad: EM001 - ACİL DURUMDA ETKİNLEŞTİR: Cihaz uyumluluk kesintisi [1/2] - Salesforce - SalesforceContingency dışında blok tüm kullanıcılar
   * Kullanıcılar ve gruplar: Tüm kullanıcıları dahil edin. SalesAdmins ve SalesforceContingency hariç tut
   * Bulut uygulamaları: Salesforce.
   * Koşullar: None
   * İzin verme denetimi: Engelle
   * Durum: Devre dışı
 * İlke 2: Mobile (saldırı yüzey alanını azaltmak için) dışındaki herhangi bir platform satış ekibinin engelle
+  * Ad: EM002 - ACİL DURUMDA ETKİNLEŞTİR: Cihaz uyumluluk kesintisi iOS ve Android dışında 2/2 - Salesforce - bloğu tüm platformlar
   * Kullanıcılar ve gruplar: SalesforceContingency içerir. SalesAdmins Dışla
   * Bulut uygulamaları: Salesforce
   * Koşullar: İOS ve Android cihaz platformu dahil tüm platformlara hariç tut
@@ -215,14 +235,14 @@ Hangi risk azaltma işlemleri ya da olasılıkları bir kesinti sırasında kull
 
 ## <a name="after-a-disruption"></a>Sonra bir kesinti
 
-Kesinti nedeniyle hizmet geri yüklendikten sonra etkin Yedek planı bir parçası olarak yaptığınız değişiklikleri geri almanız gerekir. 
+Kesinti nedeniyle hizmet geri yüklendikten sonra etkin Yedek planı bir parçası olarak yaptığınız değişiklikleri geri alın. 
 
 1. Normal ilkelerini etkinleştir
 2. Yedek ilkelerinizi devre dışı bırakın. 
 3. Yapılan ve kesinti sırasında belgelenen diğer değişiklikleri geri alın.
 4. Kimlik bilgilerini yeniden oluşturun ve yeni kimlik bilgilerinin ayrıntıları, Acil Durum erişim hesabı yordamların bir parçası olarak fiziksel olarak güvenli bir Acil Durum erişim hesabı'nı kullandıysanız unutmayın.
 5. Devam [tüm risk olayları bildirilen önceliklendirme](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) şüpheli etkinlik için kesinti sonra.
-6. Verilen tüm yenileme belirteçleri iptal [PowerShell kullanarak](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) bir kullanıcı kümesini hedeflemek için. Özellikle önemli bir kesinti sırasında kullanılan ayrıcalıklı hesaplar için tüm yenileme belirteçleri iptal ediliyor ve işi yeniden kimlik doğrulaması yapın ve geri yüklenen ilkeleri denetimi karşılamak için zorlar.
+6. Verilen tüm yenileme belirteçleri iptal [PowerShell kullanarak](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) bir kullanıcı kümesini hedeflemek için. Tüm yenileme belirteçleri iptal kesinti sırasında kullanılan ayrıcalıklı hesaplar için önemlidir ve işi yeniden kimlik doğrulaması yapın ve geri yüklenen ilkeleri denetimi karşılamak için zorlar.
 
 ## <a name="emergency-options"></a>Acil Durum seçenekleri
 
@@ -243,7 +263,7 @@ Kuruluşunuzun kullanıcı başına MFA eski ilkeleri kullanıyorsanız, aşağ�
 * [Azure AD Authentication belgeleri](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-iis)
 * [Azure AD'de Acil Durum erişimi yönetici hesaplarını yönetme](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
 * [Azure Active Directory'de adlandırılmış konumları yapılandırma](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
- * [Set-msoldomainfederationsettings komutunu](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
+ * [Set-MsolDomainFederationSettings](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
 * [Hibrit Azure Active Directory'ye katılmış cihazları yapılandırma](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
 * [İş İçin Windows Hello Dağıtım Kılavuzu](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
  * [Parola Kılavuzu - Microsoft Research'ün](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)

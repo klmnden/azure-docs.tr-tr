@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: juliako
-ms.openlocfilehash: ff3aa86fee7fc30cfc18edc3b413a4378df69662
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 205a4f2089ec5f415932f98eefe2f3d5f614f0ba
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54307013"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402056"
 ---
 # <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
@@ -28,18 +28,17 @@ Video Indexer Microsoft Azure Media Services'ın bir parçası olan bir yapay ze
 
 ### <a name="what-can-i-do-with-video-indexer"></a>Video Indexer ile ne yapabilirim?
 
-Video Indexer, aşağıdaki türlerde medya dosyalarını işlemleri gerçekleştirebilirsiniz:
+Video Indexer, medya dosyaları üzerinde gerçekleştirebileceği işlemleri bazıları şunlardır:
 
-* Tanımlamak ve konuşma ayıklayın ve konuşmacıları belirleyin.
-* Tanımlamak ve ekran ayıklayın video metin.
-* Tanımlayın ve video dosyası nesneleri.
-* Ses parçalarını ve ekran markaları Microsoft gibi bir video metinde belirleyin.
-* Algılar ve ünlüleri, bir veritabanı ve kullanıcı tanımlı veritabanı dikdörtgenlerini yüzleri tanır.
-* Görsel ve konuşma metne göre video ve ses içeriğinden anahtar kelimeleri ayıklayın.
-* Ele alınan ancak mutlaka açıkça görsel ve konuşma metne göre ses ve video içeriğine belirtilen konuları ayıklar.
-* Kapalı açıklamalı alt yazıları ve alt yazıları ses parçasından oluşturun.
+* Tanımlama ve konuşma ayıklanması ve konuşmacıları belirleyin.
+* Tanımlama ve ekran ayıklama video metin.
+* Nesneleri bir video dosyasını algılanıyor.
+* Markaları belirleyin (örneğin: Bir videoda Microsoft) ses parçalarını ve ekran metin.
+* Algılama ve ünlüleri, bir veritabanı ve kullanıcı tanımlı veritabanı dikdörtgenlerini yüzleri tanıma.
+* Ayıklama konuları ele alınan ancak mutlaka ses ve video içerikte bahsedilen.
+* Kapalı açıklamalı alt yazıları ve alt yazıları ses parçasından oluşturuluyor.
 
-Daha fazla bilgi için bkz. [Genel Bakış](video-indexer-overview.md).
+Daha fazla bilgi ve daha fazla Video Indexer özellikleri için bkz: [genel bakış](video-indexer-overview.md).
 
 ### <a name="how-do-i-get-started-with-video-indexer"></a>Video Indexer ile nasıl başlayabilirim?
 

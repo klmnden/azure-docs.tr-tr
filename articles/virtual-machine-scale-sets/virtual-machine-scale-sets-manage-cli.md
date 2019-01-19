@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: zarhoads
-ms.openlocfilehash: bbed197eb78e34c6e53802dfcfdcc192f780df33
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: c86ea4ca5353207d091d3e6edb13f1f3eba59175
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465668"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54410668"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Sanal makine ölçek kümesi Azure CLI ile yönetme
 Sanal makine ölçek kümesinin yaşam döngüsü boyunca bir veya daha fazla yönetim görevi çalıştırmanız gerekebilir. Ayrıca, çeşitli yaşam döngüsü görevlerini otomatikleştiren betikler oluşturmak isteyebilirsiniz. Bu makalede bu görevleri gerçekleştirmenize olanak tanıyan ortak Azure CLI komutlarının bazıları ayrıntılı olarak açıklanmaktadır.
@@ -37,7 +37,7 @@ az vmss show --resource-group myResourceGroup --name myScaleSet
 
 
 ## <a name="view-vms-in-a-scale-set"></a>Ölçek kümesindeki VM’leri görüntüleme
-Bir ölçek kümesindeki sanal makine örneği listesini görüntülemek için kullanın [az vmss seznamu](/cli/azure/vmss#list-instances). Aşağıdaki örnekte adlı ölçek kümesi içinde tüm VM örnekleri listelenmiştir *myScaleSet* içinde *myResourceGroup* kaynak grubu. Bu adları için kendi değerlerinizi sağlayın:
+Bir ölçek kümesindeki sanal makine örneği listesini görüntülemek için kullanın [az vmss seznamu](/cli/azure/vmss). Aşağıdaki örnekte adlı ölçek kümesi içinde tüm VM örnekleri listelenmiştir *myScaleSet* içinde *myResourceGroup* kaynak grubu. Bu adları için kendi değerlerinizi sağlayın:
 
 ```azurecli
 az vmss list-instances \
@@ -108,7 +108,7 @@ az vmss deallocate --resource-group myResourceGroup --name myScaleSet --instance
 
 
 ### <a name="start-vms-in-a-scale-set"></a>Bir ölçek kümesindeki VM'lerin başlatma
-Bir ölçek kümesindeki bir veya daha fazla sanal makine başlatmak için kullanın [az vmss Başlat](/cli/azure/vmss#az_vmss_start). `--instance-ids` parametresi, başlatılacak bir veya daha fazla sanal makine belirtmenize olanak sağlar. Örnek kimliği belirtmezseniz, ölçek kümesindeki tüm sanal makineler başlatılır. Birden çok VM başlatmak için her örnek kimliği boşlukla ayırın.
+Bir ölçek kümesindeki bir veya daha fazla sanal makine başlatmak için kullanın [az vmss Başlat](/cli/azure/vmss). `--instance-ids` parametresi, başlatılacak bir veya daha fazla sanal makine belirtmenize olanak sağlar. Örnek kimliği belirtmezseniz, ölçek kümesindeki tüm sanal makineler başlatılır. Birden çok VM başlatmak için her örnek kimliği boşlukla ayırın.
 
 Aşağıdaki örnek bir örneğini başlatır *0* adlı ölçek kümesi içinde *myScaleSet* ve *myResourceGroup* kaynak grubu. Kendi değerlerinizi aşağıdaki gibi sağlayın:
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: d280ef50d91f2e9b5157de5ec918e496f9887681
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: dc92e7d2fcc911aeb6d92b91dd2d430af3c502ad
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127678"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401716"
 ---
 # <a name="performance-tuning-guidance-for-spark-on-hdinsight-and-azure-data-lake-storage-gen1"></a>HDInsight ve Azure Data Lake depolama Gen1 üzerinde Spark için performans ayarlama Kılavuzu
 
@@ -47,7 +47,7 @@ Spark işleri çalıştırırken, Data Lake depolama Gen1 performansı artırmak
 
 **Yürütücü çekirdek** bu Yürütücü çalıştırılabilir paralel iş parçacığı sayısını belirleyen Yürütücü başına kullanılan çekirdek miktarını belirler.  Örneğin, çekirdek Yürütücü = 2, her Yürütücü Yürütücü içinde 2 Paralel Görevler çalıştırabilirsiniz.  Yürütücü çekirdek işin bağımlı olacaktır.  Daha fazla Paralel Görevler her Yürütücü işleyebilmesi için büyük miktarda bellek görev başına g/ç yoğun iş gerektirmez.
 
-Varsayılan olarak, iki sanal YARN çekirdek Spark HDInsight üzerinde çalışırken her fiziksel çekirdek için tanımlanır.  Bu sayı concurrecy ve bağlam birden fazla iş parçacığından değiştirme miktarı iyi bir dengesini sunar.  
+Varsayılan olarak, iki sanal YARN çekirdek Spark HDInsight üzerinde çalışırken her fiziksel çekirdek için tanımlanır.  Bu sayı, eşzamanlılık ve bağlam birden fazla iş parçacığından değiştirme miktarı iyi bir dengesini sunar.  
 
 ## <a name="guidance"></a>Rehber
 
@@ -55,20 +55,20 @@ Data Lake depolama Gen1 verilerle çalışmak için analitik iş yükleri çalı
 
 Yoğun g/ç işleri için eşzamanlılığı artırmak için birkaç genel yol vardır.
 
-**1. adım: kaç uygulamalarını kümenizde çalışan belirlemek** – geçerli de dahil olmak üzere kümede kaç çalıştırmaya bilmeniz gerekir.  4 vardır varsayılan değerleri ayarı varsayar her Spark için aynı anda çalıştırılan uygulamalar.  Bu nedenle yalnızca % 25 oranında kümenin her uygulama için kullanılabilir olacaktır.  Daha iyi performans elde etmek için Yürütücü sayısına değiştirerek Varsayılanları geçersiz kılabilir.  
+**1. adım: Kaç tane uygulamalarını kümenizde çalışan belirlemek** – geçerli de dahil olmak üzere kümede kaç çalıştırmaya bilmeniz gerekir.  4 vardır varsayılan değerleri ayarı varsayar her Spark için aynı anda çalıştırılan uygulamalar.  Bu nedenle yalnızca % 25 oranında kümenin her uygulama için kullanılabilir olacaktır.  Daha iyi performans elde etmek için Yürütücü sayısına değiştirerek Varsayılanları geçersiz kılabilir.  
 
-**2. adım: Bellek içi Yürütücü ayarlama** – ayarlamak için ilk şey Yürütücü-bellektir.  Bellek üzerinde çalıştırmak için oluşturacağınız işi bağımlı olacaktır.  Yürütücü başına daha az bellek ayırarak eşzamanlılığı artırabilir.  Yetersiz bellek özel durumları iş çalıştırdığınızda görürseniz, bu parametrenin değerini artırmanız gerekir.  Daha fazla bellek, daha büyük miktarda bellek sahip olan bir kümeye kullanarak veya kümenizin boyutunu artırmayı almak bir alternatiftir.  Daha fazla bellek, daha fazla eşzamanlılık başka bir deyişle, kullanılacak, daha fazla yürütücüler olanak sağlar.
+**2. adım: Bellek içi Yürütücü ayarlamak** – ayarlamak için ilk şey Yürütücü-bellektir.  Bellek üzerinde çalıştırmak için oluşturacağınız işi bağımlı olacaktır.  Yürütücü başına daha az bellek ayırarak eşzamanlılığı artırabilir.  Yetersiz bellek özel durumları iş çalıştırdığınızda görürseniz, bu parametrenin değerini artırmanız gerekir.  Daha fazla bellek, daha büyük miktarda bellek sahip olan bir kümeye kullanarak veya kümenizin boyutunu artırmayı almak bir alternatiftir.  Daha fazla bellek, daha fazla eşzamanlılık başka bir deyişle, kullanılacak, daha fazla yürütücüler olanak sağlar.
 
-**3. adım: Ayarlama Yürütücü çekirdek** – karmaşık işlemleri sahip olmaması için g/ç kullanımlı iş yükleri, İşte bu kadar çok sayıda Paralel Görevler Yürütücü başına sayısını artırmak için Yürütücü çekirdek başlatmak iyi.  Yürütücü çekirdek sayısı 4'e ayarlanması, iyi bir başlangıç noktasıdır.   
+**3. adım: Yürütücü çekirdek kümesi** – karmaşık işlemleri sahip olmaması için g/ç kullanımlı iş yükleri, İşte bu kadar çok sayıda Paralel Görevler Yürütücü başına sayısını artırmak için Yürütücü çekirdek başlatmak iyi.  Yürütücü çekirdek sayısı 4'e ayarlanması, iyi bir başlangıç noktasıdır.   
 
     executor-cores = 4
 Yürütücü çekirdek sayısının artırılması farklı Yürütücü çekirdeğiyle deneyebilirsiniz. Bu nedenle daha fazla paralellik verir.  Daha karmaşık işlemler sahip işler için Yürütücü başına çekirdek sayısını azaltmanız gerekir.  Yürütücü çekirdek sayısı 4'ten yüksek ayarlanmış ardından çöp toplama verimsiz ve performansı düşebilir.
 
-**4. adım: küme YARN bellek miktarını belirlemek** – Ambari bu bilgi kullanılabilir.  YARN için gidin ve yapılandırmaları sekmesini görüntüleyin.  YARN bellek Bu pencerede görüntülenir.  
+**4. adım: Kümenin YARN bellek miktarını belirlemek** – Ambari bu bilgi kullanılabilir.  YARN için gidin ve yapılandırmaları sekmesini görüntüleyin.  YARN bellek Bu pencerede görüntülenir.  
 Not penceresinde olmakla birlikte, varsayılan YARN kapsayıcı boyutu da görebilirsiniz.  YARN kapsayıcı boyutu Yürütücü parametresi başına bellek ile aynıdır.
 
     Total YARN memory = nodes * YARN memory per node
-**5. adım: Yürütücü sayısı hesaplama**
+**5. adım: Yürütücü sayısı hesaplayın**
 
 **Bellek kısıtlama hesaplamak** -Yürütücü sayısı parametresi, bellek veya CPU sınırlıdır.  Bellek kısıtlama, uygulamanız için kullanılabilir YARN bellek miktarına göre belirlenir.  Toplam YARN bellek alın ve yürütücü bellekle bölen gerekir.  Kısıtlama, biz uygulamaları sayısına göre bölmek için uygulama sayısı için XML'deki ölçeklendirilmiş olması gerekiyor.
 
@@ -86,19 +86,19 @@ Yürütücü sayısı, daha yüksek bir sayı ayarlandığında, performans mutl
 
 Şu anda kullandığınız 2 çalıştıran 8 D4v2 düğümlerinin oluşan bir küme varsayalım uygulamaları çalıştırmak için seçeceğiz de dahil olmak üzere.  
 
-**1. adım: kaç uygulamalarını kümenizde çalışan belirlemek** – 2 olduğunu bildiğiniz çalıştırılacak seçeceğiz de dahil olmak üzere kümenizdeki uygulamaları.  
+**1. adım: Kaç tane uygulamalarını kümenizde çalışan belirlemek** – 2 olduğunu bildiğiniz çalıştırılacak seçeceğiz de dahil olmak üzere kümenizdeki uygulamaları.  
 
-**2. adım: Bellek içi Yürütücü ayarlama** – Bu örnekte, 6 GB bellek Yürütücü g/ç yoğunluklu iş için yeterli olacağını olan belirleriz.  
+**2. adım: Bellek içi Yürütücü ayarlamak** – Bu örnekte, 6 GB bellek Yürütücü g/ç yoğunluklu iş için yeterli olacağını olan belirleriz.  
 
     executor-memory = 6GB
-**3. adım: Ayarlama Yürütücü çekirdek** – bu bir g/ç yoğunluklu iş olduğundan, size çekirdek sayısı 4 her Yürütücü ayarlayabilirsiniz.  Yürütücü başına çekirdek sayısı 4 çöp toplama sorunlara neden olabilir, daha büyük için ayarlanıyor.  
+**3. adım: Yürütücü çekirdek kümesi** – bu bir g/ç yoğunluklu iş olduğundan, size çekirdek sayısı 4 her Yürütücü ayarlayabilirsiniz.  Yürütücü başına çekirdek sayısı 4 çöp toplama sorunlara neden olabilir, daha büyük için ayarlanıyor.  
 
     executor-cores = 4
-**4. adım: küme YARN bellek miktarını belirlemek** – biz her D4v2 25 GB YARN bellek olduğunu öğrenmek için ambarı'na gidin.  YARN bellek, 8 düğüm olduğundan, 8 ile çarpılır.
+**4. adım: Kümenin YARN bellek miktarını belirlemek** – biz her D4v2 25 GB YARN bellek olduğunu öğrenmek için ambarı'na gidin.  YARN bellek, 8 düğüm olduğundan, 8 ile çarpılır.
 
     Total YARN memory = nodes * YARN memory* per node
     Total YARN memory = 8 nodes * 25GB = 200GB
-**5. adım: Yürütücü sayısı hesaplama** – Yürütücü sayısı parametresi en düşük bellek kısıtlamanın alarak belirlenir ve CPU sınırlama bölünmüş tarafından Spark üzerinde çalıştırılan uygulamalar için sayısı.    
+**5. adım: Yürütücü sayısı hesaplamak** – Yürütücü sayısı parametresi en düşük bellek kısıtlamanın alarak belirlenir ve CPU sınırlama bölünmüş tarafından Spark üzerinde çalıştırılan uygulamalar için sayısı.    
 
 **Bellek kısıtlama hesaplamak** – bellek kısıtlama bellek Yürütücü başına bölü toplam YARN bellek olarak hesaplanır.
 

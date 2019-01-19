@@ -9,16 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 01/18/2019
 ms.author: diberry
-ms.openlocfilehash: 5d3e837cf644e0cb9b35a0cfc715a9dcace592e3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e69d03e2c45ee34723bd6aace3a2a26cead63e96
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082994"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411620"
 ---
-# <a name="manage-azure-endpoint-subscription-keys"></a>Azure uç noktası Abonelik anahtarları yönetme
+# <a name="manage-azure-resource-keys-for-prediction-endpoint-queries"></a>Tahmin uç nokta sorgular için Azure kaynak anahtarlarını Yönet
+
+[!INCLUDE [Azure resource creation for Language Understanding and Cognitive Service resources](../../../includes/cognitive-services-luis-azure-resource-instructions.md)]
 
 Test ve yalnızca prototip için ücretsiz katman (F0) kullanın. Üretim sistemleri için bir [Ücretli](https://aka.ms/luis-price-tier) katmanı. 
 
@@ -57,7 +59,7 @@ Test ve yalnızca prototip için ücretsiz katman (F0) kullanın. Üretim sistem
 5. Unutmayın [Bu uç noktası anahtarı atama](luis-how-to-manage-keys.md#assign-endpoint-key) üzerinde **Yayımla** sayfasında ve tüm uç nokta sorguları kullanın. 
 
 ## <a name="exceed-pricing-tier-usage"></a>Fiyatlandırma katmanı kullanımı aşıyor
-Her katman, uç nokta istekleri LUIS hesabınıza belli bir oranda sağlar. İstekleri oranını tarifeli hesabınızın dakika başına veya aylık izin verilen oranı yüksekse isteklerini HTTP hatası almak "429: çok fazla istek."
+Her katman, uç nokta istekleri LUIS hesabınıza belli bir oranda sağlar. İstekleri oranını tarifeli hesabınızın dakika başına veya aylık izin verilen oranı yüksekse isteklerini HTTP hatası almak "429: Çok fazla istek."
 
 Her katman, aylık biriktirici istek sağlar. Toplam istek sayısı izin verilen hızından daha yüksek olan, istekler HTTP hatası alırsınız "403: Yasak".  
 

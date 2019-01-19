@@ -10,18 +10,18 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: panosper
-ms.openlocfilehash: e2c176e35cbc75747230e429d0ddae9d420db8b5
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 181797cd8ba193d7200e5ece8b599ffa40f7185b
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867589"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413711"
 ---
 # <a name="creating-custom-voice-fonts"></a>Özel ses tipi olarak oluşturma
 
-Metin okuma (TTS) ses özelleştirme markanız için tanınan, tür, tek bir ses oluşturmanıza olanak sağlar: bir *ses tipi.* 
+Metin okuma (TTS) ses özelleştirme markanız için tanınan, tür, tek bir ses oluşturmanıza olanak sağlar: bir *ses tipi.*
 
-Ses tipi oluşturmak için studio kaydını yapabilir ve ilişkili betikler eğitim verileri olarak karşıya yükleyin. Hizmet, ardından kaydınız için ayarlanmış bir benzersiz ses modeli oluşturur. Bu ses tipi konuşma sentezlemek için kullanabilirsiniz. 
+Ses tipi oluşturmak için studio kaydını yapabilir ve ilişkili betikler eğitim verileri olarak karşıya yükleyin. Hizmet, ardından kaydınız için ayarlanmış bir benzersiz ses modeli oluşturur. Bu ses tipi konuşma sentezlemek için kullanabilirsiniz.
 
 Az miktarda bir kavram kanıtı için verileri ile başlayabilirsiniz. Ancak daha fazla veri sağlarsanız, daha doğal ve professional, ses çalar.
 
@@ -49,7 +49,7 @@ Ses dosyaları, ses dosyalarını dökümleri içeren bir metin dosyası ile bir
 
 Bu dosya iki yolla hazırlayabilirsiniz. Ya da bir betik yazabilir ve ses beceri tarafından okunur veya herkese ses kullanın ve metin özelliği vardır. İkincisini yapmak, disfluencies "um" ve diğer filler sesleri, atlar, mumbled sözcükleri veya mispronunciations gibi ses dosyalarını düzenleyin.
 
-İyi ses tipi üretmek için kayıtları sessiz bir odada ile yüksek kaliteli bir mikrofon olun. Tutarlı birim oranı, aralık ve konuşma ifadesel veren davranışların gibi konuşma harika bir dijital ses oluşturmak için gerekli. 
+İyi ses tipi üretmek için kayıtları sessiz bir odada ile yüksek kaliteli bir mikrofon olun. Tutarlı birim oranı, aralık ve konuşma ifadesel veren davranışların gibi konuşma harika bir dijital ses oluşturmak için gerekli.
 
 Üretim kullanımı için bir ses oluşturmak için profesyonel kaydı studio ve ses beceri kullanmanızı öneririz. Daha fazla bilgi için [ses kaydetmek nasıl özel bir ses için örnekleri](record-custom-voice-samples.md).
 
@@ -102,30 +102,30 @@ Ses dosyası Arşiv ve dökümler hazırladıktan sonra bunları aracılığıyl
 
     **My ses** tablo görünür. Sesli veri kümeleri henüz yüklemediyseniz, boş olur.
 
-3. Yeni bir veri kümesi karşıya yükleme sayfasını açmak için seçin **verileri içeri aktarma**. 
+3. Yeni bir veri kümesi karşıya yükleme sayfasını açmak için seçin **verileri içeri aktarma**.
 
     ![Sesli verileri içeri aktar](media/custom-voice/import-voice-data.png)
 
-4. Sağlanan alanları bir ad ve açıklama girin. 
+4. Sağlanan alanları bir ad ve açıklama girin.
 
-5. Ses tipi olarak sizin için bir yerel ayar seçin. Yerel ayar bilgileri kayıt verilerini ve betikleri dilinin eşleştiğinden emin olun. 
+5. Ses tipi olarak sizin için bir yerel ayar seçin. Yerel ayar bilgileri kayıt verilerini ve betikleri dilinin eşleştiğinden emin olun.
 
 6. Cinsiyet konuşmacının ses kullanmakta olduğunuz seçin.
 
-7. Betik ve ses dosyalarını karşıya yüklemek için seçin. 
+7. Betik ve ses dosyalarını karşıya yüklemek için seçin.
 
 8. Seçin **alma** verilerinizi karşıya yükleme. Büyük veri kümeleri için içeri aktarma, birkaç dakika sürebilir.
 
 > [!NOTE]
 > Ücretsiz aboneliği kullanıcıları, aynı anda iki veri kümesi yükleyebilirsiniz. Standart abonelik kullanıcılar aynı anda beş veri kümelerini karşıya yükleyebilirsiniz. Sınıra ulaştıysanız, alma, veri kümelerinden en az birini tamamlanana kadar bekleyin. Daha sonra yeniden deneyin.
 
-Karşıya yükleme tamamlandığında, **ses verilerim** tablo tekrar görünür. Yüklediğiniz veri kümesine karşılık gelen bir giriş görmeniz gerekir. 
+Karşıya yükleme tamamlandığında, **ses verilerim** tablo tekrar görünür. Yüklediğiniz veri kümesine karşılık gelen bir giriş görmeniz gerekir.
 
 Veri kümelerini karşıya yükledikten sonra otomatik olarak doğrulanır. Veri doğrulama, bir dizi ses dosyaları, dosya biçimi, boyutu ve örnekleme hızı doğrulamak için denetim içerir. Döküm dosyaları üzerinde denetimleri dosya biçimini doğrulayın ve bazı metin normalleştirme yapın. Konuşma tanıma ile Konuşma transcribed. Daha sonra elde edilen metnini sağladığınız döküm ile karşılaştırılır.
 
 ![Ses verilerimi](media/custom-voice/my-voice-data.png)
 
-Aşağıdaki tablo, içeri aktarılan veri kümeleri için işleme durumları gösterir: 
+Aşağıdaki tablo, içeri aktarılan veri kümeleri için işleme durumları gösterir:
 
 | Durum | Anlamı
 | ----- | -------
@@ -143,19 +143,19 @@ Herhangi bir konuşma düşük telaffuz puanları veya zayıf sinyal/gürültü 
 
 ## <a name="build-your-voice-font"></a>Derleme, ses tipi
 
-Veri kümeniz doğrulandıktan sonra özel ses tipi oluşturmak için kullanabilirsiniz. 
+Veri kümeniz doğrulandıktan sonra özel ses tipi oluşturmak için kullanabilirsiniz.
 
 1.  İçinde **özel sesli** aşağı açılan menüyü seçin **modelleri**.
- 
+
     **My ses tiplerini** zaten oluşturmuş olduğunuz tüm özel ses tipi listeleme, tablo görünür.
 
-1. Tablo başlığı altında seçin **oluşturma sesleri**. 
+1. Tablo başlığı altında seçin **oluşturma sesleri**.
 
     Bir ses tipi oluşturma sayfası görüntülenir. Geçerli yerel ayarı tablosunun ilk satırında gösterilir. Başka bir dilde bir ses oluşturmak için yerel ayarını değiştirin. Ses oluşturmak için kullanılan veri kümeleri için olduğu gibi yerel ayarı aynı olmalıdır.
 
-1. Veri kümeniz yüklediğiniz zaman yaptığınız gibi bir ad ve bu modeli tanımlamanıza yardımcı olması için bir açıklama girin. 
+1. Veri kümeniz yüklediğiniz zaman yaptığınız gibi bir ad ve bu modeli tanımlamanıza yardımcı olması için bir açıklama girin.
 
-    Dikkatli bir şekilde bir ad seçin. Buraya girdiğiniz ad, isteğiniz konuşma sentezi için ses giriş SSML'yi bir parçası olarak belirtmek için kullandığınız ad olacaktır. Yalnızca harf, rakam ve gibi bazı noktalama karakterleri '-', '_' ve '(',')' izin verilir.
+    Dikkatli bir şekilde bir ad seçin. Buraya girdiğiniz ad, isteğiniz konuşma sentezi için ses giriş SSML'yi bir parçası olarak belirtmek için kullandığınız ad olacaktır. Yalnızca harf, rakam ve gibi bazı noktalama karakterleri `-`, `_`, ve `(', ')` izin verilir.
 
     Yaygın **açıklama** alandır modeli oluşturmak için kullanılan veri kümelerinin adlarındaki harflerde kaydetmek için.
 
@@ -167,7 +167,7 @@ Veri kümeniz doğrulandıktan sonra özel ses tipi oluşturmak için kullanabil
 
     ![Model oluşturma](media/custom-voice/create-model.png)
 
-Yeni modelinizi görünür **My ses tiplerini** tablo. 
+Yeni modelinizi görünür **My ses tiplerini** tablo.
 
 ![My ses tipleri](media/custom-voice/my-voice-fonts.png)
 
@@ -212,7 +212,7 @@ Dağıtım durumu olduğunda **başarılı**, uç noktası, dağıtılan ses tip
 
 Çevrimiçi uç noktasını sınama de özel sesli portal kullanılabilir. Uç noktanız test etmek için seçin **test uç noktaları** gelen **özel sesli** açılan menüsü. Uç nokta sayfasını test etme görünür. Dağıtılan bir özel sesli seçin ve (düz metin veya SSML'yi biçimi) metin kutusuna söylenir için metin girin.
 
-> [!NOTE] 
+> [!NOTE]
 > SSML'yi, kullanırken `<voice>` etiket oluşturduğunuzda, özel sesli verdiğiniz adı belirtmeniz gerekir. Düz metin gönderirseniz, özel sesli her zaman kullanılır.
 
 İçinde özel ses tipi konuşulan metnin duymak seçin **Play**.
@@ -223,10 +223,18 @@ Dağıtım durumu olduğunda **başarılı**, uç noktası, dağıtılan ses tip
 
 ## <a name="language-support"></a>Dil desteği
 
-Ses özelleştirme ABD İngilizce (en-US), ana kara Çince (zh-CN) ve İtalyanca (it-IT) için kullanılabilir.
+Ses özelleştirmesi şu dillerde kullanılabilir:
+
+| Dil | Yerel Ayar |
+|----------|--------|
+| Çince (ana kara) | zh-CN |
+| English (US) | en-US |
+| Fransızca  | fr-FR |
+| Almanca  | de-DE |
+| İtalyanca | İt-IT |
 
 > [!NOTE]
-> İtalyan sesi eğitim 2000'den fazla konuşma bir veri kümesi ile başlar. Çince-İngilizce dilli modelleri de Konuşma 2000'den fazla veri kümesi ile desteklenir.
+> Fransızca, Almanca ve İtalyanca üslup eğitimi 2000'den fazla konuşma bir veri kümesi ile başlar. Çince-İngilizce dilli modelleri de Konuşma 2000'den fazla veri kümesi ile desteklenir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

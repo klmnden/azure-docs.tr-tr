@@ -4,12 +4,12 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: f69342bb68b82070ed9b9d82c8800315308febed
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 2d041ccbcf85f1931ca8ebc8b17595c9221c03cc
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50159333"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54414651"
 ---
 ## <a name="add-a-consumer-group-to-your-iot-hub"></a>IOT hub'ınıza bir tüketici grubu Ekle
 
@@ -19,9 +19,6 @@ IOT hub'ınıza bir tüketici grubu eklemek için aşağıdaki adımları izleyi
 
 1. [Azure portalında](https://portal.azure.com/) IoT hub'ınızı açın.
 
-2. Sol bölmede **uç noktaları**seçin **olayları** Orta bölmede, altında bir ad girin **tüketici grupları** 'a tıklayın ve sağ bölmede **Kaydet** .
+2. Sol bölmede **yerleşik uç noktaları**seçin **olayları** üst bölmede ve altında bir ad girin **tüketici grupları** sağ bölmede. Tıklayın **Kaydet** siz değiştirdikten sonra **varsayılan TTL** değeri ve özgün değeri geri dönün.
 
    ![IOT hub'ına bir tüketici grubu oluşturun](./media/iot-hub-get-started-create-consumer-group/iot-hub-create-consumer-group-azure.png)
-
-
-   

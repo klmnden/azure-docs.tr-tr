@@ -6,14 +6,14 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: bb25f237450a83a34645ad4dfd9a2839c5525c6f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 87c605feeab742ae589cf8d5d9a98c8e53ccf662
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090440"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54410464"
 ---
 # <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities-preview"></a>Stream Analytics yönetilen kimlikleri (Önizleme) kullanarak Azure Data Lake depolama Gen1 için kimlik doğrulaması
 
@@ -21,9 +21,9 @@ Azure Stream Analytics, Azure Data Lake Storage (ADLS) Gen1 çıktıyla yönetil
 
 Ziyaret [Azure Stream analytics'te sekiz yeni özellikler](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/) blog gönderisi için yeni özellikler hakkında daha fazla Bu önizleme sürümü ve okuma için kaydolun.
 
-Bu makalede, bir Azure Data Lake depolama Gen1 veren Azure Stream Analytics işi için yönetilen kimlik etkinleştirmek için iki yolunu gösterir: Azure portalı ve Azure Resource Manager şablon dağıtımı aracılığıyla.
+Bu makalede, yönetilen kimlik veren bir Azure Data Lake depolama Gen1 Azure portalı, Azure Resource Manager şablon dağıtımı ve Azure Stream Analytics araçları için Visual Studio için Azure Stream Analytics işi için etkinleştirmek için iki yolunu gösterir.
 
-## <a name="enable-managed-identity-with-azure-portal"></a>Azure portalı ile yönetilen kimliği etkinleştirme
+## <a name="azure-portal"></a>Azure portal
 
 1. Yeni bir Stream Analytics işi oluşturma veya var olan bir işi, Azure portalında açarak başlatın. Ekranın sol tarafında bulunan menü çubuğundan seçin **yönetilen kimliği (Önizleme)** altında bulunan **yapılandırma**.
 
@@ -64,6 +64,28 @@ Bu makalede, bir Azure Data Lake depolama Gen1 veren Azure Stream Analytics işi
    ![Stream Analytics erişim Portalı'nda listesi](./media/stream-analytics-managed-identities-adls/stream-analytics-access-list.png)
 
    Data Lake depolama Gen1 dosya sistemi izinleri hakkında daha fazla bilgi için bkz: [Azure Data Lake depolama Gen1 erişim denetimi](../data-lake-store/data-lake-store-access-control.md).
+
+## <a name="stream-analytics-tools-for-visual-studio"></a>Visual Studio için Stream Analytics araçları
+
+1. JobConfig.json içinde ayarlamak **kullanım sistem tarafından atanan kimlik** için **True**.
+
+   ![Stream Analytics işi yapılandırma yönetilen kimlikleri](./media/stream-analytics-managed-identities-adls/adls-mi-jobconfig-vs.png)
+
+2. Kimlik doğrulama modu açılır ve select ADLS Gen1 çıkış havuzu, çıkış Özellikler penceresinde tıklayın **yönetilen kimliği (Önizleme)**.
+
+   ![ADLS yönetilen kimlik çıkışı](./media/stream-analytics-managed-identities-adls/adls-mi-output-vs.png)
+
+3. Kalan özelliklerini doldurun ve tıklayın **Kaydet**.
+
+4. Tıklayın **azure'a Gönder** sorgu Düzenleyicisi'nde.
+
+   İşi gönderdiğinizde, araçları, iki işlem yapmanız gerekir:
+
+   * Otomatik olarak bir hizmet sorumlusu kimliğinin Stream Analytics işi Azure Active Directory'de oluşturur. Yeni oluşturulan kimlik yaşam döngüsünü Azure tarafından yönetilir. Stream Analytics işi silindiğinde, ilişkili kimlik (diğer bir deyişle, hizmet sorumlusu), Azure tarafından otomatik olarak silinir.
+
+   * Otomatik olarak **yazma** ve **yürütme** ADLS Gen1 izinlerini önek işlemde kullanılan yolu ve bu klasör ve tüm alt öğeleri için atayın.
+
+5. Resource Manager şablonlarını kullanarak aşağıdaki özellik ile oluşturabileceğiniz [Stream Analytics CI. CD Nuget paketini](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/) 1.5.0 sürümü veya üzeri bir yapı makinesinde (dışında Visual Studio). Resource Manager şablon dağıtımı, hizmet sorumlusu almak ve hizmet sorumlusu PowerShell erişim vermek için sonraki bölümde adımlarını izleyin.
 
 ## <a name="resource-manager-template-deployment"></a>Resource Manager şablon dağıtımı
 
@@ -153,3 +175,5 @@ Bu makalede, bir Azure Data Lake depolama Gen1 veren Azure Stream Analytics işi
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Stream analytics ile Data lake Store çıkış oluşturma](../data-lake-store/data-lake-store-stream-analytics.md)
+* [Stream Analytics sorguları Visual Studio ile yerel olarak test etme](stream-analytics-vs-tools-local-run.md)
+* [Visual Studio için Azure Stream Analytics araçları kullanarak yerel olarak test canlı verileri](stream-analytics-live-data-local-testing.md) 

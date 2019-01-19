@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2018
 ms.author: anwestg
-ms.openlocfilehash: add4a7f1ce8133b5c3891f731fc98ee7fdb26ebd
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 31fe0ede202b72a3e71c8028543ef0677a44a335
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275678"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413031"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Azure Stack üzerinde App Service ile çalışmaya başlamadan önce
 
@@ -37,8 +37,8 @@ Azure Stack'te Azure App Service'ı dağıtmadan önce bu makalede bölümündek
 3. Yardımcı betikleri .zip dosyasından dosyaları ayıklayın. Aşağıdaki dosya ve klasörleri ayıklanır:
 
    - Common.ps1
-   - Oluşturma AADIdentityApp.ps1
-   - Oluşturma ADFSIdentityApp.ps1
+   - Create-AADIdentityApp.ps1
+   - Create-ADFSIdentityApp.ps1
    - Create-AppServiceCerts.ps1
    - Get-AzureStackRootCert.ps1
    - Remove-AppService.ps1
@@ -75,8 +75,8 @@ Aşağıdaki PowerShell komutunu çalıştırdığınızda, AzureStack\CloudAdmi
 
 | Parametre | Gerekli veya isteğe bağlı | Varsayılan değer | Açıklama |
 | --- | --- | --- | --- |
-| PrivilegedEndpoint | Gerekli | AzS-ERCS01 | Ayrıcalıklı uç noktası |
-| CloudAdminCredential | Gerekli | AzureStack\CloudAdmin | Azure Stack bulut yöneticileri etki alanı hesabı kimlik bilgileri |
+| PrivilegedEndpoint | Gereklidir | AzS-ERCS01 | Ayrıcalıklı uç noktası |
+| CloudAdminCredential | Gereklidir | AzureStack\CloudAdmin | Azure Stack bulut yöneticileri etki alanı hesabı kimlik bilgileri |
 
 ### <a name="certificates-required-for-asdk-deployment-of-azure-app-service"></a>Azure App Service'in ASDK dağıtım için gerekli sertifikaları
 
@@ -100,8 +100,8 @@ Sertifikaları oluşturmak için aşağıdaki adımları izleyin:
 
 | Parametre | Gerekli veya isteğe bağlı | Varsayılan değer | Açıklama |
 | --- | --- | --- | --- |
-| pfxPassword | Gerekli | Null | Parola sertifika özel anahtarını korunmasına yardımcı olur |
-| DomainName | Gerekli | Local.azurestack.external | Azure Stack bölge ve etki alanı soneki |
+| pfxPassword | Gereklidir | Null | Parola sertifika özel anahtarını korunmasına yardımcı olur |
+| DomainName | Gereklidir | Local.azurestack.external | Azure Stack bölge ve etki alanı soneki |
 
 ### <a name="certificates-required-for-azure-stack-production-deployment-of-azure-app-service"></a>Azure App Service'in Azure Stack Üretim dağıtımı için gerekli sertifikaları
 
@@ -121,7 +121,7 @@ Sertifika .pfx biçiminde olmalıdır ve üç konulu bir joker sertifika olmalı
 | Biçimlendir | Örnek |
 | --- | --- |
 | \*.appservice. \<bölge\>.\< DomainName\>.\< Uzantı\> | \*.appservice.redmond.azurestack.external |
-| \*. scm.appservice. <region>. <DomainName>.<extension> | \*.scm.appservice.redmond.azurestack.external |
+| \*.scm.appservice.<region>.<DomainName>.<extension> | \*.scm.appservice.redmond.azurestack.external |
 | \*. sso.appservice. <region>. <DomainName>.<extension> | \*.sso.appservice.redmond.azurestack.external |
 
 #### <a name="api-certificate"></a>API sertifikası
@@ -327,7 +327,7 @@ Yöneticiler, SSO için yapılandırmanız gerekir:
 Şu adımları uygulayın:
 
 1. Bir PowerShell örneği azurestack\AzureStackAdmin açın.
-2. Yüklediğiniz ve açtığınız içinde betikleri konumunu Git [önkoşul adım](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts).
+2. Yüklediğiniz ve açtığınız içinde betikleri konumunu Git [önkoşul adım](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started).
 3. [Azure Stack için PowerShell yükleme](azure-stack-powershell-install.md).
 4. Çalıştırma **Oluştur AADIdentityApp.ps1** betiği. İstendiğinde, Azure Stack dağıtımınız için kullandığınız Azure AD Kiracı Kimliğinizi girin. Örneğin, **myazurestack.onmicrosoft.com**.
 5. İçinde **kimlik bilgisi** penceresinde, Azure AD Hizmet Yöneticisi hesabını ve parolayı girin. **Tamam**’ı seçin.
@@ -347,12 +347,12 @@ Yöneticiler, SSO için yapılandırmanız gerekir:
 
 | Parametre | Gerekli veya isteğe bağlı | Varsayılan değer | Açıklama |
 | --- | --- | --- | --- |
-| DirectoryTenantName | Gerekli | Null | Azure AD Kiracı kimliği GUID veya dize sağlayın. Myazureaaddirectory.onmicrosoft.com buna bir örnektir. |
-| AdminArmEndpoint | Gerekli | Null | Yönetici Azure Resource Manager uç noktası. Adminmanagement.local.azurestack.external buna bir örnektir. |
-| TenantARMEndpoint | Gerekli | Null | Kiracı Azure Resource Manager uç noktası. Management.local.azurestack.external buna bir örnektir. |
-| AzureStackAdminCredential | Gerekli | Null | Azure AD Hizmet Yöneticisi kimlik bilgisi. |
-| CertificateFilePath | Gerekli | Null | **Tam yol** daha önce oluşturulan Identity application sertifika dosyası için. |
-| CertificatePassword | Gerekli | Null | Parola, sertifika özel anahtarını korunmasına yardımcı olur. |
+| DirectoryTenantName | Gereklidir | Null | Azure AD Kiracı kimliği GUID veya dize sağlayın. Myazureaaddirectory.onmicrosoft.com buna bir örnektir. |
+| AdminArmEndpoint | Gereklidir | Null | Yönetici Azure Resource Manager uç noktası. Adminmanagement.local.azurestack.external buna bir örnektir. |
+| TenantARMEndpoint | Gereklidir | Null | Kiracı Azure Resource Manager uç noktası. Management.local.azurestack.external buna bir örnektir. |
+| AzureStackAdminCredential | Gereklidir | Null | Azure AD Hizmet Yöneticisi kimlik bilgisi. |
+| CertificateFilePath | Gereklidir | Null | **Tam yol** daha önce oluşturulan Identity application sertifika dosyası için. |
+| CertificatePassword | Gereklidir | Null | Parola, sertifika özel anahtarını korunmasına yardımcı olur. |
 | Ortam | İsteğe bağlı | AzureCloud | Azure Active Directory Graph hizmeti hedef kullanılabilir desteklenen bulut ortamı adı.  İzin verilen değerler: 'AzureCloud', 'AzureChinaCloud', 'AzureUSGovernment', 'AzureGermanCloud'.|
 
 ## <a name="create-an-active-directory-federation-services-application"></a>Active Directory Federasyon Hizmetleri uygulama oluşturma
@@ -371,7 +371,7 @@ Yöneticiler, SSO için yapılandırmanız gerekir:
 Şu adımları uygulayın:
 
 1. Bir PowerShell örneği azurestack\AzureStackAdmin açın.
-2. Yüklediğiniz ve açtığınız içinde betikleri konumunu Git [önkoşul adım](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts).
+2. Yüklediğiniz ve açtığınız içinde betikleri konumunu Git [önkoşul adım](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started).
 3. [Azure Stack için PowerShell yükleme](azure-stack-powershell-install.md).
 4. Çalıştırma **Oluştur ADFSIdentityApp.ps1** betiği.
 5. İçinde **kimlik bilgisi** penceresinde, AD FS bulut yönetici hesabı ve parola girin. **Tamam**’ı seçin.
@@ -383,11 +383,11 @@ Yöneticiler, SSO için yapılandırmanız gerekir:
 
 | Parametre | Gerekli veya isteğe bağlı | Varsayılan değer | Açıklama |
 | --- | --- | --- | --- |
-| AdminArmEndpoint | Gerekli | Null | Yönetici Azure Resource Manager uç noktası. Adminmanagement.local.azurestack.external buna bir örnektir. |
-| PrivilegedEndpoint | Gerekli | Null | Ayrıcalıklı uç noktası. AzS-ERCS01 buna bir örnektir. |
-| CloudAdminCredential | Gerekli | Null | Azure Stack bulut yöneticileri için etki alanı hesabı kimlik bilgisi. Azurestack\CloudAdmin buna bir örnektir. |
-| CertificateFilePath | Gerekli | Null | **Tam yol** kimlik uygulamanın Sertifika PFX dosyası. |
-| CertificatePassword | Gerekli | Null | Parola, sertifika özel anahtarını korunmasına yardımcı olur. |
+| AdminArmEndpoint | Gereklidir | Null | Yönetici Azure Resource Manager uç noktası. Adminmanagement.local.azurestack.external buna bir örnektir. |
+| PrivilegedEndpoint | Gereklidir | Null | Ayrıcalıklı uç noktası. AzS-ERCS01 buna bir örnektir. |
+| CloudAdminCredential | Gereklidir | Null | Azure Stack bulut yöneticileri için etki alanı hesabı kimlik bilgisi. Azurestack\CloudAdmin buna bir örnektir. |
+| CertificateFilePath | Gereklidir | Null | **Tam yol** kimlik uygulamanın Sertifika PFX dosyası. |
+| CertificatePassword | Gereklidir | Null | Parola, sertifika özel anahtarını korunmasına yardımcı olur. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

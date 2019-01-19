@@ -11,19 +11,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/18/2018
+ms.date: 01/18/2019
 ms.author: borisb
-ms.openlocfilehash: dbef04710e1a91cfda8b039605b517de9524ee19
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: fd73863dacd7914e23199ba92211ea67e68f7d0d
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229583"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402158"
 ---
 # <a name="red-hat-enterprise-linux-images-in-azure"></a>Azure'da Red Hat Enterprise Linux görüntüleri
 Bu makalede Azure Market'te kendi adlandırma ve saklama ilkeleri ile birlikte kullanılabilir Red Hat Enterprise Linux (RHEL) görüntüler.
 
 RHEL tüm sürümleri için Red Hat destek ilkeleri hakkında daha fazla bilgi bulunabilir [Red Hat Enterprise Linux yaşam döngüsü](https://access.redhat.com/support/policy/updates/errata) sayfası.
+
+>[!Important]
+> RHEL görüntüleri şu anda Azure Marketi'nde Getir Your-kendi-abonelik (BYOS) ya da Kullandıkça Öde (PAYG) lisans modelleri destekler. [Azure hibrit kullanım teklifi](../windows/hybrid-use-benefit-licensing.md) ve PAYG BYOS arasında dinamik geçiş desteklenmez. Geçiş lisans modu, karşılık gelen görüntüden sanal makine yeniden dağıtıldığında gerektirir.
+
+>[!Note]
+> Azure Market galerisinde RHEL görüntüleri için ilgili tüm sorunlarınız için lütfen Microsoft ile bir destek bileti dosya.
 
 ## <a name="images-available-in-the-ui"></a>Kullanıcı Arabiriminde kullanılabilen görüntüleri
 Market'te veya Azure portalı kullanıcı arabirimini bir kaynak oluştururken "Red Hat" için arama yaptığınızda kullanılabilir RHEL görüntülerinin ve ilgili Red Hat ürünlerini bir alt kümesini görürsünüz. Her zaman eksiksiz bir listesi kullanılabilir VM görüntüleri Azure CLI/PowerShell/API'sini kullanarak elde edebilirsiniz.
@@ -81,12 +87,12 @@ RHEL | HAM 7 | HAM | Linux Aracısı | Görüntüleri RHEL 7 ailesi
 | | 7.3 | HAM | Linux Aracısı | RHEL 7.3 için yukarıdaki gibi aynı
 | | 7.4 | HAM | Linux Aracısı | RHEL 7.4 için yukarıdaki gibi aynı
 | | 7.5 | HAM | Linux Aracısı | RHEL 7.5 için yukarıdaki gibi aynı
-RHEL SAP | 7.4 | LVM | Linux Aracısı | SAP HANA ve iş kolu uygulamaları için RHEL 7.4
+RHEL-SAP | 7.4 | LVM | Linux Aracısı | SAP HANA ve iş kolu uygulamaları için RHEL 7.4
 | | 7.5 | LVM | Linux Aracısı | SAP HANA ve iş kolu uygulamaları için RHEL 7.5
-RHEL SAP HANA | 6.7 | HAM | Linux Aracısı | SAP HANA için RHEL 6.7
+RHEL-SAP-HANA | 6.7 | HAM | Linux Aracısı | SAP HANA için RHEL 6.7
 | | 7.2 | LVM | Linux Aracısı | SAP HANA için RHEL 7.2
 | | 7.3 | LVM | Linux Aracısı | SAP HANA için RHEL 7.3
-RHEL SAP UYGULAMALARI | 6.8 | HAM | Linux Aracısı | 6,8 RHEL for SAP Business Applications
+RHEL-SAP-APPS | 6.8 | HAM | Linux Aracısı | 6,8 RHEL for SAP Business Applications
 | | 7.3 | LVM | Linux Aracısı | 7.3 RHEL for SAP Business Applications
 
 ### <a name="old-naming-convention"></a>Eski adlandırma kuralı

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 09464342bd39e57f6e637ce90adc7190d08340a9
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 128e389a8d6928f9f133fe9d649d0fc7e982e4df
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265422"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402377"
 ---
 # <a name="about-azure-vm-backup"></a>Azure VM yedeklemesi hakkında
 
@@ -69,11 +69,11 @@ Uygulamaları çalıştırırken anlık görüntülerini almak için Azure Backu
 
 Aşağıdaki tabloda, tutarlılık farklı türleri açıklanmaktadır.
 
-**Anlık görüntü** | **VSS tabanlı** | **Ayrıntılar** | **Kurtarma**
+**Anlık görüntü** | **Ayrıntılar** | **Kurtarma** | **Önemli noktalar**
 --- | --- | --- | ---
-**Uygulamayla tutarlı** | Evet (yalnızca Windows) | Uygulamayla tutarlı yedeklemeler bellek içeriği ve bekleyen g/ç işlemlerini yakalayın. Uygulamayla tutarlı anlık görüntüleri VSS Yazıcı (veya Linux için ön/son betik) yedekleme gerçekleşmeden önce uygulama veri tutarlılığı kullanın. | Uygulamayla tutarlı bir anlık görüntü ile kurtarırken, VM yedekleme önyüklenir. Veri bozulmasına veya kaybına yoktur. Uygulamaları tutarlı bir durumda başlatın.
-**Dosya sistemiyle tutarlı** | Evet (yalnızca Windows) |  Dosya tutarlı yedekler, aynı anda tüm dosyaları anlık görüntüsünü alarak disk dosyalarının tutarlı yedeklemeler sağlar.<br/><br/> Azure Backup kurtarma noktaları için tutarlı dosya şunlardır:<br/><br/> -Linux Vm'leri başarısız betik öncesi/sonrası betikleri veya olmayan yedeklemelere sahip.<br/><br/> -Windows VM yedekleme VSS başarısız olduğu. | Bir dosya tutarlı anlık görüntü ile kurtarırken, VM yedekleme önyüklenir. Veri bozulmasına veya kaybına yoktur. Geri yüklenen verilerin tutarlı olduğundan emin olmak için kendi "yukarı düzeltme" mekanizması uygulamak uygulamaları gerekir.
-**Kilitlenmeyle tutarlı** | Hayır | Kilitlenme tutarlılığı, genellikle bir Azure VM yedekleme sırasında kapatıldığında oluşur.  Zaten diskte yedekleme sırasında var olan veriler yakalanır ve yedeklendi.<br/><br/> Kilitlenmeyle tutarlı kurtarma noktası işletim sistemi veya uygulama için veri tutarlılığı garanti etmez. | Hiçbir garanti eder, ancak genellikle VM önyüklemeleri vardır ve bozulma hatalarını düzeltmek için bir disk ile aşağıdaki gibi denetleyin. Herhangi bir bellek içi verileri veya transfer olmayan yazma disk kaybolur. Uygulama kendi veri doğrulaması uygular. Örneğin, işlem günlüğü veritabanında bulunmayan girişleri varsa veri tutarlı olana kadar için bir veritabanı uygulaması, veritabanı yazılımına yapar.
+**Uygulamayla tutarlı** | Uygulamayla tutarlı yedeklemeler bellek içeriği ve bekleyen g/ç işlemlerini yakalayın. Uygulamayla tutarlı anlık görüntüleri VSS Yazıcı (veya Linux için ön/son betik) yedekleme gerçekleşmeden önce uygulama veri tutarlılığı kullanın. | Uygulamayla tutarlı bir anlık görüntü ile kurtarırken, VM yedekleme önyüklenir. Veri bozulmasına veya kaybına yoktur. Uygulamaları tutarlı bir durumda başlatın. | Windows: Tüm VSS yazıcılarının başarılı oldu<br/><br/> Linux: Ön/son betik başarılı oldu ve yapılandırılır
+**Dosya sistemiyle tutarlı** | Dosya tutarlı yedekler, aynı anda tüm dosyaları anlık görüntüsünü alarak disk dosyalarının tutarlı yedeklemeler sağlar.<br/><br/> | Bir dosya tutarlı anlık görüntü ile kurtarırken, VM yedekleme önyüklenir. Veri bozulmasına veya kaybına yoktur. Geri yüklenen verilerin tutarlı olduğundan emin olmak için kendi "yukarı düzeltme" mekanizması uygulamak uygulamaları gerekir. | Windows: Bazı VSS yazıcılarının başarısız oldu <br/><br/> Linux: (Ön/son betik yapılandırılmış başarısız oldu veya varsa) varsayılan
+**Kilitlenmeyle tutarlı** | Kilitlenme tutarlılığı, genellikle bir Azure VM yedekleme sırasında kapatıldığında oluşur.  Zaten diskte yedekleme sırasında var olan veriler yakalanır ve yedeklendi.<br/><br/> Kilitlenmeyle tutarlı kurtarma noktası işletim sistemi veya uygulama için veri tutarlılığı garanti etmez. | Hiçbir garanti eder, ancak genellikle VM önyüklemeleri vardır ve bozulma hatalarını düzeltmek için bir disk ile aşağıdaki gibi denetleyin. Herhangi bir bellek içi verileri veya transfer olmayan yazma disk kaybolur. Uygulama kendi veri doğrulaması uygular. Örneğin, işlem günlüğü veritabanında bulunmayan girişleri varsa veri tutarlı olana kadar için bir veritabanı uygulaması, veritabanı yazılımına yapar. | VM kapatma durumdadır
 
 
 ## <a name="service-and-subscription-limits"></a>Hizmet ve abonelik limitleri
