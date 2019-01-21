@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: b995f5f29c1377105e174faed43fb8ba82d90383
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 88a657e30d3b30825a3fea21aa6e1162e8bc09b4
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313250"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411161"
 documentType: LandingData
 title: Azure Search Belgeleri
 metadata:
@@ -17,10 +17,10 @@ metadata:
   ms.service: search
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 05/01/2018
+  ms.date: 01/18/2019
   ms.author: heidist
 abstract:
-  description: Azure Search kullanarak özel ve heterojen içerikler üzerinde kurumsal arama çözümü oluşturmayı öğrenin. Öğreticiler, API başvuruları ve diğer belgeler; aratılabilir içeriği, çeşitli senaryolarda basitten gelişmişe söz dizimleri kullanılarak sorgulanabilen tek bir hızlı dizinde toplamayı gösterir. <p/><b>Yeni bilişsel arama önizlemesi.</b> Dizinleme işlem hattına AI destekli algoritmalar bağlamak için yayın öncesi REST API’sini kullanın. Yapılandırılmamış ham içeriği bir Azure Arama dizininde aranabilir içeriğe dönüştürmek için verileri ayıklayın ve doğal dil ile görüntü işlemlerini çağırın. <p/><a href="/azure/search/cognitive-search-quickstart-blob">Kaynakları ve örnek verileri</a> kullanarak bilişsel aramayı keşfedin veya <a href="/azure/search/cognitive-search-concept-intro">Kavramlar</a> bölümünden daha fazla bilgi edinin.
+  description: Azure Search kullanarak özel ve heterojen içerikler üzerinde kurumsal arama çözümü oluşturmayı öğrenin. Öğreticiler, API başvuruları ve diğer belgeler; aratılabilir içeriği, çeşitli senaryolarda basitten gelişmişe söz dizimleri kullanılarak sorgulanabilen tek bir hızlı dizinde toplamayı gösterir. <p/><a href="/azure/search/cognitive-search-concept-intro"><b>Yeni bilişsel arama önizlemesi.</b></a> Dizinleme işlem hattına AI destekli algoritmalar bağlamak için yayın öncesi REST API’sini kullanın. Yapılandırılmamış ham içeriği bir Azure Arama dizininde aranabilir içeriğe dönüştürmek için verileri ayıklayın ve doğal dil ile görüntü işlemlerini çağırın. <p/><a href="/azure/search/cognitive-search-quickstart-blob">Kaynakları ve örnek verileri</a> kullanarak bilişsel aramayı keşfedin veya <a href="/azure/search/cognitive-search-concept-intro">Kavramlar</a> bölümünden daha fazla bilgi edinin.
   aside:
     image:
       alt: 

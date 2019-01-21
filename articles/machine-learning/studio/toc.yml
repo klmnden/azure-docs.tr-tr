@@ -57,34 +57,13 @@ items:
     href: r-quickstart.md
 - name: Örnekler
   items:
+  - name: Örnek deneyler
+    displayName: gallery
+    href: sample-experiments.md
   - name: Örnek veri kümeleri
     href: use-sample-datasets.md
-  - name: Müşteri karmaşası örneği
-    href: azure-ml-customer-churn-scenario.md
   - name: Azure Yapay Zeka Galerisi
-    items:
-    - name: Genel Bakış
-      href: gallery-how-to-use-contribute-publish.md
-    - name: Örnek deneyler
-      href: sample-experiments.md
-    - name: Sektörler
-      href: gallery-industries.md
-    - name: Çözümler
-      href: gallery-solutions.md
-    - name: Denemeler
-      href: gallery-experiments.md
-    - name: Jupyter Notebooks
-      href: gallery-jupyter-notebooks.md
-    - name: Yarışmalar
-      href: gallery-competitions.md
-    - name: Yarışmalar hakkında SSS
-      href: competition-faq.md
-    - name: Öğreticiler
-      href: gallery-tutorials.md
-    - name: Koleksiyonlar
-      href: gallery-collections.md
-    - name: Özel Modüller
-      href: gallery-custom-modules.md
+    href: gallery-how-to-use-contribute-publish.md
 - name: Kavramlar
   items:
   - name: Model yönetimi
@@ -102,9 +81,6 @@ items:
       href: troubleshooting-creating-ml-workspace.md
     - name: ARM kullanarak dağıtma
       href: deploy-with-resource-manager-template.md
-    - name: Studio hesabı verilerini görüntüleme ve silme
-      displayName: export
-      href: export-delete-personal-data-dsr.md
   - name: Eğitim verilerini içeri aktarma
     items:
     - name: Genel Bakış
@@ -128,15 +104,9 @@ items:
       displayName: endpoint, endpoints
       href: create-models-and-endpoints-with-powershell.md
     - name: Algoritma seçme
-      items:
-      - name: Algoritma seçme
-        href: algorithm-choice.md
-      - name: Algoritma bilgi sayfası
-        href: algorithm-cheat-sheet.md
-      - name: Doğrusal regresyon kullanma
-        href: linear-regression-in-azure.md
-      - name: Metin analizi kullanma
-        href: text-analytics-module-tutorial.md
+      href: algorithm-choice.md
+    - name: Algoritma bilgi sayfası
+      href: algorithm-cheat-sheet.md
     - name: Sonuçları değerlendirme ve yorumlama
       items:
       - name: Performansı değerlendirme
@@ -212,7 +182,19 @@ items:
       href: consume-web-service-with-web-app-template.md
     - name: Batch Havuzu kullanma
       href: dedicated-capacity-for-bes-jobs.md
-  - name: Hesap verilerini görüntüleme ve silme
+  - name: Örnekler
+    items:
+    - name: Telekomünikasyon dalgalanması
+      href: azure-ml-customer-churn-scenario.md
+    - name: Yaklaşım analizi
+      href: text-analytics-module-tutorial.md
+    - name: Excel'den Studio'ya analiz aktarma
+      href: linear-regression-in-azure.md
+  - name: Studio verilerini görüntüleme ve silme
+    displayName: export
+    href: export-delete-personal-data-dsr.md
+  - name: Galeri verilerini görüntüleme ve silme
+    displayName: export
     href: ai-gallery-control-personal-data-dsr.md
 - name: Başvuru
   items:
@@ -244,9 +226,9 @@ items:
     href: azure-ml-netsharp-reference-guide.md
   - name: ML ürünlerimizi karşılaştırın
     href: ../service/overview-more-machine-learning.md
-ms.openlocfilehash: 821a6ffb787aef0d75dbc0f9e1ab331ad35dafa0
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: a79ff2e7b2fba67e5c341468b462eacd07e2693c
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389913"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401954"
