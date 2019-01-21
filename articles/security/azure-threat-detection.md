@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 33a9cc0a7b3d18004e19d73a0d9b91bf33cdb055
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 8a546845adb32823e89b814377bcf3e469562445
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408838"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413677"
 ---
 # <a name="azure-advanced-threat-detection"></a>Azure Gelişmiş tehdit algılama
 
@@ -56,7 +56,7 @@ Azure kimlik koruması yardımcı olabilecek yollardan bazılarını örnekleri 
 -   Araştırmalar izlemek için temel iş akışları sağlar.
 -   Parola sıfırlama gibi düzeltme eylemleri kolay erişim sağlar.
 
-[Risk tabanlı, koşullu erişim ilkeleri](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection#risky-sign-ins)
+[Risk tabanlı, koşullu erişim ilkeleri](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
 -   Riskli oturum açma, oturum açma engelleme veya çok faktörlü kimlik doğrulaması zorluklarını gerektirerek azaltın.
 -   Engelleme veya riskli kullanıcı hesaplarını güvenli hale getirme.
 -   Çok faktörlü kimlik doğrulamasına kaydolacak şekilde kullanıcıların gerektirir.
@@ -91,15 +91,15 @@ Log Analytics, size hızlıca Yardım ve kolayca herhangi bir ortamın genel gü
 
 Log Analytics güvenlik ve Denetim Panosu dört ana kategoride düzenlenmiştir:
 
--   **Güvenlik etki alanları**: sağlar, daha fazla zaman içindeki güvenlik kayıtları; erişim kötü amaçlı yazılım değerlendirmesi güncelleştirme değerlendirmeleri; görünümü ağ güvenliği, kimlik, keşfedin ve erişim bilgileri; bilgisayarları güvenlik olaylarıyla; görüntüleyebilir ve Azure hızlı erişim Güvenlik Merkezi Panosu.
+-   **Güvenlik etki alanları**: Daha fazla zaman içindeki güvenlik kayıtları keşfetmenize olanak sağlar; erişim kötü amaçlı yazılım değerlendirmesi; Güncelleştirme değerlendirmelerini; Ağ güvenliği, kimlik ve erişim bilgileri görüntüle Güvenlik olayları içeren bilgisayarları görüntüle ve Azure Güvenlik Merkezi panosuna hızlıca erişin.
 
 -   **Önemli sorunlar**: Etkin sorunların sayısını ve sorunların önem derecesini hızlıca tanımlamanıza olanak sağlar.
 
--   **Algılamalar (Önizleme)**: kaynaklarınıza karşı oluşunca güvenlik uyarılarını görüntüleme desenleri saldırı tanımlamak olanak tanır.
+-   **Algılamalar (Önizleme)**: Güvenlik Uyarıları karşı kaynaklarınızı oluşunca görüntüleyerek saldırı düzenlerini tanımlayabilmenizi sağlar.
 
--   **Tehdit bilgileri**: giden kötü amaçlı IP trafiğini ve kötü amaçlı tehdit türü IP'ler konumları haritasını sunucularıyla toplam sayısı görüntüleyerek desenleri saldırı tanımlamak olanak tanır.
+-   **Tehdit bilgileri**: Giden kötü amaçlı IP trafiğine sahip sunucuların toplam sayısı, kötü amaçlı tehdit türü ve IP'ler konumları haritasını görüntüleyerek saldırı düzenlerini tanımlayabilmenizi sağlar.
 
--   **Ortak Güvenlik sorguları**: ortamınızı izlemek için kullanabileceğiniz en sık kullanılan güvenlik sorguları listeler. Herhangi bir sorguyu seçtiğinizde, arama bölmesini açar ve bu sorgu için sonuçları görüntüler.
+-   **Ortak Güvenlik sorguları**: Ortamınızı izlemek için kullanabileceğiniz en sık kullanılan güvenlik sorguları listeler. Herhangi bir sorguyu seçtiğinizde, arama bölmesini açar ve bu sorgu için sonuçları görüntüler.
 
 ### <a name="insight-and-analytics"></a>İçgörü ve analiz
 Merkezine [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) Azure tarafından barındırılan deposu bulunur.
@@ -124,7 +124,7 @@ Log Analytics ile etkileşim çoğunu olan herhangi bir tarayıcıda çalışan 
 
 Güvenlik ve Denetim Panosu, bu tür çözümler örneğidir.
 
-### <a name="automation-and-control-alert-on-security-configuration-drifts"></a>Otomasyon ve Denetim: güvenlik yapılandırması uyarısında drifts
+### <a name="automation-and-control-alert-on-security-configuration-drifts"></a>Otomasyon ve Denetim: Güvenlik Yapılandırma drifts hakkında uyar
 
 Azure Otomasyonu, PowerShell tabanlı ve bulutta çalışan runbook'ları ile yönetim işlemlerini otomatikleştirir. Runbook'lar yerel kaynakların yönetilmesi için yerel veri merkezinizdeki bir sunucuda da yürütülebilir. Azure Otomasyonu ile PowerShell Desired State Configuration (DSC) yapılandırma yönetimi sağlar.
 
@@ -162,13 +162,13 @@ Araştırmacılar ayrıca büyük bulut hizmeti sağlayıcıları arasında payl
 
 -   **Machine learning gücünden yararlanma**: Azure Güvenlik Merkezi, Azure dağıtımlarınızı hedefleyen tehditleri algılamak için kullanılan bulut ağ etkinliğiyle ilgili yüksek miktarda veri erişimi vardır.
 
--   **Deneme yanılmayı algılama**: Machine learning deneme yanılma saldırıları güvenli Kabuk (SSH), Uzak Masaüstü Protokolü (RDP) ve SQL bağlantı noktalarına izin veren geçmiş bir uzaktan erişim girişimlerini düzeni oluşturmak için kullanılır.
+-   **Deneme yanılmayı algılama**: Makine öğrenimi, deneme yanılma saldırıları güvenli Kabuk (SSH), Uzak Masaüstü Protokolü (RDP) ve SQL bağlantı noktalarına izin veren geçmiş bir uzaktan erişim girişimlerini düzeni oluşturmak için kullanılır.
 
--   **Giden DDoS ve botnet algılama**: ortak bir amacı bulut kaynaklarını hedefleyen saldırılara, bu kaynakları işlem gücünü diğer saldırılar kullanmaktır.
+-   **Giden DDoS ve botnet algılama**: Ortak bir amacı bulut kaynaklarını hedefleyen saldırılara, bu kaynakları işlem gücünü diğer saldırılar kullanmaktır.
 
--   **Yeni davranış analizi sunucuları ve Vm'leri**: sunucu veya sanal makine tehlikeye sonra saldırganlar tespit edilmeden teknikleri algılama önleme, sağlayarak Kalıcılık ve catch'te çalışırken bu sistemde kötü amaçlı kod yürütmek için birçok farklı Güvenlik denetimleri.
+-   **Yeni davranış analizi sunucuları ve Vm'leri**: Bir sunucu veya sanal makine tehlikeye sonra çok çeşitli teknikleri algılama önleme, sağlayarak Kalıcılık ve güvenlik denetimleri catch'te çalışırken bu sistemde kötü amaçlı kod yürütmek için saldırganlar tespit edilmeden.
 
--   **Azure SQL veritabanı tehdit algılama**: tehdit algılama veritabanı açıklıklarından yararlanmaya yönelik erişim olağan dışı ve zararlı olabilecek girişimleri gösteren anormal veritabanı etkinliklerini belirler Azure SQL veritabanı için.
+-   **Azure SQL veritabanı tehdit algılama**: Erişim veritabanı açıklıklarından yararlanmaya yönelik sıra dışı ve zararlı gösteren anormal veritabanı etkinliklerini belirler Azure SQL veritabanı tehdit algılama çalışır.
 
 ### <a name="behavioral-analytics"></a>Davranış analizi
 
@@ -183,9 +183,9 @@ Ayrıca, desenleri, yaygın bir kampanyanın kanıtını desteklemek üzere dene
 Bazı örnekler:
 -   **Şüpheli işlem yürütme**: Saldırganlar tespit edilmeden kötü amaçlı yazılım yürütmeye yönelik çeşitli teknikler kullanmaktadır. Örneğin, bir saldırganın kötü amaçlı yazılıma yasal sistem dosyalarıyla aynı adı verip ancak bu dosyaları alternatif konumlara yerleştirebilir, iyi amaçlı bir dosyaya benzer bir ad kullanın veya dosyanın gerçek uzantısını maskeleyebilir. Güvenlik Merkezi modelleri, davranışları ve bunlar gibi aykırı değerleri algılamak için izleme işlem yürütme işlemi.
 
--   **Gizli kötü amaçlı yazılım ve istismarı denemeleri**: karmaşık kötü amaçlı yazılımlar diske hiçbir zaman yazmayarak veya diske depolanmış yazılım bileşenlerini şifreleyerek geleneksel kötü amaçlı yazılımdan koruma ürünlerini atlatabilir. Kötü amaçlı yazılım, izlemeleri bellekte işleve bırakmak zorunda olduğundan ancak bu tür bellek analizi kullanılarak algılanabilir. Yazılım kilitlendiğinde bir kilitlenme dökümü kilitlenme sırasında belleğin bir kısmını yakalar. Kilitlenme bellek analiz ederek Azure Güvenlik Merkezi yazılımdaki açıklardan yararlanmak, gizli verilere erişmek ve performansını etkilemeden bir makineye gizlice kalıcı için kullanılan teknikleri algılayabilir, Makine.
+-   **Gizli kötü amaçlı yazılım ve istismarı denemeleri**: Karmaşık kötü amaçlı yazılımlar diske hiçbir zaman yazmayarak veya diske depolanmış yazılım bileşenlerini şifreleyerek geleneksel kötü amaçlı yazılımdan koruma ürünlerini atlatabilir. Kötü amaçlı yazılım, izlemeleri bellekte işleve bırakmak zorunda olduğundan ancak bu tür bellek analizi kullanılarak algılanabilir. Yazılım kilitlendiğinde bir kilitlenme dökümü kilitlenme sırasında belleğin bir kısmını yakalar. Kilitlenme bellek analiz ederek Azure Güvenlik Merkezi yazılımdaki açıklardan yararlanmak, gizli verilere erişmek ve performansını etkilemeden bir makineye gizlice kalıcı için kullanılan teknikleri algılayabilir, Makine.
 
--   **Yana hareket ve iç keşif**: tehlikeye giren bir ağda kalıcı hale getirmek ve bulun ve değerli verileri Hasat için saldırganlar genellikle riskli makineden başkalarının aynı ağdaki hareket etmeye çalışır. Güvenlik Merkezi, bir saldırganın ağda kapladığı uzaktan komut yürütme, ağ araştırma ve hesap numaralandırma gibi ağ yeri genişletme denemelerini bulmak için işlemi ve oturum açma etkinliklerini izler.
+-   **Yana hareket ve iç keşif**: Tehlikeye giren bir ağda kalıcı hale getirmek ve bulun ve değerli verileri Hasat için saldırganlar genellikle riskli makineden başkalarının aynı ağdaki hareket etmeye çalışır. Güvenlik Merkezi, bir saldırganın ağda kapladığı uzaktan komut yürütme, ağ araştırma ve hesap numaralandırma gibi ağ yeri genişletme denemelerini bulmak için işlemi ve oturum açma etkinliklerini izler.
 
 -   **Kötü amaçlı PowerShell betikleri**: PowerShell çeşitli amaçlarla hedef sanal makinelerde kötü amaçlı kod yürütülecek saldırganlar tarafından kullanılabilir. Güvenlik Merkezi şüpheli etkinliklerin kanıtı için PowerShell etkinliğini inceler.
 
@@ -195,23 +195,23 @@ Bazı örnekler:
 
 Azure Güvenlik Merkezi, tehditleri tanımlamak için anormallik algılamayı da kullanır. Davranış analizinden (büyük veri kümelerinden türetilmiş bilinen modellere bağlıdır) farklı olarak anormallik algılama daha fazla “kişiselleştirilmiştir” ve dağıtımlarınıza özel taban çizgilerine odaklanır. Dağıtımlarınızın normal etkinliğini belirlemek için Machine learning uygulanır ve ardından kuralları bir güvenlik olayını gösterebilecek aykırı değer koşullarını tanımlamak için oluşturulur. Bir örneği aşağıda verilmiştir:
 
--   **Gelen RDP/SSH deneme yanılma saldırıları**: dağıtımlarınız her gün ve diğer birkaç varsa oturum açma bilgilerine sahip olan sanal makinelerin çok sayıda oturum açılmayan sanal makineler olabilir. Azure Güvenlik Merkezi, bu sanal makineler için taban çizgisi oturum açma etkinliğini belirler ve machine learning normal oturum açma etkinlikleri tanımlamak kullanın. İçin tanımlanan temeli ile herhangi bir tutarsızlık varsa oturum açma ilgili özellikleri, bir uyarı oluşturulabilir. Yine machine learning neyin önemli olduğunu belirler.
+-   **Gelen RDP/SSH deneme yanılma saldırıları**: Dağıtımlarınız her gün çok sayıda oturum açılmayan sanal makineler ve birkaç varsa oturum açma bilgilerine sahip diğer sanal makineler olabilir. Azure Güvenlik Merkezi, bu sanal makineler için taban çizgisi oturum açma etkinliğini belirler ve machine learning normal oturum açma etkinlikleri tanımlamak kullanın. İçin tanımlanan temeli ile herhangi bir tutarsızlık varsa oturum açma ilgili özellikleri, bir uyarı oluşturulabilir. Yine machine learning neyin önemli olduğunu belirler.
 
 ### <a name="continuous-threat-intelligence-monitoring"></a>Sürekli tehdit bilgisi izleme
 
 Azure Güvenlik Merkezi, tehdit kapsamındaki değişiklikleri sürekli olarak izleyen güvenlik araştırması ve veri bilimi ekipleri tüm dünyada ile çalışır. Buna aşağıdaki girişimler dahildir:
 
--   **Tehdit bilgisi izleme**: tehdit zekası mekanizmaları, Göstergeler, uygulamaları ve var olan veya yeni ortaya çıkan tehditlere eyleme dönüştürülebilir öneriler içerir. Bu bilgileri güvenlik topluluğu içinde paylaşılır ve Microsoft iç ve dış kaynaklardan gelen tehdit bilgisi akışlarını sürekli olarak izler.
+-   **Tehdit bilgisi izleme**: Tehdit zekası mekanizmaları, Göstergeler, uygulamaları ve var olan veya yeni ortaya çıkan tehditlere eyleme dönüştürülebilir öneriler içerir. Bu bilgileri güvenlik topluluğu içinde paylaşılır ve Microsoft iç ve dış kaynaklardan gelen tehdit bilgisi akışlarını sürekli olarak izler.
 
--   **Sinyal paylaşımı**: Bulut ve şirket içi hizmetler, sunucular ve istemci uç noktası cihazları, geniş Microsoft Portföyünde güvenlik ekiplerinden alınan bilgiler paylaşılır ve analiz edilir.
+-   **Sinyal paylaşımı**: Güvenlik Öngörüler bulut geniş çaplı Microsoft Portföyü genelinde ekiplerinin ve şirket içi hizmetler, sunucular ve istemci uç noktası cihazları paylaşılan ve analiz edilir.
 
--   **Microsoft Güvenlik uzmanları**: adli gibi Uzman güvenlik alanlarında çalışan ve web saldırıcı algılama Microsoft ekiplerde devam eden bir etkileşim.
+-   **Microsoft Güvenlik uzmanları**: Devamlı etkileşim hukuk ve web saldırıcı algılama gibi Uzman güvenlik alanlarında çalışan ekiplerle Microsoft arasında.
 
 -   **Algılama ayarı**: Gerçek müşteri veri kümelerine göre algoritmalar çalıştırılır ve güvenlik Araştırmacıları sonuçları doğrulamak üzere müşterilerle. Doğru ve yanlış pozitifler kullanılarak machine learning algoritmaları iyileştirilir.
 
 Bu birleşik çabalar, anında yararlanabilir, yeni ve geliştirilmiş algılamalarla sonuçlanır sizin. Hiçbir işlem yapmanıza gerek yoktur.
 
-## <a name="advanced-threat-detection-features-other-azure-services"></a>Gelişmiş tehdit algılama özellikleri: diğer Azure Hizmetleri
+## <a name="advanced-threat-detection-features-other-azure-services"></a>Gelişmiş tehdit algılama özellikleri: Diğer Azure Hizmetleri
 
 ### <a name="virtual-machines-microsoft-antimalware"></a>Sanal makineler: Microsoft kötü amaçlı yazılımdan koruma
 
@@ -223,23 +223,23 @@ Dağıtma ve uygulamalarınız için Microsoft kötü amaçlı yazılımdan koru
 
 -   **Gerçek zamanlı koruma**: Bulut Hizmetleri ve sanal makinelere algılanmasına ve kötü amaçlı yazılım çalıştırma etkinliği izler.
 
--   **Zamanlanmış tarama**: düzenli olarak etkin olarak çalışan programlar da dahil olmak üzere kötü amaçlı yazılımları algılamak için hedeflenen tarama yapar.
+-   **Zamanlanmış tarama**: Düzenli olarak etkin olarak çalışan programlar da dahil olmak üzere kötü amaçlı yazılımları algılamak için hedeflenen tarama yapar.
 
--   **Kötü amaçlı yazılım düzeltme**: otomatik olarak algılanan kötü amaçlı yazılım siliniyor veya kötü amaçlı dosyaları karantinaya ve kötü amaçlı kayıt defteri girdilerini temizleme gibi üzerinde çalışır.
+-   **Kötü amaçlı yazılım düzeltme**: Otomatik olarak algılanan kötü amaçlı yazılım siliniyor veya kötü amaçlı dosyaları karantinaya ve kötü amaçlı kayıt defteri girdilerini temizleme gibi üzerinde çalışır.
 
--   **İmza güncelleştirme**: koruma üzerinde önceden belirlenmiş bir sıklık güncel olduğundan emin olmak için en son (virüs tanımları) koruması imzaları otomatik olarak yükler.
+-   **İmza güncelleştirme**: Otomatik olarak koruma üzerinde önceden belirlenmiş bir sıklık güncel olduğundan emin olmak için en son (virüs tanımları) koruması imzaları yükler.
 
 -   **Kötü amaçlı yazılımdan koruma Altyapısı güncelleştirmeleri**: Microsoft Antimalware Engine otomatik olarak güncelleştirir.
 
 -   **Kötü amaçlı yazılımdan koruma platformu güncelleştirmeleri**: Microsoft kötü amaçlı yazılımdan koruma platformu otomatik olarak güncelleştirir.
 
--   **Etkin koruma**: algılanan Tehditler ve şüpheli kaynaklar Microsoft Azure ile gerçek zamanlı zaman uyumlu imzası teslim etkinleştirme geliştirilmekte olan tehdit ortamını daha hızlı yanıt emin olmak için raporları telemetri meta verilerini Microsoft etkin koruma sistemi.
+-   **Etkin koruma**: Algılanan Tehditler ve şüpheli kaynaklar Microsoft Azure için Microsoft active koruma sistemi üzerinden gerçek zamanlı zaman uyumlu imzası teslim etkinleştirme geliştirilmekte olan tehdit ortamını daha hızlı yanıt emin olmak için ilgili raporlar telemetri meta verileri.
 
--   **Örnekleri raporlama**: sağlar ve hizmeti geliştirmek ve sorun giderme etkinleştirmek yardımcı olmak için Microsoft kötü amaçlı yazılımdan koruma hizmeti örnekleri bildirir.
+-   **Örnekleri raporlama**: Sağlar ve hizmeti geliştirmek ve sorun giderme etkinleştirmek yardımcı olmak için Microsoft kötü amaçlı yazılımdan koruma hizmeti örnekleri raporlar.
 
--   **Dışlamalar**: uygulama ve hizmet yöneticileri belirli dosyaları, işlemler, yapılandırma izin verir ve sürücüler için dışlama koruma ve performans ve diğer nedenlerle için tarama.
+-   **Dışlamalar**: Uygulama ve hizmet yöneticileri belirli dosyaları, süreçleri ve sürücüleri korumadan dışarıda bırakma ve performans ve diğer nedenlerle için tarama yapılandırmak sağlar.
 
--   **Kötü amaçlı yazılımdan koruma olay toplama**: kötü amaçlı yazılımdan koruma hizmet durumu, şüpheli etkinlikleri ve işletim sistemi olay günlüğünde gerçekleştirilen düzeltme eylemleri kaydeder ve onları müşterinin Azure depolama hesabına toplar.
+-   **Kötü amaçlı yazılımdan koruma olay toplama**: Kötü amaçlı yazılımdan koruma hizmet durumu, şüpheli etkinlikleri ve işletim sistemi olay günlüğünde gerçekleştirilen düzeltme eylemleri kaydeder ve onları müşterinin Azure depolama hesabına toplar.
 
 ### <a name="azure-sql-database-threat-detection"></a>Azure SQL veritabanı tehdit algılama
 
@@ -261,9 +261,9 @@ Tehdit algılama e-posta bildirimi aldıktan sonra kullanıcılar gidin ve derin
 
 SQL veritabanı tehdit algılayıcıları aşağıdaki algılama yöntemleri birini kullanın:
 
--   **Belirlenimci algılama**: bilinen saldırıları eşleşen SQL istemci sorgularda şüpheli kalıpları (temel kurallar) algılar. "Atomik algılamalar." kategoride kaldığından bu metodolojide yüksek olan algılama ve düşük yanlış pozitif, ancak sınırlı kapsamı vardır.
+-   **Belirlenimci algılama**: Şüpheli kalıpları (temel kurallar) bilinen saldırıları eşleşen SQL istemci sorgularda algılar. "Atomik algılamalar." kategoride kaldığından bu metodolojide yüksek olan algılama ve düşük yanlış pozitif, ancak sınırlı kapsamı vardır.
 
--   **Davranış algılama**: veritabanındaki en son 30 gün boyunca görülmemiş anormal davranış anormal etkinlik algılar. SQL istemci anormal etkinlik örnekleri, bir depo başarısız oturum açma bilgileri veya sorguları, yüksek hacimli verileri ayıklanırken, olağan dışı kurallı sorguları veya veritabanına erişmek için kullanılan tanınmayan IP adresleri olabilir.
+-   **Davranış algılama**: Anormal davranış en son 30 gün boyunca görülmemiş veritabanında anormal etkinlik algılar. SQL istemci anormal etkinlik örnekleri, bir depo başarısız oturum açma bilgileri veya sorguları, yüksek hacimli verileri ayıklanırken, olağan dışı kurallı sorguları veya veritabanına erişmek için kullanılan tanınmayan IP adresleri olabilir.
 
 ### <a name="application-gateway-web-application-firewall"></a>Application Gateway Web uygulaması güvenlik duvarı
 
@@ -297,25 +297,25 @@ WAF application gateway'iniz yapılandırma aşağıdaki avantajları sağlar:
 
 -   Yardımcı uyumluluk gereksinimlerini karşılayın. Bazı uyumluluk denetimleri, tüm internet'e yönelik uç noktalar bir WAF çözümü tarafından korunmasını gerektirir.
 
-### <a name="anomaly-detection-api-built-with-azure-machine-learning"></a>Anomali algılama API'si: Azure Machine Learning oluşturulmuş
+### <a name="anomaly-detection-api-built-with-azure-machine-learning"></a>Anomali algılama API'si: Azure Machine Learning ile oluşturulmuş
 
 Anomali algılama API'si, zaman serisi verilerinizdeki çeşitli anormal desenleri algılamak için yararlı bir API'dir. API uyarılar oluşturmak için kullanılabilecek zaman serisindeki her bir veri noktasına bir anomali puanı atar panolar aracılığıyla izlemek ya da bilet oluşturma Sistemlerinizle bağlanma.
 
 [Anomali algılama API'sini](https://docs.microsoft.com/azure/machine-learning/machine-learning-apps-anomaly-detection-api) şu zaman serisi verilerinde anomali türlerini algılayabilir:
 
--   **Ani artışlar ve düşüşler**: bir hizmet için oturum açma hatalarının sayısı veya bir e-ticaret sitesinde sayısı izlerken, olağan dışı, ani artış ve düşüşler güvenlik saldırıları belirtin veya hizmet kesintileri.
+-   **Ani artışlar ve düşüşler**: Ne zaman bir hizmet için oturum açma hatalarının sayısı veya almaların beklenmedik ani bir e-ticaret sitesinde izleme yapıyorsanız veya güvenlik saldırıları veya hizmet kesintileri yaşandığını gösterebilir.
 
--   **Pozitif ve negatif eğilimler**: bellek kullanımı izlerken boş bellek boyutunu gösterir olası bellek sızıntısı daraltma. İzleme hizmet kuyruğunun uzunluğu için temel bir yazılım sorunu kalıcı bir yukarı yönlü eğilim gösteriyor olabilir.
+-   **Pozitif ve negatif eğilimler**: Bellek kullanımı izlerken boş bellek boyutunun azalması olası bir bellek sızıntısı olduğunu gösterir. İzleme hizmet kuyruğunun uzunluğu için temel bir yazılım sorunu kalıcı bir yukarı yönlü eğilim gösteriyor olabilir.
 
--   **Düzey değişiklikleri ve değerlerin dinamik aralığındaki değişiklikler**: düzeyi gecikme süreleri, bir hizmetin hizmet yükseltme ya da sonra yükseltme izlenmesi ilginç olabilir. özel durum düzeylerinin alt sonra değiştirir.
+-   **Düzey değişiklikleri ve değerlerin dinamik aralığındaki değişiklikler**: Gecikme sonra hizmet yükseltme veya yükseltme izlenmesi ilginç olabilir sonra özel durum düzeylerinin daha düşük bir hizmet düzeyi değişir.
 
 Makine öğrenme tabanlı API sağlar:
 
--   **Esnek ve güçlü bir algılama**: anomali algılama modelleri duyarlılık ayarlarını yapılandırmak ve dönemsel ve mevsimsel olmayan veri kümesi arasında anormallikleri açmasına imkan tanıyın. Kullanıcılar, anomali algılama modelini algılama API'si ihtiyaçlarına göre daha fazla veya daha az duyarlı olmasına ayarlayabilirsiniz. Veri olmadan dönemsel desenleri ve daha az veya daha fazla görünür anormallikleri saptamak anlamına gelir.
+-   **Esnek ve güçlü bir algılama**: Anomali algılama modelleri duyarlılık ayarlarını yapılandırmak ve dönemsel ve mevsimsel olmayan veri kümesi arasında anormallikleri açmasına imkan tanıyın. Kullanıcılar, anomali algılama modelini algılama API'si ihtiyaçlarına göre daha fazla veya daha az duyarlı olmasına ayarlayabilirsiniz. Veri olmadan dönemsel desenleri ve daha az veya daha fazla görünür anormallikleri saptamak anlamına gelir.
 
--   **Ölçeklenebilir ve hızlı algılama**: mevcut eşikleri uzmanlar etki alanı bilgisini tarafından ayarlanmış olan izleme geleneksel pahalı ve veri kümeleri dinamik olarak değiştirme milyonlarca ölçeklenebilir. Bu API anomali algılama modellerinde öğrenilen ve modelleri geçmişe dönük ve gerçek zamanlı verilerden otomatik olarak ayarlanmıştır.
+-   **Ölçeklenebilir ve hızlı algılama**: Mevcut eşik değeriyle izleme geleneksel uzmanlar etki alanı bilgisini belirlediği pahalı ve veri kümeleri dinamik olarak değiştirme milyonlarca ölçeklenebilir. Bu API anomali algılama modellerinde öğrenilen ve modelleri geçmişe dönük ve gerçek zamanlı verilerden otomatik olarak ayarlanmıştır.
 
--   **Proaktif ve eyleme dönüştürülebilir algılama**: yavaş eğilim ve düzeyi değişiklik algılama erken anomali algılama için uygulanabilir. Algılanan erken anormal sinyaller araştırmak ve sorunlu alanları üzerinde işlem yapma insanlar yönlendirmek için kullanılabilir. Ayrıca, kök neden analiz modelleri ve uyarı araçları bu anomali algılama API'si hizmeti üzerinde geliştirilebilir.
+-   **Proaktif ve eyleme dönüştürülebilir algılama**: Yavaş eğilim ve düzeyi değişiklik algılama erken anomali algılama için uygulanabilir. Algılanan erken anormal sinyaller araştırmak ve sorunlu alanları üzerinde işlem yapma insanlar yönlendirmek için kullanılabilir. Ayrıca, kök neden analiz modelleri ve uyarı araçları bu anomali algılama API'si hizmeti üzerinde geliştirilebilir.
 
 Anomali algılama API'si için çok çeşitli hizmet durumu ve KPI izleme, IOT, performans izleme ve ağ trafiğini izleme gibi senaryoları etkili ve verimli bir çözümdür. Burada, bu API yararlı olabilir bazı yaygın senaryolar aşağıda verilmiştir:
 
@@ -335,9 +335,9 @@ Anomali algılama API'si için çok çeşitli hizmet durumu ve KPI izleme, IOT, 
 
 ### <a name="cloud-app-security"></a>Cloud App Security
 
-[Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) Microsoft Cloud Security yığınının kritik bir bileşenidir. Bu promise bulut uygulamalarının tüm avantajlarından yararlanabilmek hareket ederken, kuruluşunuzun yardımcı olabilecek kapsamlı bir çözümdür. Bu, Gelişmiş etkinlik görünürlüğü sağlayarak denetimi tutar. Ayrıca, bulut uygulamaları genelinde kritik veri korumasını artırmak yardımcı olur.
+[Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) Microsoft Cloud Security yığınının kritik bir bileşenidir. Bu promise bulut uygulamalarının tüm avantajlarından yararlanabilmek hareket ederken, kuruluşunuzun yardımcı olabilecek kapsamlı bir çözümdür. Bu, Gelişmiş etkinlik görünürlüğü sağlayarak denetimi tutar. Ayrıca, bulut uygulamaları genelinde kritik veri korumasını artırmaya da yardımcı olur.
 
-Gölge BT'yi ortaya çıkarın, riskleri değerlendirmeye, ilkeleri zorunlu tutmanıza, etkinlikleri araştırmaya ve tehditleri durdurmaya yardımcı olan araçlarla, kuruluşunuzun daha güvenli bir şekilde buluta kritik verilerin denetimini elde tutarak taşıyabilirsiniz.
+Kuruluşunuz, gölge BT’yi ortaya çıkarmaya, riskleri değerlendirmeye, ilkeleri zorunlu tutmaya, etkinlikleri araştırmaya ve tehditleri durdurmaya yardımcı olan araçlarla kritik verilerin denetimini elde tutarak buluta daha güvenli bir şekilde geçebilir.
 
 | | |
 |---|---|
@@ -383,6 +383,6 @@ Azure Market'te kullanıma sunulan web uygulaması güvenlik duvarları örnekle
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure Güvenlik Merkezi algılama özellikleri](https://docs.microsoft.com/azure/security-center/security-center-detection-capabilities): hızlı yanıt için Öngörüler sağlar ve Azure kaynaklarınızı hedefleyen etkin tehditleri tanımlamanıza yardımcı olacak.
+- [Azure Güvenlik Merkezi algılama özellikleri](https://docs.microsoft.com/azure/security-center/security-center-detection-capabilities): Hızla yanıt vermeniz Öngörüler sağlar ve Azure kaynaklarınızı hedefleyen etkin tehditleri tanımlamanıza yardımcı olacak.
 
-- [Azure SQL veritabanı tehdit algılama](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-your-built-in-security-expert/): Adres kaygılarınızdan veritabanlarınıza olası tehditler hakkında yardımcı olur.
+- [Azure SQL veritabanı tehdit algılama](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-your-built-in-security-expert/): Yardımcı olur, veritabanlarınızı potansiyel tehditlerle ilgili endişelere.
