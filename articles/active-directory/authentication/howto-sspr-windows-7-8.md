@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 1465ba23f6fed85f0d4164f8e3fdc8c38be43ad3
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 1b488e938cf314eef18117ffd33f582319260162
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427748"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438788"
 ---
-# <a name="how-to-enable-password-reset-from-windows-7-8-and-81"></a>Nasıl yapılır: Windows 7, 8 ve 8.1 sıfırlama etkinleştirme parolası
+# <a name="how-to-enable-password-reset-from-windows-7-8-and-81"></a>Nasıl yapılır: Parola sıfırlama Windows 7, 8 ve 8.1 etkinleştir
 
 Self Servis parola sıfırlama (SSPR) etkin bir yönetici olarak, ancak kullanıcılar erişmek için bir tarayıcı penceresi alınamıyor çünkü bu kullanıcının parolasını sıfırlamak için yardım masasına çağırma tutmak [SSPR portalı](https://aka.ms/sspr). Windows 10 makineler için öğreticiyi kullanarak oturum açma ekranında "parolayı Sıfırla" bağlantısı etkinleştirebilirsiniz [Azure AD parola sıfırlama oturum açma ekranından](tutorial-sspr-windows.md), aşağıdaki yönergeleri sıfırlamak, Windows 7, 8 ve 8.1 kullanıcıları etkinleştirmenize yardımcı olur SSPR Windows oturum açma ekranında kullanarak parolalarını.
 

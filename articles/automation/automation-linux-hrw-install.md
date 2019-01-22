@@ -3,18 +3,18 @@ title: Azure Otomasyonu Linux Karma Runbook Çalışanı
 description: Bu makalede, Linux tabanlı bilgisayarlarda yerel veri merkezinde veya Bulut ortamında runbook'ları çalıştırmak için bir Azure Otomasyonu karma Runbook çalışanı yükleme hakkında bilgi sağlar.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f32574dc0a3fd61c21e8c9a7c1ec93c7d366d384
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: e0aaddb841687718295e09e64b23d9cefa9246fd
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408855"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436119"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Bir Linux karma Runbook çalışanı dağıtma
 
@@ -54,7 +54,7 @@ Bir Linux karma Runbook çalışanı için en düşük gereksinimler şunlardır
 |Python ctypes | |
 |PAM | Eklenebilir kimlik doğrulaması modülleri|
 | **İsteğe bağlı paketi** | **Açıklama** | **En düşük sürüm**|
-| PowerShell Core | PowerShell runbook'ları çalıştırmak için PowerShell gereksinimleri yüklenmesi için bkz. [Linux'ta PowerShell Core yükleme](/powershell/scripting/setup/installing-powershell-core-on-linux) yükleneceği hakkında bilgi edinmek için.  | 6.0.0'dan |
+| PowerShell Core | PowerShell runbook'ları çalıştırmak için PowerShell gereksinimleri yüklenmesi için bkz. [Linux'ta PowerShell Core yükleme](/powershell/scripting/setup/installing-powershell-core-on-linux) yükleneceği hakkında bilgi edinmek için.  | 6.0.0 |
 
 ### <a name="installation"></a>Yükleme
 
@@ -119,3 +119,4 @@ Sorun giderme, karma Runbook çalışanları öğrenmek için bkz [Linux karma R
 
 * Şirket içi veri merkezinizde veya diğer bulut ortamı işlemlerini otomatikleştirmek için runbook'larınızı yapılandırma konusunda bilgi için bkz: [bir karma Runbook çalışanı üzerinde runbook çalıştırma](automation-hrw-run-runbooks.md).
 * Karma Runbook çalışanlarını kaldırma yönergeleri için bkz: [Azure Otomasyon karma Runbook çalışanlarını kaldırma](automation-hybrid-runbook-worker.md#remove-a-hybrid-runbook-worker).
+

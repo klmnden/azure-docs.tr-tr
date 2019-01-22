@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 3a74450ca8025f07b00dc18c9b81b147afa7439c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 64aa936dc1dbb1d2a700a31253cf7a3caee6b66f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975307"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436783"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Ekleme, değiştirme veya bir Azure ağ arabirimi için IP adreslerini kaldırın
 
@@ -34,7 +34,7 @@ Bu makalenin bir bölümündeki adımları tamamlamadan önce aşağıdaki göre
 
 - Azure hesabınız yoksa, kaydolmaya bir [ücretsiz deneme hesabınızı](https://azure.microsoft.com/free).
 - Portalı kullanarak, açık https://portal.azure.comve Azure hesabınızda oturum.
-- Bu makaledeki görevleri tamamlamak için PowerShell komutlarını kullanarak, ya da komutları çalıştırmak [Azure Cloud Shell](https://shell.azure.com/powershell), veya PowerShell bilgisayarınızdan çalıştırarak. Azure Cloud Shell, bu makaledeki adımları çalıştırmak için kullanabileceğiniz ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. Bu öğretici, Azure PowerShell modülü 5.7.0 veya sonraki bir sürümü gerektirir. Yüklü sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir.
+- Bu makaledeki görevleri tamamlamak için PowerShell komutlarını kullanarak, ya da komutları çalıştırmak [Azure Cloud Shell](https://shell.azure.com/powershell), veya PowerShell bilgisayarınızdan çalıştırarak. Azure Cloud Shell, bu makaledeki adımları çalıştırmak için kullanabileceğiniz ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. Bu öğretici, Azure PowerShell modülü 5.7.0 veya sonraki bir sürümü gerektirir. Yüklü sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/azurerm/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir.
 - Bu makaledeki görevleri tamamlamak için Azure komut satırı arabirimi (CLI) komutlarını kullanarak, ya da komutları çalıştırmak [Azure Cloud Shell](https://shell.azure.com/bash), veya bilgisayarınızdan CLI çalıştırarak. Bu öğretici, Azure CLI Sürüm 2.0.31 gerektirir veya üzeri. Yüklü sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme](/cli/azure/install-azure-cli). Azure CLI'yi yerel olarak çalıştırıyorsanız, aynı zamanda çalıştırmak ihtiyacınız `az login` Azure ile bir bağlantı oluşturmak için.
 
 Oturum açın ya da Azure ile bağlandığınız hesabı atanmalıdır [ağ Katılımcısı](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rolü veya bir [özel rol](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) içinde listelenen uygun eylemleri atanan [ağ Arabirim izinleri](virtual-network-network-interface.md#permissions).
@@ -53,13 +53,13 @@ Kadar ekleyebilirsiniz [özel](#private) ve [genel](#public) [IPv4](#ipv4) adres
     |---|---|---|
     |Ad|Evet|Ağ arabirimi için benzersiz olmalıdır|
     |Tür|Evet|Varolan bir ağ arabirimi IP yapılandırması ekleme ve her ağ arabirimine sahip olmalıdır bir [birincil](#primary) IP yapılandırması, tek seçeneğiniz olduğunu **ikincil**.|
-    |Özel IP adresi ataması yöntemi|Evet|[**Dinamik**](#dynamic): Azure ağ arabirimi dağıtıldığı alt ağ adres aralığı için sonraki kullanılabilir adresi atar. [**Statik**](#static): ağ arabirimini dağıtıldığı alt ağ adres aralığı için kullanılmayan bir adresi atayabilirsiniz.|
-    |Genel IP adresi|Hayır|**Devre dışı:** hiçbir genel IP adresi kaynağı şu anda IP yapılandırmasıyla ilişkilendirilmiş. **Etkin:** var olan bir IPv4 genel IP adresi seçin veya yeni bir tane oluşturun. Genel IP adresi oluşturma konusunda bilgi edinmek için [genel IP adresleri](virtual-network-public-ip-address.md#create-a-public-ip-address) makalesi.|
+    |Özel IP adresi ataması yöntemi|Evet|[**Dinamik**](#dynamic): Azure ağ arabirimi dağıtıldığı alt ağ adres aralığı için bir sonraki kullanılabilir adresi atar. [**Statik**](#static): Ağ arabiriminin dağıtıldığı alt ağ adres aralığı için kullanılmayan bir adresi atayın.|
+    |Genel IP adresi|Hayır|**Devre dışı:** Genel IP adresine kaynak IP yapılandırması için şu anda ilişkilidir. **Etkin:** Var olan bir IPv4 genel IP adresi seçin veya yeni bir tane oluşturun. Genel IP adresi oluşturma konusunda bilgi edinmek için [genel IP adresleri](virtual-network-public-ip-address.md#create-a-public-ip-address) makalesi.|
 6. İkincil özel IP adresleri yönergeleri izleyerek sanal makine işletim sistemini el ile eklemeniz [birden çok IP adresi sanal makine işletim sistemlerine atayın](virtual-network-multiple-ip-addresses-portal.md#os-config) makalesi. Bkz: [özel](#private) el ile bir sanal makine işletim sistemine IP adresleri eklemeden önce özel konular için IP adresi. Herhangi bir genel IP adresleri, sanal makine işletim sistemine eklemeyin.
 
 **Komutları**
 
-|Araç|Komut|
+|Aracı|Komut|
 |---|---|
 |CLI|[az network nic ip-config create](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_create)|
 |PowerShell|[Add-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/add-azurermnetworkinterfaceipconfig)|
@@ -80,7 +80,7 @@ Gerektiğinde bir IPv4 adresi atama yöntemini değiştirmek için statik IPv4 a
 
 **Komutları**
 
-|Araç|Komut|
+|Aracı|Komut|
 |---|---|
 |CLI|[az ağ NIC IP-config update](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_update)|
 |PowerShell|[Set-AzureRMNetworkInterfaceIpConfig](/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig)|
@@ -96,7 +96,7 @@ Kaldırabilirsiniz [özel](#private) ve [genel](#public) bir ağ arabirimi IP ad
 
 **Komutları**
 
-|Araç|Komut|
+|Aracı|Komut|
 |---|---|
 |CLI|[az ağ NIC IP yapılandırmasını Sil](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_delete)|
 |PowerShell|[Remove-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/remove-azurermnetworkinterfaceipconfig)|
@@ -144,7 +144,7 @@ Bir ağ arabirimi sanal makinenin işletim sistemi içinde IP adresini el ile ay
 4. Sanal makineyi başlatın.
 5. [El ile yapılandırmanız](virtual-network-multiple-ip-addresses-portal.md#os-config) işletim sistemi (ve ayrıca Windows içinde birincil IP adresi) Azure içinde ayarlanmış eşleştirmek için ikincil IP adresinden.
 
-Önceki adımlar, Azure içindeki ve içinde bir sanal makinenin işletim sistemi, ağ arabirimine atanmış özel IP adresini izleyerek aynı kalır. Hangi sanal makinelerin, bir işletim sistemi içinde IP adreslerini el ile ayarlamanız, aboneliğiniz kapsamındaki izlemek için bir Azure eklemeyi göz önünde bulundurun [etiketi](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags) sanal makineleri için. Kullanabileceğinize "IP adresi ataması: statik", örneğin. Bu şekilde, işletim sistemi içinde IP adresini el ile ayarlamanız aboneliğinizde bulunan sanal makineleri kolayca bulabilirsiniz.
+Önceki adımlar, Azure içindeki ve içinde bir sanal makinenin işletim sistemi, ağ arabirimine atanmış özel IP adresini izleyerek aynı kalır. Hangi sanal makinelerin, bir işletim sistemi içinde IP adreslerini el ile ayarlamanız, aboneliğiniz kapsamındaki izlemek için bir Azure eklemeyi göz önünde bulundurun [etiketi](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags) sanal makineleri için. Kullanabileceğinize "IP adresi ataması: Statik", örneğin. Bu şekilde, işletim sistemi içinde IP adresini el ile ayarlamanız aboneliğinizde bulunan sanal makineleri kolayca bulabilirsiniz.
 
 Bir sanal makine aynı ya da bağlı sanal ağlar içinde diğer kaynaklarla iletişim kurmak etkinleştirmeye ek olarak, özel bir IP adresi de Internet'e giden iletişim kurmak bir sanal makine sağlar. Giden bağlantılar, Azure tarafından beklenmeyen bir genel IP adresine çevrilen kaynak ağ adresi gerçekleştirilir. Azure giden Internet bağlantısı hakkında daha fazla bilgi edinmek için [Azure giden Internet bağlantısı](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json) makalesi. Gelen bir sanal makinenin özel IP adresi için Internet'ten iletişim kuramıyor. Giden bağlantılar tahmin edilebilir bir genel IP adresi gerekiyorsa, genel bir IP adresi kaynağı bir ağ arabirimine ilişkilendirin.
 
@@ -165,15 +165,15 @@ Genel ve özel IP adresleri atama aşağıdaki yöntemlerden birini kullanarak a
 
 (İsteğe bağlı) özel dinamik IPv4 ve IPv6 adresleri varsayılan olarak atanır.
 
-- **Yalnızca genel**: Azure her bir Azure bölgesine benzersiz aralıktan adresini atar. Hangi aralıkları her bir bölgeye atanan bilgi edinmek için [Microsoft Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653). Bir sanal makine (serbest bırakıldı) yeniden Başlatmadığınız durdurulduğunda adresi değişebilir. Atama yöntemlerden birini kullanarak bir IP yapılandırması için genel IPv6 adresi atanamıyor.
+- **Yalnızca genel**: Azure, her bir Azure bölgesine adresi benzersiz aralıktan atar. Hangi aralıkları her bir bölgeye atanan bilgi edinmek için [Microsoft Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653). Bir sanal makine (serbest bırakıldı) yeniden Başlatmadığınız durdurulduğunda adresi değişebilir. Atama yöntemlerden birini kullanarak bir IP yapılandırması için genel IPv6 adresi atanamıyor.
 - **Yalnızca özel**: Azure her alt ağ adres aralığında ilk dört adresi ayırır ve bu adresleri atamaz. Azure, alt ağ adres aralığından sonraki kullanılabilir adresi bir kaynağa atar. Örneğin, alt ağ adres aralığının 10.0.0.0/16 olduğunu varsayarsak ve 10.0.0.0.4-10.0.0.14 adresleri zaten atanmışsa (.0-.3 ayrılmıştır), Azure kaynağa 10.0.0.15 adresini atar. Dinamik, varsayılan ayırma yöntemidir. Dinamik IP adresleri bir kez atandıktan sonra, ancak ağ arabirimi silinirse, aynı sanal ağ içinde farklı bir alt ağa atanırsa veya ayırma yöntemi statik olarak değiştirilip farklı bir IP adresi belirtilirse serbest bırakılır. Varsayılan olarak, dinamik olan ayırma yöntemini statik olarak değiştirdiğinizde Azure dinamik olarak atanmış önceki adresi statik adres olarak atar. Yalnızca dinamik atama yöntemiyle özel bir IPv6 adresi de atayabilirsiniz.
 
 ### <a name="static"></a>Statik
 
 (İsteğe bağlı olarak), bir IP yapılandırmasına bir genel veya özel statik IPv4 adresi atayabilirsiniz. Bir IP yapılandırması için statik bir genel veya özel IPv6 adresi atanamıyor. Azure'nın statik genel IPv4 adreslerinin nasıl atar hakkında daha fazla bilgi için bkz: [genel IP adresleri](virtual-network-public-ip-address.md).
 
-- **Yalnızca genel**: Azure her bir Azure bölgesine benzersiz aralıktan adresini atar. Azure [Genel](https://www.microsoft.com/download/details.aspx?id=56519), [US government](https://www.microsoft.com/download/details.aspx?id=57063), [Çin](https://www.microsoft.com/download/details.aspx?id=57062) ve [Almanya](https://www.microsoft.com/download/details.aspx?id=57064) bulutları için bu aralıkların (ön ekler) listesini indirebilirsiniz. Dinamik atama yöntemini değişmesi veya atanan genel IP adresi kaynağı silinmiş kadar adresi değişmez. Genel IP adresi kaynağına bir IP yapılandırmasıyla ilişkili ise, atama yöntemi değiştirmeden önce IP yapılandırmasından ilişkisi olmalıdır.
-- **Yalnızca özel**: seçin ve alt ağın adres aralığından bir adresi atayabilirsiniz. Alt ağ adres aralığından atadığınız adres, alt ağa adres aralığının ilk dört adresi dışında kalan ve şu anda alt ağda başka bir kaynağa atanmamış olan herhangi bir adres olabilir. Statik adresler ancak ağ arabirimi silindiğinde serbest bırakılır. Ayırma yöntemini dinamik olarak değiştirirseniz, Azure daha önce statik IP adresi olarak atanmış olan adresi dinamik adres olarak atar. Bu adres, alt ağ adres aralığında bir sonraki kullanılabilir adres olmayabilir. Ağ arabirimi aynı sanal ağ içinde farklı bir alt ağa atandığında da adres değişir; ama ağ arabirimini farklı bir alt ağa atamak için, önce statik ayırma yöntemini dinamik olarak değiştirmeniz gerekir. Ağ arabirimini farklı bir alt ağa atadıktan sonra, ayırma yöntemini yine statik yapabilir ve yeni alt ağ adres aralığından bir IP adresi atayabilirsiniz.
+- **Yalnızca genel**: Azure, her bir Azure bölgesine adresi benzersiz aralıktan atar. Azure [Genel](https://www.microsoft.com/download/details.aspx?id=56519), [US government](https://www.microsoft.com/download/details.aspx?id=57063), [Çin](https://www.microsoft.com/download/details.aspx?id=57062) ve [Almanya](https://www.microsoft.com/download/details.aspx?id=57064) bulutları için bu aralıkların (ön ekler) listesini indirebilirsiniz. Dinamik atama yöntemini değişmesi veya atanan genel IP adresi kaynağı silinmiş kadar adresi değişmez. Genel IP adresi kaynağına bir IP yapılandırmasıyla ilişkili ise, atama yöntemi değiştirmeden önce IP yapılandırmasından ilişkisi olmalıdır.
+- **Yalnızca özel**: Seçin ve alt ağın adres aralığından bir adresi atayabilirsiniz. Alt ağ adres aralığından atadığınız adres, alt ağa adres aralığının ilk dört adresi dışında kalan ve şu anda alt ağda başka bir kaynağa atanmamış olan herhangi bir adres olabilir. Statik adresler ancak ağ arabirimi silindiğinde serbest bırakılır. Ayırma yöntemini dinamik olarak değiştirirseniz, Azure daha önce statik IP adresi olarak atanmış olan adresi dinamik adres olarak atar. Bu adres, alt ağ adres aralığında bir sonraki kullanılabilir adres olmayabilir. Ağ arabirimi aynı sanal ağ içinde farklı bir alt ağa atandığında da adres değişir; ama ağ arabirimini farklı bir alt ağa atamak için, önce statik ayırma yöntemini dinamik olarak değiştirmeniz gerekir. Ağ arabirimini farklı bir alt ağa atadıktan sonra, ayırma yöntemini yine statik yapabilir ve yeni alt ağ adres aralığından bir IP adresi atayabilirsiniz.
 
 ## <a name="ip-address-versions"></a>IP adresi sürümleri
 
@@ -202,7 +202,7 @@ Genel bir IP adresi, temel veya standart SKU ile oluşturulur. SKU farklılıkla
 ## <a name="next-steps"></a>Sonraki adımlar
 Farklı IP yapılandırması içeren bir sanal makine oluşturmak için bu makaleleri okuyun:
 
-|Görev|Araç|
+|Görev|Aracı|
 |---|---|
 |Birden çok ağ arabirimi ile VM oluşturma|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 |Birden çok IPv4 adresi ile tek bir NIC VM oluşturma|[CLI](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|

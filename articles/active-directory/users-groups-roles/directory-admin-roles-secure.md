@@ -13,16 +13,16 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: da53fa7d20c66b09e06c70222f29f060fa5803c8
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: c2ee0834b0c6872d96bebe71231f1a9424ff261a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53387089"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438159"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Azure AD'de karma ve bulut dağıtımları için ayrıcalıklı erişim güvenliğini sağlama
 
-Modern bir kuruluştaki çoğu veya tüm iş varlıklarının güvenliği, BT sistemlerini yöneten ayrıcalıklı hesapların bütünlüğüne bağlıdır. Siber saldırganlar genellikle dahil olmak üzere kötü amaçlı aktörler yönetici hesapları ve diğer öğeleri hızlı bir şekilde hassas verileri ve sistemleri kimlik bilgisi hırsızlığı saldırılarını kullanarak erişim elde etme girişiminde ayrıcalıklı erişimin hedefleyin. Bulut Hizmetleri, engelleme ve yanıt bulut hizmeti sağlayıcısına ve müşteri birleşik sorumluluklarını olan. Uç noktaları ve bulut için en son tehditler hakkında daha fazla bilgi için bkz. [Microsoft Güvenlik zekası raporu](https://www.microsoft.com/security/sir/default.aspx). Bu makalede, geçerli planlarınızı ve burada açıklanan yönergeleri arasındaki boşlukları kapatma doğru bir yol haritası geliştirmenize yardımcı olabilir.
+Modern bir kuruluştaki çoğu veya tüm iş varlıklarının güvenliği, BT sistemlerini yöneten ayrıcalıklı hesapların bütünlüğüne bağlıdır. Siber saldırganlar genellikle dahil olmak üzere kötü amaçlı aktörler yönetici hesapları ve diğer öğeleri hızlı bir şekilde hassas verileri ve sistemleri kimlik bilgisi hırsızlığı saldırılarını kullanarak erişim elde etme girişiminde ayrıcalıklı erişimin hedefleyin. Bulut Hizmetleri, engelleme ve yanıt bulut hizmeti sağlayıcısına ve müşteri birleşik sorumluluklarını olan. Uç noktaları ve bulut için en son tehditler hakkında daha fazla bilgi için bkz. [Microsoft Güvenlik zekası raporu](https://www.microsoft.com/security/operations/security-intelligence-report). Bu makalede, geçerli planlarınızı ve burada açıklanan yönergeleri arasındaki boşlukları kapatma doğru bir yol haritası geliştirmenize yardımcı olabilir.
 
 > [!NOTE] 
 > Microsoft, en yüksek düzeyde güven, şeffaflık, standartlara uyumluluk ve yasal uyumluluk için taahhüt eder. Hakkında daha fazla nasıl Microsoft küresel olay yanıtı ekibi saldırılarına karşı bulut Hizmetleri etkilerini azaltır ve bir Microsoft iş ürünlerini ve bulut Hizmetleri, güvenlik nasıl oluşturulduğunu [Microsoft Trust Center - güvenlik](https://www.microsoft.com/trustcenter/security)ve adresindeki Microsoft Uyumluluk hedefleri [Microsoft Trust Center - Uyumluluk](https://www.microsoft.com/trustcenter/compliance).

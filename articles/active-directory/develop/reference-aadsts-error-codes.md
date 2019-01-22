@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 11/30/2018
+ms.date: 01/11/2019
 ms.author: celested
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 97f884a45a0a07e2b4c48f39483c70248e7a492e
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 1e3dc984de15fa2c94fc5150020f1af1579e2c5c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620413"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434113"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Kimlik doğrulaması ve yetkilendirme hata kodları
 
@@ -254,6 +254,7 @@ Azure Active Directory (Azure AD) güvenlik belirteci Hizmeti'nden (STS) döndü
 | AADSTS221000 | Yalnızca cihaz belirteçlerini kabul etmesini DeviceOnlyTokensNotSupportedByResource - kaynak yapılandırılmadı. |
 | AADSTS240001 | Cihazları Azure AD'ye kaydetme BulkAADJTokenUnauthorized - kullanıcı yetkili değil. |
 | AADSTS240002 | RequiredClaimIsMissing - id_token kullanılamaz olarak `urn:ietf:params:oauth:grant-type:jwt-bearer` verin.|
+| AADSTS700016 | UnauthorizedClient_DoesNotMatchRequest - directory/kiracıda uygulama bulunamadı. Uygulama değil Kiracı Yöneticisi tarafından yüklenmemiş veya kiracıdaki herhangi bir kullanıcı tarafından onay varsa bu durum oluşabilir. Uygulama tanımlayıcısı değeri yanlış veya kimlik doğrulaması isteğinizi yanlış kiracıya göndermiş. |
 | AADSTS700020 | InteractionRequired - erişim izni etkileşimini gerektirir. |
 | AADSTS700022 | Birden fazla kaynak içerdiğinden InvalidMultipleResourcesScope - giriş parametresi kapsamı için sağlanan değer geçerli değil. |
 | AADSTS700023 | InvalidResourcelessScope - belirtilen değer giriş parametresi kapsamı geçerli değil, isteği bir erişim belirteci. |

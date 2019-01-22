@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: cynthn
-ms.openlocfilehash: a662a61d737dbb620d07fa6d114649e70c082796
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: b69cc0bcff8f791e0740b30f5521a2a7b36af3b1
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329778"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437666"
 ---
 # <a name="migrate-a-classic-vm-to-use-a-managed-disk"></a>Yönetilen bir Disk kullanmak üzere Klasik VM'yi geçirme 
 
@@ -93,7 +93,7 @@ Uygulamanızı kapalı kalma süresi için hazırlayın. Temiz bir geçiş yapma
 
 Uygulamanızı kapalı kalma süresi için hazırlayın. Temiz bir geçiş yapmak için tüm işlemlerin geçerli sistemde durdurmak zorunda. Ancak bundan sonra yeni platforma geçirebileceğiniz tutarlı duruma alabilirsiniz. Kapalı kalma süresi geçirmek için disklerde veri miktarı bağlıdır.
 
-Azure PowerShell modülü sürüm 6.0.0'dan bu bölümü gerektirir veya üzeri. Sürümü bulmak için ` Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). Ayrıca Azure ile bağlantı oluşturmak için `Connect-AzureRmAccount` komutunu çalıştırmanız gerekir.
+Azure PowerShell modülü sürüm 6.0.0'dan bu bölümü gerektirir veya üzeri. Sürümü bulmak için ` Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/azurerm/install-azurerm-ps). Ayrıca Azure ile bağlantı oluşturmak için `Connect-AzureRmAccount` komutunu çalıştırmanız gerekir.
 
 
 Ortak parametre değişkenleri oluşturun.

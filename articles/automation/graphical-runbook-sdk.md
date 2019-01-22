@@ -3,18 +3,18 @@ title: Azure Otomasyonu Grpahical runbook SDK genel bakış
 description: Bu makalede, Azure Otomasyonu grafik Runbook SDK kullanmayı açıklar
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 07/20/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 702af8311887afc94e7127704d3377e944503324
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: bc9f1feff6d8d45e52c8621d1ec4b36e0a4a4a76
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39240001"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434266"
 ---
 # <a name="use-the-azure-automation-graphical-runbook-sdk"></a>Azure Otomasyonu grafik runbook SDK'sını kullanma
 
@@ -146,3 +146,4 @@ Seri hale getirilmiş biçimi gelecekteki sürümlerinde değişebilir `Orchestr
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Azure Otomasyonu grafik runbook'ları hakkında daha fazla bilgi için bkz: [giriş grafik yazma](automation-graphical-authoring-intro.md)
+

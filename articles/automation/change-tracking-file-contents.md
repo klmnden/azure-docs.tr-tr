@@ -3,18 +3,18 @@ title: Azure Otomasyonu ile dosya içeriği değişikliklerini görüntüle
 description: Değişen bir dosyanın içeriğini görüntülemek için değişiklik izleme dosyası içerik değişikliği özelliğini kullanın.
 services: automation
 ms.service: automation
-ms.component: change-inventory-management
+ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 07/03/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0582505d66bbef3064359fa4047676c4ba60b4e9
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: ad011d778ab575c146c202a7940e03a4451979fb
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37872652"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438010"
 ---
 # <a name="view-contents-of-a-file-that-is-being-tracked-with-change-tracking"></a>Değişiklik izleme ile izlenmekte olan bir dosyanın içeriği görüntüle
 
@@ -62,7 +62,7 @@ Aşağıdaki adımlar, değişiklik izleme için bir dosya çubuğunda kapatma y
 
 1. Üzerinde **değiştirme ayrıntıları** sayfasında sol üst bilgi, dosyasına sağ tıklayıp standart önce ve sonra görürsünüz **dosya içeriği değişikliklerini görüntüle** dosyasının içeriğini görmek için.
 
-  ![değişiklik ayrıntıları](./media/change-tracking-file-contents/change-details.png)
+  ![Değişiklik ayrıntıları](./media/change-tracking-file-contents/change-details.png)
 
 1. Yeni sayfada dosya içeriğini bir yan yana görünümünde gösterilir. Belirleyebilirsiniz **satır içi** değişikliklerinin satıriçi görmek için.
 
@@ -76,3 +76,4 @@ Aşağıdaki adımlar, değişiklik izleme için bir dosya çubuğunda kapatma y
 > [Ortamınızdaki değişikliklerle ilgili sorunları giderme](automation-tutorial-troubleshoot-changes.md)
 
 * Kullanım [Log Analytics'te günlük aramaları](../log-analytics/log-analytics-log-searches.md) ayrıntılı değişiklik izleme verileri görüntülemek için.
+

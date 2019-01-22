@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: anantr
-ms.component: alerts
-ms.openlocfilehash: 29c2f58e4b4bea50d156192c818f8f91bbfeab4e
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.subservice: alerts
+ms.openlocfilehash: 0324fffdfaaa512c3610d5389d68dba2164f8d55
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53285343"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436459"
 ---
 # <a name="manage-alert-instances"></a>Uyarı örneklerini yönetme
 İle [uyarı deneyimi birleşik](https://aka.ms/azure-alerts-overview) Azure İzleyici'de artık tüm, farklı uyarı türleri tek bir cam bölmeyle içinde birden çok abonelik kapsayan azure'daki görebilirsiniz. Bu makalede, uyarı örneklerinin nasıl görüntüleyebileceğiniz aracılığıyla gösterilmektedir ve derinlemesine sorun giderme için belirli uyarı örneklerini bulmak için portalı.
@@ -43,3 +43,4 @@ ms.locfileid: "53285343"
  
 1.  Uyarı herhangi bir örneğe tıklayarak açılır **uyarı ayrıntıları** sayfasında, ilgili uyarı örneğinin bilgilerine yakından için izin verme.   
 ![Uyarı ayrıntıları](media/alerts-managing-alert-instances/alert-details.jpg)  
+

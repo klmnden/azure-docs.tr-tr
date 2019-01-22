@@ -3,39 +3,39 @@ title: Azure automation'da zamanlamaları
 description: Otomasyon zamanlamaları runbook'ları otomatik olarak başlayacak şekilde, Azure automation'da zamanlamak için kullanılır. Oluşturmak ve belirli bir zamanda veya yinelenen bir zamanlamaya göre otomatik olarak bir runbook başlatabilirsiniz bir zamanlama yönetmek açıklar.
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3d8492d2a8982c9c85bfc91867f7eb6c2da04e58
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: c1c36736e9d023ab1bd2ed607638b600bc468f2c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294773"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437225"
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Azure Otomasyonu’nda runbook zamanlama
 
-Belirli bir zamanda başlatmak için Azure Otomasyonu'nda runbook zamanlama için bir veya daha fazla zamanlamaya bağlayın. Bir zamanlama için runbook'ları Azure portalında çalışma bir kez veya bir yeniden oluşmasını saatlik veya günlük zamanlama için yapılandırılabilir. Ayrıca bunları için haftalık, aylık, haftanın belirli gün veya ayın veya ayın belirli zamanlayabilirsiniz. Bir runbook için birden çok zamanlama bağlanabilir ve bir zamanlama birden çok runbook bağlı olabilir.
+Belirli bir zamanda başlatmak için Azure Otomasyonu'nda runbook zamanlama için bir veya daha fazla zamanlamaya bağlayın. Bir zamanlama için runbook'ları Azure portalında çalışma bir kez veya bir yeniden oluşmasını saatlik veya günlük zamanlama için yapılandırılabilir. Ayrıca bunları için haftalık, aylık, haftanın belirli gün veya ayın veya ayın belirli zamanlayabilirsiniz. Bir runbook, birden çok zaman çizelgesine bağlanabilir ve bir zaman çizelgesine birden çok runbook bağlı olabilir.
 
 > [!NOTE]
 > Zamanlamaları, şu anda Azure Automation DSC yapılandırmaları desteklemez.
 
-## <a name="windows-powershell-cmdlets"></a>Windows PowerShell cmdlet'leri
+## <a name="windows-powershell-cmdlets"></a>Windows PowerShell Cmdlet'leri
 
 Aşağıdaki tabloda yer alan cmdlet'ler oluşturup Azure automation'da Windows PowerShell ile zamanlamaları yönetmek için kullanılır. Bunlar parçası olarak gönderilen [Azure PowerShell Modülü](/powershell/azure/overview).
 
-| Cmdlet'leri | Açıklama |
+| Cmdlet'ler | Açıklama |
 |:--- |:--- |
 | [Get-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/get-azurermautomationschedule) |Bir zamanlama alır. |
-| [Yeni-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) |Yeni bir zamanlama oluşturur. |
+| [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) |Yeni bir zamanlama oluşturur. |
 | [Remove-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/remove-azurermautomationschedule) |Bir zamanlama kaldırır. |
 | [Set-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/set-azurermautomationschedule) |Mevcut bir zamanlamanın özelliklerini ayarlar. |
 | [Get-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/get-azurermautomationscheduledrunbook) |Zamanlanan runbook'lar alır. |
 | [Register-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/register-azurermautomationscheduledrunbook) |Runbook zamanlama ile ilişkilendirir. |
-| [Kaydını AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/unregister-azurermautomationscheduledrunbook) |Zamanlama runbook'tan dissociates. |
+| [Unregister-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/unregister-azurermautomationscheduledrunbook) |Zamanlama runbook'tan dissociates. |
 
 ## <a name="creating-a-schedule"></a>Bir zamanlama oluşturma
 
@@ -71,7 +71,7 @@ $scheduleName -StartTime "7/01/2016 15:30:00" -MonthInterval 1 `
 
 ## <a name="linking-a-schedule-to-a-runbook"></a>Bir runbook'a zamanlama bağlama
 
-Bir runbook için birden çok zamanlama bağlanabilir ve bir zamanlama birden çok runbook bağlı olabilir. Bir runbook'un parametreleri varsa, daha sonra değerleri için bunları sağlayabilirsiniz. Zorunlu parametreler için değerler sağlamanız gerekir ve isteğe bağlı parametreler için değerleri sağlayabilirsiniz. Bu zamanlamayı runbook her başlatıldığında bu değerler kullanılır. Aynı runbook başka bir plana eklemek ve farklı parametre değerlerini belirtin.
+Bir runbook, birden çok zaman çizelgesine bağlanabilir ve bir zaman çizelgesine birden çok runbook bağlı olabilir. Bir runbook'un parametreleri varsa, daha sonra değerleri için bunları sağlayabilirsiniz. Zorunlu parametreler için değerler sağlamanız gerekir ve isteğe bağlı parametreler için değerleri sağlayabilirsiniz. Bu zamanlamayı runbook her başlatıldığında bu değerler kullanılır. Aynı runbook başka bir plana eklemek ve farklı parametre değerlerini belirtin.
 
 ### <a name="to-link-a-schedule-to-a-runbook-with-the-azure-portal"></a>Azure portalı ile bir runbook için bir zamanlama bağlamak için
 
@@ -129,3 +129,4 @@ Set-AzureRmAutomationSchedule –AutomationAccountName $automationAccountName `
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Azure Otomasyonu runbook'ları kullanmaya başlamak için bkz: [Azure Automation'da bir Runbook başlatma](automation-starting-a-runbook.md)
+

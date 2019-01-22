@@ -3,17 +3,17 @@ title: İzleyici görevi Azure Otomasyonu hesabı oluşturma
 description: İzleyici görevi, bir klasörde oluşturulan yeni dosyaları izlemek üzere Azure Otomasyonu hesabı oluşturmayı öğrenin.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: eamonoreilly
 ms.author: eamono
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 4068ce42babb786ca33e1b0d41fdfefc7d3f78be
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 7870aca696ec61e707c5c774fd43e6d64c0cab82
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282781"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436765"
 ---
 # <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>Bir Azure Otomasyonu izleyicisini yerel bir makinede dosya değişiklikleri izlemek için görevleri oluşturun
 
@@ -90,7 +90,7 @@ Eylem runbook bir izleyici görevi, bir izleyici runbook'tan geçirilen verileri
 1. Parametreler için aşağıdaki değerleri girin:
 
    ***EVENTDATA** -boş bırakın. Veri İzleyicisi runbook'tan geçirilir.  
-   ***Çalıştırma ayarları** ** -olarak Azure'a bırakın Bu runbook Otomasyon hizmeti çalışırken.
+   ***Çalıştırma ayarları** -olarak Azure'a bırakın Bu runbook Otomasyon hizmeti çalışırken.
 
 1. Tıklayın **Tamam**ve ardından İzleyicisi sayfasına geri dönün.
 1. Tıklayın **Tamam** İzleyici görevi oluşturmak için.
@@ -153,3 +153,4 @@ Kendi runbook yazma hakkında daha fazla bilgi için bu bağlantıyı izleyin.
 
 > [!div class="nextstepaction"]
 > [İlk PowerShell runbook'um](automation-first-runbook-textual-powershell.md).
+

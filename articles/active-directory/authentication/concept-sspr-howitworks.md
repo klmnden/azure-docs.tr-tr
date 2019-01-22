@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 2713f48ce490aa42b6b1aa4e69a71f8f8053d1fb
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: be7aa43ec6001be78fb405290914f19174559530
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426213"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435728"
 ---
-# <a name="how-it-works-azure-ad-self-service-password-reset"></a>Nasıl çalıştığını: Azure AD Self Servis parola sıfırlama
+# <a name="how-it-works-azure-ad-self-service-password-reset"></a>Nasıl çalışır? Azure AD Self Servis parola sıfırlama
 
 Self Servis parola, (SSPR) iş nasıl sıfırlansın mı? Bu seçenek arabiriminin ne demektir? Azure Active Directory (Azure AD) SSPR hakkında daha fazla bilgi için okumaya devam edin.
 
@@ -185,9 +185,9 @@ Bu denetim seçeneği kullanıcının parolasını sıfırlamak zorunda kalmadan
 
 Parola sıfırlama ve değiştirme, tüm işletmeler arası (B2B) yapılandırmaları üzerinde tam olarak desteklenir. B2B kullanıcı parola sıfırlama, aşağıdaki üç durumda desteklenir:
 
-   * **Mevcut bir Azure AD kiracısı ile bir iş ortağı kuruluştan kullanıcılar**: mevcut bir Azure AD kiracısı ile ortaklık kuruluşta varsa biz *her parola sıfırlama ilkeleri, Kiracı üzerinde etkin dikkate*. Çalışmak için parola sıfırlama için iş ortağı kuruluşun yalnızca Azure AD SSPR etkin olduğundan emin olmak gerekir. Office 365 müşterileri için ek ücret yoktur ve adımları izleyerek etkinleştirilebilir bizim [parola yönetimini kullanmaya başlama](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords) Kılavuzu.
-   * **Aracılığıyla kaydolun kullanıcılar** Self Servis kayıt: kuruluş, kullanılan ile işbirliği yapıyoruz, [Self Servis kayıt](../users-groups-roles/directory-self-service-signup.md) biz kayıtlı e-posta ile parola sıfırlama bildirmek, bir kiracıda oturum alınacağı özellik.
-   * **B2B kullanıcıları**: yeni kullanılarak oluşturulan tüm yeni B2B kullanıcıları [Azure AD B2B özellikleri](../active-directory-b2b-what-is-azure-ad-b2b.md) davet etme işlemi sırasında kayıtlı e-posta ile kullanıcıların parolalarını sıfırlamalarına mümkün olacaktır.
+   * **Mevcut bir Azure AD kiracısı ile bir iş ortağı kuruluştan kullanıcılar**: Mevcut bir Azure AD kiracısı ile işbirliği kuruluş varsa, biz *her parola sıfırlama ilkeleri, Kiracı üzerinde etkin saygı*. Çalışmak için parola sıfırlama için iş ortağı kuruluşun yalnızca Azure AD SSPR etkin olduğundan emin olmak gerekir. Office 365 müşterileri için ek ücret yoktur ve adımları izleyerek etkinleştirilebilir bizim [parola yönetimini kullanmaya başlama](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords) Kılavuzu.
+   * **Aracılığıyla kaydolun kullanıcılar** Self Servis kayıt: Kuruluş ile işbirliği yapıyoruz kullanılıyorsa [Self Servis kayıt](../users-groups-roles/directory-self-service-signup.md) biz kayıtlı e-posta ile parola sıfırlama bildirmek, bir kiracıda oturum alınacağı özellik.
+   * **B2B kullanıcıları**: Yeni kullanılarak oluşturulan tüm yeni B2B kullanıcıları [Azure AD B2B özellikleri](../active-directory-b2b-what-is-azure-ad-b2b.md) davet etme işlemi sırasında kayıtlı e-posta ile kullanıcıların parolalarını sıfırlamalarına mümkün olacaktır.
 
 Bu senaryoyu test etmek için şuraya gidin: https://passwordreset.microsoftonline.com biri olan bu iş ortağı kullanıcılar. Bir alternatif e-posta veya tanımlanan kimlik doğrulama e-posta oluşturulduysa parola beklendiği gibi çalıştığını sıfırlayın.
 

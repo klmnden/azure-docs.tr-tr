@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 12/5/2018
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 01693f16b0af59881c22fefb6ec8abe0c4fb3874
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 278c31f3f1880a3df561038d2710a2b5cc3d68e6
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996633"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437850"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Bir Azure Active Directory B2B işbirliği kullanıcısı özellikleri
 
@@ -25,11 +25,11 @@ Davet eden bir kuruluşun gereksinimlerine bağlı olarak, bir Azure AD B2B işb
 
 - Durum 1: Azure AD dış örneğinde bağlantılı ve Konuk kullanıcı davet eden kuruluştan olarak temsil edilir. Bu durumda, B2B kullanıcısı davet edilen kiracıya ait bir Azure AD hesabı kullanarak oturum açtığında. İş ortağı kuruluş Azure AD'ye kullanmıyorsa, Konuk kullanıcının Azure AD'de yine de oluşturulur. Bunlar, davetini ve Azure AD, e-posta adresi doğrular gereksinimleridir. Bu düzenleme, just-ın-time (JIT) kiralama veya "viral" Kiracı olarak da bilinir.
 
-- Durum 2: bir Microsoft veya başka bir hesap bağlantılı ve konak kuruluşta Konuk kullanıcı olarak temsil edilir. Bu durumda, Konuk kullanıcı bir Microsoft hesabı veya bir sosyal hesap bilgilerinizle oturum açtığı (google.com veya benzer). Davet edilen kullanıcının kimliği, teklif alma sırasında bir Microsoft hesabını davet eden kuruluş dizininizle oluşturulur.
+- Durum 2: Bir Microsoft veya başka bir hesap bağlantılı ve konak kuruluşta Konuk kullanıcı olarak temsil edilir. Bu durumda, Konuk kullanıcı bir Microsoft hesabı veya bir sosyal hesap bilgilerinizle oturum açtığı (google.com veya benzer). Davet edilen kullanıcının kimliği, teklif alma sırasında bir Microsoft hesabını davet eden kuruluş dizininizle oluşturulur.
 
-- Durum 3: konak kuruluşun şirket içi Active Directory'de bağlantılı ve konak kuruluşun Azure ile eşitlenen AD. İş ortağı hesapları eşitleme için Azure AD Connect kullanabilirsiniz UserType ile Azure AD B2B kullanıcıları olarak buluta konuk =. Bkz: [bulut kaynaklarına erişime yerel olarak yönetilen bir iş ortağı hesapları](hybrid-on-premises-to-cloud.md).
+- 3. durum: Konak kuruluşun şirket içi Active Directory'de bağlantılı ve konak kuruluşun Azure ile eşitlenen AD. İş ortağı hesapları eşitleme için Azure AD Connect kullanabilirsiniz UserType ile Azure AD B2B kullanıcıları olarak buluta konuk =. Bkz: [bulut kaynaklarına erişime yerel olarak yönetilen bir iş ortağı hesapları](hybrid-on-premises-to-cloud.md).
 
-- Durum 4: konak kuruluşun Azure'da bağlantılı AD ile UserType = Konuk ve konak kuruluş tarafından yönetilen kimlik bilgileri.
+- Durum 4: Konak kuruluşun Azure'da bağlantılı AD ile UserType = Konuk ve konak kuruluş tarafından yönetilen kimlik bilgileri.
 
   ![Davet eden'ın baş görüntüleme](media/user-properties/redemption-diagram.png)
 
@@ -61,7 +61,7 @@ Durum 3 ve 4 durumu, konuk kullanıcıların **kaynak** özelliği **Azure Activ
 Bu özellik için ana Kiracı Kullanıcı arasındaki ilişkiyi gösterir. Bu özellik, iki değerlere sahip olabilir:
 - Üye: Bu değer, bir çalışan konak kuruluş ve bir kullanıcı kuruluşun Bordro gösterir. Örneğin, bu kullanıcı yalnızca iç sitelere erişimine sahip olmasını bekliyor. Bu kullanıcı bir dış ortak çalışan olarak kabul edilmez.
 
-- Konuk: Gibi bir dış ortak çalışan, iş ortağı veya müşterinin şirket için dahili olarak kabul olmayan bir kullanıcı bu değeri gösterir. Böyle bir kullanıcı bir CEO'nun iç not alın veya şirket, örneğin avantajların beklenen değil.
+- Konuk: Bu değer, bir dış ortak çalışan, iş ortağı veya müşterinin gibi şirket için dahili olarak kabul olmayan bir kullanıcıyı gösterir. Böyle bir kullanıcı bir CEO'nun iç not alın veya şirket, örneğin avantajların beklenen değil.
 
   > [!NOTE]
   > UserType nasıl kullanıcı oturum açtığında, kullanıcı vb. dizin rolünü ilgisi yoktur. Bu özellik yalnızca kullanıcının ilişki konak kuruluşa gösterir ve kuruluş tuto vlastnost nelze upravovat bağımlı ilkeleri zorunlu tutmanıza olanak tanır.
@@ -69,7 +69,7 @@ Bu özellik için ana Kiracı Kullanıcı arasındaki ilişkiyi gösterir. Bu ö
 ### <a name="source"></a>Kaynak
 Bu özellik, nasıl kullanıcı oturum açtığında gösterir.
 
-- Kullanıcı Davet: Bu kullanıcı davet edildi, ancak henüz bir davet kuponları değil.
+- Davet edilen kullanıcı: Bu kullanıcı, davet edilen ancak henüz bir davet kuponları değil.
 
 - Dış Active Directory: Bu kullanıcı, dış bir kuruluşta bağlantılı ve başka bir kuruluşa ait bir Azure AD hesabını kullanarak kimliğini doğrular. Bu tür bir oturum açma durumu 1'e karşılık gelir.
 
@@ -77,7 +77,7 @@ Bu özellik, nasıl kullanıcı oturum açtığında gösterir.
 
 - Windows Server Active Directory: Bu kullanıcı bu kuruluşa ait şirket içi Active Directory'den açmıştır. Bu tür bir oturum açma durumu 3'e karşılık gelir.
 
-- Azure Active Directory: Bu kuruluşa ait bir Azure AD hesabını kullanarak bu kullanıcının kimliğini doğrular. Bu tür bir oturum açma durumu 4'e karşılık gelir.
+- Azure Active Directory: Bu kullanıcı, bu kuruluşa ait bir Azure AD hesabı kullanarak kimliğini doğrular. Bu tür bir oturum açma durumu 4'e karşılık gelir.
   > [!NOTE]
   > Kaynak ve UserType bağımsız özellikleridir. Kaynak değeri belirli bir değeri için UserType göstermez.
 

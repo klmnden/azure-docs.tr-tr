@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: a7ab2e76280458326539fe83d3507dfb4e4a486e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: c99ee1f520496148e22e540fa1f41f9bd74ae6a5
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023116"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436221"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Windows Azure dosyaları sorunlarını giderme
 
@@ -61,7 +61,7 @@ Bağlantı noktası 445 giden iletişimi, Azure dosyaları bir veri merkezine en
 
 445 bağlantı noktası güvenlik duvarı veya ISS engelleyip engellemediğini denetlemek için kullanmak [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) aracı veya `Test-NetConnection` cmdlet'i. 
 
-Kullanılacak `Test-NetConnection` cmdlet'i, AzureRM PowerShell Modülü yüklü olması gerekir, bkz: [Azure PowerShell modülü yükleme](/powershell/azure/install-azurerm-ps) daha fazla bilgi için. `<your-storage-account-name>` ile `<your-resoure-group-name>` yerine depolama hesabınızla ilgili bilgileri yazmayı unutmayın.
+Kullanılacak `Test-NetConnection` cmdlet'i, AzureRM PowerShell Modülü yüklü olması gerekir, bkz: [Azure PowerShell modülü yükleme](/powershell/azure/azurerm/install-azurerm-ps) daha fazla bilgi için. `<your-storage-account-name>` ile `<your-resoure-group-name>` yerine depolama hesabınızla ilgili bilgileri yazmayı unutmayın.
 
    
     $resourceGroupName = "<your-resource-group-name>"
@@ -101,7 +101,7 @@ NTLMv1 iletişim istemcide etkinse, sistem hatası 53 veya sistem hatası 87 ort
 
 Bu hatanın nedenini olup olmadığını belirlemek için aşağıdaki kayıt defteri alt anahtarı 3 değerine ayarlandığını doğrulayın:
 
-**Imcompatibilitylevel > LmCompatibilityLevel**
+**HKLM\SYSTEM\CurrentControlSet\Control\Lsa > LmCompatibilityLevel**
 
 Daha fazla bilgi için [LmCompatibilityLevel](https://technet.microsoft.com/library/cc960646.aspx) TechNet'teki konu.
 
@@ -237,7 +237,7 @@ Ağ üzerinden dosya kopyalamak için önce şifresini çözmelisiniz. Aşağıd
 
 - Kullanım **/d kopyalama** komutu. Hedef konumda şifresi çözülen dosyalar olarak kaydedilecek şifrelenmiş dosyaları sağlar.
 - Aşağıdaki kayıt defteri anahtarını ayarlayın:
-  - Yol HKLM\Software\Policies\Microsoft\Windows\System =
+  - Path = HKLM\Software\Policies\Microsoft\Windows\System
   - Değer türü = DWORD
   - Ad CopyFileAllowDecryptedRemoteDestination =
   - Değer = 1

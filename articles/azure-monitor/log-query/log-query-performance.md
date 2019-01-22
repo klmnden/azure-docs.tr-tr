@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: bwren
-ms.openlocfilehash: f7eca75c6c445f801ad5c4dbc080d2ece9dc23f9
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 25d6b582ed4d4e24df3841f4191471296e25abd8
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54392234"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436341"
 ---
 # <a name="writing-efficient-log-queries-in-azure-monitor"></a>Azure İzleyici'de verimli günlük sorguları yazma
 Bu makalede, Azure İzleyici'de verimli günlük sorguları yazma ile ilgili öneriler sağlar. Bu stratejiler kullanarak, sorgularınızı hızlı bir şekilde çalışır ve ile en az overheard emin olabilirsiniz.
@@ -41,7 +41,7 @@ search in (exceptions) "The server was not found"
 search in (exceptions, customEvents) "timeout"
 ```
 
-Kullanım [birleşim](/kusto/query/unionoperator) aşağıdaki gibi birçok tabloları sorgulamak için:
+Kullanım [birleşim](/azure/kusto/query/unionoperator) aşağıdaki gibi birçok tabloları sorgulamak için:
 
 ``` Kusto
 union requests, traces | ...

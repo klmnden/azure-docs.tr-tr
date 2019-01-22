@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e1b1102594e7e4470c08cb0f18068dd368c0fe7a
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 4b4c2e35059fa3521a74e1cb0c218c100b12a4ec
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245098"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436731"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory portalındaki oturum açma etkinlik raporları
 
@@ -161,7 +161,7 @@ Daha fazla esneklik gerekiyorsa betik çözümünü kullanabilirsiniz. Tıklayar
 
 Betiği çalıştırmak istiyorsanız bir **Windows 10** makine, ilk birkaç ek adımları gerçekleştirmek için ihtiyacınız. 
 
-1. Yükleme [AzureRM modülünü](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.4.0l).
+1. Yükleme [AzureRM modülünü](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.4.0l).
 2. Bir PowerShell istemi açmak ve çalıştırarak modülü içeri aktarın **Import-Module AzureRM**.
 3. Çalıştırma **Set-ExecutionPolicy sınırsız** ve **Tümüne Evet**. 
 4. Artık Yönetici modunda bir CSV dosyası oluşturmak için indirilen PowerShell betiğini çalıştırabilirsiniz.

@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 09/27/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: a720bb906192731b8b636939e22b13a8e52bbe76
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 76281113c0d1e7b3943e137accf7aa93c2863fe6
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632900"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435389"
 ---
 # <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Öğretici: Azure sanal ağına Service Fabric Windows kümesi dağıtma
 
-Bu öğretici, bir dizinin birinci bölümüdür. PowerShell ile bir şablon kullanarak bir [Azure sanal ağına (VNET)](../virtual-network/virtual-networks-overview.md) ve [ağ güvenlik grubuna](../virtual-network/virtual-networks-nsg.md) Windows çalıştıran bir Service Fabric kümesi dağıtmayı öğrenirsiniz. Öğreticiyi tamamladığınızda, bulutta çalışan ve uygulama dağıtabileceğiniz bir kümeniz olur.  Azure CLI kullanarak Linux kümesi oluşturmak için bkz. [Azure’da güvenli bir Linux kümesi oluşturma](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
+Bu öğretici, bir serinin birinci bölümüdür. PowerShell ile bir şablon kullanarak bir [Azure sanal ağına (VNET)](../virtual-network/virtual-networks-overview.md) ve [ağ güvenlik grubuna](../virtual-network/virtual-networks-nsg.md) Windows çalıştıran bir Service Fabric kümesi dağıtmayı öğrenirsiniz. Öğreticiyi tamamladığınızda, bulutta çalışan ve uygulama dağıtabileceğiniz bir kümeniz olur.  Azure CLI kullanarak Linux kümesi oluşturmak için bkz. [Azure’da güvenli bir Linux kümesi oluşturma](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 Bu öğreticide bir üretim senaryosu açıklanır.  İsterseniz hızlı bir şekilde test amacıyla daha küçük bir küme oluşturun, bkz: [test kümesi oluşturma](./scripts/service-fabric-powershell-create-secure-cluster-cert.md).
 
@@ -51,7 +51,7 @@ Bu öğreticiye başlamadan önce:
 
 * Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun
 * [Service Fabric SDK’sını ve PowerShell modülünü](service-fabric-get-started.md) yükleyin
-* [Azure Powershell modülü sürüm 4.1 veya üzerini](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) yükleyin
+* [Azure Powershell modülü sürüm 4.1 veya üzerini](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) yükleyin
 
 Aşağıdaki yordamlarda beş düğümlü bir Service Fabric kümesi oluşturulur. Azure’da Service Fabric kümesi çalıştırmaktan kaynaklanan maliyetleri hesaplamak için [Azure Fiyatlandırma Hesaplayıcısı](https://azure.microsoft.com/pricing/calculator/)’nı kullanın.
 
@@ -92,8 +92,8 @@ Bu şablon sanal bir ağa ve bir ağ güvenlik grubuna beş sanal makineden ve t
 
 * tek bir düğüm türü
 * birincil düğüm türünde beş düğüm (şablon parametrelerinden yapılandırılabilir)
-* İşletim Sistemi: Windows Server 2016 Datacenter with Containers (şablon parametrelerinden yapılandırılabilir)
-* sertifikanın güvenliğinin sağlanması (şablon parametrelerinden yapılandırılabilir)
+* İşletim sistemi: Windows Server 2016 Datacenter kapsayıcılarla (şablon parametrelerinde yapılandırılabilir)
+* sertifikanın güvenliğinin sağlanması (şablon parametrelerinde yapılandırılabilir)
 * [ters proxy](service-fabric-reverseproxy.md) etkin
 * [DNS hizmeti](service-fabric-dnsservice.md) etkin
 * Bronz [dayanıklılık düzeyi](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) (şablon parametrelerinde yapılandırılabilir)
@@ -105,11 +105,11 @@ Bu şablon sanal bir ağa ve bir ağ güvenlik grubuna beş sanal makineden ve t
 
 **Microsoft.Network/loadBalancers** kaynağında bir yük dengeleyici yapılandırılır ve şu bağlantı noktaları için yoklamalar ve kurallar ayarlanır:
 
-* istemci bağlantı uç noktası: 19000
+* istemci bağlantısı uç noktası: 19000
 * HTTP ağ geçidi uç noktası: 19080
-* uygulama bağlantı noktası: 80
-* uygulama bağlantı noktası: 443
-* Service Fabric ters proxy’si: 19081
+* Uygulama bağlantı noktası: 80
+* Uygulama bağlantı noktası: 443
+* Service Fabric ters proxy'si: 19081
 
 Başka bir uygulama bağlantı noktası gerekiyorsa **Microsoft.Network/loadBalancers** kaynağı ile **Microsoft.Network/networkSecurityGroups** kaynağını trafiğin geçmesine izin verecek şekilde ayarlamanız gerekir.
 
@@ -124,7 +124,7 @@ Sanal ağ, alt ağ ve ağ güvenlik grubunun adları şablon parametrelerinde bi
 
 * ClientConnectionEndpoint (TCP): 19000
 * HttpGatewayEndpoint (HTTP/TCP): 19080
-* SMB : 445
+* SMB: 445
 * Internodecommunication - 1025, 1026, 1027
 * Kısa ömürlü bağlantı noktası aralığı – 49152-65534 (en az 256 bağlantı noktası gerekir)
 * Uygulamanın kullanımına yönelik bağlantı noktaları: 80 ve 443

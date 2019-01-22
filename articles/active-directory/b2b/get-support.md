@@ -8,24 +8,24 @@ ms.topic: reference
 ms.date: 05/26/2017
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 1474bf13a6d364fcbd90adee09a1a60bcafc2ccb
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 9a4e50934b33bde8d58c8ec1a2d8ae2917fac131
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985286"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438567"
 ---
 # <a name="getting-support-for-b2b-collaboration"></a>B2B işbirliği için destek alma
 
 Okuma belgelere, doğru şeyleri yaptığınızdan, ancak yine de çalışması için bir şey alınamıyor? (Bir destek planı gerekir) bir destek bileti açın:
 
 1. İçinde [Azure portalında](https://portal.azure.com), Yardım ve Destek dikey penceresine gidin ve yeni destek isteği seçin:
-  - Sorun türü: teknik
-  - Abonelik: Seçin etkilenen abonelik
-    - Hizmeti: Active Directory
-    - Destek planı: ilgili destek planı seçin
+  - Sorun türü: Teknik
+  - Abonelik: Etkilenen abonelik seçin
+    - Hizmet: Active Directory
+    - Destek planı: İlgili destek planı seçin
 
   ![Yeni destek isteği](media/get-support/new-support-request.png)
 

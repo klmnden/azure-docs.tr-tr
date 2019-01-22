@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 11/19/2018
 ms.author: danlep
-ms.openlocfilehash: 1fcb72d75dca99b6670ca3ff536403a6268554a2
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: ce6c3364c594bc515abd9f0c02bd69bf500e4f4e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238157"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436578"
 ---
 # <a name="set-environment-variables"></a>Ortam değişkenlerini belirleme
 
@@ -22,7 +22,7 @@ Kapsayıcı örneklerinizin ortam değişkenlerini ayarlama, uygulama veya betik
 
 *NumWords*: STDOUT gönderilen sözcük sayısı.
 
-*MinLength*: en az bir sözcük, sayılması için karakter sayısı. Daha yüksek bir sayı ortak kelimeler gibi "," ve "." yok sayar.
+*MinLength*: Bunu sayılması için bir sözcük karakteri en küçük sayısı. Daha yüksek bir sayı ortak kelimeler gibi "," ve "." yok sayar.
 
 Gizli ortam değişkenleri olarak geçirmek gerekiyorsa, Azure Container Instances destekler [güvenli değerleri](#secure-values) hem Windows hem de Linux kapsayıcıları için.
 
@@ -38,7 +38,7 @@ az container create \
     --restart-policy OnFailure
 ```
 
-Çıkış değiştirmek için ikinci bir kapsayıcı ile Başlat `--environment-variables` eklendi, bağımsız değişkeni için değerleri belirtme *NumWords* ve *MinLength* değişkenleri:
+Çıkış değiştirmek için ikinci bir kapsayıcı ile Başlat `--environment-variables` eklendi, bağımsız değişkeni için değerleri belirtme *NumWords* ve *MinLength* değişkenleri. (Bu örnekte bir Bash kabuğunu veya Azure Cloud Shell içinde CLI çalıştırdığınız varsayılır. Windows komut istemini kullanmanız durumunda, değişkenlerin çift tırnak ile gibi belirtin `--environment-variables "NumWords"="5" "MinLength"="8"`.)
 
 ```azurecli-interactive
 az container create \
@@ -255,6 +255,6 @@ Toplu işleme çeşitli kapsayıcıları ile büyük bir veri kümesini gibi gö
 [az-container-show]: /cli/azure/container#az-container-show
 [azure-cli-install]: /cli/azure/
 [azure-instance-log]: /powershell/module/azurerm.containerinstance/get-azurermcontainerinstancelog
-[azure-powershell-install]: /powershell/azure/install-azurerm-ps
+[azure-powershell-install]: /powershell/azure/azurerm/install-azurerm-ps
 [new-azurermcontainergroup]: /powershell/module/azurerm.containerinstance/new-azurermcontainergroup
 [portal]: https://portal.azure.com

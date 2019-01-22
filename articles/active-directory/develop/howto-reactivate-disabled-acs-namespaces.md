@@ -11,18 +11,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/07/2018
+ms.date: 01/21/2019
 ms.author: celested
 ms.reviewer: jlu
 ms.custom: aaddev
-ms.openlocfilehash: 0f0de122dc3dbd770e91a8412430423bee222b30
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 085923dd124a4f973a709f0e59a07ad4137c6901
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51577979"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438513"
 ---
-# <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Nasıl yapılır: yeniden etkinleştirme devre dışı, Access Control Service ad alanları
+# <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Nasıl yapılır: Devre dışı bırakılmış Access Control Service ad alanlarını yeniden etkinleştirme
 
 Microsoft Azure Access Control Service (ACS), Azure Active Directory (Azure AD), bir hizmet 7 Kasım 2018'de kullanımdan kaldırıldığında, Kasım 2017'de duyurduk.
 
@@ -32,7 +32,7 @@ Bu yana daha sonra 6 ay, 3 ay, 1 ay, 2 haftalık, 1 hafta, ve 1 gün önce o tar
 
 ## <a name="why-your-namespace-is-disabled"></a>Ad alanınız neden devre dışı bırakıldı
 
-Uzantısı için de sabitlemeyi henüz seçtiyseniz 7 Kasım 2018 tarihinden itibaren ACS ad alanları devre dışı bırakmak başlayacağız. İletişim eksik ve 4 Şubat 2019 uzantısı için katılım hala istiyorsanız aşağıdaki bölümlerdeki yönergeleri izleyin.
+Uzantısı için de sabitlemeyi henüz seçtiyseniz 7 Kasım 2018 tarihinden itibaren ACS ad alanları devre dışı bırakmak başlayacağız. Uzantı 4 Şubat 2019 için'zaten istediniz gerekir; Aksi takdirde, PowerShell aracılığıyla ad alanlarını etkinleştirmek mümkün olmayacaktır.
 
 > [!NOTE]
 > Bir Hizmet Yöneticisi veya aboneliğin ortak Yöneticisi için PowerShell komutlarını çalıştırın ve bir uzantı isteği olması gerekir.
@@ -57,7 +57,7 @@ Tüm ACS ad listesi ve devre dışı bırakıldı, yeniden etkinleştirmek için
 
         Belirli bir komutla ilgili Yardım almak için şunu çalıştırın:
 
-        ```
+        ```powershell
         Get-Help [Command-Name] -Full
         ```
     
@@ -79,18 +79,45 @@ Tüm ACS ad listesi ve devre dışı bırakıldı, yeniden etkinleştirmek için
 
 ## <a name="request-an-extension"></a>Bir uzantı isteği
 
-1. ACS ad alanının Yönetim Portalı'na giderek gidin `https://{your-namespace}.accesscontrol.windows.net`.
-1. Seçin **okuma koşulları** okumak için düğme [kullanım güncelleştirilmiş](https://azure.microsoft.com/support/legal/access-control/), hangi doğrudan, güncelleştirilmiş kullanım koşullarını içeren bir sayfa için.
+Yeni Uzantı istekleri 21 Ocak 2019'üzerinde başlatma sürüyor.
 
-    [![Okuma koşulları düğmeyi seçin](./media/howto-reactivate-disabled-acs-namespaces/read-terms-button-expanded.png)](./media/howto-reactivate-disabled-acs-namespaces/read-terms-button-expanded.png#lightbox)
+4 Şubat 2019 uzantıları isteyen müşteriler için ad alanları devre dışı bırakma başlayacağız. PowerShell ile ad alanlarını yeniden etkinleştirebilirsiniz, ancak ad alanlarını 48 saat sonra tekrar devre dışı bırakılır.
 
-1. Seçin **uzantı isteği** sayfanın üst kısmındaki başlık çubuğunda. Düğme yalnızca, okuduktan sonra etkinleştirilecek [kullanım güncelleştirilmiş](https://azure.microsoft.com/support/legal/access-control/).
+4 Mart 2019'dan sonra müşteriler artık PowerShell üzerinden herhangi bir ad alanları yeniden etkinleştirmek mümkün olacaktır.
 
-    [![Uzantı isteği düğmeyi seçin](./media/howto-reactivate-disabled-acs-namespaces/request-extension-button-expanded.png)](./media/howto-reactivate-disabled-acs-namespaces/request-extension-button-expanded.png#lightbox)
+Daha fazla uzantıları artık otomatik olarak onaylanır. Geçirmek için ek süreye ihtiyaç duyarsanız, kişi [Azure Destek](https://portal.azure.com/#create/Microsoft.Support) ayrıntılı geçiş zaman çizelgesi sağlamak için.
 
-1. Uzantı isteği kaydedildikten sonra sayfa yeni bir başlığı sayfanın üstündeki ile yenilenir.
+### <a name="to-request-an-extension"></a>Bir uzantı istemek için
 
-    [![Yenilenmiş başlığı ile güncelleştirilmiş sayfası](./media/howto-reactivate-disabled-acs-namespaces/updated-banner-expanded.png)](./media/howto-reactivate-disabled-acs-namespaces/updated-banner-expanded.png#lightbox)
+1. Azure portalında oturum açın ve oluşturma bir [yeni destek isteği](https://portal.azure.com/#create/Microsoft.Support).
+1. Aşağıdaki örnekte gösterildiği gibi yeni destek isteği formunu doldurun.
+
+    | Destek isteği alanı | Değer |
+    |-----------------------|--------------------|
+    | **Sorun türü** | `Technical` |
+    | **Abonelik** | Aboneliğinizi ayarlama |
+    | **Hizmet** | `All services` |
+    | **Kaynak** | `General question/Resource not available` |
+    | **Sorun türü** | `ACS to SAS Migration` |
+    | **Konu** | Sorunu açıklayın |
+
+  ![Yeni teknik destek isteği](./media/howto-reactivate-disabled-acs-namespaces/new-technical-support-request.png)
+
+<!--
+
+1. Navigate to your ACS namespace's management portal by going to `https://{your-namespace}.accesscontrol.windows.net`.
+1. Select the **Read Terms** button to read the [updated Terms of Use](https://azure.microsoft.com/support/legal/access-control/), which will direct you to a page with the updated Terms of Use.
+
+    [![Select the Read Terms button](./media/howto-reactivate-disabled-acs-namespaces/read-terms-button-expanded.png)](./media/howto-reactivate-disabled-acs-namespaces/read-terms-button-expanded.png#lightbox)
+
+1. Select **Request Extension** on the banner at the top of the page. The button will only be enabled after you read the [updated Terms of Use](https://azure.microsoft.com/support/legal/access-control/).
+
+    [![Select the Request Extension button](./media/howto-reactivate-disabled-acs-namespaces/request-extension-button-expanded.png)](./media/howto-reactivate-disabled-acs-namespaces/request-extension-button-expanded.png#lightbox)
+
+1. After the extension request is registered, the page will refresh with a new banner at the top of the page.
+
+    [![Updated page with refreshed banner](./media/howto-reactivate-disabled-acs-namespaces/updated-banner-expanded.png)](./media/howto-reactivate-disabled-acs-namespaces/updated-banner-expanded.png#lightbox)
+-->
 
 ## <a name="help-and-support"></a>Yardım ve destek
 

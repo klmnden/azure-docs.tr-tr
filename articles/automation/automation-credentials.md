@@ -3,18 +3,18 @@ title: Azure automation'da kimlik bilgisi varlıkları
 description: Azure automation'da kimlik bilgisi varlıkları runbook veya DSC yapılandırması tarafından erişilen kaynaklar için kimlik doğrulaması yapmada kullanılan güvenlik kimlik bilgilerini içerir. Bu makalede kimlik bilgisi varlıkları oluşturma ve bunları runbook'tan veya DSC yapılandırmasından içinde kullanın.
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 07452a97ba16d7745d48e210dd90ce077be64683
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9884138127d62e2dc524dc1b6d9e827d1ee0fac8
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233448"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54439196"
 ---
 # <a name="credential-assets-in-azure-automation"></a>Azure automation'da kimlik bilgisi varlıkları
 
@@ -29,7 +29,7 @@ Bir Otomasyon kimlik bilgisi varlığı, bir kullanıcı adı ve parola gibi gü
 
 Aşağıdaki tabloda yer alan cmdlet'ler Windows PowerShell ile Otomasyon kimlik bilgisi varlıkları oluşturmak ve yönetmek için kullanılır.  Bunlar parçası olarak gönderilen [Azure PowerShell Modülü](/powershell/azure/overview) olduğu Automation runbook'ları ve DSC yapılandırmaları için kullanılabilir.
 
-| Cmdlet'leri | Açıklama |
+| Cmdlet'ler | Açıklama |
 |:--- |:--- |
 | [Get-AzureAutomationCredential](/powershell/module/servicemanagement/azure/get-azureautomationcredential?view=azuresmps-3.7.0) |Bir kimlik bilgisi varlığı hakkındaki bilgileri alır. Yalnızca kimlik almak gelen **Get-AutomationPSCredential** etkinlik. |
 | [New-AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Yeni bir Otomasyon kimlik bilgisi oluşturur. |
@@ -40,7 +40,7 @@ Aşağıdaki tabloda yer alan cmdlet'ler Windows PowerShell ile Otomasyon kimlik
 
 AzureRM için aşağıdaki tabloda yer alan cmdlet'ler Windows PowerShell ile Otomasyon kimlik bilgisi varlıkları oluşturmak ve yönetmek için kullanılır.  Bunlar parçası olarak gönderilen [AzureRM.Automation Modülü](/powershell/azure/overview) olduğu Automation runbook'ları ve DSC yapılandırmaları için kullanılabilir.
 
-| Cmdlet'leri | Açıklama |
+| Cmdlet'ler | Açıklama |
 |:--- |:--- |
 | [Get-AzureRmAutomationCredential](/powershell/module/azurerm.automation/get-azurermautomationcredential?view=azurermps-4.4.0) |Bir kimlik bilgisi varlığı hakkındaki bilgileri alır.  |
 | [New-AzureRmAutomationCredential](/powershell/module/azurerm.automation/new-azurermautomationcredential?view=azurermps-4.4.0) |Yeni bir Otomasyon kimlik bilgisi oluşturur. |
@@ -98,7 +98,7 @@ Bir runbook'tan veya DSC yapılandırmasından ile kimlik bilgisi varlığı alm
 
 ### <a name="textual-runbook-sample"></a>Metinsel runbook örneği
 
-Aşağıdaki örnek komutlar bir runbook'ta PowerShell kimlik bilgisi kullanmayı gösterir. Bu örnekte, kimlik bilgileri alınır ve kendi kullanıcı adı ve parola değişkenine atanır.
+Aşağıdaki örnek komutlarda PowerShell kimlik bilgilerinin bir runbook'ta nasıl kullanılacağı gösterilmektedir. Bu örnekte, kimlik bilgileri alınır ve kendi kullanıcı adı ve parola değişkenine atanır.
 
 ```azurepowershell
 $myCredential = Get-AutomationPSCredential -Name 'MyCredential'
@@ -142,4 +142,5 @@ print cred["password"]
 * Grafik runbook'ları kullanmaya başlamak için bkz. [İlk grafik runbook uygulamam](automation-first-runbook-graphical.md)
 * PowerShell iş akışı runbook'larını kullanmaya başlamak için bkz. [İlk PowerShell iş akışı runbook uygulamam](automation-first-runbook-textual.md) 
 * Python2 runbook'larını kullanmaya başlamak için bkz: [ilk Python2 runbook'um](automation-first-runbook-textual-python2.md) 
+
 

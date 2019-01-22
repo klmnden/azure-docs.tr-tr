@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8686130e3b10ece605a6e648badf9aa1dae5e071
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 65c685936fabab65698a077f22c2dfde17469055
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435693"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436425"
 ---
 # <a name="oracle-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP iş yükü için Oracle Azure sanal makineleri DBMS dağıtım
 
@@ -235,7 +235,7 @@ ms.locfileid: "53435693"
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd 
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
@@ -380,7 +380,7 @@ Performans yapılandırması:
 | \oracle\<SID > \mirrlogAB | Premium | None | Kullanılabilir |
 | \oracle\<SID > \mirrlogBA | Premium | None | Kullanılabilir |
 | \oracle\<SID > \sapdata1...n | Premium | Salt okunur | Önerilen  |
-| \oracle\SID\sapdata(n+1) * | Premium | None | Kullanılabilir |
+| \oracle\SID\sapdata(n+1)* | Premium | None | Kullanılabilir |
 | \oracle\<SID > \oraarch* | Premium | None | Gerekli değil |
 | Oracle giriş, saptrace... | İşletim sistemi diski | Gerekli değil |
 

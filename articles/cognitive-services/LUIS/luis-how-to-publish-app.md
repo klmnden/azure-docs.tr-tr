@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: diberry
-ms.openlocfilehash: 241227270aeede93b74d3d94c782dfe7eaf1fbf2
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: af0629b8301fe6202c6a4325083cc69140bc7c2e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121711"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438210"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Bir hazırlık veya üretim uç noktası için etkin, eğitilen uygulamanızı yayımlayın
 
@@ -62,6 +62,6 @@ Yaklaşım Analizi ile JSON uç yanıtı hakkında daha fazla bilgi için bkz. [
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Bkz: [anahtarları Yönet](./luis-how-to-manage-keys.md) anahtarları için Azure aboneliği ekleme LUIS anahtarına ve Bing yazım denetimi yapma anahtar ve tüm hedefleri sonuçlarına dahil.
+* Bkz: [anahtarları Yönet](./luis-how-to-azure-subscription.md) anahtarları için Azure aboneliği ekleme LUIS anahtarına ve Bing yazım denetimi yapma anahtar ve tüm hedefleri sonuçlarına dahil.
 * Bkz: [eğitme ve uygulamanızı test](luis-interactive-test.md) yayımlanan uygulamanızı test konsolunda test etmek yönergeler.
 

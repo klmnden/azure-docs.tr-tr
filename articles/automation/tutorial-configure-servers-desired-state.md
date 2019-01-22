@@ -3,18 +3,18 @@ title: Azure Otomasyonu ile sunucuları istenen duruma göre yapılandırma ve k
 description: Öğretici - Azure Otomasyonu durum yapılandırması ile sunucu yapılandırmalarını yönetme
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 author: bobbytreed
 ms.author: robreed
 manager: carmonm
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: 000875e4e591bcfe94ec99f8b16c8ec40bf52cf4
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: cb070b57b6d84f87e467b53369420bdc463e0bd8
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45629891"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434968"
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>Sunucuları istenen duruma göre yapılandırma ve kaymaları yönetme
 
@@ -33,7 +33,7 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 - Azure Otomasyonu hesabı. Bir Azure Otomasyonu Garklı Çalıştır hesabı oluşturma yönergeleri için bkz. [Azure Farklı Çalıştır Hesabı](automation-sec-configure-azure-runas-account.md).
 - Azure Resource Manager VM (Klasik değil) Windows Server 2008 R2 çalıştıran veya üzeri. VM oluşturma yönergeleri için bkz. [Azure portalında ilk Windows sanal makinenizi oluşturma](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
-- Azure PowerShell modülü 3.6 veya sonraki bir sürümü. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps).
+- Azure PowerShell modülü 3.6 veya sonraki bir sürümü. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/azurerm/install-azurerm-ps).
 - Desired State Configuration (DSC) ile aşinalık. DSC hakkında daha fazla bilgi için bkz: [Windows PowerShell Desired State Configuration ' ne genel bakış](https://docs.microsoft.com/powershell/dsc/overview)
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma

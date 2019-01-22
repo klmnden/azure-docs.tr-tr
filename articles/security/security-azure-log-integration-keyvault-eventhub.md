@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: 790f49f0fae98162b3443c78d813b1070e4514a0
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: f9eb4489894632502b7df97cd1149bd027164d19
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54303896"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437428"
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Azure günlük tümleştirme Öğreticisi: Event Hubs kullanarak Azure Key Vault olayları işleyin
 
@@ -74,7 +74,7 @@ Bu makaledeki adımları tamamlayabilmeniz için aşağıdakiler gerekir:
    a. Bir PowerShell penceresinde girin ```Install-Module Azure``` komutu. Yükleme adımlarını tamamlayın.    
    b. Girin ```Install-Module AzureRM``` komutu. Yükleme adımlarını tamamlayın.
 
-   Daha fazla bilgi için [Azure PowerShell yükleme](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.0.0).
+   Daha fazla bilgi için [Azure PowerShell yükleme](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.0.0).
 
 
 ## <a name="create-supporting-infrastructure-elements"></a>Destekleyici altyapı öğelerini oluşturma

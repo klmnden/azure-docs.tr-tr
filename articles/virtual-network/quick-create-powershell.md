@@ -14,12 +14,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: jdial
-ms.openlocfilehash: 725e03ded6d6f2e3b5d7a41d2053f418a5933ef8
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: ade8329e6e42fae9f3232617488a6d4a69f8ef1f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023252"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437394"
 ---
 # <a name="quickstart-create-a-virtual-network-using-powershell"></a>Hızlı Başlangıç: PowerShell kullanarak sanal ağ oluşturma
 
@@ -29,7 +29,7 @@ Azure aboneliğiniz yoksa şimdi [ücretsiz bir hesap](https://azure.microsoft.c
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-powershell.md)]
 
-PowerShell'i yerel olarak yükleyip yerine karar verirseniz, bu hızlı başlangıçta AzureRM PowerShell modülünün 5.4.1 kullanmanızı gerekli hale getirmiş veya üzeri. Yüklü sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Bkz: [Azure PowerShell modülü yükleme](/powershell/azure/install-azurerm-ps) yükleme ve yükseltme bilgileri için.
+PowerShell'i yerel olarak yükleyip yerine karar verirseniz, bu hızlı başlangıçta AzureRM PowerShell modülünün 5.4.1 kullanmanızı gerekli hale getirmiş veya üzeri. Yüklü sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Bkz: [Azure PowerShell modülü yükleme](/powershell/azure/azurerm/install-azurerm-ps) yükleme ve yükseltme bilgileri için.
 
 PowerShell'i yerel olarak çalıştırıyorsanız, son olarak, aynı zamanda çalıştırmak ihtiyacınız `Connect-AzureRmAccount`. Bu komut, Azure ile bir bağlantı oluşturur.
 

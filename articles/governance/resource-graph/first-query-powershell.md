@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 5ffc93afdfff1a069d00b61868b5ae025121198c
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: bf23dcdb212c1d7e052b12179084df9ccc941664
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310734"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434484"
 ---
 # <a name="run-your-first-resource-graph-query-using-azure-powershell"></a>Azure PowerShell kullanarak ilk Kaynak Grafiği sorgunuzu çalıştırma
 
@@ -32,7 +32,7 @@ Azure PowerShell’in Azure Kaynak Grafiği’ni sorgulamasını etkinleştirmek
 
 Azure Kaynak Grafiği modülü aşağıdaki yazılımı gerektirir:
 
-- Azure PowerShell 6.3.0 ve üzeri. Henüz yüklenmiş değilse, [bu yönergeleri](/powershell/azure/install-azurerm-ps) izleyin.
+- Azure PowerShell 6.3.0 ve üzeri. Henüz yüklenmiş değilse, [bu yönergeleri](/powershell/azure/azurerm/install-azurerm-ps) izleyin.
 
   - PowerShell Core için, Azure PowerShell modülünün **Az** sürümünü kullanın.
 

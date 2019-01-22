@@ -3,18 +3,18 @@ title: Başlat/Durdur Vm'leri çalışma saatleri çözümü
 description: Bu VM management çözüm başlar ve Azure Resource Manager sanal makinelerinizi bir zamanlamaya göre durdurur ve Log Analytics'ten proaktif olarak izler.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 10/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5f5c86a90325c9a6dcd521a97cb899b88b55198d
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: f1ed355e7df6a58096743fd57ca1cbc65578d285
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194275"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54439145"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Sırasında Azure Otomasyonu çözümde yoğun olmayan saatlerde Vm'leri başlatma/durdurma
 
@@ -281,8 +281,8 @@ Aşağıdaki tabloda, bu çözüm tarafından toplanan iş kayıtlarına ilişki
 
 |Sorgu | Açıklama|
 |----------|----------|
-|Runbook'una ilişkin başarıyla tamamlanmış ScheduledStartStop_Parent Bul | ''' kategorisi arama "JobLogs" == | Burada (RunbookName_s "ScheduledStartStop_Parent" ==) | Burada (resulttype'ı "Tamamlandı" ==)  | Özetleme |AggregatedValue = count() tarafından resulttype'ı, bin (TimeGenerated, 1 saat) | Sort TimeGenerated desc tarafından '''|
-|Runbook'una ilişkin başarıyla tamamlanmış SequencedStartStop_Parent Bul | ''' kategorisi arama "JobLogs" == | Burada (RunbookName_s "SequencedStartStop_Parent" ==) | Burada (resulttype'ı "Tamamlandı" ==) | Özetleme |AggregatedValue = count() tarafından resulttype'ı, bin (TimeGenerated, 1 saat) | Sort TimeGenerated desc tarafından '''|
+|Runbook'una ilişkin başarıyla tamamlanmış ScheduledStartStop_Parent Bul | ```search Category == "JobLogs" | Burada (RunbookName_s "ScheduledStartStop_Parent" ==) | Burada (resulttype'ı "Tamamlandı" ==)  | Özetleme |AggregatedValue = count() tarafından resulttype'ı, bin (TimeGenerated, 1 saat) | Sort TimeGenerated desc tarafından '''|
+|Runbook'una ilişkin başarıyla tamamlanmış SequencedStartStop_Parent Bul | ```search Category == "JobLogs" | Burada (RunbookName_s "SequencedStartStop_Parent" ==) | Burada (resulttype'ı "Tamamlandı" ==) | Özetleme |AggregatedValue = count() tarafından resulttype'ı, bin (TimeGenerated, 1 saat) | Sort TimeGenerated desc tarafından '''|
 
 ## <a name="viewing-the-solution"></a>Çözümü görüntüleme
 

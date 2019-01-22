@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: d9afc62b4ab5d5d83394dcaaacf85a7642a2ba22
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 27ba79e9168e098717e91e5a7179b5bc419ef86c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52260606"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438417"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Azure kaynaklarınızı düzenlemek için etiketleri kullanma
 
@@ -31,7 +31,7 @@ Etiketler kaynaklara uygulamak için kullanıcının bu kaynak türü için yazm
 
 ## <a name="powershell"></a>PowerShell
 
-Bu makaledeki örnekler Azure PowerShell’in 6.0 veya üzeri bir sürümünü gerektirir. 6.0 veya sonraki sürüme sahip değilseniz [sürümünüzü güncelleştirin](/powershell/azure/install-azurerm-ps).
+Bu makaledeki örnekler Azure PowerShell’in 6.0 veya üzeri bir sürümünü gerektirir. 6.0 veya sonraki sürüme sahip değilseniz [sürümünüzü güncelleştirin](/powershell/azure/azurerm/install-azurerm-ps).
 
 Bir *kaynak grubunun* mevcut etiketlerini görmek şunu kullanın:
 
