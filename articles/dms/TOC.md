@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 493ca6018a7eb94181deff946c6542463507761a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437989"
+---
 # [Veritabanı Geçiş Hizmeti Belgeleri](index.yml)
 
 # Genel Bakış
@@ -25,16 +33,27 @@
 ## [Veritabanı geçi senaryosunun durumu](resource-scenario-status.md)
 ## [Önkoşullara genel bakış](pre-reqs.md)
 ## [Azure SQL DB Yönetilen Örneği geçişlerinin ağ topolojileri](resource-network-topologies.md)
-## [Bilinen Sorunlar - Azure SQL DB’ye çevrimiçi geçiş](known-issues-azure-sql-online.md)
-## [Bilinen Sorunlar - MySQL için Azure DB’ye çevrimiçi geçiş](known-issues-azure-mysql-online.md)
-## [Bilinen Sorunlar - PostgreSQL için Azure DB’ye çevrimiçi geçiş](known-issues-azure-postgresql-online.md)
-## [Veri geçişi senaryolarında kullanılabilen hizmet ve araçlar](dms-tools-matrix.md)
+## Bilinen sorunlar
+### [Bilinen Sorunlar - Azure SQL DB’ye çevrimiçi geçiş](known-issues-azure-sql-online.md)
+### [Bilinen Sorunlar - MySQL için Azure DB’ye çevrimiçi geçiş](known-issues-azure-mysql-online.md)
+### [Bilinen Sorunlar - PostgreSQL için Azure DB’ye çevrimiçi geçiş](known-issues-azure-postgresql-online.md)
+## Videolar
+### [Veritabanı Geçiş Kılavuzu’nu kullanma](https://azure.microsoft.com/resources/videos/how-to-use-the-azure-database-migration-guide/)
+### [Geçiş işlemi ve önerilen araçlar/hizmetler](https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/)
+### [Önkoşulları belirleme ve bir DMS örneği oluşturma](https://azure.microsoft.com/resources/videos/how-to-address-prerequisites-and-create-a-dms-instance/)
+### [SQL Server 2008’i Azure SQL Veritabanı Yönetilen Örneği’ne geçirme](https://azure.microsoft.com/resources/videos/how-to-migrate-sql-server-2008-or-r2-to-azure-sqldbmi/)
+### [PostgreSQL’i PostgreSQL için Azure Veritabanı’na geçirme](https://azure.microsoft.com/resources/videos/how-to-migrate-postgresql-to-azure-postgresql-online-dms-and-cli/)
+### [Çevrimiçi ortamdaki bir geçiş işlemini izleme ve tam geçiş gerçekleştirme](https://azure.microsoft.com/resources/videos/how-to-monitor-online-migration-and-perform-cutover/)
+### [Oracle’ı Azure SQL Veritabanı’na geçirme](https://azure.microsoft.com/resources/videos/how-to-migrate-oracle-to-sqldb-online/)
+### [MongoDB’yi Azure Cosmos DB’ye geçirme](https://azure.microsoft.com/resources/videos/how-to-migrate-mongodb-to-cosmos-db/)
+## Araçlar ve rehberlik
+### [Veri geçişi senaryolarında kullanılabilen hizmet ve araçlar](dms-tools-matrix.md)
+### [Veritabanı Geçiş Kılavuzu](https://aka.ms/datamigration)
+### [Veri Geçiş Yardımcısı](https://aka.ms/dma)
+### [SQL Server Geçiş Yardımcısı](https://aka.ms/ssma)
+### [Veritabanı Yükseltme Deneyimi Yardımcısı](https://aka.ms/dea-docs)
 ## [Sık Sorulan Sorular](faq.md)
 ## [UserVoice Geri Bildirimi](https://feedback.azure.com/forums/906100-azure-database-migration-service)
 ## [Fiyatlandırma](https://aka.ms/dms-pricing)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=database-migration)
-## [Veritabanı Geçiş Kılavuzu](https://aka.ms/datamigration)
-## [Veri Geçiş Yardımcısı](https://aka.ms/dma)
-## [SQL Server Geçiş Yardımcısı](https://aka.ms/ssma)
-## [Veritabanı Yükseltme Deneyimi Yardımcısı](https://aka.ms/dea-docs)
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
