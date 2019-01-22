@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/06/2018
 ms.author: spelluru
-ms.openlocfilehash: 248ac7ed2a855dd1df71e6e44d1aa7065ddd8ba4
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: b0fdfa52d194dfa111c7bacf648c45f6e64fca13
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54062076"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430930"
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Bir Azure Resource Manager şablonu kullanarak bir Service Bus ad alanı oluşturma
 Bu hızlı başlangıçta, bir Service Bus ad alanı türü oluşturan bir Azure Resource Manager şablonu oluşturma **Mesajlaşma** ile bir **standart** SKU. Makale ayrıca dağıtım yürütülmesi için belirtilen parametreleri tanımlar. Bu şablonu kendi dağıtımlarınız için kullanabilir veya kendi gereksinimlerinize göre özelleştirebilirsiniz. Şablon oluşturma hakkında daha fazla bilgi için bkz. [Azure Resource Manager şablonları yazma][Authoring Azure Resource Manager templates]. Tam şablon için bkz: [Service Bus ad alanı şablon] [ Service Bus namespace template] GitHub üzerinde.
@@ -44,7 +44,7 @@ Oluşturma ve şablon el ile dağıtmak için aşağıdaki bölümlerde bu makal
 ## <a name="prerequisites"></a>Önkoşullar
 Bu hızlı başlangıcı tamamlamak bir Azure aboneliğinizin olması gerekir. Aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
-Kullanmak istiyorsanız **Azure PowerShell** Resource Manager şablonu dağıtmak için [Azure PowerShell yükleme](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.7.0).
+Kullanmak istiyorsanız **Azure PowerShell** Resource Manager şablonu dağıtmak için [Azure PowerShell yükleme](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-5.7.0).
 
 Kullanmak istiyorsanız **Azure CLI** Resource Manager şablonu dağıtmak için [Azure CLI yükleme]( /cli/azure/install-azure-cli).
 

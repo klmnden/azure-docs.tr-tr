@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/14/2018
 ms.author: rogarana
 ms.component: cosmosdb-table
-ms.openlocfilehash: 9aa3431e91196d7c33582d17494ddf0c32fba704
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: af76f67ba97b820d8571fd4f6bd3409396fb27ce
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634482"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433195"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Azure PowerShell ile Azure tablo depolama işlemleri 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
@@ -32,7 +32,7 @@ Bu nasıl yapılır makalesi, yaygın Azure tablo depolama işlemleri kapsar. A�
 
 Bu nasıl yapılır makalesi işiniz bittiğinde, kolayca, bu nedenle yeni bir kaynak grubunda yeni bir Azure depolama hesabı oluşturma işlemini gösterir. Bunun yerine mevcut bir depolama hesabını kullanmayı tercih ediyorsanız, bunun yerine bunu yapabilirsiniz.
 
-Örneği Azure PowerShell modülünü gerektirir `AzureRM` 4.4.0 sürümü veya üzeri. Bir PowerShell penceresinde çalıştırın `Get-Module -ListAvailable AzureRM` sürümü bulmak için. Hiçbir şey görüntülenmez veya yükseltme için ihtiyacınız [Azure PowerShell modülü yükleme](/powershell/azure/install-azurerm-ps).
+Örneği Azure PowerShell modülünü gerektirir `AzureRM` 4.4.0 sürümü veya üzeri. Bir PowerShell penceresinde çalıştırın `Get-Module -ListAvailable AzureRM` sürümü bulmak için. Hiçbir şey görüntülenmez veya yükseltme için ihtiyacınız [Azure PowerShell modülü yükleme](/powershell/azure/azurerm/install-azurerm-ps).
 
 [!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
 

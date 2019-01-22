@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: aef88a4fbc7d71ee1438333afd9773d1aba3ed9c
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 519b9e73e63285f167fca76061f84752ff676916
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359162"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431512"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Sürekli tümleştirme ve sürekli dağıtım için Azure IOT Edge
 
@@ -81,7 +81,7 @@ Bu bölümde, IOT Edge çözüm örnek değişiklikleri iade ettiğinizde otomat
     
     ![Derleme modülü görüntüleri görevi yapılandırma](./media/how-to-ci-cd/build-and-push.png)
 
-1. İkinci **Azure IOT Edge** görev, güncelleştirme **görünen ad** için **Azure IOT Edge - anında iletme modül görüntüleri**hem de **eylem** açılır listesinden **modül görüntüleri itme**. Kapsayıcı kayıt defteri türü seçin, yapılandırma ve aynı kayıt defteri içinde code(module.json) seçin emin olun. İçinde **. template.json dosyasını** denetimi, select **deployment.template.json** IOT Edge çözümünüzü tanımlayan dosya. Ardından **varsayılan platform**, yerleşik modülü görüntüleriniz için aynı platforma seçtiğinizden emin olun. Bu görev, tüm modül görüntüleri, seçtiğiniz kapsayıcı kayıt defterine iletilir. Kapsayıcı kayıt defteri kimlik bilgilerini de ekleyin **deployment.json** dosya, dosya yolu çıkış değişkenleri bulabilirsiniz. Diğer adı ayarlama `edge` bu değişkeni. Modül görüntüleri barındırmak için birden çok kapsayıcı kayıt defterleri varsa, bu görev yinelenen, farklı bir kapsayıcı kayıt defteri seçin ve kullanmak gereken **atlama modul** bu olmayan görüntüleri atlamak için Gelişmiş ayarları belirli kayıt defteri.
+1. İkinci **Azure IOT Edge** görev, güncelleştirme **görünen ad** için **Azure IOT Edge - anında iletme modül görüntüleri**hem de **eylem** açılır listesinden **modül görüntüleri itme**. Kapsayıcı kayıt defteri türü seçin, yapılandırma ve aynı kayıt defteri içinde code(module.json) seçin emin olun. İçinde **. template.json dosyasını** denetimi, select **deployment.template.json** IOT Edge çözümünüzü tanımlayan dosya. Ardından **varsayılan platform**, yerleşik modülü görüntüleriniz için aynı platforma seçtiğinizden emin olun. Bu görev, tüm modül görüntüleri, seçtiğiniz kapsayıcı kayıt defterine iletilir. Kapsayıcı kayıt defteri kimlik bilgilerini de ekleyin **deployment.json** dosya. Modül görüntüleri barındırmak için birden çok kapsayıcı kayıt defterleri varsa, bu görev yinelenen, farklı bir kapsayıcı kayıt defteri seçin ve kullanmak gereken **atlama modul** bu olmayan görüntüleri atlamak için Gelişmiş ayarları belirli kayıt defteri.
 
     ![Anında iletme modül görüntüleri görevi yapılandırma](./media/how-to-ci-cd/push.png)
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 664e31590f578b65da09f1e0fe8f57d579ed3cfc
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 4c1f115061dfba36a37da1647c34dd4587857377
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354561"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427483"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Azure arama için bir fiyatlandırma katmanı seçin
 
@@ -63,7 +63,7 @@ Fatura oranı **SU başına saatlik**, giderek daha yüksek fiyatlarla sahip her
 
 ### <a name="billing-for-image-extraction-in-cognitive-search"></a>Bilişsel arama görüntü ayıklama faturalandırması
 
-Bilişsel arama işlem hattı dizinleme dosyalarından görüntüleri ayıklıyorsanız, Azure Search faturanızda bu işlem için ücretlendirilirsiniz. Görüntü ayıklama tetikleyen parametre **imageAction** içinde bir [dizin oluşturucu yapılandırmasını](https://docs.microsoft.com/erest/api/searchservice/create-indexer#indexer-parameters). Varsa **imageAction** ayarlanır hiçbiri için (varsayılan), ücretsizdir görüntü ayıklama için.
+Bilişsel arama işlem hattı dizinleme dosyalarından görüntüleri ayıklıyorsanız, Azure Search faturanızda bu işlem için ücretlendirilirsiniz. Görüntü ayıklama tetikleyen parametre **imageAction** içinde bir [dizin oluşturucu yapılandırmasını](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters). Varsa **imageAction** ayarlanır hiçbiri için (varsayılan), ücretsizdir görüntü ayıklama için.
 
 Fiyatlandırma, değiştirilebilir, ancak her zaman öğesinde belgelendirilen [fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/search/) Azure Search için sayfa. 
 

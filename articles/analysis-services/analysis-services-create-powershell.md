@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4b5b00da1c920d249283625e4970510ea00bafc8
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 01bd8b5d1f8ed0d78f3331b4150df37ef0a1049e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190757"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426792"
 ---
 # <a name="quickstart-create-a-server---powershell"></a>Hızlı Başlangıç: Bir sunucu oluşturma - PowerShell
 
@@ -23,7 +23,7 @@ Bu hızlı başlangıç, Azure aboneliğinizde bir Azure Analysis Services sunuc
 
 - **Azure aboneliği**: Ziyaret [Azure ücretsiz deneme sürümü](https://azure.microsoft.com/offers/ms-azr-0044p/) hesap oluşturmak için.
 - **Azure Active Directory**: Aboneliğinizin Azure Active Directory kiracısı ile ilişkilendirilmesi gerekir ve bu dizinde bir hesabınızın olması gerekir. Daha fazla bilgi edinmek için bkz. [Kimlik doğrulaması ve kullanıcı izinleri](analysis-services-manage-users.md).
-- **Azure PowerShell modülünün 4.0 veya daha sonraki bir sürümü**. Sürümü bulmak için ` Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yüklemek veya yükseltmek için bkz. [Azure PowerShell Modülü yükleme](/powershell/azure/install-azurerm-ps).
+- **Azure PowerShell modülünün 4.0 veya daha sonraki bir sürümü**. Sürümü bulmak için ` Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yüklemek veya yükseltmek için bkz. [Azure PowerShell Modülü yükleme](/powershell/azure/azurerm/install-azurerm-ps).
 
 ## <a name="import-azurermanalysisservices-module"></a>AzureRm.AnalysisServices modülünü içeri aktarın
 

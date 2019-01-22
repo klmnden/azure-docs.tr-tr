@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/17/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: f786a20f61c8851c1d50a89edd392b9b974db076
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 9c728ba4c77cd22782adc9916da62cc309a8150b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622329"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431669"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Self servis parola sıfırlamayı başarıyla kullanıma sunma
 
@@ -24,7 +24,7 @@ Azure Active Directory (Azure AD) self servis parola sıfırlama (SSPR) işlevin
 > [!VIDEO https://www.youtube.com/embed/OZn5btP6ZXw]
 
 1. Kuruluşunuzun küçük bir alt kümesi ile bir pilot dağıtım tamamlayın.
-   * Pilot hakkında bilgi bulunabilir [Öğreticisi: tam bir Azure AD Self Servis parola sıfırlama pilot dağıtmadan](tutorial-sspr-pilot.md).
+   * Pilot hakkında bilgi bulunabilir [Öğreticisi: Eksiksiz bir Azure AD Self Servis parola sıfırlama pilot dağıtmadan](tutorial-sspr-pilot.md).
 1. Yardım Masası eğitin.
    * Kullanıcılarınıza nasıl yardımcı?
    * Kullanıcıların SSPR kullanabilmek ve kullanıcılara yardım etmek masanıza izin vermeyecek zorlayacak?
@@ -41,12 +41,12 @@ Azure Active Directory (Azure AD) self servis parola sıfırlama (SSPR) işlevin
 
 Birçok müşteri için kullanıcıların SSPR kullanmasının en kolay yolu, kullanımı kolay yönergeler içeren bir e-posta kampanyasıdır. [Basit e-posta ve uygulamanızı kullanıma sunma işleminizde şablon olarak kullanabileceğiniz diğer malzemeleri oluşturduk](https://www.microsoft.com/download/details.aspx?id=56768):
 
-* **Çok Yakında**: Kullanıcılara yapması gerekenleri bildirmek üzere kullanıma sunmadan birkaç hafta veya gün önce kullandığınız e-posta şablonu.
-* **Şimdi kullanılabilir**: Kullanıcıları kaydolmaya ve kimlik doğrulama verilerini onaylamaya yönlendirmek üzere programı kullanıma sunma gününde kullandığınız e-posta şablonu. Kullanıcılar hemen kaydolursa, gerektiğinde SSPR’yi kullanabilir.
-* **Kaydolma anımsatıcısı**: Kullanıcılara kaydolmayı ve kimlik doğrulama verilerini onaylamayı anımsatmak üzere dağıtımdan sonraki birkaç gün veya hafta sonra gönderilen e-posta şablonu.
-* **SSPR posterler**: posterler özelleştirebilir ve kuruluşunuz gün ve en fazla önde gelen hafta sonra dağıtım etrafında görüntüleme.
-* **SSPR tablo tents**: Tablo öğle odada Konferans salonu veya kaydı tamamlamak için kullanıcılarınızın teşvik etmek için masalarını yerleştirebileceğiniz kartları.
-* **SSPR Çıkartmalar**: özelleştirme ve dizüstü bilgisayarlar, monitör, klavye veya cep telefonları SSPR'ye erişmek nasıl hatırlamak yerleştirmek için yazdırma çıkartma şablonları.
+* **Çok yakında**: Bir şey yapmak için ihtiyaç duydukları bilmesini sağlamak üzere birkaç hafta veya gün önce piyasaya çıkma kullandığınız bir e-posta şablonu.
+* **Artık kullanılabilir**: Program günü kullandığınız bir e-posta şablonu sürücü kullanıcılara kaydolmayı ve kimlik doğrulama verilerini onaylamayı başlatın. Kullanıcılar hemen kaydolursa, gerektiğinde SSPR’yi kullanabilir.
+* **Kaydolma anımsatıcısı**: Birkaç gün veya hafta kullanıcılara kaydolmayı ve kimlik doğrulama verilerini onaylamayı anımsatmak üzere dağıtımdan sonra bir e-posta şablonu.
+* **SSPR posterler**: Posterler özelleştirebilir ve kuruluşunuz gün ve en fazla önde gelen hafta sonra dağıtım etrafında görüntüler.
+* **SSPR tablo tents**: Tablo kartları öğle odada Konferans salonu veya kullanıcılarınızın kaydınızı tamamlamak için teşvik etmek için masalarını yerleştirebilirsiniz.
+* **SSPR Çıkartmalar**: Etiket şablonları özelleştirme ve dizüstü bilgisayarlar, monitör, klavye veya cep telefonları SSPR'ye erişmek nasıl hatırlamak yerleştirmek için yazdırma.
 
 ![SSPR e-posta örnekleri][Email]
 

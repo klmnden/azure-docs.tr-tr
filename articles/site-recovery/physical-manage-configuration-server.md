@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 62a9fd6eee15618e7153fd84030840b429e214ed
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 9a5a20ffd5065f155fff6342937e1c17a1905797
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833525"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430492"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Fiziksel sunucu olağanüstü durum kurtarma için yapılandırma sunucusunu yönetme
 
@@ -37,7 +37,7 @@ Tablo, şirket içi yapılandırma sunucusu makine dağıtmak için önkoşullar
 | IIS | -Önceden mevcut olan varsayılan Web sitesi <br> -Etkinleştir [anonim kimlik doğrulaması](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Etkinleştir [Fastcgı](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) ayarı  <br> -Önceden varolan Web sitesi/443 numaralı bağlantı noktasını dinlemeye uygulama<br>|
 | NIC türü | VMXNET3 (VMware VM olarak dağıtıldığında) |
 | IP adresi türü | Statik |
-| İnternet erişimi | Sunucunun şu URL'lere erişimi gerekir: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://management.azure.com <br> -*. Services.VisualStudio.com adresine <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi (genişleme işlem sunucusu için gerekli değildir) <br> - time.nist.gov <br> - time.windows.com |
+| İnternet erişimi | Sunucunun şu URL'lere erişimi gerekir: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://management.azure.com <br> - *.services.visualstudio.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi (genişleme işlem sunucusu için gerekli değildir) <br> - time.nist.gov <br> - time.windows.com |
 | Bağlantı Noktaları | 443 (Denetim kanalı düzenleme)<br>9443 (Veri aktarımı)|
 
 ## <a name="download-the-latest-installation-file"></a>Son yükleme dosyasını indirin
@@ -108,19 +108,19 @@ Yükleme dosyasını aşağıdaki gibi çalıştırın:
 
 |Parametre Adı| Tür | Açıklama| Değerler|
 |-|-|-|-|
-| /ServerMode|Gerekli|Hem yapılandırma hem de işlem sunucusunun mu yoksa yalnızca işlem sunucusunun mu yükleneceğini belirtir|CS<br>PS|
-|/InstallLocation|Gerekli|Bileşenlerin yüklendiği klasör| Bilgisayardaki herhangi bir klasör|
-|/MySQLCredsFilePath|Gerekli|MySQL sunucusu kimlik bilgilerinin depolandığı dosya yolu|Dosya aşağıda belirtilen biçimde olmalıdır|
-|/VaultCredsFilePath|Gerekli|Kasa kimlik bilgileri dosyasının yolu|Geçerli dosya yolu|
-|/EnvType|Gerekli|Korumak istediğiniz ortam türü |VMware<br>NonVMware|
-|/PSIP|Gerekli|Çoğaltma veri aktarımı için kullanılacak NIC’nin IP adresi| Herhangi bir geçerli IP adresi|
-|/CSIP|Gerekli|Yapılandırma sunucusunun dinleme yaptığı NIC’nin IP adresi| Herhangi bir geçerli IP adresi|
-|/PassphraseFilePath|Gerekli|Parola dosyası konumunun tam yolu|Geçerli dosya yolu|
+| /ServerMode|Gereklidir|Hem yapılandırma hem de işlem sunucusunun mu yoksa yalnızca işlem sunucusunun mu yükleneceğini belirtir|CS<br>PS|
+|/InstallLocation|Gereklidir|Bileşenlerin yüklendiği klasör| Bilgisayardaki herhangi bir klasör|
+|/MySQLCredsFilePath|Gereklidir|MySQL sunucusu kimlik bilgilerinin depolandığı dosya yolu|Dosya aşağıda belirtilen biçimde olmalıdır|
+|/VaultCredsFilePath|Gereklidir|Kasa kimlik bilgileri dosyasının yolu|Geçerli dosya yolu|
+|/EnvType|Gereklidir|Korumak istediğiniz ortam türü |VMware<br>NonVMware|
+|/PSIP|Gereklidir|Çoğaltma veri aktarımı için kullanılacak NIC’nin IP adresi| Herhangi bir geçerli IP adresi|
+|/CSIP|Gereklidir|Yapılandırma sunucusunun dinleme yaptığı NIC’nin IP adresi| Herhangi bir geçerli IP adresi|
+|/PassphraseFilePath|Gereklidir|Parola dosyası konumunun tam yolu|Geçerli dosya yolu|
 |/BypassProxy|İsteğe bağlı|Yapılandırma sunucusunun Azure'a bir ara sunucu olmadan bağlandığını belirtir|Yapmak için bu değeri Venu’den alın|
 |/ProxySettingsFilePath|İsteğe bağlı|Ara sunucu ayarları (Varsayılan ara sunucu kimlik doğrulaması gerektirir ya da özel bir ara sunucu kullanılır)|Dosya aşağıda belirtilen biçimde olmalıdır|
 |DataTransferSecurePort|İsteğe bağlı|Çoğaltma verileri için kullanılacak PSIP’deki bağlantı noktası numarası| Geçerli Bağlantı Noktası Numarası (varsayılan değer: 9433)|
 |/SkipSpaceCheck|İsteğe bağlı|Önbellek diski için alan denetimini atlama| |
-|/AcceptThirdpartyEULA|Gerekli|Bayrak, üçüncü taraf EULA'nın kabul edildiğini gösterir| |
+|/AcceptThirdpartyEULA|Gereklidir|Bayrak, üçüncü taraf EULA'nın kabul edildiğini gösterir| |
 |/ShowThirdpartyEULA|İsteğe bağlı|Üçüncü taraf EULA belgesini görüntüler. Giriş olarak sağlanırsa, diğer tüm parametreler yoksayılır| |
 
 
@@ -264,7 +264,7 @@ Sunucuyu aşağıdaki gibi yükseltin:
 
 ## <a name="delete-or-unregister-a-configuration-server-powershell"></a>Silme veya kaydını iptal yapılandırma sunucusunu (PowerShell)
 
-1. [Yükleme](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell Modülü
+1. [Yükleme](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell Modülü
 2. Komutunu kullanarak Azure hesabınızda oturum açın
     
     `Connect-AzureRmAccount`

@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: dc4cd28fe61c422f65f47c74c7cbc4686d73ab77
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: d9fd7544c61b021bbb5db32087847cbeaddd3918
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628843"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431733"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Azure multi-Factor authentication'da raporları
 
@@ -23,7 +23,7 @@ Azure multi-Factor Authentication, Azure portalı üzerinden erişilebilir, kuru
 
 | Rapor | Konum | Açıklama |
 |:--- |:--- |:--- |
-| Engellenen kullanıcı geçmişi | Azure AD > MFA sunucusu > kullanıcıları engelle/engelini kaldır | Engelleme veya kullanıcıların engelini kaldırma isteklerinin geçmişini gösterir. |
+| Engellenen Kullanıcı Geçmişi | Azure AD > MFA sunucusu > kullanıcıları engelle/engelini kaldır | Engelleme veya kullanıcıların engelini kaldırma isteklerinin geçmişini gösterir. |
 | Kullanım ve dolandırıcılık uyarıları | Azure AD > oturum açma işlemleri | Bilgi genel kullanımı, kullanıcı özeti ve kullanıcı ayrıntıları sağlar. yanı sıra belirtilen tarih aralığı içinde gönderilen sahtekarlık uyarısı geçmişini. |
 | Şirket içi bileşenleri için kullanım | Azure AD > MFA sunucusu > Etkinlik Raporu | Bilgi genel kullanım için MFA NPS uzantısı ile ADFS, sağlar ve MFA sunucusu. |
 | Atlanan Kullanıcı Geçmişi | Azure AD > MFA sunucusu > bir kerelik atlama | Bir kullanıcı için multi-Factor Authentication'ı atlama isteklerinin geçmişini sağlar. |
@@ -58,9 +58,9 @@ Bu veriler üzerinden kullanılabilir [Azure portalında](https://portal.azure.c
 
 MFA hakkındaki oturum açma etkinliği raporları aşağıdaki bilgilere erişmenizi sağlar:
 
-**MFA gerekli:** Oturum açma işlemi için MFA'nın gerekli olup olmadığı. MFA nedeniyle kullanıcı başına MFA, koşullu erişim veya diğer nedenlerle gerekli olabilir. Olası değerler **Evet** veya **Hayır**.
+**MFA gerekli:** Mfa'yı veya oturum açma için gerekli olup olmadığı. MFA nedeniyle kullanıcı başına MFA, koşullu erişim veya diğer nedenlerle gerekli olabilir. Olası değerler **Evet** veya **Hayır**.
 
-**MFA Sonucu:** MFA'nın tamamlanıp tamamlanmadığı hakkında daha fazla bilgi:
+**MFA sonucu:** MFA memnun veya reddedilen hakkında daha fazla bilgi:
 
 - MFA tamamlandıysa bu sütunda MFA'nın tamamlanma şekli hakkında daha fazla bilgi yer alır.
    - Azure Multi-Factor Authentication
@@ -103,7 +103,7 @@ MFA hakkındaki oturum açma etkinliği raporları aşağıdaki bilgilere erişm
       - kullanıcı bulunamadı
       - doğrulama kodu zaten bir kez kullanıldı
 
-**MFA kimlik doğrulama yöntemi:** Kullanıcının MFA'yı tamamlaması için kullandığı kimlik doğrulama yöntemi. Olası değerler şunlardır:
+**MFA kimlik doğrulama yöntemi:** Mfa'yı tamamlamak için kullanılan kullanıcı kimlik doğrulama yöntemi. Olası değerler şunlardır:
 
 - Kısa mesaj
 - Mobil uygulama bildirimi
@@ -112,7 +112,7 @@ MFA hakkındaki oturum açma etkinliği raporları aşağıdaki bilgilere erişm
 - Telefon araması (Ofis telefonu)
 - Telefon araması (Alternatif kimlik doğrulama telefonu)
 
-**MFA kimlik doğrulama ayrıntısı:** Telefon numarasının temizlenmiş sürümü. Örnek: +X XXXXXXXX64.
+**MFA kimlik doğrulama Ayrıntısı:** Örneğin telefon numarası sürümünü iptal etti: + X XXXXXXXX64.
 
 **Koşullu erişim** etkilenen oturum açma denemesi de dahil olmak üzere bir koşullu erişim ilkeleri hakkında daha fazla bilgi:
 

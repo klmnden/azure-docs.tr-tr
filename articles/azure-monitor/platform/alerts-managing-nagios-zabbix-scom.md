@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: anantr
-ms.component: alerts
-ms.openlocfilehash: f45774d8afc8760d0a02cb0c863c9ef100ef1365
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.subservice: alerts
+ms.openlocfilehash: 48fb9d8eaf2003834a420b48d649c830c608fd6e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54381860"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54421224"
 ---
 # <a name="manage-alerts-from-scom-zabbix-and-nagios-in-azure-monitor"></a>SCOM, Zabbix ve Nagios Azure İzleyici'de Uyarıları yönetme
 
@@ -32,3 +32,4 @@ Log Analytics'na aktarma yapılandırdıktan sonra bu hizmetleri izleme uyarı �
 >  1. Tetiklenme tüm uyarı örnekleri hem de Azure İzleyici ve Azure Log Analytics kullanılabilir. Şu anda arasında iki seçin veya yalnızca belirli uyarıları harekete alma için hiçbir yolu yoktur.
 >  1. Temel alınan telemetri türü kullanılamadığından SCOM, Zabbix ve Nagios tüm uyarıların sinyal türü "Bilinmeyen" vardır.
 >  1. Nagios uyarılar olmayan durum bilgisi olan – örneğin [izleme koşulu](https://aka.ms/azure-alerts-overview) uyarının "Fired" "Çözülmüş" geçer değil. Bunun yerine "Fired" ve "Çözülmüş" ayrı uyarı örneklerinin görüntülenir. 
+

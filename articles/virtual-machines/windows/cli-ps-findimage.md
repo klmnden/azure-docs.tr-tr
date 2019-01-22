@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: danlep
-ms.openlocfilehash: 5934e955d2a18d111c625670bced134df37ef045
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: ff4ccdf28be9d28798fff0e9f66bbb2c860166b7
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409603"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424549"
 ---
 # <a name="find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Azure Marketi'nde Azure PowerShell ile Windows VM görüntüleri bulma
 
@@ -28,7 +28,7 @@ Bu makalede, sanal makine görüntüleri Azure Market'te bulmak için Azure Powe
 
 Kullanılabilir görüntüleri ve teklifler kullanarak göz atabilirsiniz [Azure Marketi](https://azuremarketplace.microsoft.com/) vitrini, [Azure portalında](https://portal.azure.com), veya [Azure CLI](../linux/cli-ps-findimage.md). 
 
-Sizin yüklü ve en son yapılandırıldığından emin olun [Azure PowerShell Modülü](/powershell/azure/install-azurerm-ps).
+Sizin yüklü ve en son yapılandırıldığından emin olun [Azure PowerShell Modülü](/powershell/azure/azurerm/install-azurerm-ps).
 
 [!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
 
@@ -37,14 +37,14 @@ Sizin yüklü ve en son yapılandırıldığından emin olun [Azure PowerShell M
 |:--- |:--- |:--- |:--- |
 | MicrosoftWindowsServer |WindowsServer |2016-Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2016-Datacenter-Server-Core |
-| MicrosoftWindowsServer |WindowsServer |Kapsayıcılar ile 2016 Datacenter |
+| MicrosoftWindowsServer |WindowsServer |2016-Datacenter-with-Containers |
 | MicrosoftWindowsServer |WindowsServer |2012-R2-Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2012-Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2008-R2-SP1 |
 | MicrosoftDynamicsNAV |DynamicsNAV |2017 |
 | MicrosoftSharePoint |MicrosoftSharePointServer |2016 |
 | MicrosoftSQLServer |SQL2017 WS2016 |Enterprise |
-| MicrosoftRServer |RServer WS2016 |Enterprise |
+| MicrosoftRServer |RServer-WS2016 |Enterprise |
 
 ## <a name="navigate-the-images"></a>Görüntüleri gidin
 
@@ -119,7 +119,7 @@ $pubName="MicrosoftWindowsServer"
 Get-AzureRMVMImageOffer -Location $locName -Publisher $pubName | Select Offer
 ```
 
-Çıktı:
+Çıkış:
 
 ```
 Offer
@@ -136,7 +136,7 @@ $offerName="WindowsServer"
 Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
 ```
 
-Çıktı:
+Çıkış:
 
 ```
 Skus
@@ -164,7 +164,7 @@ Get-AzureRMVMImage -Location $locName -Publisher $pubName -Offer $offerName -Sku
 
 Bir URN içinde seçilen yayımcı, teklif, SKU ve sürüm birleştirebilirsiniz artık (virgülle ayrılmış değerler tarafından:). Bu URN ile geçirin `--image` ile bir VM oluşturduğunuzda, parametre [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) cmdlet'i. İsteğe bağlı olarak, görüntünün en son sürümünü almak için "son" URN sürüm numarasını değiştirebilirsiniz.
 
-Resource Manager şablonu ile VM dağıtma sonra görüntüyü parametreleri tek tek de ayarlarsınız `imageReference` özellikleri. Bkz: [şablon başvurusu](/azure/templates/microsoft.compute/virtualmachines).
+Resource Manager şablonu ile VM dağıtma sonra görüntüyü parametreleri tek tek de ayarlarsınız `imageReference` özellikleri. Bkz. [şablon başvurusu](/azure/templates/microsoft.compute/virtualmachines).
 
 [!INCLUDE [virtual-machines-common-marketplace-plan](../../../includes/virtual-machines-common-marketplace-plan.md)]
 
@@ -179,7 +179,7 @@ $version = "2016.127.20170406"
 Get-AzureRMVMImage -Location $locName -Publisher $pubName -Offer $offerName -Skus $skuName -Version $version
 ```
 
-Çıktı:
+Çıkış:
 
 ```
 Id               : /Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2016-Datacenter/
@@ -205,7 +205,7 @@ Aşağıdaki örnek, benzer bir komut için gösterir *veri bilimi sanal makines
 Get-AzureRMVMImage -Location "westus" -Publisher "microsoft-ads" -Offer "windows-data-science-vm" -Skus "windows2016" -Version "0.2.02"
 ```
 
-Çıktı:
+Çıkış:
 
 ```
 Id               : /Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/microsoft-ads/ArtifactTypes/VMIma
@@ -237,7 +237,7 @@ Lisans koşullarını görüntülemek için kullanın [Get-AzureRmMarketplaceter
 Get-AzureRmMarketplaceterms -Publisher "microsoft-ads" -Product "windows-data-science-vm" -Name "windows2016"
 ```
 
-Çıktı:
+Çıkış:
 
 ```
 Publisher         : microsoft-ads
@@ -259,7 +259,7 @@ $agreementTerms=Get-AzureRmMarketplaceterms -Publisher "microsoft-ads" -Product 
 Set-AzureRmMarketplaceTerms -Publisher "microsoft-ads" -Product "windows-data-science-vm" -Name "windows2016" -Terms $agreementTerms -Accept
 ```
 
-Çıktı:
+Çıkış:
 
 ```
 Publisher         : microsoft-ads

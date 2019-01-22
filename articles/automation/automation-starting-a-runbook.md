@@ -3,18 +3,18 @@ title: Azure Automation'da bir runbook başlatma
 description: Azure Automation'da bir runbook başlatmak için kullanılan ve Azure portalı ve Windows PowerShell kullanarak Ayrıntılar sağlayan farklı yöntemlere özetler.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d2aea370d7de063805eb584cd7d90395ca725b4c
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 41ea6e6a8c09217c0bb34e07bb911329121f8b7b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275496"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424974"
 ---
 # <a name="starting-a-runbook-in-azure-automation"></a>Azure Automation'da bir runbook başlatma
 Aşağıdaki tabloda kendi belirli senaryonuza en uygun Azure automation'da bir runbook başlatma yöntemi belirlemenize yardımcı olur. Bu makale, Azure portalı ve Windows PowerShell ile bir runbook başlatma hakkında bilgi içerir. Aşağıdaki bağlantılardan erişebileceğiniz diğer belgeler diğer yöntemler hakkında ayrıntılı bilgi sağlanır.
@@ -179,4 +179,5 @@ jsmith
 ## <a name="next-steps"></a>Sonraki adımlar
 * Geçerli makaledeki runbook mimarisi, Azure'da ve şirket içi karma Runbook çalışanı ile yönetme kaynakları runbook'ların üst düzey bir genel bakış sağlar. Veri merkezinizde Otomasyon runbook'ları çalıştırma hakkında bilgi edinmek için bkz [karma Runbook çalışanları](automation-hybrid-runbook-worker.md).
 * Özel veya genel işlevler için diğer runbook'lar tarafından kullanılacak oluşturma modüler runbook'lar hakkında daha fazla bilgi için bkz [alt runbook'ları](automation-child-runbooks.md).
+
 

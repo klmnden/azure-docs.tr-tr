@@ -3,18 +3,18 @@ title: Azure otomasyonuna Orchestrator'dan geçiş
 description: System Center Orchestrator'ı Azure Otomasyonu runbook'ları ve tümleştirme paketleri geçirmeyi açıklar.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 80b0523f8442e30e6af329263be454fa545933d6
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: ae47cba8f8e9a7cdf914c0b3ea5dfb9fa6c259a9
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275291"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432906"
 ---
 # <a name="migrating-from-orchestrator-to-azure-automation-beta"></a>Azure Otomasyonu (Beta) Orchestrator'dan geçiş
 Runbook'ları [System Center Orchestrator](https://technet.microsoft.com/library/hh237242.aspx) Azure automation'daki runbook'lar Windows PowerShell tabanlı, özellikle Orchestrator için yazılmış tümleştirme paketleri gerçekleştirilen etkinlikler temel alır.  [Grafik runbook'ları](automation-runbook-types.md#graphical-runbooks) Azure Otomasyonu'nda benzer bir görünümü Orchestrator runbook'ları için PowerShell cmdlet'leri, alt runbook'ları ve varlıkları temsil eden kendi etkinliklerle sahip.
@@ -134,3 +134,4 @@ Orchestrator runbook'ları ile diğer runbook'ları başlatmak **Runbook'u Çağ
 * [Karma Runbook çalışanı](automation-hybrid-runbook-worker.md)
 * [Orchestrator standart etkinlikleri](https://technet.microsoft.com/library/hh403832.aspx)
 * [İndirme System Center Orchestrator geçiş Araç Seti](https://www.microsoft.com/en-us/download/details.aspx?id=47323)
+

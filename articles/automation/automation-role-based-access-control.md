@@ -4,18 +4,18 @@ description: Rol tabanlı erişim denetimi (RBAC), Azure kaynakları için eriş
 keywords: otomasyon rbac, rol tabanlı erişim denetimi, azure rbac
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 538208c39d6436c15b95760133e00c980e2e8277
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 4fb90dbdb02fc0a0448b8cb6723c980c0fe41bd6
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727911"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424328"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Azure Automation’da Rol Tabanlı Erişim Denetimi
 
@@ -73,7 +73,7 @@ Okuyucu, Otomasyon hesabında tüm kaynakları görüntüleyebilir ancak değiş
 
 ### <a name="automation-operator"></a>Otomasyon Operatörü
 
-Otomasyon operatörü oluşturabilmek ve işlerini yönetme ve runbook adları ve tüm runbook'ları bir Otomasyon hesabı özelliklerini okuyun.  Not: bireysel işleci erişimi denetlemek istiyorsanız, runbook'ları sonra kullanmayın bu rolü ayarlayın ve bunun yerine 'Otomasyon işi işleci' ve 'Otomasyon Runbook'u işleci' rolleri birlikte kullanın. Aşağıdaki tabloda, rol için verilen izinler gösterilmektedir:
+Otomasyon operatörü oluşturabilmek ve işlerini yönetme ve runbook adları ve tüm runbook'ları bir Otomasyon hesabı özelliklerini okuyun.  Not: Tek tek işleci erişimi denetlemek istiyorsanız, runbook'ları sonra kullanmayın bu rolü ayarlayın ve bunun yerine 'Otomasyon işi işleci' ve 'Otomasyon Runbook'u işleci' rolleri birlikte kullanın. Aşağıdaki tabloda, rol için verilen izinler gösterilmektedir:
 
 |**Eylemler**  |**Açıklama**  |
 |---------|---------|
@@ -142,7 +142,7 @@ Log Analytics katkıda bulunan tüm izleme verilerini okuyabilir ve izleme ayarl
 |Microsoft.Compute/virtualMachines/extensions/*|Oluşturun ve klasik sanal makine uzantıları yönetin.|
 |Microsoft.Insights/alertRules/*|Okuma/yazma/silme uyarı kuralları.|
 |Microsoft.Insights/diagnosticSettings/*|Tanılama ayarlarını okuma/yazma/silme.|
-|Microsoft.OperationalInsights/*|Log Analytics'i yönetme.|
+|Microsoft.OperationalInsights/*|Manage Log Analytics.|
 |Microsoft.OperationsManagement/*|Çalışma alanları çözümlerinde yönetin.|
 |Microsoft.Resources/deployments/*|Oluşturun ve kaynak grubu dağıtımı yönetin.|
 |Microsoft.Resources/subscriptions/resourcegroups/deployments/*|Oluşturun ve kaynak grubu dağıtımı yönetin.|
@@ -334,7 +334,7 @@ AssignableScopes : {/}
 ```
 
 [Get-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt619413.aspx) Azure AD RBAC rolü atamalarını belirtilen kapsamda listeler. Hiçbir parametre olmadan, bu komut abonelik altında yapılan tüm rol atamalarını döndürür. Belirli kullanıcıların yanı sıra bu kullanıcıların üyesi olduğu gruplara da erişim atamalarını listelemek için **ExpandPrincipalGroups** parametresini kullanın.
-    **Örnek:** Otomasyon hesabı içinde tüm kullanıcıları ve rollerini listelemek için aşağıdaki komutu kullanın.
+    **Örnek:** Tüm kullanıcıları ve rolleri bir Otomasyon hesabı içinde listelemek için aşağıdaki komutu kullanın.
 
 ```azurepowershell-interactive
 Get-AzureRMRoleAssignment -scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'
@@ -376,7 +376,7 @@ ObjectType         : User
 ```
 
 Kullanım [Remove-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603781.aspx) belirli bir kapsamda belirtilen kullanıcıya, Grup veya uygulamaya erişimini kaldırmak için.
-    **Örnek:** kullanıcıyı Otomasyon hesabı kapsamındaki "Otomasyon operatörü" rolünden kaldırmak için aşağıdaki komutu kullanın.
+    **Örnek:** Kullanıcıyı Otomasyon hesabı kapsamındaki "Otomasyon operatörü" rolünden kaldırmak için aşağıdaki komutu kullanın.
 
 ```azurepowershell-interactive
 Remove-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to remove> -RoleDefinitionName 'Automation Operator' -Scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'
@@ -428,3 +428,4 @@ Runbook görünümlerin kapsamını belirlemek için atanmış bir Runbook Otoma
 * Azure Otomasyonu’nda RBAC yapılandırmak için çeşitli yollar hakkında daha fazla bilgi için bkz. [Azure PowerShell ile RBAC yönetme](../role-based-access-control/role-assignments-powershell.md).
 * Runbook başlatmak için çeşitli yollar hakkında daha fazla ayrıntı için bkz. [runbook başlatma](automation-starting-a-runbook.md)
 * Farklı runbook türleri hakkında daha fazla bilgi için bkz. [Azure Otomasyonu runbook türleri](automation-runbook-types.md)
+

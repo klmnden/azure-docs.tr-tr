@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: b772aa314316906a4079e3d6b8b4e0aeb0f54fba
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 4339782304f1bc175f1066954f1050bc00f25005
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022997"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434249"
 ---
 # <a name="create-azure-ssis-integration-runtime-in-azure-data-factory"></a>Azure Data Factory Azure SSIS tümleştirme çalışma zamanı oluşturma
 Bu makale, sağlama Azure-SSIS Integration Runtime (IR) Azure Data Factory (ADF) için adımları sağlar. Ardından, dağıtmak ve bu tümleştirme çalışma zamanı azure'da üzerinde SQL Server Integration Services (SSIS) paketlerini çalıştırmak için SQL Server veri Araçları (SSDT) veya SQL Server Management Studio (SSMS) kullanabilirsiniz. 
@@ -50,7 +50,7 @@ Azure-SSIS IR sağladığınızda, Azure Feature Pack SSIS ve Access Redistribut
     - Sanal ağ hizmet uç noktaları ile Azure SQL veritabanı sunucusu veya yönetilen bir sanal ağ içinde olan örneği SSISDB barındırıyorsanız. 
     - Şirket içi veri depoları, Azure-SSIS IR'yi üzerinde çalışan SSIS paketlerinden bağlanmak istediğiniz 
 
-- **Azure PowerShell**. Yönergeleri takip edin [Azure PowerShell'i yükleme ve yapılandırma konusunda](/powershell/azure/install-azurerm-ps), Azure-SSIS IR sağlamak için bir PowerShell Betiği çalıştırmak istiyorsanız 
+- **Azure PowerShell**. Yönergeleri takip edin [Azure PowerShell'i yükleme ve yapılandırma konusunda](/powershell/azure/azurerm/install-azurerm-ps), Azure-SSIS IR sağlamak için bir PowerShell Betiği çalıştırmak istiyorsanız 
 
 ### <a name="region-support"></a>Bölge desteği
 Azure bölgesi ile ADF ve Azure-SSIS IR'yi şu anda kullanılabilir bir listesi için bkz. [ADF + SSIS IR bölgelere göre kullanılabilirliği](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all). 

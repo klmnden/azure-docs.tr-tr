@@ -3,18 +3,18 @@ title: Güncelleştirme yönetimi çözümünü azure'da
 description: Bu makale, Azure güncelleştirme yönetimi çözümünü Windows ve Linux bilgisayarlarınızın güncelleştirmelerini yönetmek için nasıl kullanılacağını anlamanıza yardımcı olmak için hazırlanmıştır.
 services: automation
 ms.service: automation
-ms.component: update-management
+ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 01/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d8df48511f2bfd2500dbc0a1dfaa95e488fad63b
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 8635d943120f0e79b8efcfe1f9be0b74d8bb4fac
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215006"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433909"
 ---
 # <a name="update-management-solution-in-azure"></a>Güncelleştirme yönetimi çözümünü azure'da
 
@@ -326,10 +326,10 @@ Aşağıdaki adresleri özellikle güncelleştirme yönetimi için gereklidir. B
 
 |Azure kamu  |Azure Kamu  |
 |---------|---------|
-|*.ods.opinsights.azure.com     |*. ods.opinsights.azure.us         |
-|*.oms.opinsights.azure.com     | *. oms.opinsights.azure.us        |
-|*.blob.core.windows.net|*. blob.core.usgovcloudapi.net|
-|*.azure-automation.net|*.Azure-automation.us|
+|*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
+|*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
+|*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
+|*.azure-automation.net|*.azure-automation.us|
 
 Karma Runbook çalışanı gereken bağlantı noktaları hakkında daha fazla bilgi için bkz: [karma çalışanı rolü bağlantı noktaları](automation-hybrid-runbook-worker.md#hybrid-worker-role).
 
@@ -615,3 +615,4 @@ Windows sanal makineleriniz için güncelleştirmeleri yönetme konusunda bilgi 
 * [Uyarı oluşturma](automation-tutorial-update-management.md#configure-alerts) güncelleştirme dağıtım durumu için.
 
 * Güncelleştirme yönetimi REST API aracılığıyla etkileşim öğrenmek için bkz. [yazılım güncelleştirme yapılandırmaları](/rest/api/automation/softwareupdateconfigurations)
+

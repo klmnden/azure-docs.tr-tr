@@ -3,18 +3,18 @@ title: Azure Otomasyonu verilerini yönetme
 description: Bu makale, bir Azure Otomasyonu ortamı yönetmek için birden çok konuları içerir.  Şu anda veri saklama ve Azure Otomasyonu olağanüstü durum kurtarma, Azure automation'da yedekleme içerir.
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 05da900e9ddf4cbb99df5c6d62ddb569059e2c4b
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: b133947a7daf1977f084ee4008599882b51d9e8b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42060866"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428486"
 ---
 # <a name="managing-azure-automation-data"></a>Azure Otomasyonu verilerini yönetme
 Bu makale, bir Azure Otomasyonu ortamı yönetmek için birden çok konuları içerir.
@@ -76,4 +76,5 @@ Aşağıdaki tabloda kullanılabilir birincil ve ikincil bölge eşleştirmeleri
 | Japonya Doğu |Japonya Batı |
 
 Bir birincil bölge verileri kaybedilirse olası durumunda Microsoft, kurtarılır çalışır. Birincil verilerin kurtarılamaması durumunda coğrafi olarak yük devretme ardından gerçekleştirilir ve etkilenen müşteriler bu konuda aboneliğini bildirilir.
+
 

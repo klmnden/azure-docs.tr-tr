@@ -14,12 +14,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 01/15/2019
-ms.openlocfilehash: 91b787cacff7161f4345dd81ac485261e53e2af3
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 04c4bba2647b9b17b1282c9a1608fd2e9325f661
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382935"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427925"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Azure SQL veritabanı yönetilen örneği denetimini kullanmaya başlama
 
@@ -135,7 +135,7 @@ Aşağıdaki bölümde, yönetilen Örneğinize denetim yapılandırma açıklan
 
      1. Bir abonelik, depolama hesabı ve Blob kapsayıcısı, açılan menüden seçin ya da tıklayarak kendi kapsayıcınızı oluşturun **Oluştur**. İşlemi tamamladıktan sonra tıklayın **Tamam**:
 
-        ![Azure aboneliği, depolama hesabı ve blobl kapsayıcı seçin](./media/sql-managed-instance-auditing/12_mi_SSMS_sign_in_to_azure.png)
+        ![Azure aboneliği, depolama hesabı ve blobl kapsayıcı seçin](./media/sql-managed-instance-auditing/13_mi_SSMS_select_subscription_account_container.png)
 
      1. Tıklayın **Tamam** "Denetim oluştur" iletişim kutusunda.
 

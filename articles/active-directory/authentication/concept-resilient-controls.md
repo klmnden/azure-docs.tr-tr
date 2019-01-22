@@ -3,19 +3,19 @@ title: Azure Active Directory ile esnek erişim denetimi yönetim stratejisi olu
 description: Bu belge, beklenmedik kesintileri sırasında kilitleme riskini azaltmak için dayanıklılık sağlamak için bir kuruluş stratejileri hakkında yönergeler benimseyin sağlar.
 services: active-directory
 author: martincoetzer
-manager: mtillman
+manager: daveba
 tags: azuread
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
-ms.openlocfilehash: 34d60d82ff70ecf683b955b8b796b5d3269df53c
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: 73bd86591f2d8604e0eb9553f99c311b6d421603
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54401920"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424062"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Azure Active Directory ile esnek erişim denetimi yönetim stratejisi oluşturma
 

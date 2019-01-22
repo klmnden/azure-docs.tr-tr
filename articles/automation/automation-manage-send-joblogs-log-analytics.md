@@ -3,28 +3,28 @@ title: Azure Otomasyonu iş verilerini Log Analytics’e iletme
 description: Bu makalede, iş durumunu ve runbook iş akışları hakkındaki ek bilgiler ve yönetim sağlamak üzere Azure Log Analytics'e göndermek nasıl gösterir.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 06/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8a1f7e367b3f8f06e33bbcd11f8090c9578c1d30
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 0125c64a96929db9c8846ca7ad731fa3dc795f98
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269575"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432974"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>İş durumunu ve iş akışları Automation'ı Log Analytics'e iletme
 
 Log Analytics çalışma alanınıza Automation runbook iş durumunu ve iş akışları yeniden gönderebilirsiniz. Bu işlem, çalışma alanı bağlama içermeyen ve tamamen bağımsızdır. İş günlükleri ve iş akışları tek tek işler ve bu sağlayan için basit araştırmalar gerçekleştirmek Azure portalında veya PowerShell ile görünür. Artık Log Analytics ile şunları yapabilirsiniz:
 
-* Otomasyon işlerinizi ilgili Öngörüler edinin.
+* Otomasyon işlerinize ilişkin içgörü edinin.
 * Bir e-posta veya uyarı (örneğin, başarısız olan veya askıya alınmış), runbook iş durumu temelinde tetikleyicisi.
-* Gelişmiş sorgular, iş akışları arasında yazın.
-* İşleri, Otomasyon hesabında ilişkilendirin.
-* İş geçmişinizi zaman içinde görselleştirin.
+* İş akışlarınızda gelişmiş sorgular yazın.
+* Farklı Otomasyon hesaplarındaki işleri bağıntılandırın.
+* Zaman içinde iş geçmişinizi görselleştirin.
 
 ## <a name="prerequisites-and-deployment-considerations"></a>Önkoşulları ve dağıtım konuları
 
@@ -101,7 +101,7 @@ Azure Otomasyonu tanılamadan Log Analytics'te iki tür kayıt oluşturur ve ola
 | ResourceId |Runbook'un Azure Otomasyon hesabı kaynak kimliği belirtir. |
 | SubscriptionId | Otomasyon hesabı için Azure aboneliği kimliğini (GUID). |
 | ResourceGroup | Otomasyon hesabı için kaynak grubunun adı. |
-| ResourceProvider | MICROSOFT. OTOMASYON |
+| ResourceProvider | MICROSOFT.AUTOMATION |
 | ResourceType | AUTOMATIONACCOUNTS |
 
 
@@ -124,7 +124,7 @@ Azure Otomasyonu tanılamadan Log Analytics'te iki tür kayıt oluşturur ve ola
 | ResourceId |Runbook'un Azure Otomasyon hesabı kaynak kimliği belirtir. |
 | SubscriptionId | Otomasyon hesabı için Azure aboneliği kimliğini (GUID). |
 | ResourceGroup | Otomasyon hesabı için kaynak grubunun adı. |
-| ResourceProvider | MICROSOFT. OTOMASYON |
+| ResourceProvider | MICROSOFT.AUTOMATION |
 | ResourceType | AUTOMATIONACCOUNTS |
 
 ## <a name="viewing-automation-logs-in-log-analytics"></a>Otomasyon görüntüleme Log Analytics'te günlüğe kaydeder
@@ -183,3 +183,4 @@ Log Analytics, Otomasyon işleri için daha fazla operasyonel görünürlük sa�
 * Oluşturma ve runbook'lardan çıktı ve hata iletileri alma anlamak için bkz: [Runbook çıkışı ve iletileri](automation-runbook-output-and-messages.md).
 * Runbook yürütme, runbook işlerini izleme ve diğer teknik ayrıntılar hakkında daha fazla bilgi edinmek için bkz. [Runbook işi izleme](automation-runbook-execution.md).
 * Log Analytics ve veri toplama kaynakları hakkında daha fazla bilgi için bkz: [Azure depolama verileri toplamaya Log Analytics'e genel bakış](../azure-monitor/platform/collect-azure-metrics-logs.md).
+

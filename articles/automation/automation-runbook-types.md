@@ -3,18 +3,18 @@ title: Azure Automation Runbook türleri
 description: "Azure Otomasyonu ve kullanmak için tür belirlerken dikkate almanız önemli noktalar kullanabileceğiniz runbook'ları farklı türleri açıklanmaktadır. "
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ad24f53c7ca58756aa4028c8af2e4a83cfcfe76a
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 572d887a14aa25e45f0ad74660c5d3fbb1d32851
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984331"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425637"
 ---
 # <a name="azure-automation-runbook-types"></a>Azure Automation runbook türleri
 
@@ -32,7 +32,7 @@ Azure Otomasyonu aşağıdaki tabloda kısaca açıklanmış runbook'ları çeş
 
 [Grafik](automation-runbook-types.md#graphical-runbooks) ve grafik PowerShell iş akışı runbook'ları oluşturulur ve Azure portalında Grafik düzenleyicisiyle düzenlenir.  Bunları bir dosyaya dışarı aktarmak ve ardından bunları başka bir Otomasyon hesabına aktarın, ancak oluşturamaz veya bunları başka bir aracı ile düzenleyin.  PowerShell kodu grafik runbook'ları oluşturmak, ancak doğrudan görüntüleyemez veya kodu değiştirin. Grafik runbook'ları bir sürüme dönüştürülemez [metin biçimleri](automation-runbook-types.md), ya da grafik biçiminde bir metin runbook dönüştürülebilir. Grafik runbook'ları içeri aktarma ve tam tersini sırasında grafik PowerShell iş akışı runbook'larına dönüştürülebilir.
 
-### <a name="advantages"></a>Avantajları
+### <a name="advantages"></a>Yararları
 
 * Ekle bağlantısını yapılandırma Visual geliştirme modeli  
 * Verilerin sürecinde nasıl aktığını odaklanın  
@@ -50,7 +50,7 @@ Azure Otomasyonu aşağıdaki tabloda kısaca açıklanmış runbook'ları çeş
 
 PowerShell runbook'ları Windows PowerShell üzerinde temel alır.  Doğrudan Azure portalında metin düzenleyiciyi kullanarak runbook'u kodunu düzenleme.  Herhangi bir çevrimdışı metin düzenleyicisi kullanabilirsiniz ve [runbook'u içeri aktar](automation-creating-importing-runbook.md) Azure Otomasyonu ile.
 
-### <a name="advantages"></a>Avantajları
+### <a name="advantages"></a>Yararları
 
 * PowerShell iş akışı ek karmaşıklığını olmadan PowerShell kod ile tüm karmaşık mantığı uygulayın.
 * Runbook hızlı bir şekilde PowerShell iş akışı runbook'ları çalıştırmadan önce derlenmesi gerekli olmayan bu yana başlatır.
@@ -75,7 +75,7 @@ PowerShell runbook'ları bilinen geçerli sorunlar aşağıda verilmiştir.
 
 PowerShell iş akışı runbook'ları, dayalı metin runbook'larıdır [Windows PowerShell iş akışı](automation-powershell-workflow.md).  Doğrudan Azure portalında metin düzenleyiciyi kullanarak runbook'u kodunu düzenleme.  Herhangi bir çevrimdışı metin düzenleyicisi kullanabilirsiniz ve [runbook'u içeri aktar](automation-creating-importing-runbook.md) Azure Otomasyonu ile.
 
-### <a name="advantages"></a>Avantajları
+### <a name="advantages"></a>Yararları
 
 * PowerShell iş akışı kod ile tüm karmaşık mantığı uygulayın.
 * Kullanım [kontrol noktaları](automation-powershell-workflow.md#checkpoints) runbook hata durumunda devam etmek için.
@@ -93,7 +93,7 @@ PowerShell iş akışı runbook'ları, dayalı metin runbook'larıdır [Windows 
 
 Python runbook'ları Python 2 kapsamında derleyin.  Azure portalında metin düzenleyicisi kullanarak runbook'un kodu doğrudan düzenleyebilirsiniz veya herhangi bir çevrimdışı metin düzenleyicisi kullanabilir ve [runbook'u içeri aktar](automation-creating-importing-runbook.md) Azure Otomasyonu ile.
 
-### <a name="advantages"></a>Avantajları
+### <a name="advantages"></a>Yararları
 
 * Güçlü bir Python kitaplıkları kullanın.
 
@@ -115,3 +115,4 @@ Belirli bir runbook için kullanılacak türün belirlerken aşağıdaki ek konu
 * Grafik runbook yazma hakkında daha fazla bilgi edinmek için [Azure Otomasyonu'nda grafik yazma](automation-graphical-authoring-intro.md)
 * PowerShell ve PowerShell arasındaki farkları görmek için runbook'ları, iş akışlarını [Windows PowerShell iş akışını öğrenme](automation-powershell-workflow.md)
 * Oluşturma veya bir Runbook'u içeri aktarma hakkında daha fazla bilgi için bkz. [oluşturma veya bir Runbook'u içeri aktarma](automation-creating-importing-runbook.md)
+

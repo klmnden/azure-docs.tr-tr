@@ -8,14 +8,14 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: d3d42a3c81153d54690f0825368eaa950dbac18e
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 9046090a45d52a283d28d1c4cc79b44503cb5a9d
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314788"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427602"
 ---
 # <a name="preview-azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Önizleme: Azure AD parola koruması hakkında sık sorulan sorular şirket içinde
 
@@ -26,23 +26,23 @@ ms.locfileid: "52314788"
 
 ## <a name="general-questions"></a>Genel sorular
 
-**S: Azure AD parola koruması genel kullanılabilirlik (GA) ulaşır?**
+**S: Ne zaman Azure AD parola koruması genel kullanılabilirlik (GA) ulaşır?**
 
 Henüz bir GA tarih duyurduk değil.
 
-**S: şirket içi Azure AD parola koruması genel olmayan bulutlarda desteklenir mi?**
+**S: Şirket içi Azure AD parola koruması genel olmayan bulutlarda desteklenir mi?**
 
 Hayır - şirket içi Azure AD parola koruması yalnızca genel bulut ortamında desteklenir.
 
-**S: ben Azure AD parola koruması avantajları bir şirket içi kullanıcılar alt kümesine uygulayabilir miyim?**
+**S: Nasıl ben Azure AD parola koruması avantajları bir şirket içi kullanıcılar alt kümesine uygulayabilir miyim?**
 
 Desteklenmiyor. Dağıtılan ve etkinleştirilen sonra Azure AD parola koruması olmayan ayrım - tüm kullanıcılar eşit güvenlik avantajlardan yararlanabilir.
 
-**S: Azure AD parola koruması parola-filtre tabanlı diğer ürünleri ile yan yana yüklenecek desteklenen var mı?**
+**S: Azure AD parola koruması parola-filtre tabanlı diğer ürünleri ile yan yana yüklenecek destekleniyor mu?**
 
 Evet. Birden çok kayıtlı parola filtresi DLL'leri çekirdek Windows özelliği için destek ve Azure AD parola koruması özgüdür. Bir parola kabul edilmeden önce tüm kayıtlı parola filtresi DLL'leri kabul etmesi gerekir.
 
-**S: neden DFSR sysvol çoğaltma için gerekli mi?**
+**S: DFSR, sysvol çoğaltma için neden gereklidir?**
 
 FRS (DFSR için öncül teknolojisi) birçok bilinen sorunlar ve Windows Server Active Directory daha yeni sürümlerinde tamamen desteklenmez. Azure AD parola koruması sıfır test etki alanlarında FRS yapılandırılmış gerçekleştirilir.
 
@@ -52,11 +52,11 @@ Daha fazla bilgi için lütfen aşağıdaki makalelere bakın:
 
 [Sonu Nigh için FRS](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs)
 
-**S: neden yüklemek veya DC Aracısı yazılımını yükseltmek için bir yeniden başlatma gerekiyor?**
+**S: Neden yüklemek veya DC Aracısı yazılımını yükseltmek için bir yeniden başlatma gerekiyor?**
 
 Bu gereksinim, Windows davranışı core tarafından neden olur.
 
-**S: belirli bir proxy sunucuyu kullanmak için bir DC aracısını yapılandırmak için herhangi bir yolu var mı?**
+**S: Belirli bir proxy sunucuyu kullanmak için bir DC aracısını yapılandırmak için herhangi bir yolu var mı?**
 
 Hayır.
 

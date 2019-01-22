@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/26/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 99fa5d6f0ba74b56a53f2d1af1b99c7e5c2896a7
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: dd6cc65fca98bc435a8cfea575ba10e3cff376be
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323209"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424685"
 ---
 # <a name="tutorial-create-an-application-gateway-that-improves-web-application-access"></a>Öğretici: Web uygulaması erişimi geliştiren bir uygulama ağ geçidi oluşturma
 
@@ -36,7 +36,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu öğretici için Azure PowerShell’i yerel olarak çalıştırmanız gerekir. Azure PowerShell modülünün 6.9.0 veya daha sonraki bir sürümünün yüklü olması gerekir. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). PowerShell sürümünü doğruladıktan sonra, Azure ile bağlantı oluşturmak için `Login-AzureRmAccount` komutunu çalıştırın.
+Bu öğretici için Azure PowerShell’i yerel olarak çalıştırmanız gerekir. Azure PowerShell modülünün 6.9.0 veya daha sonraki bir sürümünün yüklü olması gerekir. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps). PowerShell sürümünü doğruladıktan sonra, Azure ile bağlantı oluşturmak için `Login-AzureRmAccount` komutunu çalıştırın.
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 

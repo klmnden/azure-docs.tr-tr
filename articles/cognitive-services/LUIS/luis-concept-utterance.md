@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: ae090a8cd812868f63c9805b2f5b59769a715090
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 638020ab4f64d800bd9d42f226cb36701720f8d0
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975279"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427211"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>LUIS uygulamanızı iyi konuşma neler olduğunu anlama
 
@@ -88,7 +88,7 @@ Eğitim genellikle belirleyici: utterance tahmin sürümleri veya uygulamalar ar
 
 ## <a name="testing-utterances"></a>Konuşma test etme 
 
-Geliştiriciler, konuşma göndererek gerçek trafiği ile kendi LUIS uygulama testi başlamalıdır [tahmin uç nokta](luis-how-to-manage-keys.md) URL'si. Bu konuşma ile varlıkları ve hedefleri performansını artırmak için kullanılan [gözden geçirin, konuşma](luis-how-to-review-endoint-utt.md). Testler bölmesinde test LUIS Web sitesi ile gönderilen uç noktası aracılığıyla gönderilmez ve bu nedenle etkin olarak öğrenmeye katkıda bulunmuyor. 
+Geliştiriciler, konuşma göndererek gerçek trafiği ile kendi LUIS uygulama testi başlamalıdır [tahmin uç nokta](luis-how-to-azure-subscription.md) URL'si. Bu konuşma ile varlıkları ve hedefleri performansını artırmak için kullanılan [gözden geçirin, konuşma](luis-how-to-review-endoint-utt.md). Testler bölmesinde test LUIS Web sitesi ile gönderilen uç noktası aracılığıyla gönderilmez ve bu nedenle etkin olarak öğrenmeye katkıda bulunmuyor. 
 
 ## <a name="review-utterances"></a>Konuşma gözden geçirin
 

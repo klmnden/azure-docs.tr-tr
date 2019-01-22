@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: snmuvva
-ms.component: alerts
-ms.openlocfilehash: be9f8079480438b194f0d5779ac0da50328b5dd3
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.subservice: alerts
+ms.openlocfilehash: 8235ba65d9e2e000995d338c200a61845911fbff
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53585387"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426752"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Azure İzleyici ölçüm uyarılarını kaynakları desteklenir
 
@@ -124,3 +124,4 @@ Yeni ölçüm uyarılarının uygun şekilde yapılandırılmış, neredeyse tü
 * Yeni hakkında daha fazla bilgi [uyarı deneyimi](../../azure-monitor/platform/alerts-overview.md).
 * Hakkında bilgi edinin [günlük uyarıları Azure'da](../../azure-monitor/platform/alerts-unified-log.md).
 * Hakkında bilgi edinin [azure'daki uyarıları](../../azure-monitor/platform/alerts-overview.md).
+

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: jdial
-ms.openlocfilehash: 366ff0b59835ca3a28cafd5de77c0bd645ff58c5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d05adabc9bbabdb9f6d1af9831dbb33afe63cf87
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984237"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424651"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Bir sanal makine ağ trafik filtresi sorununu tanılama
 
@@ -44,8 +44,8 @@ Aşağıdaki adımları için geçerli güvenlik kurallarını görüntülemek i
 
    Adlı bir ağ arabirimi için listelenen önceki resimde gördüğünüz kurallar şunlardır **myVMVMNic**. Olduğunu gördüğünüz **gelen bağlantı noktası kuralları** için iki farklı ağ güvenlik grupları ağ arabiriminden:
    
-   - **mySubnetNSG**: ağ arabiriminin bulunduğu alt ağ ile ilişkili.
-   - **myVMNSG**: adlı VM'nin ağ arabirimine ilişkili **myVMVMNic**.
+   - **mySubnetNSG**: İlişkili ağ arabiriminin bulunduğu alt ağ için.
+   - **myVMNSG**: Ağ arabirimi adlı sanal makine ile ilişkili **myVMVMNic**.
 
    Adlı kural **DenyAllInBound** açıklandığı olduğunu, hangi gelen iletişim istekleri için VM bağlantı noktası 80 üzerinden internet'ten engelliyor [senaryo](#scenario). Kural listeleri *0.0.0.0/0* için **kaynak**, internet içerir. 80 numaralı bağlantı noktasını daha yüksek bir önceliğe (düşük sayı) sahip başka hiçbir kural sağlayan gelen. 80 numaralı bağlantı noktasını izin vermek için internet'ten sanal Makineye gelen bkz [bir sorunu](#resolve-a-problem). Güvenlik kuralları ve bunları nasıl Azure uygular hakkında daha fazla bilgi için bkz: [ağ güvenlik grupları](security-overview.md).
 
@@ -72,12 +72,12 @@ Aşağıdaki adımları için geçerli güvenlik kurallarını görüntülemek i
    Farklı **myVMVMNic** ağ arabirimi, **myVMVMNic2** ağ arabirimi ile ilişkili ağ güvenlik grubu yok. Bir NSG ile ilişkili veya her bir ağ arabirimi ve alt ağ sıfır olabilir. NSG her ağ arabirimi ile ilişkilendirilmiş veya alt ağ, aynı olabilir veya farklı. İstediğiniz sayıda ağ arabirimine ve alt için aynı ağ güvenlik grubunu ilişkilendirebilirsiniz.
 
 Geçerli güvenlik kuralları bir VM aracılığıyla görüntülenebilir ancak geçerli güvenlik kuralları bir kişi aracılığıyla da görüntüleyebilirsiniz:
-- **Ağ arabirimi**: bilgi nasıl [bir ağ arabirimi görüntülemek](virtual-network-network-interface.md#view-network-interface-settings).
-- **NSG**: bilgi nasıl [bir NSG görüntülemek](manage-network-security-group.md#view-details-of-a-network-security-group).
+- **Ağ arabirimi**: Bilgi edinmek için nasıl [bir ağ arabirimi görüntülemek](virtual-network-network-interface.md#view-network-interface-settings).
+- **NSG**: Bilgi edinmek için nasıl [bir NSG görüntülemek](manage-network-security-group.md#view-details-of-a-network-security-group).
 
 ## <a name="diagnose-using-powershell"></a>PowerShell kullanarak tanılama
 
-İçinde izleyen komutları çalıştırabilirsiniz [Azure Cloud Shell](https://shell.azure.com/powershell), veya PowerShell bilgisayarınızdan çalıştırarak. Azure Cloud Shell ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. PowerShell kullanarak bilgisayarınızdan çalıştırırsanız, gereksinim duyduğunuz *AzureRM* PowerShell modülü sürüm 6.0.1 veya üzeri. Çalıştırma `Get-Module -ListAvailable AzureRM` yüklü sürümü bulmak için bilgisayarınızda. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız, aynı zamanda çalıştırmak ihtiyacınız `Login-AzureRmAccount` Azure'a olan bir hesapla oturum [gerekli izinleri](virtual-network-network-interface.md#permissions)].
+İçinde izleyen komutları çalıştırabilirsiniz [Azure Cloud Shell](https://shell.azure.com/powershell), veya PowerShell bilgisayarınızdan çalıştırarak. Azure Cloud Shell ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. PowerShell kullanarak bilgisayarınızdan çalıştırırsanız, gereksinim duyduğunuz *AzureRM* PowerShell modülü sürüm 6.0.1 veya üzeri. Çalıştırma `Get-Module -ListAvailable AzureRM` yüklü sürümü bulmak için bilgisayarınızda. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/azurerm/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız, aynı zamanda çalıştırmak ihtiyacınız `Login-AzureRmAccount` Azure'a olan bir hesapla oturum [gerekli izinleri](virtual-network-network-interface.md#permissions)].
 
 Bir ağ arabirimi için geçerli güvenlik kuralları alma [Get-AzureRmEffectiveNetworkSecurityGroup](/powershell/module/azurerm.network/get-azurermeffectivenetworksecuritygroup). Aşağıdaki örnekte adlı bir ağ arabirimi için geçerli güvenlik kuralları alır *myVMVMNic*, yani bir kaynak grubunda *myResourceGroup*:
 
@@ -154,9 +154,9 @@ Ağ arabirimi adı önceki çıktısında olan *myVMVMNic arabirimi*.
 
 Kullanıp [PowerShell](#diagnose-using-powershell), veya [Azure CLI](#diagnose-using-azure-cli) sorunu tanılamak için aşağıdaki bilgileri içeren bir çıktı alırsınız:
 
-- **NetworkSecurityGroup**: ağ güvenlik grubu kimliği.
-- **İlişkilendirme**: ağ güvenlik grubu için ilişkili olup olmadığını bir *Networkınterface* veya *alt*. Bir NSG hem de ilişkiliyse ile çıktı döndürülür **NetworkSecurityGroup**, **ilişkilendirme**, ve **EffectiveSecurityRules**, her NSG için. NSG'yi ilişkili ya da hemen geçerli güvenlik kuralları görmek için komutu çalıştırmadan önce ilişkilendirmesi komut çıktısında yansıtacak şekilde değiştirmek için birkaç saniye bekleyin gerekebilir.
-- **EffectiveSecurityRules**: bir açıklamanın yanı sıra her bir özellik içinde ayrıntılı [bir güvenlik kuralı oluşturun](manage-network-security-group.md#create-a-security-rule). Kural ile başlayan adları *defaultSecurityRules /* her NSG'de mevcut güvenlik kuralları varsayılan olduğu. Kural ile başlayan adları *securityRules /* oluşturduğunuz kurallardır. Belirten kuralları bir [hizmet etiketi](security-overview.md#service-tags), gibi **Internet**, **VirtualNetwork**, ve **AzureLoadBalancer** için  **destinationAddressPrefix** veya **sourceAddressPrefix** özellikleri için değerleri de **expandedDestinationAddressPrefix** özelliği. **ExpandedDestinationAddressPrefix** özelliği tüm adres ön ekleri hizmet etiketi tarafından temsil edilen listeler.
+- **NetworkSecurityGroup**: Ağ güvenlik grubu kimliği.
+- **İlişkilendirme**: Ağ güvenlik grubu için ilişkili olup olmadığını bir *Networkınterface* veya *alt*. Bir NSG hem de ilişkiliyse ile çıktı döndürülür **NetworkSecurityGroup**, **ilişkilendirme**, ve **EffectiveSecurityRules**, her NSG için. NSG'yi ilişkili ya da hemen geçerli güvenlik kuralları görmek için komutu çalıştırmadan önce ilişkilendirmesi komut çıktısında yansıtacak şekilde değiştirmek için birkaç saniye bekleyin gerekebilir.
+- **EffectiveSecurityRules**: Bir açıklamanın yanı sıra her bir özellik içinde ayrıntılı [bir güvenlik kuralı oluşturun](manage-network-security-group.md#create-a-security-rule). Kural ile başlayan adları *defaultSecurityRules /* her NSG'de mevcut güvenlik kuralları varsayılan olduğu. Kural ile başlayan adları *securityRules /* oluşturduğunuz kurallardır. Belirten kuralları bir [hizmet etiketi](security-overview.md#service-tags), gibi **Internet**, **VirtualNetwork**, ve **AzureLoadBalancer** için  **destinationAddressPrefix** veya **sourceAddressPrefix** özellikleri için değerleri de **expandedDestinationAddressPrefix** özelliği. **ExpandedDestinationAddressPrefix** özelliği tüm adres ön ekleri hizmet etiketi tarafından temsil edilen listeler.
 
 Çıktıda listelenen yinelenen kurallara görürseniz, hem ağ arabirimi hem de alt ağa bir NSG ilişkilendirilen olmasıdır. Hem Nsg'ler aynı varsayılan kurallara sahiptir ve her iki Nsg'ler aynı olan kendi kuralları oluşturduysanız ek yinelenen kurallara sahip olabilir.
 

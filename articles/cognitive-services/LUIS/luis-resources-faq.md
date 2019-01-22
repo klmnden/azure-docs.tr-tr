@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: diberry
-ms.openlocfilehash: e75fa6560feb01ae912ad2040df7a8748ed0077b
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 3c0d7d3aed08c6dbbcac5f25e91edd8e27e64440
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246560"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429370"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding'i sık sorulan sorular (SSS)
 
@@ -75,7 +75,7 @@ Gözden geçirme [en iyi uygulamalar](luis-concept-best-practices.md) diğer ipu
 LUIS [tokenizes](luis-glossary.md#token) utterance temel alarak [kültür](luis-language-support.md#tokenization). Parçalanmış değeri ve özgün değeri kullanılabilir [veri ayıklama](luis-concept-data-extraction.md#tokenized-entity-returned).
 
 ### <a name="how-do-i-create-and-assign-a-luis-endpoint-key"></a>Nasıl oluştururum ve uç noktası anahtarı bir LUIS atama?
-[Uç nokta oluşturma](luis-how-to-azure-subscription.md#create-luis-endpoint-key) için azure'da, [hizmet](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) düzeyi. [Anahtar atama](luis-how-to-manage-keys.md#assign-endpoint-key) üzerinde **[anahtarları ve uç noktaları](luis-how-to-manage-keys.md)** sayfası. Bu eyleme karşılık gelen hiçbir API yoktur. HTTP isteği için uç nokta için değiştirmeniz gerekir sonra [yeni uç nokta anahtarını kullanmak](luis-concept-keys.md#use-endpoint-key-in-query).
+[Uç nokta oluşturma](luis-how-to-azure-subscription.md) için azure'da, [hizmet](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) düzeyi. [Anahtar atama](luis-how-to-azure-subscription.md) üzerinde **[anahtarları ve uç noktaları](luis-how-to-azure-subscription.md)** sayfası. Bu eyleme karşılık gelen hiçbir API yoktur. HTTP isteği için uç nokta için değiştirmeniz gerekir sonra [yeni uç nokta anahtarını kullanmak](luis-concept-keys.md#use-endpoint-key-in-query).
 
 ### <a name="how-do-i-interpret-luis-scores"></a>LUIS puanları nasıl yorumlanacağı?
 Sisteminizi, en yüksek Puanlama amaç değeri ne olursa olsun kullanmanız gerekir. Örneğin, 0,5 (daha az % 50'den) altında bir puan mutlaka LUIS düşük güven olduğunu gelmez. Daha fazla eğitim verileri yardımcı sağlama artırmak [puanı](luis-concept-prediction-score.md) olasılıkla hedefinin.

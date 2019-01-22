@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/10/2018
 ms.author: douglasl
-ms.openlocfilehash: 34580687c047e842bfbfa12730c7c2d9868187b0
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: be9ed1d840eab5478dee4d212705211c0967bdbd
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014157"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427976"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Azure Data Factory'de bir Spark etkinliği kullanarak verileri bulutta dönüştürme
 Bu öğreticide, Azure portalını kullanarak bir Azure Data Factory işlem hattı oluşturursunuz. Bu işlem hattı bir Spark etkinliği ve isteğe bağlı bir Azure HDInsight bağlı hizmetini kullanarak verileri dönüştürür. 
@@ -37,7 +37,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 > [!NOTE]
 > HdInsight standart katmanda yalnızca genel amaçlı depolama hesaplarını destekler. Hesabın premium veya yalnızca blob depolama hesabı olmadığından emin olun.
 
-* **Azure PowerShell**. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/install-azurerm-ps) bölümündeki yönergeleri izleyin.
+* **Azure PowerShell**. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/azurerm/install-azurerm-ps) bölümündeki yönergeleri izleyin.
 
 
 ### <a name="upload-the-python-script-to-your-blob-storage-account"></a>Python betiğini Blob depolama hesabınıza yükleme

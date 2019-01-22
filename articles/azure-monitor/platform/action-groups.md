@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: dukek
-ms.component: alerts
-ms.openlocfilehash: 2b427669fe692704343d5a3c2096df92cffb8d76
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.subservice: alerts
+ms.openlocfilehash: 38cccf17980f5a6a2cf162cdecdc6aad40d4f38e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584002"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432567"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure portalında Eylem grupları oluşturma ve yönetme
 ## <a name="overview"></a>Genel Bakış ##
@@ -108,3 +108,4 @@ Değişiklikler yapılandırdığınız öneririz bu IP adresleri için güncell
 * Daha fazla bilgi edinin [hız sınırlaması](../../azure-monitor/platform/alerts-rate-limiting.md) Uyarılardaki.
 * Alma bir [etkinlik günlüğü uyarılarına genel bakış](../../azure-monitor/platform/alerts-overview.md)ve uyarıları alma hakkında bilgi edinin.  
 * Bilgi edinmek için nasıl [hizmet durumu bildirimi gönderilen her uyarıları yapılandırma](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+

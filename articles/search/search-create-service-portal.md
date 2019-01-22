@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/17/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 5be958a2137fd8a9e7598b1dc92993a9ddcdb35f
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 6d71ad9bdc7744898480fb2cc6743e59131ec588
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390987"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423451"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Portalda Azure Search hizmeti oluşturma
 
@@ -22,7 +22,7 @@ Azure arama, bir arama deneyimi özel uygulamalarda takın için kullanılan tek
 
 Bu makalede, bir Azure Search kaynağı oluşturmayı öğrenin [Azure portalında](https://portal.azure.com/). 
 
-![Portalda Azure Search kaynak](media/search-create-service-portal/azure-search-resource-label.png "bu kaynak Portalı'nda arayın")
+[ ![Animasyonlu GIF](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif) ](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
 PowerShell’i mi tercih ediyorsunuz? Azure Resource Manager [hizmet şablonunu](https://azure.microsoft.com/resources/templates/101-azure-search-create/) kullanın. Başlama konusunda yardım için bkz: [PowerShell ile Azure Search yönetme](search-manage-powershell.md).
 

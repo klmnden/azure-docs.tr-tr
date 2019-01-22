@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: pullabhk
 ms.assetid: 80da8ece-2cce-40dd-8dce-79960b6ae073
-ms.openlocfilehash: 4ead84ef415dcb85682b15414380055d8799b54c
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: bbeccd03fffb699c95d52d50ec5c45e38b43ef51
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051229"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430408"
 ---
 # <a name="use-powershell-to-back-up-and-restore-azure-file-shares"></a>Yedekleme ve geri yükleme Azure dosya paylaşımları için PowerShell kullanma
 
@@ -34,7 +34,7 @@ Görüntülenecek **AzureRm.RecoveryServices.Backup** PowerShell cmdlet başvuru
 ## <a name="setup-and-registration"></a>Kurulumu ve kaydı
 
 > [!NOTE]
-> Belirtilen [Azure PowerShell modülünü yükleme](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.13.0), AzureRM modülü biten Kasım 2018'de yeni özelliklerine yönelik destek. Genel kullanıma sunulmuştur yeni Az PowerShell modülü ile Azure dosya paylaşımlarının yedeklenmesi için destek sağlanır.
+> Belirtilen [Azure PowerShell modülünü yükleme](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0), AzureRM modülü biten Kasım 2018'de yeni özelliklerine yönelik destek. Genel kullanıma sunulmuştur yeni Az PowerShell modülü ile Azure dosya paylaşımlarının yedeklenmesi için destek sağlanır.
 
 Başlamak için aşağıdaki adımları izleyin.
 

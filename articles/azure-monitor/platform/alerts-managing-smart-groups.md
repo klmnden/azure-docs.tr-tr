@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: anantr
-ms.component: alerts
-ms.openlocfilehash: a76b82764b926a228dcb544e272e280789ca7356
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.subservice: alerts
+ms.openlocfilehash: a9434bebe82687b14f45b3c375572717d71d0e55
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53346536"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430628"
 ---
 # <a name="manage-smart-groups"></a>Akıllı grupları yönetme
 [Akıllı grupları](https://aka.ms/smart-groups) kullanıcının her bir uyarı ayrı ayrı yönetmek zorunda kalmak yerine akıllı grupları artık yönetebilmeniz için makine öğrenimi algoritmaları ortak oluşum ya da benzerlik, göndermemeniz grubu birlikte uyarılarını kullanın. Bu makalede, erişim ve Azure İzleyici'de akıllı grupları kullanma hakkında yol gösterir.
@@ -26,4 +26,5 @@ ms.locfileid: "53346536"
 ![İzleme](./media/alerts-managing-smart-groups/sg-list.jpg)
 3.  Herhangi bir akıllı grubu tıklayarak üye uyarıların yanı sıra gruplandırma neden görebileceğiniz Ayrıntıları sayfası açılır. Bu toplama ile birden çok uyarı karıştırmanız yerine tekil bir akıllı grubu, uğraşmanız sağlar.   
 ![İzleme](./media/alerts-managing-smart-groups/sg-details.jpg)
+
 

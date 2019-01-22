@@ -13,14 +13,14 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 06/12/2018
 ms.author: rolyon
-ms.openlocfilehash: 1e3043a6053625f8363e9035e59b53275714a827
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
-ms.translationtype: HT
+ms.openlocfilehash: f49f6f03b6d9f1c51cada58ae782bbc364fc9d66
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43300618"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427296"
 ---
-# <a name="tutorial-create-a-custom-role-using-azure-powershell"></a>Öğretici: Azure PowerShell'i kullanarak özel bir rol oluşturma
+# <a name="tutorial-create-a-custom-role-using-azure-powershell"></a>Öğretici: Azure PowerShell kullanarak özel bir rol oluşturun
 
 [Yerleşik roller](built-in-roles.md) kuruluşunuzun ihtiyaçlarını karşılamıyorsa kendi özel rollerinizi oluşturabilirsiniz. Bu öğretici için Azure PowerShell'i kullanarak Reader Support Tickets adlı özel bir rol oluşturacaksınız. Bu özel rol, kullanıcının abonelikteki her şeyi görüntülemesini ve destek bileti açmasını sağlar.
 
@@ -34,12 +34,12 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 - [Sahip](built-in-roles.md#owner) veya [Kullanıcı Erişimi Yöneticisi](built-in-roles.md#user-access-administrator) gibi özel rol oluşturma izni
-- Yerel ortamda [Azure PowerShell](/powershell/azure/install-azurerm-ps)
+- Yerel ortamda [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps)
 
 ## <a name="sign-in-to-azure-powershell"></a>Azure PowerShell oturumu açma
 

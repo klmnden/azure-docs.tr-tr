@@ -3,19 +3,19 @@ title: Bir Azure sanal makinesini stok toplama ile yönetme | Microsoft Docs
 description: Bir sanal makineyi stok toplama ile yönetme
 services: automation
 ms.service: automation
-ms.component: change-inventory-management
+ms.subservice: change-inventory-management
 keywords: stok, otomasyon, değişiklik, izleme
 author: jennyhunter-msft
 ms.author: jehunte
 ms.date: 03/30/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 761bb1a6974afd5e7b851efb0c60101ab7d8958b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 9fabaa2be850e5b15f10fc78adb14dfd5c112906
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49403619"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426055"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Bir Azure sanal makinesini stok toplama ile yönetme
 
@@ -65,7 +65,7 @@ Aşağıdaki tabloda, çeşitli kategorileri için yapılandırılmış her bir 
 |Etkin     | Ayarın uygulanmış olup olmadığını belirler        |
 |Öğe Adı     | İzlenecek dosyanın kolay adı        |
 |Grup     | Dosyaları mantıksal bir biçimde gruplandırmaya yönelik grup adı        |
-|Windows Kayıt Defteri Anahtarı   | Dosyanın denetleneceği yol. Örneğin: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
+|Windows Kayıt Defteri Anahtarı   | Örneğin dosyanın denetleneceği yol: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
 
 ### <a name="windows-files"></a>Windows Dosyaları
 
@@ -126,3 +126,4 @@ Sanal makinenizi stok yönetiminden kaldırmak için:
 
 * Sanal makinelerinizdeki dosya ve kayıt defteri ayarlarında yapılan değişiklikleri yönetme hakkında bilgi almak için bkz. [Değişiklik İzleme çözümüyle ortamınızdaki yazılım değişikliklerini izleme](../log-analytics/log-analytics-change-tracking.md).
 * Windows ve sanal makinelerinizde paket güncelleştirmelerini yönetme hakkında daha fazla bilgi için bkz: [güncelleştirme yönetimi çözümünü azure'da](../operations-management-suite/oms-solution-update-management.md).
+

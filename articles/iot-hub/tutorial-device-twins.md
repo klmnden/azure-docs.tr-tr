@@ -11,19 +11,19 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/14/2018
+ms.date: 01/18/2019
 ms.author: dobett
 ms.custom: mvc
-ms.openlocfilehash: 3d0f24331243c22fa356de7778a89185df2cde4e
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
-ms.translationtype: HT
+ms.openlocfilehash: 63ef5a36dc5a9d770e3474e15b4733d4165b9937
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003219"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54421921"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
-# <a name="tutorial-configure-your-devices-from-a-back-end-service"></a>Öğretici: Bir arka uç hizmetinden cihazlarınızı yapılandırma
+# <a name="tutorial-configure-your-devices-from-a-back-end-service"></a>Öğretici: Bir arka uç hizmetinden cihazlarınızı yapılandırmak
 
 Cihazlarınızdan telemetri almanın yanı sıra cihazlarınızı arka uç hizmetinizden yapılandırmak isteyebilirsiniz. Cihazlarınıza bir istenen yapılandırma gönderdiğinizde bu cihazlardan durum ve uyumluluk güncelleştirmeleri almak da isteyebilirsiniz. Örneğin, bir cihaz için hedef çalışma sıcaklığı aralığı ayarlayabilir veya cihazlarınızdan üretici yazılımı sürüm bilgileri toplayabilirsiniz.
 
@@ -42,7 +42,7 @@ Bu öğreticide, aşağıdaki görevleri gerçekleştireceksiniz:
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu hızlı başlangıçta çalıştırdığınız iki örnek uygulama, Node.js kullanılarak yazılır. Geliştirme makinenizde Node.js v4.x.x veya sonraki bir sürüm olması gerekir.
 

@@ -4,7 +4,7 @@ description: Adım adım yönergeler ve örnekler için bir Azure VM kullanarak 
 services: active-directory
 documentationcenter: ''
 author: daveba
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: msi
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: bf363e4b03fb604e1b9af0d30b6e4ac471a41821
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ce25c05d2b3de3fcf6b7318b90590b84f3ee9c52
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980296"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423196"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Azure VM'de oturum açma için Azure kaynakları için yönetilen kimliklerini kullanma 
 
@@ -83,8 +83,8 @@ Bkz: [Azure Hizmetleri, desteği Azure AD kimlik doğrulaması](services-support
 
 Yanıt aşağıdaki gibi Azure kaynakları için sanal makinenin yönetilen kimlik değil doğru şekilde yapılandırıldığını gösterebilir:
 
-- PowerShell: *Invoke-WebRequest: uzak sunucuya bağlanılamıyor*
-- CLI: *MSI: uygulamasından bir belirteç alınamadı. 'http://localhost:50342/oauth2/token' hata nedeniyle ' HTTPConnectionPool (konak 'localhost', bağlantı noktası = 50342 =)* 
+- PowerShell: *Invoke-WebRequest: Uzak sunucuya bağlanılamıyor*
+- CLI: *MSI: Uygulamasından bir belirteç alınamadı. 'http://localhost:50342/oauth2/token' hata nedeniyle ' HTTPConnectionPool (konak 'localhost', bağlantı noktası = 50342 =)* 
 
 Azure VM ile Bu hatalardan birini alırsanız, dönmek [Azure portalında](https://portal.azure.com) ve:
 

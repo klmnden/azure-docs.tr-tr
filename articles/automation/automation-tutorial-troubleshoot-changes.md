@@ -3,7 +3,7 @@ title: Bir Azure sanal makinesindeki değişikliklerle ilgili sorunları giderme
 description: Bir Azure sanal makinesi üzerindeki değişikliklerle ilgili sorunları gidermek için Değişiklik İzleme özelliğini kullanabilirsiniz.
 services: automation
 ms.service: automation
-ms.component: change-inventory-management
+ms.subservice: change-inventory-management
 keywords: değişiklik, izleme, otomasyon
 author: jennyhunter-msft
 ms.author: jehunte
@@ -11,12 +11,12 @@ ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 1df3fcad8a30b0d79f40aecc353684b7356fe061
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 9fa1e3ffd92b3c375837c7b9a4a0e7fd1a80893a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190025"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433688"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Ortamınızdaki değişikliklerle ilgili sorunları giderme
 
@@ -228,3 +228,4 @@ Daha fazla bilgi edinmek için Değişiklik izleme ve Stok çözümü özetine g
 
 > [!div class="nextstepaction"]
 > [Değişiklik yönetimi ve Stok çözümü](automation-change-tracking.md)
+

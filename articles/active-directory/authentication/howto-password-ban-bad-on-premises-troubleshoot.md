@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: d9f3ba642a5d00594aa6bdef597d5db43c2fc121
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 008fba2fd6052ac9043de6ec217cb71d17f3ecce
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188989"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427109"
 ---
 # <a name="preview-azure-ad-password-protection-monitoring-reporting-and-troubleshooting"></a>Önizleme: Azure AD parola koruması izleme, raporlama ve sorun giderme
 
@@ -38,9 +38,9 @@ Olayları aşağıdaki aralıklarını kullanarak çeşitli DC aracı bileşenle
 
 |Bileşen |Olay Kimliği aralığı|
 | --- | --- |
-|DC aracı parola filtresi DLL'sinin| 10000 19999|
-|DC Aracısı hizmeti barındırma işlemi| 20000 29999|
-|DC aracısı hizmet İlkesi Doğrulama mantığı| 30000 39999|
+|DC aracı parola filtresi DLL'sinin| 10000-19999|
+|DC Aracısı hizmeti barındırma işlemi| 20000-29999|
+|DC aracısı hizmet İlkesi Doğrulama mantığı| 30000-39999|
 
 Başarılı parola doğrulama işlemi için genellikle DC aracı parola filtresi DLL'den günlüğe bir olay yok. İçin başarısız parola doğrulama işlemi vardır genellikle iki olayları günlüğe, bir DC Aracı hizmeti ve DC aracı parola filtresi DLL'sinin birinden.
 
@@ -153,7 +153,7 @@ DC aracısı aşağıdaki günlük kaydı için ayrıntılı hata ayıklama düz
 
 DC Aracı hizmeti, aşağıdaki kayıt defteri değerini ayarlayarak bir metin günlüğüne yazmak için yapılandırılabilir:
 
-HKLM\System\CurrentControlSet\Services\AzureADPasswordProtectionDCAgent\Parameters! EnableTextLogging = 1 (REG_DWORD değeri)
+HKLM\System\CurrentControlSet\Services\AzureADPasswordProtectionDCAgent\Parameters!EnableTextLogging = 1 (REG_DWORD value)
 
 Metin günlüğü varsayılan olarak devre dışıdır. Değişikliklerin etkili olması için bu değer için DC aracı hizmetini yeniden başlatılması gerekiyor. DC etkinleştirildiğinde aracısı hizmetinin altında yer alan bir günlük dosyasına yazar:
 

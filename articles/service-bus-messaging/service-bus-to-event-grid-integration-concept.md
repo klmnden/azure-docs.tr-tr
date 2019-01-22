@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 09/15/2018
 ms.author: spelluru
-ms.openlocfilehash: c5dcfcb61903c3dbb92e942a5d3dca264ad454e3
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 9a2693967ca63d5d0e7c46ddff0926ad010ffdda
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834392"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54421986"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Azure Service Bus - Event Grid tümleştirmesine Genel Bakış
 
@@ -152,7 +152,7 @@ az eventgrid event-subscription create --resource-id $namespaceid --name “<YOU
 
 ## <a name="powershell-instructions"></a>PowerShell yönergeleri
 
-Azure PowerShell’in yüklenmiş olduğundan emin olun. [Yükleyiciyi indirin](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.4.0). **Windows + X** tuşlarına basın ve Yönetici izinleriyle yeni bir PowerShell konsolu açın. Alternatif olarak Azure portalındaki bir komut kabuğunu kullanabilirsiniz.
+Azure PowerShell’in yüklenmiş olduğundan emin olun. [Yükleyiciyi indirin](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-5.4.0). **Windows + X** tuşlarına basın ve Yönetici izinleriyle yeni bir PowerShell konsolu açın. Alternatif olarak Azure portalındaki bir komut kabuğunu kullanabilirsiniz.
 
 ```PowerShell-interactive
 Connect-AzureRmAccount

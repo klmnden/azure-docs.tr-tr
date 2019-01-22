@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 05/17/2018
+ms.date: 01/18/2019
 ms.author: spelluru
-ms.openlocfilehash: ab52206230c4dfe2d92c97f1e291ee00a086c570
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: b5abb8d4aad7c58bf673aa578255efe12d32ad4b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470872"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54422907"
 ---
-# <a name="tutorial-access-a-lab-in-azure-devtest-labs"></a>Öğretici: Azure DevTest Labs’de bir laboratuvara erişme
-Bu öğreticide, [Öğretici: Azure DevTest Labs’de laboratuvar oluşturma](tutorial-create-custom-lab.md) başlıklı öğreticide oluşturulan laboratuvarı kullanırsınız.
+# <a name="tutorial-access-a-lab-in-azure-devtest-labs"></a>Öğretici: Azure DevTest labs'deki bir laboratuvara erişim
+Bu öğreticide, oluşturulan Laboratuvar kullandığınız [Öğreticisi: Azure DevTest Labs'de Laboratuvar oluşturma](tutorial-create-custom-lab.md) .
 
 Bu öğreticide, aşağıdaki eylemleri gerçekleştireceksiniz:
 
@@ -68,14 +68,16 @@ Sanal makineyi kullandıktan sonra şu adımları izleyerek sanal makine talebin
 1. Sanal makine sayfasında, araç çubuğundan **Talebi Geri Al**’ı seçin. 
 
     ![Sanal makine talebini geri alma](./media/tutorial-use-custom-lab/unclaim-vm-menu.png)
-1. Sanal makine talebi geri alınmadan önce sanal makine kapatılır. 
+1. Sanal makine talebi geri alınmadan önce sanal makine kapatılır. Bildirimleri bu işlemin durumunu görebilirsiniz.  
+3. Laboratuvar adınızı üstteki içerik haritası menüsüne tıklayarak geliştirme ve test laboratuvarı sayfasına gidin. 
+    
+    ![Laboratuvara geri gidin](./media/tutorial-use-custom-lab/breadcrumb-to-lab.png)
+1. VM listesinde gördüğünüzü onaylayın **talep edilebilir sanal makineler** alttaki liste.
 
-    ![Talebi geri alma durumu](./media/tutorial-use-custom-lab/unclaim-status.png) 
-1. Talebi geri alma işlemi bittikten sonra, en alt kısımdaki **Talep edilebilir sanal makineler** listesinde sanal makineyi görürsünüz. 
     
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu öğreticide, Azure DevTest Labs kullanılarak oluşturulan bir laboratuvara nasıl erişeceğiniz ve bu laboratuvarı nasıl kullanacağınız gösterildi. Laboratuvardaki sanal makinelere erişme ve bu sanal makineleri kullanma hakkında daha fazla bilgi için bkz. 
 
 > [!div class="nextstepaction"]
-> [Nasıl yapılır: Laboratuvardaki sanal makineleri kullanma](devtest-lab-add-vm.md)
+> [Nasıl yapılır: Vm'leri bir laboratuvarda kullanma](devtest-lab-add-vm.md)
 

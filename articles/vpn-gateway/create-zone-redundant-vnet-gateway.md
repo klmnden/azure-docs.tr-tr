@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: cherylmc
-ms.openlocfilehash: ade5fa78191fe670bd898e8edcbb1fab3b9b2379
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: a0a06ff79d1a48e8fbbc13a8e2410817c020d9a9
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274006"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430858"
 ---
 # <a name="create-a-zone-redundant-virtual-network-gateway-in-azure-availability-zones"></a>Azure kullanılabilirlik alanları bölgesel olarak yedekli sanal ağ geçidi oluşturma
 
@@ -33,7 +33,7 @@ Yerine PowerShell, bilgisayarınızda yerel olarak kullanıyorsanız, Cloud Shel
 Get-Module AzureRM -ListAvailable | Select-Object -Property Name,Version,Path
 ```
 
-Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps).
+Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/azurerm/install-azurerm-ps).
 
 [!INCLUDE [PowerShell login](../../includes/vpn-gateway-ps-login-include.md)]
 

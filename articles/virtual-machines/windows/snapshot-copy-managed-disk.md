@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 0f223660f8dc99b590f8aa80a03d60fcbf3aa5d3
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: a853df2aba0fb8b1ca2449c70794d974151c2546
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232588"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428843"
 ---
 # <a name="create-a-snapshot"></a>Anlık görüntü oluşturma
 
@@ -43,7 +43,7 @@ Yeni bir VM oluşturmak için anlık görüntü kullanmak için kullanacaksanız
 
 Aşağıdaki adımları kullanarak disk anlık VHD diski kopyalayın ve anlık görüntü yapılandırması oluşturma işlemini göstermektedir [yeni AzureRmSnapshot](/powershell/module/azurerm.compute/new-azurermsnapshot) cmdlet'i. 
 
-Başlamadan önce sürüm 5.7.0 olmalıdır AzureRM.Compute PowerShell modülünün en son sürüm olduğundan emin olun veya üzeri. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız, çalıştırma [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) Azure ile bir bağlantı oluşturmak için.
+Başlamadan önce sürüm 5.7.0 olmalıdır AzureRM.Compute PowerShell modülünün en son sürüm olduğundan emin olun veya üzeri. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/azurerm/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız, çalıştırma [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) Azure ile bir bağlantı oluşturmak için.
 
 1. Bazı parametrelerini ayarla: 
 

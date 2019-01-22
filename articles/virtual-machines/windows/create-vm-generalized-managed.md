@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 8acbb33b396aa617936eb0333bd68fea60532425
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: c452341567055e0272c8e6a90c43d6b886d6a928
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47404665"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425603"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>Yönetilen bir görüntüden VM oluşturma
 
@@ -43,7 +43,7 @@ Yeni bir sanal makine oluşturmadan önce şunları yapmanız gerekir [yönetile
 
 Basitleştirilmiş parametre kümesi kullanarak görüntüden bir VM oluşturmak için PowerShell kullanabilirsiniz [New-AzureRmVm](/powershell/module/azurerm.compute/new-azurermvm) cmdlet'i. Görüntü, burada VM oluşturacağınız aynı kaynak grubunda olması gerekiyor.
 
-Bu örnek AzureRM modülü 5.6.0 bir sürümü gerektirir veya üzeri. Sürümü bulmak için ` Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps).
+Bu örnek AzureRM modülü 5.6.0 bir sürümü gerektirir veya üzeri. Sürümü bulmak için ` Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/azurerm/install-azurerm-ps).
 
 İçin Basitleştirilmiş parametre kümesi [New-AzureRmVm](/powershell/module/azurerm.compute/new-azurermvm) yalnızca bir görüntüden bir VM oluşturmak için ad, kaynak grubu ve görüntü adı sağlamanız gerekir. Yeni-AzureRmVm değerini kullanacağınız **-adı** parametre adı olarak tüm kaynakları otomatik olarak oluşturur. Bu örnekte, kaynakların her biri için ayrıntılı adlar sağlar ancak onları otomatik olarak oluşturmasını cmdlet'i sağlar. Ayrıca, kaynak sanal ağ gibi önceden oluşturabilir ve kaynak adı cmdlet'e geçirin. Yeni-AzureRmVm adlarına göre bunları bulabilirsiniz varolan kaynakları kullanır.
 

@@ -3,18 +3,18 @@ title: Birden fazla Azure sanal makinesi için güncelleştirmeleri yönetme
 description: Bu makalede, Azure sanal makinesi için güncelleştirmeleri yönetme açıklar.
 services: automation
 ms.service: automation
-ms.component: update-management
+ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 01/10/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3897225ef6ed7fcc0db75e82058e5b5b273ccbd4
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: ac2d1c1fb59988c8b95fda6b92bb9ae0332fc0e0
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214037"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427432"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Birden çok makine için güncelleştirmeleri yönetme
 
@@ -198,3 +198,4 @@ Dağıtımla ilgili her türlü hata hakkında ayrıntılı bilgi için **Hatala
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Günlükler, çıktı ve hata dahil olmak üzere güncelleştirme yönetimi hakkında daha fazla bilgi için bkz. [güncelleştirme yönetimi çözümünü azure'da](../operations-management-suite/oms-solution-update-management.md).
+

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 05/17/2017
-ms.openlocfilehash: 4b6eb0aa7011226fda667370f3e854081b795ae6
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: d336d659a15f5b4cb1cbc917a8ae10ab8224d029
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744879"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426327"
 ---
 # <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Bir Windows bilgisayardan HDInsight üzerinde Apache Hadoop ekosistemindeki çalışma
 
@@ -30,7 +30,7 @@ PowerShell ile yapmak görev örnekleri:
 * [PowerShell kullanarak Apache Hive sorguları çalıştırma](hadoop/apache-hadoop-use-hive-powershell.md).
 * [PowerShell ile küme yönetme](hdinsight-administer-use-powershell.md).
 
-Adımlarını izleyin [Azure PowerShell'i yükleme ve yapılandırma](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) en son sürümünü almak için. Azure Resource Manager için yeni cmdlet'ler kullanmak üzere değiştirilmesi için gereken komut dosyalarınız varsa [HDInsight kümeleri için Azure Resource Manager tabanlı geliştirme araçlarına geçiş](hdinsight-hadoop-development-using-azure-resource-manager.md).
+Adımlarını izleyin [Azure PowerShell'i yükleme ve yapılandırma](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) en son sürümünü almak için. Azure Resource Manager için yeni cmdlet'ler kullanmak üzere değiştirilmesi için gereken komut dosyalarınız varsa [HDInsight kümeleri için Azure Resource Manager tabanlı geliştirme araçlarına geçiş](hdinsight-hadoop-development-using-azure-resource-manager.md).
 
 ## <a name="utilities-you-can-run-in-a-browser"></a>Yardımcı programlar bir tarayıcıda çalıştırabilirsiniz.
 Aşağıdaki yardımcı programlar, bir web tarayıcıda çalışan kullanıcı Arabirimi vardır:
@@ -68,7 +68,7 @@ Her ikisi de [Intellij Idea](https://www.jetbrains.com/idea/download) ve [Eclips
 * Geliştirin ve yerel olarak Scala Spark uygulamasını çalıştırın.
 
 Bu makaleler Göster nasıl: 
-* Intellij Idea: [Eklenti Intellij için Azure araç takımı ve Scala SDK'sını kullanarak Apache Spark uygulamaları oluşturun.](spark/apache-spark-intellij-tool-plugin.md)
+* Intellij IDEA: [Eklenti Intellij için Azure araç takımı ve Scala SDK'sını kullanarak Apache Spark uygulamaları oluşturun.](spark/apache-spark-intellij-tool-plugin.md)
 * IDE veya Scala IDE için Eclipse eclipse: [Apache Spark uygulamaları ve Eclipse için Azure araç takımı oluşturun](spark/apache-spark-eclipse-tool-plugin.md) 
 
 

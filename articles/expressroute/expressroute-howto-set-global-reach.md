@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: 3df107f8854469b50c5e8483515388b5c93fb244
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: ab1098ca65ad92cffdbe1dfb24fd43fcc8f10eae
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383281"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431687"
 ---
 # <a name="configure-expressroute-global-reach-preview"></a>ExpressRoute Global erişim (Önizleme) yapılandırma
 Bu makalede PowerShell kullanarak ExpressRoute Global erişim yapılandırmanıza yardımcı olur. Daha fazla bilgi için [ExpressRouteRoute Global erişim](expressroute-global-reach.md).
@@ -26,7 +26,7 @@ Bu makalede PowerShell kullanarak ExpressRoute Global erişim yapılandırmanız
 
 Yapılandırmaya başlamadan önce aşağıdakileri onaylayın:
 
-* Azure PowerShell'in en son sürümünü yüklediğinizi. Daha fazla bilgi için bkz. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/install-azurerm-ps).
+* Azure PowerShell'in en son sürümünü yüklediğinizi. Daha fazla bilgi için bkz. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/azurerm/install-azurerm-ps).
 * ExpressRoute bağlantı hattı sağlama anladığınızı [iş akışları](expressroute-workflows.md).
 * ExpressRoute devreleri, sağlanan bir durumda olduğunu.
 * Bu Azure özel eşleme, ExpressRoute bağlantı hatları üzerinde yapılandırılır.  

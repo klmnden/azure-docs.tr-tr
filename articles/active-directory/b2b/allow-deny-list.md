@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 563b2d6393533a86305213b6cdec6ca901e53257
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: d0458fa9c40c5a6681a3f691cbb3d6a02f01ce66
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985388"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429081"
 ---
-# <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Belirli kuruluşlardan B2B kullanıcılarına gelen davetlere izin verme veya bu davetleri engelleme
+# <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>İzin verme veya davetleri B2B kullanıcıları belirli kuruluşlardan engelleme
 
 B2B kullanıcıları için izin verilenler veya Engellenenler davetlerden belirli kuruluşlar için bir izin verilenler listesi veya reddetme listesini kullanabilirsiniz. Örneğin, kişisel bir e-posta adresi etki alanları engellemek istiyorsanız, Gmail.com ve Outlook.com gibi etki alanı içeren bir reddetme listesini ayarlayabilirsiniz. İşletmenizi Contoso.com ve Fabrikam.com Litware.com gibi diğer işletmelerden ile iş ortaklığı olan ve yalnızca bu kuruluşların davetleri kısıtlamak istediğiniz, Contoso.com ve Fabrikam.com için Litware.com ekleyebilirsiniz, izin verilenler listesi.
   

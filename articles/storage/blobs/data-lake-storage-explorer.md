@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı Başlangıç: Azure Depolama Gezgini ile Azure Data Lake depolama Gen2 nesne depolamada blob oluşturma için kullanım etkin'
+title: "Hızlı Başlangıç: Azure Data Lake depolama Gen2 verileri yönetmek için Azure Depolama Gezgini'ni kullanma "
 description: Bu hızlı başlangıçta, Azure Depolama Gezgini bir Azure Data Lake depolama Gen2 hesabı hem de bir dizin ve dosya bir dosya sistemi oluşturmak için kullanmayı öğrenin. Ardından, dosyayı yerel bilgisayarınıza indirmek nasıl yanı sıra, bir dizindeki tüm dosyayı görüntüleme öğrenin.
 services: storage
 author: tamram
@@ -9,14 +9,14 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/05/2018
 ms.author: tamram
-ms.openlocfilehash: e556dbe377f5bba6cbd727ac69c3d4fb9127a2c9
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 5b46d5644536123a9ef3dfc7be87e34d03ee4c4f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385627"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423605"
 ---
-# <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>Hızlı Başlangıç: Nesne depolamada blob oluşturma için Azure Depolama Gezgini'ni kullanma
+# <a name="quickstart-use-azure-storage-explorer-to-manage-data-in-an-azure-data-lake-storage-gen2-account"></a>Hızlı Başlangıç: Bir Azure Data Lake depolama Gen2 hesabındaki verileri yönetmek için Azure Depolama Gezgini'ni kullanma
 
 Bu hızlı başlangıçta nasıl kullanılacağını öğrenin [Azure Depolama Gezgini](https://azure.microsoft.com/features/storage-explorer/) bir dizin ve blob oluşturmak için. Ardından, nasıl blob yerel bilgisayarınıza indirin ve tüm blobların bir dizinde görüntüleme öğrenin. Ayrıca bir blobun anlık görüntüsünü oluşturma, dizin erişim ilkelerini yönetmenize ve paylaşılan erişim imzası oluşturma hakkında bilgi edinin.
 

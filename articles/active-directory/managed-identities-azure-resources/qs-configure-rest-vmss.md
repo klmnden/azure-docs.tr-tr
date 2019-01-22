@@ -4,7 +4,7 @@ description: Adım adım bir sistem ve kullanıcı tarafından atanan yönetilen
 services: active-directory
 documentationcenter: ''
 author: daveba
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: msi
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/25/2018
 ms.author: daveba
-ms.openlocfilehash: 42664c4f550d17ce8bb2840e88ae45a660608942
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 17c40fca9bb07a2da3fcd575d142c2e197d73bec
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425370"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433297"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Azure kaynakları için yönetilen kimlikleri REST API çağrıları kullanarak bir sanal makine ölçek kümesi üzerinde yapılandırma
 
@@ -336,7 +336,7 @@ Bu bölümde, Azure Resource Manager REST uç noktasına çağrı yapmak için C
    az account get-access-token
    ``` 
 
-4. Burada bulunan yönergeleri kullanarak bir kullanıcı tarafından atanan yönetilen kimliği oluşturma: [kullanıcı tarafından atanan bir yönetilen kimlik oluşturma](how-to-manage-ua-identity-rest.md#create-a-user-assigned-managed-identity).
+4. Burada bulunan yönergeleri kullanarak bir kullanıcı tarafından atanan yönetilen kimlik oluşturun: [Kullanıcı tarafından atanan bir yönetilen kimlik oluşturma](how-to-manage-ua-identity-rest.md#create-a-user-assigned-managed-identity).
 
 5. Sanal makine ölçek kümesi Azure Resource Manager REST uç noktasını çağırmak için CURL kullanarak oluşturun. Aşağıdaki örnekte adlı bir sanal makine ölçek kümesi oluşturur *myVMSS* kaynak grubundaki *myResourceGroup* kullanıcı tarafından atanan bir yönetilen kimlikle `ID1`, istek gövdesinde tanımlanan değere göre `"identity":{"type":"UserAssigned"}`. Değiştirin `<ACCESS TOKEN>` değeriyle bir taşıyıcı belirteç istendiğinde önceki adımda alınan ve `<SUBSCRIPTION ID>` değeri ortamınız için uygun şekilde.
  

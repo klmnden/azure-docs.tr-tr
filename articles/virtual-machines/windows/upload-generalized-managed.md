@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 93d5cbdb44d3014b547141d59ce96cf607276846
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1a5b9f7abbb17aeefa3647e965c63c1f6dc4b0a7
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234621"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429268"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Genelleştirilmiş VHD yükleme ve Azure'da yeni VM'ler oluşturmak için bunu kullanın
 
@@ -32,7 +32,7 @@ Bu makalede, Azure'da bir genelleştirilmiş VM'nin VHD yükleme, bir VHD'den g�
 
 - Azure'a herhangi bir VHD'yi karşıya yüklemeden önce uygulamanız gereken [Windows VHD veya VHDX yüklemek için hazırlama](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 - Gözden geçirme [yönetilen Diskler'e geçiş planı](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks) için geçişiniz başlamadan önce [yönetilen diskler](managed-disks-overview.md).
-- Bu makalede, AzureRM modülü, 5.6 veya sonraki bir sürümü gerektirir. Çalıştırma ` Get-Module -ListAvailable AzureRM.Compute` sürümünüzü bulmak için. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps).
+- Bu makalede, AzureRM modülü, 5.6 veya sonraki bir sürümü gerektirir. Çalıştırma ` Get-Module -ListAvailable AzureRM.Compute` sürümünüzü bulmak için. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/azurerm/install-azurerm-ps).
 
 
 ## <a name="generalize-the-source-vm-by-using-sysprep"></a>Sysprep kullanarak kaynak VM generalize

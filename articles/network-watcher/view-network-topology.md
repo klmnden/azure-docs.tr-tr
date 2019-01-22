@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: jdial
-ms.openlocfilehash: e5e9901d6265b48a7b57cdf2c146ebb623ad5c3d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 501659a93306342c7a212d135b4fdd89be096451
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992211"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428180"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Bir Azure sanal ağ topolojisini görüntüleme
 
@@ -46,7 +46,7 @@ Kullanabileceğiniz [Azure portalında](#azure-portal), [Azure CLI](#azure-cli),
 
 6. Seçin **indirme topolojisi** svg biçiminde düzenlenebilir bir dosya olarak kullanmak üzere görüntüyü indirmek için.
 
-Aşağıdaki diyagramda gösterilen bir alt kümesi sanal ağda ağ bileşenleri kaynaklardır. Örneğin, bir ağ güvenlik grubu gösterilmese içindeki güvenlik kuralları şemada gösterilmez. Diyagramda Ayrıştırılan değil de, satırları iki ilişkisi birini temsil eder: *kapsama* veya *ilişkili*. Sanal ağ ve kaynakları arasındaki ilişki türü kaynakları tam listesini görmek için topoloji ile oluşturmak [PowerShell](#powershell) veya [Azure CLI](#azure-cli).
+Aşağıdaki diyagramda gösterilen bir alt kümesi sanal ağda ağ bileşenleri kaynaklardır. Örneğin, bir ağ güvenlik grubu gösterilmese içindeki güvenlik kuralları şemada gösterilmez. Diyagramda Ayrıştırılan değil de, satırları iki ilişkisi birini temsil eder: *Kapsama* veya *ilişkili*. Sanal ağ ve kaynakları arasındaki ilişki türü kaynakları tam listesini görmek için topoloji ile oluşturmak [PowerShell](#powershell) veya [Azure CLI](#azure-cli).
 
 ## <a name = "azure-cli"></a>Topolojiyi - Azure CLI görüntülemek
 
@@ -85,7 +85,7 @@ Kullandığınız hesabın gerekli olmalıdır [izinleri](required-rbac-permissi
 
 İzleyen adımları komutları çalıştırabilirsiniz:
 - Azure Cloud shell'de seçerek, **deneyin** üst sağında herhangi bir komutu. Azure Cloud Shell'i yüklenmiştir ve Kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmış yaygın Azure Araçları ücretsiz bir etkileşimli kabuktur.
-- PowerShell kullanarak bilgisayarınızdan çalıştırarak. PowerShell bilgisayarınızdan çalıştırırsanız, bu makaledeki adımlarda sürümü 5.7.0 gerekir veya üzeri AzureRm modülü. Yüklü sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir.
+- PowerShell kullanarak bilgisayarınızdan çalıştırarak. PowerShell bilgisayarınızdan çalıştırırsanız, bu makaledeki adımlarda sürümü 5.7.0 gerekir veya üzeri AzureRm modülü. Yüklü sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/azurerm/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir.
 
 Kullandığınız hesabın gerekli olmalıdır [izinleri](required-rbac-permissions.md).
 
@@ -138,12 +138,12 @@ Bir topolojide döndürülen tüm kaynakları başka bir kaynağa ilişkisinin a
 
 Bir topolojide döndürülen tüm kaynakları, aşağıdaki özelliklere sahiptir:
 
-- **Ad**: kaynak adı
-- **Kimliği**: Kaynak URI.
-- **Konum**: kaynak var. Azure bölgesi.
-- **İlişkilendirmeleri**: başvurulan nesnenin ilişkilerini listesi. Her bir ilişkilendirme aşağıdaki özelliklere sahiptir:
-    - **AssociationType**: alt nesneye ve üst arasındaki ilişkiyi başvuruyor. Geçerli değerler *içerir* veya *ilişkilendirilmiş*.
-    - **Ad**: başvurulan kaynağın adı.
+- **Ad**: Kaynağın adı
+- **Kimliği**: Kaynak URI'si.
+- **Konum**: Kaynak var. Azure bölgesi.
+- **İlişkilendirmeleri**: Başvurulan nesne ilişkilerini listesi. Her bir ilişkilendirme aşağıdaki özelliklere sahiptir:
+    - **AssociationType**: Alt nesneye ve üst arasındaki ilişkiyi gösterir. Geçerli değerler *içerir* veya *ilişkilendirilmiş*.
+    - **Ad**: Başvurulan kaynağın adı.
     - **ResourceId**:-ilişkilendirmeyi başvurulan kaynak URI.
 
 ## <a name="next-steps"></a>Sonraki adımlar

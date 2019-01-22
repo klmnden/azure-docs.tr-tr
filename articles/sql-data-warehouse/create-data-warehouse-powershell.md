@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı Başlangıç: Azure SQL veri ambarı - Azure Powershell oluşturma | Microsoft Docs'
+title: 'Hızlı Başlangıç: Bir Azure SQL veri ambarı - Azure Powershell oluşturma | Microsoft Docs'
 description: Azure PowerShell ile bir SQL veritabanı mantıksal sunucusu, sunucu düzeyinde güvenlik duvarı kuralı ve veri ambarı hızlı bir şekilde oluşturun.
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,20 +10,20 @@ ms.component: manage
 ms.date: 11/15/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 60bd7cc2084ce64477cf89a5fd28d9a505fbfbfb
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 22ccc11d1eb74fd868fd740f02311baeb5ac5987
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852648"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433620"
 ---
-# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Hızlı Başlangıç: Oluşturma ve Azure PowerShell ile Azure SQL veri ambarı sorgu
+# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Hızlı Başlangıç: Oluşturma ve Azure PowerShell ile Azure SQL veri ambarı sorgulama
 
 Azure PowerShell kullanarak Azure SQL veri ambarı hızlı bir şekilde oluşturun.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
-Bu öğretici için Azure PowerShell modülünün 5.1.1 veya daha sonraki bir sürümü gerekir. Şu anda kullandığınız sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure PowerShell Modülü yükleme](/powershell/azure/install-azurerm-ps). 
+Bu öğretici için Azure PowerShell modülünün 5.1.1 veya daha sonraki bir sürümü gerekir. Şu anda kullandığınız sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure PowerShell Modülü yükleme](/powershell/azure/azurerm/install-azurerm-ps). 
 
 
 > [!NOTE]
@@ -122,16 +122,16 @@ New-AzureRmSqlDatabase `
 
 Gerekli Parametreler şunlardır:
 
-* **RequestedServiceObjectiveName**: miktarını [veri ambarı birimleri](what-is-a-data-warehouse-unit-dwu-cdwu.md) isteyen. Bu miktar artırılması, işlem maliyetini artırır. Desteklenen değerler listesi için bkz. [bellek ve eşzamanlılık sınırları](memory-and-concurrency-limits.md).
-* **DatabaseName**: oluşturduğunuz SQL Data warehouse'un adı.
-* **ServerName**: oluşturmak için kullandığınız sunucunun adı.
-* **ResourceGroupName**: kullandığınız kaynak grubu. Aboneliğinizdeki kullanılabilir kaynak gruplarını bulmak için Get-AzureResource komutunu kullanın.
-* **Edition**: SQL Veri Ambarı oluşturmak için "DataWarehouse" olmalıdır.
+* **RequestedServiceObjectiveName**: Miktarı [veri ambarı birimleri](what-is-a-data-warehouse-unit-dwu-cdwu.md) isteyen. Bu miktar artırılması, işlem maliyetini artırır. Desteklenen değerler listesi için bkz. [bellek ve eşzamanlılık sınırları](memory-and-concurrency-limits.md).
+* **DatabaseName**: Oluşturmakta olduğunuz SQL veri ambarı'nın adı.
+* **ServerName**: Oluşturmak için kullandığınız sunucunun adı.
+* **ResourceGroupName**: Kullanmakta olduğunuz kaynak grubu. Aboneliğinizdeki kullanılabilir kaynak gruplarını bulmak için Get-AzureResource komutunu kullanın.
+* **Sürüm**: "DataWarehouse" olmalıdır bir SQL veri ambarı oluşturma işlemi.
 
 İsteğe Bağlı Parametreler şunlardır:
 
-- **CollationName**: Belirtilmezse varsayılan harmanlama SQL_Latin1_General_CP1_CI_AS şeklindedir. Bir veritabanı üzerinde harmanlama değiştirilemez.
-- **MaxSizeBytes**: Bir veritabanının varsayılan en büyük boyutu 10 GB'dir.
+- **CollationName**: Belirtilmezse, varsayılan harmanlama sql_latin1_general_cp1_cı_as şeklindedir. Bir veritabanı üzerinde harmanlama değiştirilemez.
+- **MaxSizeBytes**: Bir veritabanının varsayılan en büyük boyutu 10 GB'tır.
 
 Parametre seçenekleri hakkında daha fazla bilgi için bkz. [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase).
 

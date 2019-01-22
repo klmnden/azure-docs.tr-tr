@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/4/2018
 ms.author: shtabriz
-ms.openlocfilehash: dcc978c8e169cca2e2cd91a63ef1814a8c3bd87c
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: ee5712915e552168c0268a44af60ea58e069fc11
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184109"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429555"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Resource Manager şablonlarını kullanarak kaynak sistem durumu uyarılarını yapılandırma
 
@@ -31,7 +31,7 @@ Azure kaynaklarınızın geçerli ve geçmiş sistem durumu hakkında bilgilendi
 
 Bu sayfadaki yönergeleri izleyerek için birkaç önceden ayarlamalar yapmanız gerekir:
 
-1. Yüklemeniz gereken [Azure PowerShell Modülü](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (`AzureRm`)
+1. Yüklemeniz gereken [Azure PowerShell Modülü](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) (`AzureRm`)
 2. Şunları yapmanız [oluşturmak veya bir eylem grubu yeniden](../azure-monitor/platform/action-groups.md) size bildirecek şekilde yapılandırılmış
 
 ## <a name="instructions"></a>Yönergeler

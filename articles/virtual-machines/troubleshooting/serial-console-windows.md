@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 535c65f58ac9a3f39faa347ca853bfa410b7f182
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 61b64b63a53318e0a703678d5525399fe13efa83
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185345"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432773"
 ---
 # <a name="virtual-machine-serial-console-for-windows"></a>Windows için sanal makine seri Konsolu
 
@@ -53,6 +53,9 @@ Seri konsol sanal makineler için yalnızca Azure Portalı aracılığıyla eri�
   1. Ekranı aşağı kaydırarak **destek + sorun giderme** seçin ve bölüm **seri konsol**. Seri konsolu ile yeni bir bölme açılır ve bağlantısını başlatır.
 
 ## <a name="enable-serial-console-functionality"></a>Seri konsol işlevselliğini etkinleştirin
+
+> [!NOTE]
+> Seri konsol, herhangi bir şey görmediğinizden, sanal makinenizde, önyükleme tanılaması etkin olduğundan emin olun.
 
 ### <a name="enable-the-serial-console-in-custom-or-older-images"></a>Seri konsol özel veya eski resimlerdeki etkinleştir
 Azure'da yeni Windows Server görüntülerini sahip [Özel Yönetim Konsolu](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) varsayılan olarak etkin. SAC Windows server sürümlerinde desteklenir, ancak (örneğin, Windows 10, Windows 8 veya Windows 7) istemci sürümlerinde kullanılamaz.
@@ -237,6 +240,7 @@ Tuşuna basarak **Enter** sonra bağlantı başlığı görüntülenecek bir otu
 Özgün içerik yinelenen bir karakter varsa PowerShell içinde SAC sonuçları üçüncü bir karakter yapıştırma. | Geçici bir çözüm için çalıştırma `Remove-Module PSReadLine` geçerli oturumun PSReadLine modülünü kaldırmak için. Bu eylem silmez veya modül kaldırın.
 Bazı klavye girişleri garip SAC çıkış üretmesi (örneğin, **[A**, **[3 ~**). | [VT100](https://aka.ms/vtsequences) kaçış dizileri SAC istemi tarafından desteklenmez.
 Uzun dizeler yapıştırma çalışmaz. | Seri konsol seri bağlantı noktası bant genişliği aşırı yüklemesini önlemek için 2048 karakter terminale içine yapıştırdığınız dize uzunluğunu kısıtlar.
+Seri konsol ile bir depolama hesabı güvenlik duvarı çalışmıyor. | Seri konsol tasarıma göre depolama hesabı önyükleme tanılama depolama hesabı etkin güvenlik duvarları ile çalışmaz.
 
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular

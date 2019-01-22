@@ -3,19 +3,19 @@ title: Azure Otomasyonu ile değişiklikleri izleme
 description: Değişiklik izleme çözümü, yazılım ve ortamınızda gerçekleşen Windows hizmeti değişiklikleri belirlemenize yardımcı olur.
 services: automation
 ms.service: automation
-ms.component: change-inventory-management
+ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 01/04/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1d08471a3e0faa99cb245709cf72f9af097bc495
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: d29a2020d7e7a16e0bac0802a887a28e12630f03
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213221"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433025"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Değişiklik izleme çözümüyle ortamınızdaki Değişiklikleri İzle
 
@@ -212,11 +212,11 @@ Aracı yalnızca değişiklikleri izler, bu aracı performansını iyileştirir.
 |&nbsp;&nbsp;&nbsp;&nbsp;Uygulama ayarlarına değişiklikleri izler.     |
 > |**HKEY\_yerel\_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers**|
 |&nbsp;&nbsp;&nbsp;&nbsp;Windows Gezgini ve genellikle çalıştırma işlem içi Explorer.exe ile doğrudan bağlama izleyiciler ortak autostart girdileri.|
-> |**HKEY\_yerel\_MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers**|
+> |**HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers**|
 |&nbsp;&nbsp;&nbsp;&nbsp;Windows Gezgini ve genellikle çalıştırma işlem içi Explorer.exe ile doğrudan bağlama izleyiciler ortak autostart girdileri.|
-> |**HKEY\_yerel\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers**|
+> |**HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers**|
 |&nbsp;&nbsp;&nbsp;&nbsp;İzleyici simge için işleyici kaydı yer.|
-|**HKEY\_yerel\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers**|
+|**HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers**|
 |&nbsp;&nbsp;&nbsp;&nbsp;İzleyici simge için 64-bit bilgisayarlarda çalışan 32-bit programları için işleyici kaydı yer.|
 > |**HKEY\_yerel\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Yardımcısı nesneleri**|
 |&nbsp;&nbsp;&nbsp;&nbsp;Internet Explorer için yeni tarayıcı Yardımcısı nesnesi eklentileri için izleyiciler. Geçerli sayfanın belge nesne modeli (DOM) erişmeye ve gezdirmeyi denetlemek için kullanılır.|
@@ -241,10 +241,10 @@ Aşağıdaki adresleri özellikle değişiklik izleme için gerekli değildir. B
 
 |Azure kamu  |Azure Kamu  |
 |---------|---------|
-|*.ods.opinsights.azure.com     |*. ods.opinsights.azure.us         |
-|*.oms.opinsights.azure.com     | *. oms.opinsights.azure.us        |
-|*.blob.core.windows.net|*. blob.core.usgovcloudapi.net|
-|*.azure-automation.net|*.Azure-automation.us|
+|*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
+|*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
+|*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
+|*.azure-automation.net|*.azure-automation.us|
 
 ## <a name="use-change-tracking"></a>Değişiklik izlemeyi kullanma
 
@@ -279,3 +279,4 @@ Aşağıdaki tabloda bu çözüm tarafından toplanan kayıtlarına ilişkin ör
 > [Ortamınızdaki değişikliklerle ilgili sorunları giderme](automation-tutorial-troubleshoot-changes.md)
 
 * Kullanım [Log Analytics'te günlük aramaları](../log-analytics/log-analytics-log-searches.md) ayrıntılı değişiklik izleme verileri görüntülemek için.
+

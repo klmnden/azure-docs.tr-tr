@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory'de SaaS uygulamalarını B2B işbirliği için yapılandırma | Microsoft Docs
-description: Azure Active Directory B2B işbirliği kodu ve PowerShell örnekleri
+description: Azure Active Directory B2B işbirliği için kod ve PowerShell örnekleri
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 78f34183b30f8ea9fe44ddaf2b57b237cbb09749
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: efec0feae3ea15868290756ea1b34b2f52784e1d
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985771"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423638"
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>SaaS uygulamalarını B2B işbirliği için yapılandırma
 
@@ -30,7 +30,7 @@ Uygulamaya özgü yönergeleri göz atmadan önce bazı kurallar karşısında �
 * Kullanıcı öznitelikleri, karıştırılmış kullanıcı profili diski (UPD), Konuk kullanıcılar ile ilgili tüm sorunları gidermek için her zaman ayarlamak **kullanıcı tanımlayıcısı** için **user.mail**.
 
 
-## <a name="dropbox-business"></a>Dropbox iş
+## <a name="dropbox-business"></a>Dropbox Business
 
 Kendi kuruluş hesabını kullanarak oturum açmasına etkinleştirmek için bir güvenlik onaylama işlemi biçimlendirme dili (SAML) kimlik sağlayıcısı olarak Azure AD'yi kullanacak şekilde Dropbox iş el ile yapılandırmanız gerekir. Bunu yapmak için Dropbox iş yapılandırılmadı, bu isteyebilir veya aksi halde Azure AD kullanarak oturum açmasına imkan tanıyın.
 

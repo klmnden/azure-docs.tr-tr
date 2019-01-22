@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 818674ba1825a438a5abeb7927bcf0f683506625
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 045d95daf78775c483a9ec4e7abec0baff999838
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159932"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432685"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Azure MFA Sunucusu ile Active Directory arasında dizin tümleştirme
 
@@ -28,17 +28,17 @@ Varsayılan olarak, Azure Multi-Factor Authentication (MFA) Sunucusu kullanıcı
 
 | Özellik | Açıklama |
 | --- | --- |
-| Active Directory Kullan |İçeri aktarma ve eşitleme için Active Directory’yi kullanmak üzere Active Directory Kullan seçeneğini seçin.  Bu varsayılan ayardır. <br>Not: Active Directory tümleştirmesinin düzgün çalışması için bilgisayarı bir etki alanına katın ve etki alanı hesabıyla oturum açın. |
+| Active Directory Kullan |İçeri aktarma ve eşitleme için Active Directory’yi kullanmak üzere Active Directory Kullan seçeneğini seçin.  Bu varsayılan ayardır. <br>Not: Active Directory tümleştirmesinin düzgün çalışması bilgisayarı bir etki alanına eklemek ve bir etki alanı hesabıyla oturum açın. |
 | Güvenilen etki alanlarını dahil et |Aracının geçerli etki alanı tarafından güvenilen etki alanlarına, ormandaki başka bir etki alanına ya da orman güvenine dahil olan etki alanlarına bağlanmaya çalışmasını sağlamak için **Güvenilen etki alanlarını dahil et**’i işaretleyin.  Kullanıcıları güvenilen etki alanlarından içeri aktarmaz ya da eşitlemezken, performansını iyileştirmek için onay kutusunun işaretini kaldırın.  Varsayılan olarak işaretlidir. |
-| Özel LDAP yapılandırması kullan |İçeri aktarma ve eşitleme için belirtilen LDAP ayarlarını kullanmak üzere LDAP Kullan seçeneğini seçin. Not: LDAP Kullan seçildiğinde, kullanıcı arabirimi başvuruları Active Directory'den iken LDAP olarak değiştirir. |
+| Özel LDAP yapılandırması kullan |İçeri aktarma ve eşitleme için belirtilen LDAP ayarlarını kullanmak üzere LDAP Kullan seçeneğini seçin. Not: LDAP Kullan seçildiğinde, kullanıcı arabirimi başvuruları Active Directory'den LDAP'ye değiştirir. |
 | Düzenle düğmesi |Düzenle düğmesi geçerli LDAP yapılandırması ayarlarının değiştirilmesini sağlar. |
-| Öznitelik kapsam sorgularını kullan |Öznitelik kapsam sorgularının kullanılıp kullanılmaması gerektiğini gösterir.  Öznitelik kapsam sorguları, kayıtları başka bir kaydın özniteliğindeki girişlere göre niteleyerek verimli dizin aramaları yapmayı sağlar.  Azure Multi-Factor Authentication Sunucusu bir güvenlik grubunun üyesi olan kullanıcıları verimli şekilde sorgulamak için öznitelik kapsam sorgularını kullanır.   <br>Not: Öznitelik kapsam sorgularının desteklendiği bazı durumlar vardır, ancak kullanılmamalıdır.  Örneğin, Active Directory bir güvenlik grubu birden fazla etki alanı üyesini içerdiğinde, öznitelik kapsam sorgularıyla sorun yaşayabilir. Bu durumda, onay kutusunun seçimini kaldırın. |
+| Öznitelik kapsam sorgularını kullan |Öznitelik kapsam sorgularının kullanılıp kullanılmaması gerektiğini gösterir.  Öznitelik kapsam sorguları, kayıtları başka bir kaydın özniteliğindeki girişlere göre niteleyerek verimli dizin aramaları yapmayı sağlar.  Azure Multi-Factor Authentication Sunucusu bir güvenlik grubunun üyesi olan kullanıcıları verimli şekilde sorgulamak için öznitelik kapsam sorgularını kullanır.   <br>Not:  Burada öznitelik kapsam sorgularını desteklenir, ancak kullanılmaması bazı durumlar vardır.  Örneğin, Active Directory bir güvenlik grubu birden fazla etki alanı üyesini içerdiğinde, öznitelik kapsam sorgularıyla sorun yaşayabilir. Bu durumda, onay kutusunun seçimini kaldırın. |
 
 LDAP yapılandırması ayarları aşağıdaki tabloda açıklanmaktadır.
 
 | Özellik | Açıklama |
 | --- | --- |
-| Sunucu |LDAP dizinini çalıştıran sunucunun ana bilgisayar adını veya IP adresini girin.  Noktalı virgülle ayrılarak bir yedek sunucu de belirtilebilir. <br>Not: Bağlama Türü SSL olduğunda, tam bir ana bilgisayar adı gerekir. |
+| Sunucu |LDAP dizinini çalıştıran sunucunun ana bilgisayar adını veya IP adresini girin.  Noktalı virgülle ayrılarak bir yedek sunucu de belirtilebilir. <br>Not: Bağlama türü SSL olduğunda, tam bir ana bilgisayar adı gereklidir. |
 | Temel DN |Tüm dizin sorgularının başlatıldığı temel dizin nesnesinin ayırt edici adını girin.  Örneğin, dc=abc,dc=com. |
 | Bağlama türü - Sorgular |LDAP dizinini aramak için bağlanırken kullanmak üzere uygun bağlama türünü seçin.  Bu, içeri aktarımlar, eşitleme ve kullanıcı adı çözümleme için kullanılır. <br><br>  Anonim - Anonim bir bağlama gerçekleştirilir.  Bağlama DN’si ve Bağlama Parolası kullanılmaz.  Bu yalnızca, LDAP dizini anonim bağlamaya izin verirse ve izinler uygun kayıtların ve özniteliklerin sorgulanmasına izin verirse çalışır.  <br><br> Basit - Bağlama DN’si ve Bağlama Parolası LDAP dizinine bağlanmak için düz metin olarak geçirilir.  Bu metot, yalnızca sunucuya erişilebildiğini ve bağlama hesabının uygun erişime sahip olduğunu doğrulamayı hedefleyen testlere yöneliktir. Uygun sertifika yüklendikten sonra bunun yerine SSL’yi kullanın.  <br><br> SSL - Bağlama DN’si ve Bağlama Parolası LDAP dizinine bağlanmak için SSL kullanılarak şifrelenir.  Yerel olarak LDAP dizininin güvendiği bir sertifika yükleyin.  <br><br> Windows - Bir Active Directory etki alanı denetleyicisine veya ADAM dizinine güvenli bir şekilde bağlanmak için Bağlama Kullanıcı Adı ve Bağlama Parolası kullanılır.  Bağlama Kullanıcı Adı boş bırakılırsa, bağlama için oturum açmış kullanıcının hesabı kullanılır. |
 | Bağlama türü - Kimlik doğrulamaları |LDAP bağlama kimlik doğrulaması gerçekleştirirken kullanmak üzere uygun bağlama türünü seçin.  Bağlama türü altındaki bağlama türü açıklamalarına bakın - Sorgular  Örneğin, bu SSL bağlama LDAP bağlama kimlik doğrulamaları için kullanılırken, sorgular için Anonim bağlama kullanılmasını sağlar. |
@@ -54,9 +54,9 @@ Filtreler, dizin araması yaparken kayıtları nitelemek üzere ölçüt belirle
 
 Azure Multi-Factor Authentication aşağıdaki üç filtreleme seçeneğine sahiptir:
 
-* **Kapsayıcı filtresi** - Dizin araması yaparken kapsayıcı kayıtlarını nitelemek için kullanılan filtre ölçütlerini belirtin.  Active Directory ve ADAM için yaygın olarak (|(objectClass=organizationalUnit)(objectClass=container)) kullanılır.  Diğer LDAP dizinleri için, dizin şemasına bağlı olarak her kapsayıcı nesnesi türünü niteleyen filtre ölçütlerini kullanın.  <br>Not: Boş bırakılırsa varsayılan olarak ((objectClass=organizationalUnit)(objectClass=container)) kullanılır.
-* **Güvenlik grubu filtresi** - Dizin araması yaparken güvenlik grubu kayıtlarını nitelemek için kullanılan filtre ölçütlerini belirtin.  Active Directory ve ADAM için yaygın olarak (&(objectCategory=group)(groupType:1.2.840.113556.1.4.804:=-2147483648)) kullanılır.  Diğer LDAP dizinleri için, dizin şemasına bağlı olarak her güvenlik grubu nesnesi türünü niteleyen filtre ölçütlerini kullanın.  <br>Not: Boş bırakılırsa varsayılan olarak (&(objectCategory=group)(groupType:1.2.840.113556.1.4.804:=-2147483648)) kullanılır.
-* **Kullanıcı filtresi** - Dizin araması yaparken kullanıcı kayıtlarını nitelemek için kullanılan filtre ölçütlerini belirtin.  Active Directory ve ADAM için yaygın olarak (&(objectClass=user)(objectCategory=person)) kullanılır.  Diğer LDAP dizinleri için, dizin şemasına bağlı olarak (objectClass=inetOrgPerson) ya da benzerini kullanın. <br>Not: Boş bırakılırsa varsayılan olarak (&(objectCategory=person)(objectClass=user)) kullanılır.
+* **Kapsayıcı filtresi** - Dizin araması yaparken kapsayıcı kayıtlarını nitelemek için kullanılan filtre ölçütlerini belirtin.  Active Directory ve ADAM için yaygın olarak (|(objectClass=organizationalUnit)(objectClass=container)) kullanılır.  Diğer LDAP dizinleri için, dizin şemasına bağlı olarak her kapsayıcı nesnesi türünü niteleyen filtre ölçütlerini kullanın.  <br>Not:  Boş bırakılırsa ((objectClass=organizationalUnit)(objectClass=container)) kullanılır varsayılan olarak.
+* **Güvenlik grubu filtresi** - Dizin araması yaparken güvenlik grubu kayıtlarını nitelemek için kullanılan filtre ölçütlerini belirtin.  Active Directory ve ADAM için yaygın olarak (&(objectCategory=group)(groupType:1.2.840.113556.1.4.804:=-2147483648)) kullanılır.  Diğer LDAP dizinleri için, dizin şemasına bağlı olarak her güvenlik grubu nesnesi türünü niteleyen filtre ölçütlerini kullanın.  <br>Not:  Boş bırakılırsa (&(objectCategory=group) (groupType:1.2.840.113556.1.4.804:=-2147483648)) varsayılan olarak kullanılır.
+* **Kullanıcı filtresi** - Dizin araması yaparken kullanıcı kayıtlarını nitelemek için kullanılan filtre ölçütlerini belirtin.  Active Directory ve ADAM için yaygın olarak (&(objectClass=user)(objectCategory=person)) kullanılır.  Diğer LDAP dizinleri için, dizin şemasına bağlı olarak (objectClass=inetOrgPerson) ya da benzerini kullanın. <br>Not:  Boş bırakılırsa, (& (objectCategory=person)(objectClass=user)) varsayılan olarak kullanılır.
 
 ## <a name="attributes"></a>Öznitelikler
 Belirli bir dizinin özniteliklerini gerektiği şekilde özelleştirebilirsiniz.  Bu, özel öznitelikler eklemenizi ve eşitlemeyi yalnızca size gereken öznitelikleri kapsayacak şekilde ayarlamanızı sağlar. Her öznitelik alanının değeri için dizin şemasında tanımlanan öznitelik adını kullanın. Aşağıdaki tabloda her özellikle ilgili ek bilgiler sağlanmıştır.
@@ -111,7 +111,7 @@ Aşağıdaki tablo, Eşitleme sekmesi ayarlarının her biriyle ilgili daha fazl
 
 | Özellik | Açıklama |
 | --- | --- |
-| Active Directory ile eşitlemeyi etkinleştir |İşaretlenirse Multi-Factor Auth Sunucusu hizmeti düzenli olarak Active Directory değişikliklerini yoklar. <br><br>Not: Multi-Factor Auth Sunucusu hizmetinin değişiklikleri işlemeye başlaması için, en az bir eşitleme öğesinin eklenmesi ve Şimdi Eşitle işlemi gerçekleştirilmesi gerekir. |
+| Active Directory ile eşitlemeyi etkinleştir |İşaretlenirse Multi-Factor Auth Sunucusu hizmeti düzenli olarak Active Directory değişikliklerini yoklar. <br><br>Not: En az bir eşitleme öğesi eklenmeli ve multi-Factor Auth sunucusu hizmetinin değişiklikleri işlemeye başlamadan önce bir Şimdi Eşitle gerçekleştirilmelidir. |
 | Şu aralıkta eşitle |Multi-Factor Auth Sunucusu hizmetinin değişiklikleri yoklama ile işleme arasında bekleyeceği zaman aralığı. <br><br> Not: Belirtilen aralık her döngünün başlangıcı arasındaki süredir.  Değişiklikleri işleme süresi aralığı aşarsa, hizmet hemen tekrar yoklama yapar. |
 | Artık Active Directory'de olmayan kullanıcıları kaldır |İşaretlendiğinde, Multi-Factor Auth Sunucusu hizmeti Active Directory silinen kullanıcı küçük görüntülerini işler ve ilgili Multi-Factor Auth Sunucusu kullanıcısını kaldırır. |
 | Her zaman tam eşitleme gerçekleştir |İşaretlendiğinde, Multi-Factor Auth Sunucusu hizmeti her zaman tam eşitleme gerçekleştirir.  İşaretlenmediğinde, Multi-Factor Auth Sunucusu hizmeti yalnızca değiştirilmiş kullanıcılar sorgulayarak artımlı eşitleme gerçekleştirir.  Varsayılan olarak işaretli değildir. <br><br>İşaretlenmezse Azure MFA tarafından yalnızca dizin DirSync denetimini destekliyorsa ve dizine yönelik hesap bağlaması DirSync artımlı sorgularını gerçekleştirme izinlerine sahipse artımlı eşitleme gerçekleştirilebilir.  Hesap uygun izinlere sahip değilse veya eşitlemeye birden çok etki alanı dahilse Azure MFA Sunucusu tam eşitleme gerçekleştirir. |

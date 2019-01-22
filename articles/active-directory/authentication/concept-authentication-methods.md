@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: d8d7850e7d5253cfec4431fed3e09f4007995494
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 90eb9177ec679fdf8007b734848a5bc3c72e5974
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249702"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430339"
 ---
 # <a name="what-are-authentication-methods"></a>Kimlik doğrulama yöntemleri nelerdir?
 
@@ -59,40 +59,40 @@ Güvenlik sorularını kullanıyorsanız, bunları başka bir yöntem ile birlik
 
 ### <a name="predefined-questions"></a>Önceden tanımlanmış soruları
 
-* İlk eşiniz/partneriniz ile hangi şehirde tanıştınız?
-* Anneniz ile babanız hangi şehirde tanıştı?
+* Eşiniz/partneriniz ile hangi şehirde tanıştınız?
+* Anneniz ve babanız hangi şehirde tanışmış?
 * Size en yakın kardeşiniz hangi şehirde yaşıyor?
 * Babanız hangi şehirde doğdu?
 * İlk işiniz hangi şehirdeydi?
-* Anneniz hangi şehirde doğdu?
-* 2000 yılına girdiğimiz yılbaşında hangi şehirdeydiniz?
-* Lisede en sevdiğiniz öğretmenin soyadı nedir?
+* Anneniz hangi şehirde doğmuş?
+* 2000 yılına girilen yılbaşında hangi şehirdeydiniz?
+* Lisede en sevdiğiniz öğretmeninizin soyadı neydi?
 * Başvurduğunuz ancak gitmediğiniz üniversitenin adı nedir?
-* İlk düğününüzü gerçekleştirdiğiniz yerin adı nedir?
+* İlk evlilik davetinizi verdiğiniz yerin adı nedir?
 * Babanızın ikinci adı nedir?
 * En sevdiğiniz yemek nedir?
-* Anneannenizin adı ve soyadı nedir?
+* Annenizin annesinin adı ve soyadı nedir?
 * Annenizin ikinci adı nedir?
 * En büyük kardeşinizin doğduğu ay ve yıl nedir? (örn. Kasım 1985)
 * En büyük kardeşinizin ikinci adı nedir?
-* Dedenizin adı ve soyadı nedir?
+* Babanızın babasının adı ve soyadı nedir?
 * En küçük kardeşinizin ikinci adı nedir?
-* Altıncı sınıfta hangi okula gidiyordunuz?
-* Çocukken en iyi arkadaşınızın adı ve soyadı neydi?
+* Altıncı sınıfta hangi okula gittiniz?
+* Çocukluğunuzdaki en iyi arkadaşınızın adı ve soyadı neydi?
 * İlk partnerinizin adı ve soyadı neydi?
-* İlkokulda en sevdiğiniz öğretmenin soyadı neydi?
+* En sevdiğiniz ilkokul öğretmeninizin soyadı neydi?
 * İlk arabanızın veya motosikletinizin markası ve modeli neydi?
-* Gittiğiniz ilk okulun adı neydi?
+* İlk gittiğiniz okulun adı neydi?
 * Doğduğunuz hastanenin adı neydi?
-* Çocukluğunuzun geçtiği ilk evin bulunduğu sokağın adı neydi?
+* Çocukluğunuzda oturduğunuz ilk evin sokak adı neydi?
 * Çocukluk kahramanınızın adı neydi?
-* En sevdiğiniz peluş hayvanın adı neydi?
+* En sevdiğiniz doldurulmuş hayvanınızın adı neydi?
 * İlk evcil hayvanınızın adı neydi?
-* Çocukken lakabınız neydi?
-* Lisedeyken en sevdiğiniz spor hangisiydi?
+* Çocukluğunuzdaki takma adınız neydi?
+* Lisede en sevdiğiniz spor neydi?
 * İlk işiniz neydi?
-* Çocukken kullandığınız telefon numaranızın son dört rakamı neydi?
-* Küçükken büyüdüğünüzde ne olmak istiyordunuz?
+* Çocukluğunuzda kullandığınız telefon numarasının son dört rakamı neydi?
+* Küçükken, büyüdüğünüzde ne olmak istiyordunuz?
 * Tanıştığınız en ünlü kişi kim?
 
 Tüm önceden tanımlı güvenlik soruları çevrilir ve kullanıcının tarayıcı yerel ayarları temel alarak Office 365 dilleri kümesinin içine yerelleştirilmiş.

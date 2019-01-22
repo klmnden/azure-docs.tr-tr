@@ -3,18 +3,18 @@ title: Azure Otomasyonu Windows Karma Runbook Çalışanı
 description: Bu makale, bir Azure Otomasyonu karma Runbook, runbook'ları yerel veri merkezinde veya Bulut ortamında Windows tabanlı bilgisayarlarda çalıştırmak için kullanabileceğiniz çalışanı yükleme hakkında bilgi sağlar.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a0e0000c4baa22ccc1c26c0e40ec62bb277104af
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 2d9f1b99407f5c94581a3108c785292e9928cbb4
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993913"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432343"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Windows karma Runbook çalışanı dağıtma
 
@@ -56,8 +56,8 @@ Yükleme ve yapılandırma Windows karma çalışan rolünün otomatik hale geti
    * *AutomationAccountName* (zorunlu): Otomasyon hesabınızın adı.
    * *AAResourceGroupName* (zorunlu): Otomasyon hesabınızla ilişkili kaynak grubunun adı.
    * *OMSResourceGroupName* (isteğe bağlı): Log Analytics çalışma alanı için kaynak grubunun adı. Bu kaynak grubu belirtilmezse *AAResourceGroupName* kullanılır.
-   * *HybridGroupName* (zorunlu): Bu senaryoyu desteklemek runbook'ları için hedef olarak belirttiğiniz bir karma Runbook çalışanı grubunun adı.
-   * *Subscriptionıd* (zorunlu):, Otomasyon hesabının bulunduğu Azure abonelik kimliği.
+   * *HybridGroupName* (mandatory): Bu senaryoyu desteklemek runbook'ları için hedef olarak belirttiğiniz bir karma Runbook çalışanı grubunun adıdır.
+   * *Subscriptionıd* (zorunlu): Otomasyon hesabının bulunduğu Azure abonelik kimliği.
    * *WorkspaceName* (isteğe bağlı): Log Analytics çalışma alanı adı. Bir Log Analytics çalışma alanınız yoksa, betiği oluşturur ve bir yapılandırır.
 
      > [!NOTE]
@@ -146,3 +146,4 @@ Güncelleştirme yönetimi ile ilgili sorunları giderme konusunda ek adımlar i
 
 * Şirket içi veri merkezinizde veya diğer bulut ortamı işlemlerini otomatikleştirmek için runbook'larınızı yapılandırma konusunda bilgi için bkz: [bir karma Runbook çalışanı üzerinde runbook çalıştırma](automation-hrw-run-runbooks.md).
 * Karma Runbook çalışanlarını kaldırma yönergeleri için bkz: [Azure Otomasyon karma Runbook çalışanlarını kaldırma](automation-hybrid-runbook-worker.md#remove-a-hybrid-runbook-worker).
+

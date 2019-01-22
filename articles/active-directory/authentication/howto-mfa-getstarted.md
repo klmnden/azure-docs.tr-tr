@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 09/01/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: bd2f796ab2feee4bb862d8de2c44efc742163f06
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 1a5a5dc04f9ac663fe2e29fd81df5201435c1bc1
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167537"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430171"
 ---
-# <a name="deploy-cloud-based-azure-multi-factor-authentication"></a>Bulut tabanlı Azure multi-Factor Authentication'ı dağıtma
+# <a name="deploy-cloud-based-azure-multi-factor-authentication"></a>Bulut tabanlı Azure Multi-Factor Authentication'ı dağıtın
 
 Azure multi-Factor Authentication (Azure MFA) ile çalışmaya başlama basit bir işlemdir.
 
@@ -74,14 +74,14 @@ Azure multi-Factor Authentication'ı etkinleştirmeden önce kuruluşunuzun sağ
 1. İlkeniz için anlamlı bir ad sağlayın.
 1. Altında **kullanıcılar ve gruplar**:
    * Üzerinde **INCLUDE** sekmesinde **tüm kullanıcılar** radyo düğmesi
-   * Önerilen: Üzerinde **hariç** sekmesinde, onay kutusunu için **kullanıcılar ve gruplar** ve kullanıcıların kendi kimlik doğrulama yöntemlerini erişimi olmadığında, özel durumlar için kullanılacak bir grubu seçin.
+   * ÖNERİLEN: Üzerinde **hariç** sekmesinde, onay kutusunu için **kullanıcılar ve gruplar** ve kullanıcıların kendi kimlik doğrulama yöntemlerini erişimi olmadığında, özel durumlar için kullanılacak bir grubu seçin.
    * **Bitti**’ye tıklayın.
 1. Altında **bulut uygulamaları**seçin **tüm bulut uygulamaları** radyo düğmesi.
-   * : İsteğe bağlı **hariç** sekmesinde, kuruluşunuz için MFA gerektirmeyen bir bulut uygulamaları seçin.
+   * İSTEĞE BAĞLI OLARAK: Üzerinde **hariç** sekmesinde, kuruluşunuz için MFA gerektirmeyen bir bulut uygulamaları seçin.
    * **Bitti**’ye tıklayın.
 1. Altında **koşullar** bölümü:
-   * İsteğe bağlı: Azure kimlik koruması etkinleştirilirse, ilkenin bir parçası oturum açma riskini değerlendirmek seçebilirsiniz.
-   * İsteğe bağlı: güvenilen konumları yapılandırılmış veya adlandırılmış konumlar, dahil etmek veya ilkeden konumların dışlamak için belirtebilirsiniz.
+   * İSTEĞE BAĞLI OLARAK: Azure kimlik koruması etkinleştirilirse, oturum açma riski İlkesi bir parçası olarak değerlendirilecek seçebilirsiniz.
+   * İSTEĞE BAĞLI OLARAK: Güvenilen konumları yapılandırılmış veya adlandırılmış konumlar, dahil etmek veya ilkeden konumların dışlamak için belirtebilirsiniz.
 1. Altında **Grant**, emin **erişim ver** radyo düğmesi seçili.
     * İçin kutuyu **çok faktörlü kimlik doğrulaması gerektiren**.
     * **Seç**'e tıklayın.

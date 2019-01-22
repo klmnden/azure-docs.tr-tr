@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/02/2019
 ms.author: ambapat
-ms.openlocfilehash: 09a19b92a496650f94be208d4f463f1fb3fa4256
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: d95ede3b6e99d6791a2642c6059281dedca3fcf2
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001864"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423169"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Azure Key Vault güvenlik duvarları ve sanal ağları yapılandırma
 
@@ -79,7 +79,7 @@ Azure CLI 2.0 kullanarak anahtar kasası güvenlik duvarları ve sanal ağları 
 
 PowerShell kullanarak Key Vault güvenlik duvarları ve sanal ağları yapılandırma aşağıda verilmiştir:
 
-1. Son yükleme [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps), ve [oturum](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
+1. Son yükleme [Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps), ve [oturum](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
 
 2. Kullanılabilir sanal ağ kuralları listesi. Bu anahtar kasası için herhangi bir kuralın ayarlamadıysanız listesi boş olur.
    ```PowerShell
@@ -115,7 +115,7 @@ PowerShell kullanarak Key Vault güvenlik duvarları ve sanal ağları yapıland
 ## <a name="references"></a>Başvurular
 
 * Azure CLI 2.0 komutlarını: [az keyvault ağ-rule](https://docs.microsoft.com/cli/azure/keyvault/network-rule?view=azure-cli-latest)
-* Azure PowerShell cmdlet'leri: [Get-AzureRmKeyVault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/get-azurermkeyvault), [ekleme AzureRmKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Add-AzureRmKeyVaultNetworkRule), [Remove-AzureRmKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Remove-AzureRmKeyVaultNetworkRule), [AzureRmKeyVaultNetworkRuleSet güncelleştirme](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Update-AzureRmKeyVaultNetworkRuleSet)
+* Azure PowerShell cmdlet'leri: [Get-AzureRmKeyVault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/get-azurermkeyvault), [Add-AzureRmKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Add-AzureRmKeyVaultNetworkRule), [Remove-AzureRmKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Remove-AzureRmKeyVaultNetworkRule), [Update-AzureRmKeyVaultNetworkRuleSet](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Update-AzureRmKeyVaultNetworkRuleSet)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

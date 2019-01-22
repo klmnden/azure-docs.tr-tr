@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 5f76b117b01090864e1bf33e986e8ec96f0bf376
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: 23c53982919ad29c639a6441f206abb35ddb7a1b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31599943"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430800"
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-powershell"></a>PowerShell ile bir kullanılabilirlik alanında Windows sanal makinesi oluşturma
 
@@ -29,7 +29,7 @@ Bu makalede, Azure PowerShell kullanarak bir Azure kullanılabilirlik alanında 
 
 Kullanılabilirlik alanı kullanmak için, [desteklenen bir Azure bölgesinde](../../availability-zones/az-overview.md#regions-that-support-availability-zones) sanal makinenizi oluşturun.
 
-En son Azure PowerShell modülünün yüklendiğinden emin olun. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure PowerShell Modülü yükleme](/powershell/azure/install-azurerm-ps).
+En son Azure PowerShell modülünün yüklendiğinden emin olun. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure PowerShell Modülü yükleme](/powershell/azure/azurerm/install-azurerm-ps).
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 

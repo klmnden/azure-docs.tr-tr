@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: d339908b9347843da891dd1c7fa038c45cee1dcb
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 3b0db93d44827e3f5d0543f28a6f4b5fb0c4818e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382838"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429098"
 ---
 # <a name="traffic-analytics"></a>Trafik Analizi
 
@@ -173,7 +173,7 @@ Aşağıdaki seçenekler, resimde gösterildiği gibi seçin:
 
 Trafik analizi için etkinleştirmek istediğiniz diğer tüm Nsg'ler için önceki adımı yineleyin. Akış günlükleri verilerini çalışma alanına gönderilir, böylece yerel kanunlarınız ve düzenlemelerinizle ülkenizde veri depolama çalışma alanının bulunduğu bölgede izin emin olun.
 
-Trafik analizi kullanarak da yapılandırabilirsiniz [kümesi AzureRmNetworkWatcherConfigFlowLog](/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog) AzureRm PowerShell modülü sürüm 6.2.1 PowerShell cmdlet'inde veya üzeri. Çalıştırma `Get-Module -ListAvailable AzureRM` yüklü sürümü bulmak için. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps).
+Trafik analizi kullanarak da yapılandırabilirsiniz [kümesi AzureRmNetworkWatcherConfigFlowLog](/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog) AzureRm PowerShell modülü sürüm 6.2.1 PowerShell cmdlet'inde veya üzeri. Çalıştırma `Get-Module -ListAvailable AzureRM` yüklü sürümü bulmak için. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/azurerm/install-azurerm-ps).
 
 ## <a name="view-traffic-analytics"></a>Trafik analizi görüntüle
 

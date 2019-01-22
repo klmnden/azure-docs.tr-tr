@@ -13,12 +13,12 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 3fc09255c38b4bbe8d416b97ea14a77a4b3014a0
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: ae3fcfe4e76988d2ff9b7686566941db01ceb08e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54305596"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426718"
 ---
 # <a name="create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>REST API kullanarak Azure veri fabrikası ve işlem hattı oluşturma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,7 +36,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 * **Azure aboneliği**. Bir aboneliğiniz yoksa, bir [ücretsiz deneme](https://azure.microsoft.com/pricing/free-trial/) hesabı oluşturabilirsiniz.
 * **Azure Depolama hesabı**. Blob depolama alanını **kaynak** ve **havuz** veri deposu olarak kullanabilirsiniz. Azure depolama hesabınız yoksa, oluşturma adımları için [Depolama hesabı oluşturma](../storage/common/storage-quickstart-create-account.md) makalesine bakın.
 * Blob Depolama içinde bir **blob kapsayıcısı** oluşturun, kapsayıcıda bir giriş **klasörü** oluşturun ve bazı dosyaları klasöre yükleyin. [Azure Depolama gezgini](https://azure.microsoft.com/features/storage-explorer/) gibi araçları kullanarak Azure Blob depolama hesabına bağlanabilir, bir blob kapsayıcısı oluşturabilir, giriş dosyasını karşıya yükleyebilir ve çıktı dosyasını doğrulayabilirsiniz.
-* **Azure PowerShell**'i yükleyin. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/install-azurerm-ps) bölümündeki yönergeleri izleyin. Bu hızlı başlangıçta RES API çağrılarını çağırmak için PowerShell kullanılır.
+* **Azure PowerShell**'i yükleyin. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/azurerm/install-azurerm-ps) bölümündeki yönergeleri izleyin. Bu hızlı başlangıçta RES API çağrılarını çağırmak için PowerShell kullanılır.
 * **Azure Active Directory’de** [bu yönergeyi](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) izleyerek bir uygulama oluşturun. Sonraki adımlarda kullandığınız şu değerleri not edin: **uygulama kimliği**, **kimlik doğrulama anahtarı** ve **kiracı kimliği**. Uygulamayı "**Katkıda Bulunan**" rolüne atayın.
 
 ## <a name="set-global-variables"></a>Genel değişkenleri ayarlama

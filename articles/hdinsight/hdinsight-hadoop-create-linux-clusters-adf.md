@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/29/2018
 ms.author: hrasheed
-ms.openlocfilehash: 7b20ceb61f522bea11e7256c824a851e587cbd49
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 40bfa8317effd25cf3d9aa28b8f63e292213a83b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975466"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425991"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Öğretici: İsteğe bağlı Apache Hadoop kümeleri Azure Data Factory kullanarak HDInsight oluşturma
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -37,7 +37,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- Azure PowerShell. Yönergeler için [yüklemek ve Azure PowerShell yapılandırma](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.7.0).
+- Azure PowerShell. Yönergeler için [yüklemek ve Azure PowerShell yapılandırma](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-5.7.0).
 
 - Azure Active Directory Hizmet sorumlusu. Hizmet sorumlusu oluşturulduktan sonra almak mutlaka **uygulama kimliği** ve **kimlik doğrulama anahtarı** bağlantılı makaledeki yönergeleri kullanarak. Bu öğreticinin ilerleyen bölümlerinde bu değerlere ihtiyacınız olur. Ayrıca, hizmet sorumlusu üyesi olduğundan emin olun *katkıda bulunan* rolü abonelikte ya da kümenin oluşturulduğu kaynak grubu. Gereken değerleri almak ve doğru rollere atamak yönergeler için bkz: [Azure Active Directory Hizmet sorumlusu oluşturma](../active-directory/develop/howto-create-service-principal-portal.md).
 

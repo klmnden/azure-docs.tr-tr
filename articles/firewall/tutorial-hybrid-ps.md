@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/14/2018
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: fc02f754682046ead3f546fc1253e1c9ac0a63b9
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 511fb425c6b31d204c88094ec5b1a49316495a0a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261478"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431529"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Öğretici: Azure PowerShell kullanarak hibrit bir ağda Azure Güvenlik Duvarı'nı dağıtma ve yapılandırma
 
@@ -45,7 +45,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu öğreticide PowerShell'i yerel olarak çalıştırmanızı gerektirir. Sonraki bir sürümünün yüklü veya Azure PowerShell modülü sürüm 6.12.0 olmalıdır. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). PowerShell sürümünü doğruladıktan sonra, Azure ile bağlantı oluşturmak için `Login-AzureRmAccount` komutunu çalıştırın.
+Bu öğreticide PowerShell'i yerel olarak çalıştırmanızı gerektirir. Sonraki bir sürümünün yüklü veya Azure PowerShell modülü sürüm 6.12.0 olmalıdır. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps). PowerShell sürümünü doğruladıktan sonra, Azure ile bağlantı oluşturmak için `Login-AzureRmAccount` komutunu çalıştırın.
 
 Bu senaryonun doğru çalışması için üç önemli gereksinimi vardır:
 

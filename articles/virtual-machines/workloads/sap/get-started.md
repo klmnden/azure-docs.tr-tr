@@ -3,8 +3,8 @@ title: Azure vm'lerde SAP kullanmaya başlama | Microsoft Docs
 description: Microsoft Azure sanal makineler'de (VM) üzerinde çalışan SAP çözümleri hakkında bilgi edinin
 services: virtual-machines-linux
 documentationcenter: ''
-author: RicksterCDN
-manager: jeconnoc
+author: msjuergent
+manager: patfilot
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/07/2019
-ms.author: rclaus
+ms.date: 01/18/2019
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d3256fcf33a9ad1eb34ec5dbb0c701c8166a49e2
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: d534797d0c4df5b13482dbfaf3fc7c4bd114b640
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075187"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54422516"
 ---
 # <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>Barındırma ve SAP iş yükü senaryoları çalıştırmak için Azure'ı kullanma
 

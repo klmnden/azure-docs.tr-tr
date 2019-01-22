@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.date: 12/11/2017
 ms.author: ancav
 ms.custom: mvc
-ms.component: autoscale
-ms.openlocfilehash: 5cbe984e81b429b8d9d548015a5cd7ca33a0a71a
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.subservice: autoscale
+ms.openlocfilehash: b9d54dc1483da20b4c411047af0b44b681fe197c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382719"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429285"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Azure kaynakları için performans verilerini veya bir zamanlamayı temel alan bir Otomatik Ölçeklendirme Ayarı oluşturma
 
@@ -185,3 +185,4 @@ Otomatik ölçeklendirme ayarları hakkında daha fazla bilgi edinmek için [oto
 
 > [!div class="nextstepaction"]
 > [İzleme verilerinizi arşivleme](tutorial-archive-data.md)
+

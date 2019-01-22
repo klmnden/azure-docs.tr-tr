@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: rkarlin
-ms.openlocfilehash: f05c0469dffa074501a301802412901ead3d1e69
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 98ff96b70951cb289fe6a83ad59eb83a6522e42c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720824"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433382"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Azure Güvenlik Merkezi, Kiracı genelinde görünürlük elde edin
 Bu makale Azure Güvenlik Merkezi sağladığı en üst düzeye çeşitli eylemler yaparak başlamanıza yardımcı olur. Bu eylemler gerçekleştirme birden çok güvenlik ilkeleri uygulayarak, kuruluşunuzun güvenlik duruşunu uygun ölçekte tüm Azure Active Directory kiracınız ve etkili bir şekilde bağlanan Azure aboneliklerini yönetme hakkında daha fazla görünürlük elde etmenizi sağlar Abonelikler aggregative bir biçimde.
@@ -108,7 +108,7 @@ Tüm abonelikler için görünürlük kazanmak için Kiracı yöneticileri kök 
 
 
 #### <a name="assign-rbac-roles-to-users-with-powershell"></a>Kullanıcılara PowerShell ile RBAC rollerini atayın: 
-1. [Azure PowerShell](/powershell/azure/install-azurerm-ps)'i yükleyin.
+1. [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps)'i yükleyin.
 2. Aşağıdaki komutları çalıştırın: 
 
     ```azurepowershell

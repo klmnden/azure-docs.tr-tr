@@ -4,7 +4,7 @@ description: Windows VM sistem tarafından atanan yönetilen kimliğini kullanar
 services: active-directory
 documentationcenter: ''
 author: daveba
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: msi
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/13/2018
 ms.author: daveba
-ms.openlocfilehash: 4beaf9f1a4206f6840bdb3277770e1996dbc83e1
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: abc7d4bea47c84c3fba0ee04e8b1d6293e726b7a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623237"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424345"
 ---
-# <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>Öğretici: Azure Data Lake Store'a erişmek için Windows VM sistem tarafından atanan yönetilen kimliği kullanma
+# <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>Öğretici: Azure Data Lake Store erişmek için bir Windows VM sistem tarafından atanan yönetilen kimliği kullanma
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 

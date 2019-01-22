@@ -3,18 +3,18 @@ title: Amazon Web Hizmetleri'nde VM'nin dağıtımını otomatik hale getirme
 description: Bu makalede bir Amazon Web hizmeti VM oluşturmayı otomatikleştirmek için Azure Otomasyonu'nu nasıl yapılacağı açıklanır.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8a5b34cd92f3afd166d5d67ca445c99a52c684e2
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 348c28f6a2d72048e34f117e802abf243597b458
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52290901"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425229"
 ---
 # <a name="azure-automation-scenario---provision-an-aws-virtual-machine"></a>Azure otomasyonu senaryosu - bir AWS sanal makinesi sağlama
 Bu makalede, Amazon Web hizmeti (AWS) aboneliğiniz bir sanal makinesi sağlama ve bu VM – AWS "VM etiketleme olarak" başvuran olan belirli bir ad vermek için Azure Otomasyonu'nu nasıl yararlanabileceğiniz öğrenin.
@@ -105,4 +105,5 @@ Runbook'u test etme ile devam etmeden önce size birkaç şey doğrulamanız ger
 * PowerShell iş akışı runbook'larını kullanmaya başlamak için bkz. [İlk PowerShell iş akışı runbook uygulamam](automation-first-runbook-textual.md)
 * Runbook türleri, avantajları ve sınırlamaları hakkında daha fazla bilgi için bkz. [Azure Automation runbook türleri](automation-runbook-types.md)
 * PowerShell betik desteği özelliği hakkında daha fazla bilgi için bkz. [Azure Automation’da Yerel PowerShell betik desteği](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
+
 

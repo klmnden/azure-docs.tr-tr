@@ -3,18 +3,18 @@ title: Yapılandırma (Önizleme), güncelleştirme yönetimi dağıtım öncesi
 description: Bu makalede, öncesi yapılandırılıp yönetileceği açıklanır ve sonrası betikler için güncelleştirme dağıtımları
 services: automation
 ms.service: automation
-ms.component: update-management
+ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: edbb953111fb4589539369bd9b2519b48b9b70eb
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 4c34c6c6e0a3f618cbd9337993aa6d176962fe6b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121320"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428248"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Yönetme öncesi ve sonrası betikler (Önizleme)
 
@@ -54,12 +54,12 @@ Güncelleştirme dağıtımının çalıştırdığınız tıklayarak öncesi ve
 
 Yapılandırırken runbook'u zamanlama parametrelerinde yalnızca geçirebilirsiniz öncesi ve sonrası betikler gibi. Parametreler, güncelleştirme dağıtımı oluşturma zamanında tanımlanır. Ek olarak standart runbook parametrelerini, ek bir parametre olarak sağlanır. Bu parametre **SoftwareUpdateConfigurationRunContext**. Bu bir JSON dizesi parametresidir ve parametresi önceki veya sonraki betiğinizde tanımlarsanız, bu otomatik olarak güncelleştirme dağıtımından geçirilir. Parametre bir alt kümesi olan bir güncelleştirme dağıtımı hakkında bilgi içeren tarafından döndürülen bilgilerin [SoftwareUpdateconfigurations API](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration) aşağıdaki tabloda değişkeninde sağlanan özelliklerini gösterir:
 
-### <a name="softwareupdateconfigurationruncontext-properties"></a>SoftwareUpdateConfigurationRunContext özellikleri
+### <a name="softwareupdateconfigurationruncontext-properties"></a>SoftwareUpdateConfigurationRunContext properties
 
 |Özellik  |Açıklama  |
 |---------|---------|
 |SoftwareUpdateConfigurationName     | Yazılım güncelleştirme Yapılandırması adı        |
-|Softwareupdateconfigurationrunıd     | Çalıştırma için benzersiz kimliği.        |
+|SoftwareUpdateConfigurationRunId     | Çalıştırma için benzersiz kimliği.        |
 |SoftwareUpdateConfigurationSettings     | Yazılım güncelleştirme yapılandırması ile ilgili özellikler koleksiyonu         |
 |SoftwareUpdateConfigurationSettings.operatingSystem     | Güncelleştirme dağıtımı için hedeflenen işletim sistemleri         |
 |SoftwareUpdateConfigurationSettings.duration     | Güncelleştirme dağıtımının en uzun süresi Çalıştır `PT[n]H[n]M[n]S` ISO8601 göre de denir "bakım penceresi"          |
@@ -224,3 +224,4 @@ Windows sanal makineleriniz için güncelleştirmeleri yönetme konusunda bilgi 
 
 > [!div class="nextstepaction"]
 > [Azure Windows Vm'leriniz için güncelleştirme ve yamaları yönetmenize](automation-tutorial-update-management.md)
+

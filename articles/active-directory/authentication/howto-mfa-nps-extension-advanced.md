@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: a857732bcbe70cec164cebb54d7c09a1f103a942
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 81f6d6607f2fcc86e2499a537f3ddeff470d35f9
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160619"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429115"
 ---
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Multi-Factor Authentication için NPS uzantısı için Gelişmiş yapılandırma seçenekleri
 
@@ -47,7 +47,7 @@ Bir IP beyaz listesi yapılandırmak için Git `HKLM\SOFTWARE\Microsoft\AzureMfa
 | ---- | ---- | ------------- | ----------- |
 | IP_WHITELIST | dize | Boş | IP adresleri noktalı virgülle ayrılmış listesini sağlayın. Burada hizmet istekleri, NAS/VPN sunucusu gibi kaynaklanan makinelerin IP adreslerini içerir. IP aralıklarını, alt ağlar desteklenmiyor ' dir. <br><br> Örneğin, *10.0.0.1;10.0.0.2;10.0.0.3*.
 
-Bir istek beyaz listedeki mevcut bir IP adresinden geldiğinde, iki aşamalı doğrulama atlandı. IP beyaz listesi, sağlanan IP adresi karşılaştırılan *ratNASIPAddress* RADIUS isteğini özniteliği. Bir RADIUS isteği ratNASIPAddress özniteliği olmadan geliyorsa, aşağıdaki uyarı günlüğe kaydedilir: "P_WHITE_LIST_WARNING::IP beyaz liste yoksayıldığını çünkü kaynak IP RADIUS isteğini NasIpAddress öznitelik eksik."
+Bir istek beyaz listedeki mevcut bir IP adresinden geldiğinde, iki aşamalı doğrulama atlandı. IP beyaz listesi, sağlanan IP adresi karşılaştırılan *ratNASIPAddress* RADIUS isteğini özniteliği. Bir RADIUS isteği ratNASIPAddress özniteliği olmadan geliyorsa, aşağıdaki uyarı kaydedilir: "Kaynak IP, RADIUS isteğini NasIpAddress özniteliği eksik olduğundan P_WHITE_LIST_WARNING::IP beyaz liste yok sayılıyor."
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

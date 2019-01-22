@@ -3,19 +3,19 @@ title: Azure Otomasyonu runbook'u bir Azure Resource Manager şablonu dağıtma
 description: Azure Depolama'da depolanan bir runbook'tan bir Azure Resource Manager şablonu dağıtma
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 keywords: PowerShell, runbook, json, azure Otomasyonu
-ms.openlocfilehash: fe7a3632936e13a0762ebc0afcc357965e019146
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: d13f21da88ae3fb9dfa67b11285e0c3e984d5e5b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918615"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54421820"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Azure Otomasyonu PowerShell runbook’unda Azure Resource Manager şablonu dağıtma
 
@@ -32,7 +32,7 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 * Azure aboneliği. Henüz yoksa, şunları yapabilirsiniz [MSDN abone Avantajlarınızı etkinleştirebilirsiniz](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) veya [ücretsiz bir hesap için kaydolun](https://azure.microsoft.com/free/).
 * Runbook’u tutacak ve Azure kaynaklarında kimlik doğrulamasını yapacak bir [Automation hesabı](automation-sec-configure-azure-runas-account.md).  Bu hesabın sanal makineyi başlatma ve durdurma izni olmalıdır.
 * [Azure depolama hesabı](../storage/common/storage-create-storage-account.md) depolanacağı Resource Manager şablonu
-* Azure Powershell, yerel bir makinede yüklü. Bkz: [yüklemek ve Azure Powershell yapılandırma](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.1.0) Azure PowerShell edinme hakkında bilgi için.
+* Azure Powershell, yerel bir makinede yüklü. Bkz: [yüklemek ve Azure Powershell yapılandırma](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.1.0) Azure PowerShell edinme hakkında bilgi için.
 
 ## <a name="create-the-resource-manager-template"></a>Resource Manager şablonu oluşturma
 
@@ -248,4 +248,5 @@ Get-AzureRmStorageAccount
 * Azure depolama ile çalışmaya başlamak için bkz. [Azure Storage'a giriş](../storage/common/storage-introduction.md).
 * Diğer kullanışlı Azure Otomasyonu runbook'ları bulmak için bkz: [Azure Otomasyonu Runbook ve modül galerileri](automation-runbook-gallery.md).
 * Diğer kullanışlı bir Resource Manager şablonları bulmak için bkz: [Azure hızlı başlangıç şablonları](https://azure.microsoft.com/resources/templates/)
+
 

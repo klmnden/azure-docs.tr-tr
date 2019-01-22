@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/12/2018
 ms.author: yexu
-ms.openlocfilehash: 0cccef6a50d6e93a13f27b8585fe7e605c75deb9
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 92441e55d0a423e1e716d15166791c85fcf5d8ec
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025547"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434232"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Değişiklik izleme bilgilerini kullanarak Azure SQL Veritabanından Azure Blob Depolama alanına verileri artımlı olarak yükleme 
 Bu öğreticide, kaynak Azure SQL veritabanındaki **değişiklik izleme** bilgilerine dayanan değişiklik verilerini Azure blob depolamasına yükleyen bir işlem hattına sahip olan bir Azure veri fabrikası oluşturursunuz.  
@@ -144,7 +144,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
     ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-[Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/install-azurerm-ps) konusundaki yönergeleri izleyerek en güncel Azure PowerShell modüllerini yükleyin.
+[Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/azurerm/install-azurerm-ps) konusundaki yönergeleri izleyerek en güncel Azure PowerShell modüllerini yükleyin.
 
 ## <a name="create-a-data-factory"></a>Veri fabrikası oluşturma
 

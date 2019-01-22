@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.date: 11/27/2018
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: 51470e9f8e0bffe18d1dc4007433246d084a5cb2
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f160fc5f15ad9ca8994995c34d9eba7ee375c015
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846676"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424169"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Azure'a VMware Vm'leri için çoğaltmayı etkinleştirme
 
@@ -39,7 +39,7 @@ VMware sanal makineleri çoğaltılırken:
 
 ## <a name="enable-replication"></a>Çoğaltmayı etkinleştirme
 
-1. **2. Adım: Uygulama çoğaltma** > **Kaynak** seçeneklerine tıklayın. Çoğaltmayı ilk kez etkinleştirdikten sonra ek makineler için çoğaltma işlemini etkinleştirmek istiyorsanız kasada **+Çoğalt**'a tıklayın.
+1. Tıklayın **2. adım: Uygulama çoğaltma** > **kaynak**. Çoğaltmayı ilk kez etkinleştirdikten sonra ek makineler için çoğaltma işlemini etkinleştirmek istiyorsanız kasada **+Çoğalt**'a tıklayın.
 2. İçinde **kaynak** sayfası > **kaynak**, yapılandırma sunucusunu seçin.
 3. İçinde **makine türü**seçin **sanal makineler** veya **fiziksel makineler**.
 4. **vCenter/vSphere Hypervisor** bölümünde vSphere konağını yöneten vCenter sunucusunu veya konağı seçin. Bu ayar, fiziksel makineleri çoğaltma yapıyorsanız geçerli değildir.
@@ -59,7 +59,7 @@ VMware sanal makineleri çoğaltılırken:
 8. Yük devretme sonrasında çalışmaya başlayan Azure VM'lerinin bağlanacağı Azure ağını ve alt ağını seçin. Ağın, Kurtarma Hizmetleri kasasıyla aynı bölgede olması gerekir. Koruma için seçtiğiniz tüm makinelere ağ ayarını uygulamak için **Seçili makineler için şimdi yapılandır**’ı seçin. Makineler için Azure ağını ayrı ayrı seçmek için **Daha sonra yapılandır**'ı seçin. Bir ağ yoksa, yapmanız [oluşturmak](#set-up-an-azure-network). Kaynak Yöneticisi'ni kullanarak bir ağ oluşturmak için tıklayın **Yeni Oluştur**. Varsa bir alt ağ seçin ve ardından **Tamam**.
 
     ![Çoğaltma hedefi ayarı etkinleştir](./media/vmware-azure-enable-replication/enable-rep3.png)
-9. **Sanal Makineler** > **Sanal makineleri seçin** bölümünde, çoğaltmak istediğiniz her makineyi seçin. Yalnızca çoğaltmanın etkinleştirildiği makineleri seçebilirsiniz. Daha sonra, **Tamam**'a tıklayın.
+9. **Sanal Makineler** > **Sanal makineleri seçin** bölümünde, çoğaltmak istediğiniz her makineyi seçin. Yalnızca çoğaltmanın etkinleştirildiği makineleri seçebilirsiniz. Daha sonra, **Tamam**'a tıklayın. Görünüm/herhangi belirli bir sanal makineyi seçmek mümkün değildir, tıklayın [burada](https://aka.ms/doc-plugin-VM-not-showing) sorunu çözmek için.
 
     ![Çoğaltma select sanal makineleri etkinleştirme](./media/vmware-azure-enable-replication/enable-replication5.png)
 10. İçinde **özellikleri** > **özelliklerini yapılandırmak**, Mobility hizmetini makineye otomatik olarak yüklemeniz için işlem sunucusu tarafından kullanılan hesabı seçin.  

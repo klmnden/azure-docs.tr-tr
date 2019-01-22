@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: cynthn
-ms.openlocfilehash: cd11bb8ae8f22705feb7eebeafde385fcf11fdcd
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: d606009ea378de4addb06f9123baf3282637cf85
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637094"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423383"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>PowerShell ile Windows VM'ye veri diski ekleme
 
@@ -32,7 +32,7 @@ Bu makalede, PowerShell kullanarak bir Windows sanal makine için yeni ve var ol
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-PowerShell'i yerel olarak yükleyip kullanmayı için Bu öğretici Azure PowerShell modülü sürüm 6.0.0'dan gerektirir veya üzeri. Sürümü bulmak için ` Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız, aynı zamanda çalıştırmak ihtiyacınız `Connect-AzureRmAccount` Azure ile bir bağlantı oluşturmak için.
+PowerShell'i yerel olarak yükleyip kullanmayı için Bu öğretici Azure PowerShell modülü sürüm 6.0.0'dan gerektirir veya üzeri. Sürümü bulmak için ` Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/azurerm/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız, aynı zamanda çalıştırmak ihtiyacınız `Connect-AzureRmAccount` Azure ile bir bağlantı oluşturmak için.
 
 
 ## <a name="add-an-empty-data-disk-to-a-virtual-machine"></a>Boş veri diski bir sanal makineye ekleyin.

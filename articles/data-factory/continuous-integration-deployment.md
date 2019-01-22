@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: douglasl
-ms.openlocfilehash: 47c9c66f9dd837da3343f1cfd602a5b51aefc76d
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 80b594eb8d926465f37771e2e6911f9ab3e63f1f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389335"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423825"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Sürekli tümleştirme ve teslim (CI/CD) Azure Data factory'de
 
@@ -727,7 +727,7 @@ Azure işlem hatlarında aktarabileceğiniz bir örnek dağıtım şablonu aşa�
 
 ## <a name="sample-script-to-stop-and-restart-triggers-and-clean-up"></a>Durdur ve Tetikleyicileri yeniden başlatın ve temizlemek için betik örnek
 
-Dağıtımdan önce Tetikleyicileri durdurmak ve Tetikleyicileri daha sonra yeniden başlatmak için bir örnek betiği aşağıda verilmiştir. Betik ayrıca kaldırılmış olan kaynakları silmek için kod içerir. Azure PowerShell'in en son sürümünü yüklemek için bkz [PowerShellGet ile Windows üzerindeki Azure PowerShell yükleme](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.9.0).
+Dağıtımdan önce Tetikleyicileri durdurmak ve Tetikleyicileri daha sonra yeniden başlatmak için bir örnek betiği aşağıda verilmiştir. Betik ayrıca kaldırılmış olan kaynakları silmek için kod içerir. Azure PowerShell'in en son sürümünü yüklemek için bkz [PowerShellGet ile Windows üzerindeki Azure PowerShell yükleme](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.9.0).
 
 ```powershell
 param

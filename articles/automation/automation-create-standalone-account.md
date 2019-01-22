@@ -3,18 +3,18 @@ title: Tek başına Azure Otomasyonu hesabı oluşturma
 description: Bu makalede oluşturma, test etme ve Azure Otomasyonu'ndaki bir örnek güvenlik sorumlusu kimlik doğrulaması kullanma adımlarında size kılavuzluk eder.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2e419da4ed84f3d202113f9616050c3e7c29f240
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 1590a02503a12be870dab14a1ccffdd3cf64a282
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54322053"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426616"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Tek başına Azure Otomasyonu hesabı oluşturma
 
@@ -112,3 +112,4 @@ Aşağıdaki tabloda Klasik Farklı Çalıştır hesabının kaynakları özetle
 * PowerShell runbook'ları kullanmaya başlamak için bkz. [İlk PowerShell runbook’um](automation-first-runbook-textual-powershell.md).
 * PowerShell iş akışı runbook'larını kullanmaya başlamak için bkz. [İlk PowerShell iş akışı runbook uygulamam](automation-first-runbook-textual.md).
 * Python2 runbook'larını kullanmaya başlamak için bkz. [İlk Python2 runbook'um](automation-first-runbook-textual-python2.md).
+

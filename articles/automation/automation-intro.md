@@ -3,19 +3,19 @@ title: Azure Otomasyonu’na Genel Bakış
 description: Azure Otomasyonu'nu altyapı ve uygulamaların yaşam döngüsünü otomatikleştirmek için kullanmayı öğrenin.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: eamonoreilly
 ms.author: eamono
 keywords: azure otomasyonu, DSC, powershell, istenen durum yapılandırması, güncelleştirme yönetimi, değişiklik izleme, stok, runbook'lar, python, grafik
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: f91464ebdd29c082fd721e9e4b2e029de991cc1e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b14550d0e03382a6709924ca5671cb26d09fcc35
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958712"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434062"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Azure Otomasyonu'na giriş
 
@@ -87,3 +87,4 @@ Azure Otomasyonu fiyatlandırması için [fiyatlandırma](https://azure.microsof
 
 > [!div class="nextstepaction"]
 > [Otomasyon hesabı oluşturma](automation-quickstart-create-account.md)
+
