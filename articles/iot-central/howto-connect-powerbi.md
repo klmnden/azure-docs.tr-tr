@@ -7,12 +7,12 @@ author: viv-liu
 ms.author: viviali
 ms.date: 07/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 6f8bed8aba43d77cdfad49f4fe62a4c7aa2c5ce3
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: a37eb68d135d156c25c58bf91489d5b50ac2c170
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46368078"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423129"
 ---
 # <a name="visualize-and-analyze-your-azure-iot-central-data-in-a-power-bi-dashboard"></a>Power BI panosunda, Azure IOT Central verilerini Görselleştirme ve çözümleme
 
@@ -29,7 +29,7 @@ Azure IOT Central Analytics Power BI çözüm şablonu, IOT cihazlarınızı per
 
 Bu çözüm şablonu, Azure Blob Depolama hesabınızda veri alan bir işlem hattı ayarlar [verileri sürekli dışarı aktarma](howto-export-data.md). Bu veriler, Azure işlevleri, Azure Data Factory ve Azure SQL veritabanı için işlem ve veri dönüştürmek için aracılığıyla akar. Çıktı görselleştirilmiş ve çözümlenen bir Power BI raporundaki PBIX dosyası olarak indirebilirsiniz. Her bileşen, gereksinimlerinize uyacak şekilde özelleştirebilirsiniz. Bu nedenle tüm bu kaynakları Azure aboneliğinizde oluşturulur. Tamamen açık kaynaklı, bu çözüm şablonu mimarisi hakkında daha fazla bilgi edinin ve ziyaret ederek uzatabilirsiniz [GitHub deposunu](https://aka.ms/iotcentralgithubpowerbisolutiontemplate).
 
-## <a name="get-the-azure-iot-central-analytics-solution-templatehttpsakamsiotcentralpowerbisolutiontemplate-from-microsoft-appsource"></a>Alma [Azure IOT Central analizi çözüm şablonuyla](https://aka.ms/iotcentralpowerbisolutiontemplate) Microsoft AppSource kaynağından
+## <a name="get-the-azure-iot-central-analytics-solution-templatehttpsbpsolutiontemplatescomnamemicrosoft-iotcontinuousdataexporttemplate-from-microsoft-appsource"></a>Alma [Azure IOT Central analizi çözüm şablonuyla](https://bpsolutiontemplates.com/?name=Microsoft-IoTContinuousDataExportTemplate) Microsoft AppSource kaynağından.
 
 ## <a name="prerequisites"></a>Önkoşullar
 Şablonu ayarı için aşağıdakiler gereklidir:
@@ -52,7 +52,7 @@ Bu çözüm şablonu, Azure Blob Depolama hesabınızda veri alan bir işlem hat
 
 ## <a name="resources"></a>Kaynaklar
 
-AppSource almak için ziyaret [Azure IOT Central analizi çözüm şablonuyla](https://aka.ms/iotcentralpowerbisolutiontemplate).
+AppSource almak için ziyaret [Azure IOT Central analizi çözüm şablonuyla](https://bpsolutiontemplates.com/?name=Microsoft-IoTContinuousDataExportTemplate).
 
 Ziyaret [GitHub deposunu](https://aka.ms/iotcentralgithubpowerbisolutiontemplate) mimarisi hakkında daha fazla bilgi edinin ve uzatabilirsiniz.
 

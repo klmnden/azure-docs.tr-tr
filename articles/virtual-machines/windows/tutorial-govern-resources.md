@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 10/12/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 6377a54cc862bb5f62726c3ce91a41cc6eb0763d
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
-ms.translationtype: HT
+ms.openlocfilehash: 6b36cdecb178a7189773abbfe963411e19764401
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311397"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438669"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-governance-with-azure-powershell"></a>Öğretici: Azure PowerShell ile Windows sanal makine yönetimi hakkında bilgi edinin
 
@@ -27,7 +27,7 @@ ms.locfileid: "49311397"
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Bu makaledeki örnekler Azure PowerShell’in 6.0 veya üzeri bir sürümünü gerektirir. PowerShell’i yerel olarak çalıştırıyorsanız ve 6.0 ya da üzeri bir sürümünüz yoksa, [sürümünüzü güncelleştirin](/powershell/azure/install-azurerm-ps). Ayrıca Azure ile bağlantı oluşturmak için `Connect-AzureRmAccount` komutunu çalıştırmanız gerekir. Yerel yüklemeler için aynı zamanda [Azure AD PowerShell modülünü indirerek](https://www.powershellgallery.com/packages/AzureAD/) yeni bir Azure Active Directory grubu oluşturmanız gerekir.
+Bu makaledeki örnekler Azure PowerShell’in 6.0 veya üzeri bir sürümünü gerektirir. PowerShell’i yerel olarak çalıştırıyorsanız ve 6.0 ya da üzeri bir sürümünüz yoksa, [sürümünüzü güncelleştirin](/powershell/azure/azurerm/install-azurerm-ps). Ayrıca Azure ile bağlantı oluşturmak için `Connect-AzureRmAccount` komutunu çalıştırmanız gerekir. Yerel yüklemeler için aynı zamanda [Azure AD PowerShell modülünü indirerek](https://www.powershellgallery.com/packages/AzureAD/) yeni bir Azure Active Directory grubu oluşturmanız gerekir.
 
 ## <a name="understand-scope"></a>Kapsamı anlama
 

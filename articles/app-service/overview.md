@@ -15,16 +15,16 @@ ms.topic: overview
 ms.date: 01/04/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5f3fed9255b86696b0e71c70adcd7ff23c0573d9
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: a3ff9b6fc1abf36bf2feddf518e4e920f18a3c23
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352453"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423689"
 ---
 # <a name="app-service-overview"></a>App Service’a genel bakış
 
-*Azure App Service* mobil arka uçlar ve web uygulamaları, REST API'leri barındırmak için bir hizmettir. .NET, .NET Core, Java, Ruby, Node.js, PHP veya Python dahil en sevdiğiniz dilde geliştirebilirsiniz. Uygulamaları çalışır ve hem Windows hem de Linux tabanlı ortamlar bir kolayca ölçeklendirin. App Service ortamları için Linux tabanlı bakın [Linux üzerinde App Service'te](containers/app-service-linux-intro.md). 
+*Azure App Service* mobil arka uçlar ve web uygulamaları, REST API'leri barındırmak için bir hizmettir. .NET, .NET Core, Java, Ruby, Node.js, PHP veya Python dahil en sevdiğiniz dilde geliştirebilirsiniz. Uygulamaları çalışır ve hem Windows hem de Linux tabanlı ortamlar bir kolayca ölçeklendirin. Linux tabanlı ortamlar için bkz. [Linux’ta App Service](containers/app-service-linux-intro.md). 
 
 App Service yalnızca Microsoft Azure'un gücünü uygulamanıza güvenlik, Yük Dengeleme, otomatik ölçeklendirme, ekler ve otomatik yönetim. Aynı zamanda Azure DevOps, GitHub, Docker Hub ve diğer kaynaklardan sürekli dağıtım, paket yönetimi, hazırlık ortamları, özel etki alanı ve SSL sertifikaları gibi DevOps özelliklerinden de yararlanabilirsiniz. 
 

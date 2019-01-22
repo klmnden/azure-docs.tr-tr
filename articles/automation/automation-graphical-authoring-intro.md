@@ -3,18 +3,18 @@ title: Azure Otomasyonu'nda yazma grafik
 description: Grafik yazma olmadan kodu ile çalışma için Azure Otomasyonu runbook'ları oluşturmanıza olanak sağlar. Bu makalede, grafik yazma giriş ve bir grafik runbook oluşturmaya başlamak için gereken tüm ayrıntıları sağlar.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a4cd2cec56a15660a03ac111b1b8962d531479ad
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6d637436721ff464f58e41069bb00746fcd82410
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233686"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427245"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Azure Otomasyonu'nda yazma grafik
 
@@ -34,7 +34,7 @@ Azure portalında oluşturma veya düzenleme grafik runbook grafik düzenleyicis
 
 Aşağıdaki bölümlerde, grafik düzenleyicisini denetimleri açıklanmaktadır.
 
-### <a name="canvas"></a>Tuval
+### <a name="canvas"></a>Canvas
 
 Burada runbook'unuzu tasarım tuvalidir. Kitaplık denetiminde düğümlerden runbook'a etkinlikler ekleme ve bunları runbook mantığını tanımlamak için bağlantılar ile bağlayın.
 
@@ -46,7 +46,7 @@ Seçtiğiniz kitaplık denetimidir [etkinlikleri](#activities) runbook uygulaman
 
 | Section | Açıklama |
 |:--- |:--- |
-| Cmdlet'leri |Runbook'ta kullanılabilecek tüm cmdlet'leri içerir. Cmdlet modülü tarafından düzenlenir. Tüm otomasyon hesabınızda yüklü modülleri mevcuttur. |
+| Cmdlet'ler |Runbook'ta kullanılabilecek tüm cmdlet'leri içerir. Cmdlet modülü tarafından düzenlenir. Tüm otomasyon hesabınızda yüklü modülleri mevcuttur. |
 | Runbook'lar |Runbook'ları, Otomasyon hesabınızda içerir. Bu runbook'ları, tuvalin alt runbook'lar olarak kullanılacak eklenebilir. Yalnızca düzenlenmekte olan runbook olarak aynı temel türündeki runbook'lar gösterilir. Grafik PowerShell iş akışı runbook'ları için yalnızca PowerShell iş akışı tabanlı runbook'ları gösterilmekte iken için grafik runbook'ları yalnızca PowerShell tabanlı runbook'ları gösterilir. |
 | Varlıklar |İçerir [Otomasyon varlıklarından](https://msdn.microsoft.com/library/dn939988.aspx) Otomasyon hesabınızda, bir runbook'ta kullanılabilir. Bir varlığı bir runbook'a eklediğinizde, seçili varlığı alır bir iş akışı etkinlik ekler. Değişken varlıklar söz konusu olduğunda, bir değişkeni almak veya değişkeni ayarlamak için bir etkinlik eklenip eklenmeyeceğini seçebilirsiniz. |
 | Runbook denetimi |Geçerli bir runbook'ta kullanılabilir runbook denetimi etkinlikleri içerir. A *birleşim* birden çok girdiyi alır ve iş akışı devam etmeden önce tüm tamamlanana kadar bekler. A *kod* etkinlik çalıştırmalarını PowerShell ya da PowerShell iş akışı kodu grafik runbook türüne bağlı olarak bir veya daha fazla satır. Bu etkinlik diğer etkinlikler ile elde etmek zor işlevleri veya özel kod için kullanabilirsiniz. |
@@ -67,7 +67,7 @@ Yalnızca bir grafik runbook yayımlanmış sürümü dışarı aktarabilirsiniz
 
 Seçerek bir grafik veya grafik PowerShell iş akışı runbook dosyası içeri aktarabilirsiniz **alma** runbook eklerken seçenek. İçeri aktarılacak dosyasını seçtiğinizde, aynı tutabilirsiniz **adı** veya yeni bir tane sağlayın. Runbook türü alan runbook türü seçilen dosyanın değerlendirir ve doğru değil, farklı bir tür seçmek çalışırsanız, bir ileti olası çakışmaları vardır ve dönüştürme sırasında olabilir söz dizimi hatalarının ayıklanabileceğini sunulacak sonra görüntüler hataları.
 
-![Runbook'u İçeri Aktar](media/automation-graphical-authoring-intro/runbook-import-revised20165.png)
+![Runbook'u içeri aktar](media/automation-graphical-authoring-intro/runbook-import-revised20165.png)
 
 ### <a name="testing-a-graphical-runbook"></a>Grafik runbook'u test etme
 
@@ -79,7 +79,7 @@ Giriş parametreleri ve tıklayarak runbook'u başlatabilirsiniz Test denetimi i
 
 ### <a name="publishing-a-graphical-runbook"></a>Grafik runbook yayımlama
 
-Azure Otomasyonu içindeki her runbook'un bir taslak ve bir yayımlanmış sürümü vardır. Yalnızca yayımlanan sürüm çalıştırılabilir ve yalnızca taslak sürüm düzenlenebilir. Yayımlanan sürüm taslak sürümdeki herhangi bir değişiklikten etkilenmez. Taslak sürümü kullanılabilir olması hazır olduğunda size, yayımlanan sürümü taslak sürümle değiştirebilirsiniz yayımlamalısınız.
+Azure Otomasyonu içindeki her runbook'un bir taslak ve bir yayımlanmış sürümü vardır. Yalnızca Yayımlanan sürüm çalıştırılabilir ve yalnızca Taslak sürüm düzenlenebilir. Yayımlanan sürüm Taslak sürümdeki herhangi bir değişiklikten etkilenmez. Taslak sürümü kullanılabilir olması hazır olduğunda size, yayımlanan sürümü taslak sürümle değiştirebilirsiniz yayımlamalısınız.
 
 Grafik runbook'u düzenlemek ve ardından tıklayarak runbook'u açarak yayımlayabilirsiniz **Yayımla** düğmesi.
 
@@ -111,7 +111,7 @@ Bir parametre için değer belirttiğinizde, değerin nasıl belirtildiğine bel
 
 | Veri Kaynağı | Açıklama |
 |:--- |:--- |
-| Sabit Değer |Parametre için bir değer yazın. Bu yalnızca aşağıdaki veri türleri için kullanıma sunuldu: Int32, Int64, String, Boolean, DateTime, anahtar. |
+| Sabit Değer |Parametre için bir değer yazın. Bu yalnızca aşağıdaki veri türleri için kullanılabilir. Int32, Int64, String, Boolean, DateTime, geçiş yapın. |
 | Etkinlik çıkışı |İş akışında geçerli etkinliği önündeki bir etkinliğin çıkışı. Tüm geçerli etkinlikler listelenir. Çıktısını için parametre değeri kullanmak için yalnızca etkinliği seçin. Birden fazla özelliğe sahip bir nesne etkinlik çıkışı etkinlik seçtikten sonra özelliğin adını yazabilirsiniz. |
 | Runbook giriş |Bir runbook girdi parametreniz etkinlik parametresinde girdi olarak seçin. |
 | Değişken varlığı |Bir Otomasyon değişken giriş olarak seçin. |
@@ -191,7 +191,7 @@ Kaynak etkinliği'ni seçip şeklin alt kısmındaki daire tıklayarak iki etkin
 
 Yapılandırma dikey penceresinde özelliklerini yapılandırmak için bağlantıyı seçin. Bu aşağıdaki tabloda açıklanan bağlantı türü içerir:
 
-| Bağlantı türü | Açıklama |
+| Bağlantı Türü | Açıklama |
 |:--- |:--- |
 | İşlem hattı |Hedef etkinlik, kaynak etkinliğinden her nesne çıkış için bir kez çalıştırılır. Kaynak etkinliği hiçbir çıkış sonuçlanırsa, hedef etkinlik çalıştırmaz. Kaynak etkinliği çıktısını bir nesne olarak kullanılabilir. |
 | Sequence |Hedef etkinlik yalnızca bir kez çalışır. Bu kaynak etkinliğinden nesnelerinin bir dizisini alır. Kaynak etkinliği çıktısını bir nesne dizisi kullanılabilir. |
@@ -245,7 +245,7 @@ Aşağıdaki örnek, bir sanal makine kümesi, bu makinelere uygulanacak düzelt
 
 ![Birleşim](media/automation-graphical-authoring-intro/runbook-junction.png)
 
-### <a name="cycles"></a>Döngüleri
+### <a name="cycles"></a>Döngüler
 
 Hedef etkinlik bağlantıları geri kendi kaynak etkinliği veya sonunda kaynağına bağlantıları geri başka bir etkinlik olduğunda bir döngüsü elde edilir. Döngüleri grafik yazma şu anda izin verilmiyor. Bir döngü runbook'unuz varsa düzgün şekilde kaydeder ancak çalıştığında bir hata alır.
 
@@ -272,7 +272,7 @@ $ActivityOutput['Activity Label'].PropertyName
 
 Ayarlayabileceğiniz [kontrol noktaları](automation-powershell-workflow.md#checkpoints) seçerek bir grafik PowerShell iş akışı runbook'ta *denetim noktası runbook'u* herhangi bir etkinlik. Bu etkinliğin çalıştıktan sonra ayarlamak bir denetim noktası neden olur.
 
-![Denetim noktası](media/automation-graphical-authoring-intro/set-checkpoint.png)
+![Checkpoint](media/automation-graphical-authoring-intro/set-checkpoint.png)
 
 Kontrol noktaları, grafik PowerShell iş akışı runbook'ları yalnızca etkinleştirilen, grafik runbook'larında kullanılamaz. Runbook, Azure cmdlet'lerini kullanıyorsa, runbook'u askıya alındı ve yeniden durumunda Connect-AzureRmAccount belirttiğinizde herhangi bir etkinliği izlemelidir farklı bir çalışan üzerinde bu kontrol noktasından.
 
@@ -328,7 +328,7 @@ Her giriş parametresi, aşağıdaki tabloda özellikleri tarafından tanımlan�
 | Açıklama |Giriş parametresi için isteğe bağlı bir açıklama. |
 | Tür |Veri türü için parametre değeri bekleniyor. Azure portalında uygun bir denetim için her parametresinin veri türü için giriş isterken sağlar. |
 | Zorunlu |Parametresi için bir değer sağlanmalıdır olup olmadığını belirtir. Tanımlanan varsayılan değeri olmayan zorunlu her parametre için bir değer belirtmezseniz, runbook başlatılamıyor. |
-| Varsayılan değer |Bir sağlanmazsa, parametresi için hangi değerin kullanıldığını belirtir. Bu Null ya da belirli bir değer olabilir. |
+| Varsayılan Değer |Bir sağlanmazsa, parametresi için hangi değerin kullanıldığını belirtir. Bu Null ya da belirli bir değer olabilir. |
 
 ### <a name="runbook-output"></a>Runbook çıkışı
 

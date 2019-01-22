@@ -3,18 +3,18 @@ title: Azure Otomasyonu sertifika varlıkları
 description: Runbook'ları veya Azure ve üçüncü taraf kaynaklarına karşı kimlik doğrulaması için DSC yapılandırmaları tarafından erişilebilen için Azure Otomasyonu'nda sertifikaları güvenli bir şekilde depolanabilir.  Bu makalede, sertifikalar ve hem metin hem de grafik yazma ile çalışma ayrıntılarını açıklar.
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d91a7ba8d2c05e2d24738764438ce91325743699
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 714bf5f915cb588a99552a8bbbc5ffa76aa16846
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330866"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426140"
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Azure Otomasyonu sertifika varlıkları
 
@@ -121,3 +121,4 @@ print cert
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Runbook'unuzu gerçekleştirmek üzere tasarlanan etkinliklerin mantıksal akışını denetlemek için bağlantılar ile çalışma hakkında daha fazla bilgi edinmek için [grafik yazma içinde bağlantıları](automation-graphical-authoring-intro.md#links-and-workflow). 
+

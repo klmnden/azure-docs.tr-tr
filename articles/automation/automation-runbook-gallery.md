@@ -3,18 +3,18 @@ title: Azure Otomasyonu Runbook ve modül galerileri
 description: Runbook'ları ve Microsoft ve topluluk modülleri yükleme ve Azure Otomasyonu ortamınızda kullanmak için kullanılabilir.  Bu makalede, bu kaynaklara nasıl erişebileceğinizi açıklanır ve runbook'larınızı Galeriye katkıda bulunma.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5b87d04466a2c94ed233edf4069ec1a30b10d03a
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 7330d826cb196a664f06198a0e83f73bd7763ef9
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634329"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428117"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Azure Otomasyonu Runbook ve modül galerileri
 Azure Automation'da kendi runbook'ları ve modüller oluşturmak yerine, çeşitli Microsoft ve topluluk tarafından zaten oluşturulduğundan senaryoları erişebilirsiniz.  Bu senaryolar yapmadan ya da kullanabilirsiniz veya bunları bir başlangıç noktası olarak kullanın ve bunları belirli gereksinimleriniz için düzenleyin.
@@ -108,4 +108,5 @@ Python runbook'ları kullanılabilir [Komut Merkezi Galerisi](https://gallery.te
 ## <a name="next-steps"></a>Sonraki Adımlar
 * Runbook'larını kullanmaya başlamak için bkz: [oluşturma veya Azure automation'da bir runbook içeri aktarma](automation-creating-importing-runbook.md)
 * PowerShell ve PowerShell iş akışı runbook'ları ile farklarını anlamak için bkz: [Learning PowerShell iş akışı](automation-powershell-workflow.md)
+
 

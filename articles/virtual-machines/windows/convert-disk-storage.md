@@ -15,24 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2018
 ms.author: ramankum
-ms.openlocfilehash: 958f661585b38b156cf523fe00986e7594474917
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: ebb0279ec61bf6e3a77cd40b8e82ca5bd72f0abe
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093825"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435762"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>Güncelleştirme yönetilen disk depolama türü
 
-Azure yönetilen diskler, üç depolama türü seçeneği sunar: [Premium SSD](../windows/premium-storage.md), [standart SSD](../windows/disks-standard-ssd.md), ve [standart HDD](../windows/standard-storage.md). Yönetilen disk performans ihtiyaçlarınıza göre en düşük kapalı kalma süresiyle depolama türleri arasında geçiş yapabilirsiniz. Depolama türleri arasında geçiş yapma, yönetilmeyen bir disk için desteklenmiyor; Ancak, kolayca [yönetilmeyen disk bir yönetilen diske dönüştürme](convert-unmanaged-to-managed-disks.md).
+Azure yönetilen diskler, üç depolama türü seçenekleri sunar: [Premium SSD](../windows/premium-storage.md), [standart SSD](../windows/disks-standard-ssd.md), ve [standart HDD](../windows/standard-storage.md). Yönetilen disk performans ihtiyaçlarınıza göre en düşük kapalı kalma süresiyle depolama türleri arasında geçiş yapabilirsiniz. Depolama türleri arasında geçiş yapma, yönetilmeyen bir disk için desteklenmiyor; Ancak, kolayca [yönetilmeyen disk bir yönetilen diske dönüştürme](convert-unmanaged-to-managed-disks.md).
 
-Bu makalede, Premium ve tersi, Azure PowerShell kullanarak standart yönetilen disk dönüştürme gösterilmektedir. Gerekirse yükleyin veya PowerShell yükseltmek için bkz [Azure PowerShell'i yükleme ve yapılandırma](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.8.1).
+Bu makalede, Premium ve tersi, Azure PowerShell kullanarak standart yönetilen disk dönüştürme gösterilmektedir. Gerekirse yükleyin veya PowerShell yükseltmek için bkz [Azure PowerShell'i yükleme ve yapılandırma](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.8.1).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 * Dönüştürme, sanal makine (VM) yeniden başlatılması gerektiğinden, diskleri depolama geçişini önceden var olan bir bakım penceresi sırasında zamanlamanız gerekir. 
 * İlk yönetilmeyen disk kullanıyorsanız, [yönetilen diske dönüştürme](convert-unmanaged-to-managed-disks.md) depolama türleri arasında geçiş yapmanıza izin vermek için. 
-* Bu makaledeki örneklerde, Azure PowerShell modülü sürüm 6.0.0'dan gerektirir veya üzeri. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). Çalıştırma [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) Azure ile bir bağlantı oluşturmak için.
+* Bu makaledeki örneklerde, Azure PowerShell modülü sürüm 6.0.0'dan gerektirir veya üzeri. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/azurerm/install-azurerm-ps). Çalıştırma [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) Azure ile bir bağlantı oluşturmak için.
 
 
 ## <a name="convert-all-the-managed-disks-of-a-vm-from-standard-to-premium"></a>Bir VM'nin tüm yönetilen diskler için premium standart moddan Dönüştür

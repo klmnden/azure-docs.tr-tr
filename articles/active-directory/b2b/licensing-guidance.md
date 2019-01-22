@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: mal
-ms.openlocfilehash: d80794511f334cd6dc5af418e24fc774b7d8728f
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: d89fb86209af2074794d5a5abcdcebadec904799
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867519"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434283"
 ---
 # <a name="azure-active-directory-b2b-collaboration-licensing-guidance"></a>Azure Active Directory B2B işbirliği lisanslama kılavuzu
 
@@ -50,4 +50,4 @@ Bu senaryoların her ikisinde üye olarak davet B2B API'yi kullanmak için daha 
 Azure AD B2B işbirliği hakkında aşağıdaki kaynaklara bakın:
 
 * [Azure AD B2B işbirliği nedir?](what-is-b2b.md)
-* [Azure Active Directory B2B işbirliği sık sorulan sorular (SSS)](faq.md)
+* [Azure Active Directory B2B işbirliği hakkında sık sorulan sorular (SSS)](faq.md)

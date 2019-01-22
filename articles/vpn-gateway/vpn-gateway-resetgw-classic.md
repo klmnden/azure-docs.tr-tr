@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: cherylmc
-ms.openlocfilehash: d23ed383bee3346cfbb20c6935dd3630e137c179
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 72e990516ce6ae3276c6db6f12d1a5dda4d0386f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45573918"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432515"
 ---
 # <a name="reset-a-vpn-gateway"></a>VPN Gateway sıfırlama
 
@@ -46,7 +46,7 @@ Ağ geçidinizi sıfırlamadan önce aşağıdakileri doğrulayın:
 * Önceden paylaşılan anahtar Azure ve şirket içi VPN ağ geçitlerinde aynı olmalıdır.
 * Şifreleme, karma algoritmaları ve PFS (Kusursuz İletme Gizliliği) gibi belirli IPsec/IKE yapılandırmalarını uygularsanız hem Azure hem de şirket içi VPN ağ geçitlerinin aynı yapılandırmalara sahip olduğundan emin olun.
 
-## <a name="portal"></a>Azure portalı
+## <a name="portal"></a>Azure portal
 
 Azure portalını kullanarak Resource Manager VPN ağ geçidi sıfırlayabilirsiniz. Klasik bir ağ geçidi sıfırlamak istiyorsanız, bkz. [PowerShell](#resetclassic) adımları.
 
@@ -62,7 +62,7 @@ Azure portalını kullanarak Resource Manager VPN ağ geçidi sıfırlayabilirsi
 
 ### <a name="resource-manager-deployment-model"></a>Resource Manager dağıtım modeli
 
-Bir ağ geçidini sıfırlamayı cmdlet'i **sıfırlama-AzureRmVirtualNetworkGateway**. Sıfırlama gerçekleştirmeden önce en son sürümüne sahip olduğunuzdan emin olun [Resource Manager PowerShell cmdlet'lerinin](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.0.0). Aşağıdaki örnek TestRG1 kaynak grubunda VNet1GW adlı bir sanal ağ geçidi sıfırlar:
+Bir ağ geçidini sıfırlamayı cmdlet'i **sıfırlama-AzureRmVirtualNetworkGateway**. Sıfırlama gerçekleştirmeden önce en son sürümüne sahip olduğunuzdan emin olun [Resource Manager PowerShell cmdlet'lerinin](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.0.0). Aşağıdaki örnek TestRG1 kaynak grubunda VNet1GW adlı bir sanal ağ geçidi sıfırlar:
 
 ```powershell
 $gw = Get-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1

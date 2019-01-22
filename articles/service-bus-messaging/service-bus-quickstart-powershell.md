@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 9fe9952c3885e0e6145141bac7db13694dcdbd11
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 36f1b39ca4cef33a8cfcdb295b5c4d59e1128a0c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259674"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426854"
 ---
 # <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>Hızlı Başlangıç: Azure PowerShell kullanarak bir Service Bus kuyruğu oluşturma
 Microsoft Azure Service Bus, güvenli mesajlaşma ve son derece yüksek güvenilirlik sağlayan bir kurumsal tümleştirme ileti aracısıdır. Tipik bir Service Bus senaryosunda çoğunlukla iki veya daha çok uygulama, hizmet veya işlem birbirinden ayrılır ve durum veya veri değişiklikleri aktarılır. Bu tür senaryolar başka bir uygulama veya hizmetlerde birden çok toplu işin zamanlanmasını veya sipariş karşılama işleminin tetiklenmesini içerebilir. Örneğin, bir perakende şirketi satış noktası verilerini yenileme ve stok güncelleştirmeleri için bir arka ofise veya bölgesel dağıtım merkezine gönderebilir. Bu senaryoda, istemci uygulaması Service Bus kuyruğuna iletiler gönderir ve o kuyruktan ileti alır.
@@ -263,4 +263,4 @@ Bu makalede, bir Service Bus alan adı ve bir kuyruktan ileti gönderip almak i�
 > [Azure PowerShell kullanarak envanteri güncelleştirme](./service-bus-tutorial-topics-subscriptions-powershell.md)
 
 [ücretsiz bir hesap]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[Azure PowerShell'i Yükleme ve Yapılandırma]: /powershell/azure/install-azurerm-ps
+[Azure PowerShell'i Yükleme ve Yapılandırma]: /powershell/azure/azurerm/install-azurerm-ps

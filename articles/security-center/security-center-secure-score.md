@@ -3,7 +3,7 @@ title: Azure Güvenlik Merkezi'nde puanı güvenli | Microsoft Docs
 description: " Azure Güvenlik Merkezi'nde güvenli puanı kullanarak, güvenlik önerileri öncelik verin. "
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: MBaldwin
 editor: ''
 ms.assetid: c42d02e4-201d-4a95-8527-253af903a5c6
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
-ms.author: rkarlin
-ms.openlocfilehash: 4bc426e291a47ae42e7628ad911e2960e654819f
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.author: monhaber
+ms.openlocfilehash: 4c7f272cbf98fefbf70e917634fb623c9e1b6a3b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261307"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425902"
 ---
 # <a name="improve-your-secure-score-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde güvenli puanınız geliştirin
 
@@ -45,7 +45,7 @@ Genel güvenli puanınız görüntülemek için:
 2. Üst kısmında, önemli puan güvenli görebilirsiniz:
    - **Genel puan güvenli** ilkeleri, seçili abonelik başına puanı temsil eder
    - **Kategoriye göre puan güvenli** hangi kaynakların en dikkat gerektiren gösterir
-   - **En popüler öneriler göre puan etkisi güvenli** en düzeltmek, güvenli puanınız artıracak öneriler listesini sağlar.
+   - **En popüler öneriler göre puan etkisi güvenli** en iyi çözümü kullanırsanız, güvenli puanınız artıracak önerilerden bir listesini sağlar.
  
    ![Güvenli puanı](./media/security-center-secure-score/secure-score-dashboard.png)
 

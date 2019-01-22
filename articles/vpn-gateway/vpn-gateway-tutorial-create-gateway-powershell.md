@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/14/2018
 ms.author: yushwang
 ms.custom: mvc
-ms.openlocfilehash: b1435773f8d05f9cc730e5745c1a916d9b74321f
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
-ms.translationtype: HT
+ms.openlocfilehash: 8e3cdd99c99a300d7f1198826ae881373e179414
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43340603"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433705"
 ---
 # <a name="create-and-manage-vpn-gateway-with-the-azure-powershell-module"></a>Azure PowerShell modülü ile VPN ağ geçidi oluşturma ve yönetme
 
@@ -40,7 +40,7 @@ Aşağıdaki diyagramda, bu öğreticinin bir parçası olarak oluşturulan sana
 
 [!INCLUDE [working with cloudshell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
 
-PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici, Azure PowerShell modülü 5.3 veya sonraki bir sürümü gerektirir. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir. 
+PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici, Azure PowerShell modülü 5.3 veya sonraki bir sürümü gerektirir. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/azurerm/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir. 
 
 ## <a name="common-network-parameter-values"></a>Ortak ağ parametre değerleri
 
@@ -74,7 +74,7 @@ New-AzureRmResourceGroup -ResourceGroupName $RG1 -Location $Location1
 
 ## <a name="create-a-virtual-network"></a>Sanal ağ oluşturma
 
-Azure VPN ağ geçidi, sanal ağınız için konumlar arası bağlantı ve P2S VPN sunucusu işlevselliği sağlar. VPN ağ geçidini mevcut bir sanal ağa ekleyin veya yeni bir sanal ağ ile ağ geçidi oluşturun. Bu örnekte [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) ve [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) komutları kullanılarak üç alt ağı olan yeni bir sanal ağ oluşturulur: Frontend, Backend ve GatewaySubnet:
+Azure VPN ağ geçidi, sanal ağınız için konumlar arası bağlantı ve P2S VPN sunucusu işlevselliği sağlar. VPN ağ geçidini mevcut bir sanal ağa ekleyin veya yeni bir sanal ağ ile ağ geçidi oluşturun. Bu örnek, üç alt ağa sahip yeni bir sanal ağ oluşturur: Ön uç ve arka uç GatewaySubnet kullanarak [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) ve [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork):
 
 ```azurepowershell-interactive
 $fesub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubnet1 -AddressPrefix $FEPrefix1
@@ -115,9 +115,9 @@ New-AzureRmVirtualNetworkGateway -Name $Gw1 -ResourceGroupName $RG1 `
 ```
 
 Anahtar parametre değerleri:
-* GatewayType: Siteden siteye ve sanal ağdan sanal ağa bağlantılar için **Vpn** değerini kullanın
-* VpnType: Daha geniş bir VPN cihazı yelpazesiyle etkileşim kurmak ve daha fazla yönlendirme özelliğinden yararlanmak için **RouteBased** seçeneğini kullanın
-* GatewaySku: Varsayılan değer **VpnGw1**’dir; daha yüksek aktarım hızına veya daha fazla bağlantıya gereksinim duyuyorsanız VpnGw2 veya VpnGw3 olarak değiştirin. Daha fazla bilgi için bkz. [Ağ geçidi SKU'ları](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+* Ağ geçidi türü: Kullanım **Vpn** siteden siteye ve VNet-VNet bağlantıları için
+* VPN türü: Kullanım **RouteBased** daha geniş bir aralık, VPN cihazları ve daha fazla yönlendirme özellikleri ile etkileşim kurmak için
+* GatewaySku: **VpnGw1** daha yüksek aktarım hızı veya daha fazla bağlantı gerekiyorsa VpnGw2 veya VpnGw3 değiştirmek; varsayılandır. Daha fazla bilgi için bkz. [Ağ geçidi SKU'ları](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
 Ağ geçidi oluşturma işlemi tamamlandığında sanal ağınız ile başka bir sanal ağ arasında ya da sanal ağınız ile şirket içi bir konum arasında bağlantı oluşturabilirsiniz. Ayrıca, bir istemci bilgisayardan sanal ağınıza yönelik bir P2S bağlantısı yapılandırabilirsiniz.
 

@@ -4,18 +4,18 @@ description: Bir genel bakış, Azure Otomasyonu durum yapılandırması (DSC), 
 keywords: PowerShell dsc, istenen durum yapılandırması, powershell dsc azure
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 author: bobbytreed
 ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1f28f642d1a5fc30055c73a4b7d60c076c83d204
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ca7a1913e94242af46e777be308ef92fc5a5abb3
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250110"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427075"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Azure Otomasyonu durum yapılandırmasına genel bakış
 
@@ -45,7 +45,7 @@ Azure Otomasyonu durum yapılandırması ile yönetilen düğümler ayrıntılı
 
 Aşağıdaki bağlantı noktası ve URL'leri için durum yapılandırması (otomasyon ile iletişim kurmak için DSC) gereklidir:
 
-* Bağlantı noktası: Yalnızca TCP 443 giden internet erişimi için gereklidir.
+* Bağlantı Noktası: Yalnızca TCP 443 giden internet erişimi için gereklidir.
 * Genel URL: *.azure-automation.net
 * ABD Devleti Virginia genel URL: *.azure-automation.us
 * Aracı hizmeti: https://\<Workspaceıd\>.agentsvc.azure-automation.net

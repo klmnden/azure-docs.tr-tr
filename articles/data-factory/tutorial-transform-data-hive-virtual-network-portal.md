@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/04/2018
 ms.author: douglasl
-ms.openlocfilehash: a8ac93d5a820b7d15b46efceb5db383d5b83a804
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: b7d536a9dc411dfd6420278ed42116b546315f3e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019818"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436714"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Azure Data Factory’de Hive etkinliğini kullanarak Azure Sanal Ağ’daki verileri dönüştürme
 Bu öğreticide, Azure portalını kullanarak Azure Sanal Ağ’daki bir HDInsight kümesinde Hive Etkinliği ile verileri dönüştüren bir Data Factory işlem hattı oluşturursunuz. Bu öğreticide aşağıdaki adımları gerçekleştireceksiniz:
@@ -40,7 +40,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 - **HDInsight kümesi.** Bir HDInsight kümesi oluşturun ve bu makaleyi izleyerek önceki adımda oluşturduğunuz sanal ağa ekleyin: [Azure HDInsight'ın bir Azure sanal ağı kullanarak genişletme](../hdinsight/hdinsight-extend-hadoop-virtual-network.md). Bir sanal ağda HDInsight’ın örnek yapılandırması aşağıda verilmiştir. 
 
     ![Sanal ağda HDInsight](media/tutorial-transform-data-using-hive-in-vnet-portal/hdinsight-virtual-network-settings.png)
-- **Azure PowerShell**. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/install-azurerm-ps) bölümündeki yönergeleri izleyin.
+- **Azure PowerShell**. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/azurerm/install-azurerm-ps) bölümündeki yönergeleri izleyin.
 - **Bir sanal makine**. Bir Azure sanal makinesi oluşturun ve HDInsight kümenizi içeren sanal ağa ekleyin. Ayrıntılar için bkz. [Sanal makine oluşturma](../virtual-network/quick-create-portal.md#create-virtual-machines). 
 
 ### <a name="upload-hive-script-to-your-blob-storage-account"></a>Hive betiğini Blob Depolama hesabınıza yükleme

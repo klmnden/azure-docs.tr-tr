@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: librown
-ms.openlocfilehash: b09bb65cdb571c9df95d1922f4132abe5b77907c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 0179f87787c91a90edb54a1956a6f10d1dffc4b1
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963956"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434198"
 ---
 # <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Parola olmadan telefonla oturum açma ile Microsoft Authenticator uygulamasını (genel Önizleme)
 
@@ -37,16 +37,21 @@ Bir yönetici, genel Önizleme için önce bu kiracıda kimlik bilgileri kullan�
 
 ### <a name="steps-to-enable"></a>Etkinleştirme adımları
 
-Azure Active Directory V2 PowerShell modülü genel önizleme sürümünü en son sürümüne sahip olun. Aşağıdaki komutları çalıştırarak bunu doğrulamak için kaldırıp yükleyin isteyebilirsiniz:
+1. Azure Active Directory V2 PowerShell modülü genel önizleme sürümünü en son sürümüne sahip olun. Aşağıdaki komutları çalıştırarak bunu doğrulamak için kaldırıp yükleyin isteyebilirsiniz:
+    ```powershell
+    Uninstall-Module -Name AzureADPreview
+    Install-Module -Name AzureADPreview
+    ```
 
-1. `Uninstall-Module -Name AzureADPreview`
-2. `Install-Module -Name AzureADPreview`
+2. Azure AD V2 PowerShell modülünü kullanmak için Azure AD Kiracı kimlik doğrulaması. Kullanılan hesap ya da bir güvenlik yöneticisi veya genel yönetici olması gerekir.
+    ```powershell
+    Connect-AzureAD
+    ```
 
-Aşağıdaki PowerShell komutlarını kullanarak parola olmadan telefon oturum Önizleme etkinleştirebilirsiniz:
-
-1. `Connect-AzureAD`
-   1. Kimlik doğrulama iletişim kutusunda kiracıda bir hesapla oturum açın. Hesap ya da bir güvenlik yöneticisi veya genel yönetici olması gerekir.
-1. `New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn`
+3. Doğrulayıcı oturum ilkesi oluşturun:
+    ```powershell
+    New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn
+    ```
 
 ## <a name="how-do-my-end-users-enable-phone-sign-in"></a>Telefonla oturum açma son Kullanıcılarım hizmetini nasıl?
 

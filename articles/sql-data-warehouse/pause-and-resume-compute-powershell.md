@@ -1,5 +1,5 @@
 ---
-title: "Hızlı Başlangıç: Azure SQL veri ambarı'nda - PowerShell bilgi işlem, duraklatma ve sürdürme | Microsoft Docs"
+title: "Hızlı Başlangıç: İşlem duraklatma ve sürdürme, Azure SQL veri ambarı'nda - PowerShell | Microsoft Docs"
 description: Maliyetlerden tasarruf etmek için Azure SQL veri ambarı'nda duraklatma işlem PowerShell kullanın. Veri ambarı kullanılmaya hazır olduğunda sürdürebilirsiniz.
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,19 +10,19 @@ ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: ae1373901ca22b39cf99173ae2a9280128491522
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 9d2836f49fb92ab13f8e4170f2aab044c810cf3c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313847"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437165"
 ---
-# <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-powershell"></a>Hızlı Başlangıç: PowerShell ile Azure SQL veri ambarı'nda duraklatma ve sürdürme işlem
+# <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-powershell"></a>Hızlı Başlangıç: PowerShell ile Azure SQL veri ambarı'nda işlem duraklatma ve sürdürme
 Maliyetlerden tasarruf etmek için Azure SQL veri ambarı'nda duraklatma işlem PowerShell kullanın. [İşlem devam](sql-data-warehouse-manage-compute-overview.md) veri ambarı kullanılmaya hazır olduğunuzda.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
-Bu öğretici için Azure PowerShell modülünün 5.1.1 veya daha sonraki bir sürümü gerekir. Şu anda kullandığınız sürümü bulmak için ` Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure PowerShell Modülü yükleme](/powershell/azure/install-azurerm-ps).
+Bu öğretici için Azure PowerShell modülünün 5.1.1 veya daha sonraki bir sürümü gerekir. Şu anda kullandığınız sürümü bulmak için ` Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure PowerShell Modülü yükleme](/powershell/azure/azurerm/install-azurerm-ps).
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 

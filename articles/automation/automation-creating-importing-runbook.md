@@ -3,18 +3,18 @@ title: Oluşturma veya Azure automation'da bir runbook içeri aktarma
 description: Bu makalede, Azure Automation'da yeni bir runbook oluşturmak veya bir dosyadan içe açıklar.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 08/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2ccf9036d3701c710c6d3258f81390ed355c246c
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: fdc064ab2b74424ce1e4e163c8843bfebc28bcf4
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578040"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435575"
 ---
 # <a name="creating-or-importing-a-runbook-in-azure-automation"></a>Oluşturma veya Azure automation'da bir runbook içeri aktarma
 
@@ -29,7 +29,7 @@ Azure portalı veya Windows PowerShell kullanarak Azure Automation'da yeni bir r
 1. Azure portalında, Otomasyon hesabınızı açın.
 1. Hub'ından seçin **runbook'ları** runbook'ların listesini açmak için.
 1. Tıklayarak **runbook Ekle** düğmesine ve ardından **yeni bir runbook oluşturmak**.
-1. Tür a **adı** seçin ve runbook için kendi [türü](automation-runbook-types.md). Runbook adı bir harf ile başlamalı ve harf, rakam, alt çizgi ve tire içerebilir.
+1. Tür a **adı** seçin ve runbook için kendi [türü](automation-runbook-types.md). Runbook adı bir harfle başlamalıdır ve harfler, rakamlar, alt çizgiler ve kısa çizgiler içerebilir.
 1. Tıklayın **Oluştur** runbook oluşturma ve Düzenleyicisi'ni açın.
 
 ### <a name="to-create-a-new-azure-automation-runbook-with-windows-powershell"></a>Windows PowerShell ile yeni bir Azure Otomasyonu runbook oluşturmak için
@@ -61,7 +61,7 @@ Bir betik dosyası Azure Automation'a içeri aktarmak için aşağıdaki yordam�
 2. Hub'ından seçin **runbook'ları** runbook'ların listesini açmak için.
 3. Tıklayarak **runbook Ekle** düğmesine ve ardından **alma**.
 4. Tıklayın **Runbook dosyası** Alınacak dosya seçin
-5. Varsa **adı** alanı etkinse, sonra değiştirmek için seçeneğiniz vardır.  Runbook adı bir harf ile başlamalı ve harf, rakam, alt çizgi ve tire içerebilir.
+5. Varsa **adı** alanı etkinse, sonra değiştirmek için seçeneğiniz vardır.  Runbook adı bir harfle başlamalıdır ve harfler, rakamlar, alt çizgiler ve kısa çizgiler içerebilir.
 6. [Runbook türü](automation-runbook-types.md) otomatik olarak seçilir, ancak geçerli kısıtlamalarını hesaba kattıktan sonra türünü değiştirebilirsiniz. 
 7. Yeni runbook Otomasyon hesabı için runbook'ları listesinde görünür.
 8. Yapmanız gerekenler [runbook'u yayımlayamadı](#publishing-a-runbook) önce çalıştırabilirsiniz.
@@ -89,7 +89,7 @@ Import-AzureRMAutomationRunbook -Name $runbookName -Path $scriptPath `
 
 ## <a name="publishing-a-runbook"></a>Runbook yayımlama
 
-Oluştururken veya yeni bir runbook'u içeri çalışabilmesi için önce onu yayımlamanız gerekir.  Otomasyon içindeki her runbook'un bir taslak ve bir yayımlanmış sürümü vardır. Yalnızca yayımlanan sürüm çalıştırılabilir ve yalnızca taslak sürüm düzenlenebilir. Yayımlanan sürüm taslak sürümdeki herhangi bir değişiklikten etkilenmez. Taslak sürümü kullanılabilir olması, size, yayımlanan sürümü taslak sürümle değiştirebilirsiniz yayımlamalısınız.
+Oluştururken veya yeni bir runbook'u içeri çalışabilmesi için önce onu yayımlamanız gerekir.  Otomasyon içindeki her runbook'un bir taslak ve bir yayımlanmış sürümü vardır. Yalnızca Yayımlanan sürüm çalıştırılabilir ve yalnızca Taslak sürüm düzenlenebilir. Yayımlanan sürüm Taslak sürümdeki herhangi bir değişiklikten etkilenmez. Taslak sürümü kullanılabilir olması, size, yayımlanan sürümü taslak sürümle değiştirebilirsiniz yayımlamalısınız.
 
 ## <a name="to-publish-a-runbook-using-the-azure-portal"></a>Azure portalını kullanarak bir runbook'u yayımlamak için
 

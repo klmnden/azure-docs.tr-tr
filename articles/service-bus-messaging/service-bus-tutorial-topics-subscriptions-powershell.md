@@ -9,14 +9,14 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: fdf97234e840de5fdd2811f3cdae8dd4cdc76a22
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 135f5e2500ab86d418085a5061f517176b9a4dad
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229161"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430016"
 ---
-# <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>Öğretici: PowerShell ve konular/abonelikler kullanarak stok güncelleştirme
+# <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>Öğretici: PowerShell ve konular/abonelikler kullanan Envanter güncelleştirme
 
 Microsoft Azure Service Bus, uygulamalar ve hizmetler arasında bilgi gönderen çok kiracılı bir bulut mesajlaşma hizmetidir. Zaman uyumsuz işlemler, esnek, aracılı mesajlaşmanın yanı sıra, ilk giren ilk çıkar (FIFO) yöntemiyle yapılandırılmış mesajlaşma ve yayımlama/abonelik olanakları da sunar. 
 
@@ -36,7 +36,7 @@ Bu senaryonun bir örneği, birden çok perakende mağazası için stok sınıfl
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap][] oluşturun.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için şunları yüklediğinizden emin olun:
 
@@ -286,4 +286,4 @@ Service Bus’ın yayımlama/abone olma özelliklerini kullanma hakkında daha f
 > [PowerShell ve konular/abonelikler kullanarak stok güncelleştirme](service-bus-tutorial-topics-subscriptions-cli.md)
 
 [ücretsiz bir hesap]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[Azure PowerShell'i Yükleme ve Yapılandırma]: /powershell/azure/install-azurerm-ps
+[Azure PowerShell'i Yükleme ve Yapılandırma]: /powershell/azure/azurerm/install-azurerm-ps

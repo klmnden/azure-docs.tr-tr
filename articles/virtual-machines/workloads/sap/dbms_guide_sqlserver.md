@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 90b4bc17de60baa59d6c159105674468a63d10f9
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 78ad40796a31e0c803b892e0c1b50e66b32c2b0a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430179"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425890"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SAP NetWeaver için SQL Server Azure sanal makineleri DBMS dağıtım
 
@@ -235,7 +235,7 @@ ms.locfileid: "49430179"
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd 
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
@@ -328,9 +328,9 @@ Aşağıdaki bölümlerde yukarıdaki bağlantıyı altında belge parçaların�
 
 Iaas belirli bilgiler devam etmeden önce bilmeniz gereken bazı SQL Server vardır:
 
-* **SQL sürüm desteği**: müşteriler için SAP, SQL Server 2008 R2 ve Microsoft Azure sanal Makinesi'nde yüksek desteklenir. Önceki sürümlerinde desteklenmez. Bu genel gözden [destek bildirimiyle](https://support.microsoft.com/kb/956893) daha fazla ayrıntı için. Genel olarak, SQL Server 2008'de Microsoft tarafından desteklenir. Ancak, önemli işlevleri için SQL Server 2008 R2 ile birlikte sunulan, SAP, SQL Server 2008 R2 SAP için en düşük sürüm kaynaklanır. Genel olarak, en son SQL Server'ı kullanarak Azure Iaas içinde SAP iş yükü çalıştırmak için sürümleri dikkate almanız gerekir. En son SQL Server sürümleri, bazı Azure Hizmetleri ve İşlevler daha iyi tümleştirme sağlar. Veya Azure Iaas altyapısını işlemlerini iyileştirmenize değişiklikler içerir. Bu nedenle, yazıda SQL Server 2017 ve SQL Server 2016 ile sınırlıdır.
-* **SQL performansı**: Microsoft Azure da diğer genel bulut sanallaştırma teklifleri, ancak tek sonuçları ile barındırılan sanal makineleri gerçekleştirmek değişebilir. Makaleyi inceleyin [Azure sanal Makineler'de SQL Server için en iyi performans](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance).
-* **Azure marketi'ndeki görüntüleri**: yeni bir Microsoft Azure sanal makine dağıtmak için en hızlı yolu Azure Marketi'nden bir görüntü kullanmaktır. En son SQL Server sürümleriyle içeren görüntüleri Azure Market'te vardır. SQL Server önceden yüklendiği görüntüleri için SAP NetWeaver uygulamalarını hemen kullanılamaz. Varsayılan SQL Server harmanlaması bu görüntülerin ve SAP NetWeaver sistemleri tarafından gerekli harmanlama yüklü nedenidir. Bu görüntüleri kullanmak için bölümde belgelenen adımları denetleyin [Microsoft Azure Marketi dışında bir SQL sunucu görüntüsü kullanarak][dbms-guide-5.6]. 
+* **SQL sürüm desteği**: SAP müşteriler, SQL Server 2008 R2 ve Microsoft Azure sanal Makinesi'nde yüksek desteklenir. Önceki sürümlerinde desteklenmez. Bu genel gözden [destek bildirimiyle](https://support.microsoft.com/kb/956893) daha fazla ayrıntı için. Genel olarak, SQL Server 2008'de Microsoft tarafından desteklenir. Ancak, önemli işlevleri için SQL Server 2008 R2 ile birlikte sunulan, SAP, SQL Server 2008 R2 SAP için en düşük sürüm kaynaklanır. Genel olarak, en son SQL Server'ı kullanarak Azure Iaas içinde SAP iş yükü çalıştırmak için sürümleri dikkate almanız gerekir. En son SQL Server sürümleri, bazı Azure Hizmetleri ve İşlevler daha iyi tümleştirme sağlar. Veya Azure Iaas altyapısını işlemlerini iyileştirmenize değişiklikler içerir. Bu nedenle, yazıda SQL Server 2017 ve SQL Server 2016 ile sınırlıdır.
+* **SQL performansı**: Microsoft Azure da diğer genel bulut sanallaştırma teklifleri, ancak tek sonuçları ile barındırılan sanal makineleri gerçekleştirmek farklılık gösterebilir. Makaleyi inceleyin [Azure sanal Makineler'de SQL Server için en iyi performans](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance).
+* **Azure Marketteki görüntüleri kullanarak**: Yeni bir Microsoft Azure sanal makine dağıtmak için en hızlı yolu, Azure Marketi'nden bir görüntü kullanmaktır. En son SQL Server sürümleriyle içeren görüntüleri Azure Market'te vardır. SQL Server önceden yüklendiği görüntüleri için SAP NetWeaver uygulamalarını hemen kullanılamaz. Varsayılan SQL Server harmanlaması bu görüntülerin ve SAP NetWeaver sistemleri tarafından gerekli harmanlama yüklü nedenidir. Bu görüntüleri kullanmak için bölümde belgelenen adımları denetleyin [Microsoft Azure Marketi dışında bir SQL sunucu görüntüsü kullanarak][dbms-guide-5.6]. 
 
 
 ## <a name="recommendations-on-vmvhd-structure-for-sap-related-sql-server-deployments"></a>VM/VHD yapısına'SAP ile ilgili SQL Server dağıtımları için öneriler
@@ -423,7 +423,7 @@ Otomatik yedekleme, azure'daki bir Windows VM'de çalışan SQL Server Standard 
 Bu yöntemin özellikleri hakkında daha fazla bilgi aşağıdaki makalelerde bulunabilir:
 
 - SQL Server 2014: [SQL Server 2014 Virtual Machines'de (Resource Manager) için otomatik yedekleme](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup)
-- SQL Server 2016/2017: [Azure Virtual Machines'de (Resource Manager) için yedekleme v2 otomatik](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup-v2)
+- SQL Server 2016/2017: [Azure Virtual Machines'de (Resource Manager) için otomatik yedekleme v2](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup-v2)
 
 Belgeleme bakarak, işlevselliği daha yeni SQL Server sürümleriyle geliştirilmiş olduğunu görebilirsiniz. Daha fazla ayrıntı otomatik yedekleri makalesinde yayımlanan SQL Server'da [Microsoft azure'da SQL Server yönetilen yedekleme](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-managed-backup-to-microsoft-azure?view=sql-server-2017). Teorik yedekleme boyut sınırını 12 TB'dir.  Otomatik yedeklemeler, 12 TB'ye kadar yedekleme boyutları için iyi bir yöntem olabilir. Birden çok BLOB'ları paralel olarak yazılır olduğundan, 100 MB/sn daha büyük bir işleme bekleyebilirsiniz. 
  
@@ -450,7 +450,7 @@ SQL Server görüntüleri Azure Market'te SAP NetWeaver uygulamaları tarafında
 
 * Yönetici olarak bir Windows komut penceresi açın.
 * Dizini için C:\Program Files\Microsoft SQL Server\110\Setup Bootstrap\SQLServer2012 değiştirin.
-* Komutu yürütün: Setup.exe/QUIET/eylem = REBUILDDATABASE InstanceName = MSSQLSERVER /SQLSYSADMINACCOUNTS =`<local_admin_account_name`> /SQLCOLLATION SQL_Latin1_General_Cp850_BIN2 =   
+* Komutu yürütün: Setup.exe /QUIET /ACTION=REBUILDDATABASE /INSTANCENAME=MSSQLSERVER /SQLSYSADMINACCOUNTS=`<local_admin_account_name`> /SQLCOLLATION=SQL_Latin1_General_Cp850_BIN2   
   * `<local_admin_account_name`> VM Galeriden ilk kez dağıtırken yönetici hesabı olarak tanımlanmış olan hesap.
 
 İşlem yalnızca birkaç dakika sürer. Adım doğru sonucuyla sonlandı emin olmak için aşağıdaki adımları gerçekleştirin:

@@ -6,12 +6,12 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 1/8/2019
 ms.author: victorh
-ms.openlocfilehash: 1ada74f5c85ef327957ec4981e83f68bcafea858
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 95d443eeebf2fe5a8fad185210f88576a5f21f6a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188768"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435304"
 ---
 # <a name="url-path-based-routing-overview"></a>URL Yolu Tabanlı Yönlendirmeye genel bakış
 
@@ -23,7 +23,7 @@ Aşağıdaki örnekte, Application Gateway için örneğin contoso.com üç arka
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
-http://contoso.com/video/* için istekler VideoServerPool’a ve http://contoso.com/images/* için istekler ImageServerPool’a yönlendirilir. Yol desenlerinden hiçbiri eşleşmiyorsa DefaultServerPool seçilir.
+Http isteklerinde\://contoso.com/video/* Videoserverpool'a ve http yönlendirilir\://contoso.com/images/* için istekleri Imageserverpool'a yönlendirilir. Yol desenlerinden hiçbiri eşleşmiyorsa DefaultServerPool seçilir.
 
 > [!IMPORTANT]
 > Kurallar, portalda listelendikleri sırayla işlenir. Temel dinleyiciyi yapılandırmadan önce çok siteli dinleyicileri yapılandırmanız önerilir.  Bu işlem, trafiğin doğru arka uca yönlendirilmesini güvence altına alır. Temel dinleyici listede ilk sıradaysa ve gelen bir istekle eşleşiyorsa, o dinleyici tarafından işlenir.
@@ -67,7 +67,7 @@ PathPattern, eşleştirilecek yol desenlerinin listesidir. Her biri / ile başla
 
 Desteklenen desenler olup, Application Gateway v1 veya v2 dağıttığınız üzerinde bağlıdır:
 
-#### <a name="v1"></a>V1
+#### <a name="v1"></a>v1
 
 Yol kuralları büyük/küçük harfe duyarsızdır.
 

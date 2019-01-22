@@ -3,18 +3,18 @@ title: Azure Otomasyonu, metinsel runbook'ları düzenleme
 description: Bu makalede farklı yordamlar Azure Automation PowerShell ve PowerShell iş akışı runbook'ları ile çalışmak için metin düzenleyicisini kullanarak sağlar.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 08/01/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b17fc82d6e9cbda6ffa94ac2ee5c97835b089a7e
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: cbe13c9167ebccdd55d54ddd99ba11c6d58b01e8
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399728"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429942"
 ---
 # <a name="editing-textual-runbooks-in-azure-automation"></a>Azure Otomasyonu, metinsel runbook'ları düzenleme
 
@@ -34,8 +34,8 @@ Metin düzenleyicisinde düzenlemek için bir runbook açmak için aşağıdaki 
 2. Altında **süreç OTOMASYONU**seçin **runbook'ları** runbook'ların listesini açmak için.
 3. Düzenleyin ve ardından istediğiniz runbook'u seçmek **Düzenle** düğmesi.
 4. Gerekli düzenlemeleri yapın.
-5. Tıklayın **Kaydet** düzenlemeleriniz tamamlandı.
-6. Tıklayın **Yayımla** en son taslak sürümünün yayımlanmasını runbook istiyorsanız.
+5. Düzenlemeleriniz tamamlandığında **Kaydet** 'e tıklayın.
+6. Runbook'un en son taslak sürümünün yayımlanmasını istiyorsanız **Yayımla** 'ya tıklayın.
 
 ### <a name="to-insert-a-cmdlet-into-a-runbook"></a>Bir cmdlet bir runbook'a ekleme
 
@@ -68,7 +68,7 @@ Windows PowerShell ile bir runbook'u düzenlemek için tercih ettiğiniz düzenl
 
 ### <a name="to-retrieve-the-contents-of-a-runbook-using-windows-powershell"></a>Windows PowerShell kullanarak bir Runbook'un içeriğini almak için
 
-Aşağıdaki örnek komutlarda bir runbook için betiğin almak ve bir betik dosyasına kaydedileceği gösterilmektedir. Bu örnekte Taslak sürümü alınmaktadır. Bu sürüm değiştirilemez olsa da runbook'un yayımlanan sürümünü almak mümkündür.
+Aşağıdaki örnek komutlarda bir runbook için betiğin nasıl alınacağı ve bir betik dosyasına kaydedileceği gösterilmektedir. Bu örnekte Taslak sürümü alınmaktadır. Runbook'un Yayımlanan sürümünü almak mümkün olsa da bu sürüm değiştirilemez.
 
 ```powershell-interactive
 $resourceGroupName = "MyResourceGroup"
@@ -103,3 +103,4 @@ Publish-AzureRmAutomationRunbook -Name $runbookName -AutomationAccountName $auto
 * [Kimlik Bilgileri](automation-credentials.md)
 * [Zamanlamalar](automation-schedules.md)
 * [Değişkenler](automation-variables.md)
+

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
 ms.author: jdial
-ms.openlocfilehash: d57f34da261d51707caf499bfdf1fffa344b72a9
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 0b15861f663c98d3b873f95a0ea6c485ada91fb6
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385524"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54421615"
 ---
 # <a name="check-resource-usage-against-limits"></a>Sınırları karşı kaynak kullanımını denetleyin
 
@@ -34,9 +34,9 @@ Bu makalede, aboneliğiniz ve hangi içinde dağıttığınız her bir ağ kayna
 4. Kullanım bilgilerini görüntülemek istediğiniz abonelik adını seçin.
 5. Altında **ayarları**seçin **kullanım + kota**.
 6. Aşağıdaki seçeneklerden birini belirleyebilirsiniz:
-    - **Kaynak türleri**: tüm kaynak türleri seçin veya belirli türlerini görüntülemek istediğiniz kaynakları seçin.
-    - **Sağlayıcıları**: tüm kaynak sağlayıcılarını seçin veya seçin **işlem**, **ağ**, veya **depolama**.
-    - **Konumları**: tüm Azure konumları seçin veya belirli konumları seçin.
+    - **Kaynak türleri**: Tüm kaynak türleri seçin ya da belirli türlerini görüntülemek istediğiniz kaynakları seçin.
+    - **Sağlayıcıları**: Tüm kaynak sağlayıcılarını seçin veya seçin **işlem**, **ağ**, veya **depolama**.
+    - **Konumları**: Tüm Azure konumları seçin ya da belirli konumları seçin.
     - Tüm kaynakları veya yalnızca en az bir dağıtıldığı kaynakları göster seçeneğini belirleyebilirsiniz.
 
     Aşağıdaki resimde örnekte Doğu ABD bölgesinde dağıtılmış en az bir kaynak ile ağ kaynaklarını tüm gösterir:
@@ -47,7 +47,7 @@ Bu makalede, aboneliğiniz ve hangi içinde dağıttığınız her bir ağ kayna
 
 ## <a name="powershell"></a>PowerShell
 
-İçinde izleyen komutları çalıştırabilirsiniz [Azure Cloud Shell](https://shell.azure.com/powershell), veya PowerShell bilgisayarınızdan çalıştırarak. Azure Cloud Shell ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. PowerShell kullanarak bilgisayarınızdan çalıştırırsanız, gereksinim duyduğunuz *AzureRM* PowerShell modülü sürüm 6.0.1 veya üzeri. Çalıştırma `Get-Module -ListAvailable AzureRM` yüklü sürümü bulmak için bilgisayarınızda. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız, aynı zamanda çalıştırmak ihtiyacınız `Login-AzureRmAccount` için Azure'da oturum açın.
+İçinde izleyen komutları çalıştırabilirsiniz [Azure Cloud Shell](https://shell.azure.com/powershell), veya PowerShell bilgisayarınızdan çalıştırarak. Azure Cloud Shell ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. PowerShell kullanarak bilgisayarınızdan çalıştırırsanız, gereksinim duyduğunuz *AzureRM* PowerShell modülü sürüm 6.0.1 veya üzeri. Çalıştırma `Get-Module -ListAvailable AzureRM` yüklü sürümü bulmak için bilgisayarınızda. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/azurerm/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız, aynı zamanda çalıştırmak ihtiyacınız `Login-AzureRmAccount` için Azure'da oturum açın.
 
 Kullanımınızı sınırlarla karşı görüntülemek [Get-AzureRmNetworkUsage](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkusage?view=azurermps-6.8.0). Aşağıdaki örnek, Doğu ABD konumunda en az bir kaynak dağıtıldığı kaynak kullanımını alır:
 

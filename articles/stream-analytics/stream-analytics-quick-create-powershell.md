@@ -8,12 +8,12 @@ ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: 8d3dcd501fd0c4a9cc9f6cb5f7b27fa2e12004ad
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 5591e8174f15d552bf7295d1c3fe9cb5257c0f2e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382587"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438907"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>Hızlı Başlangıç: Azure PowerShell kullanarak Stream Analytics işi oluşturma
 
@@ -25,7 +25,7 @@ Azure PowerShell modülü, PowerShell cmdlet'leri veya betikleri kullanarak Azur
 
 * Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun.  
 
-* Bu hızlı başlangıç, Azure PowerShell modülü 3.6 veya sonraki bir sürümü gerektirir. Yerel makinenizde yüklü sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure PowerShell Modülü yükleme](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+* Bu hızlı başlangıç, Azure PowerShell modülü 3.6 veya sonraki bir sürümü gerektirir. Yerel makinenizde yüklü sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure PowerShell Modülü yükleme](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
 
 * Bazı IOT Hub eylemleri Azure PowerShell tarafından desteklenmez ve tamamlanan kullanarak Azure CLI sürümünü 2.0.24 veya sonraki bir sürümü gerekir ve Azure CLI için IOT uzantısı. [Azure CLI'yı yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) ve `az extension add --name azure-cli-iot-ext` IOT uzantısını yüklemek için.
 

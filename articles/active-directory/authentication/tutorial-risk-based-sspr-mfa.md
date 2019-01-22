@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: fb9ec69476253eaa559fe763dcc2c92994505602
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
-ms.translationtype: HT
+ms.openlocfilehash: fea87a711bf43ea73d3e09efeb42f5133d8f4e9f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39163376"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434929"
 ---
-# <a name="tutorial-use-risk-events-to-trigger-multi-factor-authentication-and-password-changes"></a>Öğretici: Risk olaylarını kullanarak Multi-Factor Authentication ve parola değişikliklerini tetikleme
+# <a name="tutorial-use-risk-events-to-trigger-multi-factor-authentication-and-password-changes"></a>Öğretici: Tetikleyici çok faktörlü kimlik doğrulaması ve parola değişiklikleri için risk olayları kullanın
 
 Bu öğreticide Azure AD Premium P2 ile sunulan ve bir izleme ve raporlama aracından fazlası olan Azure Active Directory (Azure AD) Kimlik Koruması özelliklerini etkinleştireceksiniz. Kuruluşunuzun kimliklerini korumak için riskli davranışlar karşısında otomatik olarak harekete geçen risk tabanlı ilkeler yapılandırabilirsiniz. Bu ilkeler erişimi otomatik olarak engelleyebilir veya parola değişikliği isteme ve Multi-Factor Authentication kullanılmasını zorlama gibi düzeltme işlemleri başlatabilir.
 
@@ -39,7 +39,7 @@ Azure AD Kimlik Koruması hakkında daha fazla bilgi için bkz. [Azure AD Kimlik
 > * Risk tabanlı parola değişikliğini etkinleştirme
 > * Risk tabanlı Multi-Factor Authentication'ı etkinleştirme
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * En az Azure AD Premium P2 deneme sürümü lisansı bulunan çalışan bir Azure AD kiracısına erişim.
 * Azure AD kiracınızda Genel Yönetici ayrıcalıklarına sahip olan bir hesap.

@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: b0bbd3300e48e82e44a7b7fac05f89c8d25e007f
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 8cddea1757b37ca462611874af7ace1af70c9646
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53603506"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425194"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Dil anlama sözlüğü yaygın kelime ve kavramları
 LUIS API'si hizmeti ile çalışırken, Language Understanding (LUIS), koşulları sözlüğü açıklar karşılaşabilirsiniz.
@@ -74,7 +74,7 @@ LUIS bağlamında bir **etki alanı** bilgi alanıdır. Etki alanınız, Bilgi B
 
 ## <a name="endpoint"></a>Uç noktası
 
-[LUIS uç nokta](https://aka.ms/luis-endpoint-apis) URL'dir sonra LUIS sorguları gönderdiğinizde burada [LUIS uygulaması](#luis-app) yazılan ve yayımlandı. Yayımlanmış uygulama ve bunun yanı sıra uygulama kimliği bölge uç nokta URL'sini içerir Uç nokta bulabilirsiniz **[anahtarları ve uç noktaları](luis-how-to-manage-keys.md)** sayfasında, uygulamanızı veya uç nokta URL'sini alabilirsiniz [uygulama bilgi al](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API.
+[LUIS uç nokta](https://aka.ms/luis-endpoint-apis) URL'dir sonra LUIS sorguları gönderdiğinizde burada [LUIS uygulaması](#luis-app) yazılan ve yayımlandı. Yayımlanmış uygulama ve bunun yanı sıra uygulama kimliği bölge uç nokta URL'sini içerir Uç nokta bulabilirsiniz **[anahtarları ve uç noktaları](luis-how-to-azure-subscription.md)** sayfasında, uygulamanızı veya uç nokta URL'sini alabilirsiniz [uygulama bilgi al](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API.
 
 Örnek uç nokta şu şekilde görünür:
 
@@ -177,7 +177,7 @@ Aynı [programlı anahtarı](#programmatic-key), yazma anahtarı olarak yeniden 
 
 ## <a name="subscription-key"></a>Abonelik anahtarı
 
-Abonelik anahtarı **uç nokta** LUIS hizmeti ile ilişkilendirilen anahtar [Azure'da oluşturduğunuz](luis-how-to-azure-subscription.md). Bu anahtarı değil [anahtar yazma](#programmatic-key). Bir uç noktası anahtarı varsa, tüm uç nokta istekleri yazma anahtarı yerine kullanılmalıdır. Uç nokta URL'SİNİN sonuna içinde geçerli uç nokta anahtarınızı görebilirsiniz [ **anahtarları ve uç noktaları** sayfa](luis-how-to-manage-keys.md) içinde [LUIS](luis-reference-regions.md) Web sitesi. Bu değeri **abonelik anahtarı** ad/değer çifti.
+Abonelik anahtarı **uç nokta** LUIS hizmeti ile ilişkilendirilen anahtar [Azure'da oluşturduğunuz](luis-how-to-azure-subscription.md). Bu anahtarı değil [anahtar yazma](#programmatic-key). Bir uç noktası anahtarı varsa, tüm uç nokta istekleri yazma anahtarı yerine kullanılmalıdır. Uç nokta URL'SİNİN sonuna içinde geçerli uç nokta anahtarınızı görebilirsiniz [ **anahtarları ve uç noktaları** sayfa](luis-how-to-azure-subscription.md) içinde [LUIS](luis-reference-regions.md) Web sitesi. Bu değeri **abonelik anahtarı** ad/değer çifti.
 
 ## <a name="test"></a>Test
 

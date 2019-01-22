@@ -3,24 +3,24 @@ title: Azure Otomasyonu durum yapılandırması ile çalışmaya başlama
 description: Açıklama ve Azure Otomasyonu durum yapılandırması (DSC) en yaygın görevleri örnekleri
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 author: bobbytreed
 ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fc1c870d06d6bf4a0db941b261e9aebd317fdcb1
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 19e1721a638dfc750938e09e1626c4e291367723
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634376"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432454"
 ---
 # <a name="getting-started-with-azure-automation-state-configuration"></a>Azure Otomasyonu durum yapılandırması ile çalışmaya başlama
 
 Bu makalede, Azure Otomasyonu durumu oluşturma, alma ve yapılandırmaları, makineleri yönetmek için hazırlama derleme ve raporları görüntüleme gibi yapılandırma ile en yaygın görevlerin nasıl yapılacağını açıklar. Azure Otomasyonu durum Yapılandırması'ne genel bakış için bkz. [Azure Otomasyon durum yapılandırmasına genel bakış](automation-dsc-overview.md). Desired State Configuration ' nı (DSC) belgeleri için bkz. [Windows PowerShell Desired State Configuration genel](/powershell/dsc/overview).
 
-Bu makalede, Azure Otomasyonu durum yapılandırmasını kullanarak adım adım yönergeler sağlar. Bu makalede açıklanan adımları izleyerek olmadan ayarlamış bir örnek ortamı istiyorsanız, aşağıdaki Resource Manager şablonu kullanabilirsiniz: [Azure Otomasyon yönetilen düğüm şablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-automation-configuration). Bu şablon, Azure Otomasyonu durumu yapılandırması tarafından yönetilen bir Azure VM gibi tamamlanmış bir Azure Otomasyonu durum yapılandırması ortamı ayarlar.
+Bu makalede, Azure Otomasyonu durum yapılandırmasını kullanarak adım adım yönergeler sağlar. Bu makalede açıklanan adımları izleyerek olmadan ayarlamış bir örnek ortamı istiyorsanız, aşağıdaki Resource Manager şablonu kullanabilirsiniz: [Azure Otomasyonu tarafından yönetilen düğüm şablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-automation-configuration). Bu şablon, Azure Otomasyonu durumu yapılandırması tarafından yönetilen bir Azure VM gibi tamamlanmış bir Azure Otomasyonu durum yapılandırması ortamı ayarlar.
 
 ## <a name="prerequisites"></a>Önkoşullar
 

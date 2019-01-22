@@ -5,14 +5,14 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.topic: overview
-ms.date: 09/24/2018
+ms.date: 01/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 4f1ab6d955c81ce6f7b141eef42341f43bb379f6
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
-ms.translationtype: HT
+ms.openlocfilehash: 9670d67fa1eb79e9e5e8c81726c10cc78767fb74
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165326"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435473"
 ---
 # <a name="what-is-azure-data-box-gateway-preview"></a>Azure Data Box Gateway (Önizleme) nedir? 
 
@@ -39,7 +39,10 @@ Data Box Gateway'in şöyle avantajları vardır:
 
 - **Kolay veri aktarımı**- Verileri Azure depolamasında içeri ve dışarı taşımayı, yerel ağ paylaşımıyla çalışma kadar kolay hale getirir.  
 - **Yüksek performanslı** - Azure'a ve Azure'dan yüksek performanslı aktarımlarla ağda veri taşıma yükünü ortadan kaldırır. 
-- **Hızlı erişim** - Şirket içi dosyalara hızlı erişim için en son kullanılan dosyaları önbelleğe alır.  
+- **Hızlı erişim ve yüksek veri alımı ücretlerine iş saatlerinde** -veri kutusu ağ geçidi sanal cihaz sağlandığında, yerel kapasite boyutu tanımlayan bir yerel önbellek vardır. Veri disk boyutu olarak başına belirtilmelidir [sanal cihaz en düşük gereksinimler](data-box-gateway-system-requirements.md#specifications-for-the-virtual-device). Yerel önbellek aşağıdaki avantajları sağlar:
+    - Yerel önbellek, yüksek hızda veri alımı sağlar. Yüksek veri miktarı en yüksek çalışma saatleri sırasında alınır, önbellek verileri tutmak ve buluta yükleyin.
+    - Yerel önbellek, belirli bir eşiği kadar hızlı okuma erişimi verir. Cihaz 50-%60 olana kadar tam, CİHAZDAN tüm okuma Hızlı hale getirecek önbellekten da erişilir. Cihaz üzerindeki kullanılan alanın bu eşiğin üzerinde giden sonra cihaz, yerel dosyaları kaldırmak başlar. 
+ 
 - **Sınırlı bant genişliği kullanımı** - Yoğun iş saatlerinde kullanımı sınırlandırmak amacıyla ağ kısıtlandığında bile veriler Azure'a yazılabilir.  
 
 ## <a name="key-capabilities"></a>Temel işlevler
@@ -67,7 +70,7 @@ Data Box Gateway sanal cihazının belirtimleri şöyledir:
 | Sanal işlemciler (çekirdekler)   | En az 4 |            
 | Bellek  | En az 8 GB|
 | Kullanılabilirlik|Tek düğüm|
-| Diskler| İşletim sistemi diski: 250 GB <br> Veri diski: En az 2 TB, ölçülü kaynak sağlamalı ve SSD destekli olmalıdır|
+| Diskler| İşletim sistemi diski: 250 GB <br> Veri diski: 2 TB en, ölçülü kaynak sağlanan ve SSD'ler ile desteklenir|
 | Ağ arabirimleri|1 veya daha çok sanal ağ arabirimi|
 | Yerel dosya paylaşımı protokolleri|SMB ve NFS  |
 | Güvenlik| Cihaza ve verilere erişimin kilidini açmak için kimlik doğrulaması <br> Kullanım halindeki veriler AES-256 bit şifrelemesi kullanılarak şifrelenir|

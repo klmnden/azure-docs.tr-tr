@@ -3,18 +3,18 @@ title: Azure Otomasyonu - güncelleştirme yönetimi SCCM koleksiyonlarını kul
 description: Bu makale, SCCM ile yönetilen bilgisayarların güncelleştirmelerini yönetmek üzere System Center Configuration Manager’ı bu çözümle yapılandırmanıza yardımcı olmaya yöneliktir.
 services: automation
 ms.service: automation
-ms.component: update-management
+ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f3ab50c4fdc080b157212bcc662a2acf6629483d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c3b595e9c4d4b98814d1b68adede97204bf3eb96
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097973"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54422737"
 ---
 # <a name="integrate-system-center-configuration-manager-with-update-management"></a>System Center Configuration Manager güncelleştirme yönetimi ile tümleştirme
 
@@ -51,3 +51,4 @@ Configuration Manager istemcisi olan Windows Server VM’lerinin güncelleştirm
 Bu yapılandırma değişikliğini uyguladıktan sonra açıklanan adımları izleyerek yeni bir dağıtım oluşturma [güncelleştirme dağıtımı oluşturma](automation-tutorial-update-management.md#schedule-an-update-deployment) seçip **içe gruplar** üzerinde **türü** uygun Configuration Manager koleksiyonunu seçmek için açılır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+

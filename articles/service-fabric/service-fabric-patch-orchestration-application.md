@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 6bd71b7cecfb8a5decd3049152a2293dc7867bde
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 7b19aa42c669fec5872e210351ecec22360ef24e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382726"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427942"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric kümenizi Windows işletim sistemi düzeltme eki
 
@@ -142,6 +142,9 @@ Aynı anda birden çok küme düğümüne yeniden başlatabilirsiniz çünkü Wi
 Uygulamayı yükleme betikleri ile birlikte gelen indirilebilir [arşiv bağlantı](https://go.microsoft.com/fwlink/?linkid=869566).
 
 Uygulama sfpkg biçimde nden indirilebilir [sfpkg bağlantı](https://aka.ms/POA/POA.sfpkg). Bu için kullanışlı gelir [Azure Resource Manager tabanlı uygulama dağıtımı](service-fabric-application-arm-resource.md).
+
+> [!IMPORTANT]
+> V1.3.0 düzeltme eki düzenleme uygulaması (son sürüm) çalıştıran Windows Server 2012'de bilinen bir sorun var. Windows Server 2012 çalıştırıyorsanız, lütfen uygulamanın v1.2.2 indirin [burada](http://download.microsoft.com/download/C/9/1/C91780A5-F4B8-46AE-ADD9-E76B9B0104F6/PatchOrchestrationApplication_v1.2.2.zip). SFPkg bağlantı [burada](http://download.microsoft.com/download/C/9/1/C91780A5-F4B8-46AE-ADD9-E76B9B0104F6/PatchOrchestrationApplication_v1.2.2.sfpkg).
 
 ## <a name="configure-the-app"></a>Uygulamayı yapılandırma
 

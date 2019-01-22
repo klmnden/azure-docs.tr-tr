@@ -8,14 +8,14 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: annaba
-ms.openlocfilehash: 3172ba12fbbd0135d1a5a3684145787c83aad040
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 7d8c0a837f5618580c5e76e5ca97e19844b95698
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242424"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427177"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Azure Active Directory'de sertifika tabanlı kimlik doğrulamasını kullanmaya başlama
 
@@ -43,7 +43,7 @@ Sertifika tabanlı kimlik doğrulaması yapılandırmak için aşağıdaki deyim
 - İstemci Cihazınızı, istemci sertifikaları veren en az bir sertifika yetkilisi erişiminiz olması gerekir.
 - İstemci kimlik doğrulaması için bir istemci sertifikası istemciniz için verilmiş olmalıdır.
 
-## <a name="step-1-select-your-device-platform"></a>1. adım: cihaz platformunuzu seçin
+## <a name="step-1-select-your-device-platform"></a>1. Adım: Cihaz platformunuzu seçin
 
 Önem verdiğiniz cihaz platformu için bir ilk adım olarak aşağıdaki inceleyin yapmanız gerekir:
 
@@ -55,7 +55,7 @@ Sertifika tabanlı kimlik doğrulaması yapılandırmak için aşağıdaki deyim
 - [Android](active-directory-certificate-based-authentication-android.md)
 - [iOS](active-directory-certificate-based-authentication-ios.md)
 
-## <a name="step-2-configure-the-certificate-authorities"></a>2. adım: sertifika yetkililerini Yapılandır
+## <a name="step-2-configure-the-certificate-authorities"></a>2. Adım: Sertifika yetkililerini Yapılandır
 
 Sertifikanızı yapılandırmak için Azure Active Directory'de yetkilileri her sertifika yetkilisi için aşağıdakileri yükleyin:
 
@@ -133,7 +133,7 @@ Güvenilen bir sertifika yetkilisi değiştirmek için [kümesi AzureADTrustedCe
     $c[0].AuthorityType=1
     Set-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[0]
 
-## <a name="step-3-configure-revocation"></a>Adım 3: iptal yapılandırma
+## <a name="step-3-configure-revocation"></a>3. Adım: İptal yapılandırın
 
 Bir istemci sertifikasını iptal etmek için Azure Active Directory Sertifika iptal listesini (CRL) sertifika yetkilisi bilgileri bir parçası olarak yüklenen URL'lerden getirir ve onu önbelleğe alır. Son zaman damgası yayımlama (**geçerlilik tarihi** özelliği) CRL'ye CRL hala geçerli olduğundan emin olmak için kullanılır. CRL listesinin bir parçası olan sertifikaları erişimini iptal etmek için düzenli olarak başvuruluyor.
 
@@ -161,7 +161,7 @@ Aşağıdaki adımlar, güncelleştiriliyor ve yetkilendirme belirteci geçersiz
 
 Ayarladığınız tarihin gelecekte olması gerekir. Tarih gelecekte değilse **StsRefreshTokensValidFrom** özelliği ayarlı değil. Tarihin gelecekte olması halinde **StsRefreshTokensValidFrom** geçerli saatten (Set-MsolUser komutu tarafından belirtilen tarihi değil) ayarlayın.
 
-## <a name="step-4-test-your-configuration"></a>4. adım: Test yapılandırma
+## <a name="step-4-test-your-configuration"></a>4. Adım: Yapılandırmanızı test etme
 
 ### <a name="testing-your-certificate"></a>Sertifikanızı test etme
 

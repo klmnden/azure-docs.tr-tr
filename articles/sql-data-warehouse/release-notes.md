@@ -10,19 +10,20 @@ ms.component: manage
 ms.date: 11/11/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: a4737f4308f49547178bb216b90589c596f604c9
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 7a02a7fb8043c63ce47f7f0c7dccf025ab5ab402
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118447"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54421463"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Azure SQL veri ambarı sürüm notları
 
-Azure SQL veri ambarı, bir bulut tabanlı kurumsal veri ambarı (yüksek düzeyde paralel işleme (hızlıca petabaytlarca veri üzerinde karmaşık sorgular çalıştırmak için MPP) yararlanan EDW) dağıtılır. SQL Veri Ambarı'nı büyük veri çözümünün temel bileşenlerinden biri olarak kullanabilirsiniz. Basit PolyBase T-SQL sorguları kullanarak büyük verileri SQL Veri Ambarı'na aktarıp MPP gücünü kullanarak yüksek performanslı analizler gerçekleştirebilirsiniz. Tümleştirme ve analiz işlemleri sırasında veri ambarı, işletmenizin öngörüler için güvenebileceği tek veri sürümü haline gelir.
+Azure SQL veri ambarı (SQL DW) bulut tabanlı kurumsal veri yüksek düzeyde paralel işleme (hızlıca petabaytlarca veri üzerinde karmaşık sorgular çalıştırmak için MPP) yararlanan ambarıdır. SQL Veri Ambarı'nı büyük veri çözümünün temel bileşenlerinden biri olarak kullanabilirsiniz. Basit PolyBase T-SQL sorguları kullanarak büyük verileri SQL Veri Ambarı'na aktarıp MPP gücünü kullanarak yüksek performanslı analizler gerçekleştirebilirsiniz. Tümleştirme ve analiz işlemleri sırasında veri ambarı, işletmenizin öngörüler için güvenebileceği tek veri sürümü haline gelir.
 
 Azure SQL veri ambarı'nın en yeni sürümünde beklediğiniz geliştirmeleri ve yeni özellikleri hakkında daha fazla bilgi için aşağıdaki bağlantıları tıklatın. Tanımlanan bakım zamanlamanızı sırasında bu hizmet güncelleştirmeleri almasını bekleyebilirsiniz.
 
+- [SQL DW sürümü 10.0.10106.0](./release-notes-10-0-10106-0.md)
 - [Aralık 2018'e](./release-notes-december-2018.md)
 - [Ekim 2018](./release-notes-october-2018.md)
 - [Eylül 2018](./release-notes-september-2018.md)
@@ -39,9 +40,9 @@ Hangi sürüm veri ambarınıza uygulanmış olarak onaylanan için. SSMS ile ve
 SELECT @@VERSION AS 'SQL Data Warehouse';
 ```
 
-Örnek çıktı: ![SQL veri ambarı sürümü](./media/release-notes/sql_data_warehouse_version.png)
+Örnek çıktı: ![SQL veri ambarı sürümü](./media/release-notes/dw-version.png)
 
-Lütfen hangi sürüm, Azure SQL veri ambarı'na uygulanmış onaylamak için belirlenen tarih kullanın. 
+Lütfen hangi sürüm, Azure SQL veri ambarı'na uygulanmış onaylamak için tanımlanan sürümünü kullanın. 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

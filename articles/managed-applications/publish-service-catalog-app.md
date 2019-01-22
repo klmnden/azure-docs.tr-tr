@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: a2e6e78268f97136533b4f72ce28373642b6c394
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: 7e9db85fb91dd0c9a33cc8205bdb30a648dfd38a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801276"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438754"
 ---
 # <a name="create-and-publish-a-managed-application-definition"></a>Yönetilen uygulama tanımı oluşturma ve yayımlama
 
@@ -30,7 +30,7 @@ Yönetilen bir uygulamayı hizmet kataloğu için yayımlamak istiyorsanız şun
 
 Bu makale için, yönetilen uygulamanız yalnızca bir depolama hesabı içerir. Yönetilen bir uygulamayı yayımlama adımlarını göstermeye yöneliktir. Tam örnekler için bkz. [Azure yönetilen uygulamaları için örnek projeler](sample-projects.md).
 
-Bu makaledeki PowerShell örnekleri Azure PowerShell’in 6.2 veya üzerini gerektirir. Gerekirse [sürümünüzü güncelleştirin](/powershell/azure/install-azurerm-ps).
+Bu makaledeki PowerShell örnekleri Azure PowerShell’in 6.2 veya üzerini gerektirir. Gerekirse [sürümünüzü güncelleştirin](/powershell/azure/azurerm/install-azurerm-ps).
 
 ## <a name="create-the-resource-template"></a>Kaynak şablonunu oluşturma
 

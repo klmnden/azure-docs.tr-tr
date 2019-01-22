@@ -3,18 +3,18 @@ title: Azure Otomasyonu PowerShell iş akışını öğrenme
 description: Bu makalede PowerShell ve PowerShell iş akışı ve Otomasyon runbook'ları için ilgili kavramları arasındaki farkları anlamak için hızlı bir Ders yazarlar PowerShell ile tanıdık yöneliktir.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 12/14/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b60e1639a1c32763c4759720fe61b0e571fc9dd1
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 7ab6b387a28df06758e5e0c1ce197781fc4be3c5
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437104"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436816"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Otomasyon runbook'ları için temel Windows PowerShell iş akışı kavramları öğrenme
 
@@ -296,3 +296,4 @@ Denetim noktalarıyla ilgili daha fazla bilgi için bkz. [Betik İş Akışına 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * PowerShell iş akışı runbook'larını kullanmaya başlamak için bkz. [İlk PowerShell iş akışı runbook uygulamam](automation-first-runbook-textual.md)
+

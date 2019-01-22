@@ -3,18 +3,18 @@ title: Azure Otomasyon karma Runbook çalışanı
 description: Bu makalede, yükleme ve yerel veri merkezinde veya Bulut sağlayıcısı makinelerde runbook'ları çalıştırmak için kullanabileceğiniz bir Azure Otomasyonu özelliğidir karma Runbook çalışanı kullanma hakkında bilgiler sağlar.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 10/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d42a9458afa6244e0b6d8e7deb420a8ac49a130f
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 3525a3ad3d0e539e0bab5ee0ed9ba0adca1a68c6
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634175"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428639"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Veri merkezinde veya bulutta kaynaklarında karma Runbook çalışanı kullanarak otomatik hale getirin.
 
@@ -101,7 +101,7 @@ Log Analytics hizmeti ile aracı arasındaki iletişim için bir ara sunucu kull
 
 Aşağıdaki bağlantı noktası ve URL'leri Otomasyonu ile iletişim kurmak karma Runbook çalışanı rolü için gereklidir:
 
-* Bağlantı noktası: Yalnızca TCP 443 giden internet erişimi için gereklidir.
+* Bağlantı Noktası: Yalnızca TCP 443 giden internet erişimi için gereklidir.
 * Genel URL: *.azure-automation.net
 * ABD Devleti Virginia genel URL: *.azure-automation.us
 * Aracı hizmeti: https://\<Workspaceıd\>.agentsvc.azure-automation.net
@@ -140,9 +140,9 @@ Standart adresleri ve karma Runbook çalışanı gereken bağlantı noktaları �
 
 |Azure kamu  |Azure Kamu  |
 |---------|---------|
-|*.ods.opinsights.azure.com     |*. ods.opinsights.azure.us         |
-|*.oms.opinsights.azure.com     | *. oms.opinsights.azure.us        |
-|*.blob.core.windows.net|*. blob.core.usgovcloudapi.net|
+|*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
+|*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
+|*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
 
 ## <a name="troubleshoot"></a>Sorun giderme
 
@@ -151,3 +151,4 @@ Sorun giderme, karma Runbook çalışanları öğrenmek için bkz [karma Runbook
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Şirket içi veri merkezinizde veya diğer bulut ortamı işlemlerini otomatikleştirmek için runbook'larınızı yapılandırma konusunda bilgi için bkz: [bir karma Runbook çalışanı üzerinde runbook çalıştırma](automation-hrw-run-runbooks.md).
+

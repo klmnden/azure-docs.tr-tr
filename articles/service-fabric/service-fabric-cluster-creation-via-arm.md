@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2018
 ms.author: aljo
-ms.openlocfilehash: ba870cf722f95fb6516e1969350d3d25ba280a8c
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 06e0509f05352a023651d7121aa89e18e375ef32
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043796"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428334"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Azure Resource Manager kullanarak bir Service Fabric kümesi oluşturma 
 > [!div class="op_single_selector"]
@@ -71,7 +71,7 @@ Kullanılan şablon edinilebilir [Azure Service Fabric şablonu örnekleri: wind
 Aşağıdaki komutu ya da Windows oluşturabilir veya Linux kümeleri, işletim sistemi uygun şekilde belirtmeniz gerekir. PowerShell/CLI komutları da belirtilen sertifika çıkış *CertificateOutputFolder*; ancak, önceden oluşturulmuş emin sertifika klasör oluşturun. Komut diğer parametre VM SKU gibi de alır.
 
 > [!NOTE]
-> Aşağıdaki PowerShell komutu, yalnızca Azure Resource Manager PowerShell ile çalışır sürüm > 6.1. Geçerli Azure Resource Manager PowerShell sürümü denetlemek için "Get-Module AzureRM" aşağıdaki PowerShell komutunu çalıştırın. İzleyin [bu bağlantıyı](/powershell/azure/install-azurerm-ps?view=azurermps-6.3.0) , Azure Resource Manager PowerShell sürümüne yükseltmek için. 
+> Aşağıdaki PowerShell komutu, yalnızca Azure Resource Manager PowerShell ile çalışır sürüm > 6.1. Geçerli Azure Resource Manager PowerShell sürümü denetlemek için "Get-Module AzureRM" aşağıdaki PowerShell komutunu çalıştırın. İzleyin [bu bağlantıyı](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.3.0) , Azure Resource Manager PowerShell sürümüne yükseltmek için. 
 >
 >
 
@@ -292,7 +292,7 @@ Bu noktada, Azure'da çalışan güvenli bir kümeye sahip. İleri [kümenize ba
 JSON söz dizimi ve bir şablonu kullanmak için özellikler için bkz: [Microsoft.ServiceFabric/clusters şablon başvurusu](/azure/templates/microsoft.servicefabric/clusters).
 
 <!-- Links -->
-[azure-powershell]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[azure-powershell]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [azure-CLI]:https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [customize-your-cluster-template]: service-fabric-cluster-creation-via-arm.md#create-a-service-fabric-cluster-resource-manager-template

@@ -4,18 +4,18 @@ description: PowerShell İş Akışı kullanarak basit bir runbook oluşturma, t
 keywords: powershell iş akışı, powershell iş akışı örnekleri, iş akışı powershell
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/24/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 90d2dcb81a6b54d1a8437f0d3ae01aa96cdac3db
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 137518aadaf2f1cd38dd18184992c8723a7da5c0
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165409"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435240"
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>İlk PowerShell İş Akışı runbook uygulamam
 
@@ -205,3 +205,4 @@ runbook'unuzda sanal makine şu anda runbook'ta o, kodlanmış başlatmaz, bunun
 * PowerShell runbook'ları kullanmaya başlamak için bkz. [İlk PowerShell runbook uygulamam](automation-first-runbook-textual-powershell.md)
 * Runbook türleri, avantajları ve sınırlamaları hakkında daha fazla bilgi için, bkz. [Azure Automation runbook türleri](automation-runbook-types.md)
 * PowerShell betik desteği özelliği hakkında daha fazla bilgi için bkz. [Azure Automation’da Yerel PowerShell betik desteği](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
+

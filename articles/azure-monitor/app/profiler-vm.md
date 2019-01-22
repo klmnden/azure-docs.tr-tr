@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3f720cdf369e7377f16bb2ea9cba7e898097cc29
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 4dfe4140fbc4238af014d838d31aae167cdd1c16
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359791"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438771"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-a-virtual-machine-scale-set-by-using-application-insights-profiler"></a>Application Insights Profiler ' ı kullanarak bir Azure sanal makine veya sanal makine ölçek çalışan profili web uygulamalarını ayarlama
 
@@ -29,7 +29,7 @@ Ayrıca, bu hizmetleri Azure Application Insights Profiler dağıtabilirsiniz:
 ## <a name="deploy-profiler-on-a-virtual-machine-or-a-virtual-machine-scale-set"></a>Bir sanal makine veya sanal makine ölçek kümesi üzerinde Profiler'ı dağıtma
 Bu makalede, Azure sanal makinesi (VM) veya Azure sanal makine ölçek kümesi üzerinde çalışan Application Insights Profiler ' ı almak nasıl gösterir. Profiler VM'ler için Azure tanılama uzantısı ile yüklenir. Profiler'ı çalıştırmak için uzantısını yapılandırın ve uygulamanıza Application Insights SDK'sını derleme.
 
-1. Application Insights SDK'sini ekleyin, [ASP.NET uygulaması](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net) veya normal [.NET uygulaması](https://docs.microsoft.com/azure/application-insights/windows-services?toc=/azure/azure-monitor/toc.json).  
+1. Application Insights SDK'sini ekleyin, [ASP.NET uygulaması](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net) veya normal [.NET uygulaması](windows-services.md?toc=/azure/azure-monitor/toc.json).  
   İsteklerinizi profillerini görüntülemek için Application Insights istek telemetrisi göndermeniz gerekir.
 
 1. Azure tanılama uzantısı, sanal Makinenize yükleyin. Tam Resource Manager şablonu örnekleri için bkz:  
@@ -88,6 +88,6 @@ Bu makalede, Azure sanal makinesi (VM) veya Azure sanal makine ölçek kümesi �
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Uygulamanız için trafiği oluşturur (örneğin, başlatma bir [kullanılabilirlik testi](https://docs.microsoft.com/azure/application-insights/monitor-web-app-availability)). Ardından, izlemeleri Application Insights örneğine gönderilmek üzere başlatmak 10-15 dakika bekleyin.
-- Bkz: [Profiler izlemeleri](https://docs.microsoft.com/azure/application-insights/profiler-overview?toc=/azure/azure-monitor/toc.json) Azure portalında.
+- Uygulamanız için trafiği oluşturur (örneğin, başlatma bir [kullanılabilirlik testi](monitor-web-app-availability.md)). Ardından, izlemeleri Application Insights örneğine gönderilmek üzere başlatmak 10-15 dakika bekleyin.
+- Bkz: [Profiler izlemeleri](profiler-overview.md?toc=/azure/azure-monitor/toc.json) Azure portalında.
 - Profiler sorunlarını giderme konusunda yardım için bkz: [sorun giderme Profiler](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).

@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: ff8afabb425f16b62b86bf6b23fd24a744d40186
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: cbb64069ab8fa3da6309ff56afc0ab36582908c0
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158424"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430373"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-20"></a>Azure Multi-Factor Authentication Sunucusunu AD FS 2.0 ile çalışacak şekilde yapılandırma
 
@@ -95,7 +95,7 @@ AD FS ara sunucusu kullanılmadığında AD FS’yi güvenli hale getirebilirsin
 
    <center>![Kurulum](./media/howto-mfaserver-adfs-2/noproxy.png)</center>
 
-8. **Tamam**’a tıklayın.
+8. **Tamam** düğmesine tıklayın.
 9. IIS eklentisini istediğiniz düzeyde etkinleştirmek için **Yerel Modül** sekmesine tıklayın ve sunucuyu, web sitesini (“Varsayılan Web Sitesi” gibi) veya AD FS uygulamasını (“adfs” altındaki “ls” gibi) seçin.
 10. Ekranın üst kısmındaki **IIS kimlik doğrulamasını etkinleştir** kutusuna tıklayın.
 

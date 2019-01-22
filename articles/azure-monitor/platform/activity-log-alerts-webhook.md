@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: johnkem
-ms.component: alerts
-ms.openlocfilehash: 0f72097ad9e8b8675d78654c07a62fb6baf90f4a
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.subservice: alerts
+ms.openlocfilehash: 79d10a02b02ecb69f656e5b3d7b0c9ae986504d1
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582312"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438975"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Azure etkinlik günlüğü uyarıları için Web kancaları
 Bir eylem grubu tanımının bir parçası olarak, etkinlik günlüğü uyarı bildirimleri almak için Web kancası uç noktaları yapılandırabilirsiniz. Web kancaları sayesinde işlem sonrası veya özel eylemler için diğer sistemlere bu bildirimleri yönlendirebilirsiniz. Bu makalede bir Web kancası HTTP POST yükü nasıl göründüğünü gösterir.
@@ -201,3 +201,4 @@ Belirli şeması hakkında ayrıntılı bilgi için diğer tüm etkinlik günlü
 * [Azure bir uyarıdan Twilio aracılığıyla SMS göndermek için bir mantıksal uygulama kullanmak](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Bu örnek için ölçüm uyarıları, ancak bir etkinlik günlüğü uyarısı ile çalışacak şekilde değiştirilebilir.
 * [Azure bir uyarıdan bir Slack iletisi göndermek için bir mantıksal uygulama kullanmak](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). Bu örnek için ölçüm uyarıları, ancak bir etkinlik günlüğü uyarısı ile çalışacak şekilde değiştirilebilir.
 * [Azure bir uyarıdan bir Azure kuyruğuna bir ileti göndermek için bir mantıksal uygulama kullanma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). Bu örnek için ölçüm uyarıları, ancak bir etkinlik günlüğü uyarısı ile çalışacak şekilde değiştirilebilir.
+

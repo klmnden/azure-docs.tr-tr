@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 980470c0f1d24bde52f29c4cd3579e2337898f88
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9542fe14cc262731ca0f2ade65e6e4dfafbc34d7
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138832"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427517"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>API v1 için LUIS uygulamaları v2 Geçiş Kılavuzu
 Sürüm 1 [uç nokta](https://aka.ms/v1-endpoint-api-docs) ve [yazma](https://aka.ms/v1-authoring-api-docs) API'leri kullanım dışı bırakılmıştır. 2. sürüme geçirme anlamak için bu kılavuzu kullanın [uç nokta](https://aka.ms/luis-endpoint-apis) ve [yazma](https://aka.ms/luis-authoring-apis) API'leri. 
@@ -112,7 +112,7 @@ Abonelik uç noktası anahtarı API'leri bırakılmıştır 410 GONE döndürüy
 |1|/luis/V1.0/prog/Subscriptions|
 |1|/ luis/v1.0/prog/subscriptions/{subscriptionKey}|
 
-Azure [uç nokta anahtarları](luis-how-to-azure-subscription.md) Azure portalında oluşturulur. Anahtara bir LUIS uygulaması üzerinde atadığınız **[Yayımla](luis-how-to-manage-keys.md)** sayfası. Gerçek bir anahtar değer kattığını bilmek gerekmez. LUIS, atama yapmak için abonelik adını kullanır. 
+Azure [uç nokta anahtarları](luis-how-to-azure-subscription.md) Azure portalında oluşturulur. Anahtara bir LUIS uygulaması üzerinde atadığınız **[Yayımla](luis-how-to-azure-subscription.md)** sayfası. Gerçek bir anahtar değer kattığını bilmek gerekmez. LUIS, atama yapmak için abonelik adını kullanır. 
 
 ## <a name="new-versioning-route"></a>Yeni sürüm oluşturma yolu
 V2 modeli şimdi bulunan bir [sürüm](luis-how-to-manage-versions.md). Sürüm 10 karakter rota adıdır. Varsayılan "0.1" sürümüdür.

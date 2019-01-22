@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: tomfitz
-ms.openlocfilehash: 32298b78f3b98afb6754e07ad63467f4f995d84f
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 4e53351d4581791df77dbb64d9eb0f25815204f5
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382895"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426735"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıma
 
@@ -98,7 +98,7 @@ Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınabilir Azure hizm
 * Portalı panoları
 * Power BI - hem Power BI Embedded ve Power BI çalışma alanı koleksiyonu
 * Genel IP - temel SKU ortak IP'sine taşınabilir. Standart SKU ortak IP'sine taşınamaz.
-* Kurtarma Hizmetleri kasası -, kaydedilmiş bir [sınırlı genel Önizleme](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
+* Kurtarma Hizmetleri kasası - aboneliğinizi kaydetme [sınırlı genel Önizleme](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
 * Azure önbelleği için Redis - sanal ağ sayesinde, örnek Azure Cache Redis örneği için yapılandırılmışsa, farklı bir aboneliğe taşınamaz. Bkz: [sanal ağlar sınırlamaları](#virtual-networks-limitations).
 * Scheduler
 * Arama - tek bir işlemde farklı bölgelerdeki birden çok arama kaynaklar taşınamıyor. Bunun yerine, bunları ayrı işlemlerde taşıyın.
@@ -305,7 +305,7 @@ Klasik kaynakları için yeni bir aboneliği taşımak, Klasik kaynakları için
 
 ### <a name="recovery-services-limitations"></a>Kurtarma Hizmetleri sınırlamalarını
 
-Bir kurtarma Hizmetleri kasasına taşımak için de kaydetmeniz gerekir [sınırlı genel Önizleme](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
+ Bir kurtarma Hizmetleri kasasına taşımak için aboneliğinizi kaydetme [sınırlı genel Önizleme](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
 
 Şu anda bir kurtarma Hizmetleri kasası, bölge başına aynı anda taşıyabilirsiniz. Azure dosyaları, Azure dosya eşitleme veya SQL Iaas sanal makinelerini yedekleme kasaları taşıyamazsınız.
 

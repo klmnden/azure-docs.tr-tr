@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 47d41884a50450399df6273502096e0e630dbcf3
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 8938f4bcf012eadb8d4b0ced92b9996bc58236a5
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45981771"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432056"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>B2B işbirliği kullanıcıları için koşullu erişim
 
@@ -74,7 +74,7 @@ Geçerli sürümde, MFA öngörülebilirlik nedenlerini için kaynak kiralama he
 
 Contoso App1 ancak değil App2 etkin MFA ilkesi varsa, Contoso MFA talebi belirteci baktığımızda ardından biz aşağıdaki sorunları görebilirsiniz:
 
-* 1. günü: Kullanıcı MFA Contoso ağında olan ve App1'i, ardından hiçbir ek MFA erişme istemi Fabrikam'da gösterilir.
+* 1. günü: Kullanıcı MFA Contoso ağında sahiptir ve App1'i, ardından hiçbir ek MFA erişme istemi Fabrikam'da gösterilir.
 
 * 2. gün: Kullanıcı, Fabrikam erişirken şimdi contoso'da, uygulama 2 eriştiğini, MFA için orada kaydetmelisiniz.
 
@@ -84,7 +84,7 @@ Contoso MFA özelliği olsa bile, ayrıca, her zaman çalışması Fabrikam Cont
 
 Son olarak, kaynak Kiracı MFA Msa'lar ve sosyal kimlikleri ve mfa'yı ayarlama izniniz yok, iş ortağı kuruluşlar için çalışır.
 
-Bu nedenle, mfa B2B kullanıcıları için mfa'yı davet eden Kiracı her zaman gerekli önerilir. Bu gereksinim bazı durumlarda, çift mfa'yı neden olabilir, ancak davet eden Kiracı erişimi olduğunda, son kullanıcıların deneyimini tahmin edilebilir: sally'nin satış MFA için davet eden kiracısı ile kaydetmeniz gerekir.
+Bu nedenle, mfa B2B kullanıcıları için mfa'yı davet eden Kiracı her zaman gerekli önerilir. Bu gereksinim bazı durumlarda, çift mfa'yı neden olabilir, ancak davet eden Kiracı erişimi olduğunda, son kullanıcıların deneyimini tahmin edilebilir: Sally MFA için davet eden kiracısı ile kaydetmeniz gerekir.
 
 ### <a name="device-based-location-based-and-risk-based-conditional-access-for-b2b-users"></a>B2B kullanıcıları için cihaz, konum ve risk tabanlı koşullu erişim
 
@@ -105,5 +105,5 @@ Davet eden kuruluştan iş ortağı kuruluşları tanımlayan bir güvenilen IP 
 Azure AD B2B işbirliği hakkında aşağıdaki makalelere bakın:
 
 * [Azure AD B2B işbirliği nedir?](what-is-b2b.md)
-* [Azure AD B2B işbirliği lisanslama](licensing-guidance.md)
-* [Azure Active Directory B2B işbirliği sık sorulan sorular (SSS)](faq.md)
+* [Azure AD B2B işbirliği lisanslaması](licensing-guidance.md)
+* [Azure Active Directory B2B işbirliği hakkında sık sorulan sorular (SSS)](faq.md)

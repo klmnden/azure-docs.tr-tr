@@ -3,18 +3,18 @@ title: Azure Otomasyonu durum yapılandırması raporlama verilerini Log Analyti
 description: Bu makalede Desired State Configuration (DSC) raporlama verilerini Azure Otomasyonu durumu yapılandırmasından hakkındaki ek bilgiler ve yönetim sağlamak üzere Log analytics'e gönderme işlemini gösterir.
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 author: bobbytreed
 ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 88805f26869ad75830cef1aa074cd90cb947e76f
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 2450ffcbd9fa7bebd5a1b862aa9c35baa5dbdc95
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52681747"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425195"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-log-analytics"></a>Azure Otomasyonu durum yapılandırması raporlama verilerini Log Analytics'e iletme
 
@@ -127,9 +127,9 @@ Azure Otomasyonu tanılamadan Log Analytics'te iki kategoriye kayıt oluşturur.
 | NodeName_s |Yönetilen düğümün adı. |
 | NodeComplianceStatus_s |Düğüm uyumlu olup olmadığı. |
 | DscReportStatus |Uyumluluk denetimi olmadığını başarıyla çalıştı. |
-| ConfigurationMode | Nasıl yapılandırma düğüme uygulanır. Olası değerler __"ApplyOnly"__,__"ApplyandMonitior"__, ve __"ApplyandAutoCorrect"__. <ul><li>__ApplyOnly__: DSC yapılandırmasını uygular ve yeni bir yapılandırma, hedef düğüme veya bir sunucudan yeni bir yapılandırma çekildiğinde gönderildiğinde sürece başka hiçbir şey yapmaz. Yeni yapılandırma ilk uygulamadan sonra önceden yapılandırılmış bir durumdan kayması için DSC denetlemez. DSC denemeden önce başarılı oluncaya kadar yapılandırmayı uygulamak __ApplyOnly__ etkinleşir. </li><li> __ApplyAndMonitor__: Bu varsayılan değerdir. LCM herhangi bir yeni yapılandırmalar geçerlidir. Hedef düğüm istenen durumundan drifts sonra ilk uygulama yeni bir yapılandırma günlüklerini tutarsızlık DSC bildirir. DSC denemeden önce başarılı oluncaya kadar yapılandırmayı uygulamak __ApplyAndMonitor__ etkinleşir.</li><li>__ApplyAndAutoCorrect__: DSC herhangi bir yeni yapılandırmalar için geçerlidir. Yeni yapılandırma ilk uygulamadan sonra hedef düğüm istenen durumundan drifts DSC günlükleri tutarsızlık raporları ve sonra geçerli yapılandırmasını yeniden uygular.</li></ul> |
+| ConfigurationMode | Nasıl yapılandırma düğüme uygulanır. Olası değerler __"ApplyOnly"__,__"ApplyandMonitior"__, ve __"ApplyandAutoCorrect"__. <ul><li>__ApplyOnly__: DSC yapılandırmasını uygular ve yeni bir yapılandırma, hedef düğüme veya bir sunucudan yeni bir yapılandırma çekildiğinde gönderildiğinde sürece başka hiçbir şey yapmaz. Yeni yapılandırma ilk uygulamadan sonra önceden yapılandırılmış bir durumdan kayması için DSC denetlemez. DSC denemeden önce başarılı oluncaya kadar yapılandırmayı uygulamak __ApplyOnly__ etkinleşir. </li><li> __ApplyAndMonitor__: Varsayılan değer budur. LCM herhangi bir yeni yapılandırmalar geçerlidir. Hedef düğüm istenen durumundan drifts sonra ilk uygulama yeni bir yapılandırma günlüklerini tutarsızlık DSC bildirir. DSC denemeden önce başarılı oluncaya kadar yapılandırmayı uygulamak __ApplyAndMonitor__ etkinleşir.</li><li>__ApplyAndAutoCorrect__: DSC, herhangi bir yeni yapılandırmalar geçerlidir. Yeni yapılandırma ilk uygulamadan sonra hedef düğüm istenen durumundan drifts DSC günlükleri tutarsızlık raporları ve sonra geçerli yapılandırmasını yeniden uygular.</li></ul> |
 | HostName_s | Yönetilen düğümün adı. |
-| IP adresi | Yönetilen düğüme IPv4 adresi. |
+| IPAddress | Yönetilen düğüme IPv4 adresi. |
 | Kategori | DscNodeStatus |
 | Kaynak | Azure Otomasyon hesabı adı. |
 | Tenant_g | Kiracı için çağıranın tanımlayan GUID. |
@@ -144,7 +144,7 @@ Azure Otomasyonu tanılamadan Log Analytics'te iki kategoriye kayıt oluşturur.
 | ResultDescription | Bu işlem için açıklama. |
 | SubscriptionId | Otomasyon hesabı için Azure aboneliği kimliğini (GUID). |
 | ResourceGroup | Otomasyon hesabı için kaynak grubunun adı. |
-| ResourceProvider | MICROSOFT. OTOMASYON |
+| ResourceProvider | MICROSOFT.AUTOMATION |
 | ResourceType | AUTOMATIONACCOUNTS |
 | CorrelationId |Uyumluluk raporu bağıntı kimliği olan GUID. |
 
@@ -175,7 +175,7 @@ Azure Otomasyonu tanılamadan Log Analytics'te iki kategoriye kayıt oluşturur.
 | ResultDescription | Bu işlem için açıklama. |
 | SubscriptionId | Otomasyon hesabı için Azure aboneliği kimliğini (GUID). |
 | ResourceGroup | Otomasyon hesabı için kaynak grubunun adı. |
-| ResourceProvider | MICROSOFT. OTOMASYON |
+| ResourceProvider | MICROSOFT.AUTOMATION |
 | ResourceType | AUTOMATIONACCOUNTS |
 | CorrelationId |Uyumluluk raporu bağıntı kimliği olan GUID. |
 

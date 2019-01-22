@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As a IT Pro or decision maker I am trying to learn about identity mangement capabilities in Azure
-ms.openlocfilehash: 84ab35c269af66f58f3886a5dd0606ce69a11be9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d1933e58cae522b03ced29183440e226d47dfdf9
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255890"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435065"
 ---
 # <a name="azure-identity-management-security-overview"></a>Azure Kimlik Yönetimi güvenliğine genel bakış
 
@@ -44,7 +44,7 @@ Bu makalede aşağıdaki çekirdek Azure kimlik yönetimi özellikleri odaklanı
 * Güvenlik İzleme, uyarılar ve makine öğrenme tabanlı raporlar
 * Tüketici kimliği ve erişim yönetimi
 * Cihaz kaydı
-* Privileged Identity management
+* Ayrıcalıklı kimlik yönetimi
 * Kimlik koruması
 * Karma Kimlik Yönetimi/Azure AD connect
 * Azure AD erişim gözden geçirmeleri
@@ -101,10 +101,10 @@ Güvenlik İzleme, uyarılar ve tutarsız erişim düzenlerini belirleyen makine
 
 Azure portalında, raporlar, aşağıdaki kategorilere ayrılır:
 
-* **Anomali raporları**: anormal olarak bulduk oturum açma olaylarını içerir. Hedefimiz, bu tür bir etkinlik haberdar olun ve şüpheli bir olay olup olmadığını belirlemek etkinleştirmeniz oluşturmaktır.
-* **Tümleşik uygulama raporları**: kuruluşunuzda bulut uygulamalarının nasıl kullanıldığını içine ayrıntılı bilgiler sağlar. Azure AD ile binlerce bulut uygulamasına tümleştirme sunar.
-* **Hata raporlarını**: dış uygulama hesaplarına sağladığınızda oluşabilecek hataları gösterir.
-* **Kullanıcıya özel raporları**: belirli bir kullanıcı için cihaz oturum açma etkinliği verileri görüntüler.
+* **Anomali raporları**: Anormal olarak bulduk oturum açma olaylarını içerir. Hedefimiz, bu tür bir etkinlik haberdar olun ve şüpheli bir olay olup olmadığını belirlemek etkinleştirmeniz oluşturmaktır.
+* **Tümleşik uygulama raporları**: Kuruluşunuzda bulut uygulamalarının nasıl kullanıldığını içine sağlar. Azure AD ile binlerce bulut uygulamasına tümleştirme sunar.
+* **Hata raporlarını**: Dış uygulama hesaplarına sağladığınızda oluşabilecek hatalar gösterir.
+* **Kullanıcıya özel raporları**: Belirli bir kullanıcı için cihaz oturum açma etkinliği verileri görüntüle.
 * **Etkinlik günlükleri**: Son 24 saat, son 7 gün veya son 30 gün ve Grup etkinlik değişiklikleri ve parola sıfırlama ve kayıt etkinliği içinde denetlenen tüm olayların bir kaydını içerir.
 
 Daha fazla bilgi edinin:
@@ -124,7 +124,7 @@ Azure AD B2C kullandığınızda tüketicileriniz uygulamalarınız için ister 
 Daha fazla bilgi edinin:
 
 * [Azure Active Directory B2C nedir?](https://azure.microsoft.com/services/active-directory-b2c/)
-* [Azure Active Directory B2C önizlemesi: oturum ayarlama ve tüketicilerinizin uygulamanıza oturum açma](../active-directory-b2c/active-directory-b2c-overview.md)
+* [Azure Active Directory B2C önizlemesi: Kaydolun ve tüketicilerinizin uygulamanıza oturum açma](../active-directory-b2c/active-directory-b2c-overview.md)
 * [Azure Active Directory B2C önizlemesi: Uygulama türleri](../active-directory-b2c/active-directory-b2c-apps.md)
 
 ## <a name="device-registration"></a>Cihaz kaydı
@@ -139,7 +139,7 @@ Daha fazla bilgi edinin:
 * [Windows etki alanına katılmış cihazlar için Azure AD ile otomatik cihaz kaydı](../active-directory/active-directory-conditional-access-automatic-device-registration.md)
 * [Windows otomatik kaydı oluşturma Azure AD ile etki alanına katılmış cihazları ayarlama](../active-directory/active-directory-conditional-access-automatic-device-registration-setup.md)
 
-## <a name="privileged-identity-management"></a>Privileged Identity management
+## <a name="privileged-identity-management"></a>Ayrıcalıklı kimlik yönetimi
 
 Azure AD Privileged Identity Management ile yönetebilir, denetleyebilir ve ayrıcalıklı kimliklerinizi izleyebilir ve Azure ad'deki kaynakların yanı sıra Office 365 ve Microsoft Intune gibi diğer Microsoft online services erişim.
 
@@ -154,9 +154,8 @@ Azure AD Privileged Identity Management ile şunları yapabilirsiniz:
 
 Daha fazla bilgi edinin:
 
-* [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md)
-* [Azure AD Privileged Identity Management içinde rol](../active-directory/privileged-identity-management/pim-roles.md)
-* [Azure AD Privileged Identity Management: nasıl kullanıcı rolü ekleme veya kaldırma](../active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md)
+* [Azure AD Privileged Identity Management nedir?](../active-directory/privileged-identity-management/pim-configure.md)
+* [Azure AD dizin rollerini PIM atayın](../active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md)
 
 ## <a name="identity-protection"></a>Kimlik koruması
 
@@ -165,7 +164,7 @@ Azure AD kimlik koruması, risk olayları ve kuruluşunuzun kimliklerini etkiley
 Daha fazla bilgi edinin:
 
 * [Azure AD Kimlik Koruması](../active-directory/active-directory-identityprotection.md)
-* [Kanal 9: Azure AD kimlik gösterin: kimlik koruması önizlemesi](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
+* [Kanal 9: Azure AD kimlik gösterin: Kimlik koruması önizlemesi](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
 ## <a name="hybrid-identity-managementazure-ad-connect"></a>Karma Kimlik Yönetimi/Azure AD connect
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: spelluru
-ms.openlocfilehash: 099bdc25c27e264c3c7732243068307856840409
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 655159185a6011d79b927fd16d2957e2a59c8376
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028605"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437801"
 ---
-# <a name="test-your-app-in-azure"></a>Azure'da uygulamanızı test etme 
+# <a name="test-your-app-in-azure"></a>Uygulamanızı Azure’da test edin 
 Bu makalede adımları uygulamanızı test etmek için Azure DevTest Labs'i kullanarak sağlar. İlk olarak, bir laboratuvar içindeki bir dosya paylaşımı ayarlama ve yerel geliştirme makineniz ve bir laboratuvar içindeki bir VM üzerinde bir sürücü olarak bağlayın. Ardından, böylece laboratuvara VM'de uygulamayı çalıştırabilir, dosya paylaşımına uygulamanızı dağıtmak için Visual Studio 2017'yi kullanın.  
 
 ## <a name="prerequisites"></a>Önkoşullar 
@@ -30,7 +30,7 @@ Bu makalede adımları uygulamanızı test etmek için Azure DevTest Labs'i kull
 
 ## <a name="mount-the-file-share-on-your-local-machine"></a>Yerel makinenizde dosya paylaşımını bağlama
 1. Yerel makinenizde betikten kullanın [kalıcı Azure dosya paylaşımı kimlik bilgileri Windows](../storage/files/storage-how-to-use-files-windows.md#persisting-azure-file-share-credentials-in-windows) bölümünü [Windows ile Azure dosya paylaşımını kullanma](../storage/files/storage-how-to-use-files-windows.md) makalesi. 
-2. Ardından, `net use` makinenizde dosya paylaşımını bağlamak için komutu. Örnek komut aşağıdaki gibidir: komutu çalıştırmadan önce Azure depolama adı ve dosya paylaşım adı belirtin. 
+2. Ardından, `net use` makinenizde dosya paylaşımını bağlamak için komutu. Örnek komut aşağıdaki gibidir: Komutu çalıştırmadan önce Azure depolama adı ve dosya paylaşım adı belirtin. 
 
     `net use Z: \\<YOUR AZURE STORAGE NAME>.file.core.windows.net\<YOUR FILE SHARE NAME> /persistent:yes`
 
@@ -56,7 +56,7 @@ Bu makalede adımları uygulamanızı test etmek için Azure DevTest Labs'i kull
 
     ![Laboratuvar sanal makinesi seçin](media/test-app-in-azure/select-lab-vm.png)
 2. Seçin **Connect** VM'ye bağlanmak için araç çubuğunda. 
-3. [Azure PowerShell'i yükleme](https://azure.microsoft.com/downloads/) kullanarak **Windows yükleme** bağlantısını **komut satırı araçları** bölümü. Azure PowerShell'i yüklemenin diğer yolları için bkz. [bu makalede](/powershell/azure/install-azurerm-ps?view=azurermps-6.8.1).
+3. [Azure PowerShell'i yükleme](https://azure.microsoft.com/downloads/) kullanarak **Windows yükleme** bağlantısını **komut satırı araçları** bölümü. Azure PowerShell'i yüklemenin diğer yolları için bkz. [bu makalede](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.8.1).
 4. Yönergeleri [dosya paylaşımını bağlama](#mount-the-file-share) bölümü. 
 
 ## <a name="publish-your-app-from-visual-studio"></a>Uygulamanızı Visual Studio'dan yayımlama

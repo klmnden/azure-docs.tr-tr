@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: twhitney
-ms.openlocfilehash: 2b53b8a97f4e794110dc482db09a0d376247a678
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 1867702f0b33332ea4fa52374cd1452c3bc51a55
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299648"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436986"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Öğretici: Azure Service Fabric’e Windows kapsayıcısındaki bir .NET uygulamasını dağıtma
 
@@ -237,7 +237,7 @@ Uygulama hazır olduğuna göre, doğrudan Visual Studio'dan Azure'daki bir küm
 ![Fabrikam web örneği][fabrikam-web-page-deployed]
 
 ## <a name="set-up-continuous-integration-and-deployment-cicd-with-a-service-fabric-cluster"></a>Service Fabric kümesi ile Sürekli Tümleştirme ve Dağıtımı (CI/CD) ayarlama
-Service Fabric kümesinde CI/CD uygulama dağıtımını yapılandırmak için Azure DevOps kullanma hakkında bilgi edinmek için bkz. [Öğretici: CI/CD ile Service Fabric kümesine uygulama dağıtma](service-fabric-tutorial-deploy-app-with-cicd-vsts.md). Bu öğreticide anlatılan işlem, bu (FabrikamFiber) projesiyle aynıdır, tek yapmanız gereken Voting örneğini indirme adımını atlayıp depo adını Voting yerine FabrikamFiber olarak değiştirmektir.
+Service Fabric kümesine CI/CD uygulama dağıtımı yapılandırmak için Azure DevOps kullanmayı öğrenmek için bkz: [Öğreticisi: Bir Service Fabric kümesine CI/CD ile uygulama dağıtma](service-fabric-tutorial-deploy-app-with-cicd-vsts.md). Bu öğreticide anlatılan işlem, bu (FabrikamFiber) projesiyle aynıdır, tek yapmanız gereken Voting örneğini indirme adımını atlayıp depo adını Voting yerine FabrikamFiber olarak değiştirmektir.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 İşiniz bittiğinde, oluşturduğunuz tüm kaynakları kaldırmayı unutmayın.  Bunun en basit yolu Service Fabric kümesini, Azure SQL veritabanını ve Azure Container Registry'yi içeren kaynak gruplarını kaldırmaktır.
@@ -269,7 +269,7 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 Öğreticinin bir sonraki bölümünde, [Service Fabric kümesine CI/CD ile kapsayıcı uygulaması dağıtmayı](service-fabric-tutorial-deploy-container-app-with-cicd-vsts.md) öğreneceksiniz.
 
 [link-fabrikam-github]: https://aka.ms/fabrikamcontainer
-[link-azure-powershell-install]: /powershell/azure/install-azurerm-ps
+[link-azure-powershell-install]: /powershell/azure/azurerm/install-azurerm-ps
 [link-servicefabric-create-secure-clusters]: service-fabric-cluster-creation-via-arm.md
 [link-visualstudio-cd-extension]: https://aka.ms/cd4vs
 [link-servicefabric-containers]: service-fabric-get-started-containers.md

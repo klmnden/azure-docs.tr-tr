@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: ef3d26112c631ee0ed3c754394339092020add53
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 327d38de8c51e01851e6f7d37fca73d4cee316b8
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332549"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425314"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limitler ve yapılandırma bilgilerini Azure Logic Apps
 
@@ -193,7 +193,7 @@ Her bir tümleştirme hesabı yapıtları sayısına yönelik sınırlar aşağ�
 
 Ücretsiz katmanı, yalnızca keşif senaryolarda, üretim senaryolarında kullanın. Bu katman, aktarım hızı ve kullanımını kısıtlayan ve hiçbir hizmet düzeyi sözleşmesi (SLA) sahiptir.
 
-| Yapıt | Sınır | Notlar | 
+| Yapay Nesne | Sınır | Notlar | 
 |----------|-------|-------| 
 | EDI ticari iş ortakları | 25 | | 
 | EDI ticari sözleşmeleri | 10 | | 
@@ -206,7 +206,7 @@ Her bir tümleştirme hesabı yapıtları sayısına yönelik sınırlar aşağ�
 
 *Temel katman*
 
-| Yapıt | Sınır | Notlar | 
+| Yapay Nesne | Sınır | Notlar | 
 |----------|-------|-------| 
 | EDI ticari iş ortakları | 2 | | 
 | EDI ticari sözleşmeleri | 1 | | 
@@ -219,7 +219,7 @@ Her bir tümleştirme hesabı yapıtları sayısına yönelik sınırlar aşağ�
 
 *Standart katman*
 
-| Yapıt | Sınır | Notlar | 
+| Yapay Nesne | Sınır | Notlar | 
 |----------|-------|-------| 
 | EDI ticari iş ortakları | 500 | | 
 | EDI ticari sözleşmeleri | 500 | | 
@@ -265,7 +265,7 @@ Tüm mantıksal uygulamalar ile aynı bölgede aynı IP adresi aralıklarını k
 
 Çağrıları desteklemek için [Microsoft tarafından yönetilen Bağlayıcılar](../connectors/apis-list.md) güvenlik duvarınızla ayarlama yapma, *tüm* [giden](#outbound) bölgelerine bağlı, bu bağlayıcılar tarafından kullanılan IP adresleri logic apps bulunduğu. Bu adresler altında görünür **giden** Bu bölümde başlık ve bölgeye göre sıralanır. 
 
-İçin [Azure kamu](/azure-government/documentation-government-welcome) ve [Azure Çin 21Vianet](/azure/china/china-welcome), ayrılmış IP adresleri için bağlayıcılar şu anda kullanıma sunulmaz.
+İçin [Azure kamu](/azure-government/documentation-government-overview) ve [Azure Çin 21Vianet](/azure/china/china-welcome), ayrılmış IP adresleri için bağlayıcılar şu anda kullanıma sunulmaz.
 
 > [!IMPORTANT]
 > 

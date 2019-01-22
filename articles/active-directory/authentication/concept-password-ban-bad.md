@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: rogoya
-ms.openlocfilehash: 4c5fead0a7f4634a8f5ee005114d24cae9a2590f
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 7cb1acace3dd8605d7506013a6f1c0273dafa32f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739833"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54421445"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Hatalı parola kuruluşunuzdaki ortadan kaldırın
 
@@ -30,7 +30,7 @@ Endüstri liderlerinden aynı parolayı birden fazla yerde karmaşık hale ve/Pa
 
 Microsoft, siber suçluların her zaman bir adım önünde olmak için çalışmaktadır. Bu nedenle Azure AD kimlik koruması ekibi için yaygın olarak kullanılan ve güvenliği aşılan parolaları sürekli olarak arayın. Bunlar ardından genel yasaklı parola listesi çağrılma yeri çok yaygın olarak kabul edilen bu parolaları engelleyin. Siber suçlular kendi saldırılarında de benzer stratejiler kullanır, bu nedenle Microsoft, bu listenin içeriği herkese açık şekilde yayımlamaz. Bu güvenlik açığı olan parolaların Microsoft müşterileri için gerçek bir tehdit haline gelmeden önce engellenir. Geçerli güvenlik çalışmaları hakkında daha fazla bilgi için bkz: [Microsoft Güvenlik zekası raporu](https://www.microsoft.com/security/intelligence-report).
 
-## <a name="preview-custom-banned-password-list"></a>Önizleme: Özel parola listesine yasaklandı.
+## <a name="preview-custom-banned-password-list"></a>Önizleme: Özel yasaklanan parola listesi
 
 Bazı kuruluşlar kendi özelleştirmeleri genel yasaklı parola listesi üzerinde hangi Microsoft özel yasaklı parola listesi çağrıları ekleyerek güvenlik bir adım daha ileri almak isteyebilirsiniz. Kurumsal müşteriler gibi contoso marka adları, şirketinize özgü koşulları veya diğer öğeleri türevleri engellemek seçebilirsiniz.
 
@@ -46,7 +46,7 @@ Yalnızca bulut hesapları korumaya yardımcı olur, ancak çoğu kuruluş şirk
 
 Yasaklı parola listesi, küçük harf ve bilinen yasaklı parolalara benzer öğe eşleştirmesi olan 1'in bir düzenleme uzaklıkta karşılaştırma dizesi dönüştürerek parolalar listesinde eşleşir.
 
-Örnek: Sözcük parola bir kuruluş için engellendi
+Örnek: Word parola bir kuruluş için engellendi
    - Bir kullanıcı parolasını ayarlamak dener "P@ssword", "parola" dönüştürülür ve bir değişken parola olduğu için engellendi.
    - Bir yönetici kullanıcı parolasının "/ Password123!" için ayarlamaya çalışır Dönüştürülen "/ password123 için!" ve çünkü bu bir değişken parola engellenir.
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: 37cc7dcb3157459f6f6387323cc44d6f97954e92
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: ac5dd4d43ec6e0248a5a9939015a344bad421280
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54035823"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438992"
 ---
 # <a name="access-azure-cosmos-db-resources-from-virtual-networks"></a>Erişim Azure Cosmos DB kaynaklarını sanal ağlardan
 
@@ -87,7 +87,7 @@ Portaldan ölçümlerine Azure Cosmos DB erişimi olduğundan emin olun için et
 
 Azure PowerShell kullanarak Azure Cosmos DB hesabı için bir hizmet uç noktasını yapılandırmak için aşağıdaki adımları kullanın:  
 
-1. Yükleme [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) ve [oturum](https://docs.microsoft.com/powershell/azure/authenticate-azureps).  
+1. Yükleme [Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) ve [oturum](https://docs.microsoft.com/powershell/azure/authenticate-azureps).  
 
 1. Bir sanal ağın var olan bir alt ağ için hizmet uç noktasını girin.  
 

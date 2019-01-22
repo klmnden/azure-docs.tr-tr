@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: bwren
-ms.component: alerts
-ms.openlocfilehash: c1bcbf1245ef3256ceb1db098d6bcb014c7cd155
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.subservice: alerts
+ms.openlocfilehash: 36be305e60806ba2cdea260fc46bc329c43284cb
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382013"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429795"
 ---
 # <a name="log-alert-queries-in-azure-monitor"></a>Azure İzleyici'de günlük uyarı sorguları
 [Uyarı kuralları Azure İzleyici günlüklerine göre](alerts-unified-log.md) düzenli aralıklarla çalıştırın, böylece emin olmanız gerekir, ek yükü ve gecikme süresini en aza indirmek için yazılır. Bu makalede, günlük uyarıları için etkili sorgular ve var olan sorguları dönüştürmek için bir işlem yazmaya öneriler sağlar. 
@@ -222,3 +222,4 @@ on Hour
 ## <a name="next-steps"></a>Sonraki adımlar
 - Hakkında bilgi edinin [günlük uyarıları](alerts-log.md) Azure İzleyici'de.
 - Hakkında bilgi edinin [oturum sorguları](../log-query/log-query-overview.md).
+

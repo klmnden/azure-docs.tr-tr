@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 8e664e26a2cafc2f0b32ebea0f019918426d956c
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 2d212ae8f5a12c06f40e025a7a8d786a44194a92
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714589"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438743"
 ---
 # <a name="integrate-speech-service-with-your-language-understanding-app"></a>Konuşma hizmeti Language Understanding uygulamanızla tümleştirin
 [Konuşma hizmeti](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) tek bir istek kullanarak ses almanızı ve JSON nesneleriyle LUIS tahmini döndürmenizi sağlar. Bu makalede bir C# projesi indirip Visual Studio'da kullanarak mikrofona konuşacak ve LUIS tahmin bilgilerini alacaksınız. Bu projede Konuşma [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) paketi kullanılmaktadır ve bu paket başvuru olarak projeye eklenmiştir. 
@@ -24,7 +24,7 @@ ms.locfileid: "53714589"
 Bu makalede uygulamayı içeri aktarmak için ücretsiz bir [LUIS][LUIS] web sitesi hesabına ihtiyacınız olacak.
 
 ## <a name="create-luis-endpoint-key"></a>LUIS uç nokta anahtarı oluşturma
-Azure portalda bir **Language Understanding** (LUIS) anahtarı [oluşturun](luis-how-to-azure-subscription.md#create-luis-endpoint-key). 
+Azure portalda bir **Language Understanding** (LUIS) anahtarı [oluşturun](luis-how-to-azure-subscription.md). 
 
 ## <a name="import-human-resources-luis-app"></a>İnsan Kaynakları LUIS uygulamasını içeri aktarma
 İnsan Kaynakları LUIS uygulaması kullanılabilir amacı ve bu makalede konuşma arasındadır [Azure-Samples](https://github.com/Azure-Samples/cognitive-services-language-understanding) GitHub deposu. [HumanResources.json](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources.json) dosyasını indirin, `.json` uzantısıyla kaydedin ve LUIS'e [aktarın](luis-how-to-start-new-app.md#import-new-app). 

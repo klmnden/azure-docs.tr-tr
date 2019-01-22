@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 3820aae1e926e51ffa88fabc94e3572b286162de
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 861dfacb556b646a288ce7cf7c749cec858f8bd5
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634235"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432668"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Azure multi-Factor Authentication için NPS uzantısından alınan hata iletilerini çözme
 
@@ -41,14 +41,14 @@ Azure multi-Factor Authentication için NPS uzantısı ile hatalarla karşılaş
 | Hata kodu | Hata iletisi | Sorun giderme adımları |
 | ---------- | ------------- | --------------------- |
 | **ALTERNATE_LOGIN_ID_ERROR** | Hata: userObjectSid arama başarısız oldu | Kullanıcının şirket içi Active Directory Örneğinizde var olduğunu doğrulayın. Ormanlar arası güven kullanıyorsanız [desteğe](#contact-microsoft-support) daha fazla yardım için. |
-| **ALTERNATE_LOGIN_ID_ERROR** | Hata: Diğer Loginıd araması başarısız oldu | LDAP_ALTERNATE_LOGINID_ATTRIBUTE değerine ayarlandığını doğrulayın bir [geçerli active directory özniteliğini](https://msdn.microsoft.com/library/ms675090(v=vs.85).aspx). <br><br> LDAP_FORCE_GLOBAL_CATALOG True olarak ayarlandığında veya LDAP_LOOKUP_FORESTS boş olmayan bir değer ile yapılandırılmışsa, bir genel katalog yapılandırdıktan ve AlternateLoginId öznitelik kendisine eklenir doğrulayın. <br><br> LDAP_LOOKUP_FORESTS boş olmayan bir değer ile yapılandırılmışsa, değerin doğru olduğunu doğrulayın. Birden fazla orman adı varsa, adları noktalı virgül, boşluk ile ayrılması gerekir. <br><br> Bu adımları, sorunu yoksa, [desteğe](#contact-microsoft-support) daha fazla yardım için. |
-| **ALTERNATE_LOGIN_ID_ERROR** | Hata: Diğer Loginıd değeri boştur | AlternateLoginId öznitelik kullanıcı için yapılandırılmış olduğunu doğrulayın. |
+| **ALTERNATE_LOGIN_ID_ERROR** | Hata: Alternatif Loginıd arama başarısız oldu | LDAP_ALTERNATE_LOGINID_ATTRIBUTE değerine ayarlandığını doğrulayın bir [geçerli active directory özniteliğini](https://msdn.microsoft.com/library/ms675090(v=vs.85).aspx). <br><br> LDAP_FORCE_GLOBAL_CATALOG True olarak ayarlandığında veya LDAP_LOOKUP_FORESTS boş olmayan bir değer ile yapılandırılmışsa, bir genel katalog yapılandırdıktan ve AlternateLoginId öznitelik kendisine eklenir doğrulayın. <br><br> LDAP_LOOKUP_FORESTS boş olmayan bir değer ile yapılandırılmışsa, değerin doğru olduğunu doğrulayın. Birden fazla orman adı varsa, adları noktalı virgül, boşluk ile ayrılması gerekir. <br><br> Bu adımları, sorunu yoksa, [desteğe](#contact-microsoft-support) daha fazla yardım için. |
+| **ALTERNATE_LOGIN_ID_ERROR** | Hata: Alternatif Loginıd değeri boştur | AlternateLoginId öznitelik kullanıcı için yapılandırılmış olduğunu doğrulayın. |
 
 ## <a name="errors-your-users-may-encounter"></a>Kullanıcılarınızın hatalarla karşılaşabilirsiniz
 
 | Hata kodu | Hata iletisi | Sorun giderme adımları |
 | ---------- | ------------- | --------------------- |
-| **Erişim engellendi** | Çağırana Kiracı Kullanıcı için kimlik doğrulaması yapmak için erişim izni yok | Kiracı etki alanı ve etki alanı kullanıcı asıl adı (UPN) aynı olup olmadığını denetleyin. Örneğin, emin user@contoso.com Contoso Kiracı kimlik doğrulaması çalışıyor. UPN, geçerli bir kullanıcı Azure kiracısı için temsil eder. |
+| **AccessDenied** | Çağırana Kiracı Kullanıcı için kimlik doğrulaması yapmak için erişim izni yok | Kiracı etki alanı ve etki alanı kullanıcı asıl adı (UPN) aynı olup olmadığını denetleyin. Örneğin, emin user@contoso.com Contoso Kiracı kimlik doğrulaması çalışıyor. UPN, geçerli bir kullanıcı Azure kiracısı için temsil eder. |
 | **AuthenticationMethodNotConfigured** | Belirtilen kimlik doğrulama yöntemi kullanıcı için yapılandırılmamış | Kullanıcı ekleme veya yönergelere göre kendi doğrulama yöntemlerini doğrulama sahip [iki adımlı doğrulama ayarlarınızı yönetme](../user-help/multi-factor-authentication-end-user-manage-settings.md). |
 | **AuthenticationMethodNotSupported** | Belirtilen kimlik doğrulama yöntemi desteklenmiyor. | Bu hataya dahil etmek, günlük toplama ve [desteğe](#contact-microsoft-support). Destek ekibiyle iletişime geçtiğinizde, kullanıcı adı ve hatayı tetikleyen ikincil doğrulama yöntemini belirtin. |
 | **BecAccessDenied** | MSODS'un Bec çağrısı erişim reddedildi döndürdü, büyük olasılıkla kullanıcı kiracıda tanımlı değil | Kullanıcının şirket içinde Active Directory var, ancak Azure AD tarafından AD Connect ile eşitlenmedi. Veya kullanıcının kiracısı için eksik. Azure AD'ye kullanıcı ekleme ve bunların yönergelere göre kendi doğrulama yöntemlerini ekleyin [iki adımlı doğrulama ayarlarınızı yönetme](../user-help/multi-factor-authentication-end-user-manage-settings.md). |

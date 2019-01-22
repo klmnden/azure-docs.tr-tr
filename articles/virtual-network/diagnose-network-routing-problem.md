@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/30/2018
 ms.author: jdial
-ms.openlocfilehash: 695d5f1507f766cf0a2ad96d7dcd25f45f98c20e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 56dd13f5c2c0db4af65d8bc5d4ee5c072a161964
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994726"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429643"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>Bir sanal makine yönlendirme sorunu tanılama
 
@@ -49,12 +49,12 @@ Aşağıdaki adımları için geçerli yolları görüntülemek için mevcut bir
     Önceki resimde gösterilen örnekte listelenen Azure her alt ağ için oluşturduğu varsayılan rotaları yollardır. Listenize en az Bu yolları vardır, ancak özellikleri gibi başka bir sanal ağla eşlendikten veya bir Azure VPN gateway aracılığıyla şirket içi ağınıza bağlı sanal ağınız için etkin bağlı olarak ek yolları olabilir. Her biri yollar ve ağ Arabiriminizin karşılaşabileceğiniz diğer yollar hakkında daha fazla bilgi için bkz: [sanal ağ trafiği yönlendirme](virtual-networks-udr-overview.md). Çok sayıda yollar listeniz varsa, seçmek daha kolay olabilir **indirme**, yolların listesini içeren bir .csv dosyası indirilemedi.
 
 Geçerli rotalar sanal makine, önceki adımlarda aracılığıyla görüntülenebilir ancak geçerli rotalar aracılığıyla da görüntüleyebilirsiniz bir:
-- **Bir ağ arabirimine**: bilgi nasıl [bir ağ arabirimi görüntülemek](virtual-network-network-interface.md#view-network-interface-settings).
-- **Tek bir yol tablosu**: bilgi nasıl [yol Tablosu'nu görüntüleyin](manage-route-table.md#view-details-of-a-route-table).
+- **Bir ağ arabirimine**: Bilgi edinmek için nasıl [bir ağ arabirimi görüntülemek](virtual-network-network-interface.md#view-network-interface-settings).
+- **Tek bir yol tablosu**: Bilgi edinmek için nasıl [yol Tablosu'nu görüntüleyin](manage-route-table.md#view-details-of-a-route-table).
 
 ## <a name="diagnose-using-powershell"></a>PowerShell kullanarak tanılama
 
-İçinde izleyen komutları çalıştırabilirsiniz [Azure Cloud Shell](https://shell.azure.com/powershell), veya PowerShell bilgisayarınızdan çalıştırarak. Azure Cloud Shell ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. PowerShell kullanarak bilgisayarınızdan çalıştırırsanız, gereksinim duyduğunuz *AzureRM* PowerShell modülü sürüm 6.0.1 veya üzeri. Çalıştırma `Get-Module -ListAvailable AzureRM` yüklü sürümü bulmak için bilgisayarınızda. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız, aynı zamanda çalıştırmak ihtiyacınız `Login-AzureRmAccount` Azure'a olan bir hesapla oturum [gerekli izinleri](virtual-network-network-interface.md#permissions).
+İçinde izleyen komutları çalıştırabilirsiniz [Azure Cloud Shell](https://shell.azure.com/powershell), veya PowerShell bilgisayarınızdan çalıştırarak. Azure Cloud Shell ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. PowerShell kullanarak bilgisayarınızdan çalıştırırsanız, gereksinim duyduğunuz *AzureRM* PowerShell modülü sürüm 6.0.1 veya üzeri. Çalıştırma `Get-Module -ListAvailable AzureRM` yüklü sürümü bulmak için bilgisayarınızda. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/azurerm/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız, aynı zamanda çalıştırmak ihtiyacınız `Login-AzureRmAccount` Azure'a olan bir hesapla oturum [gerekli izinleri](virtual-network-network-interface.md#permissions).
 
 Bir ağ arabirimi için geçerli rotalar alma [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/get-azurermeffectiveroutetable). Aşağıdaki örnekte adlı bir ağ arabirimi için geçerli rotalar alır *myVMVMNic*, yani bir kaynak grubunda *myResourceGroup*:
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/08/2018
 ms.author: yushwang
 ms.custom: mvc
-ms.openlocfilehash: 61e040fc2f7ff70794b49204e3dea01375637641
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
-ms.translationtype: HT
+ms.openlocfilehash: 0c71062bded65f8aa7c259c0678ee6675e2dab38
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43336585"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432226"
 ---
 # <a name="create-and-manage-s2s-vpn-connections-with-the-azure-powershell-module"></a>Azure PowerShell modülü ile S2S VPN bağlantıları Oluşturma ve Yönetme
 
@@ -39,11 +39,11 @@ Aşağıdaki diyagramda bu öğreticinin topolojisi gösterilmektedir:
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici, Azure PowerShell modülü 5.3 veya sonraki bir sürümü gerektirir. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir.
+PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici, Azure PowerShell modülü 5.3 veya sonraki bir sürümü gerektirir. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/azurerm/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir.
 
 ## <a name="requirements"></a>Gereksinimler
 
-Aşağıdaki kaynakları oluşturmak için "[Azure PowerShell ile VPN ağ geçidi oluşturma](vpn-gateway-tutorial-create-gateway-powershell.md)" başlıklı ilk öğreticiyi tamamlayın:
+İlk öğreticiyi tamamlayın: "[Azure PowerShell ile oluşturma VPN ağ geçidi](vpn-gateway-tutorial-create-gateway-powershell.md)" aşağıdaki kaynakları oluşturmak için:
 
 1. Kaynak grubu (TestRG1), sanal ağ (VNet1) ve GatewaySubnet
 2. VPN ağ geçidi (VNet1GW)
@@ -140,7 +140,7 @@ Azure VPN ağ geçidi, BGP dinamik yönlendirme protokolünü destekler. Şirket
 * Şirket içi yerel ağ geçidi ASN’si
 * Şirket içi yerel ağ geçidi BGP eş IP adresi
 
-BGP özelliklerini yapılandırmadıysanız şu komutları kullanarak VPN ağ geçidinize ve yerel ağ geçidinize bu özellikleri ekleyin: [Set-AzureRmVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworkgateway?view=azurermps-6.8.1) ve [Set-AzureRmLocalNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermlocalnetworkgateway?view=azurermps-6.8.1).
+BGP özellikleri yapılandırmadıysanız, bu özellikler, VPN ağ geçidi ve yerel ağ geçidi eklemek için aşağıdaki komutları kullanın: [Set-AzureRmVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworkgateway?view=azurermps-6.8.1) ve [kümesi AzureRmLocalNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermlocalnetworkgateway?view=azurermps-6.8.1).
 
 ```azurepowershell-interactive
 $vng1 = Get-AzureRmVirtualNetworkGateway -Name $GW1  -ResourceGroupName $RG1
@@ -167,8 +167,8 @@ Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $con
 
 İsteğe bağlı bir IPSec/IKE ilkesi belirterek bağlantıda [varsayılan öneriler](vpn-gateway-about-vpn-devices.md#ipsec) yerine tam olarak hangi IPSec/IKE şifreleme algoritması ve anahtar gücü kombinasyonunun kullanılacağını belirtebilirsiniz. Aşağıdaki örnek betik, şu algoritmalar ve parametreler ile farklı bir IPsec/IKE ilkesi oluşturur:
 
-* IKEv2: AES256, SHA256, DHGroup14
-* IPsec: AES128, SHA1, PFS14, SA Yaşam Süresi 14.400 saniye ve 102.400.000 KB
+* Ikev2: AES256, SHA256, DHGroup14
+* IPSec: Aes128, SHA1, PFS14, SA yaşam süresi 14,400 saniye & 102,400,000 KB
 
 ```azurepowershell-interactive
 $connection = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection1 `

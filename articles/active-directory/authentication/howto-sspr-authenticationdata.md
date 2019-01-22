@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: eb3c1177f86f4c595280521f4dbcbe8081f68895
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: f30a0d80b40626530ecebdb129daff4a0c5215fc
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296253"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426208"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Son kullanıcı kaydı istemeden parola sıfırlamayı dağıtma
 
@@ -75,7 +75,7 @@ Aşağıdaki alanlar, PowerShell aracılığıyla ayarlanabilir:
 
 * **Alternatif e-posta**
 * **Cep telefonu**
-* **Ofis telefonu**:, bir şirket içi dizininizle eşitleme değil, yalnızca ayarlanabilir
+* **Ofis telefonu**: Bir şirket içi dizininizle eşitleme değil, yalnızca ayarlanabilir
 
 ### <a name="use-powershell-version-1"></a>PowerShell sürüm 1'i kullanın
 

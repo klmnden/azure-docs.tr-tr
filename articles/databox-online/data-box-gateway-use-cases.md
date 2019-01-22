@@ -7,12 +7,12 @@ ms.service: databox
 ms.topic: article
 ms.date: 01/17/2019
 ms.author: alkohli
-ms.openlocfilehash: b4966d03e44591f01bee945c743ea83f57e6da93
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: d1367504182eb8d8335796dc37800c30e0a563b8
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54392276"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438601"
 ---
 # <a name="use-cases-for-azure-data-box-gateway"></a>Azure veri kutusu ağ geçidi için kullanım örnekleri
 
@@ -41,7 +41,7 @@ Cihaz veriyle dolduğunda, verileri buluta yüklenen oranı eşleştirmek için 
 
 Verilerinizi bulutta uzun süreli saklamak istediğiniz veri kutusu ağ geçidi kullanın. Kullanabileceğiniz **arşiv** uzun süreli saklama için depolama katmanı.
 
-Arşiv katmanı, nadiren erişilen verileri depolamak için en az 180 gün için optimize edilmiştir. **Arşiv** katmanı en düşük depolama maliyetini sunar ancak en yüksek erişim maliyetine sahiptir. Daha fazla bilgi için Git [arşiv erişim katmanı](/azure/storage/blobs/storage-blob-storage-tiers.md#archive-access-tier).
+Arşiv katmanı, nadiren erişilen verileri depolamak için en az 180 gün için optimize edilmiştir. **Arşiv** katmanı en düşük depolama maliyetini sunar ancak en yüksek erişim maliyetine sahiptir. Daha fazla bilgi için Git [arşiv erişim katmanı](/azure/storage/blobs/storage-blob-storage-tiers#archive-access-tier).
 
 ### <a name="move-data-to-archive-tier"></a>Arşiv katmanı için veri taşıma
 
@@ -49,14 +49,14 @@ Başlamadan önce çalışan bir veri kutusu ağ geçidi aygıtı olduğundan em
 
 - Her zamanki aktarımı yordam boyunca açıklanan şekilde yüklemek için veri kutusu ağ geçidi cihazı kullanın [veri kutusu ağ geçidi üzerinden veri aktarımı](data-box-gateway-deploy-add-shares.md).
 - Veriler karşıya yüklendikten sonra arşiv katmanına taşımak gerekir. Blob katmanı iki şekilde ayarlayabilirsiniz: Azure PowerShell Betiği veya bir Azure depolama yaşam döngüsü yönetim ilkesi.  
-    - Azure PowerShell kullanarak izleyin, bunlar [adımları](/azure/databox/data-box-how-to-set-data-tier.md#use-azure-powershell-to-set-the-blob-tier) arşiv katmanı verileri taşımak için.
+    - Azure PowerShell kullanarak izleyin, bunlar [adımları](/azure/databox/data-box-how-to-set-data-tier#use-azure-powershell-to-set-the-blob-tier) arşiv katmanı verileri taşımak için.
     - Azure Yaşam Döngüsü Yönetimi'ni kullanarak, veriler için arşiv katmanını taşımak için şu adımları izleyin.
-        - [Kayıt](/azure/storage/common/storage-lifecycle-management-concepts.md#register-for-preview) katmanı arşiv kullanılacak Blob yaşam döngüsü yönetimi hizmetinin önizlemesi.
-        - Aşağıdaki ilkeyi kullanmak [arşiv verilerini alma](/azure/storage/blobs/storage-lifecycle-management-concepts.md#archive-data-at-ingest.md).
+        - [Kayıt](/azure/storage/common/storage-lifecycle-management-concepts#register-for-preview) katmanı arşiv kullanılacak Blob yaşam döngüsü yönetimi hizmetinin önizlemesi.
+        - Aşağıdaki ilkeyi kullanmak [arşiv verilerini alma](/azure/storage/blobs/storage-lifecycle-management-concepts#archive-data-at-ingest).
 - BLOB arşiv işaretlenmiş bir kez sıcak veya soğuk katmanı sürece bunlar artık ağ geçidi tarafından değiştirilebilir. Yerel depolamada bir dosya ise (silmeler dahil) Yerel kopyaya yapılan değişiklikler katmanı arşiv olarak karşıya değil.
 - Arşiv depolama birimindeki verileri okumak için sık erişimli veya seyrek erişimli blob katmanını değiştirerek rehydrated gerekir. [Paylaşım yenileme](data-box-gateway-manage-shares.md#refresh-shares) ağ geçidinde blob yeniden doldurma değil.
 
-Daha fazla bilgi için nasıl hakkında daha fazla bilgi [Azure Blob Depolama yaşam döngüsünü yönetme](/azure/storage/common/storage-lifecycle-management-concepts.md).
+Daha fazla bilgi için nasıl hakkında daha fazla bilgi [Azure Blob Depolama yaşam döngüsünü yönetme](/azure/storage/common/storage-lifecycle-management-concepts).
 
 ## <a name="initial-bulk-transfer-followed-by-incremental-transfer"></a>Artımlı aktarım tarafından izlenen ilk toplu aktarımı
 
@@ -66,10 +66,10 @@ Data Box ve kutusu ağ geçidiyle birlikte büyük miktarda veri artımlı aktar
 
 Data Box'ı ve Azure Depolama'ya yükleme verileri kopyalamak için aşağıdaki adımları izleyin.
 
-1. [Data Box'ınızı sipariş](/azure/databox/data-box-deploy-ordered.md).
-2. [Veri kutusu ayarlama](/azure/databox/data-box-deploy-set-up.md).
-3. [Data Box SMB üzerinden veri kopyalamak](/azure/databox/data-box-deploy-copy-data.md).
-4. [Data Box döndürür, Azure veri yükleme doğrulayın](/azure/databox/data-box-deploy-picked-up.md).
+1. [Data Box'ınızı sipariş](/azure/databox/data-box-deploy-ordered).
+2. [Veri kutusu ayarlama](/azure/databox/data-box-deploy-set-up).
+3. [Data Box SMB üzerinden veri kopyalamak](/azure/databox/data-box-deploy-copy-data).
+4. [Data Box döndürür, Azure veri yükleme doğrulayın](/azure/databox/data-box-deploy-picked-up).
 5. Azure için verileri karşıya yükleme tamamlandıktan sonra tüm verileri Azure depolama kapsayıcıları olmalıdır. Data Box depolama hesabında tüm verileri kopyalanır emin olmak için Blob (ve dosya) kapsayıcısına gidin. Bu adı daha sonra kullanacağınız kapsayıcı adını not edin. Örneğin, aşağıdaki ekran görüntüsünde `databox` kapsayıcı Artımlı aktarım için kullanılır.
 
     ![Data Box hakkında veriler kapsayıcı](media/data-box-gateway-use-cases/data-container1.png)

@@ -3,7 +3,7 @@ title: Azure Hızlı Başlangıç - DSC ile VM yapılandırma | Microsoft Docs
 description: İstenen Durum Yapılandırması ile Linux Sanal Makinesinde LAMP Yığını Yapılandırma
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 keywords: dsc, yapılandırma, otomasyon
 author: KrisBash
 ms.author: krbash
@@ -11,18 +11,18 @@ ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 7a9e394213ef40b995cb048c71f14a190e5e7970
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: c0a7bb9dfe8553515816efd53785dbe661cee0fa
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243701"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431597"
 ---
 # <a name="configure-a-linux-virtual-machine-with-desired-state-configuration"></a>İstenen Durum Yapılandırması ile Linux sanal makinesi yapılandırma
 
 İstenen Durum Yapılandırması'nı (DSC) etkinleştirerek Windows ve Linux sunucularınızın yapılandırmalarını yönetebilir ve izleyebilirsiniz. İstenen yapılandırmadan farklı olan yapılandırmalar tanımlanabilir veya otomatik olarak düzeltilebilir. Bu hızlı başlangıçta Linux VM ekleme ve DSC ile LAMP yığını dağıtma adımlarına yer verilmiştir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu hızlı başlangıcı tamamlamak için şunlar gerekir:
 
@@ -108,7 +108,7 @@ Yapılandırmayı içeri aktarmak için:
 
 ## <a name="compile-a-configuration"></a>Yapılandırma derleme
 
-DSC Yapılandırmalarının bir düğüme atanabilmesi için bir Düğüm Yapılandırması (MOF belgesi) olarak derlenmesi gerekir. Derleme yapılandırmayı doğrular ve parametre değerlerinin girilmesini sağlar. Yapılandırma derleme hakkında daha fazla bilgi edinmek için bkz. [Azure Automation DSC'de Yapılandırma Derleme](https://docs.microsoft.com/azure/automation/automation-dsc-compile)
+DSC Yapılandırmalarının bir düğüme atanabilmesi için bir Düğüm Yapılandırması (MOF belgesi) olarak derlenmesi gerekir. Derleme yapılandırmayı doğrular ve parametre değerlerinin girilmesini sağlar. Bir yapılandırma derleme hakkında daha fazla bilgi için bkz: [Azure Automation DSC yapılandırmaları derleme](https://docs.microsoft.com/azure/automation/automation-dsc-compile)
 
 Yapılandırmayı derlemek için:
 
@@ -145,3 +145,4 @@ Bu hızlı başlangıçta DSC'ye bir Linux VM eklediniz, LAMP yığını için y
 * PowerShell İstenen Durum Yapılandırması hakkında daha fazla bilgi edinmek için bkz. [PowerShell İstenen Durum Yapılandırması'na Genel Bakış](https://docs.microsoft.com/powershell/dsc/overview).
 * PowerShell'den Automation DSC yönetimi hakkında daha fazla bilgi edinmek için bkz. [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.automation/?view=azurermps-5.0.0)
 * Raporlama ve uyarı oluşturma amacıyla DSC raporlarını Log Analytics'e iletmeyi öğrenmek için bkz. [DSC Raporlarını Log Analytics'e İletme](https://docs.microsoft.com/azure/automation/automation-dsc-diagnostics) 
+

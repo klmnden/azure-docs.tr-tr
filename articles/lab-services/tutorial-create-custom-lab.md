@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 05/17/2018
+ms.date: 01/18/2019
 ms.author: spelluru
-ms.openlocfilehash: ee2def6287a845cd0fd0260254efb20f9638ab2c
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 84a6cdb5e91128bbade43ee9212cfa9658228964
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839050"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423301"
 ---
-# <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Öğretici: Azure DevTest Labs kullanarak bir laboratuvar ayarlama
+# <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Öğretici: Azure DevTest Labs'i kullanarak bir laboratuvarı ayarlama ayarlayın
 Bu öğreticide, Azure portalı kullanarak bir laboratuvar oluşturursunuz. Laboratuvar yöneticisi bir kuruluşta laboratuvar ayarlar, laboratuvarda sanal makineler oluşturur ve ilkeler yapılandırır. Laboratuvar kullanıcıları (örneğin: geliştirici ve test ediciler), laboratuvarda sanal makineler talep eder, sanal makinelere bağlanır ve sanal makineleri kullanır. 
 
 Bu öğreticide, aşağıdaki eylemleri gerçekleştireceksiniz:
@@ -49,24 +49,31 @@ Aşağıdaki adımlar, Azure portal kullanarak Azure DevTest Labs’de nasıl bi
     6. **Panoya sabitle**’yi seçin. Laboratuvarı oluşturduktan sonra laboratuvar, panoda gösterilir. 
 
         ![DevTest Labs laboratuvar bölümü oluşturma](./media/tutorial-create-custom-lab/create-custom-lab-blade.png)
+2. Laboratuvar sırasında notificaitons bakarak başarıyla oluşturulduğunu onaylayın. Seçin **kaynağa Git**.  
+
+    ![Bildirim](./media/tutorial-create-custom-lab/creation-notification.png)
+3. Gördüğünüzü onaylayın **DevTest Labs** laboratuvarınız için sayfa. 
+
+    ![Laboratuvarınız için giriş sayfası](./media/tutorial-create-custom-lab/lab-home-page.png)
 
 ## <a name="add-a-vm-to-the-lab"></a>Laboratuvara bir sanal makine ekleme
 
 1. **DevTest Lab** sayfasında, araç çubuğunda **+Ekle**’yi seçin. 
 
     ![Ekle düğmesi](./media/tutorial-create-custom-lab/add-vm-to-lab-button.png)
-1. **Temel seçin** sayfasında, anahtar sözcüğüyle (örn.: Windows, Ubuntu) arama yapın ve listedeki temel görüntülerden birini seçin. 
+1. Üzerinde **temel seçin** sayfasında, bir anahtar sözcükle arama (örneğin: Windows, Ubuntu) ve temel görüntülerinden birini listeden seçin. 
 1. **Sanal makine** sayfasında aşağıdaki eylemleri gerçekleştirin: 
     1. **Sanal makine adı** alanına, sanal makine için bir ad girin. 
     2. **Kullanıcı adı** alanına, sanal makineye erişimi olan kullanıcı için bir ad girin. 
-    3. **Bir değer yazın** alanına, kullanıcının parolasını girin. 
-    4. **Gelişmiş ayarlar**’ı seçin.
-    5. **Bu makineyi talep edilebilir yap** için **Evet**’i seçin.
-    6. **Örnek sayısı** değerinin **1** olarak ayarlandığını onaylayın. **2** olarak ayarlarsanız `<base image name>00' and <base image name>01` adlarıyla 2 sanal makine oluşturulur. Örneğin: `win10vm00` ve `win10vm01`. 
-    7. **Gelişmiş** sayfasını kapatmak için **Tamam**’a tıklayın. 
-    8. **Oluştur**’u seçin. 
+    3. İçin **parola**, kullanıcı için parola girin. 
 
         ![Bir temel seçin](./media/tutorial-create-custom-lab/new-virtual-machine.png)
+1. Seçin **Gelişmiş ayarlar** sekmesi.
+    1. **Bu makineyi talep edilebilir yap** için **Evet**’i seçin.
+    2. **Örnek sayısı** değerinin **1** olarak ayarlandığını onaylayın. **2** olarak ayarlarsanız `<base image name>00' and <base image name>01` adlarıyla 2 sanal makine oluşturulur. Örneğin: `win10vm00` ve `win10vm01`.     
+    3. Seçin **gönderme**. 
+
+        ![Bir temel seçin](./media/tutorial-create-custom-lab/new-vm-advanced-settings.png)
     9. **Talep edilebilir sanal makineler** listesinde sanal makinenin durumunu görürsünüz. Sanal makine oluşturulması yaklaşık 25 dakika sürebilir. Adı, laboratuvarı içeren geçerli kaynak grubunun adıyla başlayan sanal makine ayrı bir Azure kaynak grubunda oluşturulur. Örneğin, laboratuvar `labrg` ise sanal makine, `labrg3988722144002` kaynak grubunda oluşturulabilir. 
 
         ![Sanal makine oluşturma durumu](./media/tutorial-create-custom-lab/vm-creation-status.png)
@@ -81,23 +88,30 @@ Aşağıdaki adımlar, Azure portal kullanarak Azure DevTest Labs’de nasıl bi
 
     ![Yapılandırma ve ilkeler](./media/tutorial-create-custom-lab/configuration-and-policies-menu.png)
 1. Seçin **erişim denetimi (IAM)** seçin ve menü **+ rol ataması Ekle** araç. 
+
+    ![Rol ataması Ekle - düğme](./media/tutorial-create-custom-lab/add-role-assignment-button.png)
 1. **İzin ekle** sayfasında aşağıdaki eylemleri gerçekleştirin:
     1. **Rol** için **DevTest Labs Kullanıcısı**’nı seçin. 
     2. Eklemek istediğiniz **kullanıcıyı** seçin. 
     3. **Kaydet**’i seçin.
-4. **Yapılandırma ve ilkeler - Erişim denetimi (IAM)** penceresini kapatmak için sağ köşedeki **X** simgesini seçin. 
 
-## <a name="cleanup-resources"></a>Kaynakları temizleme
+        ![Kullanıcı ekle](./media/tutorial-create-custom-lab/add-user.png)
+
+## <a name="clean-up-resources"></a>Kaynakları temizleme
 Sonraki öğreticide, bir laboratuvar kullanıcısının laboratuvardaki bir sanal makineyi nasıl talep edebileceği ve bu sanal makineye nasıl bağlanabileceği gösterilmektedir. Bu öğreticiyi uygulamak istemiyorsanız ve bu öğreticinin parçası olarak oluşturulan kaynakları temizlemek istiyorsanız aşağıdaki adımları izleyin: 
 
 1. Azure portalında, menüden **Kaynak grupları**’nı seçin. 
-2. Laboratuvarı oluşturduğunuz kaynak grubunuzu seçin. 
-3. Araç çubuğundan **Kaynak grubunu sil**’i seçin. Bir kaynak grubu silindiğinde, laboratuvar dahil olmak üzere gruptaki tüm kaynaklar silinir. 
-4. `<your resource group name><random numbers>` adıyla sizin için oluşturulan ek kaynak grubunu silmek için bu adımları yineleyin. Örneğin: `splab3988722144001`. Sanal makineler, laboratuvarın bulunduğu kaynak grubunda değil, bu kaynak grubunda oluşturulur. 
+
+    ![Kaynak grupları](./media/tutorial-create-custom-lab/resource-groups.png)
+1. Laboratuvarı oluşturduğunuz kaynak grubunuzu seçin. 
+1. Araç çubuğundan **Kaynak grubunu sil**’i seçin. Bir kaynak grubu silindiğinde, laboratuvar dahil olmak üzere gruptaki tüm kaynaklar silinir. 
+
+    ![Laboratuvar kaynak grubu](./media/tutorial-create-custom-lab/lab-resource-group.png)
+1. `<your resource group name><random numbers>` adıyla sizin için oluşturulan ek kaynak grubunu silmek için bu adımları yineleyin. Örneğin: `splab3988722144001`. Sanal makineler, laboratuvarın bulunduğu kaynak grubunda değil, bu kaynak grubunda oluşturulur. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu öğreticide, bir sanal makine ile laboratuvar oluşturdunuz ve bir kullanıcıya bu laboratuvara erişme izni verdiniz. Laboratuvar kullanıcısı olarak laboratuvara erişme hakkında bilgi edinmek için sonraki öğreticiye ilerleyin:
 
 > [!div class="nextstepaction"]
-> [Öğretici: Laboratuvara erişme](tutorial-use-custom-lab.md)
+> [Öğretici: Bir laboratuvara erişim](tutorial-use-custom-lab.md)
 

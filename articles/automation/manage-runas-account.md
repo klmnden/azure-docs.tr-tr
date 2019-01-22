@@ -3,18 +3,18 @@ title: Azure Otomasyonu farklı çalıştır hesaplarını yönetme
 description: Bu makalede, farklı çalıştır hesapları PowerShell ile veya portalından yönetmek açıklar.
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7bd84b42cfa61d199d70e02345f9229a45fd7704
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 34c8a7d547acf023af442599708f9c183e5b9ae9
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726177"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431206"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Azure Otomasyonu farklı çalıştır hesaplarını yönetme
 
@@ -46,7 +46,7 @@ Oluşturun veya bir farklı çalıştır hesabını güncelleştirmek için öze
 |Bir kimlik bilgisi uygulamaya ekleyin.|[New-AzureRmADAppCredential](/powershell/module/AzureRM.Resources/New-AzureRmADAppCredential)     | Uygulama Yöneticisi veya genel yönetici         |
 |Oluşturma ve bir Azure AD hizmet sorumlusu alma|[Yeni AzureRMADServicePrincipal](/powershell/module/AzureRM.Resources/New-AzureRmADServicePrincipal)</br>[Get-AzureRmADServicePrincipal](/powershell/module/AzureRM.Resources/Get-AzureRmADServicePrincipal)     | Uygulama Yöneticisi veya genel yönetici        |
 |Atayın veya RBAC rolü için belirtilen sorumluyu alma|[Yeni-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment)</br>[Get-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/Get-AzureRmRoleAssignment)      | Kullanıcı erişimi Yöneticisi veya sahibi        |
-|Oluşturma veya bir Otomasyon sertifikası kaldırma|[Yeni AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/New-AzureRmAutomationCertificate)</br>[Remove-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationCertificate)     | Kaynak grubu üzerinde katkıda bulunan         |
+|Oluşturma veya bir Otomasyon sertifikası kaldırma|[New-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/New-AzureRmAutomationCertificate)</br>[Remove-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationCertificate)     | Kaynak grubu üzerinde katkıda bulunan         |
 |Oluşturma veya bir Otomasyon bağlantı kaldırma|[New-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/New-AzureRmAutomationConnection)</br>[Remove-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationConnection)|Kaynak grubu üzerinde katkıda bulunan |
 
 * Makalesinde açıklandığı gibi Microsoft.Automation kaynaklarındaki katkıda bulunan rolüne eşdeğer izinlere sahip bir AD kullanıcı hesabı [Azure automation'da rol tabanlı erişim denetimi](automation-role-based-access-control.md#contributor).  
@@ -389,3 +389,4 @@ Hesabı silip yeniden oluşturarak Farklı Çalıştır hesabıyla ilgili bu sor
 
 * Hizmet sorumluları hakkında daha fazla bilgi için bkz. [uygulama nesneleri ve hizmet sorumlusu nesneleri](../active-directory/develop/app-objects-and-service-principals.md).
 * Sertifikalar ve Azure hizmetleri hakkında daha fazla bilgi için bkz. [Azure Cloud Services sertifikalarına genel bakış](../cloud-services/cloud-services-certs-create.md).
+

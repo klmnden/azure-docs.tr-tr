@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
-ms.openlocfilehash: 15a6a7f4753d51118d23d2e3c021010218d2d2d7
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 82b01cec892f15f7f85f6b5f822475114b5b73c6
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451842"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434998"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Uzantıları Yükleme Windows vm'lerinde kısıtlamak için Azure İlkesi'ni kullanın
 
 Kullanımı veya Windows Vm'lerinizi belirli uzantılarını yüklenmesini engellemek istiyorsanız, uzantıları VM'ler için bir kaynak grubu içinde kısıtlamak için PowerShell kullanarak Azure ilkesi oluşturabilirsiniz. 
 
-Bu öğreticide, Azure PowerShell'in en son sürüme sürekli olarak güncelleştirilen Cloud Shell içinde kullanılır. PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici, Azure PowerShell modülü 3.6 veya sonraki bir sürümünü gerektirir. Sürümü bulmak için ` Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). 
+Bu öğreticide, Azure PowerShell'in en son sürüme sürekli olarak güncelleştirilen Cloud Shell içinde kullanılır. PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici, Azure PowerShell modülü 3.6 veya sonraki bir sürümünü gerektirir. Sürümü bulmak için ` Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/azurerm/install-azurerm-ps). 
 
 ## <a name="create-a-rules-file"></a>Kurallar dosyası oluşturma
 

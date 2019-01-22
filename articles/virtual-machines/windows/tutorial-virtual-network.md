@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 02/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6e5b9ce7a4625cccdfaa29492250a5e8255ec23d
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
-ms.translationtype: HT
+ms.openlocfilehash: 1d07990abcceace81f718bcbac28ff372a784172
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136528"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427721"
 ---
-# <a name="tutorial-create-and-manage-azure-virtual-networks-for-windows-virtual-machines-with-azure-powershell"></a>Öğretici - Windows VM’ler için Azure sanal ağları oluşturma ve yönetme | Microsoft Docs
+# <a name="tutorial-create-and-manage-azure-virtual-networks-for-windows-virtual-machines-with-azure-powershell"></a>Öğretici: Oluşturma ve Azure PowerShell ile Windows sanal makineleri için Azure sanal ağları yönetme
 
 Azure sanal makineleri, iç ve dış ağ iletişimi için Azure ağını kullanır. Bu öğretici, iki sanal makineyi dağıtma ve bu VM’ler için Azure ağını yapılandırma konusunda rehberlik sunar. Bu öğreticideki örneklerde VM’lerde veritabanı arka ucuna sahip bir web uygulaması barındırıldığı varsayılır, ancak öğreticide uygulama dağıtılmaz. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -36,7 +36,7 @@ Azure sanal makineleri, iç ve dış ağ iletişimi için Azure ağını kullan�
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz, bu öğretici Azure PowerShell modülü 5.7.0 veya sonraki bir sürümü gerektirir. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Connect-AzureRmAccount` komutunu da çalıştırmanız gerekir.
+PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz, bu öğretici Azure PowerShell modülü 5.7.0 veya sonraki bir sürümü gerektirir. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/azurerm/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Connect-AzureRmAccount` komutunu da çalıştırmanız gerekir.
 
 ## <a name="vm-networking-overview"></a>VM ağına genel bakış
 

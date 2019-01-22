@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: ergreenl
-ms.openlocfilehash: 1dea3def00423ecf092562aa47c76258316194a9
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 4a5912c7d17dd20a973e196db65e8ce26b6b6faa
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50159069"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427636"
 ---
 # <a name="secure-your-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services yönetilen etki alanınıza güvenli
 Bu makale, yönetilen etki alanınıza güvenli hale getirmenize yardımcı olur. Zayıf şifre paketleri kullanımını devre dışı'ı açın ve NTLM kimlik bilgisi karması eşitleme devre dışı bırakın.
@@ -31,7 +31,7 @@ Bu makale, yönetilen etki alanınıza güvenli hale getirmenize yardımcı olur
 İçin makaledeki yönergeleri [Azure AD PowerShell modülünü yüklemek ve Azure AD'ye bağlanma](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
 
 ### <a name="install-and-configure-azure-powershell"></a>Azure PowerShell'i yükleyip yapılandırma
-İçin makaledeki yönergeleri [Azure PowerShell modülünü yüklemek ve Azure aboneliğinize bağlayın](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
+İçin makaledeki yönergeleri [Azure PowerShell modülünü yüklemek ve Azure aboneliğinize bağlayın](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
 
 
 ## <a name="disable-weak-cipher-suites-and-ntlm-credential-hash-synchronization"></a>Zayıf şifre paketleri ve NTLM kimlik bilgisi karması eşitleme devre dışı bırak

@@ -10,14 +10,14 @@ ms.component: manage
 ms.date: 12/12/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: 21baa89293c74ec49720bffc2506e20789fe9e55
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: b897b50edf4d5a7eeabacc6da1505e165f2bb21a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53411087"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431750"
 ---
-# <a name="whats-new-in-azure-sql-data-warehouse-december-2018"></a>Azure SQL veri ambarı'nda yenilikler nelerdir? Aralık 2018'e
+# <a name="whats-new-in-azure-sql-data-warehouse-december-2018"></a>Azure SQL veri ambarı'nda yenilikler nelerdir? Aralık 2018
 Azure SQL veri ambarı, sürekli olarak iyileştirmeler alır. Bu makalede, aralık 2018'de sunulan değişiklikler ve yeni özellikleri açıklar.
 
 ## <a name="virtual-network-service-endpoints-generally-available"></a>Sanal ağ hizmet uç noktalarını kullanıma sunuldu
@@ -53,6 +53,9 @@ Query Store, Azure SQL veri ambarı hakkında daha fazla bilgi için bkz [Query 
 Azure SQL veri ambarı Gen2, artık daha düşük bilgi işlem katmanını destekler. Müşteriler Azure SQL veri ambarı'nın önde gelen performans, esneklik ve güvenlik özellikleri ile 100 cDWU başlangıç deneyimi ([veri ambarı birimleri](https://docs.microsoft.com/azure/sql-data-warehouse/what-is-a-data-warehouse-unit-dwu-cdwu)) ve 30. 000 cDWU dakikalar içinde ölçeklendirin. Aralık 2018'den başlayarak, müşterilerin Gen2 performansı yararlanabilir ve düşük ile esneklik katmanda işlem [bölgeleri](https://docs.microsoft.com/azure/sql-data-warehouse/gen2-lower-tier-regions), 2019 sırasında kullanılabilir bölgeleri geri kalanı ile.
 
 Giriş noktası için tasarlanan yeni nesil veri ambarı bırakarak Microsoft hangi deneme ortamı için en iyi tahmin olmadan güvenli, yüksek performanslı veri ambarı tüm avantajlarını değerlendirmek istediğiniz değer temelli müşteriler kapılarını açar. Müşteriler, aşağı geçerli 500 cDWU giriş noktasından 100 cDWU düşük başlayabilir. SQL veri ambarı Gen2'ye duraklatma destekler ve işlemleri ve yalnızca işlem esneklik ötesinde uygulanmaya devam eder. Gen2 da destekler sütun deposu sınırsız depolama kapasitesi sorgu başına 2,5 kat daha fazla bellek birlikte en fazla 128 eş zamanlı sorguları ve [Uyarlamalı önbelleğe alma](https://azure.microsoft.com/blog/adaptive-caching-powers-azure-sql-data-warehouse-performance-gains/) özellikleri. Bu özellikler ortalama beş kat daha fazla performans Gen1 üzerinde aynı veri ambarı birimi aynı fiyata göre getirin. Coğrafi olarak yedekli yedeklemeler, yerleşik garantili veri korumasıyla için 2. nesil standarttır. Azure SQL veri ambarı Gen2, işiniz ölçeklendirmek hazırdır.
+
+## <a name="columnstore-background-merge"></a>Columnstore arka plan birleştirme
+Varsayılan olarak, Azure SQL veri ambarı'nı (Azure SQL DW) verileri sütunlu biçiminde micro-adlı bölümlerle depolar [rowgroups](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-memory-optimizations-for-columnstore-compression). Bazı durumlarda, too nedeniyle bellek kısıtlar derleme veya veri yükleme süresini, rowgroups bir milyon satır en iyi boyutundan küçük olan sıkıştırılmış olabilir. RowGroups siler nedeniyle de parçalanmış. Küçük veya bölünmüş rowgroups daha yüksek bellek tüketimi, yanı sıra verimsiz sorgu yürütme sonucu. Azure SQL DW bu sürümle birlikte, daha iyi bellek kullanmasına ve sorgu yürütme ' hızlandırmak için daha büyük satır grupları oluşturmak için küçük sıkıştırılmış satır grupları columnstore arka plan görevi birleştirir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 SQL veri ambarı hakkında biraz bilmek, bilgi nasıl hızlı bir şekilde [SQL veri ambarı oluşturma][create a SQL Data Warehouse]. Azure'da yeniyseniz, bulabilirsiniz [Azure sözlüğünü] [ Azure glossary] yararlı yeni terimlerle öğrenin. Alternatif olarak, aşağıdaki diğer SQL Veri Ambarı Kaynakları’na göz atın.  
