@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 11/09/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 95582fb62f19dcc34aa03a6550f4dbc46257cf7f
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 7d97f68c04656c1f8e227069bb3d33aba13d4b53
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52494354"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435082"
 ---
 # <a name="start-using-pim"></a>PIM kullanmaya başlama
 
@@ -33,7 +33,7 @@ PIM'i kullanmak için aşağıdaki lisanslardan birine sahip olmalıdır:
 - Azure AD Premium P2
 - Enterprise Mobility + Security (EMS) E5
 
-Daha fazla bilgi için [PIM kullanılacak aboneliği gereksinimleri](subscription-requirements.md).
+Daha fazla bilgi için [lisans PIM kullanmak için gereksinimler](subscription-requirements.md).
 
 ## <a name="first-person-to-use-pim"></a>İlk kişinin PIM'i kullanma
 
@@ -55,7 +55,7 @@ PIM dizininizde kullanmaya başlamak için öncelikle PIM etkinleştirmeniz gere
 
 1. Listesinde **PIM onayı**.
 
-    ![PIM'i Onayla](./media/pim-getting-started/consent-pim.png)
+    ![PIM'i onayla](./media/pim-getting-started/consent-pim.png)
 
 1. Tıklayın **Kimliğimi doğrula** Azure MFA ile kimliğinizi doğrulayın. Bir hesap seçin istenir.
 
