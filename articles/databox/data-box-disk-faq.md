@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure Data Box Disk Hakkında SSS | Microsoft Docs
-description: Azure'da büyük miktarlarda veri aktarımı yapmanızı sağlayan bir bulut çözümü olan Azure Data Box Disk hakkında sık sorulan soruları ve yanıtlarını içerir
+description: Sık sorulan sorular ve yanıtlar için Azure'a büyük miktarlarda veri aktarmanıza olanak sağlayan bir bulut çözümü olan Azure Data Box Disk
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 4320e56b04761c6adcae1db259eeecf332fbd781
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 68bc3302874849a69249a50dcecd46024ad939ef
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158797"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448338"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Azure Data Box Disk nedir?
 
@@ -125,7 +125,7 @@ A.  Hayır. Şu an için Data Box Diskleri ile yalnızca tek bir depolama hesab�
 ### <a name="q-what-is-the-toolset-available-for-my-data-with-data-box-disks"></a>S. Veri kutusu disk ile verilerimi için kullanılabilir araç takımı nedir?
 A. Data Box Disk ile kullanılabilir araç takımı üç araçları içerir:
  - **Veri kutusu Disk kilidini aracı**: Microsoft tarafından sevk şifrelenmiş diskler kilidini açmak için bu aracı kullanın. Aracı'nı kullanarak diskleri kilidi açılırken Data Box Disk Siparişiniz Azure portalında bulunan bir parola sağlamanız gerekir. 
- - **Veri kutusu Disk doğrulama aracını**: Azure convnetions adlandırma göre boyutunu, biçimi ve blob doğrulamak için bu aracı adları kullanın. Ayrıca, sağlama daha sonra verileri Azure'a karşıya doğrulamak için kullanılır ve kopyalanan veriler oluşturur.
+ - **Veri kutusu Disk doğrulama aracını**: Azure adlandırma kurallarına göre boyutunu, biçimi ve blob doğrulamak için bu aracı adları kullanın. Ayrıca, sağlama daha sonra verileri Azure'a karşıya doğrulamak için kullanılır ve kopyalanan veriler oluşturur.
  - **Veri kutusu Disk bölünmüş kopyalama aracı**: Birden çok disk kullanırken, bu aracı kullanın ve bölünmesi ve tüm disklerde kopyalanan gereken büyük bir veri kümeniz mevcut. Bu araç şu anda Windows için kullanılabilir.
 
 Araç takımını hem de Windows ve Linux için kullanılabilir. Araç takımı buradan indirebilirsiniz:

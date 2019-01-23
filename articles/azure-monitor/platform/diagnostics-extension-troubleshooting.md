@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 07/12/2017
 ms.author: robb
-ms.component: diagnostic-extension
-ms.openlocfilehash: 8a8883989a731265fb358c119d44fa4243b54a5e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.subservice: diagnostic-extension
+ms.openlocfilehash: 305aa28127e453c01de9b55ab6cb0ff3471afad9
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103953"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473818"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure tanılama sorunlarını giderme
 Bu makalede, Azure Tanılama'yı kullanarak ilgili sorun giderme bilgileri açıklar. Azure Tanılama hakkında daha fazla bilgi için bkz: [Azure tanılama genel bakış](diagnostics-extension-overview.md).
@@ -30,18 +30,18 @@ Bu makalede, Azure Tanılama'yı kullanarak ilgili sorun giderme bilgileri açı
 Bazı önemli günlükleri ve yapıtları yolları aşağıda verilmiştir. Belgenin geri kalanında bu bilgileri diyoruz.
 
 ### <a name="azure-cloud-services"></a>Azure Cloud Services
-| Yapıt | Yol |
+| Yapay Nesne | Yol |
 | --- | --- |
 | **Azure tanılama yapılandırma dosyası** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\Config.txt |
 | **Günlük dosyaları** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\ |
-| **Yerel depo için Tanılama verileri** | C:\Resources\Directory\<CloudServiceDeploymentID >.\< Rol adı >. DiagnosticStore\WAD0107\Tables |
-| **Aracı yapılandırma dosyasını izleme** | C:\Resources\Directory\<CloudServiceDeploymentID >.\< Rol adı >. DiagnosticStore\WAD0107\Configuration\MaConfig.xml |
+| **Yerel depo için Tanılama verileri** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Tables |
+| **Aracı yapılandırma dosyasını izleme** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MaConfig.xml |
 | **Azure tanılama uzantı paketi** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version> |
 | **Günlük toplama yardımcı program yolu** | %SystemDrive%\Packages\GuestAgent\ |
-| **MonAgentHost günlük dosyası** | C:\Resources\Directory\<CloudServiceDeploymentID >.\< Rol adı >. DiagnosticStore\WAD0107\Configuration\MonAgentHost. < seq_num > .log |
+| **MonAgentHost günlük dosyası** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ### <a name="virtual-machines"></a>Sanal makineler
-| Yapıt | Yol |
+| Yapay Nesne | Yol |
 | --- | --- |
 | **Azure tanılama yapılandırma dosyası** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\RuntimeSettings |
 | **Günlük dosyaları** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\ |
@@ -204,9 +204,9 @@ Bu kod, dört tablo oluşturur:
 | Olay | Tablo adı |
 | --- | --- |
 | Sağlayıcı = "prov1" &lt;olay kimliği = "1" /&gt; |WADEvent + MD5("prov1") + "1" |
-| Sağlayıcı = "prov1" &lt;olay kimliği "2" eventDestination = "dest1" = /&gt; |WADdest1 |
+| provider=”prov1” &lt;Event id=”2” eventDestination=”dest1” /&gt; |WADdest1 |
 | Sağlayıcı = "prov1" &lt;DefaultEvents /&gt; |WADDefault+MD5("prov1") |
-| Sağlayıcı = "prov2" &lt;DefaultEvents eventDestination "dest2" = /&gt; |WADdest2 |
+| provider=”prov2” &lt;DefaultEvents eventDestination=”dest2” /&gt; |WADdest2 |
 
 ## <a name="references"></a>Başvurular
 
@@ -293,3 +293,4 @@ Sanal makineler'de portal deneyimi, varsayılan olarak belirli performans sayaç
 - Depolama verileri sayacı adlarını İngilizce dilinde olup olmadığı. Sayaç adları İngilizce değilse, portal ölçüm grafiğini tanıması mümkün olmaz. **Risk azaltma**: Makinenin dili İngilizce'ye sistem hesapları için değiştirin. Bunu yapmak için **Denetim Masası** > **bölge** > **Yönetim** > **kopya ayarlarını**. Ardından, seçimini **Hoş Geldiniz ekranı ve sistem hesapları** böylece özel dil sistem hesabı için uygulanmaz.
 
 - Joker karakterler kullanılıyorsa (\*) performans sayacı adlarını, portal için Azure depolama havuzu performans sayaçlarını gönderildiğinde yapılandırılabilir ve toplanan sayacı ilişkilendirmek mümkün olmaz. **Risk azaltma**: Joker karakter ve genişletin portalı emin olmak için (\*), performans Sayaçlarınızı rota ["Azure İzleyici" havuz](diagnostics-extension-schema.md#diagnostics-extension-111).
+

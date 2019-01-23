@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/05/2017
 ms.author: allclark
 ms.custom: mvc
-ms.openlocfilehash: 1764fc15a888fbe15cc14b990721240d1baf3c40
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
-ms.translationtype: HT
+ms.openlocfilehash: cb8815db5e16603ca4578f6d3d943cbef62e49af
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29851675"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461154"
 ---
 # <a name="deploy-the-lamp-stack-in-a-load-balanced-virtual-machine-scale-set"></a>LAMP yığınını yük dengeli bir sanal makine ölçek kümesine dağıtma
 
@@ -59,7 +59,7 @@ Bu betik bir kaynak grubu, sanal makine, kullanılabilirlik kümesi, yük dengel
 | [az vmss extension set](https://docs.microsoft.com/cli/azure/vmss/extension#az_vmss_extension_set) | VM dağıtımında özel betik çalıştıran uzantıyı oluşturur |
 | [az vmss update-instances](https://docs.microsoft.com/cli/azure/vmss#az_vmss_update_instances) | Ölçek kümesine uzantı uygulanmadan önce dağıtılmış VM örneklerinde özel betiği çalıştırır. |
 | [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#az_vmss_scale) | Daha fazla VM örneği ekleyerek ölçek kümesinin ölçeğini artırır. Özel betik, dağıtıldıklarında bu örnekler üzerinde çalıştırılır. |
-| [az network public-ip list](https://docs.microsoft.com/cli/azure/network/public-ip#az_network_public_ip_list) | Örnek tarafından oluşturulan VM’lerin IP adreslerini alır. |
+| [az network public-ip list](https://docs.microsoft.com/cli/azure/network/public-ip) | Örnek tarafından oluşturulan VM’lerin IP adreslerini alır. |
 | [az network lb show](https://docs.microsoft.com/cli/azure/network/lb#az_network_lb_show) | Yük dengeleyici tarafından kullanılan ön uç ve arka uç bağlantı noktalarını alır. |
 
 ## <a name="next-steps"></a>Sonraki adımlar

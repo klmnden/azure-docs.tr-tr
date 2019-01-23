@@ -9,18 +9,18 @@ services: iot-accelerators
 ms.date: 11/15/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 5505ceaa88f1ad792df57f9728f5e4809404942c
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: a2dc5653b7579d9c5db4667d84e6e5b5082abaab
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599510"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448083"
 ---
 # <a name="tutorial-configure-devices-connected-to-your-monitoring-solution"></a>Öğretici: İzleme çözümünüze bağlı cihazları yapılandırma
 
 Bu öğreticide bağlı IoT cihazlarınızı yapılandırmak ve yönetmek için Uzaktan İzleme çözümü hızlandırıcısını kullanacaksınız. Yeni bir cihaz için çözüm Hızlandırıcısını ekleyip cihaz yapılandırabilirsiniz.
 
-Contoso, tesislerinden birini genişletmek için yeni makineler sipariş etmiştir. Yeni makinelerin teslim edilmesini beklerken çözümünüzün davranışını test etme amacıyla bir simülasyon çalıştırmak istiyorsunuz. Simülasyonu çalıştırmak için Uzaktan izleme çözüm hızlandırıcısının ve bu sanal cihazı yapılandırma güncelleştirmeleri doğru şekilde yanıt test için yeni bir sanal altyapı cihaz ekleyin. Bu öğreticide sanal cihazlar kullanılmaktadır ancak cihaz geliştiricileri [Uzaktan İzleme çözümü hızlandırıcısına bağlı fiziksel cihazlara da](iot-accelerators-connecting-devices.md) doğrudan yöntemler uygulayabilir.
+Contoso, tesislerinden birini genişletmek için yeni makineler sipariş etmiştir. Yeni makinelerin teslim edilmesini beklerken çözümünüzün davranışını test etme amacıyla bir simülasyon çalıştırmak istiyorsunuz. Simülasyonu çalıştırmak için Uzaktan izleme çözüm hızlandırıcısının ve bu sanal cihazı yapılandırma güncelleştirmeleri doğru şekilde yanıt test için yeni bir sanal altyapı cihaz ekleyin. Bu öğreticide, sanal cihazlar kullanırken, bir cihaz Geliştirici doğrudan yöntemler uygulayabilirler bir [gerçek bir cihaz için Uzaktan izleme çözüm Hızlandırıcısını bağlı](iot-accelerators-connecting-devices.md).
 
 Bu öğreticide şunları yaptınız:
 

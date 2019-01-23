@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: 05609f016988720360c51fe529de2f389206406f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1a5b3ff6f8bce62081025488c1155431e78030dc
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978701"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464893"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Azure CLI kullanarak HTTPS yeniden yönlendirmesi için HTTP ile application gateway oluşturma
 
@@ -64,7 +64,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Ağ kaynakları oluşturma
 
-[az network vnet create](/cli/azure/network/vnet#az-net) komutunu kullanarak *myVNet* adlı sanal ağı ve *myAGSubnet* adlı alt ağı oluşturun. Daha sonra [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network_vnet_subnet_create) kullanan arka uç sunucularının gerek duyduğu *myBackendSubnet* adlı alt ağı ekleyebilirsiniz. [az network public-ip create](/cli/azure/network/public-ip#az-network_public_ip_create) komutunu kullanarak *myAGPublicIPAddress* adlı genel IP adresini oluşturun.
+[az network vnet create](/cli/azure/network/vnet#az-net) komutunu kullanarak *myVNet* adlı sanal ağı ve *myAGSubnet* adlı alt ağı oluşturun. Daha sonra [az network vnet subnet create](/cli/azure/network/vnet/subnet) kullanan arka uç sunucularının gerek duyduğu *myBackendSubnet* adlı alt ağı ekleyebilirsiniz. [az network public-ip create](/cli/azure/network/public-ip#az-network_public_ip_create) komutunu kullanarak *myAGPublicIPAddress* adlı genel IP adresini oluşturun.
 
 ```azurecli-interactive
 az network vnet create \
@@ -121,7 +121,7 @@ az network application-gateway create \
 
 ### <a name="add-the-http-port"></a>HTTP bağlantı noktası Ekle
 
-Kullanabileceğiniz [az ağ application-gateway frontend-port oluşturma](/cli/azure/network/application-gateway/frontend-port#az-network_application_gateway_frontend_port_create) HTTP bağlantı noktası uygulama ağ geçidine eklemek için.
+Kullanabileceğiniz [az ağ application-gateway frontend-port oluşturma](/cli/azure/network/application-gateway/frontend-port) HTTP bağlantı noktası uygulama ağ geçidine eklemek için.
 
 ```azurecli-interactive
 az network application-gateway frontend-port create \
@@ -146,7 +146,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-the-redirection-configuration"></a>Yeniden yönlendirme yapılandırması Ekle
 
-HTTP, HTTPS yeniden yönlendirmesi yapılandırma kullanarak uygulama ağ geçidi eklemek [az ağ uygulama ağ geçidini yeniden yönlendirme yapılandırması oluşturma](/cli/azure/network/application-gateway/redirect-config#az-network_application_gateway_redirect_config_create).
+HTTP, HTTPS yeniden yönlendirmesi yapılandırma kullanarak uygulama ağ geçidi eklemek [az ağ uygulama ağ geçidini yeniden yönlendirme yapılandırması oluşturma](/cli/azure/network/application-gateway/redirect-config).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \

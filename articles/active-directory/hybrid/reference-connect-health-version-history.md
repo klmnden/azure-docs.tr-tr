@@ -4,7 +4,7 @@ description: Bu belgede, Azure AD Connect Health ve bu sürümlerde dahil yayın
 services: active-directory
 documentationcenter: ''
 author: zhiweiwangmsft
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 8dd4e998-747b-4c52-b8d3-3900fe77d88f
 ms.service: active-directory
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 08d1589b8b215471983dc76a836dd89f83fd8204
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 25024e5753720ab6e1efcab290d453f944442a4e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053407"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477116"
 ---
-# <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health'i: Sürüm Yayınlama Geçmişi
+# <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: Sürüm Yayınlama Geçmişi
 Azure Active Directory ekibi, düzenli olarak yeni özellikler ve işlevler ile Azure AD Connect Health güncelleştirir. Bu makalede sürümleri ve yayımlanan özellikler listelenmektedir.
 Azure AD Connect Health eşitleme için Azure AD Connect yüklemesi ile tümleşiktir. Daha fazla bilgi edinin [Azure AD Connect sürüm geçmişi](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history) , özellikle ilgili düşüncelerinizi için oy [Connect Health User Voice kanal](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)
 

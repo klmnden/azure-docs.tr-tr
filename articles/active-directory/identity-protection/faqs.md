@@ -4,7 +4,7 @@ description: Azure AD kimlik koruması hakkında sık sorulan sorular
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: 14f7fc83-f4bb-41bf-b6f1-a9bb97717c34
 ms.service: active-directory
 ms.component: conditional-access
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/03/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: f3123ed9a6d4898889b36e29c34c6c6a7496ea0d
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 70bab69fecbe3f8aab1858aaddfa9004278c0f03
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005459"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470690"
 ---
 # <a name="azure-active-directory-identity-protection-faq"></a>Azure Active Directory kimlik koruması ile ilgili SSS
 
@@ -34,18 +34,18 @@ Bu makale, Azure Active Directory (Azure AD) kimlik koruması hakkında sık sor
 ---
 
 ## <a name="do-i-need-to-be-a-global-admin-to-use-identity-protection-in-the-azure-portal"></a>Kimlik koruması Azure Portalı'nda kullanmak için genel yönetici olmanız gerekiyor mu?
-**C:** Hayır. Alanı, kimlik Koruması'nı kullanmak için bir güvenlik Okuyucu, güvenlik yöneticisi veya genel yönetici olabilir.
+**Y:** Hayır. Alanı, kimlik Koruması'nı kullanmak için bir güvenlik Okuyucu, güvenlik yöneticisi veya genel yönetici olabilir.
 
 ---
 
 ## <a name="how-do-i-get-identity-protection"></a>Kimlik koruması ne elde ederim?
 
-**Y:** bkz [Azure Active Directory Premium ile çalışmaya başlama](../fundamentals/active-directory-get-started-premium.md) Bu soruya yanıt.
+**Y:** Bkz: [Azure Active Directory Premium ile çalışmaya başlama](../fundamentals/active-directory-get-started-premium.md) Bu soruya yanıt.
 
 ---
 
 ## <a name="how-can-i-sort-users-in-users-flagged-for-risk"></a>"Riskli oldukları belirlenen kullanıcılar" kullanıcıların sıralama ne yapabilirsiniz?
 
-**Y:** tıklayarak risk raporu için işaretlenmiş kullanıcılar indirme **indirme** üzerindeki **risk için işaretlenen kullanıcılar** sayfası. Daha sonra indirilen veriler son güncelleştirme (UTC) dahil olmak üzere mevcut alanlara göre sıralayabilirsiniz.
+**Y:** Risk tıklayarak olarak işaretlenen kullanıcılar raporu indirme **indirme** üzerindeki **risk için işaretlenen kullanıcılar** sayfası. Daha sonra indirilen veriler son güncelleştirme (UTC) dahil olmak üzere mevcut alanlara göre sıralayabilirsiniz.
 
 ---

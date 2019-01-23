@@ -4,7 +4,7 @@ description: Joker karakter içeren uygulamalar Azure Active Directory Uygulama 
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.date: 09/06/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 8c876f220cde99bbeb3b5d9f8f8878acb5584802
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: d0b989ac7095f070c65f5f11cd8d67e3e41c9d45
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140056"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478374"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Azure Active Directory Uygulama proxy'si joker karakteri uygulamalarında 
 
@@ -176,7 +176,7 @@ Aşağıdaki yapı yapılandırmasını uygular:
 
 
 
-## <a name="scenario-2-general-wildcard-application-with-exception"></a>Senaryo 2: Genel joker uygulama özel durum ile
+## <a name="scenario-2-general-wildcard-application-with-exception"></a>Senaryo 2: Özel durum ile genel joker uygulama
 
 Bu senaryoda, ayrıca üç genel için başka bir uygulama, uygulamanız `finance.adventure-works.com`, yalnızca olacağı Finans bölme erişilebilir. Geçerli uygulama yapısıyla Finans uygulamanız aracılığıyla joker uygulama ve tüm çalışanlar tarafından erişilebilir olacaktır. Bunu değiştirmek için uygulamanızın, joker karakter daha kısıtlayıcı izinlerle ayrı bir uygulama olarak, Finans yapılandırarak hariç tutun.
 

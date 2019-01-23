@@ -4,7 +4,7 @@ description: Ortamınızda katılmış cihazların Azure AD'ye uygulamanız içi
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.component: devices
 ms.assetid: 81d4461e-21c8-4fdd-9076-0e4991979f62
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/21/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: cb604bec1860da25e18c1c3a56a012882e5ea58e
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: be7cded5b9cd2f7a3f33d1de11f36e82f079fc4b
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189522"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448577"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Nasıl yapılır: Azure AD katılımınızı uygulamayı planlama
 
@@ -239,7 +239,7 @@ Bu üç yaklaşımların bir karşılaştırması aşağıdadır.
 |Geçerli akışlar|OOBE & ayarları|Yalnızca OOBE|Yalnızca OOBE|
 |Birincil kullanıcı için yerel yönetici hakları|Evet, varsayılan olarak|Yapılandırılabilir|Hayır|
 |Cihaz OEM desteği gerektirir|Hayır|Evet|Hayır|
-|Desteklenen sürümler|1511 +|1709 +|1703 +|
+|Desteklenen sürümler|1511+|1709+|1703+|
  
 Yukarıdaki tabloda gözden geçirme ve her iki yaklaşımı benimsemeyi aşağıdaki konuları gözden geçirerek, dağıtım yaklaşımını veya yaklaşımları seçin:  
 

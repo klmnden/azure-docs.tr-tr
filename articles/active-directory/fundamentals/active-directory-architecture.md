@@ -3,7 +3,7 @@ title: Mimari genel bakış - Azure Active Directory | Microsoft Docs
 description: Bilgi Azure Active Directory kiracısının ne olduğu ve Azure Active Directory'yi kullanarak Azure'ı yönetme.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 08/23/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 6d53de431ea619dfc8865ef23439146517d37764
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 7667f7b52f9130c9793a86a185a15f8dec1ae063
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54013307"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452165"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>Azure Active Directory mimarisini nedir?
 Azure Active Directory (Azure AD), kullanıcılarınız için Azure hizmet ve kaynaklarına erişimi güvenli bir şekilde yönetmenizi sağlar. Azure AD ile birlikte eksiksiz kimlik yönetimi olanakları sunulur. Azure AD özellikleri hakkında daha fazla bilgi için bkz. [Azure Active Directory nedir?](active-directory-whatis.md)

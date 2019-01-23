@@ -4,7 +4,7 @@ description: Azure AD uygulama proxy'si kullanımıyla ilgili güvenlik konular�
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2017
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 985ea1f16cff010041d61d808280cb47f2b77aa9
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 23ea1806c1670b73883384a0e4981f362bad90f0
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618368"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472731"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Uygulamaları Azure AD uygulama proxy'si ile uzaktan erişim için güvenlik konuları
 
@@ -48,7 +48,7 @@ Ağ bağlantıları kurulan önce daha zengin ilke denetimleri uygulayın.
 
 İle [koşullu erişim](../conditional-access/overview.md), trafiğin hangi arka uç uygulamalarınızı erişmesine izin verilip kısıtlamalar tanımlayabilirsiniz. Oturum açma kimlik doğrulaması ve kullanıcı riski profili gücünü konuma göre kısıtlayan ilkeler oluşturabilirsiniz.
 
-Koşullu erişim, bir güvenlik katmanı, kullanıcı kimlik doğrulamalarına eklenmesinden çok faktörlü kimlik doğrulaması ilkeleri yapılandırmak için de kullanabilirsiniz. 
+Koşullu erişim, bir güvenlik katmanı, kullanıcı kimlik doğrulamalarına eklenmesinden çok faktörlü kimlik doğrulaması ilkeleri yapılandırmak için de kullanabilirsiniz. Ayrıca, uygulamalarınızı ayrıca Microsoft Cloud App Security'ye üzerinden gerçek zamanlı izleme ve denetim sağlamak için Azure AD koşullu erişim aracılığıyla yönlendirilebilir [erişim](https://docs.microsoft.com/en-us/cloud-app-security/access-policy-aad) ve [oturumu](https://docs.microsoft.com/en-us/cloud-app-security/session-policy-aad) ilkeleri
 
 ### <a name="traffic-termination"></a>Trafik sonlandırma
 
@@ -92,8 +92,8 @@ Microsoft, tek tek uygulamalar için ve bir bütün olarak aboneliğiniz için t
 
 Azure AD uygulama proxy'si iki bölümden oluşur:
 
-* Bulut tabanlı hizmet: Bu hizmet, Azure'da çalışan ve dış istemci/kullanıcı bağlantıları burada yapılan olduğu.
-* [Şirket içi Bağlayıcısı'nı](application-proxy-connectors.md): iç uygulamaları için Azure AD uygulama proxy'si hizmeti ve tanıtıcıları bağlantılardan gelen istekler için bağlayıcı bir şirket içi Bileşen dinler. 
+* Bulut tabanlı hizmeti: Bu hizmet, Azure'da çalışan ve dış istemci/kullanıcı bağlantıları burada yapılan olduğu.
+* [Şirket içi Bağlayıcısı'nı](application-proxy-connectors.md): Bir şirket içi Bileşen iç uygulamaları için Azure AD uygulama proxy'si hizmeti ve tanıtıcıları bağlantılardan gelen istekler için bağlayıcıyı dinler. 
 
 Bir akış Bağlayıcısı ve uygulama proxy'si hizmeti arasında kurulan olduğunda:
 
@@ -110,8 +110,8 @@ Bağlayıcı, neredeyse tüm çağrıları için uygulama proxy'si hizmeti kimli
 
 Bağlayıcı ilk ayarlandığında, akış aşağıdakiler gerçekleşir:
 
-1. Bağlayıcı kaydı için hizmet Bağlayıcısı'nı yüklemesinin bir parçası olarak'olmuyor. Kullanıcılar, Azure AD yönetici kimlik bilgilerini girmeniz istenir. Bu kimlik doğrulamasını edinilen belirteci daha sonra Azure AD uygulama ara Sunucusu hizmetine sunulur.
-2. Uygulama proxy'si hizmeti, belirteci değerlendirir. Bu kullanıcı kiracıda bir şirket yöneticisi olup olmadığını denetler. Kullanıcı bir yönetici değilse, işlem sonlandırıldı.
+1. Bağlayıcı kaydı için hizmet Bağlayıcısı'nı yüklemesinin bir parçası olarak'olmuyor. Kullanıcılar, Azure AD yönetici kimlik bilgilerini girmeniz istenir. Bu kimlik doğrulamasını edinilen belirteci daha sonra Azure AD uygulama ara Sunucusu hizmetine sunulur.
+2. Uygulama proxy'si hizmeti, belirteci değerlendirir. Bu kullanıcı kiracıda bir şirket yöneticisi olup olmadığını denetler. Kullanıcı bir yönetici değilse, işlem sonlandırıldı.
 3. Bağlayıcı, istemci sertifika isteği oluşturur ve, uygulama proxy'si hizmeti, belirteci ile birlikte geçirir. Hizmet sırayla belirteci doğrular ve istemci sertifika isteğini imzalar.
 4. Bağlayıcı, uygulama proxy'si hizmeti ile gelecekteki iletişimi için istemci sertifikası kullanır.
 5. Bağlayıcı sistem yapılandırma verilerinin ilk bir çekme istemci sertifikasını kullanarak hizmetinden gerçekleştirir ve istekleri almak artık hazırdır.
@@ -176,7 +176,7 @@ Arka uç için tüm içerik aktarımını ve istek tamamlandıktan sonra bağlay
 
 Bir yanıtını aldıktan sonra bağlayıcıyı üst bilgisi ayrıntıları dönmek ve dönüş verileri akışı başlatmak için uygulama ara Sunucusu hizmetine giden bir bağlantı kurar.
 
-#### <a name="5-the-service-streams-data-to-the-user"></a>5. Hizmet, kullanıcı veri akışları. 
+#### <a name="5-the-service-streams-data-to-the-user"></a>5. Hizmet, kullanıcı veri akışları. 
 
 Bazı uygulama işlenmesini burada ortaya çıkabilir. Uygulamanızda üstbilgileri çevirmek için uygulama proxy'si veya URL'leri yapılandırdıysanız, bu işlem sırasında bu adımı gerektiğinde'olmuyor
 

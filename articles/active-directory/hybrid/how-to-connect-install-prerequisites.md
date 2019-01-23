@@ -4,7 +4,7 @@ description: Bu konu ön koşullar ve Azure AD Connect için donanım gereksinim
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 91b88fda-bca6-49a8-898f-8d906a661f07
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a36868e5bab64883036e0f93352bea5341ff7fe7
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: eb5ad49a26631ca363737406f54b4c794e01ebda
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384080"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472849"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect önkoşulları
 Bu konu ön koşullar ve Azure AD Connect için donanım gereksinimlerini açıklar.
@@ -79,7 +79,7 @@ Azure AD Connect'i yüklemeden önce gereken birkaç şey vardır.
   * Microsoft Cloud Almanya'da veya Microsoft Azure kamu Bulutu kullanıyorsanız, daha sonra bkz [Azure AD Connect eşitleme hizmeti örnekleri konuları](reference-connect-instances.md) URL'ler için.
 * Azure AD Connect'i (sürüm 1.1.614.0 ve sonrası) varsayılan olarak TLS 1.2 eşitleme altyapısı ve Azure AD arasındaki iletişimi şifrelemek için kullanır. TLS 1.2 temel alınan işletim sisteminde kullanılabilir durumda değilse, Azure AD Connect artımlı olarak geri eski protokollere (TLS 1.1 ve TLS 1.0) döner.
 * Sürüm 1.1.614.0 önce Azure AD Connect varsayılan olarak TLS 1.0 eşitleme altyapısı ve Azure AD arasındaki iletişimi şifrelemek için kullanır. TLS 1.2 değiştirmek için adımları izleyin. [Azure AD Connect için "etkinleştir" TLS 1.2](#enable-tls-12-for-azure-ad-connect).
-* İnternet'e, aşağıdaki ayarı bağlamak için bir giden bağlantı proxy'si kullanıyorsanız **C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config** Yükleme Sihirbazı'nı ve Azure AD için dosya eklenmelidir İnternet'e ve Azure AD connect için eşitleme bağlanın. Bu metin, dosyanın sonunda girilmelidir. Bu kodda, &lt;PROXYADRESS&gt; gerçek Ara sunucu IP adresi veya ana bilgisayar adını temsil eder.
+* İnternet'e, aşağıdaki ayarı bağlamak için bir giden bağlantı proxy'si kullanıyorsanız **C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config** Yükleme Sihirbazı'nı ve Azure AD için dosya eklenmelidir İnternet'e ve Azure AD connect için eşitleme bağlanın. Bu metin, dosyanın sonunda girilmelidir. Bu kodda, &lt;PROXYADDRESS&gt; gerçek Ara sunucu IP adresi veya ana bilgisayar adını temsil eder.
 
 ```
     <system.net>
@@ -120,7 +120,7 @@ Bağlantı sorunlarınız olduğunda, daha fazla bilgi için bkz. [bağlantı so
 Azure AD Connect, Microsoft PowerShell ve .NET Framework 4.5.1 bağlıdır. Bu sürümü veya sonraki bir sürümü sunucuda yüklü ihtiyacınız var. Windows Server sürümüne bağlı olarak, aşağıdakileri yapın:
 
 * Windows Server 2012R2
-  * Microsoft PowerShell varsayılan olarak yüklenir. Eylem gerekmiyor.
+  * Microsoft PowerShell varsayılan olarak yüklenir. İşlem yapmanız gerekmez.
   * .NET framework 4.5.1 ve sonraki sürümleri, Windows Update aracılığıyla sunulur. Denetim Masası'nda Windows Server için en son güncelleştirmeleri yüklediğinizden emin olun.
 * Windows Server 2008 R2 ve Windows Server 2012
   * Microsoft PowerShell'in en son sürümünü kullanılabilir **Windows Management Framework 4.0**üzerinden [Microsoft Download Center](https://www.microsoft.com/downloads).

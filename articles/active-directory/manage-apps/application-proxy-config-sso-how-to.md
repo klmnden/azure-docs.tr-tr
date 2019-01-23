@@ -4,7 +4,7 @@ description: Nasıl çoklu oturum açma uygulama proxy uygulamanıza hızlı bir
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: c27649bc92b9874c6a669911d2b86273cf7adf0f
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 41f4be83e04ad1bc476f1aa47281e4d35f898b45
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136342"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468632"
 ---
 # <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>Uygulama proxy'si uygulaması için çoklu oturum açma yapılandırma
 
@@ -36,15 +36,15 @@ SSO yapılandırmak için ilk uygulamanızı Azure Active Directory üzerinden �
 ## <a name="configuring-single-sign-on-modes-for-application-proxy-applications"></a>Çoklu oturum açma modları için uygulama Proxy uygulamaları yapılandırma
 Çoklu oturum açma belirli türünü yapılandırın. Oturum açma yöntemleri, hangi kimlik doğrulaması türü arka uç uygulamanın kullandığı şirket göre sınıflandırılır. Uygulama Proxy uygulamaları, üç tür oturum açmayı destekler:
 
--   **Parola tabanlı oturum açma**: parola tabanlı oturum açma için kullanılabilir oturum açma için kullanıcı adı ve parola alanları kullanan tüm uygulamaları. Yapılandırma adımları bulunduğunuz [parola çoklu oturum açma Azure AD galeri uygulaması için yapılandırma](configure-password-single-sign-on-gallery-applications.md).
+-   **Parola tabanlı oturum açma**: Parola tabanlı oturum açma için oturum açma için kullanıcı adı ve parola alanları kullanan tüm uygulamaları kullanılabilir. Yapılandırma adımları bulunduğunuz [parola çoklu oturum açma Azure AD galeri uygulaması için yapılandırma](configure-password-single-sign-on-gallery-applications.md).
 
--   **Tümleşik Windows kimlik doğrulaması**: tümleşik Windows kimlik doğrulaması (IWA) kullanarak uygulamalar için çoklu oturum açma Kerberos Kısıtlı temsilci (KCD) aracılığıyla etkinleştirilir. Bu yöntem uygulama Proxy Bağlayıcılarına, kullanıcıların kimliğine bürünmek ve göndermek ve kendileri adına belirteçlerini almak için Active Directory'de sağlar. KCD yapılandırma ayrıntıları bulunabilir [KCD belgeleri ile çoklu oturum açmayı](application-proxy-configure-single-sign-on-with-kcd.md).
+-   **Tümleşik Windows kimlik doğrulaması**: Kerberos Kısıtlı temsilci (KCD) aracılığıyla çoklu oturum açma tümleşik Windows kimlik doğrulaması (IWA) kullanarak uygulamalar için etkinleştirilir. Bu yöntem uygulama Proxy Bağlayıcılarına, kullanıcıların kimliğine bürünmek ve göndermek ve kendileri adına belirteçlerini almak için Active Directory'de sağlar. KCD yapılandırma ayrıntıları bulunabilir [KCD belgeleri ile çoklu oturum açmayı](application-proxy-configure-single-sign-on-with-kcd.md).
 
--   **Üst bilgi tabanlı oturum açma**: üst bilgi tabanlı oturum açma, bir iş ortaklığı etkinleştirilir ve bazı ek yapılandırma gerektirir. Üst bilgileri için kimlik doğrulaması kullanan bir uygulama için çoklu oturum açma yapılandırmaya yönelik adım adım yönergeler ve iş ortaklığı hakkında daha fazla bilgi için bkz: [belgeleri Azure AD için PingAccess](application-proxy-configure-single-sign-on-with-ping-access.md).
+-   **Üst bilgi tabanlı oturum açma**: Üst bilgi tabanlı oturum açma bir iş ortaklığı etkinleştirilir ve bazı ek yapılandırma gerektirir. Üst bilgileri için kimlik doğrulaması kullanan bir uygulama için çoklu oturum açma yapılandırmaya yönelik adım adım yönergeler ve iş ortaklığı hakkında daha fazla bilgi için bkz: [belgeleri Azure AD için PingAccess](application-proxy-configure-single-sign-on-with-ping-access.md).
 
 Bu seçeneklerin her biri "Kurumsal uygulamalar" uygulamanızda giderek ve ardından açarak bulunabilir **çoklu oturum açma** sol menüde sayfası. Uygulamanız eski portalda oluşturulmuş olsa bile, tüm bu seçenekler göremeyebilirsiniz unutmayın.
 
-Bu sayfada, ayrıca bir gördüğünüz ek oturum açma seçeneği: bağlantılı oturum açma. Bu seçenek, uygulama proxy'si tarafından da desteklenir. Ancak, bu seçeneği çoklu oturum açma uygulamaya eklemez. Bu uygulamanın tek Active Directory Federasyon Hizmetleri gibi başka bir hizmet kullanılarak uygulanan oturum zaten olabilir belirtti. 
+Bu sayfada, ayrıca bir gördüğünüz ek oturum açma seçeneği: Bağlantılı oturum açma. Bu seçenek, uygulama proxy'si tarafından da desteklenir. Ancak, bu seçeneği çoklu oturum açma uygulamaya eklemez. Bu uygulamanın tek Active Directory Federasyon Hizmetleri gibi başka bir hizmet kullanılarak uygulanan oturum zaten olabilir belirtti. 
 
 Bu seçenek, bir uygulamaya bir bağlantı, kullanıcıların ilk land uygulamaya erişirken oluşturmak için bir yönetici sağlar. Active Directory Federasyon Hizmetleri 2.0 kullanan kullanıcıların kimliğini doğrulamak üzere yapılandırılmış bir uygulama ise, örneğin, bir yönetici "bağlantılı oturum açma" seçeneği erişim panelinde bir bağlantı oluşturmak için kullanabilirsiniz.
 

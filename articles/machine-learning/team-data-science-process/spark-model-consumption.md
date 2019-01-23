@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 543ae7cecf9edcb5997a0bae66e0722d258a4523
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: eb66e5c84542127f63b6311a887494f1e2ba394c
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135314"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448797"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Spark'a yerleşik machine learning modelleri kullanıma hazır hale getirme
 
@@ -279,7 +279,7 @@ Ayrıca verilerle ölçeklendirme gösteren kod içeren `StandardScalar` kullan�
                              line.trip_distance, line.fare_amount])
         return  features
 
-    # ONE-HOT ENCODING OF CATEGORICAL TEXT FEATURES FOR INPUT INTO LOGISTIC RERESSION MODELS
+    # ONE-HOT ENCODING OF CATEGORICAL TEXT FEATURES FOR INPUT INTO LOGISTIC REGRESSION MODELS
     def parseRowOneHotBinary(line):
         features = np.concatenate((np.array([line.pickup_hour, line.weekday, line.passenger_count,
                                             line.trip_time_in_secs, line.trip_distance, line.fare_amount]), 
@@ -524,7 +524,7 @@ BoostedTreeClassificationFileLoc: GradientBoostingTreeClassification_2016-05-031
 BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression_2016-05-0317_23_56.860740.txt
 
 ## <a name="consume-spark-models-through-a-web-interface"></a>Bir web arabirimi aracılığıyla Spark modelleri kullanma
-Spark uzaktan Livy adlı bir bileşen ile batch işleri veya bir REST arabirimi üzerinden etkileşimli sorguları göndermek için bir mekanizma sağlar. Livy HDInsight Spark kümeniz üzerindeki varsayılan olarak etkindir. Livy ile ilgili daha fazla bilgi için bkz: [uzaktan Livy kullanarak Spark gönderme işleri](../../hdinsight/spark/apache-spark-livy-rest-interface.md). 
+Spark uzaktan Livy adlı bir bileşen ile batch işleri veya bir REST arabirimi üzerinden etkileşimli sorguları göndermek için bir mekanizma sağlar. Livy HDInsight Spark kümeniz üzerindeki varsayılan olarak etkindir. Livy ile ilgili daha fazla bilgi için bkz: [Uzaktan Livy kullanarak Spark işleri göndermek](../../hdinsight/spark/apache-spark-livy-rest-interface.md). 
 
 Bir Azure blob içinde depolanır ve ardından sonuçları başka bir bloba yazan bir dosya uzaktan puanlarını toplu bir işi göndermek için Livy kullanabilirsiniz. Bunu yapmak için Python betiği karşıya yükleyin.  
 [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) Spark kümesinin blob için. Gibi bir araç kullanabilirsiniz **Microsoft Azure Depolama Gezgini** veya **AzCopy** betik küme bloba kopyalamak için. Örneğimizde betiği dosyamızı ***wasb:///example/python/ConsumeGBNYCReg.py***.   
@@ -555,7 +555,7 @@ HTTP çağrısı için Python kod aşağıdaki gibidir:
 
     import os
 
-    # OLDER HTTP LIBRARIES USED HERE INSTEAD OF THE REQUEST LIBRARY AS THEY ARE AVAILBLE BY DEFAULT
+    # OLDER HTTP LIBRARIES USED HERE INSTEAD OF THE REQUEST LIBRARY AS THEY ARE AVAILABLE BY DEFAULT
     import httplib, urllib, base64
 
     # REPLACE VALUE WITH ONES FOR YOUR SPARK CLUSTER
@@ -587,5 +587,5 @@ Bir kod ücretsiz istemci deneyimi tercih ediyorsanız, kullanın [Azure Logic A
 ![Logic Apps Tasarımcısı](./media/spark-model-consumption/spark-logica-app-client.png)
 
 ## <a name="whats-next"></a>Sırada ne var?
-**Çapraz doğrulama ve hiper parametre Süpürme**: bkz [Gelişmiş Veri keşfi ve modelleme Spark ile](spark-advanced-data-exploration-modeling.md) modelleri nasıl olabileceğini üzerinde çapraz doğrulama ve hiper parametreli Süpürme kullanarak eğitilir.
+**Çapraz doğrulama ve hiper parametre Süpürme**: Bkz: [Gelişmiş Veri keşfi ve modelleme Spark ile](spark-advanced-data-exploration-modeling.md) modelleri nasıl olabileceğini üzerinde çapraz doğrulama ve hiper parametreli Süpürme kullanarak eğitim.
 

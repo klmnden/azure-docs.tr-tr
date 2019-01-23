@@ -8,13 +8,13 @@ ms.date: 06/26/2018
 ms.topic: article
 ms.workload: identity
 ms.service: active-Directory
-manager: mtillman
-ms.openlocfilehash: 59df0dc61be1f670f21b94fe24e56a2f040f950e
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+manager: daveba
+ms.openlocfilehash: da2ae0262ef8380f31f37bfbbe5ddca45c72ebd1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426817"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468106"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Azure AD UserPrincipalName popülasyonu
 
@@ -84,7 +84,7 @@ Azure AD Kiracısına kullanıcı nesnesi güncelleştirmeleri eşitlenirken Mai
 ## <a name="upn-scenarios"></a>UPN senaryoları
 Nasıl UPN göre belirli bir senaryoya göre hesaplanır örnek senaryolar verilmiştir.
 
-### <a name="scenario-1-non-verified-upn-suffix--initial-synchronization"></a>Senaryo 1: Doğrulanmamış UPN soneki – ilk eşitleme
+### <a name="scenario-1-non-verified-upn-suffix--initial-synchronization"></a>Senaryo 1: UPN soneki olmayan doğrulandı – ilk eşitleme
 
 ![Scenario1](./media/plan-connect-userprincipalname/example1.png)
 
@@ -100,11 +100,11 @@ Azure AD kiracınıza kullanıcı nesnesinin ilk kez eşitlenir.
 - Azure AD UserPrincipalName özniteliği için MOERA ayarlayın.
 
 Azure AD Kiracısına kullanıcı nesnesi:
-- MailNickName: us1           
+- MailNickName      : us1           
 - UserPrincipalName: us1@contoso.onmicrosoft.com
 
 
-### <a name="scenario-2-non-verified-upn-suffix--set-on-premises-mailnickname-attribute"></a>Senaryo 2: Doğrulanmamış UPN soneki – kümesi mailNickName özniteliğinin şirket
+### <a name="scenario-2-non-verified-upn-suffix--set-on-premises-mailnickname-attribute"></a>Senaryo 2: UPN soneki olmayan doğrulandı – kümesi mailNickName özniteliğinin şirket
 
 ![Scenario2](./media/plan-connect-userprincipalname/example2.png)
 
@@ -119,10 +119,10 @@ Azure AD Kiracısı için şirket içi mailNickName özniteliğine güncelleşti
 - Şirket içi userPrincipalName özniteliği için güncelleştirme olduğundan, Azure AD UserPrincipalName özniteliği için değişiklik yoktur.
 
 Azure AD Kiracısına kullanıcı nesnesi:
-- mailNickName: us4
+- MailNickName      : us4
 - UserPrincipalName: us1@contoso.onmicrosoft.com
 
-### <a name="scenario-3-non-verified-upn-suffix--update-on-premises-userprincipalname-attribute"></a>Senaryo 3: Doğrulanmamış UPN soneki – güncelleştirme userPrincipalName özniteliği şirket
+### <a name="scenario-3-non-verified-upn-suffix--update-on-premises-userprincipalname-attribute"></a>Senaryo 3: UPN soneki olmayan doğrulandı – güncelleştirme userPrincipalName özniteliği şirket
 
 ![Scenario3](./media/plan-connect-userprincipalname/example3.png)
 
@@ -138,10 +138,10 @@ Azure AD Kiracısı için şirket içi userPrincipalName özniteliği güncelle�
 - Azure AD UserPrincipalName özniteliği için MOERA ayarlayın.
 
 Azure AD Kiracısına kullanıcı nesnesi:
-- mailNickName: us4
+- MailNickName      : us4
 - UserPrincipalName: us4@contoso.onmicrosoft.com
 
-### <a name="scenario-4-non-verified-upn-suffix--update-primary-smtp-address-and-on-premises-mail-attribute"></a>Senaryo 4: Doğrulanmamış UPN soneki – güncelleştirme birincil SMTP adresini ve şirket içi posta özniteliği
+### <a name="scenario-4-non-verified-upn-suffix--update-primary-smtp-address-and-on-premises-mail-attribute"></a>Senaryo 4: Olmayan doğrulandı UPN soneki – güncelleştirme birincil SMTP adresini ve şirket içi posta özniteliği
 
 ![Scenario4](./media/plan-connect-userprincipalname/example4.png)
 
@@ -155,10 +155,10 @@ Azure AD Kiracısına kullanıcı nesnesi:
 - İlk eşitleme kullanıcı nesnesinin güncelleştirmeleri sonra şirket içi posta özniteliği ve birincil SMTP adresini, Azure AD MailNickName veya UserPrincipalName özniteliği etkilemez.
 
 Azure AD Kiracısına kullanıcı nesnesi:
-- mailNickName: us4
+- MailNickName      : us4
 - UserPrincipalName: us4@contoso.onmicrosoft.com
 
-### <a name="scenario-5-verified-upn-suffix--update-on-premises-userprincipalname-attribute-suffix"></a>Senaryo 5: Doğrulanmış UPN soneki – güncelleştirme userPrincipalName özniteliği soneki şirket
+### <a name="scenario-5-verified-upn-suffix--update-on-premises-userprincipalname-attribute-suffix"></a>Senaryo 5: UPN soneki doğrulanmış – güncelleştirme userPrincipalName özniteliği soneki şirket
 
 ![Scenario5](./media/plan-connect-userprincipalname/example5.png)
 
@@ -173,7 +173,7 @@ Azure AD Kiracısı için şirket içi userPrincipalName özniteliği güncelle�
 - Azure AD UserPrincipalName özniteliği, UPN soneki, Azure AD Kiracısı ile doğrulanmış şirket içi userPrincipalName özniteliği ayarlayın.
 
 Azure AD Kiracısına kullanıcı nesnesi:
-- mailNickName: us4     
+- MailNickName      : us4     
 - UserPrincipalName: us5@verified.contoso.com
 
 ## <a name="next-steps"></a>Sonraki Adımlar

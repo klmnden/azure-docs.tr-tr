@@ -3,8 +3,8 @@ title: Azure Notification hubs'ı kullanarak iOS cihazlarına yerelleştirilmiş
 description: Azure Notification Hubs'ı kullanarak iOS cihazlarını yerelleştirilmiş anında iletme bildirimleri kullanmayı öğrenin.
 services: notification-hubs
 documentationcenter: ios
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 ms.assetid: 484914b5-e081-4a05-a84a-798bbd89d428
 ms.service: notification-hubs
@@ -12,16 +12,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 04/14/2018
-ms.author: dimazaid
-ms.openlocfilehash: d19fc4290f32359d3af66d96512f65abb17f5d34
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.date: 01/04/2019
+ms.author: jowargo
+ms.openlocfilehash: 56662a40df6abeb672992a2da4c04692e7280021
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918632"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451706"
 ---
-# <a name="tutorial-push-localized-notifications-to-ios-devices-using-azure-notification-hubs"></a>Öğretici: Yerelleştirilmiş anında iletme bildirimleri için Azure Notification Hubs'ı kullanarak iOS cihazlarını 
+# <a name="tutorial-push-localized-notifications-to-ios-devices-using-azure-notification-hubs"></a>Öğretici: Azure Notification Hubs'ı kullanarak iOS cihazlarını yerelleştirilmiş anında iletme bildirimleri
 
 > [!div class="op_single_selector"]
 > * [Windows Mağazası C#](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
@@ -63,7 +63,7 @@ Ardından cihazların doğru özelliğine başvuran bir şablon ile kayıt olun.
 
 ```json
 {
-    aps:{
+    aps: {
         alert: "$(News_French)"
     }
 }
@@ -73,14 +73,14 @@ Ardından cihazların doğru özelliğine başvuran bir şablon ile kayıt olun.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- Tamamlamak [anında iletme bildirimleri belirli iOS cihazlarına](notification-hubs-ios-xplat-segmented-apns-push-notification.md) öğretici ve bu Öğreticide bu kodu doğrudan oluşturur çünkü kullanılabilir koda sahip.
-- Visual Studio 2017 isteğe bağlıdır.
+* Tamamlamak [anında iletme bildirimleri belirli iOS cihazlarına](notification-hubs-ios-xplat-segmented-apns-push-notification.md) öğretici ve bu Öğreticide bu kodu doğrudan oluşturur çünkü kullanılabilir koda sahip.
+* Visual Studio 2017 isteğe bağlıdır.
 
 ## <a name="update-the-app-user-interface"></a>Uygulama kullanıcı arabirimini güncelleştirme
 
 Bu bölümde, konu başlığı altında oluşturduğunuz bozucu News uygulamasının değiştirme [Son dakika haberleri göndermek için Notification Hubs’ı kullanma] son dakika haberleri şablonlarını kullanarak göndermek için yerelleştirilmiş.
 
-İçinde **MainStoryboard_iPhone.storyboard**, üç dilleri ile bölümlenmiş bir denetim ekleyin: İngilizce, Fransızca ve Mandarin.
+İçinde `MainStoryboard_iPhone.storyboard`, üç dilleri ile bölümlenmiş bir denetim ekleyin: İngilizce, Fransızca ve Mandarin.
 
 ![İOS kullanıcı Arabirimi görsel taslak oluşturma][13]
 
@@ -90,7 +90,7 @@ Ardından aşağıdaki görüntüde gösterildiği gibi ViewController.h içinde
 
 ## <a name="build-the-ios-app"></a>İOS uygulaması oluşturma
 
-1. İçinde Notification.h ekleme *retrieveLocale* yöntemi, deponun değiştirin ve aşağıdaki kodda gösterildiği gibi abone olma yöntemlerini:
+1. İçinde `Notification.h` ekleme `retrieveLocale` yöntemi, deponun değiştirin ve aşağıdaki kodda gösterildiği gibi abone olma yöntemlerini:
 
     ```objc
     - (void) storeCategoriesAndSubscribeWithLocale:(int) locale categories:(NSSet*) categories completion: (void (^)(NSError* error))completion;
@@ -101,7 +101,7 @@ Ardından aşağıdaki görüntüde gösterildiği gibi ViewController.h içinde
 
     - (int) retrieveLocale;
     ```
-    Notification.m içinde değiştirmek *storeCategoriesAndSubscribe* yerel ayar parametresini ekleyerek ve kullanıcı varsayılan ayarlarında depolama yöntemi:
+    İçinde `Notification.m`, değişiklik `storeCategoriesAndSubscribe` ekleyerek yöntemi `locale` parametresi ve kullanıcı varsayılan ayarlarında Depolama:
 
     ```objc
     - (void) storeCategoriesAndSubscribeWithLocale:(int) locale categories:(NSSet *)categories completion:(void (^)(NSError *))completion {
@@ -139,7 +139,7 @@ Ardından aşağıdaki görüntüde gösterildiği gibi ViewController.h içinde
     }
     ```
 
-    Yöntem *registerTemplateWithDeviceToken*, yerine *registerNativeWithDeviceToken*. Bir şablon için kaydolduğunuzda, (uygulama farklı şablonlarını kaydetmek isteyebilirsiniz gibi) için json şablonunu ve şablon için bir ad sağlayın gerekir. Bu haberler için notifciations almaya emin olmak istediğiniz kadar kategorileriniz etiketler kaydetmek emin olun.
+    Yöntem `registerTemplateWithDeviceToken`, yerine `registerNativeWithDeviceToken`. Bir şablon için kaydolduğunuzda, (uygulama farklı şablonlarını kaydetmek isteyebilirsiniz gibi) için json şablonunu ve şablon için bir ad sağlayın gerekir. Bu haberler için bildirimleri almak emin olmak istediğiniz kadar kategorileriniz etiketler kaydetmek emin olun.
 
     Kullanıcı varsayılan ayarlardan yerel ayarı almak için bir yöntem ekleyin:
 
@@ -153,13 +153,13 @@ Ardından aşağıdaki görüntüde gösterildiği gibi ViewController.h içinde
     }
     ```
 
-2. Bildirimleri sınıfı değiştirilmiş, ViewController kullanın yeni UISegmentControl aklınızdan emin olmanız gerekir. Aşağıdaki satırı ekleyin *viewDidLoad* yöntemi şu anda seçili olan yerel ayar gösterilecek emin olmak için:
+2. Değiştirdiğiniz göre `Notifications` sınıfı sahip emin olmak `ViewController` kullanır yeni `UISegmentControl`. Aşağıdaki satırı ekleyin `viewDidLoad` yöntemi şu anda seçili olan yerel ayar gösterilecek emin olmak için:
 
     ```objc
     self.Locale.selectedSegmentIndex = [notifications retrieveLocale];
     ```
 
-    Ardından, *abone* yöntem çağrınız değiştirme *storeCategoriesAndSubscribe* aşağıdaki koda:
+    Ardından, `subscribe` yöntem çağrınız değiştirme `storeCategoriesAndSubscribe` aşağıdaki koda:
 
     ```objc
     [notifications storeCategoriesAndSubscribeWithLocale: self.Locale.selectedSegmentIndex categories:[NSSet setWithArray:categories] completion: ^(NSError* error) {
@@ -174,7 +174,7 @@ Ardından aşağıdaki görüntüde gösterildiği gibi ViewController.h içinde
     }];
     ```
 
-3. Son olarak, güncelleştirilecek sahip *didRegisterForRemoteNotificationsWithDeviceToken* , AppDelegate.m yönteminde böylece uygulamanız başlatıldığında kaydınız doğru şekilde yenileyebilirsiniz. Çağrınız değiştirme *abone* yöntemini aşağıdaki kodla bildirimler:
+3. Son olarak, güncelleştirilecek sahip `didRegisterForRemoteNotificationsWithDeviceToken` , AppDelegate.m yönteminde böylece uygulamanız başlatıldığında kaydınız doğru şekilde yenileyebilirsiniz. Çağrınız değiştirme `subscribe` yöntemini aşağıdaki kodla bildirimler:
 
     ```obj-c
     NSSet* categories = [self.notifications retrieveCategories];
@@ -261,20 +261,14 @@ Visual Studio erişimi veya yalnızca istediğiniz yoksa doğrudan cihazda uygul
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, iOS cihazları için yerelleştirilmiş bildirimleri gönderdiniz. İOS uygulamaları, belirli kullanıcılara anında iletme bildirimleri öğrenmek için aşağıdaki öğreticiye geçin: 
+Bu öğreticide, iOS cihazları için yerelleştirilmiş bildirimleri gönderdiniz. İOS uygulamaları, belirli kullanıcılara anında iletme bildirimleri öğrenmek için aşağıdaki öğreticiye geçin:
 
 > [!div class="nextstepaction"]
 >[Belirli kullanıcılara anında iletme bildirimleri gönderme](notification-hubs-aspnet-backend-ios-apple-apns-notification.md)
 
 <!-- Images. -->
-
 [13]: ./media/notification-hubs-ios-send-localized-breaking-news/ios_localized1.png
 [14]: ./media/notification-hubs-ios-send-localized-breaking-news/ios_localized2.png
-
-
-
-
-
 
 <!-- URLs. -->
 [How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/library/jj927168.aspx
@@ -292,7 +286,6 @@ Bu öğreticide, iOS cihazları için yerelleştirilmiş bildirimleri gönderdin
 [Push notifications to app users]: /develop/mobile/tutorials/push-notifications-to-users-ios
 [Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
 [JavaScript and HTML]: ../get-started-with-push-js.md
-
 [Windows Developer Preview registration steps for Mobile Services]: ../mobile-services-windows-developer-preview-registration.md
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx

@@ -3,20 +3,20 @@ title: Web uç noktası - Event Grid, Azure CLI için özel olayları göndermek
 description: Azure Event Grid ve Azure CLI kullanarak özel bir konu yayımlayın ve bu konu için olaylara abone olmak için kullanın. Olaylar, bir web uygulaması tarafından işlenir.
 services: event-grid
 keywords: ''
-author: tfitzmac
-ms.author: tomfitz
+author: spelluru
+ms.author: spelluru
 ms.date: 12/07/2018
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 12fbc23e372042b54a987015273c004b32a9584a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d135b89d2b053e5d8d98a1319ae21759f3ff5594
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104433"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462258"
 ---
-# <a name="quickstart-route-custom-events-to-web-endpoint-with-azure-cli-and-event-grid"></a>Hızlı Başlangıç: Rota web uç noktasına Azure CLI ve Event Grid ile özel olaylar
+# <a name="quickstart-route-custom-events-to-web-endpoint-with-azure-cli-and-event-grid"></a>Hızlı Başlangıç: Web uç noktasına Azure CLI ve Event Grid ile özel olaylarını yönlendirme
 
 Azure Event Grid, bulut için bir olay oluşturma hizmetidir. Bu makalede Azure CLI ile özel bir konu oluşturacak, bu özel konuya abone olacak ve olayı tetikleyerek sonucu görüntüleyeceksiniz. Normalde olayları, olay verilerini işleyen ve eylemler gerçekleştiren bir uç noktaya gönderirsiniz. Bununla birlikte, bu makaleyi basitleştirmek için olayları iletilerin toplandığı ve görüntülendiği bir web uygulamasına gönderirsiniz.
 

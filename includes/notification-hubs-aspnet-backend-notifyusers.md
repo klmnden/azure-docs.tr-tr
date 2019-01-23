@@ -8,66 +8,65 @@ ms.topic: include
 ms.date: 04/04/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 634bb14cfef3df2cf944eeafbfa8d671afa4ac98
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
-ms.translationtype: HT
+ms.openlocfilehash: 9a94f76e2d1fe930d2d6d43e81a756f0cb15d23d
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "33835806"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54453078"
 ---
 ## <a name="create-the-webapi-project"></a>WebAPI projesi oluşturma
+
 Aşağıdaki bölümlerde, yeni bir ASP.NET WebAPI arka ucu oluşturma işlemi açıklanmaktadır. Bu işlemin üç ana amacı vardır:
 
-- **İstemcilerin kimliğini doğrulama**: İstemci isteklerinin kimliğini doğrulamak ve kullanıcıyı istekle ilişkilendirmek üzere bir ileti işleyicisi eklersiniz.
-- **WebAPI arka ucunu kullanarak bildirimlere kaydolma**: Bir istemci cihazının bildirimleri alması için yeni kayıtları işlemek üzere bir denetleyici eklersiniz. Kimliği doğrulanmış kullanıcı adı, otomatik olarak kayda bir [etiket](../articles/notification-hubs/notification-hubs-tags-segment-push-message.md) halinde eklenir.
-- **İstemcilere bildirimleri gönderme**: Kullanıcıların etiketle ilişkili cihazlara ve istemcilere güvenli bir gönderimi tetiklemesi için yeni bir yol sağlamak üzere bir denetleyici de eklersiniz. 
+- **İstemcilerin kimliğini**: İstemci isteklerinin kimliğini doğrulamak ve kullanıcıyı istekle ilişkilendirmek için ileti işleyicisi ekleyin.
+- **Kaydetmek için bildirimleri Webapı arka ucunu kullanarak**: Bir istemci cihazının bildirimleri almak yeni kayıtları işlemek üzere bir denetleyici ekleyin. Kimliği doğrulanmış kullanıcı adı, otomatik olarak kayda bir [etiket](../articles/notification-hubs/notification-hubs-tags-segment-push-message.md) halinde eklenir.
+- **İstemcilere bildirimleri gönderme**: Cihazları ve etiketle ilişkili istemcilere güvenli bir anında iletme tetiklemek bir yol sağlamak üzere bir denetleyici ekleyin.
 
-Aşağıdaki eylemleri yaparak yeni bir ASP.NET WebAPI arka ucu oluşturun: 
+Aşağıdaki eylemleri yaparak yeni bir ASP.NET WebAPI arka ucu oluşturun:
 
 > [!IMPORTANT]
-> Visual Studio 2015 veya önceki bir sürümü kullanıyorsanız, bu öğreticiye başlamadan önce lütfen Visual Studio için NuGet Paket Yöneticisi’nin en son sürümünü yüklediğinizden emin olun. 
+> Visual Studio 2015 veya önceki bir sürümü kullanıyorsanız, bu öğreticiye başlamadan önce lütfen Visual Studio için NuGet Paket Yöneticisi’nin en son sürümünü yüklediğinizden emin olun.
 >
 >Denetlemek için Visual Studio’yu başlatın. **Araçlar** menüsünde **Uzantılar ve Güncelleştirmeler**’i seçin. Visual Studio sürümünüz için **NuGet Paket Yöneticisi** araması yapın ve en son sürümü kullandığınızdan emin olun. Sürümünüz en son sürüm değilse, bunu kaldırın ve NuGet Paket Yöneticisi'ni yeniden yükleyin.
- 
+
 ![][B4]
 
 > [!NOTE]
-> Web sitesi dağıtımı için Visual Studio [Azure SDK](https://azure.microsoft.com/downloads/)’sını yüklediğinizden emin olun.> 
-> 
+> Web sitesi dağıtımı için Visual Studio [Azure SDK](https://azure.microsoft.com/downloads/)’sını yüklediğinizden emin olun.
 
-1. Visual Studio veya Visual Studio Express’i başlatın. 
+1. Visual Studio veya Visual Studio Express’i başlatın.
 
 2. **Sunucu Gezgini**’ni seçip Azure hesabınızda oturum açın. Hesabınızda web sitesi kaynakları oluşturmak için oturum açmanız gerekir.
 
-3. Visual Studio’da, Visual Studio çözümüne sağ tıklayın, **Ekle**’nin üzerine gelin ve **Yeni Proje**’ye tıklayın. 
+3. Visual Studio’da, Visual Studio çözümüne sağ tıklayın, **Ekle**’nin üzerine gelin ve **Yeni Proje**’ye tıklayın.
 4. **Visual C#** seçeneğini genişletin, **Web**’i seçin ve **ASP.NET Web Uygulaması**’na tıklayın.
 
-4. **Ad** kutusuna **AppBackend** yazın ve **Tamam**’ı seçin. 
-   
+5. **Ad** kutusuna **AppBackend** yazın ve **Tamam**’ı seçin.
+
     ![Yeni Proje penceresi][B1]
 
-5. **Yeni ASP.NET Projesi** penceresinde, **Web API** onay kutusunu ve ardından **Tamam**’ı seçin.
-   
+6. **Yeni ASP.NET Projesi** penceresinde, **Web API** onay kutusunu ve ardından **Tamam**’ı seçin.
+
     ![Yeni ASP.NET Projesi penceresi][B2]
 
-6. **Microsoft Azure Web App’i yapılandırma** penceresinde, bir abonelik seçin ve **App Service planı** listesinde aşağıdaki eylemlerden birini yapın:
+7. **Microsoft Azure Web App’i yapılandırma** penceresinde, bir abonelik seçin ve **App Service planı** listesinde aşağıdaki eylemlerden birini yapın:
 
-    * Önceden oluşturduğunuz bir App Service planı seçin. 
-    * **Yeni bir App Service planı oluştur**’u seçin ve yeni bir plan oluşturun. 
-    
+    * Önceden oluşturduğunuz bir App Service planı seçin.
+    * **Yeni bir App Service planı oluştur**’u seçin ve yeni bir plan oluşturun.
+
   Bu öğretici için bir veritabanı gerekmez. App Service planınızı seçtikten sonra projeyi oluşturmak için **Tamam**’ı seçin.
-   
+
     ![Microsoft Azure Web App’i Yapılandırma penceresi][B5]
 
 ## <a name="authenticate-clients-to-the-webapi-backend"></a>WebAPI arka ucunda istemcilerin kimliğini doğrulama
-Bu bölümde, yeni arka uç için **AuthenticationTestHandler** adlı yeni bir ileti işleyicisi oluşturacaksınız. Bu sınıf [DelegatingHandler](https://msdn.microsoft.com/library/system.net.http.delegatinghandler.aspx)’dan türetilip bir ileti işleyicisi olarak eklenir, böylece arka uca gelen tüm istekleri işleyebilir. 
 
-1. Çözüm Gezgini'nde **AppBackend** projesine sağ tıklayın, **Ekle**'yi ve ardından **Sınıf**'ı seçin. 
- 
+Bu bölümde, yeni arka uç için **AuthenticationTestHandler** adlı yeni bir ileti işleyicisi oluşturacaksınız. Bu sınıf [DelegatingHandler](https://msdn.microsoft.com/library/system.net.http.delegatinghandler.aspx)’dan türetilip bir ileti işleyicisi olarak eklenir, böylece arka uca gelen tüm istekleri işleyebilir.
+
+1. Çözüm Gezgini'nde **AppBackend** projesine sağ tıklayın, **Ekle**'yi ve ardından **Sınıf**'ı seçin.
 2. Yeni **AuthenticationTestHandler.cs** sınıfını adlandırıp **Ekle**’yi seçerek sınıfı oluşturun. Bu sınıf, kolaylık için *Temel Kimlik Doğrulaması* kullanarak kullanıcıların kimliklerini doğrular. Uygulamanız herhangi bir kimlik doğrulama şemasını kullanabilir.
-
 3. AuthenticationTestHandler.cs sınıfına aşağıdaki `using` deyimlerini ekleyin:
-   
+
     ```csharp
     using System.Net.Http;
     using System.Threading;
@@ -77,26 +76,26 @@ Bu bölümde, yeni arka uç için **AuthenticationTestHandler** adlı yeni bir i
     using System.Threading.Tasks;
     ```
 
-4. AuthenticationTestHandler.cs sınıfında `AuthenticationTestHandler` sınıf tanımını aşağıdaki kod ile değiştirin: 
-   
+4. AuthenticationTestHandler.cs sınıfında `AuthenticationTestHandler` sınıf tanımını aşağıdaki kod ile değiştirin:
+
     Bu işleyici aşağıdaki üç koşul geçerli olduğunda bu isteği yetkilendirir:
-   
-   * İstek bir *Yetkilendirme* üst bilgisi içerir. 
-   * İstek *temel* kimlik doğrulaması kullanır. 
+
+   * İstek bir *Yetkilendirme* üst bilgisi içerir.
+   * İstek *temel* kimlik doğrulaması kullanır.
    * Kullanıcı adı dizesi ve parola dizesi aynı dizelerdir.
-     
+
   Aksi takdirde istek reddedilir. Bu kimlik doğrulama işlemi, geçerli bir kimlik doğrulama ve yetkilendirme yaklaşımı değildir. Yalnızca bu öğreticiye yönelik basit bir örnektir.
-     
+
   İstek iletisi `AuthenticationTestHandler` tarafından kimlik doğrulaması yapılır ve yetkilendirilirse, temel kimlik doğrulaması kullanıcısı [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx) üzerindeki geçerli isteğe eklenir. HttpContext içindeki kullanıcı bilgileri, bildirim kaydı isteğine bir [etiket](https://msdn.microsoft.com/library/azure/dn530749.aspx) eklemek amacıyla daha sonra başka bir denetleyici (RegisterController) tarafından kullanılır.
 
-    ```csharp     
+    ```csharp
     public class AuthenticationTestHandler : DelegatingHandler
     {
         protected override Task<HttpResponseMessage> SendAsync(
         HttpRequestMessage request, CancellationToken cancellationToken)
         {
             var authorizationHeader = request.Headers.GetValues("Authorization").First();
-    
+
             if (authorizationHeader != null && authorizationHeader
                 .StartsWith("Basic ", StringComparison.InvariantCultureIgnoreCase))
             {
@@ -106,7 +105,7 @@ Bu bölümde, yeni arka uç için **AuthenticationTestHandler** adlı yeni bir i
                     .GetString(Convert.FromBase64String(authorizationUserAndPwdBase64));
                 string user = authorizationUserAndPwd.Split(':')[0];
                 string password = authorizationUserAndPwd.Split(':')[1];
-    
+
                 if (verifyUserAndPwd(user, password))
                 {
                     // Attach the new principal object to the current HttpContext object
@@ -118,16 +117,16 @@ Bu bölümde, yeni arka uç için **AuthenticationTestHandler** adlı yeni bir i
                 else return Unauthorized();
             }
             else return Unauthorized();
-    
+
             return base.SendAsync(request, cancellationToken);
         }
-    
+
         private bool verifyUserAndPwd(string user, string password)
         {
             // This is not a real authentication scheme.
             return user == password;
         }
-    
+
         private Task<HttpResponseMessage> Unauthorized()
         {
             var response = new HttpResponseMessage(HttpStatusCode.Forbidden);
@@ -136,17 +135,19 @@ Bu bölümde, yeni arka uç için **AuthenticationTestHandler** adlı yeni bir i
             return tsc.Task;
         }
     }
-    ``` 
+    ```
+
     > [!NOTE]
-    > Güvenlik notu: `AuthenticationTestHandler` sınıfı gerçek kimlik doğrulaması sağlamaz. Yalnızca temel kimlik doğrulamasını taklit etmek için kullanılır ve güvenli değildir. Üretim uygulamalarınızda ve hizmetlerinizde güvenli bir kimlik doğrulama mekanizması uygulamanız gerekir.                
+    > Güvenlik Notu: `AuthenticationTestHandler` Sınıfı gerçek kimlik doğrulaması sağlamaz. Yalnızca temel kimlik doğrulamasını taklit etmek için kullanılır ve güvenli değildir. Üretim uygulamalarınızda ve hizmetlerinizde güvenli bir kimlik doğrulama mekanizması uygulamanız gerekir.
 5. İleti işleyicisini kaydetmek için **App_Start/WebApiConfig.cs** sınıfındaki `Register` yönteminin sonuna aşağıdaki kodu ekleyin:
 
-    ```csharp   
+    ```csharp
     config.MessageHandlers.Add(new AuthenticationTestHandler());
     ```
 6. Yaptığınız değişiklikleri kaydedin.
 
 ## <a name="register-for-notifications-by-using-the-webapi-backend"></a>WebAPI arka ucunu kullanarak bildirimlere kaydolma
+
 Bu bölümde, bildirim hub’ları için istemci kitaplığını kullanarak WebAPI arka ucuna bir kullanıcı ve cihazı bildirimlere kaydetme isteklerini işlemek üzere yeni bir denetleyici ekleyeceksiniz. Denetleyici, kimliği doğrulanmış ve `AuthenticationTestHandler` tarafından HttpContext’e eklenmiş kullanıcı için bir kullanıcı etiketi ekler. Etiket `"username:<actual username>"` dize biçiminde olacaktır.
 
 1. Çözüm Gezgini'nde, **AppBackend** projesine sağ tıklayın ve ardından **NuGet Paketlerini Yönet**'i seçin.
@@ -154,21 +155,21 @@ Bu bölümde, bildirim hub’ları için istemci kitaplığını kullanarak WebA
 2. Sol bölmede **Çevrimiçi**’ni seçin ve **Arama** kutusuna **Microsoft.Azure.NotificationHubs** yazın.
 
 3. Sonuç listesinde **Microsoft Azure Notification Hubs**’ı ve ardından **Yükle**’yi seçin. Yüklemeyi tamamlayın ve sonra NuGet Paket Yöneticisi penceresini kapatın.
-   
-    Bu eylem <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet paketini</a> kullanarak Azure Notification Hubs SDK'sına bir başvuru ekler.
 
-4. Bildirimleri göndermek için kullanılan bildirim hub'ı bağlantısını temsil eden yeni bir sınıf dosyası oluşturun. Çözüm Gezgini'nde **Modeller** klasörüne sağ tıklayın, **Ekle**'yi ve ardından **Sınıf**'ı seçin. Yeni sınıfı **Notifications.cs** olarak adlandırın, ardından **Ekle**’yi seçerek sınıfı oluşturun. 
-   
+    Bu eylem [Microsoft.Azure.Notification Hubs NuGet paketini](http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) kullanarak Azure Notification Hubs SDK'sına bir başvuru ekler.
+
+4. Bildirimleri göndermek için kullanılan bildirim hub'ı bağlantısını temsil eden yeni bir sınıf dosyası oluşturun. Çözüm Gezgini'nde **Modeller** klasörüne sağ tıklayın, **Ekle**'yi ve ardından **Sınıf**'ı seçin. Yeni sınıfı **Notifications.cs** olarak adlandırın, ardından **Ekle**’yi seçerek sınıfı oluşturun.
+
     ![Yeni Öğe Ekle penceresi][B6]
 
 5. Notifications.cs sınıfında aşağıdaki `using` deyimini dosyanın üst kısmına ekleyin:
-   
+
     ```csharp
     using Microsoft.Azure.NotificationHubs;
     ```
 
 6. `Notifications` sınıf tanımını aşağıdaki kodla değiştirin ve iki yer tutucuyu bildirim hub’ınızın bağlantı dizesi (tam erişimli) ve hub adı ile değiştirdiğinizden emin olun ([Azure portalında bulunabilir](http://portal.azure.com)):
-   
+
     ```csharp
     public class Notifications
     {
@@ -177,23 +178,23 @@ Bu bölümde, bildirim hub’ları için istemci kitaplığını kullanarak WebA
         public NotificationHubClient Hub { get; set; }
 
         private Notifications() {
-            Hub = NotificationHubClient.CreateClientFromConnectionString("<your hub's DefaultFullSharedAccessSignature>", 
+            Hub = NotificationHubClient.CreateClientFromConnectionString("<your hub's DefaultFullSharedAccessSignature>",
                                                                             "<hub name>");
         }
     }
     ```
-7. Ardından **RegisterController** adlı yeni bir denetleyici oluşturun. Çözüm Gezgini'nde **Denetleyiciler** klasörüne sağ tıklayın, **Ekle**'yi ve ardından **Denetleyici**'yi seçin. 
+7. Ardından **RegisterController** adlı yeni bir denetleyici oluşturun. Çözüm Gezgini'nde **Denetleyiciler** klasörüne sağ tıklayın, **Ekle**'yi ve ardından **Denetleyici**'yi seçin.
 
 8. **Web API 2 Denetleyicisi - Boş**’u ve ardından **Ekle**’yi seçin.
-   
+
     ![İskele Ekle penceresi][B7]
-   
+
 9. **Denetleyici adı** kutusuna, yeni sınıfı adlandırmak için **RegisterController** yazın ve **Ekle**’yi seçin.
 
     ![Yeni Denetleyici penceresi][B8]
 
 10. RegisterController.cs sınıfına aşağıdaki `using` deyimlerini ekleyin:
-   
+
     ```csharp
     using Microsoft.Azure.NotificationHubs;
     using Microsoft.Azure.NotificationHubs.Messaging;
@@ -202,7 +203,7 @@ Bu bölümde, bildirim hub’ları için istemci kitaplığını kullanarak WebA
     using System.Web;
     ```
 11. Aşağıdaki kodu `RegisterController` sınıf tanımına ekleyin. Bu kodda, HttpContext’e eklenen kullanıcı için bir kullanıcı etiketi eklersiniz. Kullanıcının kimliği doğrulanmış ve eklediğiniz `AuthenticationTestHandler` ileti filtresi tarafından HttpContext’e eklenmiştir. Ayrıca, kullanıcının istenen etiketlere kaydolma haklarının olduğunu doğrulamak için isteğe bağlı denetimler ekleyebilirsiniz.
-   
+
     ```csharp
     private NotificationHubClient hub;
 
@@ -311,23 +312,24 @@ Bu bölümde, bildirim hub’ları için istemci kitaplığını kullanarak WebA
 12. Yaptığınız değişiklikleri kaydedin.
 
 ## <a name="send-notifications-from-the-webapi-backend"></a>WebAPI arka ucundan bildirim gönderme
+
 Bu bölümde, istemci cihazlarına bildirim göndermeleri için bir yol sunan yeni bir denetleyici ekleyeceksiniz. Bildirim, ASP.NET WebAPI arka ucundaki Azure Notification Hubs .NET Kitaplığı’nı kullanan kullanıcı adı etiketini temel alır.
 
 1. Önceki bölümde **RegisterController** denetleyicisini oluşturduğunuz gibi **NotificationsController** adlı yeni bir denetleyici oluşturun.
 
 2. NotificationsController.cs sınıfına aşağıdaki `using` deyimlerini ekleyin:
-   
+
     ```csharp
     using AppBackend.Models;
     using System.Threading.Tasks;
     using System.Web;
     ```
 3. Aşağıdaki yöntemi **NotificationsController** sınıfına ekleyin:
-   
-    Bu kod, Platform Bildirim Hizmeti (PNS) `pns` parametresini temel alan bir bildirim türü gönderir. `to_tag` değeri, iletideki *kullanıcı adı* etiketini ayarlamak için kullanılır. Bu etiket, etkin bir bildirim hub'ı kaydının kullanıcı etiketi ile eşleşmelidir. Bildirim iletisi, POST isteğinin gövdesinden çekilir ve hedef PNS biçimlendirilir. 
-   
+
+    Bu kod, Platform Bildirim Hizmeti (PNS) `pns` parametresini temel alan bir bildirim türü gönderir. `to_tag` değeri, iletideki *kullanıcı adı* etiketini ayarlamak için kullanılır. Bu etiket, etkin bir bildirim hub'ı kaydının kullanıcı etiketi ile eşleşmelidir. Bildirim iletisi, POST isteğinin gövdesinden çekilir ve hedef PNS biçimlendirilir.
+
     Desteklenen cihazlarınızın bildirimleri almak için kullandığı PNS’e bağlı olarak, bildirimler çeşitli biçimler tarafından desteklenmektedir. Örneğin, Windows cihazlarında başka bir PNS tarafından doğrudan desteklenmeyen bir [WNS ile bildirim](https://msdn.microsoft.com/library/windows/apps/br230849.aspx) kullanabilirsiniz. Böyle bir durumda arka ucunuzun, desteklemeyi planladığınız cihazların PNS’si için bildirimi desteklenen bir bildirim biçimine dönüştürmesi gerekir. Daha sonra [NotificationHubClient sınıfında](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.notificationhubclient_methods.aspx) uygun gönderme API’sini kullanın.
-   
+
     ```csharp
     public async Task<HttpResponseMessage> Post(string pns, [FromBody]string message, string to_tag)
     {
@@ -371,10 +373,11 @@ Bu bölümde, istemci cihazlarına bildirim göndermeleri için bir yol sunan ye
         return Request.CreateResponse(ret);
     }
     ```
-4. Uygulamayı çalıştırmak ve o ana kadar gerçekleştirdiğiniz işin doğruluğundan emin olmak için **F5** tuşuna basın. Uygulama bir web tarayıcısı açar ve ASP.NET giriş sayfasında görüntülenir. 
+4. Uygulamayı çalıştırmak ve o ana kadar gerçekleştirdiğiniz işin doğruluğundan emin olmak için **F5** tuşuna basın. Uygulama bir web tarayıcısı açar ve ASP.NET giriş sayfasında görüntülenir.
 
 ## <a name="publish-the-new-webapi-backend"></a>Yeni WebAPI arka ucunu yayımlama
-Ardından bu uygulamayı tüm cihazlardan erişilebilir kılmak için bir Azure web sitesine dağıtacaksınız. 
+
+Ardından bu uygulamayı tüm cihazlardan erişilebilir kılmak için bir Azure web sitesine dağıtacaksınız.
 
 1. **AppBackend** projesine sağ tıklayıp **Yayımla**’yı seçin.
 
@@ -382,11 +385,11 @@ Ardından bu uygulamayı tüm cihazlardan erişilebilir kılmak için bir Azure 
 
     ![Microsoft Azure App Service kutucuğu][B15]
 
-3. **App Service Oluştur** penceresinde Azure hesabınızı seçin. **Türü Değiştir** > **Web App**’i seçin. Varsayılan **Web App Adı**’nı değiştirmeyin ve **Abonelik**, **Kaynak Grubu** ve **App Service Planı**’nı seçin. 
+3. **App Service Oluştur** penceresinde Azure hesabınızı seçin. **Türü Değiştir** > **Web App**’i seçin. Varsayılan **Web App Adı**’nı değiştirmeyin ve **Abonelik**, **Kaynak Grubu** ve **App Service Planı**’nı seçin.
 
 4. **Oluştur**’u seçin.
 
-5. **Özet** bölümündeki **Site URL** özelliğini not edin. Bu URL, daha sonra bu öğreticide *arka uca ait uç noktanız* olacaktır. 
+5. **Özet** bölümündeki **Site URL** özelliğini not edin. Bu URL, daha sonra bu öğreticide *arka uca ait uç noktanız* olacaktır.
 
 6. **Yayımla**’yı seçin.
 

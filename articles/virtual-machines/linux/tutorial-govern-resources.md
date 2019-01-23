@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 10/12/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 715a8e5bab9e5d16b8c0e54298101df856d51a9a
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
-ms.translationtype: HT
+ms.openlocfilehash: e83d6e2f14f8665f8eb0c58a4dc41c7c2ecc792d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309868"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464264"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>Öğretici: Azure CLI ile Linux sanal makine yönetimi hakkında bilgi edinin
 
@@ -177,7 +177,7 @@ Azure kaynaklarınızı mantıksal olarak kategorilere ayırmak için [etiketler
 
 [!INCLUDE [Resource Manager governance tags CLI](../../../includes/resource-manager-governance-tags-cli.md)]
 
-Etiketleri bir sanal makineye uygulamak için [az resource tag](/cli/azure/resource#az_resource_tag) komutunu kullanın. Kaynaktaki mevcut tüm etiketler korunmaz.
+Etiketleri bir sanal makineye uygulamak için [az resource tag](/cli/azure/resource) komutunu kullanın. Kaynaktaki mevcut tüm etiketler korunmaz.
 
 ```azurecli-interactive
 az resource tag -n myVM \
@@ -188,7 +188,7 @@ az resource tag -n myVM \
 
 ### <a name="find-resources-by-tag"></a>Kaynakları etikete göre bulma
 
-Kaynakları etiket adı ve değeriyle bulmak için [az resource list](/cli/azure/resource#az_resource_list) komutunu kullanın:
+Kaynakları etiket adı ve değeriyle bulmak için [az resource list](/cli/azure/resource) komutunu kullanın:
 
 ```azurecli-interactive
 az resource list --tag Environment=Test --query [].name

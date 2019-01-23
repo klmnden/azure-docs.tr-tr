@@ -5,7 +5,7 @@ services: active-directory
 keywords: Azure active directory kimlik koruması, bulut bulma, yönetme, uygulamaları, güvenlik, risk, risk düzeyi, güvenlik açığı, güvenlik ilkesi
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: 60836abf-f0e9-459d-b344-8e06b8341d25
 ms.service: active-directory
 ms.component: conditional-access
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 5c2a37f3753292c6db847a4a9152bd4506f8fa5e
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 7e706b1dd9c7dd79285666885cb6ada89d8126b2
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580506"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54460533"
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Azure Active Directory kimlik koruması Kılavuzu
 
@@ -115,7 +115,7 @@ Bu bölümde kullanıcı riski ve oturum açma riski İlkesi test etmek için ad
 
 ### <a name="user-risk-security-policy"></a>Kullanıcı riski İlkesi
 
-Daha fazla bilgi için [kullanıcı riski ilkesi yapılandırma](howto-user-risk-policy.md).
+Daha fazla bilgi için bkz. [Kullanıcı risk ilkesini yapılandırma](howto-user-risk-policy.md).
 
 ![Kullanıcı riski](./media/playbook/02.png "Playbook")
 
@@ -140,7 +140,7 @@ Daha fazla bilgi için [kullanıcı riski ilkesi yapılandırma](howto-user-risk
 
 ### <a name="sign-in-risk-security-policy"></a>Oturum açma riski İlkesi
 
-Daha fazla bilgi için [oturum açma riski ilkesini yapılandırma](howto-sign-in-risk-policy.md).
+Daha fazla bilgi için bkz. [Oturum açma risk ilkesini yapılandırma](howto-sign-in-risk-policy.md).
 
 ![Oturum açma riski](./media/playbook/01.png "Playbook")
 

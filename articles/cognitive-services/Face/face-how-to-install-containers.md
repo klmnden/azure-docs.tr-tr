@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: ac273ac7d4c6c371670e6b8a8170274602a5318b
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 310311c22be25960b15f20d573624f50b0f618b1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536551"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474821"
 ---
 # <a name="install-and-run-containers"></a>Kapsayıcıları yükleme ve çalıştırma
 
@@ -178,3 +178,4 @@ Bu makalede, kavramlar ve indirme, yükleme ve yüz kapsayıcıları çalıştı
 * Gözden geçirme [yüz genel bakış](Overview.md) algılama ve yüz tanımlama hakkında daha fazla bilgi edinmek için  
 * Başvurmak [yüz tanıma API'si](//westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) kapsayıcı tarafından desteklenen yöntemleri hakkında ayrıntılar için.
 * Başvurmak [sık sorulan sorular (SSS)](FAQ.md) yüz işlevselliği ile ilgili sorunları gidermek için.
+* Daha fazla kullanmanız [Bilişsel Hizmetleri kapsayıcıları](../cognitive-services-container-support.md)

@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect eşitleme: varsayılan yapılandırmayı değiştirme | Microsoft Docs'
+title: 'Azure AD Connect eşitleme: Varsayılan yapılandırmanın değiştirilmesine | Microsoft Docs'
 description: Azure AD Connect eşitleme varsayılan yapılandırmasını değiştirmeye yönelik en iyi uygulamalar sağlanır.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 7638a031-1635-4942-94c3-fce8f09eed5e
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 08/29/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ad19916dc49c2bee870eef77611d120cc66b44cd
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: f071d97df6932bec5ae4161511ba33369cc1828c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312203"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461186"
 ---
-# <a name="azure-ad-connect-sync-best-practices-for-changing-the-default-configuration"></a>Azure AD Connect eşitleme: varsayılan yapılandırmanın değiştirilmesine yönelik en iyi uygulamalar
+# <a name="azure-ad-connect-sync-best-practices-for-changing-the-default-configuration"></a>Azure AD Connect eşitleme: Varsayılan yapılandırmanın değiştirilmesine ilişkin en iyi yöntemler
 Azure AD Connect eşitlemesi için desteklenen ve desteklenmeyen değişiklikleri açıklamak için bu konunun amacı olan.
 
 Azure AD Connect tarafından oluşturulan yapılandırma, "olduğu gibi" Azure AD ile şirket içi Active Directory eşitleme, çoğu ortam için çalışır. Ancak, bazı durumlarda, belirli bir gereksinim ya da gereksinimi karşılamak için bir yapılandırma için bazı değişiklikleri uygulamak gerekli.
@@ -73,5 +73,5 @@ Kopyalanan bu kuralı, kapsam, birleştirme ve dönüştürme için gerekli değ
 ## <a name="next-steps"></a>Sonraki adımlar
 **Genel bakış konuları**
 
-* [Azure AD Connect eşitleme: anlamak ve eşitleme özelleştirme](how-to-connect-sync-whatis.md)
+* [Azure AD Connect eşitleme: Anlama ve eşitleme özelleştirme](how-to-connect-sync-whatis.md)
 * [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](whatis-hybrid-identity.md)

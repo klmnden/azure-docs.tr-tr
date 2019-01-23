@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: a9e46bdb97899957f09a847f0fef03a6fec5dc6a
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452913"
+---
 # Genel Bakış
 ## [Kullanmaya Başlama](get-started.md)
 ## [Sertifikalar](sap-certifications.md)
@@ -68,7 +76,6 @@
 ### [Azure bölgeleri arasında Azure üzerinde SAP HANA Kullanılabilirliği](sap-hana-availability-across-regions.md)
 ## [Azure Sanal Makineler üzerinde SAP Business One](business-one-azure.md)
 ## [Windows üzerinde SAP IDES/SQL Server SAP CAL dağıtım kılavuzu](cal-ides-erp6-erp7-sp3-sql.md)
-## [Azure Linux VM'lerde SAP NetWeaver](suse-quickstart.md)
 ## [Azure için SAP LaMa bağlayıcısı](lama-installation.md)
 ## Windows ve Linux üzerinde Yüksek Kullanılabilirlik (HA)
 ### [Genel Bakış](sap-high-availability-guide-start.md)

@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: robb
-ms.component: alerts
-ms.openlocfilehash: b24b98760e276c207bb360687f32ae902b3306fb
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.subservice: alerts
+ms.openlocfilehash: 18a63497cb0df2ade495dfb721aaa881aa4e6ff7
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976962"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464128"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Microsoft azure'da uyarılara genel bakış 
 
@@ -183,6 +183,7 @@ Daha fazla bilgi için [Klasik uyarılar](./../../azure-monitor/platform/alerts-
 - [Eylem grupları hakkında bilgi edinin](../../azure-monitor/platform/action-groups.md)
 - [Uyarı örneklerinizi azure'da yönetme](https://aka.ms/managing-alert-instances)
 - [Akıllı grupları yönetme](https://aka.ms/managing-smart-groups)
+
 
 
 

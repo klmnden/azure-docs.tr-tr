@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/30/2018
 ms.author: victorh
-ms.openlocfilehash: b8a69b44714a24c78bf4077c27b5bf5633cc56d3
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: HT
+ms.openlocfilehash: 5015bd59a417481303c6ef2156feec9092a95a5b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431775"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464604"
 ---
 # <a name="azure-cli-script-example-create-a-dns-zone-and-record"></a>Azure CLI betik örneği: DNS bölgesi ve kaydı oluşturma
 
@@ -75,7 +75,7 @@ Bu betik bir kaynak grubu, sanal makine, kullanılabilirlik kümesi, yük dengel
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
 | [az network dns zone create](/cli/azure/network/dns/zone#az-network-dns-zone-create) | Bir Azure DNS bölgesi oluşturur. |
-| [az network dns record-set a add-record](/cli/azure/network/dns/record-set#az-network-dns-record-set-a-add-record) | Bir DNS bölgesine *A* kaydı ekler. |
+| [az network dns record-set a add-record](/cli/azure/network/dns/record-set) | Bir DNS bölgesine *A* kaydı ekler. |
 | [az network dns record-set list](/cli/azure/network/dns/record-set#az-network-dns-record-set-a-list) | Bir DNS bölgesindeki tüm *A* kaydı kümelerini listeler. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Bir kaynak grubunu tüm iç içe geçmiş kaynaklar dahil siler. |
 

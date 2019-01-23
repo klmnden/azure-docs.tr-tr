@@ -7,20 +7,20 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
-ms.component: ''
-ms.openlocfilehash: 6ed8bae2e1571722f7a9a0030a48e64c4f7fbc60
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.subservice: ''
+ms.openlocfilehash: 90ad5306c1594381409ed2bcbe767e2ffd055531
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106673"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473971"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure İzleyici iş ortağı tümleştirmeleri
 | İş Ortakları |  |  |
 | --- | --- | --- |
 | [**AlertLogic**<br/>![ortak logosu][alertlogic-logo]][alertlogic-anchor] | [**AppDynamics**<br/>![ortak logosu][appdynamics-logo]][appdynamics-anchor] | [**ArcSight**][arcsight-anchor] |
 | [**Atlassian**<br/>![ortak logosu][atlassian-logo]][atlassian-anchor] | [**Botmetric**][botmetric-anchor] | [**Circonus**<br/>![ortak logosu][circonus-logo]][circonus-anchor] |
-| [**CloudHealth**<br/>![ortak logosu][cloudhealth-logo]][cloudhealth-anchor] | [**CloudMonix** <br/> ![ortak logosu][cloudmonix-logo]][cloudmonix-anchor] | [**Datadog**<br/>![ortak logosu][datadog-logo]][datadog-anchor] |
+| [**CloudHealth**<br/>![ortak logosu][cloudhealth-logo]][cloudhealth-anchor] | [**CloudMonix** <br/>![Partner Logo][cloudmonix-logo]][cloudmonix-anchor] | [**Datadog**<br/>![ortak logosu][datadog-logo]][datadog-anchor] |
 | [**Dynatrace** <br/> ![ortak logosu][dynatrace-logo]][dynatrace-anchor] | [**Esnek**<br/>![ortak logosu][elastic-logo]][elastic-anchor] | [**Grafana**<br/>![ortak logosu][grafana-logo]][grafana-anchor] |
 | [**Influxdata**<br/>![ortak logosu][influxdata-logo]][influxdata-anchor] | [**Mantıksal İzleyici**<br/>![ortak logosu][logicmonitor-logo]][logicmonitor-anchor] | [**Moogsoft**<br/>![ortak logosu][moogsoft-logo]][moogsoft-anchor] |
 | [**NewRelic**<br/>![ortak logosu][newrelic-logo]][newrelic-anchor] | [**OpsGenie**<br/>![ortak logosu][opsgenie-logo]][opsgenie-anchor] | [**PagerDuty**<br/>![ortak logosu][pagerduty-logo]][pagerduty-anchor] |
@@ -249,3 +249,4 @@ Turbonomic, performansı, maliyeti ve uyumluluğu gerçek zamanlı bir şekilde 
 [splunk-doc]: https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk "Splunk belgeleri."
 [sumologic-doc]: https://www.sumologic.com/azure "SumoLogic belgeleri."
 [turbonomic-doc]: https://turbonomic.com/solutions/technologies/azure-cloud/ "Turbonomic giriş."
+

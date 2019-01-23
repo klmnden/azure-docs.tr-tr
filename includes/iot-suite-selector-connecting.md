@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: e241317231f3c607c373cb8a54e4b5bf6601b8e7
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 64cbf8f8704dbb216a15247caf741ff43690496a
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620770"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54457079"
 ---
 > [!div class="op_single_selector"]
 > * [Windows üzerinde C](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
@@ -41,7 +41,7 @@ Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir.
 
 ## <a name="before-you-start"></a>Başlamadan önce
 
-Cihazınız için kod yazmadan önce Uzaktan izleme çözüm Hızlandırıcısını dağıtma ve yeni bir fiziksel cihaz çözüme ekleyin.
+Cihazınız için kod yazmadan önce Uzaktan izleme çözüm Hızlandırıcısını dağıtma ve yeni gerçek bir cihaz ekleyin.
 
 ### <a name="deploy-your-remote-monitoring-solution-accelerator"></a>Uzaktan izleme çözüm Hızlandırıcısını dağıtma
 
@@ -62,17 +62,17 @@ Uzaktan izleme çözümünüze cihaz eklemek için aşağıdaki adımları tamam
 
 1. Seçin **+ yeni cihaz**ve ardından **fiziksel** olarak **cihaz türü**:
 
-    ![Fiziksel bir cihaz ekleyin](media/iot-suite-selector-connecting/devicesprovision.png)
+    ![Gerçek cihaz ekleme](media/iot-suite-selector-connecting/devicesprovision.png)
 
 1. Girin **fiziksel Soğutucu** olarak cihaz kimliği. Seçin **simetrik anahtar** ve **anahtarları otomatik olarak oluştur** seçenekleri:
 
     ![Cihaz seçenekleri seçin](media/iot-suite-selector-connecting/devicesoptions.png)
 
-1. Seçin **uygulamak**. Ardından, Not **cihaz kimliği**, **birincil anahtar**, ve **bağlantı dizesi birincil anahtarı** değerleri:
+1. **Uygula**'yı seçin. Ardından, Not **cihaz kimliği**, **birincil anahtar**, ve **bağlantı dizesi birincil anahtarı** değerleri:
 
     ![Kimlik bilgilerini alma](media/iot-suite-selector-connecting/credentials.png)
 
-Ekledikten artık fiziksel bir cihaz için Uzaktan izleme çözüm Hızlandırıcısını ve cihaz bağlantı dizesini Not. Aşağıdaki bölümlerde, cihaz bağlantı dizesini çözümünüze bağlanmak için kullandığı istemci uygulaması yürütürsünüz.
+Artık gerçek bir cihaz için Uzaktan izleme çözüm Hızlandırıcısını eklendi ve cihaz bağlantı dizesini Not. Aşağıdaki bölümlerde, cihaz bağlantı dizesini çözümünüze bağlanmak için kullandığı istemci uygulaması yürütürsünüz.
 
 İstemci uygulamasının yerleşik uygulayan **Soğutucu** cihaz modeli. Bir çözüm Hızlandırıcı cihaz modeli, bir cihaz hakkında aşağıdakileri belirtir:
 

@@ -3,8 +3,8 @@ title: Baidu kullanarak Azure Notification Hubs ile çalışmaya başlama | Micr
 description: Bu öğreticide, Baidu kullanarak Android cihazlarına anında iletme bildirimleri göndermek için Azure Notification Hubs'ın nasıl kullanılacağını öğrenirsiniz.
 services: notification-hubs
 documentationcenter: android
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 ms.assetid: 23bde1ea-f978-43b2-9eeb-bfd7b9edc4c1
 ms.service: notification-hubs
@@ -12,67 +12,69 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: mobile-baidu
 ms.workload: mobile
-ms.date: 04/14/2018
-ms.author: dimazaid
-ms.openlocfilehash: d8ece15e7e8fa3b74fbefc78aea65683229712ca
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 01/04/2019
+ms.author: jowargo
+ms.openlocfilehash: 3ff0d0db554fe514fdd6be6383b6d1a19f1c39ec
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246778"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451468"
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>Baidu kullanarak Azure Notification Hubs ile çalışmaya başlama
+
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-Baidu bulut anında iletme, mobil cihazlara anında iletme bildirimleri göndermede kullanabileceğiniz bir Çin bulut hizmetidir. 
+Baidu bulut anında iletme, mobil cihazlara anında iletme bildirimleri göndermede kullanabileceğiniz bir Çin bulut hizmetidir.
 
 Google Play ve FCM (Firebase Cloud Messaging) Çin'de mevcut değildir ve farklı uygulama mağazaları ile anında iletim hizmetlerinin kullanılması gerekir. Baidu bunlardan biridir ve şu anda Notification Hubs tarafından kullanılmaktadır.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
+
 Bu öğretici için aşağıdakiler gereklidir:
 
-* <a href="https://go.microsoft.com/fwlink/?LinkId=389797">Android sitesinden</a> indirebileceğiniz Android SDK'sı (Android Studio kullanacağınız varsayılır)
+* [Android sitesinden](https://go.microsoft.com/fwlink/?LinkId=389797) indirebileceğiniz Android SDK'sı (Android Studio kullanacağınız varsayılır)
 * [Baidu Anında İletme Android SDK’sı]
 
 > [!NOTE]
 > Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-baidu-get-started%2F).
-> 
-> 
 
 ## <a name="create-a-baidu-account"></a>Bir Baidu hesabı oluşturma
+
 Baidu kullanmak için bir Baidu hesabınızın olması gerekir. Zaten varsa [Baidu portalında] oturum açın ve sonraki adıma atlayın. Aksi halde, bir Baidu hesabının nasıl oluşturulacağı hakkında aşağıdaki yönergelere bakın.  
 
 1. [Baidu portalında] gidin ve **登录** (**Oturum Aç**) bağlantısına tıklayın. Hesap kayıt işlemini başlatmak için **立即注册** (**Şimdi Kaydol**) seçeneğine tıklayın.
-   
+
     ![Baidu Kaydı](./media/notification-hubs-baidu-get-started/BaiduRegistration.png)
 
 2. Gerekli ayrıntıları girin (telefon/e-posta adresi, parola ve doğrulama kodu) ve 注册 (**Kaydol**) seçeneğine tıklayın.
-   
+
     ![Baidu Kayıt Girişi](./media/notification-hubs-baidu-get-started/BaiduRegistrationInput.png)
 
 3. Girdiğiniz e-posta adresine, Baidu hesabınızı etkinleştirmek için bir bağlantıya sahip bir e-posta gönderilir.
-   
+
     ![Baidu Kayıt Onayı](./media/notification-hubs-baidu-get-started/BaiduConfirmation.png)
 
 4. E-posta hesabınızda oturum açın, Baidu etkinleştirme e-postasını açın ve Baidu hesabınızı etkinleştirmek için etkinleştirme bağlantısına tıklayın.
-   
+
     ![Baidu Etkinleştirme e-postası](./media/notification-hubs-baidu-get-started/BaiduActivationEmail.png)
 
 Baidu hesabınızı etkinleştirdikten sonra, [Baidu portalında] oturum açın.
 
 ## <a name="create-a-baidu-cloud-push-project"></a>Bir Baidu bulut anında iletme projesi oluşturma
+
 Bir Baidu bulut anında iletme projesi oluşturduğunuzda, uygulama kimliğinizi, API anahtarınızı ve gizli anahtarınızı alırsınız.
 
 1. [Baidu portalında] oturum açtıktan sonra **更多 >>** (**diğer**) seçeneğine tıklayın.
-   
+
     ![Kayıt - Devamı](./media/notification-hubs-baidu-get-started/BaiduRegistrationMore.png)
 
 2. **站长与开发者服务** (**Web Uzmanı ve Geliştirici Hizmetleri**) bölümünde aşağı kaydırın ve **百度云推送** (**Baidu Bulut Anında İletme** ) seçeneğine tıklayın.
-   
+
     ![Baidu Açık Bulut Platformu](./media/notification-hubs-baidu-get-started/BaiduOpenCloudPlatform.png)
 
 3. Sonraki sayfada sağ üst köşedeki **登录** (**Oturum Aç**) seçeneğine tıklayın.
-   
+
     ![Baidu Oturum Açma](./media/notification-hubs-baidu-get-started/BaiduLogin.png)
 
 4. Ardından bu sayfada **创建应用** (**Uygulama Oluştur**) seçeneğine tıklayın.
@@ -80,55 +82,54 @@ Bir Baidu bulut anında iletme projesi oluşturduğunuzda, uygulama kimliğinizi
     ![Baidu Uygulama Oluşturma](./media/notification-hubs-baidu-get-started/BaiduCreateApplication.png)
 
 5. Sonraki sayfada 创建新应用 (**Yeni Uygulama Oluştur**) seçeneğine tıklayın.
-   
+
     ![Baidu Yeni Uygulama Oluştur](./media/notification-hubs-baidu-get-started/BaiduCreateNewApplication.png)
 
 6. Bir uygulama adı girin ve 创建 (**Oluştur**) seçeneğine tıklayın.
-   
+
     ![](./media/notification-hubs-baidu-get-started/BaiduCreateApplicationDoCreate.png)
 
 7. Bir Baidu bulut anında iletme projesi başarılı bir şekilde oluşturulduktan sonra, **Uygulama Kimliği**, **API Anahtarı** ve **Gizli Anahtar** değerlerini içeren bir sayfa görürsünüz. Daha sonra kullanacağımız API anahtarı ve gizli anahtarı not edin.
-   
+
     ![Baidu Anında İletme Gizli Anahtarları](./media/notification-hubs-baidu-get-started/BaiduGetSecrets.png)
 
 8. Sol bölmedeki 创建通知 (**Bildirim Oluştur**) seçeneğine tıklayarak projeyi anında iletme bildirimleri için yapılandırın.
-   
+
     ![](./media/notification-hubs-baidu-get-started/BaiduCreateNotification.png)
 
-
 ## <a name="configure-a-new-notification-hub"></a>Yeni bir bildirim hub'ı yapılandırma
-[!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
+[!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
 &emsp;&emsp;6. Bildirim hub'ınızda **Bildirim Hizmetleri**'ni ve ardından **Baidu (Android China)** seçeneğini belirleyin.
 
-&emsp;&emsp;![Azure Notification Hubs - Baidu](./media/notification-hubs-baidu-get-started/AzureNotificationServicesBaidu.png)
+&emsp;&emsp;&emsp;&emsp;![Azure Notification Hubs - Baidu](./media/notification-hubs-baidu-get-started/AzureNotificationServicesBaidu.png)
 
 &emsp;&emsp;7. Baidu bildirim ayarları bölümüne inin. Baidu bulut anında iletme projesinde Baidu konsolundan aldığınız API anahtarını ve gizli anahtarını girin. Daha sonra Kaydet'e tıklayın.
 
-&emsp;&emsp;![Azure Notification Hubs - Baidu Gizli Anahtarları](./media/notification-hubs-baidu-get-started/NotificationHubBaiduConfigure.png)
+&emsp;&emsp;&emsp;&emsp;![Azure Notification Hubs - Baidu Gizli Anahtarları](./media/notification-hubs-baidu-get-started/NotificationHubBaiduConfigure.png)
 
 Bildirim hub'ınız Baidu ile birlikte çalışacak şekilde yapılandırıldı. Ayrıca uygulamanızı anında iletme bildirimi göndermek ve almak üzere kaydetmek için kullanabileceğiniz **bağlantı dizelerine** de sahipsiniz.
 
 Erişim bağlantı bilgileri penceresindeki `DefaultListenSharedAccessSignature` ve `DefaultFullSharedAccessSignature` bilgilerini not edin.
 
 ## <a name="connect-your-app-to-the-notification-hub"></a>Uygulamanızı bildirim hub'ına bağlama
+
 1. Android Studio'da yeni bir Android projesi oluşturun (Dosya > Yeni > Yeni Proje).
 
     ![Azure Notification Hubs - Baidu Yeni Proje](./media/notification-hubs-baidu-get-started/AndroidNewProject.png)
 
-2.  Uygulama Adı girin ve Gereken Minimum SDK Sürümü değerinin API 16: Android 4.1 olarak belirlendiğinden emin olun. **Ayrıca lütfen paketinizin adının (应用包名) Baidu Bulut Anında İletme Portalı’nda aynı olduğundan emin olun**
+2. Bir uygulama adı girin ve gereken Minimum SDK sürümü API 16 olarak ayarlandığından emin olun: Android 4.1. **Ayrıca lütfen paketinizin adının (应用包名) Baidu Bulut Anında İletme Portalı’nda aynı olduğundan emin olun**
 
-    ![Azure Notification Hubs - Baidu Min SDK1](./media/notification-hubs-baidu-get-started/AndroidMinSDK.png)
-    ![Azure Notification Hubs - Baidu Min SDK2](./media/notification-hubs-baidu-get-started/AndroidMinSDK2.png)
+    ![Azure Notification Hubs - Baidu Min SDK1](./media/notification-hubs-baidu-get-started/AndroidMinSDK.png) ![Azure Notification Hubs - Baidu Min SDK2](./media/notification-hubs-baidu-get-started/AndroidMinSDK2.png)
 
-3.  İleri'ye tıklayın ve Etkinlik Oluştur penceresi görünene kadar sihirbazı izlemeye devam edin. Boş Etkinlik değerinin seçildiğinden emin olun ve son olarak yeni bir Android Uygulaması oluşturmak için Son'u seçin.
+3. İleri'ye tıklayın ve Etkinlik Oluştur penceresi görünene kadar sihirbazı izlemeye devam edin. Boş Etkinlik değerinin seçildiğinden emin olun ve son olarak yeni bir Android Uygulaması oluşturmak için Son'u seçin.
 
     ![Azure Notification Hubs - Baidu Etkinliği Ekleme](./media/notification-hubs-baidu-get-started/AndroidAddActivity.png)
 
-4.  Proje Derleme Hedefi'nin doğru ayarlandığından emin olun.
+4. Proje Derleme Hedefi'nin doğru ayarlandığından emin olun.
 
-5.  Ardından Azure Notification Hubs kitaplıklarını ekleyin. Uygulamanın `Build.Gradle` dosyasında bağımlılıklar bölümüne aşağıdaki satırları ekleyin.
+5. Ardından Azure Notification Hubs kitaplıklarını ekleyin. Uygulamanın `Build.Gradle` dosyasında bağımlılıklar bölümüne aşağıdaki satırları ekleyin.
 
     ```javascript
     compile 'com.microsoft.azure:notification-hubs-android-sdk:0.4@aar'
@@ -145,7 +146,7 @@ Erişim bağlantı bilgileri penceresindeki `DefaultListenSharedAccessSignature`
     }
     ```
 
-    Liste çakışmasını önlemek için **Manifest.xml** dosyasına aşağıdaki kodu eklememiz gerekiyor.
+    Liste çakışmasını önlemek için aşağıdaki kodu ekleyin projesinin `Manifest.xml` dosyası:
 
     ```xml
     <manifest package="YOUR.PACKAGE.NAME"
@@ -160,15 +161,15 @@ Erişim bağlantı bilgileri penceresindeki `DefaultListenSharedAccessSignature`
         tools:replace="android:allowBackup,icon,theme,label">
     ```
 
-6.  [Baidu Anında İletme Android SDK’sı] indirin ve açın. `pushservice-x.y.z jar` dosyasını libs klasörüne kopyalayın. Ardından `.so` dosyalarını Android uygulamanızın `src/main/jniLibs` (yeni bir klasör oluşturun) klasörlerine kopyalayın.
+6. [Baidu Anında İletme Android SDK’sı](http://push.baidu.com/doc/android/api) indirin ve açın. `pushservice-x.y.z jar` dosyasını libs klasörüne kopyalayın. Ardından `.so` dosyalarını Android uygulamanızın `src/main/jniLibs` (yeni bir klasör oluşturun) klasörlerine kopyalayın.
 
     ![Azure Notification Hubs - Baidu SDK Kitaplıkları](./media/notification-hubs-baidu-get-started/BaiduSDKLib.png)
 
-7. libs klasöründeki pushervice-x.y.z.jar dosyasına sağ tıklayın ve Kitaplık Olarak Ekle'ye tıklayarak bu kitaplığı projeye ekleyin.
+7. Projenin `libs` klasörü, sağ tıklayarak `pushervice-x.y.z.jar` seçin; dosyası **kitaplığı olarak ekleme** bu kitaplığı projeye dahil olmak üzere.
 
     ![Azure Notification Hubs - Baidu Kitaplık Olarak Ekleme](./media/notification-hubs-baidu-get-started/BaiduAddAsALib.jpg)
 
-8. Android projenizin **AndroidManifest.xml** dosyasını açın ve Baidu SDK'sı için gereken izinleri ekleyin. **`YOURPACKAGENAME` yerine paketinizin adını yazın**.
+8. Android proje açmak `AndroidManifest.xml` dosya ve Baidu SDK'sı tarafından gerekli izinleri ekleyin. **`YOURPACKAGENAME` yerine paketinizin adını yazın**.
 
     ```xml
     <uses-permission android:name="android.permission.INTERNET" />
@@ -201,7 +202,7 @@ Erişim bağlantı bilgileri penceresindeki `DefaultListenSharedAccessSignature`
         android:configChanges="orientation|keyboardHidden"
         android:label="MediaListActivity"
         android:launchMode="singleTask" />
- 
+
     <!-- Push application definition message -->
     <receiver android:name=".MyPushMessageReceiver">
         <intent-filter>
@@ -280,9 +281,9 @@ Erişim bağlantı bilgileri penceresindeki `DefaultListenSharedAccessSignature`
         public static String NotificationHubConnectionString = "...";
     }
     ```
-    
+
     `API_KEY` dizesinin değerini Baidu Bulut Projesi API_KEY değeriyle değiştirin.
-    
+
     `NotificationHubName` dizesinin değerini [Azure portalındaki] bildirim hub'ı ile, `NotificationHubConnectionString` değerini de [Azure portalındaki] `DefaultListenSharedAccessSignature` değeriyle değiştirin.
 
 11. MainActivity.java'yı açın ve aşağıdakini onCreate yöntemine ekleyin:
@@ -475,35 +476,39 @@ Anında iletme bildirimleri normalde, uyumlu bir kitaplık kullanılarak Mobile 
 Bu öğreticide kolaylık sağlamak için .NET SDK ile bildirim göndermenin gösterilmesi amacıyla konsol uygulaması kullanılmaktadır. Ancak bir ASP.NET arka ucundan bildirim göndermek için sonraki adım olarak [Kullanıcılara anında iletme bildirimleri göndermek için Notification Hubs'ı kullanma](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) öğreticisini öneririz. 
 
 Bildirim göndermeye yönelik farklı yaklaşımlar aşağıda listelenmiştir:
-* **REST Arabirimi**: [REST arabirimini](https://msdn.microsoft.com/library/windowsazure/dn223264.aspx) kullanarak herhangi bir arka uç platformunda bildirimi destekleyebilirsiniz.
-* **Microsoft Azure Notification Hubs .NET SDK'sı**: Visual Studio için Nuget Paket Yöneticisi'nde [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) komutunu çalıştırın.
-* **Node.js**: [Node.js'den Notification Hubs'ı kullanma](notification-hubs-nodejs-push-notification-tutorial.md).
-* **Mobile Apps**: Notification Hubs ile tümleştirilmiş Azure Uygulama Hizmeti Mobile Apps arka ucundan nasıl bildirim gönderildiğinin bir örneği için bkz. [Mobil uygulamalarınıza anında iletme bildirimleri ekleme](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md).
-* **Java/PHP**: REST API'ler kullanarak nasıl bildirim gönderildiğinin bir örneği için bkz. "Java/PHP'den Notification Hubs'ı kullanma"([Java](notification-hubs-java-push-notification-tutorial.md) | [PHP](notification-hubs-php-push-notification-tutorial.md)).
+
+* **REST arabirimi**:  Kullanarak herhangi bir arka uç platformunda bildirimi destekleyebilirsiniz [REST arabirimi](https://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
+* **Microsoft Azure Notification Hubs .NET SDK'sı**: Visual Studio için Nuget paket yöneticisini çalıştırın [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+* **Node.js**: [Node.js'den Notification hubs'ı kullanmayı](notification-hubs-nodejs-push-notification-tutorial.md).
+* **Mobil uygulamalar**: Notification Hubs ile tümleştirilmiş bir Azure App Service Mobile Apps arka ucundan bildirim göndermek nasıl bir örnek için bkz [mobil uygulamanıza anında iletme bildirimleri ekleme](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md).
+* **Java / PHP**: REST API'lerini kullanarak bildirim göndermek nasıl bir örnek için bkz. "Java/php'den Notification hubs'ı kullanmayı" ([Java](notification-hubs-java-push-notification-tutorial.md) | [PHP](notification-hubs-php-push-notification-tutorial.md)).
 
 ## <a name="optional-send-notifications-from-a-net-console-app"></a>(İsteğe bağlı) Bir .NET konsol uygulamasından bildirim gönderme
+
 Bu bölümde, bir .NET konsol uygulaması kullanarak bildirim göndermeyi göstereceğiz.
 
 1. Yeni bir Visual C# konsol uygulaması oluşturun:
-   
+
     ![](./media/notification-hubs-baidu-get-started/ConsoleProject.png)
 
 2. Paket Yöneticisi Konsolu penceresinde, **Varsayılan projeyi** yeni konsol uygulaması projeniz olarak ayarlayın ve ardından konsol penceresinde aşağıdaki komutu yürütün:
-   
-        Install-Package Microsoft.Azure.NotificationHubs
-   
-    Bu yönerge, <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet paketini</a> kullanarak Azure Notification Hubs SDK'sına bir başvuru ekler.
-   
+
+    ```shell
+    Install-Package Microsoft.Azure.NotificationHubs
+    ```
+
+    Bu yönerge, [Microsoft.Azure.Notification Hubs NuGet paketini](http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) kullanarak Azure Notification Hubs SDK'sına bir başvuru ekler.
+
     ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
 
 3. `Program.cs` dosyasını açın ve aşağıdaki deyimi ekleyin:
-   
+
     ```csharp
     using Microsoft.Azure.NotificationHubs;
     ```
 
 4. `Program` sınıfınıza aşağıdaki yöntemi ekleyin ve `DefaultFullSharedAccessSignatureSASConnectionString` ile `NotificationHubName` değerlerini sahip olduğunuz değerlerle değiştirin.
-   
+
     ```csharp
     private static async void SendNotificationAsync()
     {

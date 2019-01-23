@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: a26deba97d1ed61f2a6f3b54dafe9f651167ab5b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 381c9a2af0f1743509db4495603c0e26da5c1736
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424379"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474528"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Oluşturma, değiştirme veya bir ağ arabirimini Sil
 
@@ -38,7 +38,7 @@ Oturum açın ya da Azure ile bağlandığınız hesabı atanmalıdır [ağ Kat�
 
 ## <a name="create-a-network-interface"></a>Ağ arabirimini oluşturun
 
-Azure portalını kullanarak bir sanal makine oluştururken, portal sizin için varsayılan ayarlarla bir ağ arabirimi oluşturur. Bunun yerine, tüm ağ arabirimi ayarları belirtmeniz gerekir, özel ayarlara sahip bir ağ arabirimi oluşturun ve ağ arabirimi (PowerShell veya Azure CLI kullanarak) sanal makine oluştururken bir sanal makineye ekleyin. Ayrıca, bir ağ arabirimi oluşturabilir ve varolan bir sanal makineye (PowerShell veya Azure CLI kullanarak) ekleyin. Var olan bir ağ arabirimi ile bir sanal makine oluşturmak için veya eklemek veya mevcut sanal makinelerden ağ arabirimleri Kaldır hakkında bilgi edinmek için bkz: [ekleme veya kaldırma ağ arabirimleri](virtual-network-network-interface-vm.md). Bir ağ arabirimi oluşturmadan önce varolan olmalıdır [sanal ağ](manage-virtual-network.md#create-a-virtual-network) aynı konum ve abonelikte bir ağ arabirimi oluşturun.
+Azure portalını kullanarak bir sanal makine oluştururken, portal sizin için varsayılan ayarlarla bir ağ arabirimi oluşturur. Bunun yerine, tüm ağ arabirimi ayarları belirtmeniz gerekir, özel ayarlara sahip bir ağ arabirimi oluşturun ve ağ arabirimi (PowerShell veya Azure CLI kullanarak) sanal makine oluştururken bir sanal makineye ekleyin. Ayrıca, bir ağ arabirimi oluşturabilir ve varolan bir sanal makineye (PowerShell veya Azure CLI kullanarak) ekleyin. Var olan bir ağ arabirimi ile bir sanal makine oluşturmak için veya eklemek veya mevcut sanal makinelerden ağ arabirimleri Kaldır hakkında bilgi edinmek için bkz: [ekleme veya kaldırma ağ arabirimleri](virtual-network-network-interface-vm.md). Bir ağ arabirimi oluşturmadan önce varolan olmalıdır [sanal ağ](manage-virtual-network.md) aynı konum ve abonelikte bir ağ arabirimi oluşturun.
 
 1. Metni içeren kutuya *kaynak Ara* Azure portalının üst kısmında, yazın *ağ arabirimleri*. Zaman **ağ arabirimleri** arama sonuçlarında görünmesini, onu seçin.
 2. Seçin **+ Ekle** altında **ağ arabirimleri**.
@@ -69,7 +69,7 @@ Portal bir ağ arabirimi oluşturulurken ağ arabiriminin uygulama güvenlik gru
 |Aracı|Komut|
 |---|---|
 |CLI|[az network nic create](/cli/azure/network/nic#az_network_nic_create)|
-|PowerShell|[New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface#create)|
+|PowerShell|[New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface)|
 
 ## <a name="view-network-interface-settings"></a>Görünümü ağ arabirimi ayarları
 
@@ -158,7 +158,7 @@ Alt ağ, ancak bir ağ arabirimine atanan sanal ağda değil değiştirebilirsin
 
 ## <a name="add-to-or-remove-from-application-security-groups"></a>Uygulama güvenlik grupları'ndan kaldırın veya ekleyin
 
-Yalnızca bir ağ arabirimine ekleyebilir veya bir ağ arabirimi ağ arabirimi bir sanal makineye bağlıysa, portalı kullanarak bir uygulama güvenlik grubundan kaldırın. Bir ağ arabirimine eklemek için PowerShell veya Azure CLI kullanın veya ağ arabirimi bir sanal makineye veya bağlı olup olmadığını bir ağ arabirimi bir uygulama güvenlik grubundan kaldırın. Daha fazla bilgi edinin [uygulama güvenlik grupları](security-overview.md#application-security-groups) ve nasıl [uygulama güvenlik grubu oluşturma](manage-network-security-group.md#create-an-application-security-group).
+Yalnızca bir ağ arabirimine ekleyebilir veya bir ağ arabirimi ağ arabirimi bir sanal makineye bağlıysa, portalı kullanarak bir uygulama güvenlik grubundan kaldırın. Bir ağ arabirimine eklemek için PowerShell veya Azure CLI kullanın veya ağ arabirimi bir sanal makineye veya bağlı olup olmadığını bir ağ arabirimi bir uygulama güvenlik grubundan kaldırın. Daha fazla bilgi edinin [uygulama güvenlik grupları](security-overview.md#application-security-groups) ve nasıl [uygulama güvenlik grubu oluşturma](manage-network-security-group.md).
 
 1. İçinde *kaynakları, hizmetleri ve belgeleri arayın* kutusunda portalının üst kısmında, eklemek veya bir uygulama güvenlik grubu, kaldırmak istediğiniz bir ağ arabirimi bir sanal makine adını yazmaya başlayın. Sanal makinenizin adı arama sonuçlarında görüntülendiğinde seçin.
 2. **AYARLAR**'ın altında **Ağ İletişimi**’ni seçin.  Seçin **uygulama güvenlik gruplarını yapılandırma**, ağ arabirimi için eklemek istediğiniz uygulama güvenlik gruplarını seçin veya ağ arabirimi, kaldırmak istediğiniz uygulama güvenlik grupları seçimini kaldırın ve ardından **Kaydet**. Aynı sanal ağda bulunan ağ arabirimleri, aynı uygulama güvenlik grubuna eklenebilir. Uygulama güvenlik grubu, ağ arabirimi ile aynı konumda bulunmalıdır.

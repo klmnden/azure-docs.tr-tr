@@ -15,16 +15,16 @@ ms.topic: overview
 ms.date: 09/13/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 8152add4fb28f7f2536859ea7dcdae379a014f90
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 11c8533068b914bce4826146cf8c938c6ec621f1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951772"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475535"
 ---
 # <a name="compare-azure-cdn-product-features"></a>Azure CDN ürün özelliklerini karşılaştırın
 
-Azure Content Delivery Network (CDN), dört ürün içerir: **Microsoft’tan Azure CDN Standart**, **Akamai’den Azure CDN Standart**, **Verizon’dan Azure CDN Standart** ve **Verizon’dan Azure CDN Premium**. 
+Azure Content Delivery Network (CDN) dört ürünleri içerir: **Microsoft Azure CDN standart**, **akamai'den Azure CDN standart**, **verizon'dan Azure CDN standart**, ve **verizon'dan Azure CDN Premium**. 
 
 **Verizon'dan Azure CDN Standart** profilinden **Verizon’dan Azure CDN Premium** profiline geçme hakkında bilgi için bkz. [Verizon'dan Azure CDN Standart profilinden Verizon’dan Azure CDN Premium profiline geçiş yapma](cdn-migrate.md).
 
@@ -34,7 +34,7 @@ Aşağıdaki tabloda her ürünle birlikte sunulan özellikler karşılaştırı
 | --- | --- | --- | --- | --- |
 | [Dinamik site hızlandırma](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration)  |  | **&#x2713;**  | **&#x2713;** | **&#x2713;** |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Dinamik site hızlandırma - uyarlamalı görüntü sıkıştırma](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#adaptive-image-compression-akamai-only)  |  | **&#x2713;**  |  |  |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Dinamik site hızlandırma - nesneleri önceden getirme](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#object-prefetch-akamai-only)  |  | **&#x2713;**  |  |  |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Dinamik site hızlandırma - nesneleri önceden getirme](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration)  |  | **&#x2713;**  |  |  |
 | [Video akışı iyileştirmesi](https://docs.microsoft.com/azure/cdn/cdn-media-streaming-optimization)  | \* | **&#x2713;**  | \* |  \* |
 | [Büyük dosyaları iyileştirme](https://docs.microsoft.com/azure/cdn/cdn-large-file-optimization)  | \* | **&#x2713;**  | \* |  \* |
 | [Genel sunucu yük dengelemesi (GSLB)](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-load-balancing-azure)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |

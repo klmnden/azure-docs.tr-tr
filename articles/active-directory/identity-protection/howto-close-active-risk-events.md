@@ -5,7 +5,7 @@ services: active-directory
 keywords: Azure active directory kimlik koruması, bulut uygulaması bulma, yönetme, uygulamaları, güvenlik, risk, risk düzeyi, güvenlik açığı, güvenlik ilkesi
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.component: identity-protection
@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 11b6766533da65f55430d55bd8aa0b7067783e0c
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: b1077eefbe57b6440caa0171fb7429485eeeb78e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48267479"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469194"
 ---
-# <a name="how-to-close-active-risk-events"></a>Nasıl yapılır: etkin risk olaylarını kapatın.
+# <a name="how-to-close-active-risk-events"></a>Nasıl Yapılır: Etkin risk olaylarını kapatma
 
 İle [risk olayları](../reports-monitoring/concept-risk-events.md), Azure Active Directory, riskli olabilecek kullanıcı hesaplarının göstergeleri algılar. Bir yönetici olarak etkilenen kullanıcılar artık risk altında olacak şekilde kapatıldığında tüm risk olayları almak istiyorsanız.
 
@@ -47,7 +47,7 @@ Etkin risk olayı kapatmak için aşağıdaki seçenekleriniz vardır:
 
 ## <a name="require-password-reset-with-a-user-risk-policy"></a>Parola sıfırlama kullanıcı riski İlkesi ile iste
 
-Yapılandırarak [kullanıcı risk koşullu erişim ilkesi](howto-user-risk-policy.md), belirtilen kullanıcı risk düzeyi otomatik olarak algılanması durumunda bir parola değişikliği gerektirebilir. 
+[Kullanıcı riski koşullu erişim ilkesini](howto-user-risk-policy.md) yapılandırarak belirli bir kullanıcı riski seviyesinin otomatik olarak algılanması durumunda parola değişikliği yapılmasını sağlayabilirsiniz. 
 
 ![Parola sıfırlama](./media/howto-close-active-risk-events/13.png)
 

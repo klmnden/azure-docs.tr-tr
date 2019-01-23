@@ -11,14 +11,14 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8549a35eed0c1f61c087b9056e4564577170f5f6
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9c6e88eb2e3f3e1b6e6ce2b7f8984799397af582
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141824"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451622"
 ---
-# <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Azure Data Lake ile ölçeklenebilir veri bilimi: uçtan uca kılavuz
+# <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Azure Data Lake ile ölçeklenebilir veri bilimi: Uçtan uca kılavuz
 Bu yönerge, Azure Data Lake veri keşfi ve NYC taksi seyahat örneği ikili sınıflandırma görevleri ve masrafları ipucu tarafından bir taksi Ücretli olup olmadığını tahmin etmek için veri kümesi için nasıl kullanılacağını gösterir. Bu adımlarında size kılavuzluk eder [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), uçtan uca, eğitim modeli için veri alma ve sonra model yayımlayan bir web hizmeti dağıtımı için.
 
 ### <a name="azure-data-lake-analytics"></a>Azure Data Lake Analytics
@@ -146,7 +146,7 @@ U-SQL, Visual Studio'yu Aç çalıştırabileceği **Dosya--> Yeni Proje-->**, s
 
 ![9](./media/data-lake-walkthrough/9-portal-submit-job.PNG)
 
-### <a name="ingest"></a>Veri alımı: Ortak blob verileri okuma
+### <a name="ingest"></a>Veri alımı: Genel blobdan veri okuma
 Azure BLOB verilerin konumu olarak başvurulan **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name** ve alınabilir **Extractors.Csv()**. Yerine kendi kapsayıcı adı ve depolama hesabı adı için aşağıdaki komut container_name@blob_storage_account_name wasb adres. Dosya adları aynı biçimde olduğundan kullanmak mümkün mü **seyahat\_veri_ {\*\}.csv** tüm 12 seyahat dosyaları okumak için. 
 
     ///Read in Trip data
@@ -300,7 +300,7 @@ Eğimli ve eğimli gelişlerin dağıtımını bulun:
     TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_ex_4.csv"
     USING Outputters.Csv(); 
 
-Sonlandırma değerleri ile ipucu miktarını dağıtımını bulun: 0, 5, 10 ile 20 ABD Doları.
+Sonlandırma değerleri ile ipucu miktarını dağıtımını bulun: 0, 5, 10 ve 20 ABD Doları.
 
     //tip class/range distribution
     @tip_class =
@@ -374,7 +374,7 @@ Seyahat ve taksi tabloları medallion, hack_license ve pickup_time katılabilir.
 
 Her düzeyde yolcular sayısı için kayıtları, ortalama ipucu tutar, varyans ipucu tutar, Eğimli dönüş yüzdesi sayısını hesaplayın.
 
-    // contigency table
+    // contingency table
     @trip_summary8 =
         SELECT passenger_count,
                COUNT(*) AS cnt,
@@ -452,7 +452,7 @@ Artık çıktı dosyaları veya Azure Blob Depolama, hem de Azure portalında ko
 * İlk seçenek, kullandığınız bir Azure Blob için yazılan örneklenen verileri (içinde **veri örnekleme** Yukarıdaki adımı) ve Azure Machine learning'in modellerini Derleme ve dağıtma için Python'ı kullanın. 
 * İkinci seçenek bir Hive sorgusu kullanarak doğrudan Azure Data Lake verileri sorgulamak. Bu seçenek, yeni bir HDInsight kümesi oluşturma veya var olan bir HDInsight kümesine Azure Data Lake Storage NY taksi verileri nerede Hive tablolarını işaret kullanmak gerektirir.  Bu seçeneklerin, aşağıdaki bölümlerde ele alınmıştır. 
 
-## <a name="option-1-use-python-to-build-and-deploy-machine-learning-models"></a>1. seçenek: Makine öğrenimi modellerini derlemek ve dağıtmak için Python kullanma
+## <a name="option-1-use-python-to-build-and-deploy-machine-learning-models"></a>1. seçenek: Machine learning modellerini Derleme ve dağıtma için Python kullanma
 Python kullanarak makine öğrenme modellerini Derleme ve dağıtma için yerel makinenizde veya Azure Machine Learning Studio'da Jupyter not defteri oluşturun. Jupyter not defteri sağlanan [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough) keşfedin, veri, özellik Mühendisliği, modelleme ve dağıtım görselleştirmek için tam kodu içerir. Bu makalede, yalnızca modelleme ve dağıtım ele alınmaktadır. 
 
 ### <a name="import-python-libraries"></a>Python kitaplıkları içeri aktarma
@@ -592,7 +592,7 @@ Makine öğrenimi modelinde, oluşturulduktan sonra kullanıma hazır hale getir
   
        ![c4](./media/data-lake-walkthrough/c4-call-API.PNG)
 
-## <a name="option-2-create-and-deploy-models-directly-in-azure-machine-learning"></a>2. seçenek: Azure Machine learning'de doğrudan modelleri oluşturup
+## <a name="option-2-create-and-deploy-models-directly-in-azure-machine-learning"></a>2. seçenek: Oluşturma ve Azure Machine Learning modellerini doğrudan dağıtma
 Azure Machine Learning Studio, doğrudan Azure Data Lake Store verileri okuyabilir ve modelleri oluşturup sonra kullanılabilir. Bu yaklaşım Azure Data Lake Store işaret eden bir Hive tablosu kullanır. Bu ayrı bir Azure HDInsight kümesi, sağlanması, gerektirir üzerinde Hive tablosu oluşturulur. Aşağıdaki bölümlerde bunun nasıl yapılacağı gösterilmektedir. 
 
 ### <a name="create-an-hdinsight-linux-cluster"></a>Bir HDInsight Linux kümesi oluşturma

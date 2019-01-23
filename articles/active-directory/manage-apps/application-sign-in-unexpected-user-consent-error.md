@@ -4,7 +4,7 @@ description: Bir uygulama ve bunlarla ilgili neler yapabileceğinizi onaylanıyo
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 70413d3467b2f9d5591e6138ed1a7347db58264b
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 362671e255f8dc36f9474fd2d4e3117e4cc0c1e4
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357506"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477728"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Bir uygulama için onay gerçekleştirirken beklenmedik hata
 
@@ -36,17 +36,17 @@ Belirli bir kullanıcı onayı gerektiren bir uygulama izni için koşulların k
 Şirket Yöneticisi olmayan bir kullanıcı yalnızca yönetici izni verebilirsiniz izinleri isteyen bir uygulamayı kullanmaya çalıştığında bu hata oluşur. Bu hata, bir yöneticinin kuruluş adına bir uygulama için erişim verme çözülebilir.
 
 ## <a name="policy-prevents-granting-permissions-error"></a>İlke engeller izinleri verme hatası
-* **AADSTS90093:** yönetici &lt;tenantDisplayName&gt; verme dan engelleyen bir ilke ayarladığı &lt;uygulama adını&gt; isteniyor izinleri. Bir sistem yöneticisine başvurun &lt;tenantDisplayName&gt;, kimin bu uygulamanın sizin adınıza izin verme.
+* **AADSTS90093:** Yönetici &lt;tenantDisplayName&gt; verme dan engelleyen bir ilke ayarladığı &lt;uygulama adını&gt; isteniyor izinleri. Bir sistem yöneticisine başvurun &lt;tenantDisplayName&gt;, kimin bu uygulamanın sizin adınıza izin verme.
 
 Bu hata, bir yönetici olmayan kullanıcı onayı gerektiren bir uygulamayı kullanmayı dener sonra kullanıcıların uygulamalara izin vermesi bir şirket Yöneticisi kapatır oluşur. Bu hata, bir yöneticinin kuruluş adına bir uygulama için erişim verme çözülebilir.
 
 ## <a name="intermittent-problem-error"></a>Aralıklı olarak ortaya çıkan sorunu hata
-* **AADSTS90090:** oturum açma işlemi çalıştığınız vermek için izinleri kaydı aralıklı bir sorunla karşılaşıldı gibi görünüyor &lt;clientAppDisplayName&gt;. Daha sonra tekrar deneyin.
+* **AADSTS90090:** Oturum açma işlemi çalıştığınız vermek için izinleri kaydı aralıklı bir sorunla karşılaşıldı gibi görünüyor &lt;clientAppDisplayName&gt;. Daha sonra tekrar deneyin.
 
 Bu hata, bir hizmeti aralıklı yan sorun oluştuğunu gösterir. Uygulama yeniden onayı deneyerek çözülebilir.
 
 ## <a name="resource-not-available-error"></a>Kaynak kullanılamıyor hatası
-* **AADSTS65005:** uygulama &lt;clientAppDisplayName&gt; bir kaynağa erişmek için izinleri istenen &lt;resourceAppDisplayName&gt; kullanılabilir değil. 
+* **AADSTS65005:** Uygulama &lt;clientAppDisplayName&gt; bir kaynağa erişmek için izinleri istenen &lt;resourceAppDisplayName&gt; kullanılabilir değil. 
 
 Uygulama geliştiricisine başvurun.
 
@@ -56,7 +56,7 @@ Uygulama geliştiricisine başvurun.
 Bu kaynağın kullanılabilir olduğundan emin olun veya bir yöneticisine başvurun &lt;tenantDisplayName&gt;.
 
 ## <a name="permissions-mismatch-error"></a>İzinleri türde bir eşleşmeme hatası
-* **AADSTS65005:** uygulama istenen kaynağa erişim izni &lt;resourceAppDisplayName&gt;. Uygulama uygulama kaydı sırasında önceden yapılandırılmış nasıl eşleşmediğinden bu isteği başarısız oldu. Uygulama vendor.* * başvurun
+* **AADSTS65005:** Uygulama istenen kaynağa erişim izni &lt;resourceAppDisplayName&gt;. Uygulama uygulama kaydı sırasında önceden yapılandırılmış nasıl eşleşmediğinden bu isteği başarısız oldu. Uygulama vendor.* * başvurun
 
 Bu hatalar, kullanıcı onay çalışılırken uygulama (Kiracı) kuruluşunuzun dizininde bulunan bir kaynak uygulamaya erişim izni isterken hepsi oluşur. Bu durum çeşitli nedenlerle oluşabilir:
 

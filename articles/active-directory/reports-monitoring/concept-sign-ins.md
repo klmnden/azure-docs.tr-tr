@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 4b4c2e35059fa3521a74e1cb0c218c100b12a4ec
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: cb0c72c8a14dd71bbbe9d6cd46224542f7bf3e5b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436731"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470588"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory portalındaki oturum açma etkinlik raporları
 
@@ -203,7 +203,10 @@ Bir öğeye tıklayarak oturum açma işlemi hakkında daha fazla bilgi alabilir
 - Tarih
 - MFA Gerekli
 - Oturum açma durumu
- 
+
+> [!NOTE]
+> IP adresleri, bir IP adresi ve bilgisayarın bu adresine sahip fiziksel olarak bulunduğu yeri arasında kesin bağlantı yoktur şekilde verilir. Mobil sağlayıcıları ve VPN IP adresleri genellikle çok istemci cihaz gerçekten kullanıldığı gölgeden uzak olan merkezi havuzlarından sorunu olarak IP adreslerini eşleme karmaşık. Şu anda Azure AD raporlarında, IP adresi fiziksel bir konuma dönüştürme izlemeleri, kayıt defteri verisi, geriye doğru arama ve diğer bilgilere göre en iyi çaba ilkesi var.
+
 **Kullanıcılar** sayfasında, **Etkinlik** bölümündeki **Oturum açma** öğesine tıklayarak tüm kullanıcı oturum açma işlemlerine eksiksiz bir genel bakış elde edebilirsiniz.
 
 ![Oturum açma etkinliği](./media/concept-sign-ins/08.png "oturum açma etkinliği")

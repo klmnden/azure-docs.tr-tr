@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 11/13/2017
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: b37f8c53e9528919da3aaf0acf66376876bd64b1
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: 3f893318c3f39f6faa4806cd7c1736710e032ca9
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470889"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474719"
 ---
-# <a name="tutorial-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application-with-the-azure-cli"></a>Öğretici: Azure CLI ile yüksek oranda kullanılabilir bir uygulama oluşturmak için Azure’da Linux sanal makinelerinde yük dengeleme
+# <a name="tutorial-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application-with-the-azure-cli"></a>Öğretici: Azure CLI ile yüksek oranda kullanılabilir bir uygulama oluşturmak için azure'da Linux sanal makineleri Yük Dengelemesi
 
 Yük dengeleme, gelen istekleri birden çok sanal makineye dağıtarak yüksek düzeyde kullanılabilirlik sunar. Bu öğreticide, Azure yük dengeleyicisinin trafiği dağıtan ve yüksek kullanılabilirlik sağlayan farklı bileşenleri hakkında bilgi edinebilirsiniz. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
@@ -226,7 +226,7 @@ az vm availability-set create \
     --name myAvailabilitySet
 ```
 
-Artık [az vm create](/cli/azure/vm#az_vm_create) komutu ile VM’leri oluşturabilirsiniz. Aşağıdaki örnek üç VM ve yoksa SSH anahtarlarını oluşturur:
+Artık [az vm create](/cli/azure/vm) komutu ile VM’leri oluşturabilirsiniz. Aşağıdaki örnek üç VM ve yoksa SSH anahtarlarını oluşturur:
 
 ```bash
 for i in `seq 1 3`; do

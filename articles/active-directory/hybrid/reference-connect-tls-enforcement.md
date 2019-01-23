@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect: TLS 1.2 zorlama için Azure Active Directory Connect | Microsoft Docs'
+title: 'Azure AD Connect: Azure Active Directory Connect için TLS 1.2 zorlama | Microsoft Docs'
 description: Bu makalede, Azure AD Connect ve Azure AD eşitleme'nın tüm sürümleri listelenir.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 10/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 657fe308217f93fbca847dd068a46fdb7713f1d4
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 7524acc8b5bb6468761440f2192b7366d1470488
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50634517"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54460762"
 ---
 # <a name="tls-12-enforcement-for-azure-ad-connect"></a>Azure AD Connect için TLS 1.2 zorlama
 

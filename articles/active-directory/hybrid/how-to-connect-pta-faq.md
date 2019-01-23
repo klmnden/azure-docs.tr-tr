@@ -5,7 +5,7 @@ services: active-directory
 keywords: Azure AD, SSO, Azure AD Connect geçişli kimlik doğrulaması, Active Directory Yükleme gerekli bileşenleri çoklu oturum açma
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: fdb316f5f5c1f67dbb92fe8847c0ffacce46ae07
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: cb36b9514d98fe32f20e740fbb578ac7daada79c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789101"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478408"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory geçişli kimlik doğrulaması: Sık sorulan sorular
 
@@ -156,7 +156,7 @@ Geçişli kimlik doğrulaması Aracısı bir sunucudan kaldırırsanız, sunucun
 
 ## <a name="i-have-an-older-tenant-that-was-originally-setup-using-ad-fs--we-recently-migrated-to-pta-but-now-are-not-seeing-our-upn-changes-synchronizing-to-azure-ad--why-are-our-upn-changes-not-being-synchronized"></a>Özgün AD FS kullanarak Kurulum, daha eski bir kiracınız var.  Size yakın zamanda PTA için geçirilen, ancak artık Azure AD ile eşitliyorsanız UPN değişikliklerimizi görmüyor.  Bizim UPN neden olan olmayan eşitlenmesini değiştirir?
 
-Y: Aşağıdaki durumlarda, şirket içi UPN değişikliklerinizi eşitlenmeyebilir:
+C: Aşağıdaki durumlarda, şirket içi UPN değişikliklerinizi eşitlenmeyebilir:
 
 - Azure AD kiracınız 15 Haziran 2015 tarihinden önce oluşturulduysa
 - Kimlik doğrulaması için AD FS kullanarak Azure AD kiracınız ile başlangıçta federe

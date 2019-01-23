@@ -15,12 +15,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: rogarana
-ms.openlocfilehash: 62ac70134c1bdf9d178d59723ff73561049a4bbf
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.component: disks
+ms.openlocfilehash: ee3f24b7e7a0e4242337aabedc87515b7fabbb9a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993091"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467972"
 ---
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Linux sanal makinesi yönetilmeyen disklerden yönetilen disklere dönüştürme
 
@@ -37,7 +38,7 @@ Bu makalede, Azure CLI kullanarak Vm'leri dönüştürme işlemini göstermekted
 ## <a name="convert-single-instance-vms"></a>Tek Örnekli VM'ler Dönüştür
 Bu bölümde, tek örnek Azure Vm'leri yönetilmeyen disklerden yönetilen disklere dönüştürme ele alınmaktadır. (Bir kullanılabilirlik kümesindeki sanal makineleriniz varsa sonraki bölüme bakın.) Bu işlem, sanal makinelerin yönetilmeyen premium (SSD) yönetilmeyen diskler için premium yönetilen diskler veya standart (HDD) diskleri için standart yönetilen diskler dönüştürmek için kullanabilirsiniz.
 
-1. Kullanarak VM'yi serbest bırakın [az vm deallocate](/cli/azure/vm#az_vm_deallocate). Aşağıdaki örnekte adlı VM serbest bırakılır `myVM` adlı kaynak grubunda `myResourceGroup`:
+1. Kullanarak VM'yi serbest bırakın [az vm deallocate](/cli/azure/vm). Aşağıdaki örnekte adlı VM serbest bırakılır `myVM` adlı kaynak grubunda `myResourceGroup`:
 
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM
@@ -71,7 +72,7 @@ Kullanılabilirlik kümesi dönüştürmeden önce kullanılabilirlik kümesinde
         --output table
     ```
 
-2. Tüm sanal makineleri kullanarak serbest [az vm deallocate](/cli/azure/vm#az_vm_deallocate). Aşağıdaki örnekte adlı VM serbest bırakılır `myVM` adlı kaynak grubunda `myResourceGroup`:
+2. Tüm sanal makineleri kullanarak serbest [az vm deallocate](/cli/azure/vm). Aşağıdaki örnekte adlı VM serbest bırakılır `myVM` adlı kaynak grubunda `myResourceGroup`:
 
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM

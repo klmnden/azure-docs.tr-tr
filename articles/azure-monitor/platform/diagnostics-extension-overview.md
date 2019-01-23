@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: robb
-ms.component: diagnostic-extension
-ms.openlocfilehash: dc8b8e37224201062d0cf53174f3248f04ca0cc3
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.subservice: diagnostic-extension
+ms.openlocfilehash: 5e3b42b1e1f72ccc4d1127f2926ee53c51d66291
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789765"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470520"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Azure tanılama uzantısı nedir
 Azure tanılama uzantısı, azure'da dağıtılan bir uygulamada tanılama verilerinin toplanmasını etkinleştiren aracısıdır. Bir dizi farklı kaynaktan tanılama uzantısını kullanabilirsiniz. Şu anda desteklenen olan Azure bulut hizmeti (Klasik) Web ve çalışan rolleri, sanal makineler, sanal makine ölçek kümeleri ve Service Fabric. Diğer Azure Hizmetleri tanılama farklı yöntemleri vardır. Bkz: [Azure'da izlemeye genel bakış](../../azure-monitor/overview.md).
@@ -85,3 +85,4 @@ Kullanmaya başlayın [bir Service Fabric uygulamasını izleme](../../service-f
 ## <a name="general-articles"></a>Genel makaleleri
 * Öğrenme [Azure Tanılama'da performans sayaçları kullanma](../../cloud-services/diagnostics-performance-counters.md).
 * Verilerinizi Azure depolama tabloları ' bkz veya tanılama başlatılıyor ile sorun varsa [Azure tanılama sorunlarını giderme](diagnostics-extension-troubleshooting.md)
+

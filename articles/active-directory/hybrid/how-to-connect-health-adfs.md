@@ -4,7 +4,7 @@ description: Bu Azure AD Connect Health sayfasında, şirket içi AD FS altyapı
 services: active-directory
 documentationcenter: ''
 author: zhiweiwangmsft
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: dc0e53d8-403e-462a-9543-164eaa7dd8b3
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 04/26/2018
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7d93207e6a5f0acabcf348981e799e801c39f48b
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: 3d74a78d60959dc404165d0ac8c4483b8bd36a29
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278846"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464094"
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>AD FS'yi Azure AD Connect Health'i kullanarak izleme
 Aşağıdaki belgeler, AD FS altyapınızın Azure AD Connect Health ile izlenmesine ilişkin belgelerdir. Azure AD Connect’i (Eşitleme) Azure AD Connect Health ile izleme hakkında bilgi için bkz. [Eşitleme için Azure AD Connect Health Kullanma](how-to-connect-health-sync.md). Ek olarak, Active Directory Etki Alanı Hizmetleri’ni Azure AD Connect Health ile izleme hakkında bilgi için bkz. [AD DS ile Azure AD Connect Health Kullanma](how-to-connect-health-adds.md).
@@ -44,7 +44,7 @@ Azure AD Connect Health Kullanım Analizi, federasyon sunucularınızın kimlik 
 
 Ek ölçümler seçmek, zaman aralığı belirtmek veya gruplandırmayı değiştirmek için kullanım analizi grafiğine sağ tıklayıp Grafiği Düzenle seçeneğini belirleyin. Ardından zaman aralığı belirtebilir, farklı bir ölçüm seçebilir ve gruplandırmayı değiştirebilirsiniz. Kimlik doğrulama trafiğinin dağılımını farklı "ölçümlere" göre görüntüleyebilir ve aşağıdaki bölümde açıklanan ilgili "gruplandırma ölçütü" parametrelerini kullanarak her ölçümü gruplandırabilirsiniz:
 
-**Ölçüm: Toplam İstek Sayısı** - AD FS sunucuları tarafından işlenen toplam istek sayısı.
+**Ölçüm: Toplam istekler** - toplam AD FS sunucuları tarafından işlenen isteklerin sayısı.
 
 |Gruplandırma Ölçütü | Gruplandırma nedir ve ne işe yarar? |
 | --- | --- |
@@ -56,16 +56,16 @@ Ek ölçümler seçmek, zaman aralığı belirtmek veya gruplandırmayı değiş
 | Ağ Konumu | Tüm istekleri kullanıcının ağ konumuna göre gruplandırır. İntranet veya extranet olabilir. Bu gruplandırma, trafiğin yüzde kaçının intranetten veya extranetten geldiğini anlamak için kullanışlıdır. |
 
 
-**Ölçüm: Toplam Başarısız İstek Sayısı** - Federasyon hizmeti tarafından işlenen başarısız isteklerin toplam sayısı. (Bu ölçüm yalnızca Windows Server 2012 R2 için AD FS'de kullanılabilir)
+**Ölçüm: Toplam başarısız istek** -başarısız Federasyon Hizmeti tarafından işlenen isteklerin toplam sayısı. (Bu ölçüm yalnızca Windows Server 2012 R2 için AD FS'de kullanılabilir)
 
 |Gruplandırma Ölçütü | Gruplandırma nedir ve ne işe yarar? |
 | --- | --- |
-| Hata Türü | Önceden tanımlanmış hata türlerine göre hata sayısını gösterir. Bu gruplandırma, genel hata türlerini anlamak için kullanışlıdır. <ul><li>Hatalı Kullanıcı Adı veya Parola: Hatalı kullanıcı adı veya paroladan kaynaklanan hatalar.</li> <li>"Extranet Kilitleme": Extranet dışında bırakılan bir kullanıcıdan alınan isteklerden kaynaklanan hatalar </li><li> "Süresi Dolan Parola": Süresi dolmuş bir parolayla oturum açmaya çalışan kullanıcılardan kaynaklanan hatalar.</li><li>"Devre Dışı Hesap": Devre dışı bırakılmış bir hesap ile oturum açmaya çalışan kullanıcılardan kaynaklanan hatalar.</li><li>"Cihaz Kimlik Doğrulaması": Cihaz Kimlik Doğrulamasını kullanarak kimlik doğrulaması gerçekleştiremeyen kullanıcılardan kaynaklanan hatalar.</li><li>"Kullanıcı Sertifikası Kimlik Doğrulaması": Geçersiz bir sertifika nedeniyle kimlik doğrulaması gerçekleştiremeyen kullanıcılardan kaynaklanan hatalar.</li><li>"MFA": Multi-Factor Authentication kullanarak kimlik doğrulaması yapmakta başarısız olan kullanıcılardan kaynaklanan hatalar.</li><li>"Diğer Kimlik Bilgisi": "Sertifika Verme Yetkilendirmesi": Başarısız yetkilendirmelerden kaynaklanan hatalar.</li><li>"Sertifika Verme Temsilcisi": Sertifika verme temsilcisi hatalarından kaynaklanan hatalar.</li><li>"Belirteç Onayı": ADFS'nin üçüncü taraf Kimlik Sağlayıcısından gelen bir belirteci reddetmesinden kaynaklanan hatalar.</li><li>"Protokol": Protokol hatalarından kaynaklanan hatalar.</li><li>"Bilinmeyen": Farklı nedenlerden kaynaklananlar. Tanımlanan kategorilere uymayan diğer tüm hatalar.</li> |
+| Hata Türü | Önceden tanımlanmış hata türlerine göre hata sayısını gösterir. Bu gruplandırma, genel hata türlerini anlamak için kullanışlıdır. <ul><li>Hatalı kullanıcı adı veya parola: Hatalar nedeniyle yanlış kullanıcı adı veya parola.</li> <li>"Extranet kilitleme": Extranet'ten kilitlendi bir kullanıcıdan alınan isteklerden kaynaklanan hatalar </li><li> "Süresi dolan parola": Süresi dolmuş bir parolayla oturum açmaya çalışan kullanıcılardan kaynaklanan hatalar.</li><li>"Devre dışı hesap": Devre dışı bırakılmış hesapla oturum kullanıcılardan kaynaklanan hatalar.</li><li>"Cihaz kimlik doğrulaması": Cihaz kimlik doğrulamasını kullanarak kimlik doğrulaması gerçekleştiremeyen kullanıcılardan kaynaklanan hatalar.</li><li>"Kullanıcı sertifikası kimlik doğrulaması": Geçersiz bir sertifika nedeniyle kimlik doğrulaması gerçekleştiremeyen kullanıcılardan kaynaklanan hatalar.</li><li>"MFA": Multi-Factor Authentication kullanarak kimlik doğrulaması gerçekleştiremeyen kullanıcılardan kaynaklanan hatalar.</li><li>"Diğer kimlik bilgisi": "Sertifika verme yetkilendirmesi": Başarısız yetkilendirmelerden kaynaklanan hatalar.</li><li>"Sertifika verme Temsilcisi": Verme temsilcisi hataları kaynaklanan hatalar.</li><li>"Belirteci kabul": Bir üçüncü taraf kimlik sağlayıcısından gelen bir belirteci Reddetmesinden kaynaklanan hatalar.</li><li>"Protokol": Hata protokol hatalarından kaynaklanan hatalar.</li><li>"Bilinmeyen": Tüm yakalayın. Tanımlanan kategorilere uymayan diğer tüm hatalar.</li> |
 | Sunucu | Hataları sunucuya göre gruplandırır. Bu gruplandırma sunucular genelindeki hata dağıtımını anlamak için kullanışlıdır. Düzensiz dağıtım, hatalı durumdaki bir sunucunun göstergesi olabilir. |
 | Ağ Konumu | Hataları isteklerin ağ konumuna (intranet veya extranet) göre gruplandırır. Bu gruplandırma başarısız olan istek türlerini anlamak için kullanışlıdır. |
 |  Uygulama | Hataları hedeflenen uygulamaya (bağlı olan taraf) göre gruplandırır. Bu gruplandırma hedeflenen hangi uygulamanın en çok hata sayısını gördüğünü anlamak için kullanışlıdır. |
 
-**Ölçüm: Kullanıcı sayısı** - Kimlik doğrulamak için etkin olarak AD FS’yi kullanan ortalama benzersiz kullanıcı sayısı
+**Ölçüm: Kullanıcı sayısı** - ortalama etkin olarak AD FS kullanarak kimlik doğrulaması yapan benzersiz kullanıcı sayısı
 
 |Gruplandırma Ölçütü | Gruplandırma nedir ve ne işe yarar? |
 | --- | --- |
@@ -82,7 +82,7 @@ Dikey pencerenin üst kısmındaki Filtre seçeneğini işaretlediğinizde her b
 ## <a name="top-50-users-with-failed-usernamepassword-logins"></a>Hatalı Kullanıcı Adı/Parola kullanarak oturum açamayan İlk 50 Kullanıcı
 Bir AD FS sunucusunda gerçekleşen başarısız kimlik doğrulama isteğinin en yaygın nedenlerinden biri geçersiz kimlik bilgileri ile ilgili isteklerdir, yani yanlış kullanıcı adı veya şifre istekleridir. Genellikle karmaşık parolalar, unutulan parolalar veya yazım hatalar nedeniyle oluşur.
 
-Ancak, AD FS sunucularınızın beklenmeyen sayıda isteği işlemesiyle sonuçlanabilen diğer nedenlerle de mevcuttur, örneğin: Kullanıcı kimlik bilgilerini önbelleğe alan bir uygulama ve kimlik bilgilerinin süresinin dolması ya da kötü amaçlı bir kullanıcının bir dizi iyi bilinen parola ile hesapta oturum açmaya çalışması. Bu iki örnek, isteklerde ani bir artışa neden olabilecek geçerli nedenlerdir.
+Ancak, istekleri gibi AD FS sunucularınız tarafından ele alınan beklenmeyen sayıda içinde sonuçlanabilen diğer nedenlerle vardır: Önbellekler kullanıcı kimlik bilgilerinin süresinin bir uygulama veya kötü niyetli bir kullanıcı hesabına bir dizi iyi bilinen parola ile oturum çalışılıyor. Bu iki örnek, isteklerde ani bir artışa neden olabilecek geçerli nedenlerdir.
 
 ADFS için Azure AD Connect Health, geçersiz kullanıcı adı veya paroladan dolayı oturum açma denemeleri başarısız olan İlk 50 Kullanıcıya ilişkin bir rapor sağlar. Bu rapor, gruplardaki tüm AD FS sunucuları tarafından oluşturulan denetim olaylarının işlenmesiyle sağlanır.
 
@@ -132,7 +132,7 @@ Ayrıca, tek bir IP adresinin birden fazla kullanıcıya karşı birden çok otu
 > 
 
 ### <a name="what-is-in-the-report"></a>Raporun içeriği
-Riskli IP raporundaki her bir öğe, belirlenmiş eşiği aşan başarısız AD FS oturum açma etkinlikleri hakkında toplu bilgiler gösterir. Şu bilgileri sağlar: ![Azure AD Connect Health Portalı](./media/how-to-connect-health-adfs/report4a.png)
+Riskli IP raporundaki her bir öğe, belirlenmiş eşiği aşan başarısız AD FS oturum açma etkinlikleri hakkında toplu bilgiler gösterir. Aşağıdaki bilgilere yer verilmiştir: ![Azure AD Connect Health portalı](./media/how-to-connect-health-adfs/report4a.png)
 
 | Rapor Öğesi | Açıklama |
 | ------- | ----------- |

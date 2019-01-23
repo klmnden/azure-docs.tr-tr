@@ -4,7 +4,7 @@ description: Azure Active Directory ile eşitlenen öznitelikler listelenir.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: c2bb36e0-5205-454c-b9b6-f4990bcedf51
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 08633b52e6b7cfef28635925ad9fcf34e065e9bf
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 30ed7ff2026c64c7e40d43597a2747f1144ae125
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251807"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468637"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect eşitleme: Azure Active Directory ile eşitlenen öznitelikler
 Bu konuda, Azure AD Connect eşitlemesi ile eşitlenen öznitelikler listelenir.  
@@ -122,7 +122,7 @@ Bu durumda, bu konudaki özniteliklerin listesi ile başlayın ve duyarlı veya 
 | msExchLitigationHoldOwner |X |X |X | |
 | msExchMailboxAuditEnable |X | | | |
 | msExchMailboxAuditLogAgeLimit |X | | | |
-| msExchMailboxGUID |X | | | |
+| msExchMailboxGuid |X | | | |
 | msExchModeratedByLink |X |X |X | |
 | msExchModerationFlags |X |X |X | |
 | msExchRecipientDisplayType |X |X |X | |
@@ -278,13 +278,13 @@ Bu durumda, bu konudaki özniteliklerin listesi ile başlayın ve duyarlı veya 
 | üye | | |X | |
 | Mobil |X |X | | |
 | msExchHideFromAddressLists |X |X |X | |
-| Msrtcsıp-ApplicationOptions |X | | | |
+| msRTCSIP-ApplicationOptions |X | | | |
 | Msrtcsıp-DeploymentLocator |X |X | | |
 | Msrtcsıp-çizgi |X |X | | |
 | Msrtcsıp-OptionFlags |X |X | | |
-| Msrtcsıp-OwnerUrn |X | | | |
+| msRTCSIP-OwnerUrn |X | | | |
 | msRTCSIP-PrimaryUserAddress |X |X | | |
-| Msrtcsıp-UserEnabled |X |X | | |
+| msRTCSIP-UserEnabled |X |X | | |
 | objectSID |X | |X |mekanik özelliği. AD Kullanıcı tanımlayıcısı Azure arasında eşitleme korumak için kullanılan AD ve AD. |
 | otherTelephone |X |X | | |
 | physicalDeliveryOfficeName |X |X | | |
@@ -406,11 +406,11 @@ Windows 10 etki alanına katılmış bir computer(device) bazı öznitelikler Az
 | accountEnabled |X | |
 | deviceTrustType |X |Etki alanına katılmış bilgisayarlar için sabit kodlanmış değeri. |
 | displayName |X | |
-| MS-DS-CreatorSID |X |RegisteredOwnerReference olarak da adlandırılır. |
+| ms-DS-CreatorSID |X |RegisteredOwnerReference olarak da adlandırılır. |
 | objectGUID |X |Cihaz kimliği olarak da adlandırılır. |
 | objectSID |X |OnPremisesSecurityIdentifier olarak da adlandırılır. |
 | operatingSystem |X |DeviceOSType olarak da adlandırılır. |
-| İşletimsistemisürümü |X |DeviceOSVersion olarak da adlandırılır. |
+| operatingSystemVersion |X |DeviceOSVersion olarak da adlandırılır. |
 | userCertificate |X | |
 
 Bu öznitelikler için **kullanıcı** seçtiğiniz olan diğer uygulamaların yanı sıra şunlardır.  
@@ -427,12 +427,12 @@ Etkinleştirmeyi seçtiğinizde bu öznitelikler geri Azure AD'den şirket içi 
 | Öznitelik adı (kullanıcı Arabirimi Connect) |Öznitelik adı (şirket içi AD) | Kullanıcı | İletişim | Grup | Açıklama |
 | --- |:---:|:---:|:---:| --- |---|
 | msDS-ExternalDirectoryObjectID| ms-DS-External-Directory-Object-Id |X | | |Azure AD'de cloudAnchor türetilmiş. Bu öznitelik, Exchange 2016 ve Windows Server 2016 AD yeni bir özelliktir. |
-| msExchArchiveStatus| ms-Exch-ArchiveStatus |X | | |Çevrimiçi Arşiv: posta arşivlemek müşterilerin sağlar. |
-| msExchBlockedSendersHash| ms-Exch-BlockedSendersHash |X | | |Filtreleme: geri şirket içinde filtreleme ve çevrimiçi güvenli ve engellenen sender verileri istemcilerden yazar. |
-| msExchSafeRecipientsHash| ms-Exch-SafeRecipientsHash  |X | | |Filtreleme: geri şirket içinde filtreleme ve çevrimiçi güvenli ve engellenen sender verileri istemcilerden yazar. |
-| msExchSafeSendersHash| ms-Exch-SafeSendersHash  |X | | |Filtreleme: geri şirket içinde filtreleme ve çevrimiçi güvenli ve engellenen sender verileri istemcilerden yazar. |
-| msExchUCVoiceMailSettings| ms-Exch-UCVoiceMailSettings |X | | |Birleştirilmiş ileti um (:) çevrimiçi sesli posta etkinleştirin: Microsoft Lync Server tarafından kullanılan tümleştirme Lync Server belirtmek için kullanıcının sesli posta çevrimiçi hizmetlere sahip şirket. |
-| msExchUserHoldPolicies| MS hariç tutulan hUserHoldPolicies |X | | |Dava tutun:, dava tutun altında hangi kullanıcıların belirlemek için etkinleştirir bulut Hizmetleri açıktır. |
+| msExchArchiveStatus| ms-Exch-ArchiveStatus |X | | |Çevrimiçi Arşiv: Müşterilerin posta arşiv sağlar. |
+| msExchBlockedSendersHash| ms-Exch-BlockedSendersHash |X | | |Filtreleme: Geri istemcilerden şirket içinde filtreleme ve çevrimiçi güvenli ve engellenen sender verileri yazar. |
+| msExchSafeRecipientsHash| ms-Exch-SafeRecipientsHash  |X | | |Filtreleme: Geri istemcilerden şirket içinde filtreleme ve çevrimiçi güvenli ve engellenen sender verileri yazar. |
+| msExchSafeSendersHash| ms-Exch-SafeSendersHash  |X | | |Filtreleme: Geri istemcilerden şirket içinde filtreleme ve çevrimiçi güvenli ve engellenen sender verileri yazar. |
+| msExchUCVoiceMailSettings| ms-Exch-UCVoiceMailSettings |X | | |Birleştirilmiş ileti um (:) çevrimiçi sesli posta etkinleştir: Microsoft Lync Server tarafından kullanılan tümleştirme Lync Server belirtmek için kullanıcının sesli posta çevrimiçi hizmetlere sahip şirket içi. |
+| msExchUserHoldPolicies| MS hariç tutulan hUserHoldPolicies |X | | |Dava tutun: Bulut kullanıcıları dava tutun altında olduğunu belirlemek için hizmetleri sağlar. |
 | proxyAddresses| proxyAddresses |X |X |X |Yalnızca Exchange Online adresinden eklenir x500. |
 | publicDelegates| ms-Exch-Public-temsilciler  |X | | |Kullanıcılara şirket içi Exchange posta kutusu ile SendOnBehalfTo hakkı verilmesi bir Exchange Online posta kutusu sağlar. Azure AD Connect derleme 1.1.552.0 gerektirir ya da sonra. |
 
@@ -466,7 +466,7 @@ Cihaz nesneleri, Active Directory'de oluşturulur. Bu nesneler, Azure AD'ye kat�
 | msDS-IsCompliant |X | |
 | msDS-IsEnabled |X | |
 | msDS-Ismanaged |X | |
-| msDS-garret Young |X | |
+| msDS-RegisteredOwner |X | |
 
 ## <a name="notes"></a>Notlar
 * Alternatif kimlik kullanırken, şirket içi userPrincipalName özniteliği ile Azure AD özniteliği onPremisesUserPrincipalName eşitlenir. Örnek postası, alternatif kimlik öznitelik ile Azure AD özniteliği userPrincipalName eşitlenir.

@@ -5,7 +5,7 @@ services: active-directory
 keywords: Enterprise state Dolaşım ayarlarını windows bulut, Kurumsal durumda Dolaşım hakkında sık sorulan sorular
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.component: devices
 ms.assetid: f45d0515-99f7-42ad-94d8-307bc0d07be5
@@ -18,12 +18,12 @@ ms.date: 10/25/2018
 ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
-ms.openlocfilehash: 3825d527e520fae87d0dd2712df767090adad4e5
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 417b909e4a5272b993a4696c1ef8d6718e055738
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248430"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452947"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Azure Active Directory'de Kurumsal durumda Dolaşım ayarları sorunlarını giderme
 
@@ -42,7 +42,7 @@ Sorunlarını gidermeye başlamadan önce kullanıcı ve cihaz düzgün yapılan
 ## <a name="information-to-include-when-you-need-help"></a>Yardıma ihtiyacınız olduğunda eklenecek bilgiler
 Aşağıdaki yönergeleri ile sorununuzu çözmek olamaz, destek mühendislerimizle başvurabilirsiniz. Bunları başvurduğunuzda, aşağıdaki bilgileri ekleyin:
 
-* **Genel hata açıklamasını**: kullanıcı tarafından görülen hata iletileri vardır? Hata iletisi varsa, ayrıntılı olarak fark beklenmeyen davranışı tanımlayın. Hangi özellikler eşitleme için etkindir ve hangi kullanıcının eşitlenecek bekleniyor mi? Birden çok özelliği değil eşitleniyor veya bir izole edilmiş?
+* **Genel hata açıklamasını**: Hata iletisi kullanıcı tarafından görülen var mı? Hata iletisi varsa, ayrıntılı olarak fark beklenmeyen davranışı tanımlayın. Hangi özellikler eşitleme için etkindir ve hangi kullanıcının eşitlenecek bekleniyor mi? Birden çok özelliği değil eşitleniyor veya bir izole edilmiş?
 * **Etkilenen kullanıcılar** – eşitleme çalışma/bir kullanıcı veya birden çok kullanıcı için başarısız olan? Kullanıcı başına cihaz sayısını rol oynayan? Tüm bunları değil eşitleniyor veya bunlardan bazıları eşitlemeye ve bazı eşitleniyor değil misiniz?
 * **Kullanıcı hakkındaki bilgileri** – hangi aygıta bağlanmayı kullanarak kullanıcı kimliğidir? Nasıl kullanıcı cihaza oturum açmak için? Seçili güvenlik grubu eşitlemesine izin bir parçası olduklarından? 
 * **Cihaz hakkındaki bilgileri** – bu cihazı Azure AD'ye katılmış veya etki alanına katılmış mı? Hangi derleme cihaz üzerinde mu? En son güncelleştirmeler nelerdir?
@@ -61,7 +61,7 @@ Bu bölüm, Kurumsal durumda Dolaşım için ilgili sorunları tanılayın ve so
   * Kilitleme ve kilit ekranı (Win + L), bir eşitleme tetikleme yardımcı olabilir.
   * Kurumsal durumda Dolaşım kullanıcı hesabı ve makine hesabı için bağlı gibi çalışmaya – her iki bilgisayar eşitleme için aynı hesapla oturum gerekir.
 
-**Olası sorun**: varsa denetimlerinde **ayarları** sayfa kullanılabilir değil ve "bazı Windows özellikleri yalnızca bir Microsoft hesabı veya iş hesabı kullanıyorsanız kullanılabilir." iletisini görürsünüz Şekilde ayarlamanız cihazlarda Bu sorun ortaya çıkabilir etki alanına katılmış ve Azure AD'ye kayıtlı ancak cihaz henüz başarılı bir şekilde Azure AD'ye kimlik doğrulaması. Olası bir nedeni, cihaz İlkesi uygulanmış olması gerekir, ancak bu uygulama, zaman uyumsuz olarak yapılır ve olarak birkaç saat Gecikmeli olmasıdır. 
+**Olası sorun**: Varsa denetimlerinde **ayarları** sayfa kullanılabilir değil ve "bazı Windows özellikleri yalnızca bir Microsoft hesabı veya iş hesabı kullanıyorsanız kullanılabilir." iletisini görürsünüz Şekilde ayarlamanız cihazlarda Bu sorun ortaya çıkabilir etki alanına katılmış ve Azure AD'ye kayıtlı ancak cihaz henüz başarılı bir şekilde Azure AD'ye kimlik doğrulaması. Olası bir nedeni, cihaz İlkesi uygulanmış olması gerekir, ancak bu uygulama, zaman uyumsuz olarak yapılır ve olarak birkaç saat Gecikmeli olmasıdır. 
 
 ### <a name="verify-the-device-registration-status"></a>Cihaz kayıt durumu doğrulayın
 
@@ -74,15 +74,15 @@ Kurumsal durumda dolaşım, cihazın Azure AD'ye kayıtlı olması gerekir. Kuru
 **Olası sorun**: **WamDefaultSet** ve **AzureAdJoined** hem "Hayır" alan değeri olması, cihaz etki alanına katılmış ve Azure AD ile kaydedilen ve cihaz eşitleme. Bu gösteriyor, cihaz ilkesinin uygulanması için beklemeniz gerekebilir veya Azure AD'ye bağlanma cihaz için kimlik doğrulaması başarısız oldu. Kullanıcı, uygulanacak ilke için birkaç saat beklemeniz gerekebilir. Diğer sorun giderme adımları kapatıp arka planda otomatik kaydı yeniden denemeden veya Görev Zamanlayıcı görevi başlatma içerebilir. Bazı durumlarda, çalışan "*dsregcmd.exe /leave*" Bu sorunla yeniden başlatarak ve kaydı yeniden denemeden bir yükseltilmiş komut istemi penceresinde yardımcı olabilir.
 
 
-**Olası sorun**: alan için **SettingsUrl** boştur ve cihazı eşitleyebilir değil. Kurumsal durumda Dolaşım Azure Active Directory portalında etkinleştirilmeden önce kullanıcının son cihaza oturum açmış. Cihazı yeniden başlatın ve kullanıcı oturum açma bilgileriniz yok. İsteğe bağlı olarak, portalda, BT yöneticisi gitmek zorunda deneyin **Azure Active Directory** > **cihazları** > **Kurumsal durumda Dolaşım** devre dışı bırakıp yeniden etkinleştirin **kullanıcılar eşitleme ayarları ve uygulama verilerini cihazlarda**. Yeniden etkinleştirildikten sonra cihazı yeniden başlatın ve kullanıcı oturum açma bilgileriniz yok. Bu sorunu çözmezse **SettingsUrl** söz konusu olduğunda hatalı cihaz sertifika boş olabilir. Bu durumda, çalışan "*dsregcmd.exe /leave*" Bu sorunla yeniden başlatarak ve kaydı yeniden denemeden bir yükseltilmiş komut istemi penceresinde yardımcı olabilir.
+**Olası sorun**: Alan için **SettingsUrl** boştur ve cihazı eşitleyebilir değil. Kurumsal durumda Dolaşım Azure Active Directory portalında etkinleştirilmeden önce kullanıcının son cihaza oturum açmış. Cihazı yeniden başlatın ve kullanıcı oturum açma bilgileriniz yok. İsteğe bağlı olarak, portalda, BT yöneticisi gitmek zorunda deneyin **Azure Active Directory** > **cihazları** > **Kurumsal durumda Dolaşım** devre dışı bırakıp yeniden etkinleştirin **kullanıcılar eşitleme ayarları ve uygulama verilerini cihazlarda**. Yeniden etkinleştirildikten sonra cihazı yeniden başlatın ve kullanıcı oturum açma bilgileriniz yok. Bu sorunu çözmezse **SettingsUrl** söz konusu olduğunda hatalı cihaz sertifika boş olabilir. Bu durumda, çalışan "*dsregcmd.exe /leave*" Bu sorunla yeniden başlatarak ve kaydı yeniden denemeden bir yükseltilmiş komut istemi penceresinde yardımcı olabilir.
 
 ## <a name="enterprise-state-roaming-and-multi-factor-authentication"></a>Kurumsal durumda Dolaşım ve çok faktörlü kimlik doğrulaması 
 
 Belirli koşullar altında Azure multi-Factor Authentication yapılandırılmışsa veri eşitlemesine izin Kurumsal durumda Dolaşım devredebilirsiniz. Destek belgesi bu belirtiler ilgili ek ayrıntılar için bkz [KB3193683](https://support.microsoft.com/kb/3193683). 
 
-**Olası sorun**: cihazınızın multi-Factor Authentication Azure Active Directory portalında gerektirecek şekilde yapılandırılmışsa, ayarları bir Windows 10 cihazda bir parola kullanarak oturum açma sırasında eşitlenecek başarısız olabilir. Bu tür bir multi-Factor Authentication yapılandırmasına, Azure yönetici hesabı korumak için tasarlanmıştır. Yönetici kullanıcıların Windows 10 cihazlarını kendi Microsoft Passport for Work PIN oturum açarak veya Office 365 gibi diğer Azure hizmetlerine erişirken multi-Factor Authentication tamamlayarak eşitleyebildiklerinden olabilir.
+**Olası sorun**: Cihazınız Azure Active Directory portalında çok faktörlü kimlik doğrulamasını gerektirecek şekilde yapılandırılmışsa, ayarları bir Windows 10 cihazda bir parola kullanarak oturum açma sırasında eşitlenecek başarısız olabilir. Bu tür bir multi-Factor Authentication yapılandırmasına, Azure yönetici hesabı korumak için tasarlanmıştır. Yönetici kullanıcıların Windows 10 cihazlarını kendi Microsoft Passport for Work PIN oturum açarak veya Office 365 gibi diğer Azure hizmetlerine erişirken multi-Factor Authentication tamamlayarak eşitleyebildiklerinden olabilir.
 
-**Olası sorun**: yönetici, Active Directory Federasyon hizmetlerini çok faktörlü kimlik doğrulaması koşullu erişim ilkesini yapılandırır ve cihazın erişim belirtecinin süresi eşitleme başarısız olabilir. Office 365 gibi diğer Azure hizmetlerine erişirken çok faktörlü kimlik doğrulamasını tamamlamak ya da oturum açın ve Microsoft Passport for Work PIN kullanarak oturumunuzu emin olun.
+**Olası sorun**: Eşitleme, yönetim Active Directory Federasyon hizmetlerini çok faktörlü kimlik doğrulaması koşullu erişim ilkesini yapılandırır ve cihazın erişim belirtecinin süresi başarısız olabilir. Office 365 gibi diğer Azure hizmetlerine erişirken çok faktörlü kimlik doğrulamasını tamamlamak ya da oturum açın ve Microsoft Passport for Work PIN kullanarak oturumunuzu emin olun.
 
 ### <a name="event-viewer"></a>Olay Görüntüleyici
 
@@ -166,7 +166,7 @@ Temizleme adımda, aşağıdaki temizleme dosyaları:
 
 ---
 
-### <a name="event-id-6065-80070533-this-user-cant-sign-in-because-this-account-is-currently-disabled"></a>Olay Kimliği 6065:80070533 bu hesap şu anda devre dışı olduğundan bu kullanıcı oturum açamaz  
+### <a name="event-id-6065-80070533-this-user-cant-sign-in-because-this-account-is-currently-disabled"></a>Olay Kimliği 6065: 80070533 bu hesap şu anda devre dışı bırakıldığından bu kullanıcı oturum açamaz  
 
 Kullanıcının kimlik bilgilerinin süresi dolmuş olduğunda bu hata SettingSync/hata ayıklama günlükleri altındaki Olay Görüntüleyicisi'nde görülebilir. Ayrıca, Kiracı otomatik olarak sağlanan AzureRMS olmadığı oluşabilir. 
 
@@ -177,7 +177,7 @@ Bu durumda, kullanıcının kendi kimlik bilgilerini ve oturum açma için yeni 
 
 ### <a name="event-id-1098-error-0xcaa5001c-token-broker-operation-failed"></a>Olay Kimliği 1098: Hata: 0xCAA5001C belirteci Aracısı işlemi başarısız oldu  
 
-Bu hata ile olay 1104 günlükleri AAD/Operational altındaki Olay Görüntüleyicisi'nde görülebilir: AAD bulut AP eklentisi çağrı alma belirteci hatayı döndürdü: 0xC000005F. İzinleri veya sahipliği öznitelikler eksik durumunda bu sorun oluşur.  
+Günlükleri AAD/Operational altındaki Olay Görüntüleyicisi'nde bu hata ile olay 1104 görülebilir: AAD bulut AP eklentisi çağrı alma belirteci döndürülen hata: 0xC000005F. İzinleri veya sahipliği öznitelikler eksik durumunda bu sorun oluşur.  
 
 **Önerilen eylem**  
 Listelenen adımlarla devam edin [KB3196528](https://support.microsoft.com/kb/3196528).  

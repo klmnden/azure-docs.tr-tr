@@ -4,7 +4,7 @@ description: Uygulama proxy'si aracı Bağlayıcısı'nı yükleme sırasında k
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 2d528c04a9301998220b5564330f20ed014b68d6
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: a4e32697826b37f16bd0eacec3c5bfc34e94f73f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036946"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464655"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Uygulama Ara Sunucusu Aracı Bağlayıcısı’nı yüklerken sorun oluşuyor
 
@@ -38,7 +38,7 @@ Bir bağlayıcı yüklemesi başarısız olduğunda, kök nedeni genellikle aşa
 
 ## <a name="verify-connectivity-to-the-cloud-application-proxy-service-and-microsoft-login-page"></a>Bulut uygulaması Ara Sunucusu hizmeti ve Microsoft Login sayfasına bağlantı doğrulayın
 
-**Hedef:** bağlayıcı makinesinde AAD uygulama proxy'sini kayıt uç noktası yanı sıra Microsoft oturum açma sayfasına bağlanıp doğrulayın.
+**Hedef:** Bağlayıcı makinesinde AAD uygulama proxy'sini kayıt uç noktası yanı sıra Microsoft oturum açma sayfasına bağlanabildiğini doğrulayın.
 
 1.  Bir tarayıcı açın ve aşağıdaki web sayfasına gidin: <https://aadap-portcheck.connectorporttest.msappproxy.net> , Orta ABD ve Doğu ABD veri merkezleri ile bağlantı noktaları 80 ve 443 bağlantı çalıştığını doğrulayın.
 
@@ -48,7 +48,7 @@ Bir bağlayıcı yüklemesi başarısız olduğunda, kök nedeni genellikle aşa
 
 ## <a name="verify-machine-and-backend-components-support-for-application-proxy-trust-cert"></a>Uygulama Proxy güven sertifikası için makine ve arka uç bileşenlerine desteklediğini doğrulayın
 
-**Hedef:** bağlayıcı makinesinde, arka uç proxy ve Güvenlik Duvarı için gelecekteki güven bağlayıcı tarafından oluşturulan sertifikayı destekleyebilir doğrulayın.
+**Hedef:** Bağlayıcı makinesinde, arka uç proxy ve Güvenlik Duvarı için gelecekteki güven bağlayıcı tarafından oluşturulan sertifikayı destekleyebilir doğrulayın.
 
 >[!NOTE]
 >Bağlayıcı, TLS1.2 tarafından desteklenen bir SHA512 sertifika oluşturmayı dener. Makine veya arka uç güvenlik duvarı ve proxy desteklemez, TLS1.2 yükleme başarısız.
@@ -63,7 +63,7 @@ Bir bağlayıcı yüklemesi başarısız olduğunda, kök nedeni genellikle aşa
 
 ## <a name="verify-admin-is-used-to-install-the-connector"></a>Yönetici Bağlayıcısı'nı yüklemek için kullanılan doğrulayın
 
-**Hedef:** bağlayıcı yüklemeye çalıştığında kullanıcı doğru kimlik bilgilerine sahip bir yönetici olduğundan emin olun. Şu anda, kullanıcının bir uygulama Yöneticisi veya yüklemesinin başarılı olması için genel yönetici olması gerekir.
+**Hedef:** Bağlayıcı yüklemeye çalıştığında kullanıcı doğru kimlik bilgilerine sahip bir yönetici olduğundan emin olun. Şu anda, kullanıcının bir uygulama Yöneticisi veya yüklemesinin başarılı olması için genel yönetici olması gerekir.
 
 **Kimlik bilgilerinin doğru olup olmadığını doğrulamak için:**
 

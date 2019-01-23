@@ -4,7 +4,7 @@ description: Desteklenen ayarlar genel bir bakış, Azure Active Directory koşu
 services: active-directory.
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: 56a5bade-7dcc-4dcf-8092-a7d4bf5df3c1
 ms.service: active-directory
 ms.component: conditional-access
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/13/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 46dfb96df7b16fe03bd5c2c69fd9e2e33b04bbd2
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 0971b5abee872d9a7010f0ce931f09c47808eb80
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408587"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452148"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory koşullu erişim ayarları başvurusu
 
@@ -149,7 +149,7 @@ Bu uzantı Chrome tarayıcısına otomatik olarak dağıtmak için aşağıdaki 
 |--- | ---|
 |Yol | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
 |Ad | 1 |
-|Tür | REG_SZ (dize) |
+|Tür | REG_SZ (String) |
 |Veriler | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx
 
 Chrome için destek **7 ve Windows 8.1**, aşağıdaki kayıt defteri anahtarını oluşturun:
@@ -158,7 +158,7 @@ Chrome için destek **7 ve Windows 8.1**, aşağıdaki kayıt defteri anahtarın
 |--- | ---|
 |Yol | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
 |Ad | 1 |
-|Tür | REG_SZ (dize) |
+|Tür | REG_SZ (String) |
 |Veriler | {"deseni": "https://device.login.microsoftonline.com","filter": {"ISSUER": {"CN =": "MS-Kuruluş-erişim"}}}|
 
 Bu tarayıcılar, cihaz kimlik doğrulaması, cihazın tanımlanması ve bir ilke karşı doğrulandı izin verme desteklemez. Tarayıcı özel modda çalışıyorsa cihaz denetimi başarısız olur. 
@@ -212,10 +212,10 @@ Koşullu erişim ilkenizi erişim onaylı istemci uygulama tarafından yapılmas
 Bu ayar, aşağıdaki istemci uygulamaları için geçerlidir:
 
 
-- Microsoft Intune yönetilen tarayıcı
+- Microsoft Intune Managed Browser
 - Microsoft PowerBI
-- Microsoft faturalama
-- Microsoft Başlatıcısı
+- Microsoft Invoicing
+- Microsoft Launcher
 - Microsoft Azure Information Protection
 - Microsoft Excel
 - Microsoft Kaizala 

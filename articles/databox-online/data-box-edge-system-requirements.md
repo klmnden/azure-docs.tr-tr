@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 01/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 05f6208788060459e67a787507a56adeed980e2d
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 60c4b22fb34a66a0ff68db26030be0e0ea3c0066
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319003"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470257"
 ---
 # <a name="azure-data-box-edge-system-requirements-preview"></a>Azure veri kutusu Edge sistem gereksinimleri (Önizleme)
 
@@ -97,7 +97,7 @@ Veri kutusu liberally çoğu zaman sabit IP adreslerinin, Edge temel giden trafi
 
 | URL deseni                      | Bileşen veya işlevi                     |   |
 |----------------------------------|---------------------------------------------|---|
-| https://mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Microsoft kapsayıcı kayıt defteri (gerekli)               |   |
+| `https://mcr.microsoft.com`<br></br>https://\*.cdn.mscr.io | Microsoft kapsayıcı kayıt defteri (gerekli)               |   |
 | https://\*.azurecr.io                     | Kişisel ve 3. taraf kapsayıcı kayıt defterleri (isteğe bağlı) |   |
 | https://\*.azure devices.net              | IOT hub'ı erişim (gerekli)                             |   |
 

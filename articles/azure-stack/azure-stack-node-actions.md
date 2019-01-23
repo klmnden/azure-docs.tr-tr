@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 1/14/2019
+ms.date: 01/22/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 170cf458496d91a28260296e2aba803d76fbc06b
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 90910580fd7fc766376569de3ce43fc5ce297e8b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388823"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469211"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Azure stack'teki ölçek birimi düğüm eylemleri
 
@@ -148,9 +148,25 @@ Onarım işlemi çalıştırdığınızda, BMC IP adresini belirtmeniz gerekir.
 
 Onarım işlemi çalıştırmak için yükseltilmiş bir PowerShell istemi açın ve aşağıdaki cmdlet'i çalıştırın:
 
-  ````PowerShell
+  ```PowerShell
   Repair-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -BMCIPv4Address <BMCIPv4Address>
-  ````
+  ```
+
+## <a name="shutdown"></a>Kapat
+
+**Kapatma** eylem fist kalan düğümleri aynı ölçek birimindeki tüm etkin iş yüklerini taşır. Ardından eylem düzgün bir şekilde ölçek birimi düğümlerini kapatır.
+
+Kapatıldı bir düğüm başlattıktan sonra çalıştırmanız gerekir [sürdürme](#resume) eylem. Düğüm üzerinde çalışmakta olan bir önceki iş yüklerini geri başarısız.
+
+Kapatma işlemi başarısız olursa, deneme [boşaltma](#drain) işlemi kapatma işlemi tarafından izlenen.
+
+Kapatma eylemi çalıştırmak için yükseltilmiş bir PowerShell istemi açın ve aşağıdaki cmdlet'i çalıştırın:
+
+  ```PowerShell
+  Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -Shutdown
+  ```
+
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

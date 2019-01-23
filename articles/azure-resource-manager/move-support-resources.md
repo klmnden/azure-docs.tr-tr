@@ -9,14 +9,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/28/2018
+ms.date: 01/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 253cfd7ddeb04a12a3609ab5e14a37365015a568
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: c16a0eeb674e712ec1c3678a2e0002a8ddcfc329
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790886"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464723"
 ---
 # <a name="move-operation-support-for-resources"></a>İşlem desteği kaynakları Taşı
 
@@ -295,7 +295,7 @@ Kaynak sağlayıcısı hem de kaynak türünü bulduktan sonra kaynak türü ta�
 | Labs/virtualmachines | Evet | Hayır |
 | Zamanlamaları | Hayır | Hayır |
 
-## <a name="microsoftdns"></a>Microsoft.DNS
+## <a name="microsoftdns"></a>microsoft.dns
 | Kaynak türü | Kaynak grubu | Abonelik |
 | ------------- | -------------- | ------------ |
 | dnszones | Hayır | Hayır |
@@ -327,7 +327,7 @@ Kaynak sağlayıcısı hem de kaynak türünü bulduktan sonra kaynak türü ta�
 | Kaynak türü | Kaynak grubu | Abonelik |
 | ------------- | -------------- | ------------ |
 | Kümeleri | Evet | Evet |
-| Ad alanları | Evet | Evet |
+| ad alanları | Evet | Evet |
 
 ## <a name="microsofthanaonazure"></a>Microsoft.HanaOnAzure
 | Kaynak türü | Kaynak grubu | Abonelik |
@@ -360,7 +360,7 @@ Kaynak sağlayıcısı hem de kaynak türünü bulduktan sonra kaynak türü ta�
 | metricalerts | Hayır | Hayır |
 | scheduledqueryrules | Evet | Evet |
 | Web testleri | Evet | Evet |
-| Çalışma kitapları | Evet | Evet |
+| çalışma kitapları | Evet | Evet |
 
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 | Kaynak türü | Kaynak grubu | Abonelik |
@@ -371,6 +371,11 @@ Kaynak sağlayıcısı hem de kaynak türünü bulduktan sonra kaynak türü ta�
 | Kaynak türü | Kaynak grubu | Abonelik |
 | ------------- | -------------- | ------------ |
 | kasaları | Evet | Evet |
+
+## <a name="microsoftkusto"></a>Microsoft.Kusto
+| Kaynak türü | Kaynak grubu | Abonelik |
+| ------------- | -------------- | ------------ |
+| Kümeleri | Evet | Evet |
 
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 | Kaynak türü | Kaynak grubu | Abonelik |
@@ -496,7 +501,7 @@ Kaynak sağlayıcısı hem de kaynak türünü bulduktan sonra kaynak türü ta�
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 | Kaynak türü | Kaynak grubu | Abonelik |
 | ------------- | -------------- | ------------ |
-| Ad alanları | Evet | Evet |
+| ad alanları | Evet | Evet |
 | ad/notificationhubs | Evet | Evet |
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
@@ -531,10 +536,10 @@ Kaynak sağlayıcısı hem de kaynak türünü bulduktan sonra kaynak türü ta�
 | ------------- | -------------- | ------------ |
 | kasaları | Evet | Evet |
 
-## <a name="microsoftrelay"></a>Sayısı
+## <a name="microsoftrelay"></a>Microsoft.Relay
 | Kaynak türü | Kaynak grubu | Abonelik |
 | ------------- | -------------- | ------------ |
-| Ad alanları | Evet | Evet |
+| ad alanları | Evet | Evet |
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
 | Kaynak türü | Kaynak grubu | Abonelik |
@@ -555,7 +560,7 @@ Kaynak sağlayıcısı hem de kaynak türünü bulduktan sonra kaynak türü ta�
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 | Kaynak türü | Kaynak grubu | Abonelik |
 | ------------- | -------------- | ------------ |
-| Ad alanları | Evet | Evet |
+| ad alanları | Evet | Evet |
 
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
 | Kaynak türü | Kaynak grubu | Abonelik |
@@ -624,7 +629,7 @@ Kaynak sağlayıcısı hem de kaynak türünü bulduktan sonra kaynak türü ta�
 | ortamları/eventsources | Evet | Evet |
 | ortamları/referencedatasets | Evet | Evet |
 
-## <a name="microsoftvisualstudio"></a>Microsoft.VisualStudio
+## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
 | Kaynak türü | Kaynak grubu | Abonelik |
 | ------------- | -------------- | ------------ |
 | account | Evet | Evet |
@@ -655,7 +660,7 @@ Kaynak sağlayıcısı hem de kaynak türünü bulduktan sonra kaynak türü ta�
 
 Üçüncü taraf hizmetleri, taşıma işlemi şu anda desteklenmiyor. Bu kaynak sağlayıcıları şunlardır:
 
-* 84codes. CloudAMQP
+* 84codes.CloudAMQP
 * AppDynamics.APM
 * Aspera.Transfers
 * Auth0.cloud

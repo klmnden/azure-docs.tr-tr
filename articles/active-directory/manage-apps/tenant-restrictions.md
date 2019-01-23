@@ -4,7 +4,7 @@ description: Kiracı kısıtlamaları hangi kullanıcıları yönetmek için nas
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 editor: yossib
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: barbkess
 ms.reviewer: richagi
-ms.openlocfilehash: 6989fe88fa17bcd99c99ee3e82d82fb403d1aae4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 97cabf7821f223b900f86115c3bd85b12de450d4
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096715"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478153"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Bulut uygulamalarınızı SaaS erişimi yönetmek için kullanım Kiracı kısıtlamaları
 
@@ -70,7 +70,7 @@ Kiracı kısıtlamaları proxy altyapınızın etkinleştirmek için aşağıdak
 
 #### <a name="configuration"></a>Yapılandırma
 
-Login.microsoftonline.com, login.microsoft.com ve login.windows.net gelen istek için her iki HTTP üst bilgileri ekleyin: *kiracılar için kısıtlama erişim* ve *kısıtlama erişim bağlam*.
+Login.microsoftonline.com, login.microsoft.com ve login.windows.net gelen istek için her iki HTTP üst bilgileri ekleyin: *Kısıtlama-erişim--kiracıların* ve *kısıtlama-erişim-bağlam*.
 
 Üst bilgileri, aşağıdaki öğeleri içermelidir: 
 - İçin *kiracılar için kısıtlama erişim*, değerini \<Kiracı listesini izin\>, kullanıcıların erişmesine izin vermek istediğiniz kiracılar virgülle ayrılmış listesi verilmiştir. Bir kiracı ile kaydedilen herhangi bir etki alanı, bu listedeki Kiracı tanımlamak için kullanılabilir. Örneğin, hem Contoso ve Fabrikam kiracıları için erişime izin vermek için ad/değer çifti şuna benzer:  `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com` 

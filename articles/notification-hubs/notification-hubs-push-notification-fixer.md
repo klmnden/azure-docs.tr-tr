@@ -1,10 +1,10 @@
 ---
-title: Azure bildirim hub'ları bildirim tanılama bırakıldı
-description: Azure Notification Hubs bırakılan bildirimler ile ilgili genel sorunları tanılamak öğrenin.
+title: Azure Notification hubs'ı bırakılan bildirim tanılama
+description: Azure Notification hubs'ı bırakılan bildirimler ile ilgili yaygın sorunları tanılamayı öğrenin.
 services: notification-hubs
 documentationcenter: Mobile
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 ms.assetid: b5c89a2a-63b8-46d2-bbed-924f5a4cce61
 ms.service: notification-hubs
@@ -12,184 +12,192 @@ ms.workload: mobile
 ms.tgt_pltfrm: NA
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/14/2018
-ms.author: dimazaid
-ms.openlocfilehash: bc9ef70560f0485da81c1f54aa955cee76d280ab
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 01/04/2019
+ms.author: jowargo
+ms.openlocfilehash: 9dd6a66ea416ad61682b8e33c6163db3ac345d92
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777619"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447726"
 ---
-# <a name="diagnose-dropped-notifications-in-notification-hubs"></a>Bildirim hub'ları bırakılan bildirimler tanılama
+# <a name="diagnose-dropped-notifications-in-notification-hubs"></a>Bildirim hub'larındaki bırakılan bildirim tanılayın
 
-Azure Notification Hubs müşterilerden en yaygın sorular bir uygulamadan gönderilen bildirimleri istemci aygıtlarda görünmüyor sorunu gidermek nasıl biridir. Bunlar nerede ve neden bildirimleri bırakıldı ve sorun gidermeye yönelik bilmek ister. Bu makalede, bildirimleri bırakılan veya cihazlar tarafından alınmayan neden tanımlar. Analiz etmek ve kök nedenini belirlemek öğrenin. 
+Azure Notification hubs'ı müşterilerden en yaygın sorular istemci cihazlarında bir uygulamadan gönderilen bildirimleri görünmez sorunu gidermek nasıl biridir. Bildirimler, nerede ve neden bırakılan ve sorunun nasıl çözüleceğini öğrenmek isterler. Bu makalede, bildirimleri bırakılan veya cihazlar tarafından alınmayan neden tanımlar. Analiz edin ve kök nedenini öğrenin.
 
-İlk bildirim hub'ları service bildirimleri bir aygıta nasıl iter anlaşılması önemlidir.
+Notification Hubs hizmet bildirimleri bir cihaza nasıl gönderim ilk anlamak için önemlidir.
 
-![Bildirim hub'ları mimarisi][0]
+![Notification Hubs mimarisi][0]
 
-Tipik gönderme bildirim akışı ileti gönderilen *uygulama arka ucu* bildirim hub'ları için. Bildirim hub'ları tüm kayıtlar üzerinde bir işlem yapar. Yapılandırılmış etiketleri ve "hedefleri." belirlemek için etiket ifadeleri işleme dikkate alır Hedefleri anında iletme bildirimi alması gereken tüm kayıtlar ' dir. Bu kayıtlar herhangi yayılabilir veya bizim desteklenen tüm platformlar: iOS, Google, Windows, Windows Phone, Kindle ve Baidu Çin Android için.
+İletinin gönderildiği bir tipik send notification akışta *uygulama arka ucunun* bildirim hub'larına. Bildirim hub'ları tüm kayıtlar üzerinde işlem yapar. İşleme yapılandırılmış etiketleri ve "hedef" belirlemek için etiket ifadeleri dikkate alır Anında iletme bildirimi alması gereken tüm kayıtlar hedeflerdir. Bu kayıtları herhangi yayılabilir veya bizim tüm desteklenen platformlarda: iOS, Google, Windows, Windows Phone, Kindle ve Baidu Çin Android için.
 
-Bildirimleri göndermek için Notification Hubs hizmeti kurulan hedefleri ile iter *anında bildirim hizmeti* cihaz platformu için. Apple anında iletilen bildirim servisi (APNs) Apple ve Firebase bulut Mesajlaşma (FCM) için Google için örnekler. Bildirim hub'ları gönderim bildirimlerini kayıtlar birden çok toplu işlemi bölün. Bildirim hub'ları kimliğini doğrular Azure portalında altında ayarlanan kimlik bilgilerine göre ilgili anında bildirim hizmeti ile **bildirim Hub'ı yapılandırma**. Anında iletme bildirimi hizmet ardından ileten ilgili bildirimlere *istemci cihazları*. 
+Oluşturulan hedefleriyle bildirimleri göndermek için Notification hubs'ı service gönderim *anında iletilen bildirim servisi* cihaz platformu için. Apple anında iletilen bildirim servisi (APNs) Apple ve Firebase Cloud Messaging (FCM) için Google için verilebilir. Bildirim hub'ları bildirim bildirimleri kayıtları birden çok toplu iş arasında bölün. Notification hubs'ın kimlik doğrulaması ile Azure portalında, altında ayarlanan kimlik bilgilerine göre ilgili anında iletme bildirimi hizmeti **bildirim Hub'ı yapılandırma**. Anında iletme bildirimi hizmeti ardından ileten ilgili bildirimlere *istemci cihazları*.
 
-Son Bacak bildirim teslimi için platform anında bildirim hizmeti ve aygıt arasında yer alır. Anında iletme bildirimi işleminde (istemci, uygulama arka ucu, bildirim hub'ları ve platform anında bildirim hizmeti) dört ana bileşen hiçbirini bildirimleri bırakılmasına neden olabilir. Bildirim hub'ları mimarisi hakkında daha fazla bilgi için bkz: [Notification Hubs'a genel bakış].
+Bildirim teslim son oluşturan platform anında iletme bildirimi hizmeti ile cihaz arasındaki gerçekleşir. Dört ana bileşenleri (istemci, uygulama arka ucu, bildirim hub'ları ve platform anında iletilen bildirim servisi) anında iletme bildirimi işleminde bildirimleri bırakılmasına neden olabilir. Notification Hubs mimarisi hakkında daha fazla bilgi için bkz. [Notification Hubs'a genel bakış].
 
-Bildirimleri göndermeyi hata sırasında ilk oluşabilir test/hazırlama aşamasında. Bu aşamada bırakılan bildirimler bir yapılandırma sorunu gösteriyor olabilir. Üretimde bildirimleri göndermeyi hatası oluşursa, bazı veya tüm bildirimler bırakılabilir. Bu durumda, daha derin bir uygulama veya desen sorunu ileti gösterilir. 
+Bildirimleri teslim edememe, ilk kurulum sırasında oluşabilir test/hazırlama aşamasında. Bu aşamada bırakılan bildirim, bir yapılandırma sorunu gösterebilir. Üretimde bildirimleri göndermeyi hata oluşması durumunda bazı veya tüm bildirimleri bırakılabilir. Bu durumda, daha kapsamlı bir uygulama veya deseni sorunu ileti gösterilir.
 
 Sonraki bölümde, bildirimler, ortak daha seyrek değişen bırakılabilir senaryoları bakar.
 
-## <a name="notification-hubs-misconfiguration"></a>Bildirim hub'ları yanlış yapılandırma
-Başarıyla ilgili anında bildirim hizmeti bildirimleri göndermek için geliştiricinin uygulama bağlamında kendi kimliğini doğrulamak Notification Hubs hizmeti gerekir. Bunun gerçekleşmesi için geliştirici ilgili platformun (Google, Apple, Windows ve benzeri) bir geliştirici hesabı oluşturur. Ardından, geliştirici kendi uygulama kimlik bilgileri nereden platformuyla kaydeder. 
+## <a name="notification-hubs-misconfiguration"></a>Bildirim hub'ları hatalı yapılandırma
 
-Azure portalına platform kimlik bilgilerini eklemeniz gerekir. Hiçbir bildirim aygıtı ulaşıyor, doğru kimlik bilgilerini Notification Hubs ' yapılandırıldığından emin olmak için ilk adım olmalıdır. Kimlik bilgileri bir platforma özgü Geliştirici hesabı altında oluşturulan uygulama eşleşmesi gerekir. 
+Başarıyla ilgili anında iletme bildirimi hizmeti için bildirimleri göndermek için Notification Hubs hizmetinin geliştiricinin uygulama bağlamında kendi kimliğini doğrulamak gerekir. Bunun gerçekleşmesi için geliştirici ilgili platformun (Google, Apple, Windows vb.) bir geliştirici hesabı oluşturur. Ardından, geliştirici uygulamalarını kimlik bilgileri nereden platformuyla kaydeder.
+
+Azure portalında platformunuzun kimlik bilgileri eklemeniz gerekir. Hiç bildirim aygıtı ulaşıyor, Notification hubs'ı doğru kimlik bilgilerini yapılandırıldığından emin olmak için ilk adım olmalıdır. Kimlik bilgilerini bir platforma özgü Geliştirici hesabı altında oluşturduğunuz uygulamayı eşleşmesi gerekir.
 
 Bu işlemi tamamlamak adım adım yönergeler için bkz: [Azure Notification Hubs ile çalışmaya başlama].
 
-Bazı ortak yapılandırma hataları denetlemek için şunlardır:
+Denetlemek için bazı ortak yanlış yapılandırmalar şunlardır:
 
-* **Genel**
-   
-    * Bildirim hub adınızı (olmadan, yazım hatalarını) bu konumlardan her birindeki aynı olduğundan emin olun:
+**Genel:**
 
+    * Bildirim hub'ı adınız (olmadan yazım yanlışları) bu konumların her biri aynı olduğundan emin olun:
         * Burada istemciden kaydedin.
-        * Burada arka uçtan bildirimleri gönderin.
-        * Burada anında bildirim hizmeti kimlik bilgileri yapılandırılmamış.
-    
-    * İstemci ve uygulama arka ucunun doğru paylaşılan erişim imzası yapılandırma dizeleri kullandığınızdan emin olun. Genellikle, kullanmalısınız **DefaultListenSharedAccessSignature** istemcide ve **DefaultFullSharedAccessSignature** uygulamanın arka uç (bildirimleri gönderme izinleri verir Bildirim hub'ları).
+        * Burada bir arka uçtan bildirimler gönderin.
+        * Burada anında iletme bildirimi hizmeti kimlik bilgileri yapılandırılmamış.
+    * İstemci ve uygulama arka ucunun doğru paylaşılan erişim imzası yapılandırma dizeleri kullandığınızdan emin olun. Genellikle, kullanmalısınız **DefaultListenSharedAccessSignature** istemcide ve **DefaultFullSharedAccessSignature** uygulamayı arka uç (bildirim göndermek için izinler verir Bildirim hub'ları).
 
-* **APNs yapılandırma**
-   
-    İki farklı hub bakımını yapmanız gerekir: üretim için bir hub ve test etmek için başka bir hub. Başka bir deyişle, bir korumalı alan ortamıdır sertifika ve üretimde kullanacaksanız hub'ı daha ayrı hub'ına kullandığınız sertifika yüklemeniz gerekir. Farklı türde sertifikaları aynı hub'ı yüklemeye çalışmayın. Bu bildirim hatasına neden olabilir. 
-    
-    Farklı türde sertifikaları yanlışlıkla aynı hub'ına yüklerseniz, hub'ı silin ve yeni bir hub ile yeni başlangıç öneririz. Bazı nedenlerle en azından, hub silemiyorsanız hub'dan varolan tüm kayıtlarını silmeniz gerekir. 
+**APNs yapılandırma:**
 
-* **FCM yapılandırma** 
-   
-    1. Emin *sunucu anahtarı* Firebase alınan Azure Portalı'nda kayıtlı sunucu anahtarı eşleşir.
-   
+    You must maintain two different hubs: one hub for production, and another hub for testing. This means that you must upload the certificate that you use in a sandbox environment to a separate hub than the certificate and hub that you are going to use in production. Don't try to upload different types of certificates to the same hub. This might cause notification failures.
+
+    If you inadvertently upload different types of certificates to the same hub, we recommend that you delete the hub and start fresh with a new hub. If for some reason you can't delete the hub, at a minimum, you must delete all the existing registrations from the hub.
+
+**FCM yapılandırması:**
+
+    1. Emin *sunucu anahtarı* Firebase aldığınız Azure Portalı'nda kayıtlı sunucu anahtarı eşleşir.
+
     ![Firebase sunucu anahtarı][3]
-   
+
     2. Yapılandırdığınızdan emin olun **proje kimliği** istemci üzerinde. Değeri elde edebilirsiniz **proje kimliği** Firebase panosundan.
-   
+
     ![Firebase proje kimliği][1]
 
 ## <a name="application-issues"></a>Uygulama sorunları
-* **Etiketleri ve etiket ifadeleri**
 
-    Kullanarak hedef kitlenizi segmentlere etiketleri veya etiket ifadeleri kullanıyorsanız bildirimi gönderdiğinizde, hiçbir hedef etiketler veya gönderme aramanız belirttiğiniz etiket ifadeleri göre bulunması mümkündür. 
-    
-    Bir bildirim gönderdiğinizde eşleşen etiketleri olduğundan emin olmak için kayıtları gözden geçirin. Ardından, bu kayıtları sahip istemcilerden gelen bildirim giriş doğrulayın. 
-    
-    Örnek olarak, tüm kayıtlar Notification Hubs ile "Siyaset" etiketini kullanarak yapılan ve "Spor" etiketi içeren bir bildirim gönderirseniz bildirim için herhangi bir CİHAZDAN gönderilen değil. Karmaşık bir servis talebi "Etiketi A" veya "Etiketi B" kullanarak kayıtlı etiket ifadeleri gerektirebilir, ancak bildirimleri gönderirken "Etiketi A & & etiketi b" hedef Self-diagnosis ipuçları bölümünde makalenin sonraki bölümlerinde, kayıtlar ve etiketlerini gözden geçirmek nasıl gösteriyoruz. 
+**Etiket ve etiket ifadeleri:**
 
-* **Şablon sorunları**
+    If you use tags or tag expressions to segment your audience, it's possible that when you send the notification, no target is found based on the tags or tag expressions that you specify in your send call.
 
-    Bölümünde açıklanan yönergeleri izleyin şablonları kullanıyorsanız olun [şablonları]. 
+    Review your registrations to ensure that there are matching tags when you send a notification. Then, verify the notification receipt only from the clients that have those registrations.
 
-* **Geçersiz kayıtlar**
+    As an example, if all your registrations with Notification Hubs were made by using the tag "Politics" and you send a notification with the tag "Sports," the notification isn't sent to any device. A complex case might involve tag expressions in which you registered by using "Tag A" OR "Tag B," but while sending notifications, you target "Tag A && Tag B." In the self-diagnosis tips section later in the article, we show you how to review your registrations and their tags.
 
-    Bildirim hub'ı doğru bir şekilde yapılandırdıysanız ve herhangi bir etiket veya etiket ifadeleri doğru kullanıldıysa, geçerli hedef bulunamadı. Bildirimleri bu hedefe gönderilmelidir. Bildirim hub'ları service sonra birkaç işlem toplu paralel olarak devre dışı etkinleşir. Her toplu kayıt kümesine iletileri gönderir. 
+** Şablon sorunlarını: **
+
+    If you use templates, ensure that you follow the guidelines described in [Templates].
+
+**Geçersiz kayıtlar:**
+
+    If the notification hub was configured correctly, and if any tags or tag expressions were used correctly, valid targets are found. Notifications should be sent to these targets. The Notification Hubs service then fires off several processing batches in parallel. Each batch sends messages to a set of registrations.
 
     > [!NOTE]
-    > Paralel işleme gerçekleştirildiğinden, bildirimleri teslim edilir sırayı garanti edilmez. 
+    > Because processing is performed in parallel, the order in which the notifications are delivered is not guaranteed.
 
-    Bildirim hub'ları "konumundaki çoğu kez" ileti teslim modeli için iyileştirilmiştir. Hiçbir bildirim bir cihaza birden çok kez teslim edilir böylece biz yinelenenleri kaldırma, çalışır. Bu emin olmak için kayıtlar denetleyin ve iletisi için anında iletilen bildirim servisi gönderilmeden önce cihaz tanımlayıcısı yalnızca bir ileti gönderilir emin olun. 
+    Notification Hubs is optimized for an "at-most once" message delivery model. We attempt deduplication, so that no notifications are delivered more than once to a device. To ensure this, we check registrations and ensure that only one message is sent per device identifier before the message is sent to the push notification service.
 
-    Her toplu sırayla kabul etmek ve kayıtları doğrulanıyor, anında iletme bildirimi hizmete gönderilen anında bildirim hizmeti bir veya daha fazla kayıtlar hatayla bir toplu işlemde algılar mümkündür. Bu durumda, anında bildirim hizmeti bildirim hub'ları için bir hata döndürür ve işlemi durdurur. Anında bildirim hizmeti toplu tamamen koparır. Bu, özellikle bir TCP akışı protokolünü kullanan APNS ile geçerlidir. 
+    As each batch is sent to the push notification service, which in turn is accepting and validating the registrations, it's possible that the push notification service will detect an error with one or more of the registrations in a batch. In this case, the push notification service returns an error to Notification Hubs, and the process stops. The push notification service drops that batch completely. This is especially true with APNS, which uses a TCP stream protocol.
 
-    Biz adresindeki-en iyi duruma getirilmiş kez teslim. Ancak bu durumda, hataya neden olan kayıt veritabanından kaldırılır. Ardından, biz toplu aygıtları geri kalanı için bildirim teslimi yeniden deneyin.
+    We are optimized for at-most once delivery. But in this case, the faulting registration is removed from the database. Then, we retry notification delivery for the rest of the devices in that batch.
 
-    Bir kayıt karşı başarısız teslim girişimi hakkında daha fazla hata bilgi almak için bildirim hub'ları REST API'ler kullanabilirsiniz [başına ileti Telemetri: bildirim iletisi Telemetri almak](https://msdn.microsoft.com/library/azure/mt608135.aspx) ve [PNS geri bildirim](https://msdn.microsoft.com/library/azure/mt705560.aspx). Örnek kod için bkz: [Gönder REST örnek](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/SendRestExample).
+    To get more error information about the failed delivery attempt against a registration, you can use the Notification Hubs REST APIs [Per Message Telemetry: Get Notification Message Telemetry](https://msdn.microsoft.com/library/azure/mt608135.aspx) and [PNS feedback](https://msdn.microsoft.com/library/azure/mt705560.aspx). For sample code, see the [Send REST example](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/SendRestExample).
 
-## <a name="push-notification-service-issues"></a>Anında bildirim hizmeti sorunları
-Bu bildirim iletisi platform anında bildirim hizmeti tarafından alınan sonra cihaza bildirimi teslim etmek anında bildirim hizmeti sorumluluğundadır. Bu noktada, bildirim hub'ları hizmeti dışında resim ve veya bildirim cihaza teslim olsa üzerinde denetimi yoktur. 
+## <a name="push-notification-service-issues"></a>Anında iletme bildirimi hizmeti sorunları
 
-Platform Bildirim Hizmetleri sağlam olduğundan, birkaç saniye içinde anında iletme bildirimi hizmetinden cihazlara ulaşmak için bildirimler eğilimlidir. Anında bildirim hizmeti azaltma, bildirim hub'ları bir üstel geri alma stratejisi geçerlidir. Anında bildirim hizmeti 30 dakika boyunca ulaşılamaz kalırsa, biz süresinin dolmasını ve bu iletileri kalıcı olarak bırakma yerinde bir ilkeye sahip. 
+Bu bildirim iletisi platform anında iletme bildirimi hizmeti tarafından alındıktan sonra cihaza bildirim teslim etmek için anında iletme bildirimi hizmeti sorumluluğundadır. Bu noktada, bildirim hub'ları hizmeti dışında bir resim ve sırada veya cihaza bildirim teslim üzerinde denetimi yoktur.
 
-Bir bildirim teslim etmek bir anında bildirim hizmeti çalışır, ancak cihaz çevrimdışıysa, bildirim sınırlı bir süre için anında bildirim hizmeti tarafından depolanır. Aygıt kullanılabilir hale geldiğinde bildirim cihaza teslim edilir. 
+Platform bildirim hizmetlerine sağlam olduğundan, bildirimleri, anında iletme bildirimi hizmeti cihazlardan ulaşması birkaç saniye içinde eğilimindedir. Anında iletme bildirimi Hizmeti azaltma, bildirim hub'ları bir üstel geri alma stratejisi uygular. Anında iletme bildirimi hizmeti 30 dakika boyunca ulaşılamaz kalırsa, süresinin dolmasını ve bu iletileri kalıcı olarak bırak yerinde bir ilke sahibiz.
 
-Her uygulama için yalnızca bir son bildirim depolanır. Bir aygıt çevrimdışı durumdayken birden fazla bildirim gönderiyorsanız, her bir yeni bildirim atılmak üzere önceki bildirim neden olur. Yalnızca en yeni bildirim tutma olarak adlandırılır *birleştirmesi bildirimleri* APNs içinde ve *daraltma* (hangi çöken bir anahtar kullanan) FCM içinde. Cihaz uzun bir süredir çevrimdışı kalırsa, cihaz için depolanan tüm bildirimler atılır. Daha fazla bilgi için bkz: [APNs genel bakış] ve [hakkında FCM iletileri].
+Bir bildirimi teslim etmek bir anında iletme bildirimi hizmeti çalışır, ancak cihaz çevrimdışı bildirim sınırlı bir süre için anında iletme bildirimi hizmeti tarafından depolanır. Cihaz kullanıma sunulduğunda bildirim cihaza gönderilir.
 
-Azure Notification Hubs ile genel SendNotification API'sini kullanarak HTTP üstbilgisinin birleştirmesi anahtar geçirebilirsiniz. Örneğin, .NET SDK için kullanacağınız **SendNotificationAsync**. SendNotification API ayrıca olarak geçirilen HTTP üstbilgileri alır-için ilgili anında iletme bildirimi hizmetidir. 
+Her uygulama için yalnızca bir son bildirim depolanır. Bir cihaz çevrimdışı çalışırken birden çok bildirim gönderilen her yeni bir bildirim atılmak üzere önceki bildirim neden olur. Yalnızca en yeni bildirim tutma olarak adlandırılır *birleşim bildirimleri* APNs içinde ve *daraltma* FCM (hangi çöken bir anahtar kullanır) içinde. Cihaz uzun bir süredir çevrimdışı kalırsa, cihaz için depolanan tüm bildirimler atılır. Daha fazla bilgi için [APNs genel bakış] ve [FCM iletileri hakkında].
 
-## <a name="self-diagnosis-tips"></a>Self-Diagnosis ipuçları
-Bildirim hub'ları bırakılan bildirimler kök nedenini tanılamak için yollar şunlardır:
+Azure Notification Hubs ile genel SendNotification API'sini kullanarak bir HTTP üst bir birleştirme anahtarı geçirebilirsiniz. Örneğin, .NET SDK için kullanacağınız `SendNotificationAsync`. SendNotification API olarak geçirilen bir HTTP üst bilgileri de alır-ilgili anında iletme bildirimi hizmeti.
+
+## <a name="self-diagnosis-tips"></a>Kendi kendine tanılama ipuçları
+
+Bildirim hub'larındaki bırakılan bildirim kök nedenini tanılamak için yollar şunlardır:
 
 ### <a name="verify-credentials"></a>Kimlik bilgilerini doğrulama
-* **Anında iletme bildirimi hizmeti Geliştirici Portalı**
-   
-    (APNs, FCM, Windows bildirim hizmeti vb.) ilgili anında iletme bildirimi Hizmet Geliştirici Portalı'nda kimlik bilgilerini doğrulayın. Daha fazla bilgi için bkz: [Azure Notification Hubs ile çalışmaya başlama].
 
-* **Azure Portal**
-   
-    Gözden geçirmek ve kimlik bilgilerinin anında bildirim hizmeti Geliştirici Portalı, Azure portalında edindiğiniz olanla eşleşmesi için Git **erişim ilkeleri** sekmesi. 
-   
-    ![Azure portalına erişim ilkeleri][4]
+**Anında iletme bildirimi hizmeti Geliştirici Portalı:**
 
-### <a name="verify-registrations"></a>Kayıtlar doğrulayın
-* **Visual Studio**
-   
-    Geliştirme için Visual Studio kullanırsanız, görüntülemek ve bildirim hub'ları da dahil olmak üzere birden çok Azure hizmetleri yönetmek için Sunucu Gezgini üzerinden Azure bağlanabilirsiniz. Bu, geliştirme ve test ortamınız için özellikle yararlıdır. 
-   
-    ![Visual Studio Sunucu Gezgini][9]
-   
-    Görüntüleyin ve platformu tarafından yerel kategorilere hub'ınızdaki, tüm kayıtlar veya şablon kayıt, tüm etiketleri, anında bildirim hizmeti tanımlayıcısı, kayıt kimliği ve sona erme tarihi yönetin. Bu sayfada bir kaydı da düzenleyebilirsiniz. Etiketleri düzenleme için özellikle yararlıdır. 
-   
-    ![Visual Studio cihaz kayıtları][8]
-   
-   > [!NOTE]
-   > Kayıtlar yalnızca geliştirme ve test sırasında ve kayıtlar sınırlı sayıda ile düzenlemek için Visual Studio kullanın. Toplu, kayıtları düzenlemeniz gerekiyorsa, dışa aktarma kullanmayı düşünün ve içe aktarma bölümünde açıklanan kayıt işlevi [dışarı aktarma ve toplu kayıtları değiştirme](https://msdn.microsoft.com/library/dn790624.aspx).
-   > 
-   > 
-* **Service Bus Explorer**
-   
-    Birçok müşteri kullanmak [hizmet veri yolu Gezgini] görüntüleme ve kendi bildirim hub'ı yönetme. Hizmet veri yolu Gezgini açık kaynaklı bir projedir. Örnekler için bkz: [hizmet veri yolu Gezgini kod].
+(APNs, FCM, Windows bildirim hizmeti vb.) ilgili anında iletme bildirimi Hizmet Geliştirici Portalı'nda kimlik bilgilerini doğrulayın. Daha fazla bilgi için [Azure Notification Hubs ile çalışmaya başlama].
+
+**Azure portalı:**
+
+Anında iletme bildirimi hizmeti Geliştirici Portalı, Azure portalında, aldığınız değerlerle kimlik bilgilerini gözden geçirin ve Git **erişim ilkeleri** sekmesi.
+
+![Azure portalında erişim ilkeleri][4]
+
+### <a name="verify-registrations"></a>Kayıtlarını doğrulayın
+
+**Visual Studio:**
+
+Geliştirme için Visual Studio kullanıyorsanız, Azure Notification Hubs dahil olmak üzere birden çok Azure hizmetleri görüntüle ve Yönet için Sunucu Gezgini aracılığıyla bağlanabilirsiniz. Bu, öncelikli olarak geliştirme/test ortamınız için kullanışlıdır.
+
+![Visual Studio Sunucu Gezgini][9]
+
+Görüntüleyebilir ve platform tarafından yerel kategorilere hub'ınızda, tüm kayıtları veya şablon kayıt, tüm etiketleri, anında iletme bildirimi hizmet tanımlayıcısı, kayıt kimliği ve sona erme tarihi yönetin. Bu sayfada bir kayıt de düzenleyebilirsiniz. Etiketleri düzenleme için özellikle yararlıdır.
+
+![Visual Studio cihaz kayıtları][8]
+
+> [!NOTE]
+> Yalnızca geliştirme ve test sırasında ve kayıtları sınırlı sayıda kaydı düzenlemek için Visual Studio'yu kullanın. Toplu kayıtlarınızı düzenlemeniz gerekiyorsa, dışarı aktarma kullanmayı göz önünde bulundurun ve içe aktarma açıklanan kayıt işlevi [dışarı aktarma ve kayıtları toplu değiştirme](https://msdn.microsoft.com/library/dn790624.aspx).
+
+**Hizmet veri yolu Gezgini:**
+
+Birçok müşteri kullanın [Service Bus Explorer] görüntüleme ve kendi bildirim hub'ı yönetme. Hizmet veri yolu Gezgini açık kaynaklı bir projedir. Örnekler için bkz: [hizmet veri yolu Gezgini kod].
 
 ### <a name="verify-message-notifications"></a>İleti bildirimlerini doğrulayın
-* **Azure Portal**
-   
-    Bir hizmet arka uç çalışır, altında gerek kalmadan istemcilerinize bir test bildirimi göndermek için **destek + sorun giderme**seçin **Test gönderimi**. 
-   
-    ![Azure'da test gönderme işlevi][7]
-* **Visual Studio**
-   
-    Ayrıca Visual Studio'dan test bildirimleri gönderebilirsiniz.
-   
-    ![Visual Studio'da gönderme işlevselliğini sınamak][10]
-   
-    Bildirim hub'ları ile Visual Studio Sunucu Gezgini kullanma hakkında daha fazla bilgi için bu makalelere bakın: 
-   
-   * [Bildirim hub'ları için cihaz kayıtları görüntüle]
-   * [Derin Dalış: Visual Studio 2013 güncelleştirme 2 RC ve Azure SDK 2.3]
-   * [Visual Studio 2013 güncelleştirme 3'ü ve Azure SDK 2.4 sürümü Duyurusu]
 
-### <a name="debug-failed-notifications-and-review-notification-outcome"></a>Başarısız bildirimleri hata ayıklama ve bildirim sonucunu gözden geçirin
-**EnableTestSend özelliği**
+ **Azure portalı:**
 
-Bildirim hub'ları aracılığıyla bir bildirim başlangıçta gönderdiğinizde, bildirim bildirim hub'ları işlemek için sıraya alındı. Bildirim hub'ları doğru hedefler belirler ve anında iletilen bildirim servisi için bildirim gönderir. REST API veya istemci SDK birini kullanıyorsanız, gönderme aramanız başarılı dönüş yalnızca ileti Notification Hubs ile başarıyla sıraya olduğunu anlamına gelir. Bildirim hub'ları için anında iletilen bildirim servisi ileti sonunda gönderildiğinde ne içine herhangi Insight yok. 
+Bir hizmet arka ucu çalışır, altında zorunda kalmadan istemcilerinize bir test bildirimi göndermek için **destek + sorun giderme**seçin **Test gönderimi**.
 
-Bildiriminizin istemci aygıtta ulaşırsa değil, bildirim hub'ları için anında iletilen bildirim servisi ileti teslim çalışırken bir hata oluştu mümkündür. Örneğin, yükü boyutu anında bildirim hizmeti tarafından izin verilen en büyük değeri aşıyor ya da Notification Hubs ' yapılandırılan kimlik bilgileri geçersiz olabilir. 
+![Azure'da gönderme işlevselliğini test etme][7]
 
-Bildirim hizmeti hataları gönderme hakkında bilgi almak için kullanabileceğiniz [EnableTestSend] özelliği. Bu özellik, portal ya da Visual Studio istemcisi sınama iletileri gönderirken otomatik olarak etkinleştirilir. Ayrıntılı hata ayıklama bilgilerini görmek için bu özelliği kullanın. API'leri aracılığıyla özelliğini de kullanabilirsiniz. Şu anda, .NET SDK'ın olarak kullanabilirsiniz. Sonuç olarak, tüm istemci SDK'ları için eklenir. 
+**Visual Studio:**
 
-Kullanılacak **EnableTestSend** REST çağrısı özelliğiyle append adlı bir sorgu dizesi parametresi *test* gönderme aramanız sonuna. Örneğin: 
+Ayrıca, Visual Studio'dan test bildirimleri gönderebilirsiniz.
 
-    https://mynamespace.servicebus.windows.net/mynotificationhub/messages?api-version=2013-10&test
+![Visual Studio'da gönderme işlevselliğini test etmek][10]
 
-**Örnek (.NET SDK)**
+Visual Studio Sunucu Gezgini ile Notification hubs'ı kullanma hakkında daha fazla bilgi için şu makalelere bakın:
 
-Yerel açılır (bildirim) bildirim göndermek için .NET SDK kullanarak bir örnek aşağıda verilmiştir:
+* [Bildirim hub'ları için cihaz kayıtları görüntüle]
+* [Yakından bakış: Visual Studio 2013 güncelleştirme 2 RC ve Azure SDK 2.3]
+* [Visual Studio 2013 güncelleştirme 3 ve Azure SDK 2.4 sürümünü Duyurusu]
 
-```csharp
-    NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(connString, hubName);
-    var result = await hub.SendWindowsNativeNotificationAsync(toast);
-    Console.WriteLine(result.State);
+### <a name="debug-failed-notifications-and-review-notification-outcome"></a>Hata ayıklama başarısız bildirimleri ve bildirim sonucunu gözden geçirin
+
+**`EnableTestSend` Özellik:**
+
+Bildirim hub'ları aracılığıyla bir bildirim ilk kez gönderdiğinizde, bildirim Notification Hubs ile işleme için kuyruğa alınır. Bildirim hub'ları doğru hedefleri belirler ve ardından anında iletme bildirimi hizmeti için bir bildirim gönderir. REST API veya istemci SDK'larından birini kullanıyorsanız, gönderme çağrınızın başarılı dönüş yalnızca ileti Notification Hubs ile başarıyla kuyruğa olduğunu gösterir. Bildirim hub'ları için anında iletme bildirimi hizmeti iletinin sonunda gönderildiğinde ne tüm bilgiler yok.
+
+Bildiriminiz istemci cihazda gelmezse, Notification hubs'ın anında iletilen bildirim servisi için ileti teslim çalışırken bir hata oluştu mümkündür. Örneğin, anında iletme bildirim hizmeti tarafından izin verilen maksimum yük boyutu aşabilir veya Notification hubs'ı yapılandırılmış kimlik bilgileri geçersiz olabilir.
+
+Bildirim hizmeti hataları anında Öngörüler elde etmek için kullanabileceğiniz [EnableTestSend] özelliği. Bu özellik, portal ya da Visual Studio istemci sınama iletileri gönderirken otomatik olarak etkinleştirilir. Ayrıntılı hata ayıklama bilgileri görmek için bu özelliği kullanabilirsiniz. API'ler aracılığıyla özelliğini de kullanabilirsiniz. Şu anda, .NET SDK'yı kullanabilirsiniz. Sonuç olarak, tüm istemci SDK'ları için eklenir.
+
+Kullanılacak `EnableTestSend` REST araması özelliğiyle adlı bir sorgu dizesi parametresi ekleme *test* gönderme aramanız sonuna. Örneğin:
+
+```text
+https://mynamespace.servicebus.windows.net/mynotificationhub/messages?api-version=2013-10&test
 ```
 
-Yürütme işleminin sonunda **sonucu. Durumu** yalnızca durumları **sıraya alınan**. Sonuçları, anında iletme bildirimi ne içine herhangi Insight sağlamaz. 
+**Örnek (.NET SDK):**
 
-Ardından, kullanabileceğiniz **EnableTestSend** Boolean özelliği. Kullanım **EnableTestSend** , başlatma sırasında özelliği **NotificationHubClient** bildirim gönderildiğinde oluşan bildirim hizmeti hataları gönderme hakkında ayrıntılı bir durum bilgisi almak için. Gönderme çağrı yalnızca bildirim hub'ları bildirim sonucunu belirlemek için anında iletilen bildirim servisi teslim sonra döndürdüğü döndürmek için ek bir zaman alır. 
+Yerel açılır (bildirim) bildirim göndermek için .NET SDK'sını kullanarak bir örnek aşağıda verilmiştir:
+
+```csharp
+NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(connString, hubName);
+var result = await hub.SendWindowsNativeNotificationAsync(toast);
+Console.WriteLine(result.State);
+```
+
+Yürütme sonunda `result.State` yalnızca durumları `Enqueued`. Sonuçları anında iletme bildiriminiz ne tüm bilgiler sağlamaz.
+
+Ardından, kullanabileceğiniz `EnableTestSend` Boolean özelliği. Kullanım `EnableTestSend` özelliğini başlatır `NotificationHubClient` bildirim gönderildiğinde, bildirim hizmeti hataları bildirme hakkında ayrıntılı durumunu almak için. Gönderme çağrı yalnızca Notification hubs'ı bildirim sonucunu belirlemek için anında iletme bildirimi hizmeti için teslim ettiğini sonra döndürdüğü için döndürülecek ek zaman alır.
 
 ```csharp
     bool enableTestSend = true;
@@ -204,50 +212,49 @@ Ardından, kullanabileceğiniz **EnableTestSend** Boolean özelliği. Kullanım 
     }
 ```
 
-**Örnek çıktı**
+**Örnek çıktı:**
 
-    DetailedStateAvailable
-    windows
-    7619785862101227384-7840974832647865618-3
-    The Token obtained from the Token Provider is wrong
+```text
+DetailedStateAvailable
+windows
+7619785862101227384-7840974832647865618-3
+The Token obtained from the Token Provider is wrong
+```
 
-Bu ileti ya da geçersiz kimlik bilgileri bildirim hub'ları içinde yapılandırılmış olan veya kayıtlar hub ile ilgili bir sorun var. gösterir. Bu kayıt silme ve iletiyi göndermeden önce kayıt yeniden oluşturma istemci izin öneririz. 
+Bu ileti, ya da geçersiz kimlik bilgileri, bildirim hub'ları yapılandırılmış veya hub'ında kayıtları bir sorun gösterir. Bu kaydı silmek ve istemci kaydı iletiyi göndermeden önce yeniden oluşturma izin öneririz.
 
 > [!NOTE]
-> Kullanımı **EnableTestSend** özelliği yoğun olarak azaltıldı. Bu seçenek, yalnızca geliştirme ve test ortamında ve kayıtlar sınırlı sayıda ile kullanın. Biz hata ayıklama bildirimlerini yalnızca 10 cihazlara gönderme. Biz de hata ayıklama gönderir 10 dakika başına işlemenin sınırlaması vardır. 
-> 
-> 
+> Kullanım `EnableTestSend` özelliği yoğun olarak kısıtlandı. Bu seçenek, yalnızca geliştirme/test ortamı ve sınırlı sayıda kayıtlar ile kullanın. Yalnızca 10 cihazları için hata ayıklama bildirimleri göndereceğiz. Hata ayıklama gönderen 10 dakika başına işlemenin bir sınır de sahibiz.
 
 ### <a name="review-telemetry"></a>Telemetri gözden geçirin
-* **Azure portal’ı kullanma**
-   
-    Portalda, bildirim hub'ınıza tüm etkinliklerin hızlı bir genel bakış elde edebilirsiniz. 
-   
-    1. Üzerinde **genel bakış** sekme, platform tarafından kayıtlar, bildirimleri ve hataları birleşik bir görünümünü görebilirsiniz. 
-   
-        ![Bildirim hub'ları Genel Bakış Panosu][5]
-   
-    2. Üzerinde **İzleyici** sekmesinde daha derinlikli bir bakış için diğer birçok platforma özgü ölçümleri ekleyebilirsiniz. Bildirim hub'ları service için anında iletilen bildirim servisi Bildirim göndermeye çalıştığında döndürülen anında iletme bildirimi hizmeti ile ilgili özellikle hataları bakabilirsiniz. 
-   
-        ![Azure portal etkinlik günlüğü][6]
-   
-    3. Begin gözden geçirerek **gelen iletileri**, **kayıt işlemleri**, ve **başarılı bildirimler**. Ardından, anında iletme bildirimi hizmete özgü hatalarını gözden geçirmek için platform başına sekmesine gidin. 
-   
-    4. Bildirim hub'ınız için kimlik doğrulama ayarlarını hatalıysa, ileti **PNS kimlik doğrulama hatası** görüntülenir. Bu, anında bildirim hizmeti kimlik bilgileri denetlemek için iyi bir göstergesidir. 
+
+**Azure portalını kullanın:**
+
+Portalda, bildirim hub'ınıza tüm etkinlik hızlı bir genel bakış alabilirsiniz.
+
+1. Üzerinde **genel bakış** sekme, platform tarafından kayıtlarını, bildirimleri ve hataları toplu bir görünümünü görebilirsiniz.
+
+    ![Bildirim hub'ları Genel Bakış Panosu][5]
+
+2. Üzerinde **İzleyici** sekmesinde, diğer birçok platforma özgü ölçümleri daha ayrıntılı bir bakış ekleyebilirsiniz. Bildirim hub'ları hizmeti için anında iletme bildirimi hizmeti Bildirim göndermeye çalıştığında döndürülen anında iletme bildirimi hizmeti ile ilgili özel hataları göz atabilirsiniz.
+
+    ![Azure portal etkinlik günlüğü][6]
+
+3. Başlamak inceleyerek **gelen iletileri**, **kayıt işlemleri**, ve **başarılı bildirimler**. Ardından, anında iletme bildirimi hizmeti için özel hatalarını gözden geçirmek için platform başına sekmesine gidin.
+
+4. Bildirim hub'ınız için kimlik doğrulama ayarlarını hatalıysa ileti **PNS kimlik doğrulama hatası** görünür. Anında iletme bildirimi hizmet kimlik bilgilerini kontrol etmek için iyi bir göstergesidir.
 
 * **Programlı erişim**
 
-    Programlı erişim hakkında daha fazla bilgi için bu makalelere bakın: 
+Programlı erişim hakkında daha fazla bilgi için şu makalelere bakın:
 
-    * [Programsal telemetri erişim]  
-    * [API örnek üzerinden telemetri erişim] 
+* [Telemetri programlı erişim]  
+* [API'leri örnek üzerinden erişim telemetri]
 
-    > [!NOTE]
-    > Telemetri ile ilgili çeşitli özellikler verme ister ve kayıtlar ve telemetri erişim API'leri aracılığıyla alma standart hizmet katmanında kullanılabilir. Kullanmayı denerseniz, bu özellikler ücretsiz veya temel hizmet katmanını, REST API'leri özelliklerinden doğrudan kullanırsanız, SDK'sı ve HTTP 403 (Yasak) hata kullanırsanız bir özel durum iletisi alırsınız. 
-    >
-    >Telemetri ile ilgili özellikleri kullanmak için önce standart hizmet katmanında kullandığınız Azure portalında sağlayın.  
-> 
-> 
+> [!NOTE]
+> Telemetri ile ilgili çeşitli özellikler verme ister ve kayıtları ve API'leri aracılığıyla erişim telemetri alma yalnızca standart hizmet katmanında kullanılabilir. Kullanmayı denerseniz, bu özellikleri ücretsiz veya temel hizmet katmanını, REST API'lerini doğrudan özellikleri kullanırsanız SDK'sı ve HTTP 403 (Yasak) hata kullanırsanız, bir özel durum iletisi alırsınız.
+>
+> Telemetri ile ilgili özellikleri kullanmak için öncelikle standart hizmet katmanı kullanarak Azure portalında olun.  
 
 <!-- IMAGES -->
 [0]: ./media/notification-hubs-diagnosing/Architecture.png
@@ -264,16 +271,15 @@ Bu ileti ya da geçersiz kimlik bilgileri bildirim hub'ları içinde yapılandı
 <!-- LINKS -->
 [Notification Hubs'a genel bakış]: notification-hubs-push-notification-overview.md
 [Azure Notification Hubs ile çalışmaya başlama]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
-[şablonları]: https://msdn.microsoft.com/library/dn530748.aspx 
+[Templates]: https://msdn.microsoft.com/library/dn530748.aspx
 [APNs genel bakış]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html
-[hakkında FCM iletileri]: https://firebase.google.com/docs/cloud-messaging/concept-options
+[FCM iletileri hakkında]: https://firebase.google.com/docs/cloud-messaging/concept-options
 [Export and modify registrations in bulk]: http://msdn.microsoft.com/library/dn790624.aspx
-[hizmet veri yolu Gezgini]: https://msdn.microsoft.com/library/dn530751.aspx#sb_explorer
-[hizmet veri yolu Gezgini kod]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
-[Bildirim hub'ları için cihaz kayıtları görüntüle]: http://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx 
-[Derin Dalış: Visual Studio 2013 güncelleştirme 2 RC ve Azure SDK 2.3]: http://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs 
-[Visual Studio 2013 güncelleştirme 3'ü ve Azure SDK 2.4 sürümü Duyurusu]: http://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/ 
+[Service Bus Explorer]: https://msdn.microsoft.com/library/dn530751.aspx#sb_explorer
+[Hizmet veri yolu Gezgini kod]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
+[Bildirim hub'ları için cihaz kayıtları görüntüle]: http://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx
+[Yakından bakış: Visual Studio 2013 güncelleştirme 2 RC ve Azure SDK 2.3]: http://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs
+[Visual Studio 2013 güncelleştirme 3 ve Azure SDK 2.4 sürümünü Duyurusu]: http://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/
 [EnableTestSend]: https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend?view=azure-dotnet
-[Programsal telemetri erişim]: http://msdn.microsoft.com/library/azure/dn458823.aspx
-[API örnek üzerinden telemetri erişim]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
-
+[Telemetri programlı erişim]: http://msdn.microsoft.com/library/azure/dn458823.aspx
+[API'leri örnek üzerinden erişim telemetri]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel

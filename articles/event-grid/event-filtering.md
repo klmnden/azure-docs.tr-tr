@@ -2,17 +2,17 @@
 title: Azure olay ızgarası için filtreleme olay
 description: Azure Event Grid aboneliği oluştururken olayları filtrelemek açıklar.
 services: event-grid
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 12/21/2018
-ms.author: tomfitz
-ms.openlocfilehash: 77225c4d659755ec6de1a14bf67bd0a62659fb6a
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.date: 01/21/2019
+ms.author: spelluru
+ms.openlocfilehash: 87599b05a3569bf6f28880352185a131f48a7f52
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753872"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470642"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Olay filtreleme için Event Grid abonelikleri anlama
 
@@ -119,7 +119,7 @@ Bulut olayları şemasında olayları için anahtar için aşağıdaki değerler
 * EventID
 * Kaynak
 * EventType
-* eventTypeVersion
+* EventTypeVersion
 * Olay verilerini (gibi Data.key1)
 
 Özel giriş şeması için olay veri alanlarını (gibi Data.key1) kullanın.

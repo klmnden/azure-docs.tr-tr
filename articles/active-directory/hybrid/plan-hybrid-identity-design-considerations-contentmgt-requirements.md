@@ -4,7 +4,7 @@ description: İşletmenizin içerik yönetimi gereksinimlerini belirlemek nasıl
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: dd1ef776-db4d-4ab8-9761-2adaa5a4f004
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 60d4501257bf79d1846e62010bf7b336c1b18f19
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 74efc23cd5f0f840e5b2c1e597059295765f45ea
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250875"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468667"
 ---
 # <a name="determine-content-management-requirements-for-your-hybrid-identity-solution"></a>Karma kimlik çözümünüz için bir içerik yönetim gereksinimlerini belirleme
 İşletmeniz için içerik yönetimi gereksinimlerini anlamaya kararınız üzerinde kullanmak için hangi karma kimlik çözümü doğrudan etkileyebilir. Birden çok cihaz ve kullanıcıların kendi cihazlarını getirmesine yeteneğini işyerinde ile ([KCG](https://aka.ms/byodcg)), şirketin kendi verilerini korumanız gerekir ancak bu aynı zamanda kullanıcı gizliliğini korumanız gerekir. Bir kullanıcı kendi cihazını olduğunda, genellikle, bunlar da, kullandıkları uygulama göre değişen birden çok kimlik bilgilerini olabilir. Kurumsal kimlik bilgilerini kullanarak oluşturulan ilkeleri ve kişisel kimlik bilgilerini kullanarak hangi içerik oluşturuldu ayırt etmek önemlidir. Kimlik çözümünüz bulut ile etkileşimde bulunmayı sırasında son kullanıcı için sorunsuz bir deneyim sağlamak için hizmetler kendi gizliliklerini sağlamak ve veri sızıntısına karşı koruma artırın. 

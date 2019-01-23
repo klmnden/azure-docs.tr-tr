@@ -4,7 +4,7 @@ description: Açıklayan bir Azure AD kiracısının ne olduğu ve Azure Active 
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: infrastructure-services
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: barbkess
-ms.openlocfilehash: f9cd761080bc5098d0500841e7327ac8ce9f9a2d
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 7b16e3ff5be21c52f354f0dcbb5dd91b4509e65e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957947"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461204"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Bir giriş bölgesi bulma ilke kullanarak Azure Active Directory oturum davranışı bir uygulama için yapılandırma
 
@@ -63,9 +63,9 @@ Etki alanı ipucu sözdizimi kullanılan protokole bağlı olarak değişir ve g
 
 **WS-Federation**: Sorgu dizesinde whr=contoso.com.
 
-**SAML**: etki alanı ipucu veya bir sorgu dizesi whr=contoso.com içeren ya da bir SAML kimlik doğrulama isteği.
+**SAML**:  Bir etki alanı ipucu veya bir sorgu dizesi whr=contoso.com içeren ya da bir SAML kimlik doğrulama isteği.
 
-**Açık ID Connect**: bir sorgu dizesi domain_hint=contoso.com. 
+**Open ID Connect**: Bir sorgu dizesi domain_hint=contoso.com. 
 
 Bir etki alanı ipucu uygulamadaki kimlik doğrulama isteği dahildir ve kiracının bu etki alanı ile birleştirilmiş, Azure AD oturum açma yeniden yönlendirme etki alanında yapılandırılmış IDP için çalışır. 
 
@@ -168,14 +168,14 @@ Aşağıdaki örneklerde, oluşturma, güncelleştirme, bağlamak ve Azure AD'de
 
 Hiçbir şey döndürülmezse, kiracınızda oluşturulan ilkeniz yok anlamına gelir.
 
-### <a name="example-set-hrd-policy-for-an-application"></a>: Örnek bir uygulama için HRD İlkesi 
+### <a name="example-set-hrd-policy-for-an-application"></a>Örnek: Bir uygulama için HRD İlkesi ayarlama 
 
 Bir uygulamaya ya da atandığında, bu örnekte, bir ilke oluşturun: 
 - Otomatik-kullanıcılar için AD FS oturum açma ekranı kiracınızda tek bir etki alanı olduğunda bunların bir uygulamada oturum açarken zaman hızlandırır. 
 - Kiracınızda birden fazla Federasyon etki alanı kullanıcılara bir AD FS oturum açma ekranı var. otomatik hızlandırır var.
 - Etkileşimli olmayan kullanıcı adı/parola oturum açma ilkesi için atanan uygulamaları için Federasyon kullanıcıları için Azure Active Directory için doğrudan sağlar.
 
-#### <a name="step-1-create-an-hrd-policy"></a>1. adım: bir HRD ilkesi oluşturma
+#### <a name="step-1-create-an-hrd-policy"></a>1. Adım: HRD ilkesi oluşturma
 
 Aşağıdaki ilke otomatik-kullanıcılar için AD FS oturum açma ekranı kiracınızda tek bir etki alanı olduğunda bunların bir uygulamada oturum açarken zaman hızlandırır.
 
@@ -204,12 +204,12 @@ Get-AzureADPolicy
 
 Oluşturduktan sonra HRD ilkesi uygulamak için birden çok uygulama hizmet sorumlularını atayabilirsiniz.
 
-#### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>2. adım: ilkeyi atamak hizmet sorumlusu bulun  
+#### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>2. Adım: İlkeyi atamak hizmet sorumlusu bulun  
 Gereksinim duyduğunuz **objectID** ilkeyi atamak istediğiniz hizmet sorumlularını. Bulmak için birkaç şekilde **objectID** hizmet sorumluları.    
 
 Portalı kullanabilirsiniz veya sorgulayabilirsiniz [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Ayrıca gidebilirsiniz [Graph Gezgini aracını](https://developer.microsoft.com/graph/graph-explorer) ve oturum açma için Azure AD hesabınız kuruluşunuzun tüm hizmet sorumlularını görmek için. PowerShell kullanıldığı için hizmet sorumlularını ve kimliklerini listelemek için get-azureadserviceprincipal cmdlet'ini cmdlet'ini kullanabilirsiniz.
 
-#### <a name="step-3-assign-the-policy-to-your-service-principal"></a>3. adım: hizmet sorumlunuzu ilke atama  
+#### <a name="step-3-assign-the-policy-to-your-service-principal"></a>3. Adım: Hizmet sorumlunuzu ilke atama  
 Sonra **objectID** otomatik hızlandırmayı yapılandırmak istediğiniz uygulama hizmet sorumlusu, aşağıdaki komutu çalıştırın. Bu komut, 2. adımda bulduğunuz hizmet sorumlusu ile 1. adımda oluşturduğunuz HRD İlkesi'ni ilişkilendirir.
 
 ``` powershell
@@ -220,18 +220,18 @@ Add-AzureADServicePrincipalPolicy -Id <ObjectID of the Service Principal> -RefOb
 
 Bir uygulama zaten bir HomeRealmDiscovery ilkesi atanmamış olduğu durumda, ikinci bir eklemek mümkün olmayacaktır.  Bu durumda, ek parametreler eklemek için uygulamaya atanmış giriş bölgesi bulma ilke tanımını değiştirin.
 
-#### <a name="step-4-check-which-application-service-principals-your-hrd-policy-is-assigned-to"></a>4. adım: hangi uygulama hizmet sorumlularını, HRD ilkesi için atanan kontrol edin.
+#### <a name="step-4-check-which-application-service-principals-your-hrd-policy-is-assigned-to"></a>4. Adım: HRD ilkenizi atandığı hangi uygulama hizmet sorumlularını denetleyin
 Hangi uygulamaların denetleneceği yapılandırılmış HRD ilkesi varsa, kullanmak **Get-AzureADPolicyAppliedObject** cmdlet'i. Geçirin **objectID** denetlemek istediğiniz ilke.
 
 ``` powershell
 Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
 ```
-#### <a name="step-5-youre-done"></a>5. adım: Hazırsınız!
+#### <a name="step-5-youre-done"></a>5. Adım: Hazırsınız!
 Yeni ilke çalışıp çalışmadığını denetlemek için uygulamanın deneyin.
 
-### <a name="example-list-the-applications-for-which-hrd-policy-is-configured"></a>Örnek: uygulamalar için hangi HRD İlkesi yapılandırılır Listele
+### <a name="example-list-the-applications-for-which-hrd-policy-is-configured"></a>Örnek: İçin hangi HRD İlkesi yapılandırılmış uygulamaların listesi
 
-#### <a name="step-1-list-all-policies-that-were-created-in-your-organization"></a>1. adım: kuruluşunuzda oluşturulan tüm ilkeleri listesi 
+#### <a name="step-1-list-all-policies-that-were-created-in-your-organization"></a>1. Adım: Kuruluşunuzda oluşturulan tüm ilkeleri listesi 
 
 ``` powershell
 Get-AzureADPolicy
@@ -239,23 +239,23 @@ Get-AzureADPolicy
 
 Not **objectID** atamalarını listelemek için istediğiniz ilke.
 
-#### <a name="step-2-list-the-service-principals-to-which-the-policy-is-assigned"></a>2. adım: ilke atandığı hizmet sorumlularını listelemek  
+#### <a name="step-2-list-the-service-principals-to-which-the-policy-is-assigned"></a>2. Adım: İlkenin atandığı hizmet sorumlularını listelemek  
 
 ``` powershell
 Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
 ```
 
-### <a name="example-remove-an-hrd-policy-for-an-application"></a>Örnek: bir uygulama için bir HRD İlkesi Kaldır
-#### <a name="step-1-get-the-objectid"></a>1. adım: nesne kimliği alma
+### <a name="example-remove-an-hrd-policy-for-an-application"></a>Örnek: Bir uygulama için bir HRD İlkesi Kaldır
+#### <a name="step-1-get-the-objectid"></a>1. Adım: ObjectID alın
 Önceki örnekte almak için kullanın **objectID** ilke ve istediğiniz kaldırmak, uygulama/hizmet sorumlusu. 
 
-#### <a name="step-2-remove-the-policy-assignment-from-the-application-service-principal"></a>2. adım: uygulama hizmet sorumlusundan ilke atamasını kaldırın.  
+#### <a name="step-2-remove-the-policy-assignment-from-the-application-service-principal"></a>2. Adım: Uygulama hizmet sorumlusundan ilke atamasını kaldırın  
 
 ``` powershell
 Remove-AzureADApplicationPolicy -ObjectId <ObjectId of the Service Principal>  -PolicyId <ObjectId of the policy>
 ```
 
-#### <a name="step-3-check-removal-by-listing-the-service-principals-to-which-the-policy-is-assigned"></a>3. adım: ilke atandığı hizmet sorumlularını listeleyerek kaldırma denetleyin. 
+#### <a name="step-3-check-removal-by-listing-the-service-principals-to-which-the-policy-is-assigned"></a>3. Adım: Temizleme İlkesi atandığı hizmet sorumlularını listeleyerek kontrol edin. 
 
 ``` powershell
 Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>

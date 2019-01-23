@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: 2a88b130c92f7b9074fd248afc97f0ea6b4c13bb
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: d101931fb2a4184ff9ffffc0aed4fc90fee2cbd5
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042147"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452964"
 ---
 # <a name="sql-query-examples-to-query-data-from-azure-cosmos-db"></a>Azure Cosmos DB'den verileri sorgulamak için SQL sorgu örnekleri
 
@@ -116,7 +116,7 @@ Artık Azure Cosmos DB SQL sorgu dili önemli yönlerini bazıları anlamak içi
     }]
 ```
 
-**Sorgu2:** Şimdi, burada JSON çıkışını farklı yeniden biçimlendirmek için ihtiyacımız durumu göz önünde bulundurun. Adresi Şehir durumu olarak aynı ada sahip olduğunda bu sorgu adı ve şehir olmak üzere iki seçili alanları içeren yeni bir JSON nesnesi projelere. Bu durumda, "NY, NY" ile eşleşir.
+**Query2:** Şimdi, burada JSON çıkışını farklı yeniden biçimlendirmek için ihtiyacımız durumu göz önünde bulundurun. Adresi Şehir durumu olarak aynı ada sahip olduğunda bu sorgu adı ve şehir olmak üzere iki seçili alanları içeren yeni bir JSON nesnesi projelere. Bu durumda, "NY, NY" ile eşleşir.
 
 ```sql
     SELECT {"Name":f.id, "City":f.address.city} AS Family
@@ -506,7 +506,7 @@ Like işleci aşağıdaki sorgu çağrıları iç içe yerleştirebilirsiniz.
 
 Olarak diğer sorgu işleçleri ile koşullu ifade başvurulan özelliklerinde herhangi bir öğeye eksikse veya karşılaştırılan türleri farklıysa, ardından bu öğeleri sorgu sonuçlarında bırakılır.
 
-Coalesce (?) işleci, verimli bir şekilde bir özellik için (diğer adıyla) olup olmadığını denetlemek için kullanılabilir tanımlanır) içinde bir öğe. Bu işleç karşı yarı yapılandırılmış sorgulanırken yararlıdır veya karma türlerde verileri. Örneğin, mevcut değilse, bu sorgu "lastName" belirlenirse ya da "Soyadı" döndürür.
+Coalesce (?) işleci, verimli bir şekilde bir öğede bir özellik varlığını denetlemek için kullanılabilir. Bu işleç karşı yarı yapılandırılmış sorgulanırken yararlıdır veya karma türlerde verileri. Örneğin, mevcut değilse, bu sorgu "lastName" belirlenirse ya da "Soyadı" döndürür.
 
 ```sql
     SELECT f.lastName ?? f.surname AS familyName

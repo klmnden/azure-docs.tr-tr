@@ -4,7 +4,7 @@ description: Birinci taraf Microsoft Applications (Office 365 gibi) Azure AD kul
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: ab0face3c211a8ea1477f40167f80330f0423498
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 2a13df5fc609fe7cfddff91841e082c123d758f5
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379273"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468820"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Bir Microsoft uygulamasında oturum açma sorunları
 
@@ -34,11 +34,11 @@ Bir kullanıcı Microsoft tarafından yayımlanan bir uygulamaya erişim elde ed
 
 -   Microsoft veya bir 3. taraf yayımlar uygulamalar için ücretsiz olarak herkes için kullanıcılar ayrıca erişim aracılığıyla verilebilir **yönetici onayı**. Başka bir deyişle, bir yönetici tarafından kuruluşunuzdaki herkes uygulamaya bir genel yönetici hesabıyla oturum açın ve kuruluşunuzdaki herkes için erişim vermek için uygulama kullanılabilir belirledi.
 
-İle sorununuzu gidermek için Başlat [uygulama erişimi, dikkate alınması gereken genel sorun alanlarından](#general-problem-areas-with-application-access-to-consider) ve ardından okuma [izlenecek yol: Microsoft Application erişim sorunlarını giderme adımları](#walkthrough-steps-to-troubleshoot-microsoft-application-access) içine almak için Ayrıntıları.
+İle sorununuzu gidermek için Başlat [uygulama erişimi, dikkate alınması gereken genel sorun alanlarından](#general-problem-areas-with-application-access-to-consider) ve ardından okuma [izlenecek yol: Microsoft Application erişim sorunlarını giderme adımları](#walkthrough-steps-to-troubleshoot-microsoft-application-access) ayrıntıları alınamıyor.
 
 ## <a name="general-problem-areas-with-application-access-to-consider"></a>Genel sorun alanlarından dikkate alınması gereken uygulama erişimi
 
-Nereden başlayacağınızı hakkında bir fikir varsa, ayrıntılarına ulaşabilirsiniz genel sorunlu alanları listesi aşağıda verilmiştir, ancak hızlı bir şekilde kullanmaya başlamak için adım adım kılavuzun okuma öneririz: [izlenecek yol: Microsoft Application erişimnasılgiderileceğini](#walkthrough-steps-to-troubleshoot-microsoft-application-access).
+Nereden başlayacağınızı hakkında bir fikir varsa, ayrıntılarına ulaşabilirsiniz genel sorunlu alanları listesi aşağıda verilmiştir, ancak hızlı bir şekilde kullanmaya başlamak için adım adım kılavuzun okuma öneririz: [İzlenecek yol: Microsoft Application erişim sorunlarını giderme adımları](#walkthrough-steps-to-troubleshoot-microsoft-application-access).
 
 -   [Kullanıcı hesabı ile ilgili sorunlar](#problems-with-the-users-account)
 
@@ -204,7 +204,7 @@ Bir kullanıcının çok faktörlü kimlik doğrulaması durumunu denetlemek iç
 
 9.  Kullanıcı listesinden kullanıcıyı seçin ve **etkinleştirme**, **devre dışı**, veya **zorla** istediğiniz gibi çok faktörlü kimlik doğrulaması.
 
-  * **Not**: bir kullanıcı olarak bulunuyorsa bir **zorlanan** durumunda ayarlayın bunları **devre dışı bırakılmış** geçici olarak geri hesaba izin vermek için. Daha sonra geri içinde bulundukları sonra durumlarına değiştirebilirsiniz **etkin** kişi bilgileri, sonraki oturum açma sırasında yeniden kaydolmak için bunları yeniden istemek için. Alternatif olarak, adımları izleyebilirsiniz [bir kullanıcının kimlik doğrulaması iletişim bilgileri kontrol](#check-a-users-authentication-contact-info) doğrulamak veya bunlar için bu veri kümesi için.
+  * **Not**: Bir kullanıcı olarak bulunuyorsa bir **zorlanan** durumunda ayarlayın bunları **devre dışı bırakılmış** geçici olarak geri hesaba izin vermek için. Daha sonra geri içinde bulundukları sonra durumlarına değiştirebilirsiniz **etkin** kişi bilgileri, sonraki oturum açma sırasında yeniden kaydolmak için bunları yeniden istemek için. Alternatif olarak, adımları izleyebilirsiniz [bir kullanıcının kimlik doğrulaması iletişim bilgileri kontrol](#check-a-users-authentication-contact-info) doğrulamak veya bunlar için bu veri kümesi için.
 
 ### <a name="check-a-users-authentication-contact-info"></a>Bir kullanıcının kimlik doğrulaması iletişim bilgileri kontrol edin
 

@@ -4,7 +4,7 @@ description: Bu makalede, parola karması eşitleme sorunlarını giderme hakkı
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 036933c6b6e86856871c5f59f08fea20a0343ad7
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 23787c777f20025d9310fac2efe0f429d66c4586
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314849"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470452"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect eşitlemesi ile parola karması eşitleme sorunlarını giderme
 Bu konu, parola karması eşitleme ile ilgili sorunları gidermek adımlar sağlar. Parolaları eşitlemiyor beklendiği gibi kullanıcıların bir alt kümesine veya tüm kullanıcılar için olabilir.
@@ -417,5 +417,5 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure AD Connect eşitlemesi ile parola karması eşitlemeyi uygulama](how-to-connect-password-hash-synchronization.md)
-* [Azure AD eşitleme bağlanın: eşitleme seçeneklerini özelleştirme](how-to-connect-sync-whatis.md)
+* [Azure AD Connect eşitleme: Eşitleme seçeneklerini özelleştirme](how-to-connect-sync-whatis.md)
 * [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](whatis-hybrid-identity.md)

@@ -4,7 +4,7 @@ description: Üst bilgi tabanlı kimlik doğrulamasını desteklemek için PingA
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.date: 10/11/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: c5a69e0c15d6d75bb4f182c1d8f62863aae7c760
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 52111d54031b2d458b0bfc727dcb310fbbcbd9ad
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140855"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468631"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Üst bilgi tabanlı kimlik doğrulaması için uygulama proxy'si ile PingAccess ile çoklu oturum açma
 
@@ -73,7 +73,7 @@ Uygulamanızı yayımlamak için aşağıdaki adımları izleyin. 1-8, bkz: adı
 3. Seçin **Ekle** dikey penceresinin üstünde.
 4. Seçin **şirket içi uygulama**.
 5. Yeni uygulamanız hakkındaki bilgilerle gerekli alanları doldurun. Ayarları için aşağıdaki yönergeleri kullanın:
-   - **İç URL**: normalde, şirket ağında olduğunuzda, sizi uygulamanın oturum açma sayfasına götürür URL'sini sağlayın. Bu senaryo için bağlayıcı PingAccess proxy uygulamanın ön sayfa olarak ele almanız gerekir. Bu biçimi kullanın: `https://<host name of your PA server>:<port>`. Varsayılan olarak 3000 bağlantı noktasıdır, ancak PingAccess yapılandırabilirsiniz.
+   - **İç URL**: Normalde şirket ağında olduğunuzda, sizi uygulamanın oturum açma sayfasına götürür URL'sini sağlayın. Bu senaryo için bağlayıcı PingAccess proxy uygulamanın ön sayfa olarak ele almanız gerekir. Bu biçimi kullanın: `https://<host name of your PA server>:<port>`. Varsayılan olarak 3000 bağlantı noktasıdır, ancak PingAccess yapılandırabilirsiniz.
 
     > [!WARNING]
     > SSO bu tür, iç URL, https kullanmalıdır ve http kullanamazsınız.

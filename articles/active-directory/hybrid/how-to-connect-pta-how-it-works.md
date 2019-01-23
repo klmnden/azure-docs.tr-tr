@@ -5,7 +5,7 @@ services: active-directory
 keywords: Azure AD, SSO, Azure AD Connect geçişli kimlik doğrulaması, Active Directory Yükleme gerekli bileşenleri çoklu oturum açma
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 437800483004cdbff89814579137f4057133d0fb
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 423edfecb7bfd69de9ef004686db4a05824d0857
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913815"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465443"
 ---
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Azure Active Directory geçişli kimlik doğrulaması: Ayrıntılı Teknik İnceleme
 Bu makalede nasıl bir genel bakıştır Azure Active directory (Azure AD) geçişli kimlik doğrulaması çalışır. Derin teknik ve güvenlik bilgileri için bkz: [güvenliğe derinlemesine bakış](how-to-connect-pta-security-deep-dive.md) makalesi.
@@ -50,13 +50,13 @@ Aşağıdaki diyagramda, tüm bileşenleri ve adımlar gösterilmektedir:
 ![Doğrudan Kimlik Doğrulama](./media/how-to-connect-pta-how-it-works/pta2.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- [Geçerli sınırlamalar](how-to-connect-pta-current-limitations.md): hangi senaryolar desteklenir ve hangilerinin olmayan öğrenin.
+- [Geçerli sınırlamalar](how-to-connect-pta-current-limitations.md): Hangi senaryolar desteklenir ve hangilerinin olmayan öğrenin.
 - [Hızlı Başlangıç](how-to-connect-pta-quick-start.md): Azure AD geçişli kimlik doğrulaması ve çalışır duruma getirin.
 - [AD FS'den doğrudan kimlik doğrulamaya geçiş](https://aka.ms/adfstoPTADP) -geçişli kimlik doğrulaması için AD FS (veya diğer Federasyon teknolojileri) geçirmek için ayrıntılı bir kılavuz.
-- [Akıllı kilitleme](../authentication/howto-password-smart-lockout.md): kullanıcı hesapları korumak için kiracınızda akıllı kilitleme özelliğini yapılandırın.
-- [Sık sorulan sorular](how-to-connect-pta-faq.md): Bul sık sorulan soruların yanıtları.
-- [Sorun giderme](tshoot-connect-pass-through-authentication.md): geçişli kimlik doğrulaması özelliği ile ortak sorunları çözmeyi öğrenin.
-- [Güvenliğe derinlemesine bakış](how-to-connect-pta-security-deep-dive.md): geçişli kimlik doğrulaması özelliği hakkında ayrıntılı teknik bilgi alın.
-- [Azure AD sorunsuz çoklu oturum açma](how-to-connect-sso.md): tamamlayıcı bu özellik hakkında daha fazla bilgi edinin.
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): dosya yeni özellik istekleri için Azure Active Directory Forumu kullanın.
+- [Akıllı kilitleme](../authentication/howto-password-smart-lockout.md): Akıllı kilitleme özelliğini, kullanıcı hesapları korumak için kiracınızı yapılandırın.
+- [Sık sorulan sorular](how-to-connect-pta-faq.md): Sık sorulan soruların yanıtlarını bulun.
+- [Sorun giderme](tshoot-connect-pass-through-authentication.md): Geçişli kimlik doğrulaması özelliği olan yaygın sorunların nasıl çözümleneceğini öğrenin.
+- [Güvenliğe derinlemesine bakış](how-to-connect-pta-security-deep-dive.md): Geçişli kimlik doğrulaması özelliği hakkında ayrıntılı teknik bilgilerini edinin.
+- [Azure AD sorunsuz çoklu oturum açma](how-to-connect-sso.md): Tamamlayıcı bu özellik hakkında daha fazla bilgi edinin.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Yeni özellik istekleriniz dosya için Azure Active Directory Forumu kullanın.
 

@@ -2,17 +2,17 @@
 title: Atılacak Mektubu ve yeniden deneme ilkeleri için Azure Event Grid abonelikleri
 description: Event Grid olay teslim seçeneklerini özelleştirmeyi açıklar. Teslim edilemeyen hedef ayarlayın ve teslim denemeye ne kadar süreyle belirtin.
 services: event-grid
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.author: tomfitz
-ms.openlocfilehash: 0a89a315f9c97f3cc6a8683f13c22b5066dc5dab
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.date: 01/06/2019
+ms.author: spelluru
+ms.openlocfilehash: 8660f09c41cf6226f2ffb173508d37c260522b80
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277758"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474260"
 ---
 # <a name="dead-letter-and-retry-policies"></a>Atılacak Mektubu ve yeniden deneme ilkeleri
 

@@ -4,7 +4,7 @@ description: Kullanıcıların kendi uygulamaları bulmak Self Servis uygulama e
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
 ms.author: barbkess
-ms.openlocfilehash: 1876ff0cea2e46f8159b9ffb24de72a6272b3a79
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: cf908c3c148a2649c22392e64c17c7a80d338e4f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077095"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476674"
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>Self Servis uygulama atamasının nasıl yapılandırılacağını
 
@@ -70,18 +70,18 @@ Bir uygulamaya Self Servis uygulama erişimini etkinleştirmek için aşağıdak
     > [!NOTE]
     > Bu uygulamaya erişmek isteyen kullanıcıların eklenmesi gereken grup için kullanılacak şirket içinden eşitlenen gruplar desteklenmiyor.
   
-10. **İsteğe bağlı:** önce iş onay gerektiren istiyorsanız kullanıcılara erişim verilir, Ayarla **bu uygulamaya erişim vermeden önce onay gerektirir?** geç **Evet**.
+10. **İsteğe bağlı:** Önce bir iş onayı iste istiyorsanız kullanıcılara erişim verilir, Ayarla **bu uygulamaya erişim vermeden önce onay gerektirir?** geç **Evet**.
 
-11. **İsteğe bağlı: yalnızca, parola ile çoklu oturum üzerinde kullanan uygulamalar için** onaylanan kullanıcılar için bu uygulama için gönderilen parolaları belirlemek bu iş onaylayanlar izin vermek istediğiniz verilirse **kullanıcının ayarlanacak onaylayanlar izin ver Bu uygulama için parolaları?**  geç **Evet**.
+11. **İsteğe bağlı: Yalnızca, parola ile çoklu oturum üzerinde kullanan uygulamalar için** onaylanan kullanıcılar için bu uygulama için gönderilen parolaları belirlemek bu iş onaylayanlar izin vermek istediğiniz verilirse **kullanıcının parolalarını bunu onaylayanların izin ver Uygulama?**  geç **Evet**.
 
-12. **İsteğe bağlı:** bu uygulamaya erişimi onaylama için izin verilen iş onaylayanlar belirtmek için etiket yanındaki seçiciyi **kimin bu uygulamaya erişimi onaylama için verilir?** 10 adede kadar tek tek seçin İş onaylayanlar.
+12. **İsteğe bağlı:** Bu uygulamaya erişimi onaylama için izin verilen iş onaylayanlar belirtmek için etiket yanındaki seçiciyi **kimin bu uygulamaya erişimi onaylama için verilir?** 10 adede kadar tek tek iş onaylayanları seçin.
 
      > [!NOTE]
      > Grupları desteklenmez.
      >
      >
 
-13. **İsteğe bağlı:** **rolleri gösterdiğiniz uygulamalar için**, Self Servis onaylanan kullanıcılar role atamak istiyorsanız yanındaki seçiciyi **bu uygulamada kullanıcılar hangi role atanmış?** Bu kullanıcılar atanan rolü seçmek için.
+13. **İsteğe bağlı:** **Rolleri gösterdiğiniz uygulamalar için**, Self Servis onaylanan kullanıcılar role atamak istiyorsanız yanındaki seçiciyi **bu uygulamada kullanıcılar hangi role atanmış?** rolüne seçmek için Bu kullanıcılara atanmış olmalıdır.
 
 14. Tıklayın **Kaydet** tamamlamak için dikey pencerenin üstünde düğme.
 

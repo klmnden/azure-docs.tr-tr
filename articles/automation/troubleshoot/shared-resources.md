@@ -8,12 +8,12 @@ ms.date: 12/3/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: ce78c86cdae9a06100fd17d00e0229805e42983b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 911f592c43865ea8bdfe85c1ad1071c7112ae9b6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848468"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475450"
 ---
 # <a name="troubleshoot-errors-with-shared-resources"></a>Paylaşılan kaynaklar hatalarla ilgili sorunları giderme
 
@@ -39,9 +39,68 @@ Bu sorunu çözmek için takılmış modülü kaldırmak **alma** kullanarak dur
 Remove-AzureRmAutomationModule -Name ModuleName -ResourceGroupName ExampleResourceGroup -AutomationAccountName ExampleAutomationAccount -Force
 ```
 
+### <a name="module-fails-to-import"></a>Senaryo: Modülü içeri aktarmak başarısız olursa veya cmdlet'leri içeri aktardıktan sonra yürütülemez.
+
+#### <a name="issue"></a>Sorun
+
+Bir modülü içeri aktarmak başarısız olursa veya başarıyla alır, ancak hiçbir cmdlet'leri ayıklanır.
+
+#### <a name="cause"></a>Nedeni
+
+Bir modül başarıyla Azure Otomasyonu'na ekleme alabilir olmayan bazı yaygın nedenleri şunlardır:
+
+* Yapı Otomasyonu olması gereken yapısı eşleşmiyor.
+* Modül, Otomasyon hesabınıza dağıtmamış başka bir modül bağlıdır.
+* Modülün bağımlılıklarını klasöründe eksik.
+* `New-AzureRmAutomationModule` Cmdlet'i, modül karşıya yüklemek için kullanılıyor ve tam depolama yolu verildiğinde yapmadıysanız veya modülü genel olarak erişilebilir bir URL kullanarak yüklenen henüz.
+
+#### <a name="resolution"></a>Çözüm
+
+Aşağıdaki çözümlerden birini sorunu düzeltin:
+
+* Modül aşağıdaki biçimde uyduğundan emin olun: ModuleName.Zip **->** ModuleName veya sürüm numarası **->** (ModuleName.psm1, ModuleName.psd1)
+* .Psd1 dosyasını açın ve modülü herhangi bir bağımlılığın olup olmadığına bakın. Aksi halde bu modüller Otomasyon hesabına yükleyin.
+* Başvurulan tüm .dll Modülü klasörde mevcut olduğundan emin olun.
+
+### <a name="all-modules-suspended"></a>Senaryo: Modülleri güncelleştirme yapılırken güncelleştirme AzureModule.ps1 askıya alır
+
+#### <a name="issue"></a>Sorun
+
+Kullanırken [güncelleştirme AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) modülü güncelleştirme güncelleştirme işlemini askıya, Azure modüllerini güncelleştirmek için runbook.
+
+#### <a name="cause"></a>Nedeni
+
+Kaç tane modül aynı anda güncelleştirilmesini belirlemek için varsayılan ayar 10 kullanıldığında `Update-AzureModule.ps1` betiği. Çok fazla modül aynı anda güncelleştirildiğinde güncelleştirme işleminin hatalara açıktır.
+
+#### <a name="resolution"></a>Çözüm
+
+AzureRM modülleri aynı Otomasyon hesabında gereklidir yaygın değildir. Yalnızca gereksinim duyduğunuz AzureRM modülleri içeri aktarmak için önerilir.
+
+> [!NOTE]
+> İçeri aktarma önlemek **AzureRM** modülü. İçeri aktarma **AzureRM** modülleri neden olan tüm **AzureRM.\***  modülleri içeri aktarılacak gidermede kullanılması bu değil.
+
+Güncelleştirme işlemi askıya alır, eklemenize gerek `SimultaneousModuleImportJobCount` parametresi `Update-AzureModules.ps1` betik ve 10 varsayılandan daha düşük bir değer sağlayın. 3 veya 5 değeriyle başlatmak için bu mantıksal uygulamanız önerilir. `SimultaneousModuleImportJobCount` bir parametresi `Update-AutomationAzureModulesForAccount` Azure modüllerini güncelleştirmek için kullanılan sistem runbook. Bu değişiklik işlemi artık çalışmasına neden olur, ancak tamamlama daha iyi belirtme şansı olur. Aşağıdaki örnek, parametre ve runbook'ta yerleştirileceği yeri gösterir:
+
+ ```powershell
+         $Body = @"
+            {
+               "properties":{
+               "runbook":{
+                   "name":"Update-AutomationAzureModulesForAccount"
+               },
+               "parameters":{
+                    ...
+                    "SimultaneousModuleImportJobCount":"3",
+                    ... 
+               }
+              }
+           }
+"@
+```
+
 ## <a name="run-as-accounts"></a>Farklı Çalıştır hesapları
 
-### <a name="unable-create-update"></a>. Senaryo: Oluşturulacak veya güncelleştirilecek bir farklı çalıştır hesabı oluşturulamıyor
+### <a name="unable-create-update"></a>Senaryo: Oluşturulacak veya güncelleştirilecek bir farklı çalıştır hesabı oluşturulamıyor
 
 #### <a name="issue"></a>Sorun
 
@@ -59,7 +118,7 @@ Bir kaynak grubu düzeyinde kaynak kilitli veya oluşturmak veya farklı çalı�
 
 Oluşturun veya bir farklı çalıştır hesabını güncelleştirmek için farklı çalıştır hesabı kullanılan çeşitli kaynakları için uygun izinleri olmalıdır. Oluşturmak veya bir farklı çalıştır hesabını güncelleştirmek için gereken izinleri hakkında bilgi edinmek için [farklı çalıştır hesabı izinleri](../manage-runas-account.md#permissions).
 
-Bir kilit nedeniyle sorun ise kilit kilitli kaynağına gidin ve kaldırmak için Tamam olduğunu doğrulayın, kilit sağ tıklayın ve seçin **Sil** kilidini kaldırmak için.
+Bir kilit nedeniyle sorunu yaşıyorsanız, kilidi kaldırmak için Tamam olduğunu doğrulayın. Ardından, kilitli kaynağa gidin, kilit sağ tıklatın ve seçin **Sil** kilidini kaldırmak için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

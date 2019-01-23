@@ -3,7 +3,7 @@ title: Şirket içi uygulama - Azure Active Directory'de uygulama ara sunucusu e
 description: Azure Active Directory (Azure AD), kullanıcıların kendi Azure AD hesabıyla oturum açarak şirket uygulamalarına erişmelerini sağlayan bir uygulama proxy'si hizmeti vardır. Bu öğretici, uygulama proxy'si ile kullanmak için ortamınızı hazırlama işlemini göstermektedir ve ardından Azure AD kiracınız için bir şirket içi uygulama eklemek için Azure portalını kullanır.
 services: active-directory
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 926a339bc8214c989da4ef934ae41012eea58d1e
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 0ea948760c7639f24031a0177df0d42f9706d006
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120742"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471225"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Öğretici: Azure Active Directory Uygulama proxy'si aracılığıyla uzaktan erişim için şirket içi uygulama ekleme
 
@@ -81,7 +81,7 @@ Aşağıdaki bağlantı noktalarının açık **giden** trafiği.
 
 Ayrıca duvarınız kaynak kullanıcılar için trafiği zorunlu kılarsa ağ hizmeti olarak çalışan Windows hizmetlerinden 80 ve trafiği için 443 bağlantı noktalarını açın.
 
-Uygulama Ara sunucusu kullanıyorsanız, yüklü connector'ın daha eski bir sürümü olabilir.  Bağlayıcı en son sürümünü yüklemek için bu öğreticiden yararlanın. Sürümleri 1.5.132.0 daha önce de aşağıdaki bağlantı noktalarını açma gerektirir: 5671, 8080, 9090 9091, 9350 9352, 10100 – 10120. 
+Uygulama Ara sunucusu kullanıyorsanız, yüklü connector'ın daha eski bir sürümü olabilir.  Bağlayıcı en son sürümünü yüklemek için bu öğreticiden yararlanın. Sürümleri 1.5.132.0 daha önce de aşağıdaki bağlantı noktalarını açma gerektirir: 5671, 8080, 9090-9091, 9350, 9352, 10100–10120. 
 
 ### <a name="allow-access-to-urls"></a>URL'lere erişim izni
 

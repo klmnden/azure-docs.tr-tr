@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect eşitleme: kullanıcıları, grupları ve kişileri anlama | Microsoft Docs'
+title: 'Azure AD Connect eşitleme: Kullanıcıları, grupları ve kişileri anlama | Microsoft Docs'
 description: Kullanıcıları, grupları ve kişileri Azure AD Connect Eşitleme'deki açıklar.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 8d204647-213a-4519-bd62-49563c421602
 ms.service: active-directory
 ms.workload: identity
@@ -14,14 +14,14 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 46d0ce28d6381662847917ce83c77780f1bd9e4c
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: c59065b21935336a77e3fb88c30f12cded341808
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46315241"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473937"
 ---
-# <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Azure AD Connect eşitleme: kullanıcıları, grupları ve kişileri anlama
+# <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Azure AD Connect eşitleme: Kullanıcıları, grupları ve kişileri anlama
 Neden birden çok Active Directory ormanı gerekir ve birçok farklı dağıtım topolojileri yoksa birkaç farklı nedeni vardır. Ortak bir hesap-kaynak dağıtımı ve GAL sync'ed ormanları birleşme ve alım sonra modelleridir. Ancak karma modeller de olsa bile saf modelleri, ortaktır. Varsayılan yapılandırma, Azure AD Connect eşitleme herhangi bir model varsaymaz ancak nasıl kullanıcı eşleşen Yükleme Kılavuzu'nda seçilen bağlı olarak, farklı davranışları gösterilebilir.
 
 Bu konu başlığında, varsayılan yapılandırması bazı Topolojilerde nasıl davranacağını üzerinden geçer. Yapılandırma aracılığıyla ele alacağız ve eşitleme kuralları Düzenleyicisi yapılandırmasını aramak için kullanılabilir.
@@ -73,6 +73,6 @@ Bir devre dışı bırakılmış kullanıcı hesabı bulunamadı, sonra başka b
 Azure AD'ye bir nesne artık sourceAnchor değiştirilmesine izin verilmez sonra verildi olduğunda. Nesnenin ne zaman yapılmış meta veri deposu özniteliği dışarı **cloudSourceAnchor** ile ayarlanır **sourceAnchor** Azure AD tarafından kabul edilen değer. Varsa **sourceAnchor** değiştirilir ve eşleşmemesi **cloudSourceAnchor**, kural **Out AAD için – kullanıcı katılın** hata atar **sourceAnchor özniteliği Değiştirilen**. Aynı sourceAnchor nesne yeniden eşitlenebilmesi yeniden meta veri deposunda mevcut, bu nedenle, bu durumda, yapılandırma veya veri düzeltilmelidir.
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
-* [Azure AD eşitleme bağlanın: Eşitleme seçeneklerini özelleştirme](how-to-connect-sync-whatis.md)
+* [Azure AD Connect eşitleme: Eşitleme seçeneklerini özelleştirme](how-to-connect-sync-whatis.md)
 * [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](whatis-hybrid-identity.md)
 

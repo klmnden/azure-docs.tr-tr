@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: e5477807e4cff6dc745ccfd0383fd216719a7aa5
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: c50aece847119dd0d2421553e9e9827c2168e553
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259623"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451655"
 ---
 # <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge-preview"></a>Öğretici: Bağlanma, ayarlamak ve Azure veri kutusu Edge (Önizleme) etkinleştirme 
 
@@ -87,7 +87,7 @@ Panonuzu yapılandırmak ve fiziksel cihaz ile veri kutusu Edge hizmetine kaydet
     - Ağ Arabiriminizin IPv4 yapılandırabilirsiniz.
 
     >[!NOTE] 
-    > Cihaza bağlanmak için başka bir IP adresi yoksa yerel IP adresi DHCP, ağını arabirimin statik'den geçiş yapabilirim öneririz. Birini kullanıyorsanız, ağ arabirimi ve geçiş için DHCP, DHCP adresini belirlemek mümkün olacaktır. Bir DHCP adresi için değiştirmek istiyorsanız, cihazın hizmete kaydolduktan sonra kadar bekleyin ve sonra değiştirebilirsiniz. Ardından tüm adpaters IP'ler görüntüleyebilirsiniz **cihaz özelliklerini** hizmetiniz için Azure portalında.
+    > Cihaza bağlanmak için başka bir IP adresi yoksa yerel DCHP, ağ arabirimine gelen statik IP adresi geçme öneririz. Birini kullanıyorsanız, ağ arabirimi ve geçiş için DHCP, DHCP adresini belirlemek mümkün olacaktır. Bir DHCP adresi için değiştirmek istiyorsanız, cihazın hizmete kaydolduktan sonra kadar bekleyin ve sonra değiştirebilirsiniz. Bulunan tüm bağdaştırıcıları IP'ler daha sonra görüntüleyebileceğiniz **cihaz özelliklerini** hizmetiniz için Azure portalında.
 
 1. (İsteğe bağlı) Sol bölmede seçin **Web proxy ayarları**ve ardından, web Ara sunucusunu yapılandırın. Web proxy yapılandırması bir web proxy kullanıyorsanız, isteğe bağlı olsa, yalnızca bu sayfada yapılandırabilirsiniz.
    

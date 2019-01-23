@@ -4,7 +4,7 @@ description: Federasyon kullanarak bir karma kimlik ortamı Kurulumu gösterilmi
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b813a276c2047a41038408744637b3dd50aff863
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 9e13b6aca7fd6302fc521e549b0f5a587ead9ed5
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163523"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472475"
 ---
 # <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Öğretici: Tek bir AD ormanı ortamını bulutta federasyona ekleme
 
@@ -245,7 +245,7 @@ Artık Azure AD Connect karşıdan yüklenip kurulacak zamanı geldi.  Yüklendi
 
 1. Azure AD ekranına bağlanma, kullanıcı ve yukarıda oluşturduğumuz genel yönetici parolasını girin ve tıklatın **sonraki**.
 2. Dizinleri ekranınıza Connect üzerinde tıklayın **Dizin Ekle**.  Ardından **yeni AD hesabı oluştur** contoso\Administrator kullanıcı adı ve parola girip __iade **Tamam**.
-3. **İleri**'ye tıklayın.
+3. **İleri**’ye tıklayın.
 4. Azure AD oturum açma yapılandırması ekranında seçin **tüm UPN soneki, doğrulanmış etki alanlarına eşleme olmadan devam** tıklatıp **sonraki.**
 5. Etki alanı ve OU filtreleme ekran'ı **sonraki**.
 6. Kullanıcıların ekranın tanıtan üzerinde ' a tıklayın **sonraki**.
@@ -255,10 +255,10 @@ Artık Azure AD Connect karşıdan yüklenip kurulacak zamanı geldi.  Yüklendi
 10. AD FS grubu ekranda emin **yeni bir AD FS grubunu yapılandırma** seçilir.
 11. Seçin **Federasyon sunucularında yüklü bir sertifika kullanmak** tıklatıp **Gözat**.
 12. Arama kutusuna DC1 ve anlaşıldığında seçin.  **Tamam**’a tıklayın.
-13. Gelen **sertifika dosyası** açılan listesinde, select **adfs.contoso.com** yukarıda oluşturduğumuz sertifika.  **İleri**'ye tıklayın.
+13. Gelen **sertifika dosyası** açılan listesinde, select **adfs.contoso.com** yukarıda oluşturduğumuz sertifika.  **İleri**’ye tıklayın.
 ![Federasyon](media/tutorial-federation/fed2.png)
 
-1. AD FS sunucusu ekrana tıklayın **Gözat** ve arama kutusuna DC1 ve anlaşıldığında seçin.  **Tamam**’a tıklayın.  **İleri**'ye tıklayın.
+1. AD FS sunucusu ekrana tıklayın **Gözat** ve arama kutusuna DC1 ve anlaşıldığında seçin.  **Tamam**’a tıklayın.  **İleri**’ye tıklayın.
 ![Federasyon](media/tutorial-federation/fed3.png)
 
 1. Web uygulaması Proxy sunucuları ekrana tıklayın **sonraki**.

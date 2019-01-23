@@ -2,8 +2,8 @@
 title: Azure Notification hubs'ı kullanarak, belirli kullanıcılara anında iletme bildirimleri gönderme | Microsoft Docs
 description: Azure Notification Hubs kullanarak belirli kullanıcılara anında iletme bildirimleri göndermeyi öğrenin.
 documentationcenter: ios
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 services: notification-hubs
 ms.assetid: 1f7d1410-ef93-4c4b-813b-f075eed20082
@@ -12,16 +12,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 04/13/2018
-ms.author: dimazaid
-ms.openlocfilehash: 270311af94d0c0551626fc2906cade84e0c60664
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.date: 01/04/2019
+ms.author: jowargo
+ms.openlocfilehash: 4ecac47de08b458eac375f8f5e774c396aeb2f5d
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918973"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448117"
 ---
-# <a name="tutorial-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Öğretici: Azure Notification hubs'ı kullanarak, belirli kullanıcılara anında iletme bildirimleri
+# <a name="tutorial-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Öğretici: Azure Notification hubs'ı kullanarak belirli kullanıcılara anında iletme bildirimleri
 
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
@@ -52,21 +52,21 @@ Mobile Apps arka uç hizmetinize kullanmak istiyorsanız, bkz. [Mobile Apps ile 
    > [!NOTE]
    > Bu bölümde, projenize bir boş kuruluş adı ile yapılandırılmış olduğunu varsayar. Aksi durumda, tüm sınıf adları için kuruluşunuzun adı önüne eklediğinizden gerekir.
 
-2. İçinde **Main.storyboard**, nesne kitaplığından ekran görüntüsünde gösterilen bileşenleri ekleyin.
+2. İçinde `Main.storyboard` nesne kitaplığından ekran görüntüsünde gösterilen bileşenleri ekleyin.
 
     ![Xcode arabirim oluşturucu içinde storybard Düzenle][1]
 
-   * **Kullanıcı adı**: A UITextField yer tutucu metinle *kullanıcı adı girin*hemen sonuçları etiket ve sol ve sağ kenar boşlukları kısıtlı Gönder altına ve gönderme sonuçları etiket altında.
-   * **Parola**: A UITextField yer tutucu metinle *parolasını girin*, kullanıcı adı hemen altındaki metin alanı ve sol ve sağ kenar boşlukları ve username metin alanı altında kısıtlanmış. Denetleme **güvenli metin girişi** özniteliği denetçi'deki altında seçeneği *dönüş anahtar*.
-   * **Oturum açma**: A UIButton hemen parola metin alanı etiketlenmiş ve işaretini kaldırın **etkin** öznitelikleri denetçi'deki altında seçeneği *denetim içeriği*
-   * **WNS**: Etiket ve anahtarı Windows bildirim hizmeti bildirim hub'ında ayarlanmış göndermeyi etkinleştirmek için. Bkz: [Windows başlarken](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) öğretici.
-   * **GCM**: Etiket ve anahtar Google Cloud Messaging için bildirim hub'ında ayarlanmış ise gönderilmesine izin vermek için. Bkz: [Android Başlarken](notification-hubs-android-push-notification-google-gcm-get-started.md) öğretici.
-   * **APNS**: Etiket ve anahtar Apple Platform Bildirim Hizmeti'ne bildirimi gönderilmesine izin vermek için.
+   * **Kullanıcı adı**: Bir yer tutucu metinle UITextField *kullanıcı adı girin*hemen sonuçları etiket ve sol ve sağ kenar boşlukları kısıtlı Gönder altına ve gönderme sonuçları etiket altında.
+   * **Parola**: Bir yer tutucu metinle UITextField *parolasını girin*, hemen altındaki kullanıcı adını metin alanı ve sol ve sağ kenar boşlukları ve username metin alanı altında kısıtlanmış. Denetleme **güvenli metin girişi** özniteliği denetçi'deki altında seçeneği *dönüş anahtar*.
+   * **Oturum açma**: Bir UIButton hemen parola metin alanı etiketlenmiş ve işaretini kaldırın **etkin** öznitelikleri denetçi'deki altında seçeneği *denetim içeriği*
+   * **WNS**: Etiket ve Windows bildirim hizmeti bildirim hub'ında ayarlanmış göndermeyi etkinleştirmek için geçin. Bkz: [Windows başlarken](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) öğretici.
+   * **GCM**: Etiket ve Google Cloud Messaging için bildirim hub'ında ayarlanmış ise gönderilmesine izin vermek için geçiş yapabilirsiniz. Bkz: [Android Başlarken](notification-hubs-android-push-notification-google-gcm-get-started.md) öğretici.
+   * **APNS**: Etiket ve Apple Platform Bildirim Hizmeti'ne bildirimi gönderilmesine izin vermek için anahtar.
    * **Alıcı Username:A** yer tutucu metinle UITextField *alıcı kullanıcı adı etiketi*hemen GCM etiket ve sol ve sağ kenar boşlukları ve GCM etiketinin altına kısıtlanmış.
 
     Bazı bileşenler eklenmiştir [Notification hubs'ı (iOS) ile çalışmaya başlama](notification-hubs-ios-apple-push-notification-apns-get-started.md) öğretici.
 
-3. **CTRL** bileşenlerden görünüme sürükleyin **ViewController.h** ve bu yeni çıkışlar ekleyin.
+3. **CTRL** bileşenlerden görünüme sürükleyin `ViewController.h` ve bu yeni çıkışlar ekleyin.
 
     ```objc
     @property (weak, nonatomic) IBOutlet UITextField *UsernameField;
@@ -86,13 +86,13 @@ Mobile Apps arka uç hizmetinize kullanmak istiyorsanız, bkz. [Mobile Apps ile 
     - (IBAction)LogInAction:(id)sender;
     ```
 
-4. İçinde **ViewController.h**, aşağıdaki `#define` içeri aktarma Deyimlerinizde sonra. Yedek *< girin, uygulamanızın arka uç nokta\>*  yer tutucusunu önceki bölümde, uygulamanızın arka ucuna dağıtmak için kullanılan hedef URL ile. Örneğin, *http://you_backend.azurewebsites.net*.
+4. İçinde `ViewController.h`, aşağıdaki `#define` içeri aktarma Deyimlerinizde sonra. Yedek `<Enter Your Backend Endpoint>` yer tutucusunu önceki bölümde, uygulamanızın arka ucuna dağıtmak için kullanılan hedef URL ile. Örneğin, *http://your_backend.azurewebsites.net*.
 
     ```objc
     #define BACKEND_ENDPOINT @"<Enter Your Backend Endpoint>"
     ```
 
-5. Projenizde, yeni bir oluşturma **Cocoa Touch sınıfı** adlı **RegisterClient** oluşturduğunuz ASP.NET arka uç ile arabirim oluşturmak için. Öğesinden devralan sınıf oluşturma `NSObject`. Ardından RegisterClient.h aşağıdaki kodu ekleyin.
+5. Projenizde, adlı yeni bir Cocoa Touch sınıfı oluşturmak `RegisterClient` oluşturduğunuz ASP.NET arka uç ile arabirim oluşturmak için. Öğesinden devralan sınıf oluşturma `NSObject`. Ardından aşağıdaki kodu ekleyin `RegisterClient.h`.
 
     ```objc
     @interface RegisterClient : NSObject
@@ -288,9 +288,9 @@ Mobile Apps arka uç hizmetinize kullanmak istiyorsanız, bkz. [Mobile Apps ile 
 
     Bu kod Kılavuzu makalede açıklanan mantığını uygulayan [, uygulama arka ucundan kaydetme](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend) REST gerçekleştirmek için nsurlsession'ı kullanarak, uygulama arka ucunuza çağırır ve tarafından döndürülen NSUserDefaults RegistrationId yerel olarak depolamak için bildirim hub'ı.
 
-    Bu sınıf özelliği gerektirir **authorizationHeader** düzgün çalışması için ayarlanacak. Bu özellik ayarlanır **ViewController** oturum açma sonrasında sınıfı.
+    Bu sınıf özelliği gerektirir `authorizationHeader` düzgün çalışması için ayarlanacak. Bu özellik ayarlanır `ViewController` oturum açma sonrasında sınıfı.
 
-8. ViewController.h içinde ekleme bir `#import` RegisterClient.h bildirimi. Ardından cihaz belirteci için bir bildirim Ekle ve başvuru bir `RegisterClient` örneğini `@interface` bölümü:
+8. İçinde `ViewController.h`, ekleme bir `#import` bildirimi `RegisterClient.h`. Ardından cihaz belirteci için bir bildirim Ekle ve başvuru bir `RegisterClient` örneğini `@interface` bölümü:
 
     ```objc
     #import "RegisterClient.h"
@@ -312,7 +312,7 @@ Mobile Apps arka uç hizmetinize kullanmak istiyorsanız, bkz. [Mobile Apps ile 
     ```
 
     > [!NOTE]
-    > Aşağıdaki kod parçacığında, bir güvenli kimlik doğrulama düzeni değildir, uygulanması yerine kullanmalısınız **createAndSetAuthenticationHeaderWithUsername:AndPassword:** , belirli bir kimlik doğrulama mekanizması ile Kayıt istemci sınıfı tarafından Örneğin, OAuth, Active Directory kullanılması için bir kimlik doğrulama belirteci oluşturur.
+    > Aşağıdaki kod parçacığında, bir güvenli kimlik doğrulama düzeni değildir, uygulanması yerine kullanmalısınız `createAndSetAuthenticationHeaderWithUsername:AndPassword:` örn kayıt istemci sınıfı tarafından kullanılacak bir kimlik doğrulama belirteci oluşturur, özel kimlik doğrulama mekanizması ile OAuth, Active Directory.
 
 10. Ardından `@implementation` bölümünü `ViewController.m`, cihaz belirtecini ve kimlik doğrulama üst bilgisi ayarlamak için bir uygulama ekler aşağıdaki kodu ekleyin.
 
@@ -444,7 +444,7 @@ Mobile Apps arka uç hizmetinize kullanmak istiyorsanız, bkz. [Mobile Apps ile 
     }
     ```
 
-13. İşlevde **ViewDidLoad**, RegisterClient örneği oluşturmak için aşağıdaki örneği ve, metin alanları için temsilci Ayarla ekleyin.
+13. İçinde `ViewDidLoad` işlev, oluşturmak üzere aşağıdakileri eklemeniz `RegisterClient` örneği ve, metin alanları için temsilci Ayarla.
 
     ```objc
     self.UsernameField.delegate = self;
@@ -453,7 +453,7 @@ Mobile Apps arka uç hizmetinize kullanmak istiyorsanız, bkz. [Mobile Apps ile 
     self.registerClient = [[RegisterClient alloc] initWithEndpoint:BACKEND_ENDPOINT];
     ```
 
-14. Şimdi **AppDelegate.m**, yöntemin tüm içeriğini kaldırın `application:didRegisterForPushNotificationWithDeviceToken:` görünüm denetleyicisi APNs alınan son cihaz belirteci içerdiğinden emin olmak için aşağıdakilerle değiştirin:
+14. Şimdi `AppDelegate.m`, yöntemin tüm içeriğini kaldırın `application:didRegisterForPushNotificationWithDeviceToken:` aşağıdaki (Görünüm denetleyicisi APNs alınan son cihaz belirteci içerdiğinden emin olmak için) ile değiştirin:
 
     ```objc
     // Add import to the top of the file
@@ -467,7 +467,7 @@ Mobile Apps arka uç hizmetinize kullanmak istiyorsanız, bkz. [Mobile Apps ile 
     }
     ```
 
-15. Son olarak, **AppDelegate.m**, aşağıdaki yöntemi olduğundan emin olun:
+15. Son olarak, `AppDelegate.m`, aşağıdaki yöntemi olduğundan emin olun:
 
     ```objc
     - (void)application:(UIApplication *)application didReceiveRemoteNotification: (NSDictionary *)userInfo {
@@ -497,8 +497,7 @@ Mobile Apps arka uç hizmetinize kullanmak istiyorsanız, bkz. [Mobile Apps ile 
 Bu öğreticide, kayıtlarıyla ilişkili etiketleri olan belirli kullanıcılara anında iletme bildirimleri göndermeyi öğrendiniz. Konum tabanlı anında iletme bildirimleri göndermeyi öğrenmek için aşağıdaki öğreticiye ilerleyin: 
 
 > [!div class="nextstepaction"]
->[Konum temelli anında iletme bildirimleri gönderme](notification-hubs-push-bing-spartial-data-geofencing-notification.md)
-
+>[Konum temelli anında iletme bildirimleri gönderme](notification-hubs-push-bing-spatial-data-geofencing-notification.md)
 
 [1]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-interface.png
 [2]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-user-pwd.png

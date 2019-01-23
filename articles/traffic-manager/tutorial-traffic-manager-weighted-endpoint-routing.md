@@ -8,14 +8,14 @@ ms.service: traffic-manager
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: kumud
-ms.openlocfilehash: f70f3804bb1c6f385081b56fe6139b1b680a95cf
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: f4c29526f675cab461153b4749c4f6edc237dada
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055022"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467341"
 ---
-# <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>Öğretici: Denetim trafik Traffic Manager'ı kullanarak ağırlıklı uç noktalar ile yönlendirme 
+# <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>Öğretici: Denetim trafik Traffic Manager'ı kullanarak ağırlıklı uç noktalar ile yönlendirme
 
 Bu öğreticide, ağırlıklı yönlendirme yöntemini kullanarak kullanıcı trafiğini uç noktalar arasında yönlendirmeyi denetlemek için Azure Traffic Manager'ı kullanma adımları açıklanmaktadır. Bu yönlendirme yönteminde Traffic Manager profil yapılandırmasında her uç noktasına bir ağırlık değeri atarsınız. Kullanıcı trafiği, her bir uç noktaya atanan ağırlık değerine göre yönlendirilir. Ağırlık 1 ile 1.000 arasında bir tamsayıdır. Bir uç noktaya ne kadar yüksek bir ağırlık değeri atanırsa uç nokta o kadar yüksek önceliğe sahip olur.
 
@@ -36,7 +36,7 @@ Traffic Manager'ın nasıl çalıştığını görmek için bu öğretici kapsam
 - Farklı Azure bölgelerinde çalıştırılan temel Web siteleri iki örneği: Doğu ABD ve Batı Avrupa.
 - Traffic Manager'ı test etmek için iki test amaçlı VM: bir VM Doğu ABD bölgesinde, diğeri ise Batı Avrupa bölgesinde olmalıdır. Traffic Manager’ın kullanıcı trafiğini uç noktasına daha yüksek bir ağırlık atanan bir web sitesine nasıl yönlendirdiğini göstermek için test VM’leri kullanılır.
 
-### <a name="sign-in-to-azure"></a>Azure'da oturum açma 
+### <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
 [Azure Portal](https://portal.azure.com) oturum açın.
 
@@ -86,27 +86,27 @@ Bu bölümde Doğu ABD ve Batı Avrupa Azure bölgelerinde *myIISVMEastUS* ve *m
 
 #### <a name="install-iis-and-customize-the-default-webpage"></a>IIS yükleme ve varsayılan web sayfasını özelleştirme
 
-Bu bölümde &mdash;myIISVMEastUS ve myIISVMWEurope&mdash; adlı iki VM'ye IIS sunucusunu yükleyecek ve varsayılan web sayfasını güncelleştireceksiniz. Özelleştirilmiş web sayfası, web sitesini bir web tarayıcısından ziyaret ettiğinizde bağlandığınız VM'nin adını gösterecek.
+Bu bölümde, iki sanal makinelere IIS sunucusunu yükleme&mdash;myIISVMEastUS ve myIISVMWEurope&mdash;ve sonra varsayılan Web sayfasını güncelleştirin. Özelleştirilmiş web sayfası, web sitesini bir web tarayıcısından ziyaret ettiğinizde bağlandığınız VM'nin adını gösterecek.
 
 1. Soldaki menüden **Tüm kaynaklar**’ı seçin. Kaynak listesinden, **myResourceGroupTM1** kaynak grubundaki **myIISVMEastUS** seçeneğini belirleyin.
-2. **Genel Bakış** sayfasında **Bağlan**'ı seçin. **Sanal makineye bağlanma** bölümünde **RDP dosyasını indir**'i seçin. 
-3. İndirilen .rdp dosyasını açın. İstendiğinde **Bağlan**’ı seçin. VM'yi oluştururken yapılandırdığınız kullanıcı adı ve parolayı girin. Sanal makineyi oluştururken girdiğiniz kimlik bilgilerini belirtmek için **Diğer seçenekler** > **Farklı bir hesap kullan** seçeneğini belirlemeniz gerekebilir. 
+2. **Genel Bakış** sayfasında **Bağlan**'ı seçin. **Sanal makineye bağlanma** bölümünde **RDP dosyasını indir**'i seçin.
+3. İndirilen .rdp dosyasını açın. İstendiğinde **Bağlan**’ı seçin. VM'yi oluştururken yapılandırdığınız kullanıcı adı ve parolayı girin. Sanal makineyi oluştururken girdiğiniz kimlik bilgilerini belirtmek için **Diğer seçenekler** > **Farklı bir hesap kullan** seçeneğini belirlemeniz gerekebilir.
 4. **Tamam**’ı seçin.
 5. Oturum açma işlemi sırasında bir sertifika uyarısı alabilirsiniz. Uyarı alırsanız, bağlantıya devam etmek için **Evet**’i veya **Bağlan**’ı seçin.
 6. Sunucu masaüstünde **Windows Yönetimsel Araçları** > **Sunucu Yöneticisi** bölümüne gidin.
 7. VM1'de Windows PowerShell'i açın. IIS sunucusunu yükleyip varsayılan htm dosyasını güncelleştirmek için aşağıdaki komutları kullanın.
     ```powershell-interactive
     # Install IIS
-      Install-WindowsFeature -name Web-Server -IncludeManagementTools
+    Install-WindowsFeature -name Web-Server -IncludeManagementTools
     
     # Remove default .htm file
-     remove-item  C:\inetpub\wwwroot\iisstart.htm
+    remove-item C:\inetpub\wwwroot\iisstart.htm
     
     #Add custom .htm file
-     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
+    Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
     ```
 
-     ![IIS yükleme ve web sayfasını özelleştirme](./media/tutorial-traffic-manager-improve-website-response/deployiis.png)
+    ![IIS yükleme ve web sayfasını özelleştirme](./media/tutorial-traffic-manager-improve-website-response/deployiis.png)
 
 8. **myIISVMEastUS** ile RDP bağlantısını kapatın.
 9. 1-8 arası adımları tekrarlayın. **myResourceGroupTM2** kaynak grubu içindeki **myIISVMWEurope** adlı VM ile RDP bağlantısı kurarak IIS yükleyip varsayılan web sayfasını özelleştirin.
@@ -165,7 +165,7 @@ Bu bölümde, *mVMEastUS* adlı VM'yi oluşturacaksınız. Bu VM’yi Traffic Ma
 
 ## <a name="add-traffic-manager-endpoints"></a>Traffic Manager uç noktalarını ekleme
 
-Kullanıcı trafiğini bunlara yönlendirmek için myIISVMEastUS ve myIISVMWEurope IIS sunucularını çalıştıran iki VM’yi ekleyin.
+IIS sunucuları myIISVMEastUS ve myIISVMWEurope, kullanıcı trafiği yönlendirmek için bunları çalıştıran iki sanal makine ekleyin.
 
 1. Portalın arama çubuğunda önceki bölümde oluşturduğunuz Traffic Manager profili adını arayın. Görüntülenen sonuçlardan profili seçin.
 2. **Traffic Manager profilinin** **Ayarlar** bölümünde **Uç noktalar** > **Ekle**'yi seçin.
@@ -180,8 +180,8 @@ Kullanıcı trafiğini bunlara yönlendirmek için myIISVMEastUS ve myIISVMWEuro
     |  Ağırlık      | **100** değerini girin.        |
     |        |           |
 
-4. 2 ve 3 numaralı adımları tekrarlayarak **myIISVMWEurope-ip** genel IP adresi için **myWestEuropeEndpoint** adlı başka bir uç nokta ekleyin. Bu adres, myIISVMWEurope adlı IIS sunucusu VM'si ile ilişkilendirilir. **Ağırlık** için **25** değerini girin. 
-5.  Her iki uç noktanın eklenmesi tamamlandığında, **Çevrimiçi** izleme durumuyla birlikte Traffic Manager profili bölümünde gösterilir.
+4. 2 ve 3 numaralı adımları tekrarlayarak **myIISVMWEurope-ip** genel IP adresi için **myWestEuropeEndpoint** adlı başka bir uç nokta ekleyin. Bu adres, myIISVMWEurope adlı IIS sunucusu VM'si ile ilişkilendirilir. **Ağırlık** için **25** değerini girin.
+5. Her iki uç noktanın eklenmesi tamamlandığında, **Çevrimiçi** izleme durumuyla birlikte Traffic Manager profili bölümünde gösterilir.
 
 ## <a name="test-the-traffic-manager-profile"></a>Traffic Manager profilini test etme
 Traffic Manager'ı uygulamalı olarak görmek için şu adımları gerçekleştirin:
@@ -189,28 +189,28 @@ Traffic Manager'ı uygulamalı olarak görmek için şu adımları gerçekleşti
 2. Traffic Manager'ın nasıl çalıştığını görün.
 
 ### <a name="determine-dns-name-of-traffic-manager-profile"></a>Traffic Manager profilinin DNS adını belirleme
-Bu öğreticide kolaylık olması açısından web sitelerini ziyaret etmek için Traffic Manager profilinin DNS adı kullanılmaktadır. 
+Bu öğreticide kolaylık olması açısından web sitelerini ziyaret etmek için Traffic Manager profilinin DNS adı kullanılmaktadır.
 
 Traffic Manager profilinizin DNS adını belirlemek için şu adımları izleyin:
 
-1.  Portalın arama çubuğunda önceki bölümde oluşturduğunuz Traffic Manager profili adını arayın. Görüntülenen sonuçların arasından Traffic Manager profilini seçin.
+1. Portalın arama çubuğunda önceki bölümde oluşturduğunuz Traffic Manager profili adını arayın. Görüntülenen sonuçların arasından Traffic Manager profilini seçin.
 1. **Genel Bakış**’ı seçin.
 2. Traffic Manager profilinin DNS adı görüntülenir. Üretim dağıtımlarında bir gösterim etki alanı adını DNS CNAME kaydı kullanarak Traffic Manager etki alanı adına yönlendirirsiniz.
 
    ![Traffic Manager DNS adı](./media/tutorial-traffic-manager-improve-website-response/traffic-manager-dns-name.png)
 
 ### <a name="view-traffic-manager-in-action"></a>Traffic Manager'ın nasıl çalıştığını görün
-Bu bölümde Traffic Manager'ın nasıl çalıştığını görebilirsiniz. 
+Bu bölümde Traffic Manager'ın nasıl çalıştığını görebilirsiniz.
 
 1. Soldaki menüden **Tüm kaynaklar**’ı seçin. Kaynak listesinden, **myResourceGroupTM1** kaynak grubundaki **myVMEastUS** seçeneğini belirleyin.
-2. **Genel Bakış** sayfasında **Bağlan**'ı seçin. **Sanal makineye bağlanma** bölümünde **RDP dosyasını indir**'i seçin. 
-3. İndirilen .rdp dosyasını açın. İstendiğinde **Bağlan**’ı seçin. Sanal makine oluştururken belirttiğiniz kullanıcı adını ve parolayı girin. Sanal makineyi oluştururken girdiğiniz kimlik bilgilerini belirtmek için **Diğer seçenekler** > **Farklı bir hesap kullan** seçeneğini belirlemeniz gerekebilir. 
+2. **Genel Bakış** sayfasında **Bağlan**'ı seçin. **Sanal makineye bağlanma** bölümünde **RDP dosyasını indir**'i seçin.
+3. İndirilen .rdp dosyasını açın. İstendiğinde **Bağlan**’ı seçin. Sanal makine oluştururken belirttiğiniz kullanıcı adını ve parolayı girin. Sanal makineyi oluştururken girdiğiniz kimlik bilgilerini belirtmek için **Diğer seçenekler** > **Farklı bir hesap kullan** seçeneğini belirlemeniz gerekebilir.
 4. **Tamam**’ı seçin.
-5. Oturum açma işlemi sırasında bir sertifika uyarısı alabilirsiniz. Uyarı alırsanız, bağlantıya devam etmek için **Evet**’i veya **Bağlan**’ı seçin. 
+5. Oturum açma işlemi sırasında bir sertifika uyarısı alabilirsiniz. Uyarı alırsanız, bağlantıya devam etmek için **Evet**’i veya **Bağlan**’ı seçin.
 6. Web sitesini görüntülemek için myVMEastUS adlı VM'de bir web tarayıcısında Traffic Manager profilinizin DNS adını girin. Ağırlık değeri **100** ile daha yüksek olduğundan myIISVMEastUS üzerindeki IIS sunucusunda barındırılan web sitesine yönlendirilirsiniz. myIISVMWEurope adlı IIS sunucusu, **25** ile daha düşük bir uç nokta ağırlık değerine sahiptir.
 
    ![Traffic Manager profilini test etme](./media/tutorial-traffic-manager-improve-website-response/eastus-traffic-manager-test.png)
-   
+
 ## <a name="delete-the-traffic-manager-profile"></a>Traffic Manager profilini silme
 Bu öğreticide oluşturduğunuz kaynak gruplarına ihtiyacınız kalmadığında onları silebilirsiniz. Bunun için kaynak grubunu (**ResourceGroupTM1** veya **ResourceGroupTM2**) ve ardından **Sil**'i seçin.
 
@@ -218,5 +218,3 @@ Bu öğreticide oluşturduğunuz kaynak gruplarına ihtiyacınız kalmadığınd
 
 > [!div class="nextstepaction"]
 > [Kullanıcının coğrafi konumuna göre trafiği belirli uç noktalara yönlendirme](traffic-manager-configure-geographic-routing-method.md)
-
-

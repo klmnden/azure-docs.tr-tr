@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: d90a4272f843cc9f2b66aa202ddefe54e7b1a361
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 2a282b76805ab91215d6b34ea30a7008d8c8244b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632170"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467987"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Azure arama ile Azure Blob Depolama'da belgelerin dizin oluşturma
 Bu makalede, belgelerin dizinini oluşturmak için Azure Search kullanma gösterilmektedir (PDF gibi Microsoft Office belge ve diğer birçok ortak biçimleri) Azure Blob Depolama alanında depolanır. İlk olarak ayarlama ve blob dizin oluşturucu yapılandırma temellerini açıklar. Ardından, davranışların bir daha ayrıntılı keşfi sunar ve karşılaşabileceğiniz olası senaryolar.
@@ -34,7 +34,6 @@ Bir Azure Blob Depolama Dizin Oluşturucu kullanarak ayarlayabilirsiniz:
 
 > [!NOTE]
 > Bazı özellikler (örneğin, alan eşlemelerini) henüz portalda kullanılabilir değildir ve programlı olarak kullanılması gerekir.
->
 >
 
 Burada, REST API kullanarak akışı gösterilmektedir.
@@ -369,7 +368,7 @@ Aşağıdaki tabloda her belge biçimi için yapılan işleme özetler ve Azure 
 | DOCX (application/vnd.openxmlformats-officedocument.wordprocessingml.document) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |Ekli belgelerin dahil olmak üzere, metni Ayıkla |
 | DOC (uygulama/msword) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |Ekli belgelerin dahil olmak üzere, metni Ayıkla |
 | XLSX (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` |Ekli belgelerin dahil olmak üzere, metni Ayıkla |
-| XLS (uygulama/vnd.ms-excel) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` |Ekli belgelerin dahil olmak üzere, metni Ayıkla |
+| XLS (application/vnd.ms-excel) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` |Ekli belgelerin dahil olmak üzere, metni Ayıkla |
 | PPTX (application/vnd.openxmlformats-officedocument.presentationml.presentation) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` |Ekli belgelerin dahil olmak üzere, metni Ayıkla |
 | PPT (uygulama/vnd.ms-powerpoint) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` |Ekli belgelerin dahil olmak üzere, metni Ayıkla |
 | MSG (uygulama/vnd.ms-outlook) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` |Ekleri dahil olmak üzere, metni Ayıkla |

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 463b2e8c7e349fa46737a9d630bd027fb28e7780
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: f84be4dffb601d3748d951da15050e381e1cecc1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199394"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464859"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>Application Insights Durum İzleyicisi ile çalışma zamanında web uygulamalarını izleme
 
@@ -32,11 +32,12 @@ Durum İzleyicisi IIS'de barındırılan bir .NET uygulaması izleme için kulla
 
 ![Başarısız istekler, sunucu yanıt süresi ve sunucu istekleri hakkında bilgi içeren App Insights ekran genel bakış grafikleri](./media/monitor-performance-live-website-now/overview-graphs.png)
 
-.NET web uygulamalarınıza Application Insights uygulamak için şu üç yoldan birini tercih edebilirsiniz:
+.NET web uygulamalarınıza Application Insights uygulamak için iki yol vardır:
 
 * **Derleme zamanı:** [Application Insights SDK'sı ekleme] [ greenbrown] web uygulama kodunuzda.
 * **Çalışma zamanı:** Web uygulamanızı sunucu üzerinde yeniden oluşturma ve kod yeniden dağıtmaya gerek olmadan, aşağıda açıklandığı gibi izleyin.
-* **Her ikisi:** SDK'yı web uygulama kodunuzda derleyin ve ayrıca çalışma zamanı uzantılarını uygulayın. Her iki seçeneğin en iyisini edinin.
+> [!NOTE]
+> Derleme zamanında izleme kullanırsanız, çalışma zamanı açık olsa bile alet çalışmaz.
 
 Burada, her yöntemle kazanacaklarınızın bir özeti verilmiştir:
 

@@ -1,11 +1,11 @@
 ---
-title: 'Azure AD Connect: Özel yükleme | Microsoft Belgeleri'
+title: 'Azure AD Connect: Özel yükleme | Microsoft Docs'
 description: Bu belgede Azure AD Connect için özel yükleme seçenekleri ayrıntılı olarak açıklanmaktadır. Active Directory'yi Azure AD Connect aracılığı ile yüklemek için bu yönergeleri kullanın.
 services: active-directory
 keywords: Azure AD Connect nedir, Active Directory yükleme, Azure AD için gerekli bileşenler
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 6d42fb79-d9cf-48da-8445-f482c4c536af
 ms.service: active-directory
 ms.workload: identity
@@ -15,17 +15,17 @@ ms.topic: get-started-article
 ms.date: 10/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a1cdf332e34df5f0b3d2058ba5980b67582f14a2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 394f61f9fca06f5471edc62e99be8fa6bb415e40
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248835"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471642"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Azure AD Connect özel yüklemesi
 Yükleme için daha fazla seçenek istediğinizde Azure AD Connect **Özel ayarları** kullanılır. Birden fazla ormanınız varsa veya hızlı yükleme kapsamında yer almayan isteğe bağlı özellikleri yapılandırmak istiyorsanız kullanılır. [**Hızlı yükleme**](how-to-connect-install-express.md) seçeneğinin dağıtımınız veya topolojiniz için uygun olmadığı tüm durumlarda kullanılır.
 
-Azure AD Connect'i yüklemeye başlamadan önce [Azure AD Connect'i indirdiğinizden](https://go.microsoft.com/fwlink/?LinkId=615771) ve [Azure AD Connect: Donanım ve önkoşullar](how-to-connect-install-prerequisites.md) bölümündeki önkoşul adımlarını tamamladığınızdan emin olun. Ayrıca [Azure AD Connect hesapları ve izinleri](reference-connect-accounts-permissions.md) bölümünde açıklandığı üzere, gerekli hesaplara sahip olduğunuzdan olduğundan emin olun .
+Azure AD Connect'i yüklemeye başlamadan önce emin olun [Azure AD Connect'i indirdiğinizden](https://go.microsoft.com/fwlink/?LinkId=615771) ve adımları tamamlayın önkoşul [Azure AD Connect: Donanım ve Önkoşullar](how-to-connect-install-prerequisites.md). Ayrıca [Azure AD Connect hesapları ve izinleri](reference-connect-accounts-permissions.md) bölümünde açıklandığı üzere, gerekli hesaplara sahip olduğunuzdan olduğundan emin olun .
 
 Özel ayarlar, topolojinizle eşleşmiyorsa (örneğin, DirSync'i yükseltmek için) diğer senaryolara ilişkin [ilgili belgelere](#related-documentation) göz atın.
 
@@ -42,7 +42,7 @@ Eşitleme hizmetlerini yüklerken isteğe bağlı yapılandırma bölümünü i�
 | --- | --- |
 | Mevcut bir SQL Server'ı kullanma |SQL Server adını ve örnek adını belirtebilirsiniz. Kullanmak istediğiniz bir veritabanı sunucusu zaten varsa bu seçeneği belirleyin. SQL Server'ınızda gözatma özelliği etkin değilse **Örnek Adı** alanına örnek adını girin, virgül ekleyin ve bağlantı noktası numarasını girin. |
 | Mevcut bir hizmet hesabını kullanma |Varsayılan olarak Azure AD Connect, eşitleme hizmetleri tarafından kullanılmak üzere sanal bir hizmet hesabı kullanır. Kimlik doğrulaması gerektiren bir ara sunucu veya uzak bir SQL sunucusu kullanıyorsanız **yönetilen bir hizmet hesabı** kullanmanız veya etki alanında bir hizmet kullanıp parolayı biliyor olmanız gerekir. Bu gibi durumlarda kullanılacak olan hesabı girin. Hizmet hesabı için oturum açma seçeneğinin oluşturulabilmesi için, yüklemeyi çalıştıran kullanıcının SQL'de bir Sistem Yöneticisi olduğundan emin olun.  Bkz. [Azure AD Connect hesapları ve izinleri](reference-connect-accounts-permissions.md#adsync-service-account). </br></br>En son sürümle, veritabanını sağlama, artık SQL yöneticisi tarafından bant dışında gerçekleştirilebilir ve ardından veritabanı sahibi haklarıyla Azure AD Connect yöneticisi tarafından yüklenebilir.  Daha fazla bilgi için bkz. [SQL yönetici temsilcisi izinlerini kullanarak Azure AD Connect'i yükleme](how-to-connect-install-sql-delegation.md).|
-| Özel eşitleme grubu belirtme |Eşitleme hizmetleri yüklendiğinde Azure AD Connect varsayılan olarak sunucu için dört yerel grup oluşturur. Bunlar Yöneticiler grubu, İşleçler grubu, Gözatma grubu ve Parola Sıfırlama Grubudur. Kendi gruplarınızı burada belirtebilirsiniz. Gruplar sunucuda yerel olmalıdır ve etki alanında bulunamazlar. |
+| Özel eşitleme grubu belirtme |Eşitleme hizmetleri yüklendiğinde Azure AD Connect varsayılan olarak sunucu için dört yerel grup oluşturur. Bu gruplar şunlardır: Yöneticiler grubu, işleçler grubu, gözatma grubu ve parola sıfırlama grubudur. Kendi gruplarınızı burada belirtebilirsiniz. Gruplar sunucuda yerel olmalıdır ve etki alanında bulunamazlar. |
 
 ### <a name="user-sign-in"></a>Kullanıcı oturumu açma
 Gerekli bileşenleri yükledikten sonra kullanıcı çoklu oturumu açma yönteminizi seçmeniz istenir. Aşağıdaki tabloda mevcut seçeneklerle ilgili kısa bir açıklama bulunmaktadır. Oturum açma yöntemleriyle ilgili tam açıklama için bkz. [Kullanıcı oturumu açma](plan-connect-user-signin.md).
@@ -129,14 +129,14 @@ Ormanlar arasında eşleştirme özelliği sayesinde, AD DS ormanlarındaki kull
 | [Posta özniteliği](plan-connect-topologies.md#multiple-forests-single-azure-ad-tenant) |Bu seçenek, posta özniteliğinin farklı ormanlarda aynı değere sahip olması halinde kullanıcıları ve kişileri birleştirir. Kişileriniz GALSync kullanılarak oluşturulduysa bu seçeneği kullanın. Bu seçenek belirtildiyse, Posta özniteliği doldurulmamış olan Kullanıcı nesneleri Azure AD'ye eşitlenmez. |
 | [ObjectSID ve msExchangeMasterAccountSID/ msRTCSIP-OriginatorSid](plan-connect-topologies.md#multiple-forests-single-azure-ad-tenant) |Bu seçenek, hesap ormanındaki etkin bir kullanıcıyla kaynak ormandaki devre dışı bırakılmış bir kullanıcıyı birleştirir. Bu yapılandırma, Exchange'de bağlı posta kutusu olarak bilinir. Yalnızca Lync'i kullanıyor olmanız ve kaynak ormanda Exchange olmaması halinde de bu seçeneği kullanabilirsiniz. |
 | sAMAccountName ve MailNickName |Bu seçenek, kullanıcı için oturum açma kimliğinin bulunması beklenen öznitelikleri birleştirir. |
-| Belirli bir öznitelik |Bu seçenek, kendi özniteliğinizi seçmenize olanak tanır. Bu seçenek belirtildiyse, (seçili) özniteliği doldurulmamış olan Kullanıcı nesneleri Azure AD'ye eşitlenmez. **Sınırlama:** Meta veri deposunda bulabileceğiniz bir özniteliği seçtiğinizden emin olun. Özel bir öznitelik (meta veri deposunda olmayan) seçerseniz sihirbaz tamamlanamaz. |
+| Belirli bir öznitelik |Bu seçenek, kendi özniteliğinizi seçmenize olanak tanır. Bu seçenek belirtildiyse, (seçili) özniteliği doldurulmamış olan Kullanıcı nesneleri Azure AD'ye eşitlenmez. **Sınırlama:** Meta veri deposunda bulunabilecek bir özniteliği seçtiğinizden emin olun. Özel bir öznitelik (meta veri deposunda olmayan) seçerseniz sihirbaz tamamlanamaz. |
 
 #### <a name="select-how-users-should-be-identified-with-azure-ad---source-anchor"></a>Azure AD - Kaynak Bağlantısı ile kullanıcıların nasıl tanımlanması gerektiğini seçin
 SourceAnchor özniteliği, kullanıcı nesnesinin yaşam süresi boyunca sabit olan bir özniteliktir. Şirket içi kullanıcıyı Azure AD'deki kullanıcıya bağlayan birincil anahtardır.
 
 | Ayar | Açıklama |
 | --- | --- |
-| Kaynak bağlantısını benim için Azure yönetsin | Azure AD’nin sizin için özniteliği seçmesini istiyorsanız bu seçeneği belirleyin. Bu seçeneği belirlerseniz Azure AD Connect sihirbazı, [Azure AD Connect: Tasarım kavramları - ms-DS-ConsistencyGuid'i sourceAnchor olarak kullanma](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor) başlıklı makale bölümünde açıklanan sourceAnchor özniteliği seçim mantığını uygular. Özel yükleme tamamlandıktan sonra sihirbaz, Kaynak Bağlantısı özniteliği olarak hangi özniteliğin seçildiğini size bildirir. |
+| Kaynak bağlantısını benim için Azure yönetsin | Azure AD’nin sizin için özniteliği seçmesini istiyorsanız bu seçeneği belirleyin. Bu seçeneği belirlerseniz Azure AD Connect Sihirbazı makale bölümünde açıklanan sourceAnchor özniteliği seçim mantığını uygular [Azure AD Connect: Tasarım kavramları - ms-DS-Consistencyguid'i sourceAnchor olarak kullanma](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). Özel yükleme tamamlandıktan sonra sihirbaz, Kaynak Bağlantısı özniteliği olarak hangi özniteliğin seçildiğini size bildirir. |
 | Belirli bir öznitelik | SourceAnchor özniteliği olarak mevcut bir AD özniteliğini belirtmek istiyorsanız bu seçeneği belirleyin. |
 
 Öznitelik değiştirilemeyeceği için kullanmak üzere iyi bir öznitelik seçmeniz gerekir. ObjectGUID iyi bir seçenektir. Kullanıcı hesabı ormanlar/etki alanları arasında taşınmadığı sürece bu öznitelik değiştirilemez. Bir kişi evlendiğinde değişecek olan veya atamaları değiştirecek olan öznitelikleri kullanmaktan kaçının. @-sign içeren nitelikleri kullanamazsınız. Bu nedenle e-posta ve userPrincipalName seçeneği kullanılamaz. Ayrıca öznitelikler büyük küçük harfe duyarlıdır. Bu nedenle bir nesneyi ormanlar arasında taşıdığınızda, büyük/küçük harfleri doğru yazdığınızdan emin olun. İkili öznitelikler base64 kodludur ancak diğer öznitelik türleri kodlanmamış durumda kalır. Federasyon senaryolarında ve bazı Azure AD arabirimlerinde, bu öznitelik immutableID özniteliği olarak da bilinir. Kaynak bağlantısı hakkında daha fazla bilgi için bkz. [tasarım kavramları](plan-connect-design-concepts.md#sourceanchor).
@@ -159,7 +159,7 @@ Bu ekran, belirli senaryolarınız için isteğe bağlı özellikler seçmenizi 
 >[!WARNING]
 >Azure AD Connect sürüm **1.0.8641.0** ve öncesi, parola geri yazma özelliği için Azure Access Control Service kullanır.  Bu hizmet, **7 Kasım 2018** tarihinde kullanımdan kaldırılacaktır.  Bu Azure AD Connect sürümlerinden birini kullanıyorsanız ve parola geri yazma özelliğini etkinleştirdiyseniz, hizmet kullanımdan kaldırıldıktan sonra kullanıcılar parolalarını değiştirme veya sıfırlama olanağını kaybedebilir. Bu Azure AD Connect sürümleriyle parola geri yazma özelliği desteklenmeyecektir.
 >
->Azure Access Control Service hakkında daha fazla bilgi için bkz. [Nasıl yapılır: Azure Access Control Service'ten geçiş](../develop/active-directory-acs-migration.md)
+>Hakkında daha fazla bilgi için Azure erişim denetimi hizmet bkz [nasıl yapılır: Azure erişim denetimi Hizmeti'nden geçiş](../develop/active-directory-acs-migration.md)
 >
 >Azure AD Connect'in en son sürümünü indirmek için [buraya](https://www.microsoft.com/en-us/download/details.aspx?id=47594) tıklayın.
 
@@ -371,12 +371,12 @@ Doğrula düğmesine tıkladığınızda Azure AD Connect sizin için DNS ayarla
 
 **İntranet bağlantısı denetimleri**
 
-* Federasyon FQDN'sini çözümleme: Azure AD, bağlantıdan emin olmak için Federasyon FQDN’sinin DNS ile çözümlenip çözümlenemeyeceğini denetler. Azure AD Connect’in FQDN'yi çözümleyememesi durumunda doğrulama başarısız olur. Doğrulamayı başarıyla tamamlamak için federasyon hizmeti FQDN’si için bir DNS kaydının mevcut olduğundan emin olun.
-* DNS A kaydı: Azure AD Connect, federasyon hizmetiniz için bir A kaydı olup olmadığını denetler. Bir A kaydı olmaması durumunda doğrulama başarısız olur. Doğrulamayı başarıyla tamamlamak için federasyon FQDN’nize ait CNAME kaydı değil, bir A kaydı oluşturun.
+* Federasyon FQDN'sini çözümleme: Azure AD Connect, Federasyon FQDN'SİNİN bağlantı sağlamak için DNS ile çözümlenip denetler. Azure AD Connect’in FQDN'yi çözümleyememesi durumunda doğrulama başarısız olur. Doğrulamayı başarıyla tamamlamak için federasyon hizmeti FQDN’si için bir DNS kaydının mevcut olduğundan emin olun.
+* DNS A kaydı: Azure AD Connect, Federasyon hizmetiniz için bir A kaydı olup olmadığını denetler. Bir A kaydı olmaması durumunda doğrulama başarısız olur. Doğrulamayı başarıyla tamamlamak için federasyon FQDN’nize ait CNAME kaydı değil, bir A kaydı oluşturun.
 
 **Extranet bağlantısı denetimleri**
 
-* Federasyon FQDN'sini çözümleme: Azure AD, bağlantıdan emin olmak için Federasyon FQDN’sinin DNS ile çözümlenip çözümlenemeyeceğini denetler.
+* Federasyon FQDN'sini çözümleme: Azure AD Connect, Federasyon FQDN'SİNİN bağlantı sağlamak için DNS ile çözümlenip denetler.
 
 ![Tamamlama](./media/how-to-connect-install-custom/completed.png)
 
@@ -385,7 +385,7 @@ Doğrula düğmesine tıkladığınızda Azure AD Connect sizin için DNS ayarla
 Uçtan uca kimlik doğrulamasının başarılı olduğunu doğrulamak için aşağıdaki testlerden en az birini el ile gerçekleştirmelisiniz:
 
 * Eşitleme işlemi tamamlandığında, Azure AD Connect’te Federasyon oturum açma işlemini doğrula ek görevini kullanarak tercih ettiğiniz şirket içi kullanıcı hesabının kimlik doğrulamasını doğrulayın.
-* İntranet üzerinde etki alanına katılmış bir makinedeki tarayıcıdan oturum açabildiğinizi doğrulayın: https://myapps.microsoft.com adresine bağlanın ve giriş yaptığınız hesabınız ile oturum açma işlemini doğrulayın. Yerleşik AD DS yönetici hesabı eşitlenmez ve doğrulama için kullanılamaz.
+* İntranetteki etki alanına katılmış bir makinedeki tarayıcıdan oturum açabildiğinizi doğrulayın: Bağlanma https://myapps.microsoft.com ve oturum açmış hesabınızla doğrulayın. Yerleşik AD DS yönetici hesabı eşitlenmez ve doğrulama için kullanılamaz.
 * Extranet üzerinde bir cihazdan oturum açabildiğinizi doğrulayın. Ana makineden veya bir mobil cihazdan https://myapps.microsoft.com adresine bağlanın ve kimlik bilgilerinizi girin.
 * Zengin istemci oturumu açma işlemini doğrulayın. https://testconnectivity.microsoft.com adresine bağlanın, **Office 365** sekmesini ve ardından **Office 365 Çoklu Oturum Açma Testi** seçeneğini belirleyin.
 

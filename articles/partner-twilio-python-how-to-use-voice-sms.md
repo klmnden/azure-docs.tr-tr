@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/19/2015
 ms.author: MicrosoftHelp@twilio.com
-ms.openlocfilehash: 63eb894c64919826922fa60f4e12894542a97c69
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: e6cfd9e72dc1a38e4ed0c11320336ccc4b44a2c0
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994174"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447369"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-python"></a>Ses ve SMS özellikleri python'da için Twilio kullanma
 Bu kılavuzda, Azure üzerinde Twilio API'si hizmeti ile genel programlama görevlerini gerçekleştirmek gösterilmiştir. Telefon görüşmesi yapma ve kısa mesaj servisi (SMS) ileti gönderme senaryoları ele alınmaktadır. Twilio ve ses ve SMS uygulamalarınızda kullanma hakkında daha fazla bilgi için bkz. [sonraki adımlar](#NextSteps) bölümü.
@@ -41,13 +41,13 @@ Twilio ses ve SMS işlevselliğini uygulamaları için sağlayan bir RESTful API
 
 Twilio API'si önemli yönlerini Twilio fiilleri ve Twilio biçimlendirme dili (TwiML) var.
 
-### <a id="Verbs"></a>Twilio fiiller
+### <a id="Verbs"></a>Twilio Verbs
 Twilio'yu kullanarak API yapar; fiiller Örneğin, **&lt;Say&gt;** fiil kullanımı bir çağrıda bir iletiyi teslim etmek için Twilio bildirir.
 
 Twilio fiillerin listesi verilmiştir. Diğer fiilleri ve aracılığıyla özellikler hakkında bilgi edinin [Twilio işaretleme dili belge][twiml].
 
 * **&lt;Arama&gt;**: Çağıran, başka bir telefonu bağlanır.
-* **&lt;Toplama&gt;**: Telefon tuş takımında girilen sayı toplar.
+* **&lt;Gather&gt;**: Telefon tuş takımında girilen sayı toplar.
 * **&lt;Kapat&gt;**: Bir çağrı sona erer.
 * **&lt;Duraklatma&gt;**: Sessiz bir şekilde belirtilen sayıda saniye bekler.
 * **&lt;Play&gt;**: Ses dosyası yürütülür.
@@ -89,7 +89,7 @@ Twilio hizmeti kullanan ve Azure'da çalışan bir Python uygulaması, Twilio hi
 
 ### <a name="set-the-dns-name-label"></a>DNS ad etiketi ayarlama
   1. [Genel IP adresleri] [azure_ips] sayfasına gidin.
-  2. Sanal makinenizle ilgili correspends genel IP adresi seçin.
+  2. Genel karşılık gelen IP ile sanal makinenizi seçin.
   3. Ayarlama **DNS ad etiketi** içinde **yapılandırma** bölümü. Bu örnekte aşağıdakine benzer görünecektir *etki alanı etiketi your*. centralus.cloudapp.azure.com
 
 Sanal makineye SSH aracılığıyla bağlanmak, mümkün olduğunda kendi tercih ettiğiniz bir Web çerçevesi yükleyebilirsiniz (en iyi Python olduğu bilinen iki [Flask](http://flask.pocoo.org/) ve [Django](https://www.djangoproject.com)). Bunlardan birini hemen çalıştırarak yükleyin `pip install` komutu.

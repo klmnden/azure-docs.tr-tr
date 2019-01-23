@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: concepts
 ms.date: 12/11/2018
 ms.author: barclayn
-ms.openlocfilehash: 44507e919b7ed827eb3c08101a04849faf92293c
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: ec814bf641dea6f47b907e9f9e2646dfcf84ade1
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310308"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451757"
 ---
 # <a name="frequently-asked-questions-faq"></a>Sık sorulan sorular (SSS)
 
@@ -56,7 +56,7 @@ Gemalto kez Microsoft tarafından sağlanan HSM cihaz için tüm yazılım sağl
 
 ### <a name="q-will-azure-dedicated-hsm-host-my-hsms-for-me"></a>S: Azure ayrılmış HSM my HSM'ler benim için barındıracak?
 
-Microsoft, yalnızca ayrılmış HSM hizmeti aracılığıyla Gemalto SafeNet Luna ağ HSM sunar ve cihazları sağlanan herhangi bir müşteri barındıramaz.
+Microsoft, yalnızca ayrılmış HSM hizmeti aracılığıyla Gemalto SafeNet Luna ağ HSM sunar ve herhangi bir müşteri tarafından sağlanan cihaza barındıramaz.
 
 ### <a name="q-does-azure-dedicated-hsm-support-pinetf-features-or-meet-pci-hsm-v1-or-v2-certification-requirements"></a>S: Azure ayrılmış HSM PIN/ETF özellikleri veya desteklemez PCI HSM v1 veya v2 sertifika gereksinimlerini karşılayan?
 
@@ -87,7 +87,7 @@ Evet, şirket içi Gemalto SafeNet HSM'ler varsa. Birden fazla yöntem vardır. 
 ### <a name="q-what-operating-systems-are-supported-by-dedicated-hsm-client-software"></a>S: Ayrılmış HSM istemci yazılımı tarafından desteklenen işletim sistemleri?
 
 * Windows, Linux, Solaris, AIX, HP-UX, FreeBSD
-* Sanal: VMware, Xen, KVM hyperv
+* Sanal: VMware, hyperv, Xen, KVM
 
 ### <a name="q-how-do-i-configure-my-client-application-to-create-a-high-availability-configuration-with-multiple-partitions-from-multiple-hsms"></a>S: Birden çok bölümdeki verileri birden çok Hsm'niz ile yüksek kullanılabilirlik yapılandırması oluşturmak için istemci uygulamamın nasıl yapılandırabilirim?
 
@@ -256,7 +256,7 @@ Sağlama kaldırmayı istemeden önce bir müşteri Gemalto sağlanan HSM istemc
 
 Ayrılmış HSM hükümlerine SafeNet ağ HSM 7 cihazları (model A790). Bazı işlemler için en yüksek performansı bir özeti aşağıda verilmiştir: 
 
-* RSA 2048: saniye başına 10.000 işlem
+* RSA-2048: saniye başına 10.000 işlem
 * ECC P256: saniyede 20.000 işlem
 * AES-GCM: saniyede 17,000
 

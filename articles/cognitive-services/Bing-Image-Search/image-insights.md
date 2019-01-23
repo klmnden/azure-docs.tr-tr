@@ -11,12 +11,12 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 280c646a3265ff7ab9a3d32412a2be2e3989e22e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: bb17916fb4d9b9b3ae1481ead7508214f5956c70
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297478"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464281"
 ---
 # <a name="get-image-insights-with-the-bing-image-search-api"></a>Bing resim arama API'si ile resim Öngörüler elde edin
 
@@ -216,10 +216,10 @@ Aşağıda, bir önceki isteğin yanıtı gösterilmektedir. Görüntü iki kiş
 
 Değerler dikdörtgenin genişliğini ve yüksekliğini özgün resmin göreli ve 0,0-1,0 arasındadır. Örneğin, görüntü 300 x 200 ve bölgenin üst ise, sol üst köşedeki noktada (10, 20) olduğu ve alt sağ köşesinde (290, 150) noktasında olduğu ve ardından normalleştirilmiş dikdörtgen:  
 
--   LEFT: 10 / 300 = 0.03333...  
--   Üst: 20 / 200 = 0.1  
+-   Sol: 10 / 300 = 0.03333...  
+-   Sayfanın Üstü:  20 / 200 = 0.1  
 -   Sağ: 290 / 300 = 0.9667...  
--   Alt: 150 / 200 = 0,75  
+-   Alt: 150 / 200 = 0.75  
 
 Bing sonraki ınsights çağrılarında döndürür bölge kullanabilirsiniz. Örneğin, görsel açıdan benzer resimler tanınan bir varlığın almak için şunu yazın. Daha fazla bilgi için [görsel olarak benzer ve varlık tanıma modülleri ile kullanılacak görüntüleri kırpma](#croppingimages). Aşağıdaki bölge alanları ve sorgu parametreleri arasındaki eşleme, görüntüleri kırpma kullanılacağını gösterir.  
 
@@ -408,7 +408,7 @@ Aşağıda, bir önceki isteğin yanıtı gösterilmektedir. Yanıt benzer bir �
 }
 ```
 
-Çevrimiçi ürün teklifi tüccarların listesini almak için (bkz [offerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#offer-offercount) alan), API yeniden çağırın ve ayarlama `modules` ShoppingSources için. Ardından, `insightsToken` ürün Özet görüntüde belirtecine sorgu parametresi bulunamadı.  
+Çevrimiçi ürün teklifi tüccarların listesini almak için (bkz [offerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) alan), API yeniden çağırın ve ayarlama `modules` ShoppingSources için. Ardından, `insightsToken` ürün Özet görüntüde belirtecine sorgu parametresi bulunamadı.  
 
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/details?modules=ShoppingSources&insightsToken=ccid_hb3uRvUk*mid_BF5C252A47F2C765...&mkt=en-us HTTP/1.1    

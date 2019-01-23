@@ -1,10 +1,10 @@
 ---
 title: Kayıt Yönetimi
-description: Bu konuda, anında iletme bildirimleri almak için notification hubs ile cihazları kaydetmek açıklanmaktadır.
+description: Bu konuda, anında iletme bildirimleri almak için notification hubs ile cihazları kaydetmeniz açıklanmaktadır.
 services: notification-hubs
 documentationcenter: .net
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 ms.assetid: fd0ee230-132c-4143-b4f9-65cef7f463a1
 ms.service: notification-hubs
@@ -12,310 +12,328 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 04/14/2018
-ms.author: dimazaid
-ms.openlocfilehash: 7f9052da066fcc0021151bf3b547484859cf216d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.author: jowargo
+ms.date: 01/04/2019
+ms.openlocfilehash: da1cad5c949579e0c66d9cc49f99b7cee9d53f35
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776932"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452250"
 ---
 # <a name="registration-management"></a>Kayıt yönetimi
+
 ## <a name="overview"></a>Genel Bakış
-Bu konuda, anında iletme bildirimleri almak için notification hubs ile cihazları kaydetmek açıklanmaktadır. Konu kayıtlar yüksek düzeyde açıklanır ve cihazlar kaydettirmek için iki ana modeli sunar: bildirim hub'ına doğrudan CİHAZDAN kaydetme ve bir uygulama arka ucu kaydediliyor. 
+
+Bu konuda, anında iletme bildirimleri almak için notification hubs ile cihazları kaydetmeniz açıklanmaktadır. Konu kayıtları yüksek düzeyde açıklanır ve cihazlar kaydetmek için iki ana desen tanıtır: bildirim hub'ına doğrudan CİHAZDAN kaydetme ve bir uygulama arka ucu kaydediliyor.
 
 ## <a name="what-is-device-registration"></a>Cihaz kaydı nedir
-Bildirim hub'ı ile cihaz kaydı kullanarak gerçekleştirilir bir **kayıt** veya **yükleme**.
 
-#### <a name="registrations"></a>Kayıtlar
-Bir kaydı bir aygıt için Platform bildirim hizmeti (PNS) tanıtıcı etiketleri ve büyük olasılıkla bir şablon ile ilişkilendirir. PNS tanıtıcısını ChannelURI, cihaz belirteci veya GCM kayıt kimliği olabilir. Etiketler cihaz tanıtıcılarını doğru kümesine bildirimleri yönlendirmek için kullanılır. Daha fazla bilgi için bkz: [Yönlendirme ve etiket ifadeleri](notification-hubs-tags-segment-push-message.md). Şablonları kayıt başına dönüştürme uygulamak için kullanılır. Daha fazla bilgi için bkz: [şablonları](notification-hubs-templates-cross-platform-push-messages.md).
+Bildirim hub'ı ile cihaz kaydı kullanılarak gerçekleştirilir bir **kayıt** veya **yükleme**.
 
-#### <a name="installations"></a>Yüklemeleri
-Yüklemesi geliştirilmiş olabilir itme paketi içeren kayıt ilgili özellikler. Bunu aygıtlarınızı kaydetme en son ve en iyi yaklaşımdır. Ancak, istemci tarafı .NET SDK'sı tarafından desteklenmiyor ([Notification Hub SDK'sı arka uç işlemleri için](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)) henüz dağıtmadığı.  Bu istemci CİHAZDAN kaydediyorsunuz varsa kullanılacak anlamına gelir [Notification Hubs REST API'si](https://msdn.microsoft.com/library/mt621153.aspx) yaklaşım yüklemelerini desteklemek için. Arka uç hizmeti kullanıyorsanız, kullanabilmek için olmalısınız [Notification Hub SDK'sı arka uç işlemleri için](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+### <a name="registrations"></a>Kayıtlar
 
-Yüklemeleri kullanmanın önemli avantajlarından bazıları şunlardır:
+Bir kayıt Platform bildirim sistemi (PNS) tanıtıcı bir cihaz için etiketleri ve büyük olasılıkla bir şablon ile ilişkilendirir. PNS tanıtıcısının Channelurı, cihaz belirteci veya GCM kayıt kimliği olabilir. Etiketler, cihaz tanıtıcılarını doğru kümesine bildirimleri yönlendirmek için kullanılır. Daha fazla bilgi için [Yönlendirme ve etiket ifadeleri](notification-hubs-tags-segment-push-message.md). Şablonları kayıt başına dönüştürme uygulamak için kullanılır. Daha fazla bilgi için bkz. [Şablonlar](notification-hubs-templates-cross-platform-push-messages.md).
 
-* Oluşturma veya bir yüklemeyi güncelleştirme ıdempotent tam değil. Bu nedenle tüm yinelenen kayıtları endişeniz olmadan deneyebilirsiniz.
-* Yükleme modeli tek tek iter - belirli bir aygıtı hedefleme yapılacağı kolaylaştırır. Bir sistem etiketi **"$InstallationId: [InstallationID]"** her bağlı yükleme kaydı otomatik olarak eklenir. Bu nedenle hiçbir ek kodlama yapmak zorunda kalmadan belirli bir aygıt hedeflemek için bu etikete gönderme çağırabilirsiniz.
-* Yüklemeleri kullanarak, kısmi kayıt güncelleştirmeler yapmak de sağlar. Bir düzeltme eki yöntemi kullanılarak ile kısmi güncelleştirme yüklemesinin istenilen [JSON düzeltme eki standart](https://tools.ietf.org/html/rfc6902). Kayıt etiketlerini güncelleştirmek istediğinizde kullanışlıdır. Tüm kayıt çekmek ve önceki tüm etiketleri yeniden yeniden gerekmez.
+### <a name="installations"></a>Yüklemeleri
 
-Bir yükleme şu özellikler içerebilir. Yükleme özellikleri hakkında tam listesi için bkz: [oluşturmak veya bir yükleme ile REST API üzerine](https://msdn.microsoft.com/library/azure/mt621153.aspx) veya [yükleme özellikleri](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx).
+Bir yükleme geliştirilmiş olan bir anında iletme paketi içeren bir kaydı ilgili özellikler. Bunu, cihazları kaydetme en son ve en iyi yaklaşımdır. Ancak, istemci tarafı .NET SDK'sı tarafından desteklenmez ([arka uç işlemleri için bildirim hub'ı SDK'sı](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)) henüz dağıtmadığı.  Bu istemci CİHAZDAN kaydediyorsanız, haritamın kullanmak anlamına gelir [Notification Hubs REST API'si](https://msdn.microsoft.com/library/mt621153.aspx) yüklemelerini desteklemek için bir yaklaşım. Arka uç hizmetini kullanıyorsanız, kullanılacak erişebileceğinizi [arka uç işlemleri için bildirim hub'ı SDK'sı](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
-    // Example installation format to show some supported properties
-    {,
-        installationId: "",
-        expirationTime: "",
-        tags: [],
-        platform: "",
-        pushChannel: "",
-        ………
-        templates: {
-            "templateName1" : {
-                body: "",
-                tags: [] },
-            "templateName2" : {
-                body: "",
-                // Headers are for Windows Store only
-                headers: {
-                    "X-WNS-Type": "wns/tile" }
-                tags: [] }
-        },
-        secondaryTiles: {
-            "tileId1": {
-                pushChannel: "",
-                tags: [],
-                templates: {
-                    "otherTemplate": {
-                        bodyTemplate: "",
-                        headers: {
-                            ... }
-                        tags: [] }
-                }
+Yüklemeleri kullanmanın bazı temel avantajları şunlardır:
+
+- Oluşturma veya güncelleştirme yüklemesi tam olarak etkilidir. Bu nedenle tüm yinelenen kayıtları DB'dir olmadan deneyebilirsiniz.
+- Yükleme modeli bireysel bildirim - belirli bir cihazı hedefleyen yapmanız kolaylaştırır. Bir sistem etiketini **"$InstallationId: [InstallationID]"** her bağlı olarak yükleme kaydı otomatik olarak eklenir. Bu nedenle belirli bir cihazdaki herhangi bir ek kodlama yapmak zorunda kalmadan hedeflemek için bu etiket için bir gönderme çağırabilirsiniz.
+- Yüklemelerini kullanarak, kısmi kayıt güncelleştirmeler yapmak de sağlar. PATCH kullanılarak yöntemi ile kısmi güncelleştirme yüklemesinin istenen [JSON-Patch standart](https://tools.ietf.org/html/rfc6902). Kayıt etiketleri güncelleştirmek istediğiniz durumlarda kullanışlıdır. Tüm kayıt çekin ve ardından önceki tüm etiketleri yeniden yeniden gerekmez.
+
+Yüklemesi aşağıdaki özellikleri içerebilir. Yükleme özellikleri hakkında tam listesi için bkz. [oluşturun veya REST API ile yüklemesi üzerine](https://msdn.microsoft.com/library/azure/mt621153.aspx) veya [yükleme özellikleri](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx).
+
+```javascript
+// Example installation format to show some supported properties
+{
+    installationId: "",
+    expirationTime: "",
+    tags: [],
+    platform: "",
+    pushChannel: "",
+    ………
+    templates: {
+        "templateName1" : {
+            body: "",
+            tags: [] },
+        "templateName2" : {
+            body: "",
+            // Headers are for Windows Store only
+            headers: {
+                "X-WNS-Type": "wns/tile" }
+            tags: [] }
+    },
+    secondaryTiles: {
+        "tileId1": {
+            pushChannel: "",
+            tags: [],
+            templates: {
+                "otherTemplate": {
+                    bodyTemplate: "",
+                    headers: {
+                        ... }
+                    tags: [] }
             }
         }
     }
+}
+```
 
+> [!NOTE]
+> Varsayılan olarak, kayıtları ve yüklemelerini dolmaz.
 
+Kayıtları ve yüklemelerini her cihaz/kanal için geçerli bir PNS tanıtıcısını içermelidir. PNS tanıtıcılarını kaydetmekten, cihazda bir istemci uygulamasında yalnızca alınabilir olduğundan, bir istemci uygulaması ile bir cihazda doğrudan kayıt modelidir. Öte yandan, güvenlik hususlarının yanı sıra etiketlerle ilgili iş mantığı uygulama arka ucu, cihaz kaydını Yönet gerektirebilir.
 
-Kayıtlar ve varsayılan olarak yüklemeleri artık dolacağını dikkate almak önemlidir.
+### <a name="templates"></a>Şablonlar
 
-Kayıtlar ve yüklemeleri her cihaz/kanal için geçerli bir PNS tanıtıcısını içermelidir. PNS tanıtıcılarını yalnızca aygıttaki istemci uygulamasında elde edilebilir olduğundan, istemci uygulaması ile bir cihazda doğrudan kaydetmek için bir düzen yöneliktir. Diğer taraftan, güvenlikle ilgili önemli noktalar ve etiketler için ilgili iş mantığı, uygulama arka ucunu cihaz kaydında yönetmenizi gerektirebilir. 
+Kullanmak istiyorsanız [şablonları](notification-hubs-templates-cross-platform-push-messages.md), cihaz yüklemesi de bu cihaz bir JSON ile ilişkili tüm şablonları tutan biçimlendirmek (Yukarıdaki örnek bakın). Şablon adları, aynı cihaza için hedef farklı şablonlar yardımcı olur.
 
-#### <a name="templates"></a>Şablonlar
-Kullanmak istiyorsanız, [şablonları](notification-hubs-templates-cross-platform-push-messages.md), aygıt yüklemesi de JSON bu aygıt ile ilişkili tüm şablonları tutar (Yukarıdaki örnek bakın) biçimlendirin. Şablon adları hedef farklı şablonları aynı aygıt için yardımcı olur.
+Her bir şablon adı, şablon gövdesi ve isteğe bağlı bir etiket kümesine eşler. Ayrıca, her platformun ek şablon özelliklere sahip olabilir. Windows Store (WNS kullanarak) ve Windows Phone 8 (MPNS kullanarak) için ek bir üst kümesi şablonunun bir parçası olabilir. APNs söz konusu olduğunda, bir sabit veya şablon ifadesi bir sona erme özelliğini ayarlayabilirsiniz. Yükleme özellikleri bakın tam listesi için [oluşturmak veya bir yükleme ile REST üzerine](https://msdn.microsoft.com/library/azure/mt621153.aspx) konu.
 
-Her bir şablon adı, bir şablon gövde ve isteğe bağlı bir dizi etiketi eşler. Ayrıca, her platform ek şablon özelliklere sahip olabilir. Windows Mağazası'nın (WNS kullanarak) ve Windows Phone 8 (MPNS kullanarak) için ek bir üstbilgi kümesi şablonunun parçası olabilir. APNs söz konusu olduğunda, bir süre sonu özelliğini ya da veya şablon ifadesi ayarlayabilirsiniz. Yükleme özellikleri bakın, tam bir listesi için [oluşturmak veya bir yükleme ile REST üzerine](https://msdn.microsoft.com/library/azure/mt621153.aspx) konu.
+### <a name="secondary-tiles-for-windows-store-apps"></a>Windows Store uygulamaları için ikincil kutucuk
 
-#### <a name="secondary-tiles-for-windows-store-apps"></a>Windows mağazası uygulamaları için ikincil döşeme
-Windows mağazası istemci uygulamaları için ikincil döşeme bildirimleri gönderme birincil birine göndererek ile aynı olur. Bu ayrıca yüklemelerde desteklenir. İkincil döşeme istemci uygulamanızdan SDK şeffaf bir şekilde işler farklı bir ChannelUri sahip.
+Windows Store istemci uygulamalar için ikincil kutucuk bildirimleri göndermek için birincil olanı göndererek ile aynı olur. Bu ayrıca yüklemelerde desteklenir. İkincil kutucuk üzerindeki istemci uygulamanızı SDK şeffaf bir şekilde işleyen farklı bir Channelurı vardır.
 
-Windows mağazası uygulamanızı SecondaryTiles nesnesi oluşturmak için kullanılan aynı TileId SecondaryTiles sözlük kullanır.
-Birincil ChannelUri gibi ile ikincil döşeme ChannelUris herhangi bir anda değiştirebilirsiniz. Güncelleştirilen bildirim hub'ı yüklemeleri tutmak için aygıt bunları ikincil döşeme geçerli ChannelUris ile yenilemeniz gerekir.
+Windows Store uygulamanızda SecondaryTiles nesne oluşturmak için kullanılan aynı TileId SecondaryTiles sözlük kullanır.
+Birincil Channelurı gibi ile ikincil kutucuk ChannelUris her an değiştirebilirsiniz. Güncelleştirilen bildirim hub'ında yüklemeleri tutulabilmesi için cihaz bunları ikincil kutucuk geçerli ChannelUris ile yenilemeniz gerekir.
 
 ## <a name="registration-management-from-the-device"></a>Cihaz kayıt yönetimi
-Cihaz kaydı istemci uygulamaları yönetirken, arka uç yalnızca bildirim göndermek için sorumludur. İstemci uygulamaları PNS tanıtıcılarını güncel tutmak ve etiketleri kaydedin. Aşağıdaki resimde bu deseni gösterilmektedir.
+
+Cihaz kaydı istemci uygulamalardan yönetirken, arka uç yalnızca bildirimleri göndermekten sorumludur. İstemci uygulamaları PNS tanıtıcılarını kaydetmekten güncel tutun ve etiketleri kaydedin. Aşağıdaki resimde, bu düzen gösterilmiştir.
 
 ![](./media/notification-hubs-registration-management/notification-hubs-registering-on-device.png)
 
-Cihaz önce PNS PNS tanıtıcısını alır, sonra bildirim hub'ı ile doğrudan kaydeder. Kayıt başarılı olduktan sonra uygulama arka ucu, kayıt hedefleyen bir bildirim gönderebilirsiniz. Bildirimleri gönderme hakkında daha fazla bilgi için bkz: [Yönlendirme ve etiket ifadeleri](notification-hubs-tags-segment-push-message.md).
-Bu durumda, bildirim hub'larınız aygıttan erişmek için yalnızca dinleme hakları kullanın. Daha fazla bilgi için bkz: [güvenlik](notification-hubs-push-notification-security.md).
+Cihaz ilk PNS tanıtıcısının PNS alır ve sonra bildirim hub'ı doğrudan kaydeder. Kayıt başarılı olduktan sonra uygulama arka ucu, kayıt hedefleyen bir bildirim gönderebilirsiniz. Bildirimleri gönderme hakkında daha fazla bilgi için bkz. [Yönlendirme ve etiket ifadeleri](notification-hubs-tags-segment-push-message.md).
 
-Aygıttan kaydetme basit yöntemidir, ancak bazı kısıtlamaları vardır.
-İlk dezavantajı, uygulama etkinken bir istemci uygulaması yalnızca kendi etiketleri güncelleştirebilirsiniz olmasıdır. Bir kullanıcının ilk aygıt bir ek etiketi (örneğin, takımınız) kaydettiğinde Spor takıma ilgili etiketleri kaydetme iki cihazlar varsa, ikinci cihaza uygulamanın kadar Örneğin, ikinci bir cihaz takımınız hakkında bildirimler almaz ikinci kez yürütüldü. Etiketler birden çok aygıt tarafından etkilenir, daha genel olarak, etiketleri arka ucundan yönetme bir arzu seçenektir.
-Kayıt Yönetimi istemci uygulamasından ikinci dezavantajı uygulamaları ele olduğundan, kayıt belirli etiketleri için güvenli hale getirme ek bakım, "etiketi düzeyi güvenlik." bölümünde açıklandığı gibi gerektirmesidir
+Bu durumda, notification hubs'ı CİHAZDAN erişmek için yalnızca dinleme haklarına kullanın. Daha fazla bilgi için [güvenlik](notification-hubs-push-notification-security.md).
 
-#### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-an-installation"></a>Bildirim hub'ı bir yükleme seçeneğini kullanarak bir aygıt ile kaydetmek için örnek kod
-Şu anda yalnızca kullanarak destekleniyorsa [Notification Hubs REST API'si](https://msdn.microsoft.com/library/mt621153.aspx).
+CİHAZDAN kaydetme en basit yöntemdir, ancak bazı kısıtlamaları vardır:
 
-Düzeltme eki yöntemini kullanarak da kullanabilirsiniz [JSON düzeltme eki standart](https://tools.ietf.org/html/rfc6902) yükleme güncelleştirmek için.
+- Uygulama etkin olduğunda, bir istemci uygulaması yalnızca kendi etiketleri güncelleştirebilirsiniz. Bir kullanıcının etiketleri Spor takımlar için ek bir etiket (örneğin, Seahawks) için ilk cihaz kaydederken ilgili kaydetme iki cihazı varsa, uygulamanın ikinci bir cihaz üzerinde olana kadar gibi ikinci bir cihaz Seahawks hakkında bildirimler almaz ikinci kez yürütüldü. Etiketler, birden çok cihaz tarafından etkilenir, daha genel olarak, etiketleri arka ucundan yönetme bir arzu seçenektir.
+- Uygulamaları uğrayabileceği olduğundan, kayıt için belirli etiketlere güvenli hale getirme çok dikkatli "etiketi düzeyi güvenliği" bölümünde açıklandığı gibi gerektirir
 
-    class DeviceInstallation
+### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-an-installation"></a>Bir bildirim hub'ından yükleme kullanarak bir cihazı kaydetmek için örnek kod
+
+Şu anda bu yalnızca kullanarak desteklenir [Notification Hubs REST API'si](https://msdn.microsoft.com/library/mt621153.aspx).
+
+PATCH kullanılarak yöntemi de kullanabilirsiniz [JSON-Patch standart](https://tools.ietf.org/html/rfc6902) yükleme güncelleştirmek için.
+
+```
+class DeviceInstallation
+{
+    public string installationId { get; set; }
+    public string platform { get; set; }
+    public string pushChannel { get; set; }
+    public string[] tags { get; set; }
+}
+
+private async Task<HttpStatusCode> CreateOrUpdateInstallationAsync(DeviceInstallation deviceInstallation,
+        string hubName, string listenConnectionString)
+{
+    if (deviceInstallation.installationId == null)
+        return HttpStatusCode.BadRequest;
+
+    // Parse connection string (https://msdn.microsoft.com/library/azure/dn495627.aspx)
+    ConnectionStringUtility connectionSaSUtil = new ConnectionStringUtility(listenConnectionString);
+    string hubResource = "installations/" + deviceInstallation.installationId + "?";
+    string apiVersion = "api-version=2015-04";
+
+    // Determine the targetUri that we will sign
+    string uri = connectionSaSUtil.Endpoint + hubName + "/" + hubResource + apiVersion;
+
+    //=== Generate SaS Security Token for Authorization header ===
+    // See, https://msdn.microsoft.com/library/azure/dn495627.aspx
+    string SasToken = connectionSaSUtil.getSaSToken(uri, 60);
+
+    using (var httpClient = new HttpClient())
     {
-        public string installationId { get; set; }
-        public string platform { get; set; }
-        public string pushChannel { get; set; }
-        public string[] tags { get; set; }
+        string json = JsonConvert.SerializeObject(deviceInstallation);
+
+        httpClient.DefaultRequestHeaders.Add("Authorization", SasToken);
+
+        var response = await httpClient.PutAsync(uri, new StringContent(json, System.Text.Encoding.UTF8, "application/json"));
+        return response.StatusCode;
     }
+}
 
-    private async Task<HttpStatusCode> CreateOrUpdateInstallationAsync(DeviceInstallation deviceInstallation,
-         string hubName, string listenConnectionString)
+var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
+
+string installationId = null;
+var settings = ApplicationData.Current.LocalSettings.Values;
+
+// If we have not stored a installation id in application data, create and store as application data.
+if (!settings.ContainsKey("__NHInstallationId"))
+{
+    installationId = Guid.NewGuid().ToString();
+    settings.Add("__NHInstallationId", installationId);
+}
+
+installationId = (string)settings["__NHInstallationId"];
+
+var deviceInstallation = new DeviceInstallation
+{
+    installationId = installationId,
+    platform = "wns",
+    pushChannel = channel.Uri,
+    //tags = tags.ToArray<string>()
+};
+
+var statusCode = await CreateOrUpdateInstallationAsync(deviceInstallation, 
+                    "<HUBNAME>", "<SHARED LISTEN CONNECTION STRING>");
+
+if (statusCode != HttpStatusCode.Accepted)
+{
+    var dialog = new MessageDialog(statusCode.ToString(), "Registration failed. Installation Id : " + installationId);
+    dialog.Commands.Add(new UICommand("OK"));
+    await dialog.ShowAsync();
+}
+else
+{
+    var dialog = new MessageDialog("Registration successful using installation Id : " + installationId);
+    dialog.Commands.Add(new UICommand("OK"));
+    await dialog.ShowAsync();
+}
+```
+
+### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-a-registration"></a>Bir bildirim hub'ından bir kaydı'nı kullanarak bir cihazı kaydetmek için örnek kod
+
+Bu yöntemler veya bir kayıt üzerinde çağrılır cihaz için güncelleştirilemiyor. Başka bir deyişle, tanıtıcı veya etiketleri güncelleştirmek için tüm kayıt üzerine yazmalıdır. Her zaman belirli bir cihazın geçerli etiketlere sahip güvenilir bir depo olmalıdır böylece kayıtları geçici olduğunu unutmayın.
+
+```
+// Initialize the Notification Hub
+NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(listenConnString, hubName);
+
+// The Device id from the PNS
+var pushChannel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
+
+// If you are registering from the client itself, then store this registration id in device
+// storage. Then when the app starts, you can check if a registration id already exists or not before
+// creating.
+var settings = ApplicationData.Current.LocalSettings.Values;
+
+// If we have not stored a registration id in application data, store in application data.
+if (!settings.ContainsKey("__NHRegistrationId"))
+{
+    // make sure there are no existing registrations for this push handle (used for iOS and Android)    
+    string newRegistrationId = null;
+    var registrations = await hub.GetRegistrationsByChannelAsync(pushChannel.Uri, 100);
+    foreach (RegistrationDescription registration in registrations)
     {
-        if (deviceInstallation.installationId == null)
-            return HttpStatusCode.BadRequest;
-
-        // Parse connection string (https://msdn.microsoft.com/library/azure/dn495627.aspx)
-        ConnectionStringUtility connectionSaSUtil = new ConnectionStringUtility(listenConnectionString);
-        string hubResource = "installations/" + deviceInstallation.installationId + "?";
-        string apiVersion = "api-version=2015-04";
-
-        // Determine the targetUri that we will sign
-        string uri = connectionSaSUtil.Endpoint + hubName + "/" + hubResource + apiVersion;
-
-        //=== Generate SaS Security Token for Authorization header ===
-        // See, https://msdn.microsoft.com/library/azure/dn495627.aspx
-        string SasToken = connectionSaSUtil.getSaSToken(uri, 60);
-
-        using (var httpClient = new HttpClient())
+        if (newRegistrationId == null)
         {
-            string json = JsonConvert.SerializeObject(deviceInstallation);
-
-            httpClient.DefaultRequestHeaders.Add("Authorization", SasToken);
-
-            var response = await httpClient.PutAsync(uri, new StringContent(json, System.Text.Encoding.UTF8, "application/json"));
-            return response.StatusCode;
+            newRegistrationId = registration.RegistrationId;
+        }
+        else
+        {
+            await hub.DeleteRegistrationAsync(registration);
         }
     }
 
-    var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
+    newRegistrationId = await hub.CreateRegistrationIdAsync();
 
-    string installationId = null;
-    var settings = ApplicationData.Current.LocalSettings.Values;
+    settings.Add("__NHRegistrationId", newRegistrationId);
+}
 
-    // If we have not stored a installation id in application data, create and store as application data.
-    if (!settings.ContainsKey("__NHInstallationId"))
-    {
-        installationId = Guid.NewGuid().ToString();
-        settings.Add("__NHInstallationId", installationId);
-    }
+string regId = (string)settings["__NHRegistrationId"];
 
-    installationId = (string)settings["__NHInstallationId"];
+RegistrationDescription registration = new WindowsRegistrationDescription(pushChannel.Uri);
+registration.RegistrationId = regId;
+registration.Tags = new HashSet<string>(YourTags);
 
-    var deviceInstallation = new DeviceInstallation
-    {
-        installationId = installationId,
-        platform = "wns",
-        pushChannel = channel.Uri,
-        //tags = tags.ToArray<string>()
-    };
-
-    var statusCode = await CreateOrUpdateInstallationAsync(deviceInstallation, 
-                        "<HUBNAME>", "<SHARED LISTEN CONNECTION STRING>");
-
-    if (statusCode != HttpStatusCode.Accepted)
-    {
-        var dialog = new MessageDialog(statusCode.ToString(), "Registration failed. Installation Id : " + installationId);
-        dialog.Commands.Add(new UICommand("OK"));
-        await dialog.ShowAsync();
-    }
-    else
-    {
-        var dialog = new MessageDialog("Registration successful using installation Id : " + installationId);
-        dialog.Commands.Add(new UICommand("OK"));
-        await dialog.ShowAsync();
-    }
-
-
-
-#### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-a-registration"></a>Bildirim hub'ı kullanarak bir kaydı bir aygıttan ile kaydetmek için örnek kod
-Bu yöntemler oluşturun veya bunlar üzerinde adlandırılır cihaz için bir kayıt güncelleştirin. Başka bir deyişle, tanıtıcı veya etiketleri güncelleştirmek için tüm kayıt üzerine yazmalıdır. Her zaman belirli bir aygıt gereklidir geçerli etiketler güvenilir deposuyla gerekir böylece kayıtlar geçici olduğunu unutmayın.
-
-    // Initialize the Notification Hub
-    NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(listenConnString, hubName);
-
-    // The Device id from the PNS
-    var pushChannel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
-
-    // If you are registering from the client itself, then store this registration id in device
-    // storage. Then when the app starts, you can check if a registration id already exists or not before
-    // creating.
-    var settings = ApplicationData.Current.LocalSettings.Values;
-
-    // If we have not stored a registration id in application data, store in application data.
-    if (!settings.ContainsKey("__NHRegistrationId"))
-    {
-        // make sure there are no existing registrations for this push handle (used for iOS and Android)    
-        string newRegistrationId = null;
-        var registrations = await hub.GetRegistrationsByChannelAsync(pushChannel.Uri, 100);
-        foreach (RegistrationDescription registration in registrations)
-        {
-            if (newRegistrationId == null)
-            {
-                newRegistrationId = registration.RegistrationId;
-            }
-            else
-            {
-                await hub.DeleteRegistrationAsync(registration);
-            }
-        }
-
-        newRegistrationId = await hub.CreateRegistrationIdAsync();
-
-        settings.Add("__NHRegistrationId", newRegistrationId);
-    }
-
-    string regId = (string)settings["__NHRegistrationId"];
-
-    RegistrationDescription registration = new WindowsRegistrationDescription(pushChannel.Uri);
-    registration.RegistrationId = regId;
-    registration.Tags = new HashSet<string>(YourTags);
-
-    try
-    {
-        await hub.CreateOrUpdateRegistrationAsync(registration);
-    }
-    catch (Microsoft.WindowsAzure.Messaging.RegistrationGoneException e)
-    {
-        settings.Remove("__NHRegistrationId");
-    }
-
+try
+{
+    await hub.CreateOrUpdateRegistrationAsync(registration);
+}
+catch (Microsoft.WindowsAzure.Messaging.RegistrationGoneException e)
+{
+    settings.Remove("__NHRegistrationId");
+}
+```
 
 ## <a name="registration-management-from-a-backend"></a>Kayıt Yönetimi'nden bir arka uç
-Kayıtlar arka ucundan yönetme ek kod yazma gerektirir. Uygulama aygıttan güncelleştirilmiş PNS arka ucuna uygulama (etiketleri ve şablonlar ile birlikte) her başlatılışında işlemek ve arka uç bu tanıtıcıyı bildirim hub'ındaki güncelleştirmelisiniz sağlamanız gerekir. Aşağıdaki resimde bu tasarım gösterilmektedir.
+
+Arka ucunuzdan kayıtları yönetme, ek kod yazmaya gerektirir. Cihaz uygulamasından güncelleştirilmiş PNS (etiketler ve şablonlar ile birlikte) uygulamayı başlatır her zaman arka ucuna işlemek ve arka uç, bildirim hub'ı Bu tutamacı güncelleştirmelisiniz sağlamanız gerekir. Bu tasarım aşağıdaki resimde gösterilmektedir.
 
 ![](./media/notification-hubs-registration-management/notification-hubs-registering-on-backend.png)
 
-Kayıtlar arka ucundan yönetme avantajlar cihaza karşılık gelen uygulamanın devre dışı olduğunda bile kayıtlar etiketleri değiştirebilir ve kendi kaydı için bir etiket eklemeden önce istemci uygulamanın kimlik doğrulamasını olanağı vardır.
+Kayıtları yönetme arka ucundan avantajları karşılık gelen uygulama cihaz üzerinde etkin olsa bile kayıtları etiketleri değiştirmek ve kayıt için bir etiket eklemeden önce istemci uygulaması kimlik doğrulaması için mevcuttur.
 
-#### <a name="example-code-to-register-with-a-notification-hub-from-a-backend-using-an-installation"></a>Bir bildirim hub'ından bir yükleme seçeneğini kullanarak bir arka uç ile kaydetmek için örnek kod
-İstemci aygıtı hala önce ilgili yüklemeyi özellikleri olarak ve PNS tanıtıcısını alır ve kaydı gerçekleştirmek ve etiketleri vb. yetkilendirmek arka uç özel bir API çağırır. Arka uç yararlanabilirsiniz [Notification Hub SDK'sı arka uç işlemleri için](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+### <a name="example-code-to-register-with-a-notification-hub-from-a-backend-using-an-installation"></a>Bir bildirim hub'ından yükleme kullanarak bir arka uç ile kaydetmek için örnek kod
 
-Düzeltme eki yöntemini kullanarak da kullanabilirsiniz [JSON düzeltme eki standart](https://tools.ietf.org/html/rfc6902) yükleme güncelleştirmek için.
+İstemci cihaz yine de önce ilgili yüklemeyi özellikler olarak ve PNS tanıtıcısını alır ve bir özel API kaydını gerçekleştirme ve etiketleri vb. yetkilendirmek arka uçta çağırır. Arka uç yararlanabilir [arka uç işlemleri için bildirim hub'ı SDK'sı](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
-    // Initialize the Notification Hub
-    NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(listenConnString, hubName);
+PATCH kullanılarak yöntemi de kullanabilirsiniz [JSON-Patch standart](https://tools.ietf.org/html/rfc6902) yükleme güncelleştirmek için.
 
-    // Custom API on the backend
-    public async Task<HttpResponseMessage> Put(DeviceInstallation deviceUpdate)
+```
+// Initialize the Notification Hub
+NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(listenConnString, hubName);
+
+// Custom API on the backend
+public async Task<HttpResponseMessage> Put(DeviceInstallation deviceUpdate)
+{
+
+    Installation installation = new Installation();
+    installation.InstallationId = deviceUpdate.InstallationId;
+    installation.PushChannel = deviceUpdate.Handle;
+    installation.Tags = deviceUpdate.Tags;
+
+    switch (deviceUpdate.Platform)
     {
-
-        Installation installation = new Installation();
-        installation.InstallationId = deviceUpdate.InstallationId;
-        installation.PushChannel = deviceUpdate.Handle;
-        installation.Tags = deviceUpdate.Tags;
-
-        switch (deviceUpdate.Platform)
-        {
-            case "mpns":
-                installation.Platform = NotificationPlatform.Mpns;
-                break;
-            case "wns":
-                installation.Platform = NotificationPlatform.Wns;
-                break;
-            case "apns":
-                installation.Platform = NotificationPlatform.Apns;
-                break;
-            case "gcm":
-                installation.Platform = NotificationPlatform.Gcm;
-                break;
-            default:
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
-        }
-
-
-        // In the backend we can control if a user is allowed to add tags
-        //installation.Tags = new List<string>(deviceUpdate.Tags);
-        //installation.Tags.Add("username:" + username);
-
-        await hub.CreateOrUpdateInstallationAsync(installation);
-
-        return Request.CreateResponse(HttpStatusCode.OK);
+        case "mpns":
+            installation.Platform = NotificationPlatform.Mpns;
+            break;
+        case "wns":
+            installation.Platform = NotificationPlatform.Wns;
+            break;
+        case "apns":
+            installation.Platform = NotificationPlatform.Apns;
+            break;
+        case "gcm":
+            installation.Platform = NotificationPlatform.Gcm;
+            break;
+        default:
+            throw new HttpResponseException(HttpStatusCode.BadRequest);
     }
 
 
-#### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-a-registration-id"></a>Bildirim hub'ı bir kayıt kimliği kullanılarak bir aygıttan ile kaydetmek için örnek kod
-Uygulama arka ucunuzdan, kayıtlar üzerinde temel CRUDS işlemler gerçekleştirebilirsiniz. Örneğin:
+    // In the backend we can control if a user is allowed to add tags
+    //installation.Tags = new List<string>(deviceUpdate.Tags);
+    //installation.Tags.Add("username:" + username);
 
-    var hub = NotificationHubClient.CreateClientFromConnectionString("{connectionString}", "hubName");
+    await hub.CreateOrUpdateInstallationAsync(installation);
 
-    // create a registration description object of the correct type, e.g.
-    var reg = new WindowsRegistrationDescription(channelUri, tags);
+    return Request.CreateResponse(HttpStatusCode.OK);
+}
+```
 
-    // Create
-    await hub.CreateRegistrationAsync(reg);
+### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-a-registration-id"></a>Bir bildirim hub'ından kayıt Kimliğini kullanarak bir cihazı kaydetmek için örnek kod
 
-    // Get by id
-    var r = await hub.GetRegistrationAsync<RegistrationDescription>("id");
+Uygulama arka ucunuzu kayıtlardaki temel CRUDS işlemleri gerçekleştirebilirsiniz. Örneğin:
 
-    // update
-    r.Tags.Add("myTag");
+```
+var hub = NotificationHubClient.CreateClientFromConnectionString("{connectionString}", "hubName");
 
-    // update on hub
-    await hub.UpdateRegistrationAsync(r);
+// create a registration description object of the correct type, e.g.
+var reg = new WindowsRegistrationDescription(channelUri, tags);
 
-    // delete
-    await hub.DeleteRegistrationAsync(r);
+// Create
+await hub.CreateRegistrationAsync(reg);
 
+// Get by id
+var r = await hub.GetRegistrationAsync<RegistrationDescription>("id");
 
-Arka uç kaydı güncelleştirmeleri arasındaki eşzamanlılık işlemelidir. Hizmet veri yolu iyimser eşzamanlılık denetimini kayıt yönetimi sunar. HTTP düzeyde, bu, kayıt yönetimi işlemleri ETag kullanılmasına uygulanır. Bu özellik, saydam bir güncelleştirme eşzamanlılık nedenlerle reddedilirse, bir özel durum SDKs tarafından kullanılır. Uygulama arka ucu, bu özel durumları işleme ve gerekirse güncelleştirme yeniden deneniyor sorumludur.
+// update
+r.Tags.Add("myTag");
 
+// update on hub
+await hub.UpdateRegistrationAsync(r);
+
+// delete
+await hub.DeleteRegistrationAsync(r);
+```
+
+Arka uç kaydı güncelleştirmeleri arasında eşzamanlılık işlemesi gerekir. Service Bus kaydı yönetimi için iyimser eşzamanlılık denetimi sunar. HTTP düzeyinde bu ETag kullanımıyla ilişkili kayıt yönetim işlemleri üzerinde uygulanır. Bu özellik, bir güncelleştirme eşzamanlılık nedeniyle reddedilmesi durumunda, bir özel durum SDKs tarafından şeffaf bir şekilde kullanılır. Uygulama arka ucu, bu özel durumları işleme ve gerekirse güncelleştirmeyi yeniden denemeden sorumludur.

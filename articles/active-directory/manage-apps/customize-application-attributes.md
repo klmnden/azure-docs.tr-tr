@@ -4,7 +4,7 @@ description: Azure Active Directory'de SaaS uygulamaları için hangi öznitelik
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/09/2018
 ms.author: barbkess
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c54df9c4a01dbdb7713d03ff81108f28a60ec727
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: ead99afaf0399c060424d310d8f4011b2a50aad2
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357822"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473733"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Kullanıcı Azure Active Directory'de SaaS uygulamaları için öznitelik eşlemelerini sağlama özelleştirme
 Microsoft Azure AD, Salesforce ve Google Apps gibi üçüncü taraf SaaS uygulamalarına kullanıcı hazırlama için destek sağlar. Etkin bir üçüncü taraf SaaS uygulaması için kullanıcı sağlamayı varsa, Azure portalı, öznitelik değerleri öznitelik eşlemeleri formunda denetler.

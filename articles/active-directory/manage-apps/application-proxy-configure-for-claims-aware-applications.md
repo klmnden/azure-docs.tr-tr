@@ -4,7 +4,7 @@ description: Kullanıcılarınız tarafından güvenli uzaktan erişim için ADF
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: b8c69ebec2258581954e26dc6181d5f4b57f461c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 6313bc8f3245966d22e904f96a90674b27d396f7
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53137710"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472945"
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>Uygulama proxy'sinde talep kullanan uygulamalar ile çalışma
 [Talep kullanan uygulamalar](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx) yeniden yönlendirmesi için güvenlik belirteci hizmeti (STS) gerçekleştirin. STS, bir belirteç lisanslarınıza kullanıcıdan kimlik bilgilerini ister ve ardından kullanıcıyı uygulamaya yönlendirir. Bu yeniden yönlendirme ile çalışmak uygulama proxy'sini etkinleştirmek için birkaç yolu vardır. Talep kullanan uygulamalar için dağıtımınızı yapılandırmak için bu makaleyi kullanın. 
@@ -41,7 +41,7 @@ Talep kullanan uygulamaya yönlendirilir STS şirket içi ağınızın dışınd
 
 Tüm uygulamalarınız için iç URL tam olarak nitelikli etki alanı adlarını (FQDN) sonra yapılandırabileceğiniz [özel etki alanları](application-proxy-configure-custom-domain.md) uygulamalarınız için. İç URL ile aynıdır, dış URL'leri oluşturmak için özel etki alanları kullanın. Ardından, dış URL'leri iç URL'nizde eşleştiğinde, kullanıcılarınızın şirket içi veya uzak olup STS yeniden yönlendirmeleri çalışır. 
 
-### <a name="option-2-ws-federation"></a>2. seçenek: WS-Federasyon
+### <a name="option-2-ws-federation"></a>2. seçenek: WS-Federation
 
 1. AD FS Yönetimi'ni açın.
 2. Git **bağlı olan taraf güvenleri**uygulaması Ara sunucusu ile yayımlama, uygulamayı sağ tıklatın ve seçin **özellikleri**.  

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: d7acb24a6fef0435d59e5a07f5312f1e6368fe52
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: ca29526ab8abbfffcf5e58939acbd1c9b4798a51
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140192"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451740"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>Havacılıkta Tahmine dayalı bakım için Cortana Intelligence çözüm şablonları için teknik kılavuz
 
@@ -143,7 +143,7 @@ Bu [işlem hattı](../../data-factory/concepts-pipelines-activities.md) - tek bi
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) kullanılan denemeler, kalan kullanım ömrü (RUL), bir uçak motorunun Bu çözüm şablonu sağlar. Denemeyi tüketilen veri kümesi için özeldir ve değişikliği yapılması gerektiğinden veya değiştirilen verileri getirildi.
 
-Azure Machine Learning denemesi nasıl oluşturulduğu hakkında daha fazla bilgi için bkz: [Tahmine dayalı Bakım: adım 1 / 3, veri hazırlama ve özellik Mühendisliği](http://gallery.cortanaanalytics.com/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2).
+Azure Machine Learning denemesi nasıl oluşturulduğu hakkında daha fazla bilgi için bkz: [Tahmine dayalı Bakım: Adım 1 / 3, veri hazırlama ve özellik Mühendisliği](http://gallery.cortanaanalytics.com/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2).
 
 ## <a name="monitor-progress"></a>İlerlemeyi İzle
 Veri oluşturucuyu başlatıldıktan sonra işlem hattı dehydrate başlar ve eylem aşağıdaki komutlar veri fabrikası tarafından verilen içine başlatılmadan çözümünüzü farklı bileşenlerini başlatın. İşlem hattını izlemek için iki yolu vardır.
@@ -162,7 +162,7 @@ Azure Stream Analytics verilerinizi (etkin yol) ve Azure machine learning (Durgu
 ### <a name="set-up-the-cold-path-dashboard"></a>Durgun yoldaki Pano Ayarla
 Durgun yoldaki veri işlem hattı, hedefin bir uçuştaki (döngüsü) tamamlandıktan sonra (kalan faydalı ömrü) Tahmine dayalı RUL her uçak motorunun almaktır. Tahmin sonuç 3 bir uçuş sırasında son 3 saat tamamladınız uçak motorları tahmin etmeye yönelik saatte bir güncelleştirilir.
 
-Power BI, veri kaynağı olarak tahmin sonuçlarını depolandığı bir Azure SQL veritabanına bağlanır. Not: çözümünüzü dağıtmaya 1) üzerinde tahmin veritabanında 3 saat içinde görünür.
+Power BI, veri kaynağı olarak tahmin sonuçlarını depolandığı bir Azure SQL veritabanına bağlanır. Not: 1) çözümünüzü dağıtmaya üzerinde tahmin veritabanında 3 saat içinde görünür.
 Power BI Panosu hemen oluşturabilir, böylece bazı temel veri Oluşturucu yüklemeyle birlikte gelen pbıx dosyasını içerir. 2) ücretsiz yazılım indirip önkoşul bu adımında, [Power BI desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/).
 
 Aşağıdaki adımları pbıx dosyasını (örneğin, tahmin sonuçlarını) verileri görselleştirme içeren bir çözüm dağıtımı sırasındaki küme çalışmaya başladıktan SQL veritabanına bağlanma konusunda rehberlik.
@@ -174,7 +174,7 @@ Aşağıdaki adımları pbıx dosyasını (örneğin, tahmin sonuçlarını) ver
    * Bir kez **'Azure SQL veritabanı'** çözüm şablonunuzda diyagram yeşile döner, buna tıklayın ve ardından **'Açık'**.
    * Yeni bir tarayıcı sekmesi/Azure portal sayfasındaki görüntüleyen penceresi görürsünüz. Tıklayın **'Kaynak grubu'** Sol paneldeki.
    * Çözümü dağıtmak için kullanmakta olduğunuz aboneliği seçin ve ardından **' YourSolutionName\_ResourceGroup'**.
-   * Çıkış panelinde yeni pop tıklayın ![SQL simgesi](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-sql.png) veritabanınıza erişmek için simge. Bu simge yanında, veritabanı adıdır (örneğin, **'pmaintenancedb'**) ve **veritabanı sunucu adı** sunucu adı özelliği altında listelenen ve benzer şekilde görünmelidir  **YourSoutionName.database.windows.net**.
+   * Çıkış panelinde yeni pop tıklayın ![SQL simgesi](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-sql.png) veritabanınıza erişmek için simge. Bu simge yanında, veritabanı adıdır (örneğin, **'pmaintenancedb'**) ve **veritabanı sunucu adı** sunucu adı özelliği altında listelenen ve benzer şekilde görünmelidir  **YourSolutionName.database.windows.net**.
    * Veritabanınızı **kullanıcıadı** ve **parola** kullanıcı adı ve parola ile aynı çözümün dağıtımı sırasında önceden kaydedilir.
 2. Durgun yoldaki rapor dosyası veri kaynağı, Power BI Desktop ile güncelleştirin.
    
@@ -182,7 +182,7 @@ Aşağıdaki adımları pbıx dosyasını (örneğin, tahmin sonuçlarını) ver
      
      ![Sorguları Düzenle](./media/cortana-analytics-technical-guide-predictive-maintenance/edit-queries.png)
    * İki tablo göreceğiniz **RemainingUsefulLife** ve **PMResult**. İlk tablo seçin ve tıklayın ![sorgu ayarları simgesi](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-query-settings.png) yanındaki **'Source'** altında **'UYGULANAN adımlar'** sağdaki **'Sorgu ayarları'** bölme. Görünen uyarı iletileri yoksayın.
-   * Büyütme penceresi, değiştirin **'Sunucusu'** ve **'Database'** kendi sunucu ve veritabanı adları ve ardından **'Tamam'**. Sunucu adı için 1433 numaralı bağlantı noktasını belirttiğinizden emin olun (**YourSoutionName.database.windows.net, 1433**). Veritabanı alanı olarak bırakın **pmaintenancedb**. Ekranda görüntülenen uyarı iletilerini yoksayın.
+   * Büyütme penceresi, değiştirin **'Sunucusu'** ve **'Database'** kendi sunucu ve veritabanı adları ve ardından **'Tamam'**. Sunucu adı için 1433 numaralı bağlantı noktasını belirttiğinizden emin olun (**YourSolutionName.database.windows.net, 1433**). Veritabanı alanı olarak bırakın **pmaintenancedb**. Ekranda görüntülenen uyarı iletilerini yoksayın.
    * Çıkış penceresi sonraki pop, sol bölmede iki seçenek görürsünüz (**Windows** ve **veritabanı**). Tıklayın **'Database'**, doldurmak, **'Username'** ve **'Password'** (kullanıcı adı ve ilk çözüm dağıtılan ve bir Azure oluşturulan girdiğiniz parola budur SQL veritabanı). İçinde ***seçmek için bu ayarları uygulamak için hangi düzeye***, veritabanı düzeyinde seçeneği işaretleyin. Ardından **'Bağlan'**.
    * İkinci tabloda tıklatın **PMResult** ardından ![Gezinti simgesi](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-navigation.png) yanındaki **'Source'** altında **'UYGULANAN adımlar'** sağ **'Sorgu ayarları'** panelde, sunucu ve veritabanı adları Yukarıdaki adımlarda açıklandığı şekilde güncelleştirin ve Tamam'a tıklayın.
    * Önceki sayfaya geri destekli sonra penceresini kapatın. Bir ileti görüntüler - tıklayın **Uygula**. Son olarak, tıklayın **Kaydet** değişiklikleri kaydetmek için düğme. Power BI dosyanızı, şimdi sunucuyla bağlantı kurmuştur. Görselleştirmelerinizi boş ise göstergeleri sağ üst köşesinde Silgi simgesini tıklatarak tüm verileri görselleştirmek için görselleştirmelere seçimleri Temizle emin olun. Bir görselleştirmeyi yeni verileri yansıtması için Yenile düğmesini kullanın. Data factory 3 saatte bir yenileme zamanlandığında başlangıçta yalnızca çekirdek veri görselleştirmelerinizi üzerinde görürsünüz. Verileri yenilediğinizde görselleştirmeleriniz yansıtılan yeni Öngörüler 3 saat sonra görürsünüz.
@@ -197,7 +197,7 @@ Aşağıdaki adımları pbıx dosyasını (örneğin, tahmin sonuçlarını) ver
      <br/>
    * Veri yenileme zamanlama için fareyi üzerine **PredictiveMaintenanceAerospace** dataset tıklayın ![üç nokta simgesine](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-elipsis.png) seçip **yenilemeyi zamanla**.
      <br/>
-     **Not:** tıklayın, bir uyarı massage görürseniz **bilgilerini Düzenle** ve veritabanı kimlik bilgilerinizi 1. adımda açıklanan aynı olduğundan emin olun.
+     **Not:** ' A tıklayın, bir uyarı massage görürseniz **bilgilerini Düzenle** ve veritabanı kimlik bilgilerinizi 1. adımda açıklanan aynı olduğundan emin olun.
      <br/>
      ![Yenileme zamanlama](./media/cortana-analytics-technical-guide-predictive-maintenance/schedule-refresh.png)
      <br/>
@@ -210,7 +210,7 @@ Aşağıdaki adımlar, Çözüm dağıtımı sırasında oluşturulan Stream Ana
 
 1. Power BI çıkışına Azure Stream Analytics (ASA) ekleyin.
    
-   * İçindeki yönergeleri izlemeniz gereken [Azure Stream Analytics ve Power BI: bir analiz Panosu, akış verilerini gerçek zamanlı görünürlük](../../stream-analytics/stream-analytics-power-bi-dashboard.md) çıktısını Azure Stream Analytics işinizi Power BI panonuz olarak ayarlamak için.
+   * İçindeki yönergeleri izlemeniz gereken [Azure Stream Analytics ve Power BI: Bir analiz Panosu, akış verilerini gerçek zamanlı görünürlük](../../stream-analytics/stream-analytics-power-bi-dashboard.md) çıktısını Azure Stream Analytics işinizi Power BI panonuz olarak ayarlamak için.
    * ASA sorgu sahip olan üç çıkışları **aircraftmonitor**, **aircraftalert**, ve **flightsbyhour**. Sorgu, sorgu sekmesindeki tıklayarak görüntüleyebilirsiniz. Bu tabloların her birine karşılık gelen, ASA için bir çıktı eklemeniz gerekir. İlk çıkış eklediğinizde (**aircraftmonitor**) emin olun **çıkış diğer adı**, **veri kümesi adı** ve **tablo adı** aynı (olan**aircraftmonitor**). Çıktıların eklemek için adımları yineleyin **aircraftalert**, ve **flightsbyhour**. Üç tablo çıktı ve ASA işi başlatıldı ekledikten sonra bir onay iletisi ("başarılı başlangıç Stream Analytics işi maintenancesa02asapbi") almanız gerekir.
 2. Oturum [çevrimiçi Power BI](http://www.powerbi.com)
    

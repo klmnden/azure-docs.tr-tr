@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect eşitleme: dizin genişletmeleri | Microsoft Docs'
+title: 'Azure AD Connect eşitleme: Dizin genişletmeleri | Microsoft Docs'
 description: Bu konu, Azure AD CONNECT'te dizin uzantıları özelliğini açıklar.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 995ee876-4415-4bb0-a258-cca3cbb02193
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 10/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b6c5f55a575605eef3a280de4f973d9b2d0a4ace
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: e96a7d88a2e30bbedd6c57f9a72dd92f63586dd1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288314"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476912"
 ---
-# <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect eşitleme: dizin genişletmeleri
+# <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect eşitleme: Dizin genişletmeleri
 Dizin genişletmeleri kendi şirket içi Active Directory öznitelikleri ile Azure Active Directory'de (Azure AD) şemayı genişletmek için kullanabilirsiniz. Bu özellik, şirket içi yönetmeye devam öznitelikleri kullanma tarafından LOB uygulamaları oluşturmanıza olanak sağlar. Bu öznitelikler aracılığıyla tüketilebilir [Azure AD Graph API'si dizin genişletmeleri](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) veya [Microsoft Graph](https://developer.microsoft.com/graph/). Kullanılabilir öznitelikler kullanarak gördüğünüz [Azure AD Graph Gezgini](https://graphexplorer.azurewebsites.net/) ve [Microsoft Graph Gezgini](https://developer.microsoft.com/graph/graph-explorer)sırasıyla.
 
 Şu anda hiçbir Office 365 iş yükü bu öznitelikleri kullanır.
@@ -37,8 +37,8 @@ Size, Yükleme Sihirbazı'nda özel ayarları yolunda eşitlemek istediğiniz ha
 Yükleme, geçerli adaylar olan aşağıdaki öznitelikler gösterir:
 
 * Kullanıcı ve grup nesne türleri
-* Tek değerli öznitelikler: String, Boolean, tamsayı, ikili dosya
-* Birden çok değerli öznitelikler: dize, ikili dosya
+* Tek değerli öznitelikleri: Dize, Boolean, tamsayı, ikili
+* Birden çok değerli öznitelikler: Dize, ikili
 
 
 >[!NOTE]

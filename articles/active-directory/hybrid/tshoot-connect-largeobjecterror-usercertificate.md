@@ -4,7 +4,7 @@ description: Bu konuda, neden userCertificate özniteliğinin yol açtığı Lar
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 146ad5b3-74d9-4a83-b9e8-0973a19828d9
 ms.service: active-directory
@@ -16,14 +16,14 @@ ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 0882976df898d36f1d5a5ff06e0de5c747613719
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: ffc8832fa2da9d4bfad23752a5bc767ace2b573e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312084"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478629"
 ---
-# <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect eşitleme: neden userCertificate özniteliğinin yol açtığı LargeObject hatalarını işleme
+# <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect eşitleme: Neden userCertificate özniteliğinin yol açtığı LargeObject hatalarını işleme
 
 Azure AD, bir üst sınır uygular **15** sertifika değerleri **userCertificate** özniteliği. Azure AD Connect 15'ten fazla değerleri içeren bir nesne, Azure AD'ye dışarı aktarır, Azure AD'ye verir. bir **LargeObject** hata iletisi:
 
@@ -41,7 +41,7 @@ Kiracınızdaki LargeObject hataları olan nesnelerin listesini almak için aşa
 ## <a name="mitigation-options"></a>Risk azaltma seçenekleri
 LargeObject hata çözümlenene kadar aynı nesneye diğer öznitelik değişiklikler Azure AD'ye dışarı aktarılamaz. Hatayı gidermek için aşağıdaki seçenekleri göz atabilirsiniz:
 
- * 1.1.524.0 oluşturmak için Azure AD Connect'e yükseltmenin veya sonra. Azure AD Connect'e bağlanan 1.1.524.0, kuralları, öznitelikleri 15'ten fazla değer varsa öznitelikleri userCertificate ve Usersmımecertificate vermemeniz şekilde güncelleştirildi kullanıma hazır eşitleme oluşturun. Azure AD Connect yükseltme hakkında daha fazla ayrıntı için makalesine bakın [Azure AD Connect: önceki bir sürümden yükseltme en son](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version).
+ * 1.1.524.0 oluşturmak için Azure AD Connect'e yükseltmenin veya sonra. Azure AD Connect'e bağlanan 1.1.524.0, kuralları, öznitelikleri 15'ten fazla değer varsa öznitelikleri userCertificate ve Usersmımecertificate vermemeniz şekilde güncelleştirildi kullanıma hazır eşitleme oluşturun. Azure AD Connect yükseltme hakkında daha fazla ayrıntı için makalesine bakın [Azure AD Connect: En son önceki sürümden yükseltme](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version).
 
  * Uygulama bir **giden eşitleme kuralı** Azure AD CONNECT'te dışarı aktaran bir **değeri 15'ten fazla sertifika değerleri ile nesneler için gerçek değerleri yerine null**. Bu seçenek, herhangi bir sertifika değeri 15'ten fazla değerleri ile nesneler için Azure AD'ye aktarılacak gerekmiyorsa uygundur. Nasıl bu eşitleme kuralının uygulanacağı hakkında daha fazla bilgi için sonraki bölüme bakın [dışarı aktarma userCertificate özniteliğinin sınırlamak için uygulama eşitleme kuralı](#implementing-sync-rule-to-limit-export-of-usercertificate-attribute).
 

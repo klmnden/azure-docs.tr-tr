@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 2b6cb711bf0cd2f0ec7f5633bbb36ebaeb203690
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 6e21b1d8905dc0f0eda5b6282e345ef52006a75a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605543"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468038"
 ---
 # <a name="remote-monitoring-solution-accelerator-overview"></a>Uzaktan İzleme çözüm hızlandırıcısına genel bakış
 
@@ -47,11 +47,11 @@ Microsoft ilk Çözüm Hızlandırıcıları yayımlanan bu yana bulut mimarisi 
 
 Çözüm, mantıksal mimarisini cihaz bağlantısı parçası aşağıdaki bileşenleri içerir:
 
-### <a name="physical-devices"></a>Fiziksel cihazlar
+### <a name="real-devices"></a>Gerçek cihaz
 
-Çözüme fiziksel cihazlar bağlanabilirsiniz. Azure IOT cihaz SDK'larını kullanarak sanal cihazlarınızı davranışını uygulayabilirsiniz.
+Çözüme gerçek cihazda bağlanabilirsiniz. Azure IOT cihaz SDK'larını kullanarak sanal cihazlarınızı davranışını uygulayabilirsiniz.
 
-Fiziksel cihazlar çözüm portalında panodan sağlayabilir.
+Çözüm portalı Pano gerçek cihazlardan sağlayabilirsiniz.
 
 ### <a name="device-simulation-microservice"></a>Cihaz benzetimi mikro hizmet
 
@@ -66,7 +66,7 @@ Mikro hizmet, oluşturmak, başlatmak ve benzetimleri durdurmak bir RESTful uç 
 
 ### <a name="iot-hub"></a>IoT Hub
 
-[IOT hub'ı](../iot-hub/index.yml) her iki fiziksel ve sanal cihazlardan buluta gönderilen telemetri alır. IOT hub'ı telemetriyi kullanılabilir hizmetlerine IOT çözümü arka uç işleme için yapar.
+[IOT hub'ı](../iot-hub/index.yml) hem gerçek ve sanal cihazlardan buluta gönderilen telemetri alır. IOT hub'ı telemetriyi kullanılabilir hizmetlerine IOT çözümü arka uç işleme için yapar.
 
 IoT hub çözümde aynı zamanda şunları yapar:
 
@@ -106,7 +106,7 @@ Hizmet, anahtar-değer çiftleri CRUD işlemleri için bir RESTful uç noktası 
 
 ### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
-Çözüm Hızlandırıcı dağıtımları kullanın [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) kuralları, alarmlar, yapılandırma ayarlarını ve diğer tüm soğuk depolama depolamak için.
+Çözüm Hızlandırıcı dağıtımları kullanın [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) kuralları, uyarılar, yapılandırma ayarlarını ve diğer tüm soğuk depolama depolamak için.
 
 ### <a name="azure-stream-analytics-manager-microservice"></a>Azure Stream Analytics Yöneticisi mikro hizmet
 

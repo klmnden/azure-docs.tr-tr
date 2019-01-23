@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 1/11/2019
+ms.date: 1/22/2019
 ms.author: victorh
-ms.openlocfilehash: 9aab33eb4ba6a49d96bcacfc2151c3554fbebfaf
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: c574e3ab82f97f5fffc7c834a53d19df93fc426f
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382861"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448951"
 ---
 # <a name="what-is-azure-application-gateway"></a>Azure Application Gateway nedir?
 
@@ -102,7 +102,7 @@ Tanımlama bilgilerine dayalı oturum benzeşimi özelliği, bir kullanıcı otu
 
 ## <a name="websocket-and-http2-traffic"></a>Websocket ve HTTP/2 trafiği
 
-Application Gateway, WebSocket ve HTTP/2 protokolleri için yerel destek sağlar. WebSocket desteğini isteğe bağlı olarak etkinleştirmek veya devre dışı bırakmak için kullanıcı tarafından yapılandırılabilen bir ayar yoktur. HTTP/2 desteği, Azure PowerShell kullanılarak etkinleştirilebilir.
+Application Gateway, WebSocket ve HTTP/2 protokolleri için yerel destek sağlar. WebSocket desteğini isteğe bağlı olarak etkinleştirmek veya devre dışı bırakmak için kullanıcı tarafından yapılandırılabilen bir ayar yoktur.
 
 WebSocket ve HTTP/2 protokolleri, uzun süre çalışan bir TCP bağlantısı üzerinden bir sunucu ile bir istemci arasında tam çift yönlü iletişimi etkinleştirir. Bu, web sunucusu ile istemci arasında HTTP tabanlı uygulamalarda gerektiği gibi yoklama olmadan çift yönlü olabilen daha etkileşimli bir iletişime olanak sağlar. Bu protokoller HTTP’den farklı olarak düşük yüke sahiptir ve kaynakların daha verimli bir şekilde kullanılması için aynı TCP bağlantısını birden fazla istek/yanıt için kullanabilir. Bu protokoller, geleneksel HTTP bağlantı noktaları 80 ve 443 üzerinden çalışmak üzere tasarlanmıştır.
 

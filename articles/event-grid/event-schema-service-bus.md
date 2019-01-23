@@ -6,18 +6,18 @@ author: banisadr
 manager: darosa
 ms.service: event-grid
 ms.topic: reference
-ms.date: 08/17/2018
+ms.date: 01/17/2019
 ms.author: babanisa
-ms.openlocfilehash: afb85f20c49821ca98e078791730a3376198e9e5
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: f44d2c1c5be6ac895b6f5ea9feca29c0f8ed09f3
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42056259"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467749"
 ---
 # <a name="azure-event-grid-event-schema-for-service-bus"></a>Service Bus için Azure Event Grid olay şeması
 
-Bu makale, Service Bus olayları için şema ve özellikleri sağlar. Olay şemaları için bir giriş için bkz [Azure Event Grid olay şeması](event-schema.md).
+Bu makale, Service Bus olayları için şema ve özellikleri sağlar. Olay şemaları için bir giriş için bkz [Azure Event Grid olay şeması](event-schema.md).
 
 Örnek betikler ve öğreticiler listesi için bkz: [Service Bus olay kaynağı](event-sources.md#service-bus).
 
@@ -83,11 +83,11 @@ Bir olay aşağıdaki üst düzey veri vardır:
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
 | konu başlığı | dize | Olay kaynağı tam kaynak yolu. Bu alan, yazılabilir değil. Event Grid, bu değeri sağlar. |
-| Konu | dize | Yayımcı tarafından tanımlanan olay konu yolu. |
+| konu | dize | Yayımcı tarafından tanımlanan olay konu yolu. |
 | olay türü | dize | Bu olay kaynağı için kayıtlı olay türlerinden biri. |
 | eventTime | dize | Olayın oluşturulduğu zamandan, sağlayıcının UTC saatini temel alan. |
 | id | dize | Olayın benzersiz tanımlayıcısı. |
-| veri | object | BLOB Depolama olay verileri. |
+| veriler | object | BLOB Depolama olay verileri. |
 | dataVersion | dize | Veri nesnesinin şema sürümü. Yayımcı, şema sürümü tanımlar. |
 | metadataVersion | dize | Olay meta verilerinin şema sürümü. Event Grid, şemanın en üst düzey özellikleri tanımlar. Event Grid, bu değeri sağlar. |
 

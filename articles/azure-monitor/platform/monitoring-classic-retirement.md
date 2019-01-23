@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: vinagara
-ms.component: alerts
-ms.openlocfilehash: 15a3073cde3f9e9ec8c70212cc3b1a591e703915
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.subservice: alerts
+ms.openlocfilehash: a910b0537234d1653be93eb406fe3b2261305ee5
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052232"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461986"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Birleştirilmiş uyarılar ve Azure İzleyici'de izleme Klasik uyarı ve izleme değiştirir.
 
@@ -77,3 +77,4 @@ Bu makalede, sürekli güncelleştirilen olacak bağlantılar ve yeni Azure izle
 
 * Hakkında bilgi edinin [yeni birleşik Azure İzleyici](../../azure-monitor/overview.md).
 * Yeni hakkında daha fazla bilgi [Azure uyarıları](../../azure-monitor/platform/alerts-overview.md).
+

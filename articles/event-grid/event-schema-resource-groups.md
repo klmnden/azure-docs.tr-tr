@@ -2,21 +2,21 @@
 title: Azure Event Grid kaynak grubu olay şeması
 description: Kaynak grubu olayları Azure Event Grid ile sağlanan özellikleri tanımlar
 services: event-grid
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.topic: reference
-ms.date: 10/12/2018
-ms.author: tomfitz
-ms.openlocfilehash: ffc9eba251cbf4d9e2542791d90943ecdd1a972a
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.date: 01/12/2019
+ms.author: spelluru
+ms.openlocfilehash: 2b570fdb42c29c6ad68add32be660ef57f1eec1f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310581"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468310"
 ---
 # <a name="azure-event-grid-event-schema-for-resource-groups"></a>Kaynak grupları için Azure Event Grid olay şeması
 
-Bu makale, kaynak grubu olayları için şema ve özellikleri sağlar. Olay şemaları için bir giriş için bkz [Azure Event Grid olay şeması](event-schema.md).
+Bu makale, kaynak grubu olayları için şema ve özellikleri sağlar. Olay şemaları için bir giriş için bkz [Azure Event Grid olay şeması](event-schema.md).
 
 Azure Abonelikleriniz ve kaynak grupları, aynı olay türleri gösterin. Olay türlerini, kaynak değişiklikleri veya Eylemler ilgilidir. Birincil olayları kaynak grubu içindeki kaynaklar için kaynak grubu yayma ve Azure abonelikleri abonelik kaynaklarla ilgili olayları yayma farktır.
 
@@ -237,11 +237,11 @@ Bir olay aşağıdaki üst düzey veri vardır:
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
 | konu başlığı | dize | Olay kaynağı tam kaynak yolu. Bu alan, yazılabilir değil. Event Grid, bu değeri sağlar. |
-| Konu | dize | Yayımcı tarafından tanımlanan olay konu yolu. |
+| konu | dize | Yayımcı tarafından tanımlanan olay konu yolu. |
 | olay türü | dize | Bu olay kaynağı için kayıtlı olay türlerinden biri. |
 | eventTime | dize | Olayın oluşturulduğu zamandan, sağlayıcının UTC saatini temel alan. |
 | id | dize | Olayın benzersiz tanımlayıcısı. |
-| veri | object | Kaynak grubu olay verileri. |
+| veriler | object | Kaynak grubu olay verileri. |
 | dataVersion | dize | Veri nesnesinin şema sürümü. Yayımcı, şema sürümü tanımlar. |
 | metadataVersion | dize | Olay meta verilerinin şema sürümü. Event Grid, şemanın en üst düzey özellikleri tanımlar. Event Grid, bu değeri sağlar. |
 

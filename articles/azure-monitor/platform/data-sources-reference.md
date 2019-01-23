@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: johnkem
-ms.component: ''
-ms.openlocfilehash: 62474aba9eb429755ff5e7c78725ee3ce2d90117
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.subservice: ''
+ms.openlocfilehash: 4c8d14e01805ea66ff3a954c153d858bf4ecaba6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728219"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467511"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Azure izleme verilerini kullanma
 
@@ -49,3 +49,4 @@ Azure platformu üzerinde size izleme verilerini tek bir yerde Azure İzleyici i
 - Daha fazla bilgi edinin [Azure İzleyici ölçümleri](data-collection.md)
 - Daha fazla bilgi edinin [Azure etkinlik günlüğü](activity-logs-overview.md)
 - Daha fazla bilgi edinin [Azure tanılama günlükleri](diagnostic-logs-overview.md)
+

@@ -6,21 +6,20 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: e5a4236b-1b32-4ee6-9aaa-fcde297a020f
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 1/14/2019
+ms.date: 1/18/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 3bd86fe8708d2cbb8cbddac4ca35d5afdc68d2e3
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: bac0b2933d4b6d4a88ebbb0402bba0ffd508b395
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306089"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474379"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>Azure Stack'te bir sanal makine görüntüsü kullanılabilmesini
 
@@ -42,21 +41,21 @@ Görüntüleri bir blob depolama URI'si başvurulmak üzere kurabilmesi gerekir.
     > [!IMPORTANT]  
     >  Azure Stack, dinamik disk VHD desteklemez. Bir VM'ye bağlı bir dinamik disk yeniden boyutlandırması VM başarısız durumda bırakır. Bu sorunu gidermek için sanal makinenin disk bir depolama hesabında bir VHD blobunun silmeden VM'yi silin. Dönüştürme, dinamik bir diski VHD'den bir sabit diske ve sanal makine'yeniden oluşturun.
 
-   * Azure Stack blob depolama için Azure blob depolama için Azure Stack görüntü deposuna görüntü gönderebilmeniz için daha az zaman alacağından daha görüntü yüklemek için daha verimlidir.
+   - Azure Stack blob depolama için Azure blob depolama için Azure Stack görüntü deposuna görüntü gönderebilmeniz için daha az zaman alacağından daha görüntü yüklemek için daha verimlidir.
 
-   * Karşıya yüklerken, [Windows VM görüntüsü](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/), değiştirdiğinizden emin olun **Azure'da oturum** ile adım [Azure Stack işlecin PowerShell ortamını yapılandırma](azure-stack-powershell-configure-admin.md) adım.  
+   - Karşıya yüklerken, [Windows VM görüntüsü](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/), değiştirdiğinizden emin olun **Azure'da oturum** ile adım [Azure Stack işlecin PowerShell ortamını yapılandırma](azure-stack-powershell-configure-admin.md) adım.  
 
-   * Blob depolama URI'si görüntünün karşıya yüklersiniz not edin. Blob depolama URI'si aşağıdaki biçime sahiptir: *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;*.vhd.
+   - Blob depolama URI'si görüntünün karşıya yüklersiniz not edin. Blob depolama URI'si aşağıdaki biçime sahiptir: *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;*.vhd.
 
-   * Blob anonim olarak erişilebilir olması için burada VHD VM görüntüsünü karşıya yüklenen depolama hesabının blob kapsayıcısına gidin. Seçin **Blob**ve ardından **erişim ilkesi**. İsteğe bağlı olarak, kapsayıcı paylaşılan erişim imzası oluşturma ve blob URI'si parçası olarak içerir. Bu adım, bunu bir görüntü olarak eklemek için kullanılacak blob kullanılabilir emin olur. Blob, anonim olarak erişilebilir durumda değilse, VM görüntüsü için hatalı bir durumda oluşturulacak.
+   - Blob anonim olarak erişilebilir olması için burada VHD VM görüntüsünü karşıya yüklenen depolama hesabının blob kapsayıcısına gidin. Seçin **Blob**ve ardından **erişim ilkesi**. İsteğe bağlı olarak, kapsayıcı paylaşılan erişim imzası oluşturma ve blob URI'si parçası olarak içerir. Bu adım, bunu bir görüntü olarak eklemek için kullanılacak blob kullanılabilir emin olur. Blob, anonim olarak erişilebilir durumda değilse, VM görüntüsü için hatalı bir durumda oluşturulacak.
 
-   ![Depolama hesabının BLOB'ları için Git](./media/azure-stack-add-vm-image/image1.png)
+    ![Depolama hesabının BLOB'ları için Git](./media/azure-stack-add-vm-image/image1.png)
 
-   ![Kümesi blob erişimi için ortak](./media/azure-stack-add-vm-image/image2.png)
+    ![Kümesi blob erişimi için ortak](./media/azure-stack-add-vm-image/image2.png)
 
-2. Azure Stack için operatör olarak oturum açın. Menüde **tüm hizmetleri**. Ardından, altında **Yönetim** kategorisi seçin **işlem** > **VM görüntüleri** > **Ekle**.
+2. Azure Stack için operatör olarak oturum açın. Menüde **tüm hizmetleri** > **görüntüleri** altında **işlem** > **Ekle**.
 
-3. Altında **bir VM görüntüsü ekleme**, yayımcı, teklif, SKU ve sanal makine görüntüsü sürümü girin. Bu adı kesimlerini Resource Manager şablonlarını sanal makine görüntüsünü bakın. Seçtiğinizden emin olun **osType** doğru değeri. İçin **işletim sistemi diski Blob URİ'si**, burada görüntünün karşıya yüklendiği Blob URI'si girin. Ardından, **Oluştur** VM oluşturmaya başlamak için.
+3. Altında **görüntüsü oluştur**, işletim sistemi diski, işletim sistemi türü, depolama blobu URI'si, hesap türü, adı, abonelik, kaynak grubu konumu girin ve ana bilgisayar önbelleğe alma. Ardından, **Oluştur** VM oluşturmaya başlamak için.
 
    ![Görüntüyü oluşturmaya başlama](./media/azure-stack-add-vm-image/image4.png)
 

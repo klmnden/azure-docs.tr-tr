@@ -1,6 +1,6 @@
 ---
 title: Azure Resource Manager Test Sürüşü | Microsoft Docs
-description: Azure Resource MAnager kullanarak bir Markeplace Test Sürüşü oluşturun
+description: Azure Resource Manager kullanarak bir Market Test Sürüşü oluşturun
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
 author: pbutlerm
@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 87e57a1ee417a4cc69308e8af80dd9b781d60aaf
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: b7cbd69a4551605b71930a23f837b467177e3cc3
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139274"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451366"
 ---
 <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager Test Sürüşü
 =================================
@@ -298,7 +298,7 @@ Oluşturulan Test Sürüşünüz olduğuna göre bu bölümde, başarılı bir �
 
 İlk ve en önemli alan teklifiniz için Etkin Test Sürüşü isteyip istemediğinizi geçiş yapmak için kullanılır. Seçtiğinizde, **Evet,** formun tüm gerekli alanları ile geri kalanı doldurmak size sunulur. Seçtiğinizde, **Hayır** form devre dışı kalır ve devre dışı Test Sürüşü ile yeniden yayımlarsanız, Test Sürüşünüz üretimden kaldırılır.
 
-Not: etkin bir şekilde kullanıcı tarafından kullanılan sürücüleri tüm testleri vardır, bu Test Sürüşleri oturumun süresi dolana kadar çalışmaya devam eder.
+Not: Etkin kullanıcılar tarafından kullanılan sürücüleri tüm testleri vardır, bu Test Sürüşleri oturumun süresi dolana kadar çalışmaya devam eder.
 
 ### <a name="details"></a>Ayrıntılar
 

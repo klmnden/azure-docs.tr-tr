@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: ae039573cf202059114f23cca86207c117a35ead
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 9daf0f0d1c7ca94308bfb0d894366b457a045770
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970414"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470656"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Uzaktan izleme verilerini Power BI kullanarak Görselleştirme
 
@@ -28,7 +28,7 @@ Bu öğreticide, Uzaktan izleme çözümü verilerinizi Power bı'a CosmosDB tak
 
 ## <a name="information-needed-from-azure-portal"></a>Azure Portalı'ndan gerekli bilgiler
 
-1. Gidin [Azure portalı](https://portal.azure.com) ve gerekirse oturum açın
+1. Gidin [Azure portalı](https://portal.azure.com) ve gerekirse oturum
 
 2. Sol panelde, kaynak gruplar
 
@@ -40,7 +40,7 @@ Bu öğreticide, Uzaktan izleme çözümü verilerinizi Power bı'a CosmosDB tak
 
     ![Kaynak Grubu](./media/iot-accelerators-integrate-data-powerbi/resource_groups.png)
 
-5. Sol panelde, "Anahtarlar" bölümüne tıklayın ve Power bı'da kullanılacak aşağıdaki değerleri not alın:
+5. Sol panelde, "Anahtarlar" bölümüne tıklayın ve Power BI hizmetinde kullanılması için aşağıdaki değerleri not alın:
 
     - URI
     - Birincil Anahtar
@@ -49,7 +49,7 @@ Bu öğreticide, Uzaktan izleme çözümü verilerinizi Power bı'a CosmosDB tak
 
 ## <a name="setting-up-the-stream-in-power-bi"></a>Power bı'da Stream ayarlama
   
-1. Power BI Masaüstü uygulamasını açın ve sol üst köşesinden "Veri Al"'a tıklayın. 
+1. Power BI Masaüstü uygulamasını açın ve sol üst köşedeki "Veri Al"'a tıklayın. 
 
     ![Veri alma](./media/iot-accelerators-integrate-data-powerbi/get_data.png)
 
@@ -84,11 +84,11 @@ Bu öğreticide, Uzaktan izleme çözümü verilerinizi Power bı'a CosmosDB tak
 
 ## <a name="creating-a-dashboard"></a>Bir pano oluşturma
 
-Akış Bağlantı kurulduktan sonra kişiselleştirilmiş panolar oluşturmaya hazırsınız! Aşağıda Pano alma gibi etrafında immmited bizim sanal cihazlar tarafından oluşturuluyor ve farklı gösteren telemetri özetleyen bir örneğidir: 
+Akış Bağlantı kurulduktan sonra kişiselleştirilmiş panolar oluşturmaya hazırsınız! Pano aşağıdaki bizim sanal cihazlar ve çevresinde gibi farklı özetlere gösteren tarafından yayılan telemetri alma, bir örnek verilmiştir: 
 
 * Cihaz konumu (sağdaki) bir haritada
 * Cihaz durum ve önem derecesi. (sol üst)
-* Bir yerde kuralları ile cihazları ve varsa bunları (sol alt) giderek tüm uyarıları
+* Bir yerde kuralları ile cihazları ve bunların (sol alt) giderek herhangi bir uyarı varsa
 
 ![Power BI Görselleştirme](./media/iot-accelerators-integrate-data-powerbi/visual_data.png)
 

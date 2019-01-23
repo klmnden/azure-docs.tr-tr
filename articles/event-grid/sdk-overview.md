@@ -1,27 +1,27 @@
 ---
-title: Azure Event kılavuz SDK'ları
-description: SDK'ları için Azure olay kılavuz açıklar. Bu SDK, yönetim, yayımlama ve tüketimi sağlar.
+title: Azure Event Grid SDK'ları
+description: Azure Event Grid için SDK'ları açıklar. Bu SDK'ları, yönetim, yayımlama ve tüketimi sağlar.
 services: event-grid
-author: tfitzmac
+author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 06/29/2018
-ms.author: tomfitz
-ms.openlocfilehash: 3c085074863aa166a5766116b6c63b7dc341ad96
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.date: 01/19/2019
+ms.author: spelluru
+ms.openlocfilehash: 53a1f50647e05b71afe6accb85f8a90cd8b7e253
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130844"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470418"
 ---
-# <a name="event-grid-sdks-for-management-and-publishing"></a>Yönetim ve yayımlama için olay kılavuz SDK'ları
+# <a name="event-grid-sdks-for-management-and-publishing"></a>Event Grid SDK'lar yönetim ve yayımlama
 
-Program aracılığıyla kaynaklarınızı yönetmek ve olayları sonrası olanak SDK olay kılavuz sağlar.
+Event Grid, program aracılığıyla kaynaklarınızı yönetmek ve olayları sağlayan SDK'lar sağlar.
 
 ## <a name="management-sdks"></a>Yönetim SDK'ları
 
-Yönetim SDK'ları oluşturmak, güncelleştirmek ve olay kılavuz konuları ve abonelikleri silme olanak tanır. Şu anda aşağıdaki SDK'ları bulunmaktadır:
+Yönetim SDK'ları oluşturmak, güncelleştirmek ve event grid konuları ve abonelikleri silme etkinleştirin. Şu anda aşağıdaki Sdk'lardan bulunmaktadır:
 
 * [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.EventGrid)
 * [Go](https://github.com/Azure/azure-sdk-for-go)
@@ -32,7 +32,7 @@ Yönetim SDK'ları oluşturmak, güncelleştirmek ve olay kılavuz konuları ve 
 
 ## <a name="data-plane-sdks"></a>Veri düzlemi SDK'ları
 
-Veri düzlemi SDK'ları alma kimlik doğrulaması, olayı oluşturan ve zaman uyumsuz olarak belirtilen bitiş noktasına nakil verdiğiniz tarafından konulara olayları göndermek etkinleştirin. Bunlar ayrıca birinci taraf olayları kullanmasına olanak sağlar. Şu anda aşağıdaki SDK'ları bulunmaktadır:
+Veri düzlemi SDK'ları alma kimlik doğrulaması, olay oluşturan ve zaman uyumsuz olarak belirtilen uç noktaya gönderme care tarafından konulara olayları göndermek etkinleştirin. Birinci taraf olayları kullanma da sağlıyor. Şu anda aşağıdaki Sdk'lardan bulunmaktadır:
 
 * [.NET](https://www.nuget.org/packages/Microsoft.Azure.EventGrid)
 * [Go](https://github.com/Azure/azure-sdk-for-go)
@@ -43,7 +43,7 @@ Veri düzlemi SDK'ları alma kimlik doğrulaması, olayı oluşturan ve zaman uy
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Uygulamalar, örneğin bkz [olay kılavuz kod örnekleri](https://azure.microsoft.com/resources/samples/?sort=0&service=event-grid).
-* Olay kılavuz giriş için bkz: [olay kılavuz nedir?](overview.md)
-* Azure CLI olay kılavuz komutlar için bkz: [Azure CLI](/cli/azure/eventgrid).
-* PowerShell'de olay kılavuz komutları için bkz: [PowerShell](/powershell/module/azurerm.eventgrid).
+* Örneğin bkz. uygulamalar, [Event Grid kod örnekleri](https://azure.microsoft.com/resources/samples/?sort=0&service=event-grid).
+* Event grid'e giriş için bkz [Event Grid nedir?](overview.md)
+* Azure CLI, Event Grid komutlar için bkz [Azure CLI](/cli/azure/eventgrid).
+* PowerShell'de Event Grid komutlar için bkz [PowerShell](/powershell/module/azurerm.eventgrid).

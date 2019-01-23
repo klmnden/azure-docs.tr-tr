@@ -3,7 +3,7 @@ title: Grupları - Azure Active Directory kullanarak uygulama ve kaynak erişimi
 description: Kuruluşunuzun bulut tabanlı uygulamalar, şirket içi uygulamalar ve Azure Active Directory grupları kullanarak kaynaklara erişimi yönetme hakkında bilgi edinin.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
@@ -12,12 +12,12 @@ ms.date: 08/28/2017
 ms.author: lizross
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 5a706a2a879ae3b4c4adb2690faa77846474ce49
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4c014392f0626a29c0ecf5f0371a3fd52ea9d163
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087295"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447981"
 ---
 # <a name="manage-app-and-resource-access-using-azure-active-directory-groups"></a>Azure Active Directory grupları'nı kullanarak uygulama ve kaynak erişimini yönetme
 Azure Active Directory (Azure AD) bulut tabanlı uygulamalarınızı şirket içi uygulamalar ve kuruluşunuzun grupları kullanarak kaynaklarınızı yönetmenize yardımcı olur. Kaynaklarınızı directory ya da dış dizin rolleri aracılığıyla nesneleri gibi yazılım olarak hizmet (SaaS) uygulamaları için Azure, SharePoint siteleri, hizmetleri ve şirket içi kaynakları yönetmek için izinleri gibi bir dizinin parçası olabilir.
@@ -35,7 +35,7 @@ Kullanıcıların erişim haklarını kaynak atamak için izleyebileceğiniz dö
 
 - **Doğrudan atamayı.** Kaynak sahibi kullanıcı kaynağa doğrudan atar.
 
-- **Grup ataması.** Kaynak sahibi Azure AD grubu için kaynak sağlayan otomatik olarak, tüm Grup üyeleri erişimi kaynağa atar. Grup üyeliği, Grup sahibi ve üye ekleme veya gruptan kaldırma ya da sahibi izin vererek kaynak sahibi tarafından yönetilir. Ekleme veya grup üyeliği kaldırma hakkında daha fazla bilgi için bkz. [nasıl yapılır: ekleme veya bir grup Azure Active Directory portalı kullanarak başka bir gruptan kaldırma](active-directory-groups-membership-azure-portal.md). 
+- **Grup ataması.** Kaynak sahibi Azure AD grubu için kaynak sağlayan otomatik olarak, tüm Grup üyeleri erişimi kaynağa atar. Grup üyeliği, Grup sahibi ve üye ekleme veya gruptan kaldırma ya da sahibi izin vererek kaynak sahibi tarafından yönetilir. Ekleme veya grup üyeliği kaldırma hakkında daha fazla bilgi için bkz. [nasıl yapılır: Gruba eklemek veya bir Azure Active Directory portalı kullanarak başka bir gruptan kaldırmak](active-directory-groups-membership-azure-portal.md). 
 
 - **Kural tabanlı atama.** Kaynak sahibi bir grup oluşturur ve hangi kullanıcıların belirli bir kaynağa atanmış tanımlamak için bir kural kullanır. Kural bireysel kullanıcılara atanan ve öznitelikleri temel alır. Kaynak sahibi, hangi öznitelikleri ve değerleri kaynak erişime izin vermek için gerekli olan belirleme kural yönetir. Daha fazla bilgi için [dinamik bir grup oluşturun ve durumunu denetlemek](../users-groups-roles/groups-create-rule.md).
 

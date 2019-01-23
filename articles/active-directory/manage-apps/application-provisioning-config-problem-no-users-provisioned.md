@@ -4,7 +4,7 @@ description: Kullanıcıların Azure AD galeri uygulaması, Azure AD ile kullan�
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 3874e6ff6586726577a2c89e3cf45bbd3343b821
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: fd5d833656d4ba395857c84ee8386bc7fb6d704e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040695"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465412"
 ---
 # <a name="no-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>Azure AD galeri uygulaması için hiçbir kullanıcı sağlanmıyor
 Otomatik sağlama (uygulamaya bağlanmak için Azure AD'ye sağlanan uygulama kimlik bilgilerinin geçerli olduğunu doğrulama dahil) bir uygulama için yapılandırıldıktan sonra uygulamaya kullanıcı ve/veya grupları sağlanır. Sağlama aşağıdakiler tarafından belirlenir:
@@ -56,8 +56,8 @@ Kullanıcı "Denetim günlüklerinde atlandı gibi" gösterilir, günlük iletis
 - **Kapsam belirleme filtresi yapılandırılmış** **, filtre uygulayarak kullanıcının bir öznitelik değerine göre**. Kapsam filtreleri ile ilgili daha fazla bilgi için bkz: [kapsam filtreleri](define-conditional-rules-for-provisioning-user-accounts.md).
 - **Kullanıcı, "etkili bir şekilde yetkili".** Bu belirli hata iletisini görürseniz, Azure AD'de depolanan kullanıcı atama kaydı ile ilgili bir sorun olduğundan olur. Bu sorunu gidermek için kullanıcı (veya grup) uygulamadan atamasını kaldırmak ve yeniden atayabilirsiniz. Atama hakkında daha fazla bilgi için bkz. [kullanıcı veya grup erişimi atama](assign-user-or-group-access-portal.md).
 - **Gerekli bir özniteliği eksik veya doldurulmuş bir kullanıcı değil.** Sağlamayı ayarlama ayarlanırken dikkate alınması gereken önemli bir şeyi gözden geçirin ve hangi kullanıcı (veya grup) özellikleri akış Azure ad uygulama tanımlayan iş akışları ve öznitelik eşlemelerini yapılandırmaktır. Bu yapılandırma ayarı "benzersiz biçimde tanımlayan ve kullanıcılar/gruplar iki sistem arasındaki eşleştirmek için kullanılan eşleştirme özelliği" içerir. Bu önemli işlem hakkında daha fazla bilgi için bkz. [özelleştirme kullanıcı sağlama öznitelik eşlemelerini Azure Active Directory'de SaaS uygulamaları için](customize-application-attributes.md).
-- **Öznitelik eşlemeleri için gruplar:** grubu adını ve bazı uygulamalar için destekleniyorsa üyelerin ek olarak grubu ayrıntıları sağlama. Etkinleştirme veya etkinleştirme veya devre dışı bırakarak bu işlevi devre dışı **eşleme** gösterilen grubu nesnelerinin **sağlama** sekmesi. Grupları sağlama etkinse, "Eşleşen kimliği" için uygun bir alanı kullanıldığından emin olmak için öznitelik eşlemelerini gözden geçirmeyi unutmayın. Eşleşen kimlik, görünen ad veya e-posta diğer adı olabilir. Eşleşen özellik boş ya da doldurulmuş bir grup için Azure AD'de ise, Grup ve üyelerini sağlanmayan.
+- **Öznitelik eşlemeleri için grupları:** Grup adını ve üyelerinin yanı sıra grubu ayrıntıları bazı uygulamalar için destekleniyorsa sağlama. Etkinleştirme veya etkinleştirme veya devre dışı bırakarak bu işlevi devre dışı **eşleme** gösterilen grubu nesnelerinin **sağlama** sekmesi. Grupları sağlama etkinse, "Eşleşen kimliği" için uygun bir alanı kullanıldığından emin olmak için öznitelik eşlemelerini gözden geçirmeyi unutmayın. Eşleşen kimlik, görünen ad veya e-posta diğer adı olabilir. Eşleşen özellik boş ya da doldurulmuş bir grup için Azure AD'de ise, Grup ve üyelerini sağlanmayan.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Azure AD Connect eşitleme: anlama, bildirim temelli sağlama](../hybrid/concept-azure-ad-connect-sync-declarative-provisioning.md)
+[Azure AD Connect eşitleme: Bildirim temelli sağlama anlama](../hybrid/concept-azure-ad-connect-sync-declarative-provisioning.md)

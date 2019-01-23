@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: 1ca6f2a0f8246e730206ea2a431f7968273a6e8d
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: efb8887085ad1f6f47667b1305191e514de74330
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412351"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468191"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Azure CLI ile bir özel diskten Linux VM oluşturma ve karşıya yükleme
 
@@ -69,7 +69,7 @@ az storage blob upload --account-name mystorageaccount \
     --file /path/to/disk/mydisk.vhd --name myDisk.vhd
 ```
 
-Disk için bir URI belirtin (`--image`) ile [az vm oluşturma](/cli/azure/vm#az_vm_create). Aşağıdaki örnekte adlı bir VM oluşturur `myVM` sanal diski kullanarak daha önce yüklenmiş:
+Disk için bir URI belirtin (`--image`) ile [az vm oluşturma](/cli/azure/vm). Aşağıdaki örnekte adlı bir VM oluşturur `myVM` sanal diski kullanarak daha önce yüklenmiş:
 
 ```azurecli
 az vm create --resource-group myResourceGroup --location westus \
@@ -186,9 +186,9 @@ az storage blob upload --account-name mystorageaccount \
 ```
 
 ## <a name="create-the-vm"></a>Sanal makine oluşturma
-Yönetilmeyen disklerle bir VM oluşturmak için disk URI'si belirtin (`--image`) ile [az vm oluşturma](/cli/azure/vm#az_vm_create). Aşağıdaki örnekte adlı bir VM oluşturur `myVM` sanal diski kullanarak daha önce yüklenmiş:
+Yönetilmeyen disklerle bir VM oluşturmak için disk URI'si belirtin (`--image`) ile [az vm oluşturma](/cli/azure/vm). Aşağıdaki örnekte adlı bir VM oluşturur `myVM` sanal diski kullanarak daha önce yüklenmiş:
 
-Belirttiğiniz `--image` parametresiyle [az vm oluşturma](/cli/azure/vm#az_vm_create) özel diskinize yönlendirin. Emin `--storage-account` özel diskinizi depolandığı depolama hesabını eşleşir. Aynı kapsayıcı Vm'lerinizi depolamak için özel bir disk olarak kullanmak zorunda değil. Özel diskinizi karşıya yüklemeden önce önceki adımları aynı şekilde ek tüm kapsayıcıları oluşturduğunuzdan emin olun.
+Belirttiğiniz `--image` parametresiyle [az vm oluşturma](/cli/azure/vm) özel diskinize yönlendirin. Emin `--storage-account` özel diskinizi depolandığı depolama hesabını eşleşir. Aynı kapsayıcı Vm'lerinizi depolamak için özel bir disk olarak kullanmak zorunda değil. Özel diskinizi karşıya yüklemeden önce önceki adımları aynı şekilde ek tüm kapsayıcıları oluşturduğunuzdan emin olun.
 
 Aşağıdaki örnekte adlı bir VM oluşturur `myVM` özel diskinizden:
 

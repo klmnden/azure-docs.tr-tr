@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 27102f3523749802dc16a28e28f8859d35814990
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3252395c7a511a00e8da0a31139fce3b2763decb
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952758"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461850"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-the-azure-cli"></a>Azure CLI kullanarak bir ağ güvenlik grubu ile ağ trafiğini filtreleme
 
@@ -128,7 +128,7 @@ az network vnet create \
   --address-prefixes 10.0.0.0/16
 ```
 
-Bir sanal ağ ile bir alt ağ Ekle [az ağ sanal ağ alt ağı oluşturma](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Aşağıdaki örnek, sanal ağa *mySubnet* adlı bir alt ağ ekler ve *myNsg* ağ güvenlik grubunu onunla ilişkilendirir:
+Bir sanal ağ ile bir alt ağ Ekle [az ağ sanal ağ alt ağı oluşturma](/cli/azure/network/vnet/subnet). Aşağıdaki örnek, sanal ağa *mySubnet* adlı bir alt ağ ekler ve *myNsg* ağ güvenlik grubunu onunla ilişkilendirir:
 
 ```azurecli-interactive
 az network vnet subnet create \

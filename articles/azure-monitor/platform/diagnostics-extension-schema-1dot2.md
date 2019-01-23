@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
-ms.component: diagnostic-extension
-ms.openlocfilehash: 69caec10c1be067cf9e8fc7ad83c8daeaced2bda
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.subservice: diagnostic-extension
+ms.openlocfilehash: 6a0061c03a10f5a5bd518c9ea01d8edd542e4e39
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106707"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470571"
 ---
 # <a name="azure-diagnostics-12-configuration-schema"></a>Azure tanılama 1.2 yapılandırma şeması
 > [!NOTE]
@@ -102,7 +102,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**Depolama hesabı**|Verileri depolamak için Azure depolama hesabı adı. Bu da bir parametre olarak kümesi AzureServiceDiagnosticsExtension cmdlet'ini çalıştırırken belirtilebilir.|  
 |**LocalResourceDirectory**|Olay verilerini depolamak için izleme aracısı tarafından kullanılacak sanal makinesinde dizin. Aksi halde, varsayılan dizin kullanılır:<br /><br /> Çalışan/web rolü için: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Bir sanal makine için: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Gerekli öznitelik şunlardır:<br /><br /> -                      **yol** -Azure tanılama tarafından kullanılmak üzere sistemde dizini.<br /><br /> -                      **expandEnvironment** -ortam değişkenlerini yol adına genişletilir olup olmadığını denetler.|  
 
-## <a name="wadcfg-element"></a>WadCFG öğesi  
+## <a name="wadcfg-element"></a>WadCFG Element  
 Toplanacak telemetri verilerini için yapılandırma ayarlarını tanımlar. Aşağıdaki tabloda, alt öğeleri açıklanmıştır:  
 
 |Öğe adı|Açıklama|  
@@ -149,7 +149,7 @@ Toplanacak telemetri verilerini için yapılandırma ayarlarını tanımlar. Aş
 |**Mutlak**|İzlemek için dizinin mutlak yolu. Aşağıdaki öznitelikler gereklidir:<br /><br /> -                     **Yol** -izlemek için dizinin mutlak yolu.<br /><br /> -                      **expandEnvironment** -yolunda ortam değişkenleri genişletilmiş paylaşamayacağını yapılandırır.|  
 |**LocalResource**|İzlemek için yerel kaynak göreli yol. Gerekli öznitelik şunlardır:<br /><br /> -                     **Ad** -izlemek için dizin içeren yerel kaynağı<br /><br /> -                     **relativePath** -izlemek için dizin içeren adı göreli yol|  
 
-## <a name="etwproviders-element"></a>EtwProviders öğesi  
+## <a name="etwproviders-element"></a>EtwProviders Element  
  EventSource ETW olayları toplamayı yapılandırır ve/veya ETW bildirim alarak sağlayıcıları. Aşağıdaki tabloda, alt öğeleri açıklanmıştır:  
 
 |Öğe adı|Açıklama|  
@@ -157,7 +157,7 @@ Toplanacak telemetri verilerini için yapılandırma ayarlarını tanımlar. Aş
 |**EtwEventSourceProviderConfiguration**|Oluşturulan olayları toplamayı yapılandırır [EventSource sınıfı](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Gerekli öznitelik:<br /><br /> **Sağlayıcı** -EventSource olay sınıfı adı.<br /><br /> İsteğe bağlı öznitelikleri şunlardır:<br /><br /> -                     **scheduledTransferLogLevelFilter** -depolama hesabınıza aktarmak için en düşük önem düzeyi.<br /><br /> -                     **scheduledTransferPeriod** -zamanlanmış aktarmalarıyla depolama arasındaki aralığı ve en yakın dakikaya yuvarlanır. Değer bir [XML süre veri türü](https://www.w3schools.com/xml/schema_dtypes_date.asp).|  
 |**EtwManifestProviderConfiguration**|Gerekli öznitelik:<br /><br /> **Sağlayıcı** -Olay sağlayıcısı GUID<br /><br /> İsteğe bağlı öznitelikleri şunlardır:<br /><br /> - **scheduledTransferLogLevelFilter** -depolama hesabınıza aktarmak için en düşük önem düzeyi.<br /><br /> -                     **scheduledTransferPeriod** -zamanlanmış aktarmalarıyla depolama arasındaki aralığı ve en yakın dakikaya yuvarlanır. Değer bir [XML süre veri türü](https://www.w3schools.com/xml/schema_dtypes_date.asp).|  
 
-## <a name="etweventsourceproviderconfiguration-element"></a>EtwEventSourceProviderConfiguration öğesi  
+## <a name="etweventsourceproviderconfiguration-element"></a>EtwEventSourceProviderConfiguration Element  
  Oluşturulan olayları toplamayı yapılandırır [EventSource sınıfı](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Aşağıdaki tabloda, alt öğeleri açıklanmıştır:  
 
 |Öğe adı|Açıklama|  
@@ -165,7 +165,7 @@ Toplanacak telemetri verilerini için yapılandırma ayarlarını tanımlar. Aş
 |**DefaultEvents**|İsteğe bağlı öznitelik:<br /><br /> **eventDestination** -olayları depolamak için bir tablonun adı|  
 |**Olay**|Gerekli öznitelik:<br /><br /> **Kimliği** -etkinliğin kimliği.<br /><br /> İsteğe bağlı öznitelik:<br /><br /> **eventDestination** -olayları depolamak için bir tablonun adı|  
 
-## <a name="etwmanifestproviderconfiguration-element"></a>EtwManifestProviderConfiguration öğesi  
+## <a name="etwmanifestproviderconfiguration-element"></a>EtwManifestProviderConfiguration Element  
  Aşağıdaki tabloda, alt öğeleri açıklanmıştır:  
 
 |Öğe adı|Açıklama|  
@@ -200,3 +200,4 @@ Toplanacak telemetri verilerini için yapılandırma ayarlarını tanımlar. Aş
 |Öğe adı|Açıklama|  
 |------------------|-----------------|  
 |**Veri kaynağı**|Windows olay günlüklerini toplamak üzere. Gerekli öznitelik:<br /><br /> **ad** - Tahsil edilecek windows olayları tanımlayan XPath sorgusu. Örneğin:<br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> Tüm olaylarını toplamak için belirtin "*".|
+

@@ -245,7 +245,7 @@ Havuzu oluşturma katmanları hakkında daha fazla bilgi için şu makalelere ba
 
 ## <a name="response-normalization-bundles"></a>Yanıt normalleştirme paketleri
 
-**Yanıt normalleştirme** ilk Geoffrey Hinton tarafından sunulan yerel normalleştirme düzenidir yazıda tarayıcılarınızda [Imagenet Classiﬁcation derin Evrişimsel sinir ağları ile](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf). 
+**Yanıt normalleştirme** ilk Geoffrey Hinton tarafından sunulan yerel normalleştirme düzenidir yazıda tarayıcılarınızda [derin Evrişimsel sinir ağları ile Imagenet sınıflandırma](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf). 
 
 Yanıt normalleştirme sinir ağ içinde Genelleştirme yardımcı olmak için kullanılır. Çok yüksek etkinleştirme düzeyinde bir neuron tetiklenmekte olan, yerel yanıt normalleştirme katman çevreleyen neurons etkinleştirme düzeyini bastırır. Bu üç parametre kullanarak gerçekleştirilir (`α`, `β`, ve `k`) ve bir evrişimsel yapısını (veya Komşuları Şekil). Hedef katmanın her neuron **y** bir neuron için karşılık gelen **x** kaynak katmandaki. Etkinleştirme düzeyini **y** aşağıdaki formülle verilen burada `f` bir neuron etkinleştirme düzeyi ve `Nx` çekirdeğidir (veya Komşuları içinde neurons içeren kümesi **x**), aşağıdaki evrişimsel yapısı tarafından tanımlandığı şekilde:  
 

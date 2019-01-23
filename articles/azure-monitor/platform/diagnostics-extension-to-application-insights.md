@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 03/19/2016
 ms.author: robb
-ms.component: diagnostic-extension
-ms.openlocfilehash: 2580d49fb7ab0779f81f1315b9765a0dc4745cb6
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.subservice: diagnostic-extension
+ms.openlocfilehash: a808dc3e924d3f1800790bdb83cb4ce65112480b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078227"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470146"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Bulut hizmeti, sanal makine ya da Service Fabric tanılama verilerini Application Insights'a gönderme
 Bulut Hizmetleri, sanal makineler, sanal makine ölçek kümeleri ve Service Fabric tüm verileri toplamak için Azure tanılama uzantısını kullanın.  Azure Tanılama verileri Azure Storage tablolarının gönderir.  Ancak, ayrıca tüm kanal veya bir Azure tanılama uzantısı 1.5 veya üzeri kullanarak diğer konumlara veri alt kümesini kullanabilirsiniz.
@@ -218,3 +218,4 @@ Aşağıdaki grafikte, yapılandırma değerlerini ve nasıl çalıştıkları �
 * Bilgi nasıl [Azure tanılama bilgilerinizi görüntülemek](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices#view-azure-diagnostic-events) Application ınsights.
 * Kullanım [PowerShell](../../cloud-services/cloud-services-diagnostics-powershell.md) uygulamanız için Azure tanılama uzantısını etkinleştirmek için.
 * Kullanım [Visual Studio](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines) uygulamanız için Azure tanılama uzantısını etkinleştirme
+

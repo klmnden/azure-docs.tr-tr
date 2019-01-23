@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 8ea4a615cff02cad1030f10b408fe047f1208a60
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 1cd1eb9a0bd4b8457ea82303a747acb2553ab707
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51819229"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451732"
 ---
 # <a name="tutorial-troubleshoot-and-fix-device-issues"></a>Öğretici: Cihaz sorunlarını giderme ve düzeltme
 
@@ -84,6 +84,6 @@ Uyarı bulunan cihaz listesinde sıcaklık uyarısının oluşturulmasından sor
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide cihazlarınızla ilgili sorunları tanımlamak için uyarıları kullanmayı ve sorunları çözmek için cihazlar üzerinde işlem gerçekleştirmeyi öğrendiniz. Çözüm hızlandırıcınıza fiziksel cihaz bağlamayı öğrenmek için nasıl yapılır makalelerine devam edin.
+Bu öğreticide cihazlarınızla ilgili sorunları tanımlamak için uyarıları kullanmayı ve sorunları çözmek için cihazlar üzerinde işlem gerçekleştirmeyi öğrendiniz. Nasıl yapılır makaleleriyle devam gerçek bir cihaz, çözüm hızlandırıcısına bağlamayı öğrenin.
 
 Cihaz sorunlarını yönetmeyi öğrendiniz, önerilen bir sonraki adımda [Cihazınızı Uzaktan İzleme çözümü hızlandırıcısına bağlamayı](iot-accelerators-connecting-devices.md) öğrenmeniz önerilir.

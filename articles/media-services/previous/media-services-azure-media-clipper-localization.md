@@ -1,43 +1,43 @@
 ---
-title: Azure Media Kırpıcıyı yerelleştirme yapılandırma | Microsoft Docs
-description: Azure Media Kırpıcıyı desteklenen diller ve yerelleştirme desteği hakkında bilgi edinin
+title: Azure Media Clipper'ı yerelleştirmeyi yapılandırma | Microsoft Docs
+description: Azure Media Clipper'ı desteklenen diller ve yerelleştirme desteği hakkında bilgi edinin
 services: media-services
-keywords: küçük; subclip; kodlama; ortam
+keywords: clip;subclip;encoding;media
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: dd0fc87741befd92cc41d0129fafcbc64db7ec9e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 227a312839950652924e75f0bafb474ce7bac588
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788147"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448678"
 ---
-# <a name="configure-localization"></a>Yerelleştirme yapılandırın
-Azure Media Kırpıcıyı 18 dillerde mevcuttur. Pencere öğesi dilini ayarlamak amacıyla, tanımlamalısınız `language` başlatma sırasında parametre. Aşağıdaki listeden istenen dil kodu dizesinde geçirin:
-- Çince (Basitleştirilmiş): zh-atanır
+# <a name="configure-localization"></a>Yerelleştirmeyi yapılandırma
+Azure Media Clipper'ı 18 dilde kullanılabilir. Pencere öğesi dilini ayarlamak amacıyla, tanımlamalısınız `language` başlatma sırasında parametre. İstediğiniz dil kodu dizesinde aşağıdaki listeden geçirin:
+- Çince (Basitleştirilmiş): zh-hans
 - Çince (Geleneksel): zh-hant
 - Çekçe: cs
-- Felemenkçe, Flemish: nl
-- İngilizce: tr
+- Hollanda, Flemish: nl
+- English: en
 - Fransızca: fr
 - Almanca: Gizle
 - Macarca: hu
 - İtalyanca:,
 - Japonca: ja
-- Kore dili: ko
+- Korece: ko
 - Lehçe: pl
 - Portekizce (Brezilya): pt-br
 - Portekizce (Portekiz): pt-pt
 - Rusça: ru
-- İspanyolca: es
-- İsveççe: sv
+- Spanish: es
+- Swedish: sv
 - Türkçe: tr
 
-Bir özel dil sözlük ayarlamak veya varsayılan dil sözlüğünü genişletmek için tanımlamalısınız `languages` veya `extraLanguages` parametresi, sırasıyla. Şu JSON biçimini kullanarak özel bir sözlükte geçirin:
+Özel dil sözlüğü ayarlamak veya varsayılan dil sözlüğü genişletmek için tanımlamalısınız `languages` veya `extraLanguages` parametresi, sırasıyla. Şu JSON biçimini kullanarak özel bir sözlükte iletirsiniz:
 
 ```javascript
 {
@@ -104,7 +104,7 @@ Bir özel dil sözlük ayarlamak veya varsayılan dil sözlüğünü genişletme
         'AdvancedSettings.allAudioTracks': 'All audio tracks selected',
         'AdvancedSettings.someAudioTracks': '{0} audio tracks selected',
         'AdvancedSettings.includeAllAudioTracks': 'Include all audio tracks',
-        'AssetsPanel.loadingError': 'Failed to retreive assets from server.',
+        'AssetsPanel.loadingError': 'Failed to retrieve assets from server.',
         'AssetsPanel.retry': 'Retry?',
         'CommandBar.prevFrameTitle': 'Move one frame backwards',
         'CommandBar.prevKeyFrameTitle': 'Move one GOP backwards',
@@ -139,7 +139,7 @@ Bir özel dil sözlük ayarlamak veya varsayılan dil sözlüğünü genişletme
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure Media Kırpıcıyı yapılandırma sonraki adımlara bakın:
-- [Azure Media Kırpıcıyı varlıklar yükleniyor](media-services-azure-media-clipper-load-assets.md)
-- [Yapılandırma özel klavye kısayolları](media-services-azure-media-clipper-keyboard-shortcuts.md)
-- [Kırpıcıyı kırpma işlerini gönderme](media-services-azure-media-clipper-submit-job.md)
+Azure Media Clipper'ı yapılandırmak için sonraki adımlara bakın:
+- [Azure Media Clipper'a varlık yükleme](media-services-azure-media-clipper-load-assets.md)
+- [Özel klavye kısayollarını yapılandırma](media-services-azure-media-clipper-keyboard-shortcuts.md)
+- [Clipper kırpma işlerini gönderme](media-services-azure-media-clipper-submit-job.md)

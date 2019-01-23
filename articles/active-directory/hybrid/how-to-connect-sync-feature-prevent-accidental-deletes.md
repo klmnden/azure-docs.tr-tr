@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect eşitleme: yanlışlıkla silmeleri engelleme | Microsoft Docs'
+title: 'Azure AD Connect eşitleme: Yanlışlıkla silmeleri engelleme | Microsoft Docs'
 description: Bu konu, Azure AD CONNECT'te engelle (yanlışlıkla silmeleri engelleme) yanlışlıkla silmeleri özelliğini açıklar.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 6b852cb4-2850-40a1-8280-8724081601f7
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6a535d776da216029b905fb604ed378449a81082
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 25bc3d0c0517278f20cba4fd4beb2fc4d82b66f1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314632"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464162"
 ---
-# <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Azure AD Connect Eşitleme: Yanlışlıkla Silmeleri Engelleme
+# <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Azure AD Connect eşitleme: Yanlışlıkla silmeleri engelleme
 Bu konu, Azure AD CONNECT'te engelle (yanlışlıkla silmeleri engelleme) yanlışlıkla silmeleri özelliğini açıklar.
 
 Azure AD Connect yükleme önlediğinde yanlışlıkla silmeleri varsayılan olarak etkindir ve 500'den fazla siler dışa izin vermeyecek şekilde yapılandırılmış. Bu özellik, birçok kullanıcıyı ve nesneyi etkileyebilecek yanlışlıkla gerçekleştirilen yapılandırma değişikliklerinden ve şirket içi dizin değişikliklerinden koruma sağlamak için tasarlanmıştır.
@@ -53,7 +53,7 @@ Bu beklenmeyen, araştırma ve düzeltme girişimlerinde bulunun. Silinmek üzer
 2. Git **Bağlayıcılar**.
 3. Bağlayıcı türü olan seçin **Azure Active Directory**.
 4. Altında **eylemleri** sağa seçin **arama bağlayıcı alanı**.
-5. Altında pencerede **kapsam**seçin **bağlı olduğundan** ve geçmişteki bir zamanı seçin. Tıklayın **arama**. Bu sayfa, silinmek üzere tüm nesnelerin bir görünümünü sağlar. Her bir öğeye tıklayarak bu nesne hakkında ek bilgi alabilirsiniz. Ayrıca **sütun ayarı** kılavuzunda görünür olması için ek öznitelikler eklemek için.
+5. Altında pencerede **kapsam**seçin **bağlı olduğundan** ve geçmişteki bir zamanı seçin. **Ara**'ya tıklayın. Bu sayfa, silinmek üzere tüm nesnelerin bir görünümünü sağlar. Her bir öğeye tıklayarak bu nesne hakkında ek bilgi alabilirsiniz. Ayrıca **sütun ayarı** kılavuzunda görünür olması için ek öznitelikler eklemek için.
 
 ![Bağlayıcı alanı arama](./media/how-to-connect-sync-feature-prevent-accidental-deletes/searchcs.png)
 
@@ -68,5 +68,5 @@ Ardından tüm silmeleri isterseniz, aşağıdakileri yapın:
 ## <a name="next-steps"></a>Sonraki adımlar
 **Genel bakış konuları**
 
-* [Azure AD Connect eşitleme: anlamak ve eşitleme özelleştirme](how-to-connect-sync-whatis.md)
+* [Azure AD Connect eşitleme: Anlama ve eşitleme özelleştirme](how-to-connect-sync-whatis.md)
 * [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](whatis-hybrid-identity.md)

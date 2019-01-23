@@ -4,7 +4,7 @@ description: İfade eşlemeleri otomatik Azure Active Directory'de SaaS uygulama
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
-ms.openlocfilehash: 867fdd57df163f37d86572798aaae6d78d43f479
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 61aeb6a80d492a82dffa66491742899df0acc237
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973732"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470061"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Azure Active Directory'de öznitelik eşlemeleri için ifadeler yazma
 Bir SaaS uygulaması için sağlama yapılandırdığınızda, belirtebilmeniz için öznitelik eşlemelerini türdeki bir ifade eşleme biridir. Bu, kullanıcılarınızın verileri fazla SaaS uygulaması için kabul edilebilir biçimlere dönüştürme olanak tanıyan bir betik gibi ifade yazmanız gerekir.
@@ -28,7 +28,7 @@ Bir SaaS uygulaması için sağlama yapılandırdığınızda, belirtebilmeniz i
 
 * Tüm ifade İşlevler, bağımsız değişkenleri parantez içinde bir adından oluşur bakımından tanımlanmış olması gerekir: <br>
   *FunctionName (`<<argument 1>>`,`<<argument N>>`)*
-* İçindeki diğer işlevleri iç içe. Örneğin: <br> *FunctionOne (FunctionTwo (`<<argument1>>`))*
+* İçindeki diğer işlevleri iç içe. Örneğin: <br> *FunctionOne(FunctionTwo(`<<argument1>>`))*
 * İşlevlere üç farklı türde bağımsız değişkenler geçirebilirsiniz:
   
   1. Öznitelik, köşeli ayraçlar içine alınmalıdır. Örneğin: [attributeName]

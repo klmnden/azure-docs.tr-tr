@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 1/14/2019
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 006a8172faae529ce9943773552da325bfae3f4b
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 245314f0b7460cce270c97307e0719beebee472a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321543"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478646"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Azure dosya eşitleme Aracısı sürüm notları
 Azure Dosya Eşitleme aracısı şirket içi dosya sunucularının sağladığı esneklik, performans ve uyumluluk özelliklerinden vazgeçmeden kuruluşunuzun dosya paylaşımlarını Azure Dosyaları'nda toplamanızı sağlar. Windows Server yüklemeleriniz, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürülür. Verilere yerel olarak erişmek için Windows Server üzerinde kullanılabilen tüm protokolleri (SMB, NFS ve FTPS gibi) kullanabilirsiniz. Dünya çapında istediğiniz sayıda önbellek oluşturabilirsiniz.
@@ -72,7 +72,7 @@ Yükleme ve Azure dosya eşitleme aracısını Windows Server ile yapılandırma
 
 - Aracı yükleme paketinin yükseltilmiş (Yönetici) izinlerle yüklenmesi gerekir.
 - Aracı, Windows Server Core veya Nano Server dağıtım seçeneklerinde desteklenmez.
-- Aracı yalnızca Windows Server 2016 ve Windows Server 2012 R2 üzerinde desteklenir.
+- Aracı yalnızca Windows Server 2019, Windows Server 2016 ve Windows Server 2012 R2 üzerinde desteklenir.
 - Aracıyı en az 2 GiB bellek gerektirir. Sunucu, dinamik belleği etkin bir sanal makinede çalışıyorsa, sanal makine bellek ile bir en az 2048 MiB yapılandırılması gerekir.
 - Depolama Eşitleme Aracı (FileSyncSvc) hizmetini sıkıştırılmış sistem birimi bilgileri (SVI) dizini olan bir birimde bulunan sunucu uç noktalarını desteklemiyor. Bu yapılandırma, beklenmeyen sonuçlara neden.
 - Bir VSS anlık görüntü oluşturulduğunda, Durma hatası 0x3B veya durdurma Hatası 0x1E ortaya çıkabilir.

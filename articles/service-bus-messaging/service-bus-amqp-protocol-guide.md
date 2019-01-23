@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: 2c0fd7bd811445cd6bda8315c9c90ff6646d2be0
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: c437ffec635064bf301eb417717861b68beca611
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413916"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476998"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 protokol Kılavuzu Azure Service Bus ve Event Hubs
 
@@ -234,7 +234,7 @@ AMQP için 's tanımlar için uygulaması gereken herhangi bir özellik eşlenme
 | oluşturma zamanı |Bildirir, aynı zamanda iletinin oluşturulduğu. Service Bus tarafından kullanılmıyor |Service Bus API'sini aracılığıyla erişilebilir değil. |
 | Grup Kimliği |Uygulama tanımlı ilgili bir dizi ileti için tanımlayıcı. Service Bus oturumları için kullanılır. |[oturum kimliği](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) |
 | Grup Sırası |İletinin bir oturumu içinde göreli sıra numarası tanımlayan sayacı. Service Bus tarafından yok sayılır. |Service Bus API'sini aracılığıyla erişilebilir değil. |
-| yanıt için Grup Kimliği |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyToSessionId) |
+| yanıt için Grup Kimliği |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 
 #### <a name="message-annotations"></a>İleti ek açıklamaları
 

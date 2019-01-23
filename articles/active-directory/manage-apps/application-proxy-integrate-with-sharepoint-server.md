@@ -4,7 +4,7 @@ description: Şirket içi SharePoint server, Azure AD uygulama proxy'si ile tüm
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.date: 12/10/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 9b8ae85d1a5410677dd9299ebb947c2189a6b663
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: a240e629c5c8f6e43a4c3c52668fcb2b811989b2
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166192"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468398"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Azure AD uygulama ara sunucusu ile SharePoint uzaktan erişimi etkinleştirme
 
@@ -134,7 +134,7 @@ KCD yapılandırdığınıza göre Azure AD uygulama proxy'si yapılandırmaya h
 
 3. Uygulamanızı ayarlama işlemini sonlandırmak için şuraya gidin: **kullanıcılar ve gruplar** bölümünde ve bu uygulamaya erişmek için kullanıcı atama. 
 
-## <a name="step-3-configure-sharepoint-to-use-kerberos-and-azure-ad-proxy-urls"></a>3. adım: Kerberos ve Azure AD Proxy URL'ler kullanmak için SharePoint'i yapılandırma
+## <a name="step-3-configure-sharepoint-to-use-kerberos-and-azure-ad-proxy-urls"></a>3. Adım: Kerberos ve Azure AD Proxy URL'ler kullanmak için SharePoint'i yapılandırma
 
 Sonraki adım, SharePoint web uygulaması İç URL için gönderilen gelen istekleri işlemek için Kerberos ve uygun bir alternatif erişim eşlemeyi SharePoint izin verecek şekilde yapılandırılmış yeni bir bölge için genişletme ve bağlantılar için dış URL'yi yerleşik yanıt sağlamaktır.
 
@@ -162,7 +162,7 @@ Sonraki adım, SharePoint web uygulaması İç URL için gönderilen gelen istek
 
   ![Alternatif erişim eşlemelerini düzeltin](./media/application-proxy-integrate-with-sharepoint-server/alternate-access3.png)
 
-## <a name="step-4-ensure-that-an-https-certificate-is-configured-for-the-iis-site-of-the-extranet-zone"></a>4. adım: Bir HTTPS sertifikası Extranet bölgenin IIS site için yapılandırılmış olduğundan emin olun
+## <a name="step-4-ensure-that-an-https-certificate-is-configured-for-the-iis-site-of-the-extranet-zone"></a>4. Adım: Bir HTTPS sertifikası Extranet bölgenin IIS site için yapılandırılmış olduğundan emin olun
 
 SharePoint yapılandırması olan artık tamamlandı, ancak iç URL Extranet bölgenin olduğundan <https://SharePoint/>, bu site için bir sertifika ayarlamanız gerekir.
 

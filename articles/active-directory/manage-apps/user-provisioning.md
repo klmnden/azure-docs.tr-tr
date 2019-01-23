@@ -4,7 +4,7 @@ description: Otomatik olarak sağlamak için Azure AD'ye nasıl kullanabileceği
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: ac58c6b951a03b403375fdc17dcd45f8e624deac
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: edd8e08ee20e7e6331701b55b3d58ebad3848408
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311462"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478493"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Sağlama ve sağlamayı kaldırma Azure Active Directory ile SaaS uygulamalarına kullanıcı otomatikleştirin
 
@@ -60,10 +60,10 @@ Bu özelliği kullanmak için bazı ortak motivasyonlardan şunlardır:
 *Şekil 1: Azure AD sağlama hizmeti*
 
 ![Giden sağlama](./media/user-provisioning/provisioning1.PNG)
-*Şekil 2: "Çıkış" kullanıcı popüler SaaS uygulamaları için Azure ad iş akışı sağlama*
+*Şekil 2: "Giden" kullanıcı popüler SaaS uygulamaları için Azure ad iş akışı sağlama*
 
-![Gelen sağlama](./media/user-provisioning/provisioning2.PNG)
-*Şekil 3: "Giriş" kullanıcı Azure Active Directory ve Windows Server Active Directory için popüler İnsan büyük Yönetim (HCM) uygulamalarından iş akışı sağlama*
+![Sağlama gelen](./media/user-provisioning/provisioning2.PNG)
+*Şekil 3: "Azure Active Directory ve Windows Server Active Directory için popüler İnsan büyük Yönetim (HCM) uygulamalardan kullanıcı sağlama iş akışı gelen"*
 
 
 ## <a name="what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning"></a>Hangi uygulamalar ve sistemler Azure AD'ye otomatik kullanıcı hazırlama ile kullanabilir miyim?
@@ -103,7 +103,7 @@ Uygulama Yönetimi ekranında, sağlama yapılandırılan **sağlama** sekmesi.
 
 * **Yönetici kimlik bilgileri** Azure AD Kullanıcı Yönetimi uygulama tarafından sağlanan API bağlanmak için olanak tanıyan hizmet sağlama için sağlanmalıdır. Bu bölümde Ayrıca, kimlik bilgileri başarısız veya sağlama işi girmeyeceğini e-posta bildirimlerini etkinleştirmek sağlar [karantina](#quarantine).
 
-* **Öznitelik eşlemeleri** yapılandırılabilir, kaynak sistemde alanları belirtin (örnek: Azure AD) hedef sistemde hangi alanları içeriklerini eşitlemiş (örnek: ServiceNow). Hedef uygulama destekliyorsa, bu bölümde, isteğe bağlı olarak kullanıcı hesaplarını yanı sıra gruplarının sağlama yapılandırmanıza izin verir. "Eşleşen Özellikler" hangi alanların hesapları sistemleri arasında eşleştirmek için kullanılan seçmenize olanak tanır. "[İfadeleri](functions-for-customizing-application-data.md)" değiştirmek ve hedef sistemde yazıldıkları önce kaynak sisteminden alınan değerleri dönüştürme olanak sağlar. Daha fazla bilgi için [öznitelik eşlemelerini özelleştirme](customize-application-attributes.md).
+* **Öznitelik eşlemeleri** yapılandırılabilir, kaynak sistemde alanları belirtin (örnek: Azure AD) eşitlenen hedef sistemde hangi alanlar için içerikleri olacaktır (örnek: ServiceNow). Hedef uygulama destekliyorsa, bu bölümde, isteğe bağlı olarak kullanıcı hesaplarını yanı sıra gruplarının sağlama yapılandırmanıza izin verir. "Eşleşen Özellikler" hangi alanların hesapları sistemleri arasında eşleştirmek için kullanılan seçmenize olanak tanır. "[İfadeleri](functions-for-customizing-application-data.md)" değiştirmek ve hedef sistemde yazıldıkları önce kaynak sisteminden alınan değerleri dönüştürme olanak sağlar. Daha fazla bilgi için [öznitelik eşlemelerini özelleştirme](customize-application-attributes.md).
 
 ![Ayarlar](./media/user-provisioning/provisioning_settings1.PNG)
 
@@ -133,7 +133,7 @@ Sağlama hizmeti başlatıldığında, şimdiye kadar yapılan ilk eşitleme yap
 
 1. Tüm kullanıcılar ve Gruplar'ı kaynak sistemden içinde tanımlanan tüm öznitelikleri alınırken sorgu [öznitelik eşlemelerini](customize-application-attributes.md).
 2. Kullanıcıları ve yapılandırılmış kullanarak döndürülen, grupları filtre [atamaları](assign-user-or-group-access-portal.md) veya [öznitelik tabanlı kapsam filtreleri](define-conditional-rules-for-provisioning-user-accounts.md).
-3. Ne zaman atanmış bir kullanıcı bulunamadı veya sağlama için kapsam içinde hizmet belirlenmiş kullanarak eşleşen bir kullanıcı için hedef sistemde sorgular [öznitelikleri eşleşen](customize-application-attributes.md#understanding-attribute-mapping-properties). Örnek: kaynak sistemindeki userPrincipal adı eşleşen bir özniteliktir ve eşler kullanıyorsanız kaynak sistemde userPrincipal adı değerlerle eşleşen kullanıcı adları için hedef sistemde kullanıcı hedef sistemde sonra sağlama hizmeti sorgular.
+3. Ne zaman atanmış bir kullanıcı bulunamadı veya sağlama için kapsam içinde hizmet belirlenmiş kullanarak eşleşen bir kullanıcı için hedef sistemde sorgular [öznitelikleri eşleşen](customize-application-attributes.md#understanding-attribute-mapping-properties). Örnek: Kaynak sistemindeki userPrincipal adı eşleşen bir özniteliktir ve eşlendiği hedef sistem sonra sağlama hizmeti, kullanıcı adı kaynak sistemde userPrincipal adı değerlerle eşleşen kullanıcı adları için hedef sistemde sorgular.
 4. Eşleşen kullanıcı hedef sistemde bulunamazsa, kaynak sistemden öznitelikleri kullanılarak oluşturulur. Kullanıcı hesabı oluşturulduktan sonra sağlama hizmeti algılar ve kullanıcı gelecekteki tüm işlemleri gerçekleştirmek için kullanılan yeni kullanıcı kimliği hedef sistemin önbelleğe alır.
 5. Eşleşen bir kullanıcı bulunamazsa, kaynak sistem tarafından sağlanan öznitelikleri kullanılarak güncelleştirilir. Kullanıcı hesabı eşleşen sonra sağlama hizmeti algılar ve kullanıcı gelecekteki tüm işlemleri gerçekleştirmek için kullanılan yeni kullanıcı kimliği hedef sistemin önbelleğe alır.
 6. Öznitelik eşlemeleri "başvuru" özniteliği içermiyorsa, hizmet oluşturmak ve başvurulan nesneler bağlamak için hedef sistemde ek güncelleştirmeler yapar. Örneğin, bir kullanıcı bir "Yönetici" özniteliği başka bir kullanıcı hedef sistemde oluşturulan bağlı hedef sistem olabilir.
@@ -197,13 +197,13 @@ Eşitleme zamanlarını sağlama yaygın senaryolar için aşağıdaki tabloda �
 
 | Kapsam yapılandırması | Kullanıcılara, gruplara veya kapsamda üyeleri | İlk eşitleme zamanı | Artımlı eşitleme zamanı |
 | -------- | -------- | -------- | -------- |
-| Atanan kullanıcı ve grupları yalnızca Eşitle |  < 1.000 |  < 30 dakika | < 30 dakika |
+| Atanan kullanıcı ve grupları yalnızca Eşitle |  < 1,000 |  < 30 dakika | < 30 dakika |
 | Atanan kullanıcı ve grupları yalnızca Eşitle |  1.000 - 10.000 | 142 - 708 dakika | < 30 dakika |
-| Atanan kullanıcı ve grupları yalnızca Eşitle |   10.000 - 100.000 | 1,170 - 2,340 dakika | < 30 dakika |
-| Azure AD'de tüm kullanıcıları ve grupları Eşitle |  < 1.000 | < 30 dakika  | < 30 dakika |
+| Atanan kullanıcı ve grupları yalnızca Eşitle |   10,000 - 100,000 | 1,170 - 2,340 dakika | < 30 dakika |
+| Azure AD'de tüm kullanıcıları ve grupları Eşitle |  < 1,000 | < 30 dakika  | < 30 dakika |
 | Azure AD'de tüm kullanıcıları ve grupları Eşitle |  1.000 - 10.000 | < 30-120 dakika | < 30 dakika |
-| Azure AD'de tüm kullanıcıları ve grupları Eşitle |  10.000 - 100.000  | 713 - 1,425 dakika | < 30 dakika |
-| Tüm kullanıcılar Azure AD'de eşitleme|  < 1.000  | < 30 dakika | < 30 dakika |
+| Azure AD'de tüm kullanıcıları ve grupları Eşitle |  10,000 - 100,000  | 713 - 1,425 dakika | < 30 dakika |
+| Tüm kullanıcılar Azure AD'de eşitleme|  < 1,000  | < 30 dakika | < 30 dakika |
 | Tüm kullanıcılar Azure AD'de eşitleme | 1.000 - 10.000  | 43 - 86 dakika | < 30 dakika |
 
 

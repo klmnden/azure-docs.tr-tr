@@ -4,7 +4,7 @@ description: Azure AD uygulama ara sunucusu bağlayıcıları ile ilgili temel b
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.date: 06/27/2018
 ms.author: barbkess
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: 2afe75045444fbc0ca36ee1cfca3d96f5b218ab0
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 72b3a009ec3ed85bb1bacc089a0fa12f1aa9ecce
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135500"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474583"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Azure AD uygulama ara sunucusu ile Uzak Masaüstü yayımlama
 
@@ -65,7 +65,7 @@ RDS ve ortamınız için Azure AD uygulama proxy'si ayarladıktan sonra iki çö
 
 1. [Yeni bir uygulama proxy'si uygulaması yayımlama](application-proxy-add-on-premises-application.md) aşağıdaki değerlerle:
    - İç URL: `https://\<rdhost\>.com/`burada `\<rdhost\>` RD Web ve RD Ağ Geçidi paylaşan ortak kökü.
-   - Dış URL: Bu alan otomatik olarak uygulama adına göre doldurulur, ancak bunu değiştirebilirsiniz. RDS'yi eriştiklerinde, kullanıcılarınızın bu URL'ye geçer
+   - Dış URL: Bu alan, uygulama adına göre otomatik olarak doldurulur, ancak bunu değiştirebilirsiniz. RDS'yi eriştiklerinde, kullanıcılarınızın bu URL'ye geçer
    - Ön kimlik doğrulama yöntemi: Azure Active Directory
    - URL üst bilgileri çevir: Hayır
 2. Kullanıcılar, yayımlanmış RD uygulamaya atayın. Tüm bunlar çok RDS, erişimi olduğundan emin olun.

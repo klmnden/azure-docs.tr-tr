@@ -5,7 +5,7 @@ services: active-directory
 keywords: uygulamalara koşullu erişim, Azure AD ile koşullu erişim, şirket kaynaklarına güvenli erişim, koşullu erişim ilkeleri
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
@@ -17,14 +17,14 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 68c2178440264aa6a6efce074b299f4e3deaa10f
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 20beff7accbc987842141fa7ece9c17f11b0032e
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415398"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448820"
 ---
-# <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Nasıl yapılır: Gerektiren onaylı istemci uygulamalar için koşullu erişim ile bulut uygulama erişimi 
+# <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Nasıl Yapılır: Koşullu erişim ile bulut uygulaması erişimi için onaylı istemci uygulama gerektir 
 
 Çalışanlarınızın mobil cihazları hem kişisel hem de iş görevleri için kullanın. Çalışanlarınızın üretken olabilirler, ancak ayrıca veri kayıplarını da önlemek istersiniz. Azure Active Directory (Azure AD) koşullu erişimle şirket verilerinizi koruyabilirsiniz onaylı istemci uygulamaları için bulut uygulamalarınıza erişimi kısıtlayabilirsiniz.  
 
@@ -108,13 +108,13 @@ Bu adımda koşullu erişim ilkesi için aşağıdaki bileşenleri yapılandırm
 
 1. **Adı** , koşullu erişim ilkesi.
 
-2. **Kullanıcılar ve gruplar**: her bir koşullu erişim ilkesi, en az bir kullanıcı veya grup seçili olması gerekir.
+2. **Kullanıcılar ve gruplar**: Her bir koşullu erişim ilkesi, en az bir kullanıcı veya grup seçili olması gerekir.
 
-3. **Bulut uygulamaları:** bulut uygulamaları seçmeniz gerekir. **Office 365 Exchange Online**.
+3. **Bulut uygulamaları:** Bulut uygulamaları seçmeniz gerekir. **Office 365 Exchange Online**.
 
     ![Koşullu erişim](./media/app-based-conditional-access/07.png)
 
-4. **Koşullar:** olarak **koşullar**, yapılandırmanız gereken **cihaz platformlarını** ve **istemci uygulamaları**:
+4. **Koşullar:** Olarak **koşullar**, yapılandırmanız gereken **cihaz platformlarını** ve **istemci uygulamaları**:
 
     a. Olarak **cihaz platformlarını**seçin **Android** ve **iOS**.
 
@@ -137,14 +137,14 @@ Bu adımda koşullu erişim ilkesi için aşağıdaki bileşenleri yapılandırm
 
 1. **Adı** , koşullu erişim ilkesi.
 
-2. **Kullanıcılar ve gruplar**: her bir koşullu erişim ilkesi, en az bir kullanıcı veya grup seçili olması gerekir.
+2. **Kullanıcılar ve gruplar**: Her bir koşullu erişim ilkesi, en az bir kullanıcı veya grup seçili olması gerekir.
 
 
-3. **Bulut uygulamaları:** bulut uygulamaları seçmeniz gerekir. **Office 365 Exchange Online**.
+3. **Bulut uygulamaları:** Bulut uygulamaları seçmeniz gerekir. **Office 365 Exchange Online**.
 
     ![Koşullu erişim](./media/app-based-conditional-access/07.png)
 
-4. **Koşullar:** olarak **koşullar**, yapılandırmanız gereken **istemci uygulamaları (Önizleme)**. 
+4. **Koşullar:** Olarak **koşullar**, yapılandırmanız gereken **istemci uygulamaları (Önizleme)**. 
 
     a. Olarak **istemci uygulamaları (Önizleme)** seçin **mobil uygulamalar ve masaüstü istemciler** ve **Exchange ActiveSync istemcileri**.
 
@@ -188,14 +188,14 @@ Bu adımda koşullu erişim ilkesi için aşağıdaki bileşenleri yapılandırm
 
 1. **Adı** , koşullu erişim ilkesi.
 
-2. **Kullanıcılar ve gruplar**: her bir koşullu erişim ilkesi, en az bir kullanıcı veya grup seçili olması gerekir.
+2. **Kullanıcılar ve gruplar**: Her bir koşullu erişim ilkesi, en az bir kullanıcı veya grup seçili olması gerekir.
 
 
-3. **Bulut uygulamaları:** bulut uygulamaları seçmeniz gerekir. **Office 365 Exchange Online** ve **Office 365 SharePoint Online**. 
+3. **Bulut uygulamaları:** Bulut uygulamaları seçmeniz gerekir. **Office 365 Exchange Online** ve **Office 365 SharePoint Online**. 
 
     ![Koşullu erişim](./media/app-based-conditional-access/02.png)
 
-4. **Koşullar:** olarak **koşullar**, yapılandırmanız gereken **cihaz platformlarını** ve **istemci uygulamaları**:
+4. **Koşullar:** Olarak **koşullar**, yapılandırmanız gereken **cihaz platformlarını** ve **istemci uygulamaları**:
 
     a. Olarak **cihaz platformlarını**seçin **Android** ve **iOS**.
 
@@ -220,13 +220,13 @@ Bu adımda koşullu erişim ilkesi için aşağıdaki bileşenleri yapılandırm
 
 1. **Adı** , koşullu erişim ilkesi.
 
-2. **Kullanıcılar ve gruplar**: her bir koşullu erişim ilkesi, en az bir kullanıcı veya grup seçili olması gerekir.
+2. **Kullanıcılar ve gruplar**: Her bir koşullu erişim ilkesi, en az bir kullanıcı veya grup seçili olması gerekir.
 
-3. **Bulut uygulamaları:** bulut uygulamaları seçmeniz gerekir. **Office 365 Exchange Online**. Çevrimiçi 
+3. **Bulut uygulamaları:** Bulut uygulamaları seçmeniz gerekir. **Office 365 Exchange Online**. Çevrimiçi 
 
     ![Koşullu erişim](./media/app-based-conditional-access/07.png)
 
-4. **Koşullar:** olarak **koşullar**, yapılandırmanız gereken **istemci uygulamaları**:
+4. **Koşullar:** Olarak **koşullar**, yapılandırmanız gereken **istemci uygulamaları**:
 
     a. Olarak **istemci uygulamaları (Önizleme)** seçin **mobil uygulamalar ve masaüstü istemciler** ve **Exchange ActiveSync istemcileri**.
 
@@ -273,13 +273,13 @@ Bu adımda koşullu erişim ilkesi için aşağıdaki bileşenleri yapılandırm
 
 1. **Adı** , koşullu erişim ilkesi.
 
-2. **Kullanıcılar ve gruplar**: her bir koşullu erişim ilkesi, en az bir kullanıcı veya grup seçili olması gerekir.
+2. **Kullanıcılar ve gruplar**: Her bir koşullu erişim ilkesi, en az bir kullanıcı veya grup seçili olması gerekir.
 
-3. **Bulut uygulamaları:** bulut uygulamaları seçmeniz gerekir. **Office 365 Exchange Online** ve **Office 365 SharePoint Online**. 
+3. **Bulut uygulamaları:** Bulut uygulamaları seçmeniz gerekir. **Office 365 Exchange Online** ve **Office 365 SharePoint Online**. 
 
      ![Koşullu erişim](./media/app-based-conditional-access/02.png)
 
-4. **Koşullar:** olarak **koşullar**, yapılandırmanız gereken **cihaz platformlarını** ve **istemci uygulamaları**. 
+4. **Koşullar:** Olarak **koşullar**, yapılandırmanız gereken **cihaz platformlarını** ve **istemci uygulamaları**. 
  
     a. Olarak **cihaz platformlarını**seçin **Android** ve **iOS**.
 
@@ -309,13 +309,13 @@ Bu adımda koşullu erişim ilkesi için aşağıdaki bileşenleri yapılandırm
 
 1. **Adı** , koşullu erişim ilkesi.
 
-2. **Kullanıcılar ve gruplar**: her bir koşullu erişim ilkesi, en az bir kullanıcı veya grup seçili olması gerekir.
+2. **Kullanıcılar ve gruplar**: Her bir koşullu erişim ilkesi, en az bir kullanıcı veya grup seçili olması gerekir.
 
-3. **Bulut uygulamaları:** bulut uygulamaları seçmeniz gerekir. **Office 365 Exchange Online**. 
+3. **Bulut uygulamaları:** Bulut uygulamaları seçmeniz gerekir. **Office 365 Exchange Online**. 
 
     ![Koşullu erişim](./media/app-based-conditional-access/07.png)
 
-4. **Koşullar:** olarak **koşullar**, yapılandırmanız gereken **istemci uygulamaları**. 
+4. **Koşullar:** Olarak **koşullar**, yapılandırmanız gereken **istemci uygulamaları**. 
 
     Olarak **istemci uygulamaları (Önizleme)** seçin **mobil uygulamalar ve masaüstü istemciler** ve **Exchange ActiveSync istemcileri**.
 
@@ -369,13 +369,13 @@ Bu adımda koşullu erişim ilkesi için aşağıdaki bileşenleri yapılandırm
 
 1. **Adı** , koşullu erişim ilkesi.
 
-2. **Kullanıcılar ve gruplar**: her bir koşullu erişim ilkesi, en az bir kullanıcı veya grup seçili olması gerekir.
+2. **Kullanıcılar ve gruplar**: Her bir koşullu erişim ilkesi, en az bir kullanıcı veya grup seçili olması gerekir.
 
-3. **Bulut uygulamaları:** bulut uygulamaları seçmeniz gerekir. **Office 365 Exchange Online** ve **Office 365 SharePoint Online**. 
+3. **Bulut uygulamaları:** Bulut uygulamaları seçmeniz gerekir. **Office 365 Exchange Online** ve **Office 365 SharePoint Online**. 
 
      ![Koşullu erişim](./media/app-based-conditional-access/02.png)
 
-4. **Koşullar:** olarak **koşullar**, yapılandırmanız gereken **cihaz platformlarını** ve **istemci uygulamaları**. 
+4. **Koşullar:** Olarak **koşullar**, yapılandırmanız gereken **cihaz platformlarını** ve **istemci uygulamaları**. 
  
     a. Olarak **cihaz platformlarını**seçin **Android** ve **iOS**.
 
@@ -405,13 +405,13 @@ Bu adımda koşullu erişim ilkesi için aşağıdaki bileşenleri yapılandırm
 
 1. **Adı** , koşullu erişim ilkesi.
 
-2. **Kullanıcılar ve gruplar**: her bir koşullu erişim ilkesi, en az bir kullanıcı veya grup seçili olması gerekir.
+2. **Kullanıcılar ve gruplar**: Her bir koşullu erişim ilkesi, en az bir kullanıcı veya grup seçili olması gerekir.
 
-3. **Bulut uygulamaları:** bulut uygulamaları seçmeniz gerekir. **Office 365 Exchange Online**. 
+3. **Bulut uygulamaları:** Bulut uygulamaları seçmeniz gerekir. **Office 365 Exchange Online**. 
 
     ![Koşullu erişim](./media/app-based-conditional-access/07.png)
 
-4. **Koşullar:** olarak **koşullar**, yapılandırmanız gereken **istemci uygulamaları (Önizleme)**. 
+4. **Koşullar:** Olarak **koşullar**, yapılandırmanız gereken **istemci uygulamaları (Önizleme)**. 
 
     Olarak **istemci uygulamaları (Önizleme)** seçin **mobil uygulamalar ve masaüstü istemciler** ve **Exchange ActiveSync istemcileri**.
 

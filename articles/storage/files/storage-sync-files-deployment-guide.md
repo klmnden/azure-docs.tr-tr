@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: a1e315c7837f682e3b12624387902599138c957f
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 1b3e33c47d4188ba273fb232e2e166a2c33cb1b1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54322019"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463839"
 ---
 # <a name="deploy-azure-file-sync"></a>Azure Dosya Eşitleme’yi dağıtma
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -36,7 +36,13 @@ Okumanızı öneririz [bir Azure dosyaları dağıtımını planlama](storage-fi
 
     > [!Note]  
     > Azure dosya eşitleme henüz PowerShell 6 + Windows Server 2012 R2 veya Windows Server 2016'yı desteklemez.
-* Azure dosya eşitleme ile kullanmak istediğiniz sunucularda Azure PowerShell modülü. Azure PowerShell modüllerini yükleme hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](https://docs.microsoft.com/powershell/azure/install-Az-ps). Her zaman, Azure PowerShell modüllerinin en son sürümünü kullanmanızı öneririz. 
+* Az ve AzureRM PowerShell modülü.
+    - Buradaki yönergeleri izleyerek Az modül yüklenebilir: [Azure PowerShell'i yükleme ve yapılandırma](https://docs.microsoft.com/powershell/azure/install-Az-ps). 
+    - AzureRM PowerShell modülü, aşağıdaki PowerShell cmdlet'ini çalıştırarak yüklenebilir:
+    
+        ```PowerShell
+        Install-Module AzureRM
+        ```
 
 ## <a name="prepare-windows-server-to-use-with-azure-file-sync"></a>Windows Server’ı Azure Dosya Eşitleme ile kullanmaya hazırlama
 Yük devretme kümesinde, her sunucu düğümü dahil olmak üzere, Azure dosya eşitleme ile kullanmayı planladığınız her sunucu için devre dışı **Internet Explorer Artırılmış Güvenlik Yapılandırması**. Bu, yalnızca ilk sunucu kaydı için gereklidir. Sunucu kaydedildikten sonra özelliği yeniden etkinleştirebilirsiniz.
@@ -70,61 +76,6 @@ Stop-Process -Name iexplore -ErrorAction SilentlyContinue
 
 ---
 
-## <a name="install-the-azure-file-sync-agent"></a>Azure Dosya Eşitleme aracısını yükleme
-Azure Dosya Eşitleme aracısı, Windows Server’ın bir Azure dosya paylaşımı ile eşitlenmesini sağlayan indirilebilir bir pakettir. 
-
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
-Aracısı'ndan indirebileceğiniz [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257). Yükleme tamamlandığında, Azure dosya eşitleme aracı yüklemesini başlatmak için MSI paketini çift tıklayın.
-
-> [!Important]  
-> Azure dosya eşitleme ile bir yük devretme kümesi kullanmayı planlıyorsanız, kümedeki her düğümde Azure dosya eşitleme aracısının yüklenmesi gerekir. Kümedeki her düğümün Azure dosya eşitleme ile çalışmak için kaydetmiş olmalıdır.
-
-Şunları yapmanız önerilir:
-- Sorun giderme ve sunucu bakımı kolaylaştırmak için varsayılan yükleme yolu (C:\Program Files\Azure\StorageSyncAgent) bırakın.
-- Azure dosya eşitleme güncel tutmak için Microsoft Update'i etkinleştir. Tüm güncelleştirmeleri, özellik güncelleştirmeleri ve düzeltmeleri dahil olmak üzere, Azure dosya eşitleme aracısı için Microsoft Update sitesinden oluşur. Azure dosya eşitleme için en son güncelleştirmeyi yüklemeniz önerilir. Daha fazla bilgi için [Azure dosya eşitleme güncelleştirme ilkesi](storage-sync-files-planning.md#azure-file-sync-agent-update-policy).
-
-Azure dosya eşitleme Aracısı yükleme tamamlandığında, sunucu kayıt UI otomatik olarak açılır. Kaydetmeden önce bir depolama eşitleme hizmeti olması gerekir; Depolama eşitleme hizmeti oluşturma konusunda sonraki bölüme bakın.
-
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
-Azure dosya eşitleme aracısının işletim sisteminiz için uygun sürümünü indirin ve sisteminizde yüklemek için şu PowerShell kodunu yürütün.
-
-> [!Important]  
-> Azure dosya eşitleme ile bir yük devretme kümesi kullanmayı planlıyorsanız, kümedeki her düğümde Azure dosya eşitleme aracısının yüklenmesi gerekir. Kümedeki her düğümün Azure dosya eşitleme ile çalışmak için kaydetmiş olmalıdır.
-
-```PowerShell
-# Gather the OS version
-$osver = [System.Environment]::OSVersion.Version
-
-# Download the appropriate version of the Azure File Sync agent for your OS.
-if ($osver.Equals([System.Version]::new(10, 0, 14393, 0))) {
-    Invoke-WebRequest `
-        -Uri https://go.microsoft.com/fwlink/?linkid=875004 `
-        -OutFile "StorageSyncAgent.exe" 
-}
-elseif ($osver.Equals([System.Version]::new(6, 3, 9600, 0))) {
-    Invoke-WebRequest `
-        -Uri https://go.microsoft.com/fwlink/?linkid=875002 `
-        -OutFile "StorageSyncAgent.exe" 
-}
-else {
-    throw [System.PlatformNotSupportedException]::new("Azure File Sync is only supported on Windows Server 2012 R2 and Windows Server 2016")
-}
-
-# Extract the MSI from the install package
-$tempFolder = New-Item -Path "afstemp" -ItemType Directory
-Start-Process -FilePath ".\StorageSyncAgent.exe" -ArgumentList "/C /T:$tempFolder" -Wait
-
-# Install the MSI. Start-Process is used to PowerShell blocks until the operation is complete.
-# Note that the installer currently forces all PowerShell sessions closed - this is a known issue.
-Start-Process -FilePath "$($tempFolder.FullName)\StorageSyncAgent.msi" -ArgumentList "/quiet" -Wait
-
-# Note that this cmdlet will need to be run in a new session based on the above comment.
-# You may remove the temp folder containing the MSI and the EXE installer
-Remove-Item -Path ".\StorageSyncAgent.exe", ".\afstemp" -Recurse -Force
-```
-
----
-
 ## <a name="deploy-the-storage-sync-service"></a>Depolama Eşitleme Hizmetini Dağıtma 
 Yerleştirme ile Azure dosya eşitleme dağıtımı başlatır bir **depolama eşitleme hizmeti** seçili aboneliğinizin bir kaynak grubuna kaynak. Birkaç bu gerektiğinde sağlama öneririz. Sunucularınızın ve bu kaynak arasında bir güven ilişkisi oluşturmanız gerekir ve bir sunucu yalnızca bir depolama eşitleme hizmeti kaydedilebilir. Sonuç olarak, sunucu grupları ayırmak gerektiği kadar depolama Eşitleme Hizmetleri dağıtmak için önerilir. Farklı depolama Eşitleme Hizmetleri sunuculardan birbirleri ile eşitleme yapamıyor aklınızda bulundurun.
 
@@ -147,7 +98,7 @@ Açılan bölmeye aşağıdaki bilgileri girin:
 Azure dosya eşitleme yönetim Cmdlet'lerine etkileşim önce DLL içeri ve bir Azure dosya eşitleme yönetim bağlamına oluşturmak gerekir. Azure dosya eşitleme Yönetimi cmdlet'leri henüz Azure PowerShell modüllerinin bir parçası olmadığı için bu gereklidir.
 
 > [!Note]  
-> Azure dosya eşitleme Yönetimi cmdlet'leri içeren StorageSync.Management.PowerShell.Cmdlets.dll paket (bilerek) onaylanmamış bir fiil bir cmdlet içerir (`Login`). Adı `Login-AzureStorageSync` eşleşecek şekilde seçilmiştir `Login-AzAccount` cmdlet diğer Azure PowerShell modülü. Bu hata iletisi (ve cmdlet) kaldırılacak Azure dosya eşitleme aracısının Azure PowerShell modülü eklenir.
+> Azure dosya eşitleme Yönetimi cmdlet'leri içeren StorageSync.Management.PowerShell.Cmdlets.dll paket (bilerek) onaylanmamış bir fiil bir cmdlet içerir (`Login`). Adı `Login-AzureStorageSync` eşleşecek şekilde seçilmiştir `Login-AzAccount` cmdlet diğer Azure PowerShell modülü. Azure dosya eşitleme aracısının Azure PowerShell modülü eklendiğinde, bu hata iletisi (ve cmdlet) kaldırılır.
 
 ```PowerShell
 $acctInfo = Login-AzAccount
@@ -212,6 +163,61 @@ Azure dosya eşitleme bağlamı ile oluşturduktan sonra `Login-AzureR,StorageSy
 ```PowerShell
 $storageSyncName = "<my-storage-sync-service>"
 New-AzureRmStorageSyncService -StorageSyncServiceName $storageSyncName
+```
+
+---
+
+## <a name="install-the-azure-file-sync-agent"></a>Azure Dosya Eşitleme aracısını yükleme
+Azure Dosya Eşitleme aracısı, Windows Server’ın bir Azure dosya paylaşımı ile eşitlenmesini sağlayan indirilebilir bir pakettir. 
+
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+Aracısı'ndan indirebileceğiniz [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257). Yükleme tamamlandığında, Azure dosya eşitleme aracı yüklemesini başlatmak için MSI paketini çift tıklayın.
+
+> [!Important]  
+> Azure dosya eşitleme ile bir yük devretme kümesi kullanmayı planlıyorsanız, kümedeki her düğümde Azure dosya eşitleme aracısının yüklenmesi gerekir. Kümedeki her düğümün Azure dosya eşitleme ile çalışmak için kaydetmiş olmalıdır.
+
+Şunları yapmanız önerilir:
+- Sorun giderme ve sunucu bakımı kolaylaştırmak için varsayılan yükleme yolu (C:\Program Files\Azure\StorageSyncAgent) bırakın.
+- Azure dosya eşitleme güncel tutmak için Microsoft Update'i etkinleştir. Tüm güncelleştirmeleri, özellik güncelleştirmeleri ve düzeltmeleri dahil olmak üzere, Azure dosya eşitleme aracısı için Microsoft Update sitesinden oluşur. Azure dosya eşitleme için en son güncelleştirmeyi yüklemeniz önerilir. Daha fazla bilgi için [Azure dosya eşitleme güncelleştirme ilkesi](storage-sync-files-planning.md#azure-file-sync-agent-update-policy).
+
+Azure dosya eşitleme Aracısı yükleme tamamlandığında, sunucu kayıt UI otomatik olarak açılır. Kaydetmeden önce bir depolama eşitleme hizmeti olması gerekir; Depolama eşitleme hizmeti oluşturma konusunda sonraki bölüme bakın.
+
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+Azure dosya eşitleme aracısının işletim sisteminiz için uygun sürümünü indirin ve sisteminizde yüklemek için şu PowerShell kodunu yürütün.
+
+> [!Important]  
+> Azure dosya eşitleme ile bir yük devretme kümesi kullanmayı planlıyorsanız, kümedeki her düğümde Azure dosya eşitleme aracısının yüklenmesi gerekir. Kümedeki her düğümün Azure dosya eşitleme ile çalışmak için kaydetmiş olmalıdır.
+
+```PowerShell
+# Gather the OS version
+$osver = [System.Environment]::OSVersion.Version
+
+# Download the appropriate version of the Azure File Sync agent for your OS.
+if ($osver.Equals([System.Version]::new(10, 0, 14393, 0))) {
+    Invoke-WebRequest `
+        -Uri https://go.microsoft.com/fwlink/?linkid=875004 `
+        -OutFile "StorageSyncAgent.exe" 
+}
+elseif ($osver.Equals([System.Version]::new(6, 3, 9600, 0))) {
+    Invoke-WebRequest `
+        -Uri https://go.microsoft.com/fwlink/?linkid=875002 `
+        -OutFile "StorageSyncAgent.exe" 
+}
+else {
+    throw [System.PlatformNotSupportedException]::new("Azure File Sync is only supported on Windows Server 2012 R2 and Windows Server 2016")
+}
+
+# Extract the MSI from the install package
+$tempFolder = New-Item -Path "afstemp" -ItemType Directory
+Start-Process -FilePath ".\StorageSyncAgent.exe" -ArgumentList "/C /T:$tempFolder" -Wait
+
+# Install the MSI. Start-Process is used to PowerShell blocks until the operation is complete.
+# Note that the installer currently forces all PowerShell sessions closed - this is a known issue.
+Start-Process -FilePath "$($tempFolder.FullName)\StorageSyncAgent.msi" -ArgumentList "/quiet" -Wait
+
+# Note that this cmdlet will need to be run in a new session based on the above comment.
+# You may remove the temp folder containing the MSI and the EXE installer
+Remove-Item -Path ".\StorageSyncAgent.exe", ".\afstemp" -Recurse -Force
 ```
 
 ---

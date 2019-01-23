@@ -6,14 +6,14 @@ author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: tutorial
-ms.date: 12/13/2018
+ms.date: 01/13/2019
 ms.author: spelluru
-ms.openlocfilehash: 450cbf4deace7d3edc1fcb50b8c3d8a91e936012
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 6e8ca9d3a7fbdf1926ac642ac60a37d298af0129
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385423"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476864"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Öğretici: Büyük verileri bir veri ambarına akışla aktarma
 Azure [Event Grid](overview.md) uygulama ve hizmetlerden (olayları) bildirimler için react olanak tanıyan bir akıllı bir olay yönlendirme hizmetidir. Örneğin, bir Azure Blob Depolama veya Azure Data Lake Storage yakalanan Event Hubs verilerini işlemek için bir Azure işlevi tetikleyin ve verileri diğer veri depolarına geçirin. Bu [Event Hubs ve Event Grid tümleştirmesi örnek](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) Event Hubs Event Grid ile sorunsuz bir şekilde yakalanan Event Hubs verilerini blob depolamadan SQL veri ambarı'na geçirmek için nasıl kullanılacağını gösterir.
@@ -132,7 +132,7 @@ Bu adımda, gerekli altyapı ile dağıttığınız bir [Resource Manager şablo
         New-AzureRmResourceGroup -Name rgDataMigration -Location westcentralus
         ```
     2. İçin bir ad belirtin **kaynak grubu**.
-    3. ENTER tuşuna basın. 
+    3. Press ENTER. 
 3. Aşağıdaki komutu çalıştırarak (olay hub'ı, depolama hesabı, işlev uygulaması, SQL veri ambarı) önceki bölümde bahsedilen tüm kaynakları dağıtma:
     1. Kopyalayıp Cloud Shell penceresine komutu yapıştırın. Alternatif olarak, tercih ettiğiniz bir düzenleyiciye kopyala/yapıştır, değerleri ayarlayın ve sonra Cloud Shell için komutu kopyalayın isteyebilirsiniz. 
 

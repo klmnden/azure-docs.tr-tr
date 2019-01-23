@@ -8,14 +8,14 @@ manager: timlt
 editor: ''
 ms.service: event-grid
 ms.topic: reference
-ms.date: 08/17/2018
+ms.date: 01/17/2019
 ms.author: kgremban
-ms.openlocfilehash: a86b22b3327b2353dd37a9f9863337d12a009434
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: df1c0f8256b49e23b720df47c513fba8c62677b5
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143582"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475212"
 ---
 # <a name="azure-event-grid-event-schema-for-iot-hub"></a>IOT hub'ın Azure Event Grid olay şeması
 
@@ -115,10 +115,10 @@ Tüm olaylar aynı üst düzey veri içerir:
 | -------- | ---- | ----------- |
 | id | dize | Olayın benzersiz tanımlayıcısı. |
 | konu başlığı | dize | Olay kaynağı tam kaynak yolu. Bu alan, yazılabilir değil. Event Grid, bu değeri sağlar. |
-| Konu | dize | Yayımcı tarafından tanımlanan olay konu yolu. |
+| konu | dize | Yayımcı tarafından tanımlanan olay konu yolu. |
 | olay türü | dize | Bu olay kaynağı için kayıtlı olay türlerinden biri. |
 | eventTime | dize | Olayın oluşturulduğu zamandan, sağlayıcının UTC saatini temel alan. |
-| veri | object | IOT Hub olay verileri.  |
+| veriler | object | IOT Hub olay verileri.  |
 | dataVersion | dize | Veri nesnesinin şema sürümü. Yayımcı, şema sürümü tanımlar. |
 | metadataVersion | dize | Olay meta verilerinin şema sürümü. Event Grid, şemanın en üst düzey özellikleri tanımlar. Event Grid, bu değeri sağlar. |
 
@@ -143,7 +143,7 @@ Veri nesnesi, içeriğini, her olay yayımcısı için farklıdır. İçin **cih
 | -------- | ---- | ----------- |
 | ikiz | object | Uygulama cihaz meta verilerini, bulut represenation olan cihaz ikizi hakkında bilgi sağlar. | 
 | cihaz kimliği | dize | Cihaz ikizi benzersiz tanımlayıcısı. | 
-| ETag | dize | Cihaz ikizi güncelleştirmeleri tutarlılık sağlamaya yönelik bir doğrulayıcı. Her bir etag cihaz ikizi benzersiz olması garanti edilir. |  
+| Etag | dize | Cihaz ikizi güncelleştirmeleri tutarlılık sağlamaya yönelik bir doğrulayıcı. Her bir etag cihaz ikizi benzersiz olması garanti edilir. |  
 | deviceEtag| dize | Bir cihaz kayıt defterine güncelleştirmelerin tutarlılık sağlamaya yönelik bir doğrulayıcı. Her deviceEtag cihaz kayıt defteri başına benzersiz olması garanti edilir. |
 | durum | dize | Olup cihaz ikizinde etkin veya devre dışı. | 
 | statusUpdateTime | dize | Son cihaz ikizi durumu ISO8601 zaman damgası güncelleştirin. |
@@ -154,7 +154,7 @@ Veri nesnesi, içeriğini, her olay yayımcısı için farklıdır. İçin **cih
 | X509Thumbprint | dize | Parmak izi, x509 için benzersiz bir değer belirli bir sertifika bir sertifika deposunda bulmak için kullanılan sertifika. Parmak izi SHA1 algoritması kullanılarak dinamik olarak oluşturulur ve fiziksel olarak sertifika mevcut değil. | 
 | primaryThumbprint | dize | Birincil parmak izi x509 için sertifika. |
 | secondaryThumbprint | dize | İkincil parmak izi x509 için sertifika. | 
-| sürüm | integer | Bir her artırılır tamsayı saat cihaz ikizi güncelleştirilir. |
+| version | integer | Bir her artırılır tamsayı saat cihaz ikizi güncelleştirilir. |
 | İstenen | object | Yalnızca uygulama arka ucu tarafından yazılmış ve cihaz tarafından okunur özellikleri kısmı. | 
 | bildirilen | object | Yalnızca cihaz tarafından yazılmış ve uygulama arka ucu tarafından okunur özellikleri kısmı. |
 | lastUpdated | dize | ISO8601 zaman damgası son cihaz ikizi özelliğinin güncelleştirin. | 

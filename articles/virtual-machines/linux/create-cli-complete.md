@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 6b3f862acd5aba39a7ad6eb0ce2f0a9b4a9e5307
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 27cef0287156d4cf76914704b849cb646c21dd7d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973670"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467494"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Azure CLI'de eksiksiz bir Linux sanal makinesi oluşturma
 Bir sanal makine (VM) Azure'da hızlıca oluşturmak için gerekli tüm destekleyici kaynakları oluşturmak için varsayılan değerleri kullanan tek bir Azure CLI komutunu kullanabilirsiniz. Bir sanal ağ, genel IP adresi ve ağ güvenlik grubu kuralları gibi kaynakları otomatik olarak oluşturulur. Daha fazla denetim üretim ortamınızda kullanmak, önceden bu kaynakları oluşturmak ve Vm'lerinizi bunlara ekleyin. Bu makalede, VM ve destekleyici kaynakların tek tek her biri oluşturma hakkında size yol gösterir.
@@ -333,7 +333,7 @@ az network nsg show --resource-group myResourceGroup --name myNetworkSecurityGro
 ```
 
 ## <a name="create-a-virtual-nic"></a>Sanal bir NIC oluşturup
-Sanal ağ arabirim kartları (NIC) program aracılığıyla kullanılabilir olduklarından kullanımları kuralları uygulayabilirsiniz. Yapılandırmanıza bağlı olarak [VM boyutu](sizes.md), birden çok sanal NIC bir VM'ye ekleyebilirsiniz. Aşağıdaki [az ağ NIC oluşturup](/cli/azure/network/nic#az_network_nic_create) komutunu adlı bir NIC oluşturduğunuz *Mynıc* , ağ güvenlik grubu ile ilişkilendirin. Genel IP adresini *Mypublicıp* sanal NIC ile ilişkilendirilir
+Sanal ağ arabirim kartları (NIC) program aracılığıyla kullanılabilir olduklarından kullanımları kuralları uygulayabilirsiniz. Yapılandırmanıza bağlı olarak [VM boyutu](sizes.md), birden çok sanal NIC bir VM'ye ekleyebilirsiniz. Aşağıdaki [az ağ NIC oluşturup](/cli/azure/network/nic) komutunu adlı bir NIC oluşturduğunuz *Mynıc* , ağ güvenlik grubu ile ilişkilendirin. Genel IP adresini *Mypublicıp* sanal NIC ile ilişkilendirilir
 
 ```azurecli
 az network nic create \

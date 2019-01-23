@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/14/2019
+ms.date: 01/22/2019
 ms.author: mabrigg
-ms.openlocfilehash: ad1234b6a0296a2fa46fe56786bbca4aca9ed470
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: d0b455261649fad95a92f7ad75f7af26d633cf5a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54305970"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476895"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>Azure stack'teki fiziksel disk değiştirme
 
@@ -29,10 +29,10 @@ Bu makalede, Azure Stack'te fiziksel diski değiştirmek için genel süreç aç
 
 Tümleşik sistemler ve kullanılan diskleri olan Geliştirme Seti dağıtımlar için bu yordamı kullanabilirsiniz.
 
-Gerçek disk değiştirme adımları farklılık gösterir, orijinal ekipman üreticisi (OEM) donanım satıcınıza temel. Sisteme özgü ayrıntılı adımlar için satıcınızın alan bulunduğu yerde değiştirilebilen biriminin (FRU) belgelerine bakın. 
+Gerçek disk değiştirme adımları farklılık gösterir, orijinal ekipman üreticisi (OEM) donanım satıcınıza temel. Sisteme özgü ayrıntılı adımlar için satıcınızın alan bulunduğu yerde değiştirilebilen biriminin (FRU) belgelerine bakın.
 
 ## <a name="review-disk-alert-information"></a>Disk uyarı bilgileri gözden geçirin
-Bir disk başarısız olduğunda, bir fiziksel disk için bağlantı kaybedildi bildiren bir uyarı alırsınız. 
+Bir disk başarısız olduğunda, bir fiziksel disk için bağlantı kaybedildi bildiren bir uyarı alırsınız.
 
  ![Fiziksel diske uyarı gösteren bağlantısı kesilmiş](media/azure-stack-replace-disk/DiskAlert.png)
 
@@ -47,7 +47,7 @@ Gerçek disk değiştirme OEM donanım satıcınızın FRU yönergelerini izleyi
 
 Tümleşik bir sistemde desteklenmeyen bir disk kullanımını önlemek için sistemi satıcınız tarafından desteklenmeyen diskleri engeller. Desteklenmeyen bir disk kullanmayı denerseniz, bir diski bir desteklenmeyen model veya üretici yazılımı nedeniyle karantinaya alındı, yeni bir uyarı bildirir.
 
-Disk değiştirdikten sonra Azure Stack, otomatik olarak yeni disk bulur ve sanal disk onarım işlemini başlatır.  
+Disk değiştirdikten sonra Azure Stack, otomatik olarak yeni disk bulur ve sanal disk onarım işlemini başlatır.
  
  ## <a name="check-the-status-of-virtual-disk-repair"></a>Sanal disk onarma durumunu denetleyin
  

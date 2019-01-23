@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: cwatson
-ms.openlocfilehash: 98ce2127cc9f60128767f8e4409134f2393ac84f
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 9d755d1a3d9ae54d33331eff9b547de70a5fd77f
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582439"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452905"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Azure'da faturalandırma ve maliyet yönetimi ile beklenmeyen ücretlerden
 
@@ -90,7 +90,7 @@ Hizmetlerinizi çalışır aldıktan sonra ne kadar bunlar, maliyet düzenli ara
 
     ![Azure portalında maliyet analizi görünümünün ekran görüntüsü](./media/billing-getting-started/cost-analysis.PNG)
 
-4. Gibi farklı özelliklere göre filtreleyebilirsiniz [etiketleri](#tags), kaynak grubu ve zaman aralığı. Tıklayın **Uygula** filtreleri doğrulamak ve **indirin** görünümü bir virgül ile ayrılmış değerler (.csv) dosyasına dışarı aktarmak istiyorsanız.
+4. Gibi farklı özelliklere göre filtreleyebilirsiniz [etiketleri](#tags), kaynak türü, kaynak grubu ve zaman aralığı. Tıklayın **Uygula** filtreleri doğrulamak ve **indirin** görünümü bir virgül ile ayrılmış değerler (.csv) dosyasına dışarı aktarmak istiyorsanız.
 
 5. Ayrıca, geçmiş ve kaynak her gün maliyetinin ne günlük görmek için bir kaynağa tıklayabilirsiniz.
 

@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: e060075fbcf6a5083e51b753e119cb5471129a79
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ca18aa5af89ec0a80d1aa8139671bf017a86e36c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308487"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465182"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Yedekleme ve geri yükleme Azure SQL veri ambarı
 Yedekleme ve geri yükleme şeklini Azure SQL veri ambarı'nda öğrenin. Kullanım verileri kurtarma anlık görüntüleri ambar veya birincil bölge içinde önceki bir geri yükleme noktası veri Ambarınızı kopyalayın. Farklı bir coğrafi bölgeye geri yüklemek için coğrafi olarak yedekli yedeklemeleri kullanım veri ambarı. 
@@ -86,7 +86,7 @@ Anlık görüntü başladığı saati temsil eden bir geri yükleme noktası her
 
 Geri yüklenen veri ambarı ve geçerli tutun veya bunlardan birini silin. Geçerli veri ambarı geri yüklenen veri ambarı ile değiştirmek istiyorsanız, bunu kullanarak adlandırabilirsiniz [ALTER DATABASE (Azure SQL veri ambarı)](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse) adı değiştirme seçeneği. 
 
-Bir veri ambarını geri yüklemek için bkz: [Azure portalını kullanarak bir veri ambarını geri yükleme](sql-data-warehouse-restore-database-portal.md), [PowerShell kullanarak bir veri ambarını geri yükleme](sql-data-warehouse-restore-database-powershell.md), veya [T-SQL kullanarak bir veri ambarını geri yükleme](sql-data-warehouse-restore-database-rest-api.md) .
+Bir veri ambarını geri yüklemek için bkz: [Azure portalını kullanarak bir veri ambarını geri yükleme](sql-data-warehouse-restore-database-portal.md), [PowerShell kullanarak bir veri ambarını geri yükleme](sql-data-warehouse-restore-database-powershell.md), veya [RESTAPI'lerinikullanarakbirveriambarınıgeriyükleme](sql-data-warehouse-restore-database-rest-api.md).
 
 Silinmiş ya da duraklatılmış veri ambarını geri yükleme için [bir destek bileti oluşturma](sql-data-warehouse-get-started-create-support-ticket.md). 
 

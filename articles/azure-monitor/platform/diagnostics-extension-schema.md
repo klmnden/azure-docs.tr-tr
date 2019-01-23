@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
-ms.component: diagnostic-extension
-ms.openlocfilehash: 064c1b8100e165627d5227b9f24b87aefae2e769
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.subservice: diagnostic-extension
+ms.openlocfilehash: 92ae1e31a739486871ebff69740f31a495c7b780
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790767"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471659"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Azure tanılama uzantısı yapılandırma şeması sürümleri ve geçmişi
 Bu sayfa dizinlerinin Azure tanılama Uzantı Şeması sürümleri, Microsoft Azure SDK'sı bir parçası olarak gönderildiğini.  
@@ -210,3 +210,4 @@ Azure SDK 2.4 için Azure SDK 2.5 veya üstü projenizi yükseltiyorsanız aşa�
 * **Bulut hizmet uygulamaları için tanılama yalnızca rol düzeyinde örnek düzeyinde yapılandırılabilir.**
 * **Uygulamanızı dağıtma her seferinde, tanılama yapılandırması güncelleştirilir** – Sunucu Gezgini'nden, Tanılama yapılandırmasını değiştirin ve ardından uygulamanızı yeniden dağıtın, bu eşlik sorunlara neden olabilir.
 * **Azure SDK 2.5 ve sonraki sürümlerinde, kilitlenme bilgi dökümleri tanılama yapılandırma dosyası, kod içinde değil yapılandırılan** – kodda yapılandırılmış kilitlenme bilgi dökümleri varsa, el ile yapılandırma kod yapılandırma dosyasına aktarmak çünkü gerekir kilitlenme bilgi dökümleri geçiş sırasında için Azure SDK 2.6 aktarılmaz.
+

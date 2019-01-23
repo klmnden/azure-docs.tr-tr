@@ -4,7 +4,7 @@ description: Azure AD Connect eşitleme filtrelemeyi yapılandırma açıklanmak
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 880facf6-1192-40e9-8181-544c0759d506
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b4cb5975eb5be3236558d0b0b19551c6726f64de
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 886ac908d2e294f4627f95b35d93ea49a9e1607a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54391036"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472339"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect eşitleme: Filtrelemeyi yapılandırma
 Filtreleme kullanarak, hangi nesnelerin Azure Active Directory (Azure AD) görüneceğini şirket içi dizininizden denetleyebilirsiniz. Varsayılan yapılandırma, yapılandırılmış Ormanlardaki etki alanlarındaki tüm nesneleri alır. Genel olarak, bu önerilen yapılandırmadır. E-posta gönderin ve herkesin çağırmak için eksiksiz bir genel adres listesi gibi Exchange Online ve Skype Kurumsal, Office 365 iş yükleri kullanarak kullanıcıların yararlanır. Varsayılan yapılandırma ile bir şirket içi Exchange veya Lync uygulamasıyla sahip olabileceği aynı deneyimi sahip.

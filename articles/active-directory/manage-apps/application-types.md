@@ -4,7 +4,7 @@ description: Kiracınızdaki tüm uygulamalar ve kurumsal uygulamaları altında
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: f6c18ce80e1c94ceac56bf188dcf62cc9ea94f7a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 3b4d060acc60cae661af393416863b924dde26ca
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832811"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464145"
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>Uygulamalar listemde beklenmedik bir uygulama
 

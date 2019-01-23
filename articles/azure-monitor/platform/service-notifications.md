@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 4/12/2018
 ms.author: dukek
-ms.component: logs
-ms.openlocfilehash: 2dec2b1f9bdca8c83669b753d424204218f7a9ae
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.subservice: logs
+ms.openlocfilehash: 9bd5ec3471fc3447d1e29d875c154793daf8e9e5
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190706"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474039"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Azure portalını kullanarak hizmet durumu bildirimlerini görüntüleme
 
@@ -48,7 +48,7 @@ operationName | İşlemin adı.
 category | Bu özellik her zaman, **ServiceHealth**.
 resourceId | Etkilenen kaynak kaynak kimliği.
 Properties.Title | Bu iletişim için yerelleştirilmiş başlığı. İngilizce varsayılandır.
-Properties.Communication | HTML biçimlendirmesi ile iletişimi yerelleştirilmiş ayrıntıları. İngilizce varsayılandır.
+Properties.communication | HTML biçimlendirmesi ile iletişimi yerelleştirilmiş ayrıntıları. İngilizce varsayılandır.
 Properties.incidentType | Aşağıdaki değerlerden biri: **Eylem gereklidir**, **bilgilendirici**, **olay**, **Bakım**, veya **güvenlik**.
 Properties.trackingId | Bu olay ile ilişkili olduğu olay. Bir olayla ilgili olayları ilişkilendirmek için bunu kullanın.
 Properties.impactedServices | Hizmetleri ve bölgeleri olaydan etkilenen açıklar JSON kaçan bir blob. Her biri, hizmetlerin bir listesini özelliği içeren bir **ServiceName**ve her biri etkilenen bölgelerin bir listesini bir **RegionName**.
@@ -66,7 +66,7 @@ Properties.communicationId | Bu olay ile ilişkili olduğu iletişimi.
     - Uyarı - Acil bakım
     - Bilgilendirici - standart planlı bakım
 
-**Bilgi** (properties.incidentType bilgi ==)
+**Information** (properties.incidentType == Information)
     - Bilgi - yönetici, mevcut hizmetlere etkiyi önlemek için gerekebilir
 
 **Güvenlik** (properties.incidentType güvenlik ==)
@@ -95,3 +95,4 @@ Properties.communicationId | Bu olay ile ilişkili olduğu iletişimi.
 ## <a name="next-steps"></a>Sonraki adımlar
 Alma [uyarı bildirimleri hizmet durumu bildirimi her](../../azure-monitor/platform/alerts-activity-log-service-notifications.md) gönderilir.  
 Daha fazla bilgi edinin [etkinlik günlüğü uyarıları](../../azure-monitor/platform/activity-log-alerts.md).
+

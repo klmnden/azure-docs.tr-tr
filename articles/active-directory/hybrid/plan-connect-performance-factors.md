@@ -3,7 +3,7 @@ title: Azure AD Connect performansını etkileyen faktörler
 description: Bu belgede, çeşitli Etkenler altyapısı sağlama Azure AD Connect etkilemek açıklanmaktadır. Bu etkenler, kuruluşların kendi eşitleme gereksinimlerini karşıladığından emin olmak için kendi Azure AD Connect dağıtımını planlamak için yardımcı olur.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 tags: azuread
 ms.service: active-directory
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/06/2018
 ms.reviewer: martincoetzer
 ms.author: billmath
-ms.openlocfilehash: cdca1b31f9b6cf10113dc0dba70b8f8991bafa2b
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 801082164a0110178034c5fbe050ebe8e02b2772
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093978"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474141"
 ---
 # <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Azure AD Connect performansını etkileyen faktörler
 
@@ -41,7 +41,7 @@ Aşağıdaki diyagramda, tek bir ormana bağlama altyapısı sağlama, birden ç
 
 ![AzureADConnentInternal](media/plan-connect-performance-factors/AzureADConnentInternal.png)
 
-Sağlama altyapısı, her bir Active Directory ormanına ve Azure AD'ye bağlanır. İçeri aktarma işleminin her dizinden bilgileri okunurken çağrılır. Dışarı aktarma sağlama altyapısından dizinleri güncelleştirmeye ifade eder. Eşitleme nesneleri sağlama altyapısı içinde nasıl akar kuralları değerlendirir. Daha ayrıntılı bir bakış için başvurabilirsiniz [Azure AD Connect eşitleme: mimarisini anlama](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-architecture).
+Sağlama altyapısı, her bir Active Directory ormanına ve Azure AD'ye bağlanır. İçeri aktarma işleminin her dizinden bilgileri okunurken çağrılır. Dışarı aktarma sağlama altyapısından dizinleri güncelleştirmeye ifade eder. Eşitleme nesneleri sağlama altyapısı içinde nasıl akar kuralları değerlendirir. Daha ayrıntılı bir bakış için başvurabilirsiniz [Azure AD Connect eşitleme: Mimariyi anlama](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-architecture).
 
 Azure AD Connect eşitleme Active Directory'den Azure AD'ye izin vermek için aşağıdaki hazırlama alanları, kural ve işlemleri kullanır:
 

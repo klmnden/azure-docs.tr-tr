@@ -3,7 +3,7 @@ title: Uygulamalar AD FS'den Azure AD'ye taşıyın. | Microsoft Docs
 description: Bu makalede, kuruluşların uygulamalar Federasyon SaaS uygulamalarına odaklanarak, Azure AD'ye taşıma anlamalarına yardımcı olmak için tasarlanmıştır.
 services: active-directory
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
 ms.author: barbkess
-ms.openlocfilehash: 7657ac2e2d5a169607c73b8934328ce41ecea78e
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: cf8ce4d39d0097c1ec1866a0aad071a2b5d8908f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141943"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474277"
 ---
 # <a name="move-applications-from-ad-fs-to-azure-ad"></a>Uygulamalar AD FS'den Azure AD'ye taşıma 
 
@@ -93,7 +93,7 @@ Aşağıdaki tabloda, çevirinize yardımcı olmak için AD FS, Azure AD ve SaaS
 ### <a name="representing-the-app-in-azure-ad-or-ad-fs"></a>Azure AD veya AD FS'de uygulamaları gösterme
 Geçiş işlemi, uygulamanın şirket içinde nasıl yapılandırıldığını değerlendirerek ve bu yapılandırmayı Azure AD'ye eşleyerek başlar. Aşağıdaki tabloda, AD FS bağlı olan taraf yapılandırma öğelerinin Azure AD'de bunlara karşılık gelen öğelerle eşlemesini bulabilirsiniz.  
 - AD FS terimi: Bağlı olan taraf veya bağlı olan taraf güveni.
-- Azure AD terimi: Kurumsal uygulama veya uygulama kaydı (uygulamanın türüne bağlı olarak).
+- Azure AD terimi: Kurumsal uygulama veya uygulama kaydı (uygulamanın türüne) bağlı olarak.
 
 |Uygulama yapılandırma öğesi|Açıklama|AD FS yapılandırmasındaki konum|Azure AD yapılandırmasında buna karşılık gelen konum|SAML belirteç öğesi|
 |-----|-----|-----|-----|-----|
@@ -124,7 +124,7 @@ Aşağıdaki tabloda, uygulamada SSO ayarlarını yapılandırmaya yönelik öne
 |IdP </br>oturumu kapatma </br>URL'si|Uygulamanın perspektifinden IdP'nin oturumu kapatma URL'si (uygulamada oturumu kapatmayı seçen kullanıcının yeniden yönlendirildiği konum).|AD FS için, oturumu kapatma URL'si oturum açma URL'siyle aynı olabileceği gibi, aynı URL'nin sonuna “wa=wsignout1.0” eklenmiş hali de olabilir. Örneğin: https&#58;//fs.contoso.com/adfs/ls/?wa=wsignout1.0|Azure AD'de buna karşılık gelen değer, uygulamanın SAML 2.0 oturumu kapatma işlemini destekleyip desteklemediğine bağlıdır.</br></br>Uygulama SAML oturumu kapatma işlemini destekliyorsa, değer {kiracı-kimliği} öğesinin kiracı kimliğiyle değiştirildiği desene uyar. Bunu Azure Portal'da, **Azure Active Directory** > **Özellikler** altında **Dizin Kimliği** olarak bulabilirsiniz: https&#58;//login.microsoftonline.com/{kiracı-kimliği}/saml2</br></br>Uygulama SAML oturumu kapatma işlemini desteklemiyorsa: https&#58;//login.microsoftonline.com/common/wsfederation?wa=wsignout1.0|
 |Belirteç </br>imzalama </br>sertifika|IdP'nin verilen belirteçleri imzalamak için özel anahtarını kullandığı sertifika. Belirtecin, uygulamanın güvenmek üzere yapılandırıldığı IdP'den geldiğini doğrular.|AD FS belirteç imzalama sertifikası AD FS Yönetimi'nde **Sertifikalar**'ın altında bulabilirsiniz.|Azure AD'de, belirteç imzalama sertifikasını Azure Portal'ın içinde uygulamanın **Çoklu oturum açma** özelliklerindeki **SAML İmzalama Sertifikası** başlığı altında bulabilirsiniz. Sertifikayı buradan indirip uygulamaya yükleyebilirsiniz.</br></br> Uygulamanın birden çok sertifikası varsa, tüm sertifikaları federasyon meta veri XML dosyasında bulabilirsiniz.|
 |Tanımlayıcı/</br>“veren”|Uygulamanın perspektifinden IdP'nin tanımlayıcısı (bazen “veren kimliği” olarak da adlandırılır).</br></br>SAML belirtecinde, değer **Issuer** öğesi olarak gösterilir.|AD FS için tanımlayıcı genellikle AD FS Yönetimi'nde **Hizmet** > **Federasyon Hizmeti Özelliklerini Düzenle**'nin altında yer alan federasyon hizmeti tanımlayıcısıdır. Örneğin: http&#58;//fs.contoso.com/adfs/services/trust|Azure AD için buna karşılık gelen değer, {kiracı-kimliği} değerinin kiracı kimliği ile değiştirildiği desene uyar. Bu değeri Azure Portal'da, **Azure Active Directory** > **Özellikler** altında **Dizin Kimliği** olarak bulabilirsiniz: https&#58;//sts.windows.net/{kiracı-kimliği}/|
-|IdP </br>federasyon </br>meta veriler|IdP'nin genel kullanıma açık federasyon meta verilerinin konumu. (Bazı uygulamalar federasyon meta verilerini yönetici yapılandırma URL'lerine, tanımlayıcıya ve bağımsız olarak belirteç imzalama sertifikasına alternatif olarak kullanılır)|AD FS federasyon meta verileri URL'sini, AD FS Yönetimi'nde **Hizmet** > **Uç Noktalar** > **Meta Veriler** > **Tür: Federasyon Meta Verileri**'nın altında bulabilirsiniz. Örneğin: https&#58;//fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml|Azure AD'de buna karşılık gelen değer şu desene uyar: https&#58;//login.microsoftonline.com/{KiracıEtkiAlanıAdı}/FederationMetadata/2007-06/FederationMetadata.xml. {KiracıEtkiAlanıAdı} değerinin yerine kiracınızın “contoso.onmicrosoft.com” biçimindeki adı kullanılır. </br></br>Daha fazla bilgi için bkz. [Federasyon meta verileri](../develop/azure-ad-federation-metadata.md).
+|IdP </br>federasyon </br>meta veriler|IdP'nin genel kullanıma açık federasyon meta verilerinin konumu. (Bazı uygulamalar federasyon meta verilerini yönetici yapılandırma URL'lerine, tanımlayıcıya ve bağımsız olarak belirteç imzalama sertifikasına alternatif olarak kullanılır)|AD FS federasyon meta verileri URL'sini AD FS Yönetimi altında bulabilirsiniz **hizmet** > **uç noktaları** > **meta verileri**  >   **Türü: Federasyon meta verileri**. Örneğin: https&#58;//fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml|Azure AD'de buna karşılık gelen değer şu desene uyar: https&#58;//login.microsoftonline.com/{KiracıEtkiAlanıAdı}/FederationMetadata/2007-06/FederationMetadata.xml. {KiracıEtkiAlanıAdı} değerinin yerine kiracınızın “contoso.onmicrosoft.com” biçimindeki adı kullanılır. </br></br>Daha fazla bilgi için bkz. [Federasyon meta verileri](../develop/azure-ad-federation-metadata.md).
 
 ## <a name="moving-saas-apps"></a>SaaS uygulamaları taşıma
 Taşıma SaaS uygulamalarını AD fs'den veya başka bir kimlik sağlayıcısından Azure AD'ye bir el ile bugün işlemidir. Uygulamaya özgü yönergeler için [Market'te bulunan SaaS uygulamalarını tümleştirme konusundaki öğreticilerin listesine bakın](../saas-apps/tutorial-list.md).
@@ -210,19 +210,19 @@ Erişimi doğrulamak için, kullanıcıların oturum açtıklarında [erişim pa
 ### <a name="configure-the-saas-app"></a>SaaS uygulamasını yapılandırma
 Şirket içi federasyondan Azure AD'ye tam geçiş işlemi, üzerinde çalıştığınız SaaS uygulamasının birden çok kimlik sağlayıcısını destekleyip desteklemediğine bağlıdır. İşte birden çok IdP desteği hakkında sık sorulan bazı sorular:
 
-   **S: Bir uygulamanın birden çok IdP'yi desteklemesi ne anlama gelir?**
+   **S: Bir uygulama birden çok Idp'yi desteklemesi ne anlama geliyor?**
     
-   Y: Birden çok IdP'yi destekleyen SaaS uygulamaları, oturum açma deneyimindeki değişikliği işlemeden önce yeni IdP (bizim durumumuzda Azure AD) hakkındaki tüm bilgileri girmenize olanak tanır. Yapılandırma bittikten sonra, Azure AD'ye işaret etmek için uygulamanın kimlik doğrulama yapılandırmasına geçebilirsiniz.
+   C: Birden çok Idp'yi destekleyen SaaS uygulamaları oturum açma deneyimindeki tüm işlemeden önce yeni IDP (bizim durumumuzda Azure AD içinde) hakkında bilgileri girmenize olanak tanır. Yapılandırma bittikten sonra, Azure AD'ye işaret etmek için uygulamanın kimlik doğrulama yapılandırmasına geçebilirsiniz.
 
-   **S: SaaS uygulamasının birden çok IdP'yi desteklemesi neden önemlidir?**
+   **S: SaaS uygulamasının birden çok Idp'yi desteklemesi neden önemlidir?**
 
-   Y: Birden çok IdP desteklenmiyorsa, yöneticinin hizmet veya bakım kesintisi olarak kısa bir süre ayırması ve bu sürede Azure AD'yi uygulamanın yeni IdP'si olarak yapılandırması gerekir. Bu kesinti sırasında, kullanıcılara hesaplarında oturum açamayacakları bildirilmelidir.
+   C: Birden çok IDP desteklenmiyorsa, yöneticinin bu sırada Azure AD'yi uygulamanın yeni Idp'si yapılandırması bir hizmet veya bakım kesintisi olarak kısa bir zaman penceresi kenara ayırmanız gerekir. Bu kesinti sırasında, kullanıcılara hesaplarında oturum açamayacakları bildirilmelidir.
 
    Uygulama birden çok IdP'yi destekliyorsa, ek IdP önceden yapılandırılabilir. Bundan sonra yönetici Azure tam geçişi sırasında IdP'yi değiştirebilir.
 
    Uygulama birden çok IdP'yi destekliyorsa ve oturum açma için kimlik doğrulamasını birden çok IdP'nin eşzamanlı olarak işlemesini seçerseniz, kullanıcıya oturum açma sayfasında kimlik doğrulaması için IdP seçme olanağı sağlanır.
 
-#### <a name="example-support-for-multiple-idps"></a>Örnek: Birden çok IdP desteği
+#### <a name="example-support-for-multiple-idps"></a>Örnek: Birden çok IDP desteği
 Örneğin Salesforce'ta, IDP yapılandırmasını **Settings** > **Company Settings** > **My Domain** > **Authentication Configuration** altında bulabilirsiniz.
 
 ![Salesforce uygulamasında "Authentication Configuration" bölümü](media/migrate-adfs-apps-to-azure/migrate9.png)

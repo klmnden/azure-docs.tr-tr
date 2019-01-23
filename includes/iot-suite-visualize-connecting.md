@@ -8,54 +8,54 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 5702c6e9c9d75c6cccb82f1c57684ef7b9898c34
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 73ba80878615f04e1755a4d12014691c5ae2a077
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34666033"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54453129"
 ---
 ## <a name="view-device-telemetry"></a>Cihaz telemetrisini görüntüleme
 
-Cihazınızı gönderilen telemetriyi görüntüleyebilir **aygıtları** çözümdeki sayfası.
+Cihazınızın gönderilen telemetriyi görüntüleyebilirsiniz **cihazları** çözümdeki sayfası.
 
-1. Üzerinde aygıtlar listesinde sağladığınız cihazı seçin **aygıtları** sayfası. Bölmenin çizim cihaz telemetri dahil olmak üzere Cihazınızı hakkında bilgileri görüntüler:
+1. Şirket cihaz listesinde sağladığınız cihazı seçin **cihazları** sayfası. Bir panel Cihazınızı bir çizim cihaz telemetri dahil olmak üzere ilgili bilgileri görüntüler:
 
-    ![Cihaz ayrıntıları](media/iot-suite-visualize-connecting/devicesdetail.png)
+    ![Cihaz ayrıntıları bakın](media/iot-suite-visualize-connecting/devicesdetail.png)
 
 1. Seçin **baskısı** telemetri görünümünü değiştirmek için:
 
-    ![Görünüm baskısı telemetri](media/iot-suite-visualize-connecting/devicespressure.png)
+    ![Basınç telemetrisini görüntüleme](media/iot-suite-visualize-connecting/devicespressure.png)
 
-1. Cihazınızla ilgili tanılama bilgilerini görüntülemek için ekranı aşağı kaydırarak **tanılama**:
+1. Cihazınız hakkında tanılama bilgilerini görüntülemek için aşağı kaydırın **tanılama**:
 
-    ![Görünüm aygıt tanılama](media/iot-suite-visualize-connecting/devicesdiagnostics.png)
+    ![Cihaz tanılamayı görüntüle](media/iot-suite-visualize-connecting/devicesdiagnostics.png)
 
 ## <a name="act-on-your-device"></a>Cihazınızda hareket
 
-Cihazlarınızda yöntemleri çağırmak için **aygıtları** Uzaktan izleme çözümünde sayfası. Örneğin, Uzaktan izleme çözüm içinde **Soğutucu** aygıtları uygulayan bir **FirmwareUpdate** yöntemi.
+Cihazlarınızda yöntem çağırmak için **cihazları** Uzaktan izleme çözümünde sayfası. Örneğin, Uzaktan izleme çözüm içinde **Soğutucu** cihazları uygulayan bir **FirmwareUpdate** yöntemi.
 
-1. Seçin **aygıtları** gitmek için **aygıtları** çözümdeki sayfası.
+1. Seçin **cihazları** gitmek için **cihazları** çözümdeki sayfası.
 
-1. Üzerinde aygıtlar listesinde sağladığınız cihazı seçin **aygıtları** sayfa:
+1. Şirket cihaz listesinde sağladığınız cihazı seçin **cihazları** sayfası:
 
-    ![Fiziksel Cihazınızı seçin](media/iot-suite-visualize-connecting/devicesselect.png)
+    ![Gerçek Cihazınızı seçin](media/iot-suite-visualize-connecting/devicesselect.png)
 
-1. Cihazınızda çağırabilir yöntemlerinin listesini görüntülemek için seçin **işleri**, ardından **Run yöntemi**. Birden fazla cihazda işi zamanlamak için listede birden çok aygıt seçebilirsiniz. **İşleri** paneli yöntemi türlerini seçtiğiniz tüm cihazların ortak gösterir.
+1. Cihazınızda çağırabilirsiniz yöntemlerin listesini görüntülemek için seçin **işleri**, ardından **Run yöntemi**. Birden fazla cihazda çalıştırılacak bir iş zamanlamak için listede birden çok cihaz seçebilirsiniz. **İşleri** paneli yöntemi türleri, seçtiğiniz tüm cihazlar için ortak gösterir.
 
-1. Seçin **FirmwareUpdate**, iş adı ayarlamak **UpdatePhysicalChiller**. Ayarlama **bellenim sürümü** için **2.0.0**ayarlayın **bellenim URI** için **http://contoso.com/updates/firmware.bin**ve ardından **Uygula**:
+1. Seçin **FirmwareUpdate**, iş adı kümesine **UpdatePhysicalChiller**. Ayarlama **üretici yazılımı sürümü** için **2.0.0**ayarlayın **bellenim URI** için **http://contoso.com/updates/firmware.bin**ve ardından **Uygula**:
 
-    ![Zamanlama bellenimi güncelleştirme](media/iot-suite-visualize-connecting/deviceschedule.png)
+    ![Üretici yazılımı güncelleştirme zamanla](media/iot-suite-visualize-connecting/deviceschedule.png)
 
-1. İleti sırası, sanal cihaz yöntemi işlerken aygıt kodunuzu çalıştırmaya görüntülemez.
+1. İletiler dizisini sanal cihazı yöntemi işlerken cihazınızın kodunu çalıştıran konsolda görüntüler.
 
-1. Güncelleştirme tamamlandığında, yeni bellenim sürümü görüntüler **aygıtları** sayfa:
+1. Güncelleştirme tamamlandığında, yeni bellenim sürümünü görüntüler **cihazları** sayfası:
 
     ![Güncelleştirme tamamlandı](media/iot-suite-visualize-connecting/complete.png)
 
 > [!NOTE]
-> Çözümdeki işinin durumunu izlemek için tercih **Görünüm**.
+> İş çözümdeki durumunu izlemek için seçin **görünümü**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Makaleyi [Uzaktan izleme Çözüm Hızlandırıcısı özelleştirme](../articles/iot-accelerators/iot-accelerators-remote-monitoring-customize.md) Çözüm Hızlandırıcısı özelleştirmek için bazı yöntemleri açıklar.
+Makaleyi [Uzaktan izleme çözüm Hızlandırıcısını özelleştirme](../articles/iot-accelerators/iot-accelerators-remote-monitoring-customize.md) çözüm Hızlandırıcısını özelleştirmek için kullanabileceğiniz adımlar anlatılmaktadır.

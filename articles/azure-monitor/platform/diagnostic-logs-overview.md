@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
-ms.component: logs
-ms.openlocfilehash: 88cd6bac85a8f255c33c1834485b8f90a04b8ee4
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.subservice: logs
+ms.openlocfilehash: 44950a467e99fb7968d838345d80c8e28aee62b9
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54305392"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467477"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Toplama ve Azure kaynaklarınızdan günlük verilerini kullanma
 
@@ -236,3 +236,4 @@ Tanılama ayarı ekleme nerede etkinleştirebilir, devre dışı bırakmak veya 
 * [Kaynak tanılama günlükleri için Stream **olay hub'ları**](diagnostic-logs-stream-event-hubs.md)
 * [Azure İzleyici REST API'sini kullanarak kaynak tanılama ayarlarını değiştirme](https://docs.microsoft.com/rest/api/monitor/)
 * [Log Analytics ile Azure depolama biriminden günlüklerini çözümleme](../../azure-monitor/platform/collect-azure-metrics-logs.md)
+

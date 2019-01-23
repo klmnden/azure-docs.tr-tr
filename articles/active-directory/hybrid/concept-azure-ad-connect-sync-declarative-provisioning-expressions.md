@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect: Bildirim temelli sağlama ifadelerini | Microsoft Docs'
+title: 'Azure AD Connect: Bildirim temelli sağlama ifadeleri | Microsoft Docs'
 description: Bildirim temelli sağlama ifadelerini açıklar.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: e3ea53c8-3801-4acf-a297-0fb9bb1bf11d
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 26c835e6c2f658f7ad852fdd02dc8974db33e47b
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 488309d9d78834896a939c66ccdc7515310103de
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312070"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54460508"
 ---
-# <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Azure AD Connect eşitleme: bildirim temelli sağlama ifadelerini anlama
+# <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Azure AD Connect eşitleme: Bildirim Temelli Sağlama İfadelerini Anlama
 Azure AD Connect eşitleme ilk Forefront Identity Manager 2010'da tanıtılan bildirim temelli sağlama üzerinde oluşturur. Tam kimlik tümleştirme iş mantığınızı derlenmiş kod yazmak zorunda kalmadan olanak tanır.
 
 Öznitelik akışlarında kullanılan bir ifade dili bildirim temelli sağlama, önemli bir parçasıdır. Kullanılan dil, Microsoft® Visual Basic® Applications (VBA) için bir alt kümesidir. VBScript deneyimi olan kullanıcılar da bunu algılar ve bu dil Microsoft Office'de kullanılır. Bildirim temelli sağlama ifade dili işlevleri yalnızca kullanıyor ve yapılandırılmış bir dil değil. Deyimleri veya yöntemler yoktur. Bunun yerine işlevler için hızlı program akışı iç içe geçirilmiştir.
@@ -32,13 +32,13 @@ Daha fazla ayrıntı için [Hoş Geldiniz Office 2013 için dil başvurusu uygul
 Öznitelikleri kesin türlü yapılır. Bir işlev yalnızca doğru türde öznitelikleri kabul eder. Büyük küçük harfe duyarlıdır. İşlev adları ve öznitelik adları hem doğru büyük/küçük harf olmalıdır veya bir hata oluşturulur.
 
 ## <a name="language-definitions-and-identifiers"></a>Dil tanımları ve tanımlayıcıları
-* İşlevlerde bağımsız değişkenleri köşeli ayraçlar içindeki arkasından bir ad: FunctionName (1 bağımsız değişken, bağımsız değişken N).
+* İşlevler, bağımsız değişkenleri köşeli ayraçlar içindeki arkasından bir ada sahip: FunctionName (1 bağımsız değişken, bağımsız değişken N).
 * Öznitelik, köşeli ayraç tanımlanır: [attributeName]
 * Parametreleri yüzde işaretleri tarafından tanımlanır: % ParameterName %
-* Dize sabitleri tırnak işareti içine alınmış: Örneğin, "Contoso" (Not: düz tırnak kullanmanız gerekir "" ve akıllı tırnaklar değil "")
+* Dize sabitleri, tırnak işareti içine: Örneğin, "Contoso" (Not: düz tırnak kullanmanız gerekir "" ve akıllı tırnaklar değil "")
 * Sayısal değerleri tırnak işaretleri olmadan ifade ve ondalık olması bekleniyor. Onaltılık değerler önekiyle & h Örneğin, 98052 & HFF
-* Boole değerleri sabitler ile ifade edilir: True, False.
-* Yerleşik sabitlerini ve sabit değerleri yalnızca adlarına ile ifade edilir: NULL, CRLF, IgnoreThisFlow
+* Boole değerleri sabitleriyle gösterilir: TRUE, False.
+* Yerleşik sabitlerini ve sabit değerleri yalnızca adla belirtilir: NULL, CRLF, IgnoreThisFlow
 
 ### <a name="functions"></a>İşlevler
 Bildirim temelli sağlama, öznitelik değerleri dönüştürme etme olanağını etkinleştirmek için birçok işlevlerini kullanır. Bu işlevler bir işlev sonucu başka bir işleve geçirilen şekilde yuvalanabilir.
@@ -93,7 +93,7 @@ Aşağıdaki işleçleri kullanabilirsiniz:
 
 **Genel bakış konuları**
 
-* [Azure AD Connect eşitleme: anlamak ve eşitleme özelleştirme](how-to-connect-sync-whatis.md)
+* [Azure AD Connect eşitleme: Anlama ve eşitleme özelleştirme](how-to-connect-sync-whatis.md)
 * [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](whatis-hybrid-identity.md)
 
 **Başvuru konuları**

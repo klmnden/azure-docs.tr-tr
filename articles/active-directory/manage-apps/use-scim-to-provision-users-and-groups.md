@@ -4,7 +4,7 @@ description: Azure Active Directory Kullanıcıları ve grupları SCIM Protokol�
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -16,12 +16,12 @@ ms.date: 12/12/2017
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: 04287d286aed872a2b951c47e0f67a93bd19c7b3
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 13491b10096e651b40a83e072057250e856d4ef1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53583485"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469548"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Kullanıcılar ve grupların Azure Active Directory'den uygulamalara otomatik olarak sağlamak için sistem etki alanları arası Kimlik Yönetimi (SCIM) kullanma
 
@@ -465,9 +465,9 @@ Aşağıdaki çizimde gösterildiği Azure Active Directory kullanıcı başka b
    Aşağıdaki örnekte bir kullanıcı için bir sorgunun externalID özniteliği için belirtilen bir değerle sorgu yöntemine geçirilen bağımsız değişkenlerin değerleri şunlardır: 
    * Parametreler. AlternateFilters.Count: 1
    * Parametreler. AlternateFilters.ElementAt(0). AttributePath: "externalID ="
-   * Parametreler. AlternateFilters.ElementAt(0). ComparisonOperator: ComparisonOperator.Equals
+   * parameters.AlternateFilters.ElementAt(0).ComparisonOperator: ComparisonOperator.Equals
    * Parametreler. AlternateFilter.ElementAt(0). ComparisonValue: "jyoung"
-   * correlationIdentifier: System.Net.Http.HttpRequestMessage.GetOwinEnvironment["owin. RequestId"] 
+   * correlationIdentifier: System.Net.Http.HttpRequestMessage.GetOwinEnvironment["owin.RequestId"] 
 
 2. Web hizmeti bir kullanıcı mailNickname özniteliğinin değeri ile eşleşen bir externalID öznitelik değeri olan bir kullanıcı için bir sorguya yanıt herhangi bir kullanıcı döndürmezse, ardından Azure Active Directory Hizmet birine karşılık gelen bir kullanıcı sağlama istekleri Azure Active Directory'de.  Böyle bir isteğin bir örnek aşağıda verilmiştir: 
 
@@ -570,12 +570,12 @@ Aşağıdaki çizimde gösterildiği Azure Active Directory kullanıcı başka b
    Hizmet SCIM Hizmetleri uygulamak için Microsoft tarafından sağlanan ortak dil altyapısı kitaplıklar kullanılarak oluşturulduysa, isteği hizmet sağlayıcısının sorgu yöntemine bir çağrı çevrilir. Parametre bağımsız değişkenin değeri sağlanan nesne özelliklerini değerini aşağıdaki gibidir: 
   
    * Parametreler. AlternateFilters.Count: 2
-   * Parametreler. AlternateFilters.ElementAt(x). AttributePath: "Kimlik"
-   * Parametreler. AlternateFilters.ElementAt(x). ComparisonOperator: ComparisonOperator.Equals
+   * parameters.AlternateFilters.ElementAt(x).AttributePath: "Kimlik"
+   * parameters.AlternateFilters.ElementAt(x).ComparisonOperator: ComparisonOperator.Equals
    * Parametreler. AlternateFilter.ElementAt(x). ComparisonValue:  "54D382A4-2050-4C03-94D1-E769F1D15682"
    * Parametreler. AlternateFilters.ElementAt(y). AttributePath: "Yönetici"
-   * Parametreler. AlternateFilters.ElementAt(y). ComparisonOperator: ComparisonOperator.Equals
-   * Parametreler. AlternateFilter.ElementAt(y). ComparisonValue:  "2819c223-7f76-453a-919d-413861904646"
+   * parameters.AlternateFilters.ElementAt(y).ComparisonOperator: ComparisonOperator.Equals
+   * parameters.AlternateFilter.ElementAt(y).ComparisonValue:  "2819c223-7f76-453a-919d-413861904646"
    * Parametreler. RequestedAttributePaths.ElementAt(0): "Kimlik"
    * Parametreler. SchemaIdentifier: "urn: ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
@@ -695,7 +695,7 @@ Aşağıdaki çizimde gösterildiği Azure Active Directory kullanıcı başka b
    * (PatchRequest PatchRequest2 olarak). Operations.ElementAt(0). Path.AttributePath: "Yönetici"
    * (PatchRequest PatchRequest2 olarak). Operations.ElementAt(0). Value.Count: 1
    * (PatchRequest PatchRequest2 olarak). Operations.ElementAt(0). Value.ElementAt(0). Başvuru: http://.../scim/Users/2819c223-7f76-453a-919d-413861904646
-   * (PatchRequest PatchRequest2 olarak). Operations.ElementAt(0). Value.ElementAt(0). Değer: 2819c223-7f76-453A-919d-413861904646
+   * (PatchRequest PatchRequest2 olarak). Operations.ElementAt(0). Value.ElementAt(0). Değer: 2819c223-7f76-453a-919d-413861904646
 
 6. Bir kullanıcı bir SCIM hizmeti tarafından fronted kimlik mağazadan sağlamasını için Azure AD gibi bir istek gönderir: 
 

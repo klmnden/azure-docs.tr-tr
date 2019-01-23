@@ -4,7 +4,7 @@ description: Kimlik ve karma bir ortamda kullanıcılar için kaynaklar için er
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: e3b3b984-0d15-4654-93be-a396324b9f5e
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: a92d3237300fcd29fecf49d78b2866f8bd7e6a6b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f71fc7547ef60cdc3d038705dbb04d396affdf0a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247713"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478238"
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>Karma kimlik çözümünüz için erişim denetimi gereksinimleri belirleme
 Bir kuruluşun kendi karma kimlik çözümü tasarlarken, bunlar bu fırsattan kullanıcılar için kullanılabilir hale getirmek için planlama kaynaklar için erişim gereksinimleri gözden geçirmek için kullanabilirsiniz. Veri erişimi olan tüm dört yapı taşları kimliğinin, çapraz:
@@ -59,7 +59,7 @@ Kuruluşunuz benimseyeceği hangi modelle iş gereksinimlerine göre farklılık
 * Kuruluşunuz, çoklu oturum açma bulunan uygulamalar şirket içi veya bulutta kullanıyor?
   * Evet ise, bu işlem karma kimlik modeli benimsenmesini etkiliyor?
 
-## <a name="access-control"></a>Access Control
+## <a name="access-control"></a>Erişim Denetimi
 Kimlik doğrulama ve yetkilendirme kullanıcının doğrulama şirket verilerine erişimi etkinleştirmek için çekirdek öğeleri olsa da, ayrıca, bu kullanıcılar ve kaynaklar erişim yöneticileri düzeyini alacaktır erişim düzeyini denetlemek önemlidir Bunlar, yönetiyorsunuz. Karma kimlik çözümü, kaynakları, temsilci ve rol tabanlı erişim denetimini ayrıntılı erişim sağlamak mümkün olması gerekir. Erişim denetimi ile ilgili aşağıdaki sorunun yanıtlandığını emin olun:
 
 * Şirketinizin kimlik sisteminizde yönetmek için yükseltilmiş ayrıcalığa sahip birden fazla kullanıcı var mı?

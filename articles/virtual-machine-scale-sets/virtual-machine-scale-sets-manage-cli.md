@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: zarhoads
-ms.openlocfilehash: c86ea4ca5353207d091d3e6edb13f1f3eba59175
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 84e01c319ab058c9abb05cd9882f4c25bea5cffb
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54410668"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462043"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Sanal makine ölçek kümesi Azure CLI ile yönetme
 Sanal makine ölçek kümesinin yaşam döngüsü boyunca bir veya daha fazla yönetim görevi çalıştırmanız gerekebilir. Ayrıca, çeşitli yaşam döngüsü görevlerini otomatikleştiren betikler oluşturmak isteyebilirsiniz. Bu makalede bu görevleri gerçekleştirmenize olanak tanıyan ortak Azure CLI komutlarının bazıları ayrıntılı olarak açıklanmaktadır.
@@ -46,7 +46,7 @@ az vmss list-instances \
     --output table
 ```
 
-Belirli bir sanal makine örneği hakkında ek bilgi görüntülemek için Ekle `--instance-id` parametresi [az vmss get-instance-view](/cli/azure/vmss#get-instance-view) ve görüntülemek için bir örnek belirtin. Aşağıdaki örnek, sanal makine örneği hakkında bilgi görüntüler *0* adlı ölçek kümesi içinde *myScaleSet* ve *myResourceGroup* kaynak grubu. Şu şekilde kendi adlarınızı girin:
+Belirli bir sanal makine örneği hakkında ek bilgi görüntülemek için Ekle `--instance-id` parametresi [az vmss get-instance-view](/cli/azure/vmss) ve görüntülemek için bir örnek belirtin. Aşağıdaki örnek, sanal makine örneği hakkında bilgi görüntüler *0* adlı ölçek kümesi içinde *myScaleSet* ve *myResourceGroup* kaynak grubu. Şu şekilde kendi adlarınızı girin:
 
 ```azurecli
 az vmss get-instance-view \

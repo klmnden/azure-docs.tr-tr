@@ -4,8 +4,8 @@ description: Bu öğreticide, bir iOS uygulamasına anında iletme bildirimleri 
 services: notification-hubs
 documentationcenter: ios
 keywords: anında iletme bildirimi,anında iletme bildirimleri,ios anında iletme bildirimleri
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 ms.assetid: b7fcd916-8db8-41a6-ae88-fc02d57cb914
 ms.service: notification-hubs
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/14/2018
-ms.author: dimazaid
-ms.openlocfilehash: 27172696a1b94c1571bdade27d80de6b9a82d911
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
-ms.translationtype: HT
+ms.date: 01/04/2019
+ms.author: jowargo
+ms.openlocfilehash: 63fb04e6b31fe4026b93cef09d88601d6182101a
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353977"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448318"
 ---
-# <a name="tutorial-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>Öğretici: Azure Notification Hubs kullanarak iOS uygulamalarına anında iletme bildirimleri gönderme
+# <a name="tutorial-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>Öğretici: Azure Notification hubs'ı kullanarak iOS uygulamaları için anında iletme bildirimleri
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-Bu öğreticide, bir iOS uygulamasına anında iletme bildirimleri göndermek için Azure Notification Hubs’ı kullanırsınız. [Apple Anında İletilen Bildirim servisini (APNs)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1) kullanarak anında iletme bildirimleri alan boş bir iOS uygulaması oluşturursunuz. 
+Bu öğreticide, bir iOS uygulamasına anında iletme bildirimleri göndermek için Azure Notification Hubs’ı kullanırsınız. [Apple Anında İletilen Bildirim servisini (APNs)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1) kullanarak anında iletme bildirimleri alan boş bir iOS uygulaması oluşturursunuz.
 
 Bu öğreticide, aşağıdaki adımları gerçekleştireceksiniz:
 
@@ -42,29 +42,30 @@ Bu öğreticide, aşağıdaki adımları gerçekleştireceksiniz:
 
 Bu öğreticinin tamamlanan kodu [GitHub'da](https://github.com/Azure/azure-notificationhubs-samples/tree/master/iOS/GetStartedNH/GetStarted) bulunabilir. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
-- Etkin bir Azure hesabı. Hesabınız yoksa yalnızca birkaç dakika içinde [ücretsiz bir deneme hesabı](https://azure.microsoft.com/free) oluşturabilirsiniz. 
-- [Windows Azure Messaging Framework]
-- [Xcode]'un en son sürümü
-- iOS 10 (veya sonraki bir sürümü) uyumlu bir cihaz
-- [Apple Developer Program](https://developer.apple.com/programs/) üyeliği.
+* Etkin bir Azure hesabı. Bir hesabınız yoksa, şunları yapabilirsiniz [ücretsiz bir Azure hesabı oluşturun](https://azure.microsoft.com/free) yalnızca birkaç dakika içinde.
+* [Windows Azure Messaging Framework]
+* [Xcode]'un en son sürümü
+* iOS 10 (veya sonraki bir sürümü) uyumlu bir cihaz
+* [Apple Developer Program](https://developer.apple.com/programs/) üyeliği.
   
-  > [!NOTE]
-  > Anında iletme bildirimlerinin yapılandırma gereksinimleri nedeniyle, anında iletme bildirimlerini iOS Simülatörü'nün yerine fiziksel bir iOS cihazında (iPhone veya iPad) dağıtmanız ve test etmeniz gerekir.
+ > [!NOTE]
+ > Anında iletme bildirimlerinin yapılandırma gereksinimleri nedeniyle, anında iletme bildirimlerini iOS Simülatörü'nün yerine fiziksel bir iOS cihazında (iPhone veya iPad) dağıtmanız ve test etmeniz gerekir.
   
 Bu öğreticiyi tamamlamak iOS uygulamalarına ilişkin diğer tüm Notification Hubs öğreticileri için önkoşuldur.
 
 [!INCLUDE [Notification Hubs Enable Apple Push Notifications](../../includes/notification-hubs-enable-apple-push-notifications.md)]
 
 ## <a name="configure-your-notification-hub-for-ios-push-notifications"></a>iOS anında iletme bildirimleri için Notification Hub'ınızı yapılandırma
+
 Bu bölümde, bir bildirim hub’ı oluşturur ve önceden oluşturduğunuz **.p12** anında iletme sertifikasını kullanarak APNS ile kimlik doğrulamasını yapılandırırsınız. Önceden oluşturduğunuz bir bildirim hub'ını kullanmak istiyorsanız 5. adıma geçebilirsiniz.
 
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
 ### <a name="configure-your-notification-hub-with-apns-information"></a>APNS bilgileriyle bildirim hub’ınızı yapılandırma
 
-1. **Bildirim Hizmetleri** bölümünde **Apple (APNS)** seçeneğini belirleyin. 
+1. **Bildirim Hizmetleri** bölümünde **Apple (APNS)** seçeneğini belirleyin.
 2. **Sertifika**’yı seçin.
 3. **Dosya simgesini** seçin.
 4. Daha önce dışarı aktardığınız **.p12** dosyasını seçin.
@@ -99,7 +100,7 @@ Bildirim hub'ınızı APNS ile birlikte çalışacak şekilde yapılandırdını
 
     ![Azure SDK'nın sıkıştırmasını açma][10]
 
-6. Projenize **HubInfo.h** adlı yeni bir üst bilgi dosyası ekleyin. Bu dosya, bildirim hub’ınız için sabitleri tutar. Aşağıdaki tanımları ekleyin ve dize sabiti yer tutucularını, daha önce not ettiğiniz *hub adınız* ve *DefaultListenSharedAccessSignature* ile değiştirin.
+6. Projenize `HubInfo.h` adlı yeni bir üst bilgi dosyası ekleyin. Bu dosya, bildirim hub’ınız için sabitleri tutar. Aşağıdaki tanımları ekleyin ve dize sabiti yer tutucularını, daha önce not ettiğiniz *hub adınız* ve *DefaultListenSharedAccessSignature* ile değiştirin.
 
     ```objc
     #ifndef HubInfo_h
@@ -111,14 +112,14 @@ Bildirim hub'ınızı APNS ile birlikte çalışacak şekilde yapılandırdını
     #endif /* HubInfo_h */
     ```
 
-7. **AppDelegate.h** dosyanızı açıp aşağıdaki içeri aktarma yönergelerini ekleyin:
+7. `AppDelegate.h` dosyanızı açıp aşağıdaki içeri aktarma yönergelerini ekleyin:
 
     ```objc
     #import <WindowsAzureMessaging/WindowsAzureMessaging.h>
-    #import <UserNotifications/UserNotifications.h> 
+    #import <UserNotifications/UserNotifications.h>
     #import "HubInfo.h"
     ```
-8. **AppDelegate.m file** dosyanızın **didFinishLaunchingWithOptions** yöntemine iOS sürümünüze bağlı olarak aşağıdaki kodu ekleyin. Bu kod, cihaz tanıtıcınızı APNs'ye kaydeder:
+8. İçinde `AppDelegate.m` dosyasında, aşağıdaki kodu ekleyin `didFinishLaunchingWithOptions` yöntemine iOS sürümünüze bağlı. Bu kod, cihaz tanıtıcınızı APNs'ye kaydeder:
 
     ```objc
     UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeSound |
@@ -191,14 +192,12 @@ iOS'ta anında iletme bildirimlerini test etmek için, uygulamayı fiziksel bir 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu basit örnekte, tüm kayıtlı iOS cihazlarınıza anında iletme bildirimleri yayımladınız. Belirli iOS cihazlarına nasıl anında iletme bildirimleri gönderileceğini öğrenmek için aşağıdaki öğreticiye ilerleyin: 
+Bu basit örnekte, tüm kayıtlı iOS cihazlarınıza anında iletme bildirimleri yayımladınız. Belirli iOS cihazlarına nasıl anında iletme bildirimleri gönderileceğini öğrenmek için aşağıdaki öğreticiye ilerleyin:
 
 > [!div class="nextstepaction"]
 >[Belirli cihazlara anında iletme bildirimleri gönderme](notification-hubs-ios-xplat-segmented-apns-push-notification.md)
 
-
 <!-- Images. -->
-
 [6]: ./media/notification-hubs-ios-get-started/notification-hubs-apple-config.png
 [7]: ./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png
 [8]: ./media/notification-hubs-ios-get-started/notification-hubs-create-ios-app.png
@@ -206,15 +205,11 @@ Bu basit örnekte, tüm kayıtlı iOS cihazlarınıza anında iletme bildirimler
 [10]: ./media/notification-hubs-ios-get-started/notification-hubs-create-ios-app3.png
 [11]: ./media/notification-hubs-ios-get-started/notification-hubs-xcode-product-name.png
 [12]: ./media/notification-hubs-ios-get-started/notification-hubs-enable-push.png
-
 [30]: ./media/notification-hubs-ios-get-started/notification-hubs-test-send.png
-
 [31]: ./media/notification-hubs-ios-get-started/notification-hubs-ios-ui.png
 [32]: ./media/notification-hubs-ios-get-started/notification-hubs-storyboard-view.png
 [33]: ./media/notification-hubs-ios-get-started/notification-hubs-test1.png
 [35]: ./media/notification-hubs-ios-get-started/notification-hubs-test3.png
-
-
 
 <!-- URLs. -->
 [Windows Azure Messaging Framework]: http://go.microsoft.com/fwlink/?LinkID=799698&clcid=0x409
@@ -222,15 +217,12 @@ Bu basit örnekte, tüm kayıtlı iOS cihazlarınıza anında iletme bildirimler
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
-
 [Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
 [Azure Notification Hubs Notify Users for iOS with .NET backend]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
-
 [Local and Push Notification Programming Guide]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
-[Azure Portal]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com

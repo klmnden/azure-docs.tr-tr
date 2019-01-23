@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: ancav
-ms.component: autoscale
-ms.openlocfilehash: ae0ad4422c8c8ce01ed9d00d2966212d1bdb5c7f
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.subservice: autoscale
+ms.openlocfilehash: 46d7520cce89d3f4204b9bf8f5da66506b1437fd
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53440999"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475263"
 ---
 # <a name="overview-of-common-autoscale-patterns"></a>Ortak otomatik ölçeklendirme desenleri genel bakış
 Bu makalede, Azure'da kaynağınızı ölçeklendirmek için ortak desenler bazılarını açıklar.
@@ -66,3 +66,4 @@ Bir web ön uç ve arka ucunuzla iletişim kuran bir API katmanı vardır.
 [3]: ./media/autoscale-common-scale-patterns/weekday-weekend-scale.png
 [4]: ./media/autoscale-common-scale-patterns/holidays-scale.png
 [5]: ./media/autoscale-common-scale-patterns/custom-metric-scale.png
+

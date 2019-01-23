@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 50a6bc40dbc79242e7c64bbc2082baeac224ba2e
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: 77896b3aa7e259c3d125c8796d73b47a635c88a6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467931"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470492"
 ---
 # <a name="create-a-vm-with-nginx"></a>NGINX ile VM oluşturma
 
@@ -65,7 +65,7 @@ Bu betik, bir kaynak grubu, sanal makine ve tüm ilgili kaynakları oluşturmak 
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Sanal makineyi oluşturur. Bu komut ayrıca kullanılacak sanal makine görüntüsünü ve yönetici kimlik bilgilerini belirtir.  |
-| [az vm open-port](https://docs.microsoft.com/cli/azure/network/nsg/rule#az_network_nsg_rule_create) | Gelen trafiğe izin veren bir ağ güvenlik grubu kuralı oluşturur. Bu örnekte, 80 numaralı bağlantı noktası HTTP trafiğine açılır. |
+| [az vm open-port](https://docs.microsoft.com/cli/azure/network/nsg/rule) | Gelen trafiğe izin veren bir ağ güvenlik grubu kuralı oluşturur. Bu örnekte, 80 numaralı bağlantı noktası HTTP trafiğine açılır. |
 | [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Bir VM’ye sanal makine uzantısı ekler ve çalıştırır. Bu örnekte NGINX yüklemek için özel betik uzantısı kullanılır.|
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Bir kaynak grubunu tüm iç içe geçmiş kaynaklar dahil siler. |
 

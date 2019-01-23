@@ -3,19 +3,19 @@ title: "Öğretici:  Geçişli kimlik doğrulaması (PTA) kullanarak Azure'da te
 description: Geçişli kimlik doğrulaması kullanarak bir karma kimlik ortamını ayarlama işlemi gösterilmektedir.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 09/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 140161e88ee572d728a7f9c923c9528ea6755cc1
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 6bbf9cbea0671aaa73ddc5402f3102eea3154e6c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53165465"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467928"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-pass-through-authentication-pta"></a>Öğretici:  Geçişli kimlik doğrulaması (PTA) kullanarak tek bir AD ormanında tümleştirme
 
@@ -226,7 +226,7 @@ Artık Azure AD Connect karşıdan yüklenip kurulacak zamanı geldi.  Yüklendi
 ![PTA](media/tutorial-passthrough-authentication/pta1.png)</b>
 7. Azure AD ekranına bağlanma, kullanıcı ve yukarıda oluşturduğumuz genel yönetici parolasını girin ve tıklatın **sonraki**.
 2. Dizinleri ekranınıza Connect üzerinde tıklayın **Dizin Ekle**.  Ardından **yeni AD hesabı oluştur** contoso\Administrator kullanıcı adı ve parola girip __iade **Tamam**.
-3. **İleri**'ye tıklayın.
+3. **İleri**’ye tıklayın.
 4. Azure AD oturum açma yapılandırması ekranında seçin **tüm UPN soneki, doğrulanmış etki alanlarına eşleme olmadan devam** tıklatıp **sonraki.**
 5. Etki alanı ve OU filtreleme ekran'ı **sonraki**.
 6. Kullanıcıların ekranın tanıtan üzerinde ' a tıklayın **sonraki**.

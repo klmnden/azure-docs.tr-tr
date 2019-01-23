@@ -9,25 +9,23 @@ ms.topic: quickstart
 ms.reviewer: sgilley
 author: hning86
 ms.author: haining
-ms.date: 12/04/2018
+ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 14c500d77cc0e67aaade5e6be490f599f39bfad5
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 0dab14e9c8f99a10b1dc26c2adb1e88d3b18ee90
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53807729"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468176"
 ---
 # <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>Hızlı Başlangıç: Azure Machine Learning'i kullanmaya başlamak için Azure portalını kullanma
 
-Bu hızlı başlangıçta Azure Machine Learning çalışma alanı oluşturmak için Azure portalını kullanacaksınız. Bu çalışma alanı Machine Learning ile bulutta makine öğrenmesi modellerini denemek, eğitmek ve dağıtmak için kullanabileceğiniz temel bileşenlerden biridir. Bu hızlı başlangıçta bulut kaynakları kullanılmaktadır ve bu nedenle herhangi bir yükleme yapmanıza gerek yoktur. Bunun yerine kendi Jupyter Notebook sunucusu yapılandırmak için bkz [hızlı başlangıç: Azure Machine Learning'i kullanmaya başlamak için Python kullanma](quickstart-create-workspace-with-python.md).  
+Azure Machine Learning çalışma alanı oluşturmak için Azure portalını kullanın. Bu çalışma alanı Machine Learning ile bulutta makine öğrenmesi modellerini denemek, eğitmek ve dağıtmak için kullanabileceğiniz temel bileşenlerden biridir. Bu hızlı başlangıçta bulut kaynakları kullanılmaktadır ve bu nedenle herhangi bir yükleme yapmanıza gerek yoktur. Bunun yerine kendi Jupyter Notebook sunucusu yapılandırmak için bkz [hızlı başlangıç: Azure Machine Learning'i kullanmaya başlamak için Python kullanma](quickstart-create-workspace-with-python.md).  
  
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2F9Ad]
-
 Bu hızlı başlangıçta, aşağıdaki eylemleri gerçekleştirin:
 
 * Azure aboneliğinizde çalışma alanı oluşturma.
-* Python ile Azure bir not defteri ve günlük değerleri arasında birden çok yineleme deneyin.
+* Python ile bir Jupyter not defteri ve günlük değerleri arasında birden çok yineleme deneyin.
 * Günlüğe kaydedilen değerleri çalışma alanınızda görüntüleme.
 
 Aşağıdaki Azure kaynakları, bölgesel kullanıma sunulduğunda çalışma alanınıza otomatik olarak eklenir:
@@ -46,14 +44,14 @@ Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Dene
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-Çalışma alanı sayfasında `Explore your Azure Machine Learning service Workspace` öğesini seçin.
-
- ![Çalışma alanını keşfedin](./media/quickstart-get-started/explore_aml.png)
-
 
 ## <a name="use-the-workspace"></a>Çalışma alanını kullanma
 
-Şimdi çalışma alanının makine öğrenmesi betiklerinizin yönetimine nasıl yardımcı olduğunu göreceksiniz. Bu bölümde, aşağıdaki adımları uygulayın:
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2F9Ad]
+
+
+
+Artık bir çalışma alanı, makine öğrenimi betiklerini yönetmenize nasıl yardımcı olduğunu öğrenin. Bu bölümde, aşağıdaki adımları uygulayın:
 
 * Azure Notebooks'da bir not defteri açma.
 * Günlüğe kaydedilen bazı değerler oluşturan kodu çalıştırma.
@@ -63,46 +61,57 @@ Bu örnek, çalışma alanının betikte oluşturulan bilgileri izlemenize nası
 
 ### <a name="open-a-notebook"></a>Not defterini açma 
 
-Azure not defterleri, Machine Learning çalıştırmak için gereken her şeyi ile önceden yapılandırılmış Jupyter not defterleri için ücretsiz bulut platformu sağlar.  
+Azure not defterleri, Machine Learning çalıştırmak için gereken her şeyi ile önceden yapılandırılmış Jupyter not defterleri için ücretsiz bulut platformu sağlar. Çalışma alanınızdan çalışma alanınızı Azure Machine Learning hizmeti ile çalışmaya başlamak için bu platform başlatabilirsiniz.
 
-İlk denemenizi oluşturmak için `Open Azure Notebooks` öğesini seçin.
+1. Çalışma sayfasında **çalışma, Azure Machine Learning hizmetini keşfedin**.
+
+ ![Çalışma alanını keşfedin](./media/quickstart-get-started/explore_aml.png)
+
+1. Seçin **açık Azure not defterleri** ilk denemenizi Azure not defterlerinde denemek için.  Azure not defterleri, ücretsiz bulutta çalıştırmadan Jupyter Notebook sağlayan ayrı bir hizmettir.  Bu bağlantı hizmeti kullandığınızda, çalışma alanınıza bağlanma hakkında bilgi Azure not defterlerinde oluşturduğunuz kitaplığa eklenir.
 
  ![Azure Notebooks'u açın](./media/quickstart-get-started/explore_ws.png)
 
-Oturum açabilmeniz için kuruluşunuzda [yönetici onayı](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent) gerekli olabilir.
+1. Azure Not Defterleri'nda oturum açın.  Azure portalında oturum açmak için kullandığınız hesapla oturum açmanız emin olun. Oturum açabilmeniz için kuruluşunuzda [yönetici onayı](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent) gerekli olabilir.
 
-Azure not defterleri Azure portalında oturum açmak için kullanılan hesap ile oturum açın.  Siz oturum açtıktan sonra, yeni bir sekme açılır ve `Clone Library` istemi görüntülenir. `Clone` öğesini seçin.
+1. Siz oturum açtıktan sonra, yeni bir sekme açılır ve `Clone Library` istemi görüntülenir. Bu kitaplık kopyalama not defterleri ve diğer dosyaları bir dizi Azure not defterleri hesabınızda yükler.  Bu dosyaları Azure Machine Learning yeteneklerini keşfetmenize yardımcı olur.
 
+1. Onay kutusunu temizleyin **genel** böylece çalışma alanı bilgilerinizi başkalarıyla paylaşmayın.
+
+1. Seçin **kopya**.
+
+ ![Bir kitaplık kopyalama](./media/quickstart-get-started/clone.png)
+
+1. Proje durumu durdurulduğunu görüyorsanız tıklayın **ücretsiz işlem çalıştırma** ücretsiz notebook sunucusu kullanmak için.
+
+    ![Proje üzerinde ücretsiz işlem çalıştırma](./media/quickstart-get-started/run-project.png)
 
 ### <a name="run-the-notebook"></a>Not defterini çalıştırma
 
-İki not defterinin yanı sıra bir de `config.json` dosyası görürsünüz. Bu yapılandırma dosyası, oluşturduğunuz çalışma alanıyla ilgili bilgileri içerir.  
+Bu proje için dosya listesinde, gördüğünüz bir `config.json` dosya. Bu yapılandırma dosyası, çalışma alanı bilgilerini Azure portalında oluşturduğunuz içerir.  Bu dosya bağlanmak ve bilgi çalışma alanınıza eklemek için kodunuzu sağlar.
 
-Not defterini açmak için `01.run-experiment.ipynb` öğesini seçin.
+1. Seçin **01.run experiment.ipynb** not defterini açın.
 
-Hücreleri birer birer (Shift + Enter) çalıştırın. Dilerseniz `Cells` > `Run All` menüsünü kullanarak not defterinin tamamını da çalıştırabilirsiniz. Bir yıldız işareti gördüğünüzde __*__, hücrede yanında çalıştığından. Hücredeki kodun çalışması tamamlandığında bir sayı görünür. 
+1. Durum alanı çekirdek başlatıldı kadar beklenecek söyler.  Çekirdek hazır olduğunda ileti kaybolur.
+
+    ![Çekirdek başlatmak bekle](./media/quickstart-get-started/wait-for-kernel.png)
+
+1. Çekirdek başlatıldıktan sonra bir hücre, bir zaman kullanarak çalıştırın **Shift + Enter**. Veya **hücreleri** > **tümünü Çalıştır** tüm not defterlerini çalıştırmak için. Bir yıldız işareti gördüğünüzde __*__, hücrede yanında hücre hala çalışıyor. Hücredeki kodun çalışması tamamlandığında bir sayı görünür. 
+
+1. Azure aboneliğinizin kimlik doğrulaması yapmak için not defterindeki yönergeleri izleyin.
 
 Not defterinde çalıştıran tüm hücreleri bitirdikten sonra çalışma alanınızda günlüğe kaydedilen değerleri görüntüleyebilirsiniz.
 
 ## <a name="view-logged-values"></a>Günlüğe kaydedilen değerleri görüntüleme
 
-Not defterindeki tüm hücreleri çalıştırdıktan sonra portal sayfasına dönün.  
+1. Çıkışı `run` hücre geri çalışma alanınızda deneme sonuçlarını görüntülemek için Azure portalına bir bağlantı içerir. 
 
-`View Experiments` öğesini seçin.
+    ![Denemeleri görüntüleme](./media/quickstart-get-started/view_exp.png)
 
-![Denemeleri görüntüleme](./media/quickstart-get-started/view_exp.png)
+1. Tıklayın **Azure portalı bağlantısını** çalışma alanınızda çalıştırma hakkında bilgi görüntülemek için.  Bu bağlantı, Azure portalında çalışma alanınızı açar.
 
-`Reports` açılan listesini kapatın.
+1. Çizimler gördüğünüz günlüğe kaydedilen değerler otomatik olarak çalışma alanında oluşturulur. Aynı ad parametresine sahip birden fazla değeri günlüğe kaydettiğinizde otomatik olarak bir çizim oluşturulur.
 
-`my-first-experiment` öğesini seçin.
-
-Çalıştırma hakkında bilgi yalnızca yaptığınız bakın. Sayfayı kaydırarak çalıştırma tablosunu bulun. Çalıştırma sayısı bağlantısını seçin.
-
- ![Çalıştırma geçmişi bağlantısı](./media/quickstart-get-started/report.png)
-
-Günlüğe kaydedilen verilerden otomatik olarak oluşturulan çizimlere bakın. Aynı ad parametresine sahip birden fazla değeri günlüğe kaydettiğinizde otomatik olarak bir çizim oluşturulur.
-
-   ![Geçmişi görüntüleme](./media/quickstart-get-started/plots.png)
+   ![Geçmişi görüntüleme](./media/quickstart-get-started/web-results.png)
 
 Yaklaşık PI koda rastgele değerler kullandığından, çizimleri farklı değerler gösterilir.  
 

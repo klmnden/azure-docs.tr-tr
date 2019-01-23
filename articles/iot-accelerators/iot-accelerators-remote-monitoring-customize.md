@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: 53361ed460917fff42008283429967eff2e80ab2
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 0609a653327640c542457822e41143b9b39dd6d4
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345105"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462208"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>Uzaktan izleme çözüm Hızlandırıcısını özelleştirme
 
@@ -77,7 +77,7 @@ Aşağıdaki adımlar, kullanıcı Arabirimi geliştirme için yerel bir ortamı
 
 ## <a name="customize-the-layout"></a>Düzenleri özelleştirme
 
-Uzaktan izleme çözümünde her sayfa, bir dizi denetimi olarak adlandırılır, oluşan *panelleri* kaynak kodunda. **Pano** sayfa oluşur beş bölmelerden: genel bakış, harita, alarmlar, Telemetri ve analiz. Her sayfanın ve kendi panellerinde tanımlayan kaynak kodunu bulabilirsiniz [bilgisayarları-remote-monitoring-webui](https://github.com/Azure/pcs-remote-monitoring-webui) GitHub deposu. Örneğin, tanımlar kod **Pano** sayfa düzenini ve panel sayfasında bulunan [src/bileşenleri/sayfaları/dashboard](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard) klasör.
+Uzaktan izleme çözümünde her sayfa, bir dizi denetimi olarak adlandırılır, oluşan *panelleri* kaynak kodunda. **Pano** sayfa oluşur beş bölmelerden: Genel bakış, harita, uyarılar, Telemetri ve analiz. Her sayfanın ve kendi panellerinde tanımlayan kaynak kodunu bulabilirsiniz [bilgisayarları-remote-monitoring-webui](https://github.com/Azure/pcs-remote-monitoring-webui) GitHub deposu. Örneğin, tanımlar kod **Pano** sayfa düzenini ve panel sayfasında bulunan [src/bileşenleri/sayfaları/dashboard](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard) klasör.
 
 Çünkü kendi düzen panelleri yönetme ve boyutlandırma, bir sayfanın düzenini kolayca değiştirebilirsiniz. Aşağıdaki değişiklikleri yapın **PageContent** öğesinde `src/components/pages/dashboard/dashboard.js` dosya:
 
@@ -335,7 +335,7 @@ Telemetri grafik artık beş dakika telemetri verilerini gösterir:
 
 ## <a name="add-a-new-kpi"></a>Yeni KPI Ekle
 
-**Pano** sayfası görüntüler KPI'ler **Analytics** paneli. Bu KPI'ları hesaplanır `src/components/pages/dashboard/dashboard.js` dosya. KPI'ları tarafından işlenen `src/components/pages/dashboard/panels/analytics/analyticsPanel.js` dosya. Aşağıdaki adımlarda açıklanmıştır hesaplamak ve üzerinde yeni bir KPI değeri işlemek nasıl **Pano** sayfası. Yeni bir yüzde değişikliği uyarılar KPI eklemek için gösterilen örnekte bulunur:
+**Pano** sayfası görüntüler KPI'ler **Analytics** paneli. Bu KPI'ları hesaplanır `src/components/pages/dashboard/dashboard.js` dosya. KPI'ları tarafından işlenen `src/components/pages/dashboard/panels/analytics/analyticsPanel.js` dosya. Aşağıdaki adımlarda açıklanmıştır hesaplamak ve üzerinde yeni bir KPI değeri işlemek nasıl **Pano** sayfası. Yeni bir yüzde değişikliği uyarı bildirimleri KPI eklemek için gösterilen örnekte bulunur:
 
 1. `src/components/pages/dashboard/dashboard.js` dosyasını açın. Değiştirme **ilk durum** eklenecek nesne bir **warningAlertsChange** özelliğini aşağıdaki gibi:
 
@@ -365,7 +365,7 @@ Telemetri grafik artık beş dakika telemetri verilerini gösterir:
       openCriticalCount: (acc.openCriticalCount || 0) + (isCritical && isOpen ? 1 : 0),
       totalWarningCount: (acc.totalWarningCount || 0) + (isWarning ? 1 : 0),
       totalCriticalCount: (acc.totalCriticalCount || 0) + (isCritical ? 1 : 0),
-      alarmsPerDeviceId: updatedAlarmsPerDeviceId
+      alertsPerDeviceId: updatedAlertsPerDeviceId
     };
     ```
 

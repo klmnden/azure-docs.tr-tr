@@ -3,8 +3,8 @@ title: Kullanıcılara Azure Notification hubs'ı (ASP.NET) ile platformlar aras
 description: Tek bir istekte, tüm platformları hedefleyen bir platformu belirsiz bildirim göndermek için Notification hubs'ı şablonları kullanmayı öğrenin.
 services: notification-hubs
 documentationcenter: ''
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 ms.assetid: 11d2131b-f683-47fd-a691-4cdfc696f62b
 ms.service: notification-hubs
@@ -12,17 +12,18 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/14/2018
-ms.author: dimazaid
-ms.openlocfilehash: c9d1874fb611b349403736593fdc9eccc45d2d4d
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.date: 01/04/2019
+ms.author: jowargo
+ms.openlocfilehash: 637bae0a3f6bba712662e894b75c8bd663e91b4a
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42056344"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446640"
 ---
 # <a name="send-cross-platform-notifications-to-users-with-notification-hubs"></a>Notification Hubs ile kullanıcılar için platformlar arası bildirim gönderme
-Önceki bir öğreticide [Bildirim hub'larıyla kullanıcılara bildirim gönderme], belirli bir kimliği doğrulanmış kullanıcı için kaydedilen tüm cihazlara anında iletme bildirimleri öğrendiniz. Bu öğreticide, her desteklenen istemci platformu için bildirim göndermek için birden çok istek gerekirdi. Azure Notification Hubs ile belirli bir cihaza nasıl bildirimleri almak istediğini belirtebilirsiniz şablonları destekler. Bu yöntem, platformlar arası bildirim gönderme basitleştirir. 
+
+Önceki bir öğreticide [Bildirim hub'larıyla kullanıcılara bildirim gönderme], belirli bir kimliği doğrulanmış kullanıcı için kaydedilen tüm cihazlara anında iletme bildirimleri öğrendiniz. Bu öğreticide, her desteklenen istemci platformu için bildirim göndermek için birden çok istek gerekirdi. Azure Notification Hubs ile belirli bir cihaza nasıl bildirimleri almak istediğini belirtebilirsiniz şablonları destekler. Bu yöntem, platformlar arası bildirim gönderme basitleştirir.
 
 Bu makalede, tek bir istekte, tüm platformları hedefleyen bir platformu belirsiz bildirim göndermek için şablonları yararlanmak nasıl gösterir. Şablonlar hakkında daha ayrıntılı bilgi için bkz: [Azure Notification Hubs'a genel bakış][Templates].
 
@@ -31,57 +32,61 @@ Bu makalede, tek bir istekte, tüm platformları hedefleyen bir platformu belirs
 
 > [!NOTE]
 > Notification Hubs ile birden çok şablonun aynı etiketi taşıyan bir cihaz kaydedebilir. Bu durumda, cihaz her şablon için bir etiket sonuçları birden çok bildirim hedefleyen gelen iletiyi teslim. Bu işlem, hem bir rozet ve Windows Store uygulamasında bir bildirim olarak gibi birden çok görsel bildirimler aynı iletiyi görüntülemek sağlar.
-> 
-> 
+
+## <a name="send-cross-platform-notifications-using-templates"></a>Şablonları kullanarak platformlar arası bildirimler gönderme
 
 Şablonları kullanarak çapraz platform bildirimleri göndermek için aşağıdakileri yapın:
 
 1. Visual Studio Çözüm Gezgini'nde **denetleyicileri** klasörünü ve sonra RegisterController.cs dosyasını açın.
 
-2. Kod bloğunu bulun **Put** yeni bir kayıt oluşturur ve sonra değiştirmek yöntemi `switch` aşağıdaki kod ile içerik:
-   
-        switch (deviceUpdate.Platform)
-        {
-            case "mpns":
-                var toastTemplate = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
-                    "<wp:Notification xmlns:wp=\"WPNotification\">" +
-                       "<wp:Toast>" +
-                            "<wp:Text1>$(message)</wp:Text1>" +
-                       "</wp:Toast> " +
-                    "</wp:Notification>";
-                registration = new MpnsTemplateRegistrationDescription(deviceUpdate.Handle, toastTemplate);
-                break;
-            case "wns":
-                toastTemplate = @"<toast><visual><binding template=""ToastText01""><text id=""1"">$(message)</text></binding></visual></toast>";
-                registration = new WindowsTemplateRegistrationDescription(deviceUpdate.Handle, toastTemplate);
-                break;
-            case "apns":
-                var alertTemplate = "{\"aps\":{\"alert\":\"$(message)\"}}";
-                registration = new AppleTemplateRegistrationDescription(deviceUpdate.Handle, alertTemplate);
-                break;
-            case "gcm":
-                var messageTemplate = "{\"data\":{\"message\":\"$(message)\"}}";
-                registration = new GcmTemplateRegistrationDescription(deviceUpdate.Handle, messageTemplate);
-                break;
-            default:
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
-        }
-   
+2. Kod bloğunu bulun `Put` yeni bir kayıt oluşturur ve sonra değiştirmek yöntemi `switch` aşağıdaki kod ile içerik:
+
+    ```csharp
+    switch (deviceUpdate.Platform)
+    {
+        case "mpns":
+            var toastTemplate = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
+                "<wp:Notification xmlns:wp=\"WPNotification\">" +
+                    "<wp:Toast>" +
+                        "<wp:Text1>$(message)</wp:Text1>" +
+                    "</wp:Toast> " +
+                "</wp:Notification>";
+            registration = new MpnsTemplateRegistrationDescription(deviceUpdate.Handle, toastTemplate);
+            break;
+        case "wns":
+            toastTemplate = @"<toast><visual><binding template=""ToastText01""><text id=""1"">$(message)</text></binding></visual></toast>";
+            registration = new WindowsTemplateRegistrationDescription(deviceUpdate.Handle, toastTemplate);
+            break;
+        case "apns":
+            var alertTemplate = "{\"aps\":{\"alert\":\"$(message)\"}}";
+            registration = new AppleTemplateRegistrationDescription(deviceUpdate.Handle, alertTemplate);
+            break;
+        case "gcm":
+            var messageTemplate = "{\"data\":{\"message\":\"$(message)\"}}";
+            registration = new GcmTemplateRegistrationDescription(deviceUpdate.Handle, messageTemplate);
+            break;
+        default:
+            throw new HttpResponseException(HttpStatusCode.BadRequest);
+    }
+    ```
+
     Bu kod, bir şablon kayıt yerine yerel bir kayıt oluşturmak için platforma özgü yöntemini çağırır. Şablon kayıtları yerel kayıtları türetmek için var olan kayıtları değiştirmek gerekmez.
 
-3. İçinde **bildirimleri** denetleyicisi değiştirin **sendNotification** yöntemini aşağıdaki kod ile:
-   
-        public async Task<HttpResponseMessage> Post()
-        {
-            var user = HttpContext.Current.User.Identity.Name;
-            var userTag = "username:" + user;
-   
-            var notification = new Dictionary<string, string> { { "message", "Hello, " + user } };
-            await Notifications.Instance.Hub.SendTemplateNotificationAsync(notification, userTag);
-   
-            return Request.CreateResponse(HttpStatusCode.OK);
-        }
-   
+3. İçinde `Notifications` denetleyicisi değiştirin `sendNotification` yöntemini aşağıdaki kod ile:
+
+    ```csharp
+    public async Task<HttpResponseMessage> Post()
+    {
+        var user = HttpContext.Current.User.Identity.Name;
+        var userTag = "username:" + user;
+
+        var notification = new Dictionary<string, string> { { "message", "Hello, " + user } };
+        await Notifications.Instance.Hub.SendTemplateNotificationAsync(notification, userTag);
+
+        return Request.CreateResponse(HttpStatusCode.OK);
+    }
+    ```
+
     Yerel bir yükü belirtmek zorunda olmadan bu kodu aynı zamanda, tüm platformlar için bir bildirim gönderir. Bildirim hub'ları oluşturur ve sağlanan her cihaza doğru yükü sunar *etiketi* kayıtlı şablonları belirtildiği gibi bir değer.
 
 4. Webapı arka uç projeniz yeniden yayımlayın.
@@ -92,17 +97,15 @@ Bu makalede, tek bir istekte, tüm platformları hedefleyen bir platformu belirs
     Her cihaza bir bildirim görüntülenir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 Bu öğreticiyi tamamladığınıza göre bildirim hub'ları ve bu konularda şablonları hakkında daha fazla bilgi bulabilirsiniz:
 
 * [Use Notification Hubs to send breaking news]: Demonstrates another scenario for using templates.
-* [Azure Notification Hubs'a genel bakış][Templates]: şablonları hakkında daha ayrıntılı bilgi içerir.
+* [Azure Notification Hubs'a genel bakış][Templates]: Şablonları hakkında daha ayrıntılı bilgi içerir.
 
 <!-- Anchors. -->
 
 <!-- Images. -->
-
-
-
 
 <!-- URLs. -->
 [Push to users ASP.NET]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md

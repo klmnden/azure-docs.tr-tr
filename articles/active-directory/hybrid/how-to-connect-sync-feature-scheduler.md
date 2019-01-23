@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect eşitleme: Scheduler | Microsoft Docs'
+title: 'Azure AD Connect eşitleme: Zamanlayıcı | Microsoft Docs'
 description: Bu konuda, Azure AD Connect eşitleme yerleşik Zamanlayıcı özelliği açıklanmaktadır.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 6b1a598f-89c0-4244-9b20-f4aaad5233cf
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d8deb03d03446c1452d73a7c08df4cf14ffcd5b5
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 8099194feed3761e32686ab15e8738b10ffd4e8b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311027"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462326"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Azure AD Connect eşitleme: Scheduler
 Bu konuda Azure AD Connect Eşitleme'deki yerleşik Zamanlayıcı (diğer adıyla) açıklanır Eşitleme altyapısı).

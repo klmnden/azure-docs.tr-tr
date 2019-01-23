@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
-ms.component: alerts
-ms.openlocfilehash: a8ec7d13305bf4c76600d8ca3334f06dfe4e77c9
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.subservice: alerts
+ms.openlocfilehash: dcce5e424a5f14cb8f36582635383b0a8ba86caa
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384709"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472271"
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>Ölçüm değeri bir koşula uyduğunda bildirim alma
 
@@ -116,3 +116,4 @@ Bu hızlı başlangıçta, kaynaklarınız için ölçüm uyarısı oluşturmay�
 
 > [!div class="nextstepaction"]
 > [Azure İzleyici abonelik eylemi uyarıları](./../../azure-monitor/platform/quick-audit-notify-action-subscription.md )
+

@@ -4,7 +4,7 @@ description: Hibrit Azure AD'ye katılma sonrası yapılandırma görevleri içi
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: billmath
 ms.assetid: ''
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 16fc7f1bb69efe94ce87f213627b78a4afa0fcc2
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 31bf3c7ba2365f3fdfd6f2da1dbd1942ada1327e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999226"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475467"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>Hibrit Azure AD’ye katılmada yapılandırma sonrası görevler
 
@@ -30,12 +30,12 @@ Kuruluşunuz için hibrit Azure AD'ye katılma yapılandırmak için Azure AD Co
 Tüm etki alanına katılmış cihazlar otomatik olarak Windows 10 ve Windows Server 2016 çalıştıran tüm yapılandırma adımları tamamlandıktan sonra Azure AD'ye kaydedin. Bu otomatik kaydı yerine denetimli bir şekilde kademeli tercih ederseniz, seçmeli olarak etkinleştirmek veya otomatik dağıtımı devre dışı bırakmak için Grup İlkesi'ni kullanabilirsiniz.  Bu grup ilkesini başka yapılandırma adımları: Azure AD başlatmadan önce ayarlanmalıdır.
 * Active Directory'de bir Grup İlkesi nesnesi oluşturun.
 * (Ex-hibrit Azure AD katılımı) adlandırın.
-* Düzen & Git: Bilgisayar Yapılandırması > ilkeler > Yönetim Şablonları > Windows bileşenleri > cihaz kaydı.
+* Düzenlemek & gidin:  Bilgisayar Yapılandırması > ilkeler > Yönetim Şablonları > Windows bileşenleri > cihaz kaydı.
 
 >[!NOTE]
 >İlke ayarları altındadır 2012R2 için **bilgisayar yapılandırması > ilkeler > Yönetim Şablonları > Windows bileşenleri > Workplace Join > otomatik olarak çalışma alanına katılma istemci bilgisayarlar**
 
-* Bu ayar devre dışı bırak: bilgisayarların etki alanına katılmış cihazlar olarak kaydedin.
+* Bu ayar devre dışı bırakın:  Bilgisayarları etki alanına katılmış cihazlar olarak kaydedin.
 * Uygulama ve Tamam'a tıklayın.
 * Kendi tercih ettiğiniz (kuruluş birimi, güvenlik grubu veya etki alanı için tüm cihazlar için) konumuna GPO'yu bağlayın.
 
@@ -69,7 +69,7 @@ Kuruluşunuz Azure AD'de oturum açmak için parola karması eşitleme veya doğ
 Windows alt düzey cihazları kaydetmek için Azure AD İlkesi cihazları kaydedin açmasına izin verdiğinden emin olmak gerekir. 
 
 * Azure Portalı'ndaki hesabınızda oturum.
-* Git: Azure Active Directory > cihazlar > cihaz ayarları
+* Şuraya gidin:  Azure Active Directory > cihazlar > cihaz ayarları
 * "Kullanıcıların cihazlarını Azure AD'ye kaydedebilir" seçeneğini tümü olarak ayarlayın.
 * Kaydet’e tıklayın.
 
@@ -87,8 +87,8 @@ Bu yükleyici, kullanıcının bağlamında çalışan cihazın sistemdeki zaman
 
 * Grup İlkesi nesnesini Active Directory'nizde--zaten oluşturduysanız oluşturun.
 * (Ex-hibrit Azure AD katılımı) adlandırın.
-* Düzen & Git: Bilgisayar Yapılandırması > ilkeler > Yönetim Şablonları > Windows bileşenleri > cihaz kaydı
-* Etkinleştir: etki alanına katılmış bilgisayarları cihaz olarak kaydetme
+* Düzenlemek & gidin:  Bilgisayar Yapılandırması > ilkeler > Yönetim Şablonları > Windows bileşenleri > cihaz kaydı
+* Etkinleştirin:  Bilgisayarları etki alanına katılmış cihaz olarak kaydetme
 * Uygulama ve Tamam'a tıklayın.
 * Kendi tercih ettiğiniz (kuruluş birimi, güvenlik grubu veya etki alanı için tüm cihazlar için) konumuna GPO'yu bağlayın.
 

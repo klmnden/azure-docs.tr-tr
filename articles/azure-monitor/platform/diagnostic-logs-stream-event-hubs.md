@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
-ms.component: ''
-ms.openlocfilehash: 2143ebdddc71973b64b8b77be55b4d0c2b84df64
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.subservice: ''
+ms.openlocfilehash: 1ef779e64995c6996538b68b892cb45f11788067
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53578997"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477473"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Olay hub'ına Stream Azure tanılama günlükleri
 **[Azure tanılama günlükleri](diagnostic-logs-overview.md)**  portalında veya Azure aracılığıyla bir tanılama ayarını olay hub'ı yetkilendirme kuralı kimliği etkinleştirerek yerleşik "Dışarı aktarmak için Event Hubs" seçeneğini kullanarak herhangi bir uygulama için neredeyse gerçek zamanlı akış PowerShell cmdlet'leri veya Azure CLI.
@@ -91,7 +91,7 @@ Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -EventHubAuthorizati
 
 Olay hub'ı yetkilendirme kuralı kimliği şu biçime sahip bir dizedir: `{Event Hub namespace resource ID}/authorizationrules/{key name}`, örneğin, `/subscriptions/{subscription ID}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/RootManageSharedAccessKey`. Şu anda PowerShell belirli bir olay hub'ı adıyla seçemezsiniz.
 
-### <a name="via-azure-cli"></a>Azure CLI
+### <a name="via-azure-cli"></a>Via Azure CLI
 
 Aracılığıyla akışını etkinleştirmek için [Azure CLI](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest), kullanabileceğiniz [az İzleyici diagnostic-settings oluşturma](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) komutu.
 
@@ -198,3 +198,4 @@ Ayrıca Windows Azure tanılama aracısını kullanarak işlem kaynaklarını ta
 * [Azure İzleyici ile Stream Azure Active Directory günlükleri](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)
 * [Azure Tanılama Günlükleri](diagnostic-logs-overview.md)
 * [Event Hubs kullanmaya başlayın](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
+

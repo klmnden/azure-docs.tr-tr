@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect: Önceki bir sürümden yükseltme | Microsoft Docs'
+title: 'Azure AD Connect: Önceki sürümden yükseltme | Microsoft Docs'
 description: Azure Active Directory yerinde yükseltme ve swing geçişi dahil olmak üzere Connect, en son sürümüne yükseltmek için farklı yöntemleri açıklar.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 31f084d8-2b89-478c-9079-76cf92e6618f
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.workload: Identity
 ms.date: 07/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 17333f6a5e78fb6da607e93cf696bfc766daf3ae
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 4ca1fc4677f0d9a5391973a965faae4e283c4710
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314793"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462547"
 ---
-# <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: En son önceki bir sürümü yükseltme
+# <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: Önceki bir sürümden en son sürüme yükseltme
 Bu konuda, Azure Active Directory (Azure AD) Connect yüklemenizi en son sürüme yükseltmek için kullanabileceğiniz farklı yöntemler açıklanır. Kendi Azure AD Connect'in sürümlerinde geçerli tutmanızı öneririz. Ayrıca adımlarda kullandığınız [Swing geçişi](#swing-migration) bölümünde önemli bir yapılandırma değişikliği yaptığınızda.
 
 Dirsync'ten yükseltme yapmaya istiyorsanız bkz [Azure AD eşitleme aracından (DirSync) yükseltme](how-to-dirsync-upgrade-get-started.md) yerine.

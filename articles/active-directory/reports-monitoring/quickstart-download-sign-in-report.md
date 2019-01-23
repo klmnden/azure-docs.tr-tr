@@ -16,16 +16,16 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ce242066df427163048a2ef51e79ffd98eadbc7d
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 6aeb2d63fca36bb89478f05ff818892f8bf05840
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214921"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465539"
 ---
 # <a name="quickstart-download-a-sign-in-report-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak bir oturum açma raporunu indirin
 
-Bu hızlı başlangıçta, son 24 saat boyunca kiracınız için oturum açma verilerinin nasıl indirileceğini öğreneceksiniz.
+Bu hızlı başlangıçta, son 24 saat boyunca kiracınız için oturum açma verilerinin nasıl indirileceğini öğreneceksiniz. En fazla 5000 kayıtlarını Azure portalından indirebilirsiniz. Kayıtları çoğu tarafından sıralanır varsayılan olarak, en son 5000 kayıt alabilmeniz son. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 

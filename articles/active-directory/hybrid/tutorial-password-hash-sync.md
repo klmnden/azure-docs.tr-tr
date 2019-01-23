@@ -4,7 +4,7 @@ description: Parola Karması eşitleme kullanarak bir karma kimlik ortamını ay
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a8dfe39dc3d32ca96d6252bac96a2e7abc09eee5
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: ed8b2ec0c31adebac72e105ecfc4c5ec28e7b74b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164720"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471880"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>Öğretici:  Parola karması eşitleme (PHS) kullanarak tek bir AD ormanında tümleştirme
 
@@ -205,8 +205,8 @@ Artık Azure AD Connect karşıdan yüklenip kurulacak zamanı geldi.  Yüklendi
 3. Hoş Geldiniz ekranında, lisans koşullarını kabul ettiğinizi belirten kutuyu seçin ve **Devam**'a tıklayın.  
 4. Hızlı ayarlar ekranında **Hızlı ayarları kullan**'a tıklayın.</br>  
 ![Oluşturma](media/tutorial-password-hash-sync/express1.png)</br>
-5. Bağlanma ekranında Azure AD, Azure AD için kullanıcı ve genel yönetici parolasını girin. **İleri**'ye tıklayın.  
-6. AD DS'ye Bağlanma ekranında kuruluş yöneticisi hesabına ilişkin kullanıcı adını ve parolayı girin. **İleri**'ye tıklayın.  
+5. Bağlanma ekranında Azure AD, Azure AD için kullanıcı ve genel yönetici parolasını girin. **İleri**’ye tıklayın.  
+6. AD DS'ye Bağlanma ekranında kuruluş yöneticisi hesabına ilişkin kullanıcı adını ve parolayı girin. **İleri**’ye tıklayın.  
 7. Yapılandırma için hazır ekranında **Yükle**'ye tıklayın.
 8. Yükleme tamamlandığında **Çıkış**'a tıklayın.
 9. Yükleme tamamlandıktan sonra oturumu kapatın ve Eşitleme Hizmeti Yöneticisi'ni veya Synchronization Rule Editor'ı kullanmadan önce yeniden oturum açın.

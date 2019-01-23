@@ -4,7 +4,7 @@ description: İzleme ve raporlama özellikleri tarafından kullanılan karma kim
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: a3d2a459-599b-4b67-8e51-7369ee25082d
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: baa1d1fec6438b937ba783adcc86c4f74fa1a6db
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5a5b166e9b90ede5f5c51b2c288ce1d2d6290ba6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312063"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464842"
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>Karma kimlik çözümünüz için olay yanıtlama gereksinimlerini belirleme
 Büyük ve orta ölçekli kuruluşlar büyük olasılıkla olacaktır bir [güvenlik olayı yanıt](https://technet.microsoft.com/library/cc700825.aspx) yardımcı olmak için BT uygun şekilde eylemleri için olay düzeyi. Kimlik yönetimi sistemi olay yanıt işlemi önemli bir bileşenidir çünkü hedefe karşı belirli bir eylemi gerçekleştiren tanımlamaya yardımcı olmak için kullanılabilir. Karma kimlik çözümü tarafından yararlanılabilir izleme ve raporlama özellikleri sağlayabilir olası tehdidi azaltmak üzere eylemleri mümkün KILAR. Tipik bir olay yanıtlama planında planının bir parçası aşağıdaki aşamaları olacaktır:
@@ -51,7 +51,7 @@ Kimlik yönetimi sistemi tanımlamak ve bu şüpheli etkinlikleri bildirmek içi
 * Şirketiniz kullanıcının erişim ve işlem denetim gerekiyor mu?
 * Şirketiniz, bir kullanıcının parolasını sıfırlamak bilmeniz gerekiyor mu?
 
-## <a name="policy-enforcement"></a>İlke zorlama
+## <a name="policy-enforcement"></a>İlke uygulama
 Zarar denetimi ve risk azaltma-aşaması sırasında hızlı bir şekilde gerçek ve potansiyel bir saldırının etkilerini azaltmak önemlidir. Sizi bu eylem, bu noktada arasındaki küçük ve büyük bir fark yapabilirsiniz. Tam tepki, kuruluşunuz ve karşılaştığınız saldırının yapısını bağlıdır. Bir hesap aşılmış ilk değerlendirmeyi adlı yönelik, bu hesap engellemek için ilkeyi uygulamak gerekir. Kimlik yönetimi sistemi yararlanılarak burada yalnızca bir örnektir. Devam eden bir olaya tepki vermek için ilkeleri nasıl zorlanır dikkate alarak, karma kimlik çözümü tasarlamanıza yardımcı olması için aşağıdaki soruları kullanın:
 
 * Şirketinizin ilkeleri yerinde blok kullanıcılara erişimden ağ gerekirse var mı?

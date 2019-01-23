@@ -4,7 +4,7 @@ description: Bu belge Azure AD Connect cihaz seçenekleri ayrıntıları
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: billmath
 ms.assetid: c0ff679c-7ed5-4d6e-ac6c-b2b6392e7892
 ms.service: active-directory
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c21b4b8996d7dae62c2aa1937c2876a66f6f82bd
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 95c631c38b975c71d5e026d33391792ee811bbc6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320569"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477082"
 ---
 # <a name="azure-ad-connect-device-options"></a>Azure AD Connect: Cihaz seçenekleri
 
 Aşağıdaki belgeler Azure AD Connect çeşitli cihaz seçenekleri hakkında bilgi sağlar. Azure AD Connect, aşağıdaki iki işlemlerini yapılandırmak için kullanabilirsiniz: 
-* **Hibrit Azure AD'ye katılma**: şirket içi ortamınız varsa, AD Ayak izi ve Azure AD'nin avantajlarını istiyorsanız, hibrit Azure AD'ye katılmış cihazlara uygulayabilirsiniz. Bu cihazları hem şirket içi Active Directory'niz ve Azure Active Directory'nize katılmış.
-* **Cihaz geri yazmayı**: cihaz geri yazma, AD FS cihazlara dayalı koşullu erişimi etkinleştirmek için kullanılır (2012 R2 veya üzeri) korunan cihazlar
+* **Hibrit Azure AD'ye katılma**: Şirket içi ortamınız varsa, AD Ayak izi ve Azure AD'nin avantajlarını istiyorsanız, hibrit Azure AD'ye katılmış cihazlara uygulayabilirsiniz. Bu cihazları hem şirket içi Active Directory'niz ve Azure Active Directory'nize katılmış.
+* **Cihaz geri yazmayı**: Cihaz geri yazma, AD FS cihazlara dayalı koşullu erişimi etkinleştirmek için kullanılır (2012 R2 veya üzeri) korunan cihazlar
 
 ## <a name="configure-device-options-in-azure-ad-connect"></a>Azure AD Connect cihaz seçeneklerini yapılandır
 

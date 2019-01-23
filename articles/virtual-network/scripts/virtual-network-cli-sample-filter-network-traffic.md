@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: jdial
-ms.openlocfilehash: 427403443de55ddf55c5026af80509e792ab5d97
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 179a30524aed3063384673c11c4dd3b0424ce2a4
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980898"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473920"
 ---
 # <a name="filter-inbound-and-outbound-vm-network-traffic-script-sample"></a>Gelen ve giden sanal makine ağ trafiğini filtreleme betiği örneği
 
@@ -55,7 +55,7 @@ Bu betik, bir kaynak grubu, sanal ağ ve ağ güvenliği grupları oluşturmak i
 | [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) | İnternet’ten sanal makineye erişmek için genel IP adresi oluşturur. |
 | [az network nic create](/cli/azure/network/nic#az_network_nic_create) | Sanal ağ arabirimleri oluşturur ve bunları sanal ağın ön uç ve arka uç alt ağlarına ekler. |
 | [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) | Ön uç ve arka uç alt ağlarıyla ilişkilendirilmiş ağ güvenlik grupları (NSG) oluşturur. |
-| [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) |Belirli alt ağlara yönelik belirli bağlantı noktalarına izin veren veya engelleyen NSG kuralları oluşturur. |
+| [az network nsg rule create](/cli/azure/network/nsg/rule) |Belirli alt ağlara yönelik belirli bağlantı noktalarına izin veren veya engelleyen NSG kuralları oluşturur. |
 | [az vm create](/cli/azure/vm#az_vm_create) | Sanal makineler oluşturur ve her sanal makineye bir NIC ekler. Bu komut ayrıca kullanılacak sanal makine görüntüsünü ve yönetici kimlik bilgilerini belirtir. |
 | [az group delete](/cli/azure/group#az_group_delete) | Bir kaynak grubunu ve içerdiği tüm kaynakları siler. |
 

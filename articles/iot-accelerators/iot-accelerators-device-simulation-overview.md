@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 12/03/2018
 ms.author: dobett
-ms.openlocfilehash: 69e3708ef4c31e2dd91b5f50baecc46ea129cf33
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 173963470a77932186b3c51f17ccb406b32a13f3
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53346722"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452233"
 ---
-# <a name="device-simulation-solution-accelerator-overview"></a>Cihaz benzetimi çözüm hızlandırıcısına genel bakış
+# <a name="device-simulation-solution-accelerator-overview"></a>Cihaz Simülasyonu çözüm hızlandırıcısına genel bakış
 
 Bir bulut tabanlı IOT çözümünde, bulut uç noktasına sıcaklık, konumu ve durumu gibi telemetri göndermek için cihazlarınızı bağlayın. Çözümünüzü eylemleri veya ınsights türetmeniz olanak tanıyarak bu telemetri, tüketir.
 
@@ -28,7 +28,7 @@ Bir IOT çözümü geliştirmek, deneme ve test işlemin önemli bölümleri şu
 
 ![Örnek insansız hava aracı ile benzetimi](media/iot-accelerators-device-simulation-overview/dronesimulation.png)
 
-Cihaz benzetimi, fiziksel cihazlarınızı benzetimini yapmak için cihaz modelleri tanımlayabilirsiniz. Bu model, ileti formatları ikiz özelliklerini ve yöntemlerini içerir. Ayrıca, JavaScript ile karmaşık cihaz davranışlarının benzetimini yapabilirsiniz.
+Cihaz benzetimi, gerçek cihazlarınızı benzetimini yapmak için cihaz modelleri tanımlayabilirsiniz. Bu model, ileti formatları ikiz özelliklerini ve yöntemlerini içerir. Ayrıca, JavaScript ile karmaşık cihaz davranışlarının benzetimini yapabilirsiniz.
 
 İçin tüm IOT hub'a bağlanan cihazlara binlerce simülasyon çalıştırabilirsiniz. Test ile yardımcı olmak için isteğe bağlı olarak bir tek başına ortam için bir IOT hub cihaz benzetimi birlikte dağıtabilirsiniz.
 

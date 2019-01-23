@@ -72,7 +72,7 @@ Machine Learning API Yardım bir tahmin Web hizmeti hakkındaki ayrıntıları i
 1. Tıklayın **WEB Hizmetleri** en üstteki menüde.
 2. Anahtar almak istediğiniz Web hizmeti tıklayın.
 
-Tıklayın **kullanım Web hizmeti** isteği Reposonse, toplu iş yürütme hizmetler ve örnek kodu bir URI'leri almak için C#, R ve Python.
+Tıklayın **kullanım Web hizmeti** istek-yanıt, toplu iş yürütme hizmetler ve örnek kodu bir URI'leri almak için C#, R ve Python.
 
 Tıklayın **Swagger API'si** Swagger almak için sağlanan bir URI'leri API çağrısı için Belge tabanlı.
 
@@ -167,7 +167,7 @@ namespace CallRequestResponseService
                 {
                     Console.WriteLine(string.Format("The request failed with status code: {0}", response.StatusCode));
 
-                    // Print the headers - they include the requert ID and the timestamp,
+                    // Print the headers - they include the request ID and the timestamp,
                     // which are useful for debugging the failure
                     Console.WriteLine(response.Headers.ToString());
 
@@ -228,7 +228,7 @@ try:
 except urllib2.HTTPError, error: 
     print("The request failed with status code: " + str(error.code))
 
-    # Print the headers - they include the requert ID and the timestamp, which are useful for debugging the failure
+    # Print the headers - they include the request ID and the timestamp, which are useful for debugging the failure
     print(error.info())
     print(json.loads(error.read())) 
 ```
@@ -280,7 +280,7 @@ if (httpStatus >= 400)
 {
 print(paste("The request failed with status code:", httpStatus, sep=" "))
 
-# Print the headers - they include the requert ID and the timestamp, which are useful for debugging the failure
+# Print the headers - they include the request ID and the timestamp, which are useful for debugging the failure
 print(headers)
 }
 

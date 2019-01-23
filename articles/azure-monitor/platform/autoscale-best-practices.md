@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: ancav
-ms.component: autoscale
-ms.openlocfilehash: b34d5f061eae297b635e2249143240668a4c2b08
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.subservice: autoscale
+ms.openlocfilehash: 85a326c97ecf8476bdd802a718e082d0e5c7a89c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53326396"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467374"
 ---
 # <a name="best-practices-for-autoscale"></a>Otomatik ölçeklendirme için en iyi uygulamalar
 Azure İzleyici otomatik ölçeklendirme için yalnızca geçerlidir [sanal makine ölçek kümeleri](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), ve [APIManagementHizmetleri](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
@@ -150,3 +150,4 @@ Etkinlik günlüğü uyarıları kullanmanın yanı sıra, otomatik ölçeklendi
 ## <a name="next-steps"></a>Sonraki Adımlar
 - [Bir etkinlik günlüğü aboneliğinizdeki tüm otomatik ölçeklendirme altyapısı işlemleri izlemek için uyarı oluştur.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
 - [Bir etkinlik günlüğü içindeki tüm başarısız otomatik ölçek ölçeği İzleyici / işlemleri aboneliğinizde ölçeği genişletme için uyarı oluşturma](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
+

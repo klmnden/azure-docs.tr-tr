@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: eabbe8d771520d5b1d5360a3d86b96d27ea08277
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: a75f5ec11644bbd64a6bafeb8585371437eedc3b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359451"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476929"
 ---
 # <a name="configure-containers"></a>Kapsayıcıları yapılandırma
 
@@ -33,6 +33,7 @@ Yüz tanıma kapsayıcı yapılandırma ayarlarında hiyerarşik ve tüm kapsay�
 * [CloudAI](#cloudai-configuration-settings)
 * [EULA'sı](#eula-configuration-setting)
 * [Fluentd](#fluentd-configuration-settings)
+* [HTTP proxy kimlik bilgileri ayarları](#http-proxy-credentials-settings)
 * [Günlüğe kaydetme](#logging-configuration-settings)
 * [Bağlar](#mounts-configuration-settings)
 
@@ -162,6 +163,11 @@ Aşağıdaki tabloda altında desteklenen yapılandırma ayarları açıklanmakt
 | `TlsConnectionEstablishmentTimeoutMs` | Tamsayı | Zaman aşımı, Fluentd sunucusuyla bir SSL/TLS bağlantı kurmak için milisaniye cinsinden. 10000 milisaniye (10 saniye) varsayılan değerdir.<br/> Varsa `UseTLS` yanlış olarak bu değeri yok sayıldı ayarlanmış. |
 | `UseTLS` | Boole | Kapsayıcı Fluentd sunucusu ile iletişim kurmak için SSL/TLS kullanıp kullanmayacağını belirtir. Varsayılan değer false'tur. |
 
+
+## <a name="http-proxy-credentials-settings"></a>HTTP proxy kimlik bilgileri ayarları
+
+[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
+
 ## <a name="logging-configuration-settings"></a>Günlük kaydı yapılandırma ayarları
 
 `Logging` Yapılandırma ayarlarını yönetmek kapsayıcınız için ASP.NET Core oturum açma desteği. Bir ASP.NET Core uygulaması için yapabileceğiniz kapsayıcınız için aynı yapılandırma ayarları ve değerleri kullanabilirsiniz. Aşağıdaki günlük kaydı sağlayıcıları yüz kapsayıcı tarafından desteklenir:
@@ -212,3 +218,7 @@ Bir giriş bağlama belirtin veya çıkış bağlama belirterek `--mount` seçen
   ```
 
 Yüz kapsayıcı giriş kullanmaz ya da eğitim veya veritabanı verileri depolamak için çıkış bağlar. Bunun yerine, yüz tanıma kapsayıcı, eğitim ve veritabanı verileri yönetmek için depolama senaryoları sağlar. Depolama senaryoları kullanma hakkında daha fazla bilgi için bkz. [depolama senaryo ayarları](#storage-scenario-settings).
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+* Daha fazla kullanmanız [Bilişsel Hizmetleri kapsayıcıları](../cognitive-services-container-support.md)

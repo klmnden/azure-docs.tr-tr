@@ -2,20 +2,20 @@
 title: 'Azure AD Connect: ADSyncConfig PowerShell başvurusu | Microsoft Docs'
 description: Bu belge ADSyncConfig.psm1 PowerShell modülü için başvuru bilgileri sağlar.
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.date: 10/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 84be07eeb112711de35853162b798b5f6ed0b2aa
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 015823ee9674c2c704cdea13e44ced06e5b9644c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422771"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463533"
 ---
-# <a name="azure-ad-connect--adsyncconfig-powershell-reference"></a>Azure AD Connect: ADSyncConfig PowerShell başvurusu
+# <a name="azure-ad-connect--adsyncconfig-powershell-reference"></a>Azure AD Connect:  ADSyncConfig PowerShell başvurusu
 Aşağıdaki belgeler Azure AD Connect ile birlikte sağlanan ADSyncConfig.psm1 PowerShell modülü için başvuru bilgileri sağlar.
 
 

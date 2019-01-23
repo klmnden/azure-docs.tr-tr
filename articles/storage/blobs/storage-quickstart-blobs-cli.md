@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: rogarana
-ms.openlocfilehash: cb646eb67e0e0627a3c9ccbc6b4d25a97b157970
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: b2d3d5bb0081c51d3f89bc4cb8d2c0f23d40f4a7
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711693"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474007"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>Hızlı Başlangıç: Azure CLI’sini kullanarak blobları yükleme, indirme ve listeleme
+# <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>Hızlı Başlangıç: Karşıya yükleme, indirme ve Azure CLI kullanarak blobları Listele
 
 Azure CLI, Azure kaynaklarını yönetmek için Azure tarafından sunulan komut satırı deneyimidir. Azure Cloud Shell ile kendi tarayıcınızda da kullanabilirsiniz. Dilerseniz macOS, Linux veya Windows’a yükleyebilir ve komut satırından çalıştırabilirsiniz. Bu hızlı başlangıçta Azure Blob depolamaya veri yüklemek ve verileri indirmek için Azure CLI kullanma hakkında ayrıntılı bilgiler öğrenirsiniz.
 
@@ -33,7 +33,7 @@ CLI'yi yerel olarak yükleyip kullanmayı seçerseniz bu hızlı başlangıç i�
 
 Bloblar her zaman bir kapsayıcıya yüklenir. Bu, blob gruplarını bilgisayarınızdaki dosyaları klasörler halinde düzenlediğiniz gibi düzenleyebilmenizi sağlar.
 
-[az storage container create](/cli/azure/storage/container#az_storage_container_create) komutunu kullanarak blobları depolamak için bir kapsayıcı oluşturun.
+[az storage container create](/cli/azure/storage/container) komutunu kullanarak blobları depolamak için bir kapsayıcı oluşturun.
 
 ```azurecli-interactive
 az storage container create --name mystoragecontainer
@@ -116,4 +116,4 @@ az group delete --name myResourceGroup
 Bu Hızlı Başlangıç’ta, dosyaları yerel bir disk ve Azure Blob depolamadaki bir kapsayıcı arasında aktarmayı öğrendiniz. Azure Depolama’da bloblarla çalışma hakkında daha fazla bilgi edinmek için, Azure Blob depolamayla çalışma hakkındaki öğretici ile devam edin.
 
 > [!div class="nextstepaction"]
-> [Nasıl yapılır: Azure CLI ile blob depolama işlemleri](storage-how-to-use-blobs-cli.md)
+> [Nasıl yapılır: Azure CLI ile BLOB Depolama işlemleri](storage-how-to-use-blobs-cli.md)

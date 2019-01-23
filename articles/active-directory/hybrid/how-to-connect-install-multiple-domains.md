@@ -4,7 +4,7 @@ description: Bu belgede, ayarlama ve O365 ve Azure AD ile birden çok üst düze
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 5595fb2f-2131-4304-8a31-c52559128ea4
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 8b5abe252ab9b3389680508537ea1d6f3823f910
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: abc01239a2bf61c39f99fe880bf17d7958a1597c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311867"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477942"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Azure AD ile Federasyon için Çoklu Etki Alanı Desteği
 Aşağıdaki belgeler, Office 365 veya Azure AD etki alanları ile Federasyon olduğunda birden çok en üst düzey etki alanları ve alt etki alanlarını kullanma hakkında yönergeler sağlar.
@@ -168,7 +168,7 @@ Alt etki alanlarını desteklemek için bir özel talep eklemek için aşağıda
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure AD Connect'i yüklediniz, artık [yüklemeyi doğrulayabilir ve lisans atayabilirsiniz](how-to-connect-post-installation.md).
 
-Yüklemeyle etkinleştirilen özellikler hakkında daha fazla bilgi edinin: [Otomatik yükseltme](how-to-connect-install-automatic-upgrade.md), [Yanlışlıkla silmeleri engelleme](how-to-connect-sync-feature-prevent-accidental-deletes.md) ve [Azure AD Connect Health](how-to-connect-health-sync.md).
+Yüklemeyle etkinleştirilen özellikler hakkında daha fazla bilgi edinin: [Otomatik yükseltme](how-to-connect-install-automatic-upgrade.md), [yanlışlıkla silmeleri engelleme](how-to-connect-sync-feature-prevent-accidental-deletes.md), ve [Azure AD Connect Health](how-to-connect-health-sync.md).
 
 Şu genel konu başlıkları hakkında daha fazla bilgi edinin: [Zamanlayıcı ve eşitleme tetikleme](how-to-connect-sync-feature-scheduler.md).
 

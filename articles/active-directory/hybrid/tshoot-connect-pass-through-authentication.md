@@ -5,7 +5,7 @@ services: active-directory
 keywords: Azure AD Connect geçişli kimlik doğrulaması sorunlarını giderme, Active Directory, Azure AD SSO için gerekli bileşenleri yükleme çoklu oturum açma
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6172195a9914d841e480cd7ebbf9566616911378
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: db3dfc10d6936b063a225e48fd043b6208f10475
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686203"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472781"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Azure Active Directory geçişli kimlik doğrulaması sorunlarını giderme
 
@@ -95,7 +95,7 @@ Tüm Azure AD Connect veya tek başına kimlik doğrulama Aracısı yükleme ve 
 
 ### <a name="warning-message-when-uninstalling-azure-ad-connect"></a>Azure AD Connect kaldırırken uyarı iletisi
 
-Doğrudan kiracınızda etkin kimlik doğrulama varsa ve Azure AD Connect kaldırmayı deneyin, bu, aşağıdaki uyarı iletisi gösterilir: "kullanıcılar şunları yapamaz Azure AD'ye diğer doğrudan kimlik doğrulama aracılarının yüklü olmadığı sürece oturum diğer sunucular."
+Doğrudan kiracınızda etkin kimlik doğrulama varsa ve Azure AD Connect kaldırmayı deneyin, aşağıdaki uyarı iletisini gösterir: "Kullanıcıları Azure AD'ye diğer sunucularda yüklü diğer doğrudan kimlik doğrulama aracılarının yoksa oturum açmanız mümkün olmayacaktır."
 
 Kurulumunuzu olduğundan emin olun [yüksek oranda kullanılabilir](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability) Azure AD Connect kullanıcı oturumu açma bozmayı önlemek için kaldırmadan önce.
 
@@ -137,7 +137,7 @@ Kullanıcı oturum açma sorunlarını giderme için izleme günlüklerine bakı
         DateTime=xxxx-xx-xxTxx:xx:xx.xxxxxxZ
 ```
 
-Tanımlayıcı (yukarıdaki örnekte ' 1328') hata ayrıntılarını için komut istemini açın ve aşağıdaki komutu çalıştırarak alabilirsiniz (Not: '1328' günlükleri gördüğünüz gerçek hata numarası ile değiştirin):
+Tanımlayıcı (yukarıdaki örnekte ' 1328') hata ayrıntılarını için komut istemini açın ve aşağıdaki komutu çalıştırarak alabilirsiniz (Not: Günlükleri görmek gerçek hata numarası '1328' değiştirin):
 
 `Net helpmsg 1328`
 

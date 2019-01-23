@@ -4,7 +4,7 @@ description: Bu makalede, Office 365 kullanıcıları için sertifika yenileme h
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 543b7dc1-ccc9-407f-85a1-a9944c0ba1be
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/20/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 311c16ba0c6b3378fd743b77e263a5d91f8b6a37
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6512efb45ee5c56cd0a10286d4156ae2d81f2f99
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237104"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464961"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Office 365 ve Azure Active Directory için Federasyon sertifikalarını yenileme
 ## <a name="overview"></a>Genel Bakış
@@ -58,7 +58,7 @@ Azure AD Federasyon meta verilerini izleme ve belirteç imzalama sertifikaları 
 >
 
 ## Sertifikaları güncelleştirilmesi gerekip gerekmediğini denetleyin <a name="managecerts"></a>
-### <a name="step-1-check-the-autocertificaterollover-state"></a>1. adım:, AutoCertificateRollover durumunu kontrol edin
+### <a name="step-1-check-the-autocertificaterollover-state"></a>1. Adım: AutoCertificateRollover durumunu denetleyin
 AD FS sunucunuza, PowerShell'i açın. AutoCertificateRollover değeri True olarak ayarlandığından emin olun.
 
     Get-Adfsproperties
@@ -68,7 +68,7 @@ AD FS sunucunuza, PowerShell'i açın. AutoCertificateRollover değeri True olar
 >[!NOTE] 
 >AD FS 2.0 kullanıyorsanız, Add-Pssnapin Microsoft.Adfs.Powershell çalıştırın.
 
-### <a name="step-2-confirm-that-ad-fs-and-azure-ad-are-in-sync"></a>2. adım: AD FS ile Azure AD eşitleme olduğundan emin olun.
+### <a name="step-2-confirm-that-ad-fs-and-azure-ad-are-in-sync"></a>2. Adım: AD FS ile Azure AD eşitleme olduğundan emin olun
 AD FS sunucunuzun MSOnline PowerShell istemi açın ve Azure AD'ye bağlanma.
 
 > [!NOTE]
@@ -92,7 +92,7 @@ AD FS ile Azure AD özellikleri için belirtilen etki alanı güven yapılandır
 
 Her iki çıkışları parmak izlerinin eşleşiyorsa sertifikalarınızı Azure AD ile eşitlenmiş halde değil.
 
-### <a name="step-3-check-if-your-certificate-is-about-to-expire"></a>3. adım: sertifikanızın süresi dolmak üzere olup olmadığını kontrol edin.
+### <a name="step-3-check-if-your-certificate-is-about-to-expire"></a>3. Adım: Sertifikanızın süresi dolmak üzere olup olmadığını denetleyin
 Get-MsolFederationProperty veya Get-AdfsCertificate çıktısındaki tarih "Değil sonra" altında olup olmadığını denetleyin 30 günden az hemen tarihse eylemde bulunmanız gerekir.
 
 | AutoCertificateRollover | Azure AD ile eşitlenmiş sertifikaları | Federasyon meta verileri genel olarak erişilebilir | Geçerlilik | Eylem |
@@ -115,7 +115,7 @@ Sertifika otomatik olarak güncelleştirilebilir onaylamak için aşağıdakini 
 
 **2. AD FS federasyon meta verileri genel olarak erişilebilir.** Genel İnternet'e (dışına, kurumsal ağ) üzerindeki bir bilgisayardan aşağıdaki URL'ye giderek Federasyon meta verilerinizi genel olarak erişilebilir olduğundan emin olun:
 
-https:// (your_FS_name) /federationmetadata/2007-06/federationmetadata.xml
+https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
 Burada `(your_FS_name) `kuruluşunuzun kullandığı, fs.contoso.com gibi Federasyon Hizmeti konak adı ile değiştirilir.  Her ikisi de doğrulayamadı varsa bu ayarları başarıyla, başka bir şey yapmanız gerekmez.  
 
@@ -128,7 +128,7 @@ Belirteç imzalama sertifikalarının el ile yenilemek tercih edebilirsiniz. Ör
 
 Belirteç imzalama sertifikalarını her güncelleştirdiğinizde bu senaryolarda, ayrıca Office 365 etki alanınızı: Update-MsolFederatedDomain PowerShell komutunu kullanarak güncelleştirmeniz gerekir.
 
-### <a name="step-1-ensure-that-ad-fs-has-new-token-signing-certificates"></a>1. adım: AD FS yeni belirteç imzalama sertifikalarının olduğundan emin olun
+### <a name="step-1-ensure-that-ad-fs-has-new-token-signing-certificates"></a>1. Adım: AD FS yeni belirteç imzalama sertifikalarının olduğundan emin olun
 **Varsayılan olmayan yapılandırma**
 
 Bir varsayılan olmayan yapılandırma AD FS kullanıyorsanız (burada **AutoCertificateRollover** ayarlanır **False**), büyük olasılıkla özel sertifikaları (otomatik imzalı değil) kullanıyorsunuz. AD FS belirteç imzalama sertifikaları yenileme hakkında daha fazla bilgi için bkz. [yönergeler AD FS kullanarak olmayan müşteriler için otomatik imzalı sertifikalar](https://msdn.microsoft.com/library/azure/JJ933264.aspx#BKMK_NotADFSCert).
@@ -149,11 +149,11 @@ Bir varsayılan olmayan yapılandırma AD FS kullanıyorsanız (burada **AutoCer
 3. Komut çıktısı, listelenen herhangi bir sertifika bakın. AD FS yeni bir sertifika oluşturdu, iki sertifika çıktı görmeniz gerekir: biri olan **Isprimary** değer **True** ve **NotAfter** tarihtir 5 gün içinde , diğeri hangi **Isprimary** olduğu **False** ve **NotAfter** gelecekte bir yıl hakkında.
 4. Yalnızca bir sertifika görüyorsanız ve **NotAfter** tarihi 5 gün içinde yeni bir sertifika oluşturmanız gerekiyor.
 5. Yeni bir sertifika oluşturmak için bir PowerShell komut isteminde aşağıdaki komutu yürütün: `PS C:\>Update-ADFSCertificate –CertificateType token-signing`.
-6. Aşağıdaki komutu çalıştırarak yeniden güncelleştirmeyi doğrulayın: PS C:\>Get-ADFSCertificate – CertificateType belirteç imzalama
+6. Güncelleştirme, aşağıdaki komutu çalıştırarak yeniden doğrulayın: PS C:\>Get-ADFSCertificate – CertificateType belirteç imzalama
 
 İki sertifika listelenir artık, biri olan bir **NotAfter** tarih yaklaşık bir yıl sonra ve hangi **Isprimary** değer **False**.
 
-### <a name="step-2-update-the-new-token-signing-certificates-for-the-office-365-trust"></a>2. adım: yeni belirteç imzalama sertifikaları için Office 365 güven güncelleştirme
+### <a name="step-2-update-the-new-token-signing-certificates-for-the-office-365-trust"></a>2. Adım: Yeni belirteç imzalama sertifikaları için Office 365 güven güncelleştir
 Office 365, yeni belirteç imzalama sertifikaları gibi güven için kullanılacak ile güncelleştirin.
 
 1. Microsoft Azure Active Directory modülü için Windows PowerShell'i açın.
