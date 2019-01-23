@@ -1,30 +1,137 @@
 ---
 layout: HubPage
 hide_bc: false
-title: Azure Active Directory Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs
-description: Azure Active Directory (Azure AD), Microsoft'un çekirdek dizin hizmetleri, uygulama erişim yönetimi ve kimlik korumasını tek bir çözüm altında birleştiren çok kiracılı, bulut tabanlı dizin ve kimlik yönetimi hizmetidir.
+title: 'Azure Active Directory Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs'
+description: 'Azure Active Directory (Azure AD), Microsoft''un çekirdek dizin hizmetleri, uygulama erişim yönetimi ve kimlik korumasını tek bir çözüm altında birleştiren çok kiracılı, bulut tabanlı dizin ve kimlik yönetimi hizmetidir.'
 services: active-directory
 author: barbkess
 manager: mtillman
-ms.assetid: ''
 ms.service: active-directory
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: landing-page
-ms.date: 11/30/2018
+ms.date: 01/16/2019
 ms.author: mtillman
-ms.openlocfilehash: 38efd682c530e79bdea3747bd6f14faa10d399c4
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723355"
 ---
+
 <div id="main" class="v2">
     <div class="container">
         <h1>Azure Active Directory Belgeleri</h1>
-        <p>Azure Active Directory (Azure AD), çok kiracılı ve bulut tabanlı bir dizin ve kimlik yönetimi hizmetidir.</p>
-        <hr style="margin: 30px 0;" />
+        <p>Azure Active Directory (Azure AD), çok kiracılı ve bulut tabanlı bir dizin ve kimlik yönetimi hizmetidir.</p><p></p>
+        <ul class="cardsY panelContent singlePanelContent" style="display:flex!important;">
+            <li>
+                <a href="fundamentals/active-directory-whatis.md">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="../cognitive-services/media/index/i_overview.svg" alt="" />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Azure AD nedir?</h3>
+                                <p>Kullanılabilir lisans türleri ve sahip oldukları özellikler dahil olmak üzere Azure Active Directory hakkında bilgi edinin.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </a>
+            </li>
+            <li>
+                <a href="fundamentals/add-custom-domain.md">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="../cognitive-services/media/index/i_get-started.svg" alt="" />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Özel bir etki alanı adı ekleme</h3>
+                                <p>Kullanıcılara tanıdık gelecek kullanıcı adları oluşturmak için kuruluşunuzun etki alanı adlarını nasıl ekleyebileceğinizi öğrenin.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </a>
+            </li>
+            <li>
+                <a href="fundamentals/customize-branding.md">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="../cognitive-services/media/index/i_guidelines.svg" alt="" />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Şirket markası ekleme</h3>
+                                <p>Kuruluşunuzun logosunu ve renk temasını Azure AD oturum açma sayfalarına nasıl ekleyebileceğinizi öğrenin.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </a>
+            </li>
+            <li>
+                <a href="fundamentals/add-users-azure-active-directory.md">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="../cognitive-services/media/index/i_guidelines.svg" alt="" />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Grup oluşturma ve üye ekleme</h3>
+                                <p>Basit bir grup oluşturmayı ve üye ekleyip kaldırmayı öğrenin.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </a>
+            </li>
+            <li>
+                <a href="fundamentals/active-directory-users-assign-role-azure-portal.md">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="../cognitive-services/media/index/i_guidelines.svg" alt="" />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Kullanıcılara rol atama</h3>
+                                <p>Gerekli izinlere bağlı olarak kullanıcılarınıza rol atamayı ve atanan rolleri kaldırmayı öğrenin.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </a>
+            </li>
+            <li>
+                <a href="/learn/modules/secure-azure-resources-with-conditional-access/">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="../cognitive-services/media/index/i_guidelines.svg" alt="" />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Öğrenin</h3>
+                                <p>Koşullu erişim ile Azure kaynaklarınızın güvenliğini sağlamayı öğrenin</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </a>
+            </li>
+        </ul>
         <ul class="pivots">
             <li>
                 <a href="#products"></a>
@@ -35,59 +142,6 @@ ms.locfileid: "52723355"
                             <li class="fullSpan">
                                 <a href="#index1" data-linktype="self-bookmark"></a>
                                 <ul class="cardsF cols cols4" id="index1" style="float: left; display: flex; width: 100%; border-bottom: 1px var(--grey-lighter) solid;">  
-                                    <li>
-                                        <ul class="cardsB panelContent" id="cardtypes-B" style="float: left; display: flex; width: 100%;">
-                                            <li>
-                                                <a href="">
-                                                    <div class="cardSize">
-                                                        <div class="cardPadding">
-                                                            <div class="card">
-                                                                <div class="cardImageOuter">
-                                                                    <div class="cardImage">
-                                                                        <img alt="" src="https://docs.microsoft.com/media/common/i_learn-about.svg" data-linktype="external">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="cardText" style="padding-left: 0px">
-                                                                    <h3><a href="fundamentals/index.yml">Temel konuları öğrenin</a></h3> 
-                                                                    <p>
-                                                                        <a href="fundamentals/active-directory-whatis.md">Azure AD nedir?</a><br>
-                                                                        <a href="fundamentals/add-custom-domain.md">Özel bir etki alanı adı ekleme</a><br>
-                                                                        <a href="fundamentals/customize-branding.md">Şirket markası ekleme</a><br>
-                                                                        <a href="fundamentals/add-users-azure-active-directory.md">Grup oluşturma ve üye ekleme</a><br>
-                                                                        <a href="fundamentals/active-directory-users-assign-role-azure-portal.md">Kullanıcılara rol atama</a><br>
-                                                                        <a href="fundamentals/active-directory-how-subscriptions-associated-directory.md">Azure aboneliği ilişkilendirme</a><br>
-                                                                        <a href="fundamentals/index.yml"><i>Diğerlerine bakın &gt;</i></a>
-                                                                    </p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="">
-                                                    <div class="cardSize">
-                                                        <div class="cardPadding">
-                                                            <div class="card">
-                                                                <div class="cardImageOuter">
-                                                                    <div class="cardImage">
-                                                                        <img alt="" src="/learn/achievements/secure-azure-resources-with-conditional-access.svg" data-linktype="external">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="cardText" style="padding-left: 0px">
-                                                                    <h3><a href="/learn/">Microsoft Learn ile becerilerinizi geliştirin</a></h3> 
-                                                                    <p>
-                                                                        <a href="/learn/modules/secure-azure-resources-with-conditional-access/">Koşullu erişim ile Azure kaynaklarınızın güvenliğini sağlayın</a><br>
-                                                                        <a href="/learn/browse/?products=azure-active-directory"><i>Daha fazla etkileşimli öğrenme içeriği &gt;</i></a><br>
-                                                                    </p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
                                     <li>
                                         <div class="cardSize">
                                             <div class="cardPadding">
@@ -103,7 +157,7 @@ ms.locfileid: "52723355"
                                                         <br><br>
                                                         <h3><a href="authentication/index.yml">Kimlik doğrulaması</a></h3>
                                                         <p>
-                                                            <a href="authentication/concept-mfa-howitworks.md">Nasıl çalışır: Azure MFA</a><br>
+                                                            <a href="authentication/concept-mfa-howitworks.md">Nasıl çalışır? Azure MFA</a><br>
                                                             <a href="authentication/concept-sspr-howitworks.md">Azure AD self servis parola sıfırlama</a><br>
                                                             <a href="authentication/concept-password-ban-bad.md">Azure AD parola koruması</a><br>
                                                             <a href="authentication/index.yml"><i>Diğerlerine bakın &gt;</i></a>
@@ -125,13 +179,6 @@ ms.locfileid: "52723355"
                                                             <a href="/azure/active-directory-b2c/index"><i>Diğerlerine bakın &gt;</i></a>
                                                         </p>
                                                         <br><br>
-                                                        <h3><a href="conditional-access/index.yml">Koşullu erişim</a></h3>
-                                                        <p>
-                                                            <a href="conditional-access/overview.md">Koşullu erişim nedir?</a><br>
-                                                            <a href="conditional-access/app-based-mfa.md">Belirli uygulamalar için MFA gerektirme</a><br>
-                                                            <a href="conditional-access/location-condition.md">Konuma göre koşullar</a><br>
-                                                            <a href="conditional-access/index.yml"><i>Diğerlerine bakın &gt;</i></a>
-                                                            </p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -142,7 +189,15 @@ ms.locfileid: "52723355"
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-                                                        <h3><a href="develop/index.yml">Geliştiriciler</a></h3>
+                                                        <h3><a href="conditional-access/index.yml">Koşullu erişim</a></h3>
+                                                        <p>
+                                                            <a href="conditional-access/overview.md">Koşullu erişim nedir?</a><br>
+                                                            <a href="conditional-access/app-based-mfa.md">Belirli uygulamalar için MFA gerektirme</a><br>
+                                                            <a href="conditional-access/location-condition.md">Konuma göre koşullar</a><br>
+                                                            <a href="conditional-access/index.yml"><i>Diğerlerine bakın &gt;</i></a>
+                                                            </p>
+                                                        <br><br>
+                                                           <h3><a href="develop/index.yml">Geliştiriciler</a></h3>
                                                         <p>
                                                             <a href="develop/about-microsoft-identity-platform.md">Microsoft Identity Platform hakkında</a><br>
                                                             <a href="develop/v2-oauth2-auth-code-flow.md">OAuth 2.0 kod akışı verme</a><br>
@@ -166,6 +221,16 @@ ms.locfileid: "52723355"
                                                             <a href="/azure/active-directory-domain-services/index"><i>Diğerlerine bakın &gt;</i></a>
                                                         </p>
                                                         <br><br>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="cardSize">
+                                            <div class="cardPadding">
+                                                <div class="card">
+                                                    <div class="cardText">
                                                         <h3><a href="users-groups-roles/index.yml">Kurumsal kullanıcılar</a></h3>
                                                         <p>
                                                             <a href="users-groups-roles/groups-create-rule.md">Dinamik grup oluşturma</a><br>
@@ -181,16 +246,7 @@ ms.locfileid: "52723355"
                                                             <a href="hybrid/how-to-connect-install-custom.md">Azure AD Connect özel yüklemesi</a><br>
                                                             <a href="hybrid/index.yml"><i>Diğerlerine bakın &gt;</i></a>
                                                         </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="cardSize">
-                                            <div class="cardPadding">
-                                                <div class="card">
-                                                    <div class="cardText">
+                                                        <br><br>
                                                         <h3><a href="governance/index.yml">Kimlik idaresi</a></h3>
                                                         <p>
                                                             <a href="governance/create-access-review.md">Erişim gözden geçirmesi oluşturma</a><br>
@@ -206,8 +262,17 @@ ms.locfileid: "52723355"
                                                             <a href="identity-protection/howto-unblock-user.md">Kullanıcıların engelini kaldırma</a><br>
                                                             <a href="identity-protection/index.yml"><i>Diğerlerine bakın &gt;</i></a>
                                                         </p>
-                                                        <br><br>
-                                                        <h3><a href="managed-identities-azure-resources/index.yml">Azure kaynakları için yönetilen kimlikler</a></h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="cardSize">
+                                            <div class="cardPadding">
+                                                <div class="card">
+                                                    <div class="cardText">
+                                                        <h3><a href="privileged-identity-management/index.yml">Azure kaynakları için yönetilen kimlikler</a></h3>
                                                         <p>
                                                             <a href="managed-identities-azure-resources/tutorial-windows-vm-access-sql.md">Azure SQL'e erişmek için Windows VM kullanma</a><br>
                                                             <a href="managed-identities-azure-resources/how-to-use-vm-token.md">Belirteç almak için Azure VM'yi kullanma</a><br>
