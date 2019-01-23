@@ -2,8 +2,8 @@
 title: Azure Notification hubs'ı güvenli gönderme
 description: Azure'dan bir iOS uygulamasına güvenli anında iletme bildirimleri göndermeyi öğrenin. Objective-C ve C# içinde yazılan kod örneklerini.
 documentationcenter: ios
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 services: notification-hubs
 ms.assetid: 17d42b0a-2c80-4e35-a1ed-ed510d19f4b4
@@ -12,24 +12,24 @@ ms.workload: mobile
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 04/25/2018
-ms.author: dimazaid
-ms.openlocfilehash: d3ba967a164a35af5bf66f7e74d5f95b5dc2a37f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.date: 01/04/2019
+ms.author: jowargo
+ms.openlocfilehash: d88bdb1eaeb95413df84bf69ed4fc763b6d4901f
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38308580"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449276"
 ---
 # <a name="azure-notification-hubs-secure-push"></a>Azure Notification hubs'ı güvenli gönderme
+
 > [!div class="op_single_selector"]
 > * [Windows Evrensel](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
 > * [iOS](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md)
 > * [Android](notification-hubs-aspnet-backend-android-secure-google-gcm-push-notification.md)
-> 
-> 
 
 ## <a name="overview"></a>Genel Bakış
+
 Mobil için tüketici hem kurumsal uygulamalar için anında iletme bildirimleri yürütmesinin büyük ölçüde basitleştirir ve kullanımı kolay, çok platformlu, ölçeği genişletilmiş bir anında iletme altyapı, erişmek Microsoft azure'da anında iletme bildirimi desteği sağlar Platform.
 
 Yasal nedeniyle veya güvenlik kısıtlamaları, bazen bir uygulama bir sorun standart bir anında iletme bildirimi altyapısı aracılığıyla aktarılan bildirim dahil olmak isteyebilirsiniz. Bu öğreticide, istemci cihaz ve uygulama arka ucu arasında güvenli, kimliği doğrulanmış bir bağlantı üzerinden hassas bilgiler göndererek aynı deneyimi elde etmek açıklar.
@@ -49,105 +49,110 @@ Bu güvenli gönderme Öğreticisi, güvenli bir şekilde anında iletme bildiri
 
 > [!NOTE]
 > Bu öğreticide oluşturduğunuz ve bildirim hub'ınıza açıklandığı gibi yapılandırılmış varsayılır [Notification hubs'ı (iOS) ile çalışmaya başlama](notification-hubs-ios-apple-push-notification-apns-get-started.md).
-> 
-> 
 
 [!INCLUDE [notification-hubs-aspnet-backend-securepush](../../includes/notification-hubs-aspnet-backend-securepush.md)]
 
 ## <a name="modify-the-ios-project"></a>İOS projesine değiştirme
+
 Uygulama göndermek için arka değiştirdiğiniz göre yalnızca *kimliği* ilişkin bir bildirim, size bu bildirimi tutamacı ve geri görüntülenecek güvenli ileti almak için arka uç çağırmak için iOS uygulamanız değiştirmeniz gerekir.
 
 Bu hedefe ulaşmak için uygulama arka ucunuzdan güvenli içeriği almak için mantığı yazmak sahibiz.
 
-1. İçinde **AppDelegate.m**, gönderilen arka ucundan bildirim kimliği işler için sessiz bildirimleri için uygulama Yazmaçları emin olun. Ekleme **UIRemoteNotificationTypeNewsstandContentAvailability** didFinishLaunchingWithOptions seçeneği:
-   
-        [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeNewsstandContentAvailability];
-2. İçinde **AppDelegate.m** üst aşağıdaki bildirimi ile bir uygulama bölümüne ekleyin:
-   
-        @interface AppDelegate ()
-        - (void) retrieveSecurePayloadWithId:(int)payloadId completion: (void(^)(NSString*, NSError*)) completion;
-        @end
+1. İçinde `AppDelegate.m`, gönderilen arka ucundan bildirim kimliği işler için sessiz bildirimleri için uygulama Yazmaçları emin olun. Ekleme `UIRemoteNotificationTypeNewsstandContentAvailability` didFinishLaunchingWithOptions seçeneği:
+
+    ```objc
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeNewsstandContentAvailability];
+    ```
+2. İçinde `AppDelegate.m` üst aşağıdaki bildirimi ile bir uygulama bölümüne ekleyin:
+
+    ```objc
+    @interface AppDelegate ()
+    - (void) retrieveSecurePayloadWithId:(int)payloadId completion: (void(^)(NSString*, NSError*)) completion;
+    @end
+    ```
 3. Ardından uygulama bölümünde yer tutucusunu değiştirerek aşağıdaki kodu ekleyin `{back-end endpoint}` için daha önce edindiğiniz arka uç nokta ile:
 
-```
-        NSString *const GetNotificationEndpoint = @"{back-end endpoint}/api/notifications";
+    ```objc
+    NSString *const GetNotificationEndpoint = @"{back-end endpoint}/api/notifications";
 
-        - (void) retrieveSecurePayloadWithId:(int)payloadId completion: (void(^)(NSString*, NSError*)) completion;
-        {
-            // check if authenticated
-            ANHViewController* rvc = (ANHViewController*) self.window.rootViewController;
-            NSString* authenticationHeader = rvc.registerClient.authenticationHeader;
-            if (!authenticationHeader) return;
+    - (void) retrieveSecurePayloadWithId:(int)payloadId completion: (void(^)(NSString*, NSError*)) completion;
+    {
+        // check if authenticated
+        ANHViewController* rvc = (ANHViewController*) self.window.rootViewController;
+        NSString* authenticationHeader = rvc.registerClient.authenticationHeader;
+        if (!authenticationHeader) return;
 
+        NSURLSession* session = [NSURLSession
+                                    sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]
+                                    delegate:nil
+                                    delegateQueue:nil];
 
-            NSURLSession* session = [NSURLSession
-                                     sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]
-                                     delegate:nil
-                                     delegateQueue:nil];
+        NSURL* requestURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/%d", GetNotificationEndpoint, payloadId]];
+        NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestURL];
+        [request setHTTPMethod:@"GET"];
+        NSString* authorizationHeaderValue = [NSString stringWithFormat:@"Basic %@", authenticationHeader];
+        [request setValue:authorizationHeaderValue forHTTPHeaderField:@"Authorization"];
 
+        NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+            NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
+            if (!error && httpResponse.statusCode == 200)
+            {
+                NSLog(@"Received secure payload: %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
 
-            NSURL* requestURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/%d", GetNotificationEndpoint, payloadId]];
-            NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestURL];
-            [request setHTTPMethod:@"GET"];
-            NSString* authorizationHeaderValue = [NSString stringWithFormat:@"Basic %@", authenticationHeader];
-            [request setValue:authorizationHeaderValue forHTTPHeaderField:@"Authorization"];
+                NSMutableDictionary *json = [NSJSONSerialization JSONObjectWithData:data options: NSJSONReadingMutableContainers error: &error];
 
-            NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
-                if (!error && httpResponse.statusCode == 200)
-                {
-                    NSLog(@"Received secure payload: %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-
-                    NSMutableDictionary *json = [NSJSONSerialization JSONObjectWithData:data options: NSJSONReadingMutableContainers error: &error];
-
-                    completion([json objectForKey:@"Payload"], nil);
+                completion([json objectForKey:@"Payload"], nil);
+            }
+            else
+            {
+                NSLog(@"Error status: %ld, request: %@", (long)httpResponse.statusCode, error);
+                if (error)
+                    completion(nil, error);
+                else {
+                    completion(nil, [NSError errorWithDomain:@"APICall" code:httpResponse.statusCode userInfo:nil]);
                 }
-                else
-                {
-                    NSLog(@"Error status: %ld, request: %@", (long)httpResponse.statusCode, error);
-                    if (error)
-                        completion(nil, error);
-                    else {
-                        completion(nil, [NSError errorWithDomain:@"APICall" code:httpResponse.statusCode userInfo:nil]);
-                    }
-                }
-            }];
-            [dataTask resume];
-        }
-```
+            }
+        }];
+        [dataTask resume];
+    }
+    ```
 
-    This method calls your app back-end to retrieve the notification content using the credentials stored in the shared preferences.
+    Bu yöntem uygulaması paylaşılan tercihlerinde depolanan kimlik bilgilerini kullanarak bildirim içeriği almak için arka çağırır.
 
-1. Şimdi gelen bildirimini işlemek ve görüntülenecek içeriği almak için yukarıdaki yöntemi sunuyoruz. İlk olarak, iOS uygulamanızın arka planda bir anında iletme bildirimi alındığında çalışmasını etkinleştirmek sahibiz. İçinde **XCode**, uygulama projenizi Sol paneldeki seçin ve ardından ana uygulama Hedefinizde tıklayın **hedefleri** Orta bölmesinden bölümü.
-2. Ardından, **özellikleri** sekmesinde, merkezi bölmesinin üst kısmında ve denetleme **uzak bildirimler** onay kutusu.
-   
+4. Şimdi gelen bildirimini işlemek ve görüntülenecek içeriği almak için yukarıdaki yöntemi sunuyoruz. İlk olarak, iOS uygulamanızın arka planda bir anında iletme bildirimi alındığında çalışmasını etkinleştirmek sahibiz. İçinde **XCode**, uygulama projenizi Sol paneldeki seçin ve ardından ana uygulama Hedefinizde tıklayın **hedefleri** Orta bölmesinden bölümü.
+5. Ardından, **özellikleri** sekmesinde, merkezi bölmesinin üst kısmında ve denetleme **uzak bildirimler** onay kutusu.
+
     ![][IOS1]
-3. İçinde **AppDelegate.m** anında iletme bildirimleri işlemek için aşağıdaki yöntemi ekleyin:
-   
-        -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
-        {
-            NSLog(@"%@", userInfo);
-   
-            [self retrieveSecurePayloadWithId:[[userInfo objectForKey:@"secureId"] intValue] completion:^(NSString * payload, NSError *error) {
-                if (!error) {
-                    // show local notification
-                    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
-                    localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:0];
-                    localNotification.alertBody = payload;
-                    localNotification.timeZone = [NSTimeZone defaultTimeZone];
-                    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
-   
-                    completionHandler(UIBackgroundFetchResultNewData);
-                } else {
-                    completionHandler(UIBackgroundFetchResultFailed);
-                }
-            }];
-   
-        }
-   
+
+6. İçinde `AppDelegate.m` anında iletme bildirimleri işlemek için aşağıdaki yöntemi ekleyin:
+
+    ```objc
+    -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
+    {
+        NSLog(@"%@", userInfo);
+
+        [self retrieveSecurePayloadWithId:[[userInfo objectForKey:@"secureId"] intValue] completion:^(NSString * payload, NSError *error) {
+            if (!error) {
+                // show local notification
+                UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+                localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:0];
+                localNotification.alertBody = payload;
+                localNotification.timeZone = [NSTimeZone defaultTimeZone];
+                [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+
+                completionHandler(UIBackgroundFetchResultNewData);
+            } else {
+                completionHandler(UIBackgroundFetchResultFailed);
+            }
+        }];
+
+    }
+    ```
+
     Arka uç tarafından durumlarında kimlik doğrulama üst bilgisi özelliği eksik ya da ret tercih olduğunu unutmayın. Bu gibi durumlarda belirli işlenmesini çoğunlukla hedef üzerinde kullanıcı deneyiminizin bağlıdır. Gerçek bildirim almak için kullanıcının kimliğini doğrulamak bildirim genel bir istemle görüntüle bir seçenektir.
 
 ## <a name="run-the-application"></a>Uygulamayı çalıştırın
+
 Uygulamayı çalıştırmak için aşağıdakileri yapın:
 
 1. Xcode'da, uygulamayı fiziksel bir iOS cihazında (anında iletme bildirimleri simülatörde çalışmaz) çalıştırın.

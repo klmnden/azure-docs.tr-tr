@@ -9,19 +9,19 @@ ms.service: event-hubs
 ms.topic: article
 ms.date: 08/13/2018
 ms.author: shvija
-ms.openlocfilehash: 9b952bd96828c4f2c140cb2d75cecb9379895a63
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: f8cd167d8de738674939180e0d81fc9282434155
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746652"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450464"
 ---
 # <a name="event-hubs-net-standard-api-overview"></a>Event Hubs .NET standart API'sine genel bakış
 
 Bu makalede, Azure Event Hubs anahtar bazıları özetlenmektedir [.NET Standard istemci API'leri](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/). Şu anda Event Hubs için iki .NET Standard istemci kitaplıkları vardır:
 
-* [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs): tüm temel çalışma zamanı işlemler sağlar.
-* [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor): işlenen olaylar izlemek sağlar ve en kolay yolu, bir olay hub'ından okumak için ek işlevler ekler.
+* [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs): Tüm temel çalışma zamanı işlemler sağlar.
+* [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor): İşlenen olaylar izlemek sağlar ve en kolay yolu, bir olay hub'ından okumak için ek işlevler ekler.
 
 ## <a name="event-hubs-client"></a>Event Hubs istemcisi
 
@@ -65,7 +65,7 @@ Event Hubs'dan olay almak için önerilen yöntem kullanarak [Event Processor Ho
 
 #### <a name="create-a-receiver"></a>Alıcı oluşturma
 
-Alıcılar belirli bölümlere, bu nedenle tüm olayları bir event hub'ında almak için bağlıdır, birden çok örnek oluşturma gerekir. Bölüm bilgileri, programlama arabiriminde bölüm kimlikleri kodlamak yerine almak için iyi bir uygulamadır. Bunu yapmak için kullanabileceğiniz [GetRuntimeInformationAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_GetRuntimeInformationAsync) yöntemi.
+Alıcılar belirli bölümlere, bu nedenle tüm olayları bir event hub'ında almak için bağlıdır, birden çok örnek oluşturma gerekir. ' % S'bölüm kimlikleri kodlamak yerine bölüm bilgileri programlı olarak almak için iyi bir uygulamadır. Bunu yapmak için kullanabileceğiniz [GetRuntimeInformationAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_GetRuntimeInformationAsync) yöntemi.
 
 ```csharp
 // Create a list to keep track of the receivers

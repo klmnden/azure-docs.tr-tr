@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 06/25/2018
 ms.author: menchi
-ms.openlocfilehash: 80d96bcb6b6073987f07ed6954f25023ab1133a4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 853dc443a994601e3900ed16da534254f6af07db
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247526"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452464"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-c-backend-and-c-device"></a>C arka ucu kullanıp C cihaz IOT hub'ı modül kimlik ve modül ikizi ile çalışmaya başlama
 
@@ -176,7 +176,7 @@ Bu uygulama Kimliğine sahip bir cihaz kimliği oluşturan **myFirstDevice** ve 
 
 Bu bölümde, bir C uygulaması, benzetimli oluşturduğunuz modül ikizi güncelleştirmeleri cihaz, bildirilen özellikleri.
 
-1. **Modülü bağlantı dizenizi alma** --için oturum açıldığında şimdi [Azure portalında](https://portal.azure.com). IoT Hub’ınıza gidin ve IoT Cihazları’na tıklayın. myFirstDevice öğesini bulup açın, böylece myFirstModule öğesinin başarıyla oluşturulduğunu görürsünüz. Modül bağlantı dizesini kopyalayın. Sonraki adımda gerekecektir.
+1. **Modülü bağlantı dizenizi alma** --için oturum açıldığında şimdi [Azure portalında](https://portal.azure.com). IoT Hub’ınıza gidin ve IoT Cihazları’na tıklayın. Bul myFirstDevice, açık myFirstModule göreceksiniz başarıyla oluşturuldu. Modül bağlantı dizesini kopyalayın. Sonraki adımda gerekecektir.
 
     ![Azure portalı modül ayrıntısı](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG)
 

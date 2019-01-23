@@ -5,7 +5,7 @@ services: active-directory
 keywords: uygulamalara koşullu erişim, Azure AD ile koşullu erişim, şirket kaynaklarına güvenli erişim, koşullu erişim ilkeleri
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 585a4968672c8bcab0efb988d556e447983dfc5a
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 67f3299bcf5b852e05308a8e71004fcd613e83cf
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158712"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446282"
 ---
 # <a name="what-is-baseline-protection-preview"></a>Taban çizgisi protection (Önizleme) nedir?  
 
@@ -56,7 +56,7 @@ Bu temel ilke kullanıcılar dışında seçeneği sağlar. Biri hariç tutmak i
 
 ## <a name="enable-a-baseline-policy"></a>Temel ilke etkinleştir 
 
-Temel ilkeleri önizlemede olsa da, bunlar varsayılan olarak etkin. El ile etkinleştirmek istiyorsanız bir İlkesi'ni etkinleştirmeniz gerekir. Önizleme aşamasında açıkça temel ilkeleri etkinleştirirseniz, bu özellik genel kullanılabilirlik ulaştığında, etkin kalır. Buna ek olarak etkinleştirin ve devre dışı bırakmak için bir ilke durumunu ayarlamak için üçüncü bir seçenek sahip, planlanan davranış değişikliği nedeni budur: **ilke gelecekte otomatik olarak etkinleştir**. Bu seçeneği tercih ederek, ilkeleri Önizleme sırasında devre dışı bırakın ancak Microsoft bunları otomatik olarak bu özellik genel kullanılabilirlik ulaştığında etkinleştirmek sahip. Temel ilkeleri artık açıkça etkinleştirmeyin ve seçmeyin **ilke gelecekte otomatik olarak etkinleştir** seçeneği, ilkeler devre dışı kalır bu özellik genel kullanılabilirlik ulaştığında.
+Temel ilkeleri önizlemede olsa da, bunlar varsayılan olarak etkin. El ile etkinleştirmek istiyorsanız bir İlkesi'ni etkinleştirmeniz gerekir. Önizleme aşamasında açıkça temel ilkeleri etkinleştirirseniz, bu özellik genel kullanılabilirlik ulaştığında, etkin kalır. Planlanan davranış değişikliği neden neden olduğunu, ayrıca etkinleştirmek ve devre dışı bırakmak için üçüncü bir seçeneğiniz vardır ilke durumunu ayarlamak için: **İlkeyi gelecekte otomatik olarak etkinleştir**. Bu seçeneği tercih ederek, ilkeleri Önizleme sırasında devre dışı bırakın ancak Microsoft bunları otomatik olarak bu özellik genel kullanılabilirlik ulaştığında etkinleştirmek sahip. Temel ilkeleri artık açıkça etkinleştirmeyin ve seçmeyin **ilke gelecekte otomatik olarak etkinleştir** seçeneği, ilkeler devre dışı kalır bu özellik genel kullanılabilirlik ulaştığında.
 
 
 **Bir taban çizgisi ilkesini etkinleştirmek için:**  

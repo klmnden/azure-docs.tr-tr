@@ -3,19 +3,19 @@ title: 'Azure AD Connect: AD DS bağlayıcı hesap izinlerini yapılandırma | M
 description: Bu belgede yeni ADSyncConfig PowerShell modülü ile AD DS bağlayıcı hesabı yapılandırma ayrıntıları
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 01/14/2019
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c7b1d74c7750a281f8c961789d39a7ae323f304e
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: a23561e082736b7dfae6205e75fd1e9ccfab5f6c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54304049"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463398"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: AD DS bağlayıcı hesap izinlerini yapılandırma 
 
@@ -299,7 +299,7 @@ Bu cmdlet şu izinler ayarlanır:
 |İzin Ver |Kimliği Doğrulanmış Kullanıcılar |Okuma izinleri |Bu nesne 
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-- [Azure AD Connect: Hesapları ve izinleri](reference-connect-accounts-permissions.md)
+- [Azure AD Connect: Hesaplar ve izinler](reference-connect-accounts-permissions.md)
 - [Hızlı yükleme](how-to-connect-install-express.md)
 - [Özel yükleme](how-to-connect-install-custom.md)
 - [ADSyncConfig başvurusu](reference-connect-adsyncconfig.md)

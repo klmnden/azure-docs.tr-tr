@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure Data Box Hakkında SSS | Microsoft Docs
-description: Azure'da büyük miktarlarda veri aktarımı yapmanızı sağlayan bir bulut çözümü olan Azure Data Box hakkında sık sorulan soruları ve yanıtlarını içerir.
+description: Sık sorulan sorular ve Azure'a büyük miktarlarda veri aktarmanıza olanak sağlayan bir bulut çözümü olan Azure Data Box için yanıtlar.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 01/16/2019
 ms.author: alkohli
-ms.openlocfilehash: 10e277618e9741cec4b4fbe88262b29c4f25e3c2
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: ad52427263c4bbd2effb373b00ef8ff37b8f5b67
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54383080"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449580"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box'de: Sık Sorulan Sorular
 

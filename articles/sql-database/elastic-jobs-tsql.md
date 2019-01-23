@@ -12,18 +12,18 @@ author: jaredmoo
 ms.reviewer: sstein
 manager: craigg
 ms.date: 06/14/2018
-ms.openlocfilehash: eda71351b0375789d41808f9351cf000945b5f4c
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: e00722259abaa02d3dce6ca26c8cd0ea7c42db29
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606818"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449410"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Elastik veritabanı işleri oluşturmak ve yönetmek için Transact-SQL (T-SQL) kullanın
 
 Bu makalede T-SQL kullanarak elastik işlerle çalışmaya başlamak için birçok örnek senaryolar sağlar.
 
-Örneklerde [saklı yordamlar](#job-stored-procedures) ve [görünümleri](#job-views) bulunan [ *iş veritabanı*](elastic-jobs-overview.md#job-database).
+Örneklerde [saklı yordamlar](#job-stored-procedures) ve [görünümleri](#job-views) bulunan [ *iş veritabanı*](sql-database-job-automation-overview.md#job-database).
 
 Transact-SQL (T-SQL) oluşturmak, yapılandırmak, yürütme ve işlerini yönetmek için kullanılır. Elastik İş Aracısı oluşturma desteklenmiyor T-SQL, önce oluşturmanız gerekir, böylece bir *elastik İş Aracısı* , portalı kullanarak veya [PowerShell](elastic-jobs-powershell.md#create-the-elastic-job-agent).
 
@@ -53,7 +53,7 @@ GO
 ## <a name="create-a-target-group-servers"></a>Bir hedef grup (Sunucuları) oluşturma
 
 Aşağıdaki örnek, bir sunucu bir işin tüm veritabanlarında yürütün gösterilmektedir.  
-Bağlanma [ *iş veritabanı* ](elastic-jobs-overview.md#job-database) ve aşağıdaki komutu çalıştırın:
+Bağlanma [ *iş veritabanı* ](sql-database-job-automation-overview.md#job-database) ve aşağıdaki komutu çalıştırın:
 
 
 ```sql
@@ -78,7 +78,7 @@ SELECT * FROM jobs.target_group_members WHERE target_group_name='ServerGroup1';
 ## <a name="exclude-a-single-database"></a>Tek bir veritabanını hariç tut
 
 Aşağıdaki örnek, bir işin tüm veritabanlarında veritabanı tarafından adlandırılan dışında bir sunucuda yürütülecek gösterilmektedir *MappingDB*.  
-Bağlanma [ *iş veritabanı* ](elastic-jobs-overview.md#job-database) ve aşağıdaki komutu çalıştırın:
+Bağlanma [ *iş veritabanı* ](sql-database-job-automation-overview.md#job-database) ve aşağıdaki komutu çalıştırın:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -121,7 +121,7 @@ SELECT * FROM [jobs].target_group_members WHERE target_group_name = N'ServerGrou
 ## <a name="create-a-target-group-pools"></a>Bir hedef grup (havuzları) oluşturma
 
 Aşağıdaki örnek, bir veya daha fazla esnek havuzlar içindeki tüm veritabanlarına hedef gösterilmektedir.  
-Bağlanma [ *iş veritabanı* ](elastic-jobs-overview.md#job-database) ve aşağıdaki komutu çalıştırın:
+Bağlanma [ *iş veritabanı* ](sql-database-job-automation-overview.md#job-database) ve aşağıdaki komutu çalıştırın:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -146,7 +146,7 @@ SELECT * FROM jobs.target_group_members WHERE target_group_name = N'PoolGroup';
 ## <a name="deploy-new-schema-to-many-databases"></a>Çok sayıda veritabanı için yeni şemayı dağıtma
 
 Aşağıdaki örnek, tüm veritabanları için yeni şemayı dağıtma gösterilmektedir.  
-Bağlanma [ *iş veritabanı* ](elastic-jobs-overview.md#job-database) ve aşağıdaki komutu çalıştırın:
+Bağlanma [ *iş veritabanı* ](sql-database-job-automation-overview.md#job-database) ve aşağıdaki komutu çalıştırın:
 
 
 ```sql
@@ -195,7 +195,7 @@ Varsayılan olarak, döndürülen sonuçlarda depolamak için bir tablo oluştur
 2. Benzersiz tanımlayıcı veri türünde internal_execution_id ek sütun.
 3. Kümelenmemiş bir dizin adı "IX_<TableName>_Internal_Execution_ID" internal_execution_id sütunu.
 
-Bağlanma [ *iş veritabanı* ](elastic-jobs-overview.md#job-database) ve aşağıdaki komutları çalıştırın:
+Bağlanma [ *iş veritabanı* ](sql-database-job-automation-overview.md#job-database) ve aşağıdaki komutları çalıştırın:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -266,7 +266,7 @@ SELECT elastic_pool_name , end_time, elastic_pool_dtu_limit, avg_cpu_percent, av
 ## <a name="view-job-definitions"></a>İş Tanımları Görüntüle
 
 Aşağıdaki örnek, geçerli iş tanımlarını görüntüleme gösterir.  
-Bağlanma [ *iş veritabanı* ](elastic-jobs-overview.md#job-database) ve aşağıdaki komutu çalıştırın:
+Bağlanma [ *iş veritabanı* ](sql-database-job-automation-overview.md#job-database) ve aşağıdaki komutu çalıştırın:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -287,7 +287,7 @@ select * from jobs.jobsteps
 ## <a name="begin-ad-hoc-execution-of-a-job"></a>Bir işin geçici yürütülmesine başlar
 
 Aşağıdaki örnek, bir işi hemen başlatmak gösterilmektedir.  
-Bağlanma [ *iş veritabanı* ](elastic-jobs-overview.md#job-database) ve aşağıdaki komutu çalıştırın:
+Bağlanma [ *iş veritabanı* ](sql-database-job-automation-overview.md#job-database) ve aşağıdaki komutu çalıştırın:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -310,7 +310,7 @@ exec jobs.sp_start_job 'CreateTableTest', 1
 ## <a name="schedule-execution-of-a-job"></a>Bir işin zamanlaması yürütme
 
 Aşağıdaki örnek, gelecekteki yürütme için bir iş zamanlama gösterilmektedir.  
-Bağlanma [ *iş veritabanı* ](elastic-jobs-overview.md#job-database) ve aşağıdaki komutu çalıştırın:
+Bağlanma [ *iş veritabanı* ](sql-database-job-automation-overview.md#job-database) ve aşağıdaki komutu çalıştırın:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -325,7 +325,7 @@ EXEC jobs.sp_update_job
 ## <a name="monitor-job-execution-status"></a>İş yürütme durumunu izleme
 
 Aşağıdaki örnek, tüm işler için yürütme durum bilgilerini görüntülemek gösterilmektedir.  
-Bağlanma [ *iş veritabanı* ](elastic-jobs-overview.md#job-database) ve aşağıdaki komutu çalıştırın:
+Bağlanma [ *iş veritabanı* ](sql-database-job-automation-overview.md#job-database) ve aşağıdaki komutu çalıştırın:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -354,7 +354,7 @@ ORDER BY start_time DESC
 ## <a name="cancel-a-job"></a>Bir işi iptal et
 
 Aşağıdaki örnek, bir işi iptal etmek gösterilmektedir.  
-Bağlanma [ *iş veritabanı* ](elastic-jobs-overview.md#job-database) ve aşağıdaki komutu çalıştırın:
+Bağlanma [ *iş veritabanı* ](sql-database-job-automation-overview.md#job-database) ve aşağıdaki komutu çalıştırın:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -373,7 +373,7 @@ EXEC jobs.sp_stop_job '01234567-89ab-cdef-0123-456789abcdef'
 ## <a name="delete-old-job-history"></a>Eski iş geçmişini sil
 
 Aşağıdaki örnek, belirli bir tarihten önce iş geçmişini sil gösterilmektedir.  
-Bağlanma [ *iş veritabanı* ](elastic-jobs-overview.md#job-database) ve aşağıdaki komutu çalıştırın:
+Bağlanma [ *iş veritabanı* ](sql-database-job-automation-overview.md#job-database) ve aşağıdaki komutu çalıştırın:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -387,7 +387,7 @@ EXEC jobs.sp_purge_jobhistory @job_name='ResultPoolsJob', @oldest_date='2016-07-
 ## <a name="delete-a-job-and-all-its-job-history"></a>Bir iş ve buna ait iş Geçmişi Sil
 
 Aşağıdaki örnek, bir işi silmek gösterilir ve ilgili tüm iş geçmişi.  
-Bağlanma [ *iş veritabanı* ](elastic-jobs-overview.md#job-database) ve aşağıdaki komutu çalıştırın:
+Bağlanma [ *iş veritabanı* ](sql-database-job-automation-overview.md#job-database) ve aşağıdaki komutu çalıştırın:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -402,7 +402,7 @@ EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob'
 
 ## <a name="job-stored-procedures"></a>İş saklı yordamları
 
-Aşağıdaki saklı yordamlara bulunan [işleri veritabanı](elastic-jobs-overview.md#job-database).
+Aşağıdaki saklı yordamlara bulunan [işleri veritabanı](sql-database-job-automation-overview.md#job-database).
 
 
 
@@ -456,7 +456,7 @@ Proje açıklaması. Varsayılan null bir nvarchar(512) açıklamasıdır. Açı
 [  **@enabled =** ] etkin  
 İş zamanlamasını etkinleştirilip etkinleştirilmediği. Etkin, varsayılan olarak 0 (devre dışı) ile bit. 0 ise, iş etkin değil ve kendi zamanlamasına göre çalışmaz; Ancak, bunu el ile çalıştırılabilir. 1 ise, iş, zamanlamaya göre çalışır ve el ile de çalıştırılabilir.
 
-[  **@schedule_interval_type =**] schedule_interval_type  
+[ **@schedule_interval_type =**] schedule_interval_type  
 Yürütülecek iş olduğunda değeri gösterir. schedule_interval_type nvarchar(50), bir kez, varsayılan ve aşağıdaki değerlerden biri olabilir:
 - 'Bir kez'
 - 'Minutes'
@@ -522,7 +522,7 @@ Proje açıklaması. nvarchar(512) açıklamasıdır.
 [  **@enabled =** ] etkin  
 İş zamanlamasını (1) etkin olup olmadığını belirtir ya da (0) etkin değil. Etkin bit.
 
-[  **@schedule_interval_type=** ] schedule_interval_type  
+[ **@schedule_interval_type=** ] schedule_interval_type  
 Yürütülecek iş olduğunda değeri gösterir. schedule_interval_type nvarchar(50) ve aşağıdaki değerlerden biri olabilir:
 
 - 'Bir kez'
@@ -625,18 +625,18 @@ Bir adım, bir projeye ekler.
 [  **@job_name =** ] 'job_name'  
 Adım ekleme yapılacak işin adı. job_name nvarchar(128) ' dir.
 
-[  **@step_id =** ] step_id  
+[ **@step_id =** ] step_id  
 İş adımı dizisi kimlik numarası. Adım kimlik numaraları 1'den başlar ve boşluk artırın. Var olan bir adım bu kimliği zaten varsa, bu yeni bir adım dizisi olarak eklenebilir böylece ardından adım ve aşağıdaki adımların tümünü kimliklerine sahip olacağını artırılır. Belirtilmezse, step_id otomatik olarak adımları sırayla son atanır. step_id bir tamsayı.
 
 [  **@step_name =** ] step_name  
 Adım adı. , (Kolaylık) 'JobStep' varsayılan adını taşıyan bir işi ilk adımı hariç belirtilmelidir. step_name nvarchar(128) ' dir.
 
-[  **@command_type =** ] 'command_type'  
+[ **@command_type =** ] 'command_type'  
 Bu jobstep tarafından yürütülen komut türü. command_type nvarchar(50), TSql değerini, yani, varsayılan değeri olan @command_type bir T-SQL betiği parametredir.
 
 Belirtilmişse, değerin TSql olması gerekir.
 
-[  **@command_source =** ] 'command_source'  
+[ **@command_source =** ] 'command_source'  
 Komut depolandığı konumun türü. command_source olduğundan, satır içi değerini, yani, varsayılan bir değerle nvarchar(50) @command_source parametresi, komutun metin.
 
 Belirtilmişse, değerin satır içi olması gerekir.
@@ -749,24 +749,24 @@ Bir iş adımı güncelleştirir.
 [  **@job_name =** ] 'job_name'  
 Adım ait olduğu proje adı. job_name nvarchar(128) ' dir.
 
-[  **@step_id =** ] step_id  
+[ **@step_id =** ] step_id  
 Değiştirilecek iş adımı kimlik numarası. Step_id ya da step_name belirtilmesi gerekir. step_id bir tamsayı.
 
 [  **@step_name =** ] 'step_name'  
 Değiştirilecek adım adı. Step_id ya da step_name belirtilmesi gerekir. step_name nvarchar(128) ' dir.
 
-[  **@new_id =** ] new_id  
+[ **@new_id =** ] new_id  
 İş adımı için yeni sıra kimlik numarası. Adım kimlik numaraları 1'den başlar ve boşluk artırın. Bir adım sıralanır, diğer adımları otomatik olarak numaralandırılır.
 
 [  **@new_name =** ] 'new_name'  
 Adım yeni adı. new_name nvarchar(128) ' dir.
 
-[  **@command_type =** ] 'command_type'  
+[ **@command_type =** ] 'command_type'  
 Bu jobstep tarafından yürütülen komut türü. command_type nvarchar(50), TSql değerini, yani, varsayılan değeri olan @command_type bir T-SQL betiği parametredir.
 
 Belirtilmişse, değerin TSql olması gerekir.
 
-[  **@command_source =** ] 'command_source'  
+[ **@command_source =** ] 'command_source'  
 Komut depolandığı konumun türü. command_source olduğundan, satır içi değerini, yani, varsayılan bir değerle nvarchar(50) @command_source parametresi, komutun metin.
 
 Belirtilmişse, değerin satır içi olması gerekir.
@@ -856,7 +856,7 @@ Bir iş adımı, bir iş kaldırır.
 [  **@job_name =** ] 'job_name'  
 Adım kaldırılacak iş adı. job_name varsayılansız bir nvarchar(128) ' dir.
 
-[  **@step_id =** ] step_id  
+[ **@step_id =** ] step_id  
 Silinecek kimlik numarası işi adımı. Step_id ya da step_name belirtilmesi gerekir. step_id bir tamsayı.
 
 [  **@step_name =** ] 'step_name'  
@@ -1043,7 +1043,7 @@ Belirtilen hedef gruba eklenmelidir veritabanının adı. target_type 'Temel' ol
 [  **@elastic_pool_name =** ] 'elastic_pool_name'  
 Belirtilen hedef gruba eklenmelidir elastik havuzunun adı. target_type 'SqlElasticPool' olduğunda elastic_pool_name belirtilmelidir. elastic_pool_name varsayılansız bir nvarchar(128) ' dir.
 
-[  **@shard_map_name =** ] 'shard_map_name'  
+[ **@shard_map_name =** ] 'shard_map_name'  
 Belirtilen hedef gruba eklenmelidir parça eşlemesi havuzunun adı. target_type 'SqlSqlShardMap' olduğunda elastic_pool_name belirtilmelidir. shard_map_name varsayılansız bir nvarchar(128) ' dir.
 
 [  **@target_id =** ] target_group_id çıkış  
@@ -1163,7 +1163,7 @@ Bir iş geçmişi kayıtları kaldırır.
 [  **@job_id =** ] job_id  
  İş tanımı Silinecek kayıtlar için iş sayısı. job_id uniqueidentifier, varsayılan değer null olur. Job_id ya da job_name belirtilmesi gerekir, ancak her ikisini birden belirtilemez.
 
-[  **@oldest_date =** ] oldest_date  
+[ **@oldest_date =** ] oldest_date  
  Geçmişte saklanacak eski kayıt. oldest_date DATETIME2, bir null ile varsayılandır. Oldest_date belirtildiğinde sp_purge_jobhistory yalnızca belirtilen değerden daha eski olan kayıtları kaldırır.
 
 #### <a name="return-code-values"></a>Dönüş kodu değerleri
@@ -1190,7 +1190,7 @@ GO
 
 ## <a name="job-views"></a>İş görünümleri
 
-Aşağıdaki görünümleri kullanılabilir [işleri veritabanı](elastic-jobs-overview.md#job-database).
+Aşağıdaki görünümleri kullanılabilir [işleri veritabanı](sql-database-job-automation-overview.md#job-database).
 
 
 |Görünüm  |Açıklama  |
