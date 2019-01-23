@@ -2,17 +2,17 @@
 title: Azure Event Grid olay kaynakları
 description: Azure Event Grid için desteklenen olay kaynakları açıklar
 services: event-grid
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 09/19/2018
-ms.author: tomfitz
-ms.openlocfilehash: adef9d2f2d859c62d3b3b3a542536698fa668f9a
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.date: 01/19/2019
+ms.author: spelluru
+ms.openlocfilehash: 44bd92568db3a762453e1d76a620e6c792cd8913
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498309"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476045"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Azure Event Grid olay kaynakları
 
@@ -26,7 +26,7 @@ Bu makale, her bir olay kaynağı için içeriğe bağlantılar sağlar.
 
 |Unvan |Açıklama  |
 |---------|---------|
-| [Öğretici: Azure Otomasyonu'nu Event Grid ve Microsoft Teams kullanmaya](ensure-tags-exists-on-new-virtual-machines.md) |Bir olay gönderen bir sanal makine, oluşturun. Sanal Makine etiketleri ve bir Microsoft Teams kanalına gönderilen bir iletinin tetikleyen bir Otomasyon runbook'unu olayı tetikler. |
+| [Öğretici: Event Grid ve Microsoft Teams ile Azure Otomasyonu](ensure-tags-exists-on-new-virtual-machines.md) |Bir olay gönderen bir sanal makine, oluşturun. Sanal Makine etiketleri ve bir Microsoft Teams kanalına gönderilen bir iletinin tetikleyen bir Otomasyon runbook'unu olayı tetikler. |
 | [Nasıl yapılır: için portal aracılığıyla olaylara abone olma](subscribe-through-portal.md) | Portalda bir Azure aboneliği için olaylara abone olmak için kullanın. |
 | [Azure CLI: bir Azure aboneliği için olaylara abone olma](./scripts/event-grid-cli-azure-subscription.md) |Azure aboneliğinin bir Event Grid aboneliği oluşturur ve bir Web kancası'na olay gönderen örnek betiği. |
 | [PowerShell: Azure aboneliği için olaylara abone olma](./scripts/event-grid-powershell-azure-subscription.md)| Azure aboneliğinin bir Event Grid aboneliği oluşturur ve bir Web kancası'na olay gönderen örnek betiği. |
@@ -128,7 +128,7 @@ Blob oluşturulur ve Silinen olayları yanıtlamak için Blob Depolama olayları
 | [Hızlı Başlangıç: oluşturma ve Azure portalı ile Blob Depolama olaylarını yönlendirme](blob-event-quickstart-portal.md) | Blob Depolama olaylarını bir Web kancası'na göndermek için portalı kullanmayı gösterir. |
 | [Azure CLI: Blob Depolama hesabı için olaylara abone olma](./scripts/event-grid-cli-blob.md) | Örnek betik bir Blob Depolama hesabı için bir olaya abone olur. Bu olay için bir Web kancası gönderir. |
 | [PowerShell: Blob Depolama hesabı için olaylara abone olma](./scripts/event-grid-powershell-blob.md) | Örnek betik bir Blob Depolama hesabı için bir olaya abone olur. Bu olay için bir Web kancası gönderir. |
-| [Resource Manager şablonu: Blob Depolama ve abonelik oluşturma](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage) | Bir Azure Blob depolama hesabı dağıtır ve o depolama hesabı için olaylara abone olur. Bu, bir Web kancası için olaylar gönderir. |
+| [Resource Manager şablonu: BLOB Depolama ve abonelik oluşturma](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage) | Bir Azure Blob depolama hesabı dağıtır ve o depolama hesabı için olaylara abone olur. Bu, bir Web kancası için olaylar gönderir. |
 | [Genel Bakış: Blob Depolama olaylarına tepki verme](../storage/blobs/storage-blob-event-overview.md) | Blob Depolama, Event Grid ile tümleştirme genel bakış. |
 | [Olay şeması](event-schema-blob-storage.md) | Blob Depolama olaylarına alanları gösterir. |
 

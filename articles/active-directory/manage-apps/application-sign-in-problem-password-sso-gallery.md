@@ -3,7 +3,7 @@ title: Parola için yapılandırılmış Azure AD galeri uygulamasında oturum a
 description: Azure AD galeri uygulaması ile ilgili sorunları giderme parola çoklu oturum açma için yapılandırılmış
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 0008384b53671b76e5cc0a6a405d3aa4986e73d2
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: d6fa471cfefe11e0927645da80c231e8b291c33e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191777"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476249"
 ---
 # <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>Parola çoklu oturum açma için yapılandırılmış Azure AD galeri uygulamasında oturum açma sorunları
 

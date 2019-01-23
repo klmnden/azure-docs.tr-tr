@@ -3,7 +3,7 @@ title: Azure Active Directory Uygulama proxy'si ve Tableau | Microsoft Docs
 description: Tableau dağıtımınız için uzaktan erişim sağlamak için Azure Active Directory (Azure AD) uygulama proxy'si kullanmayı öğrenin.
 services: active-directory
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 08/20/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 0ad58d4759d8532ab947043c20cc1060782c6d78
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 8a4231e5d49dad790855293ac50d475e499e0993
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138679"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476164"
 ---
 # <a name="azure-active-directory-application-proxy-and-tableau"></a>Azure Active Directory Uygulama proxy'si ve Tableau 
 
@@ -61,7 +61,7 @@ Tableau yayımlamak için Azure Portalı'nda bir uygulama yayımlamak gerekir.
 
     - **İç URL**: Bu uygulama, Tableau URL bir iç URL olması gerekir. Örneğin, `https://adventure-works.tableau.com`. 
 
-    - **Ön kimlik doğrulama yöntemi**: Azure Active (önerilir ancak gerekli değildir) dizin. 
+    - **Ön kimlik doğrulama yöntemi**: Azure Active (önerilir ancak gerekli değildir) dizini. 
 
 6. Seçin **Ekle** dikey penceresinin üstünde. Uygulamanızı eklenir ve Hızlı Başlangıç menüsü açılır. 
 

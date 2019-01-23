@@ -5,21 +5,21 @@ services: azure-stack
 keywords: ''
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 11/27/2018
+ms.date: 01/22/2018
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
-ms.openlocfilehash: ec7b1ad33ec80593b718bdf86a48269fb469e078
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: daf524e6802fbb0548ff2d30d32dc6fbd4bc68cb
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413524"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476402"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>Azure Stack için uzantısı konağı için hazırlama
 
-Azure Stack gerekli TCP/IP bağlantı noktası sayısını azaltarak uzantısı konağı güvenliğini sağlar. Bu makalede, Azure Stack 1808 güncelleştirmesinden sonra bir Azure Stack güncelleştirme paketi otomatik olarak etkinleştirilir uzantısı konağı hazırlama konumunda ele alınmaktadır.
+Azure Stack gerekli TCP/IP bağlantı noktası sayısını azaltarak uzantısı konağı güvenliğini sağlar. Bu makalede, Azure Stack 1808 güncelleştirmesinden sonra bir Azure Stack güncelleştirme paketi otomatik olarak etkinleştirilir uzantısı konağı hazırlama konumunda ele alınmaktadır. Bu makale, Azure Stack güncelleştirmeleri 1808 1809 ve 1811 geçerlidir.
 
 ## <a name="certificate-requirements"></a>Sertifika gereksinimleri
 
