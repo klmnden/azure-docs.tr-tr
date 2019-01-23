@@ -3,18 +3,18 @@ title: Azure Active Directory nedir? | Microsoft Docs
 description: Azure Active gerekli terminoloji, hedef kitle dahil olmak üzere temel unsurlarını ve ilgili özellikleri lisanslama Directory hakkında bilgi edinin.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.topic: overview
 ms.date: 11/13/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 80c3108d468465e68d554b3d36c527c5ccd4a13c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 44533ea4430bb7cd3bc7e0b6451892cc68bacc19
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53085935"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450226"
 ---
 # <a name="what-is-azure-active-directory"></a>Azure Active Directory nedir? 
 Azure Active Directory (Azure AD), Microsoft'un bulut tabanlı kimlik ve erişim yönetimi hizmetidir. Azure AD, çalışanlarınızın oturum açın ve kaynaklara erişmesine yardımcı olur:
@@ -52,7 +52,7 @@ Azure AD uygulamanızı geliştirmek için de Azure Active Directory temel, Prem
 
 - **"Kullandıkça Öde" özelliği lisanslar.** Ayrıca, Azure Active Directory iş müşteriye (B2C) gibi ek özellik lisans alabilirsiniz. B2C kimlik sağlama ve erişim yönetimi çözümleri, müşteriye dönük uygulamalarınız için yardımcı olabilir. Daha fazla bilgi için [Azure Active Directory B2C belgeleri](../../active-directory-b2c/index.yml).
 
-Azure aboneliğinin Azure AD'ye ilişkilendirme hakkında daha fazla bilgi için bkz. [nasıl yapılır: ilişkilendirmek veya Azure Active Directory'ye bir Azure aboneliği ekleme](active-directory-how-subscriptions-associated-directory.md) ve kullanıcılarınızalisanslarıatamahakkındadahafazlabilgiiçinbkz.[Nasıl yapılır: atamak veya Azure Active Directory lisansları kaldırabilir](license-users-groups.md).
+Azure aboneliğinin Azure AD'ye ilişkilendirme hakkında daha fazla bilgi için bkz. [nasıl yapılır: Azure Active Directory'ye bir Azure aboneliği ekleme veya ilişkilendirme](active-directory-how-subscriptions-associated-directory.md) ve kullanıcılarınıza lisansları atama hakkında daha fazla bilgi için bkz. [nasıl yapılır: Atayın veya Azure Active Directory lisansları kaldırabilir](license-users-groups.md).
 
 ## <a name="terminology"></a>Terminoloji
 Azure AD daha iyi anlamak için ve kendi belgeleri, aşağıdaki koşulları gözden geçirmeniz gerekir.

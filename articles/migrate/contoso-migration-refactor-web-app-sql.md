@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: eb046ceebf9c6233fa5178d18603add2f0c26a29
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: dec58b2bb82eeab8b95c59e2775d21d58e18cac4
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608026"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450430"
 ---
 # <a name="contoso-migration-refactor-an-on-premises-app-to-an-azure-web-app-and-azure-sql-database"></a>Contoso geçişi: Bir Azure Web uygulaması ve Azure SQL veritabanı için bir şirket içi uygulamayı yeniden düzenleme
 
@@ -220,7 +220,7 @@ Contoso yöneticileri DMA kullanarak SmartHotel360 veritabanı geçirir.
     ![DMA](media/contoso-migration-refactor-web-app-sql/dma-9.png)
 
 
-## <a name="step-3-provision-web-apps"></a>3. Adım: Hazırlama Web uygulamaları
+## <a name="step-3-provision-web-apps"></a>3. Adım: Provision Web Apps
 
 Veritabanı geçişi, Contoso yöneticileri artık iki web uygulaması sağlayabilirsiniz.
 
@@ -239,7 +239,7 @@ Veritabanı geçişi, Contoso yöneticileri artık iki web uygulaması sağlayab
 4. İşiniz bittiğinde sonra başarıyla oluşturulan denetlemek için uygulamaları adresine göz atın.
 
 
-## <a name="step-4-set-up-azure-devops"></a>4. adım: Azure DevOps’u ayarlama
+## <a name="step-4-set-up-azure-devops"></a>4. Adım: Azure DevOps’u ayarlama
 
 
 Contoso uygulaması için işlem hatları ve DevOps altyapı oluşturmak gerekir.  Bunu yapmak için Contoso yöneticileri yeni bir DevOps projesi oluşturma, kod alın ve ardından derlemeyi Ayarla ve yayın işlem hatları.
@@ -260,7 +260,7 @@ Contoso uygulaması için işlem hatları ve DevOps altyapı oluşturmak gerekir
     ![Çözüm dosyası](./media/contoso-migration-refactor-web-app-sql/vsts4.png)
     
 
-## <a name="step-5-configure-connection-strings"></a>5. adım: Bağlantı dizelerini yapılandırma
+## <a name="step-5-configure-connection-strings"></a>5. Adım: Bağlantı dizelerini yapılandırma
 
 Web apps emin olmak contoso yöneticilerinin gerekir ve tüm veritabanı iletişim kurabilir. Bunu yapmak için bağlantı dizeleri kod ve web apps'te yapılandırın.
 
@@ -280,7 +280,7 @@ Web apps emin olmak contoso yöneticilerinin gerekir ve tüm veritabanı iletiş
 5. Kodda değişiklik olduktan sonra değişiklikleri kaydetmek yöneticilerinin gerekir. Visual Studio'da Takım Gezgini'ni kullanarak bunlar commmit ve eşitleme.
 
 
-## <a name="step-6-set-up-build-and-release-pipelines-in-azure-devops"></a>6. adım: Derlemeyi Ayarla ve yayın işlem hatları, Azure DevOps
+## <a name="step-6-set-up-build-and-release-pipelines-in-azure-devops"></a>6. Adım: Derlemeyi Ayarla ve yayın işlem hatları, Azure DevOps
 
 Contoso yöneticileri artık Azure DevOps, derleme ve yayın işlem yapılandırın.
 
@@ -309,7 +309,7 @@ Contoso yöneticileri artık Azure DevOps, derleme ve yayın işlem yapılandır
     - İki zip dosyaları uygulamaları içeren paketlerdir.
     - Bu dosyalar, yayın işlem hattı, Azure Web Apps'e dağıtım için kullanılır
 
-     ![Yapıt](./media/contoso-migration-refactor-web-app-sql/pipeline6.png)
+     ![Yapay Nesne](./media/contoso-migration-refactor-web-app-sql/pipeline6.png)
 
 7. Simgeye **yayınlar** > **+ yeni işlem hattı**.
 
@@ -347,7 +347,7 @@ Contoso yöneticileri artık Azure DevOps, derleme ve yayın işlem yapılandır
 
     ![App service dağıtma](./media/contoso-migration-refactor-web-app-sql/pipeline15.png)
 
-18. İçinde **bir dosya veya klasör seçin**, bunlar bulun **SmartHotel.Registration.Wcf.zip** derleme ve clilck sırasında oluştururken dosya **Kaydet**.-sql
+18. İçinde **bir dosya veya klasör seçin**, bunlar bulun **SmartHotel.Registration.Wcf.zip** derleme ve clilck sırasında oluştururken dosya **Kaydet**.
 
     ![WCF Kaydet](./media/contoso-migration-refactor-web-app-sql/pipeline16.png)
 

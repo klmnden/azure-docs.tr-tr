@@ -5,7 +5,7 @@ keywords: AD FS, ADFS, AD FS yönetimi, AAD Connect, bağlan, oturum açma AD FS
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 2593b6c6-dc3f-46ef-8e02-a8e2dc4e9fb9
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: a9a7848069300d5f52d16585a55313643e02bc72
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 02256c3e45d198fe35c0b3686bf4c1bc6f64c51a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244466"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463907"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Azure AD Connect kullanarak Active Directory Federasyon Hizmetleri özelleştirme ve yönetme
 Bu makalede, Azure Active Directory (Azure AD) Connect kullanarak Active Directory Federasyon Hizmetleri (AD FS) özelleştirme ve yönetme işlemini açıklamaktadır. Ayrıca, bir AD FS grubu için bir tam yapılandırma yapmanız gerekebilecek diğer ortak bir AD FS görevler içerir.
@@ -76,7 +76,7 @@ Güven onarmak için AD FS ile Azure AD güven ve uygun eylemleri geçerli durum
 ![Alternatif kimlik öznitelik seçimi](./media/how-to-connect-fed-management/attributeselection.png)
 
 AD FS'yi alternatif oturum açma Kimliğini yapılandırma iki ana adımdan oluşur:
-1. **Verme talepleri doğru ortaklık kümesi yapılandırma**: verme talep kurallarıyla Azure AD bağlı olan taraf güveni değiştirildiğinde seçili UserPrincipalName özniteliği kullanıcı alternatif kimlik olarak kullanmak için.
+1. **Verme talepleri doğru ortaklık kümesi yapılandırma**: Seçili UserPrincipalName özniteliği kullanıcı alternatif kimlik olarak kullanmak için Azure AD bağlı olan taraf güveni talep verme kuralları değiştirilmiştir.
 2. **AD FS yapılandırması içinde alternatif oturum açma kimliği etkinleştirme**: AD FS yapılandırması, böylece bu alternatif kimliği kullanarak uygun ormanlardaki kullanıcıların AD FS arayabilirsiniz güncelleştirilir Bu yapılandırma, AD FS (KB2919355 ile) Windows Server 2012 R2 veya üzeri için desteklenir. Azure AD Connect, AD FS sunucuları, 2012 R2 ise, gerekli KB varlığını denetler. KB algılanmazsa, yapılandırma tamamlandıktan sonra bir uyarı aşağıda gösterildiği gibi görüntülenir:
 
     ![Uyarı KB 2012R2 üzerinde eksik](./media/how-to-connect-fed-management/kbwarning.png)
@@ -220,21 +220,21 @@ Bu kuralda değerlerini sorguladığınız **ms-ds-consistencyguid içinde** ve 
 
 Kullanarak ayrıca **ekleme** değil **sorunu**, varlık için giden sorun eklemekten kaçının ve ara değerler olarak değerleri kullanabilirsiniz. Sabit kimlik olarak kullanmak üzere hangi değeri sağladıktan sonra bir sonraki kural talebi verecek
 
-**2. kural: ms-ds-consistencyguid içinde kullanıcı için olup olmadığını denetleyin**
+**2. kural: MS-ds-consistencyguid içinde kullanıcı için mevcut olup olmadığını denetleyin**
 
     NOT EXISTS([Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"])
     => add(Type = "urn:anandmsft:tmp/idflag", Value = "useguid");
 
 Bu kural adlı geçici bir bayrak tanımlar **idflag** ayarlanmış **useguid** varsa hiçbir **ms-ds-consistencyguid içinde** kullanıcıdan doldurulur. Bunun ardındaki mantığı, AD FS boş talep izin vermeyen gerçeğidir. Talep eklediğinizde, bu nedenle http://contoso.com/ws/2016/02/identity/claims/objectguid ve http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid kural 1'de elde edersiniz bir **msdsconsistencyguid** değeri bir kullanıcı için doldurulur yalnızca talep. Doldurulmuş değil, AD FS boş bir değere sahip ve hemen bıraktığı görür. Tüm nesneleri olacaktır **objectGUID**, kural 1 yürütüldükten sonra bu talebi her zaman var olur.
 
-**3. kural: varsa, ms-ds-consistencyguid içinde sabit kimlik verme**
+**3. kural: Varsa, ms-ds-consistencyguid içinde sabit kimlik verme.**
 
     c:[Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"]
     => issue(Type = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", Value = c.Value);
 
 Bu bir örtük olarak **mevcut** denetleyin. Ardından talep değeri varsa, sabit kimliği olarak sorunu Önceki örnekte **NameIdentifier** talep. Bunu ortamınızda sabit kimliği için uygun talep türüne değiştirmek zorunda kalırsınız.
 
-**4. kural: ms-ds-consistencyguid içinde mevcut değilse objectGUID sabit kimlik verme**
+**4. kural: MS-ds-consistencyguid içinde mevcut değilse, sabit kimlik objectGUID sorunu**
 
     c1:[Type == "urn:anandmsft:tmp/idflag", Value =~ "useguid"]
     && c2:[Type == "http://contoso.com/ws/2016/02/identity/claims/objectguid"]

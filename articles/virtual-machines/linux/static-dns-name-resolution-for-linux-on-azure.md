@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: v-livech
-ms.openlocfilehash: 621cc79c23fa21401f9ec11ee15b84ae3b9b1288
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 862d239227c277a92cbf80e54b010a4b184da016
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411125"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54466100"
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>Sanal ağ arabirim kartları oluşturmak ve azure'da VM ad çözümlemesi için dahili DNS kullanma
 
@@ -49,7 +49,7 @@ az network nic create \
 ```
 
 ### <a name="deploy-a-vm-and-connect-the-vnic"></a>Bir VM dağıtma ve Vnıc bağlanın
-[az vm create](/cli/azure/vm#az_vm_create) ile bir VM oluşturun. `--nics` Bayrağı azure'a dağıtım sırasında VM için Vnıc bağlanır. Aşağıdaki örnekte adlı bir VM oluşturur `myVM` Azure yönetilen diskler ve adlı Vnıc ekler `myNic` önceki adımdaki:
+[az vm create](/cli/azure/vm) ile bir VM oluşturun. `--nics` Bayrağı azure'a dağıtım sırasında VM için Vnıc bağlanır. Aşağıdaki örnekte adlı bir VM oluşturur `myVM` Azure yönetilen diskler ve adlı Vnıc ekler `myNic` önceki adımdaki:
 
 ```azurecli
 az vm create \
@@ -149,7 +149,7 @@ az network nic create \
 ## <a name="deploy-the-vm-into-the-virtual-network-infrastructure"></a>Sanal ağ altyapısına VM dağıtma
 Artık bir sanal ağ ve alt ağ, ağ güvenlik bir güvenlik duvarı görev yapan SSH ve bir Vnıc için 22 numaralı bağlantı noktasını dışındaki tüm gelen trafiği engelleyerek bizim alt korumak için grubu sahibiz. Artık bu mevcut ağ altyapınızda içinde bir VM dağıtabilirsiniz.
 
-[az vm create](/cli/azure/vm#az_vm_create) ile bir VM oluşturun. Aşağıdaki örnekte adlı bir VM oluşturur `myVM` Azure yönetilen diskler ve adlı Vnıc ekler `myNic` önceki adımdaki:
+[az vm create](/cli/azure/vm) ile bir VM oluşturun. Aşağıdaki örnekte adlı bir VM oluşturur `myVM` Azure yönetilen diskler ve adlı Vnıc ekler `myNic` önceki adımdaki:
 
 ```azurecli
 az vm create \

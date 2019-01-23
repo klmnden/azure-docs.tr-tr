@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 01/22/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4e53351d4581791df77dbb64d9eb0f25815204f5
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: f4d63d4ad0841244cf2548b0842eea880e27a152
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426735"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463040"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıma
 
@@ -56,6 +56,7 @@ Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınabilir Azure hizm
 * Otomasyon
 * Azure Active Directory B2C
 * Azure Cosmos DB
+* Azure Veri Gezgini
 * MySQL için Azure Veritabanı
 * PostgreSQL için Azure Veritabanı
 * Azure DevOps - Microsoft dışı uzantılı Azure DevOps kuruluşlarına satın gereken [aldıklarını iptal](https://go.microsoft.com/fwlink/?linkid=871160) abonelikler arasında hesap taşınabilmesi.
@@ -166,6 +167,7 @@ Kaynakları taşıma için karmaşık senaryoları nasıl ele alınacağını a�
 Henüz, aşağıdaki senaryolar desteklenmez:
 
 * Key Vault'ta depolanan bir sertifika ile sanal makineler için yeni bir kaynak grubu ile aynı abonelikte ancak değil, abonelikler arasında taşınabilir.
+* Kullanılabilirlik alanına yönetilen disk farklı bir aboneliğe taşınamaz.
 * Standart SKU yük Dengeleyicide veya standart SKU genel IP ile sanal makine ölçek kümeleri taşınamaz.
 * Market kaynaklardan bağlı planlar ile oluşturulan sanal makineler, kaynak grubu veya abonelik arasında taşınamaz. Geçerli Abonelikteki sanal makine sağlamasını kaldırma ve yeni aboneliği yeniden dağıtın.
 

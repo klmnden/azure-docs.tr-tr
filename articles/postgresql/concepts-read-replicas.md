@@ -1,22 +1,22 @@
 ---
-title: PostgreSQL için Azure veritabanı'nda okunur çoğaltmalar
+title: PostgreSQL için Azure Veritabanı’nda okuma amaçlı çoğaltmalar
 description: Bu makalede, PostgreSQL için Azure veritabanı'nda salt okunur çoğaltmalar açıklanır.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/17/2019
-ms.openlocfilehash: 7aecfdedba04502ffdc68876635611a2f26d9896
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.date: 01/22/2019
+ms.openlocfilehash: cb02f0b786ff6f1c7dbef5471fb95ce6516f824c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54383503"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54466083"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql"></a>PostgreSQL için Azure veritabanı çoğaltmalarını okuyun
 Salt okunur çoğaltma özelliği, bir PostgreSQL sunucusu (ana) için Azure veritabanı'ndan veri çoğaltmak (çoğaltmaları okuma) en fazla beş salt okunur sunuculara aynı Azure bölgesindeki sağlar. Okuma çoğaltmaları PostgreSQL altyapısının yerel çoğaltma teknolojisini kullanarak zaman uyumsuz olarak güncelleştirilir.
 
-Çoğaltmaları benzer şekillerde PostgreSQL sunucuları için Azure veritabanı normal bağımsız olarak yönetilebilir yeni sunucularıdır. Yinelemeler, bir tek başına sunucu aynı fiyattan ücretlendirilir.
+Çoğaltmaları benzer şekillerde PostgreSQL sunucuları için Azure veritabanı normal bağımsız olarak yönetilebilir yeni sunucularıdır. Okuma her çoğaltma için sanal Çekirdeklerde sağlanan işlem ve GB cinsinden aylık sağlanan depolama için faturalandırılırsınız.
 
 ## <a name="when-to-use-read-replicas"></a>Salt okunur çoğaltmalar kullanıldığı durumlar
 Okuma açısından yoğun iş yükleri, ölçek ve performans geliştirilmesine yardımcı olarak okuma çoğaltması özelliğini yöneliktir. Yazma iş yüklerinin asıl yönlendirilebilir örneği için okuma iş yükleri için çoğaltmaları, yalıtılmış olabilir.
@@ -117,7 +117,7 @@ Bir çoğaltma oluşturduktan sonra fiyatlandırma katmanını (temel gelen ve g
 > [!IMPORTANT]
 > Sunucu Yapılandırma Yöneticisi'nin yeni değerlere güncelleştirilmeden önce çoğaltmaları yapılandırma eşit veya daha büyük değerler için güncelleştirilmesi gerekir. Bu, çoğaltmaları ana dala yapılan değişiklikleri takip edin mümkün olmasını sağlar.
 
-Özellikle, aksi takdirde çoğaltma başlatılmaz yinelemenin değerinden büyük olmasını max_connections ana sunucu değeri Postgres gerektirir. PostgreSQL için Azure veritabanı'nda max_connections değeri SKU'ya bağlı olarak ayarlanır. Daha fazla bilgi için okuma [sınırları doc](concepts-limits.md). 
+Özellikle, aksi takdirde çoğaltma başlatılmaz Yöneticisi'nin değerine eşit veya daha büyük olacak şekilde parametresi max_connections çoğaltma sunucusu değeri Postgres gerektirir. PostgreSQL için Azure veritabanı'nda max_connections değeri SKU'ya bağlı olarak ayarlanır. Daha fazla bilgi için okuma [sınırları doc](concepts-limits.md). 
 
 Bu ihlal eden bir güncelleştirme Bunu yapma girişimi bir hataya yol açacaktır.
 

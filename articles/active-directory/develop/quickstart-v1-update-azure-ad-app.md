@@ -16,20 +16,20 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: f311f951e09e064b8eac779b1082c666fe029479
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 9a89768a5cf02cc8d4cdce670bdfb5b90f504bdf
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977259"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447471"
 ---
-# <a name="quickstart-update-an-application-in-azure-active-directory"></a>Hızlı başlangıç: Azure Active Directory’de uygulama güncelleştirme
+# <a name="quickstart-update-an-application-in-azure-active-directory"></a>Hızlı Başlangıç: Azure Active Directory'de bir uygulamayı güncelleştirme
 
 Uygulamalarını Azure Active Directory'ye (Azure AD) kaydetmiş olan kurumsal geliştiriciler ve hizmet olarak yazılım (SaaS) sağlayıcıları, uygulamaları diğer kuruluşlara ve daha fazla kullanıcıya sunmak için web API'leri gibi diğer kaynaklara erişecek şekilde yapılandırmaya ihtiyaç duyabilir.
 
 Bu hızlı başlangıçta uygulamanızı sizin ve diğer kuruluşların gereksinimlerine veya ihtiyaçlarına göre yapılandırmak veya güncelleştirmek için kullanabileceğiniz yöntemleri öğreneceksiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Başlamak için aşağıdaki adımları tamamladığınızdan emin olun:
 
@@ -44,8 +44,8 @@ Bir web/gizli istemci uygulamasının kimlik doğrulaması gerektiren bir yetkil
 
 İstemcinin bir kaynak uygulaması tarafından kullanıma sunulan web API'sine (Microsoft Graph API gibi) erişebilmesi için onay çerçevesi istenen izinlere bağlı olarak istemcinin gerekli izni almasını sağlar. Varsayılan olarak tüm uygulamalar **Azure Active Directory** (Graph API) ve Azure klasik dağıtım modelinden izin seçebilir. [Graph API'si “Oturum açma ve kullanıcı profilini okuma” izni](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes#PermissionScopeDetails) de varsayılan olarak seçilir. İstemciniz Office 365 aboneliğine sahip hesapların bulunduğu bir kiracıya kaydedilirse SharePoint ve Exchange Online web API'lerini ve izinlerini de seçebilirsiniz. İstenen her web API'si için iki izin türü arasından seçim yapabilirsiniz:
 
-- Uygulama izinleri: İstemci uygulamanızın web API'sine kendisi olarak (kullanıcı bağlamı olmadan) doğrudan erişmesi gerekir. Bu izin türü için yönetici onayı gerekir ve bu tür yerel istemci uygulamalarında kullanılamaz.
-- Temsilcili izinler: İstemci uygulamanızın web API'sine oturum açmış kullanıcı olarak erişmesi gerekir ancak erişim seçilen izinle sınırlı olur. Yönetici onayı gerektirmediği sürece bu izin türü bir kullanıcı tarafından verilebilir.
+- Uygulama izinleri: Web API'sini doğrudan kendisi (kullanıcı içerik yok) olarak erişmek istemci uygulamanız gerekir. Bu izin türü için yönetici onayı gerekir ve bu tür yerel istemci uygulamalarında kullanılamaz.
+- Temsilci izinleri: Oturum açmış kullanıcı olarak, ancak seçilen izinle sınırlı erişimi olan web API'sine erişmek istemci uygulamanız gerekir. Yönetici onayı gerektirmediği sürece bu izin türü bir kullanıcı tarafından verilebilir.
 
   > [!NOTE]
   > Bir uygulamaya temsilcili izin eklenmesi kiracı içindeki kullanıcılara otomatik olarak onay vermez. Yöneticinin tüm kullanıcıların adına onay vermemesi durumunda kullanıcıların yine çalışma zamanında eklenen temsilcili izinler için el ile onay vermesi gerekir.
@@ -53,7 +53,7 @@ Bir web/gizli istemci uygulamasının kimlik doğrulaması gerektiren bir yetkil
 ### <a name="add-application-credentials-or-permissions-to-access-web-apis"></a>Web API'lerine erişmek için uygulama kimlik bilgileri veya izinleri ekleme
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Hesabınız birden fazla Azure AD kiracısına erişim sunuyorsa sağ üst köşeden hesabınızı seçin ve portal oturumunuzda kullanmak istediğiniz kiracıyı belirleyin.
+2. Hesabınız birden fazla Azure AD kiracısına erişim sunuyorsa sağ üst köşeden hesabınızı seçin ve portal oturumunuzu kullanmak istediğiniz Azure AD kiracısına ayarlayın.
 3. Sol taraftaki gezinti bölmesinden **Azure Active Directory** hizmetini seçin, **Uygulama kayıtları** öğesini seçin ve ardından yapılandırmak istediğiniz uygulamayı bulun/seçin.
 
    ![Uygulama kaydını güncelleştirme](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration.png)
@@ -89,7 +89,7 @@ Aşağıdaki bölümde kaynak uygulamasının bildirimini değiştirerek erişim
 ### <a name="add-access-scopes-to-your-resource-application"></a>Kaynak uygulamanıza erişim kapsamı ekleme
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Hesabınız birden fazla Azure AD kiracısına erişim sunuyorsa sağ üst köşeden hesabınızı seçin ve portal oturumunuzda kullanmak istediğiniz kiracıyı belirleyin.
+2. Hesabınız birden fazla Azure AD kiracısına erişim sunuyorsa sağ üst köşeden hesabınızı seçin ve portal oturumunuzu kullanmak istediğiniz Azure AD kiracısına ayarlayın.
 3. Sol taraftaki gezinti bölmesinden **Azure Active Directory > Uygulama kayıtları** seçimini yapın ve ardından yapılandırmak istediğiniz uygulamayı bulun/seçin.
 
    ![Uygulama kaydını güncelleştirme](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration.png)
@@ -111,7 +111,7 @@ Aşağıdaki bölümde kaynak uygulamasının bildirimini değiştirerek erişim
   ```
 
   > [!NOTE]
-  > `id` değerinin program aracılığıyla veya [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx) gibi bir GUID oluşturma aracı kullanılarak oluşturulması gerekir. `id`, web API'si tarafından kullanıma sunulan kapsam için benzersiz tanıtıcıyı temsil eder. Bir istemci web API'nize erişmek için gerekli izinlerle uygun şekilde yapılandırıldıktan sonra Azure AD tarafından bir OAuth2.0 erişim belirteci düzenlenir. İstemci web API'sini çağırdığında uygulama kaydında istenen izinlere göre ayarlanan kapsam (scp) talebine sahip olan erişim belirtecini sunar.
+  > `id` Değeri programlı olarak oluşturulmalıdır veya bir GUID kullanarak oluşturma aracı gibi [GUIDgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx). `id`, web API'si tarafından kullanıma sunulan kapsam için benzersiz tanıtıcıyı temsil eder. Bir istemci web API'nize erişmek için gerekli izinlerle uygun şekilde yapılandırıldıktan sonra Azure AD tarafından bir OAuth2.0 erişim belirteci düzenlenir. İstemci web API'sini çağırdığında uygulama kaydında istenen izinlere göre ayarlanan kapsam (scp) talebine sahip olan erişim belirtecini sunar.
   >
   > Gerekirse daha sonra ek kapsamları kullanıma sunabilirsiniz. Web API'niz farklı işlevlerle ilişkilendirilmiş birden fazla kapsamı kullanıma sunabilir. Kaynağınız alınan OAuth 2.0 erişim belirtecindeki kapsam (`scp`) taleplerini değerlendirerek web API'si erişimini çalışma zamanında denetleyebilir.
 
@@ -190,7 +190,7 @@ Web uygulamanız şu özellikleri de sunabilir:
 
 - [Çok kiracılı uygulama desenini kullanarak istediğiniz bir Azure Active Directory (AD) kullanıcısı ile oturum açma](howto-convert-app-to-be-multi-tenant.md)
 - [Çok kiracılı kod örnekleri](https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multi-tenant) listesi.
-- [Hızlı başlangıç: Azure AD'de oturum açma sayfanıza şirket markası ekleme](../fundamentals/customize-branding.md)
+- [Hızlı Başlangıç: Azure AD'de, oturum açma sayfası markalama şirket ekleme](../fundamentals/customize-branding.md)
 
 ## <a name="enabling-oauth-20-implicit-grant-for-single-page-applications"></a>Tek sayfalı uygulamalar için OAuth 2.0 örtük onayını etkinleştirme
 

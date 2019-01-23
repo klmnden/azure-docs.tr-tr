@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 0675e06564fcacf5f7d14ef6986762f36df18b1b
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: a6941e28bdfd922a68ff484c57031326a9aa5c0b
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52290331"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452641"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Windows Azure tanılama uzantısı ile performans izleme
 
@@ -43,7 +43,7 @@ WAD ile performans sayaçları toplamak için kümenin Resource Manager şablonu
     }
     ```
 
-    `scheduledTransferPeriod` Frquently toplanan sayaçlarını değerlerini aktarılır, Azure depolama tablosuna ve herhangi bir havuz nasıl yapılandırılacağı tanımlar. 
+    `scheduledTransferPeriod` Ne sıklıkta toplanan sayaçlarını değerlerini, Azure depolama tablosu için yapılandırılmış herhangi bir havuza aktarılır ve tanımlar. 
 
 3. İçin toplamak istediğiniz performans sayaçlarını Ekle `PerformanceCounterConfiguration` önceki adımda bildirildi. Toplamak istediğiniz her bir sayacın ile tanımlanmış bir `counterSpecifier`, `sampleRate`, `unit`, `annotation`ve tüm ilgili `sinks`.
 

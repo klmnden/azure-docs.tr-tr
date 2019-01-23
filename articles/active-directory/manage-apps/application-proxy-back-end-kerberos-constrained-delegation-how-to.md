@@ -4,7 +4,7 @@ description: Uygulama proxy'si için Kerberos kısıtlanmış temsil yapılandı
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 2a55e39414cd691c48b015b3aae73f93cbb95aab
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 99f756489c04637d37de5e1baff7e4fe46c3947a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134667"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462700"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Uygulama Ara sunucusu için kısıtlı Kerberos temsilcisi yapılandırmalarıyla ilgili sorunları giderme
 
@@ -64,7 +64,7 @@ Hangi KCD ile ilgili bir sorun gösterir. KCD SSO başarısız olan birkaç yayg
 
    ![Yetkilendirme eksik izinler nedeniyle başarısız oldu](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic2.png)
 
-Bu görüntülerin her ikisi de aynı belirti göster: SSO hata. Uygulama kullanıcı erişimi reddedilir.
+Bu görüntülerin her ikisi de aynı belirti göster: SSO hatası. Uygulama kullanıcı erişimi reddedilir.
 
 ## <a name="troubleshooting"></a>Sorun giderme
 

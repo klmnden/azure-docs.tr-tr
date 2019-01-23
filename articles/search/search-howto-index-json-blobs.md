@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 6df8d9a5c1ca1e587834ea08f73b3dd9498f8537
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: cafb48f28e38794ce0757d50a5d87432b237e17c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753158"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467172"
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Azure Search Blob Dizin Oluşturucu ile JSON bloblarını dizine ekleme
 Bu makalede bir Azure Search blob dizin oluşturucu JSON BLOB'ları Azure Blob storage'da yapılandırılmış içeriği ayıklamak için yapılandırma gösterilmektedir.
@@ -23,6 +23,9 @@ Bu makalede bir Azure Search blob dizin oluşturucu JSON BLOB'ları Azure Blob s
 Kullanabileceğiniz [portalı](#json-indexer-portal), [REST API'leri](#json-indexer-rest), veya [.NET SDK'sı](#json-indexer-dotnet) dizin JSON içeriği. Tüm yaklaşımları ortak bir Azure depolama hesabındaki bir blob kapsayıcısında yer alan JSON belgeleri olan. Diğer Azure dışı platformlardan JSON belgelerini dağıtmaya ilişkin yönergeler için bkz. [Azure Search'te verileri içeri](search-what-is-data-import.md).
 
 Azure Blob Depolama alanında JSON bloblarını genellikle tek bir JSON belge ya da bir JSON dizisi cihazlardır. Azure Search blob dizin oluşturucu nasıl belirlediği ayarlara bağlı olarak ya da yapı ayrıştırabilirsiniz **parsingMode** istek parametresi.
+
+> [!IMPORTANT]
+> JSON dizin kullanıma sunulacaktır, ancak JsonArray ayrıştırma genel Önizleme aşamasındadır ve üretim ortamlarında kullanılmamalıdır. Daha fazla bilgi için [REST API Sürüm 2017-11-11-Preview =](search-api-2017-11-11-preview.md). 
 
 <a name="json-indexer-portal"></a>
 
@@ -293,10 +296,10 @@ Aşağıdaki örnek, alan eşlemelerini de dahil olmak üzere tam olarak belirti
 
 .NET SDK'sı, tam olarak REST API ile eşlik vardır. Kavramlar ve iş akışı gereksinimlerini öğrenmek için önceki REST API bölümde gözden geçirmenizi öneririz. Yönetilen kodda bir JSON dizin oluşturucu uygulamak için aşağıdaki .NET API başvuru belgelerine başvurabilirsiniz.
 
-+ [Microsoft.Azure.search.models.DataSource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
-+ [Microsoft.Azure.search.models.datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
-+ [Microsoft.Azure.search.models.index](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 
-+ [Microsoft.Azure.search.models.indexer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
++ [microsoft.azure.search.models.datasource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
++ [microsoft.azure.search.models.datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
++ [microsoft.azure.search.models.index](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 
++ [microsoft.azure.search.models.indexer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
 
 ## <a name="see-also"></a>Ayrıca bkz.
 

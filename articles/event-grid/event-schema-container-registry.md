@@ -2,22 +2,22 @@
 title: Azure Event Grid kapsayıcı kayıt defteri olay şeması
 description: Kapsayıcı engellendi olayları Azure Event Grid ile sağlanan özellikleri tanımlar
 services: event-grid
-author: tfitzmac
+author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 08/13/2018
-ms.author: tomfitz
-ms.openlocfilehash: d18a6718e4c29f3d04639644dc752b0733f15ba8
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.date: 01/13/2019
+ms.author: spelluru
+ms.openlocfilehash: 6f00d4f249543ece0eb8db4a8e040300d55b2de8
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42060695"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462853"
 ---
 # <a name="azure-event-grid-event-schema-for-container-registry"></a>Kapsayıcı kayıt defteri için Azure Event Grid olay şeması
 
-Bu makalede, kapsayıcı kayıt defteri olaylarını şema ve özellikleri sağlar. Olay şemaları için bir giriş için bkz [Azure Event Grid olay şeması](event-schema.md).
+Bu makalede, kapsayıcı kayıt defteri olaylarını şema ve özellikleri sağlar. Olay şemaları için bir giriş için bkz [Azure Event Grid olay şeması](event-schema.md).
 
 ## <a name="available-event-types"></a>Kullanılabilir olay türleri
 
@@ -100,11 +100,11 @@ Bir olay aşağıdaki üst düzey veri vardır:
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
 | konu başlığı | dize | Olay kaynağı tam kaynak yolu. Bu alan, yazılabilir değil. Event Grid, bu değeri sağlar. |
-| Konu | dize | Yayımcı tarafından tanımlanan olay konu yolu. |
+| konu | dize | Yayımcı tarafından tanımlanan olay konu yolu. |
 | olay türü | dize | Bu olay kaynağı için kayıtlı olay türlerinden biri. |
 | eventTime | dize | Olayın oluşturulduğu zamandan, sağlayıcının UTC saatini temel alan. |
 | id | dize | Olayın benzersiz tanımlayıcısı. |
-| veri | object | BLOB Depolama olay verileri. |
+| veriler | object | BLOB Depolama olay verileri. |
 | dataVersion | dize | Veri nesnesinin şema sürümü. Yayımcı, şema sürümü tanımlar. |
 | metadataVersion | dize | Olay meta verilerinin şema sürümü. Event Grid, şemanın en üst düzey özellikleri tanımlar. Event Grid, bu değeri sağlar. |
 
@@ -114,7 +114,7 @@ Veri nesnesi, aşağıdaki özelliklere sahiptir:
 | -------- | ---- | ----------- |
 | id | dize | Olay Kimliği |
 | timestamp | dize | Olayın gerçekleştiği zaman. |
-| eylem | dize | Belirtilen olayın kapsayan eylem. |
+| action | dize | Belirtilen olayın kapsayan eylem. |
 | hedef | object | Olay hedefi. |
 | istek | object | Olayı oluşturan istek. |
 
@@ -126,7 +126,7 @@ Hedef nesne, aşağıdaki özelliklere sahiptir:
 | boyut | integer | İçeriğin bayt sayısı. Uzunluk alanı ile aynıdır. |
 | Özet | dize | Kayıt defteri V2 HTTP API belirtimi tarafından tanımlanan içeriği, Özet. |
 | Uzunluğu | integer | İçeriğin bayt sayısı. Boyut alanına ile aynıdır. |
-| Depo | dize | Depo adı. |
+| depo | dize | Depo adı. |
 | etiket | dize | Etiket adı. |
 
 İstek nesnesi, aşağıdaki özelliklere sahiptir:

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/18/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 79b8cfa061bafb43cbcf2ec8a43638fd14c2fcd0
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 11651c2721756a4f750a5a5e78f86fdbd363fb9d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954054"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462598"
 ---
 # <a name="allowed-certificate-authorities-for-enabling-custom-https-on-azure-cdn"></a>Azure CDN özel HTTPS'yi etkinleştirmek için sertifika yetkililerini izin
 
@@ -34,12 +34,9 @@ Aşağıdaki CA'lar, kendi sertifikanızı oluşturduğunuzda verilir:
 
 - AddTrust dış CA kök
 - AlphaSSL kök CA
-- DI Infra CA 01
-- DI Infra CA 02
+- AME Infra CA 01
+- AME Infra CA 02
 - Ameroot
-- AP kök CA
-- AP kök sertifika yetkilisi 2013
-- AP kök sertifika yetkilisi 2014
 - APCA DM3P
 - AutoPilot kök CA
 - Baltimore CyberTrust kök
@@ -50,11 +47,11 @@ Aşağıdaki CA'lar, kendi sertifikanızı oluşturduğunuzda verilir:
 - CA-1 DigiCert bulut Hizmetleri
 - DigiCert genel kök CA
 - DigiCert Yüksek güvence CA-3
-- DigiCert Yüksek güvence EV kök CA
+- DigiCert High Assurance EV Root CA
 - Doğrulama sunucu CA DigiCert SHA2 genişletilmiş
 - DigiCert SHA2 Yüksek güvence sunucu sertifika yetkilisi
 - DigiCert SHA2 güvenli sunucu CA
-- DST kök CA'ın X3
+- DST Root CA X3
 - D güven kök sınıfı 3 CA 2 2009
 - Her yerde şifreleme DV TLS CA
 - Güvenilen kök sertifika yetkilisi
@@ -70,8 +67,8 @@ Aşağıdaki CA'lar, kendi sertifikanızı oluşturduğunuzda verilir:
 - GlobalSign kök CA
 - Go Daddy kök sertifika yetkilisi - G2
 - G2 Daddy güvenli sertifika yetkilisi - Git
+- QuoVadis kök CA2 G3
 - RapidSSL RSA CA 2018
-- Kök kurumu
 - Symantec sınıfı 3 EV SSL CA - G3
 - Symantec sınıf 3 güvenli sunucu CA - G4
 - Microsoft için Symantec Kurumsal mobil kök

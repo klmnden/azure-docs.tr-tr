@@ -8,19 +8,19 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 09/28/2018
 ms.topic: conceptual
-ms.openlocfilehash: 06909c06087219cdfa6edccbfed70ea1694e5a03
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 7a7a32cf1d67e9a4bbe49996b258164eb25c3763
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633740"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446774"
 ---
 # <a name="create-and-test-a-new-simulated-device"></a>Oluşturma ve yeni bir simülasyon cihazı test etme
 
 Uzaktan izleme çözüm Hızlandırıcısını sanal cihazlarınızı tanımlamanızı sağlar. Bu makalede yeni bir sanal ampul cihaz tanımlayın ve ardından yerel olarak test gösterilmektedir. Çözüm Hızlandırıcısını chillers ve kamyon gibi sanal cihazları içerir. Ancak, IOT çözümlerinizi gerçek cihazları dağıtmadan önce test etmek için kendi sanal cihazlar tanımlayabilirsiniz.
 
 > [!NOTE]
-> Bu makalede, sanal cihazlar cihaz benzetimi hizmette barındırılan kullanmayı açıklar. Fiziksel bir cihaz oluşturmak istiyorsanız, bkz. [Cihazınızı Uzaktan izleme çözüm hızlandırıcısına bağlamayı](iot-accelerators-connecting-devices.md).
+> Bu makalede, sanal cihazlar cihaz benzetimi hizmette barındırılan kullanmayı açıklar. Gerçek bir cihaz oluşturmak istiyorsanız, bkz. [Cihazınızı Uzaktan izleme çözüm hızlandırıcısına bağlamayı](iot-accelerators-connecting-devices.md).
 
 Bu nasıl yapılır kılavuzunda, cihaz benzetimi mikro hizmet özelleştirme işlemini göstermektedir. Bu mikro hizmet Uzaktan izleme çözüm Hızlandırıcısını bir parçasıdır. Cihaz benzetimi özellikleri göstermek için bu nasıl yapılır kılavuzunda Contoso IOT uygulamada iki senaryoda kullanır:
 

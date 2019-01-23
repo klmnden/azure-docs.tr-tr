@@ -4,7 +4,7 @@ description: Azure AD uygulama Galerisi'nde listelenmeyen Özel Galeri dışı u
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 223532a169dc1655d8c20a7bd60ecb68d9b5052b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 7d0ed35c28717fdbabc4a549f090779e9438b8a7
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834307"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469704"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Parola çoklu oturum açma galeri dışı bir uygulama yapılandırma sorunu
 
@@ -239,11 +239,11 @@ Daha her bildirimin öğelerini anlamına gelir ve bunların her birini örnekle
 
 -   **Görünen ad** – **(boş olabilir)** hatanın ayrıntılı bir görünen ad
 
-    -   Örnek ** – **uygulama proxy'si ayarları**\*
+    -   Örnek * – **uygulama proxy'si ayarları**
 
 -   **Durum** – bildirim özel durumu
 
-    -   Örnek ** – **başarısız oldu**\*
+    -   Örnek * – **başarısız oldu**
 
 -   **Nesne Kimliği** – **(boş olabilir)** karşı işlemi gerçekleştirildi nesne kimliği
 

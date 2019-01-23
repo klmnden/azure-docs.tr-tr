@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/15/2019
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 2a2d5f9c85a881dad8f53f81a39c84d4a34b632e
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 7a136f34a7dd9fada23a4225b60223220c92c665
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360199"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54440497"
 ---
 Kuruluşların büyük ölçekli bilgi işlem gereksinimlerini vardır. Bu Big Compute iş yükleri, mühendislik tasarımı ve analizi, finansal risk hesaplamaları, görüntü işleme, karmaşık modelleme, Monte Carlo simülasyonları ve daha fazlasını içerir. 
 
@@ -95,7 +95,7 @@ Ortak iş yükleri ile Azure Vm'leri oluşturma ve iyileştirme HPC kümeleri s�
 
 * [Yükleme ve CycleCloud Resource Manager şablonu ile ayarlama](https://docs.microsoft.com/azure/cyclecloud/quickstart-install-cyclecloud)
 
-* [CycleCloud el ile ayarlama](https://docs.microsoft.com/azure/cyclecloud/quickstart-installation)
+* [CycleCloud el ile ayarlama](https://docs.microsoft.com/azure/cyclecloud/installation)
 
 ## <a name="azure-batch"></a>Azure Batch
 

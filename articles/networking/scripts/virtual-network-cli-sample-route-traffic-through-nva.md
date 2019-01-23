@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: jdial
-ms.openlocfilehash: 62077f45d96e96a7fef35cf025740849d2b99445
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 110e8c6a57cd2cdfedec808e073f04b70a55362d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42059653"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465590"
 ---
 # <a name="route-traffic-through-a-network-virtual-appliance"></a>Bir ağ sanal Gereci aracılığıyla trafiği yönlendirme
 
@@ -51,10 +51,10 @@ Bu betik, bir kaynak grubu, sanal ağ ve ağ güvenliği grupları oluşturmak i
 | Komut | Notlar |
 |---|---|
 | [az group create](/cli/azure/group#az_group_create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
-| [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) | Bir Azure sanal ağı ve ön uç alt ağı oluşturur. |
+| [az network vnet create](/cli/azure/network/vnet) | Bir Azure sanal ağı ve ön uç alt ağı oluşturur. |
 | [az network subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) | Arka uç ve DMZ alt ağları oluşturur. |
 | [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) | Internet'ten sanal Makineye erişmek için genel bir IP adresi oluşturur. |
-| [az network nic create](/cli/azure/network/nic#az_network_nic_create) | Bir sanal ağ arabirimi oluşturur ve bunun için IP iletimini etkinleştirir. |
+| [az network nic create](/cli/azure/network/nic) | Bir sanal ağ arabirimi oluşturur ve bunun için IP iletimini etkinleştirir. |
 | [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) | Ağ güvenlik grubu (NSG) oluşturur. |
 | [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) | Sanal makineye gelen HTTP ve HTTPS bağlantı noktalarına izin veren NSG kuralları oluşturur. |
 | [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update)| NSG’leri ve rota tablolarını alt ağlarla ilişkilendirir. |

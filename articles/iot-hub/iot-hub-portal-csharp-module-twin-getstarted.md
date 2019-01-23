@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: dobett
-ms.openlocfilehash: 00b093b5567d85e7f12373020dfaa5f3ca7b0530
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 6048ddbcfed4ab929d521693175c456ad91f22e2
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514409"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447110"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>Portal ve .NET cihazını kullanarak IoT Hub modül kimliğini ve modül ikizini kullanmaya başlama
 
@@ -71,13 +71,13 @@ Visual Studio'da, kullanarak mevcut çözüme bir Visual C# Windows Klasik Masa�
 
 ## <a name="install-the-latest-azure-iot-hub-net-device-sdk"></a>En son Azure IOT hub'ı .NET cihaz SDK'sını yükleme
 
-Modül kimliği ve modül ikizi genel Önizleme aşamasındadır. Yalnızca IoT Hub ön sürüm cihaz SDK’larında kullanılabilir. Visual Studio’da araçlar > Nuget paket yöneticisi > çözüm için Nuget paketlerini yönet seçeneğini açın. Microsoft.Azure.Devices.Client öğesini arayın. Ön sürümü dahil et onay kutusunu işaretlediğinizden emin olun. En son sürümü seçin ve yükleyin. Şimdi tüm modül özelliklerine erişiminiz vardır. 
+Modül kimliği ve modül ikizi genel Önizleme aşamasındadır. Yalnızca, IOT hub'ı ön cihaz SDK'ları içinde de kullanılabilir. Visual Studio’da araçlar > Nuget paket yöneticisi > çözüm için Nuget paketlerini yönet seçeneğini açın. Microsoft.Azure.Devices.Client öğesini arayın. Ön sürümü dahil et onay kutusunu işaretlediğinizden emin olun. En son sürümü seçin ve yükleyin. Şimdi tüm modül özelliklerine erişiminiz vardır. 
 
   ![Azure IoT Hub .NET hizmet SDK’sı V1.16.0-preview-005’i yükleme][14]
 
 ## <a name="get-your-module-connection-string"></a>Modülü bağlantı dizesini alma
 
-Oturum açma [Azure portalında][lnk-portal]. IoT Hub’ınıza gidin ve IoT Cihazları’na tıklayın. myFirstDevice öğesini bulup açın, böylece myFirstModule öğesinin başarıyla oluşturulduğunu görürsünüz. Modül bağlantı dizesini kopyalayın. Sonraki adımda gerekecektir.
+Oturum açma [Azure portalında][lnk-portal]. IoT Hub’ınıza gidin ve IoT Cihazları’na tıklayın. Bul myFirstDevice, açık myFirstModule göreceksiniz başarıyla oluşturuldu. Modül bağlantı dizesini kopyalayın. Sonraki adımda gerekecektir.
 
   ![Azure portalı modül ayrıntısı][15]
 

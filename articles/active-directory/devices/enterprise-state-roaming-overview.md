@@ -5,7 +5,7 @@ services: active-directory
 keywords: windows bulut Kurumsal durumda dolaşım, Kurumsal eşitleme nedir
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.component: devices
 ms.assetid: 83b3b58f-94c1-4ab0-be05-20e01f5ae3f0
@@ -16,14 +16,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
-ms.openlocfilehash: 69cc1ab09c5c0462503b4d72961ac46df542738d
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 82e3a4c43b008a70e8078297dc32777c4ec0b810
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50098092"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450073"
 ---
-# <a name="what-is-enterprise-state-roaming"></a>Hangi kurumsal durumda Dolaşım olan?
+# <a name="what-is-enterprise-state-roaming"></a>Enterprise State Roaming nedir?
 
 Windows 10 ile [Azure Active Directory (Azure AD)](../fundamentals/active-directory-whatis.md) kullanıcılar, kullanıcı ayarlarını ve uygulama ayarlarını verileri buluta güvenli bir şekilde eşitleme olanağı sağlar. Kurumsal durumda dolaşım, kullanıcılar Windows cihazlarını arasında birleşik bir deneyim sağlar ve yeni bir cihaz yapılandırmak için gereken süreyi azaltır. Kurumsal durumda Dolaşım standart için benzer çalışır [tüketici ayarları eşitleme](https://go.microsoft.com/fwlink/?linkid=2015135) , ilk kez sunulmuştur Windows 8'de. Ayrıca, Kurumsal durumda Dolaşım sunar:
 

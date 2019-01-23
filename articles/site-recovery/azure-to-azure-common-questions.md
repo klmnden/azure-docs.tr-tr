@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: 7e70fe52646c2f61e97b4eee2badd7884d95d5f5
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: a277e392acb8587e05bb78d1d8dacce40bf91f56
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260473"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449563"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>Sık sorulan sorular: Azure'dan Azure'a çoğaltma
 
@@ -101,8 +101,8 @@ Aşağıdaki ekran görüntüsünde, örnek gösterir. Ekran görüntüsünde:
 ### <a name="how-far-back-can-i-recover"></a>Ne kadar geri kurtarma gerçekleştirebilir miyim?
 Kullanabileceğiniz en eski kurtarma noktası değer 72 saattir.
 
-### <a name="what-will-happen-if-i-have-a-replication-policy-of-24-hours-and-a-problem-prevents-site-recovery-from-generating-recovery-points-for-more-than-24-hours-will-my-previous-recovery-points-be-pruned"></a>Bir çoğaltma ilkesi 24 saat ve bir sorun varsa ne olacağını 24 saatten fazla bir süre için Site Recovery oluşturma kurtarma noktalarından önler? Önceki kurtarma noktalarıma ayıklanır?
-Hayır, Site Recovery bu durumda, önceki tüm kurtarma noktalarını tutar. 
+### <a name="what-will-happen-if-i-have-a-replication-policy-of-24-hours-and-a-problem-prevents-site-recovery-from-generating-recovery-points-for-more-than-24-hours-will-my-previous-recovery-points-be-lost"></a>Bir çoğaltma ilkesi 24 saat ve bir sorun varsa ne olacağını 24 saatten fazla bir süre için Site Recovery oluşturma kurtarma noktalarından önler? Önceki kurtarma noktalarıma kaybolacak?
+Hayır, Site Recovery, önceki tüm kurtarma noktalarını tutar. Yalnızca yeni noktaları nesil ise kurtarma noktası bekletme penceresi sırasında bağlı olarak, 24 saat bu durumda, Site Recovery eski noktasını değiştirir. Bu durumda, bazı sorun nedeniyle oluşturulan tüm yeni kurtarma noktası olmayacağından biz bekletme penceresi ulaştıktan sonra tüm eski noktalarını değişmeden olarak kalır.
 
 ### <a name="after-replication-is-enabled-on-a-vm-how-do-i-change-the-replication-policy"></a>Bir VM üzerinde çoğaltmayı etkinleştirdikten sonra çoğaltma ilkesi nasıl değiştirebilirim? 
 Git **Site kurtarma kasası** > **Site Recovery altyapısı** > **çoğaltma ilkeleri**. Düzenle ve değişiklikleri kaydetmek istediğiniz ilkeyi seçin. Herhangi bir değişiklik var olan tüm çoğaltmalar için de geçerlidir. 

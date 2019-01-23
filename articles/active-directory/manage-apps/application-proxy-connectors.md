@@ -3,7 +3,7 @@ title: Azure AD uygulama ara sunucusu bağlayıcıları anlama | Microsoft Docs
 description: Azure AD uygulama ara sunucusu bağlayıcıları ile ilgili temel bilgileri kapsar.
 services: active-directory
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 8b410cc85584f45d4a3e9d7bce180a2c6aa46114
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: ca483e84b28b50d963ecc6c2e26499574f546e0f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134983"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473631"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Azure AD uygulama ara sunucusu bağlayıcıları anlama
 
@@ -120,9 +120,9 @@ Yük Dengeleme arasında belirli bir bağlayıcı grubu bağlayıcıları gerçe
 
 Performansını etkileyen başka bir ağ dahil olmak üzere bu bağlayıcıları arasında kalitesini etkendir: 
 
-* **Çevrimiçi hizmet**: bağlayıcı performansı yavaş veya Yüksek gecikmeli bağlantılar için uygulama proxy'si hizmeti içinde Azure etki. En iyi performans için kuruluşunuz Azure Express Route ile bağlanın. Aksi takdirde, ağ ekibiniz Azure bağlantıları mümkün olduğunca verimli bir şekilde işlendiğinden emin olmak gerekir. 
+* **Çevrimiçi hizmet**: Azure'daki uygulama proxy'si hizmeti yavaş veya Yüksek gecikmeli bağlantılar bağlayıcı performansı etkiler. En iyi performans için kuruluşunuz Azure Express Route ile bağlanın. Aksi takdirde, ağ ekibiniz Azure bağlantıları mümkün olduğunca verimli bir şekilde işlendiğinden emin olmak gerekir. 
 * **Arka uç uygulamaları**: Bazı durumlarda, bağlayıcı ve yavaş veya bağlantıları engelle arka uç uygulamaları arasında ek bir proxy vardır. Bu senaryoyla ilgili sorunları gidermek için bağlayıcı sunucusundan bir tarayıcı açın ve uygulamaya erişmeyi deneyin. Bağlayıcılar Azure'da çalıştırdığınız ancak şirket içi uygulamaları, ne kullanıcılarınızın beklediği deneyimi olmayabilir.
-* **Etki alanı denetleyicileri**: bağlayıcıları SSO Kerberos kısıtlanmış temsil kullanarak gerçekleştirirseniz, bunlar etki alanı denetleyicileri arka ucuna istek göndermeden önce başvurun. Kerberos biletlerinin bir önbellek bağlayıcılara sahiptir, ancak meşgul bir ortamda, etki alanı denetleyicilerinin yanıtlama performansını etkileyebilir. Bu sorun, Azure'da çalıştırmak, ancak şirket içi etki alanı denetleyicileriyle iletişim bağlayıcıların daha yaygındır. 
+* **Etki alanı denetleyicileri**: Bağlayıcılar SSO Kerberos kısıtlanmış temsil kullanarak gerçekleştirirseniz, arka uca istek göndermeden önce etki alanı denetleyicileriyle iletişim. Kerberos biletlerinin bir önbellek bağlayıcılara sahiptir, ancak meşgul bir ortamda, etki alanı denetleyicilerinin yanıtlama performansını etkileyebilir. Bu sorun, Azure'da çalıştırmak, ancak şirket içi etki alanı denetleyicileriyle iletişim bağlayıcıların daha yaygındır. 
 
 Ağınızın en iyi duruma getirme hakkında daha fazla bilgi için bkz. [Azure Active Directory Uygulama proxy'si kullanılırken ağ topolojisi hakkında önemli noktalar](application-proxy-network-topology.md).
 

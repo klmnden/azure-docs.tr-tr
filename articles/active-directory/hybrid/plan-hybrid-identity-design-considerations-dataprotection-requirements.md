@@ -4,7 +4,7 @@ description: Karma kimlik çözümünüzü planlarken, işletmeniz ve en iyi şe
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 40dc4baa-fe82-4ab6-a3e4-f36fa9dcd0df
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: c317c2bab26a44fc78e42fe440744bd26add1f2e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 34c284f3fdd78d8b2f56ec7c36e139f9ac9d78bf
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46315234"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473512"
 ---
 # <a name="plan-for-enhancing-data-security-through-a-strong-identity-solution"></a>Aracılığıyla güçlü kimlik çözümü veri güvenliği iyileştirmeyi planlama
 Verilerini korumanın ilk adımı, bu verilere kimlerin erişebileceğini belirlemektir. Ayrıca, kimlik doğrulama ve yetkilendirme özellikleri sağlamak için sisteminizi ile tümleştirebileceğiniz bir kimlik çözümü olması gerekir. Kimlik doğrulama ve Yetkilendirme genellikle birbiriyle karıştırılabilecek ve rollerine yanlış. Gerçekte, aşağıdaki çizimde gösterildiği gibi farklı, bunlar:

@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 12/20/2018
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 1d309bb550282d5245a2fbf74f14a931cf5c2279
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 902014ff3c242a18b3872ba490845eb0923f39a4
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53746259"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451196"
 ---
 # <a name="azure-media-services-entities-overview"></a>Azure Media Services varlıkları genel bakış
 
@@ -29,7 +29,7 @@ Bu makalede, her varlık hakkında daha fazla bilgi için bir makale Azure Media
 | [Varlıklar](assets-concept.md)|Bir [varlık](https://docs.microsoft.com/rest/api/media/assets) varlık, dijital dosyalar (video, ses, görüntüler, küçük resim koleksiyonları, metin parçaları ve kapalı açıklamalı alt yazı dosyaları dahil) ve bu dosyalar hakkındaki meta veriler içerir. Dijital dosyalar bir varlığa karşıya yüklendikten sonra medya kodlama, akış, içerik iş akışları çözümleme Hizmetleri'nde kullanılabilir.|
 | [İçerik anahtar ilkeleri](content-key-policy-concept.md)|Media Services, depolama, işleme ve teslim üzerinden bilgisayarınıza çıkışında medyanızdaki güvenliğini sağlamak için kullanabilirsiniz. Media Services sayesinde, Gelişmiş Şifreleme Standardı (AES-128) veya üç ana dijital hak yönetimi (DRM) sistemlerinden ile dinamik olarak şifrelenmiş canlı ve isteğe bağlı içerik teslim edebilirsiniz: Microsoft PlayReady, Google Widevine ve FairPlay Apple. Media Services de AES anahtarları ve DRM sunmaya yönelik bir hizmet sağlar (PlayReady, Widevine ve FairPlay) lisansları yetkili istemcilere.|
 | [LiveEvents ve LiveOutputs](live-events-outputs-concept.md)|Media Services Canlı etkinlikler müşterilerinizin Azure bulutunda dağıtmanıza olanak sağlar. Media Services v3 sürümünde, canlı akış olayları yapılandırmak için hakkında bilgi edinmek gereken [Canlı olayları](https://docs.microsoft.com/rest/api/media/liveevents) ve [Canlı çıkışları](https://docs.microsoft.com/rest/api/media/liveoutputs).|
-| [Akış uç noktaları](streaming-endpoint-concept.md)|A [akış uç noktalarını](https://docs.microsoft.com/rest/api/media/streamingendpoints) varlık içeriği doğrudan bir istemci Yürütücü uygulamasına veya daha fazla dağıtım bir içerik teslim ağı'için (CDN) teslim eden bir akış hizmetini temsil eder. Bir akış uç noktası hizmetinden giden akış canlı akış ve isteğe bağlı varlığı Media Services hesabınızda olabilir. Bir Media Services hesabı oluşturduğunuzda bir **varsayılan** akış uç noktası, durdurulmuş durumda sizin için oluşturulur. Nelze odstranit **varsayılan** akış uç noktası. Ek akış uç noktaları hesap altında oluşturulabilir. Video akışını başlatmak için atream için videonuzu istediğiniz akış uç başlatmanız gerekir. |
+| [Akış uç noktaları](streaming-endpoint-concept.md)|A [akış uç noktalarını](https://docs.microsoft.com/rest/api/media/streamingendpoints) varlık içeriği doğrudan bir istemci Yürütücü uygulamasına veya daha fazla dağıtım bir içerik teslim ağı'için (CDN) teslim eden bir akış hizmetini temsil eder. Bir akış uç noktası hizmetinden giden akış canlı akış ve isteğe bağlı varlığı Media Services hesabınızda olabilir. Bir Media Services hesabı oluşturduğunuzda bir **varsayılan** akış uç noktası, durdurulmuş durumda sizin için oluşturulur. Nelze odstranit **varsayılan** akış uç noktası. Ek akış uç noktaları hesap altında oluşturulabilir. Video akışını başlatmak için videonuzun akışını yapmak istediğiniz akış uç başlatmanız gerekir. |
 | [Akış bulucuları](streaming-locators-concept.md)|Kayıttan yürütme için kullanabileceğiniz bir URL ile istemcilerinize kodlanmış video veya ses dosyası sağlamanız gerekir, oluşturmanız gerekir. bir [akış Bulucu](https://docs.microsoft.com/rest/api/media/streaminglocators) ve akış URL'leri oluşturun.|
 | [Akış ilkeleri](streaming-policy-concept.md)| [İlkeleri akış](https://docs.microsoft.com/rest/api/media/streamingpolicies) , akış protokolleri ve şifreleme seçeneklerini, StreamingLocators tanımlamanıza olanak sağlar. Özel akış oluşturduğunuz ilke adını belirtebilir veya önceden tanımlanmış akış Media Services tarafından sunulan ilkelerden birini kullanın. <br/><br/>Özel bir akış ilke kullanırken, medya hizmeti hesabınız için sınırlı sayıda tür ilkeleri tasarlayın ve protokolleri ve aynı şifreleme seçenekleri gerektiğinde bunları yeniden için akış Bulucular gerekir. Yeni bir akış ilke her akış Bulucu için oluşturduğunuz değil.|
 | [Dönüşümler ve işler](transforms-jobs-concept.md)|Kullanım [dönüştüren](https://docs.microsoft.com/rest/api/media/transforms) kodlama veya videoları analiz için ortak görevler yapılandırmak için. Her **dönüştürme** bir tarif veya bir iş akışı, video veya ses dosyalarını işlemek için görevler açıklanmaktadır.<br/><br/>A [iş](https://docs.microsoft.com/rest/api/media/jobs) uygulamak için Azure Media Services için fiili istek **dönüştürme** belirli bir giriş video veya ses içeriği için. **İş** konumun video giriş ve çıkış konumunu gibi bilgileri belirtir. Giriş video kullanarak konumu belirtebilirsiniz: HTTPS URL'leri, SAS URL'lerini veya bir varlık.|

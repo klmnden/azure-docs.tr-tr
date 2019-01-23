@@ -4,7 +4,7 @@ description: Kullanıcıların ilk çalıştırma deneyimi sırasında Azure AD�
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
 ms.service: active-directory
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: eaf0b3e3b607145598660dbb64cadd5a277360cb
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
-ms.translationtype: HT
+ms.openlocfilehash: 3693115d72d9928bea0ca8bbe4fae5858e0f3cb7
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046331"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446434"
 ---
-# <a name="tutorial-join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>Öğretici: İlk çalıştırma sırasında Azure AD ile yeni bir Windows 10 cihazını katma
+# <a name="tutorial-join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>Öğretici: İlk çalıştırma sırasında Azure AD ile yeni bir Windows 10 cihazını ekleme
 
 Azure Active Directory’de (Azure AD) cihaz yönetimi ile, kullanıcılarınızın güvenlik ve uyumluluk açısından standartlarınızı karşılayan cihazlardan kaynaklarınıza eriştiğinden emin olabilirsiniz. Daha fazla bilgi için, bkz. [Azure Active Directory’de cihaz yönetimine giriş](overview.md).
 
@@ -36,11 +36,11 @@ Windows *ilk çalıştırma deneyiminde* şirket içi Active Directory (AD) etki
  
 Bu öğreticide ilk çalıştırma deneyimi sırasında bir cihazı nasıl Azure AD'ye katacağınızı öğrenirsiniz:
  > [!div class="checklist"]
-> * Ön koşullar
+> * Önkoşullar
 > * Bir cihazı katma
 > * Doğrulama
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Windows 10 cihazını katmak için, cihaz kayıt hizmetinin cihazları kaydedebileceğiniz şekilde yapılandırılması gerekir. Azure AD kiracınızda cihazları katma iznini almanıza ek olarak, kayıtlı cihazların sayısının yapılandırılan maksimum değerden daha az olması gerekir. Daha fazla bilgi için, bkz. [cihaz ayarlarını yapılandır](device-management-azure-portal.md#configure-device-settings).
 

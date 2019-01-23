@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: acedfab277199c2ada6af17584bab3f222fe1a13
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 95a9f3d553bb3d8ca07ed90578861f6267058532
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390019"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463754"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>SQL Server'dan Azure SQL veritabanı yönetilen örnek T-SQL farklılıkları
 
@@ -503,6 +503,12 @@ Bu kod içinde aynı örnek verilerle çalışır, ancak MSDTC gereklidir.
 Yönetilen örnek ve geçerli örnek süre başvuran bağlı sunucuları/dağıtılmış sorguları yerleştirilen CLR modülleri yerel örneğinin IP çözümlenemiyor. Bu hata geçici bir sorundur.
 
 **Geçici çözüm**: Bağlam bağlantılarını CLR modülünde mümkün olduğunda kullanın.
+
+### <a name="tde-encrypted-databases-dont-support-user-initiated-backups"></a>TDE şifreli veritabanlarına kullanıcı tarafından başlatılan yedeklemeleri desteklemez.
+
+Kod yürütemez `BACKUP DATABASE ... WITH COPY_ONLY` bir veritabanında saydam veri şifrelemesi (TDE) ile şifrelenir. TDE yedeklemelerinin iç TDE anahtarlarla şifrelenmesini zorlar ve yedeklemeyi geri yüklemeniz mümkün olmayacak şekilde anahtarı verilemiyor.
+
+**Geçici çözüm**: Otomatik yedeklemeler ve zaman içinde nokta geri yükleme kullanın veya veritabanı şifreleme devre dışı bırakın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

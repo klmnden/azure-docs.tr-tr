@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: d24cf56a898a4f4f8317246cbc2317e926256a77
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 56c646c2ab1f733c37a20cf6e6a5945b223beec4
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811524"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447284"
 ---
 <a name="managing-users-on-cloud-partner-portal"></a>Bulut iş ortağı portalında kullanıcıları yönetme
 ======================================
@@ -36,20 +36,20 @@ Bulut iş ortağı portalı sanal makine teklifler için rol tabanlı erişimi o
 <a name="step-2-click-add-user"></a>2. Adım Kullanıcı Ekle seçeneğine tıklayın.
 -----------------------
 
-![Adducer seçin](./media/cloud-partner-portal-how-to-manage-users/adduser.png)
+![Kullanıcı Ekle seçeneğini belirleme](./media/cloud-partner-portal-how-to-manage-users/adduser.png)
 
 <a name="step-3-type-email-address-and-select-a-role-assignment"></a>3. Adım E-posta adresini yazın ve bir rol atamasını seçin.
 --------------------------------------------------------
 
 Yeni bir kullanıcı bir 'owner' veya 'katkıda bulunan' olarak ekleyebilirsiniz.
 
-**E-posta**: Teklif yayımlama çalışan ekip arkadaşlarınızın e-posta adresini ekleyin. Microsoft hesapları (Outlook, Hotmail ve canlı) ve kuruluş kimlikleri desteklenir.
+**e-posta**: E-posta adreslerini teklifini yayımlamanın üzerinde çalışan takım arkadaşları ekleyin. Microsoft hesapları (Outlook, Hotmail ve canlı) ve kuruluş kimlikleri desteklenir.
 
 o durumda teklifiyle ilgili ayrı ayrı çalışan kuruluştan ayrılan bir ' takım/Grup e-posta diğer adı/güvenlik grubu' ekleyin.
 
 o kimlikleri bulut iş ortağı portalında sağlanan Microsoft gelen tüm iletişimi için izlenen bu e-posta emin olun.
 
-**Rol**: uygun kullanıcı rol türü tanımlamak için aşağıdaki tabloya bakın.
+**Rol**: Uygun kullanıcı rol türü tanımlamak için aşağıdaki tabloya bakın.
 
 ![Rol atama](./media/cloud-partner-portal-how-to-manage-users/assignrole.png)
 ![rol düzeyi](./media/cloud-partner-portal-how-to-manage-users/roleaccesslevel.png)
@@ -59,7 +59,8 @@ o kimlikleri bulut iş ortağı portalında sağlanan Microsoft gelen tüm ileti
 <a name="step-4-select-the-publisher-name-you-want-to-add-to-the-new-user-then-click-add-to-complete-user-addition"></a>4. Adım. Daha sonra kullanıcı ekleme tamamlamak için Ekle'yi tıklatın yeni kullanıcıyı eklemek istediğiniz yayımcı adını seçin.
 ----------------------------------------------------------------------------------------------------------------------------
 
-> `NOTE: The ‘publisher names’ for which your email is added as an owner or contributor will show up in the drop-down list of Publisher for selection.`
+> [!NOTE]
+> 'E-posta sahibi veya katkıda bulunanı eklenir yayımcı adları görünecektir yayımcı aşağı açılan listesinden seçim.'
 
 ![Rol - select yayımcı Ata](./media/cloud-partner-portal-how-to-manage-users/assignselectpublisher.png)
 

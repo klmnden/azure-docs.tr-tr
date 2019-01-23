@@ -4,7 +4,7 @@ description: Bulut uygulama erişimi için yönetilen cihazları gerektiren Azur
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: a27862a6-d513-43ba-97c1-1c0d400bf243
 ms.service: active-directory
@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 06/14/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: b59e4898f85de7ad93d9172cdb3c551a17799194
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 2df2d716516cb8e451c054fce3e184e1b4bf3f9b
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630492"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447607"
 ---
-# <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Nasıl yapılır: Gerektiren yönetilen cihazlar için koşullu erişim ile bulut uygulama erişimi
+# <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Nasıl Yapılır: Koşullu erişim ile bulut uygulaması erişimi için yönetilen cihazları gerektirir
 
 Bir mobil öncelikli ve bulut öncelikli dünyada, Azure Active Directory (Azure AD), çoklu oturum açma için uygulama ve hizmetlere her yerden sağlar. Yetkili kullanıcıların bulut uygulamalarınızdaki çok geniş bir yelpazede mobil ve ayrıca kişisel cihazlar dahil olmak üzere cihazları erişebilirsiniz. Ancak, birçok ortamda yalnızca güvenlik ve uyumluluğa yönelik standartlarınızı karşılayan cihazlar tarafından erişilmesi gereken en az birkaç uygulama var. Bu cihazlar olarak da bilinen yönetilen cihazlardır. 
 
@@ -34,9 +34,9 @@ Bu makalede, ortamınızda belirli bulut uygulamalarına erişmek için yönetil
 
 Yönetilen cihazlar için bulut uygulama erişimi TIES gerektiren **Azure AD koşullu erişim** ve **Azure AD cihaz Yönetimi** birlikte. Bu alanlardan biri ile aşina değilseniz, aşağıdaki konularda ilk şöyle olmalıdır:
 
-- **[Azure Active Directory'de koşullu erişim](../active-directory-conditional-access-azure-portal.md) ** -bu makalede bir kavramsal genel bakış ilgili terminoloji ve koşullu erişimi sağlar.
+- **[Azure Active Directory'de koşullu erişim](../active-directory-conditional-access-azure-portal.md)**  -bu makalede bir kavramsal genel bakış ilgili terminoloji ve koşullu erişimi sağlar.
 
-- **[Azure Active Directory'de cihaz yönetimine giriş](../devices/overview.md) ** -bu makalede, bir genel kuruluş denetimi altında cihazları almak için sahip olduğunuz çeşitli seçenekler sağlar. 
+- **[Azure Active Directory'de cihaz yönetimine giriş](../devices/overview.md)**  -bu makalede, bir genel kuruluş denetimi altında cihazları almak için sahip olduğunuz çeşitli seçenekler sağlar. 
 
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
@@ -60,11 +60,11 @@ Basit bir deyişle, yönetilen cihazlar altında olan cihazlardır *bazı sıral
 
 Azure AD'ye kayıtlı bir cihazı almak için üç seçeneğiniz vardır:
 
-- **[Azure AD'ye kayıtlı cihazlar](../devices/overview.md#azure-ad-registered-devices) ** - kişisel bir cihazı Azure AD'ye kayıtlı almak için
+- **[Azure AD'ye kayıtlı cihazlar](../devices/overview.md#azure-ad-registered-devices)**  - kişisel bir cihazı Azure AD'ye kayıtlı almak için
 
-- **[Azure AD'ye katılmış cihazları](../devices/overview.md#azure-ad-joined-devices) ** - kuruluş bir şirket içi katılmamış bir Windows 10 cihazına almak için AD, Azure AD'ye kayıtlı. 
+- **[Azure AD'ye katılmış cihazları](../devices/overview.md#azure-ad-joined-devices)**  - kuruluş bir şirket içi katılmamış bir Windows 10 cihazına almak için AD, Azure AD'ye kayıtlı. 
 
-- **[Hibrit Azure AD'ye katılmış cihazları](../devices/overview.md#hybrid-azure-ad-joined-devices) ** - Windows 10 veya bir şirket içi katıldığından desteklenen alt düzey cihaz almak için AD, Azure AD'ye kayıtlı.
+- **[Hibrit Azure AD'ye katılmış cihazları](../devices/overview.md#hybrid-azure-ad-joined-devices)**  - Windows 10 veya bir şirket içi katıldığından desteklenen alt düzey cihaz almak için AD, Azure AD'ye kayıtlı.
 
 Yönetilen bir cihazı olmak için kayıtlı bir cihazı olmalıdır bir **hibrit Azure AD'ye katılmış cihaz** veya **uyumlu olarak işaretli cihaz**.  
 

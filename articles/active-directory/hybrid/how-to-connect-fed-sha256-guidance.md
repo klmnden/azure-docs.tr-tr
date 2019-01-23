@@ -5,7 +5,7 @@ keywords: SHA1, SHA256, O365, Federasyon, aadconnect, adfs, ad fs, değişiklik 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: cf6880e2-af78-4cc9-91bc-b64de4428bbd
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2018
 ms.author: billmath
-ms.openlocfilehash: ca200c76596dc1a4f31bf36f00bb1661d12d19f7
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 6cdd4a37d6e98b89252dd2fc5fc4ee065c941de2
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426375"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463550"
 ---
 # <a name="change-signature-hash-algorithm-for-office-365-relying-party-trust"></a>Office 365 bağlı olan taraf güveni için değişiklik imzası karma algoritması
 ## <a name="overview"></a>Genel Bakış

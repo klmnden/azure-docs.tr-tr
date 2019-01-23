@@ -1,6 +1,6 @@
 ---
-title: Görev için Azure Media Indexer hazır
-description: Bu konu Azure Media Indexer için önceden görev genel bir bakış sağlar.
+title: Azure Media Indexer'ın hazır görev
+description: Bu konu Azure Media Indexer'ın hazır görev genel bir bakış sağlar.
 services: media-services
 documentationcenter: ''
 author: Asolanki
@@ -13,28 +13,28 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: adsolank;juliako;
-ms.openlocfilehash: ae6c4da189cd6637b4e1fa9274473b62f6664e51
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 65b4e2da2cb019c46ee566cd14f0a576c2376db2
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788273"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463098"
 ---
-# <a name="task-preset-for-azure-media-indexer"></a>Görev için Azure Media Indexer hazır
+# <a name="task-preset-for-azure-media-indexer"></a>Azure Media Indexer'ın hazır görev
 
-Azure Media Indexer olan aşağıdaki görevleri gerçekleştirmek için kullandığınız medya işlemcisi: ortam dosyaları ve içerik aranabilir yapmanıza, kapalı açıklamalı alt yazı izler ve anahtar sözcükler oluşturmak, Varlığınızı parçası olan varlık dosyaları dizini.
+Azure Media Indexer, aşağıdaki görevleri gerçekleştirmek için kullandığınız Medya işleyicisi olduğu: ortam dosyaları ve içerik aranabilir hale getirin, kapalı açıklamalı alt yazı izleyen ve anahtar sözcükler üretmek, varlığınız bir parçası olan varlık dosyaları dizini.
 
-Bu konu görevi açıklayan dizin işinizi geçmesi gerektiğini hazır. Tam örnek için bkz: [Azure Media Indexer ortam dosyalarıyla dizin](media-services-index-content.md).
+Bu konuda görevi açıklayan önceden dizin oluşturma işinizle geçmeniz gerekir. Tam bir örnek için bkz. [Azure Media Indexer ile medya dosyalarının dizinini oluşturarak](media-services-index-content.md).
 
-## <a name="azure-media-indexer-configuration-xml"></a>Azure Media Indexer yapılandırma XML
+## <a name="azure-media-indexer-configuration-xml"></a>Azure Media Indexer yapılandırma XML'i
 
-Aşağıdaki tabloda, öğeleri ve yapılandırma XML öznitelikleri açıklanmaktadır.
+Aşağıdaki tablo, öğeleri ve yapılandırma XML özniteliklerini açıklar.
 
 |Ad|Gerektirme|Açıklama|
 |---|---|---|
-|Girdi|true|Dizin istediğiniz varlık dosyaları.<br/>Azure Media Indexer aşağıdaki ortam dosya biçimleri destekler: MP4, MOV, WMV, MP3, M4A, WMA, AAC, WAV. <br/><br/>Dosya adı (s) belirleyebilirsiniz **adı** veya **listesi** özniteliği **giriş** (aşağıda gösterildiği gibi) öğesi. Hangi dizin varlık dosyasına belirtmezseniz, birincil dosya çekilir. Herhangi bir birincil varlık dosyası ayarlarsanız, ilk giriş varlık dosyasında dizine alınır.<br/><br/>Varlık dosya adı açıkça belirtmek için aşağıdakileri yapın:<br/>```<input name="TestFile.wmv" />```<br/><br/>Ayrıca, birden çok varlık aynı anda (dosyaları en fazla 10) dizin oluşturabilirsiniz. Bunu yapmak için:<br/>-Bir metin dosyası (bildirim dosyası) oluşturun ve bir .lst uzantısı verin.<br/>-Tüm varlık dosya adlarının bir listesini giriş Varlığınızı bildirim bu dosyaya ekleyin.<br/>-(Karşıya yükleme) thanifest dosyasını varlık için ekleyin.<br/>-Girdinin liste özniteliğinde bildirim dosyasının adını belirtin.<br/>```<input list="input.lst">```<br/><br/>**Not:** bildirim dosyası 10'dan fazla dosyaları eklerseniz, dizin oluşturma işi 2006 hata koduyla başarısız olur.|
-|meta veriler|false|Belirtilen varlık dosyaları için meta veriler.<br/>```<metadata key="..." value="..." />```<br/><br/>Önceden tanımlanmış anahtarlar için değer sağlayabilir. <br/><br/>Şu anda aşağıdaki anahtarları desteklenir:<br/><br/>**Başlık** ve **açıklama** - konuşma tanıma doğruluğunu artırmak için dil modeli güncelleştirmek için kullanılan.<br/>```<metadata key="title" value="[Title of the media file]" /><metadata key="description" value="[Description of the media file]" />```<br/><br/>**Kullanıcı adı** ve **parola** - http veya https üzerinden internet dosyaları yüklerken kimlik doğrulaması için kullanılır.<br/>```<metadata key="username" value="[UserName]" /><metadata key="password" value="[Password]" />```<br/>Kullanıcı adı ve parola değerleri giriş bildiriminde tüm medya URL'leri uygulayın.|
-|SaaS Uygulamaları Geliştirme<br/><br/>Sürüm 1.2 eklendi. Şu anda, yalnızca desteklenen konuşma tanıma ("ASR") özelliğidir.|false|Konuşma tanıma özelliği şu ayarları anahtarlarını sahiptir:<br/><br/>Dil:<br/>-Multimedya dosyasında kabul edilecek doğal dili.<br/>-İngilizce, İspanyolca<br/><br/>CaptionFormats:<br/>-noktalı virgülle ayrılmış listesini istenen çıkış resim yazısı biçimleri (varsa)<br/>-ttml; sami; webvtt<br/><br/><br/>GenerateAIB:<br/>-Bir AIB dosyası (kullanmak için SQL Server ve müşteri dizin oluşturucu IFilter ile) gerekli olup olmadığını belirten boolean bir bayrak. Daha fazla bilgi için Azure Media Indexer ve SQL Server ile AIB dosyaları kullanma konusuna bakın.<br/>-True; False<br/><br/>GenerateKeywords:<br/>-Bir anahtar sözcük XML dosyasını gerekli olup olmadığını belirten boolean bir bayrak.<br/>-True; FALSE.|
+|Girdi|true|Dizine eklemek istediğiniz varlık dosyaları.<br/>Azure Media Indexer, aşağıdaki ortam dosya biçimlerini destekler: MP4, MOV, WMV, MP3, M4A, WMA, AAC, WAV. <br/><br/>Dosya adı (s) belirleyebilirsiniz **adı** veya **listesi** özniteliği **giriş** (aşağıda gösterildiği gibi) öğesi. Birincil dosya dizini için hangi varlık dosyası belirtmezseniz çekilir. Hiçbir birincil varlık dosyası olarak ayarlanırsa ilk giriş varlığı dosyasında dizine alınır.<br/><br/>Varlık dosyası adı açıkça belirtmek için aşağıdakileri yapın:<br/>```<input name="TestFile.wmv" />```<br/><br/>Ayrıca, birden çok varlık dosyaları aynı anda (en fazla 10) de dizine ekleyebilir. Bunu yapmak için:<br/>-Bir metin dosyası (bildirim dosyasını) oluşturun ve .lst uzantısı verin.<br/>-Tüm varlık dosya adlarının bir listesini giriş varlığınız bu bildirim dosyasına ekleyin.<br/>-Varlık için (yükleme) bildirim dosyası ekleyin.<br/>-Girdinin listesi özniteliğini bildirim dosyasının adını belirtin.<br/>```<input list="input.lst">```<br/><br/>**Not:** Bildirim dosyası için 10'dan fazla dosyaları eklerseniz, dizin oluşturma işi 2006 hata kodu ile başarısız olur.|
+|meta veriler|false|Belirtilen varlık dosyaları için meta veriler.<br/>```<metadata key="..." value="..." />```<br/><br/>Önceden tanımlı anahtarlar için değerleri sağlayabilirsiniz. <br/><br/>Şu anda aşağıdaki anahtarları desteklenmektedir:<br/><br/>**Başlık** ve **açıklama** - konuşma tanıma doğruluğunu artırmak için dil modeli güncelleştirmek için kullanılır.<br/>```<metadata key="title" value="[Title of the media file]" /><metadata key="description" value="[Description of the media file]" />```<br/><br/>**Kullanıcı adı** ve **parola** - http veya https aracılığıyla internet dosyaları indirirken kimlik doğrulaması için kullanılır.<br/>```<metadata key="username" value="[UserName]" /><metadata key="password" value="[Password]" />```<br/>Kullanıcı adı ve parola değerleri tüm medya URL'leri giriş bildiriminde uygulayın.|
+|SaaS Uygulamaları Geliştirme<br/><br/>Sürüm 1.2 eklendi. Şu anda, yalnızca desteklenen konuşma tanıma ("ASR") özelliğidir.|false|Konuşma tanıma özelliği, aşağıdaki ayarları anahtarlarını sahiptir:<br/><br/>Dil:<br/>-Multimedya dosyasında tanınacak doğal dili.<br/>-İngilizce, İspanyolca<br/><br/>CaptionFormats:<br/>-noktalı virgülle ayrılmış listesini istenen çıkış başlığı biçimlendirir (varsa)<br/>- ttml;sami;webvtt<br/><br/><br/>GenerateAIB:<br/>-AIB dosyası (SQL Server ve müşteri dizin oluşturucu IFilter ile kullanın için) gerekli olup olmadığını belirleme bir Boole bayrağı. Daha fazla bilgi için Azure Media Indexer'ı ve SQL Server kullanarak AIB dosyaları bakın.<br/>-True; False<br/><br/>GenerateKeywords:<br/>-Bir anahtar sözcük XML dosyası gerekli olup olmadığını belirleme bir Boole bayrağı.<br/>-True; FALSE.|
 
 ## <a name="azure-media-indexer-configuration-xml-example"></a>Azure Media Indexer yapılandırma XML örneği
 
@@ -64,5 +64,5 @@ Aşağıdaki tabloda, öğeleri ve yapılandırma XML öznitelikleri açıklanma
   
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bkz: [Azure Media Indexer ortam dosyalarıyla dizin](media-services-index-content.md).
+Bkz: [Azure Media Indexer ile medya dosyalarının dizinini oluşturarak](media-services-index-content.md).
 

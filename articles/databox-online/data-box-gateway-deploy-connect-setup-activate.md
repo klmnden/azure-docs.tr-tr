@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 02780a9e9702a41f677595d74b9861ea6a51b572
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 887c1d554cd5bd2b935178a77a2de19e687ca3f2
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260450"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450413"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway-preview"></a>Öğretici: Bağlanma, ayarlama, Azure veri kutusu ağ geçidi (Önizleme) etkinleştirme 
 
@@ -86,7 +86,7 @@ En sunuldu **Pano** cihazınızın.
     - Ağ Arabiriminizin IPv4 yapılandırabilirsiniz.
 
     >[!NOTE] 
-    > Cihaza bağlanmak için başka bir IP adresi yoksa ağ arabiriminden statik DHCP, yerel IP adresini geçme öneririz. Birini kullanıyorsanız, ağ arabirimi ve geçiş için DHCP, DHCP adresini belirlemek mümkün olacaktır. Bir DHCP adresi için değiştirmek istiyorsanız, cihazın hizmete kaydolduktan sonra kadar bekleyin ve sonra değiştirebilirsiniz. Ardından tüm adpaters IP'ler görüntüleyebilirsiniz **cihaz özelliklerini** hizmetiniz için Azure portalında.
+    > Cihaza bağlanmak için başka bir IP adresi yoksa ağ arabiriminden statik DHCP, yerel IP adresini geçme öneririz. Birini kullanıyorsanız, ağ arabirimi ve geçiş için DHCP, DHCP adresini belirlemek mümkün olacaktır. Bir DHCP adresi için değiştirmek istiyorsanız, cihazın hizmete kaydolduktan sonra kadar bekleyin ve sonra değiştirebilirsiniz. Bulunan tüm bağdaştırıcıları IP'ler daha sonra görüntüleyebileceğiniz **cihaz özelliklerini** hizmetiniz için Azure portalında.
 
 4. (İsteğe bağlı olarak), web Ara sunucusunu yapılandırın. Web proxy yapılandırması isteğe bağlı olsa da, bir web proxy kullanıyorsanız, yalnızca, burada yapılandırabilirsiniz olduğunu unutmayın.
    

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: c83c9929019e6e236ead783c0c617e51523a5a8a
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: dfe6184779d3c26273e8e7cabef4890360cf7e76
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567392"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446276"
 ---
 # <a name="data-exploration-and-visualization-tools-on-the-data-science-virtual-machine"></a>Veri keşfi ve görselleştirme araçları üzerinde veri bilimi sanal makinesi
 
@@ -32,7 +32,7 @@ Veri bilimi anahtar bir adımda verileri öğrenmektir. Görselleştirme ve veri
 | Nedir?   | Büyük veriler üzerinde açık kaynak SQL sorgu altyapısı    |
 | Desteklenen DSVM sürümleri      | Windows, Linux  |
 | Nasıl, yapılandırılmış / DSVM üzerinde yüklü?      |  Yüklü `/dsvm/tools/drill*` yalnızca katıştırılmış modunda   |
-| Tipik kullanımları      |  ETL gerektirmeden situ veri keşfi. Farklı veri kaynakları ve biçimler includign CSV, JSON, ilişkisel tabloları, Hadoop sorgulama     |
+| Tipik kullanımları      |  ETL gerektirmeden situ veri keşfi. Farklı veri kaynakları ve biçimler CSV, JSON, ilişkisel tabloları, Hadoop dahil olmak üzere sorgu     |
 | Kullanma / çalıştırın nasıl?      | Masaüstü kısayolu  <br/> [Ayrıntıya 10 dakika içinde kullanmaya başlayın](https://drill.apache.org/docs/drill-in-10-minutes/)  |
 | DSVM ilgili araçları      |   Çıngırağı, Weka, SQL Server Management Studio      |
 
@@ -44,7 +44,7 @@ Veri bilimi anahtar bir adımda verileri öğrenmektir. Görselleştirme ve veri
 | Tipik kullanımları      | Genel ML aracı     |
 | Kullanma / çalıştırın nasıl?      | Windows üzerinde Başlat menüsündeki Weka arayın. Linux üzerinde X2Go bilgilerinizle oturum açın, sonra gidin uygulamaları geliştirme -> Weka ' ->. |
 | Örneklere bağlantılar      | [Weka örnekleri](http://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
-| DSVM ilgili araçları      |LightGBM, Çıngırağı, Xgboost   |
+| DSVM ilgili araçları      |LightGBM, Rattle, Xgboost   |
 
 ## <a name="rattle"></a>Çıngırağı
 |    |           |

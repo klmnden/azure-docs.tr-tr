@@ -5,7 +5,7 @@ services: active-directory
 keywords: Azure active directory kimlik koruması, bulut bulma, yönetme, uygulamaları, güvenlik, risk, risk düzeyi, güvenlik açığı, güvenlik ilkesi
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: 92233a5b-cb34-4d28-88cc-d5d29c0f3256
 ms.service: active-directory
 ms.component: conditional-access
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 680e52fefd8256b3ac270e8d721f27645ced49eb
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 12440a8da63f19961322f06fd2459a28119e9d59
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004274"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463210"
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Azure Active Directory kimlik koruması tarafından algılanan güvenlik açıklarını
 Zayıf bir saldırgan tarafından kötüye kullanılmadan, ortamınızdaki güvenlik açıklarıdır. Kuruluşunuzun güvenlik duruşunu bu güvenlik açıklarına değinen ve bunları yararlanmasını saldırganların önlemeye öneririz.
@@ -40,7 +40,7 @@ Azure çok faktörlü kimlik doğrulaması, ikinci bir kullanıcı kimlik doğru
 
 Azure multi-Factor Authentication kullanıcı oturum açma işlemleri için ihtiyacınız olan öneririz. Çok faktörlü kimlik doğrulaması risk tabanlı koşullu erişim ilkeleri kimlik koruması kullanılabilen önemli bir rol oynar.
 
-Daha fazla bilgi için [Azure multi-Factor Authentication nedir?](../authentication/multi-factor-authentication.md)
+Daha fazla bilgi için bkz. [Azure Multi-Factor Authentication nedir?](../authentication/multi-factor-authentication.md)
 
 ## <a name="unmanaged-cloud-apps"></a>Yönetilmeyen bulut uygulamaları
 Bu güvenlik açığını yönetilmeyen bulut uygulamaları kuruluşunuzdaki belirlemenize yardımcı olur.

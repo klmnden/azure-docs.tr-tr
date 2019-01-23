@@ -4,7 +4,7 @@ description: Genel bakış ve içerik haritasını karma kimlik tasarım konular
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 100509c4-0b83-4207-90c8-549ba8372cf7
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d85157c3f1aafd33a2b996168f2f9eac613a209c
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: d0930de0ac3272d2858e961ec2038093dcc9ccc9
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51344891"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463023"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations"></a>Azure Active Directory Karma Kimlik Tasarımı ile İlgili Dikkat Edilmesi Gerekenler
 Tüketici tabanlı cihazların Kurumsal dünyasında proliferating ve bulut tabanlı hizmet olarak yazılım (SaaS) uygulamaları benimsemek kolaydır. Sonuç olarak, kullanıcıların uygulama erişimi denetimini iç veri merkezlerinden ve bulut platformları arasında koruma zorludur.  
@@ -49,7 +49,7 @@ Yukarıdaki çizimde, son kullanıcı kimlik doğrulama işlemi için tek bir de
 
 Bu kılavuz, bir dizi adım ve kuruluşunuzun benzersiz gereksinimlerini karşılayan bir karma kimlik çözümü tasarlamak için izleyebileceğiniz sağlar. Aşağıdaki adımlar ve görevler boyunca kılavuzda, işlevsel ve kuruluşunuz için hizmet kalite düzeyi gereksinimlerini karşılamak için ilgili teknolojiler ve özellik seçenekleri sunulmaktadır.
 
-**Varsayımlar**: Windows Server, Active Directory Domain Services ve Azure Active Directory ile ilgili biraz deneyim vardır. Bu belgede, bu çözümleri kendi başına veya tümleşik bir çözüm içinde iş ihtiyaçlarınızı nasıl karşılayabileceğini aradığınız varsayılır.
+**Varsayımlar**: Windows Server, Active Directory Domain Services ve Azure Active Directory ile ilgili biraz deneyim var. Bu belgede, bu çözümleri kendi başına veya tümleşik bir çözüm içinde iş ihtiyaçlarınızı nasıl karşılayabileceğini aradığınız varsayılır.
 
 ## <a name="design-considerations-overview"></a>Tasarım konularına genel bakış
 Bu belge, bir dizi adım ve gereksinimlerinize en uygun karma kimlik çözümü tasarlamak için izleyebileceğiniz sağlar. Adımlar sıralı halde verilmiştir. Sonraki adımlarda öğreneceğiniz tasarım konuları, önceki adımlarda, Bununla birlikte, çakışan tasarım seçimlerine nedeniyle kararları değiştirmenizi gerektirebilir. Her girişimde, belge boyunca olası tasarım çakışmaları konusunda sizi uyarmak için. 

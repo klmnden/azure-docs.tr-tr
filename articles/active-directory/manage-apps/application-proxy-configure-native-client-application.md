@@ -4,7 +4,7 @@ description: Yerel istemci uygulamaların, şirket içi uygulamalara güvenli uz
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.date: 11/08/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: a73e652c74f9d88f1e066de190834fc033c13cf0
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 472b30b849ef11ae0a42e1b41c25ec5dc341fb27
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135535"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462938"
 ---
 # <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>Yerel istemci uygulama proxy uygulamaları ile etkileşim kurmak etkinleştirme
 
@@ -34,10 +34,10 @@ Yerel uygulamalar yayımlamak için Azure AD kimlik doğrulaması kimlik doğrul
 
 Bu makalede uygulama ara sunucusu ve Azure AD kimlik doğrulama kitaplığı ile yerel bir uygulamayı yayımlamak için dört adımlarında size kılavuzluk eder. 
 
-## <a name="step-1-publish-your-application"></a>1. adım: uygulamanızı yayımlama
+## <a name="step-1-publish-your-application"></a>1. Adım: Uygulamanızı yayımlama
 Diğer uygulamalarda olduğu gibi ara sunucu uygulamasını yayımlayın ve uygulamanıza erişmek için kullanıcı atama. Daha fazla bilgi için [uygulama ara sunucusu ile uygulama yayımlama](application-proxy-add-on-premises-application.md).
 
-## <a name="step-2-configure-your-application"></a>2. adım: uygulamanızı yapılandırma
+## <a name="step-2-configure-your-application"></a>2. Adım: Uygulamanızı yapılandırma
 Yerel uygulamanız aşağıdaki gibi yapılandırın:
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
@@ -51,7 +51,7 @@ Yerel uygulamanız aşağıdaki gibi yapılandırın:
 Yeni bir uygulama kaydı oluşturma hakkında daha ayrıntılı bilgi için bkz: [uygulamaları Azure Active Directory ile tümleştirme](../develop/quickstart-v1-integrate-apps-with-azure-ad.md).
 
 
-## <a name="step-3-grant-access-to-other-applications"></a>3. adım: Diğer uygulamalara yönelik erişim izni ver
+## <a name="step-3-grant-access-to-other-applications"></a>3. Adım: Diğer uygulamalara yönelik erişim izni ver
 Yerel uygulamanın diğer uygulamalara dizininizdeki açığa etkinleştir:
 
 1. Hala **uygulama kayıtları**, az önce oluşturduğunuz yeni yerel uygulamayı seçin.
@@ -68,7 +68,7 @@ Yerel uygulamanın diğer uygulamalara dizininizdeki açığa etkinleştir:
 8. **Done** (Bitti) öğesini seçin.
 
 
-## <a name="step-4-edit-the-active-directory-authentication-library"></a>4. adım: Active Directory kimlik doğrulama kitaplığı Düzenle
+## <a name="step-4-edit-the-active-directory-authentication-library"></a>4. Adım: Active Directory kimlik doğrulama Kitaplığı'nı Düzenle
 Kimlik doğrulaması bağlamı, Active Directory Authentication Library (aşağıdaki metni eklemek için ADAL) yerel uygulama kodunda düzenleyin:
 
 ```

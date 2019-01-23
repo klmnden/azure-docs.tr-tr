@@ -12,16 +12,16 @@ ms.author: joke
 ms.reviwer: sstein
 manager: craigg
 ms.date: 06/14/2018
-ms.openlocfilehash: 34277aaa6ad6c5b22fb1691af83091e49d3bf5c1
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 08571ac8b7e13bc0f414b481a481132793ba865d
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021331"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452760"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>PowerShell kullanarak Elastik İş aracısı oluşturma
 
-[Elastik işler](elastic-jobs-overview.md), bir veya daha fazla Transact-SQL (T-SQL) betiğinin birden fazla veritabanında paralel olarak çalıştırılmasını sağlar.
+[Elastik işler](sql-database-job-automation-overview.md#elastic-database-jobs), bir veya daha fazla Transact-SQL (T-SQL) betiğinin birden fazla veritabanında paralel olarak çalıştırılmasını sağlar.
 
 Bu öğreticide birden fazla veritabanında sorgu çalıştırmak için gerekli adımları öğreneceksiniz:
 
@@ -65,7 +65,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="create-required-resources"></a>Gerekli kaynakları oluşturma
 
-Elastik İş aracısı oluşturmak için [İş veritabanı](elastic-jobs-overview.md#job-database) olarak kullanılacak bir veritabanı (S0 veya üzeri) gerekir. 
+Elastik İş aracısı oluşturmak için [İş veritabanı](sql-database-job-automation-overview.md#job-database) olarak kullanılacak bir veritabanı (S0 veya üzeri) gerekir. 
 
 *Aşağıdaki betik yeni bir kaynak grubu ve sunucunun yanı sıra İş veritabanı olarak kullanılacak bir veritabanı oluşturur. Aşağıdaki betik ayrıca işlerin çalıştırılacağı 2 boş veritabanına sahip ikinci bir sunucu oluşturur.*
 
@@ -210,7 +210,7 @@ $JobCred = $JobAgent | New-AzureRmSqlElasticJobCredential -Name "jobuser" -Crede
 
 ## <a name="define-the-target-databases-you-want-to-run-the-job-against"></a>İşi çalıştırmak istediğiniz hedef veritabanlarını tanımlama
 
-[Hedef grup](elastic-jobs-overview.md#target-group), işin üzerinde çalışacağı veritabanı bir veya daha fazla veritabanından oluşan kümeyi tanımlar. 
+[Hedef grup](sql-database-job-automation-overview.md#target-group), işin üzerinde çalışacağı veritabanı bir veya daha fazla veritabanından oluşan kümeyi tanımlar. 
 
 Aşağıdaki kod parçacığı, iki hedef grubu oluşturur: *ServerGroup*, ve *ServerGroupExcludingDb2*. *ServerGroup*, sunucuda yürütme anında var olan tüm veritabanlarını hedeflerken *ServerGroupExcludingDb2*, *TargetDb2* hariç sunucudaki tüm veritabanlarını hedefler:
 

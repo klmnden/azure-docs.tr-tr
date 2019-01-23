@@ -5,7 +5,7 @@ services: active-directory
 keywords: Azure AD, SSO, gerekli bileşenleri yükleme Active Directory, Azure AD Connect nedir çoklu oturum açma
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/10/2019
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2aab7929539fb4a4b9001da89770730d8afbe286
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: aea83029ea5576886ab3eefd065c3f6db62ddc5f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244689"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465582"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory sorunsuz çoklu oturum açma: Hızlı başlangıç
 
@@ -156,7 +156,7 @@ Kullanıcıların Intranet bölge ayarlarını değiştirmek için iki yolu vard
     ![Çoklu oturum açma](./media/how-to-connect-sso-quick-start/sso15.png)
 
 4. Uygun alanlara aşağıdaki değerleri girin ve tıklayın **Tamam**.
-   - **Anahtar yolu**: ***Software\microsoft\windows\currentversion\ınternet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon***
+   - **Anahtar yolu**: ***Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon***
    - **Değer adı**: ***https***.
    - **Değer türü**: ***REG_DWORD***.
    - **Değer verisi**: ***00000001***.

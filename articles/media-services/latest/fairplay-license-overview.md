@@ -14,18 +14,18 @@ ms.topic: article
 ms.date: 12/08/2018
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 66d816795ec06891aafce73036d7aea9bb52b2c8
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: e861d8fe22d4e7acb970990b27998caf923ed6c2
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140557"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449662"
 ---
 # <a name="apple-fairplay-license-requirements-and-configuration"></a>Apple FairPlay lisansı gereksinimleri ve yapılandırma 
 
 Azure Media Services ile HLS içeriğinizin şifrelemenizi sağlar **Apple FairPlay** (AES-128 CBC). Media Services için FairPlay lisansları teslim etmek üzere bir hizmet de sağlar. Bir oynatıcı FairPlay ile korunan içeriğinizi oynatma çalıştığında, bir lisans almak için bir istek için lisans teslimat hizmetinin gönderilir. Lisans hizmeti isteği onaylarsa, istemciye gönderilen ve şifresini çözmek ve belirtilen içeriğin yürütmek için kullanılan lisans verir.
 
-Media Services FairPlay lisanslarınızı yapılandırmak için kullanabileceğiniz API'ler de sağlar. Bu konuda FairPlay lisansı gereksinimleri açıklanır ve nasıl yapılandırılacağını gösteren bir **FairPlay** medya Sercies API'leri kullanarak lisanslayın. 
+Media Services FairPlay lisanslarınızı yapılandırmak için kullanabileceğiniz API'ler de sağlar. Bu konuda FairPlay lisansı gereksinimleri açıklanır ve nasıl yapılandırılacağını gösteren bir **FairPlay** medya hizmetler API'lerini kullanarak lisanslayın. 
 
 ## <a name="requirements"></a>Gereksinimler
 
@@ -35,7 +35,7 @@ HLS içeriğinizin ile şifrelemek için Media Services'ı kullanırken, aşağ�
 * Apple gerektirir edinmek üzere içerik sahibi [dağıtım paketi](https://developer.apple.com/contact/fps/). Media Services ile anahtar güvenlik modülü (KSM) zaten uygulanmış ve son FPS paket isteyen durumu. Sertifika oluşturma ve uygulama gizli anahtarı (ASK) elde etmek amacıyla son FPS pakete yönergeler de vardır. ASK FairPlay yapılandırmak için kullanın.
 * Media Services anahtar/lisans teslim tarafında aşağıdakiler ayarlanmalıdır:
 
-    * **App Cert (AC)**: Bu özel anahtarı içeren bir .pfx dosyasıdır. Bu dosya oluşturur ve bir parola ile şifrelemek. .Pfx dosyası shoul Base64 biçiminde olmalıdır.
+    * **App Cert (AC)**: Bu özel anahtarı içeren .pfx dosyasıdır. Bu dosya oluşturur ve bir parola ile şifrelemek. .Pfx dosyasını Base64 biçiminde olmalıdır.
 
         Aşağıdaki adımları HLS için FairPlay bir .pfx sertifika dosyası oluşturmayı açıklar:
 
@@ -49,8 +49,8 @@ HLS içeriğinizin ile şifrelemek için Media Services'ı kullanırken, aşağ�
 
             "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12-dışarı aktarma - FairPlay out.pfx-inkey privatekey.pem-FairPlay out.pem - passin file:privatekey-pem-pass.txt içinde
             
-    * **App Cert parola**: .pfx dosyasını oluşturmak için parola.
-    * **SORUN**: Apple Geliştirici Portalı'nı kullanarak sertifika oluşturduğunuzda bu anahtarı alınır. Her geliştirme ekibi bir benzersiz ASK alır. ASK bir kopyasını kaydedin ve güvenli bir yerde saklayın. Media Services ile FairPlayAsk olarak ASK yapılandırmanız gerekir.
+    * **App Cert parola**: .Pfx dosyasını oluşturmak için parola.
+    * **SORUN**: Apple Geliştirici Portalı'nı kullanarak sertifika oluşturduğunuzda, bu anahtarı alınır. Her geliştirme ekibi bir benzersiz ASK alır. ASK bir kopyasını kaydedin ve güvenli bir yerde saklayın. Media Services ile FairPlayAsk olarak ASK yapılandırmanız gerekir.
     
 * FPS istemci tarafından aşağıdakiler ayarlanmalıdır:
 

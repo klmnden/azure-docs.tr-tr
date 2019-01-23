@@ -4,7 +4,7 @@ description: Gelişmiş Sertifika İmzalama Seçenekleri Azure Active Directory'
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: e7488abb3e82f90f63fa338b84a6516202e504ec
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 368fbf52642b1353b221ce6ebe6f6c40a517c3e6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714539"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473427"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Gelişmiş seçenekleri, Azure Active Directory'de galeri uygulamalar için SAML belirtecinde imzalama sertifikası
 Bugün Azure Active Directory (Azure AD), Azure Active Directory Uygulama galerisinde önceden tümleştirilmiş binlerce uygulamasına destekler. Bu sayı SAML 2.0 protokolünü kullanarak çoklu oturum açmayı destekleyen 500'den fazla uygulamalar içerir. SAML kullanarak bir kullanıcının bir uygulamayı Azure AD üzerinden kimlik, Azure AD belirteç (bir HTTP POST) aracılığıyla uygulamaya gönderir. Ardından, uygulamayı doğrular ve yerine bir kullanıcı adı ve parola bilgilerini isteyen kullanıcının oturum belirteci kullanır. Bu SAML belirteçlerini, Azure AD'de ve belirli standart algoritmalarda tarafından oluşturulan benzersiz sertifika ile imzalanmış.

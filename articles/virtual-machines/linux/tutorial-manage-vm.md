@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5605ac9f3ac4f9a1c85cfedf257cb721205564db
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: bc548ea23249f89fadcec481cc97b6ca3ed2b909
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613435"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54466865"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Öğretici: Azure CLI ile Linux VM’leri Oluşturma ve Yönetme
 
@@ -211,7 +211,7 @@ az vm create \
 
 ### <a name="resize-a-vm"></a>VM’yi yeniden boyutlandırma
 
-VM dağıtıldıktan sonra, kaynak ayırmayı artırmak veya azaltmak için yeniden boyutlandırılabilir. Bir VM’nin geçerli boyutunu [az vm show](/cli/azure/vm#az_vm_show) komutuyla görüntüleyebilirsiniz:
+VM dağıtıldıktan sonra, kaynak ayırmayı artırmak veya azaltmak için yeniden boyutlandırılabilir. Bir VM’nin geçerli boyutunu [az vm show](/cli/azure/vm) komutuyla görüntüleyebilirsiniz:
 
 ```azurecli-interactive
 az vm show --resource-group myResourceGroupVM --name myVM --query hardwareProfile.vmSize
@@ -228,7 +228,7 @@ az vm list-vm-resize-options --resource-group myResourceGroupVM --name myVM --qu
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_DS4_v2
 ```
 
-İstenen boyut geçerli kümede değilse, yeniden boyutlandırma işlemi gerçekleştirilmeden önce VM’nin serbest bırakılması gerekir. VM’yi durdurup serbest bırakmak için [az vm deallocate]( /cli/azure/vm#az_vm_deallocate) komutunu kullanın. VM yeniden açıldıktan sonra geçici diskteki verilerin silinebileceğine dikkat edin. Statik IP kullanılmadığı sürece ortak IP adresi de değiştirilir. 
+İstenen boyut geçerli kümede değilse, yeniden boyutlandırma işlemi gerçekleştirilmeden önce VM’nin serbest bırakılması gerekir. VM’yi durdurup serbest bırakmak için [az vm deallocate]( /cli/azure/vm) komutunu kullanın. VM yeniden açıldıktan sonra geçici diskteki verilerin silinebileceğine dikkat edin. Statik IP kullanılmadığı sürece ortak IP adresi de değiştirilir. 
 
 ```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroupVM --name myVM
@@ -273,7 +273,7 @@ az vm get-instance-view \
     --query instanceView.statuses[1] --output table
 ```
 
-Çıktı:
+Çıkış:
 
 ```azurecli-interactive 
 ode                DisplayStatus    Level

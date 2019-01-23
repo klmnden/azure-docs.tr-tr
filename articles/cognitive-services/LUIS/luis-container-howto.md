@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: 1398db59199c62e90f8cf5654586bda1c24f2541
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: ac97cf3e269652dc33ce4211947b45631228a697
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055056"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463295"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Yükleme ve LUIS docker kapsayıcılarını çalıştırın
  
@@ -113,7 +113,8 @@ Giriş bağlama directory içerebilir **üretim**, **hazırlama**, ve **Trained*
 |Hazırlanıyor|GET, Post|Azure ve kapsayıcı|`{APPLICATION_ID}_STAGING.gz`|
 |Üretim|GET, Post|Azure ve kapsayıcı|`{APPLICATION_ID}_PRODUCTION.gz`|
 
->**Önemli:** Yeniden adlandırmayın, alter veya LUIS paket dosyaları açılamadı.
+> [!IMPORTANT]
+> Yeniden adlandırmayın, alter veya LUIS paket dosyaları açılamadı.
 
 ### <a name="packaging-prerequisites"></a>Paketleme önkoşulları
 
@@ -262,8 +263,8 @@ Ana bilgisayarını kullanmak https://localhost:5000, kapsayıcı API'leri için
 
 |Paket türü|Yöntem|Yol|Sorgu parametreleri|
 |--|--|--|--|
-|Yayımlanma|[Alma](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78), [sonrası](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)|/ luis/v2.0/apps/{appId}?|q = {q}<br>& hazırlama<br>[& timezoneOffset]<br>[& ayrıntılı]<br>[& günlük]<br>|
-|Eğitilen|GET, Post|/ luis/v2.0/apps/{appId}/versions/{versionId}?|q = {q}<br>[& timezoneOffset]<br>[& ayrıntılı]<br>[& günlük]|
+|Yayımlanma|[Alma](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78), [sonrası](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)|/luis/v2.0/apps/{appId}?|q={q}<br>& hazırlama<br>[& timezoneOffset]<br>[& ayrıntılı]<br>[& günlük]<br>|
+|Eğitilen|GET, Post|/luis/v2.0/apps/{appId}/versions/{versionId}?|q={q}<br>[& timezoneOffset]<br>[& ayrıntılı]<br>[& günlük]|
 
 Sorgu parametrelerini yapılandırma nasıl ve ne sorgu yanıtına döndürülür:
 
@@ -383,3 +384,4 @@ Bu makalede, kavramlar ve indirme, yükleme ve Language Understanding (LUIS) kap
 
 * Gözden geçirme [kapsayıcıları yapılandırma](luis-container-configuration.md) yapılandırma ayarları
 * Başvurmak [sık sorulan sorular (SSS)](luis-resources-faq.md) LUIS işlevselliği ile ilgili sorunları gidermek için.
+* Daha fazla kullanmanız [Bilişsel Hizmetleri kapsayıcıları](../cognitive-services-container-support.md)

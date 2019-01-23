@@ -5,7 +5,7 @@ services: active-directory
 keywords: uygulamalara koşullu erişim, Azure AD ile koşullu erişim, şirket kaynaklarına güvenli erişim, koşullu erişim ilkeleri
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 11/20/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 3bc7dd8103bed9a5a04566d08a1daec0708a59c4
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: fc78e6381c3e3bae0d1806f85b4d7038ad11e799
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285042"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452433"
 ---
 # <a name="what-is-the-what-if-tool-in-azure-active-directory-conditional-access"></a>Ne olursa nedir, Azure Active Directory koşullu erişim aracı?
 
@@ -32,7 +32,7 @@ Bu makalede, koşullu erişim ilkelerinizi test etmek için bu aracı nasıl kul
 
 ## <a name="what-it-is"></a>Nedir?
 
-**Ne koşullu erişim ilkesi aracı** koşullu erişim ilkelerinizi ortamınızda etkisini anlamanıza olanak tanır. El ile çoklu oturum açma işlemleri gerçekleştirerek ilkelerinizi sürüş test yerine bu araç, bir sanal oturum açma, bir kullanıcının değerlendirilecek sağlar. Benzetim, bu oturum açma işleminin ilkeleriniz üzerindeki etkisini tahmin eder ve bir benzetim raporu oluşturur. Rapor yalnızca uygulanan koşullu listelemez erişim ilkeleri de [Klasik ilkeleri](policy-migration.md#classic-policies) varsa.    
+**Ne koşullu erişim ilkesi aracı** koşullu erişim ilkelerinizi ortamınızda etkisini anlamanıza olanak tanır. İlkelerinizi test etmek için elle birden fazla oturum açma işlemi gerçekleştirmek yerine, bu aracı kullanarak bir kullanıcının oturum açmasının simülasyonunu yapabilirsiniz. Benzetim, bu oturum açma işleminin ilkeleriniz üzerindeki etkisini tahmin eder ve bir benzetim raporu oluşturur. Rapor yalnızca uygulanan koşullu listelemez erişim ilkeleri de [Klasik ilkeleri](policy-migration.md#classic-policies) varsa.    
 
 Araçlar da sağlar bir şekilde hızlı bir şekilde yenilikler belirli bir kullanıcı için uygulanan tüm ilkeler belirleyin. Bir sorunu gidermek gerekiyorsa, örneğin, bilgileri kullanabilirsiniz.  
 

@@ -4,7 +4,7 @@ description: Azure AD uygulama proxy'sinde hataları gidermek nasıl etkinleşti
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.date: 06/26/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 2904de3243e37d7ee575a504934d5975789c00ef
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: b440965fa3acb6c08c4827dce941247b8921b98b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135075"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473478"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Uygulama proxy'si sorunlarını ve hata iletileri sorunlarını giderme
 Yayımlanan bir uygulamaya erişen veya yayımlama uygulamalarda hata oluşursa, Microsoft Azure AD uygulama ara sunucusu doğru şekilde çalışıp çalışmadığını görmek için aşağıdaki seçeneklerden denetleyin:
@@ -49,12 +49,12 @@ Olay günlüğünden Bağlayıcısı hata bulduğunuzda, sorunu çözmek için b
 
 | Hata | Önerilen adımlar |
 | ----- | ----------------- |
-| Bağlayıcı kaydı başarısız oldu: etkin Azure Yönetim Portalı'nda uygulama ara sunucusu ve Active Directory kullanıcı adınızı ve parolanızı doğru girildiğinden emin olun. Hata: ' bir veya daha fazla hata oluştu.' | Azure AD'ye açmadan kayıt pencereyi kapattıysanız, bağlayıcı Sihirbazı'nı yeniden çalıştırın ve bağlayıcıyı kaydedin. <br><br> Kayıt penceresi açar ve oturum açmanızı vermeden hemen kapatır, bu hata büyük olasılıkla alırsınız. Sisteminizde bir ağ hatası olduğunda bu hata oluşur. Bir tarayıcıdan genel bir Web sitesine bağlanmak mümkündür ve bağlantı noktalarını belirtildiği şekilde açık olduğundan emin olun [uygulama ara sunucusu önkoşulları](application-proxy-add-on-premises-application.md). |
+| Bağlayıcı kaydı başarısız oldu: Azure Yönetim Portalı'nda uygulama ara sunucusu ve Active Directory kullanıcı adını ve parolasını doğru girdiğinizi etkin olduğundan emin olun. Hata: 'Bir veya daha fazla hata oluştu.' | Azure AD'ye açmadan kayıt pencereyi kapattıysanız, bağlayıcı Sihirbazı'nı yeniden çalıştırın ve bağlayıcıyı kaydedin. <br><br> Kayıt penceresi açar ve oturum açmanızı vermeden hemen kapatır, bu hata büyük olasılıkla alırsınız. Sisteminizde bir ağ hatası olduğunda bu hata oluşur. Bir tarayıcıdan genel bir Web sitesine bağlanmak mümkündür ve bağlantı noktalarını belirtildiği şekilde açık olduğundan emin olun [uygulama ara sunucusu önkoşulları](application-proxy-add-on-premises-application.md). |
 | NET hata kayıt penceresinde görüntülenir. Devam edilemiyor | Bu hatayı ve ardından pencereyi kapatır, yanlış kullanıcı adı veya parola girildi. Yeniden deneyin. |
-| Bağlayıcı kaydı başarısız oldu: etkin Azure Yönetim Portalı'nda uygulama ara sunucusu ve Active Directory kullanıcı adınızı ve parolanızı doğru girildiğinden emin olun. Hata: ' AADSTS50059: Kiracı tanımlayan hiçbir bilgi veya istek bulunamadı veya asıl URI başarısız oldu, kimlik bilgileri ve arama hizmeti tarafından sağlanan tarafından kapsanan. | Bir Microsoft Account ve Kuruluş Kimliği erişmeye çalıştığınız dizininin parçası olan etki alanı kullanarak oturum çalışıyorsunuz. Yönetici Kiracı etki alanı olarak aynı etki alanı adının bir parçasıdır, örneğin, Azure AD etki alanı contoso.com ise yönetici olmalıdır emin admin@contoso.com. |
+| Bağlayıcı kaydı başarısız oldu: Azure Yönetim Portalı'nda uygulama ara sunucusu ve Active Directory kullanıcı adını ve parolasını doğru girdiğinizi etkin olduğundan emin olun. Hata: ' AADSTS50059: Kiracı tanımlayan hiçbir bilgi veya istek bulunamadı veya asıl URI başarısız oldu, kimlik bilgileri ve arama hizmeti tarafından sağlanan tarafından kapsanan. | Bir Microsoft Account ve Kuruluş Kimliği erişmeye çalıştığınız dizininin parçası olan etki alanı kullanarak oturum çalışıyorsunuz. Yönetici Kiracı etki alanı olarak aynı etki alanı adının bir parçasıdır, örneğin, Azure AD etki alanı contoso.com ise yönetici olmalıdır emin admin@contoso.com. |
 | PowerShell komut dosyaları çalıştırmak için geçerli yürütme İlkesi alınamadı. | Bağlayıcısı yüklemesi başarısız olursa, PowerShell yürütme ilkesini devre dışı olduğunu emin olmak için kontrol edin. <br><br>1. Grup İlkesi Düzenleyicisi'ni açın.<br>2. Git **Bilgisayar Yapılandırması** > **Yönetim Şablonları** > **Windows bileşenleri**  >   **Windows PowerShell** ve çift **betik yürütmeyi açma**.<br>3. Yürütme ilkesini olarak ayarlanabilir **yapılandırılmadı** veya **etkin**. Varsa kümesine **etkin**seçenekleri altında olduğundan emin olun, yürütme İlkesi ayarlandığından **yerel ve uzak imzalanmış komut dosyalarını izin** veya **tüm betiklere izin vermek**. |
 | Bağlayıcı yapılandırması yüklenemedi. | Kimlik doğrulaması için kullanılır, bağlayıcının istemci sertifikasının süresi doldu. Bir proxy'nin arkasında yüklü bağlayıcı varsa bu da oluşabilir. Bu durumda, bağlayıcı Internet'e erişemez ve uzak kullanıcılar uygulamalara sağlamak mümkün olmayacaktır. Güven kullanarak el ile yenileme `Register-AppProxyConnector` Windows PowerShell cmdlet'i. Bağlayıcınızı bir proxy'nin arkasındayken, Internet erişimi Bağlayıcısı hesaplarına "Ağ Hizmetleri" ve "yerel sistem." vermek gerekli değildir Bu, bunları ara sunucuya erişim verme veya bunları proxy atlama ayarlayarak gerçekleştirilebilir. |
-| Bağlayıcı kaydı başarısız oldu: bağlayıcıyı kaydetmek için Active Directory genel Yöneticisi olduğunuzdan emin olun. Hata: 'kayıt isteği reddedildi.' | Bir yönetici bu etki alanında oturum açmada çalıştığınız diğer ad değil. Bağlayıcınızı kullanıcının etki alanı sahibi olan dizin için her zaman yüklenir. Oturum açmak için çalıştığınız yönetici hesabı için Azure AD kiracısı genel izinleri olduğundan emin olun. |
+| Bağlayıcı kaydı başarısız oldu: Bağlayıcıyı kaydetmek için Active Directory genel Yöneticisi olduğunuzdan emin olun. Hata: 'Kayıt isteği reddedildi.' | Bir yönetici bu etki alanında oturum açmada çalıştığınız diğer ad değil. Bağlayıcınızı kullanıcının etki alanı sahibi olan dizin için her zaman yüklenir. Oturum açmak için çalıştığınız yönetici hesabı için Azure AD kiracısı genel izinleri olduğundan emin olun. |
 
 ## <a name="kerberos-errors"></a>Kerberos hataları
 

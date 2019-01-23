@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect: yükleme türünü seçin. | Microsoft Docs'
+title: 'Azure AD Connect: Yükleme türünü seçin. | Microsoft Docs'
 description: Bu konuda, Azure AD Connect için kullanılacak yükleme türünü seç konusunda yol göstermektedir
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e4185b6b30bdd01492d9aae7ac38e18aaba7eef5
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 6082d583432e246ba3d45f3e97f4b104710e8727
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312049"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473699"
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>Azure AD Connect için kullanılacak yükleme türünü seçin
-Azure AD Connect yeni yükleme için iki yükleme tür vardır: hızlı ve özelleştirilmiş. Bu konu, yükleme sırasında kullanmak için hangi seçeneği karar vermenize yardımcı olur.
+Azure AD Connect yeni yükleme için iki yükleme türü vardır: Hızlı ve özelleştirilmiş. Bu konu, yükleme sırasında kullanmak için hangi seçeneği karar vermenize yardımcı olur.
 
 ## <a name="express"></a>Express
 Hızlı, en yaygın kullanılan bir seçenektir ve yaklaşık % 90'ını tarafından tüm yeni yüklemeleri kullanılır. En yaygın müşteri senaryoları için uygun bir yapılandırma sağlamak için tasarlanmıştır.
@@ -43,7 +43,7 @@ Bunu varsayılır:
 
 Seçenekler burada Express kullanmaya devam edebilirsiniz:
 
-- Tüm OU'larda eşitlenecek istemiyorsanız hala Express ve kullanabilirsiniz son sayfasında seçimini kaldır **...eşitleme işlemini**\*. Yükleme Sihirbazı'nı yeniden çalıştırın ve alanındaki OU'ları değiştirmek [yapılandırma seçenekleri](how-to-connect-installation-wizard.md#customize-synchronization-options) ve zamanlanmış eşitlemeyi etkinleştirin.
+- Tüm OU'larda eşitlenecek istemiyorsanız hala Express ve kullanabilirsiniz son sayfasında seçimini kaldır **... eşitleme işlemini ***. Yükleme Sihirbazı'nı yeniden çalıştırın ve alanındaki OU'ları değiştirmek [yapılandırma seçenekleri](how-to-connect-installation-wizard.md#customize-synchronization-options) ve zamanlanmış eşitlemeyi etkinleştirin.
 - Bir Azure AD Premium, parola geri yazma gibi özellikleri etkinleştirmek istiyorsunuz. Önce ilk yükleme almak için express gidin. Yükleme Sihirbazı'nı yeniden çalıştırın ve değiştirme [yapılandırma seçenekleri](how-to-connect-installation-wizard.md#customize-synchronization-options).
 
 ## <a name="custom"></a>Özel

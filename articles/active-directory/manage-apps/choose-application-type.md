@@ -4,7 +4,7 @@ description: Uygulamalar Azure AD ile tümleştirilebilir desteklenen türlerini
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: barbkess
-ms.openlocfilehash: 99405f9ae3e86324aba7a6fdc583225c1f71f83a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 10f2b30addd874d39a6193c810ccbdf4ac1a06e6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845119"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473325"
 ---
 # <a name="choosing-the-application-type-when-adding-an-application-in-azure-active-directory"></a>Azure Active Directory'de uygulama eklerken uygulama türünü seçme
 Uygulamaları Azure Active Directory (Azure AD) ekleyebilirsiniz dört türleri hakkında daha fazla bilgi edinin. Azure Active Directory'de uygulama eklerken dört uygulama türünü birini seçmeniz istenir. 

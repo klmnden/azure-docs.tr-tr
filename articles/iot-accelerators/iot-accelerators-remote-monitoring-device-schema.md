@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 12/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 54e21e0b5f522b226ec1abb71a1c5ab5b245df05
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 3c2bca45a7927689992cf44fb70199e246641760
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635536"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54445431"
 ---
 # <a name="understand-the-device-model-schema"></a>Cihaz modeli şemasını anlama
 
@@ -22,7 +22,7 @@ Sanal cihazlar, Uzaktan izleme çözümünde davranışını test etmek için ku
 Bu makalede, bir sanal cihaz davranışını ve özellikleri belirten cihaz modeli şemasını açıklar. Cihaz modeli, bir JSON dosyasında depolanır.
 
 > [!NOTE]
-> Bu cihaz modeli şemasını, yalnızca cihaz benzetimi hizmette barındırılan sanal cihazlar içindir. Fiziksel bir cihaz oluşturmak istiyorsanız, bkz. [Cihazınızı Uzaktan izleme çözüm hızlandırıcısına bağlamayı](iot-accelerators-connecting-devices.md).
+> Bu cihaz modeli şemasını, yalnızca cihaz benzetimi hizmette barındırılan sanal cihazlar içindir. Gerçek bir cihaz oluşturmak istiyorsanız, bkz. [Cihazınızı Uzaktan izleme çözüm hızlandırıcısına bağlamayı](iot-accelerators-connecting-devices.md).
 
 Aşağıdaki makaleler için geçerli makalenin ilgili:
 

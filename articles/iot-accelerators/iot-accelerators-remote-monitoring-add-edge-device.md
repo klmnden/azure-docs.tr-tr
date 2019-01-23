@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: 67bfde828287d9892ad404f3d950dbe373503a56
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 5172ba9881f80e202bdc69689e67befb79101dc0
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51828735"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450669"
 ---
 # <a name="add-an-iot-edge-device-to-your-remote-monitoring-solution-accelerator"></a>Uzaktan izleme çözüm Hızlandırıcısını için bir IOT Edge cihazı Ekle
 
@@ -42,7 +42,7 @@ Uzaktan izleme çözüm Hızlandırıcısını IOT hub'ı ile doğrudan bir ciha
 
 ## <a name="install-the-iot-edge-runtime"></a>IOT Edge çalışma zamanını yükleme
 
-Edge cihazınıza modülleri dağıtmadan önce fiziksel cihaza IOT Edge çalışma zamanı yüklemeniz gerekir. Aşağıdaki nasıl yapılır kılavuzları, ortak cihaz platformlarında çalışma zamanı yükleme gösterilmektedir:
+Edge cihazınıza modülleri dağıtmadan önce IOT Edge çalışma zamanı gerçek cihaz üzerinde yüklemeniz gerekir. Aşağıdaki nasıl yapılır kılavuzları, ortak cihaz platformlarında çalışma zamanı yükleme gösterilmektedir:
 
 - [Azure IOT Edge çalışma zamanı (x64) Linux'ta yükleme](../iot-edge/how-to-install-iot-edge-linux.md)
 - [Azure IOT Edge çalışma zamanı (ARM32v7/armhf) Linux'ta yükleme](../iot-edge/how-to-install-iot-edge-linux-arm.md)

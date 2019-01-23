@@ -4,7 +4,7 @@ description: Otomatik kullanıcı hesabı işleri sağlama durumunu denetlemek v
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.date: 09/09/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: af5d7174a2726a6ff8a62477149606ec5d43e94e
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: def3c6aea7b915e8665367d4da27c1314374000c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357654"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463075"
 ---
-# <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Öğretici: hesap otomatik kullanıcı hazırlama raporlama
+# <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Öğretici: Raporlama hesabı otomatik kullanıcı hazırlama
 
 
 Azure Active Directory içeren bir [kullanıcı hesabı sağlama hizmeti](user-provisioning.md) yardımcı sağlama SaaS uygulamaları ve diğer sistemleri, uçtan uca kimlik yaşam döngüsü amacıyla kullanıcı hesaplarına sağlamayı otomatikleştirin yönetimi. Azure AD destekleyen tüm uygulamalar ve sistemler "Öne çıkan uygulamalar" bölümünde bağlayıcılarının sağlama önceden tümleştirilmiş kullanıcı [Azure AD uygulama Galerisi](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1&subcategories=featured).
@@ -40,9 +40,9 @@ Sağlama bağlayıcılar ayarlanır ve kullanılarak yapılandırılan [Azure po
 
 Bu makalede, aşağıda tanımlanan aşağıdaki terimler kullanılmaktadır:
 
-* **Kaynak sistem** -gelen sağlama hizmetini Azure AD'ye eşitlenen bir kullanıcı deposu. Azure Active Directory, kaynak sistem çoğunluğu için bağlayıcılar sağlama önceden tümleştirilmiş, ancak bazı özel durumlar (örnek: Workday gelen eşitleme).
+* **Kaynak sistem** -gelen sağlama hizmetini Azure AD'ye eşitlenen bir kullanıcı deposu. Azure Active Directory, önceden tümleştirilmiş sağlama bağlayıcılar çoğunu ilişkin kaynak sistemi, ancak bazı özel durumlar (örnek: Workday gelen eşitleme).
 
-* **Hedef sistem** -için sağlama hizmetini Azure AD'ye eşitlenen bir kullanıcı deposu. Bu genellikle bir SaaS uygulamasıdır (örnekler: Salesforce, ServiceNow, Google Apps, iş için Dropbox), ancak bazı durumlarda, Active Directory gibi şirket içi bir sistemdeki olabilir (örnek: Active Directory'ye Workday gelen eşitleme).
+* **Hedef sistem** -için sağlama hizmetini Azure AD'ye eşitlenen bir kullanıcı deposu. Bu genellikle bir SaaS uygulamasıdır (örnekler: Salesforce, ServiceNow, Google Apps, iş için Dropbox), ancak bazı durumlarda, Active Directory gibi şirket içi bir sistemdeki olabilir (örnek: Workday gelen eşitleme için Active Directory).
 
 
 ## <a name="getting-provisioning-reports-from-the-azure-management-portal"></a>Azure Yönetim Portalı'ndan raporları sağlama alma
@@ -68,7 +68,7 @@ Sağlama Özet raporunda görünür **sağlama** uygulama sekmesinde için. Bulu
 
 Sağlama özet raporu sağlama işin işlem durumunu denetlemek için ilk yerde yöneticileri Ara olmalıdır.
 
- ![Özet rapor](./media/check-status-user-account-provisioning/summary_report.PNG)
+ ![Özet rapor](./media/check-status-user-account-provisioning/summary_report.PNG)
 
 ## <a name="provisioning-audit-logs"></a>Sağlama denetim günlükleri
 Sağlama hizmeti tarafından gerçekleştirilen tüm etkinlikler görüntülenebilir Azure AD denetim günlükleri kaydedilir **denetim günlükleri** sekmesinde altında **hesap sağlama** kategorisi. Oturum etkinliği olay türleri şunlardır:
@@ -83,13 +83,13 @@ Sağlama hizmeti tarafından gerçekleştirilen tüm etkinlikler görüntüleneb
 
 Olayları tek tek bir kullanıcı için sağlama sırasında baktığımda olaylar normalde şu sırayla gerçekleşir:
 
-1. İçeri aktarma olay: kullanıcı, kaynak sistemden alınır.
+1. Olay içeri aktarın: Kullanıcı kaynak sistemden alınır.
 
-2. İçeri aktarma olay: hedef sistem alınan kullanıcı varlığını denetlemek için sorgulanır.
+2. Olay içeri aktarın: Hedef sistem alınan kullanıcı varlığını denetlemek için sorgulanır.
 
-3. Eşitleme kuralı olayı: kullanıcı verileri kaynak ve hedef sistemde hangi eylemin gerçekleştirileceğini, varsa belirlemek için kapsam belirleme filtrelerini ve yapılandırılmış öznitelik eşleme kurallarını karşı değerlendirilir.
+3. Eşitleme kuralı olay: Kullanıcı verileri kaynak ve hedef sistemde hangi eylemin gerçekleştirileceğini, varsa belirlemek için kapsam belirleme filtrelerini ve yapılandırılmış öznitelik eşleme kurallarını karşı değerlendirilir.
 
-4. Olay dışarı aktarma: eşitleme kuralı olay eylem olması gerektiğini belirler, sonra eylemin sonuçlarını dışarı aktarma olaya kaydedilir (ekleme, güncelleştirme, silme) gerçekleştirilir.
+4. Olay dışarı aktarın: Eşitleme kuralı olay eylem olması gerektiğini belirler, sonra eylemin sonuçlarını dışarı aktarma olaya kaydedilir (ekleme, güncelleştirme, silme) gerçekleştirilir.
 
 ![Bir Azure AD test kullanıcısı oluşturma](./media/check-status-user-account-provisioning/audit_logs.PNG)
 

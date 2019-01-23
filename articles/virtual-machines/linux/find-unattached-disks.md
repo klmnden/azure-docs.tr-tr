@@ -1,6 +1,6 @@
 ---
-title: Bulma ve eklenmemiş Azure yönetilen ve yönetilmeyen diskleri silme | Microsoft Docs
-description: Nasıl bulmak ve Azure CLI kullanarak eklenmemiş Azure yönetilen ve yönetilmeyen (VHD'ler/sayfa bloblarını) diskleri silin.
+title: Bulup silmesine eklenmemiş Azure yönetilen ve yönetilmeyen disk | Microsoft Docs
+description: Nasıl bulun ve Azure CLI kullanarak eklenmemiş Azure yönetilen ve yönetilmeyen (VHD/sayfa BLOB'ları) diskleri silin.
 services: virtual-machines-linux
 documentationcenter: ''
 author: ramankumarlive
@@ -15,25 +15,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: ramankum
-ms.openlocfilehash: 1718b35aa68937cad4b3ae7e677e300506820bd0
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.component: disks
+ms.openlocfilehash: 58a54b7e867b625adf76d6287d5067c326c80f17
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30323262"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462802"
 ---
-# <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks"></a>Bulma ve eklenmemiş Azure yönetilen ve yönetilmeyen diskleri silme
-Bir sanal makine (VM) Azure, varsayılan olarak, sildiğinizde VM'ye bağlı diskler silinmez. Bu özellik VM'ler yanlışlıkla silinmesini nedeniyle veri kaybını önlemeye yardımcı olur. Bir VM silindikten sonra eklenmemiş diskler için ödeme devam eder. Bu makalede bulmak ve eklenmemiş tüm diskleri silin ve gereksiz maliyetleri azaltmak nasıl gösterir. 
+# <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks"></a>Bulma ve eklenmemiş Azure yönetilen ve yönetilmeyen disk silme
+Bir sanal makine (VM), azure'daki varsayılan olarak, sildiğinizde VM'ye bağlı tüm diskleri silinmez. Bu özellik VM'ler yanlışlıkla silinmesini nedeniyle veri kaybını önlemeye yardımcı olur. VM silindikten sonra eklenmemiş disk için ödeme yapmaya devam edersiniz. Bu makalede bulup eklenmemiş tüm diskleri silin ve gereksiz maliyetleri azaltın gösterilmektedir. 
 
 
-## <a name="managed-disks-find-and-delete-unattached-disks"></a>Yönetilen diskleri: bulma ve eklenmemiş diskleri silme 
+## <a name="managed-disks-find-and-delete-unattached-disks"></a>Yönetilen diskler: Bulma ve eklenmemiş disk silme 
 
-Aşağıdaki komut dosyası arar eklenmemiş [yönetilen diskleri](managed-disks-overview.md) değerini inceleyerek tarafından **şirketiniz tarafından** özelliği. Yönetilen bir diske bir VM öğesine bağlı olduğu **şirketiniz tarafından** özelliği VM kaynak Kimliğini içerir. Yönetilen bir disk eklenmemiş, olduğunda **şirketiniz tarafından** özelliği null. Komut dosyası Azure aboneliği içindeki tüm yönetilen disklerin inceler. Ne zaman betik bulur yönetilen bir diskle **şirketiniz tarafından** betik null olarak ayarlayın özelliği, diskin eklenmemiş olup olmadığını belirler.
+Aşağıdaki komut dosyasını arar eklenmemiş [yönetilen diskler](managed-disks-overview.md) değerini inceleme tarafından **ManagedBy** özelliği. Bir VM'ye yönetilen disk eklendiğinde **ManagedBy** özelliği, VM kaynak Kimliğini içerir. Yönetilen disk eklenmemiş, olduğunda **ManagedBy** özelliği null. Betik bir Azure aboneliğindeki tüm yönetilen diskler inceler. Betik bir yönetilen disk ile ne zaman bulur **ManagedBy** özelliği null, betik disk eklenmemiş belirler.
 
 >[!IMPORTANT]
->İlk olarak ayarlayarak komut dosyasını çalıştırmak **deleteUnattachedDisks** 0 değişken. Bu eylem, bulma ve tüm eklenmemiş yönetilen diskleri görüntüleme sağlar.
+>İlk olarak ayarlayarak betiği çalıştırmak **deleteUnattachedDisks** 0 değişken. Bu eylem, bulma ve görüntüleme eklenmemiş tüm yönetilen diskler sağlar.
 >
->Tüm eklenmemiş diskleri gözden geçirdikten sonra komut dosyasını yeniden çalıştırın ve ayarlama **deleteUnattachedDisks** değişken 1. Bu eylem tüm eklenmemiş yönetilen diskleri silmenize olanak sağlar.
+>Tüm eklenmemiş disk gözden geçirdikten sonra betiğini yeniden çalıştırın ve ayarlama **deleteUnattachedDisks** 1 değişken. Bu eylem eklenmemiş tüm yönetilen diskler silmenize olanak sağlar.
 >
 
 ```azurecli
@@ -58,14 +59,14 @@ do
 done
 ```
 
-## <a name="unmanaged-disks-find-and-delete-unattached-disks"></a>Yönetilmeyen diskler: bulma ve eklenmemiş diskleri silme 
+## <a name="unmanaged-disks-find-and-delete-unattached-disks"></a>Yönetilmeyen diskler: Bulma ve eklenmemiş disk silme 
 
-Yönetilmeyen disklerdir olarak depolanan VHD dosyaları [sayfa blobları](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-page-blobs) içinde [Azure depolama hesapları](../../storage/common/storage-create-storage-account.md). Aşağıdaki komut dosyası değerini inceleyerek eklenmemiş yönetilmeyen diskleri (sayfa bloblarını) görünüyor **LeaseStatus** özelliği. Yönetilmeyen bir diski bir VM öğesine bağlı olduğu **LeaseStatus** özelliği ayarlanmış **kilitli**. Yönetilmeyen bir disk eklenmemiş, olduğunda **LeaseStatus** özelliği ayarlanmış **kilitli değil**. Komut dosyası Azure depolama hesaplarında bir Azure aboneliği bulunan tüm yönetilmeyen diskleri inceler. Ne zaman betik bulur yönetilmeyen bir diskle bir **LeaseStatus** özelliğini **kilitli değil**, komut dosyası diskin eklenmemiş olup olmadığını belirler.
+Yönetilmeyen diskler olarak depolanmış VHD dosyaları, [sayfa blobları](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-page-blobs) içinde [Azure depolama hesapları](../../storage/common/storage-create-storage-account.md). Aşağıdaki komut dosyası değerini inceleyerek eklenmemiş yönetilmeyen diskler (sayfa blobları) arar **LeaseStatus** özelliği. Yönetilmeyen disk bir sanal makineye bağlı olduğu **LeaseStatus** özelliği **kilitli**. Yönetilmeyen disk eklenmemiş, olduğunda **LeaseStatus** özelliği **kilitli değil**. Betik bir Azure aboneliğindeki tüm Azure depolama hesaplarındaki yönetilmeyen tüm diskler inceler. Betik bulur yönetilmeyen disk ile ne zaman bir **LeaseStatus** özelliğini **kilitli değil**, komut dosyası disk eklenmemiş olduğunu belirler.
 
 >[!IMPORTANT]
->İlk olarak ayarlayarak komut dosyasını çalıştırmak **deleteUnattachedVHDs** 0 değişken. Bu eylem, bulma ve tüm eklenmemiş yönetilmeyen VHD'leri görüntüleme sağlar.
+>İlk olarak ayarlayarak betiği çalıştırmak **deleteUnattachedVHDs** 0 değişken. Bu eylem, bulma ve görüntüleme tüm eklenmemiş yönetilmeyen VHD'ler sağlar.
 >
->Tüm eklenmemiş diskleri gözden geçirdikten sonra komut dosyasını yeniden çalıştırın ve ayarlama **deleteUnattachedVHDs** değişken 1. Bu eylem tüm eklenmemiş yönetilmeyen VHD'leri silmenize olanak sağlar.
+>Tüm eklenmemiş disk gözden geçirdikten sonra betiğini yeniden çalıştırın ve ayarlama **deleteUnattachedVHDs** 1 değişken. Bu eylem tüm eklenmemiş yönetilmeyen VHD'ler silmenize olanak sağlar.
 >
 
 ```azurecli
@@ -113,7 +114,7 @@ done
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Depolama hesabını silme](../../storage/common/storage-create-storage-account.md)
+[Depolama hesabını Sil](../../storage/common/storage-create-storage-account.md)
 
 
 

@@ -1,161 +1,36 @@
 ---
 title: Azure SQL Elastik Veritabanı İşleri | Microsoft Docs
-description: Elastik Veritabanı İşlerini kullanarak bir veya daha fazla Azure SQL veritabanında Transact-SQL (T-SQL) betikleri çalıştırmayı öğrenin
+description: Bir veya daha fazla Azure SQL veritabanı kümesi arasında Transact-SQL (T-SQL) betikleri çalıştırmak için elastik veritabanı işleri yapılandırın
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
-ms.topic: overview
+ms.topic: howto
 author: srinia
 ms.author: srinia
 ms.reviewer: sstein
 manager: craigg
-ms.date: 07/26/2018
-ms.openlocfilehash: f91632bfe16ea145a087656ffc946e4a76e07466
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/22/2018
+ms.openlocfilehash: d8af5e3919b731677b40726c37462832adc06677
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608683"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449104"
 ---
-# <a name="manage-groups-of-databases-with-elastic-database-jobs"></a>Elastik Veritabanı İşleriyle veritabanı gruplarını yönetin
+# <a name="create-configure-and-manage-elastic-jobs"></a>Oluşturma, yapılandırma ve elastik işleri Yönet
 
-**Elastik Veritabanı İşleri**, bir zaman çizelgesine veya istek üzerine çok sayıda veritabanı arasında bir veya daha fazla T-SQL betiğinin paralel olarak çalıştırılmasını sağlar.
+Bu makalede, oluşturma, yapılandırma ve elastik işleri yönetme öğreneceksiniz. Esnek işler, kullanmadıysanız [Azure SQL veritabanı'nda proje Otomasyon kavramları hakkında daha fazla bilgi](sql-database-job-automation-overview.md).
 
-**İşleri tüm veritabanı birleşimleri üzerinde çalıştırabilirsiniz**: Bir veya daha fazla tek veritabanı, bir sunucu üzerindeki tüm veritabanları, bir elastik havuz veya parça eşlemesi içindeki tüm veritabanları için, herhangi bir veritabanını dahil etme veya hariç tutma esnekliğinden faydalanabilirsiniz. **İşler birden fazla sunucu ve birden fazla havuzda çalışabilir, hatta farklı aboneliklerde bulunan veritabanlarını kullanabilir.** Sunucular ve havuzlar çalışma zamanında dinamik olarak numaralandırıldığından işler, yürütme zamanında hedef grupta bulunan tüm veritabanlarında çalışır.
+## <a name="create-and-configure-the-agent"></a>Aracıyı oluşturma ve yapılandırma
 
-Aşağıdaki resimde farklı türlerdeki hedef gruplarda iş yürüten bir iş aracısı gösterilmektedir:
-
-![Elastik İş aracısı kavramsal modeli](media/elastic-jobs-overview/conceptual-diagram.png)
-
-
-## <a name="why-use-elastic-jobs"></a>Neden elastik işleri kullanmalısınız?
-
-### <a name="manage-many-databases"></a>Birden fazla veritabanını yönetme
-
-- Yönetim görevlerini hafta içi her gün, çalışma saatlerinden sonra gibi zamanlarda çalışacak şekilde planlayın.
-- Şema değişiklikleri, kimlik bilgileri yönetimi, performans verisi toplama veya kiracı (müşteri) telemetri verilerini toplama gibi görevleri dağıtın. Başvuru verilerini (tüm veritabanlarında bulunan ortak veriler) güncelleştirin.
-- Sorgu performansını artırmak için dizinleri yeniden oluşturun. İşleri bir veritabanı koleksiyonunda yoğun saatlerin dışında yenilenecek şekilde yapılandırın.
-- Bir veritabanı kümesinden alınan sorgu sonuçlarını düzenli olarak merkezi bir tabloya toplayın. Performans sorguları sürekli yürütülebilir ve yürütülecek ek görevleri tetikleyecek şekilde yapılandırılabilir.
-
-### <a name="collect-data-for-reporting"></a>Raporlama için veri toplama
-
-- Bir Azure SQL veritabanı koleksiyonunda bulunan verileri tek bir hedef tabloda toplayın.
-- Çok sayıda veritabanında müşteri telemetri verilerinin toplanması gibi daha uzun süre çalışan veri işleme sorguları çalıştırın. Sonuçlar daha ayrıntılı analiz için tek bir hedef tabloda toplanır.
-
-### <a name="reduce-overhead"></a>Ek yükü azaltma
-
-- Normalde Transact-SQL deyimlerini çalıştırmak veya diğer yönetim görevlerini gerçekleştirmek için veritabanlarına tek tek bağlanmanız gerekir. İşler, hedef gruptaki her bir veritabanında oturum açma görevini üstlenir. Azure SQL veritabanı grubunda çalıştırılacak Transact-SQL betiklerinin tanımlama, bakımını yapma ve sürekliliğini sağlama konusunda da denetim sahibi olursunuz.
-
-### <a name="accounting"></a>Muhasebe
-
-- İşler her veritabanında gerçekleştirilen işlemlerin durumunu günlüğe kaydeder. Hata oluştuğunda otomatik olarak yeniden deneme yapılır.
-
-### <a name="flexibility"></a>Esneklik
-
-- Azure SQL veritabanlarından oluşan özel gruplar belirleyip işin çalıştırılacağı zamanlamayı tanımlayın.
-
-
-## <a name="elastic-job-components"></a>Elastik İş bileşenleri
-
-|Bileşen  | Açıklama (ek ayrıntılar tablonun altındadır) |
-|---------|---------|
-|[**Elastik İş aracısı**](#elastic-job-agent) |  İşleri çalıştırmak ve yönetmek için oluşturduğunuz Azure kaynağıdır.   |
-|[**İş veritabanı**](#job-database)    |    İş aracısının işle ilgili veriler, iş tanımları gibi bilgileri depolamak için kullandığı bir Azure SQL veritabanıdır.      |
-|[**Hedef grup**](#target-group)      |  Bir işin çalıştırılacağı sunucu, havuz, veritabanı ve parça eşlemesi kümesidir.       |
-|[**İş**](#job)  |  İş, bir veya daha fazla [iş adımından](#job-step) oluşan çalışma birimidir. İş adımları çalıştırılacak T-SQL betiğinin yanı sıra betiğin yürütülmesi için gerekli olan diğer ayrıntıları belirtir.  |
-
-
-### <a name="elastic-job-agent"></a>Elastik İş aracısı
-
-Elastik İş aracısı; işlerin oluşturulması, çalıştırılması ve yönetilmesi için kullanılan Azure kaynağıdır. Elastik İş aracısı, portalda oluşturduğunuz bir Azure kaynağıdır ([PowerShell](elastic-jobs-powershell.md) ve REST de desteklenir). 
-
-**Elastik İş aracısı** oluşturmak için bir SQL veritabanı gerekir. Aracı, mevcut veritabanını [*İş veritabanı*](#job-database) olarak yapılandırır.
-
-Elastik İş aracısı ücretsizdir. İş veritabanı, sıradan SQL veritabanları ile aynı şekilde faturalandırılır.
-
-### <a name="job-database"></a>İş veritabanı
-
-*İş veritabanı*, işleri tanımlamanın yanı sıra iş yürütme durumunu ve geçmişini takip etmek için kullanılır. *İş veritabanı* ayrıca aracı meta verilerini, günlükleri, sonuçları, iş tanımlarını depolamak için kullanılır ve ayrıca T-SQL kullanarak işlerin oluşturulması, çalıştırılması ve yönetilmesi için birçok faydalı saklı yordam ve farklı veritabanı nesnesi içerir.
-
-Geçerli önizlemede, Elastik İş aracısı oluşturmak için bir Azure SQL veritabanı (S0 veya üzeri) gerekir.
-
-*İş veritabanının* yeni olması şart değildir ancak temiz, boş, S0 veya üzeri hizmet katmanında olması gerekir. *İş veritabanı* için önerilen hizmet katmanı S1 veya üzeridir ancak bu durum iş adımı sayısı, yineleme sayısı ve işlerin çalıştırılma sıklığı gibi performans ihtiyaçlarına göre değişiklik gösterir. Örneğin bir S0 veritabanı, bir saatte birkaç iş çalıştıran bir iş aracısı için yeterli olurken dakikada bir iş çalıştırmak için yeterli performansı sunmayabilir ve bu durumda daha yüksek bir hizmet katmanının kullanılması daha iyi olabilir.
-
-
-#### <a name="job-database-permissions"></a>İş veritabanı izinleri
-
-İş aracısı oluşturma sırasında *İş veritabanında* bir şema, tablolar ve *jobs_reader* adlı bir rol oluşturulur. Rol, aşağıdaki izinle oluşturulur ve yöneticilere iş izleme için daha ayrıntılı erişim denetimi sunmak üzere tasarlanmıştır:
-
-
-|Rol adı  |'jobs' şeması izinleri  |'jobs_internal' şeması izinleri  |
-|---------|---------|---------|
-|**jobs_reader**     |    SELECT     |    None     |
-
-> [!IMPORTANT]
-> Veritabanı yöneticisi olarak *İş veritabanına* erişim izni vermeden önce güvenlik durumunu gözden geçirin. İş oluşturma veya düzenleme izinlerine sahip olan kötü niyetli bir kullanıcı, kendi denetimindeki bir veritabanına bağlanmak için kayıtlı kimlik bilgisini kullanan bir iş oluşturarak veya düzenleyerek ilgili kimlik bilgisinin parolasını belirleyebilir.
-
-
-
-### <a name="target-group"></a>Hedef grup
-
-*Hedef grup*, işin üzerinde çalışacağı veritabanı kümesini tanımlar. Hedef grup içinde aşağıdaki bileşenlerden birden fazlası veya birleşimi bulunabilir:
-
-- **Azure SQL sunucusu**: Sunucu belirtilirse işin yürütülmesi sırasında sunucuda mevcut olan tüm veritabanları gruba dahil edilir. İş yürütülmeden önce grubun numaralandırılması ve güncelleştirilmesi için asıl veritabanı kimlik bilgisinin sağlanması gerekir.
-- **Elastik havuz**: Elastik havuz belirtilirse işin yürütülmesi sırasında elastik havuzda mevcut olan tüm veritabanları gruba dahil edilir. Sunucuda olduğu gibi iş yürütülmeden önce grubun güncelleştirilmesi için asıl veritabanı kimlik bilgisinin sağlanması gerekir.
-- **Tek veritabanı**: Gruba eklenmek üzere bir veya daha fazla tek veritabanı belirtin.
-- **Parça eşlemesi**: Bir parça eşlemesinin veritabanlarıdır.
-
-> [!TIP]
-> İşin yürütülmesi sırasında *dinamik numaralandırma*, sunucuları veya havuzları içeren hedef gruplardaki veritabanı kümesini yeniden değerlendirir. Dinamik numaralandırma, **işlerin, yürütüldükleri sırada sunucuda veya havuzda mevcut olan tüm veritabanlarında çalıştırılmasını sağlar**. Veritabanı listesinin çalışma zamanında yeniden değerlendirilmesi özellikle havuz veya sunucu üyeliğinin sık değiştiği senaryolar için kullanışlıdır.
-
-Havuzlar ve tek veritabanları gruba dahil edilebilir veya gruptan hariç tutulabilir. Bu sayede istenen veritabanlarını içeren bir hedef grup oluşturulabilir. Örneğin hedef gruba bir sunucuyu ekleyebilir ancak bir elastik havuzdaki belirli veritabanlarını (veya bir havuzun tamamını) hariç tutabilirsiniz.
-
-Hedef grupta birden fazla abonelikte ve bölgede bulunan veritabanları mevcut olabilir. Birden fazla bölgenin söz konusu olduğu yürütme işlemlerinin aynı bölgedeki yürütmelere kıyasla daha yüksek gecikme süresine sahip olacağını unutmayın.
-
-Aşağıdaki örneklerde işin çalıştırılacağı veritabanlarının belirlenmesi için farklı hedef grubu tanımlarının iş yürütme sırasında nasıl dinamik olarak numaralandırıldığı gösterilmektedir:
-
-![Hedef grup örnekleri](media/elastic-jobs-overview/targetgroup-examples1.png)
-
-**Örnek 1**'de tek veritabanlarının listesini içeren bir hedef grup gösterilmektedir. Bir iş adımı bu hedef grup kullanılarak yürütüldüğünde iş adımının eylemi bu veritabanlarının her birinde yürütülür.<br>
-**Örnek 2**'de hedef olarak bir Azure SQL Server içeren bir hedef grup gösterilmektedir. Bir iş adımı bu hedef grup kullanılarak yürütüldüğünde sunucudaki veritabanı listesinin belirlenmesi için sunucu dinamik olarak numaralandırılır. İş adımının eylemi bu veritabanlarının her birinde yürütülür.<br>
-**Örnek 3**'te gösterilen hedef grup *Örnek 2*'dekine benzer ancak belirli veritabanları özel olarak hariç tutulmuştur. İş adımının eylemi hariç tutulan veritabanında *yürütülmez*.<br>
-**Örnek 4**'te hedef olarak bir elastik havuz içeren bir hedef grup gösterilmektedir. *Örnek 2*'ye benzer şekilde havuz iş çalıştırma zamanında dinamik olarak numaralandırılarak havuzdaki veritabanlarının listesi belirlenir.
-<br><br>
-
-
-![Hedef grup örnekleri](media/elastic-jobs-overview/targetgroup-examples2.png)
-
-**Örnek 5** ve **Örnek 6**'da Azure SQL Servers, elastik havuz ve veritabanı örneklerinin dahil etme ve hariç tutma kurallarıyla birleştirildiği gelişmiş senaryolar gösterilmektedir.<br>
-**Örnek 7**'de parça eşlemesi içinde bulunan ve iş çalıştırma zamanında değerlendirilebilecek parçalar gösterilmektedir.
-
-### <a name="job"></a>İş
-
-*İş*, bir zamanlamaya göre veya tek seferlik yürütülen bir çalışma birimidir. Bir işte bir veya daha fazla *iş adımı* bulunur.
-
-#### <a name="job-step"></a>İş adımı
-
-Her işte yürütülecek bir T-SQL betiği, bu T-SQL betiğinin çalıştırılacağı bir veya daha fazla hedef grup ve iş aracısının hedef veritabanına bağlanması için gereken kimlik bilgileri belirtilir. İşin her adımı özelleştirilebilir zaman aşımı ve yeniden deneme ilkelerine sahiptir ve her adımda isteğe bağlı çıkış parametreleri belirtilebilir.
-
-#### <a name="job-output"></a>İş çıktısı
-
-İş adımlarının her bir hedef veritabanında elde ettiği sonuç ayrıntılı olarak kaydedilir ve betik çıktısı, belirtilen bir tabloya aktarılabilir. Bir işin döndürdüğü verilerin kaydedileceği bir veritabanı belirtebilirsiniz.
-
-#### <a name="job-history"></a>İş geçmişi
-
-İş yürütme geçmişi *İş veritabanında* depolanır. Sistem temizleme işlemi 45 günden daha eski olan yürütme geçmişi verilerini siler. 45 günden daha yeni olan geçmişi kaldırmak için *İş veritabanında* **sp_purge_history** saklı yordamını çağırın.
-
-## <a name="workflow-to-create-configure-and-manage-jobs"></a>İşleri oluşturma, yapılandırma ve yönetme iş akışı
-
-### <a name="create-and-configure-the-agent"></a>Aracıyı oluşturma ve yapılandırma
-
-1. Boş bir S0 veya üzeri SQL veritabanı oluşturun ya da tanımlayın. Bu, Elastik İş aracısı oluşturma işlemi sırasında *İş veritabanı* olarak kullanılacaktır.
+1. Boş bir S0 veya üzeri SQL veritabanı oluşturun ya da tanımlayın. Bu veritabanı olarak kullanılacak *iş veritabanı* elastik İş Aracısı oluşturma sırasında.
 2. [Portalda](https://portal.azure.com/#create/Microsoft.SQLElasticJobAgent) veya [PowerShell](elastic-jobs-powershell.md#create-the-elastic-job-agent) kullanarak bir Elastik İş aracısı oluşturun.
 
-   ![Elastik İş aracısı oluşturma](media/elastic-jobs-overview/create-elastic-job-agent.png)
+   ![Elastik İş Aracısı oluşturma](media/elastic-jobs-overview/create-elastic-job-agent.png)
 
-### <a name="create-run-and-manage-jobs"></a>İşleri oluşturma, çalıştırma ve yönetme
+## <a name="create-run-and-manage-jobs"></a>İşleri oluşturma, çalıştırma ve yönetme
 
 1. [PowerShell](elastic-jobs-powershell.md#create-job-credentials-so-that-jobs-can-execute-scripts-on-its-targets) veya [T-SQL](elastic-jobs-tsql.md#create-a-credential-for-job-execution) kullanarak *İş veritabanında* iş yürütme kimlik bilgisi oluşturun.
 2. [PowerShell](elastic-jobs-powershell.md#define-the-target-databases-you-want-to-run-the-job-against) veya [T-SQL](elastic-jobs-tsql.md#create-a-target-group-servers) kullanarak hedef grubu (işi çalıştırmak istediğiniz veritabanları) tanımlayın.
@@ -174,8 +49,8 @@ Her işte yürütülecek bir T-SQL betiği, bu T-SQL betiğinin çalıştırıla
 Bir işi çalıştırmak için uygun kimlik bilgilerinin ayarlanması kafa karışıklığına neden olabileceğinden aşağıdaki noktaları göz önünde bulundurun:
 
 - Veritabanı kapsamlı kimlik bilgileri *İş veritabanında* oluşturulmalıdır.
-- **İşin başarıyla tamamlanması için hedef veritabanlarının tümünde [yeterli izinlere](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) sahip bir oturum açma adı olmalıdır**  (aşağıdaki şemada jobuser).
-- Kimlik bilgilerinin her işte yeniden kullanılması beklenir ve kimlik bilgisi parolaları şifrelenerek iş nesnelerine salt okunur erişime sahip olan kullanıcılardan gizlenir.
+- **Tüm hedef veritabanları oturum açma kimliğiyle olmalıdır [yeterli izinlere](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) iş, başarıyla tamamlanması için** (`jobuser` aşağıdaki çizimde).
+- İşleri arasında yeniden kullanılabilir kimlik bilgileri ve kimlik bilgisi parolaları şifrelenir ve iş nesnelere salt okunur erişime sahip kullanıcıların güvenli.
 
 Aşağıdaki resim, uygun iş kimlik bilgilerinin anlaşılması ve ayarlanması konusunda yardımcı olmak üzere tasarlanmıştır. **Kullanıcının, işin çalıştırılacağı her veritabanında (tüm *hedef kullanıcı veritabanlarında*) oluşturulması gerektiğini unutmayın**.
 
@@ -186,10 +61,8 @@ Aşağıdaki resim, uygun iş kimlik bilgilerinin anlaşılması ve ayarlanması
 Elastik İşlerle çalışırken dikkat etmeniz gereken en iyi deneyimlerin bazıları:
 
 - API’lerin kullanımını güvenilir kişilerle sınırlayın.
-- Kimlik bilgileri iş adımını gerçekleştirmek için gerekli olan en düşük ayrıcalıklara sahip olmalıdır. Ek bilgi için bkz. [SQL Server Yetkilendirme ve İzinler](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server).
-- Sunucu ve/veya hedef grup üyesi kullanırken, asıl veritabanında işi yürütmeden önce sunucuların ve/veya havuzların veritabanı listelerini genişletmek için kullanılan veritabanı görüntüleme/listeleme haklarına sahip ayrı bir kimlik bilgisinin oluşturulması önerilir.
-
-
+- Kimlik bilgileri iş adımını gerçekleştirmek için gerekli olan en düşük ayrıcalıklara sahip olmalıdır. Daha fazla bilgi için [yetkilendirme ve izinler SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server).
+- Bir sunucu ve/veya havuzu hedef grup üyesi kullanırken, yüksek oranda listesini görüntüle/sunucuları ve/veya iş yürütülmeden önce havuzlarını veritabanı listesini genişletmek için kullanılan veritabanları için ana veritabanı üzerinde haklara sahip ayrı bir kimlik bilgisi oluşturmak için önerilir.
 
 ## <a name="agent-performance-capacity-and-limitations"></a>Aracı performansı, kapasitesi ve sınırlamaları
 
@@ -202,20 +75,6 @@ Hedef veritabanı grubunun boyutuna ve bir işin istenen yürütme süresine (e�
 ### <a name="prevent-jobs-from-reducing-target-database-performance"></a>İşlerin hedef veritabanının performansını düşürmesini engelleme
 
 Bir SQL elastik havuzundaki veritabanları üzerinde iş çalıştırılması sırasında kaynakların aşırı yüklenmesini önlemek için işler aynı anda üzerinde çalışılabilecek veritabanı sayısını sınırlayacak şekilde yapılandırılabilir.
-
-##  <a name="differences-between-elastic-jobs-and-sql-server-agent"></a>Elastik İşler ile SQL Server Agent arasındaki farklar
-
-SQL Server Agent (şirket içi ve SQL Veritabanı Yönetilen Örneği kapsamında mevcuttur) ile Azure SQL Veritabanı Elastik İş aracısı (SQL Veritabanı ve SQL Veri Ambarı) arasında birkaç fark vardır.
-
-
-|  |Elastik İşler  |SQL Server Agent |
-|---------|---------|---------|
-|Kapsam     |  İş aracısıyla aynı Azure bulutundaki herhangi bir sayıda Azure SQL veritabanı ve/veya veri ambarı. Hedefler farklı mantıksal sunucularda, aboneliklerde ve/veya bölgelerde olabilir. <br><br>Hedef gruplar tek veritabanı veya veri ambarlarının yanı sıra bir sunucu, havuz veya parça eşlemesi içindeki tüm veritabanlarından (iş zamanında dinamik olarak numaralandırılır) oluşabilir. | SQL aracısıyla aynı SQL Server örneğindeki tek bir veritabanı. |
-|Desteklenen API’ler ve Araçlar     |  Portal, PowerShell, T-SQL, Azure Resource Manager      |   T-SQL, SQL Server Management Studio (SSMS)     |
-
-
-
-
 
 ## <a name="best-practices-for-creating-jobs"></a>İş oluşturmak için en iyi deneyimler
 

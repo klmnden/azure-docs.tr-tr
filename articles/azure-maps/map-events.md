@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: b9174d98dd6d4dfb5353d6976d074bb4c91373dc
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 16455719f05688793e2aee6f10fa00a707d553c0
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678330"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469551"
 ---
 # <a name="interact-with-the-map---mouse-events"></a>Eşleme - fare olayları ile etkileşim kurma
 
-Bu makalede nasıl kullanılacağını gösterir [harita sınıfı](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) [olayları](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addeventlistener) olayları harita üzerinde ve harita farklı katmanlardaki vurgulamak için özellik. Ayrıca, harita sınıf olayları özelliği bir HTML işaretçisi ile etkileşim kurduğunuzda olayları vurgulamak için nasıl kullanılacağını gösterir.
+Bu makalede nasıl kullanılacağını gösterir [harita sınıfı](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) [olayları](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) olayları harita üzerinde ve harita farklı katmanlardaki vurgulamak için özellik. Ayrıca, harita sınıf olayları özelliği bir HTML işaretçisi ile etkileşim kurduğunuzda olayları vurgulamak için nasıl kullanılacağını gösterir.
 
 ## <a name="interact-with-the-map"></a>Haritayla etkileşim kurabilir
 

@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
-ms.date: 11/30/2017
-ms.openlocfilehash: 06fa9b9191104db3b141b6268a90a7c8f206280e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.date: 01/12/2019
+ms.openlocfilehash: e735c9773971a4c594c32e9ae29eeb295c32810c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106082"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473716"
 ---
 # <a name="tutorial-monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Öğretici: Azure Event Grid ve Logic Apps ile sanal makine değişikliklerini izleme
 
@@ -81,9 +81,9 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
    Logic Apps Tasarımcısı artık mantıksal uygulamanızı başlatmak için kullanabileceğiniz [*bağlayıcılar*](../connectors/apis-list.md) ve [*tetikleyiciler*](../logic-apps/logic-apps-overview.md#logic-app-concepts) ile görevleri gerçekleştirmek için bir tetikleyiciden sonra ekleyebileceğiniz eylemleri gösterir. Tetikleyici, bir mantıksal uygulama örneği oluşturan ve mantıksal uygulama iş akışınızı başlatan bir olaydır. 
    Mantıksal uygulamanızın ilk öğesinin bir tetikleyici olması gerekir.
 
-6. Arama kutusuna filtreniz olarak "olay kılavuzu" yazın. Bu tetikleyiciyi seçin: **Azure Event Grid - Kaynak olayında**
+6. Arama kutusuna filtreniz olarak "olay kılavuzu" yazın. Şu tetikleyiciyi seçin: **Azure Event Grid - bir kaynak olayı**
 
-   ![Bu tetikleyiciyi seçin: "Azure Event Grid - Kaynak olayında"](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger.png)
+   ![Şu tetikleyiciyi seçin: "Azure Event Grid - bir kaynak olayı"](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger.png)
 
 7. İstendiğinde, Azure kimlik bilgilerinizle Azure Event Grid oturumu açın.
 
@@ -101,7 +101,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
    | **Abonelik** | *{virtual-machine-Azure-subscription}* | Olay yayımcısının Azure aboneliğini seçin. Bu öğretici için, sanal makinenizin Azure aboneliğini seçin. | 
    | **Kaynak Türü** | Microsoft.Resources.resourceGroups | Olay yayımcısının kaynak türünü seçin. Bu öğretici için, mantıksal uygulamanızın yalnızca kaynak gruplarını izlemesi için belirtilen değeri seçin. | 
    | **Kaynak Adı** | *{virtual-machine-resource-group-name}* | Yayımcının kaynak adını seçin. Bu öğretici için, sanal makineniz için kaynak grubunun adını seçin. | 
-   | İsteğe bağlı ayarları için **Gelişmiş seçenekleri göster**’i seçin. | *{açıklamalara bakın}* | * **Ön Ek Filtresi**: Bu öğretici için, bu ayarı boş bırakın. Varsayılan davranış tüm değerlerle eşleşir. Ancak filtre olarak bir ön ek dizesi (örneğin belirli bir kaynak için bir yol ve bir parametre) belirtebilirsiniz. <p>* **Sonek Filtresi**: Bu öğretici için, bu ayarı boş bırakın. Varsayılan davranış tüm değerlerle eşleşir. Ancak yalnızca belirli dosya türlerini istediğinizde filtre olarak bir sonek dizesi (örneğin dosya adı uzantısı) belirtebilirsiniz.<p>* **Abonelik Adı**: Olay aboneliğiniz için benzersiz bir ad girin. |
+   | İsteğe bağlı ayarları için **Gelişmiş seçenekleri göster**’i seçin. | *{açıklamalara bakın}* | * **Önek filtresi**: Bu öğretici için bu ayarı boş bırakın. Varsayılan davranış tüm değerlerle eşleşir. Ancak filtre olarak bir ön ek dizesi (örneğin belirli bir kaynak için bir yol ve bir parametre) belirtebilirsiniz. <p>* **Sonek filtresi**: Bu öğretici için bu ayarı boş bırakın. Varsayılan davranış tüm değerlerle eşleşir. Ancak yalnızca belirli dosya türlerini istediğinizde filtre olarak bir sonek dizesi (örneğin dosya adı uzantısı) belirtebilirsiniz.<p>* **Abonelik adı**: Olay aboneliğiniz için benzersiz bir ad girin. |
    | | | 
 
    İşiniz bittiğinde, olay kılavuzu tetikleyiciniz bu örnekteki gibi görünebilir:
@@ -182,8 +182,8 @@ Mantıksal uygulama iş akışınızı yalnızca belirli bir olay gerçekleşti�
    | Ayar | Önerilen değer | Açıklama | 
    | ------- | --------------- | ----------- | 
    | **Alıcı** | *{recipient-email-address}* |Alıcının e-posta adresi girin. Test için kendi e-posta adresinizi kullanabilirsiniz. | 
-   | **Konu** | Güncelleştirilen kaynak: **Konu**| E-posta konusunun içeriğini girin. Bu öğreticide önerilen metni girin ve olayın **Konu** alanını seçin. Burada, e-postanızın konusu güncelleştirilen kaynağın (sanal makine) adını içerir. | 
-   | **Gövde** | Kaynak grubu: **Konu** <p>Olay türü: **Olay Türü**<p>Olay kimliği: **Kimlik**<p>Zaman: **Olay Saati** | E-posta gövdesinin içeriğini girin. Bu öğretici için, e-postanızın güncelleştirme için grup adı, olay türü, olay zaman damgası ve olay kimliğini içermesi için önerilen metni girin ve olay için **Konu**, **Olay Türü**, **Kimlik** ve **Olay Zamanı** alanlarını seçin. <p>İçeriğinize boş satır eklemek için Shift + Enter tuşlarını kullanın. | 
+   | **Konu** | Güncelleştirilen kaynağı: **Konu**| E-posta konusunun içeriğini girin. Bu öğreticide önerilen metni girin ve olayın **Konu** alanını seçin. Burada, e-postanızın konusu güncelleştirilen kaynağın (sanal makine) adını içerir. | 
+   | **Gövde** | Kaynak grubu: **Konu** <p>Olay türü: **Olay türü**<p>Olay Kimliği: **ID**<p>Zaman: **Olay saati** | E-posta gövdesinin içeriğini girin. Bu öğretici için, e-postanızın güncelleştirme için grup adı, olay türü, olay zaman damgası ve olay kimliğini içermesi için önerilen metni girin ve olay için **Konu**, **Olay Türü**, **Kimlik** ve **Olay Zamanı** alanlarını seçin. <p>İçeriğinize boş satır eklemek için Shift + Enter tuşlarını kullanın. | 
    | | | 
 
    > [!NOTE] 

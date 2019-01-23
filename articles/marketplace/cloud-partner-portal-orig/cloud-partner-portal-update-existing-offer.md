@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: bfe2b0c70c8b912f6489ed461f5bcf6f233ed60d
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 4bf11c0a084cb0241125a1ed546f48c1c5455de3
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811388"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449461"
 ---
 <a name="update-an-existing-offer-for-azure-marketplace"></a>Mevcut bir teklifi Azure Marketi için güncelleştirme
 ==============================================
@@ -87,7 +87,7 @@ Yeni bir SKU'ya mevcut teklifte için kullanılabilir hale getirmek için izleyi
 
 1.  Oturum [bulut iş ortağı portalı](https://cloudpartner.azure.com/).
 2.  Altında **tüm teklifleri** güncelleştirmek istediğiniz teklif bulun.
-3.  Altında **SKU'ları** formu, temel clik **yeni bir SKU ekleyin** ve bir **SKU kimliği** içinde açılır.
+3.  Altında **SKU'ları** formunda, tıklayın **yeni bir SKU ekleyin** ve sağlayan bir **SKU kimliği** pencerede.
 4.  Ayrıntılı adımları izlemeden [bir sanal makine Azure Marketi'nde yayımlayabileceğiniz](./cloud-partner-portal-publish-virtual-machine.md).
 5.  Tıklayarak **Yayımla** başlatmasını yayınlayın yeni SKU'nuz için yayımlama iş akışını devre dışı.
 
@@ -133,34 +133,34 @@ Kasım 1 yeni fiyat bölgeleri için kapatma para birimi gibi ayarlanacak 2018 i
 | **Cezayir**              | DZ        | USD                         |
 | **Arjantin**            | AR        | USD                         |
 | **Bahreyn**              | BH        | USD                         |
-| **Belarus**              | TARAFINDAN        | USD                         |
+| **Belarus**              | BY        | USD                         |
 | **Brezilya**               | BR        | BRL                         |
 | **Bulgaristan**             | BG        | EUR                         |
 | **Şili**                | CL        | USD                         |
-| **Kolombiya**             | ORTAK        | USD                         |
+| **Kolombiya**             | CO        | USD                         |
 | **Kosta Rika**           | CR        | USD                         |
-| **Hırvatistan**              | İK        | EUR                         |
+| **Hırvatistan**              | HR        | EUR                         |
 | **Çek Cumhuriyeti**       | CZ        | EUR                         |
-| **Mısır**                | ÖRNEĞİN        | USD                         |
+| **Mısır**                | EG        | USD                         |
 | **Guatemala**            | GT        | USD                         |
 | **Hong Kong**            | HK        | USD                         |
 | **Macaristan**              | HU        | EUR                         |
-| **İzlanda**              | OLDUĞU        | EUR                         |
+| **İzlanda**              | IS        | EUR                         |
 | **Endonezya**            | Kimlik        | USD                         |
 | **İsrail**               | IL        | USD                         |
 | **Ürdün**               | JO        | USD                         |
 | **Kazakistan**           | KZ        | USD                         |
-| **Kenya**                | YAP        | USD                         |
+| **Kenya**                | KE        | USD                         |
 | **Kuveyt**               | KW        | USD                         |
 | **Liechtenstein**        | LI        | EUR                         |
 | **Makedonya (EYC)**     | MK        | USD                         |
-| **Malezya**             | BİLGİSAYARIM        | USD                         |
+| **Malezya**             | MY        | USD                         |
 | **Meksika**               | MX        | USD                         |
-| **Karadağ**           | BANA        | USD                         |
+| **Karadağ**           | ME        | USD                         |
 | **Fas**              | MA        | USD                         |
 | **Nijerya**              | NG        | USD                         |
 | **Umman**                 | OM        | USD                         |
-| **Pakistan**             | BA        | USD                         |
+| **Pakistan**             | PK        | USD                         |
 | **Paraguay**             | PY        | USD                         |
 | **Peru**                 | PE        | USD                         |
 | **Filipinler**          | PH        | USD                         |

@@ -4,7 +4,7 @@ description: Azure AD Connect kullanıcı oturum açma için özel ayarlar.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 547b118e-7282-4c7f-be87-c035561001df
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/31/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 38086d0e975956aefe4fcde4eda67d939d58f617
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 57f1879e79dfdfe8eff421deb466b3098f5a5c60
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365851"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463465"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect kullanıcı oturum açma seçenekleri
 Azure Active Directory (Azure AD) Connect, kullanıcılarınızın hem bulut hem de şirket içi kaynaklara aynı parolayı kullanarak oturum açmasını sağlar. Bu makalede, Azure AD'de oturum açmak için kullanmak istediğiniz kimlik seçmenize yardımcı olmak her bir kimlik modeli için temel kavramları açıklar.
@@ -59,16 +59,16 @@ Ayrıca, etkinleştirebilirsiniz [sorunsuz çoklu oturum açma](how-to-connect-s
 
 Daha fazla bilgi için [parola karması eşitleme](how-to-connect-password-hash-synchronization.md) makalesi.
 
-### <a name="pass-through-authentication"></a>Geçişli kimlik doğrulaması
+### <a name="pass-through-authentication"></a>Doğrudan kimlik doğrulama
 Geçişli kimlik doğrulaması ile şirket içi Active Directory denetleyicisine karşı kullanıcının parolasını doğrulanır. Parola, herhangi bir biçimde Azure AD'de mevcut olması gerekmez. Bu şirket içi ilkeleri, saat, oturum açma kısıtlamaları gibi bulut kimlik doğrulaması sırasında değerlendirilecek hizmetleri sağlar.
 
 Geçişli kimlik doğrulaması, şirket içi ortamındaki etki alanı ile birleşik Windows Server 2012 R2 makinesine basit bir aracı kullanır. Bu aracı, parola doğrulama isteklerini dinler. Bu, Internet'e açık olmasını gelen bağlantı noktalarının gerektirmez.
 
 Ayrıca, kurumsal ağ üzerindeki etki alanına katılmış makinelerde kullanıcılar için çoklu oturum açmayı de etkinleştirebilirsiniz. Çoklu oturum açma ile etkin kullanıcılar yalnızca bulut kaynaklarına erişimi güvenli bir şekilde yardımcı olmak için bir kullanıcı adı girmeniz gerekir.
-![Geçişli kimlik doğrulaması](./media/plan-connect-user-signin/pta.png)
+![Doğrudan kimlik doğrulama](./media/plan-connect-user-signin/pta.png)
 
 Daha fazla bilgi için bkz.
-- [Geçişli kimlik doğrulaması](how-to-connect-pta.md)
+- [Doğrudan kimlik doğrulama](how-to-connect-pta.md)
 - [Çoklu oturum açma](how-to-connect-sso.md)
 
 ### <a name="federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2"></a>Windows Server 2012 R2'de AD FS ile yeni veya mevcut bir grubu kullanan Federasyon
@@ -125,7 +125,7 @@ Azure AD oturum açma sayfasının, her sonek karşı karşılık gelen durumunu
 
 | Durum | Açıklama | Eylem gerekli |
 |:--- |:--- |:--- |
-| Doğrulandı |Azure AD Connect, Azure AD'de doğrulanmış etki alanı için eşleşen bir bulundu. Bu etki alanı için tüm kullanıcılar, şirket içi kimlik bilgilerini kullanarak oturum açabilirsiniz. |Eylem gerekmiyor. |
+| Doğrulandı |Azure AD Connect, Azure AD'de doğrulanmış etki alanı için eşleşen bir bulundu. Bu etki alanı için tüm kullanıcılar, şirket içi kimlik bilgilerini kullanarak oturum açabilirsiniz. |Herhangi bir eylemde bulunmanız gerekmez. |
 | Doğrulanmadı |Azure AD Connect, Azure AD'de eşleşen özel etki alanı bulundu, ancak doğrulanmış değil. Bu etki alanı kullanıcılarının UPN soneki, varsayılan değiştirilecek. onmicrosoft.com sonekini etki alanını doğruladıysanız değil eşitlemeden sonra. | [Azure AD'de özel etki alanını doğrulayın.](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) |
 | Ekli değil |Azure AD Connect için UPN soneki corresponded özel bir etki alanı bulunamadı. Bu etki alanı kullanıcılarının UPN soneki, varsayılan değiştirilecek. onmicrosoft.com sonekini etki alanı eklenmiş değildir ve Azure'da doğrulanır. | [Ekleme ve için UPN son ekine karşılık gelen bir özel etki alanını doğrulayın.](../fundamentals/add-custom-domain.md) |
 

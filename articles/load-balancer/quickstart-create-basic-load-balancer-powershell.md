@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/20/2018
 ms.author: kumud
 ms:custom: seodec18
-ms.openlocfilehash: d3e024998e186e9c552a9a21d2b5a4bb74e18c2f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: c8c7d94e216f45551ed869b2ba921f3c79e6307a
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/22/2019
-ms.locfileid: "54422788"
+ms.locfileid: "54452692"
 ---
 # <a name="get-started"></a>Hızlı Başlangıç: Azure PowerShell kullanarak bir genel yük dengeleyici oluşturma
 Bu hızlı başlangıçta, Azure PowerShell kullanarak Temel Yük Dengeleyici oluşturma işlemi gösterilmektedir. Yük dengeleyiciyi test etmek için, Windows sunucusu çalıştıran iki sanal makine (VM) dağıtın ve sanal makineler arasında bir web uygulamasının yük dengelemesini yapın.
@@ -277,7 +277,7 @@ PowerShell komut istemlerinin size döndürülmesi için `-AsJob` parametresi VM
  
 Her iki arka uç VM’ye de aşağıdaki gibi bir özel web sayfası ile IIS yükleyin:
 
-1. Yük Dengeleyicinin Genel IP adresini alın. `Get-AzureRmPublicIPAdress` kullanarak, Yük Dengeleyicinin Genel IP adresini alın.
+1. Yük Dengeleyicinin Genel IP adresini alın. `Get-AzureRmPublicIPAddress` kullanarak, Yük Dengeleyicinin Genel IP adresini alın.
 
   ```azurepowershell-interactive
     Get-AzureRmPublicIPAddress `

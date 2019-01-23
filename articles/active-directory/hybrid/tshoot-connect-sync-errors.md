@@ -4,7 +4,7 @@ description: Azure AD Connect ile eşitleme sırasında karşılaşılan hatalar
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 2209d5ce-0a64-447b-be3a-6f06d47995f8
 ms.service: active-directory
 ms.workload: identity
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c94ecc223c4e2c0533c23e58823bb203064ceef6
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 34a719c8fb62a2b993320d1bd9f97f9d47abf494
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250486"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463321"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Eşitleme sırasında karşılaşılan hataları giderme
 Windows Server Active Directory'den (AD DS) Azure Active Directory (Azure AD) kimlik verilerini eşitlendiğinde hataları oluşabilir. Bu makalede, bu hataları ve hataları düzeltmek için olası yolları neden olası senaryolar bazıları eşitleme hatalarını farklı türde genel bir bakış sağlar. Bu makalede, sık karşılaşılan hata türlerini içerir ve tüm olası hataları kapsamayabilir.
@@ -30,7 +30,7 @@ Azure AD Connect'in en son sürümle \(Ağustos 2016 veya daha yüksek\), eşitl
 
 1 Eylül 2016'dan itibaren [Azure Active Directory yinelenen öznitelik dayanıklılığı](how-to-connect-syncservice-duplicate-attribute-resiliency.md) özelliği etkinleştirilir varsayılan olarak tüm *yeni* Azure Active Directory kiracıları. Bu özellik gelecek ay içinde var olan kiracılar için otomatik olarak etkinleştirilecektir.
 
-Azure AD Connect eşitleme sürdürür dizinlerden üç işlem gerçekleştirir: içeri aktarma, eşitleme ve dışarı aktarma. Hataları tüm işlemler gerçekleştirilebilir. Bu makalede, Azure AD'ye dışarı aktarma sırasında hataları çoğunlukla odaklanır.
+Azure AD Connect eşitlenmiş tutar dizinlerden üç işlem gerçekleştirir: İçeri aktarma, eşitleme ve dışarı aktarma. Hataları tüm işlemler gerçekleştirilebilir. Bu makalede, Azure AD'ye dışarı aktarma sırasında hataları çoğunlukla odaklanır.
 
 ## <a name="errors-during-export-to-azure-ad"></a>Azure AD'ye dışarı aktarma sırasında hatalar
 Aşağıdaki bölümde, Azure AD Bağlayıcısı'nı kullanarak Azure AD'ye dışarı aktarma işlemi sırasında oluşabilecek Eşitleme hataları farklı türleri açıklanmaktadır. Bu bağlayıcı, "contoso. olan adı biçimi tarafından tanımlanabilir *onmicrosoft.com*".

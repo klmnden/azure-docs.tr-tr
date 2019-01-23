@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
-ms.component: diagnostic-extension
-ms.openlocfilehash: b5f1247c43dcbd836c684dbf41bafd0d319e5f7c
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.subservice: diagnostic-extension
+ms.openlocfilehash: cd458ba08f12e9553233a1dd3d7caf03acda56c6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230484"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463516"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure tanılama 1.3 ve üzeri yapılandırma şeması
 > [!NOTE]
@@ -436,7 +436,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**StorageType**|Olabilir *tablo*, *Blob*, veya *TableAndBlob*. Tablo varsayılandır. TableAndBlob seçildiğinde, Tanılama verileri iki kez--her tür için bir kez yazılır.|  
 |**LocalResourceDirectory**|Monitoring Agent olay verilerini depoladığı sanal makinesinde dizin. Aksi takdirde, küme, varsayılan dizin kullanılır:<br /><br /> Çalışan/web rolü için: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Bir sanal makine için: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Gerekli öznitelik şunlardır:<br /><br /> - **yol** -Azure tanılama tarafından kullanılmak üzere sistemde dizini.<br /><br /> - **expandEnvironment** -ortam değişkenlerini yol adına genişletilir olup olmadığını denetler.|  
 
-## <a name="wadcfg-element"></a>WadCFG öğesi  
+## <a name="wadcfg-element"></a>WadCFG Element  
  *Ağaç: Kök - DiagnosticsConfiguration - PublicConfig - WadCFG*
 
  Tanımlar ve telemetri verilerini toplanacak yapılandırır.  
@@ -525,7 +525,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 
-## <a name="etwproviders-element"></a>EtwProviders öğesi  
+## <a name="etwproviders-element"></a>EtwProviders Element  
  *Ağaç: -DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders kök*
 
  EventSource ETW olayları toplamayı yapılandırır ve/veya ETW bildirim alarak sağlayıcıları.  
@@ -537,7 +537,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 
-## <a name="etweventsourceproviderconfiguration-element"></a>EtwEventSourceProviderConfiguration öğesi  
+## <a name="etweventsourceproviderconfiguration-element"></a>EtwEventSourceProviderConfiguration Element  
  *Ağaç: -DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwEventSourceProviderConfiguration EtwProviders - kök*
 
  Oluşturulan olayları toplamayı yapılandırır [EventSource sınıfı](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx).  
@@ -549,7 +549,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 
-## <a name="etwmanifestproviderconfiguration-element"></a>EtwManifestProviderConfiguration öğesi  
+## <a name="etwmanifestproviderconfiguration-element"></a>EtwManifestProviderConfiguration Element  
  *Ağaç: Kök - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders - EtwManifestProviderConfiguration*
 
 |Alt öğeleri|Açıklama|  
@@ -693,3 +693,4 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
  *Ağaç: Kök - DiagnosticsConfiguration - IsEnabled*
 
  Boole değeri. Kullanım `true` tanılamayı etkinleştirmeyi veya `false` tanılama devre dışı bırakmak için.
+

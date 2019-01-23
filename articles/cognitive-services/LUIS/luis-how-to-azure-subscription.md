@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 01/18/2019
 ms.author: diberry
-ms.openlocfilehash: 7127dad813dc4c026f8feb2840f3a3903e7a3e2c
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 7662d58c1686dfa4e545246eb897af134a67144c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54423095"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473393"
 ---
-# <a name="using-subscription-keys-with-your-luis-app"></a>Abonelik anahtarları LUIS uygulamanızı ile kullanma
+# <a name="using-subscription-keys-with-your-luis-app"></a>LUIS uygulamanız ile abonelik anahtarlarını kullanma
 
 Ücretsiz ilk 1000 uç nokta sorgularınızı kullanmak için Abonelik anahtarları oluşturma gerekmez. Bu uç nokta sorgular kullanılan sonra bir Azure kaynağı oluşturma [Azure portalında](http://portal.azure.com), ardından bu kaynak bir LUIS uygulaması atayın [LUIS portalı](https://www.luis.ai).
 

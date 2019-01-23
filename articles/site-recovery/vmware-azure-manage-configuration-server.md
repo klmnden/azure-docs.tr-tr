@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 81f775d8deccb9fb8b23e811a6ca89886576f55f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: db5482fe17b9181097e13d446937bc489c3db8fe
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54431648"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462836"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>VMware VM'LERİNDE olağanüstü durum kurtarma için yapılandırma sunucusunu yönetme
 
@@ -137,10 +137,12 @@ Yapılandırma sunucusunu güncelleştirmek için güncelleştirme paketleri ça
 - 9.7, 9.8, 9.9 veya 9.10 çalıştırırsanız, doğrudan 9.11 için yükseltebilirsiniz.
 - 9.6 veya önceki bir sürümünü çalıştırın ve 9.11 için yükseltmek istiyorsanız 9.7 sürümüne yükseltmeniz gerekir. 9.11 önce.
 
-Güncelleştirme paketleri yapılandırma sunucusundaki tüm sürümlerine yükseltme için bağlantılar kullanılabilir [Azure güncelleştirmeleri sayfası](https://azure.microsoft.com/updates/?product=site-recovery).
+Azure Site Recovery bileşenleri hakkında ayrıntılı yönergeler için destek bildirimiyle başvuran [burada](https://aka.ms/asr_support_statement).
+Güncelleştirme paketleri yapılandırma sunucusundaki tüm sürümlerine yükseltme için bağlantılar kullanılabilir [burada](https://aka.ms/asr_update_rollups).
 
 > [!IMPORTANT]
-> Her yeni sürümü ile yayınlanan, bir Azure Site Recovery bileşeni 'N-4 altındaki tüm sürümleri 'N'' destek kapsamı dışında olarak kabul edilir. Her zaman kullanılabilir en son sürümlerine yükseltmek için önerilir.
+> Her yeni sürümü ile yayınlanan, bir Azure Site Recovery bileşeni 'N-4 altındaki tüm sürümleri 'N'' destek kapsamı dışında olarak kabul edilir. Her zaman kullanılabilir en son sürümlerine yükseltmek için önerilir.</br>
+> Azure Site Recovery bileşenleri hakkında ayrıntılı yönergeler için destek bildirimiyle başvuran [burada](https://aka.ms/asr_support_statement).
 
 Sunucuyu aşağıdaki gibi yükseltin:
 
@@ -158,6 +160,7 @@ Sunucuyu aşağıdaki gibi yükseltin:
     ![Güncelleştirme](./media/vmware-azure-manage-configuration-server/update3.png)
 
 7. Tıklayın **son** yükleyici kapatın.
+8. Diğer Site Recovery bileşenlerini yükseltmek için başvurmak bizim [Yükseltme Kılavuzu](https://aka.ms/asr_vmware_upgrades).
 
 ## <a name="delete-or-unregister-a-configuration-server"></a>Silme veya kaydını iptal yapılandırma sunucusu
 

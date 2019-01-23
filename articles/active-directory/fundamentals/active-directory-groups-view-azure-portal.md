@@ -3,7 +3,7 @@ title: Kuruluşunuzun gruplar ve üyeler - Azure Active Directory görüntüleme
 description: Arama ve kuruluşunuzun gruplar ve atanan üyelerini görüntüleme hakkında yönergeler.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
@@ -12,16 +12,16 @@ ms.date: 09/24/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.reviewer: krbain
-ms.openlocfilehash: 002b4bb4ab20e531132b461f90857cfab6aecfd3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 7ccd42fa1593e420c3d95ac1b50e8ef5084e68a0
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087487"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446417"
 ---
 <!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
 
-# <a name="quickstart-view-your-organizations-groups-and-members-in-azure-active-directory"></a>Hızlı Başlangıç: Azure Active Directory’de kuruluşunuzun grupları ve üyelerini görüntüleme
+# <a name="quickstart-view-your-organizations-groups-and-members-in-azure-active-directory"></a>Hızlı Başlangıç: Kuruluşunuzun gruplar ve üyeler, Azure Active Directory'de görüntüle
 Azure portalı kullanarak kuruluşunuzun mevcut gruplarını ve grup üyelerini görüntüleyebilirsiniz. Gruplar, büyük olasılıkla kısıtlı uygulama ve hizmetler için aynı erişim ve izinlere ihtiyacı olan kullanıcıları (üyeleri) yönetmek için kullanılır.
 
 Bu hızlı başlangıçta, kuruluşunuzun tüm mevcut gruplarını ve atanmış üyelerini görüntüleyeceksiniz.
@@ -43,11 +43,11 @@ _MDM ilkesi - Batı_ adlı yeni bir grup oluşturun. Grup oluşturma hakkında d
 
 2. **Grup** sayfasını tamamlayın:
     
-    - **Grup türü:** **Güvenlik** öğesini seçin
+    - **Grup türü:** Seçin **güvenlik**
     
-    - **Grup adı:** _MDM ilkesi - Batı_ yazın
+    - **Grup adı:** Tür _MDM İlkesi - Batı_
     
-    - **Üyelik türü:** **Atanan** seçeneğini belirleyin.
+    - **Üyelik türü:** Seçin **atanan**.
 
 3. **Oluştur**’u seçin.
 
@@ -58,9 +58,9 @@ _Alain Charon_ adı yeni bir kullanıcı oluşturun. Bir kullanıcı grup üyesi
 
 2. **Kullanıcı** sayfasını tamamlayın:
 
-    - **Ad:** _Alain Charon_ yazın.
+    - **Adı:** Tür _Alain Charon_.
 
-    - **Kullanıcı adı:** *alain@contoso.com* yazın.
+    - **Kullanıcı adı:** Tür *alain@contoso.com*.
 
 3. **Parola** kutusunda sağlanan otomatik olarak oluşturulmuş parolayı kopyalayın ve ardından **Oluştur** seçeneğini belirleyin.
 

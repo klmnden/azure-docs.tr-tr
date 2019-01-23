@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 1/18/2019
+ms.date: 1/22/2019
 ms.author: victorh
-ms.openlocfilehash: 3a7ec043f1990dd7f380177fd612c8cd88786b07
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 87a80703c473245660a850645ca3fef21bbd80f6
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/22/2019
-ms.locfileid: "54440244"
+ms.locfileid: "54452726"
 ---
 # <a name="delegate-an-azure-dns-subdomain"></a>Bir Azure DNS alt etki alanı temsilcisi
 
@@ -47,7 +47,7 @@ Ardından, dört ad sunucusunun, alt etki alanı kopyalayın.
 
 Ardından, bir ad sunucusu (NS) kaydı için oluşturma **mühendislik** bölge.
 
-1. Üst etki alanı için bölgeyi dosyaya gidin.
+1. Üst etki alanı için bölgeyi gidin.
 2. **+ Kayıt kümesi**’ni seçin.
 3. Üzerinde **kayıt kümesi Ekle** bölmesinde, türü **mühendislik** içinde **adı** metin kutusu.
 4. İçin **türü**seçin **NS**.

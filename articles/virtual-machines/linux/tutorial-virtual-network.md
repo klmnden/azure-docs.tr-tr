@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: daee5a2073e78ca5bb9e0eb0386617d7638ab930
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: a0eb3ed26b0e8641cf4e1004c2c162c799dd8999
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46988537"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463771"
 ---
-# <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>Öğretici: Azure CLI ile Linux sanal makineleri için Azure sanal ağlarını yönetme
+# <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>Öğretici: Oluşturma ve Azure CLI ile Linux sanal makineleri için Azure sanal ağları yönetme
 
 Azure sanal makineleri, iç ve dış ağ iletişimi için Azure ağını kullanır. Bu öğretici, iki sanal makineyi dağıtma ve bu VM’ler için Azure ağını yapılandırma konusunda rehberlik sunar. Bu öğreticideki örneklerde VM’lerde veritabanı arka ucuna sahip bir web uygulaması barındırıldığı varsayılır, ancak öğreticide uygulama dağıtılmaz. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -208,7 +208,7 @@ az network nsg rule create \
   --destination-port-range 80
 ```
 
-Ön uç VM’sine yalnızca *22* ve *80* numaralı bağlantı noktalarından erişilebilir. Diğer gelen trafiğin tümü, ağ güvenlik grubunda engellenir. NSG kuralı yapılandırmalarını görselleştirmek yararlı olabilir. NSG kuralı yapılandırmasını [az network rule list](/cli/azure/network/nsg/rule#az_network_nsg_rule_list) komutu ile döndürün. 
+Ön uç VM’sine yalnızca *22* ve *80* numaralı bağlantı noktalarından erişilebilir. Diğer gelen trafiğin tümü, ağ güvenlik grubunda engellenir. NSG kuralı yapılandırmalarını görselleştirmek yararlı olabilir. NSG kuralı yapılandırmasını [az network rule list](/cli/azure/network/nsg/rule) komutu ile döndürün. 
 
 ```azurecli-interactive 
 az network nsg rule list --resource-group myRGNetwork --nsg-name myFrontendNSG --output table
@@ -285,7 +285,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-Arka uç VM’sine, ön uç alt ağından yalnızca *22* ve *3306* numaralı bağlantı noktaları üzerinden erişilebilir. Diğer gelen trafiğin tümü, ağ güvenlik grubunda engellenir. NSG kuralı yapılandırmalarını görselleştirmek yararlı olabilir. NSG kuralı yapılandırmasını [az network rule list](/cli/azure/network/nsg/rule#az_network_nsg_rule_list) komutu ile döndürün. 
+Arka uç VM’sine, ön uç alt ağından yalnızca *22* ve *3306* numaralı bağlantı noktaları üzerinden erişilebilir. Diğer gelen trafiğin tümü, ağ güvenlik grubunda engellenir. NSG kuralı yapılandırmalarını görselleştirmek yararlı olabilir. NSG kuralı yapılandırmasını [az network rule list](/cli/azure/network/nsg/rule) komutu ile döndürün. 
 
 ```azurecli-interactive 
 az network nsg rule list --resource-group myRGNetwork --nsg-name myBackendNSG --output table

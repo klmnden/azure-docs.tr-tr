@@ -10,12 +10,12 @@ ms.component: design
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 92e16104edb46298d6e503b7546449ed71041047
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 236b7543772f9e6df9c7ba7f1a9365153593a929
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005759"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473189"
 ---
 # <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>Azure SQL veri ambarı - yüksek düzeyde paralel işleme (MPP) mimarisi
 Azure SQL veri ambarı yüksek performans ve ölçeklenebilirlik elde etmek için Azure depolama ile yüksek düzeyde paralel işleme (MPP) nasıl birleştirir öğrenin. 
@@ -51,7 +51,7 @@ Veri ambarının Beyin denetim düğümüdür. Tüm uygulamalarla ve bağlantıl
 
 İşlem düğümleri, işlem gücünü sağlar. İşleme için işlem düğümlerine dağıtımlarını eşleyin. Daha fazla bilgi işlem kaynakları için ödeme gibi SQL veri ambarı kullanılabilir işlem düğümlerine dağıtımlarını yeniden eşler. Sayısı 1 ile 60 düğümleri aralığından işlem ve veri ambarı hizmet düzeyine göre belirlenir.
 
-Her işlem düğümü sistem görünümlerde görülebilir bir düğüm kimliği vardır. İşlem düğümü kimliği adları sys.pdw_nodes ile başlayan sistem görünümleri $node_id sütununda bakarak görebilirsiniz. Bu sistem görünümleri listesi için bkz. [MPP sistem görünümleri](sql-data-warehouse-reference-tsql-statements.md).
+Her işlem düğümü sistem görünümlerde görülebilir bir düğüm kimliği vardır. İşlem düğümü kimliği adları sys.pdw_nodes ile başlayan sistem görünümleri $node_id sütununda bakarak görebilirsiniz. Bu sistem görünümleri listesi için bkz. [MPP sistem görünümleri](http://docs.microsoft.com/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=aps-pdw-2016-au7).
 
 ### <a name="data-movement-service"></a>Veri Taşıma hizmeti
 Veri Taşıma hizmeti (DMS), işlem düğümleri arasında veri taşıma koordinatları veri aktarım teknolojisidir. Bazı sorgular veri taşımayı paralel sorguları doğru sonuçlar döndürebilir emin olmak için gereklidir. Veri taşıma gerekli olduğunda DMS doğru verilere doğru konuma alır sağlar. 

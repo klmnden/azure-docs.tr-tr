@@ -4,7 +4,7 @@ description: BT uzmanı için yazılan, uygulamaları Azure Active Directory ile
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: barbkess
 ms.custom: seohack1
-ms.openlocfilehash: 844f569b7c425f6a67acabe491508aa8d5fb00f5
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: d717b9a89b2c22712821d96014e2f60ee4c0e4d6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50634439"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463652"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Azure Active Directory için satır iş kolu uygulamaları geliştirme
 Bu kılavuz, satır iş kolu (LoB) uygulamaları için Azure Active Directory (AD) geliştirmeye genel bakış sağlar. Hedef kitlesi, Active Directory/Office 365 genel yöneticileri olur.
@@ -41,8 +41,8 @@ Uygulama kaydetme, herhangi bir kullanıcı aşağıdakileri sağlar:
   * OAuth yetkilendirme sunucusu olarak Azure Active Directory (uygulama tarafından kullanıma sunulan bir API güvenliğini sağlama)
 * Gerekli izinleri uygulama işlevi için gerekli dahil olmak üzere beklenen gibi tanımlayın:
 
-     - Uygulama izinleri (yalnızca genel Yöneticiler). Örneğin: bir Azure kaynak, kaynak grubuna veya aboneliğe göre başka bir Azure AD uygulama veya rol üyeliğine rol üyeliği
-     - Temsilci izinleri (herhangi bir kullanıcı). Örneğin: Azure AD oturum açma ve profil okuma
+     - Uygulama izinleri (yalnızca genel Yöneticiler). Örneğin: Bir Azure kaynak, kaynak grubuna veya aboneliğe göre başka bir Azure AD uygulama veya rol üyeliğine rol üyeliği
+     - Temsilci izinleri (herhangi bir kullanıcı). Örneğin: Azure AD oturum açma ve okuma profili
 
 > [!NOTE]
 > Varsayılan olarak, herhangi bir üyenin, bir uygulama kaydedebilirsiniz. Belirli üyeleri için uygulamaları kaydetmek için izinleri kısıtla öğrenmek için bkz. [uygulamaları Azure AD'ye nasıl eklenir](../develop/active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).

@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
-ms.date: 12/12/2018
-ms.openlocfilehash: f6191ba2f6ca86e07842030c0fca0a65b8c9d09a
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.date: 01/22/2019
+ms.openlocfilehash: 420d3c256f9bf2d0884e98312a5a66aea08b13bc
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584505"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450890"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Azure SQL veritabanı yönetilen örneği'nın kaynak sınırları genel bakış
 
@@ -39,7 +39,8 @@ Azure SQL veritabanı yönetilen örneği, iki donanım oluşturma (4. nesil ve 
 | Donanım | Intel E5-2673 v3 (Haswell) 2,4 GHz işlemcileri, bağlı SSD sanal çekirdek = 1 PP (fiziksel çekirdek) | Intel E5-2673 v4 (Broadwell) 2.3 GHz işlemcileri, hızlı eNVM SSD, sanal çekirdek = 1 LP (hiper iş parçacığı) |
 | İşlem | 8, 16, 24 sanal çekirdek | 8, 16, 24, 32, 40, 64, 80 sanal çekirdekler |
 | Bellek | Sanal çekirdek başına 7 GB | Sanal çekirdek başına 5.1 GB |
-| En fazla depolama alanı (iş açısından kritik) | 1 TB | 1 TB, 2 TB veya 4 TB çekirdek sayısına bağlı olarak |
+| Maks. depolama alanı (genel amaçlı) |  8 TB | 1 TB |
+| En fazla depolama alanı (iş açısından kritik) | 8 TB | 1 TB, 2 TB veya 4 TB çekirdek sayısına bağlı olarak |
 
 ### <a name="service-tier-characteristics"></a>Hizmet katmanı özellikleri
 
@@ -53,8 +54,7 @@ Azure SQL veritabanı yönetilen örneği, iki donanım oluşturma (4. nesil ve 
 | Veritabanı başına maks. depolama | Örnek başına en fazla depolama boyutu tarafından belirlenir. | Örnek başına en fazla depolama boyutu tarafından belirlenir. |
 | En fazla örnek başına veritabanı sayısı | 100 | 100 |
 | Örnek başına en fazla veritabanı dosyaları | En fazla 280 | Veritabanı başına 32.767 dosyaları |
-| Veri/günlük IOPS (yaklaşık) | dosya başına 500-7500<br/>\*[Dosya boyutuna bağlıdır](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 11K - 110K (1375 sanal çekirdek başına) |
-| Örnek günlük aktarım hızı | Örnek başına 22MB/sn | Sanal çekirdek başına 3MB/sn<br/>En fazla 48MB/sn |
+| Veri/günlük IOPS (yaklaşık) | dosya başına 500-7500<br/>\*[Dosya boyutuna bağlıdır] (https://docs.microsoft.com/azure/virtual-machines ce günlük aktarım hızı | Örnek başına 22MB/sn | Sanal çekirdek başına 3MB/sn<br/>En fazla 48MB/sn |
 | Veri aktarım hızı (yaklaşık) | 100-250 MB/s dosya başına<br/>\*[Dosya boyutuna bağlıdır](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | Sanal çekirdek başına 24-48MB/sn |
 | GÇ gecikmesi (yaklaşık) | 5-10 ms | 1-2 ms |
 | En fazla tempDB boyutu | 192 1920 GB (24 GB sanal çekirdek başına) | Maksimum örnek depolama boyutuyla sınırlı hiçbir kısıtlama- |
@@ -91,11 +91,11 @@ Aşağıdaki tabloda desteklenen abonelikler için varsayılan bölgesel sınır
 
 |Abonelik türü| Yönetilen örnek alt sınırı | En fazla örnek sayısı |GP sayısı üst sınırı yönetilen örnekleri *|BC sayısı üst sınırı yönetilen örnekleri *|
 | :---| :--- | :--- |:--- |:--- |
-|Kullandıkça öde|1 *|4 *|4 *|1 *|
-|CSP |1 *|4 *|4 *|1 *|
-|Kullandıkça Öde geliştirme ve Test|1 *|4 *|4 *|1 *|
-|Kurumsal Geliştirme ve Test|1 *|4 *|4 *|1 *|
-|EA|3 **|12 **|12 **|3 **|
+|Kullandıkça öde|1*|4*|4*|1*|
+|CSP |1*|4*|4*|1*|
+|Kullandıkça Öde geliştirme ve Test|1*|4*|4*|1*|
+|Kurumsal Geliştirme ve Test|1*|4*|4*|1*|
+|EA|3**|12**|12**|3**|
 
 \* "Örnek units" alt toplam sayısı 4 hiçbir zaman aşıyor. böylece ya da 1 BC veya bir alt ağda 4 GP örnekleri dağıtabilirsiniz.
 

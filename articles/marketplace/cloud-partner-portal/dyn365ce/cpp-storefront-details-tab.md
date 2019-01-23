@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/03/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 62220104329e36fbb2e6f7d3b5b48bcaeaba3660
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 66119ffab8c6117e223468834b59e6d6b19409a0
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083199"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54445071"
 ---
 # <a name="dynamics-365-for-customer-engagement-storefront-details-tab"></a>Dynamics 365 müşteri katılımı mağaza Ayrıntılar sekmesi
 
@@ -76,7 +76,7 @@ Burada aşağıdaki tabloda bu sekmesindeki alanlar açıklanmaktadır:
 |      Alan            |    Açıklama                 |
 |  ---------------      |  ---------------               |
 | Teklif logo (png biçiminde, 48 x 48) | Uygulamanızın arama sayfasında görüntülenecek bir görüntü yükleyin. PNG biçimidir ve boyutu 48 x 48 piksel olmalıdır. |
-| Teklif logo (png biçiminde, 216 x 216) | Uygulama Ayrıntıları sayfasında disaply barındıracak bir görüntü yükleyin. PNG biçimidir ve boyutu 216 x 216 piksel olmalıdır. |
+| Teklif logo (png biçiminde, 216 x 216) | Uygulamanızın ayrıntı sayfasında görüntülenecek bir görüntü yükleyin. PNG biçimidir ve boyutu 216 x 216 piksel olmalıdır. |
 | Videolar                | En fazla dört uygulama için promosyon veya eğitici videolar karşıya yükleyin.  Her video için video adı, URL'si (YouTube veya Vimeo yalnızca) ve ilişkili küçük resim PNG biçiminde ve 1280 x 720 piksel boyutlu doldurun.  | 
 | Belgeler             | PDF biçiminde, en fazla üç ürün promosyon veya eğitici belgeleri karşıya yükleyin.  Her belge için bir belge adı sağlayın.  |
 | Ekran görüntüleri           | En fazla beş 1280 x 720 piksel boyutlu PNG biçimi, uygulama kullanıcı Arabirimi görüntülerini karşıya yükleyin.  Bu ekran görüntüleri, uygulamanızın AppSource ayrıntı sayfasında görünür. |

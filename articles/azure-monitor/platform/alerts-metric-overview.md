@@ -7,37 +7,62 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: 40cf37c08705384fb664402c3d40efa229cbbcdf
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 9689854d9a28debbfbcf908391806fffac6a2006
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/22/2019
-ms.locfileid: "54422805"
+ms.locfileid: "54450192"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Nasıl iş ölçüm uyarıları anlamak Azure İzleyici'de
 
 Azure İzleyici ölçüm uyarıları çok boyutlu ölçümler üzerinde çalışır. Bu ölçümler platform ölçümleri olabilir [özel ölçümler](../../azure-monitor/platform/metrics-custom-overview.md), [Log Analytics popüler günlüklerinden dönüştürülen ölçümlerini](../../azure-monitor/platform/alerts-metric-logs.md), Application Insights standart ölçümler. Ölçüm uyarıları olmadığını denetlemek için düzenli aralıklarla değerlendirin koşullara göre bir veya daha fazla ölçüm zaman serisi doğruysa ve değerlendirmeleri karşılandığında size bildirir. Ölçüm Uyarıları durum bilgisi olan, durumu değiştiğinde diğer bir deyişle, bunlar yalnızca bildirimleri gönderin.
 
-## <a name="how-do-metric-alerts-work"></a>Ölçüm uyarıları nasıl çalışır
+## <a name="how-do-metric-alerts-work"></a>Ölçüm uyarıları nasıl çalışır?
 
-İzlenen ölçüm adı ve koşul (bir işleç ve bir eşik) ve uyarı kuralı tetiklendiğinde tetiklenmesi için bir eylem grubu için bir hedef kaynak belirterek, bir ölçüm uyarısı kuralının tanımlayabilirsiniz.
-Basit bir ölçüm uyarısı kuralının gibi oluşturduğunuz varsayalım:
+Bir ölçüm uyarısı kuralının izlenmesi için bir hedef kaynak, ölçüm adı, koşul türü (statik veya dinamik) ve koşul (bir işleç ve bir eşik/duyarlılık) ve uyarı kuralı tetiklendiğinde tetiklenmesi için bir eylem grubu belirterek tanımlayabilirsiniz. Koşul türlerini eşikleri belirlenir şeklinizi etkiler. [Dinamik eşikler koşul türü ve duyarlılık seçenekleri hakkında daha fazla bilgi](alerts-dynamic-thresholds.md).
+
+### <a name="alert-rule-with-static-condition-type"></a>Statik koşul türü ile uyarı kuralı
+
+Bir basit statik eşik ölçüm uyarısı kuralının gibi oluşturduğunuz varsayalım:
 
 - Hedef kaynak (izlemek istediğiniz Azure kaynağını): myVM
 - Ölçüm: CPU yüzdesi
+- Koşul türü: Statik
 - Zaman toplama (ham ölçüm değerleri üzerinde çalıştırılan istatistiği. Toplamalar Min, Max, zaman Ort, toplam desteklenir): Ortalama
-- Süre (ölçüm değerleri denetlenir görünüm arka pencere):      Son 5 dakika
+- Süre (ölçüm değerleri denetlenir görünüm arka pencere): Son 5 dakika
 - Sıklık (ile ölçüm uyarısı denetleyen koşullar karşılandığında sıklık düzeyi): 1 dakika
-- İşleç:     Büyüktür
-- Eşik:      70
+- İşleç: Büyüktür
+- Eşik: 70
 
 Uyarı kuralı oluşturulur zamandan İzleyici her 1 dakikada bir çalışır ve son 5 dakika için ölçüm değerlerinde görünümünü ve bu değerlerin ortalamasını 70 aşıp aşmadığını denetler. Koşul diğer bir deyişle, son 5 dakika için ortalama CPU yüzdesi 70 aşıyor, etkin bir bildirim uyarı kuralı tetikler. Uyarı kuralı ile ilişkili eylem grubundaki bir e-posta veya bir web kancası eylemi yapılandırdıysanız, hem de etkin bir bildirim alırsınız.
 
-Bu uyarı kuralı Açmadığınızda belirli bir örneğini de tüm uyarılar dikey penceresinde Azure portalında görüntülenebilir.
+### <a name="alert-rule-with-dynamic-condition-type"></a>Dinamik koşul türü ile uyarı kuralı
 
-Örneğin, "myVM" kullanım eşiğin üstünde durdurulmasını sonraki denetimlerinde devam eder, koşul çözülene kadar uyarı kuralı yeniden tetiklenmez.
+Basit bir dinamik eşikler ölçüm uyarı kuralı şu şekilde oluşturduğunuz varsayalım:
 
-Süre "myVM" kullanım geri normal geliyorsa, diğer bir deyişle, belirtilen eşiğin altında geçtikten sonra. Uyarı kuralı koşulu çözümlenen bildirim göndermek için iki birden fazla kez izler. Koşullar kanatların durumunda gürültüsünü azaltmak art arda üç nokta için Uyarı koşulu karşılanmadı zaman uyarı kuralı çözümlendi/devre dışı bir ileti gönderir.
+- Hedef kaynak (izlemek istediğiniz Azure kaynağını): myVM
+- Ölçüm: CPU yüzdesi
+- Koşul türü: Dinamik
+- Zaman toplama (ham ölçüm değerleri üzerinde çalıştırılan istatistiği. Toplamalar Min, Max, zaman Ort, toplam desteklenir): Ortalama
+- Süre (ölçüm değerleri denetlenir görünüm arka pencere): Son 5 dakika
+- Sıklık (ile ölçüm uyarısı denetleyen koşullar karşılandığında sıklık düzeyi): 1 dakika
+- İşleç: Büyüktür
+- Duyarlılık: Orta
+- Görünüm geri nokta: 4
+- İhlal sayısı: 4
+
+Uyarı kuralı oluşturduktan sonra yapmak için yeni verilere dayalı olarak dinamik makine öğrenimi algoritmasının kullanılabilir geçmiş verileri almak, ölçüm serisi davranış deseni en uygun eşiği hesaplamak ve sürekli olarak olacak eşikleri öğrenin daha doğru eşiği.
+
+Uyarı kuralı oluşturulur zamandan İzleyici her 1 dakikada bir çalışır ve 5 dakika dönemlerine gruplandırılmış son 20 dakikası ölçüm değerlerinde arar ve her birinde 4 nokta süre değerlerinin ortalamasını beklenen eşiği aşıp aşmadığını denetler. Koşul diğer bir deyişle, CPU yüzdesi (dört 5 dakika dönemler) son 20 dakika içinde gelen deviated ortalama dört kez beklenen bir davranıştır, etkin bir bildirim uyarı kuralı tetikler. Uyarı kuralı ile ilişkili eylem grubundaki bir e-posta veya bir web kancası eylemi yapılandırdıysanız, hem de etkin bir bildirim alırsınız.
+
+### <a name="view-and-resolution-of-fired-alerts"></a>Görünüm ve çözümü tetiklenen uyarılar
+
+Tetikleme uyarı kuralları yukarıdaki örnekleri de Azure portalında görüntülenebilir **tüm uyarıları** dikey penceresi.
+
+Varsayalım "myVM" kullanımı eşiğin üstünde olmasını sonraki denetimlerinde devam ediyorsa, koşul çözülene kadar uyarı kuralı yeniden tetiklenmez.
+
+Aşağı "myVM" kullanım geri gelirse bir süre sonra normal, diğer bir deyişle, eşiğin altında gider. Uyarı kuralı koşulu çözümlenen bildirim göndermek için iki birden fazla kez izler. Koşullar kanatların durumunda gürültüsünü azaltmak art arda üç nokta için Uyarı koşulu karşılanmadı zaman uyarı kuralı çözümlendi/devre dışı bir ileti gönderir.
 
 Çözümlenen bildirimi web kancaları ya da e-posta ile gönderilir gibi Azure portalında uyarı örneği (İzleyici durumu olarak adlandırılır) durumunu da çözümlenen ayarlanır.
 
@@ -45,12 +70,13 @@ Süre "myVM" kullanım geri normal geliyorsa, diğer bir deyişle, belirtilen e�
 
 ### <a name="using-dimensions"></a>Boyutları kullanma
 
-Azure İzleyici ölçüm uyarıları tek bir kural ile birden çok boyut değeri birleşimleri izleme de destekler. Birden çok boyut birleşimleri örneği yardımıyla neden kullanabileceğinize bakalım.
+Azure İzleyici ölçüm uyarıları, ayrıca bir kural ile birden çok boyut değeri bileşimi izlemeyi destekler. Birden çok boyut birleşimleri örneği yardımıyla neden kullanabileceğinize bakalım.
 
-Web siteniz için bir App Service planı olduğunu varsayalım. Web sitesi/uygulama çalıştıran birden fazla CPU kullanımı izlemek istediğiniz. Bir ölçüm uyarısı kuralının gibi kullanarak bunu yapabilirsiniz
+Web siteniz için bir App Service planı olduğunu varsayalım. Web sitesi/uygulama çalıştıran birden fazla CPU kullanımı izlemek istediğiniz. Bir ölçüm uyarısı kuralının gibi kullanarak bunu yapabilirsiniz:
 
 - Hedef kaynak: myAppServicePlan
 - Ölçüm: CPU yüzdesi
+- Koşul türü: Statik
 - Boyutlar
   - Örnek InstanceName1, InstanceName2 =
 - Zaman toplama: Ortalama
@@ -61,10 +87,11 @@ Web siteniz için bir App Service planı olduğunu varsayalım. Web sitesi/uygul
 
 Son 5 dakika için ortalama CPU kullanımı % 70'i aşarsa gibi daha önce bu kuralı izler. Ancak aynı kurala iki örnek, Web sitenizi çalıştırmak izleyebilirsiniz. Her örnek tek tek izlenen ve ayrı ayrı bildirimler alırsınız.
 
-Söyleyin, yoğun talep görmesini bir web uygulamasına sahip ve daha fazla örnek eklenmesi gerekir. Yukarıdaki kuralı, yalnızca iki örnek yine de izler. Ancak, şu şekilde bir kural oluşturabilirsiniz.
+Yoğun talep görmesini bir web uygulamasına sahip söyleyin ve daha fazla örnek eklenmesi gerekir. Yukarıdaki kuralı, yalnızca iki örnek yine de izler. Ancak, şu şekilde bir kural oluşturabilirsiniz:
 
 - Hedef kaynak: myAppServicePlan
 - Ölçüm: CPU yüzdesi
+- Koşul türü: Statik
 - Boyutlar
   - Örneği = *
 - Zaman toplama: Ortalama
@@ -74,6 +101,27 @@ Söyleyin, yoğun talep görmesini bir web uygulamasına sahip ve daha fazla ör
 - Eşik: 70
 
 Bu kural için örnek yani tüm değerleri otomatik olarak izler Ölçüm uyarı kuralınızı yeniden değiştirmek zorunda kalmadan çıktıkça örneklerinizin izleyebilirsiniz.
+
+Birden çok boyutta izlerken, dinamik eşikler uyarı kuralı oluşturabilmeniz ölçüm serisi yüzlerce eşikler aynı anda uyarlanmış. Dinamik eşikler daha az yönetmek için uyarı kuralları ve yönetimi ve Uyarılar kurallar oluşturma hakkında önemli saati sonuçlanıyor.
+
+Birçok örneği ile bir web uygulaması varsa ve en uygun eşiği bilmiyor varsayalım. Yukarıdaki kuralları her zaman eşiğini % 70'i kullanır. Ancak, şu şekilde bir kural oluşturabilirsiniz:
+
+- Hedef kaynak: myAppServicePlan
+- Ölçüm: CPU yüzdesi
+- Koşul türü: Dinamik
+- Boyutlar
+  - Örneği = *
+- Zaman toplama: Ortalama
+- Dönem: Son 5 dakika
+- Sıklığı: 1 dakika
+- İşleç: GreaterThan
+- Duyarlılık: Orta
+- Görünüm geri nokta: 1
+- İhlal sayısı: 1
+
+Bu kural, son 5 dakika için ortalama CPU kullanımını her örneği için beklenen davranışı aşarsa izler. Aynı kural, ölçüm uyarı kuralı yeniden değiştirmek zorunda kalmadan çıktıkça örneğini izleyebilir. Her olay, ölçüm serisi davranış deseni en uygun bir eşik alın ve sürekli olarak eşiği daha doğru hale getirmek için yeni verilere dayalı değişiklik olur. Gibi daha önce her örneğine ayrı ayrı izlenir ve ayrı ayrı bildirimler alırsınız.
+
+Görünüm sonradan süreleri ve ihlal sayısı artan ayrıca uyarı tanımınızı önemli sapmanın üzerinde yalnızca uyarıları filtrelemeye izin verebilirsiniz. [Dinamik eşikler Gelişmiş seçenekleri hakkında daha fazla bilgi](alerts-dynamic-thresholds.md#what-do-the-advanced-settings-in-dynamic-thresholds-mean).
 
 ### <a name="monitoring-multiple-resources-using-metric-alerts"></a>Birden çok kaynak ölçüm uyarıları kullanarak izleme
 
@@ -85,7 +133,7 @@ Tek bir ölçüm uyarısı üç yoldan biriyle göre izleme kapsamını belirley
 - bir Abonelikteki bir veya daha fazla kaynak gruplarındaki tüm sanal makineler (bir Azure bölgesinde)
 - bir Abonelikteki tüm sanal makineler (bir Azure bölgesinde)
 
-Birden çok kaynak izleme ölçüm uyarı kuralları oluşturma, Azure portalından şu anda desteklenmiyor. Bu kuralları ile oluşturabileceğiniz [Azure Resource Manager şablonları](../../azure-monitor/platform/alerts-metric-create-templates.md#resource-manager-template-for-metric-alert-that-monitors-multiple-resources). Her sanal makine için ayrı bildirim alırsınız. 
+Birden çok kaynak izleme ölçüm uyarı kuralları oluşturma, Azure portalından şu anda desteklenmiyor. Bu kuralları ile oluşturabileceğiniz [Azure Resource Manager şablonları](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-metric-alert-that-monitors-multiple-resources). Her sanal makine için ayrı bildirim alırsınız.
 
 ## <a name="typical-latency"></a>Tipik bir gecikme süresi
 
@@ -136,4 +184,4 @@ Bugün Klasik ölçüm uyarıları kullanarak ve ölçüm uyarıları tüm kayna
 - [Oluşturun, görüntüleyin ve azure'da ölçüm Uyarıları yönetme hakkında bilgi edinin](alerts-metric.md)
 - [Ölçüm uyarıları Azure Resource Manager şablonlarını kullanarak dağıtma hakkında bilgi edinin](../../azure-monitor/platform/alerts-metric-create-templates.md)
 - [Eylem grupları hakkında daha fazla bilgi edinin](action-groups.md)
-
+- [Dinamik eşikler koşul türü hakkında daha fazla bilgi edinin](alerts-dynamic-thresholds.md)

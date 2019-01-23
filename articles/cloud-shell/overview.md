@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: juluk
-ms.openlocfilehash: 85d054be6b72c736ec66384b9caec71208f36802
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 1ad85a57762ae4fba30e1699b38eaa52d45ab26e
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869372"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447216"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Azure Cloud shell'e genel bakış
 Azure Cloud Shell'i Azure kaynaklarını yönetmek için etkileşimli ve tarayıcı erişilebilir bir kabuktur.
@@ -57,11 +57,16 @@ Cloud Shell'i üzerinde açık kaynak Monaco düzenleyicisine alan bir Tümleşi
 
 [Cloud Shell Düzenleyicisi hakkında daha fazla bilgi](using-cloud-shell-editor.md).
 
+### <a name="integrated-with-docsmicrosoftcom"></a>Docs.microsoft.com ile tümleşik
+
+Cloud Shell doğrudan barındırılan belgelerinde kullanabileceğiniz [docs.microsoft.com](https://docs.microsoft.com). İçinde tümleşik [Microsoft Learn](https://docs.microsoft.com/learn/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) ve [Azure CLI belgeleri](https://docs.microsoft.com/cli/azure) -bir kod parçacığında, sürükleyici Kabuğu'nu açmak için "Try It" düğmesine tıklayın deneyimi. 
+
 ### <a name="multiple-access-points"></a>Birden çok erişim noktası
 Cloud Shell'i gelen kullanılabilen esnek bir araçtır:
 * [portal.azure.com](https://portal.azure.com)
 * [shell.azure.com](https://shell.azure.com)
-* [Azure CLI belgeleri "Deneyin"](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)
+* [Azure CLI belgeleri](https://docs.microsoft.com/cli/azure)
+* [Azure PowerShell belgeleri](https://docs.microsoft.com/powershell/azure/overview)
 * [Azure mobil uygulaması](https://azure.microsoft.com/features/azure-portal/mobile-app/)
 * [VS Code Azure hesabı uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 

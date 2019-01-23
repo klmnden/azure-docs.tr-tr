@@ -17,12 +17,12 @@ ms.date: 08/21/2018
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 30dff14f322bcd66ea56b4b12843a6293cd95326
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 6a1e3d2362ab711ee50f9ca94737883893e2ffd5
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423805"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450346"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Azure Active Directory için AppSource sertifikalı alma
 
@@ -49,7 +49,7 @@ Uygulamanızda çok kiracılı modeli etkinleştirme için bu adımları izleyin
 
 A *tek kiracılı uygulama* yalnızca tanımlı bir Azure kullanıcıları oturum açma işlemleri kabul eden bir uygulama olan AD örneği. Dış kullanıcılar (iş veya Okul hesapları diğer kuruluşlardan ya da kişisel hesaplar dahil) her bir kullanıcı, uygulama kayıtlı Azure AD örneği için bir Konuk hesabı olarak ekledikten sonra tek kiracılı bir uygulama için oturum açabilir. 
 
-Azure ad ile Konuk hesapları olarak kullanıcıları ekleyebilirsiniz [Azure AD B2B işbirliği](../b2b/what-is-b2b.md) ve bunu yapabilirsiniz [programlı şekilde](../../active-directory-b2c/code-samples.md). B2B kullanırken, kullanıcıların oturum açmak için bir davet gerektirmeyen bir Self Servis portalı oluşturabilirsiniz. Daha fazla bilgi için bkz. [Self Servis portalı için Azure AD B2B işbirliği kaydolma](https://docs.microsoft.com/azure/active-directory/b2b/self-service-portal).
+Azure ad ile Konuk hesapları olarak kullanıcıları ekleyebilirsiniz [Azure AD B2B işbirliği](../b2b/what-is-b2b.md) ve bunu yapabilirsiniz [program aracılığıyla](../../active-directory-b2c/code-samples.md). B2B kullanırken, kullanıcıların oturum açmak için bir davet gerektirmeyen bir Self Servis portalı oluşturabilirsiniz. Daha fazla bilgi için bkz. [Self Servis portalı için Azure AD B2B işbirliği kaydolma](https://docs.microsoft.com/azure/active-directory/b2b/self-service-portal).
 
 Tek kiracılı uygulamalar etkinleştirebilir *benimle iletişim kurun* karşılaşabilirsiniz, ancak AppSource önerir tek tıklayın/ücretsiz deneme sürümü deneyimi etkinleştirmek istiyorsanız, çok kiracılı, uygulamanızın üzerinde yerine etkinleştirin.
 

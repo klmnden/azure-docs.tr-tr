@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
-ms.openlocfilehash: 73bd86591f2d8604e0eb9553f99c311b6d421603
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 9e13b8872fab89bef6ec952fe2ee0b901a25092e
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424062"
+ms.locfileid: "54452556"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Azure Active Directory ile esnek erişim denetimi yönetim stratejisi oluşturma
 
@@ -199,7 +199,7 @@ Etkinleştirme sırası:
 
 1. Mevcut cihaz uyumluluk İlkesi'nden SalesAdmins ve SalesforceContingency için Salesforce hariç tutun. Salesforce SalesforceContingency gruptaki bir kullanıcının erişebileceği doğrulayın.
 2. İlke 1 etkinleştir: Salesforce SalesContingency dışındaki kullanıcılar erişemez doğrulayın. Kullanıcıların SalesAdmins doğrulayın ve Salesforce SalesforceContingency erişebilir.
-3. İlke 2 etkinleştir: SalesContigency grupta bulunan kullanıcılara Salesforce Windows/Mac dizüstü erişemez ancak hala mobil cihazlarından erişebilirsiniz doğrulayın. SalesAdmin, yine de Salesforce herhangi bir CİHAZDAN erişebilirsiniz doğrulayın.
+3. İlke 2 etkinleştir: SalesContingency grupta bulunan kullanıcılara Salesforce Windows/Mac dizüstü erişemez ancak hala mobil cihazlarından erişebilirsiniz doğrulayın. SalesAdmin, yine de Salesforce herhangi bir CİHAZDAN erişebilirsiniz doğrulayın.
 4. Mevcut cihaz uyumluluk ilkesi için Salesforce devre dışı bırakın.
 
 ### <a name="deploy-password-hash-sync-even-if-you-are-federated-or-use-pass-through-authentication"></a>Parola karma eşitlemesi, Federasyon veya geçişli kimlik doğrulaması kullanmak olsa bile Dağıt

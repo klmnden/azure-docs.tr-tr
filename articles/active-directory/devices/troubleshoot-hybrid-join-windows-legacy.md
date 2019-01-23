@@ -4,7 +4,7 @@ description: Hibrit Azure Active Directory sorun giderme alt düzey cihazları k
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
 ms.component: devices
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: b5fd5a9544e27092c8b65e18d59701421fc59ef5
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 546f9054978f0b9fbe6bb9063905c982de627442
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48800868"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54445295"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Alt düzey cihazları katılmış karma Azure Active Directory sorun giderme 
 
@@ -58,7 +58,7 @@ Bu makalede, sorun giderme rehberi olası sorunların nasıl giderileceğini üz
 
 - Emin [KB4284842](https://support.microsoft.com/help/4284842) Windows 7 SP1 veya Windows Server 2008 R2 SP1 durumunda yüklenir. Bu güncelleştirme, parolayı değiştirdikten sonra korumalı anahtarları gelecekteki kimlik doğrulama hataları nedeniyle müşterinin erişim kaybını engeller.
 
-## <a name="step-1-retrieve-the-registration-status"></a>1. adım: kayıt durumunu alma 
+## <a name="step-1-retrieve-the-registration-status"></a>1. Adım: Kayıt durumu alma 
 
 **Kayıt durumunu doğrulamak için:**  
 
@@ -73,7 +73,7 @@ Bu komut, birleşim durumu hakkında ayrıntılar sağlayan bir iletişim kutusu
 ![Windows için çalışma alanına katılma](./media/troubleshoot-hybrid-join-windows-legacy/01.png)
 
 
-## <a name="step-2-evaluate-the-hybrid-azure-ad-join-status"></a>2. adım: ' % s'hibrit Azure AD'ye katılma durumu değerlendirme 
+## <a name="step-2-evaluate-the-hybrid-azure-ad-join-status"></a>2. Adım: Hibrit Azure AD'ye katılma durumu değerlendirin 
 
 Cihaz hibrit Azure AD'ye katılmış başarısız olduysa, "Birleştirme" düğmesine tıklayarak hibrit Azure AD'ye katılma yapmak deneyebilirsiniz. Hibrit Azure AD'ye katılım yapmak için deneme başarısız olursa, hata hakkındaki ayrıntılar gösterilir.
 
@@ -116,7 +116,7 @@ Cihaz hibrit Azure AD'ye katılmış başarısız olduysa, "Birleştirme" düğm
 
     ![Windows için çalışma alanına katılma](./media/troubleshoot-hybrid-join-windows-legacy/05.png)
 
-Altında olay günlüğüne durum bilgileri bulabilirsiniz: **uygulamaları ve Hizmetleri Log\Microsoft çalışma alanına katılma**
+Ayrıca, altında olay günlüğüne durum bilgileri de bulabilirsiniz: **Uygulamaları ve Hizmetleri Log\Microsoft-çalışma alanına katılma**
   
 **Başarısız hibrit Azure AD'ye katılma en yaygın nedenleri şunlardır:** 
 

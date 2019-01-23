@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/30/2018
 ms.topic: conceptual
-ms.openlocfilehash: 5704cc21b14d83ebc30cd29f52102c751cfb11f2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 61da17d1dc59a08128671da163d8b3ea27f83994
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248019"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463227"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>CLI kullanarak Uzaktan izleme çözüm Hızlandırıcısını dağıtma
 
@@ -62,13 +62,13 @@ Bu bölümde, temel ve standart bir dağıtım arasındaki temel farklılıklar 
 
 ### <a name="basic"></a>Temel
 
-Temel dağıtım, çözümü vitrini doğru yöneliktir. Maliyetleri azaltmak için tüm mikro hizmetler tek bir sanal makine dağıtılır. Bu dağıtım bir üretim ortamına hazır mimarisi kullanmaz.
+Temel dağıtım, çözümü sergilemeye yöneliktir. Maliyetleri azaltmak için tüm mikro hizmetler tek bir sanal makine dağıtılır. Bu dağıtım bir üretim ortamına hazır mimarisi kullanmaz.
 
 Temel dağıtımı aşağıdaki hizmetleri Azure aboneliğinize oluşturur:
 
 | Sayı | Kaynak                       | Tür         | İçin kullanılan |
 |-------|--------------------------------|--------------|----------|
-| 1     | [Linux sanal makinesi](https://azure.microsoft.com/services/virtual-machines/) | Standart D1 V2  | Mikro hizmet barındırma |
+| 1     | [Linux sanal makinesi](https://azure.microsoft.com/services/virtual-machines/) | Standard D1 V2  | Mikro hizmet barındırma |
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                  | S1 – standart katman | Cihaz yönetimi ve iletişim |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)              | Standart        | Yapılandırma verileri, kuralları, uyarılar ve diğer soğuk depolama |  
 | 1     | [Azure Depolama Hesabı](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)  | Standart        | VM ve kontrol noktaları akış depolama |
@@ -89,7 +89,7 @@ Standart bir dağıtım aşağıdaki hizmetleri Azure aboneliğinize oluşturur:
 |-------|----------------------------------------------|-----------------|----------|
 | 1     | [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)| Bir tam olarak yönetilen Kubernetes kapsayıcı düzenleme hizmeti, 3 aracılara varsayılanları kullanın|
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                     | S2 – standart katman | Cihaz yönetimi, komut ve Denetim |
-| 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | Standart        | Yapılandırma verileri ve cihaz telemetrisi kuralları, uyarıları ve iletileri gibi depolama |
+| 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | Standart        | Yapılandırma verileri depolama ve kuralları, uyarıları ve iletileri gibi cihaz telemetrisi |
 | 5     | [Azure depolama hesapları](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | Standart        | 4 VM depolamasını ve akış kontrol noktaları için 1 |
 | 1     | [App Service](https://azure.microsoft.com/services/app-service/web/)             | S1 Standart     | Application Gateway'de SSL üzerinden |
 | 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Kullanıcı kimliklerini ve güvenliği yönetme |

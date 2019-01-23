@@ -1,5 +1,5 @@
 ---
-Başlık: Bir Machine Learning Studio Klasik web hizmeti titleSuffix yeniden eğitme sorunlarını giderme: Azure Machine Learning Studio açıklaması: Tanımlamak ve bir Azure Machine Learning Studio web hizmeti için modeli yeniden eğitme, ortak sorunları aygıtındaki düzeltin.
+Başlık: Bir Machine Learning Studio Klasik web hizmeti titleSuffix yeniden eğitme sorunlarını giderme: Azure Machine Learning Studio açıklaması: Tanımlamak ve bir Azure Machine Learning Studio web hizmeti için modeli yeniden eğitme karşılaşılan genel sorunları düzeltin.
 Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
 
 Yazar: ericlicoding ms.author: amlstudiodocs MS.özel: önceki ms.author=yahajiza, yazar önceki = YasinMSFT ms.date: 11/01/2017
@@ -31,7 +31,7 @@ Tüm parçaları ile yerinde, modeli yeniden eğitme için gerçekleştirmeniz g
 ### <a name="check-to-see-if-you-have-the-correct-patch-url"></a>Düzeltme eki URL'nin doğru olup olmadığını denetleyin
 Düzeltme eki kullandığınız URL bir Puanlama web hizmeti için eklenen yeni Puanlama uç noktası ile ilişkili olması gerekir. Düzeltme URL'si almak için çeşitli yollarla vardır:
 
-**1. seçenek: Programlı şekilde**
+**1. seçenek: Program aracılığıyla**
 
 Düzeltme eki URL'sini doğru almak için:
 

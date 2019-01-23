@@ -25,7 +25,7 @@ Bu PowerShell modülü ile gerçekleştirebileceğiniz bazı görevler burada a�
 * Bir deneme çalıştırma ([Start-AmlExperiment](https://github.com/hning86/azuremlps#start-amlexperiment))
 * Tahmine daalı bir denemeden bir web hizmeti oluşturma ([New-AmlWebService](https://github.com/hning86/azuremlps#new-amlwebservice))
 * Bir uç nokta üzerinde yayımlanan web hizmeti oluşturma ([Add-AmlWebServiceEndpoint](https://github.com/hning86/azuremlps#add-amlwebserviceendpoint))
-* Bir RRS ve/veya BES web hizmeti uç noktasını çağırma ([Invoke-AmlWebServiceRRSEndpoint](https://github.com/hning86/azuremlps#invoke-amlwebservicerrsendpoint) ve [Invoke-AmlWebServicBESEndpoint](https://github.com/hning86/azuremlps#invoke-amlwebservicebesendpoint))
+* Bir RRS ve/veya BES web hizmeti uç noktasını çağırma ([Invoke-AmlWebServiceRRSEndpoint](https://github.com/hning86/azuremlps#invoke-amlwebservicerrsendpoint) ve [Invoke-AmlWebServiceBESEndpoint](https://github.com/hning86/azuremlps#invoke-amlwebservicebesendpoint))
 
 İşte var olan bir denemeyi çalıştırmak için PowerShell kullanımına küçük bir örnek:
 

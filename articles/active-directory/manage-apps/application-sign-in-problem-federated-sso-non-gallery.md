@@ -4,7 +4,7 @@ description: SAML tabanlı Federasyon çoklu oturum açma için Azure AD ile yap
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 17114818105935d8d6a7ac647f1d98c097e78efd
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 8f545aad7256764780a68f4b43ee30bf68749187
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357446"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469721"
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>Federasyon çoklu oturum açma için yapılandırılmış galeri dışındaki bir uygulamada oturum açma sorunları
 
@@ -34,7 +34,7 @@ Sorunu gidermek için izleme olarak Azure AD'de uygulama yapılandırmasını do
 
 ## <a name="application-not-found-in-directory"></a>Uygulama dizininde bulunamadı
 
-*Hata AADSTS70001: Uygulama, tanımlayıcısı 'https://contoso.com' dizininde bulunamadı*.
+*Hata AADSTS70001: Uygulama tanımlayıcısı ile 'https://contoso.com' dizininde bulunamadı*.
 
 **Olası nedeni**
 
@@ -134,7 +134,7 @@ Bir veya daha fazla kullanıcıları uygulamaya doğrudan atamak için aşağıd
 
 11. Üzerine **kullanıcı** göstermek için listedeki bir **onay kutusu**. Kullanıcının profil fotoğrafı veya kullanıcı için eklenecek logosu yanındaki onay kutusuna tıklayın **seçili** listesi.
 
-12. **İsteğe bağlı:** isteyip istemediğini **birden fazla kullanıcı eklemek**, başka bir tür **tam adı** veya **e-posta adresi** içine **adına göre arama veya e-posta adresi** arama kutusuna ve bu kullanıcıyı eklemek için onay kutusunu **seçili** listesi.
+12. **İsteğe bağlı:** İsteyip istemediğini **birden fazla kullanıcı eklemek**, başka bir tür **tam adı** veya **e-posta adresi** içine **adına veya e-posta adresine göre arama** Arama kutusuna ve bu kullanıcıyı eklemek için onay kutusunu **seçili** listesi.
 
 13. Kullanıcı seçme işlemini tamamladığınızda, tıklayın **seçin** uygulamaya atanan kullanıcıların ve grupların listesi eklemek için düğme.
 
@@ -170,7 +170,7 @@ Bunlar doğrulamalıdır bunlar Azure AD SAML uygulaması için çoklu oturum a�
 
 ## <a name="no-resource-in-requiredresourceaccess-list"></a>Hiçbir kaynak requiredResourceAccess listesi
 
-*Hata AADSTS65005: İstemci uygulama kaynağa erişim isteğinde bulundu ' 00000002-0000-0000-c000-000000000000'. İstemci, kendi requiredResourceAccess listesinde bu kaynak tanımlanmamış çünkü bu isteği başarısız oldu*.
+*Hata AADSTS65005: İstemci uygulama, kaynağa erişim isteğinde bulundu ' 00000002-0000-0000-c000-000000000000'. İstemci, kendi requiredResourceAccess listesinde bu kaynak tanımlanmamış çünkü bu isteği başarısız oldu*.
 
 **Olası nedeni**
 
@@ -202,7 +202,7 @@ Uygulamayı yeniden sonra uygulamaya oturum açabilir olmalıdır.
 
 ## <a name="certificate-or-key-not-configured"></a>Sertifika veya anahtar yapılandırılmadı
 
-Hata AADSTS50003: yapılandırılmış imzalama anahtarı yok.
+Hata AADSTS50003: İmzalama anahtarı yapılandırılmış.
 
 **Olası nedeni**
 

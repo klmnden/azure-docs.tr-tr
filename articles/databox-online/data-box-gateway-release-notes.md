@@ -1,5 +1,5 @@
 ---
-title: Azure veri kutusu ağ geçidi Preivew sürüm notları | Microsoft Docs
+title: Azure Data Box ağ geçidi önizlemesi sürüm notları | Microsoft Docs
 description: Azure veri kutusu önizleme sürümünü çalıştıran ağ geçidi için açık kritik sorunlar ve çözümleri açıklanmaktadır.
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 01/07/2019
 ms.author: alkohli
-ms.openlocfilehash: 31bcc5ed447b32f4474ecef6a8a9f79377061975
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 738cc5b4e90d9572b65f122076973e2d9f1b264f
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078992"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450499"
 ---
 # <a name="azure-data-box-gateway-preview-release-notes"></a>Azure Data Box ağ geçidi önizlemesi sürüm notları
 

@@ -4,7 +4,7 @@ description: Bu makalede, Azure AD Connect ve Azure AD eşitleme'nın tüm sür�
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 780a4c5cd590b4fa1b4dd5b29fab738cb9a8bb6a
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: e5d98b1d10051fee6ee5299fcdd8376434109603
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608452"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469772"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Sürüm yayınlama geçmişi
 Azure Active Directory (Azure AD) ekibi, düzenli olarak yeni özellikler ve işlevler ile Azure AD Connect güncelleştirir. Tüm eklemeleri için tüm kitlelere yönelik uygulanabilir.
@@ -684,14 +684,14 @@ CBool(
 
   * Aşağıdaki öznitelikler MV şemaya eklenmiştir:
     * Grup: Hesap adı
-    * Grup: domainNetBios
+    * Group: domainNetBios
     * Grup: domainFQDN
     * Kişi: distinguishedName
 
   * Aşağıdaki öznitelikler Azure AD Bağlayıcısı şemaya eklenmiştir:
     * Grup: OnPremisesSamAccountName
     * Grup: NetBiosName
-    * Grup: DNSEtkiAlanıAdı
+    * Grup: DnsDomainName
     * Kullanıcı: OnPremisesDistinguishedName
 
 * ADSyncDomainJoinedComputerSync cmdlet betik artık AzureEnvironment adlı yeni bir isteğe bağlı parametre var. Parametresi, ilgili Azure Active Directory kiracısı barındırılan hangi bölgeyi belirtmek için kullanılır. Geçerli değerler şunlardır:
