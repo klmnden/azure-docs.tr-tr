@@ -4,7 +4,7 @@ description: Azure AD uygulama galerisinde bulunan yapılandırma kullanıcı uy
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 1d2b4094300fa3e42f07bbbfe80630fbb40501c5
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 340a7dfdf9698019eeb2c96dc56411afb7a78f50
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357466"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471999"
 ---
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Azure AD galeri uygulaması için kullanıcı sağlama yapılandırma sorunu
 
@@ -67,7 +67,7 @@ Kullanıcı "Denetim günlüklerinde atlandı gibi" gösterilir, günlük iletis
 
 -   **Gerekli bir özniteliği eksik veya doldurulmuş bir kullanıcı değil.** Gözden geçirin ve hangi kullanıcı (veya grup) özellikleri akış Azure ad uygulama tanımlayan iş akışları ve öznitelik eşlemelerini yapılandırma sağlamayı ayarlama ayarlanırken dikkate alınması gereken önemli bir şey olabilir. Bu içerir "eşleştirme özelliği" ayarı benzersiz biçimde tanımlayan ve kullanıcılar/gruplar iki sistem arasındaki eşleştirmek için kullanılır. Bu önemli işlem hakkında daha fazla bilgi için bkz. <https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings>.
 
-   * **Öznitelik eşlemeleri için gruplar:** grubu adını ve bazı uygulamalar için destekleniyorsa üyelerin ek olarak grubu ayrıntıları sağlama. Etkinleştirme veya etkinleştirme veya devre dışı bırakarak bu işlevi devre dışı **eşleme** gösterilen grubu nesnelerinin **sağlama** sekmesi. Grupları sağlama etkinse, "Eşleşen kimliği" için uygun bir alanı kullanıldığından emin olmak için öznitelik eşlemelerini gözden geçirmeyi unutmayın. Bu olabilir görünen ad veya e-posta diğer adı), eşleşen özellik boş ya da doldurulmuş bir grup için Azure AD'de ise grup ve üyelerini sağlanacak değil olarak.
+   * **Öznitelik eşlemeleri için grupları:** Grup adını ve üyelerinin yanı sıra grubu ayrıntıları bazı uygulamalar için destekleniyorsa sağlama. Etkinleştirme veya etkinleştirme veya devre dışı bırakarak bu işlevi devre dışı **eşleme** gösterilen grubu nesnelerinin **sağlama** sekmesi. Grupları sağlama etkinse, "Eşleşen kimliği" için uygun bir alanı kullanıldığından emin olmak için öznitelik eşlemelerini gözden geçirmeyi unutmayın. Bu olabilir görünen ad veya e-posta diğer adı), eşleşen özellik boş ya da doldurulmuş bir grup için Azure AD'de ise grup ve üyelerini sağlanacak değil olarak.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Azure Active Directory ile SaaS Uygulamalarına Kullanıcı Hazırlama ve Sağlamayı Kaldırma İşlemlerini Otomatik Hale Getirme](user-provisioning.md)

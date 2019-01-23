@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect eşitleme: varsayılan yapılandırmayı anlama | Microsoft Docs'
+title: 'Azure AD Connect eşitleme: Varsayılan yapılandırmayı anlama | Microsoft Docs'
 description: Bu makalede, Azure AD Connect eşitleme varsayılan yapılandırmasında açıklanır.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ed876f22-6892-4b9d-acbe-6a2d112f1cd1
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: bd708d279649138fcb17362491da4eb7539c478b
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 6de48b0f4c7c69ab0c6acb4099234b853d2c1523
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46313960"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478578"
 ---
-# <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect Eşitleme: Varsayılan yapılandırmayı anlama
+# <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect eşitleme: Varsayılan yapılandırmayı anlama
 Bu makalede, out-of-box Yapılandırması kuralları açıklanır. Bu belgeleri, kuralları ve bu kurallar yapılandırmanın nasıl etkiler. Ayrıca, Azure AD Connect eşitleme yapılandırmasını varsayılan rehberlik sağlar. Okuyucu adlı bildirim temelli sağlama, yapılandırma modeli, gerçek hayatta kullanılan örnekte nasıl çalıştığını anladığını hedeftir. Bu makalede, zaten yüklediyseniz ve Azure AD Connect eşitlemeyi Yükleme Sihirbazı'nı kullanarak yapılandırma varsayılır.
 
 Yapılandırma modeli ayrıntılarını anlamak için okuma [anlama bildirim temelli sağlama](concept-azure-ad-connect-sync-declarative-provisioning.md).
@@ -134,7 +134,7 @@ SRE Kaynak Seti aracıdır ve Azure AD Connect eşitlemesi ile yüklenir. Başla
 
 ![Gelen eşitleme kuralları](./media/concept-azure-ad-connect-sync-default-configuration/syncrulesinbound.png)
 
-Bu bölümde, yapılandırmanız için oluşturulan tüm eşitleme kuralları bakın. Tablodaki her satır bir eşitleme kuralıdır. Sola kural türlerini altında iki farklı türleri listelenmiştir: gelen ve giden. Gelen ve giden meta veri görünümünden olur. Bu genel bakışta gelen kuralları odağı çoğunlukla seçeceksiniz. Eşitleme kuralları gerçek listesini, algılanan şemaya AD'de bağlıdır. Yukarıdaki resimde, hesap ormanı (fabrikamonline.com) Exchange ve Lync gibi tüm hizmetlere sahip olmadığı ve bu hizmetler için oluşturulmuş eşitleme kuralı yok. Ancak, kaynak ormanı (res.fabrikamonline.com), eşitleme kuralları için bu hizmetlerin bulabilirsiniz. Kuralları içeriğini algılanan sürümüne göre farklılık gösterir. Örneğin, Exchange 2013 ile bir dağıtımda var. daha Exchange 2010/2007'de yapılandırılmış. daha fazla öznitelik akışları
+Bu bölümde, yapılandırmanız için oluşturulan tüm eşitleme kuralları bakın. Tablodaki her satır bir eşitleme kuralıdır. Kural Türü altında sola, iki farklı türleri listelenmiştir: Gelen ve giden. Gelen ve giden meta veri görünümünden olur. Bu genel bakışta gelen kuralları odağı çoğunlukla seçeceksiniz. Eşitleme kuralları gerçek listesini, algılanan şemaya AD'de bağlıdır. Yukarıdaki resimde, hesap ormanı (fabrikamonline.com) Exchange ve Lync gibi tüm hizmetlere sahip olmadığı ve bu hizmetler için oluşturulmuş eşitleme kuralı yok. Ancak, kaynak ormanı (res.fabrikamonline.com), eşitleme kuralları için bu hizmetlerin bulabilirsiniz. Kuralları içeriğini algılanan sürümüne göre farklılık gösterir. Örneğin, Exchange 2013 ile bir dağıtımda var. daha Exchange 2010/2007'de yapılandırılmış. daha fazla öznitelik akışları
 
 ### <a name="synchronization-rule"></a>Eşitleme Kuralı
 Bir yapılandırma nesnesi bir koşul karşılandığında akan öznitelikleri kümesi ile bir eşitleme kuralıdır. Bir bağlayıcı alanında bir nesne olarak bilinen meta veri içinde bir nesneye nasıl ilişkili olduğunu açıklamak için de kullanılır **birleştirme** veya **eşleşen**. Eşitleme kuralları birbirleriyle nasıl ilişkili olduğunu belirten bir öncelik değerine sahip. Daha düşük bir sayısal değere sahip bir eşitleme kuralı daha yüksek bir önceliği ve bir öznitelik akışı çakışması daha yüksek önceliği çakışma WINS.
@@ -145,7 +145,7 @@ Bu kural, bir out-of-box kural olduğundan, kuralın açtığınızda, bir uyar�
 
 ![Eşitleme kuralları Uyarısı](./media/concept-azure-ad-connect-sync-default-configuration/warningeditrule.png)
 
-Eşitleme kuralı dört yapılandırma bölümü vardır: açıklama, filtre, birleştirme kurallar ve dönüştürmeler kapsamı.
+Eşitleme kuralı dört yapılandırma bölümü vardır: Açıklama, Scoping filtre, birleştirme kuralları ve dönüşümler.
 
 #### <a name="description"></a>Açıklama
 İlk bölüm, bir ad ve açıklama gibi temel bilgiler sağlar.
@@ -187,7 +187,7 @@ Dönüştürme bölüm nesneleri birleştirilir ve kapsam filtresi sağlanırsa,
 
 Bağlamda bir hesap-kaynak orman dağıtımı bu configuration koymak, etkinleştirilmiş bir hesabı hesap ormanı ve devre dışı bırakılan hesabın kaynak ormanda Exchange ve Lync ayarlarla bulmak için bekleniyor. Oturum açma için gerekli öznitelikler Baktığınız eşitleme kuralı içerir ve bu öznitelikler ormandan akışını etkinleştirilmiş bir hesabı olduğu. Bu öznitelik akışları birlikte bir eşitleme kuralı yerleştirilir.
 
-Bir dönüştürme farklı türlere sahip olabilen: sabiti, doğrudan ve ifade.
+Bir dönüştürme farklı türlere sahip olabilen: Sabit, doğrudan ve ifade.
 
 * Akışı, bir kodlanmış değeri her zaman akar. Yukarıdaki durumda, her zaman değeri ayarlar **True** meta veri deposu özniteliği adlı **accountEnabled**.
 * Doğrudan bir akış hedef özniteliğe kaynak özniteliğinin değeri her zaman akışları-olduğu.
@@ -216,7 +216,7 @@ Bkz: [bildirim temelli sağlama ifadelerini anlama](concept-azure-ad-connect-syn
 
 Eşitleme kuralları için öncelik gruplarında Yükleme Sihirbazı tarafından ayarlanır. Bir gruptaki tüm kuralları aynı adı taşıyan ancak farklı bağlı dizinlere bağlı. Yükleme Sihirbazı'nı kural verir **içinde ad – kullanıcı katılın** en yüksek öncelik ve yineleme üzerinden tüm bağlı AD dizinleri. Önceden tanımlanmış bir sırada kurallarının sonraki gruplarıyla sonra sürdürür. Bir grubun içine, bağlayıcı Sihirbazı'nda eklenen sırada kuralları eklenir. Başka bir bağlayıcı Sihirbazı eklenirse, eşitleme kuralları yeniden sıralanır ve yeni bağlayıcının kuralları son her gruba eklenir.
 
-### <a name="putting-it-all-together"></a>Hepsini birleştirme
+### <a name="putting-it-all-together"></a>Hepsini bir araya getirme
 Artık yapılandırma farklı eşitleme kuralları ile nasıl çalıştığını anlamak için eşitleme kuralları hakkında yeterli biliyoruz. Bir kullanıcı ve meta veri deposu için katkıda öznitelikleri bakarsanız, kuralları aşağıdaki sırayla uygulanır:
 
 | Ad | Açıklama |
@@ -236,6 +236,6 @@ Artık yapılandırma farklı eşitleme kuralları ile nasıl çalıştığını
 
 **Genel bakış konuları**
 
-* [Azure AD Connect eşitleme: anlamak ve eşitleme özelleştirme](how-to-connect-sync-whatis.md)
+* [Azure AD Connect eşitleme: Anlama ve eşitleme özelleştirme](how-to-connect-sync-whatis.md)
 * [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](whatis-hybrid-identity.md)
 

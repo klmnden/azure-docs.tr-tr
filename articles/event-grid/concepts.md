@@ -2,17 +2,17 @@
 title: Azure Event Grid kavramları
 description: Azure Event Grid ve kavramlarını açıklar. Event Grid anahtar çeşitli bileşenlerinin tanımlar.
 services: event-grid
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/03/2018
-ms.author: tomfitz
-ms.openlocfilehash: 89f0f5847f157cff59a57f7958508e4f260355c3
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.author: spelluru
+ms.openlocfilehash: 40c749adee08e66319bed88f26c3c898428a41ad
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747567"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474362"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Azure Event Grid kavramları
 
@@ -62,7 +62,7 @@ Geçerli olay Kılavuzu abonelikleri alma hakkında daha fazla bilgi için bkz: 
 
 [Event Grid uzantısı](/cli/azure/azure-cli-extensions-list) Azure CLI bir sona erme ayarlamanıza olanak sağlar. bir olay aboneliği oluştururken tarih. REST API kullanıyorsanız kullanın `api-version=2018-09-15-preview`
 
-Olay aboneliği otomatik olarak bu tarihten sonra süresi doldu. Sınırlı bir süre için yalnızca gerekli olay aboneliklerine yönelik bir sona erme süresini ayarlayabilir ve bu Aboneliklerdeki temizleme hakkında endişelenmeye gerek istemiyorum. Örneğin, bir senaryoyu test etmek için bir olay aboneliği oluşturulurken bir sona erme süresini ayarlayabilir isteyebilirsiniz. 
+Olay aboneliğinin süresi bu tarihte otomatik olarak sona erer. Sınırlı bir süre için yalnızca gerekli olay aboneliklerine yönelik bir sona erme süresini ayarlayabilir ve bu Aboneliklerdeki temizleme hakkında endişelenmeye gerek istemiyorum. Örneğin, bir senaryoyu test etmek için bir olay aboneliği oluşturulurken bir sona erme süresini ayarlayabilir isteyebilirsiniz. 
 
 Bir süre sonu ayarlama örneği için bkz: [Gelişmiş Filtreler ile abone ol](how-to-filter-events.md#subscribe-with-advanced-filters).
 

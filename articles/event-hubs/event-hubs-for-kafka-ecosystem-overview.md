@@ -3,19 +3,19 @@ title: Kullanım olay hub'ından Apache Kafka uygulama - Azure Event Hubs | Micr
 description: Bu makalede, Azure Event Hubs ile Apache Kafka desteği hakkında bilgi sağlar.
 services: event-hubs
 documentationcenter: .net
-author: basilhariri
+author: shvija
 manager: timlt
 ms.service: event-hubs
 ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: 1c484b6418fd5a453713bc464fff690ef444f109
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 8bf381e7c66e06bbaa140ed865f0f7c9b4f001af
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091195"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452352"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Apache Kafka uygulamalarından Azure Event Hubs'ı kullanın
 Event Hubs, kullanılabilir bir Kafka uç noktası sağlar, varolan Kafka kendi Kafka kümesi çalıştıran alternatif olarak tabanlı uygulamalar. Event hubs'ı destekleyen [Apache Kafka protokolü 1.0 ve üzeri](https://kafka.apache.org/documentation/)ve MirrorMaker dahil olmak üzere, mevcut Kafka uygulamaları ile çalışır.  
@@ -31,7 +31,7 @@ Kafka ile Event Hubs kavramsal olarak neredeyse aynı: her iki bölümlenmiş g�
 | Kafka kavramı | Olay hub'ları kavramını|
 | --- | --- |
 | Küme | Ad Alanı |
-| Konu | Event Hubs |
+| Konu | Olay Hub'ı |
 | Bölüm | Bölüm|
 | Tüketici Grubu | Tüketici Grubu |
 | Uzaklık | Uzaklık|
@@ -76,6 +76,4 @@ Bu makalede, Kafka için Event hubs'a giriş sağlandı. Daha fazla bilgi için 
 - [Akka Streams’i Kafka özellikli olay hub'ına bağlama](event-hubs-kafka-akka-streams-tutorial.md)
 - [GitHub'ımızdaki örnekleri inceleme](https://github.com/Azure/azure-event-hubs-for-kafka)
 
- 
- 
 

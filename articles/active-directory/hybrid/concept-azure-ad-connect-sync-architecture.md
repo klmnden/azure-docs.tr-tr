@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect eşitleme: mimarisini anlama | Microsoft Docs'
+title: 'Azure AD Connect eşitleme: Mimariyi anlama | Microsoft Docs'
 description: Bu konuda, Azure AD Connect eşitleme mimarisini açıklar ve kullanılan terimler açıklanmaktadır.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 465bcbe9-3bdd-4769-a8ca-f8905abf426d
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 958ec6b32434bd9e0228255c0edbe9312225586c
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 787fa051dfeeea45f9480f5906244f544f747279
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312784"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474396"
 ---
-# <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Azure AD Connect eşitleme: mimarisini anlama
+# <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Azure AD Connect eşitleme: Mimariyi anlama
 Bu konu temel mimarisini Azure AD Connect eşitlemesi ele alınmaktadır. Birçok yönden öncelleri MIIS 2003 ILM 2007 ve FIM 2010 için benzerlik gösterir. Azure AD Connect eşitleme, çünkü bu teknolojiler olur. Tüm önceki teknolojiler hakkında bilginiz varsa, bu konunun içeriği de size tanıdık gelecektir. Eşitleme için yeni başladıysanız, bu konu, hakkındadır. Ancak böyle değildir (Bu konudaki eşitleme altyapısı olarak bilinir) Azure AD Connect eşitlemesini özelleştirme yaparken başarılı olması için bu konunun ayrıntılarını öğrenmek için bir gereksinim.
 
 ## <a name="architecture"></a>Mimari

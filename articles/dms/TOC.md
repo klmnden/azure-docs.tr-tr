@@ -1,11 +1,3 @@
----
-ms.openlocfilehash: 493ca6018a7eb94181deff946c6542463507761a
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437989"
----
 # [Veritabanı Geçiş Hizmeti Belgeleri](index.yml)
 
 # Genel Bakış

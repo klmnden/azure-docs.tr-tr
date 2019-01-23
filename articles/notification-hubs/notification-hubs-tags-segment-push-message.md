@@ -1,10 +1,10 @@
 ---
 title: Yönlendirme ve etiket ifadeleri
-description: Bu konu Azure bildirim hub'ları için Yönlendirme ve etiket ifadeleri açıklar.
+description: Bu konuda Azure bildirim hub'ları için Yönlendirme ve etiket ifadeler açıklanmaktadır.
 services: notification-hubs
 documentationcenter: .net
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 ms.assetid: 0fffb3bb-8ed8-4e0f-89e8-0de24a47f644
 ms.service: notification-hubs
@@ -12,94 +12,102 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 04/14/2018
-ms.author: dimazaid
-ms.openlocfilehash: e08fca0b6b57d654f2b2ff7b935f38d8c517487b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 01/04/2019
+ms.author: jowargo
+ms.openlocfilehash: f52900d06049623a0a81e509abdc5e9ef76f95e5
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776174"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451485"
 ---
 # <a name="routing-and-tag-expressions"></a>Yönlendirme ve etiket ifadeleri
+
 ## <a name="overview"></a>Genel Bakış
-Etiket ifadeleri hedef belirli kümelerini cihazlar ya da daha açık belirtmek gerekirse kayıtlar için bildirim hub'ları üzerinden bir anında iletme bildirimi gönderirken etkinleştirin.
 
-## <a name="targeting-specific-registrations"></a>Belirli kayıtları hedefleme
-Hedef tek yolu kayıtlar etiketleri bunları ile ilişkilendirmek için belirli bildirimini sonra bu etiketlerin hedefleyin. ' Da anlatıldığı gibi [kayıt yönetimi](notification-hubs-push-notification-registration-management.md), anında iletme bildirimleri bir uygulama olan bir cihazı kaydetmek bir bildirim hub'ına ele almak için. Bir kaydı bir bildirim hub'ına oluşturulduktan sonra uygulama arka uç anında iletme bildirimleri gönderebilirsiniz.
-Uygulama arka ucu belirli bir bildirim hedeflenecek kayıtlar aşağıdaki yollarla seçebilirsiniz:
+Etiket ifadeleri için hedef belirli ayarlar veya kayıtları daha açık belirtmek gerekirse, cihaz, Notification Hubs ile anında iletme bildirimi gönderirken etkinleştirin.
 
-1. **Yayın**: bildirim hub'ındaki tüm kayıtlar bir bildirim alır.
-2. **Etiket**: Belirtilen etiket içeren tüm kayıtlar bir bildirim alır.
-3. **Etiket ifade**: tüm kayıtlar, etiket kümesi, belirtilen ifade ile eşleşen bir bildirim alır.
+## <a name="targeting-specific-registrations"></a>Belirli hedefleme
+
+Hedef için tek yolu kayıtları olduğunu etiketleri bunları ile ilişkilendirmek için belirli bildirim sonra bu etiketleri hedefleyin. Bölümünde açıklandığı gibi [kayıt yönetimi](notification-hubs-push-notification-registration-management.md), anında iletme bildirimleri bir uygulamanın sahip bir cihaz kaydetmek bir bildirim hub'ındaki ele almak için. Bir kaydı bir bildirim hub'ındaki oluşturulduktan sonra uygulama arka ucu için anında iletme bildirimleri gönderebilirsiniz.
+Uygulama arka ucu belirli bir bildirim ile hedeflenecek kayıtları aşağıdaki yollarla seçebilirsiniz:
+
+1. **Yayın**: bildirim hub'ında tüm kayıtları bir bildirim alır.
+2. **Etiket**: belirtilen etiketi içeren tüm kayıtları bir bildirim alır.
+3. **Etiket ifadesi**: bildirim, etiket kümesinin belirtilen ifade eşleşen tüm kayıtlar alır.
 
 ## <a name="tags"></a>Etiketler
-Bir etiketi herhangi bir dize, alfasayısal içeren en fazla 120 karakter ve alfasayısal olmayan karakterler olabilir: '_', ' @', '#', '. ',':', '-'. Aşağıdaki örnekte belirli müzik grupları hakkında bildirimleri alacak bir uygulamayı gösterir. Bu senaryoda, etiket kayıtları, aşağıdaki resimde olduğu gibi farklı bantları temsil eden etiketlere sahip rota bildirimleri için basit bir yöntem yazmaktır:
+
+Bir etiketi alfasayısal içeren en fazla 120 karakter ve şu alfasayısal olmayan karakterleri bir dize olabilir: '_', ' @', '#', '. ',':', '-'. Aşağıdaki örnek, belirli müzik grupları hakkında kutlama bildirimleri almak için bir uygulama gösterir. Bu senaryoda, aşağıdaki resimde olduğu gibi farklı bantları temsil eden etiketlere sahip etiket kayıtları bildirimlerinin yönlendirileceği basit bir yolu şudur:
 
 ![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags.png)
 
-Bu resim, ileti etiketli **Beatles** etiketiyle kayıtlı tablet ulaştığında **Beatles**.
+Bu resimde, ileti etiketli **Beatles** etiket ile kayıtlı tablet ulaştığında **Beatles**.
 
-Kayıtlar için etiketler oluşturma hakkında daha fazla bilgi için bkz: [kayıt yönetimi](notification-hubs-push-notification-registration-management.md).
+Etiketleri için kayıtları oluşturma hakkında daha fazla bilgi için bkz. [kayıt yönetimi](notification-hubs-push-notification-registration-management.md).
 
-Gönderme bildirimleri yöntemleri kullanılarak etiketleri bildirimleri gönderebilir `Microsoft.Azure.NotificationHubs.NotificationHubClient` sınıfını [Microsoft Azure bildirim hub'ları](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) SDK. Node.js veya anında iletme bildirimleri REST API de kullanabilirsiniz.  Burada, SDK'yı kullanarak bir örnek verilmiştir.
+Etiketleri Gönder bildirimleri yöntemlerini kullanarak bildirim gönderebilirsiniz `Microsoft.Azure.NotificationHubs.NotificationHubClient` sınıfını [Microsoft Azure Notification hubs'ı](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) SDK. Ayrıca, Node.js veya anında iletme bildirimleri REST API de kullanabilirsiniz.  SDK'sını kullanarak bir örnek aşağıda verilmiştir.
 
-    Microsoft.Azure.NotificationHubs.NotificationOutcome outcome = null;
+```csharp
+Microsoft.Azure.NotificationHubs.NotificationOutcome outcome = null;
 
-    // Windows 8.1 / Windows Phone 8.1
-    var toast = @"<toast><visual><binding template=""ToastText01""><text id=""1"">" +
-    "You requested a Beatles notification</text></binding></visual></toast>";
-    outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, "Beatles");
+// Windows 8.1 / Windows Phone 8.1
+var toast = @"<toast><visual><binding template=""ToastText01""><text id=""1"">" +
+"You requested a Beatles notification</text></binding></visual></toast>";
+outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, "Beatles");
 
-    // Windows 10
-    toast = @"<toast><visual><binding template=""ToastGeneric""><text id=""1"">" +
-    "You requested a Wailers notification</text></binding></visual></toast>";
-    outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, "Wailers");
+// Windows 10
+toast = @"<toast><visual><binding template=""ToastGeneric""><text id=""1"">" +
+"You requested a Wailers notification</text></binding></visual></toast>";
+outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, "Wailers");
+```
 
-
-
-
-Etiketleri önceden sağlanan olması gerekmez ve birden çok uygulamaya özgü kavramlara başvuruda bulunabilir. Örneğin, bu örnek uygulama kullanıcılarının bantlar üzerinde açıklama ve bunlar yorum bant bağımsız olarak kendi arkadaş bildirimleri, yalnızca kendi sık kullanılan bantlar üzerinde açıklamaları için aynı zamanda tüm yorumlar için almak istiyor. Aşağıdaki resimde bu senaryo örneği gösterilmektedir:
+Etiketler, önceden sağlanmış olması gerekmez ve birden çok uygulamaya özgü kavramlara başvurabilir. Örneğin, bu örnek uygulama kullanıcılarının bant üzerinde yorum ve toasts, yalnızca kendi sık kullanılan bantları açıklamaları için aynı zamanda tüm açıklamaları için bunlar yorum bant bağımsız olarak kullanıcıların arkadaşlarını almak istiyorsunuz. Aşağıdaki resimde, bu senaryoya örnek olarak gösterilmiştir:
 
 ![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags2.png)
 
-Bu resmi Alice Beatles güncelleştirmeleri ilgilendiği ve Bob Wailers güncelleştirmeleri ilgilendiği. Bob ayrıca Cahit'ın açıklamaları ilgilenen ve Cahit içinde Wailers ilgileniyor. Bir bildirim Beatles Cahit'ın açıklama gönderildiğinde, Alice ve Bob alırsınız.
+Bu resimdeki Alice Beatles güncelleştirmeleri ilginizi ve Bob Wailers güncelleştirmeleri ilginizi. Bob ayrıca Cahit'ın açıklamalarda ilgi ve Cahit içinde Wailers ilgileniyor. Bir bildirim Beatles Cahit'ın ederken açıklama gönderildiğinde, hem Alice ve Bob alırsınız.
 
-Birden çok sorunları etiketleri (örneğin, "band_Beatles" veya "follows_Charlie") kodlamak olsa da, etiketleri basit dizeler ve özellikleri değerlerle ' dir. Bir kayıt yalnızca varlığının veya yokluğunun belirli bir tag üzerinde eşleştirilir.
+Etiket (örneğin, "band_Beatles" veya "follows_Charlie") içinde birden çok kaygıları kodlayabilir, ancak etiketleri basit dizeler ve değerlerle Özellikleri ' dir. Bir kayıt yalnızca varlığı veya yokluğu belirli bir etiketi üzerinde eşleştirilir.
 
-İlgi alanı gruplarına göndermek için etiketleri kullanma konusunda tam adım adım öğretici için bkz: [sonu haber](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md).
+İlgi alanı gruplarına göndermek için etiketleri kullanma hakkında tam adım adım bir öğretici için bkz: [bozucu haber](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md).
 
-## <a name="using-tags-to-target-users"></a>Hedef Kullanıcılar etiketleri kullanma
-Etiketler kullanmanın başka bir yolu, belirli bir kullanıcının tüm cihazlar belirlemektir. Kayıtları, aşağıdaki resimde olduğu gibi bir kullanıcı kimliği içeren bir etiketle etiketlenebilir:
+## <a name="using-tags-to-target-users"></a>Hedef kullanıcı için etiketleri kullanma
+
+Etiketleri kullanmak için başka bir yolu, belirli bir kullanıcının tüm cihazları belirlemektir. Kayıtları, aşağıdaki resimde olduğu gibi bir kullanıcı Kimliğini içeren bir etiketi ile etiketlenebilir:
 
 ![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags3.png)
 
-Bu resim, ileti etiketli uid: Gamze ulaştığında tüm kayıtlar etiketli uid:Alice; Bu nedenle, tüm Alice'in cihazlarını.
+Bu resimde, ileti uid etiketli: Alice ulaştığında tüm kayıtları etiketli "uid:Alice"; Bu nedenle, tüm Alice'in cihazları.
 
 ## <a name="tag-expressions"></a>Etiket ifadeleri
-Tek bir etiket tarafından değil, ancak etiketleri hakkında Boole ifadesi tarafından tanımlanan bir kayıt kümesine hedeflemek bir bildirim sahip olduğu durumlar vardır.
 
-Kırmızı Sox ve Cardinals arasında oyun hakkında Boston herkese anımsatıcısı gönderir Spor uygulama göz önünde bulundurun. İstemci uygulaması etiketler ekipleri ve konum ilgi hakkında kaydederse, ardından bildirim herkesin kırmızı Sox veya Cardinals ilgilenmektedir Boston hedeflenecek. Bu durum aşağıdaki Boolean ifade ile ifade edilebilir:
+Tek bir etiket tarafından değil, ancak etiketleri hakkında bir Boole ifadesi tarafından tanımlanan bir dizi kayıtları hedeflemek bir bildirim sahip olduğu durumlar vardır.
 
-    (follows_RedSox || follows_Cardinals) && location_Boston
+Kırmızı Sox Cardinals arasındaki bir oyun hakkında Boston herkese bir anımsatıcı gönderir bir spor uygulamayı düşünün. İstemci uygulaması etiketler takımlar ve konumu hakkında kaydederse, ardından bildirim kırmızı Sox veya Cardinals ilgileniyor Boston herkes için hedeflenmesi. Bu durum aşağıdaki Boole ifadesi ile belirtilebilir:
 
+```csharp
+(follows_RedSox || follows_Cardinals) && location_Boston
+```
 
 ![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags4.png)
 
-Etiket ifadeleri içerebilir tüm Boole işleçleri gibi ve (& &), ya da (|) ve (!). Bunlar ayrıca parantez içerebilir. Yalnızca ORs içeriyorsa etiket ifadeleri 20 etiketleri sınırlıdır; Aksi halde bunlar 6 etiketleri sınırlıdır.
+Etiket ifadeleri içerebilir tüm Boole işleçleri gibi AND (& &), veya (|) ve NOT (!). Bunlar ayrıca parantez içerebilir. Bunlar yalnızca ORs içeriyorsa, etiket ifadeleri 20 etiket sınırlıdır; Aksi halde bunlar 6 etiketleri sınırlı olursunuz.
 
-Burada, SDK'sını kullanarak etiketi ifadelerle bildirimleri göndermek için bir örnek verilmiştir.
+Etiket ifadeleri SDK'sını kullanarak bildirim göndermek için bir örnek aşağıda verilmiştir.
 
-    Microsoft.Azure.NotificationHubs.NotificationOutcome outcome = null;
+```csharp
+Microsoft.Azure.NotificationHubs.NotificationOutcome outcome = null;
 
-    String userTag = "(location_Boston && !follows_Cardinals)";    
+String userTag = "(location_Boston && !follows_Cardinals)";
 
-    // Windows 8.1 / Windows Phone 8.1
-    var toast = @"<toast><visual><binding template=""ToastText01""><text id=""1"">" +
-    "You want info on the Red Sox</text></binding></visual></toast>";
-    outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, userTag);
+// Windows 8.1 / Windows Phone 8.1
+var toast = @"<toast><visual><binding template=""ToastText01""><text id=""1"">" +
+"You want info on the Red Sox</text></binding></visual></toast>";
+outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, userTag);
 
-    // Windows 10
-    toast = @"<toast><visual><binding template=""ToastGeneric""><text id=""1"">" +
-    "You want info on the Red Sox</text></binding></visual></toast>";
-    outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, userTag);
+// Windows 10
+toast = @"<toast><visual><binding template=""ToastGeneric""><text id=""1"">" +
+"You want info on the Red Sox</text></binding></visual></toast>";
+outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, userTag);
+```

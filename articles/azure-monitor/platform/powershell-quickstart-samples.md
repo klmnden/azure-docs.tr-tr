@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 2/14/2018
 ms.author: robb
-ms.component: ''
-ms.openlocfilehash: 72c50871f0d339d5d8f173a50e03aefc72fdcb36
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.subservice: ''
+ms.openlocfilehash: d3bd4d80f167a496c9b980891f31d30bc86a0cb2
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53585412"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473768"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Azure İzleyici PowerShell hızlı başlangıç örnekleri
 Bu makale, Azure İzleyici özellikleri erişmenize yardımcı olması için PowerShell komutlarını örnek gösterir.
@@ -145,7 +145,7 @@ Aşağıdaki tabloda, bir ölçüm kullanarak bir uyarı oluşturmak için kulla
 | Ad |simpletestdiskwrite |
 | Bu uyarı kuralının konumu |Doğu ABD |
 | ResourceGroup |montest |
-| TargetResourceId |/Subscriptions/S1/resourceGroups/montest/providers/Microsoft.COMPUTE/virtualMachines/testconfig |
+| TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
 | Oluşturulan uyarının MetricName |\PhysicalDisk (_Total) \Disk Yazma/sn. Bkz: `Get-MetricDefinitions` cmdlet'i tam ölçüm adları almak nasıl hakkında |
 | İşleci |GreaterThan |
 | Eşik değerini (sayısı/sn, bu ölçümün) |1 |
@@ -387,3 +387,4 @@ Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insigh
 ```
 
 Bu komutlar, birden çok hedefe veri göndermek için birleştirilebilir.
+

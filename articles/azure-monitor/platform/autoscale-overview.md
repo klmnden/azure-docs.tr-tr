@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
-ms.component: autoscale
-ms.openlocfilehash: 85a93746f3d10c5b4dae4f50cd539d515960bd54
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.subservice: autoscale
+ms.openlocfilehash: ae1828210345eb35f9d22664285a0d348ea50d48
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584335"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478340"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Microsoft Azure sanal makineleri, bulut Hizmetleri ve Web uygulamalarını otomatik ölçeklendirmeye genel bakış
 Bu makalede, hangi Microsoft Azure otomatik ölçeklendirme, aboneliğin avantajları olduğu ve nasıl kullanmaya başlayacağınızı açıklar.  
@@ -104,7 +104,7 @@ Otomatik ölçeklendirme ayarlayabilirsiniz.
 ## <a name="supported-services-for-autoscale"></a>Desteklenen hizmetler için otomatik ölçeklendirme
 | Hizmet | Şema ve belgeler |
 | --- | --- |
-| Web Apps |[Web uygulamaları ölçeklendirme](../../azure-monitor/platform/autoscale-get-started.md) |
+| Web Apps |[Scaling Web Apps](../../azure-monitor/platform/autoscale-get-started.md) |
 | Cloud Services |[Otomatik ölçeklendirme bir bulut hizmeti](../../cloud-services/cloud-services-how-to-scale-portal.md) |
 | Sanal Makineler: Klasik |[Klasik sanal makine kullanılabilirlik kümeleri ölçeklendirme](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
 | Sanal Makineler: Windows ölçek kümeleri |[Sanal makine ölçeğini artırma veya azaltma Windows ayarlar](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |
@@ -120,3 +120,4 @@ Otomatik ölçeklendirme hakkında daha fazla bilgi için otomatik ölçeklendir
 * [E-posta ve Web kancası uyarı bildirimleri göndermek için otomatik ölçeklendirme eylemleri kullanın](../../azure-monitor/platform/autoscale-webhook-email.md)
 * [Otomatik ölçeklendirme REST API](https://msdn.microsoft.com/library/dn931953.aspx)
 * [Sorun giderme sanal makine ölçek kümelerini otomatik ölçeklendirme](../../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
+

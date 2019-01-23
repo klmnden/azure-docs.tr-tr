@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: a6357640ceeb7c5f1bde4eea85aa5265990935f4
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: dd917136dd777226f421d3ae6315798d36de8dc2
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157165"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452063"
 ---
 # <a name="publish-a-cortana-intelligence-offer-using-the-cloud-partner-portal"></a>Bulut iş ortağı portalını kullanarak bir Cortana Intelligence teklifi yayımlama
 
@@ -31,9 +31,9 @@ Bulut iş ortağı portalı rol tabanlı erişim sağlayan bir teklifi yayımlam
 
 Teklif, yayımcı adına yayımlanmadan önce hesabı, bir kişi ile \"sahibi\" rol uyacağınızı kabul edersiniz gerek [kullanım](https://azure.microsoft.com/support/legal/website-terms-of-use/), [Microsoft gizlilik bildirimi](https://www.microsoft.com/privacystatement/default.aspx), ve [Microsoft Azure sertifikası Program sözleşmesi](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
-## <a name="to-start-creating-a-cortana-inteligence-offer"></a>Cortana Inteligence teklif oluşturmaya başlamak için
+## <a name="to-start-creating-a-cortana-intelligence-offer"></a>Cortana Intelligence teklif oluşturmaya başlamak için
 
-Tüm önkoşulların karşılandığını sonra Cortana Inteligence teklifinizi yazma başlamaya hazır olursunuz.
+Tüm önkoşulların karşılandığını sonra Cortana Intelligence teklifinizi yazma başlamaya hazır olursunuz.
 
 1.  Oturum [bulut iş ortağı portalı](http://cloudpartner.azure.com/).
 2.  Sol gezinti çubuğunda **+ yeni teklif**.

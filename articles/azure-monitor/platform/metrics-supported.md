@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
-ms.component: metrics
-ms.openlocfilehash: 02678738c225742db1795a2e168b6eac1320aead
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.subservice: metrics
+ms.openlocfilehash: be2274b5d7a0e39733440379ce9678ab012d7d27
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232898"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473835"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure İzleyici ile desteklenen ölçümler
 Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini veya bunları sorgulama gibi ölçümleri ile etkileşim kurmak için çeşitli yollar sağlar PowerShell veya CLI kullanarak. Aşağıda tüm ölçümler tam listesi ile Azure İzleyicisi'nin ölçüm ardışık düzen şu anda kullanılabilir. Diğer ölçümleri portalı veya eski API'leri kullanarak mevcut olabilir. Bu listede yalnızca birleştirilmiş Azure İzleyici ölçüm ardışık düzeni'ni kullanarak mevcut olan ölçümler içerir. Sorgulamak ve erişmek için bu ölçümleri lütfen [2018-01-01 API sürümü](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -44,7 +44,7 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |CleanerMemoryNonshrinkable|Bellek: Temizleyici belleği daraltılamaz|Bayt|Ortalama|Tarafından arka plan Temizleyicisi kapsamında olmayan bayt cinsinden bellek miktarı.|ServerResourceType|
 |MemoryUsage|Bellek: Bellek Kullanımı|Bayt|Ortalama|Temizleyici bellek fiyatı hesaplanırken kullanılan sunucu işlemi bellek kullanımı. Process\PrivateBytes artı eşlenmiş veya ve xVelocity altyapısı bellek sınırını xVelocity bellek içi analiz altyapısı (VertiPaq) tarafından ayrılan herhangi bir bellek yok sayılıyor, bellekle eşlenen verilerin boyutunu sayaç eşittir.|ServerResourceType|
 |MemoryLimitHard|Bellek: Bellek sınırı sabit|Bayt|Ortalama|Yapılandırma dosyasından sabit bellek sınırı.|ServerResourceType|
-|Memoryhighlimit değeri|Bellek: Bellek sınırı yüksek|Bayt|Ortalama|Yapılandırma dosyasından yüksek bellek sınırı.|ServerResourceType|
+|MemoryLimitHigh|Bellek: Bellek sınırı yüksek|Bayt|Ortalama|Yapılandırma dosyasından yüksek bellek sınırı.|ServerResourceType|
 |MemoryLimitLow|Bellek: Bellek sınırı düşük|Bayt|Ortalama|Yapılandırma dosyasından düşük bellek sınırı.|ServerResourceType|
 |MemoryLimitVertiPaq|Bellek: Bellek sınırı VertiPaq|Bayt|Ortalama|Yapılandırma dosyasından bellek içi sınır.|ServerResourceType|
 |Kota|Bellek: Kota|Bayt|Ortalama|Bayt cinsinden geçerli bellek kotası. Bellek kotası bellek ataması veya bellek ayırma de denir.|ServerResourceType|
@@ -586,7 +586,7 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |c2d.commands.egress.reject.success|Reddedilen komutları|Sayı|Toplam|Cihaz tarafından reddedilen bulut-cihaz komutlarının sayısı|Boyut yok|
 |devices.totalDevices|(Kullanım dışı) toplam cihaz sayısı|Sayı|Toplam|IOT hub'ınıza kayıtlı cihaz sayısı|Boyut yok|
 |devices.connectedDevices.allProtocol|Bağlı cihazlar (kullanım dışı) |Sayı|Toplam|IOT hub'ınıza bağlı cihazların sayısı|Boyut yok|
-|d2c.telemetry.egress.Success|Yönlendirme: teslim telemetri iletilerini|Sayı|Toplam|İletileri IOT Hub'ın yönlendirme kullanarak tüm uç noktalara başarıyla teslim sayısı. Bir ileti birden çok Uç noktalara yönlendirilir, bu değer her başarılı bir teslimat için bir tane artırır. Bir ileti birden çok kez aynı uç noktasına teslim ise bu değer her başarılı bir teslimat için bir tane artırır.|Boyut yok|
+|d2c.telemetry.egress.success|Yönlendirme: teslim telemetri iletilerini|Sayı|Toplam|İletileri IOT Hub'ın yönlendirme kullanarak tüm uç noktalara başarıyla teslim sayısı. Bir ileti birden çok Uç noktalara yönlendirilir, bu değer her başarılı bir teslimat için bir tane artırır. Bir ileti birden çok kez aynı uç noktasına teslim ise bu değer her başarılı bir teslimat için bir tane artırır.|Boyut yok|
 |d2c.telemetry.egress.dropped|Yönlendirme: bırakılan telemetri iletilerini |Sayı|Toplam|İletileri IOT Hub'ın nedeniyle ölü uç noktalarına yönlendirme tarafından bırakılan sayısı. Bu değer, geri dönüş yol bırakılan iletiler var. iletilmemiş olarak sunulan iletiler sayılmaz.|Boyut yok|
 |d2c.telemetry.egress.orphaned|Yönlendirme: yalnız bırakılmış telemetri iletilerini |Sayı|Toplam|(Temel kural dahil) tüm yönlendirme kuralları ile eşleşmedi çünkü iletileri IOT Hub'ı yönlendirerek yalnız bırakılmış sayısı. |Boyut yok|
 |d2c.telemetry.egress.invalid|Yönlendirme: uyumsuz telemetri iletilerini|Sayı|Toplam|IOT Hub'ın yönlendirme uç nokta ile uyumsuzluk nedeniyle ileti teslim edilemedi sayısı. Bu değer, yeniden denemeler içermez.|Boyut yok|
@@ -599,14 +599,14 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |d2c.endpoints.latency.serviceBusTopics|Yönlendirme: gecikme süresi için Service Bus konusuna ileti|Milisaniye|Ortalama|Ortalama gecikme süresi (milisaniye) ileti giriş IOT hub'ına telemetri iletisi giriş arasındaki içine bir Service Bus konu başlığı uç noktası.|Boyut yok|
 |d2c.endpoints.egress.builtIn.events|Yönlendirme: iletiler iletiler/olaylar için teslim|Sayı|Toplam|IOT hub'ı başarıyla Yönlendirme iletilerini yerleşik uç noktası (iletiler/olaylar) teslim sayısı.|Boyut yok|
 |d2c.endpoints.latency.builtIn.events|Yönlendirme: gecikme süresi, iletiler/olaylar ileti|Milisaniye|Ortalama|Ortalama gecikme süresi (milisaniye) ileti giriş IOT hub'ına telemetri iletisi giriş arasındaki içine yerleşik uç noktası (iletiler/olaylar).|Boyut yok|
-|d2c.endpoints.egress.Storage|Yönlendirme: depolama için ileti teslim|Sayı|Toplam|IOT hub'ı başarıyla yönlendirme depolama uç noktaları için ileti teslim sayısı.|Boyut yok|
-|d2c.endpoints.latency.Storage|Yönlendirme: depolama gecikmesi ileti|Milisaniye|Ortalama|Ortalama gecikme süresi (milisaniye) ileti giriş IOT hub'ına telemetri iletisi giriş arasındaki içine bir depolama uç noktası.|Boyut yok|
+|d2c.endpoints.egress.storage|Yönlendirme: depolama için ileti teslim|Sayı|Toplam|IOT hub'ı başarıyla yönlendirme depolama uç noktaları için ileti teslim sayısı.|Boyut yok|
+|d2c.endpoints.latency.storage|Yönlendirme: depolama gecikmesi ileti|Milisaniye|Ortalama|Ortalama gecikme süresi (milisaniye) ileti giriş IOT hub'ına telemetri iletisi giriş arasındaki içine bir depolama uç noktası.|Boyut yok|
 |d2c.endpoints.egress.Storage.bytes|Yönlendirme: veri depolama için teslim|Bayt|Toplam|Veri (bayt), IOT Hub'ın yönlendirme depolama uç noktaları için teslim.|Boyut yok|
 |d2c.endpoints.egress.Storage.BLOBS|Yönlendirme: BLOB depolama alanına teslim|Sayı|Toplam|IOT Hub'ın yönlendirme BLOB Depolama uç noktaları için teslim sayısı.|Boyut yok|
 |d2c.twin.read.success|Cihazlardan başarılı ikizi okumaları|Sayı|Toplam|Tüm başarılı cihaz tarafından başlatılan çiftlerde okuma sayısı.|Boyut yok|
 |d2c.twin.read.failure|Cihazlardan çiftlerde okuma başarısız oldu|Sayı|Toplam|Tüm sayısı, cihaz tarafından başlatılan çiftlerde okuma başarısız oldu.|Boyut yok|
 |d2c.Twin.Read.size|Çiftlerde okuma cihazlardan yanıt boyutu|Bayt|Ortalama|Ortalama, en düşük ve en fazla başarılı olan tüm cihaz tarafından başlatılan ikizi okur.|Boyut yok|
-|d2c.Twin.Update.Success|Cihazlardan başarılı ikizi güncelleştirmeleri|Sayı|Toplam|Tüm başarılı tarafından başlatılan cihaz ikizi güncelleştirmeleri sayısı.|Boyut yok|
+|d2c.twin.update.success|Cihazlardan başarılı ikizi güncelleştirmeleri|Sayı|Toplam|Tüm başarılı tarafından başlatılan cihaz ikizi güncelleştirmeleri sayısı.|Boyut yok|
 |d2c.twin.update.failure|Cihaz ikizi güncelleştirmeleri başarısız oldu|Sayı|Toplam|Tüm sayısı tarafından başlatılan cihaz ikizi güncelleştirmeleri başarısız oldu.|Boyut yok|
 |d2c.twin.update.size|Cihaz ikizi güncelleştirmeleri boyutu|Bayt|Ortalama|Cihaz tarafından başlatılan ortalama, en düşük ve en büyük boyutu başarılı olan tüm güncelleştirmeleri çifti.|Boyut yok|
 |c2d.methods.success|Başarılı bir doğrudan yöntem çağrıları|Sayı|Toplam|Tüm başarılı bir doğrudan yöntem çağrılarının sayısı.|Boyut yok|
@@ -616,8 +616,8 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |c2d.twin.read.success|Arka uçtan başarılı ikizi okumaları|Sayı|Toplam|Tüm başarılı arka uç başlatılan çiftlerde okuma sayısı.|Boyut yok|
 |c2d.Twin.Read.failure|Arka uçtan başarısız ikizi okumaları|Sayı|Toplam|Tüm sayısı, arka uç başlatılan çiftlerde okuma başarısız oldu.|Boyut yok|
 |c2d.Twin.Read.size|Yanıt boyutu ikizinin arka ucundan okur|Bayt|Ortalama|Ortalama, en düşük ve en fazla başarılı olan tüm arka uç başlatılan ikizi okur.|Boyut yok|
-|c2d.Twin.Update.Success|Arka uç başarılı ikizi güncelleştirmeleri|Sayı|Toplam|Tüm başarılı arka uç başlatılan ikizi güncelleştirmeleri sayısı.|Boyut yok|
-|c2d.Twin.Update.failure|Arka uç başarısız ikizi güncelleştirmeleri|Sayı|Toplam|Tüm sayısı, arka uç başlatılan ikizi güncelleştirmeleri başarısız oldu.|Boyut yok|
+|c2d.twin.update.success|Arka uç başarılı ikizi güncelleştirmeleri|Sayı|Toplam|Tüm başarılı arka uç başlatılan ikizi güncelleştirmeleri sayısı.|Boyut yok|
+|c2d.twin.update.failure|Arka uç başarısız ikizi güncelleştirmeleri|Sayı|Toplam|Tüm sayısı, arka uç başlatılan ikizi güncelleştirmeleri başarısız oldu.|Boyut yok|
 |c2d.twin.update.size|Arka uç ikizi güncelleştirmeleri boyutu|Bayt|Ortalama|Arka uç başlatılan ortalama, en düşük ve en büyük boyutu başarılı olan tüm güncelleştirmeleri çifti.|Boyut yok|
 |twinQueries.success|Başarılı çifti sorguları|Sayı|Toplam|Tüm başarılı ikizi sorgularının sayısı.|Boyut yok|
 |twinQueries.failure|Başarısız çifti sorguları|Sayı|Toplam|Tüm başarısız ikizi sorgularının sayısı.|Boyut yok|
@@ -646,7 +646,7 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama Türü|Açıklama|Boyutlar|
 |---|---|---|---|---|---|
-|RegistrationAttempts|Kayıt denemesi|Sayı|Toplam|Cihaz kayıtları denemesi sayısı|ProvisioningServiceName, IotHubName, durumu|
+|RegistrationAttempts|Kayıt denemesi|Sayı|Toplam|Cihaz kayıtları denemesi sayısı|ProvisioningServiceName, IotHubName, Status|
 |DeviceAssignments|Atanan cihazlar|Sayı|Toplam|Bir IOT hub'ına atanan cihaz sayısı|ProvisioningServiceName, IotHubName|
 |AttestationAttempts|Kanıtlama denemeleri|Sayı|Toplam|Cihaz karşıladığımızı denemesi sayısı|ProvisioningServiceName, durumu, Protokolü|
 
@@ -1068,7 +1068,7 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |outgoing.allpns.badorexpiredchannel|Hatalı veya Süresi Dolmuş Kanal Hataları|Sayı|Toplam|Kayıttaki kanal/belirteç/registrationId geçersiz olduğundan veya süresi dolduğundan başarısız olan gönderim sayısı.|Boyut yok|
 |outgoing.WNS.Success|WNS Başarılı Bildirimler|Sayı|Toplam|Başarılı olan tüm bildirimlerin sayısı.|Boyut yok|
 |outgoing.WNS.invalidcredentials|WNS Yetkilendirme Hataları (Geçersiz Kimlik Bilgileri)|Sayı|Toplam|PNS belirtilen kimlik bilgilerini kabul etmediği veya kimlik bilgileri engellendiği için başarısız olan gönderim sayısı. (Windows Live kimlik bilgilerini tanımıyor).|Boyut yok|
-|outgoing.WNS.badchannel|WNS Geçersiz Kanal Hatası|Sayı|Toplam|Kayıttaki Channelurı tanınmadığı için başarısız olan gönderim sayısı (WNS durumu: (404 bulunamadı).|Boyut yok|
+|outgoing.wns.badchannel|WNS Geçersiz Kanal Hatası|Sayı|Toplam|Kayıttaki Channelurı tanınmadığı için başarısız olan gönderim sayısı (WNS durumu: (404 bulunamadı).|Boyut yok|
 |outgoing.wns.expiredchannel|WNS Süresi Dolan Kanal Hatası|Sayı|Toplam|Channelurı'nin süresi dolduğu için başarısız olan gönderim sayısı (WNS durumu: 410 Gone).|Boyut yok|
 |outgoing.WNS.throttled|WNS Kısıtlanan Bildirimler|Sayı|Toplam|WNS bu uygulamayı kısıtladığı için başarısız olan gönderim sayısı (WNS durumu: 406 Kabul edilemez).|Boyut yok|
 |outgoing.WNS.tokenproviderunreachable|WNS Yetkilendirme Hataları (Ulaşılamıyor)|Sayı|Toplam|Windows Live hizmetine erişilemiyor.|Boyut yok|
@@ -1076,7 +1076,7 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |outgoing.WNS.wrongtoken|WNS Yetkilendirme Hataları (Yanlış Belirteç)|Sayı|Toplam|WNS'ye sağlanan belirteç geçerli, ancak başka bir uygulama için (WNS durumu: 403 Yasak). Kayıttaki Channelurı başka bir uygulama ile ilişkili ise bu durum oluşabilir. İstemci uygulaması bildirim hub'ında kimlik bilgileri bulunan uygulamayla ilişkili olup olmadığını denetleyin.|Boyut yok|
 |outgoing.WNS.invalidnotificationformat|WNS Geçersiz Bildirim Biçimi|Sayı|Toplam|Bildirimin biçimi geçersiz (WNS durumu: 400). WNS tüm geçersiz reddetmediğini olduğunu unutmayın.|Boyut yok|
 |outgoing.WNS.invalidnotificationsize|WNS Geçersiz Bildirim Boyutu Hatası|Sayı|Toplam|Bildirim yükü çok büyük (WNS durumu: 413).|Boyut yok|
-|outgoing.WNS.channelthrottled|WNS Kanal Kısıtlandı|Sayı|Toplam|Bildirim, kayıttaki Channelurı kısıtlandığı için bırakıldı (WNS yanıt üst bilgisi: x - WNS - Channelthrottled).|Boyut yok|
+|outgoing.WNS.channelthrottled|WNS Kanal Kısıtlandı|Sayı|Toplam|Bildirim, kayıttaki Channelurı kısıtlandığı için bırakıldı (WNS yanıt üst bilgisi: X-WNS-NotificationStatus:channelThrottled).|Boyut yok|
 |outgoing.wns.channeldisconnected|WNS Kanal Bağlantısı Kesildi|Sayı|Toplam|Bildirim, kayıttaki Channelurı kısıtlandığı için bırakıldı (WNS yanıt üst bilgisi: X-WNS-DeviceConnectionStatus: bağlantısı kesildi).|Boyut yok|
 |outgoing.WNS.dropped|WNS Bırakılan Bildirimler|Sayı|Toplam|Bildirim, kayıttaki ChannelURI kısıtlandığı için bırakıldı (X-WNS-NotificationStatus: bırakıldı, ancak X-WNS-DeviceConnectionStatus: bağlantısı kesildi durumda değil).|Boyut yok|
 |outgoing.wns.pnserror|WNS Hataları|Sayı|Toplam|Bildirim, WNS ile iletişim kurulurken oluşan hatalardan dolayı teslim edilemedi.|Boyut yok|
@@ -1089,14 +1089,14 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |outgoing.apns.pnserror|APNS Hataları|Sayı|Toplam|APNS ile iletişim kurulurken oluşan hatalardan dolayı başarısız olan gönderim sayısı.|Boyut yok|
 |outgoing.GCM.Success|GCM Başarılı Bildirimler|Sayı|Toplam|Başarılı olan tüm bildirimlerin sayısı.|Boyut yok|
 |outgoing.GCM.invalidcredentials|GCM Yetkilendirme Hataları (Geçersiz Kimlik Bilgileri)|Sayı|Toplam|PNS belirtilen kimlik bilgilerini kabul etmediği veya kimlik bilgileri engellendiği için başarısız olan gönderim sayısı.|Boyut yok|
-|outgoing.GCM.badchannel|GCM Geçersiz Kanal Hatası|Sayı|Toplam|Kayıttaki RegistrationId tanınmadığı için başarısız olan gönderim sayısı (GCM sonucu: Geçersiz kayıt).|Boyut yok|
+|outgoing.gcm.badchannel|GCM Geçersiz Kanal Hatası|Sayı|Toplam|Kayıttaki RegistrationId tanınmadığı için başarısız olan gönderim sayısı (GCM sonucu: Geçersiz kayıt).|Boyut yok|
 |outgoing.GCM.expiredchannel|GCM Süresi Dolan Kanal Hatası|Sayı|Toplam|Kayıttaki RegistrationId süresi dolduğu için başarısız olan gönderim sayısı (GCM sonucu: NotRegistered).|Boyut yok|
 |outgoing.GCM.throttled|GCM Kısıtlanan Bildirimler|Sayı|Toplam|GCM bu uygulamayı kısıtladığı için başarısız olan gönderim sayısı (GCM durum kodu: 501-599 veya sonucu: kullanılamaz).|Boyut yok|
 |outgoing.GCM.invalidnotificationformat|GCM Geçersiz Bildirim Biçimi|Sayı|Toplam|Yük doğru bir şekilde biçimlendirilmediği için başarısız olan gönderim sayısı (GCM sonucu: Invaliddatakey veya Invalidttl).|Boyut yok|
 |outgoing.GCM.invalidnotificationsize|GCM Geçersiz Bildirim Boyutu Hatası|Sayı|Toplam|Yük fazla büyük olduğu için başarısız olan gönderim sayısı (GCM sonucu: MessageTooBig).|Boyut yok|
 |outgoing.gcm.wrongchannel|GCM Yanlış Kanal Hatası|Sayı|Toplam|Kayıttaki RegistrationId geçerli uygulamayla ilişkili olmadığı için başarısız olan gönderim sayısı (GCM sonucu: Invalidpackagename).|Boyut yok|
 |outgoing.gcm.pnserror|GCM Hataları|Sayı|Toplam|GCM ile iletişim kurulurken oluşan hatalardan dolayı başarısız olan gönderim sayısı.|Boyut yok|
-|outgoing.GCM.authenticationerror|GCM Kimlik Doğrulaması Hataları|Sayı|Toplam|PNS belirtilen kimlik kimlik bilgilerini kabul etmediği için başarısız olan gönderim sayısı engellendiği veya Senderıd uygulamada doğru yapılandırılmamış (GCM sonucu: Mismatchedsenderıd).|Boyut yok|
+|outgoing.gcm.authenticationerror|GCM Kimlik Doğrulaması Hataları|Sayı|Toplam|PNS belirtilen kimlik kimlik bilgilerini kabul etmediği için başarısız olan gönderim sayısı engellendiği veya Senderıd uygulamada doğru yapılandırılmamış (GCM sonucu: MismatchedSenderId).|Boyut yok|
 |outgoing.mpns.Success|MPNS Başarılı Bildirimler|Sayı|Toplam|Başarılı olan tüm bildirimlerin sayısı.|Boyut yok|
 |outgoing.mpns.invalidcredentials|MPNS Geçersiz Kimlik Bilgileri|Sayı|Toplam|PNS belirtilen kimlik bilgilerini kabul etmediği veya kimlik bilgileri engellendiği için başarısız olan gönderim sayısı.|Boyut yok|
 |outgoing.mpns.badchannel|MPNS Geçersiz Kanal Hatası|Sayı|Toplam|Kayıttaki Channelurı tanınmadığı için başarısız olan gönderim sayısı (MPNS durumu: (404 bulunamadı).|Boyut yok|
@@ -1269,7 +1269,7 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |xtp_storage_percent|Bellek içi OLTP depolama yüzdesi|Yüzde|Ortalama|Bellek içi OLTP depolama yüzdesi|Boyut yok|
 |workers_percent|Çalışan yüzde|Yüzde|Ortalama|Çalışan yüzde|Boyut yok|
 |sessions_percent|Oturumları yüzdesi|Yüzde|Ortalama|Oturumları yüzdesi|Boyut yok|
-|dtu_limit|DTU sınırı|Sayı|Ortalama|DTU sınırı|Boyut yok|
+|dtu_limit|DTU Limit|Sayı|Ortalama|DTU Limit|Boyut yok|
 |dtu_used|Kullanılan DTU|Sayı|Ortalama|Kullanılan DTU|Boyut yok|
 |dwu_limit|DWU limiti|Sayı|Maksimum|DWU limiti|Boyut yok|
 |dwu_consumption_percent|DWU yüzdesi|Yüzde|Maksimum|DWU yüzdesi|Boyut yok|
@@ -1573,3 +1573,4 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 * [Azure İzleyici'de ölçümleri hakkında bilgi edinin](../../azure-monitor/platform/data-collection.md)
 * [Ölçümler üzerinde uyarı oluşturma](../../azure-monitor/platform/alerts-overview.md)
 * [Depolama, olay hub'ı veya Log Analytics ölçümleri dışarı aktarma](../../azure-monitor/platform/diagnostic-logs-overview.md)
+

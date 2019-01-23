@@ -1,6 +1,6 @@
 ---
 title: Yayımlama Portalı'nda uygulamanızı kurma | Microsoft Docs
-description: Bulut Yayımlama Portalı'nda, geçirmelerinden ayarlama yönergeleri.
+description: Uygulamanızı buluta Yayımlama Portalı'nda ayarlama yönergeleri.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
 author: pbutlerm
@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 9386f0e0bf552789b027df96e9e54ebcf31d7d34
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 7b5bb0bf8ff5fac10c47cf5bdf9564903f4d6b94
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811336"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448492"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>Yayımlama Portalı'nda uygulamanızı kurma
 
@@ -82,9 +82,9 @@ Bunların çoğu yayımcılar bırakır varsayılan değerleri, kullanıcı, Hay
 
 Bu alanlar için bir açıklama aşağıda verilmiştir:
 
-* Dosya adı paketinizin: Yukarıdaki adımda oluşturduğunuz ZIP dosyası oluşturma CRM AppSource paketiniz olduğunda dosya adı. Yukarıdaki örnekte olduğu "Microsoft\_SamplePackage.zip".
-* URL, paket konum: Bu paket, yukarıda belirtilen dosya adını içeren Azure depolama hesabına URL'dir. Yukarıdaki bölümde adım 9'da oluşturulan URL'dir.
-* Birden fazla crm paketin paket dosyanızda yoktur: Evet seçin **yalnızca** crm farklı paketleri ile birden çok sürümünü destekleniyorsa. Çoğu iş ortakları için bu "Hayır" olacaktır. Evet'i seçerseniz, çözümünüzün her sürüm için AppSource paketleri oluşturmanız gerekir. _Not: Bu birden fazla varsa istemesi olmadığını **zip** dosyaları. Yalnızca bir sürümü ancak birden çok solution.zip dosyanız varsa, yine de "Hayır" seçmeniz gerekir Paketleme aracı bunlar birlikte otomatik olarak çıkarır._
+* Paketinin dosya adı: Dosya adı ZIP dosyası oluşturma CRM AppSource paketiniz olduğunda ve Yukarıdaki adımda oluşturduğunuz. Yukarıdaki örnekte olduğu "Microsoft\_SamplePackage.zip".
+* Paket konumunuzun URL'si: Bu, yukarıda belirtilen paket dosya adını içeren Azure depolama hesabına URL'dir. Yukarıdaki bölümde adım 9'da oluşturulan URL'dir.
+* Paket dosyanızda birden fazla crm paket vardır: Evet'i seçerek **yalnızca** crm farklı paketleri ile birden çok sürümünü destekleniyorsa. Çoğu iş ortakları için bu "Hayır" olacaktır. Evet'i seçerseniz, çözümünüzün her sürüm için AppSource paketleri oluşturmanız gerekir. _Not: Bu, birden fazla varsa istemesi olmadığını **zip** dosyaları. Yalnızca bir sürümü ancak birden çok solution.zip dosyanız varsa, yine de "Hayır" seçmeniz gerekir Paketleme aracı bunlar birlikte otomatik olarak çıkarır._
 
 ### <a name="crm-package-availability"></a>CRM paket kullanılabilirlik
 
@@ -184,7 +184,7 @@ Uygulamanız için destek URL'sini girin.
 
 ### <a name="lead-destination"></a>Hedef yol
 
-Select neden olduğu bir CRM sistemine depolanır. "Azure tablo" aşağıdaki CRM sistemleri birine sahipseniz burada seçtiğiniz: Salesforce, Marketo, Microsoft Dynamics CRM. Burada seçtiğiniz CRM biz uygulamanızı appsource'ta (müşteri adayları) deneyin son kullanıcıların ayrıntıları burada yazacak sistemidir. CRM sistemine bağlı olarak seçin, karşılık gelen URL'yi aşağıya alanlar sonraki kümesini tamamlamak hakkında daha fazla bilgi için tıklayın
+Select neden olduğu bir CRM sistemine depolanır. "Azure tablo", aşağıdaki CRM sistemleri birine sahipseniz burada seçin: Salesforce, Marketo, Microsoft Dynamics CRM. Burada seçtiğiniz CRM biz uygulamanızı appsource'ta (müşteri adayları) deneyin son kullanıcıların ayrıntıları burada yazacak sistemidir. CRM sistemine bağlı olarak seçin, karşılık gelen URL'yi aşağıya alanlar sonraki kümesini tamamlamak hakkında daha fazla bilgi için tıklayın
 
 * [Azure tablosu](./cloud-partner-portal-lead-management-instructions-azure-table.md)
 * [Marketo](./cloud-partner-portal-lead-management-instructions-marketo.md)

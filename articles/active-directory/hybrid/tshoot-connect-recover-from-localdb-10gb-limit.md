@@ -1,10 +1,10 @@
 ---
-title: "Azure AD Connect: 10 GB sınırı sorunundan Localdb'den kurtarmak nasıl | Microsoft Docs"
+title: "Azure AD Connect: 10 GB sınırı sorunundan Localdb'den kurtarma | Microsoft Docs"
 description: Bu konu, Azure AD Connect eşitleme hizmeti LocalDB 10 GB karşılaştığında kurtarmak açıklar sorunu sınırlayın.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 41d081af-ed89-4e17-be34-14f7e80ae358
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 410559ab03f0e0be71f2eba27ed71c9f7cf05862
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 445137d268650f71bdc4d64342bc23d2b6da6daa
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238548"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474683"
 ---
-# <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: LocalDB 10 GB sınırından kurtarma nasıl
+# <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: LocalDB 10 GB sınırından kurtarma
 Azure AD Connect’e kimlik verilerini depolamak için bir SQL Server veritabanı gerekiyor. Azure AD Connect ile yüklenen varsayılan SQL Server 2012 Express LocalDB’yi kullanabileceğiniz gibi, kendi tam SQL’nizi de kullanabilirsiniz. SQL Server Express 10 GB boyut sınırını uygular. LocalDB’yi kullanırken bu sınıra ulaşıldığında, Azure AD Connect Eşitleme Hizmeti artık düzgün başlatılamaz veya eşitleme yapamaz. Bu makalede, Kurtarma adımları sağlar.
 
 ## <a name="symptoms"></a>Belirtiler
@@ -100,7 +100,7 @@ Bu adım, birden çok eşitleme döngülerinizin sonra 10 GB sınırına sorunu 
 ## <a name="long-term-solution--migrate-to-full-sql"></a>Uzun süreli çözüm – tam SQL'e geçirme
 Genel olarak, sorunu 10 GB veritabanı boyutu artık şirket içi Active Directory'nizi Azure ad eşitleme Azure AD Connect için yeterli olduğunu gösterir. SQL server'ın tam sürümünü kullanmaya geçmeniz özellikle önerilir. Mevcut Azure AD Connect dağıtımının LocalDB’sini doğrudan tüm SQL sürümünün veritabanıyla değiştiremezsiniz. Bunun yerine, tam SQL sürümü içeren yeni bir Azure AD Connect sunucusu dağıtmanız gerekir. Yeni Azure AD Connect sunucusunun (SQL DB ile), mevcut Azure AD Connect sunucusunun (LocalDB ile) yanında hazırlık sunucusu olarak dağıtıldığı durumlarda, Swing geçişi yapmanız önerilir. 
 * Azure AD Connect ile uzak SQL’i yapılandırma yönergeleri için, [Azure AD Connect özel yüklemesi](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-custom) makalesine bakın.
-* Azure AD Connect yükseltmesinde Swing geçişi için, [Azure AD Connect: Önceki bir sürümden en son sürümü yükseltme](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version#swing-migration) makalesine bakın.
+* Swing geçişi için Azure AD Connect yükseltme yönergeleri için makalesine bakın [Azure AD Connect: En son önceki sürümden yükseltme](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version#swing-migration).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](whatis-hybrid-identity.md) hakkında daha fazla bilgi edinin.

@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
-ms.component: logs
-ms.openlocfilehash: 009ad79e6e0bddaa5d736e7375fad80ae015f8c5
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.subservice: logs
+ms.openlocfilehash: 8f4b39141a9509990525769833e2cd193419752c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53578718"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469381"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Stream Log analytics'e Azure tanılama günlükleri
 
@@ -73,7 +73,7 @@ Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -WorkspaceID [resour
 
 Tam Azure kaynak kimliği değil çalışma alanı kimliği/anahtarı Log Analytics Portalı'nda gösterilen çalışma alanının çalışma alanı kimliği özelliği aldığını unutmayın.
 
-### <a name="via-azure-cli"></a>Azure CLI
+### <a name="via-azure-cli"></a>Via Azure CLI
 
 Aracılığıyla akışını etkinleştirmek için [Azure CLI](../../azure-monitor/platform/cli-samples.md), kullanabileceğiniz [az İzleyici diagnostic-settings oluşturma](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) komutu.
 
@@ -101,3 +101,4 @@ Portalında veya Gelişmiş analiz deneyimi Log analytics'in bir parçası olara
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Azure Tanılama Günlükleri](diagnostic-logs-overview.md)
+

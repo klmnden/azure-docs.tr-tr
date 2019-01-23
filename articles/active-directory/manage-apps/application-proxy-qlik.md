@@ -4,7 +4,7 @@ description: Azure portalında uygulama ara sunucusunu etkinleştirmek ve için 
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.date: 09/06/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: d382a71de34e6c1527d810b0576e518b9101cf7d
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 6d370f9fb7fc67c9df5e08a06de38db8e97c6fb0
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53132763"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471914"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Uygulama Ara sunucusu ve Qlik Sense 
 Azure Active Directory Uygulama Ara sunucusu ve Qlik Sense kolayca Qlik Sense dağıtımınız için uzaktan erişim sağlamak için uygulama ara sunucusu kullanmanız mümkün olduğundan emin olmak için birlikte kurdu.  
@@ -51,15 +51,15 @@ Uygulamanızı yayımlamak için aşağıdaki adımları izleyin. 1-8, bkz: adı
 ### <a name="application-2"></a>Uygulama #2: 
 Aşağıdaki istisnalarla birlikte uygulama #1 olduğu gibi aynı adımları izleyin: 
 
-**#5. adım**: İç URL QlikSense URL'si uygulama tarafından kullanılan kimlik doğrulaması bağlantı noktası ile artık olmalıdır. Varsayılan değer **4244** HTTPS ve HTTP için 4248. Örn: **https&#58;//demo.qlik.com:4244**</br></br>**#10. adım:** kullanmayın SSO'yu ayarlama ve bırakın **çoklu oturum açma devre dışı** 
-
+**#5. adım**: İç URL, artık uygulama tarafından kullanılan kimlik doğrulaması bağlantı noktası ile QlikSense URL olmalıdır. Varsayılan değer **4244** HTTPS ve HTTP için 4248. Örn: **https&#58;//demo.qlik.com:4244**</br></br> 
+ **#10. adım:** Yoksa SSO'yu ayarlama ve bırakın **çoklu oturum açma devre dışı**
  
  
 ## <a name="testing"></a>Test Etme 
 Uygulamanızı şimdi test etmek hazırdır. Her iki uygulama için atanan bir kullanıcı olarak uygulama #1 ve oturum açma QlikSense yayımlamak için kullanılan dış URL erişin.  
 
 ## <a name="additional-references"></a>Ek başvurular
-Uygulama Ara sunucusu ile uygulama yayımlama Qlik Sense hakkında daha fazla bilgi için Qlik topluluk makalesine bakın: [Azure AD ile tümleşik Windows Qlik Sense ile Kerberos kısıtlanmış temsil kullanarak kimlik doğrulaması](https://community.qlik.com/docs/DOC-20183).
+Uygulama Ara sunucusu ile uygulama yayımlama Qlik Sense hakkında daha fazla bilgi için Qlik topluluk makaleye başvurun: [Azure AD ile tümleşik Windows Qlik Sense ile Kerberos kısıtlanmış temsil kullanarak kimlik doğrulaması](https://community.qlik.com/docs/DOC-20183).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

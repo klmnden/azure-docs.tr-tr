@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/17/2018
-ms.openlocfilehash: 1a0be03c278a152ea56fe0dac5277c39a0878057
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 7d5630c082c044ac936f555965aec5a2a00f3544
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412521"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448729"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>SQL Server Integration Services (SSIS) kullanarak U-SQL işleri
 
@@ -40,7 +40,7 @@ SSIS yerleşik işlevleri kullanarak U-SQL betiği farklı yerden alabilirsiniz 
 
 ## <a name="scenario-1-use-inline-script-call-tvfs-and-stored-procs"></a>Senaryo 1-kullanımı satır içi betik çağrısı tvf ve saklı yakalar
 
-Azure Data Lake Analytics görev Düzenleyicisi'nde, yapılandırma **SourceType** olarak **DirectInput**, U-SQL deyimleri içine yerleştirin **USQLStatemnt**.
+Azure Data Lake Analytics görev Düzenleyicisi'nde, yapılandırma **SourceType** olarak **DirectInput**, U-SQL deyimleri içine yerleştirin **USQLStatement**.
 
 Kolay bakım ve yalnızca kısa bir U-SQL betiği satır içi komut dosyaları, put, kod yönetimi için örneğin, var olan tablo değerli işlevler ve saklı yordamlar, U-SQL veritabanlarınızda çağırabilirsiniz. 
 

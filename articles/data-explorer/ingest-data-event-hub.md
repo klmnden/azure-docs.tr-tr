@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: b33a646c52ca5ce85e0525b04e9be5009cc6f90d
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 11c6f421e2eb1c3e508868d4a87f838781bda8e2
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352946"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478459"
 ---
 # <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Hızlı Başlangıç: Azure veri Gezgini'ne olay Hub'ından veri alma
 
@@ -37,7 +37,7 @@ Azure Veri Gezgini, günlük ve telemetri verileri için hızlı ve yüksek oran
 
 Bu hızlı başlangıçta örnek veri oluşturacak ve bir olay hub'ına göndereceksiniz. İlk adım bir olay hub'ı oluşturmaktır. Bunun için Azure portalda bir Azure Resource Manager şablonu kullanacaksınız.
 
-1. Bir olay hub'ı oluşturmak için dağıtımı başlatmak için aşağıdaki düğmeyi kullanın. Sağ tıklayıp **yeni pencerede aç** başka bir sekmesinde veya penceresinde, bu makaledeki adımlarda geri kalanını izleyebilmeniz bağlantı.
+1. Bir olay hub'ı oluşturmak için dağıtımı başlatmak için aşağıdaki düğmeyi kullanın. Sağ tıklayıp **yeni pencerede aç**, geri kalanını bu makaledeki adımları izleyebilirsiniz.
 
     [![Azure’a dağıtma](media/ingest-data-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 

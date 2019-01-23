@@ -2,10 +2,10 @@
 title: Azure AD Connect - güncelleştirme SSL sertifikası için bir AD FS grubu | Microsoft Docs
 description: Bu belge Azure AD Connect kullanarak bir AD FS grubunun SSL sertifikasını güncelleştirmek için adımları açıklanmaktadır.
 services: active-directory
-manager: mtillman
+manager: daveba
 editor: billmath
 ms.assetid: 7c781f61-848a-48ad-9863-eb29da78f53c
-ms.service: active-directory
+ms.service: active-directory  
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.component: hybrid
 author: billmath
 ms.custom: seohack1
 ms.author: billmath
-ms.openlocfilehash: 8320eae9e1c12123a4379887124dee810998c4e3
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: cd9d20065c0be580c415100fae470b362b19a3de
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314506"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474617"
 ---
 # <a name="update-the-ssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>Active Directory Federasyon Hizmetleri (AD FS) grubu için SSL sertifikasını güncelleştirme
 
@@ -42,7 +42,7 @@ Tüm Federasyon ve üç basit adımda Web uygulaması Ara sunucusu (WAP) sunucul
 
 ![SSL görevi güncelleştir](./media/how-to-connect-fed-ssl-update/updatessltask.png)
 
-## <a name="step-1-provide-ad-fs-farm-information"></a>1. adım: AD FS grubu bilgileri sağlayın
+## <a name="step-1-provide-ad-fs-farm-information"></a>1. Adım: AD FS grubu bilgileri sağlayın
 
 Azure AD Connect tarafından otomatik olarak AD FS grubu hakkında bilgi edinmek çalışır:
 1. (Windows Server 2016 veya sonraki sürümleri) AD FS grubu bilgileri Sorgulanıyor.
@@ -59,7 +59,7 @@ Listede artık AD FS grubunun parçası olan bir sunucunuz varsa, tıklayın **K
 >[!NOTE]
 > Bir sunucu için bir AD FS grubunu Azure AD CONNECT'te sunucuların listesinden kaldırmak, yerel bir işlemdir ve Azure AD Connect yerel olarak tutar AD FS grubu bilgileri güncelleştirir. Azure AD Connect değişimi yansıtmak için AD FS yapılandırmasını değiştirmez.    
 
-## <a name="step-2-provide-a-new-ssl-certificate"></a>2. adım: yeni bir SSL sertifikası sağlayın
+## <a name="step-2-provide-a-new-ssl-certificate"></a>2. Adım: Yeni bir SSL sertifikası sağlayın
 
 Azure AD Connect, AD FS grubunun sunucuları hakkında bilgi onayladıktan sonra yeni SSL sertifikası için sorar. Yüklemeye devam etmek için bir parola korumalı PFX sertifikası sağlayın.
 
@@ -72,7 +72,7 @@ Sertifika verdikten sonra Azure AD Connect önkoşulları bir dizi gider. Sertif
 -   Sertifikanın güven zincirinde geçerli değil.
 -   Parola korumalı sertifikadır.
 
-## <a name="step-3-select-servers-for-the-update"></a>3. adım: güncelleştirme için sunucuları seçin
+## <a name="step-3-select-servers-for-the-update"></a>3. Adım: Güncelleştirme sunucularını seçin
 
 Sonraki adımda, güncelleştirilmiş SSL sertifikasına sahip olmasını gerektiren sunucuları seçin. Çevrimdışı olan sunucuları güncelleştirmesi seçilemez.
 

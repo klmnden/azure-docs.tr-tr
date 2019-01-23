@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect: desteklenen topolojiler | Microsoft Docs'
+title: 'Azure AD Connect: Desteklenen topolojiler | Microsoft Docs'
 description: Bu konu Azure AD Connect için topolojiler desteklenen ve desteklenmeyen ayrıntıları
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 1034c000-59f2-4fc8-8137-2416fa5e4bfe
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 74b2cea8e3adfb6689d4ac7049e7892f8f0ecf4a
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: be53e26d6277465836163b43fc5ab2529c67deef
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582642"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470197"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Azure AD Connect için topolojiler
 Bu makalede, çeşitli şirket içi ve Azure AD Connect eşitleme anahtar tümleştirme çözümü olarak kullanan Azure Active Directory (Azure AD) topolojileri açıklanır. Bu makale, desteklenen ve desteklenmeyen yapılandırmalar içerir.

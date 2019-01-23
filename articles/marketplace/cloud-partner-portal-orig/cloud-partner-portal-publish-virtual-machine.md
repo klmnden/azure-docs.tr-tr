@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 519867b1e0607a769948c86af263c172e810d107
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 9a2512c488ac368205da11d79de479a888735729
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078125"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448712"
 ---
 # <a name="publish-a-virtual-machine-to-azure-marketplace"></a>Bir sanal makine, Azure Market'te yayımlama
 
@@ -84,7 +84,7 @@ Bir SKU üst teklifi Azure Marketi bölümünde gösterilir ve Azure Portalı'nd
     - Teklif ayarları
     - SKU'lar
     - Market
-    - Destek alanları doldurmak size bir dizi her görünümü içerir. Gerekli alanları bir kırmızı yıldız gösterilir (\*)
+    - Destek alanları doldurmak size bir dizi her görünümü içerir. Gerekli alanları kırmızı yıldız işaretiyle gösterilir (\*)
 
 ## <a name="to-configure-offer-settings"></a>Teklif ayarları yapılandırmak için
 

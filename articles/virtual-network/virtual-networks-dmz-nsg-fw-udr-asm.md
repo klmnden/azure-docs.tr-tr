@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: 9c2ebcfc376456f63896ebae8331136aff0cdb99
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 36d6733ddc73ace2026ea838cf8f701db95469e6
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119450"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448475"
 ---
 # <a name="example-3--build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg"></a>Örnek 3: ağları bir güvenlik duvarı, UDR ve NSG ile korunacak bir DMZ oluşturma
 [Güvenlik sınırı en iyi yöntemler sayfasına geri dönün][HOME]
@@ -110,7 +110,7 @@ Bu örnek için aşağıdaki komutları yol tablosu oluşturun, bir kullanıcı 
 
 1. İlk temel yönlendirme tablosunun oluşturulması gerekir. Bu kod parçacığı, arka uç alt ağı için bir tablo oluşturulmasını gösterir. Betikte, karşılık gelen bir tablo için ön uç alt ağı da oluşturulur.
    
-     Yeni AzureRouteTable-ad $BERouteTableName '
+     New-AzureRouteTable -Name $BERouteTableName `
    
          -Location $DeploymentLocation `
          -Label "Route table for $BESubnet subnet"
@@ -153,7 +153,7 @@ IP iletimi ayarlama, tek bir komuttur ve VM oluşturma sırasında yapılabilir.
 
 1. Bu durumda, bir sanal gereç, güvenlik duvarı olan VM örneği çağırın ve IP iletimini etkinleştirmeniz (Not; bir dolar işareti olan kırmızı başlayan herhangi bir öğeyi (örneğin: $VMName[0]) olan bir kullanıcı tanımlı değişken başvuru bölümünde, bu belgenin komut dosyası. "[0], parantez içine sıfır değişiklik olmadan çalışmaya örnek betiği sanal makinelerin dizideki ilk VM temsil eder, güvenlik duvarı ilk sanal makine (VM 0) olması gerekir):
    
-     Get-AzureVM-$VMName [0] - ServiceName $ServiceName [0] adı | `
+     Get-AzureVM -Name $VMName[0] -ServiceName $ServiceName[0] | `
    
         Set-AzureIPForwarding -Enable
 
@@ -777,7 +777,7 @@ Bu PowerShell Betiği, bilgisayar veya sunucu bir İnternet'e bağlı yerel olar
         $FatalError = $true}
     Else { Write-Host "The network config file was found" -ForegroundColor Green
             If (-Not (Select-String -Pattern $DeploymentLocation -Path $NetworkConfigFile)) {
-                Write-Host 'The deployment location was not found in the network config file, please check the network config file to ensure the $DeploymentLocation varible is correct and the netowrk config file matches.' -ForegroundColor Yellow
+                Write-Host 'The deployment location was not found in the network config file, please check the network config file to ensure the $DeploymentLocation variable is correct and the network config file matches.' -ForegroundColor Yellow
                 $FatalError = $true}
             Else { Write-Host "The deployment location was found in the network config file." -ForegroundColor Green}}
 

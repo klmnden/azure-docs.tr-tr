@@ -4,7 +4,7 @@ description: Azure AD uygulama ara sunucusu bağlayıcıları ile ilgili temel b
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.date: 05/04/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 73854cba151dfbebe53862a39fbe980502192c2d
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 6476793bc0c7398bb407a8ad2b245f48613717b7
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230072"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461561"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Azure AD uygulama ara sunucusu ile yayımlanan uygulamalar için sabit kodlanmış bağlantıları yeniden yönlendirin
 
@@ -35,7 +35,7 @@ Bağlantılar aynı hem iç hem de Şirket ağınızın dışında çalıştığ
 
 **2. seçenek: MyApps uzantısının kullanılması** – bir istemci-tarafı tarayıcı uzantısını yüklemek kullanıcıların bu çözümü gerektirir, ancak tüm yayımlanan URL'ler ve en popüler tarayıcılarla çalışır işleyecek. 
 
-**Seçenek 3: bağlantı çeviri ayarını kullanacak** – kullanıcılarına görünür hale gelen bir yönetici yan ayar budur. Ancak, yalnızca HTML ve CSS URL'lerinde işleyeceği. Oluşturulan JavaScript iç URL'leri sabit kodlanmış (örneğin) işe yaramaz.  
+**Seçenek 3: Bağlantı çeviri ayarı kullanmak** – kullanıcılarına görünür hale gelen bir yönetici yan ayar budur. Ancak, yalnızca HTML ve CSS URL'lerinde işleyeceği. Oluşturulan JavaScript iç URL'leri sabit kodlanmış (örneğin) işe yaramaz.  
 
 Bu üç özellik, kullanıcılarınızın nerede olursa olsun çalışma bağlantılarınızı tutun. Doğrudan iç uç nokta veya bağlantı noktası uygulamalar varsa, bu iç URL'leri yayımlanan dış uygulama ara sunucusu URL'leri eşleyebilirsiniz. 
 
@@ -46,7 +46,7 @@ Bu üç özellik, kullanıcılarınızın nerede olursa olsun çalışma bağlan
 >Veya uygulamayı yapılandırmak gerekirse bağlantıyla çeviri SharePoint için bkz. [SharePoint 2013 için alternatif erişim eşlemelerini yapılandırma](https://technet.microsoft.com/library/cc263208.aspx) eşleme bağlantıları için başka bir yaklaşım. 
 
  
-### <a name="option-1-intune-managed-browser-integration"></a>1. seçenek: Tarayıcı tümleştirme Intune yönetilen 
+### <a name="option-1-intune-managed-browser-integration"></a>1. seçenek: Intune yönetilen tarayıcı tümleştirme 
 
 Daha fazla uygulama ve içerik korumak için Intune Managed Browser'ı kullanabilirsiniz. Bu çözümü kullanmak için kullanıcı erişimi Intune Managed Browser üzerinden uygulama gerektir/öneri gerekir. Uygulama Ara sunucusu ile yayımlanan tüm iç URL'lerin Managed Browser tarafından tanınan ve karşılık gelen dış URL'ye yeniden yönlendirilen. Bu, tüm sabit kodlanmış iç URL'leri çalışır ve bir kullanıcı, tarayıcıya gider ve doğrudan İç URL türleri kullanıcı uzak olsa bile çalıştığını sağlar.  
 
@@ -85,7 +85,7 @@ Bağlantı çevirisi özelliğini yalnızca bir uygulamanın gövdesindeki kod e
 
 Böylece uygulama başına düzeyinde kullanıcı deneyimi üzerinde denetime sahip bağlantı çeviri her uygulama için etkinleştirilir. Bir uygulama için bağlantı çeviri bağlantılar istediğinizde Aç *gelen* değil çevrilmesi için bu uygulama bağlantılar *için* bu uygulama. 
 
-Örneğin, uygulama tüm birbirine bağlamasını Proxy üzerinden yayımlanan üç uygulama olduğunu varsayın: avantajları, giderleri ve seyahat. Dördüncü bir uygulama, uygulama proxy'si aracılığıyla yayımlandığından değilse geri bildirim yoktur.
+Örneğin, uygulama tüm birbirine bağlamasını Proxy üzerinden yayımlanan üç uygulama olduğunu varsayalım: Avantajları, giderleri ve seyahat. Dördüncü bir uygulama, uygulama proxy'si aracılığıyla yayımlandığından değilse geri bildirim yoktur.
 
 Bağlantı çeviri avantajları uygulama için etkinleştirdiğinizde, giderleri ve seyahat bağlanan dış URL'leri bu uygulamalarda yönlendirilir, ancak hiçbir dış URL olduğundan geri bildirim bağlantısını yeniden yönlendirilmediği. Bağlantı çeviri bu iki uygulama için etkin değil çünkü geri avantajları için giderleri ve seyahat bağlantıları çalışmaz.
 

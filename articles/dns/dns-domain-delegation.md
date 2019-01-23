@@ -1,24 +1,17 @@
 ---
-title: Azure DNS temsilcisine genel bakış | Microsoft Docs
+title: Azure DNS temsilcisine genel bakış
 description: Etki alanı temsilcisi seçiminin nasıl değiştirileceğini ve etki alanı barındırma sağlamak üzere Azure DNS ad sunucularının nasıl kullanılacağını anlayın.
 services: dns
-documentationcenter: na
 author: vhorne
-manager: jeconnoc
-ms.assetid: 257da6ec-d6e2-4b6f-ad76-ee2dde4efbcc
 ms.service: dns
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 12/18/2017
+ms.date: 1/22/2019
 ms.author: victorh
-ms.openlocfilehash: a00cc00dee3a505f88abef3ecf99f49aa027c30b
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
-ms.translationtype: HT
+ms.openlocfilehash: d1de1212280c6767862233f990c9fc5e0cf97473
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39170513"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461043"
 ---
 # <a name="delegation-of-dns-zones-with-azure-dns"></a>Azure DNS ile DNS bölgelerinin temsilciliği
 
@@ -58,13 +51,16 @@ Aşağıdaki resimde örnek bir DNS sorgusu gösterilir. Contoso.net ve partners
 ![Dns-nameserver](./media/dns-domain-delegation/image1.png)
 
 1. İstemci, yerel DNS sunucusundan `www.partners.contoso.net` ister.
-1. Yerel DNS sunucusunda kayıt yoktur, dolayısıyla kendi kök ad sunucusundan istekte bulunur.
-1. Kök ad sunucusunda kayıt yoktur, ama `.net` ad sunucusunun adresini bilir ve bu adresi DNS sunucusuna sağlar
-1. DNS isteği `.net` ad sunucusuna gönderir; onda kayıt yoktur ama contoso.net ad sunucusunun adresini biliyordur. Bu durumda, Azure DNS’de barındırılan bir DNS bölgesidir.
-1. `contoso.net` bölgesinde kayıt yoktur ama `partners.contoso.net` için ad sunucusunun adını biliyordur ve bununla yanıt verir. Bu durumda, Azure DNS’de barındırılan bir DNS bölgesidir.
-1. DNS sunucusu, `partners.contoso.net` bölgesinden `partners.contoso.net`’in IP adresini ister. A kaydını içeriyordur ve IP adresiyle yanıt verir.
-1. DNS sunucusu IP adresini istemciye sağlar
-1. İstemci `www.partners.contoso.net` web sitesine bağlanır.
+2. Yerel DNS sunucusunda kayıt yoktur, dolayısıyla kendi kök ad sunucusundan istekte bulunur.
+3. Kök ad sunucusunda kayıt yoktur, ama `.net` ad sunucusunun adresini bilir ve bu adresi DNS sunucusuna sağlar
+4. Yerel DNS sunucusu isteği gönderir `.net` ad sunucusu.
+5. `.net` Ad sunucusu kaydı yok ancak adresini bilir `contoso.net` ad sunucusu. Bu durumda, Azure DNS'de barındırılan DNS bölgesi için ad sunucusu adresi ile yanıt verir.
+6. Yerel DNS sunucusu için ad sunucusu isteği gönderir `contoso.net` Azure DNS'de barındırılan bir bölge.
+7. Bölge `contoso.net` kayıt yoktur ancak için ad sunucusu bilir `partners.contoso.net` ve adresiyle yanıt verir. Bu durumda, Azure DNS'de barındırılan bir DNS bölgesi olur.
+8. Yerel DNS sunucusu için ad sunucusu isteği gönderir `partners.contoso.net` bölge.
+9. `partners.contoso.net` Bölgesi A kaydı ve IP adresiyle yanıt verir.
+10. Yerel DNS sunucusunun IP adresini istemciye sağlar.
+11. İstemci `www.partners.contoso.net` web sitesine bağlanır.
 
 Her temsilci seçimi aslında NS kayıtlarının iki kopyasını içerir, bunlardan biri üst bölgede bulunup alt bölgeyi işaret ederken diğeri de alt bölgede yer alır. "Contoso.net" bölgesi, "contoso.net"e ait NS kayıtlarını içerir ("net"teki NS kayıtlarına ek olarak). Bu kayıtlar yetkili NS kayıtları olarak adlandırılır ve alt bölgenin tepesinde durur.
 
