@@ -4,7 +4,7 @@ description: Azure Active Directory etki alanı Azure portalını kullanarak Ser
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: ergreenl
-ms.openlocfilehash: 70dee552ec575f4969593eac4e91fdbb18b426f1
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: d73d9d269ce4c78c87e718aed752206f88276770
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156196"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54857047"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Active Directory etki alanı Azure portalını kullanarak Services'i etkinleştirme
 
@@ -44,14 +44,14 @@ Bir Azure sanal ağı ve adanmış bir alt ağ, sonraki yapılandırma görevi o
   > **Azure AD Domain Services etkinleştirildikten sonra yönetilen etki alanınıza farklı bir sanal ağa taşıyamazsınız.** Yönetilen etki alanınıza etkinleştirmek için doğru sanal ağı seçin. Yönetilen bir etki alanı oluşturduktan sonra yönetilen etki alanı silmeden farklı bir sanal ağa taşıyamazsınız. Gözden geçirme öneririz [konuları Azure Active Directory Domain Services için ağ](active-directory-ds-networking.md) devam etmeden önce.  
   >
 
-4. **Sanal ağ oluştur:** tıklayın **Yeni Oluştur** yeni bir sanal ağ oluşturmak için. Azure AD Domain Services için ayrılmış bir alt ağ kullanın. Örneğin, alt ağ içinde dağıtılan anlamak diğer yöneticiler için kolaylaştıran DomainServices', ada sahip bir alt ağ oluşturun. Tıklayın **Tamam** bitirdiğinizde.
+4. **Sanal ağ oluşturun:** Tıklayın **Yeni Oluştur** yeni bir sanal ağ oluşturmak için. Azure AD Domain Services için ayrılmış bir alt ağ kullanın. Örneğin, alt ağ içinde dağıtılan anlamak diğer yöneticiler için kolaylaştıran DomainServices', ada sahip bir alt ağ oluşturun. Tıklayın **Tamam** bitirdiğinizde.
 
     ![Sanal ağ seçin](./media/getting-started/domain-services-blade-network-pick-vnet.png)
 
   > [!WARNING]
   > Özel IP adres alanı içinde bir adres alanı seçtiğinizden emin olun. Genel Adres alanında olan olmadığınız IP adresleri, Azure AD Domain Services içinde hataya neden olur.
 
-5. **Var olan sanal ağ:** , mevcut bir sanal ağ seçin planlıyorsanız [sanal ağlar uzantısı kullanılarak ayrılmış bir alt ağ oluşturma](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet)ve ardından bu alt ağ seçin. Tıklayın **sanal ağ** var olan sanal ağı seçin. Tıklayın **alt** içinde yeni bir yönetilen etki alanınıza etkinleştirmek, var olan sanal ağınızda ayrılmış alt ağında seçmek için. Tıklayın **Tamam** bitirdiğinizde.
+5. **Var olan sanal ağı:** Mevcut bir sanal ağ seçin planlıyorsanız [sanal ağlar uzantısı kullanılarak ayrılmış bir alt ağ oluşturma](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet)ve ardından bu alt ağ seçin. Tıklayın **sanal ağ** var olan sanal ağı seçin. Tıklayın **alt** içinde yeni bir yönetilen etki alanınıza etkinleştirmek, var olan sanal ağınızda ayrılmış alt ağında seçmek için. Tıklayın **Tamam** bitirdiğinizde.
 
     ![Sanal ağ içindeki alt ağ seçin](./media/getting-started/domain-services-blade-network-pick-subnet.png)
 

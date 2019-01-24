@@ -3,23 +3,23 @@ title: Azure Service Bus kuyrukları ile çalışmaya başlama | Microsoft Docs
 description: Service Bus mesajlaşması kuyruklarını kullanan bir C# konsol uygulaması yazın.
 services: service-bus-messaging
 documentationcenter: .net
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: 68a34c00-5600-43f6-bbcc-fea599d500da
 ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 09/07/2018
-ms.author: spelluru
-ms.openlocfilehash: 1dd47dea86478c76ed5bf6f8b393964f97231908
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: 81bc37a4bbd63beda122d7254409e2b16f0e3cb1
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51226966"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852176"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Service Bus kuyrukları ile çalışmaya başlama
 
@@ -32,7 +32,7 @@ Bu öğreticide aşağıdaki adımlar yer almaktadır:
 3. Sıraya bir dizi ileti göndermek için bir .NET Core konsol uygulaması yazın.
 4. Bu iletileri kuyruktan almak için bir .NET Core konsol uygulaması yazın.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 1. [Visual Studio 2017 Güncelleştirme 3 (sürüm 15.3, 26730.01)](https://www.visualstudio.com/vs) veya sonraki sürümler.
 2. [NET Core SDK](https://www.microsoft.com/net/download/windows), sürüm 2.0 veya sonraki sürümler.

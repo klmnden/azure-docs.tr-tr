@@ -3,19 +3,19 @@ title: Başvuru - Azure Active Directory B2C'de güven çerçeveleri | Microsoft
 description: Azure Active Directory B2C özel ilkeleri ve kimlik deneyimi çerçevesi hakkındaki bir konu.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 00d2f37068c5bedb17ba9a4064d1f5058f5ab72c
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 694d463c158f8c8beb0396edf22ac749c03e9e97
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185804"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845699"
 ---
 # <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>Azure AD B2C kimlik deneyimi çerçevesi güven çerçevelerle tanımlayın
 
@@ -52,10 +52,10 @@ TFs her topluluk ilgilendiğiniz belirli bir TF belirtiminde burada tabidir aç�
 - **Dijital kimlik bilgilerini katılımcıları tarafından sunulan gerekli / açıklamasını**.
 
 - **Üretim ve tüketimini dijital kimlik bilgilerini ve bu nedenle yü ve LOP ölçmek için teknik ilkeleri. Yazılan bu ilkeler genellikle ilkeleri aşağıdaki kategorileri içerir:**
-    - İlkeler, örneğin sağlama kimlik: *kişinin kimlik bilgileri dikkatle'ne kadar güçlü olduğunu?*
-    - Güvenlik ilkeleri, örneğin: *nasıl kesin bilgi bütünlüğü ve gizliliği korumalı misiniz?*
-    - Örneğin, gizlilik ilkeleri: *hangi denetimi bir kullanıcının kişisel olarak tanımlanabilir bilgileri (PII) sahip*?
-    - Örneğin survivability ilkeleri: *sağlayıcı operations başlamasıyla nasıl yaptığını süreklilik ve koruma PII işlevinin?*
+    - İlkeler, örneğin sağlama kimliği: *Ne kadar güçlü bir kişinin kimlik bilgileri dikkatle mi?*
+    - Güvenlik ilkeleri, örneğin: *Ne kadar güçlü bilgi bütünlüğü ve gizliliği korunuyor mu?*
+    - Gizlilik ilkeleri, örneğin: *Hangi denetimi bir kullanıcının kişisel olarak tanımlanabilir bilgileri (PII) sahip*?
+    - Örneğin survivability ilkeleri: *Sağlayıcı işlemleri başlamasıyla süreklilik ve koruma PII işlevinin nasıl mu?*
 
 - **Üretim ve tüketimini dijital kimlik bilgileri için teknik profiller. Bu profiller içerir:**
     - Dijital kimlik bilgileri belirtilen bir yü kullanılabilir olduğu kapsamı arabirimleri.

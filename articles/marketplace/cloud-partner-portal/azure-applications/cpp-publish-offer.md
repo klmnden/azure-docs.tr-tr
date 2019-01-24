@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: pbutlerm
-ms.openlocfilehash: deab8298d09972a4e60be5c72d6d7e43dc2683e6
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: ad62b306849b2291c81399cedc1634057e2eec9d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329999"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828103"
 ---
 # <a name="publish-azure-application-offer"></a>Azure uygulama teklifi yayımlama
 
@@ -36,7 +36,7 @@ Aşağıdaki tabloda, listeler ve her yayımlama adımlarını açıklar ve her 
 |  **Yayımlama Adım**           | **saat**    | **Açıklama**                                                            |
 |  -------------------           | --------    | ---------------                                                            |
 | Önkoşulları doğrulama         | < 15 dk    | Bilgi sunan ve ayarlar doğrulanır sunar.                        |
-| Gelir etkileyen ayarları doğrulama | < 15 dk  |      |
+| Gelir etkileyen ayarları doğrulama | < 15 dk  | Azure kaynak kullanım attribution teklif için denetlenir.             |
 | Sertifika                  | < 1 gün     | Teklif, Azure sertifika ekibi tarafından analiz edilir. Bu teklif, virüsler, kötü amaçlı yazılım, emniyet uyumluluk ve güvenlik sorunları için taranır. Bu teklif, tüm uygunluk ölçütlerini karşıladığını görmek için denetlenir. Daha fazla bilgi için [önkoşulları](./cpp-prerequisites.md). Bir sorun bulunursa geri bildirim sağlanır. |
 | Sürücü doğrulama testi          | < 2 saat   | (İsteğe bağlı) Bir Test sürüşüne varsa, Microsoft, dağıtılan çoğaltılan ve olduğunu doğrular.  |
 | Paketleme ve müşteri adayı oluşturma kaydı | 1 saatten az  | Teklife ilişkin teknik varlıkları müşteri kullanılmak üzere hazırlanmıştır ve müşteri adayı sistemleri yapılandırılmalı ve dağıtılmalıdır. |

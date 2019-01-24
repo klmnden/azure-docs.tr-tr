@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 01/23/2019
 ms.author: jeffgilb
 ms.reviewer: unknown
-ms.openlocfilehash: b6ec3283121a3403afb80ccad81f313decf16c88
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: a74fb749e130b565c44c637bfc16ff09e3314a05
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957649"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54857174"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Microsoft Azure Stack sorunlarını giderme
 
@@ -32,11 +32,31 @@ Bu belge, Azure Stack için genel sorun giderme bilgileri sağlar.
 Bu bölümde açıklanan sorunları gidermek için öneriler, çeşitli kaynaklardan elde edilen ve olabilir veya belirli sorununuzu çözebilir değil. Kod örnekleri olarak sağlanır ve beklenen sonuçları garanti edilemez. Bu bölüm, ürün geliştirmeleri uygulandığı şekilde sık düzenlemeleri ve güncelleştirmeleri tabi değildir.
 
 ## <a name="deployment"></a>Dağıtım
-### <a name="deployment-failure"></a>Dağıtım hatası
+### <a name="general-deployment-failure"></a>Genel Dağıtım hatası
 Yükleme sırasında bir hatayla karşılaşırsanız, başarısız olan adımda dağıtımdan kullanarak başlatabilirsiniz dağıtım betiği yeniden çalıştırma seçeneği.  
 
 ### <a name="at-the-end-of-asdk-deployment-the-powershell-session-is-still-open-and-doesnt-show-any-output"></a>ASDK dağıtım sonunda, PowerShell oturumunu hala açıksa ve herhangi bir çıktı göstermez.
 Seçili olduğunda bu davranış büyük olasılıkla yalnızca bir PowerShell komut penceresi varsayılan davranışını sonucudur. Geliştirme Seti dağıtım başarılı oldu ancak komut penceresi seçerken duraklatıldı. "Komut penceresinde başlık çubuğu seçin" sözcüğünü bakarak Kurulum Tamamlandı doğrulayabilirsiniz.  Bunu seçimini kaldırmak için ESC tuşuna basın ve sonra tamamlama ileti gösterilecek.
+
+### <a name="deployment-fails-due-to-lack-of-external-access"></a>Dış erişimi alınamadığından nedeniyle dağıtım başarısız
+Dış erişim gerekli olduğu aşamalarda dağıtım başarısız olduğunda, aşağıdaki örnekte olduğu gibi bir özel durum döndürülür:
+
+```
+An error occurred while trying to test identity provider endpoints: System.Net.WebException: The operation has timed out.
+   at Microsoft.PowerShell.Commands.WebRequestPSCmdlet.GetResponse(WebRequest request)
+   at Microsoft.PowerShell.Commands.WebRequestPSCmdlet.ProcessRecord()at, <No file>: line 48 - 8/12/2018 2:40:08 AM
+```
+Bu hata ortaya çıkarsa emin olmak için gözden geçirerek en düşük ağ gereksinimlerin karşılandığından denetleyin [dağıtım ağ trafiği belgeleri](deployment-networking.md). Bir ağ Denetleyicisi aracı ayrıca iş ortağı Araç Seti parçası olarak iş ortakları için kullanılabilir.
+
+Dağıtım hatalarını yukarıdaki durumla Internet üzerindeki kaynaklara bağlanma konusunda sorunlar genellikle kaynaklanır
+
+Bu sorunu olduğunu doğrulamak için aşağıdaki adımları gerçekleştirebilirsiniz:
+
+1. PowerShell'i açın
+2. WAS01 veya ERCs VM'lerin girin-PSSession
+3. Komutunu çalıştırın: Test-NetConnection login.windows.net -port 443
+
+Bu komut başarısız olursa, TOR anahtarını ve diğer ağ cihazları için yapılandırılan doğrulayın [ağ trafiğine izin veren](azure-stack-network.md).
 
 ## <a name="virtual-machines"></a>Sanal makineler
 ### <a name="default-image-and-gallery-item"></a>Varsayılan görüntü ve galeri öğesi

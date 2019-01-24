@@ -3,19 +3,19 @@ title: Kimlik doğrulaması, kayıt, profili Azure Active Directory B2C, Düzenl
 description: Ve profil Yönetimi Azure Active Directory B2C kullanarak oturum açma, kaydolma, içeren bir Windows masaüstü uygulaması oluşturmayı öğrenin.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: fc32cf40266bdad1aa5365b30a27210ad735f299
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 96cdbca1b0a5a75c24b9d0e75eaf1fc861bf764a
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354391"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54843132"
 ---
 # <a name="azure-ad-b2c-build-a-windows-desktop-app"></a>Azure AD B2C: Windows masaüstü uygulaması oluşturma
 Azure Active Directory (Azure AD) B2C'yi kullanarak masaüstü uygulamanızı birkaç adımda güçlü Self Servis kimlik yönetimi özellikleri ekleyebilirsiniz. Bu makale, kullanıcı oturum açma, kaydolma ve profil yönetimini kapsayan .NET Windows Presentation Foundation (WPF) "Yapılacaklar listesi" uygulamasının nasıl oluşturulacağını gösterir. Uygulama, bir kullanıcı adı veya e-posta kullanarak kaydolma ve oturum açma desteği içerecektir. Facebook ve Google gibi sosyal medya hesaplarını kullanarak, kaydolma ve oturum açma desteği de içerecektir.

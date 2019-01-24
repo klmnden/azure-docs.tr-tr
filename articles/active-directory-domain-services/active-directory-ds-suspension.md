@@ -4,7 +4,7 @@ description: Yönetilen etki alanı askıya alma ve silme
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 95e1d8da-60c7-4fc1-987d-f48fde56a8cb
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: ergreenl
-ms.openlocfilehash: 161a9f1ac517d372884e7606dbd2ef30c910bf6b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 1f548fefe1d28e3ca70de12911cb492d78c78629
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968109"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854845"
 ---
 # <a name="suspended-domains"></a>Askıya alınan etki alanları
 Azure Active Directory etki alanı Hizmetleri (Azure AD DS) uzun bir süre için yönetilen bir etki alanı hizmeti mümkün olduğunda, yönetilen etki alanı askıya alınmış bir duruma koyar. Bu makalede, yönetilen etki alanlarını neden askıya alınır ve sorunun nasıl düzeltileceği askıya alınmış bir etki alanı açıklanmaktadır.
@@ -67,7 +67,7 @@ Bazı durumlarda (örneğin, bir geçersiz ağ yapılandırması varsa), yöneti
 Yönetilen bir etki alanına yerleştirmenizi **askıya alındı** durum aşağıdaki nedenlerden dolayı:
 
 * Bir veya daha fazla kritik uyarılar 15 gün içinde çözümlenen henüz. Kritik uyarılar tarafından yanlış yapılandırma, Azure AD DS tarafından gerekli kaynaklara erişimi engeller neden olabilir.
-    * Örneğin, uyarıyı [AADDS104: ağ hatası](active-directory-ds-troubleshoot-nsg.md) 15 günden fazla bir süre için yönetilen etki alanında çözümlenmemiş.
+    * Örneğin, uyarıyı [AADDS104: Ağ hatası](active-directory-ds-troubleshoot-nsg.md) 15 günden fazla bir süre için yönetilen etki alanında çözümlenmemiş.
 * Azure aboneliğiniz fatura bir sorun veya Azure aboneliğinizin süresi doldu.
 
 Yönetilen etki alanlarını Microsoft yönetmek, izlemek, düzeltme eki veya sürekli olarak etki alanı geri erişemediği zaman askıya alınır.

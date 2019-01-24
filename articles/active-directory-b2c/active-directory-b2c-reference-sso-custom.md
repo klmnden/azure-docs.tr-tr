@@ -3,19 +3,19 @@ title: Azure Active Directory B2C'de özel ilkeleri kullanarak çoklu oturum aç
 description: Azure AD B2C'de özel ilkeler kullanarak SSO oturumları yönetmeyi öğrenin.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: bd41ce5ba0cc738c1fd0d61d080e63753706f975
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: f0c9355a4b4d61f9aadaa0923d89419e7d773431
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377421"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847977"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Azure Active Directory B2C tek oturum açma oturumu Yönetimi
 

@@ -3,21 +3,21 @@ title: Azure Active Directory B2C erişim belirteçlerinde isteme | Microsoft Do
 description: Bu makalede erişim belirteci alma ve bir istemci uygulamanın kurulumunu yapmayı gösterir.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/09/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2043e0fc9fa63903073311856e7e8d31fb34c506
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: f3db56c7ce61960fca0e5347b2385bcc65a88354
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015358"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845155"
 ---
-# <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C: İsteyen erişim belirteçleri
+# <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C: Erişim belirteçleri isteniyor
 
 Bir erişim belirteci (olarak gösterilen **erişim\_belirteci** yanıtlarındaki Azure AD B2C'den) tarafından korunan bir istemci, kaynaklara erişmek için kullanabileceğiniz güvenlik belirteci biçimidir bir [yetkilendirme sunucusu](active-directory-b2c-reference-protocols.md), web API'si gibi. Erişim belirteçleri olarak temsil edilir [Jwt'ler](active-directory-b2c-reference-tokens.md) ve hedeflenen kaynak sunucu ve sunucu için verilen izinleri hakkındaki bilgileri içerir. Kaynak sunucuda çağırırken erişim belirteci HTTP isteğinde bulunması gerekir.
 

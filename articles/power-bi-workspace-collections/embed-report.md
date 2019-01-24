@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 94476486ed87662f3d6b989b8d5360dd792f8824
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: caa877a265fb8665e062cc0069247bca0994c4bf
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041189"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54857106"
 ---
 # <a name="embed-a-report-in-power-bi-workspace-collections"></a>Power BI çalışma alanı koleksiyonları'nda bir rapor ekleme
 
@@ -84,7 +84,7 @@ using (var response = request.GetResponse() as System.Net.HttpWebResponse)
 
 Power BI çalışma alanı koleksiyonları kullanım ekleme belirteçleri, JSON Web belirteçlerini imzalı HMAC olduğu. Belirteçler, Power BI çalışma alanı koleksiyonunuz erişim anahtarı ile imzalanmıştır. Ekleme belirteçleri, varsayılan olarak, bir uygulamaya ekleme için bir rapor salt okunur erişim sağlamak için kullanılır. Ekleme belirteçleri için belirli bir rapor verilir ve bir ekleme URL'si ile ilişkili olmalıdır.
 
-Erişim anahtarlarını belirteçleri oturum/şifrelemek için kullanılan erişim belirteçlerini sunucuda oluşturulması gerekir. Bir erişim belirteci oluşturma hakkında daha fazla bilgi için bkz: [kimlik doğrulama ve yetkilendirme ile Power BI çalışma alanı koleksiyonları](app-token-flow.md). Ayrıca inceleyebilirsiniz [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_) yöntemi. Ne için Power BI .NET SDK kullanarak gibi görünür bir örnek aşağıda verilmiştir.
+Erişim anahtarlarını belirteçleri oturum/şifrelemek için kullanılan erişim belirteçlerini sunucuda oluşturulması gerekir. Bir erişim belirteci oluşturma hakkında daha fazla bilgi için bkz: [kimlik doğrulama ve yetkilendirme ile Power BI çalışma alanı koleksiyonları](app-token-flow.md). Ayrıca inceleyebilirsiniz [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN) yöntemi. Ne için Power BI .NET SDK kullanarak gibi görünür bir örnek aşağıda verilmiştir.
 
 Daha önce aldığınız rapor kimliği kullanın. Ekleme belirtecini oluşturulduktan sonra javascript açısından kullanabileceğiniz belirteci oluşturmak için erişim anahtarı kullanır. *PowerBIToken sınıfı* , yüklemenizi gerektirir [Power BI çekirdek NuGut paketi](https://www.nuget.org/packages/Microsoft.PowerBI.Core/).
 
@@ -147,7 +147,7 @@ Rapor kapsayıcısının boyutuna bağlı olarak otomatik olarak katıştırıl�
 
 [Bir örnek ile kullanmaya başlama](get-started-sample.md)  
 [Power BI Çalışma Alanı Koleksiyonları ile kimlik doğrulaması ve yetkilendirme](app-token-flow.md)  
-[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_)  
+[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN)  
 [JavaScript Örnek Ekleme](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 [Power BI JavaScript paket](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)  
 [Power BI API NuGet paketi](https://www.nuget.org/profiles/powerbi)

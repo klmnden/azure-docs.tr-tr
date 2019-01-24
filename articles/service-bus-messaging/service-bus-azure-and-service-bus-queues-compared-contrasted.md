@@ -3,29 +3,29 @@ title: Azure depolama kuyrukları ve Service Bus kuyrukları benzerlikler ve kar
 description: Farklılıklar ve Azure tarafından sağlanan iki tür arasındaki benzerlikler analiz eder.
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: f07301dc-ca9b-465c-bd5b-a0f99bab606b
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 09/05/2018
-ms.author: spelluru
-ms.openlocfilehash: 0254762de49f37c591a7847fe9b40b3ecbabe1bd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: c59d79a7c6ac0590861c99daa01438b184cd71ff
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261069"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852805"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Depolama kuyrukları ve Service Bus kuyrukları - benzerlikler ve karşıtlıklar
-Bu makalede, iki tür kuyruk bugün Microsoft Azure tarafından sunulan arasındaki benzerlikleri ve farkları Çözümler: depolama kuyrukları ve Service Bus kuyrukları. Bu bilgileri kullanarak, ilgili teknolojileri karşılaştırabilir ve gereksinimlerinize en uygun çözümü seçerken daha bilinçli kararlar verebilirsiniz.
+Bu makalede, iki tür kuyruk bugün Microsoft Azure tarafından sunulan arasındaki benzerlikleri ve farkları analiz eder: Depolama kuyrukları ve Service Bus kuyrukları. Bu bilgileri kullanarak, ilgili teknolojileri karşılaştırabilir ve gereksinimlerinize en uygun çözümü seçerken daha bilinçli kararlar verebilirsiniz.
 
 ## <a name="introduction"></a>Giriş
-Azure, iki tür kuyruk mekanizmaları destekler: **depolama kuyrukları** ve **Service Bus kuyruklarını**.
+Azure, sıra mekanizmalar iki türlerini destekler: **Depolama kuyrukları** ve **Service Bus kuyruklarını**.
 
 **Depolama kuyrukları**, parçası olduğu [Azure depolama](https://azure.microsoft.com/services/storage/) altyapısı özelliği içinde ve hizmetler arasında güvenilir ve kalıcı Mesajlaşma sağlayan basit bir GET/PUT/GÖZLEM REST tabanlı arabirim.
 

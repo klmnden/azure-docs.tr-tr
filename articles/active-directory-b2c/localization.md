@@ -3,19 +3,19 @@ title: Yerelleştirme - Azure Active Directory B2C | Microsoft Docs
 description: Azure Active Directory B2C'de, özel bir ilke Localization öğesi belirtin.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e9442302b8d15a3a6a4c9fe148b48845b3535204
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: a0abf2fd3502238af0e0f02cb8f9917cfb90b586
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381702"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854990"
 ---
 # <a name="localization"></a>Yerelleştirme
 
@@ -47,7 +47,7 @@ ms.locfileid: "44381702"
 
 | Öğe | Oluşumlar | Açıklama |
 | ------- | ----------- | ----------- |
-| SupportedLanguages | 1: n | Desteklenen dillerin listesi. | 
+| SupportedLanguages | 1:n | Desteklenen dillerin listesi. | 
 | LocalizedResources | 0: n | Yerelleştirilmiş kaynaklar listesi. |
 
 ## <a name="supportedlanguages"></a>SupportedLanguages
@@ -65,7 +65,7 @@ ms.locfileid: "44381702"
 
 | Öğe | Oluşumlar | Açıklama |
 | ------- | ----------- | ----------- |
-| SupportedLanguage | 1: n | Bir dil etiketi RFC 5646 - tanımlayan diller için etiketleri başına uyan içeriği görüntüler. | 
+| SupportedLanguage | 1:n | Bir dil etiketi RFC 5646 - tanımlayan diller için etiketleri başına uyan içeriği görüntüler. | 
 
 ## <a name="localizedresources"></a>LocalizedResources
 
@@ -88,7 +88,7 @@ ms.locfileid: "44381702"
 
 | Öğe | Oluşumlar | Açıklama |
 | ------- | ----------- | ----------- |
-| LocalizedCollection | 1: n | Desteklenen dillerin listesi. |
+| LocalizedCollection | 1:n | Desteklenen dillerin listesi. |
 
 #### <a name="localizedcollection"></a>LocalizedCollection
 
@@ -97,7 +97,7 @@ ms.locfileid: "44381702"
 | Öznitelik | Gerekli | Açıklama |
 | --------- | -------- | ----------- |
 | ElementType | Evet | ClaimType öğesi veya bir kullanıcı arabirimi öğesi ilke dosyasına başvurur. |
-| ElementID | Evet | Zaten bir talep türü bir başvuru içeren bir dize kullanılır ClaimsSchema bölümünde tanımlanan **ElementType** bir ClaimType için ayarlanır. |
+| ElementId | Evet | Zaten bir talep türü bir başvuru içeren bir dize kullanılır ClaimsSchema bölümünde tanımlanan **ElementType** bir ClaimType için ayarlanır. |
 | TargetCollection | Evet | Hedef koleksiyonu. |
 
 **LocalizedCollection** öğesi aşağıdaki öğeleri içerir:
@@ -140,15 +140,15 @@ Aşağıdaki örnek kullanımını gösterir **LocalizedCollections** öğesi. �
 
 | Öğe | Oluşumlar | Açıklama |
 | ------- | ----------- | ----------- |
-| LocalizedString | 1: n | Yerelleştirilmiş bir dize. |
+| LocalizedString | 1:n | Yerelleştirilmiş bir dize. |
 
 **LocalizedString** öğesi aşağıdaki öznitelikler içerir:
 
 | Öznitelik | Gerekli | Açıklama |
 | --------- | -------- | ----------- |
 | ElementType | Evet | Bir talep türü öğesi veya bir kullanıcı arabirimi öğesi ilkesinde başvuru. Olası değerler: `ClaimType`, `UxElement`, `ErrorMessage`, `Predicate`, veya. `ClaimType` Değeri Stringıd belirtildiği gibi talep özniteliklerinden biri yerelleştirmek için kullanılır. `UxElement` Değeri bir Stringıd belirtildiği gibi kullanıcı arabirimi öğeleri yerelleştirmek için kullanılır. `ErrorMessage` Değeri Stringıd belirtildiği gibi sistem hata iletilerinden birini yerelleştirmek için kullanılır. `Predicate` Birini yerelleştirmek için kullanılan değer [koşul](predicates.md) Stringıd belirtilen hata iletileri. `InputValidation` Birini yerelleştirmek için kullanılan değer [PredicateValidation](predicates.md) Grup Stringıd belirtilen hata iletileri. |
-| ElementID | Evet | Varsa **ElementType** ayarlanır `ClaimType`, `Predicate`, veya `InputValidation`, bu öğe zaten ClaimsSchema bölümünde tanımlanmış bir talep türüne başvuru içeriyor. | 
-| Stringıd | Evet | Varsa **ElementType** ayarlanır `ClaimType`, bu öğe bir talep türü bir özniteliğin bir başvuru içeriyor. Olası değerler: `DisplayName`, `AdminHelpText`, veya `PatternHelpText`. `DisplayName` Değeri talep görünen adı ayarlamak için kullanılır. `AdminHelpText` Değeri talep kullanıcının Yardım metni adını ayarlamak için kullanılır. `PatternHelpText` Değeri talep deseni Yardım metnini ayarlamak için kullanılır. Varsa **ElementType** ayarlanır `UxElement`, bu öğe bir öznitelik bir kullanıcı arabirimi öğesinin bir başvuru içeriyor. Varsa **ElementType** ayarlanır `ErrorMessage`, bu öğe bir hata iletisi tanımlayıcısını belirtir. Bkz: [yerelleştirme dize kimliklerini](localization-string-ids.md) tam listesi için `UxElement` tanımlayıcıları.|
+| ElementId | Evet | Varsa **ElementType** ayarlanır `ClaimType`, `Predicate`, veya `InputValidation`, bu öğe zaten ClaimsSchema bölümünde tanımlanmış bir talep türüne başvuru içeriyor. | 
+| StringId | Evet | Varsa **ElementType** ayarlanır `ClaimType`, bu öğe bir talep türü bir özniteliğin bir başvuru içeriyor. Olası değerler: `DisplayName`, `AdminHelpText`, veya `PatternHelpText`. `DisplayName` Değeri talep görünen adı ayarlamak için kullanılır. `AdminHelpText` Değeri talep kullanıcının Yardım metni adını ayarlamak için kullanılır. `PatternHelpText` Değeri talep deseni Yardım metnini ayarlamak için kullanılır. Varsa **ElementType** ayarlanır `UxElement`, bu öğe bir öznitelik bir kullanıcı arabirimi öğesinin bir başvuru içeriyor. Varsa **ElementType** ayarlanır `ErrorMessage`, bu öğe bir hata iletisi tanımlayıcısını belirtir. Bkz: [yerelleştirme dize kimliklerini](localization-string-ids.md) tam listesi için `UxElement` tanımlayıcıları.|
 
 
 Aşağıdaki örnek yerelleştirilmiş bir kayıt sayfasını gösterir. İlk üç **LocalizedString** değerleri talep özniteliğini ayarlayın. Üçüncü devam düğmesine değerini değiştirir. Bir hata iletisi değiştirir.
@@ -222,7 +222,7 @@ Ekleme **LocalizedResources** içinde öğeleri **yerelleştirme** öğeden olu�
 
 Her **LocalizedResources** öğesi içerir gerekli tüm **LocalizedStrings** öğeleri birden çok **LocalizedString** öğeleri ve  **LocalizedCollections** öğeleri birden çok **LocalizedCollection** öğeleri.  Aşağıdaki örnek, kayıt sayfasına İngilizce yerelleştirme ekler: 
 
-Not: Bu örnek başvuru yapar. `Gender` ve `City` talep türleri. Bu örneği kullanmak için bu talepleri tanımladığınız emin olun. Daha fazla bilgi için [ClaimsSchema](claimsschema.md).
+Not: Bu örnek başvuru yapar `Gender` ve `City` talep türleri. Bu örneği kullanmak için bu talepleri tanımladığınız emin olun. Daha fazla bilgi için [ClaimsSchema](claimsschema.md).
 
 ```XML
 <LocalizedResources Id="api.localaccountsignup.en">

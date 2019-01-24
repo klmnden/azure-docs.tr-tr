@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: da6435c6e3ea5fe88b605bd65c5d0e10f1772450
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: fca14eb5a51799e6d3c0e4f96cb956e4e6886cdb
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53717475"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844832"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>HDInsight, Apache Hadoop kümelerinde boş kenar düğümlerini kullanma
 
@@ -65,8 +65,8 @@ Kenar düğümüne oluşturduktan sonra kenar düğümüne SSH kullanarak bağla
 >
 > Bir Apache teknolojisi kullanıyorsanız, proje siteleri Apache aracılığıyla Yardım bulmak mümkün olabilir [ https://apache.org ](https://apache.org), gibi [Apache Hadoop](https://hadoop.apache.org/) site.
 
-> [!NOTE]  
-> Diğer küme düğümleri gibi kenar düğümleri yönetilen patch ayrıca olur.  Daha fazla bilgi için [HDInsight için işletim sistemi düzeltme eki uygulama](./hdinsight-os-patching.md).
+> [!IMPORTANT]
+> Ubuntu görüntülerinde yayımlanmasını, 3 ay içinde yeni HDInsight kümesi oluşturmak için kullanılabilir hale gelir. Ocak 2019'den itibaren (uç düğümleri dahil) çalışan kümeleridir **değil** otomatik düzeltme eki uygulandı. Müşteriler, çalışan bir küme düzeltme eki için betik eylemleri veya başka mekanizmalar kullanmalısınız.  Daha fazla bilgi için [HDInsight için işletim sistemi düzeltme eki uygulama](./hdinsight-os-patching.md).
 
 ## <a name="add-an-edge-node-to-an-existing-cluster"></a>Mevcut bir kümeye bir kenar düğümü Ekle
 Bu bölümde, mevcut bir HDInsight kümesine bir kenar düğümü eklemek için bir Resource Manager şablonu kullanın.  Resource Manager şablonu bulunabilir [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-add-edge-node/). Resource Manager şablonu konumunda bulunan bir betik eylemi çağırır https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh. Betik eylemleri gerçekleştirmez.  Bunu çağıran bir betik eylemi bir Resource Manager şablonundan göstermektir.

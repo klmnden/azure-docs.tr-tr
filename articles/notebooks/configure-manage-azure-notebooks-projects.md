@@ -11,28 +11,53 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/22/2019
 ms.author: kraigb
-ms.openlocfilehash: d948be88fd75202dea010520d3531f151d6934b0
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 31cbe2e62582ae810d165ddef5db6a20c52ff050
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104093"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847552"
 ---
 # <a name="manage-and-configure-projects"></a>Projeleri yönetme ve yapılandırma
 
 Bir Azure not defterlerinde temelde bir Jupyter not defterleri, dosya klasörü ve açıklayıcı meta verileri ile birlikte çalıştığı temel Linux sanal makine yapılandırmasını projesidir. Proje Panosu Azure not defterlerinde dosyaları yönetmek ve aksi takdirde proje özelliklerini yapılandırmanıza olanak sağlar:
 
-- Proje meta verileri, bir ad, açıklama, proje paylaşırken ve projenin genel veya özel olup kullanılan tanımlayıcı içerir.
-- Herhangi bir dosya sistemi ile yaptığınız projenin not defteri, verileri ve diğer dosyaları yönetin.
-- Bir projenin ortam başlatma komut dosyaları veya terminal yoluyla doğrudan yapılandırırsınız.
-- Terminal günlükleri erişebilirsiniz.
+- Ücretsiz katman veya bir Azure sanal makinesi üzerinde projesi çalıştırır, bilgi işlem katmanı.
+- Bir ad, açıklama, proje paylaşırken ve projenin genel veya özel olup kullanılan tanımlayıcı içeren proje meta verileri.
+- Projenin not defteri, verileri ve diğer dosyaları herhangi bir dosya sistemi gibi yönetme.
+- Bir projenin ortam başlatma komut dosyaları veya terminal yoluyla doğrudan yönetin.
+- Günlükleri, terminal erişin.
 
 > [!Note]
-> Proje sahibi, bir ortak çalışanı yapmamışsa size ait olmayan proje yönetemez. Aksi takdirde burada açıklanan yönetim ve yapılandırma özellikleri, sizin için kullanılabilir değildir.
+> Burada açıklanan yönetim ve yapılandırma özellikleri, projeyi başlangıçta oluşturan yalnızca proje sahibi için kullanılabilir. Ancak, proje kendi dikkate sahibi ve proje istediğiniz gibi yapılandırabilirsiniz. Bu durumda kopyalama olabilir.
 
 Azure not defterleri, her bir not defteri veya başka bir dosyaya çalıştırdığınızda temel sanal makine başlar. Sunucu otomatik olarak dosyaları kaydeder ve 60 dakika işlem yapılmadığında kapanır. Sunucu ile dilediğiniz zaman durdurabilirsiniz **kapatma** komut (klavye kısayolu: h).
+
+## <a name="compute-tier"></a>İşlem katmanı
+
+**Çalıştırma** proje panosu açılır listede olan proje üzerinde çalıştığı işlem katmanı seçtiğiniz. Varsayılan olarak, projeler çalıştıracağınız **ücretsiz işlem** katmanı, kötüye kullanımı önlemek için 4 GB bellek ve veri 1 GB ile sınırlıdır:
+
+![Katmanı aşağı açılan liste proje panosundaki işlem](media/project-compute-tier-list.png)
+
+Bir Azure aboneliğinde sağladıktan farklı bir sanal makine kullanarak bu kısıtlamaları devre dışı bırakabilir. Bu sanal makinede Jupyter da yüklemeniz gerekir. Varsayılan olarak Jupyter içerdiğinden veri bilimi sanal makinesi iyi seçimler görüntüleridir.
+
+Tüm uygun şekilde yapılandırılmış bir Azure sanal makine kullanarak bağlanabilirsiniz **doğrudan işlem** aşağı açılan listede seçeneği. Bu seçeneğin belirlenmesi (listesinde gösterilecek) bir ad, sanal makinenin IP adresi ve 8000 numaralı bağlantı noktasını (genellikle, hangi JupyterHub dinlediği varsayılan bağlantı noktasına) ve VM kimlik bilgileri ister:
+
+![Doğrudan işlem seçeneği sunucu bilgilerini toplamak için sor](media/project-compute-tier-direct.png)
+
+Aşağıdaki koşullar doğruysa, açılır listede de gösterilir [veri bilimi sanal makinesi (DSVM)](/azure/machine-learning/data-science-virtual-machine) örnekleri. (Herhangi biri bu koşullar karşılanmadığı takdirde hala doğrudan işlem seçeneğini kullanarak ve Azure Portalı'ndan elde edilen değerleri girerek DSVM bağlanabilirsiniz.)
+
+- Azure Active Directory (AAD), bir şirket hesabı gibi kullanan bir hesapla Azure not defterlerine oturumunuz.
+- Hesabınız bir Azure aboneliğine bağlı.
+- Bu Abonelikteki bir veya daha fazla sanal makineler ile en az sahip olduğunuz veri bilimi sanal makinesi için Linux (Ubuntu) görüntüsü kullanan okuyucu erişimi.
+
+![Proje panosu açılır listede veri bilimi sanal makine örnekleri](media/project-compute-tier-dsvm.png)
+
+Azure not defterleri DSVM örneği seçtiğinizde, sanal Makineyi oluştururken kullanılan belirli bir makine kimlik bilgilerini isteyebilir.
+
+Yeni bir DSVM örneği oluşturmak için yönergeleri takip edin [Ubuntu veri bilimi sanal makinesi oluşturma](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). *Gerekir* kullanın **Linux (Ubuntu) için veri bilimi sanal makinesi** Azure not defterleri, Windows veya CentOS görüntüleri kullanan Dsvm'leri görüntülemez çünkü görüntü.
 
 ## <a name="edit-project-metadata"></a>Proje meta verilerini düzenleme
 
@@ -66,7 +91,7 @@ Proje Panosu proje klasörü sistem içeriğini gösterir. Bu dosyaları yönetm
 
 ### <a name="upload-files"></a>Dosyaları karşıya yükleme
 
-**Karşıya** komut diğer konumlardan veri aktarmaya yönelik iki seçenek sağlar: **URL'den** ve **bilgisayarı**. Daha fazla bilgi için [veri dosyalarını Azure not defteri projelerde çalışabilirsiniz](work-with-project-data-files.md).
+**Karşıya** komut diğer konumlardan veri aktarmaya yönelik iki seçenek sağlar: **URL'den** ve **bilgisayardan**. Daha fazla bilgi için [veri dosyalarını Azure not defteri projelerde çalışabilirsiniz](work-with-project-data-files.md).
 
 ### <a name="select-file-specific-commands"></a>Dosya özel komutları seçin
 
@@ -127,11 +152,11 @@ Bir adım eklemek için önce seçin **+ Ekle**, bir adım türü seçip **işle
 
 Ardından Proje bilgi işlemi, seçtiğiniz türüne bağlıdır:
 
-- **Requirements.txt**: İkinci aşağı açılan listesinde seçin bir *requirements.txt* projede zaten var olan dosyayı. Ardından görüntülenen üçüncü aşağı açılan listeden bir Python sürümünü seçin. Kullanarak bir *requirements.txt* dosya, Azure not defterleri çalıştırmaları `pip install -r` ile *requirements.txt* bir not defteri sunucusu başlatma sırasında dosya. Açıkça içinde notebook paketleri yüklemeniz gerekmez.
+- **Requirements.txt**: İkinci açılan listesinde seçin bir *requirements.txt* projede zaten var olan dosyayı. Ardından görüntülenen üçüncü aşağı açılan listeden bir Python sürümünü seçin. Kullanarak bir *requirements.txt* dosya, Azure not defterleri çalıştırmaları `pip install -r` ile *requirements.txt* bir not defteri sunucusu başlatma sırasında dosya. Açıkça içinde notebook paketleri yüklemeniz gerekmez.
 
-- **Kabuk betiği**: projedeki bir bash Kabuk betiği ikinci aşağı açılan listeden seçin (genellikle bir dosyayla *.sh* uzantısı) ortamı başlatmak için çalıştırmak istediğiniz herhangi bir komut içerir.
+- **Kabuk betiği**: Projedeki bir bash Kabuk betiği ikinci aşağı açılan listeden seçin (genellikle bir dosyayla *.sh* uzantısı) ortamı başlatmak için çalıştırmak istediğiniz herhangi bir komut içerir.
 
-- **Environment.yml**: İkinci aşağı açılan listesinde seçin bir *environments.yml* conda ortamı kullanarak Python projeleri için dosya.
+- **Environment.yml**: İkinci açılan listesinde seçin bir *environments.yml* conda ortamı kullanarak Python projeleri için dosya.
 
 Adımları eklemeyi tamamladığınızda, seçin **Kaydet**.
 

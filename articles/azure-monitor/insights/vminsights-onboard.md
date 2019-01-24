@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/07/2018
+ms.date: 01/23/2019
 ms.author: magoedte
-ms.openlocfilehash: 0610116967a483c811746327c35632951741b201
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: e97ac849fa0e590dd2462d8e64b761da23576833
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54439179"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845971"
 ---
 # <a name="deploy-azure-monitor-for-vms-preview"></a>Azure İzleyici (Önizleme) VM'ler için dağıtma
 Bu makalede, Azure İzleyici ' VM'ler için ayarlanacak açıklar. Hizmet, Azure sanal makinelerinizi (VM) ve sanal makine ölçek kümeleri ve sanal makineleri ortamınızda işletim sistemi durumunu izler. Bu izleme, bulma ve bunlar üzerinde barındırılabilir uygulama bağımlılıkları eşleme içerir. 
@@ -303,113 +303,128 @@ Azure CLI'yı kullanmayı seçerseniz, ilk CLI'yi yerel olarak yükleyip kullanm
 
 1. Bu dosyayı farklı Kaydet *installsolutionsforvminsights.json* yerel bir klasöre.
 
-1. Değerlerini düzenleyin *WorkspaceName*, *ResourceGroupName*, ve *WorkspaceLocation*. Değeri *WorkspaceName* çalışma alanı adı içerir, Log Analytics çalışma alanının tam kaynak kimliği. Değeri *WorkspaceLocation* çalışma alanı içinde tanımlanan bölgedir.
+1. Değerleri yakalama *WorkspaceName*, *ResourceGroupName*, ve *WorkspaceLocation*. Değeri *WorkspaceName* Log Analytics çalışma alanınızın adıdır. Değeri *WorkspaceLocation* çalışma alanı içinde tanımlanan bölgedir.
 
-1. Aşağıdaki PowerShell komutunu kullanarak bu şablonu dağıtmaya hazırsınız:
+1. Bu şablonu dağıtmaya hazırsınız.
+ 
+    * Şablonu içeren klasörde aşağıdaki PowerShell komutlarını kullanın:
 
-    ```powershell
-    New-AzureRmResourceGroupDeployment -Name DeploySolutions -TemplateFile InstallSolutionsForVMInsights.json -ResourceGroupName <ResourceGroupName> -WorkspaceName <WorkspaceName> -WorkspaceLocation <WorkspaceLocation - example: eastus>
-    ```
+        ```powershell
+        New-AzureRmResourceGroupDeployment -Name DeploySolutions -TemplateFile InstallSolutionsForVMInsights.json -ResourceGroupName <ResourceGroupName> -WorkspaceName <WorkspaceName> -WorkspaceLocation <WorkspaceLocation - example: eastus>
+        ```
 
-    Yapılandırma değişikliğinin tamamlanması birkaç dakika sürebilir. Tamamlandığında, aşağıdakine benzer ve sonucu içeren bir ileti görüntülenir:
+        Yapılandırma değişikliğinin tamamlanması birkaç dakika sürebilir. Tamamlandığında, aşağıdakine benzer ve sonucu içeren bir ileti görüntülenir:
 
-    ```powershell
-    provisioningState       : Succeeded
-    ```
+        ```powershell
+        provisioningState       : Succeeded
+        ```
 
-### <a name="enable-by-using-azure-policy"></a>Azure İlkesi'ni kullanarak etkinleştirme
-Uygun ölçekte yardımcı tutarlı uyumluluk ve yeni sağlanan sanal makinelerin Otomatik etkinleştirme emin bir şekilde VM'ler için Azure İzleyicisi'ni etkinleştirmek için önerilir [Azure İlkesi](../../azure-policy/azure-policy-introduction.md). Bu ilkeler:
+    * Azure CLI kullanarak aşağıdaki komutu çalıştırmak için:
+    
+        ```azurecli
+        az login
+        az account set --subscription "Subscription Name"
+        az group deployment create --name DeploySolutions --resource-group <ResourceGroupName> --template-file InstallSolutionsForVMInsights.json --parameters WorkspaceName=<workspaceName> WorkspaceLocation=<WorkspaceLocation - example: eastus>
 
-* Log Analytics aracısını ve bağımlılık aracısını dağıtın.
-* Uyumluluk sonuçları hakkında rapor oluşturun.
-* Uyumlu olmayan VM'ler için düzeltin.
+        The configuration change can take a few minutes to complete. When it's completed, a message is displayed that's similar to the following and includes the result:
 
-Azure İzleyici VM'ler için kiracınızda Azure İlkesi kullanarak etkinleştirmek için:
+        ```azurecli
+        provisioningState       : Succeeded
 
-- Girişimin bir kapsama atayın: Yönetim grubu, abonelik veya kaynak grubu
-- Gözden geçirin ve uyumluluk sonuçlarını Düzelt
+### Enable by using Azure Policy
+To enable Azure Monitor for VMs at scale in a way that helps ensure consistent compliance and the automatic enabling of the newly provisioned VMs, we recommend [Azure Policy](../../azure-policy/azure-policy-introduction.md). These policies:
 
-Azure ilkesi atama hakkında daha fazla bilgi için bkz. [Azure ilkesine genel bakış](../../governance/policy/overview.md#policy-assignment) ve gözden geçirme [yönetim gruplarına genel bakış](../../governance/management-groups/index.md) devam etmeden önce.
+* Deploy the Log Analytics agent and the Dependency agent.
+* Report on compliance results.
+* Remediate for non-compliant VMs.
 
-İlke tanımları aşağıdaki tabloda listelenmiştir:
+To enable Azure Monitor for VMs by using Azure Policy in your tenant:
 
-|Ad |Açıklama |Tür |
+- Assign the initiative to a scope: management group, subscription, or resource group
+- Review and remediate compliance results
+
+For more information about assigning Azure Policy, see [Azure Policy overview](../../governance/policy/overview.md#policy-assignment) and review the [overview of management groups](../../governance/management-groups/index.md) before you continue.
+
+The policy definitions are listed in the following table:
+
+|Name |Description |Type |
 |-----|------------|-----|
-|[Önizleme]: Sanal makineler için Azure İzleyicisi'ni etkinleştirme |Azure İzleyici, belirtilen kapsam (Yönetim grubu, abonelik veya kaynak grubu) sanal makineler (VM) için etkinleştirin. Log Analytics çalışma alanı, bir parametre olarak alır. |Girişim |
-|[Önizleme]: Denetim bağımlılık Aracısı dağıtımı – sanal makine görüntüsü (OS) listeden kaldırıldı |Vm'leri uyumsuz olarak VM görüntüsü (OS) listesinde tanımlı değil ve aracı yüklü değil bildirir. |İlke |
-|[Önizleme]: Denetim günlüğü analiz aracı dağıtımı – sanal makine görüntüsü (OS) listeden kaldırıldı |Vm'leri uyumsuz olarak VM görüntüsü (OS) listesinde tanımlı değil ve aracı yüklü değil bildirir. |İlke |
-|[Önizleme]: Linux sanal makineleri için bağımlılık Aracısı dağıtma |Bağımlılık aracısını Linux Vm'leri için VM görüntüsü (OS) listede tanımlanır ve aracı yüklü değil dağıtın. |İlke |
-|[Önizleme]: Windows sanal makineleri için bağımlılık Aracısı dağıtma |Windows Vm'leri için bağımlılık Aracısı, aracı yüklü değil ve (OS) VM görüntü listesinde tanımlanan dağıtın. |İlke |
-|[Önizleme]: Linux Vm'leri için log Analytics aracısını dağıtmayı |Log Analytics aracısını Linux Vm'leri için VM görüntüsü (OS) listede tanımlanır ve aracı yüklü değil dağıtın. |İlke |
-|[Önizleme]: Windows Vm'leri için log Analytics aracısını dağıtmayı |VM görüntüsü (OS) listede tanımlanır ve aracı yüklü değil Windows Vm'leri için log Analytics aracısını dağıtın. |İlke |
+|[Preview]: Enable Azure Monitor for VMs |Enable Azure Monitor for the Virtual Machines (VMs) in the specified scope (management group, subscription, or resource group). Takes Log Analytics workspace as a parameter. |Initiative |
+|[Preview]: Audit Dependency Agent Deployment – VM Image (OS) unlisted |Reports VMs as non-compliant if the VM Image (OS) isn't defined in the list and the agent isn't installed. |Policy |
+|[Preview]: Audit Log Analytics Agent Deployment – VM Image (OS) unlisted |Reports VMs as non-compliant if the VM Image (OS) isn't defined in the list and the agent isn't installed. |Policy |
+|[Preview]: Deploy Dependency Agent for Linux VMs |Deploy Dependency Agent for Linux VMs if the VM Image (OS) is defined in the list and the agent isn't installed. |Policy |
+|[Preview]: Deploy Dependency Agent for Windows VMs |Deploy Dependency Agent for Windows VMs if the VM Image (OS) is defined in the list and the agent isn't installed. |Policy |
+|[Preview]: Deploy Log Analytics Agent for Linux VMs |Deploy Log Analytics Agent for Linux VMs if the VM Image (OS) is defined in the list and the agent isn't installed. |Policy |
+|[Preview]: Deploy Log Analytics Agent for Windows VMs |Deploy Log Analytics Agent for Windows VMs if the VM Image (OS) is defined in the list and the agent isn't installed. |Policy |
 
-Tek başına ilke (girişimle yer almaz) aşağıda açıklanmıştır:
+Standalone policy (not included with the initiative) is described here:
 
-|Ad |Açıklama |Tür |
+|Name |Description |Type |
 |-----|------------|-----|
-|[Önizleme]: VM - rapor uyuşmazlığı denetim Log Analytics çalışma alanı |Vm'lere ilke/girişim atamasını belirtilen Log Analytics çalışma alanına oturum olmayan uyumsuz olarak bildirin. |İlke |
+|[Preview]: Audit Log Analytics Workspace for VM - Report Mismatch |Report VMs as non-compliant if they aren't logging to the Log Analytics workspace specified in the policy/initiative assignment. |Policy |
 
-#### <a name="assign-the-azure-monitor-initiative"></a>Azure İzleyici girişim Ata
-Bu ilk sürümde, yalnızca Azure Portalı'nda ilke ataması oluşturabilirsiniz. Bu adımları tamamlamak nasıl anlamak için bkz: [Azure portalından bir ilke ataması oluşturma](../../governance/policy/assign-policy-portal.md).
+#### Assign the Azure Monitor initiative
+With this initial release, you can create the policy assignment only in the Azure portal. To understand how to complete these steps, see [Create a policy assignment from the Azure portal](../../governance/policy/assign-policy-portal.md).
 
-1. Azure portalında Azure İlkesi hizmetini başlatmak için **tüm hizmetleri**, arayın ve seçin **ilke**.
+1. To launch the Azure Policy service in the Azure portal, select **All services**, and then search for and select **Policy**.
 
-1. Azure İlkesi sayfasının sol bölmesinde seçin **atamaları**.  
-    Atama, belirli bir kapsamda gerçekleşmesi için atanmış olan bir ilkedir.
+1. In the left pane of the Azure Policy page, select **Assignments**.  
+    An assignment is a policy that has been assigned to take place within a specific scope.
     
-1. Üst kısmındaki **ilke - atamalar** sayfasında **girişim atamak**.
+1. At the top of the **Policy - Assignments** page, select **Assign Initiative**.
 
-1. Üzerinde **girişim atamak** sayfasında **kapsam** göre üç nokta (…) tıklatarak ve bir yönetim grubu veya abonelik seçin.  
-    Bizim örneğimizde, bir kapsam bir gruplandırma için ilke ataması için zorlama sanal makinelerin sınırlar.
+1. On the **Assign Initiative** page, select the **Scope** by clicking the ellipsis (...), and select a management group or subscription.  
+    In our example, a scope limits the policy assignment to a grouping of virtual machines for enforcement.
     
-1. Sayfanın alt kısmında **kapsam** seçerek değişikliklerinizi kaydedin sayfasının **seçin**.
+1. At the bottom of the **Scope** page, save your changes by selecting **Select**.
 
-1. (İsteğe bağlı) Kapsamdan bir veya daha fazla kaynakları kaldırmak için işaretleyin **dışlamaları**.
+1. (Optional) To remove one or more resources from the scope, select **Exclusions**.
 
-1. Seçin **girişim tanımı** kullanılabilir tanımlar listesini görüntülemek için üç nokta (...) seçin  **[Önizleme] VM'ler için Azure İzleyici'ı etkinleştirme**ve ardından seçin **Seçin**.  
-    **Atama adı** kutusu seçtiğiniz girişim adıyla otomatik olarak doldurulur, ancak bunu değiştirebilirsiniz. İsteğe bağlı bir açıklama da ekleyebilirsiniz. **Atayan** kutusu, açan göre otomatik olarak doldurulur ve bu değer isteğe bağlıdır.
+1. Select the **Initiative definition** ellipsis (...) to display the list of available definitions, select **[Preview] Enable Azure Monitor for VMs**, and then select **Select**.  
+    The **Assignment name** box is automatically populated with the initiative name you selected, but you can change it. You can also add an optional description. The **Assigned by** box is automatically populated based on who is logged in, and this value is optional.
     
-1. İçinde **Log Analytics çalışma alanı** bir çalışma alanı açılır listesinde desteklenen bir bölge için seçin.
+1. In the **Log Analytics workspace** drop-down list for the supported region, select a workspace.
 
     >[!NOTE]
-    >Çalışma alanı atama kapsamı dışındadır, verme *Log Analytics katkıda bulunan* izinleri ilke atama sorumlusu kimliği Bunu yapmazsanız, aşağıdaki gibi bir dağıtım hatası görebilirsiniz: `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ... ` Erişim vermek için gözden [el ile yönetilen kimlik yapılandırma](../../governance/policy/how-to/remediate-resources.md#manually-configure-the-managed-identity).
+    >If the workspace is beyond the scope of the assignment, grant *Log Analytics Contributor* permissions to the policy assignment's Principal ID. If you don't do this, you might see a deployment failure such as: `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ... `
+    >To grant access, review [how to manually configure the managed identity](../../governance/policy/how-to/remediate-resources.md#manually-configure-the-managed-identity).
     >  
-    **Yönetilen kimliği** onay kutusu seçiliyse, atanan girişim bir ilkeyle içerdiğinden *Deployıfnotexists* efekt.
+    The **Managed Identity** check box is selected, because the initiative being assigned includes a policy with the *deployIfNotExists* effect.
     
-1. İçinde **yönetme kimlik konumu** aşağı açılan listesinde, uygun bölgeyi seçin.
+1. In the **Manage Identity location** drop-down list, select the appropriate region.
 
-1. **Ata**'yı seçin.
+1. Select **Assign**.
 
-#### <a name="review-and-remediate-the-compliance-results"></a>Gözden geçirin ve uyumluluk sonuçlarını Düzelt
+#### Review and remediate the compliance results
 
-Okuyarak uyumluluk sonuçlarını gözden geçirmek öğrenebilirsiniz [uyumsuzluk sonuçları tanımlamak](../../governance/policy/assign-policy-portal.md#identify-non-compliant-resources). Sol bölmede seçin **Uyumluluk**ve bulun  **[Önizleme] VM'ler için Azure İzleyici'ı etkinleştirme** girişim ataması göre uyumlu olmayan VM'ler için oluşturduğunuz.
+You can learn how to review compliance results by reading [identify non-compliance results](../../governance/policy/assign-policy-portal.md#identify-non-compliant-resources). In the left pane, select **Compliance**, and then locate the **[Preview] Enable Azure Monitor for VMs** initiative for VMs that aren't compliant according to the assignment you created.
 
-![Azure Vm'leri için Uyumluluk İlkesi](./media/vminsights-onboard/policy-view-compliance-01.png)
+![Policy compliance for Azure VMs](./media/vminsights-onboard/policy-view-compliance-01.png)
 
-Girişimle dahil ilke sonuçları temelinde, uyumlu değil olarak aşağıdaki senaryolarda Vm'leri bildirilir:
+Based on the results of the policies included with the initiative, VMs are reported as non-compliant in the following scenarios:
 
-* Log Analytics veya bağımlılık aracısını dağıtılabilir değil.  
-    Bu senaryo, var olan Vm'leri bir kapsamla tipik bir durumdur. Bunu azaltmak için gereken aracıları tarafından dağıtma [düzeltme görevler oluşturma](../../governance/policy/how-to/remediate-resources.md) uyumlu olmayan bir ilkesi üzerinde yapılamaz.  
-    - [Önizleme]: Deploy Dependency Agent for Linux VMs
-    - [Önizleme]: Deploy Dependency Agent for Windows VMs
-    - [Önizleme]: Deploy Log Analytics Agent for Linux VMs
-    - [Önizleme]: Deploy Log Analytics Agent for Windows VMs
+* Log Analytics or the Dependency agent isn't deployed.  
+    This scenario is typical for a scope with existing VMs. To mitigate it, deploy the required agents by [creating remediation tasks](../../governance/policy/how-to/remediate-resources.md) on a non-compliant policy.  
+    - [Preview]: Deploy Dependency Agent for Linux VMs
+    - [Preview]: Deploy Dependency Agent for Windows VMs
+    - [Preview]: Deploy Log Analytics Agent for Linux VMs
+    - [Preview]: Deploy Log Analytics Agent for Windows VMs
 
-* VM görüntüsü (OS) ilke tanımında tanımlanan değildir.  
-    Dağıtım ilkesi ölçütlerini iyi bilinen bir Azure VM görüntülerinden dağıtılan Vm'leri içerir. VM işletim sistemi desteklenip desteklenmediğini görmek için belgelere bakın. Desteklenmiyorsa, güncelleştirme ve dağıtım ilkesi yinelenen veya görüntü uyumlu hale getirmek için değiştirebilirsiniz.  
-    - [Önizleme]: Denetim bağımlılık Aracısı dağıtımı – sanal makine görüntüsü (OS) listeden kaldırıldı
-    - [Önizleme]: Denetim günlüğü analiz aracı dağıtımı – sanal makine görüntüsü (OS) listeden kaldırıldı
+* VM Image (OS) isn't identified in the policy definition.  
+    The criteria of the deployment policy include only VMs that are deployed from well-known Azure VM images. Check the documentation to see whether the VM OS is supported. If it isn't supported, duplicate the deployment policy and update or modify it to make the image compliant.  
+    - [Preview]: Audit Dependency Agent Deployment – VM Image (OS) unlisted
+    - [Preview]: Audit Log Analytics Agent Deployment – VM Image (OS) unlisted
 
-* Sanal makineleri belirtilen Log Analytics çalışma alanına oturum değildir.  
-    Bazı VM'ler girişim kapsamda bir ilke atamasında belirtilen başka bir Log Analytics çalışma açtığı, mümkündür. Bu ilke, VM'ler, uyumlu olmayan bir çalışma alanına raporlama yapmayan tanımlamak için kullanılan bir araçtır.  
-    - [Önizleme]: Audit Log Analytics Workspace for VM - Report Mismatch
+* VMs aren't logging in to the specified Log Analytics workspace.  
+    It's possible that some VMs in the initiative scope are logging in to a Log Analytics workspace other than the one that's specified in the policy assignment. This policy is a tool to identify which VMs are reporting to a non-compliant workspace.  
+    - [Preview]: Audit Log Analytics Workspace for VM - Report Mismatch
 
-### <a name="enable-with-powershell"></a>PowerShell ile etkinleştirme
-Azure İzleyici VM'ler için birden çok sanal makineleri veya sanal makine ölçek kümeleri için etkinleştirmek için PowerShell betiğini kullanabilirsiniz [yükleme VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights/1.0), Azure PowerShell Galerisi kullanılabilir. Bu betik, aboneliğinizdeki tarafından belirtilen kapsamı belirlenmiş bir kaynak grubundaki her sanal makine ve sanal makine ölçek kümesi gezinir *ResourceGroup*, ya da tarafından belirtilen tek bir sanal makine veya sanal makine ölçek kümesi *Adı*. Her sanal makine veya sanal makine ölçek kümesi için betik VM uzantısı zaten yüklü olup olmadığını doğrular. VM uzantısı yüklü değilse, yeniden yüklemek betik çalışır. VM uzantısı yüklü değilse, betik Log Analytics ve bağımlılık Aracısı VM uzantılarını yükler.
+### Enable with PowerShell
+To enable Azure Monitor for VMs for multiple VMs or virtual machine scale sets, you can use the PowerShell script [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights/1.0), available from the Azure PowerShell Gallery. This script iterates through every virtual machine and virtual machine scale set in your subscription, in the scoped resource group that's specified by *ResourceGroup*, or to a single VM or virtual machine scale set that's specified by *Name*. For each VM or virtual machine scale set, the script verifies whether the VM extension is already installed. If the VM extension is not installed, the script tries to reinstall it. If the VM extension is installed, the script installs the Log Analytics and Dependency agent VM extensions.
 
-Bu betik, Azure PowerShell modülü sürüm 5.7.0 gerektirir veya üzeri. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız, aynı zamanda çalıştırmak ihtiyacınız `Connect-AzureRmAccount` Azure ile bir bağlantı oluşturmak için.
+This script requires Azure PowerShell module version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps). If you're running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
 
-Betik bağımsız değişkeni ayrıntıları ve örnek kullanım listesini almak için çalıştırın `Get-Help`.
+To get a list of the script's argument details and example usage, run `Get-Help`.
 
 ```powershell
 Get-Help .\Install-VMInsights.ps1 -Detailed

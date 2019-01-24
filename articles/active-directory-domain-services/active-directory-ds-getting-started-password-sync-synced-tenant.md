@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Domain Services: Parola eşitlemeyi etkinleştirme | Microsoft Docs'
+title: 'Azure AD etki alanı Hizmetleri: Parola eşitlemeyi etkinleştirme | Microsoft Docs'
 description: Azure Active Directory Etki Alanı Hizmetleri ile çalışmaya başlama
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 8731f2b2-661c-4f3d-adba-2c9e06344537
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: ergreenl
-ms.openlocfilehash: 813d1d17f2d9b80c2e96f771fc346e553c59e95b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: be947e2867f00c34e5a0b66893765647349c7eeb
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234213"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854216"
 ---
 # <a name="enable-password-synchronization-to-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services ile parola eşitlemeyi etkinleştirme
 Önceki görevlerde Azure Active Directory (Azure AD) kiracınız için Azure Active Directory Domain Services hizmetini etkinleştirdiniz. Sıradaki görev, NT LAN Manager (NTLM) ve Kerberos kimlik doğrulaması için gereken kimlik bilgisi karmalarının Azure AD Domain Services ile eşitlemesini etkinleştirmektir. Kimlik bilgisi eşitlemesini ayarladıktan sonra kullanıcılar, şirket kimlik bilgileri ile yönetilen etki alanında oturum açabilir.
@@ -52,7 +52,7 @@ Etki alanına katılan bir bilgisayara, Azure AD Connect'in önerilen en son sü
 
 **[Azure AD Connect'i indirme](https://www.microsoft.com/download/details.aspx?id=47594)**
 
-Önerilen sürüm: **1.1.614.0** - 5 Eylül 2017'de yayımlanmıştır.
+Önerilen sürüm: **1.1.614.0** - 5 Eylül 2017 tarihinde yayımlanmış.
 
 > [!WARNING]
 > Eski parola kimlik bilgilerinin (NTLM ve Kerberos kimlik doğrulaması için gereklidir), Azure AD kiracınız ile eşitlenebilmesini sağlamak için Azure AD Connect'in en yeni önerilen sürümünü yüklemeniz GEREKİR. Bu işlev, Azure AD Connect'in önceki sürümlerinde veya eski DirSync aracında kullanılamaz.

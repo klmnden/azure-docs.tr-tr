@@ -11,12 +11,12 @@ ms.author: haining
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5008aebfea8fc284b1b85797f0523bc4fb11c7bd
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: a9fc0655a3666f09fed342af5b4f14e2097290ab
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075949"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828269"
 ---
 # <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>Öğretici: Bir Azure Machine Learning hizmeti ile görüntü sınıflandırma modeli eğitme
 
@@ -42,7 +42,7 @@ Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Dene
 
 ## <a name="get-the-notebook"></a>Not defterini alma
 
-Kolaylık olması için, bu öğretici bir [Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb) olarak sağlanır. `tutorials/img-classification-part1-training.ipynb` notebook'unu Azure Notebooks üzerinde veya kendi Jupyter notebook sunucunuzda çalıştırın.
+Kolaylık olması için, bu öğretici bir [Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb) olarak sağlanır. Çalıştırma `tutorials/img-classification-part1-training.ipynb` Not Defteri veya [Azure not defterleri](https://notebooks.azure.com/) veya kendi Jupyter notebook sunucusu.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 

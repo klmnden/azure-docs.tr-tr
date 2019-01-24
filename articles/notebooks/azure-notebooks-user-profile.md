@@ -13,25 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: b1010b5376a26a4d33c026be27ce363959954ca2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 18b698861a791174f2e254543d5d3b7a54052574
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078880"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854182"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks"></a>Azure not defterleri için profil ve kullanıcı kimliği
 
 Azure not defterleri, güçlü, işbirliğine dayalı alanı içinde kullanıcı profilinizin genel görüntünüzü başkalarına sunar:
 
-[![](media/accounts/profile-page.png "Bir Azure not defterleri profil sayfası")](media/accounts/profile-page.png#lightbox)
+[![Bir Azure not defterleri profil sayfası](media/accounts/profile-page.png)](media/accounts/profile-page.png#lightbox)
 
 Kullanıcı Kimliğinizi, projeleri ve Not Defterleri paylaşmak için kullandığınız URL'leri bir parçasıdır. Aşağıdaki listede, farklı bir URL desenleri açıklar:
 
 - `https://notebooks.azure.com/<user_id>`: Profil sayfanızı.
-- `https://notebooks.azure.com/<user_id>/projects`: Uygulamanızın proje. Tüm projeler görürsünüz; diğer kullanıcılar yalnızca ortak projelerinizi bakın.
+- `https://notebooks.azure.com/<user_id>/projects`: Projelerinizi. Tüm projeler görürsünüz; diğer kullanıcılar yalnızca ortak projelerinizi bakın.
 - `https://notebooks.azure.com/<user_id>/projects/<project_id>`: Proje dosyaları.
-- `https://notebooks.azure.com/<user_id>/projects/<project_id>/clones`: Belirli proje kopyalar.
+- `https://notebooks.azure.com/<user_id>/projects/<project_id>/clones`: Belirli bir proje kopyalar.
 - `https://notebooks.azure.com/<user_id>/projects/<project_id>/html/<notebook>.ipynb`: Belirli bir not defteri veya dosya HTML önizlemesi.
 
 ## <a name="your-user-id"></a>Kullanıcı Kimliğiniz
@@ -63,8 +63,8 @@ Profilinizi düzenlemek için **profil bilgilerini Düzenle** Profil sayfanızda
 | Hesap Bilgisi | Görünen ad, kullanıcı kimliği ve ortak bir e-posta hesabı. E-posta hesabı buraya farklı olabilir ve diğer kullanıcıların sizinle iletişim kurmak için bir ortalama sağlar [hesabı](azure-notebooks-user-account.md) Azure not defterlerine kendisini imzalamak için kullanın. |
 | Profil Bilgileri | Konumunuz, şirket, iş unvanı, web sitesi ve kendiniz kısa bir açıklaması. |
 | Sosyal profilleri | GItHub, Twitter ve Facebook kimlikleri, bunları paylaşmak istiyorsanız. |
-| Gizlilik Ayarları | İki komutları sağlar:<ul><li>**Profilim dışarı**: oluşturur ve indirir bir *.zip* Azure not defterleri kaydeder, fotoğraf, profil bilgileri ve güvenlik günlükleri gibi profilinizdeki tüm bilgileri içeren dosya.</li><li>**Hesabım Sil**: Azure not defterlerinde depolanan tüm kişisel bilgilerinizi kalıcı olarak siler.</li></ul> |
-| Site özelliklerini etkinleştirme | Azure not defterleri davranışı yönleri denetlemenizi sağlar:<ul><li>**Birleşik not defterleri için ön uç**: daha hızlı not defteri başlatma ve daha iyi kalıcılığını etkinleştirir.</li><li>**JupyterLab içinde varsayılan olarak çalıştığı**: varsayılan olarak, Azure not defterleri çoğu kullanıcı için uygun olan basit bir kullanıcı arabirimi sağlar. JupyterLab deneyimli kullanıcılar için daha zengin ancak daha karmaşık bir arabirim sağlar.</li><li>**VNext Web sitesi**: Bu belgede gösterilen Modernleştirilmiş web düzeni sağlar.</li></ul> |
+| Gizlilik Ayarları | İki komutları sağlar:<ul><li>**Profilim dışarı**: oluşturur ve indirir bir *.zip* Azure not defterleri kaydeder, fotoğraf, profil bilgileri ve güvenlik günlükleri gibi profilinizdeki tüm bilgileri içeren dosya.</li><li>**Hesabımı**: Azure not defterlerinde depolanan tüm kişisel bilgilerinizi kalıcı olarak siler.</li></ul> |
+| Site özelliklerini etkinleştirme | Azure not defterleri davranışı yönleri denetlemenizi sağlar:<ul><li>**Birleşik not defterleri için ön uç**: daha hızlı not defteri başlatma ve daha iyi kalıcılığını etkinleştirir.</li><li>**JupyterLab içinde varsayılan olarak çalıştığı**: Varsayılan olarak, Azure not defterleri, çoğu kullanıcı için uygun olan basit bir kullanıcı arabirimi sağlar. JupyterLab deneyimli kullanıcılar için daha zengin ancak daha karmaşık bir arabirim sağlar.</li><li>**VNext Web sitesi**: Bu belgede gösterilen Modernleştirilmiş web düzeni sağlar.</li></ul> |
 
 ## <a name="next-steps"></a>Sonraki adımlar  
 

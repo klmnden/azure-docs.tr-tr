@@ -3,23 +3,23 @@ title: Service Bus zaman uyumsuz Mesajlaşma | Microsoft Docs
 description: Azure Service Bus Mesajlaşma hizmetinin zaman uyumsuz açıklaması.
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: f1435549-e1f2-40cb-a280-64ea07b39fc7
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2018
-ms.author: spelluru
-ms.openlocfilehash: 9bacce96e65a7aef611bec3ddae8b1872d5f9fae
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: 0ecc277e1b9bd94558c54b1c808fdc24f47c402e
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391473"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845087"
 ---
 # <a name="asynchronous-messaging-patterns-and-high-availability"></a>Zaman uyumsuz mesajlaşma modelleri ve yüksek kullanılabilirlik
 
@@ -75,9 +75,9 @@ Her iki durumda da, doğal ya da modelimiz olağanüstü bir soruna neden. Bu so
 ## <a name="paired-namespaces"></a>Eşleştirilen ad alanları
 [Eşleştirilmiş ad alanları] [ paired namespaces] özelliğini destekleyen senaryoları, Service Bus varlık veya bir veri merkezi dağıtımında kullanılamaz. Bu olay sık gerçekleşirken, en kötü durum senaryoları işlemek için Dağıtılmış sistemler yine de hazırlanması gerekir. Genellikle, Service Bus bağlı olduğu bazı öğesi kısa süreli bir sorunla karşılaştığı için bu olay olur. Kesinti sırasında uygulama kullanılabilirliği sürdürmek için Service Bus kullanıcıların iki ayrı ad alanları, tercihen ayrı veri merkezlerinde, Mesajlaşma varlıkları barındırmak için kullanabilirsiniz. Bu bölümün geri kalanında aşağıdaki terimler kullanılmaktadır:
 
-* Birincil ad alanı: ad alanı olan, uygulamanız, etkileşim için gönderme ve alma işlemleri.
-* İkincil ad alanı: birincil ad alanı için bir yedekleme görevi gören bir ad alanı. Uygulama mantığının bu ad alanı ile etkileşime girmez.
-* Yük devretme aralığı: uygulama birincil ad alanından ikincil ad alanına geçiş yapmadan önce normal hataları kabul etmek için süre.
+* Birincil ad alanı: Hangi uygulamanız, etkileşim için gönderme ve alma işlemleri ad alanı.
+* İkincil ad alanı: Birincil ad alanı için bir yedekleme görevi gören ad alanı. Uygulama mantığının bu ad alanı ile etkileşime girmez.
+* Yük devretme aralığı: Uygulama birincil ad alanından ikincil ad alanına geçiş yapmadan önce normal hataları kabul etmek için süre miktarı.
 
 Eşleştirilmiş ad alanları Destek *kullanılabilirlik Gönder*. Kullanılabilirlik iletileri gönderme olanağı korur gönderin. Gönderme kullanılabilirlik kullanmak için uygulamanızı aşağıdaki gereksinimleri karşılaması gerekir:
 
@@ -109,10 +109,10 @@ public SendAvailabilityPairedNamespaceOptions(
 
 Bu parametreler, aşağıdaki anlamlara sahiptir:
 
-* *secondaryNamespaceManager*: başlatılan bir [NamespaceManager] [ NamespaceManager] örneği ikincil ad alanı, [PairNamespaceAsync] [ PairNamespaceAsync] yöntemi, ikincil ad alanı ayarlama için kullanabilirsiniz. Ad alanı yöneticisi, gerekli biriktirme listesi kuyrukları bulunduğundan emin olun ve ad alanındaki kuyrukları listesini almak için kullanılır. Sıraların mevcut değilse oluşturulur. [NamespaceManager] [ NamespaceManager] sahip bir belirteç oluşturma olanağı gerektirir **Yönet** talep.
+* *secondaryNamespaceManager*: Başlatılan bir [NamespaceManager] [ NamespaceManager] örneği ikincil ad alanı, [PairNamespaceAsync] [ PairNamespaceAsync] yöntemi ayarlamak için kullanabilirsiniz İkincil ad alanı. Ad alanı yöneticisi, gerekli biriktirme listesi kuyrukları bulunduğundan emin olun ve ad alanındaki kuyrukları listesini almak için kullanılır. Sıraların mevcut değilse oluşturulur. [NamespaceManager] [ NamespaceManager] sahip bir belirteç oluşturma olanağı gerektirir **Yönet** talep.
 * *messagingFactory*: [MessagingFactory] [ MessagingFactory] ikincil ad alanı için örneği. [MessagingFactory] [ MessagingFactory] nesnesi göndermek için kullanılır ve [EnableSyphon] [ EnableSyphon] özelliği **true**, biriktirme listesi kuyruklardan iletileri alacak.
-* *backlogQueueCount*: oluşturmak için biriktirme listesi sıraların sayısı. Bu değer, en az 1 olmalıdır. Biriktirme listesine iletileri gönderirken bu kuyruklar birini rastgele seçilir. Değer 1 olarak ayarlarsanız, yalnızca bir sıra hiç olmadığı kadar kullanılabilir. Böyle bir biriktirme listesi sırası hatası veriyorsa, istemci farklı biriktirme listesi sırası denemek mümkün değildir ve ileti göndermek başarısız olabilir. Bu değer bazı büyük değer ve varsayılan değer 10 ayarı öneririz. Gün başına uygulamanızın gönderdiği veri miktarını bağlı olarak daha yüksek veya düşük bir değere değiştirebilirsiniz. Her biriktirme listesi kuyruk iletileri için en fazla 5 GB barındırabilir.
-* *failoverInterval*: süre, kabul edip birincil ad alanı hatalarında tek bir varlık ikincil ad alanına geçmeden önce. Yük devretme, bir varlık tarafından varlık temelinde oluşur. Service Bus içinde farklı düğümleri sık Canlı tek bir ad alanındaki varlıklar. Bir varlık içinde bir hata, başka bir hata göstermez. Bu değeri ayarlamak [System.TimeSpan.Zero] [ System.TimeSpan.Zero] yük devretme ikincil hemen sonra ilk, geçici olmayan hata. Yük devretme Zamanlayıcı tetikleyicisi gösterilenlere herhangi [Istransient] [ MessagingException] hangi [IsTransient] [ IsTransient] özelliktir bir veyayanlış[ System.TimeoutException][System.TimeoutException]. Diğer özel durumlar gibi [UnauthorizedAccessException] [ UnauthorizedAccessException] istemci yanlış yapılandırıldığını belirttiğinden yük devretme, neden olmaz. A [ServerBusyException] [ ServerBusyException] doğru düzeni 10 saniye bekleyin olduğundan değil neden yük devretme sonra iletinin yeniden gönderir.
+* *backlogQueueCount*: Oluşturmak için biriktirme listesi sıraların sayısı. Bu değer, en az 1 olmalıdır. Biriktirme listesine iletileri gönderirken bu kuyruklar birini rastgele seçilir. Değer 1 olarak ayarlarsanız, yalnızca bir sıra hiç olmadığı kadar kullanılabilir. Böyle bir biriktirme listesi sırası hatası veriyorsa, istemci farklı biriktirme listesi sırası denemek mümkün değildir ve ileti göndermek başarısız olabilir. Bu değer bazı büyük değer ve varsayılan değer 10 ayarı öneririz. Gün başına uygulamanızın gönderdiği veri miktarını bağlı olarak daha yüksek veya düşük bir değere değiştirebilirsiniz. Her biriktirme listesi kuyruk iletileri için en fazla 5 GB barındırabilir.
+* *failoverInterval*: Bu sırada, birincil ad alanı hatalarında tek bir varlık ikincil ad alanına geçmeden önce kabul süre miktarı. Yük devretme, bir varlık tarafından varlık temelinde oluşur. Service Bus içinde farklı düğümleri sık Canlı tek bir ad alanındaki varlıklar. Bir varlık içinde bir hata, başka bir hata göstermez. Bu değeri ayarlamak [System.TimeSpan.Zero] [ System.TimeSpan.Zero] yük devretme ikincil hemen sonra ilk, geçici olmayan hata. Yük devretme Zamanlayıcı tetikleyicisi gösterilenlere herhangi [Istransient] [ MessagingException] hangi [IsTransient] [ IsTransient] özelliktir bir veyayanlış[ System.TimeoutException][System.TimeoutException]. Diğer özel durumlar gibi [UnauthorizedAccessException] [ UnauthorizedAccessException] istemci yanlış yapılandırıldığını belirttiğinden yük devretme, neden olmaz. A [ServerBusyException] [ ServerBusyException] doğru düzeni 10 saniye bekleyin olduğundan değil neden yük devretme sonra iletinin yeniden gönderir.
 * *enableSyphon*: Bu belirli eşleştirme iletileri ikincil ad alanından geri birincil ad alanı da syphon olduğunu gösterir. İleti gönderme uygulamalar genel olarak, bu değeri ayarlamak **false**; iletiler alan uygulamalar bu değer ayarlanmalıdır **true**. Bunun nedeni genelde ileti gönderenler daha az sayıda ileti alıcılar yoktur. Alıcılar sayısına bağlı olarak, bir tek bir uygulama örneği Sifon görevlerini işlemek seçebilirsiniz. Birçok alıcılar kullanarak her biriktirme listesi sırası için fatura etkilere sahiptir.
 
 Kodu kullanmak için birincil oluşturma [MessagingFactory] [ MessagingFactory] örnek, bir ikincil [MessagingFactory] [ MessagingFactory] örnek, bir ikincil [ NamespaceManager] [ NamespaceManager] örneği ve bir [SendAvailabilityPairedNamespaceOptions] [ SendAvailabilityPairedNamespaceOptions] örneği. Çağrı aşağıdaki gibi basit olabilir:

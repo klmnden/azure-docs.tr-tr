@@ -3,19 +3,19 @@ title: Belirteç başvurusu, Azure Active Directory B2C | Microsoft Docs
 description: Azure Active Directory B2C'de verilen belirteç türleri
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d1c9101f10342f98803a4ace420abbed5d49ba23
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 47cfd5820c80a0f53772f5424f674603acdaf18d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52880123"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848946"
 ---
 # <a name="azure-ad-b2c-token-reference"></a>Azure AD B2C: Belirteç başvurusu
 
@@ -81,8 +81,8 @@ Kimliği belirteçlere talep herhangi belirli bir sırada döndürülmediğini u
 | Kod karması |`c_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |Yalnızca belirteç ile birlikte bir OAuth 2.0 yetkilendirme kodu verildiğinde kod karma bir kimlik belirteci dahil edilir. Kod karma bir yetkilendirme kodu özgünlüğünü doğrulamak için kullanılabilir. Bu doğrulama gerçekleştirme hakkında daha fazla ayrıntı için bkz. [Openıd Connect belirtimi](https://openid.net/specs/openid-connect-core-1_0.html).  |
 | Erişim belirteci karması |`at_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |Yalnızca belirteç OAuth 2.0 erişim belirteci ile birlikte verildiğinde bir erişim belirteci karma bir kimlik belirteci dahil edilir. Bir erişim belirteci karma bir erişim belirteci özgünlüğünü doğrulamak için kullanılabilir. Bu doğrulama gerçekleştirme hakkında daha fazla ayrıntı için bkz. [Openıd Connect belirtimi](https://openid.net/specs/openid-connect-core-1_0.html)  |
 | nonce |`nonce` |`12345` |Nonce belirteç yeniden yürütme saldırıları azaltmak için kullanılan bir stratejidir. Uygulamanızı bir geçici öğe içinde bir yetkilendirme isteği kullanarak belirtebilirsiniz `nonce` sorgu parametresi. İstekte sağladığınız değeri içinde değiştirilmemiş yayılan `nonce` yalnızca bir kimlik belirteci talep. Bu uygulamanın oturum belirli bir kimlik belirteci ile ilişkilendirir istekte belirtilen değerle değeri doğrulamak için uygulamanıza sağlar. Uygulamanız kimlik belirteci doğrulama işlemi sırasında bu doğrulaması gerçekleştirmeniz gerekir. |
-| Özne |`sub` |`884408e1-2918-4cz0-b12d-3aa027d7563b` |Sorumlu olduğu hakkında bir uygulamanın kullanıcı gibi bilgileri belirteci onaylar budur. Bu değer sabittir ve yeniden atandı yeniden veya değiştirilemez. Belirteç bir kaynağa erişmek için kullanıldığında gibi güvenli bir şekilde, yetkilendirme denetimleri gerçekleştirmek için kullanılabilir. Varsayılan olarak, konu talep, dizinde kullanıcının nesne kimliği ile doldurulur. Daha fazla bilgi için bkz. [Azure Active Directory B2C: belirteç, oturum ve çoklu oturum açma yapılandırması](active-directory-b2c-token-session-sso.md). |
-| Kimlik doğrulaması bağlamı sınıf başvurusu |`acr` |Uygulanamaz |Şu anda kullanılmıyor, söz konusu olduğunda eski ilkeleri hariç. Daha fazla bilgi için bkz. [Azure Active Directory B2C: belirteç, oturum ve çoklu oturum açma yapılandırması](active-directory-b2c-token-session-sso.md). |
+| Özne |`sub` |`884408e1-2918-4cz0-b12d-3aa027d7563b` |Sorumlu olduğu hakkında bir uygulamanın kullanıcı gibi bilgileri belirteci onaylar budur. Bu değer sabittir ve yeniden atandı yeniden veya değiştirilemez. Belirteç bir kaynağa erişmek için kullanıldığında gibi güvenli bir şekilde, yetkilendirme denetimleri gerçekleştirmek için kullanılabilir. Varsayılan olarak, konu talep, dizinde kullanıcının nesne kimliği ile doldurulur. Daha fazla bilgi için bkz: [Azure Active Directory B2C: Belirteç, oturum ve çoklu oturum açma yapılandırması](active-directory-b2c-token-session-sso.md). |
+| Kimlik doğrulaması bağlamı sınıf başvurusu |`acr` |Uygulanamaz |Şu anda kullanılmıyor, söz konusu olduğunda eski ilkeleri hariç. Daha fazla bilgi için bkz: [Azure Active Directory B2C: Belirteç, oturum ve çoklu oturum açma yapılandırması](active-directory-b2c-token-session-sso.md). |
 | Güven Framework İlkesi |`tfp` |`b2c_1_sign_in` |Bu kimlik belirteci almak için kullanılan ilke adıdır. |
 | Kimlik doğrulama süresi |`auth_time` |`1438535543` |Bu talep, bir kullanıcı son girilen kimlik bilgileri içinde dönem zamanı temsil zamandır. |
 
@@ -139,9 +139,9 @@ Bu belgenin kapsamı dışında imza doğrulaması gerçekleştirme açıklamas�
 Uygulamanızı veya API kimlik belirteci aldığında, bunu talepleri karşı çeşitli denetimleri kimliği belirteçteki gerçekleştirmelisiniz. Bunlar arasında ancak bunlarla sınırlı değildir:
 
 * **İzleyici** talep: Bu kimlik belirteci uygulamanıza verilmesi amaçlanmamıştır doğrular.
-* **Öncesine** ve **süre sonu** talepler: Bu kimlik belirteci sona ermediğinden emin olun.
-* **Veren** talep: Bu belirteç için uygulamanızı Azure AD tarafından verildiğini onaylar.
-* **Nonce**: belirteç yeniden yürütme saldırısı riskini azaltma için bir strateji budur.
+* **Öncesine** ve **süre sonu** talep: Bu kimlik belirteci sona ermediğinden emin olun.
+* **Veren** talep: Bu belirteç için uygulamanızı Azure AD tarafından verildiğini doğrular.
+* **Nonce**: Bu belirteç yeniden yürütme saldırısı riskini azaltma stratejisidir.
 
 Uygulamanızı gerçekleştirmesi gereken doğrulamaları tam bir listesi için başvurmak [Openıd Connect belirtimi](https://openid.net). Bu talepler için beklenen değerle ayrıntıları dahil edilir önceki [belirteç bölüm](#types-of-tokens).  
 

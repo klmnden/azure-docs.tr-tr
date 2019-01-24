@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: ca266df563cb7e50463548dd0e786cec8e886ec4
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: d3127b7f9bea9a35d9ac25d0724700cad72fa509
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359706"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54857157"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Web sitelerinin kullanılabilirlik ve yanıt hızını izleme
 Web uygulamanızı veya web sitenizi herhangi bir sunucuya dağıttıktan sonra kullanılabilirlik ve yanıt hızını izlemeye yönelik testler ayarlayabilirsiniz. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md), dünyanın her yerindeki noktalarından uygulamanıza düzenli aralıklarla web istekleri gönderir. Uygulamanız yanıt vermezse veya yavaş yanıt verirse sizi uyarır.
@@ -186,7 +186,7 @@ Kırmızı noktaya tıklayın.
 Bir kullanılabilirlik testi sonucundan tüm bileşenler genelinde işlem ayrıntılarını görebilirsiniz. Burada şunları yapabilirsiniz:
 
 * Sunucunuzdan alınan yanıtı denetleme.
-* Başarısız bir kullanılabilirlik testi işlenirken toplanan ilişkili sunucu tarafı telemetrisi ile hata tanılayın.
+* Hata ile başarısız kullanılabilirlik testi işlenirken toplanan bağıntılı sunucu tarafı telemetri tanılayın.
 * Bir sorun oturum veya bir sorunu izlemek için Git veya Azure panoları iş öğesi. Hata, bu olayın bir bağlantısını içerir.
 * Web testi sonucunu Visual Studio’da açın.
 
@@ -203,7 +203,7 @@ Klasik uyarılar deneyimini kullanmanın kullanılabilirlik veri uyarı kurallar
 3. Ortalama test süresi arttıkça bir eşiğini aşan
 
 ### <a name="alert-on-x-out-of-y-locations-reporting-failures"></a>Hata Raporlama Y konumları dışında X uyar
-Varsayılan olarak etkin uyarı kuralı Y konumları dışında X [birleştirilmiş yeni uyarılar deneyimini](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), yeni bir kullanılabilirlik testi oluşturun. "Klasik" seçeneğini belirleyerek veya uyarı kuralı devre dışı bırakmak belirleyerek çevirme.
+Varsayılan olarak etkin uyarı kuralı Y konumları dışında X [birleştirilmiş yeni uyarılar deneyimini](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), yeni bir kullanılabilirlik testi oluşturun. "Klasik" seçeneğini belirleyerek veya uyarı kuralı devre dışı bırakmak seçerek geri çevirebilirsiniz.
 
 ![Deneyimi oluşturun](./media/monitor-web-app-availability/appinsights-71webtestUpload.png)
 
@@ -297,9 +297,9 @@ Test tamamlandığında yanıt süreleri ve başarı oranları gösterilir.
 
     * "Etkin ayrıştırma bağımlı istekleri" testiniz var mı? Komut dosyaları gibi kaynakları üzerinde katı denetimi sonuçlarını vb. görüntüler. Bu tür hataları tarayıcıda belirgin olmayabilir. Tüm görüntüleri, betikleri, stil sayfalarını ve sayfa tarafından yüklenen diğer dosyaları denetleyin. Herhangi biri başarısızsa, ana html sayfası Tamam olarak yüklense bile test başarısız olarak raporlanır. Bu tür kaynak hatalarına karşı testin hassasiyetini ortadan kaldırmak için test yapılandırmasında "Bağımlı İstekleri Ayrıştır" seçeneğinin işaretini kaldırın. 
 
-    * Geçici ağ sinyalleri vb. kaynaklı gürültü olasılığını azaltmak için "Test hataları için yeniden denemeyi etkinleştir" yapılandırmasının işaretlendiğinden emin olun. Ayrıca, uygunsuz uyarılara neden olan konuma özgü sorunları önlemek için daha fazla konumdan test yapabilir ve uyarı kuralı eşiğini uygun şekilde yönetebilirsiniz.
+    * Geçici ağ sinyalleri vb. kaynaklı gürültü olasılığını azaltmak için "Test hataları için yeniden denemeyi etkinleştir" yapılandırmasının işaretlendiğinden emin olun. Ayrıca, daha fazla konumdan test ve uygunsuz uyarılara neden olan konuma özgü sorunları önlemek için uyarı kuralı eşiğini uygun şekilde yönetin.
 
-    * Herhangi bir kullanılabilirlik deneyiminden kırmızı nokta veya neden biz bildirilen hata ayrıntılarını görmek için tüm kullanılabilirlik hatasından arama Gezgini'ni tıklatın. Test sonucu (etkinse) bağlantılı sunucu tarafı telemetrisi ile birlikte testin neden başarısız anlamanıza yardımcı olacaktır. Sık karşılaşılan nedenleri geçici bir sorun, ağ veya bağlantı sorunlarıdır. 
+    * Herhangi bir kullanılabilirlik deneyiminden kırmızı nokta veya neden biz bildirilen hata ayrıntılarını görmek için tüm kullanılabilirlik hatasından arama Gezgini'ni tıklatın. Bağıntılı sunucu tarafı telemetri (etkinse) yanı sıra test sonucu testin neden başarısız anlamanıza yardımcı olacaktır. Sık karşılaşılan nedenleri geçici bir sorun, ağ veya bağlantı sorunlarıdır. 
 
     * Test zaman aşımı mı? Biz, 2 dakika sonra testleri durdurur. Ping veya çok adımlı bir test 2 dakikadan uzun sürerse, biz hata olarak raporlanır. Kısa süre içinde tamamlayabilmeniz için birden fazla olanlar test parçalamak göz önünde bulundurun.
 
@@ -356,6 +356,22 @@ Test tamamlandığında yanıt süreleri ve başarı oranları gösterilir.
 * *İstemci sertifikalarıyla testi nasıl çalıştırırım?*
 
     Üzgünüz, bunu desteklemiyoruz.
+
+## <a name="who-receives-the-classic-alert-notifications"></a>Kimin (Klasik) Uyarı bildirimlerini alır?
+
+Bu bölümde, yalnızca klasik uyarılar için geçerlidir ve yalnızca istenen alıcılarınız bildirimlerini aldığından emin olmak için Uyarı bildirimlerini iyileştirmenize yardımcı olur. Arasındaki fark hakkında daha fazla anlamak için [Klasik uyarılar](../platform/alerts-classic.overview.md)ve yeni uyarılar deneyimini başvurduğu [uyarılar genel bakış makalesi](../platform/alerts-overview.md). Yeni uyarılar bildiriminde uyarı denetlemek için kullanım deneyimi [Eylem grupları](../platform/action-groups.md).
+
+* Klasik bir uyarı bildirimlerini belirli alıcılara kullanılmasını öneririz.
+
+* X hatalardan Y konumları dışında ilgili uyarılar için **toplu/grup** yönetici/ortak yönetici rollerine sahip kullanıcılar için onay kutusu seçeneği etkinleştirilirse, gönderir.  Temelde _tüm_ yöneticileri _abonelik_ ilgili bildirimler alacaksınız.
+
+* Kullanılabilirlik ölçümleri (veya herhangi bir Application Insights ölçüm sorgunuzun) ile ilgili uyarılar için **toplu/grup** abonelik sahibi, katkıda bulunan veya okuyucu rollerine sahip kullanıcılar için onay kutusu seçeneği etkinleştirilirse, gönderir. Aslında, _tüm_ abonelik Application Insights kaynağına erişimi olan kullanıcılar kapsamındaki ve ilgili bildirimler alacaksınız. 
+
+> [!NOTE]
+> Şu anda kullanıyorsanız **toplu/grup** onay kutusu seçeneğini ve devre dışı bırakmak, bu değişikliği geri almak mümkün olmayacaktır.
+
+Yeni uyarı deneyimi/neredeyse gerçek zamanlı uyarılar, rollerine bağlı olarak kullanıcılara bildirmek gerekiyorsa kullanın. İle [Eylem grupları](../platform/action-groups.md), (tek bir seçenek olarak birlikte birleştirilmiş değil) sahip/katkıda bulunan/okuyucu rolüne sahip kullanıcılara e-posta bildirimleri yapılandırabilirsiniz.
+
 
 
 ## <a name="next"></a>Sonraki adımlar

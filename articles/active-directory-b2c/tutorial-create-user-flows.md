@@ -3,18 +3,18 @@ title: Öğretici - Azure Active Directory B2C'de kullanıcı akışları oluşt
 description: Azure portalını kullanarak Azure Active Directory B2C, uygulamalar için kullanıcı akışları oluşturmayı öğrenin.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: davidmu
-ms.openlocfilehash: eb69262b41351b8e0b813175b56ad4c93b1ce69b
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 6e651d23e3b5cced78088d59979507eb09723165
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54248917"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845614"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Öğretici: Azure Active Directory B2C'de kullanıcı akışları oluşturma
 

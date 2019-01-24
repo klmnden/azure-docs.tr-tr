@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 3/12/2018
-ms.openlocfilehash: 6c9bef108c2f272c678879124ae2cd4f9ae093ba
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 3f10e5dfd0a4aac859c1a946b5f0a680899e0888
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076238"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852550"
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-identities-for-azure-resources"></a>Azure Market görüntüsü kullanarak Azure kaynakları için yönetilen kimliğe sahip bir Terraform Linux sanal makinesi oluşturma
 
@@ -85,7 +85,7 @@ Katkıda bulunan izinleri sayesinde VM üzerindeki MSI, Terraform'u kullanarak V
 
 `. ~/tfEnv.sh`
 
-Yukarıdaki betikte [AZ CLI v 2.0 etkileşimli oturum açma](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest#interactive-log-in) mekanizması kullanılarak Azure kimlik doğrulaması gerçekleştirilir ve sanal makine Yönetilen Kimliğe aboneliğin tamamında katkıda bulunan izni atanır. 
+Yukarıdaki betikte [AZ CLI v 2.0 etkileşimli oturum açma](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest) mekanizması kullanılarak Azure kimlik doğrulaması gerçekleştirilir ve sanal makine Yönetilen Kimliğe aboneliğin tamamında katkıda bulunan izni atanır. 
 
  VM, Terraform uzak durum arka ucuna sahiptir. Bunu Terraform dağıtımınızda etkinleştirmek için tfTemplate dizinindeki remoteState.tf dosyasını Terraform betiklerinin kök dizinine kopyalayın.  
 

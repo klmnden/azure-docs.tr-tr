@@ -5,15 +5,15 @@ services: storage
 author: xyh1
 ms.service: storage
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 01/21/2019
 ms.author: hux
 ms.component: blobs
-ms.openlocfilehash: 53c719fbeb31d605bd9dff170a798b262d44698a
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: f3a67c2eddba2b7bd734237466243da8f43a862a
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634278"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848657"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>İş açısından kritik verilerin Azure Blob Depolama alanında Store
 
@@ -197,7 +197,7 @@ Evet. Zamana bağlı bekletme ilkesini ilk oluşturulduğunda bulunduğu bir *ki
 
 **Bu özellik ulusal ve kamu bulutlarında mevcut mu?**
 
-Yalnızca Azure ortak bölgelerde sabit depolama şu anda kullanılabilir. Belirli bir Ulusal bulutta ilgileniyorsanız, e-posta azurestoragefeedback@microsoft.com.
+Sabit depolama, Azure genel, Çin ve kamu bölgelerinde kullanılabilir. Sabit depolama Bölgenizde kullanılabilir durumda değilse, e-posta azurestoragefeedback@microsoft.com.
 
 ## <a name="sample-powershell-code"></a>Örnek PowerShell kodu
 

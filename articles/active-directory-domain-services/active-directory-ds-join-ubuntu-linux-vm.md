@@ -1,10 +1,10 @@
 ---
-title: 'Azure Active Directory Domain Services: Ubuntu sanal makinesi yönetilen bir etki alanına katılın. | Microsoft Docs'
+title: 'Azure Active Directory etki alanı Hizmetleri: Ubuntu sanal makinesi için yönetilen etki alanına Katıl | Microsoft Docs'
 description: Bir Ubuntu Linux sanal makinesini Azure AD Domain Services için katılın
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 804438c4-51a1-497d-8ccc-5be775980203
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: 709c227c955aba6b31ce415767470fa18ff3684f
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 35b37a5c50346dc116b2f36394feecb82a0d88fd
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155278"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845774"
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Bir Ubuntu sanal makinesi, Azure'da yönetilen bir etki alanına katılın.
 Bu makalede, bir Ubuntu Linux sanal makinesi bir Azure AD Domain Services yönetilen etki alanına ekleme işlemini göstermektedir.
@@ -124,7 +124,7 @@ Gerekli paketleri, Linux sanal makinesinde yüklü olan, sonraki görev sanal ma
     ```
 
    > [!NOTE]
-   > **Sorun giderme:** varsa *bölge bulma* yönetilen etki alanınıza bulamıyor:
+   > **Sorun giderme:** Varsa *bölge bulma* yönetilen etki alanınıza bulamıyor:
      * Etki alanı (try ping) sanal makineden erişilebilir olduğundan emin olun.
      * Sanal makinenin yönetilen etki alanında kullanılabilir olduğu aynı sanal ağa gerçekten dağıtılmış olduğunu kontrol edin.
      * Sanal ağın DNS sunucusu ayarlarını yönetilen etki alanının etki alanı denetleyicilerine işaret edecek şekilde güncelleştirdiyseniz denetleyin.

@@ -3,21 +3,21 @@ title: Öğretici - Azure Active Directory B2C kullanarak tek sayfalı bir uygul
 description: Bir .NET Core web API’sini korumak ve tek sayfalı bir uygulamadan çağırmak için Active Directory B2C kullanmaya yönelik öğretici.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.author: davidmu
 ms.date: 3/02/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: efe975fa4f89a262faef82df3cc79820d393b60e
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
-ms.translationtype: HT
+ms.openlocfilehash: 4a1787f0a6d222f91eefd6f96e265ba825ca9e82
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605768"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848106"
 ---
-# <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-app-using-azure-active-directory-b2c"></a>Öğretici - Azure Active Directory B2C kullanarak tek sayfalı bir uygulamadan ASP.NET Core web API'sine erişim izni verme
+# <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-app-using-azure-active-directory-b2c"></a>Öğretici: Azure Active Directory B2C kullanarak bir tek sayfalı uygulamasından erişime bir ASP.NET Core Web API'si
 
 Bu öğreticide tek sayfalı bir uygulamadan Azure Active Directory (Azure AD) B2C korumalı ASP.NET Core web API’si kaynağını çağırma işlemi gösterilmektedir.
 
@@ -31,7 +31,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * [Tek sayfalı bir uygulamada Azure Active Directory B2C ile kullanıcılar için kimlik doğrulaması gerçekleştirme öğreticisini](active-directory-b2c-tutorials-spa.md) tamamlayın.
 * **ASP.NET ve web geliştirme** iş yüküyle [Visual Studio 2017](https://www.visualstudio.com/downloads/)’yi yükleyin.
@@ -57,8 +57,8 @@ Web API’si kaynaklarının Azure Active Directory’den bir [erişim belirteci
     | Ayar      | Önerilen değer  | Açıklama                                        |
     | ------------ | ------- | -------------------------------------------------- |
     | **Ad** | Hello Core API’si | Web API’nizi geliştiricilere tanıtan bir **Ad** girin. |
-    | **Web uygulamasını / web API'sini dahil etme** | Yes | Web API’si için **Evet**’i seçin. |
-    | **Örtük akışa izin verme** | Yes | API [OpenID Connect oturumu](active-directory-b2c-reference-oidc.md) kullandığından **Evet**’i seçin. |
+    | **Web uygulamasını / web API'sini dahil etme** | Evet | Web API’si için **Evet**’i seçin. |
+    | **Örtük akışa izin verme** | Evet | API [OpenID Connect oturumu](active-directory-b2c-reference-oidc.md) kullandığından **Evet**’i seçin. |
     | **Yanıt URL'si** | `http://localhost:5000` | Yanıt URL'leri, Azure AD B2C'nin, API’niz tarafından istenen belirteçleri döndürdüğü uç noktalardır. Bu öğreticide örnek web API’si yerel olarak (localhost) çalışır ve 5000 numaralı bağlantı noktasını (bu öğreticinin ilerleyen kısmında yapılandırıldıktan sonra) dinler. |
     | **Uygulama Kimliği URI'si** | HelloCoreAPI | URI, kiracıdaki API’yi benzersiz olarak tanımlar. Bu, kiracı başına birden çok API kaydetmenize olanak sağlar. [Kapsamlar](../active-directory/develop/developer-glossary.md#scopes) korumalı API kaynağına erişimi yönetir ve Uygulama Kimliği URI’si başına tanımlanır. |
     | **Yerel istemci** | Hayır | Bu, bir web API’si olduğu için ve yerel bir istemci olmadığı için Hayır’ı seçin. |

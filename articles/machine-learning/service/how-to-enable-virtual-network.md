@@ -1,7 +1,7 @@
 ---
-title: Denemeleri ve sanal ağ içindeki çıkarım çalıştırın
+title: Çalıştırma denemeleri ve sanal ağ içinde çıkarımı
 titleSuffix: Azure Machine Learning service
-description: Makine öğrenimi denemeleri ve bir Azure sanal ağ içindeki çıkarım güvenli bir şekilde çalıştırmayı öğrenin. Bu makalede, modelleri eğitme ve çıkarım bir Azure sanal ağ içinde gerçekleştirmek için kullanılan işlem hedeflerini oluşturma öğretir. Ayrıca güvenli sanal ağlar için gereksinimleri kapsar, gelen ve giden bağlantı noktaları gibi gerektirir.
+description: Makine öğrenimi denemeleri ve bir Azure sanal ağ çıkarım güvenli hale getirme çalıştırın. İşlem hedeflerine yönelik model eğitiminin oluşturmayı öğrenin ve Azure sanal ağ içindeki çıkarımı yapma. Ayrıca güvenli sanal ağlar için gereksinimleri kapsar, gelen ve giden bağlantı noktaları gibi gerektirir.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 01/08/2019
-ms.openlocfilehash: 1890f830f9b2a4b108328de056636335fd3746e3
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 21c4a9042a64a58f67f1f94c300b6438895eea5d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54248903"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856290"
 ---
 # <a name="securely-run-experiments-and-inferencing-inside-an-azure-virtual-network"></a>Denemeler ve bir Azure sanal ağ içindeki çıkarım güvenli bir şekilde çalıştırın
 

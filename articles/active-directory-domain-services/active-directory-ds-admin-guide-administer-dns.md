@@ -1,10 +1,10 @@
 ---
-title: "Azure Active Directory Domain Services: Yönetilen etki alanlarını DNS'yi | Microsoft Docs"
+title: "Azure Active Directory etki alanı Hizmetleri: Yönetilen etki alanlarını DNS'yi | Microsoft Docs"
 description: Azure Active Directory Domain Services yönetilen etki alanlarını DNS'yi yönetme
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: f2eea139209a03950217a855b5c8af7bc9a17372
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 0fd6058e95b941591f5cc71bf916c7d201fcfa54
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155312"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855933"
 ---
 # <a name="administer-dns-on-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services yönetilen etki alanında DNS'yi yönetme
 Azure Active Directory Domain Services yönetilen etki alanı için DNS çözümlemesini sağlayan bir DNS (etki alanı adı çözümlemesi) sunucusu içerir. Bazen, yönetilen etki alanında DNS yapılandırmanız gerekebilir. Etki alanına katılmamış olan makineler için DNS kayıtları oluşturma, yük Dengeleyiciler için sanal IP adreslerini yapılandırın veya dış DNS ileticileri Kurulum gerekebilir. Bu nedenle 'AAD DC Administrators' grubuna ait kullanıcılar yönetilen etki alanındaki DNS yönetim ayrıcalıkları verilir.

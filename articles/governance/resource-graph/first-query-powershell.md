@@ -4,17 +4,17 @@ description: Bu makale, Azure PowerShell için Kaynak Grafiği modülünü etkin
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 11/27/2018
+ms.date: 01/23/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: bf23dcdb212c1d7e052b12179084df9ccc941664
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: a624540e95d054ef5edadfada29fa13cd47419d6
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434484"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848878"
 ---
 # <a name="run-your-first-resource-graph-query-using-azure-powershell"></a>Azure PowerShell kullanarak ilk Kaynak Grafiği sorgunuzu çalıştırma
 
@@ -24,80 +24,49 @@ Bu işlemin sonunda, modülü seçtiğiniz Azure PowerShell yüklemesine eklemi�
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
+[!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
+
 ## <a name="add-the-resource-graph-module"></a>Kaynak Grafiği modülü ekleme
 
-Azure PowerShell’in Azure Kaynak Grafiği’ni sorgulamasını etkinleştirmek için modül eklenmelidir. Bu modül yerel olarak yüklenmiş Windows PowerShell ve PowerShell Core veya [Azure PowerShell Docker görüntüsü](https://hub.docker.com/r/azuresdk/azure-powershell/) ile birlikte de kullanılabilir.
+Azure PowerShell’in Azure Kaynak Grafiği’ni sorgulamasını etkinleştirmek için modül eklenmelidir. Bu modül, yerel olarak yüklenmiş PowerShell ile birlikte kullanılabilir [Azure Cloud Shell](https://shell.azure.com), veya [Azure PowerShell Docker görüntüsü](https://hub.docker.com/r/azuresdk/azure-powershell/).
 
 ### <a name="base-requirements"></a>Temel gereksinimler
 
 Azure Kaynak Grafiği modülü aşağıdaki yazılımı gerektirir:
 
-- Azure PowerShell 6.3.0 ve üzeri. Henüz yüklenmiş değilse, [bu yönergeleri](/powershell/azure/azurerm/install-azurerm-ps) izleyin.
-
-  - PowerShell Core için, Azure PowerShell modülünün **Az** sürümünü kullanın.
-
-  - Windows PowerShell için, Azure PowerShell modülünün **AzureRm** sürümünü kullanın.
+- Azure PowerShell 1.0.0 veya üzeri. Henüz yüklenmiş değilse, [bu yönergeleri](/powershell/azure/install-az-ps) izleyin.
 
 - PowerShellGet 2.0.1 veya üzeri. Henüz yüklenmiş ve güncellenmiş değilse, [bu yönergeleri](/powershell/gallery/installing-psget) izleyin.
 
-### <a name="cloud-shell"></a>Cloud Shell
+### <a name="install-the-module"></a>Modülünü yükleme
 
-Cloud Shell’de Azure Kaynak Grafı eklemek için aşağıdaki PowerShell Core yönergelerini izleyin.
+PowerShell için kaynak grafiği modül **Az.ResourceGraph**.
 
-### <a name="powershell-core"></a>PowerShell Core
-
-PowerShell Core’un Kaynak Grafiği modülü **Az.ResourceGraph**’tır.
-
-1. **Yönetimsel** PowerShell Core komut isteminde aşağıdaki komutu çalıştırın:
+1. Gelen bir **Yönetim** PowerShell isteminde aşağıdaki komutu çalıştırın:
 
    ```azurepowershell-interactive
    # Install the Resource Graph module from PowerShell Gallery
    Install-Module -Name Az.ResourceGraph
    ```
 
-1. Modülün içeri aktarıldığını ve doğru sürüm olduğunu doğrulayın (0.3.0):
+1. Modül içeri aktarıldı ve (0.7.1) doğru sürüm olduğundan doğrulama:
 
    ```azurepowershell-interactive
    # Get a list of commands for the imported Az.ResourceGraph module
    Get-Command -Module 'Az.ResourceGraph' -CommandType 'Cmdlet'
    ```
 
-1. Aşağıdaki komutla **Az** - **AzureRm** arası için geriye dönük diğer adları etkinleştirin:
-
-   ```azurepowershell-interactive
-   # Enable backwards alias compatibility
-   Enable-AzureRmAlias
-   ```
-
-### <a name="windows-powershell"></a>Windows PowerShell
-
-Windows PowerShell’in Kaynak Grafiği modülü **AzureRm.ResourceGraph**’tır.
-
-1. **Yönetimsel** Windows PowerShell komut isteminde aşağıdaki komutu çalıştırın:
-
-   ```powershell
-   # Install the Resource Graph (prerelease) module from PowerShell Gallery
-   Install-Module -Name AzureRm.ResourceGraph -AllowPrerelease
-   ```
-
-1. Modülün içeri aktarıldığını ve doğru sürüm olduğunu doğrulayın (0.1.1-önizleme):
-
-   ```powershell
-   # Get a list of commands for the imported AzureRm.ResourceGraph module
-   Get-Command -Module 'AzureRm.ResourceGraph' -CommandType 'Cmdlet'
-   ```
-
 ## <a name="run-your-first-resource-graph-query"></a>İlk Kaynak Grafiği sorgunuzu çalıştırma
 
 Azure PowerShell modülünün seçtiğiniz ortamınıza eklenmesiyle birlikte şimdi basit bir Kaynak Grafiği sorgusu denemenin zamanı geldi. Sorgu ilk beş Azure kaynağını, her kaynağın **Adı** ve **Kaynak Türü** ile birlikte döndürür.
 
-1. `Search-AzureRmGraph` cmdlet’ini kullanarak İlk Azure Kaynak Grafiği sorgunuzu çalıştırın:
+1. `Search-AzGraph` cmdlet’ini kullanarak İlk Azure Kaynak Grafiği sorgunuzu çalıştırın:
 
    ```azurepowershell-interactive
-   # Login first with Connect-AzureRmAccount if not using Cloud Shell
+   # Login first with Connect-AzAccount if not using Cloud Shell
 
    # Run Azure Resource Graph query
-   Search-AzureRmGraph -Query 'project name, type | limit 5'
+   Search-AzGraph -Query 'project name, type | limit 5'
    ```
 
    > [!NOTE]
@@ -107,7 +76,7 @@ Azure PowerShell modülünün seçtiğiniz ortamınıza eklenmesiyle birlikte ş
 
    ```azurepowershell-interactive
    # Run Azure Resource Graph query with 'order by'
-   Search-AzureRmGraph -Query 'project name, type | limit 5 | order by name asc'
+   Search-AzGraph -Query 'project name, type | limit 5 | order by name asc'
    ```
 
   > [!NOTE]
@@ -117,7 +86,7 @@ Azure PowerShell modülünün seçtiğiniz ortamınıza eklenmesiyle birlikte ş
 
    ```azurepowershell-interactive
    # Run Azure Resource Graph query with `order by` first, then with `limit`
-   Search-AzureRmGraph -Query 'project name, type | order by name asc | limit 5'
+   Search-AzGraph -Query 'project name, type | order by name asc | limit 5'
    ```
 
 Son sorgu birkaç kere çalıştırıldığında, ortamınızda hiçbir şeyin değişmediği varsayılarak döndürülen sonuçlar tutarlı ve beklendiği gibi olur, yani **Ad** özelliğine göre düzenlenir ama yine de en iyi beş sonuçla sınırlıdır.
@@ -128,7 +97,7 @@ Kaynak Grafiği modülünü Azure PowerShell ortamınızdan kaldırmak isterseni
 
 ```powershell
 # Remove the Resource Graph module from the Azure PowerShell environment
-Remove-Module -Name 'AzureRm.ResourceGraph'
+Remove-Module -Name 'Az.ResourceGraph'
 ```
 
 > [!NOTE]

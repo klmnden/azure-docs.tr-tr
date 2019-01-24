@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: cwatson
-ms.openlocfilehash: 9d755d1a3d9ae54d33331eff9b547de70a5fd77f
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 5aca80a4ebeadc9e54cf99fb4a220c6ee7c37cae
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452905"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54857021"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Azure'da faturalandırma ve maliyet yönetimi ile beklenmeyen ücretlerden
 
@@ -63,6 +63,24 @@ Ancak, harcama sınırına ulaşırsanız, hizmetleriniz devre dışı. Sanal ma
 ![Harcama sınırı üzerinde hesap Merkezi'nde olan hakkında bir uyarı gösteren ekran görüntüsü](./media/billing-getting-started/spending-limit-banner.PNG)
 
 Başlığa tıklayın ve harcama limitini kaldırmak için yönergeleri izleyin. Kaydolurken kredi kartı bilgilerini girmediniz, harcama limitini kaldırmak için girmeniz gerekir. Daha fazla bilgi için [Azure harcama limiti – nasıl çalışır ve etkinleştirme veya kaldırmayı nasıl](https://azure.microsoft.com/pricing/spending-limits/).
+
+Kullanabileceğiniz [Cloudyn](https://www.cloudyn.com/) hizmetinin otomatik olarak anomalileri harcama ve fazla harcama riskleri paydaşlara bildirmek uyarılar oluşturun. Uyarıları destekleyen bütçe ve maliyet eşiklerine raporları kullanarak uyarılar oluşturabilirsiniz. Cloudyn kullanma hakkında daha fazla bilgi için bkz. [Öğreticisi: Kullanımı ve maliyetleri gözden geçirme](../cost-management/tutorial-review-usage.md).
+
+Bu örnekte **zaman içinde gerçek maliyet** harcamalarınızı bir Azure sanal makinesinde toplam bütçenize yaklaştığında bildirim göndermek için rapor. Bu senaryoda, 20.000 $ toplam bütçeye varsa ve maliyetleri 10.000 ABD Doları ulaştığında maliyetler bütçenize $ 9. 000 ve ek bir uyarının yarısını yaklaştığı olduğunda bir bildirim almak istiyorsanız.
+
+1. Cloudyn portal üst kısmındaki menüden **maliyetleri** > **maliyet analizi** > **zaman içinde gerçek maliyet**. 
+2. **Gruplar** seçeneğini **Hizmet** olarak, **Hizmet filtreleme** seçeneğini **Azure/VM** olarak ayarlayın. 
+3. Üst raporun sağ seçin **eylemleri** seçip **rapor zamanla**.
+4. Zamanlanan aralıklarla kendinize raporu e-posta göndermek için seçin **zamanlama** sekmesinde **kaydedin veya bu zamanlamayı** rapor iletişim. **E-posta ile gönder**’i seçtiğinizden emin olun. Tüm etiketler, gruplandırma ve filtreleme, kullanım, e-postayla rapora dahil edilir. 
+5. Seçin **eşiği** sekmesini seçip **gerçek maliyet vs. Eşik** öğesini seçin. 
+   1. İçinde **kırmızı uyarıya** 10000 eşiği kutusuna girin. 
+   2. İçinde **sarı uyarı** 9000 eşiği kutusuna girin. 
+   3. İçinde **ardışık olarak verilecek uyarı sayısını** kutusunda, almak için ardışık olarak verilecek uyarı sayısını girin. Belirttiğiniz toplam uyarı sayısını aldığınızda, başka bir uyarı gönderilir. 
+6. **Kaydet**’i seçin.
+
+    ![Kırmızı ve sarı uyarı eşikleri harcamayı göre gösteren örnek](./media/billing-getting-started/schedule-alert01.png)
+
+Ayrıca seçebilirsiniz **maliyet yüzdesi ve. Bütçe** eşiği ölçümünü kullanarak uyarı oluşturmayı. Bu, bütçenizi para birimi değerleri yerine yüzde olarak eşikleri belirlemenizi sağlar.
 
 ## <a name="ways-to-monitor-your-costs-when-using-azure-services"></a>Azure hizmetlerini kullanırken maliyetlerinizi izlenecek yolları
 

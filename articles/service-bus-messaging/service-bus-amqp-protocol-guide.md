@@ -3,23 +3,23 @@ title: AMQP 1.0 protokol Kılavuzu Azure Service Bus ve Event Hubs | Microsoft D
 description: İfadeler ve Azure Service Bus ve Event Hubs AMQP 1.0 açıklamasını protokol Kılavuzu
 services: service-bus-messaging,event-hubs
 documentationcenter: .net
-author: clemensv
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: d2d3d540-8760-426a-ad10-d5128ce0ae24
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2018
-ms.author: clemensv
-ms.openlocfilehash: c437ffec635064bf301eb417717861b68beca611
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: 88f586fac4392e880efc3ef611a7c03177582bff
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54476998"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856715"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 protokol Kılavuzu Azure Service Bus ve Event Hubs
 
@@ -134,7 +134,7 @@ Bir API düzeyinde "Al" çağrı dönüştürecektir bir *akış* performative S
 
 Bir iletinin kilidini serbest aktarımı terminal durumlarından birine kapatıldığında *kabul*, *reddedilen*, veya *yayımlanan*. Terminal durumuna olduğunda Service Bus'tan ileti silinir *kabul*. Service Bus kalır ve aktarım diğer durumlardan ulaştığında sonraki alıcıya teslim edilir. Yinelenen redleri veya sürümler nedeniyle varlık için izin verilen en yüksek teslimat sayısı ulaştığında Service Bus iletiyi otomatik olarak varlığın teslim edilemeyen iletiler kuyruğuna taşır.
 
-Service Bus API'lerine doğrudan böyle bir seçenek bugün açığa çıkarmayın olsa da, alt düzey AMQP protokolünü istemci bağlantı kredi modeli, bir "anında iletme-style" modeli tarafından iade alma her istek için bir birim veren "çekme-style" etkileşimi etkinleştirmek için kullanabilirsiniz çok sayıda kesme KREDİLERİ bağlamak ve başka hiçbir etkileşimi olmadan kullanılabilir oldukça iletileri alırsınız. Anında iletme aracılığıyla desteklenir [MessagingFactory.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_PrefetchCount) veya [MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount) özelliği ayarları. Sıfır olmayan olduklarında AMQP istemci bağlantı kredi olarak kullanır.
+Service Bus API'lerine doğrudan böyle bir seçenek bugün açığa çıkarmayın olsa da, alt düzey AMQP protokolünü istemci bağlantı kredi modeli, bir "anında iletme-style" modeli tarafından iade alma her istek için bir birim veren "çekme-style" etkileşimi etkinleştirmek için kullanabilirsiniz çok sayıda kesme KREDİLERİ bağlamak ve başka hiçbir etkileşimi olmadan kullanılabilir oldukça iletileri alırsınız. Anında iletme aracılığıyla desteklenir [MessagingFactory.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) veya [MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount) özelliği ayarları. Sıfır olmayan olduklarında AMQP istemci bağlantı kredi olarak kullanır.
 
 Bu bağlamda ileti, ileti kablo eklenmez varlıktan alındığında varlık içinde ileti üzerindeki kilit sona erme saati başladığını anlamak önemlidir. İstemci bağlantı kredi göndererek iletileri almak için hazır olma durumu gösteren olduğunda, bu nedenle iletileri ağda etkin bir şekilde çekme ve onları işlemeye hazır beklenmektedir. Aksi takdirde iletisi bile teslim edilmeden önce ileti kilidi sona ermiştir. Bağlantı-kredi akış kontrolü kullanarak doğrudan alıcısına gönderilen kullanılabilir iletiler için hemen hazır olma durumu yansıtmalıdır.
 
@@ -228,7 +228,7 @@ AMQP için 's tanımlar için uygulaması gereken herhangi bir özellik eşlenme
 | konu |Service Bus tarafından yorumlanır değil, uygulama tarafından tanımlanan ileti amaçlı tanımlayıcısı. |[Etiket](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) |
 | Yanıtla |Uygulama tanımlı yanıt yolu göstergesi, Service Bus tarafından yorumlanır değil. |[replyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyTo) |
 | Bağıntı Kimliği |Service Bus tarafından yorumlanır değil, uygulama tanımlı bağıntı tanımlayıcısı. |[Bağıntı Kimliği](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
-| içerik türü |İçerik türü, Service Bus tarafından yorumlanır değil gövdesi için uygulama tanımlı göstergesi. |[contentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ContentType) |
+| içerik türü |İçerik türü, Service Bus tarafından yorumlanır değil gövdesi için uygulama tanımlı göstergesi. |[contentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | İçerik kodlama |Service Bus tarafından yorumlanır değil gövdesi için göstergesi içerik kodlamasını uygulama tanımlı. |Service Bus API'sini aracılığıyla erişilebilir değil. |
 | süre sonu mutlak |Hangi mutlak anında iletinin geçerlilik süresinin bildirir. Giriş (üstbilgisi TTL gözlemlenen değerdir), göz ardı çıktıyı yetkili. |[ExpiresAtUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ExpiresAtUtc) |
 | oluşturma zamanı |Bildirir, aynı zamanda iletinin oluşturulduğu. Service Bus tarafından kullanılmıyor |Service Bus API'sini aracılığıyla erişilebilir değil. |

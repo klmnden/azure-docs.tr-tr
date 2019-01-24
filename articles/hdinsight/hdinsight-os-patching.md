@@ -8,15 +8,17 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2017
-ms.openlocfilehash: 30ad0c5ee069df4cd58cb76b779f611d0272d571
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 0f8d6290e779872d73b0cf7a9d0d820d2ea5e007
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53741598"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848164"
 ---
 # <a name="os-patching-for-hdinsight"></a>HDInsight için düzeltme eki uygulama işletim sistemi 
-Yönetilen bir Apache Hadoop hizmeti olan HDInsight HDInsight kümeleri tarafından kullanılan temel alınan sanal makinelerin işletim sistemi düzeltme eki uygulama üstlenir. 1 Ağustos 2016'dan itibaren (sürüm 3.4) Linux tabanlı HDInsight kümeleri için konuk işletim sistemi düzeltme eki uygulama ilkesi değiştirdik. Yeni ilke hedefi düzeltme eki uygulama nedeniyle yeniden başlatma sayısını önemli ölçüde azaltmaktır. Yeni ilke, her Pazartesi ya da herhangi bir küme içindeki düğümler arasında aşamalı bir şekilde 12: 00 UTC başlayarak Perşembe Linux kümelerinde düzeltme eki sanal makinelerine (VM'ler) devam eder. Ancak, belirli bir VM'nin yalnızca en fazla 30 konuk işletim sistemi düzeltme eki uygulama nedeniyle günde bir kez yeniden başlatılır. Ayrıca, ilk başlatma işlemi yeni oluşturulan bir küme için küme oluşturma tarihinden itibaren 30 gün daha erken olmaması. Düzeltme ekleri, Vm'leri yeniden sonra geçerli olacaktır.
+
+> [!IMPORTANT]
+> Ubuntu görüntülerinde yayımlanmasını, 3 ay içinde yeni HDInsight kümesi oluşturmak için kullanılabilir hale gelir. Ocak 2019'den itibaren çalışan kümeleridir **değil** otomatik düzeltme eki uygulandı. Müşteriler, çalışan bir küme düzeltme eki için betik eylemleri veya başka mekanizmalar kullanmalısınız.
 
 ## <a name="how-to-configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>İşletim sistemi düzeltme eki uygulama zamanlamasını Linux tabanlı HDInsight kümeleri için yapılandırma
 Bir HDInsight kümesinde sanal makineler, böylece önemli güvenlik düzeltme eklerinin yüklü bazen başlatılması gerekir. 1 Ağustos 2016'den itibaren yeni Linux tabanlı HDInsight kümeleri (sürüm 3.4 veya daha büyük) yeniden şu zamanlamaya kullanarak:

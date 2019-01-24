@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;mingfeiy
-ms.openlocfilehash: 531b90b905df8549846c6027fe547521d16cf082
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 0c16369cca4fae89733ad281aa3332c393be2aff
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37868509"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828426"
 ---
-# <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>Dinamik şifreleme: bir içerik anahtarı yetkilendirme ilkesini yapılandırma
+# <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>Dinamik şifreleme: Bir içerik anahtarı yetkilendirme ilkesini yapılandırma
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
 
 ## <a name="overview"></a>Genel Bakış
@@ -31,7 +31,7 @@ Media Services, kendisinden şifrelenmiş içeriği yürütmek için PlayReady/W
 
 Media Services'ın bir varlık şifrelemek isterseniz, bir şifreleme anahtarı (CommonEncryption veya EnvelopeEncryption) ilişkilendirilecek varlıkla gerekir. Daha fazla bilgi için [.NET ile ContentKeys oluşturma](media-services-dotnet-create-contentkey.md). (Bu makalede anlatıldığı gibi) anahtar yetkilendirme ilkelerini yapılandırmak gerekir.
 
-Bir akışa bir oynatıcı tarafından istendiğinde Media Services dinamik olarak içeriğinizi AES veya DRM şifreleme kullanarak şifrelemek için belirtilen anahtar kullanır. Akış şifresini çözmek için player anahtar anahtar teslim hizmetinden ister. Kullanıcı anahtarı almak için yetki verilip verilmediğini belirlemek için anahtar için belirtilen Yetkilendirme İlkeleri hizmet tarafından değerlendirilir.
+Bir akışa bir oynatıcı tarafından istendiğinde Media Services dinamik olarak içeriğinizi AES veya DRM şifreleme kullanarak şifrelemek için belirtilen anahtar kullanır. Oynatıcı, akışın şifresini çözmek için anahtar teslim hizmetinden anahtarı ister. Kullanıcı anahtarı almak için yetki verilip verilmediğini belirlemek için anahtar için belirtilen Yetkilendirme İlkeleri hizmet tarafından değerlendirilir.
 
 Media Services, anahtar isteğinde bulunan kullanıcıların kimlik doğrulamasını yapmanın birden çok yöntemini destekler. İçerik anahtarı yetkilendirme ilkesinin bir veya daha fazla yetkilendirme kısıtlaması olabilir. Seçenekler şunlardır: açık veya belirteç kısıtlaması. Belirteç kısıtlamalı ilkenin beraberinde bir güvenlik belirteci hizmeti (STS) tarafından verilmiş bir belirteç bulunmalıdır. Media Services, basit web belirteci belirteçleri destekler ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) biçimi ve JSON Web Token ([JWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3)) biçimi.
 
@@ -88,7 +88,7 @@ Aşağıdaki örnek, bir açık yetkilendirme ilkesi oluşturur ve içerik anaht
 
         policy.Options.Add(policyOption);
 
-        // Add ContentKeyAutorizationPolicy to ContentKey
+        // Add ContentKeyAuthorizationPolicy to ContentKey
         contentKey.AuthorizationPolicyId = policy.Id;
         IContentKey updatedKey = contentKey.UpdateAsync().Result;
         Console.WriteLine("Adding Key to Asset: Key ID is " + updatedKey.Id);
@@ -185,7 +185,7 @@ Aşağıdaki örnek, bir belirteç kısıtlamasına bir yetkilendirme ilkesi olu
 
         policy.Options.Add(policyOption);
 
-        // Add ContentKeyAutorizationPolicy to ContentKey
+        // Add ContentKeyAuthorizationPolicy to ContentKey
         contentKey.AuthorizationPolicyId = policy.Id;
         IContentKey updatedKey = contentKey.UpdateAsync().Result;
         Console.WriteLine("Adding Key to Asset: Key ID is " + updatedKey.Id);
@@ -315,7 +315,7 @@ Belirteç kısıtlamasına seçeneği yapılandırmak için belirtecin yetkilend
 
         policy.Options.Add(policyOption);
 
-        // Add ContentKeyAutorizationPolicy to ContentKey
+        // Add ContentKeyAuthorizationPolicy to ContentKey
         contentKeyAuthorizationPolicy.Options.Add(policyOption);
 
         // Associate the content key authorization policy with the content key

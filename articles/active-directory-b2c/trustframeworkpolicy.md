@@ -3,19 +3,19 @@ title: TrustFrameworkPolicy - Azure Active Directory B2C | Microsoft Docs
 description: Azure Active Directory B2C'de özel bir ilkenin TrustFrameworkPolicy öğesi belirtin.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d54d4eccc89313a8e109d1598078cdb1cc5d7a14
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 820e98b200071c95dc3d9506dd0cd0bbe86e2aae
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836738"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849694"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -43,7 +43,7 @@ ms.locfileid: "52836738"
 | PolicySchemaVersion | Evet | İlke yürütmek için kullanılacak olan şema sürümü. Değer olmalıdır `0.3.0.0` |
 | TenantObjectId | Hayır | Azure Active Directory (Azure AD) B2C kiracısının benzersiz nesne tanımlayıcısı. |
 | TenantId | Evet | Bu ilkenin ait olduğu kiracının benzersiz tanımlayıcısı. |
-| Policyıd | Evet | İlke için benzersiz tanımlayıcı. Bu tanımlayıcı getirilmeli *B2C_1A_* |
+| PolicyId | Evet | İlke için benzersiz tanımlayıcı. Bu tanımlayıcı getirilmeli *B2C_1A_* |
 | PublicPolicyUri | Evet | Kiracı kimliği ve ilke kimliğinin birleşimi İlkesi URI'si |
 | DeploymentMode | Hayır | Olası değerler: `Production`, `Debugging`, veya `Development`. `Production` varsayılan değerdir. İlkenizi hata ayıklamak için bu özelliği kullanın. Daha fazla bilgi için [günlüklerini toplama](active-directory-b2c-troubleshoot-custom.md). |
 | UserJourneyRecorderEndpoint | Hayır | Uç noktası yüklendiğinde **DeploymentMode** ayarlanır `Development`. Değer olmalıdır `urn:journeyrecorder:applicationinsights`. Daha fazla bilgi için [günlüklerini toplama](active-directory-b2c-troubleshoot-custom.md). |
@@ -91,7 +91,7 @@ Bir ilke başka bir ilkeden devralmak için bir **BasePolicy** öğesi bildirilm
 | Öğe | Oluşumlar | Açıklama |
 | ------- | ----------- | --------|
 | TenantId | 1:1 | Azure AD B2C kiracınızı tanımlayıcısı. |
-| Policyıd | 1:1 | Üst ilke tanımlayıcısı. |
+| PolicyId | 1:1 | Üst ilke tanımlayıcısı. |
 
 
 Aşağıdaki örnek, temel bir ilke belirtmek gösterilmektedir. Bu **B2C_1A_TrustFrameworkExtensions** İlkesi türetilen **B2C_1A_TrustFrameworkBase** ilkesi. 

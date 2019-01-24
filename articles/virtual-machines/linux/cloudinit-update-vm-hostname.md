@@ -14,18 +14,18 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: e985111a28805f861242240a5c2e3d7b6664be4e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 140c542b71ff87f6b7a846888da06e58fa03ce10
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996120"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855338"
 ---
 # <a name="use-cloud-init-to-set-hostname-for-a-linux-vm-in-azure"></a>Azure'da bir Linux sanal makinesi için ana bilgisayar adı ayarlamak için cloud-init kullanma
 Bu makalede nasıl kullanılacağını gösterir [cloud-init](https://cloudinit.readthedocs.io) belirli bir ana bilgisayar adı, bir sanal makine (VM) veya sanal makinede yapılandırmak için ölçek kümeleri (VMSS zaman azure'da sağlama sırasında). Kaynakları Azure tarafından sağlanan sonra ilk önyüklemede bu cloud-init betikleri çalıştırın. Cloud-init yerel olarak desteklenen Linux dağıtımları ve Azure ile işleyişi hakkında daha fazla bilgi için bkz. [cloud-init genel bakış](using-cloud-init.md)
 
 ## <a name="set-the-hostname-with-cloud-init"></a>Cloud-init ile ana bilgisayar adı ayarlayın
-Azure'da yeni bir sanal makine oluşturduğunuzda varsayılan olarak, ana bilgisayar adı VM adıyla aynıdır.  Azure ile bir VM oluşturduğunuzda, bu varsayılan konak adını değiştirmek için cloud-init betiğini çalıştırmak için [az vm oluşturma](/cli/azure/vm#az_vm_create), cloud-init dosyası ile belirtin `--custom-data` geçin.  
+Azure'da yeni bir sanal makine oluşturduğunuzda varsayılan olarak, ana bilgisayar adı VM adıyla aynıdır.  Azure ile bir VM oluşturduğunuzda, bu varsayılan konak adını değiştirmek için cloud-init betiğini çalıştırmak için [az vm oluşturma](/cli/azure/vm), cloud-init dosyası ile belirtin `--custom-data` geçin.  
 
 Yükseltme işlemi uygulamada görmek için geçerli kabuğunuzda adlı bir dosya oluşturmak *cloud_init_hostname.txt* oluşturup aşağıdaki yapılandırmayı yapıştırın. Bu örnekte, dosyayı yerel makinenizde değil Cloud shell'de oluşturun. İstediğiniz düzenleyiciyi kullanabilirsiniz. Dosyayı oluşturmak ve kullanılabilir düzenleyicilerin listesini görmek için `sensible-editor cloud_init_hostname.txt` adını girin. Kullanılacak #1 seçin **nano** Düzenleyici. Tüm cloud-init dosyası doğru bir şekilde kopyalandığından emin olun başta birinci satır.  
 
@@ -40,7 +40,7 @@ Bu görüntü dağıtmadan önce bir kaynak grubu oluşturmak için ihtiyacını
 az group create --name myResourceGroup --location eastus
 ```
 
-Şimdi bir VM oluşturun [az vm oluşturma](/cli/azure/vm#az_vm_create) ve cloud-init dosyası ile `--custom-data cloud_init_hostname.txt` gibi:
+Şimdi bir VM oluşturun [az vm oluşturma](/cli/azure/vm) ve cloud-init dosyası ile `--custom-data cloud_init_hostname.txt` gibi:
 
 ```azurecli-interactive 
 az vm create \

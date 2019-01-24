@@ -3,9 +3,9 @@ title: PHP ile Service Bus kuyruklarını kullanma | Microsoft Docs
 description: Azure'da Service Bus kuyruklarını kullanmayı öğrenin. PHP'de yazılan kod örneklerini.
 services: service-bus-messaging
 documentationcenter: php
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: e29c829b-44c5-4350-8f2e-39e0c380a9f2
 ms.service: service-bus-messaging
 ms.workload: na
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
 ms.date: 09/10/2018
-ms.author: spelluru
-ms.openlocfilehash: 08894741f4b7c4d3ccb808a4e70ec1eeb4f6af49
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.author: aschhab
+ms.openlocfilehash: c320e06881c73feb228b9d5f49243d7e1d321f52
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392202"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847570"
 ---
 # <a name="how-to-use-service-bus-queues-with-php"></a>PHP ile Service Bus kuyruklarını kullanma
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -162,7 +162,7 @@ Service Bus kuyrukları, [Standart katmanda](service-bus-premium-messaging.md) m
 
 ## <a name="receive-messages-from-a-queue"></a>Bir kuyruktan ileti alma
 
-En iyi yolu, bir kuyruktan ileti almak için kullanılacak olan bir `ServiceBusRestProxy->receiveQueueMessage` yöntemi. İletileri iki farklı modda alınan: [ *ReceiveAndDelete* ](/dotnet/api/microsoft.servicebus.messaging.receivemode) ve [ *PeekLock*](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock). **PeekLock** varsayılan değerdir.
+En iyi yolu, bir kuyruktan ileti almak için kullanılacak olan bir `ServiceBusRestProxy->receiveQueueMessage` yöntemi. İleti, iki farklı modda alınabilir: [*ReceiveAndDelete* ](/dotnet/api/microsoft.servicebus.messaging.receivemode) ve [ *PeekLock*](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock). **PeekLock** varsayılan değerdir.
 
 Kullanırken [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) modunda almak bir tek işlem; diğer bir deyişle, Service Bus kuyruk iletiye yönelik Okuma isteği aldığında, iletiyi kullanılıyor olarak işaretler ve uygulamaya döndürür. [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) modu, en basit modeldir ve uygulamanın hata oluştuğunda bir iletinin işlenmemesine izin verebileceği senaryolarda en iyi şekilde çalışır. Bu durumu daha iyi anlamak için müşterinin bir alma isteği bildirdiğini ve bu isteğin işlenmeden çöktüğünü varsayın. Service Bus iletiyi kullanılıyor olarak işaretleyeceğinden, uygulama yeniden başlatılıp iletileri tekrar kullanmaya başladığında ardından onu çökmenin öncesinde kullanılan iletiyi atlamış olur.
 

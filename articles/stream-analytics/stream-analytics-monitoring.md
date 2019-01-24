@@ -9,16 +9,16 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 656f749fd2a930c51bfd7d1a99642fae87694846
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 600651b6c9140aba178bf073675c49957987d10d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096636"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844747"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Stream Analytics işi izleme ve sorguları izleme anlama
 
-## <a name="introduction-the-monitor-page"></a>Giriş: İzleme sayfası
+## <a name="introduction-the-monitor-page"></a>Giriş: İzlenecekler sayfası
 Azure portal her ikisi de izleme ve sorgu ve iş performansınızı sorun giderme için kullanılan temel performans ölçümlerini yüzey. Bu ölçümler görmek için Gözat görmeniz için ölçümleri ilgilendiğiniz ve görüntülemek Stream Analytics işi **izleme** bölümüne genel bakış sayfasında.  
 
 ![Stream Analytics işini bağlantı izleme](./media/stream-analytics-monitoring/02-stream-analytics-monitoring-block.png)
@@ -30,17 +30,17 @@ Penceresinde gösterildiği gibi görünür:
 ## <a name="metrics-available-for-stream-analytics"></a>Stream Analytics için mevcut olan ölçümler
 | Ölçüm                 | Tanım                               |
 | ---------------------- | ---------------------------------------- |
-| Biriktirme Listesindeki Giriş Olayları       | Biriktirme listesindeki giriş olayların sayısı. |
-| Veri Dönüştürme Hataları | Beklenen çıktıyı şemaya dönüştürülemiyor çıkış olaylarının sayısı. |
-| Erken Giriş Olayları       | Erken alınan olay sayısı. |
+| Biriktirme Listesindeki Giriş Olayları       | Biriktirme listesindeki giriş olayların sayısı. Bu ölçüm için sıfır olmayan bir değer işinizi, gelen olay sayısı ile tutmak mümkün olmadığını gösterir. Bu değer yavaş artan ya da sürekli olarak sıfır ise, projeyi ölçeklendirmeniz gerekir. Ederek daha fazla bilgi [anlayın ve akış birimi Ayarla](stream-analytics-streaming-unit-consumption.md). |
+| Veri Dönüştürme Hataları | Beklenen çıktıyı şemaya dönüştürülemiyor çıkış olaylarının sayısı. Hata İlkesi 'Bu senaryoyla karşılaşırsanız olayları bırakmak için açılan' değiştirilebilir. |
+| Erken Giriş Olayları       | Olayları, uygulama zaman kendi varış süresi 5 dakikadan daha öncesi. |
 | Başarısız İşlev İstekleri | Başarısız (varsa) Azure Machine Learning işlevi çağrı sayısı. |
 | İşlev Olayları        | (Varsa) Azure Machine Learning işleve gönderilen olay sayısı. |
 | İşlev İstekleri      | Azure Machine Learning işlevi (varsa) yapılan çağrı sayısı. |
-| Giriş Serileştirme Kaldırma Hataları       | Seri durumdan çıkarılamadı olayların sayısı.  |
+| Giriş Serileştirme Kaldırma Hataları       | Giriş olayları seri durumdan çıkarılamadı sayısı.  |
 | Giriş Olayı Bayt Sayısı      | Stream Analytics işinde bayt tarafından alınan veri miktarı. Bu olaylar için giriş kaynağı gönderildiğini doğrulamak için kullanılabilir. |
-| Giriş Olayları           | Stream Analytics işinde olay sayısı tarafından alınan veri miktarı. Bu olaylar için giriş kaynağı gönderildiğini doğrulamak için kullanılabilir. |
-| Alınan Giriş Kaynakları       | Bir giriş kaynağından gelen olay sayısı. |
-| Geç Giriş Olayları      | Geç varış toleransı penceresi ayarı olay sıralama İlkesi yapılandırmasına bağlı olarak, ya da bırakılmış olan kaynak ya da zaman geç gelen olay sayısı ayarlandı. |
+| Giriş Olayları           | Giriş olayları seri durumdan kayıt sayısı. |
+| Alınan Giriş Kaynakları       | İş tarafından alınan olay sayısı. Bu olaylar için giriş kaynağı gönderildiğini doğrulamak için kullanılabilir. |
+| Geç Giriş Olayları      | Daha fazla yapılandırılmış geç varış toleransı penceresi gelen olayları. Daha fazla bilgi edinin [Azure Stream Analytics olay sırası konuları](stream-analytics-out-of-order-and-late-events.md) . |
 | Sıra dışı olayları    | Bırakılan veya olay sıralama ilkesine göre ayarlanmış bir zaman damgası, verilen sıranın dışında alınan olay sayısı. Out of toleransı penceresi ayarının yapılandırmasını tarafından etkilenmiş. |
 | Çıkış Olayları          | Çıkış hedefte olayların sayısı Stream Analytics işi tarafından gönderilen veri miktarı. |
 | Çalışma Zamanı Hataları         | Sorgu işleme (başlayan kümeniz, olaylar veya sonuçlar outputing sırasında bulunan hataları hariç) ilişkili hatalarının toplam sayısı |

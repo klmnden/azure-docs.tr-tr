@@ -3,19 +3,19 @@ title: Uygulamanızı Azure Active Directory B2C için bir kullanıcı akışı 
 description: Bir erişim belirteci OAuth2.0 kimlik sağlayıcıları için Azure Active Directory B2C kullanıcı akışında bir talebi olarak nasıl geçirebilirsiniz öğrenin.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b26605bd0b436d948fb1f62cbf32a17ea4f386d0
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 279e60d76d56cd139b4de991bc0434cbf129adee
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602265"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844679"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>Uygulamanızı Azure Active Directory B2C için bir kullanıcı akışı aracılığıyla erişim belirteci geçirin
 

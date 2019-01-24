@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 11/13/2017
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 3f893318c3f39f6faa4806cd7c1736710e032ca9
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 47e3f449ef3ef0b732dfcef2af595ce5ccd24f16
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474719"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856426"
 ---
 # <a name="tutorial-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application-with-the-azure-cli"></a>Öğretici: Azure CLI ile yüksek oranda kullanılabilir bir uygulama oluşturmak için azure'da Linux sanal makineleri Yük Dengelemesi
 
@@ -53,7 +53,7 @@ Trafiğin akışını denetlemek için VM’lerinizle eşlenen belirli bağlant�
 
 
 ## <a name="create-azure-load-balancer"></a>Azure yük dengeleyici oluşturma
-Bu bölümde yük dengeleyicinin her bir bileşenini nasıl oluşturacağınız ve yapılandıracağınız açıklanmaktadır. Yük dengeleyicinizi oluşturmadan önce [az group create](/cli/azure/group#az_group_create) komutu ile bir kaynak grubu oluşturun. Aşağıdaki örnek *eastus* konumunda *myResourceGroupLoadBalancer* adlı bir kaynak grubu oluşturur:
+Bu bölümde yük dengeleyicinin her bir bileşenini nasıl oluşturacağınız ve yapılandıracağınız açıklanmaktadır. Yük dengeleyicinizi oluşturmadan önce [az group create](/cli/azure/group) komutu ile bir kaynak grubu oluşturun. Aşağıdaki örnek *eastus* konumunda *myResourceGroupLoadBalancer* adlı bir kaynak grubu oluşturur:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupLoadBalancer --location eastus

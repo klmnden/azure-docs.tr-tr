@@ -3,19 +3,19 @@ title: Kimlik deneyimi çerçevesi şema Azure Active Directory B2C için tarih 
 description: Tarih dönüştürme örnekler kimlik deneyimi çerçevesi şema, Azure Active Directory B2C için talep.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ac7cc404998fed6897de1bed4b6bd31fca43e820
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 6a49e940c988d25da1e6f6a3c6f372e15fd2136f
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405829"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850068"
 ---
 # <a name="date-claims-transformations"></a>Tarih dönüştürmeleri talep
 
@@ -37,7 +37,7 @@ Bir tarih ve saat (dize veri türü) ikinci tarihinden sonra ve saat (dize veri 
 
 **AssertDateTimeIsGreaterThan** talep dönüştürme gelen her zaman yürütülür bir [doğrulama teknik profili](validation-technical-profile.md) çağrılan bir [teknik profilSelfonaylanan](self-asserted-technical-profile.md). **DateTimeGreaterThan** otomatik olarak onaylanan teknik profil meta teknik profil kullanıcıya sunan hata iletisi denetler.
 
-![AssertStringClaimsAreEqual yürütme](./media/date-transformations/assert-execution.png)
+![AssertStringClaimsAreEqual execution](./media/date-transformations/assert-execution.png)
 
 Aşağıdaki örnek `currentDateTime` ile talep `approvedDateTime` talep. Bir hata varsa durum `currentDateTime` saatinden sonra `approvedDateTime`. Dönüşüm değerlerini 5 dakika içinde (30000 milisaniye cinsinden) fark olmaları durumunda eşit olarak değerlendirir.
 
@@ -83,7 +83,7 @@ Doğrulama otomatik olarak onaylanan teknik profil çağırır **etkileşimli ol
 - Giriş talepleri:
     - **leftOperand**: 2018-10-01T15:00:00.0000000Z
     - **Right**: 2018-10-01T14:00:00.0000000Z
-- Sonuç: durum hatası
+- Sonuç: Durum hatası
 
 
 ## <a name="convertdatetodatetimeclaim"></a>ConvertDateToDateTimeClaim
