@@ -1,10 +1,10 @@
 ---
-title: 'Öğretici: Azure Active Directory tarafından Sprout sosyal Bambu ile tümleştirme | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory tümleştirmesiyle Sprout sosyal tarafından Bambu | Microsoft Docs'
 description: Azure Active Directory ve Sprout sosyal tarafından Bambu arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: d2b9ddbc-cab7-40d6-aca1-5b171cab4199
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 317fb1dd1235793d31ab39f5cb2a99766ca33150
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 3cc4e4c6908823e6f76151f689a57f476c9d03ff
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116168"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819518"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-bambu-by-sprout-social"></a>Öğretici: Azure Active Directory tarafından Sprout sosyal Bambu ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-bambu-by-sprout-social"></a>Öğretici: Azure Active Directory tarafından Sprout sosyal Bambu ile tümleştirmesi
 
 Bu öğreticide, Bambu Sprout sosyal tarafından Azure Active Directory (Azure AD) ile tümleştirmeyi öğrenin.
 
@@ -127,7 +127,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 1. Çoklu oturum açmayı yapılandırma **Bambu Sprout sosyal tarafından** tarafı, indirilen göndermek için ihtiyacınız **meta veri XML** ve **SAML çoklu oturum açma hizmeti URL'si** için [ Sprout sosyal desteğini Bambu](mailto:support@getbambu.com). Bunlar bu için her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı kurar.
 
 > [!TIP]
-> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklatmanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
+> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklatmanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi embedded belgeleri özelliği burada hakkında: [Azure AD embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 <!--### Next steps
@@ -212,7 +212,7 @@ Bu bölümde, Azure çoklu oturum açma için Bambu Sprout sosyal tarafından er
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Bambu tarafından erişim panelinde Sprout sosyal kutucuğa tıkladığınızda, size otomatik olarak, Bambu için Sprout sosyal uygulama tarafından açan. Erişim paneli hakkında daha fazla ayrıntı için bkz. [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md). 
+Bambu tarafından erişim panelinde Sprout sosyal kutucuğa tıkladığınızda, size otomatik olarak, Bambu için Sprout sosyal uygulama tarafından açan. Erişim paneli hakkında daha fazla ayrıntı için bkz. [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 128e389a8d6928f9f133fe9d649d0fc7e982e4df
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: 57d52412648cbe8a0791aa306075018a2092bf51
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54402377"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827338"
 ---
 # <a name="about-azure-vm-backup"></a>Azure VM yedeklemesi hakkında
 
@@ -40,7 +40,7 @@ Nasıl Azure Backup bir Azure Vm'leri için yedeklemeden aşağıda verilmiştir
 
 Azure Backup, veri yedekleme işleminin bir parçası olarak şifrelemez. Azure Backup, Azure Disk şifrelemesi kullanılarak şifrelenmiş bir Azure VM yedekleme desteklemiyor.
 
-- Sanal makinelerin yedeklenmesi, Bitlocker şifreleme Key(BEK) ile yalnızca şifrelenir ve anahtar şifreleme Key(KEK) birlikte BEK desteklenir, yönetilen ve yönetilmeyen Azure Vm'leri için.
+- Sanal makinelerin yedeklenmesi, BitLocker şifreleme Key(BEK) ile yalnızca şifrelenir ve anahtar şifreleme Key(KEK) birlikte BEK desteklenir, yönetilen ve yönetilmeyen Azure Vm'leri için.
 - Bu nedenle bunlar okunabilir ve kullanılması için yalnızca yetkili kullanıcılar tarafından geri anahtar Kasası'na geri BEK(secrets) ve yedeklenen KEK(keys) şifrelenir.
 - BEK ayrıca BEK kayıp, olduğu senaryolarda yedeklendiğinden beri yetkili kullanıcılar için KeyVault BEK geri yükleyebilir ve şifrelenmiş sanal Makineyi kurtarmak. Anahtarları ve gizli anahtarları şifrelenmiş VM'lerin şifrelenmiş biçimde, yetkisiz kullanıcıların ne Azure okuyabilir ya da kullanım yedeklenen anahtarları ve gizli anahtarları yedeklenir. Yalnızca doğru izin düzeylerine sahip kullanıcılar, yedekleme ve şifrelenmiş Vm'leri yanı sıra anahtarları ve gizli anahtarları geri yükleyebilirsiniz.
 

@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0d74f731d0a7eca25238344e36838dc6c806c788
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 6befe3a3fee80dd65fd3ac5be241c558707224e6
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434537"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811103"
 ---
 # <a name="use-jupyter-notebooks-to-explore-azure-machine-learning-service"></a>Azure Machine Learning hizmeti keşfetmek için Jupyter not defterleri kullanma
 
@@ -31,7 +31,7 @@ Tamamlamak [Azure Machine Learning Python hızlı](quickstart-get-started.md) bi
 
 ## <a name="try-azure-notebooks-free-jupyter-notebooks-in-the-cloud"></a>Azure not defterleri deneyin: Bulutta ücretsiz Jupyter Not Defterleri
 
-Azure not defterleri ile başlamak kolaydır! [Python için Azure Machine Learning SDK](https://aka.ms/aml-sdk) zaten yüklü olan ve Azure not defterleri ile ilgili sizin için yapılandırılır. Yükleme ve gelecekteki güncelleştirmelerin otomatik olarak Azure Hizmetleri yönetilir.
+Azure not defterleri ile başlamak kolaydır! [Python için Azure Machine Learning SDK](https://aka.ms/aml-sdk) zaten yüklü olan ve sizin için yapılandırılmış [Azure not defterleri](https://notebooks.azure.com/). Yükleme ve gelecekteki güncelleştirmelerin otomatik olarak Azure Hizmetleri yönetilir.
   
 + Çalıştırılacak **öğretici not defterlerini çekirdek**:
   1. Git [Azure not defterleri](https://notebooks.azure.com/).

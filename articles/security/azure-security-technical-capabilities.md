@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: b58d6315c4399a7bb23514eb90ab5a94acda2592
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c74c208e77539833c2bc5e1323713191e29aec64
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249039"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820249"
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure güvenlik Teknik Özellikler
 
@@ -91,7 +91,7 @@ Azure Active Directory (Azure AD) güvenlik avantajlarından yeteneği şunlard�
 
 - Cihaz kaydı
 
-- Privileged Identity management
+- Ayrıcalıklı kimlik yönetimi
 
 - Kimlik koruması
 
@@ -139,7 +139,7 @@ Azure Active Directory B2C kullandığınızda tüketicileriniz uygulamalarını
 
 İle birlikte kullanıldığında bir [mobil cihaz Yönetimi (MDM)](https://www.microsoft.com/itshowcase/Article/Content/588/Mobile-device-management-at-Microsoft) çözüm gibi Intune, Azure Active Directory'deki cihaz öznitelikleri cihaz hakkındaki ek bilgilerle güncelleştirilir. Bu durum, güvenlik ve uyumluluğa yönelik standartlarınızı karşılamak için cihazlardan erişimi zorlayan koşullu erişim kuralları oluşturmanıza olanak sağlar.
 
-#### <a name="privileged-identity-management"></a>Privileged Identity management
+#### <a name="privileged-identity-management"></a>Ayrıcalıklı kimlik yönetimi
 
 [Azure Active Directory (AD) Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) yönetme, denetleme, ayrıcalıklı kimliklerinizi izlemek ve Office 365 veya Microsoft Intune gibi diğer Microsoft Çevrimiçi Hizmetler Azure AD'de kaynaklarına erişim sağlar.
 
@@ -181,7 +181,7 @@ Bulutta veri koruma için anahtarların birini olası durumlar, verilerinizi olu
 
 - Bekleyen: Bu, manyetik veya optik disk depolama nesneleri, kapsayıcılar ve statik olarak fiziksel medyada mevcut türleri olması tüm bilgileri içerir.
 
-- Aktarım sırasında: Ne zaman veri bileşenleri, konum veya ağ bir service bus (Başlangıç, buluta şirket içinde ve karma bağlantılar ile ExpressRoute gibi dahil olmak üzere tersi,) programları gibi üzerinde arasında ya da bir giriş/çıkış işlemi sırasında aktarıldığı , bunu olarak zorlayıcı Hareket halindeki.
+- Aktarım sırasında: Ne zaman veri bileşenleri, konumları veya programları arasında olduğu gibi ağ üzerinde bir service bus (buluta şirket içinde ve karma bağlantılar ile ExpressRoute gibi dahil olmak üzere tersi,) arasında aktarıldığı veya bir giriş/çıkış işlemi sırasında olduğu bir düşünce olarak hareket halindeki.
 
 ### <a name="encryption-at-rest"></a>Bekleme sırasında şifreleme
 
@@ -216,9 +216,9 @@ Verileri depolamak için kullandığınız hangi depoları göz önünde bulundu
 
 Kullandığınız her deposu için var olan şifreleme Rest Destek'teki yararlanın.
 
-- Azure Depolama: Bkz [bekleyen veriler için Azure depolama hizmeti şifrelemesi](https://docs.microsoft.com/azure/storage/storage-service-encryption),
+- Azure Depolama: Bkz: [bekleyen veriler için Azure depolama hizmeti şifrelemesi](https://docs.microsoft.com/azure/storage/storage-service-encryption),
 
-- SQL Azure: Bkz. [saydam veri şifrelemesi (TDE), SQL her zaman şifreli](https://msdn.microsoft.com/library/mt163865.aspx)
+- SQL Azure: Bkz: [saydam veri şifrelemesi (TDE), SQL her zaman şifreli](https://msdn.microsoft.com/library/mt163865.aspx)
 
 - VM & yerel disk depolama ([Azure Disk şifrelemesi](https://docs.microsoft.com/azure/security/azure-security-disk-encryption))
 
@@ -248,7 +248,7 @@ Müşteri tarafından yönetilen anahtarları destekliyorsa, hangi Key Vault (ve
 
 Bekleme sırasında şifreleme konak, altyapı ve Kiracı verileri, sistem hatası nedeniyle anahtarları kaybı şifrelenmesini gerektirir veya kötü amaçlı etkinlik şifrelenen tüm verilerin gelebilir kaybolur. Bu nedenle, Rest çözüm, şifrelemeyi kapsamlı bir olağanüstü durum kurtarma hikayesi sistem hataları ve kötü amaçlı etkinliklere karşı dayanıklı olan kritik öneme sahiptir.
 
-Bekleme sırasında şifreleme uygulama hizmetleri genellikle şifreleme anahtarları için saldırılara veya konak sürücüsüne (örneğin, sayfası dosyası ' % s'konağının işletim sistemi.) bırakılıyor veriler şifrelenmemiş Bu nedenle, hizmetler, hizmetler için konak birimi şifreliyse emin olmalısınız. Bu işlem kolaylaştırmak için takım dağıtımı kullanan konak şifreleme etkinleştirilmiş [Bitlocker](https://technet.microsoft.com/library/dn306081.aspx) NKP ve DCM hizmeti ve aracı konak birimi şifrelemek için Uzantılar.
+Bekleme sırasında şifreleme uygulama hizmetleri genellikle şifreleme anahtarları için saldırılara veya konak sürücüsüne (örneğin, sayfası dosyası ' % s'konağının işletim sistemi.) bırakılıyor veriler şifrelenmemiş Bu nedenle, hizmetler, hizmetler için konak birimi şifreliyse emin olmalısınız. Bu işlem kolaylaştırmak için takım dağıtımı kullanan konak şifreleme etkinleştirilmiş [BitLocker](https://technet.microsoft.com/library/dn306081.aspx) NKP ve DCM hizmeti ve aracı konak birimi şifrelemek için Uzantılar.
 
 Hizmetlerin çoğu, standart Azure Vm'leri üzerinde uygulanır. Bu hizmetler almalısınız [ana şifreleme](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) otomatik olarak ne zaman işlem etkinleştirir. İşlem çalışan hizmetler için yönetilen kümeleri ana şifreleme Windows Server 2016 kullanıma sunulma gibi otomatik olarak etkinleştirilir.
 
@@ -370,7 +370,7 @@ Azure Cloud Services ve sanal makineler için Microsoft Antimalware belirlenmesi
 
 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) yardımcı olur, çoğaltma, yük devretme ve kurtarma, iş yükleri ve uygulamalar, birincil çökmesi durumunda ikincil konum kullanılabilir, böylece düzenleyin.
 
-## <a name="ensure-compliance-cloud-services-due-diligence-checklist-protect"></a>Uyumluluğu güvence altına: Bulut Hizmetleri son dikkatli olmanızı denetim listesi (koruma)
+## <a name="ensure-compliance-cloud-services-due-diligence-checklist-protect"></a>Uyumluluk emin olun: Bulut Hizmetleri son dikkatli olmanızı denetim listesi (koruma)
 
 Microsoft tarafından geliştirilen [bulut Hizmetleri son dikkatli olmanızı denetim](https://aka.ms/cloudchecklist.download) alıştırma hızlandırmasına yardımcı olmak için aksaklıkla gibi bunlar buluta taşıma dikkate alın. Herhangi bir büyüklük ve türdeki bir kuruluş için bir yapı sağlar — işletmelerin ve Kamu sektörü kuruluşları, tüm düzeyleri ve kar amacı gütmeyen kuruluşlar kamu da dahil olmak üzere — kendi performans, hizmet, veri yönetimi ve İdaresi hedefler tanımlayacak ve gereksinimleri. Bu, farklı bulut hizmeti sağlayıcıları, sonuçta bir bulut hizmeti sözleşmesi temelini oluşturan tekliflerini karşılaştırın sağlar.
 
@@ -452,7 +452,7 @@ Bulut uygulamaları ile birçok hareketli parçadan karmaşıktır. İzleme, uyg
 
 Ağ güvenlik denetimi, ağ güvenlik açıklarını algılama ve BT güvenlik ve Mevzuat idare modeli ile uyumluluk sağlamak için önemlidir. Güvenlik grubu görünümü ile yapılandırılan ağ güvenlik grubu ve güvenlik kurallarının yanı sıra, geçerli güvenlik kuralları alabilirsiniz. Uygulanacak kurallar listesiyle açık olan bağlantı noktalarını ve ss güvenlik açığı ağ belirleyebilirsiniz.
 
-### <a name="network-watcher"></a>Ağ İzleyicisi
+### <a name="network-watcher"></a>Ağ izleyicisi
 
 [Ağ İzleyicisi](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-watcher) koşulları içinde azure'a veya azure'dan ağ düzeyinde izlemenizi ve tanılamanızı sağlayan bölgesel bir hizmettir. Ağ Tanılama ve görselleştirme araçları Ağ İzleyicisi ile kullanılabilen anlamanıza, tanılamanıza ve ağınıza azure'da Öngörüler elde etmeye yardımcı olur. Bu hizmet içeren paket yakalama, sonraki atlama IP akışı doğrulama, güvenlik grubu görünümü, NSG akış günlükleri. Senaryo düzeyi izleme ağ kaynaklarını tek tek ağ kaynak izleme aksine bir uçtan uca görünümünü sağlar.
 

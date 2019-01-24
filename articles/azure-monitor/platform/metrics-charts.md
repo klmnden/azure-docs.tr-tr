@@ -5,15 +5,15 @@ author: vgorbenko
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 0e204e945960ddaf452db1907568e4102631c28f
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 2b6d982f514f347dc2a59f9ca8f3c33b8c24849b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467596"
+ms.locfileid: "54827457"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure İzleyici ölçüm Gezgini
 
@@ -112,7 +112,7 @@ Temel alınan ölçü boyutları ile uyarı kuralı oluşturma bölmesine özel 
 
 ![Uyarı kuralı oluştur](./media/metrics-charts/016.png)
 
-Kullanıma alma bu [makale](alerts-metric.md) ölçüm uyarılarını ayarlama hakkında daha fazla bilgi edinmek için.
+Göz atın [makale](alerts-metric.md) ölçüm uyarılarını ayarlama hakkında daha fazla bilgi edinmek için.
 
 ## <a name="lock-boundaries-of-chart-y-axis"></a>Grafik y ekseni sınırlarını kilidi
 
@@ -138,6 +138,16 @@ Yapılandırılmış bir grafik bir panoya sabitlemek için:
 Grafiğinizi yapılandırdıktan sonra tıklayarak **grafik Eylemler** menüsü sağ üst köşe grafiğin ve tıklayın **panoya Sabitle**.
 
 ![Ölçüm görüntüsü](./media/metrics-charts/00013.png)
+
+## <a name="troubleshooting"></a>Sorun giderme
+
+*Mychart üzerinde herhangi bir veri görmüyorum.*
+
+* Filtreler bölmesinde tüm grafikler için geçerlidir. Bir grafikte odaklandığınız olsa da başka bir tüm verileri bırakan bir filtre ayarlanmış alamadık, emin olun.
+
+* Farklı filtreler farklı grafikler üzerinde ayarlamak istiyorsanız bunları farklı dikey pencerelerinde oluşturma gibi ayrı sık kaydedin. İsterseniz, bunları birbirine yanı sıra görebilirsiniz, böylece bunları panoya sabitleyebilirsiniz.
+
+* Bir grafik ölçüme göre tanımlı olmayan bir özelliğe göre segmentlere ayırmak, ardından olacaktır hiçbir şey grafiği. (Bölme) ayrılmasını temizlemeyi deneyin veya farklı bir özellik seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

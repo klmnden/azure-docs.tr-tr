@@ -1,5 +1,5 @@
 ---
-title: Avanced Media Encoder Premium iş akışı öğreticileri
+title: Gelişmiş Media Encoder Premium iş akışı öğreticileri
 description: Bu belge, Media Encoder Premium iş akışı ile gelişmiş görevler gerçekleştirme ve ayrıca iş akışı Tasarımcısı ile karmaşık iş akışları oluşturma işlemini gösteren izlenecek yolları içerir.
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: christoc;xpouyat;juliako
-ms.openlocfilehash: 0a20f7629fbc102ae05c51c7388bbfd6915d6204
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 15393f8e10fcda99820d0279d46edf88c7781ff8
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257393"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811984"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Gelişmiş Media Encoder Premium iş akışı öğreticileri
 ## <a name="overview"></a>Genel Bakış
@@ -293,7 +293,7 @@ Size sunduğumuz MP4 çıktı dosyaları ile Git bir .ism dosyası oluşturduğu
 *Ses karıştırıcı çıkış dosyası oluşturma*
 
 ### <a id="MXF_to_MP4_with_dyn_packaging_ism_file"></a>Ekleme. ISM SMIL dosyası
-Dinamik paketleme hem MP4 dosyaları (ve yalnızca ses MP4) bizim Media Services ile birlikte çalışmak de bir bildirim dosyası ihtiyacımız (bir "SMIL" dosyası olarak da adlandırılır: eşitlenmiş multimedya tümleştirme dil). Bu dosya, Azure Media Services dinamik paketleme ve bu ses akışı için dikkate alınması gereken hangi MP4 dosyaları kullanılabilir gösterir. Tipik bir bildirim dosyası için bir dizi MP4'ın tek bir ses akışı ile şöyle görünür:
+Dinamik paketleme hem MP4 dosyaları (ve yalnızca ses MP4) bizim Media Services ile birlikte çalışmak de bir bildirim dosyası ihtiyacımız (bir "SMIL" dosyası olarak da adlandırılır: Multimedya tümleştirme dil eşitlenen). Bu dosya, Azure Media Services dinamik paketleme ve bu ses akışı için dikkate alınması gereken hangi MP4 dosyaları kullanılabilir gösterir. Tipik bir bildirim dosyası için bir dizi MP4'ın tek bir ses akışı ile şöyle görünür:
 
 ```xml
     <?xml version="1.0" encoding="utf-8" standalone="yes"?>
@@ -692,8 +692,8 @@ Biz iş akışı başlatma sırasında oluşturulan cliplist xml yazabilirsiniz 
 
 Öncelikle bu noktaya kadar Videoyu Kırp istiyoruz hangi noktasından belirlemek için bir yol gerekir. Bu iş akışının daha az teknik kullanıcıya uygun hale getirmek için iki özellik grafiğin kök yayımlayın. Bunu yapmak için tasarımcı yüzeyine sağ tıklayın ve "Özelliği Ekle"'i seçin:
 
-* İlk özellik: türü "ClippingTimeStart": "zaman kodu"
-* İkinci özellik: türü "ClippingTimeEnd": "zaman kodu"
+* İlk özellik: "Tür"ClippingTimeStart: "ZAMAN"KODU
+* İkinci özellik: "Tür"ClippingTimeEnd: "ZAMAN"KODU
 
 ![Kırpma için başlangıç saati Ekle özelliği iletişim kutusu](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-clip-start-time.png)
 

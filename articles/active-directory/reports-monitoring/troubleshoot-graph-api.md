@@ -4,7 +4,7 @@ description: Bir çözüm hataları için Azure Active Directory raporlama API'l
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 0030c5a4-16f0-46f4-ad30-782e7fea7e40
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 33c382c8b28549e1b2be83322b910ca1a885e45d
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 299c9acb43fd0f3d7284a3b2ffb0c400b96cbc0b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622765"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811698"
 ---
 # <a name="troubleshoot-errors-in-azure-active-directory-reporting-api"></a>Azure Active Directory raporlama API'SİYLE hatalarını giderme
 
@@ -37,7 +37,7 @@ Oturum açma erişmeye çalışırken bu hata iletisini alabilirsiniz Graph Gezg
 
 ![Graph Gezgini](./media/troubleshoot-graph-api/graph-explorer.png)
 
-### <a name="error-failed-to-do-premium-license-check-from-ad-graph"></a>Hata: AD grafikten premium lisansı denetimi yapmak başarısız oldu 
+### <a name="error-failed-to-do-premium-license-check-from-ad-graph"></a>Hata: AD grafikten Premium lisansı denetimi yapmak başarısız oldu 
 
 Oturum açma erişmeye çalışırken bu hatayı çalıştırırsanız Graph Gezgini kullanma, seçim **değiştirme izinlerini** hesabınızın sol gezinti ve seçim altında **Tasks.ReadWrite** ve **Directory.Read.All**. 
 
@@ -52,7 +52,7 @@ Oturum açma raporları erişim gerektiren bir Azure Active Directory premium 1 
 
 Denetim günlükleri veya oturum açma API'sini kullanarak erişmeye çalışırken bu hatayı görürseniz, hesabınızın bir parçası olduğundan emin olun **güvenlik okuyucusu** veya **rapor okuyucu** Azure Active Directory'niz içindeki rolü Kiracı. 
 
-### <a name="error-application-missing-aad-read-directory-data-permission"></a>Hata: AAD 'Dizin verilerini okuma' izni eksik uygulama 
+### <a name="error-application-missing-aad-read-directory-data-permission"></a>Hata: Uygulamanın AAD 'Dizin verilerini okuma' izni yok 
 
 Lütfen adımları [Azure Active Directory raporlama API'SİYLE erişmek için Önkoşullar](howto-configure-prerequisites-for-reporting-api.md) için uygulamanızın doğru izin kümesi ile çalıştığından emin olun. 
 

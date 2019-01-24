@@ -1,10 +1,10 @@
 ---
-title: 'Öğretici: Azure Active Directory Tümleştirme ile IBM Kenexa anket Kurumsal | Microsoft Docs'
+title: 'Öğretici: IBM Kenexa anket Enterprise ile Azure Active Directory Tümleştirmesi | Microsoft Docs'
 description: Azure Active Directory ve IBM Kenexa anket kuruluş arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: c7aac6da-f4bf-419e-9e1a-16b460641a52
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 6828617e0ae61a3784e4db3d1c2ecf4ce9862ce2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d8027aca628185b1e3d2e80323c9f83e6832a913
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449518"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823938"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-ibm-kenexa-survey-enterprise"></a>Öğretici: Azure Active Directory Tümleştirme ile IBM Kenexa anket Enterprise
+# <a name="tutorial-azure-active-directory-integration-with-ibm-kenexa-survey-enterprise"></a>Öğretici: IBM Kenexa anket Enterprise ile Azure Active Directory Tümleştirmesi
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile IBM Kenexa anket Kurumsal tümleştirme konusunda bilgi edinin.
 
@@ -37,7 +37,7 @@ Azure AD ile bir hizmet (SaaS) uygulamasını tümleştirme olarak yazılım hak
 
 Azure AD Tümleştirmesi ile IBM Kenexa anket Enterprise yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Bir IBM Kenexa anket Kurumsal SSO etkin aboneliği
 
 > [!NOTE]

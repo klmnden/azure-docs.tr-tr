@@ -8,17 +8,17 @@ services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
-ms.date: 10/05/2018
-ms.openlocfilehash: 19e6693de673eae6fe0b885580975c4cefc35d60
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.date: 01/22/2019
+ms.openlocfilehash: a22512a960426cc21f4f012e06b9df4fa86e637e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725157"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807278"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Kimlik doğrulaması ve Azure Logic apps'te yönetilen kimliklerle kaynaklara erişin
 
-Diğer Azure Active Directory (Azure AD) Kiracı kaynaklara erişmek ve açmadan kimliğinizi doğrulamak için mantıksal uygulamanızı kullanabilirsiniz bir [yönetilen kimliği](../active-directory/managed-identities-azure-resources/overview.md) (eski adıyla yönetilen hizmet kimliği veya MSI olarak bilinir), yerine kimlik bilgileri veya gizli dizileri. Bu kimlik, Azure yönetir ve sağlamak veya gizli dizileri döndürmek zorunda olmadığınız için yardımcı kimlik bilgilerinizi koruyun. Bu makalede nasıl oluşturabileceğinizi ve mantıksal uygulamanız için bir sistem tarafından atanan bir yönetilen kimliği kullanma gösterilmektedir. Yönetilen kimlikler hakkında daha fazla bilgi için bkz. [Azure kaynakları için yönetilen kimlikleri nedir?](../active-directory/managed-identities-azure-resources/overview.md)
+Diğer Azure Active Directory (Azure AD) Kiracı kaynaklara erişmek ve açmadan kimliğinizi doğrulamak için mantıksal uygulamanızı kullanabilirsiniz bir [yönetilen kimliği](../active-directory/managed-identities-azure-resources/overview.md) (eski adıyla yönetilen hizmet kimliği veya MSI olarak bilinir), yerine kimlik bilgileri veya gizli dizileri. Bu kimlik, Azure yönetir ve sağlamak veya gizli dizileri döndürmek zorunda olmadığınız için yardımcı kimlik bilgilerinizi koruyun. Bu makalede nasıl ayarlayabilir ve mantıksal uygulamanız için bir sistem tarafından atanan bir yönetilen kimliği kullanma gösterilmektedir. Yönetilen kimlikler hakkında daha fazla bilgi için bkz. [Azure kaynakları için yönetilen kimlikleri nedir?](../active-directory/managed-identities-azure-resources/overview.md)
 
 > [!NOTE]
 > Şu anda sistem tarafından atanan ile 10 mantıksal uygulama iş akışlarını kadar her bir Azure aboneliği kimliklerini yönetilen.
@@ -29,40 +29,42 @@ Diğer Azure Active Directory (Azure AD) Kiracı kaynaklara erişmek ve açmadan
 
 * Sistem tarafından atanan kullanmak istediğiniz mantıksal uygulamayı yönetilen kimliği. Mantıksal uygulama yoksa bkz [ilk mantıksal uygulama iş akışınızı oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-<a name="create-identity"></a>
+<a name="enable-identity"></a>
 
-## <a name="create-managed-identity"></a>Yönetilen kimlik oluşturma
+## <a name="enable-managed-identity"></a>Yönetilen kimlik etkinleştir
 
-Oluşturun veya Azure portalı, Azure Resource Manager şablonlarını veya Azure PowerShell aracılığıyla mantıksal uygulamanız için sistem tarafından atanan bir yönetilen kimlik etkinleştirin. 
+Sistem tarafından atanan yönetilen kimlikleri için bu kimlik el ile oluşturmanız gerekmez. Sistem tarafından atanan yönetilen bir kimlik mantıksal uygulamanızın ayarlamak için bu şekilde kullanabilirsiniz: 
+
+* [Azure portal](#azure-portal) 
+* [Azure Resource Manager şablonları](#template) 
+* [Azure PowerShell](../active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md) 
+
+<a name="azure-portal"></a>
 
 ### <a name="azure-portal"></a>Azure portal
 
-Sistem tarafından atanan yönetilen bir kimlik mantıksal uygulamanızın Azure portalından etkinleştirmek için açma **Azure Active Directory ile kayıt** mantıksal uygulamanızın iş akışı ayarlarını.
+Sistem tarafından atanan yönetilen bir kimlik mantıksal uygulamanızın Azure portalından etkinleştirmek için açma **sistem tarafından atanan** mantıksal uygulamanızın kimlik ayarlarında ayarlama.
 
 1. İçinde [Azure portalında](https://portal.azure.com), Logic Apps Tasarımcısı'nda mantıksal uygulamanızı açın.
 
-1. Şu adımları uygulayın: 
+1. Mantıksal uygulama menüsünde altında **ayarları**seçin **kimlik**. 
 
-   1. Mantıksal uygulama menüsünde altında **ayarları**seçin **iş akışı ayarları**. 
+1. Altında **sistem tarafından atanan** > **durumu**, seçin **üzerinde**. Ardından, **Kaydet** > **Evet**.
 
-   1. Altında **yönetilen hizmet kimliği** > 
-    **Azure Active Directory ile kayıt**, seçin **üzerinde**.
+   ![Yönetilen kimlik ayarı](./media/create-managed-service-identity/turn-on-managed-service-identity.png)
 
-   1. İşiniz bittiğinde seçin **Kaydet** araç.
+   Mantıksal uygulamanız artık Azure Active Directory'de kayıtlı sistem tarafından atanan yönetilen bir kimlik vardır:
 
-      ![Yönetilen kimlik ayarı](./media/create-managed-service-identity/turn-on-managed-service-identity.png)
+   ![Nesne Kimliği GUID'leri](./media/create-managed-service-identity/object-id.png)
 
-      Mantıksal uygulamanız artık bu özellikler ve değerler ile Azure Active Directory'de kayıtlı sistem tarafından atanan yönetilen bir kimlik vardır:
+   | Özellik | Değer | Açıklama | 
+   |----------|-------|-------------| 
+   | **Nesne Kimliği** | <*kimlik kaynak kimliği*> | Temsil eden sistem tarafından atanan bir genel benzersiz tanıtıcısı (GUID) yönetilen bir Azure AD kiracısında mantıksal uygulamanızın kimliği | 
+   ||| 
 
-      ![Sorumlu Kimliği ve Kiracı kimliği için GUID](./media/create-managed-service-identity/principal-tenant-id.png)
+<a name="template"></a>
 
-      | Özellik | Değer | Açıklama | 
-      |----------|-------|-------------| 
-      | **Sorumlu Kimliği** | <*Sorumlu Kimliği*> | Mantıksal uygulama Azure AD kiracısında temsil eden bir genel benzersiz tanıtıcısı (GUID) | 
-      | **Kiracı kimliği** | <*Azure AD Kiracı kimliği*> | Bir genel benzersiz tanımlayıcı (mantıksal uygulamanız artık üyesi olduğu Azure AD kiracısı temsil eden GUID). Azure AD kiracısı içinde hizmet sorumlusu mantıksal uygulama örneği ile aynı ada sahiptir. | 
-      ||| 
-
-### <a name="deployment-template"></a>Dağıtım şablonu
+### <a name="azure-resource-manager-template"></a>Azure Resource Manager şablonu
 
 Logic apps gibi Azure kaynaklarını oluşturma ve dağıtımı otomatik hale getirmek istediğinizde, kullanabileceğiniz [Azure Resource Manager şablonları](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md). Sistem tarafından atanan yönetilen bir kimlik için bir şablon aracılığıyla mantıksal uygulamanızı oluşturmak için Ekle `"identity"` öğesi ve `"type"` dağıtım şablonunuzdaki mantıksal uygulama iş akışı tanımı özelliği: 
 
@@ -109,7 +111,7 @@ Azure mantıksal uygulamanızı oluşturduğunda, bu mantıksal uygulamanın iş
 
 | Özellik | Değer | Açıklama | 
 |----------|-------|-------------|
-| **Principalıd** | <*Sorumlu Kimliği*> | Mantıksal uygulama Azure AD kiracısında temsil eden bir genel benzersiz tanıtıcısı (GUID) | 
+| **Principalıd** | <*Sorumlu Kimliği*> | Mantıksal uygulama Azure AD kiracısını ve bazen temsil eden bir genel benzersiz tanıtıcısı (GUID), bir "nesne kimliği" görünür veya `objectID` | 
 | **tenantId** | <*Azure AD Kiracı kimliği*> | Bir genel benzersiz tanımlayıcı (mantıksal uygulama şimdi üyesi olduğu Azure AD kiracısı temsil eden GUID). Azure AD kiracısı içinde hizmet sorumlusu mantıksal uygulama örneği ile aynı ada sahiptir. | 
 ||| 
 
@@ -150,11 +152,23 @@ Mantıksal uygulamanız ile ayarladıktan sonra sistem tarafından atanan kimli�
 
 1. Bu eylem, isteği gibi gerekli bilgileri sağlayın **yöntemi** ve **URI** çağırmak istediğiniz kaynak konumu.
 
+   Örneğin, Azure Active Directory (Azure AD) kimlik doğrulaması ile kullandığınız varsayalım [Azure AD'ye destekleyen Azure Bu hizmetlerden biri](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication). 
+   İçinde **URI** kutusunda, ilgili Azure hizmeti için uç nokta URL'sini girin. 
+   Azure Resource Manager kullanıyorsanız, bu nedenle, bu değer girin **URI** özelliği:
+
+   `https://management.azure.com/subscriptions/<Azure-subscription-ID>?api-version-2016-06-01`
+
 1. HTTP eylemi seçin **Gelişmiş Seçenekleri Göster**. 
 
-1. Gelen **kimlik doğrulaması** listesinden **yönetilen hizmet kimliği**, sonra hangi gösterir **İzleyici** özelliği ayarlamanız için:
+1. Gelen **kimlik doğrulaması** listesinden **yönetilen kimliği**. Bu kimlik doğrulaması'nı seçtikten sonra **İzleyici** özelliği varsayılan kaynak kimliği değeri ile görünür:
 
-   !["Yönetilen hizmet kimliği" seçin](./media/create-managed-service-identity/select-managed-service-identity.png)
+   !["Yönetilen kimliği" seçin](./media/create-managed-service-identity/select-managed-service-identity.png)
+
+   > [!IMPORTANT]
+   > 
+   > İçinde **İzleyici** özelliği, hangi Azure AD bekliyor kaynağı kimliği değeri tam olarak eşleşmelidir, gerekli sondaki eğik çizgi dahil. 
+   > Bu kaynak kimliği değerleri bu bulabilirsiniz [Azure açıklayan tablo destekleyen Azure AD Hizmetleri](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication). 
+   > Örneğin, Azure kaynak yöneticisi kaynak Kimliğini kullanıyorsanız, URI sonunda eğik çizgi olduğundan emin olun.
 
 1. İstediğiniz gibi mantıksal uygulama oluşturmaya devam edin.
 
@@ -162,23 +176,21 @@ Mantıksal uygulamanız ile ayarladıktan sonra sistem tarafından atanan kimli�
 
 ## <a name="remove-managed-identity"></a>Yönetilen kimlik Kaldır
 
-Sistem tarafından atanan yönetilen bir kimlik mantıksal uygulamanız üzerinde devre dışı bırakmak için Azure portalı, Azure Resource Manager dağıtım şablonlarını veya Azure PowerShell aracılığıyla kimlik nasıl oluşturduğunuz için benzer adımları izleyebilirsiniz. 
+Sistem tarafından atanan yönetilen bir kimlik mantıksal uygulamanız üzerinde devre dışı bırakmak için nasıl Azure portalı, Azure Resource Manager dağıtım şablonlarını veya Azure PowerShell aracılığıyla kimlik ayarlamanız benzer adımları izleyebilirsiniz. 
 
 Mantıksal uygulamanızı silseniz bile Azure mantıksal uygulamanızın sistem tarafından atanan kimlik Azure AD'den otomatik olarak kaldırır.
 
 ### <a name="azure-portal"></a>Azure portal
 
-1. Logic Apps Tasarımcısı'nda, mantıksal uygulamanızı açın.
+Sistem tarafından atanan yönetilen bir kimlik mantıksal uygulamanızın Azure Portalından kaldırmak için devre dışı **sistem tarafından atanan** mantıksal uygulamanızın kimlik ayarlarında ayarlama.
 
-1. Şu adımları uygulayın: 
+1. İçinde [Azure portalında](https://portal.azure.com), Logic Apps Tasarımcısı'nda mantıksal uygulamanızı açın.
 
-   1. Mantıksal uygulama menüsünde altında **ayarları**seçin **iş akışı ayarları**. 
-   
-   1. Altında **yönetilen hizmet kimliği**, seçin **kapalı** için **Azure Active Directory ile kayıt** özelliği.
+1. Mantıksal uygulama menüsünde altında **ayarları**seçin **kimlik**. 
 
-   1. İşiniz bittiğinde seçin **Kaydet** araç.
+1. Altında **sistem tarafından atanan** > **durumu**, seçin **kapalı**. Ardından, **Kaydet** > **Evet**.
 
-      ![Yönetilen kimlik ayarı devre dışı bırakmak](./media/create-managed-service-identity/turn-off-managed-service-identity.png)
+   ![Yönetilen kimlik ayarı devre dışı bırakmak](./media/create-managed-service-identity/turn-off-managed-service-identity.png)
 
 ### <a name="deployment-template"></a>Dağıtım şablonu
 
@@ -194,4 +206,3 @@ Mantıksal uygulamanın yönetilen kimlik sistem tarafından atanan bir Azure Re
 
 * Sorularınız için [Azure Logic Apps forumunu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) ziyaret edin.
 * Özelliklerle ilgili fikirlerinizi göndermek veya gönderilmiş olanları oylamak için [Logic Apps kullanıcı geri bildirimi sitesini](https://aka.ms/logicapps-wish) ziyaret edin.
-

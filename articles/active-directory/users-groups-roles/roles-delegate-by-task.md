@@ -14,12 +14,12 @@ ms.date: 11/08/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: bd63e8379051864a19c473779625a925446185f2
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 1e679a1d26ce219f7c0248e27d7f9cfffc5fdb4e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445030"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813857"
 ---
 # <a name="administrator-roles-by-identity-task-in-azure-active-directory"></a>Azure Active Directory'de kimlik görev tarafından yönetici rolleri
 
@@ -117,7 +117,7 @@ Görev | En az ayrıcalıklı rol | Ek roller
 Cihazı devre dışı bırak | Bulut cihazı yöneticisi | 
 Cihazı etkinleştir | Bulut cihazı yöneticisi | 
 Okuma temel yapılandırma | Varsayılan kullanıcı rolü ([belgelerine bakın](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
-Okuma Bitlocker anahtarları | Güvenlik Okuyucu | Parola Yöneticisi, Güvenlik Yöneticisi
+Okuma BitLocker anahtarları | Güvenlik Okuyucu | Parola Yöneticisi, Güvenlik Yöneticisi
 
 ## <a name="enterprise-applications"></a>Kurumsal uygulamalar
 
@@ -242,7 +242,7 @@ Parola sıfırlama özellikleri yapılandırma | Genel Yönetici |
 Kaydı yapılandır | Genel Yönetici | 
 Tüm yapılandırması okuma | Güvenlik Yöneticisi Kullanıcı Yöneticisi | 
 
-## <a name="privileged-identity-management"></a>Privileged Identity management
+## <a name="privileged-identity-management"></a>Ayrıcalıklı kimlik yönetimi
 
 Görev | En az ayrıcalıklı rol | Ek roller
 ---- | --------------------- | ----------------

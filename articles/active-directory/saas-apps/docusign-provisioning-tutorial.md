@@ -1,10 +1,10 @@
 ---
-title: 'Öğretici: Azure Active Directory ile otomatik kullanıcı hazırlama için DocuSign yapılandırma | Microsoft Docs'
+title: "Öğretici: Azure Active Directory ile otomatik kullanıcı hazırlama için DocuSign'ı yapılandırma | Microsoft Docs"
 description: Azure Active Directory ve DocuSign arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 294cd6b8-74d7-44bc-92bc-020ccd13ff12
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 6099c07a0f27966eb4c253b85d24afb0561a708b
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: d677e49266c4787fb1ae34203097b7004a515be9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44345549"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812922"
 ---
-# <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>Öğretici: DocuSign otomatik kullanıcı hazırlama için yapılandırma
+# <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>Öğretici: Otomatik kullanıcı hazırlama için DocuSign'ı yapılandırma
 
 Bu öğreticinin amacı, DocuSign ve Azure AD sağlama ve sağlamasını DocuSign Azure AD'den kullanıcı hesaplarına otomatik olarak gerçekleştirmek için gereken adımları Göster sağlamaktır.
 

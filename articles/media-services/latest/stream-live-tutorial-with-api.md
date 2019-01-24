@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/16/2019
+ms.date: 01/22/2019
 ms.author: juliako
-ms.openlocfilehash: 6bd874e6918528d340bca69ebdd91aa060158073
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: c51a36f4380199de1ac62ef3f0c32bd0a8f06c01
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54383049"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811222"
 ---
 # <a name="tutorial-stream-live-with-media-services-v3-using-apis"></a>Öğretici: Media Services v3 ile canlı Stream API'leri kullanma
 
@@ -89,7 +89,7 @@ Bu bölümde, *MediaV3LiveApp* projesinin [Program.cs](https://github.com/Azure-
 
 ### <a name="create-a-live-event"></a>Canlı etkinlik oluşturma
 
-Bu bölümde **geçiş** türü bir LiveEvent oluşturma gösterilmektedir (LiveEventEncodingType None olarak ayarlıdır). Gerçek zamanlı kodlama için standart LiveEventEncodingType kümesi için etkinleştirilen bir Livestream oluşturmak istiyorsanız. 
+Bu bölümde **geçiş** türü bir LiveEvent oluşturma gösterilmektedir (LiveEventEncodingType None olarak ayarlıdır). LiveEventEncodingType kümesi gerçek zamanlı kodlama için etkinleştirilen bir Livestream oluşturmak istiyorsanız **standart**. 
 
 Canlı etkinliği oluştururken belirtmek isteyebileceğiniz bazı başka şeyler:
 
@@ -103,7 +103,9 @@ Canlı etkinliği oluştururken belirtmek isteyebileceğiniz bazı başka şeyle
     
     IP adresleri aşağıdaki biçimlerden birinde olması gerekir: IPv4 adresi 4 sayılarla CIDR adres aralığı.
 
-Etkinlik oluştururken, etkinliğin otomatik başlatılmasını belirtebilirsiniz. 
+* Etkinlik oluştururken, etkinliğin otomatik başlatılmasını belirtebilirsiniz. 
+
+    Autostart canlı olay true olarak ayarlandığında, oluşturulduktan sonra başlatılacak. Bu, canlı olay çalıştıran hemen sonra Fatura başlatır anlamına gelir. Livestream kaynakta daha fazla faturalama durdurmak için Stop açıkça çağırmanız gerekir. Daha fazla bilgi için [Livestream durumları ve faturalandırma](live-event-states-billing.md).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateLiveEvent)]
 

@@ -1,6 +1,6 @@
 ---
 title: Bir varlık kullanarak Media Encoder .NET Standard ile kodlama | Microsoft Docs
-description: Bu makalede .NET medya Kodlayıcı standart kullanarak bir varlığı kodlama için nasıl kullanılacağını gösterir.
+description: Bu makalede, Media Encoder Standard kullanarak bir varlığı kodlama .NET kullanmayı gösterir.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: 426ebb90a0d7716b14664f874db259a0cca2aa7e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e557b7220077be7fcca418f0c2cf8aceeace1eb5
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241098"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809590"
 ---
 # <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Bir varlık kullanarak Media Encoder .NET Standard ile kodlama 
 Kodlama işleri, Media Services’da en sık gerçekleştirilen işlemler arasındadır. Kodlama işleri oluşturarak, medya dosyalarını bir kodlamadan diğerine dönüştürebilirsiniz. Kodlarken, Media Services yerleşik Medya Kodlayıcısı kullanabilirsiniz. Bir Media Services iş ortağı tarafından verilen bir kodlayıcı da kullanabilirsiniz; üçüncü taraf Kodlayıcı Azure Marketi aracılığıyla kullanılabilir. 

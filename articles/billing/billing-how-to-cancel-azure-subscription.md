@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 1/23/2019
 ms.author: cwatson
-ms.openlocfilehash: de5fd6e52ab93132920b1c98188cbea92b9900b5
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 88ea3a5daa1a740ab545201bc48b612ea6a56a44
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584358"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810338"
 ---
 # <a name="cancel-your-subscription-for-azure"></a>Azure aboneliğiniz iptal et
 
@@ -37,10 +37,11 @@ Aboneliğinizi iptal etmeden önce:
 ## <a name="cancel-subscription-using-the-azure-portal"></a>Azure portalını kullanarak bir aboneliği iptal et
 
 1. Aboneliğinizden seçin [Azure portalındaki abonelikler sayfasından](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1. İptal edin ve istediğiniz aboneliği seçmek **aboneliği iptal et**.
+2. İptal etmek istediğiniz aboneliği seçin.
+3. Seçin **genel bakış**ve ardından **aboneliği iptal et**.
 
     ![İptal düğmesini gösteren ekran görüntüsü](./media/billing-how-to-cancel-azure-subscription/cancel_ibiza.png)
-1. Komut istemlerini izleyin ve iptal tamamlayabilirsiniz.
+3. Komut istemlerini izleyin ve iptal tamamlayabilirsiniz.
 
 ## <a name="what-happens-after-i-cancel-my-subscription"></a>Aboneliğimi iptal sonra ne olur?
 
@@ -58,6 +59,6 @@ Kullandıkça Öde aboneliğinizi yanlışlıkla iptal ederseniz yapabilecekleri
 
 Aboneliğinizi Kullandıkça Öde değilse, aboneliğinizi yeniden etkinleştirmek için İptal 90 gün içinde destek başvurun.
 
-## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
+## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

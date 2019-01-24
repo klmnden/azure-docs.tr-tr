@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 01/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 737dc40bafa519d59bcbc0ff6510a89cb3a840fa
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: c8aa7050163c2b58ca68adcf9a9b4d0bc96bb126
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263212"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808366"
 ---
 # <a name="about-azure-migrate"></a>Azure Geçişi Hakkında
 
@@ -57,7 +57,7 @@ Değerlendirme ayarları ihtiyaçlarınıza göre özelleştirilebilir. Değerle
 
 **Özellik** | **Ayrıntılar**
 --- | ---
-**Hedef konum** | Geçişi yapmak istediğiniz Azure konumu.<br/><br/>Azure geçişi, geçiş hedef konumları olarak 33 bölge şu anda destekler. [Hangi bölgeler olduğuna bakın](https://azure.microsoft.com/global-infrastructure/services/). Varsayılan hedef bölge, Batı ABD 2 olarak ayarlanır.
+**Hedef konum** | Geçişi yapmak istediğiniz Azure konumu.<br/><br/>Azure geçişi, geçiş hedef konumları olarak 33 bölge şu anda destekler. [Hangi bölgeler olduğuna bakın](https://azure.microsoft.com/global-infrastructure/services/). Varsayılan olarak, hedef bölge Doğu ABD olarak ayarlanır.
 **Depolama türü** | Yönetilen diskler değerlendirmesinin bir parçası olan tüm VM'ler için ayırmak istediğiniz türü. Boyutlandırma ölçütü ise *şirket içi olarak boyutlandırma* hedef disk türü olarak premium diskler (varsayılan), standart SSD disk veya standart HDD diskler belirtebilirsiniz. İçin *performansa dayalı boyutlandırma*, yukarıdaki seçeneklerin yanı sıra, disk boyutlandırma önerisi otomatik olarak sanal makinelerin performans verilerini göre yapıldığını sağlayacak otomatik seçilecek seçeneğiniz de vardır. Örneğin, elde etmek istiyorsanız bir [Tek Örnekli sanal makine SLA'sı % 99,9 düzeyinde](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/), tüm değerlendirmesi diskleri Premium yönetilen diskler olarak önerilen sağlayacak Premium yönetilen diskler olarak depolama türünü belirtmek isteyebilirsiniz. Azure Geçişi’nin yönetilen diskleri yalnızca geçiş değerlendirmesi için desteklediğini unutmayın.
 **Ayrılmış Örnekler** |  Azure'da [ayrılmış örneklere](https://azure.microsoft.com/pricing/reserved-vm-instances/) sahip olup olmama durumunuz. Azure Geçişi, buna göre bir maliyet tahmini oluşturur.
 **Boyutlandırma ölçütü** | Boyutlandırma temel **performans geçmişi** şirket içi sanal makinelerin (varsayılan) veya **şirket içi olarak**, performans geçmişini dikkate almadan.

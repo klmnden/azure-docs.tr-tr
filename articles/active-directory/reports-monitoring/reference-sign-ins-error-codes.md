@@ -4,7 +4,7 @@ description: Oturum açma etkinlik raporu hata kodları başvurusu.
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b6f8d3c3017a914f261c7e4f8bbe0e42d1edf8a9
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 0de3ced9974941399875ca98991430f10d4f8525
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622440"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820164"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Oturum açma etkinlik raporundaki hata kodları 
 
@@ -43,7 +43,7 @@ Tüm başarısız oturum açma işlemleri görüntülemek için Raporu filtrelem
 
 ![Oturum açma etkinliği](./media/reference-sign-ins-error-codes/06.png "oturum açma etkinliği")
 
-Filtrelenmiş listeden bir öğe seçildiğinde açılır **Etkinlik ayrıntıları: oturum açma işlemleri** dikey penceresi. Bu görünüm, başarısız oturum açma olayı hakkında ek bilgi sağlar dahil olmak üzere **oturum açma hata kodu** ve **hata nedeni**.
+Filtrelenmiş listeden bir öğe seçildiğinde açılır **Etkinlik ayrıntıları: Oturum açma işlemleri** dikey penceresi. Bu görünüm, başarısız oturum açma olayı hakkında ek bilgi sağlar dahil olmak üzere **oturum açma hata kodu** ve **hata nedeni**.
 
 ![Oturum açma etkinliği](./media/reference-sign-ins-error-codes/05.png "oturum açma etkinliği")
 
@@ -135,7 +135,7 @@ Oturum açma verilerini kullanarak programlama yoluyla da erişebilir [raporlama
 |53002|Kullanılan uygulama, koşullu erişim için onaylanmış bir uygulama değil. Kullanıcının erişim elde etmesi için kullanılacak onaylı uygulamalar listesinden bir uygulama seçmesi gerekir.|
 |53003|Koşullu erişim ilkeleri nedeniyle erişim engellendi.|
 |53004|Kullanıcının bu içeriğe erişmeden önce çok faktörlü kimlik doğrulaması işlemini tamamlaması gerekiyor. Kullanıcının çok faktörlü kimlik doğrulamasına kaydolması gerekir.|
-|65001|X uygulamasının Y uygulamasına erişim izni yok veya erişim izni iptal edildi. Veya Kullanıcı ya da yönetici X kimliğiyle uygulamanın kullanılmasını onaylamadı. Bu kullanıcı veya kaynak için etkileşimli yetkilendirme isteği gönderin. Veya Kullanıcı ya da yönetici X kimliğiyle uygulamanın kullanılmasını onaylamadı. Kaynak: Z için Uygulama: Y adına işlem yapmak üzere kiracı yöneticinize bir yetkilendirme isteği gönderin.|
+|65001|X uygulamasının Y uygulamasına erişim izni yok veya erişim izni iptal edildi. Veya Kullanıcı ya da yönetici X kimliğiyle uygulamanın kullanılmasını onaylamadı. Bu kullanıcı veya kaynak için etkileşimli yetkilendirme isteği gönderin. Veya kullanıcı veya yönetici uygulamayı uygulama adına hareket Kiracı yöneticinize bir yetkilendirme isteği kimliği Mac'inizi gönderin ile kullanmak için: Y kaynak için: Z.|
 |65004|Kullanıcı, uygulamaya erişmeyi reddetti. Kullanıcıdan oturum açmayı yeniden denemesini ve uygulamaya izin vermesini isteyin|
 |65005|Uygulamaya gereken kaynak erişim listesi, kaynak tarafından bulunabilen uygulamaları içermiyor veya İstemci uygulaması kendi gerekli kaynak erişim listesinde belirtilmemiş bir kaynağa erişim isteğinde bulundu veya Graph hizmeti hatalı istek döndürdü veya kaynak bulunamadı. Uygulama SAML desteği içeriyorsa, yanlış Tanımlayıcı (Varlık) ile uygulamayı yapılandırmış olabilirsiniz. Aşağıdaki bağlantıyı kullanarak SAML için listelenen çözümü deneyin: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list)|
 |70000|Aşağıdaki nedenlerden dolayı geçersiz izin:<ul><li>İstenen SAML 2.0 onay deyimi geçersiz Konu Onay Yöntemine sahip</li><li>Uygulama OnBehalfOf akışı V2’de desteklenmiyor</li><li>Birincil yenileme belirteci, oturum anahtarı ile imzalanmamış</li><li>Geçersiz dış yenileme belirteci</li><li>Farklı bir kiracı için erişim izni elde edildi.</li></ul>|
@@ -160,7 +160,7 @@ Oturum açma verilerini kullanarak programlama yoluyla da erişebilir [raporlama
 |80001|Kimlik Doğrulama Aracısı Active Directory'ye bağlanamadı. Kimlik doğrulama aracısının, kullanıcının oturum açma isteğine hizmet edebilen bir CD ile görüş hattı olan, etki alanına katılmış bir makinede yüklü olduğundan emin olun.|
 |80002|İç hata. Parola doğrulama isteği zaman aşımına uğradı. İç Karma Kimlik Hizmeti’ne kimlik doğrulama isteği gönderemedik. Hata hakkında daha fazla bilgi almak için [bir destek bileti açın](../fundamentals/active-directory-troubleshooting-support-howto.md).|
 |80003|Kimlik Doğrulama Aracısı tarafından geçersiz yanıt alındı. Şirket içi Active Directory ile kimlik doğrulaması denenirken bilinmeyen bir hata oluştu. Hata hakkında daha fazla bilgi almak için [bir destek bileti açın](../fundamentals/active-directory-troubleshooting-support-howto.md).|
-|80005|Kimlik Doğrulama Aracısı: Kimlik Doğrulama Aracısının yanıtı işlenirken bilinmeyen bir hata oluştu. Hata hakkında daha fazla bilgi almak için [bir destek bileti açın](../fundamentals/active-directory-troubleshooting-support-howto.md).|
+|80005|Kimlik Doğrulama Aracısı: Kimlik Doğrulama Aracısı gelen yanıt işlenirken bilinmeyen bir hata oluştu. Hata hakkında daha fazla bilgi almak için [bir destek bileti açın](../fundamentals/active-directory-troubleshooting-support-howto.md).|
 |80007|Kimlik Doğrulama Aracısı kullanıcının parolasını doğrulayamıyor.|
 |80010|Kimlik Doğrulama Aracısı parolanın şifresini çözemedi. |
 |80011|Kimlik Doğrulama Aracısı şifreleme anahtarını alamıyor.|

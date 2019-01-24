@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: d871cecda8e7957e3d0d3c37078b8a1fa2ab5214
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 117b65265c853194e93a97fe5e2b2dcc6e9f5bc2
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54451264"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807397"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Oluşturun, görüntüleyin ve ölçüm uyarıları Azure İzleyicisi'ni kullanarak yönetme
 
-Azure İzleyici ölçüm uyarılarını bildirim almak için bir yol sağlar bir eşiği ölçümlerinizi birini çapraz zaman. Ölçüm uyarıları, bir dizi platform çok boyutlu ölçümler, özel ölçümler, Application Insights standart ve özel ölçümler üzerinde çalışır. Bu makalede, biz oluşturun, görüntüleyin ve Azure portalı ve Azure CLI aracılığıyla ölçüm uyarı kurallarını yönetme konusunda açıklanmıştır. Ölçüm uyarı kuralları açıklanan Azure Resource Manager şablonlarını kullanarak da oluşturabilirsiniz [ayrı bir makale](../../azure-monitor/platform/alerts-enable-template.md).
+Azure İzleyici ölçüm uyarılarını bildirim almak için bir yol sağlar bir eşiği ölçümlerinizi birini çapraz zaman. Ölçüm uyarıları, bir dizi platform çok boyutlu ölçümler, özel ölçümler, Application Insights standart ve özel ölçümler üzerinde çalışır. Bu makalede, biz oluşturun, görüntüleyin ve Azure portalı ve Azure CLI aracılığıyla ölçüm uyarı kurallarını yönetme konusunda açıklanmıştır. Ölçüm uyarı kuralları açıklanan Azure Resource Manager şablonlarını kullanarak da oluşturabilirsiniz [ayrı bir makale](alerts-metric-create-templates.md).
 
 Daha fazla hakkında nasıl ölçüm uyarıları çalıştığınızın edinebilirsiniz [ölçüm uyarıları genel bakış](alerts-metric-overview.md).
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/7/2018
 ms.author: trinadhk
-ms.openlocfilehash: e658124dc6db2761fb475597a32e663949edfccf
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 1714a29e4b27f6363d748ceb180f56ba98c713bb
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470758"
+ms.locfileid: "54809539"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure sanal makine yedekleme sorunlarını giderme
 Aşağıdaki tabloda listelenen bilgilerle Azure Backup kullanarak sırasında karşılaşılan hataları giderebilirsiniz:
@@ -57,6 +57,7 @@ Aşağıdaki tabloda listelenen bilgilerle Azure Backup kullanarak sırasında k
 | Yedekleme işi iptal edilemedi: <br>İş tamamlanana kadar bekleyin. |None |
 
 ## <a name="restore"></a>Geri Yükleme
+
 | Hata Ayrıntıları | Geçici çözüm |
 | --- | --- |
 | Geri yükleme, bir bulut iç hatayla başarısız oldu. |<ol><li>Geri yükleme çalıştığınız bulut hizmeti DNS ayarlarıyla yapılandırılır. Kontrol edebilirsiniz: <br>**$deployment = get-AzureDeployment - ServiceName "ServiceName"-yuvası "Üretim" Get-AzureDns - DnsSettings $deployment. DnsSettings**.<br>Varsa **adresi** DNS ayarlarını yapılandırıldıysa, yapılandırılır.<br> <li>Yapılacak çalıştığınız geri yüklemek bulut hizmeti ile yapılandırılmış **ReservedIP**, ve bulut hizmetindeki var olan VM'ler durdurulmuş durumda. Bir bulut hizmeti aşağıdaki PowerShell cmdlet'lerini kullanarak bir IP ayırdığı denetleyebilirsiniz: **$deployment = Get-AzureDeployment - ServiceName "servicename"-"Üretim" $yuvası DEP Reservedıpname**. <br><li>Bir sanal makineyle aynı bulut hizmetine aşağıdaki özel ağ yapılandırmalarını geri yüklemek çalışıyorsunuz: <ul><li>Sanal makineleri yük dengeleyici yapılandırmasını, iç ve dış altında.<li>Birden çok ayrılmış IP ile sanal makineler. <li>Birden çok NIC içeren sanal makineler. </ul><li>Kullanıcı Arabirimi veya bkz: yeni bir bulut hizmeti seçin [konuları geri](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations) özel ağ yapılandırmaları olan VM'ler için.</ol> |
@@ -100,7 +101,7 @@ Genellikle, VM Aracısı zaten Azure galerisinden oluşturulan VM'ler bulunur. A
 * Linux VM aracısını güncelleştirmek için makaledeki yönergeleri [Linux VM Aracısı güncelleştirilirken](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
     > [!NOTE]
-    > Her zaman aracısını güncelleştirmek için dağıtım depoyu kullanın. 
+    > Her zaman aracısını güncelleştirmek için dağıtım depoyu kullanın.
 
     Aracı kodu Github'dan yüklemeyin. En son aracı dağıtımınız için kullanılabilir değilse, en son aracıyı almak yönergeler dağıtım desteği başvurun. En son de göz atabilirsiniz [Windows Azure Linux Aracısı](https://github.com/Azure/WALinuxAgent/releases) GitHub deposundaki bilgiler.
 

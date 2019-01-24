@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 78b7668dee892841ced1a06626ff09a534a88b69
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 784cb5248dab2b9554c67347e1b9b848e1a9e985
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714309"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820793"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Satın alma ve Azure App Service için SSL sertifikası yapılandırma
 
@@ -50,7 +50,7 @@ Sertifika yapılandırmanıza yardımcı olması için aşağıdaki tabloyu kull
 | Ayar | Açıklama |
 |-|-|
 | Ad | App Service sertifikanız için bir kolay ad. |
-| Çıplak Etki Alanı Ana Bilgisayar Adı | Bu adım satın alma işleminin en kritik parçalarından biridir. Uygulamanıza eşlediğiniz kök etki alanı adını kullanın. Yapmak _değil_ önüne ekleyin etki alanı adıyla `www`. |
+| Çıplak Etki Alanı Ana Bilgisayar Adı | Burada kök etki alanı belirtirseniz, güvenlik altına alan bir sertifika almak *hem* kök etki alanı ve `www` alt etki alanı. İçin güvenli bir alt etki alanı yalnızca belirtin alt etki alanı burada tam etki alanı adını (örneğin, `mysubdomain.contoso.com`). |
 | Abonelik | Web uygulamasının barındırıldığı veri merkezi. |
 | Kaynak grubu | Sertifikayı içeren kaynak grubu. App Service uygulamanızı, örneğin aynı kaynak grubunu seçin ya da yeni bir kaynak grubunu kullanın. |
 | Sertifika SKU'su | Standart bir sertifika mı yoksa mı oluşturmak için sertifika türünü belirler [joker sertifikası](https://wikipedia.org/wiki/Wildcard_certificate). |
@@ -115,7 +115,7 @@ Bağlamasında yapılandırmanıza yardımcı olması için aşağıdaki tabloyu
 |-|-|
 | Ana Bilgisayar Adı | SSL bağlaması için eklemek için etki alanı adı. |
 | Özel Sertifika Parmak İzi | Bağlama sertifikası. |
-| SSL Türü | <ul><li>**SNI SSL** -birden fazla SNI tabanlı SSL bağlaması eklenebilir. Bu seçenek, aynı IP adresi üzerinde birden fazla SSL sertifikası ile birden fazla etki alanının güvenliğini sağlamaya olanak tanır. Çoğu modern tarayıcı (Internet Explorer, Chrome, Firefox ve Opera dahil) SNI’yi destekler (daha kapsamlı tarayıcı desteği bilgilerini [Sunucu Adı Belirtimi](https://wikipedia.org/wiki/Server_Name_Indication) bölümünde bulabilirsiniz).</li><li>**IP tabanlı SSL** - Yalnızca bir adet IP tabanlı SSL bağlaması eklenebilir. Bu seçenek yalnızca bir SSL sertifikası ile ayrılmış bir genel IP adresinin güvenliğini sağlamaya olanak tanır. Sonra yapılandırmak, adımları [kayıt yeniden eşlemek için IP SSL](app-service-web-tutorial-custom-ssl.md#remap-a-record-for-ip-ssl). </li></ul> |
+| SSL Türü | <ul><li>**SNI SSL** -birden fazla SNI tabanlı SSL bağlaması eklenebilir. Bu seçenek, aynı IP adresi üzerinde birden fazla SSL sertifikası ile birden fazla etki alanının güvenliğini sağlamaya olanak tanır. Çoğu modern tarayıcı (Internet Explorer, Chrome, Firefox ve Opera dahil) SNI’yi destekler (daha kapsamlı tarayıcı desteği bilgilerini [Sunucu Adı Belirtimi](https://wikipedia.org/wiki/Server_Name_Indication) bölümünde bulabilirsiniz).</li><li>**IP tabanlı SSL** - Yalnızca bir adet IP tabanlı SSL bağlaması eklenebilir. Bu seçenek yalnızca bir SSL sertifikası ile ayrılmış bir genel IP adresinin güvenliğini sağlamaya olanak tanır. Bağlama yapılandırdıktan sonra adımları [kayıt yeniden eşlemek için IP SSL](app-service-web-tutorial-custom-ssl.md#remap-a-record-for-ip-ssl). </li></ul> |
 
 ## <a name="verify-https-access"></a>HTTPS erişimi doğrulama
 

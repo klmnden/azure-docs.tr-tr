@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2018
 ms.author: juliako
-ms.openlocfilehash: 9edfa8ea0c9e469d09cef7ddbd1c7edda4484b47
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 43da365a6424fa9d489db1f5cd74ff6aeb8f0d7c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444638"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819892"
 ---
 # <a name="upload-files-into-a-media-services-account-using-net"></a>.NET kullanarak bir Media Services hesabına dosya yükleme
 > [!div class="op_single_selector"]
@@ -54,9 +54,9 @@ Varlıklar oluşturduğunuzda, aşağıdaki şifreleme seçenekleri belirtebilir
   
     Şifrelenmiş depolama varlığınız ise varlık teslim ilkesini yapılandırmanız gerekir. Daha fazla bilgi için [varlık teslim ilkesini yapılandırma](media-services-dotnet-configure-asset-delivery-policy.md).
 
-İle şifrelenmiş varlığınıza belirtirseniz bir **CommonEncrypted** seçeneği veya bir **EnvelopeEncypted** seçeneğine ihtiyacınız varlığınız ile ilişkilendirilecek bir **ContentKey**. Daha fazla bilgi için [bir ContentKey oluşturma](media-services-dotnet-create-contentkey.md). 
+İle şifrelenmiş varlığınıza belirtirseniz bir **CommonEncrypted** seçeneği veya bir **EnvelopeEncrypted** seçeneğine ihtiyacınız varlığınız ile ilişkilendirilecek bir **ContentKey**. Daha fazla bilgi için [bir ContentKey oluşturma](media-services-dotnet-create-contentkey.md). 
 
-Varlığınıza ile şifrelenmiş belirtirseniz bir **StorageEncrypted** seçeneğini Media Services SDK'sı .NET oluşturur bir **StorateEncrypted** **ContentKey** varlığınıza.
+Varlığınıza ile şifrelenmiş belirtirseniz bir **StorageEncrypted** seçeneğini Media Services SDK'sı .NET oluşturur bir **StorageEncrypted** **ContentKey** varlığınıza.
 
 Bu makalede, Media Services varlığa dosyaları karşıya yüklemek için Media Services .NET SDK uzantıları yanı sıra, Media Services .NET SDK'sını kullanma gösterilmektedir.
 

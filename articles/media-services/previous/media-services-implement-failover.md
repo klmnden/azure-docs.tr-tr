@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: juliako
-ms.openlocfilehash: 618316b6b5979c65bc8906ea7d07c4f4fdf0930d
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 1477242e10918a9836ceea15d418fb462e193b1b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124619"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811749"
 ---
 # <a name="implement-failover-streaming-with-azure-media-services"></a>Azure Media Services ile akış yük devretme uygulayan
 
@@ -52,7 +52,7 @@ Aşağıdaki maddeler geçerlidir:
 
 ## <a name="prerequisites"></a>Önkoşullar
 * Yeni veya mevcut bir Azure aboneliğinde iki Media Services hesabı. Bkz: [Services hesabının bir ortam oluşturmak](media-services-portal-create-account.md).
-* İşletim sistemi: Windows 7, Windows 2008 R2 veya Windows 8.
+* İşletim Sistemi: Windows 7, Windows 2008 R2 veya Windows 8.
 * .NET framework 4.5 veya .NET Framework 4.
 * Visual Studio 2010 SP1 veya sonraki bir sürümünü (Professional, Premium, Ultimate veya Express).
 
@@ -178,7 +178,7 @@ Bu bölümde, yedeklilik işleyebilme yeteneği oluşturun.
                 CreateFileInfosForAssetWithRest(_contextTarget, targetAsset, MediaServicesAccountNameTarget, MediaServicesAccountKeyTarget);
         
                 // Check if the AssetFiles are now  associated with the asset.
-                Console.WriteLine("Asset files assocated with the {0} asset:", targetAsset.Name);
+                Console.WriteLine("Asset files associated with the {0} asset:", targetAsset.Name);
                 foreach (var af in targetAsset.AssetFiles)
                 {
                     Console.WriteLine(af.Name);

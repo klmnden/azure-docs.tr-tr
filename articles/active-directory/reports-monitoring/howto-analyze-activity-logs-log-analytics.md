@@ -4,7 +4,7 @@ description: Log Analytics (Önizleme) kullanarak Azure Active Directory etkinli
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 4535ae65-8591-41ba-9a7d-b7f00c574426
 ms.service: active-directory
@@ -16,16 +16,16 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2f0f5341ba6818f375d463638979c68689519227
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 759a0da93544e2a17b71d762924981f05c3ea322
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624208"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810796"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-log-analytics-preview"></a>Azure AD çözümleme etkinlik günlüklerini Log Analytics (Önizleme) ile
 
-Çalıştırdıktan sonra [tümleştirme Azure AD etkinlik günlüklerini Log Analytics ile](howto-integrate-activity-logs-with-log-analytics.md), günlük analizinin gücünü, ortamı hakkında Öngörüler elde etmek için kullanabilirsiniz. Ayrıca yükleyebilirsiniz [Log Analytics görünümleri için Azure AD etkinlik günlüklerini](howto-install-use-log-analytics-views.md) ortamınıza erişmek için Denetim ve oturum açma olaylarını önceden oluşturulmuş raporları.
+Çalıştırdıktan sonra [tümleştirme Azure AD etkinlik günlüklerini Log Analytics ile](howto-integrate-activity-logs-with-log-analytics.md), ortamınız hakkında Öngörüler elde etmek için günlük analizinin gücünü kullanabilirsiniz. Ayrıca yükleyebilirsiniz [Log Analytics görünümleri için Azure AD etkinlik günlüklerini](howto-install-use-log-analytics-views.md) ortamınıza erişmek için Denetim ve oturum açma olaylarını önceden oluşturulmuş raporları.
 
 Bu makalede, Azure analiz etmeyi öğrenin AD etkinlik günlüklerini Log Analytics çalışma alanınızda. 
 
@@ -93,9 +93,9 @@ Sorgunuzda uyarıları da ayarlayabilirsiniz. Örneğin, 10'dan fazla olduğunda
 
 Azure AD etkinlik için önceden oluşturulmuş Log Analytics görünümleri de indirebilirsiniz günlükleri. Görünümler, Denetim ve oturum açma olayları ile ilgili yaygın senaryolar için ilgili çeşitli raporlar sağlar. Ayrıca tüm raporların, sağlanan verilerin önceki bölümde açıklanan adımları kullanarak uyarabilir.
 
-* **Azure AD hesap sağlama olaylarını**: Bu görünümde sağlanan yeni kullanıcı sayısı gibi sağlama etkinliği denetim ile ilgili raporlar gösterilir ve hataları sağlama, kullanıcı sayısı güncelleştirilir ve güncelleştirme hataları ve kullanıcı sayısı XML'deki sağlanan ve karşılık gelen hataları.    
+* **Azure AD hesabı olayları sağlama**: Bu görünümde sağlanan yeni kullanıcı sayısı gibi sağlama etkinliği denetim ile ilgili raporlar gösterilir ve sağlama hataları, kullanıcı sayısı güncelleştirildi ve güncelleştirme hataları ve kullanıcılar da sağlanan ve karşılık gelen hataları sayısı.    
 * **Oturum açma olayları**: Bu görünümde, oturum açma etkinliği, uygulama, kullanıcı, cihaz yanı sıra oturum açma sayısı zamanla izleme Özet görünümünü tarafından oturum açma işlemleri gibi izleme ile ilgili en ilgili raporlar gösterilir.
-* **Kullanıcılar gerçekleştirme onay**: gibi tüm onay tabanlı uygulamalar için uygulama tarafından oturum açma yanı sıra kullanıcı, oturum açma işlemleri tarafından izin verilen kullanıcılar tarafından izin verir, bu görünümde kullanıcı onayı için ilgili raporlar gösterilir. 
+* **Kullanıcı onayı gerçekleştirme**: Bu görünüm, gibi tüm onay tabanlı uygulamalar için uygulama tarafından oturum açma yanı sıra kullanıcı, oturum açma işlemleri tarafından izin verilen kullanıcılar tarafından izin verir. kullanıcı onayı için ilgili raporları gösterir. 
 
 [Azure AD etkinlik günlükleri için Log Analytics görünümlerini yüklemeyi ve kullanmayı](howto-install-use-log-analytics-views.md) öğrenin. 
 

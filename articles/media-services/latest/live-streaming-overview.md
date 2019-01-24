@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/15/2019
+ms.date: 01/22/2019
 ms.author: juliako
-ms.openlocfilehash: 6f7c6c2265fe13eb50aa900e9a51e11edfd90201
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 3be7ad84cf0d45276c136465d7247ec43621aceb
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382092"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810967"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Canlı akış ile Azure Media Services v3
 
@@ -34,17 +34,25 @@ Bu makalede ayrıntılı bir genel kılavuzluk sağlar ve Media Services ile can
 
 Canlı akış iş akışı için adımlar şunlardır:
 
-1. Oluşturma bir **canlı olay**.
-2. Yeni bir **varlık** nesne.
-3. Oluşturma bir **Canlı çıkış** oluşturduğunuz varlık adını kullanın.
-4. Oluşturma bir **akış ilke** ve **içerik anahtarı** DRM ile içeriğinizi şifrelemek istiyorsanız.
-5. DRM kullanılmıyorsa, oluşturun bir **akış Bulucu** yerleşik ile **akış ilke** türleri.
-6. Yolları listesini **akış ilke** kullanılacak URL'leri geri almak için (Bu belirleyici).
-7. Konak adı için alma **akış uç noktası** gelen akışla aktarmak istediğiniz (akış uç noktası çalıştığından emin olun). 
-8. Ana bilgisayar adı, tam bir URL almak için 7. adım adım 6 URL'den birleştirin.
-9. Kullanımını durdurmak istiyorsanız, **canlı olay** silerek olay akışı durdurmak zorunda görüntülenebilir, **akış Bulucu**.
+1. Emin **StreamingEndpoint** çalışıyor. 
+2. Oluşturma bir **Livestream**. 
+  
+    Olay oluşturulurken otomatik başlatma için bunu belirtebilirsiniz. Alternatif olarak, akış başlamaya hazır olduğunuzda olayı başlatın.<br/> Autostart canlı olay true olarak ayarlandığında oluşturulduktan sonra doğru başlatılır. Bu, canlı olay çalıştıran hemen sonra Fatura başlatır anlamına gelir. Livestream kaynakta daha fazla faturalama durdurmak için Stop açıkça çağırmanız gerekir. Daha fazla bilgi için [Livestream durumları ve faturalandırma](live-event-states-billing.md).
+3. Alma URL'leri alma ve akış katkı göndermek için URL'yi kullanmak için şirket içi Kodlayıcı yapılandırın.<br/>Bkz: [gerçek zamanlı kodlayıcılar önerilen](recommended-on-premises-live-encoders.md).
+4. Önizleme URL'sini ve aslında kodlayıcıdan giriş alındığını doğrulamak için kullanın.
+5. Yeni bir **varlık** nesne.
+6. Oluşturma bir **LiveOutput** oluşturduğunuz varlık adını kullanın.
 
-Daha fazla bilgi için bir [canlı akış öğretici](stream-live-tutorial-with-api.md) temel [Canlı .NET Core](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/Live) örnek.
+     **LiveOutput** akışa arşiv **varlık**.
+7. Oluşturma bir **StreamingLocator** yerleşik ile **StreamingPolicy** türleri.
+
+    İçeriğinizi şifrelemek istiyorsanız, gözden [içerik korumaya genel bakış](content-protection-overview.md).
+8. Yolları listesini **akış Bulucu** kullanılacak URL'leri geri almak için (Bu belirleyici).
+9. Konak adı için alma **akış uç noktası** alanından akışını yapmak istiyor.
+10. Ana bilgisayar adı tam URL'sini almak için 9. adım 8. adımdaki URL'yi birleştirin.
+11. Kullanımını durdurmak istiyorsanız, **Livestream** silme ve olay akışı durdurmak zorunda görüntülenebilir, **StreamingLocator**.
+
+Daha fazla bilgi için [canlı akış öğretici](stream-live-tutorial-with-api.md).
 
 ## <a name="overview-of-main-components"></a>Ana bileşenlerini genel bakış
 
@@ -63,14 +71,7 @@ Media Services dinamik olarak şifrelenmiş içerik teslim etmenizi sağlar (**d
 
 İsterseniz, parçalar, biçimleri, bit hızlarına dönüştürme ve oyunculara gönderilen sunu zaman pencereleri sayısını denetlemek için kullanılabilen dinamik filtreleme, de uygulayabilirsiniz. Daha fazla bilgi için [filtreleri ve dinamik bildirimlere](filters-dynamic-manifest-overview.md).
 
-### <a name="new-capabilities-for-live-streaming-in-v3"></a>V3 sürümünde canlı akış için yeni özellikler
-
-V3 API'ler, Media Services ile aşağıdaki yeni özelliklerden yararlanır:
-
-- Yeni düşük gecikme süresi modu. Daha fazla bilgi için [gecikme](live-event-latency.md).
-- Geliştirilmiş RTMP desteği (daha fazla kararlılık ve daha fazla kaynak Kodlayıcı desteği).
-- Güvenli RTMPS alın.<br/>Bir Livestream oluşturduğunuzda, 4 alma URL'lerini alabilirsiniz. 4 alma URL'leri neredeyse aynıdır, yalnızca bir bağlantı noktası numarası bölümü farklı aynı akış belirteci (AppID) sahip. URL'lerin ikisinin, birincil ve yedek RTMPS için.   
-- 24 tekli bit hızı katkı için medya hizmetlerine kullanarak Çoklu bit hızlarında bir çıkış akışına zaman akışı saate kadar uzun olan Canlı etkinliklerin akışını yapabilirsiniz. 
+V3 sürümünde canlı akış için yeni özellikler hakkında daha fazla bilgi için bkz. [Media Services v2'den v3 taşımak için geçiş kılavuzunu](migrate-from-v2-to-v3.md).
 
 ## <a name="liveevent-types"></a>Livestream türleri
 
@@ -109,7 +110,7 @@ A [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) giden canl
 > [!NOTE]
 > **LiveOutput**s oluşturma başlatıp silindiğinde durdurabilir. Sildiğinizde **LiveOutput**, arka plandaki silmezsiniz **varlık** ve varlık içeriği. 
 >
-> Yayımladıysanız **akış Bulucu**s için varlık üzerinde **LiveOutput**, olay (en fazla DVR pencere uzunluğunun) kadar bitiş saati görüntülenebilir olmaya devam edecek **akış Bulucu**  veya Bulucu sildiğinizde kasa hangisinin önce geldiğine bağlı.   
+> Yayımladıysanız **LiveOutput** varlık kullanan bir **StreamingLocator**, **Livestream** (DVR pencere uzunluğunun en fazla) kadar görüntülenebilirolmayadevamedecek**StreamingLocator**'s süre sonu veya silme işlemi, hangisi gelir önce.
 
 Daha fazla bilgi için [kullanarak bulut DVR](live-event-cloud-dvr.md).
 

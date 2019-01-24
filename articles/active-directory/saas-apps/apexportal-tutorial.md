@@ -1,10 +1,10 @@
 ---
-title: 'Öğretici: Azure Active Directory Tümleştirme Apex portalıyla | Microsoft Docs'
+title: 'Öğretici: Apex portalı ile Azure Active Directory Tümleştirme | Microsoft Docs'
 description: Apex portalı ile Azure Active Directory arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: db204a46-6460-4ace-bdbb-4353846723ad
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
 ms.author: jeedes
-ms.openlocfilehash: 4c267313e4851e621b57aa1d2bddc73118405776
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 25fb68d3f29e0b3589e582551b88cc1cc7b5392f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054242"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819858"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-apex-portal"></a>Öğretici: Azure Active Directory Apex portalı ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-apex-portal"></a>Öğretici: Apex portalı ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Tepe portalı Azure Active Directory (Azure AD) ile tümleştirme konusunda bilgi edinin.
 
@@ -38,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Apex portalı ile Azure AD tümleştirmesini yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik bir tepe portalı çoklu oturum açma etkin
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Azure AD'de Apex portalı tümleştirmesini yapılandırmak için tepe portalı 
 
 **Galeriden Apex portalı eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -126,7 +126,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve A
     | Öznitelik Adı | Öznitelik Değeri |
     | ------------------- | -------------------- |    
     | FIRSTNAME | User.givenName |
-    | SOYADI | User.surname |
+    | LASTNAME | User.surname |
     | POSTA | User.Mail |    
 
     a. Tıklayın **eklemek agentconfigutil** açmak için **öznitelik Ekle** iletişim.
@@ -152,7 +152,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve A
 8. Çoklu oturum açmayı yapılandırma **Apex portalı** tarafı, indirilen göndermek için ihtiyacınız **meta veri XML** için [Apex Portal Destek ekibine](mailto:support@apexanalytix.com). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 > [!TIP]
-> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
+> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi embedded belgeleri özelliği burada hakkında: [Azure AD embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
@@ -189,9 +189,9 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 ### <a name="create-an-apex-portal-test-user"></a>Bir tepe portalı test kullanıcısı oluşturma
 
 Bu bölümün amacı, Britta Simon Apex Portalı'nda adlı bir kullanıcı oluşturmaktır. Apex Portal varsayılan olarak etkin olan tam zamanında sağlama, destekler. Bu bölümde, hiçbir eylem öğesini yoktur. Yeni bir kullanıcı, henüz yoksa Apex portalına erişme denemesi sırasında oluşturulur.
- 
-> [!NOTE]
-> Bir kullanıcı el ile oluşturmanız gerekiyorsa, iletişime geçmeniz [Apex Portal Destek ekibine](mailto:support@apexanalytix.com).
+ 
+> [!NOTE]
+> Bir kullanıcı el ile oluşturmanız gerekiyorsa, iletişime geçmeniz [Apex Portal Destek ekibine](mailto:support@apexanalytix.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
@@ -233,7 +233,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

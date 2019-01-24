@@ -4,7 +4,7 @@ description: Azure Active Directory ve LMS devralarak arasında çoklu oturum a�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: ba9f1b3d-a4a0-4ff7-b0e7-428e0ed92142
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
-ms.openlocfilehash: f7f96b4357e7db61d3b5d30b93eff8960e515c2d
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 51ae45b313cbe6b3cb61777a1571a75047632ca9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971299"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818464"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>Öğretici: Devralarak LMS ile Azure Active Directory Tümleştirme
 

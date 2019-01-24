@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 76bec0f0e924fe193519f47effb8dd45f6262697
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 750ab99df1d241cf4252c49a5a9ced08a82b1c92
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630334"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809200"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure Dosya Eşitleme dağıtımı planlama
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -205,6 +205,9 @@ Virüsten koruma çözümleri gibi yedekleme çözümleri, katmanlı dosyalar ge
 
 > [!Note]  
 > Tam kurtarma (BMR) geri yükleme beklenmeyen sonuçlara neden olabilir ve şu anda desteklenmiyor.
+
+> [!Note]  
+> Bulut katmanlaması etkin olan birimlerde VSS anlık görüntülerini (önceki sürümler sekmesini dahil) şu anda desteklenmemektedir. Bulut katmanlaması etkin olduğunda, bir dosyayı yedekten geri yüklemek için Azure dosya paylaşımı anlık görüntüleri kullanın.
 
 ### <a name="encryption-solutions"></a>Şifreleme çözümleri
 Şifreleme çözümleri için destek nasıl uygulanana üzerinde bağlıdır. Azure dosya eşitleme ile çalışma bilinmektedir:

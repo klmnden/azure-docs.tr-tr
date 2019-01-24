@@ -1,6 +1,6 @@
 ---
-title: Yüz ve duygu Azure medya Analizi ile algılamak | Microsoft Docs
-description: Bu konu, yüzler ve Azure medya Analizi ile duygular algılamak gösterilmiştir.
+title: Yüz ve duygu tanıma ile Azure medya analizi | Microsoft Docs
+description: Bu konu, yüz ve duyguları Azure medya Analizi ile nasıl gösterir.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,56 +14,56 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: 859e75819f96edd527fceb143faf8357738ce80e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 5aab8a5d48b7a7d17aa44b74d65ee70cb9322944
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33789393"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817563"
 ---
-# <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Yüz ve duygu Azure medya Analizi ile Algıla
+# <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Yüz ve duygu tanıma ile Azure medya analizi algılayın
 ## <a name="overview"></a>Genel Bakış
-**Azure medya yüz algılayıcısı** medya işlemcisi (MP) sayısı, hareketleri izlemek ve İzleyici katılım ve tepki yüz ifadeleri aracılığıyla bile ölçer olanak sağlar. Bu hizmet, iki özellik içerir: 
+**Azure medya yüz algılayıcısı** medya işlemci (MP) sayısı, hareketleri izlemek ve hatta İzleyici katılım ve yüz ifadelerini aracılığıyla tepki ölçer olanak sağlar. Bu hizmet, iki özellik içerir: 
 
 * **Yüz algılama**
   
-    Yüz algılama bulur ve video içinde İnsan yüzeyleri izler. Birden çok yüzeyleri algılanabilir ve bunların geçici bir JSON dosyası döndürülen zaman ve yer meta verilerle taşırken sonradan izlenmesi. İzleme sırasında obstructed veya kısaca çerçeve bırakın olsa bile kişinin ekranında dolaşma sırada tutarlı kimliği aynı yüz vermek çalışır.
+    Yüz algılama bulur ve video İnsan yüzlerini izler. Birden fazla yüzeye algılanabilir ve bunlar JSON dosyasında döndürülen zaman ve konum meta verileriyle hareket ettirmek sonradan izlenmesi. İzleme sırasında obstructed veya kısaca çerçeve bırakın bile kişi ekranda taşınıyor geçici bir çözüm olsa aynı yüz için tutarlı bir kimlik sağlamak çalışır.
   
   > [!NOTE]
-  > Bu hizmet, yüz tanıma gerçekleştirmez. Çerçeve ayrıldığında ya da için obstructed hale bir kişi döndürmeleri zaman uzun yeni bir kimlik verilir.
+  > Bu hizmet, yüz tanıma gerçekleştirmez. Çerçeve ayrıldığında ya da için obstructed olur bireysel bunlar döndüğünüzde yeni bir kimliği çok uzun sunulur.
   > 
   > 
 * **Duygu algılama**
   
-    Duygu algılama analiz mutluluk, sadness, Korku, öfke ve daha fazlası da dahil olmak üzere algılandı, yüzler birden çok kendini özniteliklerinde döndürür yüz algılama medya işlemcisi isteğe bağlı bir bileşenidir. 
+    Duygu algılama, birden çok duygusal özniteliklerinde mutluluk, üzüntü, Korku, kızgınlık ve daha fazlası dahil olmak üzere algılanan yüzleri analiz döndüren yüz algılama medya işlemcisi isteğe bağlı bir bileşendir. 
 
-**Azure medya yüz algılayıcısı** MP şu anda önizlemede.
+**Azure medya yüz algılayıcısı** MP şu anda Önizleme aşamasındadır.
 
-Bu makalede, ilgili ayrıntıları verir **Azure medya yüz algılayıcısı** ve Media Services SDK'sı ile .NET için nasıl kullanılacağını gösterir.
+Bu makalede, ilgili ayrıntıları verir. **Azure medya yüz algılayıcısı** ve .NET için Media Services SDK ile kullanma işlemi gösterilmektedir.
 
 ## <a name="face-detector-input-files"></a>Yüz algılayıcısı giriş dosyaları
-Video dosyaları. Şu anda aşağıdaki biçimlerden desteklenir: MP4, MOV ve WMV.
+Video dosyaları. Şu anda aşağıdaki biçimleri desteklenir: MP4 MOV ve WMV.
 
 ## <a name="face-detector-output-files"></a>Yüz algılayıcısı çıktı dosyaları
-Yüz algılama ve İzleme API, Yüksek duyarlılık yüz konumu algılama ve en fazla 64 İnsan yüzeyleri bir video algılayabilir izleme sağlar. En iyi sonuçlar tamamen çıplak yüzeyleri sağlayabilir, yan yüz sırasında ve küçük yazıtipleri (küçük veya eşittir 24 x 24 piksel) olarak doğru olmayabilir.
+Yüz algılama ve İzleme API, yüksek hassaslıktaki yüz konumu algılama ve en fazla 64 İnsan yüzlerini bir videoda algılayabilir izleme sağlar. En iyi sonuçları tamamen çıplak yüzleri sağlayabilir, yan yüz ve küçük yüzleri (küçüktür veya eşittir 24 x 24 piksel) doğru olmayabilir.
 
-Algılanan ve izlenen yüzeyleri (sol, üst, genişlik ve yükseklik) koordinatları ile döndürülen yazıtipleri, tek tek izlenmesi belirten bir nominal kimlik numarası yanı sıra piksel görüntüdeki konumunu belirten. Yüz kimlik numaraları birden çok kimliği atanan bazı kişiler kaynaklanan tamamen çıplak yüz kaybolduğunda veya çerçevede çakışan koşullarda sıfırlamak fazladır.
+Algılanan ve izlenen yüzleri koordinatları (sol, üst, genişlik ve yükseklik) döndürülen bu kişiye izlemenin belirten bir yüz kimliği sayı yanı sıra piksel görüntüdeki yüzleri konumunu belirten. Yüz Kimliği numaraları atanan birden çok kimlikler bazı kişiler kaynaklanan koşullar altında tamamen çıplak yüz kayıp veya çerçevede çakışan sıfırlama eğilimlidir.
 
 ## <a id="output_elements"></a>Çıkış JSON dosyasının öğeleri
 
 [!INCLUDE [media-services-analytics-output-json](../../../includes/media-services-analytics-output-json.md)]
 
-Yüz algılayıcısı (çok büyük alma durumunda olduğu olayları ayrılır) (burada zamana dayalı yığınlar halinde meta veriler bölünmüştür ve yalnızca ihtiyacınız yükleyebilirsiniz) parçalanma ve kesimlere ayırma teknikleri kullanır. Bazı basit hesaplamalar, veri dönüştürme yardımcı olabilir. Örneğin, bir olay 2997 (çizgilerine/sn) bir ölçeğini 6300 (çizgilerine) başlatılan ve kare 29.97 (Çerçeve/sn), ardından hızına:
+Yüz algılayıcısı (çok büyük aldıkları durumunda nerede olayların ayrılır) (burada meta veriler, zaman tabanlı öbekler halinde bölünmüştür ve yalnızca ihtiyacınız olan indirebilirsiniz) parçalanma ve segmentasyon teknikleri kullanır. Bazı basit hesaplamalar, verileri dönüştürmenize yardımcı olabilir. Örneğin, bir olay 2997 (saat döngüsü/sn) bir ölçeğini 6300 (saat döngüsü) başladıysanız ve ardından 29.97 (çerçeveleri/sn), kare hızı:
 
-* Başlat/ölçeği = 2.1 saniye
+* Başlangıç/Ölçek = 2,1 saniye
 * X frameRate saniye 63 çerçeveler =
 
-## <a name="face-detection-input-and-output-example"></a>Algılama giriş yüz ve örnek çıkış
+## <a name="face-detection-input-and-output-example"></a>Yüz algılama giriş ve örnek çıktı
 ### <a name="input-video"></a>Giriş video
-[Video girişi](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
+[Giriş Video](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
 
 ### <a name="task-configuration-preset"></a>Görev yapılandırması (hazır)
-Bir görev oluştururken **Azure medya yüz algılayıcısı**, bir yapılandırma hazır belirtmeniz gerekir. Yalnızca yüz algılama için aşağıdaki yapılandırma hazır olur.
+Bir görev oluştururken **Azure medya yüz algılayıcısı**, yapılandırma hazır belirtmeniz gerekir. Yalnızca yüz algılama için aşağıdaki yapılandırma hazır olur.
 
 ```json
     {
@@ -74,13 +74,13 @@ Bir görev oluştururken **Azure medya yüz algılayıcısı**, bir yapılandır
     }
 ```
 
-#### <a name="attribute-descriptions"></a>Öznitelik tanımlarını
+#### <a name="attribute-descriptions"></a>Öznitelik açıklamaları
 | Öznitelik adı | Açıklama |
 | --- | --- |
-| Mod |Hızlı - hızı, ancak daha az doğru (varsayılan) hızlı işleniyor.|
+| Mod |Fast - hızlı, ancak daha az doğru (varsayılan) hızlı işleniyor.|
 
-### <a name="json-output"></a>JSON çıktısını
-Aşağıdaki örnek JSON çıktısını kesildi.
+### <a name="json-output"></a>JSON çıkış
+Aşağıdaki örnek JSON çıktı kesildi.
 
 ```json
     {
@@ -132,10 +132,10 @@ Aşağıdaki örnek JSON çıktısını kesildi.
 
 ## <a name="emotion-detection-input-and-output-example"></a>Giriş ve çıkış duygu algılama örneği
 ### <a name="input-video"></a>Giriş video
-[Video girişi](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
+[Giriş Video](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
 
 ### <a name="task-configuration-preset"></a>Görev yapılandırması (hazır)
-Bir görev oluştururken **Azure medya yüz algılayıcısı**, bir yapılandırma hazır belirtmeniz gerekir. JSON tabanlı duygu algılama oluşturmak için aşağıdaki yapılandırma hazır belirtir.
+Bir görev oluştururken **Azure medya yüz algılayıcısı**, yapılandırma hazır belirtmeniz gerekir. JSON tabanlı duygu Algılama işlemi oluşturmak için aşağıdaki yapılandırma hazır belirtir.
 
 ```json
     {
@@ -149,23 +149,23 @@ Bir görev oluştururken **Azure medya yüz algılayıcısı**, bir yapılandır
 ```
 
 
-#### <a name="attribute-descriptions"></a>Öznitelik tanımlarını
+#### <a name="attribute-descriptions"></a>Öznitelik açıklamaları
 | Öznitelik adı | Açıklama |
 | --- | --- |
-| Mod |Yazıtipleri: Yalnızca algılama karşılaşıyor.<br/>PerFaceEmotion: her yüz algılama için ayrı ayrı duygu döndür.<br/>AggregateEmotion: Tüm yüzeyleri çerçevesinde dönüş ortalama duygu değerleri. |
-| AggregateEmotionWindowMs |AggregateEmotion modunu seçtiyseniz kullanın. Milisaniye cinsinden toplam her sonucu oluşturmak için kullanılan video uzunluğunu belirtir. |
-| AggregateEmotionIntervalMs |AggregateEmotion modunu seçtiyseniz kullanın. Toplama sonuçları üretmek için çalıştırılma sıklığını belirtir. |
+| Mod |Yüzleri: Yalnızca yüz algılama.<br/>PerFaceEmotion: Duygu tanıma bağımsız olarak her yüz algılama için döndürür.<br/>AggregateEmotion: Çerçevede tüm yüzeyleri için ortalama duygu tanıma değerleri döndürür. |
+| AggregateEmotionWindowMs |AggregateEmotion modunu seçtiyseniz bu seçeneği kullanın. Milisaniye cinsinden her toplama sonucu oluşturmak için kullanılan video uzunluğunu belirtir. |
+| AggregateEmotionIntervalMs |AggregateEmotion modunu seçtiyseniz bu seçeneği kullanın. Toplama sonuçları üretmek için çalıştırılma sıklığını belirtir. |
 
-#### <a name="aggregate-defaults"></a>Birleşik Varsayılanları
-Aşağıdaki değerler toplama penceresi ve aralığı ayarlar için önerilir. AggregateEmotionWindowMs AggregateEmotionIntervalMs uzun olmalıdır.
+#### <a name="aggregate-defaults"></a>Toplama Varsayılanları
+Aşağıdaki değerleri toplama penceresi ve aralığı ayarları için önerilir. AggregateEmotionWindowMs AggregateEmotionIntervalMs uzun olmalıdır.
 
-|| Varsayılanları (s) | Max(s) | Min(s) |
+|| Varsayılan (s) | Max(s) | Dakika |
 |--- | --- | --- | --- |
-| AggregateEmotionWindowMs |0.5 |2 |0.25|
-| AggregateEmotionIntervalMs |0.5 |1 |0.25|
+| AggregateEmotionWindowMs |0,5 |2 |0.25|
+| AggregateEmotionIntervalMs |0,5 |1 |0.25|
 
-### <a name="json-output"></a>JSON çıktısını
-JSON (kesilmiş) toplama duygu tanıma için çıktı:
+### <a name="json-output"></a>JSON çıkış
+JSON için toplu duygu (kesilmiş) çıktı:
 
 ```json
     {
@@ -321,17 +321,17 @@ JSON (kesilmiş) toplama duygu tanıma için çıktı:
 ```
 
 ## <a name="limitations"></a>Sınırlamalar
-* Desteklenen giriş video biçimleri MP4, MOV ve WMV içerir.
-* Algılanabilir yüz boyutu aralığı 24 x 24 için 2048 x 2048 pikseldir. Bu aralık dışında yüzeyleri algılanmaz.
-* Her video için döndürülen yüzeyleri en fazla 64 ' dir.
-* Bazı yüzeyleri nedeniyle teknik zorluklar algılanamayabilir; Örneğin, çok büyük yüz açıları (poz head) ve büyük kapanması için. Tamamen çıplak ve tamamen yakın yüzler en iyi sonuçlar sahip.
+* Giriş desteklenen video biçimleri MP4 MOV ve WMV içerir.
+* Algılanabilir yüz boyut aralığı 24 x 24 için 2048 x 2048 pikseldir. Bu aralık dışında yüzleri algılanmaz.
+* Her video için döndürülen yüz sayısı 64'tür.
+* Teknik güçlükler nedeniyle bazı yüzleri algılanamayabilir; Örneğin, çok büyük yüz açıları (poz head) ve büyük kapatma. Tamamen çıplak ve neredeyse tamamen yüzleri en iyi sonucu var.
 
-## <a name="net-sample-code"></a>.NET örnek kod
+## <a name="net-sample-code"></a>.NET örnek kodu
 
 Aşağıdaki program gösterir nasıl yapılır:
 
-1. Bir varlık oluşturun ve varlığa bir medya dosyasını yükleyin.
-2. Aşağıdaki json hazır içeren bir yapılandırma dosyasına dayalı yüz algılama görevle ilgili bir iş oluşturun: 
+1. Bir varlık oluşturun ve varlığa bir medya dosyası yükleyin.
+2. Aşağıdaki json hazır içeren bir yapılandırma dosyasını temel alan bir yüz algılama görev ile bir iş oluşturun: 
 
     ```json
             {
@@ -418,7 +418,7 @@ namespace FaceDetection
             task.InputAssets.Add(asset);
 
             // Add an output asset to contain the results of the job.
-            task.OutputAssets.AddNew("My Face Detectoion Output Asset", AssetCreationOptions.None);
+            task.OutputAssets.AddNew("My Face Detection Output Asset", AssetCreationOptions.None);
 
             // Use the following event handler to check job progress.  
             job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
@@ -520,7 +520,7 @@ namespace FaceDetection
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>İlgili bağlantılar
-[Azure Media Services Analytics a genel bakış](media-services-analytics-overview.md)
+[Azure Media Services Analizi'ne genel bakış](media-services-analytics-overview.md)
 
-[Azure medya analizi gösterileri](http://amslabs.azurewebsites.net/demos/Analytics.html)
+[Azure medya analizi tanıtımları](http://amslabs.azurewebsites.net/demos/Analytics.html)
 

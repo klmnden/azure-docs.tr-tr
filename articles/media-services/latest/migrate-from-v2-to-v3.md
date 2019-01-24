@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 12/18/2018
 ms.author: juliako
-ms.openlocfilehash: 8a680f1c745bed7745691ad337ed887cc4fc05c5
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 017de43074d4b68c69526ddcc96f98ae826dcd65
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716625"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808740"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Media Services v2'den v3 taşımak için Geçiş Kılavuzu
 
@@ -43,15 +43,16 @@ Bugün üzerine geliştirilen bir video hizmeti varsa [eski Media Services v2 AP
 
 ### <a name="new-features"></a>Yeni Özellikler
 
-* Dosya tabanlı iş işlenmesi için girdi olarak bir HTTP (S) URL kullanabilirsiniz.
-    Zaten Azure'da depolanan içeriğe sahip gerekmez veya varlıkları oluşturmak ihtiyacınız.
+* Dosya tabanlı iş işlenmesi için girdi olarak bir HTTP (S) URL kullanabilirsiniz.<br/>Zaten Azure'da depolanan içeriğe sahip gerekmez veya varlıkları oluşturmak ihtiyacınız.
 * Kavramını sunar [dönüştüren](transforms-jobs-concept.md) dosya tabanlı iş işleme için. Dönüşüm, Azure Resource Manager şablonları oluşturmak ve işleme ayarlarını birden çok müşteriler veya kiracılar arasında yalıtmak için yeniden kullanılabilir yapılandırmaları oluşturmak için kullanılabilir.
 * Bir varlık olabilir [birden çok StreamingLocators](streaming-locators-concept.md) her farklı dinamik paketleme ve dinamik şifreleme ayarları ile.
 * [İçerik koruma](content-key-policy-concept.md) birden çok anahtar özelliklerini destekler.
 * 24 tekli bit hızı katkı için medya hizmetlerine kullanarak Çoklu bit hızlarında bir çıkış akışına zaman akışı saate kadar uzun olan Canlı etkinliklerin akışını yapabilirsiniz.
-* Üzerinde LiveEvents yeni düşük gecikme süresi canlı akış desteği.
+* Üzerinde LiveEvents yeni düşük gecikme süresi canlı akış desteği. Daha fazla bilgi için [gecikme](live-event-latency.md).
 * Dinamik paketleme ile dinamik şifrelemeden Livestream Önizleme destekler. Bu önizleme yanı sıra DASH ve HLS paketleme içerik koruması sağlar.
 * LiveOutput v2 API programı varlıkta daha basittir. 
+* Geliştirilmiş RTMP desteği (daha fazla kararlılık ve daha fazla kaynak Kodlayıcı desteği).
+* Güvenli RTMPS alın.<br/>Bir Livestream oluşturduğunuzda, 4 alma URL'lerini alabilirsiniz. 4 alma URL'leri neredeyse aynıdır, yalnızca bir bağlantı noktası numarası bölümü farklı aynı akış belirteci (AppID) sahip. URL'lerin ikisinin, birincil ve yedek RTMPS için.   
 * Varlıklarınızı bir rol tabanlı erişim denetimi (RBAC) sahip. 
 
 ## <a name="changes-from-v2"></a>V2 değişiklikleri
@@ -96,7 +97,7 @@ Aşağıdaki tabloda, v2 ve v3 sık karşılaşılan senaryolara yönelik kod fa
 |---|---|---|
 |Bir varlık oluşturun ve bir dosyayı karşıya yükleyin |[v2 .NET örneği](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L113)|[V3 .NET örneği](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L169)|
 |Bir iş gönderdiniz|[v2 .NET örneği](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L146)|[V3 .NET örneği](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L298)<br/><br/>İlk dönüşüm işi oluşturma ve ardından bir gönderme işlemi gösterilmektedir.|
-|Bir varlık AES şifreleme ile yayımlama |1. ContentKeyAuthorizationPolicyOption oluşturma<br/>2. ContentKeyAuthorizationPolicy oluşturma<br/>3. AssetDeliveryPolicy oluşturma<br/>4. Varlık oluşturma ve içerik işi veya Gönder yüklemek ve çıktı varlığına kullanın<br/>5. AssetDeliveryPolicy varlıkla ilişkilendirme<br/>6. ContentKey oluşturma<br/>7. Varlık için ContentKey ekleme<br/>8. AccessPolicy oluşturma<br/>9. Bulucu<br/><br/>[v2 .NET örneği](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L64)|1. İçerik anahtarı ilkesi oluşturma<br/>2. Varlık oluşturma<br/>3. İçerik yüklemek veya varlık JobOutput kullanın<br/>4. StreamingLocator oluşturma<br/><br/>[V3 .NET örneği](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs#L105)|
+|Bir varlık AES şifreleme ile yayımlama |1. ContentKeyAuthorizationPolicyOption oluşturma<br/>2. ContentKeyAuthorizationPolicy oluşturma<br/>3. Create AssetDeliveryPolicy<br/>4. Varlık oluşturma ve içerik işi veya Gönder yüklemek ve çıktı varlığına kullanın<br/>5. AssetDeliveryPolicy varlıkla ilişkilendirme<br/>6. Create ContentKey<br/>7. Varlık için ContentKey ekleme<br/>8. AccessPolicy oluşturma<br/>9. Bulucu<br/><br/>[v2 .NET örneği](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L64)|1. İçerik anahtarı ilkesi oluşturma<br/>2. Varlık oluşturma<br/>3. İçerik yüklemek veya varlık JobOutput kullanın<br/>4. StreamingLocator oluşturma<br/><br/>[V3 .NET örneği](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs#L105)|
 
 ## <a name="known-issues"></a>Bilinen sorunlar
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 6f894310157432a6e03e6ec4753f5efc2d8ac66d
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 149a15353a7fd1d698af306971ecb0949db4c165
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267428"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817240"
 ---
 # <a name="contoso-migration-rearchitect-an-on-premises-app-to-an-azure-container-and-azure-sql-database"></a>Contoso geçişi: Bir Azure kapsayıcı ve Azure SQL veritabanı için bir şirket içi uygulamayı yeniden oluşturma
 
@@ -199,7 +199,7 @@ Azure container Web VM'den dışa aktarılan dosyaları kullanılarak oluşturul
 
 ## <a name="step-3-provision-azure-service-fabric"></a>3. Adım: Azure Service Fabric'e sağlama
 
-SmartHotel360 kapsayıcı, Azure Service Fabric Sluster içinde çalışır. Contoso yöneticileri, Service Fabric kümesi gibi oluşturun:
+SmartHotel360 kapsayıcı, Azure Service Fabric kümesinde çalıştırılır. Contoso yöneticileri, Service Fabric kümesi gibi oluşturun:
 
 1. Azure Marketi'nden bir Service Fabric kaynak oluştur
 
@@ -282,7 +282,7 @@ Contoso küme Azure DevOps Hizmetleri erişmesine izin vermek için küme sertif
 
 8. Azure DevOps Hizmetleri dağıtımı için Sertifikayı Base64 değerini belirlemek ihtiyaç duydukları. PowerShell kullanarak yerel geliştirici iş istasyonu bunu. Bunlar, çıktı daha sonra kullanmak için bir metin dosyasına yapıştırın.
 
-    ```
+    ```powershell
         [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("C:\path\to\certificate.pfx")) 
     ```
 
@@ -476,7 +476,7 @@ Contoso yöneticileri artık yapı gerçekleştirin ve eylem işlemine DevOps uy
 
 13. Bunlar işlem hattına tıklayın > **bir yapıt ekleme**.
 
-     ![Yapıt](./media/contoso-migration-rearchitect-container-sql/pipeline11.png)
+     ![Yapay Nesne](./media/contoso-migration-rearchitect-container-sql/pipeline11.png)
 
 14. Bunlar, projeyi seçin ve en son sürümünü kullanarak bir işlem hattı, derleme.
 
@@ -530,7 +530,7 @@ SmartHotel360 uygulaması ve veritabanı Azure'da çalıştırıldıktan sonra C
 5. Portalda yeni bir veritabanı açtıklarında > **koleksiyon** > **belgeleri** tıklatıp **yeni belge**.
 6. Bunlar aşağıdaki JSON kodunu belge penceresine yapıştırın. Örnek verileri tek bir tweet biçiminde budur.
 
-    ```
+    ```json
     {
             "id": "2ed5e734-8034-bf3a-ac85-705b7713d911",
             "tweetId": 927750234331580911,
@@ -565,11 +565,11 @@ Sağlanan Cosmos DB ile uygulama bağlanmak için Contoso Yöneticiler yapıland
 
 2. Bunlar, aşağıdaki iki parametrelerini doldurun:
 
-   ```
+   ```xml
    <Parameter Name="SentimentIntegration.CosmosDBEndpoint" Value="[URI]" />
    ```
    
-   ```
+   ```xml
    <Parameter Name="SentimentIntegration.CosmosDBAuthKey" Value="[Key]" />
    ```
 

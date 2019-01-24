@@ -1,6 +1,6 @@
 ---
 title: Azure medya Hizmetleri - kesintisiz akış HEVC için Protokolü (MS-SSTR) değişiklik Protokolü | Microsoft Docs
-description: Bu belirtim, protokol ve parçalanmış MP4 tabanlı Canlı HEVC Azure Media Services akış biçimi açıklar. Bu, kesintisiz Akış Protokolü documentaiton HEVC alma için destek eklemek için (MS-SSTR) ve akış için bir değişiklik olur. Bu makalede, yalnızca HEVC sunmak için gereken değişiklikler belirtilen dışında olan "(değişiklik)" metin yalnızca açıklama kopyalanır belirtir.
+description: Bu belirtim, protokol ve parçalanmış MP4 tabanlı Canlı HEVC Azure Media Services akış biçimi açıklar. Bu, kesintisiz Akış Protokolü belgeleri HEVC alma için destek eklemek için (MS-SSTR) ve akış için bir değişiklik olur. Bu makalede, yalnızca HEVC sunmak için gereken değişiklikler belirtilen dışında olan "(değişiklik)" metin yalnızca açıklama kopyalanır belirtir.
 services: media-services
 documentationcenter: ''
 author: cenkdin
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: johndeu;
-ms.openlocfilehash: 038eee18adf94f34a2e10d9ff7be76409c8c4322
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: c87795c1203a8639ba224a646f8f0c5f5515b840
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317432"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812769"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>Kesintisiz Akış Protokolü (MS-SSTR) değişiklik için HEVC
 
@@ -52,7 +52,7 @@ Aşağıdaki koşulları bu belgeye özgü:
 
 >   **bildirim:** Hakkındaki meta verileri **sunu** olanak sağlayan bir istemci isteği yapmak **medya**. **ortam:** Oynatmak için istemcinin kullandığı ses, video ve metin veri sıkıştırılmış bir **sunu**. **medya biçimi:** Ses veya video sıkıştırılmış temsil etmek için iyi tanımlanmış bir biçimde **örnek**.
 
->   **sunumu:** Tüm kümesini **akışları** ve tek bir filmi yürütmek için gereken ilgili meta veriler. **İstek:** Sınıfında tanımlandığı gibi istemciden sunucuya gönderilen bir HTTP iletisi [[RFC2616].](https://go.microsoft.com/fwlink/?LinkId=90372) **Yanıt:** Sınıfında tanımlandığı gibi sunucudan istemciye gönderilen bir HTTP iletisi [[RFC2616].](https://go.microsoft.com/fwlink/?LinkId=90372)
+>   **sunumu:** Tüm kümesini **akışları** ve tek bir filmi yürütmek için gereken ilgili meta veriler. **İstek:** Sınıfında tanımlandığı gibi istemciden sunucuya gönderilen bir HTTP iletisi [[RFC2616].](https://go.microsoft.com/fwlink/?LinkId=90372) **response:** Sınıfında tanımlandığı gibi sunucudan istemciye gönderilen bir HTTP iletisi [[RFC2616].](https://go.microsoft.com/fwlink/?LinkId=90372)
 
 >   **Örnek:** Burada küçük temel birimi (örneğin, bir çerçeve) **medya** depolanabilir ve işlenebilir.
 
@@ -372,7 +372,7 @@ Ortak şifreleme uygulanır ve [ISO/IEC 23001-7] belirtilen aşağıdaki kutular
 
 3.  Örnek yardımcı bilgi Kaydırma kutusu ('saio')
 
-4.  Örnek yardımcı bilgi boyut kutusu ('saiz')
+4.  Sample Auxiliary Information Size Box (‘saiz’)
 
 5.  Örnek Grup Açıklama kutusuna ('sgpd')
 

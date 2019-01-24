@@ -3,7 +3,7 @@ title: İş Cihazınızı kuruluşunuzun ağına - Azure Active Directory'ye ekl
 description: İş cihazınızın, kuruluşunuzun ağına katılın öğrenin.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.component: user-help
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: lizross
 ms.reviewer: jairoc
-ms.openlocfilehash: 34d3c12c83aeac7e92aa019abc38d9c4109883bd
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 9a860135d8b8bf5e3e0699e408365c7de9466aef
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40180932"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820402"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>İş cihazınızın, kuruluşunuzun ağa katılmasını sağlayın.
 Potansiyel olarak kısıtlanmış kaynaklara erişebilmesi için iş ait Windows 10 Cihazınızı kuruluşunuzun ağa katılmasını sağlayın.
@@ -85,7 +85,7 @@ Bulunuyorsa cihazınız ve bir süre için zaten ayarlanmış, ağa Cihazınız�
 
 5. Üzerinde **parola gir** ekranında, parolanızı yazın ve ardından **oturum**.
 
-    ![Parolayı girin](./media/user-help-join-device-on-network/join-device-setup-password.png)
+    ![Parola girin](./media/user-help-join-device-on-network/join-device-setup-password.png)
 
 6. Hesabınıza erişebilmesi için mobil Cihazınızda Cihazınızı onaylayın. 
 

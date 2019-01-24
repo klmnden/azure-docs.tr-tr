@@ -1,10 +1,10 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle QPrism | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile QPrism | Microsoft Docs'
 description: Azure Active Directory ve QPrism arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 72ab75ba-132b-4f83-a34b-d28b81b6d7bc
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: ddf22491d7531daecf4448e62e8594c3326d7b77
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8278b26f023ada109a8e6fa3965476e3dc4526c7
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39420283"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828069"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-qprism"></a>Öğretici: Azure Active Directory QPrism ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-qprism"></a>Öğretici: QPrism ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile QPrism tümleştirme konusunda bilgi edinin.
 
@@ -38,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı için bkz.
 
 Azure AD Tümleştirmesi ile QPrism yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik QPrism çoklu oturum açma etkin
 
 Bu öğreticideki adımları test etmek için aşağıdaki önerileri uygulayın:
@@ -112,7 +112,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve Q
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısıyla güncelleştirin ve oturum açma URL'si. İlgili kişi [QPrism istemci Destek ekibine](mailto:qsupport-ce@quatrro.com) bu değerleri almak için. 
 
-1. Üzerinde **SAML imzalama sertifikası** bölümünde, kopyalamak için Kopyala düğmesine **uygulama Federasyon meta verileri URL'sini** kopyalayıp Not Defteri'ne yapıştırın.
+1. Üzerinde **SAML imzalama sertifikası** bölümünde, kopyalamak için Kopyala düğmesine **uygulama Federasyon meta verileri URL'sini** kopyalayıp Not Defteri'ne yapıştırın.
 
      ![Sertifika indirme bağlantısı](./media/qprism-tutorial/tutorial_qprism_certificate.png)
 
@@ -156,7 +156,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
  
 ### <a name="create-a-qprism-test-user"></a>QPrism test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon QPrism içinde adlı bir kullanıcı oluşturun. Çalışmak [QPrism Destek ekibine](mailto:qsupport-ce@quatrro.com) QPrism platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi. 
+Bu bölümde, Britta Simon QPrism içinde adlı bir kullanıcı oluşturun. Çalışmak [QPrism Destek ekibine](mailto:qsupport-ce@quatrro.com) QPrism platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

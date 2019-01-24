@@ -10,17 +10,20 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/08/2017
+ms.date: 01/22/2019
 ms.author: mbullwin
-ms.openlocfilehash: 752f28eed3a6be5f7f136999c66e405bf7785a42
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 5c659ca2f40d47450227d16963499a6b27c9e313
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120980"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817126"
 ---
 # <a name="exploring-metrics-in-application-insights"></a>Application ınsights'ta ölçümleri keşfederken
 Ölçümlerde [Application Insights] [ start] ölçülen değerleri ve telemetriyi uygulamanızdan gönderilen olayların sayısı. Performans sorunları tespit edin ve eğilimler, uygulamanızın nasıl kullanıldığını izleyin yardımcı olur. Çok çeşitli standart ölçüm vardır ve kendi özel Ölçümler ve olaylar da oluşturabilirsiniz.
+
+> [!NOTE]
+> Bu makalede, şu anda kullanım dışıdır ve sonunda kullanımdan kaldırılacak Klasik ölçüm Gezgini deneyimi açıklanır. Açıklanan yeni deneyimini kullanıma öneririz [bu makalede](../platform/metrics-charts.md).
 
 Ölçüm ve olay sayılarını, toplanan değerlere toplamlar, ortalamalar veya sayısı gibi grafiklerdeki görüntülenir.
 

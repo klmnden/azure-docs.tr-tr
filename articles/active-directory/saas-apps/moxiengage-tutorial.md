@@ -1,10 +1,10 @@
 ---
-title: 'Öğretici: Azure Active Directory Tümleştirme ile Moxi etkileşim kurun | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory tümleştirmesiyle Moxi etkileşim kurun | Microsoft Docs'
 description: Azure Active Directory ve Moxi ilgisini arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 1135a879-8f00-43b0-ac8a-831593d9586d
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: jeedes
-ms.openlocfilehash: 200382578d7cf2cce96b9cb73097bce632c88767
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e7e130245cd61924c5f70645729551fd9e55702e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425078"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54816270"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-moxi-engage"></a>Öğretici: Azure Active Directory Tümleştirme ile Moxi etkileşim kurun
+# <a name="tutorial-azure-active-directory-integration-with-moxi-engage"></a>Öğretici: Azure Active Directory tümleştirmesiyle Moxi etkileşim kurun
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile tümleştirme Moxi etkileşim kurun öğrenin.
 
@@ -37,7 +37,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD tümleştirmesi Moxi ilgisini ile yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Bir Moxi ilgisini çoklu oturum açma etkin aboneliği
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Tümleştirilmesi Moxi etkileşim kurun, Azure AD'de yapılandırmak için Moxi 
 
 **Galeriden Moxi etkileşim eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
@@ -128,7 +128,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 1. Çoklu oturum açmayı yapılandırmak için **Moxi ilgisini** tarafı, indirilen göndermek için ihtiyacınız **meta veri XML** için [Moxi etkileşim kurun, Destek ekibine](mailto:support@moxiworks.com). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 > [!TIP]
-> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
+> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi embedded belgeleri özelliği burada hakkında: [Azure AD embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
@@ -164,7 +164,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
  
 ### <a name="creating-a-moxi-engage-test-user"></a>Moxi ilgisini bir test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon Moxi etkileşim kurun adlı bir kullanıcı oluşturun. Çalışmak [Moxi etkileşim kurun, Destek ekibine](mailto:support@moxiworks.com) Moxi ilgisini platform kullanıcıları eklemek için.
+Bu bölümde, Britta Simon Moxi etkileşim kurun adlı bir kullanıcı oluşturun. Çalışmak [Moxi etkileşim kurun, Destek ekibine](mailto:support@moxiworks.com) Moxi ilgisini platform kullanıcıları eklemek için.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcı atama
 

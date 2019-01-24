@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: wesmc
-ms.openlocfilehash: 8ff99b8c5cf839afb8c8e73c18c2c413998ba64a
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 30b83613637d97bfe265c4f5a9c911d14da50c4f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261727"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810916"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Çözümünüz için doğru IOT Hub katmanını seçme
 
@@ -43,6 +43,7 @@ Yalnızca bir tür [edition](https://azure.microsoft.com/pricing/details/iot-hub
 | [İzleme ve tanılama](iot-hub-monitor-resource-health.md) | Evet | Evet |
 | [Bulut-cihaz Mesajlaşma](iot-hub-devguide-c2d-guidance.md) |   | Evet |
 | [Cihaz ikizlerini](iot-hub-devguide-device-twins.md), [modül ikizlerini](iot-hub-devguide-module-twins.md), ve [cihaz Yönetimi](iot-hub-device-management-overview.md) |   | Evet |
+| [Cihaz akışları (Önizleme)](iot-hub-device-streams-overview.md) |   | Evet |
 | [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | Evet |
 
 IOT Hub ayrıca test ve değerlendirme için tasarlanmıştır ücretsiz bir katmanı sunar. Bu, standart katman, ancak sınırlı Mesajlaşma kesintileri tüm özelliklerine sahiptir. Ücretsiz katmanındaki temel veya standart olarak yükseltemezsiniz. 
@@ -113,7 +114,7 @@ Her katmanın trafik özellikleri örnek olarak, cihaz bulut iletilerini aşağ�
 | --- | --- | --- |
 | B1, S1 |Birim başına 1111 KB/dakika kadar<br/>(1.5 GB/gün/birim) |Birim başına 278 iletileri/dakika ortalama<br/>(400.000 ileti/gün birim başına) |
 | S2 B2 |Birim başına 16 MB/dakika kadar<br/>(22.8 GB/gün/birim) |Birim başına 4,167 iletileri/dakika ortalama<br/>(6 milyon ileti/gün birim başına) |
-| S3 B3 |Birim başına 814 MB/dakika kadar<br/>(1144.4 GB/gün/birim) |Birim başına 208,333 iletileri/dakika ortalama<br/>(300 milyon ileti/gün birim başına) |
+| B3, S3 |Birim başına 814 MB/dakika kadar<br/>(1144.4 GB/gün/birim) |Birim başına 208,333 iletileri/dakika ortalama<br/>(300 milyon ileti/gün birim başına) |
 
 Bu aktarım hızı yanı sıra bilgi [IOT Hub kotaları ve kısıtlamaları] [ IoT Hub quotas and throttles] ve çözümünüzün uygun şekilde tasarlayın.
 

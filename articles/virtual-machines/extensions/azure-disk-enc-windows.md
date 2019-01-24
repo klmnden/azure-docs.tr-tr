@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: ejarvi
-ms.openlocfilehash: 11ec26729b2239279dddc8cd62f6b658a4f7ed20
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 355fa90113e931fa3e21df1ccca5736622475bb3
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413799"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810389"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>Windows (Microsoft.Azure.Security.AzureDiskEncryption) için Azure Disk şifrelemesi
 
@@ -73,7 +73,7 @@ Azure Disk şifrelemesi, erişim için Active Directory, Key Vault, depolama ve 
 
 | Ad | Değer / örnek | Veri Türü |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | tarih |
+| apiVersion | 2015-06-15 | date |
 | Yayımcı | Microsoft.Azure.Security | dize |
 | type | AzureDiskEncryptionForWindows| dize |
 | typeHandlerVersion | 1.0, 2.2 (VMSS) | int |

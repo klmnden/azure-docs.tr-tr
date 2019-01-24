@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 5/8/2018
 ms.author: saurse
-ms.openlocfilehash: 1a0e196f4d96494aca1c19a7527ac7d81837fb5c
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 01b90d6bb18addd6a0235101f86b9d51953cc096
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "34606486"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818566"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>DPM ve Azure Backup sunucusu için Çevrimdışı Yedekleme iş akışı
 Azure Backup, azure'a veri ilk tam yedekleme sırasında ağ ve depolama maliyetlerinden tasarruf birkaç yerleşik verimliliği sahiptir. Genellikle ilk tam yedeklemeler büyük miktarlarda veri aktarmanıza ve yalnızca deltaları/incrementals aktarmak sonraki yedeklemelerle karşılaştırıldığında daha fazla ağ bant genişliği gerektirecektir. Azure yedekleme, ilk yedekleme sıkıştırır. Çevrimdışı dengeli dağıtım işlemi boyunca, Azure Backup diskleri Azure'a sıkıştırılmış ilk yedek verileri çevrimdışı yükleme için kullanabilirsiniz.
@@ -74,12 +74,12 @@ Bu bölümdeki bilgiler, böylece verilerinizi Azure veri merkezi için sunulan 
 
     Girişleri açıklaması aşağıdaki gibidir:
 
-    * **Hazırlama konumu**: geçici depolama konumuna ilk yedek kopyanın yazılır. Hazırlama konumu, bir ağ paylaşımına veya yerel bilgisayar üzerinde olabilir. Kopya bilgisayar ve kaynak bilgisayara farklıysa, hazırlama konumunun tam ağ yolu belirtmeniz önerilir.
-    * **Azure içeri aktarma işinin adını**: tarafından hangi Azure içeri aktarma hizmeti ve Azure Backup izleme gönderilen veri aktarımını disklerde Azure'a benzersiz adı.
-    * **Azure yayımlama ayarları**: yayımlama ayarları dosyasına yerel yolunu belirtin.
-    * **Azure abonelik kimliği**: Abonelik'ın Azure yayımlama ayarları dosyasını indirdiğiniz için Azure abonelik kimliği. 
+    * **Hazırlama konumu**: İlk yedek kopyanın yazıldığı geçici depolama konumu. Hazırlama konumu, bir ağ paylaşımına veya yerel bilgisayar üzerinde olabilir. Kopya bilgisayar ve kaynak bilgisayara farklıysa, hazırlama konumunun tam ağ yolu belirtmeniz önerilir.
+    * **Azure içeri aktarma işinin adını**: Tarafından hangi Azure içeri aktarma hizmeti ve Azure Backup gönderilen veri aktarımını disklerde Azure'a izlemek benzersiz adı.
+    * **Azure yayımlama ayarları**: Yayımlama ayarları dosyasına yerel yolunu belirtin.
+    * **Azure abonelik kimliği**: Abonelik'ın Azure yayımlama ayarları dosyasını indirdiğiniz Azure abonelik kimliği. 
     * **Azure depolama hesabı**: Azure yayımlama ayarları dosyası ile ilişkili Azure aboneliğinde depolama hesabı adı.
-    * **Azure depolama kapsayıcısı**: hedef depolama blobunda yedekleme verileri burada alınır Azure depolama hesabı adı.
+    * **Azure depolama kapsayıcısı**: Hedef depolama blobunda yedekleme verileri burada alınır Azure depolama hesabı adı.
 
      Kaydet *hazırlama konumuna* ve *Azure içeri aktarma işinin adını* diskleri hazırlamak için gerekli olduğundan, sağlanan.  
      

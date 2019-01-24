@@ -1,10 +1,10 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle Skillport | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile Skillport | Microsoft Docs'
 description: Azure Active Directory ve Skillport arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 4df349b2-a73f-4b88-a077-ec0fbfc26527
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: jeedes
-ms.openlocfilehash: 71a2b7186c77c6c1872870a594b287479c292472
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 2d0b7b8f5e5455471f27bcfe6eaa5f35740f2e01
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448314"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827797"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-skillport"></a>Öğretici: Azure Active Directory Skillport ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-skillport"></a>Öğretici: Skillport ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Skillport tümleştirme konusunda bilgi edinin.
 
@@ -37,7 +37,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD Tümleştirmesi ile Skillport yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Bir Skillport çoklu oturum açma etkin aboneliği
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Azure AD'de Skillport tümleştirmesini yapılandırmak için Skillport Galeride
 
 **Galeriden Skillport eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
@@ -114,19 +114,19 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
 
     a. İçinde **oturum açma URL'si** metin kutusuna URL'yi yazın:
       
-      AB veri merkezi: `https://adfs.skillport.eu`
+      EU Datacenter: `https://adfs.skillport.eu`
    
       ABD veri merkezinde: `https://sso.skillport.com`
 
     b. İçinde **tanımlayıcı** metin kutusuna URL'yi yazın:
       
-      AB veri merkezi: `http://adfs.skillport.eu/adfs/services/trust`
+      EU Datacenter: `http://adfs.skillport.eu/adfs/services/trust`
    
       ABD veri merkezinde: `https://sso.skillport.com`
    
     c. İçinde **yanıt URL'si** metin kutusuna URL'yi yazın:
     
-      AB veri merkezi: ` https://adfs.skillport.eu/adfs/ls/`
+      EU Datacenter: ` https://adfs.skillport.eu/adfs/ls/`
     
       ABD veri merkezinde: `https://sso.skillport.com/sp/ACS.saml2`
  
@@ -210,7 +210,7 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için Skillport erişim verere
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
 Erişim panelinde Skillport kutucuğa tıkladığınızda, otomatik olarak Skillport uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md). 
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: 9a2fd8441de099a5423e9681a9dfe3ee12f08cec
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 043c83e2039d87b1650ba17f770ce16a2ad2c13d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/23/2019
-ms.locfileid: "54479533"
+ms.locfileid: "54811171"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Azure HDInsight kümeleri otomatik olarak ölçeklendirme
 
@@ -27,9 +27,9 @@ Azure HDInsight'ın küme otomatik ölçeklendirme özelliği yukarı ve aşağ�
 > [!Note]
 > Otomatik ölçeklendirme şu anda yalnızca Azure HDInsight Hive, MapReduce ve Spark kümeleri için sürümü 3.6 desteklenir.
 
-Bağlantısındaki [ ](hdinsight-hadoop-create-linux-clusters-portal.md) ve 5. adım ulaştığında **küme boyutu**seçin **otomatik ölçeklendirme (Önizleme) çalışan düğümü** aşağıda gösterildiği gibi. 
+Bağlantısındaki [Azure portalını kullanarak HDInsight oluşturma Linux tabanlı kümelerde](hdinsight-hadoop-create-linux-clusters-portal.md) ve 5. adım ulaştığında **küme boyutu**seçin **otomatik ölçeklendirme (Önizleme) çalışan düğümü** Aşağıda gösterildiği gibi. 
 
-    ![Enable worker node autoscale option](./media/hdinsight-autoscale-clusters/worker-node-autoscale-option.png)
+![Çalışan düğümü otomatik ölçeklendirme seçeneğini etkinleştirin](./media/hdinsight-autoscale-clusters/worker-node-autoscale-option.png)
 
 Bu seçeneği işaretlediğinizde, belirtebilirsiniz:
 

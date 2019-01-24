@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/19/2018
+ms.date: 1/23/2019
 ms.author: cwatson
-ms.openlocfilehash: 94d574d16b1b9951ab91a09023f9193723f850a7
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 4490db0c479abdda19957be98335edeefc08bb59
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53583374"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808757"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Ekleme veya Azure aboneliği yöneticileri değiştirme
 
@@ -67,14 +67,14 @@ Yalnızca [Sahip](../role-based-access-control/built-in-roles.md#owner) rolünde
 
 ### <a name="adding-a-guest-user-as-a-co-administrator"></a>Ortak yönetici olarak bir Konuk kullanıcı ekleme
 
-Ortak yönetici rolüne atanan Konuk kullanıcılar, ortak Yönetici rolüne üye kullanıcılarla karşılaştırıldığında bazı farklılıklar görebilirsiniz. Aşağıdaki senaryoyu göz önünde bulundurun:
+[Konuk kullanıcıları](../active-directory/b2b/b2b-quickstart-add-guest-users-portal.md) atanan ortak Yönetici rolü, ortak Yönetici rolüne üye kullanıcılarla karşılaştırıldığında bazı farklılıklar görebilirsiniz. Aşağıdaki senaryoyu göz önünde bulundurun:
 
 - Kullanıcı A'ile bir Azure AD iş veya Okul hesabı bir Azure aboneliğine yönelik Hizmet Yöneticisi ' dir.
 - B kullanıcısı, bir Microsoft hesabı vardır.
 - Kullanıcı A, b kullanıcısına ortak Yönetici rolüne atar
 - B kullanıcısı neredeyse her şeyi yapabilirsiniz, ancak uygulamaları veya Azure AD dizinindeki kullanıcıların arayın.
 
-Kullanıcının B her şeyi yönetmenizi beklenir. Bu farkın nedeni, Microsoft hesabı yerine bir üye kullanıcı Konuk kullanıcı aboneliğe eklenir. Konuk kullanıcıların karşılaştırıldığında üye kullanıcıları Azure AD'de farklı varsayılan izinleri vardır. Örneğin, üye kullanıcılar diğer kullanıcılar Azure AD'de okuyabilir ve Konuk kullanıcılar olamaz. Üye kullanıcılar Azure AD'de yeni hizmet sorumluları kaydedebilir ve Konuk kullanıcılar olamaz. Konuk kullanıcı, bu görevleri gerçekleştirmek gerekiyorsa, söz konusu atamak için olası bir çözüm olan Azure AD yönetici rollerini Konuk kullanıcının olmalıdır. Örneğin, önceki senaryoda atayabilirsiniz [dizin okuyucular](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) diğer kullanıcıların okuma ve atamak için rol [uygulama geliştiricisi](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer) hizmet sorumluları oluşturabilmek için rol. Üye ve Konuk kullanıcıları ve izinlerini hakkında daha fazla bilgi için bkz: [varsayılan kullanıcı izinleri Azure Active Directory nelerdir?](../active-directory/fundamentals/users-default-permissions.md).
+Kullanıcının B her şeyi yönetmenizi beklenir. Bu farkın nedeni, Microsoft hesabı yerine bir üye kullanıcı Konuk kullanıcı aboneliğe eklenir. Konuk kullanıcıların karşılaştırıldığında üye kullanıcıları Azure AD'de farklı varsayılan izinleri vardır. Örneğin, üye kullanıcılar diğer kullanıcılar Azure AD'de okuyabilir ve Konuk kullanıcılar olamaz. Üye kullanıcılar Azure AD'de yeni hizmet sorumluları kaydedebilir ve Konuk kullanıcılar olamaz. Konuk kullanıcı, bu görevleri gerçekleştirmek gerekiyorsa, söz konusu atamak için olası bir çözüm olan Azure AD yönetici rollerini Konuk kullanıcının olmalıdır. Örneğin, önceki senaryoda atayabilirsiniz [dizin okuyucular](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) diğer kullanıcıların okuma ve atamak için rol [uygulama geliştiricisi](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer) hizmet sorumluları oluşturabilmek için rol. Üye ve Konuk kullanıcıları ve izinlerini hakkında daha fazla bilgi için bkz: [varsayılan kullanıcı izinleri Azure Active Directory nelerdir?](../active-directory/fundamentals/users-default-permissions.md). 
 
 Unutmayın [Azure kaynakları için yerleşik roller](../role-based-access-control/built-in-roles.md) farklıdır [Azure AD yönetici rollerini](../active-directory/users-groups-roles/directory-assign-admin-roles.md). Yerleşik roller Azure AD'ye hiçbir erişim izni yok. Daha fazla bilgi için [farklı rollerin anladığınızdan](../role-based-access-control/rbac-and-directory-admin-roles.md).
 

@@ -4,17 +4,17 @@ description: Azure DevOps projeleri, Azure'da kullanmaya başlamak kolaylaştır
 author: shizn
 manager: ''
 ms.author: xshi
-ms.date: 12/04/2018
+ms.date: 01/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: ebb7e515f9d9205f364d50b3d686c68a2988f86a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 114b6b0cc0fd4e8e51a9dbf2cdc8d9e2a2261754
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074223"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823496"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-projects-preview"></a>Azure DevOps projeleri (Önizleme) ile IOT Edge için CI/CD işlem hattı oluşturma
 
@@ -28,111 +28,110 @@ DevOps projeleri, Azure DevOps bir CI/CD işlem hattı oluşturur. Yeni bir Azur
 
 1. [Microsoft Azure portalında](https://portal.azure.com) oturum açın.
 
-1. Sol bölmede seçin **kaynak Oluştur** sol gezinti çubuğunda ve ardından arama simgesine **DevOps projeleri**.  
+1. Sol bölmede seçin **kaynak Oluştur**ve ardından arama **DevOps projeleri**.  
 
 1.  **Oluştur**’u seçin.
 
-## <a name="select-a-sample-application-and-azure-service"></a>Örnek uygulama ve Azure hizmeti seçme
+## <a name="create-a-new-application-pipeline"></a>Yeni uygulama işlem hattı oluşturma 
 
-1. Azure IOT Edge modul yazılabilir [ C# ](tutorial-csharp-module.md), [Node.js](tutorial-node-module.md), [Python](tutorial-python-module.md), [C](tutorial-c-module.md) ve [Java](tutorial-java-module.md). Yeni bir uygulamayı başlatmak için tercih ettiğiniz dili seçin. Gelenlere, seçebileceğiniz **.NET**, **Node.js**, **Python**, **C**, veya **Java**ve ardından **Sonraki**.
+1. Azure IOT Edge modul yazılabilir [ C# ](tutorial-csharp-module.md), [Node.js](tutorial-node-module.md), [Python](tutorial-python-module.md), [C](tutorial-c-module.md) ve [Java](tutorial-java-module.md). Yeni bir uygulamayı başlatmak için tercih ettiğiniz dili seçin: **.NET**, **Node.js**, **Python**, **C**, veya **Java**. Devam etmek için **İleri**’yi seçin.
 
-    ![Yeni bir uygulama oluşturmak için dil seçin](./media/how-to-devops-project/select-language.png)
+   ![Yeni bir uygulama oluşturmak için dil seçin](./media/how-to-devops-project/select-language.png)
 
-2. Seçin **basit IOT (Önizleme)** ve ardından **sonraki**.
+2. Seçin **basit IOT (Önizleme)** uygulama çerçevesinin ve ardından olarak **sonraki**.
 
-    ![Basit IOT framework seçin](media/how-to-devops-project/select-iot.png)
+   ![Basit IOT framework seçin](media/how-to-devops-project/select-iot.png)
 
-3. Seçin **IOT Edge**ve ardından **sonraki**.
+3. Seçin **IOT Edge** uygulamanızı dağıtır ve ardından Azure hizmeti olarak **sonraki**.
 
-    ![IOT Edge hizmeti seçin](media/how-to-devops-project/select-iot-edge.png)
+   ![IOT Edge hizmeti seçin](media/how-to-devops-project/select-iot-edge.png)
 
-## <a name="configure-azure-devops-and-an-azure-subscription"></a>Azure DevOps ve Azure aboneliğinin yapılandırın
+4. Yeni bir ücretsiz Azure DevOps kuruluş oluşturun veya mevcut bir kuruluşa seçin.
 
-1. Yeni bir ücretsiz Azure DevOps kuruluş oluşturun veya mevcut bir kuruluşa seçin.
+   1. Projeniz için bir ad sağlayın. 
 
-    a. Projeniz için bir ad seçin. 
+   2. Azure DevOps kuruluşunuzu seçin. Mevcut bir kuruluşa yoksa seçin **ek ayarlar** yeni bir tane de oluşturabilirsiniz. 
 
-    b. Azure aboneliği ve konumu seçin, uygulamanız için bir ad seçin ve ardından **Bitti**.  
+   3. Azure aboneliğinizi seçin.
 
-    ![Ad ve uygulama oluşturma](media/how-to-devops-project/select-devops.png)
+   4. Projenizin adına göre oluşturulan IOT Hub adını kullanın veya kendi sağlayın.
 
-1. DevOps projeleri Pano, birkaç dakika sonra Azure portalında görüntülenir. Azure DevOps kuruluşunuzdaki bir depodaki bir örnek IOT Edge uygulama ayarlayın, bir derleme yürütülür ve uygulamanızı IOT Edge cihazına dağıtılır. Bu pano, kod deposu, CI/CD işlem hattı ve uygulamanızı azure'da görünürlük sağlar.
+   5. Seçin **ek ayarlar** DevOps projeleri, sizin adınıza oluşturan Azure kaynaklarını yapılandırmak için.
 
-    ![DevOps portalında uygulamayı görüntüle](./media/how-to-devops-project/devops-portal.png)
+   6. Seçin **Bitti** projenizi oluşturmayı tamamlayın. 
+
+   ![Ad ve uygulama oluşturma](media/how-to-devops-project/select-devops.png)
+
+DevOps projeleri Pano, birkaç dakika sonra Azure portalında görüntülenir. İlerleme durumunu görmek için proje adını seçin. Sayfayı yenilemeniz gerekebilir. Azure DevOps kuruluşunuzdaki bir depodaki bir örnek IOT Edge uygulama ayarlayın, bir derleme yürütülür ve uygulamanızı IOT Edge cihazına dağıtılır. Bu pano, kod deposu, CI/CD işlem hattı ve uygulamanızı azure'da görünürlük sağlar.
+
+   ![DevOps portalında uygulamayı görüntüle](./media/how-to-devops-project/devops-portal.png)
 
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>Kod değişikliklerini işleme ve CI/CD’yi yürütme
 
-DevOps projeleri, Azure depoları veya GitHub Git deposu oluşturuldu. Depo görüntülemek ve uygulamanıza kod değişikliği yapmanız için aşağıdaki adımları uygulayın:
+DevOps projeleri, Azure depolarda projeniz için bir Git deposu oluşturuldu. Bu bölümde, depo görüntülemek ve uygulamanızda kod değişikliği yapın.
 
-1. DevOps projeleri panosunun sol tarafta, bağlantısını seçin, **ana** dal.  
-Bu bağlantı yeni oluşturulan Git deposuna bir görünüm açar.
+1. Projeniz için oluşturulan depoya gitmek için **depoları** proje panosunun menüsünde.  
 
-1. Depo kopya URL'sini görüntülemek için tarayıcının sağ üst kısmından **Kopya**’yı seçin. Git deponuzda VS Code veya diğer tercih edilen araçları kopyalayabilirsiniz. Sonraki birkaç adımda yapmak için web tarayıcısı kullanın ve doğrudan ana dalına işleme kodu değiştirir.
+   ![Azure depolarda oluşturulan görünümü depo](./media/how-to-devops-project/view-repositories.png)
 
-    ![Kopya git deposu](media/how-to-devops-project/clone.png)
+2. Aşağıdaki adımlarda, kod değişiklik yapmak için web tarayıcısını kullanarak aracılığıyla yol. Bunun yerine yerel deponuzu kopyalamak isteyip istemediğinizi seçin **kopya** üstten sağ. Git deponuzu Visual Studio Code veya tercih ettiğiniz geliştirme aracınızı kopyalamak için sağlanan URL kullanın. 
 
-1. Tarayıcı sol tarafında, Git **modules/FilterModule/module.json** dosya.
+3. Depo zaten adlı bir modül için kod içeren **SampleModule** oluşturma işleminde seçtiğiniz uygulama diline bağlı olarak. Açık **modules/SampleModule/module.json** dosya.
 
-1. Seçin **Düzenle**ve ardından değişiklik `"version"` altında `"tag"`. Örneğin, kendisine güncelleştirebilirsiniz `"version": "${BUILD_BUILDID}"` kullanmak için [Azure DevOps yapı değişkenleri](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=vsts#build-variables) , Azure IOT Edge modülü resim etiketi bir parçası olarak.
+   ![Azure depolarındaki açık module.json dosyası](./media/how-to-devops-project/open-module-json.png)
 
-    ![Yapı değişkenleri kabul edecek şekilde sürümü Düzenle](media/how-to-devops-project/update-module-json.png)
+4. Seçin **Düzenle**ve ardından değişiklik `"version"` altında `"tag"`. Örneğin, kendisine güncelleştirebilirsiniz `"version": "${BUILD_BUILDID}"` kullanmak için [Azure DevOps yapı değişkenleri](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=vsts#build-variables) , Azure IOT Edge modülü resim etiketi bir parçası olarak.
 
-1. Seçin **işleme**ve ardından değişikliklerinizi kaydedin.
+   ![Yapı değişkenleri kabul edecek şekilde sürümü Düzenle](media/how-to-devops-project/update-module-json.png)
 
-1. Tarayıcınızda Azure DevOps projesi panoya gidin.  Bir derlemenin sürdüğünü görüyor olmanız gerekir. Yaptığınız değişiklikleri otomatik olarak oluşturulur ve bir CI/CD işlem hattı dağıtılır.
+5. Seçin **işleme**ve ardından değişikliklerinizi kaydedin.
+
+6. Tarayıcınızda, Azure portalında DevOps projeleri panonuza geri dönün. Bir derlemenin sürdüğünü görüyor olmanız gerekir. Yaptığınız değişiklikleri otomatik olarak oluşturulur ve bir CI/CD işlem hattı dağıtılır.
 
     ![Devam eden durumunu görüntüle](media/how-to-devops-project/ci-cd-in-progress.png)
 
 ## <a name="examine-the-cicd-pipeline"></a>CI/CD işlem hattı inceleyin
 
-Önceki adımda, Azure DevOps projeleri, IOT Edge uygulamanız için eksiksiz bir CI/CD işlem hattı otomatik olarak yapılandırılır. İşlem hattını gerektiği şekilde keşfedin ve özelleştirin. Azure DevOps yapıyla hakkında bilgilenmeli ve yayın işlem hatları için aşağıdaki adımları uygulayın.
+Azure DevOps projeleri, önceki bölümlerde, IOT Edge uygulamanız için eksiksiz bir CI/CD işlem hattı otomatik olarak yapılandırılır. Ardından, değişiklikleri dosyaları birine göre derleme işlem hattı test. Şimdi keşfedin ve işlem hattı gerektiği gibi özelleştirin. Azure DevOps yapıyla hakkında bilgilenmeli ve yayın işlem hatları için aşağıdaki adımları uygulayın.
 
-1. DevOps projeleri panonun üst kısmında seçin **derleme işlem hatlarını**.  
-Bu bağlantı, bir tarayıcı sekmesi açar ve Azure DevOps yeni projeniz için işlem hattı oluşturun.
+1. DevOps projenizi derleme işlem hatlarını görüntülemek için seçin **derleme işlem hatlarını** proje panosunun menüsünde. Bu bağlantı, bir tarayıcı sekmesi açar ve Azure DevOps yeni projeniz için işlem hattı oluşturun.
 
-1. **Düzenle**’yi seçin.
+   ![Azure işlem hatları hatlarında yapı görüntüle](./media/how-to-devops-project/view-build-pipelines.png)
+
+2. **Düzenle**’yi seçin.
 
     ![Derleme işlem hattı Düzenle](media/how-to-devops-project/click-edit-button.png)
 
-1. Bu bölmede, derleme işlem hattı için çeşitli görevleri inceleyebilirsiniz. Derleme dağıtımları için kullanılan IOT Edge modül görüntüleri oluşturmaya, dağıtmaya IOT Edge modülleri ve kullanılan çıkış yayımlama Git deposundan kaynakları alma gibi çeşitli görevleri gerçekleştirir. CI için Azure IOT Edge görevleri hakkında daha fazla bilgi edinmek için ziyaret edebilirsiniz [sürekli tümleştirme için Azure işlem hatları yapılandırma](https://docs.microsoft.com/azure/iot-edge/how-to-ci-cd#configure-azure-pipelines-for-continuous-integration).
+3. Açılan bölmede, derleme işlem hattı çalıştığında oluşan görevleri inceleyebilirsiniz. Derleme işlem hattı Git deposundan kaynakları alma gibi çeşitli görevleri gerçekleştirir, IOT Edge modül görüntüleri oluşturmaya, IOT Edge modülleri, bir kapsayıcı kayıt defterine gönderme ve yayımlama çıktısını alır, dağıtımları için kullanılır. Azure DevOps Azure IOT Edge görevleri hakkında daha fazla bilgi için bkz: [sürekli tümleştirme için Azure işlem hatları yapılandırma](how-to-ci-cd.md#configure-continuous-integration).
 
-    ![Sürekli Tümleştirme görevlerini görüntüle](media/how-to-devops-project/ci.png)
+4. Seçin **işlem hattı** derleme işlem hattı, işlem hattı ayrıntılarını açmak için üst kısmındaki üst bilgisi. Derleme işlem hattınızı adını daha açıklayıcı bir şeyle değiştirin.
 
-1. Derleme işlem hattı üstünde derleme işlem hattı adı seçin.
+   ![İşlem hattı ayrıntılarını Düzenle](./media/how-to-devops-project/edit-build-pipeline.png)
 
-1. Bir şeyler daha açıklayıcı, select, derleme işlem hattı adını değiştirmek **Kaydet ve kuyruğa**ve ardından **Kaydet**.
+5. Seçin **Kaydet ve kuyruğa**ve ardından **Kaydet**.
 
-1. Derleme işlem hattı adınızın altında **Geçmiş**’i seçin.   
-İçinde **geçmişi** bölmesinde, bir denetim kaydı yaptığınız son değişiklikler derleme için bkz.  Azure işlem hatları için derleme işlem hattı yapılan değişiklikleri izler ve sürümleri karşılaştırmanızı sağlar.
+6. Derleme işlem hattı menüsünü **Tetikleyicileri** menüsünde. DevOps projeleri CI tetikleyicisini otomatik olarak oluşturulan ve depoya her işleme, yeni bir yapı başlatır.  İsteğe bağlı olarak dalları CI işlemine dahil etmeyi veya işlemden hariç tutmayı seçebilirsiniz.
 
-1. **Tetikleyiciler**’i seçin. DevOps projeleri CI tetikleyicisini otomatik olarak oluşturulan ve depoya her işleme, yeni bir yapı başlatır.  İsteğe bağlı olarak dalları CI işlemine dahil etmeyi veya işlemden hariç tutmayı seçebilirsiniz.
+7. **Saklama**’yı seçin. Senaryonuza bağlı olarak, saklamak veya belirli bir sayıda derlemeleri kaldırmak için ilkeleri belirtebilirsiniz.
 
-1. **Saklama**’yı seçin. Senaryonuza bağlı olarak, saklamak veya belirli bir sayıda derlemeleri kaldırmak için ilkeleri belirtebilirsiniz.
+8. Seçin **geçmişi**. Bir denetim kaydı yapı son değişikliklerin geçmişi paneli içerir. Azure işlem hatları için derleme işlem hattı yapılan değişiklikleri izler ve sürümleri karşılaştırmanızı sağlar.
 
-1. Seçin **yayın** altında **işlem hatları**. DevOps projeleri, Azure IOT Edge dağıtımlarını yönetmek için bir yayın ardışık düzeni oluşturur.
+9. Bitirdiğinizde derleme işlem hattı keşfetmeye karşılık gelen yayın işlem hattına gidin. Seçin **yayınlar** altında **işlem hatları**, ardından **Düzenle** işlem hattı ayrıntılarını görüntülemek için.
 
     ![Yayın işlem hattını görüntüle](media/how-to-devops-project/release-pipeline.png)
 
-1. **Düzenle**’yi seçin. Sürüm ardışık yayın işlemini tanımlar. bir işlem hattı içerir.  
+10. **Yapıtlar**’ın altında **Bırak**’ı seçin. Bu yapıt izleyen önceki adımlarda incelenirken derleme işlem hattı çıktısını kaynağıdır. 
 
-1. **Yapıtlar**’ın altında **Bırak**’ı seçin. Önceki adımlarda incelediğiniz derleme işlem hattı, yapıt için kullanılan çıkışı üretir. 
+11. Yanındaki **bırak** simgesini seçme **sürekli dağıtım tetikleyicisi** bir Şimşek gibi görünüyor. Bu yayın ardışık düzeni, bir dağıtım var. her seferinde yeni bir derleme yapıtının kullanılabilir çalıştığı tetikleyici etkinleştirdi. İsteğe bağlı olarak, el ile yürütme dağıtımlarınızı gerektirir böylece tetikleyiciyi devre dışı bırakabilirsiniz.  
 
-1. Yanındaki **bırak** simgesini seçme **sürekli dağıtım tetikleyicisi**.  
-Bu yayın işlem hattı yok her seferinde yeni bir derleme yapıtının kullanılabilir bir dağıtım çalıştığı etkin bir CD tetikleyicisine sahiptir. İsteğe bağlı olarak, el ile yürütme dağıtımlarınızı gerektirir böylece tetikleyiciyi devre dışı bırakabilirsiniz.  
+12. Yayın işlem hattınızı menüsünü **görevleri** seçin **geliştirme** aşağı açılan listeden aşaması. DevOps projeleri, bir IOT hub'ı oluşturan, bir IOT Edge cihazı, hub'ında oluşturur, derleme işlem hattı örnek modülünden dağıtır ve IOT Edge cihazınız olarak çalıştırmak için bir sanal makine sağlar, için bir yayın aşama oluşturulur. CD için Azure IOT Edge görevleri hakkında daha fazla bilgi edinmek için [sürekli dağıtım için Azure işlem hatları yapılandırma](how-to-ci-cd.md#configure-continuous-deployment).
 
-1. Sol tarafta, seçin **görevleri**. Dağıtım işleminizin gerçekleştiren etkinlikler görevlerdir. Bu örnekte, bir görev için Azure IOT Edge modülü görüntülerinizi dağıtmak için oluşturuldu. Azure IOT Edge görevleri hakkında daha fazla bilgi edinmek için CD için ziyaret edebilirsiniz [sürekli dağıtım için Azure işlem hatları yapılandırma](https://docs.microsoft.com/azure/iot-edge/how-to-ci-cd#configure-azure-pipelines-for-continuous-deployment).
+   ![Sürekli dağıtım görevlerini görüntüle](media/how-to-devops-project/dev-release.png)
 
-    ![Sürekli dağıtım görevlerini görüntüle](media/how-to-devops-project/dev-release.png)
+13. Sağ tarafta seçin **yayınları görüntüleyebilir**. Bu görünümde yayın geçmişi gösterilir.
 
-1. Sağ tarafta seçin **yayınları görüntüleyebilir**. Bu görünümde yayın geçmişi gösterilir.
-
-1. Sürümlerinizin birini yanındaki üç nokta (...) seçin ve ardından **açık**.  
-Yayın özeti, ilişkili iş öğeleri ve test gibi keşfetmek için birkaç menüleri vardır.
-
-1. **İşlemeler**'i seçin. Bu görünümde, belirli bir dağıtım ile ilişkili kod tamamlama gösterilir. 
-
-1. **Günlükler**’i seçin. Günlüklerde, dağıtım işlemiyle ilgili yararlı bilgiler bulunur. Bunlar hem dağıtım sırasında hem de sonrasında görüntülenebilir.
+14. Daha fazla bilgi görüntülemek için bir yayın adı seçin.
 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme

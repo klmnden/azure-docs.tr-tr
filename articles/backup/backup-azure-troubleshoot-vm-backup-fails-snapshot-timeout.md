@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: c779344f4cb0544009952423b6771b75482c3061
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 1ee45699040f58a1317009ab44bb5ac863323869
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353974"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54816764"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup hatalarında sorunları giderme: Aracı veya uzantı ile ilgili sorunlar
 
@@ -113,6 +113,26 @@ Kasanız için anında geri yükleme yükseltilmez olduğundan disk boyutu 1023 
 **Hata iletisi**: Standart SSD disk şu anda Azure Backup desteklemiyor <br>
 
 Şu anda Azure Backup için yükseltilmiş kasaları için standart bir SSD diskleri destekler [anında geri yükleme](backup-instant-restore-capability.md).
+
+## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress - şu anda başka bir yedekleme işlemi devam ediyor gibi yedeklemeyi başlatın.
+
+**Hata kodu**: UserErrorBackupOperationInProgress <br>
+**Hata iletisi**: Yedekleme şu anda başka bir yedekleme işlemi devam ediyor olarak başlatılamıyor<br>
+
+Devam eden var olan bir yedekleme işi olduğundan son yedekleme işi başarısız oldu. Geçerli iş tamamlanana kadar yeni bir yedekleme işi başlatamazsınız. Devam eden yedekleme işlemi tetikleyen veya başka bir yedekleme işlemleri zamanlama önce tamamlanan emin olun. Yedekleme işlerinin durumunu denetlemek için gerçekleştirmek aşağıdaki adımları:
+
+1. Azure portalında oturum açın, sırayla **tüm hizmetleri**. Kurtarma Hizmetleri yazın ve tıklayın **kurtarma Hizmetleri kasaları**. Kurtarma hizmetleri kasalarının listesi görünür.
+2. Kurtarma Hizmetleri kasalarının listesinden, yedeklemenin yapılandırıldığı bir kasa seçin.
+3. Kasa Panosu menüsünde tıklatın **yedekleme işleri** tüm yedekleme işleri görüntüler.
+
+    * Bir yedekleme işi devam ediyorsa, yedekleme işini iptal edin veya tamamlamak için bekleyin.
+        * Yedekleme işi sağ yedekleme işini iptal edin ve tıklayın **iptal** veya [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.backup/stop-azurermbackupjob?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.12.0).
+    * Farklı bir kasadaki yedekleme yapılandırdıysanız, ardından eski kasaya çalışan hiçbir yedekleme işleri emin olun. Varsa, ardından yedekleme işini iptal edin.
+        * Yedekleme işi sağ yedekleme işini iptal edin ve tıklayın **iptal** veya [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.backup/stop-azurermbackupjob?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.12.0)
+4. Yedekleme işlemini yeniden deneyin.
+
+Zamanlanmış yedekleme işlemi ile sonraki yedekleme yapılandırması çakışan uzun sürüyorsa incelediniz [en iyi](backup-azure-vms-introduction.md#best-practices), [yedekleme performansı](backup-azure-vms-introduction.md#backup-performance) ve [göz önünde bulundurarak geri yükleme ](backup-azure-vms-introduction.md#restore-considerations).
+
 
 
 ## <a name="causes-and-solutions"></a>Nedenler ve çözümler

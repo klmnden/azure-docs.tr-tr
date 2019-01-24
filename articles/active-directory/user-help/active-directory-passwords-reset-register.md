@@ -3,7 +3,7 @@ title: Self Servis parola sıfırlama için - Azure Active Directory'ye kaydetme
 description: Azure AD Self Servis parola için kimlik doğrulama verilerini kaydetme Sıfırla
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 ms.assetid: ''
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: lizross
-ms.openlocfilehash: f8b4fb8861760d2b5b10f61b3ab6a8c718f849b6
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 2a9e65e36e31f4b2b382fac2bd9898580be18900
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47107127"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821677"
 ---
 # <a name="register-for-self-service-password-reset"></a>Self servis parola sıfırlama için kaydolma
 
@@ -31,10 +31,10 @@ Bir son kullanıcı olarak parolanızı sıfırlama veya Azure Active Directory 
 1. Cihazınızdaki web tarayıcısını açın ve gidin [parola sıfırlama kayıt sayfasına](https://aka.ms/ssprsetup).
 2. Kullanıcı adınızı ve yöneticiniz sağlanan parolayı girin.
 3. BT personelinizin şeyleri nasıl yapılandırdığına bağlı olarak bir veya daha fazla aşağıdaki seçenekleri yapılandırmak ve doğrulamak için kullanılabilir. Yöneticiniz bilgilerinizi kullanma izni varsa, bunlar bazı bilgiler sizin için doldurabilir.
-    * **Ofis telefonu**: yalnızca yöneticiniz bu seçeneği ayarlayabilir.
-    * **Kimlik doğrulama telefonu**: erişimi olan başka bir telefon numarası için bu seçeneği ayarlayın. Bir metin veya çağrı alabilen bir cep telefonu buna bir örnektir.
+    * **Ofis telefonu**: Bu seçenek yalnızca yöneticiniz ayarlayabilirsiniz.
+    * **Kimlik doğrulama telefonu**: Erişimi olan başka bir telefon numarası için bu seçeneği ayarlayın. Bir metin veya çağrı alabilen bir cep telefonu buna bir örnektir.
     * **Kimlik doğrulama e-posta**: Bu seçenek, sıfırlamak istediğiniz parolayı kullanmadan erişebileceğiniz alternatif e-posta adresine ayarlayın.
-    * **Güvenlik sorularını**: yöneticinizin bu liste soruları yanıtlamanız için onayladığı. Aynı soru veya yanıt birden çok kez kullanılamaz.
+    * **Güvenlik sorularını**: Yöneticinizin bu liste soruları yanıtlamanız için onayladığı. Aynı soru veya yanıt birden çok kez kullanılamaz.
 4. Yöneticinizin gerektirdiği bilgileri doğrulayın ve sağlar. Birden fazla seçeneği varsa, birden çok yöntem kaydetmenizi öneririz. Yöntemlerin biri kullanılamadığında Bu size esneklik sağlar. Seyahat ve ofis telefonunuzu erişemiyor bir örnek verilmiştir.
 
     ![Kimlik doğrulama yöntemlerini kaydedin ve Son'u seçin][Register]

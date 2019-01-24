@@ -8,19 +8,19 @@ manager: jeconnoc
 editor: ''
 tags: Cloud-Foundry
 ms.assetid: 00c76c49-3738-494b-b70d-344d8efc0853
-ms.service: virtual-machines-linux
+ms.service: azure-monitor
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: 0039536caf917a051f0ddabd6be7cf2b1be90ba2
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 198d6e596faf47528c508a9323ab22de563dfc62
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404911"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819042"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Cloud Foundry sistemin izlenmesi için Azure Log Analytics Nozzle dağıtma
 
@@ -63,11 +63,11 @@ El ile veya bir şablon kullanarak Log Analytics çalışma alanı oluşturabili
 1. Azure portalında Azure Marketi'nde Hizmetler listesinde arama yapın ve Log Analytics'ı seçin.
 2. Seçin **Oluştur**ve ardından şu öğeler için seçim:
 
-   * **Log Analytics çalışma alanı**: çalışma alanınız için bir ad yazın.
+   * **Log Analytics çalışma alanı**: Çalışma alanınız için bir ad yazın.
    * **Abonelik**: CF dağıtımınız ile aynı olan birden fazla aboneliğiniz varsa, seçin.
-   * **Kaynak grubu**: yeni bir kaynak grubu oluşturun veya aynı CF dağıtımınıza kullanın.
-   * **Konum**: konumu girin.
-   * **Fiyatlandırma katmanı**: seçin **Tamam** tamamlanması.
+   * **Kaynak grubu**: Yeni bir kaynak grubu oluşturun veya aynı CF dağıtımınıza kullanın.
+   * **Konum**: Konumu girin.
+   * **Fiyatlandırma katmanı**: Seçin **Tamam** tamamlanması.
 
 Daha fazla bilgi için [Log Analytics ile çalışmaya başlama](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
 
@@ -79,12 +79,12 @@ Daha fazla bilgi için [Log Analytics ile çalışmaya başlama](https://docs.mi
 4. İzleme çözümü şablonu ön sayfa yüklendiğinde, Cloud Foundry şablonu dikey penceresini başlatmak için "Oluştur"'a tıklayın.
 5. Gerekli parametreleri girin:
     * **Abonelik**: Log Analytics çalışma alanı için genellikle aynı Cloud Foundry dağıtım ile bir Azure aboneliği seçin.
-    * **Kaynak grubu**: mevcut bir kaynak grubunu seçin veya Log Analytics çalışma alanı için yeni bir tane oluşturun.
-    * **Kaynak grubu konumu**: kaynak grubunun konumunu seçin.
-    * **OMS_Workspace_Name**: bir çalışma alanı adı girin. çalışma alanı yoksa, şablonun yeni bir tane oluşturun.
-    * **OMS_Workspace_Region**: çalışma alanı konumunu seçin.
-    * **OMS_Workspace_Pricing_Tier**: SKU Log Analytics çalışma alanını seçin. Bkz: [fiyatlandırma Kılavuzu](https://azure.microsoft.com/pricing/details/log-analytics/) başvuru.
-    * **Yasal koşullar**: tıklayın yasal koşullar'yasal koşulu kabul için "Oluştur" a tıklayın.
+    * **Kaynak grubu**: Mevcut bir kaynak grubunu seçin veya yeni bir Log Analytics çalışma alanı oluşturun.
+    * **Kaynak grubu konumu**: Kaynak grubunun konumunu seçin.
+    * **OMS_Workspace_Name**: Bir çalışma alanı adı girin. çalışma alanı yoksa, şablonun yeni bir tane oluşturun.
+    * **OMS_Workspace_Region**: Çalışma alanı konumunu seçin.
+    * **OMS_Workspace_Pricing_Tier**: SKU Log Analytics çalışma alanı seçin. Bkz: [fiyatlandırma Kılavuzu](https://azure.microsoft.com/pricing/details/log-analytics/) başvuru.
+    * **Yasal koşullar**: Yasal Koşulları'nı tıklatın ve yasal terimi kabul etmek için "Oluştur" a tıklayın.
 - Tüm parametreler belirttikten sonra şablonu dağıtmak için "Oluştur" a tıklayın. Dağıtım tamamlandığında durum bildirim sekme görünür.
 
 
@@ -197,7 +197,7 @@ Yapabilecekleriniz [uyarıları oluşturma](https://docs.microsoft.com/azure/log
 
 | Arama sorgusu                                                                  | Şuna bağlı olarak uyarı oluştur: | Açıklama                                                                       |
 | ----------------------------------------------------------------------------- | ----------------------- | --------------------------------------------------------------------------------- |
-| Tür CF_ValueMetric_CL Origin_s = bbs Name_s = = "Domain.cf uygulamalar"                   | Sonuçları < 1 sayısı   | **BBS. Domain.cf uygulamaları** cf uygulama etki alanı güncel olup olmadığını gösterir. CF uygulamasını isteklerinden bulut denetleyicisi için bbs eşitlenir anlamına gelir. Yürütme için LRPsDesired (AIS Diego istenen). Hiç veri alınmadı cf uygulama etki alanı belirtilen zaman penceresinde güncel değil anlamına gelir. |
+| Type=CF_ValueMetric_CL Origin_s=bbs Name_s="Domain.cf-apps"                   | Sonuçları < 1 sayısı   | **BBS. Domain.cf uygulamaları** cf uygulama etki alanı güncel olup olmadığını gösterir. CF uygulamasını isteklerinden bulut denetleyicisi için bbs eşitlenir anlamına gelir. Yürütme için LRPsDesired (AIS Diego istenen). Hiç veri alınmadı cf uygulama etki alanı belirtilen zaman penceresinde güncel değil anlamına gelir. |
 | Tür CF_ValueMetric_CL Origin_s = temsilcisi Name_s = UnhealthyCell Value_d = > 1            | Sonuçları > 0 sayısı   | Diego hücreler için 0 sağlıklı anlamına gelir ve 1 sağlıksız anlamına gelir. Belirtilen bir zaman penceresinde birden çok kötü Diego hücre algılanmazsa uyarı ayarlama. |
 | Type=CF_ValueMetric_CL Origin_s="bosh-hm-forwarder" Name_s="system.healthy" Value_d=0 | Sonuçları > 0 sayısı | 1, sistemin iyi durumda ve sistemin iyi durumda değil 0 anlamına gelir anlamına gelir. |
 | Tür CF_ValueMetric_CL Origin_s = route_emitter Name_s = ConsulDownMode Value_d = > 0 | Sonuçları > 0 sayısı   | Consul düzenli aralıklarla sistem durumunu gösterir. 0, sistemin iyi durumda ve rota verici Consul kapalı olduğunu algılar 1 anlamına gelir anlamına gelir. |

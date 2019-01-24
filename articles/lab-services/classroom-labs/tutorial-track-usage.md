@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 9408ae20246d7a48340434c201c4568bc02719cd
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 93d7a6e884cf02fa41838d4a07644c122a43823b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390500"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823836"
 ---
 # <a name="tutorial-track-usage-of-a-lab-in-azure-lab-service"></a>Öğretici: Azure Laboratuvar servisi laboratuvarda kullanımını izleyin
 Bu öğreticide bir laboratuvar oluşturanın/sahibinin bir laboratuvarın kullanımını nasıl izleyebileceği gösterilmektedir.
@@ -44,7 +44,7 @@ Bu öğreticide, aşağıdaki eylemleri gerçekleştireceksiniz:
 ## <a name="view-the-usage-of-vms-in-the-lab"></a>Laboratuvarınızdaki VM'lerin kullanımını görüntüleme 
 
 1. Soldaki menüden **Sanal makineler**'i seçin. 
-2. VM'lerin durumunu ve VM'lerin çalışma süresini gördüğünüzden emin olun. VM son sütununda gösterilen kullanım zamana karşı sayılmaz bir öğrenci harcadığınız zamanı. 
+2. VM'lerin durumunu ve VM'lerin çalışma süresini gördüğünüzden emin olun. Laboratuvar sahibi bir öğrenci üzerinde harcadığı zamanı son sütununda gösterilen kullanım zamana karşı VM sayılmaz. 
 
     ![VM kullanımı](../media/tutorial-track-usage/vm-usage.png)
 

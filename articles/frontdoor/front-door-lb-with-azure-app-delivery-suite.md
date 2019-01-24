@@ -1,5 +1,5 @@
 ---
-title: Azure ön kapısı hizmeti - Azure'nın si teslim suite ile Yük Dengeleme | Microsoft Docs
+title: Azure ön kapısı hizmeti - Azure'nın uygulama teslim suite ile Yük Dengeleme | Microsoft Docs
 description: Bu makale Azure hakkında uygulama teslim suite ile yük dengelemeyi önerir öğrenmenize yardımcı olur.
 services: frontdoor
 documentationcenter: ''
@@ -11,17 +11,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 4c9f92481af1e69a111869cb6fc1305923bb0484
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 5403b5506a3758ede5ad06640335b873b6b9aa96
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026016"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820845"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Azure uygulama teslim paketiyle yük dengeleme
 
 ## <a name="introduction"></a>Giriş
-Microsoft Azure, birden çok ağ trafiğinizi nasıl dağıtıldığını yönetmek için küresel ve bölgesel hizmetler ve Yük Dengelemesi sağlar: Traffic Manager, ön kapısı hizmeti, uygulama ağ geçidi ve Load Balancer.  Azure'nın çok sayıda bölge ile birlikte ve bölgesel hizmetlerin birlikte kullanarak mimarisi, sağlam, ölçeklenebilir, yüksek performanslı uygulamalar oluşturmak sağlar.
+Microsoft Azure, birden çok ağ trafiğinizi nasıl dağıtıldığını yönetmek için küresel ve bölgesel hizmetler ve Yük Dengelemesi sağlar: Traffic Manager, ön kapısı hizmeti, uygulama ağ geçidi ve yük dengeleyici.  Azure'nın çok sayıda bölge ile birlikte ve bölgesel hizmetlerin birlikte kullanarak mimarisi, sağlam, ölçeklenebilir, yüksek performanslı uygulamalar oluşturmak sağlar.
 
 ![Uygulama teslim paketi ][1]
  
@@ -51,16 +51,16 @@ Yük Dengeleyici, yüksek performanslı, düşük gecikme süreli katman 4 Yük 
 
 ## <a name="choosing-a-global-load-balancer"></a>Bir genel yük dengeleyici seçme
 Genel Yönlendirme için bir genel yük dengeleyici Traffic Manager ve Azure ön kapısı arasında seçim yaparken, hizmetler, iki farklı nedir ve ne benzer düşünmelisiniz.   Her iki hizmet sağlayın
-- **Çoklu coğrafi yedeklilik:** tek bir bölge kalırsa, trafiği sorunsuz bir şekilde en yakın bölgeyi müdahalesi olmadan uygulama sahibinden yönlendirir.
-- **En yakın bölge yönlendirme:** trafiği en yakın bölgeyi otomatik olarak yönlendirilir
+- **Çoklu coğrafi artıklık:** Tek bir bölge kalırsa, trafiği sorunsuz bir şekilde en yakın bölgeyi müdahalesi olmadan uygulama sahibinden yönlendirir.
+- **En yakın bölge yönlendirme:** Trafik için en yakın bölgeyi otomatik olarak yönlendirilir
 
 </br>Aşağıdaki tabloda, Traffic Manager ve Azure ön kapısı hizmet arasındaki farklar açıklanmaktadır:</br>
 
 | Traffic Manager | Azure Front Door Hizmeti |
 | --------------- | ------------------------ |
-|**Herhangi bir protokol:** çünkü Traffic Manager DNS katmanında çalışır, her tür ağ trafiği yönlendirebilirsiniz. HTTP, TCP, UDP, vs. | **HTTP hızlandırma:** ile ön kapısı trafiğidir Edge Microsoft'un ağ proxy.  Bu nedenle, HTTP (S) istek gecikme süresi ve aktarım hızı geliştirmeleri SSL anlaşması için gecikme süresini azaltma ve sık erişimli AFD bağlantılarından uygulamanıza kullanarak bakın.|
-|**Şirket içi yönlendirme:** DNS katmanında yönlendirme, trafiği her zaman noktadan noktaya gider.  Şirket içi veri Merkezinize şube ofisinizde yönlendirme doğrudan bir yol alabilir; Traffic Manager kullanarak da kendi ağ üzerinde. | **Bağımsız ölçeklenebilirlik:** çünkü ön kapısı, HTTP isteği ile çalışır, farklı bir URL yolu için istekleri farklı arka ucuna yönlendirilmiş / bölgesel hizmet havuzları (mikro) kuralları ve her uygulama mikro hizmet durumunu temel alan.|
-|**Faturalandırma biçimi:** DNS kullanıma dayalı faturalandırma Kullanıcılarınızla ve daha fazla kullanıcısı olan hizmetleri ölçeklenen, en yüksek kullanımı maliyetini azaltmak için plateaus. |**Satır içi güvenlik:** ön kapısı, oran sınırlandırma ve IP trafiği, uygulamanızı ulaşmadan önce uçlarınıza korumanıza olanak acl'sinin gibi kuralları sağlar. 
+|**Herhangi bir protokolü:** Traffic Manager DNS katmanında çalışır çünkü her türlü ağ trafiği yönlendirebilen; HTTP, TCP, UDP, vs. | **HTTP hızlandırma:** Ön kapısı ile Edge Microsoft'un ağ proxy trafiğidir.  Bu nedenle, HTTP (S) istek gecikme süresi ve aktarım hızı geliştirmeleri SSL anlaşması için gecikme süresini azaltma ve sık erişimli AFD bağlantılarından uygulamanıza kullanarak bakın.|
+|**Yönlendirme şirket içi:** Bir DNS katmanında yönlendirme, trafiği her zaman bir noktadan noktaya gider.  Şirket içi veri Merkezinize şube ofisinizde yönlendirme doğrudan bir yol alabilir; Traffic Manager kullanarak da kendi ağ üzerinde. | **Bağımsız ölçeklenebilirlik:** Ön kapısı HTTP isteği ile çalıştığı için farklı bir URL yolu için istekleri farklı arka uca yönlendirilmiş / bölgesel hizmet kuralları ve her uygulama mikro hizmet durumunu temel alan havuzları (mikro).|
+|**Faturalandırma biçimi:** DNS kullanıma dayalı faturalandırma Kullanıcılarınızla ve daha fazla kullanıcısı olan hizmetleri ölçeklenen, en yüksek kullanımı maliyetini azaltmak için plateaus. |**Satır içi güvenlik:** Ön kapısı, oran sınırlandırma ve IP trafiği, uygulamanızı ulaşmadan önce uçlarınıza korumanıza olanak acl'sinin gibi kuralları etkinleştirir. 
 
 </br>Performans, çalışabilirlik ve ön kapısı HTTP iş yükleriniz için güvenlik avantajları nedeniyle, müşterilerin ön kapısı, HTTP iş yükleri için kullanmanızı öneririz.    Traffic Manager ve ön kapısı paralel olarak tüm trafiği uygulamanız için hizmet vermek için kullanılabilir. 
 

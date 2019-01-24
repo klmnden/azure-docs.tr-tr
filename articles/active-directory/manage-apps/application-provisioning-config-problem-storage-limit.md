@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 2d4b395abefd25d7e187ae3a15943e53f1aed27b
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 4d8e5cb577eb7b3eecc800e7a74b1ddcbbc2c76c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/23/2019
-ms.locfileid: "54472543"
+ms.locfileid: "54813381"
 ---
 # <a name="problem-saving-administrator-credentials-while-configuring-user-provisioning-to-an-azure-active-directory-gallery-application"></a>Azure Active Directory Galerisi uygulamaya kullanıcı hazırlamayı yapılandırırken yönetici kimlik bilgilerini kaydetme sorunu 
 
@@ -30,7 +30,7 @@ Yapılandırmak için Azure portalını kullanarak zaman [otomatik kullanıcı h
 
 SAML tabanlı çoklu oturum açma de aynı uygulama için yapılandırılmışsa, hatanın en olası nedeni, Azure AD'nin, uygulama başına iç depolama sınır sertifikalar ve kimlik bilgilerini aşıldı.
 
-Şu anda Azure AD tüm sertifikalar, gizli belirteçleri, kimlik bilgileri ve ilgili yapılandırma verilerini (olarak da bilinen hizmet sorumlusu kaydını Azure AD'de) uygulamanın tek bir örneği ile ilişkili bir kilobayt maksimum depolama kapasitesine sahiptir.
+Azure AD şu anda tüm sertifikalar, gizli belirteçleri, kimlik bilgileri ve ilgili yapılandırma verilerini (olarak da bilinen hizmet sorumlusu kaydını Azure AD'de) uygulamanın tek bir örneği ile ilişkili için 1024 bayt bir en büyük depolama kapasitesine sahiptir.
 
 SAML tabanlı çoklu oturum açma yapılandırıldığında, SAML belirteçlerini imzalamak için kullanılan sertifikanın burada depolanır ve genellikle alanının yüzde 50 %'den kullanır.
 

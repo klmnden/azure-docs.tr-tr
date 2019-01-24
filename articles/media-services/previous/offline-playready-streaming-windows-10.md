@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/30/2018
 ms.author: willzhan
-ms.openlocfilehash: 8a5aefe1bade27c2f71914b61b332d5583026081
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 75ed9a3c2a9f2c5418af5d024cfcf979e3552035
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53981116"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812055"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>Windows 10 için akış çevrimdışı PlayReady
 
@@ -57,7 +57,7 @@ Aşağıda test varlıklar, ilk iki kümesi olan bir Azure sanal makinesinde bar
 
 Varlık #1:
 
-* Aşamalı indirme URL'si: [http://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](http://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4")
+* Aşamalı indirme URL'si: [http://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](http://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
 * PlayReady LA_URL (AMS): [https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/](https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/)
 
 Varlık #2:

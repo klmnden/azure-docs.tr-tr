@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.reviewer: sngun
-ms.openlocfilehash: a506c696cdb9ca6c6221b54c63d2446b7cb86a69
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 4d2994ea6ab6d6472ec56f0f2e378062590c8920
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54430578"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807006"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Tutarlılık düzeyleri ve Azure Cosmos DB API’leri
 
@@ -26,196 +26,46 @@ Aşağıdaki bölümlerde OSS istemci sürücü tarafından istenen Apache Cassa
 
 Bu tablo, Azure Cosmos DB'de Apache Cassandra ve tutarlılık düzeyleri tutarlılık eşlemesini gösterir. Her Cassandra okuma ve yazma tutarlılık düzeyleri için karşılık gelen bir Cosmos DB tutarlılık düzeyi daha güçlü sağlayan başka bir deyişle, katı garanti eder.
 
+Aşağıdaki tabloda **tutarlılık eşleme yazma** Azure Cosmos DB ile Cassandra arasında:
 
-<table>
-<tr> 
-  <th rowspan="2">Cassandra tutarlılık düzeyi</th> 
-  <th rowspan="2">Cosmos DB tutarlılık düzeyi</th> 
-  <th colspan="3">Tutarlılık eşleme yazma</th> 
-  <th colspan="3">Okuma tutarlılığı eşleme</th> 
-</tr> 
+| Cassandra | Azure Cosmos DB | Garantisi |
+| - | - | - |
+|TÜMÜ|Güçlü  | Doğrusallaştırma |
+| EACH_QUORUM   | Güçlü    | Doğrusallaştırma | 
+| ÇEKİRDEK SERİ |  Güçlü |    Doğrusallaştırma |
+| LOCAL_QUORUM, ÜÇ, İKİ, BİRİ, LOCAL_ONE, TÜM | Tutarlı Ön Ek |Genel tutarlı ön ek |
+| EACH_QUORUM   | Güçlü    | Doğrusallaştırma |
+| ÇEKİRDEK SERİ |  Güçlü |    Doğrusallaştırma |
+| LOCAL_QUORUM, ÜÇ, İKİ, BİRİ, LOCAL_ONE, TÜM | Tutarlı Ön Ek | Genel tutarlı ön ek |
+| ÇEKİRDEK SERİ | Güçlü   | Doğrusallaştırma |
+| LOCAL_QUORUM, ÜÇ, İKİ, BİRİ, LOCAL_ONE, TÜM | Tutarlı Ön Ek | Genel tutarlı ön ek |
+| LOCAL_QUORUM, LOCAL_SERIAL, İKİ, ÜÇ    | Sınırlanmış Eskime Durumu | <ul><li>Sınırlanmış eskime durumu.</li><li>En fazla K sürümleri veya t saatten.</li><li>Son yürütülen değere bölgede okuyun.</li></ul> |
+| BİR LOCAL_ONE, TÜM   | Tutarlı Ön Ek | Bölge başına tutarlı ön ek |
 
+Aşağıdaki tabloda **tutarlılık eşleme okuma** Azure Cosmos DB ile Cassandra arasında:
 
- 
- <tr> 
-  <th>Cassandra</th> 
-  <th>Cosmos DB</th> 
-  <th>Garantisi</th> 
-  <th>Cassandra</th> 
-  <th>Cosmos DB'ye</th> 
-  <th>Garantisi</th> 
- </tr> 
- 
-  <tr> 
-  <td rowspan="6">TÜMÜ</td> 
-  <td rowspan="6">Güçlü</td> 
-  <td>TÜMÜ</td> 
-  <td>Güçlü</td> 
-  <td>Doğrusallaştırma</td> 
-  <td>TÜM ÇEKİRDEK, SERİ, LOCAL_QUORUM, LOCAL_SERIAL, ÜÇ, İKİ, BİRİ, LOCAL_ONE</td> 
-  <td>Güçlü</td> 
-  <td>Doğrusallaştırma</td> 
- </tr> 
- 
- <tr> 
-  <td rowspan="2">EACH_QUORUM</td> 
-  <td rowspan="2">Güçlü</td> 
-  <td rowspan="2">Doğrusallaştırma</td> 
-  <td>TÜM ÇEKİRDEK, SERİ LOCAL_QUORUM, LOCAL_SERIAL, ÜÇ, İKİ</td> 
-  <td>Güçlü</td> 
-  <td >Doğrusallaştırma</td> 
- </tr> 
- 
- <tr>
- <td>LOCAL_ONE, ONE</td>
-  <td>Tutarlı Ön Ek</td>
-   <td>Genel tutarlı ön ek</td>
- </tr>
- 
+| Cassandra | Azure Cosmos DB | Garantisi |
+| - | - | - |
+| TÜM ÇEKİRDEK, SERİ, LOCAL_QUORUM, LOCAL_SERIAL, ÜÇ, İKİ, BİRİ, LOCAL_ONE | Güçlü  | Doğrusallaştırma|
+| TÜM ÇEKİRDEK, SERİ LOCAL_QUORUM, LOCAL_SERIAL, ÜÇ, İKİ   |Güçlü |   Doğrusallaştırma |
+|LOCAL_ONE, ONE | Tutarlı Ön Ek | Genel tutarlı ön ek |
+| TÜMÜ, ÇEKİRDEK, SERİ   | Güçlü    | Doğrusallaştırma |
+| LOCAL_ONE, BİRİ, LOCAL_QUORUM, LOCAL_SERIAL, İKİ, ÜÇ |  Tutarlı Ön Ek   | Genel tutarlı ön ek |
+| LOCAL_ONE, BİR, İKİ, ÜÇ, LOCAL_QUORUM, ÇEKİRDEK |    Tutarlı Ön Ek   | Genel tutarlı ön ek |
+| TÜM ÇEKİRDEK, SERİ LOCAL_QUORUM, LOCAL_SERIAL, ÜÇ, İKİ   |Güçlü |   Doğrusallaştırma |
+| LOCAL_ONE, ONE    | Tutarlı Ön Ek | Genel tutarlı ön ek|
+| TÜM çekirdek, seri güçlü Doğrusallaştırılabilirlik
+LOCAL_ONE, BİRİ, LOCAL_QUORUM, LOCAL_SERIAL, İKİ, ÜÇ  |Tutarlı Ön Ek  | Genel tutarlı ön ek |
+|TÜMÜ    |Güçlü |Doğrusallaştırma |
+| LOCAL_ONE, BİR, İKİ, ÜÇ, LOCAL_QUORUM, ÇEKİRDEK  |Tutarlı Ön Ek  |Genel tutarlı ön ek|
+|TÜM çekirdek, seri güçlü Doğrusallaştırılabilirlik
+LOCAL_ONE, BİRİ, LOCAL_QUORUM, LOCAL_SERIAL, İKİ, ÜÇ  |Tutarlı Ön Ek  |Genel tutarlı ön ek |
+|TÜMÜ    |Güçlü | Doğrusallaştırma |
+| LOCAL_ONE, BİR, İKİ, ÜÇ, LOCAL_QUORUM, ÇEKİRDEK  | Tutarlı Ön Ek | Genel tutarlı ön ek |
+| ÇEKİRDEK LOCAL_QUORUM, LOCAL_SERIAL, İKİ, ÜÇ |  Sınırlanmış Eskime Durumu   | <ul><li>Sınırlanmış eskime durumu.</li><li>En fazla K sürümleri veya t saatten. </li><li>Son yürütülen değere bölgede okuyun.</li></ul>
+| LOCAL_ONE, ONE |Tutarlı Ön Ek | Bölge başına tutarlı ön ek |
+| LOCAL_ONE, BİR, İKİ, ÜÇ, LOCAL_QUORUM, ÇEKİRDEK  | Tutarlı Ön Ek | Bölge başına tutarlı ön ek |
 
- <tr> 
-  <td rowspan="2">ÇEKİRDEK SERİ</td> 
-  <td rowspan="2">Güçlü</td> 
-  <td rowspan="2">Doğrusallaştırma</td> 
-  <td>TÜMÜ, ÇEKİRDEK, SERİ</td> 
-  <td>Güçlü</td> 
-  <td >Doğrusallaştırma</td> 
- </tr> 
-
- <tr>
-   <td>LOCAL_ONE, BİRİ, LOCAL_QUORUM, LOCAL_SERIAL, İKİ, ÜÇ</td>
-   <td>Tutarlı Ön Ek</td>
-   <td>Genel tutarlı ön ek</td>
- </tr>
- 
- 
- <tr> 
- <td>LOCAL_QUORUM, ÜÇ, İKİ, BİRİ, LOCAL_ONE, <b>ANY</b></td> 
-  <td>Tutarlı Ön Ek</td> 
-  <td>Genel tutarlı ön ek</td> 
-  <td>LOCAL_ONE, BİR, İKİ, ÜÇ, LOCAL_QUORUM, ÇEKİRDEK</td> 
-  <td>Tutarlı Ön Ek</td> 
-  <td>Genel tutarlı ön ek</td>
- </tr> 
- 
- 
-  <tr> 
-  <td rowspan="6">EACH_QUORUM</td> 
-  <td rowspan="6">Güçlü</td> 
-  <td rowspan="2">EACH_QUORUM</td> 
-  <td rowspan="2">Güçlü</td> 
-  <td rowspan="2">Doğrusallaştırma</td> 
-  <td>TÜM ÇEKİRDEK, SERİ LOCAL_QUORUM, LOCAL_SERIAL, ÜÇ, İKİ</td> 
-  <td>Güçlü</td> 
-  <td>Doğrusallaştırma</td> 
- </tr> 
- 
- <tr>
- <td>LOCAL_ONE, ONE</td>
-  <td>Tutarlı Ön Ek</td>
-   <td>Genel tutarlı ön ek</td>
- </tr>
- 
- 
- 
- <tr> 
-  <td rowspan="2">ÇEKİRDEK SERİ</td> 
-  <td rowspan="2">Güçlü</td> 
-  <td rowspan="2">Doğrusallaştırma</td> 
-  <td>TÜMÜ, ÇEKİRDEK, SERİ</td> 
-  <td>Güçlü</td> 
-  <td>Doğrusallaştırma</td> 
- </tr> 
- 
- <tr>
- <td>LOCAL_ONE, BİRİ, LOCAL_QUORUM, LOCAL_SERIAL, İKİ, ÜÇ</td>
-  <td>Tutarlı Ön Ek</td>
-   <td>Genel tutarlı ön ek</td>
- </tr>
- 
- 
-  <tr> 
-  <td rowspan="2">LOCAL_QUORUM, ÜÇ, İKİ, BİRİ, LOCAL_ONE, TÜM</td> 
-  <td rowspan="2">Tutarlı Ön Ek</td> 
-  <td rowspan="2">Genel tutarlı ön ek</td> 
-  <td>TÜMÜ</td> 
-  <td>Güçlü</td> 
-  <td>Doğrusallaştırma</td> 
- </tr> 
- 
- <tr>
- <td>LOCAL_ONE, BİR, İKİ, ÜÇ, LOCAL_QUORUM, ÇEKİRDEK</td>
-  <td>Tutarlı Ön Ek</td>
-   <td>Genel tutarlı ön ek</td>
- </tr>
-
-
-  <tr> 
-  <td rowspan="4">ÇEKİRDEK</td> 
-  <td rowspan="4">Güçlü</td> 
-  <td rowspan="2">ÇEKİRDEK SERİ</td> 
-  <td rowspan="2">Güçlü</td> 
-  <td rowspan="2">Doğrusallaştırma</td> 
-  <td>TÜMÜ, ÇEKİRDEK, SERİ</td> 
-  <td>Güçlü</td> 
-  <td>Doğrusallaştırma</td> 
- </tr> 
- 
- <tr>
- <td>LOCAL_ONE, BİRİ, LOCAL_QUORUM, LOCAL_SERIAL, İKİ, ÜÇ</td>
-  <td>Tutarlı Ön Ek</td>
-   <td>Genel tutarlı ön ek</td>
- </tr>
- 
- 
- <tr> 
-  <td rowspan="2">LOCAL_QUORUM, ÜÇ, İKİ, BİRİ, LOCAL_ONE, TÜM</td> 
-  <td rowspan="2">Tutarlı Ön Ek </td> 
-  <td rowspan="2">Genel tutarlı ön ek </td> 
-  <td>TÜMÜ</td> 
-  <td>Güçlü</td> 
-  <td>Doğrusallaştırma</td> 
- </tr> 
- 
- <tr>
- <td>LOCAL_ONE, BİR, İKİ, ÜÇ, LOCAL_QUORUM, ÇEKİRDEK</td>
-  <td>Tutarlı Ön Ek</td>
-   <td>Genel tutarlı ön ek</td>
- </tr>
- 
- <tr> 
-  <td rowspan="4">LOCAL_QUORUM, ÜÇ, İKİ</td> 
-  <td rowspan="4">Sınırlanmış Eskime Durumu</td> 
-  <td rowspan="2">LOCAL_QUORUM, LOCAL_SERIAL, İKİ, ÜÇ</td> 
-  <td rowspan="2">Sınırlanmış Eskime Durumu</td> 
-  <td rowspan="2">Sınırlanmış eskime durumu.<br/>
-En fazla K sürümleri veya t saatten.<br/>
-Son yürütülen değere bölgede okuyun. 
-</td> 
-  
-  <td>ÇEKİRDEK LOCAL_QUORUM, LOCAL_SERIAL, İKİ, ÜÇ</td> 
-  <td>Sınırlanmış Eskime Durumu</td> 
-  <td>Sınırlanmış eskime durumu.<br/>
-En fazla K sürümleri veya t saatten. <br/>
-Son yürütülen değere bölgede okuyun. </td> 
- </tr> 
- 
- <tr>
- <td>LOCAL_ONE, ONE</td>
-  <td>Tutarlı Ön Ek</td>
-   <td>Bölge başına tutarlı ön ek</td>
- </tr>
- 
- 
- <tr> 
-  <td>BİR LOCAL_ONE, TÜM</td> 
-  <td>Tutarlı Ön Ek </td> 
-  <td >Bölge başına tutarlı ön ek </td> 
-  <td>LOCAL_ONE, BİR, İKİ, ÜÇ, LOCAL_QUORUM, ÇEKİRDEK</td> 
-  <td>Tutarlı Ön Ek</td> 
-  <td>Bölge başına tutarlı ön ek</td> 
- </tr> 
-</table>
 
 ## <a id="mongo-mapping"></a>MongoDB 3.4 ve Azure Cosmos DB tutarlılık düzeyleri arasında eşleme
 

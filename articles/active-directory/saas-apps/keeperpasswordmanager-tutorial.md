@@ -4,7 +4,7 @@ description: Azure Active Directory ve Keeper parola Yöneticisi & dijital kasa 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: e1a98f6a-2dae-4734-bdbf-4fba742a61d2
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: 4e96e2387797ed11768de9cd0b75261dfb89c674
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 70dfc03c37b2e7a93218ff7e710dbd22f622d418
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065520"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813313"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-keeper-password-manager--digital-vault"></a>Öğretici: Parola Yöneticisi Keeper & dijital kasa ile Azure Active Directory Tümleştirme
 
