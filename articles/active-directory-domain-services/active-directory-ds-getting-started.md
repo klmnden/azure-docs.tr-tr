@@ -4,7 +4,7 @@ description: Azure Active Directory etki alanı Azure portalını kullanarak Ser
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: ergreenl
-ms.openlocfilehash: a795691959c744f5358966d62449882e514eb8eb
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 07dbc96e94c736b4e4c80dd212f0674bfeffce45
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155091"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850425"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Active Directory etki alanı Azure portalını kullanarak Services'i etkinleştirme
 Bu makalede, Azure Active Directory etki alanı Azure portalını kullanarak Hizmetleri (Azure AD DS) etkinleştirmek gösterilmektedir.
@@ -61,11 +61,11 @@ Başlatmak için **etkinleştirin, Azure AD Domain Services** Sihirbazı, aşağ
 
    > [!NOTE]
    > **Bir DNS etki alanı adı seçmek için yönergeleri**
-   > * **Yerleşik etki alanı adı:** varsayılan olarak, sihirbaz dizinin varsayılan/dahili-içeren etki alanı adını belirtir. (ile bir **. onmicrosoft.com** soneki) sizin için. İnternet üzerinden güvenli LDAP erişimi için yönetilen etki alanı etkinleştirmeyi seçerseniz, bu etki alanı adı için bir ortak CA güvenli LDAP sertifika edinme veya bir genel DNS kaydı oluşturma sorunları bekler. Microsoft sahibi *. onmicrosoft.com* etki alanı ve CA'lar değil sertifika bu etki alanı için özgün olduğunu belgelemekten.
-   * **Özel etki alanı adları:** bir özel etki alanı adı da yazabilirsiniz. Bu örnekte özel etki alanı adı *contoso100.com* şeklindedir.
-   * **Yönlendirilebilir olmayan etki alanı sonekleri:** genellikle yönlendirilemeyen etki alanı adı soneki önleme öneririz. Örneğin, bir etki alanı DNS etki alanı adı 'contoso.local' ile oluşturmaktan kaçınmak iyidir. '.Local' DNS soneki yönlendirilemez ve DNS çözümlemesi ile sorunlara neden olabilir.
-   * **Etki alanı ön eki kısıtlamaları:** belirtilen etki alanı adınızla önek (örneğin, *contoso100* içinde *contoso100.com* etki alanı adı) 15 veya daha az karakter içermelidir. Yönetilen bir etki alanı ön eki 15 karakterden uzunsa oluşturulamıyor.
-   * **Ağ adı çakışıyor:** yönetilen etki alanı için seçtiğiniz DNS etki alanı adı sanal ağ içinde zaten mevcut olduğundan emin olun. Özellikle, kontrol olmadığını:
+   > * **Yerleşik etki alanı adı:** Varsayılan olarak, sihirbaz dizinin varsayılan/dahili-içeren etki alanı adını belirtir. (ile bir **. onmicrosoft.com** soneki) sizin için. İnternet üzerinden güvenli LDAP erişimi için yönetilen etki alanı etkinleştirmeyi seçerseniz, bu etki alanı adı için bir ortak CA güvenli LDAP sertifika edinme veya bir genel DNS kaydı oluşturma sorunları bekler. Microsoft sahibi *. onmicrosoft.com* etki alanı ve CA'lar değil sertifika bu etki alanı için özgün olduğunu belgelemekten.
+   * **Özel etki alanı adları:** Ayrıca, bir özel etki alanı adı da yazabilirsiniz. Bu örnekte özel etki alanı adı *contoso100.com* şeklindedir.
+   * **Yönlendirilebilir olmayan etki alanı sonekleri:** Genellikle, yönlendirilemeyen etki alanı adı soneki önleme öneririz. Örneğin, bir etki alanı DNS etki alanı adı 'contoso.local' ile oluşturmaktan kaçınmak iyidir. '.Local' DNS soneki yönlendirilemez ve DNS çözümlemesi ile sorunlara neden olabilir.
+   * **Etki alanı ön eki kısıtlamaları:** Belirttiğiniz etki alanı adının ön eki (örneğin, *contoso100.com* etki alanı adında contoso100) 15 veya daha az karakter içermelidir. Yönetilen bir etki alanı ön eki 15 karakterden uzunsa oluşturulamıyor.
+   * **Ağ adı çakışıyor:** Yönetilen etki alanı için seçtiğiniz DNS etki alanı adının sanal ağda zaten bulunmadığından emin olun. Özellikle, kontrol olmadığını:
        * Sanal ağda aynı DNS etki alanı adıyla bir Active Directory etki alanı zaten var.
        * Yönetilen etki alanını etkinleştirmek planladığınız sanal ağ ile şirket içi ağınıza bir VPN bağlantısı vardır. Bu senaryoda, şirket içi ağınızda aynı DNS etki alanı adına sahip bir etki alanına sahip olun.
        * Sanal ağda bu ada sahip bir bulut hizmetiniz zaten varsa.

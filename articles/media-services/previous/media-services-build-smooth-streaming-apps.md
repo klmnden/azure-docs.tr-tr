@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: juliako
-ms.openlocfilehash: 7b742840f461744e0be8c7a4ab4d9b392238de4e
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 9558a924ee151f47033178b0762a39e2d1e1f538
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232694"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828324"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Sorunsuz bir akış Windows Store uygulaması oluşturma
 
@@ -142,7 +142,7 @@ Başvuru ekledikten sonra hedef Platformu (x64 veya x86) seçmeniz gerekir, ekle
    MediaElement denetimi medya kayıttan yürütme için kullanılır. Kaydırıcı denetimi sliderProgress adlı bir sonraki derste medya ilerleme durumunu denetlemek için kullanılır.
 3. Tuşuna **CTRL + S** dosyayı kaydetmek için.
 
-MediaElement denetimi, kesintisiz akış içeriği kullanıma hazır desteklemez. Kesintisiz akış desteğini etkinleştirmek için kesintisiz akış bayt akışı işleyici dosya adı uzantısı ve MIME türü tarafından kaydetmeniz gerekir.  Kaydetmek için Windows.Media ad alanının MediaExtensionManager.RegisterByteStremHandler yöntemi kullanın.
+MediaElement denetimi, kesintisiz akış içeriği kullanıma hazır desteklemez. Kesintisiz akış desteğini etkinleştirmek için kesintisiz akış bayt akışı işleyici dosya adı uzantısı ve MIME türü tarafından kaydetmeniz gerekir.  Kaydetmek için Windows.Media ad alanının MediaExtensionManager.RegisterByteStreamHandler yöntemi kullanın.
 
 Bu XAML dosyasında bazı olay işleyicileri denetimleri ile ilişkilendirilir.  Bu olay işleyicileri tanımlamanız gerekir.
 
@@ -821,7 +821,7 @@ Ders 3 tamamladınız.  Bu derste, akışları seçmek için işlevselliği ekle
 Birden fazla video dosyaları farklı kalite düzeylerine (bit hızlarında) ve çözümleri ile kodlanmış kesintisiz akış sunu içerebilir. Bu derste, parçalar seçmek kullanıcıların olanak sağlar. Bu ders, aşağıdaki yordamları içerir:
 
 1. XAML dosyasını değiştirme
-2. Kod behand dosyasını değiştirme
+2. Dosyanın arkasındaki kodu değiştirin
 3. Derleme ve uygulamayı test etme
 
 **XAML dosyasını değiştirmek için**

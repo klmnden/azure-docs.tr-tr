@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: juliako
-ms.openlocfilehash: 666be9c2ebba9dc9607e4188b2390fff49fd59b9
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: e83b634c11d0349f4917c063cde54e03fa1cac40
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53554665"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810712"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>V2 API'si tarafından üretilen Video dizinleyici çıktısını İnceleme
 
@@ -166,7 +166,7 @@ Yüz kimliği, bir ad, bir küçük resim, diğer meta veriler ve zamana bağlı
 |audioEffects|[AudioEffects](#audioEffects) boyut.|
 |yaklaşımlar|[Yaklaşımları](#sentiments) boyut.|
 |visualContentModeration|[VisualContentModeration](#visualcontentmoderation) boyut.|
-|textualConentModeration|[TextualConentModeration](#textualconentmoderation) boyut.|
+|textualContentModeration|[TextualContentModeration](#textualcontentmoderation) boyut.|
 |duyguları| [Duyguları](#emotions) boyut.|
 |konuları|[Konuları](#topics) boyut.|
 
@@ -187,7 +187,7 @@ Yüz kimliği, bir ad, bir küçük resim, diğer meta veriler ve zamana bağlı
   "audioEffects": ...,
   "sentiments": ...,
   "visualContentModeration": ...,
-  "textualConentModeration": ...
+  "textualContentModeration": ...
 }
 ```
 
@@ -334,7 +334,7 @@ id|Blok kimliği.|
 |ad|Yüz tanıma adı. Bu olabilir ' Bilinmeyen #0, tanımlanan bir ünlü veya müşteri eğitilen kişi.|
 |güven|Yüz tanıma güvenilirlik.|
 |açıklama|Ünlü açıklaması. |
-|thumbnalId|Yüz tanıma, küçük resim kimliği.|
+|thumbnailId|Yüz tanıma, küçük resim kimliği.|
 |knownPersonId|Bilinen bir kişi, kendi iç kimliği ise|
 |Başvuru Kimliği|Bir Bing ünlü Bing kimliği ise|
 |referenceType|Şu anda yalnızca Bing.|
@@ -662,7 +662,7 @@ Yetişkinlere yönelik veya müstehcen içerikleri bulunan videoları yalnızca 
 ] 
 ```
 
-#### <a name="textualconentmoderation"></a>textualConentModeration 
+#### <a name="textualcontentmoderation"></a>textualContentModeration 
 
 |Ad|Açıklama|
 |---|---|

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: a1fbe541d9cb2f9b5a839d90fcfa9c7b017efce9
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: bd40278015bf4580759c1b7b9522400b3dae31d6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198517"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475671"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-using-azure-cli"></a>Standart yük Azure CLI kullanarak dengeleyici Yük Dengeleme ve giden kuralları yapılandırma
 
@@ -32,7 +32,7 @@ CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için A
 
 ## <a name="create-resource-group"></a>Kaynak grubu oluşturma
 
-[az group create](https://docs.microsoft.com/cli/azure/group#create) ile bir kaynak grubu oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
+[az group create](https://docs.microsoft.com/cli/azure/group) ile bir kaynak grubu oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
 
 Aşağıdaki örnekte adlı bir kaynak grubu oluşturur *myresourcegroupoutbound* içinde *eastus2* konumu:
 
@@ -42,7 +42,7 @@ Aşağıdaki örnekte adlı bir kaynak grubu oluşturur *myresourcegroupoutbound
     --location eastus2
 ```
 ## <a name="create-virtual-network"></a>Sanal ağ oluşturma
-Adlı bir sanal ağ oluşturma *myvnetoutbound* adlı bir alt ağ ile *mysubnetoutbound* içinde *myresourcegroupoutbound* kullanarak [az ağ vnet oluşturma](https://docs.microsoft.com/cli/azure/network/vnet#create).
+Adlı bir sanal ağ oluşturma *myvnetoutbound* adlı bir alt ağ ile *mysubnetoutbound* içinde *myresourcegroupoutbound* kullanarak [az ağ vnet oluşturma](https://docs.microsoft.com/cli/azure/network/vnet).
 
 ```azurecli-interactive
   az network vnet create \
@@ -55,7 +55,7 @@ Adlı bir sanal ağ oluşturma *myvnetoutbound* adlı bir alt ağ ile *mysubneto
 
 ## <a name="create-inbound-public-ip-address"></a>Gelen genel IP adresi oluşturma 
 
-Web uygulamanıza İnternet’ten erişmek için yük dengeleyicinin genel IP adresi gereklidir. Standart Yük Dengeleyici yalnızca Standart Genel IP adreslerini destekler. Kullanım [az network public-IP oluşturma](https://docs.microsoft.com/cli/azure/network/public-ip#create) adlı bir standart genel IP adresi oluşturmak için *mypublicipinbound* içinde *myresourcegroupoutbound*.
+Web uygulamanıza İnternet’ten erişmek için yük dengeleyicinin genel IP adresi gereklidir. Standart Yük Dengeleyici yalnızca Standart Genel IP adreslerini destekler. Kullanım [az network public-IP oluşturma](https://docs.microsoft.com/cli/azure/network/public-ip) adlı bir standart genel IP adresi oluşturmak için *mypublicipinbound* içinde *myresourcegroupoutbound*.
 
 ```azurecli-interactive
   az network public-ip create --resource-group myresourcegroupoutbound --name mypublicipinbound --sku standard
@@ -63,7 +63,7 @@ Web uygulamanıza İnternet’ten erişmek için yük dengeleyicinin genel IP ad
 
 ## <a name="create-outbound-public-ip-address"></a>Giden genel IP adresi oluşturma 
 
-Load Balancer'ın ön uç giden yapılandırmasını kullanmak için standart IP adresi oluşturma [az network public-IP oluşturma](https://docs.microsoft.com/cli/azure/network/public-ip#create).
+Load Balancer'ın ön uç giden yapılandırmasını kullanmak için standart IP adresi oluşturma [az network public-IP oluşturma](https://docs.microsoft.com/cli/azure/network/public-ip).
 
 ```azurecli-interactive
   az network public-ip create --resource-group myresourcegroupoutbound --name mypublicipoutbound --sku standard
@@ -81,7 +81,7 @@ Bu bölümde yük dengeleyicinin aşağıdaki bileşenlerini nasıl oluşturabil
 
 ### <a name="create-load-balancer"></a>Yük Dengeleyici oluşturma
 
-Gelen IP adresi kullanarak bir yük dengeleyici oluşturma [az ağ lb oluşturma](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) adlı *lb* içeren bir gelen ön uç IP yapılandırmasını ve genel IP adresi ile ilişkili olan bir arka uç havuzu *mypublicipinbound* , önceki adımda oluşturduğunuz.
+Gelen IP adresi kullanarak bir yük dengeleyici oluşturma [az ağ lb oluşturma](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) adlı *lb* içeren bir gelen ön uç IP yapılandırmasını ve genel IP adresi ile ilişkili olan bir arka uç havuzu *mypublicipinbound* , önceki adımda oluşturduğunuz.
 
 ```azurecli-interactive
   az network lb create \
@@ -95,7 +95,7 @@ Gelen IP adresi kullanarak bir yük dengeleyici oluşturma [az ağ lb oluşturma
   ```
 
 ### <a name="create-outbound-frontend-ip"></a>Giden ön uç IP oluşturma
-Yük Dengeleyici ile giden ön uç IP yapılandırmasını oluşturun [az network lb frontend-IP oluşturma](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) içeren ve giden ön uç IP yapılandırması adlı *myfrontendoutbound* diğer bir deyişle genel IP adresine ilişkili *mypublicipoutbound*
+Yük Dengeleyici ile giden ön uç IP yapılandırmasını oluşturun [az network lb frontend-IP oluşturma](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) içeren ve giden ön uç IP yapılandırması adlı *myfrontendoutbound* diğer bir deyişle genel IP adresine ilişkili *mypublicipoutbound*
 
 ```azurecli-interactive
   az network lb frontend-ip create \
@@ -107,7 +107,7 @@ Yük Dengeleyici ile giden ön uç IP yapılandırmasını oluşturun [az networ
 
 ### <a name="create-health-probe"></a>Durum araştırması oluşturma
 
-Sistem durumu araştırması tüm sanal makine örneklerini denetleyerek ağ trafiği gönderdiklerinden emin olur. Sistem durumu denetimi başarısız olan sanal makine örnekleri tekrar çevrimiçi olana ve sistem durumu denetimi iyi olduğuna karar verene kadar yük dengeleyiciden kaldırılır. Sanal makinelerin durumunu izlemek için [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest#create) ile bir durum araştırması oluşturun. 
+Sistem durumu araştırması tüm sanal makine örneklerini denetleyerek ağ trafiği gönderdiklerinden emin olur. Sistem durumu denetimi başarısız olan sanal makine örnekleri tekrar çevrimiçi olana ve sistem durumu denetimi iyi olduğuna karar verene kadar yük dengeleyiciden kaldırılır. Sanal makinelerin durumunu izlemek için [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest) ile bir durum araştırması oluşturun. 
 
 ```azurecli-interactive
   az network lb probe create \
@@ -121,7 +121,7 @@ Sistem durumu araştırması tüm sanal makine örneklerini denetleyerek ağ tra
 
 ### <a name="create-load-balancing-rule"></a>Yük Dengeleme kuralı oluşturma
 
-Yük Dengeleyici kuralı, gelen trafik ve gerekli kaynak ve hedef bağlantı noktalarının yanı sıra trafiği almak için arka uç havuzu için ön uç IP yapılandırması tanımlar. Bir yük dengeleyici kuralı oluşturun *myinboundlbrule* ile [az ağ lb kuralı oluşturma](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#create) ön uç havuzunda 80 numaralı bağlantı noktasını dinlemek *myfrontendinbound* ve gönderme arka uç adres havuzuna Yük Dengelemesi yapılmış ağ trafiğini *bepool* de 80 numaralı bağlantı noktasını kullanıyor. 
+Yük Dengeleyici kuralı, gelen trafik ve gerekli kaynak ve hedef bağlantı noktalarının yanı sıra trafiği almak için arka uç havuzu için ön uç IP yapılandırması tanımlar. Bir yük dengeleyici kuralı oluşturun *myinboundlbrule* ile [az ağ lb kuralı oluşturma](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest) ön uç havuzunda 80 numaralı bağlantı noktasını dinlemek *myfrontendinbound* ve gönderme arka uç adres havuzuna Yük Dengelemesi yapılmış ağ trafiğini *bepool* de 80 numaralı bağlantı noktasını kullanıyor. 
 
 >[!NOTE]
 >Devre dışı bırakma giden-snat parametresiyle birlikte, bu kural nedeniyle otomatik giden (S) NAT bu Yük Dengeleme kuralı devre dışı bırakır. Giden NAT, yalnızca giden kuralı tarafından sağlanır.

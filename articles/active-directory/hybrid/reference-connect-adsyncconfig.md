@@ -8,12 +8,12 @@ ms.workload: identity
 ms.date: 10/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 015823ee9674c2c704cdea13e44ced06e5b9644c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 1d2d921e02b56e951b4239c15471995eaf3cd0d1
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463533"
+ms.locfileid: "54813594"
 ---
 # <a name="azure-ad-connect--adsyncconfig-powershell-reference"></a>Azure AD Connect:  ADSyncConfig PowerShell başvurusu
 Aşağıdaki belgeler Azure AD Connect ile birlikte sağlanan ADSyncConfig.psm1 PowerShell modülü için başvuru bilgileri sağlar.
@@ -1367,7 +1367,7 @@ Show-ADSyncADObjectPermissions [-ADobjectDN] <String> [<CommonParameters>]
 ```
 
 ### <a name="description"></a>AÇIKLAMA
-Bu işlev retuns tüm AD şu anda parametre sağlanan belirli AD nesne izinleri - ADobjectDN.
+Bu işlev parametre sağlanan belirli bir AD nesne için ayarlanmış olan tüm AD izinleri döndürür - ADobjectDN.
 ADobjectDN DistinguishedName biçiminde sağlanmalıdır.
 
 ### <a name="examples"></a>ÖRNEKLER

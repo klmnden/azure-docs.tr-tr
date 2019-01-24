@@ -3,19 +3,19 @@ title: Yerelleştirme dize kimlikleri - Azure Active Directory B2C | Microsoft D
 description: İçerik tanımı kimliklerini Azure Active Directory B2C, özel bir ilkede api.signuporsignin kimliği belirtin.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7619ebf038e164c9e586118c70e34955ca7c4767
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 72ed1f7f6d9fe9958bbd78b001d727feb5f8861c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222684"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848419"
 ---
 # <a name="localization-string-ids"></a>Yerelleştirme dize kimlikleri
 
@@ -33,7 +33,7 @@ ms.locfileid: "47222684"
 | **logonIdentifier_email** | E-posta adresi |
 | **requiredField_email** | Lütfen e-postanızı girin |
 | **invalid_email** | Lütfen geçerli bir e-posta adresi girin |
-| **email_pattern** | ^ [a-zA-Z0-9.! #$% &'' * +/ =? ^ _'{|} ~-]+@[a-zA-Z0-9-]+ (?:\\. [ bir-zA-Z0 - 9-] +) * $ |
+| **email_pattern** | ^ [a-zA-Z0-9.! #$% &'' * +/ =? ^ _'{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$ |
 | **local_intro_username** | Kullanıcı adınızla oturum açın |
 | **logonIdentifier_username** | Kullanıcı adı |
 | **requiredField_username** | Lütfen kullanıcı adınızı girin |
@@ -110,7 +110,7 @@ Aşağıdaki örnek Arapça Facebook kimlik sağlayıcısına yerelletirilmesi:
 | **ver_fail_no_retry** | Çok fazla sayıda yanlış denemesi yaptınız. Lütfen daha sonra tekrar deneyin. |
 | **Ay** | Ay |
 | **ver_success_msg** | E-posta adresi doğrulandı. Artık devam edebilirsiniz. |
-| **Ay** | Ocak, Şubat, Mart, Nisan, Mayıs, Haziran, Temmuz, Ağustos, Eylül, Ekim, Kasım, Aralık |
+| **months** | Ocak, Şubat, Mart, Nisan, Mayıs, Haziran, Temmuz, Ağustos, Eylül, Ekim, Kasım, Aralık |
 | **ver_fail_server** | E-posta adresinizi doğrulama konusunda sorun yaşıyoruz. Lütfen geçerli bir e-posta adresini girin ve yeniden deneyin. |
 | **error_requiredFieldMissing** | Gerekli alan eksik. Lütfen tüm gerekli alanları doldurun ve yeniden deneyin. |
 | **initial_intro** | Lütfen aşağıdaki ayrıntıları sağlayın. |
@@ -182,7 +182,7 @@ Aşağıdaki örnek, kayıt sayfasındaki kullanıcı arabirimi öğelerinden ba
 | **invalid_number** | Lütfen geçerli bir telefon numarası girin |
 | **intro_sms** | Aşağıdaki numarasını kaydında sizin için sahibiz. SMS, kimliğinizi doğrulamak için bir kod göndereceğiz. |
 | **intro_entry_mixed** | Aşağıya kimliğinizi doğrulamak için SMS aracılığıyla kod gönderebileceğimiz veya arayabileceğimiz bir numara girin. |
-| **number_pattern** | ^\\+ (?: [0-9] [\\x20-]?) {6,14}[0-9] $ |
+| **number_pattern** | ^\\+(?:[0-9][\\x20-]?){6,14}[0-9]$ |
 | **intro_sms_p** |Aşağıdaki numaralarını kaydında sizin için sahibiz. Bir sayı seçin, kimliğinizi doğrulamak için SMS ile kod gönderebiliriz. |
 | **requiredField_countryCode** | Lütfen ülke kodunuzu seçin |
 | **requiredField_number** | Lütfen telefon numaranızı girin |
@@ -192,7 +192,7 @@ Aşağıdaki örnek, kayıt sayfasındaki kullanıcı arabirimi öğelerinden ba
 | **error_incorrect_code** | Girdiğiniz doğrulama kodu, kayıtlarımızla eşleşmiyor. Lütfen yeniden deneyin veya yeni bir kod isteyin. |
 | **countryList** | {\"Varsayılan\":\"ülke/bölge\",\"AF\":\"Afganistan\",\"AX\":\"Aland Adaları\",\"AL\":\"Arnavutluk\",\"DZ\":\"Cezayir\",\"AS\":\" Amerikan Samoası\",\"AD\":\"Andora\",\"AO\":\"Angola\",\"AI\": \"Avustralya\",\"AQ\":\"Antarktika\",\"AG\":\"Antigua ve Barbuda\",\"AR\":\"Arjantin\",\"AM\":\"Ermenistan\",\"AW\":\"Aruba \",\"AU\":\"Avustralya\",\"ADRESİNDEKİ\":\"Avusturya\",\" AZ\":\"Azerbaycan\",\"BS\":\"Bahamalar\",\"BH\":\" Bahreyn\",\"BD\":\"Bangladeş\",\"BB\":\"Barbados\",\" TARAFINDAN\":\"Belarus\",\"BE\":\"Belçika\",\"BZ\":\" Belize\",\"BJ\":\"Benin\",\"BM\":\"teni\",\"BT\":\"Bhutan\",\"BO\":\"Bolivya\",\"BQ\":\" Bonaire\",\"BA\":\"Bosna-Hersek\",\"BW\":\"Botsvana<span class="notransla class=""></span class="notransla> Harici Adaları\",\"VI\":\"ABD Virgin Adaları\",\"UG\":\"Uganda\",\"UA\":\"Ukrayna\",\"AE\":\" Birleşik Arap Emirlikleri\",\"GB\":\"Birleşik Krallık\",\"ABD\":\"Amerika Birleşik Devletleri\",\"UY \":\"Uruguay\",\"UZ\":\"Özbekistan\",\"VU\":\"Vanuatu\", \"VA\":\"Vatikan\",\"VE\":\"Venezuela\",\"VN\":\"Vietnam \",\"WF\":\"Wallis ve Futuna\",\"YE\":\"Yemen\",\"ZM\":\"Zambiya\",\"ZW\":\"Zimbabve\"} |
 | **error_448** | Belirttiğiniz telefon numarasına ulaşılamıyor. |
-| **error_449** | Kullanıcı yeniden deneme girişim sayısını aştı. |
+| **error_449** | Kullanıcı yeniden deneme girişimi sayısını aştı. |
 | **verification_code_input_placeholder_text** | Doğrulama kodu |
 
 Aşağıdaki örnek MFA kayıt sayfasında kullanıcı arabirimi öğelerinden bazıları kullanımını gösterir:

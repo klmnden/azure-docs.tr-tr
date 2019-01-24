@@ -9,32 +9,30 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 09/24/2018
-ms.openlocfilehash: 8bbdd2d49171ee8f4e7eb3cc0def1c7a6e59806b
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 05331c710817e575deb7729189c9b2d8ccbafd7d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193497"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54489621"
 ---
-Oturum [Azure portalında](https://portal.azure.com/) kullandığınız Azure aboneliği için kimlik bilgilerini kullanarak. 
-
-Portal'ın çalışma Pano yalnızca Microsoft Edge, Chrome ve Firefox tarayıcılarda desteklenir.
+1. Oturum [Azure portalında](https://portal.azure.com/) kullandığınız Azure aboneliği için kimlik bilgilerini kullanarak. 
 
    ![Azure portal](./media/aml-create-in-portal/portal-dashboard.png)
 
-Portalın sol üst köşedeki seçin **kaynak Oluştur**.
+1. Portalın sol üst köşedeki seçin **kaynak Oluştur**.
 
    ![Azure portalında kaynak oluşturma](./media/aml-create-in-portal/portal-create-a-resource.png)
 
-Arama çubuğunda, **Machine Learning**. Seçin **Machine Learning hizmeti çalışma alanında** arama sonucu.
+1. Arama çubuğunda, **Machine Learning**. Seçin **Machine Learning hizmeti çalışma alanında** arama sonucu.
 
    ![Bir çalışma alanı arayın](./media/aml-create-in-portal/allservices-search.PNG)
 
-İçinde **ML hizmeti çalışma alanında** bölmesinde seçin ve altındaki kaydırma **Oluştur** başlamak için.
+1. İçinde **ML hizmeti çalışma alanında** bölmesinde seçin ve altındaki kaydırma **Oluştur** başlamak için.
 
    ![Oluştur](./media/aml-create-in-portal/portal-create-button.png)
 
-İçinde **ML hizmeti çalışma alanında** bölmesinde, çalışma alanınızı yapılandırın.
+1. İçinde **ML hizmeti çalışma alanında** bölmesinde, çalışma alanınızı yapılandırın.
 
    Alan|Açıklama
    ---|---
@@ -45,10 +43,10 @@ Arama çubuğunda, **Machine Learning**. Seçin **Machine Learning hizmeti çal�
 
    ![Çalışma alanı oluşturma](./media/aml-create-in-portal/workspace-create.png)
 
-Oluşturma işlemini başlatmak için **Oluştur**. Uygulamanın, çalışma alanı oluşturmak için birkaç dakika sürebilir.
+1. Oluşturma işlemini başlatmak için **Oluştur**. Uygulamanın, çalışma alanı oluşturmak için birkaç dakika sürebilir.
 
-Dağıtım durumunu denetlemek için bildirimler simgesini seçin. **zil**, araç çubuğundaki.
+1. Dağıtım durumunu denetlemek için bildirimler simgesini seçin. **zil**, araç çubuğundaki.
+
+1. İşlem tamamlandığında, bir dağıtım başarı iletisi görünür. Ayrıca, bildirimleri bölümünde de mevcuttur. Yeni çalışma alanı görüntülemek için seçin **kaynağa Git**.
 
    ![Çalışma alanı oluşturma durumu](./media/aml-create-in-portal/notifications.png)
-
-İşlem tamamlandığında, bir dağıtım başarı iletisi görünür. Ayrıca, bildirimleri bölümünde de mevcuttur. Yeni çalışma alanı görüntülemek için seçin **kaynağa Git**.

@@ -12,12 +12,12 @@ ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/19/2018
-ms.openlocfilehash: 706a2f8c7389daa6dcfaa95fe5118f509ee0d1f2
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: a3a4e2c109541effdac01e0c9c03ee91cfdb30bf
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600599"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812259"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Azure SQL veritabanı'nda ölçek tek veritabanı kaynakları
 
@@ -37,7 +37,7 @@ Bu makalede, Azure SQL veritabanı'nda işlem ve depolama kaynaklarını tek bir
 
 Başlangıçta çekirdek sayısını seçtikten sonra, tek bir veritabanının ölçeğini artırıp dinamik olarak gerçek deneyime kullanımına dayalı ölçeklendirebilirsiniz [Azure portalında](sql-database-single-databases-manage.md#manage-an-existing-sql-server), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update), veya [REST API](https://docs.microsoft.com/rest/api/sql/databases/update).
 
-Hizmet değiştiriliyor katmanının ve/veya işlem bir veritabanının boyut yeni işlem boyutu özgün veritabanının bir kopyasını oluşturur ve ardından bağlantıları çoğaltmaya geçirir. Bu işlem sırasında veri kaybı olmaz, ancak çoğaltmaya geçişin gerçekleştiği kısa süre zarfında veritabanıyla bağlantılar devre dışı bırakılır, bu nedenle uçuştaki bazı işlemler geri alınabilir. Anahtar üzerinden süreyi değişir, ancak genel olarak 4 saniyenin altında 30 saniyeden daha kısa zaman %99 ise. Varsa büyük işlem şu bağlantıları uçuşta devre dışı bırakıldı, anahtar üzerinden süreyi daha uzun olabilir.
+Hizmet değiştiriliyor katmanının ve/veya işlem bir veritabanının boyut yeni işlem boyutu özgün veritabanının bir kopyasını oluşturur ve ardından bağlantıları çoğaltmaya geçirir. Bu işlem sırasında veri kaybı olmaz, ancak çoğaltmaya geçişin gerçekleştiği kısa süre zarfında veritabanıyla bağlantılar devre dışı bırakılır, bu nedenle uçuştaki bazı işlemler geri alınabilir. Anahtar üzerinden için süre farklılık gösterir ancak genellikle 30 saniyeden % süresi 99. Varsa büyük işlem şu bağlantıları uçuşta devre dışı bırakıldı, anahtar üzerinden süreyi daha uzun olabilir.
 
 Tüm ölçek artırma işleminin süresi hem veritabanı boyutuna hem de değişiklikten önceki ve sonraki hizmet katmanına bağlı olarak değişir. Örneğin, için ya da bir genel amaçlı hizmet katmanında değiştirme 250 GB veritabanını altı saat içinde tamamlanır. Bir veritabanı için iş açısından kritik hizmet katmanında işlem boyutları ile değişiyor aynı boyutta, ölçek büyütme üç saat içinde tamamlanır.
 

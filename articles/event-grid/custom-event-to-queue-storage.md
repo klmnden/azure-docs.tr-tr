@@ -3,20 +3,20 @@ title: Depolama kuyruğuna - Event Grid, Azure CLI özel olaylar gönderin
 description: Azure Event Grid'i ve Azure CLI'yı kullanarak bir konu yayımlayın ve o olaya abone olun. Uç nokta için bir depolama kuyruğu kullanılır.
 services: event-grid
 keywords: ''
-author: tfitzmac
-ms.author: tomfitz
-ms.date: 12/07/2018
+author: spelluru
+ms.author: spelluru
+ms.date: 01/07/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 065ace2f34f95cf0813f0088a188c7fdb1d66d2e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ba48473b0370c2ee0acbb7b03834eb36922db556
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093973"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474991"
 ---
-# <a name="quickstart-route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>Hızlı Başlangıç: Azure CLI ve Event Grid ile Azure kuyruk depolama rota özel olaylar
+# <a name="quickstart-route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>Hızlı Başlangıç: Azure CLI ve Event Grid ile özel olayları Azure Kuyruk depolamaya yönlendirme
 
 Azure Event Grid, bulut için bir olay oluşturma hizmetidir. Azure Kuyruk depolama, desteklenen olay işleyicilerinden biridir. Bu makalede Azure CLI ile özel bir konu oluşturacak, bu özel konuya abone olacak ve olayı tetikleyerek sonucu görüntüleyeceksiniz. Kuyruk depolamaya olayları gönderirsiniz.
 

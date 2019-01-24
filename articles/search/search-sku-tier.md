@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 4c1f115061dfba36a37da1647c34dd4587857377
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 4b6e6cf3fb030f5f9706ded19f85575baed69b39
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427483"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471829"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Azure arama için bir fiyatlandırma katmanı seçin
 
 Azure Search'te bir [kaynak oluşturulduğu](search-create-service-portal.md) fiyatlandırma katmanı veya hizmet ömrü boyunca sabit SKU. Katmanlar **ücretsiz**, **temel**, veya **standart**burada **standart** çeşitli yapılandırmaları ve kapasiteler kullanılabilir. Çoğu müşteri başlayın **ücretsiz** katmanı için değerlendirme ve ardından ölçeğine geçin **standart** geliştirme ve üretim dağıtımları için. Üzerindeki tüm Hızlı başlangıçlar ve öğreticilerle tamamlayabilirsiniz **ücretsiz** katmanı, kaynak kullanımı yoğun bilişsel arama için dahil olmak üzere. 
 
-Katmanları değil özellikleri, kapasite belirlemek ve tarafından ayrılır:
+Katmanları hizmeti (yerine özellikleri) barındıran donanım özellikleri yansıtır ve tarafından ayrılır:
 
 + Oluşturabileceğiniz dizin sayısı
 + Boyutuna ve hızına bölümleri (fiziksel depolama)

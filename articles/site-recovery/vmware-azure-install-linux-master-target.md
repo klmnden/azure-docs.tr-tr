@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: befc979b84c5ace3b8c787b184e52f09ada9ea2b
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 7ff73051abc5168b4dc3852a9008adc22d7d56c6
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321436"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811868"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Bir Linux ana hedef sunucusu yeniden çalışma için yükleyin
 Sanal makinelerinizi azure'a yük devretme sonra sanal makineleri şirket içi siteye geri dönebilirsiniz. Yeniden çalışma için sanal makine azure'dan şirket içi siteye yeniden korumanız gerekir. Bu işlem için trafiği almak için bir şirket içi ana hedef sunucusu gerekir. 
@@ -185,7 +185,7 @@ Azure Site Recovery ana hedef sunucusu Ubuntu belirli bir sürümünü gerektiri
 #### <a name="download-and-install-additional-packages"></a>Ek paketleri indirme ve yükleme
 
 > [!NOTE]
-> Ek paketler yüklemek ve indirmek için Internet bağlantısına sahip olduğunuzdan emin olun. Internet bağlantısı yoksa, el ile bu RPM paketleri bulun ve bunları yüklemeniz gerekir.
+> Ek paketler yüklemek ve indirmek için Internet bağlantısına sahip olduğunuzdan emin olun. Internet bağlantısı yoksa, el ile bu Deb paketleri bulun ve bunları yüklemeniz gerekir.
 
  `apt-get install -y multipath-tools lsscsi python-pyasn1 lvm2 kpartx`
 
