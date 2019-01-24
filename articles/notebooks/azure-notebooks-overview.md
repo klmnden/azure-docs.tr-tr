@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: ba06e568b3d7b0125d5868c1ad4a85e5e42f7e18
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: ffceeeeb5a55b0fab1dd1cf91aebfcd4cfd852ef
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246220"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848606"
 ---
 # <a name="overview-of-azure-notebooks"></a>Azure not defterleri genel bakış
 
 Azure Notebooks, yükleme yapmadan Jupyter not defterlerini geliştirmeye ve çalıştırmaya yönelik, ücretsiz ve barındırılan bir hizmettir. [Jupyter](https://jupyter.org/) (eski adıyla Ipython) kolayca olanak tanıyan bir açık kaynak projesi birleştirmek Markdown metin, yürütülebilir kod, kalıcı verileri, grafik ve görselleştirmeler paylaşılabilir, tek bir tuvaline olan *not defteri* (görüntü jupyter.org sayesinde):
 
-[![](https://jupyter.org/assets/jupyterpreview.png "Jupyter Not Defterleri")](https://jupyter.org/assets/jupyterpreview.png#lightbox)
+[![Jupyter not defterleri örnekleri](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
 Jupyter kodu, grafik ve açıklayıcı metin içeren bu güçlü birleşim nedeniyle, veri bilimi yönergesi, veri temizleme ve dönüştürme, sayısal bir simülasyon, modelleme ve geliştirmeye yönelik dahil olmak üzere pek çok kullanımı için popüler hale gelmiştir Makine öğrenimi modelleri.
 
@@ -55,9 +55,9 @@ Kısacası, Azure not defterleri işlerinizi daha verimli bir şekilde gerçekle
 
 ## <a name="pricing-and-quotas"></a>Fiyatlandırma ve kotalar
 
-Azure not defterleri, ücretsiz bir hizmettir ancak her 4 GB bellek ve kötüye kullanımı önlemek için 1 GB'lık veri için sınırlı bir projedir. Bu sınırları aşan kullanıcıların dizüstü çalıştırmaya devam etmek için bir Captcha testini bakın.
+Azure not defterleri, ücretsiz bir hizmettir ancak her proje, kötüye kullanımı önlemek için 4GB bellek ve 1GB veri için sınırlıdır. Bu sınırları aşan kullanıcıların dizüstü çalıştırmaya devam etmek için bir Captcha testini bakın.
 
-Tüm sınırları serbest bırakmak için Azure Active Directory (bir kurumsal hesap gibi) kullanarak bir hesapla Azure not defterlerine oturum. Bu hesabı bir Azure aboneliği ile ilişkili ise, Azure veri bilimi sanal makinesi bilgi işlem katmanını kullanabilirsiniz.
+Tüm sınırları serbest bırakmak için Azure Active Directory (bir kurumsal hesap gibi) kullanarak bir hesapla Azure not defterlerine oturum. Bu hesap bir Azure aboneliği ile ilişkili ise, bu Abonelikteki herhangi bir Azure veri bilimi sanal makinesi örneklerine bağlanabilirsiniz. Daha fazla bilgi için [yönetme ve projeleri - bilgi işlem katmanı yapılandırma](configure-manage-azure-notebooks-projects.md#compute-tier).
 
 ## <a name="available-kernels-and-environments"></a>Kullanılabilen çekirdekler ve ortamları
 

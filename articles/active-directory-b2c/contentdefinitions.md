@@ -3,19 +3,19 @@ title: ContentDefinitions - Azure Active Directory B2C | Microsoft Docs
 description: Azure Active Directory B2C'de özel bir ilke ContentDefinitions öğesi belirtin.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f51b058b14525cc5a4af312696330a3a39ea44e1
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 1fa5688b5895ed7418161234f6af06fecace631c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381769"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849388"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -71,11 +71,11 @@ Meta verileri **LocalAccountSignUpWithLogonEmail** teknik profili, içerik tanı
 | ------- | ----------- | ----------- |
 | LoadUri | 1:1 | İçerik tanımı için HTML5 sayfasının URL'sini içeren bir dize. |
 | RecoveryUri | 0:1 | İçerik tanımı için ilgili bir hata görüntülemek için HTML sayfasının URL'sini içeren bir dize. | 
-| dataUri | 1:1 | Çağırmak için kullanıcı deneyimi sağlayan adım için bir HTML dosyasının göreli URL içeren bir dize. |  
+| DataUri | 1:1 | Çağırmak için kullanıcı deneyimi sağlayan adım için bir HTML dosyasının göreli URL içeren bir dize. |  
 | Meta Veriler | 1:1 | İçerik tanımı tarafından kullanılan meta veriler içeren anahtar/değer çiftleri koleksiyonu. | 
 | LocalizedResourcesReferences | 0:1 | Yerelleştirilmiş kaynaklar başvuruları koleksiyonu. Bir kullanıcı arabirimi ve talepleri özniteliğini yerelleştirme özelleştirmek için bu öğeyi kullanırsınız. |
 
-### <a name="datauri"></a>dataUri
+### <a name="datauri"></a>DataUri
 
 **DataUri** öğesi sayfa tanımlayıcısını belirtmek için kullanılır. Azure AD B2C'yi yüklemek ve kullanıcı Arabirimi öğeleri ve istemci tarafı JavaScript başlatmak için sayfa tanımlayıcısını kullanır. Değerinin biçimi `urn:com:microsoft:aad:b2c:elements:page-name:version`.  Aşağıdaki tabloda kullanabileceğiniz sayfası tanımlayıcıları.
 
@@ -95,7 +95,7 @@ Meta verileri **LocalAccountSignUpWithLogonEmail** teknik profili, içerik tanı
 
 | Öğe | Oluşumlar | Açıklama |
 | ------- | ----------- | ----------- |
-| LocalizedResourcesReference | 1: n | İçerik tanımı için yerelleştirilmiş kaynak başvuruları listesi. | 
+| LocalizedResourcesReference | 1:n | İçerik tanımı için yerelleştirilmiş kaynak başvuruları listesi. | 
 
 **LocalizedResourcesReferences** öğesi aşağıdaki öznitelikler içerir:
 
@@ -149,7 +149,7 @@ ID özniteliği **ContentDefinition** öğesi için içerik tanımı ilişkili s
 | **api.localaccountpasswordreset** | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Parolanızı mı unuttunuz sayfasını** -kullanıcı parola sıfırlama başlatmak için tamamlaması gereken bir form görüntüler. |
 | **api.localaccountsignin** | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Yerel hesap oturum açma sayfası** -bir e-posta adresi veya kullanıcı adına göre yerel bir hesap ile oturum imzalamak için bir form görüntüler. Form, metin girişi kutusunu ve parola giriş kutusu içerebilir. |
 | **api.localaccountsignup** | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Yerel hesap kaydolma sayfası** -e-posta adresi veya bir kullanıcı adı temel alan bir yerel hesap kaydolma için bir form görüntüler. Form gibi çeşitli giriş denetimleri içerebilen: bir metin girişi kutusunu, parola girişi kutusu, radyo düğmesi, tekli seçim açılır kutuları ve çoklu seçim kutuları işaretleyin. |
-| **api.phonefactor** | [çok faktörlü 1.0.0.cshtml](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | **Çok faktörlü kimlik doğrulaması sayfası** -telefon numaraları, metin ya da ses, kaydolma veya oturum açma sırasında kullanarak doğrular. |
+| **api.phonefactor** | [multifactor-1.0.0.cshtml](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | **Çok faktörlü kimlik doğrulaması sayfası** -telefon numaraları, metin ya da ses, kaydolma veya oturum açma sırasında kullanarak doğrular. |
 | **api.selfasserted** | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Sosyal hesap kaydolma sayfası** -var olan bir hesap bir sosyal kimlik sağlayıcısı ile kaydolduğunda kullanıcıların tamamlamalısınız bir form görüntüler. Bu sayfa, önceki sosyal hesap kaydolma sayfası, parola giriş alanları dışında benzerdir. |
 | **api.selfasserted.profileupdate** | [updateprofile.html](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Profili güncelleştirme sayfasını** -kullanıcıların profillerini güncelleştirmek için erişebileceği bir form görüntüler. Bu sayfa, sosyal hesap kaydolma sayfası, parola giriş alanları dışında benzerdir. |
 | **api.signuporsignin** | [Unified.HTML](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Birleşik kaydolma veya oturum açma sayfası** -kullanıcı oturum açma ve kaydolma işlemini gerçekleştirir. Kullanıcıların Kurumsal kimlik sağlayıcıları, Facebook veya Google + veya yerel hesaplar gibi sosyal kimlik sağlayıcılarını kullanabilirsiniz. |

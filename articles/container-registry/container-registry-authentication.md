@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a68e4f70dac7aace9d49a41ecf282525ce6b1fd6
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 665ceabe062fce454db377a384b1d12ba6868c40
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53752886"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851734"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Özel Docker kapsayıcı kayıt defteri ile kimlik doğrulaması
 
@@ -26,13 +26,15 @@ Azure Container Registry, kimliği doğrulanmamış Docker işlemleri veya anoni
 
 ## <a name="individual-login-with-azure-ad"></a>Azure AD ile tek tek oturum açma
 
-Görüntü çeken ve geliştirme istasyonunuzdan görüntüleri gönderme gibi Defterinizle doğrudan çalışırken kullanarak kimlik doğrulaması [az acr oturum açma](/cli/azure/acr?view=azure-cli-latest#az-acr-login) komutunu [Azure CLI](/cli/azure/install-azure-cli):
+Görüntü çeken ve bir geliştirme iş istasyonundan, görüntüleri gönderme gibi Defterinizle doğrudan çalışırken kullanarak kimlik doğrulaması [az acr oturum açma](/cli/azure/acr?view=azure-cli-latest#az-acr-login) komutunu [Azure CLI](/cli/azure/install-azure-cli):
 
 ```azurecli
 az acr login --name <acrName>
 ```
 
 İle oturum açtığınızda `az acr login`, CLI, yürütme sırasında oluşturulan belirteci kullanan [az login](/cli/azure/reference-index#az-login) sorunsuz bir şekilde oturumunuz, kayıt defteri ile kimlik doğrulaması için. Bu şekilde oturum açtığınız sonra kimlik bilgileriniz önbelleğe alınmış ve sonraki `docker` komutları bir kullanıcı adı veya parola gerektirmez. Belirtecinizin süresi dolarsa, onu kullanarak yenileyebilirsiniz `az acr login` komutu yeniden yeniden kimlik doğrulamaya zorlayabilir. Kullanarak `az acr login` Azure kimliklerle sağlar [rol tabanlı erişim](../role-based-access-control/role-assignments-portal.md).
+
+Bazı senaryolar için Azure AD'de bir kayıt defterine kendi bireysel kimlik ile oturum açmak isteyebilirsiniz. Çapraz servis senaryoları için ya da burada bireysel erişim yönetmek istemediğiniz bir çalışma grubunun gereksinimlerini ele almak için de içinde oturum açabileceğiniz bir [yönetilen Azure kaynakları için kimliği](container-registry-authentication-managed-identity.md).
 
 ## <a name="service-principal"></a>Hizmet sorumlusu
 

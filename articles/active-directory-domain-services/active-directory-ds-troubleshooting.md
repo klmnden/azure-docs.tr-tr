@@ -4,7 +4,7 @@ description: Azure AD Domain Services için sorun giderme kılavuzu
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 4bc8c604-f57c-4f28-9dac-8b9164a0cf0b
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/08/2018
 ms.author: ergreenl
-ms.openlocfilehash: e2b7eb4f5be5e73e70f883f9510e7fc6a13d6bea
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 8b752585fc72b7f4be8e7b9320290f8ad56f53c2
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156095"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844662"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Azure AD etki alanı Hizmetleri - sorun giderme kılavuzu
 Bu makalede, ayarlama veya Azure Active Directory (AD) etki alanı Hizmetleri yönetme karşılaşabileceğiniz sorunları için sorun giderme ipuçları sağlar.
@@ -128,7 +128,7 @@ Bu hatayı gidermek için bu uygulamayı etkinleştirin ve ardından Azure AD ki
 ## <a name="users-are-unable-to-sign-in-to-the-azure-ad-domain-services-managed-domain"></a>Kullanıcılar Azure AD Domain Services yönetilen etki alanında oturum açamıyor
 Azure AD kiracınızdaki kullanıcıların bir veya daha fazla yeni oluşturulan yönetilen etki alanında oturum açamıyor olması durumunda, aşağıdaki sorun giderme adımları uygulayın:
 
-* **UPN biçimini kullanarak oturum açın:** UPN biçimini kullanarak oturum açmayı deneyin (örneğin, 'joeuser@contoso.com') yerine SAMAccountName biçimi ('CONTOSO\joeuser'). SAMAccountName, UPN önek aşırı uzun veya başka bir kullanıcı yönetilen etki alanında aynı kullanıcılar için otomatik olarak oluşturulabilir. UPN biçimini Azure AD kiracısı içinde benzersiz olması garanti edilir.
+* **UPN biçimini kullanarak oturum açın:** SAMAccountName biçimi ('CONTOSO\joeuser') yerine UPN biçimini kullanarak oturum açmayı deneyin (örneğin, 'joeuser@contoso.com'). SAMAccountName, UPN önek aşırı uzun veya başka bir kullanıcı yönetilen etki alanında aynı kullanıcılar için otomatik olarak oluşturulabilir. UPN biçimini Azure AD kiracısı içinde benzersiz olması garanti edilir.
 
 > [!NOTE]
 > Azure AD Domain Services yönetilen etki alanında oturum açmak için UPN biçimini kullanmanızı öneririz.
@@ -136,8 +136,8 @@ Azure AD kiracınızdaki kullanıcıların bir veya daha fazla yeni oluşturulan
 >
 
 * Başlarken kılavuzunda açıklanan adımlara uygun olarak [parola eşitlemesini etkinleştirdiğinizden](active-directory-ds-getting-started-password-sync.md) emin olun.
-* **Dış hesaplar:** etkilenen kullanıcı hesabının Azure AD kiracısında bir dış hesap olmadığından emin olun. Örnekler dış hesaplar Microsoft hesapları (örneğin, 'joe@live.com') veya bir dış kullanıcı hesapları Azure AD dizini. Azure AD Domain Services yok olduğundan bu tür kullanıcı hesapları için kimlik bilgilerini, bu kullanıcılar yönetilen etki alanında oturum açamaz.
-* **Eşitlenen hesaplar:** bir şirket içi dizinden etkilenen kullanıcı hesapları eşitlenmişse, doğrulayın:
+* **Dış hesapları:** Etkilenen kullanıcı hesabının, Azure AD kiracısında bir dış hesap olmadığından emin olun. Örnekler dış hesaplar Microsoft hesapları (örneğin, 'joe@live.com') veya bir dış kullanıcı hesapları Azure AD dizini. Azure AD Domain Services yok olduğundan bu tür kullanıcı hesapları için kimlik bilgilerini, bu kullanıcılar yönetilen etki alanında oturum açamaz.
+* **Eşitlenen hesaplar:** Bir şirket içi dizinden etkilenen kullanıcı hesapları eşitlenmişse, aşağıdakileri doğrulayın:
 
   * Dağıtılan veya güncelleştirildi [en son sürüm, Azure AD Connect'in önerilen](https://www.microsoft.com/download/details.aspx?id=47594).
   * Azure AD Connect'e yapılandırdığınız [tam eşitleme gerçekleştir](active-directory-ds-getting-started-password-sync.md).
@@ -146,7 +146,7 @@ Azure AD kiracınızdaki kullanıcıların bir veya daha fazla yeni oluşturulan
 
     1. 'Microsoft Azure AD eşitleme' net stop
     2. 'Microsoft Azure AD eşitleme' net start
-* **Yalnızca bulutta yer alan hesapları**: etkilenen kullanıcı hesabının bir yalnızca bulut kullanıcı hesabıysa, Azure AD Domain Services'ı etkinleştirdikten sonra kullanıcının parolasını değiştirdiğinden emin olun. Bu adım, Azure AD Domain Services için gereken kimlik bilgisi karmalarının oluşturulmasına neden olur.
+* **Yalnızca bulutta yer alan hesapları**: Etkilenen kullanıcı hesabının bir yalnızca bulut kullanıcı hesabıysa, Azure AD Domain Services'ı etkinleştirdikten sonra kullanıcının parolasını değiştirdiğinden emin olun. Bu adım, Azure AD Domain Services için gereken kimlik bilgisi karmalarının oluşturulmasına neden olur.
 
 ## <a name="there-are-one-or-more-alerts-on-your-managed-domain"></a>Yönetilen etki alanınızda bir veya daha fazla uyarı yok
 

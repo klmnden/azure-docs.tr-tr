@@ -3,23 +3,23 @@ title: Ruby ile Azure Service Bus kuyruklarını kullanma | Microsoft Docs
 description: Azure'da Service Bus kuyruklarını kullanmayı öğrenin. Ruby'de yazılan kod örneklerini içerir.
 services: service-bus-messaging
 documentationcenter: ruby
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: 0a11eab2-823f-4cc7-842b-fbbe0f953751
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 09/10/2017
-ms.author: spelluru
-ms.openlocfilehash: 2ad5ac7b191e3be9fbb8eebb754fef2f430c0473
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.date: 01/10/2019
+ms.author: aschhab
+ms.openlocfilehash: 3ec1e2eef4990b16942022a83ba393eab94a91f3
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407102"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856783"
 ---
 # <a name="how-to-use-service-bus-queues-with-ruby"></a>Ruby ile Service Bus kuyruklarını kullanma
 

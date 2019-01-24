@@ -2,18 +2,19 @@
 title: Azure Service Bus Geo-olağanüstü durum kurtarma | Microsoft Docs
 description: Yük devretme için coğrafi bölgeler kullanın ve Azure Service Bus olağanüstü durum kurtarma gerçekleştirmek nasıl
 services: service-bus-messaging
-author: spelluru
+author: axisc
 manager: timlt
+editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 09/14/2018
-ms.author: spelluru
-ms.openlocfilehash: 0436248dac2812c447d25de16a4ac6b45bd7248f
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: d98ff2c5b9d18c36e7d16ec19d3e136be03b8d4c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855195"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848011"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Azure Service Bus Geo-olağanüstü durum kurtarma
 
@@ -35,13 +36,13 @@ Olağanüstü Durum Kurtarma özelliği meta verileri olağanüstü durum kurtar
 
 Bu makalede aşağıdaki terimler kullanılır:
 
--  *Diğer ad*: ayarladığınız bir olağanüstü durum kurtarma Yapılandırması adı. Diğer ad, tek bir kararlı tam etki alanı adı (FQDN) bağlantı dizesi sağlar. Uygulamaları, bir ad alanına bağlanmak için bu diğer ad bağlantı dizesi kullanır. 
+-  *Diğer ad*: Ayarladığınız bir olağanüstü durum kurtarma Yapılandırması adı. Diğer ad, tek bir kararlı tam etki alanı adı (FQDN) bağlantı dizesi sağlar. Uygulamaları, bir ad alanına bağlanmak için bu diğer ad bağlantı dizesi kullanır. 
 
--  *Birincil/ikincil ad alanı*: karşılık gelen diğer ad alanları. Birincil ad "etkin" ve iletileri (Bu, mevcut veya yeni bir ad olabilir) alır. İkincil ad alanı, "pasif" ve iletileri almaz. Her ikisi arasındaki bir meta veri eşitlenmiş olarak olduğundan her ikisi de sorunsuz bir şekilde uygulama kodu veya bağlantı dizesi değişiklik yapmadan iletileri kabul edebilir. Etkin ad alanı iletileri aldığından emin olmak için diğer adı kullanmanız gerekir. 
+-  *Birincil/ikincil ad alanı*: Diğer adı için karşılık gelen ad alanları. Birincil ad "etkin" ve iletileri (Bu, mevcut veya yeni bir ad olabilir) alır. İkincil ad alanı, "pasif" ve iletileri almaz. Her ikisi arasındaki bir meta veri eşitlenmiş olarak olduğundan her ikisi de sorunsuz bir şekilde uygulama kodu veya bağlantı dizesi değişiklik yapmadan iletileri kabul edebilir. Etkin ad alanı iletileri aldığından emin olmak için diğer adı kullanmanız gerekir. 
 
--  *Meta veri*: Kuyruklar, konular ve abonelikler; ve özelliklerini hizmet ad alanınızla ilişkilendirilen gibi varlıklar. Varlıklar ve ayarları otomatik olarak çoğaltılır unutmayın. İletileri çoğaltılmaz. 
+-  *meta veri*: Kuyruklar, konular ve abonelikler gibi varlıkları; ve hizmetin ad alanıyla ilişkili özellikleri. Varlıklar ve ayarları otomatik olarak çoğaltılır unutmayın. İletileri çoğaltılmaz. 
 
--  *Yük devretme*: ikincil ad alanı etkinleştirme işlemi.
+-  *Yük devretme*: İkincil ad alanı etkinleştiriliyor işlemi.
 
 ## <a name="setup-and-failover-flow"></a>Kurulum ve yük devretme akışı
 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: dobett
-ms.openlocfilehash: b7ef5d2853cdf4a7b09aa52c510c268cb42a245f
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 23dbc8d935e46fc4fb12257f360371d4cc61235a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395165"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827389"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Başvuru - IOT Hub kotaları ve azaltma
 
@@ -21,7 +21,7 @@ ms.locfileid: "49395165"
 
 Her Azure aboneliği, en fazla 50 IOT hub ve en fazla 1 ücretsiz hub sahip olabilir.
 
-Her IOT hub'ı, belirli sayıda birimleri belirli bir katman içinde sağlanır. Katman ve birim sayısı en fazla günlük kota gönderebileceğiniz iletilerinin belirleyin. İleti boyutu 0,5 KB'lık ücretsiz katmanı hub için ve diğer katmanlar için 4 KB Günlük kotayı hesaplamak için kullanılır. Daha fazla bilgi için [Azure IOT Hub fiyatlandırması](https://azure.microsoft.com/pricing/details/iot-hub/).
+Her IoT hub'ı belirli bir katmanda belirli bir birim sayısıyla sağlanır. Katman ve birim sayısı en fazla günlük kota gönderebileceğiniz iletilerinin belirleyin. İleti boyutu 0,5 KB'lık ücretsiz katmanı hub için ve diğer katmanlar için 4 KB Günlük kotayı hesaplamak için kullanılır. Daha fazla bilgi için [Azure IOT Hub fiyatlandırması](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 Katman da üzerindeki tüm işlemler IOT hub'ı uygulayan azaltma sınırları belirler.
 
@@ -47,9 +47,12 @@ Aşağıdaki tabloda zorlanan kısıtlamalar gösterilmektedir. Değerleri tek t
 | İşler işlemleri<sup>1,3</sup> <br/> (oluşturma, güncelleştirme, listeleme, silme) | 1.67/sec/Unit (100/dk/birim) | 1.67/sec/Unit (100/dk/birim) | 83.33/sec/Unit (5000/dk/birim) |
 | Cihaz işlemleri işleri<sup>1</sup> <br/> (ikiz güncelleştirmesi, doğrudan yöntem çağırma) | 10/sn | Daha yüksek 10/sn veya 1/sn/birim | 50/sn/birim |
 | Yapılandırmalar ve edge dağıtımlarını<sup>1</sup> <br/> (oluşturma, güncelleştirme, listeleme, silme) | 0.33/sec/Unit (20/dk/birim) | 0.33/sec/Unit (20/dk/birim) | 0.33/sec/Unit (20/dk/birim) |
+| Cihaz akış başlatma hızı<sup>4</sup> | 5 yeni akışlar/sn | 5 yeni akışlar/sn | 5 yeni akışlar/sn |
+| En fazla eşzamanlı olarak bağlı cihaza akış sayısı<sup>4</sup> | 50 | 50 | 50 |
+| En fazla cihaz akış veri aktarımı<sup>4</sup> (toplam günlük birim) | 300 MB | 300 MB | 300 MB |
 
 
-<sup>1</sup>bu özellik, IOT Hub'ın temel katmanda kullanılabilir değil. Daha fazla bilgi için [doğru IOT hub'a seçme](iot-hub-scaling.md). <br/><sup>2</sup>8 KB'lık olan ölçüm boyutunu azaltma. <br/><sup>3</sup>aynı anda yalnızca bir etkin cihaz içeri/dışarı aktarma işi olabilir.
+<sup>1</sup>bu özellik, IOT Hub'ın temel katmanda kullanılabilir değil. Daha fazla bilgi için [doğru IOT hub'a seçme](iot-hub-scaling.md). <br/><sup>2</sup>8 KB'lık olan ölçüm boyutunu azaltma. <br/><sup>3</sup>aynı anda yalnızca bir etkin cihaz içeri/dışarı aktarma işi olabilir. <br/><sup>4</sup>IOT Hub cihaz akışlarıdır yalnızca S1, S2, S3 ve F1 SKU'ları için kullanılabilir.
 
 *Cihaz bağlantılarını* kısıtlama oranı, yeni cihaz bağlantılarını kurulabileceği ile IOT hub'ı yönetir. *Cihaz bağlantılarını* azaltma, en fazla eşzamanlı olarak bağlanan cihaz sayısını belirleyen değil. *Cihaz bağlantılarını* hızı azaltma, IOT hub için sağlanan birim sayısını bağlıdır.
 

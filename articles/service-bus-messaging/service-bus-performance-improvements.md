@@ -3,18 +3,19 @@ title: Azure Service Bus'ı kullanarak performans geliştirme için en iyi yönt
 description: Service Bus aracılı mesaj alışverişleri sırasında performansı iyileştirmek için nasıl kullanılacağını açıklar.
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
+editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
-ms.author: spelluru
-ms.openlocfilehash: cfce11546249310ce00e5f19ba81520cc9dd78cf
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.author: aschhab
+ms.openlocfilehash: 37e2dcc13ed41911c8117dc1841a389c14e5867f
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392644"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848589"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Service Bus Mesajlaşma kullanarak performans geliştirme en iyi uygulamalar
 
@@ -36,7 +37,7 @@ Bağlantı Service Bus Mesajlaşma altyapısını mevcut olduğu sürece kulland
 
 ## <a name="reusing-factories-and-clients"></a>Fabrikalar ve istemcilerin yeniden kullanma
 
-Service Bus istemci nesneler, gibi [QueueClient] [ QueueClient] veya [MessageSender][MessageSender], aracılığıyla oluşturulan bir [ MessagingFactory] [ MessagingFactory] bağlantılarının iç yönetimi de sağlayan bir nesne. Bir ileti gönderin ve sonraki iletiyi gönderdiğinizde, ardından yeniden oluşturduktan sonra Mesajlaşma fabrikaları veya kuyruk, konu ve abonelik istemcileri kapatmayın, önerilir. Service Bus hizmetinin bağlantısı bir Mesajlaşma fabrikası kapatma siler ve yeni bir bağlantı üreteci tekrar oluşturulurken kurulur. Bağlantı kurma aynı Fabrika ve istemci nesneleri birden çok işlem için yeniden kullanarak kaçınabilirsiniz pahalı bir işlemdir. Güvenli bir şekilde kullanabileceğinizi [QueueClient] [ QueueClient] eşzamanlı zaman uyumsuz işlemler ve birden çok iş parçacığı ileti göndermek için nesne. 
+Service Bus istemci nesneler, gibi [QueueClient] [ QueueClient] veya [MessageSender][MessageSender], aracılığıyla oluşturulan bir [ MessagingFactory] [ MessagingFactory] bağlantılarının iç yönetimi de sağlayan bir nesne. Bir ileti gönderin ve sonraki iletiyi gönderdiğinizde, ardından yeniden oluşturduktan sonra Mesajlaşma fabrikaları veya kuyruk, konu ve abonelik istemcileri kapatmayın, önerilir. Service Bus hizmetinin bağlantısı bir Mesajlaşma fabrikası kapatma siler ve yeni bir bağlantı üreteci tekrar oluşturulurken kurulur. Bağlantı kurma aynı Fabrika ve istemci nesneleri birden çok işlem için yeniden kullanarak kaçınabilirsiniz pahalı bir işlemdir. Bu istemci nesneler, eş zamanlı zaman uyumsuz işlemler ve birden çok iş parçacığından güvenli bir şekilde kullanabilirsiniz. 
 
 ## <a name="concurrent-operations"></a>Eşzamanlı işlem
 
@@ -71,7 +72,7 @@ Bir işlem gerçekleştirme (gönderme, alma, silme, vb.) biraz zaman alabilir. 
 
 ## <a name="receive-mode"></a>Modu alır
 
-Bir kuyruk veya abonelik istemci oluştururken alma modu belirtebilirsiniz: *gözlem kilidi* veya *alma ve silme*. Varsayılan alma modu olan [PeekLock][PeekLock]. Bu modda çalışırken, istemci Service Bus'tan ileti almak için bir istek gönderir. İstemci iletiyi aldıktan sonra iletiyi tamamlamak için bir istek gönderir.
+Bir kuyruk veya abonelik istemci oluştururken alma modu belirtebilirsiniz: *Gözlem kilidi* veya *alma ve silme*. Varsayılan alma modu olan [PeekLock][PeekLock]. Bu modda çalışırken, istemci Service Bus'tan ileti almak için bir istek gönderir. İstemci iletiyi aldıktan sonra iletiyi tamamlamak için bir istek gönderir.
 
 Alma modu ayarını olduğunda [ReceiveAndDelete][ReceiveAndDelete], her iki adım tek bir istekte birleştirilir. Bu adımlar, genel işlem sayısını azaltın ve genel ileti işleme hızı artırabilir. Bu performans artışı iletileri kaybetme at the risk of gelir.
 
@@ -127,38 +128,9 @@ Bir iletinin yaşam süresi (TTL) özelliği, sunucu istemciye iletiyi gönderir
 
 Önceden getiriliyor Mesajlaşma Faturalanabilir işlemlerin sayısı etkilemez ve yalnızca hizmet veri yolu istemci protokolü için kullanılabilir. Önceden getiriliyor HTTP protokolünü desteklemiyor. Önceden getiriliyor, zaman uyumlu ve zaman uyumsuz alma işlemleri için kullanılabilir.
 
-## <a name="express-queues-and-topics"></a>Kuyruklar ve konular express
-
-İfade varlıkları, yüksek aktarım hızına ve düşük gecikme süresi senaryoları etkinleştirmek ve yalnızca standart Mesajlaşma katmanda desteklenir. Oluşturulan varlıklar [Premium ad alanlarında](service-bus-premium-messaging.md) express seçeneğini desteklemez. Bir ileti bir kuyruğa veya konuya gönderilen, ifade varlıkları ile ileti hemen Mesajlaşma deposunda depolanmaz. Bunun yerine, bellekte önbelleğe alınır. Bir ileti için birkaç saniye sırada kalırsa, kararlı depolama, böylece kesinti nedeniyle kaybına karşı koruma için otomatik olarak yazılır. İletideki bir önbellek verimliliğini artırır ve depolama, mesajın gönderilip gönderilmediği zaman kararlı erişimi olduğundan gecikmesini azaltır. Birkaç saniye içinde kullanılan ileti, ileti deposuna yazılmaz. Aşağıdaki örnek, hızlı bir konu oluşturur.
-
-```csharp
-TopicDescription td = new TopicDescription(TopicName);
-td.EnableExpress = true;
-namespaceManager.CreateTopic(td);
-```
-
-Hızlı bir varlığa kayıp olmaması gereken önemli bilgileri içeren bir ileti gönderildiğinde, gönderen hemen kararlı depolama ayarlayarak iletiyi kalıcı hale getirmek için Service Bus zorlayabilirsiniz [ForcePersistence] [ ForcePersistence] özelliğini **true**.
-
-> [!NOTE]
-> İfade varlıkları işlemleri desteklemez.
-
-## <a name="partitioned-queues-or-topics"></a>Bölümlenmiş kuyruklar veya konular
-
-Dahili olarak, Service Bus aynı düğümde kullanır ve mesajlaşma depolamak işlemek ve bir Mesajlaşma varlığı (kuyruk veya konu) için tüm iletileri depolamak için. A [bölümlenmiş bir kuyruk veya konuda](service-bus-partitioning.md), diğer yandan, birden fazla düğümde dağıtılmış ve mesajlaşma depoları. Bölümlenmiş kuyruklar ve konular yalnızca normal kuyrukları ve konuları daha yüksek bir aktarım hızı yield, bunlar ayrıca üst düzey kullanılabilirlik sergiler. Bölümlenmiş bir varlık oluşturmak için [EnablePartitioning] [ EnablePartitioning] özelliğini **true**, aşağıdaki örnekte gösterildiği gibi. Bölümlenen varlıklar hakkında daha fazla bilgi için bkz: [bölümlenmiş Mesajlaşma varlıkları][Partitioned messaging entities].
-
-> [!NOTE]
-> Bölümlenen varlıklar içinde desteklenmiyor [Premium SKU](service-bus-premium-messaging.md). 
-
-```csharp
-// Create partitioned queue.
-QueueDescription qd = new QueueDescription(QueueName);
-qd.EnablePartitioning = true;
-namespaceManager.CreateQueue(qd);
-```
-
 ## <a name="multiple-queues"></a>Birden fazla kuyruk
 
-Bölümlenmiş bir kuyruk veya konuda kullanmak mümkün değil veya bir tek bölümlenmiş kuyruğa veya konuya tarafından beklenen yük işlenemiyor, birden çok Mesajlaşma varlıkları kullanmanız gerekir. Birden çok varlık kullanırken, aynı istemciden tüm varlıklar için kullanmak yerine, her varlık için adanmış bir istemci oluşturun.
+Beklenen yükü tek bölümlenmiş bir kuyruk veya konuda tarafından işlenemez birden çok Mesajlaşma varlıkları kullanmanız gerekir. Birden çok varlık kullanırken, aynı istemciden tüm varlıklar için kullanmak yerine, her varlık için adanmış bir istemci oluşturun.
 
 ## <a name="development-and-testing-features"></a>Geliştirme ve test özellikleri
 
@@ -172,7 +144,7 @@ Aşağıdaki bölümlerde, tipik bir Mesajlaşma senaryoları açıklar ve terci
 
 ### <a name="high-throughput-queue"></a>Yüksek performanslı sırası
 
-Hedef: tek bir kuyruk verimini en üst düzeye çıkarın. Göndericiler ve alıcılar küçük sayısıdır.
+Hedef: Tek bir kuyruk verimini en üst düzeye çıkarın. Göndericiler ve alıcılar küçük sayısıdır.
 
 * Kuyruğa genel gönderme oranını artırmak için birden fazla ileti altyapısı Gönderenler oluşturmak için kullanın. Her bir gönderen için zaman uyumsuz işlemler ya da birden çok iş parçacığı kullanın.
 * Kuyruktan genel alma oranını artırmak için birden fazla ileti altyapısı alıcılar oluşturmak için kullanın.
@@ -184,13 +156,13 @@ Hedef: tek bir kuyruk verimini en üst düzeye çıkarın. Göndericiler ve alı
 
 ### <a name="multiple-high-throughput-queues"></a>Birden çok yüksek işleme sırası
 
-Hedef: birden fazla kuyruk genel verimini en üst düzeye çıkarın. Aktarım hızını ayrı bir kuyruk, Orta veya yüksek.
+Hedef: Birden fazla kuyruk genel verimini en üst düzeye çıkarın. Aktarım hızını ayrı bir kuyruk, Orta veya yüksek.
 
 Birden fazla kuyruk en fazla aktarım hızı elde etmek için tek bir kuyruk verimini en üst düzeye çıkarmak için ana hatlarıyla belirtilen ayarları kullanın. Ayrıca, farklı fabrikaları farklı sıralarından gönderip istemciler oluşturmak için kullanın.
 
 ### <a name="low-latency-queue"></a>Düşük gecikme süresi sırası
 
-Hedef: bir kuyruk veya konuda uçtan uca gecikme süresini en aza indirin. Göndericiler ve alıcılar küçük sayısıdır. Sıranın işleme küçük veya orta.
+Hedef: Bir kuyruk veya konuda uçtan uca gecikme süresini en aza indirin. Göndericiler ve alıcılar küçük sayısıdır. Sıranın işleme küçük veya orta.
 
 * İstemci tarafı işlem grubu oluşturma devre dışı bırakın. İstemci hemen bir ileti gönderir.
 * Toplu depolama erişimi devre dışı bırakın. Hizmet, hemen ileti deposuna yazar.
@@ -200,7 +172,7 @@ Hedef: bir kuyruk veya konuda uçtan uca gecikme süresini en aza indirin. Gönd
 
 ### <a name="queue-with-a-large-number-of-senders"></a>Çok sayıda Gönderenler kuyruğa al
 
-Hedef: bir kuyruk veya konu çok sayıda göndericiler ile aktarım hızını en üst düzeye çıkarın. Her gönderen Orta oranı olan iletiler gönderir. Alıcılar küçük sayısıdır.
+Hedef: Bir kuyruk veya konu çok sayıda göndericiler ile aktarım hızını en üst düzeye çıkarın. Her gönderen Orta oranı olan iletiler gönderir. Alıcılar küçük sayısıdır.
 
 Service Bus Mesajlaşma varlığı için 1000 adede kadar eş zamanlı bağlantı sağlar (veya 5000 AMQP kullanarak). Bu sınır ad alanı düzeyinde uygulanır ve kuyrukları/konular/abonelikler, ad alanı başına eşzamanlı bağlantı sınırını tarafından kapsanır. Kuyruklar için bu sayıyı göndericiler ile alıcılar arasında paylaşılır. Tüm 1000 bağlantıları Gönderenler için gerekliyse, kuyruğa bir konu ve tek bir abonelik ile değiştirin. Abonelik bir ek 1000 eşzamanlı bağlantı alıcılarından kabul ederken bir konu göndericiler, 1000 adede kadar eşzamanlı bağlantılarını kabul eder. 1000'den fazla eş zamanlı Gönderenler gerekiyorsa, Gönderenler HTTP aracılığıyla hizmet veri yolu protokolündeki iletileri göndermesi gerekir.
 
@@ -215,7 +187,7 @@ Aktarım hızını en üst düzeye çıkarmak için aşağıdaki adımları ger�
 
 ### <a name="queue-with-a-large-number-of-receivers"></a>Çok sayıda alıcı ile kuyruk
 
-Hedef: bir kuyrukta veya abonelikte bir sayıda alıcılar alma oranını en üst düzeye çıkarın. Her alıcı Orta fiyat iletileri alır. Göndericiler küçük sayısıdır.
+Hedef: Bir kuyrukta veya abonelikte bir sayıda alıcılar alma oranını en üst düzeye çıkarın. Her alıcı Orta fiyat iletileri alır. Göndericiler küçük sayısıdır.
 
 Bir varlık için en fazla 1000 eşzamanlı bağlantı Service Bus sağlar. Bir kuyruk 1000'den fazla alıcılar gerektiriyorsa, kuyruğa bir konu ve birden çok abonelik ile değiştirin. Her abonelik en fazla 1000 eşzamanlı bağlantı destekleyebilir. Alternatif olarak, alıcıları, kuyruk HTTP protokolü üzerinden erişebilirsiniz.
 
@@ -243,7 +215,7 @@ Aktarım hızını en üst düzeye çıkarmak için aşağıdakileri yapın:
 
 ### <a name="topic-with-a-large-number-of-subscriptions"></a>Konu Abonelikleri, çok sayıda ile
 
-Hedef: Konu çok sayıda abonelikler ile aktarım hızını en üst düzeye çıkarın. Bir ileti, tüm abonelikler üzerinden birleşik alma hızı gönderme hızından çok daha büyüktür, yani çok abonelik tarafından alınır. Göndericiler küçük sayısıdır. Abonelik başına alıcılar küçük sayısıdır.
+Hedef: Bir konu çok sayıda abonelikler ile aktarım hızını en üst düzeye çıkarın. Bir ileti, tüm abonelikler üzerinden birleşik alma hızı gönderme hızından çok daha büyüktür, yani çok abonelik tarafından alınır. Göndericiler küçük sayısıdır. Abonelik başına alıcılar küçük sayısıdır.
 
 Tüm iletiler için tüm abonelikleri yönlendirilir, çok sayıda abonelikleri konularla genellikle düşük bir genel performansını kullanıma sunar. Bu düşük aktarım hızı, her ileti birden çok kez alındığında ve bir konuda yer alan tüm iletileri ve tüm abonelikler aynı depoda depolanan gerçeği kaynaklanır. Göndericiler ve alıcılar başına abonelik sayısı küçük sayısıdır varsayılır. Service Bus konu başına en fazla 2.000 abonelik destekler.
 

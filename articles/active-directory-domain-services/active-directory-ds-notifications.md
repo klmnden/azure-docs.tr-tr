@@ -1,10 +1,10 @@
 ---
-title: 'Azure Active Directory Domain Services: Bildirim ayarları | Microsoft Docs'
+title: 'Azure Active Directory etki alanı Hizmetleri: Bildirim ayarları | Microsoft Docs'
 description: Azure AD Domain Services için bildirim ayarları
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: b9af1792-0b7f-4f3e-827a-9426cdb33ba6
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: c6d827629850de88940f41febeeca61b812d692e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: ebac78ff3912d2aafba97b020b37df16020bd7fb
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958534"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853672"
 ---
 # <a name="notification-settings-in-azure-ad-domain-services"></a>Azure AD Etki Alanı Hizmetleri'nde bildirim ayarları
 

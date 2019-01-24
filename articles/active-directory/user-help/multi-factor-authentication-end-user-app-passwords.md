@@ -3,7 +3,7 @@ title: Azure Active Directory'de uygulama parolaları yönetme | Microsoft Docs
 description: Bu sayfa, kullanıcıların iki aşamalı doğrulama için uygulama parolaları nedir ve ne ile kullanıldıkları Algıla anlamasına yardımcı olur.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: richagi
 ms.assetid: 345b757b-5a2b-48eb-953f-d363313be9e5
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 836f426be950e33031ff74276218d1ba59f1f2f7
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 80b04f723c4e5b7ea541833df7575be763001ace
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43300922"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827644"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>İki aşamalı doğrulama için uygulama parolaları yönetme
 
@@ -49,7 +49,7 @@ Oluşturun ve MyApps portalı üzerinden uygulama parolalarını Sil.
 
 ### <a name="to-create-an-app-password-using-the-myapps-portal"></a>MyApps portalında kullanarak bir uygulama parolası oluşturmak için
 
-1. Oturum [ https://myapps.microsoft.com ](https://myapps.microsoft.com).
+1. [https://myapps.microsoft.com](https://myapps.microsoft.com) adresinde oturum açın.
 
 2. Sağ üst köşedeki adınızın seçip seçin **profili**.
 

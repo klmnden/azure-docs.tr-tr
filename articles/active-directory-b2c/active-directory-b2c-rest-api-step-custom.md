@@ -3,19 +3,19 @@ title: REST API, Azure Active Directory B2C'de bir yönetim adımı olarak deği
 description: Bir API ile tümleştirmek, Azure Active Directory B2C özel ilkeler bir konu.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/24/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5102f2b43819c279d0087754b29a616812e5a5f2
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 7d62e0044d91af72ac8fea0271d7fc131e9c0a03
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556569"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852533"
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-an-orchestration-step"></a>Çözüm: Bir düzenleme adımı, Azure AD B2C kullanıcı yolculuğunun talep alışverişlerine REST API tümleştirme
 
@@ -134,7 +134,7 @@ Talep `city` henüz herhangi bir yere bizim şemasında tanımlı değil. Bu ned
 </BuildingBlocks>
 ```
 
-## <a name="step-4-include-the-rest-service-claims-exchange-as-an-orchestration-step-in-your-profile-edit-user-journey-in-trustframeworkextensionsxml"></a>4. adım: REST hizmeti talep değişimi TrustFrameworkExtensions.xml, profil düzenleme kullanıcı yolculuğunda düzenleme adımı olarak ekleyin
+## <a name="step-4-include-the-rest-service-claims-exchange-as-an-orchestration-step-in-your-profile-edit-user-journey-in-trustframeworkextensionsxml"></a>4. Adım: REST hizmeti talep değişimi TrustFrameworkExtensions.xml, profil düzenleme kullanıcı yolculuğunda düzenleme adımı olarak ekleyin
 
 Kullanıcı sonra Profil düzenleme kullanıcı yolculuğu bir adıma (1-4 Aşağıdaki XML'de düzenleme adımlarının) kimlik doğrulaması ve kullanıcının güncelleştirilmiş profil bilgilerini (5. adım) ayarının ekleyin.
 
@@ -212,7 +212,7 @@ Kullanıcı yolculuğu için son XML şu şekilde görünmelidir:
 </UserJourney>
 ```
 
-## <a name="step-5-add-the-claim-city-to-your-relying-party-policy-file-so-the-claim-is-sent-to-your-application"></a>5. adım: Talep Ekle `city` bağlı olan taraf için ilke dosyasına talep uygulamanıza gönderilir ve böylece
+## <a name="step-5-add-the-claim-city-to-your-relying-party-policy-file-so-the-claim-is-sent-to-your-application"></a>5. Adım: Talep Ekle `city` bağlı olan taraf için ilke dosyasına talep uygulamanıza gönderilir ve böylece
 
 ProfileEdit.xml bağlı olan taraf (RP) dosyanızı düzenleyin ve değiştirme `<TechnicalProfile Id="PolicyProfile">` öğe aşağıdakileri ekleyin: `<OutputClaim ClaimTypeReferenceId="city" />`.
 
@@ -229,7 +229,7 @@ Yeni Talep ekledikten sonra teknik profili şöyle görünür:
 </TechnicalProfile>
 ```
 
-## <a name="step-6-upload-your-changes-and-test"></a>6. adım: Değişikliklerinizi karşıya yüklemek ve test
+## <a name="step-6-upload-your-changes-and-test"></a>6. Adım: Değişikliklerinizi karşıya yüklemek ve test
 
 İlkenin mevcut sürümlerin üzerine yazın.
 

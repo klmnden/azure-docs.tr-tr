@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 151d945bbeda9f7dd496f8469f8f858e8369da8f
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 8961a863f1b268a034310554230096cc0f9d5260
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164424"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844067"
 ---
 # <a name="create-and-clone-projects"></a>Projeleri oluşturma ve kopyalama
 
@@ -30,7 +30,7 @@ Bir proje, meta verileri ve özel kurulum adımları ve paket yükleme dahil olm
 
 **Projelerim** Panosu'nda `https://notebooks.azure.com/<userID>/projects` burada görüntüleyin, yönetin ve projeleri oluşturma:
 
-[![](media/my-projects-dashboard.png "Azure not defterlerinde projeleri Panom")](media/my-projects-dashboard.png#lightbox)
+[![Azure not defterlerinde projeleri Panom](media/my-projects-dashboard.png)](media/my-projects-dashboard.png#lightbox)
 
 Panoda yapabilecekleriniz kullanıcı kimliği sahip bir hesapla oturum mi oturum açmadıysanız bağlıdır:
 
@@ -105,9 +105,9 @@ Bir proje kopyalamak için:
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Örnek Not Defterleri keşfedin](azure-notebooks-samples.md)
-- [Nasıl Yapılır: Yapılandırma ve projeleri yönetme](configure-manage-azure-notebooks-projects.md)
-- [Nasıl Yapılır: İçinde bir not defteri paketleri yükleme](install-packages-jupyter-notebook.md)
-- [Nasıl Yapılır: Mevcut bir slayt gösterisi](present-jupyter-notebooks-slideshow.md)
-- [Nasıl Yapılır: Veri dosyaları ile çalışma](work-with-project-data-files.md)
-- [Nasıl Yapılır: Veri kaynaklarına erişim](access-data-resources-jupyter-notebooks.md)
-- [Nasıl Yapılır: Azure Machine Learning Hizmetleri kullanma](use-machine-learning-services-jupyter-notebooks.md)
+- [Nasıl yapılır: Yapılandırma ve projeleri yönetme](configure-manage-azure-notebooks-projects.md)
+- [Nasıl yapılır: İçinde bir not defteri paketleri yükleme](install-packages-jupyter-notebook.md)
+- [Nasıl yapılır: Mevcut bir slayt gösterisi](present-jupyter-notebooks-slideshow.md)
+- [Nasıl yapılır: Veri dosyaları ile çalışma](work-with-project-data-files.md)
+- [Nasıl yapılır: Veri kaynaklarına erişim](access-data-resources-jupyter-notebooks.md)
+- [Nasıl yapılır: Azure Machine Learning Hizmetleri kullanma](use-machine-learning-services-jupyter-notebooks.md)

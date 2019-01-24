@@ -3,19 +3,19 @@ title: Özel bir ilke Azure Active Directory B2C, bir Azure Active Directory tek
 description: Azure Active Directory B2C özel bir ilke Azure Active Directory teknik profili tanımlayın.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: cf7b051703e01493f365c1850ab815747321230b
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: dc9cda92ef725bbfc1a12756912656f0c39474cd
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381701"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846753"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Bir Azure Active Directory teknik profili, bir Azure Active Directory B2C özel ilke tanımlayın
 
@@ -260,7 +260,7 @@ Aşağıdaki teknik profili kullanarak bir sosyal kullanıcı hesabı siler **al
 | RaiseErrorIfClaimsPrincipalAlreadyExists | Hayır | Kullanıcı nesnesi zaten varsa, hata oluşturur. Olası değerler: `true` veya `false`.| 
 | UserMessageIfClaimsPrincipalAlreadyExists | Hayır | Bir hata verilmesine ise (RaiseErrorIfClaimsPrincipalAlreadyExists öznitelik açıklaması bakın), kullanıcı nesnesi zaten varsa, kullanıcıya göstermek için iletiyi belirtirsiniz. Değer olabilir [yerelleştirilmiş](localization.md).| 
 | ApplicationObjectId | Hayır | Uzantı öznitelikleri uygulama nesne tanımlayıcısı. Değer: ObjectID uygulamanın. Daha fazla bilgi için [özel bir profilde özel öznitelikler kullanın ilkesini Düzenle](active-directory-b2c-create-custom-attributes-profile-edit-custom.md). | 
-| ClientID | Hayır | Kiracı bir üçüncü taraf olarak erişmek için istemci tanımlayıcısı. Daha fazla bilgi için [özel bir profilde özel öznitelikler kullanın ilkesini Düzenle](active-directory-b2c-create-custom-attributes-profile-edit-custom.md) | 
+| ClientId | Hayır | Kiracı bir üçüncü taraf olarak erişmek için istemci tanımlayıcısı. Daha fazla bilgi için [özel bir profilde özel öznitelikler kullanın ilkesini Düzenle](active-directory-b2c-create-custom-attributes-profile-edit-custom.md) | 
 
 
 

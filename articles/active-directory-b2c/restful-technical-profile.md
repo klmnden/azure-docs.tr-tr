@@ -3,19 +3,19 @@ title: Azure Active Directory B2C, özel bir ilkede RESTful teknik profil tanım
 description: Azure Active Directory B2C, özel bir ilkede bir RESTful teknik profili tanımlayın.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 930cdddd8a9e039fa9c29a348a0a66eb25d254fe
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: d9dfef68e35cc07d395bb247af3476e8b73da642
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381661"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54843897"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Bir Azure Active Directory B2C özel ilke RESTful teknik profil tanımlama
 
@@ -86,7 +86,7 @@ Teknik profili, kimlik sağlayıcısı tarafından döndürülen olmayan taleple
 | Öznitelik | Gerekli | Açıklama |
 | --------- | -------- | ----------- |
 | ServiceUrl | Evet | REST API uç noktası URL'si. | 
-| authenticationType | Evet | RESTful talep sağlayıcısı tarafından gerçekleştirilen kimlik doğrulama türü. Olası değerler: `None`, `Basic`, veya `ClientCertificate`. `None` Değer olmadığını REST API anonim olduğunu belirtir. `Basic` Değeri REST API ile HTTP temel kimlik doğrulaması sağlandığını gösterir. Yalnızca doğrulanmış kullanıcıların, Azure AD B2C'de dahil olmak üzere, API'nizi erişebilir. `ClientCertificate` (Önerilen) değeri gösterir REST API İstemci sertifikası kimlik doğrulaması kullanarak erişimi kısıtlar. Azure AD B2C gibi uygun sertifikaların sahip Hizmetleri, hizmetinizin erişebilirsiniz. | 
+| AuthenticationType | Evet | RESTful talep sağlayıcısı tarafından gerçekleştirilen kimlik doğrulama türü. Olası değerler: `None`, `Basic`, veya `ClientCertificate`. `None` Değer olmadığını REST API anonim olduğunu belirtir. `Basic` Değeri REST API ile HTTP temel kimlik doğrulaması sağlandığını gösterir. Yalnızca doğrulanmış kullanıcıların, Azure AD B2C'de dahil olmak üzere, API'nizi erişebilir. `ClientCertificate` (Önerilen) değeri gösterir REST API İstemci sertifikası kimlik doğrulaması kullanarak erişimi kısıtlar. Azure AD B2C gibi uygun sertifikaların sahip Hizmetleri, hizmetinizin erişebilirsiniz. | 
 | Sendclaimsın | Hayır | Giriş talepleri RESTful talep sağlayıcısını nasıl gönderileceğini belirtir. Olası değerler: `Body` (varsayılan), `Form`, `Header`, veya `QueryString`. `Body` İstek gövdesi JSON biçiminde gönderilen giriş talep değerdir. `Form` , İstek gövdesinde bir ampersan gönderilen ' &' anahtar değeri biçimi ayrılmış giriş talep değerdir. `Header` İstek üstbilgisinde gönderilen giriş talep değerdir. `QueryString` Sorgu dizesi isteğinde gönderilen giriş talep değerdir. | 
 | ClaimsFormat | Hayır | Çıkış talep biçimini belirtir. Olası değerler: `Body` (varsayılan), `Form`, `Header`, veya `QueryString`. `Body` İstek gövdesi JSON biçiminde gönderilen çıkış talep değerdir. `Form` , İstek gövdesinde bir ampersan gönderilen ' &' anahtar değeri biçimi çıkış talep değerdir. `Header` İstek üstbilgisinde gönderilen çıkış talep değerdir. `QueryString` Sorgu dizesi isteğinde gönderilen çıkış talep değerdir. | 
 | DebugMode | Hayır | Teknik profili, hata ayıklama modunda çalıştırır. REST API, hata ayıklama modunda daha fazla bilgi döndürebilir. Dönen hata iletisi bölümüne bakın. | 
@@ -159,9 +159,9 @@ Kimlik doğrulaması türü ayarlanırsa `ClientCertificate`, **CryptographicKey
 
 | Öznitelik | Gerekli | Açıklama |
 | --------- | -------- | ----------- |
-| sürüm | Evet | 1.0.0 | 
+| version | Evet | 1.0.0 | 
 | durum | Evet | 409 | 
-| Kod | Hayır | Bir hata kodu, RESTful uç noktası sağlayıcı olduğunda görüntülenen `DebugMode` etkinleştirilir. | 
+| kod | Hayır | Bir hata kodu, RESTful uç noktası sağlayıcı olduğunda görüntülenen `DebugMode` etkinleştirilir. | 
 | requestId | Hayır | Bir istek tanımlayıcısı olan RESTful uç noktası sağlayıcısından olduğunda görüntülenen `DebugMode` etkinleştirilir. | 
 | userMessage | Evet | Kullanıcıya gösterilen bir hata iletisi. | 
 | developerMessage | Hayır | Sorun ve olan Bunu düzeltmek nasıl ayrıntılı bir açıklamasını olduğunda görüntülenen `DebugMode` etkinleştirilir. | 
@@ -171,13 +171,13 @@ Aşağıdaki örnek JSON biçimli bir hata iletisi döndüren bir REST API göst
 
 ```JSON
 {
-  "version": "1.0.0",
-  "status": 409,
-  "code": "API12345",
-  "requestId": "50f0bd91-2ff4-4b8f-828f-00f170519ddb",
-  "userMessage": "Message for the user", 
-  "developerMessage": "Verbose description of problem and how to fix it.", 
-  "moreInfo": "https://restapi/error/API12345/moreinfo" 
+  "version": "1.0.0",
+  "status": 409,
+  "code": "API12345",
+  "requestId": "50f0bd91-2ff4-4b8f-828f-00f170519ddb",
+  "userMessage": "Message for the user", 
+  "developerMessage": "Verbose description of problem and how to fix it.", 
+  "moreInfo": "https://restapi/error/API12345/moreinfo" 
 }
 ```
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 7cfcb71567931b1581618cf8f2239fb004befff8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ecebeef509f1f23e34ade6a79b8ffe39d4cbb0a5
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087040"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845631"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Uyumluluğu zorunlu tutmak için ilkeleri oluşturma ve yönetme
 
@@ -110,7 +110,7 @@ Artık bir yerleşik ilke tanımı atadığınıza göre, Azure İlkesi'yle daha
     }
     ```
 
-    *Alan* ilke kuralı özelliği şu değerlerden biri olmalıdır: adı, türü, konum, etiketler veya bir diğer ad. Diğer adlara örnek olarak `"Microsoft.Compute/VirtualMachines/Size"` verilebilir.
+    *Alan* ilke kuralı özelliği şu değerlerden biri olmalıdır: Adı, türü, konum, etiketler veya bir diğer ad. Diğer adlara örnek olarak `"Microsoft.Compute/VirtualMachines/Size"` verilebilir.
 
     Diğer Azure ilkesi örneklerini görüntülemek için bkz. [Azure İlkesi örnekleri](../samples/index.md).
 
@@ -160,12 +160,12 @@ Aşağıdaki örnekte gösterilene benzer bir istek gövdesi ekleyin:
 
 PowerShell örneğine devam etmeden önce Azure PowerShell'in en son sürümünü yüklediğiniz emin olun. İlke parametreleri 3.6.0 sürümünde eklenmiştir. Önceki bir sürümü varsa, örneklerde parametrenin bulunamadığını belirten bir hata döndürür.
 
-`New-AzureRmPolicyDefinition` cmdlet'ini kullanarak ilke tanımı oluşturabilirsiniz.
+`New-AzPolicyDefinition` cmdlet'ini kullanarak ilke tanımı oluşturabilirsiniz.
 
 Bir dosyadan ilke tanımı oluşturmak için, dosyanın yolunu geçirin. Dış dosya için aşağıdaki örneği kullanın:
 
 ```azurepowershell-interactive
-$definition = New-AzureRmPolicyDefinition `
+$definition = New-AzPolicyDefinition `
     -Name 'denyCoolTiering' `
     -DisplayName 'Deny cool access tiering for storage' `
     -Policy 'https://raw.githubusercontent.com/Azure/azure-policy-samples/master/samples/Storage/storage-account-access-tier/azurepolicy.rules.json'
@@ -174,7 +174,7 @@ $definition = New-AzureRmPolicyDefinition `
 Yerel dosya kullanımı için aşağıdaki örneği kullanın:
 
 ```azurepowershell-interactive
-$definition = New-AzureRmPolicyDefinition `
+$definition = New-AzPolicyDefinition `
     -Name 'denyCoolTiering' `
     -Description 'Deny cool access tiering for storage' `
     -Policy 'c:\policies\coolAccessTier.json'
@@ -183,7 +183,7 @@ $definition = New-AzureRmPolicyDefinition `
 Satır içi kuralla ilke tanımı oluşturmak için aşağıdaki örneği kullanın:
 
 ```azurepowershell-interactive
-$definition = New-AzureRmPolicyDefinition -Name 'denyCoolTiering' -Description 'Deny cool access tiering for storage' -Policy '{
+$definition = New-AzPolicyDefinition -Name 'denyCoolTiering' -Description 'Deny cool access tiering for storage' -Policy '{
     "if": {
         "allOf": [{
                 "field": "type",
@@ -238,7 +238,7 @@ $parameters = '{
     }
 }'
 
-$definition = New-AzureRmPolicyDefinition -Name 'storageLocations' -Description 'Policy to specify locations for storage accounts.' -Policy $policy -Parameter $parameters
+$definition = New-AzPolicyDefinition -Name 'storageLocations' -Description 'Policy to specify locations for storage accounts.' -Policy $policy -Parameter $parameters
 ```
 
 ### <a name="view-policy-definitions-with-powershell"></a>İlke tanımlarını PowerShell ile görüntüleme
@@ -246,7 +246,7 @@ $definition = New-AzureRmPolicyDefinition -Name 'storageLocations' -Description 
 Aboneliğinizdeki tüm ilke tanımlarını görmek için aşağıdaki komutu kullanın:
 
 ```azurepowershell-interactive
-Get-AzureRmPolicyDefinition
+Get-AzPolicyDefinition
 ```
 
 Yerleşik ilkeler de dahil olmak üzere tüm kullanılabilir ilke tanımlarını döndürür. Her ilke şu biçimde döndürülür:
@@ -338,7 +338,7 @@ Girişim tanımıyla, çeşitli ilke tanımlarını gruplandırıp kapsamlı bir
 
 1. Girişimin **Adını** ve **Açıklamasını** girin.
 
-   Bu örnekte, kaynakların ilgili ilke tanımlarıyla uyumlu olduğunu doğrular. Girişimi **Güvenliği Sağlama** olarak adlandırın ve şöyle bir açıklama yazın: **Bu girişim kaynakların güvenliğini sağlamakla ilişkili tüm ilke tanımlarını işlemek için oluşturuldu**.
+   Bu örnekte, kaynakların ilgili ilke tanımlarıyla uyumlu olduğunu doğrular. Girişimin adını **güvenliği sağlama** ve açıklama olarak ayarlayın: **Bu girişim kaynakların güvenliğini sağlamakla ilişkili tüm ilke tanımlarını işlemek için oluşturulan**.
 
 1. **Kategori** için mevcut seçenekler arasından seçim yapın veya yeni bir kategori oluşturun.
 
@@ -367,7 +367,7 @@ Girişim tanımıyla, çeşitli ilke tanımlarını gruplandırıp kapsamlı bir
 
 1. Azure İlkesi sayfasının sol tarafındaki **Yazma** bölümünden **Tanımlar**’ı seçin.
 
-1. Daha önce oluşturduğunuz **Güvenliği Sağlama** adlı girişim tanımını bulup tıklayın. Sayfanın üst kısmından **Ata**’yı seçerek **Güvenliği Sağlama: Girişimi atama** sayfasını açın.
+1. Daha önce oluşturduğunuz **Güvenliği Sağlama** adlı girişim tanımını bulup tıklayın. Seçin **atama** açmak için sayfanın üst kısmındaki **güvenliği sağlama: Girişim Ata** sayfası.
 
    ![Tanımı atama](../media/create-and-manage/assign-definition.png)
 
@@ -375,13 +375,13 @@ Girişim tanımıyla, çeşitli ilke tanımlarını gruplandırıp kapsamlı bir
 
    ![Bir satıra sağ tıklayın](../media/create-and-manage/select-right-click.png)
 
-1. Aşağıdaki örnek bilgileri girerek **Güvenliği Sağlama: Girişimi Ata** sayfasını doldurun. Kendi bilgilerinizi de kullanabilirsiniz.
+1. Doldurun **güvenliği sağlama: Girişim Ata** aşağıdaki örnek bilgileri girerek sayfası. Kendi bilgilerinizi de kullanabilirsiniz.
 
-   - Kapsam: Girişimi kaydettiğiniz yönetim grubu veya abonelik, varsayılan kapsam olur.  Kapsamı değiştirerek girişimi kayıt konumundaki bir aboneliğe veya kaynak grubuna atayabilirsiniz.
-   - Dışlamalar: Kapsam dahilinde yer alan ancak girişim atamasının uygulanmasını önlemek istediğiniz kaynaklar varsa bunları yapılandırın.
-   - Girişim tanımı ve Atama adı: Güvenliği Sağlama (atanan girişimin adı olarak önceden oluşturulur).
+   - Kapsam: Yönetim grubuna veya aboneliğe girişime kaydettiğiniz varsayılan olur.  Kapsamı değiştirerek girişimi kayıt konumundaki bir aboneliğe veya kaynak grubuna atayabilirsiniz.
+   - Dışlamaları: Bunları uygulanmasını girişim atamasını önlemek için kapsam içi herhangi bir kaynağa yapılandırın.
+   - Girişim tanımını ve atama adı: Güvenli (atanan girişim adıyla önceden doldurulmuş) alın.
    - Açıklama: Bu girişim ataması, bu ilke tanımları grubunu zorunlu tutmak için uyarlanmıştır.
-   - Atayan: Oturum açmış kişiye göre otomatik olarak doldurulur. Bu alan isteğe bağlı olduğu için özel değerler girilebilir.
+   - Atanan: Otomatik olarak açan temel alınarak doldurulur. Bu alan isteğe bağlı olduğu için özel değerler girilebilir.
 
 1. **Yönetilen Kimlik Oluşturun** seçeneğini işaretsiz bırakın. Bu kutuyu _gerekir_ işaretli olduğunda ilke veya girişim atandıktan sahip bir ilke içerir [Deployıfnotexists](../concepts/effects.md#deployifnotexists) efekt. Bu öğreticide kullanılan ilke bulunmadığından, boş bırakın. Daha fazla bilgi için [yönetilen kimlikler](../../../active-directory/managed-identities-azure-resources/overview.md) ve [düzeltme güvenliğinin işleyişi](../how-to/remediate-resources.md#how-remediation-security-works) bölümlerine bakın.
 
@@ -408,15 +408,15 @@ Aşağıdaki örnekte, tek bir kaynak grubunda tüm SQL Server sürümlerine izi
 
 Bir atanan ilke veya girişim engelleyen bir dağıtıma iki konumda görüntülenebilir:
 
-- Bir kaynak grubuna dağıtım tarafından hedeflenen: seçin **dağıtımları** sayfasında, ardından sol tarafındaki ve tıklayarak **dağıtım adı** başarısız dağıtım. Reddedilen kaynak, _Yasaklandı_ durum bilgisiyle listelenir. Kaynağı reddeden ilkeyi veya girişimi belirlemek için Dağıtıma Genel Bakış sayfasında **Başarısız oldu. Ayrıntılar için buraya tıklayın ->** seçeneğine tıklayın. Sayfanın sağ tarafında hata bilgilerini içeren bir pencere açılır. Altında **hata ayrıntılarını** ilgili ilke nesnelerin guıd'lerdir.
+- Dağıtım tarafından hedeflenen kaynak grubu üzerinde: Seçin **dağıtımları** sayfasında, ardından sol tarafındaki ve tıklayarak **dağıtım adı** başarısız dağıtım. Reddedilen kaynak, _Yasaklandı_ durum bilgisiyle listelenir. Kaynağı reddeden ilkeyi veya girişimi belirlemek için Dağıtıma Genel Bakış sayfasında **Başarısız oldu. Ayrıntılar için buraya tıklayın ->** seçeneğine tıklayın. Sayfanın sağ tarafında hata bilgilerini içeren bir pencere açılır. Altında **hata ayrıntılarını** ilgili ilke nesnelerin guıd'lerdir.
 
   ![Dağıtım ilke ataması tarafından reddedildi](../media/create-and-manage/rg-deployment-denied.png)
 
-- Azure İlkesi sayfasında: Sayfanın sol tarafından **Uyumluluk**’u seçin ve **SQL Server sürüm 12.0 gerektir** ilkesine tıklayın. Açılan sayfada **Ret** sayısında bir artış görürsünüz. Altında **olayları** sekmesinde de gördüğünüz kimin ilke tarafından reddedildi dağıtım çalıştı.
+- Azure İlkesi sayfasında: Seçin **Uyumluluk** tıklayın ve sayfanın sol tarafındaki **SQL Server sürüm 12.0 gerektir** ilkesi. Açılan sayfada **Ret** sayısında bir artış görürsünüz. Altında **olayları** sekmesinde de gördüğünüz kimin ilke tarafından reddedildi dağıtım çalıştı.
 
   ![Atanan bir ilkenin uyumluluğuna genel bakış](../media/create-and-manage/compliance-overview.png)
 
-Bu örnekte, Contoso'nun kıdemli Sanallaştırma uzmanlarından biri olan Taner Keskin yapması gereken işleri yapıyordu. Bir özel durum Trent vermek ihtiyacımız ancak biz yalnızca bir kaynak grubunda sürüm 12.0 SQL Server'lar istemiyorsanız. **SQLServers_Excluded** adlı yeni bir kaynak grubu oluşturduk ve bu gruba bu ilke ataması için özel durum izni vereceğiz.
+Bu örnekte, Contoso'nun üst düzey sanallaştırma uzmanları birini Trent Etikan gerekli işi yapmakta olduğu. Bir özel durum Trent vermek ihtiyacımız ancak biz yalnızca bir kaynak grubunda sürüm 12.0 SQL Server'lar istemiyorsanız. **SQLServers_Excluded** adlı yeni bir kaynak grubu oluşturduk ve bu gruba bu ilke ataması için özel durum izni vereceğiz.
 
 ### <a name="update-assignment-with-exclusion"></a>Atamayı özel durumla güncelleştirme
 

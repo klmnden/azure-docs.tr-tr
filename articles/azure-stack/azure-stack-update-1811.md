@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2019
+ms.date: 01/24/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.openlocfilehash: 2d5c658dabd03eb706c24fbe5e8adb0c46fc65cd
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 0c681e7406f5c0c6e205f9dc54ee5eea63b40252
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267326"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853247"
 ---
 # <a name="azure-stack-1811-update"></a>Azure Stack 1811 güncelleştirme
 
@@ -191,6 +191,8 @@ Bu güvenlik açıkları hakkında daha fazla bilgi için yukarıdaki bağlantı
 
 ## <a name="known-issues-with-the-update-process"></a>Güncelleştirme işlemi ile ilgili bilinen sorunlar
 
+- Çalıştırdığınızda **Get-AzureStackLog** PowerShell cmdlet'ini çalıştırdıktan sonra **Test AzureStack** aynı ayrıcalıklı uç noktası (CESARETLENDİRİCİ) oturumunda **Get-AzureStackLog** başarısız olur. Bu sorunu geçici olarak çözmek için yürütüldüğü CESARETLENDİRİCİ oturumu kapatmak **Test AzureStack**ve sonra çalıştırmak için yeni bir oturum açma **Get-AzureStackLog**.
+
 - 1811 yüklenmesi sırasında güncelleştirmesi, tüm örnekleri Yönetici portalı'nın bu süre boyunca kapalı olduğundan emin olun. Kullanıcı Portalı açık kalır, ancak Yönetici portalı kapatılmalıdır.
 
 - Çalıştırırken [Test AzureStack](azure-stack-diagnostic-test.md), ya da **AzsInfraRoleSummary** veya **AzsPortalApiSummary** test başarısız olursa, çalıştırmanız istenir  **Test-AzureStack** ile `-Repair` bayrağı.  Bu komutu çalıştırırsanız, şu hata iletisiyle başarısız olur:  `Unexpected exception getting Azure Stack health status. Cannot bind argument to parameter 'TestResult' because it is null.`  Bu sorun gelecekteki bir sürümde düzeltilecektir.
@@ -312,7 +314,7 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 
    - Yönetilen disklerle bir VM dağıtma 1808 güncelleştirmeden önce Abonelik oluşturulurken bir iç hata iletisi ile başarısız olabilir. Hatayı gidermek için her abonelik için şu adımları izleyin:
       1. Kiracı Portalı'nda Git **abonelikleri** ve aboneliği bulunamıyor. Seçin **kaynak sağlayıcıları**, ardından **Microsoft.Compute**ve ardından **yeniden kaydettirin**.
-      2. Aynı abonelik altında Git **erişim denetimi (IAM)**, doğrulayın **Azure Stack – yönetilen Disk** listelenir.
+      2. Aynı abonelik altında Git **erişim denetimi (IAM)**, doğrulayın **AzureStack DiskRP istemci** rol listelenmektedir.
    - Bir konuk dizin ile ilişkili bir abonelik içindeki Vm'leri dağıtma, çok kiracılı bir ortam yapılandırdıysanız, bir iç hata iletisi ile başarısız olabilir. Hatayı gidermek için aşağıdaki adımları izleyin. [bu makalede](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) her Konuk dizinlerinizi yeniden yapılandırmak için.
 
 - Bir Ubuntu 18.04 etkinleştirilmiş SSH yetkilendirme ile oluşturulan VM, oturum açmak için SSH anahtarları kullanmak izin vermez. Geçici bir çözüm olarak VM erişimi Linux uzantısı için SSH anahtarları sağladıktan sonra uygulamak için kullanmak veya parola tabanlı kimlik doğrulaması kullanın.

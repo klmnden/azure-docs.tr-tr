@@ -11,12 +11,12 @@ ms.topic: concept
 ms.date: 01/16/2019
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 5929d591b745992143ee2441759943af15b932d9
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 9c5979357532bb29f8e3545db57aa32603763dc1
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54479551"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855610"
 ---
 # <a name="cookie-settings-for-accessing-on-premises-applications-in-azure-active-directory"></a>Azure Active Directory'de şirket içi uygulamalara erişmek için tanımlama bilgisi ayarları
 
@@ -24,12 +24,12 @@ Azure Active Directory (Azure AD) erişim uygulama proxy'si aracılığıyla şi
 
 ## <a name="what-are-the-cookie-settings"></a>Tanımlama bilgisi ayarları nelerdir?
 
-[Uygulama proxy'si](application-proxy.md) bayrakları, HTTP yanıt üst bilgisi ayarlamak için aşağıdaki erişim ve oturum tanımlama bilgisi ayarları kullanır. 
+[Uygulama proxy'si](application-proxy.md) aşağıdaki erişim ve oturum tanımlama bilgisi ayarları kullanır.
 
 | Tanımlama bilgisi ayarı | Varsayılan | Açıklama | Öneriler |
 | -------------- | ------- | ----------- | --------------- |
-| Yalnızca HTTP Tanımlama Bilgisi Kullan | **Hayır** | **Evet** HTTPOnly bayrağı HTTP yanıt üstbilgileri dahil etmek uygulama proxy'si sağlar. Bu bayrak ek güvenlik avantajları vardır, örneğin, (kopyalama veya tanımlama bilgilerini değiştirme istemci tarafı komut dosyası CSS) engeller.<br></br><br></br>Biz yalnızca HTTP ayarı desteklenen önce uygulama proxy'si şifrelenir ve tanımlama bilgileri değişiklik karşı korumak için güvenli bir TLS kanalı üzerinden aktarılan. | Kullanım **Evet** ek güvenlik avantajları nedeniyle.<br></br><br></br>Kullanım **Hayır** istemciler veya oturum tanımlama bilgisinin erişim gerektiren kullanıcı aracıları. Örneğin, **Hayır** uygulama proxy'si aracılığıyla bir Uzak Masaüstü Ağ Geçidi sunucusuna bağlanan bir RDP veya MTSC istemcinin için.|
-| Güvenli Tanımlama Bilgisi Kullan | **Hayır** | **Evet** güvenli dahil etmek uygulama proxy'si sağlayan HTTP yanıt üst bilgilerini bayrağı. Güvenli tanımlama bilgileri, bir TLS güvenli kanal gibi HTTPS üzerinden tanımlama bilgilerini ileterek güvenlik geliştirir. | Kullanım **Evet** ek güvenlik avantajları nedeniyle.<br></br><br></br>Önlemek **Hayır** şifrelenmemiş HTTP istekleri üzerinden iletim tanımlama bilgileri, yetkisiz taraflar bunları burada görüntüleyebilir izin verdiğinden.|
+| Yalnızca HTTP Tanımlama Bilgisi Kullan | **Hayır** | **Evet** HTTPOnly bayrağı HTTP yanıt üstbilgileri dahil etmek uygulama proxy'si sağlar. Bu bayrak ek güvenlik avantajları vardır, örneğin, (kopyalama veya tanımlama bilgilerini değiştirme istemci tarafı komut dosyası CSS) engeller.<br></br><br></br>Biz yalnızca HTTP ayarı desteklenen önce uygulama proxy'si şifrelenir ve tanımlama bilgileri değişiklik karşı korumak için güvenli bir SSL kanalı üzerinden aktarılan. | Kullanım **Evet** ek güvenlik avantajları nedeniyle.<br></br><br></br>Kullanım **Hayır** istemciler veya oturum tanımlama bilgisinin erişim gerektiren kullanıcı aracıları. Örneğin, **Hayır** uygulama proxy'si aracılığıyla bir Uzak Masaüstü Ağ Geçidi sunucusuna bağlanan bir RDP veya MTSC istemcinin için.|
+| Güvenli Tanımlama Bilgisi Kullan | **Hayır** | **Evet** güvenli dahil etmek uygulama proxy'si sağlayan HTTP yanıt üst bilgilerini bayrağı. Güvenli tanımlama bilgileri, bir TLS güvenli kanal gibi HTTPS üzerinden tanımlama bilgilerini ileterek güvenlik geliştirir. Bu, tanımlama bilgileri nedeniyle iletim tanımlama bilgisinin yetkisiz üçüncü taraflarca düz metin olarak gözlemlenmekte öğesinden engeller. | Kullanım **Evet** ek güvenlik avantajları nedeniyle.|
 | Kalıcı Tanımlama Bilgisi Kullan | **Hayır** | **Evet** web tarayıcı kapatıldığında geçmemesi için kendi erişim tanımlama bilgilerini ayarlamak uygulama proxy'si sağlar. Kalıcılık, erişim belirtecinin süresi dolana kadar veya kullanıcının kalıcı tanımlama bilgilerini elle silene kadar sürer. | Kullanım **Hayır** kimliği doğrulanmış kullanıcılar tutulmasına ilişkin güvenlik riski nedeniyle.<br></br><br></br>Yalnızca kullanmanızı öneririz **Evet** tanımlama bilgilerini işlemler arasında paylaşamaz eski uygulamalar için. Kalıcı tanımlama bilgileri kullanmak yerine işlemleri arasında paylaşım tanımlama bilgilerini işlemek için uygulamanızı güncelleştirmeniz daha iyidir. Örneğin, bir kullanıcı bir SharePoint sitesinden Gezgini görünümünde Office belgeleri açmaya izin verecek şekilde kalıcı tanımlama bilgileri gerekebilir. Erişim tanımlama bilgilerini tarayıcı, explorer işlemi ve Office işlem arasında paylaşılmaz kalıcı tanımlama bilgileri bu işlemi başarısız. |
 
 ## <a name="set-the-cookie-settings---azure-portal"></a>Azure portalı - tanımlama bilgisi ayarları ayarlayın

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: juliako
-ms.openlocfilehash: 95d3f0aac4acdfbd70dcadd8db5c13456e83a7e7
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 20aef7f971b4c4bf8dcff98c633aa0b0aa69811a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344321"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828188"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Video ve ses dosyalarını analiz etme
 
@@ -148,7 +148,7 @@ Hazır bir ses veya video dosyasından birden çok ses ınsights almanıza olana
 |ad|Yüz tanıma adı. 'Bilinmeyen #0', tanımlanmış bir ünlü veya müşteri eğitilen kişi olabilir.|
 |güven|Yüz tanıma güvenilirlik.|
 |açıklama|Ünlü açıklaması. |
-|thumbnalId|Yüz tanıma, küçük resim kimliği.|
+|thumbnailId|Yüz tanıma, küçük resim kimliği.|
 |knownPersonId|Bilinen bir kişi, kendi iç kimliği ise|
 |Başvuru Kimliği|Bir Bing ünlü Bing kimliği ise|
 |referenceType|Şu anda yalnızca Bing.|

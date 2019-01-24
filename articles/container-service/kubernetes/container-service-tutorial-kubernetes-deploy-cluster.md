@@ -9,17 +9,17 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: d77396cdcaa3f2f291aff52dfd1e6793aee4039c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 666e2e63b4e61f5a44fdff9175ff696e72d86138
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997853"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856545"
 ---
 # <a name="deprecated-deploy-a-kubernetes-cluster-in-azure-container-service"></a>(KULLANIM DIŞI) Azure Container Service'te bir Kubernetes kümesi dağıtma
 
 > [!TIP]
-> Azure Kubernetes hizmeti kullanan Bu öğretici için güncelleştirilmiş sürümü görmek [öğretici: Azure Kubernetes Service (AKS) kümesini dağıtma](../../aks/tutorial-kubernetes-deploy-cluster.md).
+> Azure Kubernetes hizmeti kullanan Bu öğretici için güncelleştirilmiş sürümü görmek [Öğreticisi: Azure Kubernetes Service (AKS) kümesini dağıtma](../../aks/tutorial-kubernetes-deploy-cluster.md).
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
@@ -66,7 +66,7 @@ Windows’ta, varsayılan yükleme *c:\program files (x86)\kubectl.exe*’dir. B
 
 ## <a name="connect-with-kubectl"></a>kubectl ile bağlanma
 
-kubectl’i Kubernetes kümenize bağlanacak şekilde yapılandırmak için [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials) komutunu çalıştırın.
+kubectl’i Kubernetes kümenize bağlanacak şekilde yapılandırmak için [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes) komutunu çalıştırın.
 
 ```azurecli-interactive 
 az acs kubernetes get-credentials --resource-group myResourceGroup --name myK8SCluster
@@ -78,7 +78,7 @@ Kümenize yönelik bağlantıyı doğrulamak için [kubectl get nodes](https://k
 kubectl get nodes
 ```
 
-Çıktı:
+Çıkış:
 
 ```bash
 NAME                    STATUS                     AGE       VERSION

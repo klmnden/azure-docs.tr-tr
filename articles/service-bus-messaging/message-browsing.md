@@ -3,22 +3,22 @@ title: Azure Service Bus ileti tarama | Microsoft Docs
 description: Göz atma ve Service Bus iletiye göz atın
 services: service-bus-messaging
 documentationcenter: ''
-author: clemensv
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2018
-ms.author: spelluru
-ms.openlocfilehash: 7ce2e870be0178420d80682bd18adbef814c162f
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: 425cf262b80e83a4d06074a567a2921eee12f9c2
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857474"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855950"
 ---
 # <a name="message-browsing"></a>İletilere göz atma
 
@@ -34,7 +34,7 @@ Bu, özellikle bir kuyruktan ertelenmiş ileti kurtarmayı denediğinizde göz �
 
 ## <a name="peek-apis"></a>Özet API'leri
 
-[Gözlem/PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_PeekAsync) ve [PeekBatch/PeekBatchAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatchasync#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatchAsync_System_Int64_System_Int32_) yöntemleri mevcut tüm .NET ve Java istemci kitaplıkları ve tüm alıcı nesneleri: **MessageReceiver**, **MessageSession**, **QueueClient**, ve **SubscriptionClient**. Tüm Kuyruklar, abonelikler ve bunların ilgili edilemeyen gözlem çalışır.
+[Gözlem/PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_PeekAsync) ve [PeekBatch/PeekBatchAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatchasync#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatchAsync_System_Int64_System_Int32_) yöntemleri mevcut tüm .NET ve Java istemci kitaplıkları ve tüm alıcı nesneler: **MessageReceiver**, **MessageSession**, **QueueClient**, ve **SubscriptionClient**. Tüm Kuyruklar, abonelikler ve bunların ilgili edilemeyen gözlem çalışır.
 
 Art arda çağrıldığında, Peek metodunu dizisi sayısı, sırası en yüksek kullanılabilir dizisi en düşük sayıya kuyruk veya abonelik günlüğünde kayıtlı tüm iletileri numaralandırır. Bu, sıraya alınan iletileri olan sırasını ve hangi iletilerin sonunda alınması sırası değildir.
 

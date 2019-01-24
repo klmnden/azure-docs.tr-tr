@@ -4,7 +4,7 @@ description: Azure AD Domain Services yönetilen etki alanlarında bir kuruluş 
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 52602ad8-2b93-4082-8487-427bdcfa8126
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: cd4964939aa9b9ebd96a2fb29e1a6f7bf422d477
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 49b915242ca0a4775236da3314eed816fde7ea6b
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50154837"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856273"
 ---
 # <a name="create-an-organizational-unit-ou-on-an-azure-ad-domain-services-managed-domain"></a>Bir Azure AD Domain Services yönetilen etki alanında bir kuruluş birimi (OU) oluşturma
 Azure AD Domain Services yönetilen etki alanlarını 'AADDC Computers' ve 'AADDC Users' adlı, sırasıyla iki yerleşik kapsayıcılar içerir. 'AADDC Computers' kapsayıcısı, yönetilen etki alanına katılmış olan tüm bilgisayarlar için bilgisayar nesneleri içerir. 'AADDC Users' kapsayıcı kullanıcıları ve grupları Azure AD kiracısında içerir. Bazen, iş yüklerinin dağıtımı için yönetilen etki alanında hizmet hesaplarını oluşturmak gerekli olabilir. Bu amaç için yönetilen etki alanına özel kuruluş birimi (OU) oluşturun ve o OU içinde hizmet hesapları oluşturun. Bu makalede, yönetilen etki alanında OU oluşturma işlemini gösterir.
@@ -83,5 +83,5 @@ Varsayılan olarak, özel OU oluşturan kullanıcının ('AAD DC Administrators'
 ## <a name="related-content"></a>İlgili İçerik
 * [Azure AD Domain Services tarafından yönetilen etki alanını yönetme](active-directory-ds-admin-guide-administer-domain.md)
 * [Yönetilen bir etki alanında Grup İlkesi yapılandırma](active-directory-ds-admin-guide-administer-group-policy.md)
-* [Active Directory Yönetim Merkezi: Başlarken](https://technet.microsoft.com/library/dd560651.aspx)
+* [Active Directory Yönetim Merkezi: Çalışmaya başlama](https://technet.microsoft.com/library/dd560651.aspx)
 * [Hizmet hesapları adım adım kılavuzu](https://technet.microsoft.com/library/dd548356.aspx)

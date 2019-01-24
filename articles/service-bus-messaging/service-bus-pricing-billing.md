@@ -3,9 +3,9 @@ title: Fiyatlandırma ve faturalama Service Bus | Microsoft Docs
 description: Service Bus fiyatlandırma yapısı genel bakış.
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: 7c45b112-e911-45ab-9203-a2e5abccd6e0
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
-ms.author: spelluru
-ms.openlocfilehash: db5f4bc7cc62c61f13258b919226efbf63165371
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.author: aschhab
+ms.openlocfilehash: 5b9aae979a25a1f175b3d5a5e24960d6f392b9b4
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406848"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852941"
 ---
 # <a name="service-bus-pricing-and-billing"></a>Fiyatlandırma ve faturalama Service Bus
 
@@ -32,7 +32,7 @@ Azure Service Bus standart olarak sunulur ve [Premium](service-bus-premium-messa
 
 Service Bus, kuyruklar ve konular/abonelikler için aşağıdaki 2 ölçümler kullanır:
 
-1. **Mesajlaşma işlemleri**: kuyruk veya konu/Abonelik Hizmeti uç noktalarına karşı API çağrıları olarak tanımlanır. Bu ölçüm, kuyruklar ve konular/abonelikler için Faturalanabilir kullanım birincil birimi olarak alınan veya gönderilen iletiler yerine geçer.
+1. **Mesajlaşma işlemleri**: Kuyruk veya konu/Abonelik Hizmeti uç noktalarına karşı API çağrıları olarak tanımlanır. Bu ölçüm, kuyruklar ve konular/abonelikler için Faturalanabilir kullanım birincil birimi olarak alınan veya gönderilen iletiler yerine geçer.
 2. **Aracılı bağlantı**: Kuyruklar, konular veya Aboneliklerde bir belirli bir saatlik örnekleme süresi açık kalıcı bağlantılar en yüksek sayısı olarak tanımlanmış. Bu ölçüm yalnızca standart katmanda, ek bağlantılar içinde açabileceğiniz uygular (daha önce bağlantı kuyruk/konu/abonelik başına 100 sınırlı) bağlantı başına nominal bir ücret karşılığında.
 
 **Standart** katmanı, kuyruklar ve konular/abonelikler, indirim % 80 ' en yüksek kullanım düzeylerinde hacim tabanlı výsledek ile gerçekleştirilen işlemleri için kademeli fiyatlandırma kullanıma sunuluyor. Aylık 10 ABD Doları 12,5 milyon işlem başına ek ücret ödemeden aylık gerçekleştirmenize olanak sağlayan, bir standart katman taban ücreti yoktur.
@@ -95,7 +95,7 @@ Service Bus en yüksek dahil edilen miktarı (standart katmanında 1000) aşan e
 
 Örneğin:
 
-1. Her 10.000 cihaz, tek bir AMQP bağlantısı aracılığıyla bağlanır ve bir hizmet veri yolu konusu'ndan komutlar alır. Cihazları, bir olay Hub'ına telemetri olayları gönderir. Tüm cihazlar her gün 12 saat boyunca bağlanıyorsa şu bağlantı ücretini (diğer Service Bus konu ücretlerine ek olarak) uygulama: 10.000 bağlantı * 12 saat * 31 gün / 744 = 5.000 aracılı bağlantı. 1.000 aracılı bağlantı içeren aylık kullanım sonra 120 $ toplam aracılı bağlantı başına $0.03 oranı üzerinden 4.000 aracılı bağlantı için ücretlendirilirsiniz.
+1. Her 10.000 cihaz, tek bir AMQP bağlantısı aracılığıyla bağlanır ve bir hizmet veri yolu konusu'ndan komutlar alır. Cihazları, bir olay Hub'ına telemetri olayları gönderir. Tüm cihazlar her gün 12 saat boyunca bağlanıyorsa şu bağlantı ücretini (diğer Service Bus konu ücretlerine ek olarak) geçerlidir: 10.000 bağlantı * 12 saat * 31 gün / 744 = 5.000 aracılı bağlantı. 1.000 aracılı bağlantı içeren aylık kullanım sonra 120 $ toplam aracılı bağlantı başına $0.03 oranı üzerinden 4.000 aracılı bağlantı için ücretlendirilirsiniz.
 2. 10.000 cihaz, sıfır olmayan bir zaman aşımı belirterek HTTP aracılığıyla hizmet veri yolu kuyruğu'ndan mesajlar alır. Tüm cihazlar her gün 12 saat boyunca bağlanırsa, (diğer Service Bus ücretlerine ek olarak) aşağıdaki bağlantı ücretlerini görürsünüz: 10.000 HTTP alma bağlantı * günde 12 saat * 31 gün / 744 saat = 5.000 aracılı bağlantı.
 
 ### <a name="do-brokered-connection-charges-apply-to-queues-and-topicssubscriptions"></a>Aracılı bağlantı ücretleri kuyruklara ve konulara/aboneliklere uygulanır mı?

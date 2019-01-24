@@ -3,21 +3,21 @@ title: Öğretici - Azure Active Directory B2C kullanarak bir web uygulamasında
 description: Bir ASP.NET web API’sini korumak ve bir ASP.NET web uygulamasından çağırmak için Active Directory B2C kullanmaya yönelik öğretici.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.author: davidmu
 ms.date: 11/30/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: bd900071bbcd894d4fe71e0f8a265d98348eb262
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 4051c0438cfb7c33f36cf49542e422e54e723cfc
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726415"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856069"
 ---
-# <a name="tutorial-grant-access-to-an-aspnet-web-api-from-a-web-app-using-azure-active-directory-b2c"></a>Öğretici: Azure Active Directory B2C kullanarak bir web uygulamasından ASP.NET web API'sine erişim izni verme
+# <a name="tutorial-grant-access-to-an-aspnet-web-api-from-a-web-app-using-azure-active-directory-b2c"></a>Öğretici: Azure Active Directory B2C kullanarak bir web uygulamasından ASP.NET web API verme erişimi
 
 Bu öğreticide bir ASP.NET web uygulamasından bir Azure Active Directory (Azure AD) B2C korumalı web API kaynağını çağırma gösterilmektedir.
 
@@ -116,13 +116,13 @@ Bir uygulamadan korumalı web API’sini çağırmak için, API’ye uygulama iz
 
 API’yi kaydettikten ve kapsamları tanımladıktan sonra, web API kodunuzu Azure AD B2C kiracınızı kullanmak için yapılandırmanız gerekir. Bu öğreticide örnek bir web API’sini yapılandıracaksınız. 
 
-Örnek web API’si şu önkoşul öğreticisinde indirdiğiniz projede bulunur: [Bir ASP.NET Web Uygulamasında Kullanıcı Kimlik Doğrulaması için Azure Active Directory B2C kullanma öğreticisi](active-directory-b2c-tutorials-web-app.md). Önkoşul öğreticisini tamamlamadıysanız, devam etmeden önce tamamlayın.
+Örnek web API'si, önkoşul öğreticisinde indirdiğiniz projede yer almaktadır: [Azure Active Directory B2C kullanıcı kimlik doğrulaması için bir ASP.NET Web uygulaması öğreticide kullanmak](active-directory-b2c-tutorials-web-app.md). Önkoşul öğreticisini tamamlamadıysanız, devam etmeden önce tamamlayın.
 
 Örnek çözümde iki proje vardır:
 
-**Örnek web uygulaması (TaskWebApp):** Görev listesi oluşturmak ve düzenlemek için kullanılan web uygulaması. Web uygulaması kullandığı **kaydolma veya oturum açma** ıntune'a kaydolma veya oturum açma e-posta adresi olan kullanıcılar için kullanıcı akışı.
+**Örnek Web uygulaması (TaskWebApp):** Web uygulaması oluşturma ve düzenleme görev listesi. Web uygulaması kullandığı **kaydolma veya oturum açma** ıntune'a kaydolma veya oturum açma e-posta adresi olan kullanıcılar için kullanıcı akışı.
 
-**Örnek web API’si uygulaması (TaskService):** Görev listesi oluşturma, okuma, güncelleştirme ve silme işlevlerini destekleyen web API’si. Web API’si Azure AD B2C tarafından korunur ve web uygulaması tarafından çağrılır.
+**Web API'si örnek uygulaması (TaskService):** Oluşturma, destekleyen web API'si okuma, güncelleştirme ve silme görev listesi işlevi. Web API’si Azure AD B2C tarafından korunur ve web uygulaması tarafından çağrılır.
 
 Örnek web uygulaması ve web API’si, yapılandırma değerlerini her projenin Web.config dosyasındaki uygulama ayarları olarak tanımlar.
 

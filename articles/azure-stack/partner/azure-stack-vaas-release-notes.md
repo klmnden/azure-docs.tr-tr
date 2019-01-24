@@ -13,18 +13,28 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 735f1d7cce8621a29e5a582917d3eea8ee399b8f
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: ce16ab3b723b9a6c87c7b980e3cc76c389609da6
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319658"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847918"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Hizmet olarak doğrulama için sürüm notları
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 Bu makalede, bir hizmet olarak Azure Stack doğrulama için sürüm notları bulunur.
+
+## <a name="version-405"></a>Sürüm 4.0.5
+2019 Ocak 17
+
+-  Disk kimliği Test adresi depolama havuzu tutarsızlıklar için güncelleştirildi. Sürüm: 5.1.14.0  -> 5.1.15.0
+-  Azure Stack aylık güncelleştirme adresine güncelleştirilmiş doğrulama, yazılım ve içerik doğrulama tutarsızlıklar onaylandı. Sürüm: 5.1.14.0  -> 5.1.15.0
+-  OEM uzantı paketi doğrulama güncelleştirilmiş gerekli denetimleri gerçekleştirmek için *önce* Azure Stack güncelleştirme adım. Sürüm: 5.1.14.0  -> 5.1.15.0
+-  İç hata düzeltmeleri
+
+
 
 ## <a name="version-402"></a>Sürüm 4.0.2
 

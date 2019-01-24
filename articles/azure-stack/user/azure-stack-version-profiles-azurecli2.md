@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2019
+ms.date: 01/24/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 2ab696436a8cf139eff92edc3b8ff2c27b40a7aa
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 15354cd7472e7cffb7a40ca431bc23eb65b9a9a9
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54018396"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845903"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Azure Stack'te Azure CLI ile API Sürüm profillerini kullanma
 
@@ -212,16 +212,13 @@ Azure Stack'e bağlanmak için aşağıdaki adımları kullanın:
       ```
     * AD FS ortamları
 
-        * Bir web tarayıcısı kullanarak bir kullanıcı olarak oturum açın:  
-              ```azurecli  
-              az login
-              ```
         * Bir cihaz kodu ile bir web tarayıcısı kullanarak bir kullanıcı olarak oturum açın:  
-              ```azurecli  
-              az login --use-device-code
-              ```
-        > [!Note]  
-        >Komut çalıştıran bir URL ve kimlik doğrulaması yapmak için kullanmanız gereken kodu sağlar.
+           ```azurecli  
+           az login --use-device-code
+           ```
+
+           > [!NOTE]  
+           >Komut çalıştıran bir URL ve kimlik doğrulaması yapmak için kullanmanız gereken kodu sağlar.
 
         * Bir hizmet sorumlusu olarak oturum açın:
         

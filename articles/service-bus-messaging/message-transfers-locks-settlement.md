@@ -3,22 +3,22 @@ title: Azure Service Bus ileti aktarımları, kilitler ve kapatma | Microsoft Do
 description: Service Bus ileti aktarımları ve kapatma işlemleri genel bakış
 services: service-bus-messaging
 documentationcenter: ''
-author: clemensv
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
-ms.author: spelluru
-ms.openlocfilehash: a1835e26f67427f84abd8a3cf24ad196fec8e99d
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.author: aschhab
+ms.openlocfilehash: a78409a15acb4e60fc4200778d0f33b3fb566e85
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854431"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846457"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>İleti aktarımları, kilitler ve kapatma
 
@@ -96,7 +96,7 @@ Alt düzey bir AMQP istemcisi ile Service Bus "önceden kapatılmış" aktarıml
 
 ## <a name="settling-receive-operations"></a>Alma işlemleri sonlandırma
 
-Alma işlemlerinin, hizmet veri yolu API'sini istemcileri iki farklı açık modlarını etkinleştir: *alma ve silme* ve *gözlem kilidi*.
+Alma işlemleri için hizmet veri yolu API'sini istemcileri iki farklı açık modunu etkinleştirin: *Alma ve silme* ve *gözlem kilidi*.
 
 [Alma ve silme](/dotnet/api/microsoft.servicebus.messaging.receivemode) modu bildiren tüm iletileri gönderir alıcı istemciye kapatılan olarak ne zaman dikkate alınması gereken aracı gönderilir. İleti Aracısı kablo getirdi hemen sonra tüketilen değerlendirilir anlamına gelir. İleti aktarımı başarısız olursa, ileti kaybolur.
 

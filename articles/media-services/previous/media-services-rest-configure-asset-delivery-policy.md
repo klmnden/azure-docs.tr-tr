@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: dea12d7188b716b4a832a33bb173201e68dbe20f
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 8fd523b50ec5d7161da5d9d778386914136097dc
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189753"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828205"
 ---
 # <a name="configuring-asset-delivery-policies"></a>Varlık teslim ilkelerini yapılandırma
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../../includes/media-services-selector-asset-delivery-policy.md)]
@@ -355,7 +355,7 @@ Aşağıdaki liste, içerik anahtarının istemciye teslim yöntemini yapıland�
         None = 0,
 
         /// <summary>
-        /// Use PlayReady License acquistion protocol
+        /// Use PlayReady License acquisition protocol
         ///
         </summary>
         PlayReadyLicense = 1,
@@ -367,7 +367,7 @@ Aşağıdaki liste, içerik anahtarının istemciye teslim yöntemini yapıland�
         BaselineHttp = 2,
 
         /// <summary>
-        /// Use Widevine License acquistion protocol
+        /// Use Widevine License acquisition protocol
         ///
         </summary>
         Widevine = 3

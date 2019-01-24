@@ -3,19 +3,19 @@ title: Kimlik deneyimi çerçevesi şema Azure Active Directory B2C için dize t
 description: Dize dönüşüm örnekleri kimlik deneyimi çerçevesi şema, Azure Active Directory B2C için talep.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f2823ec32b6658aa22c38294c09c9738c9121c39
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 1a382b845b621e47d30869a1081549b7f30348aa
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121592"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850748"
 ---
 # <a name="string-claims-transformations"></a>Dize talep dönüşümleri
 
@@ -35,7 +35,7 @@ Bu makalede, Azure Active Directory (Azure AD) B2C'de kimlik deneyimi çerçeves
 
 **AssertStringClaimsAreEqual** talep dönüştürme gelen her zaman yürütülür bir [doğrulama teknik profili](validation-technical-profile.md) çağrılan bir [teknik profilSelfonaylanan](self-asserted-technical-profile.md). **UserMessageIfClaimsTransformationStringsAreNotEqual** otomatik olarak onaylanan teknik profil meta verileri kullanıcıya sunulan hata iletisi denetler.
 
-![AssertStringClaimsAreEqual yürütme](./media/string-transformations/assert-execution.png)
+![AssertStringClaimsAreEqual execution](./media/string-transformations/assert-execution.png)
 
 Kullanabileceğiniz bu talep dönüştürme emin olmak için iki ClaimTypes aynı değere sahip olmalıdır. Aksi takdirde bir hata iletisi oluşturulur. Aşağıdaki örnek denetleyen **strongAuthenticationEmailAddress** ClaimType eşittir **e-posta** ClaimType. Aksi takdirde bir hata iletisi oluşturulur. 
 
@@ -280,7 +280,7 @@ Aşağıdaki örnek, 0 ile 1000 arasında rastgele bir tamsayı değeri oluştur
 ### <a name="example"></a>Örnek
 
 - Giriş parametreleri:
-    - **randomGeneratorType**: TAMSAYI
+    - **randomGeneratorType**: INTEGER
     - **maximumNumber**: 1000
     - **stringFormat**: OTP_{0}
     - **Base64**: false
@@ -359,7 +359,7 @@ Bu talep herhangi iki parametre ile dize biçimine dönüştürme kullanım {0} 
 - Giriş parametreleri:
     - **stringFormat**: {0} {1}
 - Çıkış talep:
-    - **outputClaim**: ALi Fernando
+    - **outputClaim**: Joe Fernando
 
 ## <a name="getmappedvaluefromlocalizedcollection"></a>GetMappedValueFromLocalizedCollection
 

@@ -13,19 +13,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/02/2018
+ms.date: 01/23/2019
 ms.author: cwatson
-ms.openlocfilehash: b9b1496c71e61fce815d225310c8beb57e8f9b19
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: e1d9c348f83600b48f4b202c8660d9387dfc5484
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584579"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856384"
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Microsoft Azure faturanızı anlama
 Azure faturanızı anlama faturanızı ayrıntılı günlük kullanım dosyası ve Azure portalında maliyet Yönetimi raporlarını ile karşılaştırın.
 
 Bu makalede, Azure müşterilerine bir Kurumsal Anlaşma (EA müşterileri) için geçerli değildir. Bir EA müşterisinin kullanıyorsanız bkz [bir kurumsal anlaşma kapsamında olan Azure müşterileri için faturanızı anlayın bölümü](billing-understand-your-bill-ea.md).  
+
+Fatura döngüsü, fiyatlandırma ve kullanım, bkz: faturalandırma Azure bulut çözümü sağlayıcısı (Azure CSP) programında nasıl çalıştığına ilişkin bir açıklama için dahil olmak üzere [Azure CSP fatura genel bakış](/azure/cloud-solution-provider/billing/azure-csp-billing-overview/).
 
 ## <a name="charges"></a>Yapılacak bir ücret tahminini gözden geçirin
 
@@ -33,7 +35,7 @@ Bu makalede, Azure müşterilerine bir Kurumsal Anlaşma (EA müşterileri) içi
 
 Hakkında daha fazla bilgi almak istiyorsanız faturanızla ilgili bir ücret ise, kullanım dosyanın veya Azure portalı ile kullanımı ve maliyetleri karşılaştırabilirsiniz.
 
-### <a name="option-1-compare-usage-and-costs-with-usage-file"></a>1. seçenek: kullanımı ve maliyetleri kullanım dosyayla Karşılaştır
+### <a name="option-1-compare-usage-and-costs-with-usage-file"></a>1. seçenek: Kullanımı ve maliyetleri kullanım dosyayla Karşılaştır
 
 Ayrıntılı kullanım CSV dosyası, fatura dönemindeki günlük kullanım ile bir ücret tahminini gösterir. Dosyasını almak için bkz. [Azure faturanızı ve günlük kullanım verilerinizi alın](billing-download-azure-invoice-daily-usage-date.md).
 
@@ -69,7 +71,7 @@ Daha fazla bilgi için bkz:
 - [Azure faturanızı anlama](billing-understand-your-invoice.md)
 - [Azure ayrıntılı kullanımınızı anlayın](billing-understand-your-invoice.md)
 
-### <a name="option-2-compare-the-usage-and-costs-with-the-azure-portal"></a>Seçenek 2: kullanımı ve maliyetleri Azure portalı ile Karşılaştır
+### <a name="option-2-compare-the-usage-and-costs-with-the-azure-portal"></a>2. seçenek: Kullanımı ve maliyetleri Azure portalı ile Karşılaştır
 
 Azure portalı Ayrıca, yapılacak bir ücret doğrulamanıza yardımcı olabilir. Faturalanan kullanımı ve ücretleri hızlı bir genel bakış edinmek için maliyet Yönetimi grafiklerini görüntüleyin.
 
@@ -140,6 +142,6 @@ Varsa, [faturayla ödeme](billing-how-to-pay-by-invoice.md), ödemenin konumuna 
 - [Azure portal maliyet Yönetimi](https://docs.microsoft.com/azure/billing/billing-getting-started)
 - [Azure'da faturalandırma ve maliyet yönetimi ile beklenmeyen maliyetleri engelleme](billing-getting-started.md#costs)
 
-## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
+## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

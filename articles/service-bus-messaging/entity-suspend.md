@@ -3,22 +3,22 @@ title: Azure Service Bus Mesajlaşma varlıklarını askıya alma | Microsoft Do
 description: Askıya alma ve Azure Service Bus ileti varlıkları yeniden etkinleştirin.
 services: service-bus-messaging
 documentationcenter: ''
-author: clemensv
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
-ms.author: spelluru
-ms.openlocfilehash: b7ea8c14bfc3f2ba3720ad919d6c36ec50c3823e
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: 8feee92e9105259bddf45114ac48a54347266cd7
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854496"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846008"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Askıya alma ve mesajlaşma varlıkları (devre dışı bırak) yeniden etkinleştirme
 
@@ -38,10 +38,10 @@ Portal, yalnızca tamamen kuyrukları devre dışı bırakma verir. Ayrıca gön
 
 Bir kuyruk için ayarlanabilir durumlar şunlardır:
 
--   **Etkin**: sıra etkindir.
--   **Devre dışı bırakılmış**: sıra askıya alındı.
--   **SendDisabled**: sıra kısmen, izin verilen Al ile askıya alındı.
--   **ReceiveDisabled**: sıra kısmen, gönderme işlemine izin askıya alındı.
+-   **Etkin**: Sıranın etkin değil.
+-   **Devre dışı bırakılmış**: Sıranın askıya alınır.
+-   **SendDisabled**: Sıranın kısmen, izin verilen Al ile askıya alınır.
+-   **ReceiveDisabled**: Sıranın kısmen, gönderme işlemine izin askıya alınır.
 
 Abonelikler ve konular, yalnızca **etkin** ve **devre dışı bırakılmış** ayarlanabilir.
 

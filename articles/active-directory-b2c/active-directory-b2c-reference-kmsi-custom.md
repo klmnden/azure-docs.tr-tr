@@ -3,19 +3,19 @@ title: Azure Active Directory B2C'de Oturumumu açık bırak | Microsoft Docs
 description: Yedekleme tutun bana imzalı içinde (KMSI) Azure Active Directory B2C, kurmayı öğrenin.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: fcc81c8eb3a34b0bda5d91a1a67dd2e04e052967
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 517f476853866101cbb33103602494c11cd9e412
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967768"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852465"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Azure Active Directory B2C'de (KMSI) içinde Oturumumu açık bırak seçeneğini etkinleştirme
 
@@ -29,7 +29,7 @@ Kullanıcılar bu seçeneği genel bilgisayarlarda etkinleştirmemeniz gerekir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Yerel hesap kaydolma ve oturum açma izin verecek şekilde yapılandırılmış bir Azure AD B2C kiracısı. Bir kiracı yoksa, adımları kullanarak bir tane oluşturabilirsiniz [öğretici: Azure Active Directory B2C kiracısı oluşturma](tutorial-create-tenant.md).
+Yerel hesap kaydolma ve oturum açma izin verecek şekilde yapılandırılmış bir Azure AD B2C kiracısı. Bir kiracı yoksa, adımları kullanarak bir tane oluşturabilirsiniz [Öğreticisi: Bir Azure Active Directory B2C kiracısı oluşturmayı](tutorial-create-tenant.md).
 
 ## <a name="add-a-content-definition-element"></a>İçerik tanımı öğesi Ekle 
 

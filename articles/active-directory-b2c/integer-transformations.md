@@ -3,19 +3,19 @@ title: Kimlik deneyimi çerçevesi şema Azure Active Directory B2C için tamsay
 description: Dönüşüm örnekleri, tamsayı kimlik deneyimi çerçevesi şema, Azure Active Directory B2C için talep.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 988e25b6a5ef3f99ae7df9076a40e06b403bb029
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 36412d16328e757b4c28b0c77638e6d87f83b8e0
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381714"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855746"
 ---
 # <a name="integer-claims-transformations"></a>Tamsayı dönüştürmeleri talep
 
@@ -29,7 +29,7 @@ Long veri türü bir dize veri türüne dönüştürür.
 
 | Öğe | TransformationClaimType | Veri Türü | Notlar |
 | ---- | ----------------------- | --------- | ----- |
-| Inputclaim | Inputclaim | boylam | Bir dizeye dönüştürmek için ClaimType. |
+| Inputclaim | Inputclaim | uzun | Bir dizeye dönüştürmek için ClaimType. |
 | outputClaim | outputClaim | dize | Bu ClaimsTransformation çağrıldıktan sonra üreten ClaimType. |
 
 Bu örnekte, `numericUserId` uzun bir değer türü olan talep dönüştürülen bir `UserId` talep dize ile bir değer türü.

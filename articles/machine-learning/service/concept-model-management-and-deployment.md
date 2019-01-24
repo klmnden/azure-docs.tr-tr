@@ -11,12 +11,12 @@ author: chris-lauren
 ms.author: clauren
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 467af0f04708c9c6758531fb1cd71d79e9ddd6d7
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 44f61d7b90018b76b1903a04d219dcf0226f95e0
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54302978"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852329"
 ---
 # <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Yönetin, dağıtın ve modeller Azure Machine Learning hizmeti ile izleme
 
@@ -39,7 +39,7 @@ Her adım, bağımsız olarak veya tek dağıtım komutun bir parçası olarak g
 
 Model kaydı, depolamanızı ve sürüm Modellerinizi çalışma alanınızda Azure bulutunda sağlar. Model kayıt defterini düzenlemek ve eğitilen Modellerinizi izlemek kolaylaştırır.
  
-Kayıtlı modelleri, ada ve sürüme göre tanımlanır. Mevcut bir aynı ada sahip bir model her kaydettirdiğinizde, kayıt defteri sürüm artırır. Ek meta veri etiketleri aramak modellerinde kullanılabilir kayıt sırasında de sağlayabilirsiniz. Azure Machine Learning hizmetini kullanarak Python 3'ü kullanarak yüklenen herhangi bir model depolanan modelleri destekler. 
+Kayıtlı modelleri, ada ve sürüme göre tanımlanır. Mevcut bir aynı ada sahip bir model her kaydettirdiğinizde, kayıt defteri sürüm artırır. Ek meta veri etiketleri aramak modellerinde kullanılabilir kayıt sırasında de sağlayabilirsiniz. Azure Machine Learning hizmetini kullanarak Python 3 yüklenen herhangi bir model destekler. 
 
 Görüntü tarafından kullanılmakta olan modeller nelze odstranit.
 
@@ -63,13 +63,13 @@ Görüntü ayrıca günlüğe kaydetme ve izleme için SDK bileşenleri içerir.
 Azure Machine Learning en popüler çerçeveleri destekler, ancak genel pıp'in yüklü olan herhangi bir çerçeveyi çalışabilir.
 
 Bu nedenle çalışma alanınızı oluştururken diğer birçok diğer Azure kaynakları bu çalışma alanı tarafından kullanıldı.
-Görüntüyü oluşturmak için kullanılan tüm nesneler, çalışma alanınızda Azure depolama hesabında depolanır. Görüntü oluşturulur ve Azure Container Registry'de depolanır. Ayrıca görüntü kayıt depolanır ve görüntünüzü bulmak için sorgulanabilir görüntü oluşturulurken, ek meta veri etiketleri sağlayabilirsiniz.
+Görüntüyü oluşturmak için kullanılan tüm nesneler, çalışma alanınızda Azure depolama hesabında depolanır. Ek meta veri etiketleri, görüntü oluştururken sağlayabilir. Meta veri etiketleri de görüntü kayıt depolanır ve görüntünüzü bulmak için sorgulanabilir.
 
 Daha fazla bilgi için bkz. configure ve görüntü bölümünü kaydetmek [modelleri dağıtma](how-to-deploy-and-where.md#configureimage).
 
 ## <a name="step-3-deploy-image"></a>3. Adım: Görüntüsü dağıtma
 
-Buluta veya uç cihazlarında kayıtlı görüntülerini dağıtabilirsiniz. Tüm izlemek için gerekli kaynaklar, Yük Dengeleme ve otomatik ölçeklendirme, dağıtım işlemi modeliniz oluşturur. Dağıtılan hizmetlere erişmek için sertifika tabanlı kimlik doğrulaması ile dağıtım sırasında güvenlik varlıklar sağlayarak güvenliği sağlanabilir. Ayrıca, daha yeni bir görüntüyü kullanmak için mevcut bir dağıtımı yükseltebilirsiniz.
+Buluta veya uç cihazlarında kayıtlı görüntülerini dağıtabilirsiniz. Dağıtım işlemi modeliniz izlemek için Yük Dengeleme ve otomatik ölçeklendirme gereken tüm kaynakları oluşturur. Dağıtılan hizmetlere erişmek için sertifika tabanlı kimlik doğrulama ile güvenli hale getirilebilir dağıtım sırasında güvenlik varlıklar sağlayarak. Ayrıca, daha yeni bir görüntüyü kullanmak için mevcut bir dağıtımı yükseltebilirsiniz.
 
 Web hizmeti dağıtımları da aranabilir. Örneğin, belirli bir model veya görüntü tüm dağıtımları için arama yapabilirsiniz.
 

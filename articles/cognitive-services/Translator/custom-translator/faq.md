@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: reference
-ms.openlocfilehash: 38ebde9179d79c091edb269c1be4c9c956f34006
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 415866bc4ef396a1b9397c4996d65cf10d78400b
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627583"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854794"
 ---
 # <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
@@ -46,7 +46,7 @@ Dağıtılmış sistemler CategoryID belirterek Microsoft Translator Text API v3
 
 ## <a name="how-do-i-skip-alignment-and-sentence-breaking-if-my-data-is-already-sentence-aligned"></a>Nasıl miyim hizalama ve verilerimi hizalı cümle ise bozucu cümle atlamaz?
 
-Tümce hizalama ve cümle bozucu metin dosyalarını ve TMX dosyaları için özel Translator atlar `.align` uzantısı. `.align` dosyaları kullanıcılara bir seçenek bozucu özel Translator'ın cümle ve hizalama işlemi için mükemmel bir şekilde hizalı olup ve başka işlem ihtiyaç dosyaları verin. Kullanmanızı öneririz `.align` mükemmel bir şekilde hizalı dosyalarının uzantısı.
+Tümce hizalama ve cümle bozucu metin dosyalarını ve TMX dosyaları için özel Translator atlar `.align` uzantısı. `.align` dosyaları kullanıcılar bozucu özel Translator'ın cümle ve mükemmel bir şekilde hizalı olup ve başka hiçbir işleme gerek dosyalar için hizalama işlemi atlamak için bir seçenek sunuyoruz. Kullanmanızı öneririz `.align` mükemmel bir şekilde hizalı dosyalarının uzantısı.
 
 Ayıklanan cümleler sayısı aynı temel ada sahip iki dosya eşleşmiyorsa, özel Translator hala cümle aligner çalıştıracağı `.align` dosyaları.
 

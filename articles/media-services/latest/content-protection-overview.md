@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2018
+ms.date: 01/22/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 2a5383952f64edb08717b1a100c74352c9b4246f
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 848d6ffbccc809df1ab5c012c38174e13eacc391
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187986"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828273"
 ---
 # <a name="content-protection-overview"></a>Content protection genel bakış
 
@@ -39,9 +39,9 @@ Bu makalede, kavramlar ve terminoloji content protection ile Media Services anla
 
 1. Azure Media Services kod
   
-  * PlayReady, Widevine ve/veya FairPlay lisansı şablonları. Şablonları hakları ve izinleri her kullanılan benzeri DRM yapılandırmanıza olanak sağlar
-  * Lisans teslim yetkilendirme, JWT talepleri temel yetkilendirme denetiminin mantık belirtme
-  * İçerik anahtarı, akış protokolleri ve uygulanan, karşılık gelen benzeri DRM tanımlama DRM şifreleme
+  * Lisans şablonları, PlayReady, Widevine ve/veya FairPlay için yapılandırın. Şablonları hakları ve izinleri her kullanılan benzeri DRM yapılandırmanıza olanak sağlar.
+  * JWT talepleri temel yetkilendirme denetiminin mantık belirtme lisans teslim yetkilendirme tanımlayın.
+  * DRM şifreleme içerik anahtarı belirterek ve akış kullanılması gereken protokolleri yapılandırın.
 
   > [!NOTE]
   > Her bir varlığı birden fazla şifreleme türü (AES-128, PlayReady, Widevine, FairPlay) ile şifreleyebilirsiniz. Birlikte kullanılabilecek türler hakkında bilgi almak için bkz. [Akış protokolleri ve şifreleme türleri](#streaming-protocols-and-encryption-types).

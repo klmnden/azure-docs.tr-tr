@@ -3,23 +3,23 @@ title: .NET ve AMQP 1.0 ile Azure Service Bus | Microsoft Docs
 description: .NET Azure Service Bus ile AMQP kullanma
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: 332bcb13-e287-4715-99ee-3d7d97396487
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2018
-ms.author: spelluru
-ms.openlocfilehash: ad789b7a65fd12abb2a6e92c7c8896677de80cec
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: f5713fe3333f291d8d28a6ef3df48572507661be
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702247"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853213"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>AMQP 1.0 ile Service Bus .NET kullanma
 
@@ -71,22 +71,22 @@ Oluşturduğunuzda bir [BrokeredMessage] [ BrokeredMessage] örneği, ileti göv
 | sbyte |bayt |AMQP değeri |
 | kısa |kısa |AMQP değeri |
 | int |int |AMQP değeri |
-| boylam |boylam |AMQP değeri |
+| uzun |uzun |AMQP değeri |
 | float |float |AMQP değeri |
 | double |double |AMQP değeri |
-| Ondalık |decimal128 |AMQP değeri |
+| decimal |decimal128 |AMQP değeri |
 | Char |Char |AMQP değeri |
 | DateTime |timestamp |AMQP değeri |
-| Guid |UUID |AMQP değeri |
+| Guid |uuid |AMQP değeri |
 | bayt] |İkili |AMQP değeri |
 | dize |dize |AMQP değeri |
-| System.Collections.IList |liste |AMQP değeri: koleksiyonda yer alan öğeleri yalnızca, bu tabloda tanımlanan olabilir. |
+| System.Collections.IList |list |AMQP değeri: koleksiyonda yer alan öğeleri yalnızca, bu tabloda tanımlanan olabilir. |
 | System.Array |array |AMQP değeri: koleksiyonda yer alan öğeleri yalnızca, bu tabloda tanımlanan olabilir. |
-| System.Collections.IDictionary |Harita |AMQP değeri: koleksiyonda yer alan öğeleri yalnızca, bu tabloda tanımlanan olabilir. Not: yalnızca dize anahtarları desteklenir. |
+| System.Collections.IDictionary |map |AMQP değeri: koleksiyonda yer alan öğeleri yalnızca, bu tabloda tanımlanan olabilir. Not: yalnızca dize anahtarları desteklenir. |
 | Uri |Dize açıklanan (aşağıdaki tabloya bakın) |AMQP değeri |
 | DateTimeOffset |Uzun açıklanan (aşağıdaki tabloya bakın) |AMQP değeri |
 | Zaman aralığı |Uzun açıklanan (aşağıdakilere bakın) |AMQP değeri |
-| Stream |İkili |AMQP verileri (birden fazla olabilir). Veri bölümler Stream nesnesinden okuma ham bayt içerir. |
+| Akış |İkili |AMQP verileri (birden fazla olabilir). Veri bölümler Stream nesnesinden okuma ham bayt içerir. |
 | Diğer nesne |İkili |AMQP verileri (birden fazla olabilir). DataContractSerializer veya uygulama tarafından sağlanan bir seri hale getirici kullanan nesne seri hale getirilmiş ikili içerir. |
 
 | .NET türü | Türü eşleşen AMQP açıklanan | Notlar |
@@ -107,10 +107,10 @@ AMQP, varsayılan protokole göre kullanırken hizmet veri yolu .NET API davran�
 
 [.NET API'lerini](/dotnet/api/) AMQP protokolünü davranışını denetlemek için bazı ayarları kullanıma sunar:
 
-* **[MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver.prefetchcount?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount)**: bağlantı uygulanan başlangıç kredisi denetler. Varsayılan değer 0'dır.
-* **[MessagingFactorySettings.AmqpTransportSettings.MaxFrameSize](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.maxframesize?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_MaxFrameSize)**: en fazla AMQP çerçeve boyutu sunulan bağlantıda anlaşması sırasında denetimleri zaman açın. Varsayılan 65.536 bayt'tır.
-* **[MessagingFactorySettings.AmqpTransportSettings.BatchFlushInterval](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.batchflushinterval?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_BatchFlushInterval)**: aktarımları batchable ise bu değer değerlendirmeleri göndermek için en büyük gecikme belirler. Varsayılan olarak Gönderenler/alıcılar tarafından devralınır. Tek tek gönderenin alıcı 20 milisaniyedir varsayılan geçersiz kılabilirsiniz.
-* **[MessagingFactorySettings.AmqpTransportSettings.UseSslStreamSecurity](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.usesslstreamsecurity?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_UseSslStreamSecurity)**: bir SSL bağlantısı üzerinden AMQP bağlantıları oluşturulmuş olup olmadığını denetler. Varsayılan değer **true**.
+* **[MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver.prefetchcount?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount)**: Bağlantı uygulanan başlangıç kredisi denetler. Varsayılan değer 0'dır.
+* **[MessagingFactorySettings.AmqpTransportSettings.MaxFrameSize](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.maxframesize?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_MaxFrameSize)**: AMQP çerçeve sınırını bağlantıda anlaşması sırasında sunulan denetimler, zaman açın. Varsayılan 65.536 bayt'tır.
+* **[MessagingFactorySettings.AmqpTransportSettings.BatchFlushInterval](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.batchflushinterval?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_BatchFlushInterval)**: Aktarımları batchable ise bu değer değerlendirmeleri göndermek için en büyük gecikme belirler. Varsayılan olarak Gönderenler/alıcılar tarafından devralınır. Tek tek gönderenin alıcı 20 milisaniyedir varsayılan geçersiz kılabilirsiniz.
+* **[MessagingFactorySettings.AmqpTransportSettings.UseSslStreamSecurity](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.usesslstreamsecurity?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_UseSslStreamSecurity)**: AMQP bağlantıları bir SSL bağlantısı üzerinden kurulan olup olmadığını denetler. Varsayılan değer **true**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

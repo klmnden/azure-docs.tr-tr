@@ -3,22 +3,22 @@ title: Azure Active Directory B2C, sosyal medya kimliklerinden kullanıcıları 
 description: Sosyal medya kimliklerinden Graph API'sini kullanarak Azure AD B2C kullanıcıları geçişini üzerinde temel kavramlar açıklanmaktadır.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/03/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b9378face28b4d053dcd5f01b8f87126457cf339
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 0ca73b8bfaca481d3e0404d068a74e1a6b0e4dcb
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445152"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846566"
 ---
-# <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C: sosyal medya kimliklerinden kullanıcıları geçirme
-Kimlik sağlayıcınız Azure AD B2C'ye geçirmek planlama yaparken, sosyal medya kimliklerinden kullanıcıları geçirme gerekebilir. Bu makalede gibi mevcut sosyal kimlikleri hesapları geçirme açıklanmaktadır: Azure AD B2C'ye Facebook ve LinkedIn, Microsoft ve Google hesapları. Bu geçiş daha az yaygın olan ancak bu makale Federasyon kimlikleri için de geçerlidir.
+# <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C: Kullanıcıları sosyal kimlikleriyle geçirme
+Kimlik sağlayıcınız Azure AD B2C'ye geçirmek planlama yaparken, sosyal medya kimliklerinden kullanıcıları geçirme gerekebilir. Bu makalede, aşağıdakiler gibi mevcut sosyal kimlikleri hesapları geçirme açıklanmaktadır: Azure AD B2C'ye Facebook ve LinkedIn, Microsoft ve Google hesapları. Bu geçiş daha az yaygın olan ancak bu makale Federasyon kimlikleri için de geçerlidir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu makalede, bir kullanıcı geçiş makalesini devamıdır ve sosyal kimlik geçişi üzerinde odaklanır. Başlamadan önce okumanız [kullanıcı geçişi](active-directory-b2c-user-migration.md).
@@ -63,13 +63,13 @@ Aşağıdaki listede, bir kullanıcı oluşturduğunuzda, gerekli olan özellikl
 * **userIdentities** -sosyal belirten bir veya daha fazla Userıdentity kayıtları hesap türü ve sosyal kimlik sağlayıcısından alınan benzersiz kullanıcı tanımlayıcısı.
 * [isteğe bağlı] **otherMails** - yalnızca sosyal hesap kullanıcının e-posta adresleri 
 
-Daha fazla bilgi için bkz: [Graph API Başvurusu](https://msdn.microsoft.com/library/azure/ad/graph/api/users-operations#CreateLocalAccountUser)
+Daha fazla bilgi için bkz. [Graph API Başvurusu](https://msdn.microsoft.com/library/azure/ad/graph/api/users-operations#CreateLocalAccountUser)
 
 ## <a name="migrate-social-account-only"></a>Sosyal hesap (yalnızca) geçirme
 Yerel hesap kimlik bilgileri olmadan yalnızca sosyal hesap oluşturmak için. Graph API'si için HTTPS POST isteği gönderin. İstek gövdesi, oluşturulacak sosyal hesap kullanıcı özelliklerini içerir. En azından gerekli özelliklerini belirtmeniz gerekir. 
 
 
-**YAYINLA**  https://graph.windows.net/tenant-name.onmicrosoft.com/users
+**POST**  https://graph.windows.net/tenant-name.onmicrosoft.com/users
 
 Aşağıdaki form verileri gönderme: 
 
@@ -100,7 +100,7 @@ Aşağıdaki form verileri gönderme:
 ## <a name="migrate-social-account-with-local-account"></a>Sosyal hesap yerel hesapla geçirme
 Sosyal kimliklerle birleşik bir yerel hesap oluşturmak için. Graph API'si için HTTPS POST isteği gönderin. İstek gövdesi, oluşturulacak sosyal hesap kullanıcı özelliklerini içerir. En azından gerekli özelliklerini belirtmeniz gerekir. 
 
-**YAYINLA**  https://graph.windows.net/tenant-name.onmicrosoft.com/users
+**POST**  https://graph.windows.net/tenant-name.onmicrosoft.com/users
 
 Form verileri gönderme: 
 

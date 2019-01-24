@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: barbkess
-ms.openlocfilehash: 10f2b30addd874d39a6193c810ccbdf4ac1a06e6
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: ab68c8f73d4b53f441b8f46f466371cd1d03ad41
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473325"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846821"
 ---
 # <a name="choosing-the-application-type-when-adding-an-application-in-azure-active-directory"></a>Azure Active Directory'de uygulama eklerken uygulama türünü seçme
 Uygulamaları Azure Active Directory (Azure AD) ekleyebilirsiniz dört türleri hakkında daha fazla bilgi edinin. Azure Active Directory'de uygulama eklerken dört uygulama türünü birini seçmeniz istenir. 
@@ -68,11 +68,11 @@ Aşağıda desteklenen **çoklu oturum açma** modları Azure AD uygulamaları i
 
 -   **Azure AD çoklu oturum devre dışı açma** – Azure AD çoklu oturum açma devre dışı seçin **çoklu oturum açma modunu** , henüz bu uygulama, çoklu oturum açma ile Azure AD ile tümleştirmek hazır olmayan veya teslim yalnızca sınama
 
--   **Bağlantılı oturum açma** – seçin [bağlantılı oturum açma](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) **çoklu oturum açma modunu** zaten varolan çoklu oturum açma çözümü ile bağlı bir uygulamanız varsa ya da yalnızca istiyorsanız Basit bir bağlantı, kullanıcılarınızın yayımlamak kendi [uygulama erişim panelinde](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) veya [Office 365 uygulama Başlatıcısı](https://login.microsoftonline.com/common/oauth2/authorize?response_mode=form_post&response_type=id_token&scope=openid&nonce=d508a995-f6d6-4b8a-81b8-825c71f1be46.636253878097046923&state=https%3a%2f%2fsupport.office.com%2farticle%2fMeet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a%3fui%3den-US%26rs%3den-US%26ad%3dUS&client_id=4b233688-031c-404b-9a80-a4f3f2351f90&redirect_uri=https%3a%2f%2fsupport.office.com%2fauth%2fsignin&login_hint=asteen%40microsoft.com&prompt=none)
+-   **Bağlantılı oturum açma** – seçin [bağlantılı oturum açma](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) **çoklu oturum açma modunu** zaten varolan çoklu oturum açma çözümü ile bağlı bir uygulamanız varsa ya da yalnızca istiyorsanız Basit bir bağlantı, kullanıcılarınızın yayımlamak kendi [uygulama erişim panelinde](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) veya [Office 365 uygulama Başlatıcısı](https://login.microsoftonline.com/common/oauth2/authorize?response_mode=form_post&response_type=id_token&scope=openid&nonce=d508a995-f6d6-4b8a-81b8-825c71f1be46.636253878097046923&state=https%3a%2f%2fsupport.office.com%2farticle%2fMeet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a%3fui%3den-US%26rs%3den-US%26ad%3dUS&client_id=4b233688-031c-404b-9a80-a4f3f2351f90&redirect_uri=https%3a%2f%2fsupport.office.com%2fauth%2fsignin&login_hint=asteen%40microsoft.com&prompt=none)
 
--   **Parola tabanlı oturum açma** – seçin [parola tabanlı oturum açma](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) **çoklu oturum açma modunu** uygulamanız kullanıcı adı ve parola bir HTML alanı oluşturur ve bu kullanıcı adı depolamak istediğiniz ve güvenli bir şekilde uygulamayı daha sonra yeniden yürütülmesi gereken parola
+-   **Parola tabanlı oturum açma** – seçin [parola tabanlı oturum açma](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) **çoklu oturum açma modunu** uygulamanız kullanıcı adı ve parola bir HTML alanı oluşturur ve bu kullanıcı adı depolamak istediğiniz ve güvenli bir şekilde uygulamayı daha sonra yeniden yürütülmesi gereken parola
 
--   **SAML tabanlı oturum açma** – seçin [SAML tabanlı oturum açma](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) çoklu oturum açma uygulamanız SAML veya Openıd Connect protokolleri destekler veya kurallara göre belirli uygulama rollerine kullanıcıları eşleştirmek istiyorsanız modu SAML, talepleri tanımladığınız *
+-   **SAML tabanlı oturum açma** – seçin [SAML tabanlı oturum açma](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) çoklu oturum açma uygulamanız SAML veya Openıd Connect protokolleri destekler veya kurallara göre belirli uygulama rollerine kullanıcıları eşleştirmek istiyorsanız modu SAML, talepleri tanımladığınız *
 
    >[!NOTE]
    >Bu seçenek, uygulama proxy'si bir uygulama için yapılandırıldığında kullanılabilir değildir.

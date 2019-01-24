@@ -1,10 +1,10 @@
 ---
-title: 'Azure Active Directory Domain Services: Parola İlkesi | Microsoft Docs'
+title: 'Azure Active Directory etki alanı Hizmetleri: Parola İlkesi | Microsoft Docs'
 description: Yönetilen etki alanlarında parola ilkelerini anlama
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 1a14637e-b3d0-4fd9-ba7a-576b8df62ff2
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: dcc1de5fa0ac1f394d0fe12fd24a1d6e745df83e
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 0bb3ccb3841b60f6c94ac1d6126bd2b0d44af092
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284617"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852703"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Yönetilen etki alanlarında parola ve hesap kilitleme ilkeleri
 Bu makalede, yönetilen etki alanında varsayılan parola ilkeleri açıklanır. Ayrıca, bu ilkelerin nasıl yapılandırabileceğinizi kapsar.
@@ -52,7 +52,7 @@ Aşağıdaki ekran görüntüsünde, bir Azure AD Domain Services yönetilen etk
 
 ## <a name="password-policy-settings"></a>Parola İlkesi ayarları
 Aşağıdaki parola ilkeleri, yönetilen bir etki alanı üzerinde varsayılan olarak yapılandırılır:
-* Minimum parola uzunluğu (karakter): 7
+* Minimum password length (characters): 7
 * En fazla parola geçerlilik süresi (yaşam süresi): 90 gün
 * Parolalar karmaşıklık gereksinimlerine uymalıdır.
 
@@ -60,7 +60,7 @@ Aşağıdaki parola ilkeleri, yönetilen bir etki alanı üzerinde varsayılan o
 Aşağıdaki hesap kilitleme ilkeleri, yönetilen bir etki alanı üzerinde varsayılan olarak yapılandırılır:
 * Hesap kilitleme süresi: 30
 * İzin verilen hatalı oturum açma denemesi sayısı: 5
-* Sıfırlama başarısız oturum açma girişimi sayısı sonra: 30 dakika
+* Sayacını sıfırlama başarısız oturum açma girişimi: 30 dakika
 
 2 dakika içinde beş geçersiz parolaların kullanılıp kullanılmadığını etkili bir şekilde, kullanıcı hesaplarını 30 dakika boyunca kilitlidir. 30 dakika sonra kilidi otomatik olarak hesaplarıdır.
 
@@ -113,7 +113,7 @@ Yönetilen etki alanınızda özel bir FGPP oluşturmak için:
   ![Uygulanan FGPP](./media/how-to/fgpp-applied.png)
 
 > [!TIP]
-> **Özel bir kuruluş içindeki kullanıcı hesapları özel parola ilkeleri uygulamak için:** ince ayrıntılı parola ilkeleri yalnızca gruplara uygulanabilir. Kullanıcıların özel bir kuruluş için yalnızca bir özel parola ilkesini yapılandırmak için OU kullanıcılarını içeren bir grup oluşturun.
+> **Özel bir kuruluş içindeki kullanıcı hesapları özel parola ilkeleri uygulamak için:** Yalnızca gruplar için ince ayrıntılı parola ilkeleri uygulanabilir. Kullanıcıların özel bir kuruluş için yalnızca bir özel parola ilkesini yapılandırmak için OU kullanıcılarını içeren bir grup oluşturun.
 >
 >
 

@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 56c0d5b4ab1fae5812b1730e5a4d3aab0dfbde5e
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 4d62885743a4e50ece1c032c7b3405d8766d95cd
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448203"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850595"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile modelleri dağıtma
 
@@ -245,7 +245,7 @@ Azure Container Instances'a dağıtmak için aşağıdaki adımları kullanın:
     **Tahmini Süre**: Yaklaşık 3 dakika.
 
     > [!TIP]
-    > Dağıtım sırasında bir hata varsa, kullanmak `service.get_logs()` AKS hizmeti günlükleri görüntülemek için. Günlüğe kaydedilen bilgileri hatanın nedenini gösterir.
+    > Dağıtım sırasında bir hata varsa, kullanmak `service.get_logs()` hizmet günlükleri görüntülemek için. Günlüğe kaydedilen bilgileri hatanın nedenini gösterir.
 
 Daha fazla bilgi için başvuru belgeleri için bkz. [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) ve [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py) sınıfları.
 
@@ -335,7 +335,7 @@ print(service.state)
 **Tahmini Süre**: Yaklaşık 3 dakika.
 
 > [!TIP]
-> Dağıtım sırasında bir hata varsa, kullanmak `service.get_logs()` AKS hizmeti günlükleri görüntülemek için. Günlüğe kaydedilen bilgileri hatanın nedenini gösterir.
+> Dağıtım sırasında bir hata varsa, kullanmak `service.get_logs()` hizmet günlükleri görüntülemek için. Günlüğe kaydedilen bilgileri hatanın nedenini gösterir.
 
 Daha fazla bilgi için başvuru belgeleri için bkz. [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) ve [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) sınıfları.
 

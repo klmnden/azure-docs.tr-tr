@@ -4,7 +4,7 @@ description: Azure portalında sistem durumu sayfasını kullanarak yönetilen e
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 8999eec3-f9da-40b3-997a-7a2587911e96
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: aee8492c73ace608abaeca9d833494e041d2b9dd
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: fe5776dad4c4b9ae96484ac266a23e87658cf578
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969013"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852840"
 ---
 # <a name="check-the-health-of-an-azure-ad-domain-services-managed-domain"></a>Bir Azure AD Domain Services yönetilen etki alanının sistem durumunu denetle
 
@@ -32,7 +32,7 @@ Sistem durumu sayfası, Azure Portal'da kullanarak, yönetilen etki alanınızda
 2. Durumunu görüntülemek istediğiniz etki alanına tıklayın.
 3. Sol gezinti bölmesinden **sistem durumu**.
 
-Aşağıdaki resimde bir örnek sistem durumu sayfası gösterilmektedir: ![örnek sistem durumu sayfası](./media/active-directory-domain-services-alerts/health-page.png)
+Aşağıdaki resimde bir örnek sistem durumu sayfası gösterilmektedir: ![Örnek sistem durumu sayfası](./media/active-directory-domain-services-alerts/health-page.png)
 
 >[!NOTE]
 > Yönetilen etki alanınızın sistem saatte değerlendirilir. Yönetilen etki alanınızla değişiklikleri yaptıktan sonra yönetilen etki alanınızın güncelleştirilmiş durumunu görüntülemek için sonraki değerlendirme döngüsünde kadar bekleyin. Yönetilen etki alanınızın sistem en son ne zaman değerlendirildiği sağ üst köşedeki "Son Değerlendirme" zaman damgası gösterilir.

@@ -3,19 +3,19 @@ title: Kimlik deneyimi çerçevesi şema Azure Active Directory B2C için String
 description: StringCollection dönüşüm örnekleri kimlik deneyimi çerçevesi şema, Azure Active Directory B2C için talep.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 924da8c92bad1c5345d5d1833723a0c4e8ad7d29
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 7bec6846a1bb22893beed8086b6d9e88babc1906
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432673"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847953"
 ---
 # <a name="stringcollection-claims-transformations"></a>StringCollection talep dönüşümleri
 

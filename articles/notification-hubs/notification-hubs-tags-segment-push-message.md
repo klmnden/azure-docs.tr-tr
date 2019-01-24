@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 01/23/2019
 ms.author: jowargo
-ms.openlocfilehash: f52900d06049623a0a81e509abdc5e9ef76f95e5
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 31a22aabc7b0f1d51a673ef8642037103badcc02
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54451485"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828171"
 ---
 # <a name="routing-and-tag-expressions"></a>Yönlendirme ve etiket ifadeleri
 
@@ -29,8 +29,7 @@ Etiket ifadeleri için hedef belirli ayarlar veya kayıtları daha açık belirt
 
 ## <a name="targeting-specific-registrations"></a>Belirli hedefleme
 
-Hedef için tek yolu kayıtları olduğunu etiketleri bunları ile ilişkilendirmek için belirli bildirim sonra bu etiketleri hedefleyin. Bölümünde açıklandığı gibi [kayıt yönetimi](notification-hubs-push-notification-registration-management.md), anında iletme bildirimleri bir uygulamanın sahip bir cihaz kaydetmek bir bildirim hub'ındaki ele almak için. Bir kaydı bir bildirim hub'ındaki oluşturulduktan sonra uygulama arka ucu için anında iletme bildirimleri gönderebilirsiniz.
-Uygulama arka ucu belirli bir bildirim ile hedeflenecek kayıtları aşağıdaki yollarla seçebilirsiniz:
+Hedef için tek yolu kayıtları olduğunu etiketleri bunları ile ilişkilendirmek için belirli bildirim sonra bu etiketleri hedefleyin. Bölümünde açıklandığı gibi [kayıt yönetimi](notification-hubs-push-notification-registration-management.md), anında iletme bildirimleri bir uygulamanın sahip bir cihaz kaydetmek bir bildirim hub'ındaki ele almak için. Bir kaydı bir bildirim hub'ındaki oluşturulduktan sonra uygulama arka ucu için anında iletme bildirimleri gönderebilirsiniz. Uygulama arka ucu belirli bir bildirim ile hedeflenecek kayıtları aşağıdaki yollarla seçebilirsiniz:
 
 1. **Yayın**: bildirim hub'ında tüm kayıtları bir bildirim alır.
 2. **Etiket**: belirtilen etiketi içeren tüm kayıtları bir bildirim alır.
@@ -71,6 +70,9 @@ Bu resimdeki Alice Beatles güncelleştirmeleri ilginizi ve Bob Wailers güncell
 Etiket (örneğin, "band_Beatles" veya "follows_Charlie") içinde birden çok kaygıları kodlayabilir, ancak etiketleri basit dizeler ve değerlerle Özellikleri ' dir. Bir kayıt yalnızca varlığı veya yokluğu belirli bir etiketi üzerinde eşleştirilir.
 
 İlgi alanı gruplarına göndermek için etiketleri kullanma hakkında tam adım adım bir öğretici için bkz: [bozucu haber](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md).
+
+> [!NOTE]
+> Azure Notification Hubs kayıt başına 60 etiket en fazla destekler.
 
 ## <a name="using-tags-to-target-users"></a>Hedef kullanıcı için etiketleri kullanma
 

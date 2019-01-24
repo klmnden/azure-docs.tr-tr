@@ -4,17 +4,17 @@ description: Azure İlkesi değerlendirmeleri ve etkileri uyumluluğunu belirler
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/06/2018
+ms.date: 01/23/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 71911c3e196a05b9e10c719afe8f3b44522e6b02
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: cc5d59d523f87cac6ec8533d6af1342c58ba45f7
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437921"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853638"
 ---
 # <a name="getting-compliance-data"></a>Uyumluluk verilerini alma
 
@@ -29,6 +29,8 @@ Uyumluluk üzerinde yöntemleri bakarak önce uyumluluk bilgilerini güncelleşt
 
 > [!WARNING]
 > Uyumluluk durumu olarak bildirildiğinden, **kayıtlı**, doğrulayın **Microsoft.policyınsights** kaynak sağlayıcısı kaydedildikten ve kullanıcı uygun rol tabanlı erişim denetimi ( Açıklandığı RBAC) izinlerinin [burada](../overview.md#rbac-permissions-in-azure-policy).
+
+[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="evaluation-triggers"></a>Değerlendirme Tetikleyicileri
 
@@ -145,9 +147,9 @@ REST API ile aynı bilgileri portalda kullanılabilir alınabilir (dahil olmak �
 Azure PowerShell'de aşağıdaki örnekleri kullanmak için bir kimlik doğrulama belirteci ile bu kod örneği oluşturun. Ardından $restUri ardından ayrıştırılabilir bir JSON nesnesi almak için örnekler dizeyi değiştirin.
 
 ```azurepowershell-interactive
-# Login first with Connect-AzureRmAccount if not using Cloud Shell
+# Login first with Connect-AzAccount if not using Cloud Shell
 
-$azContext = Get-AzureRmContext
+$azContext = Get-AzContext
 $azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
 $profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
 $token = $profileClient.AcquireAccessToken($azContext.Subscription.TenantId)
@@ -283,29 +285,33 @@ Sonuçlarınız aşağıdaki örneğe benzer:
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-İlke için Azure PowerShell modülü, PowerShell Galerisi'nde kullanılabilir [AzureRM.PolicyInsights](https://www.powershellgallery.com/packages/AzureRM.PolicyInsights). PowerShellGet kullanarak modülü kullanarak yükleyebilirsiniz `Install-Module -Name AzureRM.PolicyInsights` (en son sahip olduğunuzdan emin olun [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) yüklü):
+İlke için Azure PowerShell modülü, PowerShell Galerisi'nde kullanılabilir [Az.PolicyInsights](https://www.powershellgallery.com/packages/Az.PolicyInsights). PowerShellGet kullanarak modülü kullanarak yükleyebilirsiniz `Install-Module -Name Az.PolicyInsights` (en son sahip olduğunuzdan emin olun [Azure PowerShell](/powershell/azure/install-az-ps) yüklü):
 
 ```azurepowershell-interactive
 # Install from PowerShell Gallery via PowerShellGet
-Install-Module -Name AzureRM.PolicyInsights
+Install-Module -Name Az.PolicyInsights
 
 # Import the downloaded module
-Import-Module AzureRM.PolicyInsights
+Import-Module Az.PolicyInsights
 
-# Login with Connect-AzureRmAccount if not using Cloud Shell
-Connect-AzureRmAccount
+# Login with Connect-AzAccount if not using Cloud Shell
+Connect-AzAccount
 ```
 
-Modül üç cmdlet vardır:
+Modülü aşağıdaki cmdlet'leri içerir:
 
-- `Get-AzureRmPolicyStateSummary`
-- `Get-AzureRmPolicyState`
-- `Get-AzureRmPolicyEvent`
+- `Get-AzPolicyStateSummary`
+- `Get-AzPolicyState`
+- `Get-AzPolicyEvent`
+- `Get-AzPolicyRemediation`
+- `Remove-AzPolicyRemediation`
+- `Start-AzPolicyRemediation`
+- `Stop-AzPolicyRemediation`
 
 Örnek: Durum için en üstteki atanan ilke ile uyumlu olmayan kaynakları en yüksek sayısını özeti alınıyor.
 
 ```azurepowershell-interactive
-PS> Get-AzureRmPolicyStateSummary -Top 1
+PS> Get-AzPolicyStateSummary -Top 1
 
 NonCompliantResources : 15
 NonCompliantPolicies  : 1
@@ -316,7 +322,7 @@ PolicyAssignments     : {/subscriptions/{subscriptionId}/resourcegroups/RG-Tags/
 Örnek: En son kaynak değerlendirilmesi için durum kaydı alma (varsayılan değer azalan zaman damgası tarafından).
 
 ```azurepowershell-interactive
-PS> Get-AzureRmPolicyState -Top 1
+PS> Get-AzPolicyState -Top 1
 
 Timestamp                  : 5/22/2018 3:47:34 PM
 ResourceId                 : /subscriptions/{subscriptionId}/resourceGroups/RG-Tags/providers/Mi
@@ -342,7 +348,7 @@ PolicyDefinitionCategory   : tbd
 Örnek: Tüm uyumlu sanal ağ kaynakları için Ayrıntılar alınıyor.
 
 ```azurepowershell-interactive
-PS> Get-AzureRmPolicyState -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'"
+PS> Get-AzPolicyState -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'"
 
 Timestamp                  : 5/22/2018 4:02:20 PM
 ResourceId                 : /subscriptions/{subscriptionId}/resourceGroups/RG-Tags/providers/Mi
@@ -368,7 +374,7 @@ PolicyDefinitionCategory   : tbd
 Örnek: Belirli bir tarihten sonra oluştu uyumlu olmayan bir sanal ağ kaynakları ile ilgili olayları alınıyor.
 
 ```azurepowershell-interactive
-PS> Get-AzureRmPolicyEvent -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'" -From '2018-05-19'
+PS> Get-AzPolicyEvent -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'" -From '2018-05-19'
 
 Timestamp                  : 5/19/2018 5:18:53 AM
 ResourceId                 : /subscriptions/{subscriptionId}/resourceGroups/RG-Tags/providers/Mi
@@ -393,16 +399,16 @@ TenantId                   : {tenantId}
 PrincipalOid               : {principalOid}
 ```
 
-**PrincipalOid** alan, belirli bir kullanıcının Azure PowerShell cmdlet'iyle almak için kullanılabilir `Get-AzureRmADUser`. Değiştirin **{principalOid}** yanıt veren önceki örnekten alın.
+**PrincipalOid** alan, belirli bir kullanıcının Azure PowerShell cmdlet'iyle almak için kullanılabilir `Get-AzADUser`. Değiştirin **{principalOid}** yanıt veren önceki örnekten alın.
 
 ```azurepowershell-interactive
-PS> (Get-AzureRmADUser -ObjectId {principalOid}).DisplayName
+PS> (Get-AzADUser -ObjectId {principalOid}).DisplayName
 Trent Baker
 ```
 
 ## <a name="log-analytics"></a>Log Analytics
 
-Varsa bir [Log Analytics](../../../log-analytics/log-analytics-overview.md) çalışma alanıyla `AzureActivity` çözüm, aboneliğinize bağlı basit Kusto sorgu kullanarak değerlendirme döngüsü uyumsuzluk sonuçları da görüntüleyebilir ve `AzureActivity` tablo. Uyumsuzluk için izlemek için uyarılar Log analytics'te daha fazla ayrıntı ile yapılandırılabilir.
+Varsa bir [Log Analytics](../../../log-analytics/log-analytics-overview.md) çalışma alanıyla `AzureActivity` çözüm, aboneliğinize bağlı basit bir Azure Veri Gezgini sorgularını kullanarak değerlendirme döngüsü uyumsuzluk sonuçları da görüntüleyebilir ve `AzureActivity` Tablo. Uyumsuzluk için izlemek için uyarılar Log analytics'te daha fazla ayrıntı ile yapılandırılabilir.
 
 ![Log Analytics kullanarak ilke uyumluluğu](../media/getting-compliance-data/compliance-loganalytics.png)
 

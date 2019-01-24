@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Domain Services: Karşılaştırma Azure AD Domain Services kendin YAP etki alanı denetleyicilerine | Microsoft Docs'
+title: 'Azure AD etki alanı Hizmetleri: Azure AD Domain Services kendin YAP etki alanı denetleyicilerine karşılaştırın | Microsoft Docs'
 description: Azure Active Directory Domain Services kendin YAP etki alanı denetleyicilerine karşılaştırma
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 165249d5-e0e7-4ed1-aa26-91a05a87bdc9
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: ergreenl
-ms.openlocfilehash: f7455076d59e447ade9c15203593d260cf676894
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 45c1629aba2124230aa55f67583ff08584ab3c93
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155806"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847637"
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>Azure AD etki alanı Hizmetleri karar verme, kullanım örneği için doğru
 Azure AD Domain Services ile kimlik altyapısını azure'da koruma hakkında endişelenmenize gerek kalmadan Azure altyapı hizmetleri iş yüklerinizi dağıtabilirsiniz. Yönetilen bu hizmet, dağıtmak ve yönetmek, kendi tipik bir Windows Server Active Directory Dağıtım farklıdır. Hizmet kolayca dağıtılır ve otomatik sistem durumu izleme ve düzeltme sağlar. Biz, dağıtım senaryoları için destek eklemek için hizmet sürekli geliştirilmektedir.
@@ -106,9 +106,9 @@ Azure AD Domain Services yönetilen etki alanlarını azure'da tek bir sanal ağ
 ## <a name="do-it-yourself-diy-ad-deployment-options"></a>'Kendin Yap ' türü (DIY) AD dağıtım seçenekleri
 Windows Server AD yüklemesi tarafından sunulan özelliklerden bazıları, gereken dağıtım kullanım örneklerinize olabilir. Bu gibi durumlarda yazılanları (DIY) aşağıdaki seçeneklerden birini göz önünde bulundurun:
 
-* **Tek başına bulut etki alanı:** tek başına bir 'bulut etki alanına etki alanı denetleyicisi olarak yapılandırılmış olan Azure sanal makineleri kullanarak' ayarlayabilirsiniz. Bu altyapı, şirket içi ile tümleştirilmezse AD ortam. Bu seçenek 'bulut kimlik bilgileri' farklı kümesi gerektiren sanal makineleri bulutta oturum açma/yönetmek için.
-* **Kaynak orman dağıtımı:** kaynak orman topoloji, bir etki alanına etki alanı denetleyicileri olarak yapılandırılmış Azure sanal makineleri kullanarak ayarlayabilirsiniz. Ardından, şirket içi ile bir AD güven ilişkisi yapılandırabilirsiniz AD ortam. Bu kaynak ormanına bulut etki alanına katılım bilgisayarlar (Azure Vm'leri) kullanabilirsiniz. Kullanıcı kimlik doğrulaması ya da şirket içi dizininize VPN/ExpressRoute bağlantı olur.
-* **Şirket içi etki alanınızı Azure'a genişletmek:** bir Azure sanal ağı şirket içi ağınıza bir VPN/ExpressRoute bağlantısı kullanarak bağlanabilir. Bu ayar, Azure Vm'leri, şirket içi için katılmasını sağlar AD. Çoğaltma VM'si olarak azure'da şirket içi etki alanınızın etki alanı denetleyicilerini yükseltmek başka bir alternatiftir. Ardından, şirket içi dizininize VPN/ExpressRoute bağlantısı üzerinden çoğaltmak için ayarlayabilirsiniz. Bu dağıtım modu, şirket içi etki alanınızı Azure'da etkili bir şekilde genişletir.
+* **Tek başına bulut etki alanı:** Tek başına bir 'bulut etki alanına etki alanı denetleyicisi olarak yapılandırılmış olan Azure sanal makineleri kullanarak' ayarlayabilirsiniz. Bu altyapı, şirket içi ile tümleştirilmezse AD ortam. Bu seçenek 'bulut kimlik bilgileri' farklı kümesi gerektiren sanal makineleri bulutta oturum açma/yönetmek için.
+* **Kaynak orman dağıtımı:** Kaynak orman topoloji, bir etki alanına etki alanı denetleyicileri olarak yapılandırılmış Azure sanal makineleri kullanarak ayarlayabilirsiniz. Ardından, şirket içi ile bir AD güven ilişkisi yapılandırabilirsiniz AD ortam. Bu kaynak ormanına bulut etki alanına katılım bilgisayarlar (Azure Vm'leri) kullanabilirsiniz. Kullanıcı kimlik doğrulaması ya da şirket içi dizininize VPN/ExpressRoute bağlantı olur.
+* **Şirket içi etki alanınızı Azure'a genişletmek:** Bir Azure sanal ağı şirket içi ağınıza bir VPN/ExpressRoute bağlantısı kullanarak bağlanabilir. Bu ayar, Azure Vm'leri, şirket içi için katılmasını sağlar AD. Çoğaltma VM'si olarak azure'da şirket içi etki alanınızın etki alanı denetleyicilerini yükseltmek başka bir alternatiftir. Ardından, şirket içi dizininize VPN/ExpressRoute bağlantısı üzerinden çoğaltmak için ayarlayabilirsiniz. Bu dağıtım modu, şirket içi etki alanınızı Azure'da etkili bir şekilde genişletir.
 
 > [!NOTE]
 > Kendin YAP seçeneği dağıtım kullanım örneklerinize için daha uygun olduğunu belirleyebilir. Göz önünde bulundurun [geri bildirim paylaşma](active-directory-ds-contact-us.md) özellikleri yardımcı olan anlamamıza yardımcı olmak için Azure AD Domain Services'ı gelecekte seçtiniz. Bu geri bildirim hizmetini kullanım örnekleri ve dağıtım gereksinimlerini daha iyi uyacak şekilde yardımcı olur.

@@ -1,10 +1,10 @@
 ---
-title: 'Azure Active Directory Domain Services: bir CoreOS Linux sanal makinesi yönetilen bir etki alanına katılın. | Microsoft Docs'
+title: 'Azure Active Directory etki alanı Hizmetleri: CoreOS Linux VM için yönetilen etki alanına Katıl | Microsoft Docs'
 description: CoreOS Linux sanal makinesini Azure AD Domain Services için katılın
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 5db65f30-bf69-4ea3-9ea5-add1db83fdb8
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: 0552085eb5ee5e5b3d1379482e9463a7ae802388
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: a2b8c3c0c38349b4c68f85a32bddb2c9b3e60c6f
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158457"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850701"
 ---
 # <a name="join-a-coreos-linux-virtual-machine-to-a-managed-domain"></a>CoreOS Linux sanal makinesi için yönetilen etki alanına Katıl
 Bu makalede, bir CoreOS Linux sanal makinesini Azure'da bir Azure AD Domain Services yönetilen etki alanına katılın işlemini göstermektedir.
@@ -112,7 +112,7 @@ sudo adcli join -D CONTOSO100.COM -U bob@CONTOSO100.COM -K /etc/krb5.keytab -H c
 
 
 > [!NOTE]
-> **Sorun giderme:** varsa *adcli* yönetilen etki alanınıza bulamıyor:
+> **Sorun giderme:** Varsa *adcli* yönetilen etki alanınıza bulamıyor:
   * Etki alanı (try ping) sanal makineden erişilebilir olduğundan emin olun.
   * Sanal makinenin yönetilen etki alanında kullanılabilir olduğu aynı sanal ağa gerçekten dağıtılmış olduğunu kontrol edin.
   * Sanal ağın DNS sunucusu ayarlarını yönetilen etki alanının etki alanı denetleyicilerine işaret edecek şekilde güncelleştirdiyseniz denetleyin.

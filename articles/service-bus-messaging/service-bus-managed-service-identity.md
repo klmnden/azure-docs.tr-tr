@@ -3,9 +3,9 @@ title: Kimlikler Azure Service Bus Önizleme ile Azure kaynakları için yöneti
 description: Azure Service Bus ile Azure kaynakları için yönetilen kimlikleri kullanmak
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/01/2018
-ms.author: spelluru
-ms.openlocfilehash: 25d2db5dcf3979341fc104643f7178047c29483b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.author: aschhab
+ms.openlocfilehash: 5edeebd9698384785082e5a441c24e136ed22481
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842841"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856900"
 ---
 # <a name="managed-identities-for-azure-resources-with-service-bus"></a>Service Bus ile Azure kaynakları için yönetilen kimlikleri 
 
@@ -51,7 +51,7 @@ Uygulamayı oluşturduktan sonra (nasıl yapılır makalesinde de gösterilmişt
 
 ### <a name="create-a-new-service-bus-messaging-namespace"></a>Yeni bir Service Bus Mesajlaşması ad alanı oluştur
 
-Ardından, [Service Bus Mesajlaşması ad alanı oluşturma](service-bus-create-namespace-portal.md) RBAC Önizleme desteğine sahip Azure bölgelerinden birini: **ABD Doğu**, **ABD Doğu 2**, veya **Batı Avrupa** . 
+Ardından, [Service Bus Mesajlaşması ad alanı oluşturma](service-bus-create-namespace-portal.md) RBAC Önizleme desteğine sahip Azure bölgelerinden birini: **ABD Doğu**, **ABD Doğu 2**, veya **Batı Avrupa**. 
 
 Ad alanınıza gidin **erişim denetimi (IAM)** sayfasında portalda ve ardından **rol ataması Ekle** için yönetilen kimlik eklemek için **sahibi** rol. Bunu yapmak için web uygulamasının adını arayın **izinleri eklemek** paneli **seçin** alan ve sonra giriş'e tıklayın. Daha sonra **Kaydet**'e tıklayın.
 

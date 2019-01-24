@@ -3,19 +3,19 @@ title: Azure Active Directory B2C nedir? | Microsoft Docs
 description: Azure Active Directory B2C'yi kullanarak uygulamanızın oturum açma deneyimini oluşturmayı ve yönetmeyi öğrenin.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2f9c4acc1a2a98978e12aaf5356a5bc270b8d017
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: b667934fefe0b9afb5aeca786839f5e105be2c4d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724035"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845002"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>Azure Active Directory B2C nedir?
 
@@ -102,13 +102,13 @@ Azure AD B2C'de kiracı, kuruluşunuzu ve kullanıcı dizinini temsil eder. Her 
 
 Tüm işlevleri etkinleştirmek ve kullanım ücretlerini ödemek için Azure AD B2C kiracınızı Azure aboneliğinize bağlayın. Müşterilerinizin uygulamanızda oturum açmasına izin vermek için uygulamayı bir Azure AD B2C kiracısında kaydedin.
 
-Uygulamanızı Azure AD B2C'yi kullanacak şekilde yapılandırmadan önce bir Azure AD B2C kiracısı oluşturmanız ve uygulamanızı kaydetmeniz gerekir. Uygulamanızı kaydetmek için [Öğretici: Azure AD B2C'yi kullanarak kaydolma ve oturum açma özelliklerini etkinleştirmek için bir uygulamayı kaydetme](tutorial-register-applications.md) bölümündeki adımları uygulayın.
+Uygulamanızı Azure AD B2C'yi kullanacak şekilde yapılandırmadan önce bir Azure AD B2C kiracısı oluşturmanız ve uygulamanızı kaydetmeniz gerekir. Uygulamanızı kaydetmek için adımları tamamlamanız [Öğreticisi: Kaydolma ve oturum açma Azure AD B2C kullanarak etkinleştirmek için bir uygulamayı kaydetme](tutorial-register-applications.md).
   
-ASP.NET web uygulaması geliştiriyorsanız uygulamanızı [Öğretici: Azure AD B2C'yi kullanarak bir web uygulamasının hesapların kimliğini doğrulamasını sağlama](active-directory-b2c-tutorials-web-app.md) bölümündeki adımları uygulayarak hesaplarda kimlik doğrulaması yapacak şekilde ayarlayın.
+Bir ASP.NET web uygulama geliştiricisi, hesapları içindeki adımları kullanarak kimlik doğrulaması için uygulamanızı ayarlayın [Öğreticisi: Azure AD B2C kullanarak hesaplarla kimlik doğrulaması için bir web uygulamasına etkinleştirme](active-directory-b2c-tutorials-web-app.md).
 
-Masaüstü uygulaması geliştiriyorsanız uygulamanızı [Öğretici: Azure AD B2C'yi kullanarak bir masaüstü uygulamasının hesapların kimliğini doğrulamasını sağlama](active-directory-b2c-tutorials-desktop-app.md) bölümündeki adımları uygulayarak hesaplarda kimlik doğrulaması yapacak şekilde ayarlayın.
+Olduğunuz bir masaüstü uygulaması Geliştirici ayarlamışsa içindeki adımları kullanarak hesaplarının kimliğini doğrulamak için uygulamanıza [Öğreticisi: Azure AD B2C kullanarak hesaplarla kimlik doğrulaması bir masaüstü uygulaması etkinleştirme](active-directory-b2c-tutorials-desktop-app.md).
 
-Node.js kullanarak tek sayfalı bir uygulama geliştiriyorsanız uygulamanızı [Öğretici: Azure AD B2C'yi kullanarak tek sayfalı bir uygulamanın hesapların kimliğini doğrulamasını sağlama](active-directory-b2c-tutorials-spa.md) bölümündeki adımları uygulayarak hesaplarda kimlik doğrulaması yapacak şekilde ayarlayın.
+Node.js kullanarak bir tek sayfalı uygulama geliştiricisi olarak, içindeki adımları kullanarak hesapları kimlik doğrulaması için uygulamanızı ayarlayın [Öğreticisi: Azure AD B2C kullanarak hesaplarla kimlik doğrulaması için bir tek sayfalı uygulamayı etkinleştir](active-directory-b2c-tutorials-spa.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -4,7 +4,7 @@ description: Bir Azure AD Domain Services yönetilen etki alanı için güvenli 
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: 850b721cfa78dde23ebc11944bf023de8798cec9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c5bc40d5be5b41000ababa35386bcdda6bf3f83f
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236962"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854268"
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Güvenli LDAP (LDAPS) bir Azure AD Domain Services yönetilen etki alanı için yapılandırma
 Bu makalede, Azure AD Domain Services yönetilen etki alanınıza Güvenli Basit Dizin Erişim Protokolü (LDAPS) nasıl olanak sağlayabileceğiniz açıklanmaktadır. Güvenli LDAP olan olarak da bilinen ' Basit Dizin Erişim Protokolü (LDAP) Güvenli Yuva Katmanı (SSL) üzerinden / Aktarım Katmanı Güvenliği (TLS)'.
@@ -90,7 +90,7 @@ Yukarıdaki örnekte, 'contoso100.com' yönetilen etki alanınızın DNS etki al
 
 ![Azure AD Dizini Seçme](./media/active-directory-domain-services-admin-guide/secure-ldap-powershell-create-self-signed-cert.png)
 
-Yeni oluşturulan otomatik olarak imzalanan sertifika, yerel makinenin sertifika deposuna yerleştirilir.
+Yeni oluşturulan otomatik olarak imzalanan sertifika, yerel makinenin sertifika depolama alanına yerleştirilir.
 
 
 ## <a name="next-step"></a>Sonraki adım

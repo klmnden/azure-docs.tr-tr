@@ -3,19 +3,19 @@ title: Azure Active Directory B2C'de kullanıcı erişimini yönetme | Microsoft
 description: Reşit olmayanların tanımlamak, tarih Doğum ve ülke veri toplamak ve Azure AD B2C'yi kullanarak uygulamanızda kullanım koşullarının kabulü alma hakkında bilgi edinin.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6709fb8ae328f749b367c58f95b8a9ef8da9bc65
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 982587fa7da41ea1de5fd11bb054f87039596da1
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42056178"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852040"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Azure Active Directory B2C'de kullanıcı erişimini yönetme
 
@@ -34,11 +34,11 @@ Uygulamalar ve kuruluşların, bu İzleyici için hedeflenmeyen uygulamalar ve h
 
 Bir kullanıcı bir ikincil belirlenirse, kullanıcı akışını Azure AD B2C'ye üç seçenekten birini ayarlayabilirsiniz:
 
-- **Bir imzalı JWT id_token uygulamasına geri göndermek**: kullanıcı dizinde kayıtlı ve bir belirteç uygulamaya döndürülür. Uygulama, iş kuralları uygulayarak devam eder. Örneğin, uygulama bir ebeveyn izni işlemiyle devam edebilirsiniz. Bu yöntemi kullanmak için almayı seçtiğiniz **yaş** ve **consentProvidedForMinor** uygulamadan gelen talepler.
+- **Bir imzalı JWT id_token uygulamasına geri göndermek**: Kullanıcı dizinde kayıtlı ve bir belirteç uygulamaya döndürülür. Uygulama, iş kuralları uygulayarak devam eder. Örneğin, uygulama bir ebeveyn izni işlemiyle devam edebilirsiniz. Bu yöntemi kullanmak için almayı seçtiğiniz **yaş** ve **consentProvidedForMinor** uygulamadan gelen talepler.
 
 - **İşaretsiz bir JSON belirteci uygulamaya gönderir**: Azure AD B2C kullanıcı küçük ve kullanıcının ebeveyn izni durumunu sağlar. uygulama bildirir. Uygulama, iş kuralları uygulayarak devam eder. Bir JSON belirteç başarılı bir kimlik doğrulaması ile uygulama tamamlamaz. Uygulama Kimliği doğrulanmamış kullanıcı içerebilecek JSON belirtecinde bulunan talepleri göre işlemelisiniz **adı**, **e-posta**, **yaş**ve **consentProvidedForMinor**.
 
-- **Kullanıcı engelleme**: küçük bir kullanıcı ve ebeveyn izni olmayan sağlanmıştır, Azure AD B2C kullanıcı isterse engellenir bildirimde bulunabilir. Hiçbir belirteç verilir, erişim engellenir ve kayıt yolculuğu sırasında kullanıcı hesabı oluşturulmaz. Bu bildirim uygulamak için mevcut uygun seçenekleri ve kullanıcıya bildirmek için uygun HTML/CSS içerik sayfası sağlar. Yeni kayıtlar için uygulama tarafından başka bir eylem gerekmez.
+- **Kullanıcı engelleme**: Bir kullanıcı küçük ebeveyn izni sağlanmamış ise, Azure AD B2C kullanıcı isterse engellenir bildirebilir. Hiçbir belirteç verilir, erişim engellenir ve kayıt yolculuğu sırasında kullanıcı hesabı oluşturulmaz. Bu bildirim uygulamak için mevcut uygun seçenekleri ve kullanıcıya bildirmek için uygun HTML/CSS içerik sayfası sağlar. Yeni kayıtlar için uygulama tarafından başka bir eylem gerekmez.
 
 ## <a name="get-parental-consent"></a>Ebeveyn izni alın
 

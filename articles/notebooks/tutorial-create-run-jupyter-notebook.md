@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 110ba7f13b2a0d44277c881d67f0c794c8658cd1
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: dcee7df0b5da53bd7014a26f1f09695fe874833d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244603"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849673"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Öğretici: oluşturma ve Python ile Jupyter not defteri çalıştırma
 
@@ -128,7 +128,7 @@ Hazır veri dosyası ve proje ortam kümesi ile artık oluşturabilir ve not def
 1. Sahip olduğunuz için bir *requirements.txt* dosya ortamı ayarlarınızda göreceğiniz ileti "kapsayıcınızı tamamlanması beklenirken hazırlanıyor." Seçebileceğiniz **Tamam** iletiyi kapatın ve not defterinde; çalışmaya devam etmek için ortamı tamamen ayarlanana kadar kod hücreleri ancak çalıştıramazsınız.
 1. Bir tek boş kodu hücreyi Jupyter arabirimle not defteri varsayılan olarak açılır.
 
-    [![](media/tutorial/tutorial-new-notebook.png "İlk Azure not defterleri yeni bir not defteri görünümü")](media/tutorial/tutorial-new-notebook.png#lightbox)
+    [![İlk Azure not defterleri yeni bir not defteri görünümü](media/tutorial/tutorial-new-notebook.png)](media/tutorial/tutorial-new-notebook.png#lightbox)
 
 ## <a name="tour-the-notebook-interface"></a>Not Defteri arabirimi turuna katılın
 
@@ -144,7 +144,7 @@ Not Defteri ile çalışmak için komutları (C) A menüsü.
 (F) not defterini güvenilir olup göstergesi (varsayılan değer **güvenilir**).
 (G) not defteri etkinliği göstergesini birlikte çalıştırmak için kullanılan çekirdek.
 
-[![](media/tutorial/tutorial-notebook-ui.png "Birincil kullanıcı Arabirimi alanları Jupyter arabirimi")](media/tutorial/tutorial-notebook-ui.png#lightbox)
+[![Birincil kullanıcı Arabirimi alanları Jupyter arabirimi](media/tutorial/tutorial-notebook-ui.png)](media/tutorial/tutorial-notebook-ui.png#lightbox)
 
 Jupyter, birincil kullanıcı Arabirimi öğeleri yerleşik turu sağlar. Seçerek Turu Başlat **yardımcı** > **kullanıcı arabirimi Turu** komut ve açılan pencereler tıklayarak.
 

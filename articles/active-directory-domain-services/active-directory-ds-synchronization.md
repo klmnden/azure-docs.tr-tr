@@ -1,10 +1,10 @@
 ---
-title: 'Azure Active Directory Domain Services: Yönetilen etki alanlarında eşitleme | Microsoft Docs'
+title: 'Azure Active Directory etki alanı Hizmetleri: Yönetilen etki alanlarında eşitleme | Microsoft Docs'
 description: Azure Active Directory Domain Services yönetilen etki alanındaki eşitleme anlama
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 57cbf436-fc1d-4bab-b991-7d25b6e987ef
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: ergreenl
-ms.openlocfilehash: e0fc1b64514adb710ebcbdd417f65e9e3b3b3d66
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 40b66b85f88cde28cc6a1c52cb456157d8acd68c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155567"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846962"
 ---
 # <a name="synchronization-in-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services yönetilen etki alanı eşitleme
 Aşağıdaki diyagram, eşitleme Azure AD Domain Services yönetilen etki alanlarını nasıl çalıştığını gösterir.
@@ -50,12 +50,12 @@ Buna karşılık, Azure AD kiracınıza kadar bir daha basit ve düz ad alanıd�
 ## <a name="exclusions---what-isnt-synchronized-to-your-managed-domain"></a>Dışlamalar - ne yönetilen Etki Alanınızla eşitlenmemiş
 Aşağıdaki nesneler veya öznitelikleri, Azure AD kiracınız veya yönetilen etki alanınıza eşitlenmedi:
 
-* **Öznitelikler dışarıda:** belirli öznitelikleri, Azure AD Connect kullanarak şirket içi etki alanınızdan Azure AD kiracınız ile eşitlenmesini hariç tutmak tercih edebilirsiniz. Hariç tutulan bu öznitelikler, yönetilen etki alanında kullanılamaz.
-* **Grup ilkeleri:** yapılandırılmış, şirket içi etki alanında Grup ilkeleri, yönetilen Etki Alanınızla eşitlenmez.
-* **Sysvol paylaşımının:** benzer şekilde, yönetilen etki alanınıza şirket içi etki alanınızdaki Sysvol paylaşımının içeriğini eşitlenmez.
-* **Bilgisayar nesneleri:** bilgisayar nesneleri, şirket içi etki alanına katılmış bilgisayarlar için yönetilen Etki Alanınızla eşitlenir. Bu bilgisayarlar değil, yönetilen etki alanınız ile güven ilişkisi olan ve şirket içi etki alanınıza yalnızca ait. Yönetilen etki alanında yalnızca, açıkça etki alanının yönetilen etki alanına katılmış bilgisayarları için bilgisayar nesneleri bulun.
-* **Kullanıcılar ve gruplar için SID Geçmişi öznitelikleri:** birincil kullanıcısı ve birincil grup SID şirket etki alanınızdan yönetilen Etki Alanınızla eşitlenir. Ancak, kullanıcılar ve gruplar için mevcut SIDHistory öznitelikleri, yönetilen etki alanınıza şirket içi etki alanınızdan eşitlenmez.
-* **Kuruluş birimi (OU) yapıları:** tanımlanan şirket içi etki alanınızdaki kuruluş birimlerini yönetilen Etki Alanınızla eşitleme. Yönetilen etki alanınızda iki yerleşik OU'lar vardır. Varsayılan olarak, yönetilen etki alanınıza düz bir OU yapısı vardır. Ancak tercih edebilirsiniz [yönetilen etki alanınızda özel bir OU oluşturun](active-directory-ds-admin-guide-create-ou.md).
+* **Hariç tutulan öznitelikleri:** Azure AD Connect kullanarak şirket içi etki alanınızdan Azure AD kiracınız ile eşitlenmesini belirli öznitelikleri dışlamak isteyebilirsiniz. Hariç tutulan bu öznitelikler, yönetilen etki alanında kullanılamaz.
+* **Grup ilkeleri:** Şirket içi etki alanınızda yapılandırılan Grup ilkeleri, yönetilen Etki Alanınızla eşitlenmez.
+* **Sysvol paylaşımı:** Benzer şekilde, yönetilen etki alanınıza şirket içi etki alanınızdaki Sysvol paylaşımının içeriğini eşitlenmez.
+* **Bilgisayar nesneleri için:** Bilgisayar nesneleri, şirket içi etki alanına katılmış bilgisayarlar için yönetilen Etki Alanınızla eşitlenmez. Bu bilgisayarlar değil, yönetilen etki alanınız ile güven ilişkisi olan ve şirket içi etki alanınıza yalnızca ait. Yönetilen etki alanında yalnızca, açıkça etki alanının yönetilen etki alanına katılmış bilgisayarları için bilgisayar nesneleri bulun.
+* **Kullanıcılar ve gruplar için SID Geçmişi öznitelikleri:** Birincil kullanıcı ve birincil grup SID şirket etki alanınızdan yönetilen Etki Alanınızla eşitlenir. Ancak, kullanıcılar ve gruplar için mevcut SIDHistory öznitelikleri, yönetilen etki alanınıza şirket içi etki alanınızdan eşitlenmez.
+* **Kuruluş birimi (OU) yapıları:** Tanımlanan şirket içi etki alanınızdaki kuruluş birimlerini, yönetilen Etki Alanınızla eşitleme yapmayın. Yönetilen etki alanınızda iki yerleşik OU'lar vardır. Varsayılan olarak, yönetilen etki alanınıza düz bir OU yapısı vardır. Ancak tercih edebilirsiniz [yönetilen etki alanınızda özel bir OU oluşturun](active-directory-ds-admin-guide-create-ou.md).
 
 ## <a name="how-specific-attributes-are-synchronized-to-your-managed-domain"></a>Yönetilen etki alanınızla eşitlenen belirli öznitelikler nasıl
 Aşağıdaki tabloda, bazı ortak öznitelikleri listeler ve yönetilen Etki Alanınızla nasıl eşitleneceğini açıklar.
@@ -91,7 +91,7 @@ Aşağıdaki tabloda, Azure AD kiracınızda nesneleri yönetilen etki alanını
 | mailNickname |SAMAccountName (bazen otomatik olarak oluşturulmuş olabilir) |
 | Mobil |Mobil |
 | Nesne Kimliği |msDS-AzureADObjectId |
-| OnPremiseSecurityIdentifier |SID Geçmişi |
+| onPremiseSecurityIdentifier |SID Geçmişi |
 | passwordPolicies |userAccountControl (ayarlar veya bit DONT_EXPIRE_PASSWORD temizler) |
 | physicalDeliveryOfficeName |physicalDeliveryOfficeName |
 | posta kodu |posta kodu |
@@ -112,7 +112,7 @@ Aşağıdaki tabloda, Azure AD kiracınızda nesneler, yönetilen etki alanını
 | posta |posta |
 | mailNickname |msDS-AzureADMailNickname |
 | Nesne Kimliği |msDS-AzureADObjectId |
-| OnPremiseSecurityIdentifier |SID Geçmişi |
+| onPremiseSecurityIdentifier |SID Geçmişi |
 | securityEnabled |groupType |
 
 ## <a name="password-hash-synchronization-and-security-considerations"></a>Parola Karması eşitleme ve güvenlik konuları

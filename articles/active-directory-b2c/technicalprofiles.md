@@ -3,19 +3,19 @@ title: TechnicalProfiles | Microsoft Docs
 description: Azure Active Directory B2C'de özel bir ilke TechnicalProfiles öğesi belirtin.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 45ea2a28b4b2fb3d55d7ae949152e6f51b5d3162
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: c17159e1fa901e8219d1727769d234719c4321c6
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566542"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856562"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -133,7 +133,7 @@ A **meta verileri** öğesi aşağıdaki öğeleri içerir:
 
 | Öğe | Oluşumlar | Açıklama |
 | ------- | ----------- | ----------- |
-| Anahtar | 1: n | Bu teknik profili içinde kullanılan bir şifreleme anahtarı. |
+| Anahtar | 1:n | Bu teknik profili içinde kullanılan bir şifreleme anahtarı. |
 
 #### <a name="key"></a>Anahtar
 
@@ -142,7 +142,7 @@ A **meta verileri** öğesi aşağıdaki öğeleri içerir:
 | Öznitelik | Gerekli | Açıklama |
 | --------- | -------- | ----------- |
 | Kimlik | Hayır | Belirli bir anahtar çifti diğer öğelerden ilkesi dosyasında başvurulan bir benzersiz tanımlayıcısı. |
-| Storagereferenceıd | Evet | Bir tanımlayıcıyla diğer öğelerden ilkesi dosyasında başvurulan bir depolama anahtar kapsayıcısı. |
+| StorageReferenceId | Evet | Bir tanımlayıcıyla diğer öğelerden ilkesi dosyasında başvurulan bir depolama anahtar kapsayıcısı. |
 
 ### <a name="inputclaimstransformations"></a>InputClaimsTransformations
 
@@ -150,7 +150,7 @@ A **meta verileri** öğesi aşağıdaki öğeleri içerir:
 
 | Öğe | Oluşumlar | Açıklama |
 | ------- | ----------- | ----------- |
-| InputClaimsTransformation | 1: n | Herhangi bir talep, Talep sağlayıcı veya bağlı olan taraf için gönderilmeden önce yürütülmesi gereken bir talep dönüştürme tanımlayıcısı. Talep dönüştürme mevcut ClaimsSchema talep değiştirmek veya yenilerini oluşturmak için kullanılabilir. |
+| InputClaimsTransformation | 1:n | Herhangi bir talep, Talep sağlayıcı veya bağlı olan taraf için gönderilmeden önce yürütülmesi gereken bir talep dönüştürme tanımlayıcısı. Talep dönüştürme mevcut ClaimsSchema talep değiştirmek veya yenilerini oluşturmak için kullanılabilir. |
 
 #### <a name="inputclaimstransformation"></a>InputClaimsTransformation
 
@@ -158,7 +158,7 @@ A **meta verileri** öğesi aşağıdaki öğeleri içerir:
 
 | Öznitelik | Gerekli | Açıklama |
 | --------- | -------- | ----------- |
-| Başvuru Kimliği | Evet | İlke dosya ya da üst ilke dosyası zaten tanımlanmış bir talep dönüştürme tanımlayıcısı. |
+| ReferenceId | Evet | İlke dosya ya da üst ilke dosyası zaten tanımlanmış bir talep dönüştürme tanımlayıcısı. |
 
 ### <a name="inputclaims"></a>InputClaims
 
@@ -166,7 +166,7 @@ A **meta verileri** öğesi aşağıdaki öğeleri içerir:
 
 | Öğe | Oluşumlar | Açıklama |
 | ------- | ----------- | ----------- |
-| Inputclaim | 1: n | Beklenen bir giriş talep türü. |
+| Inputclaim | 1:n | Beklenen bir giriş talep türü. |
 
 #### <a name="inputclaim"></a>Inputclaim 
 
@@ -184,7 +184,7 @@ A **meta verileri** öğesi aşağıdaki öğeleri içerir:
 
 | Öğe | Oluşumlar | Açıklama |
 | ------- | ----------- | ----------- |
-| PersistedClaim | 1: n | Kalıcı hale getirmek için talep türü. |
+| PersistedClaim | 1:n | Kalıcı hale getirmek için talep türü. |
 
 #### <a name="persistedclaim"></a>PersistedClaim 
 
@@ -202,7 +202,7 @@ A **meta verileri** öğesi aşağıdaki öğeleri içerir:
 
 | Öğe | Oluşumlar | Açıklama |
 | ------- | ----------- | ----------- |
-| outputClaim | 1: n | Beklenen bir çıkış talep türü. |
+| outputClaim | 1:n | Beklenen bir çıkış talep türü. |
 
 #### <a name="outputclaim"></a>outputClaim 
 
@@ -221,7 +221,7 @@ A **meta verileri** öğesi aşağıdaki öğeleri içerir:
 
 | Öğe | Oluşumlar | Açıklama |
 | ------- | ----------- | ----------- |
-| OutputClaimsTransformation | 1: n | Herhangi bir talep, Talep sağlayıcı veya bağlı olan taraf için gönderilmeden önce yürütülmesi gereken talep dönüştürmeleri tanımlayıcıları. Talep dönüştürme mevcut ClaimsSchema talep değiştirmek veya yenilerini oluşturmak için kullanılabilir. |
+| OutputClaimsTransformation | 1:n | Herhangi bir talep, Talep sağlayıcı veya bağlı olan taraf için gönderilmeden önce yürütülmesi gereken talep dönüştürmeleri tanımlayıcıları. Talep dönüştürme mevcut ClaimsSchema talep değiştirmek veya yenilerini oluşturmak için kullanılabilir. |
 
 #### <a name="outputclaimstransformation"></a>OutputClaimsTransformation
 
@@ -229,7 +229,7 @@ A **meta verileri** öğesi aşağıdaki öğeleri içerir:
 
 | Öznitelik | Gerekli | Açıklama |
 | --------- | -------- | ----------- |
-| Başvuru Kimliği | Evet | İlke dosya ya da üst ilke dosyası zaten tanımlanmış bir talep dönüştürme tanımlayıcısı. |
+| ReferenceId | Evet | İlke dosya ya da üst ilke dosyası zaten tanımlanmış bir talep dönüştürme tanımlayıcısı. |
 
 ### <a name="validationtechnicalprofiles"></a>ValidationTechnicalProfiles
 
@@ -237,7 +237,7 @@ A **meta verileri** öğesi aşağıdaki öğeleri içerir:
 
 | Öğe | Oluşumlar | Açıklama |
 | ------- | ----------- | ----------- |
-| ValidationTechnicalProfile | 1: n | Kullanılan teknik profiller tanımlayıcıların bazılarını veya tümünü başvuru teknik profili, çıkış talep doğrulayın. Tüm giriş talepleri başvurulan teknik profili, başvuru teknik profili çıkış Taleplerde yer almalıdır. |
+| ValidationTechnicalProfile | 1:n | Kullanılan teknik profiller tanımlayıcıların bazılarını veya tümünü başvuru teknik profili, çıkış talep doğrulayın. Tüm giriş talepleri başvurulan teknik profili, başvuru teknik profili çıkış Taleplerde yer almalıdır. |
 
 #### <a name="validationtechnicalprofile"></a>ValidationTechnicalProfile
 
@@ -245,7 +245,7 @@ A **meta verileri** öğesi aşağıdaki öğeleri içerir:
 
 | Öznitelik | Gerekli | Açıklama |
 | --------- | -------- | ----------- |
-| Başvuru Kimliği | Evet | İlke dosya ya da üst ilke dosyası zaten tanımlanmış bir teknik profili tanımlayıcısı. |
+| ReferenceId | Evet | İlke dosya ya da üst ilke dosyası zaten tanımlanmış bir teknik profili tanımlayıcısı. |
 
 ###  <a name="subjectnaminginfo"></a>SubjectNamingInfo
 
@@ -261,7 +261,7 @@ A **meta verileri** öğesi aşağıdaki öğeleri içerir:
 
 | Öznitelik | Gerekli | Açıklama |
 | --------- | -------- | ----------- |
-| Başvuru Kimliği | Evet | İlke dosya ya da üst ilke dosyası zaten tanımlanmış bir teknik profili tanımlayıcısı. |
+| ReferenceId | Evet | İlke dosya ya da üst ilke dosyası zaten tanımlanmış bir teknik profili tanımlayıcısı. |
 
 ### <a name="usetechnicalprofileforsessionmanagement"></a>UseTechnicalProfileForSessionManagement
 
@@ -269,7 +269,7 @@ A **meta verileri** öğesi aşağıdaki öğeleri içerir:
 
 | Öznitelik | Gerekli | Açıklama |
 | --------- | -------- | ----------- |
-| Başvuru Kimliği | Evet | İlke dosya ya da üst ilke dosyası zaten tanımlanmış bir teknik profili tanımlayıcısı. |
+| ReferenceId | Evet | İlke dosya ya da üst ilke dosyası zaten tanımlanmış bir teknik profili tanımlayıcısı. |
 
 ### <a name="enabledforuserjourneys"></a>EnabledForUserJourneys
 **ClaimsProviderSelections** bir kullanıcı yolculuğunun talep sağlayıcısı seçme seçenekleri ve bunların sırası listesini tanımlar. İle **EnabledForUserJourneys** kullanıcıya hangi Talep sağlayıcı kullanılabilir filtrelemenize, öğe. **EnabledForUserJourneys** öğesi aşağıdaki değerlerden birini içerir:

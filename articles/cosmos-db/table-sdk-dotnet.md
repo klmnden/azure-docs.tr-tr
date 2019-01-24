@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
-ms.openlocfilehash: f2492e3d49f9b7e965c33ed4419f566e81dd62ed
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 469faeee4706c33b09f89bfbed1bb229a6aea20e
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043473"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848385"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB tablosu .NET API'si: İndirme ve sürüm notları
 > [!div class="op_single_selector"]
@@ -36,6 +36,9 @@ ms.locfileid: "54043473"
 >
 
 ## <a name="release-notes"></a>Sürüm notları
+
+### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
+* Hata düzeltmeleri
 
 ### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
 * Eklenen çok bölgeli yazma desteği
@@ -72,6 +75,8 @@ Devre dışı bırakılan bir SDK'sı kullanarak Azure Cosmos DB yapılan tüm i
 
 | Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
+| [2.1.0](#2.1.0) |22 Ocak 2019|--- |
+| [2.0.0](#2.0.0) |26 Eylül 2018'den|--- |
 | [1.1.3](#1.1.3) |17 Temmuz 2018|--- |
 | [1.1.1](#1.1.1) |26 Mart 2018|--- |
 | [1.1.0](#1.1.0) |21 Şubat 2018|--- |

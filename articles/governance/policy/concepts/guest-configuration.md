@@ -4,17 +4,17 @@ description: Konuk yapılandırma Azure İlkesi içinde bir Azure sanal makine a
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/06/2018
+ms.date: 01/23/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 1ea87dc01048a2747a668db7a5b1f22b37ed9213
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 0a571084819c5dfed3f8d6891b59032ef2eecdd6
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310071"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856409"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Azure İlkesi'nin Konuk yapılandırma anlama
 
@@ -48,8 +48,8 @@ Azure portalı üzerinden Konuk yapılandırması için kaynak sağlayıcısın�
 PowerShell üzerinden Konuk yapılandırması için kaynak sağlayıcısını kaydetmek için aşağıdaki komutu çalıştırın:
 
 ```azurepowershell-interactive
-# Login first with Connect-AzureRmAccount if not using Cloud Shell
-Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
+# Login first with Connect-AzAccount if not using Cloud Shell
+Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 ```
 
 ### <a name="validation-tools"></a>Doğrulama Araçları

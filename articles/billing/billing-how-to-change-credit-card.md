@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: cwatson
-ms.openlocfilehash: 69c24e08ce2434c39b8bb67cb53173f9ceaee51b
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 7c856a076a3958cdd3aef4134c703128194fcc5d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581452"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849796"
 ---
 # <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>Ekleme, güncelleştirme veya Azure için bir kredi kartı veya banka kartı kaldırma
 
@@ -32,7 +32,7 @@ Hesap Merkezi'nde yeni bir kredi kartı eklemeniz, kullanılan mevcut kredi kart
 
 ## <a name="add-a-new-credit-or-debit-card"></a>Yeni bir kredi kartı veya banka kartı Ekle
 
-1. Oturum [hesap Merkezi](https://account.windowsazure.com/Subscriptions) hesap yöneticisi olarak.
+1. Oturum [hesap Merkezi](https://account.windowsazure.com/Subscriptions) olarak [Hesap Yöneticisi](billing-subscription-transfer.md#whoisaa).
 1. Bir abonelik seçin.
 1. Sayfanın sağ tarafında **Ödeme yöntemlerini yönet**’i seçin.
 
@@ -49,7 +49,7 @@ Kredi kartı ekledikten sonra hata alırsanız bkz [Azure kayıt sırasında kre
 
 Kredi kartınız yenilenmiş ve sayı aynı kalır, sona erme tarihi gibi mevcut kredi kartı bilgileri güncelleştirin. Kart kaybolduğu için kredi kartı numarası değişikliklerinizi çalındıysa veya süresi dolduğunda, adımları izlerseniz, [bir ödeme yöntemi olarak kredi kartı eklemeniz](#addcard) bölümü. Kart doğrulama kodu güncelleştirmeniz gerekmez.
 
-1. Oturum [Azure hesap Merkezi](https://account.windowsazure.com/Subscriptions) hesap yöneticisi olarak.
+1. Oturum [Azure hesap Merkezi](https://account.windowsazure.com/Subscriptions) olarak [Hesap Yöneticisi](billing-subscription-transfer.md#whoisaa).
 1. Kartına bağlı aboneliği seçin.
 1. Seçin **ödeme yöntemlerini Yönet**.
 1. Seçin **Düzenle** güncelleştirmek istediğiniz kartın yanında.
@@ -58,14 +58,14 @@ Kredi kartınız yenilenmiş ve sayı aynı kalır, sona erme tarihi gibi mevcut
 
 ## <a name="use-a-different-credit-card-for-the-azure-subscription"></a>Azure aboneliği için farklı bir kredi kartı kullanın
 
-1. Oturum [Azure hesap Merkezi](https://account.windowsazure.com/Subscriptions) hesap yöneticisi olarak.
+1. Oturum [Azure hesap Merkezi](https://account.windowsazure.com/Subscriptions) olarak [Hesap Yöneticisi](billing-subscription-transfer.md#whoisaa).
 1. Kartına bağlı aboneliği seçin.
 1. Sayfanın sağ tarafında **Ödeme yöntemlerini yönet**’i seçin.
 1. Tıklayın **kullanmak yerine** kullanmak istediğiniz kartın yanında. Bu şu anda bu kart ile ilişkili diğer abonelikleri de güncelleştirir. 
 
 ## <a name="remove-a-credit-or-debit-card-from-the-account"></a>Bir kredi kartı veya banka kartı hesaptan Kaldır
 
-1. Oturum [Azure hesap Merkezi](https://account.windowsazure.com/Subscriptions) hesap yöneticisi olarak.
+1. Oturum [Azure hesap Merkezi](https://account.windowsazure.com/Subscriptions) olarak [Hesap Yöneticisi](billing-subscription-transfer.md#whoisaa).
 1. Kartına bağlı aboneliği seçin.
 3. Sayfanın sağ tarafında **Ödeme yöntemlerini yönet**’i seçin.
 4. Tıklayın **Sil** silmek istediğiniz kredi kartı için.
@@ -102,6 +102,6 @@ Ne yazık ki Azure kredi ve banka kartları için şu anda tek seferlik ödemele
 
 Ekleme veya güncelleştirme vergi kimliği için şurayı ziyaret edin [ **profili** Azure hesap Merkezi'nde](https://account.azure.com/Profile), ardından **vergi kayıt**. Vergi numarası, vergi muafiyeti hesaplamaları için kullanılır ve faturanızda görünür.
 
-## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
+## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

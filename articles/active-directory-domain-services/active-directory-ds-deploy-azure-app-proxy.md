@@ -4,7 +4,7 @@ description: Azure Active Directory Domain Services yönetilen etki alanlarını
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: 4621122d805f37be1578aa7b7c9ae059f3141c77
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: fc428ddc5c9a99e04f932dec620d99a23f366d28
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840308"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845444"
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services yönetilen etki alanı üzerinde Azure AD uygulama ara sunucusu dağıtma
 Azure Active Directory (AD) uygulama proxy'si internet üzerinden erişilecek şirket içi uygulamalar yayımlayarak uzak çalışanları desteklemenize yardımcı olur. Azure AD Domain Services ile artık lift-and-shift ile taşıma eski uygulamaları şirket içinde çalışan Azure altyapı hizmetleri için kullanabilirsiniz. Ardından, kuruluşunuzdaki kullanıcılar için güvenli uzaktan erişim sağlamak için Azure AD uygulama proxy'si kullanarak bu uygulamaları yayımlayabilirsiniz.
 
-Azure AD uygulama ara sunucusu için yeni başladıysanız, aşağıdaki makalede bu özellik hakkında daha fazla bilgi: [güvenli uzaktan erişim sağlamak şirket içi uygulamalara](../active-directory/manage-apps/application-proxy.md).
+Azure AD uygulama ara sunucusu için yeni başladıysanız, aşağıdaki makalede bu özellik hakkında daha fazla bilgi: [Güvenli uzaktan erişim sağlamak şirket içi uygulamalara](../active-directory/manage-apps/application-proxy.md).
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
@@ -96,7 +96,7 @@ Daha önce bir Windows Server sanal makinesi sağlanan ve yönetilen etki alanı
 ## <a name="next-steps"></a>Sonraki Adımlar
 Azure AD uygulama ara sunucusunu ayarlamadıysanız ve Azure AD Domain Services yönetilen Etki Alanınızla tümleşik.
 
-* **Uygulamalarınızı Azure sanal makineleri geçirme:** lift-and-şirket içi sunuculardan uygulamalarınızı Azure sanal makineleri için yönetilen etki alanınıza katılmış shift ile taşıma olabilir. Bunun yapılması çalışan sunucular şirket içi altyapı maliyetlerini kurtulun yardımcı olur.
+* **Uygulamalarınızı Azure sanal makineleri geçirme:** Lift-and-şirket içi sunuculardan uygulamalarınızı Azure sanal makineleri için yönetilen etki alanınıza katılmış shift ile taşıma kullanabilirsiniz. Bunun yapılması çalışan sunucular şirket içi altyapı maliyetlerini kurtulun yardımcı olur.
 
 * **Azure AD uygulama ara sunucusu kullanarak uygulama yayımlama:** Azure AD uygulama ara sunucusu kullanarak Azure sanal makinelerinize üzerinde çalışan uygulamalar yayımlayın. Daha fazla bilgi için [Azure AD uygulama ara sunucusu kullanarak uygulama yayımlama](../active-directory/manage-apps/application-proxy-publish-azure-portal.md)
 

@@ -3,19 +3,19 @@ title: ClaimsSchema - Azure Active Directory B2C | Microsoft Docs
 description: Azure Active Directory B2C'de özel bir ilke ClaimsSchema öğesi belirtin.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2d11283ccf58fdc356742d6f4042afd15bf6faab
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: a49553941b83e323f23f20b794a464f47ef31981
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568651"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849099"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -71,7 +71,7 @@ PredicateValidationReference| 0:1 | Bir başvuru bir **PredicateValidationsInput
 
 | Öznitelik | Gerekli | Açıklama |
 | --------- | -------- | ----------- |
-| Ad | Evet | Azure AD B2C tarafından desteklenen geçerli bir protokol adı. Olası değerler şunlardır: OAuth1, OAuth2, SAML2, Openıdconnect, WsFed veya WsTrust. |
+| Ad | Evet | Azure AD B2C tarafından desteklenen geçerli bir protokol adı. Olası değerler şunlardır:  OAuth1, OAuth2, SAML2, Openıdconnect, WsFed veya WsTrust. |
 | PartnerClaimType | Evet | Kullanılacak talep türü adı. |
 
 Aşağıdaki örnekte olduğu saml2 tabanlı kimlik sağlayıcısı veya bağlı olan taraf uygulaması ile kimlik deneyimi çerçevesi etkileşim kurduğunda **Soyadı** talep eşlendi `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`, Openıdconnect ve OAuth2, talep olduğunu eşlenen `family_name`.
@@ -107,7 +107,7 @@ Sonuç olarak, Azure AD B2C tarafından verilen JWT belirteci yayan `family_name
 | Öznitelik | Gerekli | Açıklama |
 | --------- | -------- | ----------- |
 | Tür | Evet | Talep maskesi türü. Olası değerler: `Simple` veya `Regex`. `Simple` Değeri basit metin maske dizesi talep önde gelen bölümüne uygulandığını gösterir. `Regex` Değeri belirten bir normal ifade dizesini talep bütün olarak uygulanır.  Varsa `Regex` değeri belirtilirse, isteğe bağlı bir öznitelik, kullanılacak normal ifade ile tanımlanmalıdır. |
-| Normal ifade | Hayır | Varsa **türü** ayarlanır `Regex`, normal ifadeyi belirtin.
+| Regex | Hayır | Varsa **türü** ayarlanır `Regex`, normal ifadeyi belirtin.
 
 Aşağıdaki örnek yapılandırır bir **PhoneNumber** ile talep `Simple` maskesi:
 
@@ -152,7 +152,7 @@ Kimlik deneyimi çerçevesi e-posta adresini ve e-posta etki alanı adı yalnız
 
 | Öğe | Oluşumlar | Açıklama |
 | ------- | ----------- | ----------- |
-| Sabit listesi | 1: n | Kullanıcı arabiriminde kullanılabilen seçenekler için açılan bir menüde bir değer gibi talep seçmek kullanıcı. |
+| Sabit listesi | 1:n | Kullanıcı arabiriminde kullanılabilen seçenekler için açılan bir menüde bir değer gibi talep seçmek kullanıcı. |
 | Desen | 1:1 | Kullanılacak normal ifade. |
 
 ### <a name="enumeration"></a>Sabit listesi
@@ -163,7 +163,7 @@ Kimlik deneyimi çerçevesi e-posta adresini ve e-posta etki alanı adı yalnız
 | --------- | -------- | ----------- |
 | Metin | Evet | Bu seçenek için kullanıcı arabirimi kullanıcılara gösterilen görüntü dizesi. |
 |Değer | Evet | Bu seçeneğin belirlenmesi ile ilişkili talep değeri. |
-| SelectByDefault | Hayır | Bu seçenek varsayılan olarak kullanıcı arabiriminde seçili olup olmadığını gösterir. Olası değerler: True veya False. |
+| SelectByDefault | Hayır | Bu seçenek varsayılan olarak kullanıcı arabiriminde seçili olup olmadığını gösterir. Olası değerler: TRUE veya False. |
 
 Aşağıdaki örnek yapılandırır bir **Şehir** açılan liste talep kümesine varsayılan değeri `New York`:
 

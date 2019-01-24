@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: raynew
-ms.openlocfilehash: 6d679cc3d24e2f0f2cb79eb2c9f02422d0818c80
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 5cbe0c5e86a1dfd8cc3cb374f0ae7e1c67ae9d77
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215278"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828307"
 ---
 # <a name="best-practices-to-set-up-networking-for-workloads-migrated-to-azure"></a>İş yükleri için ağ kurma için en iyi uygulamaları için Azure geçişi
 
@@ -164,7 +164,7 @@ Siteden siteye VPN uygulamak için Azure VPN ağ geçidi ayarlayın.
 - Her sanal ağ, yalnızca bir VPN ağ geçidi olabilir.
 - Aynı VPN ağ geçidi ile birden fazla bağlantı oluşturabilirsiniz. Birden fazla bağlantı oluşturduğunuzda, tüm VPN tünelleri kullanılabilir ağ geçidi bant genişliğini paylaşır.
 - Her Azure VPN gateway, etkin bir bekleme yapılandırmasında iki örnekten oluşur.
-    - Planlı Bakım veya etkin örneğe unplaned kesintisi için yük devretme gerçekleştikten ve bekleme örneği otomatik olarak girer ve siteden siteye veya VNet-VNet bağlantısı devam ettirir. 
+    - Planlı Bakım veya plansız kesintide etkin bir örneği için yük devretme gerçekleştikten ve bekleme örneğine otomatik olarak girer ve siteden siteye veya VNet-VNet bağlantısı devam ettirir. 
     - Geçiş kısa bir kesintiye neden olur.
     - Planlı bakım için bağlantı 10 ila 15 saniye içinde geri yüklenmelidir.
     - Planlanmamış sorunlar için bağlantı kurtarma yaklaşık 1.5 bir dakika, en kötü durumda daha uzun olur.

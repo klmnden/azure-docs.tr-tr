@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f1ed355e7df6a58096743fd57ca1cbc65578d285
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: d9dfc70c7158c5f808367b8b2041725b03b9060d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54439145"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846192"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Sırasında Azure Otomasyonu çözümde yoğun olmayan saatlerde Vm'leri başlatma/durdurma
 
@@ -59,7 +59,7 @@ Vm'leri başlatma/durdurma sırasında yoğun olmayan saatlerde çözüm Otomasy
    ![VM Management Çözüm Ekle sayfası](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
 
 4. Üzerinde **Çözüm Ekle** sayfasında **çalışma**. Otomasyon hesabının bulunduğu Azure aboneliğine bağlı bir Log Analytics çalışma alanını seçin. Bir çalışma alanınız yoksa, seçin **yeni çalışma alanı oluştur**. Üzerinde **Log Analytics çalışma alanı** sayfasında, aşağıdaki adımları gerçekleştirin:
-   - Yeni bir ad belirtin **Log Analytics çalışma alanı**.
+   - Yeni bir ad belirtin **Log Analytics çalışma alanı**, "ContosoLAWorkspace" gibi.
    - Seçin bir **abonelik** varsayılan seçili uygun değilse açılan listeden seçerek bağlamak için.
    - İçin **kaynak grubu**, yeni bir kaynak grubu oluşturun veya varolan bir tanesini seçin.
    - Bir **Konum** seçin. Şu anda yalnızca mevcut konumlarının **Avustralya Güneydoğu**, **Kanada orta**, **Orta Hindistan**, **Doğu ABD**, **Doğu Japonya**, **Güneydoğu Asya**, **UK Güney**, ve **Batı Avrupa**.

@@ -2,20 +2,20 @@
 title: Azure Stack veri merkezi tümleştirmesi - kimlik
 description: Azure Stack AD FS, veri merkezinizi AD FS ile tümleştirmeyi öğrenin
 services: azure-stack
-author: jeffgilb
+author: PatAltimore
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/08/19
-ms.author: jeffgilb
-ms.reviewer: wfayed
+ms.date: 01/23/19
+ms.author: patricka
+ms.reviewer: thoroet
 keywords: ''
-ms.openlocfilehash: 63ac30728cceae76f869f5529905cd6d3dde9ae2
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 4f599379de07a9628ee81425ddac2374411bdf97
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263807"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852771"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack veri merkezi tümleştirmesi - kimlik
 Kimlik sağlayıcısı Azure Stack, Azure Active Directory (Azure AD) veya Active Directory Federasyon Hizmetleri (AD FS) kullanarak dağıtabilirsiniz. Azure Stack dağıtmadan önce seçim yapmanız gerekir. AD FS dağıtımı da bağlantı kesik moddayken Azure Stack dağıtımı olarak adlandırılır.
@@ -193,16 +193,21 @@ Aşağıdaki yordam için hesap STS olur var olan AD FS dağıtımı, ağ bağla
 
 Bu yordam için Azure Stack'te ayrıcalıklı uç noktasıyla iletişim kurabilir ve önceki adımda oluşturduğunuz meta veri dosyası için erişime sahip bir bilgisayar kullanın.
 
-1. Yükseltilmiş bir Windows PowerShell oturumu açın.
+1. Yükseltilmiş bir Windows PowerShell oturumu açın ve ayrıcalıklı uç noktasına bağlanın.
 
    ```PowerShell  
    $federationMetadataFileContent = get-content c:\metadata.xml
    $creds=Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
-   Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataFileContent $using:federationMetadataFileContent
    ```
 
-2. Ortamınız için uygun parametreleri kullanarak varsayılan sağlayıcı aboneliği sahibini güncelleştirmek için aşağıdaki komutu çalıştırın:
+2. Ayrıcalıklı uç noktasına bağlı olduğunuzdan, ortamınız için uygun parametreleri kullanarak aşağıdaki komutu çalıştırın:
+
+    ```PowerShell
+    Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataFileContent $using:federationMetadataFileContent
+    ```
+
+3. Ortamınız için uygun parametreleri kullanarak varsayılan sağlayıcı aboneliği sahibini güncelleştirmek için aşağıdaki komutu çalıştırın:
 
    ```PowerShell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"

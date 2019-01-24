@@ -3,19 +3,19 @@ title: Özel ilkeleri Azure Active Directory B2C için kendi öznitelikleri ekle
 description: Uzantı özellikleri ve özel özniteliklerini kullanarak ve bunları kullanıcı arabiriminin dahil olmak üzere bir kılavuz.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5513e0ff434862ea7eee42cb94ff2a0f67f6d390
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 7ebce84e6d8d3e7b1b8d3852951127ce954f9019
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338753"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854063"
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: Özel bir profilde özel öznitelikler kullanın ilkesini Düzenle
 
@@ -25,7 +25,7 @@ Bu makalede, Azure Active Directory (Azure AD) B2C dizininizde özel bir öznite
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu makaledeki adımları [Azure Active Directory B2C: özel ilkeleri kullanmaya başlama](active-directory-b2c-get-started-custom.md).
+Bu makaledeki adımları [Azure Active Directory B2C: Özel ilkeleri kullanmaya başlama](active-directory-b2c-get-started-custom.md).
 
 ## <a name="use-custom-attributes-to-collect-information-about-your-customers-in-azure-ad-b2c-by-using-custom-policies"></a>Özel ilkeler kullanarak Azure AD B2C uygulamasında müşterilerinizin hakkında bilgi toplamak için özel öznitelikler kullanma
 Azure AD B2C dizininizi yerleşik bir öznitelikleri kümesi ile birlikte gelir. Örnekler **verilen ad**, **Soyadı**, **Şehir**, **posta kodu**, ve **userPrincipalName**. Genellikle bu örnekleri gibi kendi öznitelikler oluşturmak gerekir:
@@ -60,7 +60,7 @@ Yönergeleri dahil edilecek **sonraki adımlar** bu makaledeki bir bölüm.
 6. Yeni oluşturulan web uygulamasını seçin.
 7. Seçin **ayarları** > **gerekli izinler**.
 8. API seçin **Windows Azure Active Directory**.
-9. Uygulama izinleri bir onay işareti girin: **dizin verilerini okuma ve yazma**. Daha sonra **Kaydet**’e tıklayın.
+9. Uygulama izinleri bir onay işareti girin: **Dizin veri okuma ve yazma**. Daha sonra **Kaydet**’e tıklayın.
 10. Seçin **izinleri verin** ve onaylayın **Evet**.
 11. Aşağıdaki tanımlayıcıların panonuza kopyalayın ve kaydedin:
     * **Uygulama Kimliği**. Örnek: `103ee0e6-f92d-4183-b576-8c3739027780`.
@@ -70,7 +70,7 @@ Yönergeleri dahil edilecek **sonraki adımlar** bu makaledeki bir bölüm.
 
 ## <a name="modify-your-custom-policy-to-add-the-applicationobjectid"></a>Eklemek için özel ilkeniz değiştirme **ApplicationObjectId**
 
-Ardından olduğunda adımda [Azure Active Directory B2C: özel ilkeleri kullanmaya başlama](active-directory-b2c-get-started-custom.md), indirdiğiniz ve değiştirdiğiniz [örnek dosyaları](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) adlı **TrustFrameworkBase.xml**, **TrustFrameworkExtensions.xml**, **SignUpOrSignin.xml**, **ProfileEdit.xml**, ve **PasswordReset.xml**. Bu adımda, bu dosyalar için daha fazla değişiklik yapmanızı ister.
+Ardından olduğunda adımda [Azure Active Directory B2C: Özel ilkeleri kullanmaya başlama](active-directory-b2c-get-started-custom.md), indirdiğiniz ve değiştirdiğiniz [örnek dosyaları](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) adlı **TrustFrameworkBase.xml**, **TrustFrameworkExtensions.xml**, **SignUpOrSignin.xml**, **ProfileEdit.xml**, ve **PasswordReset.xml**. Bu adımda, bu dosyalar için daha fazla değişiklik yapmanızı ister.
 
 * Açık **TrustFrameworkBase.xml** dosya ve ekleme `Metadata` bölümünde aşağıdaki örnekte gösterildiği gibi. Nesne kimliği için daha önce kaydettiğiniz Ekle `ApplicationObjectId` değeri ve için kayıtlı uygulama kimliği `ClientId` değeri: 
 

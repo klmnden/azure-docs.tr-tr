@@ -3,19 +3,19 @@ title: Azure Active Directory B2C kullanıcı verilerini yönetme | Microsoft Do
 description: Silme veya Azure AD B2C kullanıcı verilerini dışarı aktarma konusunda bilgi edinin.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/06/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 49e9efa537ad1f2a1d7f06dd7f8a68a409c7d4e0
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: fc49191fe6141470ddd5304bdd12cec1d40bd1ee
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42062124"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854029"
 ---
 # <a name="manage-user-data-in-azure-active-directory-b2c"></a>Azure Active Directory B2C kullanıcı verilerini yönetme
 
@@ -46,7 +46,7 @@ Müşteri verileri, Azure AD B2C'den dışarı aktarma işleminin silme işlemin
 
 Azure AD B2C kullanıcı verilerini sınırlıdır:
 
-- **Azure Active Directory'de depolanan verileri**: nesne kimliği veya tüm oturum açma adı, e-posta adresi veya kullanıcı adı gibi kullanarak bir Azure AD B2C kimlik doğrulaması kullanıcı yolculuğu veri alabilirsiniz. 
+- **Azure Active Directory'de depolanan verileri**: Nesne kimliği veya tüm oturum açma adı, e-posta adresi veya kullanıcı adı gibi kullanarak bir Azure AD B2C kimlik doğrulaması kullanıcı yolculuğu veri alabilir. 
 - **Kullanıcıya özgü denetim olayları raporu**: Nesne Kimliği'ni kullanarak verileri dizinleyebilirsiniz.
 
 Bir dışarı aktarma veri akışı aşağıdaki örnekte açıklanan adımları uygulama tarafından gerçekleştirilen olarak da bir arka uç işleme veya dizindeki Yönetici rolüne sahip bir kullanıcı tarafından gerçekleştirilebilir:

@@ -4,36 +4,34 @@ description: Kullanıcı eylemleri gözden geçirin ve hataları için etkinlik 
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: fcdb3125-13ce-4c3b-9087-f514c5e41e73
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 01/23/2019
 ms.author: tomfitz
-ms.openlocfilehash: 636e4d5216f87440463fbaecd7f6c7a5a25c7502
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: b702b6de5c9f33058e9b486547530d071969bd97
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359400"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855399"
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>Kaynaklara uygulanan eylemleri denetlemek için etkinlik günlüklerini görüntüleme
 
 Etkinlik günlükleri ile aşağıdakileri belirleyebilirsiniz:
 
 * hangi işlemleri, aboneliğinizdeki kaynaklar üzerinde gerçekleştirilen
-* (bir arka uç hizmeti tarafından başlatılan işlemleri bir kullanıcı olarak çağıran döndürmeyen rağmen) işlemi başlatandır
+* kimin işlemi başladı
 * İşlem zaman oluştu
 * İşlemin durumu
 * Yardımcı olabilecek diğer özelliklerin değerlerine işlemi araştırın
 
-Etkinlik günlüğü, kaynaklarınız üzerinde gerçekleştirilen tüm yazma işlemlerini (PUT, POST, DELETE) içerir. Okuma işlemlerini (GET) içermez. Kaynak eylemleri listesi için bkz. [Azure Resource Manager kaynak sağlayıcısı işlemleri](../role-based-access-control/resource-provider-operations.md). Denetim günlüklerinde sorun giderme sırasında bir hata bulmak veya kuruluşunuzdaki bir kullanıcı bir kaynağı nasıl değiştirdiğini izlemek için kullanabilirsiniz.
+Etkinlik günlüğü, kaynaklarınız üzerinde gerçekleştirilen tüm yazma işlemlerini (PUT, POST, DELETE) içerir. Bu, okuma işlemlerini (GET) içermez. Kaynak eylemleri listesi için bkz. [Azure Resource Manager kaynak sağlayıcısı işlemleri](../role-based-access-control/resource-provider-operations.md). Denetim günlüklerinde sorun giderme sırasında bir hata bulmak veya kuruluşunuzdaki bir kullanıcı bir kaynağı nasıl değiştirdiğini izlemek için kullanabilirsiniz.
 
-Etkinlik günlükleri 90 gün boyunca saklanır. Başlangıç tarihi 90 günden eski olmamak şartıyla istediğiniz tarih aralığını sorgulayabilirsiniz.
+Etkinlik günlükleri, 90 gün boyunca tutulur. Başlangıç tarihi geçmiş 90 günden daha uzun olmadığı sürece herhangi bir tarih aralığı için sorgulayabilirsiniz.
 
 Portal, PowerShell, Azure CLI, Insights REST API aracılığıyla etkinlik günlüklerinden bilgi almak veya [Insights .NET kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
 
@@ -41,36 +39,39 @@ Portal, PowerShell, Azure CLI, Insights REST API aracılığıyla etkinlik günl
 
 1. Portal üzerinden etkinlik günlüklerini görüntülemek için seçin **İzleyici**.
 
-    ![Etkinlik günlüklerini seçin](./media/resource-group-audit/select-monitor.png)
+    ![İzleme seçin](./media/resource-group-audit/select-monitor.png)
 
-   Veya belirli bir kaynak veya kaynak grubu için etkinlik günlüğü otomatik olarak filtrelemek için seçin **etkinlik günlüğü**. Etkinlik günlüğü, seçili kaynak tarafından otomatik olarak filtrelenmiştir dikkat edin.
+1. Seçin **etkinlik günlüğü**.
 
-    ![Kaynağa göre filtrele](./media/resource-group-audit/filtered-by-resource.png)
-2. İçinde **etkinlik günlüğü**, son işlemleri özetini görürsünüz.
+    ![Etkinlik günlüğü seçin](./media/resource-group-audit/select-activity-log.png)
 
-    ![eylemleri göster](./media/resource-group-audit/audit-summary.png)
-3. Görüntülenen işlemlerin sayısını sınırlamak için farklı koşullar'ı seçin. Örneğin, aşağıdaki gösterir görüntüde **Timespan** ve **olayı başlatan tarafından** değiştirilen alanları belirli kullanıcı veya geçen ay için uygulama tarafından gerçekleştirilen eylemler görüntülemek için. Seçin **Uygula** Sorgunuzun sonuçlarını görüntülemek için.
+1. Son işlem özetini görürsünüz. Varsayılan bir filtre kümesi işlemleri için uygulanır.
+
+    ![Son işlemlerinin özetini görüntüle](./media/resource-group-audit/audit-summary.png)
+
+1. Filtreler önceden tanımlı bir dizi hızlı bir şekilde çalıştırmak için seçin **hızlı Öngörüler** ve seçeneklerden birini belirleyin.
+
+    ![sorgu seçin](./media/resource-group-audit/quick-insights.png)
+
+1. Belirli işlemleri odaklanmak için filtreleri değiştirebilir veya yenilerini uygulayın. Örneğin, aşağıdaki görüntüde için yeni bir değer gösterir **Timespan** ve **kaynak türü** depolama hesapları için ayarlanır. 
 
     ![filtre seçeneklerini ayarlama](./media/resource-group-audit/set-filter.png)
 
-4. Sorgu daha sonra tekrar çalıştırmanız gerekiyorsa, seçin **PIN geçerli filtreler** ve bir ad verin.
+1. Sorgu daha sonra tekrar çalıştırmanız gerekiyorsa, seçin **PIN geçerli filtreler**.
 
-    ![Sorguyu Kaydet](./media/resource-group-audit/save-query.png)
-5. Hızla bir sorguyu çalıştırmak için dağıtımları başarısız gibi yerleşik sorgulardan birini seçebilirsiniz.
+    ![PIN filtreleri](./media/resource-group-audit/pin-filters.png)
 
-    ![sorgu seçin](./media/resource-group-audit/select-quick-query.png)
+1. Filtre, bir ad verin.
 
-   Seçili sorguyu gerekli filtre değerlerini otomatik olarak ayarlar.
+    ![Ad filtreleri](./media/resource-group-audit/name-filters.png)
 
-    ![Dağıtım hatalarını görüntüle](./media/resource-group-audit/view-failed-deployment.png)
+1. Filtre, panoda kullanılabilir.
 
-6. Bir olay özetini görmek için işlemleri seçin.
-
-    ![işlem görünümü](./media/resource-group-audit/view-operation.png)  
+    ![Panoda filtre göster](./media/resource-group-audit/show-dashboard.png)
 
 ## <a name="powershell"></a>PowerShell
 
-1. Günlük girişlerini almak için çalıştırın **Get-AzureRmLog** komutu. Giriş listesine filtre uygulamak için ek parametreler sunar. Başlangıç ve bitiş zamanı belirtmezseniz, son bir saat girişleri döndürülür. Örneğin, almak için bir kaynak grubu için operations son bir saat boyunca çalıştırın:
+* Günlük girişlerini almak için çalıştırın **Get-AzureRmLog** komutu. Giriş listesine filtre uygulamak için ek parametreler sunar. Bir başlangıç ve bitiş saati belirtmezsiniz ise son yedi gün girişlerinde döndürülür.
 
   ```azurepowershell-interactive
   Get-AzureRmLog -ResourceGroup ExampleGroup
@@ -79,7 +80,7 @@ Portal, PowerShell, Azure CLI, Insights REST API aracılığıyla etkinlik günl
     Aşağıdaki örnek, araştırma işlemleri belirtilen bir süre boyunca gerçekleştirilen etkinlik günlüğünün kullanma işlemini gösterir. Başlangıç ve bitiş tarihleri, tarih biçiminde belirtilir.
 
   ```azurepowershell-interactive
-  Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 -EndTime 2015-09-10T06:00
+  Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2019-01-09T06:00 -EndTime 2019-01-15T06:00
   ```
 
     Ya da tarih işlevler gibi son 14 gün, tarih aralığını belirtmek için kullanabilirsiniz.
@@ -88,62 +89,78 @@ Portal, PowerShell, Azure CLI, Insights REST API aracılığıyla etkinlik günl
   Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14)
   ```
 
-2. Belirttiğiniz başlangıç zamanı bağlı olarak, önceki komutların uzun işlemler için kaynak grubu listesini döndürebilir. İçin arama ölçütlerini sağlayarak aradıklarınızı sonuçları filtreleyebilirsiniz. Örneğin, nasıl bir web uygulaması durduruldu araştırma çalışıyorsanız, aşağıdaki komutu çalıştırabilirsiniz:
-
-  ```azurepowershell-interactive
-  Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14) | Where-Object OperationName -eq Microsoft.Web/sites/stop/action
-  ```
-
-    Bu örneğin gösterir durdurma eylemi tarafından gerçekleştirilen someone@contoso.com.
-
-  ```powershell
-  Authorization     :
-  Scope     : /subscriptions/xxxxx/resourcegroups/ExampleGroup/providers/Microsoft.Web/sites/ExampleSite
-  Action    : Microsoft.Web/sites/stop/action
-  Role      : Subscription Admin
-  Condition :
-  Caller            : someone@contoso.com
-  CorrelationId     : 84beae59-92aa-4662-a6fc-b6fecc0ff8da
-  EventSource       : Administrative
-  EventTimestamp    : 8/28/2015 4:08:18 PM
-  OperationName     : Microsoft.Web/sites/stop/action
-  ResourceGroupName : ExampleGroup
-  ResourceId        : /subscriptions/xxxxx/resourcegroups/ExampleGroup/providers/Microsoft.Web/sites/ExampleSite
-  Status            : Succeeded
-  SubscriptionId    : xxxxx
-  SubStatus         : OK
-  ```
-
-3. Da artık mevcut bir kaynak grubu için belirli bir kullanıcı tarafından gerçekleştirilen eylemler arayabilirsiniz.
+* Da artık mevcut bir kaynak grubu için belirli bir kullanıcı tarafından gerçekleştirilen eylemler arayabilirsiniz.
 
   ```azurepowershell-interactive
   Get-AzureRmLog -ResourceGroup deletedgroup -StartTime (Get-Date).AddDays(-14) -Caller someone@contoso.com
   ```
 
-4. Başarısız işlemler için filtre uygulayabilirsiniz.
+* Başarısız işlemler için filtre uygulayabilirsiniz.
 
   ```azurepowershell-interactive
   Get-AzureRmLog -ResourceGroup ExampleGroup -Status Failed
   ```
 
-5. Bu giriş için durum iletisi bakarak bir hatada odaklanabilirsiniz.
+* Bu giriş için durum iletisi bakarak bir hatada odaklanabilirsiniz.
 
   ```azurepowershell-interactive
-  ((Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties[1].Content["statusMessage"] | ConvertFrom-Json).error
+  ((Get-AzureRmLog -ResourceGroup ExampleGroup -Status Failed).Properties[0].Content.statusMessage | ConvertFrom-Json).error
   ```
 
-    Döndürür:
+* Döndürülen verileri sınırlamak için belirli değerler seçebilirsiniz.
 
-        code           message
-        ----           -------
-        DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP.
+  ```azurepowershell-interactive
+  Get-AzureRmLog -ResourceGroupName ExampleGroup | Format-table EventTimeStamp, Caller, @{n='Operation'; e={$_.OperationName.value}}, @{n='Status'; e={$_.Status.value}}, @{n='SubStatus'; e={$_.SubStatus.LocalizedValue}}
+  ```
+
+* Belirttiğiniz başlangıç zamanı bağlı olarak, önceki komutların uzun işlemler için kaynak grubu listesini döndürebilir. İçin arama ölçütlerini sağlayarak aradıklarınızı sonuçları filtreleyebilirsiniz. Örneğin, işlem türüne göre filtre uygulayabilirsiniz.
+
+  ```azurepowershell-interactive
+  Get-AzureRmLog -ResourceGroup ExampleGroup | Where-Object {$_.OperationName.value -eq "Microsoft.Resources/deployments/write"}
+  ```
 
 ## <a name="azure-cli"></a>Azure CLI
 
-Günlük girişlerini almak için çalıştırın [az İzleyici etkinlik günlüğü listesi](/cli/azure/monitor/activity-log#az-monitor-activity-log-list) komutu.
+* Günlük girişlerini almak için çalıştırın [az İzleyici etkinlik günlüğü listesi](/cli/azure/monitor/activity-log#az-monitor-activity-log-list) komutunu zaman aralığını belirtmek için bir uzaklık.
 
-  ```azurecli
-  az monitor activity-log list --resource-group <group name>
+  ```azurecli-interactive
+  az monitor activity-log list --resource-group ExampleGroup --offset 7d
+  ```
+
+  Aşağıdaki örnek, araştırma işlemleri belirtilen bir süre boyunca gerçekleştirilen etkinlik günlüğünün kullanma işlemini gösterir. Başlangıç ve bitiş tarihleri, tarih biçiminde belirtilir.
+
+  ```azurecli-interactive
+  az monitor activity-log list -g ExampleGroup --start-time 2019-01-01 --end-time 2019-01-15
+  ```
+
+* Da artık mevcut bir kaynak grubu için belirli bir kullanıcı tarafından gerçekleştirilen eylemler arayabilirsiniz.
+
+  ```azurecli-interactive
+  az monitor activity-log list -g ExampleGroup --caller someone@contoso.com --offset 5d
+  ```
+
+* Başarısız işlemler için filtre uygulayabilirsiniz.
+
+  ```azurecli-interactive
+  az monitor activity-log list -g demoRG --status Failed --offset 1d
+  ```
+
+* Bu giriş için durum iletisi bakarak bir hatada odaklanabilirsiniz.
+
+  ```azurecli-interactive
+  az monitor activity-log list -g ExampleGroup --status Failed --offset 1d --query [].properties.statusMessage
+  ```
+
+* Döndürülen verileri sınırlamak için belirli değerler seçebilirsiniz.
+
+  ```azurecli-interactive
+  az monitor activity-log list -g ExampleGroup --offset 1d --query '[].{Operation: operationName.value, Status: status.value, SubStatus: subStatus.localizedValue}'
+  ```
+
+* Belirttiğiniz başlangıç zamanı bağlı olarak, önceki komutların uzun işlemler için kaynak grubu listesini döndürebilir. İçin arama ölçütlerini sağlayarak aradıklarınızı sonuçları filtreleyebilirsiniz. Örneğin, işlem türüne göre filtre uygulayabilirsiniz.
+
+  ```azurecli-interactive
+  az monitor activity-log list -g ExampleGroup --offset 1d --query "[?operationName.value=='Microsoft.Storage/storageAccounts/write']"
   ```
 
 ## <a name="rest-api"></a>REST API

@@ -3,9 +3,9 @@ title: Paylaşılan erişim imzaları ile Azure Service Bus erişim denetimi | M
 description: Paylaşılan erişim imzaları genel bakış, Azure Service Bus ile SAS yetkilendirme ayrıntılarını kullanarak Service Bus erişim denetimine genel bakış.
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2018
-ms.author: spelluru
-ms.openlocfilehash: daefb07761217ff4bb0800dfd9f1f05b6e22c1e1
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.author: aschhab
+ms.openlocfilehash: 3e2fa51bcf6040eb94a9d270a7f5f375f726e62a
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284923"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846345"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Paylaşılan erişim imzaları ile Service Bus erişim denetimi
 
@@ -96,13 +96,13 @@ Bu URI veya hiyerarşik öğelerinden belirtilen varlık üzerinde imzalamak iç
 
 İçinde kullanılan anahtarlar düzenli aralıklarla yeniden önerilir [Rootmanagesharedaccesskey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) nesne. Kademeli olarak anahtarlarını döndürmek için birincil ve ikincil anahtar yuva yok. Uygulamanızı genellikle birincil anahtarı kullanır, ikincil anahtar yuvaya birincil anahtarı kopyalayın ve ardından yalnızca birincil anahtarı yeniden. Yeni birincil anahtar değerini daha sonra ikincil yuvada eski birincil anahtar kullanarak erişim devam istemci uygulamalara yapılandırılabilir. Tüm istemcilerin güncelleştirildikten sonra son olarak, eski birincil anahtarı devre dışı bırakmak için ikincil anahtarı yeniden oluşturabilirsiniz.
 
-Bildiğiniz veya bir anahtar güvenliği aşıldığında ve anahtarlar iptal etmek sahip olduğunuz şüpheleniyorsanız, her ikisi de yeniden oluşturabilirsiniz [PrimaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_PrimaryKey) ve [ikincil anahtarı oluşturma](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_SecondaryKey) , bir [Rootmanagesharedaccesskey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule), bunları yeni anahtarlarla değiştirme. Bu yordam, tüm belirteçlerin eski anahtarlarla imzalanması geçersiz kılar.
+Bildiğiniz veya bir anahtar güvenliği aşıldığında ve anahtarlar iptal etmek sahip olduğunuz şüpheleniyorsanız, her ikisi de yeniden oluşturabilirsiniz [PrimaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_PrimaryKey) ve [ikincil anahtarı oluşturma](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) , bir [Rootmanagesharedaccesskey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule), bunları yeni anahtarlarla değiştirme. Bu yordam, tüm belirteçlerin eski anahtarlarla imzalanması geçersiz kılar.
 
 ## <a name="shared-access-signature-authentication-with-service-bus"></a>Service Bus ile paylaşılan erişim imzası kimlik doğrulaması
 
 Aşağıda açıklanan senaryolar yetkilendirme kuralları yapılandırma, SAS belirteçleri ve istemci yetkilendirme oluşturulmasını içerir.
 
-Bir tam çalışma yapılandırması ve kullandığı SAS yetkilendirme gösteren bir Service Bus uygulaması örneğini görmek [Service Bus ile paylaşılan erişim imzası kimlik doğrulaması](https://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8). Ad alanları veya konuları Service Bus abonelikleri güvenliğini sağlamak için yapılandırılmış olan SAS yetkilendirme kuralları kullanışını ilgili bir örnek aşağıda verilmiştir: [Service Bus aboneliklerikullanarakpaylaşılanerişimimzası(SAS)kimlikdoğrulaması](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c).
+Bir tam çalışma yapılandırması ve kullandığı SAS yetkilendirme gösteren bir Service Bus uygulaması örneğini görmek [Service Bus ile paylaşılan erişim imzası kimlik doğrulaması](https://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8). Ad alanları veya konuları Service Bus abonelikleri güvenliğini sağlamak için yapılandırılmış olan SAS yetkilendirme kuralları kullanışını ilgili bir örnek burada kullanılabilir: [Service Bus abonelikleri ile paylaşılan erişim imzası (SAS) kimlik doğrulaması kullanarak](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c).
 
 ## <a name="access-shared-access-authorization-rules-on-an-entity"></a>Bir varlıkta erişim paylaşılan erişimi yetkilendirme kuralları
 

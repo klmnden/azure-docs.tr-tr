@@ -3,19 +3,19 @@ title: Çözümleyiciler Azure Active Directory B2C özel ilkelerinde'yaklaşık
 description: Nasıl talep çözümleyiciler Azure Active Directory B2C, özel bir ilkede kullanıldığı hakkında bilgi edinin.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 10/08/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: dccb597cda1f5aba30d18b0f71371caa6ceee9b4
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 6b7f3dc79e3b4c06b2b974e0cdca0bf20221c3ad
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852393"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845025"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C özel ilkelerinde talep Çözümleyicileri hakkında
 
@@ -50,7 +50,7 @@ Aşağıdaki bölümlerde kullanılabilir talep Çözümleyicileri listelenmekte
 | {Kültür: LanguageName} | İki harfli ISO kod dili için. | tr |
 | {Kültür: LCID}   | Dil kodu LCID'i. | 31 |
 | {Kültür: RegionName} | İki harfli ISO kod bölge için. | ABD |
-| {Kültür: RFC5646} | RFC5646 dil kodu. | tr-TR |
+| {Kültür: RFC5646} | RFC5646 dil kodu. | en-US |
 
 ### <a name="policy"></a>İlke
 
@@ -58,8 +58,8 @@ Aşağıdaki bölümlerde kullanılabilir talep Çözümleyicileri listelenmekte
 | ----- | ----------- | --------|
 | {İlkesi: Policyıd} | Bağlı olan taraf ilke adı. | B2C_1A_signup_signin |
 | {İlkesi: RelyingPartyTenantId} | Bağlı olan taraf İlkesi Kiracı kimliği. | Bilgisayarınızı tenant.onmicrosoft.com |
-| {İlkesi: TenantObjectId} | Bağlı olan taraf İlkesi Kiracı nesnesi kimliği. | 00000000-0000-0000-0000-000000000000 |
-| {İlkesi: TrustFrameworkTenantId} | Güven framework Kiracı kimliği. | Bilgisayarınızı tenant.onmicrosoft.com |
+| {Policy:TenantObjectId} | Bağlı olan taraf İlkesi Kiracı nesnesi kimliği. | 00000000-0000-0000-0000-000000000000 |
+| {Policy:TrustFrameworkTenantId} | Güven framework Kiracı kimliği. | Bilgisayarınızı tenant.onmicrosoft.com |
 
 ### <a name="openid-connect"></a>OpenID Connect
 
@@ -80,9 +80,9 @@ Aşağıdaki bölümlerde kullanılabilir talep Çözümleyicileri listelenmekte
 | İste | Açıklama | Örnek |
 | ----- | ----------- | --------|
 | {Bağlam: BuildNumber} | Kimlik deneyimi çerçevesi sürümü (derleme numarası).  | 1.0.507.0 |
-| {Bağlam: Correlationıd} | Bağıntı Kimliği  | 00000000-0000-0000-0000-000000000000 |
-| {Bağlam: DateTimeInUtc} |Tarih saat UTC diliminde saat.  | 10/10/2018'DEN 12:00:00 PM |
-| {Bağlam: DeploymentMode} |İlke dağıtım modu.  | Üretim |
+| {Context:CorrelationId} | Bağıntı Kimliği  | 00000000-0000-0000-0000-000000000000 |
+| {Context:DateTimeInUtc} |Tarih saat UTC diliminde saat.  | 10/10/2018'DEN 12:00:00 PM |
+| {Context:DeploymentMode} |İlke dağıtım modu.  | Üretim |
 | {Bağlam: IPAddress} | Kullanıcının IP adresi. | 11.111.111.11 |
 
 
@@ -92,7 +92,7 @@ OIDC veya OAuth2 bir isteğin parçası olarak dahil herhangi bir parametre adı
 
 | İste | Açıklama | Örnek |
 | ----- | ----------------------- | --------|
-| {OAUTH-KV:campaignId} | Bir sorgu dizesi parametresi. | Hawaii |
+| {OAUTH-KV:campaignId} | Bir sorgu dizesi parametresi. | hawaii |
 | {OAUTH-KV:app_session} | Bir sorgu dizesi parametresi. | A3C5R |
 | {OAUTH-KV:loyalty_number} | Bir sorgu dizesi parametresi. | 1234 |
 | {OAUTH KV: herhangi bir özel sorgu dizesini} | Bir sorgu dizesi parametresi. | Yok |

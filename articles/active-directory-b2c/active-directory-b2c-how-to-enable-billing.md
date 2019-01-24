@@ -3,24 +3,24 @@ title: Azure aboneliğinin Azure Active Directory B2C'ye bağlama | Microsoft Do
 description: Bir Azure aboneliği ile Azure AD B2C kiracısı için faturalama için adım adım kılavuzu.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/07/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1486e303e4e94ee6140bcd6ed4f52bc433b9aae6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e39b7472904e7635340327d311eb7d4b9123f51e
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100064"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853196"
 ---
 # <a name="linking-an-azure-subscription-to-an-azure-ad-b2c-tenant"></a>Azure AD B2C kiracısı için bir Azure aboneliğine bağlama
 
 > [!IMPORTANT]
-> Azure AD B2C şu sayfa için fiyatlandırma ve faturalama kullanım en son bilgiler: [Azure AD B2C fiyatlandırma](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+> Azure AD B2C için fiyatlandırma ve faturalama kullanımı en son bilgiler aşağıdaki sayfa verilmiştir: [Azure AD B2C fiyatlandırma](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 
 Azure AD B2C için kullanım ücretleri, bir Azure aboneliğine faturalandırılır. Azure AD B2C kiracısı oluşturulduğunda, Kiracı Yöneticisi açıkça Azure AD B2C kiracısı bir Azure aboneliğine bağlamak gerekir. Bu makalede, nasıl gösterir.
 

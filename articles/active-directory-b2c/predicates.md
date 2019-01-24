@@ -3,19 +3,19 @@ title: Koşullar ve PredicateValidations - Azure Active Directory B2C | Microsof
 description: Sosyal hesap kimlik deneyimi çerçevesi şema, Azure Active Directory B2C için dönüşüm örnekleri talepleri.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d00bbddc6523f75b3208a41296b5b94f9f06a5ed
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 24aa6bf67b3b841b950e047a5c2509f04a3546b7
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432180"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850867"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Koşullar ve PredicateValidations
 
@@ -35,7 +35,7 @@ Aşağıdaki diyagramda, öğeleri arasındaki ilişki gösterilmektedir:
 
 | Öğe | Oluşumlar | Açıklama |
 | ------- | ----------- | ----------- |
-| Karşılaştırma | 1: n | Koşullar listesi. | 
+| Koşul | 1:n | Koşullar listesi. | 
 
 **Koşul** öğesi aşağıdaki öznitelikler içerir:
 
@@ -55,7 +55,7 @@ Aşağıdaki diyagramda, öğeleri arasındaki ilişki gösterilmektedir:
 
 | Öğe | Oluşumlar | Açıklama |
 | ------- | ----------- | ----------- |
-| Parametre | 1: n | Dize doğrulama yöntemi türü parametreleri. | 
+| Parametre | 1:n | Dize doğrulama yöntemi türü parametreleri. | 
 
 **Parametre** öğesi aşağıdaki öznitelikler içerir:
 
@@ -134,7 +134,7 @@ Bir talep türüne karşı denetlemek için doğrulama koşullarına tanımlama 
 
 | Öğe | Oluşumlar | Açıklama |
 | ------- | ----------- | ----------- |
-| PredicateValidation | 1: n | Koşul doğrulama listesi. | 
+| PredicateValidation | 1:n | Koşul doğrulama listesi. | 
 
 **PredicateValidation** öğesi aşağıdaki öznitelik içeriyor:
 
@@ -146,13 +146,13 @@ Bir talep türüne karşı denetlemek için doğrulama koşullarına tanımlama 
 
 | Öğe | Oluşumlar | Açıklama |
 | ------- | ----------- | ----------- |
-| PredicateGroups | 1: n | Koşul gruplarının listesi. | 
+| PredicateGroups | 1:n | Koşul gruplarının listesi. | 
 
 **PredicateGroups** öğesi aşağıdaki öğeyi içerir:
 
 | Öğe | Oluşumlar | Açıklama |
 | ------- | ----------- | ----------- |
-| PredicateGroup | 1: n | Koşullar listesi. | 
+| PredicateGroup | 1:n | Koşullar listesi. | 
 
 **PredicateGroup** öğesi aşağıdaki öznitelik içeriyor:
 
@@ -165,7 +165,7 @@ Bir talep türüne karşı denetlemek için doğrulama koşullarına tanımlama 
 | Öğe | Oluşumlar | Açıklama |
 | ------- | ----------- | ----------- |
 | UserHelpText | 1:1 |  Hangi bir değer kattığını bilmek, kullanıcılar için yararlı olabilecek koşul açıklamasını bunlar yazmanız gerekir. | 
-| PredicateReferences | 1: n | Koşul başvuruları listesi. | 
+| PredicateReferences | 1:n | Koşul başvuruları listesi. | 
 
 **PredicateReferences** öğesi aşağıdaki öznitelikler içerir:
 
@@ -177,7 +177,7 @@ Bir talep türüne karşı denetlemek için doğrulama koşullarına tanımlama 
 
 | Öğe | Oluşumlar | Açıklama |
 | ------- | ----------- | ----------- |
-| PredicateReference | 1: n | Bir koşula yönelik bir başvuru. | 
+| PredicateReference | 1:n | Bir koşula yönelik bir başvuru. | 
 
 **PredicateReference** öğesi aşağıdaki öznitelikler içerir:
 
@@ -262,7 +262,7 @@ Bir talep türüne karşı denetlemek için doğrulama koşullarına tanımlama 
 Temel doğrulamaları tanımladıktan sonra bunları birbirine birleştirmek ve ilkenizde kullanabileceğiniz parola ilkeleri kümesini oluşturun:
 
 - **SimplePassword** DisallowedWhitespace AllowedAADCharacters ve IsLengthBetween8And64 doğrular
-- **Güçlüparola** DisallowedWhitespace, AllowedAADCharacters, IsLengthBetween8And64 doğrular. Son grup `CharacterClasses` koşullar ek bir dizi çalıştırır `MatchAtLeast` 3 olarak ayarlayın. Kullanıcı parolası 8-16 karakter ve şu karakterlerden birini üç arasında olmalıdır: küçük, büyük harf, sayı veya simge.
+- **Güçlüparola** DisallowedWhitespace, AllowedAADCharacters, IsLengthBetween8And64 doğrular. Son grup `CharacterClasses` koşullar ek bir dizi çalıştırır `MatchAtLeast` 3 olarak ayarlayın. Parola 8 ila 16 karakter ve şu karakterlerden birini üç arasında olmalıdır: Küçük, büyük harf, sayı veya simge.
 - **CustomPassword** yalnızca DisallowedWhitespace, AllowedAADCharacters doğrular. Bu nedenle, kullanıcı karakterlerin geçerli olduğu sürece herhangi bir uzunlukta bir parola sağlayabilir.
 
 ```XML

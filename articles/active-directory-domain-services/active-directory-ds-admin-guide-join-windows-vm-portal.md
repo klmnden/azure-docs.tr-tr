@@ -1,10 +1,10 @@
 ---
-title: 'Azure Active Directory Domain Services: bir Windows Server sanal Makinesini yönetilen etki alanına katılın. | Microsoft Docs'
+title: "Azure Active Directory etki alanı Hizmetleri: Yönetilen bir etki alanına Windows Server VM'sine katılma | Microsoft Docs"
 description: Bir Windows Server sanal makinesini Azure AD DS'ye katılın
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 29316313-c76c-4fb9-8954-5fa5ec82609e
 ms.service: active-directory
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: ergreenl
-ms.openlocfilehash: 748345bf89e7f746b8ef388ad5cabc987a07d1f8
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: fc55fcef9977abcd8c40752d459088c1132cf2c1
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957683"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850374"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Windows Server sanal makinesini yönetilen bir etki alanına ekleme
 Bu makalede, Azure portalını kullanarak bir Windows Server sanal makine dağıtma gösterilmektedir. Ardından, sanal makine bir Azure Active Directory etki alanı Hizmetleri (Azure AD DS) yönetilen etki alanına ekleme işlemini gösterir.
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
-## <a name="step-1-create-a-windows-server-virtual-machine"></a>1. adım: bir Windows Server sanal makinesi oluşturma
+## <a name="step-1-create-a-windows-server-virtual-machine"></a>1. Adım: Windows Server sanal makinesi oluşturma
 Azure AD DS etkin sanal ağa katılmış bir Windows sanal makine oluşturmak için aşağıdaki adımları uygulayın:
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
@@ -67,7 +67,7 @@ Azure AD DS etkin sanal ağa katılmış bir Windows sanal makine oluşturmak i�
 10. Dağıtım tamamlandıktan sonra VM hakkında daha fazla bilgi görüntüleyebilirsiniz **genel bakış** sayfası.
 
 
-## <a name="step-2-connect-to-the-windows-server-virtual-machine-by-using-the-local-administrator-account"></a>2. adım: yerel yönetici hesabını kullanarak Windows Server sanal makineye bağlanma
+## <a name="step-2-connect-to-the-windows-server-virtual-machine-by-using-the-local-administrator-account"></a>2. Adım: Yerel yönetici hesabı kullanarak Windows Server sanal makineye bağlanma
 Ardından, yeni oluşturulan Windows Server sanal makine etki alanına bağlanın. Sanal makineyi oluşturduğunuzda belirttiğiniz yerel yönetici kimlik bilgilerini kullanın.
 
 Sanal makineye bağlanmak için aşağıdaki adımları gerçekleştirin:
@@ -84,7 +84,7 @@ Sanal makineye bağlanmak için aşağıdaki adımları gerçekleştirin:
 Bu noktada, yeni oluşturulan Windows sanal makine için yerel yönetici kimlik bilgilerinizle oturum açmanız. Sonraki adım, sanal makine etki alanına sağlamaktır.
 
 
-## <a name="step-3-join-the-windows-server-virtual-machine-to-the-azure-ad-ds-managed-domain"></a>3. adım: Windows Server sanal makinesini Azure AD DS tarafından yönetilen etki alanına katılın.
+## <a name="step-3-join-the-windows-server-virtual-machine-to-the-azure-ad-ds-managed-domain"></a>3. Adım: Windows Server sanal makinesini Azure AD DS tarafından yönetilen etki alanına katılın
 Windows Server sanal makinesini Azure AD DS tarafından yönetilen bir etki alanına katılmak için aşağıdaki adımları tamamlayın:
 
 1. "2. adımda." gösterildiği gibi Windows Server VM'ye bağlanma Üzerinde **Başlat** ekran açık **Sunucu Yöneticisi**.
@@ -107,9 +107,9 @@ Windows Server sanal makinesini Azure AD DS tarafından yönetilen bir etki alan
 
 7. Kimlik bilgileri aşağıdaki yollardan birini belirtebilirsiniz:
 
-   * **UPN biçimini**: Azure AD içinde yapılandırılan kullanıcı hesabı için kullanıcı asıl adı (UPN) soneki (önerilen) belirtin. Bu örnekte, kullanıcının UPN soneki *bob* olduğu *bob@domainservicespreview.onmicrosoft.com*.
+   * **UPN biçimini**: (Önerilen) Azure AD'de yapılandırılmış kullanıcı hesabının kullanıcı asıl adı (UPN) sonekini belirtin. Bu örnekte, kullanıcının UPN soneki *bob* olduğu *bob@domainservicespreview.onmicrosoft.com*.
 
-   * **SAMAccountName biçimi**: hesap adı SAMAccountName biçiminde belirtebilirsiniz. Bu örnekte, kullanıcı *bob* girmesi *CONTOSO100\bob*.
+   * **SAMAccountName biçimi**: Hesap adı SAMAccountName biçiminde belirtebilirsiniz. Bu örnekte, kullanıcı *bob* girmesi *CONTOSO100\bob*.
 
      > [!TIP]
      > **Kimlik bilgilerini belirtmek için UPN biçimini kullanmanızı öneririz.**

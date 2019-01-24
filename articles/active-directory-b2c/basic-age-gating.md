@@ -3,24 +3,24 @@ title: Azure Active Directory B2C'de yaş geçidi etkinleştirme | Microsoft Doc
 description: Uygulamanızı kullanarak reşit olmayanların tanımlama hakkında bilgi edinin.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: a9220349249315d807a9dba675f6b074ddd385fa
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: ddc4b7b899385eb7388198973460386a4a0af10c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291105"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845784"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Azure Active Directory B2C'de yaş geçidi etkinleştir
 
 >[!IMPORTANT]
->Bu özellik genel Önizleme aşamasındadır. Özelliği, üretim uygulamaları için kullanmayın. 
+>Bu özellik genel önizleme aşamasındadır. Özelliği, üretim uygulamaları için kullanmayın. 
 >
 
 Azure Active Directory (Azure AD) B2C'de yaş geçidi uygulamanızı kullanmak istediğiniz reşit olmayanların tanımlamanızı sağlar. Küçük uygulamasına açmasını engellemeyi seçebilirsiniz. Kullanıcılar da uygulamaya geri dönün ve kendi yaş grubu ve ebeveyn izni durumlarını tanımlar. Azure AD B2C reşit olmayanların ebeveyn izni olmadan engelleyebilir. Azure AD B2C ile reşit olmayanların karar uygulamaya izin vermek için de ayarlanabilir.

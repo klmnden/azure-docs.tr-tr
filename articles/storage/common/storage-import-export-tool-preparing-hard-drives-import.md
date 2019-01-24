@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: b16a476f1960c79c378cd3aa18eae789c289eb54
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 44d39dcfd8c271cc97a88da7d1f0bec84bd866df
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244041"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828375"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Sabit sürücüleri içeri aktarma işine hazırlama
 
@@ -78,10 +78,10 @@ BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
 
 | Alan | Açıklama |
 | --- | --- |
-| BasePath | **[Gerekli]**<br/>Bu parametrenin değeri, içeri aktarılacak verilerin bulunduğu kaynak temsil eder. Aracı, bu yolu altında bulunan tüm veriler yinelemeli olarak kopyalama olur.<br><br/>**İzin verilen değerler**: Bu yerel bilgisayardaki geçerli bir yol veya geçerli bir paylaşım yolu olmalıdır ve kullanıcı tarafından erişilebilir olması gerekir. Dizin yolu mutlak bir yol (göreli bir yol değil) olmalıdır. Yol ile bitiyorsa "\\", başka bir dizin olmadan biten bir yolunu temsil ettiği"\\" bir dosyayı temsil eder.<br/>Hiçbir regex, bu alana izin verilir. Yol boşluklar içeriyorsa, yerleştirecek "".<br><br/>**Örnek**: "c:\Directory\c\Directory\File.txt"<br>"\\\\FBaseFilesharePath.domain.net\sharename\directory\"  |
+| BasePath | **[Gerekli]**<br/>Bu parametrenin değeri, içeri aktarılacak verilerin bulunduğu kaynak temsil eder. Aracı, bu yolu altında bulunan tüm veriler yinelemeli olarak kopyalama olur.<br><br/>**İzin verilen değerler**: Bu, yerel bilgisayardaki geçerli bir yol veya geçerli bir paylaşım yolu olmalıdır ve kullanıcı tarafından erişilebilir olması gerekir. Dizin yolu mutlak bir yol (göreli bir yol değil) olmalıdır. Yol ile bitiyorsa "\\", başka bir dizin olmadan biten bir yolunu temsil ettiği"\\" bir dosyayı temsil eder.<br/>Hiçbir regex, bu alana izin verilir. Yol boşluklar içeriyorsa, yerleştirecek "".<br><br/>**Örnek**: "c:\Directory\c\Directory\File.txt"<br>"\\\\FBaseFilesharePath.domain.net\sharename\directory\"  |
 | DstBlobPathOrPrefix | **[Gerekli]**<br/> Windows Azure depolama hesabınızdaki hedef sanal dizin yolu. Sanal dizin zaten mevcut veya olabilir. Yoksa, içeri/dışarı aktarma hizmeti oluşturur.<br/><br/>Hedef sanal dizinler veya BLOB'ları belirtilirken geçerli kapsayıcı adları kullandığınızdan emin olun. Kapsayıcı adları küçük harf olması gerektiğini unutmayın. Kapsayıcı adlandırma kuralları için bkz: [adlandırma ve başvuran kapsayıcıları, Blobları ve meta verileri](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata). Yalnızca bir kök belirtilen, kaynak dizin yapısı hedef blob kapsayıcısında çoğaltılır. Farklı bir dizin yapısı bir kaynakta, birden çok csv eşleme satırlarını isteniyorsa<br/><br/>Bir kapsayıcı veya bir müzik/70s gibi blob öneki belirtebilirsiniz /. Hedef dizin kapsayıcı adını, ardından eğik çizgi ile başlamalıdır. "/" ve isteğe bağlı olarak ile biten bir sanal blob dizin içerebilir "/".<br/><br/>Hedef kapsayıcı kök kapsayıcı olduğunda $root olarak eğik çizgi dahil kök kapsayıcı açıkça belirtmeniz gerekir /. Hedef dizin kök kapsayıcı olduğunda kök kapsayıcıdaki blobları içeremez beri "/" adlarında, ve kaynak dizinde tüm alt dizinler kopyalanmaz.<br/><br/>**Örnek**<br/>Hedef blob yolu ise https://mystorageaccount.blob.core.windows.net/video, bu alanın değeri video /  |
 | BlobType | **[İsteğe bağlı]**  blok &#124; sayfası<br/>Şu anda içeri/dışarı aktarma hizmeti, BLOB'ları 2 tür destekler. Sayfa blobları ve blok BlobsBy varsayılan tüm dosyaları blok Blobları olarak içeri aktarılacak. Ve \*.vhd ve \*sayfası BlobsThere blok blobu ve sayfa blob boyutu izin verilen üst sınırı olarak .vhdx içeri aktarılacak. Bkz: [depolama ölçeklenebilirlik hedefleri](storage-scalability-targets.md) daha fazla bilgi için.  |
-| Değerlendirme | **[İsteğe bağlı]**  Yeniden Adlandır &#124; Hayır üzerine &#124; üzerine yaz <br/> Bu alan kopyalama davranışı sırasında içeri aktarma yani belirtir. ne zaman veri depolama hesabına diskten karşıya yükleniyor. Kullanılabilir seçenekler şunlardır: yeniden adlandırma&#124;üzerine yazılsın mı&#124;Hayır üzerine yazın. "Hiçbir şey, belirtilen yeniden adlandırmak için" varsayılan olarak. <br/><br/>**Yeniden adlandırma**: aynı ada sahip bir nesne varsa, hedef olarak bir kopyasını oluşturur.<br/>Üzerine yaz: dosyanın daha yeni bir dosya ile üzerine yazar. Son değiştirilme WINS içeren dosya.<br/>**Hayır üzerine**: dosya zaten mevcutsa yazılırken atlar.|
+| Değerlendirme | **[İsteğe bağlı]**  Yeniden Adlandır &#124; Hayır üzerine &#124; üzerine yaz <br/> Bu alan kopyalama davranışı sırasında içeri aktarma yani belirtir. ne zaman veri depolama hesabına diskten karşıya yükleniyor. Kullanılabilir seçenekler şunlardır: yeniden adlandırma&#124;üzerine yazılsın mı&#124;Hayır üzerine yazın. "Hiçbir şey, belirtilen yeniden adlandırmak için" varsayılan olarak. <br/><br/>**Yeniden adlandırma**: Aynı ada sahip bir nesne varsa, hedef olarak bir kopyasını oluşturur.<br/>Üzerine yaz: dosyanın daha yeni bir dosya ile üzerine yazar. Son değiştirilme WINS içeren dosya.<br/>**Hayır üzerine**: Dosya zaten varsa yazılırken atlamalar var.|
 | MetadataFile | **[İsteğe bağlı]** <br/>Bu alan için değer bir nesne meta verilerini korumak ya da özel bir meta veri sağlamak gerekiyorsa, sağlanabilir meta veri dosyasıdır. Hedef BLOB'ları için meta veri dosyasının yolu. Bkz: [içeri/dışarı aktarma hizmeti meta veriler ve özellikler dosyası biçimi](../storage-import-export-file-format-metadata-and-properties.md) daha fazla bilgi için |
 | PropertiesFile | **[İsteğe bağlı]** <br/>Hedef BLOB'ları için özellik dosyası yolu. Bkz: [içeri/dışarı aktarma hizmeti meta veriler ve özellikler dosyası biçimi](../storage-import-export-file-format-metadata-and-properties.md) daha fazla bilgi için. |
 
@@ -109,11 +109,11 @@ H,Format,SilentMode,Encrypt,
 
 | Alanlar | Değer |
 | --- | --- |
-| SürücüHarfi | **[Gerekli]**<br/> Hedef ve bir sürücü harfi atanmış basit bir NTFS biriminde olduğundan araç sağlanan her sürücü.<br/> <br/>**Örnek**: R veya r |
-| FormatOption | **[Gerekli]**  Biçimi &#124; AlreadyFormatted<br/><br/> **Biçim**: bunun belirtilmesi diskteki tüm verilerin biçimlendirme. <br/>**AlreadyFormatted**: aracı, bu değeri belirtildiğinde biçimlendirme atlar. |
-| SilentOrPromptOnFormat | **[Gerekli]**  SilentMode &#124; PromptOnFormat<br/><br/>**SilentMode**: Bu değer sağlayan kullanıcı Aracı sessiz modda çalıştırmak etkinleştirir. <br/>**PromptOnFormat**: aracı eylemi her biçimi gerçekten yönelik olduğunu onaylamak için kullanıcıyı uyarır.<br/><br/>Ayarlı değil, komut iptal etmek ve hata iletisini görüntüler varsa: "SilentOrPromptOnFormat için geçersiz değer: yok" |
-| Şifreleme | **[Gerekli]**  Şifrelemek &#124; AlreadyEncrypted<br/> Bu alanın değeri, şifrelemek için hangi disk ve hangi değil karar verir. <br/><br/>**Şifreleme**: aracı sürücüyü biçimlendirmek. "FormatOption" alanının değeri "Format" ise bu değer, "Şifrele" olması gereklidir. Bu durumda "AlreadyEncrypted" belirtilirse, "Biçimi belirtildiğinde şifrele de belirtilmelidir" bir hatayla sonuçlanır.<br/>**AlreadyEncrypted**: aracı "ExistingBitLockerKey" alanında sağlanan BitLockerKey kullanarak sürücünün şifresini. "FormatOption" alanının değeri "AlreadyFormatted" ise, ardından bu değeri "Şifrele" veya "AlreadyEncrypted" olabilir |
-| ExistingBitLockerKey | **[Gerekli]**  "Şifreleme" alanının değeri "AlreadyEncrypted" ise<br/> Bu alan belirli bir diskle ilişkili BitLocker anahtarı değerdir. <br/><br/>Bu alan, "Şifrele" "Şifreleme" alanının değeri ise, boş bırakılmalıdır.  Bu durumda BitLocker anahtarı belirtilmezse, "Bitlocker anahtarı belirtilmemesi gerekir" bir hatayla sonuçlanır.<br/>  **Örnek**: 060456-014509-132033-080300-252615-584177-672089-411631|
+| DriveLetter | **[Gerekli]**<br/> Hedef ve bir sürücü harfi atanmış basit bir NTFS biriminde olduğundan araç sağlanan her sürücü.<br/> <br/>**Örnek**: R veya r |
+| FormatOption | **[Gerekli]**  Biçimi &#124; AlreadyFormatted<br/><br/> **Biçim**: Bunun belirtilmesi diskteki tüm verilerin biçimlendirir. <br/>**AlreadyFormatted**: Aracı, bu değeri belirtildiğinde biçimlendirme atlar. |
+| SilentOrPromptOnFormat | **[Gerekli]**  SilentMode &#124; PromptOnFormat<br/><br/>**SilentMode**: Bu değer sağlama aracı sessiz modda çalıştırmak kullanıcıyı etkinleştirir. <br/>**PromptOnFormat**: Aracı eylem her biçimi gerçekten yönelik olduğunu onaylamak için girmesini ister.<br/><br/>Ayarlı değil, komut iptal etmek ve hata iletisini görüntüler varsa: "SilentOrPromptOnFormat için geçersiz değer: yok" |
+| Şifreleme | **[Gerekli]**  Şifrelemek &#124; AlreadyEncrypted<br/> Bu alanın değeri, şifrelemek için hangi disk ve hangi değil karar verir. <br/><br/>**şifreleme**: Aracı sürücüyü biçimlendirir. "FormatOption" alanının değeri "Format" ise bu değer, "Şifrele" olması gereklidir. Bu durumda "AlreadyEncrypted" belirtilirse, "Biçimi belirtildiğinde şifrele de belirtilmelidir" bir hatayla sonuçlanır.<br/>**AlreadyEncrypted**: Aracı "ExistingBitLockerKey" alanında sağlanan BitLockerKey kullanarak sürücü şifresini çözer. "FormatOption" alanının değeri "AlreadyFormatted" ise, ardından bu değeri "Şifrele" veya "AlreadyEncrypted" olabilir |
+| ExistingBitLockerKey | **[Gerekli]**  "Şifreleme" alanının değeri "AlreadyEncrypted" ise<br/> Bu alan belirli bir diskle ilişkili BitLocker anahtarı değerdir. <br/><br/>Bu alan, "Şifrele" "Şifreleme" alanının değeri ise, boş bırakılmalıdır.  Bu durumda BitLocker anahtarı belirtilmezse, "BitLocker anahtarı belirtilmemesi gerekir" bir hatayla sonuçlanır.<br/>  **Örnek**: 060456-014509-132033-080300-252615-584177-672089-411631|
 
 ##  <a name="preparing-disk-for-import-job"></a>Disk içeri aktarma işine hazırlama
 
@@ -207,8 +207,8 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2 /ResumeSession
 |     / ResumeSession  | İsteğe bağlı. Son kopyalama oturumu anormal, bu parametre, oturumu sürdürme belirtilebilir.   |
 |     / AbortSession  | İsteğe bağlı. Son kopyalama oturumu anormal, bu parametre oturumunu durdurmak için belirtilebilir.  |
 |     /sn:&lt;StorageAccountName&gt;  | **Gerekli**<br/> Yalnızca, RepairImport ve RepairExport için de geçerlidir. Depolama hesabı adı.  |
-|     /SK:&lt;StorageAccountKey&gt;  | **Gerekli**<br/> Depolama hesabı anahtarı. |
-|     / InitialDriveSet:&lt;driveset.csv&gt;  | **Gerekli** ilk kopyalama oturumun çalışırken<br/> Hazırlamak için sürücülerin listesini içeren bir CSV dosyası.  |
+|     /sk:&lt;StorageAccountKey&gt;  | **Gerekli**<br/> Depolama hesabı anahtarı. |
+|     /InitialDriveSet:&lt;driveset.csv&gt;  | **Gerekli** ilk kopyalama oturumun çalışırken<br/> Hazırlamak için sürücülerin listesini içeren bir CSV dosyası.  |
 |     / AdditionalDriveSet:&lt;driveset.csv&gt; | **Gerekli**. Sürücüleri geçerli kopyalama oturuma eklerken. <br/> Eklenecek ek sürücüler listesini içeren bir CSV dosyası.  |
 |      / r:&lt;RepairFile&gt; | **Gerekli** RepairImport ve RepairExport için yalnızca geçerlidir.<br/> Onarım ilerleme durumunu izlemek için dosyanın yolu. Her sürücü bir ve yalnızca bir onarım dosyası olması gerekir.  |
 |     / d:&lt;TargetDirectories&gt; | **Gerekli**. Yalnızca, RepairImport ve RepairExport için de geçerlidir. RepairImport için onarma; bir veya daha fazla noktalı virgülle ayrılmış dizinler RepairExport, onarmak için bir dizin için örneğin directory sürücünün kök.  |
@@ -217,7 +217,7 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2 /ResumeSession
 |     / PathMapFile:&lt;DrivePathMapFile&gt; | **İsteğe bağlı**. Yalnızca, RepairImport için de geçerlidir.<br/> Dosya yolları (sekmeyle sınırlı) gerçek dosya konumları için sürücünün köküne eşlemelerini içeren dosyanın yolu. İlk olarak belirtildiğinde, dosya yolları boş hedefleri ile TargetDirectories, erişim reddedildi, geçersiz bir ada olarak bulunmayan veya birden fazla dizinde oldukları anlamına gelir doldurulur. Yol Haritası el ile doğru hedef yolları içerecek şekilde düzenlendi ve doğru dosya yollarını çözmek için aracı yeniden belirtildi.  |
 |     / ExportBlobListFile:&lt;ExportBlobListFile&gt; | **Gerekli**. Yalnızca, PreviewExport için de geçerlidir.<br/> XML yolu içeren blob yollarının listesini dosya veya yol önekleri dışarı aktarılacak bloblar için blob. Dosya biçimi, işi Put işlemi içeri/dışarı aktarma hizmeti REST API blob listesi blob biçiminde ile aynıdır.  |
 |     / DriveSize:&lt;DriveSize&gt; | **Gerekli**. Yalnızca, PreviewExport için de geçerlidir.<br/>  Dışarı aktarma için kullanılacak sürücüleri boyutu. Örneğin, 500 GB, 1,5 TB. Not: 1 GB = 1.000.000.000 bytes1 TB 1,000,000,000,000 bayt =  |
-|     / Veri kümesi:&lt;dataset.csv&gt; | **Gerekli**<br/> Bir dizin listesi ve/veya hedef sürücülere kopyalanacak dosyaların bir listesini içeren bir CSV dosyası.  |
+|     /DataSet:&lt;dataset.csv&gt; | **Gerekli**<br/> Bir dizin listesi ve/veya hedef sürücülere kopyalanacak dosyaların bir listesini içeren bir CSV dosyası.  |
 |     /silentmode  | **İsteğe bağlı**.<br/> Belirtilmezse, sürücüler gereksinimi anımsatmak ve devam etmek için onay gerekir.  |
 
 ## <a name="tool-output"></a>Araç çıktısı
@@ -341,7 +341,7 @@ Kopyalama makineye bağlı bir veya daha fazla boş 2.5 inç veya 3,5 inçlik SA
 
 #### <a name="how-can-i-enable-bitlocker-on-my-machine"></a>BitLocker makinemde nasıl etkinleştirebilirim?
 
-Denetlenecek basit sistem sürücüsünde sağ tıklayarak yoludur. Özelliği etkinleştirilmişse, Bitlocker seçeneklerini gösterir. Kapalı ise, görmezsiniz.
+Denetlenecek basit sistem sürücüsünde sağ tıklayarak yoludur. Özelliği etkinleştirilmişse, BitLocker seçeneklerini gösterir. Kapalı ise, görmezsiniz.
 
 ![BitLocker'ı denetleme](./media/storage-import-export-tool-preparing-hard-drives-import/BitLocker.png)
 

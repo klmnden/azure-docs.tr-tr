@@ -3,19 +3,19 @@ title: Azure Active Directory B2C'de kaynak sahibi parola kimlik bilgileri akı�
 description: Azure AD B2C'de kaynak sahibi parola kimlik bilgileri akışı yapılandırmayı öğrenin.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1b07825bd3ff46267764467bba815c1097278084
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: afbcacb299fa76a19cd7aaa20d3a4f2c2eb26d5c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726296"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845886"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Azure AD B2C'de kaynak sahibi parola kimlik bilgileri akışı yapılandırma
 
@@ -26,14 +26,14 @@ Kaynak sahibi parola kimlik bilgilerini (ROPC) akışı bir OAuth standart kimli
 
 Azure Active Directory (Azure AD) B2C'de, aşağıdaki seçenekleri desteklenir:
 
-- **Yerel istemci**: kimlik doğrulaması sırasında kullanıcı etkileşimi kod, kullanıcı tarafı cihazda çalıştığında gerçekleşir. Cihazın Android gibi yerel bir işletim sistemi çalıştıran veya JavaScript gibi bir tarayıcıda çalışan mobil bir uygulama olabilir.
-- **Genel istemci akışı**: yalnızca bir uygulama tarafından toplanan kullanıcı kimlik gönderilir, API çağrısı. Uygulamanın kimlik bilgilerini gönderilmez.
-- **Yeni Talep ekleyin**: kimlik belirteci içeriği, yeni bir talep eklemek için değiştirilebilir. 
+- **Yerel istemci**: Kod, kullanıcı tarafı cihazda çalıştırıldığında, kimlik doğrulaması sırasında kullanıcı etkileşimi gerçekleşir. Cihazın Android gibi yerel bir işletim sistemi çalıştıran veya JavaScript gibi bir tarayıcıda çalışan mobil bir uygulama olabilir.
+- **Genel istemci akışı**: Bir uygulama tarafından toplanan yalnızca kullanıcı kimlik bilgilerini, gönderilen API çağrısında. Uygulamanın kimlik bilgilerini gönderilmez.
+- **Yeni Talep ekleyin**: Kimlik belirteci içeriği yeni talep eklemek için değiştirilebilir. 
 
 Aşağıdaki akışlara ait desteklenmez:
 
-- **Sunucudan sunucuya**: kimlik koruma sistemi arayandan (yerel istemci) etkileşim bir parçası olarak toplanan güvenilir bir IP adresi gerekiyor. Bir sunucu tarafı API çağrısı, sunucunun IP adresi kullanılır. Başarısız kimlik doğrulama bir Dinamik Eşik aşılırsa, kimlik koruma sistemi yinelenen bir IP adresi bir saldırgan olarak tanımlayabilir.
-- **Gizli istemci akışı**: uygulama istemci kimliği doğrulanır, ancak uygulama gizli anahtarı doğrulanmamış.
+- **Sunucudan sunucuya**: Kimlik koruma sistemi arayandan (yerel istemci) etkileşim bir parçası olarak toplanan güvenilir bir IP adresi gerekir. Bir sunucu tarafı API çağrısı, sunucunun IP adresi kullanılır. Başarısız kimlik doğrulama bir Dinamik Eşik aşılırsa, kimlik koruma sistemi yinelenen bir IP adresi bir saldırgan olarak tanımlayabilir.
+- **Gizli istemci akışı**: Uygulama istemci kimliği doğrulanır, ancak uygulama gizli anahtarı doğrulanmamış.
 
 ##  <a name="create-a-resource-owner-user-flow"></a>Kaynak sahibi kullanıcı akışı oluştur
 

@@ -3,19 +3,19 @@ title: Azure Active Directory B2C'de özel ilkeleri kullanarak bir kimlik sağla
 description: Openıd Connect (OIDC) protokolünü kullanarak kimlik sağlayıcısı olarak Microsoft kullanarak örneği.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d53bbd10cbe822a91f201b7ba702b27b5ac0a6f9
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: d377b3f6dda864e9ab18dd716127ef6a6bed27c7
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887249"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845612"
 ---
 # <a name="set-up-sign-in-with-a-microsoft-account-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C'de özel ilkeleri kullanarak bir Microsoft hesabıyla oturum açma özelliğini ayarlama
 

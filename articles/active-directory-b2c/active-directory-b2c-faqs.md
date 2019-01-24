@@ -3,19 +3,19 @@ title: Azure Active Directory B2C için sık sorulan sorular | Microsoft Docs
 description: Sık Azure Active Directory B2C hakkında sorulan sorular (SSS).
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6957a18440dfc225c63a1b1843e2b47af8b841bf
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 8e5e688fe741fdc4a83ae1a3cf13a6c722064407
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842960"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856307"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Sık sorulan sorular (SSS) 
 Bu sayfa, Azure Active Directory (Azure AD) B2C hakkında sık sorulan sorular yanıtlanmaktadır. Geri güncelleştirmeleri kontrol etmeyi unutmayın.
@@ -61,8 +61,8 @@ Azure portalının sol tarafındaki menüde 'Azure AD B2C' açmadan önce yönet
 ### <a name="how-do-i-customize-verification-emails-the-content-and-the-from-field-sent-by-azure-ad-b2c"></a>Nasıl doğrulama e-postaları özelleştirebilirim (içerik ve "den:" alanı) Azure AD B2C tarafından gönderilen?
 Kullanabileceğiniz [şirket markası özelliğini](../active-directory/fundamentals/customize-branding.md) doğrulama e-postaları içeriğini özelleştirmek için. Özellikle, bu iki öğenin e-postanın özelleştirilebilir:
 
-* **Başlık logosu**: sağ alt tarafında gösterilir.
-* **Arka plan rengi**: üstte.
+* **Başlık logosu**: Sağ alt tarafında gösterilir.
+* **Arka plan rengi**: En üstünde gösterilir.
 
     ![Özelleştirilmiş bir doğrulama e-postanın ekran görüntüsü](./media/active-directory-b2c-faqs/company-branded-verification-email.png)
 

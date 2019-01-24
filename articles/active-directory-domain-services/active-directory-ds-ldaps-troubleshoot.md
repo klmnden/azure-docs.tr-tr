@@ -4,7 +4,7 @@ description: Bir Azure AD Domain Services yönetilen etki alanı için güvenli 
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 445c60da-e115-447b-841d-96739975bdf6
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: ergreenl
-ms.openlocfilehash: 3925db10a490be3c6d572f6d107e556595be8237
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: a055c73ea868ba40065638d90fadf66f5204276c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155789"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848760"
 ---
 # <a name="troubleshoot-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Bir Azure AD Domain Services yönetilen etki alanı için güvenli LDAP (LDAPS) sorunlarını giderme
 
@@ -34,7 +34,7 @@ Güvenli LDAP kullanarak yönetilen etki alanına bağlanırken sorun varsa:
 * Sanal ağ için NSG ayarları, internet'ten bağlantı noktası 636 trafiğine izin vermelidir. Yalnızca internet üzerinden güvenli LDAP erişimi etkinleştirdiyseniz bu adımı geçerlidir.
 
 
-## <a name="need-help"></a>Yardım mı gerekiyor?
+## <a name="need-help"></a>Yardıma mı ihtiyacınız var?
 Güvenli LDAP kullanarak yönetilen etki alanına bağlanırken sorun yaşamaya devam ediyorsanız [ürün ekibiyle](active-directory-ds-contact-us.md) Yardım. Daha iyi sorunun tanılanmasına yardımcı olmak için aşağıdaki bilgileri ekleyin:
 * Bağlantı oluşturma ve başarısız Ldp.exe'yi görüntüsü.
 * Azure AD Kiracı Kimliğinizi ve yönetilen etki alanınızın DNS etki alanı adı.

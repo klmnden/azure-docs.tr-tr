@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/6/2018
 ms.author: trinadhk
-ms.openlocfilehash: 5262c99fae965201d4f9519495163d0e16836a7a
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: f5695da01752d701e1b688700580982f2d2e6154
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726551"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827423"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>Azure Backup aracısıyla ilgili sorular
 Bu makalede Azure Backup aracısı bileşenlerini kısa süre içinde anlamanıza yardımcı olacak yaygın soruların yanıtları bulunur. Bazı yanıtlarda, kapsamlı bilgiler içeren makalelerin bağlantıları vardır. Ayrıca Azure Backup hizmeti ile ilgili sorularınızı [tartışma forumunda](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) paylaşabilirsiniz.
@@ -29,12 +29,12 @@ Evet, kasa kimlik bilgilerinin süresi 48 saat sonra dolar. Dosyanın süresi do
 ### <a name="what-types-of-drives-can-i-back-up-files-and-folders-from-br"></a>Ne tür sürücülerden dosya ve klasör yedekleyebilirim? <br/>
 Aşağıdaki sürücüleri/birimleri yedekleyemezsiniz:
 
-* Çıkarılabilir Medya: Tüm yedekleme öğesi kaynaklarının sabit olarak bildirilmesi gerekir.
-* Salt Okunur Birimler: Birimin çalışması için birim gölge kopyası hizmetine (VSS) yönelik olarak yazılabilir olması gerekir.
-* Çevrimdışı Birimler: Birimin çalışması için VSS'ye yönelik olarak çevrimiçi olması gerekir.
-* Ağ paylaşımı: Birimin çevrimiçi yedekleme kullanılarak yedeklenebilmesi için sunucuya yönelik olarak yerel olması gerekir.
-* Bitlocker korumalı birimler: Yedeklemenin gerçekleşebilmesi için birimin kilidinin açık olması gerekir.
-* Dosya Sistemi Tanımı: NTFS, desteklenen tek dosya sistemidir.
+* Çıkarılabilir medya: Tüm yedekleme öğesi kaynaklarının sabit olarak bildirilmesi gerekir.
+* Salt okunur birimler: Birimi, Birim Gölge Kopyası Hizmeti (VSS) çalışması için yazılabilir olmalıdır.
+* Çevrimdışı birimler: Birimin çalışması için VSS'ye yönelik olarak çevrimiçi olması gerekir.
+* Ağ paylaşımı: Birimin çevrimiçi yedekleme kullanılarak Yedeklenebilmesi için sunucuya yerel olması gerekir.
+* BitLocker korumalı birimler: Yedeklemenin gerçekleşebilmesi birimin kilidinin açık olması gerekir.
+* Dosya sistemi tanımı: NTFS, desteklenen tek dosya sistemidir.
 
 ### <a name="what-file-and-folder-types-can-i-back-up-from-my-serverbr"></a>Sunucumdan hangi dosya ve klasör hangi türlerini yedekleyebilirim?<br/>
 Aşağıdaki türler desteklenir:
@@ -43,11 +43,11 @@ Aşağıdaki türler desteklenir:
 * Sıkıştırılmış
 * Seyrek
 * Sıkıştırılmış + Seyrek
-* Sabit Bağlantılar: Desteklenmez, atlanır
-* Yeniden Ayrıştırma Noktası: Desteklenmez, atlanır
-* Şifreli + Seyrek: Desteklenmez, atlanır
-* Sıkıştırılmış Akış: Desteklenmez, atlanır
-* Seyrek Akış: Desteklenmez, atlanır
+* Sabit bağlantılar: Desteklenmez, atlanır
+* Yeniden ayrıştırma noktası: Desteklenmez, atlanır
+* Şifreli + seyrek: Desteklenmez, atlanır
+* Sıkıştırılmış Stream: Desteklenmez, atlanır
+* Seyrek Stream: Desteklenmez, atlanır
 
 ### <a name="can-i-install-the-azure-backup-agent-on-an-azure-vm-already-backed-by-the-azure-backup-service-using-the-vm-extension-br"></a>Azure Backup aracısını, önceden VM uzantısı kullanılarak Azure Backup hizmeti tarafından yedeklenmiş olan bir Azure VM üzerine yükleyebilir miyim? <br/>
 Kesinlikle. Azure Backup, VM uzantısını kullanan Azure VM'ler için VM düzeyinde yedekleme sağlar. Konuk Windows işletim sistemi üzerindeki dosya ve klasörleri korumak için Azure Backup aracısını konuk Windows işletim sistemine yükleyin.
@@ -94,7 +94,7 @@ Yedekleme oluşturma yeni önbellek konumunda başarıyla tamamlandıktan sonra,
 ### <a name="where-can-i-put-the-cache-folder-for-the-azure-backup-agent-to-work-as-expectedbr"></a>Azure Backup Aracısı'nın beklendiği şekilde çalışması için önbellek klasörünü nereye koyabilirim?<br/>
 Önbellek klasörü için aşağıdaki konumlar önerilmez:
 
-* Ağ paylaşımı veya Çıkarılabilir Medya: Önbellek klasörü, çevrimiçi yedekleme kullanılarak yedeklenmesi gereken sunucu için yerel olmalıdır. Ağ konumlarını veya USB sürücüleri gibi çıkarılabilir medya desteklenmez.
+* Ağ paylaşımı veya çıkarılabilir medya: Önbellek klasörü, çevrimiçi yedekleme kullanılarak yedeklenmesi gereken sunucu için yerel olmalıdır. Ağ konumlarını veya USB sürücüleri gibi çıkarılabilir medya desteklenmez.
 * Çevrimdışı birimler: Önbellek klasörü Azure Backup Aracısı kullanılarak gerçekleştirilecek beklenen yedekleme için çevrimiçi olması gerekir
 
 ### <a name="are-there-any-attributes-of-the-cache-folder-that-are-not-supportedbr"></a>Önbellek klasörünün desteklenmeyen herhangi bir özniteliği var mıdır?<br/>

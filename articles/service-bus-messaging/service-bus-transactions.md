@@ -3,9 +3,9 @@ title: Azure Service Bus işlem genel bakış | Microsoft Docs
 description: Azure Service Bus atomik işlemler ve aracılığıyla Gönder'na genel bakış
 services: service-bus-messaging
 documentationcenter: .net
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: 64449247-1026-44ba-b15a-9610f9385ed8
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2018
-ms.author: spelluru
-ms.openlocfilehash: 6be1605ee1bb385c303d100729238a8eb71605d0
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.author: aschhab
+ms.openlocfilehash: 69dc9c974c259f51ac0c6c9d64bfcda7ee65e181
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407340"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844594"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Service Bus hareket işleme genel bakış
 
@@ -37,8 +37,8 @@ Service Bus, bir hareketin kapsamı içindeki işlemlerin (kuyruk, konu başlı�
 
 İşlem kapsamı içinde gerçekleştirilen işlem aşağıdaki gibidir:
 
-* **[QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient), [MessageSender](/dotnet/api/microsoft.azure.servicebus.core.messagesender), [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient)**: SendBatchAsync SendAsync, SendBatch, Gönder 
-* **[BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)**: tam CompleteAsync gönderilemeyen, AbandonAsync teslim edilemeyen iletiler, DeadletterAsync, erteleme, DeferAsync, RenewLock RenewLockAsync 
+* **[QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient), [MessageSender](/dotnet/api/microsoft.azure.servicebus.core.messagesender), [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient)**: SendBatch, SendBatchAsync SendAsync, Gönder 
+* **[BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)**: Tamamlandı, CompleteAsync gönderilemeyen, AbandonAsync teslim edilemeyen iletiler, DeadletterAsync, DeferAsync, RenewLock RenewLockAsync ertele 
 
 Alma işlemleri dahil değildir, uygulamayı kullanarak iletileri alması varsayıldığından [ReceiveMode.PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode) modu, bazı iç döngü almak veya bir [Onmessageoptions](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage) geri arama ve ancak bundan sonra iletiyi işlemek için bir işlem kapsamı açılır.
 

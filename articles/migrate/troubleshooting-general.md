@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: raynew
-ms.openlocfilehash: f91f6386df01050cc67968d05a1e1562e0f9ed01
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 0c7d0980c928ecefebeabff555378230453c742f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261239"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827950"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Azure Geçişi sorunlarını giderme
 
@@ -175,7 +175,7 @@ Azure geçişi Gereci sağlamlaştırmak için gereç bulunan aşağıdaki klas�
 
 - Azure geçişi hizmeti için ikili dosyaları içeren klasör. Tüm alt klasörleri hariç tutun.
   %ProgramFiles%\ProfilerService  
-- Azure geçişi Web si. Tüm alt klasörleri hariç tutun.
+- Azure geçişi Web uygulaması. Tüm alt klasörleri hariç tutun.
   %SystemDrive%\inetpub\wwwroot
 - Veritabanı ve günlük dosyaları için yerel önbelleği. Azure geçişi hizmeti bu klasöre RW erişimi gerekir.
   %SystemDrive%\Profiler
@@ -286,7 +286,7 @@ Olay izleme için Windows toplamak için aşağıdakileri yapın:
 | 751       | UnableToConnectToServer        | '%Name;' adlı vCenter Server'a şu hata nedeniyle bağlanılamıyor: %ErrorMessage;     | Daha fazla ayrıntı için hata iletisini inceleyin.                                                             | Hatayı giderip yeniden deneyin.                                                                                                           |
 | 752       | InvalidvCenterEndpoint         | '%Name;' adlı sunucu bir vCenter Server değil.                                  | vCenter Server ayrıntılarını sağlayın.                                                                       | Doğru vCenter Server ayrıntılarıyla işlemi yeniden deneyin.                                                                                   |
 | 753       | InvalidLoginCredentials        | '%Name;' adlı vCenter Server'a şu hata nedeniyle bağlanılamıyor: %ErrorMessage; | Geçersiz oturum açma kimlik bilgileri nedeniyle vCenter Server bağlantısı başarısız oldu.                             | Sağlanan oturum açma kimlik bilgilerinin doğru olduğundan emin olun.                                                                                    |
-| 754       | NoPerfDataAvaialable           | Performans verileri kullanılamıyor.                                               | VCenter Server'da istatistik düzeyini denetleyin. Performans verilerinin kullanılabilmesi için 3 ayarlanması gerekir. | İstatistik Düzeyini 3 (5 dakika, 30 dakika ve 2 saatlik süre için) olarak değiştirin ve en az bir gün bekledikten sonra yeniden deneyin.                   |
+| 754       | NoPerfDataAvailable           | Performans verileri kullanılamıyor.                                               | VCenter Server'da istatistik düzeyini denetleyin. Performans verilerinin kullanılabilmesi için 3 ayarlanması gerekir. | İstatistik Düzeyini 3 (5 dakika, 30 dakika ve 2 saatlik süre için) olarak değiştirin ve en az bir gün bekledikten sonra yeniden deneyin.                   |
 | 756       | NullInstanceUUID               | InstanceUUID değeri null olan bir makine ile karşılaşıldı                                  | vCenter Server uygun olmayan bir nesneye sahip olabilir.                                                      | Hatayı giderip yeniden deneyin.                                                                                                           |
 | 757       | VMNotFound                     | Sanal makine bulunamadı                                                  | Sanal makine silinmiş olabilir: %VMID;                                                                | vCenter envanterinin kapsamı belirlenirken seçilen sanal makinelerin keşif sırasında mevcut olduğundan emin olun                                      |
 | 758       | GetPerfDataTimeout             | VCenter isteği zaman aşımına uğradı. İleti % Message;                                  | vCenter Server kimlik bilgileri yanlış                                                              | VCenter sunucusu kimlik bilgilerini denetleyin ve vCenter Server'ın erişilebilir olduğundan emin olun. İşlemi yeniden deneyin. Sorun devam ederse, destek ekibine başvurun. |

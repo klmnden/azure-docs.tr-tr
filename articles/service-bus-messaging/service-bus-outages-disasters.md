@@ -2,18 +2,19 @@
 title: Azure Service Bus uygulamaları kesintiler ve olağanüstü durumlar karşı insulating | Microsoft Docs
 description: Uygulamaları olası bir hizmet veri yolu kesintiye karşı korumak için teknikleri.
 services: service-bus-messaging
-author: spelluru
+author: axisc
 manager: timlt
+editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
-ms.author: spelluru
-ms.openlocfilehash: 85481deceeadaf4154659d35fccf777f489bd782
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.author: aschhab
+ms.openlocfilehash: e9fb1795ecb26fc87fd8f3ff000d125d71e9d594
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393716"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846719"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Hizmet veri yolu kesintilerini ve olağanüstü durumları yönetme karşı uygulamalar insulating için en iyi yöntemler
 
@@ -69,8 +70,8 @@ Bir istemci, her iki sıralarından iletileri alır. Alıcı, alıcının aynı 
 
 Etkin olmayan çoğaltma kullanırken, aşağıdaki senaryolarda iletileri kaybolabilir veya iki kez alındı:
 
-* **İleti gecikmesi ya da zarar**: gönderenin birincil kuyruğa bir ileti m1 başarıyla gönderildi. ve ardından alıcı m1 almadan önce sıranın kullanılamaz hale varsayılır. Gönderici bir sonraki ileti m2 ikincil kuyruğa gönderir. Birincil kuyruk geçici olarak kullanılamıyorsa, sıranın tekrar kullanılabilir hale geldikten sonra alıcı m1 alır. Bir olağanüstü bir durumda, alıcı m1 hiçbir zaman alabilir.
-* **Alma yinelenen**: birincil kuyruğa gönderen bir ileti m gönderdiğini varsayar. Service Bus başarıyla m işler ancak yanıt göndermek başarısız olur. Gönderme işlemi zaman aşımına sonra gönderen m özdeş birer kopyası ikincil kuyruğa gönderir. Alıcı birincil kuyruk kullanılamaz duruma gelirse, önce ilk kopyayı m alabildiği, alıcı yaklaşık aynı zamanda her iki kopyasında m alır. Alıcı birincil kuyruk kullanılamaz duruma gelirse, önce ilk kopyayı m almak mümkün değilse, alıcı başlangıçta yalnızca m ikinci kopyasını alır, ancak birincil kuyruğa kullanıma sunulduğunda ardından m ikinci bir kopyasını alır.
+* **İleti gecikmesi ya da zarar**: Gönderen birincil kuyruğa bir ileti m1 başarıyla gönderildi. ve ardından alıcı m1 almadan önce sıranın kullanılamaz hale varsayılır. Gönderici bir sonraki ileti m2 ikincil kuyruğa gönderir. Birincil kuyruk geçici olarak kullanılamıyorsa, sıranın tekrar kullanılabilir hale geldikten sonra alıcı m1 alır. Bir olağanüstü bir durumda, alıcı m1 hiçbir zaman alabilir.
+* **Alma yinelenen**: Birincil kuyruğa gönderen bir ileti m gönderdiğini varsayar. Service Bus başarıyla m işler ancak yanıt göndermek başarısız olur. Gönderme işlemi zaman aşımına sonra gönderen m özdeş birer kopyası ikincil kuyruğa gönderir. Alıcı birincil kuyruk kullanılamaz duruma gelirse, önce ilk kopyayı m alabildiği, alıcı yaklaşık aynı zamanda her iki kopyasında m alır. Alıcı birincil kuyruk kullanılamaz duruma gelirse, önce ilk kopyayı m almak mümkün değilse, alıcı başlangıçta yalnızca m ikinci kopyasını alır, ancak birincil kuyruğa kullanıma sunulduğunda ardından m ikinci bir kopyasını alır.
 
 [Coğrafi çoğaltma ile Service Bus aracılı ileti] [ Geo-replication with Service Bus Brokered Messages] örnek, Mesajlaşma varlıkları pasif çoğaltma gösterir.
 

@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
-manager: mtillman
+manager: daveba
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.reviewer: asmalser
-ms.openlocfilehash: ca73a7f76de61f841af55121823ab045a93632ae
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 5702f59a7924a3ca9eefae33dfcae5c3c16274d8
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014795"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827219"
 ---
-# <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Öğretici: Otomatik kullanıcı hazırlama için Slack yapılandırın.
+# <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Öğretici: Slack için otomatik kullanıcı hazırlama yapılandırın
 
 
 Slack ve Azure'daki gerçekleştirmesi gereken adımları göstermek için bu öğreticinin amacı olan otomatik olarak sağlama ve devre dışı bırakma sağlama kullanıcı hesaplarına AD'den Azure AD'ye Slack. 
@@ -36,7 +36,7 @@ Bu öğreticide özetlenen senaryo, aşağıdaki öğeleri zaten sahip olduğunu
 *   Bir Slack Kiracı ile [planı artı](https://aadsyncfabric.slack.com/pricing) ya da daha iyi etkin 
 *   Slack takım Yöneticisi izinlerine sahip bir kullanıcı hesabı 
 
-Not: Azure AD tümleştirmesi sağlama dayanan [Slack SCIM API](https://api.slack.com/scim), Slack takımlara bulunan artı planlayabilir ya da daha iyi.
+Not: Azure AD tümleştirmesi sağlama dayanan [Slack SCIM API](https://api.slack.com/scim), Slack takımlar için kullanılabildiği artı planlayabilir ya da daha iyi.
 
 ## <a name="assigning-users-to-slack"></a>Slack için kullanıcı atama
 
@@ -57,7 +57,7 @@ Yapılandırma ve sağlama hizmetini etkinleştirmeden önce hangi kullanıcıla
 
 Bu bölümde, Azure AD sağlama API'si Slack'ın kullanıcı hesabına bağlanma aracılığıyla size yol gösterir ve sağlama hizmeti oluşturmak için yapılandırma güncelleştirmesi ve atanan kullanıcı hesapları Azure AD'de kullanıcı ve Grup atamasına dayalı Slack içinde devre dışı bırak.
 
-**İpucu:** SAML tabanlı çoklu oturum açma için Slack bölümlerinde sağlanan yönergeleri izleyerek, etkin olarak tercih edebilirsiniz [Azure portalında](https://portal.azure.com). Bu iki özellik birbirine tamamlayıcı rağmen otomatik sağlama bağımsız olarak, çoklu oturum açma yapılandırılabilir.
+**İpucu:** Uygulamayı da seçebilirsiniz SAML tabanlı çoklu oturum açma için Slack etkin, yönergeleri izleyerek sağlanan [Azure portalında](https://portal.azure.com). Bu iki özellik birbirine tamamlayıcı rağmen otomatik sağlama bağımsız olarak, çoklu oturum açma yapılandırılabilir.
 
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-slack-in-azure-ad"></a>Otomatik kullanıcı hesabı için Slack Azure AD'de sağlama yapılandırmak için:

@@ -4,7 +4,7 @@ description: Güvenli LDAP (LDAPS) kullanarak bir Azure AD Domain Services yöne
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 6871374a-0300-4275-9a45-a39a52c65ae4
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: ergreenl
-ms.openlocfilehash: e421d3219f50c0dbb635dfe5b9cb3e9a24d4fa61
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: b1266a464e315dfb5b381cc1925591c80aed7f74
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158543"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856868"
 ---
 # <a name="bind-to-an-azure-ad-domain-services-managed-domain-using-secure-ldap-ldaps"></a>Güvenli LDAP (LDAPS) kullanarak bir Azure AD Domain Services yönetilen etki bağlama
 
@@ -28,7 +28,7 @@ ms.locfileid: "50158543"
 Tam [görev 4 - yönetilen etki alanı internet'ten erişmek için DNS'yi yapılandırma](active-directory-ds-ldaps-configure-dns.md).
 
 
-## <a name="task-5-bind-to-the-managed-domain-over-ldap-using-ldpexe"></a>5. Görev: yönetilen etki alanına üzerinden Ldp.exe'yi kullanma LDAP bağlama
+## <a name="task-5-bind-to-the-managed-domain-over-ldap-using-ldpexe"></a>Görev 5: Yönetilen etki bağlama üzerinden LDAP Ldp.exe'yi kullanma
 Bağlama ve üzerinden LDAP arama yapmak için Uzak Sunucu Yönetim Araçları Paketi dahil edilen LDP.exe aracını kullanabilirsiniz.
 
 İlk olarak, LDP'yi açmak ve yönetilen etki alanına bağlanın. Tıklayın **bağlantı** tıklatıp **Bağlan...**  menüsünde. Yönetilen etki alanı DNS etki alanı adını belirtin. Bağlantılar için kullanılacak bağlantı noktasını belirtin. LDAP bağlantıları için bağlantı noktası 389 kullanın. LDAPS bağlantıları için bağlantı noktası 636'ı kullanın. Tıklayın **Tamam** yönetilen etki bağlama düğmesi.
@@ -46,7 +46,7 @@ Seçin **görünümü**ve ardından **ağaç** menüsünde. Temel DN alanı boş
 Daha fazla bilgi - [LDAP sorgu temelleri](https://technet.microsoft.com/library/aa996205.aspx)
 
 
-## <a name="task-6-lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet"></a>6. Görev: Yönetilen etki alanınıza internet üzerinden güvenli LDAP erişimi kilitleme
+## <a name="task-6-lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet"></a>6. Görev: İnternet üzerinden yönetilen etki alanınıza güvenli LDAP erişimi kilitleme
 > [!NOTE]
 > İnternet üzerinden yönetilen etki alanına erişim LDAPS'ı etkinleştirmediyseniz bu yapılandırma görevi atlayın.
 >

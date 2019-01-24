@@ -3,21 +3,21 @@ title: Özel ilkeleri kullanarak Azure Active Directory B2C'yi kullanıcı arabi
 description: Çalışma zamanında dinamik olarak değiştirir, HTML5/CSS içeriğiyle birden çok marka deneyimleri destekler.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f078c1389e36b82f95b011ca1fbd7fbd1c4f895e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 87634539b9709e057c0e51297569c1005a7bea1f
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834247"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852108"
 ---
-# <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: özel ilkeler kullanarak kullanıcı Arabirimi ile dinamik içerik yapılandırma
+# <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: Özel ilkeler kullanarak dinamik içerik ile kullanıcı arabirimini yapılandırma
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -47,7 +47,7 @@ Bu makalede Azure AD B2C'yi kullanıcı arabirimiyle özelleştirme odaklanır *
 | *api.localaccountpasswordreset* | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Parolanızı mı unuttunuz sayfasını**. Bu sayfa, kullanıcılar parola sıfırlama başlatmak için tamamlaması gereken form içerir.  |
 | *api.localaccountsignin* | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Yerel hesap oturum açma sayfası**. Bu sayfa, bir e-posta adresi veya kullanıcı adına göre yerel bir hesap ile oturum imzalamak için bir form içerir. Form, metin girişi kutusunu ve parola giriş kutusu içerebilir. |
 | *api.localaccountsignup* | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Yerel hesap kaydolma sayfası**. Bu sayfa, bir e-posta adresi veya kullanıcı adına göre yerel bir hesap için kaydolmaya yönelik bir form içerir. Form gibi çeşitli giriş denetimleri içerebilen: bir metin girişi kutusunu, parola girişi kutusu, radyo düğmesi, tekli seçim açılır kutuları ve çoklu seçim kutuları işaretleyin. |
-| *api.phonefactor* | [çok faktörlü 1.0.0.cshtml](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | **Çok faktörlü kimlik doğrulaması sayfası**. Bu sayfada, kullanıcıların kendi telefon numaralarını (metin ya da ses) kaydolma veya oturum açma sırasında doğrulayabilirsiniz. |
+| *api.phonefactor* | [multifactor-1.0.0.cshtml](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | **Çok faktörlü kimlik doğrulaması sayfası**. Bu sayfada, kullanıcıların kendi telefon numaralarını (metin ya da ses) kaydolma veya oturum açma sırasında doğrulayabilirsiniz. |
 | *api.selfasserted* | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Sosyal hesap kaydolma sayfası**. Bu sayfa, bunlar bir sosyal kimlik sağlayıcısı var olan bir hesap ile oturum açarken kullanıcıların tamamlamalısınız bir form içerir. Bu sayfa, önceki sosyal hesap kaydolma sayfası, parola giriş alanları dışında benzerdir. |
 | *api.selfasserted.profileupdate* | [updateprofile.html](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Profili güncelleştirme sayfasını**. Bu sayfa, kullanıcıların kendi profilini güncelleştirmek için erişebileceği bir form içerir. Bu sayfa, parola giriş alanları dışında sosyal hesap kaydolma sayfası benzerdir. |
 | *api.signuporsignin* | [Unified.HTML](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Birleşik kaydolma veya oturum açma sayfası**. Bu sayfa kullanıcı kaydolma ve oturum açma işlemini gerçekleştirir. Kullanıcıların Kurumsal kimlik sağlayıcıları, Facebook veya Google + veya yerel hesaplar gibi sosyal kimlik sağlayıcılarını kullanabilirsiniz.  |
@@ -64,7 +64,7 @@ Bu kılavuzda:
 * Çıkış noktaları arası kaynak paylaşımı (CORS) web uygulamanız için ayarlayın.
 * Geçersiz kılma `LoadUri` HTML5 dosyanıza işaret edecek şekilde öğeleri.
 
-## <a name="step-1-create-an-aspnet-web-app"></a>1. adım: ASP.NET web uygulaması oluşturma
+## <a name="step-1-create-an-aspnet-web-app"></a>1. Adım: ASP.NET web uygulaması oluşturma
 
 1. Visual Studio'da seçerek bir proje oluşturun **dosya** > **yeni** > **proje**.
 
@@ -82,8 +82,8 @@ Bu kılavuzda:
 
 6. Projeyi oluşturmak için **Tamam**'ı seçin.
 
-## <a name="step-2-create-mvc-view"></a>2. adım: MVC görünümü oluşturma
-### <a name="step-21-download-the-b2c-built-in-html5-template"></a>2.1. adım: B2C yerleşik HTML5 şablon indirme
+## <a name="step-2-create-mvc-view"></a>2. Adım: MVC görünümü oluşturma
+### <a name="step-21-download-the-b2c-built-in-html5-template"></a>2.1. adım: B2C yerleşik HTML5 şablonunu indirme
 Azure AD B2C'yi yerleşik HTML5 şablonu temel alan özel HTML5 şablonunuzu. İndirebileceğiniz [unified.html dosya](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) veya şablondan indirme [başlangıç paketi](https://github.com/AzureADQuickStarts/B2C-AzureBlobStorage-Client/tree/master/sample_templates/wingtip). Birleşik kaydolma veya oturum açma sayfası oluşturmak için bu HTML5 dosyasını kullanın.
 
 ### <a name="step-22-add-the-mvc-view"></a>2.2. adım: MVC Görünümü Ekle
@@ -119,13 +119,13 @@ Azure AD B2C'yi yerleşik HTML5 şablonu temel alan özel HTML5 şablonunuzu. İ
 
     ![HTML5 ekledikten sonra unified.cshtml dosyası](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-edit-view1.png)
 
-### <a name="step-23-change-the-background-image"></a>Adım 2.3: arka plan resmi Değiştir
+### <a name="step-23-change-the-background-image"></a>Adım 2.3: Arka plan resmi Değiştir
 
 Bulun `<img>` öğesini içeren `ID` değer *background_background_image*ve ardından `src` değerini **https://kbdevstorage1.blob.core.windows.net/asset-blobs/19889_en_1** veya diğer kullanmak istediğiniz arka plan resmi.
 
 ![Sayfa arka planını değiştirin](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-static-background.png)
 
-### <a name="step-24-add-your-view-to-the-mvc-controller"></a>2.4. adım: MVC denetleyicisine görünümü ekleme
+### <a name="step-24-add-your-view-to-the-mvc-controller"></a>2.4. adım: MVC denetleyicisi için Görünüm Ekle
 
 1. Açık **Controllers\HomeController.cs**, yöntemi ekleyin: 
 
@@ -143,7 +143,7 @@ Bulun `<img>` öğesini içeren `ID` değer *background_background_image*ve ard�
 
 2. Web uygulamanızda hata ayıklama ve emin _birleşik_ sayfa erişilebilir (örneğin, `http://localhost:<Port number>/Home/unified`).
 
-### <a name="step-25-publish-to-azure"></a>2.5. adım: Azure'a yayımlama
+### <a name="step-25-publish-to-azure"></a>2.5. adım: Azure’da Yayımlama
 1. İçinde **Çözüm Gezgini**, sağ **Contoso.AADB2C.UI** proje ve ardından **Yayımla**.
 
     ![Microsoft Azure App Service'e yayımlama](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-publish1.png)
@@ -167,7 +167,7 @@ Bulun `<img>` öğesini içeren `ID` değer *background_background_image*ve ard�
 
 5. URL'sini kopyalayın _birleşik_ sayfa (örneğin, _https://<app_name>.azurewebsites.net/home/unified_).
 
-## <a name="step-3-configure-cors-in-azure-app-service"></a>3. adım: Azure uygulama Hizmeti'nde CORS'yi yapılandırın
+## <a name="step-3-configure-cors-in-azure-app-service"></a>3. Adım: Azure uygulama Hizmeti'nde CORS'yi yapılandırın
 1. İçinde [Azure portalında](https://portal.azure.com/)seçin **uygulama hizmetleri**ve ardından API uygulamanızın adını seçin.
 
     ![Azure portalda API uygulamasını seçin](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-CORS1.png)
@@ -187,7 +187,7 @@ Bulun `<img>` öğesini içeren `ID` değer *background_background_image*ve ard�
 
     Seçtikten sonra **Kaydet**, API uygulaması belirtilen URL'lerden JavaScript çağrılarını kabul eder. 
 
-## <a name="step-4-html5-template-validation"></a>4. adım: HTML5 şablonu doğrulaması
+## <a name="step-4-html5-template-validation"></a>4. Adım: HTML5 şablonu doğrulaması
 HTML5 şablonunuzu kullanıma hazırdır. Ancak, kullanıma sunulmadı `ContentDefinition` kod. Ekleyebilmeniz için önce `ContentDefinition` özel ilkenizi emin olun:
 * İçeriğinizi HTML5 uyumlu ve erişilebilir olduğunu.
 * İçerik sunucunuz için CORS etkinleştirilir.
@@ -198,7 +198,7 @@ HTML5 şablonunuzu kullanıma hazırdır. Ancak, kullanıma sunulmadı `ContentD
 * Served içeriğinizi üzerinden güvenli **HTTPS**.
 * Kullanmakta olduğunuz *mutlak URL'ler*, gibi *https://yourdomain/content*, tüm bağlantılar, CSS içeriği ve görüntüler.
 
-## <a name="step-5-configure-your-content-definition"></a>5. adım: içerik tanımınızı yapılandırma
+## <a name="step-5-configure-your-content-definition"></a>5. Adım: İçerik tanımını yapılandırma
 Yapılandırmak için `ContentDefinition`, aşağıdakileri yapın:
 1. İlkenizin temel dosyasını açın (örneğin, *TrustFrameworkBase.xml*).
 
@@ -215,7 +215,7 @@ Yapılandırmak için `ContentDefinition`, aşağıdakileri yapın:
     
     ![İçerik tanımınızı](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-content-definition.png)
 
-## <a name="step-6-upload-the-policy-to-your-tenant"></a>6. adım: ilke kiracınıza karşıya yükleyin.
+## <a name="step-6-upload-the-policy-to-your-tenant"></a>6. Adım: Kiracınız için ilkeyi karşıya yükle
 1. İçinde [Azure portalında](https://portal.azure.com), geçiş [Azure AD B2C kiracınızın bağlamında](active-directory-b2c-navigate-to-b2c-context.md)ve ardından **Azure AD B2C**.
 
 2. Seçin **kimlik deneyimi çerçevesi**.
@@ -228,7 +228,7 @@ Yapılandırmak için `ContentDefinition`, aşağıdakileri yapın:
 
 6. Karşıya yükleme *TrustFrameworkExtensions.xml* dosya ve doğrulama başarılı olun.
 
-## <a name="step-7-test-the-custom-policy-by-using-run-now"></a>7. adım: Test Şimdi Çalıştır kullanarak özel ilke
+## <a name="step-7-test-the-custom-policy-by-using-run-now"></a>7. Adım: Şimdi Çalıştır'i kullanarak özel bir ilkeyi test
 1. Seçin **Azure AD B2C ayarlarını**ve ardından **kimlik deneyimi çerçevesi**.
 
     >[!NOTE]
@@ -239,10 +239,10 @@ Yapılandırmak için `ContentDefinition`, aşağıdakileri yapın:
 
     ![Kaydolma veya oturum açma ilkenizin](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-demo1.png)
 
-## <a name="step-8-add-dynamic-content"></a>8. adım: dinamik içerik Ekle
+## <a name="step-8-add-dynamic-content"></a>8. adım: Dinamik içerik ekle
 Adlandırılmış sorgu dizesi parametresini temel alan arka planını değiştirin _campaignId_. (Web ve mobil uygulamalar), RP uygulaması, Azure AD B2C'ye parametresi gönderir. İlkeniz, parametre okur ve HTML5 şablonunuza değeri gönderir. 
 
-### <a name="step-81-add-a-content-definition-parameter"></a>8.1. adım: bir içerik tanım parametresi ekleme
+### <a name="step-81-add-a-content-definition-parameter"></a>8.1. adım: İçerik tanımı parametre ekleme
 
 Ekleme `ContentDefinitionParameters` aşağıdakileri yaparak öğesi:
 1. Açık *SignUpOrSignin* ilkenizin dosya (örneğin, *SignUpOrSignin.xml*).
@@ -259,7 +259,7 @@ Ekleme `ContentDefinitionParameters` aşağıdakileri yaparak öğesi:
     </UserJourneyBehaviors>
     ```
 
-### <a name="step-82-change-your-code-to-accept-a-query-string-parameter-and-replace-the-background-image"></a>8.2. adım: bir sorgu dizesi parametresi kabul etmek için kodunuzu değiştirmeniz ve arka plan resmi Değiştir
+### <a name="step-82-change-your-code-to-accept-a-query-string-parameter-and-replace-the-background-image"></a>8.2. adım: Bir sorgu dizesi parametresi kabul etmek için kodunuzu değiştirmeniz ve arka plan resmi Değiştir
 HomeController değiştirme `unified` campaignId parametre kabul etmek için yöntemi. Yöntemin parametre ardından denetler. değer kullanıcının ve ayarlar `ViewData["background"]` değişkeni buna göre.
 
 1. Açık *Controllers\HomeController.cs* dosyasını ve ardından değiştirmek `unified` aşağıdaki kod parçacığını ekleyerek yöntemi:
@@ -292,7 +292,7 @@ HomeController değiştirme `unified` campaignId parametre kabul etmek için yö
 
     ![Sayfa arka planını değiştirin](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-dynamic-background.png)
 
-### <a name="83-upload-the-changes-and-publish-your-policy"></a>8.3: değişiklikleri karşıya yükleme ve ilkeniz yayımlama
+### <a name="83-upload-the-changes-and-publish-your-policy"></a>8.3: Değişiklikleri karşıya yükleme ve ilkeniz yayımlama
 1. Visual Studio projenizi Azure App Service'te yayımlayın.
 
 2. Karşıya yükleme *SignUpOrSignin.xml* Azure AD B2C ilkesi.
@@ -315,7 +315,7 @@ HomeController değiştirme `unified` campaignId parametre kabul etmek için yö
 
     ![Sayfa arka planını değiştirin](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-demo3.png)
 
-## <a name="step-9-change-the-rest-of-the-user-journey"></a>9. adım: kullanıcı yolculuğu geri kalanını değiştirme
+## <a name="step-9-change-the-rest-of-the-user-journey"></a>9. adım: Kullanıcı yolculuğu geri kalanını değiştirme
 Seçerseniz **şimdi kaydolun** görüntü tanımladığınız, oturum açma sayfasında, tarayıcı bağlantısı görüntüler varsayılan arka plan resmi. Bu davranış, yalnızca kaydolma veya oturum açma sayfası değiştirdiğinizi doğurur. Kendini onaylama içerik tanımlarını geri kalanını değiştirmek için:
 1. "Adım 2'ye" geri dönün ve aşağıdakileri yapın:
 

@@ -11,17 +11,68 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/7/2019
+ms.date: 1/22/2019
 ms.author: raiye
-ms.openlocfilehash: 154b925cc173a1a8fac697e347759764807a3052
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 0a9b811f3781cd181c17b9ed92b9ca653ee91af0
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107914"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828460"
 ---
 # <a name="azure-guest-os"></a>Azure konuk işletim sistemi
 Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirmelerin Microsoft Güvenlik Yanıt Merkezi (MSRC) gösterilmektedir. Belirli bir güncelleştirmenin Konuk kullanmakta olduğunuz işletim sistemi için geçerli olup olmadığını belirlemek için bu makaleyi arayın. Güncelleştirmeler her zaman taşıyan İleri için belirli [ailesi] [ family-explain] sürümünde yapılan.
+
+>[!NOTE]
+>Ocak konuk işletim sistemi, şu anda, otomatik güncelleştirmeler için yapılandırılmış olan bir bulut hizmeti vm'lerine da sunulacaktır. Piyasaya çıkış tamamlandığında, bu sürümü ile Azure portal ve yapılandırma dosyalarını el ile güncelleştirmeleri kullanılabilir hale getirilir. Aşağıdaki düzeltme ekleri, Ocak konuk işletim sisteminde dahil edilir. Bu liste değiştirilebilir ' dir.
+
+## <a name="january-2019-guest-os"></a>Ocak 2019 konuk işletim sistemi
+
+| Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
+| --- | --- | --- | --- | --- |
+| Rel 19-01 | [4480961] | Windows 10 Güvenlik | 5.27 | 8 Ocak 2019 |
+| Rel 19-01 | [4480964] | Windows Güvenlik | 4.62 | 8 Ocak 2019 |
+| Rel 19-01 | [4480972] | Windows Güvenlik | 3.69 | 8 Ocak 2019 |
+| Rel 19-01 | [4480960] | Windows Güvenlik | 2.82 | 8 Ocak 2019 |
+| Rel 19-01 | [4480074] | .NET 4.x güvenliği | 4.62 | 8 Ocak 2019 |
+| Rel 19-01 | [4480075] | .NET 4.x güvenliği | 3.69 | 8 Ocak 2019 |
+| Rel 19-01 | [4480076] | .NET 4.x güvenliği | 2.82 | 8 Ocak 2019 |
+| Rel 19-01 | [4480086] | .NET 3.x güvenliği | 4.62 | 8 Ocak 2019 |
+| Rel 19-01 | [4480083] | .NET 3.x güvenliği | 3.69 | 8 Ocak 2019 |
+| Rel 19-01 | [4480085] | .NET 3.x güvenliği | 2.82 | 8 Ocak 2019 |
+| Rel 19-01 | [4480979] | Flash | 3.69, 4.62, 5.27 | 8 Ocak 2019 |
+| Rel 19-01 | [4480965] | Internet Explorer | 2.82, 3.69, 4.62 | 8 Ocak 2019 |
+| Yok | [4471318] | Aralık güvenlikle dökümü | 2.82 | 11 Aralık 2018'e |
+| Yok | [4470641] | Aralık olmayan ve güvenlikle ilgili paketi .NET 3.x | 2.82 | 11 Aralık 2018'e |
+| Yok | [4470637] | Aralık olmayan ve güvenlikle ilgili paketi .NET 4.x | 2.82 | 11 Aralık 2018'e |
+| Yok | [4471330] | Aralık güvenlikle dökümü | 3.69 | 11 Aralık 2018'e |
+| Yok | [4470629] | Aralık olmayan ve güvenlikle ilgili paketi .NET 3.x | 3.69 | 11 Aralık 2018'e |
+| Yok | [4470623] | Aralık olmayan ve güvenlikle ilgili paketi .NET 4.x | 3.69 | 11 Aralık 2018'e |
+| Yok | [4471320] | Aralık güvenlikle dökümü | 4.62 | 11 Aralık 2018'e |
+| Yok | [4470630] | Aralık olmayan ve güvenlikle ilgili paketi .NET 3.x | 4.62 | 11 Aralık 2018'e |
+| Yok | [4470622] | Aralık olmayan ve güvenlikle ilgili paketi .NET 4.x | 4.62 | 11 Aralık 2018'e |
+
+[4480961]: http://support.microsoft.com/kb/4480961
+[4480964]: http://support.microsoft.com/kb/4480964
+[4480972]: http://support.microsoft.com/kb/4480972
+[4480960]: http://support.microsoft.com/kb/4480960
+[4480074]: http://support.microsoft.com/kb/4480074
+[4480075]: http://support.microsoft.com/kb/4480075
+[4480076]: http://support.microsoft.com/kb/4480076
+[4480086]: http://support.microsoft.com/kb/4480086
+[4480083]: http://support.microsoft.com/kb/4480083
+[4480085]: http://support.microsoft.com/kb/4480085
+[4480979]: http://support.microsoft.com/kb/4480979
+[4480965]: http://support.microsoft.com/kb/4480965
+[4471318]: http://support.microsoft.com/kb/4471318
+[4470641]: http://support.microsoft.com/kb/4470641
+[4470637]: http://support.microsoft.com/kb/4470637
+[4471330]: http://support.microsoft.com/kb/4471330
+[4470629]: http://support.microsoft.com/kb/4470629
+[4470623]: http://support.microsoft.com/kb/4470623
+[4471320]: http://support.microsoft.com/kb/4471320
+[4470630]: http://support.microsoft.com/kb/4470630
+[4470622]: http://support.microsoft.com/kb/4470622
 
 ## <a name="december-2018-guest-os"></a>Aralık 2018'e konuk işletim sistemi
 
@@ -37,9 +88,9 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Rel 18-12 | [4470493] | .NET 4.x güvenliği  | 2.81 | 11 Aralık 2018'e |
 | Rel 18-12 | [4470492] | .NET 4.x güvenliği  | 3.68 | 11 Aralık 2018'e |
 | Rel 18-12 | [4470491] | .NET 4.x güvenliği  | 4.61| 11 Aralık 2018'e |
-| Rel 18-12 | [4471331] | Flash  | 3.68, 4.61 5.26 | 5 Aralık 2018'e  |
-| Rel 18-12 | [4470199] | Internet Explorer  | 2.81, 3.68 4.61 | 11 Aralık 2018'e |
-| Yok | [4468323] | Saat dilimi güncelleştirme    | 2.81, 3.68 4.61 | 13 Aralık 2018'e |
+| Rel 18-12 | [4471331] | Flash  | 3.68, 4.61, 5.26 | 5 Aralık 2018'e  |
+| Rel 18-12 | [4470199] | Internet Explorer  | 2.81, 3.68, 4.61 | 11 Aralık 2018'e |
+| Yok | [4468323] | Saat dilimi güncelleştirme    | 2.81, 3.68, 4.61 | 13 Aralık 2018'e |
 | Yok | [4467107] | Kasım güvenlikle dökümü   | 2.81 | 13 Kasım 2018 |
 | Yok | [4467701] | Kasım güvenlikle dökümü     | 3.68 | 13 Kasım 2018 |
 | Yok | [4467697] | Kasım güvenlikle dökümü     | 4.61 | 13 Kasım 2018 |
@@ -65,15 +116,15 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 
 | Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
-| Rel 18-11 | [4466536] | Internet Explorer | 2,80, 3.67 4.60 | 13 Kasım 2018 |
-| Rel 18-11 | [4467694] | Flash | 3.67, 4.60 5.25 | 13 Kasım 2018 |
-| Rel 18-11 | [4467106] | Windows Güvenlik | 2,80 | 13 Kasım 2018 |
+| Rel 18-11 | [4466536] | Internet Explorer | 2.80, 3.67, 4.60 | 13 Kasım 2018 |
+| Rel 18-11 | [4467694] | Flash | 3.67, 4.60, 5.25 | 13 Kasım 2018 |
+| Rel 18-11 | [4467106] | Windows Güvenlik | 2.80 | 13 Kasım 2018 |
 | Rel 18-11 | [4467678] | Windows Güvenlik | 3.67 | 13 Kasım 2018 |
 | Rel 18-11 | [4467703] | Windows Güvenlik | 4.60 | 13 Kasım 2018 |
 | Rel 18-11 | [4467691] | Windows 10 Güvenlik | 5.25 | 13 Kasım 2018 |
 | Yok | [3173426] | Hizmet yığını güncelleştirmesi | 3.67 | 12 Temmuz 2016 |
 | Yok | [4465659] | Hizmet yığını güncelleştirmesi | 5.25 | 13 Kasım 2018 |
-| Yok | [4462923] | Ekim güvenlikle dökümü | 2,80 | 9 Ekim 2018 |
+| Yok | [4462923] | Ekim güvenlikle dökümü | 2.80 | 9 Ekim 2018 |
 | Yok | [4462929] | Ekim güvenlikle dökümü | 3.67 | 9 Ekim 2018 |
 | Yok | [4462926] | Ekim güvenlikle dökümü | 4.60 | 9 Ekim 2018 |
 | Yok | [3109976] | Uygulama uyumluluğu dolgular | 4.60 | 12 Nisan 2016 |
@@ -97,13 +148,13 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 
 | Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
-| Rel 18-10 | [4462917] | Windows 10 Güvenlik | 5,24 | 9 Ekim 2018 |
+| Rel 18-10 | [4462917] | Windows 10 Güvenlik | 5.24 | 9 Ekim 2018 |
 | Rel 18-10 | [4462915] | Windows Güvenlik | 2.79 | 9 Ekim 2018 |
 | Rel 18-10 | [4462931] | Windows Güvenlik | 3.66 | 9 Ekim 2018 |
 | Rel 18-10 | [4462941] | Windows Güvenlik | 4.59 | 9 Ekim 2018 |
-| Rel 18-10 | [4462930] | Flash | 3.66, 4.59 5,24 | 9 Ekim 2018 |
-| Rel 18-10 | [4462949] | Internet Explorer | 2.79, 3.66 4.59 | 9 Ekim 2018 |
-| Yok | [4339284] | Saat dilimi güncelleştirme | 2.79, 3.66 4.59 | 24 Temmuz 2018 |
+| Rel 18-10 | [4462930] | Flash | 3.66, 4.59, 5.24 | 9 Ekim 2018 |
+| Rel 18-10 | [4462949] | Internet Explorer | 2.79, 3.66, 4.59 | 9 Ekim 2018 |
+| Yok | [4339284] | Saat dilimi güncelleştirme | 2.79, 3.66, 4.59 | 24 Temmuz 2018 |
 | Yok | [4457144] | Eylül güvenlikle dökümü | 2.79 | 11 Eylül 2018'den |
 | Yok | [4457044] | Eylül güvenlikle .NET 3.5 dökümü | 2.79 | 11 Eylül 2018'den |
 | Yok | [4457038] | Eylül güvenlikle .NET 4.5.2'nin dökümü | 2.79 | 11 Eylül 2018'den |
@@ -141,8 +192,8 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Rel 18-09 | [4457055], [4457030] | 3.5, .NET 4.5 güvenlik | 2.78 | 11 Eylül 2018'den |
 | Rel 18-09 | [4457053], [4457029] | .NET 3.5, 4.x güvenlik | 3.65 | 11 Eylül 2018'den |
 | Rel 18-09 | [4457056], [4457028] | .NET 3.5, 4.x güvenlik | 4.58 | 11 Eylül 2018'den |
-| Rel 18-09 | [4457146] | Flash | 3.65, 4.58 5.23 | 11 Eylül 2018'den |
-| Rel 18-09 | [4457426] | Internet Explorer | 2.78, 3.65 4.58 | 11 Eylül 2018'den |
+| Rel 18-09 | [4457146] | Flash | 3.65, 4.58, 5.23 | 11 Eylül 2018'den |
+| Rel 18-09 | [4457426] | Internet Explorer | 2.78, 3.65, 4.58 | 11 Eylül 2018'den |
 | Yok | [4343900] | Ağustos güvenlikle dökümü | 2.78 | 14 Ağustos 2018 |
 | Yok | [4344152] | Ağustos güvenlikle .NET 3.5 dökümü | 2.78 | 14 Ağustos 2018 |
 | Yok | [4344149] | Ağustos güvenlikle .NET 4 x rollup | 2.78 | 14 Ağustos 2018 |
@@ -165,8 +216,8 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Rel 18-08 | [4344178], [4344171] | .NET 3.5, 4.x güvenlik | 4.57 | 14 Ağustos 2018 |
 | Rel 18-08 | [4346742], [4346739] | .NET 3.5 4.x OOB yayın | 3.64 | 30 Temmuz 2018 |
 | Rel 18-08 | [4346745], [4346408] | .NET 3.5 4.x OOB yayın | 4.57 | 30 Temmuz 2018 |
-| Rel 18-08 | [4343902] | Flash | 3.64, 4.57 5.22 | 14 Ağustos 2018 |
-| Rel 18-08 | [4343205] | Internet Explorer | 2.77, 3.64 4.57 | 14 Ağustos 2018 |
+| Rel 18-08 | [4343902] | Flash | 3.64, 4.57, 5.22 | 14 Ağustos 2018 |
+| Rel 18-08 | [4343205] | Internet Explorer | 2.77, 3.64, 4.57 | 14 Ağustos 2018 |
 | Yok | [4338818] |Temmuz güvenlikle dökümü |2.77 | 10 Temmuz 2018 |
 | Yok | [4019990] |.NET için D3D derleyicisi güncelleştirme |2.77 | 10 Temmuz 2018 |
 | Yok | [4338830] |Temmuz güvenlikle dökümü |3.64 | 10 Temmuz 2018 |
@@ -190,8 +241,8 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Rel 18-07 | [4338612], [4338602] |.NET 3.5, 4.x güvenlik |2.76 |10 Temmuz 2018 |
 | Rel 18-07 | [4338601], [4338604] |.NET 3.5, 4.x, 4.5 x güvenlik |3.63 |10 Temmuz 2018 |
 | Rel 18-07 | [4338613], [4338600], [4338605] |.NET 3.5, 4.x, 4.5 x güvenlik |4.56|10 Temmuz 2018 |
-| Rel 18-07 | [4338832] |Flash |3.63, 4.76 5.21 |10 Temmuz 2018 |
-| Rel 18-07 | [4339093] |Internet Explorer |2.76, 3.63 4.76 |10 Temmuz 2018 |
+| Rel 18-07 | [4338832] |Flash |3.63, 4.76, 5.21 |10 Temmuz 2018 |
+| Rel 18-07 | [4339093] |Internet Explorer |2.76, 3.63, 4.76 |10 Temmuz 2018 |
 | Yok | [4284826] |Haziran olmayan güvenlik dökümü |2.76 |12 Haziran 2018 |
 | Yok | [4284855] |Haziran olmayan güvenlik dökümü |3.63 |12 Haziran 2018 |
 | Yok | [4284815] |Haziran olmayan güvenlik dökümü |4.56 |12 Haziran 2018 |
@@ -200,17 +251,17 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | Rel 18-06 | [4284880] |Windows 10 Güvenlik |5.20 |12 Haziran 2018 |
-| Rel 18-06 | [4284867] |Yalnızca Windows Güvenlik |2,75 |12 Haziran 2018 |
+| Rel 18-06 | [4284867] |Yalnızca Windows Güvenlik |2.75 |12 Haziran 2018 |
 | Rel 18-06 | [4284846] |Yalnızca Windows Güvenlik |3.62 |12 Haziran 2018 |
 | Rel 18-06 | [4284878] |Yalnızca Windows Güvenlik |4.55 |12 Haziran 2018 |
-| Rel 18-06 | [4230450] |Internet Explorer |2,75, 3.62 4.75 |12 Haziran 2018 |
-| Rel 18-06 | [4287903] |Flash |3.62, 4.75 5.20 |12 Haziran 2018 |
-| Yok | [4103718] |Güvenlikle ilgili olmayan döküm olabilir |2,75 |8 Mayıs 2018 |
+| Rel 18-06 | [4230450] |Internet Explorer |2.75, 3.62, 4.75 |12 Haziran 2018 |
+| Rel 18-06 | [4287903] |Flash |3.62, 4.75, 5.20 |12 Haziran 2018 |
+| Yok | [4103718] |Güvenlikle ilgili olmayan döküm olabilir |2.75 |8 Mayıs 2018 |
 | Yok | [4103730] |Güvenlikle ilgili olmayan döküm olabilir |3.62 |8 Mayıs 2018 |
 | Yok | [4103725] |Güvenlikle ilgili olmayan döküm olabilir |4.55 |8 Mayıs 2018 |
-| Yok | [4040980], [4040977] |Eylül ' 17 .NET olmayan güvenlik dökümü |2,75 |14 Kasım 2017 |
-| Yok | [4095874] |.NET 3.5 olmayan ve güvenlikle ilgili sürüm |2,75 |8 Mayıs 2018 |
-| Yok | [4096495] |.NET 4.x güvenlikle yayımlayabilir |2,75 |8 Mayıs 2018 |
+| Yok | [4040980], [4040977] |Eylül ' 17 .NET olmayan güvenlik dökümü |2.75 |14 Kasım 2017 |
+| Yok | [4095874] |.NET 3.5 olmayan ve güvenlikle ilgili sürüm |2.75 |8 Mayıs 2018 |
+| Yok | [4096495] |.NET 4.x güvenlikle yayımlayabilir |2.75 |8 Mayıs 2018 |
 | Yok | [4040975] |Eylül ' 17 .NET olmayan güvenlik dökümü |3.62 |14 Kasım 2017 |
 | Yok | [4095872] |.NET 3.5 olmayan ve güvenlikle ilgili sürüm |3.62 |8 Mayıs 2018 |
 | Yok | [4096494] |.NET 4.x güvenlikle yayımlayabilir |3.62 |8 Mayıs 2018 |
@@ -232,26 +283,26 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Rel 18-05 | [4095512], [4095518], [4096235] |.NET 3.5, 4.x, 4.5 x güvenlik |3.61 |8 Mayıs 2018 |
 | Rel 18-05 | [4095515], [4095517], [4096236] |.NET 3.5, 4.x, 4.5 x güvenlik |4.74|8 Mayıs 2018 |
 | Rel 18-05 | [4054856] |.NET 4.7 x güvenliği |5.19 |8 Mayıs 2018 |
-| Rel 18-05 | [4103768] |Internet Explorer |2.74, 3.61 4.74 |8 Mayıs 2018 |
-| Rel 18-05 | [4103729] |Flash |3.61, 4.74 5.19 |8 Mayıs 2018 |
-| Yok | [4093118] |Nisan olmayan güvenlik dökümü |2,73 |10 Nisan 2018 |
+| Rel 18-05 | [4103768] |Internet Explorer |2.74, 3.61, 4.74 |8 Mayıs 2018 |
+| Rel 18-05 | [4103729] |Flash |3.61, 4.74, 5.19 |8 Mayıs 2018 |
+| Yok | [4093118] |Nisan olmayan güvenlik dökümü |2.73 |10 Nisan 2018 |
 | Yok | [4093123] |Nisan olmayan güvenlik dökümü |3.61 |10 Nisan 2018 |
 | Yok | [4093114] |Nisan olmayan güvenlik dökümü |4.74 |10 Nisan 2018 |
 | Yok | [4093137] |Nisan SSU |5.19 |10 Nisan 2018 |
-| Yok | [4093753] |Saat dilimi güncelleştirme |2.74, 3.61 4.74 |10 Nisan 2018 |
+| Yok | [4093753] |Saat dilimi güncelleştirme |2.74, 3.61, 4.74 |10 Nisan 2018 |
 
 
 ## <a name="april-2018-guest-os"></a>Nisan 2018 konuk işletim sistemi
 | Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | Rel 18-04 | [4093119] |Windows 10 Güvenlik |5.18 |10 Nisan 2018 |
-| Rel 18-04 | [4093108] |Yalnızca Windows Güvenlik |2,73 |10 Nisan 2018 |
+| Rel 18-04 | [4093108] |Yalnızca Windows Güvenlik |2.73 |10 Nisan 2018 |
 | Rel 18-04 | [4093122] |Yalnızca Windows Güvenlik |3.60 |10 Nisan 2018 |
 | Rel 18-04 | [4093115] |Yalnızca Windows Güvenlik |4.53 |10 Nisan 2018 |
-| Rel 18-04 | [4092946] |Internet Explorer |2,73, 3.60 4.53 |10 Nisan 2018 |
-| Rel 18-04 | [4093110] |Flash |3.60, 4.53 5.18 |10 Nisan 2018 |
-| Yok | [4088875] |Mart güvenlikle ilgili olmayan toplaması |2,73 |13 Mart 2018 |
-| Yok | [4099950] |Mart güvenlikle ilgili olmayan döküm önkoşul|2,73 |13 Mart 2018 |
+| Rel 18-04 | [4092946] |Internet Explorer |2.73, 3.60, 4.53 |10 Nisan 2018 |
+| Rel 18-04 | [4093110] |Flash |3.60, 4.53, 5.18 |10 Nisan 2018 |
+| Yok | [4088875] |Mart güvenlikle ilgili olmayan toplaması |2.73 |13 Mart 2018 |
+| Yok | [4099950] |Mart güvenlikle ilgili olmayan döküm önkoşul|2.73 |13 Mart 2018 |
 | Yok | [4088877] |Mart güvenlikle ilgili olmayan toplaması |3.60 |13 Mart 2018 |
 | Yok | [4088876] |Mart güvenlikle ilgili olmayan toplaması |4.53 |13 Mart 2018 |
 
@@ -259,22 +310,22 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | Rel 18-03 | [4088787], [4088776] |Windows 10 Güvenlik |5.17 |13 Mart 2018 |
-| Rel 18-03 | [4088878], [4088880], [4088879] |Yalnızca Windows Güvenlik |2.72, 3.59 4.52 |13 Mart 2018 |
-| Rel 18-03 | [4089187] |Internet Explorer |2.72, 3.59 4.52 |13 Mart 2018 |
-| Rel 18-03 | [4074595] |Flash |3.59, 4.52 5.17 |13 Mart 2018 |
+| Rel 18-03 | [4088878], [4088880], [4088879] |Yalnızca Windows Güvenlik |2.72, 3.59, 4.52 |13 Mart 2018 |
+| Rel 18-03 | [4089187] |Internet Explorer |2.72, 3.59, 4.52 |13 Mart 2018 |
+| Rel 18-03 | [4074595] |Flash |3.59, 4.52, 5.17 |13 Mart 2018 |
 | Yok | [4074598] |Şubat olmayan güvenlik dökümü |2.72 |13 Şubat 2018 |
 | Yok | [4074593] |Şubat olmayan güvenlik dökümü |3.59 |13 Şubat 2018 |
 | Yok | [4074594] |Şubat olmayan güvenlik dökümü |4.52 |13 Şubat 2018 |
-| Yok | [4074837] |Saat dilimi güncelleştirme |2.72, 3.59 4.52 |13 Şubat 2018 |
+| Yok | [4074837] |Saat dilimi güncelleştirme |2.72, 3.59, 4.52 |13 Şubat 2018 |
 
 
 ## <a name="february-2018-guest-os"></a>Şubat 2018'den konuk işletim sistemi
 | Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | Rel 18-02 | [4074590], [4074588] |Windows 10 Güvenlik |5.16 |13 Şubat 2018 |
-| Rel 18-02 | [4074587], [4074589], [4074597] |Yalnızca Windows Güvenlik |2.71, 3.58 4.51 |13 Şubat 2018 |
-| Rel 18-02 | [4074736] |Internet Explorer |2.71, 3.58 4.51 |13 Şubat 2018 |
-| Rel 18-02 | [4074595] |Flash |3.58, 4.51 5.16 |13 Şubat 2018 |
+| Rel 18-02 | [4074587], [4074589], [4074597] |Yalnızca Windows Güvenlik |2.71, 3.58, 4.51 |13 Şubat 2018 |
+| Rel 18-02 | [4074736] |Internet Explorer |2.71, 3.58, 4.51 |13 Şubat 2018 |
+| Rel 18-02 | [4074595] |Flash |3.58, 4.51, 5.16 |13 Şubat 2018 |
 | Yok | [4056894] |Ocak olmayan güvenlik dökümü |2.71 |4 Ocak 2018 |
 | Yok | [4056896] |Ocak olmayan güvenlik dökümü |3.58 |4 Ocak 2018 |
 | Yok | [4056895] |Ocak olmayan güvenlik dökümü |4.51 |4 Ocak 2018 |
@@ -285,12 +336,12 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 ## <a name="january-2018-guest-os"></a>Ocak 2018'den konuk işletim sistemi
 | Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
-| Rel 18-01 | [4056898], [4056897], [4056899] |Yalnızca Windows Güvenlik |2.70, 3.57 4.50 |3 Ocak 2018 |
+| Rel 18-01 | [4056898], [4056897], [4056899] |Yalnızca Windows Güvenlik |2.70, 3.57, 4.50 |3 Ocak 2018 |
 | Rel 18-01 | [4056890], [4056892] |Yalnızca Windows Güvenlik |5.15 |3 Ocak 2018 |
 | Yok | [4054518] |Aralık dışı güvenlik dökümü |2.70 |12 Aralık 2017 |
 | Yok | [4054520] |Aralık dışı güvenlik dökümü |3.57 |12 Aralık 2017 |
 | Yok | [4054519] |Aralık dışı güvenlik dökümü |4.50 |12 Aralık 2017 |
-| Yok | [4051956] |Ocak saat dilimi güncelleştirme |2.70, 3.57 4.50 |12 Aralık 2017 |
+| Yok | [4051956] |Ocak saat dilimi güncelleştirme |2.70, 3.57, 4.50 |12 Aralık 2017 |
 
 
 
@@ -616,7 +667,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Yok |[3133977] |BitLocker Sürücü svchost.exe işleminde Windows 7 veya Windows Server 2008 R2 hizmet kilitlenmesi nedeniyle şifrelenemiyor  |2.51 |10 Mayıs 2016 |
 | Yok |[3133681] |İşlemi Windows Server 2012 R2'de SCVMM'de sanal makineler yanıt yok  |4.32 |10 Mayıs 2016 |
 | Yok |[3123245] |Güncelleştirme, Windows Server 2012 R2'de bağlantı noktası tükenmesi kimliği geliştirir.  |4.32 |10 Mayıs 2016 |
-| Yok |[RC4'ü devre dışı bırak] | Microsoft Güvenlik Danışma Belgesi: RC4'ü devre dışı bırakmak için güncelleştirme  |4.32, 3.39, 2.51 |10 Mayıs 2016 |
+| Yok |[Disable RC4] | Microsoft Güvenlik Danışma Belgesi: RC4'ü devre dışı bırakmak için güncelleştirme  |4.32, 3.39, 2.51 |10 Mayıs 2016 |
 
 ## <a name="april-2016-guest-os"></a>Nisan 2016 konuk işletim sistemi
 | Bülten No | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
@@ -1342,7 +1393,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 [3133977]: http://support.microsoft.com/kb/3133977
 [3133681]: http://support.microsoft.com/kb/3133681
 [3123245]: http://support.microsoft.com/kb/3123245
-[RC4'ü devre dışı bırak]: https://blogs.msdn.microsoft.com/azuresecurity/2016/04/12/azure-cipher-suite-change-removes-rc4-support/
+[Disable RC4]: https://blogs.msdn.microsoft.com/azuresecurity/2016/04/12/azure-cipher-suite-change-removes-rc4-support/
 
 
 [3148531]: http://support.microsoft.com/kb/3148531

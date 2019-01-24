@@ -3,9 +3,9 @@ title: Java ile Azure Service Bus konu başlıklarını kullanma | Microsoft Doc
 description: Azure'da Service Bus konuları ve abonelikleri kullanın.
 services: service-bus-messaging
 documentationcenter: java
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: 63d6c8bd-8a22-4292-befc-545ffb52e8eb
 ms.service: service-bus-messaging
 ms.workload: tbd
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 09/17/2018
-ms.author: spelluru
-ms.openlocfilehash: 501d15ebbb373c100dd735e97bebf2f085a9579e
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.author: aschhab
+ms.openlocfilehash: cd2d5812d1b61e1d8fcc00fbc824be8ceac696de
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241328"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849966"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-java"></a>Java ile Service Bus konu başlıklarını ve aboneliklerini kullanma
 
@@ -67,7 +67,7 @@ Yeni bir ad alanı oluşturulduğunda, her biri ad alanının tüm yönleri üze
 1. **Tüm kaynaklar**’a ve sonra yeni oluşturulan ad alanı adına tıklayın.
 2. Ad alanı penceresinde **Paylaşılan erişim ilkeleri**'ne tıklayın.
 3. **Paylaşılan erişim ilkeleri** ekranında **RootManageSharedAccessKey** seçeneğine tıklayın.
-4. **İlke: RootManageSharedAccessKey** penceresinde **Birincil Bağlantı Dizesi**'nin yanındaki **Kopyala** düğmesine tıklayın ve bağlantı dizesini daha sonra kullanmak üzere panonuza kopyalayın. Bu değeri Not Defteri veya başka bir geçici konuma yapıştırın.
+4. İçinde **İlkesi: RootManageSharedAccessKey** penceresinde tıklayın **kopyalama** düğmesinin yanındaki **PRIMARY CONNECTION Strıng'i**, bağlantı dizesini Panonuza daha sonra kullanmak üzere kopyalayın. Bu değeri Not Defteri veya başka bir geçici konuma yapıştırın.
 
     ![bağlantı dizesi](./media/service-bus-tutorial-topics-subscriptions-portal/connection-string.png)
 5. **Birincil Anahtar** değerini daha sonra kullanmak üzere geçici bir konuma kopyalayarak önceki adımı tamamlayın.
@@ -96,7 +96,7 @@ Yüklediğinizden emin olun [Java için Azure SDK'sı] [ Azure SDK for Java] Bu 
 Java derleme yolu aşağıdaki jar dosyaları dışındaki eklemeniz gerekir:
 
 - gson 2.6.2.jar
-- Commons CLI 1.4.jar
+- commons-cli-1.4.jar
 - proton j 0.21.0.jar
 
 İle bir sınıf ekleyin bir **ana** yöntemi ve ardından aşağıdakileri ekleyin `import` Java dosyasının en üstüne deyimlerini:

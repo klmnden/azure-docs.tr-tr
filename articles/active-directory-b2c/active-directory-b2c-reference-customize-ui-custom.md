@@ -3,19 +3,19 @@ title: Bir kullanıcı yolculuğunun özel ilkeler ile kullanıcı arabirimini �
 description: Azure Active Directory B2C özel ilkeleri hakkında bilgi edinin.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 8c3684f93bbf5b9fe9f5ea9167396b9822e70c48
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 1953e23c0676a0c81576a47f3f3ca36c3861935f
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841634"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855066"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Bir kullanıcı yolculuğunun özel ilkeler ile kullanıcı arabirimini özelleştirme
 
@@ -111,7 +111,7 @@ Bir önkoşul olarak bir depolama hesabı oluşturmanız gerekir. Bir Azure Blob
     c.  Depolama blob depolama kapsayıcısının adını *containerName*, örneğin *b2c*.
     d.  Yolu *başlangıç paketi* örnek dosyaları, örneğin *... \B2CTemplates\wingtiptoys*.
 
-Yukarıdaki adımları izlediyseniz, HTML5 ve CSS dosyaları *kullanıcı Arabirimi özelleştirme paketi* kurgusal şirket için **wingtiptoys** artık depolama hesabınıza işaret ediyor.  İçeriği doğru Azure portalında ilgili kapsayıcı bölmesini açıp yüklendiğini doğrulayabilirsiniz. Alternatif olarak, içeriği doğru bir tarayıcıdan sayfasına erişerek yüklendiğini doğrulayabilirsiniz. Daha fazla bilgi için [Azure Active Directory B2C: sayfa kullanıcı arabirimi (UI) özelleştirme özelliği göstermek için kullanılan bir yardımcı araç](active-directory-b2c-reference-ui-customization-helper-tool.md).
+Yukarıdaki adımları izlediyseniz, HTML5 ve CSS dosyaları *kullanıcı Arabirimi özelleştirme paketi* kurgusal şirket için **wingtiptoys** artık depolama hesabınıza işaret ediyor.  İçeriği doğru Azure portalında ilgili kapsayıcı bölmesini açıp yüklendiğini doğrulayabilirsiniz. Alternatif olarak, içeriği doğru bir tarayıcıdan sayfasına erişerek yüklendiğini doğrulayabilirsiniz. Daha fazla bilgi için [Azure Active Directory B2C: Sayfa kullanıcı arabirimi (UI) özelleştirme özelliği göstermek için kullanılan bir yardımcı araç](active-directory-b2c-reference-ui-customization-helper-tool.md).
 
 ## <a name="ensure-the-storage-account-has-cors-enabled"></a>Depolama hesabı CORS etkin olduğundan emin olun
 
@@ -168,4 +168,4 @@ Aşağıdaki tablo, Azure AD B2C kimlik tarafından tanınan tanım kimlikleri a
 | *api.signuporsignin* | **Birleşik kaydolma veya oturum açma sayfası**.  Bu sayfa, kaydolma hem de işler & Kurumsal kimlik sağlayıcıları, Facebook veya Google + veya yerel hesaplar gibi sosyal kimlik sağlayıcıları kullanan kullanıcılar, oturum açın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Başvurusu: nasıl özel ilkeler anlama, B2C kimlik deneyimi çerçevesi ile çalışma](active-directory-b2c-reference-custom-policies-understanding-contents.md)
+[Başvuru: Nasıl özel ilkelerini anlama, B2C kimlik deneyimi çerçevesi ile çalışma](active-directory-b2c-reference-custom-policies-understanding-contents.md)

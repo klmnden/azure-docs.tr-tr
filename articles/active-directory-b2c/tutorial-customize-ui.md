@@ -3,21 +3,21 @@ title: Öğretici - Azure Active Directory B2C uygulamalarınızın, kullanıcı
 description: Azure portalını kullanarak uygulamalarınızı Azure Active Directory B2C, kullanıcı arabirimini özelleştirmeyi öğrenin.
 services: B2C
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f8ebb282d3f6abbc37739891c0f7228bef110d82
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 5d97a313c347aefbdda14b70e78aa09188da59ef
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842688"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855797"
 ---
-# <a name="tutorial-customize-the-user-interface-of-your-applications-in-azure-active-directory-b2c"></a>Öğretici: Azure Active Directory B2C uygulamalarınızın, kullanıcı arabirimini özelleştirme
+# <a name="tutorial-customize-the-user-interface-of-your-applications-in-azure-active-directory-b2c"></a>Öğretici: Uygulamalarınızı Azure Active Directory B2C, kullanıcı arabirimini özelleştirme
 
 Daha yaygın kullanıcı deneyimleri için gibi kaydolma, oturum açma ve profil düzenleme, kullanabileceğiniz [kullanıcı akışları](active-directory-b2c-reference-policies.md) Azure Active Directory (Azure AD) B2C'de. Bu öğreticide bilgiler edinin yardımcı olur nasıl [kullanıcı arabirimini (UI) özelleştirmek](customize-ui-overview.md) kendi HTML ve CSS dosyaları kullanarak bu deneyimleri.
 

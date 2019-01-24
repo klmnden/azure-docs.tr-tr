@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: 0d58a384a6ca7c249a3b0e8b690095202fe373a2
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 8a5c25cd5836c3bde630684eff24da7dc8b62fc6
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413626"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855814"
 ---
 # <a name="diagnostics-and-error-recovery-for-azure-importexport-jobs"></a>Azure içeri/dışarı aktarma işleri için tanılama ve hata kurtarma
-İşlenen her bir sürücü için Azure içeri/dışarı aktarma hizmeti ilişkili depolama hesabında bir hata günlüğü oluşturur. Ayarlayarak ayrıntılı günlük kaydını etkinleştirebilirsiniz `LogLevel` özelliğini `Verbose` çağırırken [Put işlemini](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) veya [güncelleştirme işi özellikleri](/rest/api/storageimportexport/jobs#Jobs_Update) operations.
+İşlenen her bir sürücü için Azure içeri/dışarı aktarma hizmeti ilişkili depolama hesabında bir hata günlüğü oluşturur. Ayarlayarak ayrıntılı günlük kaydını etkinleştirebilirsiniz `LogLevel` özelliğini `Verbose` çağırırken [Put işlemini](/rest/api/storageimportexport/jobs) veya [güncelleştirme işi özellikleri](/rest/api/storageimportexport/jobs) operations.
 
  Varsayılan olarak, adlı bir kapsayıcı için günlükleri yazılır `waimportexport`. Farklı bir ad ayarlayarak belirtebilirsiniz `DiagnosticsPath` çağrılırken özellik `Put Job` veya `Update Job Properties` operations. Günlükleri aşağıdaki adlandırma kuralıyla blok blobları olarak depolanır: `waies/jobname_driveid_timestamp_logtype.xml`.
 

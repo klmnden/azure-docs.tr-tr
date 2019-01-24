@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 01/23/2019
 ms.author: shlo
-ms.openlocfilehash: 90c36e728a8ec91606f93c080258eeca9c3825e6
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 68cdabd8d6e5921eabaa200169c0523352461733
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020787"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856953"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>ForEach etkinliği, Azure Data Factory
 ForEach etkinliği, işlem hattınızda yinelenen bir denetim akışını tanımlar. Bu etkinlik bir koleksiyon üzerinde yinelemek için kullanılır ve bir döngüde belirtilen etkinlikleri yürütür. Bu etkinliğin döngü uygulaması, programlama dillerindeki Foreach döngü yapısına benzer.
@@ -235,6 +235,7 @@ Birden çok etkinlik yinelemek mümkündür (örneğin: kopyalama ve web etkinli
 }
 
 ```
+
 ### <a name="example"></a>Örnek
 **Senaryo:** Bir ForEach etkinliği ile işlem hattı yürütme etkinliği içinde bir InnerPipeline üzerinden yineleme yapma. İç işlem hattı ile parametreli şema tanımları kopyalar.
 
@@ -469,108 +470,13 @@ Birden çok etkinlik yinelemek mümkündür (örneğin: kopyalama ve web etkinli
     ]
     
 }
-
 ```
-## <a name="aggregating-metric-output"></a>Ölçüm çıkış toplama
-ForEach bir tüm yinelemeleri çıktısını toplamak için ifade `@activity('NameofInnerActivity')`. Örneğin, "MyCopyActivity" yinelenir. bir ForEach etkinliği, söz dizimi olması: `@activity('MyCopyActivity')`. Çıkış, belirli bir yinelemeye ayrıntılarını vererek her bir öğesi ile bir dizidir.
 
-> [!NOTE]
-> Belirli bir yinelemeye hakkında ayrıntılar istiyorsanız, söz dizimi şu şekilde olacaktır: `@activity('NameofInnerActivity')[0]` son yineleme için. Sayı, dizinin belirli yinelemeye erişmek için köşeli ayraç kullanın. Belirli bir yinelemeye belirli bir özelliğine erişmek için kullanmanız gerekir: `@activity('NameofInnerActivity')[0].output` veya `@activity('NameofInnerActivity')[0].pipelineName`.
+## <a name="aggregating-outputs"></a>Çıkışlar toplama
 
-**Tüm yinelemelerin dizi çıkış ayrıntıları:**
-```json
-[    
-    {      
-        "pipelineName": "db1f7d2b-dbbd-4ea8-964e-0d9b2d3fe676",      
-        "jobId": "a43766cb-ba13-4c68-923a-8349af9a76a3",      
-        "activityRunId": "217526fa-0218-42f1-b85c-e0b4f7b170ce",      
-        "linkedServiceName": "ADFService",      
-        "status": "Succeeded",      
-        "statusCode": null,      
-        "output": 
-            {        
-                "progress": 100,        
-                "loguri": null,        
-                "dataRead": "6.00 Bytes",        
-                "dataWritten": "6.00 Bytes",        
-                "regionOrGateway": "West US",        
-                "details": "Data Read: 6.00 Bytes, Written: 6.00 Bytes",        
-                "copyDuration": "00:00:05",        
-                "dataVolume": "6.00 Bytes",        
-                "throughput": "1.16 Bytes/s",       
-                 "totalDuration": "00:00:10"      
-            },      
-        "resumptionToken": 
-            {       
-                "ExecutionId": "217526fa-0218-42f1-b85c-e0b4f7b170ce",        
-                "ResumptionToken": 
-                    {          
-                        "in progress": "217526fa-0218-42f1-b85c-e0b4f7b170ce/wu/cloud/"       
-                    },        
-                "ExtendedProperties": 
-                    {          
-                        "dataRead": "6.00 Bytes",          
-                        "dataWritten": "6.00 Bytes",          
-                        "regionOrGateway": "West US",          
-                        "details": "Data Read: 6.00 Bytes, Written: 6.00 Bytes",          
-                        "copyDuration": "00:00:05",          
-                        "dataVolume": "6.00 Bytes",          
-                        "throughput": "1.16 Bytes/s",          
-                        "totalDuration": "00:00:10"        
-                    }      
-            },      
-        "error": null,      
-        "executionStartTime": "2017-08-01T04:17:27.5747275Z",      
-        "executionEndTime": "2017-08-01T04:17:46.4224091Z",     
-        "duration": "00:00:18.8476816"    
-    },
-    {      
-        "pipelineName": "db1f7d2b-dbbd-4ea8-964e-0d9b2d3fe676",      
-        "jobId": "54232-ba13-4c68-923a-8349af9a76a3",      
-        "activityRunId": "217526fa-0218-42f1-b85c-e0b4f7b170ce",      
-        "linkedServiceName": "ADFService",      
-        "status": "Succeeded",      
-        "statusCode": null,      
-        "output": 
-            {        
-                "progress": 100,        
-                "loguri": null,        
-                "dataRead": "6.00 Bytes",        
-                "dataWritten": "6.00 Bytes",        
-                "regionOrGateway": "West US",        
-                "details": "Data Read: 6.00 Bytes, Written: 6.00 Bytes",        
-                "copyDuration": "00:00:05",        
-                "dataVolume": "6.00 Bytes",        
-                "throughput": "1.16 Bytes/s",       
-                 "totalDuration": "00:00:10"      
-            },      
-        "resumptionToken": 
-            {       
-                "ExecutionId": "217526fa-0218-42f1-b85c-e0b4f7b170ce",        
-                "ResumptionToken": 
-                    {          
-                        "in progress": "217526fa-0218-42f1-b85c-e0b4f7b170ce/wu/cloud/"       
-                    },        
-                "ExtendedProperties": 
-                    {          
-                        "dataRead": "6.00 Bytes",          
-                        "dataWritten": "6.00 Bytes",          
-                        "regionOrGateway": "West US",          
-                        "details": "Data Read: 6.00 Bytes, Written: 6.00 Bytes",          
-                        "copyDuration": "00:00:05",          
-                        "dataVolume": "6.00 Bytes",          
-                        "throughput": "1.16 Bytes/s",          
-                        "totalDuration": "00:00:10"        
-                    }      
-            },      
-        "error": null,      
-        "executionStartTime": "2017-08-01T04:18:27.5747275Z",      
-        "executionEndTime": "2017-08-01T04:18:46.4224091Z",     
-        "duration": "00:00:18.8476816"    
-    }
-]
+Toplama çıktılarına __foreach__ etkinlik, lütfen _Variable_s yazılımınız ve _ekleme değişken_ etkinlik.
 
-```
+İlk olarak bildirmek bir `array` _değişkeni_ işlem hattındaki. Ardından, çağırma _ekleme değişken_ içinde her etkinlik __foreach__ döngü. Sonuç olarak, toplama, diziden alabilirsiniz.
 
 ## <a name="limitations-and-workarounds"></a>Sınırlamalar ve geçici çözümler
 

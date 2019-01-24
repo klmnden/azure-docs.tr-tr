@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b9fed56746f5b26269f6a70aeedd06ba9b19548f
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 2ff08b0f155be54ee57d2d9999c47aa56a366d09
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018834"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852210"
 ---
 # <a name="how-to-find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Azure CLI ile Azure Marketi'nde, Linux VM görüntüleri bulma
 Bu konuda, VM görüntüleri Azure Market'te bulmak için Azure CLI kullanmayı açıklar. Bir VM CLI ile programlı olarak oluşturduğunuzda, bir Market görüntüsü belirtmek için bu bilgileri kullanın. Resource Manager şablonları ya da başka araçlar.
@@ -128,7 +128,7 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201706210        
 ```
 
 ## <a name="navigate-the-images"></a>Görüntüleri gidin 
-Bir konumda bir görüntü bulmak için başka bir yol [az vm görüntüsü listesi-publishers](/cli/azure/vm/image#az_vm_image_list_publishers), [az vm görüntüsü listesi-offers](/cli/azure/vm/image#az_vm_image_list_offers), ve [az vm görüntüsü listesi-skus](/cli/azure/vm/image#az_vm_image_list_skus) komutları dizisi. Bu komutları ile bu değerleri belirler:
+Bir konumda bir görüntü bulmak için başka bir yol [az vm görüntüsü listesi-publishers](/cli/azure/vm/image#az_vm_image_list_publishers), [az vm görüntüsü listesi-offers](/cli/azure/vm/image), ve [az vm görüntüsü listesi-skus](/cli/azure/vm/image#az_vm_image_list_skus) komutları dizisi. Bu komutları ile bu değerleri belirler:
 
 1. Görüntü yayımcılarını listeleyin.
 2. Belirli bir yayımcı varsa yayımcının tekliflerini listeleyin.
@@ -177,7 +177,7 @@ Belirli bir yayımcıdan teklifler bulmak için bu bilgileri kullanın. Örneği
 az vm image list-offers --location westus --publisher Canonical --output table
 ```
 
-Çıktı:
+Çıkış:
 
 ```
 Location    Name
@@ -194,7 +194,7 @@ Batı ABD bölgesinde Canonical yayımlar gördüğünüz *UbuntuServer* Azure'd
 az vm image list-skus --location westus --publisher Canonical --offer UbuntuServer --output table
 ```
 
-Çıktı:
+Çıkış:
 
 ```
 Location    Name
@@ -249,7 +249,7 @@ UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201
 
 Artık tam olarak URN değeri not yararlanarak kullanmak istediğiniz görüntüyü seçebilirsiniz. Bu değer ile `--image` ile bir VM oluşturduğunuzda, parametre [az vm oluşturma](/cli/azure/vm#az_vm_create) komutu. "Son" URN sürüm numarasını isteğe bağlı olarak değiştirebilirsiniz unutmayın. Bu her zaman görüntüsünün son sürümünü sürümüdür. 
 
-Resource Manager şablonu ile bir VM dağıtırsanız, görüntü parametrelerini içinde tek tek ayarlayın `imageReference` özellikleri. Bkz: [şablon başvurusu](/azure/templates/microsoft.compute/virtualmachines).
+Resource Manager şablonu ile bir VM dağıtırsanız, görüntü parametrelerini içinde tek tek ayarlayın `imageReference` özellikleri. Bkz. [şablon başvurusu](/azure/templates/microsoft.compute/virtualmachines).
 
 [!INCLUDE [virtual-machines-common-marketplace-plan](../../../includes/virtual-machines-common-marketplace-plan.md)]
 
@@ -263,7 +263,7 @@ Görüntünün satın alma planı bilgilerini görüntülemek için çalıştır
 az vm image show --location westus --urn Canonical:UbuntuServer:16.04-LTS:latest
 ```
 
-Çıktı:
+Çıkış:
 
 ```
 {
@@ -284,7 +284,7 @@ Bitnami görüntüsünün tarafından sertifikalı RabbitMQ aşağıdaki göster
 ```azurecli
 az vm image show --location westus --urn bitnami:rabbitmq:rabbitmq:latest
 ```
-Çıktı:
+Çıkış:
 
 ```
 {

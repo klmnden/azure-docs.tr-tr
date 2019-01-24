@@ -4,7 +4,7 @@ description: Bir Windows Server sanal makinesi, Azure Resource Manager şablonla
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 4eabfd8e-5509-4acd-86b5-1318147fddb5
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: a083bd2fe730f9723330abf9bce03d760b7442d8
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 32b670a4b51c2dc60fe89bc2b9ad0ef18b0ac263
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157267"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856647"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain-using-a-resource-manager-template"></a>Bir Windows Server sanal makinesi bir Resource Manager şablonu kullanarak bir yönetilen etki alanına ekleme
 Bu makalede Resource Manager şablonlarını kullanarak bir Azure AD Domain Services yönetilen etki alanına Windows Server sanal makinesinin nasıl gösterir.
@@ -38,11 +38,11 @@ Bu makalede listelenen görevleri gerçekleştirmek için gerekir:
 
 ## <a name="install-and-configure-required-tools"></a>Yükleme ve gerekli araçları yapılandırma
 Bu belgede özetlenen adımları gerçekleştirmek için aşağıdaki seçeneklerden birini kullanabilirsiniz:
-* **Azure PowerShell**: [yükleyin ve yapılandırın](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)
-* **Azure CLI**: [yükleyin ve yapılandırın](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)
+* **Azure PowerShell**: [Yükleme ve yapılandırma](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)
+* **Azure CLI**: [Yükleme ve yapılandırma](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)
 
 
-## <a name="option-1-provision-a-new-windows-server-vm-and-join-it-to-a-managed-domain"></a>Seçenek 1: yeni bir Windows Server VM'si sağlama ve yönetilen bir etki alanına katılın
+## <a name="option-1-provision-a-new-windows-server-vm-and-join-it-to-a-managed-domain"></a>1. seçenek: Yeni bir Windows Server VM'si sağlama ve yönetilen bir etki alanına katılma
 **Hızlı Başlangıç şablonu adı**: [201-vm-etki alanına katılma](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)
 
 Bir Windows Server sanal makinesini dağıtmak ve yönetilen bir etki alanına katılmak için aşağıdaki adımları gerçekleştirin:
@@ -59,7 +59,7 @@ Bir Windows Server sanal makinesini dağıtmak ve yönetilen bir etki alanına k
 11. İçinde **etki alanına katılma**, yönetilen etki alanınızın DNS etki alanı adı belirtin.
 12. İçinde **etkialanı kullanıcıadı**, sanal Makinenin yönetilen etki alanına eklemek için kullanılması gereken yönetilen etki alanınızdaki kullanıcı hesabı adını belirtin.
 13. İçinde **etki alanı parolası**, 'domainUsername' parametresi tarafından başvurulan etki alanı kullanıcı hesabı parolasını belirtin.
-14. İsteğe bağlı: Belirttiğiniz bir **OU yolu** , sanal makine eklemek özel bir kuruluş için. Bu parametre için bir değer belirtmezseniz varsayılan sanal makine eklenir **AAD DC bilgisayarlar** yönetilen etki alanındaki OU.
+14. İsteğe bağlı: Belirtebileceğiniz bir **OU yolu** , sanal makine eklemek özel bir kuruluş için. Bu parametre için bir değer belirtmezseniz varsayılan sanal makine eklenir **AAD DC bilgisayarlar** yönetilen etki alanındaki OU.
 15. İçinde **VM yönetici kullanıcı adı** alanında, sanal makine için bir yerel yönetici hesabı adı belirtin.
 16. İçinde **VM yönetici parolası** alanında, sanal makine için bir yerel yönetici parolasını belirtin. Parola deneme yanılma saldırılarına karşı korumak sanal makine için bir tanımlayıcı yerel yönetici parolasını belirtin.
 17. Tıklayın **hüküm ve koşulları yukarıda belirtilen kabul ediyorum**.
@@ -73,7 +73,7 @@ Bir Windows Server sanal makinesini dağıtmak ve yönetilen bir etki alanına k
 Dağıtım başarıyla tamamlandıktan sonra yeni sağlanan Windows sanal makinenizi yönetilen etki alanına katıldı.
 
 
-## <a name="option-2-join-an-existing-windows-server-vm-to-a-managed-domain"></a>2. seçenek: var olan bir Windows Server sanal Makinesini yönetilen etki alanına katılın.
+## <a name="option-2-join-an-existing-windows-server-vm-to-a-managed-domain"></a>2. seçenek: Mevcut bir Windows Server sanal Makinesini yönetilen etki alanına katılın
 **Hızlı Başlangıç şablonu**: [201-vm-etki-birleştirme-mevcut](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)
 
 Varolan bir Windows Server sanal makinesini yönetilen etki alanına katılmak için aşağıdaki adımları gerçekleştirin:
@@ -87,7 +87,7 @@ Varolan bir Windows Server sanal makinesini yönetilen etki alanına katılmak i
 8. İçinde **etki alanına katılım kullanıcı adını**, sanal Makinenin yönetilen etki alanına eklemek için kullanılması gereken yönetilen etki alanınızdaki kullanıcı hesabı adını belirtin.
 9. İçinde **etki alanı kullanıcı parolası katılın**, 'domainUsername' parametresi tarafından başvurulan etki alanı kullanıcı hesabı parolasını belirtin.
 10. İçinde **etki alanı FQDN'si**, yönetilen etki alanınızın DNS etki alanı adı belirtin.
-11. İsteğe bağlı: Belirttiğiniz bir **OU yolu** , sanal makine eklemek özel bir kuruluş için. Bu parametre için bir değer belirtmezseniz varsayılan sanal makine eklenir **AAD DC bilgisayarlar** yönetilen etki alanındaki OU.
+11. İsteğe bağlı: Belirtebileceğiniz bir **OU yolu** , sanal makine eklemek özel bir kuruluş için. Bu parametre için bir değer belirtmezseniz varsayılan sanal makine eklenir **AAD DC bilgisayarlar** yönetilen etki alanındaki OU.
 12. Tıklayın **hüküm ve koşulları yukarıda belirtilen kabul ediyorum**.
 13. Tıklayın **satın alma** sanal makine sağlamak için.
 

@@ -11,14 +11,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/14/2017
+ms.date: 01/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: fe63813220d526536a31efb48b6ec29b6ae383e8
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 233ce5623195a9a661f67b5c3ded40e68c8eb33a
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121150"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54843523"
 ---
 # <a name="set-alerts-in-application-insights"></a>Uygulama anlayışları'nda uyarılar ayarlayın
 [Azure Application Insights] [ start] web uygulamanızdaki performansı ya da kullanım ölçümleri değişikliklere uyarabilir. 
@@ -89,7 +89,20 @@ Popüler uyarılar şunlardır:
 * **Sunucu yanıt süresi** sunucu tarafı web uygulamaları için. Uyarıları Ayarlama yanı sıra bu ölçüm, orantısız ile yüksek istek hızları değişiyorsa görmek için takip: değişim uygulamanızı kaynaklar yetersiz çalıştığını gösterebilir. 
 * **Sunucu özel durumları** - bunları görmek için bazı yapmanız gereken [ek kurulum](../../azure-monitor/app/asp-net-exceptions.md).
 
-Gerektiğini unutmayın [öngörülü hata oranı tanılama](../../azure-monitor/app/proactive-failure-diagnostics.md) otomatik olarak, uygulamanızın yanıt vereceğini hata kodlarıyla isteklerine oranı izleyin. 
+Gerektiğini unutmayın [öngörülü hata oranı tanılama](../../azure-monitor/app/proactive-failure-diagnostics.md) otomatik olarak, uygulamanızın yanıt vereceğini hata kodlarıyla isteklerine oranı izleyin.
+
+## <a name="who-receives-the-classic-alert-notifications"></a>Kimin (Klasik) Uyarı bildirimlerini alır?
+
+Bu bölümde, yalnızca klasik uyarılar için geçerlidir ve yalnızca istenen alıcılarınız bildirimlerini aldığından emin olmak için Uyarı bildirimlerini iyileştirmenize yardımcı olur. Arasındaki fark hakkında daha fazla anlamak için [Klasik uyarılar](../platform/alerts-classic.overview.md) ve yeni uyarılar deneyimini başvurduğu [uyarılar genel bakış makalesi](../platform/alerts-overview.md). Yeni uyarılar bildiriminde uyarı denetlemek için kullanım deneyimi [Eylem grupları](../platform/action-groups.md).
+
+* Klasik bir uyarı bildirimlerini belirli alıcılara kullanılmasını öneririz.
+
+* (Kullanılabilirlik ölçümlerini dahil), herhangi bir Application Insights ölçümler ile ilgili uyarılar için **toplu/grup** abonelik sahibi, katkıda bulunan veya okuyucu rollerine sahip kullanıcılar için onay kutusu seçeneği etkinleştirilirse, gönderir. Aslında, _tüm_ abonelik Application Insights kaynağına erişimi olan kullanıcılar kapsamındaki ve ilgili bildirimler alacaksınız. 
+
+> [!NOTE]
+> Şu anda kullanıyorsanız **toplu/grup** onay kutusu seçeneğini ve devre dışı bırakmak, bu değişikliği geri almak mümkün olmayacaktır.
+
+Yeni uyarı deneyimi/neredeyse gerçek zamanlı uyarılar, rollerine bağlı olarak kullanıcılara bildirmek gerekiyorsa kullanın. İle [Eylem grupları](../platform/action-groups.md), (tek bir seçenek olarak birlikte birleştirilmiş değil) sahip/katkıda bulunan/okuyucu rolüne sahip kullanıcılara e-posta bildirimleri yapılandırabilirsiniz.
 
 ## <a name="automation"></a>Otomasyon
 * [Uyarıları Ayarlama otomatikleştirmek için PowerShell kullanma](../../azure-monitor/app/powershell-alerts.md)

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 07/19/2018
 ms.reviewer: mbullwin
 ms.author: harelbr
-ms.openlocfilehash: b1f4d278079b81b4a224dc4712426d1f078de110
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: edfd908166e4334bdfda0f043cba727cb0370405
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020413"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853604"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Azure Resource Manager şablonlarını kullanarak Application Insights akıllı algılama kurallarını yönetme
 
@@ -154,6 +154,17 @@ Aşağıda Azure Resource Manager şablonunda kullanılan iç adlarını birlikt
 | Olası bellek sızıntısı algılandı (Önizleme) | extension_memoryleakextension |
 | Olası bir güvenlik sorunu algılandı (Önizleme) | extension_securityextensionspackage |
 | Kaynak kullanımı sorunu algılandı (Önizleme) | extension_resourceutilizationextensionspackage |
+
+## <a name="who-receives-the-classic-alert-notifications"></a>Kimin (Klasik) Uyarı bildirimlerini alır?
+
+Bu bölüm yalnızca, akıllı algılama Klasik uyarılar için geçerlidir ve yalnızca istenen alıcılarınız bildirimlerini aldığından emin olmak için Uyarı bildirimlerini iyileştirmenize yardımcı olur. [Klasik uyarılar] arasındaki fark hakkında daha fazla anlamak için (.. /Platform/Alerts-Classic.Overview.MD ve yeni uyarılar deneyimini başvurduğu [uyarılar genel bakış makalesi](../platform/alerts-overview.md). Şu anda yalnızca klasik uyarılar deneyimini desteği akıllı algılama uyarıları. Bir özel durum [akıllı algılama uyarıları azure'da bulut Hizmetleri](./proactive-cloud-services.md). Uyarı denetlemek için Azure bulutunda akıllı algılama uyarılar için Bildirim Hizmetleri kullanım [Eylem grupları](../platform/action-groups.md).
+
+* Akıllı algılama/Klasik Uyarı bildirimlerini belirli alıcılara kullanılmasını öneririz.
+
+* Akıllı algılama uyarıları için **toplu/grup** abonelik sahibi, katkıda bulunan veya okuyucu rollerine sahip kullanıcılar için onay kutusu seçeneği etkinleştirilirse, gönderir. Aslında, _tüm_ abonelik Application Insights kaynağına erişimi olan kullanıcılar kapsamındaki ve ilgili bildirimler alacaksınız. 
+
+> [!NOTE]
+> Şu anda kullanıyorsanız **toplu/grup** onay kutusu seçeneğini ve devre dışı bırakmak, bu değişikliği geri almak mümkün olmayacaktır.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
