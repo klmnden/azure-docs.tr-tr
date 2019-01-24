@@ -5,7 +5,7 @@ services: active-directory
 keywords: Azure active directory kimlik koruması, bulut uygulaması bulma, yönetme, uygulamaları, güvenlik, risk, risk düzeyi, güvenlik açığı, güvenlik ilkesi
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.component: identity-protection
@@ -16,22 +16,22 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 75d8503e6179b8ef3578a4a8c62ef1b288657a7b
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 73b76561829e6d50918881427894ea310920fce6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576827"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465216"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>Azure Active Directory kimlik koruması nedir?
 
-Azure Active Directory kimlik koruması sayesinde Azure AD Premium P2 sürümünü özelliğidir:
+Azure Active Directory Kimlik Koruması, Azure AD Premium P2 sürümünün bir özelliğidir ve şunları yapmanıza olanak sağlar:
 
 - Kuruluşunuzun kimliklerini etkileyen olası güvenlik açıklarını algılama
 
 - Otomatik yanıtları, kuruluşunuzun kimliklerini ilgili algılanan kuşkulu eylemleri için yapılandırma  
 
-- Şüpheli olayları araştırmanıza ve bunları çözmek için gerekli adımları uygulayın   
+- Şüpheli olayları araştırma ve bunları çözmek için uygun eylemi gerçekleştirme   
 
 
 ## <a name="get-started"></a>başlarken
@@ -110,7 +110,7 @@ Kimlik koruması aracılığıyla yolculuğunuza genellikle kimlik koruması pan
 
 ![Düzeltme](./media/overview/1000.png "düzeltme")
 
-Pano, aşağıdakilere erişmenizi sağlar:
+Pano şunlara erişmenizi sağlar:
 
 * Raporları gibi **risk için işaretlenen kullanıcılar**, **Risk olayları** ve **güvenlik açıkları**
 * Yapılandırması gibi ayarları, **güvenlik ilkeleri**, **bildirimleri** ve **çok faktörlü kimlik doğrulaması kaydı**
@@ -134,7 +134,7 @@ Otomatik yanıtlar uygulamak için Azure Active Directory kimlik koruması, üç
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Kanal 9: Azure AD kimlik gösterin: kimlik koruması önizlemesi](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
+- [Kanal 9: Azure AD kimlik gösterin: Kimlik koruması önizlemesi](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
 - [Azure Active Directory kimlik Koruması'nı etkinleştirme](enable.md)
 

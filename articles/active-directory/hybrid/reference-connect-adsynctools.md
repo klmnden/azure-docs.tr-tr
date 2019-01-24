@@ -2,18 +2,18 @@
 title: 'Azure AD Connect: ADSyncTools PowerShell başvurusu | Microsoft Docs'
 description: Bu belge ADSyncTools.psm1 PowerShell modülü için başvuru bilgileri sağlar.
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.date: 10/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 54d23bca29c38f258334d7b641b8c1f480da55e1
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 3b98686730a0fbd65cd5fd64fe91d8c6fa06286e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054973"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478221"
 ---
 # <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect:  ADSyncTools PowerShell başvurusu
 Aşağıdaki belgeler Azure AD Connect ile birlikte sağlanan ADSyncTools.psm1 PowerShell modülü için başvuru bilgileri sağlar.
@@ -88,7 +88,7 @@ PS C:\> {{ Add example code here }}
 
 {{Örnek açıklamayı buraya ekleyin}}
 
-## <a name="connect-adsyncdatabase"></a>Connect AdSyncDatabase
+## <a name="connect-adsyncdatabase"></a>Connect-AdSyncDatabase
 
 ### <a name="synopsis"></a>ÖZET
 {{İçinde doğrulanır dolgu}}
@@ -311,7 +311,7 @@ PS C:\> {{ Add example code here }}
 
 ### <a name="parameters"></a>PARAMETRELER
 
-#### <a name="-hostname"></a>-ana bilgisayar adı
+#### <a name="-hostname"></a>-hostName
 {{Ana bilgisayar adı, açıklamayı doldurun}}
 
 ```yaml
@@ -644,7 +644,7 @@ Bu cmdlet şu genel parametreleri destekler: -Debug, -ErrorAction, -ErrorVariabl
 Daha fazla bilgi için bkz. about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 
-## <a name="invoke-adsyncdatabasequery"></a>Çağırma AdSyncDatabaseQuery
+## <a name="invoke-adsyncdatabasequery"></a>Invoke-AdSyncDatabaseQuery
 
 ### <a name="synopsis"></a>ÖZET
 {{İçinde doğrulanır dolgu}}
@@ -685,7 +685,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-sqlconnection"></a>-SqlConnection
-{{SqlConnection açıklamasını doldurun}}
+{{Fill SqlConnection Description}}
 
 ```yaml
 Type: SqlConnection
@@ -739,7 +739,7 @@ Remove-ADSyncToolsExpiredCertificates-{TargetOU "OU = bilgisayarlar, OU = Corp, 
 
 ### <a name="parameters"></a>PARAMETRELER
 
-#### <a name="-targetou"></a>-{TargetOU
+#### <a name="-targetou"></a>-TargetOU
 Arama için AD nesnelerini OU hedefine
 
 ```yaml
@@ -839,7 +839,7 @@ PS C:\> {{ Add example code here }}
 
 ### <a name="parameters"></a>PARAMETRELER
 
-#### <a name="-hostname"></a>-ana bilgisayar adı
+#### <a name="-hostname"></a>-hostName
 {{Ana bilgisayar adı, açıklamayı doldurun}}
 
 ```yaml
@@ -967,7 +967,7 @@ PS C:\> {{ Add example code here }}
 
 ### <a name="parameters"></a>PARAMETRELER
 
-#### <a name="-hostname"></a>-ana bilgisayar adı
+#### <a name="-hostname"></a>-hostName
 {{Ana bilgisayar adı, açıklamayı doldurun}}
 
 ```yaml
@@ -1214,7 +1214,7 @@ Accept wildcard characters: False
 Bu cmdlet şu genel parametreleri destekler: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction ve -WarningVariable.
 Daha fazla bilgi için bkz. about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## <a name="update-adsynctoolsconsistencyguidmigration"></a>Güncelleştirme ADSyncToolsConsistencyGuidMigration
+## <a name="update-adsynctoolsconsistencyguidmigration"></a>Update-ADSyncToolsConsistencyGuidMigration
 
 ### <a name="synopsis"></a>ÖZET
 Güncelleştirmeleri kullanıcılarla yeni consistencyguid içinde (Immutableıd)

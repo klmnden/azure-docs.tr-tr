@@ -13,12 +13,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: fab94088d1d54012a955b0663b078d03b13d6299
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
-ms.translationtype: MT
+ms.openlocfilehash: 623bf009a8d638073ea85e772f737e2ce220a4f8
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624921"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477983"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Azure portalında Etkinlik raporlarını bulma
 
@@ -112,6 +112,89 @@ Algılanan risk olayları hakkında rapor erişebileceğiniz **güvenlik** böl�
 - [Riskli oturum açma işlemleri](concept-risky-sign-ins.md)
 
     ![Güvenlik raporları](./media/howto-find-activity-reports/04.png "güvenlik raporları")
+
+## <a name="troubleshoot-issues-with-activity-reports"></a>Etkinlik raporları ile ilgili sorunları giderme
+
+### <a name="missing-data-in-the-downloaded-activity-logs"></a>İndirilen etkinlik günlüklerindeki eksik veriler
+
+#### <a name="symptoms"></a>Belirtiler 
+
+Etkinlik günlüklerini (denetim veya oturum açma) indirdim ve seçtiğim süre için tüm kayıtları göremiyorum. Neden? 
+
+ ![Raporlama](./media/troubleshoot-missing-data-download/01.png)
+ 
+#### <a name="cause"></a>Nedeni
+
+Azure Portal'da etkinlik günlüklerini indirdiğinizde, en son gerçekleşen en başta tarafından sıralanan 5000 kayıt ölçek sınırlıyoruz. 
+
+#### <a name="resolution"></a>Çözüm
+
+Belirli bir noktadaki bir milyon kaydı getirmek için [Azure AD Raporlama API’lerini](concept-reporting-api.md) kullanabilirsiniz. Bizim önerdiğimiz yaklaşım olmaktır [bir zamanlamaya göre Çalıştır](tutorial-signin-logs-download-script.md) bir sürede (örneğin, günlük veya haftalık) artımlı bir şekilde kayıt getirilecek raporlama API'lerini çağırır. 
+
+### <a name="missing-audit-data-for-recent-actions-in-the-azure-portal"></a>Azure portalında son eylemleri için denetim veri eksik
+
+#### <a name="symptoms"></a>Belirtiler
+
+Azure portalında bazı eylemler gerçekleştirdim ve bu eylemlerin denetim günlüklerini `Activity logs > Audit Logs` dikey penceresinde görmeyi umuyordum, ancak bulamıyorum.
+
+ ![Raporlama](./media/troubleshoot-missing-audit-data/01.png)
+ 
+#### <a name="cause"></a>Nedeni
+
+Eylemler, etkinlik günlüklerinde hemen görünmez. Aşağıdaki tabloda etkinlik günlüklerinin gecikme süreleri gösterilmiştir. 
+
+| Rapor | &nbsp; | Gecikme süresi (P95) | Gecikme süresi (P99) |
+|--------|--------|---------------|---------------|
+| Dizin denetimi | &nbsp; | 2 dk. | 5 dk. |
+| Oturum açma etkinliği | &nbsp; | 2 dk. | 5 dk. | 
+
+#### <a name="resolution"></a>Çözüm
+
+15 dakika ile iki saat arasında bekleyin ve eylemlerin günlükte görüntülenip görüntülenmediğine bakın. İki saatten sonra da günlükler görünmüyorsa sorunla ilgilenebilmemiz için [destek bileti oluşturun](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
+### <a name="missing-logs-for-recent-user-sign-ins-in-the-azure-ad-sign-ins-activity-log"></a>Azure AD oturum açma işlemleri etkinlik için son kullanıcı oturum açma işlemleri için eksik günlükleri oturum
+
+#### <a name="symptoms"></a>Belirtiler
+
+Azure portalda kısa bir süre önce oturum açtım ve bu oturum açma işleminin günlük girişlerini `Activity logs > Sign-ins` dikey penceresinde görmeyi umuyordum, ancak bulamıyorum.
+
+ ![Raporlama](./media/troubleshoot-missing-audit-data/02.png)
+ 
+#### <a name="cause"></a>Nedeni
+
+Eylemler, etkinlik günlüklerinde hemen görünmez. Aşağıdaki tabloda etkinlik günlüklerinin gecikme süreleri gösterilmiştir. 
+
+| Rapor | &nbsp; | Gecikme süresi (P95) | Gecikme süresi (P99) |
+|--------|--------|---------------|---------------|
+| Dizin denetimi | &nbsp; | 2 dk. | 5 dk. |
+| Oturum açma etkinliği | &nbsp; | 2 dk. | 5 dk. | 
+
+#### <a name="resolution"></a>Çözüm
+
+15 dakika ile iki saat arasında bekleyin ve eylemlerin günlükte görüntülenip görüntülenmediğine bakın. İki saatten sonra da günlükler görünmüyorsa sorunla ilgilenebilmemiz için [destek bileti oluşturun](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
+### <a name="i-cant-view-more-than-30-days-of-report-data-in-the-azure-portal"></a>Azure portalda 30 günden daha eski rapor verilerini görüntüleyemiyorum
+
+#### <a name="symptoms"></a>Belirtiler
+
+Azure portalda 30 günden daha eski oturum açma ve denetim verilerini görüntüleyemiyorum. Neden? 
+
+ ![Raporlama](./media/troubleshoot-missing-audit-data/03.png)
+
+#### <a name="cause"></a>Nedeni
+
+Lisansınıza bağlı olarak, etkinlik raporları Azure Active Directory Actions tarafından aşağıdaki sürelerde depolanır:
+
+| Rapor           | &nbsp; |  Azure AD Ücretsiz | Azure AD Premium P1 | Azure AD Premium P2 |
+| ---              | ----   |  ---           | ---                 | ---                 |
+| Dizin Denetimi  | &nbsp; |   7 gün     | 30 gün             | 30 gün             |
+| Oturum Açma Etkinliği | &nbsp; | Kullanılamıyor. Kendi oturum açma etkinliklerinize bireysel kullanıcı profili dikey penceresinden 7 gün boyunca erişebilirsiniz | 30 gün | 30 gün             |
+
+Daha fazla bilgi için bkz. [Azure Active Directory rapor bekletme ilkeleri](reference-reports-data-retention.md).  
+
+#### <a name="resolution"></a>Çözüm
+
+Verileri 30 günden daha uzun bir süre boyunca saklamak için iki seçeneğiniz vardır. [Azure AD Raporlama API'lerini](concept-reporting-api.md) kullanarak verileri program aracılığıyla alabilir ve bir veritabanında kaydedebilirsiniz. Alternatif olarak denetim günlüklerini Splunk veya SumoLogic gibi bir üçüncü taraf SIEM sistemiyle tümleştirebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

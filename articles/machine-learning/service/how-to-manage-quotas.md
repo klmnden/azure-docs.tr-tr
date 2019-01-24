@@ -11,12 +11,12 @@ author: nishankgu
 ms.author: nigup
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1ef0fc9037548a58d9b0a4f46c212a43796d529b
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 6a08a5a79a8a072bd4621a7e200e84c2c71c9cd4
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231606"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475076"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>Yönetme ve Azure kaynakları için kota isteği
 
@@ -46,7 +46,7 @@ Bölgesel bir toplam limiti ve ayrı ayrı uygulanır; boyutu seri (Dv2, F vb.) 
 
 [!INCLUDE [azure-subscription-limits-azure-resource-manager](../../../includes/azure-subscription-limits-azure-resource-manager.md)]
 
-Kota sınırları daha ayrıntılı ve güncel listesi için Azure genelinde kota makale onay [burada](https://docs.microsoft.com/azure/azure-subscription-service-limits#subscription-limits-1).
+Kota sınırları daha ayrıntılı ve güncel listesi için Azure genelinde kota makale onay [burada](https://docs.microsoft.com/azure/azure-subscription-service-limits).
 
 ### <a name="azure-machine-learning-compute"></a>Azure Machine Learning işlem
 Azure Machine Learning işlemi için çekirdek sayısı ve bir abonelikte bölge başına izin verilen benzersiz işlem kaynaklarının sayısını varsayılan bir kota sınırı yoktur. Bu kota yukarıdaki VM çekirdek kotası ayrıdır ve çekirdek sınırları arasında iki kaynak türleri şu anda paylaşılmaz.

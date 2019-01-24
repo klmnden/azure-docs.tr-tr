@@ -3,19 +3,19 @@ title: Azure AD Connect veritabanını SQL Server Express'ten SQL Server'a taş�
 description: Bu belge, Azure AD Connect veritabanını yerel SQL Server Express'ten uzaktaki bir SQL Server'a nasıl taşıyacağınızı açıklar.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: get-started-article
 ms.date: 03/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: cbc86405225cca0d5144b48b113cf41607ce16f4
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 8f9d530531d5f72e92bdb7362879199ce6a4853c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434129"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474855"
 ---
 # <a name="move-azure-ad-connect-database-from-sql-server-express-to-sql-server"></a>Azure AD Connect veritabanını SQL Server Express'ten SQL Server'a taşıma 
 
@@ -59,7 +59,7 @@ Azure AD Connect veritabanını uzak SQL Server'a taşımak için aşağıdaki a
 ![Hoş geldiniz](./media/how-to-connect-install-move-db/db7.png)
  
  
-16. Kimlik bilgileri girildikten sonra kırmızı çarpı işaretinin yerine yeşil onay işareti görünür. **İleri**'ye tıklayın.
+16. Kimlik bilgileri girildikten sonra kırmızı çarpı işaretinin yerine yeşil onay işareti görünür. **İleri**’ye tıklayın.
 ![Hoş geldiniz](./media/how-to-connect-install-move-db/db8.png)
  
  

@@ -5,7 +5,7 @@ services: active-directory
 keywords: Kurumsal durumda dolaşım, Microsoft Bulutu, Kurumsal durumda Dolaşım etkinleştirme
 documentationcenter: ''
 author: tanning
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.component: devices
 ms.assetid: f71d66fd-7f9e-45eb-9cfe-5d989870f8a4
@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
-ms.openlocfilehash: 9dc223015f85d83278d48494bf05693c7932bdde
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 3e6b2d09c2b3c204fc62428ab53a4d4e33d57eac
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50098069"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448389"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Azure Active Directory'de Kurumsal Durumda Dolaşımı etkinleştirme
 Kurumsal durumda dolaşım, tüm kuruluşa bir Azure AD Premium veya Enterprise Mobility + Security (EMS) lisansı ile kullanılabilir. Azure AD aboneliğiniz alma hakkında daha fazla bilgi için bkz. [Azure AD'ye ürün sayfası](https://azure.microsoft.com/services/active-directory).
@@ -41,7 +41,7 @@ Kurumsal durumda Dolaşım etkinleştirdiğinizde, kuruluşunuz Azure Informatio
 Windows 10 cihaz Kurumsal durumda Dolaşım hizmetini kullanmak üzere bir Azure AD kimlik kullanarak cihaz kimliğini doğrulaması gerekir. Azure AD'ye katılmış cihazlar için oturum açma kullanıcının birincil kimliğini kendi Azure AD kimlik olduğundan ek yapılandırma gerekli değildir. Şirket içi Active Directory kullanan cihazlar için BT yöneticisi gerekir [yapılandırma hibrit Azure Active Directory alanına katılmış cihazlar](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-manual-steps). 
 
 ## <a name="data-storage"></a>Veri depolama
-Bir veya daha fazla veri Kurumsal durumda Dolaşım barındırılan [Azure bölgeleri](https://azure.microsoft.com/regions/) en iyi ülke/bölge değeri Azure Active Directory örneğinde ayarlanmış Hizala. Kurumsal durumda Dolaşım veri bölümlenmiş üç ana coğrafi bölgelerine bağlı: Kuzey Amerika, EMEA ve APAC. Kiracının verileri Kurumsal durumda Dolaşım coğrafi bölge ile yerel olarak bulunur ve bölgeler arasında çoğaltılmaz.  Örneğin:
+Bir veya daha fazla veri Kurumsal durumda Dolaşım barındırılan [Azure bölgeleri](https://azure.microsoft.com/regions/) en iyi ülke/bölge değeri Azure Active Directory örneğinde ayarlanmış Hizala. Kurumsal durumda Dolaşım veriler üzerinde üç ana coğrafi bölgeler göre bölümlenir: Kuzey Amerika, EMEA ve APAC. Kiracının verileri Kurumsal durumda Dolaşım coğrafi bölge ile yerel olarak bulunur ve bölgeler arasında çoğaltılmaz.  Örneğin:
 
 Ülke/bölge değeri | kendi veri barındırılan
 ---------------------|-------------------------
@@ -75,8 +75,8 @@ Kurumsal durumda Dolaşım kullanarak Microsoft Bulut'a eşitlenmiş verileri el
 ### <a name="explicit-deletion"></a>Açık silme
 Azure yönetici bir kullanıcı ya da bir dizin siler veya aksi halde açıkça veri silinecek olan istekleri açık silinmesine olur.
 
-* **Kullanıcı silme**: bir kullanıcının Azure AD'de silindiğinde, verileri dolaşımı kullanıcı hesabı için 90 180 gün sonra silinir. 
-* **Dizin silme**: anlık bir işlem olan Azure AD'de bir tüm dizini siliniyor. İlişkili tüm ayarları verileri ile dizin 90-180 gün sonra silinir. 
+* **Kullanıcı silme**: Veri dolaşımı kullanıcı hesabı, bir kullanıcının Azure AD'de silindiğinde, 90-180 gün sonra silinir. 
+* **Dizin silme**: Azure AD'de bir tüm dizin silmeden hemen bir işlemdir. İlişkili tüm ayarları verileri ile dizin 90-180 gün sonra silinir. 
 * **Silme isteği**: Azure AD Yöneticisi, belirli bir kullanıcının veri veya ayar verileri el ile silmeniz isterse, yönetici bileti ile dosya [Azure Destek](https://azure.microsoft.com/support/). 
 
 ### <a name="stale-data-deletion"></a>Eski veri silme

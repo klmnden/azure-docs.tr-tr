@@ -1,9 +1,9 @@
 ---
-title: 'Azure AD Connect: Hızlı ayarlar ile çalışmaya başlama | Microsoft Belgeleri'
+title: 'Azure AD Connect: Hızlı ayarlar ile çalışmaya başlama | Microsoft Docs'
 description: Azure AD Connect'i indirme, yükleme ve kurulum sihirbazını çalıştırma hakkında bilgi edinin.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: b6ce45fd-554d-4f4d-95d1-47996d561c9f
 ms.service: active-directory
@@ -14,17 +14,17 @@ ms.topic: get-started-article
 ms.date: 09/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 14ed452759aa74abf5eaa2ae37a39f6172889313
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: b3b90950ea0ade8064680e813958b0575d11aab6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233329"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468004"
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Hızlı ayarları kullanarak Azure AD Connect ile çalışmaya başlama
 Kimlik doğrulaması için [parola karması eşitleme](how-to-connect-password-hash-synchronization.md) özelliğine ve tek ormanlı bir topolojiye sahipseniz Azure AD Connect **Hızlı Ayarları** kullanılır. **Hızlı Ayarlar** varsayılan seçenek olup yaygın olarak dağıtılan senaryo için kullanılır. Şirket içi dizininizi buluta genişletmek için yalnızca birkaç tıklama yapmanız yeterli.
 
-Azure AD Connect'i yüklemeye başlamadan önce [Azure AD Connect'i indirdiğinizden](https://go.microsoft.com/fwlink/?LinkId=615771) ve [Azure AD Connect: Donanım ve önkoşullar](how-to-connect-install-prerequisites.md) bölümündeki önkoşul adımlarını tamamladığınızdan emin olun.
+Azure AD Connect'i yüklemeye başlamadan önce emin olun [Azure AD Connect'i indirdiğinizden](https://go.microsoft.com/fwlink/?LinkId=615771) ve adımları tamamlayın önkoşul [Azure AD Connect: Donanım ve Önkoşullar](how-to-connect-install-prerequisites.md).
 
 Hızlı ayarlar, topolojinizle eşleşmiyorsa diğer senaryolar için [ilgili belgelere](#related-documentation) göz atın.
 
@@ -62,7 +62,7 @@ Hızlı yüklemeyi kullanmaya ilişkin video için bkz.
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure AD Connect'i yüklediniz, artık [yüklemeyi doğrulayabilir ve lisans atayabilirsiniz](how-to-connect-post-installation.md).
 
-Yüklemeyle etkinleştirilen özellikler hakkında daha fazla bilgi edinin: [Otomatik yükseltme](how-to-connect-install-automatic-upgrade.md), [Yanlışlıkla silmeleri engelleme](how-to-connect-sync-feature-prevent-accidental-deletes.md) ve [Azure AD Connect Health](how-to-connect-health-sync.md).
+Yüklemeyle etkinleştirilen özellikler hakkında daha fazla bilgi edinin: [Otomatik yükseltme](how-to-connect-install-automatic-upgrade.md), [yanlışlıkla silmeleri engelleme](how-to-connect-sync-feature-prevent-accidental-deletes.md), ve [Azure AD Connect Health](how-to-connect-health-sync.md).
 
 Şu genel konu başlıkları hakkında daha fazla bilgi edinin: [Zamanlayıcı ve eşitleme tetikleme](how-to-connect-sync-feature-scheduler.md).
 

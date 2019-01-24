@@ -4,7 +4,7 @@ description: Tanımladığınız iş gereksinimlerini karşılamak, karma kimlik
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: e76fd1f4-340a-492a-84d9-e05f3b7cc396
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 11/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 20782679a4e73c029d6c83fd3bc57914b4d28691
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: bef5671637b26f4fd0d0c27211edca946c395cdf
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865055"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468565"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Karma kimlik çözümünüz için veri koruma stratejisini tanımlayın
 Bu görevde, tanımladığınız iş gereksinimlerini karşılamak, karma kimlik çözümü için veri koruma stratejisi tanımlarsınız:
@@ -79,7 +79,7 @@ Hangi kaynak kimin erişmekte olduğunu anlamak için içerik yönetiminin önem
 >
 >
 
-| İçerik yönetimi seçenekleri | Avantajları | Dezavantajları |
+| İçerik yönetimi seçenekleri | Yararları | Dezavantajları |
 | --- | --- | --- |
 | Şirket içinde Merkezi (Active Directory Rights Management sunucusu) |Veri sınıflandırma sorumlu sunucu altyapısı üzerinde tam denetim <br> Yerleşik özelliği Windows Server'da ek lisans ya da abonelik gerekmez <br> Karma bir senaryoda Azure AD ile tümleştirilebilir <br> Exchange Online ve SharePoint Online, hem de Office 365 gibi Microsoft Online hizmetlerinde Bilgi Hakları Yönetimi (IRM) özelliklerini destekler. <br> Exchange Server, SharePoint Server ve Windows Server ve dosya sınıflandırma altyapısı (FCI) çalıştıran dosya sunucuları gibi şirket içi Microsoft sunucu ürünlerini destekler. |Bu yana daha yüksek Bakım (Canlı yukarı güncelleştirmeler, yapılandırma ve olası yükseltme), BT sunucunun sahip olduğu <br> Şirket içi sunucu altyapısı gerektirir<br> Yerel olarak Azure özelliklerinden yararlanmak değil |
 | (Azure RMS) bulutta Merkezi |Daha kolay yönetmek şirket içi çözüm ile karşılaştırıldığında <br> Karma bir senaryoda, AD DS ile tümleştirilebilir <br>  Azure AD ile tamamen tümleşik <br> Bir sunucu hizmeti dağıtmak için şirket içinde gerektirmez <br> Destekleyen şirket içi Exchange Server, SharePoint, sunucu ve Windows Server ve dosya sınıflandırma altyapısı (FCI) çalıştıran dosya sunucuları gibi Microsoft sunucu ürünleri <br> BT, BYOK özelliğiyle kiracısının anahtarı üzerinde tam denetime sahip olabilir. |Kuruluşunuz RMS'yi destekleyen bir bulut aboneliğine sahip olmalıdır <br> Kuruluşunuz için RMS kullanıcı kimlik doğrulamasını desteklemek için bir Azure AD dizinine sahip olmalıdır |
@@ -118,31 +118,31 @@ Kullanıcının Azure AD kullanarak kimliği doğrulandıktan sonra kullanıcın
 
 Şekil X gösterdi diyagramdaki her etkileşim, Azure AD tarafından kapsanan bir erişim denetimi senaryoyu temsil eder. Aşağıda, her senaryonun açıklaması vardır:
 
-  1. Barındırılan şirket içi uygulamalara koşullu erişim: kayıtlı cihazları ile Windows Server 2012 R2 AD FS kullanmak üzere yapılandırılan uygulamalar için erişim ilkeleri ile kullanabilirsiniz.
+  1. Uygulamalar için koşullu erişim şirket içinde barındırılan: Kayıtlı cihazlar, Windows Server 2012 R2 ile AD FS kullanmak üzere yapılandırılan uygulamalar için erişim ilkeleri ile kullanabilirsiniz.
 
-  2. Azure portalına erişim denetimi: Azure da olanak tanır, rol tabanlı erişim denetimi (RBAC) kullanarak portalına erişim denetimi). Bu yöntem, bir kişi Azure Portalı'nda gerçekleştirebileceğiniz işlemlerin sayısını sınırlamak şirket sağlar. Portal erişimini denetlemek için RBAC kullanarak, BT yöneticileri aşağıdaki erişim yönetimi yaklaşımlardan kullanarak erişim devredebilirsiniz:
+  2. Azure portalına erişim denetimi:  Azure da olanak tanır, rol tabanlı erişim denetimi (RBAC) kullanarak portalına erişim denetimi). Bu yöntem, bir kişi Azure Portalı'nda gerçekleştirebileceğiniz işlemlerin sayısını sınırlamak şirket sağlar. Portal erişimini denetlemek için RBAC kullanarak, BT yöneticileri aşağıdaki erişim yönetimi yaklaşımlardan kullanarak erişim devredebilirsiniz:
 
-   - Grup tabanlı rol ataması: erişim yerel Active Directory'nizden eşitlenebilen Azure AD gruplarına atayabilirsiniz. Bu, kuruluşunuz, araçları ve grupları yönetmek için işlemlerdeki yaptı mevcut yatırımlardan yararlanma sağlar. Azure AD Premium Temsilcili Grup Yönetimi özelliğini de kullanabilirsiniz.
-   - Azure'da yerleşik rolleri kullanabileceğiniz: üç rol kullanabilirsiniz — sahibi, katkıda bulunan ve okuyucu, kullanıcılar ve gruplar yalnızca kullanıcıların işlerini yapmak için ihtiyaç duydukları görevleri gerçekleştirme izniniz olduğundan emin olun.
-   -  Kaynakları için ayrıntılı erişim: kullanıcılar ve gruplar için belirli bir abonelikte, kaynak grubu veya bir Web sitesi veya veritabanı gibi ayrı bir Azure kaynak rolleri atayabilirsiniz. Bu şekilde, kullanıcıların ihtiyaç duydukları tüm kaynaklara erişim ve yönetmek için gerekmeyen kaynaklara erişemez olmasını sağlayabilirsiniz.
+   - Grup tabanlı rol ataması: Erişim, yerel Active Directory'nizden eşitlenebilen Azure AD gruplarına atayabilirsiniz. Bu, kuruluşunuz, araçları ve grupları yönetmek için işlemlerdeki yaptı mevcut yatırımlardan yararlanma sağlar. Azure AD Premium Temsilcili Grup Yönetimi özelliğini de kullanabilirsiniz.
+   - Yerleşik rolleri Azure üzerinde kullanın: Üç rol kullanabilirsiniz — sahibi, katkıda bulunan ve okuyucu, kullanıcılar ve gruplar yalnızca kullanıcıların işlerini yapmak için ihtiyaç duydukları görevleri gerçekleştirme izniniz olduğundan emin olun.
+   -  Kaynakları için ayrıntılı erişim: Kullanıcılar ve gruplar için belirli bir abonelikte, kaynak grubu veya bir Web sitesi veya veritabanı gibi ayrı bir Azure kaynak rolleri atayabilirsiniz. Bu şekilde, kullanıcıların ihtiyaç duydukları tüm kaynaklara erişim ve yönetmek için gerekmeyen kaynaklara erişemez olmasını sağlayabilirsiniz.
 
    > [!NOTE]
    > Uygulamaları oluşturmak ve bunlar için erişim denetimi özelleştirmek istiyorsanız, ayrıca Azure AD uygulama rolleri için yetkilendirme kullanmak da mümkündür. Bu gözden [WebApp RoleClaims DotNet örnek](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) nasıl bu özellikten yararlanabilmek için uygulamanızı oluşturun.
 
 
-  3. Office 365 uygulamaları için koşullu erişim Intune: BT yöneticileri bilgi çalışanlarının hizmetlere erişmek için uyumlu cihazlara izin verme aynı zamanda kurumsal kaynakların güvenliğini sağlamak için koşullu erişim cihaz ilkeleri sağlayabilirsiniz. 
+  3. Office 365 uygulamaları için koşullu erişim Intune:  BT yöneticileri bilgi çalışanlarının hizmetlere erişmek için uyumlu cihazlara izin verme aynı zamanda kurumsal kaynakların güvenliğini sağlamak için koşullu erişim cihaz ilkeleri sağlayabilirsiniz. 
   
-  4. Saas uygulamaları için koşullu erişim: [bu özellik](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work/) uygulama başına multi-Factor authentication erişim kuralları ve güvenilen bir ağda olmayan kullanıcılar için erişimi engelleme yapılandırmanıza olanak tanır. Uygulama ya da yalnızca belirtilen güvenlik gruplardaki kullanıcılar için atanmış olan tüm kullanıcılar için multi-Factor authentication kuralları uygulayabilirsiniz. Uygulamanın, kuruluşun içindeki ağ bir IP adresinden erişiyorsanız kullanıcıları çok faktörlü kimlik doğrulaması gereksinimden atlanabilir.
+  4. Saas uygulamaları için koşullu erişim: [Bu özellik](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work/) uygulama başına multi-Factor authentication erişim kuralları ve güvenilen bir ağda olmayan kullanıcılar için erişimi engelleme yapılandırmanıza olanak tanır. Uygulama ya da yalnızca belirtilen güvenlik gruplardaki kullanıcılar için atanmış olan tüm kullanıcılar için multi-Factor authentication kuralları uygulayabilirsiniz. Uygulamanın, kuruluşun içindeki ağ bir IP adresinden erişiyorsanız kullanıcıları çok faktörlü kimlik doğrulaması gereksinimden atlanabilir.
 
 Erişim denetimi için seçenekleri çok katmanlı bir yaklaşım kullandığından, bu seçenekler arasında karşılaştırma kazanılan bu görev için geçerli değildir. Kaynaklarınıza erişimini denetlemek gereken her senaryo için kullanılabilen tüm seçenekleri yararlanarak emin olun.
 
 ## <a name="define-incident-response-options"></a>Olay yanıtı seçeneklerini tanımlayın
 Azure AD'ye nasıl yardımcı olabileceğine BT ortamında kullanıcı etkinliğini izleyerek olası güvenlik risklerine kimlik. BT işlemlerini kuruluş dizininizle güvenliğini ve bütünlüğünü görünürlük elde etmek için kullanım raporları ve Azure AD erişim kullanabilirsiniz. Bu bilgileri, bir BT yöneticisi, bu riskleri azaltmak yeterince planlayabilirsiniz böylece olası güvenlik risklerini olduğu şekilde daha iyi belirleyebilirsiniz.  [Azure AD Premium aboneliği](../fundamentals/active-directory-get-started-premium.md) etkinleştirebilirsiniz güvenlik raporları içerir. Bu bilgileri almak için BT. [Azure AD raporlar](../reports-monitoring/overview-reports.md) gibi kategorilere ayrılır:
 
-* **Anomali raporları**: anormal karşılanmadığı oturum açma olaylarını içerir. Hedef tür etkinlik haberdar olun ve bir olay şüpheli olup olmadığı hakkında bir bulguyu olanak sağlamaktır.
-* **Tümleşik uygulama raporu**: kuruluşunuzda bulut uygulamalarının nasıl kullanıldığını etkilendiğine. Azure Active Directory Tümleştirme ile binlerce bulut uygulamasına sunar.
-* **Hata raporlarını**: dış uygulama hesaplarına sağlanırken oluşabilecek hataları gösterir.
-* **Kullanıcıya özel raporları**: cihaz/oturum belirli bir kullanıcının etkinlik verilerini görüntüleyebilirsiniz.
+* **Anomali raporları**: Anormal karşılanmadığı oturum açma olaylarını içerir. Hedef tür etkinlik haberdar olun ve bir olay şüpheli olup olmadığı hakkında bir bulguyu olanak sağlamaktır.
+* **Tümleşik uygulama raporu**: Kuruluşunuzda bulut uygulamalarının nasıl kullanıldığını etkilendiğine. Azure Active Directory Tümleştirme ile binlerce bulut uygulamasına sunar.
+* **Hata raporlarını**: Dış uygulama hesaplarına sağlanırken oluşabilecek hatalar gösterir.
+* **Kullanıcıya özel raporları**: Cihaz/oturum belirli bir kullanıcının etkinlik verilerini görüntüler.
 * **Etkinlik günlükleri**: Son 24 saat, son 7 gün veya son 30 gün hem de Grup etkinlik değişiklikleri ve parola sıfırlama ve kayıt etkinliği içinde denetlenen tüm olayların bir kaydını içerir.
 
 > [!TIP]

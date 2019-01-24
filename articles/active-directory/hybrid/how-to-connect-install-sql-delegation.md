@@ -3,7 +3,7 @@ title: SQL yönetici temsilcisi izinlerini kullanarak Azure AD Connect'i yüklem
 description: Bu konuda, bir güncelleştirme yüklemesi için yalnızca SQL dbo izinleri olan bir hesap kullanarak sağlayan Azure AD Connect açıklanmaktadır.
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.reviewer: jparsons
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/07/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b951f541487d70bccb8a709f79a3674ef22eba3a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: e4f1e60424e058f805e89fc3291cfa9a28390c8d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314520"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474923"
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>SQL yönetici temsilcisi izinlerini kullanarak Azure AD Connect'i yükleme
 En son Azure AD Connect derleme önce SQL, gerekli yapılandırmaları dağıtırken yönetim temsilcisi seçme desteklenmiyor.  Azure AD Connect'i yüklemek isteyen kullanıcılar, SQL Server'da Sistem Yöneticisi (SA) izinlerine sahip gerekmiyor.

@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: f484eaf127c1dda0e3389e237ace75f51401a806
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 01/22/2019
+ms.openlocfilehash: b0b4a89aaf9b00b30e6b4759c8aa168f06d0d008
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959886"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462479"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>SQL veritabanı ve veri ambarı için saydam veri şifrelemesi
 
@@ -61,6 +61,9 @@ Azure'da işlem veritabanları şifresini gerek yoktur. Kaynak veritabanında ve
 - Bir veritabanı kopyası oluşturma
 - Yedekleme dosyasını Azure SQL yönetilen örneğine geri yükleme
 
+> [!IMPORTANT]
+> Şifreleme için kullanılan sertifika erişilebilir olmadığından el ile yalnızca kopya yedekleme TDE yönetilen hizmeti tarafından şifrelenmiş bir veritabanının Azure SQL yönetilen örneği'nde, izin verilmiyor. Bu veritabanı türünde başka bir yönetilen örnek'e taşımak için noktası içinde belirli bir geri yükleme özelliği kullanın.
+
 Saydam veri şifrelemesi ile korunan veritabanını dışarı aktarma, dışa aktarılan veritabanının içeriğini şifreli değil. Dışarı aktarılan bu içerik, şifrelenmemiş BACPAC dosyalarında depolanır. BACPAC dosyalarını uygun şekilde koruyun ve yeni veritabanının içeri aktarma tamamlandıktan sonra saydam veri şifrelemesini etkinleştirme emin olun.
 
 Örneğin, bir şirket içi SQL Server örneğinden BACPAC dosyasına dışarı aktarılır, yeni veritabanının içeri aktarılan içeriği otomatik olarak şifrelenir değil. Şirket içi SQL Server örneğine BACPAC dosyasına dışarı aktarılır, benzer şekilde, yeni veritabanı da otomatik olarak şifrelenir değil.
@@ -92,7 +95,7 @@ Azure SQL veritabanı ve veri ambarı için aşağıdaki cmdlet'leri kullanın:
 | [Set-AzureRmSqlDatabaseTransparentDataEncryption](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasetransparentdataencryption) |Etkinleştirir veya bir veritabanı için saydam veri şifrelemesi devre dışı bırakır|
 | [Get-AzureRmSqlDatabaseTransparentDataEncryption](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryption) |Bir veritabanı için saydam veri şifreleme durumunu alır |
 | [Get-AzureRmSqlDatabaseTransparentDataEncryptionActivity](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryptionactivity) |Bir veritabanı şifreleme ilerleme durumunu denetler |
-| [AzureRmSqlServerKeyVaultKey ekleyin](https://docs.microsoft.com/powershell/module/azurerm.sql/add-azurermsqlserverkeyvaultkey) |Bir Key Vault anahtarı bir SQL Server örneğine ekler. |
+| [Add-AzureRmSqlServerKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.sql/add-azurermsqlserverkeyvaultkey) |Bir Key Vault anahtarı bir SQL Server örneğine ekler. |
 | [Get-AzureRmSqlServerKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlserverkeyvaultkey) |Bir Azure SQL veritabanı sunucusu için anahtar kasası anahtarlarını alır  |
 | [Set-AzureRmSqlServerTransparentDataEncryptionProtector](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlservertransparentdataencryptionprotector) |Saydam veri şifrelemesi koruyucu bir SQL Server örneği için ayarlar |
 | [Get-AzureRmSqlServerTransparentDataEncryptionProtector](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlservertransparentdataencryptionprotector) |Saydam veri şifrelemesi koruyucu alır |

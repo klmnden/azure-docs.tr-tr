@@ -4,7 +4,7 @@ description: Azure AD Connect eşitleme, bildirim temelli sağlama ifadelerini b
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 4f525ca0-be0e-4a2e-8da1-09b6b567ed5f
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: db427d0c171e164cb03d7280103fa85e5add4dd1
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: cad9cec83ac5cc75ba5b4e5fc395e7f68f7d2770
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157488"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471193"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect eşitleme: İşlevler Başvurusu
 Azure AD Connect, işlevleri, bir öznitelik değeri, eşitleme sırasında işlemek için kullanılır.  
@@ -72,7 +72,7 @@ Türleri aşağıdaki sözdizimiyle belirtilir:
 | [IsBitSet](#isbitset) |[IsDate](#isdate) |[IsEmpty](#isempty) |[IsGuid](#isguid) | |
 | [IsNull](#isnull) |[IsNullOrEmpty](#isnullorempty) |[IsNumeric](#isnumeric) |[Olmasına](#ispresent) | |
 | [IsString](#isstring) | | | | |
-| **Matematik** | | | | |
+| **Math** | | | | |
 | [BitAnd](#bitand) |[BitOr](#bitor) |[RandomNum](#randomnum) | | |
 | **Birden çok değerli** | | | | |
 | [içerir](#contains) |[Sayısı](#count) |[Öğesi](#item) |[ItemOrNull](#itemornull) | |
@@ -431,7 +431,7 @@ Tamsayı dizisi değeri taban 64 basamak ile kodlanmış eşdeğer dize gösteri
 
 **Örnek:**  
 `ConvertToBase64("Hello world!")`  
-"SABlAGwAbABvACAAdwBvAHIAbABkACEA" döndürür
+Returns "SABlAGwAbABvACAAdwBvAHIAbABkACEA"
 
 - - -
 ### <a name="converttoutf8hex"></a>ConvertToUTF8Hex
@@ -1120,7 +1120,7 @@ ReplaceChars işlevi ReplacePattern dizesinde bulunan karakter tüm oluşumları
 `%ReplaceString% = ’:,Å:A,Ä:A,Ö:O,å:a,ä:a,ö,o`
 
 `ReplaceChars("Räksmörgås",%ReplaceString%)`  
-Raksmorgas döndürür
+Returns Raksmorgas
 
 `ReplaceChars("O’Neil",%ReplaceString%)`  
 Döndürür "ONeil", tek bir tick kaldırılacak tanımlanır.

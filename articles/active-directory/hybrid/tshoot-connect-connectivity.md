@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect: bağlantı sorunlarını giderme | Microsoft Docs'
+title: 'Azure AD Connect: Bağlantı sorunlarını giderme | Microsoft Docs'
 description: Azure AD connect'teki bağlantı sorunlarını gidermek nasıl açıklar.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 3aa41bb5-6fcb-49da-9747-e7a3bd780e64
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5d5eee525c6f071840d186cb6bd54faf9bf2787b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 85c60cf25cd00826df6b48ed6714a646fa44a962
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310676"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474889"
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Azure AD connect'teki bağlantı sorunlarını giderme
 Bu makalede, Azure AD Connect ve Azure AD arasındaki bağlantıyı nasıl çalıştığını ve bağlantı sorunlarını gidermek nasıl açıklanmaktadır. Bu proxy sunucusu olan bir ortamda görülebilmesi büyük olasılıkla sorunlardır.
@@ -118,7 +118,7 @@ Yukarıdaki adımları izlediyseniz ve yine de bağlanamıyorsanız, ağ günlü
 | 1/11/2016 8:31 |Connect://adminwebservice.microsoftonline.com:443 |
 | 1/11/2016 8:32 |Bağlan: / /*bba800 bağlantı*. microsoftonline.com:443 |
 | 1/11/2016 8:32 |Connect://Login.microsoftonline.com:443 |
-| 1/11/2016 8:33 |Connect://provisioningapi.microsoftonline.com:443 |
+| 1/11/2016 8:33 |connect://provisioningapi.microsoftonline.com:443 |
 | 1/11/2016 8:33 |Bağlan: / /*bwsc02 geçiş*. microsoftonline.com:443 |
 
 **Yapılandırma**
@@ -134,7 +134,7 @@ Yukarıdaki adımları izlediyseniz ve yine de bağlanamıyorsanız, ağ günlü
 | 1/11/2016 8:44 |Connect://adminwebservice.microsoftonline.com:443 |
 | 1/11/2016 8:44 |Bağlan: / /*bba800 bağlantı*. microsoftonline.com:443 |
 | 1/11/2016 8:44 |Connect://Login.microsoftonline.com:443 |
-| 1/11/2016 8:46 |Connect://provisioningapi.microsoftonline.com:443 |
+| 1/11/2016 8:46 |connect://provisioningapi.microsoftonline.com:443 |
 | 1/11/2016 8:46 |Bağlan: / /*bwsc02 geçiş*. microsoftonline.com:443 |
 
 **İlk eşitleme**
@@ -146,7 +146,7 @@ Yukarıdaki adımları izlediyseniz ve yine de bağlanamıyorsanız, ağ günlü
 | 1/11/2016 8:49 |Bağlan: / /*bba900 bağlantı*. microsoftonline.com:443 |
 | 1/11/2016 8:49 |Bağlan: / /*bba800 bağlantı*. microsoftonline.com:443 |
 
-## <a name="authentication-errors"></a>Kimlik doğrulaması hataları
+## <a name="authentication-errors"></a>Kimlik Doğrulama hataları
 Bu bölüm, ADAL'ı (Azure AD Connect tarafından kullanılan kimlik doğrulama kitaplığı) ve PowerShell döndürülen hataları kapsar. Açıklanan hata size sonraki adımları anlamanıza yardımcı olmalıdır.
 
 ### <a name="invalid-grant"></a>Geçersiz verin

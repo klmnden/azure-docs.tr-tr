@@ -4,7 +4,7 @@ description: Azure AD Connect'i kullanarak dizin eşitlemesi sırasında UPN vey
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 537a92b7-7a84-4c89-88b0-9bce0eacd931
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e20ae31ae64483d4d11b793f1c8656107413c05d
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: f3460520b8914a25807c77f631aa4c64f3b2efb0
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406203"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464876"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Kimlik eşitleme ve yinelenen öznitelik dayanıklılığı
 Yinelenen öznitelik dayanıklılığı kaynaklanan uyuşmazlıkları ortadan kaldıracak Azure Active Directory özelliğidir **UserPrincipalName** ve **ProxyAddress** Microsoft'un birini çalıştırırken çakışıyor Eşitleme araçları.
@@ -133,7 +133,7 @@ E-posta bildirimi ProxyAddress çakışma nasıl göründüğüne ilişkin bir �
 ## <a name="resolving-conflicts"></a>Çakışmaları çözümleme
 Stratejisi ve çözüm taktikleri bu hataları için sorun giderme yinelenen öznitelik hataları geçmişte işlenen biçimi farklı olmalıdır değil. Tek fark, Zamanlayıcı görevi çakışma giderildikten sonra söz konusu öznitelik için uygun nesne otomatik olarak eklemek için hizmet tarafında Kiracı taramalar ' dir.
 
-Aşağıdaki makalede çeşitli sorun giderme ve çözüm stratejileri özetler: [yinelenen ya da geçersiz öznitelikler önlemek Office 365'te dizin eşitleme](https://support.microsoft.com/kb/2647098).
+Aşağıdaki makalede çeşitli sorun giderme ve çözüm stratejileri özetler: [Yinelenen veya geçersiz öznitelik Office 365'te dizin eşitlemesini engelle](https://support.microsoft.com/kb/2647098).
 
 ## <a name="known-issues"></a>Bilinen sorunlar
 Bu bilinen sorunlar hiçbiri, veri kaybı veya hizmet düşmesine neden olur. Birkaç tanesinin estetik, diğerleri standart neden "*öncesi dayanıklılık*" çakışma özniteliği ve başka karantinaya yerine oluşturulması için yinelenen öznitelik hataları fazladan el ile düzeltme yukarı gerektirecek şekilde belirli hataları neden olur.

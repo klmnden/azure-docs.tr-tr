@@ -8,12 +8,12 @@ services: site-recovery
 ms.date: 12/31/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 90f3a4571e485e52a47eda34eacf6367aef35933
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 703d255a962dbac7a430404835c6d45c358d99a7
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320999"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478118"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Sık sorulan sorular - Vmware'den Azure'a çoğaltma
 
@@ -43,7 +43,23 @@ Bir LRS veya GRS depolama hesabı gerekir. Bölgesel bir kesintinin meydana gelm
 ### <a name="does-my-azure-account-need-permissions-to-create-vms"></a>Hesabımdaki Azure sanal makineler oluşturmak için izinler gerekiyor mu?
 Bir abonelik yöneticisi değilseniz, ihtiyaç duyduğunuz çoğaltma izinleri sahip. Değilseniz, bir Azure VM kaynak grubu ve Site Recovery yapılandırırken belirttiğiniz sanal ağ oluşturmak için izinler ve seçili depolama hesabına yazma izni gerekir. [Daha fazla bilgi edinin](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
 
+## <a name="azure-site-recovery-components-upgrade"></a>Azure Site Recovery bileşenlerini yükseltme
 
+### <a name="my-mobility-agentconfiguration-serverprocess-server-version-is-very-old-and-my-upgrade-has-failed-how-should-i-upgrade-to-latest-version"></a>My Mobility Aracısı/yapılandırma sunucusu/işlem sunucusu sürümü çok eski ve benim yükseltme başarısız oldu. En son sürüme nasıl yükseltme?
+
+Azure Site Recovery N-4 destek modeli izler. Başvurmak bizim [destek deyimi](https://aka.ms/asr_support_statement) anlamak çok eski sürümlerinden yükseltme hakkında ayrıntılar için.
+
+### <a name="where-can-i-find-the-release-notesupdate-rollups-of-azure-site-recovery"></a>Azure Site kurtarma sürümünün sürüm notları/güncelleştirme paketlerini nerede bulabilirim?
+
+Başvurmak [belge](https://aka.ms/asr_update_rollups) için sürüm notları bilgileri. Her güncelleştirme dökümü içinde ilgili bileşenlerin yükleme bağlantılarını bulabilirsiniz.
+
+### <a name="how-should-i-upgrade-site-recovery-components-for-on-premises-vmware-or-physical-site-to-azure"></a>Site Recovery bileşenlerini şirket içi VMware veya fiziksel sitesinin azure'a nasıl yükseltmeliyim?
+
+Sağlanan kılavuzumuzu başvuran [burada](https://aka.ms/asr_vmware_upgrades) bileşenlerinizi yükseltmeyi.
+
+## <a name="is-reboot-of-source-machine-mandatory-for-each-upgrade"></a>Kaynak makinenin yeniden başlatılması, her bir yükseltme için zorunlu mu?
+
+Önerilen da, her bir yükseltme için zorunlu değildir. Başvuru [burada](https://aka.ms/asr_vmware_upgrades) yönergeleri temizleyin.
 
 ## <a name="on-premises"></a>Şirket içi
 
@@ -142,7 +158,7 @@ Hayır. Bunu yapmak için her bölgede bir yapılandırma sunucusu ayarlamanız 
 Olası, şirket içi VMware altyapınızı ve Vm'leri ile iletişim kurmak yapılandırma sunucusunu çalıştıran Azure VM gerekir. Bu gecikme ekleyebilir ve sürmekte olan çoğaltmayı etkilemeden.
 
 ### <a name="how-do-i-update-the-configuration-server"></a>Yapılandırma sunucusu nasıl güncelleştirebilirim?
-[Hakkında bilgi edinin](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) yapılandırma sunucusu güncelleştiriliyor. En son güncelleştirme bilgileri bulabilirsiniz [Azure güncelleştirmeleri sayfası](https://azure.microsoft.com/updates/?product=site-recovery). Ayrıca doğrudan yapılandırma sunucusunun en son sürümünü indirebilirsiniz [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
+[Hakkında bilgi edinin](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) yapılandırma sunucusu güncelleştiriliyor. En son güncelleştirme bilgileri bulabilirsiniz [Azure güncelleştirmeleri sayfası](https://azure.microsoft.com/updates/?product=site-recovery). Ayrıca doğrudan yapılandırma sunucusunun en son sürümünü indirebilirsiniz [Microsoft Download Center](https://aka.ms/asrconfigurationserver). Sürümünüzü 4 sürüm geçerli sürümden daha eski ise başvurmak bizim [destek deyimi](https://aka.ms/asr_support_statement) yükseltme yönergeleri için.
 
 ### <a name="should-i-backup-the-deployed-configuration-server"></a>Ben, dağıtılan yapılandırma sunucusu yedeklemeniz gerekir?
 Yapılandırma sunucusunun düzenli zamanlanmış yedeklemeleri almaya öneririz. Başarıyla yeniden çalışma için geri başarısız sanal makine yapılandırma sunucusu veritabanında bulunmalı ve yapılandırma sunucusunun çalıştığından ve bağlı durumda olması gerekir. Genel yapılandırma sunucusu yönetim görevleri hakkında daha fazla bilgi [burada](vmware-azure-manage-configuration-server.md).

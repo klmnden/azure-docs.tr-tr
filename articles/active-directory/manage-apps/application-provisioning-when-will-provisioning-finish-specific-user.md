@@ -4,7 +4,7 @@ description: Kritik düzeyde önemli bir kullanıcı Azure AD ile kullanıcı sa
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 8b5ca25cb4f1e2bd6bff32e816dabeb27a707f91
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: e5e3fb107e15800d00bd179b36a0eb9a67894953
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357409"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474702"
 ---
 # <a name="find-out-when-a-specific-user-will-be-able-to-access-an-application"></a>Belirli bir kullanıcı bir uygulamaya erişmeye çalıştığında ne zaman öğrenin
 Bir uygulama ile otomatik kullanıcı hazırlama kullanırken, Azure AD göre otomatik olarak bir uygulamada kullanıcı hesaplarını sağlama ve güncelleştirme gibi şeyleri [kullanıcı ve Grup atamasına](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) bir düzenli olarak zamanlanan saat aralığı, genellikle her 10 dakika.

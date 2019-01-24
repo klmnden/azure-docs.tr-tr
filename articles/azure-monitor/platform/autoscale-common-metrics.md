@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/6/2016
 ms.author: ancav
-ms.component: autoscale
-ms.openlocfilehash: d12edc2023deb69118d7c02e053cd2525f6ae684
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.subservice: autoscale
+ms.openlocfilehash: 736ff5565bb279d26e686421cc13f54a73b1c7e9
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437733"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461102"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure İzleyici otomatik ölçeklendirme ortak ölçümleri
 Azure İzleyici otomatik ölçeklendirmesini (ölçüler) telemetri verilerini temel alarak çalışan örnek sayısı yukarı veya aşağı ölçeklendirmenize olanak tanıyor. Bu belgede kullanmak isteyebileceğiniz ortak ölçümler açıklanmıştır. Azure portalında göre ölçeklendirmek için kaynak ölçüm seçebilirsiniz. Ancak, göre ölçeklendirmek için farklı bir kaynaktan herhangi bir ölçüm seçebilirsiniz.
@@ -187,3 +187,4 @@ VM ölçek kümeleri için kullanmak üzere Resource Manager şablonu otomatik �
 > Service Bus için kaynak grubu kavramını yok ancak Azure Resource Manager bölge başına varsayılan kaynak grubu oluşturur. Kaynak grubu genellikle 'Default - ServiceBus-[Bölge]' biçimindedir. Örneğin, 'Varsayılan-ServiceBus-EastUS', 'Varsayılan-ServiceBus-WestUS', 'Varsayılan-ServiceBus-AustraliaEast' vb.
 >
 >
+

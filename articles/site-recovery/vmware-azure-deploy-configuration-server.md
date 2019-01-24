@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/11/2018
-ms.author: mayg
-ms.openlocfilehash: 41511b27a84731df203d37d70d20df40f85af4fb
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.date: 01/22/2018
+ms.author: ramamill
+ms.openlocfilehash: 712f8fb2cb951460ad2be36b2899f52d4966fc82
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54410770"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468412"
 ---
 # <a name="deploy-a-configuration-server"></a>Yapılandırma sunucusunu dağıtma
 
@@ -144,7 +144,7 @@ Devam eden çoğaltma kesintileri önlemek için yapılandırma sunucusunu bir k
     Başvurmak [Vmware'den Azure'a çoğaltma mimarisi](vmware-azure-architecture.md) yapılandırma sunucusu ve onun işlevler hakkında daha fazla bilgi edinmek için.
 5. Yapılandırma sunucusunun en son sürümünü nereden bulabilirim?
 
-    Portal üzerinden yapılandırma sunucusunu yükseltmek adımlar için bkz: [yapılandırma sunucusunu yükseltme](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Ayrıca doğrudan buradan indirebilirsiniz [Microsoft Download Center](https://aka.ms/asrconfigurationserver). Tüm Site Recovery bileşenlerini yükseltme hakkında ayrıntılı yönergeler için bkz [burada](https://docs.microsoft.com/en-us/azure/site-recovery/service%20updates-how-to).
+    Portal üzerinden yapılandırma sunucusunu yükseltmek adımlar için bkz: [yapılandırma sunucusunu yükseltme](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Tüm Site Recovery bileşenlerini yükseltme hakkında ayrıntılı yönergeler için bkz [burada](https://aka.ms/asr_how_to_upgrade).
 6. Yapılandırma sunucusu için parola nereden indirebilirim?
 
     Başvurmak [bu makalede](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) parola indirilemedi.
@@ -164,6 +164,8 @@ Devam eden çoğaltma kesintileri önlemek için yapılandırma sunucusunu bir k
 11. Yapılandırma sunucusu azure'da ayarlayabilir miyim?
 
     Yapılandırma sunucusu ile doğrudan satır görüş v-Center ile şirket içi ortamda ayarlama ve veri aktarımı gecikme süreleri en aza indirmek için önerilir. Zamanlanmış yedeklemeleri yapılandırma sunucusu için uygulayabileceğiniz [yeniden çalışma amacıyla](vmware-azure-manage-configuration-server.md#failback-requirements).
+
+Yapılandırma sunucusu üzerinde daha fazla SSS için başvurmak bizim [configuration server sık sorulan sorular hakkındaki belgeleri](vmware-azure-common-questions.md#configuration-server) .
 
 ## <a name="troubleshoot-deployment-issues"></a>Dağıtım sorunlarını giderme
 

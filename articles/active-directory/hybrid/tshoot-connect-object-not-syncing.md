@@ -4,7 +4,7 @@ description: Bir nesne, Azure AD ile eşitlenmeyen neden sorunlarını giderin.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b66aeb0832058c56e63c56c0420c7793eb2a632a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5b64472c6388a642c817fb67c97e963ecfa14c2c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312427"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478663"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Azure AD ile eşitlenmeyen bir nesneyle ilgili sorunları giderme
 
@@ -90,7 +90,7 @@ Cs nesnesi açtığınızda en üstünde birden çok sekme bulunur. **Alma** sek
 ![CS nesnesi](./media/tshoot-connect-object-not-syncing/csobject.png)    
 **Eski değer** Bağlan'şu anda depolanan gösterir ve **yeni değer** hangi kaynak sistemden alındı ve henüz uygulanmamış. Nesne üzerinde bir hata varsa, değişiklikleri işlenmez.
 
-**Hata**  
+**Hata:**  
 ![CS nesnesi](./media/tshoot-connect-object-not-syncing/cssyncerror.png)  
 **Eşitleme hatası** sekmedir yalnızca nesne ile ilgili bir sorun varsa görünür. Daha fazla bilgi için [eşitleme hatalarıyla ilgili sorunları giderme](#troubleshoot-errors-in-operations-tab).
 
@@ -103,7 +103,7 @@ Ayrıca görebilirsiniz **PasswordSync** gelen bağlayıcı alanında katkıda b
 
 Kökenini sekmesinden tıklayarak için meta veri alabilirsiniz [meta veri deposu nesne özellikleri](#mv-attributes).
 
-Tüm sekmeler alt kısmındaki iki düğme vardır: **Önizleme** ve **günlük**.
+Tüm sekmeler alt kısmındaki iki düğme bulunur: **Önizleme** ve **günlük**.
 
 ### <a name="preview"></a>Önizleme
 Önizleme sayfası, tek bir nesneyi eşitlemek için kullanılır. Bazı özel eşitleme kuralları giderirken ve tek bir nesne üzerinde bir değişikliğin etkilerini görmek istediğinizde yararlıdır. Aşağıdaki seçeneklerden birini seçebilirsiniz **tam eşitleme** ve **Delta eşitleme**. Arasında seçim **oluşturma Önizleme**, hangi yalnızca tutar değişikliği bellekte ve **işleme Önizleme**, güncelleştirilmiş meta veri deposu ve hedef bağlayıcı alanları yapılan tüm değişiklikleri hazırlar.  

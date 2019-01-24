@@ -4,7 +4,7 @@ description: Bu konuda kullanılan ve oluşturulan hesaplar ve gereken izinler a
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.reviewer: cychua
 ms.assetid: b93e595b-354a-479d-85ec-a95553dd9cc2
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ef8b621b41bb43c46ef728e28d3b312ac49f1da3
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 403fd0679e0850d758dd0e2f65cec3fe2ff79965
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308792"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478612"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Hesaplar ve izinler
 
@@ -39,9 +39,9 @@ Azure AD Connect, şirket içi veya Windows Server Active Directory Azure Active
 
 Azure AD Connect çalıştırmak için kullanılan üç bu hesabı ek olarak, Azure AD Connect'i yüklemek için aşağıdaki ek hesaplar gerekir.  Bunlar:
 
-- **Yerel yönetici hesabı**: Azure AD Connect kullanan yüklüyor ve kimin yerel yönetici izinlerine sahip bir makinede yönetici.
+- **Yerel yönetici hesabı**: Azure AD Connect'i yükleyen ve kimin makinede yerel yönetici izinlerine sahip yönetici.
 
-- **AD DS kuruluş yöneticisi hesabı**: isteğe bağlı olarak yukarıdaki "AD DS bağlayıcı hesabı" oluşturmak için kullanılır.
+- **AD DS kuruluş yöneticisi hesabı**: İsteğe bağlı olarak, yukarıda "AD DS bağlayıcı hesabı" oluşturmak için kullanılır.
 
 - **Azure AD genel yönetici hesabı**: Azure AD Bağlayıcısı hesabı oluşturup Azure AD'ye yapılandırmak için kullanılır.
 

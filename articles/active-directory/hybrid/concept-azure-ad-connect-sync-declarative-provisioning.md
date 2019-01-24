@@ -4,7 +4,7 @@ description: Azure AD CONNECT'te bildirim temelli sağlama yapılandırma modeli
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: cfbb870d-be7d-47b3-ba01-9e78121f0067
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9242ffc0c87ee9f314745463b8287ad7531a982d
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 45b145d9a8922bc3da50cef7d9fa7aacf260417d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46315038"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471787"
 ---
-# <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect eşitleme: anlama, bildirim temelli sağlama
+# <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect eşitleme: Bildirim Temelli Sağlamayı Anlama
 Bu konuda, Azure AD CONNECT'te yapılandırma modeli açıklanmaktadır. Bildirim temelli sağlama modeli adı verilir ve bir yapılandırma değişikliği kolayca yapmanızı sağlar. Bu konuda açıklanan pek çok gelişmiş ve çoğu müşteri senaryoları için gerekli değildir.
 
 ## <a name="overview"></a>Genel Bakış
@@ -91,7 +91,7 @@ Bir meta veri deposu nesnesi kapsamlı bir eşitleme kuralı olduğu kadar uzun 
 Bir meta veri deposu nesnesi silindiğinde, bir giden eşitleme kuralı ile ilişkilendirilmiş tüm nesneleri için işaretlenmiş **sağlama** bir silme için işaretlenmiş.
 
 ## <a name="transformations"></a>Dönüşümler
-Dönüştürmeleri nasıl öznitelikleri kaynaktan hedefe akışını tanımlamak için kullanılır. Akışınız aşağıdakilerden biri olabilir **akış türleri**: doğrudan, sabit değer veya ifade. Akışları bir öznitelik değeri olarak doğrudan bir akış-ek hiçbir dönüştürme ile olan. Sabit değer belirtilen değere ayarlar. Bir ifade dönüşümü nasıl olması ifade etmek için bildirim temelli sağlama ifade dili kullanır. İfade dili ayrıntılarını bulunabilir [bildirim temelli sağlama ifade dili anlama](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md) konu.
+Dönüştürmeleri nasıl öznitelikleri kaynaktan hedefe akışını tanımlamak için kullanılır. Akışınız aşağıdakilerden biri olabilir **akış türleri**: Doğrudan, sabit veya ifade. Akışları bir öznitelik değeri olarak doğrudan bir akış-ek hiçbir dönüştürme ile olan. Sabit değer belirtilen değere ayarlar. Bir ifade dönüşümü nasıl olması ifade etmek için bildirim temelli sağlama ifade dili kullanır. İfade dili ayrıntılarını bulunabilir [bildirim temelli sağlama ifade dili anlama](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md) konu.
 
 ![Sağlama veya birleştirme](./media/concept-azure-ad-connect-sync-declarative-provisioning/transformations1.png)  
 
@@ -158,7 +158,7 @@ Bu senaryo için kapsam içinde kaynak nesneleri farklı eşitleme kuralları b�
 
 **Genel bakış konuları**
 
-* [Azure AD Connect eşitleme: anlamak ve eşitleme özelleştirme](how-to-connect-sync-whatis.md)
+* [Azure AD Connect eşitleme: Anlama ve eşitleme özelleştirme](how-to-connect-sync-whatis.md)
 * [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](whatis-hybrid-identity.md)
 
 **Başvuru konuları**

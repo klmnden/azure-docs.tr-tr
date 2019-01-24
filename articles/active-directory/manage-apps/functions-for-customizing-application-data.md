@@ -15,7 +15,7 @@ ms.date: 09/11/2018
 ms.author: barbkess
 ms.openlocfilehash: 61aeb6a80d492a82dffa66491742899df0acc237
 ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/23/2019
 ms.locfileid: "54470061"
