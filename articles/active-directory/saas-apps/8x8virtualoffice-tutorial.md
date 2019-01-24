@@ -4,7 +4,7 @@ description: Azure Active Directory ve 8x8lik sanal Office arasında çoklu otur
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: b34a6edf-e745-4aec-b0b2-7337473d64c5
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 9afd1f75f997070428466b82d48624fb4ac3e835
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 11e316d2dc0811faaf3a9daab219386441fb3bb8
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065384"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823649"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-8x8-virtual-office"></a>Öğretici: 8x8lik sanal Office ile Azure Active Directory Tümleştirme
 

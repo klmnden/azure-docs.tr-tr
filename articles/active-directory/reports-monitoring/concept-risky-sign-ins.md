@@ -3,7 +3,7 @@ title: Azure Active Directory portalındaki riskli oturum açma işlemleri rapor
 description: Azure Active Directory portalındaki riskli oturum açma işlemleri raporu hakkında bilgi edinin
 services: active-directory
 author: priyamohanram
-manager: mtillman
+manager: daveba
 ms.assetid: 7728fcd7-3dd5-4b99-a0e4-949c69788c0f
 ms.service: active-directory
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 8e92288883a7779130e3b7f7a8433b61f76aa18c
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 402aae15ae4fe8e6961fbc76a4ddaa470b8c797a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244724"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807771"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Azure Active Directory portalındaki riskli oturum açma işlemleri raporu
 
@@ -61,9 +61,9 @@ Azure AD'in tüm sürümlerinde riskli oturum açma işlemleri raporları sağla
 
 Azure AD ücretsiz ve temel sürümleri, kullanıcılarınız için riskli oturum açma, algılanmış olan işlemleri bir listesini sağlar. Her kayıt, aşağıdaki öznitelikler içerir:
 
-- **Kullanıcı** - Oturum açma işlemi sırasında kullanılan kullanıcının adı
-- **IP** - Azure Active Directory'ye bağlanmak için kullanılan cihazın IP adresi
-- **Konum** - Azure Active Directory'ye bağlanmak için kullanılan konum
+- **Kullanıcı** -oturum açma işlemi sırasında kullanılan kullanıcının adı.
+- **IP** -Azure Active Directory'ye bağlanmak için kullanılan cihazın IP adresi.
+- **Konum** -Azure Active Directory'ye bağlanmak için kullanılan konum. Bu izlemeler, kayıt defteri verisi, geriye doğru arama ve diğer bilgileri göre bir en iyi çaba değeridir.
 - **Oturum açma saati** - Oturum açma işleminin gerçekleştirildiği saat
 - **Durum** - Oturum açma durumu
 
@@ -106,6 +106,9 @@ Bir risk olayını seçtiğinizde bu risk olayına ilişkin, aşağıdakileri ge
 - Risk olayını elle kapatabilir. 
 
 ![Riskli Oturum Açma İşlemleri](./media/concept-risky-sign-ins/457.png)
+
+> [!IMPORTANT]
+> Bazı durumlarda, karşılık gelen oturum açma bir giriş olmadan bir risk olayını bulabilirsiniz [oturum açma işlemleri raporu](concept-sign-ins.md). Kimlik koruması her ikisi için risk değerlendirdiğinden budur **etkileşimli** ve **etkileşimli olmayan** oturum açma işlemleri, oysa yalnızca etkileşimli oturum açma oturum açma işlemleri raporu gösterir.
 
 Bir kullanıcıyı seçtiğinizde bu kullanıcıya ilişkin, aşağıdakileri gerçekleştirmenize olanak tanıyan ayrıntılı bir rapor görünümü açılır:
 

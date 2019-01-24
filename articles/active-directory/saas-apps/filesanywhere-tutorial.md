@@ -1,10 +1,10 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle FilesAnywhere | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile FilesAnywhere | Microsoft Docs'
 description: Azure Active Directory ve FilesAnywhere arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 220b5a486f5bb5d22c671ac6935e610a6eef62cf
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 2dab43499d5f55474117f88cfaa1cecd1a50bf3e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115994"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822051"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-filesanywhere"></a>Öğretici: Azure Active Directory FilesAnywhere ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-filesanywhere"></a>Öğretici: FilesAnywhere ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile FilesAnywhere tümleştirme konusunda bilgi edinin.
 

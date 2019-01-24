@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: patricka
 ms.reviewer: fiseraci
-ms.openlocfilehash: cd3aa913bd17498ddc58994196bc8faa96c4de51
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: fba4020c5e947c135d9e17cfb1d0b2a79ad8a502
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306463"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819348"
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Azure Stack altyapısını güvenlik durumu
 
@@ -41,7 +41,7 @@ Altyapı iyi tanımlanmış donanım ve yazılım, Azure Stack üzerinde çalı�
 Azure Stack tümleşik bir sistem halinde teslim edildiğinden, Azure Stack altyapısının güvenlik duruşunu Microsoft tarafından tanımlanır. Tıpkı Azure'da kiracılar Kiracı iş yüklerini güvenlik duruşunu sorumludur. Bu belge, Azure Stack altyapısının güvenlik açısından duruşunu temel bilgi sağlar.
 
 ## <a name="data-at-rest-encryption"></a>Veri bekleyen şifreleme
-Tüm Azure Stack altyapı ve Kiracı verileri, Bitlocker kullanılarak, bekleme sırasında şifrelenir. Bu şifreleme, fiziksel kaybedilmesi veya çalınması Azure Stack depolama bileşenleri karşı korur. Daha fazla bilgi için [verileri Azure Stack'te bekleyen şifreleme](azure-stack-security-bitlocker.md).
+Tüm Azure Stack altyapı ve Kiracı verileri, BitLocker kullanılarak, bekleme sırasında şifrelenir. Bu şifreleme, fiziksel kaybedilmesi veya çalınması Azure Stack depolama bileşenleri karşı korur. Daha fazla bilgi için [verileri Azure Stack'te bekleyen şifreleme](azure-stack-security-bitlocker.md).
 
 ## <a name="data-in-transit-encryption"></a>Veri aktarım sırasında şifreleme
 Azure Stack altyapı bileşenleri, TLS 1.2 ile şifrelenmiş kanalları kullanarak iletişim kurar. Şifreleme sertifikaları Self altyapısı tarafından yönetilir. 

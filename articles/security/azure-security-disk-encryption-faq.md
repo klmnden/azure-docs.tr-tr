@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mstewart
 ms.date: 12/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 3afe60e7a00cb4fc4aca5046da8e26aaf3c77a29
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 1db379a48d4dafdaa2494d081658296a7145bcd9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198822"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815243"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Azure Disk şifrelemesi için Iaas Vm'leri SSS
 
@@ -137,7 +137,7 @@ Bu iş akışını mümkün değilse, bağlı [depolama hizmeti şifrelemesi](..
 
 ## <a name="what-encryption-method-does-azure-disk-encryption-use"></a>Azure Disk şifrelemesi hangi şifreleme yöntemini kullanıyor?
 
-Windows üzerinde ADE Bitlocker AES256 şifreleme yöntemini kullanır. (Windows Server 2012'den önceki sürümlerinde AES256WithDiffuser). Linux üzerinde ADE aes xts plain64 dmcrypt varsayılan 256 bit birim ana anahtarıyla kullanır.
+Windows üzerinde ADE BitLocker AES256 şifreleme yöntemini kullanır. (Windows Server 2012'den önceki sürümlerinde AES256WithDiffuser). Linux üzerinde ADE aes xts plain64 dmcrypt varsayılan 256 bit birim ana anahtarıyla kullanır.
 
 ## <a name="if-i-use-encryptformatall-and-specify-all-volume-types-will-it-erase-the-data-on-the-data-drives-that-we-already-encrypted"></a>EncryptFormatAll kullanın ve tüm birim türlerini belirtmek, bu verileri zaten şifrelenmiş veri sürücülerinde silecek?
 Hayır, veri zaten Azure Disk şifrelemesi kullanılarak şifrelenmiş veri sürücülerden silinmesi gerekmez. Benzer şekilde nasıl EncryptFormatAll işletim sistemi sürücüsünü yeniden şifrele siz, bunu zaten şifrelenmiş veri sürücüsü yeniden şifrele olmaz. Daha fazla bilgi için [EncryptFormatAll ölçütleri](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).        

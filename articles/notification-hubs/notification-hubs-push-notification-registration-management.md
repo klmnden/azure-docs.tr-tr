@@ -13,13 +13,13 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.author: jowargo
-ms.date: 01/04/2019
-ms.openlocfilehash: da1cad5c949579e0c66d9cc49f99b7cee9d53f35
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.date: 01/23/2019
+ms.openlocfilehash: 1ace7ecd42ac36be1c38e52dcef6663439b7db4c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452250"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817844"
 ---
 # <a name="registration-management"></a>Kayıt yönetimi
 
@@ -34,6 +34,9 @@ Bildirim hub'ı ile cihaz kaydı kullanılarak gerçekleştirilir bir **kayıt**
 ### <a name="registrations"></a>Kayıtlar
 
 Bir kayıt Platform bildirim sistemi (PNS) tanıtıcı bir cihaz için etiketleri ve büyük olasılıkla bir şablon ile ilişkilendirir. PNS tanıtıcısının Channelurı, cihaz belirteci veya GCM kayıt kimliği olabilir. Etiketler, cihaz tanıtıcılarını doğru kümesine bildirimleri yönlendirmek için kullanılır. Daha fazla bilgi için [Yönlendirme ve etiket ifadeleri](notification-hubs-tags-segment-push-message.md). Şablonları kayıt başına dönüştürme uygulamak için kullanılır. Daha fazla bilgi için bkz. [Şablonlar](notification-hubs-templates-cross-platform-push-messages.md).
+
+> [!NOTE]
+> Azure Notification Hubs kayıt başına 60 etiket en fazla destekler.
 
 ### <a name="installations"></a>Yüklemeleri
 

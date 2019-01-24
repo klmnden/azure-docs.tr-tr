@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: f84be4dffb601d3748d951da15050e381e1cecc1
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 2c8c8233e8d471b0f1934df9ff7e0f2b4b3e3860
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464859"
+ms.locfileid: "54819144"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>Application Insights Durum İzleyicisi ile çalışma zamanında web uygulamalarını izleme
 
@@ -36,6 +36,7 @@ Durum İzleyicisi IIS'de barındırılan bir .NET uygulaması izleme için kulla
 
 * **Derleme zamanı:** [Application Insights SDK'sı ekleme] [ greenbrown] web uygulama kodunuzda.
 * **Çalışma zamanı:** Web uygulamanızı sunucu üzerinde yeniden oluşturma ve kod yeniden dağıtmaya gerek olmadan, aşağıda açıklandığı gibi izleyin.
+
 > [!NOTE]
 > Derleme zamanında izleme kullanırsanız, çalışma zamanı açık olsa bile alet çalışmaz.
 

@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 79c95a53ace4fd5ab638587d1b74980812fbc273
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 20c1e2a4394c249b410a1253356d0ef96c30e970
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116972"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818906"
 ---
-# <a name="contoso-migration--refactor-a-team-foundation-server-deployment-to-azure-devops-services"></a>Contoso geçiş: bir Team Foundation Server dağıtımı için Azure DevOps hizmetleri yeniden düzenleyin
+# <a name="contoso-migration--refactor-a-team-foundation-server-deployment-to-azure-devops-services"></a>Contoso geçişi:  Azure DevOps Services’a bir Team Foundation Server dağıtımını yeniden düzenleme
 
 Nasıl Contoso yeniden düzenleme, şirket içi Team Foundation Server (TFS) dağıtımı geçiş yaparak bu makale, Azure, Azure DevOps hizmetlerine. Contoso'nun geliştirme ekibi kullanmış TFS takım işbirliği ve kaynak denetimi için son beş yıldır. Artık, bulut tabanlı bir çözüm için kaynak denetimi ve geliştirme ve test iş için taşımak istiyorum. Bir Azure DevOps modeline taşıma ve bulutta çalışan yeni uygulamalar geliştirebilir, azure DevOps hizmetleriyle bir rol oynayacak.
 
@@ -22,29 +22,29 @@ Bu belge, şirket içi kaynaklara Contoso adlı kurgusal şirketin Microsoft Azu
 
 **Makale** | **Ayrıntılar** | **Durum**
 --- | --- | ---
-[Makale 1: genel bakış](contoso-migration-overview.md) | Contoso'nun geçiş stratejisi, makale dizisini ve kullandığımız örnek uygulamaları genel bir bakış sağlar. | Kullanılabilir
-[2. makale: bir Azure altyapısını dağıtma](contoso-migration-infrastructure.md) | Açıklayan nasıl kendi şirket içi ve Azure altyapı Contoso bu geçiş için hazırlar. Aynı altyapı tüm Contoso geçiş senaryoları için kullanılır. | Kullanılabilir
-[3. makale: şirket içi kaynaklara değerlendirin](contoso-migration-assessment.md)  | Contoso Wmware'de çalışan kendi şirket içi iki katmanlı SmartHotel uygulamasının bir değerlendirme nasıl çalıştığını gösterir. Bunlar uygulama Vm'lerle değerlendirmek [Azure geçişi](migrate-overview.md) hizmet ve uygulama SQL Server veritabanıyla [Azure veritabanı geçiş Yardımcısı](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Kullanılabilir
-[4. makale: Rehost Azure Vm'lere ve SQL yönetilen örnek](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso SmartHotel uygulamayı Azure'a nasıl geçirdiğini gösterir. Uygulama web kullanarak VM'yi geçirme [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)ve veritabanı kullanarak uygulama [Azure veritabanı geçiş](https://docs.microsoft.com/azure/dms/dms-overview) SQL yönetilen örneğine geçirmek için hizmet. | Kullanılabilir
-[Makale 5: Azure sanal makineler için yeniden barındırma](contoso-migration-rehost-vm.md) | Nasıl Contoso geçirme kendi SmartHotel Site Recovery hizmetini kullanarak Azure Iaas Vm'leri için gösterir.
+[1. makale: Genel bakış](contoso-migration-overview.md) | Contoso'nun geçiş stratejisi, makale dizisini ve kullandığımız örnek uygulamaları genel bir bakış sağlar. | Kullanılabilir
+[2. makale: Bir Azure altyapısı dağıtma](contoso-migration-infrastructure.md) | Açıklayan nasıl kendi şirket içi ve Azure altyapı Contoso bu geçiş için hazırlar. Aynı altyapı tüm Contoso geçiş senaryoları için kullanılır. | Kullanılabilir
+[3. makale: Şirket içi kaynaklara değerlendirin](contoso-migration-assessment.md)  | Contoso Wmware'de çalışan kendi şirket içi iki katmanlı SmartHotel uygulamasının bir değerlendirme nasıl çalıştığını gösterir. Bunlar uygulama Vm'lerle değerlendirmek [Azure geçişi](migrate-overview.md) hizmet ve uygulama SQL Server veritabanıyla [Azure veritabanı geçiş Yardımcısı](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Kullanılabilir
+[4. makale: Azure sanal makineler ve yönetilen bir SQL örneği için yeniden barındırma](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso SmartHotel uygulamayı Azure'a nasıl geçirdiğini gösterir. Uygulama web kullanarak VM'yi geçirme [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)ve veritabanı kullanarak uygulama [Azure veritabanı geçiş](https://docs.microsoft.com/azure/dms/dms-overview) SQL yönetilen örneğine geçirmek için hizmet. | Kullanılabilir
+[Makale 5: Azure Vm'lerine yeniden barındırma](contoso-migration-rehost-vm.md) | Nasıl Contoso geçirme kendi SmartHotel Site Recovery hizmetini kullanarak Azure Iaas Vm'leri için gösterir.
 [Makale 6: Azure sanal makineleri ve SQL Server kullanılabilirlik gruplarını yeniden barındırma](contoso-migration-rehost-vm-sql-ag.md) | Contoso SmartHotel uygulamayı nasıl geçirdiğini gösterir. Bunlar, uygulama sanal makinelerini ve veritabanı geçiş hizmeti uygulama veritabanı için SQL Server kullanılabilirlik grubu geçirmek için geçirmek için Site RECOVERY'yi kullanın. | Kullanılabilir
 [Makale 7: Azure sanal makinelerinde Linux uygulaması barındırma](contoso-migration-rehost-linux-vm.md) | Contoso osTicket Linux uygulamalarını Azure Site Recovery kullanarak Azure Iaas Vm'leri için nasıl geçirdiğini gösterir.
 [Makale 8: Azure sanal makineler ve Azure MySQL sunucusu için bir Linux uygulaması barındırma](contoso-migration-rehost-linux-vm-mysql.md) | Contoso osTicket Linux uygulaması nasıl geçirdiğini gösterir. VM geçiş için Site Recovery ve MySQL Workbench'i Azure MySQL Server örneğine geçirmek için kullanırlar. | Kullanılabilir
-[Makale 9: bir uygulamayı bir Azure Web uygulaması ve Azure SQL veritabanı için yeniden düzenleme](contoso-migration-refactor-web-app-sql.md) | Nasıl Contoso SmartHotel uygulama için bir Azure kapsayıcı tabanlı web uygulaması geçirir ve uygulama veritabanı için Azure SQL Server geçirdiğini gösterir. | Kullanılabilir
-[Makale 10: Azure App Service ve Azure MySQL sunucusu için bir Linux uygulaması yeniden düzenleyin.](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso osTicket Linux uygulaması Azure App Service'te PHP 7.0 Docker kapsayıcısı kullanarak nasıl geçirdiğini gösterir. Dağıtım için kod tabanının Github'a geçirilir. Uygulama veritabanı için Azure MySQL geçirilir. | Kullanılabilir
-Makale 11: Azure DevOps Hizmetleri'nde TFS dağıtımını yeniden düzenleyin. | Azure DevOps Azure hizmetlerinde geliştirme uygulama TFS geçirme | Bu makalede
-[Makale 12: bir uygulamayı Azure kapsayıcıları ve Azure SQL veritabanı yeniden oluşturma](contoso-migration-rearchitect-container-sql.md) | Contoso geçirir ve Azure SmartHotel uygulamasının rearchitects nasıl gösterir. Bunlar, bir Windows kapsayıcısı ve bir Azure SQL veritabanı'nda uygulama veritabanı uygulama web katmanla yeniden oluşturma. | Kullanılabilir
-[Makale 13: uygulamanızı Azure'a yeniden oluşturun.](contoso-migration-rebuild.md) | Contoso Azure özellikleri ve Hizmetleri, uygulama hizmetleri, Azure Kubernetes, Azure işlevleri, Bilişsel hizmetler ve Cosmos DB dahil olmak üzere çeşitli kullanarak SmartHotel uygulamasının nasıl yeniden gösterir. | Kullanılabilir
-[Makale 14: azure'da bir geçiş ölçeklendirin](contoso-migration-scale.md) | Geçiş birleşimleri denedikten sonra Contoso Azure tam geçişi ölçeklendirilebilecek şekilde hazırlar. | Kullanılabilir
+[Makale 9: Bir Azure Web uygulaması ve Azure SQL veritabanı için bir uygulamayı yeniden düzenleme](contoso-migration-refactor-web-app-sql.md) | Nasıl Contoso SmartHotel uygulama için bir Azure kapsayıcı tabanlı web uygulaması geçirir ve uygulama veritabanı için Azure SQL Server geçirdiğini gösterir. | Kullanılabilir
+[Makale 10: Bir Linux uygulaması Azure App Service ve Azure MySQL sunucusu için yeniden düzenleme](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso osTicket Linux uygulaması Azure App Service'te PHP 7.0 Docker kapsayıcısı kullanarak nasıl geçirdiğini gösterir. Dağıtım için kod tabanının Github'a geçirilir. Uygulama veritabanı için Azure MySQL geçirilir. | Kullanılabilir
+11. makale: Azure DevOps Hizmetleri'nde TFS dağıtımını yeniden düzenleyin | Azure DevOps Azure hizmetlerinde geliştirme uygulama TFS geçirme | Bu makalede
+[Makale 12: Bir uygulamayı Azure kapsayıcıları ve Azure SQL veritabanı yeniden oluşturma](contoso-migration-rearchitect-container-sql.md) | Contoso geçirir ve Azure SmartHotel uygulamasının rearchitects nasıl gösterir. Bunlar, bir Windows kapsayıcısı ve bir Azure SQL veritabanı'nda uygulama veritabanı uygulama web katmanla yeniden oluşturma. | Kullanılabilir
+[Makale 13: Uygulamanızı Azure'a yeniden oluşturun](contoso-migration-rebuild.md) | Contoso Azure özellikleri ve Hizmetleri, uygulama hizmetleri, Azure Kubernetes, Azure işlevleri, Bilişsel hizmetler ve Cosmos DB dahil olmak üzere çeşitli kullanarak SmartHotel uygulamasının nasıl yeniden gösterir. | Kullanılabilir
+[Makale 14: Azure'a geçiş ölçeklendirin](contoso-migration-scale.md) | Geçiş birleşimleri denedikten sonra Contoso Azure tam geçişi ölçeklendirilebilecek şekilde hazırlar. | Kullanılabilir
 
 
 ## <a name="business-drivers"></a>İş sürücüleri
 
 BT yönetim takımı, gelecekteki hedeflerini tanımlamak için iş ortaklarıyla yakından çalışmıştır. İş ortakları aşırı geliştirme araç ve teknolojileri ile ilgili değildir, ancak şu noktaları yakalanan:
 
-- **Yazılım**: temel faaliyet bağımsız olarak tüm şirketlerin Contoso dahil olmak üzere, yazılım şirketleri sunulmuştur. İş liderlik nasıl ilgileniyor BT kullanıcılar için yeni çalışan uygulamalar ve deneyimler müşterileri için şirket ortaya çıkmasına yardımcı olabilir.
-- **Verimliliği**: Contoso gereken kolaylaştırabilir ve gereksiz yordamları geliştiriciler ve kullanıcılar için kaldırmak. Bu şirketin müşteri gereksinimlerine daha verimli bir şekilde sunmanıza olanak tanır. Hızlı zaman ya da para için iş gereksinimlerini BT.
-- **Çeviklik**: Contoso BT gereken iş gereksinimlerine yanıt ve Market genel ekonomi başarılı etkinleştirmek için daha hızlı tepki verin. BT iş için bir pencere engelleyicisi olmamalıdır.
+- **Yazılım**: Temel faaliyet bağımsız olarak tüm şirketlerin Contoso dahil olmak üzere, yazılım şirketleri sunulmuştur. İş liderlik nasıl ilgileniyor BT kullanıcılar için yeni çalışan uygulamalar ve deneyimler müşterileri için şirket ortaya çıkmasına yardımcı olabilir.
+- **Verimliliği**: Contoso kolaylaştırabilir ve gereksiz yordamları geliştiriciler ve kullanıcılar için kaldırmak gerekir. Bu şirketin müşteri gereksinimlerine daha verimli bir şekilde sunmanıza olanak tanır. Hızlı zaman ya da para için iş gereksinimlerini BT.
+- **Çeviklik**:  Contoso BT iş gereksinimlerine yanıt ve Market genel ekonomi başarılı etkinleştirmek için daha hızlı tepki gerekir. BT iş için bir pencere engelleyicisi olmamalıdır.
 
 ## <a name="migration-goals"></a>Geçiş hedefleri
 
@@ -90,16 +90,16 @@ Contoso geçiş işlemi aşağıdaki gibi tamamlayın:
 Contoso geçişi nasıl tamamlanacağını garanti aşağıda verilmiştir:
 
 > [!div class="checklist"]
-> * **1. adım: Azure depolama hesabı oluşturma**: Bu depolama hesabı geçiş işlemi sırasında kullanılacaktır.
-> * **2. adım: Yükseltme TFS**: Contoso kendi dağıtım TFS 2018'den yükseltme 2'ye yükseltme. 
-> * **3. adım: Koleksiyon doğrulama**: Contoso TFS koleksiyonu geçiş için hazırlık doğrulama.
-> * **4. adım: Derleme hazırlama dosyası**: Contoso TFS geçiş aracını kullanarak geçiş dosyaları oluşturur. 
+> * **1. adım: Bir Azure depolama hesabı oluşturma**: Bu depolama hesabına geçiş işlemi sırasında kullanılacaktır.
+> * **2. adım: TFS yükseltme**: Contoso dağıtımı, TFS 2018'den yükseltme 2'ye yükseltir. 
+> * **3. adım: Koleksiyon doğrulama**: Contoso, TFS koleksiyonu geçiş için hazırlık doğrulayacaktır.
+> * **4. adım: Hazırlık dosyası derleme**: Contoso TFS geçiş aracını kullanarak geçiş dosyaları oluşturur. 
 
 
-## <a name="step-1-create-a-storage-account"></a>1. adım: depolama hesabı oluşturma
+## <a name="step-1-create-a-storage-account"></a>1. Adım: Depolama hesabı oluşturma
 
 1. Azure portalında Contoso Yöneticiler depolama hesabı oluşturma (**contosodevmigration**).
-2. Bunlar hesabı, ikincil bölgeye yük devretme için - Orta ABD kullandıkları yerleştirin. Yerel olarak yedek depolama ile genel amaçlı bir standart hesabını kullanırlar.
+2. Bunlar hesabı, ikincil bölgeye yük devretme için - Orta ABD kullandıkları yerleştirin. Yerel olarak yedekli depolama ile genel amaçlı bir standart hesabını kullanırlar.
 
     ![Depolama hesabı](./media/contoso-migration-tfs-vsts/storage1.png) 
 
@@ -110,7 +110,7 @@ Contoso geçişi nasıl tamamlanacağını garanti aşağıda verilmiştir:
 - [Depolama hesabı oluşturma](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account).
 
 
-## <a name="step-2-upgrade-tfs"></a>2. adım: Yükseltme TFS
+## <a name="step-2-upgrade-tfs"></a>2. Adım: TFS yükseltme
 
 Contoso yöneticileri TFS sunucusu TFS 2018 güncelleştirme 2'ye yükseltin. Başlamadan önce:
 
@@ -146,7 +146,7 @@ Bunlar aşağıdaki gibi yükseltin:
 
 Hakkında bilgi edinin [TFS'ye yükseltme](https://docs.microsoft.com/tfs/server/upgrade/get-started).
 
-## <a name="step-3-validate-the-tfs-collection"></a>3. adım: TFS koleksiyonu doğrulama
+## <a name="step-3-validate-the-tfs-collection"></a>3. Adım: TFS koleksiyonu doğrula
 
 Contoso yöneticileri TFS geçiş aracı, geçiş işleminden önce doğrulamak için ContosoDev koleksiyon veritabanında çalıştırın.
 
@@ -175,7 +175,7 @@ Contoso yöneticileri TFS geçiş aracı, geçiş işleminden önce doğrulamak 
 
      ![TFS](./media/contoso-migration-tfs-vsts/collection5.png)
 
-6. Doğrulama komutu yeniden çalıştırın ve Azure AD adlarının yanı sıra bu değeri dahil et: **TfsMigrator doğrula/Collection:http://contosotfs:8080/tfs/ContosoDev /tenantDomainName:contosomigration.onmicrosoft.com**.
+6. Bunlar doğrulama komutunu yeniden çalıştırın ve Azure AD adlarının yanı sıra bu değeri içerir: **TfsMigrator doğrula/Collection:http://contosotfs:8080/tfs/ContosoDev /tenantDomainName:contosomigration.onmicrosoft.com**.
 
     ![TFS](./media/contoso-migration-tfs-vsts/collection7.png)
 
@@ -189,13 +189,13 @@ Contoso yöneticileri TFS geçiş aracı, geçiş işleminden önce doğrulamak 
 
 
 
-## <a name="step-4-create-the-migration-files"></a>4. adım: geçiş dosyaları oluşturma
+## <a name="step-4-create-the-migration-files"></a>4. Adım: Geçiş dosyaları oluşturma
 
 Doğrulama tamamlandı Contoso yöneticileri TFS geçiş aracı geçiş dosyaları oluşturmak için kullanabilirsiniz.
 
 1. Bunlar, hazırlama adımı araçta çalıştırın.
 
-    **TfsMigrator hazırlama/Collection:http://contosotfs:8080/tfs/ContosoDev /tenantDomainName:contosomigration.onmicrosoft.com /accountRegion:cus**
+    **TfsMigrator prepare /collection:http://contosotfs:8080/tfs/ContosoDev /tenantDomainName:contosomigration.onmicrosoft.com /accountRegion:cus**
 
      ![Hazırlama](./media/contoso-migration-tfs-vsts/prep1.png)
 
@@ -233,18 +233,18 @@ Doğrulama tamamlandı Contoso yöneticileri TFS geçiş aracı geçiş dosyalar
 
 
 
-## <a name="step-5-migrate-to-azure-devops-services"></a>5. adım: Azure DevOps Services'a geçme
+## <a name="step-5-migrate-to-azure-devops-services"></a>5. Adım: Azure DevOps Services’a geçiş
 
 Yerinde hazırlıkla Contoso yöneticileri artık geçiş odaklanabilirsiniz. Geçiş çalıştırdıktan sonra sürüm denetimi için TFVC, Git kullanarak geçiş yaparsınız.
 
 Başlamadan önce yöneticilerin koleksiyonu geçiş için çevrimdışı olması için geliştirme ekibi ile kapalı kalma süresi zamanlayın. Geçiş işlemi için adımlar şunlardır:
 
-1. **Koleksiyon ayırma**: kimlik verileri koleksiyonu için koleksiyon eklenmiş ve çevrimiçi durumdayken TFS sunucu yapılandırma veritabanında yer alıyor. Koleksiyonu TFS sunucusundan ayrıldığında, bu kimlik verilerinin bir kopyasını alır ve taşıma için koleksiyonuyla paketler. Bu veriler olmadan kimlik bölümü alma yürütülemez. İçeri aktarma işlemi tamamlanana kadar içeri aktarma sırasında oluşan değişiklikleri almak için hiçbir yolu olmadığından koleksiyon ayrılmış kalın önerilir.
-2. **Bir yedekleme oluşturmak**: Azure DevOps Hizmetleri içine aktarılabilen bir yedekleme oluşturmak için sonraki adım geçiş işlemi içerir. Veri katmanı uygulaması bileşen paketleri (DACPAC), veritabanı değişiklikleri tek bir dosya halinde paketlenmiş ve dağıtılan diğer SQL örneklerine izin veren bir SQL Server özelliğidir. Azure DevOps Hizmetleri doğrudan da geri yüklenebilir ve bu nedenle buluta koleksiyon verisi almak için paketleme yöntemi olarak kullanılır. Contoso, DACPAC oluşturmak için SqlPackage.exe Aracı'nı kullanır. Bu araç, SQL Server veri Araçları'nda bulunur.
-3. **Karşıya yükleme, depolama alanına**: DACPAC sonra oluşturulur, bunlar Azure Storage'a yükler. Karşıya yüklendikten sonra bunlar bir paylaşılan erişim imzası (SAS) depolama TFS geçiş aracı erişmesine izin vermek için alın.
-4. **Alma dolgu**: Contoso DACPAC ayarı dahil olmak üzere içe aktarma dosyasındaki eksik alanları ardından doldurabilirsiniz. Bunlar yapmak istediğiniz başlamak belirtirsiniz bir **prova** her şeyin tam geçişten önce düzgün şekilde çalıştığını denetlemek için içeri aktarma.
-5. **Bir prova yapmak**: prova içeri aktarmalar yardımcı koleksiyon geçişi test edin. Kuru çalıştırma ömrünü sınırlı ve üretim geçiş çalışmadan önce silindi. Otomatik olarak ayarlanmış bir süre sonra silinen. Başarı e-postada içeri aktarma tamamlandıktan sonra alınan prova zaman silinecek hakkında bir not dahildir. Not alın ve buna göre planlayın.
-6. **Üretim Geçişi tamamlamak**: import.json güncelleştiriliyor ve içeri aktarma çalıştırarak yeniden Contoso yöneticileri prova geçişi tamamlandı son geçiş yapın.
+1. **Koleksiyon ayırma**: Koleksiyon eklenmiş ve çevrimiçi durumdayken kimlik verileri koleksiyonu için TFS sunucusu yapılandırma veritabanında yer alıyor. Koleksiyonu TFS sunucusundan ayrıldığında, bu kimlik verilerinin bir kopyasını alır ve taşıma için koleksiyonuyla paketler. Bu veriler olmadan kimlik bölümü alma yürütülemez. İçeri aktarma işlemi tamamlanana kadar içeri aktarma sırasında oluşan değişiklikleri almak için hiçbir yolu olmadığından koleksiyon ayrılmış kalın önerilir.
+2. **Bir yedekleme oluşturmak**: Sonraki adım geçiş işlemi, Azure DevOps Hizmetleri içine aktarılabilen bir yedekleme oluşturmaktır. Veri katmanı uygulaması bileşen paketleri (DACPAC), veritabanı değişiklikleri tek bir dosya halinde paketlenmiş ve dağıtılan diğer SQL örneklerine izin veren bir SQL Server özelliğidir. Azure DevOps Hizmetleri doğrudan da geri yüklenebilir ve bu nedenle buluta koleksiyon verisi almak için paketleme yöntemi olarak kullanılır. Contoso, DACPAC oluşturmak için SqlPackage.exe Aracı'nı kullanır. Bu araç, SQL Server veri Araçları'nda bulunur.
+3. **Depolama alanına yükleme**: DACPAC oluşturulduktan sonra kullanıcılar, Azure Depolama'ya yükler. Karşıya yüklendikten sonra bunlar bir paylaşılan erişim imzası (SAS) depolama TFS geçiş aracı erişmesine izin vermek için alın.
+4. **Alma dolgu**: Ardından contoso DACPAC ayarı dahil olmak üzere içe aktarma dosyasındaki eksik alanları doldurabilirsiniz. Bunlar yapmak istediğiniz başlamak belirtirsiniz bir **prova** her şeyin tam geçişten önce düzgün şekilde çalıştığını denetlemek için içeri aktarma.
+5. **Bir prova yapmak**: Yardım test koleksiyon geçişi çalıştırma kuru alır. Kuru çalıştırma ömrünü sınırlı ve üretim geçiş çalışmadan önce silindi. Otomatik olarak ayarlanmış bir süre sonra silinen. Başarı e-postada içeri aktarma tamamlandıktan sonra alınan prova zaman silinecek hakkında bir not dahildir. Not alın ve buna göre planlayın.
+6. **Üretim Geçişi tamamlamak**: Prova geçişi tamamlandı Contoso yöneticileri import.json güncelleştiriliyor ve içeri aktarma yeniden çalıştırarak son geçiş yapın.
 
 
 
@@ -286,7 +286,7 @@ Başlamadan önce Contoso yöneticilerinin bir yerel SQL Server Yedekleme ve TFS
 Contoso, Azure DevOps Hizmetleri içine almak için bir yedek (DACPAC) oluşturur.
 
 - SQL Server veri Araçları'nda SqlPackage.exe DACPAC oluşturmak için kullanılır. Birden çok 120 ve 130 140 gibi adları olan klasörler altında bulunan SQL Server veri araçları ile birlikte yüklenen SqlPackage.exe sürümü vardır. DACPAC hazırlamak için doğru sürüm kullanılması önemlidir.
-- TFS 2018'den içeri aktarmalar, 140 klasöründen veya üzeri SqlPackage.exe kullanmanız gerekebilir.  CONTOSOTFS için bu dosyayı klasörde yer alır: **C:\Program Files (x86) \Microsoft Visual Studio\2017\Enterprise\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\140**.
+- TFS 2018'den içeri aktarmalar, 140 klasöründen veya üzeri SqlPackage.exe kullanmanız gerekebilir.  CONTOSOTFS için bu dosyayı klasöründe bulunur: **C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\140**.
 
 
 Contoso yöneticileri DACPAC şu şekilde oluşturun:
@@ -301,7 +301,7 @@ Contoso yöneticileri DACPAC şu şekilde oluşturun:
 
     ![Backup](./media/contoso-migration-tfs-vsts/backup2.png)
 
-3. Bunlar DACPACfile özelliklerini doğrulayın
+3. Bunlar DACPAC dosyasının özelliklerini doğrulayın
 
     ![Backup](./media/contoso-migration-tfs-vsts/backup3.png)
 
@@ -341,9 +341,9 @@ Contoso DACPAC oluşturulduktan sonra Azure Depolama'ya yükler.
 
 Daha önce Contoso yöneticileri kısmen içeri aktarma belirtim dosyasının (import.json) doldurulur. Artık, kalan ayarları eklemeniz gerekir.
 
-İmport.json dosyasını açın ve aşağıdaki alanları doldurun: • konumu: yukarıda oluşturulan SAS anahtarını konumu.
-• Dacpac: depolama hesabına yüklediğiniz DACPAC dosyasının adı ayarlayın. ".Dacpac" uzantısına dahil etme.
-• ImportType: şu an için prova için ayarlayın.
+İmport.json dosyasını açın ve aşağıdaki alanları doldurun: • konumu: Yukarıda oluşturulan SAS anahtarını konumu.
+• Dacpac: Depolama hesabına yüklediğiniz DACPAC dosyasının adı ayarlayın. ".Dacpac" uzantısına dahil etme.
+• ImportType: Şimdilik prova için ayarlayın.
 
 
 ![İçeri aktarma ayarları](./media/contoso-migration-tfs-vsts/import1.png)
@@ -418,7 +418,7 @@ Prova ile tam, Contoso yöneticileri için üretim geçiş geçin. Bunlar prova 
 
     ![Üretim](./media/contoso-migration-tfs-vsts/full1.png)
 
-3. Geçiş için prova gibi başlatmaları: **TfsMigrator alma /importFile:C:\TFSMigrator\import.json**.
+3. Bunlar prova için yaptığınız gibi bunlar geçişi başlatın: **TfsMigrator alma /importFile:C:\TFSMigrator\import.json**.
 4. Bir ileti geçişi onaylamak için gösterir ve verileri bir hazırlama alanı olarak güvenli bir konumda yedi güne kadar tutulabilirsiniz, sizi uyarır.
 
     ![Üretim](./media/contoso-migration-tfs-vsts/full2.png)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: xpouyat;anilmur;juliako
-ms.openlocfilehash: 31bd3d54b085922de0ec822731eae79fe9a9943b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e2a856dbc3bdf72ad03601618a9d48bb54665f7b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262106"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812072"
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Birden fazla giriş dosyaları ve bileşen özellikleri, Premium Kodlayıcı ile kullanma
 ## <a name="overview"></a>Genel Bakış
@@ -268,13 +268,13 @@ Ek çerçeve doğru kırpma ile:
   </transcodeRequest>
 ```
 
-## <a name="example-1--overlay-an-image-on-top-of-the-video"></a>Örnek 1: görüntünün üzerine video yer paylaşımı
+## <a name="example-1--overlay-an-image-on-top-of-the-video"></a>Örnek 1: Görüntünün üzerine video yer paylaşımı
 
 ### <a name="presentation"></a>Sunum
 Video kodlanmış sırada video girişteki bir logo resmi kaplama istediğiniz örneği göz önünde bulundurun. Bu örnekte, giriş videosunun "Microsoft_HoloLens_Possibilities_816p24.mp4" olarak adlandırılır ve logo "logo.png" olarak adlandırılır. Aşağıdaki adımları gerçekleştirmeniz gerekir:
 
 * Bir iş akışı ile iş akışı dosyası oluşturmanız (aşağıdaki örneğe bakın).
-* İki dosya içeren bir ortam varlık, oluşturma: MyInputVideo.mp4 MyLogo.png ve birincil dosyası olarak.
+* İki dosya içeren bir ortam varlık, oluşturun: Birincil dosya ve MyLogo.png MyInputVideo.mp4.
 * Yukarıdaki giriş varlıklar ile Media Encoder Premium iş akışı medya işlemcisi bir görev gönderin ve aşağıdaki yapılandırma dizesi belirtin.
 
 Yapılandırma:
@@ -351,7 +351,7 @@ Video logosunu konumunu değiştirmek istiyorsanız (örneğin, video, sol üst 
 *Yer paylaşımı konumu*
 
 H.264 video akışına kodlayın, AVC Video Kodlayıcısı ve AAC Kodlayıcı bileşenleri Tasarımcı yüzeyine ekleyin. PIN bağlanın.
-AAC Kodlayıcısı kurma ve ses biçimi dönüştürme/hazır: 2.0 (L, R).
+AAC Kodlayıcısı kurma ayarlayın ve ses biçimi dönüştürme/önayarını seçin: 2.0 (L, R).
 
 ![Ses ve Video kodlayıcılar](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture15_encoders.png)
 
@@ -430,7 +430,7 @@ public ITask AddNew(string taskName, IMediaProcessor mediaProcessor, string conf
 
 ## <a name="example-2--multiple-audio-language-encoding"></a>Örnek 2: Çoklu ses dili kodlama
 
-Kodlama workfkow kullanılabilir çoklu ses dili örneği [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/MultilanguageAudioEncoding).
+Kodlama iş akışı kullanılabilir çoklu ses dili örneği [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/MultilanguageAudioEncoding).
 
 Bu klasör, birden çok ses parçaları çoklu MP4 dosyaları varlıkla MXF dosyasına kodlamak için kullanılan bir örnek iş akışı içerir.
 

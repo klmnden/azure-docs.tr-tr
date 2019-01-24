@@ -4,7 +4,7 @@ description: Bunları düzeltmek için hata iletileri Azure Active Directory etk
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ffce7eb1-99da-4ea7-9c4d-2322b755c8ce
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 65747da92a3cad770cd9d474d27645782f7306b9
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 461c61fdd38fe8801a71c1ac34cd3e7114838207
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998726"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825366"
 ---
 # <a name="troubleshooting-azure-active-directory-activity-logs-content-pack-errors"></a>Sorun giderme Azure Active Directory etkinlik günlükleri içerik paketi hataları 
 
@@ -40,7 +40,7 @@ Bu makalede, olası nedenleri ve bu hataları düzeltme hakkında bilgi sağlar.
  
 ## <a name="refresh-failed"></a>Yenileme başarısız oldu 
  
-**Bu hatanın nasıl kullanıma sunulur**: e-posta Power BI veya yenileme geçmişi başarısız durumda. 
+**Bu hatanın nasıl kullanıma sunulur**: Power BI veya yenileme geçmişi başarısız durumunda e-posta. 
 
 
 | Nedeni | Nasıl düzeltileceğini |
@@ -51,7 +51,7 @@ Bu makalede, olası nedenleri ve bu hataları düzeltme hakkında bilgi sağlar.
  
 ## <a name="failed-to-update-data-source-credentials"></a>Veri kaynağı kimlik bilgileri güncelleştirilemedi 
  
-**Bu hatanın nasıl kullanıma sunulur**: içinde için Azure AD etkinlik bağlandığınızda, Powerbı, günlükleri içerik paketi. 
+**Bu hatanın nasıl kullanıma sunulur**: Azure AD etkinlik günlükleri içerik paketine yeniden bağlandığınızda Power BI,. 
 
 | Nedeni | Nasıl düzeltileceğini |
 | ---   | ---        |
@@ -62,7 +62,7 @@ Bu makalede, olası nedenleri ve bu hataları düzeltme hakkında bilgi sağlar.
 
 ## <a name="data-import-is-too-slow"></a>Veri içeri aktarma çok yavaş 
  
-**Bu hatanın nasıl kullanıma sunulur**: Power BI'da içerik paketinizi bağlandıktan sonra verileri içeri aktarma işlemi başlar panonuzu hazırlamak için Azure AD etkinlik günlükleri. İletisini görürsünüz: **veri alınıyor...**  herhangi bir gelişme olmadan.  
+**Bu hatanın nasıl kullanıma sunulur**: İçerik paketiniz bağlandıktan sonra Power BI'da veri içeri aktarma işlemi için Azure AD etkinlik panonuzu hazırlamak başlar. günlükleri. Şu iletiyle karşılaşırsınız: **Veri alınıyor...**  herhangi bir gelişme olmadan.  
 
 | Nedeni | Nasıl düzeltileceğini |
 | ---   | ---        |

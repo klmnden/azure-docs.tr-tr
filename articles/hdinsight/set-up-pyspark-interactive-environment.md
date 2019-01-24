@@ -8,84 +8,51 @@ author: jejiang
 ms.author: jejiang
 ms.reviewer: jasonh
 ms.topic: conceptual
-ms.date: 10/27/2017
-ms.openlocfilehash: bf47915ba93a4a3a7dec338395cfe0ce6aa3cdf6
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.date: 1/17/2019
+ms.openlocfilehash: ef33d8962848636ee53ac6fd3f084b9c2a59e29d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993850"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820589"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Visual Studio Code için PySpark etkileşimli ortamını ayarlama
 
-Aşağıdaki adımları çalıştırarak Python paketlerini yükleme Göster **HDInsight: PySpark etkileşimli**.
+Aşağıdaki adımları VS code'da PySpark etkileşimli ortamını ayarlama işlemini göstermektedir.
 
-## <a name="set-up-the-pyspark-interactive-environment-on-macos-and-linux"></a>MacOS ve Linux'ta PySpark etkileşimli ortamını ayarlama
-Kullanıyorsanız **python 3.x**, komutunu kullanmanız gerekir **pip3** için aşağıdaki adımları:
+Kullandığımız **python/pip** giriş yolda sanal ortam oluşturmak için komutu. Başka bir sürümünü kullanmak istiyorsanız, varsayılan sürümünü değiştirmek gereken **python/pip** el ile komutu. Daha fazla ayrıntı görmek [güncelleştirme alternatifleri](https://linux.die.net/man/8/update-alternatives).
 
-1. Emin **Python** ve **pip** yüklenir.
+1. Yükleme [Python](https://www.python.org/) ve [pip](https://pip.pypa.io/en/stable/installing/).
+   
+   + Python'dan yükleme [ https://pip.pypa.io/en/stable/installing ](https://www.python.org/).
+   + Instalovat modul pip gelen [ https://pip.pypa.io/en/stable/installing ](https://pip.pypa.io/en/stable/installing/). (Python yükleme yüklü değilse)
+   + Python doğrulayın ve pip, aşağıdaki komutları kullanarak başarıyla yüklenir. (İsteğe bağlı)
  
-    ![Python pip sürümünü](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
+        ![Python pip sürümünü](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
 
-2.  Jupyter yükleyin.
-    ```
-    sudo pip install jupyter
-    ```
-   Linux ve Macos'ta aşağıdaki hata iletisini görebilirsiniz:
+    > [!NOTE]
+    > Python'ın MacOS varsayılan sürümü kullanmak yerine el ile yüklemeniz önerilir.
 
-   ![Hata: 1](./media/set-up-pyspark-interactive-environment/error1.png)
 
-   ```Resolve:
-    sudo pip uninstall asyncio
-    sudo pip install trollies
-    ```
+2. Yükleme **virtualenv** aşağıdaki komutu çalıştırarak.
+   
+   ```
+   pip install virtualenv
+   ```
 
-3. Yükleme **libkrb5 geliştirme** (için yalnızca Linux). Aşağıdaki hata iletisini görebilirsiniz:
-
-   ![Hata 2](./media/set-up-pyspark-interactive-environment/error2.png)
+3. Yalnızca Linux için hata iletisiyle karşılaşırsanız, aşağıdaki komutları çalıştırarak gerekli paketleri yükleyin.
+   
+    ![Python pip sürümünü](./media/set-up-pyspark-interactive-environment/install-libkrb5-package.png)
        
-   ```Resolve:
+   ```
    sudo apt-get install libkrb5-dev 
    ```
 
-3. Yükleme **sparkmagic**.
    ```
-   sudo pip install sparkmagic
-   ```
-
-4. Emin olun **ipywidgets** aşağıdakini çalıştırarak düzgün şekilde yüklenir:
-   ```
-   sudo jupyter nbextension enable --py --sys-prefix widgetsnbextension
-   ```
-   ![Sarmalayıcı çekirdekler yükleyin](./media/set-up-pyspark-interactive-environment/ipywidget-enable.png)
- 
-
-5. Sarmalayıcı çekirdekler yükleyin. Çalıştırma **pip Göster sparkmagic**. Çıktı yolu gösterir **sparkmagic** yükleme. 
-
-    ![sparkmagic konumu](./media/set-up-pyspark-interactive-environment/sparkmagic-location.png)
-   
-6. Konuma gidin ve ardından çalıştırın:
-
-   ```Python2
-   sudo jupyter-kernelspec install sparkmagic/kernels/pysparkkernel   
-   ```
-   ```Python3
-   sudo jupyter-kernelspec install sparkmagic/kernels/pyspark3kernel
+   sudo apt-get install python-dev
    ```
 
-   ![jupyter kernelspec yükleme](./media/set-up-pyspark-interactive-environment/jupyter-kernelspec-install.png)
-7. Yükleme durumunu kontrol edin.
-
-    ```
-    jupyter-kernelspec list
-    ```
-    ![jupyter kernelspec listesi](./media/set-up-pyspark-interactive-environment/jupyter-kernelspec-list.png)
-
-    İçin kullanılabilir çekirdekler: 
-    - **python2** ve **pysparkkernel** karşılık **python 2.x**. 
-    - **python3** ve **pyspark3kernel** karşılık **python 3.x**. 
-
-8. VS Code'u yeniden başlatın ve sonra çalışan bir betik Düzenleyicisi dönün **HDInsight: PySpark etkileşimli**.
+4. VS Code'u yeniden başlatın ve sonra çalışan bir betik Düzenleyicisi dönün **HDInsight: PySpark etkileşimli**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

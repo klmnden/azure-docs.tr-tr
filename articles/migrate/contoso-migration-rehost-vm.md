@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 6bdb319eb89c3dad8b3602b0ec4561b962fcc868
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 36a84618a998dd2e06f5563fb8706a1dc8400e59
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608707"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823360"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-to-azure-vms"></a>Contoso geçişi: Şirket içi bir uygulamayı Azure VM’lerde yeniden barındırma
 
@@ -66,7 +66,7 @@ Contoso bulut takım hedeflerini bu geçiş için aşağı sabitlenmiş. Bu hede
 
 ## <a name="solution-design"></a>Çözüm tasarımı
 
-Şundan sabitleme aşağı hedefleri ve gereksinimleri, Contoso tasarımları ve bir dağıtım çözümü gözden geçirin ve Contoso geçiş için kullanacağınız Azure hizmetlerini de dahil olmak üzere geçiş işlemi belirler.
+Hedefleri ve gereksinimleri sabitleme sonra Contoso tasarlar ve bir dağıtım çözümü gözden geçirin ve Contoso geçiş için kullanacağınız Azure hizmetlerini de dahil olmak üzere geçiş işlemi tanımlar.
 
 ### <a name="current-app"></a>Geçerli uygulama
 
@@ -377,7 +377,7 @@ Artık Contoso yöneticileri SQLVM makineyi çoğaltmak, aynı işlemi olarak yu
 - Daha fazla bilgi edinebilirsiniz [çoğaltma etkinleştirme](https://docs.microsoft.com/azure/site-recovery/vmware-azure-enable-replication).
 
 
-## <a name="step-4-migrate-the-vms"></a>4. adım: Vm'leri geçirme
+## <a name="step-4-migrate-the-vms"></a>4. Adım: Vm'leri geçirme
 
 Contoso yöneticileri bir hızlı yük devretme ve Vm'leri geçirme için tam bir yük devretme çalıştırın.
 

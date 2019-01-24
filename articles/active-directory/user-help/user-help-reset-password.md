@@ -3,7 +3,7 @@ title: Güvenlik bilgilerini - Azure Active Directory kullanarak parolanızı s�
 description: Kendi parolanızı, güvenlik bilgileri ve iki aşamalı doğrulamayı kullanmaya unutursanız, sıfırlamak nasıl.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
@@ -11,16 +11,16 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: a95d5adb4ee0eb8aa71f7759e3f2b5520bda5ff4
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 6bf8c548d81b3cade487f3188cdafae82b5776d9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39348529"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815948"
 ---
 # <a name="reset-your-work-or-school-password"></a>İş veya Okul parolanızı sıfırlama
 
-Parolanızı mı unuttunuz, hiçbir zaman şirket desteğiniz bilgisayarından aldı veya hesabınız kilitlendi, parolanızı sıfırlamak için güvenlik bilgilerinizi ve mobil Cihazınızı kullanabilirsiniz.
+Parolanızı unuttuysanız, şirketinizin destek ekibi herhangi bir parola göndermediyse veya hesabınız kilitlendiyse güvenlik bilgilerinizi ve mobil cihazınızı kullanarak parolanızı sıfırlayabilirsiniz.
 
 >[!NOTE]
 >Parolanızı biliyorsanız ve değiştirmek istiyorsanız, gidebilirsiniz [parolanızı değiştirme](#how-to-change-your-password) bu makaledeki adımlar.<br><br>
@@ -159,7 +159,7 @@ Bazı yaygın hata durumları ve çözümleri aşağıda verilmiştir:
 |Parolamı değiştirmeye çalıştığınızda bir hata alıyorum. |Parolanızı bir sözcük, tümcecik veya parolanızı kolayca tahmin edilebilir olmasını sağlayan yapan desen vardır.| Daha güçlü bir parola kullanarak tekrar deneyin.|
 |Ben kullanıcı Kimliğimi girdikten sonra "Yöneticinize başvurun." yazan bir sayfaya ederim.|Microsoft, kullanıcı hesabınızın parolasının, bir şirket içi ortamda yöneticiniz tarafından yönetilir belirledi. Sonuç olarak, "hesabınıza erişemiyor" bağlantıdan parolanızı sıfırlayamazsınız. |Daha fazla yardım için yöneticinize başvurun.|
 |Ben kullanıcı Kimliğimi girdikten sonra "hesabınızı parola sıfırlama için etkinleştirilmedi." yazan bir hata alıyorum|Kendi parolanızı sıfırlayabilir şekilde yöneticiniz hesabınızı ayarlama edilmemiş.|Yöneticinize parola sıfırlama "hesabınıza erişemiyor" bağlantıdan kuruluşunuz için açık olmayan veya bu özelliği kullanmak için lisanslı edilmemiş.<br><br> Parolanızı sıfırlamak için "bir yönetici bağlantısı başvurun" seçmelisiniz şirketinizin yöneticisine e-posta gönderin ve parolanızı sıfırlamak istediğiniz bildirin.|
-|Ben kullanıcı Kimliğimi girdikten sonra "Hesabınızı doğrulayacağız uygulanamadı." yazan bir hata alıyorum|Oturum açma işlemi, hesap bilgilerinizi doğrulayamadı.|Bu iletiyi görmekten iki nedeni vardır.<br><br>1. Yöneticiniz, parola sıfırlama, kuruluş için açık, ancak bu hizmeti kullanmak için kayıtlı olmayabilirsiniz. Parola sıfırlamaya kaydolmak için aşağıdaki makaleyi doğrulama yönteminizi birine bakın: [güvenlik bilgileri bir doğrulayıcı uygulama (Önizleme) kullanacak şekilde](security-info-setup-auth-app.md), [güvenlik bilgileri bir telefon araması (Önizleme)kullanacakşekilde](security-info-setup-phone-number.md), [Güvenlik bilgilerini, kısa mesaj (Önizleme) kullanacak şekilde](security-info-setup-text-msg.md), [güvenlik bilgileri e-posta (Önizleme) kullanacak şekilde](security-info-setup-email.md), veya [güvenlik bilgisi (Önizleme) güvenlik sorularını kullan ayarlayın ](security-info-setup-questions.md).<br><br>2. Yöneticiniz, parola sıfırlama kuruluşunuz için açık edilmemiş. Bu durumda, "Yönetici bağlantısına başvurun" seçmelisiniz yöneticiniz için parolanızı sıfırlamak soran bir e-posta göndermek için.|
+|Ben kullanıcı Kimliğimi girdikten sonra "Hesabınızı doğrulayacağız uygulanamadı." yazan bir hata alıyorum|Oturum açma işlemi, hesap bilgilerinizi doğrulayamadı.|Bu iletiyi görmekten iki nedeni vardır.<br><br>1. Yöneticiniz, parola sıfırlama, kuruluş için açık, ancak bu hizmeti kullanmak için kayıtlı olmayabilirsiniz. Parola sıfırlama için kaydedilecek doğrulama yönteminizi göre aşağıdaki makalelerden birine bakın: [Güvenlik bilgileri bir doğrulayıcı uygulama (Önizleme) kullanacak şekilde](security-info-setup-auth-app.md), [güvenlik bilgileri bir telefon araması (Önizleme) kullanacak şekilde](security-info-setup-phone-number.md), [güvenlik bilgilerini, kısa mesaj (Önizleme) kullanacak şekilde](security-info-setup-text-msg.md), [ Güvenlik bilgileri e-posta (Önizleme) kullanacak şekilde](security-info-setup-email.md), veya [güvenlik bilgisi güvenlik sorularını (Önizleme) kullanacak şekilde](security-info-setup-questions.md).<br><br>2. Yöneticiniz, parola sıfırlama kuruluşunuz için açık edilmemiş. Bu durumda, "Yönetici bağlantısına başvurun" seçmelisiniz yöneticiniz için parolanızı sıfırlamak soran bir e-posta göndermek için.|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

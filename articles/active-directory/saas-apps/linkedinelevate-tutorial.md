@@ -1,10 +1,10 @@
 ---
-title: 'Öğretici: Azure Active Directory yükseltmesine LinkedIn ile tümleştirme | Microsoft Docs'
+title: 'Öğretici: LinkedIn yükseltmesine ile Azure Active Directory Tümleştirme | Microsoft Docs'
 description: Azure Active Directory ve LinkedIn yükseltmesine arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 2ad9941b-c574-42c3-bd0f-5d6ec68537ef
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 8b11b5e3e420577590e95c6839673f54c52d078b
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 209f87a77ff6e18fa08943385d9cf61bbf915089
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116185"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822646"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-linkedin-elevate"></a>Öğretici: Azure Active Directory Tümleştirme ile LinkedIn Yükselt
+# <a name="tutorial-azure-active-directory-integration-with-linkedin-elevate"></a>Öğretici: Azure Active Directory tümleştirmesiyle LinkedIn Yükselt
 
 Bu öğreticide, LinkedIn yükseltmesine Azure Active Directory (Azure AD) ile tümleştirmeyi öğrenin.
 
@@ -240,7 +240,7 @@ Erişim paneli LinkedIn yükseltmesine kutucuğa tıkladığınızda, Azure otur
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Öğretici: LinkedIn yükseltmesine otomatik kullanıcı hazırlama Azure Active Directory ile yapılandırma](linkedinelevate-provisioning-tutorial.md)
+* [Öğretici: Azure Active Directory ile otomatik kullanıcı hazırlama için LinkedIn yükseltmesine yapılandırma](linkedinelevate-provisioning-tutorial.md)
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
 * [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 * [Kullanıcı sağlamayı yapılandırma](linkedinelevate-provisioning-tutorial.md)

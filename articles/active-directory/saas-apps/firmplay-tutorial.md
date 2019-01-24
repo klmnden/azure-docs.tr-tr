@@ -1,10 +1,10 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle FirmPlay - işe alma için çalışan danışmanlık | Microsoft Docs'
+title: 'Öğretici: FirmPlay - çalışan danışmanlık işe alma için Azure Active Directory tümleştirmesiyle | Microsoft Docs'
 description: Azure Active Directory ve FirmPlay - işe alma için çalışan danışmanlık arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: a6799629-7546-43f8-a966-956db32864b1
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: jeedes
-ms.openlocfilehash: abc29480e5f5531857cbf973d5386727c3d7f2ac
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 929494d5d802dbc545c750386a286029c4bf962d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114537"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809811"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-firmplay---employee-advocacy-for-recruiting"></a>Öğretici: Azure Active Directory tümleştirmesiyle FirmPlay - çalışan danışmanlık için işe alma
 
@@ -95,7 +95,7 @@ Yapılandırma ve Azure AD çoklu oturum açma FirmPlay ile-test etmek için ça
 
 1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 1. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-1. **[Çalışan danışmanlık işe alma test kullanıcısı için bir FirmPlay - oluşturma](#creating-a-firmplay---employee-advocacy-for-recruiting-test-user)**  - FirmPlay içinde bir karşılığı Britta simon'un olmasını: çalışan danışmanlık, yani işe alma için Azure AD gösterimini her için bağlı.
+1. **[Çalışan danışmanlık işe alma test kullanıcısı için bir FirmPlay - oluşturma](#creating-a-firmplay---employee-advocacy-for-recruiting-test-user)**  - FirmPlay içinde bir karşılığı Britta simon'un sağlamak için: Çalışan danışmanlık, yani işe alma için Azure AD gösterimini her için bağlı.
 1. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
 1. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 

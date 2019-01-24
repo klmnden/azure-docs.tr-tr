@@ -4,7 +4,7 @@ description: SAP Cloud Platform kimlik doğrulaması ile Azure Active Directory 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 1c1320d1-7ba4-4b5f-926f-4996b44d9b5e
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2018
 ms.author: jeedes
-ms.openlocfilehash: 266c9523f45294899e3cddbe782cbc54846eb119
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ecd9df8efdcd6d7fd7da26ff5cf569ef7e63573f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422316"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822069"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform-identity-authentication"></a>Öğretici: SAP Cloud Platform kimlik doğrulaması ile Azure Active Directory Tümleştirme
 
@@ -154,15 +154,15 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
 
 1. SAP Cloud Platform kimlik doğrulaması uygulama belirli bir biçimde SAML onaylamalarını bekler. Bu öznitelikleri değerlerini yönetmek **kullanıcı öznitelikleri** uygulama tümleştirme sayfasında bölümü. Aşağıdaki ekran görüntüsünde biçimi örneği gösterilmektedir. 
 
-    ![Çoklu oturum açmayı yapılandırın](./media/sap-hana-cloud-platform-identity-authentication-tutorial/attribute.png)
+    ![Çoklu oturum açmayı yapılandırma](./media/sap-hana-cloud-platform-identity-authentication-tutorial/attribute.png)
 
 1. SAP uygulama gibi bir öznitelik bekliyorsa **firstName**, ekleme **firstName** özniteliğini **kullanıcı öznitelikleri** bölümü. Bu seçenek kullanılabilir **çoklu oturum açma** iletişim kutusunun **SAML belirteci öznitelikleri** iletişim kutusu...
 
     a. Açmak için **öznitelik Ekle** iletişim kutusunda **eklemek agentconfigutil**. 
     
-    ![Çoklu oturum açmayı yapılandırın](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_attribute_04.png)
+    ![Çoklu oturum açmayı yapılandırma](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_attribute_04.png)
     
-    ![Çoklu oturum açmayı yapılandırın](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_attribute_05.png)
+    ![Çoklu oturum açmayı yapılandırma](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_attribute_05.png)
     
     b. İçinde **adı** öznitelik adı yazın **firstName**.
     

@@ -1,5 +1,5 @@
 ---
-title: Uygulama erişimini denetimi - Azure Media Services ile birden çok DRM bir içerik koruma sistemin tasarımını | Microsoft Docs
+title: Erişim denetimi - Azure Media Services ile birden çok DRM bir içerik koruma sistemin tasarımını | Microsoft Docs
 description: Microsoft kesintisiz akış istemci taşıma Kiti lisanslama hakkında bilgi edinin.
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: 3e9909de5ec05710214279357134112804ab4ceb
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 40e7f257df41fa4836b9df692be48a4b6c57fc80
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191250"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813007"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Erişim denetimi ile birden çok DRM içerik koruma sisteminin tasarımı 
 
@@ -145,7 +145,7 @@ Aşağıdaki tablo, eşlemeyi gösterir.
 | **Anahtar yönetimi** |Başvuru uygulaması için gerekli değildir |
 | **İçerik yönetimi** |Bir C# konsol uygulaması |
 
-Diğer bir deyişle, IDP ve STS'nin hem Azure AD tarafından sağlanır. [Azure Media Player API'sine](http://amp.azure.net/libs/amp/latest/docs/) oyuncu için kullanılır. Azure Media Services hem de Azure Media Player CENC DASH, HLS üzerinden FairPlay, PlayReady kesintisiz akış ve AES-128 şifreleme DASH, HLS ve kesintisiz destekler.
+Diğer bir deyişle, IDP ve STS'nin hem Azure AD tarafından sağlanır. [Azure Media Player API'sine](http://amp.azure.net/libs/amp/latest/docs/) oyuncu için kullanılır. Hem Azure Media Services hem de Azure Media Player CENC kesintisiz akış ve AES-128 şifrelemesi DASH, HLS ve kesintisiz üzerinden DASH, HLS üzerinden FairPlay, PlayReady destekler.
 
 Genel yapısı ve önceki teknoloji eşleme ile akışı aşağıdaki diyagramda gösterilmiştir:
 

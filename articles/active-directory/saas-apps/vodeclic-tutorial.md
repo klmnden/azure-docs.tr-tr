@@ -1,10 +1,10 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle Vodeclic | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile Vodeclic | Microsoft Docs'
 description: Azure Active Directory ve Vodeclic arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: d77a0f53-e3a3-445e-ab3e-119cef6e2e1d
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2017
 ms.author: jeedes
-ms.openlocfilehash: fb985b389139bfd8d54e6c54d101bbfa8a68a6d4
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8f53082a2f6a33e934c2e3138d08725ffdf4fa2b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444632"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815421"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-vodeclic"></a>Öğretici: Azure Active Directory Vodeclic ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-vodeclic"></a>Öğretici: Vodeclic ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Vodeclic tümleştirme konusunda bilgi edinin.
 
@@ -38,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD Tümleştirmesi ile Vodeclic yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Vodeclic SSO etkin bir abonelik
 
 > [!NOTE]
@@ -170,7 +170,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
  
 ### <a name="create-a-vodeclic-test-user"></a>Vodeclic test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon Vodeclic içinde adlı bir kullanıcı oluşturun. Çalışmak [Vodeclic Destek ekibine](mailto:hotline@vodeclic.com) Vodeclic platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+Bu bölümde, Britta Simon Vodeclic içinde adlı bir kullanıcı oluşturun. Çalışmak [Vodeclic Destek ekibine](mailto:hotline@vodeclic.com) Vodeclic platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 > [!NOTE]
 > Uygulama gereksinimlerine göre makine beyaz listeye alma gerekebilir. Genel IP adresi ile paylaşmak, gerçekleşmesi gerekir [Vodeclic Destek ekibine](mailto:hotline@vodeclic.com).

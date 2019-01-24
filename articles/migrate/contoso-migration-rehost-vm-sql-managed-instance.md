@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 3564288c55716a9c64ae2460048cb255a60dcc02
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 6e15d4376fae576f615cac7c094f53dfcc22618e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469585"
+ms.locfileid: "54826624"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Contoso geçişi: Bir Azure VM ve SQL veritabanı yönetilen örneği üzerinde bir şirket içi uygulama yeniden barındırma
 
@@ -432,7 +432,7 @@ Kaynağı'kurmak için ortam Contoso yöneticileri aşağıdakileri yapın:
 
 Şimdi, Contoso yöneticileri hedef çoğaltma ortamı yapılandırın:
 
-1. İçinde **altyapıyı hazırlama** > **hedef**, bunlar selecs hedef ayarları.
+1. İçinde **altyapıyı hazırlama** > **hedef**, bunlar hedef ayarları seçin.
 2. Site Recovery, bir depolama hesabı ve belirtilen hedef ağda olup olmadığını denetler.
 
 ### <a name="create-a-replication-policy"></a>Çoğaltma ilkesi oluşturma
@@ -473,7 +473,7 @@ Artık, Contoso yöneticileri WebVM çoğaltma başlayabilirsiniz.
 
     ![Çoğaltmayı etkinleştirme - sanal Makineyi seçin](./media/contoso-migration-rehost-vm-sql-managed-instance/enable-replication3.png)
 
-5. Doğru çoğaltma ilkesinin seçilir ve için çoğaltmayı etkinleştirme denetleyin **WEBVM**. Bunlar tracs çoğaltma sürüyor **işleri**. **Korumayı Sonlandır** işi çalıştırıldıktan sonra makine yük devretme için hazırdır.
+5. Doğru çoğaltma ilkesinin seçilir ve için çoğaltmayı etkinleştirme denetleyin **WEBVM**. Bunlar çoğaltma ilerlemeyi **işleri**. **Korumayı Sonlandır** işi çalıştırıldıktan sonra makine yük devretme için hazırdır.
 6. İçinde **Essentials** Azure portalında bunlar durumunu Azure'a çoğaltılan sanal makineler için görebilirsiniz:
 
     ![Altyapı görünümü](./media/contoso-migration-rehost-vm-sql-managed-instance/essentials.png)
@@ -519,7 +519,7 @@ Veritabanı geçiş hizmeti projesi oluşturun ve ardından veritabanını geçi
         ![Veritabanı geçiş hizmeti - geçiş ayarlarını yapılandırma](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-migration-settings.png)
 
 5. Bunlar geçiş ayarları kaydedin ve ardından bir geçiş çalıştırın.
-6. İçinde **genel bakış**, bunlar monitos geçiş durumu.
+6. İçinde **genel bakış**, bunlar geçiş durumu izleyin.
 
     ![Veritabanı geçiş hizmeti - izleme](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-monitor1.png)
 

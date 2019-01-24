@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 1/10/2019
+ms.date: 1/23/2019
 ms.author: victorh
-ms.openlocfilehash: e426e38ce5366f7c0d8b8bc20a639d827ea9e261
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 4b5b98b5695901ca6d136682e454f059f157b743
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200537"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826488"
 ---
 # <a name="use-azure-dns-for-private-domains"></a>Özel etki alanları için Azure DNS kullanma
 
@@ -64,9 +64,9 @@ Azure DNS, aşağıdaki özellikleri sağlar:
 Azure DNS, aşağıdaki sınırlamalara sahiptir:
 
 * Özel bölge başına yalnızca bir kayıt sanal ağı izin verilir.
-* En fazla 10 çözümleme sanal ağları özel bölge başına izin verilir.
+* En fazla 10 çözümleme sanal ağları özel bölge başına izin verilir. Bu özellik genel kullanıma sunulduğunda, bu sınır kaldırılacak.
 * Belirli bir sanal ağ için yalnızca bir özel bölge kayıt sanal ağı bağlanabilir.
-* Belirli bir sanal ağ en fazla 10 özel bölgeler için bir çözümleme sanal ağı bağlanabilir.
+* Belirli bir sanal ağ en fazla 10 özel bölgeler için bir çözümleme sanal ağı bağlanabilir. Bu özellik genel kullanıma sunulduğunda, bu sınır kaldırılacak.
 * Kayıt sanal ağı belirtirseniz, özel bölgeye kaydedilen Vm'lerden söz konusu sanal ağ için DNS kayıtlarını görüntülenebilir veya Azure Powershell ve Azure CLI API'leri alınabilir değil. VM kayıtları gerçekten kaydedilir ve başarıyla çözülecektir.
 * Kayıt sanal ağ özel IP alanı için yalnızca geriye doğru DNS çalışır.
 * Ters DNS özel bölgesi (örneğin, bölge bağlantılı çözümleme sanal ağı özel bir sanal ağdaki bir sanal makine için bir özel IP) kayıtlı değilse bir özel IP döndürür için *internal.cloudapp.net* DNS son eki. Ancak bu sonek çözümlenebilir değil.

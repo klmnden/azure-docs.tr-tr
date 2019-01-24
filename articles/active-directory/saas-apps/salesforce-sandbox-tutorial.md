@@ -1,10 +1,10 @@
 ---
-title: 'Öğretici: Azure Active Directory Tümleştirme ile Salesforce korumalı alan | Microsoft Docs'
+title: 'Öğretici: Salesforce korumalı alanı ile Azure Active Directory Tümleştirmesi | Microsoft Docs'
 description: Azure Active Directory ve Salesforce korumalı alan arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: ee54c39e-ce20-42a4-8531-da7b5f40f57c
 ms.service: active-directory
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: jeedes
-ms.openlocfilehash: 48dcb4a3b1e06ab62905092055ba1b48bd0dddb7
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 33d39e617bd55b88d8f04785d937faf176463ee5
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114505"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808825"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>Öğretici: Azure Active Directory Tümleştirme ile Salesforce korumalı alan
+# <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>Öğretici: Salesforce korumalı alanı ile Azure Active Directory Tümleştirmesi
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Salesforce korumalı alan tümleştirme konusunda bilgi edinin.
 
 Sanal amaçları, geliştirme, test ve eğitim, verilere ve uygulamalara, Salesforce üretimde ödün vermeden gibi çeşitli ayrı ortamlarda kuruluşunuz birden çok kopyasını oluşturma olanağı sunar Kuruluş.
-Daha fazla ayrıntı için [korumalı alan genel bakış](https://help.salesforce.com/articleView?id=create_test_instance.htm&language=en_us&type=5).
+Daha fazla ayrıntı için [korumalı alan genel bakış](https://help.salesforce.com/articleView?id=create_test_instance.htm&language=en_us&type=5).
 
 Salesforce korumalı alan Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
@@ -219,7 +219,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
 
     ![Çoklu oturum açmayı yapılandırın](./media/salesforce-sandbox-tutorial/xmlchoose.png)
 
-25. Üzerinde **SAML çoklu oturum açma ayarları** sayfasında alanları otomatik olarak doldurmak, yapılandırma adını yazın (örneğin: *SPSSOWAAD_Test*) içinde **adı** metin kutusu ve Kaydet'e tıklayın.
+25. Üzerinde **SAML çoklu oturum açma ayarları** sayfasında alanları otomatik olarak doldurmak, yapılandırma adını yazın (örneğin: *SPSSOWAAD_Test*) içinde **adı** metin kutusu ve Kaydet'i tıklatın.
 
     ![Çoklu oturum açmayı yapılandırın](./media/salesforce-sandbox-tutorial/sf-saml-config.png)
 

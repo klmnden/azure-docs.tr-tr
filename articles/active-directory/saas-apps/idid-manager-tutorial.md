@@ -4,7 +4,7 @@ description: Azure Active Directory ve iDiD Manager arasında çoklu oturum açm
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 5d2a0c25-168e-4842-b83b-74f8f50a8624
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 1/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 701759c4922a1f55c7ecb5c9302cd9a0fb7bc59f
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: baf78fc0bc0941c9466f77a77ef922f3fe3d62b3
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54402844"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823043"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-idid-manager"></a>Öğretici: İDiD Manager ile Azure Active Directory Tümleştirme
 

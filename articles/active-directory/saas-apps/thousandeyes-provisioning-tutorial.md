@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
-manager: mtillman
+manager: daveba
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: d2912c687d4968a239d5af747df4115ffd71bbeb
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 2df899e6cb0078cdf949c3f8257719b00554e85b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44345769"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815729"
 ---
-# <a name="tutorial-configure-thousandeyes-for-automatic-user-provisioning"></a>Öğretici: ThousandEyes otomatik kullanıcı hazırlama için yapılandırma
+# <a name="tutorial-configure-thousandeyes-for-automatic-user-provisioning"></a>Öğretici: Otomatik kullanıcı hazırlama için ThousandEyes yapılandırın
 
 
 Bu öğreticinin amacı ThousandEyes ve Azure AD sağlama ve sağlamasını ThousandEyes Azure AD'den kullanıcı hesaplarına otomatik olarak gerçekleştirmek için gereken adımları Göster sağlamaktır. 
@@ -74,7 +74,7 @@ Bu bölümde, Azure AD sağlama API'si ThousandEyes'ın kullanıcı hesabına ba
 
     ![ThousandEyes sağlama](./media/thousandeyes-provisioning-tutorial/ThousandEyes1.png)
 
-5. Altında **yönetici kimlik bilgileri** giriş bölümünde **gizli belirteç** , ThousandEyes'ın hesap tarafından oluşturulan (belirteç ThousandEyes hesabınızın altında bulabilirsiniz: **güvenlik & Kimlik doğrulaması**). 
+5. Altında **yönetici kimlik bilgileri** giriş bölümünde **OAuth taşıyıcı belirteci** , ThousandEyes'ın hesap tarafından oluşturulan (bulabilir ve veya ThousandEyes hesabınız kapsamında bir belirteç oluşturun  **Profil** bölümü).
 
     ![ThousandEyes sağlama](./media/thousandeyes-provisioning-tutorial/ThousandEyes2.png)
 

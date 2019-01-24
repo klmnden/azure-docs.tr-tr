@@ -1,10 +1,10 @@
 ---
-title: 'Öğretici: Azure Active Directory Neota mantıksal Studio ile tümleştirme | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory tümleştirmesiyle Neota mantıksal Studio | Microsoft Docs'
 description: Azure Active Directory ve Neota mantıksal Studio arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 842605e6-a91d-42cc-a0bb-e23e67173ae2
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: jeedes
-ms.openlocfilehash: 667d2a5217f5c2aa29432a99cd0e07fc8d7b3ca7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b6f2c91a9b94aeff1c0fa7ad7df137a30055230b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447045"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827049"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-neota-logic-studio"></a>Öğretici: Azure Active Directory Neota mantıksal Studio ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-neota-logic-studio"></a>Öğretici: Neota mantıksal Studio ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Neota mantıksal Studio Tümleştirme konusunda bilgi edinin.
 
@@ -37,7 +37,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD tümleştirmesi Neota mantıksal Studio ile yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Bir mantıksal Studio Neota çoklu oturum açma etkin aboneliği
 
 > [!NOTE]
@@ -61,7 +61,7 @@ Azure AD'de Neota mantıksal Studio tümleştirmesini yapılandırmak için Neot
 
 **Galeriden Neota mantıksal Studio eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
@@ -133,7 +133,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 1. Uygulamanız için yapılandırılmış SSO almak için iletişime geçin [Neota mantıksal Studio desteği](https://www.neotalogic.com/contact-us/) ekip ve sağlayacağını ile indirilen **meta veri XML** dosya.
 
 > [!TIP]
-> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
+> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi embedded belgeleri özelliği burada hakkında: [Azure AD embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
@@ -168,7 +168,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
  
 ### <a name="creating-a-neota-logic-studio-test-user"></a>Neota mantıksal Studio test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon Neota mantıksal Studio'da adlı bir kullanıcı oluşturun. İş ile [Neota mantıksal Studio istemci Destek ekibine](https://www.neotalogic.com/contact-us/) Neota mantıksal Studio platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi. 
+Bu bölümde, Britta Simon Neota mantıksal Studio'da adlı bir kullanıcı oluşturun. İş ile [Neota mantıksal Studio istemci Destek ekibine](https://www.neotalogic.com/contact-us/) Neota mantıksal Studio platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi. 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcı atama
 

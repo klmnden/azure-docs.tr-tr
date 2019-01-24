@@ -1,6 +1,6 @@
 ---
 title: Azure - Çoklu bit hızı akışları oluşturan şirket içi kodlayıcılarla Canlı Stream | Microsoft Docs
-description: 'Bu konuda, bir şirket içi kodlayıcıdan Çoklu bit hızlı canlı akış alan bir kanalı ayarlama işlemi açıklanmaktadır. Akış ardından istemci aşağıdaki Uyarlamalı akış protokollerine birini kullanarak bir veya daha fazla akış uç noktaları aracılığıyla, kayıttan yürütme uygulamalarını dağıtılabilecek: HLS, kesintisiz akış, DASH.'
+description: 'Bu konuda, bir şirket içi kodlayıcıdan Çoklu bit hızlı canlı akış alan bir kanalı ayarlama işlemi açıklanmaktadır. Akış, ardından aşağıdaki Uyarlamalı akış protokollerine birini kullanarak bir veya daha fazla akış uç noktaları aracılığıyla, istemci kayıttan yürütme uygulamalara dağıtılabilecek: HLS, kesintisiz akış, DASH.'
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: e2d65c107d57d50bc15d5a1cd1698491bb607e25
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b0a047c4bf2c0c95896699e50e943277a138ecca
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262242"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809045"
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Çoklu bit hızı akışları oluşturan şirket içi kodlayıcılarla canlı akış
 
@@ -35,11 +35,11 @@ Azure Media Services, bir *kanal* canlı akış içeriği işlemek için bir iş
   > Doğrudan geçiş yöntemini kullanmak canlı akış yapmanın en ekonomik yoludur.
 
 
-* Bir şirket içi Canlı Kodlayıcı aşağıdaki biçimlerden birinde Media Services ile gerçek zamanlı kodlama gerçekleştirmek için etkinleştirilmiş kanala tek bit hızlı akış gönderir: RTMP veya kesintisiz akış (parçalanmış MP4). Kanal, ardından gelen tek bit hızlı akışın Çoklu bit hızlı (Uyarlamalı) video akışına gerçek zamanlı kodlama gerçekleştirir. Media Services akış isteyen müşteriler sunar.
+* Bir şirket içi Canlı Kodlayıcı, aşağıdaki biçimlerden birinde Media Services ile gerçek zamanlı kodlama gerçekleştirmek için etkinleştirilmiş kanala tek bit hızlı akış gönderir: RTMP veya kesintisiz akış (parçalanmış MP4). Kanal, ardından gelen tek bit hızlı akışın Çoklu bit hızlı (Uyarlamalı) video akışına gerçek zamanlı kodlama gerçekleştirir. Media Services akış isteyen müşteriler sunar.
 
 Kanal oluşturduğunuzda Media Services 2.10 sürüm ile başlayarak, kanalınızı giriş akışını almak için nasıl istediğinizi belirtebilirsiniz. Akışınız gerçek zamanlı kodlama gerçekleştirmek için kanal isteyip istemediğinizi belirtebilirsiniz. İki seçeneğiniz vardır:
 
-* **Geçir**: çıktı olarak bir Çoklu bit hızında akışa (doğrudan akışı) sahip bir şirket içi Canlı Kodlayıcı kullanmayı planlıyorsanız, bu değeri belirtin. Bu durumda, gelen akış çıkışı herhangi bir kodlama içermeyen geçer. Bu kanal 2.10 yayınlanmadan önce davranıştır. Bu makalede, bu tür bir kanallar ile çalışma hakkında ayrıntılar sağlar.
+* **Geçişine**: Çıktı olarak bir Çoklu bit hızında akışa (doğrudan akışı) sahip bir şirket içi Canlı Kodlayıcı kullanmayı planlıyorsanız, bu değeri belirtin. Bu durumda, gelen akış çıkışı herhangi bir kodlama içermeyen geçer. Bu kanal 2.10 yayınlanmadan önce davranıştır. Bu makalede, bu tür bir kanallar ile çalışma hakkında ayrıntılar sağlar.
 * **Live Encoding**: Çoklu bit hızı akışı, tek bit hızlı canlı akış kodlama için Media Services kullanmayı planlıyorsanız, bu değeri seçin. Canlı kodlama kanalda bırakarak bir **çalıştıran** durumu, fatura ücretleri artmasına neden olur. Ek saatlik ücretlerden kaçınmak için canlı akış etkinliğinizi tamamlandıktan sonra hemen çalışan kanallarınızın durdurmanız önerilir. Media Services akış isteyen müşteriler sunar.
 
 > [!NOTE]
@@ -88,8 +88,8 @@ Aşağıdaki adımlar, ortak canlı akış uygulamaları oluşturmak için gerek
 #### <a id="ingest_protocols"></a>Akış Protokolü alma
 Media Services, Çoklu bit hızlı parçalanmış MP4 ve Çoklu bit hızlı RTMP olarak akış protokolleri kullanarak canlı akışlar başlayan kümeniz destekler. RTMP içe alma, Akış Protokolü seçildiğinde, iki alma (giriş) uç noktaları için kanal oluşturulur:
 
-* **Birincil URL**: tam URL'sini kanal birincil RTMP içe alma, uç nokta belirtir.
-* **İkincil URL** (isteğe bağlı): tam URL'sini kanal ikincil RTMP içe alma, uç nokta belirtir.
+* **Birincil URL**: Tam URL'sini kanal birincil RTMP içe alma, uç nokta belirtir.
+* **İkincil URL** (isteğe bağlı): Tam URL'sini kanal ikincil RTMP içe alma, uç nokta belirtir.
 
 Alma stream (aynı zamanda Kodlayıcı yük devretme ve hataya dayanıklılık), dayanıklılık ve hataya dayanıklılığını artırmak istiyorsanız, özellikle aşağıdaki senaryolar için ikincil URL'yi kullanın:
 
@@ -115,7 +115,7 @@ Kanıl oluşturduğunuzda alma URL'lerini alabilirsiniz. Bu URL'leri almak için
 Parçalanmış MP4 almak bir seçeneğiniz vardır (kesintisiz akış) canlı akış bir SSL bağlantısı üzerinden. SSL üzerinden alımı için alma URL'si için HTTPS güncelleştirdiğinizden emin olun. Şu anda, SSL üzerinden RTMP alma olamaz.
 
 #### <a id="keyframe_interval"></a>Ana kare aralığı
-Çoklu bit hızı akışı oluşturmak için bir şirket içi Canlı Kodlayıcı kullanırken, dış, kodlayıcı tarafından kullanılan ana kare aralığı grubu (GOP) resimlerin süresini belirtir. Kanal gelen bu akış aldıktan sonra aşağıdaki biçimlerden birinde istemci kayıttan yürütme uygulamalara Canlı akışınızı sağlayabilir: Dynamic Adaptive Streaming HTTP (DASH) ve HTTP canlı akışı (HLS), kesintisiz akış. Canlı akış yaparken HLS her zaman dinamik olarak paketlenir. Varsayılan olarak, Media Services Canlı kodlayıcıdan alındığı ana kare aralığı temel HLS segment paketleme oranı (kesim başına parça) otomatik olarak hesaplar.
+Çoklu bit hızı akışı oluşturmak için bir şirket içi Canlı Kodlayıcı kullanırken, dış, kodlayıcı tarafından kullanılan ana kare aralığı grubu (GOP) resimlerin süresini belirtir. Kanal gelen bu akış aldıktan sonra aşağıdaki biçimlerden birinde istemci kayıttan yürütme uygulamalara Canlı akışınızı iletebilirsiniz: Akış (HLS), kesintisiz akış, dinamik Uyarlamalı HTTP (DASH) ve HTTP üzerinden akış Canlı. Canlı akış yaparken HLS her zaman dinamik olarak paketlenir. Varsayılan olarak, Media Services Canlı kodlayıcıdan alındığı ana kare aralığı temel HLS segment paketleme oranı (kesim başına parça) otomatik olarak hesaplar.
 
 Aşağıdaki tabloda, kesim süresinin nasıl hesaplandığını gösterilmektedir:
 
@@ -127,7 +127,7 @@ Aşağıdaki tabloda, kesim süresinin nasıl hesaplandığını gösterilmekted
 
 Kanalın çıkış yapılandırarak ve üzerinde ChannelOutputHls FragmentsPerSegment ayarı parça başına kesim oranı değiştirebilirsiniz.
 
-Ana kare aralık değeri üzerinde ChanneInput KeyFrameInterval özelliğini ayarlayarak da değiştirebilirsiniz. Açıkça KeyFrameInterval ayarlarsanız, HLS FragmentsPerSegment daha önce açıklanan kuralları hesaplanır paketleme oranı segmentlere ayırın.  
+Ana kare aralık değeri üzerinde ChannelInput KeyFrameInterval özelliğini ayarlayarak da değiştirebilirsiniz. Açıkça KeyFrameInterval ayarlarsanız, HLS FragmentsPerSegment daha önce açıklanan kuralları hesaplanır paketleme oranı segmentlere ayırın.  
 
 Media Services, açıkça KeyFrameInterval hem FragmentsPerSegment ayarlarsanız, ayarladığınız değerleri kullanır.
 
@@ -176,11 +176,11 @@ Bile durdurduktan ve programı silmenin sonra varlık silene kadar kullanıcıla
 ## <a id="states"></a>Kanal durumları ve faturalandırma
 Kanalın geçerli durumu için olası değerler şunlardır:
 
-* **Durduruldu**: oluşturulduktan sonra kanal ilk durumunu budur. Bu durumda, kanal özellikleri güncelleştirilebilir ama akışa izin verilmez.
-* **Başlangıç**: kanal başlatılıyor. Bu durum süresince güncelleştirmelere veya akışa izin verilmez. Bir hata oluşursa kanal döndürür **durduruldu** durumu.
-* **Çalışan**: kanal Canlı akışları işleyebilir.
-* **Durdurma**: kanal durduruluyor. Bu durum süresince güncelleştirmelere veya akışa izin verilmez.
-* **Silme**: kanal siliniyor. Bu durum süresince güncelleştirmelere veya akışa izin verilmez.
+* **Durduruldu**: Bu, kanalın oluşturulduktan sonraki ilk durumudur. Bu durumda, kanal özellikleri güncelleştirilebilir ama akışa izin verilmez.
+* **Başlangıç**: Kanal başlatılıyor. Bu durum süresince güncelleştirmelere veya akışa izin verilmez. Bir hata oluşursa kanal döndürür **durduruldu** durumu.
+* **Çalışan**: Kanal Canlı akışları işleyebilir.
+* **Durdurma**: Kanal durduruluyor. Bu durum süresince güncelleştirmelere veya akışa izin verilmez.
+* **Silme**: Kanal siliniyor. Bu durum süresince güncelleştirmelere veya akışa izin verilmez.
 
 Aşağıdaki tabloda, kanal durumlarının faturalandırma modu ile nasıl eşleştiği gösterilir.
 

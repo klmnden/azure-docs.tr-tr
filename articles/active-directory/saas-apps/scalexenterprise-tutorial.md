@@ -1,10 +1,10 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle ScaleX Kurumsal | Microsoft Docs'
+title: 'Öğretici: ScaleX Enterprise ile Azure Active Directory Tümleştirmesi | Microsoft Docs'
 description: Azure Active Directory ve ScaleX kuruluş arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: c2379a8d-a659-45f1-87db-9ba156d83183
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 60beecc0895fbfb5d3af7817e8b76e0819c89a99
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: fb01aec04af10d3e413213dc9821a27b42a0a9d2
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835395"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822986"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-scalex-enterprise"></a>Öğretici: Azure Active Directory ScaleX Enterprise ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-scalex-enterprise"></a>Öğretici: ScaleX Enterprise ile Azure Active Directory Tümleştirmesi
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile ScaleX Kurumsal tümleştirme konusunda bilgi edinin.
 
@@ -168,22 +168,22 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
     
     a. Seçin **"SSO ile kimlik doğrulaması yapabilen herhangi bir kullanıcı oluşturun."**
 
-    b. **Hizmet sağlayıcısı saml**: değer yapıştırın ***urn: OASIS: adları: tc: SAML:2.0:nameid-biçimi: kalıcı***
+    b. **Hizmet sağlayıcısı saml**: Değer yapıştırın ***urn: OASIS: adları: tc: SAML:2.0:nameid-biçimi: kalıcı***
 
-    c. **Kimlik sağlayıcısı e-posta alanı ACS yanıt adını**: değer yapıştırın `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
+    c. **Kimlik sağlayıcısı e-posta alanı ACS yanıt adını**: Değer yapıştırın `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
 
-    d. **Kimlik sağlayıcısı EntityDescriptor varlık kimliği:** Yapıştır **SAML varlık kimliği** değer, Azure portalından kopyalanır.
+    d. **Kimlik sağlayıcısı EntityDescriptor varlık kimliği:** Yapıştırma **SAML varlık kimliği** değer, Azure portalından kopyalanır.
 
-    e. **Kimlik sağlayıcısı SingleSignOnService URL'si:** Yapıştır **SAML çoklu oturum açma hizmeti URL'si** Azure portalından.
+    e. **Kimlik sağlayıcısı SingleSignOnService URL'si:** Yapıştırma **SAML çoklu oturum açma hizmeti URL'si** Azure portalından.
 
-    f. **Kimlik sağlayıcısı genel X509 sertifikası:** açık X509 sertifika Defteri'nde azure'dan indirilir ve içeriği bu kutuya yapıştırın. Sertifika içeriği ortadaki hiçbir satır sonlarını emin olun.
+    f. **Kimlik sağlayıcısı genel X509 sertifikası:** Açık X509 sertifika Defteri'nde azure'dan indirilir ve içeriği bu kutuya yapıştırın. Sertifika içeriği ortadaki hiçbir satır sonlarını emin olun.
     
-    g. Aşağıdaki onay kutularını işaretleyin: **etkin, Nameıd şifrelemek ve oturum AuthnRequests.**
+    g. Aşağıdaki onay kutularını işaretleyin: **Etkin Nameıd şifrelemek ve AuthnRequests oturum açın.**
 
     h. Tıklayın **güncelleştirme SSO ayarlarını** ayarları kaydetmek için.
 
 > [!TIP]
-> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
+> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi embedded belgeleri özelliği burada hakkında: [Azure AD embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma

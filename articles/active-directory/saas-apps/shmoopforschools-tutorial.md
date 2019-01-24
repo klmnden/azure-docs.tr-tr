@@ -1,10 +1,10 @@
 ---
-title: 'Öğretici: Azure Active Directory için Shmoop okullar ile tümleştirme | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory tümleştirmesiyle Shmoop için okullar | Microsoft Docs'
 description: Azure Active Directory ve Shmoop için okullar arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 1d75560a-55b3-42e9-bda1-92b01c572d8e
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: b5826fd3067ac337808b9e27040dee808cd6a01c
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 5c1dbf6429387c02f226e4005164e8824abdc102
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39045966"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818957"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-shmoop-for-schools"></a>Öğretici: Azure Active Directory için Shmoop okullar ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-shmoop-for-schools"></a>Öğretici: Azure Active Directory için Shmoop okullar ile tümleştirmesi
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Shmoop için okullar tümleştirme konusunda bilgi edinin.
 
@@ -38,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla bilgi için bkz. [uy
 
 Azure AD tümleştirmesi için Shmoop okullar ile yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik için Shmoop okullar çoklu oturum açma etkin
 
 > [!NOTE]
@@ -106,7 +106,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
 3. İçinde **Shmoop için okullar etki alanı ve URL'ler** bölümünde, aşağıdaki adımları uygulayın:
 
-    ![Çoklu oturum açmayı yapılandırın](./media/shmoopforschools-tutorial/tutorial_shmoopforschools_url.png)
+    ![Çoklu oturum açmayı yapılandırma](./media/shmoopforschools-tutorial/tutorial_shmoopforschools_url.png)
 
     a. İçinde **oturum açma URL'si** kutusuna aşağıdaki desene sahip bir URL yazın: `https://schools.shmoop.com/public-api/saml2/start/<uniqueid>`
 
@@ -117,10 +117,10 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
  
 4. Shmoop için okullar uygulama belirli bir biçimde SAML onaylamalarını bekliyor. Bu uygulama için aşağıdaki talepleri yapılandırın. Bu öznitelikleri değerlerini yönetebilirsiniz **kullanıcı öznitelikleri** uygulama tümleştirme sayfasında bölümü. Aşağıdaki ekran görüntüsünde, onaylamalar yapılandırma işlemi gösterilmektedir:
 
-    ![Çoklu oturum açmayı yapılandırın](./media/shmoopforschools-tutorial/tutorial_attribute.png)
+    ![Çoklu oturum açmayı yapılandırma](./media/shmoopforschools-tutorial/tutorial_attribute.png)
 
     > [!NOTE]
-    > Shmoop Okul için kullanıcılar için iki rollerini destekler: **Öğretmen** ve **Öğrenci**. Böylece kullanıcılar uygun roller atanabilir Azure AD'de bu rolleri ayarlama. Azure AD'de rolleri yapılandırmak nasıl anlamak için bkz: [RBAC ve Azure portalını kullanarak erişimini yönetme](../../role-based-access-control/role-assignments-portal.md).
+    > Okul için Shmoop kullanıcılar için iki rollerini destekler: **Öğretmen** ve **Öğrenci**. Böylece kullanıcılar uygun roller atanabilir Azure AD'de bu rolleri ayarlama. Azure AD'de rolleri yapılandırmak nasıl anlamak için bkz: [RBAC ve Azure portalını kullanarak erişimini yönetme](../../role-based-access-control/role-assignments-portal.md).
     
 5. İçinde **kullanıcı öznitelikleri** konusundaki **çoklu oturum açma** iletişim kutusunda, önceki görüntüde gösterildiği gibi SAML belirteci özniteliği yapılandırabilirsiniz.  Ardından aşağıdaki adımları uygulayın:
 
@@ -130,9 +130,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     a. Açmak için **öznitelik Ekle** iletişim kutusunda **eklemek agentconfigutil**.
     
-    ![Çoklu oturum açmayı yapılandırın ](./media/shmoopforschools-tutorial/tutorial_attribute_04.png)
+    ![Çoklu oturum açmayı yapılandırma ](./media/shmoopforschools-tutorial/tutorial_attribute_04.png)
     
-    ![Çoklu oturum açmayı yapılandırın](./media/shmoopforschools-tutorial/tutorial_attribute_05.png)
+    ![Çoklu oturum açmayı yapılandırma](./media/shmoopforschools-tutorial/tutorial_attribute_05.png)
     
     b. İçinde **adı** ilgili satır için gösterilen öznitelik adı yazın.
     
@@ -144,9 +144,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
 6. **Kaydet** düğmesini seçin.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/shmoopforschools-tutorial/tutorial_general_400.png)
+    ![Çoklu oturum açmayı yapılandırma](./media/shmoopforschools-tutorial/tutorial_general_400.png)
 
-7. Üzerinde **SAML imzalama sertifikası** bölümünde, kopyalamak için Kopyala düğmesine **uygulama Federasyon meta verileri URL'sini** kopyalayıp Not Defteri'ne yapıştırın.
+7. Üzerinde **SAML imzalama sertifikası** bölümünde, kopyalamak için Kopyala düğmesine **uygulama Federasyon meta verileri URL'sini** kopyalayıp Not Defteri'ne yapıştırın.
 
     ![Sertifika indirme bağlantısı](./media/shmoopforschools-tutorial/tutorial_shmoopforschools_certificate.png)
 
@@ -232,7 +232,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme öğrenmek için öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

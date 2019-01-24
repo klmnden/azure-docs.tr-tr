@@ -1,10 +1,10 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle LogicMonitor | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile LogicMonitor | Microsoft Docs'
 description: Azure Active Directory ve LogicMonitor arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 496156c3-0e22-4492-b36f-2c29c055e087
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: jeedes
-ms.openlocfilehash: a6bc220d15e720662eaa9605421e21ccb99892ab
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 5aa11c15e038c0af8447debba0cd385c944c0bce
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502354"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812429"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-logicmonitor"></a>Öğretici: Azure Active Directory LogicMonitor ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-logicmonitor"></a>Öğretici: LogicMonitor ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile LogicMonitor tümleştirme konusunda bilgi edinin.
 
@@ -37,7 +37,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD Tümleştirmesi ile LogicMonitor yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik LogicMonitor çoklu oturum açma etkin
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Azure AD'de LogicMonitor tümleştirmesini yapılandırmak için LogicMonitor Ga
 
 **Galeriden LogicMonitor eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
@@ -204,7 +204,7 @@ Azure AD kullanıcılarının oturum açabilmesi, Azure Active Directory kullan�
    
     b. Seçin **rolleri**, **görüntüleme izinleri**ve **durumu**.
    
-    c. Tıklayın **gönderme**.
+    c. **Gönder**'e tıklayın.
 
 >[!NOTE]
 >Herhangi diğer LogicMonitor kullanıcı hesabı oluşturma araçları kullanabilir veya API'leri tarafından LogicMonitor sağlamak için Azure Active Directory kullanıcı hesaplarını sağlanan. 
@@ -242,7 +242,7 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için LogicMonitor erişim ver
 ### <a name="testing-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
- 
+ 
 Erişim panelinde LogicMonitor kutucuğa tıkladığınızda, otomatik olarak LogicMonitor uygulamanıza açan.
 Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md). 
 

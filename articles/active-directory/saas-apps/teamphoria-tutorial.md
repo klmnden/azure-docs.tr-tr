@@ -1,10 +1,10 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle Teamphoria | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile Teamphoria | Microsoft Docs'
 description: Azure Active Directory ve Teamphoria arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: d569c705-6f0f-4ec1-b485-ba82526b5d32
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 554930b18a271a677aeb5e82c3e62a94965a8e7f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8232af95cf8414df67343f5004975b11df4488a0
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439618"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826726"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-teamphoria"></a>Öğretici: Azure Active Directory Teamphoria ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-teamphoria"></a>Öğretici: Teamphoria ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Teamphoria tümleştirme konusunda bilgi edinin.
 
@@ -37,7 +37,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD Tümleştirmesi ile Teamphoria yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Bir Teamphoria çoklu oturum açma etkin aboneliği
 
 > [!NOTE]
@@ -142,13 +142,13 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve T
 
     ![Çoklu oturum açmayı yapılandırın](./media/teamphoria-tutorial/Teamphoria_sso_save.png)
 
-    a. **GÖRÜNEN ad**: yönetici sayfasına eklenti görünen adını girin.
+    a. **GÖRÜNEN AD**: Yönetici sayfasına eklenti görünen adını girin.
 
-    b. **DÜĞME adı**: SSO ile oturum açma için oturum açma sayfasında görüntülenecek sekmenin adı.
+    b. **DÜĞME ADI**: SSO ile oturum açma için oturum açma sayfasında görüntülenecek sekmenin adı.
 
-    c. **Sertifika**: sertifika indirilen daha önce Not Defteri'nde, Azure portalından açık aynı içeriğini kopyalayın ve burada kutuya yapıştırın.
+    c. **SERTİFİKA**: Daha önce Not Defteri'nde Azure portalından indirdiğiniz sertifikayı açın, aynı içeriğini kopyalayıp buraya kutuya yapıştırın.
 
-    d. **Giriş noktası**: yapıştırma **SAML çoklu oturum açma hizmeti URL'si** daha önce Azure portaldan kopyaladığınız.
+    d. **GİRİŞ NOKTASI**: Yapıştırma **SAML çoklu oturum açma hizmeti URL'si** daha önce Azure portaldan kopyaladığınız.
 
     e. Geçiş seçeneği **ON** tıklayın **Kaydet**.
 

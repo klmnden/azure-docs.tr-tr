@@ -4,7 +4,7 @@ description: Azure Active Directory ve RedBrick sistem durumu arasında çoklu o
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 26290c65-9aa3-42ab-8ba5-901b14dc8e73
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 1/3/2019
 ms.author: jeedes
-ms.openlocfilehash: b757da1f218d446c56c318d91d3c9015ed08c967
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 66ff2e7c2f9fb71bcf54cc5946afed34628809b2
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065469"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54816696"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-redbrick-health"></a>Öğretici: RedBrick Health ile Azure Active Directory Tümleştirmesi
 

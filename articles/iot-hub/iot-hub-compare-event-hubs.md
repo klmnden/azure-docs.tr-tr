@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: kgremban
-ms.openlocfilehash: 830052341c4f0e3488c8e63da59cbef1f72e158a
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 20bb0cb6982bcbea6b18989099322cfd3389b0b0
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42056164"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819654"
 ---
 # <a name="connecting-iot-devices-to-azure-iot-hub-and-event-hubs"></a>IOT cihazları Azure'a bağlanıyor: IOT Hub ile Event Hubs
 
@@ -30,13 +30,14 @@ Aşağıdaki tabloda, IOT özelliklerini değerlendirirken nasıl IOT Hub'ın ik
 | IOT özelliği | IOT hub'ı standart katman | IOT hub'ı temel katman | Event Hubs |
 | --- | --- | --- | --- |
 | CİHAZDAN buluta ileti gönderme | ![İşaretli][checkmark] | ![İşaretli][checkmark] | ![İşaretli][checkmark] |
-| İletişim kuralları: WebSockets üzerinden HTTPS, AMQP, AMQP | ![İşaretli][checkmark] | ![İşaretli][checkmark] | ![İşaretli][checkmark] |
-| Protokolleri: WebSockets üzerinden MQTT MQTT, | ![İşaretli][checkmark] | ![İşaretli][checkmark] |  |
+| Protokoller: HTTPS, AMQP, AMQP webSockets üzerinden | ![İşaretli][checkmark] | ![İşaretli][checkmark] | ![İşaretli][checkmark] |
+| Protokoller: MQTT, MQTT webSockets üzerinden | ![İşaretli][checkmark] | ![İşaretli][checkmark] |  |
 | Cihaz kimliği başına | ![İşaretli][checkmark] | ![İşaretli][checkmark] |  |
 | Cihazlardan karşıya dosya yükleme | ![İşaretli][checkmark] | ![İşaretli][checkmark] |  |
 | Cihaz Sağlama Hizmeti | ![İşaretli][checkmark] | ![İşaretli][checkmark] |  |
 | Buluttan cihaza ileti gönderme | ![İşaretli][checkmark] |  |  |
 | Cihaz ikizi ve cihaz Yönetimi | ![İşaretli][checkmark] |  |  |
+| Cihaz akışları (Önizleme) | ![İşaretli][checkmark] |  |  |
 | IoT Edge | ![İşaretli][checkmark] |  |  |
 
 CİHAZDAN buluta veri alımı yalnızca kullanım örneği olsa bile, IOT cihaz bağlantısı için tasarlanmış bir hizmet sağladığı gibi IOT hub'ı kullanarak öneririz. 

@@ -7,21 +7,23 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 12/25/2018
+ms.date: 01/21/2019
 ms.author: juliako
-ms.openlocfilehash: 2c07cfcba473e2e27f14ff0118e6ca8a8f484df1
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: d5ec82decbb441c27fd0c5e8f1132caa126edbc1
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791834"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807754"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Video Indexer pencere öğeleri uygulamalarınıza ekleyin
 
 Bu makalede, uygulamalarınıza Video Indexer pencere öğelerini nasıl ekleyebileceğiniz gösterilmektedir. Video Indexer, uygulamanıza ekleme iki tür pencere öğeleri destekler: **Bilişsel İçgörüler** ve **Player**. 
 
 > [!NOTE]
-> ' % S'sürümü 1, 1 Şubat 2018'den ile başlangıç **Bilişsel İçgörüler** pencere öğesi kullanımdan kaldırılacaktır. Ekleme URL'si sürüm varsayılan `version=2`.
+> 1. sürümünü 1 Şubat 2018'den ile başlayan **Bilişsel İçgörüler** pencere öğesi kullanımdan kaldırılacaktır. Ekleme URL'si sürüm varsayılan `version=2`.
+
+Sürüm 2 ile başlayarak, pencere öğesi temel URL hesap'ın bölgesi içerir. Örneğin, Batı ABD bölgesinde bir hesap oluşturur: `https://wus2.videoindexer.ai/embed/insights/...`.
 
 ## <a name="widget-types"></a>Pencere öğesi türleri
 
@@ -69,7 +71,7 @@ Ekleme kodlarını açılan ekleme pencerelerinden (önceki bölümde gösterild
 
 **Özel** bir video eklemek istiyorsanız **iframe**'in **src** özniteliğinde bir erişim belirteci geçirmeniz gerekir:
 
-     https://www.videoindexer.ai/embed/[insights | player]/<accountId>/<videoId>/?accessToken=<accessToken>
+`https://www.videoindexer.ai/embed/[insights | player]/<accountId>/<videoId>/?accessToken=<accessToken>`
     
 [**İçgörüler Pencere Öğesini Al**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-insights-widget?) API’sini kullanarak Bilişsel İçgörüler pencere öğesi içeriği alın ya da [**Video Erişim Belirtecini Al**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?)’ı kullanarak bu belirteci yukarıda gösterildiği gibi URL’ye sorgu parametresi olarak ekleyin. Bu URL’yi **iframe**'in **src** değeri olarak belirtin.
 
@@ -94,13 +96,13 @@ Kendi yürütücü kodunuzu uygulayıp **Bilişsel İçgörüler** pencere öğe
 
 Bu bölümde, kullanıcı uygulamanızda içgörü denetimine tıkladığında yürütücünün ilgili noktaya atlamasını sağlayacak şekilde iki Video Indexer pencere öğesi arasında etkileşim sağlanması açıklanmaktadır.
 
-    <script src="https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js"></script> 
+`<script src="https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js"></script> `
 
 1. **Yürütücü** pencere öğesi ekleme kodunu kopyalayın.
 2. **Bilişsel İçgörüler** ekleme kodunu kopyalayın.
 3. İki pencere öğesi arasındaki iletişimi işlemek için [**Aracı dosyasını**](https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js) ekleyin:
 
-    <script src="https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js"></script>
+`<script src="https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js"></script>`
 
 Artık bir kullanıcı uygulamanızda içgörü denetimine tıkladığında yürütücü ilgili noktaya atlayacaktır.
 
@@ -110,11 +112,7 @@ Daha fazla bilgi için [bu tanıtıma](https://codepen.io/videoindexer/pen/NzJeO
 
 Bu bölümde, [AMP eklentisini](https://breakdown.blob.core.windows.net/public/amp-vb.plugin.js) kullanarak **Bilişsel İçgörüler** pencere öğesi ile bir Azure Media Player örneği arasında etkileşim sağlanması açıklanmaktadır.
  
-1. AMP yürütücüsü için bir Video Indexer eklentisi ekleyin.
-
-        <script src="https://breakdown.blob.core.windows.net/public/amp-vb.plugin.js"></script>
-
-
+1. AMP yürütücüsü için bir Video Indexer eklentisi ekleyin.<br/> `<script src="https://breakdown.blob.core.windows.net/public/amp-vb.plugin.js"></script>`
 2. Video Indexer eklentisine sahip Azure Media Player’ın örneğini oluşturun.
 
         // Init Source
@@ -209,7 +207,6 @@ Kendi yürütücünüzü kullanırsanız iletişimi sağlamak için yürütücü
         
         </script>
 
-
 Daha fazla bilgi için [bu tanıtıma](https://codepen.io/videoindexer/pen/YEyPLd) bakın.
 
 ## <a name="adding-subtitles"></a>Alt yazı ekleme
@@ -219,30 +216,41 @@ Video Indexer içgörülerini kendi AMP yürütücünüze eklerseniz **GetVttUrl
 ## <a name="customizing-embeddable-widgets"></a>Eklenebilir pencere öğelerini özelleştirme
 
 ### <a name="cognitive-insights-widget"></a>Bilişsel içgörüler pencere öğesi
-API’den veya web uygulamasından aldığınız ekleme koduna eklenen aşağıdaki URL parametresi için bir değer olarak belirtmek suretiyle istediğiniz öngörü türlerini seçebilirsiniz:
 
-**&widgets=** \<istenen pencere öğelerinin listesi>
+İstediğiniz bir değer olarak belirterek öngörü türlerini seçebilirsiniz ekleme kodu için eklenen aşağıdaki URL parametresi için (API veya web uygulamasından) sahip olursunuz: `&widgets=<list of wanted widgets>`.
 
 Olası değerler şunlardır: people (kişiler), keywords (anahtar sözcükler), sentiments (yaklaşımlar), transcript (transkript), search (arama).
 
-Örneğin, yalnızca kişi ve arama içgörüleri içeren bir pencere öğesi eklemek istiyorsanız iframe ekleme URL’si şöyle olacaktır: https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search
+Örneğin, eklemek istiyorsanız, yalnızca kişi ve arama ınsights iframe embed URL içeren bir pencere öğesi şöyle görünür:
 
-Ayrıca, iframe URL'sine **&title=**<YourTitle> parametresini ekleyerek iframe penceresinin başlığını özelleştirebilirsiniz. (Html \<başlık> değerini özelleştirir).
-Örneğin, iframe pencerenize "İçgörülerim" başlığını vermek istiyorsanız URL şöyle görünür: https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?title=İçgörülerim. Bu seçeneğin yalnızca içgörülerin yeni bir pencerede açılacağı durumlarda kullanılabileceğine dikkat edin.
+`https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search`
+
+İframe pencerenin başlığı sağlayarak da özelleştirilebilir `&title=<YourTitle>` iframe URL'si. (Html \<başlık> değerini özelleştirir).
+    
+Örneğin, başlığı "MyInsights" iframe pencereniz vermek istiyorsanız, URL şöyle görünür:
+
+`https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?title=MyInsights`
+
+Bu seçeneğin yalnızca içgörülerin yeni bir pencerede açılacağı durumlarda kullanılabileceğine dikkat edin.
 
 ### <a name="player-widget"></a>Yürütücü pencere öğesi
+
 Video Indexer yürütücüsünü eklerseniz iframe boyutunu belirterek yürütücü boyutunu seçebilirsiniz.
 
 Örneğin:
 
-    <iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/" frameborder="0" allowfullscreen />
+`<iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/" frameborder="0" allowfullscreen />`
 
 Video Indexer yürütücüsünde varsayılan olarak otomatik bir şekilde oluşturulan açıklamalı alt yazılar olacaktır. Bu açıklamalı alt yazılar, video yüklenirken seçilen kaynak dili kullanarak videodan ayıklanan transkripti temel alır.
 
-Farklı bir dilde eklemek istiyorsanız yürütücü ekleme URL’sine **&captions=< Dil | ”all” | “false” >** ekleyebilir veya mevcut tüm dillerdeki açıklamalı alt yazıları istiyorsanız değer olarak “all” kullanabilirsiniz.
-Açıklamalı alt yazıların varsayılan olarak görüntülenmesini istiyorsanız **&showCaptions=true** parametresini geçirebilirsiniz.
+Ekleyebileceğiniz, farklı bir dil ile ekleme istiyorsanız, `&captions=< Language | ”all” | “false” >` ekleme player URL'sini veya put "all" tüm diller açıklamalı alt yazılar istiyorsanız değeri.
+Varsayılan olarak görüntülenecek resim yazıları istiyorsanız geçirebilirsiniz `&showCaptions=true`.
 
-Ekleme URL'si şuna benzeyecektir: https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/?captions=italian. Açıklamalı alt yazıları devre dışı bırakmak istiyorsanız açıklamalı alt yazılar parametresi için “false” değerini geçirebilirsiniz.
+Ekleme URL'sini ardından şöyle görünür: 
+
+`https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/?captions=italian`
+
+Açıklamalı alt yazıları devre dışı bırakmak istiyorsanız açıklamalı alt yazılar parametresi için “false” değerini geçirebilirsiniz.
 
 Otomatik oynatma: Yürütücü varsayılan olarak videoyu oynatmaya başlar. Videonun otomatik olarak oynatılmaması için yukarıdaki ekleme URL’sine &autoplay=false parametresini geçirebilirsiniz.
 

@@ -4,7 +4,7 @@ description: Yükleme ve Azure Active Directory (Önizleme) için Log Analytics 
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 2290de3c-2858-4da0-b4ca-a00107702e26
 ms.service: active-directory
@@ -16,19 +16,19 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 7f3db8b16e275ff130cc3d8cb162780d595a7f32
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: fbe5515f05c66fb0763943c20ed8aaa4374e3d87
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624650"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825213"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Yükleme ve Azure Active Directory için Log Analytics görünümleri kullanma
 
 Azure AD kiracınızda arama Azure AD etkinlik günlükleri ve Azure Active Directory Log Analytics görünümleri, analiz etmenize yardımcı olur. Azure AD etkinlik günlükleri şunlardır:
 
-* Denetim günlükleri: [denetim günlükleri Etkinlik Raporu](concept-audit-logs.md) kiracınızda gerçekleştirilen her görevin geçmişine erişmenizi sağlar.
-* Oturum açma günlükleri: ile [oturum açma etkinliği raporunu](concept-sign-ins.md), Denetim günlüklerinde bildirilen görevleri gerçekleştiren belirleyebilirsiniz.
+* Denetim günlükleri: [Denetim günlükleri Etkinlik Raporu](concept-audit-logs.md) kiracınızda gerçekleştirilen her görevin geçmişine erişmenizi sağlar.
+* Oturum açma günlükleri: İle [oturum açma etkinliği raporunu](concept-sign-ins.md), Denetim günlüklerinde bildirilen görevleri gerçekleştiren belirleyebilirsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -50,7 +50,7 @@ Log Analytics görünümleri kullanmak için gerekir:
 
 2. Çalışma alanında olduğunuzda seçin **çalışma özeti**. Aşağıdaki üç görünüm görmeniz gerekir:
 
-    * **Azure AD hesap sağlama olaylarını**: Bu görünümde sağlanan yeni kullanıcı sayısı gibi sağlama etkinliği denetim ile ilgili raporlar gösterilir ve hataları sağlama, kullanıcı sayısı güncelleştirilir ve güncelleştirme hataları ve kullanıcı sayısı XML'deki sağlanan ve karşılık gelen hataları.    
+    * **Azure AD hesabı olayları sağlama**: Bu görünümde sağlanan yeni kullanıcı sayısı gibi sağlama etkinliği denetim ile ilgili raporlar gösterilir ve sağlama hataları, kullanıcı sayısı güncelleştirildi ve güncelleştirme hataları ve kullanıcılar da sağlanan ve karşılık gelen hataları sayısı.    
     * **Oturum açma olayları**: Bu görünümde, oturum açma etkinliği, uygulama, kullanıcı, cihaz yanı sıra oturum açma sayısı zamanla izleme Özet görünümünü tarafından oturum açma işlemleri gibi izleme ile ilgili en ilgili raporlar gösterilir.
 
 3. Bu görünümler için bireysel raporlar hemen birini seçin. Ayrıca tüm rapor parametreleri uyarılar ayarlayabilirsiniz. Var olan her zaman bir oturum açma hatası örnek için bir uyarı ayarlayalım. Bunu yapmak için önce seçin **oturum açma olayları** görüntülenecek **zaman içinde oturum açma hataları** rapor ve ardından **Analytics** gerçek ile sorguyu Ayrıntılar sayfasını açmak için Raporun. 

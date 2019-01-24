@@ -1,10 +1,10 @@
 ---
-title: 'Öğretici: Azure Active Directory Tümleştirme ASC Sözleşmelerle | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ASC Sözleşmelerle | Microsoft Docs'
 description: Azure Active Directory ve ASC sözleşmeleri arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: f7f54202-1581-4e55-a97e-02633ff9382d
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2017
 ms.author: jeedes
-ms.openlocfilehash: f5eaa61af2c44265f36662e8a3b1f8ff8a747afe
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5737bd76e7809035f21103f45a20fa8306061f30
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449562"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823309"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-asc-contracts"></a>Öğretici: Azure Active Directory tümleştirmesiyle ASC sözleşmeleri
+# <a name="tutorial-azure-active-directory-integration-with-asc-contracts"></a>Öğretici: ASC sözleşmeleri ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, ASC sözleşmeleri Azure Active Directory (Azure AD) ile tümleştirmeyi öğrenin.
 
@@ -37,7 +37,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD tümleştirmesi ASC sözleşmeleriyle yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Bir ASC sözleşmeleri çoklu oturum açma etkin aboneliği
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Azure AD'de ASC sözleşmeleri tümleştirmesini yapılandırmak için ASC sözl
 
 **Galeriden ASC anlaşmaları eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
@@ -117,7 +117,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve A
     b. İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<subdomain>.asccontracts.com/shibboleth.sso/login`
 
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı ve yanıt URL'si ile güncelleştirin. ASC ağları Inc. (ASC) ekibi ile iletişime geçin **613.599.6178** bu değerleri almak için.
+    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı ve yanıt URL'si ile güncelleştirin. Contact ASC Networks Inc. (ASC) ekibi **613.599.6178** bu değerleri almak için.
 
 1. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
 
@@ -127,10 +127,10 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve A
 
     ![Çoklu oturum açmayı yapılandırın](./media/asccontracts-tutorial/tutorial_general_400.png)
 
-1. Çoklu oturum açmayı yapılandırma **ASC sözleşmeleri** yan, ASC ağları Inc. (ASC) destek çağrısı **613.599.6178** ve indirilen sağlayacağını **meta veri XML**. Bunlar bu uygulamayı her iki kenarı da düzgün ayarlandığından SAML SSO bağlantısı ayarlayın.
+1. Çoklu oturum açmayı yapılandırma **ASC sözleşmeleri** yan, ASC ağları Inc. çağırın (ASC) Destek'te **613.599.6178** ve indirilen sağlayacağını **meta veri XML**. Bunlar bu uygulamayı her iki kenarı da düzgün ayarlandığından SAML SSO bağlantısı ayarlayın.
 
 > [!TIP]
-> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
+> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi embedded belgeleri özelliği burada hakkında: [Azure AD embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
@@ -165,7 +165,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
  
 ### <a name="creating-an-asc-contracts-test-user"></a>Bir ASC sözleşmeleri test kullanıcısı oluşturma
 
-ASC ağları Inc. (ASC) destek ekibi ile iş **613.599.6178** ASC sözleşmeleri platform eklenen kullanıcılara başlangıç için.
+ASC ağları Inc. ile çalışma (ASC) destek ekibi **613.599.6178** ASC sözleşmeleri platform eklenen kullanıcılara başlangıç için.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcı atama
 
@@ -201,7 +201,7 @@ Bu bölümde, ASC sözleşmelerine erişim vererek, Azure çoklu oturum açma ku
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim panelinde ASC sözleşmeleri kutucuğa tıkladığınızda, otomatik olarak ASC sözleşmeleri uygulamanıza açan. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md).
+Erişim panelinde ASC sözleşmeleri kutucuğa tıkladığınızda, otomatik olarak ASC sözleşmeleri uygulamanıza açan. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

@@ -9,14 +9,14 @@ ms.service: media-services
 ms.topic: tutorial
 ms.date: 11/19/2018
 ms.author: juliako
-ms.openlocfilehash: 41f3e3fffba0dde5277a39f62ef13d4dfc21c67e
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 72412956d231ea2696c05ba250302faf5f90c91d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52292174"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823292"
 ---
-# <a name="tutorial-how-to-sign-up-and-upload-your-first-video"></a>Öğretici: Kaydolma ve ilk videonuzu karşıya yükleme
+# <a name="tutorial-how-to-sign-up-and-upload-your-first-video"></a>Öğretici: Kaydolun ve ilk videonuzu karşıya yükleyin
 
 Bu kullanmaya başlama öğreticisinde, Video Indexer web sitesinde oturum açma ve ilk videonuzu karşıya yükleme açıklanmaktadır.
 
@@ -41,7 +41,7 @@ Video Indexer ile geliştirmeye başlamak için [Video Indexer](https://www.vide
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Artık [Video Indexer](video-indexer-view-edit.md) web sitesini veya [Video Indexer Geliştirici Portalı](video-indexer-use-apis.md)’nı kullanarak videoya ilişkin içgörüleri görebilirsiniz. 
+Artık [Video Indexer](video-indexer-view-edit.md) Web sitesi veya [Video Indexer Geliştirici Portalı](video-indexer-use-apis.md) video öngörüleri görmek için. 
 
 ## <a name="see-also"></a>Ayrıca bkz.
 

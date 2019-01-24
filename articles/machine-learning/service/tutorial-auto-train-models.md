@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 86a3430f6109eb4b61baa0c7014752d07063fe85
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 97910241cb4f903deeeb9ff6971839530903efe2
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468812"
+ms.locfileid: "54823032"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Öğretici: Otomatik makine öğrenimi, regresyon modeli derler
 
@@ -44,11 +44,11 @@ Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Dene
 ## <a name="prerequisites"></a>Önkoşullar
 
 > * [Veri hazırlama öğreticisini çalıştırma](tutorial-data-prep.md).
-> * Otomatik machine learning ortam yapılandırılmış. Azure not defterleri, yerel Python ortamı veya bir veri bilimi sanal makinesi verilebilir. [Otomatik makine öğrenimi yedekleme kümesi](samples-notebooks.md).
+> * Otomatik machine learning ortam yapılandırılmış. Örnekler [Azure not defterleri](https://notebooks.azure.com/), yerel Python ortamı veya bir veri bilimi sanal makinesi. [Otomatik makine öğrenimi yedekleme kümesi](samples-notebooks.md).
 
 ## <a name="get-the-notebook"></a>Not defterini alma
 
-Kolaylık olması için, bu öğretici bir [Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part2-automated-ml.ipynb) olarak sağlanır. Çalıştırma `regression-part2-automated-ml.ipynb` not defteri Azure defterlerinde veya kendi Jupyter Notebook sunucusu.
+Kolaylık olması için, bu öğretici bir [Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part2-automated-ml.ipynb) olarak sağlanır. Çalıştırma `regression-part2-automated-ml.ipynb` Not Defteri veya [Azure not defterleri](https://notebooks.azure.com/) veya kendi Jupyter Notebook sunucusu.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 

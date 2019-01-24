@@ -1,10 +1,10 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle tanı | Microsoft Docs'
+title: 'Öğretici: Tanı ile Azure Active Directory Tümleştirme | Microsoft Docs'
 description: Azure Active Directory ve tanı arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: cfad939e-c8f4-45a0-bd25-c4eb9701acaa
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: jeedes
-ms.openlocfilehash: b2d5acfcb722845d7f346668597c073319f273f0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 49d501a07f2efa6e9c6e20dfe2a026badf13f624
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448793"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824159"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-recognize"></a>Öğretici: Azure Active Directory tümleştirmesiyle tanı
+# <a name="tutorial-azure-active-directory-integration-with-recognize"></a>Öğretici: Tanı ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile tanı tümleştirme konusunda bilgi edinin.
 
@@ -37,7 +37,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD Tümleştirmesi ile tanı yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik bir tanı çoklu oturum açma etkin
 
 > [!NOTE]
@@ -46,7 +46,7 @@ Azure AD Tümleştirmesi ile tanı yapılandırmak için aşağıdaki öğeler g
 Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 
 - Gerekli olmadıkça, üretim ortamında kullanmayın.
-- Azure AD deneme ortamı yoksa, bir aylık deneme burada alabilirsiniz: [deneme teklifi](https://azure.microsoft.com/pricing/free-trial/).
+- Azure AD deneme ortamı yoksa, bir aylık deneme burada alabilirsiniz: [Deneme teklifi](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
@@ -59,7 +59,7 @@ Azure AD'de tanı tümleştirmesini yapılandırmak için tanı Galeriden yönet
 
 **Galeriden tanı eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
@@ -117,7 +117,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve t
     b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: `https://recognizeapp.com/<your-domain>`
 
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. İlgili kişi [tanımak istemci Destek ekibine](mailto:support@recognizeapp.com) ve oturum açma URL'si almak için tanımlayıcı değeri öğreticinin ilerleyen bölümlerinde açıklanan SSO ayarları bölümünden, hizmet sağlayıcısı meta verileri URL'sini açarak alabilirsiniz. . 
+    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. İlgili kişi [tanımak istemci Destek ekibine](mailto:support@recognizeapp.com) ve oturum açma URL'si almak için tanımlayıcı değeri öğreticinin ilerleyen bölümlerinde açıklanan SSO ayarları bölümünden, hizmet sağlayıcısı meta verileri URL'sini açarak alabilirsiniz. . 
  
 1. Üzerinde **SAML imzalama sertifikası** bölümünde **sertifika (Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 
@@ -161,12 +161,12 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve t
    
     ![Çoklu oturum açma üzerinde uygulama tarafı yapılandırma](./media/recognize-tutorial/tutorial_recognize_003.png)
 
-1. Açık **meta veri URL'si bağlantı** meta veri belgesini indirmek için boş bir tarayıcı altında. Ardından EntityDescriptor value(entityID) dosyasından kopyalayın ve yapıştırın **tanımlayıcı** metin kutusunda **tanımak etki alanı ve URL'ler bölüm** Azure portalında.
+1. Açık **meta veri URL'si bağlantı** meta veri belgesini indirmek için boş bir tarayıcı altında. Ardından EntityDescriptor value(entityID) dosyasından kopyalayın ve yapıştırın **tanımlayıcı** metin kutusunda **tanımak etki alanı ve URL'ler bölüm** Azure portalında.
     
     ![Çoklu oturum açma üzerinde uygulama tarafı yapılandırma](./media/recognize-tutorial/tutorial_recognize_004.png)
 
 > [!TIP]
-> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
+> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi embedded belgeleri özelliği burada hakkında: [Azure AD embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma

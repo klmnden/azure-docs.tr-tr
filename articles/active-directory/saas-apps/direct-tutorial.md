@@ -1,10 +1,10 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle doğrudan | Microsoft Docs'
+title: 'Öğretici: Doğrudan Azure Active Directory tümleştirmesiyle | Microsoft Docs'
 description: Çoklu oturum açma ve doğrudan Azure Active Directory arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 7c2cd1f0-d14c-42f0-94a8-9b800008b285
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeedes
-ms.openlocfilehash: 7e693a721e5556970607fafd8ff187d3b06c913e
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 6bb197b820b9f4262eb5c93665c46c14f9497d0f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092895"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822663"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-direct"></a>Öğretici: Azure Active Directory tümleştirmesiyle doğrudan
+# <a name="tutorial-azure-active-directory-integration-with-direct"></a>Öğretici: Doğrudan Azure Active Directory tümleştirmesiyle
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile doğrudan tümleştirme konusunda bilgi edinin.
 
@@ -118,7 +118,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve d
 
     ![Çoklu oturum açmayı yapılandırın](./media/direct-tutorial/tutorial_direct_url1.png)
 
-     İçinde **oturum açma URL'si** metin kutusuna URL'yi yazın: `https://direct4b.com/sso` 
+     İçinde **oturum açma URL'si** metin kutusuna URL'yi yazın: `https://direct4b.com/sso` 
 
 5. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
 
@@ -164,7 +164,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
 ### <a name="creating-a-direct-test-user"></a>Doğrudan test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon doğrudan adlı bir kullanıcı oluşturun. Çalışmak [doğrudan Destek ekibine](https://direct4b.com/ja/support.html#inquiry) doğrudan platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi. 
+Bu bölümde, Britta Simon doğrudan adlı bir kullanıcı oluşturun. Çalışmak [doğrudan Destek ekibine](https://direct4b.com/ja/support.html#inquiry) doğrudan platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi. 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcı atama
 

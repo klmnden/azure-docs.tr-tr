@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: juliako
-ms.openlocfilehash: e36673c7baa03e1bcf36c149851e6455cea798fe
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 6e829d617aa978f94b99cc9d018b5ca863eaaef0
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945578"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807329"
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>.NET ile Azure Media Services API'sine erişmek için Azure AD kimlik doğrulaması kullanın.
 
@@ -80,7 +80,7 @@ Kullanıcı kimlik doğrulaması seçeneği ile Azure Media Service API'sine ba�
 
 Bu parametrelerin değerleri bulunabilir **AzureEnvironments.AzureCloudEnvironment**. **AzureEnvironments.AzureCloudEnvironment** doğru ortamda genel bir Azure veri merkezi için değişken ayarları almak için .NET SDK'sındaki bir yardımcı sabittir. 
 
-Media Services yalnızca ortak veri merkezlerinde erişmek için önceden tanımlı bir ortam ayarlarını içerir. Bağımsız veya kamu bulut bölgeleri için kullanabileceğiniz **AzureChinaCloudEnvironment**, **AzureUsGovernmentEnvrionment**, veya **AzureGermanCloudEnvironment** sırasıyla.
+Media Services yalnızca ortak veri merkezlerinde erişmek için önceden tanımlı bir ortam ayarlarını içerir. Bağımsız veya kamu bulut bölgeleri için kullanabileceğiniz **AzureChinaCloudEnvironment**, **AzureUsGovernmentEnvironment**, veya **AzureGermanCloudEnvironment** sırasıyla.
 
 Aşağıdaki kod örneği, bir belirteç oluşturur:
     
@@ -122,7 +122,7 @@ Aşağıdaki örnek, Azure AD belirtecini ve bağlam oluşturma işlemi gösteri
     }
 
 >[!NOTE]
->Bildiren bir özel durum alırsanız "uzak sunucu bir hata döndürdü: (401) yetkisiz" bkz [erişim denetimi](media-services-use-aad-auth-to-access-ams-api.md#access-control) Azure Media Services API'sine erişim bölümünü ile Azure AD kimlik doğrulamasına genel bakış.
+>Bildiren bir özel durum alırsanız "uzak sunucu bir hata döndürdü: Yetkisiz (401)"konusuna bakın [erişim denetimi](media-services-use-aad-auth-to-access-ams-api.md#access-control) Azure Media Services API'sine erişim bölümünü ile Azure AD kimlik doğrulamasına genel bakış.
 
 ## <a name="use-service-principal-authentication"></a>Hizmet sorumlusu kimlik doğrulaması kullanma
     

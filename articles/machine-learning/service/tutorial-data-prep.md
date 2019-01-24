@@ -11,12 +11,12 @@ ms.author: cforbe
 ms.reviewer: trbye
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 81afda4227484c19b49ffc4c399e52576629da34
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: eb4d94d93a72844cfa869bd74aef6eeb34b0f8e9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321883"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817512"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Öğretici: Regresyon model için verileri hazırlama
 
@@ -37,7 +37,7 @@ Python'da verilerinizi kullanarak hazırlayabilirsiniz [Azure Machine Learning v
 
 ## <a name="get-the-notebook"></a>Not defterini alma
 
-Kolaylık olması için, bu öğretici bir [Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part1-data-prep.ipynb) olarak sağlanır. Çalıştırma **regresyon-bölüm 1-verileri-prep.ipynb** not defteri Azure defterlerinde veya kendi Jupyter Notebook sunucusu.
+Kolaylık olması için, bu öğretici bir [Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part1-data-prep.ipynb) olarak sağlanır. Çalıştırma **regresyon-bölüm 1-verileri-prep.ipynb** Not Defteri veya [Azure not defterleri](https://notebooks.azure.com/) veya kendi Jupyter notebook sunucusu.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
@@ -1066,7 +1066,7 @@ package.save(file_path)
 
 Öğreticinin ikinci Kısım ile devam etmek için ihtiyacınız **dflows.dprep** geçerli dizin dosyası.
 
-Bölümüne iki devam etmeyi planlamıyorsanız, silme **dflows.dprep** geçerli dizininizde dosya. Yürütme yerel olarak veya Azure not defterleri çalışmasından bu dosyayı silin.
+Bölümüne iki devam etmeyi planlamıyorsanız, silme **dflows.dprep** geçerli dizininizde dosya. Bu dosya, yürütme yerel olarak çalışıyor olsun veya silin [Azure not defterleri](https://notebooks.azure.com/).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

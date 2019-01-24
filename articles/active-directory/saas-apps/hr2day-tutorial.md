@@ -1,10 +1,10 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle HR2day Merces tarafından | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile HR2day Merces tarafından | Microsoft Docs'
 description: Azure Active Directory ve Merces tarafından HR2day arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 853d08c9-27b1-48d4-b8e7-3705140eb67f
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/24/2017
 ms.author: jeedes
-ms.openlocfilehash: 984e2e9999a2aba7a595034f1fec8bafb976f310
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 327e6d94cbabd679531935ba330d3096d73f8897
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441624"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821031"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>Öğretici: Azure Active Directory tarafından Merces HR2day ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>Öğretici: Azure Active Directory tarafından Merces HR2day ile tümleştirmesi
 
 Bu öğreticide, HR2day Merces tarafından Azure Active Directory (Azure AD) ile tümleştirmeyi öğrenin.
 
@@ -88,11 +88,11 @@ Ata tarafından Merces HR2day içinde **kullanıcı adı** için Azure AD'de **k
 
 Yapılandırma ve Azure AD çoklu oturum açma HR2day Merces tarafından ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. [Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on): Bu özelliği kullanmak sağlayın.
-1. [Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user): Azure AD çoklu oturum açma denemesi Britta Simon ile.
-1. [Merces test kullanıcı tarafından bir HR2day oluşturma](#creating-an-hr2day-by-merces-test-user): HR2day kullanıcı Azure AD gösterimini bağlı Merces tarafından içinde bir karşılığı Britta simon'un oluşturun.
-1. [Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user): Azure AD çoklu oturum açmayı kullanmak için Britta Simon etkinleştirin.
-1. [Çoklu oturum açmayı test](#testing-single-sign-on): yapılandırma çalışıp çalışmadığını doğrulayın.
+1. [Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on): Bu özelliği kullanmak etkinleştirin.
+1. [Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user): Azure AD çoklu oturum açma Britta Simon ile test edin.
+1. [Merces test kullanıcı tarafından bir HR2day oluşturma](#creating-an-hr2day-by-merces-test-user): Kullanıcı Azure AD gösterimini bağlı Merces tarafından HR2day bir karşılığı Britta simon'un oluşturun.
+1. [Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user): Britta Simon, Azure AD çoklu oturum açmayı kullanmak etkinleştirin.
+1. [Çoklu oturum açmayı test](#testing-single-sign-on): Yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
@@ -106,11 +106,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
 1. Çoklu oturum açma, etkinleştirmek için **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma**.
  
-    ![Çoklu oturum açmayı yapılandırın](./media/hr2day-tutorial/tutorial_hr2daybymerces_samlbase.png)
+    ![Çoklu oturum açmayı yapılandırma](./media/hr2day-tutorial/tutorial_hr2daybymerces_samlbase.png)
 
 1. İçinde **Merces etki alanı ve URL'ler tarafından HR2day** bölümünde, aşağıdaki adımları uygulayın:
 
-    ![Çoklu oturum açmayı yapılandırın](./media/hr2day-tutorial/tutorial_hr2daybymerces_url.png)
+    ![Çoklu oturum açmayı yapılandırma](./media/hr2day-tutorial/tutorial_hr2daybymerces_url.png)
 
     a. İçinde **oturum açma URL'si** kutusuna şu biçimi kullanarak bir URL yazın: `https://<tenantname>.force.com/<instancename>`.
 
@@ -123,13 +123,13 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
 1. Üzerinde **SAML imzalama sertifikası** bölümünden **Certificate(Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/hr2day-tutorial/tutorial_hr2daybymerces_certificate.png) 
+    ![Çoklu oturum açmayı yapılandırma](./media/hr2day-tutorial/tutorial_hr2daybymerces_certificate.png) 
 
 1. Bu bölümde, kullanıcıların hesaplarıyla HR2day Merces tarafından için Azure AD'de kimlik doğrulaması sağlamak açıklar. SAML Protokolü temelinde Federasyon kullanarak bunu.
 
     HR2day Merces uygulama tarafından özel öznitelik eşlemelerini SAML belirtecinize ekleme gerektiren belirli bir biçimde SAML onaylamalarını bekliyor. Bunun bir örneğini aşağıdaki ekran gösterilir. 
 
-    ![Çoklu oturum açmayı yapılandırın](./media/hr2day-tutorial/tutorial_hr2day_00.png)
+    ![Çoklu oturum açmayı yapılandırma](./media/hr2day-tutorial/tutorial_hr2day_00.png)
     
     > [!NOTE] 
     SAML onaylaması yapılandırmadan önce başvurmanız gerekir [Merces istemci destek ekibi tarafından HR2day](mailto:servicedesk@merces.nl) ve kiracınız için benzersiz tanımlayıcı özniteliği değeri isteyin. Sonraki bölümde yer alan adımları tamamlamak için bu değere ihtiyacınız. 
@@ -142,7 +142,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     
       a. Açmak için **öznitelik Ekle** iletişim kutusunda **eklemek agentconfigutil**.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/hr2day-tutorial/tutorial_attribute_04.png)
+    ![Çoklu oturum açmayı yapılandırma](./media/hr2day-tutorial/tutorial_attribute_04.png)
 
     ![Çoklu oturum açmayı yapılandırın](./media/hr2day-tutorial/tutorial_attribute_05.png)
 
@@ -160,11 +160,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
 1. **Kaydet** düğmesini seçin.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/hr2day-tutorial/tutorial_general_400.png)
+    ![Çoklu oturum açmayı yapılandırma](./media/hr2day-tutorial/tutorial_general_400.png)
 
 1. İçinde **Merces yapılandırması HR2day** bölümünden **yapılandırma HR2day Merces tarafından** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **oturum kapatma URL'si**, **SAML varlık kimliği**, ve **SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru** bölümü.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/hr2day-tutorial/tutorial_hr2daybymerces_configure.png) 
+    ![Çoklu oturum açmayı yapılandırma](./media/hr2day-tutorial/tutorial_hr2daybymerces_configure.png) 
 
 1. Uygulamanız için SSO'yu yapılandırmak için kişi [Merces istemci destek ekibi tarafından HR2day](mailTo:servicedesk@merces.nl). İndirilen ekleme **Certificate(Base64)** dosyasını, e-posta. Ayrıca sağlamak **oturum kapatma URL'si**, **SAML varlık kimliği**, ve **SAML çoklu oturum açma hizmeti URL'si** böylece SSO tümleştirme için yapılandırılabilir.
 
@@ -227,7 +227,7 @@ Bu bölümde, Azure çoklu oturum açma için HR2day Merces tarafından erişim 
 
 1. Uygulamalar listesinde **Merces tarafından HR2day**.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/hr2day-tutorial/tutorial_hr2daybymerces_app.png) 
+    ![Çoklu oturum açmayı yapılandırma](./media/hr2day-tutorial/tutorial_hr2daybymerces_app.png) 
 
 1. Soldaki menüde **kullanıcılar ve gruplar**.
 

@@ -1,10 +1,10 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle vxMaintain | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile vxMaintain | Microsoft Docs'
 description: Azure Active Directory ve vxMaintain arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 841a1066-593c-4603-9abe-f48496d73d10
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 7e444692dfeab5ca14fbd896043cc28e2cbd8717
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 590c7961444a36c8958fd82aaf67b05ee2213e74
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434003"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819909"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-vxmaintain"></a>Öğretici: Azure Active Directory vxMaintain ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-vxmaintain"></a>Öğretici: VxMaintain ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile vxMaintain tümleştirme konusunda bilgi edinin.
 
@@ -37,7 +37,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla bilgi için bkz. [uy
 
 Azure AD Tümleştirmesi ile vxMaintain yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Bir vxMaintain SSO etkin aboneliği
 
 > [!NOTE]
@@ -161,7 +161,7 @@ Bu bölümde, aşağıdakileri yaparak Azure portalında, Britta Simon test kull
  
 ### <a name="create-a-vxmaintain-test-user"></a>VxMaintain test kullanıcısı oluşturma
 
-Bu bölümde, test kullanıcı Britta Simon vxMaintain oluşturun. VxMaintain platform kullanıcılar eklemek için çalışmak [vxMaintain Destek ekibine](https://www.hubspot.com/company/contact). SSO kullanmadan önce oluşturma ve kullanıcıları etkinleştirin.
+Bu bölümde, test kullanıcı Britta Simon vxMaintain oluşturun. VxMaintain platform kullanıcılar eklemek için çalışmak [vxMaintain Destek ekibine](https://www.hubspot.com/company/contact). SSO kullanmadan önce oluşturma ve kullanıcıları etkinleştirin.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

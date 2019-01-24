@@ -4,7 +4,7 @@ description: Azure Active Directory ve GTNexus SSO sistemi arasında çoklu otur
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: e677a161-1662-4eb3-b48a-b2835470b59e
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/08/2019
 ms.author: jeedes
-ms.openlocfilehash: 646c9b1c3a1f10cae678e6788379eb6bbd144e78
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 7f2c494e381e2f2be2433f628a87742290c26bde
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263501"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809335"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gtnexus-sso-system"></a>Öğretici: Azure Active Directory Tümleştirmesi GTNexus SSO sistemi
 

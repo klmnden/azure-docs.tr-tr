@@ -11,12 +11,12 @@ author: hning86
 ms.author: haining
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0dab14e9c8f99a10b1dc26c2adb1e88d3b18ee90
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: e3569f560224ab8c9a64ababb2fcea7e96e87367
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468176"
+ms.locfileid: "54812463"
 ---
 # <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>Hızlı Başlangıç: Azure Machine Learning'i kullanmaya başlamak için Azure portalını kullanma
 
@@ -61,7 +61,7 @@ Bu örnek, çalışma alanının betikte oluşturulan bilgileri izlemenize nası
 
 ### <a name="open-a-notebook"></a>Not defterini açma 
 
-Azure not defterleri, Machine Learning çalıştırmak için gereken her şeyi ile önceden yapılandırılmış Jupyter not defterleri için ücretsiz bulut platformu sağlar. Çalışma alanınızdan çalışma alanınızı Azure Machine Learning hizmeti ile çalışmaya başlamak için bu platform başlatabilirsiniz.
+[Azure not defterleri](https://notebooks.azure.com) Machine Learning çalıştırmak için gereken her şeyi ile önceden yapılandırılmış Jupyter not defterleri için ücretsiz bulut platformu sağlar. Çalışma alanınızdan çalışma alanınızı Azure Machine Learning hizmeti ile çalışmaya başlamak için bu platform başlatabilirsiniz.
 
 1. Çalışma sayfasında **çalışma, Azure Machine Learning hizmetini keşfedin**.
 

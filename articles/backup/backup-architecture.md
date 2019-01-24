@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: raynew
-ms.openlocfilehash: d3e6a17ba9d0712d921d8e0a1d0bcbcd68ce5cfb
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 84890c0658970aa9f61a06764cf902a5e5ee4379
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360372"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812577"
 ---
 # <a name="azure-backup-architecture"></a>Azure Backup mimarisi
 
@@ -163,7 +163,7 @@ Yinelenenleri kaldırılmış diskleri yedekleme | | | ![Kısmi][yellow]<br/><br
 - Azure sanal makineleri, kendi işletim sistemini, uygulamalarını ve verilerini depolamak için diskleri kullanır.
 - Azure VM'ler, en az iki diskin sahiptir. Bir işletim sistemi ve geçici disk için. Bunlar, veri diskleri için uygulama verilerini de içerebilir. Disk VHD olarak depolanır.
 - VHD'ler, azure'daki standart veya premium depolama hesaplarındaki sayfa blobları olarak depolanır.
-    - Standart Depolama: Gecikme süresi için hassas olmayan iş yükleri çalıştıran VM'ler için güvenilir, düşük maliyetli disk desteği. Standart depolama standart SSD disk veya SSD standart diskleri kullanabilirsiniz).
+    - Standart Depolama: Gecikme süresi için hassas olmayan iş yükleri çalıştıran VM'ler için güvenilir, düşük maliyetli disk desteği. Standart depolama, standart SSD disk veya standart HDD diskler kullanabilirsiniz.
     - Premium Depolama: Yüksek performanslı disk desteği. Premium SSD diskleri kullanır.
 - Diskler için farklı performans katmanı vardır:
     - Standart HDD disk: HDD'ler ile desteklenir ve düşük maliyetli depolama için kullanılır.

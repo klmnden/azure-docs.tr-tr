@@ -1,10 +1,10 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle Klue | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile Klue | Microsoft Docs'
 description: Azure Active Directory ve Klue arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 08341008-980b-4111-adb2-97bbabbf1e47
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 4afe11d6d241e86b57ebb40d54e4c2dceb63a46c
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 9312006af84e74aa039d762abdfc6edba79a47fb
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123065"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824805"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-klue"></a>Öğretici: Azure Active Directory Klue ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-klue"></a>Öğretici: Klue ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Klue tümleştirme konusunda bilgi edinin.
 
@@ -206,7 +206,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 Bu bölümün amacı Klue Britta Simon adlı bir kullanıcı oluşturmaktır. Klue tam zamanında sağlama, varsayılan olarak etkin olan destekler. Bu bölümde, hiçbir eylem öğesini yoktur. Yeni bir kullanıcı, henüz yoksa Klue erişme denemesi sırasında oluşturulur.
 
 > [!Note]
-> Bir kullanıcı el ile oluşturmanız gerekiyorsa başvurun [Klue Destek ekibine](mailto:support@klue.com).
+> Bir kullanıcı el ile oluşturmanız gerekiyorsa başvurun [Klue Destek ekibine](mailto:support@klue.com).
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcı atama
 

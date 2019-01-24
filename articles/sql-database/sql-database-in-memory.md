@@ -12,12 +12,12 @@ ms.author: jodebrui
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: d2602b79db0950043cc84bbd1626f7c8ec6f402a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 399a0e6dd2b5c83a599aa50973417ba5a9be708d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714398"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813364"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>SQL veritabanında bellek içi teknolojileri kullanarak performansını iyileştirin
 
@@ -70,7 +70,7 @@ Daha fazla bilgi için bkz.
 
 ## <a name="in-memory-oltp"></a>Bellek içi OLTP
 
-Bellek içi OLTP teknolojisi, tüm verileri bellek içinde tutarak son derece hızlı veri erişimi işlemleri sağlar. Bu da özelleştirilmiş dizinler, sorgu ve veri erişimini Mandal yerel derleme OLTP iş yükünün performansını geliştirmek için kullanır. Bellek içi OLTP olarak verilerinizi düzenlemek için iki yol vardır:
+Bellek içi OLTP teknolojisi, tüm verileri bellek içinde tutarak son derece hızlı veri erişimi işlemleri sağlar. Bu da özelleştirilmiş dizinler, sorgu ve veri erişim Mandal yerel derleme OLTP iş yükünün performansını geliştirmek için kullanır. Bellek içi OLTP olarak verilerinizi düzenlemek için iki yol vardır:
 - **Bellek için iyileştirilmiş rowstore** her satır ayrı bir bellek nesne olduğu biçimi. Yüksek performanslı OLTP iş yükleri için iyileştirilmiş klasik bir bellek içi OLTP biçimi budur. Bellek için iyileştirilmiş tablolar, bellek için iyileştirilmiş rowstore biçiminde kullanılabilir iki tür vardır:
   - *Dayanıklı tabloları* (schema_and_data dayanıklılığına) burada bellekte yer satırları korunur sunucuyu yeniden başlattıktan sonra. Bu tür bir tablo, bellek içi iyileştirmeler ek avantajları ile geleneksel rowstore tablo gibi davranır.
   - *Dayanıklı olmayan tablolar* (SCEMA_ONLY) satırları nerede değil korunur yeniden başlatıldıktan sonra. Bu tür bir tabloya geçici verileri (örneğin, geçici tabloları değiştirme) için tasarlanmıştır ya da (Bu nedenle hazırlama tabloları da denir) bazı kalıcı tabloya taşımadan önce tablolar, hızlı bir şekilde gereken veri yükleyin.

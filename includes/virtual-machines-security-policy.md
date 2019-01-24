@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 4887dbcc89180c54b8e991e6fa152463476c5ce9
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 801266ed13aa993ad04ed8a3b21d6a6b3e1d6603
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226420"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54841465"
 ---
 Sanal makinenize (VM), çalışan uygulamalar için güvenli tutmak önemlidir. Sanal makinelerinize güvenli hale getirme, bir veya daha fazla Azure Hizmetleri ve VM'ler ve güvenli depolama verilerinizin güvenli erişim kapsayan özellikler içerebilir. Bu makalede, VM ve uygulamalarınızı güvenli tutmak sağlayan bilgiler sağlar.
 
@@ -23,7 +23,7 @@ Modern tehditlere bulut ortamları için uyumluluk ve güvenlik gereksinimlerini
 
 ## <a name="encryption"></a>Şifreleme
 
-Gelişmiş için [Windows VM](../articles/virtual-machines/windows/encrypt-disks.md) ve [Linux VM](../articles/virtual-machines/linux/encrypt-disks.md) güvenlik ve uyumluluk, azure'da sanal diskler şifrelenebilir. Windows vm'lerinde sanal diskler, Bitlocker kullanılarak, bekleme sırasında şifrelenir. Linux vm'lerinde sanal diskler dm-crypt kullanan bekleme durumundayken şifrelenir. 
+Gelişmiş için [Windows VM](../articles/virtual-machines/windows/encrypt-disks.md) ve [Linux VM](../articles/virtual-machines/linux/encrypt-disks.md) güvenlik ve uyumluluk, azure'da sanal diskler şifrelenebilir. Windows vm'lerinde sanal diskler, BitLocker kullanılarak, bekleme sırasında şifrelenir. Linux vm'lerinde sanal diskler dm-crypt kullanan bekleme durumundayken şifrelenir. 
 
 Azure'da sanal diskler şifrelemek için ücret alınmaz. Yazılım koruması kullanarak Azure Key Vault şifreleme anahtarlarını depolanır veya anahtarlarınızı FIPS 140-2 seviye 2 standartlarıyla sertifikalandırılmış donanım güvenlik modüllerinde (HSM'ler) oluşturun veya içeri aktarın. Bu şifreleme anahtarlarını, şifreleme ve şifre çözme, sanal Makineye eklenmiş sanal diskler için kullanılır. Bu şifreleme anahtarları denetiminizde korumak ve kullanımlarını denetleyebilirsiniz. Bir Azure Active Directory Hizmet sorumlusu, Vm'leri açıp desteklenir gibi veren bu şifreleme anahtarları için güvenli bir mekanizma sağlar.
 

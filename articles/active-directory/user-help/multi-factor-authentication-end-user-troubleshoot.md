@@ -3,7 +3,7 @@ title: İki aşamalı doğrulama - Azure Active Directory sorunlarını giderme 
 description: Kullanıcılara Azure multi-Factor Authentication ve iki aşamalı doğrulama ile ilgili bir sorunla çalıştırırsanız yapmanız gerekenler hakkında yönergeler sağlar.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
 ms.workload: identity
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: lizross
 ms.reviewer: kexia
-ms.openlocfilehash: fd722da236f3e1fff18e2561756635cd95f098e0
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 6cf794d36db865f553c0a4db16506305dab2f4fc
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346532"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810185"
 ---
-# <a name="get-help-with-two-step-verification"></a>İki aşamalı doğrulama ile ilgili yardım alın
+# <a name="get-help-with-two-step-verification"></a>İki aşamalı doğrulama konusunda yardım alın
 
-İki aşamalı doğrulama, kuruluşunuzun hesaplarınızı korumak için kullandığı bir güvenlik özelliğidir. İki aşamalı doğrulama yalnızca bir paroladan daha güvenlidir iki formları kimlik doğrulama kullandığından: bildiğiniz bir şey ve bir şey, sahip olursunuz. Sizinle sahip olduğunuz şey telefonunuz veya bir cihaz ederken bildiğiniz parolanızı bir şeydir. İki aşamalı doğrulamayı kullanmaya parolanızı aldıkları olsa bile, oturum kötü amaçlı bir bilgisayar korsanlarının durdurmak için yardımcı olabilir.
+İki aşamalı doğrulama, kuruluşunuzun hesaplarınızı korumak için kullandığı bir güvenlik özelliğidir. İki aşamalı doğrulama bildiğiniz ve sahip olduğunuz bir şey olmak üzere iki kimlik doğrulaması biçimini kullandığı için yalnızca parola kullanmaktan daha güvenlidir. Sizinle sahip olduğunuz şey telefonunuz veya bir cihaz ederken bildiğiniz parolanızı bir şeydir. İki aşamalı doğrulamayı kullanmaya parolanızı aldıkları olsa bile, oturum kötü amaçlı bir bilgisayar korsanlarının durdurmak için yardımcı olabilir.
 
 Microsoft, iki aşamalı doğrulama sunarken, özelliği kullanıp kullanmadığını belirler, kuruluşunuzun var. Yalnızca hesabınızı korumak için bir parola kullanarak dışı bırakamazlar gibi kuruluşunuz, gerektiriyorsa, çıkma olamaz.
 

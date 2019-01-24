@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 5835e8275bedebaca01d585a992930d6856edfd7
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: edf99f57fe2166e5ea7f91817dde978015af9348
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53553381"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54841464"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Azure Iaas VM diskleri ve yönetilen ve yönetilmeyen premium diskleri hakkında sık sorulan sorular
 
@@ -101,6 +101,10 @@ Müşteriler, yönetilen disk anlık görüntüsünü alın ve sonra başka bir 
 
 Evet, yönetilmeyen ve yönetilen diskleri desteklenir. Yeni iş yükleri için yönetilen diskleri kullanma ve geçerli iş yüklerinizi yönetilen disklere geçirme öneririz.
 
+**Yönetilmeyen ve yönetilen diskleri aynı VM'de birlikte bulabilirim?**
+
+Hayır.
+
 **128 GB disk oluşturun ve ardından 130 GiB boyutunu artırın, sonraki disk boyutu (256 GiB) ücretlendirilirim?**
 
 Evet.
@@ -124,10 +128,6 @@ Hayır. Bilgisayar adı özelliği güncelleştirilemiyor. Yeni sanal makine iş
 **Vm'leri yönetilen disklerle oluşturmak için Azure Resource Manager şablonları kullanarak nerede bulabilirim?**
 * [Yönetilen Diskler'i kullanarak şablonları listesi](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
-
-**Yönetilmeyen ve yönetilen diskleri aynı VM'de birlikte bulabilirim?**
-
-Hayır.
 
 **Bir disk blobu oluştururken bu kaynak blob ile sürekli olarak var olan herhangi bir ilişki mı?**
 

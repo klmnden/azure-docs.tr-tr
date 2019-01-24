@@ -1,10 +1,10 @@
 ---
-title: 'Öğretici: Azure Active Directory Tümleştirme 10.000 ft planına sahip | Microsoft Docs'
-description: Çoklu oturum açma Azure Active Directory ile 10.000 ft planları arasında yapılandırmayı öğrenin.
+title: 'Öğretici: 10.000 ft planları ile Azure Active Directory Tümleştirme | Microsoft Docs'
+description: Azure Active Directory ve 10.000 ft planları arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: b60c955e-8fa3-4872-a897-c4e81fd7beac
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,52 +14,52 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
-ms.openlocfilehash: cc6b1036d98aca62360ed8a935d2d1719c7f4069
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 91c485d17b12a973f08660687a4135ff140a84b9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36230361"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808060"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-10000ft-plans"></a>Öğretici: Azure Active Directory Tümleştirme 10.000 ft planına sahip
+# <a name="tutorial-azure-active-directory-integration-with-10000ft-plans"></a>Öğretici: 10.000 ft planları ile Azure Active Directory Tümleştirme
 
-Bu öğreticide, Azure Active Directory (Azure AD) ile 10.000 ft planlarının tümleştirmenize öğrenin.
+Bu öğreticide, Azure Active Directory (Azure AD) ile 10.000 ft planları tümleştirme konusunda bilgi edinin.
 
-10.000 ft planları Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
+10.000 ft planları, Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- 10.000 ft planları erişimi, Azure AD'de kontrol edebilirsiniz
-- Otomatik olarak 10.000 ft planlara (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz
-- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
+- 10.000 ft planları erişimi, Azure AD'de denetleyebilirsiniz
+- Otomatik olarak imzalanan 10.000 ft planlarına (çoklu oturum açma) ile Azure AD hesaplarına açma, kullanıcılarınızın etkinleştirebilirsiniz.
+- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilirsiniz.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure AD tümleştirme 10.000 ft planlarıyla yapılandırmak için aşağıdaki öğeleri gerekir:
+Azure AD tümleştirmesi 10.000 ft planlarıyla yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Bir Azure AD aboneliği
-- Bir 10.000 ft planları çoklu oturum açma abonelik etkin
+- Azure AD aboneliği
+- Abonelik 10.000 ft planları çoklu oturum açma etkin
 
 > [!NOTE]
-> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
 
-Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
+Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 
-- Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
-- Bir Azure AD deneme ortam yoksa, burada bir aylık deneme alabilirsiniz [deneme teklifi](https://azure.microsoft.com/pricing/free-trial/).
+- Gerekli olmadıkça, üretim ortamında kullanmayın.
+- Azure AD deneme ortamı yoksa, bir aylık deneme burada alabilirsiniz [deneme teklifi](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Galeriden planları 10.000 ft ekleme
-2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
+2. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-10000ft-plans-from-the-gallery"></a>Galeriden planları 10.000 ft ekleme
-Azure AD 10.000 ft planları tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden 10.000 ft planları eklemeniz gerekir.
+Azure AD'de 10.000 ft planları tümleştirmesini yapılandırmak için 10.000 ft planları Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Galeriden 10.000 ft planları eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
@@ -67,7 +67,7 @@ Azure AD 10.000 ft planları tümleştirilmesi yapılandırmak için yönetilen 
 
     ![Uygulamalar][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Uygulamalar][3]
 
@@ -75,24 +75,24 @@ Azure AD 10.000 ft planları tümleştirilmesi yapılandırmak için yönetilen 
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/10000ftplans-tutorial/tutorial_10,000ftplans_search.png)
 
-5. Sonuçlar panelinde seçin **10.000 ft planları**ve ardından **Ekle** uygulama eklemek için düğmesi.
+5. Sonuçlar panelinde seçin **10.000 ft planları**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/10000ftplans-tutorial/tutorial_10,000ftplans_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Çoklu oturum açmayı yapılandırma ve Azure AD sınama
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma 10.000 ft "Britta Simon." olarak adlandırılan bir test kullanıcı tabanlı planları ile test etme
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Yapılandırma ve test Azure AD çoklu oturum açma
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma 10.000 ft "Britta Simon." adlı bir test kullanıcı planları ile test etme
 
-Tekli çalışmaya oturum için Azure AD ne karşılık gelen 10.000 ft planlarda bir kullanıcı için Azure AD içinde olduğu bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının 10.000 ft ilgili kullanıcı arasında bir bağlantı ilişkisi planları gerekiyor kurulamıyor.
+Tek iş için oturum açma için Azure AD ne 10.000 ft planları karşılık gelen kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Bir Azure AD kullanıcısı ile 10.000 ft ilgili kullanıcı arasında bir bağlantı ilişki planları diğer bir deyişle, gereken kurulmalıdır.
 
-10.000 ft planlarda değerini atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
+10.000 ft planlarında değerini atayın **kullanıcı adı** değerini Azure AD'de **kullanıcıadı** bağlantı kurmak için.
 
-Yapılandırma ve Azure AD çoklu oturum açma 10.000 ft planları ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma 10.000 ft planlarıyla test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Kullanıcı test planları 10.000 ft oluşturma](#creating-a-10000ft-plans-test-user)**  - bir Britta Simon karşılık gelen kullanıcı Azure AD gösterimini bağlı 10.000 ft planları içinde olması.
-4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+3. **[Kullanıcı test planları oluşturma 10.000 ft](#creating-a-10000ft-plans-test-user)**  - Britta Simon kullanıcı Azure AD gösterimini bağlı 10.000 ft planları içinde bir karşılığı vardır.
+4. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
@@ -100,7 +100,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
 **Azure AD çoklu oturum açma 10.000 ft planlarıyla yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında üzerinde **10.000 ft planları** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Azure portalında, üzerinde **10.000 ft planları** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
@@ -108,50 +108,50 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
  
     ![Çoklu oturum açmayı yapılandırın](./media/10000ftplans-tutorial/tutorial_10,000ftplans_samlbase.png)
 
-3. Üzerinde **10.000 ft planları etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
+3. Üzerinde **10.000 ft planları etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/10000ftplans-tutorial/tutorial_10,000ftplans_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna, URL'yi yazın: `https://app.10000ft.com`
+    a. İçinde **oturum açma URL'si** metin kutusuna URL'yi yazın: `https://app.10000ft.com`
 
-    b. İçinde **tanımlayıcısı** metin kutusuna, URL'yi yazın: `https://app.10000ft.com/saml/metadata`
+    b. İçinde **tanımlayıcı** metin kutusuna URL'yi yazın: `https://app.10000ft.com/saml/metadata`
 
     > [!NOTE] 
-    > Değeri **tanımlayıcısı** özel bir etki alanı varsa farklıdır. Kişi [10.000 ft planları destek ekibi](https://www.10000ft.com/plans/support) bu değeri alınamıyor. 
+    > Değeri **tanımlayıcı** özel bir etki alanı varsa farklıdır. İlgili kişi [10.000 ft planları Destek ekibine](https://www.10000ft.com/plans/support) bu değeri alınamıyor. 
  
-4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **Certificate(Raw)** ve sertifika dosyayı bilgisayarınıza kaydedin.
+4. Üzerinde **SAML imzalama sertifikası** bölümünde **Certificate(Raw)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/10000ftplans-tutorial/tutorial_10,000ftplans_certificate.png) 
 
-5. Tıklatın **kaydetmek** düğmesi.
+5. Tıklayın **Kaydet** düğmesi.
 
     ![Çoklu oturum açmayı yapılandırın](./media/10000ftplans-tutorial/tutorial_general_400.png)
 
-6. Üzerinde **10.000 ft planları yapılandırma** 'yi tıklatın **yapılandırma 10.000 ft planları** açmak için **yapılandırma oturum açma** penceresi. Kopya **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
+6. Üzerinde **10.000 ft planları yapılandırma** bölümünde **yapılandırma 10.000 ft planları** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **oturum kapatma URL'si, SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
 
     ![Çoklu oturum açmayı yapılandırın](./media/10000ftplans-tutorial/tutorial_10,000ftplans_configure.png) 
 
-7. Çoklu oturum açma yapılandırmak için **10.000 ft planları** yan, indirilen göndermek için ihtiyacınız **Certificate(Raw), Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** için [10.000 ft Planları destek ekibi](https://www.10000ft.com/plans/support).
+7. Çoklu oturum açmayı yapılandırma **10.000 ft planları** tarafı, indirilen göndermek için ihtiyacınız **Certificate(Raw), oturum kapatma URL'si, SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** için [10.000 ft Destek planları takım](https://www.10000ft.com/plans/support).
 
 > [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi embedded belgeleri özelliği burada hakkında: [Azure AD embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-![Azure AD Kullanıcı oluşturma][100]
+![Azure AD kullanıcısı oluşturun][100]
 
-**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
+1. İçinde **Azure portalında**, sol gezinti bölmesinde **Azure Active Directory** simgesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/10000ftplans-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/10000ftplans-tutorial/create_aaduser_02.png) 
 
-3. Açmak için **kullanıcı** iletişim kutusunda, tıklatın **Ekle** iletişim kutusunun üst kısmında.
+3. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/10000ftplans-tutorial/create_aaduser_03.png) 
 
@@ -159,9 +159,9 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/10000ftplans-tutorial/create_aaduser_04.png) 
 
-    a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
+    a. İçinde **adı** metin kutusuna **BrittaSimon**.
 
-    b. İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.
+    b. İçinde **kullanıcı adı** metin kutusuna **e-posta adresi** BrittaSimon biri.
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
@@ -169,50 +169,50 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
  
 ### <a name="creating-a-10000ft-plans-test-user"></a>Kullanıcı test planları 10.000 ft oluşturma
 
-Bu bölümün amacı Britta Simon 10.000 ft planlarda adlı bir kullanıcı oluşturmaktır. 10.000 ft planları yalnızca zaman kaynak sağlamayı destekler, varsayılan olarak etkin olduğu. Bu bölümde, eylem öğe yok. Yeni bir kullanıcı henüz yoksa 10.000 ft planları erişme denemesi sırasında oluşturulur. 
+Bu bölümün amacı, 10.000 ft planlarında Britta Simon adlı bir kullanıcı oluşturmaktır. 10.000 ft planları destekler tam zamanında sağlama, varsayılan olarak etkin olduğu. Bu bölümde, hiçbir eylem öğesini yoktur. Yeni bir kullanıcı, henüz yoksa 10.000 ft planlarıyla erişim denemesi sırasında oluşturulur. 
 
 > [!NOTE]
-> Bir kullanıcı el ile oluşturmanız gerekiyorsa, başvurmanız gerekir [10.000 ft planları destek ekibi](https://www.10000ft.com/plans/support).
+> Bir kullanıcı el ile oluşturmanız gerekiyorsa, iletişime geçmeniz [10.000 ft planları Destek ekibine](https://www.10000ft.com/plans/support).
 
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
+### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcı atama
 
-Bu bölümde, Britta 10.000 ft planlarına erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
+Bu bölümde, 10.000 ft planlarıyla erişim vererek, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
 
-![Kullanıcı atama][200] 
+![Kullanıcı Ata][200] 
 
-**10.000 ft planlarına Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
+**Britta Simon 10.000 ft planlarına atamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
-    ![Kullanıcı atama][201] 
+    ![Kullanıcı Ata][201] 
 
 2. Uygulamalar listesinde **10.000 ft planları**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/10000ftplans-tutorial/tutorial_10,000ftplans_app.png) 
 
-3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
+3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    ![Kullanıcı atama][202] 
+    ![Kullanıcı Ata][202] 
 
-4. Tıklatın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.
+4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
-    ![Kullanıcı atama][203]
+    ![Kullanıcı Ata][203]
 
 5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
+7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
-### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
+### <a name="testing-single-sign-on"></a>Çoklu oturum açma testi
 
-Bu bölümün amacı erişim paneli kullanılarak Azure AD çoklu oturum açma yapılandırmanızı test etmektir.  
-Erişim paneli 10.000 ft planları parçasında tıklattığınızda, otomatik olarak 10.000 ft planları uygulamanızı açan.
+Bu bölümün amacı, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test sağlamaktır.  
+Erişim panelinde 10.000 ft planları kutucuğa tıkladığınızda, otomatik olarak 10.000 ft planları uygulamanızı açan.
  
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../manage-apps/what-is-single-sign-on.md)
+* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

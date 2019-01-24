@@ -11,12 +11,12 @@ ms.component: core
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 981f974450c6761b7e649838abb52acaa9d37067
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 865d00d4a6608e422fdfca1297962913ee205827
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382763"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823445"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Otomatik makine öğrenimi denemelerini yapılandırın
 
@@ -235,7 +235,7 @@ Bu tabloda parametre ayarlarını denemenizi ve varsayılan değerleri için kul
 `model_explainability` | _İsteğe bağlı_ True/False <br/>  Her yineleme için özellik önem gerçekleştirmek için doğru etkinleştirir deneyin. Deneme tamamlandıktan sonra özellik önem isteğe bağlı olarak bu yineleme etkinleştirmek için belirli bir yinelemeye explain_model() yöntemi de kullanabilirsiniz. | False
 `enable_ensembling`|Tüm yinelemeler tamamladıktan sonra ensembling yineleme etkinleştirmek için bayrak.| True 
 `ensemble_iterations`|Son topluluğu parçası olarak bir ekrana sığdırılmış işlem hattı Seçtiğimiz yineleme sayısı.| 15
-`experiment_timeout_minutes`| Tüm denemeyi çalıştırma alabilir (minues) süre miktarını kısıtlar | None
+`experiment_timeout_minutes`| Sınırlayan çalıştırmak tüm denemeler sürebilir süreyi (dakika) | None
 
 ## <a name="data-pre-processing-and-featurization"></a>Veri ön işleme ve özellik kazandırma sayesinde
 
@@ -275,7 +275,7 @@ Aşağıdaki ölçümler, her yinelemede sınıflandırma görevi için kaydedil
 |Birincil Metrik|Açıklama|Hesaplama|Ek parametreler
 --|--|--|--|
 AUC_Macro| AUC alıcı çalıştırma özellikleri eğrisi altında alandır. Her sınıf için AUC aritmetik ortalamasını makrodur.  | [Hesaplama](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | Ortalama "makrosu" =|
-AUC_Micro| AUC alıcı çalıştırma özellikleri eğrisi altında alandır. Mikro globably doğru pozitif sonuçlar ve hatalı pozitif sonuçları her sınıftaki birleştirilerek hesaplanır| [Hesaplama](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | Ortalama "micro" =|
+AUC_Micro| AUC alıcı çalıştırma özellikleri eğrisi altında alandır. Mikro genel doğru pozitif sonuçlar ve hatalı pozitif sonuçları her sınıftaki birleştirilerek hesaplanır| [Hesaplama](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | Ortalama "micro" =|
 AUC_Weighted  | AUC alıcı çalıştırma özellikleri eğrisi altında alandır. Ağırlıklı ortalamasını puanın ağırlıklı true örnekleri her sınıfta sayısına göre her sınıf için olan| [Hesaplama](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html)|Ortalama "ağırlıklı" =
 accuracy|Doğruluk true etiketlerin tam olarak eşleşen tahmin edilen etiketleri yüzdesi ' dir. |[Hesaplama](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html) |None|
 average_precision_score_macro|Ortalama kesinlik, duyarlık geri çekme eğri Precision bilgisayarlar daha önceki eşiği ağırlık kullanılan bölümden artış ile her Eşikte elde ağırlıklı ortalamasını olarak özetler. Her sınıf ortalama duyarlılık puanı aritmetik ortalamasını makrodur|[Hesaplama](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|Ortalama "makrosu" =|
@@ -310,7 +310,7 @@ normalized_median_absolute_error|Veri aralığı tarafından ayrılmış ortalam
 root_mean_squared_error|Kök ortalama karesi alınmış hata hedef ve tahmin arasındaki karesi alınmış Beklenen fark kare köküdür|[Hesaplama](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|None|
 normalized_root_mean_squared_error|Normalleştirilmiş kök ortalama karesi alınmış hata kök ortalama karesi alınmış hata veri aralığını tarafından ayrılmış olan|[Hesaplama](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|Veri aralığına göre Böl|
 root_mean_squared_log_error|Kök ortalama karesi alınmış günlük hatadır Logaritmik beklenen karesi alınmış hata kare kökünü|[Hesaplama](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|None|
-normalized_root_mean_squared_log_error|Noramlized kök ortalama karesi alınmış günlük hatadır veri aralığına göre bölünmüş kök ortalama karesi alınmış günlük hata|[Hesaplama](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Veri aralığına göre Böl|
+normalized_root_mean_squared_log_error|Veri aralığına göre bölünmüş kök ortalama karesi alınmış günlük hata normalleştirilmiş kök ortalama karesi alınmış günlük hatadır|[Hesaplama](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Veri aralığına göre Böl|
 
 ## <a name="explain-the-model"></a>Modeli açıklayan
 
@@ -322,7 +322,7 @@ Otomatik machine learning özellik önem anlamanıza olanak sağlar.  Eğitim i�
 
 *   Bir deney tamamlandıktan sonra kullanabileceğiniz `explain_model` tüm yineleme yöntemi.
 
-    ```
+    ```python
     from azureml.train.automl.automlexplainer import explain_model
     
     shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
@@ -339,7 +339,7 @@ Otomatik machine learning özellik önem anlamanıza olanak sağlar.  Eğitim i�
 
 *   Tüm yinelemeler için özellik önem görüntülemek için ayarlanmış `model_explainability` bayrak `True` AutoMLConfig içinde.  
 
-    ```
+    ```python
     automl_config = AutoMLConfig(task = 'classification',
                                  debug_log = 'automl_errors.log',
                                  primary_metric = 'AUC_weighted',
@@ -356,7 +356,7 @@ Otomatik machine learning özellik önem anlamanıza olanak sağlar.  Eğitim i�
 
     Bunu yaptıktan sonra belirli bir yineleme için özellik önem alınacak retrieve_model_explanation yöntemi kullanabilirsiniz.
 
-    ```
+    ```python
     from azureml.train.automl.automlexplainer import retrieve_model_explanation
     
     shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
