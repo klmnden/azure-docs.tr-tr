@@ -63,9 +63,9 @@
 ### [SAP iş yükü için SAP ASE Azure Sanal Makineler DBMS dağıtımı](dbms_guide_sapase.md)
 ### [Azure’da SAP MaxDB, liveCache ve İçerik Sunucusu dağıtımı](dbms_guide_maxdb.md)
 ### Azure Sanal Makineler'de SAP HANA Kullanılabilirliği
-### [Azure üzerinde SAP HANA kullanılabilirliğine genel bakış](sap-hana-availability-overview.md)
-### [Tek Azure bölgesi içinde Azure üzerinde SAP HANA Kullanılabilirliği](sap-hana-availability-one-region.md)
-### [Azure bölgeleri arasında Azure üzerinde SAP HANA Kullanılabilirliği](sap-hana-availability-across-regions.md)
+#### [Azure üzerinde SAP HANA kullanılabilirliğine genel bakış](sap-hana-availability-overview.md)
+#### [Tek Azure bölgesi içinde Azure üzerinde SAP HANA Kullanılabilirliği](sap-hana-availability-one-region.md)
+#### [Azure bölgeleri arasında Azure üzerinde SAP HANA Kullanılabilirliği](sap-hana-availability-across-regions.md)
 ## [Azure Sanal Makineler üzerinde SAP Business One](business-one-azure.md)
 ## [Windows üzerinde SAP IDES/SQL Server SAP CAL dağıtım kılavuzu](cal-ides-erp6-erp7-sp3-sql.md)
 ## [Azure için SAP LaMa bağlayıcısı](lama-installation.md)

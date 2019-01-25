@@ -18,13 +18,13 @@ items:
 - name: Kavramlar
   items:
   - name: Azure AD Connect ve Connect Health
-    href: how-to-connect-syncservice-duplicate-attribute-resiliency.md
     items:
     - name: Azure AD Connect ve Connect Health nedir?
       href: whatis-azure-ad-connect.md
     - name: Doğru kimlik doğrulamasını seçme
       href: https://docs.microsoft.com/azure/security/azure-ad-choose-authn
     - name: Kimlik eşitleme ve yinelenen öznitelik dayanıklılığı
+      href: how-to-connect-syncservice-duplicate-attribute-resiliency.md
   - name: Parola karması eşitleme
     items:
     - name: Parola karması eşitleme nedir?
@@ -325,9 +325,9 @@ items:
     href: reference-connect-adsynctools.md
   - name: ADConnectivityTools Başvurusu
     href: reference-connect-adconnectivitytools.md
-ms.openlocfilehash: 45247405dd35835d95237bbb8773fa3bcf384812
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 4e34d1cda9e905656a6eddd1f3e5ed3e21592d49
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437207"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888592"
