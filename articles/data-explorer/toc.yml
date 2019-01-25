@@ -1,119 +1,126 @@
+items:
 - name: Azure Veri Gezgini Belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
-    - name: Veri Gezgini nedir?
-      href: data-explorer-overview.md
+  - name: Veri Gezgini nedir?
+    href: data-explorer-overview.md
 - name: Hızlı Başlangıçlar
   items:
-    - name: Küme oluşturma - Azure portal
-      href: create-cluster-database-portal.md
-    - name: Veriyi çekme
-      items:
-        - name: Veri akışı - Olay hub'ı
-          href: ingest-data-event-hub.md
-        - name: Veri akışı - Kafka
-          href: ingest-data-kafka.md
-        - name: Veri işlem grubu oluşturma - Python
-          href: python-ingest-data.md
-        - name: Verilerin işlem grubunu oluşturma - Node SDK
-          href: node-ingest-data.md
-        - name: Veri işlem grubu oluşturma - .NET Standard SDK
-          href: net-standard-ingest-data.md
-        - name: Veri işlem grubu oluşturma - Logstash
-          href: ingest-data-logstash.md
-    - name: Verileri sorgulama
-      items:
-        - name: Web kullanıcı arabirimi
-          href: web-query-data.md
-        - name: Python
-          href: python-query-data.md
-    - name: Verileri görselleştirme
-      items:
-        - name: Power BI - bağlayıcı
-          href: power-bi-connector.md
-        - name: Power BI - içeri aktarılan sorgu
-          href: power-bi-imported-query.md
-        - name: Power BI - SQL sorgusu
-          href: power-bi-sql-query.md
+  - name: Küme oluşturma - Azure portal
+    href: create-cluster-database-portal.md
+  - name: Veriyi çekme
+    items:
+    - name: Veri akışı - Olay hub'ı
+      href: ingest-data-event-hub.md
+    - name: Veri akışı - Kafka
+      href: ingest-data-kafka.md
+    - name: Veri işlem grubu oluşturma - Python
+      href: python-ingest-data.md
+    - name: Verilerin işlem grubunu oluşturma - Node SDK
+      href: node-ingest-data.md
+    - name: Veri işlem grubu oluşturma - .NET Standard SDK
+      href: net-standard-ingest-data.md
+    - name: Veri işlem grubu oluşturma - Logstash
+      href: ingest-data-logstash.md
+  - name: Verileri sorgulama
+    items:
+    - name: Web kullanıcı arabirimi
+      href: web-query-data.md
+    - name: Python
+      href: python-query-data.md
+  - name: Verileri görselleştirme
+    items:
+    - name: Power BI - bağlayıcı
+      href: power-bi-connector.md
+    - name: Power BI - içeri aktarılan sorgu
+      href: power-bi-imported-query.md
+    - name: Power BI - SQL sorgusu
+      href: power-bi-sql-query.md
 - name: Öğreticiler
   items:
-    - name: Power BI’da verileri görselleştirme
-      href: visualize-power-bi.md
+  - name: Power BI’da verileri görselleştirme
+    href: visualize-power-bi.md
 - name: Kavramlar
-  expanded: true
   items:
-    - name: Veri almaya genel bakış
-      displayName: 'pipelines, connectors, plugins, Python, .NET, Java, Node, REST'
-      href: ingest-data-overview.md
-    - name: Zaman serisi analizi
-      href: time-series-analysis.md
+  - name: Veri almaya genel bakış
+    displayName: pipelines, connectors, plugins, Python, .NET, Java, Node, REST
+    href: ingest-data-overview.md
+  - name: Zaman serisi analizi
+    href: time-series-analysis.md
+  expanded: true
 - name: Nasıl yapılır kılavuzları
   items:
-    - name: Başlarken
-      expanded: true
-      items:
-        - name: Sorgu yazma
-          href: write-queries.md
-        - name: Örnek verileri ekleme
-          href: ingest-sample-data.md
-    - name: Yönetme
-      items:
-        - name: Veritabanı izinlerini yönetme
-          href: manage-database-permissions.md
-        - name: Küme durumunu denetleme
-          href: check-cluster-health.md
-        - name: Küme ölçeklendirmeyi yönetme
-          href: manage-cluster-scaling.md
-        - name: Verileri silme
-          href: delete-data.md
-        - name: Yinelenen verilerle ilgilenme
-          href: dealing-with-duplicates.md
-    - name: Diğer araçlarla çalışma
-      items:
-        - name: Python kullanarak Databricks'ten bağlanma
-          href: connect-from-databricks.md
-        - name: Jupyter Notebook'ları ve Kqlmagic kullanarak verileri analiz etme
-          href: kqlmagic.md
-        - name: Grafana’da verileri görselleştirme
-          href: grafana.md
-    - name: Sorun giderme
-      items:
-        - name: Küme oluşturma
-          href: troubleshoot-create-cluster.md
-        - name: Kümeye bağlanma
-          href: troubleshoot-connect-cluster.md
-        - name: Veritabanları ve tablolarla çalışma
-          href: troubleshoot-database-table.md
+  - name: Başlarken
+    items:
+    - name: Sorgu yazma
+      href: write-queries.md
+    - name: Örnek verileri ekleme
+      href: ingest-sample-data.md
+    expanded: true
+  - name: Yönetme
+    items:
+    - name: Veritabanı izinlerini yönetme
+      href: manage-database-permissions.md
+    - name: Küme durumunu denetleme
+      href: check-cluster-health.md
+    - name: Küme ölçeklendirmeyi yönetme
+      href: manage-cluster-scaling.md
+    - name: Verileri silme
+      href: delete-data.md
+    - name: Yinelenen verilerle ilgilenme
+      href: dealing-with-duplicates.md
+  - name: Diğer araçlarla çalışma
+    items:
+    - name: Python kullanarak Databricks'ten bağlanma
+      href: connect-from-databricks.md
+    - name: Jupyter Notebook'ları ve Kqlmagic kullanarak verileri analiz etme
+      href: kqlmagic.md
+    - name: Grafana’da verileri görselleştirme
+      href: grafana.md
+  - name: Sorun giderme
+    items:
+    - name: Küme oluşturma
+      href: troubleshoot-create-cluster.md
+    - name: Kümeye bağlanma
+      href: troubleshoot-connect-cluster.md
+    - name: Veritabanları ve tablolarla çalışma
+      href: troubleshoot-database-table.md
 - name: Başvuru
   items:
-    - name: Sorgu dili
-      href: /azure/kusto/query/
-    - name: Yönetim komutları
-      href: /azure/kusto/management/
-    - name: API'ler
-      href: /azure/kusto/api/
-    - name: Araçlar
-      href: /azure/kusto/tools/
-    - name: Kavramlar
-      href: /azure/kusto/concepts/
+  - name: Sorgu dili
+    href: /azure/kusto/query/
+  - name: Yönetim komutları
+    href: /azure/kusto/management/
+  - name: API'ler
+    href: /azure/kusto/api/
+  - name: Araçlar
+    href: /azure/kusto/tools/
+  - name: Kavramlar
+    href: /azure/kusto/concepts/
 - name: Kaynaklar
   items:
-    - name: Blog
-      href: 'https://azure.microsoft.com/blog/tag/azure-data-explorer/'
-    - name: Forumlar
-      items:
-        - name: Stack Overflow
-          href: 'https://stackoverflow.com/questions/tagged/azure-data-explorer'
-        - name: Microsoft Teknoloji Topluluğu
-          href: 'https://techcommunity.microsoft.com/t5/Azure-Data-Explorer/bd-p/Kusto'
-        - name: MSDN forumu
-          href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureKusto'
-    - name: Ürün geri bildirimi
-      href: 'http://aka.ms/adefeedback'
-    - name: Fiyatlandırma
-      href: 'https://azure.microsoft.com/pricing/details/data-explorer/'
-    - name: Maliyet Tahmin Aracı
-      href: 'http://aka.ms/adecostestimator'
-    - name: Hizmet güncelleştirmeleri
-      href: 'https://azure.microsoft.com/updates/?product=data-explorer'
+  - name: Blog
+    href: https://azure.microsoft.com/blog/tag/azure-data-explorer/
+  - name: Forumlar
+    items:
+    - name: Stack Overflow
+      href: https://stackoverflow.com/questions/tagged/azure-data-explorer
+    - name: Microsoft Teknoloji Topluluğu
+      href: https://techcommunity.microsoft.com/t5/Azure-Data-Explorer/bd-p/Kusto
+    - name: MSDN forumu
+      href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureKusto
+  - name: Ürün geri bildirimi
+    href: http://aka.ms/adefeedback
+  - name: Fiyatlandırma
+    href: https://azure.microsoft.com/pricing/details/data-explorer/
+  - name: Maliyet Tahmin Aracı
+    href: http://aka.ms/adecostestimator
+  - name: Hizmet güncelleştirmeleri
+    href: https://azure.microsoft.com/updates/?product=data-explorer
+ms.openlocfilehash: 4d17e1bd16cbf14d377e40b042a1d28d53c193ed
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467256"
