@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: f5d09600829a3efa2682721bf4aedbed7e5cf969
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 3a1ffb3b7a0f154b1d74ca7a8789e5fdadadec31
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54439077"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883781"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Azure etkinlik günlüğü ile abonelik etkinliğini izleme
 
@@ -45,7 +45,7 @@ Etkinlik günlüğü birkaç veri kategorilerini içerir. Bu kategorilerin şema
 * **Otomatik ölçeklendirme** -kayıt işlemi herhangi bir otomatik ölçeklendirme ayarı, aboneliğinizde tanımlanmış temel otomatik ölçeklendirme altyapısı ilgili olayların bu kategorisi içerir. Bu kategoride göreceğiniz olay türünü, "Otomatik ölçek ölçeği artırma eylemi başarısız oldu." örneğidir Otomatik ölçeklendirme kullanarak, otomatik olarak ölçeği genişletme veya ölçeklendirme desteklenen kaynak türü örneği sayısını gün ve/veya yük (ölçüm) verileri kullanarak bir otomatik ölçeklendirme ayarı zamanında temel. Ne zaman ölçeği artırmak veya azaltmak için başlangıç ve başarılı veya başarısız olayları koşulların kaydedilir bu kategorideki.
 * **Öneri** -Azure Danışmanı için öneri olaylardan bu kategorisi içerir.
 * **Güvenlik** -Azure Güvenlik Merkezi tarafından oluşturulan herhangi bir uyarı kaydı bu kategorisi içerir. Bu kategoride göreceğiniz olay türünü, "şüpheli çift uzantılı dosya yürütüldü." örneğidir
-* **İlke** -bu kategorideki tüm olayları içermez; gelecekte kullanılmak üzere ayrılmıştır. 
+* **İlke** -işlemlerinin Azure İlkesi tarafından gerçekleştirilen tüm etkin eylem kayıtları bu kategorisi içerir. Bu kategoride göreceğiniz olay türlerini denetim ve reddetme verilebilir. İlke tarafından gerçekleştirilen her eylemi, bir kaynak üzerinde bir işlem olarak modellenir.
 
 ## <a name="event-schema-per-category"></a>Kategori başına olay şeması
 [Kategori başına etkinlik günlüğü olay şeması anlamak için bu makaleye bakın.](../../azure-monitor/platform/activity-log-schema.md)

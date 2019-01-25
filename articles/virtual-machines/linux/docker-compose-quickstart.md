@@ -3,7 +3,7 @@ title: Docker Compose'u kullanma azure'da bir Linux VM'de | Microsoft Docs
 description: Azure CLI ile Linux sanal makinelerinde, Docker ve Compose kullanma
 services: virtual-machines-linux
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
-ms.author: zarhoads
-ms.openlocfilehash: 5cf9047a2115e2d486a433542928afbe295b5962
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.author: cynthn
+ms.openlocfilehash: aa573b17e8b590f416c4857186cb8989decc4aff
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/24/2019
-ms.locfileid: "54844628"
+ms.locfileid: "54888643"
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Tanımlamak ve Azure'da çok kapsayıcılı bir uygulama çalıştırmak için Docker ve Compose kullanmaya başlama
 İle [Compose](http://github.com/docker/compose), birden fazla Docker kapsayıcılarını oluşan bir uygulamanın tanımlamak için basit bir metin dosyası kullanın. Ardından, uygulamanızda tanımlanmış ortamınıza dağıtmak için her şeyi yapan tek bir komut, hızla çalıştırın. Bu makalede örnek olarak, arka uç bir Ubuntu sanal MariaDB SQL veritabanı ile WordPress blogu hızlı bir şekilde ayarlama işlemini gösterir. Oluştur, daha karmaşık uygulamalar ayarlamak için de kullanabilirsiniz.

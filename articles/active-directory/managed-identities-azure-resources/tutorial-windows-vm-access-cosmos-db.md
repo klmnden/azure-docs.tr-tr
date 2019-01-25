@@ -3,7 +3,7 @@ title: Azure Cosmos DB hizmetine erişmek için Windows VM sistem tarafından at
 description: Windows VM üzerinde bir sistem tarafından atanan yönetilen hizmet kimliği kullanarak Azure Cosmos DB'ye erişme işleminde size yol gösteren bir öğretici.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: daveba
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
-ms.author: daveba
-ms.openlocfilehash: bd1fe465d085d79812f891195ab104f60c9ba5f3
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: priyamo
+ms.openlocfilehash: 5a71ae3fcc79cd9a8e4a4cc5409fc0a0997d28a0
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429608"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901675"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Öğretici: Azure Cosmos DB hizmetine erişmek için Windows VM sistem tarafından atanan yönetilen kimliği kullanma
 
@@ -36,6 +36,8 @@ Bu öğreticide, Cosmos DB'ye erişmek amacıyla, Windows sanal makinesi (VM) i�
 ## <a name="prerequisites"></a>Önkoşullar
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
+
+- En son sürümünü yükleyin [Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## <a name="create-a-cosmos-db-account"></a>Cosmos DB hesabı oluşturma 
 
@@ -63,16 +65,14 @@ Cosmos DB Azure AD kimlik doğrulamayı yerel olarak desteklemez. Bununla birlik
 PowerShell kullanarak Azure Resource Manager'da Cosmos DB hesabına Windows VM sistem tarafından atanan yönetilen kimliği erişimi vermek için, `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` ve `<COSMOS DB ACCOUNT NAME>` değerlerini ortamınıza uygun olarak güncelleştirin. Cosmos DB, erişim anahtarları kullanılırken iki ayrıntı düzeyini destekler: hesaba okuma/yazma erişimi ve hesaba salt okuma erişimi.  Hesap için okuma/yazma anahtarları almak istiyorsanız `DocumentDB Account Contributor` rolünü veya hesap için salt okuma anahtarları almak istiyorsanız `Cosmos DB Account Reader Role` rolünü atayın.  Bu öğretici için `Cosmos DB Account Reader Role` rolünü atayın:
 
 ```azurepowershell
-$spID = (Get-AzureRMVM -ResourceGroupName myRG -Name myVM).identity.principalid
-New-AzureRmRoleAssignment -ObjectId $spID -RoleDefinitionName "Cosmos DB Account Reader Role" -Scope "/subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.DocumentDb/databaseAccounts/<COSMOS DB ACCOUNT NAME>"
+$spID = (Get-AzVM -ResourceGroupName myRG -Name myVM).identity.principalid
+New-AzRoleAssignment -ObjectId $spID -RoleDefinitionName "Cosmos DB Account Reader Role" -Scope "/subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.DocumentDb/databaseAccounts/<COSMOS DB ACCOUNT NAME>"
 ```
 ## <a name="get-an-access-token-using-the-windows-vm-system-assigned-managed-identity-to-call-azure-resource-manager"></a>Windows VM’nin sistem tarafından atanan yönetilen kimliğini kullanarak erişim belirteci alma ve Azure Resource Manager çağrısı yapma
 
 Bu öğreticinin kalan bölümünde, daha önce oluşturmuş olduğumuz VM'den çalışacağız. 
 
-Bu bölümde Azure Resource Manager PowerShell cmdlet’lerini kullanmanız gerekir.  Makinenizde yüklü değilse, devam etmeden önce [en son sürümü indirin](https://docs.microsoft.com/powershell/azure/overview).
-
-Aynı zamanda Windows VM’nize [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)’nin son sürümünü yüklemeniz gerekir.
+En son sürümünü yüklemek ihtiyacınız olacak [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) Windows vm'nizde.
 
 1. Azure portalında **Sanal Makineler**'e gidin, Windows sanal makinenize gidin ve ardından **Genel Bakış** sayfasında üst kısımdaki **Bağlan**'a tıklayın. 
 2. Windows VM'sini oluştururken eklendiğiniz hesabın **Kullanıcı adı** ve **Parola** değerlerini girin. 

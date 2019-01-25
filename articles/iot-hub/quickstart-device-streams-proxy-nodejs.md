@@ -10,22 +10,21 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: 012fdfa4faf10cacaf85819517f358c1af1ab39d
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 0231b67ee56de5e1729c02ed3d87b2461f025b84
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54830215"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54887436"
 ---
 # <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-nodejs-proxy-application-preview"></a>Hızlı Başlangıç: SSH/RDP üzerinden Node.js Ara sunucu uygulamasını (Önizleme) kullanarak IOT Hub cihaz akışları
 
 [!INCLUDE [iot-hub-quickstarts-4-selector](../../includes/iot-hub-quickstarts-4-selector.md)]
 
-[IOT Hub cihaz akışları](./iot-hub-device-streams-overview.md) güvenli ve güvenlik duvarı uyumlu bir şekilde iletişim kurmak hizmet ve cihaz uygulamalarınıza izin verin. Bu hızlı başlangıçta, bir cihaz akış üzerinden cihaza gönderilecek SSH ve RDP trafiğini etkinleştirmek için hizmet tarafında çalışan bir Node.js proxy uygulamanın yürütülmesini açıklar. Bkz: [bu sayfayı](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp) Kurulum genel bakış. Genel Önizleme süresince Node.js SDK'sı yalnızca hizmet tarafında cihaz akışlarını destekler. Sonuç olarak, bu hızlı başlangıçta, yalnızca hizmet tarafı proxy çalıştırma yönergeleri kapsar. Kullanılabilir eşlik eden bir aygıt tarafı proxy çalıştırmalısınız [C hızlı](./quickstart-device-streams-proxy-c.md) veya [ C# hızlı](./quickstart-device-streams-proxy-csharp.md) Kılavuzlar.
+[IOT Hub cihaz akışları](./iot-hub-device-streams-overview.md) güvenli ve güvenlik duvarı uyumlu bir şekilde iletişim kurmak hizmet ve cihaz uygulamalarınıza izin verin. Bu Hızlı Başlangıç Kılavuzu, bir cihaz akış üzerinden cihaza gönderilecek SSH ve RDP trafiğini etkinleştirmek için hizmet tarafında çalışan bir Node.js proxy uygulamanın yürütülmesini açıklar. Bkz: [burada](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp) Kurulum genel bakış. Genel Önizleme süresince Node.js SDK'sı yalnızca hizmet tarafında cihaz akışlarını destekler. Sonuç olarak, bu Hızlı Başlangıç Kılavuzu, yalnızca hizmeti-yerel proxy çalıştırma yönergeleri kapsar. Kullanılabilir eşlik eden bir cihaz yerel proxy çalıştırmalısınız [C hızlı](./quickstart-device-streams-proxy-c.md) veya [ C# hızlı](./quickstart-device-streams-proxy-csharp.md) Kılavuzlar.
 
-SSH için öncelikle Kurulumu açıklanmaktadır (bağlantı noktası kullanarak `22`). Biz sonra nasıl Kurulum RDP için (Bu bağlantı noktası 3389'ı kullanır) değiştirileceğini açıklar. Cihaz akışlar, uygulama ve protokolü belirsiz olduğundan, aynı örnek (genellikle iletişim bağlantı noktalarını değiştirerek) değiştirilebilir uygulama trafiği diğer türleri uyum sağlamak için.
+İlk kurulum için SSH (22 numaralı bağlantı noktasını kullanarak) açıklanmaktadır. Biz sonra nasıl Kurulum RDP için (Bu bağlantı noktası 3389'ı kullanır) değiştirileceğini açıklar. Cihaz akışlar, uygulama ve protokolü belirsiz olduğundan, aynı örnek istemci/sunucu uygulama trafiği diğer türleri (genellikle iletişim bağlantı noktasını değiştirerek) uyum sağlayacak şekilde değiştirilebilir.
 
-Kod başlatma ve cihaz akışını kullanımını gösteren ve diğer uygulama trafiği de (dışında RDP ve SSH) güvenilemez.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -34,7 +33,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu hızlı başlangıçta Hizmet tarafı uygulamayı çalıştırmak için geliştirme makinenizi Node.js v4.x.x veya sonraki bir sürümü gerekir.
+Bu hızlı başlangıçta hizmet yerel uygulamayı çalıştırmak için geliştirme makinenizi Node.js v4.x.x veya sonraki bir sürümü gerekir.
 
 [nodejs.org](https://nodejs.org) adresinden birden fazla platform için Node.js’yi indirebilirsiniz.
 
@@ -86,14 +85,14 @@ Bir cihazın bağlanabilmesi için IoT hub’ınıza kaydedilmesi gerekir. Bu h�
 
 ## <a name="ssh-to-a-device-via-device-streams"></a>Bir cihazın cihaz akışları yoluyla SSH
 
-### <a name="run-the-device-side-proxy"></a>Aygıt tarafı proxy çalıştırma
+### <a name="run-the-device-local-proxy"></a>Cihaz yerel ara sunucu çalıştırın
 
-Daha önce belirtildiği gibi IOT Hub Node.js SDK'sı hizmet tarafında yalnızca cihaz akışlarını destekler. Aygıt tarafı uygulaması için eşlik eden cihazın proxy programlar kullanılabilir kullanın [C hızlı](./quickstart-device-streams-proxy-c.md) veya [ C# hızlı](./quickstart-device-streams-proxy-csharp.md) Kılavuzlar. Aygıt tarafı proxy, sonraki adıma devam etmeden önce çalıştığından emin olun.
+Daha önce belirtildiği gibi IOT Hub Node.js SDK'sı hizmet tarafında yalnızca cihaz akışlarını destekler. Cihaz yerel uygulama için bulunan eşlik eden cihazın proxy programları kullanın [C hızlı](./quickstart-device-streams-proxy-c.md) veya [ C# hızlı](./quickstart-device-streams-proxy-csharp.md) Kılavuzlar. Cihaz yerel proxy, sonraki adıma devam etmeden önce çalıştığından emin olun.
 
 
-### <a name="run-the-service-side-proxy"></a>Hizmet tarafı proxy çalıştırma
+### <a name="run-the-service-local-proxy"></a>Hizmet yerel ara sunucu çalıştırın
 
-Aygıt tarafı proxy çalıştıran varsayıldığında, node.js'de yazılmış Hizmet tarafı proxy çalıştırmak için aşağıdaki adımları izleyin:
+Varsayarak [cihaz yerel proxy](#run-the-device-local-proxy) olan çalışan, node.js'de yazılmış hizmeti-yerel proxy çalıştırmak için aşağıdaki adımları izleyin.
 
 - Ortam değişkenleri olarak cihaz üzerinde çalışan proxy için hizmet kimlik bilgilerinizi, SSH arka plan programı çalıştığı hedef cihaz kimliği ve bağlantı noktası numarasını sağlayın.
 ```
@@ -107,7 +106,7 @@ Aygıt tarafı proxy çalıştıran varsayıldığında, node.js'de yazılmış 
   SET STREAMING_TARGET_DEVICE=MyDevice
   SET PROXY_PORT=2222
 ```
-Değişiklik `MyDevice` cihazınız için seçtiğiniz cihaz kimliği.
+Cihaz kimliği ve bağlantı dizenizle eşleşen yukarıdaki değerleri değiştirin.
 
 - Gidin `Quickstarts/device-streams-service` sıkıştırması proje klasörü ve Çalıştır hizmeti-yerel proxy.
 ```
@@ -124,10 +123,10 @@ Değişiklik `MyDevice` cihazınız için seçtiğiniz cihaz kimliği.
 ### <a name="ssh-to-your-device-via-device-streams"></a>Cihazınıza cihaz akışları aracılığıyla SSH
 SSH kullanarak Linux içinde çalıştırma `ssh $USER@localhost -p 2222` bir terminal üzerinde. Windows sık kullanılan SSH istemciniz kullanın (örneğin, PuTTY).
 
-Konsol SSH oturum kurulduktan sonra üzerinde hizmet tarafı çıktısı (2222 numaralı bağlantı noktasında service-yerel proxy dinlediği): ![Alternatif metin](./media/quickstart-device-streams-proxy-nodejs/service-console-output.PNG "SSH terminal çıkış")
+Konsol SSH oturum kurulduktan sonra hizmeti-yerel çıktısı (2222 numaralı bağlantı noktasında service-yerel proxy dinlediği): ![Alternatif metin](./media/quickstart-device-streams-proxy-nodejs/service-console-output.PNG "SSH terminal çıkış")
 
 
-Konsol çıktısı SSH istemcisi programının (SSH istemcisi bağlantı noktasına bağlanarak SSH arka plan programı için iletişim kuran <code>22</code> nerede hizmet yerel proxy üzerinde dinleme): ![Alternatif metin](./media/quickstart-device-streams-proxy-nodejs/ssh-console-output.PNG "SSH istemcisi çıkış")
+Konsol çıktısı SSH istemcisi programının (SSH istemcisi iletişim kuran SSH arka plan programı için burada hizmeti-yerel proxy üzerinde dinleme bağlantı noktası 22 bağlanarak): ![Alternatif metin](./media/quickstart-device-streams-proxy-nodejs/ssh-console-output.PNG "SSH istemcisi çıkış")
 
 
 ### <a name="rdp-to-your-device-via-device-streams"></a>Cihazınıza cihaz akışları üzerinden RDP

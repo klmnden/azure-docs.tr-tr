@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 6f6dac37d1114e8a9faa16c07fd5c14a90a5b0fb
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 653d88aafc683b8a67e93945c62a99bbcf8c92fc
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976741"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900683"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Linux'ta App Service için Java Geliştirici Kılavuzu
 
@@ -139,7 +139,7 @@ Uygulama kimlik doğrulaması ile Azure portalında ayarlama **kimlik doğrulama
 
 Birden çok oturum açma sağlayıcısı etkinleştirmeniz gerekirse, yönergeleri izleyin [App Service kimlik doğrulaması özelleştirme](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to) makalesi.
 
- Spring önyükleme geliştiriciler [Azure Active Directory Spring Boot Başlatıcı](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?view=azure-java-stable) tanıdık Spring güvenlik açıklamalarını ve API'leri kullanarak uygulamaların güvenliğini sağlamak için.
+Spring önyükleme geliştiriciler [Azure Active Directory Spring Boot Başlatıcı](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?view=azure-java-stable) tanıdık Spring güvenlik açıklamalarını ve API'leri kullanarak uygulamaların güvenliğini sağlamak için. Maksimum boyut olarak artırıldığından emin olun, `application.properties` dosya. Değerini öneririz `16384`. 
 
 ### <a name="configure-tlsssl"></a>TLS/SSL'yi yapılandırma
 

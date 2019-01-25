@@ -5,15 +5,19 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 8e622a11c489618cf66e9cdddf369309e7188645
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/23/2019
+ms.openlocfilehash: c7622252cd5b375e8c580bfcf7a45806d219d828
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548026"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900570"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>Nasıl oluşturmak ve yönetmek, Azure portalını kullanarak MySQL için Azure veritabanı çoğaltmalarını okuyun
+
+
+> [!IMPORTANT]
+> Salt okunur çoğaltma özelliği genel Önizleme aşamasındadır.
 
 Bu makalede, oluşturmak ve yönetmek için aynı Azure bölgesindeki Yöneticisi olarak Azure portalını kullanarak MySQL hizmeti için Azure veritabanı salt okunur çoğaltmalar öğreneceksiniz. Bu özellik şu anda genel Önizleme aşamasındadır.
 

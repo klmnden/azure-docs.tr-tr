@@ -11,44 +11,44 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 4bd1ceb03ddce572e0571afb87ec2f0c36a49443
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 7d4f3586aee5fdf77cb4cc1fa02596481fd58311
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54810423"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902253"
 ---
 # <a name="sign-in-using-two-step-verification-or-security-info"></a>İki aşamalı doğrulama veya güvenlik bilgilerini kullanarak oturum açın
 
-İki aşamalı doğrulama veya güvenlik bilgilerini ayarladıktan sonra oturum açmak için iş veya Okul hesabı belirtilen kimlik doğrulama yönteminizi kullanarak mümkün olacaktır.
+İki aşamalı doğrulama veya güvenlik bilgilerini ayarladıktan sonra belirtilen kimlik doğrulama yönteminizi kullanarak hesabınızda oturum açmak mümkün olacaktır.
 
 >[!Note]
 >İki aşamalı doğrulama deneyimi yine de kullanıyorsanız, yönergeleri izleyerek kimlik doğrulama yöntemlerinizi ayarlamanız gerekir [hesabım için iki aşamalı doğrulamayı ayarlama](multi-factor-authentication-end-user-first-time.md) makalesi. Yöneticiniz güvenlik bilgisi deneyimi kapattıysa, bu adım adım kılavuzlar kullanarak, kimlik doğrulama yöntemlerini ayarlama yapmanız gerekir:<ul><li>[Güvenlik bilgileri ' authentication uygulamasını kullanmak için ayarlama](security-info-setup-auth-app.md)</li><li>[Güvenlik bilgilerini SMS kullanacak şekilde ayarlama](security-info-setup-text-msg.md)</li><li>[Güvenlik bilgileri bir telefon araması kullanacak şekilde](security-info-setup-phone-number.md)</li></ul>
 
 ## <a name="sign-in-using-an-authenticator-app-notification-on-your-mobile-device"></a>Mobil cihazınıza bir kimlik doğrulayıcı uygulama bildirimi kullanarak oturum açın
 
-1. İş veya Okul hesabı kullanıcı adı ve parolanızla oturum açın.
+1. Kullanıcı adı ve parola hesabınızla oturum açın.
 
 2. Seçin **Onayla** gelen mobil cihazınıza gönderilen onay bildirimi.
 
 
 ## <a name="sign-in-using-an-authenticator-app-code-on-your-mobile-device"></a>Mobil cihazınıza bir kimlik doğrulayıcı uygulama kodu kullanarak oturum açın
 
-1. İş veya Okul hesabı kullanıcı adı ve parolanızla oturum açın.
+1. Kullanıcı adı ve parola hesabınızla oturum açın.
 
 2. Cihazınızdaki kimlik doğrulayıcı uygulamasında açın ve hesabınızda oturum için rastgele oluşturulmuş kod yazın **kodu girin** kutusu.
 
 
 ## <a name="sign-in-using-your-phone-number"></a>Telefon numaranızı kullanarak oturum açın
 
-1. İş veya Okul hesabı kullanıcı adı ve parolanızla oturum açın.
+1. Kullanıcı adı ve parola hesabınızla oturum açın.
 
 2. Telefonunuzu yanıt ve yönergeleri izleyin.
 
 
 ## <a name="sign-in-using-a-text-message"></a>Kısa mesaj kullanarak oturum açın
 
-1. İş veya Okul hesabı kullanıcı adı ve parolanızla oturum açın.
+1. Kullanıcı adı ve parola hesabınızla oturum açın.
 
 2. SMS mesajı açın ve metin iletinize kodu yazın **kodu girin** kutusu.
 

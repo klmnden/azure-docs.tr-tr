@@ -12,14 +12,14 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 0fad0cd32e8df38c5a9c06ecf01a14340f1bc9ef
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 87ffc4619f2ad864113db3b3aed42aa23535cb83
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165084"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900333"
 ---
-# <a name="powershell-and-cli-enable-transparent-data-encryption-using-your-own-key-from-azure-key-vault"></a>PowerShell ve CLI: saydam veri şifrelemesi kullanarak kendi anahtarınızı Azure anahtar Kasası'ndaki etkinleştir
+# <a name="powershell-and-cli-enable-transparent-data-encryption-using-your-own-key-from-azure-key-vault"></a>PowerShell ve CLI: Kendi anahtarınızı Azure anahtar Kasası'ndaki kullanarak saydam veri şifrelemesini etkinleştirme
 
 Bu makalede Azure Key vault'tan bir anahtar için saydam veri şifrelemesi (TDE) bir SQL veritabanı veya veri ambarı kullanma konusunda yol göstermektedir. TDE Getir bilgisayarınızı kendi anahtarını (BYOK) destekli hakkında daha fazla bilgi edinmek için [TDE kendi anahtarını Getir için Azure SQL](transparent-data-encryption-byok-azure-sql.md). 
 
@@ -186,8 +186,8 @@ Bir sorun oluşursa aşağıdakileri denetleyin:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Güvenlik gereksinimlerine uymak için TDE koruyucusu sunucusunun döndürme hakkında bilgi edinin: [saydam veri şifrelemesi koruyucu PowerShell kullanarak döndürme](transparent-data-encryption-byok-azure-sql-key-rotation.md).
-- Bir güvenlik riski olması durumunda, riskli olabilecek TDE koruyucusu kaldırmayı öğrenin: [riskli olabilecek bir anahtarı Kaldır](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md). 
+- Güvenlik gereksinimlerine uymak için TDE koruyucusu sunucusunun döndürme hakkında bilgi edinin: [Saydam veri şifrelemesi koruyucu PowerShell kullanarak döndürme](transparent-data-encryption-byok-azure-sql-key-rotation.md).
+- Bir güvenlik riski olması durumunda, riskli olabilecek TDE koruyucusu kaldırma işlemleri gerçekleştirmeyi öğreneceksiniz: [Riskli olabilecek bir anahtarı Kaldır](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md). 
 
 ## <a name="prerequisites-for-cli"></a>CLI için Önkoşullar
 
@@ -208,7 +208,7 @@ Bir sorun oluşursa aşağıdakileri denetleyin:
 ## <a name="step-1-create-a-server-and-assign-an-azure-ad-identity-to-your-server"></a>1. Adım Bir sunucu oluşturmak ve bir Azure AD kimlik sunucunuza atama
       cli
       # create server (with identity) and database
-      az sql server create -n "ServerName" -g "ResourceGroupName" -l "westus" -u "cloudsa" -p "YourFavoritePassWord99@34" -I 
+      az sql server create -n "ServerName" -g "ResourceGroupName" -l "westus" -u "cloudsa" -p "YourFavoritePassWord99@34" -i 
       az sql db create -n "DatabaseName" -g "ResourceGroupName" -s "ServerName" 
       
 

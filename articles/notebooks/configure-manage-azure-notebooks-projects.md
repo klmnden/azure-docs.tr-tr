@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2019
 ms.author: kraigb
-ms.openlocfilehash: 31cbe2e62582ae810d165ddef5db6a20c52ff050
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 54b211584b170d6e2ee0bcaa6c80bcaed376814f
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54847552"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904378"
 ---
 # <a name="manage-and-configure-projects"></a>Projeleri yönetme ve yapılandırma
 
@@ -41,9 +41,9 @@ Azure not defterleri, her bir not defteri veya başka bir dosyaya çalıştırd�
 
 ![Katmanı aşağı açılan liste proje panosundaki işlem](media/project-compute-tier-list.png)
 
-Bir Azure aboneliğinde sağladıktan farklı bir sanal makine kullanarak bu kısıtlamaları devre dışı bırakabilir. Bu sanal makinede Jupyter da yüklemeniz gerekir. Varsayılan olarak Jupyter içerdiğinden veri bilimi sanal makinesi iyi seçimler görüntüleridir.
+Bir Azure aboneliğinde sağladıktan farklı bir sanal makine kullanarak bu kısıtlamaları devre dışı bırakabilir. Yüklemeli ve JupyterHub bu sanal makine üzerinde çalıştırın. Veri bilimi sanal makinesi görüntülerini (herhangi bir işletim sistemini) iyi seçimler olduklarından varsayılan olarak JupyterHub içerirler.
 
-Tüm uygun şekilde yapılandırılmış bir Azure sanal makine kullanarak bağlanabilirsiniz **doğrudan işlem** aşağı açılan listede seçeneği. Bu seçeneğin belirlenmesi (listesinde gösterilecek) bir ad, sanal makinenin IP adresi ve 8000 numaralı bağlantı noktasını (genellikle, hangi JupyterHub dinlediği varsayılan bağlantı noktasına) ve VM kimlik bilgileri ister:
+Uygun şekilde yapılandırılmış bir Azure sanal makine oluşturduktan sonra seçin **doğrudan işlem** (listesinde gösterilecek) ad, sanal makinenin IP adresi ve bağlantı noktası (genellikle 8000, varsayılan bağlantı noktası, ister aşağı açılan listede seçeneği JupyterHub dinlediği) ve VM kimlik bilgileri:
 
 ![Doğrudan işlem seçeneği sunucu bilgilerini toplamak için sor](media/project-compute-tier-direct.png)
 
@@ -51,13 +51,13 @@ Aşağıdaki koşullar doğruysa, açılır listede de gösterilir [veri bilimi 
 
 - Azure Active Directory (AAD), bir şirket hesabı gibi kullanan bir hesapla Azure not defterlerine oturumunuz.
 - Hesabınız bir Azure aboneliğine bağlı.
-- Bu Abonelikteki bir veya daha fazla sanal makineler ile en az sahip olduğunuz veri bilimi sanal makinesi için Linux (Ubuntu) görüntüsü kullanan okuyucu erişimi.
+- Bu Abonelikteki bir veya daha fazla sanal makineler ile en az sahip olduğunuz veri bilimi sanal makinesi için Linux (Ubuntu) görüntüsü kullanan okuyucu erişimi.)
 
 ![Proje panosu açılır listede veri bilimi sanal makine örnekleri](media/project-compute-tier-dsvm.png)
 
 Azure not defterleri DSVM örneği seçtiğinizde, sanal Makineyi oluştururken kullanılan belirli bir makine kimlik bilgilerini isteyebilir.
 
-Yeni bir DSVM örneği oluşturmak için yönergeleri takip edin [Ubuntu veri bilimi sanal makinesi oluşturma](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). *Gerekir* kullanın **Linux (Ubuntu) için veri bilimi sanal makinesi** Azure not defterleri, Windows veya CentOS görüntüleri kullanan Dsvm'leri görüntülemez çünkü görüntü.
+Yeni bir DSVM örneği oluşturmak için yönergeleri takip edin [Ubuntu veri bilimi sanal makinesi oluşturma](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Kullanım **Linux (Ubuntu) için veri bilimi sanal makinesi** DSVM Azure not defterleri aşağı açılan listede görünmesini istiyorsanız, görüntü.  Windows veya CentOS görüntüsü kullanması gereken diğer nedenlerle kullandığınız **doğrudan işlem** el ile değerini DSVM Örneğinize bağlanmak için seçeneği.
 
 ## <a name="edit-project-metadata"></a>Proje meta verilerini düzenleme
 

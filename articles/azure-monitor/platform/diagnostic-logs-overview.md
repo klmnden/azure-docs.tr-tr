@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 44950a467e99fb7968d838345d80c8e28aee62b9
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 55c1bc18422bc2be5172aebcd46b76ac6051a8a4
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467477"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54885856"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Toplama ve Azure kaynaklarınızdan günlük verilerini kullanma
 
@@ -31,7 +31,7 @@ Bu günlükler farklı [etkinlik günlüğü](activity-logs-overview.md). Etkinl
 
 Bu günlükler de konuk işletim sistemi düzeyinde tanılama günlüklerinden farklıdır. Konuk işletim sistemi tanılama günlükleri, bu sanal makine içinde çalışan bir aracının tarafından toplanan veya diğer desteklenen kaynak türü ' dir. Konuk işletim sistemi düzeyinde tanılama günlükleri, işletim sistemi ve bir sanal makinede çalışan uygulamalardan veri yakalama işlemi sırasında kaynak düzeyinde tanılama günlükleri, Azure platformu kendisine hiçbir aracı ve yakalama kaynağa özgü veri gerektirir.
 
-Tüm hizmetler burada açıklanan tanılama günlükleri'ni destekler. [Bu makalede hangi hizmetlerin Desteği Tanılama günlükleri bir bölüm listesi içeriyor](./../../azure-monitor/platform/tutorial-dashboards.md).
+Tüm hizmetler burada açıklanan tanılama günlükleri'ni destekler. [Bu makalede hangi hizmetlerin Desteği Tanılama günlükleri bir bölüm listesi içeriyor](./../../azure-monitor/platform/diagnostic-logs-schema.md).
 
 ## <a name="what-you-can-do-with-diagnostic-logs"></a>Tanılama günlükleri ile yapabilecekleriniz
 Tanılama günlükleri ile yapabileceklerinizden bazıları şunlardır:
@@ -229,7 +229,7 @@ Tanılama ayarı ekleme nerede etkinleştirebilir, devre dışı bırakmak veya 
 
 ## <a name="supported-services-categories-and-schemas-for-diagnostic-logs"></a>Desteklenen hizmetler, kategoriler ve şemalar tanılama günlükleri
 
-[Bu makaleye bakın](../../azure-monitor/platform/tutorial-dashboards.md) desteklenen hizmetler ve günlük kategorileri ve bu hizmetler tarafından kullanılan şemalar tam listesi için.
+[Bu makaleye bakın](../../azure-monitor/platform/diagnostic-logs-schema.md) desteklenen hizmetler ve günlük kategorileri ve bu hizmetler tarafından kullanılan şemalar tam listesi için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

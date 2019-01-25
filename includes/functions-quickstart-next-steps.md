@@ -2,16 +2,16 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 09/04/2018
+ms.date: 01/23/2019
 ms.author: glenga
-ms.openlocfilehash: 7057f6a9652244f84754e29af738b7e0c5f1da4f
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
-ms.translationtype: HT
+ms.openlocfilehash: e330f5ecbfc240b048d887289224c164a91215bd
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50132751"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904718"
 ---
-Diğer tetikleyici türleriyle işlev oluşturmayı veya diğer Azure hizmetlerinin işlevlerini tümleştirmeyi öğrenin.
+Oluşturulan bir sahip olduğunuza göre ilk işlev, şimdi bir depolama kuyruğuna bir ileti yazar işleve çıkış bağlaması ekleyin.
 
-+ [Bir zamanlamaya göre çalışan işlev oluşturma](../articles/azure-functions/functions-create-scheduled-function.md) 
-+ [İşlevleri kullanarak bir Azure Depolama kuyruğuna ileti ekleme](../articles/azure-functions/functions-integrate-storage-queue-output-binding.md)
+> [!div class="nextstepaction"]
+> [İşlevleri kullanarak bir Azure Depolama kuyruğuna ileti ekleme](../articles/azure-functions/functions-integrate-storage-queue-output-binding.md)

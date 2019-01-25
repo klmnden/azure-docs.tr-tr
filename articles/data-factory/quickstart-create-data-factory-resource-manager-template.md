@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 11/28/2018
 ms.author: douglasl
-ms.openlocfilehash: 90f9ffeba2871aaa96a4da4cdbdf949a8e7db1bf
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 279588e63000883d60b159f56e8c0b4686dee5b4
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436442"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888788"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Öğretici: Azure Resource Manager şablonu kullanarak bir Azure veri fabrikası oluşturma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -285,7 +285,7 @@ Azure Resource Manager şablonuna yönelik parametreleri içeren **ADFTutorialAR
       "value": "East US"
     },
     "storageAccountName": {
-      "value": "<yourstroageaccountname>"
+      "value": "<yourstorageaccountname>"
     },
     "storageAccountKey": {
       "value": "<yourstorageaccountkey>"
@@ -492,7 +492,7 @@ AzureStorageLinkedService, Azure depolama hesabınızı veri fabrikasına bağla
 }
 ```
 
-ConnectionString, storageAccountName ve storageAccountKey parametrelerini kullanır. Bu parametrelerin değerleri bir yapılandırma dosyası kullanılarak geçirilir. Tanım ayrıca şu değişkenleri kullanır: şablonda tanımlanan azureStroageLinkedService ve dataFactoryName.
+ConnectionString, storageAccountName ve storageAccountKey parametrelerini kullanır. Bu parametrelerin değerleri bir yapılandırma dosyası kullanılarak geçirilir. Tanım ayrıca şu değişkenleri kullanır: şablonda tanımlanan azureStorageLinkedService ve dataFactoryName.
 
 #### <a name="azure-blob-input-dataset"></a>Azure blob girdi veri kümesi
 Azure Depolama bağlı hizmeti, Data Factory hizmetinin Azure depolama hesabınıza bağlanmak için çalışma zamanında kullandığı bağlantı dizesini belirtir. Azure blob veri kümesi tanımında blob kapsayıcısını, klasörü ve giriş verilerini içeren dosyanın adını belirtirsiniz. Bir Azure Blob veri kümesini tanımlamak için kullanılan JSON özellikleri hakkında ayrıntılar için bkz. [Azure Blob veri kümesi özellikleri](connector-azure-blob-storage.md#dataset-properties).

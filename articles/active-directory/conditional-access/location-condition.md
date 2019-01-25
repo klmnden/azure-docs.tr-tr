@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/11/2018
+ms.date: 01/21/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 998a2dac8332ea88f7cee308299ce5a1f90765a4
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 6f522f7ff216a407e4ba901672f6b5e172952bcb
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449751"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883441"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Konum koşulu Azure Active Directory koşullu erişim nedir? 
 
@@ -58,7 +58,7 @@ Adlandırılmış bir konuma aşağıdaki bileşenlere sahiptir:
 
 - **Ad** -adlandırılmış bir konuma görünen adı.
 
-- **IP aralıklarını** -bir veya daha fazla IPv4 adres aralıklarını CIDR biçiminde. Bir IPv6 adresi olama belirtilmesi desteklenmiyor.
+- **IP aralıklarını** -bir veya daha fazla IPv4 adres aralıklarını CIDR biçiminde. Bir IPv6 adres aralığı belirtilmesi desteklenmiyor.
 
 - **Güvenilen konum olarak işaretle** -güvenilen bir konum belirtmek adlandırılmış bir konum için ayarlayabileceğiniz bir bayrak. Genellikle, güvenilen konumları BT departmanınız tarafından denetlenen ağ alanlardır. Koşullu erişim yanı sıra güvenilen adlandırılmış konumlar ayrıca Azure kimlik koruması ve Azure AD güvenlik raporları tarafından azaltmak için kullanılan [hatalı pozitif sonuçları](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
 

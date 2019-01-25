@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2010
+ms.date: 01/24/2010
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 916de2de6cdc19bfa1e3967661d40693d4be1e99
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: edb4e2b25e5fd7d6c59f07a02cc5d2f0630eac8e
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852397"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904412"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory cihaz yönetimi hakkında SSS
 
@@ -180,6 +180,19 @@ Bu davranış, söz konusu cihaza açan diğer bir kullanıcı için geçerli de
 
 ---
 
+**Soru: bizim Windows 10 cihazlarda mevcut kuruluş P2P erişim MS sertifikalar nelerdir?**
+
+**Y:** Kuruluş P2P erişim MS sertifikalarının her ikisi de Azure AD, Azure AD'ye katılmış ve hibrit Azure AD'ye katılmış cihazlar. Bu sertifikalar, Uzak Masaüstü senaryoları için aynı kiracıda cihazları arasında güven etkinleştirmek için kullanılır. Cihaza bir sertifikanın verildiği ve başka bir kullanıcıya verilir. Cihaz sertifika varsa `Local Computer\Personal\Certificates` ve bir gün boyunca geçerlidir. (Yeni bir sertifika vererek) bu sertifikanın yenilenmesi cihaz Azure AD'ye hala etkin değilse. Kullanıcı sertifikası varsa `Current User\Personal\Certificates` ve bu sertifika aynı zamanda bir gün boyunca geçerlidir, ancak bir kullanıcı başka bir Azure AD alanına katılmış cihaz bir Uzak Masaüstü oturumu çalıştığında üzerine verilir. Bitiş tarihinde yenilenmez. Hem bu sertifikaların mevcut MS Kuruluş P2P erişim sertifikası kullanarak verilen `Local Computer\AAD Token Issuer\Certificates`. Bu sertifika, cihaz kaydı sırasında Azure AD tarafından verilir. 
+
+---
+
+**Q:Why bizim Windows 10 cihazlarda MS-Kuruluş-P2P-erişim tarafından verilen birden fazla süresi dolmuş sertifikaları görüyor musunuz? Bunları nasıl silebilir miyim?**
+
+**Y:** Windows 10 sürüm 1709 ve daha düşük burada MS Kuruluş P2P erişim süresi dolmuş sertifikaları mevcut bilgisayar deposunda şifreleme sorunları nedeniyle devam tanımlanan bir sorun oluştu. Süresi dolmuş sertifikaları çok sayıda işleyemiyor tüm VPN istemcileri (örneğin Cisco AnyConnect) kullanıyorsanız, kullanıcılarınızın ağ bağlantısına sahip bir sorunla karşılaşırsanız. Bu tür süresi dolmuş kuruluş P2P erişim MS sertifikaları otomatik olarak silmek için Windows 10, 1803 sürümde bu sorunu düzeltildi. Windows 10, 1803 cihazlarınızı güncelleştirerek bu sorunu çözebilir. Güncelleştirilecek bulamıyorsanız, olumsuz bir etkisi olmadan bu sertifikaları silebilirsiniz.  
+
+---
+
+
 ## <a name="hybrid-azure-ad-join-faq"></a>Hibrit Azure AD katılımı ile ilgili SSS
 
 **S: Sorun giderme nereden bulabilirim hibrit Azure AD'ye katılma hatalarını tanılamak için bilgi?**
@@ -217,15 +230,3 @@ Hibrit Azure AD'ye katılma Azure AD'ye kayıtlı durumu daha önceliklidir. Bu 
 
 - İlk erişim denemede sırasında kullanıcılarınızın şirket Portalı'nı kullanarak cihazını kaydetmesi istenir.
 
----
-
-
-**Soru: bizim Windows 10 cihazlarda mevcut kuruluş P2P erişim MS sertifikalar nelerdir?**
-
-**Y:** Kuruluş P2P erişim MS sertifikalarının her ikisi de Azure AD, Azure AD'ye katılmış ve hibrit Azure AD'ye katılmış cihazlar. Bu sertifikalar, Uzak Masaüstü senaryoları için aynı kiracıda cihazları arasında güven etkinleştirmek için kullanılır. Cihaza bir sertifikanın verildiği ve başka bir kullanıcıya verilir. Cihaz sertifika varsa `Local Computer\Personal\Certificates` ve bir gün boyunca geçerlidir. (Yeni bir sertifika vererek) bu sertifikanın yenilenmesi cihaz Azure AD'ye hala etkin değilse. Kullanıcı sertifikası varsa `Current User\Personal\Certificates` ve bu sertifika aynı zamanda bir gün boyunca geçerlidir, ancak bir kullanıcı başka bir Azure AD alanına katılmış cihaz bir Uzak Masaüstü oturumu çalıştığında üzerine verilir. Bitiş tarihinde yenilenmez. Hem bu sertifikaların mevcut MS Kuruluş P2P erişim sertifikası kullanarak verilen `Local Computer\AAD Token Issuer\Certificates`. Bu sertifika, cihaz kaydı sırasında Azure AD tarafından verilir. 
-
----
-
-**Q:Why bizim Windows 10 cihazlarda MS-Kuruluş-P2P-erişim tarafından verilen birden fazla süresi dolmuş sertifikaları görüyor musunuz? Bunları nasıl silebilir miyim?**
-
-**Y:** Windows 10 sürüm 1709 ve daha düşük burada MS Kuruluş P2P erişim süresi dolmuş sertifikaları mevcut bilgisayar deposunda şifreleme sorunları nedeniyle devam tanımlanan bir sorun oluştu. Süresi dolmuş sertifikaları çok sayıda işleyemiyor tüm VPN istemcileri (örneğin Cisco AnyConnect) kullanıyorsanız, kullanıcılarınızın ağ bağlantısına sahip bir sorunla karşılaşırsanız. Bu tür süresi dolmuş kuruluş P2P erişim MS sertifikaları otomatik olarak silmek için Windows 10, 1803 sürümde bu sorunu düzeltildi. Windows 10, 1803 cihazlarınızı güncelleştirerek bu sorunu çözebilir. Güncelleştirilecek bulamıyorsanız, olumsuz bir etkisi olmadan bu sertifikaları silebilirsiniz.  

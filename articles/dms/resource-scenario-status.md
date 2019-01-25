@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 01/15/2019
-ms.openlocfilehash: e9f1b1a3df92c08b913a56aadc8eb8a9e80c7fdf
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: edc6e651c3ec352115e360e50f98a3e36cd287c0
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320064"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904089"
 ---
 # <a name="status-of-migration-scenarios-supported-by-the-azure-database-migration-service"></a>Azure veritabanı geçiş hizmeti tarafından desteklenen geçiş senaryoları durumu
 Azure veritabanı geçiş hizmeti çeşitli geçiş senaryoları (kaynak/hedef çiftleri) için hem de çevrimdışı destekleyecek şekilde tasarlanmıştır (tek seferlik) ve çevrimiçi (sürekli eşitleme) geçişi. Azure veritabanı geçiş hizmeti tarafından sağlanan senaryo kapsamı zamanla genişletilir. Yeni senaryolar düzenli olarak eklenmektedir. Bu makalede, Azure veritabanı geçiş hizmeti ve durum tarafından şu anda desteklenen geçiş senaryoları tanımlar (özel [ya da sınırlı] Önizleme, genel Önizleme veya genel kullanıma sunuldu) veya her bir senaryo.
@@ -47,7 +47,7 @@ Aşağıdaki tablo, çevrimdışı geçişleri için Azure veritabanı geçiş h
 |   | Oracle  | ✔  |
 | **Azure SQL sanal makinesi**  | SQL Server | ✔ |
 |   | Oracle  |   |
-| **Cosmos DB**  | MongoDB | ✔ |
+| **Azure Cosmos DB**  | MongoDB | ✔ |
 | **MySQL için Azure DB**  | MySQL |  |
 |   | RDS MySQL  |  |
 | **PostgresSQL için Azure DB**  | PostgreSQL |  |
@@ -66,7 +66,7 @@ Aşağıdaki tabloda çevrimiçi geçişleri için Azure veritabanı geçiş hiz
 |   | Oracle  | ✔  |
 | **Azure SQL sanal makinesi**  | SQL Server  |   |
 |   | Oracle  | ✔  |
-| **Cosmos DB**  | MongoDB  | ✔ |
+| **Azure Cosmos DB**  | MongoDB  | ✔ |
 | **MySQL için Azure DB**  | MySQL | ✔ |
 |   | RDS MySQL  | ✔ |
 | **PostgresSQL için Azure DB**  | PostgreSQL | ✔ |

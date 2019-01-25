@@ -11,21 +11,21 @@ ms.component: user-help
 ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 1e55ad5c056bf76f8332ea84fa960b4482825bfe
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 21464cb045208d9e2e16a793b50e190b076fbe66
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54826165"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54903749"
 ---
 # <a name="security-info-preview-overview"></a>Güvenlik bilgilerine (önizleme) genel bakış
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
+İki aşamalı doğrulama ve parola sıfırlama bilgilerinizi **Güvenlik bilgileri** sayfasından ayarlayabilirsiniz. Güvenlik bilgilerinizi bir kez ayarladıktan sonra başka bir işlem yapmanız gerekmez. Ancak istediğiniz zaman bilgileriniz düzenleyebilir ve varsayılan yönteminizi değiştirebilirsiniz.
+
 >[!Important]
 >Bu içerik kullanıcılara yöneliktir. Yöneticiyseniz, Azure Active Directory (Azure AD) ortamınızı ayarlama ve yönetme hakkında daha fazla bilgi için [Azure Active Directory Belgelerine](https://docs.microsoft.com/azure/active-directory) bakabilirsiniz.
-
-İki aşamalı doğrulama ve parola sıfırlama bilgilerinizi **Güvenlik bilgileri** sayfasından ayarlayabilirsiniz. Güvenlik bilgilerinizi bir kez ayarladıktan sonra başka bir işlem yapmanız gerekmez. Ancak istediğiniz zaman bilgileriniz düzenleyebilir ve varsayılan yönteminizi değiştirebilirsiniz.
 
 Aşağıdakiler dahil olmak üzere istediğiniz yöntemi ekleyebilirsiniz:
 

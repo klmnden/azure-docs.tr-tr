@@ -3,7 +3,7 @@ title: PowerShell kullanarak bir Azure kaynağı için bir yönetilen kimlik eri
 description: Adım adım yönergeler bir kaynakta bir yönetilen kimlik atamak için PowerShell kullanarak başka bir kaynağa erişin.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2018
-ms.author: daveba
-ms.openlocfilehash: 72e05af92e88dc04f470d8be9a65347672777556
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: priyamo
+ms.openlocfilehash: cadfb41db5dbedfcab416f6e6925cc06fb732736
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427670"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901777"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-using-powershell"></a>PowerShell kullanarak bir kaynak için bir yönetilen kimlik erişim atama
 
@@ -27,26 +27,28 @@ ms.locfileid: "54427670"
 
 Yönetilen bir kimlik ile bir Azure kaynağı yapılandırdıktan sonra herhangi bir güvenlik sorumlusu gibi başka bir kaynak yönetilen kimlik erişim izni verebilirsiniz. Bu örnek PowerShell kullanarak Azure depolama hesabınız için bir Azure sanal makinenin yönetilen kimlik erişim vermek nasıl gösterir.
 
+[!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Önkoşullar
 
 - Azure kaynakları için yönetilen kimliklerle bilmiyorsanız kullanıma [genel bakış bölümünde](overview.md). **Gözden geçirmeyi unutmayın [sistem tarafından atanan ve kullanıcı tarafından atanan bir yönetilen kimlik arasındaki farkı](overview.md#how-does-it-work)**.
 - Henüz bir Azure hesabınız yoksa, devam etmeden önce [ücretsiz bir hesaba kaydolun](https://azure.microsoft.com/free/).
-- Yükleme [Azure PowerShell'in en son sürümünü](https://www.powershellgallery.com/packages/AzureRM) henüz yapmadıysanız.
+- Yükleme [Azure PowerShell'in en son sürümünü](/powershell/azure/install-az-ps) henüz yapmadıysanız.
 
 ## <a name="use-rbac-to-assign-a-managed-identity-access-to-another-resource"></a>Başka bir kaynak için bir yönetilen kimlik erişimi atamak için RBAC kullanma
 
 Yönetilen bir Azure kaynak kimliğini etkinleştirdikten sonra [Azure VM'deki gibi](qs-configure-powershell-windows-vm.md):
 
-1. Oturum açmak için Azure kullanarak `Connect-AzureRmAccount` cmdlet'i. Yönetilen kimlik altında yapılandırdığınız Azure aboneliği ile ilişkili olan bir hesabı kullanın:
+1. Oturum açmak için Azure kullanarak `Connect-AzAccount` cmdlet'i. Yönetilen kimlik altında yapılandırdığınız Azure aboneliği ile ilişkili olan bir hesabı kullanın:
 
    ```powershell
-   Connect-AzureRmAccount
+   Connect-AzAccount
    ```
-2. Bu örnekte biz bir depolama hesabı için bir Azure VM erişimini vermiş olursunuz. Önce kullandığımız [Get-AzureRMVM](/powershell/module/azurerm.compute/get-azurermvm) adlı VM için hizmet sorumlusu almak için `myVM`, biz etkinleştirildiğinde oluşturulduğu yönetilen kimliği. Ardından, [New-AzureRmRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment) VM vermek **okuyucu** adlı bir depolama hesabı erişim `myStorageAcct`:
+2. Bu örnekte biz bir depolama hesabı için bir Azure VM erişimini vermiş olursunuz. Önce kullandığımız [Get-AzVM](/powershell/module/az.compute/get-azvm) adlı VM için hizmet sorumlusu almak için `myVM`, biz etkinleştirildiğinde oluşturulduğu yönetilen kimliği. Ardından, [yeni AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment) VM vermek **okuyucu** adlı bir depolama hesabı erişim `myStorageAcct`:
 
     ```powershell
-    $spID = (Get-AzureRMVM -ResourceGroupName myRG -Name myVM).identity.principalid
-    New-AzureRmRoleAssignment -ObjectId $spID -RoleDefinitionName "Reader" -Scope "/subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.Storage/storageAccounts/<myStorageAcct>"
+    $spID = (Get-Az -ResourceGroupName myRG -Name myVM).identity.principalid
+    New-AzRoleAssignment -ObjectId $spID -RoleDefinitionName "Reader" -Scope "/subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.Storage/storageAccounts/<myStorageAcct>"
     ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

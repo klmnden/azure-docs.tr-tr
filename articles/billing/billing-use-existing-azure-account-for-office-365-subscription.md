@@ -14,13 +14,13 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.author: cwatson
-ms.openlocfilehash: 682ffb5659cd776117fd3eec8fdb0fa5e0427ab8
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: 0b5e7a36c89c594dd0a7ec681b112ea523884461
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582321"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904170"
 ---
 # <a name="sign-up-for-an-office-365-subscription-with-your-azure-account"></a>Azure hesabınızı kullanarak Office 365 aboneliği için kaydolun
 Azure abonesi iseniz, bir Office 365 aboneliğine kaydolmak için Azure hesabınızı kullanabilirsiniz. Bir Azure aboneliğine sahip bir kuruluş bir parçası kullanıyorsanız, var olan Azure Active Directory'de (Azure AD) kullanıcıları için Office 365 abonelikleri oluşturabilirsiniz. Azure Active Directory kiracınızda genel yönetici veya faturalama yöneticisi izinlerine sahip bir hesap kullanarak Office 365 için kaydolun. Daha fazla bilgi için [hesabı İzinlerim Azure AD'de denetleyin](#RoleInAzureAD) ve [Azure Active Directory'de yönetici rolleri atama](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
@@ -69,6 +69,6 @@ Kaydolduktan sonra Office 365 aboneliğine Azure aboneliğinize ait aynı Azure 
 
     ![Azure portal dizin rolü Faturalama Yöneticisi gösteren ekran görüntüsü](./media/billing-use-existing-azure-account-office-365-subscription/billing-directoryrole-limited.png)
 
-## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
+## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). 

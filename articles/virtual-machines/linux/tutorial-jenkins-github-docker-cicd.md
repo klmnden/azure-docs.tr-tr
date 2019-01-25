@@ -3,7 +3,7 @@ title: Öğretici - Jenkins ile Azure’da bir geliştirme işlem hattı oluştu
 description: Bu öğreticide, Azure’da işlenen her kodu GitHub’dan çeken ve uygulamanızı çalıştırmak için yeni bir Docker kapsayıcısı oluşturan bir Jenkins sanal makinesi oluşturmayı öğrenirsiniz.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,16 +14,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/27/2017
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1a29d58ca96793c44878a6755cc74edeab6a7c4b
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: c51206a7aac2cc6baaf4072c2dbd4ae7c97724e5
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470855"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884036"
 ---
-# <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Öğretici: Azure’da Jenkins, GitHub ve Docker ile bir Linux sanal makinesi üzerinde geliştirme altyapısı oluşturma
+# <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Öğretici: Jenkins, GitHub ve Docker ile azure'da bir Linux sanal makinesi üzerinde geliştirme altyapısı oluşturma
 
 Uygulama geliştirme sürecinin derleme ve test aşamasını otomatikleştirmek için bir sürekli tümleştirme ve dağıtım (CI/CD) işlem hattı kullanabilirsiniz. Bu öğreticide, aşağıdakileri öğrenerek bir Azure sanal makinesinde CI/CD işlem hattı oluşturursunuz:
 

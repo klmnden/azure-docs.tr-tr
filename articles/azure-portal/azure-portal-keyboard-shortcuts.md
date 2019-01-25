@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/24/2017
-ms.author: cwatson
+ms.author: kfollis
 ms.custom: accessibility
-ms.openlocfilehash: de79e1ea91b7d30eb550cb078bbb257e2f924dfb
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: d9c9c18fb2c20f1b0740a490316826e488049faf
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393834"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54881180"
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Azure portalında klavye kısayolları
 Bu makalede, Azure portalı içinde çalışan klavye kısayolları gösterilmektedir. Bireysel hizmetlerin kendi klavye kısayolları olabilir.
@@ -28,10 +28,10 @@ Bu makalede, Azure portalı içinde çalışan klavye kısayolları gösterilmek
 ## <a name="actions"></a>Eylemler
 |Bunu yapmak için |Tuşuna basın |
 | --- | --- |
-|Yeni kaynak oluştur|G + N|
-|'Tüm hizmetler' bölmesini Aç|G + B|
+|Yeni kaynak oluşturma|G+N|
+|'Tüm hizmetler' bölmesini Aç|G+B|
 |Kaynak arama|G+/| 
-|Kaynak menü öğelerini ara|CTRL +/ |
+|Kaynak menü öğelerini ara|CTRL+/ |
 |Sol bölmede seçili öğeyi Yukarı Taşı |ALT + Shift + Yukarı Ok|
 |Sol bölmede seçili öğeyi aşağı taşı |ALT + Shift + aşağı ok|
 
@@ -44,7 +44,7 @@ Bu makalede, Azure portalı içinde çalışan klavye kısayolları gösterilmek
 ## <a name="go-to"></a>Git
 |Bunu yapmak için |Tuşuna basın |
 | --- | --- |
-|Panoya git |G + D |
+|Panoya git |G+D |
 |Tüm kaynaklara gidin|G+A |
 |Kaynak gruplarına gidin|G+R |
 |Sol bölmede öğesi bu konumda açın |G+numarası|

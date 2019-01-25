@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2018
+ms.date: 01/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: 105a836f609859825c273ed9fba9dd46237bcaa9
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 9120e5f283f8d8da8da2c80959a335965a643409
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447947"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54903902"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager dağıtım modları
 
@@ -24,14 +24,11 @@ Kaynaklarınızı dağıtırken dağıtım Artımlı güncelleştirme ya da tam 
 
 ## <a name="incremental-and-complete-deployments"></a>Artımlı ve tam dağıtımları
 
-Kaynak dağıtırken:
+Her iki mod için Resource Manager şablonunda belirtilen tüm kaynakları oluşturmaya çalışır. Kaynağın kaynak grubunda zaten mevcut ve ayarlarına aynıdır, işlem bu kaynak için alınır. Kaynak, bir kaynak için özellik değerlerini değiştirirseniz, bu yeni değerleri ile güncelleştirilir. Konum veya mevcut bir kaynak türünü güncelleştirmek çalışırsanız, dağıtım bir hata ile başarısız olur. Bunun yerine, yeni bir kaynak konumu ile dağıtın veya sizi gereken yazın.
 
-* Tam modda, Resource Manager **siler** kaynak grubunda var, ancak şablonda belirtilmeyen kaynakları. Yalnızca hala belirtildi ancak bir koşul false olarak değerlendirilirse nedeniyle dağıtılmaz kaynakları, ancak silinmez.
-* Artımlı modda, Resource Manager **değişmeden kalır** kaynak grubunda var, ancak şablonda belirtilmeyen kaynakları.
+Tam modda, Resource Manager **siler** kaynak grubunda var, ancak şablonda belirtilmeyen kaynakları. Şablonda belirtilen olan ancak çünkü dağıtılan kaynakları bir [koşul](resource-manager-templates-resources.md#condition) yanlış olarak değerlendirilir, silinmez.
 
-Her iki mod için Resource Manager şablonunda belirtilen tüm kaynakları oluşturmaya çalışır. Kaynağın kaynak grubunda zaten mevcut ve ayarlarına aynıdır, işlemi hiçbir değişikliğe neden olur. Kaynak, bir kaynak için özellik değerlerini değiştirirseniz, bu yeni değerleri ile güncelleştirilir. Konum veya mevcut bir kaynak türünü güncelleştirmek çalışırsanız, dağıtım bir hata ile başarısız olur. Bunun yerine, yeni bir kaynak konumu ile dağıtın veya sizi gereken yazın.
-
-Artımlı modda bir kaynak dağıtarak, yalnızca güncelleştirmekte olanlara kaynak için tüm özellik değerlerini belirtin. Bazı özellikler belirtmezseniz, Resource Manager güncelleştirme bu değerlerin üzerine yazar olarak yorumlar.
+Artımlı modda, Resource Manager **değişmeden kalır** kaynak grubunda var, ancak şablonda belirtilmeyen kaynakları. Artımlı modda bir kaynak dağıtarak, yalnızca güncelleştirmekte olanlara kaynak için tüm özellik değerlerini belirtin. Bazı özellikler belirtmezseniz, Resource Manager güncelleştirme bu değerlerin üzerine yazar olarak yorumlar.
 
 ## <a name="example-result"></a>Örnek sonucu
 

@@ -11,19 +11,19 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: f321e027b29aa719dd0620aadd2a8e1558d069e9
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 2107b6a4cd0d94edfe469a1643e18aed46bff1d0
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54825808"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902763"
 ---
 # <a name="manage-my-devices-overview"></a>Cihazlarımı yönet sayfasına genel bakış
 
+Hem iş hem de kişisel cihazlarınızdan kuruluşunuzun kısıtlayabileceği kaynaklara erişebildiğinizden emin olun.
+
 >[!Important]
 >Bu içerik kullanıcılara yöneliktir. Yöneticiyseniz, Azure Active Directory (Azure AD) ortamınızı ayarlama ve yönetme hakkında daha fazla bilgi için [Azure Active Directory Belgelerine](https://docs.microsoft.com/azure/active-directory) bakabilirsiniz.
-
-Hem iş hem de kişisel cihazlarınızdan kuruluşunuzun kısıtlayabileceği kaynaklara erişebildiğinizden emin olun.
 
 |Makale |Açıklama |
 |------|------------|

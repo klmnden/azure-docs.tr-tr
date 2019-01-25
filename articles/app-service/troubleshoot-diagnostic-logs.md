@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: d5a94258e8c17d13e15f22f9fa96ef0647105abe
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: b73656e2bb7c413d2c29fafb682f39154499854a
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53807882"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904463"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Azure App Service'teki uygulamalar için tanılama günlüğünü etkinleştirme
 ## <a name="overview"></a>Genel Bakış
@@ -29,13 +29,13 @@ Azure, hatalarını ayıklamaya yardımcı olmak üzere yerleşik tanılama sağ
 Bu makalede [Azure portalında](https://portal.azure.com) ve Azure CLI'yı tanılama günlükleri ile çalışma. Visual Studio kullanarak tanılama günlükleri ile çalışma hakkında daha fazla bilgi için bkz. [Visual Studio'daki sorun giderme Azure](troubleshoot-dotnet-visual-studio.md).
 
 ## <a name="whatisdiag"></a>Web sunucusu tanılama ve uygulama tanılama
-App Service için web sunucusunu hem web uygulamasının içinden bilgileri günlüğe kaydetme tanılama işlevselliği sağlar. Bu mantıksal olarak ayrılır **web sunucu tanılamalarını** ve **uygulama tanılama**.
+App Service, web sunucusunu hem web uygulamasının içinden bilgileri günlüğe kaydetme için tanılama işlevi sağlar. Bu mantıksal olarak ayrılır **web sunucu tanılamalarını** ve **uygulama tanılama**.
 
 ### <a name="web-server-diagnostics"></a>Web sunucusu tanılama
 Etkinleştirmek veya günlükleri aşağıdaki türde devre dışı bırakabilirsiniz:
 
 * **Ayrıntılı hata günlüğü** -ayrıntılı hata bilgileri belirten bir hata (durum kodu 400 veya üzeri) HTTP durum kodları için. Bu sunucunun döndürülen hata kodu neden belirlemek yardımcı olabilecek bilgiler içerebilir.
-* **Başarısız istek izleme** -ayrıntılı bir izleme isteği ve her bir bileşende geçen süre işlemek için kullanılan IIS bileşenlerini de dahil olmak üzere, başarısız isteklerle bilgileri. Site performansı artırmak veya döndürülecek belirli bir HTTP hatası neden olan yalıtmak çalışıyorsanız yararlı olur.
+* **Başarısız istek izleme** -ayrıntılı bir izleme isteği ve her bir bileşende geçen süre işlemek için kullanılan IIS bileşenlerini de dahil olmak üzere, başarısız isteklerle bilgileri. Site performansı artırmak veya belirli bir HTTP hatası yalıtmak istiyorsanız kullanışlıdır.
 * **Web sunucusu günlüğe kaydetme** -kullanarak HTTP işlemleri hakkında bilgi [W3C Genişletilmiş günlük dosyası biçimini](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). İşlenen isteklerin veya özel bir IP adresinden kaç isteklerdir sayısı gibi genel site ölçümleri belirlerken yararlı olacaktır.
 
 ### <a name="application-diagnostics"></a>Uygulama tanılamaları
@@ -45,7 +45,7 @@ Uygulama Tanılama web uygulaması tarafından üretilen bilgileri yakalamanıza
 
 Çalışma zamanında gidermeye yardımcı olması için bu günlükleri alabilirsiniz. Daha fazla bilgi için [Visual Studio'da Azure App Service sorun giderme](troubleshoot-dotnet-visual-studio.md).
 
-App Service ayrıca bilgilerini günlüğe kaydetme dağıtım içeriği için bir uygulama yayımladığınızda. Otomatik olarak gerçekleşir ve dağıtım günlüğü için yapılandırma ayarı yok. Dağıtım günlüğü bir dağıtım başarısız olmasının belirlemenize olanak tanır. Örneğin, bir özel dağıtım betiği kullanıyorsanız, betiği neden başarısız olduğunu belirlemek için dağıtım günlüğünü kullanabilirsiniz.
+Bir uygulamaya içerik yayımlarken app Service dağıtım bilgilerini de kaydeder. Otomatik olarak gerçekleşir ve dağıtım günlüğü için yapılandırma ayarı yok. Dağıtım günlüğü bir dağıtım başarısız olmasının belirlemenize olanak tanır. Örneğin, bir özel dağıtım betiği kullanıyorsanız, betiği neden başarısız olduğunu belirlemek için dağıtım günlüğünü kullanabilirsiniz.
 
 ## <a name="enablediag"></a>Tanılamayı etkinleştirme
 Tanılamayı etkinleştirmek için [Azure portalında](https://portal.azure.com), uygulamanızın sayfasına gidin ve tıklayın **Ayarları > tanılama günlükleri**.
@@ -53,12 +53,16 @@ Tanılamayı etkinleştirmek için [Azure portalında](https://portal.azure.com)
 <!-- todo:cleanup dogfood addresses in screenshot -->
 ![Günlükleri bölümü](./media/web-sites-enable-diagnostic-log/logspart.png)
 
-Etkinleştirdiğinizde **uygulama tanılama**, ayrıca **düzeyi**. Bu ayar için yakalanan bilgilerin filtrelemenize olanak sağlar. **bilgilendirici**, **uyarı**, veya **hata** bilgileri. Bu ayarın **ayrıntılı** uygulama tarafından üretilen tüm bilgileri günlüğe kaydeder.
+Etkinleştirdiğinizde **uygulama tanılama**, ayrıca **düzeyi**. Aşağıdaki tabloda her düzeyde içerir günlükleri kategorilerini gösterilmektedir:
 
-> [!NOTE]
-> Web.config dosyasını değiştirme aksine, uygulama Tanılama'yı etkinleştirme ya da tanılama günlük düzeylerini değiştirme uygulamanın içinde çalıştığı uygulama etki alanı dönüştürülmeyeceği.
->
->
+| Düzey| Dahil edilen günlük kategorileri |
+|-|-|
+|**Devre dışı** | None |
+|**Hata:** | Hataları, kritik |
+|**Uyarı** | Hataları, kritik uyarı|
+|**Bilgi** | Uyarı, bilgi, hataları, kritik|
+|**ayrıntılı** | İzleme, hata ayıklama, bilgi, uyarı, hata, kritik (tüm kategoriler) |
+|-|-|
 
 İçin **uygulama günlüğü**, geçici hata ayıklama amacıyla için dosya sistemi seçeneğini etkinleştirebilirsiniz. Bu seçenek otomatik olarak 12 saat içinde devre dışı bırakır. Günlüklerin yazılacağı bir blob kapsayıcısını seçmek için blob depolama seçeneğinde kapatabilirsiniz.
 
@@ -114,7 +118,7 @@ Azure komut satırı arabirimini kullanarak günlük dosyalarını indirmek içi
 Bu komut adlı bir dosyaya ' appname' adlı uygulama için günlüklere kaydeder **diagnostics.zip** geçerli dizin.
 
 > [!NOTE]
-> Azure CLI yüklü değil veya Azure Aboneliğinizdeki kullanacak şekilde yapılandırmadıysanız, bkz. [Azure CLI kullanmak için nasıl](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+> Azure CLI'yi yüklemediyseniz veya Azure Aboneliğinizdeki kullanacak şekilde yapılandırmadıysanız, bkz. [Azure CLI kullanmak için nasıl](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
 >
 >
 
@@ -157,7 +161,7 @@ HTTP gibi belirli günlük türlerini filtreleyecek şekilde kullanmak **--yolu*
     az webapp log tail --name appname --resource-group myResourceGroup --path http
 
 > [!NOTE]
-> Azure CLI yüklü değil veya Azure Aboneliğinizdeki kullanacak şekilde yapılandırmadıysanız, bkz. [Azure CLI kullanmak için nasıl](../cli-install-nodejs.md).
+> Azure CLI'yi yüklemediyseniz veya Azure Aboneliğinizdeki kullanacak şekilde yapılandırmadıysanız, bkz. [Azure CLI kullanmak için nasıl](../cli-install-nodejs.md).
 >
 >
 
@@ -165,7 +169,7 @@ HTTP gibi belirli günlük türlerini filtreleyecek şekilde kullanmak **--yolu*
 ### <a name="application-diagnostics-logs"></a>Uygulama tanılama günlükleri
 Uygulama tanılama günlüklerinin dosya sistemi veya blob depolamaya depoladığınız bağlı olarak, .NET uygulamaları için belirli bir biçimde bilgileri depolar. 
 
-Depolanan veri kümesini temel her iki depolama türlerinde - tarih ve saat olayı, olay türü (bilgi, uyarı, hata) ve olay iletisi üretilen işlem kimliği olayın gerçekleştiği aynıdır. Günlük depolama için dosya sistemini kullanarak günlük dosyalarını neredeyse anında güncelleştirildiğinden bir sorunu gidermek için anında erişim gerektiğinde yararlıdır. Dosyaları önbelleğe alınır ve ardından depolama kapsayıcısına bir zamanlamaya göre Temizlenen için blob depolama arşivleme amacıyla kullanılır.
+Depolanan veri kümesini temel her iki depolama türlerinde - tarih ve saat olayı, olay türü (bilgi, uyarı, hata) ve olay iletisi üretilen işlem kimliği olayın gerçekleştiği aynıdır. Günlük depolama için dosya sistemini kullanarak günlük dosyalarını neredeyse anında güncelleştirildiğinden bir sorunu gidermek için anında erişim gerektiğinde yararlıdır. Dosyaları önbelleğe alınır ve ardından depolama kapsayıcısına bir zamanlamaya göre Temizlenen için blob depolama, arşivleme amacıyla kullanılır.
 
 **Dosya sistemi**
 

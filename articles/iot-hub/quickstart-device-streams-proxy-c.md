@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: f1c2cd037539b3cf33f6c58c4ac8a3a1e8c304ce
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: d0fc8d68b3412c2c43a88e3a9484dab3a150b811
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54830159"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54886280"
 ---
 # <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-c-proxy-application-preview"></a>Hızlı Başlangıç: SSH/C Ara sunucu uygulamasını (Önizleme) kullanarak IOT Hub cihaz akışları üzerinden RDP
 
@@ -37,7 +37,7 @@ Aşağıdaki şekilde, cihaz ve hizmet yerel proxy programları SSH istemcisi SS
 
 3. Cihazda 22 numaralı bağlantı noktasında dinleme SSH arka plan programı (SSHD) cihaz yerel proxy bağlandığında (Bu açıklandığı gibi yapılandırılabilirdir [aşağıda](#run-the device-local-proxy-application)).
 
-4. Kullanıcıdan yeni SSH bağlantıları için bekler, bu durumda 2222 numaralı bağlantı noktasına atanan bir bağlantı noktasında dinleme tarafından hizmet yerel proxy (Bu da açıklandığı gibi yapılandırılabilirdir [aşağıda](#run-the-device-local-proxy-application)). Kullanıcı SSH istemcisi bağlandığında, uygulama trafiği SSH istemcisi ve sunucusu programlar arasında trasferred SSH tünel sağlar.
+4. Kullanıcıdan yeni SSH bağlantıları için bekler, bu durumda 2222 numaralı bağlantı noktasına atanan bir bağlantı noktasında dinleme tarafından hizmet yerel proxy (Bu da açıklandığı gibi yapılandırılabilirdir [aşağıda](#run-the-device-local-proxy-application)). Kullanıcı SSH istemcisi bağlandığında, SSH istemcisi ve sunucusu programlar arasında aktarılmak SSH uygulama trafiği tüneli etkinleştirir.
 
 > [!NOTE]
 > Bir cihaz akış üzerinden gönderilen SSH trafiği doğrudan hizmet ve cihaz arasında gönderilen yerine IOT Hub'ın akış uç noktası aracılığıyla tünel. Bu sağlar [yararlar](./iot-hub-device-streams-overview.md#benefits). Ayrıca, aynı cihaza (veya makine) çalıştıran SSH arka plan programı şekilde cihaz yerel proxy olarak gösterilmektedir. Bu hızlı başlangıçta, SSH arka plan programı IP adresi sağlamak için cihaz yerel ara sunucu ve farklı makinelerde de çalıştırmak için arka plan programı sağlar.
@@ -95,7 +95,7 @@ Bu hızlı başlangıçta, [C için Azure IoT cihaz SDK](iot-hub-device-sdk-c-in
 
 ```
     # In Linux
-    cmake -Denable_streaming=ON ..
+    cmake ..
     make -j
 ```
 
@@ -104,10 +104,10 @@ Windows içinde Visual Studio 2015 veya 2017 istemi için geliştirici Komut İs
 ```
     # In Windows
     # For VS2015
-    $ cmake -Denable_streaming=ON .. -G "Visual Studio 15 2015"
+    $ cmake .. -G "Visual Studio 15 2015"
     
     # Or for VS2017
-    $ cmake -Denable_streaming=ON .. -G "Visual Studio 15 2017
+    $ cmake .. -G "Visual Studio 15 2017
 
     # Then build the project
     cmake --build . -- /m /p:Configuration=Release
@@ -179,7 +179,6 @@ Bir cihazın bağlanabilmesi için IoT hub’ınıza kaydedilmesi gerekir. Bu b�
     # Go to sample's folder cmake/iothub_client/samples/iothub_client_c2d_streaming_proxy_sample
     $ ./iothub_client_c2d_streaming_proxy_sample
 
-
     # In Windows
     # Go to sample's release folder cmake\iothub_client\samples\iothub_client_c2d_streaming_proxy_sample\Release
     iothub_client_c2d_streaming_proxy_sample.exe
@@ -194,14 +193,14 @@ Açıklandığı gibi [yukarıda](#how-it-works) SSH trafiği tünel oluşturmak
 
 Cihaz ve hizmet yerel Proxy çalıştıran varsayılarak, artık SSH istemcisi programınız kullanın ve yerel hizmet proxy'si (yerine SSH arka plan programı doğrudan) 2222 numaralı bağlantı noktasında bağlanın. 
 
-```azurecli-interactive
+```
 ssh <username>@localhost -p 2222
 ```
 
 Bu noktada kimlik bilgilerinizi girmeniz için SSH oturum açma istemi ile sunulur.
 
 
-Konsol çıktısı SSH arka plan programı bağlanan cihazın yerel proxy'de <code>IP_address:22</code>: ![Alternatif metin](./media/quickstart-device-streams-proxy-c/device-console-output.PNG "cihaz yerel proxy çıkış")
+Konsol çıktısı SSH arka plan programı bağlanan cihazın yerel proxy'de `IP_address:22`: ![Alternatif metin](./media/quickstart-device-streams-proxy-c/device-console-output.PNG "cihaz yerel proxy çıkış")
 
 Konsol çıktısı SSH istemcisi programının (SSH istemcisi iletişim kuran SSH arka plan programı için burada hizmeti-yerel proxy üzerinde dinleme bağlantı noktası 22 bağlanarak): ![Alternatif metin](./media/quickstart-device-streams-proxy-csharp/ssh-console-output.png "SSH istemcisi çıkış")
 

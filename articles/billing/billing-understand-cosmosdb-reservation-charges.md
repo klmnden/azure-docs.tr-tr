@@ -7,14 +7,14 @@ manager: kfile
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: cwatson
+ms.author: banders
 ms.reviewer: sngun
-ms.openlocfilehash: de7b0a2746c79242cb6538595ca3205455a2cc5c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: f83499e52b6405ec5475795a80c5a4325043a441
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582763"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904497"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>Ayırma indirimi Azure Cosmos DB'ye nasıl uygulanacağını anlama
 
@@ -50,17 +50,17 @@ Ayırma indirimi, Azure Cosmos DB performans maliyetleri saat saatlik olarak uyg
 |Azure Cosmos DB - 100 RU/s/saat - ABD Batı 2|   ABD Batı 2      |      1   |
 |Azure Cosmos DB - 100 RU/s/saat - ABD Orta Batı|   ABD Orta Batı      |       1  |
 |Azure Cosmos DB - 100 RU/s/saat - ABD Doğu|   ABD Doğu      |  1       |
-|Azure Cosmos DB - 100 RU/s/saat - SA Kuzey|     SA Kuzey    |   1      |
-|Azure Cosmos DB - 100 RU/s/saat - SA Batı |    SA Batı      |    1     |
+|Azure Cosmos DB - 100 RU/s/saat - SA Kuzey|     SA North    |   1      |
+|Azure Cosmos DB - 100 RU/s/saat - SA Batı |    SA West      |    1     |
 |Azure Cosmos DB - 100 RU/s/saat - ın Güney|    IN Güney     |    1.0375    |
 |Azure Cosmos DB - 100 RU/s/saat - CA Doğu|   CA Doğu      |    1.1      |
-|Azure Cosmos DB - 100 RU/s/saat - JA Doğu|   JA Doğu      |    1,125     |
-|Azure Cosmos DB - 100 RU/s/saat - JA Batı|     JA Batı    |   1,125       |
+|Azure Cosmos DB - 100 RU/s/saat - JA Doğu|   JA Doğu      |    1.125     |
+|Azure Cosmos DB - 100 RU/s/saat - JA Batı|     JA Batı    |   1.125       |
 |Azure Cosmos DB - 100 RU/s/saat - ın Batı|     IN Batı    |    1.1375     |
 |Azure Cosmos DB - 100 RU/s/saat - ın Orta|    IN Orta     |  1.1375       |
 |Azure Cosmos DB - 100 RU/s/saat - AU Doğu|     AU Doğu    |   1.15       |
 |Azure Cosmos DB - 100 RU/s/saat - CA Orta|  CA Orta       |   1.2       |
-|Azure Cosmos DB - 100 RU/s/saat - FR Orta|   FR Orta      |    1,25      |
+|Azure Cosmos DB - 100 RU/s/saat - FR Orta|   FR Orta      |    1.25      |
 |Azure Cosmos DB - 100 RU/s/saat - BR Güney|  BR Güney       |   1,5      |
 |Azure Cosmos DB - 100 RU/s/saat - AU Orta|   AU Orta      |   1,5      |
 |Azure Cosmos DB - 100 RU/s/saat - AU Orta 2| AU Orta 2        |    1,5     |
@@ -115,7 +115,7 @@ Azure ayırmaları hakkında daha fazla bilgi edinmek için aşağıdaki makalel
 * [Kurumsal kayıt için ayırma kullanımını anlama](../billing/billing-understand-reserved-instance-usage-ea.md)  
 * [CSP abonelikleri için ayırma kullanımını anlama](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
+## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

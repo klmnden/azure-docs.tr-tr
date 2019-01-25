@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
-ms.author: cwatson
-ms.openlocfilehash: 89abf64e6b47700bb16aaf6d4d4c0efbbbd9f520
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: 8a6993f19f32e1bdb0bd10013f8f7e3dde844edd
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581600"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54903936"
 ---
 # <a name="understand-free-service-to-meter-mapping"></a>Ücretsiz hizmet ölçer eşlemesini anlama
 
@@ -29,8 +29,8 @@ Her bir Azure hizmetinde Azure faturalandırma sistem hizmetleri için kullanıc
 
 |    Hizmet   | Azure Portal'daki ölçüm adı | Ölçüm adlarında kullanım dosyası/API'si | Ölçüm Kimliği |
 | ------------ | -------------------------- | -------------------------| -------- |
-| Linux VM B1S | Standart_b1 saatleri - işlem VM | İşlem saatleri - ücretsiz | 8260cba2-4437-47d1-a31e-2561cd370f50
-| B1S Windows VM | Standart_b1 saatleri - işlem VM (Windows) | İşlem saatleri - ücretsiz | ff3e6fa5-EE46-478e-8d0e-b629f4f8a8ac
+| B1S Linux VM | Standart_b1 saatleri - işlem VM | İşlem saatleri - ücretsiz | 8260cba2-4437-47d1-a31e-2561cd370f50
+| B1S Windows VM | Standart_b1 saatleri - işlem VM (Windows) | İşlem saatleri - ücretsiz | ff3e6fa5-ee46-478e-8d0e-b629f4f8a8ac
 | B1S VM - genel IP adresleri  | IP adresi saatleri - genel IP adresleri | IP adresi saatleri - ücretsiz | ae56b367-2708-4454-a3d9-2be7b2364ea1
 | CosmosDB | Depolama (GB) - Cosmos DB | Depolama (GB) - ücretsiz | 59c78b09-08e2-466a-9f3b-57a94c9e2f31
 | CosmosDB | 100 istek birimi (saatler) - Cosmos DB | 100 istek birimi (saatler) - ücretsiz | 5d638a6f-e221-41cf-ae3f-0f81d368cef6 
@@ -44,8 +44,8 @@ Her bir Azure hizmetinde Azure faturalandırma sistem hizmetleri için kullanıc
 | Sık erişimli blok blobu depolama | Standart GÇ - sık erişimli blok blobu yazma işlemleri (10,000s) | Standart GÇ - sık erişimli blok blobu yazma işlemleri (10,000s) - ücretsiz | b34bbb76-edce-4c2d-a288-81a2db1fea53
 | Sık erişimli blok blobu depolama  | Standart GÇ - sık erişimli blok blobu yazma/listeleme işlemleri (içinde 10,000s) | Standart GÇ - sık erişimli blok blobu yazma/listeleme işlemleri (içinde 10,000s) - ücretsiz | 7e68cf36-1198-4d3b-baa7-86a74c5b3079
 | Yönetilen disk *  | Standart yönetilen Disk/anlık görüntüler (GB) - yerel olarak yedekli | Standart yönetilen Disk/anlık görüntüler (GB) - ücretsiz | ad94c237-52a5-4804-ae65-38c5bf85ef42
-| Yönetilen disk *  | Standart yönetilen Disk işlemleri (10,000s) | Standart yönetilen Disk işlemleri (10,000s) - ücretsiz | 82cc6ea4-0abd-43ac-ACC0-ec34edf0f14c
-| Yönetilen disk *  | Premium depolama sayfa blobu/P6 (birimler) - yerel olarak yedekli | Premium depolama sayfa blobu/P6 (birimler) - ücretsiz | 2b98c168-27CA-4cc1-b509-e887dec87657
+| Yönetilen disk *  | Standart yönetilen Disk işlemleri (10,000s) | Standart yönetilen Disk işlemleri (10,000s) - ücretsiz | 82cc6ea4-0abd-43ac-acc0-ec34edf0f14c
+| Yönetilen disk *  | Premium depolama sayfa blobu/P6 (birimler) - yerel olarak yedekli | Premium depolama sayfa blobu/P6 (birimler) - ücretsiz | 2b98c168-27ca-4cc1-b509-e887dec87657
 | SQL Veritabanı | Standart S0 veritabanı günleri - SQL veritabanı | Standart S0 veritabanı günleri - ücretsiz | dd6b69d3-9be0-4a91-abff-2c58bbcafd1d
 | Paylaşılan - bant genişliği ** | Veri Aktarımı Gönderilen (GB) | Veri aktarımı gönderilen (GB) - ücretsiz | 0fc067a1-65d2-46da-b24b-7a9cbe2c69bd
 
@@ -53,6 +53,6 @@ Her bir Azure hizmetinde Azure faturalandırma sistem hizmetleri için kullanıc
 
 \** Paylaşılan ölçümleri birden çok hizmet tarafından kullanılabilir. Örneğin, hem sanal makineleri hem de depolama kullanım veri aktarımı Out(GB) ölçüm karşı gösterin.
 
-## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
+## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

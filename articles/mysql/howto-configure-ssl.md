@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 075f20027153eb9adf5c0daedea7cf5c0b515ee4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/24/2019
+ms.openlocfilehash: d938b4485dccc3b5be3d1af612b407a67e04f397
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537044"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902219"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>Güvenli bir MySQL için Azure veritabanı'na bağlanmak üzere uygulamanızda SSL bağlantısı yapılandırma
 MySQL için Azure veritabanı, Güvenli Yuva Katmanı (SSL) kullanarak istemci uygulamaları için Azure veritabanınızı MySQL sunucusuna bağlanmayı destekler. Veritabanı sunucunuzla istemci uygulamalarınız arasında SSL bağlantılarının zorunlu tutulması, sunucuya uygulamanız arasındaki veri akışını şifreleyerek "bağlantıyı izinsiz izleme" saldırılarına karşı korumaya yardımcı olur.
@@ -26,10 +26,14 @@ MySQL Workbench, SSL üzerinden güvenli bir şekilde bağlanmak için yapıland
 ![özelleştirilmiş kutucuk kaydetme](./media/howto-configure-ssl/mysql-workbench-ssl.png) varolan bağlantılar için SSL bağlantısı simgeye tıklanarak bağlayın ve Düzenle'yi seçin. Ardından gidin **SSL** sekme ve sertifika dosyası bağlayın.
 
 ### <a name="connecting-to-server-using-the-mysql-cli-over-ssl"></a>SSL üzerinden MySQL CLI'yı kullanarak sunucuya bağlanma
-SSL sertifikası bağlamak için başka bir yolu, aşağıdaki komutu yürüterek MySQL komut satırı arabirimini kullanmaktır:
-```dos
-mysql.exe -h mydemoserver.mysql.database.azure.com -u Username@mydemoserver -p --ssl-ca=c:\ssl\BaltimoreCyberTrustRoot.crt.pem
+SSL sertifikası bağlama başka bir yolu, aşağıdaki komutları çalıştırarak MySQL komut satırı arabirimini kullanmaktır. 
+
+```bash
+mysql.exe -h mydemoserver.mysql.database.azure.com -u Username@mydemoserver -p --ssl-mode=REQUIRED --ssl-ca=c:\ssl\BaltimoreCyberTrustRoot.crt.pem
 ```
+
+> [!NOTE]
+> Windows üzerinde MySQL komut satırı arabirimi kullanarak, bir hata alabilir `SSL connection error: Certificate signature check failed`. Bu meydana gelirse, değiştirin `--ssl-mode=REQUIRED --ssl-ca={filepath}` parametrelerle `--ssl`.
 
 ## <a name="step-3--enforcing-ssl-connections-in-azure"></a>3. Adım:  Azure'da SSL bağlantılarının zorlanması 
 ### <a name="using-the-azure-portal"></a>Azure portalını kullanma
@@ -42,7 +46,7 @@ Etkinleştirmek veya devre dışı bırakabileceğiniz **ssl zorlama** etkin vey
 az mysql server update --resource-group myresource --name mydemoserver --ssl-enforcement Enabled
 ```
 
-## <a name="step-4-verify-the-ssl-connection"></a>4. adım: SSL bağlantısını doğrulama
+## <a name="step-4-verify-the-ssl-connection"></a>4. Adım: SSL bağlantısını doğrulama
 Mysql yürütme **durumu** SSL kullanarak MySQL sunucusuna bağladınız doğrulamak için komut:
 ```dos
 mysql> status

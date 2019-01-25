@@ -3,7 +3,7 @@ title: Bir şablonu kullanarak bir Azure sanal makinesinde Azure kaynakları iç
 description: Bir Azure Resource Manager şablonu kullanarak Azure sanal makinesinde, Azure kaynakları için yönetilen kimlikleri yapılandırma için adım adım yönergeler.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
-ms.author: daveba
-ms.openlocfilehash: 8d6c3e7ecfc51095d017876819492ca08180c129
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: priyamo
+ms.openlocfilehash: 7a0e8e535f14dd11211e6e47a9c8e466cef2675e
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433603"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884478"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-a-templates"></a>Şablonları kullanarak bir Azure sanal makinesinde Azure kaynakları için yönetilen kimlik Yapılandır
 

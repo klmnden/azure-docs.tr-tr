@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/23/2019
 ms.author: jingwang
-ms.openlocfilehash: 4c8fcc403b274d161893194109dee4bc8d0cb369
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 433718c19e0df5fac87273f2b46f8ae090ed7510
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974383"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888575"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Desteklenen dosya biçimleri ve Azure Data factory'de sıkıştırma codec bileşenleri
 
@@ -414,15 +414,19 @@ Parquet dosyalarını ayrıştırmak veya verileri Parquet biçiminde yazmak ist
 }
 ```
 
-> [!IMPORTANT]
-> Kopyalama şirket içinde barındırılan tümleştirme çalışma zamanı tarafından örneğin şirket içi ile bulut arasında yetkilendirilmiş için Parquet dosyalarını kopyalıyorsanız değil, verilerin depolandığı **olarak-olan**, IR makinenizde JRE 8 (Java Çalışma zamanı ortamı) yüklemeniz gerekir. Bir 64-bit IR 64 bit JRE gerekir. İki sürüme de [buradan](https://go.microsoft.com/fwlink/?LinkId=808605) ulaşabilirsiniz.
->
-
 Aşağıdaki noktalara dikkat edin:
 
 * Karmaşık veri türleri (MAP, LIST) desteklenir.
 * Sütun adı boşluk desteklenmiyor.
 * Parquet dosyası sıkıştırmayla ilgili aşağıdaki seçenekleri içerir: NONE, SNAPPY, GZIP ve LZO. Okuma verileri Parquet dosyasına aşağıdakilerden herhangi biri LZO dışında biçimleri sıkıştırılmış - sıkıştırma codec meta verileri okumak için kullandığı veri fabrikası destekler. Ancak Data Factory bir Parquet dosyasına yazarken varsayılan Parquet biçimi SNAPPY seçeneğini kullanır. Şu anda bu davranışı geçersiz kılma seçeneği yoktur.
+
+> [!IMPORTANT]
+> Kopyalama şirket içinde barındırılan tümleştirme çalışma zamanı tarafından örneğin şirket içi ile bulut arasında yetkilendirilmiş için Parquet dosyalarını kopyalıyorsanız değil, verilerin depolandığı **olarak-olan**, yüklemeniz gerekir **64 bit JRE 8 (Java Çalışma zamanı ortamı) veya OpenJDK** IR makinenizde. Daha fazla ayrıntı içeren aşağıdaki paragrafa bakın.
+
+Parquet dosyası serileştirme/seri kaldırma ile şirket içinde barındırılan IR üzerinde çalışan kopya için ilk olarak kayıt defteri denetleyerek ADF Java Çalışma zamanı bulur *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* JRE, aksi takdirde için bulunamadı, sistem değişkeni ikincisidenetimi*`JAVA_HOME`* OpenJDK için. 
+
+- **JRE kullanılacak**: 64-bit IR 64 bit JRE gerekir. Buradan bulabilirsiniz [burada](https://go.microsoft.com/fwlink/?LinkId=808605).
+- **OpenJDK kullanılacak**: sürüm 3.13 IR itibaren desteklenir. Paketi diğer tüm jvm.dll OpenJDK derlemelerinin şirket içinde barındırılan IR makine ve JAVA_HOME ortam değişken Ayarla sistem uygun şekilde gerekli.
 
 ### <a name="data-type-mapping-for-parquet-files"></a>Eşleme Parquet dosyalarını için veri türü
 
@@ -460,15 +464,19 @@ ORC dosyalarını ayrıştırmak veya verileri ORC biçiminde yazmak istiyorsan�
 }
 ```
 
-> [!IMPORTANT]
-> Kopyalama şirket içinde barındırılan tümleştirme çalışma zamanı tarafından örneğin şirket içi ile bulut arasında yetkilendirilmiş için ORC dosyalarını kopyalıyorsanız değil, verilerin depolandığı **olarak-olan**, IR makinenizde JRE 8 (Java Çalışma zamanı ortamı) yüklemeniz gerekir. Bir 64-bit IR 64 bit JRE gerekir. İki sürüme de [buradan](https://go.microsoft.com/fwlink/?LinkId=808605) ulaşabilirsiniz.
->
-
 Aşağıdaki noktalara dikkat edin:
 
 * Değil karmaşık veri türleri desteklenmez (STRUCT, MAP, listesi, UNION).
 * Sütun adı boşluk desteklenmiyor.
 * ORC dosyasına sahip üç [sıkıştırmayla ilgili seçenekleri](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB, SNAPPY. Data Factory, bu sıkıştırma biçimlerinin herhangi birine sahip ORC dosyalarını okuyabilir. Verileri okumak için meta verilerdeki sıkıştırma kodlayıcısı/kod çözücüsünü kullanır. Ancak Data Factory bir ORC dosyasına yazarken varsayılan ORC değeri olan ZLIB seçeneğini kullanır. Şu anda bu davranışı geçersiz kılma seçeneği yoktur.
+
+> [!IMPORTANT]
+> Kopyalama şirket içinde barındırılan tümleştirme çalışma zamanı tarafından örneğin şirket içi ile bulut arasında yetkilendirilmiş için ORC dosyalarını kopyalıyorsanız değil, verilerin depolandığı **olarak-olan**, yüklemeniz gerekir **64 bit JRE 8 (Java Çalışma zamanı ortamı) veya OpenJDK**  IR makinenizde. Daha fazla ayrıntı içeren aşağıdaki paragrafa bakın.
+
+İlk olarak kayıt defteri denetleyerek ORC dosya serileştirme/seri kaldırma ile şirket içinde barındırılan IR üzerinde çalışan kopya için ADF Java Çalışma zamanı bulur *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* JRE, aksi takdirde için bulunamadı, sistem değişkeni ikincisidenetimi*`JAVA_HOME`* OpenJDK için. 
+
+- **JRE kullanılacak**: 64-bit IR 64 bit JRE gerekir. Buradan bulabilirsiniz [burada](https://go.microsoft.com/fwlink/?LinkId=808605).
+- **OpenJDK kullanılacak**: sürüm 3.13 IR itibaren desteklenir. Paketi diğer tüm jvm.dll OpenJDK derlemelerinin şirket içinde barındırılan IR makine ve JAVA_HOME ortam değişken Ayarla sistem uygun şekilde gerekli.
 
 ### <a name="data-type-mapping-for-orc-files"></a>Eşleme ORC dosyaları için veri türü
 

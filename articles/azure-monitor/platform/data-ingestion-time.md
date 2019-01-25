@@ -10,14 +10,14 @@ ms.service: log-analytics
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/08/2019
+ms.date: 01/24/2019
 ms.author: bwren
-ms.openlocfilehash: 5db963b1ffea656455c06092c82ac95e85d87826
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 329472f3edee66db6b12e369ee8f944546ad4734
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213136"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900451"
 ---
 # <a name="data-ingestion-time-in-log-analytics"></a>Log analytics'te veri alım zamanı
 Azure Log Analytics, binlerce müşteri terabaytlarca veriyi her ay büyüyen bir hızda gönderme yapan bir Azure İzleyici'de büyük ölçekli veri hizmetidir. Genellikle verileri toplandıktan sonra Log Analytics'te kullanılabilir olana kadar geçen süreyi hakkında sorular vardır. Bu makalede, bu gecikme süresini etkileyen faktörleri farklı açıklanmaktadır.
@@ -45,8 +45,15 @@ Aracılar ve yönetim çözümleri farklı stratejiler gecikme süresini etkiley
 ### <a name="agent-upload-frequency"></a>Aracı karşıya yükleme frekansı
 Log Analytics aracısını basit olmasını sağlamak için aracı günlüklerini arabelleğe alır ve bunları düzenli aralıklarla Log Analytics'e gönderir. Karşıya yükleme ve veri türüne bağlı olarak 2 dakika 30 saniye arasında sıklığı değişir. 1 dakika içinde en çok veriyi karşıya yüklendi. Ağ koşulları, bu veriler, Log Analytics alma noktası ulaşmak için gecikme süresini olumsuz yönde etkileyebilir.
 
-### <a name="azure-logs-and-metrics"></a>Azure günlükleri ve ölçümler 
-Etkinlik günlüğü verileri Log Analytics'e başlatılabilmek için yaklaşık 5 dakika sürer. Tanılama günlükleri ve ölçüm verilerini işleme, bağlı olarak Azure hizmeti için kullanılabilir hale gelmesi için 1-15 dakika sürebilir. Kullanılabilir olduğunda, ardından bir ek 30-60 Log Analytics alımı noktasına gönderilecek saniye günlükleri ve ölçüm verileri için 3 dakika sürer.
+### <a name="azure-activity-logs-diagnostic-logs-and-metrics"></a>Azure etkinlik günlükleri, tanılama günlükleri ve ölçümler
+Azure veri işleme için Log Analytics alma noktasında kullanılabilir olana kadar ek zaman ekler:
+
+- Azure hizmete bağlı olarak 2-15 dakika tanılama günlükleri verilerden yararlanın. Bkz: [aşağıdaki sorguyu](#checking-ingestion-time) bu gecikme süresi, ortamınızda incelemek için
+- Azure platformu ölçümleri Log Analytics alımı noktasına gönderilecek 3 dakika alın.
+- Etkinlik günlüğü verileri Log Analytics'e alımı noktasına gönderilmesi için yaklaşık 10-15 dakika sürer.
+
+Alma noktasında kullanılabilir olduktan sonra veri sorgulama için kullanılabilir olması için ek 2-5 dakika sürer.
+
 
 ### <a name="management-solutions-collection"></a>Yönetim çözümleri toplama
 Bazı çözümler verilerine bir Aracıdan toplamaz ve ek gecikme sağlayan bir koleksiyon yöntemi kullanabilir. Bazı çözümler, neredeyse gerçek zamanlı koleksiyon denemeden, düzenli aralıklarla veri toplayın. Belirli örnekler aşağıdakileri içerir:

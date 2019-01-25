@@ -8,15 +8,15 @@ ms.topic: reference
 ms.date: 1/16/2019
 ms.author: dukek
 ms.subservice: logs
-ms.openlocfilehash: 9ad3ca2233237c9cb4aea0a7bd0c476f48613a9c
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 2f7d671dd70571ce167d9c5abd632cdebff329da
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438244"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888150"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure etkinlik günlüğü olay şeması
-**Azure etkinlik günlüğü** Azure'da gerçekleşen herhangi bir abonelik düzeyindeki olayların sağlayan günlüktür. Bu makalede veri kategorisini başına olay şeması. Portal, PowerShell, CLI veya karşı REST API aracılığıyla doğrudan veri okunuyorsa veri şeması bağlı olarak farklı [veri depolama veya günlük profilini kullanarak Event Hubs akış](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). Aşağıdaki örnekler, portal, PowerShell, CLI ve REST API kullanıma sunulan teklifinizle şema gösterir. Bu özellikler için bir eşleme [Azure tanılama günlükleri şema](./tutorial-dashboards.md) makalenin sonunda sağlanır.
+**Azure etkinlik günlüğü** Azure'da gerçekleşen herhangi bir abonelik düzeyindeki olayların sağlayan günlüktür. Bu makalede veri kategorisini başına olay şeması. Portal, PowerShell, CLI veya karşı REST API aracılığıyla doğrudan veri okunuyorsa veri şeması bağlı olarak farklı [veri depolama veya günlük profilini kullanarak Event Hubs akış](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). Aşağıdaki örnekler, portal, PowerShell, CLI ve REST API kullanıma sunulan teklifinizle şema gösterir. Bu özellikler için bir eşleme [Azure tanılama günlükleri şema](./diagnostic-logs-schema.md) makalenin sonunda sağlanır.
 
 ## <a name="administrative"></a>Yönetim
 Bu kategoride tüm kaydı oluşturma, güncelleştirme, silme ve eylem işlemlerine Resource Manager aracılığıyla gerçekleştirilir. Görmek Bu kategoride olay türlerini örnekleri arasında "sanal makine oluşturma" ve "bir kullanıcı ya da Resource Manager kullanarak uygulama tarafından gerçekleştirilen her eylemi modellenmiş bir işlemi belirli bir kaynak türü olarak ağ güvenlik grubunu sil". İşlem türü, yazma, silme veya eylem ise, hem Başlangıç hem de başarılı kayıtlar veya bu işlemin başarısız yönetim kategorisi kaydedilir. Yönetim kategorisi, bir abonelikte rol tabanlı erişim denetimi değişiklikleri de içerir.
@@ -274,7 +274,7 @@ Bu kategori, Azure kaynaklarınıza ortaya çıkan herhangi bir kaynak sistem du
 | submissionTimestamp |Olay sorgulamak için kullanılabilen kalktığında zaman damgası. |
 | subscriptionId |Azure abonelik kimliği |
 | properties |Kümesi `<Key, Value>` olay ayrıntılarını açıklayan çiftleri (diğer bir deyişle, bir sözlük).|
-| Properties.Title | Kaynak sistem durumu tanımlayan kullanıcı dostu bir dize. |
+| Properties.Title | Kaynak sistem durumunu açıklayan kullanıcı dostu bir dize. |
 | Properties.details | Daha fazla olay hakkında ayrıntılar açıklanmaktadır kullanıcı dostu bir dize. |
 | properties.currentHealthStatus | Kaynağın geçerli sistem durumu. Aşağıdaki değerlerden biri: "Kullanılabilir olma", "Kullanılamıyor", "Düşük" ve "Bilinmeyen". |
 | properties.previousHealthStatus | Kaynak önceki sistem durumu. Aşağıdaki değerlerden biri: "Kullanılabilir olma", "Kullanılamıyor", "Düşük" ve "Bilinmeyen". |
@@ -356,9 +356,9 @@ Bu kategorideki tüm etkinleştirmeleri Azure uyarıları kaydını içerir. Bu 
 | açıklama |Uyarı olayının açıklaması statik metin. |
 | eventDataId |Uyarı olayı benzersiz tanımlayıcısı. |
 | düzey |Olay düzeyi. Aşağıdaki değerlerden biri: "Kritik", "Error", "Uyarı" ve "Bilgilendirici" |
-| resourceGroupName |Etkilenen kaynak ölçüm uyarısı ise kaynak grubunun adı. Diğer uyarı türleri için bu uyarıyı içeren kaynak grubunun adıdır. |
-| resourceProviderName |Etkilenen kaynak ölçüm uyarısı ise kaynak sağlayıcı adı. Diğer uyarı türleri için uyarı için kaynak sağlayıcısının adını budur. |
-| resourceId | Etkilenen kaynak ölçüm uyarısı ise kaynak kimliği adı. Diğer uyarı türleri için uyarı kaynağın kaynak kimliği budur. |
+| resourceGroupName |Etkilenen kaynak ölçüm uyarısı ise kaynak grubunun adı. Diğer uyarı türleri için uyarıyı içeren kaynak grubunun adıdır. |
+| resourceProviderName |Etkilenen kaynak ölçüm uyarısı ise kaynak sağlayıcı adı. Diğer uyarı türleri için kaynak sağlayıcısı için uyarı adıdır. |
+| resourceId | Etkilenen kaynak ölçüm uyarısı ise kaynak kimliği adı. Diğer uyarı türleri için kaynak uyarı kaynak kimliğidir. |
 | operationId |Tek bir işleme karşılık gelen olaylar arasında paylaşılan bir GUID. |
 | operationName |İşlemin adı. |
 | properties |Kümesi `<Key, Value>` olay ayrıntılarını açıklayan çiftleri (diğer bir deyişle, bir sözlük). |
@@ -570,7 +570,7 @@ Bu kategori, Azure Güvenlik Merkezi tarafından oluşturulan herhangi bir uyar�
 | subscriptionId |Azure abonelik kimliği |
 
 ## <a name="recommendation"></a>Öneri
-Bu kategori, hizmetlerinizi için oluşturulan yeni önerisi kaydını içerir. Bir öneri örneği "kullanımı kullanılabilirlik kümeleri için hataya dayanıklılık." olacaktır Oluşturulabilecek öneri olayları 4 çeşit vardır: Yüksek kullanılabilirlik, performans, güvenlik ve maliyet iyileştirme. 
+Bu kategori, hizmetlerinizi için oluşturulan yeni önerisi kaydını içerir. Bir öneri örneği "kullanımı kullanılabilirlik kümeleri için hataya dayanıklılık." olacaktır Oluşturulabilecek öneri olayları dört tür vardır: Yüksek kullanılabilirlik, performans, güvenlik ve maliyet iyileştirme. 
 
 ### <a name="sample-event"></a>Örnek olay
 ```json
@@ -757,7 +757,7 @@ Bu kategoride işlemlerinin tarafından gerçekleştirilen tüm etkin eylem kay�
 | Kaynak türü | Yeni kaynaklar için değerlendirilen türüdür. Var olan kaynaklar için "Microsoft.Resources/checkPolicyCompliance" döndürür. |
 | resourceId | Değerlendirilen kaynağının kaynak kimliği. |
 | durum | İlke değerlendirme sonucu durumunu açıklayan bir dize. "Başarılı" çoğu ilke değerlendirmeleri döndürür, ancak reddetme etkisi "Başarısız" döndürür. Hataları auditIfNotExists veya Deployıfnotexists ayrıca "Başarısız" döndürür. |
-| alt durumu | İlke olaylarını Bu alan boştur. |
+| alt durumu | İlke olaylarını alan boştur. |
 | submissionTimestamp | Olay sorgulamak için kullanılabilen kalktığında zaman damgası. |
 | subscriptionId | Azure abonelik kimliği |
 | properties.isComplianceCheck | Yeni bir kaynak dağıtılır veya var olan bir kaynağın kaynak yöneticisi özellikleri güncelleştirildi "False" döndürür. Diğer tüm [değerlendirme Tetikleyicileri](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers) neden "True". |
@@ -768,7 +768,7 @@ Bu kategoride işlemlerinin tarafından gerçekleştirilen tüm etkin eylem kay�
 
 ## <a name="mapping-to-diagnostic-logs-schema"></a>Tanılama günlükleri şemaya eşleme
 
-Azure etkinlik günlüğünün Event Hubs ad alanı veya bir depolama hesabını akış, verileri izleyen [Azure tanılama günlükleri şema](./tutorial-dashboards.md). Şemayı özelliklerinden tanılama günlükleri şemaya eşleme şu şekildedir:
+Azure etkinlik günlüğünün Event Hubs ad alanı veya bir depolama hesabını akış, verileri izleyen [Azure tanılama günlükleri şema](./diagnostic-logs-schema.md). Şemayı özelliklerinden tanılama günlükleri şemaya eşleme şu şekildedir:
 
 | Tanılama günlükleri şema özelliği | Etkinlik günlüğü REST API şema özelliği | Notlar |
 | --- | --- | --- |

@@ -11,12 +11,12 @@ ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: f12aed12138b1b16fcce90401ea0d65bd083675f
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 02832ee84e02251239ab4364aac9ad0894c681b9
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546734"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884790"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Azure SQL Analytics (Önizleme) kullanarak Azure SQL veritabanı izleme
 
@@ -37,10 +37,10 @@ Azure SQL Analytics, bulut çözümü, Azure SQL veritabanları için tanılama 
 
 | Bağlı Kaynak | Desteklenen | Açıklama |
 | --- | --- | --- |
-| [Azure Tanılama](../../azure-monitor/platform/collect-azure-metrics-logs.md) | **Evet** | Azure ölçüm ve günlük verileri Log Analytics'e doğrudan Azure tarafından gönderilir. |
-| [Azure depolama hesabı](../../azure-monitor/platform/collect-azure-metrics-logs.md) | Hayır | Log Analytics, verileri bir depolama hesabından okumaz. |
-| [Windows aracıları](../../azure-monitor/platform/agent-windows.md) | Hayır | Doğrudan Windows aracıları çözüm tarafından kullanılmaz. |
-| [Linux aracıları](../../azure-monitor/learn/quick-collect-linux-computer.md) | Hayır | Doğrudan Linux aracıları çözüm tarafından kullanılmaz. |
+| [Azure Tanılama](../platform/collect-azure-metrics-logs.md) | **Evet** | Azure ölçüm ve günlük verileri Log Analytics'e doğrudan Azure tarafından gönderilir. |
+| [Azure depolama hesabı](../platform/collect-azure-metrics-logs.md) | Hayır | Log Analytics, verileri bir depolama hesabından okumaz. |
+| [Windows aracıları](../platform/agent-windows.md) | Hayır | Doğrudan Windows aracıları çözüm tarafından kullanılmaz. |
+| [Linux aracıları](../learn/quick-collect-linux-computer.md) | Hayır | Doğrudan Linux aracıları çözüm tarafından kullanılmaz. |
 | [System Center Operations Manager yönetim grubu](../platform/om-agents.md) | Hayır | Operations Manager Aracısı'ndan doğrudan bir bağlantı Log analytics'e çözüm tarafından kullanılmaz. |
 
 ## <a name="configuration"></a>Yapılandırma
@@ -185,7 +185,7 @@ Koşul sonrasında bir uyarı tetikleyen bir Log Analytics sorgusu karşılanıy
 
 ### <a name="creating-alerts-for-azure-sql-database"></a>Uyarılar için Azure SQL veritabanı oluşturma
 
-Kolayca [uyarıları oluşturma](../../azure-monitor/platform/alerts-metric.md) ile Azure SQL veritabanı kaynaklardan gelen verileri. İşte bazı yararlı [oturum sorguları](../../azure-monitor/log-query/log-query-overview.md) ile günlük uyarısı kullanabileceğiniz:
+Kolayca [uyarıları oluşturma](../platform/alerts-metric.md) ile Azure SQL veritabanı kaynaklardan gelen verileri. İşte bazı yararlı [oturum sorguları](../log-query/log-query-overview.md) ile günlük uyarısı kullanabileceğiniz:
 
 #### <a name="high-cpu-on-azure-sql-database"></a>Azure SQL veritabanı yüksek CPU
 
@@ -297,6 +297,6 @@ AzureDiagnostics
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Kullanım [günlük aramaları](../../azure-monitor/log-query/log-query-overview.md) ayrıntılı Azure SQL veri görüntülemek için Log analytics'te.
-- [Kendi panolarınızı oluşturun](../../azure-monitor/platform/dashboards.md) Azure SQL veri gösteriliyor.
-- [Uyarı oluşturma](../../azure-monitor/platform/alerts-overview.md) belirli bir Azure SQL olaylar gerçekleştiğinde.
+- Kullanım [günlük aramaları](../log-query/log-query-overview.md) ayrıntılı Azure SQL veri görüntülemek için Log analytics'te.
+- [Kendi panolarınızı oluşturun](../learn/tutorial-logs-dashboards.md) Azure SQL veri gösteriliyor.
+- [Uyarı oluşturma](../platform/alerts-overview.md) belirli bir Azure SQL olaylar gerçekleştiğinde.

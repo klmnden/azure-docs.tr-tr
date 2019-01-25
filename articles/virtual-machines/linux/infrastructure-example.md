@@ -3,7 +3,7 @@ title: Örnek Azure altyapısı gözden geçirme | Microsoft Docs
 description: Bir örnek altyapısını Azure'a dağıtmak için önemli tasarım ve uygulama yönergeleri hakkında bilgi edinin.
 documentationcenter: ''
 services: virtual-machines-linux
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 794182e3988a353b1e305a36da0475bacdea69b8
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: d4b8cd07e50697139f68084f47c847ef8728c429
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469859"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888970"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Linux VM'ler için örnek Azure altyapı Kılavuzu
 Bu makalede örnek uygulama altyapısı oluşturmaya gösterilmektedir. Biz, yönergeleri ve adlandırma kuralları, kullanılabilirlik kümeleri, sanal ağlar ve yük Dengeleyiciler kararları bir araya basit bir çevrimiçi mağaza için bir altyapı tasarımı ve gerçekte sanal makinelerinizi (VM) dağıtma açıklamaktadır.
@@ -72,14 +72,14 @@ Sanal ağ Adventure iş döngüleri şirket içi ağınıza bağlantı gerekmedi
 
 Azure portalını kullanarak aşağıdaki ayarlara sahip bir yalnızca bulut sanal ağ oluşturdukları:
 
-* Name: Kullanım AZOS VN01
+* Ad: AZOS-USE-VN01
 * Konum: Doğu ABD 2
-* Sanal ağ adres alanı: 10.0.0.0/8
+* sanal ağ adres alanı: 10.0.0.0/8
 * İlk alt ağı:
-  * Adı: FrontEnd
+  * Ad: FrontEnd
   * Adres alanı: 10.0.1.0/24
 * İkinci alt ağı:
-  * Ad: arka uç
+  * Ad: BackEnd
   * Adres alanı: 10.0.2.0/24
 
 ## <a name="availability-sets"></a>Kullanılabilirlik kümeleri

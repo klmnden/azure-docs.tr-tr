@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
-ms.author: cwatson
-ms.openlocfilehash: 0328f90eb1cb9c316eea76a0f36c123fd556d25e
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: de2aee36f20bd5142f398de7edb301e53ab42cae
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584428"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902678"
 ---
 # <a name="windows-software-costs-not-included-with-azure-reserved-vm-instances"></a>Azure ayrılmış VM örnekleri ile bulunmayan Windows yazılım maliyetleri
 
@@ -45,7 +45,7 @@ Bir Azure hibrit kullanım teklifi, ayrılmış sanal makine örneklerine sahip 
 | 0d5bdf46-b719-4b1f-a780-b9bdfffd0591 | Ayırma-Windows Svr (32 çekirdek) | B serisi tüm |
 | f1214b5c-cc16-445f-be6c-a3bb75f8395a | Ayırma-Windows Svr (40 çekirdek) | B serisi tüm |
 | 637b7c77-65ad-4486-9cc7-dc7b3e9a8731 | Ayırma-Windows Svr (64 çekirdek) | B serisi tüm |
-| da612742-e7cc-4CA3-9334-0fb7234059cd | Ayırma-Windows Svr (72 çekirdek) | B serisi tüm |
+| da612742-e7cc-4ca3-9334-0fb7234059cd | Ayırma-Windows Svr (72 çekirdek) | B serisi tüm |
 | a485cb8c-069b-4cf3-9a8e-ddd84b323da2 | Ayırma-Windows Svr (128 çekirdek) | B serisi tüm |
 | 904c5c71-1eb7-43a6-961c-d305a9681624 | Ayırma-Windows Svr (256 çekirdek) | B serisi tüm |
 | 6fdab81b-4284-4df9-8939-c237cc7462fe | Ayırma-Windows Svr (96 çekirdek) | B serisi tüm |
@@ -62,7 +62,7 @@ Azure ayırmaları hakkında daha fazla bilgi edinmek için aşağıdaki makalel
 - [Kullandıkça Öde aboneliğinizi için ayırma kullanımını anlama](billing-understand-reserved-instance-usage.md)
 - [Kurumsal kayıt için ayırma kullanımını anlama](billing-understand-reserved-instance-usage-ea.md)
 
-## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
+## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

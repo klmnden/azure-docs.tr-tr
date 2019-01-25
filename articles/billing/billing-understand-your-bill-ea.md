@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2018
-ms.author: cwatson
-ms.openlocfilehash: b724fc7a887550b4115a988149b4b7a6c95de830
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: 36ce4d96e02bac1eae1791acf811da468726b4a6
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584477"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902712"
 ---
 # <a name="understand-your-bill-for-azure-customers-with-an-enterprise-agreement"></a>Bir kurumsal anlaşma kapsamında olan Azure müşterileri için faturanızı anlayın
 
@@ -31,8 +31,8 @@ Kuruluşunuzun kredi parasal taahhüdünüz içerir. Parasal taahhüt, kuruluşu
 
 Aşağıdaki durumlarda bir veya daha fazla fatura alın:
 
-- **Hizmet fazla kullanımı**: kuruluşunuzun kullanım ücretleri kredi bakiyeniz aşıyor.
-- **Ücretleri ayrı olarak faturalandırılır**: kullanılan kuruluşunuz tarafından kredi kapsamında olmayan hizmetleri. Aşağıdaki hizmetleri için kredi bakiyeniz bağımsız olarak faturalanan:
+- **Hizmet fazla kullanımı**: Kuruluşunuzun kullanım ücretleri kredi bakiyeniz aşıyor.
+- **Ücretleri ayrı olarak faturalandırılır**: Kullanılan kuruluşunuz tarafından kredi kapsamında olmayan hizmetler. Aşağıdaki hizmetleri için kredi bakiyeniz bağımsız olarak faturalanan:
     - Canonical
     - Citrix XenApp Essentials
     - Citrix XenDesktop 
@@ -90,6 +90,6 @@ Toplam açık, Azure Market'ten karşılaştırma **raporları** > **Kullanım �
 
      ![Market ücretlerini seçeneğinde indirin gösteren ekran görüntüsü.](./media/billing-understand-your-bill-ea/ea-portal-download-usage-marketplace.png)
 
-## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
+## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

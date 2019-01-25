@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 6b5fc02e763b66f1d7d01643d1c9d6c971d6db84
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 1d01755ae62843ad1f2f1728df046b767fe123ca
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434214"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54886586"
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Azure Hizmet Günlükleri ve Log Analytics kullanım ölçümlerini Topla
 
@@ -76,7 +76,7 @@ Destekleyen azure kaynak [Azure İzleyici](../../azure-monitor/overview.md) kend
 >
 
 * Kullanılabilir ölçümler ayrıntılarını başvurmak [ölçümleri Azure İzleyici ile desteklenen](../../azure-monitor/platform/metrics-supported.md).
-* Kullanılabilir günlükleri ayrıntılarını başvurmak [desteklenen Hizmetleri ve şema için tanılama günlüklerini](../../azure-monitor/platform/tutorial-dashboards.md).
+* Kullanılabilir günlükleri ayrıntılarını başvurmak [desteklenen Hizmetleri ve şema için tanılama günlüklerini](../../azure-monitor/platform/diagnostic-logs-schema.md).
 
 ### <a name="enable-diagnostics-with-powershell"></a>PowerShell ile tanılamayı etkinleştirme
 Kasım 2016 (v2.3.0) gereksinim veya sonraki sürümünün [Azure PowerShell](/powershell/azure/overview).

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/10/2019
+ms.date: 01/24/2019
 ms.author: alkohli
-ms.openlocfilehash: a71635abd036bb89546dd3421af97cd9b88f4327
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 9d271642a432d8a149fbe468087a0598c91e7c36
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54440210"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902388"
 ---
 # <a name="tutorial-use-data-copy-service-to-directly-ingest-data-into-azure-data-box-preview"></a>Öğretici: Doğrudan Azure Data Box (Önizleme) içinde veri almak için veri kopyası hizmeti kullanın
 
@@ -24,11 +24,12 @@ Veri kopyalama hizmeti kullanın:
 - Ağa bağlı depolama (NAS) ortamları nerede ara ana bilgisayar kullanılamıyor olabilir.
 - Alımı ve veri yükleme için hafta geçmesi küçük dosyaları ile. Bu hizmet, alma ve karşıya yükleme süresini önemli ölçüde artırır.
 
-Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+Bu öğreticide şunları öğrenirsiniz:
 
 > [!div class="checklist"]
+> * Önkoşullar
 > * Data Box'a veri kopyalama
-> * Data Box'ı göndermeye hazırlama.
+
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -60,13 +61,13 @@ Veri kopyalama hizmetini kullanarak verileri kopyalamak için bir iş oluşturma
     |-------------------------------|---------|
     |İş adı                       |Benzersiz bir ad 230'dan az karakter için bir proje. İş adı - şu karakterleri izin verilmeyen \<, \>, \|, \?, \*, \\, \:, \/, ve \\\.         |
     |Kaynak konum                |Veri kaynağı biçimde SMB yolunu belirtin: `\\<ServerIPAddress>\<ShareName>` veya `\\<ServerName>\<ShareName>`.        |
-    |Kullanıcı adı                       |Veri kaynağına erişmek için kullanıcı adı.        |
+    |Kullanıcı adı                       |Kullanıcı adını `\\<DomainName><UserName>` veri kaynağına erişmek için kullanılan biçim.        |
     |Parola                       |Veri kaynağına erişmek için parola.           |
     |Hedef depolama hesabı    |Aşağı açılan listeden verileri karşıya yüklemek için hedef depolama hesabını seçin.         |
     |Hedef depolama türü       |Hedef depolama türü blok blobu, sayfa blobu veya Azure dosyaları'nı seçin.        |
     |Hedef kapsayıcı/paylaşım    |Kapsayıcı adını girin ya da hedef depolama hesabınızdaki veriler, karşıya yüklemek için paylaşabilirsiniz. Ad, bir paylaşım adı veya kapsayıcı adı olabilir. Örneğin, `myshare` veya `mycontainer`. Ayrıca biçiminde girebilirsiniz `sharename\directory_name` veya `containername\virtual_directory_name` bulutta.        |
     |Desenle eşleşen dosyaları kopyala    | Dosya adı eşleşen deseni, aşağıdaki iki şekilde girin.<ul><li>**Joker karakter ifadeleri kullanma** yalnızca `*` ve `?` joker ifadelerde desteklenir. Örneğin, bu ifade `*.vhd` .vhd uzantılı tüm dosyaları eşleşir. Benzer şekilde, `*.dl?` uzantısı olan ya da tüm dosyaları eşleşen `.dl` veya `.dll`. Ayrıca, `*foo` adları ile bitemez tüm dosyaları eşleşecektir `foo`.<br>Bu gibi durumlarda, joker karakter ifadesini doğrudan alanında girebilirsiniz. Varsayılan olarak, alana girilen değer joker karakter ifadesini kabul edilir.</li><li>**Normal ifadeleri kullanma** -POSIX tabanlı normal ifadeler desteklenir. Örneğin, bir normal ifade `.*\.vhd` sahip tüm dosyaları eşleşecektir `.vhd` uzantısı. Normal ifade için sağlamak `<pattern>` doğrudan olarak `regex(<pattern>)`. <li>Normal ifadeler hakkında daha fazla bilgi için Git [normal ifade dili - hızlı başvuru](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference).</li><ul>|
-    |Dosya iyileştirme              |Etkin olduğunda, dosyaları alma sırasında paketlenir. Bu, küçük dosyaları için veri kopyalama hızlandırır.        |
+    |Dosya iyileştirme              |Etkin olduğunda, dosya 1 MB'tan az paketlenmiş alma. Bu, küçük dosyaları için veri kopyalama hızlandırır. Dosya sayısı şu ana kadar dizinler sayısını aştığında önemli zamandan ettiğimiz tasarruf görülür.        |
  
 4. **Başlat**'a tıklayın. Girişleri doğrulanır ve doğrulama başarılı olursa, bir iş başlatır. Bu işin başlatılması birkaç dakika sürebilir.
 
@@ -106,9 +107,7 @@ Veri kopyalama hizmetini kullanarak verileri kopyalamak için bir iş oluşturma
     - Bu sürümde, bir iş silinemiyor.
     
     - Sınırsız işleri oluşturabilirsiniz, ancak en fazla 10 işleri belirli bir zamanda paralel olarak çalıştırmak.
-    - En iyi duruma getirme dosya açıksa, küçük dosyaları paketlenir kopyalama performansını artırmak için alma. Bu gibi durumlarda, aşağıdaki ekran görüntüsünde gösterildiği gibi bir paket dosyası (GUID adı olarak) görürsünüz.
-
-        ![Paket dosyası örneği](media/data-box-deploy-copy-data-via-copy-service/packed-file-on-ingest.png)
+    - En iyi duruma getirme dosya açıksa, küçük dosyaları paketlenir kopyalama performansını artırmak için alma. Bu gibi durumlarda, bir paket dosyası (GUID adı olarak) görürsünüz. Bu dosyayı karşıya yükleme sırasında paketten çıkarılan olmayacağından, bu dosyayı silmeyin.
 
 6. İş üzerinde devam ederken **veri kopyalama** sayfası:
 
@@ -139,18 +138,14 @@ Kopyalama işi tamamlandığında gidebilirsiniz **göndermeye hazırlama**.
 >[!NOTE]
 > Göndermeye hazırlama kopyası işleri devam ederken çalıştırılamaz.
 
-## <a name="prepare-to-ship"></a>Göndermeye hazırlama
-
-[!INCLUDE [data-box-prepare-to-ship](../../includes/data-box-prepare-to-ship.md)]
-
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bu öğreticide aşağıdaki Azure Data Box konularını öğrendiniz:
 
 > [!div class="checklist"]
+> * Önkoşullar
 > * Data Box'a veri kopyalama
-> * Data Box'ı göndermeye hazırlama
+
 
 Data Box'ınızı Microsoft'a göndermeye hakkında bilgi edinmek için sonraki öğreticiye ilerleyin.
 

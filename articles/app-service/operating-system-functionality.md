@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ad27a7eaf88ae57f730609e2b0f43a2f5ea182a1
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: e5ab6651503766844b2aeef1849bffff9cf4d7bb
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653518"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901794"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Azure App Service üzerindeki işletim sistemi işlevi
 Bu makalede çalışan tüm Windows uygulamaları için kullanılabilir olan ortak temel işletim sistemi işlevi [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Bu işlev, dosya, ağ ve kayıt defteri erişim ve tanılama günlüklerini ve olayları içerir. 
@@ -128,6 +128,10 @@ Uygulamaları için kullanılabilir olmayan günlüğe kaydetme ve izleme tanıl
 Uygulamanız salt okunur erişim sağlayan (tümüyle olmasa da) runtime'daki sanal makinesinin kayıt defteri. Uygulamada, bu uygulamaları tarafından erişilebilir bir yerel kullanıcı grubu salt okunur erişime izin vermek kayıt defteri anahtarlarını anlamına gelir. Bir okuma veya yazma erişimi için şu anda desteklenmiyor kayıt defteri alanıdır HKEY\_geçerli\_kullanıcı hive.
 
 Herhangi bir kullanıcı başına kayıt defteri anahtarı erişim dahil olmak üzere kayıt defteri yazma erişimi engellenir. Uygulamalar (yapıp bu yana) uygulama açısından bakıldığında, kayıt defterine yazma erişimi hiçbir zaman bağlı Azure ortamında dayanan farklı sanal makineler arasında geçirilen. Bir uygulama tarafından bir işleve bağımlı yalnızca kalıcı yazılabilir depolama, uygulama hizmeti UNC paylaşımlarına depolanmış uygulama başına içerik dizini yapısıdır. 
+
+## <a name="remote-desktop-access"></a>Uzak Masaüstü erişimi
+
+App Service, sanal makine örneklerine Uzak Masaüstü erişimi sağlamaz.
 
 ## <a name="more-information"></a>Daha fazla bilgi
 

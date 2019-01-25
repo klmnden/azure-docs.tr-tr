@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 01/16/2019
+ms.date: 01/24/2019
 ms.author: alkohli
-ms.openlocfilehash: ad52427263c4bbd2effb373b00ef8ff37b8f5b67
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 0f5d51a0e806f132cea94e00e04255bb325cc560
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449580"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904531"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box'de: Sık Sorulan Sorular
 
@@ -36,7 +36,7 @@ Sorular ve yanıtlar aşağıdaki kategorilere ayrılmıştır:
 A.  Azure Data Box hizmeti, çevrimdışı veri alımı için tasarlanmıştır. Bu hizmet tamamı veri aktarımı için tasarlanmış olan farklı depolama kapasitelerine sahip ürün dizisini yönetir. 
 
 ### <a name="q-what-is-azure-data-box"></a>S. Azure Data Box nedir?
-A. Azure Data Box terabaytlarca veriyi Azure'da çift yönlü olarak hızlı, uygun maliyetli ve güvenli bir şekilde aktarmanızı sağlar. Data Box cihazını Azure portalı üzerinden sipariş edersiniz. Microsoft, bulunduğunuz bölgede faaliyet gösteren bir gönderim şirketi aracılığıyla size 80 TB kullanılabilir alana sahip olan bir depolama cihazı gönderir. 
+A. Azure Data Box terabaytlarca veriyi Azure'da çift yönlü olarak hızlı, uygun maliyetli ve güvenli bir şekilde aktarmanızı sağlar. Data Box cihazını Azure portalı üzerinden sipariş edersiniz. Microsoft, 80 TB kullanılabilir kapasite bölgesel bir taşıyıcı aracılığıyla bir depolama cihazı olarak gelir. 
 
 Cihaz size ulaştıktan sonra, yerel web kullanıcı arabirimini kullanarak cihazı hızla ayarlayabilirsiniz. Sunucularınızdaki verileri cihaza kopyalayın ve cihazı Azure'a geri gönderin. Azure veri merkezinde, verileriniz cihazdan Azure'a otomatik olarak yüklenir. Sürecin tamamı Azure portaldaki Data Box hizmeti tarafından uçtan uca izlenir.
 
@@ -72,16 +72,16 @@ Aboneliğinizi kontrol edin. Data Box yalnızca Kurumsal Anlaşma (EA), Bulut ç
 Aboneliğiniz, desteklenen teklif türlerinden birine aitse abonelik erişim düzeyinizi kontrol edin. Sipariş oluşturma için aboneliğinizde katkıda bulunan veya sahip olmanız gerekir.
 
 ### <a name="q-i-ordered-a-couple-of-data-box-devices-i-am-not-able-to-create-any-additional-orders-why-would-this-be"></a>S. Birkaç Data Box cihazı sipariş ettim. Başka sipariş oluşturamıyorum. Neden olabilir?
-A. Ticari sınır başına (seçilen ülke ve bölge birleşimi) her abonelik için en fazla 5 etkin siparişe izin veriyoruz. Daha fazla cihaz sipariş etmeniz gerekiyorsa Microsoft Desteği ile iletişime geçerek aboneliğinizin sınırını artırabilirsiniz.
+A. Beş etkin siparişler ticari sınır (ülke ve seçili bölge birleşimi) başına abonelik başına en fazla izin veriyoruz. Daha fazla cihaz sipariş etmeniz gerekiyorsa Microsoft Desteği ile iletişime geçerek aboneliğinizin sınırını artırabilirsiniz.
 
 ### <a name="q-when-i-try-to-create-an-order-i-receive-a-notification-that-the-data-box-service-is-not-available-what-does-this-mean"></a>S. Sipariş oluşturmaya çalıştığımda Data Box hizmetinin kullanılabilir durumda olmadığını belirten bir bildirim alıyorum. Bu ne anlama geliyor?
 A. Bu ifade Data Box hizmetinin seçtiğiniz ülke ve bölge birleşimi için kullanılabilir durumda olmadığını gösterir. Bu birleşimi değiştirmeniz durumunda muhtemelen Data Box hizmetinden faydalanabileceksiniz. Hizmetin kullanılabildiği bölgelerin listesi için bkz. [Data Box için bölge kullanılabilirliği](data-box-overview.md#region-availability).
 
 ### <a name="q-i-placed-my-data-box-order-few-days-back-when-will-i-receive-my-data-box"></a>S. Data Box siparişimi vereli birkaç gün oldu. Data Box cihazım ne zaman gelecek?
-A. Sipariş verdiğinizde uygun bir cihazın olup olmadığı kontrol edilir. Cihaz varsa 10 gün içinde gönderilir. Talebin yüksek olduğu dönemlerle de karşılaşabilirsiniz. Bu durumda siparişiniz sıraya alınır ve durumunu Azure portaldan takip edebilirsiniz. Siparişiniz 90 gün içinde işleme alınmazsa otomatik olarak iptal edilir. 
+A. Sipariş verdiğinizde uygun bir cihazın olup olmadığı kontrol edilir. Cihaz varsa 10 gün içinde gönderilir. Talebin yüksek olduğu dönemlerle de karşılaşabilirsiniz. Bu durumda siparişiniz sıraya alınır ve durumunu Azure portaldan takip edebilirsiniz. Siparişiniz 90 gün içinde işleme alınmazsa otomatik olarak iptal edilir.
 
 ### <a name="q-i-have-filled-up-my-data-box-with-data-and-need-to-order-another-one-is-there-a-way-to-quickly-place-the-order"></a>S. Data Box cihazıma veri yükledim ve yeni bir tane daha sipariş etmem gerekiyor. Siparişi hızlı bir şekilde vermek için kullanabileceğim bir yöntem var mı?
-A. Önceki siparişinizi kopyalayabilirsiniz. Kopyalama işlemi, bir öncekiyle aynı bilgilere sahip bir sipariş oluşturur ve adres, iletişim ve bildirim ayrıntılarını yeniden girmenize gerek kalmadan yalnızca sipariş bilgilerini düzenleyebilirsiniz. 
+A. Önceki siparişinizi kopyalayabilirsiniz. Kopyalama işlemi, bir öncekiyle aynı bilgilere sahip bir sipariş oluşturur ve adres, iletişim ve bildirim ayrıntılarını yeniden girmenize gerek kalmadan yalnızca sipariş bilgilerini düzenleyebilirsiniz.
 
 ## <a name="configure-and-connect"></a>Yapılandırma ve bağlanma
 
@@ -96,6 +96,9 @@ A.  Siparişi yalnızca Data Box siparişi verdikten sonra ancak sipariş işlem
 
 ### <a name="q-can-i-connect-a-data-box-at-the-same-to-multiple-host-computers-to-transfer-data"></a>S. Veri aktarımı için bir Data Box'ı aynı anda birden fazla ana bilgisayara bağlayabilir miyim?
 A. Evet. Bir Data Box'a birden fazla ana bilgisayar bağlanarak aynı anda birden fazla veri aktarım ve kopyalama işi çalıştırılabilir. Daha fazla bilgi için Git [Öğreticisi: Verileri kopyalamak için Azure Data Box](data-box-deploy-copy-data.md).
+
+### <a name="q-can-i-connect-to-both-the-10-gbe-interfaces-on-the-data-box-to-transfer-data"></a>S. Hem 10 GbE arabirimleri ile veri aktarmayı Data box'taki bağlanabilir miyim?
+A. Evet. Hem 10 GbE arabirimleri, aynı anda veri kopyalamak için Data box'taki bağlanabilir. Veri kopyalama hakkında daha fazla bilgi için Git [Öğreticisi: Verileri kopyalamak için Azure Data Box](data-box-deploy-copy-data.md).
 
 <!--### Q. The network interface on my Data Box is not working. What should I do? 
 A. 
@@ -202,19 +205,19 @@ A. Cihazınızı önyükleme değil, Siparişiniz Azure portalında gidin. Sevki
 A.  **Veri Kopyalama** işlemi için sipariş durumu **Tamamlandı** olarak değiştiğinde verilerinize doğrudan erişim sağlayabilirsiniz.
 
 ### <a name="q-where-is-my-data-located-in-azure-after-the-upload"></a>S. Yükleme sonrasında verilerim Azure'da hangi konumda bulunur?
-A.  Data Box'a veri kopyaladığınızda bunlar blok blobu, sayfa blobu veya Azure dosyası olmalarına bağlı olarak Azure Depolama hesabınızda aşağıdaki yollardan birine yüklenir.
+A.  Veri blok blobu veya sayfa blobu veya Azure dosyaları olduğuna bağlı olarak verileri Data Box için kopyaladığınızda, veriler Azure depolama hesabınızda aşağıdaki yollardan birine yüklenir.
  - `https://<storage_account_name>.blob.core.windows.net/<containername>` 
  -  `https://<storage_account_name>.file.core.windows.net/<sharename>`
  
  Alternatif olarak Azure portalda Azure depolama hesabınıza gidip oradan ilerleyebilirsiniz.
 
 ### <a name="q-i-just-noticed-that-i-did-not-follow-the-azure-naming-requirements-for-my-containers-will-my-data-fail-to-upload-to-azure"></a>S. Kapsayıcılarım için Azure adlandırma gereksinimlerine uygun hareket etmediğimi fark ettim. Verilerim yine de Azure'a yüklenir mi?
-A.  Kapsayıcı adlarında büyük harf kullandıysanız bunlar otomatik olarak küçük harfe dönüştürülür. Adlar diğer kurallara (özel karakterler, diğer diller gibi) uygun değilse yükleme işlemi başarısız olur. Paylaşımları adlandırma konusundaki en iyi yöntemler hakkında daha fazla bilgi için bkz. 
+A.  Kapsayıcı adları büyük harf varsa, ardından bu adları otomatik olarak küçük harfe dönüştürülür. Adlar diğer kurallara (özel karakterler, diğer diller gibi) uygun değilse yükleme işlemi başarısız olur. Paylaşımları adlandırma konusundaki en iyi yöntemler hakkında daha fazla bilgi için bkz.
 - [Paylaşımları adlandırma ve onlara başvurma](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
 - [Blok blobları ve sayfa blobları kuralları](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
 
 ### <a name="q-how-do-i-verify-the-data-i-copied-onto-data-box"></a>S. Data Box'a kopyaladığım verileri nasıl doğrulayabilirim?
-A.  Veri kopyalama işlemi tamamlandıktan sonra **Göndermeye Hazırlama** adımlarında verileriniz doğrulanır. Data Box, doğrulama sırasında dosyaların ve veri sağlama toplamlarının bir listesini oluşturur. Dosya listesini indirebilir ve bunu kaynak verilerdeki dosyalarla karşılaştırabilirsiniz. Daha fazla bilgi için bkz. [Göndermeye hazırlama](data-box-deploy-copy-data.md#prepare-to-ship).
+A.  Veri kopyalama işlemi tamamlandıktan sonra **Göndermeye Hazırlama** adımlarında verileriniz doğrulanır. Data Box, doğrulama sırasında dosyaların ve veri sağlama toplamlarının bir listesini oluşturur. Dosya listesi indirin ve listenin dosyaları kaynak verilerde karşı doğrulayın. Daha fazla bilgi için bkz. [Göndermeye hazırlama](data-box-deploy-picked-up.md#prepare-to-ship).
 
 ### <a name="q-what-happens-to-my-data-after-i-have-returned-the-data-box"></a>S. Data Box'ı iade ettiğimde verilerime ne olur?
 A.  Veriler Azure'a kopyalandıktan sonra Data Box disklerindeki veriler NIST SP 800-88 Revision 1 yönergelerine uygun ve güvenli bir şekilde silinir. Daha fazla bilgi için bkz. [Data Box'tan verileri silme](data-box-deploy-picked-up.md#erasure-of-data-from-data-box).

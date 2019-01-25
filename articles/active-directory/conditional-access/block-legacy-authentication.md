@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/06/2018
+ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 466e12877a63a32f461267a489573183b9da9734
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: ac5dbb0aed9ff8aec632ffa285ad0f26a859b9f4
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54451315"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901658"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Nasıl yapılır: Azure ad koşullu erişim bloğu eski kimlik doğrulaması   
 
@@ -120,6 +120,15 @@ Bu ilkenin yürürlüğe 24 saate kadar sürebilir.
 Diğer istemciler koşulu için tüm kullanılabilir verme denetimleri seçebilirsiniz; Bununla birlikte, son kullanıcı deneyiminin her zaman - aynıdır erişimi engellenir.
 
 Diğer istemciler koşul yanındaki diğer tüm koşullar yapılandırabilirsiniz.
+Örneğin, yalnızca mobil cihazlar için eski bir kimlik doğrulama engellemek istiyorsanız, ayarlama **cihaz platformlarını** seçerek koşul:
+
+- Android
+
+- iOS
+
+- Windows Phone
+
+![İlke yapılandırması desteklenmiyor](./media/block-legacy-authentication/06.png)
 
 
 

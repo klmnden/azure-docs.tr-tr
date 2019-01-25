@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
-ms.openlocfilehash: 6b76249c85f9b8c64435043a75e39601d445ab0c
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: c4fab22513e42013a9dacf0b24b2d4b322ae09b6
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384726"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883407"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>OMS portalından Log Analytics kullanıcılar için Azure portalına geçiş için sık sorulan sorular
 Log Analytics, OMS portalında adı verilen kendi portalı başlangıçta yapılandırmasını yönetmek ve toplanan verileri analiz etmek için kullanılır.  Bu Portalı'ndan tüm işlevselliği Azure portalında nerede geliştirilecek sürdürecektir taşındı.
@@ -111,7 +111,7 @@ OMS portalındaki çözüm galerisinden yönetim çözümlerini yükleme ve bunl
 Uyarı kuralları log Analytics sorgularına dayalı yönetilen artık [deneyimi uyarı birleşik](../../azure-monitor/platform/alerts-metric.md). Bkz: [uyarıları Log Analytics'ten Azure uyarılarına genişletecektir genişletme](../../azure-monitor/platform/alerts-extend-tool.md) yapılandırma ve Azure portalında uyarıları kullanma hakkında bilgi.
 
 ## <a name="how-do-i-access-my-dashboards"></a>Panolarım nasıl erişim sağlanır?
-[Panom'u](dashboards.md) Log analytics'te özelliği kullanımdan kaldırıldı. Bu özellik, bir özel Görünüm Tasarımcısı bölümleri koleksiyonunuz için izin verilen ve yerleşik Azure Panosu işlevselliğe göre almıştır. Log Analytics kullanarak verileri görselleştirmek devam [Görünüm Tasarımcısı](view-designer.md) paylaşılan görünümler için. Görsel öğeler bu görünümden ya da için de sabitleyebilirsiniz [bireysel sorguya](../learn/tutorial-logs-dashboards.md) Azure panolara.
+**Panom'u** Log analytics'te özelliği kullanımdan kaldırıldı. Bu özellik, bir özel Görünüm Tasarımcısı bölümleri koleksiyonunuz için izin verilen ve yerleşik Azure Panosu işlevselliğe göre almıştır. Log Analytics kullanarak verileri görselleştirmek devam [Görünüm Tasarımcısı](view-designer.md) paylaşılan görünümler için. Görsel öğeler bu görünümden ya da için de sabitleyebilirsiniz [bireysel sorguya](../learn/tutorial-logs-dashboards.md) Azure panolara.
 
 ## <a name="how-do-i-check-my-usage"></a>Kullanımım nasıl kontrol edebilirim?
 Artık kolayca görüntüleyebilir ve Log Analytics, maliyet ve kullanım seçerek yönetme **kullanım ve Tahmini maliyetler** çalışma alanınızdaki.

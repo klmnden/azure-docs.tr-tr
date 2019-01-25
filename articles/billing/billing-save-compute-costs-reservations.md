@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
-ms.author: cwatson
-ms.openlocfilehash: 27b31b6dec480fee417bf9ccb241199204f28f96
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: 4133d78ccff1fa4eb712d8928cefa604ca2f52ca
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582658"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902083"
 ---
 # <a name="what-are-azure-reservations"></a>Azure Ayırmaları nedir?
 
@@ -36,9 +36,9 @@ Sanal makineleri, Azure Cosmos DB veya uzun süreler için çalışan SQL verita
 
 ## <a name="what-charges-does-a-reservation-cover"></a>Ne ayırma kapak mu?
 
-- Ayrılmış sanal makine örneği: Bir ayırma, yalnızca sanal makine işlem maliyetlerini kapsar. Bu, ek yazılım, ağ ve depolama ücretleri ele alınmamıştır.
-- SQL veritabanı sanal çekirdek ayrılmış: yalnızca bir ayırma ile işlem maliyetleri dahildir. Lisans ayrı olarak faturalandırılır.
-- Azure Cosmos DB ayrılan Kapasite: bir ayırma kaynaklarınız için sağlanan aktarım hızı kapsar, depolama ve ağ ücretleri kapsamaz. 
+- Ayrılmış sanal makine örneği: Ayırma, yalnızca sanal makine işlem maliyetlerini kapsar. Bu, ek yazılım, ağ ve depolama ücretleri ele alınmamıştır.
+- SQL veritabanı sanal çekirdek ayrılmıştır: Ayırma ile yalnızca işlem maliyetleri dahildir. Lisans ayrı olarak faturalandırılır.
+- Azure Cosmos DB, kapasite ayrılmıştır: Kaynaklarınız için sağlanan aktarım hızı bir ayırma kapsar, depolama ve ağ ücretleri kapsamaz. 
 
 Windows sanal makineler ve SQL veritabanı için lisanslama maliyetleri kapsayan [Azure hibrit avantajı](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
@@ -78,9 +78,9 @@ Ayırma dönemi sonunda, fatura indirim süresi dolar ve sanal makine, SQL verit
 Rezervasyon satın aldığınızda, indirim diğer örnekleriyle aynı boyut grubu içinde öznitelikleri uygulayabilirsiniz. İndirim Karşılama esnekliği, ayırma ve rezervasyon satın aldığınızda, çekme özniteliklerinin türüne bağlıdır.
 
 - Ayrılmış VM örnekleri: Ne zaman satın aldığınız ayırma seçerseniz **için en iyi duruma getirilmiş**: **örnek boyutu esneklik**, indirim kapsamı seçtiğiniz VM boyutuna bağlıdır. Ayırma aynı boyutu seri grubu içindeki sanal makineler (VM) boyutlarına uygulayabilirsiniz. Daha fazla bilgi için [ayrılmış VM örnekleri ile sanal makine boyutu esneklik](../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
-- SUSE Linux Enterprise yazılım planı: SUSE yazılımı çalıştıracağınız sanal makinelerin Vcpu indirim kapsamı bağlıdır. Daha fazla bilgi için [SUSE Linux Enterprise yazılım planı indirim nasıl uygulandığını anlamanız](billing-understand-suse-reservation-charges.md).
-- SQL veritabanı ayrılan Kapasite: indirim kapsamı seçtiğiniz performans katmanına bağlıdır. Daha fazla bilgi için [bir Azure ayırma indirimi nasıl uygulandığını anlamanız](billing-understand-reservation-charges.md).
-- Azure Cosmos DB ayrılan Kapasite: sağlanan aktarım hızını indirim kapsamı bağlıdır. Daha fazla bilgi için [bir Azure Cosmos DB ayırma indirimi nasıl uygulandığını anlamanız](billing-understand-cosmosdb-reservation-charges.md).
+- SUSE Linux Enterprise yazılım planı: İndirim kapsamı SUSE yazılımı çalıştıracağınız sanal makinelerin Vcpu bağlıdır. Daha fazla bilgi için [SUSE Linux Enterprise yazılım planı indirim nasıl uygulandığını anlamanız](billing-understand-suse-reservation-charges.md).
+- SQL veritabanı, kapasite ayrılmıştır: İndirim kapsamı seçtiğiniz performans katmanına bağlıdır. Daha fazla bilgi için [bir Azure ayırma indirimi nasıl uygulandığını anlamanız](billing-understand-reservation-charges.md).
+- Azure Cosmos DB, kapasite ayrılmıştır: İndirim kapsamı, sağlanan aktarım hızına bağlıdır. Daha fazla bilgi için [bir Azure Cosmos DB ayırma indirimi nasıl uygulandığını anlamanız](billing-understand-cosmosdb-reservation-charges.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -94,6 +94,6 @@ Azure ayırmaları hakkında daha fazla bilgi edinmek için aşağıdaki makalel
 - [Windows yazılım maliyetleri ile ayırmaları dahil değil](billing-reserved-instance-windows-software-costs.md)
 - [İş ortağı merkezi bulut çözümü sağlayıcısı (CSP) programında Azure ayırmalar](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
+## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 04/11/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 1e27fb26b00502b63d6023b41b6a26b179b453be
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
-ms.translationtype: HT
+ms.openlocfilehash: a1d4af695807a6e2c5ef4ee74527083002bc6015
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094051"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900775"
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>Azure portalından işlev uygulaması oluşturma
 
@@ -35,7 +35,7 @@ Depolama hesabı adları 3 ile 24 karakter arasında olmalı ve yalnızca sayıy
 
 ## <a name="service-plans"></a>Hizmet planları
 
-Azure İşlevleri iki farklı hizmet planı içerir: Tüketim planı ve App Service planı. Tüketim planı kodunuz çalışırken otomatik olarak işlem gücü ayırır, gerektiğinde yükü kaldıracak şekilde ölçeği genişletir ve sonra kod çalışmadığı sırada ölçeği daraltır. App Service planı, işlev uygulamanızın App Service olanaklarına erişmesine imkan tanır. Hizmet planınızı işlev uygulamanız oluşturulurken seçmelisiniz ve şu anda bu plan değiştirilemez. Daha fazla bilgi edinmek için bkz. [Azure İşlevleri barındırma planı seçme](functions-scale.md).
+Azure işlevleri iki farklı hizmet planı içerir: Tüketim planı ve App Service planı. Tüketim planı kodunuz çalışırken otomatik olarak işlem gücü ayırır, gerektiğinde yükü kaldıracak şekilde ölçeği genişletir ve sonra kod çalışmadığı sırada ölçeği daraltır. App Service planı, işlev uygulamanızın App Service olanaklarına erişmesine imkan tanır. Hizmet planınızı işlev uygulamanız oluşturulurken seçmelisiniz ve şu anda bu plan değiştirilemez. Daha fazla bilgi edinmek için bkz. [Azure İşlevleri barındırma planı seçme](functions-scale.md).
 
 Bir App Service planında JavaScript işlevleri çalıştırmayı planlıyorsanız daha az çekirdek içeren bir plan seçmelisiniz. Daha fazla bilgi edinmek için bkz. [İşlevler için JavaScript başvurusu](functions-reference-node.md#choose-single-vcpu-app-service-plans).
 
@@ -53,6 +53,3 @@ Depolama hesabı türleri hakkında daha fazla bilgi edinmek için bkz. [Azure D
 ## <a name="next-steps"></a>Sonraki adımlar
 
 [!INCLUDE [Functions quickstart next steps](../../includes/functions-quickstart-next-steps.md)]
-
-
-

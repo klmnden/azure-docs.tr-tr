@@ -3,7 +3,7 @@ title: Öğretici - Azure CLI ile ölçek kümesini otomatik ölçeklendirme| Mi
 description: CPU talepleri arttıkça ve azaldıkça, sanal makine ölçek kümesini Azure CLI ile otomatik olarak ölçeklendirmeyi öğrenin
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/18/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b30c3a2e9f06cf02f27636592634884a7c3fdfc8
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: 3160624f6daa28c30c0888229ba53b0e80b2bc7a
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471314"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54887997"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>Öğretici: Azure CLI ile sanal makine ölçek kümesini otomatik olarak ölçeklendirme
 
@@ -137,7 +137,7 @@ sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-**stress**, *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd* benzeri bir çıktı gösterdiğinde, isteme geri dönmek için *Enter* tuşuna basın.
+Zaman **stres** çıkış benzer gösterir *stres: bilgi: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, basın *Enter* isteme geri dönmek için anahtar.
 
 **stress** yardımcı programının CPU yükü oluşturduğunu onaylamak için, **top** yardımcı programını kullanarak etkin sistem yükünü inceleyin:
 
@@ -165,7 +165,7 @@ sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-Tekrar **stress**, *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd* benzeri bir çıktı gösterdiğinde, isteme geri dönmek için *Enter* tuşuna basın.
+Yeniden, **stres** çıkış benzer gösterir *stres: bilgi: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, basın *Enter* isteme geri dönmek için anahtar.
 
 İkinci sanal makine örneğiyle bağlantınızı kapatın. **stress** yardımcı programı, sanal makine örneğinde çalışmaya devam eder.
 

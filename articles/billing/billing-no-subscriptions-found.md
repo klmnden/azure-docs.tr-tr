@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
-ms.author: cwatson
+ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: cef34d4e22732c2d718daf7ce10c23b25ff4649d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c6a2f14900d3a0d6f9e16e9b0c6d0bdfff97d6b5
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081312"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54903845"
 ---
 # <a name="no-subscriptions-found-sign-in-error-for-azure-portal-or-azure-account-center"></a>Abonelik Azure portalında veya Azure hesap merkezi için hata oturum bulunamadı
 
@@ -29,7 +29,7 @@ Oturum açmaya çalıştığınızda "abonelik bulunamadı" hata iletisini alabi
 
 ## <a name="symptom"></a>Belirti
 
-Oturum açmaya çalıştığınızda [Azure portalında](https://portal.azure.com/) veya [Azure hesap Merkezi](https://account.windowsazure.com/Subscriptions), aşağıdaki hata iletisini alıyorsunuz: "abonelik bulunamadı".
+Oturum açmaya çalıştığınızda [Azure portalında](https://portal.azure.com/) veya [Azure hesap Merkezi](https://account.windowsazure.com/Subscriptions), aşağıdaki hata iletisini alıyorsunuz: "Abonelik bulunamadı".
 
 ## <a name="cause"></a>Nedeni
 
@@ -37,7 +37,7 @@ Yanlış dizin seçtiyseniz veya hesabınızın yeterli izinlere sahip değilse 
 
 ## <a name="solution"></a>Çözüm
 
-### <a name="scenario-1-error-message-is-received-in-the-azure-portalhttpsportalazurecom"></a>Senaryo 1: Hata iletisi e-posta [Azure portalı](https://portal.azure.com)
+### <a name="scenario-1-error-message-is-received-in-the-azure-portalhttpsportalazurecom"></a>Senaryo 1: Hata iletisi alındığında [Azure portalı](https://portal.azure.com)
 
 Bu sorunu gidermek için:
 
@@ -46,7 +46,7 @@ Bu sorunu gidermek için:
   ![Üst dizini seçin Azure portalının sağ](./media/billing-no-subscriptions-found/directory-switch.png)
 * Doğru Azure directory seçilir, ancak hata iletisini almaya devam [hesabınıza sahip rolü atamak](../role-based-access-control/role-assignments-portal.md).
 
-### <a name="scenario-2-error-message-is-received-in-the-azure-account-centerhttpsaccountwindowsazurecomsubscriptions"></a>Senaryo 2: Hata iletisi e-posta [Azure hesap Merkezi](https://account.windowsazure.com/Subscriptions)
+### <a name="scenario-2-error-message-is-received-in-the-azure-account-centerhttpsaccountwindowsazurecomsubscriptions"></a>Senaryo 2: Hata iletisi alındığında [Azure hesap Merkezi](https://account.windowsazure.com/Subscriptions)
 
 Kullandığınız hesabın hesap yöneticisi olup olmadığını denetleyin. Hesap Yöneticisi olan doğrulamak için aşağıdaki adımları izleyin:
 

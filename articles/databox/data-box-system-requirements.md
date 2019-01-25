@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/27/2018
+ms.date: 01/23/2019
 ms.author: alkohli
-ms.openlocfilehash: af7bcf2a83259b9d883a824b05312316f9f1f4f8
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 469d553d60eb7c5cdfac3bc16f1fb479bd84cb70
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794014"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54886221"
 ---
 # <a name="azure-data-box-system-requirements"></a>Azure Data Box sistem gereksinimleri
 
-Bu makalede Data Box için istemcilerin ve Microsoft Azure Data Box'ınızı için önemli sistem gereksinimlerini açıklar. Data Box'ınızı dağıtın ve ardından geri gerekirse dağıtım ve sonraki işlemi sırasında başvurduğu önce bilgileri dikkatlice gözden öneririz.
+Bu makalede Data Box için istemcilerin ve Microsoft Azure Data Box'ınızı için önemli sistem gereksinimlerini açıklar. Data Box'ınızı dağıtın ve ardından geri gerekirse dağıtım ve sonraki işlemi sırasında başvurduğu önce bilgileri dikkatle gözden geçirmeniz önerilir.
 
 Sistem gereksinimleri şunlardır:
 
@@ -48,13 +48,18 @@ Data Box cihazına bağlı istemcileri aracılığıyla veri kopyalama işlemi i
 
 ### <a name="supported-storage-accounts"></a>Desteklenen depolama hesapları
 
-Data Box cihaz için desteklenen depolama türlerinin bir listesi aşağıda verilmiştir.
+Desteklenen depolama hesapları ve Data Box cihaz için depolama türleri listesi aşağıda verilmiştir. Depolama hesapları ve bunların tüm özelliklerini tüm farklı türlerinin tam listesi için bkz. [türlerde depolama hesapları](/azure/storage/common/storage-account-overview.md#types-of-storage-accounts).
 
-| **Depolama hesabı** | **Notlar** |
-| --- | --- |
-| Klasik | Standart |
-| Genel amaçlı  |Standart; V1 ve V2 desteklenir. |
-| Blob |Sık ve seyrek erişimli desteklenir. |
+| **Depolama hesabı / desteklenen depolama türleri** | **Blok blobu** |**Sayfa blobu*** |**Azure dosyaları** |**Notlar**|
+| --- | --- | -- | -- | -- |
+| Klasik standart | E | E | E |
+| Genel amaçlı v1 standart  | E | E | E | Sık ve seyrek erişimli desteklenir.|
+| Genel amaçlı v1 Premium  |  | E| | |
+| Genel amaçlı v2 standart  | E | E | E | Sık ve seyrek erişimli desteklenir.|
+| Genel amaçlı v2 Premium  |  |E | | |
+| BLOB Depolama standart |E | | |Sık ve seyrek erişimli desteklenir. |
+
+\* *-Verileri sayfa blobları karşıya 512 bayt VHD'ler gibi hizalı olmalıdır.*
 
 >[!NOTE]
 > Azure Data Lake depolama Gen 2 hesapları desteklenmez.
@@ -85,7 +90,7 @@ Yerel web kullanıcı Arabirimi için desteklenen web tarayıcıları listesi a�
 
 ## <a name="networking-requirements"></a>Ağ gereksinimleri
 
-Veri merkezinizin yüksek hızlı ağı olmalıdır. En az bir adet 10 GbE bağlantınızın olması önemle tavsiye edilir. 10 GbE bağlantı kullanılabilir değilse, verileri kopyalamak için 1 GbE veri bağlantısı kullanılabilir ancak kopyalama hızı etkilenir.
+Veri merkezinizin yüksek hızlı ağı olmalıdır. En az bir adet 10 GbE bağlantınızın olması önemle tavsiye edilir. 10 GbE bağlantı kullanılabilir değilse, 1 GbE veri bağlantısı, veri ancak hızı etkilenir kopyalama kopyalamak için kullanılabilir.
 
 ## <a name="next-step"></a>Sonraki adım
 

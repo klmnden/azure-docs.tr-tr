@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 977123459bcf9bb10c6b7ecf5d7a364f60564c48
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 7e4b52f0a3ca5e924d9d41e38e51f0cba8b75690
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437087"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54885822"
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>Dayanıklı işlevler (Azure işlevleri) dış olayları işleme
 
@@ -191,10 +191,10 @@ module.exports = async function(context, instanceId) {
 };
 ```
 
-Dahili olarak `RaiseEventAsync` (.NET) veya `raiseEvent` (JavaScript) kaybolmamasının bekleme Düzenleyici işlevi tarafından toplanmış bir ileti.
+Dahili olarak `RaiseEventAsync` (.NET) veya `raiseEvent` (JavaScript) kaybolmamasının bekleme Düzenleyici işlevi tarafından toplanmış bir ileti. Örneği belirtilen beklemiyorsa *olay adı* olay iletisi bir bellek içi kuyruğuna eklenir. Orchestration örneği için dinleme daha sonra başladığında *olay adı* olay iletileri kuyruğa kontrol eder.
 
-> [!WARNING]
-> Belirtilen orchestration örneği yok ise *kimliği örnek* veya örneği belirtilen beklemiyorsa *olay adı*, olay iletisi göz ardı edilir. Bu davranış hakkında daha fazla bilgi için bkz. [GitHub sorunu](https://github.com/Azure/azure-functions-durable-extension/issues/29).
+> [!NOTE]
+> Belirtilen orchestration örneği yok ise *kimliği örnek*, olay iletisi göz ardı edilir. Bu davranış hakkında daha fazla bilgi için bkz. [GitHub sorunu](https://github.com/Azure/azure-functions-durable-extension/issues/29). 
 
 > [!WARNING]
 > JavaScript içinde yerel olarak geliştirirken, ortam değişkenini ayarlamak gerekir `WEBSITE_HOSTNAME` için `localhost:<port>`, örn. `localhost:7071` yöntemleri kullanmak üzere `DurableOrchestrationClient`. Bu gereksinim hakkında daha fazla bilgi için bkz. [GitHub sorunu](https://github.com/Azure/azure-functions-durable-js/issues/28).

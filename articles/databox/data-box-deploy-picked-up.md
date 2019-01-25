@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/16/2019
+ms.date: 01/24/2019
 ms.author: alkohli
-ms.openlocfilehash: b948616aa21d390cedc877b0a09e272815abc82a
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 158c2a8919bccea03f5c7b67aef23cd07022c259
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358567"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900519"
 ---
 # <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>Öğretici: Azure Data Box dönün ve verileri karşıya yükleme azure'a doğrulayın
 
@@ -22,28 +22,37 @@ Bu öğretici, Azure Data Box’ın nasıl iade edileceğini ve yüklenen verile
 Bu öğreticide şu gibi konular hakkında bilgi edineceksiniz:
 
 > [!div class="checklist"]
+> * Önkoşullar
+> * Göndermeye hazırlama
 > * Data Box'ı Microsoft'a gönderme
 > * Azure'a verilerin yüklendiğini doğrulama
 > * Data Box'tan verileri silme
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Başlamadan önce tamamladığınızdan emin olun [Öğreticisi: Azure Data Box için verileri kopyalayıp doğrulayın](data-box-deploy-copy-data.md).
+Başlamadan önce emin olun:
+
+- Seçtiğiniz tamamladınız [Öğreticisi: Azure Data Box için verileri kopyalayıp doğrulayın](data-box-deploy-copy-data.md). 
+- Kopyası işleri tamamlandı. Göndermeye hazırlama kopyası işleri sürmekte olan çalıştıramazsınız.
+
+## <a name="prepare-to-ship"></a>Göndermeye hazırlama
+
+[!INCLUDE [data-box-prepare-to-ship](../../includes/data-box-prepare-to-ship.md)]
 
 ## <a name="ship-data-box-back"></a>Data Box'ı geri gönderme
 
 1. Cihazın kapalı olduğundan ve kabloların çıkartılmış olduğundan emin olun. Cihaz ile beraber sağlanan güç kablosunu sararak emniyetli şekilde cihazın arkasına yerleştirin.
-2. Cihaz ABD içinde gönderiliyorsa e-ink ekranda sevkiyat etiketinin görüntülendiğinden emin olun ve taşıyıcınızdan bir teslim alma randevusu alın. Etiket hasar görmüş, kaybolmuş veya E-ink ekranda görüntülenmiyorsa Azure portaldan yeni bir sevkiyat etiketi indirin ve cihaza yapıştırın. **Genel bakış > Sevkiyat etiketi indir** bölümüne gidin. 
+2. Cihaz ABD içinde gönderiliyorsa e-ink ekranda sevkiyat etiketinin görüntülendiğinden emin olun ve taşıyıcınızdan bir teslim alma randevusu alın. Etiket zarar görmüş veya kayıp ya da E-mürekkep ekranda görüntülenmez, Git **genel bakış > Sevkiyat Etiketi indirin** Azure portalında. Sevkiyat Etiketi indirin ve cihaza eklemesi.
 
     Cihaz Avrupa'da gönderiliyorsa E-ink ekranda sevkiyat etiketi gösterilmez. Bunun yerine iade etiketi, sevkiyat etiketinin altındaki şeffaf bölümde yer alır. Eski sevkiyat etiketini sökün ve yenisinin net bir şekilde göründüğünden emin olun.
     
-3. UPS ile bir toplama cihaz döndüren, zamanlayın. Bir toplama zamanlamak için yerel UPS (ülke belirli ücretsiz arama numarası) çağrı yapma veya en yakın bırakma konumu Data Box'devre dışı bırakın.
+3. UPS ile bir toplama cihaz döndüren, zamanlayın. Bir toplama zamanlamak için yerel UPS (ücretsiz ülkelere özgü arama numarası) çağrı yapma veya en yakın bırakma konumu Data Box'devre dışı bırakın.
 
 4. Data Box nakliyeciniz tarafından toplandıktan ve tarandıktan sonra, portaldaki sipariş durumu **Toplandı** olarak güncelleştirilir. Ayrıca bir takip numarası da görüntülenir.
 
 ## <a name="verify-data-upload-to-azure"></a>Azure'a verilerin yüklendiğini doğrulama
 
-Microsoft cihazı alıp taradığında, sipariş durumu **Alındı** olarak güncelleştirilir. Ardından cihaz hasar veya kurcalama belirtileri için fiziksel doğrulama sürecinden geçer. 
+Microsoft cihazı alıp taradığında, sipariş durumu **Alındı** olarak güncelleştirilir. Ardından cihaz hasar veya kurcalama belirtileri için fiziksel doğrulama sürecinden geçer.
 
 Doğrulama tamamlandıktan sonra Data Box, Azure veri merkezindeki ağa bağlanır. Veri kopyalaması otomatik olarak başlar. Verilerin boyutuna bağlı olarak, kopyalama işleminin tamamlanması birkaç saatten bir güne kadar sürebilir. Kopyalama işinin ilerleme durumunu portalda izleyebilirsiniz.
 
@@ -65,6 +74,8 @@ Veriler Azure'a yüklendikten sonra Data Box disklerindeki veriyi [NIST SP 800-8
 Bu öğreticide aşağıdaki Azure Data Box konularını öğrendiniz:
 
 > [!div class="checklist"]
+> * Önkoşullar
+> * Göndermeye hazırlama
 > * Data Box'ı Microsoft'a gönderme
 > * Azure'a verilerin yüklendiğini doğrulama
 > * Data Box'tan verileri silme

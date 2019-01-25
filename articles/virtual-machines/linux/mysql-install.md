@@ -3,7 +3,7 @@ title: Azure'da bir Linux sanal makinesi üzerinde Mysql'i ayarlama | Microsoft 
 description: Azure'da bir Linux sanal makinesi (Ubuntu veya Red Hat ailesi işletim sistemi) üzerinde MySQL yığını'nı yükleme hakkında bilgi edinin
 services: virtual-machines-linux
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2016
-ms.author: zarhoads
-ms.openlocfilehash: f7120decd4a5d43f88b55e7d7e20992af34cadc4
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.author: cynthn
+ms.openlocfilehash: c8043064ac1df40eaa31ae56e9ec31c0152e0130
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469580"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888439"
 ---
 # <a name="how-to-install-mysql-on-azure"></a>Azure’a MySQL yükleme
 Bu makalede, yükleme ve Linux çalıştıran Azure sanal makinesinde MySQL yapılandırma öğreneceksiniz.
@@ -42,7 +42,7 @@ Bu makaledeki örnek olarak MySQL5.6 yüklemek için depo paket kullanacağız. 
 ### <a name="how-to-install-mysql56-on-ubuntu"></a>Ubuntu'da MySQL5.6 yükleme
 Linux VM ile azure'dan Ubuntu burayı kullanacağız.
 
-* 1. adım: Yükleme MySQL Server 5.6 anahtara `root` kullanıcı:
+* 1. Adım: MySQL Server 5.6 anahtara yükleme `root` kullanıcı:
   
             #[azureuser@mysqlnode:~]sudo su -
   
@@ -59,13 +59,13 @@ Linux VM ile azure'dan Ubuntu burayı kullanacağız.
 
     ![image](./media/mysql-install/virtual-machines-linux-install-mysql-p2.png)
 
-* 2. adım: Oturum açma MySQL sunucusu
+* 2. Adım: Oturum açma MySQL sunucusu
   
     MySQL hizmeti, MySQL server yüklemesi tamamlandığında, otomatik olarak başlatılır. MySQL sunucusu ile oturum açabilirler `root` kullanıcı.
     Kullanım aşağıdaki oturum açma ve giriş parola komutu.
   
              #[root@mysqlnode ~]# mysql -uroot -p
-* 3. adım: çalışan MySQL hizmeti yönetme
+* 3. Adım: Çalışan bir MySQL hizmetini yönetme
   
     (a) MySQL hizmetinin durumunu Al
   
@@ -86,7 +86,7 @@ Linux VM ile azure'dan Ubuntu burayı kullanacağız.
 ### <a name="how-to-install-mysql-on-red-hat-os-family-like-centos-oracle-linux"></a>CentOS, Oracle Linux gibi Red Hat işletim sistemi ailesi MySQL yükleme
 Linux VM CentOS veya Oracle Linux ile burayı kullanacağız.
 
-* 1. adım: anahtar MySQL Yum depo eklemek için `root` kullanıcı:
+* 1. Adım: MySQL Yum deposu anahtar ekleme için `root` kullanıcı:
   
             #[azureuser@mysqlnode:~]sudo su -
   
@@ -94,7 +94,7 @@ Linux VM CentOS veya Oracle Linux ile burayı kullanacağız.
   
             #[root@mysqlnode ~]# wget http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm
             #[root@mysqlnode ~]# yum localinstall -y mysql-community-release-el6-5.noarch.rpm
-* 2. adım: dosya MySQL5.6 paketini indirme için MySQL depoyu etkinleştirmek için aşağıdaki düzenleyin.
+* 2. Adım: Dosya MySQL5.6 paketini indirme için MySQL deposunu etkinleştirmenize aşağıda düzenleyin.
   
             #[root@mysqlnode ~]# vim /etc/yum.repos.d/mysql-community.repo
   
@@ -112,12 +112,12 @@ Linux VM CentOS veya Oracle Linux ile burayı kullanacağız.
         gpgcheck=1
   
         gpgkey=file:/etc/pki/rpm-gpg/RPM-GPG-KEY-mysql
-* 3. adım: Yükleme MySQL MySQL deposundan MySQL yükleyin:
+* 3. Adım: MySQL yüklemek MySQL MySQL depodan yükleyin:
   
            #[root@mysqlnode ~]#yum install mysql-community-server
   
     MySQL RPM paketi ve tüm ilişkili paketleri yüklenir.
-* 4. adım: çalışan MySQL hizmeti yönetme
+* 4. Adım: Çalışan bir MySQL hizmetini yönetme
   
     (a) MySQL server'ın hizmet durumunu kontrol edin:
   
@@ -143,7 +143,7 @@ Linux VM CentOS veya Oracle Linux ile burayı kullanacağız.
 ### <a name="how-to-install-mysql-on-suse-linux"></a>SUSE Linux üzerinde MySQL yükleme
 Linux VM ile OpenSUSE burayı kullanacağız.
 
-* 1. adım: İndirme ve MySQL Server'ı yükleme
+* 1. Adım: MySQL sunucusu indirin ve yükleyin
   
     Geçiş `root` aşağıdaki komutu kullanıcı arabiriminden:  
   
@@ -154,7 +154,7 @@ Linux VM ile OpenSUSE burayı kullanacağız.
            #[root@mysqlnode ~]# zypper update
   
            #[root@mysqlnode ~]# zypper install mysql-server mysql-devel mysql
-* 2. adım: çalışan MySQL hizmeti yönetme
+* 2. Adım: Çalışan bir MySQL hizmetini yönetme
   
     (a) MySQL sunucusu durumunu kontrol edin:
   

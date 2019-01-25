@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/15/2018
 ms.author: aljo
-ms.openlocfilehash: 75ba2ee378e9eddfeaeb2346b4d5bb584844afe2
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 691995d0aa426766caed2f5e2458399b32332c9d
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636685"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54903511"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>İstemci kimlik doğrulaması için Azure Active Directory ayarlayın
 
@@ -33,7 +33,7 @@ Bazı yapılandırma Azure AD'de bir Service Fabric kümesi ile yer alan adımla
 > [!NOTE]
 > Kümeyi oluşturmadan önce aşağıdaki adımları tamamlamanız gerekir. Küme adları ve uç noktaları betikleri beklediğiniz çünkü değerleri planlanmalıdır ve, zaten oluşturduğunuz değerleri değil.
 
-1. [Betiklerini indirme] [ sf-aad-ps-script-download] bilgisayarınıza.
+1. [Betiklerini indirme](https://github.com/robotechredmond/Azure-PowerShell-Snippets/tree/master/MicrosoftAzureServiceFabric-AADHelpers/AADTool) bilgisayarınıza.
 2. Zip dosyasını sağ tıklayın, **özellikleri**seçin **Engellemeyi Kaldır** onay kutusunu işaretleyin ve ardından **Uygula**.
 3. Zip dosyasını ayıklayın.
 4. Çalıştırma `SetupApplications.ps1`ve parametrelere Tenantıd, ClusterName ve WebApplicationReplyUrl girin. Örneğin:
@@ -108,16 +108,16 @@ Kullanıcı Azure AD küme uygulaması bir rol atanmamıştır. Bu nedenle, Serv
 #### <a name="solution"></a>Çözüm
 Azure AD'yi ayarlama yönergelerini izleyin ve kullanıcı rolleri atayın. Ayrıca, "uygulamasına erişmek için kullanıcı ataması gerekli üzerinde" Kapat olarak öneririz `SetupApplications.ps1` yapar.
 
-### <a name="connection-with-powershell-fails-with-an-error-the-specified-credentials-are-invalid"></a>PowerShell ile bağlantı bir hata ile başarısız oluyor: "belirtilen kimlik bilgileri geçersiz"
+### <a name="connection-with-powershell-fails-with-an-error-the-specified-credentials-are-invalid"></a>PowerShell ile bağlantı bir hata ile başarısız olur: "Belirtilen kimlik bilgileri geçersiz"
 #### <a name="problem"></a>Sorun
-Azure AD'ye başarıyla oturum açtıktan sonra "AzureActiveDirectory" güvenlik modunu kullanarak kümeye bağlanmak için PowerShell kullanırken, bağlantının bir hatayla başarısız oluyor: "belirtilen kimlik bilgileri geçersiz."
+Azure AD'ye başarıyla oturum açtıktan sonra "AzureActiveDirectory" güvenlik modunu kullanarak kümeye bağlanmak için PowerShell kullanırken, bağlantı bir hata ile başarısız olur: "Belirtilen kimlik bilgileri geçersiz."
 
 #### <a name="solution"></a>Çözüm
 Bu çözüm, önceki bir ile aynıdır.
 
 ### <a name="service-fabric-explorer-returns-a-failure-when-you-sign-in-aadsts50011"></a>Service Fabric Explorer, oturum açtığınızda bir hata döndürür: "AADSTS50011"
 #### <a name="problem"></a>Sorun
-Service Fabric Explorer'ın Azure AD'de oturum açmaya çalıştığınızda, sayfanın bir hata döndürür: "AADSTS50011: yanıt adresi &lt;url&gt; uygulama için yapılandırılan yanıt adresleriyle eşleşmiyor: &lt;GUID&gt;."
+Service Fabric Explorer'ın Azure AD'de oturum açmaya çalıştığınızda, sayfanın bir hata döndürür: "AADSTS50011: Yanıt adresi &lt;url&gt; uygulama için yapılandırılan yanıt adresleriyle eşleşmiyor: &lt;GUID&gt;. "
 
 ![SFX yanıt adresi eşleşmiyor][sfx-reply-address-not-match]
 

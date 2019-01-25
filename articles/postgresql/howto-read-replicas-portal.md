@@ -5,15 +5,20 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/17/2019
-ms.openlocfilehash: 6c1a0a4a13a70daec157ede98f850f87150f8d93
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.date: 01/23/2019
+ms.openlocfilehash: bf6e9947c21e5b07b2adc99de585c77444447c04
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54383531"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902670"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-the-azure-portal"></a>Azure portalında çoğaltmalar oluşturmak ve yönetmek nasıl okuyun
+
+> [!IMPORTANT]
+> Salt okunur çoğaltma özelliği genel Önizleme aşamasındadır.
+
+
 Bu makalede, oluşturmak ve yönetmek için Azure veritabanı Azure portalını kullanarak PostgreSQL hizmeti salt okunur çoğaltma öğreneceksiniz. Salt okunur çoğaltmalar hakkında daha fazla bilgi edinmek için [kavramları belgeleri okuyun](concepts-read-replicas.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -41,6 +46,7 @@ Bu ana hazırlama adımı yalnızca genel amaçlı ve bellek için iyileştirilm
    ![Bildirim Kaydet - PostgreSQL için Azure veritabanı](./media/howto-read-replicas-portal/parameter-save-notification.png)
 
 6. Kaydedildikten sonra değişikliği uygulamak için sunucuyu yeniden başlatın. Bkz: [yeniden belgeleri](howto-restart-server-portal.md) sunucuyu yeniden hakkında bilgi edinmek için.
+
 
 ## <a name="create-a-read-replica"></a>Salt okunur bir çoğaltma oluşturma
 Okunur çoğaltmalar, aşağıdaki adımları kullanarak oluşturulabilir:

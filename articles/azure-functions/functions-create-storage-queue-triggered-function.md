@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 33f7367d9cdc510cf04f349f44b6e85215d46038
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 44d6311246ab303966b7cfd8bee854b1c017f85d
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995589"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902696"
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>Azure Kuyruk Depolama tarafından tetiklenen bir işlev oluşturma
 
@@ -113,8 +113,9 @@ Artık bir depolama kuyruğunuz var ve kuyruğa ileti ekleyerek işlevi test ede
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Depolama kuyruğuna bir ileti eklendiğinde çalışacak bir işlev oluşturdunuz.
+Depolama kuyruğuna bir ileti eklendiğinde çalışacak bir işlev oluşturdunuz. Kuyruk depolama tetikleyicileri hakkında daha fazla bilgi için bkz. [Azure İşlevleri Kuyruk depolama bağlamaları](functions-bindings-storage-queue.md).
 
-[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
+Oluşturulan bir sahip olduğunuza göre ilk işlev, şimdi bir ileti başka bir kuyruğa geri yazar işlevi için bir çıkış bağlaması ekleyin.
 
-Kuyruk depolama tetikleyicileri hakkında daha fazla bilgi için bkz. [Azure İşlevleri Kuyruk depolama bağlamaları](functions-bindings-storage-queue.md).
+> [!div class="nextstepaction"]
+> [İşlevleri kullanarak bir Azure Depolama kuyruğuna ileti ekleme](functions-integrate-storage-queue-output-binding.md)

@@ -11,21 +11,21 @@ ms.component: user-help
 ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 047c2af2626c9efca05dc3d3e554d57b4d559add
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 0e7dbf853c19bcd7281cbe6699728e246ec36108
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54809114"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54903698"
 ---
 # <a name="two-step-verification-overview"></a>İki aşamalı doğrulamaya genel bakış
-
->[!Important]
->Bu içerik kullanıcılara yöneliktir. Yöneticiyseniz, Azure Active Directory (Azure AD) ortamınızı ayarlama ve yönetme hakkında daha fazla bilgi için [Azure Active Directory Belgelerine](https://docs.microsoft.com/azure/active-directory) bakabilirsiniz.
 
 BT ekibinizden veya patronunuzdan kuruluşunuzun hesabınıza ek bir güvenlik doğrulaması eklediğine dair bir e-posta aldınız. Bu ne anlama geliyor? Bu durum kuruluşunuzun oturum açma sırasında gerçekten söylediğiniz kişi olduğunuzdan emin olmak için ek adımları uygulamaya aldığını göstermektedir. İki aşamalı doğrulama olarak da bulunan bu ek doğrulama adımı kullanıcı adınız, parolanız ve bir mobil cihaz veya telefon ile tamamlanır.
 
 İki aşamalı doğrulama bildiğiniz ve sahip olduğunuz bir şey olmak üzere iki kimlik doğrulaması biçimini kullandığı için yalnızca parola kullanmaktan daha güvenlidir. Bildiğiniz şey parolanızdır. Sahip olduğunuz şey ise genelde yanınızda olan telefonunuz veya başka bir cihazdır. İki aşamalı doğrulama kötü amaçlı bilgisayar korsanlarının sizi taklit etmesinin önlenmesine yardımcı olur. Parolanıza sahip olsalar bile cihazınıza da sahip olmaları oldukça düşük bir ihtimaldir.
+
+>[!Important]
+>Bu içerik kullanıcılara yöneliktir. Yöneticiyseniz, Azure Active Directory (Azure AD) ortamınızı ayarlama ve yönetme hakkında daha fazla bilgi için [Azure Active Directory Belgelerine](https://docs.microsoft.com/azure/active-directory) bakabilirsiniz.
 
 |Makale |Açıklama |
 |------|------------|

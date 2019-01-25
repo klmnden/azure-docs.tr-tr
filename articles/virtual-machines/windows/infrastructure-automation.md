@@ -3,7 +3,7 @@ title: Azure'da Windows VM'ler için altyapı Otomasyon araçları kullanma | Mi
 description: Oluşturmak ve azure'da Windows sanal makineleri yönetmek için PowerShell DSC, Ansible, Chef, Puppet ve Azure Otomasyonu gibi altyapı Otomasyon araçlarını kullanmayı öğrenin
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/13/2017
-ms.author: zarhoads
-ms.openlocfilehash: 1a21ac9c0e4f29173e4ed914b1af616ed04e46fb
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.author: cynthn
+ms.openlocfilehash: 882c7b44d3ea1a6a9cb44f463f139f6737caa25d
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466197"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884139"
 ---
 [!INCLUDE [virtual-machines-common-infrastructure-automation](../../../includes/virtual-machines-common-infrastructure-automation.md)]

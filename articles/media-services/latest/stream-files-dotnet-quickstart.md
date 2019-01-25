@@ -11,16 +11,16 @@ ms.service: media-services
 ms.workload: media
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/11/2018
+ms.date: 01/23/2019
 ms.author: juliako
-ms.openlocfilehash: fc8fc1af51332df032e864c84791791a38bc8601
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 4bea0dd38e1bfb05ba13a298c5ea3a1a62e35cd2
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612229"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54887402"
 ---
-# <a name="quickstart-stream-video-files---net"></a>Hızlı Başlangıç: Video dosyalarını akışa alma - .NET
+# <a name="quickstart-stream-video-files---net"></a>Hızlı Başlangıç: Stream video dosyaları - .NET
 
 Bu hızlı başlangıçta, Azure Media Services kullanarak çok çeşitli tarayıcı ve cihazda videoları kodlamanın akışa almaya başlamanın ne kadar kolay olduğu size gösterilmektedir. Azure Blob depolamada bulunan dosyaların yolları, SAS URL’leri veya HTTPS URL’leri kullanılarak girdi içeriği belirtilebilir.
 Bu konu başlığındaki örnek, bir HTTPS URL’si aracılığıyla erişilebilir hale getirdiğiniz içerikleri kodlar. AMS v3’ün şu anda HTTPS URL'leri üzerinden yığın halinde aktarım kodlamasını desteklemediğini unutmayın.
@@ -52,12 +52,12 @@ Aşağıdaki komutu kullanarak, akış .NET örneğini içeren bir GitHub havuzu
 
 Örnek aşağıdaki eylemleri gerçekleştirir:
 
-1. Bir Dönüşüm oluşturur (ilk olarak, belirtilen Dönüşümün var olup olmadığını denetler). 
-2. Kodlama İşinin çıkışı olarak kullanılan bir çıkış Varlığı oluşturur.
-3. İşin bir HTTPS URL'sini temel alan girişini oluşturur.
-4. Daha önce oluşturulan giriş ve çıkışı kullanarak kodlama İşini gönderir.
+1. Oluşturur bir **dönüştürme** (ilk olarak, belirtilen dönüşüm var olup olmadığını denetler). 
+2. Bir çıkış oluşturur **varlık** kodlama olarak kullanılan **iş**çıktı.
+3. Oluşturur **iş**üzerinde bir HTTPS URL'si tabanlı giriş.
+4. Kodlama gönderen **iş** giriş ve çıkış daha önce oluşturulan kullanarak.
 5. İşin durumunu denetler.
-6. StreamingLocator oluşturur.
+6. Oluşturur bir **akış Bulucusu**.
 7. Akış URL'leri oluşturur.
 
 Örnekteki her bir işlevin ne yaptığına dair açıklamalar için kodu inceleyin ve [bu kaynak dosyadaki](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs) açıklamalara bakın.

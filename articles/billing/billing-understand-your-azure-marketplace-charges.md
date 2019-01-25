@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.author: cwatson
+ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0e90c043976fc1798f675f8bf480b02e0ed93536
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 44e1930ec4d82593580bfc3a7c3e19439436752e
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581927"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904344"
 ---
 # <a name="understand-your-azure-billing-for-external-service-charges"></a>Azure faturalandırmanızı dış hizmet ücretlerini anlama
 Dış hizmetler, Azure Market'teki üçüncü taraf yazılım satıcıları tarafından yayımlanır. Örneğin, SendGrid Azure'da satın alabilir, ancak Microsoft tarafından yayımlanmayan bir dış hizmetler olur.
@@ -84,9 +84,9 @@ EA müşterileri, dış hizmet harcama bakın ve EA portal raporların indirin. 
 ## <a name="cancel-an-external-service-order"></a>Bir dış hizmet siparişi iptal etme
 Dış hizmet siparişinizi iptal etmek istiyorsanız, kaynak silme [Azure portalında](https://portal.azure.com).
 
-![Kaynak silinemedi](./media/billing-understand-your-azure-marketplace-charges/deleteMarketplaceOrder.PNG)
+![Kaynağı Sil](./media/billing-understand-your-azure-marketplace-charges/deleteMarketplaceOrder.PNG)
 
-## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
+## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

@@ -3,7 +3,7 @@ title: Azure faturanızı anlama | Microsoft Docs
 description: Azure aboneliğinizin kullanımını ve faturasını okuma ve anlama hakkında bilgi edinin
 services: ''
 documentationcenter: ''
-author: tonguyen10
+author: bandersmsft
 manager: jureid
 editor: ''
 tags: billing
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
-ms.author: cwatson
-ms.openlocfilehash: 50909a51786bf6118c4fb867f2482c93bf59c28e
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: 506910ffa46cb3fbd4be9dcecf9df0f9fdd291e5
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581571"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901029"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Microsoft Azure faturanızla ilgili koşulları anlama
 
@@ -114,6 +114,6 @@ Aşağıdaki tabloda, faturanızı üzerinde gösterilen kullanım ücretleri s�
 ## <a name="how-do-i-make-sure-that-the-charges-in-my-invoice-are-correct"></a>My fatura ücretleri doğru olduğunu nasıl emin olabilirim?
 Daha fazla ayrıntı istediğiniz faturanızla ilgili bir ücret yoksa bkz [Microsoft Azure için faturanızı anlayın.](billing-understand-your-bill.md)
 
-## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
+## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

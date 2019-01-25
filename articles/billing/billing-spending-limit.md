@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.author: cwatson
-ms.openlocfilehash: b4f38d80bfddc342d83a3552efe5d4a60cf6350f
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.author: banders
+ms.openlocfilehash: bfc6bf8cab1358c47e66660303f3303f4e9c763a
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52680132"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901012"
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>Azure harcama limiti ve nasıl kaldırılacağını anlama
 
@@ -46,7 +46,7 @@ Aboneliğinizle ilişkili geçerli bir ödeme yöntemi olduğu sürece, harcama 
 Harcama limitini kaldırmak için şu adımları izleyin:
 
 1. Oturum [hesap Merkezi](https://account.windowsazure.com/Subscriptions).
-1. Bir abonelik seçin. Abonelik, harcama sınırına ulaşılması nedeniyle devre dışı ise bu bildirime tıklayın: "Abonelik harcama sınırına ulaştı ve ücretleri önlemek için devre dışı bırakıldı." ' A tıklayıp **harcama sınırını Kaldır** içinde **ABONELİK durumu** alan.
+1. Bir abonelik seçin. Abonelik, harcama sınırına ulaşılması nedeniyle devre dışı ise bu bildirime tıklayın: "Abonelik Harcama Sınırına ulaştı ve ücret yazılmasını önlemek için devre dışı bırakıldı." ' A tıklayıp **harcama sınırını Kaldır** içinde **ABONELİK durumu** alan.
 1. Size uygun bir seçenek belirleyin.
 
 ![Harcama sınırını Kaldır seçeneği](./media/billing-spending-limit/remove-spending-limit.PNG)
@@ -84,6 +84,6 @@ Bu özellik yalnızca harcama limitini süresiz olarak kaldırılmış olsa kull
 
 ![Market satın alma Uyarısı](./media/billing-understand-your-azure-marketplace-charges/marketplace-warning.PNG)
 
-## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
+## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

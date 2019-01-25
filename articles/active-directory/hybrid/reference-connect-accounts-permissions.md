@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 01/24/2019
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 403fd0679e0850d758dd0e2f65cec3fe2ff79965
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 784599d682ab05b599f32b3fb502ed840f031ce8
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478612"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902016"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Hesaplar ve izinler
 
@@ -136,7 +136,7 @@ Ayrıca, gerekli izinler de olmalıdır. Yükleme Sihirbazı, izinleri ve herhan
 | Exchange posta ortak klasör |İçinde belirtilen öznitelikler için Okuma izinleri [Exchange posta ortak klasör](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder) ortak klasörleri için. | 
 | Parola geri yazma |Özniteliklere açıklandığı yazma izinleri [parola yönetimine Başlarken](../authentication/howto-sspr-writeback.md) kullanıcılar için. |
 | Cihaz geri yazma |Bölümünde anlatıldığı gibi bir PowerShell Betiği ile verilen izinler [cihaz geri yazmayı](how-to-connect-device-writeback.md). |
-| Grup geri yazma |Okuma, oluşturma, güncelleştirme ve silme grubu eşitlenmesi için nesneleri **Office 365 grupları**.  Daha fazla bilgi için [grup geri yazma](how-to-connect-preview.md#group-writeback).|
+| Grup geri yazma |Geri yazma için verir **Office 365 grupları** yüklü olan Exchange ile orman için.  Daha fazla bilgi için [grup geri yazma](how-to-connect-preview.md#group-writeback).|
 
 ## <a name="upgrade"></a>Yükseltme
 Bir Azure AD Connect sürümünden yeni sürüme yükselttiğinizde, aşağıdaki izinlere ihtiyacınız vardır:

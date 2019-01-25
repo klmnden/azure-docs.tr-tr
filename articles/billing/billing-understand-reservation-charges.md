@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
-ms.author: cwatson
-ms.openlocfilehash: 176e282a53c19e303fd06629a0045a79fd200dea
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: b39c56e8dcae6cdac45160240a6b0f12a1ac0f2e
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52580380"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902559"
 ---
 # <a name="understand-how-an-azure-reservation-discount-is-applied-to-sql-databases"></a>Bir Azure ayırma indirimi SQL veritabanına nasıl uygulanacağını anlama
 
@@ -32,13 +32,13 @@ Ayrılmış sanal makine örnekleri için bkz. [anlamak Azure ayrılmış VM ör
 
 Aşağıdaki örnekler nasıl sayısı bağlı olarak SQL veritabanı ayrılmış kapasite indirim uygulanır çekirdek satın aldığınız ve bunların ne zaman çalıştırdığınızdan.
 
-- 1. Senaryo: Bir 8 çekirdek SQL veritabanı için SQL veritabanı ayrılmış kapasite satın alın. Bir 16 çekirdek ayırma özniteliklerini geri kalanı ile eşleşen bir SQL veritabanı çalıştırın. Kullandıkça Öde fiyatı 8 çekirdek SQL veritabanı işlem kullanımı için ücret ödersiniz. Ayırma indirimi 8 çekirdek SQL veritabanı işlem kullanımı bir saatlik sahip olursunuz.
+- Senaryo 1: Bir 8 çekirdek SQL veritabanı için SQL veritabanı ayrılmış kapasite satın. Bir 16 çekirdek ayırma özniteliklerini geri kalanı ile eşleşen bir SQL veritabanı çalıştırın. Kullandıkça Öde fiyatı 8 çekirdek SQL veritabanı işlem kullanımı için ücret ödersiniz. Ayırma indirimi 8 çekirdek SQL veritabanı işlem kullanımı bir saatlik sahip olursunuz.
 
 Bu örneklerin geri kalanında, satın aldığınız SQL veritabanı ayrılmış kapasite 16 çekirdek bir SQL veritabanı olduğunu varsayar ve ayırma öznitelikleri geri kalanını çalışan SQL veritabanları aynı.
 
-- Senaryo 2: İki SQL veritabanı için bir saat 8 çekirdek ile her çalıştırın. 16 çekirdek ayırma indirimi, SQL veritabanlarının kullanım için her iki 8 çekirdek işlem uygulanır.
-- Senaryo 3: Bir çalıştırdığınız 16 çekirdek SQL veritabanı 13'te 1:30 pm için. 1:30 pm 2 başka bir 16 çekirdek SQL veritabanı çalıştırın. Her ikisi de, ayırma indirimini tarafından ele alınmaktadır.
-- Senaryo 4: Bir çalıştırdığınız 16 çekirdek SQL veritabanı 13'te 1:45 pm için. 1:30 pm 2 başka bir 16 çekirdek SQL veritabanı çalıştırın. 15 dakikalık çakışma Kullandıkça Öde fiyatı Ücret ödersiniz. Ayırma indirimi işlem kullanımı saat geri kalanı için uygulanır.
+- Senaryo 2: 8 çekirdek ile her bir saat için iki SQL veritabanı çalıştırın. 16 çekirdek ayırma indirimi, SQL veritabanlarının kullanım için her iki 8 çekirdek işlem uygulanır.
+- Senaryo 3: Bir çalıştırma 16 çekirdek SQL veritabanı 13'te 1:30 pm için. 1:30 pm 2 başka bir 16 çekirdek SQL veritabanı çalıştırın. Her ikisi de, ayırma indirimini tarafından ele alınmaktadır.
+- Senaryo 4: Bir çalıştırma 16 çekirdek SQL veritabanı 13'te 1:45 pm için. 1:30 pm 2 başka bir 16 çekirdek SQL veritabanı çalıştırın. 15 dakikalık çakışma Kullandıkça Öde fiyatı Ücret ödersiniz. Ayırma indirimi işlem kullanımı saat geri kalanı için uygulanır.
 
 Anlamak ve kullanım raporları faturalama Azure Ayırmalarınızın uygulamayı görüntülemek için bkz: [anlamak Azure ayırma kullanım](https://go.microsoft.com/fwlink/?linkid=862757).
 
@@ -54,6 +54,6 @@ Azure ayırmaları hakkında daha fazla bilgi edinmek için aşağıdaki makalel
 - [Kurumsal kayıt için ayırma kullanımını anlama](billing-understand-reserved-instance-usage-ea.md)
 - [CSP abonelikleri için ayırma kullanımını anlama](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
+## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

@@ -3,7 +3,7 @@ title: Azure Docker VM uzantısını kullanma | Microsoft Docs
 description: Azure Resource Manager şablonları ve Azure CLI kullanarak bir Docker ortamında hızlı ve güvenli bir şekilde dağıtmak için Docker VM uzantısını kullanmayı öğrenin
 services: virtual-machines-linux
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 ms.assetid: 936d67d7-6921-4275-bf11-1e0115e66b7f
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
-ms.author: zarhoads
-ms.openlocfilehash: 75959225d6fcc5487466ed26a21ba2d26c55cde9
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.author: cynthn
+ms.openlocfilehash: 59dbbb8374455088d759a5e837b8d3bc22145d3e
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465942"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54882772"
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension"></a>Docker VM uzantısını kullanarak Azure'da Docker ortamı oluşturma
 
@@ -39,7 +39,7 @@ Docker makinesi ve Azure Container Services kullanma dahil olmak üzere farklı 
 
 
 ## <a name="deploy-a-template-with-the-azure-docker-vm-extension"></a>Azure Docker VM uzantısı ile bir şablonu dağıtma
-Yüklemek ve Docker konağı yapılandırmak için Azure Docker VM uzantısını kullanan bir Ubuntu VM oluşturmak için var olan bir Hızlı Başlangıç şablonu kullanalım. Şablon buradan görüntüleyebilirsiniz: [basit Docker ile bir Ubuntu VM dağıtımını](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). En son ihtiyacınız [Azure CLI](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az login](/cli/azure/reference-index#az_login).
+Yüklemek ve Docker konağı yapılandırmak için Azure Docker VM uzantısını kullanan bir Ubuntu VM oluşturmak için var olan bir Hızlı Başlangıç şablonu kullanalım. Şablon buradan görüntüleyebilirsiniz: [Docker ile bir Ubuntu VM basit dağıtımını](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). En son ihtiyacınız [Azure CLI](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az login](/cli/azure/reference-index#az_login).
 
 Öncelikle [az group create](/cli/azure/group#az_group_create) komutuyla bir kaynak grubu oluşturun. Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur:
 

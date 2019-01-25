@@ -8,17 +8,17 @@ ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: 7ffe4a087ae94d6c96019cc045d3d7ff071780d4
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 426c8995e5c3d98e42d0ad334b8ae52171556dce
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54830357"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884971"
 ---
 # <a name="iot-hub-device-streams-preview"></a>IOT Hub cihaz akışları (Önizleme)
 
 ## <a name="overview"></a>Genel Bakış
-Azure IOT hub'ı *cihaz akışları* çeşitli bulut-cihaz iletişimi senaryoları için güvenli çift yönlü TCP tünel oluşturmayı kolaylaştırır. Bir cihaz akışını, bir IOT Hub tarafından cout *akış uç noktası* hangi cihaz ve hizmet uç noktaları arasında bir proxy olarak görev yapar. Bu kurulum, cihazlar ağ güvenlik duvarının arkasında olduğunda espcially yararlı olan aşağıdaki çizimde, gösterilen veya özel bir ağın içinde bulunan. Bu nedenle, IOT Hub cihaz akışları adresi müşterilerin ihtiyacını bir güvenlik duvarı uyumlu şekilde ve daha geniş kapsamda gelen veya giden ağ güvenlik duvarı bağlantı noktalarını açmak zorunda kalmadan IOT cihazlarına erişmek için Yardım.
+Azure IOT hub'ı *cihaz akışları* çeşitli bulut-cihaz iletişimi senaryoları için güvenli çift yönlü TCP tünel oluşturmayı kolaylaştırır. Bir cihaz akışını, bir IOT Hub tarafından cout *akış uç noktası* hangi cihaz ve hizmet uç noktaları arasında bir proxy olarak görev yapar. Cihazlar bir ağ güvenlik duvarının arkasında olan veya özel bir ağın içinde bulunan aşağıdaki diyagramda bu Kurulum, özellikle yararlı olur. Bu nedenle, IOT Hub cihaz akışları adresi müşterilerin ihtiyacını bir güvenlik duvarı uyumlu şekilde ve daha geniş kapsamda gelen veya giden ağ güvenlik duvarı bağlantı noktalarını açmak zorunda kalmadan IOT cihazlarına erişmek için Yardım.
 
 ![Alternatif metin](./media/iot-hub-device-streams-overview/iot-hub-device-streams-overview.png "IOT Hub cihazı akışları genel bakış")
 
@@ -33,14 +33,14 @@ IOT Hub cihaz akışları, aşağıdaki avantajları sağlar:
 
 - **Şifreleme:** Varsayılan olarak, IOT Hub cihaz akışları TLS etkin bağlantıları kullanın. Bu, olup uygulama şifreleme veya kullanıp kullanmadığına bakılmaksızın, trafik her zaman şifrelenir sağlar.
 
-- **Basitlik bağlantısı:** Cihaz akışları IOT cihazları bağlantıyı etkinleştirmek için sanal özel ağlar karmaşık Kurulumu gereksinimini ortadan kaldırır.
+- **Basitlik bağlantısı:** Çoğu durumda, cihaz akışları kullanımını IOT cihazları bağlantıyı etkinleştirmek için sanal özel ağlar karmaşık Kurulumu gereksinimini ortadan kaldırır.
 
 - **TCP/IP yığını ile uyumluluğu:** IOT Hub cihaz akışları TCP/IP'yi uygulama trafiği barındırabilir. Başka bir deyişle, çok çeşitli özel olarak standartlara dayanan protokoller bu özelliği kullanabilir.
 
-- **Özel ağ kurulumlarında kullanım kolaylığı:** Hizmet, bir cihaz, cihaz Kimliğine başvuruda bulunarak ulaşabilirsiniz yerine IP adresi. Bu, burada bir cihaz özel bir ağ içinde bulunur ve özel bir IP adresi veya IP adresini dinamik olarak atanır ve hizmet tarafına bilinmiyor durumlarda kullanışlıdır.
+- **Özel ağ kurulumlarında kullanım kolaylığı:** Hizmet, cihazın IP adresi yerine cihaz Kimliğine başvuruda bulunarak bir cihazla iletişim kuramıyor. Bu, burada bir cihaz özel bir ağ içinde bulunur ve özel bir IP adresi veya IP adresini dinamik olarak atanır ve hizmet tarafına bilinmiyor durumlarda kullanışlıdır.
 
 ## <a name="device-stream-workflows"></a>Cihaz Stream iş akışları
-Cihaz kimliğini sağlayarak bir cihaza bağlanmak için hizmet istediğinde, cihaz akışını başlatılır Bu iş akışı özellikle SSH ve burada bir SSH veya RDP istemci programı'nı kullanarak cihaz üzerinde çalışan, SSH veya RDP sunucusuna uzaktan bağlanmak için bir kullanıcı düşünüyor RDP dahil olmak üzere istemci/sunucu iletişim düzeni içine sığar.
+Cihaz kimliğini sağlayarak bir cihaza bağlanmak için hizmet istediğinde, cihaz akışını başlatılır Bu iş akışı özellikle SSH ve RDP, burada bir SSH veya RDP istemci programı'nı kullanarak cihaz üzerinde çalışan, SSH veya RDP sunucusuna uzaktan bağlanmak için bir kullanıcı düşünüyor dahil olmak üzere bir istemci/sunucu iletişim modelini içine sığar.
 
 Cihaz akışı oluşturma işlemi, cihaz, hizmeti, IOT hub'ın ana ve akış uç noktaları arasında bir anlaşma içerir. IOT hub'ın ana uç cihaz akışını oluşturulmasını düzenleyen olsa da hizmet ve cihaz arasında akan trafik akış uç noktasını işler.
 
@@ -58,14 +58,14 @@ SDK'sını kullanarak bir cihaz akışını programlı oluşturulmasını da aş
 
 4. Cihaz, akış uç noktasını güvenli giden TCP bağlantı bağlantı noktası 443 üzerinden oluşturur ve bağlantı için bir WebSocket yükseltir. Kimlik doğrulaması için kullanılacak kimlik bilgilerinin yanı sıra, akış uç noktasının URL'sini hem cihaza tarafından sağlanan IOT hub'ı adım 3'te gönderilen isteğin bir parçası olarak.
 
-5. Hizmet, akış kabul cihaz sonucunu bildirilir ve kendi WebSocket akış uç noktası oluşturmaya devam eder. Benzer şekilde, IOT Hub'ından akış uç noktası URL'si ve kimlik doğrulama bilgilerini alır.
+5. Hizmet cihaz akış kabul sonucunu bildirilir ve kendi WebSocket istemcisi akış uç noktası oluşturmaya devam eder. Benzer şekilde, IOT Hub'ından akış uç noktası URL'si ve kimlik doğrulama bilgilerini alır.
 
 Yukarıdaki el sıkışması işlemde:
 - Anlaşma sürecinin 60 saniye (Adım 2-5) içinde tamamlamanız gerekir, aksi takdirde bir zaman aşımı el sıkışması başarısız olur ve hizmet Bilgilendirilecek.
 
 - Yukarıdaki akış oluşturma akışı tamamlandıktan sonra akış uç noktasının bir proxy olarak görev yapacak ve trafik, ilgili WebSockets üzerinden cihaz ile hizmet arasında aktarır.
 
-- Cihaz ve hizmet bağlantı noktası 443 üzerinden giden bağlantı akış uç noktasını yanı sıra IOT Hub'ın ana uç nokta gerekir. Bu uç nokta URL'si, IOT Hub'ın portal genel bakış sekmesinde kullanılabilir.
+- Cihaz ve hizmet bağlantı noktası 443 üzerinden giden bağlantı akış uç noktasını yanı sıra IOT Hub'ın ana uç nokta gerekir. Bu uç nokta URL'sini kullanılabilir *genel bakış* IOT Hub'ın portalında sekmesi.
 
 - Güvenilirlik garanti kurulan bir akışın sıralama olduğundan TCP içermektedir.
 
@@ -85,9 +85,20 @@ Alternatif olarak, uç bilgi hub'ının özellikler bölümü altında Azure CLI
 az iot hub show --name <YourIoTHubName>
 ```
 
+## <a name="whitelist-device-streaming-endpoints"></a>Beyaz liste cihaz akış uç noktaları
+
+Belirtildiği gibi [önceki](#Overview), cihazınızın IOT Hub ile akış uç noktası için bir giden bağlantı sırasında cihaz akışları başlatma işlemi oluşturur. Cihaz veya alt ağdaki güvenlik duvarlarınızdan giden akış ağ geçidi bağlantı noktası 443 üzerinden (iletişim TLS kullanılarak şifrelenmiş bir WebSocket bağlantısı üzerinden gerçekleşir. Not) bağlanmaya izin vermelidir.
+
+Cihaz akış uç noktası ana bilgisayar adı, Azure IOT hub'ı portalındaki genel bakış sekmesinin altında bulunabilir. ![Alternatif metin](./media/iot-hub-device-streams-overview/device-stream-portal.PNG "cihaz akış uç noktaları")
+
+Alternatif olarak, Azure CLI kullanarak bu bilgileri bulabilirsiniz:
+```cmd/sh
+az iot hub show --name <YourIoTHubName>
+```
+
 ## <a name="troubleshoot-via-device-streams-activity-logs"></a>Etkinlik günlükleri cihaz akışları sorunlarını giderme
 
-Azure Log Analytics, IOT hub'ınızda cihaz akışları etkinlik günlüğü toplamak üzere ayarlayabilirsiniz. Bu sorun giderme senaryoları çok yararlı olabilir.
+Azure Log Analytics'i ayarlama, IOT hub'ına cihaz akışları etkinlik günlüğü toplamak üzere ayarlayabilirsiniz. Bu sorun giderme senaryoları çok yararlı olabilir.
 
 Azure Log Analytics için IOT Hub'ınızın cihaz akış etkinlikleri yapılandırmak için aşağıdaki adımları izleyin:
 
@@ -105,64 +116,65 @@ Azure Log Analytics için IOT Hub'ınızın cihaz akış etkinlikleri yapıland�
     <p>
 Hedef cihaz ve işlemin sonucu kimliği, ayrıca aşağıda gösterildiği gibi günlüklerde kullanılabilir.
     ![Alternatif metin](./media/iot-hub-device-streams-overview/device-streams-log-analytics.PNG "aygıtı akış günlüklerine erişme")
-    
 
-## <a name="whitelist-device-streaming-endpoints"></a>Beyaz liste cihaz akış uç noktaları
 
-Belirtildiği gibi [önceki](#Overview), cihazınızın IOT Hub ile akış uç noktası için bir giden bağlantı sırasında cihaz akışları başlatma işlemi oluşturur. Cihaz veya alt ağ, güvenlik duvarları (Bu, TLS kullanılarak şifrelenmiş bir WebSocket bağlantısı) bağlantı noktası 443 üzerinden giden akış ağ bağlantısı izin vermeniz gerekir.
+## <a name="regional-availability"></a>Bölgesel Kullanılabilirlik
 
-Cihaz akış uç noktası ana bilgisayar adı, Azure IOT hub'ı portalındaki genel bakış sekmesinin altında bulunabilir. ![Alternatif metin](./media/iot-hub-device-streams-overview/device-stream-portal.PNG "cihaz akış uç noktaları")
+Genel Önizleme sırasında IOT Hub cihaz akışları Orta ABD ve orta ABD EUAP bölgelerinde kullanılabilir. Lütfen şu bölgelerden birinde hub'ınıza oluşturduğunuzdan emin olun. 
 
-Alternatif olarak, Azure CLI kullanarak bu bilgileri bulabilirsiniz:
-```cmd/sh
-az iot hub show --name tcpstreaming-preview
-```
 
 ## <a name="sdk-availability"></a>SDK kullanılabilirlik
+
 (Cihaz ve Hizmet tarafı üzerinde) her akış iki tarafının tüneli oluşturmak için IOT Hub SDK'sını kullanın. Genel Önizleme boyunca, müşteriler aşağıdaki SDK dillerden birini seçebilirsiniz:
 - C ve C# SDK'ın cihaz tarafında cihaz akışlarını destekler.
 
 - NodeJS ve C# SDK hizmet tarafında cihaz akışlarını destekler.
 
+
 ## <a name="iot-hub-device-stream-samples"></a>IOT Hub cihaz Stream örnekleri
-Uygulamalar tarafından cihaz akışları kullanımını göstermek için iki örnek ekledik. *Yankı* örnek (SDK API çağrısı yaparak) cihaz akışları programlamalı kullanımını gösterir. *Yerel Ara* örneği, cihaz akışları (örneğin, SSH, RDP veya web) kullanıma hazır uygulamasını trafiğe tünel SDK işlevselliğini kullanımını gösterir.
+
+İki yayımladık [hızlı başlangıç örnekleri](/azure/iot-hub) uygulamalar tarafından cihaz akışları kullanımını göstermek için.
+* *Yankı* örnek (doğrudan, SDK'sı API'nin çağırarak) cihaz akışları programlamalı kullanımını gösterir.
+* *Yerel Ara* örnek gösterir (örneğin, SSH, RDP veya web) kullanıma hazır istemci/sunucu uygulama trafiği tüneli cihaz akışları.
+
+Bu örnekler, aşağıda daha ayrıntılı olarak ele alınmaktadır.
 
 ### <a name="echo-sample"></a>Yankı örnek
-Yankı örnek gönderme ve alma bayt arasında uygulama, hizmet ve cihaz için cihaz akışları programlı kullanımını gösterir. Hızlı Başlangıç kılavuzları erişmek için aşağıdaki bağlantıları kullanın (hizmet ve cihaz programları farklı dillerde kullanabilirsiniz, örneğin, C cihaz programı çalışabilirsiniz C# hizmet programı):
+Yankı örnek gönderme ve alma bayt arasındaki hizmet ve cihaz uygulamalarınız için cihaz akışları programlı kullanımını gösterir. Hızlı Başlangıç kılavuzları erişmek için aşağıdaki bağlantıları kullanın. Unutmayın, hizmet ve cihaz programları farklı dillerde kullanabilirsiniz, örneğin, C cihaz programı çalışabilirsiniz C# hizmet programı.
 
 | SDK    | Hizmet programı                                          | Cihaz programı                                           |
 |--------|----------------------------------------------------------|----------------------------------------------------------|
 | C#     | [Bağlantı](quickstart-device-streams-echo-csharp.md) | [Bağlantı](quickstart-device-streams-echo-csharp.md) |
-| NodeJS | [Bağlantı](quickstart-device-streams-echo-nodejs.md) | -                                                        |
+| Node.js | [Bağlantı](quickstart-device-streams-echo-nodejs.md) | -                                                        |
 | C      | -                                                        | [Bağlantı](quickstart-device-streams-echo-c.md)      |
 
 ### <a name="local-proxy-sample-for-ssh-or-rdp"></a>(İçin SSH veya RDP) yerel Proxy örneği
 Yerel bir ara sunucu örneği, istemci ve sunucu programı arasındaki iletişimi kapsar mevcut uygulamanın trafiği tüneli etkinleştirmek için bir yol gösterir. Bu ayar istemci/sunucu protokollerine için çalışır, SSH ve burada Hizmet tarafı (istemci programları SSH veya RDP çalıştıran) bir istemci olarak davranır ve aygıt tarafı (RDP sunucu program veya SSH arka plan programı çalışıyor) sunucusu olarak davranan RDP gibi. 
 
-Bu bölümde, cihaz akışları (RDP veya diğer istemci/sunucu protokollerine durum benzer protokolün karşılık gelen bağlantı noktası kullanarak) üzerinden bir cihaz için SSH senaryoları etkinleştirmek için cihaz akışları kullanımını açıklar.
+Bu bölümde, SSH kullanıcı bir cihaz için cihaz akışları (RDP veya başka bir istemci/sunucu uygulama durum benzer protokolün karşılık gelen bağlantı noktası kullanarak) üzerinden etkinleştirmek için cihaz akışları kullanımını açıklar.
 
-Kurulum iki yararlanır *yerel Ara* aşağıdaki şekilde, yani gösterilen programlar *cihaz yerel proxy* ve *hizmeti-yerel proxy*. Yerel proxy'leri gerçekleştirilmesinden sorumlu olduğunu [cihaz akış başlatma el sıkışması](#Device-stream-creation-flow) IOT Hub ve SSH istemcisi ve normal istemci/sunucu yuva programlama kullanarak SSH arka plan programı ile etkileşim kurma.
+Kurulum iki yararlanır *yerel Ara* aşağıdaki şekilde, yani gösterilen programlar *cihaz yerel proxy* ve *hizmeti-yerel proxy*. Yerel ara program gerçekleştirilmesinden sorumlu olduğunu [cihaz akış başlatma el sıkışması](#device-stream-creation-flow) IOT Hub ve SSH istemcisi ve normal istemci/sunucu yuva kullanarak SSH arka plan programı ile etkileşim kurma.
 
 ![Alternatif metin](./media/iot-hub-device-streams-overview/iot-hub-device-streams-ssh.png "SSH/RDP için cihaz akış Ara Sunucusu Kurulumu")
 
 1. Kullanıcı, cihaza bir cihaz akışını başlatmak için hizmet yerel ara sunucu çalıştırır.
 
-2. Cihaz akışı başlatma kabul eder ve tünel (yukarıda açıklandığı gibi) için IOT Hub'ın akış uç noktası oluşturulur.
+2. Cihaz yerel proxy akış başlatma isteği kabul eder ve tünel (yukarıda açıklandığı gibi) için IOT Hub'ın akış uç noktası oluşturulur.
 
 3. Cihaz yerel proxy cihazda 22 numaralı bağlantı noktasında dinleme SSH arka plan programı uç noktasına bağlanır.
 
-4. Hizmet yerel proxy kullanıcıdan yeni SSH bağlantıları bekleyen atanan bir bağlantı noktasında dinler (örnekte kullanılan 2222 numaralı bağlantı noktasına olan rastgele bir bağlantı noktası). Kullanıcı SSH İstemcisi hizmeti-yerel proxy bağlantı noktası localhost üzerinde işaret eder.
+4. Hizmet yerel proxy kullanıcıdan yeni SSH bağlantıları bekleyen atanan bir bağlantı noktasında dinler (örnek, ancak bu kullanılan 2222 numaralı bağlantı noktasına başka kullanılabilir bağlantı noktasına yapılandırılabilir). Kullanıcı SSH İstemcisi hizmeti-yerel proxy bağlantı noktası localhost üzerinde işaret eder.
 
 ### <a name="notes"></a>Notlar
-- SSH arka plan programı (solda) SSH istemciye (sağdaki) arasında bir uçtan uca tünel yukarıdaki adımları tamamlayın. 
+- SSH arka plan programı (solda) SSH istemciye (sağdaki) arasında bir uçtan uca tünel yukarıdaki adımları tamamlayın. Bu uçtan uca bağlantı parçası, IOT Hub cihaz akış üzerinden trafik göndermeye içerir.
 
 - Şekil okları bağlantı uç noktaları arasında kurulan yönü belirtir. Özellikle, (Bu genellikle bir güvenlik duvarı tarafından engellenip engellenmediğini) cihaz gidip herhangi bir gelen bağlantı olduğunu unutmayın.
 
-- Bağlantı noktası kullanma seçimi `2222` hizmeti-yerel proxy rastgele bir seçimdir. Proxy, kullanılabilir herhangi bir bağlantı kullanmak için yapılandırılabilir.
+- Hizmet yerel proxy 2222 numaralı bağlantı noktasına kullanma seçimi rastgele bir seçimdir. Proxy, kullanılabilir herhangi bir bağlantı kullanmak için yapılandırılabilir.
 
-- Bağlantı noktası seçimi `22` procotocol bağımlı ve SSH özgü bu durumda olur. RDP, bağlantı noktası durumu için `3389` kullanılması gerekir. Sağlanan örnek program yapılandırılabilir.
+- 22 numaralı bağlantı noktasının bu durumda procotocol bağlı ve özel SSH seçimdir. RDP çalışması için bağlantı noktası 3389 kullanılması gerekir. Sağlanan örnek program yapılandırılabilir.
 
-Seçtiğiniz dilde yerel ara programları çalıştırmak yönergeler için aşağıdaki bağlantıları kullanın. Tam olarak birlikte çalışabilir olduğundan benzer Yankı örnek olarak, cihaz ve hizmet yerel proxy'leri farklı dillerde çalıştırabilirsiniz.
+Seçtiğiniz dilde yerel ara programları çalıştırmak yönergeler için aşağıdaki bağlantıları kullanın. Benzer şekilde [Yankı örnek](#echo-sample), tam olarak birlikte çalışabilir olduğundan, cihaz ve hizmet yerel proxy programlar farklı dillerde çalıştırabilirsiniz.
 
 | SDK    | Proxy Hizmeti-yerel                                       | Yerel cihaz Ara                                |
 |--------|-----------------------------------------------------------|---------------------------------------------------|

@@ -13,24 +13,24 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: richrund
-ms.openlocfilehash: 4363d7a319eb31dbf020121bf2fa5c5630296c5a
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 66bac977d05276833a357521a3a040c59b2f28fa
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191725"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900298"
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Azure ağ Log Analytics çözümleri izleme
 
 Log Analytics ağlarınızı izlemek için aşağıdaki çözümleri sunar:
 * Ağ Performansı İzleyicisi'ni (NPM)
- * Ağınızın durumunu izleyin
+    * Ağınızın durumunu izleyin
 * Azure Application Gateway analytics gözden geçirmek için
- * Azure Application Gateway günlükleri
- * Azure Application Gateway ölçümleri
+    * Azure Application Gateway günlükleri
+    * Azure Application Gateway ölçümleri
 * Ağ bulut ağınızdaki etkinliği izlemek ve denetlemek için çözümler
-* [Trafik analizi](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics) 
-* Azure Ağ Güvenlik Grubu Analizi
+    * [Trafik analizi](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics) 
+    * Azure Ağ Güvenlik Grubu Analizi
 
 ## <a name="network-performance-monitor-npm"></a>Ağ Performansı İzleyicisi'ni (NPM)
 
@@ -220,8 +220,8 @@ Güncelleştirilmiş çözümlerini kullanmak için:
     | Onun yerine: | Kullanım: |
     | --- | --- |
     | NetworkApplicationgateways &#124; nerede OperationName "ApplicationGatewayAccess" == | AzureDiagnostics &#124; nerede ResourceType = "APPLICATIONGATEWAYS" ve OperationName "ApplicationGatewayAccess" == |
-    | NetworkApplicationgateways &#124; nerede OperationName "ApplicationGatewayPerformance" == | AzureDiagnostics &#124; nerede ResourceType "APPLICATIONGATEWAYS" ve OperationName == ApplicationGatewayPerformance = |
-    | NetworkSecuritygroups | AzureDiagnostics &#124; nerede ResourceType "NETWORKSECURITYGROUPS" == |
+    | NetworkApplicationgateways &#124; where OperationName=="ApplicationGatewayPerformance" | AzureDiagnostics &#124; nerede ResourceType "APPLICATIONGATEWAYS" ve OperationName == ApplicationGatewayPerformance = |
+    | NetworkSecuritygroups | AzureDiagnostics &#124; where ResourceType=="NETWORKSECURITYGROUPS" |
 
    + Bir son eki olan herhangi bir alan için \_s, \_d veya \_g adı küçük harflere ilk karakteri değiştirme
    + Bir son eki olan herhangi bir alan için \_o adı, veriler iç içe geçmiş alanı adlarını temel alarak ayrı ayrı alanlara bölünür.

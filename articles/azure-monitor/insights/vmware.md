@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
-ms.openlocfilehash: 3313d7490ed9a2f51831c76148a54b7ecf19d3b3
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: c14267f6fc7f8c6be9199b9f25b6430b5f1aa5dd
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338813"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54887419"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Log analytics'te VMware izleme (Önizleme) çözümü
 
@@ -34,13 +34,13 @@ Log analytics'te VMware izleme çözümü, Merkezi günlük kaydı ve büyük VM
 ## <a name="install-and-configure-the-solution"></a>Yükleme ve çözüm yapılandırma
 Çözümü yüklemek ve yapılandırmak için aşağıdaki bilgileri kullanın.
 
-* VMware izleme çözümü, açıklanan işlemi kullanarak aboneliğinize ekleyin [yönetim çözümü yüklemek](../../azure-monitor/insights/solutions.md#install-a-management-solution).
+* VMware izleme çözümü, açıklanan işlemi kullanarak aboneliğinize ekleyin [yönetim çözümü yüklemek](../insights/solutions.md#install-a-management-solution).
 
 #### <a name="supported-vmware-esxi-hosts"></a>Desteklenen VMware ESXi konakları
 vSphere ESXi konağına 5.5, 6.0 ve 6.5
 
 #### <a name="prepare-a-linux-server"></a>Bir Linux sunucusu hazırlama
-Bir Linux işletim sistemi ESXi konağından tüm syslog verileri almak için bir VM oluşturun. [Log Analytics Linux Aracısı](../../azure-monitor/learn/quick-collect-linux-computer.md) tüm ESXi konağı syslog veriler için koleksiyon noktasıdır. Birden çok ESXi konakları, günlükleri aşağıdaki örnekteki gibi tek bir Linux sunucusuna iletmek için kullanabilirsiniz.
+Bir Linux işletim sistemi ESXi konağından tüm syslog verileri almak için bir VM oluşturun. [Log Analytics Linux Aracısı](../learn/quick-collect-linux-computer.md) tüm ESXi konağı syslog veriler için koleksiyon noktasıdır. Birden çok ESXi konakları, günlükleri aşağıdaki örnekteki gibi tek bir Linux sunucusuna iletmek için kullanabilirsiniz.
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]  
 
@@ -129,7 +129,7 @@ VMware kutucuk, Log Analytics çalışma alanınızda görünür. Bu, hataları 
 
 Ayrıntılı bilgi dikey belirli gösteren Log Analytics arama bölmesini açmak için istediğiniz dikey pencereye tıklayın.
 
-Buradan, belirli bir şey değiştirmek için arama sorgusu düzenleyebilirsiniz. Günlük aramaları oluşturma hakkında daha fazla bilgi edinmek için bkz. [Log Analytics'te günlük aramaları kullanarak verileri bulmak](../../azure-monitor/log-query/log-query-overview.md).
+Buradan, belirli bir şey değiştirmek için arama sorgusu düzenleyebilirsiniz. Günlük aramaları oluşturma hakkında daha fazla bilgi edinmek için bkz. [Log Analytics'te günlük aramaları kullanarak verileri bulmak](../log-query/log-query-overview.md).
 
 #### <a name="find-esxi-host-events"></a>ESXi ana etkinlik bulun
 Tek bir ESXi ana bilgisayarı, kendi işlemleri temel alan birden fazla günlük oluşturur. VMware izleme çözümü, bunları merkezileştirir ve de olay sayılarını özetler. Bu merkezi görünüm hangi ESXi ana bilgisayarına fazla miktarda olay varsa ve hangi olayların ortamınızda en sık gerçekleşen anlamanıza yardımcı olur.
@@ -158,12 +158,12 @@ Ek ESXi ana VM oluşturmayı verileri görmek istiyorsanız, bir ESXi ana bilgis
 
 
 #### <a name="save-queries"></a>Sorguları Kaydet
-Arama sorguları kaydetme, Log Analytics standart bir özelliktir ve yararlı buldunuz tüm sorguları sağlamanıza yardımcı olabilir. Yararlı bulabileceğiniz bir sorguyu oluşturduktan sonra Kaydet'e tıklayarak **Sık Kullanılanlar**. Kayıtlı bir sorguyu sayesinde kolayca daha sonra yeniden [Panom'u](../../azure-monitor/platform/dashboards.md) kendi özel panolar oluşturabileceğiniz sayfası.
+Arama sorguları kaydetme, Log Analytics standart bir özelliktir ve yararlı buldunuz tüm sorguları sağlamanıza yardımcı olabilir. Yararlı bulabileceğiniz bir sorguyu oluşturduktan sonra Kaydet'e tıklayarak **Sık Kullanılanlar**. Kayıtlı bir sorguyu sayesinde kolayca daha sonra yeniden [Panom'u](../learn/tutorial-logs-dashboards.md) kendi özel panolar oluşturabileceğiniz sayfası.
 
 ![DockerDashboardView](./media/vmware/dockerdashboardview.png)
 
 #### <a name="create-alerts-from-queries"></a>Uyarı sorguları oluşturma
-Sorgularınızın oluşturduktan sonra belirli olaylar meydana geldiğinde, sizi uyarmak için sorguları kullanmak isteyebilirsiniz. Bkz: [Log analytics'teki uyarılar](../../azure-monitor/platform/alerts-overview.md) uyarılar oluşturma hakkında daha fazla bilgi için. Sorguları ve diğer sorgu örnekleri uyarı örnekleri için bkz: [İzleyici Log Analytics kullanarak VMware](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) blog gönderisi.
+Sorgularınızın oluşturduktan sonra belirli olaylar meydana geldiğinde, sizi uyarmak için sorguları kullanmak isteyebilirsiniz. Bkz: [Log analytics'teki uyarılar](../platform/alerts-overview.md) uyarılar oluşturma hakkında daha fazla bilgi için. Sorguları ve diğer sorgu örnekleri uyarı örnekleri için bkz: [İzleyici Log Analytics kullanarak VMware](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) blog gönderisi.
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 ### <a name="what-do-i-need-to-do-on-the-esxi-host-setting-what-impact-will-it-have-on-my-current-environment"></a>Ayarı üzerinde ESXi ana bilgisayar ne gerekiyor? Hangi etki alanım geçerli ortamda gerekir mi?
@@ -204,6 +204,6 @@ Birden çok nedeni olabilir:
     d. Dosya yok veya kullanıcı ve grup ayarı yanlış tarafından düzeltici varsa [bir Linux sunucusu hazırlama](#prepare-a-linux-server).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Kullanım [günlük aramaları](../../azure-monitor/log-query/log-query-overview.md) ayrıntılı VMware görüntülemek için Log Analytics'te veri barındırın.
-* [Kendi panolarınızı oluşturun](../../azure-monitor/platform/dashboards.md) VMware konak veriler gösteriliyor.
-* [Uyarı oluşturma](../../azure-monitor/platform/alerts-overview.md) belirli VMware konak olaylar gerçekleştiğinde.
+* Kullanım [oturum sorguları](../log-query/log-query-overview.md) ayrıntılı VMware görüntülemek için Log Analytics'te veri barındırın.
+* [Kendi panolarınızı oluşturun](../learn/tutorial-logs-dashboards.md) VMware konak veriler gösteriliyor.
+* [Uyarı oluşturma](../platform/alerts-overview.md) belirli VMware konak olaylar gerçekleştiğinde.

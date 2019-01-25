@@ -6,20 +6,20 @@ author: dsk-2015
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 10/15/2018
+ms.date: 12/18/2018
 ms.author: dkshir
-ms.openlocfilehash: f233efc93fa07cc7fc7c904336f01348f4da3f82
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 488b97074d74650ecf5602d25e2a90a1998e5585
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53554529"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883883"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-your-azure-digital-twins-spaces-by-using-time-series-insights"></a>Öğretici: Time Series Insights'ı kullanarak Azure dijital İkizlerini alanlarınıza olayları çözümleyin
 
-Azure dijital İkizlerini örneğinizi dağıtma alanlarınıza sağlama ve belirli koşulları izlemek için özel bir işlev uygulamak sonra olayları ve eğilimleri ve anormallikleri için aramak için bir boşluk gelen veri görselleştirebilirsiniz. 
+Azure dijital İkizlerini örneğinizi dağıtma alanlarınıza sağlama ve belirli koşulları izlemek için özel bir işlev uygulamak sonra olayları ve eğilimleri ve anormallikleri için aramak için bir boşluk gelen veri görselleştirebilirsiniz.
 
-İçinde [ilk öğreticide](tutorial-facilities-setup.md), sanal bir yapı uzamsal grafiği yapılandırılmış, hareket ve tasarruf edilen karbon dioksit sıcaklık algılayıcıları içeren bir odayla. [İkinci öğreticide](tutorial-facilities-udf.md) grafınızı ve bir kullanıcı tanımlı işlev sağladınız. İşlevi, bu algılayıcı değerlerini izler ve bildirimleri doğru koşulları için tetikler. Diğer bir deyişle, boş bir yer ve sıcaklık ve tasarruf edilen karbon dioksit düzeyleri normal. 
+İçinde [ilk öğreticide](tutorial-facilities-setup.md), sanal bir yapı uzamsal grafiği yapılandırılmış, hareket ve tasarruf edilen karbon dioksit sıcaklık algılayıcıları içeren bir odayla. [İkinci öğreticide](tutorial-facilities-udf.md) grafınızı ve bir kullanıcı tanımlı işlev sağladınız. İşlevi, bu algılayıcı değerlerini izler ve bildirimleri doğru koşulları için tetikler. Diğer bir deyişle, boş bir yer ve sıcaklık ve tasarruf edilen karbon dioksit düzeyleri normal.
 
 Bu öğretici, Azure Time Series Insights ile Azure dijital İkizlerini kurulumunuzu gelen veri ve bildirimleri nasıl tümleştirebilirsiniz gösterir. Ardından, zaman içinde algılayıcı değerlerini görselleştirebilirsiniz. Hangi odası, çoğu kullanım alma ve günün en yoğun zamanları olduğu gibi eğilimlerini bakabilirsiniz. Ayrıca, hatalı havalandırma gösteren anormallikleri hangi odaları düşünüyor stuffier ve hotter veya bir alan, binada tutarlı bir şekilde yüksek sıcaklık değerleri olup gönderme gibi algılayabilir.
 
@@ -32,43 +32,44 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 ## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticide Azure Digital Twins kurulumunu [yapılandırmış](tutorial-facilities-setup.md) ve [sağlamış](tutorial-facilities-udf.md) olduğunuz kabul edilmektedir. Devam etmeden önce aşağıdakilere sahip olduğunuzdan emin olun:
+
 - Bir [Azure hesabı](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Çalışan bir Digital Twins örneği.
 - Çalışma makinenize indirilmiş ve ayıklanmış [Digital Twins C# örnekleri](https://github.com/Azure-Samples/digital-twins-samples-csharp).
-- [.NET core SDK'sı sürüm 2.1.403 veya üzeri](https://www.microsoft.com/net/download) geliştirme makinenizde örneği çalıştırmak için. Çalıştırma `dotnet --version` doğru sürümünün yüklü olduğunu doğrulayın. 
-
+- [.NET core SDK'sı sürüm 2.1.403 veya üzeri](https://www.microsoft.com/net/download) geliştirme makinenizde örneği çalıştırmak için. Çalıştırma `dotnet --version` doğru sürümünün yüklü olduğunu doğrulayın.
 
 ## <a name="stream-data-by-using-event-hubs"></a>Event Hubs kullanarak veri Stream
+
 Kullanabileceğiniz [Event Hubs](../event-hubs/event-hubs-about.md) hizmet, veri akışı için bir işlem hattı oluşturursunuz. Bu bölümde, Azure dijital çiftleri ve Time Series Insights örnekleri arasında bağlayıcı olarak olay hub'ınızı oluşturma işlemini gösterir.
 
 ### <a name="create-an-event-hub"></a>Olay hub’ı oluşturma
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 
-1. Sol bölmede seçin **kaynak Oluştur**. 
+1. Sol bölmede seçin **kaynak Oluştur**.
 
 1. **Event Hubs** araması yapın ve sonuçlardan seçin. **Oluştur**’u seçin.
 
-1. Girin bir **adı** Event Hubs ad alanınız için. Seçin **standart** için **fiyatlandırma katmanı**, **abonelik**, **kaynak grubu** dijital İkizlerini Örneğiniz için kullanılan ve **konumu**. **Oluştur**’u seçin. 
+1. Girin bir **adı** Event Hubs ad alanınız için. Seçin **standart** için **fiyatlandırma katmanı**, **abonelik**, **kaynak grubu** dijital İkizlerini Örneğiniz için kullanılan ve **konumu**. **Oluştur**’u seçin.
 
 1. Event Hubs ad alanı dağıtımı, ad alanı altında seçin **kaynak**.
 
     ![Event Hubs ad alanı dağıtımdan sonra](./media/tutorial-facilities-analyze/open-event-hub-ns.png)
 
-
-1. Event Hubs ad alanında **genel bakış** bölmesinde **olay hub'ı** üstünde düğme. 
+1. Event Hubs ad alanında **genel bakış** bölmesinde **olay hub'ı** üstünde düğme.
     ![Olay hub'ı düğmesi](./media/tutorial-facilities-analyze/create-event-hub.png)
 
-1. Girin bir **adı** olay hub'ı ve seçin için **Oluştur**. 
+1. Girin bir **adı** olay hub'ı ve seçin için **Oluştur**.
 
    Olay hub'ı dağıtıldıktan sonra görünür **Event Hubs** Bölmesi ile Event Hubs ad alanının bir **etkin** durumu. Açmak için bu olay hub'ı seçin, **genel bakış** bölmesi.
 
 1. Seçin **tüketici grubu** düğmesinin üstünde ve gibi bir ad girin **tsievents** tüketici grubu için. **Oluştur**’u seçin.
+
     ![Olay Hub'ı tüketici grubu](./media/tutorial-facilities-analyze/event-hub-consumer-group.png)
 
-   Tüketici grubu oluşturulduktan sonra olay hub'ın altındaki listede görünür **genel bakış** bölmesi. 
+   Tüketici grubu oluşturulduktan sonra olay hub'ın altındaki listede görünür **genel bakış** bölmesi.
 
-1. Açık **paylaşılan erişim ilkeleri** bölmesinde seçin ve olay hub'ı için **Ekle** düğmesi. Girin **ManageSend** tüm onay kutularının seçili olduğundan ve seçin ilke adı olarak emin **Oluştur**. 
+1. Açık **paylaşılan erişim ilkeleri** bölmesinde seçin ve olay hub'ı için **Ekle** düğmesi. Girin **ManageSend** tüm onay kutularının seçili olduğundan ve seçin ilke adı olarak emin **Oluştur**.
 
     ![Olay Hub'ı bağlantı dizeleri](./media/tutorial-facilities-analyze/event-hub-connection-strings.png)
 
@@ -100,13 +101,13 @@ Kullanabileceğiniz [Event Hubs](../event-hubs/event-hubs-about.md) hizmet, veri
 
 1. Yer tutucuları değiştirmeniz `Primary_connection_string_for_your_event_hub` değeriyle **bağlantı dizesi – birincil anahtar** olay hub'ı. Bu bağlantı dizesinin biçimi şu şekilde olduğundan emin olun:
 
-   ```
+   ```plaintext
    Endpoint=sb://nameOfYourEventHubNamespace.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourShareAccessKey1GUID;EntityPath=nameOfYourEventHub
    ```
 
 1. Yer tutucuları değiştirmeniz `Secondary_connection_string_for_your_event_hub` değeriyle **bağlantı dizesi--ikincil anahtar** olay hub'ı. Bu bağlantı dizesinin biçimi şu şekilde olduğundan emin olun: 
 
-   ```
+   ```plaintext
    Endpoint=sb://nameOfYourEventHubNamespace.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourShareAccessKey2GUID;EntityPath=nameOfYourEventHub
    ```
 
@@ -115,13 +116,12 @@ Kullanabileceğiniz [Event Hubs](../event-hubs/event-hubs-about.md) hizmet, veri
     > [!IMPORTANT]
     > Değerleri girerken tırnak işaretlerini dahil etmeyin. YAML dosyası iki nokta üst üste sonra en az bir boşluk karakteri olduğundan emin olun. Çevrimiçi bir YAML Doğrulayıcı gibi kullanarak, YAML dosyası içeriği doğrulayabilirsiniz [bu araç](https://onlineyamltools.com/validate-yaml).
 
-
 1. Dosyayı kaydedin ve kapatın. Komut penceresinde aşağıdaki komutu çalıştırın ve istendiğinde Azure hesabınızda oturum açın.
 
     ```cmd/sh
     dotnet run CreateEndpoints
     ```
-   
+
    Olay hub'ınız için iki uç nokta oluşturur.
 
    ![Event Hubs uç noktaları](./media/tutorial-facilities-analyze/dotnet-create-endpoints.png)
@@ -165,12 +165,11 @@ Azure dijital İkizlerini bu noktanın ötesine keşfetmeye durdurmak istiyorsan
     > [!TIP]
     > Dijital İkizlerini örneğinizin silme sorun olduysa, bir hizmet güncelleştirmesi düzeltme alındı. Örneğiniz silme yeniden deneyin.
 
-2. Gerekirse, iş makinenizde örnek uygulamaları silin. 
-
+2. Gerekirse, iş makinenizde örnek uygulamaları silin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Uzamsal zeka graflar ve Azure dijital İkizlerini nesne modellerinde hakkında daha fazla bilgi edinmek için sonraki makaleye gidin. 
+Uzamsal zeka graflar ve Azure dijital İkizlerini nesne modellerinde hakkında daha fazla bilgi edinmek için sonraki makaleye gidin.
+
 > [!div class="nextstepaction"]
 > [Digital Twins nesne modellerini ve uzamsal zeka grafını anlama](concepts-objectmodel-spatialgraph.md)
-

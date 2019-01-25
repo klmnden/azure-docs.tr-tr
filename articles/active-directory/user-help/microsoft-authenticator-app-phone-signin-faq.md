@@ -1,6 +1,6 @@
 ---
-title: Microsoft Authenticator telefonla oturum açma - Azure ve Microsoft hesapları | Microsoft Docs
-description: Parolanızı yazmak yerine Microsoft hesabınızda oturum açmak için telefonunuza kullanın. Bu makalede, bu özellik hakkında sık sorulan sorular yanıtlanmaktadır.
+title: Hesaplarınız için Microsoft Authenticator uygulamasını - Azure Active Directory kullanarak oturum açın | Microsoft Docs
+description: İş veya Okul hesabı veya kişisel Microsoft ve Microsoft olmayan hesapların, iki Faktörlü doğrulama veya telefonla oturum açma için oturum açmak için Microsoft Authenticator uygulamasını kullanın.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -8,64 +8,86 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: user-help
 ms.topic: conceptual
-ms.date: 08/12/2017
+ms.date: 01/24/2019
 ms.author: lizross
-ms.reviewer: librown
-ms.openlocfilehash: 39ad9beeb6e562a4487588967910efaf0cbe4d84
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.reviewer: olhaun
+ms.openlocfilehash: f6888df821a47f64c8f43a69f3cf863eb678a798
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54822544"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902049"
 ---
-# <a name="sign-in-with-your-phone-not-your-password"></a>Parolanızla değil telefonunuzla oturum açma
-Yalnızca, hesaplarınızı iki aşamalı doğrulamayı çalıştırdıktan sonra gerçekleştirerek korunmasına yardımcı olur, parolanızı girin, ancak artık Microsoft hesabınızın parolasını tamamen değiştirmek Microsoft Authenticator uygulaması.
+# <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Hesaplarınız için Microsoft Authenticator uygulamasını kullanarak oturum açın
+Microsoft Authenticator uygulamasını hesaplarınıza iki aşamalı doğrulama kullanırsanız oturum yardımcı olur. İki Faktörlü doğrulama özellikle hassas bilgileri görüntülerken hesaplarınızı daha güvenli bir şekilde erişmenize yardımcı olur. Parolaları bu nedenle Unutulan, çalınması veya ele geçirilen, iki Faktörlü doğrulama kesmek diğer kişiler için daha zor hale getirerek hesabınızın korunmasına yardımcı olan bir ek güvenlik adımdır.
 
-Bu özellik, iOS ve Android cihazlarda çalışan Android 6.0 veya üzeri kullanılabilir.
- 
-## <a name="how-it-works"></a>Nasıl çalışır?
-Microsoft hesabınızda oturum açtığınızda, birçoğu iki aşamalı doğrulama için Microsoft Authenticator uygulamasını kullanın. Parolanızı yazın ve ardından bir bildirim ya da onaylamak için veya bir doğrulama kodu almak için tıklayın veya dokunun. Telefonla oturum açma ile parolayı atlamak ve tüm kimlik doğrulama telefonunuza yapın. Telefonla oturum açma iki aşamalı doğrulamayı bir tür olduğundan, yine de bildiğiniz bir şey ve sahip olduğunuz bir şey sağlayarak kimliğinizi doğrulamamız gerekir. Telefon yine de sahip olduğunuz şey olmakla birlikte, telefonunuzun PIN veya biyometrik anahtarı artık bildiğiniz bir şey.
+Microsoft Authenticator uygulamasını birden çok yolla kullanabilirsiniz:
 
-## <a name="turn-on-phone-sign-in-for-your-work-or-school-account"></a>Telefonda için iş veya Okul hesabınızla oturum açın 
-Kuruluşunuz bu yeni deneyim üzerinde kapattıysa açmak ve telefonla oturum açma Microsoft Authenticator uygulamasını kullanmak mümkün olacaktır.
+- Sonra kullanıcı adı ve parolanızla oturum ikinci bir doğrulama yöntemi için bir istem sağlama.
 
-### <a name="to-turn-on-phone-sign-in-for-your-account"></a>Telefonda hesabınızda oturum açmak için
+- Oturum açma olmadan parola gerektirme, parmak izi, yüz tanıma veya PIN kullanıcı adınızı ve mobil Cihazınızı kullanarak sağlama.
 
-- **Bu simge varsa ![, gösteren simgesi ayarlanan](media/microsoft-authenticator-app-phone-signin-faq/icon.png) telefonunuzda.** Telefonla oturum açma önceden ayarladığınız. Anında iletme bildirimleri, uygulama dışında kimlik doğrulama istekleri hakkında bilgilendirilebilirsiniz şekilde eklemek için hesabınızı yükseltin istenebilir. 
+ >[!Important]
+ >Bu telefon oturum açma yöntemi, yalnızca kişisel Microsoft hesaplarınız ile çalışır. İş veya Okul hesabınızı ve Microsoft olmayan hesapların standart iki Faktörlü doğrulama işlemi kullanmanızı gerektirir.
 
-- **İki aşamalı doğrulama için Microsoft Authenticator uygulamasını zaten kullanıyorsanız.** Uygulama hesapları ekranına iş veya Okul hesabınız için açılan oku seçin ve ardından Git **etkinleştirme telefonla oturum açma**. 
+## <a name="prerequisites"></a>Önkoşullar
+Microsoft Authenticator uygulamasını kullanabilmeniz için önce şunları yapmalısınız:
 
-- **Kişisel hesabınızla, ancak iş veya Okul hesabınız için Microsoft Authenticator uygulamasını kullanıyorsanız.** Kuruluşunuzun iki aşamalı doğrulama yönergelerini izleyin ve sonra telefonla oturum açma üzerinde açın. Daha fazla bilgi için [Microsoft Authenticator uygulaması ile çalışmaya başlama](microsoft-authenticator-app-how-to.md).
+ 1. İndirin ve Microsoft Authenticator uygulamasını yükleyin. Bunu henüz yapmadıysanız bkz [uygulamayı yükleyip](microsoft-authenticator-app-how-to.md).
 
-### <a name="to-use-phone-sign-in-to-sign-in-to-your-work-or-school-account"></a>İş veya Okul hesabınızda oturum açmak için telefonla oturum açma kullanmak için 
+ 2. İş/okul, kişisel ve üçüncü taraf hesaplarınız için Microsoft Authenticator uygulamasını ekleyin. Ayrıntılı adımlar için bkz [iş veya Okul hesabınızı eklemek](microsoft-authenticator-app-add-work-account.md), [kişisel hesaplarınız ekleme](microsoft-authenticator-app-add-personal-account.md), ve [ekleyin, kişisel Microsoft olmayan hesapların](microsoft-authenticator-app-add-non-microsoft-account.md).
 
-1. İş veya Okul hesabınızı normal olarak oturum açın. 
+## <a name="turn-on-and-use-phone-sign-in-for-your-work-or-school-account"></a>Açma ve telefonla oturum açma için iş veya Okul hesabınızı kullanın.
+Telefonla oturum açma iki aşamalı doğrulama türüdür. Yine de bildiğiniz bir şeyi ve çok şey var, ancak oturum açma sağlar, hesap parolasını atlamak ve tüm kimlik doğrulamanızı mobil Cihazınızda gerçekleştirir telefon sağlayarak kimliğinizi doğrulamanız gerekir.
 
-    Kullanıcı adınızı girdikten sonra oturum açmayı Microsoft Authenticator uygulamasını aracılığıyla onaylamak isteyen iki basamaklı bir sayı ile bir sayfa görürsünüz. Bu oturum yöntem kullanmak istemiyorsanız, seçebileceğiniz **bunun yerine parolanızı kullanın**, parolanızı kullanarak oturum açın.
+Telefonla oturum açma üzerinde etkinleştirmeden önce iki aşamalı doğrulama özelliğini etkinleştirmeniz gerekir. Bir hesap için iki aşamalı doğrulamayı devre dışı bırakma hakkında daha fazla bilgi için bkz. [iş veya Okul hesabınızı eklemek](microsoft-authenticator-app-add-work-account.md) ve [kişisel hesaplarınız ekleme](microsoft-authenticator-app-add-personal-account.md).
 
-    ![Oturum açma kutusunu Onayla](media/microsoft-authenticator-app-phone-signin-faq/microsoft-auth-app-sign-in.png)
+Telefonla oturum açma yalnızca iOS ve Android cihazlarda çalışan Android 6.0 veya üzeri kullanılabilir.
 
-2. Microsoft Authentication uygulamasında isteyen bir bildirim alırsınız **oturum onaylama**. Seçin **Onayla** oturum açma denemesi tanımak durumunda. Aksi takdirde seçin **Reddet**. 
+### <a name="turn-on-phone-sign-in"></a>Telefonla oturum açma üzerinde Aç 
 
-3. Bkz: aynı numaraya dokunun **oturum onaylama** ekran. Telefonunuzun PIN veya biyometrik anahtarınızı kimlik doğrulamasını tamamlamak için kullanın.
+- Microsoft Authenticator uygulamasını açın, Git iş veya Okul ve telefonla oturum açma üzerinde Aç:
 
-    ![Oturum açma seçin numarasıyla kutuyu Onayla](media/microsoft-authenticator-app-phone-signin-faq/microsoft-auth-app-sign-in-numbers.png)
+    - **Bu simge görürseniz ![, gösteren simgesi ayarlanan](media/microsoft-authenticator-app-phone-signin-faq/icon.png).** Bu simge çalışmanızı yanında görünüyorsa ya da Okul hesabı adı, geldiğini önceden telefonla oturum açma hesabı için ayarlamış olduğunu. Hesabınız için anında iletme bildirimleri ekleyin, uygulama dışında kimlik doğrulama istekleri hakkında bilgilendirilebilirsiniz istenebilir.
 
-## <a name="turn-on-phone-sign-in-for-your-personal-account"></a>Telefonda kişisel hesabınızla oturum açın 
+    - **Uygulama için iki aşamalı doğrulamayı bir süredir kullanıyorsanız.** Uygulama ve iki Faktörlü doğrulama zaten kullandınız, hesap adının yanındaki aşağı açılan oku seçin ve ardından **etkinleştirme telefonla oturum açma**.
+    
+    - **İş veya Okul hesabınızı bulamazsanız.** İş veya Okul hesabınızı bulamazsanız **hesapları** ekran, uygulamanın, bu uygulamaya henüz eklemediniz olduğunu gösterir. İçindeki adımları izleyerek iş veya Okul hesabınızı eklemek [iş veya Okul hesabınızı eklemek](microsoft-authenticator-app-add-work-account.md) makalesi.
+
+### <a name="sign-in-to-your-account-using-phone-sign-in"></a>Telefonla oturum açma kullanarak hesabınızda oturum açın
+Telefonla oturum açma üzerinde etkinleştirdikten sonra yalnızca Microsoft Authenticator uygulamasını kullanarak oturum açabilirsiniz.
+
+1. İş veya Okul hesabınızda oturum açın.
+
+    Kullanıcı adınızı, yazdıktan sonra bir **oturum açma işlemini onaylıyor** iki basamaklı bir sayı gösteren ve Microsoft Authenticator uygulamasını oturum isteyen ekranı görüntülenir. Bu oturum yöntem kullanmak istemiyorsanız, seçebileceğiniz **bunun yerine parolanızı kullanın**, parolanızı kullanarak oturum açın.
+
+    ![Oturum açma PC'de kutusunu Onayla](media/microsoft-authenticator-app-phone-signin-faq/microsoft-auth-app-sign-in.png)
+
+2. Bildirim veya Cihazınızda Microsoft Authenticator uygulamasını açın ve sonra da sayıyı, sayı, bilgisayarınızın üzerinde eşleşmesi dokunun **oturum onaylama** ekran.
+
+    ![Cihaz oturum açma kutusunu Onayla](media/microsoft-authenticator-app-phone-signin-faq/microsoft-auth-app-sign-in-numbers.png)
+
+3. Seçin **Onayla** oturum açma denemesi tanımak durumunda. Aksi takdirde seçin **Reddet**.
+
+4. Telefonunuzun PIN veya biyometrik anahtarınızı kimlik doğrulamasını tamamlamak için kullanın.
+
+## <a name="turn-on-and-use-phone-sign-in-for-your-personal-microsoft-accounts"></a>Açma ve kişisel Microsoft hesaplarınız için telefonla oturum açma kullanın
 Telefonla oturum açma, kişisel Microsoft hesabınız için Outlook.com, Xbox veya Skype oturum açmak için kullandığınız hesap gibi kapatabilirsiniz.
 
-### <a name="to-turn-on-phone-sign-in-for-your-personal-account"></a>Telefonda kişisel hesabınızla oturum açmak için
+>[!NOTE]
+>Hesabınızı korumak için bir PIN veya biyometrik kilit Cihazınızda Microsoft Authenticator uygulamasını gerektirir. Kilidi telefonunuzu tutarsanız, uygulama güvenlik Kilidi'ni kapatmadan önce telefonla oturum açma üzerinde ayarlamanızı gerektirir.
 
-- **Microsoft Authenticator uygulamasını kullanmazsanız.** İndirme Microsoft Authenticator uygulamasını yüklemesini ve kişisel Microsoft hesabınızda oturum açarak hesabına Microsoft Authenticator uygulamasını Ekle hesapları ekranından eklersiniz. Daha fazla bilgi için [Microsoft Authenticator uygulaması ile çalışmaya başlama](microsoft-authenticator-app-how-to.md).
+### <a name="turn-on-phone-sign-in"></a>Telefonla oturum açma üzerinde Aç 
 
-    Telefonla oturum açma kullanmaya hemen başlayabilirsiniz için yeni hesaplar, otomatik olarak etkinleştirilir. 
+- Microsoft Authenticator uygulamasını açın, kişisel Microsoft hesabınıza gidin ve telefonla oturum açma üzerinde açın:
 
-- **İki aşamalı doğrulama için Microsoft Authenticator uygulamasını zaten kullanıyorsanız.** Git **hesapları** uygulaması, iş veya Okul hesabınız için aşağı açılır oku seçin ve ardından ekranın **etkinleştirme telefonla oturum açma**.
+    - **Bu simge görürseniz ![, gösteren simgesi ayarlanan](media/microsoft-authenticator-app-phone-signin-faq/icon.png).** Bu simge, hesap adınızın yanındaki görünüyorsa, önceden telefonla oturum açma hesabı için ayarlamış olduğunu anlamına gelir. Hesabınız için anında iletme bildirimleri ekleyin, uygulama dışında kimlik doğrulama istekleri hakkında bilgilendirilebilirsiniz istenebilir.
 
-    >[!NOTE]
-    >Hesabınızın korunmasına yardımcı olmak için bir PIN veya biyometrik kilit Cihazınızda uygulamayı gerektirir. Kilidi telefonunuzu tutarsanız, uygulama güvenlik Kilidi'ni kapatmadan önce telefonla oturum açma üzerinde ayarlamanızı gerektirir.
+    - **Uygulama için iki aşamalı doğrulamayı bir süredir kullanıyorsanız.** Uygulama ve iki Faktörlü doğrulama zaten kullandınız, hesap adının yanındaki aşağı açılan oku seçin ve ardından **etkinleştirme telefonla oturum açma**.
+    
+    - **Hesabınızı bulamazsanız.** Hesabınızı bulamazsanız **hesapları** ekran, uygulamanın, bu uygulamaya henüz eklemediniz olduğunu gösterir. İçindeki adımları izleyerek kişisel Microsoft hesabınızı ekleyin [kişisel Microsoft hesabınızı ekleyin](microsoft-authenticator-app-add-personal-account.md#add-your-personal-microsoft-account) makalesi.
 
-### <a name="to-use-phone-sign-in-to-sign-in-to-your-personal-account"></a>Kişisel hesabınızla oturum açmak için telefonla oturum açma kullanmak için 
+### <a name="sign-in-to-your-account-using-phone-sign-in"></a>Telefonla oturum açma kullanarak hesabınızda oturum açın
 
 1. Kişisel Microsoft hesabı oturum açma sayfasına gidin ve ardından parolanızı yazmak yerine, **bunun yerine Microsoft Authenticator uygulamasını kullanın** bağlantı. 
 
@@ -73,14 +95,22 @@ Telefonla oturum açma, kişisel Microsoft hesabınız için Outlook.com, Xbox v
 
 2. Bildirimi onaylayın. 
 
-## <a name="phone-sign-in-faq"></a>Telefon oturum açma ile ilgili SSS
+## <a name="sign-in-using-two-factor-verification-for-your-account"></a>İki aşamalı doğrulama için hesabınızı kullanarak oturum açın
+Standart iki Faktörlü doğrulama yöntemi açtıktan yapıyorsanız ve ilişkili doğrulama kopyalamak isterseniz ya da Microsoft Authenticator uygulamasına bir bildirim gönderip göndermediğini ardından cihazında kullanıcı adı ve parola girmenizi gerektiriyor gelen kod **hesapları** Microsoft Authenticator uygulamasının ekran. Hesap için Microsoft Authenticator uygulamasını ekleme işlemini bir parçası olarak hesabınız için iki aşamalı doğrulama özelliğini açın.
+
+>[!Note]
+>İş veya Okul hesabı veya kişisel hesabınızı görmüyorsanız üzerinde **hesapları** ekran Microsoft Authenticator uygulaması, bu hesap için Microsoft Authenticator uygulaması eklemediniz anlamına gelir. Hesabınızı eklemek için bkz: [iş veya Okul hesabınızı eklemek](microsoft-authenticator-app-add-work-account.md) veya [kişisel hesaplarınız ekleme](microsoft-authenticator-app-add-personal-account.md).
+
+İki aşamalı doğrulama, çeşitli yöntemler kullanarak iş veya okul veya kişisel hesabınızla oturum açmak gerekli adımlar için bkz. [iki aşamalı doğrulama veya güvenlik bilgilerini kullanarak oturum](user-help-sign-in.md).
+
+## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 |**Soru**|**Çözüm**|
 |--------------|-------------|
 |**Nasıl daha güvenli bir parola yazmak daha telefonumu oturum imzalama?**|Bugün çoğu kişi web siteleri veya uygulamaları bir kullanıcı adı ve parola kullanarak oturum açın. Ne yazık ki, parolalar kaybolduğunda, çalındığında veya saldırganlar tarafından tahmin.<br><br>Microsoft Authenticator uygulamasını ayarlama sonra telefonunuzun PIN veya biyometrik kilidi ile korunan hesabınızın kilidini açmak için telefonunuza bir anahtar oluşturur. Bu anahtar ardından oturum açma sırasında kimliğini kanıtlamak için kullanılır.<br><br>**Önemli**<br>Verilerinizi yalnızca yerel olarak anahtarınızı korumak için kullanılır. Hiçbir zaman gönderilen veya bulutta depolanan.|
-|**Bu, iki aşamalı doğrulama yerini mi aldı? Ben bunu kapatmanız gerekir?**| Telefonla oturum açma kapsamını genişletmek için çalışıyoruz, ancak şimdilik hala var. desteklemeyen Microsoft ekosistemi yerde. Bu yerlerde yine de iki aşamalı doğrulama güvenli oturum açma için kullanıyoruz. Bu nedenle, Hayır, iki aşamalı doğrulamayı kapatırsanız, hesabınız için özelliğini olmamalıdır.|
+|**Telefonla oturum açma iki aşamalı doğrulama yerini mi aldı? Ben bunu kapatmanız gerekir?**|Telefonla oturum açma iki aşamalı doğrulamayı burada mobil cihazda iki adımı her iki durum türüdür. İki aşamalı doğrulamayı hesabınız için ek güvenlik sağlamak için açık tutmanız gerekir.|
 |**Ben iki aşamalı doğrulama hesabım için açık tutarsanız, iki bildirim onaylamanız gerekir mi?**| Hayır. Bu yüzden ayrıca telefonunuzu kullanarak Microsoft hesabınızda oturum açarken iki aşamalı doğrulama, ikinci onay gerekli sayar.|
 |**Ne telefonumu kaybeder veya yok benimle? Hesabımı nasıl erişim sağlanır?**| Her zaman parola bağlamaya parolanızı kullanmaya geçmek için oturum açma sayfasında kullanımı da seçebilirsiniz. İki aşamalı doğrulama kullanıyorsanız ancak yine de kimliğinizi doğrulamak için ikinci bir yöntem kullanmak yapmanız gerekir.<br><br>**Önemli**<br>Birden fazla güncel hesabınızla ilişkilendirilen bir doğrulama yöntemi olduğundan emin olmak için önemle öneririz.<br><br>Kişisel hesapları için doğrulama yöntemlerinizi yönetebilir, [güvenlik ayarları](https://account.live.com/proofs/manage) sayfası. İş veya Okul hesapları için kuruluşunuzun gidebilirsiniz [ek güvenlik doğrulaması](https://aka.ms/MFASetup) sayfası veya **hesabınızı güvenli tutmak** yöneticinize güvenlik bilgilerini etkinleştirdiyseniz sayfa. Güvenlik bilgileri hakkında daha fazla bilgi için bkz: [güvenlik bilgilerinizi yönetmek](security-info-manage-settings.md).<br><br>Doğrulama yöntemlerinizi yönetme yapamıyorsanız, yöneticinize başvurmanız gerekir.|
-|**Nasıl bu özelliği kullanmayı bırakmak ve parolamı kullanmaya geri dönün?**|Kişisel hesapları için seçin **bir parolasını kullanmanız** oturum açma sırasında bağlantı. En son seçiminiz, yeniden oturum açtığınızda varsayılan olarak sunulan ve anımsanacak. Şimdiye kadar telefonla oturum açma, select kullanmaya geri dönmek istiyorsanız **uygulama kullanmanız** oturum açma sırasında bağlantı.<br><br>İş veya Okul hesapları için Microsoft Authenticator uygulamasını açarak hesap kaldırmalısınız seçerek **hesapları Düzenle** menüsüne ve ardından hesabınız siliniyor.|
+|**Nasıl bu özelliği kullanmayı bırakmak ve parolamı kullanmaya geri dönün?**|Kişisel hesapları için seçin **bir parolasını kullanmanız** oturum açma sırasında bağlantı. En son seçiminiz, yeniden oturum açtığınızda varsayılan olarak sunulan ve anımsanacak. Şimdiye kadar telefonla oturum açma, select kullanmaya geri dönmek istiyorsanız **uygulama kullanmanız** oturum açma sırasında bağlantı.<br><br>İş veya Okul hesapları için ek güvenlik doğrulama sayfasına gerekir (gibi https://aka.ms/MFASetup) ve Microsoft Authenticator uygulamasını kaldırın.|
 |**Telefonla oturum açma için birden fazla iş veya Okul hesabı neden kullanamıyorum?**| Tek bir iş veya Okul hesabı için bir telefon kayıtlı olması gerekir. Telefonla oturum açma için farklı bir iş veya Okul hesabı etkinleştirmek istiyorsanız, eski bir cihaz üzerinden ilk kaydını silmeniz gerekir **ayarları** sayfası.|
 |**Telefonumu kullanarak bilgisayarınıza oturum?**| Bilgisayarınızı için Windows Hello Windows 10'da kullanarak imzalama öneririz. Windows Hello, oturum açmak için yüz tanıma, parmak izi veya PIN kullanmanızı sağlar.|
 |**Telefonla oturum açma bilgilerimi Windows Phone ile kullanabilir miyim?**| Hayır. Bu özellik, Microsoft Authenticator uygulamasını Windows Phone şirket tarafından desteklenmiyor.|

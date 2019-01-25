@@ -8,12 +8,12 @@ ms.author: jamesbak
 ms.topic: tutorial
 ms.date: 01/14/2019
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 0bb2e9a91890f88466b27439b55d516848fd2270
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: c80cd5893c5d1f7c9941c979f87924d2943ba8d4
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438837"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904446"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Öğretici: Ayıklama, dönüştürme ve Azure Databricks kullanarak verileri yüklemek
 
@@ -42,6 +42,7 @@ Bu öğreticiyi tamamlamak için:
 > * Bir Azure SQL veri ambarı oluşturma, sunucu düzeyinde güvenlik duvarı kuralı oluşturun ve sunucu yöneticisi olarak sunucuya bağlanma Bkz: [hızlı başlangıç: Bir Azure SQL veri ambarı oluşturma](../../sql-data-warehouse/create-data-warehouse-portal.md).
 > * Azure SQL veri ambarı için veritabanı ana anahtarı oluşturun. Bkz: [bir veritabanı ana anahtarı oluşturma](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
 > * Bir Azure Data Lake depolama Gen2 hesabı oluşturun. Bkz: [bir Azure Data Lake depolama Gen2 hesabı oluşturma](data-lake-storage-quickstart-create-account.md).
+> * Azure Blob depolama hesabı ve bu hesabın içinde bir kapsayıcı oluşturun. Bkz: [hızlı başlangıç: Bir Azure Blob Depolama hesabı oluşturma](storage-quickstart-blobs-portal.md).
 > * [Azure Portal](https://portal.azure.com/) oturum açın.
 
 ## <a name="create-an-azure-databricks-workspace"></a>Azure Databricks çalışma alanı oluşturma
@@ -145,17 +146,17 @@ Bu bölümde, Azure Databricks çalışma alanında bir not defteri oluşturun v
 
    ```scala
    spark.conf.set("fs.azure.account.auth.type.<storage-account-name>.dfs.core.windows.net", "OAuth")
-   spark.conf.set("fs.azure.account.oauth.provider.type.<storage-account-name>.dfs.core.windows.net", org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
+   spark.conf.set("fs.azure.account.oauth.provider.type.<storage-account-name>.dfs.core.windows.net", "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
    spark.conf.set("fs.azure.account.oauth2.client.id.<storage-account-name>.dfs.core.windows.net", "<application-id>")
    spark.conf.set("fs.azure.account.oauth2.client.secret.<storage-account-name>.dfs.core.windows.net", "<authentication-key>")
-   spark.conf.set("fs.azure.account.oauth2.client.endpoint.<account-name>.dfs.core.windows.net", "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
+   spark.conf.set("fs.azure.account.oauth2.client.endpoint.<storage-account-name>.dfs.core.windows.net", "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
    ```
 
-5. Bu kod bloğunda değiştirin `application-id`, `authentication-id`, ve `tenant-id` adımları tamamlandığında topladığınız değerleri bu kod bloğu içinde yer tutucu değerlerini [depolama hesabı Yapılandırmasıkenara](#config). Değiştirin `storage-account-name` yer tutucu değerini, depolama hesabınızın adı.
+6. Bu kod bloğunda değiştirin `application-id`, `authentication-id`, ve `tenant-id` adımları tamamlandığında topladığınız değerleri bu kod bloğu içinde yer tutucu değerlerini [depolama hesabı Yapılandırmasıkenara](#config). Değiştirin `storage-account-name` yer tutucu değerini, depolama hesabınızın adı.
 
-6. Tuşuna **SHIFT + ENTER** bu blok kodu çalıştırmak için anahtarları.
+7. Tuşuna **SHIFT + ENTER** bu blok kodu çalıştırmak için anahtarları.
 
-7. Artık, bir Azure databricks'te veri çerçevesi olarak örnek json dosyasını yükleyebilirsiniz. Aşağıdaki kod, yeni bir hücreye yapıştırın. Yer tutucuları değerleriniz ile parantez içinde gösterilen değiştirin.
+8. Artık, bir Azure databricks'te veri çerçevesi olarak örnek json dosyasını yükleyebilirsiniz. Aşağıdaki kod, yeni bir hücreye yapıştırın. Yer tutucuları değerleriniz ile parantez içinde gösterilen değiştirin.
 
    ```scala
    val df = spark.read.json("abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/small_radio_json.json")
@@ -165,9 +166,9 @@ Bu bölümde, Azure Databricks çalışma alanında bir not defteri oluşturun v
 
    * Değiştirin `storage-account-name` depolama hesabınızın adıyla yer tutucu.
 
-8. Tuşuna **SHIFT + ENTER** bu blok kodu çalıştırmak için anahtarları.
+9. Tuşuna **SHIFT + ENTER** bu blok kodu çalıştırmak için anahtarları.
 
-9. Veri çerçevesinin içeriğini görmek için aşağıdaki kodu çalıştırın:
+10. Veri çerçevesinin içeriğini görmek için aşağıdaki kodu çalıştırın:
 
     ```scala
     df.show()
@@ -267,37 +268,37 @@ Ham örnek veriler **small_radio_json.json** dosya radyo istasyonunun hedef kitl
 
 Bu bölümde, dönüştürülen verileri Azure SQL Veri Ambarı'na yüklersiniz. Azure Databricks için Azure SQL veri ambarı Bağlayıcısı, SQL data warehouse'da tablo olarak, doğrudan bir dataframe karşıya yüklemek için kullanın.
 
-SQL veri ambarı Bağlayıcısı verileri Azure Databricks ve Azure SQL veri ambarı arasında yüklemek için geçici depolama alanı olarak Azure Blob Depolama kullanır. Bu nedenle, depolama hesabına bağlanmak için kullanılacak yapılandırmayı sağlayarak başlarsınız. Hesap bu makalenin önkoşullarından bir parçası olarak oluşturmuş olmanız gerekir.
+Daha önce bahsedildiği gibi SQL veri ambarı Bağlayıcısı verileri Azure Databricks ve Azure SQL veri ambarı arasında yüklemek için geçici depolama alanı olarak Azure Blob Depolama kullanır. Bu nedenle, depolama hesabına bağlanmak için kullanılacak yapılandırmayı sağlayarak başlarsınız. Hesap bu makalenin önkoşullarından bir parçası olarak oluşturmuş olmanız gerekir.
 
 1. Azure Databricks'ten Azure Depolama hesabına erişmek için yapılandırmayı sağlayın.
 
    ```scala
-   val storageURI = "<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net"
-   val fileSystemName = "<FILE_SYSTEM_NAME>"
-   val accessKey =  "<ACCESS_KEY>"
+   val blobStorage = "<blob-storage-account-name>.blob.core.windows.net"
+   val blobContainer = "<blob-container-name>"
+   val authenticationKey =  "<authentication-key>"
    ```
 
 2. Verileri Azure Databricks ile Azure SQL veri ambarı arasında taşırken kullanılacak geçici klasörü belirtin.
 
    ```scala
-   val tempDir = "abfss://" + fileSystemName + "@" + storageURI +"/tempDirs"
+   val tempDir = "wasbs://" + blob-container-name + "@" + blobStorage +"/tempDirs"
    ```
 
 3. Aşağıdaki kod parçacığını çalıştırarak Azure Blob depolama erişim anahtarlarını yapılandırmada depolayın. Bu eylem, erişim anahtarını not defterinde düz metin tutmak çalışmamasını garantiler.
 
    ```scala
-   val acntInfo = "fs.azure.account.key."+ storageURI
-   sc.hadoopConfiguration.set(acntInfo, accessKey)
+   val acntInfo = "fs.azure.account.key."+ blobStorage
+   sc.hadoopConfiguration.set(acntInfo, authenticationKey)
    ```
 
 4. Azure SQL Veri Ambarı örneğine bağlanmak için değerleri sağlayın. SQL veri ambarı bir önkoşul olarak oluşturmuş olmanız gerekir.
 
    ```scala
    //SQL Data Warehouse related settings
-   val dwDatabase = "<DATABASE NAME>"
-   val dwServer = "<DATABASE SERVER NAME>" 
-   val dwUser = "<USER NAME>"
-   val dwPass = "<PASSWORD>"
+   val dwDatabase = "<database-name>"
+   val dwServer = "<database-server-name>"
+   val dwUser = "<user-name>"
+   val dwPass = "<password>"
    val dwJdbcPort =  "1433"
    val dwJdbcExtraOptions = "encrypt=true;trustServerCertificate=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;"
    val sqlDwUrl = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass + ";$dwJdbcExtraOptions"

@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/18/2019
+ms.date: 01/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e78599a350aff4d0aba5603e8ad7959c945f1aca
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 67083a8214724659765922047c1f0ccd6da87b9d
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54439162"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884937"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>SAP iş yüküne Azure planlama ve dağıtım denetim listesi 
 
@@ -47,7 +47,7 @@ Bu aşamada, bir Azure genel bulut üzerinde SAP iş yükü geçişi planlanmakt
     3.  İş sürekliliği ve olağanüstü durum kurtarma mimarisi
     4.  Ayrıntılı işletim sistemi, DB, çekirdek ve SAP paketi sürümleri destekler. Bu bir biçimde Azure Vm'lerinde SAP NetWeaver veya S/4hana'yı tarafından desteklenen herhangi bir işletim sistemi sürümünü desteklenir. Aynı DBMS sürümleri için geçerlidir. Bu, aşağıdaki kaynaklardan Hizala ve gerekirse bir SAP içinde olması için SAP sürümleri, DBMS sürümleri veya işletim sistemi sürümleri yükseltme için kullanıma ve Azure penceresi desteklenen zorunludur. SAP içerisinde olduğunuz ve Azure SAP ve Microsoft tarafından tam destek almak için yayın birleşimler desteklenmez, bu zorunludur. Gerekirse, bazı yazılım bileşenleri yükseltmeyi planlamak gerekir. Desteklenen SAP, işletim sistemi ve DBMS yazılım hakkında daha fazla ayrıntı şu konumlarda belgelenmiştir:
         1.  SAP destek Not [#1928533](https://launchpad.support.sap.com/#/notes/1928533). Bu Not, Azure Vm'lerinde desteklenen en düşük işletim sistemi sürümleri tanımlar. Ayrıca, çoğu olmayan HANA veritabanı için gerekli en düşük veritabanı sürümleri tanımlar. Not, SAP boyutlandırma farklı desteklenen SAP Azure VM türleri de sunar.
-        2.  SAP destek Not [#2039619](https://launchpad.support.sap.com/#/notes/2039619). Not, Azure'da Oracle destek matrisini tanımlar. Oracle yalnızca Windows ve Oracle Linux konuk işletim sistemi azure'da SAP iş yükü olarak desteklediğini unutmayın. Bu destek ifadesi, SAP örnekleri çalışan SAP uygulama katmanı için geçerlidir. Bununla birlikte, Oracle için Oracle Linux'ta SAP Central Services'in yüksek kullanılabilirlik desteklemiyor. SAP Central Services'in DBMS katmanı olarak Oracle birlikte desteklenen Windows için SAP Windows Yük devretme küme yük devretmesi çözüm desteklenmiyor. 
+        2.  SAP destek Not [#2039619](https://launchpad.support.sap.com/#/notes/2039619). Not, Azure'da Oracle destek matrisini tanımlar. Oracle yalnızca Windows ve Oracle Linux konuk işletim sistemi azure'da SAP iş yükü olarak desteklediğini unutmayın. Bu destek ifadesi, SAP örnekleri çalışan SAP uygulama katmanı için geçerlidir. Bununla birlikte, Oracle Pacemaker aracılığıyla Oracle Linux'ta SAP Central Services'in için yüksek kullanılabilirlik desteklemiyor. Oracle Linux'ta ASCS için yüksek kullanılabilirlik gerekiyorsa, SIOS koruma grubu için Linux yararlanarak gerekir. Ayrıntılı SAP sertifika verileri, SAP destek Not denetlemek [#1662610 - Linux için SIOS koruma grubu için destek ayrıntıları](https://launchpad.support.sap.com/#/notes/1662610). SAP Central Services'in DBMS katmanı olarak Oracle birlikte desteklenen Windows için SAP Windows Yük devretme küme yük devretmesi çözüm desteklenmiyor. 
         3.  SAP destek Not [#2235581](https://launchpad.support.sap.com/#/notes/2235581) farklı bir işletim sistemi üzerinde SAP HANA sürümleri için destek matrisi alınamıyor
         4.  Desteklenen Azure Vm'lerinde SAP HANA ve [HANA büyük örnekleri](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) listelenen [burada](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
         5.  [SAP ürün kullanılabilirliği Matrisi](https://support.sap.com/en/)
@@ -196,7 +196,7 @@ Bu aşamada deneyimleri ve üretim dışı dağıtımlarınıza dersleri toplay�
     2.  Daha küçük veritabanları için yedekleme/geri yükleme kullanın
     3.  Kullanım SAP geçiş SAP SWPM aracına uygulanan heterojen geçişler gerçekleştirmeyi İzleyicisi
     4.  Kullanım [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) SAP sürüm yükseltmesi ile birleştirerek gerekirse işlemi. Kaynak ve hedef DBMS tüm bileşimleri desteklenir göz önünde bulundurun. Belirli SAP destek notları DMO farklı sürümleri için daha fazla bilgi bulunabilir. Örneğin, [toplam 2.0 SP04, veritabanı geçiş seçeneği (DMO)](https://launchpad.support.sap.com/#/notes/2644872)
-    5.  Veri aktarımı internet üzerinden veya ExpressRoute aracılığıyla yedeklemeler geçmeniz veya SAP dosyaları dışarı aktarma durumunda aktarım hızı daha iyi olup olmadığını test edin. İnternet üzerinden veri taşımayı çalışması için gelecekteki üretim sistemleri için yerinde olması gerekir, NSG/ASG güvenlik kuralların bazıları değiştirmek ihtiyacınız olabilecek olduğunu unutmayın
+    5.  Veri aktarımı internet üzerinden veya ExpressRoute aracılığıyla yedeklemeler geçmeniz veya SAP dosyaları dışarı aktarma durumunda aktarım hızı daha iyi olup olmadığını test edin. İnternet üzerinden veri taşımayı çalışması için bazı gelecekteki üretim sistemleri için yerinde olması gerekir, NSG/ASG güvenlik kuralları değiştirmeniz gerekebilir
 3.  Taşımadan önce eski Azure platformundaki sistemlerden CPU kullanımı, depolama aktarım hızı ve IOPS verilerini gibi kaynak tüketim verilerini toplayın. Özellikle DBMS katman birimi, uygulama katmanı birimlerinden de. Ayrıca ağ ve depolama gecikme süresini ölçün.
 4.  SAP destek notları, SAP HANA donanım dizin ve SAP PAM yeniden desteklenen VM'ler için Azure içindeki herhangi bir değişiklik vardı, desteklenen işletim sistemi sürümleri serbest bırakır, bu Vm'leri ve desteklenen SAP ve DBMS emin olmak için kaynakları doğrula 
 4.  Dağıtım betikleri VM türleri ve Azure işlevleri üzerinde karar en son değişikliklerle uyum
@@ -224,7 +224,7 @@ Bu aşamada deneyimleri ve üretim dışı dağıtımlarınıza dersleri toplay�
     
 
 ## <a name="go-live-phase"></a>Canlı aşaması gidin
-Go-Live aşaması için playbook'ları önceki aşamada geliştirilen izlemek emin olmanız gerekir. Test ve eğitim adımları yürütün. Yapılandırmaları ve işlem son dakika değişiklikleri kabul etme. Yanı sıra, aşağıdakileri uygulayın:
+Go-Live aşaması için playbook'ları önceki aşamada geliştirilen izlemek emin olmanız gerekir. Test ve eğitim adımları yürütün. Yapılandırmaları ve işlem son dakika değişiklikleri kabul etme. Yanı sıra, aşağıdaki ölçütler geçerlidir:
 
 1. Azure portal izleme ve diğer izleme araçları çalıştığını doğrulayın.  Perfmon (Windows) veya ÖİB (Linux) önerilen araçlar şunlardır: 
     1.  CPU sayaçları 

@@ -3,7 +3,7 @@ title: Azure ayrıntılı kullanımınızı anlayın | Microsoft Docs
 description: Okuma ve Azure aboneliğiniz için ayrıntılı kullanım CSV bölümlerini anlama hakkında bilgi edinin
 services: ''
 documentationcenter: ''
-author: tonguyen10
+author: bandersmsft
 manager: alherz
 editor: ''
 tags: billing
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
-ms.author: cwatson
-ms.openlocfilehash: c5b41d86133bbcafcc61423b4d60e59846edc2f2
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: 88518bee879d01966813fc89e8095d2237476a15
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52580924"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901318"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Microsoft Azure ayrıntılı Kullanım ücretlerinizi ilgili koşulları anlama 
 
@@ -88,6 +88,6 @@ Daha fazla ayrıntı istediğiniz ayrıntılı kullanım dosyanızdaki bir ücre
 ## <a name="external"></a>Dış hizmet ücretlerini hakkında neler diyeceksiniz?
 Dış hizmetlere (Market siparişlerini olarak da bilinir) bağımsız hizmeti satıcısı tarafından sağlanır ve ayrı olarak faturalandırılır. Ücretler Azure fatura üzerinde gösterme. Daha fazla bilgi için bkz. [Azure, dış hizmet ücretlerini anlama](billing-understand-your-azure-marketplace-charges.md).
 
-## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
+## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

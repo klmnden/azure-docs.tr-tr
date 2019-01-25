@@ -4,14 +4,14 @@ description: Etiketlerin hangi Azure kaynak türlerini destekleyen gösterir. Ay
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 1/11/2019
+ms.date: 1/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4899409b225298c521935f2eeaf5e8e59a6833b3
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: fc085a94e2412ff21b09755102f79636a0b0d3b5
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267462"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884954"
 ---
 # <a name="tag-support-for-azure-resources"></a>Azure kaynakları için etiketi desteği
 Bu makalede, bir kaynak türünü destekleyip desteklemediğini açıklar [etiketleri](resource-group-using-tags.md).
@@ -584,7 +584,7 @@ Bu makalede, bir kaynak türünü destekleyip desteklemediğini açıklar [etike
 | Kaynak türü | Etiketleri destekler |
 | ------------- | ----------- |
 | Kümeleri | Evet | 
-| Ad alanları | Evet | 
+| ad alanları | Evet | 
 | ad/authorizationrules öğesine | Hayır | 
 | ad/disasterrecoveryconfigs | Hayır | 
 | ad/eventhubs | Hayır | 
@@ -673,7 +673,7 @@ Bu makalede, bir kaynak türünü destekleyip desteklemediğini açıklar [etike
 | scheduledqueryrules | Evet | 
 | vmInsightsOnboardingStatuses | Hayır | 
 | Web testleri | Evet | 
-| Çalışma kitapları | Evet | 
+| çalışma kitapları | Evet | 
 
 ## <a name="microsoftintune"></a>Microsoft.Intune
 | Kaynak türü | Etiketleri destekler |
@@ -898,7 +898,7 @@ Bu makalede, bir kaynak türünü destekleyip desteklemediğini açıklar [etike
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 | Kaynak türü | Etiketleri destekler |
 | ------------- | ----------- |
-| Ad alanları | Evet | 
+| ad alanları | Evet | 
 | ad/notificationHubs | Evet | 
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
@@ -959,7 +959,7 @@ Bu makalede, bir kaynak türünü destekleyip desteklemediğini açıklar [etike
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 | Kaynak türü | Etiketleri destekler |
 | ------------- | ----------- |
-| Ad alanları | Evet | 
+| ad alanları | Evet | 
 | ad/authorizationrules öğesine | Hayır | 
 | ad/hybridconnections | Hayır | 
 | ad/hybridconnections/authorizationrules öğesine | Hayır | 
@@ -1063,7 +1063,7 @@ Bu makalede, bir kaynak türünü destekleyip desteklemediğini açıklar [etike
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 | Kaynak türü | Etiketleri destekler |
 | ------------- | ----------- |
-| Ad alanları | Evet | 
+| ad alanları | Evet | 
 | ad/authorizationrules öğesine | Hayır | 
 | ad/disasterrecoveryconfigs | Hayır | 
 | ad/eventgridfilters | Hayır | 
@@ -1107,6 +1107,16 @@ Bu makalede, bir kaynak türünü destekleyip desteklemediğini açıklar [etike
 ## <a name="microsoftsql"></a>Microsoft.SQL
 | Kaynak türü | Etiketleri destekler |
 | ------------- | ----------- |
+| managedInstances | Evet |
+| managedInstances/veritabanları | Evet |
+| veritabanları/managedInstances/backupShortTermRetentionPolicies | Hayır |
+| veritabanları/managedInstances/şemaları/sütunlar/tablolar/sensitivityLabels | Hayır |
+| veritabanları/managedInstances/vulnerabilityAssessments | Hayır |
+| managedInstances/veritabanları/vulnerabilityAssessments/kuralları/temelleri | Hayır |
+| managedInstances/encryptionProtector | Hayır |
+| managedInstances/anahtarları | Hayır |
+| restorableDroppedDatabases/managedInstances/backupShortTermRetentionPolicies | Hayır |
+| managedInstances/vulnerabilityAssessments | Hayır |
 | sunucu | Evet | 
 | sunucuları/yöneticileri | Hayır | 
 | sunucuları/communicationLinks | Hayır | 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: rezas
-ms.openlocfilehash: a50fca059331b28c46adb65903be4e7ba018a36c
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: b26a1fa3f61c7836bbe3466e4d95f406d16eb31e
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052045"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902525"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Ve MQTT protokolünü kullanarak IOT hub ile iletişim
 
@@ -198,20 +198,18 @@ Bir cihaz ilk olarak, abone `$iothub/twin/res/#`, işlemin yanıt almak için. A
 
 İstek Kimliği olarak başına herhangi bir ileti özellik değeri için geçerli bir değer olabilir [IOT Hub Geliştirici Kılavuzu Mesajlaşma][lnk-messaging], ve durum bir tamsayı olarak doğrulandı.
 
-Yanıt gövdesi cihaz çiftinin özellikler bölümü içerir. Aşağıdaki kod parçacığı gövdesi sınırlı kimlik kayıt defteri girişi, örneğin "Özellikler" üyesine gösterir:
+Yanıt gövdesi, yanıtı aşağıda gösterildiği gibi özellikler bölümü cihaz çiftinin içerir:
 
 ```json
 {
-    "properties": {
-        "desired": {
-            "telemetrySendFrequency": "5m",
-            "$version": 12
-        },
-        "reported": {
-            "telemetrySendFrequency": "5m",
-            "batteryLevel": 55,
-            "$version": 123
-        }
+    "desired": {
+        "telemetrySendFrequency": "5m",
+        "$version": 12
+    },
+    "reported": {
+        "telemetrySendFrequency": "5m",
+        "batteryLevel": 55,
+        "$version": 123
     }
 }
 ```
@@ -228,7 +226,7 @@ Daha fazla bilgi için [cihaz ikizlerini Geliştirici Kılavuzu][lnk-devguide-tw
 
 ### <a name="update-device-twins-reported-properties"></a>Cihaz ikizinin bildirilen özellikleri güncelleştirmek
 
-Bildirilen özellikleri güncelleştirmek için cihaz isteği IOT Hub'ına yayını belirlenen bir MQTT konu üzerinde yayınlar. İstek işlendikten sonra IOT hub'ı güncelleştirme işlemi aracılığıyla başka bir konuya bir yayın başarı veya başarısızlık durumunu yanıt verir. Bu konu hakkında kendi ikiz güncelleştirmesi isteğinin sonucunu bildirmek için cihaz tarafından abone olabilir. İmplment için MQTT, istek/yanıt etkileşiminde bu tür biz kavramı yararlanarak istek kimliği (`$rid`) başlangıçta güncelleştirme isteğinde cihaz tarafından sağlanan. Bu istek kimliği, IOT Hub'ı, belirli bir önceki isteğin yanıtını ilişkilendirmek cihazın izin vermek için gelen yanıt da bulunmaktadır.
+Bildirilen özellikleri güncelleştirmek için cihaz isteği IOT Hub'ına yayını belirlenen bir MQTT konu üzerinde yayınlar. İstek işlendikten sonra IOT hub'ı güncelleştirme işlemi aracılığıyla başka bir konuya bir yayın başarı veya başarısızlık durumunu yanıt verir. Bu konu hakkında kendi ikiz güncelleştirmesi isteğinin sonucunu bildirmek için cihaz tarafından abone olabilir. Bu tür istek/yanıt etkileşim içinde MQTT uygulamak için istek kimliği kavramı biz yararlanın (`$rid`) başlangıçta güncelleştirme isteğinde cihaz tarafından sağlanan. Bu istek kimliği, IOT Hub'ı, belirli bir önceki isteğin yanıtını ilişkilendirmek cihazın izin vermek için gelen yanıt da bulunmaktadır.
 
 Bir cihaz tarafından bildirilen özellikleri IOT hub'daki cihaz ikizinde güncelleştirmeleri nasıl aşağıdaki sırayı açıklar:
 

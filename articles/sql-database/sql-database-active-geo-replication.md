@@ -11,20 +11,20 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: 157d7776cc9a8eff485bd18658527bc8d30f4df0
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/24/2019
+ms.openlocfilehash: 3a567bd3656ad31157d51bedcd866290b232af2c
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602984"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884631"
 ---
 # <a name="create-readable-secondary-databases-using-active-geo-replication"></a>Etkin coğrafi çoğaltmayı kullanarak okunabilir ikincil veritabanı oluşturma
 
 Etkin coğrafi çoğaltma, aynı veya farklı bir veri merkezi (bölge) bir mantıksal sunucuda tek veritabanlarının okunabilir ikincil veritabanı oluşturmanıza olanak sağlar, Azure SQL veritabanı özelliğidir.
 
 > [!NOTE]
-> Etkin coğrafi çoğaltma, yönetilen örneği tarafından desteklenmiyor.
+> Etkin coğrafi çoğaltma, yönetilen örneği tarafından desteklenmiyor. Kullanmak için coğrafi yük devretme yönetilen örnekleri [otomatik yük devretme grupları](sql-database-auto-failover-group.md).
 
 Etkin coğrafi çoğaltma, tek veritabanlarını bölgesel bir olağanüstü durum ya da büyük ölçekli kesinti olması durumunda hızlı bir olağanüstü durum kurtarma gerçekleştirmek uygulama izin veren bir iş sürekliliği çözümü olarak tasarlanmıştır. Coğrafi çoğaltma etkinleştirildiğinde, uygulama farklı bir Azure bölgesinde bir ikincil veritabanına yük devretme başlatabilirsiniz. En fazla dört ikincil veritabanı aynı veya farklı bölgelerde desteklenir ve ikincil veritabanı salt okunur erişim sorgular için de kullanılabilir. Yük devretmeyi el ile uygulama veya kullanıcı tarafından başlatılması gerekir. Yük devretme işleminden sonra yeni birincil farklı bir bağlantı uç noktası vardır. Aşağıdaki diyagramda, etkin coğrafi çoğaltmayı kullanarak coğrafi olarak yedekli bir bulut uygulamasının tipik yapılandırma gösterilmektedir.
 

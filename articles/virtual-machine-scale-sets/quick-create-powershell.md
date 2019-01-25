@@ -3,7 +3,7 @@ title: Hızlı Başlangıç - Azure PowerShell ile sanal makine ölçek kümesi 
 description: Azure PowerShell ile hızlıca sanal makine ölçek kümesi oluşturmayı öğrenin
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: ''
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/18
-ms.author: zarhoads
-ms.openlocfilehash: b704a7bb4849b387be516dc32d1bf9ef321453b6
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: cynthn
+ms.openlocfilehash: 6e59c6ead364c77e3659b9c2a92106cb55abf744
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54430967"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54885974"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-with-azure-powershell"></a>Hızlı Başlangıç: Azure PowerShell ile bir sanal makine ölçek kümesi oluşturma
 Bir sanal makine ölçek kümesi, bir grup özdeş, otomatik ölçeklendirme sanal makinelerin dağıtmanıza ve yönetmenize olanak tanır. Ölçek kümesi içindeki sanal makine sayısını el ile ölçeklendirebilir veya CPU, bellek talebi ya da ağ trafiği gibi kaynak kullanımını temel alan otomatik ölçeklendirme kuralları tanımlayabilirsiniz. Azure Load Balancer daha sonra ölçek kümesindeki sanal makine örneklerine trafiği dağıtır. Bu hızlı başlangıçta, Azure PowerShell ile bir sanal makine ölçek kümesi oluşturur ve örnek uygulama dağıtırsınız.

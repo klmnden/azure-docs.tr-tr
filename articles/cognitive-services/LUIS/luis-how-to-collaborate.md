@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: d1db8974ce134b50340db500c9ea1b00126fe10a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6b9dd4beccbe8bc872c46976f490400daa200c3a
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086428"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888847"
 ---
 # <a name="how-to-manage-authors-and-collaborators"></a>Yazarlar ve ortak çalışanlar yönetme 
 
@@ -67,7 +67,12 @@ Kiracı yönetici LUIS için oturum açacak değil, yönetici erişebilir [onay�
 
 ![Uygulama Web sitesi tarafından Azure active directory izni](./media/luis-how-to-collaborate/tenant-permissions.png)
 
-Kiracı yönetici yalnızca belirli kullanıcıların LUIS kullanmasını isterse, bunun için başvuruda [kimliği blogu](https://blogs.technet.microsoft.com/tfg/2017/10/15/english-tips-to-manage-azure-ad-users-consent-to-applications-using-azure-ad-graph-api/).
+Kiracı Yöneticisi yalnızca belirli kullanıcıların LUIS'i kullanmayı isterse, birkaç olası çözümü vardır:
+* "Yönetici onayı" verme (onay için tüm kullanıcılar Azure ad), ancak ardından "Kuruluş uygulamanın özellikleri altında"kullanıcı ataması gerekli"Evet" olarak ve son Ata/yalnızca istenen kullanıcılar uygulamaya ekleyin. Bu yöntem ile yönetici uygulamaya yine de "yönetici onayı" veriyor, ancak erişebilecek kullanıcıları denetlenebiliyor mu.
+* İkinci bir çözüm olan kullanarak [Azure AD Graph API'si](https://docs.microsoft.com/graph/azuread-identity-access-management-concept-overview) her belirli bir kullanıcıya izin sağlamak için. 
+
+Azure active directory kullanıcıları ve onay hakkında daha fazla bilgi edinin: 
+* [Uygulama kısıtlama](../../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) kullanıcılara bir dizi
 
 ### <a name="user-accounts-with-multiple-emails-for-collaborators"></a>Ortak Çalışanlar için birden çok e-posta ile kullanıcı hesapları
 

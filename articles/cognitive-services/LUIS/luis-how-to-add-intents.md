@@ -8,15 +8,15 @@ manager: cgronlun
 ms.custom: seodec18
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 01/23/2019
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: c8bcbe011dc4ff9841a06b914a90ae7f9a14ee74
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: d353f37b89f9932827a07fc8079aa606d425ed38
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53598511"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54882880"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>Konuşma kullanıcı amacınıza belirlemek için hedef ekleme
 
@@ -24,19 +24,7 @@ Ekleme [hedefleri](luis-concept-intent.md) LUIS uygulamanızı sorularınız ya 
 
 Hedefleri, üst gezinti çubuğundan 's yönetilir **derleme** bölümünden, ardından sol bölmenin **hedefleri**. 
 
-## <a name="create-an-app"></a>Uygulama oluşturma
-
-1. Oturum [LUIS](https://www.luis.ai) portalı.
-
-1. **Yeni uygulama oluştur**'u seçin. 
-
-1. Yeni uygulama adı `MyHumanResourcesApp`. Seçin **İngilizce** kültür. Açıklama isteğe bağlıdır. 
-
-1. **Done** (Bitti) öğesini seçin. 
-
 ## <a name="add-intent"></a>Amaç ekleme
-
-1. Uygulama açılır **hedefleri** listesi.
 
 1. **Intents** (Amaçlar) sayfasında **Create new intent** (Yeni amaç oluştur) öğesini seçin.
 

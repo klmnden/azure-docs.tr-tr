@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 0cd3d3044623e2265a4ef5f817ed41258e63ae1c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 15ef1905562d04c2732016dfd1340910b3a8f699
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995531"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900366"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>İşlevleri kullanarak bir Azure Depolama kuyruğuna ileti ekleme
 
@@ -67,7 +67,7 @@ Bir çıkış bağlaması tanımladığınıza göre, bir kuyruğa ileti eklemek
 
 ## <a name="add-code-that-uses-the-output-binding"></a>Çıkış bağlaması kullanan kod ekleme
 
-Bu bölümde, çıkış kuyruğuna bir ileti yazan kodu ekleyeceksiniz. İleti, sorgu dizesinde HTTP tetikleyicisine geçirilen değeri içerir. Örneğin, sorgu dizesi `name=Azure` değerini içeriyorsa, kuyruk iletisi *İşleve geçirilen ad: Azure* şeklinde olur.
+Bu bölümde, çıkış kuyruğuna bir ileti yazan kodu ekleyeceksiniz. İleti, sorgu dizesinde HTTP tetikleyicisine geçirilen değeri içerir. Örneğin, sorgu dizesi içeren `name=Azure`, kuyruk iletisi *işleve geçirilen ad: Azure*.
 
 1. İşlev kodunu düzenleyicide görüntülemek için işlevinizi seçin.
 
@@ -150,7 +150,7 @@ Depolama Gezgini’ni zaten yüklediyseniz ve bu hızlı başlangıçla birlikte
 
 1. **Kuyruklar** düğümünü genişletin ve sonra **outqueue** adlı kuyruğu seçin. 
 
-   Kuyruk, HTTP ile tetiklenen işlevi çalıştırdığınızda kuyruk çıkış bağlamasının oluşturduğu iletiyi içerir. İşlevi varsayılan `name` *Azure* değeri ile çağırdıysanız, kuyruk iletisi *İşleve geçirilen ad: Azure* şeklinde olur.
+   Kuyruk, HTTP ile tetiklenen işlevi çalıştırdığınızda kuyruk çıkış bağlamasının oluşturduğu iletiyi içerir. Varsayılan işlevini çağırdığınız `name` değerini *Azure*, kuyruk iletisi *işleve geçirilen ad: Azure*.
 
     ![Depolama Gezgini'nde gösterilen kuyruk iletisi](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 
@@ -162,6 +162,6 @@ Depolama Gezgini’ni zaten yüklediyseniz ve bu hızlı başlangıçla birlikte
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta, bar olan bir işleve çıkış bağlaması eklediniz. Kuyruk depolamaya bağlama hakkında daha fazla bilgi için bkz. [Azure İşlevleri Depolama kuyruğu bağlamaları](functions-bindings-storage-queue.md). 
+Bu hızlı başlangıçta, bar olan bir işleve çıkış bağlaması eklediniz. Kuyruk depolamaya bağlama hakkında daha fazla bilgi için bkz. [Azure İşlevleri Depolama kuyruğu bağlamaları](functions-bindings-storage-queue.md).
 
-[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
+[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps-2.md)]

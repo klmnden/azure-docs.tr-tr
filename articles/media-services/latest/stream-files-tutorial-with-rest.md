@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 12/19/2018
+ms.date: 01/23/2019
 ms.author: juliako
-ms.openlocfilehash: fcce16ed3cf7009c596f30ebc33f58de02f018a0
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 0bd882ffd5048d0b33afc9ecf00c0ed6356b6e98
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54811647"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883526"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Öğretici: URL'sini temel alarak bir uzak dosya kodlama ve akışını video - REST
 
@@ -101,10 +101,10 @@ Bu bölümde, dosyanızı akışla aktarabilmeniz için kodlama ve URL oluşturm
 
 1. Hizmet Sorumlusu Kimlik Doğrulaması için Azure AD Belirteci alma
 2. Çıktı varlığı oluşturma
-3. Dönüşüm oluşturma
-4. Bir iş oluşturma 
-5. Akış bulucusu oluşturma
-6. Akış bulucusu yollarını listeleme
+3. Oluşturma bir **dönüştürme**
+4. Oluşturma bir **işi**
+5. Oluşturma bir **akış Bulucusu**
+6. Liste yollarını **akış Bulucu**
 
 > [!Note]
 >  Bu öğretici, tüm kaynakları benzersiz adlarla oluşturmakta olduğunuzu varsayar.  
@@ -151,7 +151,7 @@ Bu bölümde, dosyanızı akışla aktarabilmeniz için kodlama ve URL oluşturm
 
 ### <a name="create-a-transform"></a>Dönüşüm oluşturma
 
-Media Services’te içerik kodlarken veya işlerken, kodlama ayarlarını bir tarif olarak ayarlamak yaygın bir modeldir. Daha sonra bu tarifi bir videoya uygulamak üzere bir **İş** gönderirsiniz. Her yeni video için yeni İşler göndererek, söz konusu tarifi kitaplığınızdaki tüm videolara uygulamış olursunuz. Media Services içinde tarif, **Dönüşüm** olarak adlandırılır. Daha fazla bilgi için [Dönüşümler ve işler](transform-concept.md) konusuna bakın. Bu öğreticide açıklanan örnek, videoyu çeşitli iOS ve Android cihazlarına akışla aktarmak için kodlayan bir tarifi tanımlar. 
+Media Services’te içerik kodlarken veya işlerken, kodlama ayarlarını bir tarif olarak ayarlamak yaygın bir modeldir. Daha sonra bu tarifi bir videoya uygulamak üzere bir **İş** gönderirsiniz. Her yeni video için yeni işleri göndererek, kitaplığınızda tüm videoları için söz konusu tarif uyguladığınızı. Media Services içinde tarif, **Dönüşüm** olarak adlandırılır. Daha fazla bilgi için [dönüşümler ve işler](transform-concept.md). Bu öğreticide açıklanan örnek, videoyu çeşitli iOS ve Android cihazlarına akışla aktarmak için kodlayan bir tarifi tanımlar. 
 
 Yeni bir [Dönüşüm](https://docs.microsoft.com/rest/api/media/transforms) örneği oluştururken çıktı olarak neyi üretmesi istediğinizi belirtmeniz gerekir. Gerekli parametre bir **TransformOutput** nesnesidir. Her **TransformOutput** bir **Ön ayar** içerir. **Ön ayar**, video ve/veya ses işleme işlemlerinin istenen **TransformOutput** nesnesini oluşturmak üzere kullanılacak adım adım yönergelerini açıklar. Bu makalede açıklanan örnek, **AdaptiveStreaming** adlı yerleşik bir Ön Ayar kullanır. Ön Ayar, giriş çözünürlüğü ve bit hızını temel alarak, giriş videosunu otomatik olarak oluşturulan bir bit hızı basamağına (bit hızı-çözünürlük çiftleri) kodlar ve her bir bit hızı-çözünürlük çiftine karşılık gelen H.264 video ve AAC sesi ile ISO MP4 dosyaları üretir. Bu Ön Ayar hakkında bilgi için bkz. [otomatik oluşturulan bit hızı basamağı](autogen-bitrate-ladder.md).
 
@@ -232,16 +232,16 @@ Bu örnekte, işin girdisi bir HTTPS URL'sini ("https://nimbuscdn-nimbuspm.strea
 
 ### <a name="create-a-streaming-locator"></a>Akış bulucusu oluşturma
 
-Kodlama işi tamamlandıktan sonra sıradaki adım, çıktı Varlığındaki videoyu yürütme için istemcilerin kullanımına sunmaktır. Bunu iki adımda gerçekleştirebilirsiniz: ilk olarak, bir [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) oluşturun ve ikinci olarak, istemcilerin kullanabildiği akış URL’lerini derleyin. 
+Kodlama işi tamamlandıktan sonra sonraki adım video çıktısında olmaktır **varlık** kayıttan yürütme için istemciler tarafından kullanılabilir. Bunu iki adımda gerçekleştirebilirsiniz: ilk olarak, oluşturun bir [akış Bulucu](https://docs.microsoft.com/rest/api/media/streaminglocators)ve ikinci olarak, istemcilerin kullandığı akış URL'leri oluşturun. 
 
-**StreamingLocator** oluşturma işlemine yayımlama denir. Varsayılan olarak **StreamingLocator**, API çağrılarını yapmanızdan hemen sonra geçerli olur ve isteğe bağlı başlangıç ve bitiş süreleri yapılandırmadıkça silinene kadar devam eder. 
+Oluşturma işlemi bir **akış Bulucu** yayımlama denir. Varsayılan olarak, **akış Bulucu** API çağrılarını hemen sonra geçerli olduğunu ve isteğe bağlı bir başlangıç ve bitiş zamanlarını yapılandırmadığınız sürece silinene kadar sürer. 
 
-Bir [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) oluştururken istenen **StreamingPolicyName** değerini belirtmeniz gerekir. Bu örnekte, temiz (şifrelenmemiş) içeriğin akışını yapacağınız için önceden tanımlı temiz akış ilkesi **PredefinedStreamingPolicy.ClearStreamingOnly** kullanılmaktadır.
+Oluştururken bir [akış Bulucu](https://docs.microsoft.com/rest/api/media/streaminglocators), istenen belirtmeniz gerekecektir **StreamingPolicyName**. Bu örnekte, temiz (şifrelenmemiş) içeriğin akışını yapacağınız için önceden tanımlı temiz akış ilkesi **PredefinedStreamingPolicy.ClearStreamingOnly** kullanılmaktadır.
 
 > [!IMPORTANT]
 > Özel [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies)’yi kullanırken Media Service hesabınız için bu tür ilkelerin sınırlı bir kümesini tasarlamanız ve aynı şifreleme seçenekleri ve protokoller gerekli olduğunda StreamingLocators için bunları kullanmanız gerekir. 
 
-Media Service hesabınızda StreamingPolicy girişlerinin sayısı için bir kota bulunur. Her StreamingLocator için yeni bir StreamingPolicy oluşturmamanız gerekir.
+Medya hizmeti hesabınızı bir kota sayısı olan **akış ilke** girdileri. Yeni oluşturduğunuz değil **akış ilke** her **akış Bulucu**.
 
 1. Postman'in sol penceresinde "Akış İlkeleri"'ni seçin.
 2. Ardından, "Akış Bulucusu Oluşturma"'yı seçin.
@@ -267,7 +267,7 @@ Media Service hesabınızda StreamingPolicy girişlerinin sayısı için bir kot
 
 #### <a name="list-paths"></a>Yolları listeleme
 
-Artık [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) oluşturulduğuna göre, akış URL'lerini alabilirsiniz
+Şimdi [akış Bulucu](https://docs.microsoft.com/rest/api/media/streaminglocators) olmuştur oluşturulmuş akış URL'lerini alabilirsiniz
 
 1. Postman'in sol penceresinde "Akış İlkeleri"'ni seçin.
 2. Ardından, "Yolları Listele"'yi seçin.
@@ -338,7 +338,7 @@ https://amsaccount-usw22.streaming.media.azure.net/cdb80234-1d94-42a9-b056-0eefa
 
 
 > [!NOTE]
-> Akış yapmak istediğiniz akış uç noktasının çalıştığından emin olun.
+> Emin **akış uç noktası** istediğiniz gelen akış çalışıyor.
 
 Bu makalede, akışı test etmek için Azure Media Player kullanılmaktadır. 
 
@@ -350,7 +350,7 @@ Azure Media Player, test için kullanılabilir, ancak üretim ortamında kullan�
 
 ## <a name="clean-up-resources-in-your-media-services-account"></a>Media Services hesabınızdaki kaynakları temizleme
 
-Genellikle, yeniden kullanmayı planladığınız nesneler dışında her şeyi temizlemeniz gerekir (genellikle Dönüşümleri yeniden kullanırsınız ve StreamingLocators vb. nesneleri tutarsınız). Deneme sonrasında hesabınızın temiz olmasını istiyorsanız, yeniden kullanmayı planlamadığınız kaynakları silmeniz gerekir.  
+Genel olarak, yeniden kullanmak için planlama nesneler dışında her şeyi temizlemeniz gerekir (genellikle yeniden kullanılacak **dönüştüren**, ve açık kalır **akış bulucuları**vb..). Deneme sonrasında hesabınızın temiz olmasını istiyorsanız, yeniden kullanmayı planlamadığınız kaynakları silmeniz gerekir.  
 
 Bir kaynağı silmek için, silmek istediğiniz kaynağın altından "Sil ..." işlemini seçin.
 

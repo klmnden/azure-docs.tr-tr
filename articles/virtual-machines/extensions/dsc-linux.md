@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: 70280676453bd146102ca331daae038b947aab58
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: ade066c08829181bc7d1ad5623934b98909e0310
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45632866"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54889000"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Linux (Microsoft.OSTCExtensions.DSCForLinux) için DSC uzantısı
 
@@ -64,11 +64,11 @@ Tüm desteklenen ortak yapılandırma parametreleri şunlardır:
 
 * `FileUri`: (isteğe bağlı, dize) MOF dosyası/Meta MOF dosyası/özel kaynak ZIP dosyası URI'si.
 * `ResourceName`: (isteğe bağlı, dize) özel kaynak modülünün adı
-* `ExtensionAction`: (isteğe bağlı, dize) bir uzantı ne yapacağını belirtir. Geçerli değerler: kaydetme, anında iletme, isteme, yükleme, kaldırma. Belirtilmezse, varsayılan olarak anında iletme eylem olarak kabul edilir.
+* `ExtensionAction`: (isteğe bağlı, dize) bir uzantı ne yapacağını belirtir. Geçerli değerler: Kayıt, anında iletme, çekme, yükleme, kaldırma. Belirtilmezse, varsayılan olarak anında iletme eylem olarak kabul edilir.
 * `NodeConfigurationName`: (isteğe bağlı, dize) uygulamak için bir düğüm yapılandırmasının adı.
 * `RefreshFrequencyMins`: (isteğe bağlı, int) DSC çekme sunucusundan yapılandırmalara girişimlerini ne sıklıkla (dakika cinsinden) belirtir. 
        Çekme sunucusu yapılandırmasını hedef düğümde bulunan geçerli hesaptan farklıysa, bekleyen deposuna kopyalanır ve uygulanır.
-* `ConfigurationMode`: (isteğe bağlı, dize) DSC yapılandırmasını nasıl uygulanacağını belirtir. Geçerli değerler: ApplyOnly, ApplyAndMonitor, ApplyAndAutoCorrect.
+* `ConfigurationMode`: (isteğe bağlı, dize) DSC yapılandırmasını nasıl uygulanacağını belirtir. Geçerli değerler şunlardır: ApplyOnly, ApplyAndMonitor, ApplyAndAutoCorrect.
 * `ConfigurationModeFrequencyMins`: (isteğe bağlı, int) DSC yapılandırmasını istenen durumda olmasını sağlar ne sıklıkla (dakika cinsinden) belirtir.
 
 > [!NOTE]
@@ -88,14 +88,14 @@ Tüm desteklenen korumalı yapılandırma parametreleri şunlardır:
 ## <a name="scenarios"></a>Senaryolar
 
 ### <a name="register-to-azure-automation-account"></a>Azure Otomasyon hesabı için kaydolun
-protected.JSON
+protected.json
 ```json
 {
   "RegistrationUrl": "<azure-automation-account-url>",
   "RegistrationKey": "<azure-automation-account-key>"
 }
 ```
-public.JSON
+public.json
 ```json
 {
   "ExtensionAction" : "Register",
@@ -124,7 +124,7 @@ $publicConfig = '{
 
 ### <a name="apply-a-mof-configuration-file-in-azure-storage-account-to-the-vm"></a>VM için bir MOF yapılandırma dosyasında (Azure depolama hesabı) uygulama
 
-protected.JSON
+protected.json
 ```json
 {
   "StorageAccountName": "<storage-account-name>",
@@ -132,7 +132,7 @@ protected.JSON
 }
 ```
 
-public.JSON
+public.json
 ```json
 {
   "FileUri": "<mof-file-uri>",
@@ -156,7 +156,7 @@ $publicConfig = '{
 
 ### <a name="apply-a-mof-configuration-file-in-public-storage-to-the-vm"></a>VM için bir MOF yapılandırma dosyasında (genel depolama alanı) uygulama
 
-public.JSON
+public.json
 ```json
 {
   "FileUri": "<mof-file-uri>"
@@ -172,7 +172,7 @@ $publicConfig = '{
 
 ### <a name="apply-a-meta-mof-configuration-file-in-azure-storage-account-to-the-vm"></a>Bir meta MOF yapılandırma dosyasında (Azure depolama hesabı) VM'lere uygulanır.
 
-protected.JSON
+protected.json
 ```json
 {
   "StorageAccountName": "<storage-account-name>",
@@ -180,7 +180,7 @@ protected.JSON
 }
 ```
 
-public.JSON
+public.json
 ```json
 {
   "ExtensionAction": "Pull",
@@ -202,7 +202,7 @@ $publicConfig = '{
 ```
 
 ### <a name="apply-a-meta-mof-configuration-file-in-public-storage-to-the-vm"></a>Bir meta MOF yapılandırma dosyasında (genel depolama alanı) VM'lere uygulanır.
-public.JSON
+public.json
 ```json
 {
   "FileUri": "<meta-mof-file-uri>",
@@ -218,14 +218,14 @@ $publicConfig = '{
 ```
 
 ### <a name="install-a-custom-resource-module-zip-file-in-azure-storage-account-to-the-vm"></a>Özel kaynak Modülü (ZIP dosyası Azure depolama hesabındaki) VM'ye yükleyin
-protected.JSON
+protected.json
 ```json
 {
   "StorageAccountName": "<storage-account-name>",
   "StorageAccountKey": "<storage-account-key>"
 }
 ```
-public.JSON
+public.json
 ```json
 {
   "ExtensionAction": "Install",
@@ -247,7 +247,7 @@ $publicConfig = '{
 ```
 
 ### <a name="install-a-custom-resource-module-zip-file-in-public-storage-to-the-vm"></a>Özel kaynak Modülü (genel depolama alanı ZIP dosyasında) VM'ye yükleyin
-public.JSON
+public.json
 ```json
 {
   "ExtensionAction": "Install",
@@ -263,7 +263,7 @@ $publicConfig = '{
 ```
 
 ### <a name="remove-a-custom-resource-module-from-the-vm"></a>Özel kaynak modülü sanal makineden kaldırın.
-public.JSON
+public.json
 ```json
 {
   "ResourceName": "<resource-name>",
@@ -309,7 +309,7 @@ En son uzantısı sürümü öğrenmek için şunu çalıştırın:
 $ azure vm extension list
 ```
 
-#### <a name="212-resource-manager"></a>2.1.2'yi. Resource Manager
+#### <a name="212-resource-manager"></a>2.1.2. Resource Manager
 Çalıştırarak Azure Resource Manager moduna geçebilirsiniz:
 ```
 $ azure config mode arm
@@ -366,7 +366,7 @@ Set-AzureVMExtension -ExtensionName $extensionName -VM $vm -Publisher $publisher
   -PublicConfiguration $publicConfig | Update-AzureVM
 ```
 
-#### <a name="222resource-manager"></a>2.2.2.Resource Yöneticisi
+#### <a name="222resource-manager"></a>2.2.2.Resource Manager
 
 Azure hesabınıza (Azure Resource Manager moduna) çalıştırarak oturum:
 
@@ -425,7 +425,7 @@ Uzantı yürütme çıkış aşağıdaki dosyasına kaydedilir:
 ```
 
 Hata kodu: 51 desteklenmeyen distro ya da desteklenmeyen bir uzantı eylemi temsil eder.
-Bazı durumlarda, DSC uzantı OMI daha yüksek bir sürümü zaten olduğunda OMI yüklenmesi başarısız Linux makine var. [hata yanıtı: izin verilmiyor (000003) indirgeme]
+Bazı durumlarda, DSC uzantı OMI daha yüksek bir sürümü zaten olduğunda OMI yüklenmesi başarısız Linux makine var. [hata yanıtı: (000003) İndirgeme izin yok]
 
 
 

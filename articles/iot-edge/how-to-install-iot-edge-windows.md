@@ -7,15 +7,15 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 12/17/2018
+ms.date: 01/25/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: c280410816bfb48f21c68fe5d57b6ae18af0e855
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 27478de68cde9a097dcc160a4553839aef9a018c
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970670"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902814"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Windows üzerinde Azure IOT Edge çalışma zamanı yükleme
 
@@ -26,7 +26,7 @@ IOT Edge çalışma zamanı hakkında daha fazla bilgi için bkz: [Azure IOT Edg
 Bu makalede Azure IOT Edge çalışma zamanı, Windows x64 (AMD/Intel) yüklemek için adımları listelenmektedir sistem. Windows Destek şu anda Önizleme aşamasındadır.
 
 >[!NOTE]
-Linux kapsayıcıları üzerinde Windows sistemini kullanarak Azure IOT Edge için önerilen veya desteklenen üretim yapılandırma değildir. Ancak, geliştirme ve test amacıyla kullanılabilir.
+Windows sistemlerinde Linux kapsayıcıları kullanarak Azure IOT Edge için önerilen veya desteklenen üretim yapılandırma değildir. Ancak, geliştirme ve test amacıyla kullanılabilir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 

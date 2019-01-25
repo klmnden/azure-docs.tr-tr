@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/28/2018
-ms.author: cwatson
-ms.openlocfilehash: 2ce4bf8e5c3356a5fae6d213e6e48c1313a12463
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: 870ceaf1ded3dd8eb08128514dcc7020fe74e7ae
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52580347"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54903919"
 ---
 # <a name="create-an-additional-subscription-in-the-azure-portal"></a>Azure portalında başka bir abonelik oluşturun
 
@@ -48,6 +48,6 @@ Ek Abonelikleriniz programlı olarak da oluşturabilirsiniz. Daha fazla bilgi i�
 - [Kaynak kuruluşta ve Yönetim için Yönetim grupları oluşturma](../governance/management-groups/create.md?toc=/azure/billing/TOC.json)
 - [Azure aboneliğiniz iptal et](billing-how-to-cancel-azure-subscription.md)
 
-## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
+## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

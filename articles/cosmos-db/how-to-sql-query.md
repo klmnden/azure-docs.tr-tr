@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: d101931fb2a4184ff9ffffc0aed4fc90fee2cbd5
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: c3a25f69424d56e77022a89580ace59259af0e47
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452964"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888626"
 ---
 # <a name="sql-query-examples-to-query-data-from-azure-cosmos-db"></a>Azure Cosmos DB'den verileri sorgulamak için SQL sorgu örnekleri
 
@@ -21,7 +21,7 @@ Azure Cosmos DB SQL API hesabı bir JSON sorgu dili olarak SQL (yapılandırılm
 
 * Azure Cosmos DB, temel olarak JavaScript'in programlama modeli için sorgu dili kullanır. SQL API'si, JavaScript'in tür sistemi, ifade değerlendirmesi ve işlev çağrısını kökü belirtilmemiş. Bu, dönüş JSON öğeleri arasında bir ilişkisel projeksiyonlar için doğal bir programlama modeli, hiyerarşik gezinme sağlar, kendinden birleştirmeler, uzamsal sorgular ve tamamı JavaScript'te bulunan, yanı sıra başka özellikler yazılan çağırma kullanıcı tanımlı işlevler (UDF'ler).
 
-Bu makalede basit JSON öğeleri kullanarak SQL sorguları bazı örnekler gösterilmektedir. Azure Cosmos DB SQL dili sözdizimi hakkında bilgi edinmek için [SQL söz dizimi başvurusu](sql-api-query-reference.md) makalesi.
+Bu makalede basit JSON öğeleri kullanarak bazı örnek SQL sorguları gösterilmektedir. Azure Cosmos DB SQL dili sözdizimi hakkında bilgi edinmek için [SQL söz dizimi başvurusu](sql-api-query-reference.md) makalesi.
 
 ## <a id="GettingStarted"></a>SQL komutları ile çalışmaya başlama
 

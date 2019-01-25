@@ -10,16 +10,16 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/11/2018
+ms.date: 01/23/2019
 ms.author: juliako
-ms.openlocfilehash: a8d2cf577a6b637e910c283ba8c70d9ea4eedfbb
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 051de9b68b6cf830592a7cf8bdad7808e044fbcc
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334134"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888728"
 ---
-# <a name="tutorial-upload-encode-and-stream-videos-using-apis"></a>Öğretici: API’leri kullanarak videoları karşıya yükleme, kodlama ve akışla aktarma
+# <a name="tutorial-upload-encode-and-stream-videos-using-apis"></a>Öğretici: Karşıya yükleme, kodlama ve API'leri kullanarak video akışı
 
 Azure Media Services, çok çeşitli tarayıcılar ve cihazlar üzerinde yürütülen biçimlerini kullanarak medya dosyalarınızı kodlayın sağlar. Örneğin, içeriğinizi Apple'ın HLS veya MPEG DASH biçimlerinde akışla göndermek isteyebilirsiniz. Akışla göndermeden önce yüksek kaliteli dijital medya dosyanızı kodlamanız gerekir. Kodlama yönergeleri için bkz. [Kodlama kavramı](encoding-concept.md). Bu öğretici yerel video dosyasını karşıya yükler ve karşıya yüklenen dosyayı kodlar. Ayrıca, HTTPS URL’si aracılığıyla erişilebilir hale getirdiğiniz içerikleri de kodlayabilirsiniz. Daha fazla bilgi için bkz. [HTTP(s) URL'sinde iş girişi oluşturma](job-input-from-http-how-to.md).
 
@@ -66,12 +66,12 @@ Bu bölümde, *UploadEncodeAndStreamFiles* projesinin [Program.cs](https://githu
 
 Örnek aşağıdaki eylemleri gerçekleştirir:
 
-1. Yeni Dönüşüm oluşturur (ilk olarak, belirtilen Dönüşümün var olup olmadığını denetler). 
-2. Kodlama İşinin çıkışı olarak kullanılan bir çıkış Varlığı oluşturur.
-3. Giriş Varlığı oluşturur ve belirtilen yerel video dosyasını o varlığa yükler. Varlık, İşin girişi olarak kullanılır. 
-4. Oluşturulan giriş ve çıkışı kullanarak kodlama İşini gönderir.
+1. Yeni bir oluşturur **dönüştürme** (ilk olarak, belirtilen dönüşüm var olup olmadığını denetler). 
+2. Bir çıkış oluşturur **varlık** kodlama olarak kullanılan **iş**çıktı.
+3. Bir girdi oluşturma **varlık** ve belirtilen yerel görüntü dosyası içine yükler. Varlık, işin girişi olarak kullanılır. 
+4. Kodlama işinin girişi ile oluşturulan çıktı gönderir.
 5. İşin durumunu denetler.
-6. StreamingLocator oluşturur.
+6. Oluşturur bir **akış Bulucusu**.
 7. Akış URL'leri oluşturur.
 
 ### <a name="a-idstartusingdotnet-start-using-media-services-apis-with-net-sdk"></a><a id="start_using_dotnet" />.NET SDK'sı ile Media Services API'leri kullanmaya başlayın
@@ -82,14 +82,14 @@ Bu bölümde, *UploadEncodeAndStreamFiles* projesinin [Program.cs](https://githu
 
 ### <a name="create-an-input-asset-and-upload-a-local-file-into-it"></a>Bir giriş varlığı oluşturma ve içine yerel dosya yükleme 
 
-**CreateInputAsset** işlevi yeni bir giriş [Varlığı](https://docs.microsoft.com/rest/api/media/assets) oluşturur ve içine belirtilen yerel video dosyasını yükler. Bu Varlık, kodlama işinizde giriş olarak kullanılır. Media Services v3’te bir İşe yapılan giriş, Varlık olabilir veya HTTPS URL’leri üzerinden Media Services hesabınızın kullanımına açtığınız bir içerik olabilir. Bir HTTPS URL’sinden kodlama yapmayı öğrenmek için [bu](job-input-from-http-how-to.md) makaleye bakın.  
+**CreateInputAsset** işlevi yeni bir giriş [Varlığı](https://docs.microsoft.com/rest/api/media/assets) oluşturur ve içine belirtilen yerel video dosyasını yükler. Bu **varlık** , kodlama işinin girdisi olarak kullanılır. Media Services v3, giriş olarak bir **iş** olabilir bir **varlık**, Media Services hesabınıza HTTPS URL'leri aracılığıyla kullanılabilir hale getirdiğiniz içerik olabilir. Bir HTTPS URL’sinden kodlama yapmayı öğrenmek için [bu](job-input-from-http-how-to.md) makaleye bakın.  
 
 Media Services v3’te dosyaları karşıya yüklemek için Azure Depolama API’lerini kullanırsınız. Aşağıdaki .NET kod parçacığı bunun nasıl yapıldığını gösterir.
 
 Aşağıdaki işlev şu eylemleri gerçekleştirir:
 
-* Varlık oluşturur 
-* Varlığın [depolamadaki kapsayıcısına](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows#upload-blobs-to-the-container) yazılabilir bir [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)’si alır
+* Oluşturur bir **varlık** 
+* Yazılabilir bir alır [SAS URL'si](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) varlık için [depolama kapsayıcısında](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows#upload-blobs-to-the-container)
 * SAS URL’sini kullanarak dosyayı depolamadaki kapsayıcıya yükler
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
@@ -101,7 +101,8 @@ Aşağıdaki işlev şu eylemleri gerçekleştirir:
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateOutputAsset)]
 
 ### <a name="create-a-transform-and-a-job-that-encodes-the-uploaded-file"></a>Bir Dönüşüm ve karşıya yüklenen dosyayı kodlayan İş oluşturma
-Media Services’te içerik kodlarken veya işlerken, kodlama ayarlarını bir tarif olarak ayarlamak yaygın bir modeldir. Daha sonra bu tarifi bir videoya uygulamak üzere bir **İş** gönderirsiniz. Her yeni video için yeni İşler göndererek, söz konusu tarifi kitaplığınızdaki tüm videolara uygulamış olursunuz. Media Services içinde tarif, **Dönüşüm** olarak adlandırılır. Daha fazla bilgi için [Dönüşümler ve işler](transform-concept.md) konusuna bakın. Bu öğreticide açıklanan örnek, videoyu çeşitli iOS ve Android cihazlarına akışla aktarmak için kodlayan bir tarifi tanımlar. 
+
+Media Services’te içerik kodlarken veya işlerken, kodlama ayarlarını bir tarif olarak ayarlamak yaygın bir modeldir. Daha sonra bu tarifi bir videoya uygulamak üzere bir **İş** gönderirsiniz. Her yeni video için yeni işleri göndererek, kitaplığınızda tüm videoları için söz konusu tarif uyguladığınızı. Media Services içinde tarif, **Dönüşüm** olarak adlandırılır. Daha fazla bilgi için [dönüşümler ve işler](transform-concept.md). Bu öğreticide açıklanan örnek, videoyu çeşitli iOS ve Android cihazlarına akışla aktarmak için kodlayan bir tarifi tanımlar. 
 
 #### <a name="transform"></a>Dönüşüm
 
@@ -127,33 +128,33 @@ Bu örnekte giriş videosu, yerel makinenizden yüklenmiştir. Bir HTTPS URL’s
 
 Event Grid yüksek kullanılabilirlik, tutarlı performans ve dinamik ölçek için tasarlanmıştır. Event Grid ile uygulamalarınız neredeyse tüm Azure hizmetleri ve özel kaynaklardan gelen olayları takip edip bu olaylara yanıt verebilir. Basit, HTTP tabanlı reaktif olay işleme özelliği, olayların akıllı filtrelenmesi ve yönlendirilmesi sayesinde etkili çözümler oluşturmanıza yardımcı olur.  Bkz. [Olayları özel bir web uç noktasına yönlendirme](job-state-events-cli-how-to.md).
 
-**İş** genellik şu aşamalardan geçer: **Zamanlandı**, **Kuyruğa Alındı**, **İşleniyor**, **Tamamlandı** (son aşama). İş bir hatayla karşılaştıysa **Hata** durumunu alırsınız. İş iptal edilme sürecindeyse **İptal Ediliyor** ve **İptal Edildi** durumunu alırsınız.
+**İş** genellikle şu durumlardan geçer: **Zamanlanmış**, **sıraya alınan**, **işleme**, **tamamlandı** (son durumu). İş bir hatayla karşılaştıysa **Hata** durumunu alırsınız. İş iptal edilme sürecindeyse **İptal Ediliyor** ve **İptal Edildi** durumunu alırsınız.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#WaitForJobToFinish)]
 
-### <a name="get-a-streaminglocator"></a>StreamingLocator alma
+### <a name="get-a-streaming-locator"></a>Akış Bulucusu Al
 
-Kodlama tamamlandıktan sonra sıradaki adım, çıktı Varlığındaki videoyu yürütmek için istemcilerin kullanımına sunmaktır. Bunu iki adımda gerçekleştirebilirsiniz: ilk olarak, bir [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) oluşturun ve ikinci olarak, istemcilerin kullanabildiği akış URL’lerini derleyin. 
+Kodlama tamamlandıktan sonra sıradaki adım, çıktı Varlığındaki videoyu yürütmek için istemcilerin kullanımına sunmaktır. Bunu iki adımda gerçekleştirebilirsiniz: ilk olarak, oluşturun bir [akış Bulucu](https://docs.microsoft.com/rest/api/media/streaminglocators)ve ikinci olarak, istemcilerin kullandığı akış URL'leri oluşturun. 
 
-**StreamingLocator** oluşturma işlemine yayımlama denir. Varsayılan olarak **StreamingLocator**, API çağrılarını yapmanızdan hemen sonra geçerli olur ve isteğe bağlı başlangıç ve bitiş süreleri yapılandırmadıkça silinene kadar devam eder. 
+Oluşturma işlemi bir **akış Bulucu** yayımlama denir. Varsayılan olarak, **akış Bulucu** API çağrılarını hemen sonra geçerli olduğunu ve isteğe bağlı bir başlangıç ve bitiş zamanlarını yapılandırmadığınız sürece silinene kadar sürer. 
 
 Bir [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) oluştururken istenen **StreamingPolicyName** değerini belirtmeniz gerekir. Bu örnekte, temiz (şifrelenmemiş) içeriğin akışını yapacağınız için önceden tanımlı temiz akış ilkesi **PredefinedStreamingPolicy.ClearStreamingOnly** kullanılır.
 
 > [!IMPORTANT]
-> Özel [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies)’yi kullanırken Media Service hesabınız için bu tür ilkelerin sınırlı bir kümesini tasarlamanız ve aynı şifreleme seçenekleri ve protokoller gerekli olduğunda StreamingLocators için bunları kullanmanız gerekir. Media Service hesabınızda StreamingPolicy girişlerinin sayısı için bir kota bulunur. Her StreamingLocator için yeni bir StreamingPolicy oluşturmamanız gerekir.
+> Özel bir kullanırken [akış ilke](https://docs.microsoft.com/rest/api/media/streamingpolicies), medya hizmeti hesabınız için sınırlı sayıda tür ilkeleri tasarlayın ve aynı şifreleme seçenekleri ve protokolleri gerektiğinde, StreamingLocators için yeniden kullanabilmesi gerekir. Medya hizmeti hesabınızı akış İlkesi girdi sayısı için bir kota vardır. Yeni bir akış ilke her akış Bulucu için oluşturduğunuz değil.
 
 Aşağıdaki kod, benzersiz bir locatorName ile işlevi çağırdığınızı varsayar.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateStreamingLocator)]
 
-Bu konudaki örnek, akışı ele alsa da aynı çağrıyı aşamalı indirme üzerinden video teslim etmek üzere StreamingLocator oluşturmak için de kullanabilirsiniz.
+Bu konudaki örnek akış anlatılır, ancak aynı çağrı, videoları aşamalı indirme aracılığıyla sunmak için bir akış Bulucusu oluşturmak için kullanabilirsiniz.
 
 ### <a name="get-streaming-urls"></a>Akış URL'leri alma
 
-[StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) oluşturulduktan sonra **GetStreamingURLs** içinde gösterildiği gibi akış URL’lerini alabilirsiniz. Bir URL derlemek için [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) konak adı ile **StreamingLocator** yolunu birleştirmeniz gerekir. Bu örnekte *varsayılan* **StreamingEndpoint** değeri kullanılır. İlk kez Media Service hesabı oluşturduğunuzda bu *varsayılan* **StreamingEndpoint** durdurulmuş durumdadır, bu nedenle **Start** çağrısı yapmanız gerekir.
+Şimdi [akış Bulucu](https://docs.microsoft.com/rest/api/media/streaminglocators) olmuştur oluşturulmuş akış URL'leri gösterildiği alabileceğiniz **GetStreamingURLs**. URL oluşturmak için birleştirmek gereken [akış uç noktası](https://docs.microsoft.com/rest/api/media/streamingendpoints) ana bilgisayar adı ve **akış Bulucu** yolu. Bu örnekte *varsayılan* **akış uç noktası** kullanılır. Bir medya hizmeti hesabı oluşturduğunuzda bu *varsayılan* **akış uç noktası** çağırmanız gerekir böylece durdurulmuş bir durumda olacaktır **Başlat**.
 
 > [!NOTE]
-> Bu yöntemde, çıktı Varlığı için **StreamingLocator** oluşturulurken kullanılan locatorName değeri gereklidir.
+> Bu yöntemde, oluşturulurken kullanılan locatorName ihtiyacınız **akış Bulucu** çıkış varlık.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#GetStreamingURLs)]
 

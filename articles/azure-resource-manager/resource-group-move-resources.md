@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/22/2019
+ms.date: 01/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: f4d63d4ad0841244cf2548b0842eea880e27a152
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 9465be92d2289bb174834cc856d6f20b6b64c81b
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463040"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888133"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıma
 
@@ -99,7 +99,7 @@ Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınabilir Azure hizm
 * Portalı panoları
 * Power BI - hem Power BI Embedded ve Power BI çalışma alanı koleksiyonu
 * Genel IP - temel SKU ortak IP'sine taşınabilir. Standart SKU ortak IP'sine taşınamaz.
-* Kurtarma Hizmetleri kasası - aboneliğinizi kaydetme [sınırlı genel Önizleme](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
+* Kurtarma Hizmetleri kasası - kaydolun bir [özel Önizleme](#recovery-services-limitations).
 * Azure önbelleği için Redis - sanal ağ sayesinde, örnek Azure Cache Redis örneği için yapılandırılmışsa, farklı bir aboneliğe taşınamaz. Bkz: [sanal ağlar sınırlamaları](#virtual-networks-limitations).
 * Scheduler
 * Arama - tek bir işlemde farklı bölgelerdeki birden çok arama kaynaklar taşınamıyor. Bunun yerine, bunları ayrı işlemlerde taşıyın.
@@ -307,7 +307,7 @@ Klasik kaynakları için yeni bir aboneliği taşımak, Klasik kaynakları için
 
 ### <a name="recovery-services-limitations"></a>Kurtarma Hizmetleri sınırlamalarını
 
- Bir kurtarma Hizmetleri kasasına taşımak için aboneliğinizi kaydetme [sınırlı genel Önizleme](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
+ Bir kurtarma Hizmetleri kasasına taşımak için bir özel önizlemeye kaydolmanız gerekir. Denemek için yazma AskAzureBackupTeam@microsoft.com.
 
 Şu anda bir kurtarma Hizmetleri kasası, bölge başına aynı anda taşıyabilirsiniz. Azure dosyaları, Azure dosya eşitleme veya SQL Iaas sanal makinelerini yedekleme kasaları taşıyamazsınız.
 
@@ -335,6 +335,8 @@ Bir HDInsight kümesi için yeni bir abonelik taşırken, önce diğer kaynaklar
 ## <a name="checklist-before-moving-resources"></a>Kaynakları taşımadan önce Yapılacaklar listesi
 
 Bir kaynağı taşımadan önce yapmanız gereken bazı önemli adımlar vardır. Bu koşulları doğrulayarak hataları önleyebilirsiniz.
+
+1. Kaynak ve hedef abonelikler etkin olması gerekir. Hesabınız devre dışı bırakıldı, etkinleştirme yaşıyorsanız [bir Azure destek isteği oluşturma](../azure-supportability/how-to-create-azure-support-request.md). Seçin **abonelik yönetimi** sorun türü için.
 
 1. Kaynak ve hedef abonelikler aynı içinde bulunmalıdır [Azure Active Directory kiracısı](../active-directory/develop/quickstart-create-new-tenant.md). Her iki aboneliğin aynı Kiracı Kimliğine sahip denetlemek için Azure PowerShell veya Azure CLI'yı kullanın.
 

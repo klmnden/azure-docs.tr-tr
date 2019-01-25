@@ -3,7 +3,7 @@ title: Azure VM'de oturum açma için Azure kaynakları için yönetilen kimlikl
 description: Adım adım yönergeler ve örnekler için bir Azure VM kullanarak betiği istemci oturum açma ve kaynak erişimi için Azure kaynaklarını hizmet sorumlusu için kimlikleri yönetilen.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,24 +13,26 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
-ms.author: daveba
-ms.openlocfilehash: ce25c05d2b3de3fcf6b7318b90590b84f3ee9c52
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: priyamo
+ms.openlocfilehash: fd62bd74f0200ffca2926879e76744be0dfe68d0
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54423196"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900230"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Azure VM'de oturum açma için Azure kaynakları için yönetilen kimliklerini kullanma 
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
 Bu makalede, Azure kaynaklarını hizmet sorumlusu ve hata işleme gibi önemli konular kılavuzu için yönetilen kimliklerle oturum için PowerShell ve CLI betiği örnekleri sağlar.
 
+[!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Önkoşullar
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-Bu makalede Azure PowerShell veya Azure CLI örnekleri kullanmayı planlıyorsanız, en son sürümünü yüklediğinizden emin olun [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM) veya [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+Bu makalede Azure PowerShell veya Azure CLI örnekleri kullanmayı planlıyorsanız, en son sürümünü yüklediğinizden emin olun [Azure PowerShell](/powershell/azure/install-az-ps) veya [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
 > [!IMPORTANT]
 > - Bu makaledeki tüm örnek betik, komut satırı istemcisi etkinleştirilmiş Azure kaynakları için yönetilen kimliklerle bir VM'de çalışan varsayar. VM "Bağlan" özelliği Azure Portalı'nda uzaktan VM'nize bağlanmak için kullanın. Bir VM'de Azure kaynakları için yönetilen kimlikleri etkinleştirme hakkında daha fazla bilgi için bkz [yapılandırma kimlikleri Azure portalını kullanarak bir VM üzerindeki Azure kaynakları için yönetilen](qs-configure-portal-windows-vm.md), ya da (PowerShell, CLI, bir şablon veya bir Azure kullanarak değişken makalelerden birine SDK'SI). 
@@ -67,10 +69,10 @@ Aşağıdaki komut dosyasını gösterir nasıl yapılır:
 2. VM hakkında bilgi almak için bir Azure Resource Manager cmdlet'i çağırın. PowerShell belirteci kullanmak sizin için otomatik olarak yönetme üstlenir.  
 
    ```azurepowershell
-   Add-AzureRmAccount -identity
+   Add-AzAccount -identity
 
    # Call Azure Resource Manager to get the service principal ID for the VM's managed identity for Azure resources. 
-   $vmInfoPs = Get-AzureRMVM -ResourceGroupName <RESOURCE-GROUP> -Name <VM-NAME>
+   $vmInfoPs = Get-AzVM -ResourceGroupName <RESOURCE-GROUP> -Name <VM-NAME>
    $spID = $vmInfoPs.Identity.PrincipalId
    echo "The managed identity for Azure resources service principal ID is $spID"
    ```

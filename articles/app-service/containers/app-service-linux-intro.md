@@ -16,16 +16,16 @@ ms.topic: overview
 ms.date: 1/11/2019
 ms.author: msangapu;yili
 ms.custom: seodec18
-ms.openlocfilehash: 898d663f3ef9a71944d96b0978947d10a3e26b06
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 2e75ff08acdda03c0080f49c6616274a4b031075
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232796"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54903732"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Linux’ta Azure App Service’e Giriş
 
-[Web App](../overview.md), web sitelerini ve web uygulamalarını barındırmak için en uygun hale getirilmiş, tam olarak yönetilen bir işlem platformudur. Müşteriler Linux’ta App Service’i kullanarak desteklenen uygulama yığınları için Linux’ta yerel olarak web uygulamaları barındırabilir. Aşağıdaki bölümlerde, şu an desteklenen uygulama yığınları listelenmiştir.
+[Azure App Service](../overview.md) Web siteleri ve web uygulamalarını barındırmak için iyileştirilmiş tam olarak yönetilen bir işlem platformudur. Müşteriler Linux’ta App Service’i kullanarak desteklenen uygulama yığınları için Linux’ta yerel olarak web uygulamaları barındırabilir. [Dilleri](#languages) bölümde şu anda desteklenen uygulama yığınları listelenmiştir.
 
 ## <a name="languages"></a>Diller
 
@@ -33,14 +33,12 @@ Linux’ta App Service, geliştirici üretkenliğini artırmaya yönelik çeşit
 
 | Dil | Desteklenen Sürümler |
 |---|---|
-| Node.js | 4.4, 4.5, 4.8, 6.2, 6.6, 6.9, 6.10, 6.11, 8.0, 8.1, 8.2, 8,8, 8,9, 8.11, 9.4 sürümünden, 10.1,10.10 |
+| Node.js | 4.4, 4.5, 4.8, 6.2, 6.6, 6.9, 6.10, 6.11, 8.0, 8.1, 8.2, 8.8, 8.9, 8.11, 9.4, 10.1,10.10 |
 | Java * | Tomcat 8.5, 9.0, Java SE WildFly 14 (tüm çalışan JRE 8) |
 | PHP | 5.6, 7.0, 7.2 |
 | Python (Önizleme) | 2.7, 3.6, 3.7 |
 | .NET Core | 1.0, 1.1, 2.0, 2.1 |
 | Ruby | 2.3 |
-
-Daha fazla ayrıntı için bkz. [Linux’ta App Service’te Java web uygulaması oluşturma](https://docs.microsoft.com/azure/app-service/containers/quickstart-java).
 
 ## <a name="deployments"></a>Dağıtımlar
 
@@ -75,7 +73,9 @@ Azure portalı, yalnızca şu anda Kapsayıcılar için Web App ile kullanılabi
 
 Sanal ağ tümleştirme, Azure Active Directory/üçüncü taraf kimlik doğrulaması veya Kudu site uzantıları gibi bazı özellikler henüz kullanılamamaktadır. Bu özellikler kullanıma sunulduğunda belgelerimizi ve blogumuzu güncelleştireceğiz.
 
-Linux’ta App Service yalnızca [Temel, Standart ve Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) uygulama hizmeti planlarıyla desteklenir ve [Ücretsiz veya Paylaşılan](https://azure.microsoft.com/pricing/details/app-service/plans/) katman içermez. Zaten Linux dışı Web App’ler barındıran bir App Service planında Kapsayıcılar için Web App oluşturamazsınız. Windows ve Linux uygulamalarını aynı kaynak grubunda karıştırmama konusunda da bir sınır söz konusudur.
+Linux’ta App Service yalnızca [Temel, Standart ve Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) uygulama hizmeti planlarıyla desteklenir ve [Ücretsiz veya Paylaşılan](https://azure.microsoft.com/pricing/details/app-service/plans/) katman içermez. Zaten Linux dışı Web App’ler barındıran bir App Service planında Kapsayıcılar için Web App oluşturamazsınız. 
+
+Ayrıca, geçerli bir sınırlama bağlı olarak, Windows ve Linux uygulamaları aynı kaynak grubunda karıştırmayın.
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
@@ -84,9 +84,11 @@ Kapsayıcınızdan `stdout` ve `stderr` değerlerini günlüğe kaydetmek için 
 
 ![Günlüğe Kaydetmeyi Etkinleştirme][2]
 
-![Kudu kullanarak Docker günlüklerini görüntüleme][1]
+Ayar, hemen geçerli olur. App Service ayarlarını değişikliği algılar ve kapsayıcı sizin için otomatik olarak yeniden başlatır.
 
 SCM sitesine **Geliştirme Araçları** menüsündeki **Gelişmiş Araçlar**’dan erişebilirsiniz.
+
+![Kudu kullanarak Docker günlüklerini görüntüleme][1]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -101,7 +103,7 @@ Aşağıdaki makaleler farklı dillerde yazılmış web uygulamalarıyla Linux't
 * [Go](quickstart-docker-go.md)
 * [Birden çok kapsayıcılı uygulamalar](quickstart-multi-container.md)
 
-Linux'ta App Service hakkında daha ayrıntılı bilgi için aşağıdaki makalelere de bakın:
+Linux'ta App Service hakkında daha fazla bilgi için bkz:
 
 * [Linux’ta App Service hakkında SSS](app-service-linux-faq.md)
 * [Linux'ta App Service için SSH desteği](app-service-linux-ssh-support.md)

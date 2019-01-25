@@ -8,15 +8,15 @@ ms.component: user-help
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/28/2018
+ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: 49cc5114106336f41d119b00db1bfa472f09d2d5
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: bd15189a9aa70ab99971be9da1bcd1ff243c60d0
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54821711"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904361"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Yedekleme ve kurtarma hesabı kimlik bilgileriyle Microsoft Authenticator uygulaması
 
@@ -39,11 +39,11 @@ Kimlik bilgilerinizi yedekleyebilmeniz için önce hem de sahip olmanız gerekir
 Her iki hesap birlikte oturum açmanızı gerektiren yedekleme bilgileriniz için daha güçlü güvenlik sağlar.
 
 **Bulutta yedekleme etkinleştirmek için**
--   İOS Cihazınızda seçin **ayarları**seçin **yedekleme**ve ardından açın **otomatik yedekleme**.
+-   İOS Cihazınızda seçin **ayarları**seçin **yedekleme**ve ardından açın **iCloud yedeklemesini**.
 
     Hesap kimlik bilgileriniz iCloud hesabınızda yedeklenir.
 
-    ![Yedekleme ayarlarını otomatik konumunu gösteren iOS ayarları ekranı](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-turn-on.png)
+    ![Yedekleme ayarlarını iCloud konumunu gösteren iOS ayarları ekranı](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-turn-on.png)
 
 ## <a name="recover-your-account-credentials-on-your-new-device"></a>Hesap kimlik bilgilerinizi yeni Cihazınızda Kurtar
 İCloud hesabınızda, hesabı kimlik bilgilerinizi bilgilerinizi yedeklendiğinde ayarladığınız Microsoft Kurtarma hesabı kullanarak kurtarabilirsiniz.
@@ -101,7 +101,6 @@ Yedeklenebilir ve hesap kimlik bilgilerinizi yeni Cihazınızı kurtarılan gör
 
 ## <a name="related-topics"></a>İlgili konular
 - [Microsoft Authenticator uygulamasını kullanmaya başlama](microsoft-authenticator-app-how-to.md)  
-
 - [Microsoft Authenticator uygulaması hakkında SSS](microsoft-authenticator-app-faq.md)
 
 - [Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/)

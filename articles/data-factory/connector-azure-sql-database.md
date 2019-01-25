@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 01/23/2019
 ms.author: jingwang
-ms.openlocfilehash: fcf5b5d0064292c11abeb361b0c046b5a3388457
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 24fdfcb53e8f3cbf0e1bf4f7e567d9f768383ac1
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025700"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884240"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure SQL veritabanı'ndan ya da veri kopyalama
-> [!div class="op_single_selector" title1="Kullanmakta olduğunuz Data Factory servisinin sürümünü seçin:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
 > * [Sürüm 1](v1/data-factory-azure-sql-connector.md)
 > * [Geçerli sürüm](connector-azure-sql-database.md)
 
@@ -35,6 +35,8 @@ Azure SQL veritabanı ya da tüm desteklenen havuz veri deposuna veri kopyalayab
 - SQL kimlik doğrulaması ve Azure Active Directory (Azure AD) uygulama belirteci kimlik doğrulamasını Azure kaynakları için bir hizmet sorumlusu veya yönetilen kimliklerle kullanarak verileri kopyalayın.
 - Bir kaynak olarak bir SQL sorgusu veya saklı yordamı kullanarak veri alın.
 - Bir havuz olarak verileri hedef tabloya veya kopyalama sırasında özel mantığı olan bir saklı yordam çağırma.
+
+Azure SQL veritabanı [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) artık desteklenmiyor. 
 
 > [!IMPORTANT]
 > Azure Data Factory Integration Runtime'ı kullanarak verileri kopyalama, yapılandırma bir [Azure SQL sunucusu güvenlik duvarı](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) Azure Hizmetleri sunucusuna erişebilmesi için.
@@ -599,7 +601,7 @@ Saklı yordam özellik yararlanır [Table-Valued parametreleri](https://msdn.mic
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | küçük para |Ondalık |
-| sql_variant |Nesne * |
+| sql_variant |Nesne |
 | metin |Dize, Char] |
 | time |Zaman aralığı |
 | timestamp |Bayt] |
@@ -608,6 +610,9 @@ Saklı yordam özellik yararlanır [Table-Valued parametreleri](https://msdn.mic
 | varbinary |Bayt] |
 | varchar |Dize, Char] |
 | xml |Xml |
+
+>[!NOTE]
+> Ondalık geçiş türü için veri türü eşlemeleri için ADF desteklemekte duyarlık 28 kadar. 28'den büyük olan hassas verileriniz varsa, SQL sorgusunda dizeye dönüştürmek için göz önünde bulundurun.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure veri fabrikasında kopyalama etkinliği tarafından kaynak ve havuz olarak desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları ve biçimler](copy-activity-overview.md##supported-data-stores-and-formats).

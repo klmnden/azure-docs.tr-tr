@@ -13,14 +13,14 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/02/2018
-ms.author: cwatson
+ms.author: kfollis
 ms.custom: accessibility
-ms.openlocfilehash: c1816c59cc3dd4fff4a97a8d0c90cfee3a471d6e
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: c9425875685236db99d78506e23f879d39d94ce5
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47390060"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888762"
 ---
 # <a name="supported-browsers-and-devices-for-the-azure-portal"></a>Desteklenen tarayıcılar ve cihazlar için Azure portalı
 Çalıştırabileceğiniz [Azure portalında](https://portal.azure.com) tüm modern masaüstü, cihazlar ve tarayıcılar tablet.
@@ -33,7 +33,7 @@ Azure portal, modern PC'leri, Mac'leri ve tabletler harika çalışır. Bir mobi
 
 * Microsoft Edge (en son sürüm)
 * Internet Explorer 11
-* Safari (en son sürüm, yalnızca Mac)
+* Safari (en so sürüm, yalnızca Mac)
 * Chrome (en son sürüm)
 * Firefox (en son sürüm)
 

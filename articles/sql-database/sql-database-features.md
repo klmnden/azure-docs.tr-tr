@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, carlrab
 manager: craigg
-ms.date: 01/02/2019
-ms.openlocfilehash: 2f7f317f11bba96e17791ed751c60099457a299a
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.date: 01/24/2019
+ms.openlocfilehash: 4ba34c35d2dd2d986b4a8c78f42fd4e97158391b
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002595"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54885082"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Özellik karşılaştırması: Azure SQL veritabanı SQL Server ile karşılaştırması
 
@@ -34,8 +34,8 @@ Aşağıdaki tabloda, SQL Server'ın temel özelliklerinin listeler ve bağlant�
 
 | **SQL özellik** | **Azure SQL veritabanı/mantıksal sunucu içinde desteklenir** | **Azure SQL veritabanı/yönetilen örneği'nde desteklenir** |
 | --- | --- | --- |
-| [Etkin coğrafi çoğaltma](sql-database-active-geo-replication.md) | Evet - yalnızca katmanları genel amaçlı ve iş açısından kritik hizmet| Hayır |
-| [Otomatik Yük devretme grupları](sql-database-auto-failover-group.md) | Evet - yalnızca katmanları genel amaçlı ve iş açısından kritik hizmet| Evet (Önizleme)|
+| [Etkin coğrafi çoğaltma](sql-database-active-geo-replication.md) | Evet - yalnızca katmanları genel amaçlı ve iş açısından kritik hizmet| Hayır, bkz: [otomatik yük devretme grupları](sql-database-auto-failover-group.md) |
+| [Otomatik yük devretme grupları](sql-database-auto-failover-group.md) | Evet - yalnızca katmanları genel amaçlı ve iş açısından kritik hizmet| [Evet-Önizleme](sql-database-auto-failover-group.md)|
 | [Her zaman şifreli](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Evet - bkz [sertifika deposu](sql-database-always-encrypted.md) ve [anahtar kasası](sql-database-always-encrypted-azure-key-vault.md) | Evet - bkz [sertifika deposu](sql-database-always-encrypted.md) ve [anahtar kasası](sql-database-always-encrypted-azure-key-vault.md) |
 | [Always On kullanılabilirlik grupları](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | [Yüksek kullanılabilirlik](sql-database-high-availability.md) ile her veritabanı bulunur. Olağanüstü durum kurtarma ele alınmıştır [Azure SQL veritabanı ile iş sürekliliğine genel bakış](sql-database-business-continuity.md) | [Yüksek kullanılabilirlik](sql-database-high-availability.md) ile her veritabanı bulunur. Olağanüstü durum kurtarma ele alınmıştır [Azure SQL veritabanı ile iş sürekliliğine genel bakış](sql-database-business-continuity.md) |
 | [Veritabanı ekleme](https://docs.microsoft.com/sql/relational-databases/databases/attach-a-database) | Hayır | Hayır |
@@ -122,7 +122,7 @@ Aşağıdaki tabloda, SQL Server'ın temel özelliklerinin listeler ve bağlant�
 | [Küme deyimleri](https://docs.microsoft.com/sql/t-sql/statements/set-statements-transact-sql) | Çoğu - bkz ayrı deyimler | Evet - bkz [T-SQL farklılıkları](sql-database-managed-instance-transact-sql-information.md)|
 | [SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | Evet | Evet |
 | [Uzamsal](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server) | Evet | Evet |
-| [SQL Data Sync'i](sql-database-get-started-sql-data-sync.md) | Evet | Hayır |
+| [SQL Data Sync](sql-database-get-started-sql-data-sync.md) | Evet | Hayır |
 | [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | Hayır - bkz [esnek işler](sql-database-elastic-jobs-getting-started.md) | Evet - bkz [SQL Server Agent farkları](sql-database-managed-instance-transact-sql-information.md#sql-server-agent) |
 | [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | Hayır - bkz [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) | Hayır - bkz [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) |
 | [SQL Server denetimi](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | Hayır - bkz [SQL veritabanı denetimi](sql-database-auditing.md) | Evet - bkz [farklar denetleme](sql-database-managed-instance-transact-sql-information.md#auditing) |
@@ -144,7 +144,7 @@ Aşağıdaki tabloda, SQL Server'ın temel özelliklerinin listeler ve bağlant�
 | [İzleme Bayrakları](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql) | Hayır | Hayır |
 | [Değişkenler](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | Evet | Evet |
 | [Saydam veri şifrelemesi (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | Evet - yalnızca katmanları genel amaçlı ve iş açısından kritik hizmet| [Evet](transparent-data-encryption-azure-sql.md) |
-[Sanal ağ](../virtual-network/virtual-networks-overview.md) | Kısmi - bkz [VNet uç noktaları](sql-database-vnet-service-endpoint-rule-overview.md) | Evet, yalnızca Resource Manager modeli |
+[VNet](../virtual-network/virtual-networks-overview.md) | Kısmi - bkz [VNet uç noktaları](sql-database-vnet-service-endpoint-rule-overview.md) | Evet, yalnızca Resource Manager modeli |
 | [Windows Server Yük Devretme Kümelemesi](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | [Yüksek kullanılabilirlik](sql-database-high-availability.md) ile her veritabanı bulunur. Olağanüstü durum kurtarma ele alınmıştır [Azure SQL veritabanı ile iş sürekliliğine genel bakış](sql-database-business-continuity.md) | [Yüksek kullanılabilirlik](sql-database-high-availability.md) ile her veritabanı bulunur. Olağanüstü durum kurtarma ele alınmıştır [Azure SQL veritabanı ile iş sürekliliğine genel bakış](sql-database-business-continuity.md) |
 | [XML dizinleri](https://docs.microsoft.com/sql/t-sql/statements/create-xml-index-transact-sql) | Evet | Evet |
 

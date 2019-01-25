@@ -5,17 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 1/22/2019
-ms.openlocfilehash: 6ebbaece66d9055fd2bff68eee873b012b4a6d50
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.date: 1/23/2019
+ms.openlocfilehash: eca67cb70756dd1184bd3a66c2582743c8baa8fd
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54462429"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54903766"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>MySQL için Azure veritabanı'nda okunur çoğaltmalar
 
-Salt okunur çoğaltma özelliği (genel Önizleme), en fazla beş salt okunur sunucularına (Yineleme) aynı Azure bölgesindeki bir MySQL sunucusu (ana) için Azure veritabanı'ndan veri çoğaltmak sağlar. Salt okunur çoğaltmalar MySQL altyapının (binlog) yerel ikili günlük dosyası konumu tabanlı çoğaltma teknolojisini kullanarak zaman uyumsuz olarak güncelleştirilir. Binlog çoğaltma hakkında daha fazla bilgi için bkz: [MySQL binlog Çoğaltmaya genel bakış](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
+> [!IMPORTANT]
+> Salt okunur çoğaltma özelliği genel Önizleme aşamasındadır.
+
+Okuma çoğaltması özelliğini sunucularına en fazla beş salt okunur (Yineleme) aynı Azure bölgesindeki bir MySQL sunucusu (ana) için Azure veritabanı'ndan veri çoğaltmanıza olanak sağlar. Salt okunur çoğaltmalar MySQL altyapının (binlog) yerel ikili günlük dosyası konumu tabanlı çoğaltma teknolojisini kullanarak zaman uyumsuz olarak güncelleştirilir. Binlog çoğaltma hakkında daha fazla bilgi için bkz: [MySQL binlog Çoğaltmaya genel bakış](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
 MySQL hizmeti için Azure veritabanı'nda oluşturulan yinelemeler normal/tek başına MySQL sunucuları aynı şekilde yönetilebilir yeni sunucularıdır. Okuma her çoğaltma için sanal Çekirdeklerde sağlanan işlem ve GB cinsinden aylık sağlanan depolama için faturalandırılırsınız. 
 

@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 01/23/2019
 ms.author: jingwang
-ms.openlocfilehash: 54db7cc65e05b383b251c21aa95569c6c2d58194
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 6da3a9bceaee67d0101abb0837580f4e35e160b3
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306174"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54885141"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>İçin ve SQL Server'dan Azure Data Factory kullanarak veri kopyalama
-> [!div class="op_single_selector" title1="Kullanmakta olduğunuz Data Factory servisinin sürümünü seçin:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Sürüm 1](v1/data-factory-sqlserver-connector.md)
 > * [Geçerli sürüm](connector-sql-server.md)
 
@@ -36,6 +36,8 @@ Bu makalede, kopyalama etkinliği Azure Data Factory'de gelen ve bir SQL Server 
 - Kullanarak verileri kopyalama **SQL** veya **Windows** kimlik doğrulaması.
 - SQL sorgusu veya saklı yordamı kullanarak veri kaynağı olarak alınıyor.
 - Havuz olarak veriler hedef tablonun veya kopyalama sırasında özel mantığı olan bir saklı yordam çağırma ekleniyor.
+
+SQL Server [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) artık desteklenmiyor.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -506,7 +508,7 @@ Saklı yordam özellik yararlanır [Table-Valued parametreleri](https://msdn.mic
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | küçük para |Ondalık |
-| sql_variant |Nesne * |
+| sql_variant |Nesne |
 | metin |Dize, Char] |
 | time |Zaman aralığı |
 | timestamp |Bayt] |
@@ -515,6 +517,9 @@ Saklı yordam özellik yararlanır [Table-Valued parametreleri](https://msdn.mic
 | varbinary |Bayt] |
 | varchar |Dize, Char] |
 | xml |Xml |
+
+>[!NOTE]
+> Ondalık geçiş türü için veri türü eşlemeleri için ADF desteklemekte duyarlık 28 kadar. 28'den büyük olan hassas verileriniz varsa, SQL sorgusunda dizeye dönüştürmek için göz önünde bulundurun.
 
 ## <a name="troubleshooting-connection-issues"></a>Bağlantı sorunlarını giderme
 

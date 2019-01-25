@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 01/23/2019
 ms.author: jingwang
-ms.openlocfilehash: df8d337e7950400a86dcab14de4484f4811f43e2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: b8ce3cdb55d164cefc8b85314a2fa79b4f901a08
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025088"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54887351"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-using-azure-data-factory"></a>Azure SQL veritabanı yönetilen kullanarak Azure Data Factory örneği gelen ve giden veri kopyalama
 
@@ -33,9 +33,13 @@ Azure SQL veritabanı yönetilen örneği tüm desteklenen havuz veri deposuna v
 - SQL sorgusu veya saklı yordamı kullanarak veri kaynağı olarak alınıyor.
 - Havuz olarak veriler hedef tablonun veya kopyalama sırasında özel mantığı olan bir saklı yordam çağırma ekleniyor.
 
+SQL Server [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) artık desteklenmiyor. 
+
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure SQL veritabanı yönetilen sanal ağda bulunan örneği verilerini kullanmak için şirket içinde barındırılan tümleştirme çalışma zamanı veritabanına erişebilen aynı VNET içindeki ayarlamanız gerekir. Bkz: [şirket içinde barındırılan tümleştirme çalışma zamanı](create-self-hosted-integration-runtime.md) makale Ayrıntılar için.
+Azure SQL veritabanı yönetilen sanal ağda bulunan örneği verilerini kullanmak için veritabanına erişebilen bir şirket içinde barındırılan Integration Runtime gerekir. Bkz: [şirket içinde barındırılan tümleştirme çalışma zamanı](create-self-hosted-integration-runtime.md) makale Ayrıntılar için.
+
+Yönetilen Örneğinize aynı sanal ağda, şirket içinde barındırılan IR sağlarsanız, IR makinenize yönetilen Örneğinize değerinden farklı bir alt ağda olduğundan emin olun. Yönetilen Örneğinize farklı bir sanal ağ, şirket içinde barındırılan IR sağlarsanız, bir sanal ağ eşlemesi veya sanal ağ bağlantısı için sanal ağ kullanabilirsiniz. Bkz: [uygulamanızı Azure SQL veritabanı yönetilen örneği bağlamak](../sql-database/sql-database-managed-instance-connect-app.md).
 
 ## <a name="getting-started"></a>Başlarken
 
@@ -502,7 +506,7 @@ Saklı yordam özellik yararlanır [Table-Valued parametreleri](https://msdn.mic
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | küçük para |Ondalık |
-| sql_variant |Nesne * |
+| sql_variant |Nesne |
 | metin |Dize, Char] |
 | time |Zaman aralığı |
 | timestamp |Bayt] |
@@ -511,6 +515,9 @@ Saklı yordam özellik yararlanır [Table-Valued parametreleri](https://msdn.mic
 | varbinary |Bayt] |
 | varchar |Dize, Char] |
 | xml |Xml |
+
+>[!NOTE]
+> Ondalık geçiş türü için veri türü eşlemeleri için ADF desteklemekte duyarlık 28 kadar. 28'den büyük olan hassas verileriniz varsa, SQL sorgusunda dizeye dönüştürmek için göz önünde bulundurun.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure Data Factory kopyalama etkinliği tarafından kaynak ve havuz olarak desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](copy-activity-overview.md##supported-data-stores-and-formats).

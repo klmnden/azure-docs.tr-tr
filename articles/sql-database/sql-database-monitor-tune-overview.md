@@ -11,17 +11,17 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: 3c809638cef89d111a032e5876b1f2f1b2c1eb7b
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/24/2019
+ms.openlocfilehash: 2638617679e1aaadfdb18f1d8580f3aef28ab127
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602355"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884360"
 ---
 # <a name="monitoring-and-performance-tuning"></a>İzleme ve performans ayarlama
 
-Azure SQL veritabanı otomatik olarak yönetilir ve burada kolayca izleyebilir, kullanım, ekleyebilir veya kaynakları (CPU, bellek, g/ç) kaldırmak esnek veri hizmeti bulun, veritabanınızın performansını veya veritabanı iş yükünüze uyum sağlar. öneriler ve otomatik olarak performansı iyileştirin.
+Azure SQL veritabanı, burada kolayca izleyebilirsiniz kullanımı, bir otomatik olarak yönetilen ve esnek bir veri hizmeti kaynaklarına (CPU, bellek, g/ç) ekleyip, veritabanınızın performansını veya veritabanı izin Bul öneriler, iş yükünüze uyum ve otomatik olarak performansı iyileştirin.
 
 ## <a name="monitoring-database-performance"></a>Veritabanı performansını izleme
 

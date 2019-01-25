@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 114b6b0cc0fd4e8e51a9dbf2cdc8d9e2a2261754
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 57279a4e92b1f42505003f12d41c8203aa5603d4
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54823496"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54881878"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-projects-preview"></a>Azure DevOps projeleri (Önizleme) ile IOT Edge için CI/CD işlem hattı oluşturma
 
@@ -38,7 +38,7 @@ DevOps projeleri, Azure DevOps bir CI/CD işlem hattı oluşturur. Yeni bir Azur
 
    ![Yeni bir uygulama oluşturmak için dil seçin](./media/how-to-devops-project/select-language.png)
 
-2. Seçin **basit IOT (Önizleme)** uygulama çerçevesinin ve ardından olarak **sonraki**.
+2. Seçin **basit IOT (Önizleme)** uygulama çerçevesi ve ardından olarak **sonraki**.
 
    ![Basit IOT framework seçin](media/how-to-devops-project/select-iot.png)
 
@@ -93,7 +93,7 @@ DevOps projeleri, Azure depolarda projeniz için bir Git deposu oluşturuldu. Bu
 
 ## <a name="examine-the-cicd-pipeline"></a>CI/CD işlem hattı inceleyin
 
-Azure DevOps projeleri, önceki bölümlerde, IOT Edge uygulamanız için eksiksiz bir CI/CD işlem hattı otomatik olarak yapılandırılır. Ardından, değişiklikleri dosyaları birine göre derleme işlem hattı test. Şimdi keşfedin ve işlem hattı gerektiği gibi özelleştirin. Azure DevOps yapıyla hakkında bilgilenmeli ve yayın işlem hatları için aşağıdaki adımları uygulayın.
+Azure DevOps projeleri, önceki bölümlerde, IOT Edge uygulamanız için eksiksiz bir CI/CD işlem hattı otomatik olarak yapılandırılır. Ardından bu derleme işlem hattı değişiklikleri dosyalarından birini yürüterek test. Şimdi keşfedin ve işlem hattı gerektiği gibi özelleştirin. Azure DevOps yapıyla hakkında bilgilenmeli ve yayın işlem hatları için aşağıdaki adımları uygulayın.
 
 1. DevOps projenizi derleme işlem hatlarını görüntülemek için seçin **derleme işlem hatlarını** proje panosunun menüsünde. Bu bağlantı, bir tarayıcı sekmesi açar ve Azure DevOps yeni projeniz için işlem hattı oluşturun.
 

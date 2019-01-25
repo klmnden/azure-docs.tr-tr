@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: d355e14d15dc6a393a6fabb90418cb3949fe0cf5
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 76db86f8ddaee43654689e78437d3cdbd1c211f6
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601976"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883033"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>LUIS uygulamanızı LUIS portalında test etme
 <a name="train-your-app"></a>
@@ -26,6 +26,7 @@ ms.locfileid: "53601976"
 <a name="test-your-app"></a>
 <a name="access-the-test-page"></a>
 <a name="luis-interactive-testing"></a>
+
 ## <a name="test-an-utterance"></a>Bir utterance test
 
 1. Adını seçerek uygulamanıza erişmek **uygulamalarım** sayfası. 
@@ -40,13 +41,8 @@ ms.locfileid: "53601976"
 
     ![Etkileşimli sınama yanlış amacını tanımlar](./media/luis-how-to-interactive-test/test-weather-1.png)
 
-## <a name="clear-test-panel"></a>Açık test paneli
-Tüm girilen test konuşma ve sonuçları test konsolundan temizlemek için seçin **baştan** sol üst köşesindeki **Test paneli**. 
-
-## <a name="close-test-panel"></a>Kapat test paneli
-Kapatmak için **Test** paneli, select **Test** düğmesini tekrar.
-
 ## <a name="inspect-score"></a>Puan inceleyin
+
 Bir test sonucunun ayrıntılarını incelemek **inceleyin** paneli. 
  
 1. İle **Test** slayt genişletme paneli açık, select **inceleyin** karşılaştırmak istediğiniz bir utterance için. 
@@ -72,9 +68,11 @@ Varsa **yaklaşım analizi** yapılandırılan **[Yayımla](luis-how-to-publish-
 ![Test Bölmesi ile ilgili yaklaşım analizi görüntüsü](./media/luis-how-to-interactive-test/sentiment.png)
 
 ## <a name="correct-matched-patterns-intent"></a>Eşleşen desenin amacı düzeltin
+
 Kullanıyorsanız [desenleri](luis-concept-patterns.md) ve utterance bir desenle eşleşen, ancak yanlış amacını tahmin, seçin **Düzenle** deseni tarafından bağlamak ve ardından doğru hedefini seçin.
 
 ## <a name="compare-with-published-version"></a>Yayımlanan sürümle karşılaştır
+
 Yayımlanan uygulamanızı etkin sürümünü test edebilirsiniz [uç nokta](luis-glossary.md#endpoint) sürümü. İçinde **inceleyin** paneli, select **Karşılaştır yayımlanan**. Yayımlanan modele yönelik test, Azure abonelik kotası bakiyeden çıkarılır. 
 
 ![Yayımlanan Karşılaştır](./media/luis-how-to-interactive-test/inspect-panel-compare.png)
@@ -88,12 +86,14 @@ JSON seçerek karşılaştırma için döndürülen uç nokta görüntüleyebile
 ## <a name="additional-settings-in-test-panel"></a>Test panelinde ek ayarlar
 
 ### <a name="luis-endpoint"></a>LUIS uç noktası
+
 Birkaç LUIS uç noktaları varsa, **ek ayarlar** Test bağlantısını test etmek için kullanılan uç nokta değiştirmek için bölmesinde yayımlanan. Kullanmak için hangi uç noktaya emin değilseniz varsayılan seçin **Starter_Key**. 
 
 ![Ek ayarlar bağlantısının vurgulandığı test paneli](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)
 
 
 ### <a name="view-bing-spell-check-corrections-in-test-panel"></a>Bing yazım denetimi düzeltmeleri test panelinde görüntüleyin
+
 Yazım düzeltmeleri görmek için gereksinimler: 
 
 * Yayımlanan uygulama
@@ -124,6 +124,7 @@ Dahil etmek için aşağıdaki yordamı kullanın. [Bing yazım denetimi v7](htt
 <a name="view single-point utterance data"></a>
 <a name="relabel-utterances-and-retrain"></a>
 <a name="false-test-results"></a>
+
 ## <a name="batch-testing"></a>Toplu işe testi
 Toplu test bkz [kavramları](luis-concept-batch-test.md) ve öğrenin [nasıl](luis-how-to-batch-test.md) konuşma toplu test edin.
 

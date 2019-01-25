@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 01/25/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.openlocfilehash: 0c681e7406f5c0c6e205f9dc54ee5eea63b40252
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 8bdc9a9a01a96ee34c5cf6cfa737be09661364bc
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853247"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904429"
 ---
 # <a name="azure-stack-1811-update"></a>Azure Stack 1811 güncelleştirme
 
@@ -353,6 +353,8 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
     Diğer seçenekler olarak Azure Stack'te kaynak etiketleri desteklenmez. Benzer şekilde, bir giden güvenlik kuralı ekleyin ve seçin, **hizmet etiketi** hedef aynı seçeneklerinin listesi olarak **kaynak etiketi** görüntülenir. Aynı yalnızca geçerli seçenekler şunlardır **kaynak etiketi**önceki listede açıklandığı gibi.
 
 - **New-Azurermıpsecpolicy** PowerShell cmdlet'i ayarını desteklemiyor **DHGroup24** için `DHGroup` parametresi.
+
+- Azure Stack'te aynı şekilde olarak genel Azure ağ güvenlik grupları (Nsg'ler) çalışmaz. Azure'da birden çok bağlantı noktası üzerinde bir NSG kuralı ayarlayabilirsiniz (kullanarak portal, PowerShell ve Resource Manager şablonlarını). Azure Stack'te bir NSG kuralı portal aracılığıyla üzerinde birden çok bağlantı noktası ayarlanamıyor. Bu sorunu geçici olarak çözmek için bu ek kurallar Resource Manager şablonu kullanın.
 
 ### <a name="infrastructure-backup"></a>Altyapı yedekleme
 

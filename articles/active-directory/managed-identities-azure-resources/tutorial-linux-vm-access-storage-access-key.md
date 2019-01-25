@@ -3,7 +3,7 @@ title: Azure Depolama’ya erişmek için Linux VM sistem tarafından atanan yö
 description: Linux VM üzerinde bir sistem tarafından atanmış yönetilen kimlik kullanarak Azure Depolama'ya erişme işleminde size yol gösteren bir öğretici.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: daveba
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: daveba
-ms.openlocfilehash: d9f13c348b79379ef291ce3754a4a4f1cfa9b9be
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: priyamo
+ms.openlocfilehash: 8003d85f7e1063b6789435273f1bdef4534839bb
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429880"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54885346"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>Öğretici: Azure depolama erişim anahtarı erişmek için bir Linux VM sistem tarafından atanan yönetilen kimliği kullanma
 

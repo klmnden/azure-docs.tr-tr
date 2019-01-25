@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: douglasl
-ms.openlocfilehash: 80b594eb8d926465f37771e2e6911f9ab3e63f1f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 0d7c8640cb2a3f6d4d1a32a555c03dc2eca48b9a
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54423825"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901233"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Sürekli tümleştirme ve teslim (CI/CD) Azure Data factory'de
 
@@ -853,7 +853,7 @@ Resource Manager şablonuna yönelik özel parametreler tanımlayabilirsiniz. Ad
 
 Özel parametre dosyasını yazarken kullanmak için bazı yönergeler aşağıda verilmiştir. Bu söz dizimi örneklerini görmek için aşağıdaki bölüme bakın [örnek özel parametreler dosyası](#sample).
 
-1. Dizi tanımı dosyasında belirttiğinizde, şablonda eşleşen özellik dizisi olduğunu belirtir. Veri Fabrikası dizinin fIntegration Runtimest nesnesinde belirtilen tanım kullanarak dizi içindeki tüm nesneler gezinir. Dize, ikinci nesne, her yineleme için parametre adı olarak kullanılan özelliğin adı olur.
+1. Dizi tanımı dosyasında belirttiğinizde, şablonda eşleşen özellik dizisi olduğunu belirtir. Veri Fabrikası dizinin Integration Runtime nesnesinde belirtilen tanım kullanarak dizi içindeki tüm nesneler gezinir. Dize, ikinci nesne, her yineleme için parametre adı olarak kullanılan özelliğin adı olur.
 
     ```json
     ...

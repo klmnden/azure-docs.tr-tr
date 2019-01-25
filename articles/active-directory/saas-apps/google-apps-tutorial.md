@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: f37873fdbc26e1c82b6c1d9e6be8132641d94773
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 4705bb8c93381a2487ba94f9dfe3a7e8820f2fd9
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54809182"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902474"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Öğretici: G Suite ile Azure Active Directory Tümleştirme
 
@@ -75,11 +75,11 @@ Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 
     C: Bu kurulumu için e-posta özniteliği, kullanıcıların oturum açabilmesi için gereklidir. Bu öznitelik el ile ayarlanamaz.
 
-    E-posta özniteliği geçerli bir Exchange lisansına sahip herhangi bir kullanıcı için otomatik doldurulur. Kullanıcı e-posta etkin değilse, erişim vermek için bu öznitelik almak uygulama gereksinimleriniz değiştikçe bu hata alınır.
+    E-posta özniteliği geçerli bir Exchange lisansına sahip herhangi bir kullanıcı için otomatik doldurulur. Uygulama erişim vermek için bu öznitelik almak gereken kullanıcı posta etkin değilse, bu hata alınır.
 
-    Bir yönetici hesabıyla portal.office.com tıklayarak Yönetim merkezinde, abonelikler, faturalama, Office 365 aboneliğinizi seçin ve ardından Ata seçeneğine tıklayın, kullanıcılara seçin aboneliğini denetleyin ve sağ bölmede, tıklayarak istediğiniz kullanıcıların gidebilirsiniz lisansları düzenleyin.
+    Bir Exchange lisansı atayın, Lütfen bir yönetici hesabıyla portal.office.com gidin ve ardından tıklayın Yönetim Merkezi, faturalama, abonelik için Office 365 aboneliği ve ardından şirket, kullanıcılara atama seçin, kontrol etmek istediğiniz kullanıcıları kendi Abonelik ve sağ bölmede, düzenleme lisanslar'a tıklayın.
 
-    O365 lisansı atandıktan sonra uygulanması bazı dakika sürebilir. Bundan sonra user.mail öznitelik girdiğinizde olur ve sorunun çözülmesi.
+    Exchange lisansı atandıktan sonra uygulanması bazı dakika sürebilir. Bundan sonra user.mail öznitelik girdiğinizde olur ve sorunun çözülmesi.
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 

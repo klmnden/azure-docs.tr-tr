@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 01/09/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b1fa723863e6485e977e075986c3779efed1e689
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: cb3a60995a4edfe5eb00f1a5e88812146816806a
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360232"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883713"
 ---
 # <a name="azure-backup-support-matrix"></a>Azure yedekleme destek matrisi
 
@@ -30,13 +30,13 @@ Kasaları sayısı | Tek bir abonelikte en fazla 500 kurtarma Hizmetleri kasası
 Bir kasadaki makineler | Tek bir kasada en fazla 1000 Azure Vm'leri.<br/><br/> 50 şirket içi kadar Azure Backup aracısını (Microsoft Azure kurtarma Hizmetleri Aracısı (MABS)) çalışan makinelerin tek bir kasaya kaydedilebilir.
 Veri kaynağında depolama kasası | En fazla 54400 GB. Azure VM yedeklemeleri için bir sınır yoktur.
 Yedekleme kasası için | Azure sanal makineler: gün; bir kez DPM/MABS tarafından korunan makineler: günde iki kez; Makine yedeklenmekte MARS agent'ı kullanarak doğrudan: günde üç kez.  
-Kasa Taşı | Yedekleme kurtarma Hizmetleri kasaları, Abonelikleriniz ve kaynak gruplarınız arasında taşıyabilirsiniz. [Daha fazla bilgi edinin](backup-azure-move-recovery-services-vault.md).
+Kasa Taşı | Bir kurtarma Hizmetleri kasasına taşımak için bir özel önizlemeye kaydolmanız gerekir. Denemek için yazma AskAzureBackupTeam@microsoft.com.
 Kasalar arasında veri taşıma | Yedeklenen verileri kasalar arasında taşıma desteklenmiyor.
 Depolama çoğaltma türü | Yedeklemeleri depolanmadan önce bir kasa için depolama çoğaltma türü (GRS/LRS) değiştirebilirsiniz. Yedekleme Kasası'nda başladıktan sonra çoğaltma türü değiştirilemez.
 
 
 
-## <a name="on-premises-backup-support"></a>Şirket içi yedekleme desteği 
+## <a name="on-premises-backup-support"></a>Şirket içi yedekleme desteği
 
 Şirket içi makineleri yedeklemek istiyorsanız, nelerin desteklendiği aşağıda verilmiştir.
 
@@ -77,8 +77,8 @@ Azure Vm'lerini yedeklemek istiyorsanız, nelerin desteklendiği aşağıda veri
 Linux makineleri yedeklemek istiyorsanız, nelerin desteklendiği aşağıda verilmiştir.
 
 **Backup** | **Linux (Azure destekli)**
---- | --- 
-**Şirket içi Linux makinesi (DPM veya MABS) olmadan**. | Hayır. MARS Aracısı, yalnızca Windows makinelerde yüklenebilir. 
+--- | ---
+**Şirket içi Linux makinesi (DPM veya MABS) olmadan**. | Hayır. MARS Aracısı, yalnızca Windows makinelerde yüklenebilir.
 **Azure VM (olmadan, DPM veya MABS)** | Uygulamayla tutarlı Yedekleme kullanarak [özel betikler](backup-azure-linux-app-consistent.md).<br/><br/> Dosya düzeyinde kurtarma.<br/><br/> Bir kurtarma noktası veya diskten bir sanal makine oluşturarak geri yükleyin.
 **Şirket içi makine/Azure DPM ile VM** | Hyper-V ve VMWare üzerinde Linux Konuk VM’lerinin dosyayla tutarlı yedeklemesi<br/><br/> Hyper-V ve VMWare Linux Konuk VM’lerinin VM geri yüklemesi</br></br> Dosyayla tutarlı yedekleme Azure Vm'leri için kullanılamıyor
 **Şirket içi makine/Azure MABS ile VM** | Hyper-V ve VMWare üzerinde Linux Konuk VM’lerinin dosyayla tutarlı yedeklemesi<br/><br/> Hyper-V ve VMWare Linux Konuk Vm'lerinin VM geri yükleme</br></br> Dosyayla tutarlı yedekleme Azure Vm'leri için kullanılamaz.
@@ -110,7 +110,7 @@ Veri güvenliği:
 **Makine** | **Yoldaki** | **Bekleyen**
 --- | --- | ---
 DPM/MABS olmadan şirket içi Windows makineler | ![Evet][green] | ![Evet][green]
-Azure VM’leri | ![Evet][green] | ![Evet][green] 
+Azure VM’leri | ![Evet][green] | ![Evet][green]
 DPM ile şirket içi/Azure Vm'leri | ![Evet][green] | ![Evet][green]
 MABS ile şirket içi/Azure Vm'leri | ![Evet][green] | ![Evet][green]
 
@@ -121,7 +121,7 @@ MABS ile şirket içi/Azure Vm'leri | ![Evet][green] | ![Evet][green]
 Aşağıdaki tabloda özetlendiği gibi yedekleme sıkıştırma, yedekleme trafiğinin destekler. Şunlara dikkat edin:
 
 - Bu trafiğin sıkıştırılması gerekmez, yani Azure Vm'leri için depolama ağı aracılığıyla doğrudan Azure depolama hesabından veri VM uzantısı okur.
-- DPM veya MABS kullanıyorsanız, DPM/bant genişliğinden tasarruf etmek MABS için yedeklenir önce verileri sıkıştırabilirsiniz. 
+- DPM veya MABS kullanıyorsanız, DPM/bant genişliğinden tasarruf etmek MABS için yedeklenir önce verileri sıkıştırabilirsiniz.
 
 **Makine** | **Sıkıştırma MABS/DPM sunucusuna (TCP)** | **(HTTPS) kasaya Sıkıştır**
 --- | --- | ---
@@ -134,8 +134,8 @@ MABS ile şirket içi/Azure Vm'leri | ![Evet][green] | ![Evet][green]
 
 ## <a name="retention-limits"></a>Bekletme sınırları
 
-**Ayar** | **Limitler** 
---- | --- 
+**Ayar** | **Limitler**
+--- | ---
 Korunan örnek (makine/iş yükü başına en fazla kurtarma noktası | 9999
 Bir kurtarma noktası için en fazla süre sonu zamanı | Sınırsız
 DPM/MABS en fazla yedekleme sıklığı | SQL Server için 15 dakikada bir<br/><br/> Bir saatte diğer iş yükleri için.

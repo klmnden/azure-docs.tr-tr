@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/28/2018
-ms.author: cwatson
-ms.openlocfilehash: 1317435a3a8fef5c9e3efa8c9cfb19fb85254a22
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: 1b6e85344508d7b29e99c1ba3e6e1d0ac0aba2e3
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582675"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904072"
 ---
 # <a name="understand-how-the-suse-linux-enterprise-software-plan-discount-is-applied"></a>SUSE Linux Enterprise yazılım planı indirim nasıl uygulanacağını anlama
 
@@ -53,7 +53,7 @@ Azure portal Market adı:
 |SUSE VM | Ölçüm kimliği| Oranı| Örnekte VM boyutu|
 | -------| ------------------------| --- |--- |
 |SLES HPC 1-2 Vcpu için|e275a668-ce79-44e2-a659-f43443265e98|1|D2s_v3|
-|SLES HPC 3-4 Vcpu için|e531e1c0-09c9-4d83-B7D0-a2c6741faa22|2|D4s_v3|
+|SLES HPC 3-4 Vcpu için|e531e1c0-09c9-4d83-b7d0-a2c6741faa22|2|D4s_v3|
 |SLES for HPC 5 + Vcpu|4edcd5a5-8510-49a8-a9fc-c9721f501913|2.6|D8s_v3|
 
 ### <a name="suse-linux-enterprise-server-for-hpc-standard"></a>HPC Standard SUSE Linux Enterprise Server
@@ -100,7 +100,7 @@ Azure portal Market adları:
 |SLES 12 core Vcpu |a5afd00d-d3ef-4bcd-8b42-f158b2799782|3.2||
 |SLES 16 Vcpu |bb21066f-fe46-46d3-8006-b326b1663e52|3.2| D16s_v3|
 |SLES 20 Vcpu |c5228804-1de6-4BD4-a61c-501d9003acc8|3.2| |
-|SLES 24 çekirdek Vcpu |4075 ac11 822ccde9e8f6-005 d|3.2| ND24s|
+|SLES 24 çekirdek Vcpu |-005d-4075-ac11-822ccde9e8f6|3.2| ND24s|
 |SLES 32 Vcpu |180c1a0a-b0a5-4de3-a032-f92925a4bf90|3.2| D32s_v3|
 |SLES 40 çekirdek Vcpu |a161d3d3-0592-4956-9b64-6829678b6506|3.2||
 |SLES 64 Vcpu |7f5a36ed-d5b5-4732-b6bb-837dbf0fb9d8|3.2| D64s_v3|
@@ -133,6 +133,6 @@ Rezervasyonlar hakkında daha fazla bilgi edinmek için aşağıdaki makalelere 
 - [Kullandıkça Öde aboneliğinizi için ayırma kullanımını anlama](billing-understand-reserved-instance-usage.md)
 - [Kurumsal kayıt için ayırma kullanımını anlama](billing-understand-reserved-instance-usage-ea.md)
 
-## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
+## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

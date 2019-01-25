@@ -3,7 +3,7 @@ title: Sistem ve kullanıcı tarafından atanan yönetilen kimlikleri, Azure CLI
 description: Sistem ve kullanıcı tarafından atanan yönetilen kimlikleri, Azure CLI kullanarak bir Azure sanal makinesinde yapılandırma yönergeleri adım adım.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/10/2018
-ms.author: daveba
-ms.openlocfilehash: ab90db371aa729ecc7fd34e0663828de7760f8c1
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: priyamo
+ms.openlocfilehash: 7b36c7712e80a96a3a0fc967764178c45f6a3869
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424064"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888456"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-azure-cli"></a>Azure CLI kullanarak bir Azure sanal makinesinde Azure kaynakları için yönetilen kimlik Yapılandır
 

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 99491fdc9758c5ec930db5f584f009eb6705f789
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: e9c2bf52cb1999381d7d1cde3a8f62710514b915
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231263"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884529"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Azure Stack'te desteklenen sanal makine boyutları
 
@@ -62,21 +62,21 @@ Dengeli CPU / bellek oranı genel amaçlı bir VM boyutları sunar. Test ve geli
 
 |Boyut     |Sanal işlemci     |Bellek (GiB) | Geçici depolama alanı (GiB)  | En yüksek işletim sistemi disk aktarım hızı (IOPS) | Maksimum geçici depolama aktarım hızı (IOPS) | Maksimum veri diski / aktarım hızı (IOPS) | En fazla NIC |
 |-----------------|----|----|-----|-----|------|--------------|---------|
-|**İşler için standart_a1_v2**  |1   |2   |10   |500 |1000  |2/2x500   |2 |
-|**İşler için standart_a2_v2**  |2   |4   |20   |500 |2000  |4/4x500   |2 |
+|**Standard_A1_v2**  |1   |2   |10   |500 |1000  |2/2x500   |2 |
+|**Standard_A2_v2**  |2   |4   |20   |500 |2000  |4/4x500   |2 |
 |**Standard_A4v2**   |4   |8   |40   |500 |4000  |8/8x500   |4 |
-|**İşler için standart_a8_v2**  |8   |16  |80   |500 |8000  |16/16x500 |8 |
-|**İşler için standart_a2m_v2** |2   |16  |20   |500 |2000  |4/4x500   |2 |
-|**İşler için standart_a4m_v2** |4   |32  |40   |500 |4000  |8/8x500   |4 |
-|**İşler için standart_a8m_v2** |8   |64  |80   |500 |8000  |16/16x500 |8 |
+|**Standard_A8_v2**  |8   |16  |80   |500 |8000  |16/16x500 |8 |
+|**Standard_A2m_v2** |2   |16  |20   |500 |2000  |4/4x500   |2 |
+|**Standard_A4m_v2** |4   |32  |40   |500 |4000  |8/8x500   |4 |
+|**Standard_A8m_v2** |8   |64  |80   |500 |8000  |16/16x500 |8 |
 
 ### <a name="d-series"></a>D Serisi
 |Boyut     |Sanal işlemci     |Bellek (GiB) | Geçici depolama alanı (GiB)  | En yüksek işletim sistemi disk aktarım hızı (IOPS) | Maksimum geçici depolama aktarım hızı (IOPS) | Maksimum veri diski / aktarım hızı (IOPS) | En fazla NIC |
 |----------------|----|----|-----|----|------|------------|---------|
 |**İşler için standart_d1** |1   |3,5 |50   |500 |3000  |4/4x500   |1 |
-|**İşler için standart_d2** |2   |7   |100  |500 |6000  |8/8x500   |2 |
+|**Standard_D2** |2   |7   |100  |500 |6000  |8/8x500   |2 |
 |**İşler için standart_d3** |4   |14  |200  |500 |12000 |16/16x500 |4 |
-|**İşler için standart_d4** |8   |28  |400  |500 |24000 |32/32x500 |8 |
+|**Standard_D4** |8   |28  |400  |500 |24000 |32/32x500 |8 |
 
 
 ### <a name="ds-series"></a>DS serisi
@@ -134,14 +134,14 @@ Dengeli CPU / bellek oranı genel amaçlı bir VM boyutları sunar. Test ve geli
 ### <a name="fsv2-series"></a>Fsv2-serisi
 *Azure Stack 1804 veya sonraki bir sürümü gerektirir* 
 
-|Boyut     |Sanal işlemci     |Bellek (GiB) | Geçici depolama alanı (GiB)  | En yüksek işletim sistemi disk aktarım hızı (IOPS) | Maksimum geçici depolama aktarım hızı (IOPS) | Maksimum veri diski / aktarım hızı (IOPS) | Maks NIC / beklenen ağ bant genişliği (MB/sn) |
-|---------------------|----|----|-----|-----|-------|--------------|---------|
-|**Standard_F2s_v2**  |2   |4   |16   |1000 |4000   |4 / 4 x 2300    |Orta |
-|**Standard_F4s_v2**  |4   |8   |32   |1000 |8000   |8 / 8 x 2300    |Orta |
-|**Standard_F8s_v2**  |8   |16  |64   |1000 |16000  |16 / 16 x 2300  |Yüksek     |
-|**Standard_F16s_v2** |16  |32  |128  |1000 |32000  |32 / 32 x 2300  |Yüksek     |
-|**Standard_F32s_v2** |32  |64  |256  |1000 |64000  |32 / 32 x 2300  |Yüksek  |
-|**Standard_F64s_v2** |64  |128 |512  |1000 |128000 |32 / 32 x 2300  |Çok yüksek  |
+|Boyut     |Sanal işlemci     |Bellek (GiB) | Geçici depolama alanı (GiB)  | En yüksek işletim sistemi disk aktarım hızı (IOPS) | Maksimum geçici depolama aktarım hızı (IOPS) | Maksimum veri diski / aktarım hızı (IOPS) |
+|---------------------|----|----|-----|-----|-------|--------------|
+|**Standard_F2s_v2**  |2   |4   |16   |1000 |4000   |4 / 4 x 2300    |
+|**Standard_F4s_v2**  |4   |8   |32   |1000 |8000   |8 / 8 x 2300    |
+|**Standard_F8s_v2**  |8   |16  |64   |1000 |16000  |16 / 16 x 2300  |
+|**Standard_F16s_v2** |16  |32  |128  |1000 |32000  |32 / 32 x 2300  |
+|**Standard_F32s_v2** |32  |64  |256  |1000 |64000  |32 / 32 x 2300  |
+|**Standard_F64s_v2** |64  |128 |512  |1000 |128000 |32 / 32 x 2300  |
 
 
 ## <a name="memory-optimized"></a>Bellek için iyileştirilmiş
@@ -153,7 +153,7 @@ Belleği en iyi duruma getirilmiş VM boyutları, ilişkisel veritabanı sunucul
 |------------------|---|----|----|--------|------|------------|---------|
 |**İşler için standart_d11**  |2  |14  |100 |500     |6000  |8/8x500   |2 |
 |**İşler için standart_d12**  |4  |28  |200 |500     |12000 |16/16x500 |4 |
-|**İşler için standart_d13**  |8  |56  |400 |500     |24000 |32/32x500 |8 |
+|**Standard_D13**  |8  |56  |400 |500     |24000 |32/32x500 |8 |
 |**İşler için standart_d14**  |16 |112 |800 |500     |48000 |64 / 64 x 500 |8 |
 
 ### <a name="mo-ds"></a>DS serisi
@@ -169,7 +169,7 @@ Belleği en iyi duruma getirilmiş VM boyutları, ilişkisel veritabanı sunucul
 |--------------------|----|----|-----|----|-------|-------------|---------|
 |**Standard_D11_v2** |2   |14  |100  |500 |6000   |8/8x500    |2 |
 |**İşler için standart_d12_v2** |4   |28  |200  |500 |12000  |16/16x500  |4 |
-|**İşler için standart_d13_v2** |8   |56  |400  |500 |24000  |32/32x500  |8 |
+|**Standard_D13_v2** |8   |56  |400  |500 |24000  |32/32x500  |8 |
 |**İşler için standart_d14_v2** |16  |112 |800  |500 |48000  |64 / 64 x 500  |8 |
 
 

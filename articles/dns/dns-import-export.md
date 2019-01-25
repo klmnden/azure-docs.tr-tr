@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: victorh
-ms.openlocfilehash: 5afb607f0410b428d8e67fdff043a4e376dd60a5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 37dd51a60d9ec6e018f58e2cfd593490d126670b
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956362"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888660"
 ---
 # <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Azure CLI kullanarak DNS bölge dosyasını içeri ve dışarı 
 
@@ -68,7 +68,7 @@ Aşağıdaki notlar, bölgeye ilişkin ek teknik ayrıntılar alma işlemi sunar
 * `$TTL` Yönergesi, isteğe bağlıdır ve desteklenir. Hiçbir `$TTL` yönergesi verilmiştir, açık bir TTL olmadan kayıtlarını içeri aktarılan kümesine bir varsayılan TTL değeri 3600 saniyedir. Aynı kayıt kümesindeki iki kaydı farklı TTL'ler belirttiğinizde, daha düşük değer kullanılır.
 * `$ORIGIN` Yönergesi, isteğe bağlıdır ve desteklenir. Hiçbir `$ORIGIN` , kullanılan varsayılan değer: komut satırında belirtilen bölge adı ayarlanmış (sonlandırma artı ".").
 * `$INCLUDE` Ve `$GENERATE` yönergeleri desteklenmez.
-* Bu kayıt türleri desteklenir: A, AAAA, CNAME, MX, NS, SOA, SRV ve TXT.
+* Bu kayıt türleri desteklenir: A, AAAA, CAA, CNAME, MX, NS, SOA, SRV ve TXT.
 * Bir bölge oluşturulduğunda SOA kaydı, Azure DNS tarafından otomatik olarak oluşturulur. Bölge dosyasını içeri aktardığınızda, tüm SOA parametreleri bölge dosyasından alınmıştır *dışında* `host` parametresi. Bu parametre, Azure DNS tarafından sağlanan değer kullanır. Bu parametre, Azure DNS tarafından sağlanan birincil ad sunucusuna başvurmalıdır olmasıdır.
 * Bölge oluşturulduğunda bölgenin tepesinde ayarlamak ad sunucusu kaydı ayrıca Azure DNS tarafından otomatik olarak oluşturulur. Yalnızca bu kayıt kümesinin TTL aktarılır. Bu kayıtlar, Azure DNS tarafından sağlanan ad sunucusu adlarını içerir. Kayıt verilerini tarafından alınan bölge dosyasında yer alan değerleri yazılmaz.
 * Genel Önizleme süresince Azure DNS TXT kayıtlarının yalnızca tek dize destekler. Çok dizeli TXT kayıtları birleştirilmiş ve 255 karakter olarak kesildi.

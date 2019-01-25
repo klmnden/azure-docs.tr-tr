@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
-ms.author: cwatson
-ms.openlocfilehash: 87f6437f836d46fc24ae016823a1b091bcd81943
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: 0f29544890fe10f4914de393a4b153cfe393a2ec
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582069"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904310"
 ---
 # <a name="understand-azure-reservation-usage-for-your-enterprise-enrollment"></a>Kurumsal kayıt için Azure ayırma kullanımını anlama
 
@@ -59,7 +59,7 @@ Bir SQL veritabanı Gen 4 Aşağıdaki tabloda, ayırma bilgileri görünür, Do
 
 | Alan | Değer |
 |---| --- |
-|Reservationıd |8244e673-83e9-45ad-B54B-3f5295d37cae|
+|Reservationıd |8244e673-83e9-45ad-b54b-3f5295d37cae|
 |Miktar |2|
 |Ürün| SQL veritabanı 4. nesil (2 Çekirdek)|
 |Bölge | eastus |
@@ -93,7 +93,7 @@ Azure ayırmaları hakkında daha fazla bilgi edinmek için aşağıdaki makalel
 - [Kullandıkça Öde aboneliğinizi için ayırma kullanımını anlama](billing-understand-reserved-instance-usage.md)
 - [Windows yazılım maliyetleri ile ayırmaları dahil değil](billing-reserved-instance-windows-software-costs.md)
 
-## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
+## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

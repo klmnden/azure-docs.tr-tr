@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
-ms.author: cwatson
+ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 09ac7659487a81d68089a060bf038213722d4dbb
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: f399cf55123ad6bc8ccb011c5d7d59f615af652d
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52580436"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904395"
 ---
 # <a name="change-your-azure-account-profile-information-such-as-contact-email-address-and-phone-number"></a>İletişim e-posta adresi ve telefon numarası gibi Azure hesap profili bilgilerinizi değiştirin
 
@@ -56,7 +56,7 @@ Hayır. Profili e-posta adresi güncelleştiriliyor, oturum açma e-posta adresi
 
 Teknik kısıtlamalar nedeniyle, size var olan bir hesapta ülke değiştiremezsiniz. Ancak, istediğiniz ülkeyi içinde bir hesap oluşturun ve ardından ilgili hesabı hizmetlerinizi taşımak için Azure desteğine başvurun.
 
-## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
+## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

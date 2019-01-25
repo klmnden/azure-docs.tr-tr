@@ -3,7 +3,7 @@ title: Öğretici - Azure’daki bir Linux sanal makinesinde MEAN yığını olu
 description: Bu öğreticide, Azure’da bir Linux sanal makinesi üzerinde nasıl MongoDB, Express, AngularJS ve Node.js (MEAN) yığını oluşturulacağını öğreneceksiniz.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,16 +14,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/08/2017
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a223cb9be7c381c2f64648b32ef9bca69ebeddb5
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: 223b32d3947ca0f663565a90b15e9c24e5ddeb96
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465690"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883220"
 ---
-# <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>Öğretici: Azure’da bir Linux sanal makinesi üzerinde MongoDB, Express, AngularJS ve Node.js (MEAN) yığını oluşturma
+# <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>Öğretici: Azure'da bir Linux sanal makinesi üzerinde MongoDB, Express, AngularJS ve Node.js (MEAN) yığını oluşturun
 
 Bu öğreticide, Azure’da bir Linux sanal makinesi (VM) üzerinde MongoDB, Express, AngularJS ve Node.js (MEAN) yığınının nasıl uygulanacağı gösterilmektedir. Oluşturduğunuz MEAN yığını bir veritabanına kitap eklenmesine, veritabanındaki kitapların silinmesine ve listelenmesine olanak sağlar. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
@@ -328,7 +328,7 @@ sudo apt-get install -y nodejs
 
     ![Kitap kaydı](media/tutorial-mean/meanstack-init.png)
 
-3. Metin kutularına veri girin ve **Ekle**’ye tıklayın. Örnek:
+3. Metin kutularına veri girin ve **Ekle**’ye tıklayın. Örneğin:
 
     ![Kitap kaydı ekleme](media/tutorial-mean/meanstack-add.png)
 

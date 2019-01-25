@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/02/2018
+ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: 459dd86fd614cb185801b074cea70c36dc7f6ccb
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: dc979e4aa9882960b86d902266793910ce6fe8b3
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972341"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902967"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Service Fabric Explorer ile kümenizi görselleştirme
 
@@ -49,6 +49,11 @@ Bir masaüstü uygulaması olarak Service Fabric Explorer'ı indirmek için aşa
 Service Fabric Explorer, bir Service Fabric küme HTTP yönetim uç noktası da barındırılır. Bir web tarayıcısında SFX başlatmak için kümenin HTTP yönetim uç noktası için herhangi bir tarayıcıdan - örneğin göz https://clusterFQDN:19080.
 
 Geliştirici iş istasyonu kurulumu için Service Fabric Explorer kullanarak yerel kümenizde giderek başlatabilirsiniz https://localhost:19080/Explorer. Bu makaleye bakın [geliştirme ortamınızı hazırlama](service-fabric-get-started.md).
+
+> [!NOTE]
+> Kümenizi web tarayıcısından bir hata iletisi alırsınız otomatik olarak imzalanan bir sertifika tarafından sağlanıyorsa "Bu site güvenli değil". Birçok modern web tarayıcılarıyla uyarıyı geçersiz kılarak sadece geçebilirsiniz. Bir üretim ortamında, kümenizin ortak ad ve bir sertifika yetkilisi tarafından verilen sertifika kullanılarak güvenli hale getirilmelidir. 
+>
+>
 
 ## <a name="connect-to-a-service-fabric-cluster"></a>Bir Service Fabric kümesine bağlanın
 Bir Service Fabric kümesine bağlanmak için küme yönetim uç noktası'nı (FQDN/IP) ve HTTP yönetim uç noktası 19080 bağlantı noktasına (varsayılan) gerekir. Örneğin, https://mysfcluster.westus.cloudapp.azure.com:19080. İş istasyonunuzda yerel kümeye bağlanmak için "Localhost bağlanma" onay kutusunu kullanın.
@@ -118,6 +123,18 @@ Service Fabric Explorer, belirli uygulama türü ve sürümü için uygulama ör
 >
 >
 
+## <a name="event-store"></a>Olay Store
+Eventstore'a, Service Fabric platform olaylarına Service Fabric Explorer'da ve REST API aracılığıyla kullanılabilir sağlayan bir platform tarafından sunulan bir özelliktir. Bir anlık görüntü görünümü kümenizdeki her varlık için örneğin düğüm, hizmet, uygulama ve olayın zamana dayalı sorgu neler olduğunu görebilirsiniz. Ayrıca Eventstore'a hakkında daha fazla bilgi [Eventstore'a genel bakış](service-fabric-diagnostics-eventstore.md).   
+
+![EventStore][sfx-eventstore]
+
+>[!NOTE]
+>Service Fabric sürümü 6.4 itibaren. Eventstore'a varsayılan olarak etkin değildir ve resource manager şablonunda etkinleştirilmelidir
+
+>[!NOTE]
+>Service Fabric sürümü 6.4 itibaren. EventStore API'leri yalnızca yalnızca Azure üzerinde çalışan Windows kümeleri için kullanılabilir. Bu işlev, tek başına kümeler yanı sıra Linux taşıma üzerinde çalışıyoruz.
+
+
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Visual Studio'da Service Fabric uygulamalarınızı yönetme](service-fabric-manage-application-in-visual-studio.md)
 * [PowerShell kullanarak Service Fabric uygulama dağıtımı](service-fabric-deploy-remove-applications.md)
@@ -129,3 +146,4 @@ Service Fabric Explorer, belirli uygulama türü ve sürümü için uygulama ör
 [sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/SfxServiceEssentials.png
 [sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/SfxDeleteApplication.png
 [sfx-create-app-instance]: ./media/service-fabric-visualizing-your-cluster/SfxCreateAppInstance.png
+[sfx-eventstore]: ./media/service-fabric-diagnostics-eventstore/eventstore.png

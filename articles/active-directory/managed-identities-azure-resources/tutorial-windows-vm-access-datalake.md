@@ -3,7 +3,7 @@ title: Azure Data Lake Store'a erişmek için Windows VM sistem tarafından atan
 description: Windows VM sistem tarafından atanan yönetilen kimliğini kullanarak Azure Data Lake Store'a erişme işlemini gösteren öğretici.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/13/2018
-ms.author: daveba
-ms.openlocfilehash: abc7d4bea47c84c3fba0ee04e8b1d6293e726b7a
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: priyamo
+ms.openlocfilehash: f28cae5c2dd41aee63c6cc0c7c304d9fa6a4fdac
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424345"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54887300"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>Öğretici: Azure Data Lake Store erişmek için bir Windows VM sistem tarafından atanan yönetilen kimliği kullanma
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.component: disks
-ms.openlocfilehash: 668f14d491fe3e47a445e6d80efda69c017024e2
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: f6d875ee9bbc9d7a61ebca9dfa0726f50e2044d7
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470928"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904055"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Bir Linux VM'ye veri diski için portalı kullanma 
 Bu makalede Azure portalı üzerinden bir Linux sanal makinesi için yeni ve var olan diskleri ekleme gösterilmektedir. Ayrıca [Azure portalında bir Windows sanal makinesine veri diski](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -99,7 +99,7 @@ dmesg | grep SCSI
 
 Burada, *sdc* istiyoruz disktir. 
 
-### <a name="partion-a-new-disk"></a>Yeni bir disk partion
+### <a name="partition-a-new-disk"></a>Yeni bir disk bölümü
 Verileri içeren varolan bir diski kullanıyorsanız, disk takılamadı için atlayın. Yeni bir disk bağlıyorsanız, disk bölümleme gerekir.
 
 Kullanım `fdisk` disk bölümleme için bölüm 1 üzerinde birincil disk kolaylaştırır ve diğer Varsayılanları kabul edin. Aşağıdaki örnek başlatır `fdisk` üzerinde işlem */dev/sdc*:

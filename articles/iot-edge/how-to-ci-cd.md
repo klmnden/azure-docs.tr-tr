@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: ca638f1374c2e15c3978cfe711295f0ebe249d68
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 196d08f47ddfdbb86b8e96ae0e5ca3d3e3e5917e
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818175"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54886773"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Sürekli tümleştirme ve sürekli dağıtım için Azure IOT Edge
 
@@ -67,7 +67,7 @@ Bu bölümde, yeni bir derleme işlem hattı oluşturun. IOT Edge çözüm örne
 
       ![Boş bir işlemle başlangıç](./media/how-to-ci-cd/start-with-empty.png)
 
-4. İşlem hattınızı oluşturduktan sonra yönlendirilirsiniz ardışık düzen Düzenleyicisi. İşlem hattı Tanımınızda, hedef platforma göre doğru aracı havuzu seçin: 
+4. İşlem hattınızı oluşturduktan sonra işlem hattı düzenleyicisine alınır. İşlem hattı Tanımınızda, hedef platforma göre doğru aracı havuzu seçin: 
     
     * Linux kapsayıcıları için platform amd64, modülleri oluşturmak istiyorsanız seçin **barındırılan Ubuntu 1604**
 

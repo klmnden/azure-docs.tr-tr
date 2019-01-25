@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
-ms.author: cwatson
-ms.openlocfilehash: bea7f0e88a371474db907dd74f08bd74c0e7c9e1
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: 478b03c979f5f2b588d51306ffa7b3c84ef25887
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584375"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902491"
 ---
 # <a name="submit-a-request-to-pay-azure-subscription-by-invoice"></a>Azure aboneliği faturayla ödeme talebinizi
 
@@ -50,6 +50,6 @@ Bir Azure destek isteği göndererek faturalamak Azure aboneliğinizin ödeme y�
 
 Size gereken kredi miktarı nedeniyle bir kredi kontrolü çalıştırmanız gerekiyorsa, kredi application should check gönderin. Uygulamayı gönderdikten sonra kredi başvurusunun işlenmesi 5-7 günü sürebilir.
 
-## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
+## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/22/2018
+ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 39d49a223fb02d00af2309922ccd98a764264b4d
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 57290384b31b868deb9e285fb05fec8ebe10a53f
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452522"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902746"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim erişim denetimleri nelerdir?
 
@@ -71,9 +71,15 @@ Multi-Factor authentication kullanarak, geçerli kullanıcının birincil kimlik
 
 ### <a name="compliant-device"></a>Uyumlu cihaz
 
-Cihaz tabanlı koşullu erişim ilkelerini yapılandırabilirsiniz. Cihaz tabanlı koşullu erişim ilkesinin amacı yalnızca yapılandırılmış kaynakların erişim sağlamaktır [yönetilen cihazlar](require-managed-devices.md). Uyumlu cihaz gerektiren bir seçenektir tanımlamak için sahip olduğunuz bir yönetilen cihaz. Bu seçenek belirlenirse, koşullu erişim ilkenizi olan cihazları ile yapılan erişimi için erişim girişimlerini verir [kayıtlı](../devices/overview.md) için Azure Active Directory ve bu işaretlenmiş veya (herhangi bir cihaz için işletim sistemi) Intune tarafından uyumlu, Windows 10 cihazları için üçüncü taraf MDM Sistemi. Windows 10 dışında cihaz işletim sistemi türleri için üçüncü taraf MDM sistemleri desteklenmez.
+Cihaz tabanlı koşullu erişim ilkelerini yapılandırabilirsiniz. Seçilen bulut uygulamalarınızdan yalnızca erişim vermek için cihaz tabanlı koşullu erişim ilkesi amacı olan [yönetilen cihazlar](require-managed-devices.md). Bir cihazın uyumlu olarak işaretlenmesini gerektiren yönetilen cihazlara erişimi sınırlamak için sahip olduğunuz bir seçenektir. Bir cihaz uyumlu olarak (herhangi bir cihaz için işletim sistemi) Intune veya üçüncü taraf MDM sisteminiz Windows 10 cihazları için işaretlenebilir. Windows 10 dışında cihaz işletim sistemi türleri için üçüncü taraf MDM sistemleri desteklenmez. 
 
-Daha fazla bilgi için [Azure Active Directory cihaz tabanlı koşullu erişim ilkeleri ayarlama](require-managed-devices.md).
+Cihazınızın uyumlu olarak işaretlenebilir önce Azure AD'ye kayıtlı olması gerekir. Bir cihazı kaydetmek için üç seçeneğiniz vardır: 
+
+- [Azure AD kayıtlı cihazları](../devices/overview.md#azure-ad-registered-devices)
+- [Azure AD'ye katılmış cihazları](../devices/overview.md#azure-ad-joined-devices)  
+- [Hibrit Azure AD'ye katılmış cihazlar](../devices/overview.md#hybrid-azure-ad-joined-devices)
+
+Daha fazla bilgi için [yönetilen cihazlar için koşullu erişim ile bulut uygulaması erişimi zorunlu kılma](require-managed-devices.md).
 
 ### <a name="hybrid-azure-ad-joined-device"></a>Hibrit Azure AD'ye katılmış
 

@@ -1,6 +1,6 @@
 ---
-title: Microsoft Authenticator uygulaması - Azure Active Directory ile çalışmaya başlama | Microsoft Docs
-description: Microsoft Authenticator'ın en son sürümüne yükseltmeyi öğrenin.
+title: Microsoft Authenticator uygulamasını - Azure Active Directory yükleyip | Microsoft Docs
+description: İndirme, yükleme ve iki Faktörlü doğrulama için Microsoft Authenticator uygulamasını kullanmak nasıl.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -9,108 +9,40 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: user-help
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 01/24/2019
 ms.author: lizross
-ms.reviewer: librown
-ms.openlocfilehash: 43c09bc01e0ed5bd9093242db9183883e402a6f1
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.reviewer: olhaun
+ms.openlocfilehash: 6a55be6a7443017250a00a473fd57cd7d49226aa
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54825587"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902729"
 ---
-# <a name="get-started-with-the-microsoft-authenticator-app"></a>Microsoft Authenticator uygulaması ile çalışmaya başlama
+# <a name="download-and-install-the-microsoft-authenticator-app"></a>Microsoft Authenticator uygulamasını indirip
+Microsoft Authenticator uygulamasını hesaplarınıza iki aşamalı doğrulama kullanırsanız oturum yardımcı olur. İki Faktörlü doğrulama özellikle hassas bilgileri görüntülerken hesaplarınızı daha güvenli bir şekilde erişmenize yardımcı olur. Parolaları bu nedenle Unutulan, çalınması veya ele geçirilen, iki Faktörlü doğrulama kesmek diğer kişiler için daha zor hale getirerek hesabınızın korunmasına yardımcı olan bir ek güvenlik adımdır.
 
-Microsoft Authenticator uygulamasını hesaplarına ve sahte işlemleri çalışmanız için ek bir güvenlik düzeyi vererek durdurmak için yetkisiz erişimi önlemeye yardımcı olmak ya da Okul hesabı (örneğin, alain@contoso.com) veya kişisel Microsoft hesabınızı (için Örneğin, alain@outlook.com).
+Microsoft Authenticator uygulamasını birden çok yolla kullanabilirsiniz:
 
-Uygulama için iki aşamalı doğrulamayı kullanırken, iki yoldan biriyle çalışabilirsiniz:
+- **İki Faktörlü doğrulama.** Parolanızı olduğu faktör, standart doğrulama yöntemi. Kullanıcı adı ve parolanızla oturum sonra bir bildirimi onaylayın veya sağlanan doğrulama kodunu girin.
 
-- **Bildirim.** Uygulama, cihazınıza bir bildirim gönderir. Bildirim, sağ ve ardından olduğundan emin olun **doğrulama**. Bildirim tanımıyorsanız seçin **Reddet**. Tıkladıktan sonra **Reddet**, ayrıca istek sahte olarak işaretleyebilirsiniz.
+- **Telefonla oturum açma.** Parmak izi, yüz tanıma veya PIN kullanıcı adınızı ve mobil Cihazınızı kullanarak parola gerektirmeden oturum olanak sağlayan iki Faktörlü doğrulama sürümü.
 
-- **Doğrulama kodu.** Kullanıcı kimliğiniz ve parolanızı girdikten sonra uygulamayı açıp sağlanan doğrulama kodu kopyalayın **hesapları** ekran oturum açma ekranı açın. Doğrulama kodu, ikinci bir kimlik doğrulama biçimi görev yapar.
+>[!NOTE]
+>Hesabınızda oturum açarken sorun yaşıyorsanız, bkz. [olamaz oturum açtığınızda Microsoft hesabınızı](https://support.microsoft.com/help/12429) Yardım.  Aldığınız olduğunda yapılması gerekenler hakkında daha fazla bilgi alın ["Bu Microsoft hesabı mevcut değil"](https://support.microsoft.com/help/13811) iletisi, Microsoft hesabınızda oturum açın.
 
-## <a name="opt-in-for-two-step-verification"></a>İki aşamalı doğrulama için kabul et
+## <a name="download-and-install-the-app"></a>İndirme ve uygulama yükleme
+İşletim sisteminize Microsoft Authenticator uygulamasını en son sürümünü yükleyin:
 
-Kuruluşunuz iş veya Okul hesabınızla iki aşamalı doğrulama kullanıp kullanmadığını belirler. Yöneticiniz size ayarlama ve kullanılan gereken hangi doğrulama yöntemleri sağlar. Daha fazla bilgi için [Azure multi-Factor Authentication benim için ne demektir](multi-factor-authentication-end-user.md).
+- **Google Android.** Android Cihazınızda, Google Play'e Git [Microsoft Authenticator uygulamasını indirip](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.azure.authenticator).
 
-Kişisel Microsoft hesabınız için iki aşamalı doğrulama için kendiniz ayarlayabilirsiniz. Daha ayrıntılı bilgi ve yönergeler için bkz. [iki basamaklı doğrulama hakkında](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification).
+- **Apple iOS.** App Store için yeni Apple iOS Cihazınızda Git [Microsoft Authenticator uygulamasını indirip](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458).
 
-Bu gibi durumlarda, Microsoft Authenticator uygulamasını da Microsoft olmayan hesapların ile kullanabilirsiniz. Söz konusu hesaplar özellik iki aşamalı doğrulamanın dışında bir çağrı ancak güvenlik veya oturum açma ayarları içinde bulabilirsiniz olmalıdır. Bu Microsoft dışı hesaplarını ayarlama hakkında daha fazla bilgi için bkz. [Microsoft müşteri desteği videoları](https://www.youtube.com/playlist?list=PLyhj1WZ29G65QdD9NxTOAm8HwOS-OBUrX).
-
-## <a name="install-the-app"></a>Uygulama yükleme
-
-Microsoft Authenticator uygulaması [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) ve [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071)'da kullanılabilir. En iyi deneyimi elde etmek için istendiğinde bildirim alma uygulama izin vermelisiniz. 
-
-## <a name="add-accounts-to-the-app"></a>Uygulamaya hesapları ekleme
-
-Microsoft Authenticator uygulaması için iş veya Okul hesapları veya kişisel hesaplar ekleyebilirsiniz. 
-
-### <a name="add-a-personal-microsoft-account"></a>Kişisel Microsoft hesabı ekleme
-
-Kişisel Microsoft hesabı için (bir Outlook.com, Xbox, Skype, vb. için oturum açmak için kullandığınız), tüm yapmanız gereken olan Microsoft Authenticator uygulaması hesabınızda oturum açın.
-
-### <a name="add-a-work-or-school-account"></a>Bir iş veya Okul hesabı Ekle
-
-1. Mümkünse, Git [ek güvenlik doğrulaması](https://aka.ms/mfasetup) ekranda başka bir bilgisayar veya cihaz. Bu ekrana alma hakkında daha fazla bilgi için bkz: [güvenlik ayarlarınızı değiştirme](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page) veya yöneticinize başvurun.
+- **Windows Phone.** İçin Microsoft Store, Windows Phone üzerinde Git [Microsoft Authenticator uygulamasını indirip](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fwww.microsoft.com%2Fen-us%2Fp%2Fmicrosoft-authenticator%2F9nblgggzmcj6).
 
     >[!Note]
-    >Yöneticiniz güvenlik bilgisi Önizleme deneyimi kapattıysa yönergeleri izleyebilirsiniz [authenticator uygulamasını kullanmak için güvenlik bilgileri ' ayarlamak](security-info-setup-auth-app.md) bölümü.
-
-2. Yanındaki kutuyu işaretleyin **Authenticator uygulamasını**ve ardından **yapılandırma**.
-
-    ![Güvenlik doğrulama ayarları ekranında Yapılandır düğmesi](./media/microsoft-authenticator-app-how-to/auth-app-configure.png)
-
-    **Mobil uygulama yapılandırma** ekran, kimlik doğrulayıcı uygulamayla taramak QR kodu görüntülenir.
-
-    ![QR kodunu sağlayan ekranı](./media/microsoft-authenticator-app-how-to/auth-app-barcode.png)
-
-3. Microsoft Authenticator uygulamasını açın. Üzerinde **hesapları** ekranındayken **Hesap Ekle**ve ardından **iş veya Okul hesabı**.
-
-4. QR kodunu tarayın ve ardından cihazınızın kamerasının kullanın **Bitti** QR kodu ekranı kapatmak için.
-
-    >[!Note]
-    >Kameranız düzgün çalışmayan varsa [QR kodu ve URL'yi el ile girmek](#add-an-account-to-the-app-manually).
-
-    **Hesapları** ekranında gösterir, hesabınızın adını ve altı basamaklı doğrulama kodu. Ek güvenlik için her 30 saniyede, aynı kod iki kez tüketmesini doğrulama kodunu değiştirir.  
-
-    ![Hesaplar ekranı](./media/microsoft-authenticator-app-how-to/auth-app-accounts.png)
-
-### <a name="add-an-account-to-the-app-manually"></a>Hesap için uygulamayı el ile Ekle
-
-1. Git **ek güvenlik doğrulaması** ekran. Bu ekrana alma hakkında daha fazla bilgi için bkz: [güvenlik ayarlarınızı değiştirme](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page).
-
-2. Yanındaki kutuyu işaretleyin **Authenticator uygulamasını**ve ardından **yapılandırma**.
-
-    **Mobil uygulama yapılandırma** ekranı görüntülenir.
-
-3. Kodu ve URL bilgileri Kopyala **mobil uygulama yapılandırma** bunları elle QR tarayıcısını girebilmeniz için ekran.
-
-4. Microsoft Authenticator uygulamasını açın. Üzerinde **hesapları** ekranındayken **Hesap Ekle**ve ardından **iş veya Okul hesabı**.
-
-5. QR tarayıcı penceresinde seçtiğinizden **kodu el ile girmeniz**.
-
-    ![Ekran için QR kodu tarama](./media/microsoft-authenticator-app-how-to/auth-app-manual-code.png)
-   
-6. QR kodu ile ekranından kodu ve URL'yi yazın **Hesap Ekle** ekran ve ardından **son**.
-
-    ![Kodu ve URL'yi girme ekran](./media/microsoft-authenticator-app-how-to/auth-app-code-url.png)
-
-    **Hesapları** ekranında gösterir, hesabınızın adını ve altı basamaklı doğrulama kodu. Ek güvenlik için her 30 saniyede, aynı kod iki kez tüketmesini doğrulama kodunu değiştirir.
-
-### <a name="using-your-devices-fingerprint-or-facial-recognition-capabilities"></a>Cihazınızın parmak izi veya yüz tanıma özelliklerini kullanma
-
-Kuruluşunuz Kimlik doğrulamanızı tamamlamak bir PIN gerektirebilir. PIN yerine cihazınızın parmak izi veya yüz tanıma özelliklerini kullanmak için Microsoft Authenticator uygulamasını ayarlayabilirsiniz. Bu ilk defa ayarlayabilirsiniz authenticator uygulamasını cihaz biyometrik yeteneklerinizi PIN'iniz yerine kimlik olarak kullanmak için seçeneği belirleyerek hesabınızı doğrulamak için kullanın.
-
-## <a name="use-the-app-when-you-sign-in"></a>Oturum açtığınızda, uygulama kullanma
-
-Hesaplarınız için uygulamayı ekledikten sonra hesaplarınıza oturum açmak için uygulamayı kullanabilirsiniz.
-
-Uygulama doğrulama kodları kullanmayı seçerseniz, bunları görmek başlayacaksınız **hesapları** sayfası. Böylece, ihtiyacınız olduğunda yeni bir kod her zaman sahip kodları her 30 saniyede değiştirin. Ancak oturum açın ve bir doğrulama kodu girmeniz istenir kadar bunları ile herhangi bir şey yapmanız gerekmez.
+    >Windows telefonlarda telefon oturum açma işlemini kullanamazsınız. Standart doğrulama işlemi açıklandığı gibi kullanmalısınız [iki aşamalı doğrulama ayarlayın](multi-factor-authentication-end-user-first-time.md) makalesi.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Uygulama hakkında daha fazla genel sorularınız varsa bkz [Microsoft Authenticator ile ilgili SSS](microsoft-authenticator-app-faq.md)
-
-- İki aşamalı doğrulama hakkında daha fazla bilgi istiyorsanız bkz [hesabım için iki aşamalı doğrulama ayarlayın](multi-factor-authentication-end-user-first-time.md)
-
-- Güvenlik bilgileri hakkında daha fazla bilgi istiyorsanız bkz [güvenlik bilgilerinizi yönetin](security-info-manage-settings.md)
+- Uygulamayı yükleyip sonra çeşitli hesaplarınızı eklemeniz gerekir. Daha fazla bilgi için [hesaplarınızı ekleme](microsoft-authenticator-app-add-accounts-overview.md).

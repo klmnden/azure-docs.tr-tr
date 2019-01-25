@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: d82e80530d375a9d0f0a6d3f491d3070942ca02f
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: a6b1e4e1571e6ce3cee1658907efd35e9c73ca1a
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331920"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54903410"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Azure’da bir zamanlayıcı tarafından tetiklenen bir işlev oluşturma
 
@@ -84,8 +84,6 @@ Saatte bir çalışan bir işleviniz oldu.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bir zamanlamaya göre çalışan bir işlev oluşturdunuz.
+Bir zamanlamaya göre çalışan bir işlev oluşturdunuz. Zamanlayıcı Tetikleyicileri hakkında daha fazla bilgi için bkz: [Azure işlevleri ile kod yürütme zamanlama](functions-bindings-timer.md).
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
-
-Zamanlayıcı tetikleyicileri hakkında daha fazla bilgi edinmek için bkz. [Azure İşlevleri ile kod yürütme zamanlama](functions-bindings-timer.md).

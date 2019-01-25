@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: 3eb1228ed9d15fb976f94df114f8725a8c41599d
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: ba79365ec310c7d62d0a4de07991d516430b9d41
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230467"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54886161"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Office 365 Yönetim çözümüne (Önizleme)
 
@@ -29,7 +29,7 @@ Office 365 yönetim çözümü, Log Analytics, Office 365 ortamınızda izlemeni
 - Yapılandırma değişiklikleri veya yüksek ayrıcalıklı işlemleri izlemek için yönetici etkinliklerini izler.
 - Algılama ve kuruluş gereksinimlerinize özelleştirilebilen istenmeyen kullanıcı davranışı araştırın.
 - Denetim ve uyumluluk gösterir. Örneğin, dosya erişim işlemleri ve denetim ve uyumluluk işlemiyle size gibi gizli bilgiler içeren dosyaları üzerinde izleyebilirsiniz.
-- Kullanarak işletimsel sorun giderme işlemleri uygulayabilirsiniz [günlük aramaları](../../azure-monitor/log-query/log-query-overview.md) kuruluşunuzun Office 365 etkinlik verileri üzerinde.
+- Kullanarak işletimsel sorun giderme işlemleri uygulayabilirsiniz [günlük aramaları](../log-query/log-query-overview.md) kuruluşunuzun Office 365 etkinlik verileri üzerinde.
 
 ## <a name="prerequisites"></a>Önkoşullar
 Yüklenmiş ve yapılandırılmış bu çözüm olan önce gerekli verilmiştir.
@@ -40,7 +40,7 @@ Yüklenmiş ve yapılandırılmış bu çözüm olan önce gerekli verilmiştir.
  
 
 ## <a name="management-packs"></a>Yönetim paketleri
-Bu çözüm, tüm yönetim paketlerinde yüklemez [bağlı Yönetim grupları](../../azure-monitor/platform/om-agents.md).
+Bu çözüm, tüm yönetim paketlerinde yüklemez [bağlı Yönetim grupları](../platform/om-agents.md).
   
 ## <a name="install-and-configure"></a>Yükleme ve yapılandırma
 Başlangıç ekleyerek [aboneliğinizi Office 365 çözüme](solutions.md#install-a-management-solution). Eklendikten sonra Office 365 aboneliğinize erişimi vermek için bu bölümdeki yapılandırma adımları gerçekleştirmeniz gerekir.
@@ -476,7 +476,7 @@ Bağlantısındaki işlemi kullanarak Office 365 yönetim çözümü kaldırabil
 
 ## <a name="data-collection"></a>Veri toplama
 ### <a name="supported-agents"></a>Desteklenen aracılar
-Office 365 çözüm herhangi bir veri almıyorsa [Log Analytics aracılarını](../../azure-monitor/platform/agent-data-sources.md).  Office 365'ten doğrudan verileri alır.
+Office 365 çözüm herhangi bir veri almıyorsa [Log Analytics aracılarını](../platform/agent-data-sources.md).  Office 365'ten doğrudan verileri alır.
 
 ### <a name="collection-frequency"></a>Toplama sıklığı
 Bu, başlangıçta Toplanacak veriler için birkaç saat sürebilir. Toplama başladığında, Office 365 gönderen bir [Web kancası bildirim](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) ayrıntılı ile verileri Log analytics'e her bir kayıt oluşturulur. Bu kayıt alınan sonra birkaç dakika içinde Log Analytics'te kullanılabilir.
@@ -656,7 +656,7 @@ Bu özellikler, tüm SharePoint kayıtlara yaygındır.
 | EventSource | SharePoint'te bir olayın oluştuğunu belirtir. Olası değerler şunlardır: SharePoint veya ObjectModel. |
 | Itemtype | Erişilen veya değiştirilen nesnenin türü. Ayrıntılar için Itemtype tabloya nesne türlerine bakın. |
 | MachineDomainInfo | Cihaz eşitleme işlemleri hakkındaki bilgiler. Bu bilgiler, yalnızca istekteki ise bildirilir. |
-| Machineıd |   Cihaz eşitleme işlemleri hakkındaki bilgiler. Bu bilgiler, yalnızca istekteki ise bildirilir. |
+| MachineId |   Cihaz eşitleme işlemleri hakkındaki bilgiler. Bu bilgiler, yalnızca istekteki ise bildirilir. |
 | Site_ | Dosya veya klasör kullanıcı tarafından erişilen bulunduğu sitenin GUID. |
 | Source_Name | Denetlenen işlemi tetikleyen varlık. Olası değerler şunlardır: SharePoint veya ObjectModel. |
 | UserAgent | Kullanıcının istemci veya tarayıcı ilgili bilgiler. Bu bilgiler istemci veya tarayıcı tarafından sağlanır. |
@@ -708,6 +708,6 @@ Aşağıdaki tabloda, bu çözüm tarafından toplanan güncelleştirme kayıtla
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Ayrıntılı güncelleştirme verilerini görüntülemek için [Log Analytics](../../azure-monitor/log-query/log-query-overview.md)’te Günlük Aramalarını kullanın.
-* [Kendi panolarınızı oluşturun](../../azure-monitor/platform/dashboards.md) , sık kullanılan Office 365 arama sorgularını görüntülemek için.
-* [Uyarı oluşturma](../../azure-monitor/platform/alerts-overview.md) önemli Office 365 etkinliklerini proaktif olarak gönderilecek.  
+* Ayrıntılı güncelleştirme verilerini görüntülemek için [Log Analytics](../log-query/log-query-overview.md)’te Günlük Aramalarını kullanın.
+* [Kendi panolarınızı oluşturun](../learn/tutorial-logs-dashboards.md) , sık kullanılan Office 365 arama sorgularını görüntülemek için.
+* [Uyarı oluşturma](../platform/alerts-overview.md) önemli Office 365 etkinliklerini proaktif olarak gönderilecek.  

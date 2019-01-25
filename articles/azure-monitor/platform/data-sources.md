@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: bwren
-ms.openlocfilehash: 39229bbd120ca52f31a0bd54446e49990d952c9d
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: b9029676df6a878a6d3d5796928cbad9c20cd685
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020141"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54889068"
 ---
 # <a name="sources-of-data-in-azure-monitor"></a>Azure İzleyici'de veri kaynakları
 Bu makalede, durumunu ve performansını, kaynakları ve bunlar üzerinde çalışan uygulamaları izlemek için Azure İzleyici tarafından toplanan veri kaynaklarını açıklar. Bu kaynaklara başka bir bulut ya da şirket içi azure'da olabilir.  Bkz: [Azure İzleyici tarafından toplanan veriler](data-collection.md) nasıl görüntüleyebilirsiniz ve bu verilerin nasıl depolandığı ile ilgili ayrıntılar için.
@@ -61,7 +61,7 @@ Belirli bir kaynak için etkinlik günlüğü kendi içinde birden çok kaynakta
 
 
 ### <a name="resource-diagnostic-logs"></a>Kaynak tanılama günlükleri
-Etkinlik günlüğü kaynak düzeyinde bir Azure kaynak gerçekleştirilen işlemler hakkında bilgi sağlarken [tanılama günlükleri](../../azure-monitor/platform/diagnostic-logs-overview.md) kaynağının işlemi hakkında ayrıntılı bilgiler sağlar.   Bu günlükler içeriği ve yapılandırma gereksinimleri [kaynak türüne göre değişir](../../azure-monitor/platform/tutorial-dashboards.md).
+Etkinlik günlüğü kaynak düzeyinde bir Azure kaynak gerçekleştirilen işlemler hakkında bilgi sağlarken [tanılama günlükleri](../../azure-monitor/platform/diagnostic-logs-overview.md) kaynağının işlemi hakkında ayrıntılı bilgiler sağlar.   Bu günlükler içeriği ve yapılandırma gereksinimleri [kaynak türüne göre değişir](../../azure-monitor/platform/diagnostic-logs-schema.md).
 
 Tanılama günlüklerinin Azure portalında doğrudan görüntüleyemiyorum, ancak yapabilecekleriniz [Azure depolama, arşivleme şirketlerde](../../azure-monitor/platform/archive-diagnostic-logs.md) ve bunları dışarı aktarma [olay hub'ı](../../event-hubs/event-hubs-about.md) diğer hizmetlere yönelik yeniden yönlendirme veya [günlüğüne Analytics](../../azure-monitor/platform/diagnostic-logs-stream-log-store.md) analiz. Başkalarının edilmeden önce bir depolama hesabına yazma sırasında bazı kaynaklar doğrudan Log Analytics'e yazabilirsiniz [Log Analytics'e içeri](../../azure-monitor/platform/azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage).
 

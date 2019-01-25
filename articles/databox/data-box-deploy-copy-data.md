@@ -6,25 +6,26 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/16/2019
+ms.date: 01/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 2b6db4977b585b50168c2fa523db9210ca031ff3
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 0501ca031fbe6f1d1f16b4db55fde6a1662286f3
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359298"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904123"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>Öğretici: SMB üzerinden Azure Data Box için veri kopyalama
 
-Bu öğreticide yerel web arabirimini kullanarak bağlantı kurma, ana bilgisayarınızdan veri kopyalama ve ardından Data Box'ı göndermeye hazırlama adımları anlatılmaktadır.
+Bu öğreticide bağlanın ve yerel web UI aracılığıyla ana bilgisayardan veri kopyalama işlemini açıklamaktadır.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
+> * Önkoşullar
 > * Data Box'a bağlanma
 > * Data Box'a veri kopyalama
-> * Data Box'ı göndermeye hazırlama.
+
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -34,7 +35,7 @@ Başlamadan önce aşağıdakilerden emin olun:
 2. Data Box'ınızı aldınız ve sipariş durumu Portalı'nda **teslim edildi**.
 3. Data Box üzerinden kopyalamak istediğiniz verileri içeren bir ana bilgisayarınız var. Ana bilgisayarınız:
     - [Desteklenen bir işletim sistemi](data-box-system-requirements.md) çalıştırılmalıdır.
-    - Yüksek hızlı bir ağa bağlı olmalıdır. En az bir adet 10 GbE bağlantınızın olması önemle tavsiye edilir. 10 GbE bağlantı kullanılabilir değilse, 1 GbE veri bağlantı kullanır, ancak kopyalama hızı etkilenir. 
+    - Yüksek hızlı bir ağa bağlı olmalıdır. En az bir adet 10 GbE bağlantınızın olması önemle tavsiye edilir. 10 GbE bağlantı kullanılabilir değilse, 1 GbE veri bağlantı kullanır, ancak kopyalama hızı etkilenir.
 
 ## <a name="connect-to-data-box"></a>Data Box'a bağlanma
 
@@ -87,7 +88,7 @@ Bir Windows Server ana bilgisayar kullanıyorsanız, Kutusu'na veri bağlamak i�
     
     ![Paylaşıma Dosya Gezgini ile bağlanma 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png)    
 
-    **Her zaman kopyalamayı düşündüğünüz dosyalar için paylaşımda bir klasör oluşturun ve ardından dosyaları bu klasöre kopyalayın**. Blok blobu altında klasör oluşturulur ve sayfa blob paylaşımları veriler BLOB olarak karşıya bir kapsayıcıyı temsil eder. Dosyaları doğrudan kopyalanamıyor *$root* depolama hesabında klasör.
+    **Her zaman kopyalamayı düşündüğünüz dosyalar için paylaşımda bir klasör oluşturun ve ardından dosyaları bu klasöre kopyalayın**. Blok blobu altında klasör oluşturulur ve sayfa blob paylaşımları veriler BLOB olarak karşıya bir kapsayıcıyı temsil eder. Dosyaları doğrudan kopyalanamıyor *kök* depolama hesabında klasör.
     
      
 
@@ -103,7 +104,7 @@ Data Box paylaşımlarına bağlandıktan sonra sonraki adıma veri kopyalamakt�
     - Azure'da aynı son hedefine aynı verileri kopyalayın. 
      
   Bu gibi durumlarda, nihai sonucu belirlenemiyor.
-- Her zaman bir paylaşım kapsamında kopyalayın ve ardından dosyaları klasöre kopyalayın istediğiniz dosyalar için bir klasör oluşturun. Blok blobu altında klasör oluşturulur ve sayfa blob paylaşımları, verilerin bloblar halinde karşıya bir kapsayıcı temsil eder. Dosyaları doğrudan kopyalanamıyor *$root* depolama hesabında klasör.
+- Her zaman bir paylaşım kapsamında kopyalayın ve ardından dosyaları klasöre kopyalayın istediğiniz dosyalar için bir klasör oluşturun. Blok blobu altında klasör oluşturulur ve sayfa blob paylaşımları, verilerin bloblar halinde karşıya bir kapsayıcı temsil eder. Dosyaları doğrudan kopyalanamıyor *kök* depolama hesabında klasör.
 
 SMB paylaşımı bağlandıktan sonra veri kopyalama başlar. Verilerinizi kopyalamak için Robocopy gibi SMB uyumlu herhangi bir dosya kopyalama aracını kullanabilirsiniz. Robocopy ile birden fazla kopyalama işlemini başlatabilirsiniz. Aşağıdaki komutu kullanın:
     
@@ -203,19 +204,16 @@ Veri bütünlüğünü sağlamak için sağlama toplamı veri kopyalama sırası
    ![Panoda boş ve kullanılan alanı doğrulama](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 
 
-## <a name="prepare-to-ship"></a>Göndermeye hazırlama
-
-[!INCLUDE [data-box-prepare-to-ship](../../includes/data-box-prepare-to-ship.md)]
-
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bu öğreticide aşağıdaki Azure Data Box konularını öğrendiniz:
 
 > [!div class="checklist"]
+> * Önkoşullar
 > * Data Box'a bağlanma
 > * Data Box'a veri kopyalama
-> * Data Box'ı göndermeye hazırlama
+
 
 Data Box'ınızı Microsoft'a göndermeye hakkında bilgi edinmek için sonraki öğreticiye ilerleyin.
 

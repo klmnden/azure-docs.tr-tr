@@ -3,7 +3,7 @@ title: Azure CLI kullanarak bir kullanıcı tarafından atanan yönetilen kimlik
 description: Adım adım yönergeler oluşturmak, liste ve bir kullanıcı tarafından atanan silmek yönetilen Azure CLI kullanarak kimliği.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
-ms.author: daveba
-ms.openlocfilehash: 34f1eaae85fd222be43624429570c77536691a2d
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: priyamo
+ms.openlocfilehash: 4c5607a506ba392fbde0308d041ce79b08d04a3f
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54435915"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54882253"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-the-azure-cli"></a>Oluşturma, liste veya Azure CLI kullanarak bir kullanıcı tarafından atanan yönetilen kimlik silme
 
