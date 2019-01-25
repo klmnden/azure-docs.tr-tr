@@ -14,12 +14,12 @@ ms.devlang: R
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: jepeach
-ms.openlocfilehash: bc00bd3b61398355c663d133c0c9a66c2a52aa8d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 102191b885d2a4a9234b7783b0a51b09903d3abd
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47048366"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807465"
 ---
 # <a name="r-developers-guide-to-azure"></a>Azure için R Geliştirici Kılavuzu
 <img src="media/r-developers-guide/logo_r.svg" alt="R logo" align="right" width="200" />
@@ -40,7 +40,7 @@ Bu makalede, R dil desteği aşağıdaki Azure Hizmetleri yer almaktadır:
 |[Azure Databricks](#azure-databricks)                            |R ve diğer dilleri destekleyen işbirliğine dayalı bir Spark ortam               |
 |[Azure Machine Learning Studio](#azure-machine-learning-studio)  |Azure'nın makine öğrenimi denemelerini özel R betikleri çalıştırma                      |
 |[Azure Batch](#azure-batch)                                      |çeşitli ekonomik bir kümede çok düğüm arasında R kodunu çalıştırma seçenekleri sunar.|
-|[Azure Not Defterleri](#azure-notebooks)                              |bir ücretsiz (ancak sınırlı) bulut tabanlı sürümü Jupyter Not Defterleri                  |
+|[Azure Notebooks](#azure-notebooks)                              |bulut tabanlı bir ücretsiz sürüm, Jupyter Not Defterleri                  |
 |[Azure SQL Veritabanı](#azure-sql-database)                        |SQL Server veritabanı altyapısı içinde R betikleri çalıştırma                            |
 
 ## <a name="data-science-virtual-machine"></a>Veri Bilimi Sanal Makinesi
@@ -73,7 +73,7 @@ Bu bir küme genelinde R kodunuzu ölçeklendirme olanak tanıyan bir kurumsal d
 ML Hizmetleri kümesi oluşturma talimatları için bkz. ["Azure HDInsight üzerinde ML hizmetleri kullanmaya başlama"](https://docs.microsoft.com/azure/hdinsight/r-server/r-server-get-started) makalesi.
 
 ## <a name="azure-databricks"></a>Azure Databricks
-[Azure Databricks](https://azure.microsoft.com/services/databricks/) , Microsoft Azure bulut hizmetleri platformu için iyileştirilen bir Apache Spark temelli analiz platformudur.  Apache Spark’ın kurucuları ile birlikte tasarlanan Databricks, tek tıklama ile kurulum olanağı ve kolaylaştırılmış iş akışlarının yanı sıra veri uzmanları, veri mühendisleri ve iş analistleri arasında işbirliği sağlayan etkileşimli bir çalışma alanı sunmak amacıyla Azure ile tümleştirilmiştir.
+[Azure Databricks](https://azure.microsoft.com/services/databricks/), Microsoft Azure bulut hizmetleri platformu için iyileştirilen Apache Spark tabanlı bir analiz platformudur.  Apache Spark’ın kurucuları ile birlikte tasarlanan Databricks, tek tıklama ile kurulum olanağı ve kolaylaştırılmış iş akışlarının yanı sıra veri uzmanları, veri mühendisleri ve iş analistleri arasında işbirliği sağlayan etkileşimli bir çalışma alanı sunmak amacıyla Azure ile tümleştirilmiştir.
 
 Databricks'te işbirliği platformun dizüstü bilgisayar sistemi tarafından etkinleştirilir.  Kullanıcılar oluşturabilir, paylaşma ve Not Defterleri sistemleri diğer kullanıcılarla düzenleyin.  Bu not defterlerini Spark kümeleri Databricks ortamında yönetilen karşı yürütülen kodu yazmak kullanıcıların izin verin.  Bu not defterlerini tam olarak R desteği ve kullanıcılar için Spark hem erişmesini `SparkR` ve `sparklyr` paketleri.
 
@@ -104,16 +104,17 @@ Bu paketin Azure ML, R kodunuz için ölçeklenebilir dağıtım platformu olara
 ## <a name="azure-batch"></a>Azure Batch
 Büyük ölçekli R işleri için kullanabileceğiniz [Azure Batch](https://azure.microsoft.com/services/batch/).  Bu hizmet bulut ölçeğinde iş zamanlaması ve işlem yönetimi sağlar. böylece, R iş yükünüz onlarca, yüzlerce veya binlerce sanal makine arasında ölçeklendirebilirsiniz.  Yok, genelleştirilmiş bir bilgi işlem platformu olduğundan, birkaç seçenek Azure Batch'te R işlerini çalıştırmak için.
 
-Bir seçenek, Microsoft'un kullanmaktır <code>[doAzureParallel](https://github.com/Azure/doAzureParallel)</code> paket.  Bu bir R paketi için bir paralel arka uç olan `foreach` paket.  Her bir yinelemesini sağlayan `foreach` Azure Batch kümedeki bir düğümde paralel olarak çalıştırmak için döngü.  Paket için bir giriş için lütfen okuyun ["doAzureParallel: doğrudan R oturumunuzda Azure'un esnek işlem avantajından"](https://azure.microsoft.com/blog/doazureparallel/) blog gönderisi.
+Bir seçenek, Microsoft'un kullanmaktır <code>[doAzureParallel](https://github.com/Azure/doAzureParallel)</code> paket.  Bu bir R paketi için bir paralel arka uç olan `foreach` paket.  Her bir yinelemesini sağlayan `foreach` Azure Batch kümedeki bir düğümde paralel olarak çalıştırmak için döngü.  Paket için bir giriş için lütfen okuyun ["doAzureParallel: Azure'un esnek işlem doğrudan R oturumunuzda yararlanmak"](https://azure.microsoft.com/blog/doazureparallel/) blog gönderisi.
 
 Azure Batch hizmetinde bir R betiğini çalıştırmak için başka bir seçenek, Azure portalında bir Batch uygulaması olarak "RScript.exe" kodunuzla paket oluşturmaktır.  Ayrıntılı bir Rehber için başvurun ["R iş yüklerini Azure Batch."](https://azure.microsoft.com/blog/r-workloads-on-azure-batch/)
 
 Üçüncü bir seçenek kullanmaktır [Azure Dağıtılmış veri Mühendisliği Araç Seti](https://github.com/Azure/aztk) (AZTK) olanak tanıyan, isteğe bağlı Spark kümeleri Azure Batch'te Docker kapsayıcılarını kullanarak sağlama.  Bu, Spark işlerini Azure'da çalıştırmak için ekonomik bir yol sağlar.  Kullanarak [AZTK ile SparklyR](https://github.com/Azure/aztk/wiki/SparklyR-on-Azure-with-AZTK), R betiklerinizi bulutta kolayca ve ekonomik bir şekilde genişletilebilir.
 
-## <a name="azure-notebooks"></a>Azure Not Defterleri
+## <a name="azure-notebooks"></a>Azure Notebooks
+
 [Azure not defterleri](https://notebooks.azure.com) için Not Defterleri ile çalışmayı tercih ettiğiniz R geliştiricileri kendi kodlarını Azure'a taşımalarına için düşük maliyetli, düşük uyuşmazlıkları yöntemidir.  Herkesin geliştirin ve kendi tarayıcı kullanarak kodu çalıştırmak için ücretsiz bir hizmet olduğundan [Jupyter](https://jupyter.org/), markdown prose tarayan ve yürütülebilir kod grafik tek bir tuvale sağlayan bir açık kaynak projesi olan.
 
-Azure not defterleri küçük ölçekli projeler için uygulanabilir bir seçenek olsa da, büyük ölçekli veri bilimi projeleri için uygun hale getiren bazı sınırlamalar vardır.  Şu anda 4 GB bellek her not defterinin işleme hizmet sınırlamaları ve veri kümeleri yalnızca 1 GB olabilir.  Ancak, daha küçük analizleri yayımlamak için kolay, ücretsiz bir seçenek budur.
+4 GB bellek ve 1 GB veri kümelerinin her not defterinin işleme sınırları gibi Azure not defterleri ücretsiz hizmet katmanına küçük ölçekli projeler için uygun bir seçenektir. Ancak, işlem ve veri güç bu sınırlamaların ötesine gerekiyorsa, bir veri bilimi sanal makinesi örneğinde not defterlerini çalıştırabilirsiniz. Daha fazla bilgi için [yönetme ve Azure not defterleri projeleri - bilgi işlem katmanı yapılandırma](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
 
 ## <a name="azure-sql-database"></a>Azure SQL Database
 [Azure SQL veritabanı](https://azure.microsoft.com/services/sql-database/) Microsoft'un akıllı, tam olarak yönetilen bir ilişkisel bulut veritabanı hizmetidir.  SQL Server'ın gücünden altyapı kurulumu bir çaba harcamalarına gerek kalmadan kullanmanıza olanak sağlar.  Bu içerir [Machine Learning Hizmetleri](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning?view=sql-server-2017), SQL Hizmeti daha yeni eklemeler birinde.

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/7/2019
+ms.date: 1/24/2019
 ms.author: raiye
-ms.openlocfilehash: e621d526aed3c4d98d964dfdcd7ba01e8c1fb830
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 59afdd3bbb00dce6085ea76685768db3e8eec5cc
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104871"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900859"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure konuk işletim sistemi sürümleri ve SDK uyumluluk matrisi
 En son Azure konuk işletim sistemi hakkında güncel bilgiler ile bulut Hizmetleri için sürümleri sağlar. Bu bilgiler bir konuk işletim sistemi devre dışı bırakılmasına sıranız yükseltme yolunuza planlamanıza yardımcı olur. Kullanılacak rollerinizi yapılandırırsanız *otomatik* konuk işletim sistemi güncelleştirmeleri açıklandığı [Azure konuk işletim sistemi güncelleştirme ayarları][Azure Guest OS Update Settings], bu sayfayı okuyun önemli değildir.
@@ -43,6 +43,9 @@ Konuk işletim sisteminizi güncelleştirin konusunda emin değilseniz? Denetlem
 
 ## <a name="news-updates"></a>Haber güncelleştirmeleri
 
+###### <a name="january-24-2019"></a>**24 Ocak 2019**
+Aile 6 konuk işletim sistemi (Windows Server 2019) kullanıma sundu.
+
 ###### <a name="january-7-2019"></a>**7 Ocak 2019**
 Aralık konuk işletim sistemi kullanıma sundu.
 
@@ -65,6 +68,21 @@ Temmuz konuk işletim sistemi kullanıma sundu.
 Haziran konuk işletim sistemi kullanıma sundu.
 
 ## <a name="releases"></a>Yayınlar
+
+## <a name="family-6-releases"></a>Aile 6 yayınlar
+**Windows Server 2019**
+
+.NET framework yüklü: 3.5, 4.7.2
+
+> [!NOTE]
+> .NET 3.0 için Windows Azure SDK'sı indirilebilir [burada][Windows Azure SDK].
+>
+
+| Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak |
+| --- | --- | --- |
+| WA-GUEST-OS-6.2_201812-01 |24 Ocak 2019 |POST 6.4 |
+| WA-GUEST-OS-6.1_201811-01 |24 Ocak 2019 |POST 6.3 |
+
 ## <a name="family-5-releases"></a>Ailesi 5 yayınlar
 **Windows Server 2016**
 
@@ -205,3 +223,4 @@ Konuk işletim sistemi desteklenebilirliği ve kullanımdan kaldırma İlkesi a�
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
 [fix]: https://technet.microsoft.com/library/security/ms17-010.aspx
+[Windows Azure SDK]: https://www.microsoft.com/en-us/download/details.aspx?id=54917

@@ -13,14 +13,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 01/24/2019
 ms.author: jowargo
-ms.openlocfilehash: afc3b0022056d529c69eeaabd229b809623e66ea
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 7e31f4f229e722d51f5de6b133e70dfb1c013533
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478595"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888167"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Azure Notification Hubs ile anında iletme bildirimleri: Sık sorulan sorular
 
@@ -194,7 +194,7 @@ Ne zaman açılmamış bir uygulamalar içeren cihazları bildirimleri almazsın
 
 ### <a name="is-there-audit-log-capability"></a>Denetim günlüğü özelliği var mı?
 
-Sunulan işlem günlükleri, tüm Notification hubs'ı yönetim işlemlerini Git [Azure portal].
+Evet. Tüm Notification hubs'ı yönetim işlemleri güncelleştirme, Azure etkinlik günlüğü sunulmuştur [Azure portal]. Azure etkinlik günlüğü aboneliklerinizdeki kaynakları üzerinde gerçekleştirilen işlemleri hakkında Öngörüler sunar. Etkinlik günlüğü'nü kullanarak ne, belirleyebilirsiniz kim ve ne zaman tüm yazma işlemlerini (PUT, POST, DELETE), aboneliğinizdeki kaynaklar için yapılan. Ayrıca, işlemleri ve diğer ilgili özellikler durumunu anlayabilirsiniz. Ancak. Etkinlik günlüğü işlemi okuma (GET) içermez.
 
 ## <a name="monitoring-and-troubleshooting"></a>İzleme ve sorun giderme
 

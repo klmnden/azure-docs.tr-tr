@@ -5,15 +5,15 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.date: 10/19/2018
+ms.date: 01/24/2019
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1d2d921e02b56e951b4239c15471995eaf3cd0d1
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 723a02c529718ea17750fa72fe568aec6e963118
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54813594"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901301"
 ---
 # <a name="azure-ad-connect--adsyncconfig-powershell-reference"></a>Azure AD Connect:  ADSyncConfig PowerShell başvurusu
 Aşağıdaki belgeler Azure AD Connect ile birlikte sağlanan ADSyncConfig.psm1 PowerShell modülü için başvuru bilgileri sağlar.
@@ -1215,7 +1215,7 @@ Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADob
 ### <a name="description"></a>AÇIKLAMA
 Set-ADSyncUnifiedGroupWritebackPermissions işlevi şunlardır AD eşitleme hesabı için gerekli izinleri verecektir:
 1.
-Genel okuma/yazma, silme, ağaç silin ve tüm nesne türleri için Create\Delete alt ve alt nesnelerinin
+Genel okuma/yazma, silme, ağaç silin ve tüm Create\Delete alt nesne türlerini ve alt nesnelerinin Grup
 
 Bu izinleri, ormandaki tüm etki alanları için uygulanır.
 İsteğe bağlı olarak, yalnızca (dahil devralma alt nesneleri için), AD nesnesi üzerinde bu izinleri ayarlamak için bir DistinguishedName ADobjectDN parametresi olarak sağlayabilirsiniz.
