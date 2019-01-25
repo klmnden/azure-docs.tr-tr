@@ -30,20 +30,20 @@ items:
       items:
       - name: .NET
         href: storage-quickstart-blobs-dotnet.md
-      - name: Java (Depolama SDK v10)
+      - name: Java
         href: storage-quickstart-blobs-java-v10.md
+      - name: Node.js
+        href: storage-quickstart-blobs-nodejs-v10.md
       - name: Python
         href: storage-quickstart-blobs-python.md
-      - name: Başlayın
-        href: storage-quickstart-blobs-go.md
-      - name: Ruby
-        href: storage-quickstart-blobs-ruby.md
-      - name: Node.js (Depolama SDK v10)
-        href: storage-quickstart-blobs-nodejs-v10.md
       - name: JS/HTML
         href: storage-quickstart-blobs-javascript-client-libraries.md
+      - name: Başlayın
+        href: storage-quickstart-blobs-go.md
       - name: PHP
         href: storage-quickstart-blobs-php.md
+      - name: Ruby
+        href: storage-quickstart-blobs-ruby.md
   - name: Öğreticiler
     items:
     - name: Görüntüyü karşıya yükleme ve işleme
@@ -74,13 +74,13 @@ items:
         href: storage-blob-static-website-host.md
       - name: 2 - SSL ile özel etki alanını etkinleştirme
         href: storage-blob-static-website-custom-domain.md
-    - name: Bulut depolama alanında yüksek kullanılabilirliği tasarlama
+    - name: Uygulamaları yüksek kullanılabilirlik için tasarlama
       items:
       - name: 1 - Uygulamanızı yüksek oranda kullanılabilir hale getirme
         href: storage-create-geo-redundant-storage.md
       - name: 2 - RA-GRS depolama alanı ile hata simülasyonu
         href: storage-simulate-failure-ragrs-account-app.md
-    - name: Bulut depolama alanında yapılandırılmamış verileri arama
+    - name: Yapılandırılmamış verileri arama
       href: storage-unstructured-search.md
   - name: Örnekler
     items:
@@ -94,7 +94,7 @@ items:
       href: storage-samples-blobs-cli.md
   - name: Kavramlar
     items:
-    - name: Depolama hesapları
+    - name: Depolama hesabı yönetimi
       href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       items:
       - name: Depolama hesabını yönetme
@@ -131,69 +131,16 @@ items:
         href: ../common/storage-redundancy-zrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Coğrafi olarak yedekli depolama
         href: ../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Olağanüstü durum kurtarma kılavuzu
+        href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: RA-GRS kullanarak HA Uygulamaları tasarlama
+        href: ../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Erişim katmanları
-      href: storage-blob-storage-tiers.md
-    - name: Azure Blob Depolama Yaşam Döngüsünü yönetme
-      href: storage-lifecycle-management-concepts.md
-    - name: Olaylara tepki verme
-      href: storage-blob-event-overview.md
-    - name: Ölçeklenebilirlik ve performans hedefleri
-      href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Performans ve ölçeklenebilirlik denetim listesi
-      href: ../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Eşzamanlılık
-      href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Olağanüstü durum kurtarma kılavuzu
-      href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Verileri Depolamaya ve Depolamadan aktarma
-      href: ../common/storage-moving-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Sayfa blobu özellikleri
-      href: storage-blob-pageblob-overview.md
-    - name: Azure Diskleri
       items:
-      - name: Premium Depolama
-        items:
-        - name: Linux
-          items:
-          - name: VM Diskleri için yüksek performanslı Premium Depolama
-            href: ../../virtual-machines/linux/premium-storage.md
-          - name: Azure Site Recovery kullanarak Premium Depolamaya geçiş
-            href: ../../virtual-machines/linux/migrate-to-premium-storage-using-azure-site-recovery.md
-          - name: Yüksek performans tasarımı
-            href: ../../virtual-machines/linux/premium-storage-performance.md
-        - name: Windows
-          items:
-          - name: VM Diskleri için yüksek performanslı Premium Depolama
-            href: ../../virtual-machines/windows/premium-storage.md
-          - name: Azure Site Recovery kullanarak Premium Depolamaya geçiş
-            href: ../../virtual-machines/windows/migrate-to-premium-storage-using-azure-site-recovery.md
-          - name: Yüksek performans tasarımı
-            href: ../../virtual-machines/windows/premium-storage-performance.md
-      - name: Standart Depolama
-        items:
-        - name: Linux
-          items:
-          - name: VM Diskleri için Standart Depolama
-            href: ../../virtual-machines/linux/standard-storage.md
-        - name: Windows
-          items:
-          - name: VM Diskleri için Standart Depolama
-            href: ../../virtual-machines/windows/standard-storage.md
-      - name: Ekli VHD’lerde sorun giderme
-        href: storage-troubleshoot-vhds.md
-        items:
-        - name: Linux
-          items:
-          - name: Depolama kaynağı silme hataları
-            href: ../../virtual-machines/linux/storage-resource-deletion-errors.md
-          - name: Ekli VHD’ler ile VM’lerin beklenmeyen yeniden başlatmaları
-            href: ../../virtual-machines/linux/unexpected-reboots-attached-vhds.md
-        - name: Windows
-          items:
-          - name: Depolama kaynağı silme hataları
-            href: ../../virtual-machines/windows/storage-resource-deletion-errors.md
-          - name: Ekli VHD’ler ile VM’lerin beklenmeyen yeniden başlatmaları
-            href: ../../virtual-machines/windows/unexpected-reboots-attached-vhds.md
+      - name: Erişim katmanları
+        href: storage-blob-storage-tiers.md
+      - name: Azure Blob Depolama Yaşam Döngüsünü yönetme
+        href: storage-lifecycle-management-concepts.md
     - name: Güvenlik
       items:
       - name: Güvenlik kılavuzu
@@ -214,81 +161,95 @@ items:
         href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Azure Depolama istemcisi için güvenli TLS'yi etkinleştirme
         href: ../common/storage-security-tls.md
-      - name: Uyumluluk teklifleri
-        href: ../common/storage-compliance-offerings.md
-    - name: Veri aktarımı çözümlerini karşılaştırma
-      href: ../common/storage-choose-data-transfer-solution.md
+    - name: Performans ve ölçeklenebilirlik
       items:
-      - name: Büyük veri kümesi, düşük ağ bant genişliği
-        href: ../common/storage-solution-large-dataset-low-network.md
-      - name: Büyük veri kümesi, orta ve yüksek ağ bant genişliği
-        href: ../common/storage-solution-large-dataset-moderate-high-network.md
-      - name: Küçük veri kümesi, düşük ve orta ağ bant genişliği
-        href: ../common/storage-solution-small-dataset-low-moderate-network.md
-      - name: Düzenli aralıklarla veri aktarımı
-        href: ../common/storage-solution-periodic-data-transfer.md
-    - name: İzleme ve sorun giderme
+      - name: Ölçeklenebilirlik ve performans hedefleri
+        href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Performans ve ölçeklenebilirlik denetim listesi
+        href: ../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Eşzamanlılık
+      href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Veri geçişi
       items:
-      - name: Sorun giderme öğreticisi
-        href: ../common/storage-e2e-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: İzleme, tanılama ve sorun giderme
-        href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Ölçümler ve günlüğe kaydetme
+      - name: Veri aktarımı çözümlerini karşılaştırma
+        href: ../common/storage-choose-data-transfer-solution.md
         items:
-        - name: Azure İzleyicisi'nde ölçümler
-          href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Yeni ölçümlere geçme
-          href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Depolama Analizi
-          href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Ölçümleri etkinleştirme ve görüntüleme (klasik)
-          href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Verileri İçeri/Dışarı Aktarma
-      href: ../common/storage-import-export-service.md
-      items:
-      - name: Gereksinimleri inceleme
-        href: ../common/storage-import-export-requirements.md
-      - name: Verileri blob'larda içeri aktarma
-        href: ../common/storage-import-export-data-to-blobs.md
-      - name: Verileri dosyalarda içeri aktarma
-        href: ../common/storage-import-export-data-to-files.md
-      - name: Verileri blob'lardan dışarı aktarma
-        href: ../common/storage-import-export-data-from-blobs.md
-      - name: Nasıl yapılır
+        - name: Büyük veri kümesi, düşük ağ bant genişliği
+          href: ../common/storage-solution-large-dataset-low-network.md
+        - name: Büyük veri kümesi, orta ve yüksek ağ bant genişliği
+          href: ../common/storage-solution-large-dataset-moderate-high-network.md
+        - name: Küçük veri kümesi, düşük ve orta ağ bant genişliği
+          href: ../common/storage-solution-small-dataset-low-moderate-network.md
+        - name: Düzenli aralıklarla veri aktarımı
+          href: ../common/storage-solution-periodic-data-transfer.md
+      - name: Verileri Depolamaya ve Depolamadan aktarma
+        href: ../common/storage-moving-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Verileri İçeri/Dışarı Aktarma
+        href: ../common/storage-import-export-service.md
         items:
-        - name: Sürücü durumunu görüntüleme
-          href: ../common/storage-import-export-view-drive-status.md
-        - name: İş durumunu gözden geçirme
-          href: ../common/storage-import-export-tool-reviewing-job-status-v1.md
-        - name: İçeri aktarma işini onarma
-          href: ../common/storage-import-export-tool-repairing-an-import-job-v1.md
-        - name: Dışarı aktarma işini onarma
-          href: ../common/storage-import-export-tool-repairing-an-export-job-v1.md
-      - name: SSS
-        href: ../common/storage-import-export-service-faq.md
-      - name: REST API
-        href: https://docs.microsoft.com/rest/api/storageimportexport/jobs
-      - name: Destek birimine başvurma
-        href: ../common/storage-import-export-contact-microsoft-support.md
-      - name: Arşiv
-        items:
-        - name: İçeri aktarma için sürücüleri hazırlama (v1)
-          href: ../common/storage-import-export-tool-preparing-hard-drives-import-v1.md
+        - name: Gereksinimleri inceleme
+          href: ../common/storage-import-export-requirements.md
+        - name: Verileri blob'larda içeri aktarma
+          href: ../common/storage-import-export-data-to-blobs.md
+        - name: Verileri dosyalarda içeri aktarma
+          href: ../common/storage-import-export-data-to-files.md
+        - name: Verileri blob'lardan dışarı aktarma
+          href: ../common/storage-import-export-data-from-blobs.md
+        - name: Nasıl yapılır
           items:
-          - name: Özellikleri ve meta verileri ayarlama
-            href: ../common/storage-import-export-tool-setting-properties-metadata-import-v1.md
-          - name: Örnek - İçeri aktarma için sürücüleri hazırlama
-            href: ../common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md
-          - name: İçeri aktarma için hızlı komut başvurusu
-            href: ../common/storage-import-export-tool-quick-reference-v1.md
-        - name: İçeri aktarma için sürücüleri hazırlama (v2)
-          href: ../common/storage-import-export-tool-preparing-hard-drives-import.md
+          - name: Sürücü durumunu görüntüleme
+            href: ../common/storage-import-export-view-drive-status.md
+          - name: İş durumunu gözden geçirme
+            href: ../common/storage-import-export-tool-reviewing-job-status-v1.md
+          - name: İçeri aktarma işini onarma
+            href: ../common/storage-import-export-tool-repairing-an-import-job-v1.md
+          - name: Dışarı aktarma işini onarma
+            href: ../common/storage-import-export-tool-repairing-an-export-job-v1.md
+        - name: SSS
+          href: ../common/storage-import-export-service-faq.md
+        - name: REST API
+          href: https://docs.microsoft.com/rest/api/storageimportexport/jobs
+        - name: Destek birimine başvurma
+          href: ../common/storage-import-export-contact-microsoft-support.md
+        - name: Arşiv
           items:
-          - name: Özellikleri ve meta verileri ayarlama
-            href: ../common/storage-import-export-tool-setting-properties-metadata-import-v1.md
-          - name: Örnek - İçeri aktarma için sürücüleri hazırlama
-            href: ../common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md
-          - name: İçeri aktarma için hızlı komut başvurusu
+          - name: İçeri aktarma için sürücüleri hazırlama (v1)
+            href: ../common/storage-import-export-tool-preparing-hard-drives-import-v1.md
+            items:
+            - name: Özellikleri ve meta verileri ayarlama
+              href: ../common/storage-import-export-tool-setting-properties-metadata-import-v1.md
+            - name: Örnek - İçeri aktarma için sürücüleri hazırlama
+              href: ../common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md
+            - name: İçeri aktarma için hızlı komut başvurusu
+              href: ../common/storage-import-export-tool-quick-reference-v1.md
+          - name: İçeri aktarma için sürücüleri hazırlama (v2)
+            href: ../common/storage-import-export-tool-preparing-hard-drives-import.md
+            items:
+            - name: Özellikleri ve meta verileri ayarlama
+              href: ../common/storage-import-export-tool-setting-properties-metadata-import-v1.md
+            - name: Örnek - İçeri aktarma için sürücüleri hazırlama
+              href: ../common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md
+            - name: İçeri aktarma için hızlı komut başvurusu
+              href: ../common/storage-import-export-tool-quick-reference-v1.md
+          - name: İçeri aktarma işi oluşturma
+            href: ../common/storage-import-export-creating-an-import-job.md
+          - name: Dışarı aktarma işi oluşturma
+            href: ../common/storage-import-export-creating-an-import-job.md
+          - name: İş durumunu alma
+            href: ../common/storage-import-export-retrieving-state-info-for-a-job.md
+          - name: Dışarı aktarma işi oluşturma
+            href: ../common/storage-import-export-creating-an-import-job.md
+          - name: İşleri numaralandırma
+            href: ../common/storage-import-export-enumerating-jobs.md
+          - name: İşi iptal etme ve silme
+            href: ../common/storage-import-export-cancelling-and-deleting-jobs.md
+          - name: Sürücü bildirimini yedekleme
+            href: ../common/storage-import-export-backing-up-drive-manifests.md
+          - name: İşleri numaralandırma
+            href: ../common/storage-import-export-enumerating-jobs.md
+          - name: Tanılama ve hata kurtarma
+            href: ../common/storage-import-export-diagnostics-and-error-recovery.md
+          - name: İçeri aktarma işleri için komutlar
             href: ../common/storage-import-export-tool-quick-reference-v1.md
         - name: İçeri aktarma işi oluşturma
           href: ../common/storage-import-export-creating-an-import-job.md
@@ -310,34 +271,46 @@ items:
           href: ../common/storage-import-export-diagnostics-and-error-recovery.md
         - name: İçeri aktarma işleri için komutlar
           href: ../common/storage-import-export-tool-quick-reference-v1.md
-      - name: İçeri aktarma işi oluşturma
-        href: ../common/storage-import-export-creating-an-import-job.md
-      - name: Dışarı aktarma işi oluşturma
-        href: ../common/storage-import-export-creating-an-import-job.md
-      - name: İş durumunu alma
-        href: ../common/storage-import-export-retrieving-state-info-for-a-job.md
-      - name: Dışarı aktarma işi oluşturma
-        href: ../common/storage-import-export-creating-an-import-job.md
-      - name: İşleri numaralandırma
-        href: ../common/storage-import-export-enumerating-jobs.md
-      - name: İşi iptal etme ve silme
-        href: ../common/storage-import-export-cancelling-and-deleting-jobs.md
-      - name: Sürücü bildirimini yedekleme
-        href: ../common/storage-import-export-backing-up-drive-manifests.md
-      - name: İşleri numaralandırma
-        href: ../common/storage-import-export-enumerating-jobs.md
-      - name: Tanılama ve hata kurtarma
-        href: ../common/storage-import-export-diagnostics-and-error-recovery.md
-      - name: İçeri aktarma işleri için komutlar
-        href: ../common/storage-import-export-tool-quick-reference-v1.md
-      - name: Hizmet bildirim dosyası
-        href: ../common/storage-import-export-file-format-manifest.md
-      - name: Hizmet meta veriler ve özellikler dosyası
-        href: ../common/storage-import-export-file-format-metadata-and-properties.md
-      - name: Hizmet günlük dosyası
-        href: ../common/storage-import-export-file-format-log.md
+        - name: Hizmet bildirim dosyası
+          href: ../common/storage-import-export-file-format-manifest.md
+        - name: Hizmet meta veriler ve özellikler dosyası
+          href: ../common/storage-import-export-file-format-metadata-and-properties.md
+        - name: Hizmet günlük dosyası
+          href: ../common/storage-import-export-file-format-log.md
+    - name: İzleme ve sorun giderme
+      items:
+      - name: Sorun giderme öğreticisi
+        href: ../common/storage-e2e-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: İzleme, tanılama ve sorun giderme
+        href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Ölçümler ve günlüğe kaydetme
+        items:
+        - name: Azure İzleyicisi'nde ölçümler
+          href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Yeni ölçümlere geçme
+          href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Depolama Analizi
+          href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Ölçümleri etkinleştirme ve görüntüleme (klasik)
+          href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Olay işleme
+      href: storage-blob-event-overview.md
+    - name: Sayfa blobu özellikleri
+      href: storage-blob-pageblob-overview.md
   - name: Nasıl yapılır
     items:
+    - name: Depolamaya yönelik istekleri yetkilendirme
+      items:
+      - name: Azure AD ile kimlik doğrulaması
+        items:
+        - name: RBAC ile erişim haklarını yönetme
+          href: ../common/storage-auth-aad-rbac.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Uygulamadan kimlik doğrulaması yapma
+          href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Yönetilen kimliklerle kimlik doğrulaması
+          href: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: CLI veya PowerShell ile Azure AD kimliğini kullanma
+          href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Bloblarla geliştirme
       items:
       - name: REST
@@ -362,10 +335,6 @@ items:
         href: ../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Azure klasik CLI
         href: ../common/storage-azure-cli-nodejs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Depolama Gezgini ile blob’ları yönetme
-        href: ../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Azure Otomasyonu
-        href: ../common/storage-manage-with-automation.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: İstemci Tarafında Şifreleme
       items:
       - name: .NET
@@ -376,8 +345,6 @@ items:
         href: ../common/storage-client-side-encryption-python.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Bağlantı dizelerini yapılandırma
       href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: RA-GRS kullanarak HA Uygulamaları tasarlama
-      href: ../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Azure Key Vault’u kullanarak blob’ları şifreleme ve şifre çözme
       href: storage-encrypt-decrypt-blobs-key-vault.md
     - name: Özellikler ile meta verileri ayarlama ve alma
@@ -522,6 +489,8 @@ items:
           href: /rest/api/storagerp
         - name: İçeri/Dışarı Aktarma
           href: /rest/api/storageimportexport
+    - name: Uyumluluk teklifleri
+      href: ../common/storage-compliance-offerings.md
 - name: Data Lake Storage Gen2
   items:
   - name: Data Lake Storage Gen1 belgelerine geçiş
@@ -632,9 +601,9 @@ items:
       href: http://stackoverflow.com/questions/tagged/windows-azure-storage
     - name: Videolar
       href: https://azure.microsoft.com/documentation/videos/index/?services=storage
-ms.openlocfilehash: 0b87fc2be7602e865693c2013cf18ea11e47e7c3
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: bba5e3bf1081d3141b3e754eb8c06e54f6528234
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104259"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261664"

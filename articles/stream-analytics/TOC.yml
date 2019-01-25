@@ -348,6 +348,7 @@ items:
       href: /stream-analytics-query/data-types-azure-stream-analytics
     - name: JSON ve AVRO verilerini ayrıştırma
       href: stream-analytics-parsing-json.md
+      maintainContext: true
   - name: Sorgu Dili Öğeleri
     items:
     - name: Sorgu Dili Öğelerine Genel Bakış
@@ -378,6 +379,7 @@ items:
       href: /stream-analytics-query/where-azure-stream-analytics
     - name: WITH
       href: /stream-analytics-query/with-azure-stream-analytics
+    expanded: true
   - name: Zaman Yönetimi
     items:
     - name: Zaman Yönetimine Genel Bakış
@@ -427,9 +429,9 @@ items:
     href: https://azure.microsoft.com/case-studies/?service=stream-analytics
   - name: Teknik inceleme - Gerçek zamanlı olay işleme
     href: stream-analytics-real-time-event-processing-reference-architecture.md
-ms.openlocfilehash: a66aa2ae82ab9862de7a6a6be425268462c61755
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 4e10f58b1d1e0ec7736774c91ae54ed202aa5163
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352776"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230195"
