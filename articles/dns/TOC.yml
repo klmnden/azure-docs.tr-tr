@@ -34,13 +34,13 @@ items:
     href: cli-samples.md
 - name: Kavramlar
   items:
-  - name: DNS bölgeleri ve kayıtları
+  - name: Bölgeler ve kayıtlar
     href: dns-zones-records.md
-  - name: DNS diğer ad kayıtları
+  - name: Diğer ad kayıtları
     href: dns-alias.md
-  - name: Azure DNS ile DNS temsilcisi atama
+  - name: Azure DNS ile temsilci atama
     href: dns-domain-delegation.md
-  - name: DNS SSS
+  - name: SSS
     href: dns-faq.md
   - name: Özel DNS bölgelerini kullanma
     href: private-dns-overview.md
@@ -148,9 +148,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Hizmet güncelleştirmeleri
     href: https://azure.microsoft.com/updates/?product=dns
-ms.openlocfilehash: d33aefd15104bc3cd35d1c904ffdbb7c7a9f0ec8
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: ac539c7b7454a642a8bc1d36ef01a5e7a232375d
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/22/2019
-ms.locfileid: "54428554"
+ms.locfileid: "54446373"
