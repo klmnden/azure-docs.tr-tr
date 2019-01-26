@@ -97,7 +97,7 @@ Sınıflandırıcınızı eğitim almış sonra tahmin uç nokta URL'si ve tahmi
 
 ## <a name="create-reviews-for-review-tool"></a>İncelemeler için İnceleme aracı oluşturma
 
-Önceki bölümlerde, yetişkinlere yönelik ve müstehcen içeriğin (Content Moderator), ünlüleri (görüntü işleme) ve çeşitli diğer nesnelerin (Custom Vision) gelen görüntü tarama yöntemleri Not. Ardından, bkz: **CreateReview** uygulanan etiketlerini tüm görüntüleri yükler yöntemi (olarak geçirilen _meta verileri_), insan tarafından İnceleme için kullanılabilir olabilmeleri Content Moderator gözden geçirme aracı. 
+Önceki bölümlerde, gelen görüntüleri yetişkinlere yönelik ve müstehcen içerik (Content Moderator), ünlüler (Computer Vision) ve çeşitli diğer nesneler (Custom Vision) bakımından tarama yöntemleri hakkında bilgi edindiniz. Şimdi, görüntüleri, uygulanan tüm etiketlerle birlikte, kullanıcıların incelemeleri için Content Moderator İnceleme aracına yükleyen **CreateReview** yöntemine (_Metadata_ olarak geçirilir) göz atın. 
 
 [!code-csharp[define CreateReview method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=173-196)]
 
