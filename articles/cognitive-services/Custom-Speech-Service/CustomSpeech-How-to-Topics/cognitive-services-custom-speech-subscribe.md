@@ -25,7 +25,7 @@ Azure özel konuşma hizmeti kullanmaya başlamak için ilk kullanıcı hesabın
 ## <a name="get-a-subscription-key"></a>Bir abonelik anahtarı edinirler
 1. Bir abonelik anahtarı iki yoldan biriyle Azure portalından alabilirsiniz:
 
-    * Git [Azure portalında](https://ms.portal.azure.com), ve yeni bir Bilişsel hizmetler API'si için arama yaparak ekleyin _Bilişsel Hizmetler_ seçip **Bilişsel hizmetler API'leri**.
+    * [Azure portal](https://ms.portal.azure.com)'a gidin ve _Cognitive Services_ ifadesini arayıp **Cognitive Services APIs** seçeneğini belirleyerek yeni bir Bilişsel Hizmet API'si ekleyin.
 
       ![Bilişsel hizmetler arama](../../../media/cognitive-services/custom-speech-service/custom-speech-azure-subscription.png)
 
