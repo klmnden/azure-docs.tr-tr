@@ -9,20 +9,20 @@ manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/24/2019
+ms.date: 01/25/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 3ed4d3874056eca93e5c94e225ba25d94e7826e3
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
+ms.openlocfilehash: 8324b7bf97325c295fdf95819cc2b22fb0f3c14e
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54911940"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078959"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Azure Active Directory'de koşullu erişim için en iyi uygulamalar
 
@@ -47,9 +47,9 @@ Yeni bir ilke oluşturduğunuzda, hiçbir kullanıcıları, grupları, uygulamal
 
 |Nesne           | Nasıl                                  | Neden|
 |:--            | :--                                  | :-- |
-|**Bulut uygulamaları** |Bir veya daha fazla uygulama seçmeniz gerekir.  | Nasıl yetkili kullanıcıların denetim sağlamak için koşullu erişim ilkesi amacı olan bulut uygulamalarına erişebilirsiniz.|
-| **Kullanıcılar ve gruplar** | En az bir kullanıcı veya seçili bulut uygulamalarınıza erişimi için yetkilendirilmiş grubu seçmeniz gerekir. | Asla tetiklenmez, hiçbir atanan kullanıcıların ve grupların sahip bir koşullu erişim ilkesi. |
-| **Erişim denetimleri** | En az bir erişim denetimi seçmeniz gerekir. | Koşullarınızda sağlanırsa, ilke işlemciniz ne yapılacağını bilmesi gerekir.|
+|**Bulut uygulamaları** |Bir veya daha fazla uygulama seçin.  | Nasıl yetkili kullanıcıların denetim sağlamak için koşullu erişim ilkesi amacı olan bulut uygulamalarına erişebilirsiniz.|
+| **Kullanıcılar ve gruplar** | En az bir kullanıcı veya seçili bulut uygulamalarınıza erişimi için yetkilendirilmiş bir grup seçin. | Asla tetiklenmez, hiçbir atanan kullanıcıların ve grupların sahip bir koşullu erişim ilkesi. |
+| **Erişim denetimleri** | En az bir erişim denetimi seçin. | Koşullarınızda sağlanırsa, ilke işlemciniz ne yapılacağını bilmesi gerekir.|
 
 
 
@@ -60,11 +60,11 @@ Yeni bir ilke oluşturduğunuzda, hiçbir kullanıcıları, grupları, uygulamal
 
 ### <a name="how-are-conditional-access-policies-applied"></a>Koşullu erişim ilkelerini nasıl uygulanır?
 
-Bir kullanıcı bir uygulama eriştiğinde, birden fazla koşullu erişim ilkesi uygulanabilir. Bu durumda uygulanan tüm ilkeler sağlanmalıdır. Bir ilkeleri, örneğin, bir kullanıcı için mfa'yı gerektirir ve ikinci uyumlu bir cihaz kullanıcı MFA gerekir ve uyumlu bir cihaz olması gerekir. 
+Bir bulut uygulamasına eriştiğinde, birden fazla koşullu erişim ilkesi uygulanabilir. Bu durumda, uygulanan tüm ilkeler sağlanmalıdır. Örneğin, bir ilkesi MFA gerektiriyorsa ve ikinci uyumlu cihaz gerektirir, gereken MFA gidin ve uyumlu bir cihaz kullanın. 
 
 Tüm ilkeleri, iki aşamada uygulanır:
 
-- İçinde **ilk** aşaması, tüm ilkeleri değerlendirilir ve koşullar karşılanırsa tüm erişim denetimleri toplanır. 
+- İçinde **ilk** aşaması, tüm ilkeleri değerlendirilir ve memnun değilseniz tüm erişim denetimleri toplanır. 
 
 - İçinde **ikinci** , bilgisi henüz karşılanmadığı gereksinimlerini karşılamak için aşama. Bir ilke erişimi engellerse, engellenmiş ve diğer ilke denetimleri istenir değil. İlkelerin hiçbiri engeller, diğer ilke denetimleri aşağıdaki sırayla istenir:
 
@@ -88,7 +88,7 @@ Kuruluşunuzun ağına dışında yapılan tüm bağlantılar için geçerli bir
 
 Yanlış bir ayar bir koşullu erişim ilkesi nedeniyle Azure AD portalından kilitliyse:
 
-- Kuruluşunuzda henüz engellenmemiş diğer yöneticilerin olup olmadığını doğrulayın. Azure portalına erişimi olan bir yönetici oturum açma etkileyen ilke devre dışı bırakabilirsiniz. 
+- Onay henüz engellenmez, kuruluşunuzdaki diğer yöneticilere yoktur. Azure portalına erişimi olan bir yönetici oturum açma etkileyen ilke devre dışı bırakabilirsiniz. 
 
 - İlkeyi kuruluşunuzdaki Yöneticiler hiçbiri güncelleştirebilirsiniz, bir destek talebi göndermek gerekir. Microsoft desteği, gözden geçirin ve erişimi engelleyen koşullu erişim ilkeleri güncelleştirin.
 
@@ -140,13 +140,13 @@ Ortamınızda, aşağıdaki yapılandırmaları kaçınmanız gerekir:
 
 İlk adım, ilkeyi kullanan değerlendirmelidir [durum aracı](what-if-tool.md).
 
-Yeni bir ilke ortamınıza dağıtmaya hazır olduğunuzda, bu aşamada yapmanız gerekir:
+Yeni ilkeler ortamınız için hazır olduğunuzda, bunları aşamalar dağıtın:
 
 1. Küçük bir grup kullanıcı için bir ilke uygulanır ve beklediğiniz gibi davrandığını doğrulayın. 
 
-2.  Daha fazla kullanıcı eklemek için bir ilke genişlettiğinizde, tüm yöneticilerin ilkeden dışlamak devam edin. Bu, yöneticilerin yine de erişim vardır ve bir değişiklik varsa, bir ilke güncelleştirebilirsiniz sağlar.
+2.  Daha fazla kullanıcı eklemek için bir ilke genişlettiğinizde. Tüm yöneticilerin bunlar yine de erişebilir ve bir değişiklik varsa, bir ilke güncelleştirebilirsiniz emin olmak için ilkeden dışlamak devam edin.
 
-3. Yalnızca bu gerçekten gerekliyse bir ilke, tüm kullanıcılar için geçerlidir. 
+3. Yalnızca gerekli olduğunda, ilke tüm kullanıcılara uygulanır. 
 
 En iyi uygulama, bir kullanıcı hesabıyla oluşturun:
 

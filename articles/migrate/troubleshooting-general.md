@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: raynew
-ms.openlocfilehash: 8ec580c31901cdbb28fc3a66877f5b0f320f1f7f
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
+ms.openlocfilehash: 5a5fbcb4cd2e073192ec7032bdbed15ab49798ad
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912603"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55075437"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Azure Geçişi sorunlarını giderme
 
@@ -214,7 +214,7 @@ Bağımlılık aracısı tarafından desteklenen Windows işletim sistemleri lis
 Bağımlılık aracısı tarafından desteklenen Linux işletim sistemleri listesi [burada](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
 
 ### <a name="i-am-unable-to-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>Bir saat süresinden daha fazla bilgi için Azure Geçişi'ndeki bağımlılıkları görselleştirin oluşturamıyorum?
-Azure geçişi en fazla bir saatlik süre için bağımlılıklar görmenize olanak tanır. Azure geçişi belirli bir tarihe kadar son bir ay için geçmişte dönün olanak tanısa da için bağımlılıkları görselleştirebilirsiniz en fazla süre 1 saate kadar ' dir. Örneğin, Dün için bağımlılıkları görüntülemek için bağımlılık Haritası saati süresi işlevleri kullanabilirsiniz ancak yalnızca bir için bir saat penceresinde görüntüleyebilirsiniz.
+Azure geçişi en fazla bir saatlik süre için bağımlılıklar görmenize olanak tanır. Azure geçişi belirli bir tarihe kadar son bir ay için geçmişte dönün olanak tanısa da için bağımlılıkları görselleştirebilirsiniz en fazla süre 1 saate kadar ' dir. Örneğin, Dün için bağımlılıkları görüntülemek için bağımlılık Haritası saati süresi işlevleri kullanabilirsiniz ancak yalnızca bir için bir saat penceresinde görüntüleyebilirsiniz. Ancak, Log Analytics'e kullanabilirsiniz [bağımlılık verileri sorgulamak](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) üzerinden uzun bir süre. 
 
 ### <a name="i-am-unable-to-visualize-dependencies-for-groups-with-more-than-10-vms"></a>10'dan fazla Vm'leri gruplar için bağımlılıkları görselleştirme oluşturamıyorum?
 Yapabilecekleriniz [grupları için bağımlılıkları görselleştirme](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) sahip yukarı 10 VM için 10'dan fazla vm'lerle grubunuz varsa öneririz, grupta küçük kullanıcı gruplarına bölün ve bağımlılıklarını görselleştirin.
