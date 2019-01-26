@@ -1,7 +1,7 @@
 ---
 layout: LandingPage
-title: 'Kimlik doğrulama, uygulamalar ve cihaz yönetimi için kullanıcı yardımı - Azure Active Directory | Microsoft Docs'
-description: 'Kullanıcı yardımı, güvenlik bilgileri ayarlayıp kullanma, iki aşamalı doğrulama, kendi kendine parola sıfırlama, cihaz yönetimi, Microsoft Authenticator uygulaması ve Uygulamalarım portalı hakkında yardıma ihtiyacı olan kişilere yöneliktir.'
+title: Kimlik doğrulama, uygulamalar ve cihaz yönetimi için kullanıcı yardımı - Azure Active Directory | Microsoft Docs
+description: Kullanıcı yardımı, güvenlik bilgileri ayarlayıp kullanma, iki aşamalı doğrulama, kendi kendine parola sıfırlama, cihaz yönetimi, Microsoft Authenticator uygulaması ve Uygulamalarım portalı hakkında yardıma ihtiyacı olan kişilere yöneliktir.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -10,8 +10,13 @@ ms.component: user-help
 ms.topic: landing-page
 ms.date: 07/30/2018
 ms.author: lizross
+ms.openlocfilehash: c6fe14c9f67d6ce2f432b57b2cbbd0d026cebe85
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901641"
 ---
-
 # <a name="user-help-for-authentication-apps-and-device-management"></a>Kimlik doğrulama, uygulamalar ve cihaz yönetimi için kullanıcı yardımı
 
 Güvenlik bilgilerini ayarlayıp kullanma, iki aşamalı doğrulama, kendi parolalarınızı sıfırlamayı öğrenme, Azure Active Directory cihazlarınızı ayarlayıp ekleme ve Microsoft Authenticator uygulaması ile Uygulamalarım portalını ayarlayıp kullanma konularında size yardımcı olmak için bu içeriği oluşturduk.
@@ -81,7 +86,10 @@ Güvenlik bilgilerini ayarlayıp kullanma, iki aşamalı doğrulama, kendi parol
                     <div class="cardText">
                         <h3>Microsoft Authenticator uygulaması yardımı</h3>
                         <p>
-                        <a href="/azure/active-directory/user-help/microsoft-authenticator-app-how-to">Kullanmaya Başlama</a><br/>
+                        <a href="/azure/active-directory/user-help/user-help-auth-app-overview">Genel Bakış</a><br/>
+                        <a href="/azure/active-directory/user-help/microsoft-authenticator-app-how-to">Uygulamayı indirme ve yükleme</a><br/>
+                        <a href="/azure/active-directory/user-help/microsoft-authenticator-app-add-accounts-overview">Hesaplarınızı ekleme</a><br/>
+                        <a href="/azure/active-directory/user-help/microsoft-authenticator-app-phone-signin-faq">Uygulama kullanarak oturum açma</a><br/>
                         <a href="/azure/active-directory/user-help/microsoft-authenticator-app-backup-and-recovery">Hesap kimlik bilgilerini yedekleme ve kurtarma</a>
                         </p>
                     </div>

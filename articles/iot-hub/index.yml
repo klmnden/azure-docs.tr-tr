@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 9723df67e195ca42bbfe9b04afcc75409b2c84e0
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: bf548ff69d7ce92e8d08759a96a241adc5a36c0b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426127"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828137"
 documentType: LandingData
 title: IoT Hub Belgeleri
 metadata:
@@ -56,6 +56,24 @@ sections:
       - href: /azure/iot-hub/quickstart-control-device-java
       - href: /azure/iot-hub/quickstart-control-device-python
       - href: /azure/iot-hub/quickstart-control-device-android
+    - title: Cihaz akışlarını kullanarak iletişim kurma (önizleme)
+      values:
+      - href: /azure/iot-hub/quickstart-device-streams-echo-nodejs
+      - href: /azure/iot-hub/quickstart-device-streams-echo-csharp
+      - href: 
+      - href: 
+      - href: 
+      - href: /azure/iot-hub/quickstart-device-streams-echo-c
+      - href: 
+    - title: Cihaz akışlarını kullanarak SSH/RDP (önizleme)
+      values:
+      - href: /azure/iot-hub/quickstart-device-streams-proxy-nodejs
+      - href: /azure/iot-hub/quickstart-device-streams-proxy-csharp
+      - href: 
+      - href: 
+      - href: 
+      - href: /azure/iot-hub/quickstart-device-streams-proxy-c
+      - href: 
 - title: Adım Adım Öğreticiler
   items:
   - type: list

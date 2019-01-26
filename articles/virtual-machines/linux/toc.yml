@@ -170,16 +170,29 @@ items:
       - name: Ayrıntılı adımlar
         href: create-ssh-keys-detailed.md
   - name: VM’leri koruma
-    href: ../../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     items:
-    - name: Tek bir VM’yi yedekleme
-      href: ../../backup/quick-backup-vm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Birden fazla VM’yi yedekleme
-      href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Diski geri yükleme
-      href: ../../backup/tutorial-restore-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Dosyaları tek tek geri yükleme
-      href: ../../backup/tutorial-restore-files.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: VM’leri yedekleme
+      href: ../../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      items:
+      - name: Tek bir VM’yi yedekleme
+        href: ../../backup/quick-backup-vm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      - name: Birden fazla VM’yi yedekleme
+        href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      - name: Diski geri yükleme
+        href: ../../backup/tutorial-restore-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      - name: Dosyaları tek tek geri yükleme
+        href: ../../backup/tutorial-restore-files.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: VM'ler için olağanüstü durum kurtarmayı ayarlama
+      href: ../../site-recovery/site-recovery-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      items:
+      - name: VM'ler için olağanüstü durum kurtarmayı etkinleştirme
+        href: ../../site-recovery/azure-to-azure-tutorial-enable-replication.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      - name: VM'ler için olağanüstü durum kurtarma tatbikatı çalıştırma
+        href: ../../site-recovery/azure-to-azure-tutorial-dr-drill.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      - name: VM'nin yükünü başka bir bölgeye devretme
+        href: ../../site-recovery/azure-to-azure-tutorial-failover-failback.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: VM'leri başka bir bölgeye taşıma
+      href: ../../site-recovery/azure-to-azure-tutorial-migrate.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
   - name: VM’leri yönetme
     items:
     - name: VM kullanımı
@@ -547,9 +560,9 @@ items:
     href: faq.md
 - name: Sorun giderme
   href: ../troubleshooting/index.md
-ms.openlocfilehash: c230e40c62b3f7f1c485eb4051bed3a0314aa08d
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: be99b17042aa8f36b8fb9a1ad7dedf3a945dcf75
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360148"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822680"

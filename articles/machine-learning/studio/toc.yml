@@ -18,7 +18,7 @@ items:
   - name: Yenilikler
     href: whats-new.md
   expanded: true
-- name: Başlarken
+- name: Öğreticiler
   items:
   - name: İlk denemenizi oluşturma
     displayName: quickstart
@@ -41,6 +41,16 @@ items:
     - name: 6 - Web hizmetine erişme
       displayName: consume
       href: walkthrough-6-access-web-service.md
+  - name: R kullanmaya başlama
+    href: r-quickstart.md
+- name: Örnekler
+  items:
+  - name: Kullanılabilir veri kümeleri
+    href: use-sample-datasets.md
+  - name: Azure Yapay Zeka Galerisi
+    href: gallery-how-to-use-contribute-publish.md
+- name: Kavramlar
+  items:
   - name: Yeni Başlayanlar için Veri Bilimleri
     items:
     - name: 1 - Beş soru
@@ -53,19 +63,6 @@ items:
       href: data-science-for-beginners-predict-an-answer-with-a-simple-model.md
     - name: 5 - Başkalarının işlerini kopyalama
       href: data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md
-  - name: R hızlı başlangıç
-    href: r-quickstart.md
-- name: Örnekler
-  items:
-  - name: Örnek deneyler
-    displayName: gallery
-    href: sample-experiments.md
-  - name: Örnek veri kümeleri
-    href: use-sample-datasets.md
-  - name: Azure Yapay Zeka Galerisi
-    href: gallery-how-to-use-contribute-publish.md
-- name: Kavramlar
-  items:
   - name: Model yönetimi
     displayName: deploy, consume, web service
     href: deploy-consume-web-service-guide.md
@@ -103,6 +100,9 @@ items:
     - name: PowerShell kullanarak model oluşturma
       displayName: endpoint, endpoints
       href: create-models-and-endpoints-with-powershell.md
+    - name: AI Galerisi'ndeki denemeleri kullanma
+      displayName: gallery
+      href: sample-experiments.md
     - name: Algoritma seçme
       href: algorithm-choice.md
     - name: Algoritma bilgi sayfası
@@ -208,8 +208,6 @@ items:
     href: web-service-error-codes.md
   - name: REST yönetim API'leri
     href: /rest/api/machinelearning
-  - name: Resource Manager şablonu
-    href: /azure/templates/microsoft.machinelearning/allversions
 - name: Kaynaklar
   items:
   - name: Azure Yol Haritası
@@ -224,9 +222,9 @@ items:
     href: support-aml-studio.md
   - name: ML ürünlerimizi karşılaştırın
     href: ../service/overview-more-machine-learning.md
-ms.openlocfilehash: 585310705bebbceb0aa4576977ef096704d87483
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 859ee01c65eaa7e02b5afc2740b6a7e6e6ca29e6
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424794"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810559"

@@ -1,21 +1,26 @@
 ---
 layout: HubPage
 hide_bc: false
-title: 'Azure Active Directory Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs'
-description: 'Azure Active Directory (Azure AD), Microsoft''un çekirdek dizin hizmetleri, uygulama erişim yönetimi ve kimlik korumasını tek bir çözüm altında birleştiren çok kiracılı, bulut tabanlı dizin ve kimlik yönetimi hizmetidir.'
+title: Azure Active Directory Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs
+description: Azure Active Directory (Azure AD), Microsoft'un çekirdek dizin hizmetleri, uygulama erişim yönetimi ve kimlik korumasını tek bir çözüm altında birleştiren çok kiracılı, bulut tabanlı dizin ve kimlik yönetimi hizmetidir.
 services: active-directory
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.topic: landing-page
-ms.date: 01/16/2019
-ms.author: mtillman
+ms.date: 01/24/2019
+ms.author: barbkess
+ms.openlocfilehash: e8e422e6ba69669b24fc141b2688d6777ab85384
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900978"
 ---
-
 <div id="main" class="v2">
     <div class="container">
         <h1>Azure Active Directory Belgeleri</h1>
-        <p>Azure Active Directory (Azure AD), çok kiracılı ve bulut tabanlı bir dizin ve kimlik yönetimi hizmetidir.</p><p></p>
+        <p>Azure Active Directory (Azure AD) çok kiracılı ve bulut tabanlı bir kimlik ve erişim yönetimi hizmetidir.</p><p></p>
         <ul class="cardsY panelContent singlePanelContent" style="display:flex!important;">
             <li>
                 <a href="fundamentals/active-directory-whatis.md">

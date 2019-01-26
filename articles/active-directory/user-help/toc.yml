@@ -47,12 +47,24 @@ items:
   items:
   - name: Genel Bakış
     href: user-help-auth-app-overview.md
-  - name: başlarken
+  - name: Uygulamayı indirme ve yükleme
     href: microsoft-authenticator-app-how-to.md
-  - name: Yedekleme ve kurtarma
-    href: microsoft-authenticator-app-backup-and-recovery.md
-  - name: Telefonunuzla oturum açma
+  - name: Hesap eklemeye genel bakış
+    href: microsoft-authenticator-app-add-accounts-overview.md
+    items:
+    - name: İş veya okul hesabı ekleme
+      href: microsoft-authenticator-app-add-work-account.md
+    - name: Kişisel Microsoft hesabı ekleme
+      href: microsoft-authenticator-app-add-personal-account.md
+    - name: Microsoft olmayan bir kişisel hesap ekleme
+      href: microsoft-authenticator-app-add-non-microsoft-account.md
+    - name: Hesabı el ile ekleme
+      href: microsoft-authenticator-app-add-account-manual.md
+    expanded: true
+  - name: Microsoft Authenticator uygulamasını kullanarak oturum açma
     href: microsoft-authenticator-app-phone-signin-faq.md
+  - name: Hesaplarınızı yedekleme ve kurtarma
+    href: microsoft-authenticator-app-backup-and-recovery.md
   - name: SSS
     href: microsoft-authenticator-app-faq.md
 - name: Uygulamalarım portalı yardımı
@@ -73,9 +85,9 @@ items:
     href: user-help-register-device-on-network.md
   - name: "\"Oraya ulaşamazsınız\" iletisi sorunlarını giderin"
     href: user-help-device-remediation.md
-ms.openlocfilehash: 27d0d3300a19d4c27bec48ebf411c7ac3ee6ad87
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 9ccadb31ce331d3a9dc64aa26d5e8edab900cd1e
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649594"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904106"

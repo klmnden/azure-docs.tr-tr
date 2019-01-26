@@ -40,19 +40,19 @@ items:
   - name: Varlıklar
     href: entities-overview.md
     items:
-    - name: Hesap ve Varlık filtreleri
+    - name: Hesap Filtreleri ve Varlık Filtreleri
       href: filters-dynamic-manifest-overview.md
     - name: Varlıklar
       href: assets-concept.md
-    - name: İçerik anahtarı ilkeleri
+    - name: İçerik Anahtar İlkeleri
       href: content-key-policy-concept.md
-    - name: LiveEvent'ler ve LiveOutput'lar
+    - name: Canlı Etkinlikler ve Canlı Çıkışlar
       href: live-events-outputs-concept.md
-    - name: Akış uç noktaları
+    - name: Akış Uç Noktaları
       href: streaming-endpoint-concept.md
-    - name: Akış bulucuları
+    - name: Akış Bulucuları
       href: streaming-locators-concept.md
-    - name: Akış ilkeleri
+    - name: Akış İlkeleri
       href: streaming-policy-concept.md
     - name: Dönüşümler ve İşler
       href: transforms-jobs-concept.md
@@ -203,9 +203,9 @@ items:
     href: frequently-asked-questions.md
   - name: Azure bulutları ve bölgeleri
     href: azure-clouds-regions.md
-ms.openlocfilehash: dfafe49ba2f520bdc44c5a3e3cad0201d6e56da5
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: c30302fa289ade85870db3e89fa70f5e79f61a99
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54810865"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54881384"
