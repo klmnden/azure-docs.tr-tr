@@ -28,7 +28,7 @@ Bkz: [Kusto dil başvurusu](https://docs.microsoft.com/azure/kusto/query/) Bu ö
 ## <a name="events"></a>Olaylar
 
 ### <a name="search-application-level-events-described-as-cryptographic"></a>Uygulama düzeyinde olaylar "Şifreli" açıklanan arama
-Bu örnekte arama **olayları** olduğu kayıtlar için tablo **EventLog** olduğu _Application_ ve **RenderedDescription** içerir _cryptographic_. Son 24 saat kayıtları içerir.
+Bu örnek, **Olaylar** tablosunda, **EventLog** değerinin _Application_ olduğu ve **RenderedDescription**'ın _cryptographic_ değerini içerdiği kayıtları arar ve son 24 saate ilişkin kayıtları içerir.
 
 ```Kusto
 Event
@@ -208,7 +208,7 @@ Perf
 ## <a name="protection-status"></a>Koruma durumu
 
 ### <a name="computers-with-non-reporting-protection-status-duration"></a>Koruma durumu süresi raporlama yapmayan bilgisayarlar
-Bu örnekte koruma durumu olan bilgisayarları listeleyen _Not Reporting_ ve bu durumda oldukları süresi.
+Bu örnekte, koruma durumu _Not Reporting_ olan bilgisayarlar ve bilgisayarların bu durumda kaldığı süre gösterilmektedir.
 
 ```Kusto
 ProtectionStatus
@@ -249,7 +249,7 @@ SecurityEvent
 ```
 
 ### <a name="count-security-events-related-to-permissions"></a>İzinlerle ilgili güvenlik olay sayısı
-Bu örnek sayısını gösterir **securityEvent** olan kayıtları **etkinlik** sütun içeren tüm terimi _Permissions_. Son 30 dakika boyunca oluşturulan kayıtları uygular.
+Bu örnekte, **Activity** sütununda _Permissions_ ifadesinin tam olarak yer aldığı **securityEvent** kayıtlarının sayısı gösterilmektedir. Sorgu, son 30 dakika içinde oluşturulan kayıtlar için geçerlidir.
 
 ```Kusto
 SecurityEvent
