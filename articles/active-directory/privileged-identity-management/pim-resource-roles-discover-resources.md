@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: pim
-ms.date: 08/30/2018
+ms.date: 01/23/2019
 ms.author: rolyon
-ms.openlocfilehash: d9a6ab49d619e487eee6fb13abe128cfc167b560
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: e81aab8268266c99c9f08e165a98df31f2106123
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306698"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912280"
 ---
 # <a name="discover-azure-resources-to-manage-in-pim"></a>PIM'de yönetmek için Azure kaynaklarını keşfedin
 
@@ -52,12 +52,16 @@ Azure kaynakları için PIM ayarlamanız, bulmak ve PIM ile korumak istediğiniz
 
 1. Yönetmek istediğiniz herhangi bir yönetilmeyen kaynağa yanında bir onay işareti ekleyin.
 
+1. Tıklayın **kaynak yönetme** seçili kaynakları yönetmeye başlamak için.
+
     > [!NOTE]
     > Bir yönetim grubuna veya aboneliğe yönetilen ayarlandıktan sonra yönetilmeyen olamaz. Bu, başka bir Kaynak Yöneticisi'nin PIM ayarları çıkarmasını engeller.
 
     ![Bulma - Kaynak yönetme](./media/pim-resource-roles-discover-resources/discovery-manage-resource.png)
 
-1. Tıklayın **kaynak yönetme** seçili kaynakları yönetmeye başlamak için.
+1. Seçili kaynak Yönetim için hazırlama onaylamak için bir ileti görürseniz, tıklayın **Evet**.
+
+    ![Bulma - Kaynak ileti yönetme](./media/pim-resource-roles-discover-resources/discovery-manage-resource-message.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

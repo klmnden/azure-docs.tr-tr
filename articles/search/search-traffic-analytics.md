@@ -1,29 +1,29 @@
 ---
-title: Arama trafiği analizi - Azure Search'ü
-description: Kullanıcılarınız ve verileriniz hakkında Öngörüler Microsoft Azure üzerinde barındırılan bulut arama hizmeti olan Azure arama için arama trafiği analizi etkinleştirin.
+title: Arama trafiği analizi - Azure Search uygulayın
+description: Arama trafiği analizi için Azure Search, telemetri ve günlük dosyaları için kullanıcı tarafından başlatılan olayları eklemek etkinleştirin.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 04/05/2017
+ms.date: 01/25/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 4cc7434508e49715e95c87421db2bbed7e20de05
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: c30c8bae3e76778a31cdd0695acde52b5b1c6b02
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310309"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079673"
 ---
-# <a name="what-is-search-traffic-analytics"></a>Arama trafiği analizi nedir
+# <a name="implement-search-traffic-analytics-in-azure-search"></a>Azure Search'te arama trafiği analizi uygulayın
 Arama trafiği analizi, arama hizmetiniz için bir geri bildirim döngüsü uygulamak için kullanılan bir desendir. Bu düzen, gerekli verileri ve Application Insights, birden çok platform hizmetleri izlemek için endüstri lideri kullanarak toplamak nasıl açıklar.
 
 Arama trafiği analizi, arama hizmetinize yönelik görünürlük elde edin ve kullanıcılarınız ve davranışları hakkında Öngörüler sağlar. Neyin kullanıcılarınızın seçin hakkındaki verileri sağlayarak, daha fazla arama deneyiminizi geliştirmeye kararlar ve sonuçları ne beklenmiyordu olduğunda kapatmak için mümkündür.
 
 Azure arama, ayrıntılı izleme ve izleme sağlamak için Azure Application Insights ve Power BI ile tümleşen bir telemetri çözümü sunar. Yalnızca API Azure Search ile etkileşimi olduğu için bu sayfadaki yönergeleri izleyerek search'ü kullanarak geliştiriciler tarafından telemetri uygulanmalıdır.
 
-## <a name="identify-the-relevant-search-data"></a>İlgili arama verileri tanımlayan
+## <a name="identify-relevant-search-data"></a>İlgili arama verileri tanımlama
 
 Yararlı arama ölçümleri sağlamak için bazı sinyaller arama uygulaması, kullanıcıların oturum açmak gereklidir. Bu sinyalleri kullanıcılar, ilgileniyor içeriği ve bunların ilgili dikkate türünü belirtir.
 
@@ -35,7 +35,7 @@ Arama trafiği analizi gereken iki sinyal vardır:
 
 Bağıntı kimliği ile arama ve tıklatın olayları bağlantılandırarak, uygulamanız kullanıcıların davranışlarını analiz etmek mümkündür. Bu arama ınsights yalnızca arama trafik günlükleriyle almak mümkün.
 
-## <a name="how-to-implement-search-traffic-analytics"></a>Arama trafiği analizi gerçekleştirme
+## <a name="add-search-traffic-analytics"></a>Arama trafiği analizi ekleyin
 
 Kullanıcı etkileşimine göre değişecek şekilde önceki bölümde belirtilen sinyaller arama uygulamadan toplanması gerekir. Application Insights, Genişletilebilir izleme çözümünü, esnek izleme seçenekleri ile birden çok platform için kullanılabilir. Application Insights'ın kullanım veri analizini kolaylaştırmak için Azure Search tarafından oluşturulan Power BI arama raporları avantajlarından yararlanmanıza imkan sağlar.
 
@@ -43,7 +43,7 @@ Kullanıcı etkileşimine göre değişecek şekilde önceki bölümde belirtile
 
 ![Arama trafiği analizi yönergeleri][1]
 
-### <a name="1-select-an-application-insights-resource"></a>1. Bir Application Insights kaynağını seçin
+## <a name="1---select-a-resource"></a>1 - bir kaynak seçin
 
 Kullanmak veya zaten yoksa, oluşturmak için Application Insights kaynağını seçmeniz gerekir. Zaten gerekli özel olayları oturum kullanımda olan bir kaynak kullanabilirsiniz.
 
@@ -51,11 +51,11 @@ Tüm uygulama türleri, yeni bir Application Insights kaynağı oluştururken, b
 
 Uygulamanızın telemetri istemcisi oluşturmak için izleme anahtarı gerekir. Application Insights portal panosunda alın veya kullanmak istediğiniz örneği seçildiğinde, arama trafiği analizi sayfasından alabilirsiniz.
 
-### <a name="2-instrument-your-application"></a>2. Uygulamanızı izleyin
+## <a name="2---add-instrumentation"></a>2 - izleme ekleyin
 
 Burada Yukarıdaki adımda oluşturduğunuz Application Insights kaynağını kullanarak, kendi arama uygulamasını izleme bu aşamasıdır. Bu işlem için dört adım vardır:
 
-**EDİYORUM. Bir telemetri istemcisi oluşturma** bu Application Insights kaynağını olayları gönderen nesnesidir.
+**1. adım: Bir telemetri istemcisi oluşturma** bu Application Insights kaynağını olayları gönderen nesnesidir.
 
 *C#*
 
@@ -73,7 +73,7 @@ Burada Yukarıdaki adımda oluşturduğunuz Application Insights kaynağını ku
 
 Diğer diller ve platformlar için tamamına bakın [listesi](https://docs.microsoft.com/azure/application-insights/app-insights-platforms).
 
-**II. İstek bağıntı kimliği Ara** arama istekleri tıklama ile ilişkilendirmek için bu iki ayrı olayları ilişkili bir bağıntı kimliği gereklidir. Azure Search'ü sahip bir üstbilgi istediğinizde bir arama kimliğiyle sağlar:
+**2. adım: İstek bağıntı kimliği Ara** arama istekleri tıklama ile ilişkilendirmek için bu iki ayrı olayları ilişkili bir bağıntı kimliği gereklidir. Azure Search'ü sahip bir üstbilgi istediğinizde bir arama kimliğiyle sağlar:
 
 *C#*
 
@@ -94,7 +94,7 @@ Diğer diller ve platformlar için tamamına bakın [listesi](https://docs.micro
     request.setRequestHeader("Access-Control-Expose-Headers", "x-ms-azs-searchid");
     var searchId = request.getResponseHeader('x-ms-azs-searchid');
 
-**III. Arama olayları günlüğe kaydet**
+**3. adım: Arama olayları günlüğe kaydet**
 
 Bir kullanıcı tarafından bir arama talebi her zaman, olarak Application Insights ile özel bir olay aşağıdaki şemaya sahip bir arama olayının oturum açmanız:
 
@@ -131,7 +131,7 @@ Bir kullanıcı tarafından bir arama talebi her zaman, olarak Application Insig
     ScoringProfile: <scoring profile used>
     });
 
-**IV. Click oturum olayları**
+**4. adım: Click oturum olayları**
 
 Arama analiz amacıyla oturum açmış olmanız gerekir sinyaldir belge, bir kullanıcı tıkladığında her zaman. Application Insights özel olaylar aşağıdaki şema ile bu olaylarını günlüğe kaydedecek şekilde kullanın:
 
@@ -160,32 +160,46 @@ Arama analiz amacıyla oturum açmış olmanız gerekir sinyaldir belge, bir kul
         Rank: <clicked document position>
     });
 
-### <a name="3-analyze-with-power-bi-desktop"></a>3. Power BI Desktop ile analiz
+## <a name="3---analyze-in-power-bi"></a>3 - Power BI'da çözümleyin
 
-Uygulamanızı izleme eklenmiş ve uygulamanızı Application ınsights'ı doğru bir şekilde bağlandığından doğrulandı sonra Power BI desktop için Azure Search tarafından oluşturulan önceden tanımlanmış bir şablon kullanabilirsiniz.
-Bu şablon grafikleri içerir ve yardımcı olacak tablolar ilgi ve arama performansını geliştirmek için daha bilinçli kararlar alın.
+Uygulamanızı izleme eklenmiş ve uygulamanızı Application ınsights'ı doğru bir şekilde bağlandığından doğrulandı sonra Power BI desktop için Azure Search tarafından oluşturulan önceden tanımlanmış bir şablon kullanabilirsiniz. 
 
-Power BI Masaüstü şablonu oluşturmak için üç parça Application Insights hakkında bilgi gerekir. Bu verileri kullanmak için bir kaynak seçtiğinizde arama trafiği analizi sayfasında bulunabilir.
+Azure arama, bir izleme sağlar [Power BI içerik paketi](https://app.powerbi.com/getdata/services/azure-search) günlük verilerini analiz etmek. T içerik paketi, önceden tanımlanmış grafikleri ve arama trafiği analizi için yakalanan ek veri çözümlemesi için kullanışlı bir tablo ekler. Daha fazla bilgi için [içerik paketi yardım sayfasına](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-search/). 
 
-![Application Insights verilerini arama trafiği analizi dikey][2]
+1. Azure'da altında Pano sol gezinti bölmesinde, arama **ayarları**, tıklayın **arama trafiği analizi**.
 
-Power BI Masaüstü şablonuna dahil ölçümleri:
+2. Üzerinde **arama trafiği analizi** sayfasında, adım 3'te, **Power BI Desktop'ı Al** Power BI'ı yüklemek için.
 
-*   (Ctrl) oranı üzerinden tıklayın: toplam arama sayısı için belirli bir belge tıklayarak kullanıcılar oranı.
-*   Tıklama olmadan aramalar: koşulları için hiçbir tıklama kayıt sorguları üst
-*   Belgeler'en çok tıklanan: Son 24 saat içindeki, 7 gün ve 30 gün tıklanan Kimliğine göre belge en.
-*   Popüler belge terimi çiftleri: tıklattığında, belgede neden olan koşulları tarafından tıklamalarına sıralı.
-*   Zaman tıklayın: arama sorgusu daraltılmasından göre tıklama kümelenmiş
+   ![Power BI raporları alma](./media/search-traffic-analytics/get-use-power-bi.png "Al Power BI raporları")
 
-![Application Insights okuma için Power BI şablonu][3]
+2. Aynı sayfada tıklayın **indirme Powerbı raporu**.
 
+3. Power BI Desktop'ta rapor açılır ve Application Insights'a Bağlan istenir. Bu bilgiler, Application Insights kaynağı bir Azure portal sayfalarında bulabilirsiniz.
 
-## <a name="next-steps"></a>Sonraki Adımlar
+   ![Application Insights'a Bağlan](./media/search-traffic-analytics/connect-to-app-insights.png "Application Insights'a Bağlan")
+
+4. Tıklayın **yük**.
+
+Raporda grafikler ve yardımcı olacak tablolar ilgi ve arama performansını iyileştirmek için daha bilinçli kararlar.
+
+Ölçümler, aşağıdakiler dahil:
+
+* (Ctrl) oranı üzerinden tıklayın: toplam arama sayısı için belirli bir belge tıklayarak kullanıcılar oranı.
+* Tıklama olmadan aramalar: koşulları için hiçbir tıklama kayıt sorguları üst
+* Belgeler'en çok tıklanan: Son 24 saat içindeki, 7 gün ve 30 gün tıklanan Kimliğine göre belge en.
+* Popüler belge terimi çiftleri: tıklattığında, belgede neden olan koşulları tarafından tıklamalarına sıralı.
+* Zaman tıklayın: arama sorgusu daraltılmasından göre tıklama kümelenmiş
+
+Yerleşik raporları aşağıdaki ekran gösterilir ve analiz etmek için grafikler trafik analizi arama.
+
+![Azure Search için Power BI Panosu](./media/search-traffic-analytics/AzureSearch-PowerBI-Dashboard.png "Azure Search için Power BI Panosu")
+
+## <a name="next-steps"></a>Sonraki adımlar
 Arama hizmetinizi hakkında güçlü ve bilgilendirici veri almak için arama uygulamanızı izleyin.
 
-Application Insights hakkında daha fazla bilgi bulabilirsiniz [burada](https://go.microsoft.com/fwlink/?linkid=842905). Application Insights'ı ziyaret edin [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/application-insights/) , farklı hizmet katmanları hakkında daha fazla bilgi edinmek için.
+Daha fazla bilgi bulabilirsiniz [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) ve ziyaret [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/application-insights/) , farklı hizmet katmanları hakkında daha fazla bilgi edinmek için.
 
-Muhteşem raporlar oluşturma hakkında daha fazla bilgi edinin. Bkz: [Power BI Desktop ile çalışmaya başlama](https://powerbi.microsoft.com/en-us/documentation/powerbi-desktop-getting-started/) için Ayrıntılar
+Muhteşem raporlar oluşturma hakkında daha fazla bilgi edinin. Bkz: [Power BI Desktop ile çalışmaya başlama](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/) için Ayrıntılar
 
 <!--Image references-->
 [1]: ./media/search-traffic-analytics/AzureSearch-TrafficAnalytics.png

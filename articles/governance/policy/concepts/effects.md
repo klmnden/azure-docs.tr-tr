@@ -4,17 +4,17 @@ description: Azure İlkesi tanım uyumluluk nasıl yönetildiği ve bildirilen b
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/06/2018
+ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: c84af250a9e8dbff578f58abc7e3558d95ecbe93
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 68abb5fd95823941bdb5d87d7ebc6675b0760850
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904548"
+ms.locfileid: "54912518"
 ---
 # <a name="understand-policy-effects"></a>İlke etkilerini anlama
 
@@ -259,7 +259,7 @@ Bir değerlendirme döngüsü sırasında kaynaklarla eşleşen ilke tanımları
   - Bu özellik, rol tabanlı erişim denetimine rol kimliği erişilebilir tarafından eşleşen bir dize dizisi içermesi gerekir. Daha fazla bilgi için [düzeltme - ilke tanımı yapılandırma](../how-to/remediate-resources.md#configure-policy-definition).
 - **DeploymentScope** (isteğe bağlı)
   - İzin verilen değerler _abonelik_ ve _ResourceGroup_.
-  - Gerçekleştirilmesi gereken dağıtım türünü ayarlar. _Abonelik_ gösteren bir [abonelik düzeyinde dağıtım]((../../../azure-resource-manager/deploy-to-subscription)), _ResourceGroup_ bir kaynak grubuna bir dağıtım gösterir.
+  - Gerçekleştirilmesi gereken dağıtım türünü ayarlar. _Abonelik_ gösteren bir [abonelik düzeyinde dağıtım](../../../azure-resource-manager/deploy-to-subscription.md), _ResourceGroup_ bir kaynak grubuna bir dağıtım gösterir.
   - A _konumu_ özelliği içinde belirtilmelidir _dağıtım_ abonelik düzeyi dağıtımları kullanırken.
   - Varsayılan değer _ResourceGroup_.
 - **Dağıtım** [gerekli]

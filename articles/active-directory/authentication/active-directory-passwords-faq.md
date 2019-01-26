@@ -3,19 +3,19 @@ title: Azure Active Directory SSS - Self Servis parola sıfırlama
 description: Sık sorulan sorular hakkında Azure AD Self Servis parola sıfırlama
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 7cbeeefe24e6f399c959484eea8aebede4598d20
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 6bcf82a68ae86eb65a49127a66de614917b0b632
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424668"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55080642"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Parola yönetimi hakkında sık sorulan sorular
 

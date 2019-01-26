@@ -4,13 +4,13 @@ Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio 
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 11/29/2017
 ---
-# <a name="import-data-into-azure-machine-learning-studio-from-online-data-sources"></a>Çevrimiçi veri kaynaklarından Azure Machine Learning Studio'ya veri alma 
+# <a name="import-data-into-azure-machine-learning-studio-from-online-data-sources"></a>Çevrimiçi veri kaynaklarından Azure Machine Learning Studio'ya veri alma
 Bu makalede, çeşitli kaynaklardan bir Azure Machine Learning Studio'ya bu kaynaklardan veri deneme taşımak için gereken bilgileri çevrimiçi veri almak için destek açıklanır.
 
 > [!NOTE]
 > Bu makalede, hakkında genel bilgiler sağlanmaktadır. [verileri içeri aktarma] [ import-data] modülü. Erişebileceğiniz veri türleri hakkında daha ayrıntılı bilgi için biçimleri, parametreleri ve sık sorulan soruların yanıtlarını modülü başvurusu için konusuna [verileri içeri aktarma] [ import-data] modülü.
-> 
-> 
+>
+>
 
 ## <a name="introduction"></a>Giriş
 Kullanarak [verileri içeri aktarma] [ import-data] modülü erişebilirsiniz veri çeşitli çevrimiçi veri kaynaklarından biri denemenizi çalışırken [Azure Machine Learning Studio](https://studio.azureml.net/Home):
@@ -29,14 +29,14 @@ Studio denemenizi, çevrimiçi veri kaynaklarına erişmek için ekleme [veriler
 Bu eğitim verilerini denemenizi çalışırken erişildiği için yalnızca bu deneme kullanılabilir olduğunu unutmayın. Buna karşılık olarak çalışma alanınızdaki tüm denemenize bir veri kümesi modülde depolanan veriler kullanılabilir.
 
 > [!IMPORTANT]
-> Şu anda [verileri içeri aktarma] [ import-data] ve [verileri dışarı aktarma] [ export-data] modülleri okuma ve yalnızca klasik kullanılarak oluşturulan Azure Depolama'dan veri yazma dağıtım modeli. Diğer bir deyişle, sık erişimli depolama erişim katmanı veya seyrek erişimli depolama erişim katmanı sağlayan yeni Azure Blob Depolama hesap türü henüz desteklenmiyor. 
-> 
-> Tüm Azure depolama hesaplarını genel olarak, bu hizmet seçeneği kullanılabilir olmadan önce oluşturmuş olabileceğiniz olduğunu etkilenmez. 
-> Yeni bir hesap oluşturmanız gerekiyorsa, seçin **Klasik** dağıtım modeli veya Kaynak Yöneticisi'ni kullanın ve seçin **genel amaçlı** yerine **Blob Depolama** için **Hesap türü**. 
-> 
+> Şu anda [verileri içeri aktarma] [ import-data] ve [verileri dışarı aktarma] [ export-data] modülleri okuma ve yalnızca klasik kullanılarak oluşturulan Azure Depolama'dan veri yazma dağıtım modeli. Diğer bir deyişle, sık erişimli depolama erişim katmanı veya seyrek erişimli depolama erişim katmanı sağlayan yeni Azure Blob Depolama hesap türü henüz desteklenmiyor.
+>
+> Tüm Azure depolama hesaplarını genel olarak, bu hizmet seçeneği kullanılabilir olmadan önce oluşturmuş olabileceğiniz olduğunu etkilenmez.
+> Yeni bir hesap oluşturmanız gerekiyorsa, seçin **Klasik** dağıtım modeli veya Kaynak Yöneticisi'ni kullanın ve seçin **genel amaçlı** yerine **Blob Depolama** için **Hesap türü**.
+>
 > Daha fazla bilgi için [Azure Blob Depolama: Sık erişimli ve seyrek erişimli depolama katmanları](../../storage/blobs/storage-blob-storage-tiers.md).
-> 
-> 
+>
+>
 
 ## <a name="supported-online-data-sources"></a>Desteklenen çevrimiçi veri kaynakları
 Azure Machine Learning **verileri içeri aktarma** Modülü aşağıdaki veri kaynaklarını destekler:
@@ -53,7 +53,7 @@ Azure Machine Learning **verileri içeri aktarma** Modülü aşağıdaki veri ka
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Veri içeri aktarma ve veri gönderme modüllerini kullanan Azure ML web hizmetleri dağıtma](web-services-that-use-import-export-modules.md)
+[Veri içeri aktarma ve veri gönderme modüllerini kullanan Azure Machine Learning studio web hizmetleri dağıtma](web-services-that-use-import-export-modules.md)
 
 
 <!-- Module References -->

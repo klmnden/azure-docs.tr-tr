@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 6a6782c5e1cd7b5f42b619cd52470b640813a905
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: afa4b3861e9fb7f91fd9f5d540353c5fad23efe0
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42055214"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913623"
 ---
 # <a name="how-to-do-proof-of-possession-for-x509-ca-certificates-with-your-device-provisioning-service"></a>Kavram, elinde cihaz sağlama hizmeti ile X.509 CA sertifikalarının nasıl
 
@@ -54,7 +54,7 @@ Bir CA sertifikası, sağlama hizmetinizle kaydetmek ve kavram, elinde sırasın
 Microsoft araçları sağlar ve yardımcı olabilecek örneklerini imzalı doğrulama sertifikası oluşturun: 
 
 - **Azure IOT Hub C SDK'sı** geliştirme için CA ve yaprak sertifikaları oluşturmanıza yardımcı olacak ve elinde kavram doğrulama kodunu kullanarak gerçekleştirmek için (Windows) PowerShell ve Bash (Linux) komut dosyaları sağlar. İndirebilirsiniz [dosyaları](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) ilgili bir çalışma klasörü sisteminize ve yönergeleri izleyin [yönetme CA sertifikaları Benioku](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) üzerinde bir CA sertifikası elinde kavram gerçekleştirilecek. 
-- **Azure IOT Hub C# SDK'sı** içeren [Grup sertifikası doğrulama örneği](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples/GroupCertificateVerificationSample), hangi elinde kavram yapmak için kullanabilirsiniz.
+- **Azure IOT Hub C# SDK'sı** içeren [Grup sertifikası doğrulama örneği](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/service/GroupCertificateVerificationSample), hangi elinde kavram yapmak için kullanabilirsiniz.
  
 > [!IMPORTANT]
 > Elinde kavram gerçekleştirmenin yanı sıra daha önce bahsedilen ayrıca PowerShell ve Bash betikleri kök sertifikaları ve ara sertifika kimlik doğrulaması ve cihazları sağlamak için kullanılan bir yaprak sertifikalar oluşturmanıza imkan tanır. Bu sertifikalar yalnızca geliştirme için kullanılması gerekir. Bir üretim ortamında hiçbir zaman kullanılmamalıdır. 

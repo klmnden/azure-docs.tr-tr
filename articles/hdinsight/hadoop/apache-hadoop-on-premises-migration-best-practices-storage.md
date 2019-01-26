@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: ec67cb6b4bc1dd29dbbac4056d3365a74b31a24c
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 8f22885d67537194342115f07e4d04bc4b5c66da
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013720"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54911753"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---storage-best-practices"></a>Azure HDInsight - depolama en iyi uygulamaları şirket içi Apache Hadoop kümelerini geçirme
 
@@ -101,22 +101,23 @@ Geçmişte, bulut tabanlı analiz performansı, yönetim ve güvenlik alanların
 
 - **Hadoop uyumlu erişim**: Azure Data Lake depolama Gen2'ye yönetmenizi ve sahip olduğu gibi veri erişim sağlayan bir [Hadoop dağıtılmış dosya sistemi (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Yeni [ABFS sürücü](../../storage/data-lake-storage/abfs-driver.md) dahil tüm Apache Hadoop ortamlarında kullanılabilir [Azure HDInsight](../index.yml). Bu sürücü, Data Lake depolama 2. nesil'deki depolanan verilere erişmek sağlar.
 
-- **POSIX izinleri kümesi**: Data Lake Gen2 için güvenlik modeli ACL ve POSIX izinleri için Data Lake depolama Gen2'ye özel bazı ek ayrıntı birlikte tam olarak destekler. Ayarları, Yönetim Araçları veya Hive ve Spark gibi çerçeveleri aracılığıyla yapılandırılabilir.
+- **POSIX izinleri kümesi**: Data Lake Gen2 için güvenlik modeli, ACL ve POSIX izinleri için Data Lake depolama Gen2'ye özel bazı ek ayrıntı birlikte tam olarak destekler. Ayarları, Yönetim Araçları veya Hive ve Spark gibi çerçeveleri aracılığıyla yapılandırılabilir.
 
-- **Uygun maliyetli**: Data Lake depolama Gen2, düşük maliyetli depolama kapasitesi ve işlem özellikleri. Kendi tam yaşam döngüsü boyunca veri geçişi gibi yerleşik özellikler aracılığıyla maliyetleri en aza indirmek için faturalandırma ücretleri değiştirme [Azure Blob Depolama yaşam döngüsü](../../storage/common/storage-lifecycle-management-concepts.md).
+- **Uygun maliyetli**: Data Lake depolama Gen2, düşük maliyetli depolama kapasitesi ve işlem sunar. Kendi tam yaşam döngüsü boyunca veri geçişi gibi yerleşik özellikler aracılığıyla maliyetleri en aza indirmek için faturalandırma ücretleri değiştirme [Azure Blob Depolama yaşam döngüsü](../../storage/common/storage-lifecycle-management-concepts.md).
 
-- **Blob Depolama Araçlar, çerçeveler ve uygulamalar ile çalışır**: Data Lake depolama Gen2'ye bir çeşit Araçlar, çerçeveler ve Blob Depolama için bugün mevcut uygulamaları çalışmak devam eder.
+- **Blob Depolama Araçlar, çerçeveler ve uygulamalar ile çalışır**: Data Lake depolama Gen2'ye bir çeşit Araçlar, çerçeveler ve Blob Depolama için bugün mevcut uygulamaları ile çalışmaya devam eder.
 
-- **En iyi duruma getirilmiş sürücü**: Azure Blob dosya sistemi sürücüsü (ABFS) [özellikle en iyi duruma getirilmiş](../../storage/data-lake-storage/abfs-driver.md) büyük veri analizi için. Karşılık gelen REST API'leri dfs uç noktası aracılığıyla çıkmış dfs.core.windows.net.
+- **En iyi duruma getirilmiş sürücü**: Azure Blob dosya sistemi sürücü (ABFS) [özellikle en iyi duruma getirilmiş](../../storage/data-lake-storage/abfs-driver.md) büyük veri analizi için. Karşılık gelen REST API'leri dfs uç noktası aracılığıyla çıkmış dfs.core.windows.net.
 
 Aşağıdaki biçimlerden birini ADLS 2. nesil'deki depolanan verilere erişmek için kullanılabilir:
 - `abfs:///`: ' % S'varsayılan Data Lake depolama kümesi için erişim.
-- `abfs[s]://file_system@account_name.dfs.core.windows.net`: Bir varsayılan olmayan Data Lake depolama ile iletişim kurarken kullanılır.
+- `abfs[s]://file_system@account_name.dfs.core.windows.net`: Varsayılan olmayan Data Lake depolama ile iletişim kurarken kullanılan.
 
 Daha fazla bilgi için aşağıdaki makalelere bakın:
 
 - [Azure Data Lake depolama Gen2 Önizleme giriş](../../storage/data-lake-storage/introduction.md)
 - [Azure Blob dosya sistemi sürücü (ABFS.md)](../../storage/data-lake-storage/abfs-driver.md)
+- [Azure Data Lake depolama Gen2 Azure HDInsight kümeleri ile kullanma](../hdinsight-hadoop-use-data-lake-storage-gen2.md)
 
 ## <a name="secure-azure-storage-keys-within-on-premises-hadoop-cluster-configuration"></a>Şirket içi Hadoop küme yapılandırması içinde güvenli Azure depolama anahtarları
 
@@ -173,7 +174,7 @@ Varsayılan olarak HDInsight kümesi ile ilişkili Azure depolama hesaplarında 
 
 6. İçin aşağıdaki değerleri kullanın **anahtarı** ve **değer** alanlar:
 
-    **Anahtar**: `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` **değer**: SAS anahtarı döndürülen Python uygulaması ilk adım yukarıdaki 4.
+    **Anahtar**: `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` **Değer**: SAS ANAHTARINI Python uygulama FROM adım 4 yukarıdaki döndürdü.
 
 7. Tıklayın **Ekle** bu anahtar ve değer Kaydet düğmesine ve ardından tıklayın **Kaydet** yapılandırma değişikliklerini kaydetmek için düğme. İstendiğinde, değişikliği ("SAS depolama erişim örneğin ekleme") bir açıklama ekleyin ve ardından **Kaydet**.
 

@@ -6,7 +6,7 @@ documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 editor: ''
-ms.component: devices
+ms.subservice: devices
 ms.assetid: 6ae9df8b-31fe-4d72-9181-cf50cfebbf05
 ms.service: active-directory
 ms.workload: identity
@@ -17,12 +17,12 @@ ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: b1711b86042c74eba47fe1cfa41bbbd36ceaf127
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: abdeeacc22d2709a3107c9e9e05bd982705d7dea
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248767"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079078"
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Azure Active Directory cihaz kaydı'nı kullanarak şirket içi koşullu erişimi ayarlama
 
@@ -76,7 +76,7 @@ Bu kılavuzda, Windows Server Active Directory yapılandırdıktan ve Microsoft 
 
 Azure Active Directory kiracınız ile Azure Active Directory cihaz kayıt hizmeti dağıtmak için aşağıdaki denetim sırada görevleri tamamlayın. Ne zaman bir referans bağlantı sizi bir kavramsal konuya götürür, daha sonra kalan görevlere devam edebilmeniz adına bu denetim listesine geri dönün. Bazı görevler adım başarıyla tamamlanıp tamamlanmadığını doğrulayın yardımcı olabilecek bir senaryo doğrulama adımı içerir.
 
-## <a name="part-1-enable-azure-active-directory-device-registration"></a>1. Bölüm: Enable Azure Active Directory cihaz kaydı
+## <a name="part-1-enable-azure-active-directory-device-registration"></a>1. Bölüm: Azure Active Directory cihaz kaydı etkinleştirme
 
 Etkinleştirmek ve Azure Active Directory cihaz Kayıt Hizmeti'ni yapılandırmak için denetim listesindeki adımları izleyin.
 
@@ -93,17 +93,17 @@ Etkinleştirmek ve Azure Active Directory cihaz Kayıt Hizmeti'ni yapılandırma
 | Active Directory etki alanı Hizmetleri ile Windows Server 2012 R2 şema uzantılarını dağıtın. Herhangi bir etki alanı denetleyicileriniz Windows Server 2012 R2 için yükseltme gerekmez. Şema yükseltme tek gereksinim olmasıdır. |[Active Directory Domain Services şemanızı yükseltme](#upgrade-your-active-directory-domain-services-schema) |
 | Cihazları Azure Active Directory cihaz kaydı hizmetiniz, iyi bilinen DNS kayıtlarına bakarak keşfedin. Cihazlar, Azure Active Directory cihaz kayıt hizmeti keşfedebilmesi için şirket DNS'nizi yapılandırın. |[Active Directory desteği cihazlarınızı hazırlama](#prepare-your-active-directory-to-support-devices) |
 
-## <a name="part-3-enable-device-writeback-in-azure-ad"></a>3. Bölüm: Azure AD'de etkin cihaz geri yazma
+## <a name="part-3-enable-device-writeback-in-azure-ad"></a>3. Bölüm: Azure AD'de cihaz geri yazmayı etkinleştirme
 
 | Görev | Başvuru |
 | --- | --- |
 | "Etkinleştirme cihaz geri yazma özelliğini Azure AD CONNECT'te." iki bölümü tamamlayın Tamamladığınızda, bu kılavuza döndürür. |[Azure AD Connect’te cihaz geri yazma özelliğini etkinleştirme](hybrid/how-to-connect-device-writeback.md) |
 
-## <a name="optional-part-4-enable-multi-factor-authentication"></a>[İsteğe bağlı] 4. Bölüm: Enable çok faktörlü kimlik doğrulaması
+## <a name="optional-part-4-enable-multi-factor-authentication"></a>[İsteğe bağlı] 4. Bölüm: Çok faktörlü kimlik doğrulamasını etkinleştirme
 
 Multi-Factor Authentication'a ilişkin birkaç seçenekten birini yapılandırmanız önerilir. Çok faktörlü kimlik doğrulaması gerektiren istiyorsanız, bkz. [sizin için multi-Factor Authentication güvenlik çözümünüzü seçin](authentication/concept-mfa-whichversion.md). Bu, her çözüm ve çözüm, tercih ettiğiniz yapılandırmanıza yardımcı olması için bağlantılar açıklamasını içerir.
 
-## <a name="part-5-verification"></a>5. Bölüm: doğrulama
+## <a name="part-5-verification"></a>5. Bölüm: Doğrulama
 
 Dağıtım tamamlandı, ve bazı senaryolarını deneyebilirsiniz. Hizmet ile denemeler yapın ve özellikleri ile aşina olmak için aşağıdaki bağlantıları kullanın.
 
@@ -158,7 +158,7 @@ Federasyon sunucunuzda, Windows PowerShell komut penceresi açın ve ardından y
 
 ### <a name="prepare-azure-ad-connect-for-device-writeback"></a>Cihaz geri yazma için Azure AD Connect'i hazırlama
 
-1. Bölüm tamamlayın: Azure AD Connect'i hazırlama.
+1. Bölüm tamamlayın: Hazırlama Azure AD'ye bağlanın.
 
 ## <a name="join-devices-to-your-workplace-by-using-azure-active-directory-device-registration-service"></a>Azure Active Directory cihaz kayıt hizmeti kullanarak cihazları çalışma alanınıza katılma
 
@@ -197,7 +197,7 @@ Varsayılan olarak, Azure Active Directory'den geri yazılır cihaz nesneleri, A
 
 ## <a name="create-an-application-access-policy-and-custom-access-denied-message"></a>Bir uygulama erişim ilkesi ve özel erişim reddedildi iletisi oluştur
 
-Aşağıdaki senaryoları düşünün: bağlı taraf güveni AD FS'de uygulama oluşturma ve yalnızca kayıtlı cihazlara izin veren bir verme yetkilendirme kuralı yapılandırma. Artık yalnızca kayıtlı cihazlar, uygulamaya erişmesine izin verilir. 
+Aşağıdaki senaryoyu göz önünde bulundurun: Uygulamanın AD FS bağlı olan taraf güveni oluşturur ve yalnızca kayıtlı cihazlara izin veren bir verme yetkilendirme kuralı yapılandırın. Artık yalnızca kayıtlı cihazlar, uygulamaya erişmesine izin verilir. 
 
 Kullanıcılarınızın uygulamaya erişmeniz kolaylaştırmak için cihazını katılmaya ilişkin yönergeleri içeren bir özel erişim reddedildi iletisi yapılandırın. Artık, kullanıcıların uygulamaya erişebilmek için cihazlarını kaydetmek için sorunsuz bir yöntem var.
 

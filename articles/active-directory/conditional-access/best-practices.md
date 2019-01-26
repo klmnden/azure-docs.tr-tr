@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/23/2018
+ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 62bb9b6b4b0edd9e45b317c3c4e18872bae2eec4
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: MT
+ms.openlocfilehash: 3ed4d3874056eca93e5c94e225ba25d94e7826e3
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452845"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54911940"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Azure Active Directory'de koşullu erişim için en iyi uygulamalar
 
@@ -55,6 +55,24 @@ Yeni bir ilke oluşturduğunuzda, hiçbir kullanıcıları, grupları, uygulamal
 
 
 ## <a name="what-you-should-know"></a>Bilmeniz gerekenler
+
+
+
+### <a name="how-are-conditional-access-policies-applied"></a>Koşullu erişim ilkelerini nasıl uygulanır?
+
+Bir kullanıcı bir uygulama eriştiğinde, birden fazla koşullu erişim ilkesi uygulanabilir. Bu durumda uygulanan tüm ilkeler sağlanmalıdır. Bir ilkeleri, örneğin, bir kullanıcı için mfa'yı gerektirir ve ikinci uyumlu bir cihaz kullanıcı MFA gerekir ve uyumlu bir cihaz olması gerekir. 
+
+Tüm ilkeleri, iki aşamada uygulanır:
+
+- İçinde **ilk** aşaması, tüm ilkeleri değerlendirilir ve koşullar karşılanırsa tüm erişim denetimleri toplanır. 
+
+- İçinde **ikinci** , bilgisi henüz karşılanmadığı gereksinimlerini karşılamak için aşama. Bir ilke erişimi engellerse, engellenmiş ve diğer ilke denetimleri istenir değil. İlkelerin hiçbiri engeller, diğer ilke denetimleri aşağıdaki sırayla istenir:
+
+    ![Sipariş verme](./media/best-practices/06.png)
+    
+    Dış MFA sağlayıcıları ve kullanım koşulları İleri gelmektedir.
+
+
 
 ### <a name="how-are-assignments-evaluated"></a>Atamalar nasıl değerlendirilir?
 
@@ -154,4 +172,7 @@ Daha fazla bilgi için [Azure portalında Klasik ilkeleri geçirme](policy-migra
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Koşullu erişim ilkesi yapılandırmak için bkz. nasıl bilmek istiyorsanız [Azure Active Directory koşullu erişimiyle belirli uygulamalar için MFA gerektiren](app-based-mfa.md).
+Bilmek istiyorsanız:
+
+- Koşullu erişim ilkesi yapılandırmak için bkz. nasıl [Azure Active Directory koşullu erişimiyle belirli uygulamalar için MFA gerektiren](app-based-mfa.md).
+- Koşullu erişim ilkelerinizi planlama nasıl [Azure Active Directory'de koşullu erişim dağıtımınızı planlamak nasıl](plan-conditional-access.md).

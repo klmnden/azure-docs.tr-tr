@@ -7,7 +7,7 @@ services: active-directory
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,12 +16,12 @@ ms.date: 11/08/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 0983c2235fba0cacbda53208e5dcad5b2878619c
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 7efac4138f21a3f8e9dae087991f97dabad61822
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345496"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077263"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>Nasıl yapılır: Azure AD uygulamanızı (genel Önizleme) için isteğe bağlı bir talep sağla
 
@@ -37,9 +37,9 @@ Standart talepler ve belirteçler nasıl kullanıldığı listesi için bkz. [Az
 
 Hedeflerinden [Azure AD v2.0 uç noktası](active-directory-appmodel-v2-overview.md) istemciler tarafından en iyi performansı elde etmek için daha küçük simge boyutları. Sonuç olarak, eski erişim ve kimlik belirteçlerini dahil birkaç talep artık v2.0 belirteçleri varsa ve için özellikle uygulama başına temelinde sorulması gerekir.
 
-**Tablo 1: uygulanabilirliği**
+**Tablo 1: Uygulanabilirlik**
 
-| Hesap türü | V1.0 uç noktası | V2.0 uç noktası  |
+| Hesap Türü | V1.0 uç noktası | V2.0 uç noktası  |
 |--------------|---------------|----------------|
 | Kişisel Microsoft hesabı  | Yok - RPS biletleri yerine kullanılır | Destek yakında |
 | Azure AD hesabı          | Desteklenen                          | Uyarılar ile desteklenen |
@@ -82,7 +82,7 @@ Hedeflerinden [Azure AD v2.0 uç noktası](active-directory-appmodel-v2-overview
 
 Bu talepler her zaman v1.0 belirteçlerinde dahil, ancak v2.0 belirteçlerinde istenmedikçe dahil değildir. Bu talepler yalnızca (kimlik ve erişim belirteçler) Jwt'ler için geçerlidir. 
 
-**Tablo 3: Yalnızca V2.0 isteğe bağlı talepleri**
+**Tablo 3: Yalnızca v2.0 isteğe bağlı talepleri**
 
 | JWT talep     | Ad                            | Açıklama                                | Notlar |
 |---------------|---------------------------------|--------------------------------------------------------------------------------------------------------------------------------|-------|
@@ -99,7 +99,7 @@ Bu talepler her zaman v1.0 belirteçlerinde dahil, ancak v2.0 belirteçlerinde i
 
 Bazı isteğe bağlı bir talep, talep döndürülen şeklini değiştirmek için yapılandırılabilir. Bu ek özellikler genellikle farklı veri beklentileri ile şirket içi uygulamaların taşınmasına yardımcı olmak için kullanılır (örneğin, `include_externally_authenticated_upn_without_hash` hashmarks işleyemiyor istemcilerle yardımcı olur (`#`) UPN içinde)
 
-**Tablo 4: standart isteğe bağlı talep yapılandırma değerleri**
+**Tablo 4: Standart isteğe bağlı talep yapılandırma değerleri**
 
 | Özellik adı                                     | Ek özellik adı                                                                                                             | Açıklama |
 |---------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|-------------|
@@ -209,7 +209,7 @@ Bu bölümde, isteğe bağlı bir talep özelliği, uygulamanız için nasıl ku
 -   Uygulama bildirimini değiştirebilirsiniz. Aşağıdaki örnekte, yapılandırmayı gerçekleştirmek için bu yöntemi kullanır. Okuma [Azure AD uygulama bildirimi belge anlama](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest) ilk bildirimi için giriş.
 -   Kullanan bir uygulamayı yazmak mümkündür [Graph API'si](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api) uygulamanızı güncelleştirmek için. [Varlık ve karmaşık tür başvurusu](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#optionalclaims-type) Graph API Başvurusu Kılavuzu, isteğe bağlı talepleri yapılandırmaya yardımcı olabilir.
 
-**Örnek:** aşağıdaki örnekte, erişim kimliği ve SAML talepleri eklemek için bir uygulamanın bildirim değiştirecek uygulama için amaçlanan belirteçleri.
+**Örnek:** Aşağıdaki örnekte, erişim kimliği ve SAML talepleri eklemek için bir uygulamanın bildirim değiştirecek uygulama için amaçlanan belirteçleri.
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 1. Kimlik doğrulaması yaptınız sonra sayfanın sağ üst köşesinde seçerek Azure AD kiracınızı seçin.

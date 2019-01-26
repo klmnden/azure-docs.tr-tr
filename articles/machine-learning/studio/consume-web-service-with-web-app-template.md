@@ -8,7 +8,7 @@ author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/20
 
 Tahmine dayalı bir model geliştirmektir ve kullanarak bir Azure web hizmeti olarak dağıtacağız:
 - Azure Machine Learning Studio'da.
-- R veya Python gibi araçlar. 
+- R veya Python gibi araçlar.
 
 REST API kullanarak bundan sonra çalışır hale getirilen modeli erişebilirsiniz.
 
@@ -23,10 +23,10 @@ Web uygulaması şablonları kullanılabilir Azure Marketi'nde web hizmetinizin 
 
 İki şablonları mevcuttur:
 
-* [Azure ML istek-yanıt hizmeti Web uygulaması şablonu](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/)
-* [Azure ML toplu iş yürütme hizmeti Web uygulaması şablonu](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/)
+* [Azure Machine Learning studio istek-yanıt hizmeti Web uygulaması şablonu](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/)
+* [Azure Machine Learning studio toplu yürütme hizmeti Web uygulaması şablonu](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/)
 
-Her şablon API URI'sini kullanarak örnek bir ASP.NET uygulaması oluşturur ve web hizmetiniz için anahtar. Şablon, daha sonra uygulamanızı bir Web sitesi olarak Azure'a dağıtır. 
+Her şablon API URI'sini kullanarak örnek bir ASP.NET uygulaması oluşturur ve web hizmetiniz için anahtar. Şablon, daha sonra uygulamanızı bir Web sitesi olarak Azure'a dağıtır.
 
 İstek-yanıt hizmeti (RRS) şablonu, tek bir sonuç almak için web hizmeti için tek bir satır veri göndermek için kullanabileceğiniz bir web uygulaması oluşturur. Toplu yürütme hizmeti (BES) şablon birçok sayıda birden çok sonuç almak için veri göndermek için kullanabileceğiniz bir web uygulaması oluşturur.
 
@@ -51,33 +51,33 @@ Aşağıdaki diyagramda gösterildiği gibi RRS web uygulaması şablonu kullanm
 <!--    ![API Key][image3] -->
 
 <!-- This value will look like this:
-   
+
         https://ussouthcentral.services.azureml.net/workspaces/<workspace-id>/services/<service-id>/execute?api-version=2.0&details=true
-   
+
     ![Request URI][image4] -->
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Seçin **yeni**, arayın ve seçin **Azure ML istek-yanıt hizmeti Web uygulaması**ve ardından **Oluştur**. 
+2. Seçin **yeni**, arayın ve seçin **Azure ML istek-yanıt hizmeti Web uygulaması**ve ardından **Oluştur**.
 3. İçinde **Oluştur** bölmesi:
-   
+
    * Web uygulamanıza benzersiz bir ad verin. Ardından bu ad web uygulamasının URL'si olacaktır **. azurewebsites.net**. Bir örnek **http://carprediction.azurewebsites.net**.
    * Web hizmetinizin altında çalışan hizmetleri ve Azure aboneliği seçin.
    * **Oluştur**’u seçin.
-     
+
    ![Web uygulaması oluşturma][image5]
 
 4. Azure web uygulaması dağıtımı tamamlandığında, seçin **URL** üzerinde web uygulaması Ayarları sayfasında Azure'da veya bir web tarayıcısında URL'sini girin. Örneğin, **http://carprediction.azurewebsites.net**.
 5. Web uygulamasını ilk kez çalıştırdığında, sizin için soran **API Post URL'si** ve **API anahtarı**. Daha önce kaydettiğiniz değerleri girin (sırasıyla istek URI ve API anahtarı). Seçin **gönderme**.
-     
+
    ![POST URI ve API anahtarını girin][image6]
 
 6. Web uygulaması görüntüler, **Web Uygulama Yapılandırması** geçerli web hizmeti ayarları sayfası. Burada web uygulamasını kullanan ayarlarına değişiklik yapabilirsiniz.
-   
+
    > [!NOTE]
    > Buradaki ayarlar yalnızca bunları bu web uygulaması için değiştirilir. Bu, web hizmetiniz varsayılan ayarlarını değiştirmez. Örneğin, metin değiştirirseniz **açıklama** Burada, Machine Learning Studio web hizmeti panosunda gösterilen açıklama değişmez.
-   > 
-   > 
-   
+   >
+   >
+
     İşiniz bittiğinde **değişiklikleri kaydetmek**ve ardından **giriş sayfasına Git**.
 
 7. Giriş sayfasından, web hizmetine göndermek için değerleri girebilirsiniz. Seçin **Gönder** zaman işiniz ve sonuç döndürülür.
@@ -93,11 +93,11 @@ Toplu yürütme web hizmeti giriş değerlerini Azure depolama veya yerel bir do
 
 ![BES web şablonu kullanmak için işlem][image2]
 
-1. BES web uygulamasını hem RRS şablonu oluşturmak için aynı yordamı izleyin. Ancak bu durumda, Git [Azure ML toplu iş yürütme hizmeti Web uygulaması şablonunu](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/) Azure Marketi'nde BES şablonu açmak için. Seçin **Web uygulaması oluşturma**.
+1. BES web uygulamasını hem RRS şablonu oluşturmak için aynı yordamı izleyin. Ancak bu durumda, Git [Azure Machine Learning studio toplu yürütme hizmeti Web uygulaması şablonunu](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/) Azure Marketi'nde BES şablonu açmak için. Seçin **Web uygulaması oluşturma**.
 
 2. Depolanan sonuçların istediğiniz belirtmek için web uygulamasının giriş sayfasında hedef kapsayıcı bilgileri girin. Ayrıca web uygulamasının giriş değerleri nereden belirtin: yerel bir dosyaya veya bir Azure depolama kapsayıcısında.
    Seçin **gönderme**.
-   
+
    ![Depolama bilgileri][image7]
 
 Web uygulaması, iş durumunu içeren bir sayfa görüntüler. İş tamamlandığında, Azure Blob Depolama alanında sonuçları konumunu alma. Ayrıca yerel bir dosyaya sonuçları yükleme seçeneğiniz vardır.

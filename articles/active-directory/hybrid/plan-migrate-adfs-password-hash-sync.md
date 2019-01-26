@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c6c13d0e27edd5563f10df59ce7af585a345bfab
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: fe28eda7571bf95d1e86419f5caf3cf65e4020b3
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463346"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078653"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Federasyon seçeneğinden parola karması eşitleme için Azure Active Directory geçirme
 
@@ -30,7 +30,8 @@ Parola Karması eşitleme kullanarak AD FS geçiş için aşağıdaki önkoşull
 
 ### <a name="update-azure-ad-connect"></a>Güncelleştirme Azure AD'ye bağlanma
 
-Parola Karması eşitleme kullanarak geçirmek için gereken adımları başarıyla tamamlamak için aşağıdakiler gereklidir [Azure Active Directory Connect](https://www.microsoft.com/download/details.aspx?id=47594) (Azure AD Connect) 1.1.819.0 veya sonraki bir sürümü. Azure AD Connect'e bağlanan 1.1.819.0, oturum açma dönüştürme şekilde önemli ölçüde değişiklik gerçekleştirdi. Bu sürümdeki bulut kimlik doğrulaması için AD FS'den geçirmek için toplam süreyi dakika olarak saatten büyük olasılıkla azaltılır.
+Başarıyla parola karması eşitleme için geçiş adımlarını gerçekleştirmek için minimum olarak olmalıdır [Azure AD connect](https://www.microsoft.com/download/details.aspx?id=47594) 1.1.819.0. Bu sürümü, oturum açma dönüştürme yapılır ve dakika potansiyel olarak saat bulut kimlik doğrulaması Federasyon seçeneğinden geçirmek için toplam süreyi azaltır şekilde önemli değişiklikler içerir.
+
 
 > [!IMPORTANT]
 > Eski belgelere, araçları ve etki alanları için yönetilen kimlik Federasyon kimlik dönüştürdüğünüzde, kullanıcı dönüştürme gerekli olduğunu blogları okuyabilir. *Kullanıcıların dönüştürme* artık gerekli değildir. Microsoft, belgeleri ve araçları, bu değişikliği yansıtacak şekilde güncelleştirmek için çalışmaktadır.

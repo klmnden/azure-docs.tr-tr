@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/19/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 8a9fc299f620c7df87544b467cf52535addfe313
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: bfe53ac99ae1719deeacc156b250fe5a7f87a99a
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651512"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913470"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Azure Stack'te sanal makineleri kullanma konuları
 
@@ -104,8 +104,8 @@ Desteklenen kaynak türlerini ve API sürümlerini listesi bulut operatörü, Az
 
 Windows ürünlerinin ürün kullanım hakları ve Microsoft Lisans Koşulları'nı uygun olarak kullanılmalıdır. Azure Stack kullanan [otomatik sanal makine etkinleştirmesi](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v%3dws.11)) Windows Server sanal makineleri (VM'ler) etkinleştirme (AVMA).
 
-- Azure Stack ana bilgisayar Windows AVMA anahtarları ile Windows Server 2016 için etkinleştirir. Windows Server 2012 çalıştıran ya da daha sonra otomatik olarak etkinleştirilmiş tüm VM'ler.
-- Çalıştırma Windows Server 2008 R2 otomatik olarak etkinleştirilmez ve kullanarak etkinleştirilmesi için kullanılması gereken sanal makineleri [MAK etkinleştirmesi](https://technet.microsoft.com/library/ff793438.aspx). MAK etkinleştirmesini kullanmak için kendi ürün anahtarı sağlamanız gerekir.
+- Azure Stack ana bilgisayar Windows AVMA anahtarları ile Windows Server 2016 için etkinleştirir. Windows Server 2012 R2 çalıştıran ya da daha sonra otomatik olarak etkinleştirilmiş tüm VM'ler.
+- Windows Server 2012 çalıştıran veya önceki otomatik olarak etkinleştirilmez ve kullanarak etkinleştirilmesi için kullanılması gereken sanal makineleri [MAK etkinleştirmesi](https://technet.microsoft.com/library/ff793438.aspx). MAK etkinleştirmesini kullanmak için kendi ürün anahtarı sağlamanız gerekir.
 
 Microsoft Azure, Windows sanal makineleri etkinleştirme için KMS etkinleştirme kullanır. Azure Stack bir VM'den Azure'a ve karşılaştığınız sorunlar etkinleştirme taşırsanız, bkz. [sorun giderme Azure Windows sanal makine etkinleştirme sorunlarını](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-activation-problems). Ek bilgiler bulunabilir [Azure Vm'leri üzerinde sorun giderme Windows etkinleştirme hatalarını](https://blogs.msdn.microsoft.com/mast/2017/06/14/troubleshooting-windows-activation-failures-on-azure-vms/) Azure destek ekibi Blog Gönderisi.
 

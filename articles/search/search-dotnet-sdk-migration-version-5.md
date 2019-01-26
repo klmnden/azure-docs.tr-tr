@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 01/24/2019
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 743ac433418386281acc58ad1deef06ee75e38d9
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: d7684aa79ac9f58c2a047b01a6d9f5263795221d
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316890"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912059"
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-5"></a>Azure Search .NET SDK sürüm 5 yükseltme
 4.0 Önizleme veya, eski bir sürümü kullanıyorsanız [Azure Search .NET SDK'sı](https://aka.ms/search-sdk), bu makalede, uygulamanızı 5 sürümünü kullanacak şekilde yükseltmek yardımcı olur.
@@ -44,17 +44,26 @@ Azure Search .NET SDK'sı 5 sürümünü hedefleyen en son Azure Search REST API
 ## <a name="steps-to-upgrade"></a>Yükseltme adımları
 İlk olarak, için NuGet başvuru güncelleştirme `Microsoft.Azure.Search` NuGet Paket Yöneticisi konsolu kullanılarak veya ile proje başvurularınızın sağ tıklayıp "Yönetme NuGet paketleri..." Visual Studio'da.
 
-NuGet yeni paketler ve bağımlılıkları İndirildikten sonra projenizi yeniden derleyin. Yeni GA SDK'da değil bir önizleme özelliği kullanmadığınız sürece başarıyla yeniden oluşturmak (Aksi takdirde, üzerinde bize [GitHub](https://github.com/azure/azure-sdk-for-net/issues)). Bu durumda, başlamaya hazırsınız!
+NuGet yeni paketler ve bağımlılıkları İndirildikten sonra projenizi yeniden derleyin. Kodunuzu nasıl yapılandırıldığını bağlı olarak başarıyla yeniden oluşturmak. Bu durumda, başlamaya hazırsınız!
+
+Yapı başarısız olursa, aşağıdaki gibi bir yapı hatası görmeniz gerekir:
+
+    The name 'SuggesterSearchMode' does not exist in the current context
+
+Bu derleme hatayı düzeltmek için sonraki adımdır bakın. Bkz: [sürüm 5 bozucu değişiklikler](#ListOfChanges) neyin hataya neden ve nasıl düzeltileceği hakkında ayrıntılı bilgi için.
 
 Azure Search .NET SDK'sı paketinin değişikliklerden dolayı Lütfen dikkat edin, sürüm 5 kullanmak için uygulamanızı yeniden oluşturmanız gerekir. Bu değişiklikler ayrıntıları [sürüm 5 bozucu değişiklikler](#ListOfChanges).
 
 Eski yöntemleri veya özellikleri ile ilgili ek derleme uyarıları görebilirsiniz. Uyarıların hangi kullanım dışı özelliği yerine kullanmak yönergeler içerir. Örneğin, uygulamanızın kullandığı `IndexingParametersExtensions.DoNotFailOnUnsupportedContentType` yöntemi, "Bu davranış artık varsayılan olarak etkindir, bu yöntemin çağrılması artık gerekli olmayacak biçimde." ifadesini içeren bir uyarı almanız gerekir
 
-Herhangi bir derleme uyarıları düzelttik sonra isterseniz yeni işlevsellikten yararlanmak için uygulamanızı değişiklik yapabilirsiniz. SDK'sı yeni özellikleri ayrıntılı olarak [sürüm 5 yenilikleri](#WhatsNew).
+Herhangi bir derleme hataları veya uyarıları düzelttik sonra isterseniz yeni işlevsellikten yararlanmak için uygulamanızı değişiklik yapabilirsiniz. SDK'sı yeni özellikleri ayrıntılı olarak [sürüm 5 yenilikleri](#WhatsNew).
 
 <a name="ListOfChanges"></a>
 
 ## <a name="breaking-changes-in-version-5"></a>Sürüm 5 bozucu değişiklikler
+
+### <a name="new-package-structure"></a>Yeni paket yapısı
+
 5 sürümündeki en önemli ölçüde değişiklik olan `Microsoft.Azure.Search` derleme ve içeriği bölündüğü artık dört ayrı NuGet paketleri olarak dağıtılan dört ayrı derlemeler:
 
  - `Microsoft.Azure.Search`: Diğer tüm Azure Search paketleri bağımlılık olarak içeren bir meta-package budur. SDK'ın önceki bir sürümden yükseltiyorsanız, yalnızca bu paket yükseltildikten ve yeniden oluşturma, yeni sürümü kullanmaya başlamak için yeterli olmalıdır.
@@ -65,6 +74,10 @@ Herhangi bir derleme uyarıları düzelttik sonra isterseniz yeni işlevsellikte
 Derlemeler arasında çok sayıda türü taşınan olduğundan bu değişikliği teknik olarak kesiliyor. Uygulamanızı yeniden SDK'sının 5 sürümüne yükseltmek için gerekli olmasının nedenidir.
 
 Uygulamanızı yeniden yanı sıra var. kod gerektiren diğer kesme değişiklikleri 5 sürümündeki az sayıda değiştirir.
+
+### <a name="change-to-suggesters"></a>İçin öneri araçlarını değiştirme 
+
+`Suggester` Oluşturucusu artık sahip bir `enum` parametresi için `SuggesterSearchMode`. Bu sabit listesi yalnızca bir değer vardı ve bu nedenle yedekli. Görürseniz, bunun sonucunda ortaya çıkan hataları yapı, başvuruları kaldırmanız `SuggesterSearchMode` parametresi.
 
 ### <a name="removed-obsolete-members"></a>Eski üyeler kaldırıldı
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: subsarma
-ms.openlocfilehash: 4a4a4c6a37e3c52054d7bc773ef04bf057709fdd
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 487bf54d80c9249e5ce69c4b5aeff942a21d5b48
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025105"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913173"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Azure sanal ağlarda bulunan kaynaklar için ad çözümlemesi
 
@@ -87,7 +87,7 @@ Yerleşik DNS önbelleğini varsayılan Windows DNS istemcisi vardır. Bazı Lin
 
 Bir dizi farklı DNS önbelleğe alma (dnsmasq gibi) kullanılabilir paketler vardır. En yaygın dağıtımlarında dnsmasq yükleneceği açıklanmıştır:
 
-* **Ubuntu (kullandığı resolvconf)**:
+* **Ubuntu (uses resolvconf)**:
   * Dnsmasq paketi yükleme `sudo apt-get install dnsmasq`.
 * **SUSE (kullandığı netconf)**:
   * Dnsmasq paketi yükleme `sudo zypper install dnsmasq`.
@@ -128,7 +128,7 @@ Resolv.conf dosyasını genellikle otomatik olarak oluşturuldu ve düzenlenmeme
 * **SUSE** (netconf kullanılır):
   1. Ekleme *timeout:1 girişimi: 5* için **NETCONFIG_DNS_RESOLVER_OPTIONS = ""** parametresinde **/etc/sysconfig/network/config**. 
   2. Çalıştırma `netconfig update` güncelleştirilecek.
-* **OpenLogic** (NetworkManager kullanılır):
+* **OpenLogic** (uses NetworkManager):
   1. Ekleme *Yankı "timeout:1 girişimi: 5 Seçenekleri"* için **/etc/NetworkManager/dispatcher.d/11-dhclient**. 
   2. İle güncelleştirme `service network restart`.
 
@@ -195,6 +195,11 @@ Kendi DNS sunucularınızı kullanırken, Azure sanal ağ başına birden çok D
 > 
 
 Azure Resource Manager dağıtım modeli kullanılırken bir sanal ağ ve ağ arabirimi için DNS sunucuları belirtebilirsiniz. Ayrıntılar için bkz [sanal ağ yönetme](manage-virtual-network.md) ve [bir ağ arabirimi yönetmek](virtual-network-network-interface.md).
+
+> [!NOTE]
+> Sanal ağınız için özel DNS sunucusu için iyileştirilmiş, en az bir DNS sunucusu IP adresi belirtmeniz gerekir; Aksi takdirde, sanal ağ yapılandırma yoksay ve bunun yerine Azure tarafından sağlanan DNS kullanın.
+> 
+> 
 
 Azure portalında Klasik dağıtım modeli kullanılırken, sanal ağın DNS sunucuları belirtebilirsiniz veya [ağ yapılandırma dosyası](https://msdn.microsoft.com/library/azure/jj157100). Bulut Hizmetleri için DNS sunucuları aracılığıyla belirtebilirsiniz [hizmet yapılandırma dosyası](https://msdn.microsoft.com/library/azure/ee758710) veya PowerShell kullanarak [New-AzureVM](/powershell/module/servicemanagement/azure/new-azurevm).
 

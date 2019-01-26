@@ -3,19 +3,19 @@ title: İzin verme veya engelleme belirli kuruluşların - Azure Active Director
 description: Yönetici erişim ayarlayın ya da izin vermeyi veya engellemeyi B2B kullanıcıları belirli etki alanlarının listesi reddetmek için Azure portalını veya PowerShell'i nasıl kullanabileceğinizi gösterir.
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: d0458fa9c40c5a6681a3f691cbb3d6a02f01ce66
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 60fbde1ea269dc43d35007287c38e852a5feedff
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429081"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55075338"
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>İzin verme veya davetleri B2B kullanıcıları belirli kuruluşlardan engelleme
 

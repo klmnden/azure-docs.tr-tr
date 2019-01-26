@@ -5,13 +5,13 @@ author: bolzmj
 ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/20/2018
-ms.openlocfilehash: b7c1f873d47be0f2ec0125f769a47a399e492662
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/24/2019
+ms.openlocfilehash: bbc0eadebec849dde47cecaf6e3718eb6673a22f
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536160"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912825"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-postgresql"></a>PostgreSQL için Azure veritabanı için Gelişmiş tehdit koruması
 
@@ -22,6 +22,9 @@ Gelişmiş tehdit koruması için Gelişmiş güvenlik özellikleri birleştiril
 > [!NOTE]
 > Gelişmiş tehdit Koruması özelliği **değil** aşağıdaki Azure devlet kurumları ve bağımsız bulut bölgelerde kullanılabilir: ABD Devleti Texas, ABD Devleti Arizona, ABD Devleti Iowa, ABD Devleti Virginia, US DoD Doğu, ABD DoD Orta, Almanya Orta, Almanya Kuzey, Doğu Çin, Doğu Çin 2. Lütfen [bölgelere göre kullanılabilir ürünler](https://azure.microsoft.com/global-infrastructure/services/) genel ürün kullanılabilirliği için.
 >
+
+> [!NOTE]
+> Bu özellik, PostgreSQL için Azure veritabanı genel amaçlı ve bellek için iyileştirilmiş sunucuları için dağıtıldığı tüm bölgelerde Azure'nın kullanılabilir.
 
 ## <a name="set-up-threat-detection"></a>Tehdit algılama ' ayarlayın
 1. Adresinden Azure portalında başlatma [ https://portal.azure.com ](https://portal.azure.com).

@@ -4,14 +4,14 @@ description: Azure geçişi hizmeti ve sorun giderme ipuçları için sık karş
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 01/25/2019
 ms.author: raynew
-ms.openlocfilehash: 0c7d0980c928ecefebeabff555378230453c742f
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: MT
+ms.openlocfilehash: 8ec580c31901cdbb28fc3a66877f5b0f320f1f7f
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54827950"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912603"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Azure Geçişi sorunlarını giderme
 
@@ -153,8 +153,12 @@ Azure geçişi toplayıcısı Powerclı indirir ve gerecinde yükler. Powerclı 
 Bu sorun, VMware powerclı'yı yükleme ile ilgili bir sorun nedeniyle oluşabilir. İzleyin sorunu çözmek için aşağıdaki adımları:
 
 1. Toplayıcı gerecini en son sürümüne bağımlı değilse [en son sürüme Toplayıcınızı yükseltin](https://aka.ms/migrate/col/checkforupdates) ve sorunun çözülüp çözülmediğini denetleyin.
-2. En son Toplayıcı sürümü zaten varsa, el ile yükleme [VMware powerclı'yı 6.5.2](https://www.powershellgallery.com/packages/VMware.PowerCLI/6.5.2.6268016) ve sorunun çözülüp çözülmediğini denetleyin.
-3. Yukarıdaki değil sorunu çözün, C:\Program Files\ProfilerService klasöre gidin ve VMware.dll kaldırın ve VimService65.dll dosyaları klasöründe sunmak ve Windows hizmetlerini Yönet 'Azure geçişi Toplayıcısı' hizmeti yeniden başlatın (açık ' Çalıştır ' ve türü 'services.msc' Windows Hizmet Yöneticisi'ni açmak için).
+2. En son Toplayıcı sürümü zaten varsa izleyin Powerclı temiz bir yüklemesi yapmak için aşağıdaki adımları: bir. Gereç web tarayıcısında kapatın.
+   b. Windows Hizmet Yöneticisi için (Windows Hizmet Yöneticisi'ni açmak için Aç 'Çalışma' ve türü services.msc) giderek 'Azure geçişi Toplayıcısı' hizmetini durdurun. Azure geçişi Toplayıcısı hizmeti üzerinde sağ tıklayın ve durdurun, c'ye tıklayın. Aşağıdaki konumlardan 'VMware' ile başlayan tüm klasörleri Sil: C:\Program Files\WindowsPowerShell\Modules  
+        C:\Program Files (x86)\WindowsPowerShell\Modules d. 'Azure geçişi Toplayıcısı' hizmeti, Windows Hizmet Yöneticisi'nde (Windows Hizmet Yöneticisi'ni açmak için Aç 'Çalışma' ve türü services.msc) yeniden başlatın. Azure geçişi Toplayıcısı hizmeti üzerinde sağ tıklatın ve Başlat'a tıklayın.
+   e. Masaüstü kısayolu 'Toplayıcıyı Çalıştır' a çift tıklayın Toplayıcı uygulamasını başlatmak için. Toplayıcı uygulamasını otomatik olarak indirip gerekli sürümü yüklemeniz gerekir fo Powerclı.
+
+3. Yukarıdaki sorunu çözmezse, el ile yükleme [VMware powerclı'yı 6.5.2](https://www.powershellgallery.com/packages/VMware.PowerCLI/6.5.2.6268016) ve sorunun çözülüp çözülmediğini denetleyin.
 
 ### <a name="error-unabletoconnecttoserver"></a>Error UnableToConnectToServer
 

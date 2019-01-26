@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 1ee45699040f58a1317009ab44bb5ac863323869
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 7446c680ffdba28fef7eb68441d04a4c18398847
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54816764"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912574"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup hatalarında sorunları giderme: Aracı veya uzantı ile ilgili sorunlar
 
@@ -59,7 +59,7 @@ Bu sorunu çözmek için VM kaynak grubu üzerindeki kilidi kaldırın ve temizl
 **1. adım: [Geri yükleme noktası kaynak grubundan kilidi kaldırın](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **2. adım: [Geri yükleme noktası koleksiyonunu Temizle](#clean_up_restore_point_collection)**<br>
 
-## <a name="usererrorkeyvaultpermissionsnotconfigured---backup-doesnt-have-sufficient-permissions-to-the-key-vault-for-backup-of-encrypted-vms"></a>UserErrorKeyvaultPermissionsNotConfigured - yedekleme, şifrelenmiş VM'lerin anahtar kasasına yedekleme için yeterli izinlere sahip değil.
+## <a name="usererrorkeyvaultpermissionsnotconfigured---backup-doesnt-have-sufficient-permissions-to-the-key-vault-for-backup-of-encrypted-vms"></a>UserErrorKeyvaultPermissionsNotConfigured - yedekleme şifrelenmiş vm'leri yedekleme için anahtar kasası için yeterli izinlere sahip değil
 
 **Hata kodu**: UserErrorKeyvaultPermissionsNotConfigured <br>
 **Hata iletisi**: Yedekleme, şifrelenmiş VM'lerin anahtar kasasına yedekleme için yeterli izinlere sahip değil. <br>
@@ -105,7 +105,7 @@ Kaydolun ve bir VM için Azure Backup hizmeti zamanlama sonra yedekleme zaman i�
 **Hata kodu**: UserErrorUnsupportedDiskSize <br>
 **Hata iletisi**: Şu anda Azure Backup 1023 GB’tan büyük disk boyutlarını desteklememektedir <br>
 
-Kasanız için anında geri yükleme yükseltilmez olduğundan disk boyutu 1023 GB'tan büyük ile VM'yi yedeklerken, yedekleme işlemi başarısız olabilir. Anında geri yükleme için yükseltme sağlayacağı 4 TB'a kadar destek, bkz. Bu [makale](backup-instant-restore-capability.md).  
+Kasanız için anında geri yükleme yükseltilmez olduğundan disk boyutu 1023 GB'tan büyük ile VM'yi yedeklerken, yedekleme işlemi başarısız olabilir. Anında geri yükleme için yükseltme sağlayacağı 4 TB'a kadar destek, bkz. Bu [makale](backup-instant-restore-capability.md#upgrading-to-instant-restore).  
 
 ## <a name="usererrorstandardssdnotsupported---currently-azure-backup-does-not-support-standard-ssd-disks"></a>Standart SSD disk şu anda Azure Backup UserErrorStandardSSDNotSupported - desteklemiyor
 
@@ -114,7 +114,7 @@ Kasanız için anında geri yükleme yükseltilmez olduğundan disk boyutu 1023 
 
 Şu anda Azure Backup için yükseltilmiş kasaları için standart bir SSD diskleri destekler [anında geri yükleme](backup-instant-restore-capability.md).
 
-## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress - şu anda başka bir yedekleme işlemi devam ediyor gibi yedeklemeyi başlatın.
+## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress - şu anda başka bir yedekleme işlemi devam ediyor gibi yedekleme başlatamıyor
 
 **Hata kodu**: UserErrorBackupOperationInProgress <br>
 **Hata iletisi**: Yedekleme şu anda başka bir yedekleme işlemi devam ediyor olarak başlatılamıyor<br>
@@ -132,7 +132,6 @@ Devam eden var olan bir yedekleme işi olduğundan son yedekleme işi başarıs�
 4. Yedekleme işlemini yeniden deneyin.
 
 Zamanlanmış yedekleme işlemi ile sonraki yedekleme yapılandırması çakışan uzun sürüyorsa incelediniz [en iyi](backup-azure-vms-introduction.md#best-practices), [yedekleme performansı](backup-azure-vms-introduction.md#backup-performance) ve [göz önünde bulundurarak geri yükleme ](backup-azure-vms-introduction.md#restore-considerations).
-
 
 
 ## <a name="causes-and-solutions"></a>Nedenler ve çözümler

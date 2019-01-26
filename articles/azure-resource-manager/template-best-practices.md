@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: bd54ae2c82d3baf716784c39951c5cad7ec364b3
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 0736ed32fa6f17cc840d6b144503409365c33d84
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731707"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077956"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Azure Resource Manager şablonu en iyi uygulamaları
 
@@ -82,7 +82,7 @@ Bu bölümdeki bilgiler ile çalışırken yararlı olabilir [parametreleri](res
 
 * Kullanım `allowedValues` gerektiğinde. Yalnızca bazı değerler izin verilen seçenekler yer almayan emin olmalısınız, bunu kullanın. Kullanırsanız `allowedValues` listenizin güncel tutarak değil geçerli dağıtımları çok geniş çapta engelleyebilir.
 
-* Şablonunuzda bir parametre adı bir PowerShell dağıtım komut parametresi eşleştiğinde, Resource Manager bu adlandırma çakışması sonek ekleyerek çözümler **FromTemplate** şablon parametresi için. Örneğin, adında bir parametre eklerseniz **ResourceGroupName** ile çakışıyor, şablonunuzda **ResourceGroupName** parametresinde [New-AzureRmResourceGroupDeployment ](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) cmdlet'i. Dağıtım sırasında için bir değer sağlamanız istenir **ResourceGroupNameFromTemplate**.
+* Şablonunuzda bir parametre adı bir PowerShell dağıtım komut parametresi eşleştiğinde, Resource Manager bu adlandırma çakışması sonek ekleyerek çözümler **FromTemplate** şablon parametresi için. Örneğin, adında bir parametre eklerseniz **ResourceGroupName** ile çakışıyor, şablonunuzda **ResourceGroupName** parametresinde [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) cmdlet'i. Dağıtım sırasında için bir değer sağlamanız istenir **ResourceGroupNameFromTemplate**.
 
 ### <a name="security-recommendations-for-parameters"></a>Parametreler için güvenlik önerileri
 

@@ -1,15 +1,15 @@
 ---
 author: manish-shukla01
-ms.author: cwatson
+ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 11-20-2018
-ms.openlocfilehash: 044f735560eb7d57a90a16c1e3ce1255a9fe0d54
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 83b29aa1f0c12661eb1724eb505ad46987ed1019
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52742501"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906354"
 ---
 # <a name="virtual-machine-size-flexibility-with-reserved-vm-instances"></a>Ayrılmış VM örnekleri ile sanal makine boyutu esnekliği
 
@@ -20,7 +20,7 @@ ms.locfileid: "52742501"
 - Standard_DS3_v2
 - Standard_DS4_v2
 
-Ancak bu ayırma indirimi DSv2 serisi, yüksek bellek tabloda nedir gibi farklı tablolarda listelenen VM boyutları için geçerli değildir: Standard_DS11_v2, Standard_DS12_v2, ve benzeri.
+Ancak, bu ayırma indirimi DSv2 serisi, yüksek bellek tabloda nedir gibi farklı tablolarda listelenen VM boyutları için geçerli değildir: Standard_DS11_v2, Standard_DS12_v2 ve benzeri.
 
 Boyutu seri grubu içinde ayırma indirimi uygulandığı VM'ler bir ayırma satın aldığınızda tarifeniz seçtiğiniz VM boyutuna bağlıdır. Ayrıca, olan Vm'leri boyutlarına bağlıdır çalışıyor. Aşağıdaki tablolarda listelenenler oranı sütun, o grup içindeki her VM boyutu için göreli ayak izini karşılaştırır. Ayırma indirimi Vm'lere, uygulanması hakkında hesaplamak için oran değerine sahip kullanım çalışıyor.
 
@@ -30,9 +30,9 @@ Aşağıdaki örnekler DSv2 serisi tabloda boyutları ve oranlarını kullanın.
 
  Oran veya diğer boyutlarda serisi ile karşılaştırıldığında göreli ayak izini 8 olduğu Standard_DS4_v2 boyutu ile ayrılmış VM örneği satın aldığınız.
 
-- Senaryo 1: sekiz çalıştırma Standard_DS1_v2 Vm'leri 1 oranında ile boyutlandırılmış. Ayırma indirimini bu VM'lerin tüm sekiz için geçerlidir.
-- Senaryo 2: iki çalıştırma Standard_DS2_v2 Vm'leri 2 her oranı ile boyutlandırılmış. Ayrıca bir Standard_DS3_v2 4 oranı ile VM boyutu. Toplam boyut 2 + 2 + 4 = 8. Bu nedenle, ayırma indirimini üçünü de bu sanal makineler için geçerlidir.
-- Senaryo 3: bir Standard_DS5_v2 16 oranında ile çalıştırın. Ayırma indirimini bu VM'nin yarım işlem maliyeti için geçerlidir.
+- Senaryo 1: Sekiz çalıştırma Standard_DS1_v2 Vm'leri 1 oranında ile boyutlandırılmış. Ayırma indirimini bu VM'lerin tüm sekiz için geçerlidir.
+- Senaryo 2: İki çalıştırma Standard_DS2_v2 Vm'leri 2 her oranı ile boyutlandırılmış. Ayrıca bir Standard_DS3_v2 4 oranı ile VM boyutu. Toplam boyut 2 + 2 + 4 = 8. Bu nedenle, ayırma indirimini üçünü de bu sanal makineler için geçerlidir.
+- Senaryo 3: Bir Standard_DS5_v2 16 oranında ile çalıştırın. Ayırma indirimini bu VM'nin yarım işlem maliyeti için geçerlidir.
 
 Ayrılmış VM örneği satın aldığınızda, hangi boyutları aynı boyutu serisi grubunda olan aşağıdaki bölümlerde Göster boyutu esneklik örneği için en iyi duruma getirilmiş.
 
@@ -164,7 +164,7 @@ Daha fazla bilgi için [genel amaçlı sanal makine boyutları](../articles/virt
 |Standard_D12_v2|2|
 |Standard_D13_v2|4|
 |Standard_D14_v2|8|
-|İşler için standart_d15_v2|10|
+|Standard_D15_v2|10|
 
 Daha fazla bilgi için [bellek için iyileştirilmiş sanal makine boyutları](../articles/virtual-machines/windows/sizes-memory.md#dv2-series-11-15).
 
@@ -187,12 +187,12 @@ Daha fazla bilgi için [genel amaçlı sanal makine boyutları](../articles/virt
 |---|---|
 |Standard_E2s_v3|1|
 |Standard_E4s_v3|2|
-|Standard_E4 2s_v3|2|
+|Standard_E4-2s_v3|2|
 |Standard_E8s_v3|4|
-|Standard_E8 2s_v3|4|
-|Standard_E8 4s_v3|4|
+|Standard_E8-2s_v3|4|
+|Standard_E8-4s_v3|4|
 |Standard_E16s_v3|8|
-|Standard_E16 4s_v3|8|
+|Standard_E16-4s_v3|8|
 |Standard_E16-8s_v3|8|
 |Standard_E32s_v3|16|
 |Standard_E32-8s_v3|16|
@@ -297,7 +297,7 @@ Daha fazla bilgi için [bellek için iyileştirilmiş sanal makine boyutları](.
 | Boyut | Oranı|
 |---|---|
 | İşler için Standard_M16s|1|
-|İşler için Standard_M32s|2|
+|Standard_M32s|2|
 
 Daha fazla bilgi için [bellek için iyileştirilmiş sanal makine boyutları](../articles/virtual-machines/windows/sizes-memory.md#m-series).
 
@@ -311,7 +311,7 @@ Daha fazla bilgi için [bellek için iyileştirilmiş sanal makine boyutları](.
 |İşler için Standard_M16ms|2|
 |Standard_M16-4ms|2|
 |Standard_M16-8ms|2|
-|İşler için Standard_M32ms|4|
+|Standard_M32ms|4|
 |Standard_M32-8ms|4|
 |Standard_M32-16ms|4|
 
@@ -321,7 +321,7 @@ Daha fazla bilgi için [bellek için iyileştirilmiş sanal makine boyutları](.
 
 | Boyut | Oranı|
 |---|---|
-| İşler için standart_m32ls|1|
+| Standard_M32ls|1|
 |İşler için standart_m64ls|2|
 
 Daha fazla bilgi için [bellek için iyileştirilmiş sanal makine boyutları](../articles/virtual-machines/windows/sizes-memory.md#m-series).

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/14/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 75b3934a7329b4e83a0f36f79bbc8365eaf8a086
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: da46687517dbfe189571286087d4ef29d50d1246
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572842"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906352"
 ---
 # <a name="standard-ssd-managed-disks-for-azure-virtual-machine-workloads"></a>Standart SSD yönetilen diskler için Azure sanal makine iş yükleri
 
@@ -21,14 +21,14 @@ Azure standart katı hal sürücüleri (SSD) yönetilen diskler, daha düşük I
 
 ## <a name="standard-ssd-features"></a>Standart SSD özellikleri
 
-**Yönetilen diskler**: standart SSD'ler bulunan ve yalnızca yönetilen diskler. Yönetilmeyen diskler ve sayfa Blobları standart SSD üzerinde desteklenmez. Yönetilen diski oluştururken standart SSD disk türünü belirtin ve boyutu belirtmek duyduğunuz disk ve Azure oluşturur ve diski oluşturup yönetebilmesi.
+**Yönetilen diskler**: Standart SSD, yalnızca yönetilen diskler kullanılabilir. Yönetilmeyen diskler ve sayfa Blobları standart SSD üzerinde desteklenmez. Yönetilen diski oluştururken standart SSD disk türünü belirtin ve boyutu belirtmek duyduğunuz disk ve Azure oluşturur ve diski oluşturup yönetebilmesi.
 Standart SSD yönetilen diskler tarafından sunulan tüm Klasik dağıtım modeli işlemlerini destekler. Örneğin, oluşturma, kopyalama veya aynı şekilde standart SSD yönetilen diskler anlık görüntü yönetilen diskler ile yapın.
 
-**Sanal makineler**: standart SSD'ler Azure Premium diskleri desteklemiyor VM türleri dahil olmak üzere bulunduğu tüm VM'ler, kullanılabilir. Örneğin, bir A serisi VM veya N serisi VM'LERİNDEN ve DS serisi, kullanıyorsanız veya tüm diğer Azure VM serisi, bu VM ile standart bir SSD kullanabilirsiniz. Standart SSD sunulmasıyla birlikte, çok sayıda önceden SSD tabanlı disklere geçişi ve tutarlı bir performans, yüksek kullanılabilirlik, daha iyi gecikme süresi ve genel bir daha iyi deneyimi için HDD tabanlı diskler kullanan iş yükleri etkinleştirdik SSD'ler ile verilen karşılaşırsınız.
+**Sanal makineler**: Standart SSD Azure Premium diskleri desteklemiyor VM türleri dahil olmak üzere bulunduğu tüm VM'ler, kullanılabilir. Örneğin, bir A serisi VM veya N serisi VM'LERİNDEN ve DS serisi, kullanıyorsanız veya tüm diğer Azure VM serisi, bu VM ile standart bir SSD kullanabilirsiniz. Standart SSD sunulmasıyla birlikte, çok sayıda önceden SSD tabanlı disklere geçişi ve tutarlı bir performans, yüksek kullanılabilirlik, daha iyi gecikme süresi ve genel bir daha iyi deneyimi için HDD tabanlı diskler kullanan iş yükleri etkinleştirdik SSD'ler ile verilen karşılaşırsınız.
 
-**Yüksek oranda dayanıklı ve kullanılabilir**: standart SSD'ler, yüksek kullanılabilirlik ve dayanıklılığı diskleri için tutarlı bir şekilde teslim ettiğini aynı Azure diskleri platformu üzerinde oluşturulur. Azure diskleri yüzde 99,999 kullanılabilirlik için tasarlanmıştır. Tüm yönetilen diskler gibi standart SSD'ler de yerel olarak yedekli depolama (LRS) sunar. LRS, platform her disk için verilerin birden çok kopyasını tutar ve kurumsal düzeyde tutarlı bir şekilde teslim ettiğini dayanıklılık düzeyi sunmak için Iaas diskleri, endüstri lideri ile yüzde sıfır değer yıllık hata oranı.
+**Yüksek oranda dayanıklı ve kullanılabilir**: Standart SSD yüksek kullanılabilirlik ve dayanıklılığı diskleri için tutarlı bir şekilde teslim ettiğini aynı Azure diskleri platformda yerleşik olarak bulunur. Azure diskleri yüzde 99,999 kullanılabilirlik için tasarlanmıştır. Tüm yönetilen diskler gibi standart SSD'ler de yerel olarak yedekli depolama (LRS) sunar. LRS, platform her disk için verilerin birden çok kopyasını tutar ve kurumsal düzeyde tutarlı bir şekilde teslim ettiğini dayanıklılık düzeyi sunmak için Iaas diskleri, endüstri lideri ile yüzde sıfır değer yıllık hata oranı.
 
-**Anlık görüntüleri**: gibi tüm yönetilen diskler, standart SSD'ler anlık görüntü oluşturmaya da destekler. Anlık görüntü türü veya standart (HDD), hem de Premium (SSD) olabilir. Maliyet tasarrufu için tüm Azure disk türleri için anlık görüntü türü, standart (HDD) öneririz. Anlık görüntüden yönetilen disk oluşturma, size her zaman standart SSD veya Premium SSD gibi daha yüksek bir katmana seçebilir olmasıdır.
+**Anlık görüntüleri**: Standart SSD, tüm yönetilen diskler gibi anlık görüntü oluşturmaya da destekler. Anlık görüntü türü veya standart (HDD), hem de Premium (SSD) olabilir. Maliyet tasarrufu için tüm Azure disk türleri için anlık görüntü türü, standart (HDD) öneririz. Anlık görüntüden yönetilen disk oluşturma, size her zaman standart SSD veya Premium SSD gibi daha yüksek bir katmana seçebilir olmasıdır.
 
 ## <a name="scalability-and-performance-targets"></a>Ölçeklenebilirlik ve performans hedefleri
 
@@ -36,8 +36,10 @@ Aşağıdaki tabloda, şu anda sunulan için standart SSD disk boyutları içeri
 
 |Standart SSD Disk türü  |Disk Boyutu  |Disk başına IOPS  |Disk başına aktarım hızı  |
 |---------|---------|---------|---------|
+|E4     |32 GiB         |En fazla 120         |Saniye başına en fazla 25 MiB         |
+|E6     |64 GiB         |En fazla 240         |Saniye başına en fazla 50 MiB         |
 |E10     |128 GiB         |En fazla 500         |Saniye başına en fazla 60 MiB         |
-|E15     |256 giB         |En fazla 500         |Saniye başına en fazla 60 MiB         |
+|E15     |256 GiB         |En fazla 500         |Saniye başına en fazla 60 MiB         |
 |E20     |512 GiB         |En fazla 500         |Saniye başına en fazla 60 MiB         |
 |E30     |1.024 giB       |En fazla 500         |Saniye başına en fazla 60 MiB         |
 |E40     |2.048 giB       |En fazla 500         |Saniye başına en fazla 60 MiB         |
@@ -61,13 +63,13 @@ Standart SSD kullanırken aşağıdaki fatura değerlendirmeleri geçerlidir:
 - Giden veri aktarımları
 - İşlemler
 
-**Yönetilen disk boyutu**: yönetilen diskler ile sağlanan boyutu faturalandırılır. Azure sağlanan boyutu (yukarı yuvarlayarak) en yakın disk boyutu teklifiyle eşleştirir. Sağlanan disk boyutları Ayrıntılar için ölçeklenebilirlik ve performans hedefleri bölümde yukarıdaki tabloya bakın. Her disk, desteklenen sağlanan disk boyutuna eşlenir ve buna göre faturalandırılır. Örneğin, bir 200 GiB standart SSD sağladıysanız, E15 disk boyutu teklifine eşlersiniz (256 GiB). Sağlanmış bir diski için faturalama, saatlere Premium depolama teklif için aylık fiyat kullanılarak eşit olarak dağıtılır. E10 bir disk sağlanır ve 20 saat sonra silindi, için E10 teklif 20 saat eşit olarak dağıtılır. Örneğin, faturalandırılırsınız. Diske yazılan gerçek veri miktarından bağımsız olarak budur.
+**Yönetilen disk boyutu**: Yönetilen diskler üzerinde sağlanan boyut faturalandırılır. Azure sağlanan boyutu (yukarı yuvarlayarak) en yakın disk boyutu teklifiyle eşleştirir. Sağlanan disk boyutları Ayrıntılar için ölçeklenebilirlik ve performans hedefleri bölümde yukarıdaki tabloya bakın. Her disk, desteklenen sağlanan disk boyutuna eşlenir ve buna göre faturalandırılır. Örneğin, bir 200 GiB standart SSD sağladıysanız, E15 disk boyutu teklifine eşlersiniz (256 GiB). Sağlanmış bir diski için faturalama, saatlere Premium depolama teklif için aylık fiyat kullanılarak eşit olarak dağıtılır. E10 bir disk sağlanır ve 20 saat sonra silindi, için E10 teklif 20 saat eşit olarak dağıtılır. Örneğin, faturalandırılırsınız. Diske yazılan gerçek veri miktarından bağımsız olarak budur.
 
-**Anlık görüntüleri**: yönetilen diskler anlık görüntüleri faturalandırılır anlık görüntüleri, hedef ve kaynak tarafından kullanılan kapasite varsa. Anlık görüntüleri hakkında daha fazla bilgi için bkz. [yönetilen Disk anlık görüntülerini](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#managed-disk-snapshots).
+**Anlık görüntüleri**: Yönetilen diskler, anlık görüntüler varsa anlık görüntüleri, hedef ve kaynak tarafından kullanılan kapasite için faturalandırılırsınız. Anlık görüntüleri hakkında daha fazla bilgi için bkz. [yönetilen Disk anlık görüntülerini](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#managed-disk-snapshots).
 
-**Giden veri aktarımları**: [giden veri aktarımları](https://azure.microsoft.com/pricing/details/bandwidth/) (Azure veri merkezlerinden çıkan veriler) bant genişliği kullanımı için fatura doğurur.
+**Giden veri aktarımları**: [Giden veri aktarımları](https://azure.microsoft.com/pricing/details/bandwidth/) (Azure veri merkezlerinden çıkan veriler) bant genişliği kullanımı için fatura doğurur.
 
-**İşlem**: benzer şekilde standart HDD, standart ssd'lerde işlemleri fatura doğurur. İşlemler hem okuma hem de içerir ve diskteki yazma. Standart SSD üzerinde işlem hesaplama için kullanılan g/ç birim boyutu 256 KiB ' dir. Daha büyük g/ç boyutları olarak birden çok g/ç boyutu 256 sayılır KiB.
+**İşlem**: Benzer şekilde standart HDD, faturalandırma işlemleri standart ssd'lerde yansıtılmaz. İşlemler hem okuma hem de içerir ve diskteki yazma. Standart SSD üzerinde işlem hesaplama için kullanılan g/ç birim boyutu 256 KiB ' dir. Daha büyük g/ç boyutları olarak birden çok g/ç boyutu 256 sayılır KiB.
 
 Sanal makineler ve yönetilen diskler için fiyatlandırma hakkında daha fazla bilgi için bkz:
 

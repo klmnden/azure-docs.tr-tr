@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: 32b670a4b51c2dc60fe89bc2b9ad0ef18b0ac263
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: c41af11ad4afe705ca2eb284619c917a6e87b562
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856647"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54911974"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain-using-a-resource-manager-template"></a>Bir Windows Server sanal makinesi bir Resource Manager şablonu kullanarak bir yönetilen etki alanına ekleme
 Bu makalede Resource Manager şablonlarını kullanarak bir Azure AD Domain Services yönetilen etki alanına Windows Server sanal makinesinin nasıl gösterir.
@@ -100,7 +100,7 @@ Dağıtım başarıyla tamamlandıktan sonra belirtilen Windows sanal makineleri
 
 
 ## <a name="related-content"></a>İlgili İçerik
-* [Azure PowerShell'e genel bakış](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.4.0)
+* [Azure PowerShell'e genel bakış](/powershell/azure/overview)
 * [Azure Hızlı Başlangıç şablonu - etki alanına yeni bir VM](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)
 * [Azure Hızlı Başlangıç şablonu - etki alanına var olan VM'ler](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)
 * [Kaynakları Resource Manager şablonları ve Azure PowerShell ile dağıtma](../azure-resource-manager/resource-group-template-deploy.md)

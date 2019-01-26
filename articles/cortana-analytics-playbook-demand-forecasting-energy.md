@@ -10,29 +10,29 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/24/2016
 ms.author: garye
-ms.openlocfilehash: d327c649fcf0f42fd8618161c184fa4f572e2b90
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 40bff35c1136d55e968a287d259f2304252f5248
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306497"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078789"
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Talep tahmini enerji için Cortana Intelligence çözüm şablonu kitabı
 ## <a name="executive-summary"></a>Yönetici Özeti
-Son birkaç yılda, nesnelerin interneti (IOT), alternatif enerji kaynakları ve büyük veri yardımcı programı ve enerji etki alanında geniş fırsatları oluşturmak için birleştirilmiş. Aynı zamanda, yardımcı program ve tüm enerji sektörü tüketim enerji kullanımını denetlemek için daha iyi yollarını zorlu tüketicileriyle düzleştirme gördünüz. Bu nedenle, akıllı şebeke şirketler ve yardımcı programı yenilik yapın ve kendilerini yenilemek için harika ihtiyacı olan. Ayrıca, birçok güç ve yardımcı kılavuzlar, güncel ve korumak ve yönetmek çok yüksek maliyetli hale gelmektedir. Geçen yıl içinde takım enerji etki alanı içinde yaşadığımız sayıda üzerinde çalışmaktadır. Çoğu durumda, ISV (bağımsız yazılım satıcıları) ve yardımcı programlar için gelecekteki enerji talebini tahmin içine mı arıyorsunuz bu bildirimi sırasında karşılaştık. Bu tahminler, şimdiki ve gelecekteki iş önemli bir rol oynar ve çeşitli kullanım örnekleri için temel haline geldi. Bunlar kısa ve uzun süreli power yük tahmin, ticaret, Yük Dengeleme, kılavuz iyileştirme vb. içerir. Büyük veri ve Gelişmiş analiz (AA) yöntemleri Machine Learning (ML) gibi anahtar etkinleştiricilerden doğru ve güvenilir tahminler üretmek için olan.  
+Son birkaç yılda, nesnelerin interneti (IOT), alternatif enerji kaynakları ve büyük veri yardımcı programı ve enerji etki alanında geniş fırsatları oluşturmak için birleştirilmiş. Aynı zamanda, yardımcı program ve tüm enerji sektörü tüketim enerji kullanımını denetlemek için daha iyi yollarını zorlu tüketicileriyle düzleştirme gördünüz. Bu nedenle, akıllı şebeke şirketler ve yardımcı programı yenilik yapın ve kendilerini yenilemek için harika ihtiyacı olan. Ayrıca, birçok güç ve yardımcı kılavuzlar, güncel ve korumak ve yönetmek çok yüksek maliyetli hale gelmektedir. Geçen yıl içinde takım enerji etki alanı içinde yaşadığımız sayıda üzerinde çalışmaktadır. Çoğu durumda, ISV (bağımsız yazılım satıcıları) ve yardımcı programlar için gelecekteki enerji talebini tahmin içine mı arıyorsunuz bu bildirimi sırasında karşılaştık. Bu tahminler, şimdiki ve gelecekteki iş önemli bir rol oynar ve çeşitli kullanım örnekleri için temel haline geldi. Bunlar kısa ve uzun süreli power yük tahmin, ticaret, Yük Dengeleme, kılavuz iyileştirme vb. içerir. Büyük veri ve Gelişmiş analiz (AA) yöntemleri Machine Learning (ML) gibi anahtar etkinleştiricilerden doğru ve güvenilir tahminler üretmek için olan.
 
 Playbook'u, iş ve başarılı bir geliştirme için gereken analitik yönergeleri araya ve çözüm dağıtımı enerji talebini tahmin. Bu önerilen yönergeler, yardımcı programlar, veri uzmanları ve tam olarak çalışır hale getirilen, bulut tabanlı, Talep tahmini çözümleri oluşturma, veri mühendisleri yardımcı olabilir. Yalnızca kendi büyük veri ve Gelişmiş analiz yolculuğunun başlangıç şirketler için böyle bir çözümü, uzun vadeli bir akıllı şebeke stratejisi, ilk çekirdek temsil edebilir.
 
 > [!TIP]
-> Bu şablon bir mimari genel bakış sağlayan bir diyagram indirmek için bkz [Cortana Intelligence çözüm şablonu mimarisi için Talep tahmini enerji](cortana-analytics-architecture-demand-forecasting-energy.md).  
-> 
-> 
+> Bu şablon bir mimari genel bakış sağlayan bir diyagram indirmek için bkz [Cortana Intelligence çözüm şablonu mimarisi için Talep tahmini enerji](cortana-analytics-architecture-demand-forecasting-energy.md).
+>
+>
 
 ## <a name="overview"></a>Genel Bakış
-Bu belge, iş, verileri ve Cortana Intelligence'ı kullanma ve de belirli Azure Machine Learning (AML) uygulama ve dağıtım tahmini enerji çözümleri için teknik yönlerini kapsar. Belge üç ana bölümden oluşur:  
+Bu belge, iş, verileri ve Cortana Intelligence'ı kullanma ve de belirli Azure Machine Learning (AML) uygulama ve dağıtım tahmini enerji çözümleri için teknik yönlerini kapsar. Belge üç ana bölümden oluşur:
 
-1. Kurumsal yaklaşım  
-2. Veri anlama  
+1. Kurumsal yaklaşım
+2. Veri anlama
 3. Teknik uygulama
 
 **İş anlama** bölümü gerektiren anlamak ve bir yatırım karar vermeden önce göz önünde bulundurun iş en boy özetler. Bu, eldeki Tahmine dayalı analiz ve makine öğrenimi gerçekten etkili ve geçerli olduğundan emin olmak için iş sorununu nitelemek nasıl açıklar. Daha fazla belge, makine öğrenimi ve enerji tahmini sorunları ele almak için nasıl kullanıldığı hakkındaki temel bilgileri açıklar. Bunu, önkoşulları ve kullanım nitelik ölçütlerini açıklar. Bazı örnek kullanım örneklerinize ve İş Gerekçesi senaryoları da sağlanır.
@@ -43,7 +43,7 @@ Ana içerik için herhangi bir makine öğrenimi çözümünüzü verilerdir. **
 
 Ayrıca, belgeyi başka bir etki alanı ve teknoloji anlamak için kullanabileceğiniz bir başvuru malzemesi içerir.
 
-Biz bu belgede daha ayrıntılı veri bilimi işlemi kapsayacak şekilde düşünmüyorsanız dikkat edin önemlidir, matematiksel ve teknik yönden. Bu ayrıntıları bulunabilir [Azure ML belgeleri](https://azure.microsoft.com/services/machine-learning/) ve [blogları](https://blogs.microsoft.com/blog/tag/azure-machine-learning/).
+Biz bu belgede daha ayrıntılı veri bilimi işlemi kapsayacak şekilde düşünmüyorsanız dikkat edin önemlidir, matematiksel ve teknik yönden. Bu ayrıntıları bulunabilir [Azure Machine Learning hizmeti belgeleri](https://azure.microsoft.com/services/machine-learning/) ve [blogları](https://blogs.microsoft.com/blog/tag/azure-machine-learning/).
 
 ### <a name="target-audience"></a>Hedef kitle
 Bu belgenin hedef kitlesi, işletme ve teknik bilgi elde etmek için istediğiniz personeli olduğundan ve çözümleri ve özellikle enerji tahmini etki alanında bunlar nasıl kullanıldığını anlama Machine Learning tabanlı.
@@ -87,7 +87,7 @@ Enerji talebi bağlamında, kısa süreli yük tahmin (STLF) kılavuz (veya bir 
 * Yük Dengeleme ve önleme aşırı yükleme
 * Uzun süreli yük tahmin
 * Hata ve anomali algılama
-* Yoğun curtailment/Dengeleme 
+* Yoğun curtailment/Dengeleme
 
 STLF modeli çoğunlukla yakın geçmişi tabanlı (son gün veya hafta) tüketim verilerini ve kullanım tahmini önemli bir tahmin unsuru olarak sıcaklık. Önümüzdeki bir saati tahmin doğru sıcaklık almak ve ayarlamak için 24 saat daha az bir sınama şimdi gün gelmektedir. Bu modeller dönemsel desenleri ya da uzun süreli tüketim eğilimleri daha az duyarlı olan.
 
@@ -189,9 +189,9 @@ Aşağıdaki paragrafta bu 4 adım işlemi açıklanmaktadır:
 
 1. **Veri toplama** – daha gelişmiş veri dayalı bir analiz çözümü kullanır (bkz **veri anlama**). Özellikle, Tahmine dayalı analiz ve tahmin için söz konusu olduğunda, biz üzerinde sürekli olarak dinamik akış veri kullanır. Enerji Talep tahmini, söz konusu olduğunda bu verileri doğrudan akıllı ölçüm cihazlarından kaynaklanan veya zaten bir şirket içi veritabanı üzerinde bir araya getirilebilir. Ayrıca diğer dış hava durumu ve sıcaklık gibi veri kaynaklarının bağımlı olduğumuz. Devam eden bu veri akışını düzenlenmiş, zamanlanmış depolanan ve gerekir. [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) (ADF), bu görevi yerine ana bizim workhorse olduğu.
 2. **Modelleme** – doğru ve güvenilir enerji tahminleri, bir gerekir (eğitme) geliştirme ve bakımını yaptığı geçmiş verilerini kullanın ve verileri anlamlı ve Tahmine dayalı modelleri ayıklar harika bir model. Machine Learning (ML) alanında düzenli olarak geliştirilen daha gelişmiş algoritmalar ile hızla büyüyen. Azure ML Studio, bir tam iş akışı içinde en gelişmiş ML algoritmaları kullanmasına yardımcı olacak harika bir deneyim sağlar. Bu iş akışı, sezgisel bir akış diyagramda gösterilmiştir ve veri hazırlama, özellik ayıklama, modelleme ve model değerlendirme içerir. Kullanıcı, bu ortamda bulunan çeşitli modelleri yüzlerce çekebilirsiniz. Bu aşama sonunda bir veri Bilimcisi tamamen değerlendirilir ve dağıtım için hazır olan bir çalışma modeli gerekir.
-   
+
    Aşağıdaki diyagram tipik bir iş akışı bir örnektir:
-   
+
    ![İş akışı modelleme](media/cortana-analytics-playbook-demand-forecasting-energy/modeling-workflow.png)
 3. **Dağıtım** – çalışma modelini yandan, sonraki adıma dağıtımıdır. Burada model çeşitli tüketim istemcilerinden gelen Internet üzerinden aynı anda çağrılabilen bir RESTful API sunan bir web hizmeti dönüştürülür. Azure ML, doğrudan bir düğmeye tek bir tıklamayla Azure ML Studio üzerinden model dağıtma basit bir yol sağlar. Tüm dağıtım işlemi Bileşenler'olmuyor. Bu çözüm, gerekli tüketim karşılamak üzere otomatik olarak ölçeklendirebilirsiniz.
 4. **Tüketim** – bu aşamasında, biz aslında yapmak tahminler üretmek için tahmin modelini kullanın. Bir kullanıcı uygulamadan tüketim temelli (*örn*, Pano) veya doğrudan gibi bir işletim sisteminden talep/tedarik sistem veya bir kılavuz iyileştirmesi çözümü. Birden çok kullanım durumu, tek bir modelden odaklı.
@@ -321,8 +321,8 @@ Son yıllarda, zaman serisi tahmin uyum sağlamak için ve tahmin doğruluğunu 
 
 > [!NOTE]
 > Bu bölümde, makine öğrenimi ve genel bakış tahmin ancak Talep tahmini için yaygın olarak kullanılır teknikler modelleme çok kısa bir ankete olarak kullanılmak üzere tasarlanmamıştır. Daha fazla bilgi ve zaman serisi tahmini hakkında eğitim malzemesi için çevrimiçi kitap öneririz [tahmin: ilkeleri ve uygulama](https://www.otexts.org/).
-> 
-> 
+>
+>
 
 #### <a name="ma-moving-average"></a>**MA (hareketli ortalama)**
 Hareketli ortalama zaman serisi tahmini için kullanılan ilk analitik tekniklerden birini ve yine de bir en sık kullanılan teknikleri bugünden itibaren şeklindedir. Ayrıca tahmin tekniklerinin daha gelişmiş için bir temel niteliğindedir. Hareketli Ortalama biz burada K hareketli ortalama sırasını gösterir K en son noktaları ortalaması alınarak sonraki veri noktası tahmin.

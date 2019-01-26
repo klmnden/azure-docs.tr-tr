@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/28/2018
+ms.date: 1/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 3e5e364e9c3327e9d666a9a3096573267d0e1983
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 22486bf507d5b40521fceabd7569728c45beae3d
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53727617"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54911770"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>Hızlı Başlangıç: Bir belirteç almak ve Microsoft Graph API'sini çağırmak uygulamanın kimliğini kullanarak bir konsol uygulaması
 
@@ -105,9 +105,9 @@ Bu Hızlı Başlangıç [.NET Core 2.1](https://www.microsoft.com/net/download/d
     > > [!TIP]
     > > Değerlerini bulmak için **uygulama (istemci) kimliği**, **dizin (Kiracı) kimliği**uygulamanın Git **genel bakış** Azure portalında sayfası. Yeni bir anahtar oluşturmak için şu adrese gidin **sertifikaları ve parolaları** sayfası.
     
-#### <a name="step-4-admin-consent"></a>4. adım: Yönetici onayı
+#### <a name="step-4-admin-consent"></a>4. Adım: Yönetici onayı
 
-Tüm *yalnızca uygulama izni* uygulamanıza izin vermek için genel yönetici, dizininizin gerektiği anlamına gelir yönetici onayı - gerektirir. Rolünüze bağlı olarak aşağıdaki seçeneklerden birini seçin:
+Bu noktada uygulamayı çalıştırmayı denerseniz alacağınız *HTTP 403 - Yasak* hata: `Insufficient privileges to complete the operation`. Çünkü böyle herhangi *yalnızca uygulama izni* dizininizin genel Yöneticisi, uygulamaya izin vermeniz gerekir yani yönetici onayı gerektirir. Rolünüze bağlı olarak aşağıdaki seçeneklerden birini seçin:
 
 ##### <a name="global-tenant-administrator"></a>Genel Kiracı Yöneticisi
 
@@ -135,7 +135,7 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 > [!NOTE]
 > Hatasıyla karşılaşabilirsiniz *' AADSTS50011: Uygulama için hiç yanıt adresi kayıtlı '* sonra önceki URL'yi kullanarak bir uygulamaya izin veriliyor. Bu sorun bu uygulama ve URL yeniden yönlendirme URI'si - olmadığı için lütfen yoksayın hata.
 
-#### <a name="step-5-run-the-application"></a>5. adım: Uygulamayı çalıştırma
+#### <a name="step-5-run-the-application"></a>5. Adım: Uygulamayı çalıştırma
 
 Visual Studio kullanıyorsanız, basın **F5** uygulamayı çalıştırmak için Aksi takdirde, uygulamayı komut istemi veya konsol çalıştırın:
 
@@ -149,6 +149,9 @@ dotnet run
 
 Sonuç olarak, Azure AD dizininde kullanıcıların listesini görmeniz gerekir.
 
+> [!IMPORTANT]
+> Bu hızlı başlangıç uygulama istemci gizli anahtarı gizli bir istemci kendisini tanımlamak için kullanır. İstemci gizli anahtarı güvenlik nedenleriyle, proje dosyalarına düz metin olarak eklendiğinden uygulamayı üretim uygulaması olarak belirlemeden önce bir istemci parolası yerine bir sertifika kullanmanız önerilir. Bir sertifika kullanma hakkında daha fazla bilgi için bkz. [bu yönergeleri](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/#variation-daemon-application-using-client-credentials-with-certificates) Bu örnek için GitHub deposundaki kodu.
+
 ## <a name="more-information"></a>Daha fazla bilgi
 
 ### <a name="msalnet"></a>MSAL.NET
@@ -158,7 +161,13 @@ MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Ident
  Visual Studio'nun aşağıdaki komutu çalıştırarak, MSAL.NET yükleyebilirsiniz **Paket Yöneticisi Konsolu**:
 
 ```powershell
-Install-Package Microsoft.Identity.Client -Pre
+Install-Package Microsoft.Identity.Client
+```
+
+Alternatif olarak, Visual Studio kullanmıyorsanız MSAL projenize eklemek için aşağıdaki komutu çalıştırabilirsiniz:
+
+```console
+dotnet add package Microsoft.Identity.Client
 ```
 
 ### <a name="msal-initialization"></a>MSAL başlatma

@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/04/2018
+ms.date: 1/24/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d9dfc70c7158c5f808367b8b2041725b03b9060d
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: cc0ffc0a209dab0e8610966cb24596d95b7927c3
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54846192"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913436"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Sırasında Azure Otomasyonu çözümde yoğun olmayan saatlerde Vm'leri başlatma/durdurma
 
@@ -34,7 +34,7 @@ Geçerli çözümdeki sınırlamalar aşağıda verilmiştir:
 > [!NOTE]
 > Klasik VM'ler için çözümü kullanıyorsanız, tüm Vm'leriniz sıralı olarak bulut hizmeti başına işlenir. Sanal makine, farklı bulut hizmetleri arasında yine de paralel olarak işlenir.
 >
-> Azure bulut çözümü sağlayıcısı (Azure CSP) abonelikleri yalnızca Azure Resource Manager modeline destek, Azure Resource Manager - program kullanılamıyor. Başlat/Durdur çözümü çalıştığında Klasik kaynakları yönetmek için cmdlet'ler olduğu gibi hatalar alabilirsiniz. CSP hakkında daha fazla bilgi için bkz: [CSP aboneliklerinde kullanılabilir hizmetler](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments).
+> Azure bulut çözümü sağlayıcısı (Azure CSP) abonelikleri yalnızca Azure Resource Manager modeline destek, Azure Resource Manager - program kullanılamıyor. Başlat/Durdur çözümü çalıştığında Klasik kaynakları yönetmek için cmdlet'ler olduğu gibi hatalar alabilirsiniz. CSP hakkında daha fazla bilgi için bkz: [CSP aboneliklerinde kullanılabilir hizmetler](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments). Bir CSP aboneliği kullanıyorsanız değiştirmelisiniz [ **External_EnableClassicVMs** ](#variables) değişkenini **False** dağıtımdan sonra.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -90,6 +90,9 @@ Vm'leri başlatma/durdurma sırasında yoğun olmayan saatlerde çözüm Otomasy
 
 8. Çözüm için gereken ve ilk ayarları yapılandırdıktan sonra tıklayın **Tamam** kapatmak için **parametreleri** sayfasından seçim yapıp **Oluştur**. Tüm ayarlar doğrulandıktan sonra çözümün aboneliğinize dağıtılır. Bu işlemin tamamlanması birkaç saniye sürebilir ve altında ilerleme durumunu izleyebilir **bildirimleri** menüsünde.
 
+> [!NOTE]
+> Otomasyon hesabınızda, dağıtım tamamlandıktan sonra bir Azure bulut çözümü sağlayıcısı (Azure CSP) aboneliğiniz varsa, Git **değişkenleri** altında **paylaşılan kaynakları** ayarlayıp [ **External_EnableClassicVMs** ](#variables) değişkenini **False**. Bu, Klasik VM kaynak mı arıyorsunuz gelen çözüm durdurur.
+
 ## <a name="scenarios"></a>Senaryolar
 
 Çözüm, üç farklı senaryolar içerir. Bu senaryolar şunlardır:
@@ -108,8 +111,8 @@ Abonelik ve kaynak grubu karşı önlem hedefleme veya belirli bir liste VM'ler,
 #### <a name="target-the-start-and-stop-actions-against-a-subscription-and-resource-group"></a>Hedef abonelik ve kaynak grubunda karşı başlatma ve durdurma eylemleri
 
 1. Yapılandırma **External_Stop_ResourceGroupNames** ve **External_ExcludeVMNames** VM'ler hedef belirtmek için değişkenleri.
-1. Etkinleştirme ve güncelleştirme **zamanlanmış StartVM** ve **zamanlanmış StopVM** zamanlamalar.
-1. Çalıştırma **ScheduledStartStop_Parent** kümesine eylem parametresi ile runbook **Başlat** ve kümesine WHATIF parametresi **True** değişikliklerinizi önizlemek için.
+2. Etkinleştirme ve güncelleştirme **zamanlanmış StartVM** ve **zamanlanmış StopVM** zamanlamalar.
+3. Çalıştırma **ScheduledStartStop_Parent** kümesine eylem parametresi ile runbook **Başlat** ve kümesine WHATIF parametresi **True** değişikliklerinizi önizlemek için.
 
 #### <a name="target-the-start-and-stop-action-by-vm-list"></a>Başlatma ve durdurma eylemi VM listesi tarafından hedef
 
@@ -205,6 +208,7 @@ Aşağıdaki tabloda, Otomasyon hesabınızda oluşturduğunuz değişkenleri li
 |External_AutoStop_Threshold | Eşik değişkeni içinde belirtilen Azure uyarı kuralının _External_AutoStop_MetricName_. Yüzde değerleri 1 ile 100 aralığında değişebilir.|
 |External_AutoStop_TimeAggregationOperator | Koşulu değerlendirmek için seçilen pencere boyutuna uygulandığı zaman Toplama işleci. Kabul edilebilir değerler **ortalama**, **Minimum**, **maksimum**, **toplam**, ve **son**.|
 |External_AutoStop_TimeWindow | Pencere boyutu bu sırada Azure uyarı tetiklemek için seçilen ölçümleri analiz eder. Bu parametre, giriş timespan biçim olarak kabul eder. Olası değerler şunlardır: 6 saat için 5 dakika.|
+|External_EnableClassicVMs| Klasik sanal makineleri çözüm tarafından hedeflenen olup olmadığını belirtir. Varsayılan değer True'dur. Bu müşterilere CSP abonelikleri False olarak ayarlanmalıdır.|
 |External_ExcludeVMNames | Hariç tutulacak VM adlarını adları boşluk virgül kullanarak ayırarak girin.|
 |External_Start_ResourceGroupNames | Değerleri başlatma eylemleri için hedeflenen virgülle ayırarak bir veya daha fazla kaynak grupları belirtir.|
 |External_Stop_ResourceGroupNames | Değerleri durdurma eylemler için hedeflenen virgülle ayırarak bir veya daha fazla kaynak grubunu belirtir.|

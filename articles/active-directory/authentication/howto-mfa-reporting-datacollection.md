@@ -3,19 +3,19 @@ title: Azure multi-Factor Authentication kullanıcı veri toplama
 description: Hangi bilgilerin kullanıcıların tanımasına yardımcı olmak için Azure multi-Factor Authentication tarafından kullanılır?
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: dd12acb1212e52eb413dfbf35945cd17902d8db7
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: b96e1d6cfd476d90afaecd44eaa9861de34130ce
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433892"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55081594"
 ---
 # <a name="azure-multi-factor-authentication-user-data-collection"></a>Azure multi-Factor Authentication kullanıcı veri toplama
 

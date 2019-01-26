@@ -13,23 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: b6d3cbd56182b8dba3738f38798efa378c6b49d0
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: bdfc9b3e981a1b88fbae7805785d9bb4c823bccb
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53254835"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55074471"
 ---
-# <a name="use-azure-machine-learning-services-in-a-notebook"></a>Azure Machine Learning Hizmetleri bir not defteri kullanma
+# <a name="use-azure-machine-learning-service-in-a-notebook"></a>Azure Machine Learning hizmeti bir not defteri kullanma
 
-Azure not defterleri ile çalışmak için gerekli ortam ile önceden yapılandırılmış gelen [Azure Machine Learning Hizmetleri](/azure/machine-learning/service/). Not defterlerini hesabınızda çeşitli Machine Learning senaryolarını keşfetmek için örnek proje bir kolayca kopyalayabilirsiniz.
+Azure not defterleri ile çalışmak için gerekli ortam ile önceden yapılandırılmış gelen [Azure Machine Learning hizmeti](/azure/machine-learning/service/). Not defterlerini hesabınızda çeşitli Machine Learning senaryolarını keşfetmek için örnek proje bir kolayca kopyalayabilirsiniz.
 
 ## <a name="clone-the-sample-into-your-account"></a>Hesabınızda örneği kopyalayın
 
 1. Oturum [Azure not defterleri](https://notebooks.azure.com/).
 1. Seçin **Projelerim** Proje panosuna gidin.
 1. Seçin **karşıya GitHub deposunu** (yukarı ok) düğmesini açın **karşıya GitHub deposu** açılan.
-1. Açılan pencerede girin `Azure/MachineLearningNotebooks` içinde **GitHub deposu**, proje için bir ad sağlayın **proje adı** "Gibi Azure ML Hizmetleri", bir tanımlayıcı sağlar **proje kimliği**temizleyin **genel** isterseniz, ardından **alma**.
+1. Açılan pencerede girin `Azure/MachineLearningNotebooks` içinde **GitHub deposu**, proje için bir ad sağlayın **proje adı** "Azure Machine Learning hizmeti" gibi bir tanımlayıcı sağlamanız **proje kimliği** temizleyin **genel** isterseniz, ardından **alma**.
 
     ![Azure Machine Learning not defteri örnek not defterleri hesabınızda içeri aktarma](media/azureml-import-project.png)
 

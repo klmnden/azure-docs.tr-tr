@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: 0f438f59da079633fea54758261ce1bd93a8477b
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: d17e4970636818eca14d2e750ec24135e64ddbb6
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251394"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078686"
 ---
 # <a name="deploy-azure-machine-learning-studio-web-services-that-use-data-import-and-data-export-modules"></a>Veri içeri aktarma ve veri dışarı aktarma modüllerini kullanan Azure Machine Learning Studio web hizmetlerini dağıtma
 
@@ -44,9 +44,9 @@ Azure SQL tablosundan verileri okumak için:
 5. Özellikler bölmesinde seçin **Azure SQL veritabanı** içinde **veri kaynağı** açılır.
 6. İçinde **veritabanı sunucu adı**, **veritabanı adı**, **kullanıcı adı**, ve **parola** alanlar için uygun bilgi girin, Veritabanı.
 7. Veritabanı sorgusu alanına şu sorguyu girin.
-   
+
      [yaş] seçin
-   
+
         [workclass],
         [fnlwgt],
         [education],
@@ -68,17 +68,17 @@ Azure SQL tablosundan verileri okumak için:
 Sonraki web hizmetini dağıttığınız Tahmine dayalı denemeye ayarlayın.
 
 1. Deneme tuvalinin altındaki tıklatın **Web hizmetinin ayarı** seçip **Tahmine dayalı Web hizmeti [önerilen]**.
-2. Kaldırma *Web hizmeti girişini* ve *Web hizmeti çıkış modülleri* Tahmine dayalı denemeye öğesinden. 
+2. Kaldırma *Web hizmeti girişini* ve *Web hizmeti çıkış modülleri* Tahmine dayalı denemeye öğesinden.
 3. Dışarı aktarma bileşenleri arama kutusuna yazın.
 4. Sonuç listesinden eklemek bir *verileri dışarı aktarma* modülünü deneme tuvaline.
-5. Çıkışına bağlayın *Score Model* modülü giriş, *verileri dışarı aktarma* modülü. 
+5. Çıkışına bağlayın *Score Model* modülü giriş, *verileri dışarı aktarma* modülü.
 6. Özellikler bölmesinde seçin **Azure SQL veritabanı** veri hedef açılır.
 7. İçinde **veritabanı sunucu adı**, **veritabanı adı**, **Server kullanıcı hesabı adı**, ve **Server kullanıcı hesabı parolası** alanları girin Veritabanınız için uygun bilgileri.
 8. İçinde **virgülle ayrılmış listesi sütunları kaydedilecek** alanında, Puanlanmış etiketler yazın.
 9. İçinde **veri tablo adı alanı**, dbo yazın. ScoredLabels. Tablo mevcut değilse, denemeyi çalıştırma ya da web hizmeti olarak adlandırılır oluşturulur.
 10. İçinde **virgülle ayrılmış listesi datatable sütunları** alan, ScoredLabels yazın.
 
-Son web hizmetini çağıran bir uygulama yazdığınızda, farklı giriş sorgusu veya hedef tablo, çalışma zamanında belirtmek isteyebilirsiniz. Bu girişler ve çıkışlar yapılandırmak için Web hizmeti parametrelerini ayarlamak için kullanılmakta olan *verileri içeri aktarma* Modülü *veri kaynağı* özelliği ve *verileri dışarı aktarma* modu verileri hedef özelliği.  Web hizmeti parametreleri hakkında daha fazla bilgi için bkz. [AzureML Web hizmeti parametreleri giriş](https://blogs.technet.microsoft.com/machinelearning/2014/11/25/azureml-web-service-parameters/) Cortana Intelligence ve Machine Learning Web günlüğü.
+Son web hizmetini çağıran bir uygulama yazdığınızda, farklı giriş sorgusu veya hedef tablo, çalışma zamanında belirtmek isteyebilirsiniz. Bu girişler ve çıkışlar yapılandırmak için Web hizmeti parametrelerini ayarlamak için kullanılmakta olan *verileri içeri aktarma* Modülü *veri kaynağı* özelliği ve *verileri dışarı aktarma* modu verileri hedef özelliği.  Web hizmeti parametreleri hakkında daha fazla bilgi için bkz. [Azure Machine Learning studio Web hizmeti parametreleri giriş](https://blogs.technet.microsoft.com/machinelearning/2014/11/25/azureml-web-service-parameters/) Cortana Intelligence ve Machine Learning Web günlüğü.
 
 Sorgu Al ve hedef tablo için Web hizmeti parametreleri yapılandırmak için:
 
@@ -108,22 +108,22 @@ Klasik Web hizmeti olarak dağıtma ve bunu kullanmak için bir uygulama oluştu
 7. Kopyalama ve yapıştırma C# Program.cs dosyanıza örnek kod ve blob depolama için tüm başvuruları kaldırın.
 8. Değerini güncelleştirin *apiKey* değişken daha önce kaydedilmiş API anahtarına sahip.
 9. İstek bildirimi bulun ve geçirilen bir Web hizmeti parametreleri güncelleştirin *verileri içeri aktarma* ve *verileri dışarı aktarma* modüller. Bu durumda, özgün sorguyu ancak yeni bir tablo adı tanımlayın.
-   
-        var request = new BatchExecutionRequest() 
-        {           
+
+        var request = new BatchExecutionRequest()
+        {
             GlobalParameters = new Dictionary<string, string>() {
                 { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
                 { "Table", "dbo.ScoredTable2" },
             }
         };
-10. Uygulamayı çalıştırın. 
+10. Uygulamayı çalıştırın.
 
 Tamamlanma çalıştırma, yeni bir tablo Puanlama sonuçlarını içeren bir veritabanına eklenir.
 
 ### <a name="deploy-a-new-web-service"></a>Yeni bir Web hizmetini dağıtma
 
-> [!NOTE] 
-> Yeni bir web hizmetini dağıtmak için yeterli olan aboneliği, web hizmetini dağıtma olması gerekir. Daha fazla bilgi için [Azure Machine Learning Web Hizmetleri portalını kullanarak bir Web hizmetini yönetme](manage-new-webservice.md). 
+> [!NOTE]
+> Yeni bir web hizmetini dağıtmak için yeterli olan aboneliği, web hizmetini dağıtma olması gerekir. Daha fazla bilgi için [Azure Machine Learning Web Hizmetleri portalını kullanarak bir Web hizmetini yönetme](manage-new-webservice.md).
 
 Yeni bir Web hizmeti dağıtma ve bunu kullanmak için bir uygulama oluşturmak için:
 
@@ -136,9 +136,9 @@ Yeni bir Web hizmeti dağıtma ve bunu kullanmak için bir uygulama oluşturmak 
 7. Kopyalama ve yapıştırma C# örnek kodu Program.cs dosyanıza.
 8. Değerini güncelleştirin *apiKey* değişken ile **birincil anahtar** bulunan **temel tüketim bilgileri** bölümü.
 9. Bulun *scoreRequest* bildirimi ve geçirilen bir Web hizmeti parametreleri güncelleştirin *verileri içeri aktarma* ve *verileri dışarı aktarma* modüller. Bu durumda, özgün sorguyu ancak yeni bir tablo adı tanımlayın.
-   
+
         var scoreRequest = new
-        {       
+        {
             Inputs = new Dictionary<string, StringTable>()
             {
             },
@@ -147,5 +147,5 @@ Yeni bir Web hizmeti dağıtma ve bunu kullanmak için bir uygulama oluşturmak 
                 { "Table", "dbo.ScoredTable3" },
             }
         };
-10. Uygulamayı çalıştırın. 
+10. Uygulamayı çalıştırın.
 

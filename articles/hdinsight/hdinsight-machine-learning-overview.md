@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: hrasheed
-ms.openlocfilehash: 7e5f56251e00b59a6e6d3be40612f4c8e381dff1
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 84ce13f78a9c597c780cb0dfa0fa5d16e6175b1c
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743009"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077735"
 ---
 # <a name="machine-learning-on-hdinsight"></a>Machine learning üzerinde HDInsight
 
@@ -42,13 +42,13 @@ Azure Machine Learning, Tahmine dayalı analiz modeli yanı sıra, Tahmine dayal
 
 ![Gelişmiş analiz için Hadoop, Microsoft Azure Machine Learning ile erişilebilir yapma](./media/hdinsight-machine-learning-overview/hadoop-azure-ml.png)
 
-Özellikleri kullanarak bir HDInsight Hadoop veri kümesi için oluşturma [Hive sorguları](../machine-learning/team-data-science-process/create-features-hive.md). *Özellik Mühendisliği* öğrenme süreci ham verilerden özellikler oluşturarak öğrenimi algoritmaları, Tahmine dayalı power artırmak çalışır. Azure ML HiveQL sorgu çalıştırmak ve Hive işlenmesi ve kullanarak blob depolama alanında depolanan verilere [verileri içeri aktarma modülü](../machine-learning/studio/import-data.md).
+Özellikleri kullanarak bir HDInsight Hadoop veri kümesi için oluşturma [Hive sorguları](../machine-learning/team-data-science-process/create-features-hive.md). *Özellik Mühendisliği* öğrenme süreci ham verilerden özellikler oluşturarak öğrenimi algoritmaları, Tahmine dayalı power artırmak çalışır. Azure Machine Learning Studio'dan HiveQL sorgu çalıştırmak ve Hive işlenmesi ve kullanarak blob depolama alanında depolanan verilere [verileri içeri aktarma modülü](../machine-learning/studio/import-data.md).
 
 ## <a name="microsoft-cognitive-toolkit"></a>Microsoft Bilişsel Araç Seti
 
 [Derin öğrenme](https://www.microsoft.com/en-us/research/group/dltc/) sinir ağları, İnsan beyninin Biyolojik işlemler tarafından ilham kullanan makine öğrenimi daldır. Birçok Araştırmacıları, derin öğrenme yapay zeka geliştirme taahhüdü bir yaklaşım olarak bakın. Konuşulan dili çevirmenler ve görüntü tanıma sistemlerini makine mantık derin öğrenme örnekleridir.
 
-Derin öğrenme kendi işlerinde ilerletmek için ücretsiz, kullanımı kolay, açık kaynak Microsoft geliştirilen [Microsoft Bilişsel Araç Seti](https://www.microsoft.com/en-us/cognitive-toolkit/). Bu araç seti, çok çeşitli Microsoft ürünlerinin, derin öğrenme uygun ölçekte dağıtma gereksinimi ile dünya çapında ve en son algoritmalar ve teknikler isteyen Öğrenciler tarafından kullanılıyor. 
+Derin öğrenme kendi işlerinde ilerletmek için ücretsiz, kullanımı kolay, açık kaynak Microsoft geliştirilen [Microsoft Bilişsel Araç Seti](https://www.microsoft.com/en-us/cognitive-toolkit/). Bu araç seti, çok çeşitli Microsoft ürünlerinin, derin öğrenme uygun ölçekte dağıtma gereksinimi ile dünya çapında ve en son algoritmalar ve teknikler isteyen Öğrenciler tarafından kullanılıyor.
 
 ## <a name="see-also"></a>Ayrıca bkz.
 

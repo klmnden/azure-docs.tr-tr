@@ -11,12 +11,12 @@ ms.assetid: 697eb8b0-4a66-40c7-be7b-6aa6b131c7ad
 ms.topic: article
 tags: connectors
 ms.date: 10/26/2018
-ms.openlocfilehash: 3dbe40476757ba93f33d39f71c46bf58302b3570
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 5d328164ac8ad99db15a12d850327615a9ffd809
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979463"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54910293"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>İzleme, oluşturma ve Azure Logic Apps kullanarak SFTP dosyalarını yönetme
 
@@ -27,7 +27,7 @@ ms.locfileid: "50979463"
 * Dosya içeriğini ve meta verileri alın.
 * Arşivi klasöre ayıklayın.
 
-Karşılaştırılan [SFTP-SSH bağlayıcı](../connectors/connectors-sftp-ssh.md), SFTP Bağlayıcısı okuyabilir veya yazma kullanmadığınız sürece en fazla 50 MB boyutunda dosyaları [büyük iletileri işlemek için Öbekleme](../logic-apps/logic-apps-handle-large-messages.md). İçin en fazla 1 GB boyutundaki kullanım dosyaları [SFTP-SSH bağlayıcı](../connectors/connectors-sftp-ssh.md). 1 GB'den büyük olan dosyalar için SFTP-SSH kullanabilirsiniz bağlayıcı artı [büyük iletileri Öbekleme](../logic-apps/logic-apps-handle-large-messages.md). 
+Karşılaştırılan [SFTP-SSH bağlayıcı](../connectors/connectors-sftp-ssh.md), SFTP Bağlayıcısı okuyabilir veya yazma kullanmadığınız sürece en fazla 50 MB boyutunda dosyaları [eylemleri Öbekleme ileti](../logic-apps/logic-apps-handle-large-messages.md). Şu anda, tetikleyici Öbekleme kullanamazsınız. İçin en fazla 1 GB boyutundaki kullanım dosyaları [SFTP-SSH bağlayıcı](../connectors/connectors-sftp-ssh.md). 1 GB'den büyük olan dosyalar için SFTP-SSH kullanabilirsiniz bağlayıcı artı [ileti Öbekleme](../logic-apps/logic-apps-handle-large-messages.md). 
 
 SFTP sunucunuzdaki olayları izleyen ve çıkış diğer eylemler için kullanılabilir hale getirmek Tetikleyicileri kullanabilirsiniz. SFTP sunucunuzda çeşitli görevler gerçekleştiren eylemlerini kullanabilirsiniz. SFTP eylemleri çıktısını kullanan diğer eylemler mantıksal uygulamanızda da olabilir. Örneğin, düzenli olarak dosyaları SFTP sunucunuzdan almak, dosyaları ve içeriklerini hakkında e-posta uyarıları Office 365 Outlook Bağlayıcısı veya Outlook.com bağlayıcısını kullanarak gönderebilirsiniz.
 Logic apps kullanmaya yeni başladıysanız gözden [Azure Logic Apps nedir?](../logic-apps/logic-apps-overview.md)
@@ -102,17 +102,39 @@ SFTP, SFTP dosya sistemi yoklama ve son yoklamadan bu yana değiştirilmiş her 
 
 Tetikleyici yeni bir dosya bulduğunda tetikleyici, yeni dosya eksiksiz ve kısmen yazılmış olup olmadığını denetler. Örneğin, dosya sunucusu tetikleyici iade ederken bir dosya değişiklikleri sürüyor olabilir. Kısmen yazılı bir dosya döndürme önlemek için zaman damgası, son değişiklikler var, ancak bu dosyayı hemen döndürmüyor dosyası için tetikleyici notlar. Tetikleyici, yalnızca sunucu yeniden yoklanırken dosyayı döndürür. Bazı durumlarda, bu davranışı, iki kez tetikleyicinin kadar yoklama aralığı bir gecikmeye neden olabilir. 
 
+Dosya içeriği isterken Tetikleyicileri 50 MB'tan büyük dosyaları uygulanmaz. 50 MB'tan büyük dosyaları almak için bu düzeni izleyin: 
+
+* Dosya özellikleri gibi döndüren bir tetikleyici kullanmanız **dosya eklendiğinde veya değiştirildiğinde (yalnızca Özellikler)**.
+
+* Tam dosya gibi okuyan bir eylemle tetikleyici izleyin **yolunu kullanarak dosya içeriğini Al**, ve kullanmak eyleme sahip [ileti Öbekleme](../logic-apps/logic-apps-handle-large-messages.md).
+
 ## <a name="examples"></a>Örnekler
 
-### <a name="sftp-trigger-when-a-file-is-added-or-modified"></a>SFTP tetikleyici: ne zaman bir dosya eklendiğinde veya değiştirildiğinde
+<a name="file-add-modified"></a>
+
+### <a name="sftp-trigger-when-a-file-is-added-or-modified"></a>SFTP tetikleyici: Bir dosya eklendiğinde veya değiştirildiğinde
 
 Bir dosya eklendiğinde veya bir SFTP sunucu üzerinde değiştirilmiş bu tetikleyiciyi bir mantıksal uygulama iş akışı başlatır. Örneğin, dosyanın içeriğini denetler ve içerik belirtilen bir koşulu karşılayıp içeriği alan bir koşul ekleyebilirsiniz. Ardından, dosyanın içeriğini alır ve bu içeriği SFTP sunucusunda bir klasöre koyar, bir eylem ekleyebilirsiniz. 
 
-**Kuruluş örnek**: Bu tetikleyici, müşteri siparişleri temsil eden yeni dosyalar için bir SFTP klasörü izlemek için kullanabilirsiniz. Ardından bir SFTP eylemi gibi kullanabilir **dosya içeriğini Al** daha ayrıntılı işleme için sipariş içeriklerini almak ve o sırada bir sipariş veritabanında depolayın.
+**Kuruluş örnek**: Bu tetikleyici, bir müşteri siparişleri temsil eden yeni dosyalar için SFTP klasörü izlemek için kullanabilirsiniz. Ardından bir SFTP eylemi gibi kullanabilir **dosya içeriğini Al** daha ayrıntılı işleme için sipariş içeriklerini almak ve o sırada bir sipariş veritabanında depolayın.
 
-### <a name="sftp-action-get-content"></a>SFTP eylemi: içerik alma
+Dosya içeriği isterken Tetikleyicileri 50 MB'tan büyük dosyaları uygulanmaz. 50 MB'tan büyük dosyaları almak için bu düzeni izleyin: 
+
+* Dosya özellikleri gibi döndüren bir tetikleyici kullanmanız **dosya eklendiğinde veya değiştirildiğinde (yalnızca Özellikler)**.
+
+* Tam dosya gibi okuyan bir eylemle tetikleyici izleyin **yolunu kullanarak dosya içeriğini Al**, ve kullanmak eyleme sahip [ileti Öbekleme](../logic-apps/logic-apps-handle-large-messages.md).
+
+<a name="get-content"></a>
+
+### <a name="sftp-action-get-content"></a>SFTP eylemi: İçerik alın
 
 Bu işlem bir SFTP sunucusuna dosya içeriği alır. Örneğin, önceki örnekte ve dosyanın içeriğini karşılaması gereken bir koşul tetikleyici ekleyebilirsiniz. Koşul true ise, içeriği alır eylemi çalıştırabilirsiniz. 
+
+Dosya içeriği isterken Tetikleyicileri 50 MB'tan büyük dosyaları uygulanmaz. 50 MB'tan büyük dosyaları almak için bu düzeni izleyin: 
+
+* Dosya özellikleri gibi döndüren bir tetikleyici kullanmanız **dosya eklendiğinde veya değiştirildiğinde (yalnızca Özellikler)**.
+
+* Tam dosya gibi okuyan bir eylemle tetikleyici izleyin **yolunu kullanarak dosya içeriğini Al**, ve kullanmak eyleme sahip [ileti Öbekleme](../logic-apps/logic-apps-handle-large-messages.md).
 
 ## <a name="connector-reference"></a>Bağlayıcı başvurusu
 

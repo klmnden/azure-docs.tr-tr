@@ -10,20 +10,20 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: f44f7167cff316b15124448678c4cae90b384ed9
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 8408d620ba78fed07c44feae74c607a555d5563b
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54890087"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54910594"
 ---
 # <a name="administrator-roles-for-microsoft-365-workloads"></a>Microsoft 365 iş yükleri için yönetici rolleri
 
-Bu makalede, Microsoft 365 iş yükleri rol içeriği ve özellik alanı API içerik için bağlantılarla birlikte bir listesini sağlar. Temsilci seçme sorunlarını genel tartışmalar bulunabilir [rol temsilcisi seçme içinde Azure Active Directory planlama](roles-concept-delegation.md).
+Tüm ürünler, Microsoft 365, Azure AD'de yönetici rolleri ile yönetilebilir. Bazı ürünler, ürüne özgü ek roller de sağlar. Aşağıdaki tabloda her ürün tarafından desteklenen rolleri hakkında daha fazla bilgi için bkz. Temsilci seçme sorunlarını genel tartışmalar bulunabilir [rol temsilcisi seçme içinde Azure Active Directory planlama](roles-concept-delegation.md).
 
 ## <a name="where-to-find-content"></a>İçerik nerede bulacağını
 

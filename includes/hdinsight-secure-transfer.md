@@ -4,12 +4,12 @@ ms.service: hdinsight
 ms.topic: include
 ms.date: 10/25/2018
 ms.author: jasonh
-ms.openlocfilehash: f20b7f22fd9e74b2b7140aaa6f949f2064c4a2bd
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 15983607342842a625d8feb528cf9838eb6d6447
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50166225"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913674"
 ---
 > [!NOTE]
-> [Güvenli aktarım gereklidir](../articles/storage/common/storage-require-secure-transfer.md) özelliği tüm istekleri güvenli bir bağlantı üzerinden hesabınıza uygular. Bu özellik yalnızca HDInsight kümesi 3.6 veya sonraki sürümlerde desteklenir. Daha fazla bilgi için bkz. [Azure HDInsight’ta güvenli aktarım depolama hesapları ile Hadoop kümesi oluşturma](../articles/hdinsight/hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md).
+> [Güvenli aktarım gerektiren özellik](../articles/storage/common/storage-require-secure-transfer.md) tüm istekleri güvenli bir bağlantı üzerinden hesabınıza uygular. Küme sürümü 3.6 veya daha yeni destekleyen bu özellik yalnızca HDInsight. Daha fazla bilgi için [Apache Hadoop kümesi oluşturma güvenli aktarım depolama hesaplarında Azure HDInsight ile](../articles/hdinsight/hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md).

@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: overview
-ms.date: 10/09/2018
+ms.date: 01/24/2019
 ms.author: tulasim
-ms.openlocfilehash: bd859183a13e0f8a21cdd2eabb464b718e949464
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.openlocfilehash: 255aac8ed5c4268a049393cdc27b06f7a987e891
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212225"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54911449"
 ---
 # <a name="what-is-qna-maker"></a>Soru-Cevap Oluşturma nedir?
 
@@ -31,9 +31,9 @@ Bu kullanımı kolay [web portalı](https://qnamaker.ai), geliştirici deneyimin
 
 Soru-Cevap Oluşturma, verileriniz için iki temel hizmet sunar:
 
-* **Ayıklama**: SSS ve ürün kılavuzları gibi yarı yapılandırılmış ve yarı yapılandırılmış [veri kaynaklarından](../Concepts/data-sources-supported.md) yapılandırılmış soru-cevap verileri ayıklanır. Bu ayıklama işlemi, KB [oluşturma](https://aka.ms/qnamaker-docs-createkb) sırasında veya daha sonra düzenleme işlemi sırasında gerçekleştirilebilir.
+* **Ayıklama**: Yapılandırılmış soru-cevap verilerin yapılandırılmış & yarı yapılandırılmış [veri kaynakları](../Concepts/data-sources-supported.md) SSS ve ürün kılavuzlarını ister. Bu ayıklama işlemi, KB [oluşturma](https://aka.ms/qnamaker-docs-createkb) sırasında veya daha sonra düzenleme işlemi sırasında gerçekleştirilebilir.
 
-* **Eşleştirme**: Bilgi bankanız [eğitildikten ve test edildikten](https://aka.ms/qnamaker-docs-trainkb) sonra [yayımlamanız](https://aka.ms/qnamaker-docs-publishkb) gerekir. Bu sayede Soru-Cevap Oluşturma bilgi bankanızda, botunuzda veya istemci uygulamanızda kullanabileceğiniz bir uç nokta etkinleştirilir. Bu uç nokta kullanıcı sorularını kabul eder ve bilgi bankasındaki en iyi yanıtı verip eşleşme güvenilirlik puanını ekler.
+* **Eşleşen**: Bilgi bankanızı silindikten sonra [eğitim ve test](https://aka.ms/qnamaker-docs-trainkb), size [yayımlama](https://aka.ms/qnamaker-docs-publishkb) bu. Bu sayede Soru-Cevap Oluşturma bilgi bankanızda, botunuzda veya istemci uygulamanızda kullanabileceğiniz bir uç nokta etkinleştirilir. Bu uç nokta kullanıcı sorularını kabul eder ve bilgi bankasındaki en iyi yanıtı verip eşleşme güvenilirlik puanını ekler.
 
 ```JSON
 {
@@ -57,9 +57,9 @@ Soru-Cevap Oluşturma, verileriniz için iki temel hizmet sunar:
 
 Soru-Cevap Oluşturma mimarisi aşağıdaki iki bileşenden oluşur:
 
-1. **Soru-Cevap Oluşturma yönetim hizmetleri**: İlk oluşturma, güncelleştirme, eğitim ve yayımlama adımlarından oluşan Soru-Cevap Oluşturma bilgi bankası yönetim deneyimi. Bu etkinlikler [portal](https://qnamaker.ai) veya [yönetim API'leri](https://aka.ms/qnamaker-v4-apis) üzerinden gerçekleştirilebilir. 
+1. **Soru-cevap Oluşturucu Yönetim Hizmetleri**: Soru-cevap Oluşturucu güncelleştiriliyor, eğitim ve yayımlama ilk oluşturma içeren Bilgi Bankası için yönetim deneyimini yaşayın. Bu etkinlikler [portal](https://qnamaker.ai) veya [yönetim API'leri](https://aka.ms/qnamaker-v4-apis) üzerinden gerçekleştirilebilir. 
 
-2. **Soru-Cevap Oluşturma verileri ve çalışma zamanı**: Belirlediğiniz bölgedeki Azure aboneliğinize dağıtılır. KB içeriğiniz [Azure Search](https://azure.microsoft.com/services/search/) içinde depolanır ve uç nokta bir [App service](https://azure.microsoft.com/services/app-service/) olarak dağıtılır. Analiz için [Application Insights](https://azure.microsoft.com/services/application-insights/) kaynağı olarak dağıtmayı da seçebilirsiniz.
+2. **Soru-cevap Oluşturucu veri ve çalışma zamanı**: Bu, Azure aboneliğinizdeki, belirtilen bölgede dağıtılır. KB içeriğiniz [Azure Search](https://azure.microsoft.com/services/search/) içinde depolanır ve uç nokta bir [App service](https://azure.microsoft.com/services/app-service/) olarak dağıtılır. Analiz için [Application Insights](https://azure.microsoft.com/services/application-insights/) kaynağı olarak dağıtmayı da seçebilirsiniz.
 
 ![Mimari](../media/qnamaker-overview-learnabout/architecture.png)
 

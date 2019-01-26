@@ -3,19 +3,19 @@ title: Yerel olarak yönetilen bir iş ortağı hesapları bulut kaynaklarını 
 description: Yerel olarak yönetilen dış iş ortakları, hem yerel erişim ve Azure AD B2B işbirliği ile aynı kimlik bilgilerini kullanarak bulut kaynaklarını sağlar.
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 04/24/2018
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: e1041c40ba5932bc43a6e8667446143ae7fd7f82
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: bdc3e4999eac66e3a21817ac1fc55a46d84aa58a
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429047"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076300"
 ---
 # <a name="grant-locally-managed-partner-accounts-access-to-cloud-resources-using-azure-ad-b2b-collaboration"></a>Azure AD B2B işbirliğini kullanarak bulut kaynaklarına erişime yerel olarak yönetilen bir iş ortağı hesapları
 

@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 ms.assetid: 5471ad74-20b3-44df-a2b5-43cde2c0a045
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dkershaw, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: 249d5068c38466bf8ac3820449bcf613a15c168a
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: ce1940d0b83e0713ce41d84e8d4bfeff6cb75954
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288824"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55075865"
 ---
 # <a name="azure-active-directory-graph-api"></a>Azure Active Directory Graph API'si
 
@@ -46,11 +46,11 @@ Azure Active Directory Graph API'sini kullanmaya başlamak için bkz: [Azure AD 
 
 Azure AD Graph API'sini aşağıdaki özellikleri sağlar:
 
-* **REST API uç noktalarını**: Azure AD Graph API'si, standart HTTP isteklerini kullanarak erişilen uç oluşan bir RESTful hizmeti. Azure AD Graph API, istekleri ve yanıtları için XML veya Javascript nesne gösterimi (JSON) içerik türlerini destekler. Daha fazla bilgi için [Azure AD Graph REST API Başvurusu](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
-* **Azure AD ile kimlik doğrulaması**: bir JSON Web Token (JWT) isteğin yetkilendirme üst bilgisinde ekleyerek Azure AD Graph API'sine yapılan her isteğin kimliğinin doğrulanması gerekir. Bu belirteç, Azure AD'nin belirteç uç noktası için bir istekte ve geçerli kimlik bilgileri alınır. OAuth 2.0 istemci kimlik bilgileri akışı kullanabilir veya yetki kodu izin akışı Graph'i çağırmaya yönelik bir belirteç almak için. Daha fazla bilgi için [OAuth 2.0, Azure AD'de](https://msdn.microsoft.com/library/azure/dn645545.aspx).
-* **Rol tabanlı yetkilendirme (RBAC)**: güvenlik grupları, Azure AD Graph API RBAC gerçekleştirmek için kullanılır. Örneğin, bir kullanıcı belirli bir kaynağa erişim izni olup olmadığını, uygulamayı çağırabilir belirlemek istiyorsanız [denetleyin (geçici) grup üyeliğini](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/functions-and-actions#checkMemberGroups) işlemi, true veya false döndürür.
-* **Fark sorgusu**: fark sorgusu sık kullanılan sorgular için Azure AD Graph API'si yapmak zorunda kalmadan iki dönemleri arasında bir dizin değişiklikleri izlemenize olanak tanır. Bu istek türü yalnızca geçerli istek ve önceki fark sorgusu istek arasında yapılan değişiklikleri döndürür. Daha fazla bilgi için [Azure AD Graph API değişiklik sorgu](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query).
-* **Dizin genişletmeleri**: dış veri deposuna gerek kalmadan directory nesnelerine özel özellikler ekleyebilirsiniz. Örneğin, uygulamanızın her bir kullanıcı için bir Skype kimliği özelliği gerektiriyorsa, dizinde yeni özellik kaydedebilirsiniz ve her kullanıcı nesnesi üzerinde kullanılabilir. Daha fazla bilgi için [Azure AD Graph API'si directory şema uzantıları](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions).
+* **REST API uç noktalarını**: Azure AD Graph API, standart HTTP isteklerini kullanarak erişilen uç oluşan bir RESTful hizmeti olduğu. Azure AD Graph API, istekleri ve yanıtları için XML veya Javascript nesne gösterimi (JSON) içerik türlerini destekler. Daha fazla bilgi için [Azure AD Graph REST API Başvurusu](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
+* **Azure AD ile kimlik doğrulaması**: Azure AD Graph API'sine yapılan her isteği bir JSON Web Token (JWT) isteğin yetkilendirme üst bilgisinde ekleyerek kimlik doğrulaması gerekir. Bu belirteç, Azure AD'nin belirteç uç noktası için bir istekte ve geçerli kimlik bilgileri alınır. OAuth 2.0 istemci kimlik bilgileri akışı kullanabilir veya yetki kodu izin akışı Graph'i çağırmaya yönelik bir belirteç almak için. Daha fazla bilgi için [OAuth 2.0, Azure AD'de](https://msdn.microsoft.com/library/azure/dn645545.aspx).
+* **Rol tabanlı yetkilendirme (RBAC)**: Güvenlik grupları, Azure AD Graph API RBAC gerçekleştirmek için kullanılır. Örneğin, bir kullanıcı belirli bir kaynağa erişim izni olup olmadığını, uygulamayı çağırabilir belirlemek istiyorsanız [denetleyin (geçici) grup üyeliğini](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/functions-and-actions#checkMemberGroups) işlemi, true veya false döndürür.
+* **Fark sorgusu**: Fark sorgusu, Azure AD Graph API için sık kullanılan sorgular yapmak zorunda kalmadan iki dönemleri arasında bir dizinde değişiklik izlemenize imkan tanır. Bu istek türü yalnızca geçerli istek ve önceki fark sorgusu istek arasında yapılan değişiklikleri döndürür. Daha fazla bilgi için [Azure AD Graph API değişiklik sorgu](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query).
+* **Dizin genişletmeleri**: Dış veri deposuna gerek kalmadan directory nesnelerine özel özellikler ekleyebilirsiniz. Örneğin, uygulamanızın her bir kullanıcı için bir Skype kimliği özelliği gerektiriyorsa, dizinde yeni özellik kaydedebilirsiniz ve her kullanıcı nesnesi üzerinde kullanılabilir. Daha fazla bilgi için [Azure AD Graph API'si directory şema uzantıları](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions).
 * **İzin kapsamları tarafından güvenliği sağlanan**: Azure AD Graph API'si izin kapsamları, OAuth 2.0 kullanarak Azure AD verilerine güvenli erişim sağlamak kullanıma sunar. Bunu çeşitli dahil olmak üzere istemci uygulama türlerini destekler:
   
   * Temsilcili erişim yetkilendirme aracılığıyla verilere (yönetici temsilcisi) oturum açmış kullanıcıdan verilen kullanıcı arabirimleri
@@ -62,8 +62,8 @@ Azure AD Graph API'sini aşağıdaki özellikleri sağlar:
 
 Azure AD Graph API, birçok uygulama senaryolarını olanaklı kılar. En yaygın aşağıdaki senaryolar şunlardır:
 
-* **(Tek Kiracılı) iş kolu uygulaması**: Bu senaryoda, bir Office 365 aboneliğine sahip bir kuruluş için bir kurumsal Geliştirici çalışır. Geliştirici, bir kullanıcıya lisans atama gibi görevleri gerçekleştirmek için Azure AD ile etkileşime giren bir web uygulaması oluşturuyor. Bu görev Azure AD Graph API'sine erişim gerekiyorsa, geliştiricinin tek kiracılı uygulama Azure AD'de kaydeder ve yapılandırır, okuma ve yazma izinleri Azure AD Graph API'si için. Ardından uygulama, Azure AD Graph API'sini çağırmak için bir belirteç almak için kendi kimlik bilgilerini veya bu şu anda oturum açma kullanıcı kullanmak üzere yapılandırılmıştır.
-* **Bir hizmet uygulaması (çok Kiracılı) olarak yazılım**: Bu senaryoda, bir bağımsız yazılım satıcısı (ISV) Azure AD kullanan başka kuruluşlar için kullanıcı yönetimi özelliklerine sağlayan barındırılan çok kiracılı web uygulaması geliştirme. Uygulama Azure AD Graph API'sini çağırmak gereken şekilde bu özellikler, dizin nesnesi, erişim gerektirir. Geliştirici, Azure AD'de uygulama kaydeder, gerekli okuma ve yazma izinleri Azure AD Graph API'si için yapılandırır ve diğer kurumların kendi dizinde uygulamayı kullanmak için onay verebilir böylece ardından dış erişim sağlar. Başka bir kuruluştaki bir kullanıcı uygulamayı ilk kez doğruladığında, bunlar uygulamanın istediği izinleri içeren bir onay iletişim kutusu gösterilir. Onay sonra uygulama sunacak verme, bu kullanıcı dizini içinde Azure AD Graph API'si izin istedi. Onay çerçevesine hakkında daha fazla bilgi için bkz. [onay çerçevesine genel bakış](consent-framework.md).
+* **İş kolu (tek Kiracılı) uygulaması**: Bu senaryoda, bir Office 365 aboneliğine sahip bir kuruluş için bir kurumsal Geliştirici çalışır. Geliştirici, bir kullanıcıya lisans atama gibi görevleri gerçekleştirmek için Azure AD ile etkileşime giren bir web uygulaması oluşturuyor. Bu görev Azure AD Graph API'sine erişim gerekiyorsa, geliştiricinin tek kiracılı uygulama Azure AD'de kaydeder ve yapılandırır, okuma ve yazma izinleri Azure AD Graph API'si için. Ardından uygulama, Azure AD Graph API'sini çağırmak için bir belirteç almak için kendi kimlik bilgilerini veya bu şu anda oturum açma kullanıcı kullanmak üzere yapılandırılmıştır.
+* **Bir hizmet uygulaması (çok Kiracılı) olarak yazılım**: Bu senaryoda, bir bağımsız yazılım satıcısı (ISV) Azure AD kullanan başka kuruluşlar için kullanıcı yönetimi özellikleri sağlayan bir barındırılan çok kiracılı web uygulaması geliştiriyor. Uygulama Azure AD Graph API'sini çağırmak gereken şekilde bu özellikler, dizin nesnesi, erişim gerektirir. Geliştirici, Azure AD'de uygulama kaydeder, gerekli okuma ve yazma izinleri Azure AD Graph API'si için yapılandırır ve diğer kurumların kendi dizinde uygulamayı kullanmak için onay verebilir böylece ardından dış erişim sağlar. Başka bir kuruluştaki bir kullanıcı uygulamayı ilk kez doğruladığında, bunlar uygulamanın istediği izinleri içeren bir onay iletişim kutusu gösterilir. Onay sonra uygulama sunacak verme, bu kullanıcı dizini içinde Azure AD Graph API'si izin istedi. Onay çerçevesine hakkında daha fazla bilgi için bkz. [onay çerçevesine genel bakış](consent-framework.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

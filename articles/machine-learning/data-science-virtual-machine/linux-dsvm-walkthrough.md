@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: d6e4cc585c1239d6a1b81b371f39fc19e3ff37ea
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 7d567d01cef59a2402fa8cb9aecd35c68ae6c2bd
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157182"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077208"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>İle bir Linux veri bilimi sanal makinesi Azure üzerinde veri bilimi
 Bu izlenecek yol, Linux veri bilimi sanal makinesi ile çeşitli genel veri bilimi görevlerini gerçekleştirmek nasıl gösterir. Linux veri bilimi sanal makinesi (DSVM) veri analizi ve makine öğrenimi için yaygın olarak kullanılan araçları koleksiyonu ile önceden yüklenmiş olan Azure üzerinde kullanılabilir bir sanal makine görüntüsüdür. Anahtar yazılım bileşenleri içinde listelenen [Linux veri bilimi sanal makinesi sağlama](linux-dsvm-intro.md) konu. VM görüntüsü, yüklemek ve araçların her biri ayrı ayrı yapılandırmak zorunda kalmadan, dakikalar içinde veri bilimi yapmaya başlayın kolaylaştırır. Kolayca VM'yi, gerekirse ölçeği ve kullanımda olmadığında durdurun. Bu nedenle bu kaynak, esnek ve maliyet açısından verimli içindir.
@@ -180,10 +180,10 @@ Ayrıca bir rastgele orman modeli deneyelim. Rastgele ormanları karar ağaçlar
     accuracy
 
 
-## <a name="deploy-a-model-to-azure-ml"></a>Azure ML model dağıtma
-[Azure Machine Learning Studio](https://studio.azureml.net/) (AzureML), Tahmine dayalı analiz modellerini Derleme ve dağıtma kolaylaştıran bir bulut hizmetidir. AzureML iyi özelliklerinden biri herhangi bir web hizmeti olarak R işlevi yayımlamak için olmasıdır. AzureML R paketi dağıtım sağ DSVM bizim R oturum yapmak daha kolay hale getirir.
+## <a name="deploy-a-model-to-azure-machine-learning-studio"></a>Azure Machine Learning Studio'da model dağıtma
+[Azure Machine Learning Studio](https://studio.azureml.net/) , Tahmine dayalı analiz modellerini Derleme ve dağıtma kolay bir bulut hizmetidir. Azure Machine Learning Studio'nun iyi özelliklerinden herhangi bir web hizmeti olarak R işlevi yayımlamak için olmasıdır. Azure Machine Learning studio R paketi dağıtım sağ DSVM bizim R oturum yapmak daha kolay hale getirir.
 
-Önceki bölümde karar ağacı kodu dağıtmak için Azure Machine Learning Studio'da oturum açmanız gerekir. Çalışma alanı Kimliğiniz ve bir yetkilendirme belirteci oturum açmanız gerekir. Bu değerleri bulmak ve onlarla AzureML değişkenlerini başlatmak için:
+Önceki bölümde karar ağacı kodu dağıtmak için Azure Machine Learning Studio'da oturum açmanız gerekir. Çalışma alanı Kimliğiniz ve bir yetkilendirme belirteci oturum açmanız gerekir. Bu değerleri bulmak ve onlarla Azure Machine Learning değişkenlerini başlatmak için:
 
 Seçin **ayarları** sol menüdeki. Not, **çalışma alanı kimliği**. ![2](./media/linux-dsvm-walkthrough/workspace-id.png)
 
@@ -270,7 +270,7 @@ Python kullanarak geliştirme için Anaconda Python 2.7 ve 3.5 dağıtımlar DSV
 Şimdi bazı spambase kümesinin okuyun ve Destek vektör makinelerle scikit e-postaları sınıflandırmak-öğrenin:
 
     import pandas
-    from sklearn import svm    
+    from sklearn import svm
     data = pandas.read_csv("spambaseHeaders.data", sep = ',\s*')
     X = data.ix[:, 0:57]
     y = data.ix[:, 57]

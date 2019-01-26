@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 10/03/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
-ms.openlocfilehash: a06eb35850c12c2813a395ee8c64e16c2a8a5bce
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: f472503d43d82209c765a331ba3922a2f25ca327
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156723"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077072"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Nasıl yapılır: Azure Access Control Service'ten geçiş yapma
 
@@ -324,7 +324,7 @@ Ayrıca, Azure AD OAuth istemci kimlik bilgileri verme Azure AD uygulaması kull
 | Bir istemci kaydetme | Erişim denetimi Yönetim Portalı'nda hizmet kimliği oluşturma | Azure portalını kullanarak başka bir Azure AD web uygulaması oluşturma |
 | Kullanılan protokolü |-OAuth kaydırma Protokolü<br />-OAuth 2.0 taslak 13 istemci kimlik bilgileri verme | OAuth 2.0 istemci kimlik bilgileri verme |
 | İstemci kimlik doğrulaması yöntemleri |-Basit parola<br />-İmzalı SWT<br />-Federe kimlik sağlayıcısından gelen SAML belirteci |-Basit parola<br />-İmzalı JWT |
-| Belirteç biçimleri |-JWT<br />-SAML 1.1<br />-SAML 2.0<br />-SWT<br /> | Yalnızca JWT |
+| Belirteç biçimleri |- JWT<br />- SAML 1.1<br />- SAML 2.0<br />-SWT<br /> | Yalnızca JWT |
 | Belirteç dönüştürme |-Özel talep ekleme<br />-İf-then basit talep verme mantığı | Özel talep ekleme | 
 | Yapılandırma ve yönetim görevlerini otomatikleştirin | Erişim denetimi yönetim hizmeti desteklenir | Microsoft Graph ve Azure AD Graph API desteklenen |
 

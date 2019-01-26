@@ -13,15 +13,15 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 11/13/2018
+ms.date: 01/24/2019
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a851d9cd4322f2460bfa7f74854c44e77a52e0a6
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 6b5679a8d3f8cf449b9539e8595e14a87e882ac7
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818192"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912893"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Azure AD denetim etkinliği başvurusu
 
@@ -43,34 +43,36 @@ Bu makalede, denetim günlüklerinize kaydedilebilecek denetim etkinlikleri list
 
 |Denetim Kategorisi|Etkinlik|
 |---|---|
-|Dizin Yönetimi|Yönetim birimi ekleme|
-|Dizin Yönetimi|Yönetim birimine üye ekleme|
-|Dizin Yönetimi|Yönetim birimini silme|
-|Dizin Yönetimi|Yönetim biriminden üyeyi kaldırma|
-|Dizin Yönetimi|Yönetim birimini güncelleştirme|
-|Dizin Yönetimi|Yönetim|
-|Kullanıcı Yönetimi|Dizin işlemi|
-|Kullanıcı Yönetimi|Dışarı Aktarma|
-|Kullanıcı Yönetimi|İçeri Aktarma|
-|Kullanıcı Yönetimi|Diğer|
-|Kullanıcı Yönetimi|Emanet işleme|
-|Kullanıcı Yönetimi|Eşitleme kuralı eylemi|
-|Kullanıcı Yönetimi|Uygulama ekleme|
-|Kullanıcı Yönetimi|Uygulamayı silme|
-|Kullanıcı Yönetimi|Uygulamayı güncelleştirme|
-|Kullanıcı Yönetimi|Uygulamada çoklu oturum açma modunu güncelleştirme|
-|Kullanıcı Yönetimi|Otomatik Parola Geçişi|
-|Kullanıcı Yönetimi|V2 uygulama izinleri ekleme|
-|Kullanıcı Yönetimi|V1 uygulaması oluşturma|
-|Kullanıcı Yönetimi|V2 uygulaması oluşturma|
-|Kullanıcı Yönetimi|V1 uygulamasını silme|
-|Kullanıcı Yönetimi|V2 uygulamasını silme|
-|Kullanıcı Yönetimi|V2 uygulama iznini silme|
-|Kullanıcı Yönetimi|V1 ve V2 uygulamalarını alma|
-|Kullanıcı Yönetimi|V1 uygulaması alma|
-|Kullanıcı Yönetimi|V1 uygulamaları alma|
-|Kullanıcı Yönetimi|V2 uygulaması alma|
-|Kullanıcı Yönetimi|V2 uygulamaları alma|
+|Erişim Gözden Geçirmeleri|Erişim gözden geçirmesi sona erdi|
+|Erişim Gözden Geçirmeleri|İstek onayına onaylayan ekleme|
+|Erişim Gözden Geçirmeleri|Erişim gözden geçirmesine gözden geçiren ekleme|
+|Erişim Gözden Geçirmeleri|Erişim gözden geçirmesi uygulama|
+|Erişim Gözden Geçirmeleri|Erişim gözden geçirmesi oluşturma|
+|Erişim Gözden Geçirmeleri|Program oluşturma|
+|Erişim Gözden Geçirmeleri|İstek onayı oluşturma|
+|Erişim Gözden Geçirmeleri|Erişim gözden geçirmesini silme|
+|Erişim Gözden Geçirmeleri|Program silme|
+|Erişim Gözden Geçirmeleri|Program denetimini bağlama|
+|Erişim Gözden Geçirmeleri|Azure AD Erişim Gözden Geçirmelerine Ekleme|
+|Erişim Gözden Geçirmeleri|Erişim gözden geçirmesinden gözden geçireni kaldırma|
+|Erişim Gözden Geçirmeleri|Gözden Geçirmeyi Durdurmayı İsteme|
+|Erişim Gözden Geçirmeleri|Gözden geçirme sonucunu uygulamayı isteme|
+|Erişim Gözden Geçirmeleri|Rbac Rolü üyeliğini gözden geçirme|
+|Erişim Gözden Geçirmeleri|Uygulama atamasını gözden geçirme|
+|Erişim Gözden Geçirmeleri|Grup üyeliğini gözden geçirme|
+|Erişim Gözden Geçirmeleri|İstek onayı isteğini gözden geçirme|
+|Erişim Gözden Geçirmeleri|Program denetiminin bağlantısını kaldırma|
+|Erişim Gözden Geçirmeleri|Erişim Gözden Geçirmesini Güncelleştirme|
+|Erişim Gözden Geçirmeleri|Azure AD erişim gözden geçirmeleri ekleme durumunu güncelleştirme|
+|Erişim Gözden Geçirmeleri|Erişim gözden geçirmesi posta bildirimi ayarlarını güncelleştirme|
+|Erişim Gözden Geçirmeleri|Erişim gözden geçirmesi yineleme sayısı ayarını güncelleştirme|
+|Erişim Gözden Geçirmeleri|Erişim gözden geçirmesi yineleme gün sayısını güncelleştirme|
+|Erişim Gözden Geçirmeleri|Erişim gözden geçirmesi yineleme bitiş türü ayarını güncelleştirme|
+|Erişim Gözden Geçirmeleri|Erişim gözden geçirmesi yineleme türü ayarını güncelleştirme|
+|Erişim Gözden Geçirmeleri|Erişim gözden geçirmesi anımsatıcı ayarlarını güncelleştirme|
+|Erişim Gözden Geçirmeleri|Program güncelleştirme|
+|Erişim Gözden Geçirmeleri|İstek onayını güncelleştirme|
+|Erişim Gözden Geçirmeleri|Kullanıcı devre dışı|
 
 ## <a name="account-provisioning"></a>Hesap sağlama
 
@@ -526,23 +528,27 @@ Bu makalede, denetim günlüklerinize kaydedilebilecek denetim etkinlikleri list
 
 |Denetim Kategorisi|Etkinlik|
 |---|---|
-|Rol Yönetimi|Erişim gözden geçirmesi anımsatıcı ayarlarını güncelleştirme|
-|Rol Yönetimi|İstek onayını güncelleştirme|
-|Rol Yönetimi|Kullanıcıya uygulama rolü atama izni ekleme|
-|Rol Yönetimi|Kullanıcı ekle|
-|Rol Yönetimi|Kullanıcılar için güçlü kimlik doğrulaması telefon uygulaması ayrıntılarını ekleme|
-|Rol Yönetimi|Kullanıcı lisansını değiştirme|
-|Rol Yönetimi|Kullanıcı parolasını değiştirme|
-|Rol Yönetimi|Federasyon kullanıcısını yönetilen kullanıcıya dönüştürme|
-|Rol Yönetimi|Kullanıcı için uygulama parolası oluşturma|
-|Rol Yönetimi|Kullanıcı için uygulama parolasını silme|
-|Rol Yönetimi|Kullanıcıyı silme|
-|Rol Yönetimi|Hesabı devre dışı bırak|
-|Rol Yönetimi|Güçlü Kimlik Doğrulamasını Etkinleştirme|
-|Rol Yönetimi|Kullanıcıyı Kalıcı Olarak Silme|
-|Rol Yönetimi|Kullanıcıdan uygulama rolü atamasını kaldırma|
-|Rol Yönetimi|Kullanıcılar için güçlü kimlik doğrulaması telefon uygulaması ayrıntılarını kaldırma|
-
+|PIM|ActivationAborted|
+|PIM|ActivationApproved|
+|PIM|ActivationCanceled|
+|PIM|ActivationDenied|
+|PIM|ActivationRequested|
+|PIM|Eklendi|
+|PIM|AddedOutsidePIM|
+|PIM|Ata|
+|PIM|DismissAlert|
+|PIM|Yükselt|
+|PIM|ReactivateAlert|
+|PIM|Kaldırıldı|
+|PIM|RemovedOutsidePIM|
+|PIM|Gözden Geçirmeyi Durdurmayı İsteme|
+|PIM|Rol Ayarı değişiklikleri|
+|PIM|ScanAlertsNow|
+|PIM|Kaydol|
+|PIM|Atamasını Kaldır|
+|PIM|Yetkiyi Kaldır|
+|PIM|UpdateAlertSettings|
+|PIM|UpdateCurrentState|
 
 
 ## <a name="self-service-group-management"></a>Self servis grup yönetimi
@@ -580,13 +586,16 @@ Bu makalede, denetim günlüklerinize kaydedilebilecek denetim etkinlikleri list
 
 |Denetim Kategorisi|Etkinlik|
 |---|---|
-|İlke Yönetimi|Parolayı değiştirme (self servis)|
-|İlke Yönetimi|Parola sıfırlama (yönetici tarafından)|
-|İlke Yönetimi|Parola sıfırlama (self servis)|
-|İlke Yönetimi|Self servis parola sıfırlama akış etkinliği ilerleme durumu|
-|İlke Yönetimi|Self servis parola sıfırlama akış etkinliği ilerleme durumu|
-|İlke Yönetimi|Kullanıcı hesabının kilidini açma (self servis)|
-|İlke Yönetimi|Self servis parola sıfırlama için kaydolan kullanıcı|
+|Kullanım Koşulları|Kullanım Koşullarını Kabul Etme|
+|Kullanım Koşulları|Kullanım Koşulları Oluşturma|
+|Kullanım Koşulları|Kullanım Koşullarını Reddetme|
+|Kullanım Koşulları|Silme onayı|
+|Kullanım Koşulları|Kullanım Koşullarını Silme|
+|Kullanım Koşulları|Kullanım Koşullarını Düzenleme|
+|Kullanım Koşulları|Kullanım koşullarını süresi dolacak|
+|Kullanım Koşulları|Kullanım koşullarını sabit Sil|
+|Kullanım Koşulları|Kullanım Koşullarını Yayımlama|
+|Kullanım Koşulları|Kullanım Koşullarını Yayımdan Kaldırma|
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

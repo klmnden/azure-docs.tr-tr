@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: b120d50b6b0f72b5977d238866cfdf26fd9be5ff
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: d1d515786fde06f4622402f2c1d0c3add7cd8843
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436900"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913166"
 ---
 # <a name="an-introduction-to-apache-hadoop-security-with-enterprise-security-package"></a>Kurumsal güvenlik paketi ile Apache Hadoop güvenliğine giriş
 
@@ -56,7 +56,7 @@ Bir HDInsight kümesi ile ESP denetim günlüklerini aramak için bilindik Apach
 ## <a name="encryption"></a>Şifreleme
 Veri koruma, toplantı Kurumsal güvenlik ve uyumluluk gereksinimlerini için önemlidir. Erişim için verilerin yetkisiz çalışanların erişiminden korunmasının yanı sıra, bu şifreleme. 
 
-HDInsight kümeleri--Azure Blob Depolama ve Azure Data Lake depolama Gen1--destek saydam sunucu tarafı için her iki veri depoları [verilerin şifrelenmesi](../../storage/common/storage-service-encryption.md) bekleyen. Güvenli HDInsight kümeleri, bekleme sırasında veri sunucu tarafı şifreleme bu özellik ile sorunsuz bir şekilde çalışır.
+HDInsight kümeleri--Azure Blob Depolama ve Azure Data Lake depolama Gen1/Gen2--destek saydam sunucu tarafı için her iki veri depoları [verilerin şifrelenmesi](../../storage/common/storage-service-encryption.md) bekleyen. Güvenli HDInsight kümeleri, bekleme sırasında veri sunucu tarafı şifreleme bu özellik ile sorunsuz bir şekilde çalışır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

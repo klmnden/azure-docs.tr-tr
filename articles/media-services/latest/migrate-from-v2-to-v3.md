@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 12/18/2018
 ms.author: juliako
-ms.openlocfilehash: 017de43074d4b68c69526ddcc96f98ae826dcd65
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: c9d35841620afa454ffddb5e3022f6160021998e
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54808740"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912393"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Media Services v2'den v3 taşımak için Geçiş Kılavuzu
 
@@ -35,7 +35,7 @@ Bugün üzerine geliştirilen bir video hizmeti varsa [eski Media Services v2 AP
 
 ### <a name="api-is-more-approachable"></a>API daha ulaşılabilir
 
-*  v3, Azure Resource Manager'da yerleşik olan yönetim ve işlem işlevselliğini kullanıma sunan, birleşik bir API yüzeyini temel alır. Azure Resource Manager şablonları, dönüşüm, akış uç noktalarını, LiveEvents ve daha fazlasını oluşturmak ve dağıtmak için kullanılabilir.
+*  v3, Azure Resource Manager'da yerleşik olan yönetim ve işlem işlevselliğini kullanıma sunan, birleşik bir API yüzeyini temel alır. Azure Resource Manager şablonları oluşturmak ve dönüştürmeler, akış uç noktalarını, Canlı olayları ve daha fazla dağıtmak için kullanılabilir.
 * [Açık API (diğer adıyla Swagger) belirtimi](https://aka.ms/ams-v3-rest-sdk) belge.
     Dosya tabanlı kodlama dahil olmak üzere tüm hizmet bileşenleri için şema kullanıma sunar.
 * SDK'ları için kullanılabilir [.NET](https://aka.ms/ams-v3-dotnet-ref), .NET Core [Node.js](https://aka.ms/ams-v3-nodejs-ref), [Python](https://aka.ms/ams-v3-python-ref), [Java](https://aka.ms/ams-v3-java-ref), [Git](https://aka.ms/ams-v3-go-ref)ve Ruby.
@@ -45,14 +45,14 @@ Bugün üzerine geliştirilen bir video hizmeti varsa [eski Media Services v2 AP
 
 * Dosya tabanlı iş işlenmesi için girdi olarak bir HTTP (S) URL kullanabilirsiniz.<br/>Zaten Azure'da depolanan içeriğe sahip gerekmez veya varlıkları oluşturmak ihtiyacınız.
 * Kavramını sunar [dönüştüren](transforms-jobs-concept.md) dosya tabanlı iş işleme için. Dönüşüm, Azure Resource Manager şablonları oluşturmak ve işleme ayarlarını birden çok müşteriler veya kiracılar arasında yalıtmak için yeniden kullanılabilir yapılandırmaları oluşturmak için kullanılabilir.
-* Bir varlık olabilir [birden çok StreamingLocators](streaming-locators-concept.md) her farklı dinamik paketleme ve dinamik şifreleme ayarları ile.
+* Bir varlık birden çok olabilir [akış bulucuları](streaming-locators-concept.md) her farklı dinamik paketleme ve dinamik şifreleme ayarları ile.
 * [İçerik koruma](content-key-policy-concept.md) birden çok anahtar özelliklerini destekler.
-* 24 tekli bit hızı katkı için medya hizmetlerine kullanarak Çoklu bit hızlarında bir çıkış akışına zaman akışı saate kadar uzun olan Canlı etkinliklerin akışını yapabilirsiniz.
-* Üzerinde LiveEvents yeni düşük gecikme süresi canlı akış desteği. Daha fazla bilgi için [gecikme](live-event-latency.md).
-* Dinamik paketleme ile dinamik şifrelemeden Livestream Önizleme destekler. Bu önizleme yanı sıra DASH ve HLS paketleme içerik koruması sağlar.
-* LiveOutput v2 API programı varlıkta daha basittir. 
+* Canlı 24 tekli bit hızı katkı için medya hizmetlerine kullanarak Çoklu bit hızlarında bir çıkış akışına zaman akışı saate kadar uzun olan olay akışını yapabilirsiniz.
+* Canlı olayları yeni düşük gecikme süresi canlı akış desteği. Daha fazla bilgi için [gecikme](live-event-latency.md).
+* Canlı olay Önizleme dinamik paketleme ile dinamik şifrelemeden destekler. Bu önizleme yanı sıra DASH ve HLS paketleme içerik koruması sağlar.
+* Canlı çıkış v2 API programı varlıkta daha basittir. 
 * Geliştirilmiş RTMP desteği (daha fazla kararlılık ve daha fazla kaynak Kodlayıcı desteği).
-* Güvenli RTMPS alın.<br/>Bir Livestream oluşturduğunuzda, 4 alma URL'lerini alabilirsiniz. 4 alma URL'leri neredeyse aynıdır, yalnızca bir bağlantı noktası numarası bölümü farklı aynı akış belirteci (AppID) sahip. URL'lerin ikisinin, birincil ve yedek RTMPS için.   
+* Güvenli RTMPS alın.<br/>Canlı bir olay oluşturduğunuzda, 4 alma URL'lerini alabilirsiniz. 4 alma URL'leri neredeyse aynıdır, yalnızca bir bağlantı noktası numarası bölümü farklı aynı akış belirteci (AppID) sahip. URL'lerin ikisinin, birincil ve yedek RTMPS için.   
 * Varlıklarınızı bir rol tabanlı erişim denetimi (RBAC) sahip. 
 
 ## <a name="changes-from-v2"></a>V2 değişiklikleri
@@ -67,11 +67,11 @@ Bugün üzerine geliştirilen bir video hizmeti varsa [eski Media Services v2 AP
 * ContentKeys artık bir varlık değil, artık StreamingLocator özelliğidir.
 * Event Grid destek NotificationEndpoints değiştirir.
 * Aşağıdaki varlıkların yeniden adlandırıldı
-    * JobOutput görevi yerine geçer ve artık bir iş parçasıdır.
-    * Bulucu StreamingLocator değiştirir.
-    * Livestream kanal değiştirir.<br/>Canlı kanal ölçümler üzerinde üzerinden LiveEvents faturalandırılır. Daha fazla bilgi için [Canlı akışa genel bakış](live-streaming-overview.md#billing) ve [fiyatlandırma](https://azure.microsoft.com/pricing/details/media-services/).
-    * Program LiveOutput değiştirir.
-* LiveOutputs açıkça başlatılması gerekmez, üzerinde oluşturma işlemini başlatmak ve silindiğinde durdurun. V2 API'leri farklı şekilde çalışan programlar, bunlar oluşturulduktan sonra başlatılmış olması gerekiyordu.
+    * İş çıktısı, görev değiştirir ve artık bir iş parçasıdır.
+    * Akış Bulucusu Bulucu değiştirir.
+    * Canlı olay kanal değiştirir.<br/>Canlı etkinlikler üzerinde Canlı kanal oranları üzerinden faturalandırılır. Daha fazla bilgi için [Canlı akışa genel bakış](live-streaming-overview.md#billing) ve [fiyatlandırma](https://azure.microsoft.com/pricing/details/media-services/).
+    * Canlı çıktı Program değiştirir.
+* Canlı çıkışları açıkça başlatılması gerekmez, üzerinde oluşturma işlemini başlatmak ve silindiğinde durdurun. V2 API'leri farklı şekilde çalışan programlar, bunlar oluşturulduktan sonra başlatılmış olması gerekiyordu.
 
 ## <a name="feature-gaps-with-respect-to-v2-apis"></a>Özellik boşluklarına v2 API'leri göre
 
@@ -84,7 +84,7 @@ V3 API v2 API'si ile ilgili aşağıdaki özellik boşluklarına sahiptir. Boşl
     * Yer paylaşımları
     * Kırpma
     * Küçük resim zıplamasını sağlayın
-* Kodlama dönüştürme şu anda ile LiveEvents API çağrısı aracılığıyla maskeleme görüntüsü ekleme Orta stream ve reklam işareti ekleme desteklemez. 
+* API çağrısı aracılığıyla maskeleme görüntüsü ekleme Orta stream ve reklam işareti ekleme ile etkinliklerin Canlı kodlama dönüştürme şu anda desteklemez. 
 
 > [!NOTE]
 > Lütfen bu makalede yer işareti ve güncelleştirmeleri denetleme tutun.
@@ -102,11 +102,11 @@ Aşağıdaki tabloda, v2 ve v3 sık karşılaşılan senaryolara yönelik kod fa
 ## <a name="known-issues"></a>Bilinen sorunlar
 
 * Şu anda Azure portalında v3 kaynakları yönetmek için kullanamazsınız. Kullanım [REST API](https://aka.ms/ams-v3-rest-sdk), CLI, desteklenen Sdk'lardan birini veya.
-* Eşzamanlılık ve işlerinizin performansını, özellikle olanları Video veya ses analizi içeren denetlemek için hesabınızdaki medya ayrılmış birimi (MRU) sağlamak gerekir. Daha fazla bilgi için bkz. [Medya İşlemeyi Ölçeklendirme](../previous/media-services-scale-media-processing-overview.md). MRU kullanarak yönetebileceğiniz [CLI 2.0 için Media Services v3](media-reserved-units-cli-how-to.md)kullanarak [Azure portalında](../previous/media-services-portal-scale-media-processing.md), veya bu adı kullanıyor[ v2 API'leri](../previous/media-services-dotnet-encoding-units.md). Media Services v2 veya v3 kullanıp kullanmadığınızı MRU, sağlama için gereken API.
+* Eşzamanlılık ve işlerinizin performansını, özellikle olanları Video veya ses analizi içeren denetlemek için hesabınızdaki medya ayrılmış birimi (MRU) sağlamak gerekir. Daha fazla bilgi için bkz. [Medya İşlemeyi Ölçeklendirme](../previous/media-services-scale-media-processing-overview.md). MRU kullanarak yönetebileceğiniz [CLI 2.0 için Media Services v3](media-reserved-units-cli-how-to.md)kullanarak [Azure portalında](../previous/media-services-portal-scale-media-processing.md), veya bu adı kullanıyor [v2 API'leri](../previous/media-services-dotnet-encoding-units.md). Media Services v2 veya v3 kullanıp kullanmadığınızı MRU, sağlama için gereken API.
 * Media Services, API v2 API'si tarafından yönetilemez v3 ile oluşturduğunuz varlıkları.  
 * V3 API'ler aracılığıyla v2 API ile oluşturulan varlıkları yönetmek için önerilmez. Varlıkları iki sürümde uyumsuz hale farklar örnekleri aşağıda verilmiştir:   
     * Dönüşüm ile ilişkili olmayan olarak işleri ve görevleri v2'de oluşturulan v3 sürümünde gösterilmez. V3 dönüşümler ve işler için geçmeniz önerilir. İzleyici Hareket halindeki v2 için geçiş sırasında işleri ihtiyaç duyan, bir çok daha kısa zaman dilimi olur.
-    * Kanallar ve (v3 sürümünde LiveOutputs LiveEvents ile eşlenir) v2 ile oluşturulan programları v3 ile yönetilen devam edemiyor. V3 LiveEvents ve kullanışlı bir kanalı durdurun, LiveOutputs geçmeniz önerilir.<br/>Şu anda, sürekli olarak çalışan kanalların geçiremezsiniz.  
+    * Kanallar ve (Canlı olayları ve canlı çıkışlara v3 sürümünde eşlenir) v2 ile oluşturulan programları v3 ile yönetilen devam edemiyor. V3 Canlı olayları ve canlı çıkışları için uygun kanal Durma geçmeniz önerilir.<br/>Şu anda, sürekli olarak çalışan kanalların geçiremezsiniz.  
 
 > [!NOTE]
 > Bu sayfa, medya Hizmetleri ekibi v3 API'ler için devam eden bir iyileşme ve sürümler arasındaki boşlukları adresleri korunacaktır.

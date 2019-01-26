@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 777d976133f5b9bb1c97ea678e058f2dc398922d
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 2c2c06a222f3ac949f8e8e6b4aed1b00c0593b6d
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135823"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55080234"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Team Data Science Process'in çalışması - 1 TB veri kümesinde bir Azure HDInsight Hadoop kümesi kullanarak
 
@@ -33,39 +33,39 @@ Bu veri kümesi her kayıt, 40 sütunları içerir:
 * sonraki 13 sütunlar sayısal, ve
 * Son 26 kategorik sütunlardır
 
-Sütunları anonim hale getirilen ve bir dizi numaralandırılmış adlarını kullanın: için (için etiket sütunu) "Col1" ' Col40 "(için son kategorik sütun).            
+Sütunları anonim hale getirilen ve bir dizi numaralandırılmış adlarını kullanın: İçin (için etiket sütunu) "Col1" ' Col40 "(için son kategorik sütun).
 
 İlk 20 sütun bu veri kümesine ilişkin iki gözlemler (satır) bir alıntı şu şekildedir:
 
     Col1    Col2    Col3    Col4    Col5    Col6    Col7    Col8    Col9    Col10    Col11    Col12    Col13    Col14    Col15            Col16            Col17            Col18            Col19        Col20
 
-    0       40      42      2       54      3       0       0       2       16      0       1       4448    4       1acfe1ee        1b2ff61f        2e8b2631        6faef306        c6fc10d3    6fcd6dcb           
-    0               24              27      5               0       2       1               3       10064           9a8cb066        7a06385f        417e6103        2170fc56        acf676aa    6fcd6dcb                      
+    0       40      42      2       54      3       0       0       2       16      0       1       4448    4       1acfe1ee        1b2ff61f        2e8b2631        6faef306        c6fc10d3    6fcd6dcb
+    0               24              27      5               0       2       1               3       10064           9a8cb066        7a06385f        417e6103        2170fc56        acf676aa    6fcd6dcb
 
 Bu veri kümesinde içinde hem bir sayısal ve kategorik sütunlar eksik değerleri bulunur. Eksik değerleri işlemek için basit bir yöntem açıklanır. Bunları Hive tablolarına depolarken verilerin ek ayrıntılar incelenmektedir.
 
-**Tanımı:** *geçişli tıklatma oranı (Ctrl):* verileri tıklamayla yüzdesidir. Bu Criteo veri kümesinde, yaklaşık %3.3 veya 0.033 CTRL değil.
+**Tanımı:** *Geçişli tıklatma oranı (Ctrl):* Verileri tıklamayla yüzdesidir. Bu Criteo veri kümesinde, yaklaşık %3.3 veya 0.033 CTRL değil.
 
 ## <a name="mltasks"></a>Tahmin görev örnekleri
 İki örnek tahmin sorunların bu kılavuzda ele alınmıştır:
 
-1. **İkili sınıflandırma**: bir kullanıcı ekleme tıkladı olup olmadığını tahmin eder:
-   
-   * Sınıf 0: Yok tıklayın
-   * Sınıf 1: tıklayın
-2. **Regresyon**: bir ad tıklatma kullanıcı özelliklerinden olasılığını tahmin eder.
+1. **İkili sınıflandırma**: Bir kullanıcı ekleme tıkladı olup olmadığını tahmin eder:
+
+   * 0 sınıfı: Hiçbir tıklayın
+   * Sınıf 1: Şuna tıklayın:
+2. **Regresyon**: Kullanıcı özellikleri bir ad tıklatın olasılığını tahmin eder.
 
 ## <a name="setup"></a>Veri bilimi için ayarlanmış yukarı bir HDInsight Hadoop kümesi
-**Not:** bu genellikle, bir **yönetici** görev.
+**Not:** Bu genellikle, bir **yönetici** görev.
 
 Üç adımda HDInsight kümeleri ile Tahmine dayalı analiz çözümleri oluşturmak için Azure veri bilimi ortamınızı ayarlayın:
 
 1. [Depolama hesabı oluşturma](../../storage/common/storage-quickstart-create-account.md): Bu depolama hesabı, verileri Azure Blob Storage'da depolamak için kullanılır. HDInsight kümelerinde kullanılan veri burada depolanır.
-2. [Veri bilimi için Azure HDInsight Hadoop kümelerini özelleştirin](customize-hadoop-cluster.md): Bu adım, 64-bit Anaconda Python 2.7 tüm düğümlerde yüklü olan Azure HDInsight Hadoop kümesi oluşturur. HDInsight küme özelleştirirken tamamlamak için (Bu konuda açıklanan) iki önemli adımlar vardır.
-   
+2. [Veri bilimi için Azure HDInsight Hadoop kümelerini özelleştirin](customize-hadoop-cluster.md): Bu adım, bir Azure HDInsight Hadoop kümesi 64-bit Anaconda Python 2.7 ile tüm düğümlerde yüklü oluşturur. HDInsight küme özelleştirirken tamamlamak için (Bu konuda açıklanan) iki önemli adımlar vardır.
+
    * Oluşturulduğunda, HDInsight kümenizle 1. adımda oluşturduğunuz depolama hesabına bağlamanız gerekir. Bu depolama hesabı, küme içinde işlenebilecek verilere erişmek için kullanılır.
    * Oluşturulduktan sonra uzaktan erişim kümenin baş düğümüne etkinleştirmeniz gerekir. Burada belirttiğiniz (farklı küme oluşturma sırasında belirtilen) uzaktan erişim kimlik bilgilerini Hatırla: aşağıdaki yordamları tamamlamak için gerekir.
-3. [Azure ML çalışma alanı oluşturma](../studio/create-workspace.md): Bu Azure Machine Learning çalışma alanı, sonra ilk veri inceleme ve HDInsight kümesi üzerinde örnekleme aşağı makine öğrenimi modelleri oluşturmak için kullanılır.
+3. [Bir Azure Machine Learning studio çalışma alanı oluşturma](../studio/create-workspace.md): Bu Azure Machine Learning çalışma alanı, sonra ilk veri inceleme ve HDInsight kümesi üzerinde örnekleme aşağı makine öğrenimi modelleri oluşturmak için kullanılır.
 
 ## <a name="getdata"></a>Alma ve bir genel kaynaktan alınan verileri kullanma
 [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) bağlantısına tıklayarak, kullanım koşullarını kabul ederek ve bir ad sağlayarak, veri kümesi erişilebilir. Göründüğüne, bir anlık görüntüsünü aşağıda gösterilmiştir:
@@ -74,10 +74,10 @@ Bu veri kümesinde içinde hem bir sayısal ve kategorik sütunlar eksik değerl
 
 Tıklayın **indirme devam et** daha fazla bilgi için veri kümesi ve kullanılabilirliğini hakkında.
 
-Genel veriler yer [Azure blob depolama](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) konumu: wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. "wasb" Azure Blob Depolama konumunuz anlamına gelir. 
+Genel veriler yer [Azure blob depolama](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) konumu: wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. "wasb" Azure Blob Depolama konumunuz anlamına gelir.
 
 1. Bu ortak blob depolamadaki verileri sıkıştırması açılmış veri üç alt oluşur.
-   
+
    1. Alt *ham/sayısı/* ilk 21 günlük verileri - gün içeren\_gününe kadar günleri 00\_20
    2. Alt *ham/eğitme/* verileri tek bir günü oluşur gün\_21
    3. Alt *ham/test/* verilerin iki gün oluşur gün\_22 ve gün\_23
@@ -103,11 +103,11 @@ Criteo kümemizi için Hive tabloları oluşturmak için açık ***Hadoop komut 
 
 > [!NOTE]
 > Tüm Hive komutlarını bu izlenecek yolda Hive dönüşüm kutusundan Çalıştır / directory istemi. Bu tüm yol sorunlarını otomatik olarak üstlenir. "Hive directory istemi" koşulları kullanabilirsiniz "Hive bin / directory istemi" ve "Hadoop komut satırı" birbirinin yerine.
-> 
+>
 > [!NOTE]
 > Herhangi bir Hive sorgusu çalıştırmak için bir her zaman aşağıdaki komutları kullanabilirsiniz:
-> 
-> 
+>
+>
 
         cd %hive_home%\bin
         hive
@@ -157,14 +157,14 @@ Bu tablolar dış olduğundan yalnızca Azure Blob Depolama (wasb) konumlarına 
 
 **HERHANGİ bir Hive sorgusu çalıştırmak için iki yolu vardır:**
 
-1. **Komut satırı Hive REPL kullanma**: ilk komut satırı Hive REPL bir sorguyu yapıştırın ve "yığın" komut ve kopyalama sağlamaktır. Bunu yapmak için aşağıdakileri yapın:
-   
+1. **Hive REPL komut satırı kullanarak**: İlk komut satırı Hive REPL bir sorguyu yapıştırın ve "yığın" komut ve kopyalama sağlamaktır. Bunu yapmak için aşağıdakileri yapın:
+
         cd %hive_home%\bin
         hive
-   
+
      Artık komut satırı REPL kesme ve yapıştırma sorguyu yürütür.
-2. **Sorguları bir dosyaya kaydetme ve komut yürütme**: sorguları .hql dosyasına kaydetmek için saniyedir ([örnek&#95;hive&#95;oluşturma&#95;criteo&#95;veritabanı&#95;ve&#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)) ' i tıklatın ve ardından sorguyu çalıştırmak için aşağıdaki komutu yürütün:
-   
+2. **Sorguları bir dosyaya kaydetme ve komut yürütme**: Sorguları .hql dosyasına kaydetmek için saniyedir ([örnek&#95;hive&#95;oluşturma&#95;criteo&#95;veritabanı&#95;ve&#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)) ve ardından sorguyu çalıştırmak için aşağıdaki komutu yürütün:
+
         hive -f C:\temp\sample_hive_create_criteo_database_and_tables.hql
 
 ### <a name="confirm-database-and-table-creation"></a>Veritabanı ve tablo oluşturma onaylayın
@@ -294,7 +294,7 @@ Bu verir:
         1.0     2.1418600917169246      2.1418600917169246    6.21887086390288 27.53454893115633       65535.0
         Time taken: 564.953 seconds, Fetched: 1 row(s)
 
-Yüzdebirliklerini dağıtımını yakından genellikle herhangi bir sayısal değişken histogram dağıtımını ilgilidir.         
+Yüzdebirliklerini dağıtımını yakından genellikle herhangi bir sayısal değişken histogram dağıtımını ilgilidir.
 
 ### <a name="find-number-of-unique-values-for-some-categorical-columns-in-the-train-dataset"></a>Train kümesindeki bazı kategorik sütunlar için benzersiz değerlerin sayısını Bul
 Veri keşfi devam ederek, bazı kategorik sütunlar için yapabilecekleri benzersiz değerlerin sayısını bulun. Bunu yapmak için içeriğini göster [örnek&#95;hive&#95;criteo&#95;benzersiz&#95;değerleri&#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_categoricals.hql):
@@ -435,13 +435,13 @@ Bu nedir **verileri içeri aktarma** Hive tablosundaki verileri alınırken gibi
 
 1. "Hive sorgusu" seçin **veri kaynağı**
 2. İçinde **Hive veritabanı sorgusu** kutusuna, basit bir SELECT * FROM <,\_veritabanı\_name.your\_tablo\_adı >-yeterli olur.
-3. **Hcatalog sunucusu URI**: "abc" kümeniz çalışıyorsa sonra sadece budur: https://abc.azurehdinsight.net
-4. **Hadoop kullanıcı hesabı adı**: küme commissioning sırasında seçilen kullanıcı adı. (Uzaktan erişim kullanıcı adı değil!)
-5. **Hadoop kullanıcı hesabı parolası**: küme commissioning sırasında seçilen kullanıcı adının parolası. (Uzaktan erişim parolayı değil!)
+3. **Hcatalog sunucusu URI**: Kümenizi "abc" ise, ardından bu yeterlidir. https://abc.azurehdinsight.net
+4. **Hadoop kullanıcı hesabı adı**: Küme commissioning sırasında seçilen kullanıcı adı. (Uzaktan erişim kullanıcı adı değil!)
+5. **Hadoop kullanıcı hesabı parolası**: Küme commissioning sırasında seçilen kullanıcı adının parolası. (Uzaktan erişim parolayı değil!)
 6. **Çıktı verilerini konumunu**: "Azure" seçin
-7. **Azure depolama hesabı adı**: kümeyle ilişkili depolama hesabı
-8. **Azure depolama hesabı anahtarı**: depolama hesabı anahtarı kümeyle ilişkili.
-9. **Azure kapsayıcı adı**: "abc" Küme adıdır sonra yalnızca "abc", genellikle budur.
+7. **Azure depolama hesabı adı**: Kümeyle ilişkili depolama hesabı
+8. **Azure depolama hesabı anahtarı**: Kümeyle ilişkili depolama hesabı anahtarı.
+9. **Azure kapsayıcı adı**: Küme adı "abc" ise, ardından yalnızca "abc", genellikle budur.
 
 Bir kez **verileri içeri aktarma** tamamlandığında (gördüğünüz yeşil onay modülü üzerinde), veri alma (ile kendi tercih ettiğiniz bir ad) bir veri kümesi olarak bu verileri kaydedin. Ne bu şekilde görünür:
 
@@ -455,11 +455,11 @@ Veri kümeleri kullanılarak kaydedilmiş veri kümesini kullanmak için bir mac
 
 > [!NOTE]
 > Bu, eğitin ve test veri kümeleri için yapın. Ayrıca, bu amaç için verdiğiniz tablo adları ve veritabanı adını kullandığınızdan emin olun. Şekilde, kullanılan değerler yalnızca gösterim yaratılır * için:
-> 
-> 
+>
+>
 
-### <a name="step2"></a> 2. adım: Azure Machine Learning'deki tıklama tahmin etmek için basit bir deneme oluşturma / yok tıklama
-Müşterilerimizin Azure ML deneme şöyle görünür:
+### <a name="step2"></a> 2. adım: Tıklama tahmin etmek için Azure Machine Learning'de basit bir deneme oluşturma / yok tıklama
+Müşterilerimizin Azure Machine Learning studio denemesi şu şekilde görünür:
 
 ![Machine Learning denemesi](./media/hive-criteo-walkthrough/xRpVfrY.png)
 
@@ -481,9 +481,9 @@ Sayısı özellikler oluşturmak için kullanın **derleme sayım dönüştürme
 ![Derleme dönüştürme sayma modülü özellikleri](./media/hive-criteo-walkthrough/e0eqKtZ.png)
 ![sayım dönüştürme derleme Modülü](./media/hive-criteo-walkthrough/OdDN0vw.png)
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > İçinde **sütunları sayma** kutusuna, sayıları üzerinde gerçekleştirmek istediğiniz sütunları girin. Genellikle, bu (belirtildiği gibi) yüksek boyutlu kategorik sütunlar. Criteo dataset 26 kategorik sütunlar içerdiğini unutmayın: Col15 Col40 için gelen. Burada, hepsinde saymak ve (gelen, 15 40 gösterildiği virgülle ayrılmış olarak) bunların dizinlerini verin.
-> 
+>
 
 Modül MapReduce modunda kullanmak için (büyük veri kümeleri için uygundur), bir HDInsight Hadoop kümesi erişmeniz (özellik araştırması için kullanılan bu amaç için yeniden kullanılabilir) ve kimlik bilgileri. Önceki rakamları aşağıdaki gibi görünür (kendi kullanım örneği için uygun değerlerle anlatımı için sağlanan değerler değiştirin) hangi doldurulmuş değerler gösterilmektedir.
 
@@ -554,7 +554,7 @@ Eğitilen bir modelin aldıktan sonra test veri kümesinde puanlamak için ve on
 
 ![Score Model (Model Puanlama) modülü](./media/hive-criteo-walkthrough/fydcv6u.png)
 
-### <a name="step4"></a> 4. adım: modeli değerlendirme
+### <a name="step4"></a> 4. adım: Modeli değerlendirme
 Son olarak, model performansını çözümlemeniz gerekir. Genellikle, iki sınıf (ikili) sınıflandırma sorunu için iyi AUC ölçümüdür. Bu görselleştirme için takma **Score Model** modülüne bir **Evaluate Model** bu modülü. Tıklayarak **Görselleştir** üzerinde **Evaluate Model** modülü aşağıdakine benzer bir grafik verir:
 
 ![Modül BDT modeli değerlendirme](./media/hive-criteo-walkthrough/0Tl0cdg.png)
@@ -563,7 +563,7 @@ Son olarak, model performansını çözümlemeniz gerekir. Genellikle, iki sın�
 
 ![Evaluate Model modülü görselleştirin](./media/hive-criteo-walkthrough/IRfc7fH.png)
 
-### <a name="step5"></a> 5. adım: modeli bir Web hizmeti olarak yayımlayın.
+### <a name="step5"></a> 5. adım: Modeli Web hizmeti yayımlama
 Web hizmetleri fuss en az bir Azure Machine Learning modeli yayımlama olanağı, yaygın olarak kullanılabilir hale getirme için değerli bir özelliktir. Bu yapıldıktan sonra herkesin tahminler elde etmek için ihtiyaç duydukları ve web hizmeti, bu Öngörüler döndürülecek modeli kullanır. giriş verileriyle web hizmetine çağrı yapabilir.
 
 Bunu yapmak için önce eğitilen modelimiz eğitilen Model nesnesi olarak kaydedin. Sağ tıklayarak yapıldığını **modeli eğitme** modülü ve kullanarak **eğitilen modeli kaydedin** seçeneği.
@@ -588,8 +588,8 @@ Sıfırıncı bir adım olarak sayısı tablo büyük olduğundan, birkaç satı
 
 > [!NOTE]
 > Giriş veri biçimi için ÇIKTISINI kullanın **sayısı özelliği Oluşturucu** modülü. Bu deneme çalıştıran bittikten sonra çıktısını Kaydet **sayısı özelliği Oluşturucu** modülü bir veri kümesi olarak. Bu veri kümesi, Web hizmeti giriş verileri için kullanılır.
-> 
-> 
+>
+>
 
 #### <a name="scoring-experiment-for-publishing-webservice"></a>Yayımlama Web hizmeti için deneme Puanlama
 İlk olarak göründüğüne gösterilir. Temel yapısı bir **Score Model** bizim eğitilen model nesnesi ve birkaç satır kod kullanarak önceki adımlarda oluşturulan giriş verilerinin kabul eden modül **sayısı özelliği Oluşturucu** modülü. Projeye Scored etiketleri ve puan olasılıklar "Kümesindeki sütunları seçme" kullanın.

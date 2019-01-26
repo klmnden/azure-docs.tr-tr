@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 85c60cf25cd00826df6b48ed6714a646fa44a962
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: c1a575c3a30dfe5923fc0026c6d41d1b20276e49
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474889"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076477"
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Azure AD connect'teki bağlantı sorunlarını giderme
 Bu makalede, Azure AD Connect ve Azure AD arasındaki bağlantıyı nasıl çalıştığını ve bağlantı sorunlarını gidermek nasıl açıklanmaktadır. Bu proxy sunucusu olan bir ortamda görülebilmesi büyük olasılıkla sorunlardır.
@@ -167,17 +167,52 @@ Azure AD'de eylemi gerçekleştirmek için kullanıcı yetkisi verilemedi.
 ### <a name="authentication-cancelled"></a>Kimlik doğrulaması iptal edildi
 Çok faktörlü kimlik doğrulaması (MFA) sınama iptal edildi.
 
+<div id="connect-msolservice-failed">
+<!--
+  Empty div just to act as an alias for the "Connect To MS Online Failed" header
+  because we used the mentioned id in the code to jump to this section.
+-->
+</div>
+
 ### <a name="connect-to-ms-online-failed"></a>Çevrimiçi başarısız MS ile bağlanma
 Kimlik doğrulaması başarılı ancak Azure AD PowerShell bir kimlik doğrulama sorunu vardır.
+
+<div id="get-msoluserrole-failed">
+<!--
+  Empty div just to act as an alias for the "Azure AD Global Admin Role Needed" header
+  because we used the mentioned id in the code to jump to this section.
+-->
+</div>
 
 ### <a name="azure-ad-global-admin-role-needed"></a>Azure AD genel Yönetici rolüne gerekli
 Kullanıcı başarıyla doğrulandı. Ancak kullanıcı genel yönetici rolü atanmaz. Bu [genel yönetici rolünü nasıl atayabilirsiniz](../users-groups-roles/directory-assign-admin-roles.md) kullanıcı. 
 
+<div id="privileged-identity-management">
+<!--
+  Empty div just to act as an alias for the "Privileged Identity Management Enabled" header
+  because we used the mentioned id in the code to jump to this section.
+-->
+</div>
+
 ### <a name="privileged-identity-management-enabled"></a>Privileged Identity Management etkin
 Kimlik doğrulaması başarılı. Privileged Identity management etkinleştirildi ve şu anda bir genel Yönetici değilseniz. Daha fazla bilgi için [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md).
 
+<div id="get-msolcompanyinformation-failed">
+<!--
+  Empty div just to act as an alias for the "Company Information Unavailable" header
+  because we used the mentioned id in the code to jump to this section.
+-->
+</div>
+
 ### <a name="company-information-unavailable"></a>Şirket bilgisi yok
 Kimlik doğrulaması başarılı. Azure AD'den şirket bilgileri alınamadı.
+
+<div id="get-msoldomain-failed">
+<!--
+  Empty div just to act as an alias for the "Domain Information Unavailable" header
+  because we used the mentioned id in the code to jump to this section.
+-->
+</div>
 
 ### <a name="domain-information-unavailable"></a>Etki alanı bilgisi yok
 Kimlik doğrulaması başarılı. Azure AD etki alanı bilgileri alınamadı.

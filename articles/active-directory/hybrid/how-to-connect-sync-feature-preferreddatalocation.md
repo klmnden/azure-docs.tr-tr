@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2fde653c6520b743990ae837f1553004793fefa2
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 7b54d1b746467695b2c5e6a4ba634c74a3801d4f
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470707"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078738"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect eşitleme: Office 365 kaynaklar için tercih edilen veri konumu yapılandırın
 Bu konunun amacı, öznitelik tercih edilen veri konumu için Azure Active Directory (Azure AD) Connect eşitleme yapılandırma konusunda rehberlik sağlamaktır. Birisi çoklu coğrafi özellikleri Office 365'te kullandığında, kullanıcının Office 365 verilerine coğrafi konumunu belirlemek için bu öznitelik kullanın. (Koşulları *bölge* ve *coğrafi* birbirinin yerine kullanılır.)
@@ -31,7 +31,7 @@ Varsayılan olarak, Office 365 kaynaklarına kullanıcılarınız için Azure AD
 Öznitelik ayarlayarak **preferredDataLocation**, kullanıcının coğrafi tanımlayabilirsiniz. Kullanıcının Office 365 kaynaklarına, posta kutusu ve OneDrive gibi bir kullanıcı, aynı coğrafi bölgede olması ve bir kiracı, kuruluşunuzun tamamı için çözümlenmedi.
 
 > [!IMPORTANT]
-> Çoklu coğrafi müşterilere 5000 Office 365 hizmetlerine abonelikler en az şu anda kullanılabilir. Ayrıntılar için Microsoft temsilcinize konuşun.
+> Çoklu coğrafi şu anda en düşük 2.500 Office 365 hizmetlerine abonelikleri olan müşteriler için kullanılabilir. Ayrıntılar için Microsoft temsilcinize konuşun.
 >
 >
 
@@ -53,7 +53,7 @@ Office 365 için çoklu coğrafi kullanılabilir bölgelerde şunlardır:
 | Amerika Birleşik Devletleri | ADI |
 
 * Ardından bu tablodaki (örneğin, Güney Amerika) bir coğrafi listede yoksa, çoklu coğrafi için kullanılamaz.
-* Hindistan coğrafi yalnızca fatura adresini ve bu coğrafi bölgede satın aldığınız lisansları olan müşteriler için kullanılabilir.
+
 * Tüm Office 365 iş yükleri, kullanıcının coğrafi ayarlamanın kullanımını destekler.
 
 ### <a name="azure-ad-connect-support-for-synchronization"></a>Eşitleme için Azure AD Connect desteği

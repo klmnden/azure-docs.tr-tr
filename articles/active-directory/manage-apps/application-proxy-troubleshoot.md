@@ -15,12 +15,12 @@ ms.date: 06/26/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 11508c1f65ddfc7e43ef2301f32d67da3f0a4584
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 2eb59d9b07587fe2cfddb088e0cf82bb6762caa4
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904276"
+ms.locfileid: "54912691"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Uygulama proxy'si sorunlarını ve hata iletileri sorunlarını giderme
 Yayımlanan bir uygulamaya erişen veya yayımlama uygulamalarda hata oluşursa, Microsoft Azure AD uygulama ara sunucusu doğru şekilde çalışıp çalışmadığını görmek için aşağıdaki seçeneklerden denetleyin:
@@ -54,7 +54,7 @@ Olay günlüğünden Bağlayıcısı hata bulduğunuzda, sorunu çözmek için b
 | Bağlayıcı kaydı başarısız oldu: Azure Yönetim Portalı'nda uygulama ara sunucusu ve Active Directory kullanıcı adını ve parolasını doğru girdiğinizi etkin olduğundan emin olun. Hata: ' AADSTS50059: Kiracı tanımlayan hiçbir bilgi veya istek bulunamadı veya asıl URI başarısız oldu, kimlik bilgileri ve arama hizmeti tarafından sağlanan tarafından kapsanan. | Bir Microsoft Account ve Kuruluş Kimliği erişmeye çalıştığınız dizininin parçası olan etki alanı kullanarak oturum çalışıyorsunuz. Yönetici Kiracı etki alanı olarak aynı etki alanı adının bir parçasıdır, örneğin, Azure AD etki alanı contoso.com ise yönetici olmalıdır emin admin@contoso.com. |
 | PowerShell komut dosyaları çalıştırmak için geçerli yürütme İlkesi alınamadı. | Bağlayıcısı yüklemesi başarısız olursa, PowerShell yürütme ilkesini devre dışı olduğunu emin olmak için kontrol edin. <br><br>1. Grup İlkesi Düzenleyicisi'ni açın.<br>2. Git **Bilgisayar Yapılandırması** > **Yönetim Şablonları** > **Windows bileşenleri**  >   **Windows PowerShell** ve çift **betik yürütmeyi açma**.<br>3. Yürütme ilkesini olarak ayarlanabilir **yapılandırılmadı** veya **etkin**. Varsa kümesine **etkin**seçenekleri altında olduğundan emin olun, yürütme İlkesi ayarlandığından **yerel ve uzak imzalanmış komut dosyalarını izin** veya **tüm betiklere izin vermek**. |
 | Bağlayıcı yapılandırması yüklenemedi. | Kimlik doğrulaması için kullanılır, bağlayıcının istemci sertifikasının süresi doldu. Bir proxy'nin arkasında yüklü bağlayıcı varsa bu da oluşabilir. Bu durumda, bağlayıcı Internet'e erişemez ve uzak kullanıcılar uygulamalara sağlamak mümkün olmayacaktır. Güven kullanarak el ile yenileme `Register-AppProxyConnector` Windows PowerShell cmdlet'i. Bağlayıcınızı bir proxy'nin arkasındayken, Internet erişimi Bağlayıcısı hesaplarına "Ağ Hizmetleri" ve "yerel sistem." vermek gerekli değildir Bu, bunları ara sunucuya erişim verme veya bunları proxy atlama ayarlayarak gerçekleştirilebilir. |
-| Bağlayıcı kaydı başarısız oldu: Bir bağlayıcıyı kaydetmek için Active Directory Uygulama Yöneticisi olduğundan emin olun. Hata: 'Kayıt isteği reddedildi.' | Bir yönetici bu etki alanında oturum açmada çalıştığınız diğer ad değil. Bağlayıcınızı kullanıcının etki alanı sahibi olan dizin için her zaman yüklenir. Oturum açmak için çalıştığınız yönetici hesabı Azure AD kiracısı için en az uygulama yönetici izinlerine sahip olduğundan emin olun. |
+| Bağlayıcı kaydı başarısız oldu: Bağlayıcıyı kaydetmek için Active Directory Uygulama Yöneticisi olduğundan emin olun. Hata: 'Kayıt isteği reddedildi.' | Bir yönetici bu etki alanında oturum açmada çalıştığınız diğer ad değil. Bağlayıcınızı kullanıcının etki alanı sahibi olan dizin için her zaman yüklenir. Oturum açmak için çalıştığınız yönetici hesabı Azure AD kiracısı için en az uygulama yönetici izinlerine sahip olduğundan emin olun. |
 
 ## <a name="kerberos-errors"></a>Kerberos hataları
 

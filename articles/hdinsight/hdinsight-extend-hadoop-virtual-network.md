@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 0119e05ce5cb8d1c2e27936dc44896b7acef9312
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: a2731397ece833adcedc4ebab640fa1b3ab2fc05
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725975"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076835"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure HDInsight'ın bir Azure sanal ağı kullanarak genişletme
 
@@ -308,7 +308,7 @@ Daha fazla bilgi için [ağ trafiğini denetleme](#networktraffic) bölümü.
 
 ## <a id="hdinsight-ports"></a> Gerekli bağlantı noktaları
 
-Bir ağ kullanmayı planlıyorsanız **sanal gereç Güvenlik Duvarı** sanal ağı güvenli hale getirmek için aşağıdaki bağlantı noktaları üzerinde giden trafiğe izin vermeniz gerekir:
+Kullanmayı planlıyorsanız bir **Güvenlik Duvarı** güvenli sanal ağ ve küme üzerinde belirli bağlantı noktalarına erişmek için senaryonuz için gerekli bağlantı noktası üzerinde trafiğe izin vermeniz. Varsayılan olarak, bu bağlantı noktalarına izin verilenler listesine gerekmez:
 
 * 53
 * 443

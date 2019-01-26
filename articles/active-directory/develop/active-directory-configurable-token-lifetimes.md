@@ -16,12 +16,12 @@ ms.date: 10/05/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: 1fa5a2f9d63dfd9af006285beec256395d7ac668
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 5dd5920eae97399bae03c6917bb610103bd556c2
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069514"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912723"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Azure Active Directory'de (Önizleme) yapılandırılabilir belirteç ömürleri
 
@@ -85,8 +85,6 @@ Bir belirteç ömrü ilkesi belirteç ömrü kuralları içeren ilke nesne tür�
 | Çok faktörlü Oturum belirteci Maksimum yaş |MaxAgeSessionMultiFactor<sup>3</sup> |Oturum belirteçleri (kalıcı ve kalıcı olmayan) |Kadar iptal |10 dakika |Kadar iptal<sup>1</sup> |
 
 * <sup>1</sup>365 gün olduğu bu öznitelikler için ayarlanabilen en fazla açık uzunluğu.
-* <sup>2</sup>varsa **MaxAgeSessionSingleFactor** ayarlanmazsa bu değeri alan **MaxAgeSingleFactor** değeri. Her iki parametre olarak ayarlanırsa özelliği varsayılan değer (kadar iptal edilen) alır.
-* <sup>3</sup>varsa **MaxAgeSessionMultiFactor** ayarlanmazsa bu değeri alan **MaxAgeMultiFactor** değeri. Her iki parametre olarak ayarlanırsa özelliği varsayılan değer (kadar iptal edilen) alır.
 
 ### <a name="exceptions"></a>Özel durumlar
 | Özellik | Etkiler | Varsayılan |
@@ -114,7 +112,7 @@ Burada kullanılan tüm timespans C# göre biçimlendirilir [TimeSpan](https://m
 > [!NOTE]
 > Örnek bir senaryo aşağıda verilmiştir.
 >
-> Bir kullanıcı iki web uygulaması erişmek isteyen: bir Web uygulaması ve Web uygulama b
+> Bir kullanıcı, iki web uygulaması erişmek istiyor: Web uygulaması A ve Web uygulama b
 > 
 > Faktörleri:
 > * Her iki web uygulaması aynı üst kuruluşta ' dir.
@@ -136,16 +134,16 @@ Burada kullanılan tüm timespans C# göre biçimlendirilir [TimeSpan](https://m
 ### <a name="access-token-lifetime"></a>Erişim belirteci ömrü
 **Dize:** AccessTokenLifetime
 
-**Etkiler:** erişim belirteçleri, kimlik belirteçleri
+**Etkiler:** Erişim belirteçleri, kimlik belirteçleri
 
-**Özet:** ne kadar süreyle erişim ve kimlik belirteçlerini bu kaynak için geçerli olarak kabul edilir, bu ilke denetler. Erişim belirteci ömrü özelliği azaltma, bir erişim belirteci veya kötü amaçlı bir aktör, uzun bir süre için kullanılan kimlik belirteci riskini azaltır. (Bu belirteçleri iptal edilemiyor.) Belirteçlerin daha sık değiştirilmesi gerektiği için performansı olumsuz şekilde etkilenir dengedir.
+**Özet:** Bu ilke, ne kadar süreyle erişim ve kimlik belirteçlerini bu kaynak için geçerli olarak kabul edilir denetler. Erişim belirteci ömrü özelliği azaltma, bir erişim belirteci veya kötü amaçlı bir aktör, uzun bir süre için kullanılan kimlik belirteci riskini azaltır. (Bu belirteçleri iptal edilemiyor.) Belirteçlerin daha sık değiştirilmesi gerektiği için performansı olumsuz şekilde etkilenir dengedir.
 
 ### <a name="refresh-token-max-inactive-time"></a>Yenileme belirteci en fazla etkin olmayan zamanı
 **Dize:** MaxInactiveTime
 
-**Etkiler:** yenileme belirteçleri
+**Etkiler:** Yenileme belirteçlerini
 
-**Özet:** istemci artık bu kaynağa erişmeye çalışırken yeni bir erişim/yenileme belirteci çifti almak için kullanmadan önce ne kadar eski bir yenileme belirteci olabilir, bu ilke denetler. Yeni bir yenileme belirteci yenileme belirteci kullanıldığında genellikle döndürüldüğünden istemcinin belirtilen süre boyunca geçerli yenileme belirtecini kullanarak herhangi bir kaynağa erişmeye çalışırsa, bu ilke erişimi engeller.
+**Özet:** Bu ilke, istemci artık bu kaynağa erişmeye çalışırken yeni bir erişim/yenileme belirteci çifti almak için kullanmadan önce ne kadar eski bir yenileme belirteci olabilir denetler. Yeni bir yenileme belirteci yenileme belirteci kullanıldığında genellikle döndürüldüğünden istemcinin belirtilen süre boyunca geçerli yenileme belirtecini kullanarak herhangi bir kaynağa erişmeye çalışırsa, bu ilke erişimi engeller.
 
 Yeni bir yenileme belirteci almak için yeniden kimlik doğrulamaya zorlayabilir kendi istemci üzerinde etkin olan kullanıcılar bu ilkeyi zorlar.
 
@@ -154,36 +152,36 @@ Yenileme belirteci etkin olmayan zaman sınırı özelliği, tek öğeli belirte
 ### <a name="single-factor-refresh-token-max-age"></a>Tek öğeli yenileme belirteci Maksimum yaş
 **Dize:** MaxAgeSingleFactor
 
-**Etkiler:** yenileme belirteçleri
+**Etkiler:** Yenileme belirteçlerini
 
-**Özet:** Bu ilke denetimleri ne kadar bir kullanıcı, son başarıyla yalnızca tek bir etkenle kullanarak kimlik doğrulaması yapılmış sonra yeni bir erişim/yenileme belirteci çifti almak için bir yenileme belirteci kullanabilirsiniz. Bir kullanıcının kimliğini doğrular ve yeni bir yenileme belirteci aldıktan sonra kullanıcının yenileme belirteci akışı belirtilen süre için kullanabilirsiniz. (Bu geçerli bir yenileme belirteci iptal ve bunu etkin olmayan süresinden daha uzun bir süre kullanılmayan bırakılır değil sürece geçerlidir.) Bu noktada, kullanıcı yeni bir yenileme belirteci almak için yeniden kimlik doğrulamaya zorlayabilir zorlanır.
+**Özet:** Bu ilke denetimleri ne kadar bir kullanıcı, son başarılı bir şekilde tek bir etkenle kullanarak kimlik doğrulaması sonra yeni bir erişim/yenileme belirteci çifti almak için bir yenileme belirteci kullanabilir. Bir kullanıcının kimliğini doğrular ve yeni bir yenileme belirteci aldıktan sonra kullanıcının yenileme belirteci akışı belirtilen süre için kullanabilirsiniz. (Bu geçerli bir yenileme belirteci iptal ve bunu etkin olmayan süresinden daha uzun bir süre kullanılmayan bırakılır değil sürece geçerlidir.) Bu noktada, kullanıcı yeni bir yenileme belirteci almak için yeniden kimlik doğrulamaya zorlayabilir zorlanır.
 
 En yüksek yaş azaltarak kullanıcılara daha sık doğrulamak için zorlar. Tek öğeli kimlik doğrulama çok faktörlü kimlik doğrulamasından daha az güvenli olduğu kabul edildiği için bu özellik, çok faktörlü yenileme belirteci Maksimum yaş özelliği'den küçük veya ona eşit bir değer ayarlamanızı öneririz.
 
 ### <a name="multi-factor-refresh-token-max-age"></a>Çok faktörlü yenileme belirteci Maksimum yaş
 **Dize:** MaxAgeMultiFactor
 
-**Etkiler:** yenileme belirteçleri
+**Etkiler:** Yenileme belirteçlerini
 
-**Özet:** Bu ilke denetimleri ne kadar bir kullanıcı, son başarılı bir şekilde çoklu faktörlerle kullanarak kimlik doğrulaması yapılmış sonra yeni bir erişim/yenileme belirteci çifti almak için bir yenileme belirteci kullanabilir. Bir kullanıcının kimliğini doğrular ve yeni bir yenileme belirteci aldıktan sonra kullanıcının yenileme belirteci akışı belirtilen süre için kullanabilirsiniz. (Bu geçerli bir yenileme belirteci iptal ve etkin olmayan süresinden daha uzun bir süre kullanılmayan değil sürece geçerlidir.) Bu noktada, kullanıcıların yeni bir yenileme belirteci almak için yeniden kimlik doğrulamaya zorlayabilir zorlanır.
+**Özet:** Bu ilke denetimleri ne kadar bir kullanıcı, son başarılı bir şekilde çoklu faktörlerle kullanarak kimlik doğrulaması sonra yeni bir erişim/yenileme belirteci çifti almak için bir yenileme belirteci kullanabilir. Bir kullanıcının kimliğini doğrular ve yeni bir yenileme belirteci aldıktan sonra kullanıcının yenileme belirteci akışı belirtilen süre için kullanabilirsiniz. (Bu geçerli bir yenileme belirteci iptal ve etkin olmayan süresinden daha uzun bir süre kullanılmayan değil sürece geçerlidir.) Bu noktada, kullanıcıların yeni bir yenileme belirteci almak için yeniden kimlik doğrulamaya zorlayabilir zorlanır.
 
 En yüksek yaş azaltarak kullanıcılara daha sık doğrulamak için zorlar. Tek öğeli kimlik doğrulama çok faktörlü kimlik doğrulamasından daha az güvenli olduğu kabul edildiği için bu özellik, tek öğeli yenileme belirteci Maksimum yaş özelliğine ilişkin değerden büyük veya ona eşit bir değer ayarlamanızı öneririz.
 
 ### <a name="single-factor-session-token-max-age"></a>Tek öğeli Oturum belirteci Maksimum yaş
 **Dize:** MaxAgeSessionSingleFactor
 
-**Etkiler:** oturumu belirteçleri (kalıcı ve kalıcı olmayan)
+**Etkiler:** Oturum belirteçleri (kalıcı ve kalıcı olmayan)
 
-**Özet:** Bu ilke denetimleri ne kadar bir kullanıcı, son başarılı bir şekilde tek bir etkenle kullanarak kimlik doğrulaması yapılmış sonra yeni kimliği ve oturum belirteci almak için oturum belirteci kullanabilir. Bir kullanıcının kimliğini doğrular ve yeni oturum belirteci aldıktan sonra kullanıcı oturum belirteci akışı belirtilen süre için kullanabilirsiniz. (Geçerli oturum belirteci iptal ve süresi geçmemiş sürece bu durum geçerlidir.) Belirtilen süre sonunda, yeni oturum belirteci almak için yeniden kimlik doğrulamaya zorlayabilir kullanıcı zorlanır.
+**Özet:** Bu ilke denetimleri ne kadar bir kullanıcı, son başarılı bir şekilde tek bir etkenle kullanarak kimlik doğrulaması sonra yeni kimliği ve oturum belirteci almak için oturum belirteci kullanabilir. Bir kullanıcının kimliğini doğrular ve yeni oturum belirteci aldıktan sonra kullanıcı oturum belirteci akışı belirtilen süre için kullanabilirsiniz. (Geçerli oturum belirteci iptal ve süresi geçmemiş sürece bu durum geçerlidir.) Belirtilen süre sonunda, yeni oturum belirteci almak için yeniden kimlik doğrulamaya zorlayabilir kullanıcı zorlanır.
 
 En yüksek yaş azaltarak kullanıcılara daha sık doğrulamak için zorlar. Tek öğeli kimlik doğrulama çok faktörlü kimlik doğrulamasından daha az güvenli olduğu kabul edildiği için bu özellik, eşit veya çok faktörlü Oturum belirteci Maksimum yaş özelliğinden daha az olan bir değer ayarlamanızı öneririz.
 
 ### <a name="multi-factor-session-token-max-age"></a>Çok faktörlü Oturum belirteci Maksimum yaş
 **Dize:** MaxAgeSessionMultiFactor
 
-**Etkiler:** oturumu belirteçleri (kalıcı ve kalıcı olmayan)
+**Etkiler:** Oturum belirteçleri (kalıcı ve kalıcı olmayan)
 
-**Özet:** bir kullanıcı, yeni kimlik ve oturum doğrulandığını başarıyla çoklu faktörlerle kullanarak son saatten sonra belirteci almak için oturum belirteci kullanabilir Bu ilke denetimleri ne kadar. Bir kullanıcının kimliğini doğrular ve yeni oturum belirteci aldıktan sonra kullanıcı oturum belirteci akışı belirtilen süre için kullanabilirsiniz. (Geçerli oturum belirteci iptal ve süresi geçmemiş sürece bu durum geçerlidir.) Belirtilen süre sonunda, yeni oturum belirteci almak için yeniden kimlik doğrulamaya zorlayabilir kullanıcı zorlanır.
+**Özet:** Bir kullanıcı son saatten sonra yeni kimliği ve oturum belirteci almak için oturum belirteci kullanabilir ne kadar bu ilke denetimleri başarıyla çoklu faktörlerle kullanarak kimlik doğrulaması yapılmış. Bir kullanıcının kimliğini doğrular ve yeni oturum belirteci aldıktan sonra kullanıcı oturum belirteci akışı belirtilen süre için kullanabilirsiniz. (Geçerli oturum belirteci iptal ve süresi geçmemiş sürece bu durum geçerlidir.) Belirtilen süre sonunda, yeni oturum belirteci almak için yeniden kimlik doğrulamaya zorlayabilir kullanıcı zorlanır.
 
 En yüksek yaş azaltarak kullanıcılara daha sık doğrulamak için zorlar. Tek öğeli kimlik doğrulama çok faktörlü kimlik doğrulamasından daha az güvenli olduğu kabul edildiği için bu özellik, tek öğeli Oturum belirteci Maksimum yaş özelliğine ilişkin değerden büyük veya ona eşit bir değer ayarlamanızı öneririz.
 
@@ -219,7 +217,7 @@ Başlamak için aşağıdaki adımları uygulayın:
     Get-AzureADPolicy
     ```
 
-### <a name="example-manage-an-organizations-default-policy"></a>Örnek: bir kuruluşun varsayılan ilkesini yönetme
+### <a name="example-manage-an-organizations-default-policy"></a>Örnek: Bir kuruluşun varsayılan ilkesini yönetme
 Bu örnekte, kuruluşunuz genelinde daha az sıklıkta oturum açın, kullanıcılarınızın imkan tanıyan bir ilke oluşturun. Bunu yapmak için tek öğeli Yenile kuruluşunuz genelinde uygulanan belirteçleri için bir belirteç ömrü ilkesi oluşturun. İlke, kuruluşunuzdaki her bir uygulama ve bir ilke kümesi zaten sahip olmayan her hizmet sorumlusu için uygulanır.
 
 1. Bir belirteç ömrü ilkesi oluşturun.
@@ -256,7 +254,7 @@ Bu örnekte, kuruluşunuz genelinde daha az sıklıkta oturum açın, kullanıc�
     Set-AzureADPolicy -Id <ObjectId FROM GET COMMAND> -DisplayName "OrganizationDefaultPolicyUpdatedScenario" -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"2.00:00:00"}}')
     ```
 
-### <a name="example-create-a-policy-for-web-sign-in"></a>Örnek: web oturum açmak için bir ilke oluşturun
+### <a name="example-create-a-policy-for-web-sign-in"></a>Örnek: Web oturumu açma için bir ilke oluşturun
 
 Bu örnekte, kullanıcıların daha sık web uygulamanızda kimlik doğrulaması gerektiren bir ilke oluşturun. Bu ilke, web uygulamanızın hizmet sorumlusuna erişim/kimlik belirteçlerinin ömrü ve en yüksek yaş çok faktörlü Oturum belirteci ayarlar.
 
@@ -287,7 +285,7 @@ Bu örnekte, kullanıcıların daha sık web uygulamanızda kimlik doğrulaması
         ```
 
 
-### <a name="example-create-a-policy-for-a-native-app-that-calls-a-web-api"></a>Örnek: bir web API'si çağıran bir yerel uygulama için bir ilke oluşturun
+### <a name="example-create-a-policy-for-a-native-app-that-calls-a-web-api"></a>Örnek: Bir web API'si çağıran bir yerel uygulama için bir ilke oluşturun
 Bu örnekte, kullanıcıların daha az sıklıkta kimlik doğrulaması gerektiren bir ilke oluşturun. İlke de kullanıcı, kullanıcı yeniden kimliğini doğrulaması gerekir önce etkin olmayan olabilir süreyi uzatır. Web API'sine ilke uygulanır. Yerel uygulama, web API'si bir kaynak istediğinde, bu ilke uygulanır.
 
 1. Bir belirteç ömrü ilkesi oluşturun.
@@ -313,7 +311,7 @@ Bu örnekte, kullanıcıların daha az sıklıkta kimlik doğrulaması gerektire
         ```
 
 
-### <a name="example-manage-an-advanced-policy"></a>Örnek: bir Gelişmiş ilke yönetme
+### <a name="example-manage-an-advanced-policy"></a>Örnek: Gelişmiş bir ilke yönetme
 Bu örnekte, öncelik sistem nasıl çalıştığını öğrenmek için birkaç ilkeleri oluşturun. Ayrıca, çok sayıda nesneye uygulanan birden çok ilkelerini yönetmek öğrenebilirsiniz.
 
 1. Bir belirteç ömrü ilkesi oluşturun.
@@ -440,7 +438,7 @@ Belirtilen ilke siler.
 ### <a name="application-policies"></a>Uygulama ilkeleri
 Uygulama ilkeleri için aşağıdaki cmdlet'leri kullanabilirsiniz.</br></br>
 
-#### <a name="add-azureadapplicationpolicy"></a>AzureADApplicationPolicy ekleyin
+#### <a name="add-azureadapplicationpolicy"></a>Add-AzureADApplicationPolicy
 Belirtilen ilke uygulama bağlar.
 
 ```PowerShell

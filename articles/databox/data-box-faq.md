@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 01/24/2019
+ms.date: 01/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 0f5d51a0e806f132cea94e00e04255bb325cc560
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 6c7dd6ebaf7eebefcdcfa50bbd77ad80f4cda907
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904531"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077464"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box'de: Sık Sorulan Sorular
 
@@ -58,6 +58,9 @@ A. Data Box ABD, Batı Avrupa, Kuzey Avrupa, Fransa ve Birleşik Krallık'taki t
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues-with-data-box"></a>S. Data Box ile ilgili sorun yaşamam halinde kiminle iletişim kurmam gerekir?
 A. Data Box ile ilgili sorun yaşamanız halinde lütfen [Microsoft Desteği ile iletişime geçin](data-box-disk-contact-microsoft-support.md).
 
+### <a name="q-i-have-lost-my-data-box-is-there-a-lost-device-charge"></a>S. Ben veri kutuma kesilmiş. Kayıp cihazı ücreti var mıdır?
+A. Evet. Kayıp veya hasarlı cihaz ücret yoktur. Bu ücretsiz olarak ele alınmıştır [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/storage/databox/) yanı [Ürün hizmet kullanım koşulları](https://www.microsoft.com/licensing/product-licensing/products).
+
 
 ## <a name="order-device"></a>Cihaz sipariş etme
 
@@ -97,7 +100,7 @@ A.  Siparişi yalnızca Data Box siparişi verdikten sonra ancak sipariş işlem
 ### <a name="q-can-i-connect-a-data-box-at-the-same-to-multiple-host-computers-to-transfer-data"></a>S. Veri aktarımı için bir Data Box'ı aynı anda birden fazla ana bilgisayara bağlayabilir miyim?
 A. Evet. Bir Data Box'a birden fazla ana bilgisayar bağlanarak aynı anda birden fazla veri aktarım ve kopyalama işi çalıştırılabilir. Daha fazla bilgi için Git [Öğreticisi: Verileri kopyalamak için Azure Data Box](data-box-deploy-copy-data.md).
 
-### <a name="q-can-i-connect-to-both-the-10-gbe-interfaces-on-the-data-box-to-transfer-data"></a>S. Hem 10 GbE arabirimleri ile veri aktarmayı Data box'taki bağlanabilir miyim?
+### <a name="q-can-i-connect-to-both-the-10-gbe-interfaces-on-the-data-box-to-transfer-data"></a>S. Veri aktarımı için Data Box hem de 10 GbE arabirimlere bağlanabilir miyim?
 A. Evet. Hem 10 GbE arabirimleri, aynı anda veri kopyalamak için Data box'taki bağlanabilir. Veri kopyalama hakkında daha fazla bilgi için Git [Öğreticisi: Verileri kopyalamak için Azure Data Box](data-box-deploy-copy-data.md).
 
 <!--### Q. The network interface on my Data Box is not working. What should I do? 

@@ -8,40 +8,44 @@ author: MarkusVi
 manager: daveba
 ms.assetid: fa109ba7-a914-437b-821d-2bd98e681386
 ms.service: active-directory
-ms.component: conditional-access
+ms.component: identity-protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2018
+ms.date: 01/25/2019
 ms.author: markvi
 ms.reviewer: nigu
 ms.custom: seohack1
-ms.openlocfilehash: d1703df524976bac4880975585e9d2e4f8af72fd
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 335d7638565512502b61c9d3227a85ff6137658f
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54475280"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912774"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Microsoft Graph ve Azure Active Directory kimlik koruması ile çalışmaya başlama
-Microsoft Graph olan Microsoft unified API uç noktası ve giriş, [Azure Active Directory kimlik koruması](../active-directory-identityprotection.md) API'leri. İlk API **identityRiskEvents**, Microsoft Graph listesi için sorgu sağlar [risk olayları](../reports-monitoring/concept-risk-events.md) ve ilişkili bilgileri. Bu makalede, bu API sorgulama başlamanıza yardımcı olur. Bir ayrıntılı giriş, tüm belgeler ve Graph Gezgini erişimi için bkz. [Microsoft Graph site](https://developer.microsoft.com/graph/).
 
+Microsoft Graph olan Microsoft unified API uç noktası ve giriş, [Azure Active Directory kimlik koruması](../active-directory-identityprotection.md) API'leri. Riskli kullanıcılar ve oturum açma işlemleri hakkındaki bilgilerin açığa çıkmasına neden üç API vardır. İlk API **identityRiskEvents**, Microsoft Graph listesi için sorgu sağlar [risk olayları](../reports-monitoring/concept-risk-events.md) ve ilişkili bilgileri. İkinci bir API **riskyUsers**, kullanıcıların algılanan risk kimlik koruması hakkında daha fazla bilgi için Microsoft Graph sorguya izin verir. Üçüncü API **Signın**risk durumuyla ilgili belirli özellikleri olan Azure AD oturum açma işlemleri hakkında bilgi için Microsoft Graph sorgu sağlar ayrıntılı ve düzey. Bu makale, kullanmaya başlamanızı [bağlanmak için Microsoft Graph](#Connect-to-Microsoft-Graph) ve [bu API'leri sorgulama](#Query-the-APIs). Bir ayrıntılı giriş, tüm belgeler ve Graph Gezgini erişimi için bkz. [Microsoft Graph site](https://graph.microsoft.io/) veya bu API'leri için belirli başvuru belgeleri:
+
+* [identityRiskEvents API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/identityriskevent)
+* [riskyUsers API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/riskyuser)
+* [Signın API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/signin)
+
+
+## <a name="connect-to-microsoft-graph"></a>Microsoft Graph'a bağlanma
 
 Microsoft Graph üzerinden kimlik koruması verilere erişmek için dört adım vardır:
 
 1. Etki alanınızın adını alın.
 2. Yeni bir uygulama kaydı oluşturun. 
-2. Bir kimlik doğrulama belirteci nereden alacağınızı Microsoft Graph üzerinde kimlik doğrulaması için bu gizli dizi ve bazı diğer bilgilere kullanın. 
-3. API uç noktasına yönelik isteklerde ve kimlik koruma verilerini geri almak için bu belirteci kullanın.
+3. Bir kimlik doğrulama belirteci nereden alacağınızı Microsoft Graph üzerinde kimlik doğrulaması için bu gizli dizi ve bazı diğer bilgilere kullanın. 
+4. API uç noktasına yönelik isteklerde ve kimlik koruma verilerini geri almak için bu belirteci kullanın.
 
 Başlamadan önce şunları yapmanız gerekir:
 
-- Bir Azure AD P2 kiracısı
-
-- Azure AD'de uygulama oluşturmak için yönetici ayrıcalıkları
-
-- Kiracınızın etki alanının (örneğin, contoso.onmicrosoft.com)
+* Azure AD'de uygulama oluşturmak için yönetici ayrıcalıkları
+* Kiracınızın etki alanının (örneğin, contoso.onmicrosoft.com)
 
 
 ## <a name="retrieve-your-domain-name"></a>Etki alanı adınızı alma 
@@ -52,14 +56,12 @@ Başlamadan önce şunları yapmanız gerekir:
    
     ![Uygulama oluşturma](./media/graph-get-started/41.png)
 
-3. Tıklayın **özel etki alanı adları**.
 
-    ![Özel etki alanı adları](./media/graph-get-started/71.png)
+3. İçinde **Yönet** bölümünde **özellikleri**.
 
-4. Etki alanı adları listesinden birincil olarak işaretlenmiş etki alanı adını kopyalayın.
+    ![Uygulama oluşturma](./media/graph-get-started/42.png)
 
-    ![Özel etki alanı adları](./media/graph-get-started/72.png)
-
+4. Etki alanı adınızı kopyalayın.
 
 
 ## <a name="create-a-new-app-registration"></a>Yeni bir uygulama kaydı oluşturma
@@ -79,7 +81,7 @@ Başlamadan önce şunları yapmanız gerekir:
 
     a. İçinde **adı** metin kutusu, uygulamanız için bir ad yazın (örneğin: AADIP Risk olayı API uygulaması).
    
-    b. Olarak **uygulama türü**seçin **Web uygulaması ve / veya Web API**.
+    b. Olarak **türü**seçin **Web uygulaması ve / veya Web API**.
    
     c. İçinde **oturum açma URL'si** metin kutusuna `http://localhost`.
 
@@ -173,7 +175,7 @@ Kimlik doğrulaması için bir post isteği gönderin. `https://login.microsoft.
 Başarılı olursa, bu kimlik doğrulama belirteci döndürür.  
 API'yi çağırmak için aşağıdaki parametresiyle birlikte bir başlık oluşturun:
 
-    `Authorization`="<token_type> <access_token>"
+    `Authorization`=”<token_type> <access_token>"
 
 
 Kimlik doğrulaması yapılırken döndürülen belirteç simge türü ve erişim belirteci bulabilirsiniz.
@@ -213,13 +215,44 @@ Kiracı etki alanı istemci Kimliğinizi ve gizli anahtarı eklemeniz yeterlidir
         Write-Host "ERROR: No Access Token"
     } 
 
+## <a name="query-the-apis"></a>Sorgu API'leri
 
-## <a name="next-steps"></a>Sonraki adımlar
+Bu üç API'leri, çok sayıda riskli kullanıcılar ve oturum açma, kuruluşunuzdaki hakkında bilgi almak için çeşitli fırsatlar sağlar. Aşağıda bu API'ler ve ilişkili örnek istekler için bazı ortak kullanım durumları verilmiştir. Yukarıda veya kullanarak örnek kodu kullanarak aşağıdaki sorguları çalıştırabilirsiniz [Graph Gezgini](https://developer.microsoft.com/en-us/graph/graph-explorer).
+
+### <a name="get-the-high-risk-and-medium-risk-events-identityriskevents-api"></a>Yüksek riskli ve orta risk olayları (identityRiskEvents API)
+
+Orta ve yüksek riskli olayları, kimlik koruması oturum açma tetikleyicisi veya kullanıcı risk ilkelerini yeteneği olabilir temsil eder. Kullanıcı oturum açma girişimi meşru kimlik sahibi değil Orta veya yüksek olasılığına sahip oldukları olduğundan, bu olayları düzeltme bir öncelik olmalıdır. 
+
+```
+GET https://graph.microsoft.com/beta/identityRiskEvents?`$filter=riskLevel eq 'high' or riskLevel eq 'medium'" 
+```
+
+### <a name="get-all-of-the-users-who-successfully-passed-an-mfa-challenge-triggered-by-risky-sign-ins-policy-riskyusers-api"></a>Tüm kullanıcılar başarıyla (riskyUsers API) riskli oturum açma ilke tarafından tetiklenen bir MFA sınaması başarılı
+
+Kuruluşunuzu risk tabanlı ilkeler sahip kimlik koruması etkisini anlamak için tüm kullanıcılar başarıyla riskli oturum açma ilke tarafından tetiklenen bir MFA sınaması başarılı sorgulama yapabilirsiniz. Bu bilgiler, hangi anlamanıza yardımcı olabilir kimlik koruması yanlışlıkla risk ve yasal kullanıcıları kullanıcı algılandı AI riskli olduğunu düşündüğünde eylemleri gerçekleştiriliyor.
+
+```
+GET https://graph.microsoft.com/beta/riskyUsers?$filter=riskDetail eq 'userPassedMFADrivenByRiskBasedPolicy'
+```
+
+### <a name="get-all-the-risky-sign-ins-for-a-specific-user-signin-api"></a>Belirli bir kullanıcı (Signın API) için tüm riskli oturum açma işlemleri Al
+
+Bir kullanıcı tehlikeye girmiş olabilecek düşündüğünüzde, riskli oturum açma işlemlerinin tümünde alarak kendi risk durumu daha iyi anlayabilirsiniz. 
+```
+https://graph.microsoft.com/beta/identityRiskEvents?`$filter=userID eq '<userID>' and riskState eq 'atRisk'
+```
+
+
+
+
+# <a name="next-steps"></a>Sonraki adımlar
 
 Tebrikler, ilk çağrınızı Microsoft Graph için yaptığınız!  
 Artık kimlik risk olayları sorgulamak ve gördüğünüz ancak verileri kullanın.
 
-Microsoft Graph ve Graph API'sini kullanarak uygulamalar oluşturma hakkında daha fazla bilgi edinmek için kullanıma [belgeleri](https://developer.microsoft.com/graph/docs) ve çok daha fazlasını [Microsoft Graph site](https://developer.microsoft.com/graph/). Ayrıca, yer işareti emin [Azure AD kimlik koruması API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityprotection_root) kimlik koruma API'lerini grafikte kullanılabilir tüm listeleyen sayfası. Kimlik koruması API aracılığıyla birlikte çalışmak için yeni yöntemler ekleyeceğiz gibi bu sayfada görürsünüz.
+
+Microsoft Graph ve Graph API'sini kullanarak uygulamalar oluşturma hakkında daha fazla bilgi edinmek için kullanıma [belgeleri](https://graph.microsoft.io/docs) ve çok daha fazlasını [Microsoft Graph site](https://graph.microsoft.io/). 
+
 
 İlgili bilgiler için bkz:
 
@@ -232,4 +265,3 @@ Microsoft Graph ve Graph API'sini kullanarak uygulamalar oluşturma hakkında da
 - [Microsoft Graph’a genel bakış](https://developer.microsoft.com/graph/docs)
 
 - [Azure AD kimlik koruması hizmeti kök](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityprotection_root)
-

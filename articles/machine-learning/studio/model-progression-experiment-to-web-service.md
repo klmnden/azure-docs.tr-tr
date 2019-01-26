@@ -1,8 +1,21 @@
 ---
-Başlık: Nasıl bir Machine Learning Studio modeli bir web hizmeti titleSuffix olur: Azure Machine Learning Studio açıklaması: Nasıl bir geliştirme, Azure Machine Learning modeli ilerler çalışır hale getirilen bir Web hizmeti için deneme mekanizması genel bakış.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
-
-Yazar: ericlicoding ms.author: amlstudiodocs MS.özel: önceki ms.author=yahajiza, yazar önceki = YasinMSFT ms.date: 03/20/2017
+title: Makine öğrenme modeli bir web hizmeti nasıl olur?
+titleSuffix: Azure Machine Learning Studio
+description: Nasıl bir geliştirme, Azure Machine Learning modeli ilerler çalışır hale getirilen bir Web hizmeti için deneme mekanizması genel bakış.
+services: machine-learning
+ms.service: machine-learning
+ms.component: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
+ms.date: 03/20/2017
+ms.openlocfilehash: d084917f247aa20f59aea5179efa045838d7a2af
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076902"
 ---
 # <a name="how-a-machine-learning-studio-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>Machine Learning Studio'da model denemeden bir çalışır hale getirilen Web hizmetine nasıl ilerlediğini
 Azure Machine Learning Studio geliştirin, çalıştırın, test etme ve yineleme olanak tanıyan etkileşimli bir tuvale sağlayan bir ***deneme*** Tahmine dayalı bir modeli temsil eden. Çok çeşitli için modüller vardır:
@@ -19,9 +32,9 @@ Denemenizi ile memnun olduğunuzda olarak dağıtabileceğiniz bir ***Klasik Azu
 Bu makalede, nasıl bir geliştirme, Machine Learning modeli ilerler çalışır hale getirilen bir Web hizmeti için deneme mekanizması genel bir bakış sunuyoruz.
 
 > [!NOTE]
-> Geliştirmek ve makine öğrenimi modelleri dağıtmak için farklı yöntemleri vardır, ancak bu makalede, Machine Learning Studio'yu nasıl kullanacağınızı odaklanmıştır. Örneğin, R ile Tahmine dayalı bir Klasik Web hizmeti oluşturmak nasıl bir açıklamasını okumak için blog gönderisine bakın [derleme ve dağıtma Tahmine dayalı Web Apps kullanarak RStudio ve Azure ML'yi](http://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx).
-> 
-> 
+> Geliştirmek ve makine öğrenimi modelleri dağıtmak için farklı yöntemleri vardır, ancak bu makalede, Machine Learning Studio'yu nasıl kullanacağınızı odaklanmıştır. Örneğin, R ile Tahmine dayalı bir Klasik Web hizmeti oluşturmak nasıl bir açıklamasını okumak için blog gönderisine bakın [derleme ve dağıtma Tahmine dayalı Web Apps kullanarak RStudio ve Azure Machine Learning studio](http://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx).
+>
+>
 
 Azure Machine Learning Studio, geliştirmenize ve dağıtmanıza yardımcı olmak için tasarlandığından bir *Tahmine dayalı analiz modeli*, Tahmine dayalı analiz modeli içermeyen bir denemeyi geliştirmek için Studio kullanmak da mümkündür. Örneğin, bir denemeyi yalnızca giriş verileri işlemeden ve ardından sonuçları gönderir. Bir Tahmine dayalı analiz deneme gibi Tahmine dayalı olmayan bu deneme bir Web hizmeti olarak dağıtabilirsiniz, ancak deneme değil veya eğitim machine learning modeli Puanlama daha basit bir süreç olmasıdır. Tipik Studio bu şekilde kullanmak olmamasına karşın, Studio nasıl çalıştığına ilişkin ayrıntılı bir açıklama sunuyoruz, böylece biz bunu tartışmaya yer alacak.
 
@@ -50,8 +63,8 @@ Bu dönüştürme işleminde eğitim denemesini atılır değil. İşlem tamamla
 
 > [!NOTE]
 > Tıkladığınızda **Tahmine dayalı Web hizmeti** , eğitim denemesini öngörücü bir denemeye dönüştürme için otomatik bir işlem başlatın ve bu da çoğu durumda çalışır. Eğitim denemenizi karmaşık ise (örneğin, birlikte katılın eğitim için birden çok yol varsa), bu dönüştürme el ile yapmak tercih edebilirsiniz. Daha fazla bilgi için [modelinizin Azure Machine Learning Studio'da dağıtımına hazırlamak nasıl](convert-training-experiment-to-scoring-experiment.md).
-> 
-> 
+>
+>
 
 ### <a name="the-web-service"></a>Web hizmeti
 Memnun olduğunuzda, Tahmine dayalı denemeye hazır, hizmetiniz bir Klasik Web hizmeti olarak dağıtabilir veya yeni Web hizmeti üzerinde Azure Resource Manager tabanlı. Olarak dağıtarak modelinizi kullanıma hazır hale getirmek için bir *Klasik Machine Learning Web hizmetini*, tıklayın **Web hizmeti Dağıt** seçip **Web hizmeti dağıtma [Klasik]**. Olarak dağıtmak için *yeni Machine Learning Web hizmetini*, tıklayın **Web hizmeti Dağıt** seçip **Web hizmeti dağıtma [Yeni]**. Kullanıcılar artık Web hizmeti REST API kullanarak modelinize veri göndermek ve sonuçları geri alabilirsiniz. Daha fazla bilgi için bkz. [Azure Machine Learning web hizmetini kullanma](consume-web-services.md).
@@ -84,7 +97,7 @@ Machine learning modeli tutmak istiyor ancak yeni verilerle çağırma istiyorsa
 
 1. **Web hizmeti çalışırken modeli yeniden eğitme** -Tahmine dayalı Web hizmeti çalışırken modelinizi yeniden ayarlamak istiyorsanız, bunu yapmak için eğitim denemesini birkaç değişiklik yaparak bunu yapabilirsiniz bir ***yeniden eğitme Deneme***, ardından olarak dağıtabileceğiniz bir  ***yeniden eğitme web* hizmet**. Bunun nasıl yapılacağı hakkında yönergeler için bkz [yeniden eğitme Machine Learning modellerini programlama aracılığıyla](retrain-models-programmatically.md).
 2. **Özgün eğitim denemesini için geri dönün ve farklı bir eğitim veri modelinizin geliştirilmesine kullanmasını** - deneyiminizi Tahmine dayalı Web hizmetine bağlıdır ancak eğitim denemesini doğrudan bu şekilde bağlı değil. Özgün eğitim denemesini değiştirmek ve'ı tıklatırsanız **Web hizmetinin ayarı**, oluşturacağı bir *yeni* Tahmine dayalı, denemeler dağıtıldığında, oluşturacak bir *yeni* Web hizmeti. Ayrıca, özgün Web hizmeti yalnızca güncelleştirmez.
-   
+
    Eğitim denemesini değiştirmeniz gerekiyorsa, açın ve tıklayın **Kaydet** kopyalanmasına. Bu, özgün eğitim denemesini, Tahmine dayalı denemeye bırakmanız ve Web hizmeti. Bu gibi durumlarda, yeni bir Web hizmeti artık yaptığınız değişikliklerle oluşturabilirsiniz. Yeni bir Web hizmeti dağıtıldıktan sonra ardından önceki Web hizmetini durdurmak veya yeni bir tane çalışmasını sağlamak karar verebilirsiniz.
 
 **Farklı bir model eğitip istiyorsunuz**

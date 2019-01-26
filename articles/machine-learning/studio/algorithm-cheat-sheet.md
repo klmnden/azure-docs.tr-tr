@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 12/18/2017
-ms.openlocfilehash: 69b085faf10b9e22618fa248460d269bd2efdb73
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: d8ca316b9d2f87e2d5540c81b0865381109f889d
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264317"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55080081"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-studio"></a>Makine öğrenimi algoritma bilgi sayfasına için Azure Machine Learning Studio
 
@@ -48,7 +48,7 @@ ms.locfileid: "54264317"
 
   * İçinde **Denetimsiz öğrenme**, veri noktanız olması ilişkili etiket yok. Bunun yerine, Denetimsiz öğrenme algoritmasının bir şekilde verileri düzenleme veya yapısını tanımlamak için hedeftir. K-ortalamaları gibi kümeler halinde gruplandırarak ya da daha basit görünür bir karmaşık verilere baktığımızda, farklı yöntemleri sürekli düzende bulmak anlamına gelebilir.
 
-  * İçinde **pekiştirmeye dayalı öğrenme**, her veri noktası için yanıt, bir eylem seçmek üzere algoritma alır. Robotlara ilişkin nerede zaman içinde bir noktadaki sensör okumaları kümesini bir veri noktasıdır ve algoritma robot'ın sonraki eylemi seçmeniz gerekir, yaygın bir yaklaşımdır. Ayrıca bir doğal anahtardır nesnelerin interneti uygulamalar için uygun. Öğrenme algoritmasını ödül sinyal kısa kararı ne kadar iyi olduğunu gösteren bir süre daha da alır. Algoritma bunu temel alarak, yüksek ödül elde etmek için kendi stratejisi değiştirir. Şu anda hiçbir pekiştirmeye öğrenme algoritmasını modülleri Azure ML vardır.
+  * İçinde **pekiştirmeye dayalı öğrenme**, her veri noktası için yanıt, bir eylem seçmek üzere algoritma alır. Robotlara ilişkin nerede zaman içinde bir noktadaki sensör okumaları kümesini bir veri noktasıdır ve algoritma robot'ın sonraki eylemi seçmeniz gerekir, yaygın bir yaklaşımdır. Ayrıca bir doğal anahtardır nesnelerin interneti uygulamalar için uygun. Öğrenme algoritmasını ödül sinyal kısa kararı ne kadar iyi olduğunu gösteren bir süre daha da alır. Algoritma bunu temel alarak, yüksek ödül elde etmek için kendi stratejisi değiştirir. Şu anda bir öğrenme algoritması modülleri Azure Machine Learning Studio'da yok pekiştirmeye vardır.
 
 * **Bayes yöntemleri** istatistiksel olarak bağımsız veri noktaları olduğu varsayımını yaparsınız. Bunun anlamı bir veri noktası modellenmemiş sonuçlarındaki başkalarıyla uncorrelated, diğer bir deyişle, tahmin edilemez. Örneğin, kaydedilen veri sonraki subway train ulaşan kadar geçecek dakika sayısını ise, bir gün sonraya alınan iki ölçümlere istatistiksel olarak bağımsızdır. Ancak, bir dakika sonraya alınan iki ölçümlere istatistiksel olarak bağımsız değildir - değer bir diğerinin değeri yüksek oranda Tahmine dayalı.
 

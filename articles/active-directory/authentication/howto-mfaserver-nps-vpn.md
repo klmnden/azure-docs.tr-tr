@@ -3,19 +3,19 @@ title: Azure MFA ve üçüncü taraf VPN'ler ile Gelişmiş senaryolar
 description: Cisco, Citrix ve Juniper ile tümleştirmek Azure MFA için adım adım yapılandırma kılavuzları.
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 8f182d6238f09ab4e3a0d3b8d5275dd0794481f3
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: bfba596a18655e092225f665e6a6c901f04f635c
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426242"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55080897"
 ---
 # <a name="advanced-scenarios-with-azure-multi-factor-authentication-and-third-party-vpn-solutions"></a>Azure multi-Factor Authentication ve üçüncü taraf VPN çözümleriyle Gelişmiş senaryolar
 

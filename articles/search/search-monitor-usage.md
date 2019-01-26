@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 5f8a4e7dcaa1bc2df71246f67d06fc63ae4fcd06
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: af2a9cd7f834f5c6f70a78d94e8826de2584127d
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883509"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076392"
 ---
 # <a name="monitor-an-azure-search-service-in-azure-portal"></a>Azure portalındaki Azure Search Hizmeti izleme
 
 Azure Search hizmetinizin genel bakış sayfasında, kaynak kullanımının yanı sıra, sorgu başına ikinci (QPS), sorgunun gecikme süresi ve kısıtlanmış isteklerin yüzdesi gibi sorgu ölçümleri hakkında sistem verilerini görüntüleyebilirsiniz. Ayrıca, Azure platformunda daha ayrıntılı veri toplama özellikleri izleme yararlanmanıza için portalı kullanabilirsiniz. 
 
-Bu makalede, tanımlar ve Azure arama işlemleri günlüğe kaydetme için kullanılabilir seçenekler karşılaştırılmaktadır. Bu, günlüğe kaydetme ve günlük depolama ve toplanan bilgilere göre genişletin işlemini etkinleştirmek için yönergeler içerir.
+Bu makalede, tanımlar ve Azure arama işlemleri günlüğe kaydetme için kullanılabilir seçenekler karşılaştırılmaktadır. Bu, günlüğe kaydetme ve günlük depolama ve hizmet ve kullanıcı etkinliğini bilgileri nasıl etkinleştirmek için yönergeler içerir.
 
-Bir destek bileti oluşturarak, belirli görevleri veya bilgi girmenize gerek yoktur. Destek mühendisleri belirli sorunları araştırma için gerekli bilgileri var.  
+Günlüklerini ayarlama, kendi kendine tanılama ve hizmet işlemlerine geçmişini koruma için kullanışlıdır. Dahili olarak, günlükleri varsa araştırma ve analiz için yeterli zaman kısa bir süre için bir destek bileti çıkartın. Hizmetinize günlük bilgilerini depolama denetlemek istiyorsanız, bu makalede açıklanan çözümlerden birini ayarlamanız gerekir.
 
 ## <a name="metrics-at-a-glance"></a>Ölçümleri bir bakışta
 
@@ -39,6 +39,8 @@ Bir destek bileti oluşturarak, belirli görevleri veya bilgi girmenize gerek yo
 
 **İzleme** gösterir hareketli ortalamalar arama gibi ölçümler için sekmesinde *saniye başına sorgu* (QPS), dakika başına toplanır. 
 *Arama gecikme süresi* arama hizmeti arama sorguları, dakika başına toplanan işlemek için gereken süreyi belirtir. *Kısıtlanmış arama sorguları yüzdesi* (gösterilmemiştir), ayrıca dakika başına toplanan kısıtlanan arama sorguları yüzdesidir.
+
+Bu sayı, yaklaşık olarak düzenlenir ve ne kadar iyi sisteminizi isteklere hizmet veriyor genel bir fikir vermek için tasarlanmıştır. Gerçek QPS Portalı'nda rapor sayısı daha yüksek veya düşük olabilir.
 
 ![İkinci Etkinlik başına sorguları](./media/search-monitor-usage/monitoring-tab.png "sorguları ikinci Etkinlik başına")
 
@@ -58,19 +60,20 @@ Aşağıdaki tabloda, günlükleri depolamak ve geniş kapsamlı hizmet işlemle
 
 | Kaynak | İçin kullanılan |
 |----------|----------|
-| [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | [Arama trafiği analizi](search-traffic-analytics.md). Aşağıdaki günlük kaydı ve ölçümler şemaların içinde tanımlanan değerleri ötesine giden istekler, ilgili ek bilgileri yakalar tek çözümdür. Bu yaklaşımda, Kopyala izleme kodu sorgu terimi girişleri, Sorgunuzla eşleşen sorgularla çözümleme için Application Insights istek bilgileri yönlendirmek için kaynak dosyalarıyla Yapıştır. Uygulama anlayışları'nda depolanan veriler için Power BI analizi ön ucu olarak öneririz.  |
-| [Blob depolama](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | İstekleri ölçümleri, temel bir aşağıdaki şemalar. Bir Blob kapsayıcısı için olayları günlüğe kaydedilir. Excel veya Power BI analizi ön ucu olarak Azure Blob storage'da depolanan verilere öneririz.|
-| [Olay Hub’ı](https://docs.microsoft.com/azure/event-hubs/) | İstekleri ve bu makalede anlatıldığı şemaları temel ölçümleri. Bu, çok büyük günlükleri için bir alternatif veri toplama hizmeti olarak seçin. |
+| [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | Günlüğe kaydedilen olayları ve sorgu ölçümleri temel bir Aşağıda, şemaların uygulamanızda kullanıcı olayları ile ilişkili. Bu hesaba, uygulama kodu tarafından gönderilen istekleri filtrelemenize aksine, kullanıcı tarafından başlatılan arama eşleştirme olaylarını kullanıcı eylemleri veya sinyalleri alan tek bir çözümdür. Bu yaklaşımı kullanmak için kopyalama-izleme kodu, kaynak dosyaları için Application Insights için rota bilgi içine yapıştırın. Daha fazla bilgi için [arama trafiği analizi](search-traffic-analytics.md). |
+| [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Günlüğe kaydedilen olayları sorgu ölçümleri temel bir aşağıdaki şemalar. Olayları, Log analytics'teki çalışma alanına kaydedilir. Günlük kaydından ayrıntılı bilgi almak için bir çalışma alanı karşı sorgular çalıştırabilirsiniz. Daha fazla bilgi için [Log Analytics ile çalışmaya başlama](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
+| [Blob depolama](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Günlüğe kaydedilen olayları sorgu ölçümleri temel bir aşağıdaki şemalar. Olayları günlüğe bir Blob kapsayıcısına ve JSON dosyalarında depolanan. Dosya içeriğini görüntülemek için JSON düzenleyicisini kullanın.|
+| [Olay Hub’ı](https://docs.microsoft.com/azure/event-hubs/) | Günlüğe kaydedilen olayları ve bu makalede anlatıldığı şemaları dayalı sorgu ölçümleri. Bu, çok büyük günlükleri için bir alternatif veri toplama hizmeti olarak seçin. |
 
-Azure arama, bir izleme sağlar [Power BI içerik paketi](https://app.powerbi.com/getdata/services/azure-search) günlük verilerini analiz etmek. İçerik Paketi raporları otomatik olarak verilerinize bağlanmak ve arama hizmetiniz ilgili görsel Öngörüler sağlamak için yapılandırılmış oluşur. Daha fazla bilgi için [içerik paketi yardım sayfasına](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-search/).
 
-Blob Depolama seçeneği, böylece ürününü, yaşam süresi Azure aboneliğinize ücretsiz olarak deneyebilirsiniz paylaşılan ücretsiz hizmeti olarak kullanılabilir. Sonraki bölümde, etkinleştirme ve toplamak ve Azure arama işlemleri tarafından oluşturulan günlük verilerine erişmek için Azure Blob Depolama kullanma adımlarında size kılavuzluk eder.
+
+Ürününü, yaşam süresi Azure aboneliğinize ücretsiz olarak deneyebilirsiniz böylece hem Log Analytics hem de Blob Depolama Paylaşılan ücretsiz hizmeti olarak kullanılabilir. Sonraki bölümde, etkinleştirme ve toplamak ve Azure arama işlemleri tarafından oluşturulan günlük verilerine erişmek için Azure Blob Depolama kullanma adımlarında size kılavuzluk eder.
 
 ## <a name="enable-logging"></a>Günlü kaydını etkinleştir
 
-Dizin oluşturma ve sorgu iş yükleri için günlük varsayılan olarak kapalıdır ve günlüğe kaydetme altyapı hem de dış depolama için eklenti çözümleri bağlıdır. Günlükleri başka bir yerde depolanması kendisi tarafından kalıcı veriler yalnızca Azure Search'te dizinler olduğundan.
+Dizin oluşturma ve sorgu iş yükleri için günlük varsayılan olarak kapalıdır ve günlüğe kaydetme altyapı hem de dış uzun vadeli depolama için eklenti çözümleri bağlıdır. Günlükleri başka bir yerde depolanması kendisi tarafından kalıcı veriler yalnızca Azure Search'te dizinler olduğundan.
 
-Bu bölümde, Blob Depolama olayları ve ölçümleri günlüğe kaydedilen veriler içeren için nasıl kullanılacağını öğreneceksiniz.
+Bu bölümde, günlüğe kaydedilen olayları ve ölçümleri verileri depolamak için Blob Depolama kullanan öğreneceksiniz.
 
 1. [Depolama hesabı oluşturma](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) zaten yoksa. Bu alıştırmada kullanılan tüm kaynakları silmek isterseniz temizleme daha sonra basitleştirmek için Azure Search ile aynı kaynak grubundaki yerleştirebilirsiniz.
 
@@ -86,18 +89,20 @@ Bu bölümde, Blob Depolama olayları ve ölçümleri günlüğe kaydedilen veri
 
 4. Profili kaydedin.
 
-5. Test nesneleri silmesini veya yaratmasını günlüğe kaydetme (bir işlem günlüğü oluşturur) ve sorguları gönderme (ölçümleri oluşturur). 
+5. Test nesneleri silmesini veya yaratmasını günlüğe kaydetme (günlüğü olaylarını oluşturur) ve sorguları gönderme (ölçümleri oluşturur). 
 
-Profili kaydedin, sonra günlüğe kaydetme etkinleştirildiğinde, kapsayıcıları yalnızca bir olay günlüğü veya ölçü olduğunda oluşturulur. Bu kapsayıcılar görünmesi birkaç dakika sürebilir. Yapabilecekleriniz [verilerinizi Power BI'da görselleştirin](#analyze-with-power-bi) kullanıma sunulduktan sonra.
-
-Verileri bir depolama hesabına kopyalanır, verileri JSON olarak biçimlendirilmiş ve iki kapsayıcılarda yer:
+Profili kaydedin, sonra günlüğe kaydetme etkinleştirildiğinde, kapsayıcıları yalnızca bir olay günlüğü veya ölçü olduğunda oluşturulur. Bu kapsayıcılar görünmesi birkaç dakika sürebilir. Verileri bir depolama hesabına kopyalanır, verileri JSON olarak biçimlendirilmiş ve iki kapsayıcılarda yer:
 
 * ınsights günlükleri operationlogs: arama trafiği günlükleri
 * ınsights ölçümleri pt1m: ölçümler için
 
-Kapsayıcı başına saatlik bir blob yok.
+Kullanabileceğiniz [Visual Studio Code](#Download-and-open-in-Visual-Studio-Code) veya dosyaları görüntülemek için başka bir JSON Düzenleyicisi. Kapsayıcı başına saatlik bir blob yok.
 
-Örnek yol: `resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/microsoft.search/searchservices/<searchServiceName>/y=2018/m=12/d=25/h=01/m=00/name=PT1H.json`
+### <a name="example-path"></a>Örnek yol
+
+```
+resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/microsoft.search/searchservices/<searchServiceName>/y=2018/m=12/d=25/h=01/m=00/name=PT1H.json
+```
 
 ## <a name="log-schema"></a>Günlüğü şeması
 Arama hizmeti trafik günlüklerinizin içeren BLOB'ları, bu bölümde açıklanan şekilde yapılandırılmıştır. Her blob olarak adlandırılan bir kök nesnesinin sahip **kayıtları** günlük nesnelerinin bir dizisi içeren. Her blob aynı saat boyunca gerçekleşen tüm işlemler için kayıtlar içerir.
@@ -146,25 +151,17 @@ Bir dakika boyunca bu senaryoyu düşünün: yüksek bir saniye yüklemek diğer
 
 ThrottledSearchQueriesPercentage için minimum, maksimum, ortalama ve toplam, tümü aynı değere sahip:, arama sorguları bir dakika boyunca toplam sayısı azaltıldı arama sorguları yüzdesi.
 
-## <a name="analyze-with-power-bi"></a>Power BI ile analiz
+## <a name="download-and-open-in-visual-studio-code"></a>İndirme ve Visual Studio Code'da açın
 
-Kullanmanızı öneririz [Power BI](https://powerbi.microsoft.com) keşfedin ve özellikle, etkinleştirilirse, verilerinizi görselleştirmek için [trafik analizi arama](search-traffic-analytics.md). Daha fazla bilgi için [içerik paketi yardım sayfasına](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-search/).
+Günlük dosyasını görüntülemek için herhangi bir JSON Düzenleyicisi'ni kullanabilirsiniz. Öneririz yoksa varsa, [Visual Studio Code](https://code.visualstudio.com/download).
 
-Bağlantılar, Azure portal sayfalarını alma depolama hesabı adını ve erişim anahtarı gerekir **erişim anahtarları** depolama hesabı panonuzun sayfası.
+1. Azure portalında, depolama hesabınızı açın. 
 
-1. Yükleme [Power BI içerik paketi](https://app.powerbi.com/getdata/services/azure-search). İçerik Paketi, önceden tanımlanmış grafikleri ve arama trafiği analizi için yakalanan ek veri çözümlemesi için kullanışlı bir tablo ekler. 
+2. Sol gezinti bölmesinden **Blobları**. Görmelisiniz **ınsights günlükleri operationlogs** ve **ınsights ölçümleri pt1m**. Günlük verileri Blob depolama alanına aktarılır, bu kapsayıcılar, Azure Search tarafından oluşturulur.
 
-   Blob Depolama veya başka bir depolama mekanizmasını kullanarak ve kodunuza izleme eklemediğiniz içerik paketi atlayın ve yerleşik Power BI Görselleştirmelerini kullanın.
+3. Dosyanın .json ulaşana kadar klasör hiyerarşisi'e tıklayın.  Dosyayı indirmek için bağlam menüsünü kullanın.
 
-2. Açık **Power BI**, tıklayın **Veri Al** > **Hizmetleri** > **Azure Search**.
-
-3. Select depolama hesabının adını girin **anahtar** kimlik doğrulaması ve erişim anahtarını yapıştırın.
-
-4. Verileri içeri aktarmak ve ardından **verileri görüntüleme**.
-
-Yerleşik raporları aşağıdaki ekran gösterilir ve analiz etmek için grafikler trafik analizi arama.
-
-![Azure Search için Power BI Panosu](./media/search-monitor-usage/AzureSearch-PowerBI-Dashboard.png "Azure Search için Power BI Panosu")
+Dosyayı indirdikten sonra içeriklerini görüntülemek için bir JSON düzenleyicisinde açın.
 
 ## <a name="get-sys-info-apis"></a>Sistem bilgisi API'ları Al
 Azure Search REST API ve .NET SDK'sı hem hizmet ölçümleri, dizin ve dizin oluşturucu bilgileri programlı erişim sağlar ve belge sayılarını.
@@ -179,6 +176,3 @@ PowerShell veya Azure CLI kullanarak etkinleştirmek için belgelere bakın [bur
 ## <a name="next-steps"></a>Sonraki adımlar
 
 [Microsoft azure'da arama hizmetinizi yönetin](search-manage.md) hizmet yönetimi hakkında daha fazla bilgi ve [performans ve iyileştirme](search-performance-optimization.md) ayarlama kılavuzu için.
-
-Muhteşem raporlar oluşturma hakkında daha fazla bilgi edinin. Bkz: [Power BI Desktop ile çalışmaya başlama](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/) Ayrıntılar için.
-

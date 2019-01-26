@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: barbkess
 ms.reviewer: richagi
-ms.openlocfilehash: 97cabf7821f223b900f86115c3bd85b12de450d4
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 90cfb766e98bfa9706cd88342f8374269bc69d76
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478153"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54911634"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Bulut uygulamalarınızı SaaS erişimi yönetmek için kullanım Kiracı kısıtlamaları
 
@@ -89,7 +89,7 @@ Bu bölümde, hem son kullanıcılar ve Yöneticiler için deneyim gösterilir.
 
 ### <a name="end-user-experience"></a>Son kullanıcı deneyimi
 
-Bir örnek kullanıcı Contoso ağında, ancak paylaşılan bir SaaS uygulama Outlook gibi çevrimiçi Fabrikam örneği erişmeye çalışıyor. Contoso Bu örnek için verilmeyen bir kiracı yoksa, kullanıcı şu sayfayı görür:
+Bir örnek kullanıcı Contoso ağında, ancak paylaşılan bir SaaS uygulama Outlook gibi çevrimiçi Fabrikam örneği erişmeye çalışıyor. Fabricam Contoso örneği için verilmeyen bir kiracı yoksa, kullanıcı şu sayfayı görür:
 
 ![Erişim engellendi sayfasıyla kiracılar verilmeyen kullanıcılar için](./media/tenant-restrictions/end-user-denied.png)
 

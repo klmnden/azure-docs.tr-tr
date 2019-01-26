@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ad34a5c3d72ec1f7fce0b56a85fd7c9cba007366
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 3be44af41de5c5115b1ddeaef79b64f26f8c8463
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54824584"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54911864"
 ---
 # <a name="tutorial-how-to-download-and-use-a-script-to-access-sign-in-logs"></a>Öğretici: Karşıdan yükleme ve oturum açma günlüklerine erişmek için bir betik kullan
 
@@ -35,7 +35,7 @@ Bu öğreticide, son 24 saat tüm oturum açma günlükleri indirmek ve her gün
 
 * Azure Active Directory kiracısı (ö1/ö2) premium lisansına sahip. Yükseltme öncesinde tüm etkinlikleri veri yoksa, birkaç gün raporlarda görünmesi için bir premium lisansı yükselttikten sonra verilerin gerektiğine dikkat edin. 
 * İçinde olan bir kullanıcı **genel yönetici**, **Güvenlik Yöneticisi**, **güvenlik okuyucusu** veya **rapor okuyucu** kiracının rol. Ayrıca, herhangi bir kullanıcı kendi oturum açma etkinliklerine erişebilir. 
-* İndirdiğiniz betiğin Windows 10 makinenizde çalıştırmak istiyorsanız [AzureRM modülünü kurun ve yürütme İlkesi](concept-sign-ins.md#running-the-script-on-a-windows-10-machine).
+* İndirdiğiniz betiğin Windows 10 makinenizde çalıştırmak istiyorsanız [Azure PowerShell modülünü kurun ve yürütme İlkesi](concept-sign-ins.md#running-the-script-on-a-windows-10-machine).
 
 ## <a name="tutorial"></a>Öğretici
 

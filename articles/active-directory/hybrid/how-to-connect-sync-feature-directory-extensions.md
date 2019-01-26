@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 10/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e96a7d88a2e30bbedd6c57f9a72dd92f63586dd1
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 0d058dc1875c69fe3c582c4d68da81c09ab92fcb
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54476912"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079717"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect eşitleme: Dizin genişletmeleri
 Dizin genişletmeleri kendi şirket içi Active Directory öznitelikleri ile Azure Active Directory'de (Azure AD) şemayı genişletmek için kullanabilirsiniz. Bu özellik, şirket içi yönetmeye devam öznitelikleri kullanma tarafından LOB uygulamaları oluşturmanıza olanak sağlar. Bu öznitelikler aracılığıyla tüketilebilir [Azure AD Graph API'si dizin genişletmeleri](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) veya [Microsoft Graph](https://developer.microsoft.com/graph/). Kullanılabilir öznitelikler kullanarak gördüğünüz [Azure AD Graph Gezgini](https://graphexplorer.azurewebsites.net/) ve [Microsoft Graph Gezgini](https://developer.microsoft.com/graph/graph-explorer)sırasıyla.
@@ -42,7 +42,7 @@ Yükleme, geçerli adaylar olan aşağıdaki öznitelikler gösterir:
 
 
 >[!NOTE]
-> Azure AD Connect birden çok değerli dizin genişletmeleri olarak Azure AD'ye eşitlenen birden çok değerli Active Directory öznitelikleri destekler. Ancak şu anda Azure AD'de herhangi bir özellik birden çok değerli dizin genişletmeleri kullanımını destekler.
+> Azure AD Connect destekleyen birden çok değerli bir Active Directory eşitleme öznitelikleri olsa da birden çok değerli dizin genişletmeleri olarak Azure ad, şu anda içinde birden çok değerli dizin genişletme öznitelikleriyle karşıya veri alma/kullanma olanağı vardır.
 
 Azure AD Connect yüklemesi sırasında oluşturulan şema önbelleğinden özniteliklerinin listesini okuyun. Ek öznitelikler ile Active Directory şemasını genişlettiyseniz gerekir [şemayı yenilemeniz](how-to-connect-installation-wizard.md#refresh-directory-schema) önce bu yeni öznitelikler görünür.
 

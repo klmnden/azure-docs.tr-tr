@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/14/2018
+ms.date: 01/24/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 6ab2d92e2a3c62719af1c8ab6d6eda935fc49505
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: d6d1373a97b62d54d5bfc2595ee773a242af877a
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386783"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913462"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>Depolama Gezgini'ni Azure Stack aboneliğine veya bir depolama hesabına bağlama
 
@@ -37,7 +37,10 @@ Azure Stack aboneliğine veya bir depolama hesabına bağlandıktan sonra kullan
 
 Azure Stack veya bir VPN bağlantısı için Depolama Gezgini'ni Azure Stack aboneliğine erişmek doğrudan erişmeniz gerekir. Azure Stack ile VPN bağlantısı kurma hakkında bilgi edinmek için bkz. [VPN ile Azure Stack’e Bağlanma](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn).
 
-Azure Stack Geliştirme Seti için Azure Stack yetkili kök sertifikasını dışarı aktarmanız gerekmez.
+Azure Stack geliştirme Seti'ni (ASDK için), Azure Stack yetkili kök sertifikasını dışarı aktarmanız gerekmez.
+
+> [!Note]  
+> VPN aracılığıyla, ASDK bağlanıyorsanız ASDK için VPN Kurulum işlemi sırasında oluşturulan kök sertifikayı (CA.cer) kullanmayın.  Bu DER kodlu bir sertifika olduğundan ve depolama Gezgini'nin Azure Stack aboneliklerinizi izin vermez. Depolama Gezgini ile kullanmak üzere bir Base-64 kodlamalı sertifika vermek için aşağıdaki adımları izleyin.
 
 ### <a name="export-and-then-import-the-azure-stack-certificate"></a>Dışarı aktarma ve ardından Azure Stack sertifikayı alın.
 

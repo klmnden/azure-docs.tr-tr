@@ -11,12 +11,12 @@ ms.component: core
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 865d00d4a6608e422fdfca1297962913ee205827
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 5bb9bfdc90c18ff044e73a61aaff9e95bdf28d25
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54823445"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55081628"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Otomatik makine öğrenimi denemelerini yapılandırın
 
@@ -35,7 +35,7 @@ Otomatik machine learning'de kullanılabilen yapılandırma seçenekleri:
 * Kaydolun ve model dağıtma
 
 ## <a name="select-your-experiment-type"></a>Deneme türünüzü seçin
-Denemenizi başlamadan önce çözümü machine learning sorun türünü belirlemeniz gerekir. Otomatik machine learning, Sınıflandırma, regresyon ve tahmin görev türlerini destekler. 
+Denemenizi başlamadan önce çözümü machine learning sorun türünü belirlemeniz gerekir. Otomatik machine learning, Sınıflandırma, regresyon ve tahmin görev türlerini destekler.
 
 Genel kullanıma sunulan otomatik makine öğrenimi özelliklerinden çalışırken **tahmin hala genel Önizleme aşamasında olan.**
 
@@ -59,7 +59,7 @@ Sınıflandırma | Regresyon | Tahmin etme
 ## <a name="data-source-and-format"></a>Veri kaynağı ve biçimi
 Otomatik machine learning, yerel masaüstüne veya Azure Blob Depolama gibi bulutta bulunan verileri destekler. Verilerin scikit okunacağı-desteklenen veri biçimlerinden öğrenin. Verileri okuyabilirsiniz:
 * Numpy diziler X (özellikleri) ve y (hedef değişkeni veya olarak da bilinen etiket)
-* Pandas dataframe 
+* Pandas dataframe
 
 Örnekler:
 
@@ -67,7 +67,7 @@ Otomatik machine learning, yerel masaüstüne veya Azure Blob Depolama gibi bulu
 
     ```python
     digits = datasets.load_digits()
-    X_digits = digits.data 
+    X_digits = digits.data
     y_digits = digits.target
     ```
 
@@ -75,9 +75,9 @@ Otomatik machine learning, yerel masaüstüne veya Azure Blob Depolama gibi bulu
 
     ```python
     import pandas as pd
-    df = pd.read_csv("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv", delimiter="\t", quotechar='"') 
-    # get integer labels 
-    df = df.drop(["Label"], axis=1) 
+    df = pd.read_csv("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv", delimiter="\t", quotechar='"')
+    # get integer labels
+    df = df.drop(["Label"], axis=1)
     df_train, _, y_train, _ = train_test_split(df, y, test_size=0.1, random_state=42)
     ```
 
@@ -88,18 +88,18 @@ Denemenizi çalıştırmak için uzak bir işlem kullanıyorsanız, veri getirme
 İşte bir örnek `get_data`:
 
 ```python
-%%writefile $project_folder/get_data.py 
-import pandas as pd 
-from sklearn.model_selection import train_test_split 
-from sklearn.preprocessing import LabelEncoder 
-def get_data(): # Burning man 2016 data 
-    df = pd.read_csv("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv", delimiter="\t", quotechar='"') 
-    # get integer labels 
-    le = LabelEncoder() 
-    le.fit(df["Label"].values) 
-    y = le.transform(df["Label"].values) 
-    df = df.drop(["Label"], axis=1) 
-    df_train, _, y_train, _ = train_test_split(df, y, test_size=0.1, random_state=42) 
+%%writefile $project_folder/get_data.py
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder
+def get_data(): # Burning man 2016 data
+    df = pd.read_csv("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv", delimiter="\t", quotechar='"')
+    # get integer labels
+    le = LabelEncoder()
+    le.fit(df["Label"].values)
+    y = le.transform(df["Label"].values)
+    df = df.drop(["Label"], axis=1)
+    df_train, _, y_train, _ = train_test_split(df, y, test_size=0.1, random_state=42)
     return { "X" : df, "y" : y }
 ```
 
@@ -117,7 +117,7 @@ X | Pandas Dataframe veya Numpy dizisi | data_train, etiket, sütunları |  Tüm
 Y | Pandas Dataframe veya Numpy dizisi |   etiket   | Veri ile eğitmek için etiket. Sınıflandırma için tamsayı dizisi olmalıdır.
 X_valid | Pandas Dataframe veya Numpy dizisi   | data_train, etiket | _İsteğe bağlı_ ile doğrulamak için tüm özellikleri. Belirtilmezse, X eğitimi arasında bölünmüş ve doğrulama
 y_valid |   Pandas Dataframe veya Numpy dizisi | data_train, etiket | _İsteğe bağlı_ ile doğrulamak için verileri etiket. Belirtilmezse, y eğitimi arasında bölünmüş ve doğrulama
-sample_weight | Pandas Dataframe veya Numpy dizisi |   data_train, etiket, sütunları| _İsteğe bağlı_ her örnek için bir ağırlık değeri. Veri noktaları için farklı ağırlıkları atamak istediğiniz zaman kullanın 
+sample_weight | Pandas Dataframe veya Numpy dizisi |   data_train, etiket, sütunları| _İsteğe bağlı_ her örnek için bir ağırlık değeri. Veri noktaları için farklı ağırlıkları atamak istediğiniz zaman kullanın
 sample_weight_valid | Pandas Dataframe veya Numpy dizisi | data_train, etiket, sütunları |    _İsteğe bağlı_ her doğrulama örneği için bir ağırlık değeri. Belirtilmezse, sample_weight eğitimi arasında bölünmüş ve doğrulama
 data_train |    Pandas Dataframe |  X, y, X_valid, y_valid |    Tüm veriler (Özellikler + etiketi) ile eğitme
 etiket | dize  | X, y, X_valid, y_valid |  Hangi sütunun data_train etiketi temsil eder.
@@ -136,7 +136,8 @@ Otomatik makine öğrenimi denemeleri, veri yüklenmesini destekler ve dataprep 
 >* Filtreleme
 >* Özel bir Python dönüşümler
 
-Veriler hakkında bilgi edinmek için hazırlık sdk belgelerine başvurun [makale modellemek için veri hazırlama](how-to-load-data.md). Veri hazırlama SDK'sını kullanarak verileri yüklenirken bir örneği aşağıda verilmiştir. 
+Veriler hakkında bilgi edinmek için hazırlık sdk belgelerine başvurun [makale modellemek için veri hazırlama](how-to-load-data.md).
+Veri hazırlama SDK'sını kullanarak verileri yüklenirken bir örneği aşağıda verilmiştir.
 ```python
 # The data referenced here was pulled from `sklearn.datasets.load_digits()`.
 simple_example_data_root = 'https://dprepdata.blob.core.windows.net/automl-notebook-data/'
@@ -189,7 +190,7 @@ Bazı örnekler:
         primary_metric='AUC_weighted',
         max_time_sec=12000,
         iterations=50,
-        X=X, 
+        X=X,
         y=y,
         n_cross_validations=2)
     ```
@@ -201,7 +202,7 @@ Bazı örnekler:
         max_time_sec=600,
         iterations=100,
         primary_metric='r2_score',
-        X=X, 
+        X=X,
         y=y,
         n_cross_validations=5)
     ````
@@ -223,7 +224,7 @@ Bu tabloda parametre ayarlarını denemenizi ve varsayılan değerleri için kul
 `enable_cache`  | True/False <br/>Doğru etkinleştirir için ön işleme ayarını tamamladıktan ve yeniden tüm yinelemelerin aynı önceden işlenmiş verileri. | True |
 `blacklist_models`  | Otomatik makine öğrenimi denemesi çalışır birçok farklı algoritma vardır. Bazı algoritmalar deneme hariç tutmak için yapılandırın. Algoritmalarından kümeniz için iyi çalışmaz farkında olması durumunda yararlıdır. Algoritmalar hariç kaydettiğinizde kaynaklar ve eğitim süresini hesaplayabilirsiniz.<br/>Sınıflandırma için izin verilen değerler<br/><li>LogisticRegression</li><li>SGD</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>Regresyon için izin verilen değerler<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>Tahmin için izin verilen değerler<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|   None
 `whitelist_models`  | Otomatik makine öğrenimi denemesi çalışır birçok farklı algoritma vardır. Deneme için bazı algoritmalar içerecek şekilde yapılandırın. Algoritmalarından kümeniz için iyi iş farkında olması durumunda yararlıdır. <br/>Sınıflandırma için izin verilen değerler<br/><li>LogisticRegression</li><li>SGD</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>Regresyon için izin verilen değerler<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>Tahmin için izin verilen değerler<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|  None
-`verbosity` |En ayrıntılı ve kritik olan olan bilgileri günlüğe kaydetme düzeyini denetler en az. Ayrıntı düzeyi, python günlük paketinde tanımlanan aynı değerleri alır. İzin verilen değerler şunlardır:<br/><li>logging.INFO</li><li>günlüğe kaydetme. UYARI</li><li>günlüğe kaydetme. HATA</li><li>günlüğe kaydetme. KRİTİK</li>  | logging.INFO</li> 
+`verbosity` |En ayrıntılı ve kritik olan olan bilgileri günlüğe kaydetme düzeyini denetler en az. Ayrıntı düzeyi, python günlük paketinde tanımlanan aynı değerleri alır. İzin verilen değerler şunlardır:<br/><li>logging.INFO</li><li>günlüğe kaydetme. UYARI</li><li>günlüğe kaydetme. HATA</li><li>günlüğe kaydetme. KRİTİK</li>  | logging.INFO</li>
 `X` | Tüm özellikleri ile eğitme |  None
 `y` |   Veri ile eğitmek için etiket. Sınıflandırma için tamsayı dizisi olmalıdır.|  None
 `X_valid`|_İsteğe bağlı_ ile doğrulamak için tüm özellikleri. Belirtilmezse, X eğitimi arasında bölünmüş ve doğrulama |   None
@@ -233,7 +234,7 @@ Bu tabloda parametre ayarlarını denemenizi ve varsayılan değerleri için kul
 `run_configuration` |   RunConfiguration nesnesi.  Uzaktan çalıştırmalar için kullanılır. |None
 `data_script`  |    Get_data yöntemi içeren dosyanın yolu.  Uzaktan çalıştırmalar için gereklidir.   |None
 `model_explainability` | _İsteğe bağlı_ True/False <br/>  Her yineleme için özellik önem gerçekleştirmek için doğru etkinleştirir deneyin. Deneme tamamlandıktan sonra özellik önem isteğe bağlı olarak bu yineleme etkinleştirmek için belirli bir yinelemeye explain_model() yöntemi de kullanabilirsiniz. | False
-`enable_ensembling`|Tüm yinelemeler tamamladıktan sonra ensembling yineleme etkinleştirmek için bayrak.| True 
+`enable_ensembling`|Tüm yinelemeler tamamladıktan sonra ensembling yineleme etkinleştirmek için bayrak.| True
 `ensemble_iterations`|Son topluluğu parçası olarak bir ekrana sığdırılmış işlem hattı Seçtiğimiz yineleme sayısı.| 15
 `experiment_timeout_minutes`| Sınırlayan çalıştırmak tüm denemeler sürebilir süreyi (dakika) | None
 
@@ -324,20 +325,20 @@ Otomatik machine learning özellik önem anlamanıza olanak sağlar.  Eğitim i�
 
     ```python
     from azureml.train.automl.automlexplainer import explain_model
-    
+
     shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
         explain_model(fitted_model, X_train, X_test)
-    
+
     #Overall feature importance
     print(overall_imp)
-    print(overall_summary) 
-    
+    print(overall_summary)
+
     #Class-level feature importance
     print(per_class_imp)
-    print(per_class_summary) 
+    print(per_class_summary)
     ```
 
-*   Tüm yinelemeler için özellik önem görüntülemek için ayarlanmış `model_explainability` bayrak `True` AutoMLConfig içinde.  
+*   Tüm yinelemeler için özellik önem görüntülemek için ayarlanmış `model_explainability` bayrak `True` AutoMLConfig içinde.
 
     ```python
     automl_config = AutoMLConfig(task = 'classification',
@@ -346,7 +347,7 @@ Otomatik machine learning özellik önem anlamanıza olanak sağlar.  Eğitim i�
                                  max_time_sec = 12000,
                                  iterations = 10,
                                  verbosity = logging.INFO,
-                                 X = X_train, 
+                                 X = X_train,
                                  y = y_train,
                                  X_valid = X_test,
                                  y_valid = y_test,
@@ -358,20 +359,20 @@ Otomatik machine learning özellik önem anlamanıza olanak sağlar.  Eğitim i�
 
     ```python
     from azureml.train.automl.automlexplainer import retrieve_model_explanation
-    
+
     shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
         retrieve_model_explanation(best_run)
-    
+
     #Overall feature importance
     print(overall_imp)
-    print(overall_summary) 
-    
+    print(overall_summary)
+
     #Class-level feature importance
     print(per_class_imp)
-    print(per_class_summary) 
+    print(per_class_summary)
     ```
 
-Azure portalında çalışma alanınızdaki özellik önem grafiği görselleştirebilirsiniz. Grafik da Jupyter pencere öğesi içinde bir not defteri kullanırken gösterilir. Bilgi edinmek için grafikler hakkında daha fazla başvurmak [Azure ML örnek not defterleri makalesi.](samples-notebooks.md)
+Azure portalında çalışma alanınızdaki özellik önem grafiği görselleştirebilirsiniz. Grafik da Jupyter pencere öğesi içinde bir not defteri kullanırken gösterilir. Bilgi edinmek için grafikler hakkında daha fazla başvurmak [örnek Azure Machine Learning hizmet not defterlerini makalesi.](samples-notebooks.md)
 
 ```python
 from azureml.widgets import RunDetails
@@ -383,4 +384,4 @@ RunDetails(local_run).show()
 
 Daha fazla bilgi edinin [nasıl ve nerede model dağıtma](how-to-deploy-and-where.md).
 
-Daha fazla bilgi edinin [otomatik machine learning ile bir sınıflandırma modeli eğitmek nasıl](tutorial-auto-train-models.md) veya [uzak bir kaynağa machine learning kullanarak eğitme otomatik](how-to-auto-train-remote.md). 
+Daha fazla bilgi edinin [otomatik machine learning ile bir sınıflandırma modeli eğitmek nasıl](tutorial-auto-train-models.md) veya [uzak bir kaynağa machine learning kullanarak eğitme otomatik](how-to-auto-train-remote.md).

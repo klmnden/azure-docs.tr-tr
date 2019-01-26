@@ -3,19 +3,19 @@ title: Azure AD SSPR ve mfa'yı (genel Önizleme) için yakınsanmış kaydını
 description: Azure AD multi-Factor Authentication devre dışı bırakın ve Self Servis parola sıfırlama kaydı (genel Önizleme)
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 08/02/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 6a51b1a3050b37fdcc822006f9e25d6662c65fb2
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: c7cdd2e62c76011f2ff4ada33353b85dcf564ef5
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426361"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076664"
 ---
 # <a name="disable-azure-ad-converged-registration-public-preview"></a>Azure AD devre dışı bırakma yakınsanmış kayıt (genel Önizleme)
 

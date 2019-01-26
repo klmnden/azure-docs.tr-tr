@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: 1f8807094c6e93cf55467e76e0fa2b617ec3d5fb
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 6b3f3217f90c2c5a72ba9576b5e0cc89e6133cd8
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822883"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913317"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Power BI ile visualizing ağ güvenlik grubu akış günlüklerini
 
@@ -46,7 +46,7 @@ Yeni veri, görsel öğe eklemek için değiştirin ya da gereksinimlerinize uya
 
 ## <a name="setup"></a>Kurulum
 
-Başlamadan önce ağ güvenlik grubu akış hesabınızdaki bir veya daha fazla ağ güvenlik grupları etkin günlüğü olması gerekir. Akış günlüklerinizi ağ güvenliği etkinleştirme hakkında yönergeler için aşağıdaki makaleye başvurun: [için ağ güvenlik grubu akış günlüğe kaydetme giriş](network-watcher-nsg-flow-logging-overview.md).
+Başlamadan önce ağ güvenlik grubu akış hesabınızdaki bir veya daha fazla ağ güvenlik grupları etkin günlüğü olması gerekir. Ağ güvenliği akış günlüklerini etkinleştirme hakkında yönergeler için şu makaleye başvurun: [Ağ güvenlik grupları için akış günlüğü giriş](network-watcher-nsg-flow-logging-overview.md).
 
 Ayrıca, Power BI Desktop istemcisi makinenizde ve makinenize indirmek ve depolama hesabınızda var olan günlük verileri yüklemek için yeterli boş alan yüklü olması gerekir.
 
@@ -123,7 +123,7 @@ Bu şablonu kendi gereksinimlerinize göre özelleştirmek çekinmeyin. Power BI
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-NSG akış günlüklerinizi Elastick yığınıyla ederek görselleştirmeyi öğrenmek [açık kaynak araçlar kullanarak görselleştirme Azure Ağ İzleyicisi NSG akış günlükleri](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
+NSG akış günlüklerinizi Elastic Stack ile ederek görselleştirmeyi öğrenmek [açık kaynak araçlar kullanarak görselleştirme Azure Ağ İzleyicisi NSG akış günlükleri](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 
 [1]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure1.png
 [2]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure2.png

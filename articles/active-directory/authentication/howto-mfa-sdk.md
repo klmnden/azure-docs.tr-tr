@@ -3,19 +3,19 @@ title: Özel uygulamalar için Azure MFA Yazılım Geliştirme Seti
 description: Bu makalede, özel uygulamalar için iki aşamalı doğrulamayı etkinleştirmek için Azure MFA SDK'sını indirip gösterilmektedir.
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 77709ab9ffd86e599046ddf332213582505f625d
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: b06f3c6560697ad65696af4939bc33ebf564386f
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433246"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078347"
 ---
 # <a name="building-multi-factor-authentication-into-custom-apps-sdk"></a>Yapı multi Factor Authentication'ı özel uygulamalarda (SDK)
 

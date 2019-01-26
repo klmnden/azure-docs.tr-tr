@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 89ace5901012c5bc66a560dafd3a403183d6ce8c
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 81bbf2b69e0e492ea75e8cbbe980d7e83a86eae7
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54422841"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912859"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-powershell"></a>Bir sanal makine ağ yönlendirme sorunu - Azure PowerShell tanılama
 
@@ -127,7 +127,7 @@ Name State  Source  AddressPrefix           NextHopType NextHopIpAddress
      Active Default {172.16.0.0/12}         None        {}              
 ```
 
-Rota ile önceki çıktıda görüldüğü **AaddressPrefix** , **0.0.0.0/0** başka bir yolun adres ön ekleri 'ınbirsonrakiatlamaadreslerihedefleyendeğiltümtrafiğiyönlendiren**Internet**. Çıktıda de görebileceğiniz gibi ancak yoktur 172.31.0.100 içerir 172.16.0.0/12 önekini varsayılan bir yolu adresi **nextHopType** olduğu **hiçbiri**. Azure, 172.16.0.0/12 için varsayılan bir yol oluşturur ancak bir neden olmadıkça sonraki atlama türünü belirtmez. Örneğin, 172.16.0.0/12 adres aralığını sanal ağın adres alanına eklediyseniz, Azure değişiklikleri **nextHopType** için **sanal ağ** rota. Bir onay ardından gösterebilir **sanal ağ** olarak **nextHopType**.
+Rota ile önceki çıktıda görüldüğü **AddressPrefix** , **0.0.0.0/0** başka bir yolun adres ön ekleri 'ınbirsonrakiatlamaadreslerihedefleyendeğiltümtrafiğiyönlendiren**Internet**. Çıktıda de görebileceğiniz gibi ancak yoktur 172.31.0.100 içerir 172.16.0.0/12 önekini varsayılan bir yolu adresi **nextHopType** olduğu **hiçbiri**. Azure, 172.16.0.0/12 için varsayılan bir yol oluşturur ancak bir neden olmadıkça sonraki atlama türünü belirtmez. Örneğin, 172.16.0.0/12 adres aralığını sanal ağın adres alanına eklediyseniz, Azure değişiklikleri **nextHopType** için **sanal ağ** rota. Bir onay ardından gösterebilir **sanal ağ** olarak **nextHopType**.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/24/2010
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: edb4e2b25e5fd7d6c59f07a02cc5d2f0630eac8e
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 26133dbfe6b8e11128393957c377c1827e0d2a6e
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904412"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076511"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory cihaz yönetimi hakkında SSS
 
@@ -128,6 +128,12 @@ Daha önce oturum yaramadı silinmiş veya devre dışı bırakılmış kullanı
 
 ---
 
+**S: Neden kullanıcılarımın UPN değiştirdikten sonra sorunları Azure AD'ye katılmış cihazlarda gerekiyor?**
+
+**Y:** Şu anda, UPN değişiklikler Azure AD'ye katılmış cihazlarda tam olarak desteklenmemektedir. Bu nedenle Azure AD ile kimlik doğrulamasını UPN değişikliklerini sonra başarısız olur. Sonuç olarak, kullanıcılar SSO ve kullanıcıların cihazlarında koşullu erişim verir. Şu anda, kullanıcıların bu sorunu çözmek için yeni UPN kullanarak "Kullanıcı diğer" kutucuğunda Windows için oturum açmanız gerekir. Şu anda bu sorunu gidermeye çalışıyoruz. Ancak, kullanıcıların oturum Windows iş için Hello imzalama bu sorunla karşılaşmaya değil. 
+
+---
+
 **S: Kullanıcılar cihazları Azure AD'ye katılmış yazıcıları arama yapamazsınız. Bu cihazlardan yazdırma nasıl etkinleştirebilirim?**
 
 **Y:** Katılmış cihazların Azure AD'ye yazıcılar dağıtmak için bkz: [ön kimlik doğrulaması ile Windows Server karma bulut yazdırma dağıtma](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). Hibrit bulut yazdırma dağıtmak için bir şirket içi Windows Server ihtiyacınız vardır. Bulut tabanlı yazdırma hizmeti şu anda kullanılamıyor. 
@@ -209,7 +215,15 @@ Bu davranış, söz konusu cihaza açan diğer bir kullanıcı için geçerli de
 
 Hibrit Azure AD'ye katılma Azure AD'ye kayıtlı durumu daha önceliklidir. Bu nedenle Cihazınızı herhangi bir kimlik doğrulama ve koşullu erişim değerlendirmesinin için Azure AD'ye katılmış karma olarak kabul edilir. Azure AD Portalı'ndan kayıtlı Azure AD cihaz kaydı güvenli bir şekilde silebilirsiniz. Öğrenme [önlemek veya Windows 10 makinesi üzerinde bu ikili durum Temizleme](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan#review-things-you-should-know). 
 
+
 ---
+
+**S: Neden kullanıcılarımın UPN değiştirdikten sonra sorunları Windows 10 hibrit Azure AD'ye katılmış cihazlarda gerekiyor?**
+
+**Y:** Şu anda UPN değişiklikler ile hibrit Azure AD'ye katılmış cihazları tam olarak desteklenmemektedir. Kullanıcıların cihazda oturum açın ve kullanıcıların şirket içi uygulamalara karşın, bir UPN değiştirdikten sonra Azure AD ile kimlik doğrulaması başarısız olur. Sonuç olarak, kullanıcılar SSO ve kullanıcıların cihazlarında koşullu erişim verir. Şu anda, cihaz ("dsregcmd /leave" yükseltilmiş ayrıcalıklarla çalıştır) Azure AD'den ayrılma gerekir ve yeniden katılabilir (otomatik olarak gerçekleşir) sorunu gidermek için. Şu anda bu sorunu gidermeye çalışıyoruz. Ancak, kullanıcıların oturum Windows iş için Hello imzalama bu sorunla karşılaşmaya değil. 
+
+---
+
 
 ## <a name="azure-ad-register-faq"></a>Azure AD kaydı SSS
 

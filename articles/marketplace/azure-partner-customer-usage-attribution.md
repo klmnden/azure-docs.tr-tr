@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: da8fd886afa6028959247caa0c6e007df20fdd1b
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 66f850225faba8d45eaa07493a0817c9ed0ed52b
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077751"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55075593"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure iş ortağı müşteri kullanım attribution
 
@@ -32,11 +32,17 @@ Microsoft iş ortağı olarak, Azure kullanımı, bir müşterinin adıma sağla
 - Azure Resource Manager şablonları: Resource Manager şablonları ya da iş ortağının yazılımlarını çalıştırmak üzere Azure hizmetlerini dağıtmak için çözüm şablonları. İş ortakları, altyapı ve bunların Azure çözüm yapılandırmasını tanımlamak için bir Resource Manager şablonu oluşturabilirsiniz. Siz ve müşterilerinizin yaşam döngüsü boyunca çözümünüzü dağıtmak Resource Manager şablonu sağlar. Kaynaklarınızın tutarlı bir durumda dağıtıldığından emin olabilirsiniz. 
 - Azure Resource Manager API'leri: İş ortakları, doğrudan bir Resource Manager şablonu dağıtma veya doğrudan Azure hizmetleri sağlamak için API çağrıları oluşturmak için Resource Manager API'leri çağırabilirsiniz. 
 
-Müşteri kullanım attribution gerekli tüm [çözüm şablonları](./cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.md) Azure Market'te yayımlanan. 
+Müşteri kullanım attribution gerekli [Azure uygulaması teklif](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer) Azure Market'te yayımlanan.
 
 ## <a name="use-resource-manager-templates"></a>Resource Manager şablonlarını kullanma
 
-İş ortağı çözümlerinin çoğu, Resource Manager şablonlarını kullanarak bir müşterinin aboneliğini üzerinde dağıtılır. Azure marketi, GitHub üzerinde veya bir hızlı başlangıç olarak kullanılabilir bir Resource Manager şablonu varsa yeni izleme yöntemini etkinleştirmek için şablonunuzu değiştirme işlemi oldukça olmalıdır. Daha fazla bilgi için [oluşturun ve ilk Resource Manager şablonunuzu dağıtmak](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template).
+İş ortağı çözümlerinin çoğu, Resource Manager şablonlarını kullanarak bir müşterinin aboneliğini üzerinde dağıtılır. Azure marketi, GitHub üzerinde veya bir hızlı başlangıç olarak kullanılabilir bir Resource Manager şablonu varsa yeni izleme yöntemini etkinleştirmek için şablonunuzu değiştirme işlemi oldukça olmalıdır.
+
+Oluşturma ve çözüm şablonları yayımlama hakkında daha fazla bilgi için bkz.
+
+* [Oluşturma ve ilk Resource Manager şablonunuzu dağıtma](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+* [Azure uygulama teklifi](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer).
+* Video: [Çözüm şablonları ve yönetilen uygulamaları Azure Market'e](https://channel9.msdn.com/Events/Build/2018/BRK3603).
 
 
 ## <a name="add-a-guid-to-your-template"></a>Bir GUID şablonunuza ekleyin

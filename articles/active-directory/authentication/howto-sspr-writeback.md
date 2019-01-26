@@ -3,19 +3,19 @@ title: Nasıl yapılır için Azure AD SSPR'yi parola geri yazmayı yapılandır
 description: Azure AD kullanın ve şirket içi dizine parolaları geri yazma için Azure AD Connect
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 5ec079e0dfecbd6c4752bab2b8eb821fb01fdabd
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 6c495bc496202bccfc47633527fbd84a200be059
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432362"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55080387"
 ---
 # <a name="how-to-configure-password-writeback"></a>Nasıl yapılır: Parola geri yazmayı yapılandırın
 

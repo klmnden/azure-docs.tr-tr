@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 8756809de4ec1a8150610027a8197f1bcae213f0
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: a345b410dcf256e8cd07e7708906f5582b5f1828
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252540"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077396"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Makine bağımlılık eşlemesi kullanan Grup makineleri
 
@@ -50,15 +50,19 @@ Bir çalışma alanı yapılandırdıktan sonra aracılar değerlendirmek istedi
 
 ### <a name="install-the-mma"></a>MMA’yı yükleme
 
+#### <a name="install-the-agent-on-a-windows-machine"></a>Aracı bir Windows makinesine yükleyin.
+
 Bir Windows makinede aracı yüklemek için:
 
 1. İndirilen aracıya çift tıklayın.
 2. **Hoş Geldiniz** sayfasında **İleri**'ye tıklayın. **Lisans Koşulları** sayfasında **Kabul Ediyorum**’a tıklayarak lisansı kabul edin.
 3. İçinde **hedef klasör**, saklamak veya varsayılan yükleme klasörünü değiştirin > **sonraki**.
 4. İçinde **Aracı Kurulum Seçenekleri**seçin **Azure Log Analytics** > **sonraki**.
-5. Tıklayın **Ekle** yeni bir Log Analytics çalışma alanı eklemek için. Çalışma alanı kimliği ve portaldan kopyaladığınız anahtarını yapıştırın. **İleri**'ye tıklayın.
+5. Tıklayın **Ekle** yeni bir Log Analytics çalışma alanı eklemek için. Çalışma alanı kimliği ve portaldan kopyaladığınız anahtarını yapıştırın. **İleri**’ye tıklayın.
 
-[Daha fazla bilgi edinin](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems) hakkında MMA tarafından Windows işletim sistemleri desteği listesi.
+Komut satırı veya Microsoft Azure Stack veri merkezinizde dağıttıysanız, Azure Automation DSC, System Center Configuration Manager gibi veya bir Azure Resource Manager şablonu ile otomatikleştirilmiş bir yöntem kullanarak aracıyı yükleyebilirsiniz. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) MMA aracısını yüklemek için bu yöntemleri kullanma hakkında.
+
+#### <a name="install-the-agent-on-a-linux-machine"></a>Bir Linux makine üzerinde aracı yükleme
 
 Bir Linux makinesinde aracıyı yüklemek için:
 
@@ -94,6 +98,10 @@ Bağımlılık Aracısı desteği hakkında daha fazla bilgi [Windows](../azure-
       ![Makine bağımlılıklarını görüntüleme](./media/how-to-create-group-machine-dependencies/machine-dependencies.png)
 
 4. Zaman aralığı etikette süre tıklayarak için farklı süreler sırasında bağımlılıkları bakabilirsiniz. Varsayılan olarak aralığı bir saattir. Zaman aralığı değiştirmek veya başlangıç ve bitiş tarihlerini ve süresini belirtin.
+
+    > [!NOTE]
+      Şu anda, bağımlılık görselleştirmesi UI bir saatten uzun bir zaman aralığı seçimini desteklemez. Log Analytics'i [bağımlılık verileri sorgulamak](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) üzerinden uzun bir süre.
+
 5. Gruplamak istediğiniz bağımlı makineler tanımladıktan sonra harita üzerinde birden çok makine seçin ve Ctrl + tıklama kullanın **Grup makineleri**.
 6. Bir grup adı belirtin. Bağımlı makinelere Azure geçişi tarafından bulunduğundan emin olun.
 
@@ -104,6 +112,20 @@ Bağımlılık Aracısı desteği hakkında daha fazla bilgi [Windows](../azure-
 8. Tıklayın **Tamam** grubunu kaydetmek için.
 
 Grup oluşturulduktan sonra grubun tüm makinelerde aracıları yüklemek ve tüm Grup bağımlılığı görselleştirerek grubu geliştirmek için önerilir.
+
+## <a name="query-dependency-data-from-log-analytics"></a>Log Analytics sorgu bağımlılık verileri
+
+Hizmet eşlemesi tarafından yakalanan bağımlılık veriler, Log Analytics'te sorgulama için kullanılabilir. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) Log Analytics'te sorgu hizmet eşlemesi veri tabloları hakkında. 
+
+Log Analytics sorguları çalıştırmak için:
+
+1. Aracıları yükledikten sonra portal ve tıklayın Git **genel bakış**.
+2. İçinde **genel bakış**Git **Essentials** yanındaki sağlanan çalışma alanı adına tıklayın ve proje bölümünü **OMS çalışma alanı**.
+3. Log Analytics çalışma alanı sayfasında tıklayın **genel** > **günlükleri**.
+4. Log Analytics kullanarak bağımlılık veri toplamak üzere sorgunuzu yazın. Bağımlılık verileri toplamak için örnek sorgular kullanılabilir [burada](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
+5. Sorguyu Çalıştır'ı tıklayarak çalıştırın. 
+
+[Daha fazla bilgi edinin](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) Log Analytics sorguları yazma hakkında. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

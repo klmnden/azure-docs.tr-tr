@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 01/24/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 772153040ac76f4b7bbee55c48527a841fc69037
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 51e494101b13b3020f79c9acfc4d853cee995d7b
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084797"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54911431"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Soru-cevap Oluşturucu Bilgi Bankası sınırları ve sınır
 Soru-cevap Oluşturucu arasında sınırları kapsamlı bir listesi.
@@ -27,11 +27,13 @@ Soru-cevap Oluşturucu arasında sınırları kapsamlı bir listesi.
 
 |**Azure arama katmanı** | **Ücretsiz** | **Temel** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
-|Yayımlanan bilgi bankalarından sayısı izin verilen (en fazla dizin--1 (test için ayrılmış)|2|14|49|199|199|2,999|
+|Yayımlanan bilgi bankalarından izin verilen en yüksek sayısı|2|14|49|199|199|2,999|
+
+ Örneğin, 15 izin verilen dizinler katmanınızı varsa 14 bilgi bankalarından (yayımlanan Bilgi Bankası başına 1 dizini) yayımlayabilirsiniz. On beşinci dizini `testkb`, geliştirme ve test için tüm bilgi bankaları için kullanılır. 
 
 ## <a name="extraction-limits"></a>Ayıklama sınırları
-* En fazla ayıklanabileceği dosya sayısını ve en büyük dosya boyutu: bkz [QnAMaker fiyatlandırması](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)
-* En fazla SSS HTML sayfaları için ayıklama bankalarıyla gezinilebilen ayrıntılı bağlantı sayısı: 20
+* En fazla ayıklanabileceği dosya sayısını ve en büyük dosya boyutu: Bkz: [QnAMaker fiyatlandırması](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)
+* SSS HTML sayfaları için ayıklama bankalarıyla gezinilebilen derin bağlantılar sayısı üst sınırı: 20
 
 ## <a name="metadata-limits"></a>Meta veri sınırları
 * Meta veri alanları Bilgi Bankası başına en fazla sayısını temel alarak [Azure arama katmanı sınırları](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)
@@ -42,25 +44,33 @@ Soru-cevap Oluşturucu arasında sınırları kapsamlı bir listesi.
 
 ## <a name="knowledge-base-content-limits"></a>Bilgi Bankası içerik sınırları
 Bilgi Bankası'nda içeriği genel sınırlamaları:
-* Yanıt metnin uzunluğunu: 25.000
-* Soru metnin uzunluğunu: 1.000
-* Meta verileri anahtar/değer metnin uzunluğunu: 100
-* Karakterler için meta veri adı desteklenen: harfler, rakamlar ve _  
-* Meta veri değeri için karakter desteklenir: hariç: ve | 
+* Yanıt metnin uzunluğu: 25,000
+* Soru metnin uzunluğu: 1000
+* Meta verileri anahtar/değer metnin uzunluğu: 100
+* Meta veri adı için desteklenen karakterler: Harfler, rakamlar ve _  
+* Meta veri değeri için desteklenen karakterler: Hariç: ve | 
 * Dosya adının uzunluğu: 200
 * Desteklenen dosya biçimleri: ".tsv", ".pdf", ".txt", ".docx", ".xlsx".
-* Alternatif soru sayısı: 100
-* Soru-cevap çiftlerini sayısı: bağımlı [Azure arama katmanı](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits) seçildi 
+* Diğer sorular sayısı üst sınırı: 100
+* Soru-cevap çiftlerini sayısı üst sınırı: Bağımlı [Azure arama katmanı](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits) seçildi 
 
 ## <a name="create-knowledge-base-call-limits"></a>Bilgi Bankası araması sınırları oluşturun:
 Bu temsil Bilgi Bankası eylem her sınırları oluşturmak; diğer bir deyişle, tıklayıp *oluşturma KB* veya CreateKnowledgeBase API'ye çağrı yapma.
 * Diğer sorular yanıt başına en fazla sayısı: 100
-* URL'leri sayısı: 10
+* URL maksimum sayısı: 10
 * En fazla dosya sayısı: 10
 
 ## <a name="update-knowledge-base-call-limits"></a>Bilgi Bankası araması sınırları güncelleştir
 Bunlar, her güncelleştirme eylemi sınırlarını temsil eder; diğer bir deyişle, tıklayıp *kaydedin ve eğitme* veya UpdateKnowledgeBase API'ye çağrı yapma.
 * Her kaynak adının uzunluğu: 300
-* Eklendiğinde veya silindiğinde alternatif soru sayısı: 100
-* Meta veri alanları en fazla sayısını eklendiğinde veya silindiğinde: 10
-* Yenilenebilir URL'leri sayısı: 5
+* En fazla sayı eklendiğinde veya silindiğinde diğer sorular: 100
+* En fazla eklendiğinde veya silindiğinde meta verileri alan sayısı: 10
+* Yenilenebilir URL'leri sayısı üst sınırı: 5
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+Ne zaman ve hizmet katmanlarını değiştirme öğrenin:
+
+* [Soru-cevap Oluşturucu](how-to/upgrade-qnamaker-service.md#upgrade-qna-maker-management-sku): fiyatlandırma katmanı, soru-cevap Oluşturucu hizmetini yükseltmeniz geçerli katmanınızı ötesinde, Bilgi Bankası'nda daha fazla sorularını ve yanıtlarını olması gerekir.
+* [Arama](how-to/upgrade-qnamaker-service.md#upgrade-app-service) - bilgi bankanızı gerektiğinde istemci uygulamanıza ilişkin daha fazla isteklere hizmet app service fiyatlandırma katmanına yükseltin.
+* [App service](how-to/upgrade-qnamaker-service.md#upgrade-azure-search-service): birçok bilgi bankaları planlama yaparken, Azure Search hizmetinizin fiyatlandırma katmanı yükseltin.

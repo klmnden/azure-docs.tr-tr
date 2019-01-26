@@ -3,20 +3,20 @@ title: B2B işbirliği kullanıcılarını toplu davet etme öğreticisi - Azure
 description: Bu öğreticide, harici Azure AD B2B işbirliği kullanıcılarına toplu davet göndermek için PowerShell ve CSV dosyasının nasıl kullanılacağını öğreneceksiniz.
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: tutorial
 ms.date: 08/14/2018
 ms.author: mimart
 author: msmimart
 ms.reviewer: mal
-ms.openlocfilehash: c24a82d5765fef01eab9ae24f637c215c62e822d
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
-ms.translationtype: HT
+ms.openlocfilehash: 43fb06bcabe2a2c941eb2b4112d4960394ec2c66
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45987081"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55081424"
 ---
-# <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users"></a>Öğretici: Azure AD B2B işbirliği kullanıcılarını toplu davet etme
+# <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users"></a>Öğretici: Toplu Azure AD B2B işbirliği kullanıcıları davet edin
 
 Şirket dışındaki ortaklarla çalışmak için Azure Active Directory (Azure AD) B2B işbirliğini kullanıyorsanız, kuruluşunuza aynı anda birden çok konuk kullanıcı davet edebilirsiniz. Bu öğreticide, harici kullanıcılara toplu davet göndermek için PowerShell’in nasıl kullanılacağını öğreneceksiniz. Özellikle aşağıdakileri yapın:
 
@@ -27,7 +27,7 @@ ms.locfileid: "45987081"
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 ### <a name="install-the-latest-azureadpreview-module"></a>En son AzureADPreview modülünü yükleme
 Graph modülü için Azure AD PowerShell’in en son sürümünü (AzureADPreview) yüklediğinizden emin olun. 

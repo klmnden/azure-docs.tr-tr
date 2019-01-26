@@ -13,12 +13,12 @@ ms.component: pim
 ms.date: 02/14/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: ab5a072d845bfdbaafabe1e0e7bdce2dfce6184d
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 191d384d51fe3aecbd967586516cfb198256af81
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188188"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54911736"
 ---
 # <a name="view-audit-history-for-azure-ad-directory-roles-in-pim"></a>Azure AD dizin rollerini PIM denetim geçmişini görüntüle
 Tüm ayrıcalıklı roller için belirli bir süre içinde tüm kullanıcı atama ve etkinleştirme görmek için Privileged Identity Management (PIM) denetim Geçmişi'ni kullanabilirsiniz. Etkinlik, kiracınızda yönetici ve son kullanıcı eşitleme etkinliği de dahil olmak üzere tam denetim geçmişini görmek istiyorsanız kullanabileceğiniz [Azure Active Directory erişim ve kullanım raporlarını.](../reports-monitoring/overview-reports.md)
@@ -64,4 +64,4 @@ Seçtiğinizde **özel** düğmesi, sunulur bir **gelen** tarih alanı ve bir **
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [PIM Azure kaynak rolleri için denetim geçmişini görüntüleme](pim-resource-roles-use-the-audit-log.md)
+- [PIM Azure kaynak rolleri için etkinlik ve denetim geçmişini görüntüle](azure-pim-resource-rbac.md)

@@ -9,12 +9,12 @@ ms.author: jejiang
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 1/17/2019
-ms.openlocfilehash: ef33d8962848636ee53ac6fd3f084b9c2a59e29d
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 45ba049717f2b9874bbac8d6493e13c2afc4b8f2
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54820589"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54910657"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Visual Studio Code için PySpark etkileşimli ortamını ayarlama
 
@@ -22,9 +22,9 @@ Aşağıdaki adımları VS code'da PySpark etkileşimli ortamını ayarlama işl
 
 Kullandığımız **python/pip** giriş yolda sanal ortam oluşturmak için komutu. Başka bir sürümünü kullanmak istiyorsanız, varsayılan sürümünü değiştirmek gereken **python/pip** el ile komutu. Daha fazla ayrıntı görmek [güncelleştirme alternatifleri](https://linux.die.net/man/8/update-alternatives).
 
-1. Yükleme [Python](https://www.python.org/) ve [pip](https://pip.pypa.io/en/stable/installing/).
+1. Yükleme [Python](https://www.python.org/downloads/) ve [pip](https://pip.pypa.io/en/stable/installing/).
    
-   + Python'dan yükleme [ https://pip.pypa.io/en/stable/installing ](https://www.python.org/).
+   + Python'dan yükleme [ https://www.python.org/downloads/ ](https://www.python.org/downloads/).
    + Instalovat modul pip gelen [ https://pip.pypa.io/en/stable/installing ](https://pip.pypa.io/en/stable/installing/). (Python yükleme yüklü değilse)
    + Python doğrulayın ve pip, aşağıdaki komutları kullanarak başarıyla yüklenir. (İsteğe bağlı)
  

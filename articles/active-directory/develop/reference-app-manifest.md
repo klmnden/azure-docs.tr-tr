@@ -17,12 +17,12 @@ ms.date: 12/18/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: d89a80ac6d6e81fd9cc68e1dc04d4461691994fd
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 77d1cf75017b369bb18aa890d63a45be49c0afb5
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157981"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912586"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory Uygulama bildirimi
 
@@ -65,7 +65,7 @@ Uygulama bildirimini yapılandırmak için:
 | `name` | dize | Uygulama görünen adı. | `MyRegisteredApp` |
 | `oauth2AllowImplicitFlow` | boole | Bu web uygulaması OAuth2.0 örtük akış erişim belirteçleri isteme olanaklarının olup olmadığını belirtir. Varsayılan değer false'dur. Bu bayrak, Javascript tek sayfa uygulamaları gibi tarayıcı tabanlı uygulamalar için kullanılır. Daha fazla bilgi için girin `OAuth 2.0 implicit grant flow` içindekiler tablosunda ve örtük akış hakkındaki konulara bakın. | `false` |
 | `oauth2AllowIdTokenImplicitFlow` | boole | Bu web uygulaması OAuth2.0 örtük akış kimliği belirteç isteyip isteyemeyeceğini belirtir. Varsayılan değer false'dur. Bu bayrak, Javascript tek sayfa uygulamaları gibi tarayıcı tabanlı uygulamalar için kullanılır. | `false` |
-| `oauth2Permissions` | Dizi türü | İstemci uygulamalarında web API (kaynak) uygulamanın sunduğu OAuth 2.0 izin kapsamları koleksiyonu belirtir. Bu izin kapsamları, onay işlemi sırasında istemci uygulamalara verilebilir. | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"adminConsentDescription":"Allow the app to access resources on behalf of the signed-in user.",<br>&nbsp;&nbsp;&nbsp;"adminConsentDisplayName":"Access resource1",<br>&nbsp;&nbsp;&nbsp;"id":"\<guid>",<br>&nbsp;&nbsp;&nbsp;"isEnabled":true,<br>&nbsp;&nbsp;&nbsp;"type":"User",<br>&nbsp;&nbsp;&nbsp;"userConsentDescription":"Allow the app to access resource1 on your behalf.",<br>&nbsp;&nbsp;&nbsp;"userConsentDisplayName":"Access resources",<br>&nbsp;&nbsp;&nbsp;"value":"u| İstemci uygulamalarında web API (kaynak) uygulamanın sunduğu OAuth 2.0 izin kapsamları koleksiyonu belirtir. Bu izin kapsamları, onay işlemi sırasında istemci uygulamalara verilebilir. ser_impersonation"<br>&nbsp;&nbsp;}<br>]</code> |
+| `oauth2Permissions` | Dizi türü | İstemci uygulamalarında web API (kaynak) uygulamanın sunduğu OAuth 2.0 izin kapsamları koleksiyonu belirtir. Bu izin kapsamları, onay işlemi sırasında istemci uygulamalara verilebilir. | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"adminConsentDescription":"Allow the app to access resources on behalf of the signed-in user.",<br>&nbsp;&nbsp;&nbsp;"adminConsentDisplayName":"Access resource1",<br>&nbsp;&nbsp;&nbsp;"id":"\<guid>",<br>&nbsp;&nbsp;&nbsp;"isEnabled":true,<br>&nbsp;&nbsp;&nbsp;"type":"User",<br>&nbsp;&nbsp;&nbsp;"userConsentDescription":"Allow the app to access resource1 on your behalf.",<br>&nbsp;&nbsp;&nbsp;"userConsentDisplayName":"Access resources",<br>&nbsp;&nbsp;&nbsp;"value":"user_impersonation"<br>&nbsp;&nbsp;}<br>] </code>|
 | `oauth2RequiredPostResponse` | boole | OAuth 2.0 belirteç isteklerini bir parçası olarak, Azure AD GET istekleri aksine POST istekleri izin olup olmadığını belirtir. Yalnızca GET isteklerini verileceğini belirten varsayılan false değeridir. | `false` |
 | `parentalControlSettings` | dize | `countriesBlockedForMinors` uygulama için yetişkin engellenir ülkeleri belirtir.<br>`legalAgeGroupRule` Uygulamayı kullanıcılara uygulanan yasal yaş grubu kuralı belirtir. Ayarlanabilir `Allow`, `RequireConsentForPrivacyServices`, `RequireConsentForMinors`, `RequireConsentForKids`, veya `BlockMinors`.  | <code>{<br>&nbsp;&nbsp;&nbsp;"countriesBlockedForMinors":[],<br>&nbsp;&nbsp;&nbsp;"legalAgeGroupRule":"Allow"<br>} </code> |
 | `passwordCredentials` | Dizi türü | Açıklamasına bakın `keyCredentials` özelliği. | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"customKeyIdentifier":null,<br>&nbsp;&nbsp;&nbsp;"endDate":"2018-10-19T17:59:59.6521653Z",<br>&nbsp;&nbsp;&nbsp;"keyId":"\<guid>",<br>&nbsp;&nbsp;&nbsp;"startDate":"2016-10-19T17:59:59.6521653Z",<br>&nbsp;&nbsp;&nbsp;"value":null<br>&nbsp;&nbsp;&nbsp;}<br>] </code> |

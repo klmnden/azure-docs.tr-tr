@@ -3,19 +3,19 @@ title: 'Öğretici: Azure AD B2B Konuk kullanıcılar için multi-Factor authent
 description: Şirket dışından kullanıcılar ve ortak kuruluşlarla işbirliği yapmak için Azure AD B2B’yi kullandığınızda çok faktörlü kimlik doğrulamasının (MFA) nasıl gerekli kılınacağını öğrenin.
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 88225ee7aeefd9030e754f2b1abc66e4c05e5c6b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 3e16b9d77a881c98ff0a5ee26f405a64561f5c75
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54431189"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55080175"
 ---
 # <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>Öğretici: B2B Konuk kullanıcıları için multi-Factor authentication yürürlüğe
 

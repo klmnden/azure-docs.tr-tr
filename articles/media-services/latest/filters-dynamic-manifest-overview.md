@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 01/24/2019
 ms.author: juliako
-ms.openlocfilehash: 7dc2136fe6ee28da0583ebdb2b2749ddf1c37049
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 5b666551ed47852fe8653fff174589acc4bff348
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728049"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912042"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtreler ve dinamik bildirimlere
 
@@ -113,7 +113,7 @@ Filtreler tanımlamak için aşağıdaki özellikleri kullanın.
 |Ad|Açıklama|
 |---|---|
 |firstQuality|Filtrenin ilk kalite hızı.|
-|PresentationTimeRange|Sunu zaman aralığı. Bu özellik, bildirim başlangıç/bitiş noktaları, sunu penceresi uzunluğu ve canlı bir başlangıç konumu filtreleme için kullanılır. <br/>Daha fazla bilgi için [PresentationTimeRange](#PresentationTimeRange).|
+|presentationTimeRange|Sunu zaman aralığı. Bu özellik, bildirim başlangıç/bitiş noktaları, sunu penceresi uzunluğu ve canlı bir başlangıç konumu filtreleme için kullanılır. <br/>Daha fazla bilgi için [PresentationTimeRange](#PresentationTimeRange).|
 |Parçaları|Parçaları seçimi koşulları. Daha fazla bilgi için [izler](#tracks)|
 
 ### <a name="presentationtimerange"></a>PresentationTimeRange
@@ -124,8 +124,8 @@ Bu özelliği kullanmak **varlık filtreleri**. Özellik ayarlamak için öneril
 |---|---|
 |**endTimestamp**|Mutlak bitiş zamanı sınırını. Video isteğe bağlı (VoD) için geçerlidir. Canlı bir sunumu için daha sessiz bir şekilde göz ardı uygulanan ve sunu sona erer ve akış olduğunda VoD.<br/><br/>Değerin bir mutlak akış uç noktasını temsil eder. Yuvarlatılmış en yakın sonraki GOP başlatma.<br/><br/>StartTimestamp ve EndTimestamp içerecek şekilde kırpmanıza çalma listesi (manifest) kullanın. Örneğin, StartTimestamp 40000000 ve EndTimestamp = = 100000000 StartTimestamp ve EndTimestamp arasında medya içeren bir çalma listesi üretir. Sınır bir parçasını ayrımı idare etmeye, tüm parça bildirime dahil edilir.<br/><br/>Ayrıca bkz **forceEndTimestamp** izleyen tanımı.|
 |**forceEndTimestamp**|Canlı Filtreleri için geçerlidir.<br/><br/>**forceEndTimestamp** gösteren bir Boole değeri olup olmadığını **endTimestamp** geçerli bir değere ayarlandı. <br/><br/>Değer ise **true**, **endTimestamp** değeri belirtilmelidir. Ardından belirtilmezse, hatalı istek döndürdü.<br/><br/>Örneğin, giriş video 5 dakikada başlatılır bir filtre tanımlamak istediğiniz ve akış sonuna kadar bağlanabilmelerini, ayarlarsanız **forceEndTimestamp** false ve ayarın atlanarak **endTimestamp**.|
-|**liveBackoffDuration**|Canlı yalnızca geçerlidir. Özelliği, Canlı kayıttan yürütme konumunu tanımlamak için kullanılır. Bu kural kullanarak, Canlı kayıttan yürütme konumu gecikme ve oyuncu için sunucu tarafı arabelleği oluşturun. LiveBackoffDuration göre Canlı konumdur. En fazla Canlı geri alma süresi 60 saniyedir.|
-|**presentationWindowDuration**|Canlı için geçerlidir. Kullanım **presentationWindowDuration** çalma listesine bir kayan pencereye uygulamak için. Örneğin, presentationWindowDuration ayarlamak iki dakikalık kayan pencere uygulanacak 1200000000 =. Canlı Edge 2 dakika içinde Media Çalma listesinde dahil edilir. Sınır bir parçasını ayrımı idare etmeye, tüm parça çalma listesi dahil edilir. En düşük sunu pencere süresi, 120 saniyedir.|
+|**liveBackoffDuration**|Canlı yalnızca geçerlidir. Özelliği, Canlı kayıttan yürütme konumunu tanımlamak için kullanılır. Bu kural kullanarak, Canlı kayıttan yürütme konumu gecikme ve oyuncu için sunucu tarafı arabelleği oluşturun. LiveBackoffDuration göre Canlı konumdur. En fazla Canlı geri alma süresi 300 saniyedir.|
+|**presentationWindowDuration**|Canlı için geçerlidir. Kullanım **presentationWindowDuration** çalma listesine bir kayan pencereye uygulamak için. Örneğin, presentationWindowDuration ayarlamak iki dakikalık kayan pencere uygulanacak 1200000000 =. Canlı Edge 2 dakika içinde Media Çalma listesinde dahil edilir. Sınır bir parçasını ayrımı idare etmeye, tüm parça çalma listesi dahil edilir. En düşük sunu pencere süresi 60 saniyedir.|
 |**startTimestamp**|VoD veya canlı akış için geçerlidir. Değeri akışa ilişkin bir mutlak başlangıç noktasını temsil eder. Değerin yuvarlanmış en yakın sonraki GOP başlatma.<br/><br/>Kullanım **startTimestamp** ve **endTimestamp** içerecek şekilde kırpmanıza çalma listesi (bildirim). Örneğin, startTimestamp 40000000 ve endTimestamp = = 100000000 StartTimestamp ve EndTimestamp arasında medya içeren bir çalma listesi üretir. Sınır bir parçasını ayrımı idare etmeye, tüm parça bildirime dahil edilir.|
 |**Zaman Çizelgesi**|VoD veya canlı akış için geçerlidir. Zaman damgaları tarafından kullanılan ölçeği ve yukarıda belirtilen süre. Varsayılan zaman ölçeğini 10000000 ' dir. Alternatif bir ölçeği kullanılabilir. 10000000 HNS (yüz içerir) varsayılandır.|
 

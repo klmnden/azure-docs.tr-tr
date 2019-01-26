@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/08/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 82ccbe8e57ff35904b7e763e838a81660ab13f88
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 8be4274f2f971202172b09bbab2e6529fd5a8070
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412827"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55075695"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: Cihaz geri yazma özelliğini etkinleştirme
 > [!NOTE]
@@ -89,7 +89,7 @@ Yukarıdaki adımları izlediyseniz olsa bile cihaz geri yazma için onay kutusu
 
 İlk şey ilk:
 
-* Windows Server 2012 R2 en az bir ormanda olduğundan emin olun. Cihaz nesne türü mevcut olması gerekir.
+* Cihazları mevcut olduğu orman, böylece cihaz nesnesini ve ilişkili öznitelikleri mevcut olduğundan Windows 2012 R2 düzeyine yükseltildiğinde Orman şeması olmalıdır.
 * Yükleme Sihirbazı'nı zaten çalışıyorsa, değişikliklerin algılanmaz. Bu durumda, yükleme sihirbazını tamamlayın ve yeniden çalıştırın.
 * Aslında Active Directory Bağlayıcısı tarafından kullanılan doğru kullanıcı başlatma komut dosyasında belirttiğiniz hesabının olduğundan emin olun. Bunu doğrulamak için aşağıdaki adımları izleyin:
   * Başlat menüsünden açmak **eşitleme hizmeti**.

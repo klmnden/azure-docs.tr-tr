@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 3a49b30caa087295bbdcffe8762796fdc92f154b
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: a5d4d13d8e60cd7f273363a9bc385098e15cbb71
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247283"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913181"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Azure App Service'te uygulamaları izleme
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) web uygulamaları, mobil arka uçlar ve API uygulamaları, yerleşik izleme işlevselliği sağlayan [Azure portalında](https://portal.azure.com).
@@ -73,9 +73,15 @@ Bir uygulama için kullanılabilir ölçümleri şunlardır:
 | --- | --- |
 | **Ortalama yanıt süresi** | Milisaniye cinsinden istek, hizmet uygulaması için geçen ortalama süre. |
 | **Ortalama bellek çalışma kümesi** | Ortalama megabayt (MIB), uygulama tarafından kullanılan bellek miktarı. |
+| **Bağlantılar** | (W3wp.exe ve onun alt işlemleri) korumalı alanında var olan ilişkili yuva sayısı.  Bağlanmış bir yuva bind()/connect() API'lerini çağırarak oluşturulur ve söz konusu yuvası ile CloseHandle()/closesocket() kapatılana kadar kalır. |
 | **CPU süresi** | Saniyeler içinde uygulama tarafından tüketilen CPU miktarı. Bu ölçüm hakkında daha fazla bilgi için bkz: [CPU zamanı vs CPU yüzdesi](#cpu-time-vs-cpu-percentage). |
+| **Geçerli derlemeler** | Bu uygulamadaki tüm uygulama etki alanları arasında yüklenen derlemelerin geçerli sayısı. |
 | **Verileri** | Uygulamada MIB tarafından gelen bant genişliği miktarı. |
 | **Veri çıkışı** | Uygulamada MIB tarafından tüketilen giden bant genişliği miktarı. |
+| **Gen 0 atık toplamaları** | Nesil 0 çöp nesnelerdir sayıda uygulama işlemi başladığından bu yana toplanmadı. Daha yüksek nesil GC'ler tüm alt nesil GC'ler içerir.|
+| **Gen 1 çöp koleksiyonları** | 1. nesil nesneler çöp olan sayıda uygulama işlemi başladığından bu yana toplanır. Daha yüksek nesil GC'ler tüm alt nesil GC'ler içerir.|
+| **Gen 2 Atık toplamaları** | 2. nesil nesneler çöp olan sayıda uygulama işlemi başladığından bu yana toplanır.|
+| **Tanıtıcı sayısı** | Tanıtıcıları toplam sayısı, uygulama işlem tarafından şu anda açık.|
 | **HTTP 2xx** | Bir HTTP durum kodunda ≥ 200 ancak < 300 kaynaklanan isteklerin sayısı. |
 | **HTTP 3xx** | Bir HTTP durum kodunda ≥ 300 ancak < 400 kaynaklanan isteklerin sayısı. |
 | **HTTP 401** | HTTP 401 durum kodunu kaynaklanan isteklerin sayısı. |
@@ -84,8 +90,20 @@ Bir uygulama için kullanılabilir ölçümleri şunlardır:
 | **HTTP 406** | HTTP 406 durum kodunda sonuçlanan isteklerinin sayısı. |
 | **HTTP 4xx** | Bir HTTP durum kodunda ≥ 400 ancak < 500 kaynaklanan isteklerin sayısı. |
 | **HTTP sunucu hataları** | Bir HTTP durum kodunda ≥ 500 ancak < 600 kaynaklanan isteklerin sayısı. |
+| **GÇ diğer bayt / saniye** | Hangi uygulama işlemini bayt denetimi işlemleri gibi verileri içermeyen g/ç işlemleri için oranıdır.|
+| **GÇ diğer işlemler / saniye** | Uygulama işlemi okuma ve yazma işlemlerinin g/ç işlemleri kesme oranı.|
+| **GÇ Okunan Bayt / saniye** | Uygulama işlemi g/ç işlemlerinde bayt okuduğu oranı.|
+| **GÇ Okuma işlemi / saniye** | Okuma g/ç işlemleri, uygulama işlemi gerçekleştirme hızıdır.|
+| **GÇ yazılan bayt / saniye** | Uygulama işlemi için g/ç işlemleri bayt yazma oranı.|
+| **GÇ Yazma işlemi / saniye** | Uygulama işlemi yazma g/ç işlemleri kesme oranı.|
 | **Bellek çalışma kümesi** | Uygulamada MIB tarafından kullanılan bellek miktarı. |
+| **Özel bayt sayısı** | Özel baytlar diğer işlemlerle paylaşılamayan uygulama işleminin ayırdığı bellek bayt cinsinden geçerli boyutudur.|
 | **İstekleri** | Sonuçta elde edilen HTTP durum kodlarını ne olursa olsun istekleri toplam sayısı. |
+| **Uygulama kuyruğundaki istekler** | İçindeki uygulama istek sırasındaki isteklerin sayısı.|
+| **İş parçacığı sayısı** | Uygulama işleminde şu anda etkin iş parçacığı sayısı.|
+| **Toplam uygulama etki alanları** | Bu uygulamada yüklenen geçerli uygulama etki alanları sayısı.|
+| **Yüklenmemiş toplam uygulama etki alanları** | Toplam uygulama etki alanları sayısı, uygulama başlangıcından kaldırıldı.|
+
 
 Bir App Service planı için mevcut ölçümleri şunlardır:
 

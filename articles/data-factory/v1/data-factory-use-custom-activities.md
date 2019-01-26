@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: 4ed919b76ddebde8337337c18c04093bc6072e82
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 25592f80abc8aea338679f199f03114c2d0785f6
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121269"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077497"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Bir Azure Data Factory işlem hattında özel etkinlikler kullanma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -168,7 +168,7 @@ Bu yöntem, özel etkinlikler gelecekte zincir için kullanılan bir sözlüğü
     /// Execute method is the only method of IDotNetActivity interface you must implement.
     /// In this sample, the method invokes the Calculate method to perform the core logic.
     /// </summary>
-    
+
     public IDictionary<string, string> Execute(
         IEnumerable<LinkedService> linkedServices,
         IEnumerable<Dataset> datasets,
@@ -201,7 +201,7 @@ Bu yöntem, özel etkinlikler gelecekte zincir için kullanılan bir sözlüğü
 
         // get type properties from the dataset object
         inputTypeProperties = inputDataset.Properties.TypeProperties as AzureBlobDataset;
-    
+
         // log linked services passed in linkedServices parameter
         // you will see two linked services of type: AzureStorage
         // one for input dataset and the other for output dataset
@@ -239,7 +239,7 @@ Bu yöntem, özel etkinlikler gelecekte zincir için kullanılan bir sözlüğü
                                      continuationToken,
                                      null,
                                      null);
-    
+
             // Calculate method returns the number of occurrences of
             // the search term (“Microsoft”) in each blob associated
             // with the data slice. definition of the method is shown in the next step.
@@ -257,7 +257,7 @@ Bu yöntem, özel etkinlikler gelecekte zincir için kullanılan bir sözlüğü
         // get the folder path from the output dataset definition
         folderPath = GetFolderPath(outputDataset);
 
-        // log the output folder path   
+        // log the output folder path
         logger.Write("Writing blob to the folder: {0}", folderPath);
 
         // create a storage object for the output blob.
@@ -293,7 +293,7 @@ Bu yöntem, özel etkinlikler gelecekte zincir için kullanılan bir sözlüğü
             return null;
         }
 
-        // get type properties of the dataset   
+        // get type properties of the dataset
         AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
         if (blobDataset == null)
         {
@@ -307,30 +307,30 @@ Bu yöntem, özel etkinlikler gelecekte zincir için kullanılan bir sözlüğü
     /// <summary>
     /// Gets the fileName value from the input/output dataset.
     /// </summary>
-    
+
     private static string GetFileName(Dataset dataArtifact)
     {
         if (dataArtifact == null || dataArtifact.Properties == null)
         {
             return null;
         }
-    
+
         // get type properties of the dataset
         AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
         if (blobDataset == null)
         {
             return null;
         }
-    
+
         // return the blob/file name in the type properties
         return blobDataset.FileName;
     }
-    
+
     /// <summary>
     /// Iterates through each blob (file) in the folder, counts the number of instances of search term in the file,
     /// and prepares the output text that is written to the output blob.
     /// </summary>
-    
+
     public static string Calculate(BlobResultSegment Bresult, IActivityLogger logger, string folderPath, ref BlobContinuationToken token, string searchTerm)
     {
         string output = string.Empty;
@@ -379,7 +379,7 @@ Bu yöntem, özel etkinlikler gelecekte zincir için kullanılan bir sözlüğü
     > Özel etkinliğin zip dosyasındaki tüm dosyalar alt klasör olmadan **en üst düzeyde** olmalıdır.
 
     ![İkili çıktı dosyaları](./media/data-factory-use-custom-activities/Binaries.png)
-14. Adlı bir blob kapsayıcısı oluşturursunuz **customactivitycontainer** zaten yoksa. 
+14. Adlı bir blob kapsayıcısı oluşturursunuz **customactivitycontainer** zaten yoksa.
 15. Bir BLOB içinde customactivitycontainer olarak MyDotNetActivity.zip karşıya bir **genel amaçlı** AzureStorageLinkedService tarafından başvurulan Azure blob depolama (değil sık/seyrek erişimli Blob Depolama).
 
 > [!IMPORTANT]
@@ -420,7 +420,7 @@ Bu bölümde gerçekleştireceğiniz adımlar şunlardır:
    1. Tıklayın **kaynak Oluştur** sol menüsünde.
    2. Tıklayın **veri ve analiz** içinde **yeni** dikey penceresi.
    3. **Veri analizi** dikey penceresinde **Data Factory**’ye tıklayın.
-   
+
     ![Yeni Azure Data Factory menüsü](media/data-factory-use-custom-activities/new-azure-data-factory-menu.png)
 2. İçinde **yeni veri fabrikası** dikey penceresinde girin **CustomActivityFactory** adı. Azure veri fabrikasının adı genel olarak benzersiz olmalıdır. Hatayı alırsanız: **Veri Fabrikası adı "CustomActivityFactory" kullanılamıyor**, veri fabrikasının adını değiştirin (örneğin, **yournameCustomActivityFactory**) ve oluşturmayı yeniden deneyin.
 
@@ -430,7 +430,7 @@ Bu bölümde gerçekleştireceğiniz adımlar şunlardır:
 5. **Yeni data factory** dikey penceresinde **Oluştur**’a tıklayın.
 6. İçinde oluşturduğunuz veri fabrikasına gördüğünüz **Pano** Azure portal'ın.
 7. Data factory başarıyla oluşturulduktan sonra data Factory içeriği gösterilir Data Factory dikey penceresine bakın.
-    
+
     ![Data Factory dikey penceresi](media/data-factory-use-custom-activities/data-factory-blade.png)
 
 ### <a name="step-2-create-linked-services"></a>2. Adım: Bağlı hizmetler oluşturma
@@ -439,7 +439,7 @@ Bağlı hizmetler veri depolarını veya işlem hizmetlerini Azure data factory�
 #### <a name="create-azure-storage-linked-service"></a>Azure Storage bağlı hizmeti oluşturma
 1. Tıklayın **yazar ve dağıtma** kutucuğundan **DATA FACTORY** dikey **CustomActivityFactory**. Data Factory Düzenleyicisi’ni görürsünüz.
 2. Tıklayın **yeni veri deposu** komut çubuğu ve seçin **Azure depolama**. Düzenleyicide Azure Storage bağlı hizmeti oluşturmak için JSON betiğini görmeniz gerekir.
-    
+
     ![Yeni veri deposu - Azure depolama](media/data-factory-use-custom-activities/new-data-store-menu.png)
 3. Değiştirin `<accountname>` Azure depolama hesabınızın adıyla ve `<accountkey>` Azure depolama hesabının erişim anahtarı ile. Depolama erişim anahtarınızı nasıl alacağınız hakkında bilgi için bkz. [Depolama erişim anahtarlarını görüntüleme, kopyalama ve yeniden oluşturma](../../storage/common/storage-account-manage.md#access-keys).
 
@@ -1025,7 +1025,7 @@ namespace DataFactoryAPITestApp
 | Örnek | Hangi özel etkinlik yok |
 | --- | --- |
 | [HTTP veri yükleyici](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample). |Verileri, özel C# etkinlik Data Factory kullanarak Azure Blob Depolama için bir HTTP uç noktasından indirir. |
-| [Twitter yaklaşım analizi örneği](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) |Bir Azure ML model ve yaklaşım analizi yapın, Puanlama, tahmin vb. çağırır. |
+| [Twitter yaklaşım analizi örneği](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) |Bir Azure Machine Learning studio model ve yaklaşım analizi yapın, Puanlama, tahmin vb. çağırır. |
 | [R betiğini Çalıştır](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample). |R betiği HDInsight kümenizde R yüklü üzerinde zaten RScript.exe çalıştırarak çağırır. |
 | [Çapraz AppDomain .NET etkinliği](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) |Data Factory başlatıcısı tarafından kullanılan olanları farklı derleme sürümlerini kullanır |
 | [Azure Analysis Services modelinde yeniden işleme](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample) |  Azure Analysis Services modelinde yeniden işler. |

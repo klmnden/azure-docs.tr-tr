@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: 9465be92d2289bb174834cc856d6f20b6b64c81b
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 8a5fd44f1122b682ee4e3b4c6fcf56408098cae1
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888133"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55080728"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıma
 
@@ -176,7 +176,7 @@ Azure Backup ile yapılandırılmış sanal makineleri taşımak için aşağıd
 * Sanal makinenizin konumu bulun.
 * Aşağıdaki adlandırma deseni ile bir kaynak grup bulunamıyor: `AzureBackupRG_<location of your VM>_1` örneğin AzureBackupRG_westus2_1
 * Azure portalında, ardından onay "gizli türleri Göster ise"
-* PowerShell'de varsa, kullanmak `Get-AzureRmResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` cmdlet'i
+* PowerShell'de varsa, kullanmak `Get-AzResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` cmdlet'i
 * CLI, kullanın `az resource list -g AzureBackupRG_<location of your VM>_1`
 * Kaynak türü bulma `Microsoft.Compute/restorePointCollections` adlandırma deseni sahip `AzureBackup_<name of your VM that you're trying to move>_###########`
 * Bu kaynağı silme. Bu işlem, yedeklenen verileri kasadaki değil yalnızca anında kurtarma noktalarını siler.
@@ -343,8 +343,8 @@ Bir kaynağı taşımadan önce yapmanız gereken bazı önemli adımlar vardır
   Azure PowerShell için şunu kullanın:
 
   ```azurepowershell-interactive
-  (Get-AzureRmSubscription -SubscriptionName <your-source-subscription>).TenantId
-  (Get-AzureRmSubscription -SubscriptionName <your-destination-subscription>).TenantId
+  (Get-AzSubscription -SubscriptionName <your-source-subscription>).TenantId
+  (Get-AzSubscription -SubscriptionName <your-destination-subscription>).TenantId
   ```
 
   Azure CLI için şunu kullanın:
@@ -364,14 +364,14 @@ Bir kaynağı taşımadan önce yapmanız gereken bazı önemli adımlar vardır
   PowerShell için kayıt durumunu almak için aşağıdaki komutları kullanın:
 
   ```azurepowershell-interactive
-  Set-AzureRmContext -Subscription <destination-subscription-name-or-id>
-  Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
+  Set-AzContext -Subscription <destination-subscription-name-or-id>
+  Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
   ```
 
   Bir kaynak sağlayıcısını kaydetmek için kullanın:
 
   ```azurepowershell-interactive
-  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
+  Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
   ```
 
   Azure CLI için kayıt durumunu almak için aşağıdaki komutları kullanın:
@@ -475,12 +475,12 @@ Tamamlandığında, sonucunu bildirilir.
 
 ### <a name="by-using-azure-powershell"></a>Azure PowerShell kullanarak
 
-Var olan kaynakları başka bir kaynak grubuna veya aboneliğe taşıma için kullanın [Move-AzureRmResource](/powershell/module/azurerm.resources/move-azurermresource) komutu. Aşağıdaki örnek, çeşitli kaynakları yeni kaynak grubuna taşımak gösterilmektedir.
+Var olan kaynakları başka bir kaynak grubuna veya aboneliğe taşıma için kullanın [taşıma AzResource](/powershell/module/az.resources/move-azresource) komutu. Aşağıdaki örnek, çeşitli kaynakları yeni kaynak grubuna taşımak gösterilmektedir.
 
 ```azurepowershell-interactive
-$webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite
-$plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan
-Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
+$webapp = Get-AzResource -ResourceGroupName OldRG -ResourceName ExampleSite
+$plan = Get-AzResource -ResourceGroupName OldRG -ResourceName ExamplePlan
+Move-AzResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
 ```
 
 Yeni bir aboneliğe taşımak için bir değer içerir. `DestinationSubscriptionId` parametresi.

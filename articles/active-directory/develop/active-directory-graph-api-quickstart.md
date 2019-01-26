@@ -9,7 +9,7 @@ editor: ''
 tags: ''
 ms.assetid: 9dc268a9-32e8-402c-a43f-02b183c295c5
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -18,14 +18,14 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: sureshja
 ms.custom: aaddev
-ms.openlocfilehash: 7a3c3e39792119d296c849c012d4798ec85a0e03
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: da229af181418d84e45f9ade8a8e5af008074f79
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845510"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55080846"
 ---
-# <a name="how-to-use-the-azure-ad-graph-api"></a>Nasıl yapılır: Azure AD Graph API'sini kullanma
+# <a name="how-to-use-the-azure-ad-graph-api"></a>Nasıl yapılır: Azure AD Graph API’sini kullanma
 
 Azure Active Directory (Azure AD) Graph API, OData REST API uç noktaları aracılığıyla Azure AD'ye programlı erişim sağlar. Uygulamalar Azure AD Graph API'si gerçekleştirmek için kullanabileceğiniz oluşturma, okuma, güncelleştirme ve silme (CRUD) işlemleri dizin verileri ve nesneleri. Örneğin, Azure AD Graph API, yeni kullanıcı oluşturma, görüntüleme veya kullanıcının özelliklerini güncelleştirmek, kullanıcının parolasını değiştirmek için rol tabanlı erişim için grubu üyeliğini denetleyin kullanabileceğiniz devre dışı bırakın ya da kullanıcı silinemiyor. Azure AD Graph API'si özellikleri ve uygulama senaryoları hakkında daha fazla bilgi için bkz. [Azure AD Graph API'si](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) ve [Azure AD Graph API önkoşulları](https://msdn.microsoft.com/library/hh974476.aspx).
 
@@ -38,10 +38,10 @@ Bu makale, Azure AD Graph API için geçerlidir. Microsoft Graph API için ilgil
 
 Graph API'si, dizin verilerini ve karşı CRUD işlemleri gerçekleştirmek istediğiniz nesneleri (diğer bir deyişle, kaynakları veya varlıklar) erişmek için açık veri (OData) protokolünü temel alan URL'leri kullanabilirsiniz. Graph API'si kullanılan URL'leri dört ana bölümden oluşur: hizmet kök, Kiracı tanımlayıcısı, kaynak yolu ve sorgu dizesi seçeneğimiz: `https://graph.windows.net/{tenant-identifier}/{resource-path}?[query-parameters]`. Aşağıdaki URL örneği Al: `https://graph.windows.net/contoso.com/groups?api-version=1.6`.
 
-* **Hizmet kök**: Azure AD Graph API'si, her zaman hizmeti kök olan https://graph.windows.net.
+* **Hizmet kök**: Azure AD Graph API, hizmet kök her zaman olduğu https://graph.windows.net.
 * **Kiracı tanımlayıcısı**: Bu bölümde, önceki örnekte, bir (kayıtlı) doğrulanmış bir etki alanı adı olabilir contoso.com. Bu da bir kiracı nesne kimliği veya "myorganization" veya "me" diğer ad olabilir. Daha fazla bilgi için [adresleme varlıkları ve Azure AD Graph API işlemlerinde](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-operations-overview).
-* **Kaynak yolu**: URL'un bu bölümünde (kullanıcılar, gruplar, belirli bir kullanıcıya veya bir belirli bir gruba, vb. ile) bulunulması için kaynağı tanımlar Yukarıdaki örnekte, üst düzey "grupları" kaynak adresi için olduğu. Örneğin belirli bir varlığa karşılayabilirsiniz "kullanıcıların / {objectID}" veya "kullanıcıların/userPrincipalName".
-* **Sorgu parametreleri**: kaynak yolu bölümü sorgu parametreleri bölümünden bir soru işareti (?) ayırır. Azure AD Graph API'si de tüm istekler "api-version" sorgu parametresi gereklidir. Azure AD Graph API, aşağıdaki OData sorgu seçeneklerini de destekler: **$filter**, **$orderby**, **$expand**, **$top**ve **$format**. Aşağıdaki sorgu seçenekleri şu anda desteklenmiyor: **$count**, **$inlinecount**, ve **$skip**. Daha fazla bilgi için [desteklenen sorgular, filtreler ve sayfalandırma seçenekleri Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-supported-queries-filters-and-paging-options).
+* **Kaynak yolu**: Bu bölümde bir URL'ye (kullanıcılar, gruplar, belirli bir kullanıcıya veya bir belirli bir gruba, vb. ile) bulunulması için kaynak tanımlar Yukarıdaki örnekte, üst düzey "grupları" kaynak adresi için olduğu. Örneğin belirli bir varlığa karşılayabilirsiniz "kullanıcıların / {objectID}" veya "kullanıcıların/userPrincipalName".
+* **Sorgu parametreleri**: Kaynak yolu bölümü sorgu parametreleri bölümünden bir soru işareti (?) ayırır. Azure AD Graph API'si de tüm istekler "api-version" sorgu parametresi gereklidir. Azure AD Graph API, aşağıdaki OData sorgu seçeneklerini de destekler: **$filter**, **$orderby**, **$expand**, **$top**ve **$format**. Aşağıdaki sorgu seçenekleri şu anda desteklenmiyor: **$count**, **$inlinecount**, ve **$skip**. Daha fazla bilgi için [desteklenen sorgular, filtreler ve sayfalandırma seçenekleri Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-supported-queries-filters-and-paging-options).
 
 ## <a name="graph-api-versions"></a>Graph API sürümleri
 
@@ -68,7 +68,7 @@ Aşağıdaki anlık görüntüde gördüğünüz Azure AD Graph Explorer'a gidin
 
 **Azure AD Graph Gezgini yük**: Aracı'nı yüklemek için gidin [ https://graphexplorer.azurewebsites.net/ ](https://graphexplorer.azurewebsites.net/). Tıklayın **oturum açma** ve kiracınızda Azure AD Graph Gezgini çalıştırmak için Azure AD hesabı kimlik bilgileri ile oturum açın. Azure AD Graph Gezgini karşı kendi kiracınızı çalıştırırsanız, siz veya yöneticiniz oturum açma sırasında onayı gerekir. Bir Office 365 aboneliğiniz varsa, otomatik olarak bir Azure AD kiracısına sahip. Office 365'te oturum açmak için kullandığınız kimlik bilgileri, aslında, Azure AD hesapları ve Azure AD Graph Gezgini ile bu kimlik bilgilerini kullanabilirsiniz.
 
-**Bir sorgu çalıştırdığınızda**: bir sorguyu çalıştırmak için sorgu isteği metin kutusuna yazın ve **alma** veya **girin** anahtarı. Sonuçlar yanıt kutusunda görüntülenir. Örneğin, `https://graph.windows.net/myorganization/groups?api-version=1.6` oturum açan kullanıcının dizinde tüm Grup nesneleri listeler.
+**Bir sorgu çalıştırdığınızda**: Bir sorguyu çalıştırmak için sorgu isteği metin kutusuna yazın ve **alma** veya **girin** anahtarı. Sonuçlar yanıt kutusunda görüntülenir. Örneğin, `https://graph.windows.net/myorganization/groups?api-version=1.6` oturum açan kullanıcının dizinde tüm Grup nesneleri listeler.
 
 Aşağıdaki özellikler ve Azure AD Graph Gezgini sınırlamaları unutmayın:
 
@@ -86,9 +86,9 @@ Bu Hızlı Başlangıç Kılavuzu amaçları için 'Azure AD dizininizi karşı 
 
 Aşağıdaki örnekte, Azure AD dizininizde yeni bir güvenlik grubu 'MyTestGroup' oluşturmak için fiddler'ı Web hata ayıklayıcıyı kullanın.
 
-**Bir erişim belirteci edinmek**: Azure AD Graph erişmek için istemciler önce Azure AD'ye kimliğini başarıyla doğrulamak için gereklidir. Daha fazla bilgi için [Azure AD için kimlik doğrulama senaryoları](authentication-scenarios.md).
+**Bir erişim belirteci edinmek**: Azure AD Graph erişmek için öncelikle Azure AD'ye kimliğini başarıyla doğrulamak için istemcileri gereklidir. Daha fazla bilgi için [Azure AD için kimlik doğrulama senaryoları](authentication-scenarios.md).
 
-**Oluşturma ve bir sorgu çalıştırdığınızda**: aşağıdaki adımları tamamlayın:
+**Oluşturma ve bir sorgu çalıştırdığınızda**: Aşağıdaki adımları tamamlayın:
 
 1. Fiddler'ı Web Hata Ayıklayıcısı'nı açın ve geçiş **Oluşturucusu** sekmesi.
 2. Bu yana yeni bir güvenlik grubu oluşturmak istediğiniz seçin **Post** aşağı açılır menüden HTTP yöntemi. Bir grup nesnede işlemleri ve izinleri hakkında daha fazla bilgi için bkz. [grubu](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#group-entity) içinde [Azure AD Graph REST API Başvurusu](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).

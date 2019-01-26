@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 34c8a7d547acf023af442599708f9c183e5b9ae9
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: e5949016281b5f8ba5d8770403a146e52d279c73
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54431206"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079996"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Azure Otomasyonu farklı çalıştır hesaplarını yönetme
 
@@ -40,17 +40,16 @@ Farklı Çalıştır hesapları iki tür vardır:
 
 Oluşturun veya bir farklı çalıştır hesabını güncelleştirmek için özel ayrıcalıklara ve izinlere olmalıdır. Bir genel yönetici/ortak yönetici görevlerini tamamlayabilirsiniz. Görev ayrımı sahip olduğu bir durumda, görevleri, eşdeğer cmdlet ve gerekli izinlere listesini aşağıdaki tabloda gösterilmiştir:
 
-|Görev|Cmdlet  |En düşük izinleri  |
-|---|---------|---------|
-|Azure AD uygulaması oluşturun|[New-AzureRmADApplication](/powershell/module/azurerm.resources/new-azurermadapplication)     | Uygulama geliştirici rolü        |
-|Bir kimlik bilgisi uygulamaya ekleyin.|[New-AzureRmADAppCredential](/powershell/module/AzureRM.Resources/New-AzureRmADAppCredential)     | Uygulama Yöneticisi veya genel yönetici         |
-|Oluşturma ve bir Azure AD hizmet sorumlusu alma|[Yeni AzureRMADServicePrincipal](/powershell/module/AzureRM.Resources/New-AzureRmADServicePrincipal)</br>[Get-AzureRmADServicePrincipal](/powershell/module/AzureRM.Resources/Get-AzureRmADServicePrincipal)     | Uygulama Yöneticisi veya genel yönetici        |
-|Atayın veya RBAC rolü için belirtilen sorumluyu alma|[Yeni-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment)</br>[Get-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/Get-AzureRmRoleAssignment)      | Kullanıcı erişimi Yöneticisi veya sahibi        |
-|Oluşturma veya bir Otomasyon sertifikası kaldırma|[New-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/New-AzureRmAutomationCertificate)</br>[Remove-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationCertificate)     | Kaynak grubu üzerinde katkıda bulunan         |
-|Oluşturma veya bir Otomasyon bağlantı kaldırma|[New-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/New-AzureRmAutomationConnection)</br>[Remove-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationConnection)|Kaynak grubu üzerinde katkıda bulunan |
+|Görev|Cmdlet  |En düşük izinleri  |İzinleri ayarladığınız yerdir|
+|---|---------|---------|---|
+|Azure AD uygulaması oluşturun|[New-AzureRmADApplication](/powershell/module/azurerm.resources/new-azurermadapplication)     | Uygulama geliştirici rolünü<sup>1</sup>        |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Giriş > Azure Active Directory > Uygulama kayıtları |
+|Bir kimlik bilgisi uygulamaya ekleyin.|[New-AzureRmADAppCredential](/powershell/module/AzureRM.Resources/New-AzureRmADAppCredential)     | Uygulama Yöneticisi veya genel yönetici<sup>1</sup>         |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Giriş > Azure Active Directory > Uygulama kayıtları|
+|Oluşturma ve bir Azure AD hizmet sorumlusu alma|[Yeni AzureRMADServicePrincipal](/powershell/module/AzureRM.Resources/New-AzureRmADServicePrincipal)</br>[Get-AzureRmADServicePrincipal](/powershell/module/AzureRM.Resources/Get-AzureRmADServicePrincipal)     | Uygulama Yöneticisi veya genel yönetici        |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Giriş > Azure Active Directory > Uygulama kayıtları|
+|Atayın veya RBAC rolü için belirtilen sorumluyu alma|[Yeni-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment)</br>[Get-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/Get-AzureRmRoleAssignment)      | Kullanıcı erişimi Yöneticisi veya sahibi        | [Abonelik](../role-based-access-control/role-assignments-portal.md)</br>Giriş > abonelikler > \<abonelik adı\> -erişim denetimi (IAM)|
+|Oluşturma veya bir Otomasyon sertifikası kaldırma|[New-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/New-AzureRmAutomationCertificate)</br>[Remove-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationCertificate)     | Kaynak grubu üzerinde katkıda bulunan         |Otomasyon hesabı kaynak grubu|
+|Oluşturma veya bir Otomasyon bağlantı kaldırma|[New-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/New-AzureRmAutomationConnection)</br>[Remove-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationConnection)|Kaynak grubu üzerinde katkıda bulunan |Otomasyon hesabı kaynak grubu|
 
-* Makalesinde açıklandığı gibi Microsoft.Automation kaynaklarındaki katkıda bulunan rolüne eşdeğer izinlere sahip bir AD kullanıcı hesabı [Azure automation'da rol tabanlı erişim denetimi](automation-role-based-access-control.md#contributor).  
-* Azure AD kiracınızdaki yönetici olmayan kullanıcıların [AD uygulamalarını kaydedebilmesi için](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions) Azure AD kiracısının **Kullanıcı ayarları** sayfasındaki **Kullanıcılar uygulamaları kaydedebilir** seçeneği **Evet** olarak ayarlanmış olmalıdır. Uygulama kayıtları ayarı **Hayır** olarak ayarlanırsa bu işlemi gerçekleştiren kullanıcının, Azure AD’de genel yönetici olması gerekir.
+<sup>1</sup> Azure AD kiracınızdaki yönetici olmayan kullanıcılar için [AD uygulamalarını kaydedebilir](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) varsa Azure AD kiracısının **kullanıcılar uygulamaları kaydedebilir** seçeneğini **kullanıcı ayarları**sayfası ayarlandığında **Evet**. Uygulama kayıtları ayarı **Hayır** olarak ayarlanırsa bu işlemi gerçekleştiren kullanıcının, Azure AD’de genel yönetici olması gerekir.
 
 Genel yönetici/ortak Yönetici rolüne aboneliğin eklenen önce aboneliğin Active Directory örneğine üye değilseniz, bir konuk olarak eklenir. Bu durumda, aldığınız bir `You do not have permissions to create…` üzerinde uyarı **Otomasyon hesabı Ekle** sayfası. İlk olarak genel yönetici/ortak yönetici rolüne eklenen kullanıcılar aboneliğin Active Directory örneğinden kaldırılabilir ve tekrar eklenerek Active Directory’de tam bir Kullanıcı haline getirilebilir. Bu durumu doğrulamak için Azure portalındaki **Azure Active Directory** bölmesinde **Kullanıcılar ve gruplar**’ı, **Tüm kullanıcılar**’ı seçin ve belirli bir kullanıcıyı seçtikten sonra **Profil**’i seçin. Kullanıcı profili altındaki **Kullanıcı türü** özniteliğinin **Konuk** olmaması gerekir.
 

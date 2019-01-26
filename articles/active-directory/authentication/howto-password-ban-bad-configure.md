@@ -3,19 +3,19 @@ title: Azure AD'de parolaları yasaklamak nasıl
 description: Zayıf parolalarınızı Azure AD dinamik olarak yasaklanmış passwrords ile envirionment yasakla
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
-ms.openlocfilehash: bc41f8b80719bcc1fee77fd40e4f50df1ebf1a99
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 8596e1a3d33041a5e7176b87e868d89ee6dc124d
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54428605"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55080133"
 ---
 # <a name="configuring-the-custom-banned-password-list"></a>Özel yasaklı parola listesi yapılandırma
 

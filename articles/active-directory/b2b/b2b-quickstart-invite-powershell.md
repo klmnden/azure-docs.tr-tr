@@ -3,18 +3,18 @@ title: Azure Active Directory B2B işbirliği için PowerShell ile konuk kullan�
 description: Bu hızlı başlangıçta, şirket dışından bir Azure AD B2B işbirliği kullanıcısına davet göndermek için PowerShell’in nasıl kullanılacağını öğreneceksiniz.
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: mimart
 author: msmimart
 ms.reviewer: mal
-ms.openlocfilehash: f0dc63d84ec7583e721b116b450c890d46524622
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
-ms.translationtype: HT
+ms.openlocfilehash: 9b615498f2e3d6df3b285d2e50215f15372dcad6
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45986571"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076069"
 ---
 # <a name="quickstart-add-a-guest-user-with-powershell"></a>Hızlı Başlangıç: PowerShell ile konuk kullanıcı ekleme
 
@@ -22,7 +22,7 @@ Azure Active Directory B2B işbirliği ile uygulama ve hizmetlerinize şirket d�
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 ### <a name="install-the-latest-azureadpreview-module"></a>En son AzureADPreview modülünü yükleme
 Graph modülü için Azure AD PowerShell’in en son sürümünü (AzureADPreview) yüklediğinizden emin olun. 
@@ -106,4 +106,4 @@ Artık gerekli değilse dizindeki test kullanıcı hesaplarını silebilirsiniz.
 Bu hızlı başlangıçta, PowerShell kullanarak dizininize tek bir konuk kullanıcıyı davet edip eklediniz. Şimdi, PowerShell kullanarak konuk kullanıcıların toplu olarak nasıl davet edileceğini öğreneceksiniz.
 
 > [!div class="nextstepaction"]
-> [Öğretici: Azure AD B2B işbirliği kullanıcılarını toplu davet etme](tutorial-bulk-invite.md)
+> [Öğretici: Toplu Azure AD B2B işbirliği kullanıcıları davet edin](tutorial-bulk-invite.md)
