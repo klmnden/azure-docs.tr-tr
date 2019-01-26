@@ -6,6 +6,13 @@ items:
   - name: Azure Blockchain Workbench Hakkında
     href: overview.md
   expanded: true
+- name: Öğreticiler
+  items:
+  - name: Blok zinciri uygulaması oluşturma
+    href: create-app.md
+  - name: Blok zinciri uygulamasını kullanma
+    href: use.md
+  expanded: true
 - name: Kavramlar
   items:
   - name: Mimari
@@ -16,12 +23,8 @@ items:
   items:
   - name: Workbench’i dağıtma
     href: deploy.md
-  - name: Blok zinciri uygulaması oluşturma
-    href: create-app.md
   - name: Workbench kullanıcılarını yönetme
     href: manage-users.md
-  - name: Blok zinciri uygulamasını kullanma
-    href: use.md
   - name: Sürüm oluşturma uygulamaları
     href: version-app.md
   - name: Workbench API’sini kullanma
@@ -65,15 +68,15 @@ items:
     href: https://aka.ms/blockchainuservoice
 - name: Çözüm şablonları
   items:
-  - name: Ethereum Yetki Kanıtı Konsorsiyumu
+  - name: Ethereum Yetki Kanıtı konsorsiyumu
     href: ../templates/ethereum-poa-deployment.md
-  - name: Ethereum Çalışma Kanıtı Konsorsiyumu
+  - name: Ethereum Çalışma Kanıtı konsorsiyumu
     href: ../templates/ethereum-deployment.md
-  - name: Hyperledger Yapı Konsorsiyumu
-    href: ../templates/hyperledger-fabric-single-member-blockchain.md
-ms.openlocfilehash: fe5d3879dea89824207e213c31992d5f130d9967
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+  - name: Hyperledger Fabric konsorsiyumu
+    href: ../templates/hyperledger-fabric-consortium-blockchain.md
+ms.openlocfilehash: 9195465017217b50d67265feff88281c461e43aa
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107149"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884087"
