@@ -100,8 +100,6 @@ items:
       href: application-proxy-configure-custom-home-page.md
     - name: Satır içi bağlantıları çevirme
       href: application-proxy-configure-hard-coded-link-translation.md
-    - name: Tanımlama bilgisi ayarlarını yapılandırma
-      href: application-proxy-configure-cookie-settings.md
     - name: Joker karakterleri kullanarak yayımlama
       href: application-proxy-wildcard.md
     - name: Kişisel verileri kaldırma
@@ -286,9 +284,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-active-directory
   - name: Videolar
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-ms.openlocfilehash: 28319f3c529491a7ae994ba9d323b66181d7486b
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: c36be070b739f75760e3c7419da2aa76335a59d1
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473342"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157013"

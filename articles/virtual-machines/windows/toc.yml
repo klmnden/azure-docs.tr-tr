@@ -431,8 +431,6 @@ items:
     href: /rest/api/compute
   - name: Yönetilen Diskler REST
     href: /rest/api/compute/disks
-  - name: Resource Manager şablonu
-    href: /azure/templates/microsoft.compute/allversions
 - name: Kaynaklar
   items:
   - name: Yazar şablonları
@@ -453,9 +451,9 @@ items:
     href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
   - name: SSS
     href: faq.md
-ms.openlocfilehash: 1b0aa58f551a7fc03a9fa4b32a1ead9e0024bd08
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: ca927f422da31c1ab34523aad61f8008d12ddd83
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246781"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189250"
