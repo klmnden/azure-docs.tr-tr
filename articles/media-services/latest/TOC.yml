@@ -29,10 +29,10 @@ items:
     href: cli-samples.md
 - name: Kavramlar
   items:
+  - name: v2'den v3'e geçiş
+    href: migrate-from-v2-to-v3.md
   - name: Hesaplar
     items:
-    - name: v2'den v3'e geçiş
-      href: migrate-from-v2-to-v3.md
     - name: Kotalar ve sınırlamalar
       href: limits-quotas-constraints.md
     - name: Depolama hesapları
@@ -66,9 +66,8 @@ items:
   - name: Event Grid olaylarını işleme
     href: reacting-to-media-services-events.md
   - name: İçerik koruma
+    href: content-protection-overview.md
     items:
-    - name: Genel Bakış
-      href: content-protection-overview.md
     - name: Erişim denetimiyle çoklu DRM sistemi
       href: design-multi-drm-system-with-access-control.md
   - name: İçerik çözümleme
@@ -204,9 +203,9 @@ items:
     href: frequently-asked-questions.md
   - name: Azure bulutları ve bölgeleri
     href: azure-clouds-regions.md
-ms.openlocfilehash: ca6afadf1141e60d4436178ef45fccfdc48f97a5
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: dfafe49ba2f520bdc44c5a3e3cad0201d6e56da5
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382110"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810865"

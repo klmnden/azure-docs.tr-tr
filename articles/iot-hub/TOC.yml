@@ -37,6 +37,8 @@ items:
   items:
   - name: Yönlendirme iletileri
     href: tutorial-routing.md
+  - name: Ölçümleri ve tanılama günlüklerini kullanma
+    href: tutorial-use-metrics-and-diags.md
   - name: El ile yük devretme işlemi gerçekleştirme
     href: tutorial-manual-failover.md
   - name: Cihazlarınızı yapılandırma
@@ -350,6 +352,8 @@ items:
     href: https://docs.microsoft.com/rest/api/iothub/iothubresource
   - name: REST (Sertifikalar)
     href: https://docs.microsoft.com/rest/api/iothub/certificates
+  - name: Resource Manager şablonu
+    href: /azure/templates/microsoft.devices/iothub-allversions
 - name: İlgili
   items:
   - name: Çözümler
@@ -416,9 +420,9 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: Videolar
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: 4cab0750e1e0a9c71a4323f28147d1963080c138
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 7ac517a2d2963993d40899183c020570b2934f80
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107387"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247342"
