@@ -74,9 +74,9 @@ Bir değişken oluşturun ve kendi veri türüne ve ilk değer - tüm mantıksal
 
    | Özellik | Gereklidir | Değer |  Açıklama |
    |----------|----------|-------|--------------|
-   | Ad | Evet | <*değişken adı*> | Artış değişkeni adı | 
-   | Tür | Evet | <*değişken türü*> | Değişken için veri türü | 
-   | Değer | Hayır | <*Başlangıç değeri*> | Değişkeninizin ilk değeri <p><p>**İpucu**: Başlangıç değeri her zaman değişkeninizin bilmesi isteğe bağlı olsa da, bu değeri en iyi uygulama ayarlayın. | 
+   | Name | Evet | <*değişken adı*> | Artış değişkeni adı | 
+   | Type | Evet | <*değişken türü*> | Değişken için veri türü | 
+   | Value | Hayır | <*Başlangıç değeri*> | Değişkeninizin ilk değeri <p><p>**İpucu**: Başlangıç değeri her zaman değişkeninizin bilmesi isteğe bağlı olsa da, bu değeri en iyi uygulama ayarlayın. | 
    ||||| 
 
    ![Değişken başlat](./media/logic-apps-create-variables-store-values/initialize-variable.png)
@@ -210,8 +210,8 @@ Artırmak için veya *artışı* sabit bir değere göre değişken Ekle **deği
 
    | Özellik | Gereklidir | Değer |  Açıklama |
    |----------|----------|-------|--------------|
-   | Ad | Evet | <*değişken adı*> | Artış değişkeni adı | 
-   | Değer | Hayır | <*değeri Artır*> | Değişken değerini artırmak için kullanılan değer. Varsayılan değer biridir. <p><p>**İpucu**: Değişkeninizin artırma için söz konusu değeri her zaman haberdar olmak için isteğe bağlı olsa da, bu değeri en iyi uygulama ayarlayın. | 
+   | Name | Evet | <*değişken adı*> | Artış değişkeni adı | 
+   | Value | Hayır | <*değeri Artır*> | Değişken değerini artırmak için kullanılan değer. Varsayılan değer biridir. <p><p>**İpucu**: Değişkeninizin artırma için söz konusu değeri her zaman haberdar olmak için isteğe bağlı olsa da, bu değeri en iyi uygulama ayarlayın. | 
    |||| 
 
    Örneğin: 
@@ -330,8 +330,8 @@ Azaltmak için veya *azaltma* sabit değerli bir değişken için adımları izl
 
 | Özellik | Gereklidir | Değer |  Açıklama |
 |----------|----------|-------|--------------|
-| Ad | Evet | <*değişken adı*> | Azaltma değişkeni adı | 
-| Değer | Hayır | <*değeri Artır*> | Azaltma değişkeni için değer. Varsayılan değer biridir. <p><p>**İpucu**: Azaltma özel değeri, değişken her zaman bilmesi isteğe bağlı olsa da, bu değeri en iyi uygulama ayarlayın. | 
+| Name | Evet | <*değişken adı*> | Azaltma değişkeni adı | 
+| Value | Hayır | <*değeri Artır*> | Azaltma değişkeni için değer. Varsayılan değer biridir. <p><p>**İpucu**: Azaltma özel değeri, değişken her zaman bilmesi isteğe bağlı olsa da, bu değeri en iyi uygulama ayarlayın. | 
 ||||| 
 
 Kod Görünümü düzenleyicisine Tasarımcısı'ndan geçiş yapıyorsanız, işte yol **azaltma değişkeni** JSON biçimindedir, mantıksal uygulama tanımınızı içinde eylem görünür.
@@ -365,8 +365,8 @@ Bu eylem bir varsayılan değer olmadığı için gerekli bir değerdir.
 
 | Özellik | Gereklidir | Değer |  Açıklama | 
 |----------|----------|-------|--------------| 
-| Ad | Evet | <*değişken adı*> | Değiştirmek değişken adı | 
-| Değer | Evet | <*Yeni değer*> | Değişken atamak istediğiniz değer. Aynı veri türüne sahip olmalıdır. | 
+| Name | Evet | <*değişken adı*> | Değiştirmek değişken adı | 
+| Value | Evet | <*Yeni değer*> | Değişken atamak istediğiniz değer. Aynı veri türüne sahip olmalıdır. | 
 ||||| 
 
 > [!NOTE]
@@ -423,8 +423,8 @@ Dizeler veya diziler depolamak için değişkenleri, eklediğiniz veya *ekleme* 
 
 | Özellik | Gereklidir | Değer |  Açıklama | 
 |----------|----------|-------|--------------| 
-| Ad | Evet | <*değişken adı*> | Değiştirmek değişken adı | 
-| Değer | Evet | <*değer ekleme*> | Herhangi bir tür olabilen, eklemek istediğiniz değer | 
+| Name | Evet | <*değişken adı*> | Değiştirmek değişken adı | 
+| Value | Evet | <*değer ekleme*> | Herhangi bir tür olabilen, eklemek istediğiniz değer | 
 |||||  
 
 Kod Görünümü düzenleyicisine Tasarımcısı'ndan geçiş yapıyorsanız, işte yol **dizi değişkenine Ekle** JSON biçimindedir, mantıksal uygulama tanımınızı içinde eylem görünür.
