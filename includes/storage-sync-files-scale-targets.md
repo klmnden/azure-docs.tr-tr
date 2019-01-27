@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 07/18/2018
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: 00124562d3bc21f9139ae54f022d7893a4eaf11c
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 6d9370ce6a031377e37c4e830400337f3e57a62e
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53638780"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55084857"
 ---
 | Kaynak | Hedef | Sabit sınırı |
 |----------|--------------|------------|
-| Abonelik başına depolama Eşitleme Hizmetleri | Bölge başına 15 depolama Eşitleme Hizmetleri | Hayır |
+| Bölge başına depolama Eşitleme Hizmetleri | 15 depolama Eşitleme Hizmetleri | Evet |
 | Depolama eşitleme hizmeti başına eşitleme grupları | 100 eşitleme grupları | Evet |
 | Depolama eşitleme hizmeti başına kayıtlı sunucular | 99 sunucuları | Evet |
 | Bulut uç noktaları her eşitleme grubu | 1 bulut uç noktası | Evet |
@@ -28,6 +28,6 @@ ms.locfileid: "53638780"
 | Dosya sistemi nesneleri (dizinleri ve dosyaları) bir dizinde en fazla sayısı | 200.000 nesneleri | Evet |
 | En büyük nesne (dizinler ve dosyalar) adı uzunluğu | 255 karakter | Evet |
 | En büyük nesne (dizinler ve dosyalar) güvenlik tanımlayıcısı boyutu | 4 KiB | Evet |
-| Dosya boyutu | 100 giB | Hayır |
+| Dosya boyutu | 100 GiB | Hayır |
 | Katmanlanmış bir dosyanın en küçük dosya boyutu | 64 KiB | Evet |
 | Eşzamanlı bir eşitleme oturumları | V4 aracı: Kullanılabilir sistem kaynaklarına göre değişiklik gösterir. <BR> V3 aracı: her işlemci veya en fazla 8 active eşitleme oturumu sunucu başına 2 active sync oturumları | Evet
