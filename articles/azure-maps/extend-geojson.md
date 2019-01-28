@@ -47,7 +47,7 @@ A `Circle` geometrisini kullanılarak temsil edilir; `GeoJSON Feature` nesne __g
    >Dairenin `radius` kullanılarak temsil edilir `GeoJSON Feature`ait özellikleri. Yarıçap değeri bulunduğu _ölçümleri_ ve türünde olmalıdır `double`.
 
 3. Alt tür
-   >Daire geometrisi 'subType' özelliğini de içermelidir. Bu özellik 'GeoJSON Feature' nesnesine ait özelliklerin bir parçası olmalı veya özelliğin değeri _Circle_ olmalıdır.
+   >Daire geometri da içermelidir `subType` özelliği. Bu özellik bir parçası olmalıdır `GeoJSON Feature`ait özellikleri ya da onun değeri _Circle_
 
 
 #### <a name="example"></a>Örnek

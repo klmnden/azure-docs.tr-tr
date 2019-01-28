@@ -1,16 +1,16 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 69fa31efe9044ca6dbbc2c6229fdaa328437a046
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 0dbbf1e5b3f80f1dce188e38f3e0ff2d12cce07b
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792125"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912263"
 documentType: LandingData
 title: Bing Web Araması API'si Belgeleri
 metadata:
   document_id: 6111ada8-aec2-11e7-abc4-cec278b6b50a
   title: Bing Web Araması API'si Belgeleri - Öğreticiler, hızlı başlangıçlar, API başvuruları | Microsoft Docs
-  description: Bing Web Araması API’si kullanarak Web’den kullanıcı sorgularıyla alakalı sonuçlar elde etmeyi öğrenin. Öğreticilerde bu hizmeti kullanan uygulamaların nasıl derleneceği gösterilmektedir.
+  description: Bing Web Araması API'sini kullanarak web'de web sayfaları, resimler, videolar, haberler ve daha fazlasını aramayı öğrenin.
   services: cognitive-services
   author: nitinme
   manager: cgronlun
@@ -22,7 +22,7 @@ metadata:
   ms.date: 9/24/2018
   ms.author: nitinme
 abstract:
-  description: Bing Web Araması API’si, Bing’in kullanıcı sorgusuyla alakalı olduğunu belirlediği sonuçları döndürerek Bing’e çok yakın bir deneyim sunar. Sonuçlar Web sayfalarının yanı sıra resimler, videolar ve daha fazlasını da içerebilir.
+  description: Bing Web Araması API'si Bing'in arama özelliklerini uygulamalarınıza tümleştirmenize olanak tanır. API'yle arama sorguları göndererek, ilgili web sayfalarını, resimleri, videoları, haberleri ve daha fazlasını alabilirsiniz.
 sections:
 - items:
   - type: list
@@ -48,13 +48,13 @@ sections:
 - title: 5 Dakikalık Hızlı Başlangıçlar
   items:
   - type: paragraph
-    text: 'Sorgu oluşturup JSON yanıtını görüntüleyerek Bing Web Araması API’sini kullanmaya başlayın:'
+    text: "Aşağıdakileri kullanarak web'de arama yapın:"
   - type: list
     style: icon48
     items:
     - image:
         src: media/index/logo_csharp.svg
-      href: quickstarts/csharp
+      href: web-search-sdk-quickstart
       text: C&#35;
     - image:
         src: https://docs.microsoft.com/media/logos/logo_gopher.svg
@@ -62,11 +62,11 @@ sections:
       text: Başlayın
     - image:
         src: media/index/logo_java.svg
-      href: quickstarts/java
+      href: web-sdk-java-quickstart
       text: Java
     - image:
         src: media/index/logo_nodejs.svg
-      href: quickstarts/nodejs
+      href: web-search-sdk-node-quickstart
       text: Node.js
     - image:
         src: media/index/logo_php.svg
@@ -74,7 +74,7 @@ sections:
       text: PHP
     - image:
         src: media/index/logo_python.svg
-      href: quickstarts/python
+      href: web-sdk-python-quickstart
       text: Python
     - image:
         src: media/index/logo_ruby.svg

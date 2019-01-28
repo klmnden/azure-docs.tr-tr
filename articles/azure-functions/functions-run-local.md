@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: c99d5e9d64e9e9715589ecf2c0de57ce660917aa
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 854485863786a4892ea04d4d5400732742436210
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103698"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913079"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>İle Azure işlevleri çekirdek Araçları çalışma
 
@@ -40,13 +40,13 @@ Aksi belirtilmediği sürece, bu makaledeki örnekler için sürümü olan 2.x.
 
 ### <a name="v2"></a>Sürüm 2.x
 
-Sürüm 2.x Araçları, Azure işlevleri çalışma zamanı kullanan .NET Core üzerine yapılandırılan 2.x. Bu sürüm dahil olmak üzere, .NET Core 2.x desteklenen tüm platformlarda desteklenir [Windows](#windows-npm), [macOS](#brew), ve [Linux](#linux).
+Sürüm 2.x Araçları, Azure işlevleri çalışma zamanı kullanan .NET Core üzerine yapılandırılan 2.x. Bu sürüm dahil olmak üzere, .NET Core 2.x desteklenen tüm platformlarda desteklenir [Windows](#windows-npm), [macOS](#brew), ve [Linux](#linux). .NET Core yüklemelisiniz 2.x SDK.
 
 #### <a name="windows-npm"></a>Windows
 
 Aşağıdaki adımlar, Windows üzerinde temel araçları yüklemek için npm kullanın. Ayrıca [Chocolatey](https://chocolatey.org/). Daha fazla bilgi için [temel araçları Benioku](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
-1. Yükleme [Windows için .NET Core 2.1](https://www.microsoft.com/net/download/windows).
+1. Yükleme [Windows için .NET Core 2.x SDK](https://www.microsoft.com/net/download/windows).
 
 2. Yükleme [Node.js], npm içerir. İçin sürüm 2.x Araçlar, yalnızca Node.js 8.5 ve sonraki sürümlerde desteklenir.
 
@@ -60,7 +60,7 @@ Aşağıdaki adımlar, Windows üzerinde temel araçları yüklemek için npm ku
 
 Aşağıdaki adımları macOS üzerinde temel araçları yüklemek için Homebrew kullanın.
 
-1. Yükleme [macOS için .NET Core 2.1](https://www.microsoft.com/net/download/macos).
+1. Yükleme [.NET Core 2.x SDK macOS için](https://www.microsoft.com/net/download/macos).
 
 2. Yükleme [Homebrew](https://brew.sh/), zaten yüklü değilse.
 
@@ -75,7 +75,7 @@ Aşağıdaki adımları macOS üzerinde temel araçları yüklemek için Homebre
 
 Aşağıdaki adımları kullanın [APT](https://wiki.debian.org/Apt) Ubuntu/Debian Linux dağıtımınıza bağlı Core araçlarını yüklemek için. Diğer Linux dağıtımları için bkz: [temel araçları Benioku](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux).
 
-1. Yükleme [Linux için .NET Core 2.1](https://www.microsoft.com/net/download/linux).
+1. Yükleme [Linux için .NET Core 2.x SDK](https://www.microsoft.com/net/download/linux).
 
 2. Microsoft ürün anahtarı olarak güvenilir kaydedin:
 
@@ -96,7 +96,7 @@ Aşağıdaki adımları kullanın [APT](https://wiki.debian.org/Apt) Ubuntu/Debi
     | Ubuntu 18.04    | `bionic`    |
     | Ubuntu 17.10    | `artful`    |
     | Ubuntu 17.04    | `zesty`     |
-    | Ubuntu 16.04/Linux Naneli 18    | `xenial`  |
+    | Ubuntu 16.04/Linux Mint 18    | `xenial`  |
 
 4. Temel Araçları paketi yükleyin:
 

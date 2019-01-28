@@ -1,16 +1,16 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 62bb4c70c2a5068c90196acc2a1898ceeaa6945c
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 337c48d96a2ee679eda24500d9cb1a8d2581b2c7
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53787690"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912910"
 documentType: LandingData
-title: Bing Görsel Arama Belgeleri
+title: Bing Görsel Arama API'si Belgeleri
 metadata:
   document_id: 230494A6-34F9-416D-A6C0-57E69E1C2590
-  title: Bing Görsel Arama Belgeleri - Öğreticiler, API Başvurusu
-  description: Bir resim hakkında içgörüler edinmek için Bing Görsel Arama API’sini kullanmayı öğrenin. Öğreticilerde bu hizmeti kullanan uygulamaların nasıl derleneceği gösterilmektedir.
+  title: Bing Görsel Arama API'si Belgeleri - Öğreticiler, hızlı başlangıçlar, API başvuruları | Microsoft Docs
+  description: Bir resim hakkında içgörüler elde etmek için Bing Görsel Arama API’sini kullanmayı öğrenin.
   services: cognitive-services
   author: swhite-msft
   manager: rosh
@@ -19,15 +19,36 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 04/24/2018
+  ms.date: 01/16/2019
   ms.author: scottwhi
 abstract:
-  description: Bing Görsel Arama API’si resim hakkında, görsel olarak benzeyen resimler, resimde bulunan ürünlere ait alışveriş kaynakları, ilgili aramalar gibi içgörüler döndürerek Bing.com/images sayfasına yakın bir deneyim sunar.
+  description: Bing Görsel Arama API'si, Bing.com/images sayfasında gösterilenlere benzer resim ayrıntıları sağlar. Bir görüntü karşıya yüklendiğinde veya görüntü URL'si sağlandığında, API bu görüntü hakkında çeşitli ayrıntılarını tanımlayabilir. Bunlar arasında görsel olarak benzer görüntüler, satın alma kaynakları, görüntüyü içeren web sayfaları ve daha fazlası vardır.
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/bing-visual-search/overview
+      html: <p>Bing Görsel Arama API’si hakkında bilgi edinin</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: Bing Görsel Arama API’si nedir?
+    - href: /azure/cognitive-services/bing-visual-search/concepts/sending-queries
+      html: <p>Bing Görsel Arama API'sine arama isteği göndermeyi öğrenin.</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Arama sorguları gönderme
+    - href: /azure/cognitive-services/bing-visual-search/tutorial-visual-search-insights-token
+      html: <p>Görüntüyü Bing Görsel Arama API'sine yüklemek için Bing Resim Arama API'sinden bir içgörü belirteci kullanın</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Haber arama
 - title: 5 Dakikalık Hızlı Başlangıçlar
   items:
   - type: paragraph
-    text: 'Bing’e bir resim gönderip bu resim hakkındaki içgörüler edinerek Bing Görsel Arama API’sini kullanmaya başlayın:'
+    text: "Bing Görsel Arama API'sini kullanarak resim hakkında içgörüler elde edin:"
   - type: table
     style: dataMatrix
     columns:
@@ -40,12 +61,12 @@ sections:
     - image:
         src: media/index/logo_python.svg
     rows:
-    - title: İlk sorgunuz
+    - title: ''
       values:
-      - href: quickstarts/csharp
-      - href: quickstarts/java
-      - href: quickstarts/nodejs
-      - href: quickstarts/python
+      - href: visual-search-sdk-c-sharp
+      - href: java
+      - href: visual-search-sdk-node
+      - href: visual-search-sdk-python
 - title: Adım Adım Öğreticiler
   items:
   - type: paragraph
@@ -53,7 +74,7 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="tutorial-bing-visual-search-single-page-app">Tek Sayfalı Web uygulaması</a> | <a href="tutorial-bing-visual-search-single-page-app-source">Kaynak kodu</a>
+    - html: <a href="tutorial-bing-visual-search-single-page-app">Tek Sayfalı Web uygulaması</a>
 - title: Başvuru
   items:
   - type: list

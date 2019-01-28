@@ -12,12 +12,12 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: b8c4fdc942af291e912a4c1e74d1292279cf9f8c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: b16c67990099291381b6f11d9bd804bf4bef84e8
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53132338"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078500"
 ---
 # <a name="azure-resource-manager-resource-group-deletion"></a>Azure Resource Manager kaynak grubunu silme
 
@@ -69,4 +69,4 @@ Diğer hata kodları için Resource Manager kaynak silme işlemi başarısız ol
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Resource Manager kavramları anlamak için bkz. [Azure Resource Manager'a genel bakış](resource-group-overview.md).
-* Silme komutlar için bkz [PowerShell](/powershell/module/azurerm.resources/Remove-AzureRmResourceGroup), [Azure CLI](/cli/azure/group?view=azure-cli-latest#az-group-delete), ve [REST API](/rest/api/resources/resourcegroups/delete).
+* Silme komutlar için bkz [PowerShell](/powershell/module/az.resources/Remove-AzResourceGroup), [Azure CLI](/cli/azure/group?view=azure-cli-latest#az-group-delete), ve [REST API](/rest/api/resources/resourcegroups/delete).

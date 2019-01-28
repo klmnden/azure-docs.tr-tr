@@ -1,16 +1,16 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: ef0bfc744e43491e6ac8c238904f4c1704cdeaba
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 516bd4c5edaaec2545be35032c4c87cb394ec0b3
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53793351"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912022"
 documentType: LandingData
 title: Bing Resim Arama API'si Belgeleri
 metadata:
   document_id: ce69fd12-adf8-11e7-abc4-cec278b6b50a
   title: Bing Resim Arama API'si Belgeleri - Öğreticiler, hızlı başlangıçlar, API başvuruları | Microsoft Docs
-  description: Bing Resim Arama API’si kullanarak Web’den kullanıcı sorgularıyla alakalı resimler elde etmeyi öğrenin. Öğreticilerde bu hizmeti kullanan uygulamaların nasıl derleneceği gösterilmektedir.
+  description: Web'de görüntü aramak için Bing Resim Arama API'sinin nasıl kullanılacağını öğrenin.
   services: cognitive-services
   author: nitinme
   manager: cgronlun
@@ -19,10 +19,10 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 9/24/2018
+  ms.date: 1/16/2019
   ms.author: nitinme
 abstract:
-  description: Bing Resim Arama API’si, Bing’in kullanıcı sorgusuyla alakalı olduğunu belirlediği resimleri döndürerek Bing.com/images sayfasına çok yakın bir deneyim sunar.
+  description: Bing Resim Arama API'si Bing'in resim arama özelliklerini uygulamalarınızla tümleştirmenize olanak tanır. API ile kullanıcı arama sorguları göndererek bing.com/images benzeri ilgili ve yüksek kaliteli resimler alıp görüntüleyebilirsiniz.
 sections:
 - items:
   - type: list
@@ -34,35 +34,35 @@ sections:
       html: <p>Bing Resim Arama API’si hakkında bilgi edinin</p>
       image:
         src: ../media/index/i_overview.svg
-      title: Bing Resim Arama nedir?
+      title: Bing Resim Arama API’si nedir?
     - href: /azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries
-      html: <p>Bing'e Resim arama sorgusu göndermeyi öğrenin</p>
+      html: <p>Bing Resim Arama API'sine resim arama sorguları göndermeyi öğrenin</p>
       image:
         src: ../media/index/i_guidelines.svg
       title: Resim Arama sorguları
     - href: /azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images
-      html: <p>Resim Arama yanıtını anlama</p>
+      html: <p>Bing Resim Arama API'sinin yanıtını anlama</p>
       image:
         src: ../media/index/i_guidelines.svg
       title: Resim Arama yanıtı
 - title: 5 Dakikalık Hızlı Başlangıçlar
   items:
   - type: paragraph
-    text: 'Sorgu oluşturup JSON yanıtını görüntüleyerek Bing Resim Arama API’sini kullanmaya başlayın:'
+    text: 'Aşağıdakileri kullanarak web’de resim arayın:'
   - type: list
     style: icon48
     items:
     - image:
         src: media/index/logo_csharp.svg
-      href: quickstarts/csharp
+      href: image-search-sdk-quickstart
       text: C&#35;
     - image:
         src: media/index/logo_java.svg
-      href: quickstarts/java
+      href: image-sdk-java-quickstart
       text: Java
     - image:
         src: media/index/logo_nodejs.svg
-      href: quickstarts/nodejs
+      href: image-search-sdk-node-quickstart
       text: Node.js
     - image:
         src: media/index/logo_php.svg
@@ -70,7 +70,7 @@ sections:
       text: PHP
     - image:
         src: media/index/logo_python.svg
-      href: quickstarts/python
+      href: image-sdk-python-quickstart
       text: Python
     - image:
         src: media/index/logo_ruby.svg

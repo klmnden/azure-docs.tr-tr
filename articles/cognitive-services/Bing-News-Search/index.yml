@@ -1,16 +1,16 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 0b934e7ac5b297b5c7349a9a9985f6c50d62d19f
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 17fac6455ca225363726b347c428d176e78a1ff9
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791957"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912808"
 documentType: LandingData
 title: Bing Haber Arama API'si Belgeleri
 titleSuffix: Azure Cognitive Services
 metadata:
   title: Bing Haber Arama API'si Belgeleri - Öğreticiler, hızlı başlangıçlar, API başvuruları | Microsoft Docs
-  description: Bing Haber Arama API’si kullanarak Web’den kullanıcı sorgularıyla alakalı haberler elde etmeyi öğrenin. Öğreticilerde bu hizmeti kullanan uygulamaların nasıl derleneceği gösterilmektedir.
+  description: Web’de haber aramak için Bing Haber Arama API'sinin nasıl kullanılacağını öğrenin.
   services: cognitive-services
   author: mikedodaro
   manager: rosh
@@ -19,29 +19,50 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 11/02/2017
+  ms.date: 01/16/2019
   ms.author: v-gedod
 abstract:
-  description: Bing Haber Arama API’si, Bing’in kullanıcı sorgusuyla alakalı olduğunu belirlediği haber makalelerinin listesini döndürerek Bing Haberler’e çok yakın bir deneyim sunar.
+  description: Bing Haber Arama API'si Bing'in haber arama özelliklerini uygulamalarınıza tümleştirmenize olanak tanır. API'yle arama sorguları göndererek, bing.com/news benzeri çeşitli kategoriler ve kaynaklardan uygun haber makalelerini alabilirsiniz.
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/bing-news-search/search-the-web
+      html: <p>Bing Haber Arama API’si hakkında bilgi edinin</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: Bing Haber Arama API’si nedir?
+    - href: /azure/cognitive-services/bing-news-search/concepts/send-search-queries
+      html: <p>Bing Haber Arama API'sine arama isteği göndermeyi öğrenin.</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Arama sorguları gönderme
+    - href: /azure/cognitive-services/bing-news-search/concepts/search-for-news
+      html: <p>Birden çok haber türü ve kategorisini aramayı öğrenin.</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Haber arama
 - title: 5 Dakikalık Hızlı Başlangıçlar
   items:
   - type: paragraph
-    text: 'Sorgu oluşturup JSON yanıtını görüntüleyerek Bing Haber Arama API’sini kullanmaya başlayın:'
+    text: 'Aşağıdakileri kullanarak web’de haber arayın:'
   - type: list
     style: icon48
     items:
     - image:
         src: media/index/logo_csharp.svg
-      href: csharp
+      href: news-search-sdk-quickstart
       text: C&#35;
     - image:
         src: media/index/logo_java.svg
-      href: java
+      href: news-sdk-java-quickstart
       text: Java
     - image:
         src: media/index/logo_nodejs.svg
-      href: nodejs
+      href: news-search-sdk-node-quickstart
       text: Node.js
     - image:
         src: media/index/logo_php.svg
@@ -49,7 +70,7 @@ sections:
       text: PHP
     - image:
         src: media/index/logo_python.svg
-      href: python
+      href: news-sdk-python-quickstart
       text: Python
     - image:
         src: media/index/logo_ruby.svg
@@ -60,7 +81,7 @@ sections:
   - type: paragraph
     text: 'Bing Haber Arama API’sini kullanarak uygulama geliştirin:'
   - type: paragraph
-    text: <a href="tutorial-bing-news-search-single-page-app">Tek sayfalı web uygulaması</a> &#124; <a href="tutorial-bing-news-search-single-page-app-source">Kaynak kodu</a>
+    text: <a href="tutorial-bing-news-search-single-page-app">Tek sayfalı web uygulaması</a>
 - title: Örnekler
   items:
   - type: paragraph

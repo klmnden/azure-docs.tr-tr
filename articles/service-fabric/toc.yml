@@ -86,6 +86,22 @@ items:
       href: service-fabric-tutorial-standalone-install-an-application.md
     - name: 4- Kümenizi temizleme ve altyapıyı silme
       href: service-fabric-tutorial-standalone-clean-up.md
+- name: En iyi uygulamalar
+  items:
+  - name: Service Fabric için en iyi yöntemlere genel bakış
+    href: service-fabric-best-practices-overview.md
+  - name: Güvenlik
+    href: service-fabric-best-practices-security.md
+  - name: Ağ
+    href: service-fabric-best-practices-networking.md
+  - name: İşlem planlama ve ölçeklendirme
+    href: service-fabric-best-practices-capacity-scaling.md
+  - name: Kod olarak altyapı
+    href: service-fabric-best-practices-infrastructure-as-code.md
+  - name: İzleme ve tanılama
+    href: service-fabric-best-practices-monitoring.md
+  - name: Üretim hazırlığı denetim listesi
+    href: service-fabric-production-readiness-checklist.md
 - name: Örnekler
   items:
   - name: Kod örnekleri
@@ -702,10 +718,6 @@ items:
       href: service-fabric-reverse-proxy-diagnostics.md
     - name: Yerel kümenizde sorun giderme
       href: service-fabric-troubleshoot-local-cluster-setup.md
-  - name: En iyi uygulamalar
-    items:
-    - name: Üretim hazırlığı denetim listesi
-      href: service-fabric-production-readiness-checklist.md
 - name: Başvuru
   items:
   - name: Azure PowerShell
@@ -827,9 +839,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=service-fabric
   - name: Videolar
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric
-ms.openlocfilehash: abf77c080d6093e9028f82ccac7b20d24389bdbb
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 5b487a8212cabb6809a9152e10dde7a1c9c7158f
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352487"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913538"

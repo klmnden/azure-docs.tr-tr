@@ -14,12 +14,12 @@ ms.devlang: R
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: jepeach
-ms.openlocfilehash: 102191b885d2a4a9234b7783b0a51b09903d3abd
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: c5120cdb743e031c081f727c947752419db3a9d7
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54807465"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55081118"
 ---
 # <a name="r-developers-guide-to-azure"></a>Azure için R Geliştirici Kılavuzu
 <img src="media/r-developers-guide/logo_r.svg" alt="R logo" align="right" width="200" />
@@ -83,23 +83,23 @@ Makaleyi ["Azure Databricks nedir?"](https://docs.microsoft.com/azure/azure-data
 başlamanıza yardımcı olur ve platformu hakkında daha fazla ayrıntı sağlar.
 
 ## <a name="azure-machine-learning-studio"></a>Azure Machine Learning Studio
-[Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/) derleme, test etme ve bulutta Tahmine dayalı analiz çözümlerini dağıtmak için kullanabileceğiniz bir işbirliğine dayalı sürükle ve bırak aracıdır.  Bu, oluşturmak ve makine öğrenimi modelleri kadar kod yazmak zorunda kalmadan dağıtmak ortaya çıkan veri bilimcileri sağlar.
+[Azure Machine Learning studio](https://azure.microsoft.com/services/machine-learning-studio/) derleme, test etme ve bulutta Tahmine dayalı analiz çözümlerini dağıtmak için kullanabileceğiniz bir işbirliğine dayalı sürükle ve bırak aracıdır.  Bu, oluşturmak ve makine öğrenimi modelleri kadar kod yazmak zorunda kalmadan dağıtmak ortaya çıkan veri bilimcileri sağlar.
 
-ML Studio, hem R ve Python destekler.  ML Studio ile R iki şekilde kullanabilir.
+Azure Machine Learning studio, hem R ve Python destekler.  Azure Machine Learning studio iki yolla ile R kullanabilirsiniz.
 
 ### <a name="custom-r-scripts-in-your-experiments"></a>Denemelerinizi özel R betiklerini
 İlk olarak, veri işleme ve makine öğrenimi özellikleri ML Studio özel R betikleri yazarak genişletebilirsiniz.
 ML Studio çok çeşitli hazırlama ve veri çözümlemesi için modüller içerir ancak olgun bir dil R'dir gibi yeteneklerini eşleşemez  Bu nedenle, hizmet, kendi özel R betikleri burada belirtilen modülleri karşılamıyor durumlarda tanıtmak için gereksinimlerinizi olanak sağlamak için tasarlanmıştır.
 
-Bu özellikten yararlanmak için sürükleyip denemenize "R betiği yürütme" modülü bırakın.  Ardından Kod Düzenleyicisi "Özellikler" bölmesinde yeni bir R betik yazma veya mevcut bir komut dosyasının yapıştırmak için kullanın.  Komut dosyası içinde dış R paketleri başvuruda bulunabilir.  Betik verileri işlemek için ya da standart ML Studio model kitaplığının parçası olmayan karmaşık ML modelleri eğitmek için kullanabilirsiniz.
+Bu özellikten yararlanmak için sürükleyip denemenize "R betiği yürütme" modülü bırakın.  Ardından Kod Düzenleyicisi "Özellikler" bölmesinde yeni bir R betik yazma veya mevcut bir komut dosyasının yapıştırmak için kullanın.  Komut dosyası içinde dış R paketleri başvuruda bulunabilir.  Betik verileri işlemek için ya da standart Azure Machine Learning studio model kitaplığının parçası olmayan karmaşık ML modelleri eğitmek için kullanabilirsiniz.
 
-ML Studio denemeleri içinde R kullanarak kapsamlı giriş için kullanıma ["Olan R programlama dili için Azure Machine Learning için hızlı başlangıç Öğreticisi."](https://docs.microsoft.com/azure/machine-learning/studio/r-quickstart)
+ML Studio denemeleri içinde R kullanarak kapsamlı giriş için kullanıma ["Olan R programlama dili için Azure Machine Learning studio için hızlı başlangıç Öğreticisi."](https://docs.microsoft.com/azure/machine-learning/studio/r-quickstart)
 
 ### <a name="create-manage-and-deploy-experiments-from-your-local-r-environment"></a>Oluşturma, yönetme ve yerel R ortamınızda denemelerle dağıtma
-ML Studio ile R kullanabileceğiniz başka bir şekilde kullanmaktır
-<code>[AzureML](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html)</code> R programlama ortamı ile deneme işlemini denetlemek ve izlemek için paket.  Microsoft tarafından korunur, bu paket karşıya yükleme ve veri kümeleri için ve Azure ML denemeleri, R işlevleri Azure ML web Hizmetleri olarak yayımlanacak ve mevcut web Hizmetleri aracılığıyla R veri çalıştırın ve çıktıyı almak için sorgulayın için indirmenize olanak sağlar.
+Azure Machine Learning studio ile R kullanabileceğiniz başka bir şekilde kullanmaktır
+<code>[AzureML](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html)</code> R programlama ortamı ile deneme işlemini denetlemek ve izlemek için paket.  Microsoft tarafından korunur, bu paket karşıya yükleme ve indirme veri kümelerine izin verir ve Azure Machine Learning hizmetinden R yayımlama denemeleri, aracıyı sorgulamak için studio, web Hizmetleri olarak çalışır ve R çalıştırmak için mevcut aracılığıyla veri web hizmetleri ve almak çıktı.
 
-Bu paketin Azure ML, R kodunuz için ölçeklenebilir dağıtım platformu olarak kullanmak çok daha kolay hale getirir.  ' I tıklatarak ve sürükleyerek kullanıcı Arabiriminde yerine zaten bildiğiniz araçları kullanarak tüm dağıtım işlemini otomatik hale getirebilirsiniz.
+Bu paketi Azure Machine Learning studio için R kodunuzu ölçeklenebilir dağıtım platformu olarak kullanmak çok daha kolay hale getirir.  ' I tıklatarak ve sürükleyerek kullanıcı Arabiriminde yerine zaten bildiğiniz araçları kullanarak tüm dağıtım işlemini otomatik hale getirebilirsiniz.
 
 ## <a name="azure-batch"></a>Azure Batch
 Büyük ölçekli R işleri için kullanabileceğiniz [Azure Batch](https://azure.microsoft.com/services/batch/).  Bu hizmet bulut ölçeğinde iş zamanlaması ve işlem yönetimi sağlar. böylece, R iş yükünüz onlarca, yüzlerce veya binlerce sanal makine arasında ölçeklendirebilirsiniz.  Yok, genelleştirilmiş bir bilgi işlem platformu olduğundan, birkaç seçenek Azure Batch'te R işlerini çalıştırmak için.
