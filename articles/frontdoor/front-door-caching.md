@@ -26,7 +26,7 @@ Dosya boyutu büyük dosyaları bir sınır olmaksızın Azure ön kapısı hizm
 
 </br>Öbek ön kapısı ortam ulaştıktan sonra önbelleğe alınmış ve hemen kullanıcıya sunulan. Ön kapısı ardından paralel sonraki öbek önceden getirir. Bu önceden getirme içeriği gecikmesini azaltır kullanıcı önceden bir öbek kalmasını sağlar. Bu işlem tüm kadar devam eder (istenirse) dosyasını indirdiğiniz, tüm bayt aralıkları (istenirse) kullanılabilir, veya istemci bağlantıyı sonlandırır.
 
-</br>Bayt aralığı istek üzerine daha fazla bilgi için okuma [RFC 7233](https://web.archive.org/web/20171009165003/ http://www.rfc-base.org/rfc-7233.html).
+</br>Bayt aralığı istek üzerine daha fazla bilgi için okuma [RFC 7233](https://web.archive.org/web/20171009165003/http://www.rfc-base.org/rfc-7233.html).
 Ön kapısı alındığında ve dosyanın tamamı ön kapısı önbellekte önbelleğe alınması gerekmez tüm öbekleri önbelleğe alır. Dosya veya bayt aralıkları için sonraki istekleri önbellekten sunulur. Aksi takdirde tüm öbekleri önbelleğe alınır, öbekleri arka ucundan istemek için önceden getirme kullanılır. Bu iyileştirme, bayt aralığı isteklerini desteklemek için arka uç yeteneklerini üzerinde kullanır; Bu iyileştirme, arka bayt aralığı isteklerini desteklemiyorsa, etkili değildir.
 
 ## <a name="file-compression"></a>Dosya sıkıştırma
