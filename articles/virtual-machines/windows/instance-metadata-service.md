@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 17826bb250f1cc7c4d512f76400eeb43c2637c73
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: b88f1ff84cc26e1db88027a55b506fd37476aae5
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994802"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197696"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure örnek meta veri hizmeti
 
@@ -303,8 +303,8 @@ planı | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/crea
 publicKeys | Ortak anahtarlar koleksiyonunu [https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey] VM ve yolları atanan | 2017-04-02
 vmScaleSetName | [Sanal makine ölçek kümesi adı](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) , sanal makine ölçek kümesi | 2017-12-01
 bölge | [Kullanılabilirlik alanı](../../availability-zones/az-overview.md) sanal makinenizin | 2017-12-01 
-IPv4/Privateıpaddress | Sanal makinenin yerel IPv4 adresi | 2017-04-02
-IPv4/Publicıpaddress | Sanal makinenin genel IPv4 adresi | 2017-04-02
+ipv4/privateIpAddress | Sanal makinenin yerel IPv4 adresi | 2017-04-02
+ipv4/publicIpAddress | Sanal makinenin genel IPv4 adresi | 2017-04-02
 alt ağ/adresi | VM alt ağ adresi | 2017-04-02 
 alt ağ/ön eki | Alt ağ ön eki, örnek 24 | 2017-04-02 
 ipv6/ipAddress | Sanal makinenin yerel IPv6 adresi | 2017-04-02 

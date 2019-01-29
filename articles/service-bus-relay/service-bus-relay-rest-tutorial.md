@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2018
 ms.author: spelluru
-ms.openlocfilehash: 40562c77cf38ad316d64f68b54dd4174dae6da1a
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: e0f85e11b2be8a615f949e0d37325dbd748f728a
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614481"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103284"
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Azure WCF geçişi REST Öğreticisi
 Bu öğretici, REST tabanlı bir arabirimi kullanıma sunan basit bir Azure geçişi ana bilgisayar uygulaması derlemeyi açıklar. REST, HTTP istekleri üzerinden Service Bus API'lerine erişmek için web tarayıcısı gibi bir web istemcisi sunar.
@@ -49,7 +49,7 @@ Azure'da geçiş özelliklerini kullanmaya başlamak için öncelikle bir hizmet
 
 ## <a name="define-a-rest-based-wcf-service-contract-to-use-with-azure-relay"></a>Azure geçişi ile kullanmak için REST tabanlı WCF hizmet sözleşmesini tanımlama
 
-WCF REST stilinde bir hizmet oluşturduğunuzda sözleşme tanımlamanız gerekir. Sözleşmede ana bilgisayarın hangi işlemleri desteklediği belirtilir. Bir hizmet işlemi, web hizmeti yöntemi olarak düşünülebilir. Sözleşmeler; C++, C# veya Visual Basic arabirimi tanımlamasıyla oluşturulur. Arabirimdeki her yöntem belirli bir hizmet işlemine karşılık gelir. [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) özniteliğinin her arabirime ve [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute) özniteliğinin her işleme uygulanması gerekir. Arabirimdeki bir yöntem [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) özniteliğine sahip olup [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute) özniteliğine sahip olmazsa bu yöntem kullanıma sunulmaz. Bu görevler için kullanılan kod, aşağıdaki yordamın altındaki örnekte gösterilir.
+WCF REST stilinde bir hizmet oluşturduğunuzda sözleşme tanımlamanız gerekir. Sözleşmede ana bilgisayarın hangi işlemleri desteklediği belirtilir. Bir hizmet işlemi, web hizmeti yöntemi olarak düşünülebilir. Sözleşmeler; C++, C# veya Visual Basic arabirimi tanımlamasıyla oluşturulur. Arabirimdeki her yöntem belirli bir hizmet işlemine karşılık gelir.  [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) özniteliğinin her arabirime ve [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute) özniteliğinin her işleme uygulanması gerekir. Arabirimdeki bir yöntem [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) özniteliğine sahip olup [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute) özniteliğine sahip olmazsa bu yöntem kullanıma sunulmaz. Bu görevler için kullanılan kod, aşağıdaki yordamın altındaki örnekte gösterilir.
 
 Bir WCF sözleşmesi ve REST stili sözleşmesi arasındaki birincil fark özellik ektir [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute): [WebGetAttribute](/dotnet/api/system.servicemodel.web.webgetattribute). Bu özellik sayesinde arabiriminizdeki bir yöntem ile arabirimin diğer tarafındaki bir yöntemi eşleyebilirsiniz. Bu örnekte [WebGetAttribute](/dotnet/api/system.servicemodel.web.webgetattribute) HTTP GET isteğine bir yöntemi bağlamak için özniteliği. Bu, Service Bus'ın doğru şekilde almak ve arabirime gönderilen komutları yorumlamasını sağlar.
 
@@ -439,9 +439,9 @@ Aşağıdaki örnek, hizmetle ilişkilendirilen App.config dosyasını gösterir
       </behaviors>
     </system.serviceModel>
     <appSettings>
-        <!-- Service Bus specific app setings for messaging connections -->
+        <!-- Service Bus specific app settings for messaging connections -->
         <add key="Microsoft.ServiceBus.ConnectionString"
-            value="Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey="YOUR_SAS_KEY"/>
+            value="Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YOUR_SAS_KEY>"/>
     </appSettings>
 </configuration>
 ```

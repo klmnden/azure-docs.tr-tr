@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 01/28/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 403906a60d16a478dffd313b45aa1ce24e42196a
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: f369eb6241a8eb3d44a0a38e243c533da47103e1
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119247"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104623"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Canlı ölçümleri Stream: İzleme ve tanılama 1 saniyelik gecikme süresi
 
@@ -36,19 +36,19 @@ Canlı ölçümler Stream ile şunları yapabilirsiniz:
 
 [![Canlı ölçümler Stream video](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
 
+Canlı ölçümleri şu anda ASP.NET, ASP.NET Core, Azure işlevleri ve Java uygulamaları için desteklenir.
+
 ## <a name="get-started"></a>başlarken
 
-1. Henüz yapmadıysanız [Application Insights yüklü](../../azure-monitor/app/asp-net.md) ASP.NET web uygulamanızda veya [Windows server uygulamasını](../../azure-monitor/app/windows-services.md), bunu şimdi yapın. 
-2. **En son sürüme güncelleştirme** Application Insights paketi. Visual Studio'da, projenize sağ tıklayıp seçin **Nuget paketlerini Yönet**. Açık **güncelleştirmeleri** sekmesinde, onay **ön sürümü dahil et**ve tüm Microsoft.ApplicationInsights.* paketleri seçin.
+1. Henüz yapmadıysanız [Application Insights yükleme](../../azure-monitor/azure-monitor-app-hub.md) web uygulamanızda bunu şimdi yapın.
+2. Standart Application Insights paketlerini yanı sıra [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/) Canlı ölçüm akışı etkinleştirmek için gereklidir.
+3. **En son sürüme güncelleştirme** Application Insights paketi. Visual Studio'da, projenize sağ tıklayıp seçin **Nuget paketlerini Yönet**. Açık **güncelleştirmeleri** sekmesini ve tüm Microsoft.ApplicationInsights.* paketlerini seçin.
 
     Uygulamanızı yeniden dağıtın.
 
 3. İçinde [Azure portalında](https://portal.azure.com), uygulamanız için Application Insights kaynağını açın ve ardından canlı Stream açın.
 
 4. [Denetim kanalı güvenli](#secure-the-control-channel) , müşteri adları gibi hassas verileri filtrelerinizi kullanabilirsiniz.
-
-
-![Genel Bakış dikey penceresinde, Canlı Stream'a tıklayın.](./media/live-stream/live-stream-2.png)
 
 ### <a name="no-data-check-your-server-firewall"></a>Veri yok mu? Sunucu güvenlik duvarınızdan denetleyin
 
@@ -69,7 +69,7 @@ Denetleme [Canlı ölçümleri Stream için giden bağlantı noktalarının](../
 
 ## <a name="select-and-filter-your-metrics"></a>Seçin ve ölçümlerinizi Filtrele
 
-(En son SDK'sı ile klasik ASP.NET uygulamalarında kullanılabilir.)
+(ASP.NET, ASP.NET Core ve Azure işlevleri (v2) ile kullanılabilir.)
 
 Portaldan herhangi bir Application Insights telemetri üzerinde isteğe bağlı filtreler uygulayarak özel KPI Canlı izleyebilirsiniz. Ne zaman, fare herhangi grafik üzerinde gösteren filtre denetimi tıklayın. Aşağıdaki grafikte bir URL ve süresi öznitelikleri filtreleri ile özel bir istek sayısı KPI çizim. Zaman içinde herhangi bir noktada belirtilen ölçütlerle eşleşen telemetri bir canlı akışı gösteren Stream Önizleme bölümüyle filtrelerinizi doğrulayın. 
 
@@ -161,6 +161,12 @@ using Microsoft.ApplicationInsights.Extensibility;
 
 ```
 
+### <a name="azure-function-apps"></a>Azure işlev uygulamaları
+
+Azure işlev uygulamaları (v2) kanal bir API ile güvenli hale getirme için anahtar bir ortam değişkeni ile gerçekleştirilebilir. 
+
+Application Insights kaynağınıza içinde bir API anahtarı oluşturma ve Git **uygulama ayarları** işlev uygulamanız için. Seçin **yeni ayar Ekle** ve bir ad girin `APPINSIGHTS_QUICKPULSEAUTHAPIKEY` ve API anahtarınızı karşılık gelen bir değer.
+
 ### <a name="aspnet-core-requires-application-insights-aspnet-core-sdk-230-beta-or-greater"></a>ASP.NET Core (Application Insights ASP.NET Core SDK gerektirir 2.3.0-beta veya üzeri)
 
 Startup.cs dosyanız aşağıdaki gibi değiştirin:
@@ -176,7 +182,6 @@ Ardından içinde Createservicereplicalisteners() yöntemi ekleyin:
 ``` C#
 services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => module.AuthenticationApiKey = "YOUR-API-KEY-HERE");
 ```
-
 
 Ancak, tanıyacak ve tüm bağlı sunucular güven, kimliği doğrulanmış kanalı olmadan özel filtreler deneyebilirsiniz. Bu seçenek altı ay için kullanılabilir. Bu geçersiz kılma her yeni oturumun bir kez gereklidir veya ne zaman yeni bir sunucu gelir çevrimiçi.
 

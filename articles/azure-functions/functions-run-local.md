@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 854485863786a4892ea04d4d5400732742436210
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 214f32c4dc35661480b96477caf0cdf6243c75a8
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913079"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094258"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>İle Azure işlevleri çekirdek Araçları çalışma
 
@@ -371,7 +371,7 @@ Bir işlev yönetici uç noktası için test verilerini geçirmek için bir POST
 {
     "input": "<trigger_input>"
 }
-````
+```
 
 `<trigger_input>` Değer işlevi tarafından beklenen biçimde veriler içeriyor. Bir GÖNDERİ için aşağıdaki cURL örnek, bir `QueueTriggerJS` işlevi. Bu durumda, giriş iletinin kuyrukta bulunması beklenen değerine eşdeğer olan bir dizedir.
 
