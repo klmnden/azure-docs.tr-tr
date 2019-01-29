@@ -10,20 +10,20 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/28/2019
 ms.author: jingwang
-ms.openlocfilehash: 36c94a035c7585d655f4482239de70cd2e1a5cc6
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: ac50078dcc60e925f1e2e27a1296b2644939baef
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014140"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55153734"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure veri fabrikasında kopyalama etkinliği
 
 ## <a name="overview"></a>Genel Bakış
 
-> [!div class="op_single_selector" title1="Kullanmakta olduğunuz Data Factory servisinin sürümünü seçin:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Sürüm 1](v1/data-factory-data-movement-activities.md)
 > * [Geçerli sürüm](copy-activity-overview.md)
 
@@ -155,7 +155,7 @@ Bu işlem hattı çalıştırmasını etkinlikler listesini görmek için tıkla
 
 ![Etkinlik çalıştırmalarını izleme](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
 
-Tıklayın "**ayrıntıları**" altında bağlantı **eylemleri** kopyalama etkinliği'nin yürütme ayrıntıları ve performans özelliklerini görmek için. Bu havuz için kaynak, aktarım hızı, karşılık gelen süre ile geçtiği ve yapılandırmaları kopyalama senaryonuz için kullanılan adımları dahil olmak üzere birim/satır/dosyaları veri kopyalanan bilgiler gösterir.
+Tıklayın "**ayrıntıları**" altında bağlantı **eylemleri** kopyalama etkinliği'nin yürütme ayrıntıları ve performans özelliklerini görmek için. Bu havuz için kaynak, aktarım hızı, karşılık gelen süre ile geçtiği ve yapılandırmaları kopyalama senaryonuz için kullanılan adımları dahil olmak üzere birim/satır/dosyaları veri kopyalanan bilgiler gösterir. Bazı senaryolarda da göreceksiniz bir "**performans ayarlama ipuçları**" bölümünde tanımlanan sorunu bildiren ve böyle kopyalama durumda kopyalama verimliliğini artırın, örnek konusunda size üstte [burada](#performance-and-tuning).
 
 **Örnek: Azure Data Lake Store için Amazon S3'ten kopyalama**
 ![İzleyici etkinlik çalışma ayrıntıları](./media/copy-activity-overview/monitor-activity-run-details-adls.png)
@@ -232,6 +232,11 @@ Kopyalama etkinliği, varsayılan olarak veri kopyalama durdurur ve uyumsuz veri
 ## <a name="performance-and-tuning"></a>Performans ve ayar
 
 Bkz: [kopyalama etkinliği performansı ve ayarlama Kılavuzu](copy-activity-performance.md), Azure Data factory'deki veri taşıma (kopyalama etkinliği) performansını etkileyen önemli faktörlerin açıklar. Ayrıca, iç test sırasında gözlemlenen performans listeler ve kopyalama etkinliği performansı iyileştirmek için çeşitli yollar ele alınmaktadır.
+
+Bazı senaryolarda, bir kopyalama etkinliği, ADF'de yürüttüğünüzde da göreceksiniz bir "**performans ayarlama ipuçları**" üst kısmındaki bölümünde [kopyalama etkinliği sayfası izleme](#monitor-visually), söyleyen, tanımlanan performans sorunu ve böyle bir durumda kopyalama için kopyalama aktarım hızını artırma konusunda size yol gösterir.
+
+**Örnek: performans ayarlama ipuçları ile Azure SQL Veritabanına kopyalama**
+![kopyalama performans ayarlama ipuçları ile izleme](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
 
 ## <a name="incremental-copy"></a>Artımlı kopyalama 
 Data Factory, artımlı olarak delta veriler kaynak veri deposundan hedef veri deposuna kopyalamak için senaryoları destekler. Bkz: [öğretici: verileri artımlı olarak kopyalama](tutorial-incremental-copy-overview.md). 

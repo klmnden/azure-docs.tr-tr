@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: 3e40dbb96b27df4b228c52e7a8f70d047a556c31
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 2babb6ff7b93ad9cf7c93565cadce9453a3b96ca
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198534"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103437"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Uygulama ağ geçidi (genel Önizleme) ile yeniden yazma HTTP üstbilgileri
 
@@ -94,22 +94,20 @@ Bu özellik aşağıdaki sunucu değişkenleri yazmaksızın üstbilgileri deste
 | -------------------------- | :----------------------------------------------------------- |
 | ciphers_supported          | İstemci tarafından desteklenen şifreleme listesini döndürür          |
 | ciphers_used               | Yerleşik bir SSL bağlantısı için kullanılan şifrelemeleri dizesi döndürür |
-| client_latitude            | Ülke, bölge ve şehir istemci IP adresine bağlı olarak belirlemek için |
-| client_longitude           | Ülke, bölge ve şehir istemci IP adresine bağlı olarak belirlemek için |
 | client_port                | İstemci bağlantı noktası                                                  |
 | client_tcp_rtt             | TCP Bağlantısı İstemcisi hakkında bilgiler; TCP_INFO olarak yuva seçeneği destekleyen sistemleri üzerinde kullanılabilir |
 | client_user                | HTTP kimlik doğrulaması kullanılırken kullanıcı adı kimlik doğrulaması için sağlanan |
 | konak                       | Bu öncelik sırasına: İstek satırı veya ana bilgisayar adı "Ana" istek üstbilgisi alanından konak adı veya sunucu adı ile eşleşen bir istek |
 | http_method                | URL isteği yapmak için kullanılan yöntem. Örneğin GET, POST vs. |
-| HTTP_STATUS                | oturum durumu, örn: 200, 400, 403 vs.                       |
+| http_status                | oturum durumu, örn: 200, 400, 403 vs.                       |
 | http_version               | İstek protokolü, genellikle "HTTP/1.0", "HTTP/1.1" veya "HTTP/2.0" |
 | QUERY_STRING               | değişken değeri listesi çiftlerini izleyen "?" İstenen URL. |
 | received_bytes             | İstek uzunluğu (istek satırı, başlık ve istek gövdesi dahil) |
 | request_query              | İstek satırı bağımsız değişkenleri                                |
 | request_scheme             | İstek düzeni, "http" veya "https"                            |
-| request_urı                | tam özgün istekle URI'si (bağımsız değişkenler)                   |
+| request_uri                | tam özgün istekle URI'si (bağımsız değişkenler)                   |
 | sent_bytes                 | bir istemciye gönderilen bayt sayısı                             |
-| SERVER_PORT                | bir isteği kabul sunucusunun bağlantı noktası                 |
+| server_port                | bir isteği kabul sunucusunun bağlantı noktası                 |
 | ssl_connection_protocol    | Yerleşik bir SSL bağlantısı Protokolü döndürür        |
 | ssl_enabled                | SSL modu veya boş bir dize değilse bağlantı "on" ise çalışır |
 

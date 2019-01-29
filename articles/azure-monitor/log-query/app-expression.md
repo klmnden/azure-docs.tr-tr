@@ -11,16 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 01/25/2019
 ms.author: bwren
-ms.openlocfilehash: e83ba321a98e40f07ff82e68c7961c2a6a49076d
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 2d6f3517e988d6bd66ee9007e072ee87c71d1340
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191844"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104669"
 ---
-# <a name="app-expression-in-log-analytics-query"></a>Log Analytics sorgu ifadesinde App()
+# <a name="app-expression-in-log-analytics-query"></a>app() expression in Log Analytics query
 
 `app` İfade, aynı kaynak grubunu, başka bir kaynak grubu veya başka bir aboneliğe belirli bir Application Insights uygulamasından veri almak için bir Log Analytics sorgu kullanılır. Uygulama verileri bir Application Insights sorgu birden çok uygulama arasında bir Log Analytics sorgu ve veri eklemek kullanışlıdır.
 
@@ -48,6 +48,7 @@ ms.locfileid: "53191844"
 * Uygulamanın okuma erişimi olmalıdır.
 * Bir uygulama adıyla tanımlama, tüm erişilebilir abonelikler arasında benzersiz olduğundan varsayar. Belirtilen ada sahip birden çok uygulamalarınız varsa, sorgu belirsizlik nedeniyle başarısız olur. Bu durumda diğer tanımlayıcılarla birini kullanmanız gerekir.
 * İlgili ifade kullanın [çalışma](workspace-expression.md) Log Analytics çalışma alanları arasında sorgulanamıyor.
+* App() ifade şu anda arama sorgusu oluşturmak için Azure portalını kullanarak, desteklenmeyen bir [özel günlük araması uyarı kuralı](../platform/alerts-log.md)sürece bir Application Insights uygulaması için uyarı kuralı kaynağı olarak kullanılır.
 
 ## <a name="examples"></a>Örnekler
 

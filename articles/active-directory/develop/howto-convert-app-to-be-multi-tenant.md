@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 35af95cb-ced3-46ad-b01d-5d2f6fd064a3
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -17,14 +17,14 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: justhu, elisol
 ms.custom: aaddev
-ms.openlocfilehash: 5c904feacef4f5c15784c5f30c5f8bedf3940329
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: ae9412ed7c02d88e7d0c35c6ea0f95da755b84d4
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425352"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097053"
 ---
-# <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Nasıl yapılır: çok kiracılı uygulama desenini kullanarak herhangi bir Azure Active Directory kullanıcısı ile oturum açın
+# <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Nasıl yapılır: Çok kiracılı uygulama desenini kullanarak herhangi bir Azure Active Directory kullanıcısı ile oturum açın
 
 Çoğu kuruluş için bir hizmet (SaaS) uygulaması olarak bir yazılım teklifi sunuyorsanız, uygulamanızı herhangi bir Azure Active Directory (Azure AD) kiracısı oturum açma işlemleri kabul edecek şekilde yapılandırabilirsiniz. Bu yapılandırma olarak adlandırılır *, uygulamanın çok kiracılı yapmadan*. Tüm Azure AD kiracısında kullanıcı hesaplarına uygulamanızda kullandığınız onaylanıyor sonra uygulamanızı oturum açmak mümkün olacaktır. 
 
@@ -59,7 +59,7 @@ Tek kiracılı bir uygulama, kiracının oturum açma uç noktası için oturum 
 
 Çok kiracılı bir uygulama ile bir kiracının uç noktaya istek gönderilemiyor böylece uygulamanın, kullanıcı, kiracısının ne Önden bilmez. Bunun yerine, tüm Azure AD kiracılarında bağlantıları çoğaltır bir uç noktaya istek gönderilir: `https://login.microsoftonline.com/common`
 
-Azure AD / Common üzerinde bir istek aldığında uç noktası, kullanıcı oturum açtıktan ve, sonuç olarak, hangi Kiracı Kullanıcı geldiği bulur. / Azure AD tarafından desteklenen kimlik doğrulama protokolleri tüm ortak uç nokta çalışır: Openıd Connect, OAuth 2.0, SAML 2.0 ve WS-Federation.
+Azure AD / Common üzerinde bir istek aldığında uç noktası, kullanıcı oturum açtıktan ve, sonuç olarak, hangi Kiracı Kullanıcı geldiği bulur. / Azure AD tarafından desteklenen kimlik doğrulama protokolleri tüm ortak uç nokta çalışır:  Openıd Connect, OAuth 2.0, SAML 2.0 ve WS-Federation.
 
 Uygulama oturum açma yanıtını kullanıcıyı temsil eden bir simge içerir. Belirteci veren değeri uygulamanın hangi Kiracı Kullanıcı dandır söyler. Ne zaman bir yanıt döndürür / Common uç nokta, belirteci veren değeri, kullanıcının kiracısı için karşılık gelir. 
 

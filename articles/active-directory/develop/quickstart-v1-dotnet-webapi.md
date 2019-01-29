@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 67e74774-1748-43ea-8130-55275a18320f
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
@@ -17,14 +17,14 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 239c0d0adbe89dd3d1d7bc7244a52ab079a36ad4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: f44955e13cb5774119dc083f4a3220b432d9cd9e
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952554"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098073"
 ---
-# <a name="quickstart-build-a-net-web-api-that-integrates-with-azure-ad-for-authentication-and-authorization"></a>Hızlı başlangıç: Kimlik doğrulaması ve yetkilendirme için Azure AD ile tümleştirilen bir .NET web API'si oluşturma
+# <a name="quickstart-build-a-net-web-api-that-integrates-with-azure-ad-for-authentication-and-authorization"></a>Hızlı Başlangıç: .NET web API'si Azure AD kimlik doğrulaması ve yetkilendirme ile tümleşen oluşturma
 
 [!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
@@ -37,18 +37,18 @@ ASP.NET web uygulamalarında, bu korumayı .NET Framework 4.5'e eklenmiş toplul
 
 Bu hızlı başlangıçta, To Do List API'sini oluşturacak ve şunları yapmayı öğreneceksiniz:
 
-1. Bir uygulamayı Azure AD'ye kaydetme.
+1. Bir uygulamayı Azure AD'ye kaydedin.
 2. Uygulamayı OWIN kimlik doğrulaması işlem hattını kullanacak şekilde ayarlama.
 3. Web API'sini çağırmak için bir istemci uygulaması yapılandırma.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Başlamak için şu önkoşulları tamamlayın:
 
 * [Uygulama çatısını indirin](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/skeleton.zip) veya [tamamlanmış örneği indirin](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). Bunların hepsi Visual Studio 2013 çözümüdür.
 * Uygulamanızı kaydedeceğiniz bir Azure AD kiracınız olmalıdır. Henüz kiracınız yoksa, [nasıl alacağınızı öğrenin](quickstart-create-new-tenant.md).
 
-## <a name="step-1-register-an-application-with-azure-ad"></a>1. Adım: Uygulamayı Azure AD'ye kaydetme
+## <a name="step-1-register-an-application-with-azure-ad"></a>1. Adım: Bir uygulamayı Azure AD'ye kaydetme
 
 Uygulamanızın güvenliğini sağlamaya yardımcı olmak için, ilk olarak kiracınızda bir uygulama oluşturmalı ve Azure AD'de birkaç önemli bilgi parçası sağlamalısınız.
 
@@ -65,7 +65,7 @@ Uygulamanızın güvenliğini sağlamaya yardımcı olmak için, ilk olarak kira
 6. Uygulamanızın **Ayarlar > Özellikler** sayfasında, Uygulama Kimliği URI'sini güncelleştirin. Kiracıya özel bir tanımlayıcı girin. Örneğin, `https://contoso.onmicrosoft.com/TodoListService` girin.
 7. Yapılandırmayı kaydedin. Portalı açık bırakın, çünkü kısa süre sonra istemcinizi de kaydetmeniz gerekecektir.
 
-## <a name="step-2-set-up-the-app-to-use-the-owin-authentication-pipeline"></a>2. Adım: Uygulamayı OWIN kimlik doğrulaması işlem hattını kullanacak şekilde ayarlama
+## <a name="step-2-set-up-the-app-to-use-the-owin-authentication-pipeline"></a>2. Adım: OWIN kimlik doğrulaması işlem hattı kullanılacak uygulamasını ayarlama
 
 Gelen istekleri ve belirteçleri doğrulamak için, uygulamanızı Azure AD ile iletişim kuracak şekilde ayarlamanız gerekir.
 
@@ -135,7 +135,7 @@ Gelen istekleri ve belirteçleri doğrulamak için, uygulamanızı Azure AD ile 
     * `ida:Tenant`, Azure AD kiracınızın adıdır (örneğin, contoso.onmicrosoft.com).
     * `ida:Audience`, Azure portalına girdiğiniz uygulamanın Uygulama Kimliği URI'sidir.
 
-## <a name="step-3-configure-a-client-application-and-run-the-service"></a>3. Adım: İstemci uygulamasını yapılandırma ve hizmeti çalıştırma
+## <a name="step-3-configure-a-client-application-and-run-the-service"></a>3. Adım: Bir istemci uygulaması yapılandırma ve hizmet çalıştırma
 
 To Do List Service'i iş başında görebilmek için önce To Do List istemcisini Azure AD'den belirteçleri alacak ve hizmete çağrı yapabilecek şekilde yapılandırmanız gerekir.
 

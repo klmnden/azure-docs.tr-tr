@@ -6,20 +6,20 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: 6111ad00044943f12b2e098c4fd07ffb40185799
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: db025f377a3fab2f788252db0c8e3555837a6de8
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902421"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55196115"
 ---
 # <a name="conference-instance-entity"></a>Konferans örneği varlık
 
-<sub> * Şu öznitelikleri konferans örneği varlığa özgüdür. (Ty '4' =) </sub>
+<sub> * Şu öznitelikleri konferans örneği varlığa özgüdür. (Ty = '4') </sub>
 
 Ad    |Açıklama                            |Tür       | İşlemler
 ------- | ------------------------------------- | --------- | ----------------------------
@@ -35,8 +35,8 @@ CIFVD   |Son sürüm konferans örneği son tarihi  |Tarih       |Eşittir<br/>I
 CINDD   |Konferans örneği bildirim tarihi   |Tarih       |Eşittir<br/>IsBetween
 CD. T    |Konferans örneği olay başlığı   |Tarih       |Eşittir<br/>IsBetween
 CD. D    |Konferans örneği olay tarihi    |Tarih       |Eşittir<br/>IsBetween
-BİLGİSAYARLAR. CN =  |Örneğin konferans serisi adı |Dize     |Eşittir
-BİLGİSAYARLAR. CID |Konferans serisi kimliği örneği |Int64    |Eşittir
+PCS.CN  |Örneğin konferans serisi adı |Dize     |Eşittir
+PCS.CId |Konferans serisi kimliği örneği |Int64    |Eşittir
 BİLGİ      |Konferans örneği alıntı toplam sayısı           |Int32      |yok  
 ECC     |Konferans örneği toplam tahmini alıntı sayısı |Int32      |yok
 

@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı başlangıç: Yanıt Arama Projesi Varlık sorgusu'
+title: 'Hızlı Başlangıç: Proje yanıt arama varlık sorgusu'
 titlesuffix: Azure Cognitive Services
 description: Yanıt Arama Projesindeki Varlık sorguları
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: answer-search
 ms.topic: quickstart
 ms.date: 04/16/2018
 ms.author: rosh
-ms.openlocfilehash: 09af064a1c072996171e6afa4f043e84f18612b4
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: 2a386e0455d511ba25208904c30429dd050eb94f
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467421"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094555"
 ---
-# <a name="quickstart-query-for-entities"></a>Hızlı başlangıç: Varlık sorguları
+# <a name="quickstart-query-for-entities"></a>Hızlı Başlangıç: Varlıklar için sorgu
 
 Sorguda bir kişi, yer veya nesne bilgisi istenmesi durumunda yanıtta `entities` bulunabilir.  Sorgular her zaman web sayfası döndürür ve [olgular](fact-queries.md) ve/veya [varlıklar](entity-queries.md) sorguya bağlı olarak değişir.
 
@@ -33,7 +33,7 @@ Sorgu senaryosunu belirlemek için `entities` nesnesinin `queryScenario` alanın
 -   Attraction 
  
 Yanıtın içeriği varlık türünü belirlemek için Bill Gates sorgusunda gösterildiği gibi `entityTypeHints` alanını kullanın.
-````
+```
         },
         "description": "Bill Gates is an American business man and philanthropist, co-founder of Microsoft",
         "entityPresentationInfo": {
@@ -44,13 +44,13 @@ Yanıtın içeriği varlık türünü belirlemek için Bill Gates sorgusunda gö
         },
         "bingId": "6d7d66a7-2cb8-0ae9-637c-f81fd749dc9a"
       }
-````
+```
 Aşağıda Space Needle sorgusu gösterilmiştir:
-````
+```
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=space+needle&mkt=en-us
-````
+```
 Yanıt `entities` bilgisini içerir. `entityScenario` ve `entityTypeHints` alanlarına dikkat edin. 
-````
+```
   "entities": {
     "value": [
       {
@@ -108,19 +108,19 @@ Yanıt `entities` bilgisini içerir. `entityScenario` ve `entityTypeHints` alanl
       }
     ]
   },
-````
+```
 
 Sorgu ilgiliyse bir liste döndürebilir.
 
-**Sorgu:** Aşağıdaki sorgu nesli tükenmekte olan türlerin listesini bulur:
+**Sorgu:** Aşağıdaki sorgu endangered türler listesini bulur:
 
-````
+```
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=list+of+endangered+species
 
-````
+```
 
-**Yanıt:** Yanıtta görüntülenmek üzere biçimlendirilmiş tablosal veriler bulunur:
-````
+**Yanıt:** Yanıt için görünen tablo değerleri olarak biçimlendirilmiş bir liste aşağıdakileri içerir:
+```
   "facts": {
     "id": "https://www.bingapis.com/api/v7/#Facts",
     "contractualRules": [
@@ -217,7 +217,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=list+of+enda
     ]
   },
 
-````
+```
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

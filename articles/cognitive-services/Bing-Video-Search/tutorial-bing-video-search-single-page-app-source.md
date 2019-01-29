@@ -1,23 +1,23 @@
 ---
-title: 'Öğretici: Tek sayfalı Web uygulaması geliştirme - Bing Video Arama'
+title: 'Öğretici: Bing Video arama - tek sayfa Web uygulaması derleme'
 titlesuffix: Azure Cognitive Services
 description: Tek sayfalı bir Web uygulamasında Bing Video Arama API'sini kullanmayı gösteren öğreticinin kaynak kodu.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-video-search
+ms.subservice: bing-video-search
 ms.topic: tutorial
 ms.date: 11/01/2017
 ms.author: rosh
-ms.openlocfilehash: b0856be88382e1bb7a4cc65f5fd05910b814e152
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
-ms.translationtype: HT
+ms.openlocfilehash: b76065d205c4a26d4a129c6c07b009eba61036bd
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223296"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55185439"
 ---
-# <a name="tutorial-single-page-bing-video-search-app"></a>Öğretici: Tek sayfalı Bing Video Arama uygulaması
+# <a name="tutorial-single-page-bing-video-search-app"></a>Öğretici: Tek sayfalı Bing Video arama uygulama
 
 Bing Video Arama için [tek sayfalı uygulama öğreticisinin](tutorial-bing-video-search-single-page-app.md) eksiksiz kaynak kodudur. Uygulamayı çalıştırmak için kaynak kodu Not Defteri'ne veya başka bir metin düzenleyiciye kopyalayın ve `bing.html` olarak kaydedin. Daha sonra kaydedilen dosyayı Microsoft Edge'de veya yaygın olarak kullanılan başka bir tarayıcıda açın.
 

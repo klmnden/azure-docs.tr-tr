@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 9f0c4789e73659e5965440989c23a8cf673f7cd2
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 33ada343738e113e8f14e1e5ac4a0e8aee481670
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309170"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55185474"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>İçinde bir yerel makine dağıtım kurulumunda Hizmetleri izleme ve tanılama
 
@@ -51,7 +51,7 @@ java.util.logging.FileHandler.count = 10
 java.util.logging.FileHandler.pattern = /tmp/servicefabric/logs/mysfapp%u.%g.log
 ```
 
-Klasör tarafından işaret edilen `app.properties` dosyası bulunmalıdır. Sonra `app.properties` dosyası oluşturulur, aynı zamanda, giriş noktası betiğini değiştirmeniz gerekir `entrypoint.sh` içinde `<applicationfolder>/<servicePkg>/Code/` özelliğini ayarlamak için klasör `java.util.logging.config.file` için `app.propertes` dosya. Giriş, aşağıdaki kod parçacığı gibi görünmelidir:
+Klasör tarafından işaret edilen `app.properties` dosyası bulunmalıdır. Sonra `app.properties` dosyası oluşturulur, aynı zamanda, giriş noktası betiğini değiştirmeniz gerekir `entrypoint.sh` içinde `<applicationfolder>/<servicePkg>/Code/` özelliğini ayarlamak için klasör `java.util.logging.config.file` için `app.properties` dosya. Giriş, aşağıdaki kod parçacığı gibi görünmelidir:
 
 ```sh
 java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path to app.properties> -jar <service name>.jar
@@ -74,7 +74,7 @@ Birden çok çerçeveler, CoreCLR uygulamaları Linux izleme için kullanılabil
 
 İlk adım, bellek, çıkış akışları veya Konsolu dosyaları günlüklerinizi yazabilmesi amacıyla System.Diagnostics.Tracing dahil etmektir.  EventSource kullanarak günlüğe kaydetme için aşağıdaki proje, Project.json'yi ekleyin:
 
-```
+```json
     "System.Diagnostics.StackTrace": "4.0.1"
 ```
 

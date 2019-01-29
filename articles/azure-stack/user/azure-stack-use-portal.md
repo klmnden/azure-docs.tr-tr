@@ -10,19 +10,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: efemmano
-ms.openlocfilehash: 4ec9affa78d1f244208a24bcf8a6603e867d4c08
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 0bf725a20a7c030b0a835439c0f97f23b3cbef71
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086514"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097912"
 ---
 # <a name="use-the-azure-stack-portal"></a>Azure Stack portalını kullanın
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 Genel tekliflere abone olmak için Azure Stack portalını kullanın ve bu teklifleri sağlayan hizmetler kullanır. Zaten genel Azure portal'ı kullandıysanız, siteyi nasıl çalıştığı ile ilgili bilgi sahibi.
 
@@ -60,7 +60,7 @@ Kullanılabilir hizmetlerin nasıl kullanılacağı için rehberliğe ihtiyacın
 
     Özellikle, başlamak için aşağıdaki makaleleri gözden geçirmenizi öneririz:
 
-    - [Anahtar dikkat edilmesi gerekenler: hizmetlerini kullanarak veya Azure Stack için uygulamalar oluşturma](azure-stack-considerations.md)
+    - [Önemli noktalar yer: Hizmetleri kullanarak veya Azure Stack için uygulamalar oluşturma](azure-stack-considerations.md)
     - İçinde **kullanmanıza** bölüm belgelerine, her hizmet için bir konuları makalesi yoktur. Dikkat edilecek noktalar sayfanın Azure'da sunulan hizmet ve Azure Stack'te sunulan aynı hizmet arasındaki farklar açıklanmaktadır. Bir örnek için bkz. [VM konuları](azure-stack-vm-considerations.md). Diğer bilgiler olabilir **kullanmanıza** Azure Stack için benzersiz bir bölüm.
 
       Azure belgeleri bir hizmet için genel bir başvuru olarak kullanabilirsiniz, ancak şu farklılıklara olması gerekir. Belgeler üzerinde bağlantıları anlamak **hızlı başlangıç öğreticileri** kutucuğunda Azure belgelerine noktası.
@@ -73,4 +73,4 @@ Azure Stack geliştirme Seti'ni kullanıyorsanız [Azure Stack Forumu](https://s
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Anahtar dikkat edilmesi gerekenler: hizmetlerini kullanarak veya Azure Stack için uygulamalar oluşturma](azure-stack-considerations.md)
+[Önemli noktalar yer: Hizmetleri kullanarak veya Azure Stack için uygulamalar oluşturma](azure-stack-considerations.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: Sorun giderme ağ güvenlik grubu yapılandırması | Microsoft Docs'
+title: 'Azure Active Directory etki alanı Hizmetleri: Sorun giderme ağ güvenlik grubu yapılandırması | Microsoft Docs'
 description: Azure AD Domain Services için NSG yapılandırmasıyla ilgili sorunları giderme
 services: active-directory-ds
 documentationcenter: ''
@@ -8,24 +8,24 @@ manager: ''
 editor: ''
 ms.assetid: 95f970a7-5867-4108-a87e-471fa0910b8c
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: 6e7d025e9e83f5511fce25d0c24e4da3b04d7e54
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 2f66c6956c803979ee6717f7327379c7bc9e97bb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957547"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55181903"
 ---
 # <a name="troubleshoot-invalid-networking-configuration-for-your-managed-domain"></a>Geçersiz ağ yapılandırması, yönetilen etki alanınız için sorun giderme
 Bu makale ve aşağıdaki uyarı iletisinde neden ağla ilgili yapılandırma hatalarını gidermek yardımcı olur:
 
-## <a name="alert-aadds104-network-error"></a>Uyarı AADDS104: Ağ hatası
+## <a name="alert-aadds104-network-error"></a>Alert AADDS104: Ağ hatası
 **Uyarı iletisi:** *Microsoft bu yönetilen etki alanı için etki alanı denetleyicilerine ulaşamıyoruz. Bu, sanal ağ yönetilen etki alanı erişimi engeller üzerinde yapılandırılan bir ağ güvenlik grubu (NSG) durum meydana. Başka bir olası neden, kullanıcı tanımlı bir yol varsa, internet'ten gelen trafiği engeller. ' dir.*
 
 Geçersiz NSG ağ hatalarının en yaygın nedeni Azure AD Domain Services için yapılandırmalardır. Sanal ağınızı erişmesine izin vermek için yapılandırılan ağ güvenlik grubu (NSG) [belirli bağlantı noktalarını](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services). Bu bağlantı noktaları engellenirse, Microsoft izleme veya yönetilen etki alanınıza güncelleştirin. Ayrıca, Azure AD dizininizi ve yönetilen etki alanınıza eşitlemesi etkilenir. NSG oluşturulurken bu bağlantı noktaları hizmet kesintisini önlemek için açık tutun.
@@ -56,5 +56,5 @@ PowerShell kullanmak istemiyorsanız, Azure portalı kullanarak Nsg'ler için te
 5. Kurallar tablodaki yerleştirerek, kuralı oluşturuldu doğrulayın.
 
 
-## <a name="need-help"></a>Yardım mı gerekiyor?
+## <a name="need-help"></a>Yardıma mı ihtiyacınız var?
 Azure Active Directory Domain Services ürün ekibiyle [geri bildirim paylaşma veya destek](active-directory-ds-contact-us.md).

@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory kuruluş şeması şimdi ile tümleştirme | Microsoft Docs'
+title: 'Öğretici: Kuruluş Şeması artık Azure Active Directory tümleştirmesiyle | Microsoft Docs'
 description: Azure Active Directory ve Kuruluş Şeması şimdi arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 50a1522f-81de-4d14-9b6b-dd27bb1338a4
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: jeedes
-ms.openlocfilehash: e23d76074f4b428b672e0cd5aeeaba99d080a4cf
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 65f11b5a65adf86b4115b54b49b10c57ebf21a98
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435943"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55154142"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-orgchart-now"></a>Öğretici: Azure Active Directory kuruluş şeması şimdi ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-orgchart-now"></a>Öğretici: Kuruluş Şeması şimdi ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Kuruluş Şeması artık Azure Active Directory (Azure AD) ile tümleştirmeyi öğrenin.
 
@@ -38,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Kuruluş Şeması artık Azure AD tümleştirmesini yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Bir kuruluş şeması şimdi çoklu oturum açma etkin aboneliği
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Kuruluş Şeması artık Azure AD'de tümleştirmesini yapılandırmak için Kur
 
 **Kuruluş Şeması şimdi Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 

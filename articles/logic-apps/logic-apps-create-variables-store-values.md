@@ -72,7 +72,7 @@ Bir değişken oluşturun ve kendi veri türüne ve ilk değer - tüm mantıksal
 
 4. Değişkeninizin bu bilgileri sağlayın:
 
-   | Özellik | Gereklidir | Değer |  Açıklama |
+   | Özellik | Gereklidir | Value |  Açıklama |
    |----------|----------|-------|--------------|
    | Name | Evet | <*değişken adı*> | Artış değişkeni adı | 
    | Type | Evet | <*değişken türü*> | Değişken için veri türü | 
@@ -208,7 +208,7 @@ Artırmak için veya *artışı* sabit bir değere göre değişken Ekle **deği
 
 3. Değişkeninizin artırma için bu bilgileri sağlayın:
 
-   | Özellik | Gereklidir | Değer |  Açıklama |
+   | Özellik | Gereklidir | Value |  Açıklama |
    |----------|----------|-------|--------------|
    | Name | Evet | <*değişken adı*> | Artış değişkeni adı | 
    | Value | Hayır | <*değeri Artır*> | Değişken değerini artırmak için kullanılan değer. Varsayılan değer biridir. <p><p>**İpucu**: Değişkeninizin artırma için söz konusu değeri her zaman haberdar olmak için isteğe bağlı olsa da, bu değeri en iyi uygulama ayarlayın. | 
@@ -328,7 +328,7 @@ Azaltmak için veya *azaltma* sabit değerli bir değişken için adımları izl
 
 Özellikleri şunlardır **azaltma değişkeni** eylem:
 
-| Özellik | Gereklidir | Değer |  Açıklama |
+| Özellik | Gereklidir | Value |  Açıklama |
 |----------|----------|-------|--------------|
 | Name | Evet | <*değişken adı*> | Azaltma değişkeni adı | 
 | Value | Hayır | <*değeri Artır*> | Azaltma değişkeni için değer. Varsayılan değer biridir. <p><p>**İpucu**: Azaltma özel değeri, değişken her zaman bilmesi isteğe bağlı olsa da, bu değeri en iyi uygulama ayarlayın. | 
@@ -363,7 +363,7 @@ Bu eylem bir varsayılan değer olmadığı için gerekli bir değerdir.
 
 Özellikleri şunlardır **değişken Ayarla** eylem:
 
-| Özellik | Gereklidir | Değer |  Açıklama | 
+| Özellik | Gereklidir | Value |  Açıklama | 
 |----------|----------|-------|--------------| 
 | Name | Evet | <*değişken adı*> | Değiştirmek değişken adı | 
 | Value | Evet | <*Yeni değer*> | Değişken atamak istediğiniz değer. Aynı veri türüne sahip olmalıdır. | 
@@ -421,7 +421,7 @@ Dizeler veya diziler depolamak için değişkenleri, eklediğiniz veya *ekleme* 
 
 Özellikleri şunlardır **ekleyin...**  eylemler:
 
-| Özellik | Gereklidir | Değer |  Açıklama | 
+| Özellik | Gereklidir | Value |  Açıklama | 
 |----------|----------|-------|--------------| 
 | Name | Evet | <*değişken adı*> | Değiştirmek değişken adı | 
 | Value | Evet | <*değer ekleme*> | Herhangi bir tür olabilen, eklemek istediğiniz değer | 

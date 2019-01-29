@@ -1,5 +1,5 @@
 ---
-title: Azure aboneliğinin Azure Active Directory B2C'ye bağlama | Microsoft Docs
+title: Azure Active Directory B2C - bir Azure aboneliğine bağlama | Microsoft Docs
 description: Bir Azure aboneliği ile Azure AD B2C kiracısı için faturalama için adım adım kılavuzu.
 services: active-directory-b2c
 author: davidmu1
@@ -7,27 +7,29 @@ manager: daveba
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/07/2018
+ms.date: 01/24/2019
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: e39b7472904e7635340327d311eb7d4b9123f51e
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: c914b3a3ab40971cf9318cafc787d358dab2faff
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853196"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55196183"
 ---
-# <a name="linking-an-azure-subscription-to-an-azure-ad-b2c-tenant"></a>Azure AD B2C kiracısı için bir Azure aboneliğine bağlama
+# <a name="link-an-azure-subscription-to-an-azure-active-directory-b2c-tenant"></a>Bir Azure Active Directory B2C kiracıma bir Azure aboneliği
 
 > [!IMPORTANT]
-> Azure AD B2C için fiyatlandırma ve faturalama kullanımı en son bilgiler aşağıdaki sayfa verilmiştir: [Azure AD B2C fiyatlandırma](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+> En son Azure Active Directory (Azure AD) B2C için fiyatlandırma ve faturalama kullanımı hakkında bilgi için [Azure AD B2C fiyatlandırma](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 
 Azure AD B2C için kullanım ücretleri, bir Azure aboneliğine faturalandırılır. Azure AD B2C kiracısı oluşturulduğunda, Kiracı Yöneticisi açıkça Azure AD B2C kiracısı bir Azure aboneliğine bağlamak gerekir. Bu makalede, nasıl gösterir.
 
 > [!NOTE]
 > Bir Azure AD B2C kiracısıyla bağlantılı bir aboneliği Azure AD B2C kullanımı veya ek Azure AD B2C kaynaklar dahil olmak üzere diğer Azure kaynakları faturalandırma için kullanılabilir.  Diğer Azure Hizmetleri tabanlı lisans ya da Azure AD B2C kiracısı içinde Office 365 lisansı eklemek için kullanılamaz.
 
- Abonelik bağlantısını içinde ' % s'hedef Azure aboneliğinin bir Azure AD B2C "kaynak" oluşturarak elde edilir. Diğer Azure kaynakları (örneğin, VM'ler, veri depolama için LogicApps) ile birlikte tek bir Azure aboneliği içindeki birçok Azure AD B2C "Kaynaklar" oluşturulabilir. Aboneliğin ilişkili olduğu Azure AD kiracısı giderek Abonelikteki kaynakların tümünü görebilirsiniz.
+Abonelik bağlantısını içinde ' % s'hedef Azure aboneliğinin bir Azure AD B2C "kaynak" oluşturarak elde edilir. Diğer Azure kaynakları (örneğin, VM'ler, veri depolama için LogicApps) ile birlikte tek bir Azure aboneliği içindeki birçok Azure AD B2C "Kaynaklar" oluşturulabilir. Aboneliğin ilişkili olduğu Azure AD kiracısı giderek Abonelikteki kaynakların tümünü görebilirsiniz.
+
+Azure bulut çözümü sağlayıcıları (CSP) abonelikleri Azure AD B2C'de desteklenir. Azure AD B2C için ve tüm Azure kaynakları için API'leri veya Azure portalını kullanarak işlevselliği kullanılabilir. CSP'ye abonelik yöneticileri bağlantı taşıyın ve tüm Azure kaynakları için yaptı aynı şekilde Azure AD B2C ile ilişkileri silin. Rol tabanlı erişim denetimi kullanarak yönetim Azure AD B2C Azure AD B2C kiracısı ile bir Azure CSP aboneliği arasındaki ilişkilendirmeyi etkilenmez. Rol tabanlı erişim denetimi, Kiracı tabanlı rolleri, abonelik tabanlı roller kullanılarak elde edilir.
 
 Devam etmek için geçerli bir Azure aboneliği gereklidir.
 
@@ -81,10 +83,6 @@ Bu kaynak için kullanabilirsiniz:
 ![B2C kaynağı ayarları](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.png)
 
 ## <a name="known-issues"></a>Bilinen Sorunlar
-
-### <a name="csp-subscriptions"></a>CSP abonelikleri
-
-Şu anda Azure AD B2C kiracısı **olamaz** CSP abonelikleri bağlantı.
 
 ### <a name="self-imposed-restrictions"></a>Kendi kendine kıldığını kısıtlamaları
 

@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı başlangıç: Yanıt Arama Projesi, Java'
+title: 'Hızlı Başlangıç: Proje yanıt arama, Java'
 titlesuffix: Azure Cognitive Services
 description: Java'da Yanıt Arama Projesi'ni kullanmaya başlayın.
 services: cognitive-services
@@ -10,19 +10,19 @@ ms.component: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 66d5488fa0e8f542327b4150d50e4351af6ade55
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: 00d302fdddf82eaec98b6d3d63153a260fe7fbc5
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469104"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099371"
 ---
-# <a name="quickstart-project-answer-search-query-in-java"></a>Hızlı başlangıç: Java'da Yanıt Arama Projesi sorgusu
+# <a name="quickstart-project-answer-search-query-in-java"></a>Hızlı Başlangıç: Java'da proje yanıt arama sorgusu
 Bu makalede, Azure'da Microsoft Bilişsel Hizmetleri'nin parçası olan Bing Yanıt Arama API'sini göstermek için Java kullanılmaktadır. API HTTP istekleri gönderebilecek ve JSON ayrıştırabilecek her programlama diliyle uyumlu bir REST Web hizmetidir.
  
 Örnek kodda Java için minimum harici bağımlılık kullanılmıştır.  Kodu Mono kullanarak Linux veya Mac OS X üzerinde de çalıştırabilirsiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 [Bilişsel Hizmetler Laboratuvarları](https://aka.ms/answersearchsubscription) ücretsiz denemesi için erişim anahtarı alın
 
@@ -30,7 +30,7 @@ Bu makalede, Azure'da Microsoft Bilişsel Hizmetleri'nin parçası olan Bing Yan
 
 Aşağıdaki kod bir `WebRequest` oluşturur, erişim anahtarı üst bilgisini ayarlar ve "Gibraltar" için bir sorgu dizesi ekler.  Ardından isteği gönderir ve yanıtı JSON metnini içeren bir dizeye atar.
 
-````
+```
     static String host = "https://api.labs.cognitive.microsoft.com";
     static String path = "/answerSearch/v7.0/search";
 
@@ -46,7 +46,7 @@ Aşağıdaki kod bir `WebRequest` oluşturur, erişim anahtarı üst bilgisini a
 
     // construct result object for return
     SearchResults results = new SearchResults(new HashMap<String, String>(), response);
-````
+```
 
 ## <a name="complete-code"></a>Tam kod
 
@@ -57,7 +57,7 @@ Bing Yanıt Arama API'si Bing arama motorundan sonuçları döndürür.
 4. subscriptionKey değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
 5. Programı çalıştırın.
 
-````
+```
 package knowledgeAPI;
 import java.io.InputStream;
 import java.net.*;
@@ -148,7 +148,7 @@ public class KnowledgeSrch {
         }
 }
 
-````
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - [C# hızlı başlangıcı](c-sharp-quickstart.md)

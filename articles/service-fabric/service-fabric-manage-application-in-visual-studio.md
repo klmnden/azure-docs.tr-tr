@@ -1,5 +1,5 @@
 ---
-title: Visual Studio'da Azure bildirimleri Fabric uygulamalarınızı yönetmek | Microsoft Docs
+title: Visual Studio'da Azure Service Fabric uygulamalarınızı yönetmek | Microsoft Docs
 description: Oluşturma, geliştirme, paketlemeyi, dağıtmayı ve Azure Service Fabric uygulamalarınızı ve hizmetlerinizi hata ayıklama için Visual Studio'yu kullanın.
 services: service-fabric
 documentationcenter: .net
@@ -15,12 +15,12 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 03/26/2018
 ms.author: mikhegn
-ms.openlocfilehash: 01a9852157cbaefd966be974a3175c25e7ff69f8
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: b90c39416a522b42932dd82214316e586ba4293a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001711"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55192562"
 ---
 # <a name="use-visual-studio-to-simplify-writing-and-managing-your-service-fabric-applications"></a>Service Fabric uygulamalarınızı yönetmek ve yazma işlemlerini kolaylaştırmak için Visual Studio'yu kullanın.
 Azure Service Fabric uygulamalarınızı ve hizmetlerinizi Visual Studio aracılığıyla yönetebilirsiniz. Kaydederler [geliştirme ortamınızı ayarlama](service-fabric-get-started.md), Service Fabric uygulamaları oluşturmanıza, hizmetler veya paket, kayıt ekleyin ve uygulamaları, yerel geliştirme kümenizin dağıtmak için Visual Studio'yu kullanabilirsiniz.
@@ -47,7 +47,7 @@ Visual Studio sağlamak adlı bir özellik **uygulama hata ayıklama modu**, uyg
 
 #### <a name="application-debug-modes"></a>Uygulama hata ayıklama modu
 
-1. **Aktualizovat Aplikaci** bu modu hızlı bir şekilde değiştirin ve hata ayıklama sırasında statik web dosyaları düzenleme destekler ve kod hatalarını ayıklama olanak tanır. Bu mod, yerel geliştirme kümenizin ise yalnızca çalışır [1 düğümlü moda](./service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode). Varsayılan uygulama hata ayıklama modu budur.
+1. **Aktualizovat Aplikaci** bu modu hızlı bir şekilde değiştirin ve hata ayıklama sırasında statik web dosyaları düzenleme destekler ve kod hatalarını ayıklama olanak tanır. Bu mod yalnızca, yerel geliştirme kümenizin 1 düğümlü moddaysa çalışır. Varsayılan uygulama hata ayıklama modu budur.
 2. **Uygulamayı kaldırma** uygulama hata ayıklama oturumu sona erdiğinde kaldırılmasına neden olur.
 3. **Otomatik yükseltme** uygulama hata ayıklama oturumu sona erdiğinde çalışmaya devam eder. Sonraki hata ayıklama oturumunda dağıtım yükseltme olarak değerlendirir. Yükseltme işlemi önceki bir hata ayıklama oturumunda girdiğiniz tüm veriler korunur.
 4. **Uygulamanın** hata ayıklama oturumu sona erdiğinde, uygulamanın kümede çalışmaya devam eder. Sonraki hata ayıklama oturumunun başlangıcında, uygulama kaldırılacak.

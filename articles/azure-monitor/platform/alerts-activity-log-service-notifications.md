@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: shtabriz
-ms.openlocfilehash: b22ecb9d8948a77df43f47cd9fd218be4319d06e
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 6b617ff99b9183c6b5008292dd3e5d11f2e69da9
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53583740"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092245"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Etkinlik günlüğü uyarıları hizmet bildirimlerinde oluşturma
 ## <a name="overview"></a>Genel Bakış
@@ -37,7 +37,7 @@ Eylem grupları hakkında daha fazla bilgi edinmek için bkz. [Eylem grupları o
 
 Azure Resource Manager şablonları kullanarak hizmet durumu bildirimi uyarılarını yapılandırma hakkında daha fazla bilgi için bkz: [Resource Manager şablonları](alerts-activity-log.md).
 
-## <a name="create-an-alert-on-a-service-health-notification-for-a-new-action-group-by-using-the-azure-portal"></a>Azure portalını kullanarak yeni bir eylem grubu için bir hizmet durumu bildirimi üzerinde uyarı oluşturma
+## <a name="alert-and-new-action-group-using-azure-portal"></a>Azure portalını kullanarak uyarı ve yeni eylem grubu
 1. İçinde [portalı](https://portal.azure.com)seçin **hizmet durumu**.
 
     !["Hizmet durumu" hizmeti](media/alerts-activity-log-service-notifications/home-servicehealth.png)
@@ -86,7 +86,7 @@ Bilgi edinmek için nasıl [mevcut sorun yönetim sistemleri için Web kancası 
 >
 >
 
-## <a name="create-an-alert-on-a-service-health-notification-for-an-existing-action-group-by-using-the-azure-portal"></a>Azure portalını kullanarak bir uyarı mevcut eylem grubu için bir hizmet durumu bildirimi oluşturun
+## <a name="alert-with-existing-action-group-using-azure-portal"></a>Azure portalını kullanarak var olan eylem grubu ile uyar
 
 1. 1 ile 7, hizmet durumu bildirimi oluşturmak için önceki bölümdeki adımları izleyin. 
 
@@ -96,7 +96,7 @@ Bilgi edinmek için nasıl [mevcut sorun yönetim sistemleri için Web kancası 
 
 Birkaç dakika içinde uyarı etkin ve tetiklemek oluşturma sırasında belirttiğiniz koşullara göre başlar.
 
-## <a name="create-an-alert-on-a-service-health-notification-for-a-new-action-group-by-using-the-azure-resource-manager-templates"></a>Azure Resource Manager şablonları kullanarak yeni bir eylem grubu için bir hizmet durumu bildirimi üzerinde uyarı oluşturma
+## <a name="alert-and-new-action-group-using-the-azure-resource-manager-templates"></a>Azure Resource Manager şablonlarını kullanarak uyarı ve yeni eylem grubu
 
 Bir e-posta hedef ile bir eylem grubu oluşturur ve hedef aboneliği için tüm hizmet durumu bildirimlerini sağlayan bir örnek verilmiştir.
 

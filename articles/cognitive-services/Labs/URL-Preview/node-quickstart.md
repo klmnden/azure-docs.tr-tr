@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı başlangıç: URL Önizleme Projesi, Node.js'
+title: "Hızlı Başlangıç: Proje URL'si Önizleme, Node.js"
 titlesuffix: Azure Cognitive Services
 description: Azure'da Microsoft Bilişsel Hizmetler kapsamındaki URL Önizleme özelliğini kullanmaya başlayın.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.component: url-preview
 ms.topic: quickstart
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: 3367b39333c9d7334bc56b3acdf00453cc9705c0
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: 38cfb0957acf5fb986e16a64d2c9730dc10fcf7c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465058"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104392"
 ---
-# <a name="quickstart-url-preview-with-nodejs"></a>Hızlı başlangıç: Node.js içe URL Önizleme 
+# <a name="quickstart-url-preview-with-nodejs"></a>Hızlı Başlangıç: Node.js ile URL önizlemesi 
 
 Aşağıdaki Node örneği SwiftKey Web sitesi için bir URL Önizlemesi oluşturur: https://swiftkey.com/en.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 [Bilişsel Hizmetler Laboratuvarları](https://aka.ms/answersearchsubscription) ücretsiz denemesi için erişim anahtarı alın
 
@@ -37,7 +37,7 @@ Aşağıdaki adımları izler:
 
 Bu tanıtımda kullanılan kodun tamamı aşağıda verilmiştir:
 
-````
+```
 'use strict';
 
 let https = require('https');
@@ -83,7 +83,7 @@ let Search = function () {
 
 Search();
 
-````
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - [C# örnek kodu](csharp.md)

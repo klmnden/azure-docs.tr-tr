@@ -7,7 +7,7 @@ author: andretms
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 10/24/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 4ba4e844ed6bb01204b7a0adf5020aec255147dd
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: a0c2d13b2ac6715db047d56e998294688d9b65cf
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986551"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097070"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Microsoft Graph API'sini çağırmak bir evrensel Windows platformu uygulaması (XAML)
 
@@ -382,15 +382,15 @@ Uygulamanızda Federasyon Azure Active Directory etki alanında oturum açtığ�
  - Geçerli sertifika kullanıcının sertifika deposunda bulunamadı.
  - Farklı kimlik doğrulama yöntemini tekrar seçmeyi deneyin.
 
-**Neden:** bulunmayan Enterprise ve sertifika özellikleri etkin.
+**Neden:** Kurumsal ve sertifika özellikleri etkin değil.
 
-**Çözüm:** adımları [tümleşik kimlik doğrulaması Federasyon etki alanlarında](#enable-integrated-authentication-on-federated-domains-optional).
+**Çözüm:** Bağlantısındaki [tümleşik kimlik doğrulaması Federasyon etki alanlarında](#enable-integrated-authentication-on-federated-domains-optional).
 
 ### <a name="issue-2"></a>Sorun 2
 Etkinleştirdiğiniz [tümleşik kimlik doğrulaması Federasyon etki alanlarında](#enable-integrated-authentication-on-federated-domains-optional) Windows Hello Windows 10 bilgisayarında bir ortamda yapılandırılmış çok faktörlü kimlik doğrulaması ile oturum açmak için kullanmayı deneyin. Sertifika listesi sunulur. Ancak, PIN kodunuzu kullanmayı seçerseniz, hiçbir zaman pencereyi SABİTLE sunulur.
 
-**Neden:** bu sorunu üzerinde Windows 10 Masaüstü çalıştıran UWP uygulamalarında web kimlik doğrulama Aracısı, bilinen bir sınırlamadır. Windows 10 Mobile üzerinde düzgün çalışır.
+**Neden:** Bu sorun, Windows 10 Masaüstü üzerinde çalışan UWP uygulamaları içinde web kimlik doğrulama aracısı bilinen bir sınırlamadır. Windows 10 Mobile üzerinde düzgün çalışır.
 
-**Geçici çözüm:** seçin **oturum oturum diğer seçenekleri**. Ardından **oturum adı ve parola ile oturum**. Seçin **parolanızı girebilirsiniz**. Telefon kimlik doğrulama işleminden sonra gidin.
+**Geçici çözüm:** Seçin **oturum oturum diğer seçenekleri**. Ardından **oturum adı ve parola ile oturum**. Seçin **parolanızı girebilirsiniz**. Telefon kimlik doğrulama işleminden sonra gidin.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

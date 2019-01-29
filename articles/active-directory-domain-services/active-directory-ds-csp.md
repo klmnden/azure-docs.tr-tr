@@ -8,19 +8,19 @@ manager: mahesh-unnikrishnan
 editor: curtand
 ms.assetid: 56ccb219-11b2-4e43-9f07-5a76e3cd8da8
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.author: ergreenl
-ms.openlocfilehash: cf205249c4d07cee1ff17c9c726283cfddca1fce
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 7210610f8a082c34f8e87ef715b8252c2821bc83
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155233"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55187105"
 ---
 # <a name="azure-active-directory-ad-domain-services-for-azure-cloud-solution-providers-csp"></a>Azure bulut çözüm sağlayıcıları (CSP) için Azure Active Directory (AD) etki alanı Hizmetleri
 Bu makalede, Azure AD Etki Alanı Hizmetleri'ni bir Azure CSP aboneliği içinde nasıl kullanabileceğiniz açıklanmaktadır.
@@ -74,16 +74,16 @@ Yönetilen etki alanını Azure CSP aboneliği'ndeki yönetirken aşağıdaki ö
 
 * **CSP yönetim aracıları, kimlik bilgilerini kullanarak yönetilen bir etki alanı sağlayabilirsiniz:** Azure CSP aboneliklerinde Azure AD etki alanı Hizmetleri destekler. Bu nedenle, bir CSP iş ortağının yönetim aracıları grubuna ait olan kullanıcılar, yeni bir Azure AD Domain Services yönetilen etki sağlayabilirsiniz.
 
-* **CSP'ler yeni yönetilen etki alanları oluşturmak için PowerShell kullanarak müşterilerinin komut dosyası:** bkz [PowerShell kullanarak Azure AD etki alanı hizmetleri nasıl](active-directory-ds-enable-using-powershell.md) Ayrıntılar için.
+* **CSP'ler yeni yönetilen etki alanları oluşturmak için PowerShell kullanarak müşterilerinin yazabilirsiniz:** Bkz: [PowerShell kullanarak Azure AD etki alanı hizmetleri nasıl](active-directory-ds-enable-using-powershell.md) Ayrıntılar için.
 
-* **CSP yönetim aracıları, kimlik bilgilerini kullanarak yönetilen etki alanı üzerinde devam eden yönetim görevlerini gerçekleştiremez:** CSP yönetici kullanıcılar, kimlik bilgilerini kullanarak yönetilen etki alanı içinde olağan yönetim görevlerini gerçekleştiremez. Müşterinin Azure AD dizini için bu kullanıcılar haricidir ve kimlik bilgilerini müşterinin Azure AD dizini içinde kullanılabilir değil. Bu nedenle, Azure AD Domain Services yok Kerberos ve NTLM parola karmalarını erişim bu kullanıcılar için. Sonuç olarak, bu kullanıcılar, Azure AD Domain Services yönetilen etki alanlarında doğrulanamıyor.
+* **CSP yönetim aracıları, devam eden yönetim görevlerini, kimlik bilgilerini kullanarak yönetilen etki alanında gerçekleştiremezsiniz:** CSP yönetici kullanıcılar, kimlik bilgilerini kullanarak yönetilen etki alanı içinde olağan yönetim görevlerini gerçekleştirilemiyor. Müşterinin Azure AD dizini için bu kullanıcılar haricidir ve kimlik bilgilerini müşterinin Azure AD dizini içinde kullanılabilir değil. Bu nedenle, Azure AD Domain Services yok Kerberos ve NTLM parola karmalarını erişim bu kullanıcılar için. Sonuç olarak, bu kullanıcılar, Azure AD Domain Services yönetilen etki alanlarında doğrulanamıyor.
 
   > [!WARNING]
   > **Yönetilen etki alanı üzerinde devam eden yönetim görevlerini gerçekleştirmek için Müşteri'nin dizin içinde bir kullanıcı hesabı oluşturmanız gerekir.**
   > Bir CSP yönetici kullanıcı kimlik bilgilerini kullanarak yönetilen etki alanında oturum açamazsınız. Bunu yapmak için müşterinin Azure AD dizinine ait bir kullanıcı hesabının kimlik bilgilerini kullanın. Sanal makineleri yönetilen etki alanına katılma, DNS yönetme, Grup İlkesi vb. yönetme gibi görevler için bu kimlik bilgileri gerekir.
   >
 
-* **Devam eden Yönetim 'AAD DC Administrators' grubuna eklenmesi için oluşturulan kullanıcı hesabını:** 'AAD DC Administrators' grubunun yönetilen etki alanında belirli temsilci ile yönetim görevlerini gerçekleştirmek için ayrıcalıklara sahip. Bu görevler DNS kuruluş birimleri, vb. Grup İlkesi Yönetimi oluşturma, yapılandırma içerir. Yönetilen bir etki alanında gibi görevleri gerçekleştirmek üzere bir CSP iş ortağı için bir kullanıcı hesabı müşterinin Azure AD dizini içinde oluşturulması gerekir. Bu hesabın kimlik bilgilerini, CSP iş ortağının yönetim aracıları ile paylaşılması gerekir. Ayrıca, bu kullanıcı hesabı, bu kullanıcı hesabını kullanarak gerçekleştirilmesi için yönetilen etki alanındaki yapılandırma görevlerini etkinleştirmek için 'AAD DC Administrators' grubuna eklenmelidir.
+* **Devam eden Yönetim için oluşturulan kullanıcı hesabının 'AAD DC Administrators' grubuna eklenmesi gerekir:** 'AAD DC Administrators' grubunun, yönetilen etki alanında belirli temsilci ile yönetim görevleri gerçekleştirmek için ayrıcalıklara sahip değil. Bu görevler DNS kuruluş birimleri, vb. Grup İlkesi Yönetimi oluşturma, yapılandırma içerir. Yönetilen bir etki alanında gibi görevleri gerçekleştirmek üzere bir CSP iş ortağı için bir kullanıcı hesabı müşterinin Azure AD dizini içinde oluşturulması gerekir. Bu hesabın kimlik bilgilerini, CSP iş ortağının yönetim aracıları ile paylaşılması gerekir. Ayrıca, bu kullanıcı hesabı, bu kullanıcı hesabını kullanarak gerçekleştirilmesi için yönetilen etki alanındaki yapılandırma görevlerini etkinleştirmek için 'AAD DC Administrators' grubuna eklenmelidir.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

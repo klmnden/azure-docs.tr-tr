@@ -6,33 +6,33 @@ services: cognitive-services
 author: MikeDodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-image-search
+ms.subservice: bing-image-search
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: rosh
 ms.custom: seodec2018
-ms.openlocfilehash: 7536452d3ed0030b34e4f30deba56d6d8ae1957c
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 458acef9224349d5e4c223999243322474daac3d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53249320"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55154942"
 ---
 # <a name="search-for-gif-images"></a>GIF görüntülerinin arayın 
 
 Bing resim arama API'si de en uygun .gif görüntüleri için tüm Web aramanızı sağlar.  Geliştiriciler, çeşitli konuşma senaryolarda ilgi çekici GIF'ler tümleştirebilirsiniz. 
 
 Animasyonlu .gif görüntüleri için bir sorgu URL'dir.
-````
+```
 https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=interesting&imageType=AnimatedGif&mkt=en-us
-````
+```
 [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query) parametresi, arama koşulları belirtir.  Ayrıca önceki sorguyu belirtir `animatedGif` kullanarak [ImageType](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imagetype) filtre parametresi.
 
 Sonuçları örneklerini görmek için bing.com aramak için şu URL'yi kullanın.
-````
+```
 https://www.bing.com/images/search?q=interesting&qft=%20filterui%3Aphoto-animatedgif
 
-````
+```
 ## <a name="query-parameters"></a>Sorgu parametreleri
 
 Sorgu parametreleri ve seçenekleri hakkında daha fazla bilgi için bkz. [resim arama API'si başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query-parameters). Başlığı altında bir örnek aşağıda verilmiştir [animasyonlu GIF Java kullanarak örnek arama](#gifExample).
@@ -50,15 +50,15 @@ Sorgu parametreleri ve seçenekleri hakkında daha fazla bilgi için bkz. [resim
 ## <a name="example-search-for-animated-gif-using-java"></a>Java kullanarak animasyonlu GIF örnek arayın
 
 Aşağıdaki URL'yi animasyonlu .gif görüntülerde arar: `q=interesting`
-````
+```
 https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=interesting&imageType=AnimatedGif&mkt=en-us
 
-````
+```
 Aşağıdaki örnekte gösterildiği gibi URL sorgusu gerektirir [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#headers) başlığı.
 
 Aşağıdaki Java örneğinde oluşturur ve istek gönderir.
 
-````
+```
 package gifSearch;
 import java.net.*;
 import java.util.*;
@@ -167,7 +167,7 @@ class SearchResults{
  }
 }
 
-````
+```
 
 ## <a name="results"></a>Sonuçlar
 Kod, aşağıdaki sonuçları JSON nesnesi alır:

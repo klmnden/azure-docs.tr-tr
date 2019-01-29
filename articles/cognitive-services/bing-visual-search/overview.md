@@ -6,20 +6,20 @@ services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-visual-search
+ms.subservice: bing-visual-search
 ms.topic: overview
 ms.date: 04/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: aab17f8a0213c213920ebdfc2b2fe31248657a91
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 61a851b0efbcc4fdb55308e47447d218014ef9e0
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742856"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55154363"
 ---
-# <a name="what-is-the-bing-visual-search-api"></a>Bing görsel arama API'si nedir?
+# <a name="what-is-the-bing-visual-search-api"></a>Bing Görsel Arama API’si nedir?
 
-Bing görsel arama API'sine olanlar Bing.com/images üzerinde gösterilen benzer görüntü ayrıntılarını sağlar. Bir görüntü yüklemek veya bir URL sağlamak, bu API hakkındaki ayrıntıları görsel açıdan benzer resimler dahil olmak üzere çeşitli kaynakları, görüntü ve daha fazlasını içeren Web sayfalarını alışveriş tanımlayabilirsiniz. Kullanırsanız [Bing resim arama API'si](../bing-image-search/overview.md), bir görüntü yüklemek yerine API'nin arama sonuçlarına iliştirilmiş Insight belirteçleri kullanabilirsiniz.
+Bing Görsel Arama API'si, Bing.com/images sayfasında gösterilenlere benzer resim ayrıntıları sağlar. Bir görüntü yüklemek veya bir URL sağlamak, bu API hakkındaki ayrıntıları görsel açıdan benzer resimler dahil olmak üzere çeşitli kaynakları, görüntü ve daha fazlasını içeren Web sayfalarını alışveriş tanımlayabilirsiniz. Kullanırsanız [Bing resim arama API'si](../bing-image-search/overview.md), bir görüntü yüklemek yerine API'nin arama sonuçlarına iliştirilmiş Insight belirteçleri kullanabilirsiniz.
 
 ## <a name="insights"></a>Insights
 

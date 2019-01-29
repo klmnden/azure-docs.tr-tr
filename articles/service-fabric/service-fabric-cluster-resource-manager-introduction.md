@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 319bae3025741d6a3130c92d876ae38fcbcdf11e
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: e3cf87ca49ae39966cffbb768dc1c191991d4036
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333947"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096917"
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>Service Fabric Küme Kaynak Yöneticisi ile tanışın
 Geleneksel BT sistemleri veya çevrimiçi hizmetleri yönetmek için kullanılan belirli bir fiziksel veya sanal makineler bu belirli hizmetler veya sistemleri ayrılması geliyordu. Hizmet katmanları desteklemesi için. Bir "web" katmanı ve bir "veri" veya "alanı" katmanı olacaktır. Uygulamaları nerede istekleri giriş ve çıkış önbelleğe alma için adanmış makineler kümesi yanı sıra aktarılan bir Mesajlaşma katmanına sahip olması gerekir. Her bir katmanı veya iş yükü türü için ayrılmış belirli makinelere vardı: veritabanı, birkaç web sunucuları dedicated birkaç makineler alındı. Belirli türde bir iş yükü için olan makineleri neden olursa söz konusu katman için daha fazla makine, aynı yapılandırmaya sahip eklemek çok sık erişimli çalıştırın. Ancak, tüm iş yükleri şekilde kolayca ölçeği - özellikle veri katmanı ile genellikle daha büyük makinelere makinelerle değiştirirsiniz. Kolay. Bir makine başarısız olursa, genel uygulama bu bölümü makinesi geri yüklenemedi kadar alt kapasitede çalıştı. Yine de oldukça kolay (değil gerekmeyen eğlenceli varsa).
@@ -53,7 +53,7 @@ Geleneksel N katmanlı uygulamalarda olduğu her zaman bir [yük dengeleyici](ht
 
 Web/çalışan katmanı kabaca dengeli kaldığını emin olmak ağ Dengeleyiciler ya da ileti yönlendiriciler çalıştı. Veri katmanı Dengeleme stratejileri farklı ve kullanıcıda üzerinde veri depolama mekanizmasıdır. Veri katmanı Dengeleme önbelleğe alma, yönetilen görünümleri, saklı yordamlar ve diğer depolama özgü mekanizmaları veri parçalama üzerinde yararlandı.
 
-Bu stratejiler bazı ilginç olsa da, Service Fabric Küme Kaynak Yöneticisi herhangi bir ağ yük dengeleyicisi veya bir önbellek gibi değil. Bir ağ yük dengeleyicisi, ön uçlar arasında trafik yayarak dengeler. Service Fabric Küme Kaynak Yöneticisi, farklı bir strateji vardır. Temelde, Service Fabric taşır *Hizmetleri* nerede bunlar en çok trafiği bekleniyor uygun veya izlemek için yükleme. Örneğin, hizmetleri kadar işi vardır Hizmetleri yapmamanın olduğundan şu anda soğuk düğümlere taşıyabilirsiniz. Düğümleri mevcut hizmetlere silindi veya başka bir yere taşıdı soğuk olabilir. Başka bir örnek olarak, Küme Kaynak Yöneticisi ayrıca uzaktaki bir makine bir hizmetin taşıyabilirsiniz. Belki de yaklaşık yükseltilmek üzere makinedir veya tüketim ani bir değişiklik nedeniyle üzerinde çalışan hizmetleri tarafından aşırı yüklendi. Alernatively, hizmetin kaynak gereksinimlerini artış gösterdi. Sonuç olarak çalıştırmaya devam etmek için bu makinede yeterli kaynak yok. 
+Bu stratejiler bazı ilginç olsa da, Service Fabric Küme Kaynak Yöneticisi herhangi bir ağ yük dengeleyicisi veya bir önbellek gibi değil. Bir ağ yük dengeleyicisi, ön uçlar arasında trafik yayarak dengeler. Service Fabric Küme Kaynak Yöneticisi, farklı bir strateji vardır. Temelde, Service Fabric taşır *Hizmetleri* nerede bunlar en çok trafiği bekleniyor uygun veya izlemek için yükleme. Örneğin, hizmetleri kadar işi vardır Hizmetleri yapmamanın olduğundan şu anda soğuk düğümlere taşıyabilirsiniz. Düğümleri mevcut hizmetlere silindi veya başka bir yere taşıdı soğuk olabilir. Başka bir örnek olarak, Küme Kaynak Yöneticisi ayrıca uzaktaki bir makine bir hizmetin taşıyabilirsiniz. Belki de yaklaşık yükseltilmek üzere makinedir veya tüketim ani bir değişiklik nedeniyle üzerinde çalışan hizmetleri tarafından aşırı yüklendi. Alternatif olarak, hizmetin kaynak gereksinimlerini artırmış olabilir. Sonuç olarak çalıştırmaya devam etmek için bu makinede yeterli kaynak yok. 
 
 Küme Kaynak Yöneticisi geçici bir çözüm bulmak services taşımak için sorumlu olduğundan, bir ağ yük dengeleyicisi ne bulacağından için karşılaştırıldığında farklı özellik kümesi içerir. Bu konum hizmeti çalıştırmak için ideal olsa bile Ağ Yük Dengeleyiciler ağ trafiğini Hizmetleri zaten olduğu için teslim olmasıdır. Service Fabric Küme Kaynak Yöneticisi kümedeki kaynaklar verimli bir şekilde kullanılan sağlamaya yönelik tamamen farklı stratejiler kullanır.
 

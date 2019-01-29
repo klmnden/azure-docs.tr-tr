@@ -6,16 +6,16 @@ services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-autosuggest
+ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: scottwhi
-ms.openlocfilehash: 112c22815903841f3ffb8c78db4f8bffc60cb6b1
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 7caf6a9f6bce90c6ffbaa7fa4040484938d6eafd
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48829725"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55177773"
 ---
 # <a name="language-and-region-support-for-the-bing-autosuggest-api"></a>Bing otomatik öneri API'si için dil ve bölge desteği
 
@@ -29,7 +29,7 @@ Bing otomatik öneri API'si tarafından desteklenen dilleri listeler.
 | Çince (Tayvan)     | `zh-TW`          |
 | Danca      | `da`          |
 | Flamanca (Belçika)       | `nl-BE`          |
-| Hollanda dili (Hollanda)      | `nl-NL`          |
+| Felemenkçe (Hollanda)      | `nl-NL`          |
 | İngilizce (Avustralya)    | `en-AU`          |
 | İngilizce (Kanada)     | `en-CA`          |
 | English (India)    | `en-IN`          |
@@ -50,7 +50,7 @@ Bing otomatik öneri API'si tarafından desteklenen dilleri listeler.
 | Almanca (İsviçre)      | `de-CH`          |
 | İtalyanca     | `it`          |
 | Japonca    | `ja`          |
-| Kore dili      | `ko`          |
+| Korece      | `ko`          |
 | Norveççe   | `no`          |
 | Lehçe      | `pl`          |
 | Portekizce (Brezilya)   | `pt-BR`|
@@ -61,7 +61,7 @@ Bing otomatik öneri API'si tarafından desteklenen dilleri listeler.
 | İspanyolca (Meksika)    | `es-MX`          |
 | İspanyolca (İspanya)    | `es-ES`          |
 | İspanyolca (Amerika Birleşik Devletleri)    | `es-US`          |
-| İsveç dili     | `sv`          |
+| İsveççe     | `sv`          |
 | Türkçe     | `tr`          |
 
 ## <a name="see-also"></a>Ayrıca bkz.

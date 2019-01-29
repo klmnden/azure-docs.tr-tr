@@ -5,15 +5,15 @@ services: storage
 author: jeffpatt24
 ms.service: storage
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 01/25/2019
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 852ffdafefeef7f4b8fd6bf3a9c5d175d872e077
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: cf86d2a644c2732f27442a807dec1ad960b94af5
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157641"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095166"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure Dosya Eşitleme ile ilgili sorunları giderme
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -804,24 +804,19 @@ Bulutta için iki yol vardır katmanlama:
 Aşağıdaki bölümlerde, bulut katmanlaması sorunları gidermek ve bir sorunun bir bulut depolama sorunu veya server sorunu olup olmadığını belirlemek nasıl gösterir.
 
 <a id="monitor-tiering-activity"></a>**Bir sunucuda katmanlama Etkinlik izleme**  
-Bir sunucuda katmanlama etkinliğini izlemek için olay kimliği 9002 9003 ve 9016 9029 Telemetri olay günlüğüne (uygulamalar ve Olay Görüntüleyicisi'nde Services\Microsoft\FileSync\Agent altında bulunur) kullanın.
-
-- Olay Kimliği 9002 hayalet istatistikler için sunucu uç noktası sağlar. Örneğin, TotalGhostedFileCount, SpaceReclaimedMB, vb.
+Bir sunucuda katmanlama etkinliğini izlemek için olay kimliği 9003 9016 ve 9029 Telemetri olay günlüğüne (uygulamalar ve Olay Görüntüleyicisi'nde Services\Microsoft\FileSync\Agent altında bulunur) kullanın.
 
 - Olay Kimliği 9003 sunucu uç noktası için hata dağıtımını sağlar. Örneğin, toplam hata sayısı, hata kodu, vb. Unutmayın, hata kodu bir olay kaydedilir.
-
 - Olay Kimliği 9016 hayalet sonuçları için bir birim sağlar. Örneğin, boş alan yüzdesi olan dosya sayısı, oturumda ghost vb. için başarısız oldu. dosya sayısı hayalet kopyası.
-
-- Olay Kimliği 9029 hayalet oturum bilgilerini sağlar. Örneğin, dosyaların sayısı, oturumda çalıştı dosya sayısı oturumda, dosyaların sayısı, katmanlı zaten katmanlı, vs.
+- Olay Kimliği 9029 hayalet oturum bilgilerini sunucu uç noktası sağlar. Örneğin, dosyaların sayısı, oturumda çalıştı dosya sayısı oturumda, dosyaların sayısı, katmanlı zaten katmanlı, vs.
 
 <a id="monitor-recall-activity"></a>**Bir sunucuya geri çağırma Etkinlik izleme**  
-Bir sunucuya geri çağırma etkinliğini izlemek için 9007 (uygulamalar ve Olay Görüntüleyicisi'nde Services\Microsoft\FileSync\Agent altında bulunur) Telemetri olay günlüğündeki olay kimliği 9005, 9006, kullanın. Unutmayın, bu olayları saatlik kaydedilir.
+Bir sunucuya geri çağırma etkinliği izlemek için olay kimliği 9005 9006 ve 9009 9059 Telemetri olay günlüğüne (uygulamalar ve Olay Görüntüleyicisi'nde Services\Microsoft\FileSync\Agent altında bulunur) kullanın.
 
 - Olay Kimliği 9005 sunucu uç noktası için geri çağırma güvenilirlik sağlar. Örneğin, erişilen, benzersiz dosyaları toplam benzersiz başarısız erişim, vb. ile toplam sayısı.
-
 - Sunucu uç noktası için geri çağırma hatası dağıtım öğesini belirten Olay No. 9006 sağlar. Örneğin, toplam başarısız istekler, hata kodu, vb. Unutmayın, hata kodu bir olay kaydedilir.
-
-- Olay Kimliği 9007 sunucu uç noktası için geri çağırma performans sağlar. Örneğin, TotalRecallIOSize, TotalRecallTimeTaken, vb.
+- Olay Kimliği 9009 sunucu uç noktası için geri çağırma oturum bilgilerini sağlar. Örneğin, DurationSeconds, CountFilesRecallSucceeded CountFilesRecallFailed, vb.
+- Olay Kimliği 9059 uygulama geri çekme dağıtım için sunucu uç noktası sağlar. Örneğin, ShareId, uygulama adı ve TotalEgressNetworkBytes.
 
 <a id="files-fail-tiering"></a>**Tier başarısız dosyaları sorunlarını giderme**  
 Azure dosyaları'na Tier dosyaları başarısız olursa:

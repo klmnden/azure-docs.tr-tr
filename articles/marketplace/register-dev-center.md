@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 393426678d9331837bdc3b73c4e491dbe7eae6fa
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: dacc2ca995bebd0ae65d9c8221fc1954687949ee
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834834"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55179846"
 ---
 # <a name="register-in-dev-center"></a>Geliştirme Merkezi'ne kaydolun  
 Bir tarayıcı kişisel hesaba günlüğe kaydedilmez doğrulanmasına yardımcı olmak için yeni bir InPrivate Internet Explorer veya Chrome gizli gözatma oturumu açın.  
@@ -68,7 +68,7 @@ Bir tarayıcı kişisel hesaba günlüğe kaydedilmez doğrulanmasına yardımc�
 
 9.  İçinde `Registration - Review` bölümünde, hesap bilgilerinizi gözden geçirin ve her şeyin doğru olduğundan emin olun.  
 
-    Hüküm ve koşulları Microsoft Azure Marketi yayımcı anlaşması'nı okuyun.  
+    Hüküm ve Microsoft Azure Marketi koşulları okuyun [yayımcı anlaşması](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf).  
 
     Onay-okuyun ve koşulları kabul belirtmek için kutusuna tıklayın.  
     
@@ -143,7 +143,7 @@ Banka ve vergi bilgilerini liste türünü transact kullanarak tüm ticari tekli
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular: 
 
 *   **Hangi yayımcıları bir geliştirme merkezi hesap kaydı gerektirir?** 
-> Liste türü Transact içinde yayımlama yayımcı: VM, Azure uygulamaları: Çözüm şablonları ve yönetilen uygulamalar.  
+> Liste türü Transact içinde yayımlama yayımcısı: VM, Azure uygulamaları: Çözüm şablonları ve yönetilen uygulamalar.  
 
 *   **Neden Geliştirme Merkezi hesabı gerekir mi?**
 > Geliştirme Merkezi hesabı bir için liste türünü Transact publisher'ın sizin adınıza müşteri faturalandırmak Microsoft etkinleştirmek için gereklidir. Kayıt sağlar: yasal doğrulamak Microsoft Geliştirme Merkezi hesabı vergi ve bankacılık bilgilerini şirketinizin. Bilgi için daha fazla tıklayın [burada.](https://docs.microsoft.com/azure/marketplace/become-publisher#register-in-dev-center)
@@ -165,7 +165,7 @@ Banka ve vergi bilgilerini liste türünü transact kullanarak tüm ticari tekli
 > Tamamlamak [Market kaydı](https://azuremarketplace.microsoft.com/en-us/sell/signup) forma bir Geliştirme Merkezi promosyon kodu alırsınız.
  
 *   **Ne ı tamamladıktan sonra beklemeliyim?**
-> Bir e-posta arayın verify@microsoft.com konu satırı ile "eylem gerekli: Microsoft e-posta hesabınızla doğrulayın". Kaydı tamamlamak için zaman hassas doğrulama bağlantısına tıklayın. *24 saat içinde e-posta almadıysanız Lütfen istenmeyen posta klasörüne bakın.*
+> Bir e-posta arayın verify@microsoft.com konu satırı ile "eylem gerekli: E-posta hesabınızı Microsoft ile doğrulama". Kaydı tamamlamak için zaman hassas doğrulama bağlantısına tıklayın. *24 saat içinde e-posta almadıysanız Lütfen istenmeyen posta klasörüne bakın.*
 
 *   **Geliştirme Merkezi doğrulamadan sonra sonraki adımlar nelerdir?**
 > "Programlarınızın" gidin (https://developer.microsoft.com/dashboard/Account/Programs) ve Geliştirme Merkezi hesabı oturum açın. Kayıtlı bir program olarak Azure'ı görmüyorsanız, "Sizin için önerilen programlar" kısmına bakın ve ardından "Kullanmaya başlayın." seçmek, Azure için arayın

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: d5ad3b56bb2e24bc31d3a0801a91670c0e6157d5
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 9abf1d1105c112051041688f1d4305c543b148ce
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888422"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55179489"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Öğretici: Oluşturma ve sanal makine ölçek kümesi Azure CLI ile yönetme
 Sanal makine ölçek kümesi, birbiriyle aynı ve otomatik olarak ölçeklendirilen sanal makine kümesi dağıtmanızı ve yönetmenizi sağlar. Sanal makine ölçek kümesinin yaşam döngüsü boyunca bir veya daha fazla yönetim görevi çalıştırmanız gerekebilir. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
@@ -51,7 +51,7 @@ Bu öğreticide bir ölçek kümesi oluşturduğunuzda veya değiştirdiğinizde
 
 
 ## <a name="create-a-scale-set"></a>Ölçek kümesi oluşturma
-[az vmss create](/cli/azure/vmss#az_vmss_create) komutuyla bir sanal makine ölçek kümesi oluşturun. Aşağıdaki örnek *myScaleSet* adlı bir ölçek kümesini ve yoksa SSH anahtarlarını oluşturur:
+[az vmss create](/cli/azure/vmss) komutuyla bir sanal makine ölçek kümesi oluşturun. Aşağıdaki örnek *myScaleSet* adlı bir ölçek kümesini ve yoksa SSH anahtarlarını oluşturur:
 
 ```azurecli-interactive
 az vmss create \
@@ -98,7 +98,7 @@ az vmss get-instance-view \
 ## <a name="list-connection-information"></a>Bağlantı bilgilerini listeleme
 Tek tek sanal makine örneklerine trafiği yönlendiren yük dengeleyiciye genel bir IP adresi atanır. Varsayılan olarak, belirtilen bir bağlantı noktasındaki her bir sanal makineye uzaktan bağlantı trafiğini ileten Azure Load Balancer’a Ağ Adresi Çevirisi (NAT) kuralları eklenir. Bir ölçek kümesindeki sanal makine örneklerine bağlanmak için, atanan bir genel IP adresine ve bağlantı noktası numarasına uzaktan bağlantı oluşturursunuz.
 
-Bir ölçek kümesindeki sanal makine örneklerine bağlanacak bağlantı noktalarını ve adresi listelemek için [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info) komutunu kullanın:
+Bir ölçek kümesindeki sanal makine örneklerine bağlanacak bağlantı noktalarını ve adresi listelemek için [az vmss list-instance-connection-info](/cli/azure/vmss) komutunu kullanın:
 
 ```azurecli-interactive
 az vmss list-instance-connection-info \
@@ -202,7 +202,7 @@ Aşağıdaki tabloda genel sanal makine boyutları, kullanım durumlarına göre
 | [Yüksek performans](../virtual-machines/linux/sizes-hpc.md) | H, A8-11          | İşleme düzeyi yüksek olan isteğe bağlı ağ arabirimleri (RDMA) içeren VM’lerimiz, şimdiye kadarki en güçlü CPU ile sunuluyor. 
 
 ### <a name="find-available-vm-instance-sizes"></a>Kullanılabilir sanal makine örneği boyutlarını bulma
-Belirli bir bölgede kullanılabilen sanal makine örneği boyutlarının listesini görmek için, [az vm list-sizes](/cli/azure/vm#az_vm_list_sizes) komutunu kullanın.
+Belirli bir bölgede kullanılabilen sanal makine örneği boyutlarının listesini görmek için, [az vm list-sizes](/cli/azure/vm) komutunu kullanın.
 
 ```azurecli-interactive
 az vm list-sizes --location eastus --output table
@@ -227,7 +227,7 @@ az vm list-sizes --location eastus --output table
 ```
 
 ### <a name="create-a-scale-set-with-a-specific-vm-instance-size"></a>Belirli bir sanal makine örneği boyutu ile ölçek kümesi oluşturma
-Öğreticinin başında bir ölçek kümesi oluşturduğunuzda, sanal makine örnekleri için varsayılan bir *Standard_D1_v2* sanal makine SKU’su sağlanmıştır. [az vm list-sizes](/cli/azure/vm#az_vm_list_sizes) içindeki çıktıyı temel alarak farklı bir sanal makine örneği belirtebilirsiniz. Aşağıdaki örnek, *Standard_F1* bir sanal makine örneği boyutu belirtmek için `--vm-sku` parametresiyle bir ölçek kümesi oluşturur. Tüm ölçek kümesi kaynaklarının ve sanal makine örneklerinin oluşturulup yapılandırılması birkaç dakika süreceğinden, aşağıdaki ölçek kümesini dağıtmanız gerekmez:
+Öğreticinin başında bir ölçek kümesi oluşturduğunuzda, sanal makine örnekleri için varsayılan bir *Standard_D1_v2* sanal makine SKU’su sağlanmıştır. [az vm list-sizes](/cli/azure/vm) içindeki çıktıyı temel alarak farklı bir sanal makine örneği belirtebilirsiniz. Aşağıdaki örnek, *Standard_F1* bir sanal makine örneği boyutu belirtmek için `--vm-sku` parametresiyle bir ölçek kümesi oluşturur. Tüm ölçek kümesi kaynaklarının ve sanal makine örneklerinin oluşturulup yapılandırılması birkaç dakika süreceğinden, aşağıdaki ölçek kümesini dağıtmanız gerekmez:
 
 ```azurecli-interactive
 az vmss create \
@@ -241,7 +241,7 @@ az vmss create \
 
 
 ## <a name="change-the-capacity-of-a-scale-set"></a>Ölçek kümesinin kapasitesini değiştirme
-Öğreticinin başında bir ölçek kümesi oluşturduğunuzda varsayılan olarak iki sanal makine örneği dağıtılmıştı. Bir ölçek kümesiyle oluşturulan örnek sayısını değiştirmek için [az vmss create](/cli/azure/vmss#az_vmss_create) ile `--instance-count` parametresini belirtebilirsiniz. Mevcut ölçek kümenizdeki sanal makine örneği sayısını artırmak veya azaltmak için kapasiteyi el ile değiştirebilirsiniz. Ölçek kümesi, gerektiği sayıda sanal makine örneği oluşturur veya kaldırır ve sonra trafiği dağıtmak için yük dengeleyiciyi yapılandırır.
+Öğreticinin başında bir ölçek kümesi oluşturduğunuzda varsayılan olarak iki sanal makine örneği dağıtılmıştı. Bir ölçek kümesiyle oluşturulan örnek sayısını değiştirmek için [az vmss create](/cli/azure/vmss) ile `--instance-count` parametresini belirtebilirsiniz. Mevcut ölçek kümenizdeki sanal makine örneği sayısını artırmak veya azaltmak için kapasiteyi el ile değiştirebilirsiniz. Ölçek kümesi, gerektiği sayıda sanal makine örneği oluşturur veya kaldırır ve sonra trafiği dağıtmak için yük dengeleyiciyi yapılandırır.
 
 Ölçek kümesindeki sanal makine örneği sayısını elle artırmak veya azaltmak için [az vmss scale](/cli/azure/vmss#az_vmss_scale) komutunu kullanın. Aşağıdaki örnek, ölçek kümenizdeki sanal makine sayısını *3* olarak ayarlar:
 

@@ -6,12 +6,12 @@ ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: 0f8db7dd3a90e06587a7e0e05f33cb6fba5c72e1
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 21ac48ff473dcf494f96f87210bdfe09e4d82646
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53539798"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103403"
 ---
 # <a name="optimizing-autovacuum-on-azure-database-for-postgresql-server"></a>PostgreSQL için Azure veritabanı autovacuum en iyi duruma getirme 
 Bu makalede, etkili bir şekilde PostgreSQL için Azure veritabanı autovacuum en iyi duruma getirme açıklanır.
@@ -97,6 +97,6 @@ ALTER TABLE t SET (autovacuum_vacuum_cost_delay = 10);
 Autovacuum olduğu bir tablo zaman uyumlu işlem başına. Ölü diziler tablo büyük yüzdesi vardır, daha yüksek autovacuum "maliyetine".  Güncelleştirme/silme birden çok tablolara oranı yüksek olan tabloları bölme ve "bir tablo üzerinde autovacuum tamamlanması maliyetini" autovacuum paralel hale getirmek için yardımcı olur. Ayrıca, çalışanları liberally zamanlanmış emin olmak için paralel autovacuum çalışanların sayısını artırabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Autovacuum ayarlama ve kullanma hakkında daha fazla bilgi edinmek için aşağıdaki PostgreSQL documenatation gözden geçirin:
+Autovacuum ayarlama ve kullanma hakkında daha fazla bilgi edinmek için aşağıdaki PostgreSQL belgeleri gözden geçirin:
  - PostgreSQL belgeleri - [Bölüm 18, sunucu yapılandırması](https://www.postgresql.org/docs/9.5/static/runtime-config-autovacuum.html)
  - PostgreSQL belgeleri – [Bölüm 24, rutin veritabanı bakım görevlerini](https://www.postgresql.org/docs/9.6/static/routine-vacuuming.html)

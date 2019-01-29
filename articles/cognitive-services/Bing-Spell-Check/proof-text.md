@@ -6,16 +6,16 @@ services: cognitive-services
 author: noellelacharite
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-spell-check
+ms.subservice: bing-spell-check
 ms.topic: overview
 ms.date: 05/03/2018
 ms.author: nolachar
-ms.openlocfilehash: 3a277b10561b2756fab0af6455d17557a8d93a53
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: c15af0dcebdfcbe984d47b5c06f213e516ae3914
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345717"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55149780"
 ---
 # <a name="what-is-bing-spell-check-api"></a>Bing Yazım Denetimi API'si nedir?
 
@@ -39,7 +39,7 @@ Bu yazım denetleyicisi tüm sözcük işleme senaryolarının üstesinden geleb
 API, `Proof` ve `Spell` olmak üzere iki denetleme modunu destekler.  Örnekleri [burada](https://azure.microsoft.com/services/cognitive-services/spell-check/) deneyebilirsiniz.
 ### <a name="proof---for-documents-scenario"></a>Denetleme (belge senaryosu için)
 `Proof`, varsayılan moddur. `Proof` yazım denetimi modu, belge oluşturmaya yardımcı olmak için büyük/küçük harf kullanımını düzeltme ve temel noktalama işaretleri ekleme gibi çeşitli özellikler sunarak en kapsamlı denetimleri sağlar. Ancak bu mod yalnızca en-US (İngilizce-Amerika Birleşik Devletleri), es-ES (İspanyolca) ve pt-BR (Portekizce) pazarlarında kullanılabilir. (Not: İspanyolca ve Portekizce için yalnızca beta sürümünde sunulur). Diğer tüm pazarlar için mode sorgu parametresini Spell olarak ayarlayın. 
-<br /><br/>**NOT:**   Uzunluğu 4096 karakteri aşan sorgular, 4096 karakter olacak şekilde kesildikten sonra işlenir. 
+<br /><br/>**NOT:**   Sorgu metni uzunluğu 4096 aşarsa, 4096 karakterle kesilecek sonra işlenir. 
 ### <a name="spell----for-web-searchesqueries-scenario"></a>Yazım (Web araması/sorgusu senaryosu için)
 `Spell`, daha iyi arama sonuçları döndürmek için daha agresif şekilde çalışır. `Spell` modu, çoğu yazım hatasını bulur ancak `Proof` modunda yakalanan, gibi bazı dil bilgisi hatalarını (örneğin, büyük/küçük harf kullanımı ve yinelenen sözcükler ile ilgili hatalar) saptayamaz.
 

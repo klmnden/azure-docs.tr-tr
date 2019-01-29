@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/27/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 33b95c1b0e3d654ce8bb6eda3e96b7b3e9c9bc13
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
-ms.translationtype: HT
+ms.openlocfilehash: b494da1c87feafd1b9db8485d16a9dcf5b999e3d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831492"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101814"
 ---
 # <a name="tutorial-deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Öğretici: Azure sanal ağına Linux Service Fabric kümesi dağıtma
 
@@ -42,7 +42,7 @@ Bu öğretici dizisinde şunların nasıl yapıldığını öğrenirsiniz:
 > * [Bir kümenin çalışma zamanını yükseltme](service-fabric-tutorial-upgrade-cluster.md)
 > * [Küme silme](service-fabric-tutorial-delete-cluster.md)
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiye başlamadan önce:
 
@@ -89,7 +89,7 @@ Bu şablon sanal bir ağa beş sanal makineden ve tek bir düğüm türünden ol
 
 * tek bir düğüm türü
 * birincil düğüm türünde beş düğüm (şablon parametrelerinden yapılandırılabilir)
-* İşletim sistemi: Ubuntu 16.04 LTS (şablon parametrelerinde yapılandırılabilir)
+* İşletim Sistemi: Ubuntu 16.04 LTS (şablon parametrelerinde yapılandırılabilir)
 * sertifikanın güvenliğinin sağlanması (şablon parametrelerinde yapılandırılabilir)
 * [DNS hizmeti](service-fabric-dnsservice.md) etkin
 * Bronz [dayanıklılık düzeyi](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) (şablon parametrelerinde yapılandırılabilir)
@@ -101,10 +101,10 @@ Bu şablon sanal bir ağa beş sanal makineden ve tek bir düğüm türünden ol
 
 **Microsoft.Network/loadBalancers** kaynağında bir yük dengeleyici yapılandırılır ve şu bağlantı noktaları için yoklamalar ve kurallar ayarlanır:
 
-* istemci bağlantı uç noktası: 19000
+* istemci bağlantısı uç noktası: 19000
 * HTTP ağ geçidi uç noktası: 19080
-* uygulama bağlantı noktası: 80
-* uygulama bağlantı noktası: 443
+* Uygulama bağlantı noktası: 80
+* Uygulama bağlantı noktası: 443
 
 ### <a name="virtual-network-and-subnet"></a>Sanal ağ ve alt ağ
 
@@ -163,7 +163,7 @@ az sf cluster create --resource-group $ResourceGroupName --location $Location \
 
 ### <a name="create-a-cluster-using-a-new-self-signed-certificate"></a>Yeni ve otomatik olarak imzalanan bir sertifika ile küme oluşturma
 
-Aşağıdaki betik, Azure'a yeni bir küme dağıtmak için [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) komutunu ve bir şablonu kullanır. Komut ayrıca Azure’da yeni bir anahtar kasası oluşturup bu kasaya otomatik olarak imzalanan yeni bir sertifika ekler ve sertifika dosyasını yerel olarak indirir.
+Aşağıdaki betik, Azure'a yeni bir küme dağıtmak için [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) komutunu ve bir şablonu kullanır. Komut ayrıca Azure'da yeni bir anahtar kasası oluşturulur, yeni bir otomatik olarak imzalanan sertifika için anahtar kasası ekler ve sertifika dosyası yerel olarak indirilir.
 
 ```azurecli
 ResourceGroupName="sflinuxclustergroup"

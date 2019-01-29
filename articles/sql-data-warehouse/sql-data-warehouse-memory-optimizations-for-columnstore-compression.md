@@ -10,12 +10,12 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: e30320631a7fd9b4ee27096556af01f2ad77a746
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: de7cc0e67960edf95ace67808ffc677b57a46dab
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306841"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097002"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Satır grubu kaliteli columnstore için en üst düzeye çıkarma
 
@@ -67,9 +67,9 @@ from cte;
 ```
 
 Trim_reason_desc satır grubu kırpılmış olup olmadığını belirtir (trim_reason_desc = NO_TRIM hiçbir kesme oluştu ve satır grubu en iyi kalitesini anlamına gelir). Kırpma nedeniyle erken erişim satır grubu belirtin:
-- BULKLOAD: gelen toplu iş yükü için satır 1 milyondan az satır başlattıklarında kırpma bu nedenle kullanılır. Altyapısı varsa (delta deposuna ekleme aksine) eklenen 100.000 satır büyük sıkıştırılmış satır grupları oluşturur ancak BULKLOAD için kesim nedeni ayarlar. Bu senaryoda, daha fazla satır accumulate için toplu yükleme pencerenizi artırmayı deneyin. Ayrıca, satır grupları bölüm sınırlarını yayılamaz, çok parçalı değil emin olmak için bölümleme düzeninizi yeniden değerlendir.
+- BULKLOAD: Gelen toplu iş yükü için satır 1 milyondan az satır başlattıklarında kırpma bu nedenle kullanılır. Altyapısı varsa (delta deposuna ekleme aksine) eklenen 100.000 satır büyük sıkıştırılmış satır grupları oluşturur ancak BULKLOAD için kesim nedeni ayarlar. Bu senaryoda, daha fazla satır accumulate için toplu yükleme pencerenizi artırmayı deneyin. Ayrıca, satır grupları bölüm sınırlarını yayılamaz, çok parçalı değil emin olmak için bölümleme düzeninizi yeniden değerlendir.
 - MEMORY_LIMITATION: 1 milyon satır satır grupları oluşturmak için belirli bir miktarda bellek çalışma altyapısı tarafından gereklidir. Kullanılabilir bellek yükleme oturumu gerekli çalışma belleğinden daha az olduğunda, satır grupları erken kırpılmış. Aşağıdaki bölümlerde, gerekli bellek tahmin edin ve daha fazla bellek açıklanmaktadır.
-- DICTIONARY_SIZE: Kesim bu nedenle, geniş ve/veya yüksek bir kardinalite dizeleri içeren en az bir dize sütunu olduğundan satır kesme oluştuğunu gösterir. Sözlük boyutu bellekte 16 MB ile sınırlıdır ve satır grubu bu sınıra ulaştığınızda sıkıştırılır. Bu durumla karşılaşırsanız, ayrı bir tabloya sorunlu sütuna yalıtarak göz önünde bulundurun.
+- DICTIONARY_SIZE: Bu kesim nedeni, geniş ve/veya yüksek bir kardinalite dizeleri içeren en az bir dize sütunu olduğundan satır kesme oluştuğunu gösterir. Sözlük boyutu bellekte 16 MB ile sınırlıdır ve satır grubu bu sınıra ulaştığınızda sıkıştırılır. Bu durumla karşılaşırsanız, ayrı bir tabloya sorunlu sütuna yalıtarak göz önünde bulundurun.
 
 ## <a name="how-to-estimate-memory-requirements"></a>Bellek gereksinimlerini tahmin etme
 
@@ -88,7 +88,7 @@ Burada kısa dize sütunlarındaki dize veri türlerini kullanın < = 32 bayt ve
 
 Uzun dizeler metin sıkıştırmak için tasarlanmış bir sıkıştırma yöntemi ile sıkıştırılır. Bu sıkıştırma yöntemi kullanan bir *sözlük* metin desenleri depolamak için. Bir sözlük maksimum boyutu 16 MB'dir. Satır grubu içindeki her uzun dize sütunu için yalnızca bir sözlük var.
 
-Video columnstore bellek gereksinimleri ilgili ayrıntılı bir tartışma için bkz [Azure SQL veri ambarı ölçeklendirme: yapılandırma ve rehberlik](https://myignite.microsoft.com/videos/14822).
+Video columnstore bellek gereksinimleri ilgili ayrıntılı bir tartışma için bkz [Azure SQL veri ambarı ölçeklendirme: yapılandırma ve rehberlik](https://channel9.msdn.com/Events/Ignite/2016/BRK3291).
 
 ## <a name="ways-to-reduce-memory-requirements"></a>Bellek gereksinimlerini azaltın yolları
 

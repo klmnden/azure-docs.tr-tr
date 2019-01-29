@@ -3,19 +3,19 @@ title: Metin - Bing özel arama vurgulamak için decoration işaretçileri kulla
 titlesuffix: Azure Cognitive Services
 description: Metin süslemeleri araması yanıtlarında, etkinleştirme işlemi gösterilmektedir.
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-custom-search
+ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: maheshb
-ms.openlocfilehash: 848255418e7cc0f80d10006aa4b13e89121c8834
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: a535a31678dcdb611acb1606e6091a1a40a6d42e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466265"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55184079"
 ---
 # <a name="using-decoration-markers-to-highlight-text"></a>Metni vurgulayacak şekilde decoration işaretçiler kullanma
 
@@ -33,28 +33,28 @@ Varsa `textDecorations` olduğu **true**, Bing, yanıtların görünen dizeleri 
 
 |Unicode|HTML|Açıklama
 |-|-|-
-|U + E000|\<b >|(İsabet vurgulama) sorgu terimine başlangıcını işaretleyen
-|U + E001|\</b >|Sorgu döneminin sonunu işaretler
-|U + E002|\<Ben >|İtalik içerik başlangıcını işaretleyen 
-|U + E003|\</i >|İtalik içerik sonunu işaretleyen
-|U + E004|\<br / >|Bir satır sonunu işaretler
-|U + E005||Bir telefon numarası başlangıcını işaretleyen
-|U + E006||Bir telefon numarası sonunu işaretleyen
-|U + E007||Bir adresi başlangıcını işaretleyen
-|U + E008||Bir adresi sonunu işaretleyen
-|U + E009|\&nbsp;|Bölünemez boşluk işaretler
-|U + E00C|\<strong >|Kalın içerik başlangıcını işaretleyen
+|U+E000|\<b >|(İsabet vurgulama) sorgu terimine başlangıcını işaretleyen
+|U+E001|\</b >|Sorgu döneminin sonunu işaretler
+|U+E002|\<Ben >|İtalik içerik başlangıcını işaretleyen 
+|U+E003|\</i >|İtalik içerik sonunu işaretleyen
+|U+E004|\<br/>|Bir satır sonunu işaretler
+|U+E005||Bir telefon numarası başlangıcını işaretleyen
+|U+E006||Bir telefon numarası sonunu işaretleyen
+|U+E007||Bir adresi başlangıcını işaretleyen
+|U+E008||Bir adresi sonunu işaretleyen
+|U+E009|\&nbsp;|Bölünemez boşluk işaretler
+|U+E00C|\<strong >|Kalın içerik başlangıcını işaretleyen
 |U + E00D|\</ strong >|Kalın içerik sonunu işaretleyen
 |U + E00E||İçerik arka planının çevresindeki, arka plan açık başlangıcını işaretleyen
 |U + E00F||İçerik arka planının çevresindeki, arka plan açık sonunu işaretleyen
-|U + E010||İçerik arka planının çevresindeki, arka plan koyu başlangıcını işaretleyen
-|U + E011||İçerik arka planının çevresindeki, arka plan koyu sonunu işaretleyen
-|U + E012|\<DEL >|Kaldırılmış içerik başlangıcını işaretleyen
-|U + E013|\</ DEL >|Kaldırılmış içerik sonunu işaretleyen
-|U + E016|\<Sub >|Alt simge içerik başlangıcını işaretleyen
-|U + E017|\</ sub >|Alt simge içerik sonunu işaretleyen
-|U + E018|\<sup >|Simge içerik başlangıcını işaretleyen
-|U + E019|\</ sup >|Simge içerik sonunu işaretleyen
+|U+E010||İçerik arka planının çevresindeki, arka plan koyu başlangıcını işaretleyen
+|U+E011||İçerik arka planının çevresindeki, arka plan koyu sonunu işaretleyen
+|U+E012|\<DEL >|Kaldırılmış içerik başlangıcını işaretleyen
+|U+E013|\</ DEL >|Kaldırılmış içerik sonunu işaretleyen
+|U+E016|\<Sub >|Alt simge içerik başlangıcını işaretleyen
+|U+E017|\</ sub >|Alt simge içerik sonunu işaretleyen
+|U+E018|\<sup >|Simge içerik başlangıcını işaretleyen
+|U+E019|\</ sup >|Simge içerik sonunu işaretleyen
 
 Aşağıdaki örnekte gösterildiği bir `Computation` log(2) sorgu terimi için alt simge işaretçileri içeren bir yanıt. `expression` Alanında işaretçileri yalnızca şu durumlarda ' textDecoration olduğu **true**.
 
