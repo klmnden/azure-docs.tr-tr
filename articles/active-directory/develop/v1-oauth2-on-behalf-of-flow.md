@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 06/06/2017
 ms.author: celested
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 72b1ba51f306203092b420e6f2d6186b3307d35d
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 3c2953d44587d72517c6f619ee9c9f05aabff186
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422754"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094385"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Hizmetten hizmete temsilci kullanım kullanıcı kimliği On-Behalf-Of akışı çağırır.
 
@@ -37,7 +37,7 @@ OAuth 2.0 On-Behalf-Of (OBO) akış, bir hizmeti veya web API'si, başka bir hiz
 
 OBO flow kullanan bir uygulamayı kullanıcının kimliği doğrulandıktan sonra başlar [OAuth 2.0 yetkilendirme kodu verme akışı](v1-protocols-oauth-code.md). Bu noktada, uygulamasını orta katman web API'sine (API A) kullanıcı talepleri ve API A. erişmek için bir onay içeren bir erişim belirteci (belirteç A) gönderir. Ardından, API bir aşağı akış web API'sine (API B) kimliği doğrulanmış bir isteği yapar.
 
-Bu adımları On-Behalf-Of akışı oluşturan: ![OAuth2.0 On-Behalf-Of akış](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
+Bu adımlar, On-Behalf-Of akışı oluşturan: ![OAuth2.0 üzerinde-Behalf-Of akışı](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
 
 1. İstemci uygulama bir API A A. belirteciyle istekte
 1. API bir Azure AD belirteç yayınında uç noktaya kimliğini doğrular ve API B'nin erişmek için bir belirteç istekleri
@@ -103,7 +103,7 @@ https://login.microsoftonline.com/<tenant>/oauth2/token
 
 İstemci uygulama, paylaşılan bir gizli dizi veya bir sertifika tarafından sağlanır.
 
-### <a name="first-case-access-token-request-with-a-shared-secret"></a>İlk durumda: paylaşılan bir gizli dizi ile erişim belirteci isteği
+### <a name="first-case-access-token-request-with-a-shared-secret"></a>İlk Durum: Paylaşılan gizlilik ile erişim belirteci isteği
 
 Paylaşılan gizlilik kullanırken, hizmetten hizmete erişim belirteci isteği aşağıdaki parametreleri içerir:
 
@@ -137,7 +137,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 &scope=openid
 ```
 
-### <a name="second-case-access-token-request-with-a-certificate"></a>İkinci durumda: bir sertifika ile erişim belirteci isteği
+### <a name="second-case-access-token-request-with-a-certificate"></a>İkinci durum: Bir sertifika ile erişim belirteci isteği
 
 Bir sertifika ile hizmetten hizmete erişim belirteci isteği aşağıdaki parametreleri içerir:
 
@@ -181,7 +181,7 @@ Başarılı yanıt, aşağıdaki parametrelerle bir JSON OAuth 2.0 yanıtındaki
 
 | Parametre | Açıklama |
 | --- | --- |
-| token_type |Belirteç türü değeri gösterir. Azure AD destekleyen tek tür **taşıyıcı**. Taşıyıcı belirteçleri hakkında daha fazla bilgi için bkz: [OAuth 2.0 yetkilendirme Framework: taşıyıcı belirteç kullanımı (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
+| token_type |Belirteç türü değeri gösterir. Azure AD destekleyen tek tür **taşıyıcı**. Taşıyıcı belirteçleri hakkında daha fazla bilgi için bkz: [OAuth 2.0 yetkilendirme Framework: Taşıyıcı belirteç kullanımı (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 | scope |Erişim belirtecinde verilen kapsam. |
 | expires_in |Süre (saniye cinsinden) erişim belirteci geçerlidir. |
 | expires_on |Erişim belirtecinin süresinin sona erdiği zaman. Tarih 1970'ten saniye sayısı temsil edilen-01-kadar süre sonu UTC 01T0:0:0Z. Bu değer, önbelleğe alınan belirteç ömrünü belirlemek için kullanılır. |
@@ -263,16 +263,16 @@ Hizmetten hizmete istek SAML onaylama işlemi için aşağıdaki parametreleri i
 
 Yanıt Base64url UTF8 ile kodlanan bir SAML belirteci içerir.
 
-- **SAML onaylama işlemi için SubjectConfirmationData bir OBO çağrısından kaynaklanan**: Hedef uygulama için bir alıcı değer gerekiyorsa **SubjectConfirmationData**, içinde bir joker karakter olmayan yanıt URL'si değeri olmalıdır Kaynak uygulama yapılandırması.
-- **SubjectConfirmationData düğümü**: düğüm içeremez bir **InResponseTo** SAML yanıtını parçası olmadığından özniteliği. SAML belirteci alma uygulama olmadan SAML onayı kabul etmeyi bir **InResponseTo** özniteliği.
+- **SAML onaylama işlemi için SubjectConfirmationData bir OBO çağrısından kaynaklanan**: Hedef uygulama için bir alıcı değer gerekiyorsa **SubjectConfirmationData**, değeri kaynak uygulama yapılandırmasında bir joker karakter olmayan yanıt URL'si olmalıdır.
+- **SubjectConfirmationData düğümü**: Düğüm içeremez bir **InResponseTo** SAML yanıtını parçası olmadığından özniteliği. SAML belirteci alma uygulama olmadan SAML onayı kabul etmeyi bir **InResponseTo** özniteliği.
 
-- **Onay**: onay gerekir almış bir OAuth akışını kullanıcı verilerini içeren bir SAML belirteç alamaz. İzinler ve yönetici onayı alma hakkında daha fazla bilgi için bkz: [izinler ve onay Azure Active Directory v1.0 uç noktasını](https://docs.microsoft.com/azure/active-directory/develop/v1-permissions-and-consent).
+- **Onay**: Onay OAuth akışını kullanıcı verilerini içeren bir SAML belirteci almak için verilmiş olmalıdır. İzinler ve yönetici onayı alma hakkında daha fazla bilgi için bkz: [izinler ve onay Azure Active Directory v1.0 uç noktasını](https://docs.microsoft.com/azure/active-directory/develop/v1-permissions-and-consent).
 
 ### <a name="response-with-saml-assertion"></a>SAML onaylaması Yanıtla
 
 | Parametre | Açıklama |
 | --- | --- |
-| token_type |Belirteç türü değeri gösterir. Azure AD destekleyen tek tür **taşıyıcı**. Taşıyıcı belirteçleri hakkında daha fazla bilgi için bkz: [OAuth 2.0 yetkilendirme Framework: taşıyıcı belirteç kullanımı (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
+| token_type |Belirteç türü değeri gösterir. Azure AD destekleyen tek tür **taşıyıcı**. Taşıyıcı belirteçleri hakkında daha fazla bilgi için bkz: [OAuth 2.0 yetkilendirme Framework: Taşıyıcı belirteç kullanımı (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 | scope |Erişim belirtecinde verilen kapsam. |
 | expires_in |Süre (saniye cinsinden) erişim belirteci geçerlidir. |
 | expires_on |Erişim belirtecinin süresinin sona erdiği zaman. Tarih 1970'ten saniye sayısı temsil edilen-01-kadar süre sonu UTC 01T0:0:0Z. Bu değer, önbelleğe alınan belirteç ömrünü belirlemek için kullanılır. |
@@ -280,14 +280,14 @@ Yanıt Base64url UTF8 ile kodlanan bir SAML belirteci içerir.
 | access_token |SAML onaylaması döndüren parametre. |
 | refresh_token |Yenileme belirteci. Arama hizmeti, geçerli bir SAML onayı süresi dolduktan sonra başka bir erişim belirteci istemek için bu belirteci kullanabilirsiniz. |
 
-- token_type: taşıyıcı
+- token_type: Taşıyıcı
 - expires_in: 3296
 - ext_expires_in: 0
 - expires_on: 1529627844
 - Kaynak: `https://api.contoso.com`
-- access_token: \<SAML onayı\>
+- access_token: \<SAML onaylama\>
 - issued_token_type: urn: ietf:params:oauth:token-türü: saml2
-- refresh_token: \<yenileme belirteci\>
+- refresh_token: \<Belirteci Yenile\>
 
 ## <a name="client-limitations"></a>İstemci sınırlamaları
 

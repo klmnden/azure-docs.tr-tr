@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 8d4a99ab9d8107f1b3fbe70f59299f427bc88bd5
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 86eec87d0c466b9172834fa9dbe7dfcb3702ea55
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465910"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094113"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge-preview"></a>Veri kutusu Edge (Önizleme) dosyalarını taşımak için bir C# IOT Edge modülü geliştirme
 
@@ -48,7 +48,7 @@ Dosyayı bulut paylaşımda olduktan sonra Azure depolama hesabınıza otomatik 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Başlamadan önce olduğundan emin olun:
+Başlamadan önce aşağıdakilere sahip olduğunuzdan emin olun:
 
 - Çalışan bir veri kutusu Edge cihazı.
 
@@ -97,8 +97,8 @@ Aşağıdaki adımlar üzerinde .NET Core 2.1 SDK dayalı bir IOT Edge modülü 
 Kendi yazacağınız kodla özelleştirebileceğiniz bir C# çözüm şablonu oluşturun.
 
 1. Visual Studio Code'da seçin **Görüntüle > komut paleti** VS Code komut paletini açın.
-2. Komut paletinde **Azure: Sign in** komutunu girip çalıştırdıktan sonra yönergeleri izleyerek Azure hesabınızda oturum açın. Oturumu önceden açtıysanız bu adımı atlayabilirsiniz.
-3. Komut paletinde **Azure IoT Edge: New IoT Edge solution** komutunu girin ve çalıştırın. Komut paletinde çözümünüzü oluşturmak için aşağıdaki bilgileri girin:
+2. Komut Paleti'nde girin ve şu komutu çalıştırın **Azure: Oturum** ve Azure hesabınızda oturum açmak için yönergeleri izleyin. Oturumu önceden açtıysanız bu adımı atlayabilirsiniz.
+3. Komut Paleti'nde girin ve şu komutu çalıştırın **Azure IOT Edge: Yeni bir IOT Edge çözüm**. Komut paletinde çözümünüzü oluşturmak için aşağıdaki bilgileri girin:
 
     1. Çözümü oluşturmak istediğiniz klasörü seçin.
     2. Çözümünüz için bir ad girin veya varsayılan **EdgeSolution** adını kabul edin.
@@ -143,7 +143,7 @@ Kendi yazacağınız kodla özelleştirebileceğiniz bir C# çözüm şablonu ol
             static int counter;
             private const string InputFolderPath = "/home/LocalShare";
             private const string OutputFolderPath = "/home/CloudShare";
-    ````
+    ```
 
     > [!IMPORTANT]
     > Not `InputFolderPath` ve `OutputFolderPath`. Bu modül dağıttığınızda Bu yolları sağlamanız gerekir.
@@ -269,7 +269,7 @@ Kendi yazacağınız kodla özelleştirebileceğiniz bir C# çözüm şablonu ol
 
     Aşağıdaki uyarıyı gözardı edebileceğiniz görebilirsiniz:
 
-    *Program.cs(77,44): CS1998 Uyarı: Bu zaman uyumsuz yöntem'await ' işleçleri' olmayıp zaman uyumlu çalışacak. 'Await' işleci, API çağrıları engelleyici olmayan await kullanmayı göz önünde bulundurun veya 'Task.Run(...) await' arka plan iş parçacığında CPU bağımlı iş yapma.*
+    *Program.cs(77,44): CS1998 Uyarı: Bu zaman uyumsuz yöntem 'await' işleçleri olmadığından ve zaman uyumlu çalışacak. 'Await' işleci, API çağrıları engelleyici olmayan await kullanmayı göz önünde bulundurun veya 'Task.Run(...) await' arka plan iş parçacığında CPU bağımlı iş yapma.*
 
 4. VS Code tümleşik terminalinde etiketle tam kapsayıcı görüntü adresini görebilirsiniz. Görüntü adresi biçiminde module.json dosyasındaki bilgileri oluşturulur `<repository>:<version>-<platform>`. Bu makalede gibi görünmelidir `mycontreg2.azurecr.io/filecopymodule:0.0.1-amd64`.
 

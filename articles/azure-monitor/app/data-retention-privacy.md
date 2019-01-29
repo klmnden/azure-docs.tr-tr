@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 812478c13ef39b369471a731c52dc38ba6a4368c
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 511937fde859f47af2b7bc273daaab88bb8809c3
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119756"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094538"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights ile veri toplama, tutma ve depolama
 
@@ -148,7 +148,7 @@ Varsayılan olarak `ServerTelemetryChannel` geçerli kullanıcının yerel uygul
 
 
 Yapılandırma dosyası:
-```
+```xml
 <TelemetryChannel Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel,   Microsoft.AI.ServerTelemetryChannel">
     <StorageFolder>D:\NewTestFolder</StorageFolder>
 </TelemetryChannel>
@@ -158,7 +158,7 @@ Kod:
 
 - Yapılandırma dosyasından ServerTelemetryChannel Kaldır
 - Bu kod parçacığı yapılandırmanıza ekleyin:
-```
+```csharp
 ServerTelemetryChannel channel = new ServerTelemetryChannel();
 channel.StorageFolder = @"D:\NewTestFolder";
 channel.Initialize(TelemetryConfiguration.Active);
@@ -171,7 +171,7 @@ Varsayılan olarak `ServerTelemetryChannel` geçerli kullanıcının yerel uygul
 
 Aşağıdaki kod parçacığını nasıl ayarlanacağını gösterir `ServerTelemetryChannel.StorageFolder` içinde `ConfigureServices()`  yöntemi, `Startup.cs` sınıfı:
 
-```
+```csharp
 services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
 ```
 
@@ -241,10 +241,10 @@ SDK'ları platformları arasında farklılık gösterir ve yüklemek için kulla
 #### <a name="classes-of-data-sent-in-different-scenarios"></a>Farklı senaryolarda gönderilen veri sınıfları
 | Eylem | (Sonraki tabloya bakın) toplanan veri sınıfları |
 | --- | --- |
-| [.NET web projeye Application Insights SDK'sı ekleme][greenbrown] |Sunucu bağlamı<br/>Olayla<br/>Performans sayaçları<br/>İstekler<br/>**Özel durumlar**<br/>Oturum<br/>kullanıcılar |
-| [IIS Durum İzleyicisi'ni yükleyin][redfield] |Bağımlılıklar<br/>Sunucu bağlamı<br/>Olayla<br/>Performans sayaçları |
-| [Java web uygulaması için Application Insights SDK'sını ekleyin][java] |Sunucu bağlamı<br/>Olayla<br/>İstek<br/>Oturum<br/>kullanıcılar |
-| [Web sayfası için JavaScript SDK'sını ekleyin][client] |ClientContext <br/>Olayla<br/>Sayfa<br/>ClientPerf<br/>AJAX |
+| [.NET web projeye Application Insights SDK'sı ekleme][greenbrown] |ServerContext<br/>Olayla<br/>Performans sayaçları<br/>İstekler<br/>**Özel durumlar**<br/>Oturum<br/>kullanıcılar |
+| [IIS Durum İzleyicisi'ni yükleyin][redfield] |Bağımlılıklar<br/>ServerContext<br/>Olayla<br/>Performans sayaçları |
+| [Java web uygulaması için Application Insights SDK'sını ekleyin][java] |ServerContext<br/>Olayla<br/>İstek<br/>Oturum<br/>kullanıcılar |
+| [Web sayfası için JavaScript SDK'sını ekleyin][client] |ClientContext <br/>Olayla<br/>Sayfa<br/>ClientPerf<br/>Ajax |
 | [Varsayılan özellikleri tanımlama][apiproperties] |**Özellikleri** tüm standart ve özel olaylar |
 | [Çağrı TrackMetric][api] |Sayısal değerleri<br/>**Özellikleri** |
 | [Çağrı izleme *][api] |Olay adı<br/>**Özellikleri** |
@@ -260,13 +260,13 @@ SDK'ları platformları arasında farklılık gösterir ve yüklemek için kulla
 | DeviceContext |Kimliği, IP, yerel ayar, cihaz modeli, ağ, ağ türü, OEM adı, ekran çözünürlüğü, rol örneği, rol adı, cihaz türü |
 | ClientContext |İşletim sistemi, yerel ayar, dil, ağ, pencere çözümleme |
 | Oturum |Oturum kimliği |
-| Sunucu bağlamı |Makine adı, yerel ayar, işletim sistemi, cihaz, kullanıcı oturum, kullanıcı bağlamı, işlemi |
+| ServerContext |Makine adı, yerel ayar, işletim sistemi, cihaz, kullanıcı oturum, kullanıcı bağlamı, işlemi |
 | Olayla |IP adresi, zaman damgası, işletim sistemi, tarayıcı coğrafi konumdan |
 | Ölçümler |Ölçüm adı ve değeri |
 | Olaylar |Olay ad ve değer |
-| Sayfa görüntülemesi |URL ve sayfa adı veya ekran adı |
+| PageViews |URL ve sayfa adı veya ekran adı |
 | İstemci performans |URL/sayfa adına, tarayıcı yükleme süresi |
-| AJAX |Sunucusuna HTTP çağrıları web sayfasından |
+| Ajax |Sunucusuna HTTP çağrıları web sayfasından |
 | İstekler |URL'ye, süresini, yanıt kodu |
 | Bağımlılıklar |Türü (SQL, HTTP,...), bağlantı dizesi veya URI, eşitleme/zaman uyumsuz, süre, başarı, SQL deyimiyle (Durum İzleyicisi) |
 | **Özel durumlar** |Tür, **ileti**, çağrı yığınlarını, kaynak dosya ve satır numarası, iş parçacığı kimliği |

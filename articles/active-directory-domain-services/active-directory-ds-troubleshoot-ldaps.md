@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: Güvenli LDAP yapılandırma sorunlarını giderme | Microsoft Docs'
+title: 'Azure Active Directory etki alanı Hizmetleri: Sorun giderme güvenli LDAP yapılandırma | Microsoft Docs'
 description: Güvenli LDAP için Azure AD Domain Services sorunlarını giderme
 services: active-directory-ds
 documentationcenter: ''
@@ -8,19 +8,19 @@ manager: ''
 editor: ''
 ms.assetid: 81208c0b-8d41-4f65-be15-42119b1b5957
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: ergreenl
-ms.openlocfilehash: e3a31749407f9ec0494e8452b602ed9966c5ab83
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: be07579d8273ab19101aa6c475ae5d23375517ca
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504218"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55177194"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-secure-ldap-configuration"></a>Azure AD etki alanı Hizmetleri - sorun giderme güvenli LDAP yapılandırma
 
@@ -54,7 +54,7 @@ Güvenli LDAP etkin olduğunda, yalnızca belirli IP adreslerinden gelen LDAPS e
 > Bağlantı noktası 636 sorunsuz bir şekilde çalıştırmak Azure AD Domain Services için gereken yalnızca kural değil. Daha fazla bilgi için ziyaret [ağ yönergeleri](active-directory-ds-networking.md) veya [sorun giderme NSG yapılandırmasını](active-directory-ds-troubleshoot-nsg.md) makaleler.
 >
 
-## <a name="aadds502-secure-ldap-certificate-expiring"></a>AADDS502: LDAP sertifikanın sona ermesinden güvenli
+## <a name="aadds502-secure-ldap-certificate-expiring"></a>AADDS502: Güvenli LDAP sertifikası sona erecek
 
 **Uyarı iletisi:**
 

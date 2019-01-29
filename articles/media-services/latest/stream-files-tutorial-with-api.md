@@ -1,6 +1,6 @@
 ---
-title: Azure Media Services kullanarak karşıya yükleme, kodlama ve akışla aktarma | Microsoft Docs
-description: Azure Media Services kullanarak bir dosyayı karşıya yüklemek, videoyu kodlamak ve içeriğinizi akışla aktarmak için bu öğreticinin adımlarını izleyin.
+title: Karşıya yükleme, kodlama ve akışını Azure Media Services v3 ile .NET kullanarak | Microsoft Docs
+description: Bir dosyayı karşıya yükleyin ve video kodlamak için bu öğreticideki adımları izleyin ve .NET kullanarak içeriğinizi Media Services v3 ile akış.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -10,16 +10,16 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/23/2019
+ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 051de9b68b6cf830592a7cf8bdad7808e044fbcc
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: c3671df61eea5c826227706106cbb48dc70ad55f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888728"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55157764"
 ---
-# <a name="tutorial-upload-encode-and-stream-videos-using-apis"></a>Öğretici: Karşıya yükleme, kodlama ve API'leri kullanarak video akışı
+# <a name="tutorial-upload-encode-and-stream-videos-using-net"></a>Öğretici: Karşıya yükleme, kodlama ve .NET kullanarak video akışı
 
 Azure Media Services, çok çeşitli tarayıcılar ve cihazlar üzerinde yürütülen biçimlerini kullanarak medya dosyalarınızı kodlayın sağlar. Örneğin, içeriğinizi Apple'ın HLS veya MPEG DASH biçimlerinde akışla göndermek isteyebilirsiniz. Akışla göndermeden önce yüksek kaliteli dijital medya dosyanızı kodlamanız gerekir. Kodlama yönergeleri için bkz. [Kodlama kavramı](encoding-concept.md). Bu öğretici yerel video dosyasını karşıya yükler ve karşıya yüklenen dosyayı kodlar. Ayrıca, HTTPS URL’si aracılığıyla erişilebilir hale getirdiğiniz içerikleri de kodlayabilirsiniz. Daha fazla bilgi için bkz. [HTTP(s) URL'sinde iş girişi oluşturma](job-input-from-http-how-to.md).
 
@@ -28,8 +28,7 @@ Azure Media Services, çok çeşitli tarayıcılar ve cihazlar üzerinde yürüt
 Bu öğretici şunların nasıl yapıldığını gösterir:    
 
 > [!div class="checklist"]
-> * Media Services API’sine erişim
-> * Örnek uygulamayı yapılandırma
+> * Bu konu başlığı altında açıklanan örnek uygulamasını indirin
 > * Karşıya yüklenen, kodlanan ve akışı yapılan kodu inceleme
 > * Uygulamayı çalıştırma
 > * Akış URL’sini test etme
@@ -40,15 +39,10 @@ Bu öğretici şunların nasıl yapıldığını gösterir:
 ## <a name="prerequisites"></a>Önkoşullar
 
 - Visual Studio yüklü değilse, [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15)’yi edinebilirsiniz.
-- Yükleyin ve bu makalede Azure CLI 2.0 veya sonraki bir sürüm gerektirir, CLI'yı yerel olarak kullanın. Kullandığınız sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekirse bkz. [Azure CLI’yı yükleme](/cli/azure/install-azure-cli). 
+- [Bir Media Services hesabı oluşturma](create-account-cli-how-to.md).<br/>Media Services hesap adını ve kaynak grubu adı için kullanılan değerleri unutmayın emin olun.
+- Bağlantısındaki [erişim Azure Media Services API'sine Azure CLI ile](access-api-cli-how-to.md) ve kimlik bilgilerini kaydedin. Bunları API'ye erişmek için kullanmanız gerekecektir.
 
-    Şu anda tüm [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) komutlar Azure Cloud Shell içinde çalışır. CLI'yi yerel olarak kullanmak için önerilir.
-
-- [Bir Media Services hesabı oluşturma](create-account-cli-how-to.md).
-
-    Media Services hesap adını ve kaynak grubu adı için kullanılan değerleri unutmayın emin olun
-
-## <a name="download-the-sample"></a>Örneği indirme
+## <a name="download-and-configure-the-sample"></a>İndirme ve örnek yapılandırma
 
 Aşağıdaki komutu kullanarak, akış .NET örneğini içeren bir GitHub havuzunu makinenize kopyalayın:  
 
@@ -58,7 +52,7 @@ Aşağıdaki komutu kullanarak, akış .NET örneğini içeren bir GitHub havuzu
 
 Örnek, [UploadEncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/UploadEncodeAndStreamFiles) klasöründe yer alır.
 
-[!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
+Açık [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/appsettings.json) içinde proje indirilir. Aldığınız kimlik değerleri Değiştir [API'leri erişme](access-api-cli-how-to.md).
 
 ## <a name="examine-the-code-that-uploads-encodes-and-streams"></a>Karşıya yüklenen, kodlanan ve akışı yapılan kodu inceleme
 

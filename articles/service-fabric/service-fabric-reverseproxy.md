@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: cdda1a06f32e712df71ec815f190f6346bebc135
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 4b6ef4823fc78c15dda31e96d8bd6c4f798c0e99
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711472"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097766"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Azure Service Fabric ters proxy
 Azure Service Fabric'te yerleşik ters proxy bulmak ve http uç noktaları olan diğer hizmetlerle iletişim kurma bir Service Fabric kümesinde çalışan mikro hizmetler yardımcı olur.
@@ -45,7 +45,7 @@ Ters proxy, diğer hizmetlere istekleri göndermek için kullanılacak İstemci 
 >
 > Service Fabric ters proxy şu anda aşağıdaki platformları destekler.
 > * *Windows Küme*: Windows 8 ve sonraki veya Windows Server 2012 ve sonraki sürümler
-> * *Linux kümesi*: Ters Proxy için Linux kümeleri şu anda kullanılabilir değil
+> * *Linux kümesi*: Ters Proxy için Linux kümeleri şu anda kullanılamıyor
 >
 
 ## <a name="reaching-microservices-from-outside-the-cluster"></a>Mikro hizmetler küme dışındaki ulaşma
@@ -57,7 +57,7 @@ Yük Dengeleyicide bir bireysel hizmet bağlantı noktasını yapılandırmak ye
 ![Dış iletişimi][0]
 
 > [!WARNING]
-> Yük Dengeleyici ters proxy bağlantı noktası yapılandırdığınızda, bir HTTP uç noktasını açığa tüm mikro Hizmetleri kümedeki küme dışında'ten adreslenebilir. Başka bir deyişle, mikro hizmetler iç olacak şekilde tasarlanmış belirlenen kötü niyetli bir kullanıcı tarafından keşfedilebilir olabilir. Bu potenially yararlanılabilir ciddi güvenlik açıklarını sunar; Örneğin:
+> Yük Dengeleyici ters proxy bağlantı noktası yapılandırdığınızda, bir HTTP uç noktasını açığa tüm mikro Hizmetleri kümedeki küme dışında'ten adreslenebilir. Başka bir deyişle, mikro hizmetler iç olacak şekilde tasarlanmış belirlenen kötü niyetli bir kullanıcı tarafından keşfedilebilir olabilir. Bu, potansiyel olarak yararlanılabilir ciddi güvenlik açıklarını sunar; Örneğin:
 >
 > * Kötü niyetli bir kullanıcı, sürekli olarak yeterli saldırı yüzeyini yok. bir iç hizmet çağırarak bir hizmet reddi saldırısı başlatabilir.
 > * Kötü niyetli bir kullanıcının istenmeyen davranışla bir iç hizmet için hatalı biçimlendirilmiş paketlerini teslim edebilir.
@@ -74,20 +74,20 @@ Ters proxy, gelen istek iletilmesi gereken hizmet bölümü tanımlamak için be
 http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?PartitionKey=<key>&PartitionKind=<partitionkind>&ListenerName=<listenerName>&TargetReplicaSelector=<targetReplicaSelector>&Timeout=<timeout_in_seconds>
 ```
 
-* **http (s):** ters proxy, HTTP veya HTTPS trafiğini kabul edecek şekilde yapılandırılabilir. HTTPS iletme için başvurmak [güvenli hizmet ters proxy ile bağlanma](service-fabric-reverseproxy-configure-secure-communication.md) HTTPS üzerinde dinlemek için ters proxy ayarladıktan sonra.
-* **Küme tam etki alanı adı (FQDN) | iç IP:** dış istemciler için mycluster.eastus.cloudapp.azure.com gibi küme etki alanı üzerinden erişilebilir olması ters Ara sunucu yapılandırabilirsiniz. Varsayılan olarak, ters proxy her düğüm üzerinde çalışır. İç trafiği için ters proxy 10.0.0.1 gibi herhangi bir düğüm iç IP veya localhost üzerinde erişilebilir.
-* **Bağlantı noktası:** ters proxy için belirtilen bağlantı noktası, 19081 gibi budur.
-* **ServiceInstanceName:** olmadan erişmeye çalıştığınız dağıtılan hizmet örneği tam olarak nitelenmiş adını budur "fabric: /" düzeni. Örneğin, ulaşmak için *fabric: / Uygulamam/Hizmetim/* hizmeti kullandığınız *Uygulamam/Hizmetim*.
+* **http (s):** Ters proxy, HTTP veya HTTPS trafiğini kabul edecek şekilde yapılandırılabilir. HTTPS iletme için başvurmak [güvenli hizmet ters proxy ile bağlanma](service-fabric-reverseproxy-configure-secure-communication.md) HTTPS üzerinde dinlemek için ters proxy ayarladıktan sonra.
+* **Küme tam etki alanı adı (FQDN) | iç IP:** Böylece mycluster.eastus.cloudapp.azure.com gibi küme etki alanı aracılığıyla erişilebilen, dış istemciler için ters proxy yapılandırabilirsiniz. Varsayılan olarak, ters proxy her düğüm üzerinde çalışır. İç trafiği için ters proxy 10.0.0.1 gibi herhangi bir düğüm iç IP veya localhost üzerinde erişilebilir.
+* **Bağlantı noktası:** Ters proxy için belirtilen bağlantı noktası, 19081 gibi budur.
+* **ServiceInstanceName:** Bu olmadan erişmeye çalıştığınız dağıtılan hizmet örneği tam olarak nitelenmiş adını, "fabric: /" düzeni. Örneğin, ulaşmak için *fabric: / Uygulamam/Hizmetim/* hizmeti kullandığınız *Uygulamam/Hizmetim*.
 
     Hizmet örneği adı büyük/küçük harfe duyarlıdır. URL'de hizmet örneği adı farklı büyük/küçük harf kullanılması, istekleri ile (404 bulunamadı) kodunu başarısız olmasına neden olur.
-* **Yol soneki:** gerçek URL yolu gibi budur *myapi/değerler/ekleme/3*, bağlanmak istediğiniz hizmet için.
-* **PartitionKey:** bölümlenmiş bir hizmet için hesaplanan bölüm anahtarı, erişmek istediğiniz bölümün budur. Bu Not *değil* bölüm kimliği GUID. Bu parametre, tek bölüm düzeni kullanan hizmetler için gerekli değildir.
-* **PartitionKind:** hizmet bölüm şeması budur. Bu, 'Int64Range' veya 'Adlı' olabilir. Bu parametre, tek bölüm düzeni kullanan hizmetler için gerekli değildir.
+* **Yol soneki:** Gerçek URL yolu gibi budur *myapi/değerler/ekleme/3*, bağlanmak istediğiniz hizmet için.
+* **PartitionKey:** Bölümlenmiş bir hizmet için hesaplanan bölüm anahtarı, erişmek istediğiniz bölümün budur. Bu Not *değil* bölüm kimliği GUID. Bu parametre, tek bölüm düzeni kullanan hizmetler için gerekli değildir.
+* **PartitionKind:** Hizmet bölüm şeması budur. Bu, 'Int64Range' veya 'Adlı' olabilir. Bu parametre, tek bölüm düzeni kullanan hizmetler için gerekli değildir.
 * **ListenerName** hizmet uç noktalarının biçimindedir {"Uç noktalar": {"Listener1": "Bitiş noktası 1", "Listener2": "Endpoint2" …}}. Hizmet birden çok uç noktayı kullanıma sokan, bu istemci isteği iletilmesi gereken uç nokta tanımlar. Hizmetin yalnızca bir dinleyicisi varsa bu yoksayılabilir.
 * **TargetReplicaSelector** bu hedef çoğaltma veya örnek nasıl seçilmelidir belirtir.
-  * Hedef hizmet durum bilgisi olan olduğunda TargetReplicaSelector aşağıdakilerden biri olabilir: 'PrimaryReplica', 'RandomSecondaryReplica' veya 'RandomReplica'. Bu parametre belirtilmediğinde 'PrimaryReplica' varsayılandır.
+  * Hedef hizmet durum bilgisi olan olduğunda TargetReplicaSelector aşağıdakilerden biri olabilir:  'PrimaryReplica', 'RandomSecondaryReplica' veya 'RandomReplica'. Bu parametre belirtilmediğinde 'PrimaryReplica' varsayılandır.
   * Hedef hizmet durum bilgisiz olduğunda, ters proxy hizmeti bölümü isteği iletmek için rastgele bir örneğini seçer.
-* **Zaman aşımı:** bu istemci istek adına hizmeti için ters Ara sunucu tarafından oluşturulan HTTP isteği için zaman aşımını belirtir. Varsayılan değer 60 saniyedir. Bu isteğe bağlı bir parametredir.
+* **Zaman aşımı:**  Bu, istemci istek adına hizmeti için ters Ara sunucu tarafından oluşturulan HTTP isteği için zaman aşımını belirtir. Varsayılan değer 60 saniyedir. Bu isteğe bağlı bir parametredir.
 
 ### <a name="example-usage"></a>Örnek Kullanım
 Bir örnek olarak alalım *fabric: / Uygulamam/Hizmetim* aşağıdaki URL'yi temel bir HTTP dinleyicisi açılır hizmeti:

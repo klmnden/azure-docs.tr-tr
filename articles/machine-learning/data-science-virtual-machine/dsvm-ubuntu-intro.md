@@ -16,27 +16,27 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: e3f17dd3717a57d184be7c9b8c73855c3fd2a768
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 33326aa0f033800268d0eb439f9c8c81b4d2e675
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106779"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094402"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Linux (Ubuntu) için veri bilimi sanal makinesi sağlama
 
 Linux için veri bilimi sanal makinesi, Azure üzerinde derin öğrenme dahil olmak üzere machine learning ile kullanmaya başlamak kolay bir Ubuntu tabanlı sanal makine görüntüsüdür. Derin öğrenme araçları içerir:
 
-  * [Caffe](http://caffe.berkeleyvision.org/): hız, expressivity ve modülerlik için yerleşik bir derin öğrenme çerçevesi
+  * [Caffe](http://caffe.berkeleyvision.org/): Hız, expressivity ve modülerlik için yerleşik bir derin öğrenme çerçevesi
   * [Caffe2](https://github.com/caffe2/caffe2): Caffe çapraz platform sürümü
-  * [Microsoft Bilişsel Araç Seti](https://github.com/Microsoft/CNTK): bir derin Microsoft Research'nden yazılımları Araç Seti öğrenme
-  * [H2O](https://www.h2o.ai/): bir açık kaynaklı büyük veri platformu ve grafik kullanıcı arabirimi
-  * [Keras](https://keras.io/): Theano ve TensorFlow python'da üst düzey sinir ağı API
-  * [MXNet](http://mxnet.io/): birçok dil bağlamaları ile bir esnek ve verimli derin öğrenme kitaplığı
-  * [NVIDIA basamak](https://developer.nvidia.com/digits): Genel derin öğrenme görevleri basitleştiren bir grafik sistemi
-  * [PyTorch](http://pytorch.org/): dinamik ağları için desteği olan üst düzey bir Python kitaplığı
+  * [Microsoft Bilişsel Araç Seti](https://github.com/Microsoft/CNTK): Bir derin Microsoft Research'nden yazılımları Araç Seti öğrenme
+  * [H2O](https://www.h2o.ai/): Bir açık kaynaklı büyük veri platformu ve grafik kullanıcı arabirimi
+  * [Keras](https://keras.io/): Python'da Theano ve TensorFlow için üst düzey sinir ağı API
+  * [MXNet](http://mxnet.io/): Birçok dil bağlamaları ile bir esnek ve verimli derin öğrenme kitaplığı
+  * [NVIDIA BASAMAK](https://developer.nvidia.com/digits): Derin öğrenme yaygın görevleri basitleştirir grafik bir sistem
+  * [PyTorch](http://pytorch.org/): Dinamik ağları için desteği olan üst düzey bir Python kitaplığı
   * [TensorFlow](https://www.tensorflow.org/): Makine zekası google'dan için bir açık kaynak kitaplığı
-  * [Theano](http://deeplearning.net/software/theano/): tanımlama, en iyi duruma getirme ve çok boyutlu diziler içeren Matematik ifadeler verimli bir şekilde değerlendirmek için bir Python kitaplığı
+  * [Theano](http://deeplearning.net/software/theano/): Tanımlama, en iyi duruma getirme ve çok boyutlu diziler içeren Matematik ifadeler verimli bir şekilde değerlendirmek için bir Python kitaplığı
   * [Torch](http://torch.ch/): Makine öğrenimi algoritmaları için geniş destek bilimsel hesaplama çerçevesiyle
   * CUDA, cuDNN ve NVIDIA sürücüsü
   * Birçok örnek Jupyter Not Defterleri
@@ -53,10 +53,10 @@ Linux için veri bilimi sanal makinesi de dahil olmak üzere veri bilimi ve geli
 * Azure Depolama Gezgini
 * Azure komut satırı Azure kaynaklarını yönetmek için arabirimi (CLI)
 * Machine learning araçları
-  * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): hızlı makine öğrenme çevrimiçi, karma, allreduce, indirimleri, learning2search, etkin, gibi teknikler destekleyen sistem ve etkileşimli öğrenme
-  * [XGBoost](https://xgboost.readthedocs.org/en/latest/): hızlı ve doğru artırmalı ağaç uygulaması sağlayan bir araç
-  * [Rattle](https://togaware.com/rattle/): veri analizi ve makine öğrenimi R kolay kullanmaya başlama yapar grafik bir araç
-  * [LightGBM](https://github.com/Microsoft/LightGBM): framework artırma hızlı, dağıtılmış, yüksek performanslı bir gradyan
+  * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): Çevrimiçi allreduce, indirimleri, learning2search, etkin, karma ve etkileşimli gibi teknikler destekleyen bir hızlı makine öğrenimi sistemi öğrenme
+  * [XGBoost](https://xgboost.readthedocs.org/en/latest/): Hızlı ve doğru artırmalı ağaç uygulaması sağlayan bir araç
+  * [Rattle](https://togaware.com/rattle/): Veri analizi ve makine öğrenimi R kolay kullanmaya başlama yapar grafik bir araç
+  * [LightGBM](https://github.com/Microsoft/LightGBM): Framework artırma hızlı, dağıtılmış, yüksek performanslı bir gradyan
 * Azure SDK'sı, Java, Python, node.js, Ruby, PHP
 * Kitaplıklarında, R ve Python için Azure Machine Learning ve diğer Azure Hizmetleri kullanma
 * Geliştirme araçları ve Düzenleyicileri (RStudio, PyCharm, Intellij, Emacs, vim)
@@ -89,13 +89,13 @@ Linux için veri bilimi sanal makinesi örneğini oluşturmak için adımlar şu
    
    a. **Temel**:
    
-   * **Ad**: oluşturmakta olduğunuz veri bilimi sunucunuzun adını yazın.
-   * **VM Disk türü**: seçin **Premium SSD** katı hal sürücüsü (SSD) tercih ederseniz. Aksi takdirde seçin **standart HDD**. 
-   * **Kullanıcı adı**: ilk hesap oturum açma kimliği
-   * **Parola**: ilk hesap parolası (kullanabileceğiniz SSH ortak anahtarı parola yerine).
-   * **Abonelik**: birden fazla aboneliğiniz varsa, bir makine olduğu faturalandırılır ve seçin. Bu abonelikte kaynak oluşturma ayrıcalıklarına sahip olmanız gerekir.
-   * **Kaynak grubu**: yeni bir tane oluşturabilir veya varolan bir grubu kullanın.
-   * **Konum**: en uygun veri merkezi seçin. Genellikle, verilerinizden en iyi sahip veya bu fiziksel konumunuza en hızlı ağ erişimi için en yakın veri merkezi bulunur.
+   * **Ad**: Oluşturmakta olduğunuz veri bilimi sunucunuzun adıdır.
+   * **VM Disk türü**: Seçin **Premium SSD** katı hal sürücüsü (SSD) tercih ederseniz. Aksi takdirde seçin **standart HDD**. 
+   * **Kullanıcı adı**: İlk hesap oturum açma kimliği
+   * **Parola**: İlk hesap parolası (parola yerine SSH ortak anahtarını kullanabilirsiniz).
+   * **Abonelik**: Birden fazla aboneliğiniz varsa, bir makine oluşturulması ve fatura olduğu seçin. Bu abonelikte kaynak oluşturma ayrıcalıklarına sahip olmanız gerekir.
+   * **Kaynak grubu**: Yeni bir tane oluşturabilir veya varolan bir grubu kullanın.
+   * **Konum**: En uygun veri merkezi seçin. Genellikle, verilerinizden en iyi sahip veya bu fiziksel konumunuza en hızlı ağ erişimi için en yakın veri merkezi bulunur.
    
    b. **Boyutu**:
    
@@ -133,12 +133,12 @@ Linux sanal makinesi zaten X2Go sunucusu ile sağlanan ve istemci bağlantılar�
 1. İstemci platformunuza yönelik X2Go istemcisini indirme ve yükleme [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
 1. X2Go istemci çalıştırıp seçeneğini **yeni oturumu**. Bu, birden fazla sekme ile bir yapılandırma penceresi açılır. Aşağıdaki yapılandırma parametrelerini girin:
    * **Oturum sekmesini**:
-     * **Konak**: konak adı veya IP adresini Linux veri bilimi sanal makinesi.
-     * **Oturum açma**: Linux sanal makinesi üzerinde kullanıcı adı.
+     * **Konak**: Ana bilgisayar adı veya IP adresini Linux veri bilimi sanal makinesi.
+     * **Oturum açma**: Linux VM kullanıcı adı.
      * **SSH bağlantı noktası**: 22, varsayılan değeri bırakın.
-     * **Oturum türü**: XFCE için değeri değiştirin. Şu anda yalnızca Linux VM XFCE Masaüstü destekler.
-   * **Ortam sekmesini**: ses desteği ve bunları kullanmak gerekmiyorsa Yazdırma İstemcisi kapat.
-   * **Paylaşılan Klasörler**: Linux VM'de bağlı istemci makinelerden dizinleri istiyorsanız, bu sekmedeki VM ile paylaşmak istediğiniz istemci makine dizinlerine ekleyin.
+     * **Oturum türü**: Değeri için XFCE değiştirin. Şu anda yalnızca Linux VM XFCE Masaüstü destekler.
+   * **Ortam sekmesini**: Ses desteği ve bunları kullanmak gerekmiyorsa Yazdırma İstemcisi kapatabilirsiniz.
+   * **Paylaşılan Klasörler**: Linux VM'de bağlı istemci makinelerden dizinleri istiyorsanız bu sekmedeki VM ile paylaşmak istediğiniz istemci makine dizinlerine ekleyin.
 
 VM'ye SSH istemcisi veya XFCE grafik Masaüstü X2Go istemcisi aracılığıyla kullanarak oturum açtıktan sonra yüklenmiş ve yapılandırılmış VM'de araçları kullanmaya başlamak hazırsınız. XFCE üzerinde çok sayıda araçla menüsü kısayolları uygulamalar ve masaüstü simgelerini görebilirsiniz.
 
@@ -220,7 +220,7 @@ Py35 ortamı yeniden etkinleştirmek için:
 
 Bir Python etkileşimli oturumu çağırmak için yazmanız yeterlidir **python** Kabuğu'nda. 
 
-Ek Python kitaplıkları kullanarak yükleme ```conda``` veya ````pip```` . Varsayılan istemiyorsanız için pip, doğru ortamı ilk etkinleştirin:
+Ek Python kitaplıkları kullanarak yükleme ```conda``` veya ```pip``` . Varsayılan istemiyorsanız için pip, doğru ortamı ilk etkinleştirin:
 
     source activate root
     pip install <package>
@@ -271,7 +271,7 @@ Microsoft R Server Spark bağlamında çalıştırmadan önce kurulum adımı ye
     chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
     systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
 
-Hadoop durdurabilirsiniz çalıştırarak ihtiyacınız olduğunda ilgili hizmetler ````systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```` geliştirip (Bu tek başına Spark örneğinde DSVM) uzaktan Spark bağlamında MRS test nasıl yazılacağını gösteren bir örnek sağlanan ve kullanılabilir `/dsvm/samples/MRS` Dizin. 
+Hadoop durdurabilirsiniz çalıştırarak ihtiyacınız olduğunda ilgili hizmetler ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn``` geliştirip (Bu tek başına Spark örneğinde DSVM) uzaktan Spark bağlamında MRS test nasıl yazılacağını gösteren bir örnek sağlanan ve kullanılabilir `/dsvm/samples/MRS` Dizin. 
 
 ### <a name="ides-and-editors"></a>IDE'ler ve düzenleyicilerden
 Birkaç kod düzenleyicilerinden, vardır. Bu, VI/VIM ve Emacs, PyCharm, RStudio ve Intellij içerir. Intellij ve RStudio PyCharm grafik düzenleyicilerden olan ve bunları kullanmak için bir grafik masaüstü oturum açmanız gerekir. Bu düzenleyicilerin Masaüstü ve uygulama vardır. bunları başlatmak için kısayol menüsü.
@@ -296,11 +296,11 @@ Daha fazla bilgi için [SQuirrel SQL](http://squirrel-sql.sourceforge.net/index.
 #### <a name="command-line-tools-for-accessing-microsoft-sql-server"></a>Microsoft SQL Server'a erişmek için komut satırı araçları
 SQL Server için ODBC sürücü paketi ayrıca iki komut satırı araçları ile birlikte gelir:
 
-**BCP**: bcp yardımcı programını toplu bir kullanıcı tarafından belirtilen biçimde Microsoft SQL Server örneği ve bir veri dosyası arasında veri kopyalar. Çok sayıda yeni satırı SQL Server tablolarına aktarmak veya veri tablolar dışında veri dosyalarına veri aktarmak için bcp yardımcı programı kullanılabilir. Bir tabloya veri almak için bu tabloda oluşturulmuş bir biçim dosyası kullanmak, veya tabloyu ve sütunlarını için geçerli olan veri türleri yapısını anlayın.
+**BCP**: Bcp yardımcı programını toplu bir kullanıcı tarafından belirtilen biçimde bir Microsoft SQL Server örneğini bir veri dosyası arasında veri kopyalar. Çok sayıda yeni satırı SQL Server tablolarına aktarmak veya veri tablolar dışında veri dosyalarına veri aktarmak için bcp yardımcı programı kullanılabilir. Bir tabloya veri almak için bu tabloda oluşturulmuş bir biçim dosyası kullanmak, veya tabloyu ve sütunlarını için geçerli olan veri türleri yapısını anlayın.
 
 Daha fazla bilgi için [bcp ile bağlanma](https://msdn.microsoft.com/library/hh568446.aspx).
 
-**SQLCMD**: sqlcmd yardımcı programını, yanı sıra sistem yordamlarına Transact-SQL deyimlerini girin ve komut dosyaları komut isteminde. Bu yardımcı programı, Transact-SQL toplu işlerini yürütmek için ODBC kullanır.
+**SQLCMD**: Sqlcmd yardımcı programını, hem de sistem yordamlar ve komut dosyaları komut isteminde, Transact-SQL deyimleriyle girebilirsiniz. Bu yardımcı programı, Transact-SQL toplu işlerini yürütmek için ODBC kullanır.
 
 Daha fazla bilgi için [sqlcmd ile bağlanma](https://msdn.microsoft.com/library/hh568447.aspx).
 
@@ -318,12 +318,12 @@ Access veritabanları için R ve Python kullanılabilen kitaplıkları vardır.
 ### <a name="azure-tools"></a>Azure Araçları
 Aşağıdaki Azure Araçları VM'de yüklü:
 
-* **Azure komut satırı arabirimi**: Kabuk komutları aracılığıyla Azure kaynaklarını oluşturmak ve yönetmek için Azure CLI'yı izin verir. Azure araçlarını çağırmak için yazmanız yeterlidir **azure Yardımı**. Daha fazla bilgi için [Azure CLI belgeleri sayfasını](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
+* **Azure komut satırı arabirimi**: Azure CLI, Kabuk komutları aracılığıyla Azure kaynaklarını oluşturmak ve yönetmek sağlar. Azure araçlarını çağırmak için yazmanız yeterlidir **azure Yardımı**. Daha fazla bilgi için [Azure CLI belgeleri sayfasını](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 * **Microsoft Azure Depolama Gezgini**: Microsoft Azure Depolama Gezgini, Azure depolama hesabınızdaki depoladığınız nesnelerin göz atın ve karşıya yükleme ve verileri Azure bloblarından indirmek için kullanılan bir grafik aracıdır. Depolama Gezgini masaüstü kısayolu simgesinden erişebilirsiniz. Yazarak, bir kabuk isteminde çağırabilirsiniz **StorageExplorer**. Bir X2Go istemcisinden imzalanması veya yedekleme kümesi iletme X11 olması gerekir.
-* **Azure kitaplıkları**: önceden yüklenmiş kitaplıkları bazıları aşağıda verilmiştir.
+* **Azure kitaplıkları**: Önceden yüklenmiş kitaplıkları bazıları aşağıda verilmiştir.
   
   * **Python**: Azure ile ilgili kitaplıklar yüklenen python'da **azure**, **azureml**, **pydocumentdb**, ve **pyodbc**. İlk üç kitaplıkları ile Azure depolama hizmetleri, Azure Machine Learning ve Azure Cosmos DB (Azure üzerinde bir NoSQL veritabanı) erişebilir. Dördüncü kitaplığı pyodbc (yanı sıra Microsoft ODBC sürücüsü için SQL Server) erişimi etkinleştirir SQL Server, Azure SQL veritabanı ve Azure SQL veri ambarı python'dan ODBC arabirimini kullanarak. Girin **pip listesi** listelenen tüm kitaplıkları görmek için. Hem Python 2.7 hem de 3,5 ortamlarında bu komutu çalıştırmak emin olun.
-  * **R**: yüklü olan Azure ile ilgili kitaplıklar r **AzureML** ve **RODBC**.
+  * **R**: Azure ile ilgili kitaplıklar r yüklü **AzureML** ve **RODBC**.
   * **Java**: Azure Java kitaplıkları listesini dizininde bulunabilir **/dsvm/sdk/AzureSDKJava** VM üzerinde. Anahtar kitaplıkları, SQL Server için Azure depolama ve Yönetimi API'leri, Azure Cosmos DB ve JDBC sürücüleri vardır.  
 
 Erişebildiğiniz [Azure portalında](https://portal.azure.com) önceden yüklenmiş Firefox tarayıcısı. Azure portalında, oluşturmak, yönetmek ve Azure kaynaklarınızı izleyin.
@@ -345,12 +345,12 @@ R ve Python modeller Azure Machine Learning içine dağıtma hakkında daha fazl
 ### <a name="machine-learning-tools"></a>Machine learning araçları
 VM birkaç makine öğrenme araçları ve önceden derlenmiş ve yerel olarak yüklenmiş algoritmalar ile birlikte gelir. Bunlar:
 
-* **Vowpal Wabbit**: hızlı çevrimiçi öğrenme algoritması.
-* **xgboost**: iyileştirilmiş, artırmalı ağacı algoritmalarını sağlayan bir araç.
-* **Rattle**: bir R tabanlı kolay veri keşfi ve modelleme için Grafik aracı.
-* **Python**: Anaconda Python ile birlikte gelen makine öğrenimi algoritmalarıyla Scikit-öğrenme gibi kitaplıkları ile gelir. Diğer kitaplıkları kullanarak yükleyebileceğiniz `pip install` komutu.
-* **LightGBM**: framework artırma hızlı, dağıtılmış, yüksek performanslı bir gradyan tabanlı karar ağacı algoritmalarını üzerinde.
-* **R**: machine learning işlevleri zengin kitaplığı r için kullanılabilir Önceden yüklenen kitaplıklar bazıları lm, glm, randomForest, rpart. Diğer kitaplıkları çalıştırarak yüklenebilir:
+* **Vowpal Wabbit**: Bir hızlı çevrimiçi öğrenme algoritması.
+* **xgboost**: En iyi duruma getirilmiş, artırmalı ağacı algoritmalarını sağlayan bir araç.
+* **Rattle**: R tabanlı grafik aracına yönelik bir kolayca veri keşfi ve modelleme.
+* **Python**: Anaconda Python makine öğrenimi algoritmalarıyla Scikit-öğrenme gibi kitaplıkları ile sunulur. Diğer kitaplıkları kullanarak yükleyebileceğiniz `pip install` komutu.
+* **LightGBM**: Bir hızlı, dağıtılmış, yüksek performanslı gradyan yükseltmeli karar ağacı algoritmalarını üzerinde temel framework.
+* **R**: Machine learning işlevleri zengin kitaplığı r için kullanılabilir Önceden yüklenen kitaplıklar bazıları lm, glm, randomForest, rpart. Diğer kitaplıkları çalıştırarak yüklenebilir:
   
         install.packages(<lib name>)
 

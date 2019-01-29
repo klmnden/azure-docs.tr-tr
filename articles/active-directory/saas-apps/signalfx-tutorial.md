@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle SignalFx | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile SignalFx | Microsoft Docs'
 description: Azure Active Directory ve SignalFx arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 6d5ab4b0-29bc-4b20-8536-d64db7530f32
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 0d21a409669cc7d7fceeec9787efbe31d880597c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6f2d869f345aeb8f50d42de6b1533b849ffb2182
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39437857"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197577"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-signalfx"></a>Öğretici: Azure Active Directory SignalFx ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-signalfx"></a>Öğretici: SignalFx ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile SignalFx tümleştirme konusunda bilgi edinin.
 
@@ -38,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD Tümleştirmesi ile SignalFx yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik SignalFx çoklu oturum açma etkin
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Azure AD'de SignalFx tümleştirmesini yapılandırmak için SignalFx Galeriden 
 
 **Galeriden SignalFx eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -223,7 +223,7 @@ Bu bölümün amacı SignalFx Britta Simon adlı bir kullanıcı oluşturmaktır
 Bir kullanıcı için SignalFx SAML SSO ilk kez oturum açtığında [SignalFx Destek ekibine](mailto:kmazzola@signalfx.com) bunları kimliğini doğrulamak için bunlar üzerinden tıklatmalısınız bağlantısı içeren bir e-posta gönderir. Bu, yalnızca ilk kez oturum açtığında gerçekleşir; sonraki oturum açma denemesi e-posta doğrulama gerektirmez.
 
 >[!Note]
->Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [SignalFx destek ekibi](mailto:kmazzola@signalfx.com)
+>Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [SignalFx destek ekibi](mailto:kmazzola@signalfx.com)
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

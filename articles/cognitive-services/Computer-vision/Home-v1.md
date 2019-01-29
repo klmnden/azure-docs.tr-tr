@@ -6,17 +6,17 @@ services: cognitive-services
 author: KellyDF
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 08/10/2017
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: acd6d41e8b6d1fb834697ec3d026419ee6b69ec9
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 57388b4e2f74a1e9e8d9c322020077dfd67e89c1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582363"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55198155"
 ---
 # <a name="what-is-computer-vision-api-version-10"></a>Görüntü İşleme API'si Sürüm 1.0 nedir?
 
@@ -138,9 +138,9 @@ Resmin içindeki insan yüzlerini algılar ve yüz koordinatlarını, yüz için
 
 Görüntü|Yanıt
 ----|----
-![Görüntü Analizi Damdaki Kadının Yüzü](./Images/woman_roof_face.png) | [{"Yaş": "cinsiyet" 23: "Kadın", "faceRectangle": {"sol": 1379, "üst": 320, "width": 310, "yükseklik": 310}}]
-![Görüntü Analizi Anne Kız Yüzü](./Images/mom_daughter_face.png) | [{"Yaş": 28, "cinsiyet": "Kadın", "faceRectangle": {"sol": 447, "üst": 195, "width": 162, "yükseklik": 162}}, {"Yaş": "cinsiyet" 10: "Erkek", "faceRectangle": {"sol": 355, "üst": 87, "width": 143 "yükseklik": 143}}]
-![Görüntü Analizi Aile Fot Yüzü](./Images/family_photo_face.png) | [{"Yaş": "cinsiyet" 11: "Erkek", "faceRectangle": {"sol": 113 "üst": 314 "width": 222, "yükseklik": 222}}, {"Yaş": "cinsiyet" 11: "Kadın", "faceRectangle": {"sol": 1200, "üst": 632, "width": 215 "yükseklik": 215}}, {"Yaş": 41, "cinsiyet": "Erkek", "faceRectangle": {"sol": 514, "üst": "width" 223: 205, "yükseklik": 205}}, {"Yaş": "cinsiyet" 37: "Kadın", "faceRectangle": {"sol": 1008, "üst": 277, "width": 201, "yükseklik": 201}}]
+![Görüntü Analizi Damdaki Kadının Yüzü](./Images/woman_roof_face.png) | [{"Yaş": "cinsiyet" 23: "Kadın", "faceRectangle": {"sol": 1379, "üst": 320, "width": 310, "yükseklik": 310 } } ]
+![Görüntü Analizi Anne Kız Yüzü](./Images/mom_daughter_face.png) | [{"Yaş": 28, "cinsiyet": "Kadın", "faceRectangle": {"sol": 447, "üst": 195, "width": 162, "yükseklik": 162}}, {"Yaş": "cinsiyet" 10: "Erkek", "faceRectangle": {"sol": 355, "üst": 87, "width": 143 "yükseklik": 143 } } ]
+![Görüntü Analizi Aile Fot Yüzü](./Images/family_photo_face.png) | [{"Yaş": "cinsiyet" 11: "Erkek", "faceRectangle": {"sol": 113 "üst": 314 "width": 222, "yükseklik": 222}}, {"Yaş": "cinsiyet" 11: "Kadın", "faceRectangle": {"sol": 1200, "üst": 632, "width": 215 "yükseklik": 215}}, {"Yaş": 41, "cinsiyet": "Erkek", "faceRectangle": {"sol": 514, "üst": "width" 223: 205, "yükseklik": 205}}, {"Yaş": "cinsiyet" 37: "Kadın", "faceRectangle": {"sol": 1008, "üst": 277, "width": 201, "yükseklik": 201 } } ]
 
 
 ## <a name="domain-specific-content"></a>Etki Alanına Özgü İçerik

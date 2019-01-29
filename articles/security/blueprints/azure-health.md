@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: b7232a72a2090465dfd75ef6a4277930e45bf9ed
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 6787f347661db61806180edde5c091a865051748
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315783"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103081"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure güvenlik ve uyumluluk planı - HIPAA/HITRUST sağlık verileri ve yapay ZEKA
 
@@ -48,7 +48,7 @@ Bu plan, müşterilerin yeni Azure makine öğrenimi denemeleri hem Klinik ve op
 
 -   **Mimari diyagramı.** Şema için kullanılan başvuru mimarisi diyagramı gösterir ve örnek kullanım örneği senaryosu.
 
--   [Iaas uzantısı](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md) Bu çözüm, şirket içi SQL tabanlı çözümünü Azure'a geçirme ve bulut bsed hizmet ve çözümler güvenli bir şekilde yönetmek için Privieged erişim iş istasyonu uygulamak için nasıl gösterilecektir. 
+-   [Iaas uzantısı](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md) Bu çözüm, şirket içi SQL tabanlı çözümünü Azure'a geçirmek için ve bir ayrıcalıklı erişim bsed bulut Hizmetleri ve çözümleri güvenli bir şekilde yönetmek için iş istasyonu uygulamak için nasıl gösterilecektir. 
 
 ## <a name="solution-components"></a>Çözüm bileşenleri
 
@@ -154,9 +154,9 @@ Blueprint büyük bir çözüm eğitim ve Tahmine dayalı özelliklerini göster
 
 Alex'ın şirket içi ağ yönetme yükü azaltmak ve yönetim maliyetlerini azaltmak teknolojilerini değerlendirmek için işidir. Alex Azure süre değerlendirme ancak kendisinin hasta verilerini bulutta depolamak için Hıtrust uyumluluk gereksinimlerini karşılamak için gereken hizmetleri yapılandırmak işlerinin. Alex Hıtrust müşteri gereksinimlerini gereksinimlerini ele bir hazır uyumluluk sistem durumu çözümü dağıtmak için Azure durumu AI seçildi.
 
-**Veri Bilimcisi Gamze**
+**Data Scientist -- Debra**
 
-*E-posta: Gamze\_DataScientist*
+*E-posta: Debra\_DataScientist*
 
 Gamze, hasta Öngörüler sağlamak için tıbbi kayıtları analiz modelleri oluşturma ve kullanarak sorumlu olur. Gamze, kendi modeller oluşturmak için SQL ve R istatistik programlama dilini kullanır.
 

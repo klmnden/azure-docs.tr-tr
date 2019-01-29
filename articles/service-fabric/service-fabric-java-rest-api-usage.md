@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric Java istemci API'ları | Microsoft Docs
-description: Oluşturma ve Service Fabric Java istemci API'ları kullanmak Service Fabric istemci REST API belirtimine kullanma
+title: Azure Service Fabric Java istemci API'leri | Microsoft Docs
+description: Oluşturma ve Service Fabric Java istemci API'leri kullanan Service Fabric istemci REST API belirtim kullanılıyor
 services: service-fabric
 documentationcenter: java
 author: rapatchi
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/27/2017
 ms.author: rapatchi
-ms.openlocfilehash: 987959742335940dca8eb57c54d593aea90dec15
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 116defb43126932c1a9ce0e7a9d588e731abff78
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37111193"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55182039"
 ---
-# <a name="azure-service-fabric-java-client-apis"></a>Azure Service Fabric Java istemci API'ları
+# <a name="azure-service-fabric-java-client-apis"></a>Azure Service Fabric Java istemci API'leri
 
-Service Fabric istemci API'ları dağıtma ve yönetme mikro uygulamaları ve Service Fabric kümesi kapsayıcılarında Azure, şirket içi, yerel geliştirme makine ya da diğer bulut temel alan sağlar. Bu makalede oluşturmak ve Service Fabric istemci REST API üstünde Service Fabric Java istemci API kullanma
+Service Fabric istemci API'leri dağıtma ve yönetme mikro hizmetler azure'da, şirket içinde yerel geliştirme makineniz veya diğer bulut uygulamaları ve Service Fabric kümesinde kapsayıcıları temel sağlar. Bu makalede oluşturun ve Service Fabric istemci REST API'ler üzerinde Service Fabric Java istemci API'leri kullanma
 
-## <a name="generate-the-client-code-using-autorest"></a>AutoRest kullanarak istemci kodu oluştur
+## <a name="generate-the-client-code-using-autorest"></a>AutoRest kullanarak istemci kodu oluşturma
 
-[AutoRest](https://github.com/Azure/autorest) RESTful web hizmetlerine erişme için istemci kitaplıkları oluşturan bir araçtır. AutoRest giriş OpenAPI belirtimi biçimini kullanarak REST API açıklayan bir özelliğidir. [Service Fabric istemci REST API'leri](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/servicefabric/data-plane) bu belirtimi izleyin.
+[AutoRest](https://github.com/Azure/autorest) , RESTful web hizmetlerine erişme için istemci kitaplıkları oluşturan bir araçtır. AutoRest giriş Openapı belirtim biçimini kullanarak REST API'sini açıklayan bir özelliğidir. [Service Fabric istemci REST API'leri](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/servicefabric/data-plane) Bu belirtim izleyin.
 
-AutoRest aracını kullanarak Service Fabric Java istemci kodu oluşturmak için aşağıda belirtilen adımları izleyin.
+AutoRest aracını kullanarak Service Fabric Java istemci kodu oluşturmak üzere aşağıda belirtilen adımları izleyin.
 
 1. Makinenize nodejs ve NPM yükleme
 
@@ -48,43 +48,43 @@ AutoRest aracını kullanarak Service Fabric Java istemci kodu oluşturmak için
     npm install -g autorest
     ```
 
-3. Çatalı ve kopya [azure rest API belirtimlerin](https://github.com/Azure/azure-rest-api-specs) deposu yerel makine ve makinenizin terminalde kopyalanan konumuna gidin.
+3. Çatal ve kopya [azure rest API özellikleri](https://github.com/Azure/azure-rest-api-specs) yerel makine ve makinenizin terminalden kopyalanan konumuna git deposunda.
 
 
-4. Aşağıda, kopyalanan bağlantıların bulunması belirtilen konuma gidin.
+4. Kopyalanan deponuzda aşağıda belirtilen konuma gidin.
     ```bash
     cd specification\servicefabric\data-plane\Microsoft.ServiceFabric\stable\6.0
     ```
 
     > [!NOTE]
-    > Küme sürüm 6.0 değilse. * kararlı klasöründe uygun dizinine gidin.
+    > Küme sürümünüzün 6.0 değilse. * kararlı klasöründe uygun dizine gidin.
     >   
 
-5. Java istemci kodu oluşturmak için aşağıdaki autorest komutunu çalıştırın.
+5. Java istemci kodu oluşturmak üzere aşağıdaki autorest komutu çalıştırın.
     
     ```bash
     autorest --input-file= servicefabric.json --java --output-folder=[output-folder-name] --namespace=[namespace-of-generated-client]
     ```
-   Aşağıda autorest kullanımını gösteren bir örnektir.
+   Autorest kullanımını gösteren bir örnek aşağıda verilmiştir.
    
     ```bash
     autorest --input-file=servicefabric.json --java --output-folder=java-rest-api-code --namespace=servicefabricrest
     ```
    
-   Aşağıdaki komut alır ``servicefabric.json`` belirtimi dosya giriş olarak ve java istemci kodu oluşturur ``java-rest-api-     code`` klasörü ve kodda barındırır ``servicefabricrest`` ad alanı. Bu adımdan sonra iki klasör bulur ``models``, ``implemenation`` ve iki dosya ``ServiceFabricClientAPIs.java`` ve ``package-info.java`` üretildi ``java-rest-api-code`` klasör.
+   Aşağıdaki komutu alır ``servicefabric.json`` belirtimi dosya giriş olarak ve java istemci kodda oluşturur ``java-rest-api-     code`` klasörü ve kodda kapsayan ``servicefabricrest`` ad alanı. Bu adımdan sonra iki klasör bulacağından ``models``, ``implementation`` ve iki dosya ``ServiceFabricClientAPIs.java`` ve ``package-info.java`` oluşturulan ``java-rest-api-code`` klasör.
 
 
-## <a name="include-and-use-the-generated-client-in-your-project"></a>Oluşturulan istemci projenizde kullanmak ve içerir
+## <a name="include-and-use-the-generated-client-in-your-project"></a>Dahil ve projenizde oluşturulan istemciyi kullanma
 
-1. Oluşturulan kod uygun şekilde projenize ekleyin. Oluşturulan kod kullanarak bir kitaplığı oluşturun ve bu kitaplığını projenize dahil öneririz.
-2. Bir kitaplığı oluşturmak sonra kitaplığınızın projesinde aşağıdaki bağımlılığı eklemek istiyorsanız. Aşağıdaki farklı bir yaklaşım sonra eklenecek bağımlılık uygun şekilde.
+1. Oluşturulan kodu uygun şekilde projenize ekleyin. Oluşturulan kod kullanarak bir kitaplığı oluşturup bu kitaplığı projenize dahil öneririz.
+2. Bir kitaplık oluşturuyorsanız, ardından aşağıdaki bağımlılık kitaplığınızın projeye dahil et seçerseniz. Takip ediyorsanız farklı bir yaklaşım ardından dahil bağımlılık uygun şekilde.
 
     ```
         GroupId:  com.microsoft.rest
         Artifactid: client-runtime
         Version: 1.2.1
     ```
-    Örneğin, yapı sistem dahil aşağıdaki Maven kullanıyorsanız, ``pom.xml`` dosyası:
+    Örneğin, yapı sistem ekleme aşağıdaki Maven kullanıyorsanız, ``pom.xml`` dosyası:
 
     ```xml
         <dependency>
@@ -94,7 +94,7 @@ AutoRest aracını kullanarak Service Fabric Java istemci kodu oluşturmak için
         </dependency>
     ```
 
-3. Aşağıdaki kodu kullanarak RestClient oluşturun:
+3. Aşağıdaki kodu kullanarak bir RestClient oluşturun:
 
     ```java
         RestClient simpleClient = new RestClient.Builder()
@@ -104,8 +104,8 @@ AutoRest aracını kullanarak Service Fabric Java istemci kodu oluşturmak için
             .build();
         ServiceFabricClientAPIs client = new ServiceFabricClientAPIsImpl(simpleClient);
     ```
-4. İstemci nesnesini kullanın ve gerektiği gibi uygun çağrıları yapma. Aşağıda, istemci nesnesi kullanımını gösteren bazı örnekler verilmiştir. Uygulama paketi oluşturulur ve kullanmadan önce görüntü deposuna karşıya varsayıyoruz API'nin aşağıda.
-    * Bir uygulama sağlama
+4. İstemci nesnesini kullanın ve gerektiğinde uygun çağrıları yapın. İstemci nesnesi kullanımını gösteren bazı örnekleri aşağıda verilmiştir. Uygulama paketi oluşturulur ve görüntü deposuna kullanmadan önce karşıya varsayıyoruz API'nin aşağıda.
+    * Uygulama sağlama
     
         ```java
             ApplicationTypeImageStorePath imageStorePath = new ApplicationTypeImageStorePath();
@@ -122,17 +122,17 @@ AutoRest aracını kullanarak Service Fabric Java istemci kodu oluşturmak için
             client.createApplication(applicationDescription);
         ```
 
-## <a name="understanding-the-generated-code"></a>Oluşturulan kod anlama
-Her API uygulaması dört aşırı bulacaksınız. Ardından isteğe bağlı parametreler varsa bu isteğe bağlı parametreleri de dahil olmak üzere dört daha fazla Çeşitlemeler bulur. Örneğin API göz önünde bulundurun ``removeReplica``.
- 1. **Ortak void removeReplica (dize nodeName, UUID PartitionID, dize ReplicaID, Boolean forceRemove, uzun zaman aşımı)**
-    * Bu removeReplica API çağrısı zaman uyumlu bir türevi değil
- 2. **Ortak ServiceFuture<Void> removeReplicaAsync (dize nodeName, UUID PartitionID, dize ReplicaID, Boolean forceRemove, uzun zaman aşımı, son ServiceCallback<Void> serviceCallback)**
-    * Gelecekteki tabanlı zaman uyumsuz programlama ve geri aramalar kullanmak istiyorsanız, bu API çağrısı türevi kullanılabilir
- 3. **Ortak Observable<Void> removeReplicaAsync (dize nodeName, UUID PartitionID, dize ReplicaID)**
-    * Geriye dönük zaman uyumsuz programlama kullanmak istiyorsanız, bu API çağrısı türevi kullanılabilir
- 4. **Ortak Observable < ServiceResponse<Void>> removeReplicaWithServiceResponseAsync (dize nodeName, UUID PartitionID, dize ReplicaID)**
-    * Geriye dönük zaman uyumsuz programlama kullanın ve ham rest yanıt ile mücadele etmek istiyorsanız bu API çağrısı türevi kullanılabilir
+## <a name="understanding-the-generated-code"></a>Oluşturulan kodu anlama
+Her API için uygulama dört aşırı bulabilirsiniz. Ardından isteğe bağlı parametreler varsa bu isteğe bağlı parametreleri de dahil olmak üzere dört daha fazla çeşitleme bulun. Örneğin bir API göz önünde bulundurun ``removeReplica``.
+ 1. **public void removeReplica (dize nodeName, UUID PartitionID, dize ReplicaID, Boole forceRemove, uzun bir zaman aşımı)**
+    * Bu, zaman uyumlu değişken removeReplica API çağrısı
+ 2. **Genel ServiceFuture<Void> removeReplicaAsync (dize nodeName, UUID PartitionID, dize ReplicaID, Boole forceRemove, uzun zaman aşımı, son ServiceCallback<Void> serviceCallback)**
+    * Gelecekteki tabanlı zaman uyumsuz programlama ve geri çağırmaları kullanmak istiyorsanız, bu API çağrısı türevi kullanılabilir
+ 3. **Genel Observable<Void> removeReplicaAsync (dize nodeName, UUID PartitionID, dize ReplicaID)**
+    * Reaktif zaman uyumsuz programlama kullanmak istiyorsanız, bu API çağrısı çeşidini kullanılabilir
+ 4. **Genel Observable < ServiceResponse<Void>> removeReplicaWithServiceResponseAsync (dize nodeName, UUID PartitionID, dize ReplicaID)**
+    * Reaktif zaman uyumsuz programlama kullanın ve ham rest yanıtı ile uğraşmak istiyorsanız bu API çağrısı çeşidini kullanılabilir
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Hakkında bilgi edinin [doku REST API'leri hizmet](https://docs.microsoft.com/rest/api/servicefabric/)
+* Hakkında bilgi edinin [Service Fabric REST API'leri](https://docs.microsoft.com/rest/api/servicefabric/)
 

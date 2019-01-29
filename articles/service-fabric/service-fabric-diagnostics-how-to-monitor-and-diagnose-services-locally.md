@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: b4c3bc21591e8472dc8d51309f7431cb5d4421fd
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 740864276b8d4d7a40a263a0d6d2e09c3534dbd6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054184"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55190913"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>İçinde bir yerel makine dağıtım kurulumunda Hizmetleri izleme ve tanılama
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ ms.locfileid: "44054184"
 * **ETW olaylarını görüntülemek için Service Fabric Visual Studio Araçları'nda yerleşik desteği mevcuttur.** Visual Studio Service Fabric ile doğru şekilde yapılandırıldıktan sonra ETW olayları Visual Studio Tanılama Olayları görünümünde görünür. 
 
 ## <a name="view-service-fabric-system-events-in-visual-studio"></a>Visual Studio'da Service Fabric sistem olaylarını görüntüleyin
-Service Fabric uygulama geliştiricilerin platform neler olduğunu anlamanıza yardımcı olmak için ETW olayları gösterir. Zaten yapmadıysanız, devam edin ve adımları izleyerek [Visual Studio'da ilk uygulamanızı oluşturma](service-fabric-create-your-first-application-in-visual-studio.md). Bu bilgiler, uygulama Tanılama Olayları Görüntüleyicisi izleme iletilerini gösteren ayarlayıp çalıştırmaya başlamasına yardımcı olur.
+Service Fabric uygulama geliştiricilerin platform neler olduğunu anlamanıza yardımcı olmak için ETW olayları gösterir. Zaten yapmadıysanız, devam edin ve adımları izleyerek [Visual Studio'da ilk uygulamanızı oluşturma](service-fabric-tutorial-create-dotnet-app.md). Bu bilgiler, uygulama Tanılama Olayları Görüntüleyicisi izleme iletilerini gösteren ayarlayıp çalıştırmaya başlamasına yardımcı olur.
 
 1. Tanılama Olayları penceresinde otomatik olarak göstermiyor, Git, **görünümü** sekmesini Visual Studio'da, **diğer Windows** ardından **Tanılama Olayları Görüntüleyicisi**.
 2. Her olay, düğüm, uygulama ve hizmet olayı geldiğini belirten standart meta veri bilgilerini içerir. Kullanarak ayrıca olayların listesini filtreleyebilirsiniz **filtre olayları** olayları penceresinin üst kısmındaki kutusu. Örneğin, filtreleyebilirsiniz **düğüm adı** veya **hizmet adı.** Ve olay ayrıntılarını da bakarken, ayrıca kullanarak duraklatabilirsiniz **duraklatmak** olayları penceresinin en üstünde düğmesini tıklatın ve daha sonra olayları herhangi bir kayıp devam.

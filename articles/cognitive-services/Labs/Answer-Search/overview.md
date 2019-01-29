@@ -10,12 +10,12 @@ ms.component: answer-search
 ms.topic: overview
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: b211ede7ef90fb1aef3a6d6e9a82e0d52397afd3
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: 54438a99a710a24daac9e7482cb92a9781d06746
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465925"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099099"
 ---
 # <a name="what-is-project-answer-search"></a>Proje Yanıt Arama nedir?
 Proje Yanıt Arama API'si soru sorgularına yanıt bulmak için Bing v7 uç noktasını kullanır. "What is the circumference of the earth?" (Dünyanın çevresinin uzunluğu nedir?) gibi bir soruya olgu içeren bir yanıt döndürülür.  Kişi, yer veya nesne sorguları, sorguda tanımlanan varlıkla ilgili bilgileri döndürür. Bu senaryolar sohbet botları, mesajlaşma uygulamaları, okuyucular gibi uygulamalarda yararlı olabilir.  
@@ -25,13 +25,13 @@ Sorgular, sorgu senaryosuna göre yanıt döndürür: Web sayfaları her zaman d
 ## <a name="endpoint"></a>Uç Nokta
 Bir soruya yanıt veya bir kişi, yer ya da nesne hakkında bilgi almak için Yanıt Arama API'si uç noktasına istek gönderebilirsiniz. Farklı belirtimler için üst bilgileri ve URL parametrelerini kullanın.  Geçerli bir belirteçle birlikte *Ocp-Apim-Subscription-Key* üst bilgisini ekleyin.  market parametresi gereklidir. Şu an için yalnızca `en-us` pazarı desteklenmektedir.
 
-Aşağıdaki sorgu şu sorunun yanıtlarını alır: "What is the circumference of the earth?"
+Aşağıdaki sorguda sorusunun yanıtlarını alır: "Dünya çevresi nedir?"
 
 AL:
-````
+```
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=what+is+circumference+of+the=earth?&mkt=en-us
 
-````
+```
 
 Aranacak nesneyi belirtmek için `q=` URL parametresinin kullanılması gerekir.
 
@@ -39,7 +39,7 @@ Aranacak nesneyi belirtmek için `q=` URL parametresinin kullanılması gerekir.
 
 Yanıt HTTP üst bilgilerini, web sayfalarını, olguları ve/veya varlıkları içerir.
 
-````
+```
 BingAPIs-TraceId: AB2E75C998614ADB8EBF5110DF648298
 X-MSEdge-ClientID: 1E48FC4F7B8768C80B14F7997A106906
 BingAPIs-SessionId: 0504DDD6DAE84861A4842306F8DA7A58
@@ -236,7 +236,7 @@ JSON Response:
   }
 }
 
-````
+```
 
 ## <a name="terms-of-use"></a>Kullanım koşulları
 Projee Yanıt Arama ve Proje Video Eğilimleri, [Bing Arama Kullanım ve Görüntüleme Gereksinimlerine](use-display-requirements.md) tabidir.

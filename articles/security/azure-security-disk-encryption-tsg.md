@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 01/08/2018
+ms.date: 01/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 36ecfe8942d263ed84e430b01727743ed2cad00c
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 0b486831118ace7d2112acf1562f5df4a64d1e1b
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103174"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092151"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Azure Disk şifrelemesi sorun giderme kılavuzu
 
@@ -33,7 +33,23 @@ Linux işletim sistemi (OS) disk şifrelemesi, işletim sistemi sürücüsünü 
 - Veri sürücüleri /mnt/ dizini veya birbiriyle (örneğin, /mnt/data1, /mnt/data2, /data3 + /data3/data4) altında yinelemeli olarak sağlar.
 - Diğer Azure Disk şifrelemesi [önkoşulları](azure-security-disk-encryption-prerequisites.md) Linux için karşılanmadığı.
 
-## <a name="unable-to-encrypt"></a>Şifrelenemiyor
+## <a name="bkmk_Ubuntu14"></a> Ubuntu 14.04 LTS varsayılan çekirdek güncelleştirmesi
+
+Ubuntu 14.04 LTS görüntüsünü 4.4 varsayılan çekirdek sürümü ile birlikte gelir. Bu çekirdek sürümü, yetersiz bellek kaldırıcı yanlış gg komutu işletim sistemi şifreleme işlemi sırasında sonlandırır bilinen bir sorun var. Bu hatanın en son düzeltildiğini Azure Linux çekirdeğinin ayarlanmış. Görüntü şifreleme etkinleştirilmeden önce bu hatayı önlemek için güncelleştirme [Azure çekirdek 4.15 ayarlanmış](https://packages.ubuntu.com/trusty/linux-azure) veya daha sonra aşağıdaki komutları kullanarak:
+
+```
+sudo apt-get update
+sudo apt-get install linux-azure
+sudo reboot
+```
+
+VM yeni çekirdeğe yeniden başlatıldıktan sonra yeni çekirdek sürümü kullanarak onaylanabilir:
+
+```
+uname -a
+```
+
+## <a name="unable-to-encrypt-linux-disks"></a>Linux diskleri şifrelenemiyor
 
 Bazı durumlarda, disk şifreleme "İşletim sistemi şifreleme kullanmaya disk" durmuş görünüyor Linux ve SSH devre dışı bırakıldı. Şifreleme işlemi, bir stok galeri görüntüsü üzerinde tamamlamak için 3-16 saat arasında sürebilir. Çoklu terabayt boyutlu veri diski eklenirse, işlem gün sürebilir.
 

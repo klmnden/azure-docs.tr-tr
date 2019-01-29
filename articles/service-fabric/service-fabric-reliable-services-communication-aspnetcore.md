@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 10/12/2018
 ms.author: vturecek
-ms.openlocfilehash: eb020dfd52140375778cf22c6b70e715a7422761
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 71d5b0e8156710e2f82ac76d3187ba1ddba46936
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310258"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55151099"
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>ASP.NET Core Service Fabric güvenilir hizmetler
 
@@ -62,15 +62,15 @@ Bir güvenilir hizmet örneği öğesinden türetme, hizmet sınıfı tarafında
 `ICommunicationListener` Kestrel ve içinde HttpSys uygulamaları `Microsoft.ServiceFabric.AspNetCore.*` NuGet paketlerini benzer kullanım desenleri sahip ancak her bir web sunucusuna belirli biraz farklı eylemleri gerçekleştirin. 
 
 Her iki iletişim dinleyicileri aşağıdaki bağımsız değişken alan bir oluşturucu sağlar:
- - **`ServiceContext serviceContext`**`ServiceContext` Çalışan hizmeti hakkında bilgi içeren nesne.
- - **`string endpointName`**: adını bir `Endpoint` ServiceManifest.xml yapılandırması. Öncelikle iki iletişim dinleyicileri nerede farklı budur: HttpSys **gerektirir** bir `Endpoint` Kestrel çalışmazken yapılandırma.
+ - **`ServiceContext serviceContext`**: `ServiceContext` Çalışan hizmeti hakkında bilgi içeren nesne.
+ - **`string endpointName`**: adını bir `Endpoint` ServiceManifest.xml yapılandırması. Öncelikle, burada iki iletişim dinleyicileri farklı budur: HttpSys **gerektirir** bir `Endpoint` Kestrel çalışmazken yapılandırma.
  - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`**: bir lambda, oluşturduğunuz ve dönüş uygulayan bir `IWebHost`. Bu sayede yapılandırmak `IWebHost` bir ASP.NET Core uygulaması normalde olduğu gibi. Service Fabric tümleştirmesi bağlı olarak, seçenekleri için oluşturulan bir URL kullanın, lambda sağlar ve `Endpoint` sağladığınız yapılandırma. URL daha sonra değiştirilebilir veya olarak kullanılan,-web sunucusu başlamaktır.
 
 ## <a name="service-fabric-integration-middleware"></a>Service Fabric tümleştirme ara yazılımı
 `Microsoft.ServiceFabric.AspNetCore` NuGet paketini içeren `UseServiceFabricIntegration` genişletme yöntemini `IWebHostBuilder` , Service Fabric algılayan ara yazılımı ekler. Bu ara yazılımın Kestrel veya HttpSys yapılandırır `ICommunicationListener` benzersiz bir hizmet URL'si Service Fabric adlandırma hizmetine kaydetmek için ve ardından istemcileri için doğru hizmet bağlama emin olmak için istemci istekleri doğrular. Bu, birden çok web uygulamaları burada aynı fiziksel veya sanal makinede çalıştırabilirsiniz ancak istemciler yanlışlıkla yanlış hizmete bağlanmasını önlemek için benzersiz bir ana bilgisayar adları kullanmayın, Service Fabric gibi paylaşılan konak ortamında gereklidir. Bu senaryo, sonraki bölümde daha ayrıntılı açıklanmıştır.
 
 ### <a name="a-case-of-mistaken-identity"></a>Hatalı kimliğinin servis talebi
-Protokol, bağımsız olarak, hizmet çoğaltmaları üzerindeki bir benzersiz IP: BağlantıNoktası birleşimini dinleyin. Bir hizmet çoğaltması, bir IP: BağlantıNoktası uç noktası üzerinde dinleme başlatıldıktan sonra Service Fabric adlandırma Burada, istemcileri veya diğer hizmetler tarafından bulunabileceğini hizmeti için bu uç nokta adresi bildirir. Hizmetleri dinamik olarak atanan uygulama bağlantı noktası kullanıyorsanız, bir hizmet çoğaltması tesadüfen aynı fiziksel veya sanal makine üzerinde önceden başka bir hizmet aynı IP: BağlantıNoktası uç noktasına kullanabilir. Bu bir istemciye mistakely neden yanlış hizmete bağlanın. Aşağıdaki olaylar dizisi gerçekleşir. Bu durum ortaya çıkabilir:
+Protokol, bağımsız olarak, hizmet çoğaltmaları üzerindeki bir benzersiz IP: BağlantıNoktası birleşimini dinleyin. Bir hizmet çoğaltması, bir IP: BağlantıNoktası uç noktası üzerinde dinleme başlatıldıktan sonra Service Fabric adlandırma Burada, istemcileri veya diğer hizmetler tarafından bulunabileceğini hizmeti için bu uç nokta adresi bildirir. Hizmetleri dinamik olarak atanan uygulama bağlantı noktası kullanıyorsanız, bir hizmet çoğaltması tesadüfen aynı fiziksel veya sanal makine üzerinde önceden başka bir hizmet aynı IP: BağlantıNoktası uç noktasına kullanabilir. Bu, yanlışlıkla yanlış hizmetine bağlanmak bir istemci neden olabilir. Aşağıdaki olaylar dizisi gerçekleşir. Bu durum ortaya çıkabilir:
 
  1. A hizmeti üzerinde 10.0.0.1:30000 HTTP üzerinden dinler. 
  2. İstemci hizmet A giderir ve adresi 10.0.0.1:30000 alır

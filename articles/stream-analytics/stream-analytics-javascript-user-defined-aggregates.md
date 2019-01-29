@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
-ms.openlocfilehash: bdf5b5188dd584c5eb20f72ff4a98ba6904bc53e
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 6663e3fc48408de83e92f39e8c8070005818852d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702383"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097988"
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates-preview"></a>Azure Stream Analytics JavaScript kullanıcı tanımlı toplamlarda (Önizleme)
  
@@ -28,7 +28,7 @@ Bir kullanıcı tanımlı toplam en üstünde bir zaman penceresi belirtimi bu p
 
 AccumulateOnly Toplamlar yalnızca yeni olayları durumuna birikmesini sağlayabilir, algoritma deaccumulation değerlerinin izin vermiyor. Bu toplama türünü seçin, bir olay deaccumulate uygulamak durum değeri bilgilerinden imkansızdır. AccumulatOnly toplamlar için JavaScript şablonu aşağıda verilmiştir:
 
-````JavaScript
+```JavaScript
 // Sample UDA which state can only be accumulated.
 function main() {
     this.init = function () {
@@ -43,13 +43,13 @@ function main() {
         return this.state;
     }
 }
-````
+```
 
 ### <a name="accumulatedeaccumulate-aggregates"></a>AccumulateDeaccumulate toplamaları
 
 AccumulateDeaccumulate toplamalar deaccumulation durumu, bir önceki birikmiş değer örneğin izin, bir olay değerler listesinden bir anahtar-değer çifti kaldırın veya sum toplama durumunun bir değerden çıkarmak. AccumulateDeaccumulate toplamlar için JavaScript şablonu aşağıda verilmiştir:
 
-````JavaScript
+```JavaScript
 // Sample UDA which state can be accumulated and deaccumulated.
 function main() {
     this.init = function () {
@@ -72,7 +72,7 @@ function main() {
         return this.state;
     }
 }
-````
+```
 
 ## <a name="uda---javascript-function-declaration"></a>UDA - JavaScript işlev bildirimi
 
@@ -129,7 +129,7 @@ Artık bir JavaScript UDA'ın altında var olan bir ASA işi aşağıdaki adıml
 1. Yeni işlev görünümde seçin **JavaScript UDA** işlev türü ardından düzenleyicide görünmesini varsayılan UDA şablonu görürsünüz.
 1. UDA diğer ad olarak "TWA" doldurun ve işlev uygulamasını aşağıdaki değiştirin:
 
-    ````JavaScript
+    ```JavaScript
     // Sample UDA which calculate Time-Weighted Average of incoming values.
     function main() {
         this.init = function () {
@@ -167,7 +167,7 @@ Artık bir JavaScript UDA'ın altında var olan bir ASA işi aşağıdaki adıml
             return result;
         }
     }
-    ````
+    ```
 
 1. "Kaydet" düğmesine tıkladığınızda, UDA işlevi listede görünür.
 
@@ -177,7 +177,7 @@ Artık bir JavaScript UDA'ın altında var olan bir ASA işi aşağıdaki adıml
 
 Azure portalında ve işinizi açın, sorguyu düzenleyin ve "uda." öneki olan uyumluluğunu doğrulamıştır TWA() işlevi çağırın. Örneğin:
 
-````SQL
+```SQL
 WITH value AS
 (
     SELECT
@@ -191,13 +191,13 @@ SELECT
     uda.TWA(value) as NoseDoseTWA
 FROM value
 GROUP BY TumblingWindow(minute, 5)
-````
+```
 
 ## <a name="testing-query-with-uda"></a>UDA ile sorgu testi
 
 Yerel içeren bir JSON dosyası aşağıdaki içeriği oluşturun, dosyayı karşıya yükleme için Stream Analytics işi ve yukarıdaki sorgunun test.
 
-````JSON
+```JSON
 [
   {"EntryTime": "2017-06-10T05:01:00-07:00", "NoiseLevelDB": 80, "DurationSecond": 22.0},
   {"EntryTime": "2017-06-10T05:02:00-07:00", "NoiseLevelDB": 81, "DurationSecond": 37.8},
@@ -223,7 +223,7 @@ Yerel içeren bir JSON dosyası aşağıdaki içeriği oluşturun, dosyayı kar�
   {"EntryTime": "2017-06-10T05:20:00-07:00", "NoiseLevelDB": 113, "DurationSecond": 25.1},
   {"EntryTime": "2017-06-10T05:22:00-07:00", "NoiseLevelDB": 110, "DurationSecond": 5.3}
 ]
-````
+```
 
 ## <a name="get-help"></a>Yardım alın
 

@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 6d4a40b07ef70d8dd43eb410ba396057551cd483
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 4267984ba2a08b4cc7c32a7b7d8442f19d5842d0
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54304423"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095571"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Azure Stack için depolama kapasitesi yönetme 
 
@@ -141,60 +141,60 @@ Geçiş tüm kapsayıcıları blob üzerinde yeni bir paylaşım birleştirir.
 1. Sahip olduğunuzu onaylamak [Azure PowerShell yüklenmiş ve yapılandırılmış](https://azure.microsoft.com/documentation/articles/powershell-install-configure/). Daha fazla bilgi için bkz. [Azure PowerShell'i Azure Resource Manager ile kullanma](https://go.microsoft.com/fwlink/?LinkId=394767).
 2.  Geçirmeyi planladığınız paylaşımında verilerin ne olduğunu anlamak için kapsayıcı inceleyin. Bir birimi geçiş için en iyi aday kapsayıcıları tanımlamak için kullanmak **Get-AzsStorageContainer** cmdlet:
 
-    ````PowerShell  
+    ```PowerShell  
     $farm_name = (Get-AzsStorageFarm)[0].name
     $shares = Get-AzsStorageShare -FarmName $farm_name
     $containers = Get-AzsStorageContainer -ShareName $shares[0].ShareName -FarmName $farm_name
-    ````
+    ```
     Ardından $containers inceleyin:
 
-    ````PowerShell
+    ```PowerShell
     $containers
-    ````
+    ```
 
     ![Örnek: $Containers](media/azure-stack-manage-storage-shares/containers.png)
 
 3.  Geçiş kapsayıcı tutmak için en iyi hedef paylaşımları tanımlayın:
 
-    ````PowerShell
+    ```PowerShell
     $destinationshares = Get-AzsStorageShare -SourceShareName
     $shares[0].ShareName -Intent ContainerMigration
-    ````
+    ```
 
     Ardından $destinationshares inceleyin:
 
-    ````PowerShell 
+    ```PowerShell 
     $destinationshares
-    ````
+    ```
 
     ![Örnek: $destination Paylaşımları](media/azure-stack-manage-storage-shares/examine-destinationshares.png)
 
 4. Geçiş için bir kapsayıcı başlatın. Geçiş zaman uyumsuzdur. İlk geçiş tamamlanmadan önce ek kapsayıcıları geçişini başlatırsanız, iş kimliği her durumunu izlemek için kullanın.
 
-  ````PowerShell
+  ```PowerShell
   $job_id = Start-AzsStorageContainerMigration -StorageAccountName $containers[0].Accountname -ContainerName $containers[0].Containername -ShareName $containers[0].Sharename -DestinationShareUncPath $destinationshares[0].UncPath -FarmName $farm_name
-  ````
+  ```
 
   Ardından $jobId inceleyin. Aşağıdaki örnekte, değiştirin *d62f8f7a-8b46-4f59-a8aa-5db96db4ebb0* incelemek istediğiniz iş kimliğine sahip:
 
-  ````PowerShell
+  ```PowerShell
   $jobId
   d62f8f7a-8b46-4f59-a8aa-5db96db4ebb0
-  ````
+  ```
 
 5. Geçiş işinin durumunu denetlemek için iş kimliği kullanın. Kapsayıcı geçiş tamamlandığında **MigrationStatus** ayarlanır **tam**.
 
-  ````PowerShell 
+  ```PowerShell 
   Get-AzsStorageContainerMigrationStatus -JobId $job_id -FarmName $farm_name
-  ````
+  ```
 
   ![Örnek: Geçiş durumu](media/azure-stack-manage-storage-shares/migration-status1.png)
 
 6.  Devam eden geçiş işi iptal edebilirsiniz. Geçiş işleri zaman uyumsuz olarak işlenmesi iptal edildi. İptal $jobid kullanarak izleyebilirsiniz:
 
-  ````PowerShell
+  ```PowerShell
   Stop-AzsStorageContainerMigration -JobId $job_id -FarmName $farm_name
-  ````
+  ```
 
   ![Örnek: Geri alma durumu](media/azure-stack-manage-storage-shares/rollback.png)
 

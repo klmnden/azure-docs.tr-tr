@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: b9f2c29806c29de18c8346e77ddbfcf2bdb411f1
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 36efb943855d36d1f830ba08554eabd0a8a88f50
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076001"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55169340"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B işbirliği hakkında SSS
 
@@ -73,7 +73,7 @@ Azure AD kiracınıza kullanıcı için giriş dizini, yapabilecekleriniz [kulla
  
 * Bir Microsoft hesabıyla oturum konuk kullanıcılar (örneğin guestuser@live.com) Microsoft hesabını Self Servis parola sıfırlama (SSPR) kullanarak kendi parolalarını sıfırlayabilir. Bkz: [Microsoft hesabı parolanızı sıfırlama](https://support.microsoft.com/help/4026971/microsoft-account-how-to-reset-your-password).
 * Google hesabı ile veya başka bir dış kimlik sağlayıcısı oturum konuk kullanıcılar, kimlik sağlayıcısının SSPR yöntemi kullanarak kendi parolalarını sıfırlayabilir. Örneğin, bir Konuk kullanıcı Google hesabıyla guestuser@gmail.com yönergelerini takip ederek kendi parolalarını sıfırlayabilir [değişiklik ya da parola sıfırlama](https://support.google.com/accounts/answer/41078).
-* (Ayrı, yönetilmeyen bir Azure kiracısı olduğu anlamına gelir), bir tam zamanında (JIT) veya "viral" Kiracı kimliği kiracısı yalnızca Konuk kullanıcı parolalarını sıfırlayabilir.
+* (Ayrı, yönetilmeyen bir Azure kiracısı olduğu anlamına gelir), bir tam zamanında (JIT) veya "viral" Kiracı kimliği kiracısı yalnızca Konuk kullanıcı parolalarını sıfırlayabilir. Bazen bir kuruluş olacak [viral Kiracı yönetimini devralmasına](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/domains-admin-takeover) çalışanlar Hizmetleri için kaydolmak için iş e-posta adreslerini kullandığınızda oluşturulur. Kuruluş viral Kiracı gerçekleştirdikten sonra yalnızca söz konusu kuruluştaki bir yönetici kullanıcının parolasını sıfırlama veya SSPR'yi etkinleştir. Gerekirse, davet eden kuruluştan olarak, dizininizdeki Konuk kullanıcı hesabını kaldırmanız ve daveti yeniden gönder.
 * Azure AD kiracınıza Konuk kullanıcının ana dizini ise, kullanıcının parolasını sıfırlayabilirsiniz. Örneğin, bir kullanıcı oluşturmuş olabilir veya bir kullanıcı şirket içi Active Directory'nizden eşitlenen ve kendi UserType Konuk ayarlayın. Bu kullanıcı, dizininizde bağlantılı olduğundan, Azure portalından parolasını sıfırlayabilirsiniz.
 
 ### <a name="does-microsoft-dynamics-365-provide-online-support-for-azure-ad-b2b-collaboration"></a>Microsoft Dynamics 365, Azure AD B2B işbirliği için çevrimiçi destek sağlar mı?

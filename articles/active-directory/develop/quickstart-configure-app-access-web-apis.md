@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,14 +16,14 @@ ms.date: 10/25/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: a0082be25ec4ad326e4473cbe69f9ff029898f5b
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
-ms.translationtype: HT
+ms.openlocfilehash: a2f0d97d6b7040f874fc03ffe19f247cdc742c77
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988904"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103658"
 ---
-# <a name="quickstart-configure-a-client-application-to-access-web-apis-preview"></a>Hızlı Başlangıç: Bir istemci uygulamasını web API'lerine erişecek şekilde yapılandırma (Preview)
+# <a name="quickstart-configure-a-client-application-to-access-web-apis-preview"></a>Hızlı Başlangıç: Web API (Önizleme) erişmek için bir istemci uygulaması yapılandırma
 
 Bir web/gizli istemci uygulamasının kimlik doğrulaması gerektiren bir yetkilendirme akışına dahil olabilmesi (ve erişim belirteci alabilmesi) için güvenli kimlik bilgileri kullanması gerekir. Azure portal tarafından desteklenen varsayılan kimlik doğrulaması yöntemi istemci kimliği ve gizli anahtar kullanımıdır.
 
@@ -41,9 +41,9 @@ Bu hızlı başlangıçta, uygulamanızı aşağıdakiler için yapılandırmay�
 * [Web uygulamanıza kimlik bilgileri ekleme](#add-credentials-to-your-web-application)
 * [Web API’lerine erişim izinleri ekleme](#add-permissions-to-access-web-apis)
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
-Başlamak için aşağıdaki önkoşulları tamamladığınızdan emin olun:
+Başlamak için aşağıdaki önkoşulları karşıladığınızdan emin olun:
 
 * Diğer kullanıcılar veya uygulamalar tarafından kullanılması gereken uygulamaları derleme konusunda önemli olan desteklenen [izinler ve onaylar](v2-permissions-and-consent.md) hakkında bilgi edinin.
 * Uygulamaların kaydedilmiş olduğu bir kiracı kullanın.

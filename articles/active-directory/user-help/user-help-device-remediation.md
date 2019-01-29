@@ -6,18 +6,18 @@ author: eross-msft
 manager: daveba
 ms.assetid: 8ad0156c-0812-4855-8563-6fbff6194174
 ms.service: active-directory
-ms.component: user-help
+ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: lizross
 ms.reviewer: jairoc
-ms.openlocfilehash: eb924a612188d905eb6c7127067fed2fd4b0f218
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 97d35eb3442b63736b40d51dda57b872813293ad
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54825536"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55164070"
 ---
 # <a name="potential-reasons-for-the-you-cant-get-there-from-here-error-message"></a>Olası nedenleri "Buradan oraya ulaşamazsınız" hata iletisi
 Kuruluşunuzun iç web uygulamalarına veya hizmetlerine erişirken yazan bir hata iletisi alabilirsiniz **oraya buradan ulaşamazsınız**. Bu ileti, kuruluşunuz cihazınızın, kuruluşunuzun kaynaklarına erişimi engelleyen bir yerde bir ilke getirdi anlamına gelir. Bu sorunu gidermek için yardım masasına başvurmak zorunda son, ancak ilk deneyebileceğiniz birkaç şey aşağıda verilmiştir.

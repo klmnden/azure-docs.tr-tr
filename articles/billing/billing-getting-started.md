@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: banders
-ms.openlocfilehash: 6cc42477e167b7c1a72c1ef74af477073b9af16e
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 732ac5e1e82c67d2f4a0a3443b85c67712f4f651
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901913"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101660"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Azure'da faturalandırma ve maliyet yönetimi ile beklenmeyen ücretlerden
 
@@ -75,7 +75,7 @@ Bu örnekte **zaman içinde gerçek maliyet** harcamalarınızı bir Azure sanal
 5. Seçin **eşiği** sekmesini seçip **gerçek maliyet vs. Eşik** öğesini seçin. 
    1. İçinde **kırmızı uyarıya** 10000 eşiği kutusuna girin. 
    2. İçinde **sarı uyarı** 9000 eşiği kutusuna girin. 
-   3. İçinde **ardışık olarak verilecek uyarı sayısını** kutusunda, almak için ardışık olarak verilecek uyarı sayısını girin. Belirttiğiniz toplam uyarı sayısını aldığınızda, başka bir uyarı gönderilir. 
+   3. İçinde **ardışık olarak verilecek uyarı sayısını** kutusunda, almak için ardışık olarak verilecek uyarı sayısını girin. Belirttiğiniz toplam uyarı sayısını aldığınızda, başka bir uyarı gönderilmez. 
 6. **Kaydet**’i seçin.
 
     ![Kırmızı ve sarı uyarı eşikleri harcamayı göre gösteren örnek](./media/billing-getting-started/schedule-alert01.png)

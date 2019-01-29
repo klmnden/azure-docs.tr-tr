@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 1/08/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 1205bb636c01ff03e7e5d6f245c7469c186fca6f
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 6b2b72403365dc0f6cc61232e0b70801b57a29e2
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121184"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095576"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Azure Stack PKI sertifikalarını doğrulama
 
@@ -99,7 +99,7 @@ Hazırlama ve dağıtım ve gizli döndürme Azure Stack PKI sertifikalarını d
 
 4. Çıktı ve tüm sertifikaları geçirmek tüm testleri denetleyin. Örneğin:
 
-````PowerShell
+```PowerShell
 Invoke-AzsCertificateValidation v1.1809.1005.1 started.
 Testing: ARM Public\ssl.pfx
 Thumbprint: 7F6B27****************************E9C35A
@@ -141,7 +141,7 @@ Thumbprint: 4DBEB2****************************C5E7E6
 Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
 Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
 Invoke-AzsCertificateValidation Completed
-````
+```
 
 ### <a name="known-issues"></a>Bilinen sorunlar
 

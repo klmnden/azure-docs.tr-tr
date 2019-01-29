@@ -10,12 +10,12 @@ ms.component: content-moderator
 ms.topic: quickstart
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 6aace9301050877d452b69bd7d1c741f50dae558
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: fd7f6897b20f64a195f7e1f1155ba61eaf5941f2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264106"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55154346"
 ---
 # <a name="quickstart-analyze-text-content-for-objectionable-material-in-python"></a>Hızlı Başlangıç: Metin içeriği içeriklere python'da için analiz edin
 
@@ -61,7 +61,7 @@ Basitleştirmek amacıyla, doğrudan komut dosyasından metin analiz eder. Metin
 
 ## <a name="query-the-moderator-service"></a>Denetleyici hizmetini sorgulama
 
-Oluşturma bir **ContentModeratorClient** abonelik anahtarını ve uç nokta URL'nizi kullanarak örneği. Daha sonra kendi üyesi kullanın **TextModerationOperations** denetimi API'si çağırmak için örneği. Bkz: **[screen_text](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations?view=azure-python#screen-text)** başvuru belgeleri çağırmak nasıl daha fazla bilgi için.
+Oluşturma bir **ContentModeratorClient** abonelik anahtarını ve uç nokta URL'nizi kullanarak örneği. Daha sonra kendi üyesi kullanın **TextModerationOperations** denetimi API'si çağırmak için örneği. Bkz: **[screen_text](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations?view=azure-python)** başvuru belgeleri çağırmak nasıl daha fazla bilgi için.
 
 [!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=23-36)]
 

@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: f339cadc63d5e5cd934d07e7b0fffc6342ca04c7
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: a6fc5f353eceab5ac02895e110aec6e11ddc5d0c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159117"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101910"
 ---
 # <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>Zamana bağlı tablolarda geçmiş verilerin bekletme ilkesi ile yönetme
 Zamana bağlı tablolarda, özellikle daha uzun bir süre için geçmiş verileri tutuyorsanız normal tablolar, birden çok veritabanı boyutu artırabilir. Bu nedenle, geçmiş verileri için bekletme ilkesini planlama ve her zamana bağlı tablo yaşam döngüsü yönetimi önemli bir yönüdür ' dir. Zamana bağlı tablolarda Azure SQL veritabanı'nda, bu görevi gerçekleştirmenize yardımcı olan kullanımı kolay bekletme mekanizması ile gelir.
@@ -26,26 +26,26 @@ Zamana bağlı geçmiş saklama olabilir tek tek tablo düzeyinde yapılandırı
 
 Bekletme İlkesi tanımladıktan sonra Azure SQL veritabanı otomatik veri temizleme için uygun geçmiş satırlar olup olmadığını düzenli olarak denetimini başlatır. Eşleşen satır tanımlayıcısı ve geçmiş tablosu, kaldırma, zamanlanan ve sistem tarafından çalıştırın arka plan görevinin saydam bir şekilde oluşur. Geçerlilik süresi geçmiş tablo satırları ULUN system_tıme süre sonunu temsil eden bir sütuna göre denetlenir. Saklama dönemi, örneğin, altı ay ayarlarsanız, temizleme için uygun olan tablo satırları aşağıdaki koşul karşılar:
 
-````
+```
 ValidTo < DATEADD (MONTH, -6, SYSUTCDATETIME())
-````
+```
 
 Önceki örnekte, biz, kabul **ValidTo** sütun system_tıme süre sonuna karşılık gelir.
 
 ## <a name="how-to-configure-retention-policy"></a>Bekletme İlkesi yapılandırmak nasıl?
 Zamana bağlı tablo için bekletme ilkesini yapılandırmadan önce öncelikle zamana bağlı geçmiş saklama etkin olup olmadığını denetleyin *veritabanı düzeyinde*.
 
-````
+```
 SELECT is_temporal_history_retention_enabled, name
 FROM sys.databases
-````
+```
 
 Veritabanı bayrağı **is_temporal_history_retention_enabled** varsayılan olarak açık olarak ayarlandı, ancak kullanıcılar, ALTER DATABASE deyimi ile bunu değiştirebilirsiniz. OFF sonra da otomatik olarak ayarlanmış [zaman noktasına](sql-database-recovery-using-backups.md) işlemi. Veritabanınız için zamana bağlı geçmiş saklama temizleme etkinleştirmek için aşağıdaki deyimi yürütün:
 
-````
+```
 ALTER DATABASE <myDB>
 SET TEMPORAL_HISTORY_RETENTION  ON
-````
+```
 
 > [!IMPORTANT]
 > Bekletme durumunda bile zamana bağlı tablolar için yapılandırabileceğiniz **is_temporal_history_retention_enabled** Kapalı'dır, ancak eski satırlar için otomatik temizleme değil tetiklenir durumda.
@@ -54,7 +54,7 @@ SET TEMPORAL_HISTORY_RETENTION  ON
 
 Bekletme İlkesi öğesini INFINITE olarak ayarlamayı parametresi için değer belirleyerek tablo oluşturma sırasında yapılandırılır:
 
-````
+```
 CREATE TABLE dbo.WebsiteUserInfo
 (  
     [UserID] int NOT NULL PRIMARY KEY CLUSTERED
@@ -72,16 +72,16 @@ CREATE TABLE dbo.WebsiteUserInfo
         HISTORY_RETENTION_PERIOD = 6 MONTHS
      )
  );
-````
+```
 
-Azure SQL veritabanı, farklı zaman birimlerini kullanarak Bekletme dönemi belirtmenize olanak sağlar: gün, hafta, ay ve yıl. Öğesini INFINITE olarak ayarlamayı atlanırsa, SINIRSIZ bekletme varsayılır. SONSUZ anahtar sözcüğü açıkça de kullanabilirsiniz.
+Azure SQL veritabanı Bekletme dönemi farklı zaman birimlerini kullanarak belirtmenize olanak sağlar: GÜN, hafta, ay ve yıl. Öğesini INFINITE olarak ayarlamayı atlanırsa, SINIRSIZ bekletme varsayılır. SONSUZ anahtar sözcüğü açıkça de kullanabilirsiniz.
 
 Bazı senaryolarda tablo oluşturulduktan sonra saklamayı yapılandırmak isteyebilirsiniz veya değer daha önce değiştirmek için yapılandırılmış. Bu durumda, ALTER TABLE deyimini kullanın:
 
-````
+```
 ALTER TABLE dbo.WebsiteUserInfo
 SET (SYSTEM_VERSIONING = ON (HISTORY_RETENTION_PERIOD = 9 MONTHS));
-````
+```
 
 > [!IMPORTANT]
 > System_versıonıng öğesini OFF olarak ayarlanıyor *korumak değil* Bekletme dönemi değeri. Öğesini INFINITE olarak ayarlamayı, SINIRSIZ bekletme süresi sonuçları açıkça belirtilen olmadan system_versıonıng ON olarak ayarlanamadı.
@@ -90,7 +90,7 @@ SET (SYSTEM_VERSIONING = ON (HISTORY_RETENTION_PERIOD = 9 MONTHS));
 
 Bekletme İlkesi geçerli durumunu gözden geçirmek için tek tek tablolar için bekletme süreleri olan veritabanı düzeyinde zamana bağlı bekletme etkinleştirme bayrağını birleştiren aşağıdaki sorguyu kullanın:
 
-````
+```
 SELECT DB.is_temporal_history_retention_enabled,
 SCHEMA_NAME(T1.schema_id) AS TemporalTableSchema,
 T1.name as TemporalTableName,  SCHEMA_NAME(T2.schema_id) AS HistoryTableSchema,
@@ -101,7 +101,7 @@ OUTER APPLY (select is_temporal_history_retention_enabled from sys.databases
 where name = DB_NAME()) AS DB
 LEFT JOIN sys.tables T2   
 ON T1.history_table_id = T2.object_id WHERE T1.temporal_type = 2
-````
+```
 
 
 ## <a name="how-sql-database-deletes-aged-rows"></a>SQL veritabanı nasıl siler satırları eski?
@@ -127,7 +127,7 @@ Geçmiş tablosu SYSTEM_VERSIONIOING mekanizması tarafından özel olarak doldu
 
 Geçmiş tablosunda sınırlı saklama süresi ile kümelenmiş columnstore dizinini yeniden oluşturmayı kaçının, çünkü doğal olarak sistem sürümü oluşturma işlemi tarafından uygulanan satır gruplarında sırası değişebilir. Geçmiş tablosunda kümelenmiş columnstore dizini yeniden oluşturmanız gerekiyorsa, bu normal veri temizleme için gereken satır grupları olarak sıralama koruma uyumlu B-Ağacı dizini üzerinde yeniden oluşturmanız gerekir. Sütun dizini garantili veri sırası olmadan kümelenmiş mevcut geçmiş tablosunda zamana bağlı tablo oluşturursanız, aynı yaklaşımı gerçekleştirilmelidir:
 
-````
+```
 /*Create B-tree ordered by the end of period column*/
 CREATE CLUSTERED INDEX IX_WebsiteUserInfoHistory ON WebsiteUserInfoHistory (ValidTo)
 WITH (DROP_EXISTING = ON);
@@ -135,13 +135,13 @@ GO
 /*Re-create clustered columnstore index*/
 CREATE CLUSTERED COLUMNSTORE INDEX IX_WebsiteUserInfoHistory ON WebsiteUserInfoHistory
 WITH (DROP_EXISTING = ON);
-````
+```
 
 Sınırlı saklama süresi, kümelenmiş columnstore dizini olan geçmiş tablosu için yapılandırıldığında, o tablosunda kümelenmemiş ek B-Ağacı dizinleri oluşturulamıyor:
 
-````
+```
 CREATE NONCLUSTERED INDEX IX_WebHistNCI ON WebsiteUserInfoHistory ([UserName])
-````
+```
 
 Deyimi yürütme girişimi şu hatayla başarısız olur:
 
@@ -152,9 +152,9 @@ Tüm sorguların zamana bağlı tablosunda sınırlı saklama İlkesi, eski sat�
 
 Aşağıdaki resimde, basit bir sorgu için sorgu planı gösterilmiştir:
 
-````
+```
 SELECT * FROM dbo.WebsiteUserInfo FOR SYSTEM_TIME ALL;
-````
+```
 
 Sorgu planı dönem sütunu (ValidTo) sonuna kadar uygulanan ek filtresi (vurgulu) geçmiş tablosunda kümelenmiş dizin tarama işleci içerir. Bu örnek, bir aylık bekletme süresi WebsiteUserInfo tablosunda ayarlandı varsayar.
 
@@ -173,10 +173,10 @@ Zamana bağlı tablo, bir aylık Bekletme dönemi belirtilen olduğunu varsayal�
 
 Zamana bağlı bekletme temizleme etkinleştirmek istiyorsanız, zaman geri yükleme noktası sonra aşağıdaki Transact-SQL deyimi çalıştırın:
 
-````
+```
 ALTER DATABASE <myDB>
 SET TEMPORAL_HISTORY_RETENTION  ON
-````
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Zamana bağlı tablolarda, uygulamalarınızda kullanılacak öğrenmek için kullanıma [zamana bağlı tablolarda Azure SQL veritabanı ile çalışmaya başlama](sql-database-temporal-tables.md).

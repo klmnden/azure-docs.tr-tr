@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: add01429-21bc-4bab-8b23-bc76ba7d0bde
 ms.date: 07/08/2016
-ms.openlocfilehash: 9dd471f70407191734b4c5a3aa84d5365a7beab8
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 4ebd96613378bbd907beb5109343a2427b1300b0
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125304"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095677"
 ---
 # <a name="create-maps-that-transform-xml-between-formats-in-azure-logic-apps-with-enterprise-integration-pack"></a>XML Azure Logic Apps Enterprise Integration Pack ile biçimlerde arasındaki dönüştürme eşlemeleri oluşturma
 
@@ -88,7 +88,7 @@ Dönüştürme eylem ayrıca haritalarını destekler veya başvuru içeren dı�
 
   Bu örnek, çağrı "XslUtilitiesLib" adlı bir derlemeye başvuran bir harita gösterir `circumreference` derlemesinden yöntemi.
 
-  ````xml
+  ```xml
   <?xml version="1.0" encoding="UTF-8"?>
   <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:user="urn:my-scripts">
   <msxsl:script language="C#" implements-prefix="user">
@@ -109,13 +109,13 @@ Dönüştürme eylem ayrıca haritalarını destekler veya başvuru içeren dı�
      </circles>
     </xsl:template>
     </xsl:stylesheet>
-  ````
+  ```
 
 
 ### <a name="byte-order-mark"></a>Bayt sırası işareti
 Varsayılan olarak, dönüştürme yanıttan bayt sırası işareti (BOM) ile başlar. Kod Görünümü düzenleyicide çalışırken bu işlevselliğe erişebilirsiniz. Bu işlev devre dışı bırakmak için belirtin `disableByteOrderMark` için `transformOptions` özelliği:
 
-````json
+```json
 "Transform_XML": {
     "inputs": {
         "content": "@{triggerBody()}",
@@ -129,7 +129,7 @@ Varsayılan olarak, dönüştürme yanıttan bayt sırası işareti (BOM) ile ba
     "runAfter": {},
     "type": "Xslt"
 }
-````
+```
 
 
 

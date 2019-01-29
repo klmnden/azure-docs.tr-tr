@@ -1,6 +1,6 @@
 ---
-title: Bir arama hizmeti - Azure Search için kaynak kullanımı ve sorgu istatistikleri izleme
-description: Sorgu etkinliği ölçümler, kaynak tüketimi ve diğer sistem verileri bir Azure Search hizmet alın.
+title: Bir arama hizmeti - Azure Search için kaynak kullanımı ve sorgu ölçümlerini izleme
+description: Günlüğe kaydetmeyi etkinleştirmek, bir Azure Search hizmet sorgu etkinlik ölçümlerinin, kaynak kullanımı ve diğer sistem verileri alın.
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
@@ -11,24 +11,24 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: af2a9cd7f834f5c6f70a78d94e8826de2584127d
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: ed084520e092802ffa2a42e8a0c664ec09c4cbb7
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076392"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093249"
 ---
-# <a name="monitor-an-azure-search-service-in-azure-portal"></a>Azure portalındaki Azure Search Hizmeti izleme
+# <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Azure Search'te kaynak tüketimi ve sorgu etkinliğini İzle
 
-Azure Search hizmetinizin genel bakış sayfasında, kaynak kullanımının yanı sıra, sorgu başına ikinci (QPS), sorgunun gecikme süresi ve kısıtlanmış isteklerin yüzdesi gibi sorgu ölçümleri hakkında sistem verilerini görüntüleyebilirsiniz. Ayrıca, Azure platformunda daha ayrıntılı veri toplama özellikleri izleme yararlanmanıza için portalı kullanabilirsiniz. 
+Azure Search hizmetinizin genel bakış sayfasında, kaynak kullanımı, sorgu ölçümleri ve ne kadar kota daha çok dizin, dizin oluşturucular ve veri kaynakları oluşturmak kullanılabilir sistem verileri görüntüleyebilirsiniz. Portal, log analytics veya kalıcı veri toplama için kullanılan başka bir kaynak yapılandırmak için de kullanabilirsiniz. 
 
-Bu makalede, tanımlar ve Azure arama işlemleri günlüğe kaydetme için kullanılabilir seçenekler karşılaştırılmaktadır. Bu, günlüğe kaydetme ve günlük depolama ve hizmet ve kullanıcı etkinliğini bilgileri nasıl etkinleştirmek için yönergeler içerir.
+Kendi kendine tanılama ve koruma için işletimsel geçmişi günlüklerini ayarlama yararlıdır. Dahili olarak, bir destek bileti, araştırma ve analiz için yeterli zaman kısa bir süre için arka uçta günlükleri mevcut. Üzerinde denetim ve erişim bilgileri günlüğe kaydetmek istiyorsanız, bu makalede açıklanan çözümlerden birini ayarlamanız gerekir.
 
-Günlüklerini ayarlama, kendi kendine tanılama ve hizmet işlemlerine geçmişini koruma için kullanışlıdır. Dahili olarak, günlükleri varsa araştırma ve analiz için yeterli zaman kısa bir süre için bir destek bileti çıkartın. Hizmetinize günlük bilgilerini depolama denetlemek istiyorsanız, bu makalede açıklanan çözümlerden birini ayarlamanız gerekir.
+Bu makalede, Seçenekler, günlük kaydı etkinleştirme ve depolama oturum ve günlük içeriklerini görüntüleme izleme hakkında bilgi edinin.
 
 ## <a name="metrics-at-a-glance"></a>Ölçümleri bir bakışta
 
-**Kullanım** ve **izleme** genel bakış içinde yerleşik olarak bölümlerde depolama tüketimi Görselleştirme ve sorgu yürütme ölçümleri. Herhangi bir yapılandırma gerekmez hizmeti kullanmaya başladıktan hemen sonra bu bilgileri kullanılabilir. Bu sayfa birkaç dakikada bir yenilenir. Hakkında kararlar sonlandırılıyor varsa [hangi katmanı, üretim iş yükleri için kullanılacak](search-sku-tier.md), veya kullanılıp kullanılmayacağını [etkin çoğaltmalar ve bölümler sayısını](search-capacity-planning.md), bu ölçümlere göre bu kararları ile yardımcı olabilir size, kaynakları nasıl hızlı bir şekilde tüketilir ve geçerli yapılandırmasını mevcut yükü ne kadar iyi işler gösterir.
+**Kullanım** ve **izleme** genel bakış'ta yerleşik olarak bölümlerde kaynak tüketimi üzerinde rapor sayfasında ve sorgu yürütme ölçümleri. Herhangi bir yapılandırma gerekmez hizmeti kullanmaya başladıktan hemen sonra bu bilgileri kullanılabilir. Bu sayfa birkaç dakikada bir yenilenir. Hakkında kararlar sonlandırılıyor varsa [hangi katmanı, üretim iş yükleri için kullanılacak](search-sku-tier.md), veya kullanılıp kullanılmayacağını [etkin çoğaltmalar ve bölümler sayısını](search-capacity-planning.md), bu ölçümlere göre bu kararları ile yardımcı olabilir size, kaynakları nasıl hızlı bir şekilde tüketilir ve geçerli yapılandırmasını mevcut yükü ne kadar iyi işler gösterir.
 
 **Kullanım** sekmesi geçerli göre kaynak kullanılabilirliğini gösterir [sınırları](search-limits-quotas-capacity.md). Aşağıdaki çizimde, her türden 3 nesneleri ve 50 MB depolama büyük harflerle yazılmış ücretsiz hizmet içindir. Temel veya standart bir hizmet daha yüksek sınırlara sahiptir ve bölüm sayısını artırmak için en fazla depolama orantılı olarak artar.
 
@@ -65,13 +65,13 @@ Aşağıdaki tabloda, günlükleri depolamak ve geniş kapsamlı hizmet işlemle
 | [Blob depolama](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Günlüğe kaydedilen olayları sorgu ölçümleri temel bir aşağıdaki şemalar. Olayları günlüğe bir Blob kapsayıcısına ve JSON dosyalarında depolanan. Dosya içeriğini görüntülemek için JSON düzenleyicisini kullanın.|
 | [Olay Hub’ı](https://docs.microsoft.com/azure/event-hubs/) | Günlüğe kaydedilen olayları ve bu makalede anlatıldığı şemaları dayalı sorgu ölçümleri. Bu, çok büyük günlükleri için bir alternatif veri toplama hizmeti olarak seçin. |
 
+Ürününü, yaşam süresi Azure aboneliğinize ücretsiz olarak deneyebilirsiniz böylece hem Log Analytics hem de Blob Depolama ücretsiz paylaşılan hizmet olarak kullanılabilir. Application Insights, uygulama veri boyutu altında belirli sınırları olduğu sürece kaydolun ve ücretsiz (bkz [fiyatlandırma sayfası](https://azure.microsoft.com/ricing/details/monitor/) Ayrıntılar için).
 
-
-Ürününü, yaşam süresi Azure aboneliğinize ücretsiz olarak deneyebilirsiniz böylece hem Log Analytics hem de Blob Depolama Paylaşılan ücretsiz hizmeti olarak kullanılabilir. Sonraki bölümde, etkinleştirme ve toplamak ve Azure arama işlemleri tarafından oluşturulan günlük verilerine erişmek için Azure Blob Depolama kullanma adımlarında size kılavuzluk eder.
+Sonraki bölümde, etkinleştirme ve toplamak ve Azure arama işlemleri tarafından oluşturulan günlük verilerine erişmek için Azure Blob Depolama kullanma adımlarında size kılavuzluk eder.
 
 ## <a name="enable-logging"></a>Günlü kaydını etkinleştir
 
-Dizin oluşturma ve sorgu iş yükleri için günlük varsayılan olarak kapalıdır ve günlüğe kaydetme altyapı hem de dış uzun vadeli depolama için eklenti çözümleri bağlıdır. Günlükleri başka bir yerde depolanması kendisi tarafından kalıcı veriler yalnızca Azure Search'te dizinler olduğundan.
+Dizin oluşturma ve sorgu iş yükleri için günlük varsayılan olarak kapalıdır ve günlüğe kaydetme altyapı hem de dış uzun vadeli depolama için eklenti çözümleri bağlıdır. Günlükleri başka bir yerde depolanması için tek başına kalıcı veriler yalnızca Azure Search'te oluşturur ve yönetir, nesneleridir.
 
 Bu bölümde, günlüğe kaydedilen olayları ve ölçümleri verileri depolamak için Blob Depolama kullanan öğreneceksiniz.
 
@@ -91,12 +91,14 @@ Bu bölümde, günlüğe kaydedilen olayları ve ölçümleri verileri depolamak
 
 5. Test nesneleri silmesini veya yaratmasını günlüğe kaydetme (günlüğü olaylarını oluşturur) ve sorguları gönderme (ölçümleri oluşturur). 
 
-Profili kaydedin, sonra günlüğe kaydetme etkinleştirildiğinde, kapsayıcıları yalnızca bir olay günlüğü veya ölçü olduğunda oluşturulur. Bu kapsayıcılar görünmesi birkaç dakika sürebilir. Verileri bir depolama hesabına kopyalanır, verileri JSON olarak biçimlendirilmiş ve iki kapsayıcılarda yer:
+Profili kaydedin, sonra günlük kaydı etkindir. Kapsayıcılar, yalnızca bir etkinlik günlüğü veya ölçü olduğunda oluşturulur. Verileri bir depolama hesabına kopyalanır, verileri JSON olarak biçimlendirilmiş ve iki kapsayıcılarda yer:
 
 * ınsights günlükleri operationlogs: arama trafiği günlükleri
 * ınsights ölçümleri pt1m: ölçümler için
 
-Kullanabileceğiniz [Visual Studio Code](#Download-and-open-in-Visual-Studio-Code) veya dosyaları görüntülemek için başka bir JSON Düzenleyicisi. Kapsayıcı başına saatlik bir blob yok.
+Kapsayıcılar, Blob Depolama alanında görünmesi için önce bir saat sürer. Kapsayıcı başına saatlik bir blob yok. 
+
+Kullanabileceğiniz [Visual Studio Code](#Download-and-open-in-Visual-Studio-Code) veya dosyaları görüntülemek için başka bir JSON Düzenleyicisi. 
 
 ### <a name="example-path"></a>Örnek yol
 
@@ -163,7 +165,7 @@ Günlük dosyasını görüntülemek için herhangi bir JSON Düzenleyicisi'ni k
 
 Dosyayı indirdikten sonra içeriklerini görüntülemek için bir JSON düzenleyicisinde açın.
 
-## <a name="get-sys-info-apis"></a>Sistem bilgisi API'ları Al
+## <a name="use-system-apis"></a>Sistem API'leri kullanın
 Azure Search REST API ve .NET SDK'sı hem hizmet ölçümleri, dizin ve dizin oluşturucu bilgileri programlı erişim sağlar ve belge sayılarını.
 
 * [Hizmet istatistikleri alma](/rest/api/searchservice/get-service-statistics)

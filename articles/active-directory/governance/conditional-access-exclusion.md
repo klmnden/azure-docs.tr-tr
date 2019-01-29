@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: compliance
+ms.subservice: compliance
 ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: 0ae6c27091dd2938ec7410e78ae12dbe20509029
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 12a9602ecd61da5dc497790ecca6d8d6f874252e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47168028"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55184300"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-that-have-been-excluded-from-conditional-access-policies"></a>Koşullu erişim ilkeleri'nden dışlanacak kullanıcıları yönetmek için kullanım Azure AD erişim gözden geçirmeleri
 
@@ -96,7 +96,7 @@ Artık bu hariç tutma grubu kullanan bir koşullu erişim ilkesi oluşturabilir
 
 Şimdi bir özel koşullu erişim ilkelerini yönetmek için erişim gözden geçirmeleri burada kullanabileceğiniz iki örnek kapsar.
 
-## <a name="example-1-access-review-for-users-accessing-from-blocked-countries"></a>Örnek 1: Engellenen ülkelerden erişen kullanıcılar için erişim incelemesi
+## <a name="example-1-access-review-for-users-accessing-from-blocked-countries"></a>Örnek 1: Engellenen ülkelerden erişen kullanıcılar için erişim gözden geçirmesi
 
 Belirli ülkelerde erişimi engeller bir koşullu erişim ilkesine sahip varsayalım. Bu, bir grup ilkesinden dışlandı içerir. Grubun üyeleri, burada gözden geçirilmemiş bir önerilen erişim gözden geçirmesi aşağıdadır.
 
@@ -117,7 +117,7 @@ Belirli ülkelerde erişimi engeller bir koşullu erişim ilkesine sahip varsaya
 
     ![Erişim gözden geçirmesi oluşturma](./media/conditional-access-exclusion/create-access-review-1.png)
 
-## <a name="example-2-access-review-for-users-accessing-with-legacy-authentication"></a>Örnek 2: Eski bir kimlik doğrulama ile erişen kullanıcılar için erişim incelemesi
+## <a name="example-2-access-review-for-users-accessing-with-legacy-authentication"></a>Örnek 2: Eski bir kimlik doğrulama ile erişen kullanıcılar için erişim gözden geçirmesi
 
 Eski bir kimlik doğrulama ve eski istemci sürümleri kullanan kullanıcılar için erişimi engeller bir koşullu erişim ilkesine sahip varsayalım. Bu, bir grup ilkesinden dışlandı içerir. Grubun üyeleri, burada gözden geçirilmemiş bir önerilen erişim gözden geçirmesi aşağıdadır.
 
@@ -135,7 +135,7 @@ Eski bir kimlik doğrulama ve eski istemci sürümleri kullanan kullanıcılar i
 
     ![Erişim gözden geçirmesi oluşturma](./media/conditional-access-exclusion/create-access-review-2.png)
 
-**Pro İpucu**: birçok dışlama gruplarınız ve bu nedenle birden çok erişim gözden geçirmeleri oluşturmanız gerekir, şimdi bir API oluşturup programlı olarak yönetmek izin veren Microsoft Graph beta uç vardır. Başlamak için bkz: [Azure AD erişim gözden geçirmeleri, API Başvurusu](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/accessreviews_root) ve [örnek alma Azure AD erişim gözden geçirmeleri, Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/td-p/236096).
+**Pro İpucu**: Artık, birçok dışlama gruplarınız ve bu nedenle birden çok erişim gözden geçirmeleri oluşturmanız gerekir, bir API oluşturup programlı olarak yönetmek izin veren Microsoft Graph beta uç sahip. Başlamak için bkz: [Azure AD erişim gözden geçirmeleri, API Başvurusu](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/accessreviews_root) ve [örnek alma Azure AD erişim gözden geçirmeleri, Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/td-p/236096).
 
 ## <a name="access-review-results-and-audit-logs"></a>Erişim gözden geçirmesi sonuçlarını ve Denetim günlükleri
 

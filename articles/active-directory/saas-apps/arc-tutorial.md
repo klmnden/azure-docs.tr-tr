@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory Tümleştirme ile yayımlama yay - SSO | Microsoft Docs'
+title: 'Öğretici: Yayımlama yay - SSO ile Azure Active Directory Tümleştirme | Microsoft Docs'
 description: Azure Active Directory ve yayımlama yay - SSO arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: ae609583-f875-4cb8-b68e-1b0b7938e9a7
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: jeedes
-ms.openlocfilehash: eafd7998e5bc21a539b6709794fe3cd70d9e3179
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 8c4922c817d9667b1a25846df53f9366e2018342
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054327"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55187123"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-arc-publishing---sso"></a>Öğretici: Azure Active Directory Tümleştirme ile yayımlama yay - SSO
+# <a name="tutorial-azure-active-directory-integration-with-arc-publishing---sso"></a>Öğretici: Yayımlama yay - SSO ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, yay yayımlama - SSO Azure Active Directory (Azure AD) ile tümleştirmeyi öğrenin.
 
@@ -38,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Yay yayımlama ile - SSO, Azure AD tümleştirmesi yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Bir Yayı yayımlama - abonelik etkin SSO çoklu oturum açma
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Yayımlama yay - Azure AD'ye SSO tümleştirmesini yapılandırmak için yayıml
 
 **Galeriden SSO yay yayımlama - eklemek için aşağıdaki adımları uygulayın:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -202,7 +202,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 Bu bölümün amacı, Britta Simon yay yayımlama içinde - SSO adlı bir kullanıcı oluşturmaktır. Yayımlama yay - SSO tam zamanında sağlama, varsayılan olarak etkin olan destekler. Bu bölümde, hiçbir eylem öğesini yoktur. Yeni bir kullanıcı, yayımlama yay - SSO henüz mevcut değilse erişme denemesi sırasında oluşturulur.
 
 >[!Note]
->Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [yayımlama yay - SSO Destek ekibine](mailto:inf@washpost.com).
+>Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [yayımlama yay - SSO Destek ekibine](mailto:inf@washpost.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
@@ -244,7 +244,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

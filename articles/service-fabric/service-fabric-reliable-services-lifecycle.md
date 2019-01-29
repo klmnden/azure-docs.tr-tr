@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: f301c0156265f055f0ebf7cdad8dba7f39f5ba2b
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 391fc493d642c260a10b74aa42b805ad055dd8b1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044586"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55164563"
 ---
 # <a name="reliable-services-lifecycle-overview"></a>Reliable Services yaşam döngüsüne genel bakış
 > [!div class="op_single_selector"]
@@ -99,7 +99,7 @@ Durum bilgisi olmayan hizmetler gibi yaşam döngüsü olayları sırasında kap
 3. Sonra `StatefulServiceBase.OnCloseAsync()` tamamlandığında, hizmet nesnesi imha.
 
 ## <a name="stateful-service-primary-swaps"></a>Durum bilgisi olan hizmet birincil takasları
-Durum bilgisi olan hizmet çalışırken, açılan kendi iletişim dinleyicileri, durum bilgisi olan hizmet için birincil çoğaltmalara sahip ve bunların **RunAsync** yöntemi çağrılır. İkincil çoğaltma oluşturulur, ancak daha fazla çağrı görürsünüz. Durum bilgisi olan hizmet çalışırken, şu anda çoğaltma birincil değiştirebilirsiniz. Bu bir çoğaltma görebilirsiniz yaşam döngüsü olaylarını bağlamında ne demektir? Durum bilgisi olan çoğaltma görür davranışı, çoğaltma indirgenir veya değiştirme sırasında yükseltilen olmasına göre bağlıdır.
+Durum bilgisi olan hizmet çalışırken, açılan kendi iletişim dinleyicileri, durum bilgisi olan hizmet için birincil çoğaltmalara sahip ve bunların **RunAsync** yöntemi çağrılır. İkincil çoğaltma oluşturulur, ancak daha fazla çağrı görürsünüz. Durum bilgisi olan hizmet çalışırken, o anda birincil çoğaltma hatası veya iyileştirme Dengeleme kümesi sonucu olarak değiştirebilirsiniz. Bu bir çoğaltma görebilirsiniz yaşam döngüsü olaylarını bağlamında ne demektir? Durum bilgisi olan çoğaltma görür davranışı, çoğaltma indirgenir veya değiştirme sırasında yükseltilen olmasına göre bağlıdır.
 
 ### <a name="for-the-primary-thats-demoted"></a>İndirgenir birincil için
 İndirgenir birincil çoğaltma için bu çoğaltma iletileri işlemeyi durdur ve yapmakta olduğu herhangi bir arka plan iş çıkmak için Service Fabric gerekir. Bu adım sonuç olarak, hizmet kapatıldığında olduğu görülüyor. Tek fark, hizmet imha değil veya bir ikincil olarak ettiğinden Kapalı ' dir. Aşağıdaki API adı verilir:

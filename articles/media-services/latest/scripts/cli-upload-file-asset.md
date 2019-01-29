@@ -12,26 +12,24 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/11/2018
+ms.date: 01/25/2019
 ms.author: juliako
-ms.openlocfilehash: 5120d938d137efef77eeb0b69a5bf571bd4c509b
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 9acb2d7db1d8cb30fb853b79e9627a1b50da2aaa
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614506"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092263"
 ---
-# <a name="cli-example-upload-a-local-file-to-a-container"></a>CLI örneği: Yerel bir dosyayı kapsayıcıya yükleme 
+# <a name="cli-example-upload-a-local-file-to-a-container"></a>CLI örneği: Yerel bir dosyaya bir kapsayıcıya yükleme 
 
 Bu makaledeki Azure CLI betiğinde, yerel bir dosyanın bir depolama kapsayıcısına nasıl yükleneceği gösterilir.
 
 ## <a name="prerequisites"></a>Önkoşullar 
 
-- Yükleyin ve bu makalede Azure CLI 2.0 veya sonraki bir sürüm gerektirir, CLI'yı yerel olarak kullanın. Kullandığınız sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekirse bkz. [Azure CLI’yı yükleme](/cli/azure/install-azure-cli). 
+[Bir Media Services hesabı oluşturma](../create-account-cli-how-to.md).
 
-    Şu anda tüm [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) komutlar Azure Cloud Shell içinde çalışır. CLI'yi yerel olarak kullanmak için önerilir.
-
-- [Bir Media Services hesabı oluşturma](../create-account-cli-how-to.md).
+[!INCLUDE [media-services-cli-instructions.md](../../../../includes/media-services-cli-instructions.md)]
 
 ## <a name="example-script"></a>Örnek betik
 

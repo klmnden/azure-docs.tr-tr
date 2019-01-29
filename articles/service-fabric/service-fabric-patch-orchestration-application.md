@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 7b19aa42c669fec5872e210351ecec22360ef24e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 43133a1666dc3551e0f935ceb2af4cf1297d44a7
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427942"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55155315"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric kümenizi Windows işletim sistemi düzeltme eki
 
@@ -143,9 +143,6 @@ Uygulamayı yükleme betikleri ile birlikte gelen indirilebilir [arşiv bağlant
 
 Uygulama sfpkg biçimde nden indirilebilir [sfpkg bağlantı](https://aka.ms/POA/POA.sfpkg). Bu için kullanışlı gelir [Azure Resource Manager tabanlı uygulama dağıtımı](service-fabric-application-arm-resource.md).
 
-> [!IMPORTANT]
-> V1.3.0 düzeltme eki düzenleme uygulaması (son sürüm) çalıştıran Windows Server 2012'de bilinen bir sorun var. Windows Server 2012 çalıştırıyorsanız, lütfen uygulamanın v1.2.2 indirin [burada](http://download.microsoft.com/download/C/9/1/C91780A5-F4B8-46AE-ADD9-E76B9B0104F6/PatchOrchestrationApplication_v1.2.2.zip). SFPkg bağlantı [burada](http://download.microsoft.com/download/C/9/1/C91780A5-F4B8-46AE-ADD9-E76B9B0104F6/PatchOrchestrationApplication_v1.2.2.sfpkg).
-
 ## <a name="configure-the-app"></a>Uygulamayı yapılandırma
 
 Düzeltme eki düzenleme uygulamanın davranış şekli, gereksinimlerinizi karşılayacak şekilde yapılandırılabilir. Uygulama oluşturma veya güncelleştirme işlemi sırasında uygulama parametresi olarak geçirerek varsayılan değerleri geçersiz. Uygulama parametreleri belirterek sağlanabilir `ApplicationParameter` için `Start-ServiceFabricApplicationUpgrade` veya `New-ServiceFabricApplication` cmdlet'leri.
@@ -156,7 +153,7 @@ Düzeltme eki düzenleme uygulamanın davranış şekli, gereksinimlerinizi kar�
 |TaskApprovalPolicy   |Sabit listesi <br> {NodeWise, UpgradeDomainWise}                          |Service Fabric küme düğümleri arasında Windows güncelleştirmeleri yüklemek için Düzenleyici hizmeti tarafından kullanılacak olan ilke TaskApprovalPolicy gösterir.<br>                         İzin verilen değerler şunlardır: <br>                                                           <b>NodeWise</b>. Windows güncelleştirme yüklü tek bir düğüm bir kerede olur. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update, aynı anda yüklü bir yükseltme etki alanıdır. (En bir yükseltme etki alanına ait olan tüm düğümleri için Windows Update gidebilirsiniz.)<br> Başvurmak [SSS](#frequently-asked-questions) , uygun ilke kümeniz için en iyi olduğuna karar vermeye yönelik bölümü.
 |LogsDiskQuotaInMB   |Uzun  <br> (Varsayılan: 1024)               |Yerel olarak düğümlerinde kalıcı MB, düzeltme eki düzenleme uygulama en büyük boyutunu kaydeder.
 | WUQuery               | dize<br>(Varsayılan: "IsInstalled = 0")                | Windows güncelleştirmeleri almak için sorgulayın. Daha fazla bilgi için [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
-| InstallWindowsOSOnlyUpdates | Boole <br> (varsayılan: true)                 | Hangi güncelleştirmelerin indirilmesi ve yüklenmesi denetlemek için bu bayrağı kullanın. Aşağıdaki değerlerine izin verilir. <br>TRUE - yalnızca Windows işletim sistemi güncelleştirmeleri yükler.<br>false - makinede sağlanan tüm güncelleştirmeleri yükler.          |
+| InstallWindowsOSOnlyUpdates | Boole <br> (varsayılan: false)                 | Hangi güncelleştirmelerin indirilmesi ve yüklenmesi denetlemek için bu bayrağı kullanın. Aşağıdaki değerlerine izin verilir. <br>TRUE - yalnızca Windows işletim sistemi güncelleştirmeleri yükler.<br>false - makinede sağlanan tüm güncelleştirmeleri yükler.          |
 | WUOperationTimeOutInMinutes | Int <br>(Varsayılan: 90)                   | (Arama ya da indirme veya yükleme) herhangi bir Windows güncelleştirme işlemi için zaman aşımını belirtir. İşlemi belirtilen süre içinde tamamlanmazsa, iptal edildi.       |
 | WURescheduleCount     | Int <br> (Varsayılan: 5)                  | Bir işlem kalıcı olarak başarısız olması durumunda en fazla kaç kez Windows hizmeti tarih değiştirdiğinde güncelleştirin.          |
 | WURescheduleTimeInMinutes | Int <br>(Varsayılan: 30) | Hata devam ederse durumunda, hizmet Windows update tarih değiştirdiğinde aralığı. |
@@ -295,7 +292,7 @@ A. Yükleme işlemi sırasında orchestration düzeltme eki uygulamayı devre d�
 
 Windows güncelleştirme yüklemesi sonunda, düğümler yeniden iler hale getirilir yeniden başlatma gönderin.
 
-Geçici bir hata durumu aşağıdaki örnekte, küme oluştu çünkü iki düğümü olan aşağı ve MaxPercentageUnhealthNodes ilke ihlal. Düzeltme eki uygulama işlemi devam ediyor kadar geçici bir hatadır.
+Geçici bir hata durumu aşağıdaki örnekte, küme oluştu çünkü iki düğümü olan aşağı ve MaxPercentageUnhealthyNodes ilke ihlal. Düzeltme eki uygulama işlemi devam ediyor kadar geçici bir hatadır.
 
 ![Sağlıksız kümesinin görüntüsü](media/service-fabric-patch-orchestration-application/MaxPercentage_causing_unhealthy_cluster.png)
 
@@ -330,7 +327,7 @@ S. **Ne kadar bir kümenin tamamını düzeltme eki sürer?**
 A. Bir kümenin tamamını düzeltme eki için gereken süre aşağıdaki etkenlere bağlıdır:
 
 - Bir düğüm düzeltme eki için gereken süre.
-- İlke Düzenleyicisi hizmeti. -Varsayılan ilke `NodeWise`, sonuçları daha yavaş olacaktır bir anda yalnızca tek bir düğüme düzeltme `UpgradeDomainWise`. Örneğin: Bir düğüm yama uygulanacak yaklaşık 1 saat sürerse, 20 düğüm (düğüm aynı türü) düzeltme eki uygulama edebilmesi küme 5 yükseltme etki alanları ile her biri 4 düğüm içeren.
+- İlke Düzenleyicisi hizmeti. -Varsayılan ilke `NodeWise`, sonuçları daha yavaş olacaktır bir anda yalnızca tek bir düğüme düzeltme `UpgradeDomainWise`. Örneğin: Bir düğüm yama uygulanacak yaklaşık 1 saat sürerse, 20 düzeltme eki için (düğümlerinin aynı türü) bir küme düğümünde 5 yükseltme etki alanları ile her biri 4 düğüm içeren.
     - İlke, tüm küme düzeltme eki yaklaşık 20 saat sürer `NodeWise`
     - İlke yaklaşık 5 saat sürer `UpgradeDomainWise`
 - Küme yükleme - düzeltme eki uygulama işlemi her müşterinin iş yükü için kullanılabilir diğer küme düğümleri yeniden konumlandırma gerektirir. Düzeltme eki aşamasında düğüm olacak [devre dışı bırakılması](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabling) bu süre boyunca durum. Küme yoğun yük çalışıyorsa, devre dışı bırakma işlemi uzun sürecektir. Bu nedenle genel düzeltme eki uygulama işlemini vurgulu böylesi yavaş görünebilir.
@@ -411,3 +408,8 @@ Bir yönetici, müdahale ve uygulama veya küme neden Windows güncelleştirmesi
 - False olarak InstallWindowsOSOnlyUpdates ayarı artık kullanılabilir tüm güncelleştirmeleri yükler.
 - Otomatik Güncelleştirmeler devre dışı bırakma mantığı değiştirildi. Bu, burada otomatik güncelleştirmeler Server 2016 ve üzeri devre dışı değil bir hatayı düzeltir.
 - Her iki Gelişmiş usecases için POA, mikro hizmetler için parametreli yerleştirme kısıtlaması.
+
+### <a name="version-131"></a>Sürüm 1.3.1
+- Regresyon, Windows Server 2012 R2 ya da otomatik güncelleştirmeler devre dışı bırakma hatası nedeniyle daha düşük POA 1.3.0 nerede çalışmaz düzeltiliyor. 
+- Hata nerede InstallWindowsOSOnlyUpdates yapılandırma her zaman True olarak çekilir düzeltiliyor.
+- InstallWindowsOSOnlyUpdates varsayılan değerini False olarak değiştiriliyor.

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 688194c8d5ec0c2594d8c7178d8cae3925b8e482
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 93f086ed6ff7b8cc9ccc03290d3e901427783887
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413385"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103955"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Konuşma hizmeti API'sini dil ve bölge desteği
 
@@ -79,6 +79,10 @@ Sinir seslerle ve bölgesel kullanılabilirlik tam listesi için bkz: [bölgeler
 |--------|----------|---------|--------------------|
 | en-US | English (US) | Erkek | "Microsoft Server Konuşma metin konuşma ses (en-US, GuyNeural)" |
 | en-US | English (US) | Kadın | "Microsoft Server Konuşma metin konuşma ses (en-US, JessaNeural)" |
+| zh-CN | Çince | Kadın | "Microsoft Server Konuşma metin konuşma ses (zh-CN, XiaoxiaoNeural)" |
+
+> [!IMPORTANT]
+> Microsoft Server Konuşma metin okuma okuma (zh-CN, XiaoxiaoNeural), yalnızca Güneydoğu Asya uç noktası aracılığıyla kullanılabilir: https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1.
 
 ### <a name="standard-voices"></a>Standart sesler
 

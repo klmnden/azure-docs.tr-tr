@@ -1,25 +1,25 @@
 ---
-title: "Hızlı başlangıç: Bing Otomatik Öneri API'si"
+title: 'Hızlı Başlangıç: Bing Otomatik Öneri API’si'
 titlesuffix: Azure Cognitive Services
 description: Bing Otomatik Öneri API'sini kullanmaya başlamayı göstermektedir.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-autosuggest
+ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 446d271854a4e45bcea8c261a0dc078e549f8229
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
-ms.translationtype: HT
+ms.openlocfilehash: c748f58028d747b2d963d6ac28ea2661e41ec68c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830762"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55184521"
 ---
-# <a name="quickstart-making-your-first-autosuggest-query"></a>Hızlı başlangıç: İlk Otomatik Öneri sorgunuzu oluşturma
+# <a name="quickstart-making-your-first-autosuggest-query"></a>Hızlı Başlangıç: İlk otomatik öneri sorgunuzu yapma
 
-İlk çağrınızı yapmadan önce bir Bilişsel Hizmetler abonelik anahtarı almanız gerekir. Anahtar alma için bkz: [Bilişsel Hizmetleri Deneme](https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api).
+İlk çağrınızı yapmadan önce bir Bilişsel Hizmetler abonelik anahtarı almanız gerekir. Anahtar almak için bkz. [Bilişsel Hizmetleri Deneme](https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api).
 
 Web araması sonuçlarını almak için aşağıdaki uç noktaya bir GET isteği gönderirsiniz:
 
@@ -152,6 +152,6 @@ BingAPIs-Market: en-US
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-API'yi deneyin. [Otomatik Öneri API'si Test Konsolu](https://dev.cognitive.microsoft.com/docs/services/56c7694ecf5ff801a090fbd1/operations/56c769a2cf5ff801a090fbd2)'na gidin.
+API’yi deneyin. [Otomatik Öneri API'si Test Konsolu](https://dev.cognitive.microsoft.com/docs/services/56c7694ecf5ff801a090fbd1/operations/56c769a2cf5ff801a090fbd2)'na gidin.
 
 Yanıt nesnelerini kullanmanın ayrıntıları için bkz. [Önerilen Arama Terimlerini Alma](./get-suggested-search-terms.md).

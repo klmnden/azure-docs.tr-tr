@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 68517c83-1279-4cc7-a7c1-c7ccc3dbe146
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 8e00674f331a56be9abe6f2356aa88d7dcf1d0b0
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 3da99506d50ec12140c188cd86cde2556be4a308
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282393"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099150"
 ---
 # <a name="whats-new-for-authentication"></a>Kimlik doğrulaması için yenilikler nelerdir? 
 
@@ -30,7 +30,7 @@ ms.locfileid: "52282393"
 
 Kimlik doğrulama sistemi değiştirir ve güvenlik ve uyumluluk standartları geliştirmek için sürekli olarak özellikler ekler. İle en son gelişmeleri güncel kalmak için bu makalede, aşağıdaki ayrıntılar hakkında bilgi sağlar:
 
-- En son özellikleri
+- En yeni özellikler
 - Bilinen sorunlar
 - Protokol değişiklikleri
 - Kullanım dışı işlev
@@ -48,9 +48,9 @@ Hiçbiri şu anda zamanlanmış.
 
 **Geçerlilik tarihi**: 15 Kasım 2018
 
-**Etkilenen uç noktaları**: hem v1.0 ve v2.0
+**Etkilenen uç noktaları**: V1.0 hem v2.0
 
-**Etkilenen Protokolü**: [kod akışı](v2-oauth2-auth-code-flow.md)
+**Etkilenen Protokolü**: [Kod akışı](v2-oauth2-auth-code-flow.md)
 
 15 Kasım 2018'de başlayarak, Azure AD uygulamaları için daha önce kullanılan kimlik doğrulama kodlarını kabul durdurur. Bu güvenlik değişiklik v1 ve v2 Uç noktalara zorlanmasını sağlar ve Azure AD OAuth belirtimi ayarlarına uygun olarak çıkarmak yardımcı olur.
 
@@ -64,9 +64,9 @@ Yenileme belirteçleri hakkında daha fazla bilgi için bkz: [erişim belirteçl
 
 **Tarih**: 1 Mayıs 2018
 
-**Etkilenen uç noktaları**: hem v1.0 ve v2.0
+**Etkilenen uç noktaları**: V1.0 hem v2.0
 
-**Etkilenen protokolleri**: örtük akış ve [OBO akış](v1-oauth2-on-behalf-of-flow.md)
+**Etkilenen protokolleri**: Örtük akış ve [OBO akış](v1-oauth2-on-behalf-of-flow.md)
 
 1 Mayıs 2018'den sonra id_tokens bir OBO akışında onay olarak yeni uygulamalar için kullanılamaz. Erişim belirteçleri, bunun yerine, API'leri, hatta bir istemci ve orta katman aynı uygulamanın arasında güvenli hale getirmek için de kullanılmalıdır. 1 Mayıs 2018'den iş ve bir erişim belirteci için id_tokens alışverişi yapmak devam etmeden önce kayıtlı uygulamalar; Ancak, bu deseni en iyi uygulama olarak kabul edilmez.
 

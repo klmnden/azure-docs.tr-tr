@@ -1,5 +1,5 @@
 ---
-title: Video Indexer API'sini kullanma
+title: Video Indexer API - Azure kullanın
 titlesuffix: Azure Media Services
 description: Bu makalede, Video Indexer API'sini kullanmaya nasıl başlayacağınız gösterilmektedir.
 services: media-services
@@ -7,16 +7,16 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: d7af0d8961d5fa4d3f76b76a48ec613d954298ad
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: d162f8caef0a14d86547539681f1da9b1b07ea1d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52292506"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55190505"
 ---
-# <a name="use-the-video-indexer-api"></a>Video Indexer API'sini kullanma
+# <a name="tutorial-use-the-video-indexer-api"></a>Öğretici: Video Indexer API'sini kullanma
 
 > [!Note]
 > Video Indexer V1 API, 1 Ağustos 2018'de kullanım dışı bırakıldı. Artık, Video Indexer v2 API kullanılmalıdır. <br/>Video Indexer v2 API'leri ile geliştirme çalışmaları yapmak için [buradaki](https://api-portal.videoindexer.ai/) yönergelere bakın. 

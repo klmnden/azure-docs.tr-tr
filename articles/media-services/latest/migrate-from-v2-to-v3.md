@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 12/18/2018
+ms.date: 01/24/2019
 ms.author: juliako
-ms.openlocfilehash: c9d35841620afa454ffddb5e3022f6160021998e
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: ec40de04f46d0be8f40c2223346f17d288eb580c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912393"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104074"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Media Services v2'den v3 taşımak için Geçiş Kılavuzu
 
@@ -64,12 +64,12 @@ Bugün üzerine geliştirilen bir video hizmeti varsa [eski Media Services v2 AP
 * V3 API'leri, tüm kodlama hızları bit / saniye cinsindendir. Bu, Media Encoder Standard hazır ayarları v2 farklıdır. Örneğin, v2'de hızı (kbps) 128 belirtilebilir, ancak v3 sürümünde bu 128000 (bit/saniye) olacaktır. 
 * Varlıkları AssetFiles AccessPolicies ve IngestManifests v3 sürümünde yok.
 * IAsset.ParentAssets özelliği v3 sürümünde mevcut değil.
-* ContentKeys artık bir varlık değil, artık StreamingLocator özelliğidir.
+* ContentKeys artık bir varlık, akış Bulucu özelliği sunulmuştur.
 * Event Grid destek NotificationEndpoints değiştirir.
 * Aşağıdaki varlıkların yeniden adlandırıldı
     * İş çıktısı, görev değiştirir ve artık bir iş parçasıdır.
     * Akış Bulucusu Bulucu değiştirir.
-    * Canlı olay kanal değiştirir.<br/>Canlı etkinlikler üzerinde Canlı kanal oranları üzerinden faturalandırılır. Daha fazla bilgi için [Canlı akışa genel bakış](live-streaming-overview.md#billing) ve [fiyatlandırma](https://azure.microsoft.com/pricing/details/media-services/).
+    * Canlı olay kanal değiştirir.<br/>Canlı etkinlikler üzerinde Canlı kanal oranları üzerinden faturalandırılır. Daha fazla bilgi için [fatura](live-event-states-billing.md) ve [fiyatlandırma](https://azure.microsoft.com/pricing/details/media-services/).
     * Canlı çıktı Program değiştirir.
 * Canlı çıkışları açıkça başlatılması gerekmez, üzerinde oluşturma işlemini başlatmak ve silindiğinde durdurun. V2 API'leri farklı şekilde çalışan programlar, bunlar oluşturulduktan sonra başlatılmış olması gerekiyordu.
 
@@ -97,7 +97,7 @@ Aşağıdaki tabloda, v2 ve v3 sık karşılaşılan senaryolara yönelik kod fa
 |---|---|---|
 |Bir varlık oluşturun ve bir dosyayı karşıya yükleyin |[v2 .NET örneği](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L113)|[V3 .NET örneği](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L169)|
 |Bir iş gönderdiniz|[v2 .NET örneği](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L146)|[V3 .NET örneği](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L298)<br/><br/>İlk dönüşüm işi oluşturma ve ardından bir gönderme işlemi gösterilmektedir.|
-|Bir varlık AES şifreleme ile yayımlama |1. ContentKeyAuthorizationPolicyOption oluşturma<br/>2. ContentKeyAuthorizationPolicy oluşturma<br/>3. Create AssetDeliveryPolicy<br/>4. Varlık oluşturma ve içerik işi veya Gönder yüklemek ve çıktı varlığına kullanın<br/>5. AssetDeliveryPolicy varlıkla ilişkilendirme<br/>6. Create ContentKey<br/>7. Varlık için ContentKey ekleme<br/>8. AccessPolicy oluşturma<br/>9. Bulucu<br/><br/>[v2 .NET örneği](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L64)|1. İçerik anahtarı ilkesi oluşturma<br/>2. Varlık oluşturma<br/>3. İçerik yüklemek veya varlık JobOutput kullanın<br/>4. StreamingLocator oluşturma<br/><br/>[V3 .NET örneği](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs#L105)|
+|Bir varlık AES şifreleme ile yayımlama |1. ContentKeyAuthorizationPolicyOption oluşturma<br/>2. ContentKeyAuthorizationPolicy oluşturma<br/>3. Create AssetDeliveryPolicy<br/>4. Varlık oluşturma ve içerik işi veya Gönder yüklemek ve çıktı varlığına kullanın<br/>5. AssetDeliveryPolicy varlıkla ilişkilendirme<br/>6. Create ContentKey<br/>7. Varlık için ContentKey ekleme<br/>8. AccessPolicy oluşturma<br/>9. Bulucu<br/><br/>[v2 .NET örneği](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L64)|1. İçerik anahtarı ilkesi oluşturma<br/>2. Varlık oluşturma<br/>3. İçerik yüklemek veya varlık JobOutput kullanın<br/>4. Akış Bulucusu oluşturma<br/><br/>[V3 .NET örneği](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs#L105)|
 
 ## <a name="known-issues"></a>Bilinen sorunlar
 

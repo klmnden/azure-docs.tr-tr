@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: a2e1604a51b8343d926dda3b258d38b19266deeb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 630413d15df04d27599389f647c57876fff9d295
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246693"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094436"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Power BI çalışma alanı koleksiyonları örnek ile kullanmaya başlama
 
@@ -24,7 +24,7 @@ ms.locfileid: "51246693"
 > [!IMPORTANT]
 > Power BI Çalışma Alanı Koleksiyonları kullanım dışı bırakılmıştır ve Haziran 2018'e kadar veya anlaşmanızda belirtilen süre boyunca kullanılabilecektir. Uygulamanızda kesinti yaşanmaması için Power BI Embedded'a geçirmeyi planlamanız önerilir. Verilerinizi Power BI Embedded'a nasıl taşıyacağınızı öğrenmek için bkz. [Power BI Çalışma Alanı Koleksiyonları'nı Power BI Embedded'a geçirme](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
-Aşağıdaki kaynaklar kaydetmek istediğiniz tüm daha fazla ayrıntıya önce: örnek uygulama ve kendi uygulamalarınızı halinde Power BI raporlarını çok tümleştirmesi yardımcı olurlar.
+Aşağıdaki kaynaklar kaydetmek istediğiniz tüm daha fazla ayrıntıya önce: Bunlar, örnek uygulama ve kendi uygulamalarınızı halinde Power BI raporlarını çok tümleştirmesi yardımcı.
 
 * [Örnek çalışma web uygulaması](https://go.microsoft.com/fwlink/?LinkId=761493)
 * [Power BI çalışma alanı koleksiyonları API Başvurusu](https://msdn.microsoft.com/library/azure/mt711507.aspx)
@@ -71,7 +71,7 @@ Bu noktada, içeri aktarılan bir Power BI PBIX rapor sahip, **çalışma**. Şi
 Web uygulaması örneği içeri aktarılan raporlar işleyen bir örnek uygulamadır, **çalışma**. Web uygulaması örneği yapılandırma aşağıda verilmiştir.
 
 1. İçinde **Power BI embedded** Visual Studio çözümünü sağ **EmbedSample** seçin ve web uygulaması **başlangıç projesi olarak ayarla**.
-2. İçinde **web.config**, **EmbedSample** web uygulaması, Düzen **appSettings**: **AccessKey**,  **WorkspaceCollection** adı ve **Workspaceıd**.
+2. İçinde **web.config**, **EmbedSample** web uygulaması, Düzen **appSettings**: **AccessKey**, **WorkspaceCollection** adı ve **Workspaceıd**.
 
     ```
     <appSettings>
@@ -93,7 +93,7 @@ Bir rapor tıkladıktan sonra **EmbedSample** web uygulaması görünmelidir bir
 
 ## <a name="explore-the-sample-code"></a>Örnek kodu inceleyin
 
-**Microsoft Power BI çalışma alanı koleksiyonları** örnektir nasıl tümleştireceğinizi gösteren bir örnek web uygulaması **Power BI** uygulamanıza raporlar. En iyi yöntemleri göstermek için bir Model-View-Controller (MVC) tasarım deseni kullanır. Bu bölüm içinde keşfedebilirsiniz örnek kod bölümlerini vurgular **Power BI embedded** web uygulaması çözümü. Etki alanı, sunu ve kullanıcı girişi üç ayrı sınıf uygulamasına göre eylemleri modelleme Model-View-Controller (MVC) deseni ayırır: Model, Görünüm ve denetimi. MVC hakkında daha fazla bilgi için bkz: [ASP.NET hakkında bilgi edinin](http://www.asp.net/mvc).
+**Microsoft Power BI çalışma alanı koleksiyonları** örnektir nasıl tümleştireceğinizi gösteren bir örnek web uygulaması **Power BI** uygulamanıza raporlar. En iyi yöntemleri göstermek için bir Model-View-Controller (MVC) tasarım deseni kullanır. Bu bölüm içinde keşfedebilirsiniz örnek kod bölümlerini vurgular **Power BI embedded** web uygulaması çözümü. Model-View-Controller (MVC) deseni, etki alanı, sunu ve kullanıcı girişi üç ayrı sınıf uygulamasına göre eylemleri modelleme ayırır: Model, Görünüm ve denetimi. MVC hakkında daha fazla bilgi için bkz: [ASP.NET hakkında bilgi edinin](http://www.asp.net/mvc).
 
 **Microsoft Power BI çalışma alanı koleksiyonları** örnek kod gibi ayrılmış. Örnek kod kolayca bulabilmesi için her bölüm embedded.sln Powerbı çözüm dosya adını içerir.
 
@@ -134,12 +134,12 @@ Genel sunucu ve veritabanı kullanarak başarısız öznitelikler. Örneğin: Se
 
 **Görünümü** Power BI gösterimini yöneten **raporları** ve Power BI **rapor**.
 
-**Reports.cshtml**: Gezinilen **Model.Reports** oluşturmak için bir **ActionLink**. **ActionLink** şu şekilde oluşur:
+**Reports.cshtml**: Üzerinden yineleme yapma **Model.Reports** oluşturmak için bir **ActionLink**. **ActionLink** şu şekilde oluşur:
 
 | Bölümü | Açıklama |
 | --- | --- |
 | Unvan |Raporun adı. |
-| Sorgu dizesi |Bir bağlantı Raporu Kimliği |
+| QueryString |Bir bağlantı Raporu Kimliği |
 
     <div id="reports-nav" class="panel-collapse collapse">
         <div class="panel-body">
@@ -155,7 +155,7 @@ Genel sunucu ve veritabanı kullanarak başarısız öznitelikler. Örneğin: Se
         </div>
     </div>
 
-Report.cshtml: Ayarlayın **Model.AccessToken**ve Lambda ifadesi **PowerBIReportFor**.
+Report.cshtml: Ayarlama **Model.AccessToken**ve Lambda ifadesi **PowerBIReportFor**.
 
     @model ReportViewModel
 
@@ -228,7 +228,7 @@ Sonra bir **rapor**, kullandığınız bir **IFrame** Power BI katıştırmak i�
 ```
 init: function() {
     var embedUrl = this.getEmbedUrl();
-    var iframeHtml = '<igrame style="width:100%;height:100%;" src="' + embedUrl + 
+    var iframeHtml = '<iframe style="width:100%;height:100%;" src="' + embedUrl + 
         '" scrolling="no" allowfullscreen="true"></iframe>';
     this.element.innerHTML = iframeHtml;
     this.iframe = this.element.childNodes[0];

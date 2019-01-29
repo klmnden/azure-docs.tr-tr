@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 787fa051dfeeea45f9480f5906244f544f747279
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 12eb678262d11ca3bcb727d03e31a50b0aee4a68
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474396"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55203853"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Azure AD Connect eşitleme: Mimariyi anlama
 Bu konu temel mimarisini Azure AD Connect eşitlemesi ele alınmaktadır. Birçok yönden öncelleri MIIS 2003 ILM 2007 ve FIM 2010 için benzerlik gösterir. Azure AD Connect eşitleme, çünkü bu teknolojiler olur. Tüm önceki teknolojiler hakkında bilginiz varsa, bu konunun içeriği de size tanıdık gelecektir. Eşitleme için yeni başladıysanız, bu konu, hakkındadır. Ancak böyle değildir (Bu konudaki eşitleme altyapısı olarak bilinir) Azure AD Connect eşitlemesini özelleştirme yaparken başarılı olması için bu konunun ayrıntılarını öğrenmek için bir gereksinim.

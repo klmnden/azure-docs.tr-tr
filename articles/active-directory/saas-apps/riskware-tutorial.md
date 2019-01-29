@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle Riskware | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile Riskware | Microsoft Docs'
 description: Azure Active Directory ve Riskware arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 81866167-b163-4695-8978-fd29a25dac7a
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 4c664fac99e93e94b46f5d917a63aa6530b695bd
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3b4c979bf03b23280c9389a043375f088624efe6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39437782"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55163254"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-riskware"></a>Öğretici: Azure Active Directory Riskware ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-riskware"></a>Öğretici: Riskware ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Riskware tümleştirme konusunda bilgi edinin.
 
@@ -38,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD Tümleştirmesi ile Riskware yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik Riskware çoklu oturum açma etkin
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Azure AD'de Riskware tümleştirmesini yapılandırmak için Riskware Galeriden 
 
 **Galeriden Riskware eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -111,17 +111,17 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve R
     a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak:
     | Ortam| URL deseni|
     |--|--|
-    | UAT|  `https://riskcloud.net/uat?ccode=<COMPANYCODE>` |
-    | ÜRÜN| `https://riskcloud.net/prod?ccode=<COMPANYCODE>` |
-    | TANITIMI| `https://riskcloud.net/demo?ccode=<COMPANYCODE>` |
+    | UAT|  `https://riskcloud.net/uat?ccode=<COMPANYCODE>` |
+    | ÜRÜN| `https://riskcloud.net/prod?ccode=<COMPANYCODE>` |
+    | TANITIMI| `https://riskcloud.net/demo?ccode=<COMPANYCODE>` |
     |||
 
     b. İçinde **tanımlayıcı (varlık kimliği)** metin kutusuna bir URL:
     | Ortam| URL deseni|
     |--|--|
-    | UAT| `https://riskcloud.net/uat` |
-    | ÜRÜN| `https://riskcloud.net/prod` |
-    | TANITIMI| `https://riskcloud.net/demo` |
+    | UAT| `https://riskcloud.net/uat` |
+    | ÜRÜN| `https://riskcloud.net/prod` |
+    | TANITIMI| `https://riskcloud.net/demo` |
     |||
 
     > [!NOTE]
@@ -167,7 +167,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve R
 
     g. İçinde **XML kimlik etiket adı** metin Nameıd gibi SAML yanıtını benzersiz tanımlayıcı içeren tür özniteliği.
 
-    h. İndirilen açın **meta veri Xml** meta veri dosyası sertifikadan Defteri'nde Azure portalından kopyalayın ve yapıştırın **sertifika** metin kutusu
+    h. İndirilen açın **meta veri Xml** meta veri dosyası sertifikadan Defteri'nde Azure portalından kopyalayın ve yapıştırın **sertifika** metin kutusu
 
     i. İçinde **tüketici URL** metin değerini yapıştırın **yanıt URL'si**, hangi destek ekibinden alın.
 

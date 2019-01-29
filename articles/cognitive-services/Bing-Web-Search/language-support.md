@@ -3,19 +3,19 @@ title: Dil desteği - Bing Web araması API'si
 titleSuffix: Azure Cognitive Services
 description: Doğal dil, ülke ve Bing haber arama API'si tarafından desteklenen bölgeler listesi.
 services: cognitive-services
-author: v-jerkin
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: article
 ms.date: 09/25/2018
-ms.author: erhopf
-ms.openlocfilehash: c15e1ddd35e625a713ff569f26e9312d9dcd0bc8
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.author: aahi
+ms.openlocfilehash: dbe9fe5b8e9cd31ca20d88b7db89a9d35e1fe8de
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435610"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55161147"
 ---
 # <a name="language-and-region-support-for-the-bing-web-search-api"></a>Bing Web araması API'si için dil ve bölge desteği
 
@@ -30,28 +30,28 @@ Alternatif olarak, Microsoft ile pazara açılarak belirtebilirsiniz `mkt` sorgu
 |Ülke/bölge|Kod|
 |-------|----|
 |Arjantin|AR|
-|Avustralya|Otomatik Olarak Güncelleştir|
+|Avustralya|AU|
 |Avusturya|AT|
-|Belçika|OLABİLİR|
+|Belçika|BE|
 |Brezilya|BR|
 |Kanada|CA|
 |Şili|CL|
 |Danimarka|DK|
 |Finlandiya|FI|
 |Fransa|GS|
-|Almanya|GİZLE|
+|Almanya|DE|
 |Hong Kong|HK|
-|Hindistan|GİRİŞ|
+|Hindistan|IN|
 |Endonezya|Kimlik|
 |İtalya|BT|
 |Japonya|JP|
-|Kore|KR|
-|Malezya|BİLGİSAYARIM|
+|Güney Kore|KR|
+|Malezya|MY|
 |Meksika|MX|
 |Hollanda|NL|
 |Yeni Zelanda|NZ|
-|Norveç|HAYIR|
-|Çin|CN =|
+|Norveç|NO|
+|Çin|CN|
 |Polonya|PL|
 |Portekiz|PT|
 |Filipinler|PH|
@@ -70,28 +70,28 @@ Alternatif olarak, Microsoft ile pazara açılarak belirtebilirsiniz `mkt` sorgu
 
 |Ülke/bölge|Dil|Pazar kod|
 |-------|--------|-----------|
-|Arjantin|İspanyolca|ES AR|
+|Arjantin|İspanyolca |es-AR|
 |Avustralya|Türkçe|tr-AU|
-|Avusturya|Almanca|de-AT|
-|Belçika|Hollanda dili|NL-olabilir|
-|Belçika|Fransızca|FR-olabilir|
+|Avusturya|Almanca |de-AT|
+|Belçika|Felemenkçe|NL-olabilir|
+|Belçika|Fransızca |FR-olabilir|
 |Brezilya|Portekizce|pt-BR|
 |Kanada|Türkçe|CA tr|
-|Kanada|Fransızca|fr-CA|
-|Şili|İspanyolca|ES-CL|
+|Kanada|Fransızca |fr-CA|
+|Şili|İspanyolca |ES-CL|
 |Danimarka|Danca|v-DK|
 |Finlandiya|Fince|FI-FI|
-|Fransa|Fransızca|fr-FR|
-|Almanya|Almanca|de-DE|
+|Fransa|Fransızca |fr-FR|
+|Almanya|Almanca |de-DE|
 |Hong Kong|Geleneksel Çince|zh-HK|
 |Hindistan|Türkçe|tr-giriş|
 |Endonezya|Türkçe|tr kimliği|
 |İtalya|İtalyanca|İt-IT|
 |Japonya|Japonca|ja-JP|
-|Kore|Kore dili|ko-KR|
+|Güney Kore|Korece|ko-KR|
 |Malezya|Türkçe|MY tr|
-|Meksika|İspanyolca|es-MX|
-|Hollanda|Hollanda dili|NL-NL|
+|Meksika|İspanyolca |es-MX|
+|Hollanda|Felemenkçe|NL-NL|
 |Yeni Zelanda|Türkçe|tr NZ|
 |Norveç|Norveççe|no-NO|
 |Çin|Çince|zh-CN|
@@ -101,12 +101,12 @@ Alternatif olarak, Microsoft ile pazara açılarak belirtebilirsiniz `mkt` sorgu
 |Rusya|Rusça|ru-RU|
 |Suudi Arabistan|Arapça|ar-SA|
 |Güney Afrika|Türkçe|tr-ZA|
-|İspanya|İspanyolca|es-ES|
-|İsveç|İsveç dili|sv-SE|
-|İsviçre|Fransızca|FR-CH|
-|İsviçre|Almanca|de-CH|
+|İspanya|İspanyolca |es-ES|
+|İsveç|İsveççe|sv-SE|
+|İsviçre|Fransızca |FR-CH|
+|İsviçre|Almanca |de-CH|
 |Tayvan|Geleneksel Çince|zh-TW|
 |Türkiye|Türkçe|tr-TR|
 |Birleşik Krallık|Türkçe|en-GB|
-|Amerika Birleşik Devletleri|Türkçe|tr-TR|
-|Amerika Birleşik Devletleri|İspanyolca|ES-ABD|
+|Amerika Birleşik Devletleri|Türkçe|en-US|
+|Amerika Birleşik Devletleri|İspanyolca |ES-ABD|

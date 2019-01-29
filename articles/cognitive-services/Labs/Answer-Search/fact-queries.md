@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı başlangıç: Yanıt Arama Projesi olgu sorgusu'
+title: 'Hızlı Başlangıç: Proje yanıt arama olgu sorgu'
 titlesuffix: Azure Cognitive Services
 description: Yanıt Arama Projesindeki olgu sorguları
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: answer-search
 ms.topic: quickstart
 ms.date: 04/16/2018
 ms.author: rosh
-ms.openlocfilehash: 7e8a793362e51a05a73c0b42346e2e8fafb3f44d
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: e3cc795644af07550db253cf6fca3fc1c9997519
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469410"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094590"
 ---
-# <a name="quickstart-query-for-facts"></a>Hızlı başlangıç: Olgu sorguları
+# <a name="quickstart-query-for-facts"></a>Hızlı Başlangıç: Sorgu olgular
 
 Tarih veya tanımlanabilir bilgi gibi bir olgu sorgusunda yanıt `facts` öğelerini içerebilir. Olgu yanıtları, web belgelerindeki paragraflardan alınan ilgili sorguları içerir.  Bu sorgular her zaman web sayfası döndürür ve [olgular](fact-queries.md) ve/veya [varlıklar](entity-queries.md) sorguya bağlı olarak değişir.
 
@@ -26,14 +26,14 @@ Sevgililer+2016 veya ramazan+başlangıcı gibi sorgular, tarihle ilgili sorgula
 Aşağıdaki örnekte tarihle ilgili bir `facts` yanıtı gösterilmiştir. 
 
 **Sorgu:**
-````
+```
 https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=valentines+2016
 
-````
+```
 
-**Yanıt:** `subjectName` alanında olguyu görüntülerken etiket olarak kullanabileceğiniz kullanıcı sorgusu görüntüleme sürümü bulunur. Sorgu dizesi Sevgililer+2016 şeklindeyse Bing bunu Sevgililer Günü 2016 şeklinde değiştirebilir. Açıklama alanı olguyu içerir.
+**Yanıt:** `subjectName` Alan olgu görüntülerken bir etiket olarak kullanabileceğiniz kullanıcının sorgu görüntü sürümünü içerir. Sorgu dizesi Sevgililer+2016 şeklindeyse Bing bunu Sevgililer Günü 2016 şeklinde değiştirebilir. Açıklama alanı olguyu içerir.
 
-````
+```
 {   
     "_type" : "SearchResponse",   
     "queryContext" : {   
@@ -57,20 +57,20 @@ https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=valentines+2016
     }   
 }   
 
-````
+```
 
 "Gökyüzü neden mavi?" sorgusu bilgiyle ilgili bir yanıt döndürür.
 
 **Sorgu:**
 
-````
+```
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=why+is+the+sky+blue
 
-````
+```
 
-**Yanıt:** `value/description` alanı sorgu ile istenen bilgiyi veya ayrıntıyı döndürür.
+**Yanıt:** `value/description` Alan bilgisi veya sorgu tarafından istenen bilgileri içerir.
 
-````
+```
   "facts": {
     "id": "https://www.bingapis.com/api/v7/#Facts",
     "contractualRules": [
@@ -112,17 +112,17 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=why+is+the+s
     ]
   },
 
-````
+```
 
 ## <a name="tabular-data"></a>Tablo verileri
 Bazı durumlarda olgular `_type: StructuredValue/TabularData` olarak döndürülebilir. Aşağıdaki sorgu çay ve kahve hakkındaki karşılaştırma bilgilerini içeren tablo verilerini alır.
 
-````
+```
 https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=coffee+vs+tea&mkt=en-us 
 
-````
+```
 `facts` sonuçlarında aşağıdaki satırlar ve hücreler bulunur:
-````
+```
     "value": [
       {
         "subjectName": "Coffee vs. Tea",
@@ -196,7 +196,7 @@ https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=coffee+vs+tea&mkt
     ]
   },
 
-````
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - [C# hızlı başlangıcı](c-sharp-quickstart.md)

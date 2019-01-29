@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle Bersin | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile Bersin | Microsoft Docs'
 description: Azure Active Directory ve Bersin arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: bbc9d229-69fb-4ab5-b6c3-5f3d790ea13e
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: jeedes
-ms.openlocfilehash: aee4ec6ee504565fc83f89e6e09a54664e1369c7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 154b1f5537be1541bf66b116165c25c19418a4ad
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441903"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55182379"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-bersin"></a>Öğretici: Azure Active Directory Bersin ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-bersin"></a>Öğretici: Bersin ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Bersin tümleştirme konusunda bilgi edinin.
 
@@ -38,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD Tümleştirmesi ile Bersin yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik Bersin çoklu oturum açma etkin
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Azure AD'de Bersin tümleştirmesini yapılandırmak için Bersin Galeriden yön
 
 **Galeriden Bersin eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -129,7 +129,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve B
 1. Çoklu oturum açmayı yapılandırma **Bersin** tarafı, indirilen göndermek için ihtiyacınız **meta veri XML** için [Bersin Destek ekibine](mailto:USBersinServiceClient@deloitte.com). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 > [!TIP]
-> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
+> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi embedded belgeleri özelliği burada hakkında: [Azure AD embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
@@ -165,7 +165,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
  
 ### <a name="create-a-bersin-test-user"></a>Bersin test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon Bersin içinde adlı bir kullanıcı oluşturun. Çalışmak [Bersin Destek ekibine](mailto:USBersinServiceClient@deloitte.com) Bersin platform veya Bersin platformunda Güvenilenler listesine eklenmek için gerekli olan etki alanı kullanıcıları eklemek için. Etki alanı ekibi tarafından eklenirse, kullanıcıların otomatik olarak Bersin platforma sağlanan. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+Bu bölümde, Britta Simon Bersin içinde adlı bir kullanıcı oluşturun. Çalışmak [Bersin Destek ekibine](mailto:USBersinServiceClient@deloitte.com) Bersin platform veya Bersin platformunda Güvenilenler listesine eklenmek için gerekli olan etki alanı kullanıcıları eklemek için. Etki alanı ekibi tarafından eklenirse, kullanıcıların otomatik olarak Bersin platforma sağlanan. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

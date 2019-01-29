@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı başlangıç: URL Önizleme Projesi, JavaScript'
+title: "Hızlı Başlangıç: Proje URL'si Önizleme, JavaScript"
 titlesuffix: Azure Cognitive Services
 description: JavaScript ile Bing URL Önizleme API'sini kullanmaya hızlıca başlamak için örnek betik.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.component: url-preview
 ms.topic: quickstart
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: f36609448819ed197cb92c0bc4d9cc0237fe6df8
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: 08405d253cbc62b9f83bed63e3c252673649f7f9
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466945"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101211"
 ---
-# <a name="quickstart-url-preview-in-javascript"></a>Hızlı başlangıç: JavaScript ile URL Önizleme 
+# <a name="quickstart-url-preview-in-javascript"></a>Hızlı Başlangıç: JavaScript içinde URL önizlemesi 
 
 Aşağıdaki tek sayfalı uygulamada JavaScript kullanılarak SwiftKey sitesinin URL Önizlemesi oluşturulmaktadır: https://swiftkey.com/en. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 [Bilişsel Hizmetler Laboratuvarları](https://labs.cognitive.microsoft.com/en-us/project-url-preview) ücretsiz denemesi için erişim anahtarı alın
 
@@ -34,7 +34,7 @@ Yanıt başarıyla döndürülürse işleyici yanıtın JSON metnini sayfanın `
 
 **Ham JSON yanıtı**
 
-````
+```
 {
   "_type": "WebPage",
   "name": "SwiftKey - Smart prediction technology for easier mobile typing",
@@ -46,7 +46,7 @@ Yanıt başarıyla döndürülürse işleyici yanıtın JSON metnini sayfanın `
   }
 }
 
-````
+```
 
 **Çalışan tanıtım**
 

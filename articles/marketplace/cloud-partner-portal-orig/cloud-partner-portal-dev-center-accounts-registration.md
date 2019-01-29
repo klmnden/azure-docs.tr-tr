@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 8bfd4ca6a9bdac999653fa9448bf7e754e9e6180
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6482eea23707f451e59d21e70f7583a0cd6680cc
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254477"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168252"
 ---
 <a name="create-a-microsoft-developer-account"></a>Microsoft Developer hesabı oluşturma
 ====================================
@@ -77,7 +77,7 @@ Microsoft Developer Center şirket bilgilerinin bir kere kaydetmek için kullan�
 >[!IMPORTANT]
 >Teklif oluşturulmasını ve dağıtımını çeşitli aşamaları ilerleme için aşağıdaki Geliştirici profili bileşenleri tamamlamanız gerekir.
 
-| Geliştirici profili     | Draft'ı başlatmak için    | Hazırlama       | Ücretsiz yayımlama ve çözüm şablonu   | Ticari yayımlama   |
+| Geliştirici profili     | Draft'ı başlatmak için    | Hazırlanıyor       | Ücretsiz yayımlama ve çözüm şablonu   | Ticari yayımlama   |
 |---------------------- |----------------   |-----------    |-------------------------------------  |---------------------  |
 | Kayıt şirketi  | Sahip olmalıdır         | Sahip olmalıdır     | Sahip olmalıdır                             | Sahip olmalıdır             |
 | Vergi profili kimliği        | İsteğe bağlı          | İsteğe bağlı      | İsteğe bağlı                              | Sahip olmalıdır             |
@@ -106,7 +106,7 @@ Microsoft Developer Center şirket bilgilerinin bir kere kaydetmek için kullan�
    ![Ülke/bölge seçin](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_04.png)
 
     >[!WARNING]
-    >"Satış yapan" ülkeleri: hizmetlerinizi Azure Marketi'nde satmak için kayıtlı varlık açılan listede gösterilen onaylı "satış yapan" ülkeleri birinden olması gerekir. Bu kısıtlama ödeme ve vergi amaçlıdır. Market katılım ilkeleri daha fazla bilgi için bkz.
+    >"Satış yapan" ülkeleri: Hizmetlerinizi Azure Marketi'nde satmak için kayıtlı varlık açılan listede gösterilen onaylı "satış yapan" ülkeleri birinden olması gerekir. Bu kısıtlama ödeme ve vergi amaçlıdır. Market katılım ilkeleri daha fazla bilgi için bkz.
 
 5. Seçin **şirket** seçin ve "Hesap türü" olarak **sonraki**.
 
@@ -181,7 +181,8 @@ Ticari teklifleri satın alma için yayımlamak için ödeme ve vergi bilgilerin
     - **İleri**’yi seçin.
 4.  Vergi ayrıntılarınızı girin ve ardından **sonraki**.
 
->[UYARI!] Banka hesabı ve vergi bilgilerini Microsoft Developer Center hesabınızdaki sağlamadan ticari tekliflerinizi üretime gönderme mümkün olmayacaktır.
+>[!WARNING]
+>Banka hesabı ve vergi bilgilerini Microsoft Developer Center hesabınızdaki sağlamadan ticari tekliflerinizi üretime gönderme mümkün olmayacaktır.
 
 ### <a name="developer-center-registration-issues"></a>Geliştirici Merkezi kayıt sorunları
 

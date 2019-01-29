@@ -12,12 +12,12 @@ ms.author: v-daveng
 ms.reviewer: MightyPen
 manager: craigg
 ms.date: 12/07/2018
-ms.openlocfilehash: 6f86312ee1d11e5ac4c7626f5fd4c8223dac8b52
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: e6b24e89297b875d0c4547ffe3200b1d5e2e58c2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744709"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55161539"
 ---
 # <a name="quickstart-use-golang-to-query-an-azure-sql-database"></a>Hızlı Başlangıç: Azure SQL veritabanını sorgulamaya Golang kullanın
 
@@ -28,8 +28,6 @@ Bu hızlı başlangıçta kullanacaksınız [Golang](https://godoc.org/github.co
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
-
-- A [sunucu düzeyinde güvenlik duvarı kuralı](sql-database-get-started-portal-firewall.md) bilgisayarınızın genel IP adresi için yapılandırılmış.
 
 - Golang ve ilgili yazılımları yüklü bir işletim sistemi için:
 

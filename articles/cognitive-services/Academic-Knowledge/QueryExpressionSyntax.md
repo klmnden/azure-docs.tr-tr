@@ -6,16 +6,16 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: bf6dbde725670030046aad4fccf41554b8d917fe
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: c130c6cd5fcb5191195712f570db66408734200a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901286"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55150883"
 ---
 # <a name="query-expression-syntax"></a>Sorgu ifadesi söz dizimi
 
@@ -28,25 +28,25 @@ Bir sorgu ifadesine dahil her varlık öznitelik, bir özel veri türü ve olas�
 Bazı varlık veri noktayla belirtildiği gibi bileşik öznitelikleri depolanır '.' öznitelik adı. Örneğin, yazar/bağlantı bilgileri, bileşik bir özniteliği olarak temsil edilir. 4 bileşenleri içerir: AuN, AuId, AfN, AfId. Bu bileşenleri tek bir varlık öznitelik değeri form verileri ayrı parçalarıdır.
 
 
-**Dize özniteliği: Tek bir değer** (eş anlamlılar karşı eşleşmeleri içerir)  
+**Dize özniteliği: Tek değer** (eş anlamlılar karşı eşleşmeleri içerir)  
 Za 'görünmeyen bir anlam analizi tarafından dizin oluşturma' =  
 Bileşik (AA. AuN 'dumais Oya' =)
 
-**Dizesi özniteliği: Tek değer tam** (yalnızca kurallı değerlere eşleşir)  
+**Dize özniteliği: Tek değer tam** (yalnızca kurallı değerlere eşleşir)  
 Za 'görünmeyen bir anlam analizi tarafından dizin oluşturma' ==  
 Bileşik (AA. AuN 'susan t dumais' ==)
      
-**Dize özniteliği: Ön eki değeri**   
+**Dize özniteliği: Önek değeri**   
 Za 'görünmeyen seman tarafından dizin oluşturma' =...  
 Bileşik (AA. AuN 'du Oya' =...)
 
 **Sayısal özniteliği: Tek değer**  
-Y = 2010
+Y=2010
  
 **Sayısal özniteliği: Aralık değeri**  
-Y &GT; 2005  
+Y>2005  
 Y &GT; 2005 =  
-Y &LT; 2010  
+Y<2010  
 Y &LT; 2010 =  
 Y =\[2010, 2012\) (yalnızca sol sınır değeri içerir: 2010, 2011)  
 Y =\[2010, 2012\] (her iki sınır değerleri içerir: 2010, 2011, 2012)
@@ -54,10 +54,10 @@ Y =\[2010, 2012\] (her iki sınır değerleri içerir: 2010, 2011, 2012)
 **Sayısal özniteliği: Önek değeri**  
 Y = '19'... (19 ile başlayan herhangi bir sayısal değer) 
  
-**Tarihi özniteliği: Tek değer**  
+**Tarih özniteliği: Tek değer**  
 D ='2010-02-04'
 
-**Tarihi özniteliği: Aralık değeri**  
+**Tarih özniteliği: Aralık değeri**  
 D &GT;'2010-02-03'  
 D = ['2010-02-03', ' 2010-02-05']
 
@@ -85,7 +85,7 @@ And(Composite(AA.AuN='mike smith'),Composite(AA.AfN='harvard university'))
 ```
 <br>Bu sürümde, yazar ve ayrı ayrı And() önce ilişkisi Composite() uygulandığından burada yazarlar, "Mike Smith" biridir ve yazarların ilişkiler biri "Harvard" olan tüm raporlar aldığımız. Bu sorgu önceki örneğe benzer görünüyor, ancak aynı şey değildir.
 
-Genel olarak, aşağıdaki örneği inceleyin: A ve b iki bileşenden oluşur bileşik bir öznitelik C sahibiz. Bir varlık birden çok değer C. olabilir. Bizim varlıkları şunlardır:
+Genel olarak, aşağıdaki örneği göz önünde bulundurun: A ve b iki bileşenden oluşur bileşik bir öznitelik C sahibiz. Bir varlık birden çok değer C. olabilir. Bizim varlıkları şunlardır:
 ```
 E1: C={A=1, B=1}  C={A=1,B=2}  C={A=2,B=3}
 E2: C={A=1, B=3}  C={A=3,B=2}

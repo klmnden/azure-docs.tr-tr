@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 471277433f0fc9a54a28baa158f1e20f1efb613f
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 2ba3de32f4ec3b9f6faf1d5a51da9c1c91e4a2e4
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000537"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099315"
 ---
 # <a name="creating-filters-with-cli"></a>CLI ile filtre oluşturma 
 
@@ -29,11 +29,10 @@ Bu konuda bir Video isteğe bağlı varlık için bir filtre yapılandırın ve 
 
 ## <a name="prerequisites"></a>Önkoşullar 
 
-- Yükleyin ve bu makalede Azure CLI 2.0 veya sonraki bir sürüm gerektirir, CLI'yı yerel olarak kullanın. Kullandığınız sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekirse bkz. [Azure CLI’yı yükleme](/cli/azure/install-azure-cli). 
-
-    Şu anda tüm [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) komutlar Azure Cloud Shell içinde çalışır. CLI'yi yerel olarak kullanmak için önerilir.
 - [Bir Media Services hesabı oluşturma](create-account-cli-how-to.md). Kaynak grubu adı ve Media Services hesap adını hatırlamak emin olun. 
 - Gözden geçirme [filtreleri ve dinamik bildirimlere](filters-dynamic-manifest-overview.md).
+
+[!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
 ## <a name="define-a-filter"></a>Bir filtre tanımlar 
 
@@ -80,13 +79,6 @@ Aşağıdaki [az ams hesabına-filtre](https://docs.microsoft.com/cli/azure/ams/
 
 Komut isteğe bağlı geçirmenize olanak `--tracks` izleme seçimlerini temsil eden JSON içeren bir parametre.  Kullanım @{file} JSON bir dosyadan yüklenemiyor. Azure CLI'yı yerel olarak kullanıyorsanız, tüm dosya yolu belirtin:
 
-
-```azurecli
-az ams account-filter create -a amsAccount -g resourceGroup -n filterName --tracks @c:\tracks.json
-```
-
-Azure Cloud Shell kullanıyorsanız Cloud Shell (Bul Kabuk pencerenin üstünde karşıya yükleme/indirme dosyaları düğme) dosyanızı yükleyin. Ardından, böyle bir dosya başvurabilirsiniz:
-
 ```azurecli
 az ams account-filter create -a amsAccount -g resourceGroup -n filterName --tracks @tracks.json
 ```
@@ -96,9 +88,6 @@ Ayrıca bkz [filtreleri için JSON örnekler](https://docs.microsoft.com/rest/ap
 ## <a name="create-asset-filters"></a>Varlık filtre oluşturma
 
 Aşağıdaki [az ams varlığı-filtre](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest) komut olan izleme seçimlerini Filtresi ile bir varlık filtresi oluşturur [daha önce tanımlanan](#define-a-filter). 
-
-> [!TIP]
-> Önceki bölümde dosya adı konumunu belirtme hakkında bilgi için bkz.
 
 ```azurecli
 az ams asset-filter create -a amsAccount -g resourceGroup -n filterName --asset-name assetName --tracks @tracks.json

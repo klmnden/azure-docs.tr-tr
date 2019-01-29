@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 780eec4d-7ee1-48b7-b29f-cd0b8cb41ed3
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 29cbb96cc6dec4bac601e8795599f77c955c418a
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: df45ec1478314e0d60f2c66a42a48801f1ce0643
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230838"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093096"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-device-code-flow"></a>Azure Active Directory v2.0 ve OAuth 2.0 cihaz kod akışı
 
@@ -62,8 +62,8 @@ scope=user.read%20openid%20profile
 
 | Parametre | Koşul | Açıklama |
 | --- | --- | --- |
-| kiracı |Gerekli |İzni istemek için istediğiniz dizinin Kiracı. Bu GUID veya kolay adı biçiminde olabilir.  |
-| client_id |Gerekli |Uygulama Kimliği [uygulama kayıt portalı](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) uygulamanıza atanan. |
+| kiracı |Gereklidir |İzni istemek için istediğiniz dizinin Kiracı. Bu GUID veya kolay adı biçiminde olabilir.  |
+| client_id |Gereklidir |Uygulama Kimliği [uygulama kayıt portalı](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) uygulamanıza atanan. |
 | scope | Önerilen | Boşlukla ayrılmış bir listesini [kapsamları](v2-permissions-and-consent.md) onay kullanıcıya istiyor.  |
 
 ### <a name="device-authorization-response"></a>Cihaz kimlik doğrulama yanıtı
@@ -95,11 +95,11 @@ client_id: 6731de76-14a6-49ae-97bc-6eba6914391e
 device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8
 ```
 
-|Parametre | Gerekli | Açıklama|
+|Parametre | Gereklidir | Açıklama|
 | -------- | -------- | ---------- |
-|`grant_type` | Gerekli| olmalıdır `urn:ietf:params:oauth:grant-type:device_code`|
-|`client_id`  | Gerekli| Eşleşmelidir `client_id` ilk istekte kullanılan. |
-|`device_code`| Gerekli| `device_code` Cihaz yetkilendirme isteğine döndürdü.  |
+|`grant_type` | Gereklidir| olmalıdır `urn:ietf:params:oauth:grant-type:device_code`|
+|`client_id`  | Gereklidir| Eşleşmelidir `client_id` ilk istekte kullanılan. |
+|`device_code`| Gereklidir| `device_code` Cihaz yetkilendirme isteğine döndürdü.  |
 
 ### <a name="expected-errors"></a>Beklenen hataları
 

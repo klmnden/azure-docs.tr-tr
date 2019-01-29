@@ -9,16 +9,16 @@ editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.date: 08/29/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 9d5fce5a80ac1f281fdbe6afe7f9a97816807ccc
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: d7d064d9be3b180985c343b8dffc20f274fae048
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287096"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55163135"
 ---
 # <a name="grant-access-to-other-administrators-to-manage-pim"></a>PIM yönetmek için diğer yöneticilere erişim izni ver
 
@@ -87,4 +87,4 @@ Biri ayrıcalıklı rol yöneticisi rolünden kaldırmadan önce her zaman ayrı
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [PIM kullanmaya başlayın](pim-getting-started.md)
+- [PIM kullanmaya başlama](pim-getting-started.md)

@@ -8,21 +8,21 @@ writer: zhchia
 manager: beatrizd
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
-ms.openlocfilehash: 6a6cfb2cb1fd6b70be0437c8b6fa62f50e76e53b
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 9f18fcb38e6e0855a00ffb454211273dfb2041a6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44345422"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168507"
 ---
-# <a name="tutorial-configure-cornerstone-ondemand-for-automatic-user-provisioning"></a>Öğretici: Temel taşıdır OnDemand otomatik kullanıcı hazırlama için yapılandırma
+# <a name="tutorial-configure-cornerstone-ondemand-for-automatic-user-provisioning"></a>Öğretici: Otomatik kullanıcı hazırlama için temel taşıdır OnDemand yapılandırın
 
 
 Bu öğreticinin amacı otomatik olarak sağlamak ve kullanıcılara ve/veya temel taşıdır OnDemand gruplarına sağlamasını için dönüm OnDemand ve Azure Active Directory (Azure AD) Azure AD yapılandırmak için gerçekleştirilmesi gereken adımlar göstermektir.
@@ -112,7 +112,7 @@ Bu bölümde oluşturmak, güncelleştirmek ve kullanıcılara ve/veya Azure AD'
 
     *   İçinde **yönetici parolası** alan, yönetici kullanıcı adı için karşılık gelen parola doldurun.
 
-    *   İçinde **etki alanı** alanında, temel taşıdır OnDemand Kiracı Web hizmeti URL'sini doldurma. Örnek: Şu hizmet konumdadır `https://ws-[corpname].csod.com/feed30/clientdataservice.asmx`, Contoso etki alanı için `https://ws-contoso.csod.com/feed30/clientdataservice.asmx`. Web hizmeti URL'si alma hakkında daha fazla bilgi için bkz. [burada](https://help.csod.com/help/csod_0/Content/Resources/Documents/WebServices/CSOD_Web_Services_-_User-OU_Technical_Specification_v20160222.pdf).
+    *   İçinde **etki alanı** alanında, temel taşıdır OnDemand Kiracı Web hizmeti URL'sini doldurma. Örnek: Hizmet şu konumdadır `https://ws-[corpname].csod.com/feed30/clientdataservice.asmx`, Contoso etki alanı için `https://ws-contoso.csod.com/feed30/clientdataservice.asmx`. Web hizmeti URL'si alma hakkında daha fazla bilgi için bkz. [burada](https://help.csod.com/help/csod_0/Content/Resources/Documents/WebServices/CSOD_Web_Services_-_User-OU_Technical_Specification_v20160222.pdf).
 
 6. 5. adımda gösterilen alanlar doldurma üzerine tıklayın **Test Bağlantısı** Azure emin olmak için AD için dönüm OnDemand bağlanabilirsiniz. Bağlantı başarısız olursa, temel taşıdır OnDemand hesabının yönetici izinlerine sahip olun ve yeniden deneyin.
 

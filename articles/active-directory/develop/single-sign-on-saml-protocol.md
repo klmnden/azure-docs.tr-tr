@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: ad8437f5-b887-41ff-bd77-779ddafc33fb
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 07/19/2017
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: 1d52e3b8871a5af219d1c9eafd559f06bb19f560
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: dd9bdc4638d1c055706026798acba08d6add08c7
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424892"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098760"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Çoklu oturum açma SAML Protokolü
 
@@ -48,9 +48,9 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 
 | Parametre |  | Açıklama |
 | --- | --- | --- |
-| Kimlik | Gerekli | Azure AD doldurmak için bu özniteliği kullanan `InResponseTo` döndürülen yanıtın özniteliği. Bir GUID dize gösterimi için "id" gibi bir dize önüne eklediğinizden ortak bir strateji, bu nedenle kimliği bir sayı ile başlayamaz. Örneğin, `id6c1c178c166d486687be4aaf5e482730` geçerli kimliğidir. |
-| Sürüm | Gerekli | Bu parametre ayarlanmalıdır **2.0**. |
-| IssueInstant | Gerekli | DateTime UTC değeri dize budur ve [gidiş dönüş biçim ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD, bu türde bir DateTime değeri Bekliyor ancak değil değerlendirmek veya değeri kullanın. |
+| Kimlik | Gereklidir | Azure AD doldurmak için bu özniteliği kullanan `InResponseTo` döndürülen yanıtın özniteliği. Bir GUID dize gösterimi için "id" gibi bir dize önüne eklediğinizden ortak bir strateji, bu nedenle kimliği bir sayı ile başlayamaz. Örneğin, `id6c1c178c166d486687be4aaf5e482730` geçerli kimliğidir. |
+| Sürüm | Gereklidir | Bu parametre ayarlanmalıdır **2.0**. |
+| IssueInstant | Gereklidir | DateTime UTC değeri dize budur ve [gidiş dönüş biçim ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD, bu türde bir DateTime değeri Bekliyor ancak değil değerlendirmek veya değeri kullanın. |
 | AssertionConsumerServiceUrl | İsteğe bağlı | Bu parametre belirtilmezse, eşleşmelidir `RedirectUri` Azure ad bulut hizmeti. |
 | ForceAuthn | İsteğe bağlı | Bir boolean değer budur. TRUE ise, Azure AD ile geçerli bir oturum olsa bile yeniden kimlik doğrulaması için kullanıcı zorlanır anlamına gelir. |
 | IsPassive | İsteğe bağlı | Azure AD kullanıcı sessizce, kullanıcı etkileşimi olmadan oturum tanımlama bilgisi varsa kullanarak kimlik doğrulamalıdır olup olmadığını belirten bir Boole değeri budur. True ise, Azure AD oturum tanımlama bilgisini kullanarak kullanıcı kimlik doğrulaması yapmayı deneyeceksiniz. |
@@ -186,7 +186,7 @@ Timestamp: 2013-03-18 08:49:24Z</samlp:StatusMessage>
   </samlp:Status>
 ```
 
-### <a name="assertion"></a>onaylama
+### <a name="assertion"></a>Onaylama işlemi
 
 Ek olarak `ID`, `IssueInstant` ve `Version`, Azure AD şu öğeleri ayarlar `Assertion` yanıtın öğesi.
 

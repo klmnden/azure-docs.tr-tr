@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/24/2018
 ms.author: jeking
 ms.component: common
-ms.openlocfilehash: 1b39de45d5046ce5a59dcaf0648b87aca2a5c6f5
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 776feba239af5f2cafaf7229554960fab3417943
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868353"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093368"
 ---
 # <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>Bölgesel olarak yedekli depolama (ZRS): Azure depolama yüksek kullanılabilirliğe sahip uygulamalar
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
@@ -25,19 +25,20 @@ ZRS, blok blobları, disk olmayan sayfa blobları, dosyalar, tablolar ve Kuyrukl
 
 ZRS şu bölgelerde genel kullanıma sunulmuştur:
 
+- Güneydoğu Asya
+- Batı Avrupa
+- Kuzey Avrupa
+- Fransa Orta
+- Japonya Doğu
 - ABD Doğu
 - ABD Doğu 2
 - ABD Batı 2
 - ABD Orta
-- Kuzey Avrupa
-- Batı Avrupa
-- Fransa Orta
-- Güneydoğu Asya
 
 Microsoft, ek Azure bölgelerinde ZRS etkinleştirmek devam ediyor. Denetleme [Azure hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/) düzenli olarak yeni bölgeler hakkında daha fazla bilgi için.
 
 ## <a name="what-happens-when-a-zone-becomes-unavailable"></a>Bir bölge kullanılamaz duruma geldiğinde ne olur?
-Bir bölge kullanılamaz hale gelirse, verileriniz hala erişilebilir. Microsoft, geçici hata işlemeye yönelik uyarsanız devam etmesini önerir. Bu yöntemler, üstel geri alma ile yeniden deneme ilkelerini uygulayan içerir.
+Verilerinizi hem de okuma ve yazma işlemleri bile bir bölge kullanılamaz hale gelmesi için hala erişilebilir. Microsoft, geçici hata işlemeye yönelik uyarsanız devam etmesini önerir. Bu yöntemler, üstel geri alma ile yeniden deneme ilkelerini uygulayan içerir.
 
 Bir bölge kullanılamadığında, Azure DNS repointing gibi ağ güncelleştirmeleri üstlendiği. Güncelleştirmeleri tamamlanmadan verilerinizi sağlıyorsanız bu güncelleştirmeler, uygulamanızın etkileyebilir.
 
@@ -77,18 +78,18 @@ Dinamik geçiş aracılığıyla isteyebilir [Azure destek portalı](https://ms.
 2. Tamamlamak **Temelleri** hesap bilgilerinizi temel. İçinde **hizmet** bölümünden **depolama hesabı Yönetim** ve için ZRS dönüştürmek istediğiniz kaynak. 
 3. **İleri**’yi seçin. 
 4. Aşağıdaki değerleri belirtin **sorun** bölümü: 
-    - **Önem derecesi**: varsayılan değeri bırakın-olduğu.
-    - **Sorun türü**: seçin **veri geçişi**.
-    - **Kategori**: seçin **ZRS bir bölge içinde geçiş**.
+    - **Önem derecesi**: Varsayılan değeri bırakın-olduğu.
+    - **Sorun türü**: Seçin **veri geçişi**.
+    - **Kategori**: Seçin **ZRS bir bölge içinde geçiş**.
     - **Başlık**: Örneğin, açıklayıcı bir başlık yazın **ZRS hesap geçiş**.
-    - **Ayrıntılar**: ek ayrıntılar yazın **ayrıntıları** kutusunda, örneğin, istediğim [LRS'den, GRS] için ZRS geçirmeyi de \_ \_ bölge. 
+    - **Ayrıntılar**: Ek ayrıntılar yazın **ayrıntıları** kutusunda, örneğin, istediğim [LRS'den, GRS] için ZRS geçirmeyi de \_ \_ bölge. 
 5. **İleri**’yi seçin.
 6. Kişi bilgilerini doğru olduğundan emin olun **iletişim bilgilerini** dikey penceresi.
 7. **Oluştur**’u seçin.
 
 Destek ekibiyle sizinle iletişim kurmak ve ihtiyacınız olan tüm Yardım sağlar. 
 
-## <a name="zrs-classic-a-legacy-option-for-block-blobs-redundancy"></a>ZRS Klasik: Eski bir seçenek blok blobları artıklığı
+## <a name="zrs-classic-a-legacy-option-for-block-blobs-redundancy"></a>ZRS Klasik: Blok blobları yedeklilik için eski bir seçeneği
 > [!NOTE]
 > Microsoft, kullanımdan ve 31 Mart 2021 üzerinde ZRS Klasik hesapları geçirme. ZRS Klasik müşterilere kullanımdan önce daha fazla ayrıntı sağlanacaktır. 
 >

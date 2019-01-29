@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: 348a37c4b2d23d7c58e0599b4717b97e83b683ea
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 6bb075857d67885d968b495cc8d545af9994eaf0
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081543"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55169323"
 ---
 # <a name="virtual-network-peering"></a>Sanal ağ eşleme
 
@@ -73,7 +73,7 @@ Bir sanal ağ eşlemesini onaylamak için, bir sanal ağdaki herhangi bir alt a�
 
 Eşlenmiş sanal ağdaki bir sanal makinenin bağlantı durumuyla ilgili sorunları gidermek için Ağ İzleyicisi'nin [bağlantı denetimini](../network-watcher/network-watcher-connectivity-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) de kullanabilirsiniz. Bağlantı denetimi sayesinde trafiğin bir kaynak sanal makinenin ağ arabiriminden hedef sanal makinenin ağ arabirimine nasıl yönlendirildiğini denetleyebilirsiniz.
 
-[VNet eşlemesi sorunlar için sunduğumuz troucleshooter de deneyebilirsiniz](https://support.microsoft.com/help/4486956/troubleshooter-for-virtual-network-peering-issues)
+Ayrıca deneyebilirsiniz [sanal ağ eşleme sorunları için sorun giderici](https://support.microsoft.com/help/4486956/troubleshooter-for-virtual-network-peering-issues).
 
 ## <a name="requirements-and-constraints"></a>Gereksinimler ve kısıtlamalar
 

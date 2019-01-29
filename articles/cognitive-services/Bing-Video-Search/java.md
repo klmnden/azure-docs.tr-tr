@@ -1,23 +1,23 @@
 ---
-title: "Hızlı Başlangıç: Java Bing Video Arama API'si"
+title: "Hızlı Başlangıç: Bing Video arama API'si, Java"
 titlesuffix: Azure Cognitive Services
 description: Bing Video Arama API'sini kısa sürede kullanmaya başlamanıza yardımcı olacak bilgi ve kod örnekleri alın.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-video-search
+ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: aahi
-ms.openlocfilehash: 4d2097672a781ef2efd5b7871c39b473bd42cece
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: d377f03bf8ea4567e5e0e9eafdc9d1dd4c9082ea
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52306514"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55187020"
 ---
-# <a name="quickstart-bing-video-search-api-with-java"></a>Hızlı Başlangıç: Java ile Bing Video Arama API'si
+# <a name="quickstart-bing-video-search-api-with-java"></a>Hızlı Başlangıç: Bing Video arama API'si ile Java
 
 Bu makale, Azure'daki Microsoft Bilişsel Hizmetleri'nin parçası olan Bing Arama API'sini kullanmayı göstermektedir. Bu makalede Java kullanılmakla birlikte, API, HTTP istekleri yapabilecek ve JSON ayrıştırabilecek her programlama diliyle uyumlu bir RESTful Web hizmetidir. 
 

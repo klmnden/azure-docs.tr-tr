@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: ad9e9e893dc831530b69a30cc3dd930e879e9d7b
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 05abc61da7af02c56dacd632175d6fbfa64cb9e1
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185127"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098570"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>DevTest Labs sanal makineniz için özel yapıtlar oluşturma
 
 Bu makalede açıklanan adımlara genel bakış için aşağıdaki videoyu izleyin:
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/how-to-author-custom-artifacts/player]
-> 
-> 
+>
+>
 
 ## <a name="overview"></a>Genel Bakış
 Kullanabileceğiniz *yapıtları* dağıtıp, bir VM sağlama sonra uygulamanızı ayarlama. Bir yapı tanımı dosyası ve bir klasördeki bir Git deposunda depolanan diğer komut dosyalarını bir yapıt oluşur. Yapıt tanımı dosyaları JSON ve bir VM'ye yüklemek istediğinizi belirtmek için kullanabileceğiniz ifadeler oluşur. Örneğin, çalıştırmak için bir komutu ve komutu çalıştırdığınızda kullanılabilen parametreleri bir yapıt adı tanımlayabilirsiniz. Yapıt tanım dosyası içinde diğer komut dosyaları ada göre bakabilirsiniz.
@@ -69,12 +69,12 @@ Tanım dosyasının parametreleri bölümünde, hangi değerlerin bir kullanıc�
 Parametreler tanımlamak için aşağıdaki yapısını kullanın:
 
     "parameters": {
-        "<parameterName>": {
-          "type": "<type-of-parameter-value>",
-          "displayName": "<display-name-of-parameter>",
-          "description": "<description-of-parameter>"
-        }
+      "<parameterName>": {
+        "type": "<type-of-parameter-value>",
+        "displayName": "<display-name-of-parameter>",
+        "description": "<description-of-parameter>"
       }
+    }
 
 | Öğe adı | Gerekli mi? | Açıklama |
 | --- | --- | --- |
@@ -96,13 +96,13 @@ Genellikle, ifadeleri işlevleri ile bir değer oluşturmak için kullanırsın�
 
 Aşağıdaki liste, genel işlevleri gösterir:
 
-* **parameters(parameterName)**: yapıt komutu çalıştırdığınızda, sağlanan bir parametre değeri döndürür.
+* **parameters(parameterName)**: Yapıt komutu çalıştırdığınızda, sağlanan bir parametre değeri döndürür.
 * **concat (arg1, arg2, arg3,...)** : Birden çok dize değerleri birleştirir. Bu işlev bağımsız değişken alabilir.
 
 Aşağıdaki örnek, ifadeler ve İşlevler bir değer oluşturmak için nasıl kullanılacağını gösterir:
 
     runCommand": {
-         "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"& ./startChocolatey.ps1'
+        "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"& ./startChocolatey.ps1'
     , ' -RawPackagesList ', parameters('packages')
     , ' -Username ', parameters('installUsername')
     , ' -Password ', parameters('installPassword'))]"
@@ -113,7 +113,7 @@ Aşağıdaki örnek, ifadeler ve İşlevler bir değer oluşturmak için nasıl 
 1. Bir JSON Düzenleyicisi'ni yükleyin. Yapıt tanımı dosyaları ile çalışmak için bir JSON Düzenleyicisi gerekir. Kullanmanızı öneririz [Visual Studio Code](https://code.visualstudio.com/), Windows, Linux ve OS X için kullanılabilen.
 2. Bir örnek artifactfile.json tanım dosyasını alın. DevTest Labs ekibi tarafından oluşturulan yapılar kullanıma sunduğumuz [GitHub deposu](https://github.com/Azure/azure-devtestlab). Kendi yapıtları oluşturmanıza yardımcı olabilecek yapıtlar içeren zengin bir kitaplık oluşturduk. Bir yapı tanımı dosyasını indirin ve kendi yapıtlar oluşturmak için ona değişiklikler.
 3. IntelliSense yararlanır. Bir yapı tanımı dosyası oluşturmak için kullanabileceğiniz geçerli öğelerini görmek için IntelliSense'i kullanın. Ayrıca, bir öğenin değerler için farklı seçenekleri görebilirsiniz. Örneğin, ne zaman düzenleme **targetOsType** öğe, IntelliSense gösterir, iki seçenek, Windows veya Linux için.
-4. Yapıt içinde Store [genel bir Git deposu için DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) veya [kendi Git deponuzda](devtest-lab-add-artifact-repo.md). Genel depoda, diğer kullanıcılar tarafından doğrudan kullanın veya bunları ihtiyaçlarınıza uyacak şekilde özelleştirmeniz paylaşılan yapıtları görüntüleyebilirsiniz. 
+4. Yapıt içinde Store [genel bir Git deposu için DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) veya [kendi Git deponuzda](devtest-lab-add-artifact-repo.md). Genel depoda, diğer kullanıcılar tarafından doğrudan kullanın veya bunları ihtiyaçlarınıza uyacak şekilde özelleştirmeniz paylaşılan yapıtları görüntüleyebilirsiniz.
    
    1. Her bir yapıt için ayrı bir dizin oluşturun. Dizin adı yapıt adıyla aynı olmalıdır.
    2. Yapıt tanımı dosyası (artifactfile.json), oluşturduğunuz dizine Store.
@@ -122,8 +122,7 @@ Aşağıdaki örnek, ifadeler ve İşlevler bir değer oluşturmak için nasıl 
       Bir yapı klasörüne nasıl görünebileceği örnek aşağıda verilmiştir:
       
       ![Yapıt klasör örneği](./media/devtest-lab-artifact-author/git-repo.png)
-5. Yapıtları depolamak için kendi deposu kullanıyorsanız, depo makaledeki yönergeleri izleyerek laboratuvara ekleme: [yapıtlar ve şablonlar için Git deposu ekleme](devtest-lab-add-artifact-repo.md).
-
+5. Depo için laboratuvar yapıtlarını depolamak için kendi deposu kullanıyorsanız, makaledeki yönergeleri izleyerek ekleyin: [Yapıtlar ve şablonlar için Git deposu ekleme](devtest-lab-add-artifact-repo.md).
 
 ## <a name="related-articles"></a>İlgili makaleler
 * [DevTest Labs yapıt hatalarını tanılama](devtest-lab-troubleshoot-artifact-failure.md)
@@ -131,4 +130,3 @@ Aşağıdaki örnek, ifadeler ve İşlevler bir değer oluşturmak için nasıl 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Bilgi edinmek için nasıl [laboratuvara Git yapıt deposu ekleme](devtest-lab-add-artifact-repo.md).
-

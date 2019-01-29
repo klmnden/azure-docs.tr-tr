@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle Reviewsnap | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile Reviewsnap | Microsoft Docs'
 description: Azure Active Directory ve Reviewsnap arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: b00fb373-2b31-4dcf-84ce-abc29e4c639c
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 8c66985c7a1d9084ab2a264b1ba799b1fdfa3b0f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 421031713a8c0677670a13d8190aec7c0113043a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448423"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55195775"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-reviewsnap"></a>Öğretici: Azure Active Directory Reviewsnap ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-reviewsnap"></a>Öğretici: Reviewsnap ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Reviewsnap tümleştirme konusunda bilgi edinin.
 
@@ -38,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD Tümleştirmesi ile Reviewsnap yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik Reviewsnap çoklu oturum açma etkin
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Azure AD'de Reviewsnap tümleştirmesini yapılandırmak için Reviewsnap Galeri
 
 **Galeriden Reviewsnap eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -170,7 +170,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
  
 ### <a name="create-a-reviewsnap-test-user"></a>Reviewsnap test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon Reviewsnap içinde adlı bir kullanıcı oluşturun. Çalışmak [Reviewsnap Destek ekibine](mailto:support@reviewsnap.com) Reviewsnap platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi
+Bu bölümde, Britta Simon Reviewsnap içinde adlı bir kullanıcı oluşturun. Çalışmak [Reviewsnap Destek ekibine](mailto:support@reviewsnap.com) Reviewsnap platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

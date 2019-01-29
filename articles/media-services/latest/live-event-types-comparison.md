@@ -11,31 +11,31 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 3ed38ce75e5ee7c9f05533d64b28171482bfec51
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 9c8bff5a0a4f1599a3d23e0c7b07a1caca536a9b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725941"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55153973"
 ---
-# <a name="liveevent-types-comparison"></a>Livestream türlerini karşılaştırma
+# <a name="live-event-types-comparison"></a>Canlı olay türlerini karşılaştırma
 
-Azure Media Services, bir [Livestream](https://docs.microsoft.com/rest/api/media/liveevents) iki türden biri olabilir: live encoding ve doğrudan. 
+Azure Media Services, bir [canlı olay](https://docs.microsoft.com/rest/api/media/liveevents) iki türden biri olabilir: live encoding ve doğrudan. 
 
 ## <a name="types-comparison"></a>Tür karşılaştırması 
 
-Aşağıdaki tabloda, iki Livestream tür özellikleri karşılaştırılır.
+Aşağıdaki tabloda, iki canlı olay türlerinin özellikleri karşılaştırılır.
 
-| Özellik | Doğrudan Livestream | Standart Livestream |
+| Özellik | Doğrudan Canlı etkinlik | Standart Canlı etkinlik |
 | --- | --- | --- |
 | Tekli bit hızı girişi Çoklu bit hızlarında buluta halinde kodlanır |Hayır |Evet |
 | Katkı için en yüksek ekran çözünürlüğü akışı |4K (4096 x 2160 en 60 kare/sn) |1080p (1920 x 1088 en 30 kare/sn)|
 | Önerilen en yüksek katmanlarında akışı katkı|12 adede kadar|Bir ses|
 | En yüksek katmanlarında çıkış| Aynı giriş|En fazla 7|
-| Akış katkı en fazla toplam bant genişliği|60 MB/sn|Yok|
-| Tek bir katman katkısı için maksimum hızı |20 MB/sn|20 MB/sn|
+| Akış katkı en fazla toplam bant genişliği|60 Mbps|Yok|
+| Tek bir katman katkısı için maksimum hızı |20 Mbps|20 Mbps|
 | Ses parçalarını birden çok dil desteği|Evet|Hayır|
 | Desteklenen giriş video codec bileşenleri |H.264/AVC ve H.265/HEVC|H.264/AVC|
 | Desteklenen çıkış video codec bileşenleri|Aynı giriş|H.264/AVC|
@@ -50,10 +50,10 @@ Aşağıdaki tabloda, iki Livestream tür özellikleri karşılaştırılır.
 | Maskeleme görüntülerini ekleme desteği|Hayır|Hayır|
 | API aracılığıyla sinyal ad desteği| Hayır|Hayır|
 | Sinyal SCTE-35 bant içi iletiler ad desteği|Evet|Evet|
-| Akış katkısı kısa takılması kurtarma olanağı|Evet|Hayır (Livestream slating giriş verileri olmadan 6 + saniye sonra başlayacak)|
+| Akış katkısı kısa takılması kurtarma olanağı|Evet|Hayır (canlı olay slating giriş verileri olmadan 6 + saniye sonra başlayacak)|
 | Tekdüzen olmayan giriş GOPs desteği|Evet|Hayır-giriş GOP süresi sabit olmalıdır|
 | Değişken kare hızı girişi için destek|Evet|Yok – giriş kare hızı düzeltilmesi gerekir. Küçük farklılıklar, örneğin, yüksek bir hareket sahneler sırasında izin verilir. Ancak, katkı akış kare hızını (örneğin, 15 çerçeveler/sn) bırakılamıyor.|
-| Otomatik akışı kapatmaya Livestream anahtar kullanıldığında, kaybolur|Hayır|12 çalışan hiçbir LiveOutput ise saat sonra|
+| Otomatik akışı kapatmaya Canlı zaman giriş olayının kaybolur|Hayır|12 çalışan hiçbir LiveOutput ise saat sonra|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 27cef0287156d4cf76914704b849cb646c21dd7d
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: ec520e7d06f6c5a560af56e6616eeed8481520fe
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467494"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55180374"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Azure CLI'de eksiksiz bir Linux sanal makinesi oluşturma
 Bir sanal makine (VM) Azure'da hızlıca oluşturmak için gerekli tüm destekleyici kaynakları oluşturmak için varsayılan değerleri kullanan tek bir Azure CLI komutunu kullanabilirsiniz. Bir sanal ağ, genel IP adresi ve ağ güvenlik grubu kuralları gibi kaynakları otomatik olarak oluşturulur. Daha fazla denetim üretim ortamınızda kullanmak, önceden bu kaynakları oluşturmak ve Vm'lerinizi bunlara ekleyin. Bu makalede, VM ve destekleyici kaynakların tek tek her biri oluşturma hakkında size yol gösterir.
@@ -30,13 +30,13 @@ En son yüklediğinizden emin olun [Azure CLI](/cli/azure/install-az-cli2) ve bi
 Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiştirin. Örnek parametre adlarında *myResourceGroup*, *myVnet*, ve *myVM*.
 
 ## <a name="create-resource-group"></a>Kaynak grubu oluşturma
-Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Bir kaynak grubu, bir sanal makine ve destekleyici ağ kaynakları önce oluşturulmalıdır. Kaynak grubu oluşturun [az grubu oluşturma](/cli/azure/group#az_group_create). Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur:
+Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Bir kaynak grubu, bir sanal makine ve destekleyici ağ kaynakları önce oluşturulmalıdır. Kaynak grubu oluşturun [az grubu oluşturma](/cli/azure/group). Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Varsayılan olarak, Azure CLI komutlarının çıkışı JSON (JavaScript nesne gösterimi) ' dir. Örneğin, bir liste veya tablo çıktısı varsayılan değiştirmek için kullanın [az yapılandırma--çıktı](/cli/azure/reference-index#az_configure). Ayrıca ekleyebilirsiniz `--output` herhangi bir komutu bir kez çıkış biçimde değiştirin. Aşağıdaki örnek JSON çıktısında `az group create` komutu:
+Varsayılan olarak, Azure CLI komutlarının çıkışı JSON (JavaScript nesne gösterimi) ' dir. Örneğin, bir liste veya tablo çıktısı varsayılan değiştirmek için kullanın [az yapılandırma--çıktı](/cli/azure/reference-index). Ayrıca ekleyebilirsiniz `--output` herhangi bir komutu bir kez çıkış biçimde değiştirin. Aşağıdaki örnek JSON çıktısında `az group create` komutu:
 
 ```json                       
 {
@@ -559,7 +559,7 @@ Varsayılan NGINX sitesi iş başında görmek için web tarayıcınızı açın
 ![Vm'nizde varsayılan NGINX sitesi](media/create-cli-complete/nginx.png)
 
 ## <a name="export-as-a-template"></a>Şablon olarak dışarı aktarma
-Ne artık bir ek geliştirme ortamı aynı parametreleri ya da üretim ortamı oluşturmak istediğiniz, eşleşen? Resource Manager, ortamınız için tüm parametreleri tanımlayan JSON şablonlarını kullanır. Tüm ortamları, bu JSON şablonunu başvurarak oluşturun. Yapabilecekleriniz [JSON şablonları el ile derleme](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) veya sizin için JSON şablonunu oluşturmak için bir ortamı dışarı aktarın. Kullanım [az grubunu dışarı aktarma](/cli/azure/group#az_group_export) kaynak grubunuzun şu şekilde dışarı aktarmak için:
+Ne artık bir ek geliştirme ortamı aynı parametreleri ya da üretim ortamı oluşturmak istediğiniz, eşleşen? Resource Manager, ortamınız için tüm parametreleri tanımlayan JSON şablonlarını kullanır. Tüm ortamları, bu JSON şablonunu başvurarak oluşturun. Yapabilecekleriniz [JSON şablonları el ile derleme](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) veya sizin için JSON şablonunu oluşturmak için bir ortamı dışarı aktarın. Kullanım [az grubunu dışarı aktarma](/cli/azure/group) kaynak grubunuzun şu şekilde dışarı aktarmak için:
 
 ```azurecli
 az group export --name myResourceGroup > myResourceGroup.json

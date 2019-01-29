@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory parolası sunucusu (şirket içi) ile tümleştirme | Microsoft Docs'
+title: 'Öğretici: Gizli dizi sunucusu (şirket içi) ile Azure Active Directory Tümleştirme | Microsoft Docs'
 description: Gizli dizi sunucusu (şirket) ile Azure Active Directory arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: be4ba84a-275d-4f71-afce-cb064edc713f
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 30a1498ab41f263c77656400c4200313048cc331
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 447307c0c27fda9e7719e74e529f21d767c9f58d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436174"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55152374"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-secret-server-on-premises"></a>Öğretici: Azure Active Directory Tümleştirme ile gizli sunucusu (şirket içi)
+# <a name="tutorial-azure-active-directory-integration-with-secret-server-on-premises"></a>Öğretici: Gizli dizi sunucusu (şirket içi) ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, gizli sunucusu (şirket içi) Azure Active Directory (Azure AD) ile tümleştirmeyi öğrenin.
 
@@ -38,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Gizli dizi sunucusu (şirket) ile Azure AD tümleştirmesini yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik bir gizli dizi sunucusu (şirket içi) çoklu oturum açma etkin
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Azure AD ile gizli sunucusu (şirket içi) tümleştirmesini yapılandırmak iç
 
 **Galeriden gizli sunucusu (şirket içi) eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -176,7 +176,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
  
 ### <a name="create-a-secret-server-on-premises-test-user"></a>Gizli dizi sunucusu (şirket içi) test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon gizli sunucusu (şirket içi) adlı bir kullanıcı oluşturun. Çalışmak [gizli sunucusu (şirket içi) destek ekibi](https://thycotic.force.com/support/s/) gizli sunucusu (şirket içi) platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+Bu bölümde, Britta Simon gizli sunucusu (şirket içi) adlı bir kullanıcı oluşturun. Çalışmak [gizli sunucusu (şirket içi) destek ekibi](https://thycotic.force.com/support/s/) gizli sunucusu (şirket içi) platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

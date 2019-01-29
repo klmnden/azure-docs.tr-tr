@@ -6,16 +6,16 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: alch
-ms.openlocfilehash: 862fd6d506d5f1ca6f7f532f80f53a29200f33db
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 793b35d9c6412c40a87f3f91fcd772476d57584f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48900436"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55154576"
 ---
 # <a name="field-of-study-entity"></a>Örnek olay incelemesini varlık alanı
 
@@ -29,7 +29,7 @@ DFN     |Örnek olay incelemesini görünen ad alanı            |Dize     |yok
 BİLGİ      |Örnek olay incelemesini toplam alıntı sayısı alanı    |Int32      |yok  
 ECC     |Alanın toplam tahmini alıntı sayısı|Int32      |yok
 FL      |Örnek olay incelemesini hiyerarşi alanlarında düzeyi     |Int32      |Eşittir <br/>IsBetween
-FP. FN   |Örnek olay incelemesini ad alanının üst             |Dize     |Eşittir
-FP. FID  |Üst araştırma Kimliği alanı               |Int64      |Eşittir
-FC. FN   |Örnek olay incelemesini adının alt alanı              |Dize     |Eşittir
-FC. FID  |Alt alan çalışma kimliği                |Int64      |Eşittir
+FP.FN   |Örnek olay incelemesini ad alanının üst             |Dize     |Eşittir
+FP.FId  |Üst araştırma Kimliği alanı               |Int64      |Eşittir
+FC.FN   |Örnek olay incelemesini adının alt alanı              |Dize     |Eşittir
+FC.FId  |Alt alan çalışma kimliği                |Int64      |Eşittir

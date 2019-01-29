@@ -10,16 +10,16 @@ editor: ''
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.date: 10/29/2018
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e08ca3453cc43fa0f35102ca5563b4b07ce45dea
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 423842d3e2485334a916423e997c12669a126adb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215013"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55155077"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Azure Active Directory'de Grup üyeliği kullanıcıları için lisans atama
 
@@ -32,7 +32,7 @@ Bu örnekte, Kiracı adlı bir güvenlik grubu içeren **ik departmanı**. Bu gr
 
 > Grup lisansı atama için kullanım konumu belirtilmemiş olmadan herhangi bir kullanıcı dizin konumunu devralır. Birden fazla konumda kullanıcılar varsa, her zaman kullanım konumu lisans ataması sonucu sağlar (örneğin aracılığıyla yapılandırması) AAD Connect - Azure AD'de kullanıcı oluşturma akışınızı parçası her zaman doğru olduğundan ve kullanıcıların almadığınız olarak ayarlamanızı öneririz izin verilmeyen bir konumda Hizmetleri.
 
-## <a name="step-1-assign-the-required-licenses"></a>1. adım: gerekli lisansları atama
+## <a name="step-1-assign-the-required-licenses"></a>1. Adım: Gerekli lisansları atama
 
 1. Oturum [ **Azure portalında** ](https://portal.azure.com) yönetici hesabı. Lisansları yönetmek için hesabın bir genel yönetici rolü veya kullanıcı hesabı yöneticisi olması gerekir.
 
@@ -59,9 +59,9 @@ Bu örnekte, Kiracı adlı bir güvenlik grubu içeren **ik departmanı**. Bu gr
 Biz, ik departmanı grubu için bir lisans şablonu artık belirttiniz. Bu grubun tüm mevcut üyelerin işlemek için Azure AD'de bir arka plan işlemi başlatıldı. Bu ilk işlem, geçerli Grup boyutuna bağlı olarak biraz zaman alabilir. Sonraki adım, işlemin tamamlandığını doğrulayın ve daha fazla dikkat sorunlarını gidermek için gerekip gerekmediğini belirlemek açıklar.
 
 > [!NOTE]
-> Alternatif bir konumdan aynı atama başlayabilirsiniz: **kullanıcılar ve gruplar** Azure AD'de. Git **Azure Active Directory** > **kullanıcılar ve gruplar** > **tüm grupları**. Ardından grubun bulun, seçin ve Git **lisansları** sekmesi. **Atama** bölmenin en üstünde düğme lisans ataması bölmesini açar.
+> Alternatif bir konumdan aynı atama başlayabilirsiniz: **Kullanıcılar ve gruplar** Azure AD'de. Git **Azure Active Directory** > **kullanıcılar ve gruplar** > **tüm grupları**. Ardından grubun bulun, seçin ve Git **lisansları** sekmesi. **Atama** bölmenin en üstünde düğme lisans ataması bölmesini açar.
 
-## <a name="step-2-verify-that-the-initial-assignment-has-finished"></a>2. adım: ilk atama tamamlandığını doğrulama
+## <a name="step-2-verify-that-the-initial-assignment-has-finished"></a>2. Adım: İlk atama tamamlandığını doğrulama
 
 1. Git **Azure Active Directory** > **kullanıcılar ve gruplar** > **tüm grupları**. Ardından bulun **ik departmanı** lisansları atanmış olan grup.
 
@@ -77,13 +77,13 @@ Biz, ik departmanı grubu için bir lisans şablonu artık belirttiniz. Bu grubu
 
 3. Daha ayrıntılı bilgi lisansı altında işleme hakkında **Azure Active Directory** > **kullanıcılar ve gruplar** > *grup adı*  >  **Denetim günlükleri**. Aşağıdaki etkinlikleri dikkat edin:
 
-   - Etkinlik: **kullanıcılara grup tabanlı lisans uygulama Başlat**. Sistem grupta lisans atama değişikliği alır ve tüm kullanıcı üyelerine uygulama başlatır, bu günlüğe kaydedilir. Yapılan değişiklikler hakkında bilgiler içerir.
+   - Etkinlik: **Kullanıcılara grup tabanlı lisans uygulama Başlat**. Sistem grupta lisans atama değişikliği alır ve tüm kullanıcı üyelerine uygulama başlatır, bu günlüğe kaydedilir. Yapılan değişiklikler hakkında bilgiler içerir.
 
-   - Etkinlik: **kullanıcılara grup tabanlı lisans uygulamayı sonlandırma**. Bu gruptaki tüm kullanıcılar işleme sistem sona erdiğinde günlüğe kaydedilir. Bu, kaç kullanıcının başarıyla işlendi ve kaç kullanıcının Grup lisansları atanamadı bir özetini içerir.
+   - Etkinlik: **Kullanıcılara grup tabanlı lisans uygulamayı sonlandırma**. Bu gruptaki tüm kullanıcılar işleme sistem sona erdiğinde günlüğe kaydedilir. Bu, kaç kullanıcının başarıyla işlendi ve kaç kullanıcının Grup lisansları atanamadı bir özetini içerir.
 
    [Bu bölümü okuyun](licensing-group-advanced.md#use-audit-logs-to-monitor-group-based-licensing-activity) grup tabanlı lisanslama tarafından yapılan değişiklikleri çözümlemek için denetim günlüklerini nasıl kullanılabileceği hakkında daha fazla bilgi için.
 
-## <a name="step-3-check-for-license-problems-and-resolve-them"></a>3. adım: lisans sorunlarını denetlemesini ve bunları çözün
+## <a name="step-3-check-for-license-problems-and-resolve-them"></a>3. Adım: İçin lisans sorunlarını denetleyin ve çözümleyin
 
 1. Git **Azure Active Directory** > **kullanıcılar ve gruplar** > **tüm grupları**ve bulma **ik departmanı** Lisans atanmış olan grup.
 2. Üzerinde **ik departmanı** grubu bölmesinde **lisansları**. Bölmenin en üstünde bir bildirim için lisansı atanamıyor 10 kullanıcı olduğunu gösterir. Tıklayarak, bu grup için bir lisans hatası durumunda tüm kullanıcıları içeren bir liste açılır.

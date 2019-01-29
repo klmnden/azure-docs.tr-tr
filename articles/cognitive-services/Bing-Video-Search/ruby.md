@@ -1,23 +1,23 @@
 ---
-title: 'Hızlı Başlangıç: Bing Video Arama, Ruby'
+title: 'Hızlı Başlangıç: Bing Video arama, Ruby'
 titlesuffix: Azure Cognitive Services
 description: Bing Video Arama API'sini kısa sürede kullanmaya başlamanıza yardımcı olacak bilgi ve kod örnekleri alın.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-video-search
+ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: aahi
-ms.openlocfilehash: f1d96ca4d3f9bf7a64ff04255948709d623354c9
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: a085d97dca7175eb76dfda562d92218baebbb2c0
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309546"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55185048"
 ---
-# <a name="quickstart-bing-video-search-api-with-ruby"></a>Hızlı başlangıç: Ruby ile Bing Video Arama API'si
+# <a name="quickstart-bing-video-search-api-with-ruby"></a>Hızlı Başlangıç: Bing Video arama API'si ile Ruby
 
 Bu makale, Azure'da Microsoft Bilişsel Hizmetleri'nin parçası olan Bing Video Arama API'sini kullanmayı göstermektedir. Bu makalede Ruby kullanılmakla birlikte API HTTP istekleri gönderebilecek ve JSON ayrıştırabilecek her programlama diliyle uyumlu bir RESTful Web hizmetidir. 
 

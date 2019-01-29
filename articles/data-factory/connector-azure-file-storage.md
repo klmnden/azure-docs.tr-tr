@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: jingwang
-ms.openlocfilehash: 5f7770d9331df46c16ed7f5e565c781a864bc5e1
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 86fccf71463a2f00b31f5f1e6082db4c404bbf9b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077955"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55152208"
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Azure Data Factory kullanarak verileri veya Azure dosya Depolama'ya kopyalayın
 
@@ -42,8 +42,8 @@ Azure dosya depolama bağlı hizmeti için aşağıdaki özellikleri destekler:
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **Dosya sunucusu**. | Evet |
-| konak | Azure dosya depolama uç noktası olarak belirtir `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"`. | Evet |
-| Kullanıcı Kimliği | Azure dosya depolama alanı olarak erişmek için kullanıcı belirtmeniz `"userid": "AZURE\\<storage name>"`. | Evet |
+| konak | Azure dosya depolama uç noktası olarak belirtir: <br/>-Kullanıcı arabirimini kullanarak: belirtin `\\<storage name>.file.core.windows.net\<file service name>`<br/>-JSON'ı kullanma: `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"`. | Evet |
+| Kullanıcı Kimliği | Azure dosya depolama alanı olarak erişmek için kullanıcı belirtin: <br/>-Kullanıcı arabirimini kullanarak: belirtin `AZURE\<storage name>`<br/>-JSON'ı kullanma: `"userid": "AZURE\\<storage name>"`. | Evet |
 | password | Depolama erişim anahtarı belirtin. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Evet |
 | connectVia | [Integration Runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deponuz özel ağında bulunuyorsa), Azure Integration Runtime veya şirket içinde barındırılan tümleştirme çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure Integration Runtime kullanır. |Kaynak, havuz için Evet Hayır |
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: 4024ecddde4b0d020e2c657214a4a258ea0b2ea5
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 92a6d0f0cd9ef9a7d246624f89315a87a7fb26f9
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449019"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097818"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor-public-preview"></a>Azure İzleyici (genel Önizleme) içinde dinamik eşikler ile ölçüm uyarıları
 
@@ -21,7 +21,7 @@ Dinamik eşikler algılama ile ölçüm Uyarısı, Gelişmiş makine öğrenimi 
 
 Bir uyarı kuralı oluşturulduktan sonra yalnızca zaman izlenen ölçüm beklendiği gibi davranmaya değil, özel olarak uyarlanmış eşiklere dayanarak etkinleşecektir.
 
-İsteriz, yakında kalmasını sağlamak Geri bildirimlerinizi azurealertsfeedback@microsoft.com.
+İsteriz, yakında kalmasını sağlamak Geri bildirimlerinizi <azurealertsfeedback@microsoft.com>.
 
 ## <a name="why-and-when-is-using-dynamic-condition-type-recommended"></a>Neden ve ne zaman önerilen dinamik koşul türü kullanıyor?
 
@@ -37,7 +37,7 @@ Dinamik eşikler ile uyarılar, Azure İzleyici ölçüm uyarıları aracılığ
 
 ## <a name="how-are-the-thresholds-calculated"></a>Eşikleri nasıl hesaplanır?
 
-Dinamik Eşik sürekli olarak ölçüm serisi verilerinin öğrenir ve bir dizi algoritmaları ve yöntemleri. kullanarak model dener ve algoritmaları ve yöntem kümesi kullanarak model dener. Mevsimsellik (saatlik / günlük / haftalık) gibi verilerdeki desenleri algılar ve düşük dağılım (örneğin, kullanılabilirlik ve hata oranı) Ölçümleriyle yanı sıra gürültülü ölçümleri (örneğin, makine CPU veya bellek) işleyebilir.
+Dinamik Eşik sürekli olarak ölçüm serisi verilerinin öğrenir ve bir dizi algoritmaları ve yöntemleri kullanarak model çalışır. Mevsimsellik (saatlik / günlük / haftalık) gibi verilerdeki desenleri algılar ve düşük dağılım (örneğin, kullanılabilirlik ve hata oranı) Ölçümleriyle yanı sıra gürültülü ölçümleri (örneğin, makine CPU veya bellek) işleyebilir.
 
 Eşikleri, bu eşikleri bir sapma bir anomali ölçüm davranış gösterir şekilde seçilir.
 
@@ -80,3 +80,80 @@ Olmayabilir. Dinamik eşikler önemli sapmaları algılama yerine yavaş sorunla
 ## <a name="how-much-data-is-used-to-preview-and-then-calculate-thresholds"></a>Ne kadar veri Önizleme ve ardından eşikleri hesaplamak için kullanılır?
 
 Grafikte, bir uyarı kuralı bir ölçüme göre oluşturulmadan önce görüntülenen eşiklere göre hesaplanır. geçmiş verilerin son 10 gün üzerinde bir uyarı kuralı oluşturulduktan sonra dinamik eşikler kullanılabilir ek geçmiş verileri almak ve olur sürekli olarak eşikleri daha doğru hale getirmek için yeni veriler temel alınarak öğrenin.
+
+## <a name="dynamic-thresholds-best-practices"></a>Dinamik eşikler en iyi uygulamalar
+
+Dinamik eşikler herhangi bir platform veya özel ölçüm Azure İzleyici'de uygulanabilir ve ayrıca ortak uygulama ve altyapı ölçümler için ayarlanmış.
+Bazı dinamik eşikler kullanarak bu ölçümler üzerinde uyarılar yapılandırma en iyi öğelerdir.
+
+### <a name="dynamic-thresholds-on-virtual-machine-cpu-percentage-metrics"></a>Sanal makine CPU yüzdesi ölçümlere ilişkin dinamik eşikler
+
+1. İçinde [Azure portalında](https://portal.azure.com), tıklayarak **İzleyici**. İzleme görünümü, tüm izleme ayarlarınızı ve tek bir görünümde verileri birleştirir.
+
+2. Tıklayın **uyarılar** ardından **+ yeni uyarı kuralı**.
+
+    > [!TIP]
+    > Çoğu kaynak dikey pencerelerinin de **uyarılar** altında kendi kaynak menüsünde **izleme**, oradan da uyarılar oluşturabilirsiniz.
+
+3. Tıklayın **hedefi seçme**, yükler içerik bölmesinde, uyarı istediğiniz hedef kaynak seçin. Kullanım **abonelik** ve **'Sanal makineleri' kaynak türü** izlemek istediğiniz kaynak bulmak için açılan listeler. Kaynak bulmak için arama çubuğunu da kullanabilirsiniz.
+
+4. Hedef kaynak seçtikten sonra tıklayarak **koşul Ekle**.
+
+5. Seçin **'CPU yüzdesi'**.
+
+6. İsteğe bağlı olarak ayarlayarak ölçüm İyileştir **süresi** ve **toplama**. Daha az temsilcisi davranış olduğu gibi bu ölçüm türü için 'Maximum' toplama türü kullanmak için önerilmez. 'En fazla' toplama türü statik eşiği için belki de daha uygun.
+
+7. Son 6 saat boyunca ölçüm için bir grafik görürsünüz. Uyarı parametreleri tanımlayın:
+    1. **Koşul türü** -'Dynamic' seçeneğini belirleyin.
+    1. **Duyarlılık** -uyarı gürültüsünü azaltmak için duyarlılık Orta/düşük seçin.
+    1. **İşleç** -davranışını uygulama kullanımını gösteren sürece 'Büyüktür' seçin.
+    1. **Sıklık** -tabanlı uyarı iş etkisini azaltmayı göz önünde bulundurun.
+    1. **Nokta başarısız** (Gelişmiş seçenek) - görünüm arka pencere en az 15 dakika olmalıdır. Dönem beş dakikaya ayarlarsanız, örneğin, ardından nokta başarısız olan en az üç veya daha fazla olmalıdır.
+
+8. Son verileri temel alan hesaplanan eşikleri ölçüm grafiği görüntüler.
+
+9. **Bitti**’ye tıklayın.
+
+10. Doldurun **uyarı ayrıntıları** gibi **uyarı kuralı adı**, **açıklama**, ve **önem derecesi**.
+
+11. Yeni bir eylem grubu oluşturma veya mevcut bir eylem grubu seçerek uyarıyı bir eylem grubu ekleyin.
+
+12. Tıklayın **Bitti** ölçüm uyarı kuralını kaydetmek için.
+
+> [!NOTE]
+> Ölçüm uyarı kuralları portalı üzerinden oluşturuldu, hedef kaynağın aynı kaynak grubunda oluşturulur.
+
+### <a name="dynamic-thresholds-on-application-insights-http-request-execution-time"></a>Dinamik eşikler Application Insights HTTP isteği yürütme süresi
+
+1. İçinde [Azure portalında](https://portal.azure.com), tıklayarak **İzleyici**. İzleme görünümü, tüm izleme ayarlarınızı ve tek bir görünümde verileri birleştirir.
+
+2. Tıklayın **uyarılar** ardından **+ yeni uyarı kuralı**.
+
+    > [!TIP]
+    > Çoğu kaynak dikey pencerelerinin de **uyarılar** altında kendi kaynak menüsünde **izleme**, oradan da uyarılar oluşturabilirsiniz.
+
+3. Tıklayın **hedefi seçme**, yükler içerik bölmesinde, uyarı istediğiniz hedef kaynak seçin. Kullanım **abonelik** ve **'Application Insights' kaynak türü** izlemek istediğiniz kaynak bulmak için açılan listeler. Kaynak bulmak için arama çubuğunu da kullanabilirsiniz.
+
+4. Hedef kaynak seçtikten sonra tıklayarak **koşul Ekle**.
+
+5. Seçin **'HTTP isteği yürütme süresi'**.
+
+6. İsteğe bağlı olarak ayarlayarak ölçüm İyileştir **süresi** ve **toplama**. Daha az temsilcisi davranış olduğu gibi bu ölçüm türü için 'Maximum' toplama türü kullanmak için önerilmez. 'En fazla' toplama türü statik eşiği için belki de daha uygun.
+
+7. Son 6 saat boyunca ölçüm için bir grafik görürsünüz. Uyarı parametreleri tanımlayın:
+    1. **Koşul türü** -'Dynamic' seçeneğini belirleyin.
+    1. **İşleç** -'Üzerinde geliştirme süresi tetiklenen uyarılar azaltmak için büyük' ı seçin.
+    1. **Sıklık** -tabanlı uyarı iş etkisini azaltmayı göz önünde bulundurun.
+
+8. Son verileri temel alan hesaplanan eşikleri ölçüm grafiği görüntüler.
+
+9. **Bitti**’ye tıklayın.
+
+10. Doldurun **uyarı ayrıntıları** gibi **uyarı kuralı adı**, **açıklama**, ve **önem derecesi**.
+
+11. Yeni bir eylem grubu oluşturma veya mevcut bir eylem grubu seçerek uyarıyı bir eylem grubu ekleyin.
+
+12. Tıklayın **Bitti** ölçüm uyarı kuralını kaydetmek için.
+
+> [!NOTE]
+> Ölçüm uyarı kuralları portalı üzerinden oluşturuldu, hedef kaynağın aynı kaynak grubunda oluşturulur.

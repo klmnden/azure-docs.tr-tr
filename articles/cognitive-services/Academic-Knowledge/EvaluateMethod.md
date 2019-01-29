@@ -6,16 +6,16 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: 262beeefbbafefc95da51e9f4afcbc1bc143f952
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: c3449d3b61c9b8950c0530590e7f1950c06afbc3
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902340"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55187309"
 ---
 # <a name="evaluate-method"></a>yöntemi
 
@@ -32,8 +32,8 @@ Ad     | Değer | Gerekli mi?  | Açıklama
 -----------|-----------|---------|--------
 **ifade**       | Metin dizesi | Evet | Sorgu ifadesinin hangi varlıkları döndürülmesi gerektiğini belirtir.
 **Model**      | Metin dizesi | Hayır  | Sorgulamak istediğiniz modelin adı.  Değer şu anda, varsayılan olarak *son*.        
-**Öznitelikleri** | Metin dizesi | Hayır<br>Varsayılan: kimliği | Yanıta dahil öznitelik değerleri belirten bir virgülle ayrılmış listesi. Öznitelik adları büyük/küçük harfe duyarlıdır.
-**Sayısı**        | Sayı | Hayır<br>Varsayılan: 10 | Döndürülecek sonuç sayısı.
+**Öznitelikleri** | Metin dizesi | Hayır<br>Varsayılan: Kimlik | Yanıta dahil öznitelik değerleri belirten bir virgülle ayrılmış listesi. Öznitelik adları büyük/küçük harfe duyarlıdır.
+**count**        | Sayı | Hayır<br>Varsayılan: 10 | Döndürülecek sonuç sayısı.
 **uzaklık**     | Sayı |   Hayır<br>Varsayılan: 0    | Döndürülecek ilk sonuç dizini.
 **OrderBy** |   Metin dizesi | Hayır<br>Varsayılan: olasılık azaltarak | Varlıkları sıralama için kullanılan bir öznitelik adı. İsteğe bağlı olarak, artan/azalan belirtilebilir. Biçim: *adı: asc* veya *adı: desc*.
   

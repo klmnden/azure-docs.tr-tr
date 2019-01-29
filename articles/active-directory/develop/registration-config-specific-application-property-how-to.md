@@ -7,25 +7,25 @@ author: CelesteDG
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
-ms.openlocfilehash: 83694f121fb17f90aa89fb9ba99e8514cadd5b09
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 90b7638acf6df721a16bdcca6ceebb6f9d65ca2c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44724092"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096832"
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Nasıl için özel olarak geliştirilmiş bir uygulamada belirli alanları doldurun
 
 Bu makalede, kullanılabilir tüm alanları uygulama kayıt formunda kısa bir açıklamasını sunar [Azure portalında](https://portal.azure.com).
 
-## <a name="register-a-new-application"></a>Yeni bir uygulamayı kaydetme
+## <a name="register-a-new-application"></a>Yeni uygulama kaydetme
 
 -   Yeni bir uygulamayı kaydetmek için gidin [Azure portalında](https://portal.azure.com).
 
@@ -40,9 +40,9 @@ Bu makalede, kullanılabilir tüm alanları uygulama kayıt formunda kısa bir a
 
 | Alan            | Açıklama                                                                              |
 |------------------|------------------------------------------------------------------------------------------|
-| Ad             | Uygulamanın adı. Bu, en az dört karakter olmalıdır.                |
-| Uygulama Türü | **Web uygulaması/Web API'si**: bir web uygulaması, bir web API'sini veya her ikisini temsil eden bir uygulama 
-| |**Yerel**: bir kullanıcının cihazına veya bilgisayarına yüklenebilen bir uygulama           |
+| Name             | Uygulamanın adı. Bu, en az dört karakter olmalıdır.                |
+| Uygulama Türü | **Web uygulaması/Web API'si**: Bir web uygulaması, bir web API'sini veya her ikisini temsil eden bir uygulama 
+| |**Yerel**: Bir kullanıcının cihazına veya bilgisayarına yüklenebilen bir uygulama           |
 | Oturum açma URL'si      | Kullanıcıların uygulamanızı kullanmak için oturum içinde URL'si                                  |
 
 Yukarıdaki alanları doldurduktan sonra Azure portalında uygulama kaydedilir ve uygulama sayfasına yönlendirilirsiniz. **Ayarları** uygulama bölmesinde düğmesine uygulamanızı özelleştirmek size daha fazla alan olan ayarları sayfası açılır. Aşağıdaki tabloda Ayarları sayfasında tüm alanlar açıklanır. Not, bir web uygulaması veya yerel bir uygulama oluşturduğunuz bağlı olarak, bu alanların bir alt kümesini yalnızca görür.

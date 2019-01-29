@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,22 +16,22 @@ ms.date: 10/25/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 589ad189a3a157d0116e3991f8df3d6b43afc167
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
-ms.translationtype: HT
+ms.openlocfilehash: 3f38162fd4d95127ddf7797638bc9af21e6aaf20
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988896"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095711"
 ---
-# <a name="quickstart-configure-an-application-to-expose-web-apis-preview"></a>Hızlı Başlangıç: Bir uygulamayı web API'lerini kullanıma sunacak şekilde yapılandırma (Önizleme)
+# <a name="quickstart-configure-an-application-to-expose-web-apis-preview"></a>Hızlı Başlangıç: Web API (Önizleme) kullanıma sunmak için uygulama yapılandırma
 
 Bir web API'si geliştirip [izinleri/kapsamları](developer-glossary.md#scopes) ve [rolleri](developer-glossary.md#roles) kullanıma sunarak istemci uygulamaları tarafından kullanılmasını sağlayabilirsiniz. Doğru şekilde yapılandırılmış olan bir web API'sini kullanıma sunmak için yapılması gereken işlemler Graph API ve Office 365 API'leri gibi diğer Microsoft web API'leri için yapılması gerekenlerle aynıdır.
 
 Bu hızlı başlangıçta, yeni bir kapsamı kullanıma sunmak ve istemci uygulamaları için kullanılabilir hale getirmek üzere bir uygulamayı yapılandırmayı öğreneceksiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
-Başlamak için aşağıdaki önkoşulları tamamladığınızdan emin olun:
+Başlamak için aşağıdaki önkoşulları karşıladığınızdan emin olun:
 
 * Diğer kullanıcılar veya uygulamalar tarafından kullanılması gereken uygulamaları derleme konusunda önemli olan desteklenen [izinler ve onaylar](v2-permissions-and-consent.md) hakkında bilgi edinin.
 * Uygulamaların kaydedilmiş olduğu bir kiracı kullanın.

@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 0e4aa75d-d1ad-4bde-a94c-d8a41fb0abe6
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 07/19/2017
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: b1c0dddec93e913e543558893979b95c8f53ad47
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: b1979f9b13774855ebcb33efad8ffcaf087bbfb7
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581926"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097087"
 ---
 # <a name="single-sign-out-saml-protocol"></a>Çoklu oturum kapatma SAML Protokolü
 
@@ -49,7 +49,7 @@ Bulut hizmeti gönderen bir `LogoutRequest` bir oturum sonlandırıldı gösterm
 * `Version` -Ayarlamak için bu öğenin değeri **2.0**. Bu değer gereklidir.
 * `IssueInstant` -Bu, bir `DateTime` dize koordine Evrensel Saat (UTC) değeriyle ve [gidiş dönüş biçim ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD, bu türde bir değer Bekliyor, ancak zorunlu değildir.
 
-### <a name="issuer"></a>Sertifikayı Veren
+### <a name="issuer"></a>Veren
 `Issuer` Öğesinde bir `LogoutRequest` biriyle tam olarak eşleşmelidir **ServicePrincipalNames** Azure ad'deki bulut hizmetinde. Genellikle, bu ayar **uygulama kimliği URI'si** uygulama kaydı sırasında belirtilir.
 
 ### <a name="nameid"></a>Nameıd
@@ -70,7 +70,7 @@ Azure AD gönderen bir `LogoutResponse` yanıt olarak bir `LogoutRequest` öğes
 ### <a name="logoutresponse"></a>LogoutResponse
 Azure AD kümeleri `ID`, `Version` ve `IssueInstant` değerler `LogoutResponse` öğesi. Ayrıca ayarlar `InResponseTo` değerini öğesine `ID` özniteliği `LogoutRequest` yanıt elicited.
 
-### <a name="issuer"></a>Sertifikayı Veren
+### <a name="issuer"></a>Veren
 Azure AD bu değeri ayarlar `https://login.microsoftonline.com/<TenantIdGUID>/` burada <TenantIdGUID> Azure AD kiracısını Kiracı Kimliğini gösterir.
 
 Değerini değerlendirmek için `Issuer` öğesi, değerini kullanın **uygulama kimliği URI'si** uygulama kayıt sırasında sağlanan.

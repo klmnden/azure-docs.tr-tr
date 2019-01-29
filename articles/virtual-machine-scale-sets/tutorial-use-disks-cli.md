@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7aebfbf3222715b1e15269aa777b2a6091aee90d
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: da7848fe561d061470e8921f1f76ac30bed4c809
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54881834"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55163067"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Öğretici: Diskler oluşturma ve sanal makine ölçek kümesi Azure CLI ile kullanma
 Sanal makine ölçek kümeleri, sanal makine örneğinin işletim sistemini, uygulamalarını ve verilerini depolamak için diskleri kullanır. Bir ölçek kümesi oluştururken ve yönetirken, beklenen iş yüküne uygun disk boyutu ve yapılandırmasını seçmek önemlidir. Bu öğretici, sanal makine disklerinin oluşturulmasını ve yönetilmesini kapsar. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
@@ -48,7 +48,7 @@ Bir ölçek kümesi oluşturulduğunda veya ölçeklendirildiğinde, her bir san
 **Geçici disk** - Geçici diskler, sanal makine örneğiyle aynı Azure ana bilgisayarında bulunan bir katı hal sürücüsü kullanır. Bunlar yüksek performansa sahiptir ve geçici veri işleme gibi işlemler için kullanılabilir. Ancak sanal makine örneği yeni bir ana bilgisayara taşınırsa, geçici diskte depolanan tüm veriler kaldırılır. Geçici diskin boyutu, sanal makine örneği tarafından belirlenir. Geçici diskler */dev/sdb* etiketine ve */mnt* bağlama noktasına sahiptir.
 
 ### <a name="temporary-disk-sizes"></a>Geçici disk boyutları
-| Tür | Ortak boyutlar | En yüksek geçici disk boyutu (GiB) |
+| Type | Ortak boyutlar | En yüksek geçici disk boyutu (GiB) |
 |----|----|----|
 | [Genel amaçlı](../virtual-machines/linux/sizes-general.md) | A, B ve D serisi | 1600 |
 | [İşlem için iyileştirilmiş](../virtual-machines/linux/sizes-compute.md) | F serisi | 576 |
@@ -62,7 +62,7 @@ Bir ölçek kümesi oluşturulduğunda veya ölçeklendirildiğinde, her bir san
 Uygulamalar yüklemeniz ve veri depolamanız gerekirse ek veri diskleri eklenebilir. Dayanıklı ve duyarlı veri depolama gerektiren her koşulda veri diskleri kullanılmalıdır. Her veri diski maksimum 4 TB kapasiteye sahiptir. Sanal makine örneğinin boyutu, kaç veri diskinin eklenebileceğini belirler. Her VM vCPU için iki veri diski eklenebilir.
 
 ### <a name="max-data-disks-per-vm"></a>VM başına en fazla veri diski
-| Tür | Ortak boyutlar | VM başına en fazla veri diski |
+| Type | Ortak boyutlar | VM başına en fazla veri diski |
 |----|----|----|
 | [Genel amaçlı](../virtual-machines/linux/sizes-general.md) | A, B ve D serisi | 64 |
 | [İşlem için iyileştirilmiş](../virtual-machines/linux/sizes-compute.md) | F serisi | 64 |
@@ -132,7 +132,7 @@ Oluşturulan ve ölçek kümesi sanal makine örneklerinize eklenen diskler, ham
 
 Bir ölçek kümesindeki birden çok sanal makine örneğinde işlemi otomatikleştirmek için Azure Özel Betik Uzantısı’nı kullanabilirsiniz. Bu uzantı, örneğin, eklenen veri disklerini hazırlamak için her bir sanal makine örneğinde betikleri yerel olarak yürütebilir. Daha fazla bilgi için bkz. [Özel Betik Uzantısı'na genel bakış](../virtual-machines/linux/extensions-customscript.md).
 
-Aşağıdaki örnek, tüm eklenen ham veri disklerini hazırlayan [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set) komutuyla her bir sanal makine örneğindeki GitHub örnek deposundan bir betik yürütür:
+Aşağıdaki örnek, tüm eklenen ham veri disklerini hazırlayan [az vmss extension set](/cli/azure/vmss/extension) komutuyla her bir sanal makine örneğindeki GitHub örnek deposundan bir betik yürütür:
 
 ```azurecli-interactive
 az vmss extension set \
@@ -279,7 +279,7 @@ Disk boyutu, depolama katmanı ve LUN (Mantıksal Birim Numarası) ile ilgili bi
 
 
 ## <a name="detach-a-disk"></a>Disk ayırma
-Belirli bir disk artık gerekli olmadığında o diski ölçek kümesinden ayırabilirsiniz. Disk, ölçek kümesindeki tüm sanal makine örneklerinden kaldırılır. Ölçek kümesinden bir diski ayırmak için [az vmss disk detach](/cli/azure/vmss/disk#az_vmss_disk_detach) komutunu kullanın ve diskin LUN’unu belirtin. Önceki bölümde [az vmss show](/cli/azure/vmss#az_vmss_show) komutundan elde edilen çıktıda LUN’lar gösterilir. Aşağıdaki örnek, ölçek kümesinden LUN *2*’yi ayırır:
+Belirli bir disk artık gerekli olmadığında o diski ölçek kümesinden ayırabilirsiniz. Disk, ölçek kümesindeki tüm sanal makine örneklerinden kaldırılır. Ölçek kümesinden bir diski ayırmak için [az vmss disk detach](/cli/azure/vmss/disk) komutunu kullanın ve diskin LUN’unu belirtin. Önceki bölümde [az vmss show](/cli/azure/vmss#az_vmss_show) komutundan elde edilen çıktıda LUN’lar gösterilir. Aşağıdaki örnek, ölçek kümesinden LUN *2*’yi ayırır:
 
 ```azurecli-interactive
 az vmss disk detach \

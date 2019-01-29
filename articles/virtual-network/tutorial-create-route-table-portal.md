@@ -18,12 +18,12 @@ ms.workload: infrastructure
 ms.date: 12/12/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 3422219e33c04d7cb130e064790896f5da28649a
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 855adccf036f731de12810fe0f5287186048ddb0
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025054"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095966"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak bir yönlendirme tablosu ile ağ trafiğini yönlendirme
 
@@ -214,7 +214,7 @@ IP iletme için açma *myVmNva*. Azure ağ trafiğini gönderdiğinde *myVmNva*,
 
 1. Üzerinde **myVmNva**altında **ayarları**seçin **ağ**.
 
-1. Seçin **myvmnva123**. Azure sanal Makineniz için oluşturulan ağ arabirimini olmasıdır. Onu benzersiz yapmak için sayıdan oluşan bir dize olması.
+1. Select **myvmnva123**. Azure sanal Makineniz için oluşturulan ağ arabirimini olmasıdır. Onu benzersiz yapmak için sayıdan oluşan bir dize olması.
 
     ![VM ağı](./media/tutorial-create-route-table-portal/virtual-machine-networking.png)
 
@@ -281,7 +281,7 @@ Azure *myVmPublic* VM’yi oluştururken *myVmPrivate* VM’yi oluşturabilirsin
 
 1. Seçin **Evet** VM'ye bağlanma.
 
-### <a name="enable-icpm-through-the-windows-firewall"></a>Windows Güvenlik Duvarı üzerinden ICPM etkinleştirin
+### <a name="enable-icmp-through-the-windows-firewall"></a>Windows Güvenlik Duvarı üzerinden ICMP'yi etkinleştirin
 
 Daha sonraki bir adımda yönlendirmeyi test etmek için izleme yönlendirme aracı kullanmanız. İzleme yönlendirmesi, Windows Güvenlik Duvarı varsayılan olarak reddeder Internet Denetim İletisi Protokolü (ICMP) kullanır. Windows Güvenlik Duvarı üzerinden ICMP'yi etkinleştirin.
 

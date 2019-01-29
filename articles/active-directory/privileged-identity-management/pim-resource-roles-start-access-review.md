@@ -10,16 +10,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: pim
+ms.subservice: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 9a35d32d89931a03b33f232ba4f79226fc3f57e5
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 607104c5a8021107be9e343d71ade049712454f6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189183"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55160058"
 ---
 # <a name="start-an-access-review-for-azure-resource-roles-in-pim"></a>Azure kaynak rolleri için erişim gözden geçirmesi PIM'de Başlat
 Kullanıcılar artık ihtiyacınız yoksa erişim ayrıcalıklı, rol atamaları "eski" olur. Bu eski rol atamaları ile ilişkili riskini azaltmak için ayrıcalıklı rol yöneticileri düzenli olarak rolleri gözden geçirmelisiniz. Bu belge, erişim gözden geçirmesi Azure kaynakları için Privileged Identity Management (PIM) başlatmak için ilgili adımları içermektedir.
@@ -32,7 +32,7 @@ PIM uygulama ana sayfadan sayfaya gidin:
 
 Seçtiğinizde, **Ekle** düğmesi **erişim gözden geçirmesi Oluştur** dikey penceresi görünür. Bu dikey penceredeki gözden bir ad ve süre sınırı ile yapılandırın, gözden geçirin ve ardından kim gözden yapıyor karar bir rol seçin.
 
-![Erişim gözden geçirmesi oluştur](media/azure-pim-resource-rbac/rbac-create-access-review.png)
+![Erişim gözden geçirmesi oluşturma](media/azure-pim-resource-rbac/rbac-create-access-review.png)
 
 ### <a name="configure-the-review"></a>Gözden geçirmeyi yapılandırma
 Erişim gözden geçirmesi oluşturma için ilk adlandırın ve ardından bir başlangıç ve bitiş tarihi ayarlayın.
@@ -54,8 +54,8 @@ Bir gözden geçirme gerçekleştirmeye yönelik üç seçenek vardır. Gözden 
 
 1. Seçeneklerden birini seçin:
    
-   * **Seçili kullanıcıları**: erişim gerek duyan bilmiyorsanız bu seçeneği kullanın. Bu seçenek belirtilmişse, gözden geçirmeyi tamamlamak için bir kaynak sahibi veya grup yöneticisi atayabilirsiniz.
-   * **Atanan (kendi)**: kullanıcılar kendi rol atamalarını gözden geçirmek için bu seçeneği kullanın.
+   * **Seçili kullanıcıları**: Erişim gerek duyan bilmiyorsanız bu seçeneği kullanın. Bu seçenek belirtilmişse, gözden geçirmeyi tamamlamak için bir kaynak sahibi veya grup yöneticisi atayabilirsiniz.
+   * **Atanan (kendi)**: Kullanıcılar kendi rol atamalarını gözden geçirmek için bu seçeneği kullanın.
    
 2. Git **Gözden Geçiren seçin**.
    
@@ -74,5 +74,5 @@ Değerlendirme süresi bitene kadar gözden geçirmelerini tamamlamak için kull
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [PIM Azure kaynak rolleri için erişim değerlendirmesi tamamlama](pim-resource-roles-complete-access-review.md)
-- [PIM'de erişim gözden geçirmesi Azure kaynağı rollerim gerçekleştirin](pim-resource-roles-perform-access-review.md)
+- [PIM hizmetinde Azure kaynak rollerimin erişim gözden geçirmesini gerçekleştirme](pim-resource-roles-perform-access-review.md)
 - [Azure AD Dizin rolleri için erişim gözden geçirmesi PIM'de Başlat](pim-how-to-start-security-review.md)
