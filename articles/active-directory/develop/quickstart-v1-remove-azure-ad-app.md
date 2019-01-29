@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: ddc04d32f76515cb93d2cde3fe4eccaab7e4c291
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 805a917cbb4d867ee866ec99c8e90ea883527856
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245367"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55100963"
 ---
 # <a name="quickstart-remove-an-application-from-azure-active-directory"></a>Hızlı Başlangıç: Azure Active Directory'den uygulama kaldırma
 
@@ -32,7 +32,7 @@ Bu hızlı başlangıçta şunları yapmayı öğreneceksiniz:
 * [Kuruluşunuz tarafından yazılmış bir uygulamayı kaldırma](#removing-an-application-authored-by-your-organization)
 * [Başka bir kuruluş tarafından yetkilendirilmiş çok kiracılı bir uygulamayı kaldırma](#removing-a-multi-tenant-application-authorized-by-another-organization)
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Başlamak için kendisine kayıtlı uygulamaları olan bir Azure AD kiracınız olması gerekecek.
 

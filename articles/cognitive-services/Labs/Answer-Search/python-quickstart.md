@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı başlangıç: Yanıt Arama Projesi, Python'
+title: 'Hızlı Başlangıç: Proje yanıt arama, Python'
 titlesuffix: Azure Cognitive Services
 description: Yanıt Arama Projesini kullanmaya başlamak için Python örneği.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.component: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 69c5edfef65af2ed1b27f9a512ad13c21468df7a
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: 2c42935e100a55f767c3b1cbac6590850734b57e
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465517"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093334"
 ---
 # <a name="quickstart-project-answer-search-with-python"></a>Hızlı başlangıç: Python ile Yanıt Arama Projesi
 
 Aşağıdaki Python örneği "Rock of Gibraltar" hakkında bilgi almak için bir istek oluşturup gönderir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 [Bilişsel Hizmetler Laboratuvarları](https://aka.ms/answersearchsubscription) ücretsiz denemesi için erişim anahtarı alın
 
@@ -41,7 +41,7 @@ Aşağıdaki adımları izler:
 
 Bu tanıtımda kullanılan kodun tamamı aşağıda verilmiştir:
 
-````
+```
 import http.client, urllib.parse
 import json
 
@@ -65,7 +65,7 @@ def get_local():
 result = get_local()
 print (json.dumps(json.loads(result), indent=4))
 
-````
+```
 ## <a name="next-steps"></a>Sonraki adımlar
 - [C# hızlı başlangıcı](c-sharp-quickstart.md)
 - [Java hızlı başlangıcı](java-quickstart.md)

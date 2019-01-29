@@ -7,17 +7,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/3/2018
+ms.date: 1/25/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: ec1c24e4a9714506a4107fd5bfd53d1a562c8781
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 66f41ffef5d72f5d574bb78d3b810f4a4dc2c4c1
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022368"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098740"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Azure-SSIS tümleştirme çalışma zamanı Kurulum özelleştirme
 
@@ -27,6 +27,8 @@ Bir komut dosyası ve ilişkili dosyaları hazırlama ve bir Azure depolama hesa
 
 Ücretsiz veya lisanssız bileşenleri hem Ücretli ya da lisanslı bileşenleri yükleyebilirsiniz. Bir ISV iseniz bkz [nasıl geliştirileceğini ücretli veya lisanslı bileşenler için Azure-SSIS IR](how-to-develop-azure-ssis-ir-licensed-components.md).
 
+> [!IMPORTANT]
+> Dv2 serisi düğümler Azure-SSIS IR, özel kurulum için uygun değildir. Bu nedenle Lütfen v3 serisi düğümler yerine kullanın.  Dv2 serisi düğümler zaten kullanıyorsanız, v3 serisi düğümler olabildiğince çabuk kullanmak için lütfen geçiş yapın.
 
 ## <a name="current-limitations"></a>Geçerli sınırlamalar
 
@@ -78,7 +80,7 @@ Azure-SSIS IR özelleştirmek için aşağıdakiler gerekir:
 
        ![Blob kapsayıcısı oluşturma](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image4.png)
 
-    1.  Yeni kapsayıcıyı seçin ve özel kurulum komut dosyanızı ve ilişkili dosyalarını karşıya yükleyin. Karşıya yüklediğiniz emin `main.cmd` en üst düzeyde kapsayıcının herhangi bir klasörü içinde değil. 
+    1.  Yeni kapsayıcıyı seçin ve özel kurulum komut dosyanızı ve ilişkili dosyalarını karşıya yükleyin. Karşıya yüklediğiniz emin `main.cmd` en üst düzeyde kapsayıcınızın herhangi bir klasörü içinde değil. Ayrıca olun kapsayıcınızı yalnızca gerekli özel kurulum dosyaları içerir, böylece bunları Azure-SSIS IR daha sonra indirme uzun olmaz.
 
        ![Dosyaları blob kapsayıcısına yükleyin.](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image5.png)
 
@@ -140,15 +142,15 @@ Azure-SSIS IR özelleştirmek için aşağıdakiler gerekir:
 
        1. A `.NET FRAMEWORK 3.5` her düğümde, Azure-SSIS IR, özel bileşenler için gerekli olabilecek .NET Framework'ün önceki bir sürümünü yüklemek için özel bir kurulum içeren klasör
 
-       1. Bir `AAS` istemci kitaplıklarının Azure Analysis Services (AAS) örneğine hizmet sorumlusu kimlik doğrulaması kullanarak bağlanmak Analysis Services görevlerinizi sağlayan Azure-SSIS IR her düğümde yüklemek için özel bir kurulum içeren klasör. İlk olarak, en son indirme **MSOLAP (amd64)** ve **AMO** istemci kitaplıkları/Windows Yükleyici - Örneğin, `x64_15.0.900.108_SQL_AS_OLEDB.msi` ve `x64_15.0.900.108_SQL_AS_AMO.msi` - [burada](https://docs.microsoft.com/azure/analysis-services/analysis-services-data-providers), ardından bunların tümünü birlikte karşıya `main.cmd` kapsayıcınıza.  
-
        1. A `BCP` SQL Server komut satırı yardımcı programlarını yüklemek için özel bir kurulum içeren klasörü (`MsSqlCmdLnUtils.msi`), toplu kopyalama programı da dahil olmak üzere (`bcp`), her düğüme, Azure-SSIS IR
 
        1. Bir `EXCEL` açık kaynaklı derlemeleri yüklemek için özel bir kurulum içeren klasörü (`DocumentFormat.OpenXml.dll`, `ExcelDataReader.DataSet.dll`, ve `ExcelDataReader.dll`), Azure-SSIS IR, her bir düğümde
 
        1. Bir `ORACLE ENTERPRISE` özel kurulum betiği içeren klasörü (`main.cmd`) ve sessiz yükleme yapılandırma dosyası (`client.rsp`) Oracle bağlayıcılar ve OCI sürücü, Azure-SSIS IR Enterprise Edition'ın her düğüme yüklenecek. Bu kurulum Oracle Bağlantı Yöneticisi, kaynak ve hedef kullanmanıza olanak sağlar. İlk olarak, Oracle için Microsoft Connectors v5.0 indirin (`AttunitySSISOraAdaptersSetup.msi` ve `AttunitySSISOraAdaptersSetup64.msi`) öğesinden [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55179) ve en son Oracle istemcisini - Örneğin, `winx64_12102_client.zip` - [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html), bunların tümünü birlikte karşıya `main.cmd` ve `client.rsp` kapsayıcınıza. Oracle için bağlanmak için kullandığınız TNS de indirmek gerekirse `tnsnames.ora`, düzenlemek ve böylece Kurulum sırasında Oracle yükleme klasörüne kopyalanabilir, kapsayıcıya yükleyin.
 
-       1. Bir `ORACLE STANDARD` özel kurulum betiği içeren klasörü (`main.cmd`), Azure-SSIS IR'yi her düğümde Oracle ODP.NET sürücüsünü yüklenecek Bu kurulum ADO.NET Bağlantı Yöneticisi, kaynak ve hedef kullanmanıza olanak sağlar. İlk olarak, en son Oracle ODP.NET sürücüsünü - Örneğin, indirme `ODP.NET_Managed_ODAC122cR1.zip` - [Oracle](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)ve ardından ile birlikte karşıya `main.cmd` kapsayıcınıza.
+       1. Bir `ORACLE STANDARD ADO.NET` özel kurulum betiği içeren klasörü (`main.cmd`), Azure-SSIS IR'yi her düğümde Oracle ODP.NET sürücüsünü yüklenecek Bu kurulum ADO.NET Bağlantı Yöneticisi, kaynak ve hedef kullanmanıza olanak sağlar. İlk olarak, en son Oracle ODP.NET sürücüsünü - Örneğin, indirme `ODP.NET_Managed_ODAC122cR1.zip` - [Oracle](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)ve ardından ile birlikte karşıya `main.cmd` kapsayıcınıza.
+       
+       1. Bir `ORACLE STANDARD ODBC` özel kurulum betiği içeren klasörü (`main.cmd`) Oracle ODBC sürücüsünü yüklemek ve Azure-SSIS IR, her bir düğümde DSN yapılandırmak için Bu kurulum ODBC Bağlantı Yöneticisi/kaynak/hedef veya Power Query Bağlantı Yöneticisi/kaynak Oracle sunucusuna bağlanmak için ODBC veri kaynağı türü ile kullanmanıza olanak sağlar. İlk olarak, en son Oracle anlık istemci (temel paket veya temel Lite paket) ve ODBC Package - Örneğin, 64-bit paketleri indirme [burada](https://www.oracle.com/technetwork/topics/winx64soft-089540.html) (temel paket: `instantclient-basic-windows.x64-18.3.0.0.0dbru.zip`, temel Lite paket: `instantclient-basiclite-windows.x64-18.3.0.0.0dbru.zip`, ODBC paketini : `instantclient-odbc-windows.x64-18.3.0.0.0dbru.zip`) veya 32-bit paketleri [burada](https://www.oracle.com/technetwork/topics/winsoft-085727.html) (temel paket: `instantclient-basic-nt-18.3.0.0.0dbru.zip`, temel Lite paket: `instantclient-basiclite-nt-18.3.0.0.0dbru.zip`, ODBC paket: `instantclient-odbc-nt-18.3.0.0.0dbru.zip`) ve ardından bunları ile birlikte yüklemek `main.cmd` içine kapsayıcı.
 
        1. Bir `SAP BW` özel kurulum betiği içeren klasörü (`main.cmd`) SAP .NET bağlayıcı derlemesini yüklemek için (`librfc32.dll`), Azure-SSIS IR Enterprise Edition'ın her bir düğümde. Bu kurulum SAP BW Bağlantı Yöneticisi, kaynak ve hedef kullanmanıza olanak sağlar. İlk olarak, 64-bit veya 32-bit sürümünü karşıya `librfc32.dll` kapsayıcınızı, birlikte SAP yükleme klasöründen `main.cmd`. Betik daha sonra SAP bütünleştirilmiş kod içine kopyalar `%windir%\SysWow64` veya `%windir%\System32` Kurulum sırasında klasör.
 

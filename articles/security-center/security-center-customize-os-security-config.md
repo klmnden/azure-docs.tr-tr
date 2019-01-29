@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/26/2018
 ms.author: rkarlin
-ms.openlocfilehash: 91ee57ccd676d1d5e806e3f22eed3389d0fe5e73
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 16c7ad523bcd4a1f7b7b1f80d99e4d36dade72df
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334202"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102439"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>İşletim sistemi güvenlik yapılandırmaları (Önizleme) Azure Güvenlik Merkezi'nde özelleştirme
 
@@ -90,7 +90,7 @@ Herhangi bir noktada, varsayılan durumuna getirmek geçerli ilke yapılandırma
 >
 >
 
-Özelleştirme dosyası düzenlenirken bir kural veya tümünü değiştirebilirsiniz. Her bir kural kümesi içeren bir *kuralları* üç kategoriye ayrılır bölüm: kayıt defteri, Denetim İlkesi ve güvenlik ilkesi, burada gösterildiği gibi:
+Özelleştirme dosyası düzenlenirken bir kural veya tümünü değiştirebilirsiniz. Her bir kural kümesi içeren bir *kuralları* bölüm üç kategoriye ayrılır: Kayıt defteri, Denetim İlkesi ve güvenlik ilkesi, burada gösterildiği gibi:
 
 ![Üç ruleset kategorileri](media/security-center-customize-os-security-config/rules-section.png)
 
@@ -98,21 +98,21 @@ Her kategorinin kendi öznitelikleri kümesi vardır. Aşağıdaki öznitelikler
 
 - **expectedValue**: Bu özniteliğin alanın veri türü başına desteklenen değerler eşleşmelidir *kural türü*, örneğin:
 
-  - **baselineRegistryRules**: değer eşleşmelidir [regValueType](https://msdn.microsoft.com/library/windows/desktop/ms724884) bu kuralda tanımlı.
+  - **baselineRegistryRules**: Değer eşleşmelidir [regValueType](https://msdn.microsoft.com/library/windows/desktop/ms724884) bu kuralda tanımlı.
 
-  - **baselineAuditPolicyRules**: Aşağıdaki dize değerlerden birini kullanın:
+  - **baselineAuditPolicyRules**: Aşağıdaki dize değerlerinden birini kullanın:
 
     - *Başarı ve başarısızlık*
 
     - *Başarılı*
 
-  - **baselineSecurityPolicyRules**: Aşağıdaki dize değerlerden birini kullanın:
+  - **baselineSecurityPolicyRules**: Aşağıdaki dize değerlerinden birini kullanın:
 
     - *Hiç kimse*
 
-    - Listesine izin kullanıcı grupları, örneğin: *Yöneticiler*, *Backup Operators*
+    - Örneğin, izin verilen kullanıcı grupları listesi: *Yöneticiler*, *Yedekleme İşletmenleri*
 
--   **Durum**: dize seçenekleri içerebilir *devre dışı bırakılmış* veya *etkin*. Bu özel Önizleme sürümü için dize büyük/küçük harf duyarlıdır.
+-   **Durum**: Dize seçenekleri içerebilir *devre dışı bırakılmış* veya *etkin*. Bu özel Önizleme sürümü için dize büyük/küçük harf duyarlıdır.
 
 Bunlar, yapılandırılabilir tek alanlardır. Dosya biçimini veya boyutunu ihlal değişikliği kaydetmek mümkün olmayacaktır. Geçerli bir JSON yapılandırma dosyasını karşıya yüklemek için gereken bildiren bir hata alırsınız.
 
@@ -121,7 +121,7 @@ Diğer olası hataları listesi için bkz. [hata kodları](#error-codes).
 Aşağıdaki üç bölümler önceki kuralların örnekleri içerir. *ExpectedValue* ve *durumu* öznitelikler değiştirilebilir.
 
 **baselineRegistryRules**
-```
+```json
     {
     "hive": "LocalMachine",
     "regValueType": "Int",
@@ -144,7 +144,7 @@ Aşağıdaki üç bölümler önceki kuralların örnekleri içerir. *ExpectedVa
 ```
 
 **baselineAuditPolicyRules**
-```
+```json
     {
     "auditPolicyId": "0cce923a-69ae-11d9-bed3-505054503030",
     "ruleId": "37745508-95fb-44ec-ab0f-644ec0b16995",
@@ -161,7 +161,7 @@ Aşağıdaki üç bölümler önceki kuralların örnekleri içerir. *ExpectedVa
 ```
 
 **baselineSecurityPolicyRules**
-```
+```json
     {
     "sectionName": "Privilege Rights",
     "settingName": "SeIncreaseWorkingSetPrivilege",
@@ -194,17 +194,17 @@ Ayrıca, yeni kurallar oluşturabilirsiniz. Yeni bir kural oluşturmadan önce a
 
 Yeni özel kurallar, yeni bir özel kaynak ile işaretlenir (! = "Microsoft"). *RuleId* alanı null veya boş olabilir. Boşsa, Microsoft bir tane oluşturur. Boş değilse, tüm kurallar arasında (varsayılan ve özel) benzersiz olan geçerli bir GUID olması gerekir. Temel alanlar için aşağıdaki kısıtlamaları gözden geçirin:
 
--   **originalId**: null veya boş olamaz. Varsa *originalId* olan boş, geçerli bir GUID olması.
+-   **originalId**: Null veya boş olabilir. Varsa *originalId* olan boş, geçerli bir GUID olması.
 
--   **cceId**: null veya boş olamaz. Varsa *cceId* olduğundan boş değil benzersiz olmalıdır.
+-   **cceId**: Null veya boş olabilir. Varsa *cceId* olduğundan boş değil benzersiz olmalıdır.
 
 -   **kural türü**: (birini) kayıt defteri, AuditPolicy veya SecurityPolicy.
 
 -   **Önem derecesi**: (birini) bilinmiyor, kritik, uyarı ve bilgilendirici.
 
--   **analyzeOperation**: olmalıdır *eşittir*.
+-   **analyzeOperation**: Olmalıdır *eşittir*.
 
--   **auditPolicyId**: geçerli bir GUID olması gerekir.
+-   **auditPolicyId**: Geçerli bir GUID olmalıdır.
 
 -   **regValueType**: (birini) Int, Long, dize veya MultipleString.
 
@@ -216,7 +216,7 @@ Yeni özel kurallar, yeni bir özel kaynak ile işaretlenir (! = "Microsoft"). *
 Yeni bir özel kural örneği:
 
 **Kayıt defteri**:
-```
+```json
     {
     "hive": "LocalMachine",
     "regValueType": "Int",
@@ -225,7 +225,7 @@ Yeni bir özel kural örneği:
     "valueName": "MyValueName",
     "originalId": "",
     "cceId": "",
-    "ruleName": "My new registry rule”, "baselineRuleType": "Registry",
+    "ruleName": "My new registry rule", "baselineRuleType": "Registry",
     "expectedValue": "123", "severity": "Critical",
     "analyzeOperation": "Equals",
     "source": "MyCustomSource",
@@ -233,7 +233,7 @@ Yeni bir özel kural örneği:
     }
 ```
 **Güvenlik İlkesi**:
-```
+```json
    {
    "sectionName": "Privilege Rights",
    "settingName": "SeDenyBatchLogonRight",
@@ -248,7 +248,7 @@ Yeni bir özel kural örneği:
    }
 ```
 **Denetim İlkesi**:
-```
+```json
    {
    "auditPolicyId": "0cce923a-69ae-11d9-bed3-505054503030",
    "originalId": "",
@@ -273,9 +273,9 @@ Bir hata dosyası örneği:
 
 Tüm olası hatalar aşağıdaki tabloda listelenmiştir:
 
-| **Hata**                                | **Açıklama**                                                                                                                              |
+| **Hata:**                                | **Açıklama**                                                                                                                              |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| BaselineConfiguratiohSchemaVersionError  | Özellik *schemaVersion* geçersiz veya boş bulunamadı. Değer ayarlanmalıdır *{0}*.                                                         |
+| BaselineConfigurationSchemaVersionError  | Özellik *schemaVersion* geçersiz veya boş bulunamadı. Değer ayarlanmalıdır *{0}*.                                                         |
 | BaselineInvalidStringError               | Özellik *{0}* içeremez  *\\n*.                                                                                                         |
 | BaselineNullRuleError                    | Değerine sahip bir kural taban çizgisi yapılandırma kuralları listesi içeren *null*.                                                                         |
 | BaselineRuleCceIdNotUniqueError          | CCE kimliği *{0}* benzersiz değil.                                                                                                                  |
@@ -298,7 +298,7 @@ Tüm olası hatalar aşağıdaki tabloda listelenmiştir:
 | BaselineRuleTypeDoesntMatchError         | Kural gerçek türü *{0}*, ancak *kural türü* özelliği *{1}*.                                                                          |
 | BaselineRuleUnpermittedChangesError      | Yalnızca *expectedValue* ve *durumu* özellikleri değiştirilmesine izin verilir.                                                                       |
 | BaselineTooManyRules                     | Maksimum sayısı izin verilen özelleştirilmiş kurallar {0} kuralları. Belirli bir yapılandırma içeriyor {1} kuralları {2} varsayılan kuralları ve {3} özelleştirilmiş kurallar. |
-| ErrorNoConfigurationStatus               | Hiçbir yapılandırma durumu bulunamadı. İstenen yapılandırma durumunun durumu: *varsayılan* veya *özel*.                                    |
+| ErrorNoConfigurationStatus               | Hiçbir yapılandırma durumu bulunamadı. İstenen yapılandırma durumunun durumu: *Varsayılan* veya *özel*.                                    |
 | ErrorNonEmptyRulesetOnDefault            | Yapılandırma durumu, varsayılan olarak ayarlanır. *BaselineRulesets* listesi null veya boş olmalıdır.                                                          |
 | ErrorNullRulesetsPropertyOnCustom        | Belirtilen yapılandırma durumu *özel* ancak *baselineRulesets* özelliği null veya boş.                                             |
 | ErrorParsingBaselineConfig               | Belirtilen yapılandırma geçersiz. Bir veya daha fazla tanımlı değerlerin bir null değer ya da geçersiz bir türe sahip.                                  |

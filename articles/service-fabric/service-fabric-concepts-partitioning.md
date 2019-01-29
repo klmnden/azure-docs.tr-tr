@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: msfussell
-ms.openlocfilehash: 70305468ca20c48bdc26e7e000a0e5edb63508cd
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 0012304412b343918ab69abf6eababc033cddc6f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261579"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55198223"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Partition Service Fabric güvenilir Hizmetleri
 Bu makalede, Azure Service Fabric güvenilir Hizmetleri bölümleme temel kavramlar tanıtılmaktadır. Makalesinde kullanılan kaynak kodu de kullanılabilir [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
@@ -129,11 +129,7 @@ Tam anlamıyla harfi her bir bölüm olmasını istiyoruz gibi kendi anahtarın�
 1. Açık **Visual Studio** > **dosya** > **yeni** > **proje**.
 2. İçinde **yeni proje** iletişim kutusunda, Service Fabric uygulamasını seçin.
 3. Proje "AlphabetPartitions" çağırın.
-4. İçinde **bir hizmet oluşturma** iletişim kutusunda **durum bilgisi olan** hizmet ve aşağıdaki resimde gösterildiği gibi "Alphabet.Processing" çağırın.
-       ![Visual Studio'da yeni hizmet iletişim kutusu][1]
-
-  <!--  ![Stateful service screenshot](./media/service-fabric-concepts-partitioning/createstateful.png)-->
-
+4. İçinde **bir hizmet oluşturma** iletişim kutusunda **durum bilgisi olan** hizmet ve "Alphabet.Processing" çağırın.
 5. Bölüm sayısını ayarlayın. ApplicationPackageRoot AlphabetPartitions proje klasöründe bulunan Applicationmanifest.xml dosyasını açın ve aşağıda gösterildiği gibi 26'parametresi Processing_PartitionCount güncelleştirin.
    
     ```xml
@@ -167,7 +163,7 @@ Tam anlamıyla harfi her bir bölüm olmasını istiyoruz gibi kendi anahtarın�
    
     Bu adres çoğaltmaya benzersiz olması gerekir, bu hizmetin birden fazla çoğaltma aynı bilgisayarda barındırılabileceği. Bölüm kimliği + çoğaltma kimliği URL'de olan nedeni budur. URL öneki benzersiz olduğu sürece, aynı bağlantı noktasında birden çok adresi üzerinde HttpListener dinleyebilirsiniz.
    
-    Ek GUID ikincil çoğaltmaları da salt okunur isteklerini dinlemek burada Gelişmiş bir servis talebi için yoktur. Bu durumda, yeni bir benzersiz adresi birincil ikincil siteden geçiş yaparken adresini yeniden çözümlemek için istemcileri zorlamak için kullanılmadığından emin olmanız gerekir. '+', böylece kullanılabilir tüm konakları üzerinde (IP, FQDM localhost, vb.) çoğaltma dinler burada adresi olarak kullanılır Aşağıdaki kod örneği gösterilmektedir.
+    Ek GUID ikincil çoğaltmaları da salt okunur isteklerini dinlemek burada Gelişmiş bir servis talebi için yoktur. Bu durumda, yeni bir benzersiz adresi birincil ikincil siteden geçiş yaparken adresini yeniden çözümlemek için istemcileri zorlamak için kullanılmadığından emin olmanız gerekir. '+', böylece kullanılabilir tüm konakları üzerinde (IP, FQDN, localhost, vb.) çoğaltma dinler burada adresi olarak kullanılır Aşağıdaki kod örneği gösterilmektedir.
    
     ```CSharp
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -365,7 +361,7 @@ Tam anlamıyla harfi her bir bölüm olmasını istiyoruz gibi kendi anahtarın�
 Tüm kaynak kodu örnek [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
 
 ## <a name="reliable-services-and-actor-forking-subprocesses"></a>Reliable Services ve alt işlemden çatal aktör
-Service Fabric güvenilir Hizmetleri ve daha sonra reliable actors alt işlemden çatal desteklemiyor. Neden olmadığını desteklenen bir örnektir [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) desteklenmeyen bir alt kaydetmek için kullanılamaz ve iptal belirteçlerini yalnızca registred işlemleri; gönderilen sorunların, her tür gibi kaynaklanan alt işlemden kapatmayın, üst işlemdeki bir iptal belirteci aldıktan sonra hatalar'ı yükseltin. 
+Service Fabric güvenilir Hizmetleri ve daha sonra reliable actors alt işlemden çatal desteklemiyor. Neden olmadığını desteklenen bir örnektir [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) desteklenmeyen bir alt kaydetmek için kullanılamaz ve iptal belirteçlerini yalnızca gönderilen kayıtlı işler; sorunları, her tür gibi kaynaklanan alt işlemden kapatmayın, üst işlemdeki bir iptal belirteci aldıktan sonra hatalar'ı yükseltin. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Service Fabric kavramlarla ilgili daha fazla bilgi için aşağıdakilere bakın:

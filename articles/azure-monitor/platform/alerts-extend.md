@@ -1,5 +1,5 @@
 ---
-title: Azure uyarılarına genişletecektir - genel bakış (kopya) Log Analytics uyarıları genişletme
+title: Azure kamu Bulutuna (kopya) Log Analytics uyarıları genişletme
 description: Uyarıları Log Analytics'ten OMS Portalı'nda Azure uyarılarına genişletecektir ile kopyalama işlemine genel bakış adresleme yaygın müşteri endişeler ayrıntıları.
 author: msvijayn
 services: azure-monitor
@@ -8,19 +8,21 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: e2f2a739f78072a0479e77e68e84c8f4b395468f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: efd2fc9d164564126b7b641ef35bbb10c4834f49
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54422235"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099337"
 ---
 # <a name="extend-log-analytics-alerts-to-azure-alerts"></a>Azure uyarıları log Analytics uyarıları genişletme
 
 > [!NOTE]
 > Microsoft Azure genel sürümleri için bu makalede açıklanan işlemi zaten tamamlandı. Ancak, yine de ABD kamu sürümleri için geçerlidir.  
 
-Yakın zamanda kadar Azure Log Analytics, Log Analytics verilerine dayalı koşulları proaktif olarak bildirebilirsiniz kendi uyarı işlevleri dahil. Microsoft Operations Management Suite portalında uyarı kuralları Yönetildi Yeni uyarı deneyimi artık Microsoft azure'da çeşitli hizmetlerdeki uyarı tümleştirilmiştir. Bu olarak kullanılabilir **uyarılar** Azure portalında, Azure İzleyici ve etkinlik günlükleri, ölçümler, uyarı destekler ve hem Log Analytics hem de Azure Application Insights günlüğe kaydeder. 
+Yakın zamanda kadar Azure Log Analytics, Log Analytics verilerine dayalı koşulları proaktif olarak bildirebilirsiniz kendi uyarı işlevleri dahil. Microsoft Operations Management Suite portalında uyarı kuralları Yönetildi Yeni uyarı deneyimi artık Microsoft azure'da çeşitli hizmetlerdeki uyarı tümleştirilmiştir. Bu olarak kullanılabilir **uyarılar** Azure portalında, Azure İzleyici ve etkinlik günlükleri, ölçümler, uyarı destekler ve hem Log Analytics hem de Azure Application Insights günlüğe kaydeder.
+
+OMS portalını kullanarak azure kamu Bulutu müşterileri için [gönüllü olarak kendi uyarı kuralları Azure'a genişletme](alerts-extend-tool.md) gelen **1 Şubat 2019**. Başlangıç **1 Mart'ta 2019** - Microsoft Otomatik-genişletmek sistematik bir şekilde var olan uyarı kurallarının tümünü Azure kamu'da - OMS portalı Azure; izleme sonu veya kapalı kalma süresi olmadan. Sonra oluşturulan yeni çalışma alanı **1 Mart'ta 2019** Azure kamu bulutunda OMS portalı Azure'a otomatik olarak genişletilmiş olur.
 
 ## <a name="benefits-of-extending-your-alerts"></a>Uyarılarınızı genişletmenin avantajları
 Oluşturma ve Azure portalında, uyarılar gibi yönetme çeşitli avantajları vardır:

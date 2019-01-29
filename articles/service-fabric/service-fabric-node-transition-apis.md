@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/12/2017
 ms.author: lemai
-ms.openlocfilehash: 95c3726caeb19d6bbf7153533951bb18cd7d0e57
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: ff5d4267de172aa83fae6ce70a609ad9897d7374
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055412"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102694"
 ---
 # <a name="replacing-the-start-node-and-stop-node-apis-with-the-node-transition-api"></a>Düğüm geçişi API ile Başlat ve Durdur düğümlerini API'leri değiştirme
 
 ## <a name="what-do-the-stop-node-and-start-node-apis-do"></a>Düğüm durdurmak ve başlatmak düğüm API'leri ne yapacaksınız?
 
-Durdurma düğüm API (yönetilen: [StopNodeAsync()][stopnode], PowerShell: [Stop-ServiceFabricNode][stopnodeps]) bir Service Fabric düğüm durdurur.  Bir Service Fabric düğüm işlemi, bir VM veya değil makine – VM veya makine hala çalıştırırsınız.  Belgenin geri kalanında için Service Fabric düğümü "düğüm" anlamına gelir.  Bir düğümü durdurma, koyar içine bir *durduruldu* burada kümesinin bir üyesi değil ve Hizmetleri, bu nedenle benzetimi barındıramaz durumu bir *aşağı* düğümü.  Bu, hataları uygulamanızı test etmek için sisteme ekleme için kullanışlıdır.  Başlangıç düğümü API (yönetilen: [StartNodeAsync()][startnode], PowerShell: [Başlat-ServiceFabricNode][startnodeps]]) Durdur düğüm API tersine çevirir.  hangi düğümün normal bir duruma getirir.
+Durdurma düğüm API (yönetilen: [StopNodeAsync()][stopnode], PowerShell: [Stop-ServiceFabricNode][stopnodeps]) bir Service Fabric düğüm durdurur.  Bir Service Fabric düğüm işlemi, bir VM veya değil makine – VM veya makine hala çalıştırırsınız.  Belgenin geri kalanında için Service Fabric düğümü "düğüm" anlamına gelir.  Bir düğümü durdurma, koyar içine bir *durduruldu* burada kümesinin bir üyesi değil ve Hizmetleri, bu nedenle benzetimi barındıramaz durumu bir *aşağı* düğümü.  Bu, hataları uygulamanızı test etmek için sisteme ekleme için kullanışlıdır.  Başlangıç düğümü API (yönetilen: [StartNodeAsync()][startnode], PowerShell: [Start-ServiceFabricNode][startnodeps]]) düğüm normal bir duruma getirir Durdur düğüm API tersine çevirir.
 
 ## <a name="why-are-we-replacing-these"></a>Neden Biz bu değiştirdiğiniz?
 
@@ -38,14 +38,14 @@ Ayrıca, bir düğüm için durduruldu süresi başlangıç düğümü API çağ
 
 ## <a name="introducing-the-node-transition-apis"></a>Düğüm geçişi API'lerini ile tanışın
 
-Biz, yeni bir API kümesi üzerinde bu sorunları ele aldık.  Yeni düğüm geçiş API (yönetilen: [StartNodeTransitionAsync()][snt]) bir Service Fabric düğümünü geçiş için kullanılabilir bir *durduruldu* durumu veya ondan geçiş için bir *durduruldu* çalışır durumda bir normal durum.  API adı "Başlangıç" ile başlayarak bir düğüm başvurmuyor unutmayın.  Sistem ya da düğümü geçmeye yürütecek bir zaman uyumsuz işlem başlamadan için başvurduğu *durduruldu* veya durumu başlatıldı.
+Biz, yeni bir API kümesi üzerinde bu sorunları ele aldık.  Yeni düğüm geçiş API (yönetilen: [StartNodeTransitionAsync()][snt]) bir Service Fabric düğümünü geçiş için kullanılabilir bir *durduruldu* durumu veya ondan geçiş için bir *durduruldu* durumunu bir normal çalışır durumda.  API adı "Başlangıç" ile başlayarak bir düğüm başvurmuyor unutmayın.  Sistem ya da düğümü geçmeye yürütecek bir zaman uyumsuz işlem başlamadan için başvurduğu *durduruldu* veya durumu başlatıldı.
 
 **Kullanım**
 
-Düğüm geçişi API çağrıldığında bir özel durum oluşturmaz, sonra sistem zaman uyumsuz işlemi kabul etti ve bunu çalıştırır.  Başarılı bir çağrı işlemi henüz tamamlandı göstermez.  İşlemi geçerli durumu hakkında bilgi almak için düğüm geçiş ilerleme API çağrısı (yönetilen: [GetNodeTransitionProgressAsync()][gntp]) düğüm geçiş API'si çağrılırken kullanılan GUID ile Bu işlem için.  Düğüm geçişi ilerleme API NodeTransitionProgress nesneyi döndürür.  Bu nesnenin durumu özelliği, geçerli işlemin durumunu belirtir.  Durumu "çalışıyor"durumunda, sonra işlemi yürütülüyor.  Tamamlandıysa, hatasız işlemi tamamlandı.  Hatalı, işlem yürütülürken bir hata oluştu.  Sonuç özelliğin özel durum özelliği, sorunun ne olduğunu gösterir.  Bkz: https://docs.microsoft.com/dotnet/api/system.fabric.testcommandprogressstate State özelliği ve kod örnekleri için aşağıdaki "Örnek kullanım" bölümüne hakkında daha fazla bilgi.
+Düğüm geçişi API çağrıldığında bir özel durum oluşturmaz, sonra sistem zaman uyumsuz işlemi kabul etti ve bunu çalıştırır.  Başarılı bir çağrı işlemi henüz tamamlandı göstermez.  İşlemi geçerli durumu hakkında bilgi almak için düğüm geçiş ilerleme API çağrısı (yönetilen: [GetNodeTransitionProgressAsync()][gntp]) düğüm geçiş API bu işlemi için DTA çağrılırken kullanılan GUID'e sahip.  Düğüm geçişi ilerleme API NodeTransitionProgress nesneyi döndürür.  Bu nesnenin durumu özelliği, geçerli işlemin durumunu belirtir.  Durumu "çalışıyor"durumunda, sonra işlemi yürütülüyor.  Tamamlandıysa, hatasız işlemi tamamlandı.  Hatalı, işlem yürütülürken bir hata oluştu.  Sonuç özelliğin özel durum özelliği, sorunun ne olduğunu gösterir.  Bkz: https://docs.microsoft.com/dotnet/api/system.fabric.testcommandprogressstate State özelliği ve kod örnekleri için aşağıdaki "Örnek kullanım" bölümüne hakkında daha fazla bilgi.
 
 
-**Durdurulmuş bir düğüm ile aşağı düğümü arasında ayrım** bir düğümü ise *durduruldu* düğümü sorgusu çıkışını düğüm geçiş API'sini kullanarak (yönetilen: [GetNodeListAsync()] [ nodequery], PowerShell: [Get-ServiceFabricNode][nodequeryps]) bu düğüm olduğunu gösterecek bir *IsStopped* özellik değeri true.  Bu değerinden farklı olduğunu unutmayın *NodeStatus* kilit ekranında özelliği *aşağı*.  Varsa *NodeStatus* özellik değerine sahip *aşağı*, ancak *IsStopped* sonra düğüm düğüm geçiş API'sini kullanarak durdurulmadı false ise ve *aşağı*  herhangi bir nedenden dolayı.  Varsa *IsStopped* özelliği true ise ve *NodeStatus* özelliği *aşağı*, ardından düğümü geçiş API'sini kullanarak durduruldu.
+**Durdurulmuş bir düğüm ile aşağı düğümü arasında ayrım** bir düğümü ise *durduruldu* düğümü sorgusu çıkışını düğüm geçiş API'sini kullanarak (yönetilen: [GetNodeListAsync()][nodequery], PowerShell: [Get-ServiceFabricNode][nodequeryps]) bu düğüm olduğunu gösterecek bir *IsStopped* özellik değeri true.  Bu değerinden farklı olduğunu unutmayın *NodeStatus* kilit ekranında özelliği *aşağı*.  Varsa *NodeStatus* özellik değerine sahip *aşağı*, ancak *IsStopped* sonra düğüm düğüm geçiş API'sini kullanarak durdurulmadı false ise ve *aşağı*  herhangi bir nedenden dolayı.  Varsa *IsStopped* özelliği true ise ve *NodeStatus* özelliği *aşağı*, ardından düğümü geçiş API'sini kullanarak durduruldu.
 
 Başlangıç bir *durduruldu* düğüm geçiş API'sini kullanarak düğüm kümesinin normal bir üyesi tekrar çalışabilmesi için döndürecektir.  Düğüm sorgu API'si çıktısını gösterir *IsStopped* false olarak ve *NodeStatus* aşağı (örneğin, Up) olmayan bir şey olarak.
 
@@ -159,7 +159,7 @@ Başlangıç bir *durduruldu* düğüm geçiş API'sini kullanarak düğüm küm
             }
             while (!wasSuccessful);
 
-            // Now call StartNodeTransitionProgressAsync() until hte desired state is reached.
+            // Now call StartNodeTransitionProgressAsync() until the desired state is reached.
             await WaitForStateAsync(fc, guid, TestCommandProgressState.Completed).ConfigureAwait(false);
         }
 ```
@@ -202,7 +202,7 @@ Başlangıç bir *durduruldu* düğüm geçiş API'sini kullanarak düğüm küm
             }
             while (!wasSuccessful);
 
-            // Now call StartNodeTransitionProgressAsync() until hte desired state is reached.
+            // Now call StartNodeTransitionProgressAsync() until the desired state is reached.
             await WaitForStateAsync(fc, guid, TestCommandProgressState.Completed).ConfigureAwait(false);
         }
 ```

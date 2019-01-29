@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/06/2018
+ms.date: 01/26/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c271efceacab7f310b8e08a28d101f653c73a186
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 7916995d2630e9b33e3695c5c505925851ba4934
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868557"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092806"
 ---
-# <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Öğretici: Azure’da bir Linux sanal makinesini izleme ve güncelleştirme
+# <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Öğretici: İzleme ve azure'da bir Linux sanal makinesi güncelleştirme
 
 Azure’daki sanal makinelerin (VM) düzgün bir şekilde çalıştığından emin olmak için önyükleme tanılamalarını ve performans ölçümlerini gözden geçirebilir ve paket güncelleştirmelerini yönetebilirsiniz. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -153,7 +153,7 @@ Aşağıdaki örnek, ortalama CPU kullanımı için bir uyarı oluşturur.
 5. İsteğe bağlı olarak e-posta bildirimi göndermek için *E-posta sahipleri, katkıda bulunanlar ve okuyucular* kutusunu işaretleyebilirsiniz. Varsayılan eylem olarak portalda bir bildirim sunulur.
 6. **Tamam** düğmesini seçin.
 
-## <a name="manage-package-updates"></a>Paket güncelleştirmelerini yönetme
+## <a name="manage-software-updates"></a>Yazılım güncelleştirmelerini yönetme
 
 Güncelleştirme yönetimi, Azure Linux sanal makineleriniz için güncelleştirme ve yamaları yönetmenize olanak sağlar.
 VM’nizden doğrudan güncelleştirmelerin durumunu değerlendirebilir, gerekli güncelleştirmelerin yüklenmesini zamanlayabilir ve güncelleştirmelerin VM’ye başarılı bir şekilde uygulandığından emin olmak için dağıtım sonuçlarını gözden geçirebilirsiniz.
@@ -175,15 +175,14 @@ Bu doğrulama kapsamında Log Analytics çalışma alanı ve bağlantılı Otoma
 Çalışma alanı, birden fazla kaynaktan alınan verilerin incelenip analiz edilebileceği ortak bir konum sağlar.
 Azure Otomasyonu, güncelleştirme yapılması gereken VM'lerde güncelleştirme indirme ve uygulama gibi ek işlemleri gerçekleştirmek için VM'ler üzerinde runbook'lar çalıştırmanızı sağlar.
 
-Doğrulama işlemi ayrıca VM'nin Microsoft Monitoring Agent (MMA) ve Otomasyon karma runbook çalışanı ile sağlanıp sağlanmadığını da kontrol eder.
-Bu aracı, VM ile iletişim kurmak ve güncelleştirme durumu hakkında bilgi almak için kullanılır.
+Doğrulama işlemi ayrıca VM'nin Log Analytics aracısını ve Otomasyon karma runbook çalışanı ile sağlanıp sağlanmadığını da kontrol eder. Bu aracı, VM ile iletişim kurmak ve güncelleştirme durumu hakkında bilgi almak için kullanılır.
 
 Çözümü etkinleştirmek için Log Analytics çalışma alanını ve otomasyon hesabını seçip ardından **Etkinleştir**’i seçin. Çözümün etkinleştirilmesi 15 dakika sürer.
 
 Ekleme sırasında aşağıdaki önkoşullardan birinin karşılanmadığı tespit edilirse ilgili önkoşul otomatik olarak eklenir:
 
 * [Log Analytics](../../log-analytics/log-analytics-overview.md) çalışma alanı
-* [Otomasyon](../../automation/automation-offering-get-started.md)
+* [Otomasyon hesabı](../../automation/automation-offering-get-started.md)
 * VM üzerinde etkin bir [Karma runbook çalışanı](../../automation/automation-hybrid-runbook-worker.md)
 
 **Güncelleştirme Yönetimi** ekranı açılır. Kullanılacak konumu, Log Analytics çalışma alanını ve Otomasyon hesabını yapılandırdıktan sonra **Etkinleştir**'i seçin. Bu alanların gri renkte olması, VM için etkinleştirilmiş başka bir otomasyon çözümü olduğunu gösterir ve bu durumda aynı çalışma alanı ile Otomasyon hesabının kullanılması gerekir.
@@ -249,7 +248,7 @@ Dağıtımla ilgili her türlü hata hakkında ayrıntılı bilgiler için **Hat
 
 ## <a name="monitor-changes-and-inventory"></a>Değişiklikleri ve sayımı izleme
 
-Yazılımlar, dosyalar, Linux daemon'ları, Windows hizmetleri ve Windows kayıt defteri anahtarlarıyla ilgili stok durumunu sorgulayabilir ve görüntüleyebilirsiniz. Makinelerinizin yapılandırmasını izlemek ortamınızdaki işletimsel sorunları bulmanıza ve makinelerinizin durumunu daha iyi anlamanıza yardımcı olabilir.
+Toplama ve bilgisayarlarınızdaki yazılım, dosyalar, Linux Daemon'ları, Windows Hizmetleri ve Windows kayıt defteri anahtarları için envanteri görüntüleyin. Makinelerinizin yapılandırmasını izlemek ortamınızdaki işletimsel sorunları bulmanıza ve makinelerinizin durumunu daha iyi anlamanıza yardımcı olabilir.
 
 ### <a name="enable-change-and-inventory-management"></a>Değişiklik ve Sayım yönetimini etkinleştirme
 
@@ -291,22 +290,9 @@ Grafik, zaman içinde gerçekleştirilen değişiklikleri gösterir. Etkinlik G�
 
 ## <a name="advanced-monitoring"></a>Gelişmiş izleme
 
-[Azure Otomasyonu](../../automation/automation-intro.md) tarafından sağlanan Güncelleştirme Yönetimi ve Değişiklik ve Sayım gibi çözümleri kullanarak sanal makinenizin daha gelişmiş izlemesini gerçekleştirebilirsiniz.
+Daha gelişmiş gibi bir çözüm kullanarak VM'NİZDE izleme yapabileceğiniz [VM'ler için Azure İzleyici](../../azure-monitor/insights/vminsights-overview.md), izleyen Azure sanal makinelerinizi (VM) uygun ölçekte Windows ve Linux Vm'leri de dahil olmak üzere, durumunu ve performansını analiz etme bunların farklı işlemleri ve diğer kaynakları ve dış işlemlere birbirine bağımlı. Azure sanal makinelerinizin yapılandırma yönetimi ile girmediklerinden [Azure Otomasyonu](../../automation/automation-intro.md) ortamınızdaki değişiklikleri kolayca belirlemek için değişiklik izleme ve sayım çözümü. Güncelleştirme uyumluluğu yönetmek için Azure Otomasyon güncelleştirme yönetimi çözümü ile sağlanır.   
 
-Log Analytics çalışma alanına eriştiğinizde, **AYARLAR** bölümünden **Gelişmiş ayarlar**’ı seçerek çalışma alanı anahtarını ve çalışma alanı tanıtıcısını bulabilirsiniz. \<workspace-key\> ve \<workspace-id\> öğelerini Log Analytics çalışma alanınızdaki değerlerle değiştirdikten sonra uzantıyı sanal makineye eklemek için **az vm extension set** komutunu kullanabilirsiniz:
-
-```azurecli-interactive
-az vm extension set \
-  --resource-group myResourceGroupMonitor \
-  --vm-name myVM \
-  --name OmsAgentForLinux \
-  --publisher Microsoft.EnterpriseCloud.Monitoring \
-  --version 1.3 \
-  --protected-settings '{"workspaceKey": "<workspace-key>"}' \
-  --settings '{"workspaceId": "<workspace-id>"}'
-```
-
-Birkaç dakika sonra yeni sanal makineyi Log Analytics çalışma alanında görmeniz gerekir.
+VM'nin bağlı olduğu Log Analytics çalışma alanından, ayrıca almak, birleştirmek ve toplanan verileri analiz [zengin sorgu dili](../../azure-monitor/log-query/log-query-overview.md). 
 
 ![Log Analytics](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 

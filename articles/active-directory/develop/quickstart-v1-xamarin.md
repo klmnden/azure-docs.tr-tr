@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 198cd2c3-f7c8-4ec2-b59d-dfdea9fe7d95
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 8af6846da78d12460b7866297c9802c5dab20a69
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5b721dfd7a229220836f273be58c5ca74c4284d1
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967532"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097944"
 ---
 # <a name="quickstart-build-a-xamarin-app-that-integrates-microsoft-sign-in"></a>Hızlı Başlangıç: Microsoft oturum açma tümleşik bir Xamarin uygulaması derleme
 
@@ -39,32 +39,32 @@ Korunan kaynaklara erişmesi gereken Xamarin uygulamaları için Azure AD Active
 ## <a name="prerequisites"></a>Önkoşullar
 
 * İndirme [çatı projesini](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/skeleton.zip), veya indirme [tamamlanan örnek](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/complete.zip). Her yükleme, bir Visual Studio 2013 çözümüdür.
-* Ayrıca, kullanıcıların oluşturmak ve uygulamayı kaydetmek Azure AD kiracısı gerekir. Bir kiracı yoksa [edinebileceğinizi öğrenin](quickstart-create-new-tenant.md).
+* Ayrıca, kullanıcıların oluşturmak ve uygulamayı kaydetmek Azure AD kiracısı gerekir. Henüz bir kiracınız yoksa [nasıl kiracı alınabileceğini öğrenin](quickstart-create-new-tenant.md).
 
 Hazır olduğunuzda, sıradaki dört bölüm konusundaki yordamları izleyin.
 
-## <a name="step-1-set-up-your-xamarin-development-environment"></a>1. adım: Xamarin geliştirme ortamınızı ayarlama
+## <a name="step-1-set-up-your-xamarin-development-environment"></a>1. Adım: Xamarin geliştirme ortamınızı ayarlama
 
 Bu öğreticide, iOS, Android ve Windows projeleri içerdiğinden, hem Visual Studio ve Xamarin gerekir. Gerekli ortam oluşturmak için işlemin tamamlanması [kümesi ayarlama ve Visual Studio ve Xamarin'i yükleme](https://msdn.microsoft.com/library/mt613162.aspx) MSDN'de. Yönergeleri yüklemeleri tamamlanması beklerken Xamarin hakkında daha fazla bilgi edinmek için gözden geçirebileceğiniz malzemesini içerir.
 
 Kurulumu tamamladıktan sonra çözümü Visual Studio'da açın. Burada, altı projeleri bulacaksınız: beş platforma özel Proje ve bir PCL, tüm platformlar arasında paylaşılan DirectorySearcher.cs.
 
-## <a name="step-2-register-the-directorysearcher-app"></a>2. adım: DirectorySearcher uygulamayı kaydetme
+## <a name="step-2-register-the-directorysearcher-app"></a>2. Adım: DirectorySearcher uygulamayı kaydetme
 
 Belirteçlerini almak sağlamak amacıyla, ilk Azure AD kiracınıza kaydetme ve Azure AD Graph API'sine erişim izni vermeniz gerekir. Bunu yapmak için:
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Üst çubuğunda, hesabınıza tıklayın. Ardından, altında **dizin** listesinde, istediğiniz uygulamayı kaydetmek için Active Directory kiracısı seçin.
-3. Tıklayın **tüm hizmetleri** sol bölmesi ve ardından **Azure Active Directory**.
-4. Tıklayın **uygulama kayıtları**ve ardından **Ekle**.
+3. Sol bölmede **Tüm hizmetler**'e tıklayın ve ardından **Azure Active Directory**'yi seçin.
+4. **Uygulama kayıtları**'na tıklayın ve **Ekle**'yi seçin.
 5. Yeni bir **yerel istemci uygulaması**, yönergeleri izleyin.
   * **Adı** kullanıcılara uygulamayı açıklar.
-  * **Yeniden yönlendirme URI'si** belirteç yanıtlarını döndürmek için Azure AD kullanan bir şema ve dize birleşiminden oluşur. Bir değer girin (örneğin, http://DirectorySearcher).
+  * **Yeniden Yönlendirme URI'si**, Azure AD'nin belirteç yanıtlarını döndürmek için kullandığı şema ve dize bileşimidir. Bir değer girin (örneğin, http://DirectorySearcher).
 6. Azure AD kaydı tamamladıktan sonra uygulamayı benzersiz bir uygulama kimliği atar. Değeri Şuradan Kopyala: **uygulama** daha sonra gerekeceği için sekmesinde.
 7. Üzerinde **ayarları** sayfasında **gerekli izinler**ve ardından **Ekle**.
 8. Seçin **Microsoft Graph** API olarak. Altında **Temsilcili izinler**, ekleme **dizin verilerini okuma** izni. Bu eylem, kullanıcılar için Graph API sorgulamak uygulamayı etkinleştirir.
 
-## <a name="step-3-install-and-configure-adal"></a>3. adım: Yükleme ve ADAL'ı yapılandırma
+## <a name="step-3-install-and-configure-adal"></a>3. Adım: Yükleme ve ADAL'ı yapılandırma
 
 Azure AD'de bir uygulama edindikten sonra ADAL'ı yükleyebilir ve kimlikle ilgili kodunuzu yazın. Azure AD ile iletişim kurmak ADAL'ı etkinleştirmek için uygulama kaydı hakkında bazı bilgiler verir.
 
@@ -98,7 +98,7 @@ Azure AD'de bir uygulama edindikten sonra ADAL'ı yükleyebilir ve kimlikle ilgi
   * *ClientID* portaldan kopyaladığınız uygulamanın istemci kimliğidir.
   * *ReturnUri* yeniden yönlendirme URI'si portalda girdiğiniz olan (örneğin, http://DirectorySearcher).
 
-## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>4. adım: Kullanımı Azure AD belirteçlerini almak için ADAL
+## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>4. Adım: Azure AD belirteçlerini almak için ADAL'ı kullanın
 
 Neredeyse tüm uygulamanın kimlik doğrulaması mantığı kaynaklandığını `DirectorySearcher.SearchByAlias(...)`. Platforma özgü projelerinde gerekli olan tek şey bir bağlam parametresine geçirilecek `DirectorySearcher` PCL.
 
@@ -187,12 +187,12 @@ List<User> results = await DirectorySearcherLib.DirectorySearcher.SearchByAlias(
 
 Artık, kullanıcıların kimliklerini doğrulamak ve güvenli bir şekilde beş farklı platformlar arasında OAuth 2.0 kullanarak web API'leri çağırma Xamarin uygulamanız var.
 
-## <a name="step-5-populate-your-tenant"></a>5. adım: kiracınızı Doldur 
+## <a name="step-5-populate-your-tenant"></a>5. Adım: Kiracınızın Doldur 
 
 Kullanıcılarla kiracınız zaten doldurulmuş yüklemediyseniz, bunu yapmak için zaman sunulmuştur.
 
 1. DirectorySearcher uygulamanızı çalıştırın ve ardından kullanıcılardan birinin bilgilerinizle oturum açın.
-2. Kendi UPN'e bağlı diğer kullanıcılar için arama yapın.
+2. UPN'lerine göre diğer kullanıcılar için arama yapın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

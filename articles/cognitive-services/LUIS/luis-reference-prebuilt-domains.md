@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 3cb85a48a881545e9b2a0df29c35218b999fdbf0
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 94bae7ddfd0d7f885b8441ed3b9d5943d052dbaf
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140974"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101929"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>LUIS uygulamanızı için önceden oluşturulmuş etki alanı başvurusu
 Bu başvuru, hakkında bilgi sağlar. [önceden oluşturulmuş etki alanları](luis-how-to-use-prebuilt-domains.md), önceden oluşturulmuş koleksiyon hedefleri ve LUIS sunan varlıkların olduğu.
@@ -402,7 +402,7 @@ Basamak etki alanı, işletmelerin, kurum, Restoran, ortak alanları ve adresler
 |CheckAccident|Belirtilen yolda bir yanlışlık olduğunu isteyin.|Bir yanlışlık üzerinde 880 mı?<br/>Yanlışlıkla bilgi göster|
 |CheckAreaTraffic|Genel alan veya belirtilen bir rotaya göre değil, Otoyol trafiği denetleyin.|Seattle trafiği<br/>Seattle gibi trafiği nedir?|
 |CheckIntoPlace|Sosyal medya kullanarak bir yere iade edin.|Bana Foursquare üzerinde iade et<br/>Buraya bakın|
-|CheckRouteTraffic| Kullanıcı tarafından belirtilen belirli bir yol trafiği denetleyin.|Nasıl Mashiko trafiği mi?<br/>Sağlayan: Kirkland için traffice Göster<br/>Seattle trafiği nasıl mi?| 
+|CheckRouteTraffic| Kullanıcı tarafından belirtilen belirli bir yol trafiği denetleyin.|Nasıl Mashiko trafiği mi?<br/>Sağlayan: Kirkland trafiği Göster<br/>Seattle trafiği nasıl mi?| 
 |Onayla|Bir yere ilgili eylemi onaylayın.|Restoran ayırmamın onaylayın.|
 |Çıkış|Bir görev bir yere ilgili çıkmak için eylem.|Lütfen çıkın<br/>Bana yönergeleri veren Çık|
 |FindPlace|Bir yer (iş, kurum, Restoran, ortak alan, adresi) arayın.|En yakın kitaplık nerede?<br/>Bana bir iyi İtalyanca Restoran Sıradağlar Görünümü'nde bulun|

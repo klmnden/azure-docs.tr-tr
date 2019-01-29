@@ -10,16 +10,16 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 63b0b843-f6b0-4d9a-98d0-17500be17385
 ms.topic: article
 ms.date: 07/29/2016
-ms.openlocfilehash: 0c6062fb9e9708b0fa6aef7a6d7390287cbf69d4
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 58e59e4faa135e24124f494d90437b49caa30129
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124044"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098672"
 ---
-# <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Senaryo: Özel durum işleme ve logic apps için hata günlüğü
+# <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Senaryo: Logic apps için hata günlüğünü ve özel durum işleme
 
-Bu senaryo, bir mantıksal uygulama, daha iyi özel durum işleme destekleyecek şekilde nasıl genişletebileceğinizi açıklar. Gerçek Hayatta kullanım örneği soruyu yanıtlamak için kullandığımız: "Azure Logic Apps özel durum ve hata işleme destekliyor mu?"
+Bu senaryo, bir mantıksal uygulama, daha iyi özel durum işleme destekleyecek şekilde nasıl genişletebileceğinizi açıklar. Soruyu yanıtlamak için gerçek zamanlı konuşmaların kullanım örneği kullandık: "Azure Logic Apps özel durum ve hata işleme destekliyor mu?"
 
 > [!NOTE]
 > Geçerli Azure Logic Apps şemasını eylem yanıtlar için standart bir şablon sağlar. Bu şablon, hem iç doğrulama hem de bir API uygulaması döndürülen hata yanıtları içerir.
@@ -57,7 +57,7 @@ Günlük kaydı, Dynamics CRM Online oturumunu yakında kullanacağız çünkü 
 
 Kullanmakta olduğunuz bir **istek** tetiklemek aşağıdaki örnekte gösterildiği gibi:
 
-```` json
+``` json
 "triggers": {
         "request": {
           "type": "request",
@@ -90,7 +90,7 @@ Kullanmakta olduğunuz bir **istek** tetiklemek aşağıdaki örnekte gösterild
         }
       },
 
-````
+```
 
 
 ## <a name="steps"></a>Adımlar
@@ -402,7 +402,7 @@ Yanıt aldıktan sonra yanıt üst mantıksal uygulama geçirebilirsiniz.
 Hataları görüntülemek için Cosmos DB'den hata kayıtları görüntülemek için bir MVC web uygulaması oluşturabilirsiniz. **Listesi**, **ayrıntıları**, **Düzenle**, ve **Sil** işlemleri'nın geçerli sürümünde dahil edilir.
 
 > [!NOTE]
-> İşlemi Düzenle: Cosmos DB tüm belgeyi değiştirir. Gösterilen kayıtları **listesi** ve **ayrıntı** örnekleri yalnızca görünümleridir. Bunlar gerçek hasta randevu kayıtlarını değildir.
+> İşlemi Düzenle: Cosmos DB, tüm belgeyi değiştirir. Gösterilen kayıtları **listesi** ve **ayrıntı** örnekleri yalnızca görünümleridir. Bunlar gerçek hasta randevu kayıtlarını değildir.
 
 Daha önce açıklanan yaklaşımı ile oluşturulan bizim MVC uygulama ayrıntılarını örnekleri aşağıda verilmiştir.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı başlangıç: URL Önizleme Projesi, Java'
+title: "Hızlı Başlangıç: Proje URL'si Önizleme, Java"
 titlesuffix: Azure Cognitive Services
 description: Java ile URL Önizleme Projesini kullanmaya başlamak için örnek betik.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.component: url-preview
 ms.topic: quickstart
 ms.date: 04/24/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: cdbed473af04b7a0ba0fd2bba56219d43bf72537
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: 23f9f0cb8205a29733e90522f5eb524142677137
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465721"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094283"
 ---
-# <a name="quickstart-url-preview-with-java"></a>Hızlı başlangıç: Java ile URL Önizleme
+# <a name="quickstart-url-preview-with-java"></a>Hızlı Başlangıç: Java ile URL önizlemesi
 
 Aşağıdaki Java örneği SwiftKey Web sitesi için bir URL Önizlemesi oluşturur: https://swiftkey.com/en.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 [Bilişsel Hizmetler Laboratuvarları](https://aka.ms/answersearchsubscription) ücretsiz denemesi için erişim anahtarı alın
 
@@ -29,7 +29,7 @@ Aşağıdaki Java örneği SwiftKey Web sitesi için bir URL Önizlemesi oluştu
 
 Aşağıdaki kod bir `WebRequest` oluşturur, erişim anahtarı üst bilgisini ayarlar ve "https://swiftkey.com/en" için bir sorgu dizesi ekler.  Ardından isteği gönderir ve yanıtı JSON metnini içeren bir dizeye atar.
 
-````
+```
     // construct URL of search request (endpoint + query string)
 
     static String host = "https://api.labs.cognitive.microsoft.com";
@@ -47,7 +47,7 @@ Aşağıdaki kod bir `WebRequest` oluşturur, erişim anahtarı üst bilgisini a
 
     // construct result object for return
     SearchResults results = new SearchResults(new HashMap<String, String>(), response);
-````
+```
 
 ## <a name="complete-code"></a>Tam kod
 
@@ -58,7 +58,7 @@ Bing Yanıt Arama API'si Bing arama motorundan sonuçları döndürür.
 4. subscriptionKey değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
 5. Programı çalıştırın.
 
-````
+```
 package UrlPreviewpkg;
 
 import java.net.*;
@@ -165,7 +165,7 @@ class SearchResults{
  }
 }
 
-````
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - [C# hızlı başlangıcı](csharp.md)

@@ -6,16 +6,16 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 01/18/2017
 ms.author: alch
-ms.openlocfilehash: 76e86eb78a06d98e3d5c6c54b244add3c0c245d2
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 7484b570784f5f058ebd23b1e3c225c5d858a274
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48900470"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55183348"
 ---
 # <a name="similarity-method"></a>Benzerlik yöntemi
 
@@ -28,10 +28,10 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/similarity?
 ```
 
 ## <a name="request-parameters"></a>İstek Parametreleri
-Parametre        |Veri Türü      |Gerekli | Açıklama
+Parametre        |Veri Türü      |Gereklidir | Açıklama
 ----------|----------|----------|------------
-**S1**        |Dize   |Evet  |Karşılaştırılacak dize *
-**S2**        |Dize   |Evet  |Karşılaştırılacak dize *
+**s1**        |Dize   |Evet  |Karşılaştırılacak dize *
+**s2**        |Dize   |Evet  |Karşılaştırılacak dize *
 <sub> * Karşılaştırılacak dizeler 1 MB en uzunluğuna sahip. </sub>
 <br>
 ## <a name="response"></a>Yanıt
@@ -48,7 +48,7 @@ HTTP durumu | Neden | Yanıt
 **500**         |İç sunucu hatası | Hata iletisi
 **Zaman aşımına uğradı**     | İstek zaman aşımına uğradı.  | Hata iletisi
 <br>
-## <a name="example-calculate-similarity-of-two-partial-abstracts"></a>Örnek: iki kısmi özetleri benzerliğini hesaplayın
+## <a name="example-calculate-similarity-of-two-partial-abstracts"></a>Örnek: İki kısmi özetleri benzerliğini hesaplar
 #### <a name="request"></a>İstek:
 ```
 https://westus.api.cognitive.microsoft.com/academic/v1.0/similarity?s1=Using complementary priors, we derive a fast greedy algorithm that can learn deep directed belief networks one layer at a time, provided the top two layers form an undirected associative memory

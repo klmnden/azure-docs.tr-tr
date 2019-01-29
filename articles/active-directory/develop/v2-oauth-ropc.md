@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,12 +16,12 @@ ms.date: 11/28/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 4eb6850e4b6e267e0b4ef83f7639e90308cee989
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 6df19f8d20853b569a2bc357e6c1115976a7de2c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841447"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097980"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-resource-owner-password-credential"></a>Azure Active Directory v2.0 ve OAuth 2.0 kaynak sahibi parola kimlik bilgisi
 
@@ -58,10 +58,10 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parametre | Koşul | Açıklama |
 | --- | --- | --- |
-| `tenant` | Gerekli | Kullanıcının oturumunu günlüğe kaydetmek istediğiniz dizin Kiracı. Bu GUID veya kolay adı biçiminde olabilir. Bu parametre değerine ayarlanamaz `common` veya `consumers`, ancak ayarlanmış olabilir `organizations`. |
-| `grant_type` | Gerekli | Ayarlanmalıdır `password`. |
-| `username` | Gerekli | Kullanıcının e-posta adresi. |
-| `password` | Gerekli | Kullanıcının parolası. |
+| `tenant` | Gereklidir | Kullanıcının oturumunu günlüğe kaydetmek istediğiniz dizin Kiracı. Bu GUID veya kolay adı biçiminde olabilir. Bu parametre değerine ayarlanamaz `common` veya `consumers`, ancak ayarlanmış olabilir `organizations`. |
+| `grant_type` | Gereklidir | Ayarlanmalıdır `password`. |
+| `username` | Gereklidir | Kullanıcının e-posta adresi. |
+| `password` | Gereklidir | Kullanıcının parolası. |
 | `scope` | Önerilen | Boşlukla ayrılmış bir listesini [kapsamları](v2-permissions-and-consent.md), ya da uygulamanın gerektirdiği izinler. Bu kapsam için önceden bir yönetici veya etkileşimli bir iş akışında kullanıcı onaylı gerekir. |
 
 ### <a name="successful-authentication-response"></a>Başarılı kimlik doğrulaması yanıtını
@@ -97,7 +97,7 @@ Kullanıcı doğru kullanıcı adı veya parola sağlanan dolmadığından veya 
 | Hata | Açıklama | İstemci eylemi |
 |------ | ----------- | -------------|
 | `invalid_grant` | Kimlik doğrulaması başarısız oldu | Kimlik bilgileri yanlış veya istemci istenen kapsam için izniniz yok. Kapsamlar verilirse, bu olmayan bir `consent_required` suberror döndürülür. Bu meydana gelirse, istemci bir webview veya tarayıcı kullanarak etkileşimli bir istemi kullanıcı göndermesi gerekir. |
-| `invalid_request` | İsteği hatalı oluşturulmuş | İzin verme türü desteklenmiyor `/common` veya `/consumers` kimlik doğrulaması bağlamı.  Kullanım `/organizations` yerine. |
+| `invalid_request` | İsteği hatalı oluşturulmuş | İzin verme türü desteklenmiyor `/common` veya `/consumers` kimlik doğrulaması bağlamı.  Bunun yerine `/organizations` kullanın. |
 | `invalid_client` | Uygulamanın düzgün ayarlanır | Bu durum oluşabilir `allowPublicClient` özelliği ayarlanmamış true olarak [uygulama bildirimini](reference-app-manifest.md). `allowPublicClient` ROPC verme bir yeniden yönlendirme URI'si olmadığı için özellik gerekiyor. Azure AD özelliği ayarlanmazsa uygulama genel istemci uygulamanız ya da gizli bir istemci uygulama olup olmadığını belirleyemiyor. Genel istemci uygulamaları için yalnızca ROPC desteklenip desteklenmediğini unutmayın. |
 
 ## <a name="learn-more"></a>Daha fazla bilgi edinin

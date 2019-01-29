@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory günlüklerini bir Azure depolama hesabında arşivleme (önizleme) | Microsoft Docs'
+title: Öğretici - arşiv Azure Active Directory günlükleri bir depolama hesabı (Önizleme) | Microsoft Docs
 description: Azure Tanılama'yı kullanarak Azure Active Directory günlüklerini bir depolama hesabına göndermeyi öğrenin (önizleme)
 services: active-directory
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 35acd3fa4815be6d60738dd5f5cef9dc9b45d748
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 861239eeffe7665f252cb7a096b487da71eec93e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54824567"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197424"
 ---
 # <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account-preview"></a>Öğretici: Bir Azure depolama hesabına (Önizleme) Azure AD günlüklerini arşivleme
 

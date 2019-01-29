@@ -1,23 +1,23 @@
 ---
-title: "Hızlı Başlangıç: Bing Video Arama API'si, C#l"
+title: "Hızlı Başlangıç: Bing Video arama API'si,C#"
 titlesuffix: Azure Cognitive Services
 description: Bing Video Arama API'sini kısa sürede kullanmaya başlamanıza yardımcı olacak bilgi ve kod örnekleri alın.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-video-search
+ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: aahi
-ms.openlocfilehash: aae2658f26c0e47d0030c67c4bc691d53e07dbbb
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 59bb0f49b58c20b6a1b9d38eb596492397b16ed9
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52306990"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55157050"
 ---
-# <a name="quickstart-bing-video-search-api-with-c"></a>Hızlı Başlangıç: C# ile Bing Video Arama API'si
+# <a name="quickstart-bing-video-search-api-with-c"></a>Hızlı Başlangıç: Bing Video arama API'si ileC#
 
 Bu makale, Azure Bilişsel Hizmetleri'nin parçası olan Bing Video Arama API'sini kullanmayı göstermektedir. Bu makalede C# kullanılmakla birlikte API HTTP istekleri gönderebilecek ve JSON ayrıştırabilecek her programlama diliyle uyumlu bir RESTful Web hizmetidir. 
 

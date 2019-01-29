@@ -6,16 +6,16 @@ services: cognitive-services
 author: ashtat
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: acoustics
+ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 05f7c435ca61930da6270c54e71c784f1b7aebcc
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 638ea3e707352a95cb1fb407add365a83d11faa7
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48900636"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55148651"
 ---
 # <a name="create-an-azure-batch-account"></a>Azure Batch hesabı oluşturma
 Azure Batch ve Storage hesaplarını akustik ile çalışmak için gerekli ayarlamak için bu kılavuzu izleyin. Proje akustik bir parçası olarak geliştirilen Unity eklenti hakkında daha fazla bilgi için bkz. [akustik nedir](what-is-acoustics.md). Akustik Unity projenize ekleyeceğiniz hakkında daha fazla bilgi için bkz: [Başlarken](getting-started.md).  

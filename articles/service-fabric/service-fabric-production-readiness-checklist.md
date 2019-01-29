@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 7/10/2018
 ms.author: aljo-microsoft
-ms.openlocfilehash: 4e6d5cb3191be7188c1a7c4753200cf049800f04
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: ac263ef842c780e09576303f2f49e782612294c2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436016"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55159123"
 ---
 # <a name="production-readiness-checklist"></a>Üretim hazırlığı denetim listesi
 
@@ -27,15 +27,15 @@ Uygulama ve küme üretim trafiği almaya hazır mı? Çalıştırma ve test, uy
 
 
 ## <a name="pre-requisites-for-production"></a>Üretim için ön koşullar
-1. [Azure Service Fabric iyi](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices) şunlardır: 
+1. [Azure Service Fabric güvenliği iyi](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices) şunlardır: 
 * X.509 sertifikaları kullanma
 * Güvenlik ilkelerini yapılandır
 * Azure Service Fabric için SSL'yi yapılandırma
 * Ağ yalıtımını ve güvenlik, Azure Service Fabric ile kullanma
 * Güvenlik için Azure anahtar kasası ayarlama
-* Kullanıcı rollerine atama
+* Microsoft.Network/loadBalancersAssign kullanıcıları rollere
 * Reliable Actors güvenlik yapılandırması Actors programlama modelini kullanıyorsa uygulayın
-2. 20'den fazla çekirdek veya 10 düğümü olan kümeler için sistem hizmetleri için bir adanmış birincil düğüm türü oluşturun. Ekleme [yerleştirme kısıtlamaları](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) sistem hizmetleri için birincil düğüm türü ayırmak için. 
+2. 20'den fazla çekirdek veya 10 düğümü olan kümeler için sistem hizmetleri için bir adanmış birincil düğüm türü oluşturun. Ekleme [yerleştirme kısıtlamaları](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) sistem hizmetleri için birincil düğüm türü ayırmak için.
 3. Birincil düğüm türü için bir D2v2 ya da daha yüksek bir SKU kullanın. En az 50 GB sabit disk kapasitesi ile bir SKU seçmek için önerilir.
 4. Üretim kümeleri olmalıdır [güvenli](service-fabric-cluster-security.md). Güvenli bir küme ayarlama örneği için bkz. Bu [küme şablonu](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/7-VM-Windows-3-NodeTypes-Secure-NSG). Sertifikası ortak adlarının kullanın ve kendinden imzalı sertifikaları kullanmaktan kaçının.
 5. Ekleme [kapsayıcıları ve hizmetleri üzerinde kaynak kısıtlamaları](service-fabric-resource-governance.md), böylece birden fazla düğüm kaynakların %75 kullandıkları yok. 
@@ -61,8 +61,8 @@ Service Fabric güvenilir hizmetler veya Reliable Actors programlama modellerini
 22. Uygulama hizmeti kodunuza iptal belirtecini uygularken olduğunu denetlemek için yerel geliştirme sırasında yükseltme `RunAsync` yöntemi ve özel iletişim dinleyicileri kapatma.
 23. Önlemek [planlarken düşebileceğiniz yaygın tuzaklardan](service-fabric-work-with-reliable-collections.md) güvenilir koleksiyonlar kullanarak.
 24. Çalıştırırken sayaçları yük testleri ve çöp toplama veya kaçan yığın büyüme yüksek oranlarda denetleyin .NET CLR bellek performansı izleyin.
-25. Çevrimdışı yedeğini tutmak [Reliable Services ve Reliable Actors](service-fabric-reliable-services-backup-restore.md) ve geri yükleme işlemini test edin. 
-
+25. Çevrimdışı yedeğini tutmak [Reliable Services ve Reliable Actors](service-fabric-reliable-services-backup-restore.md) ve geri yükleme işlemini test edin.
+26. Birincil NodeType sanal makine örnek sayınız, ideal olarak, kümeler güvenilirlik katmanı için en düşük eşit olmalıdır; uygun olduğunda en düşük katmanlı aşmayı koşullar bulunmaktadır: geçici olarak ne zaman dikey ölçekleme birincil NodeType sanal makine ölçek kümesi SKU'nuz demektir.
 
 ## <a name="optional-best-practices"></a>İsteğe bağlı en iyi uygulamalar
 

@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: ed33574f-6fa3-402c-b030-fae76fba84e1
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
@@ -17,14 +17,14 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f9389a7c0e80f075c01f2236fa1bdf9dc9544ac6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 968afcba8b0a6ab9d46c5582eecbb4901975257c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987450"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101162"
 ---
-# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-a-net-desktop-wpf-app"></a>Hızlı Başlangıç: kullanıcılarının oturumunu ve bir .NET Masaüstü (WPF) uygulamasından Microsoft Graph API çağırma
+# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-a-net-desktop-wpf-app"></a>Hızlı Başlangıç: Kullanıcılar oturum ve bir .NET Masaüstü (WPF) uygulamasından Microsoft Graph API çağırma
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
@@ -36,20 +36,20 @@ Bu hızlı başlangıçta, bir .NET WPF Yapılacaklar listesi uygulamasının na
 * Belirli bir takma ad ile kullanıcılar için bir dizini arar.
 * Kullanıcıların imzalar.
 
-Eksiksiz, çalışan uygulamayı oluşturmak için yapmanız gerekir:
+Eksiksiz, çalışan bir uygulama oluşturmak için şunları yapmalısınız:
 
 1. Uygulamanızı Azure AD'ye kaydedin.
-2. Yükleme ve ADAL'ı yapılandırın.
-3. Azure AD belirteçlerini almak için ADAL'ı kullanın.
+2. ADAL'ı yükleyin ve yapılandırın.
+3. ADAL'ı kullanarak Azure AD'den belirteçleri alın.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Başlamak için aşağıdaki önkoşulları tamamlayın:
+Başlamak için şu önkoşulları tamamlayın:
 
 * [Uygulama çatıyı indirmeniz](https://github.com/AzureADQuickStarts/NativeClient-DotNet/archive/skeleton.zip) veya [tamamlanmış örneği indirin](https://github.com/AzureADQuickStarts/NativeClient-DotNet/archive/complete.zip)
-* Burada kullanıcıları oluşturun ve bir uygulamayı kaydetme Azure AD kiracısı vardır. Bir kiracı yoksa [edinebileceğinizi öğrenin](quickstart-create-new-tenant.md).
+* Burada kullanıcıları oluşturun ve bir uygulamayı kaydetme Azure AD kiracısı vardır. Henüz bir kiracınız yoksa [nasıl kiracı alınabileceğini öğrenin](quickstart-create-new-tenant.md).
 
-## <a name="step-1-register-the-directorysearcher-application"></a>1. adım: DirectorySearcher uygulamayı kaydetme
+## <a name="step-1-register-the-directorysearcher-application"></a>1. Adım: DirectorySearcher uygulamayı kaydetme
 
 Belirteçleri almak üzere uygulamanızı etkinleştirme için uygulamanızı Azure AD kiracınıza kaydetme ve Azure AD Graph API'sine erişim izni verin:
 
@@ -64,9 +64,9 @@ Belirteçleri almak üzere uygulamanızı etkinleştirme için uygulamanızı Az
 6. Kayıt tamamlandıktan sonra AAD uygulamanızın benzersiz bir uygulama kimliği atar. Bu değer gerekir sonraki bölümlerde, bu nedenle uygulama sayfasından kopyalayın.
 7. Gelen **ayarları** sayfasında **gerekli izinler** ve **Ekle**. Seçin **Microsoft Graph** API olarak ve altında **temsilci izinleri** ekleme **dizin verilerini okuma** izni. Bu izni, uygulamanızın kullanıcıları için Graph API sorgu olanak tanır.
 
-## <a name="step-2-install-and-configure-adal"></a>2. adım: Yükleme ve ADAL'ı yapılandırma
+## <a name="step-2-install-and-configure-adal"></a>2. Adım: Yükleme ve ADAL'ı yapılandırma
 
-Azure AD'de bir uygulamanız olduğuna göre ADAL'ı yükleyebilir ve kimlikle ilgili kodunuzu yazın. Azure AD ile iletişim kurmak için ADAL, uygulama kaydınızı hakkında bazı bilgiler vermeniz gerekir.
+Artık Azure AD'de bir uygulamanız olduğuna göre, ADAL'ı yükleyebilir ve kimlikle ilgili kodunuzu yazabilirsiniz. ADAL'ın Azure AD ile iletişim kurabilmesi için, ona uygulama kaydınız hakkında bazı bilgiler sağlamanız gerekir.
 
 1. Başlangıç için ADAL ekleyerek `DirectorySearcher` Paket Yöneticisi konsolu kullanarak proje.
 
@@ -75,12 +75,12 @@ Azure AD'de bir uygulamanız olduğuna göre ADAL'ı yükleyebilir ve kimlikle i
     ```
 
 1. İçinde `DirectorySearcher` projesini açarsanız `app.config`.
-1. Öğe değerlerini değiştirin `<appSettings>` Azure portalında giriş değerleri yansıtacak şekilde bölümü. ADAL kullandığında, kodunuzun bu değerleri başvurur.
+1. Öğe değerlerini değiştirin `<appSettings>` Azure portalında giriş değerleri yansıtacak şekilde bölümü. Kodunuz ADAL'ı her kullandığında bu değerlere başvurur.
   * `ida:Tenant` Contoso.onmicrosoft.com gibi Azure AD kiracınızın etki alanı
   * `ida:ClientId` Portaldan kopyaladığınız uygulamanızın istemci kimliği.
   * `ida:RedirectUri` Portalı'nda kayıtlı yeniden yönlendirme URL'si.
 
-## <a name="step-3-use-adal-to-get-tokens-from-azure-ad"></a>3. adım: Kullanımı Azure AD belirteçlerini almak için ADAL
+## <a name="step-3-use-adal-to-get-tokens-from-azure-ad"></a>3. Adım: Azure AD belirteçlerini almak için ADAL'ı kullanın
 
 Uygulamanızı bir erişim belirteci gerektiğinde uygulamanızı yalnızca çağrı yaptığını ADAL ardındaki temel buradaki prensip şudur: `authContext.AcquireTokenAsync(...)`, ve ADAL geri kalanını yapar.
 
@@ -99,7 +99,7 @@ Uygulamanızı bir erişim belirteci gerektiğinde uygulamanızı yalnızca ça�
     }
     ```
 
-1. Bulun `Search(...)` kullanıcı seçtiğinde çağrılacak yöntem **arama** uygulamanın kullanıcı arabiriminde düğmesi. Bu yöntem, UPN verilen arama terimiyle başlayan kullanıcıları için Azure AD Graph API için sorgu için bir GET isteği yapar.
+1. Bulun `Search(...)` kullanıcı seçtiğinde çağrılacak yöntem **arama** uygulamanın kullanıcı arabiriminde düğmesi. Bu yöntemde, UPN'leri verilen arama terimiyle başlayan kullanıcıları sorgulamak için Azure AD Graph API'sinden bir GET isteğinde bulunulur.
 1. Graph API'sini sorgulamak için bir access_token dahil `Authorization` istek üstbilgisinin ADAL noktada devreye olduğu.
 
     ```csharp
@@ -181,9 +181,9 @@ Uygulamanızı bir erişim belirteci gerektiğinde uygulamanızı yalnızca ça�
     }
     ```
 
-Tebrikler! Artık çalışan bir kullanıcıların kimlik doğrulaması, güvenli bir şekilde OAuth 2.0 kullanarak Web API'leri çağırmak, ve kullanıcı ile ilgili temel bilgileri alın .NET WPF uygulaması vardır. Henüz yapmadıysanız, kiracınızın bazı kullanıcılar ile doldurmak için zaman sunulmuştur. DirectorySearcher uygulamanızı çalıştırın ve oturum kullanıcılarla birini açın. Kendi UPN'e bağlı diğer kullanıcılar için arama yapın. Uygulamayı kapatın ve yeniden çalıştırmalısınız. Kullanıcının oturumunu nasıl değişmeden kalır dikkat edin. Oturumu kapatın ve başka bir kullanıcı olarak yeniden oturum açın.
+Tebrikler! Artık çalışan bir kullanıcıların kimlik doğrulaması, güvenli bir şekilde OAuth 2.0 kullanarak Web API'leri çağırmak, ve kullanıcı ile ilgili temel bilgileri alın .NET WPF uygulaması vardır. Henüz yapmadıysanız, kiracınızı biraz kullanıcıyla doldurmanın zamanı geldi. DirectorySearcher uygulamanızı çalıştırın ve oturum kullanıcılarla birini açın. UPN'lerine göre diğer kullanıcılar için arama yapın. Uygulamayı kapatın ve yeniden çalıştırmalısınız. Kullanıcının oturumunu nasıl değişmeden kalır dikkat edin. Oturumu kapatın ve başka bir kullanıcı olarak yeniden oturum açın.
 
-ADAL, bu ortak kimlik özellikleri uygulamanıza eklemenize kolaylaştırır. Bunu kirli çalışması önbellek yönetimi, kullanıcı bir oturum açma kullanıcı Arabirimi, süresi dolan ve daha fazlasını yenileme sunan, OAuth protokol desteği dahil olmak üzere sizin için üstlenir. Gerçekten bilmeniz gereken her şey tek bir API çağrısı `authContext.AcquireTokenAsync(...)`.
+ADAL, bu ortak kimlik özellikleri uygulamanıza eklemenize kolaylaştırır. Bunu kirli çalışması önbellek yönetimi, kullanıcı bir oturum açma kullanıcı Arabirimi, süresi dolan ve daha fazlasını yenileme sunan, OAuth protokol desteği dahil olmak üzere sizin için üstlenir. Gerçekten tek bilmeniz gereken, tek bir API çağrısıdır (`authContext.AcquireTokenAsync(...)`).
 
 Tamamlanan örnek (olmadan yapılandırma değerlerinize) başvuru için bkz. [github'da](https://github.com/AzureADQuickStarts/NativeClient-DotNet/archive/complete.zip).
 

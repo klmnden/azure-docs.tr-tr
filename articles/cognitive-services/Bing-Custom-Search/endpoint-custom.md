@@ -6,24 +6,24 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-custom-search
+ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: v-gedod
-ms.openlocfilehash: da448cdeaf6fcbe10cba8e5e2613214f8e0cee18
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: ed420676ddc4c83be93939874f2943126f9209e8
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815197"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55176633"
 ---
 # <a name="custom-search"></a>Özel Arama
-Bing özel arama, önem verdiğiniz konulara özel olarak uyarlanmış arama deneyimleri oluşturmanıza olanak sağlar. Arama sonuçları içerik, önem verdiğiniz yerine uyarlanmış kullanıcıların görmesi aracılığıyla ilgisiz içerik arama sonuçları sayfası.
+Bing Özel Arama API’si, önemsediğiniz konulara özel olarak uyarlanmış arama deneyimleri oluşturmanızı sağlar. Kullanıcılarınız, arama sonucu sayfalarındaki alakasız içeriği ayıklamak zorunda kalmadan içeriğe göre oluşturulan arama sonuçlarını görebilir.
 
 ## <a name="custom-search-endpoint"></a>Özel arama uç noktası
 Bing özel arama API'sini kullanarak sonuçları elde etmek için Gönder bir `GET` aşağıdaki uç noktayı isteği. Daha fazla özellikleri tanımlamak için başlık ve URL parametrelerini kullanın.
 
-Uç noktası: Döndürür arama önerileri tarafından tanımlanan kullanıcı girişi için uygun olan JSON sonuçları `?q=""`.
+Uç noktası: Tarafından tanımlanan kullanıcı girişi için uygun olan JSON sonucu döndürür arama önerileri `?q=""`.
 ```  
  GET https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search  
 ```
@@ -33,7 +33,7 @@ Uç noktası: Döndürür arama önerileri tarafından tanımlanan kullanıcı g
 ## <a name="custom-search-response-json"></a>Özel arama yanıt JSON
 Özel arama isteği JSON nesne olarak sonuçlar döndürür, bkz: [yanıt nesneleri](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#response-objects). 
 
-## <a name="custom-autosuggest"></a>Özel otomatik öneri
+## <a name="custom-autosuggest"></a>Özel Otomatik Öneri
 Özel otomatik öneri API'si kısmi arama sorgu terimine Bing'e gönderin ve yapılandırabileceğiniz önerilen sorgular listesi dönmek olanak sağlar. Özel otomatik öneri ile öneriler API'si tarafından döndürülen ekleyin ve isteğe bağlı olarak Bing tarafından oluşturulan öneriler eklenip eklenmeyeceğini belirtin.
 
 ## <a name="custom-autosuggest-endpoint"></a>Özel otomatik öneri uç noktası
@@ -58,7 +58,7 @@ https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/images/search
 Özel arama örneği hakkında daha fazla bilgi için bkz: [özel arama deneyiminizi yapılandırma](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/define-your-custom-view).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-**Bing** türüne göre sonuçları arama eylemleri API'lerini desteklemektedir. Tüm arama uç noktaları sonuçlar JSON yanıtı nesneler olarak döndürür.  Tüm uç noktalar, belirli bir dil ve/veya konum boylam, enlem ve arama RADIUS döndüren sorgular destekler.
+**Bing** türüne göre sonuçları arama eylemleri API'lerini desteklemektedir. Tüm arama uç noktaları sonuçlar JSON yanıtı nesneler olarak döndürür.  Tüm uç noktalar, belirli bir dil ve/veya konum boylam, enlem ve arama RADIUS döndüren sorgular destekler.
 
 Her bir uç noktası tarafından desteklenen parametreleri hakkında tam bilgi için her türü için başvuru sayfalarına bakın.
 Özel arama API'si kullanarak temel istekleri örnekleri için bkz: [özel arama hızlı başlangıçları](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/)

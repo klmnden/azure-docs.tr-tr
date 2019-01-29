@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: baa86fe70c394aaea31a6fa775073bb26d062c49
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 89cd8e85c9902bb1caeedd80240811f59ebec409
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002408"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55187445"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Olay toplama ve Windows Azure Tanılama'yı kullanarak koleksiyon
 > [!div class="op_single_selector"]
@@ -187,7 +187,7 @@ Açıklandığı template.json dosyasını değiştirdikten sonra Resource Manag
 
 ### <a name="update-storage-quota"></a>Depolama kotası güncelleştirme
 
-Uzantısı tarafından doldurulan tabloları beri büyüdükçe kota isabet kadar kota boyutu düşürmeyi düşünün isteyebilirsiniz. Varsayılan değer 50 GB ve şablonda altında yapılandırılabilir `overallQuotainMB` altında `DiagnosticMonitorConfiguration`
+Uzantısı tarafından doldurulan tabloları beri büyüdükçe kota isabet kadar kota boyutu düşürmeyi düşünün isteyebilirsiniz. Varsayılan değer 50 GB ve şablonda altında yapılandırılabilir `overallQuotaInMB` altında `DiagnosticMonitorConfiguration`
 
 ```json
 "overallQuotaInMB": "50000",

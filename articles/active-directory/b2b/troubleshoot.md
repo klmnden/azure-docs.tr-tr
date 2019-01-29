@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 8651313f2dde21a2f6141d3cc8ee43cf32b7634a
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 764b5defd2fb647fd52e1e93441b68ffe492d0c9
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081373"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55181274"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Azure Active Directory B2B işbirliği sorunlarını giderme
 
@@ -76,6 +76,10 @@ Gizlilik yasalarıyla uyum sağlamak için Apı'lerimizi özel iletiler posta i�
 - Appservice sorumlusu davet gönderdiğinde
 
 Bu senaryo sizin için önemli ise, API davet e-postamıza gösterme ve tercih ettiğiniz e-posta mekanizması gönderin. Bu şekilde da gizlilik yasalarına uyumlu gönderdiğiniz herhangi bir e-emin olmak için kuruluşunuzun yasal Konseyi başvurun.
+
+## <a name="a-guest-user-with-a-just-in-time-or-viral-tenant-is-unable-to-reset-their-password"></a>Just-ın-time veya "viral" Kiracı ile Konuk kullanıcı parolalarını sıfırlama alamıyor
+
+(Ayrı, yönetilmeyen bir Azure kiracısı olduğu anlamına gelir), just-in-time (JIT) veya viral Kiracı kimliği kiracısı ise, Konuk kullanıcı parolalarını sıfırlayabilir. Bazen bir kuruluş olacak [viral Kiracı yönetimini devralmasına](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/domains-admin-takeover) çalışanlar Hizmetleri için kaydolmak için iş e-posta adreslerini kullandığınızda oluşturulur. Kuruluş viral Kiracı gerçekleştirdikten sonra yalnızca söz konusu kuruluştaki bir yönetici kullanıcının parolasını sıfırlama veya SSPR'yi etkinleştir. Gerekirse, davet eden kuruluştan olarak, dizininizdeki Konuk kullanıcı hesabını kaldırmanız ve daveti yeniden gönder.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

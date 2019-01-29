@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory değişikliklerini ile tümleştirme | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile kayması | Microsoft Docs'
 description: Azure Active Directory ve kaymaları arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 39dcbb95-c192-448c-86a1-cedede1c0972
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: jeedes
-ms.openlocfilehash: c08b57c41cc43bfa47dee69a75663e7a58ef4c21
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: f7973ccb384a8e882a9ced5020a53824bf0c4e7d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632849"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55169884"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-drift"></a>Öğretici: Azure Active Directory tümleştirmesiyle kayması
+# <a name="tutorial-azure-active-directory-integration-with-drift"></a>Öğretici: Azure Active Directory Tümleştirmesi ile kayması
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile kayması tümleştirme konusunda bilgi edinin.
 
@@ -128,7 +128,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve k
     
     | Öznitelik Adı | Öznitelik Değeri |
     | ---------------| --------------- |    
-    | Ad | user.displayname |
+    | Name | user.displayname |
 
     a. Tıklayarak `name` talep (açmak için vurgulanan talep) **yönetmek, kullanıcı talepleri** iletişim.
 

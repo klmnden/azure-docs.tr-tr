@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/06/2018
 ms.author: rapatchi
-ms.openlocfilehash: a9888a23088949b5373aa0eef7d4df3b3064466f
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 250931c9b53692dff4006a0114b6da20948b3f59
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358594"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096679"
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Eclipse Java uygulama geliştirmesi için Service Fabric eklentisi
 Eclipse, Java geliştiricileri için en yaygın kullanılan tümleşik geliştirme ortamlarından (IDE’ler) biridir. Bu makalede, Azure Service Fabric ile çalışmak için Eclipse geliştirme ortamınızı ayarlama işlemi ele alınmaktadır. Service Fabric eklentisini yükleme, Service fabric uygulaması oluşturma ve Service Fabric uygulamanızı Eclipse’teki yerel veya uzak bir Service Fabric kümesine dağıtma hakkında bilgi edinin. 
@@ -37,7 +37,7 @@ Eclipse'te Service Fabric eklentisi yükleyebilirsiniz. Eklenti, Java hizmetleri
 
 [Eclipse sitesinden](https://www.eclipse.org) Eclipse Neon veya sonraki bir sürümü yükleyin.  Ayrıca Buildship 2.2.1 veya sonraki bir sürümü de yükleyin (Service Fabric eklentisi, eski Buildship sürümleriyle uyumlu değildir):
 -   Yüklü bileşenlerin sürümlerini denetlemek için Eclipse’te **Yardım** > **Eclipse Hakkında** > **Yükleme Ayrıntıları** seçeneğine gidin.
--   Buildship’i güncelleştirmek için bkz. [Eclipse Buildship: Gradle için Eclipse Eklentileri][buildship-update].
+-   Buildship'i güncelleştirmek için bkz: [Eclipse Buildship: Gradle için Eclipse eklentileri][buildship-update].
 -   Eclipse güncelleştirmelerini denetleyip yüklemek için **Yardım** > **Güncelleştirmeleri Denetle** seçeneğine gidin.
 
 Service Fabric eklentisini yüklemek için **Yardım** > **Yeni Yazılım Yükle** seçeneğine gidin.
@@ -112,7 +112,7 @@ Service Fabric uygulamanızı oluşturduktan sonra yerel kümeye dağıtmak içi
 
 Eclipse kullanarak yerel kümeye uygulamanızda hata ayıklama öğrenmek için bkz. [eclipse'te Java hizmeti hata ayıklaması](./service-fabric-debugging-your-application-java.md).
 
-Yerel küme wuth uygulamanızı da dağıtabilirsiniz **uygulama Yayımla** komutu:
+Yerel küme ile birlikte uygulamanızı da dağıtabilirsiniz **uygulama Yayımla** komutu:
 
 1. Service Fabric uygulamanıza sağ tıklayın ve ardından **Service Fabric**.
 2. Bağlam menüsünden tıklayın **uygulama Yayımla...** .
@@ -165,7 +165,7 @@ Uygulamanızı buluta yayımlamak için aşağıdaki adımları izleyin:
 
 Uygulamanız Reliable Services hizmetlerini içeriyorsa güvenli Linux kümelerinde, ayrıca hizmetlerinizi Service Fabric çalışma zamanı API'leri çağırmak için kullanabileceğiniz bir sertifika yapılandırmanız gerekir. Daha fazla bilgi için bkz. [Linux kümelerinde çalıştırmak için bir Reliable Services uygulaması yapılandırırsınız](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).
 
-Bir hızlı bir kılavuz nasıl güvenli bir Linux kümesi için Java dilinde yazılmış bir Service Fabric güvenilir hizmetler uygulaması dağıtmak için bkz: [Quckstart: Java Reliable Services uygulaması dağıtma](./service-fabric-quickstart-java-reliable-services.md).
+Bir hızlı bir kılavuz nasıl güvenli bir Linux kümesi için Java dilinde yazılmış bir Service Fabric güvenilir hizmetler uygulaması dağıtmak için bkz: [hızlı başlangıç: Bir Java Reliable Services uygulaması dağıtma](./service-fabric-quickstart-java-reliable-services.md).
 
 ## <a name="deploy-a-service-fabric-application-by-using-eclipse-run-configurations"></a>Eclipse çalıştırma yapılandırmalarının kullanarak bir Service Fabric uygulaması dağıtma
 
@@ -211,7 +211,7 @@ Bildirim sürümlerini düzenlemek için projeye sağ tıklayın, **Service Fabr
 
 ## <a name="upgrade-your-service-fabric-java-application"></a>Service Fabric Java uygulamanızı yükseltme
 
-Bir yükseltme senaryosu için, Eclips’te Service Fabric eklentisini kullanarak **App1** projesini oluşturduğunuzu varsayalım. **fabric:/App1Application** adlı bir uygulama oluşturmak için eklentiyi kullanarak projeyi dağıttınız. Uygulama türü **App1AppicationType**, uygulama sürümü ise 1.0’dır. Şimdi de uygulamanızı kesinti olmadan yükseltmek istiyorsunuz.
+Bir yükseltme senaryosu için, Eclips’te Service Fabric eklentisini kullanarak **App1** projesini oluşturduğunuzu varsayalım. **fabric:/App1Application** adlı bir uygulama oluşturmak için eklentiyi kullanarak projeyi dağıttınız. Uygulama türü **App1ApplicationType**, uygulama sürümü 1.0 ise. Şimdi de uygulamanızı kesinti olmadan yükseltmek istiyorsunuz.
 
 İlk olarak, uygulamanızda değişiklikleri yapın ve değiştirilen hizmeti yeniden derleyin. Değiştirilen hizmetin bildirim dosyasını (ServiceManifest.xml) hizmetin güncel sürümleriyle (ve uygun olan Kod, Yapılandırma ya da Veriler ile) güncelleştirin. Uygulamanın bildirim dosyasını (ApplicationManifest.xml), uygulamanın ve değiştirilen hizmetin güncel sürüm numarasıyla da değiştirin.  
 
@@ -230,7 +230,7 @@ Service Fabric Java kitaplıklarını yakın zamanda Service Fabric Java SDK’s
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Hizmet uygulaması için hızlı adımlar Java Reliable oluşturma ve bunu yerel olarak ve azure'a dağıtma, bakın [Quckstart: Java Reliable Services uygulaması dağıtma](./service-fabric-quickstart-java-reliable-services.md).
+- Hizmet uygulaması için hızlı adımlar Java Reliable oluşturma ve bunu yerel olarak ve azure'a dağıtma, bakın [hızlı başlangıç: Bir Java Reliable Services uygulaması dağıtma](./service-fabric-quickstart-java-reliable-services.md).
 - Yerel kümenizdeki bir Java uygulamasının hatasını ayıklama öğrenmek için bkz. [eclipse'te Java hizmeti hata ayıklaması](./service-fabric-debugging-your-application-java.md).
 - Service Fabric uygulamaları izleme ve tanılama konusunda bilgi almak için bkz: [İzleyici ve yerel makine dağıtım kurulumunda Hizmetleri tanılama](./service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md).
 

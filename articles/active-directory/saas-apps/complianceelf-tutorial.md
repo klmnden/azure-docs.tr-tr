@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory Tümleştirme ile uyumluluk ELF | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile uyumluluk ELF | Microsoft Docs'
 description: Azure Active Directory ve uyumluluk ELF arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 69c6efc3-54c7-49ec-b827-33177c09aa13
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: e5a7bfc51bcd1931def202d701127de701afb595
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 509bec49840537dbb5bb7f0ec69cc4dfb750244a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39042869"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55189434"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-compliance-elf"></a>Öğretici: Azure Active Directory Tümleştirme ile uyumluluk ELF
+# <a name="tutorial-azure-active-directory-integration-with-compliance-elf"></a>Öğretici: Uyumluluk ELF ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile uyumluluk ELF tümleştirme konusunda bilgi edinin.
 
@@ -38,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD Tümleştirmesi ile uyumluluk ELF yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Bir uyumluluk ELF çoklu oturum açma abonelik etkin.
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Azure AD'ye uyumluluk ELF tümleştirmesini yapılandırmak için Uyumluluk ELF 
 
 **Galeriden uyumluluk ELF eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -106,22 +106,22 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve u
 
     ![Çoklu oturum açma iletişim kutusu](./media/complianceelf-tutorial/tutorial_complianceelf_samlbase.png)
 
-3. Üzerinde **uyumluluk ELF etki alanı ve URL'ler** bölümünde, uygulamada yapılandırmak istiyorsanız aşağıdaki adımları gerçekleştirin **IDP** başlatılan modu:
+3. Üzerinde **uyumluluk ELF etki alanı ve URL'ler** bölümünde, uygulamada yapılandırmak istiyorsanız aşağıdaki adımları gerçekleştirin **IDP** başlatılan modu:
 
     ![Uyumluluk ELF etki alanı ve URL'ler tek oturum açma bilgileri](./media/complianceelf-tutorial/tutorial_complianceelf_url.png)
 
     İçinde **tanımlayıcı** metin kutusuna bir URL: `https://sso.cordium.com`
 
-4. Denetleme **Gelişmiş URL ayarlarını göster** ve uygulamada yapılandırmak istiyorsanız, aşağıdaki adımı uygulayın **SP** başlatılan modu:
+4. Denetleme **Gelişmiş URL ayarlarını göster** ve uygulamada yapılandırmak istiyorsanız, aşağıdaki adımı uygulayın **SP** başlatılan modu:
 
     ![Uyumluluk ELF etki alanı ve URL'ler çoklu oturum açma](./media/complianceelf-tutorial/tutorial_complianceelf_url1.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<subdomain>.complianceelf.com`
+    İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<subdomain>.complianceelf.com`
     
     > [!NOTE] 
     > Bu değer, gerçek değil. Bu değerler gerçek oturum açma URL'si ile güncelleştirin. İlgili kişi [uyumluluk ELF Destek ekibine](mailto:support@complianceelf.com) bu değeri alınamıyor.
 
-5. Üzerinde **SAML imzalama sertifikası** bölümünde, kopyalamak için Kopyala düğmesine **uygulama Federasyon meta verileri URL'sini** kopyalayıp Not Defteri'ne yapıştırın.
+5. Üzerinde **SAML imzalama sertifikası** bölümünde, kopyalamak için Kopyala düğmesine **uygulama Federasyon meta verileri URL'sini** kopyalayıp Not Defteri'ne yapıştırın.
     
     ![Çoklu oturum açmayı yapılandırın](./media/complianceelf-tutorial/tutorial_metadataurl.png)
      
@@ -207,7 +207,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 
 

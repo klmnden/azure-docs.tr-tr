@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 98902c7a27d769b59b20d4560b2cda21bfcff6c6
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 5187052316e229273aa49eb784bf200c0f16a0f7
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310275"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55165396"
 ---
 # <a name="service-limits-in-azure-search"></a>Azure Search'te hizmet sınırları
 En fazla depolama, iş yüklerini ve dizinleri, belgeler, miktarlarını sınırlar ve bağımlı nesneler bağımsız olarak, [Azure Search sağlama](search-create-service-portal.md) adresindeki **ücretsiz**, **temel**, veya **Standart** fiyatlandırma katmanları.
@@ -124,6 +124,10 @@ Kaynak Kullanımı Yoğun işlemleri, Azure blob dizin oluşturma veya bilişsel
 QPS tahminleri bağımsız olarak her müşteri tarafından geliştirilmiş olmalıdır. Dizin boyutu ve karmaşıklığı, sorgu boyutu ve karmaşıklığı ve trafik miktarını QPS, birincil determinantlar var. Anlamlı tahminleri gibi faktörleri bilinmeyen olduğunda sunmak için hiçbir yolu yoktur.
 
 Ayrılmış kaynaklarda (temel ve standart Katmanlar) üzerinde çalışan hizmetleri hesaplandığında daha öngörülebilir biriminizdeki tahmini fiyatlardır. Daha fazla parametre üzerinde denetime sahip olduğundan daha fazla QPS yakından tahmin edebilirsiniz. Yaklaşım tahmin etme ile ilgili yönergeler için bkz [Azure Search performans ve iyileştirme](search-performance-optimization.md).
+
+## <a name="data-limits-cognitive-search"></a>Veri sınırları (bilişsel arama)
+
+A [bilişsel arama işlem hattı](cognitive-search-concept-intro.md) için metin analizi kaynak çağrıları yapar [varlık tanıma](cognitive-search-skill-entity-recognition.md), [anahtar ifade ayıklama](cognitive-search-skill-keyphrases.md), [yaklaşım analizi ](cognitive-search-skill-sentiment.md), ve [dil algılama](cognitive-search-skill-language-detection.md) veri sınırlara tabidir. Bir kaydın en büyük boyutu tarafından ölçülen 50.000 karakter arasında olmalıdır `String.Length`. Kullanım, yaklaşım Çözümleyicisi göndermeden önce verileri bölün gerekiyorsa [metin bölme beceri](cognitive-search-skill-textsplit.md).
 
 ## <a name="api-request-limits"></a>API isteği sınırları
 * İstek başına 16 MB maksimum <sup>1</sup>

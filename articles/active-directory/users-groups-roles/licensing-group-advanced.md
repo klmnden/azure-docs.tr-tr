@@ -10,16 +10,16 @@ editor: piotrci
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.date: 10/29/2018
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9b94bf4c499a5d6323e774df90304f0134bc5894
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: b2e52b1e9aad05af173bf86e769e0c6ff7d28d9d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215421"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55195169"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Senaryoları, sınırlamalar ve bilinen sorunlar Azure Active Directory'de lisanslama yönetmek için grupları kullanma
 
@@ -69,7 +69,7 @@ Bu örnekte, bir kullanıcıyı değiştirmek ve kendi extensionAttribute1 değe
 
 Bir kullanıcı birden fazla lisans grubu üyesi olabilir. Dikkat etmeniz gerekenler şunlardır:
 
-- Aynı ürün için birden çok lisans binebilir ve kullanıcıya uygulanan tüm etkin hizmetler sonuçlanır. Aşağıdaki örnek iki lisans grubunu gösterir: *E3 temel Hizmetleri* ilk olarak, tüm kullanıcılara dağıtmak için foundation hizmetleri içerir. Ve *Hizmetleri genişletilmiş E3* (Sway ve Planner) yalnızca bazı kullanıcılara dağıtmak için ek hizmetleri içerir. Bu örnekte, kullanıcı her iki grubuna eklendi:
+- Aynı ürün için birden çok lisans binebilir ve kullanıcıya uygulanan tüm etkin hizmetler sonuçlanır. Aşağıdaki örnek, iki lisans grupları gösterir: *E3 temel Hizmetleri* ilk olarak, tüm kullanıcılara dağıtmak için foundation hizmetleri içerir. Ve *Hizmetleri genişletilmiş E3* (Sway ve Planner) yalnızca bazı kullanıcılara dağıtmak için ek hizmetleri içerir. Bu örnekte, kullanıcı her iki grubuna eklendi:
 
   ![Etkin hizmetler ekran görüntüsü](./media/licensing-group-advanced/view-enabled-services.png)
 
@@ -201,7 +201,7 @@ Bu örnek çıkışa işlemi, sonuçlanan tüm kullanıcı değişiklikler ve i�
 
 Atanan etkin bir lisansa sahip bir grubu silmek mümkün değildir. Yönetici kullanıcılardan - silinebilmesi için önce ilk olarak, gruptan kaldırılacak herhangi bir lisans isteriz. Bu nedenle kaldırılacak lisansları neden fark değil bir grup silinemedi.
 
-Azure portalında bir grubu silmek çalışırken bunun gibi bir hata bildirimi görebilirsiniz: ![ekran grubu silme işlemi başarısız oldu](./media/licensing-group-advanced/groupdeletionfailed.png)
+Azure portalında bir grubu silmek çalışırken bir hata bildirimi bu gibi görebilirsiniz: ![Ekran grubu silme işlemi başarısız oldu](./media/licensing-group-advanced/groupdeletionfailed.png)
 
 Git **lisansları** sekme grubunda ve tüm lisansları atanmış olup olmadığını. Yanıt Evet ise, bu lisansları kaldırın ve grubu yeniden silmeyi deneyin.
 

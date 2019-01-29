@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: rkarlin
-ms.openlocfilehash: 6c101878c474e605106bb2fbb6ea6568f433e756
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: b7e2a075df7d0d7f6bb68163414fab525aad25a8
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338541"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093460"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Dosya bütünlüğünü Azure Güvenlik Merkezi'nde izleme
 Dosya bütünlüğünü izleme (FIM), Azure Güvenlik Merkezi'nde bu kılavuzu kullanarak yapılandırmayı öğrenin.
@@ -31,7 +31,7 @@ Güvenlik Merkezi'nin dosya bütünlüğünü izleme için Linux dosyaları Wind
 
 - Dosya ve kayıt defteri oluşturma ve kaldırma
 - Dosya değişiklikleri (dosya boyutu, erişim denetim listeleri ve içeriğin karmasını değişiklikler)
-- Kayıt defteri değişiklikleri (boyut, erişim conrol listeler, türü ve içerik değişiklikler)
+- Kayıt defteri değişiklikleri (boyut, erişim denetim listeleri, türü ve içerik değişiklikler)
 
 Güvenlik Merkezi üzerinde FIM kolayca etkinleştirebilirsiniz izlemek için varlıklar önerir. Ayrıca, kendi FIM ilkeleri veya varlıkları izlemek için de tanımlayabilirsiniz. Bu izlenecek yol size nasıl gösterir.
 
@@ -152,7 +152,7 @@ Altında **değişiklik izleme için düzenleme** şunları yapabilirsiniz:
 - Varlığı silmek, değişikliği atmak veya yapılan değişiklik kaydedilemiyor
 
 ## <a name="add-a-new-entity-to-monitor"></a>İzlemek için yeni bir varlık ekleme
-1. Geri dönüp **izleme Panosu dosya olmadığına** seçip **ayarları** en üstünde. **Çalışma alanı yapılandırması** açılır.
+1. Geri dönüp **dosya bütünlüğünü izleme panosunu** seçip **ayarları** en üstünde. **Çalışma alanı yapılandırması** açılır.
 2. Altında **çalışma alanı yapılandırması**, eklemek istediğiniz varlık türü için sekmesinde seçin: Windows kayıt defteri, Windows dosyalarını veya Linux dosyaları. Biz bu örnekte, seçili **Linux dosyaları**.
 
   ![İzlemek için yeni bir öğe ekleyin][14]

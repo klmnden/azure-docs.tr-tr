@@ -1,27 +1,27 @@
 ---
-title: "Hızlı başlangıç: Bing Otomatik Öneri API'si, Java"
+title: "Hızlı Başlangıç: Bing otomatik öneri API'si, Java"
 titlesuffix: Azure Cognitive Services
 description: Bing Otomatik Öneri API'sini kısa sürede kullanmaya başlamanıza yardımcı olacak bilgi ve kod örnekleri alın.
 services: cognitive-services
 author: v-jaswel
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-autosuggest
+ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: v-jaswel
-ms.openlocfilehash: c19fa95bd5529f18a65ad466e9c6352b1be80657
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: 9a7edbd6c1099a79cf655a592fbe801d3c8f0061
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421127"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55195495"
 ---
 # <a name="quickstart-for-bing-autosuggest-api-with-java"></a>Hızlı başlangıç: Java ile Bing Otomatik Öneri API'si
 
 Bu makalede [Bing Otomatik Öneri API'sinin](https://azure.microsoft.com/services/cognitive-services/autosuggest/)  Java ile nasıl kullanılacağı göstermektedir. Bing Otomatik Öneri API’si, kullanıcının arama kutusuna girdiği kısmi sorgu dizesine göre önerilen sorguların bir listesini döndürür. Genellikle bu API'yi kullanıcı arama kutusuna yeni bir karakter yazdığında çağırır ve önerileri arama kutusunun açılan listesinde görüntülersiniz. Bu makalede *sail* için önerilen sorgu dizelerini döndüren bir isteğin nasıl gönderileceği gösterilmektedir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu kodu derleyip çalıştırmak için [JDK 7 veya 8](https://aka.ms/azure-jdks)’e ihtiyacınız olacak. Varsa, sık kullandığınız bir Java IDE’yi veya bir metin düzenleyicisini kullanabilirsiniz.
 

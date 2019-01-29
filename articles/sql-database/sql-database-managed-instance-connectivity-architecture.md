@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: e69f6869911555730fe723b340e224c0d5a1e4bb
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 2077978ac9353531d10359edf396e4426e9d6988
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536058"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104523"
 ---
 # <a name="azure-sql-database-managed-instance-connectivity-architecture"></a>Azure SQL veritabanı yönetilen örneği bağlantı mimarisi
 
@@ -78,7 +78,7 @@ Yönetim ve dağıtım hizmetlerini yönetilen örneği için kullanılacak bağ
 
 Azure SQL veritabanı yönetilen örneği sanal küme, Microsoft'un yönetilen örneğe yönetmek için kullandığı bir yönetim uç noktası içerir. Yönetim uç noktası, ağ düzeyinde ve karşılıklı sertifika doğrulamayı uygulama düzeyinde yerleşik güvenlik duvarı ile korunur. Yapabilecekleriniz [yönetim uç noktası IP adresini bulmak](sql-database-managed-instance-find-management-endpoint-ip-address.md).
 
-Bağlantılar yönetilen örneğe içinde (Yedekleme, Denetim günlüğü) başlatılır, trafiği yönetim uç noktası genel IP adresinden kaynaklanan görünür. Güvenlik duvarı kuralları yalnızca yönetilen örnek IP adreslerine izin verecek şekilde ayarlayarak yönetilen örneğinden kamu hizmetleri için erişimi sınırlayabilirsiniz. Bulmak için yöntemi hakkında daha fazla einformation [yönetilen örneği yerleşik güvenlik duvarı doğrulayın](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
+Bağlantılar yönetilen örneğe içinde (Yedekleme, Denetim günlüğü) başlatılır, trafiği yönetim uç noktası genel IP adresinden kaynaklanan görünür. Güvenlik duvarı kuralları yalnızca yönetilen örnek IP adreslerine izin verecek şekilde ayarlayarak yönetilen örneğinden kamu hizmetleri için erişimi sınırlayabilirsiniz. Gerçekleştirebileceğiniz yöntemi hakkında daha fazla bilgi [yönetilen örneği yerleşik güvenlik duvarı doğrulayın](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
 
 > [!NOTE]
 > Bu, Azure platformu birlikte bulunan hizmetler arasında trafiğinin yönelik bir iyileştirme olarak, yönetilen örneği ile aynı bölgede bulunan Azure Hizmetleri için güvenlik duvarı kurallarını ayarlamak geçerli değildir.
@@ -98,7 +98,7 @@ Yönetilen örnek, aşağıdaki gereksinimlere uygun bir sanal ağ içinde ayrı
 
 ### <a name="mandatory-inbound-security-rules"></a>Zorunlu bir gelen güvenlik kuralları 
 
-| Ad       |Bağlantı noktası                        |Protokol|Kaynak           |Hedef|Eylem|
+| Name       |Bağlantı noktası                        |Protokol|Kaynak           |Hedef|Eylem|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |yönetim  |9000, 9003, 1438, 1440, 1452|TCP     |Herhangi biri              |Herhangi biri        |İzin Ver |
 |mi_subnet   |Herhangi biri                         |Herhangi biri     |MI ALT AĞ        |Herhangi biri        |İzin Ver |
@@ -106,9 +106,9 @@ Yönetilen örnek, aşağıdaki gereksinimlere uygun bir sanal ağ içinde ayrı
 
 ### <a name="mandatory-outbound-security-rules"></a>Zorunlu giden güvenlik kuralları 
 
-| Ad       |Bağlantı noktası          |Protokol|Kaynak           |Hedef|Eylem|
+| Name       |Bağlantı noktası          |Protokol|Kaynak           |Hedef|Eylem|
 |------------|--------------|--------|-----------------|-----------|------|
-|yönetim  |80, 443, 12000|TCP     |Herhangi biri              |Herhangi biri        |İzin Ver |
+|yönetim  |80, 443, 12000|TCP     |Herhangi biri              |Internet   |İzin Ver |
 |mi_subnet   |Herhangi biri           |Herhangi biri     |Herhangi biri              |MI ALT AĞ  |İzin Ver |
 
   > [!Note]

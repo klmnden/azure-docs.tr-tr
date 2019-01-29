@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 236809336975eec94d7decd9822fc9143ae19bfb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 692f6b1f02c6c1e86170971886e83722d0160838
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981034"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55203598"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Bir Azure Linux sanal makinesinde Oracle ASM ayarlayın  
 
@@ -50,7 +50,7 @@ az group create --name myResourceGroup --location eastus
 
 ### <a name="create-a-vm"></a>VM oluşturma
 
-Oracle Database görüntüyü temel alarak sanal makine oluşturma ve Oracle ASM kullanacak şekilde yapılandırmak için kullanın [az vm oluşturma](/cli/azure/vm#az_vm_create) komutu. 
+Oracle Database görüntüyü temel alarak sanal makine oluşturma ve Oracle ASM kullanacak şekilde yapılandırmak için kullanın [az vm oluşturma](/cli/azure/vm) komutu. 
 
 Aşağıdaki örnek, bir Standard_DS2_v2 boyutu 50 GB'ın dört bağlı veri diskleri ile myVM adlı bir VM oluşturur. Bunlar varsayılan anahtar konumunda zaten yoksa, aynı zamanda SSH anahtarları oluşturulur.  Belirli bir anahtar kümesini kullanmak için `--ssh-key-value` seçeneğini kullanın.  
 
@@ -513,7 +513,7 @@ Oracle ASM yüklemenizi ayarlamak için aşağıdaki adımları tamamlayın:
 
    Oracle ASM yapılandırma Yardımcısı'nı açar.
 
-2. İçinde **yapılandırma ASM: Disk grupları** iletişim kutusu, tıklayın `Create` düğmesine ve ardından `Show Advanced Options`.
+2. İçinde **ASM yapılandırın: Disk grupları** iletişim kutusu, tıklayın `Create` düğmesine ve ardından `Show Advanced Options`.
 
 3. İçinde **Disk grubu oluşturma** iletişim kutusunda:
 
@@ -525,7 +525,7 @@ Oracle ASM yüklemenizi ayarlamak için aşağıdaki adımları tamamlayın:
 
    ![Disk grubu oluştur iletişim kutusunun ekran görüntüsü](./media/oracle-asm/asm02.png)
 
-4. İçinde **yapılandırma ASM: Disk grupları** iletişim kutusu, tıklayın `Create` düğmesine ve ardından `Show Advanced Options`.
+4. İçinde **ASM yapılandırın: Disk grupları** iletişim kutusu, tıklayın `Create` düğmesine ve ardından `Show Advanced Options`.
 
 5. İçinde **Disk grubu oluşturma** iletişim kutusunda:
 
@@ -540,7 +540,7 @@ Oracle ASM yüklemenizi ayarlamak için aşağıdaki adımları tamamlayın:
 
 6. Seçin **çıkış** ASM yapılandırma Yardımcısı'nı kapatın.
 
-   ![Ekran görüntüsü yapılandırma ASM: Çıkış düğmesini içeren Disk gruplar iletişim kutusu](./media/oracle-asm/asm05.png)
+   ![Ekran görüntüsü ASM yapılandırın: Çıkış düğmesi disk gruplar iletişim kutusu](./media/oracle-asm/asm05.png)
 
 ## <a name="create-the-database"></a>Veritabanı oluşturma
 
@@ -583,7 +583,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Öğretici: Oracle dataguard'ı yapılandırma](configure-oracle-dataguard.md)
+[Öğretici: Configure Oracle DataGuard](configure-oracle-dataguard.md)
 
 [Öğretici: Oracle Goldengate'i yapılandırma](Configure-oracle-golden-gate.md)
 

@@ -12,26 +12,24 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/11/2018
+ms.date: 01/25/2019
 ms.author: juliako
-ms.openlocfilehash: 1ce85c18b93f22e9078e551deda74c6e6ff0b28b
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: d841c0b62092cb58142a52eed52dc0c32d04c500
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614931"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095558"
 ---
-# <a name="cli-example-publish-an-asset"></a>CLI örneği: Varlık yayımlama
+# <a name="cli-example-publish-an-asset"></a>CLI örneği: Bir varlığı yayımlayın
 
 Bu makaledeki Azure CLI Betiği, bir Akış Bulucu oluşturmayı ve dönüş olarak Akış URL’leri almayı gösterir. 
 
 ## <a name="prerequisites"></a>Önkoşullar 
 
-- Yükleyin ve bu makalede Azure CLI 2.0 veya sonraki bir sürüm gerektirir, CLI'yı yerel olarak kullanın. Kullandığınız sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekirse bkz. [Azure CLI’yı yükleme](/cli/azure/install-azure-cli). 
+[Bir Media Services hesabı oluşturma](../create-account-cli-how-to.md).
 
-    Şu anda tüm [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) komutlar Azure Cloud Shell içinde çalışır. CLI'yi yerel olarak kullanmak için önerilir.
-
-- [Bir Media Services hesabı oluşturma](../create-account-cli-how-to.md).
+[!INCLUDE [media-services-cli-instructions.md](../../../../includes/media-services-cli-instructions.md)]
 
 ## <a name="example-script"></a>Örnek betik
 

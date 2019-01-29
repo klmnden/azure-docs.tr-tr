@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 7446c680ffdba28fef7eb68441d04a4c18398847
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: e96c637e3c01ccfc27afa967d830c7d0254d11e7
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912574"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104244"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup hatalarında sorunları giderme: Aracı veya uzantı ile ilgili sorunlar
 
@@ -105,7 +105,7 @@ Kaydolun ve bir VM için Azure Backup hizmeti zamanlama sonra yedekleme zaman i�
 **Hata kodu**: UserErrorUnsupportedDiskSize <br>
 **Hata iletisi**: Şu anda Azure Backup 1023 GB’tan büyük disk boyutlarını desteklememektedir <br>
 
-Kasanız için anında geri yükleme yükseltilmez olduğundan disk boyutu 1023 GB'tan büyük ile VM'yi yedeklerken, yedekleme işlemi başarısız olabilir. Anında geri yükleme için yükseltme sağlayacağı 4 TB'a kadar destek, bkz. Bu [makale](backup-instant-restore-capability.md#upgrading-to-instant-restore).  
+Kasanız için anında geri yükleme yükseltilmez olduğundan disk boyutu 1023 GB'tan büyük ile VM'yi yedeklerken, yedekleme işlemi başarısız olabilir. Anında geri yükleme için yükseltme sağlayacağı 4 TB'a kadar destek, bkz. Bu [makale](backup-instant-restore-capability.md#upgrading-to-instant-restore). Yükseltmeden sonra bu işlev yararlanabilmek abonelik için iki saate kadar sürer. İşlemi yeniden denemeden önce yeterli arabellek sağlar.  
 
 ## <a name="usererrorstandardssdnotsupported---currently-azure-backup-does-not-support-standard-ssd-disks"></a>Standart SSD disk şu anda Azure Backup UserErrorStandardSSDNotSupported - desteklemiyor
 

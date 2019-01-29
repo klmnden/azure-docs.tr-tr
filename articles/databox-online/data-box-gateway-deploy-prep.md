@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 6db713984b62ce3db48b2e72a4b117696bdd6add
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 6f47606e91ec55bae624527bace81d947c5ea4f9
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452981"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55091555"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway-preview"></a>Öğretici: Azure veri kutusu ağ geçidi (Önizleme) dağıtmaya hazırlanma
 
@@ -42,7 +42,7 @@ Data Box Gateway'inizi dağıtmak için, aşağıdaki öğreticileri belirtilen 
 | **#** | **Bu adımda** | **Bu belgeleri kullanın** |
 | --- | --- | --- | 
 | 1. |**[Azure portalını Data Box Gateway için hazırlama](data-box-gateway-deploy-prep.md)** |Data Box Gateway sanal cihazını sağlamadan önce Data Box Gateway kaynağınızı oluşturun ve yapılandırın. |
-| 2. |**[Data Box Gateway'i Hyper-V'de sağlama](data-box-gateway-deploy-provision-hyperv.md)** <br><br><br>**[Data Box Gateway'i VMware'de sağlama](data-box-gateway-deploy-provision-vmware.md)**|Hyper-V için, Windows Server 2016 veya Windows Server 2012 R2 üzerinde Hyper-V çalıştıran konak sisteminde Data Box Gateway sanal cihazına sağlayın ve bağlayın. <br><br><br> VMware için, VMware ESXi 6.0 veya 6.5 çalıştıran bir konak sisteminde Data Box Gateway sanal cihazına sağlayın ve bağlayın.<br></br> |
+| 2. |**[Data Box Gateway'i Hyper-V'de sağlama](data-box-gateway-deploy-provision-hyperv.md)** <br><br><br>**[Data Box Gateway'i VMware'de sağlama](data-box-gateway-deploy-provision-vmware.md)**|Hyper-V için, Windows Server 2016 veya Windows Server 2012 R2 üzerinde Hyper-V çalıştıran konak sisteminde Data Box Gateway sanal cihazına sağlayın ve bağlayın. <br><br><br> VMware için sağlayın ve VMware ESXi 6.0 veya 6.5 6.7 çalıştıran bir konak sisteminde bir veri kutusu ağ geçidi sanal cihaza bağlanın.<br></br> |
 | 3. |**[Data Box Gateway'i bağlama, kurma ve etkinleştirme](data-box-gateway-deploy-connect-setup-activate.md)** |Yerel web kullanıcı arabirimine bağlayın, cihaz kurulumunu tamamlayın ve cihazı etkinleştirin. Ardından SMB paylaşımlarını sağlayabilirsiniz.  |
 | 4. |**[Verileri Data Box Gateway ile aktarma](data-box-gateway-deploy-add-shares.md)** |Paylaşımları ekleyin ve SMB veya NFS üzerinden paylaşımlara bağlanın. |
 
@@ -63,7 +63,7 @@ Başlamadan önce aşağıdakilerden emin olun:
 
 Sanal cihazı dağıtmadan önce şunlardan emin olun:
 
-* Windows Server 2012 R2 veya sonraki bir sürümü üzerinde Hyper-V ya da VMware (ESXi 6.0 veya 6.5) çalıştıran ve cihaz sağlamak için kullanılabilecek bir konak sistemine erişiminiz var.
+* Bir Windows Server 2012 R2 veya sonraki sürümlerde Hyper-V çalıştıran bir konak sistemi ya da olabilir (ESXi 6.0 veya 6.5 6.7) VMware erişiminiz bir sağlamak için kullanılan bir cihaz.
 * Konak sistemi, Data Box sanal cihazınızı sağlamak için aşağıdaki kaynakları ayırabilir:
   
   * En az 4 çekirdek.
@@ -95,7 +95,7 @@ Azure portalında aşağıdaki adımları uygulayarak bir Data Box kaynağı olu
 
 3. Yeni kaynak için aşağıdaki bilgileri girin veya seçin.
     
-    |Ayar  |Değer  |
+    |Ayar  |Value  |
     |---------|---------|
     |Kaynak adı   | Kaynağı tanımlamak için kolay bir ad.<br>Ad 2 ile 50 karakter arasında olmalı, harf, rakam ve kısa çizgilerden oluşmalıdır.<br> Ad bir harf veya rakamla başlar ve biter.        |
     |Abonelik    |Abonelik fatura hesabınıza bağlıdır. |
@@ -126,7 +126,7 @@ Data Box Gateway kaynağı oluşturulduktan sonra, konak sisteminizde sanal maki
 4. Sağ bölmedeki hızlı başlangıçta, indirmek istediğiniz görüntüye karşılık gelen bağlantıya tıklayın. Görüntü dosyaları yaklaşık 4,8 GB'tır.
    
    * [Windows Server 2012 R2 ve sonraki sürümleri üzerinde Hyper-V için VHDX](https://aka.ms/dbe-vhdx-2012).
-   * [VMWare ESXi 6.0 veya 6.5 için VMDK](https://aka.ms/dbe-vmdk).
+   * [VMWare ESXi 6.0 veya 6.5 6.7 için VMDK](https://aka.ms/dbe-vmdk).
 
 5. Dosyayı yerel sürücüye indirin ve sıkıştırmasını açın. Sıkıştırması açılan dosyanın konumunu not alın.
 

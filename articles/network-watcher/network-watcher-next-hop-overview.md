@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 28eacdce922e26d391cf34f78cb03ead9c6887a1
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 40f1790806aac6756979f28ad29442b7abf96019
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391275"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096900"
 ---
 # <a name="use-next-hop-to-diagnose-virtual-machine-routing-problems"></a>Sanal makine yönlendirme sorunları tanılamak için sonraki atlama kullanın
 
@@ -42,4 +42,4 @@ Her bir sonraki atlama türü hakkında daha fazla bilgi için bkz: [yönlendirm
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-VM ağ yönlendirme sorunlarını tanılamak için sonraki atlama kullanmayı öğrenmek için bkz [tanılama VM ağ yönlendirme sorunları](diagnose-vm-network-routing-problem.md).
+VM ağ yönlendirme sorunlarını tanılamak için sonraki atlama kullanmayı öğrenmek için ağ yönlendirme sorunları kullanarak VM tanılama Bkz [Azure portalında](diagnose-vm-network-routing-problem.md), [PowerShell](diagnose-vm-network-routing-problem-powershell.md), veya [Azure CLI](diagnose-vm-network-routing-problem-cli.md).

@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -17,14 +17,14 @@ ms.date: 09/14/2018
 ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
-ms.openlocfilehash: dd164882f9820cab970edd4d01f2f28c26771f88
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: fd02c2d10d072f33fdc265feaadf9776e9c1d679
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815231"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102043"
 ---
-# <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Nasıl yapılır: uygulamanızı Azure Active Directory Uygulama galerisinde listeleyin
+# <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Nasıl yapılır: Azure Active Directory uygulama galerisinde uygulamanızı listeleme
 
 ## <a name="what-is-the-azure-ad-application-gallery"></a>Azure AD uygulama Galerisi nedir?
 
@@ -72,14 +72,14 @@ Ekibimiz, ayrıntıları ve buna göre erişmenizi inceler. İsteğiniz onayland
 
 Uygulamanın Azure AD uygulama galerisinde listelemek için öncelikle bir Azure AD tarafından desteklenen aşağıdaki Federasyon protokollerini uygulamak ve Azure AD uygulama Galerisi hüküm ve koşulları kabul ediyorum gerekir. Hüküm ve Koşulları ' Azure AD uygulama Galerisi okuma [burada](https://azure.microsoft.com/support/legal/active-directory-app-gallery-terms/).
 
-- **Openıd Connect**: uygulamanız Open ID Connect protokolünü kullanarak Azure AD ile tümleştirmek için izleyin [geliştiricilerin yönergeleri](authentication-scenarios.md).
+- **Openıd Connect**: Uygulamanız Open ID Connect protokolünü kullanarak Azure AD ile tümleştirmek için izleyin [geliştiricilerin yönergeleri](authentication-scenarios.md).
 
     ![Openıd Connect galeri uygulamasına listeleme, zaman çizelgesi](./media/howto-app-gallery-listing/openid.png)
 
     * Openıd Connect, select kullanarak Galeriden uygulamanızı listesine eklemek istiyorsanız **Openıd Connect ve OAuth 2.0** yukarıdaki gibi.
     * Erişim ile ilgili herhangi bir sorun varsa, kişi [Azure AD SSO tümleştirme takım](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
 
-*   **SAML 2.0** veya **WS-Federasyon**: uygulamanız SAML 2.0 destekliyorsa, doğrudan Azure AD kiracısı ile kullanarak tümleştirebilirsiniz [özel bir uygulama eklemek için yönergeleri](../active-directory-saas-custom-apps.md).
+*   **SAML 2.0** veya **WS-Federasyon**: Uygulamanız SAML 2.0 destekliyorsa, doğrudan Azure AD kiracısı ile kullanarak tümleştirebilirsiniz [özel bir uygulama eklemek için yönergeleri](../active-directory-saas-custom-apps.md).
 
     ![Galeri SAML 2.0 veya WS-Federasyon uygulamasına listeleme, zaman çizelgesi](./media/howto-app-gallery-listing/saml.png)
 

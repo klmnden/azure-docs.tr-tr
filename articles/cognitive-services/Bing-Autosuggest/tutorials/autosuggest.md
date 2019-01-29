@@ -1,23 +1,23 @@
 ---
-title: "Öğretici: Bing Otomatik Öneri API'sini kullanarak otomatik öneri sonuçları alma"
+title: "Öğretici: Bing otomatik öneri API'sini kullanarak sonuçları otomatik öneri alma"
 titlesuffix: Azure Cognitive Services
 description: Bing Otomatik Öneri özelliğini kullanma adımlarını gösterir.
 services: cognitive-services
 author: v-jaswel
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-autosuggest
+ms.subservice: bing-autosuggest
 ms.topic: tutorial
 ms.date: 09/28/2017
 ms.author: v-jaswel
-ms.openlocfilehash: b93ab8ebb4bb50723ec6ebae617fe9d95c6c7a47
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
-ms.translationtype: HT
+ms.openlocfilehash: a9a0dab47a13c349f11181f25b086b70031e08af
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831455"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55190148"
 ---
-# <a name="tutorial-build-a-web-page-autosuggest-client"></a>Öğretici: Web sayfası şeklinde bir Otomatik Öneri istemcisi oluşturma
+# <a name="tutorial-build-a-web-page-autosuggest-client"></a>Öğretici: Bir Web sayfası otomatik öneri istemci oluşturun
 
 Bu öğreticide kullanıcıların Bing Otomatik Öneri API'sini sorgulamasını sağlayan bir Web sayfası oluşturacağız.
 
@@ -27,7 +27,7 @@ Bu öğretici şunların nasıl yapıldığını gösterir:
 > - Bing Otomatik Öneri API'sine basit bir sorgu gönderme
 > - Sorgu sonuçlarını görüntüleme
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Öğreticiyi takip edebilmek için Bing Otomatik Öneri API'si için bir abonelik anahtarına ihtiyacınız olacaktır. Bir aboneliğiniz yoksa [ücretsiz deneme sürümüne kaydolun](https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api).
 

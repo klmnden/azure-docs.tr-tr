@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: babanisa
-ms.openlocfilehash: bb82ef542db09b3b7f864c4901107e1c5c0827f6
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: bb22a2545466c72f7dac68f80668b8b530832c21
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464795"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094727"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>HTTP uç noktasına olayları alma
 
@@ -370,6 +370,6 @@ Ayrıca bu işlev tarafından Canlı test [portaldan CURL ile özel bir olay gö
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Keşfedin [Azure Event Grid Management ve SDK'ları yayımlama](./sdk-overview.md)
+* Keşfedin [Azure Event Grid yönetim ve SDK'ları yayımlama](./sdk-overview.md)
 * Bilgi edinmek için nasıl [gönderi için özel bir konu](./post-to-custom-topic.md)
 * Event Grid ve işlevleri detaylı eğitimler birini gibi deneyin [Blob depolama alanına yüklenen görüntüleri yeniden boyutlandırma](resize-images-on-storage-blob-upload-event.md)

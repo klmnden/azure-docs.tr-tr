@@ -1,23 +1,23 @@
 ---
-title: "Öğretici: Bing Otomatik Öneri API'sini kullanarak otomatik öneri sonuçları alma"
+title: "Öğretici: Bing otomatik öneri API'sini kullanarak sonuçları otomatik öneri alma"
 titlesuffix: Azure Cognitive Services
 description: Tek sayfalı bir Web uygulamasında Bing Otomatik Öneri API'sini kullanmayı gösteren öğreticinin kaynak kodu.
 services: cognitive-services
 author: v-jaswel
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-autosuggest
+ms.subservice: bing-autosuggest
 ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: v-jaswel
-ms.openlocfilehash: a3eafe1c2ad6bb7a141b6c40c85f804d0f9b7395
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 6fdb72b92a444b889ddfafd0ceecbb4fab6570c8
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345632"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55171261"
 ---
-# <a name="tutorial-single-page-web-app"></a>Öğretici: Tek sayfalı Web uygulaması
+# <a name="tutorial-single-page-web-app"></a>Öğretici: Tek sayfalı web uygulaması
 
 Bing Otomatik Öneri API'si için [tek sayfalı uygulama öğreticisinin](autosuggest.md) eksiksiz kaynak kodudur. Uygulamayı çalıştırmak için kaynak kodu bir metin düzenleyiciye kopyalayın ve dosyayı `autosuggest.html` olarak kaydedin. Ardından kaydettiğiniz dosyayı Web tarayıcınızda açın.
 

@@ -9,16 +9,16 @@ editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 87003a053823cfc257a3b6f41699feefadbbcc66
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 28958627ee66d0586fabff30aa3e5d041fb7dd80
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835174"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55196761"
 ---
 # <a name="configure-azure-ad-directory-role-settings-in-pim"></a>PIM'de Azure AD dizini rol ayarlarını yapılandırma
 
@@ -77,7 +77,7 @@ Kullanım **multi-Factor Authentication** rollerinin etkinleştirilebilmesi MFA 
   * Koşullu Erişim Yöneticisi
   * CRM Hizmet Yöneticisi
   * Müşteri Kasası Erişim Onaylayıcı
-  * Dizin Yazıcılar
+  * Dizin Yazıcıları
   * Exchange Yöneticisi
   * Genel Yönetici
   * Bilgi Koruma Yöneticisi

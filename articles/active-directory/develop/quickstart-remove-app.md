@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,14 +16,14 @@ ms.date: 10/25/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 916d34a0af1490404cb9f7851b3117f1967c54d0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 61da59fd570b9acc58dce89907eb5a1726a28de9
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240911"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104514"
 ---
-# <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform-preview"></a>Hızlı Başlangıç: Microsoft kimlik platformuna kaydedilmiş bir uygulamayı kaldırma (Önizleme)
+# <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform-preview"></a>Hızlı Başlangıç: Microsoft identity platformuna (Önizleme) ile kayıtlı bir uygulamaya Kaldır
 
 Microsoft kimlik platformuna kayıtlı uygulamaları olan kurumsal geliştiricilerin ve hizmet olarak yazılım (SaaS) sağlayıcılarının bir uygulamanın kaydını kaldırması gerekebilir.
 
@@ -32,7 +32,7 @@ Bu hızlı başlangıçta şunları yapmayı öğreneceksiniz:
 * [Kendiniz veya kuruluşunuz tarafından yazılmış bir uygulamayı kaldırma](#remove-an-application-authored-by-your-organization)
 * [Başka bir kuruluş tarafından yazılmış bir uygulamayı kaldırma](#remove-an-application-authoried-by-another-organization)
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Başlamak için aşağıdaki önkoşulları karşıladığınızdan emin olun:
 

@@ -1,5 +1,5 @@
 ---
-title: 'Azure arka uç bağlantısı özellikleri birlikte çalışabilirlik: denetim düzlemi analizi | Microsoft Docs'
+title: 'Birlikte çalışabilirlik Azure arka uç bağlantısı özellikleri: Denetim düzlemi analizi | Microsoft Docs'
 description: Bu makalede, ExpressRoute, siteden siteye VPN ve sanal ağ eşlemesi ile Azure arasında birlikte çalışabilirlik analiz etmek için kullanabileceğiniz test kurulum denetim düzlemi analizini sağlar.
 documentationcenter: na
 services: networking
@@ -10,14 +10,14 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: 37f5399426bebd375200bbc18dae7ed83f4fde3f
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 77a405e2f020ff764348370fc001388610ad75b6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614693"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55155536"
 ---
-# <a name="interoperability-in-azure-back-end-connectivity-features-control-plane-analysis"></a>Azure arka uç bağlantısı özellikleri birlikte çalışabilirlik: denetim düzlemi analizi
+# <a name="interoperability-in-azure-back-end-connectivity-features-control-plane-analysis"></a>Birlikte çalışabilirlik Azure arka uç bağlantısı özellikleri: Denetim düzlemi analizi
 
 Bu makalede, Denetim düzlemi analizi [kurulumunu test][Setup]. Ayrıca inceleyebilirsiniz [test Kurulum Yapılandırması] [ Configuration] ve [veri düzlemi analiz] [ Data-Analysis] testi kurulumun.
 
@@ -79,7 +79,7 @@ Bir bölge içinde eşlemesi sanal ağda uç sanal ağları, uzak ağlarla ileti
 
 ### <a name="branch-vnet-connectivity-by-using-site-to-site-vpn"></a>Siteden siteye VPN kullanarak sanal ağa bağlantı dal
 
-Sanal ağlar farklı bölgelerde ve şirket içi ağlarda hub sanal ağ birbirleriyle iletişim kurmak için dal isteyebilirsiniz. Yerel Azure bu cofiguration için siteden siteye VPN bağlantısı bir VPN kullanarak çözümüdür. Bir alternatif, hub'ı yönlendirme için bir ağ sanal Gereci (NVA) kullanmaktır.
+Sanal ağlar farklı bölgelerde ve şirket içi ağlarda hub sanal ağ birbirleriyle iletişim kurmak için dal isteyebilirsiniz. Yerel Azure bu yapılandırma için siteden siteye VPN bağlantısı bir VPN kullanarak çözümüdür. Bir alternatif, hub'ı yönlendirme için bir ağ sanal Gereci (NVA) kullanmaktır.
 
 Daha fazla bilgi için [VPN ağ geçidi nedir?] [ VPN] ve [yüksek oranda kullanılabilir bir NVA dağıtın][Deploy-NVA].
 

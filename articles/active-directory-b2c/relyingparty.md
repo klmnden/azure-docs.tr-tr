@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 01/25/2019
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: 8ec9e5a50f2350a17d5845f5c52954df10fa1d10
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: 5d42568a738d946d7df65601044b9797a35f6b1f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856834"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55176021"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -44,7 +44,7 @@ Aşağıdaki örnekte gösterildiği bir **RelyingParty** öğesinde *B2C_1A_sig
   <RelyingParty>
     <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
     <UserJourneyBehaviors>
-      <SingleSignOn Scope="TrustFramework" />
+      <SingleSignOn Scope="TrustFramework" KeepAliveInDays="7"/>
       <SessionExpiryType>Rolling</SessionExpiryType>
       <SessionExpiryInSeconds>300</SessionExpiryInSeconds>
       <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="your-application-insights-key" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
@@ -125,6 +125,7 @@ Aşağıdaki örnekte gösterildiği bir **RelyingParty** öğesinde *B2C_1A_sig
 | Öznitelik | Gerekli | Açıklama |
 | --------- | -------- | ----------- |
 | Kapsam | Evet | Çoklu oturum açma davranışı kapsamı. Olası değerler: `Suppressed`, `Tenant`, `Application`, veya `Policy`. `Suppressed` Değeri gösterir davranışı bastırılır. Örneğin, tek bir oturum açma oturumu, söz konusu olduğunda kullanıcı için hiçbir oturumu korunur ve kullanıcı bir kimlik sağlayıcısı seçim için her zaman istemde bulunulacak. `TrustFramework` Değeri gösterir davranışı güven Framework'teki tüm ilkeler için uygulanır. Örneğin, bir güven çerçevesi için iki ilke yolculuklarından arasında gezinme bir kullanıcı için bir kimlik sağlayıcısı seçim sorulmaz. `Tenant` Değeri gösterir davranışı kiracıdaki tüm ilkeleri uygulanır. Örneğin, bir kiracı için iki ilke yolculuklarından giderek bir kullanıcı için bir kimlik sağlayıcısı seçim sorulmaz. `Application` Değeri gösterir davranışı istekte uygulama yönelik tüm ilkeleri uygulanır. Örneğin, bir uygulama için iki ilke yolculuklarından arasında gezinme bir kullanıcı için bir kimlik sağlayıcısı seçim sorulmaz. `Policy` Değeri gösterir davranış yalnızca bir ilke için geçerlidir. Örneğin, bir güven çerçevesi için iki ilke yolculuklarından arasında gezinme bir kullanıcı için bir kimlik sağlayıcısı seçim ilkeleri arasında geçiş yaparken istenir. |
+| KeepAliveInDays | Evet | kullanıcının oturum açmış durumda kalır ne kadar süreyle denetler. KMSI'yi işlevselliği 0 kapatır değeri ayarlanamadı. Daha fazla bilgi için [Oturumumu açık bırak](active-directory-b2c-reference-kmsi-custom.md). |
 
 ## <a name="journeyinsights"></a>JourneyInsights
 
@@ -159,7 +160,7 @@ Aşağıdaki örnekte adlı bir parametre geçirir `campaignId` değeriyle `hawa
 
 | Öznitelik | Gerekli | Açıklama |
 | --------- | -------- | ----------- |
-| Ad | Evet | Anahtar değer çifti adı. |
+| Name | Evet | Anahtar değer çifti adı. |
 
 Daha fazla bilgi için [özel ilkeler kullanarak dinamik içerik ile kullanıcı arabirimini yapılandırma](active-directory-b2c-ui-customization-custom-dynamic.md)
 
@@ -186,7 +187,7 @@ Daha fazla bilgi için [özel ilkeler kullanarak dinamik içerik ile kullanıcı
 
 | Öznitelik | Gerekli | Açıklama |
 | --------- | -------- | ----------- |
-| Ad | Evet | Teknik profilinin bir parçası kullanılan bir Azure AD B2C tarafından desteklenen geçerli bir protokol adı. Olası değerler: `OpenIdConnect` veya `SAML2`. `OpenIdConnect` Değer için Openıd Connect 1.0 protokolü standart Openıd foundation belirtimi uyarınca temsil eder. `SAML2` OASIS belirtimi uyarınca SAML 2.0 protokolü standart temsil eder. SAML belirteci, üretim ortamında kullanmayın. |
+| Name | Evet | Teknik profilinin bir parçası kullanılan bir Azure AD B2C tarafından desteklenen geçerli bir protokol adı. Olası değerler: `OpenIdConnect` veya `SAML2`. `OpenIdConnect` Değer için Openıd Connect 1.0 protokolü standart Openıd foundation belirtimi uyarınca temsil eder. `SAML2` OASIS belirtimi uyarınca SAML 2.0 protokolü standart temsil eder. SAML belirteci, üretim ortamında kullanmayın. |
 
 ## <a name="outputclaims"></a>OutputClaims
 

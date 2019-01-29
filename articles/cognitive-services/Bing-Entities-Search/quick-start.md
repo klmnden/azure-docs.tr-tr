@@ -1,28 +1,28 @@
 ---
-title: "Hızlı başlangıç: Bing Varlık Arama API'si"
+title: 'Hızlı Başlangıç: Bing Varlık Arama API’si'
 description: Bing Varlık Arama API'sini kullanmaya başlamayı göstermektedir.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-entity-search
+ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 07/06/2017
 ms.author: scottwhi
-ms.openlocfilehash: ffc9ebb21c6646b1a39af4659053adf4157d204b
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
-ms.translationtype: HT
+ms.openlocfilehash: 1bb2c4b73b29d832a289c7a5c1c86b958302086a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48813966"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55153462"
 ---
-# <a name="quickstart-making-your-first-bing-entity-search-request"></a>Hızlı başlangıç: İlk Bing Varlık Arama isteğiniz oluşturma
+# <a name="quickstart-making-your-first-bing-entity-search-request"></a>Hızlı Başlangıç: İlk Bing varlık arama isteğiniz yapma
 
 Bing Varlık Arama API'si, Bing'e bir arama sorgusu gönderip varlıkları ve yerleri içeren sonuçlar alır. Yer sonuçları restoranlar, oteller veya diğer yerel işletmeleri kapsar. Yerler için sorguda yerel işletmenin adı belirtilebilir veya liste isteği (yakınımdaki restoranlar gibi) gönderilebilir. Varlık sonuçları kişileri, yerleri veya nesneleri kapsar. Bu bağlamda yer turistik noktalar, şehirler, ülkeler gibi konumlar olabilir. 
 
 ## <a name="first-steps"></a>İlk adımlar
 
-İlk çağrınızı yapmadan önce bir Bilişsel Hizmetler abonelik anahtarı almanız gerekir. Anahtar alma için bkz: [Bilişsel Hizmetleri Deneme](https://azure.microsoft.com/try/cognitive-services/?api=bing-entities-search-api). (Varlık Arama API'si en üstte görünmüyorsa **Ara** sekmesine gidin ve bulana kadar sayfayı kaydırın.)
+İlk çağrınızı yapmadan önce bir Bilişsel Hizmetler abonelik anahtarı almanız gerekir. Anahtar almak için bkz. [Bilişsel Hizmetleri Deneme](https://azure.microsoft.com/try/cognitive-services/?api=bing-entities-search-api). (Varlık Arama API'si en üstte görünmüyorsa **Ara** sekmesine gidin ve bulana kadar sayfayı kaydırın.)
 
 ## <a name="the-endpoint"></a>Uç nokta
 
@@ -69,7 +69,7 @@ Bing API'lerinden birini ilk kez çağırıyorsanız istemci kimliği üst bilgi
 
 ## <a name="the-response"></a>Yanıt
 
-Aşağıda, bir önceki isteğin yanıtı gösterilmektedir. Örnek ayrıca Bing'e özgü yanıt üstbilgilerini de göstermektedir. Yanıt nesnesi hakkında bilgi için bkz. [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#searchresponse).
+Aşağıda, bir önceki isteğin yanıtı gösterilmektedir. Örnek ayrıca Bing’e özgü yanıt üst bilgilerini de göstermektedir. Yanıt nesnesi hakkında bilgi için bkz. [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#searchresponse).
 
 ```
 BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC
@@ -136,7 +136,7 @@ BingAPIs-Market: en-US
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-API'yi deneyin. [Varlık Arama API'si Test Konsolu](https://dev.cognitive.microsoft.com/docs/services/7a3fb374be374859a823b79fd938cc65/)'na gidin. 
+API’yi deneyin. [Varlık Arama API'si Test Konsolu](https://dev.cognitive.microsoft.com/docs/services/7a3fb374be374859a823b79fd938cc65/)'na gidin. 
 
 Yanıt nesnelerini kullanmanın ayrıntıları için bkz. [Web'de varlık ve yer arama](./search-the-web.md).
 

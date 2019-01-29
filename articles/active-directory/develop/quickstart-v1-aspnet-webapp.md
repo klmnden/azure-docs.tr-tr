@@ -8,21 +8,21 @@ manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
-ms.openlocfilehash: 10de179c6055feb46439792ea74a0a3131f39646
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: aeb9f1ba460a009daacf3090c75573dd5d69b813
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970670"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095864"
 ---
-# <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Hızlı başlangıç: ASP.NET web uygulamasına Microsoft ile oturum açma özelliği ekleme
+# <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Hızlı Başlangıç: Oturum açma Microsoft ile bir ASP.NET web uygulamasına ekleme
 
 [!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
@@ -39,7 +39,7 @@ Başlamak için aşağıdaki önkoşulları karşıladığınızdan emin olun:
 
 * Visual Studio 2015 Güncelleştirme 3 veya Visual Studio 2017 yüklü. Sizde yok mu? [Visual Studio 2017’yi ücretsiz indirin](https://www.visualstudio.com/downloads/)
 
-## <a name="scenario-sign-in-users-from-work-and-school-accounts-in-your-aspnet-app"></a>Senaryo: Kullanıcıların ASP.NET uygulamanızda iş ve okul hesaplarını kullanarak oturum açmalarını sağlama
+## <a name="scenario-sign-in-users-from-work-and-school-accounts-in-your-aspnet-app"></a>Senaryo: ASP.NET uygulamanızı iş ve Okul hesaplarında kullanıcılardan oturum açma
 
 ![Bu kılavuz nasıl çalışır?](./media/quickstart-v1-aspnet-webapp/aspnet-intro.png)
 
@@ -66,14 +66,14 @@ Bu örneğe ait Visual Studio projesini indirmek için şu adımları izleyin:
 1. [GitHub'daki projeyi indirin](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/GuidedSetup.zip).
 1. [Yapılandırma adımına](#configure-your-webconfig-and-register-an-application) geçerek yürütmeden önce kod örneğini yapılandırın.
 
-## <a name="step-2-create-your-aspnet-project"></a>2. Adım: ASP.NET projenizi oluşturma
+## <a name="step-2-create-your-aspnet-project"></a>2. Adım: ASP.NET projenizi oluşturun
 
 1. Visual Studio'da **Dosya > Yeni > Proje**'yi seçin.
 2. **Visual C#\Web** bölümünde **ASP.NET Web Uygulaması (.NET Framework)** girişini seçin.
 3. Uygulamanıza bir ad verin ve **Tamam**'ı seçin.
 4. **Boş**'u seçin ve **MVC** başvurusu eklemek için onay kutusunu seçin.
 
-## <a name="step-3-add-authentication-components"></a>3. Adım: Kimlik doğrulaması bileşenlerini ekleme
+## <a name="step-3-add-authentication-components"></a>3. Adım: Kimlik doğrulama bileşenleri ekleme
 
 1. Visual Studio'da, **Araçlar > NuGet Paket Yöneticisi > Paket Yöneticisi Konsolu**’na gidin.
 2. Paket Yöneticisi Konsolu penceresinde aşağıdakileri yazarak **OWIN ara yazılım NuGet paketlerini** ekleyin:
@@ -89,7 +89,7 @@ Bu örneğe ait Visual Studio projesini indirmek için şu adımları izleyin:
 >Yukarıdaki kitaplıklar, tanımlama bilgisi tabanlı kimlik doğrulaması aracılığıyla OpenID Connect kullanarak çoklu oturum açma (SSO) sağlar. Kimlik doğrulaması tamamlandıktan ve kullanıcıyı temsil eden belirteç uygulamanıza gönderildikten sonra OWIN ara yazılımı bir oturum tanımlama bilgisi oluşturur. Tarayıcı sonraki isteklerde bu tanımlama bilgisini kullanarak kullanıcının yeniden kimlik doğrulamasından geçmesine ve ek doğrulamaya gerek duyulmamasını sağlar.
 <!--end-collapse-->
 
-## <a name="step-4-configure-the-authentication-pipeline"></a>4. Adım: Kimlik doğrulaması işlem hattını yapılandırma
+## <a name="step-4-configure-the-authentication-pipeline"></a>4. Adım: Kimlik doğrulaması işlem hattı yapılandırın
 
 Bu adımları izleyerek OpenID Connect kimlik doğrulamasını yapılandırmak üzere bir OWIN ara yazılımı *Başlangıç Sınıfı* oluşturun. Bu sınıf otomatik olarak yürütülür.
 
@@ -119,7 +119,7 @@ OWIN ara yazılımı *Başlangıç Sınıfı* oluşturmak için:
 
 <!--start-use-->
 
-## <a name="step-5-add-a-controller-to-handle-sign-in-and-sign-out-requests"></a>5. Adım: Oturum açma ve oturumu kapatma isteklerini işlemek için bir denetleyici ekleme
+## <a name="step-5-add-a-controller-to-handle-sign-in-and-sign-out-requests"></a>5. Adım: Oturum açma ve oturum kapatma istekleri işlemek üzere bir denetleyici ekleyin
 
 Oturum açma ve oturumu kapatma metotlarını kullanıma sunmak için yeni bir denetleyici oluşturun.
 
@@ -135,7 +135,7 @@ Oturum açma ve oturumu kapatma metotlarını kullanıma sunmak için yeni bir d
 
     [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Controllers/HomeController.cs?name=SigInAndSignOut "HomeController.cs")]
 
-## <a name="step-6-create-the-apps-home-page-to-sign-in-users-via-a-sign-in-button"></a>6. Adım: Kullanıcıların oturum açma düğmesiyle oturum açabileceği uygulama giriş sayfasını oluşturma
+## <a name="step-6-create-the-apps-home-page-to-sign-in-users-via-a-sign-in-button"></a>6. Adım: Kullanıcılar bir oturum açma düğmesi aracılığıyla oturum açmak için uygulama giriş sayfası oluşturma
 
 Visual Studio'da oturum açma düğmesini eklemek ve kimlik doğrulaması sonrasında kullanıcı bilgilerini görüntülemek için yeni bir görünüm ekleyin:
 
@@ -148,7 +148,7 @@ Visual Studio'da oturum açma düğmesini eklemek ve kimlik doğrulaması sonras
 <!--start-collapse--> Bu sayfa siyah arka plan üzerinde SVG biçiminde bir oturum açma düğmesi ekler:<br/>![Microsoft ile Oturum Aç](./media/quickstart-v1-aspnet-webapp/aspnetsigninbuttonsample.png)<br/> Daha fazla oturum açma düğmesi için bkz. [Uygulamalar için markalama yönergeleri](howto-add-branding-in-azure-ad-apps.md).
 <!--end-collapse-->
 
-## <a name="step-7-display-users-claims-by-adding-a-controller"></a>7. Adım: Denetleyici ekleyerek kullanıcının taleplerini görüntüleme
+## <a name="step-7-display-users-claims-by-adding-a-controller"></a>7. Adım: Kullanıcı talepleri bir denetleyici ekleyerek görüntüleme
 
 Bu denetleyici bir denetleyiciyi koruma amacıyla `[Authorize]` özniteliğini kullanma şeklini gösterir. Bu öznitelik yalnızca kimliği doğrulanan kullanıcılara izin vererek denetleyici erişimini sınırlar. Aşağıdaki kod özniteliği kullanarak oturum açma işleminin bir parçası olarak getirilen kullanıcı taleplerini görüntüler.
 
@@ -165,7 +165,7 @@ Bu denetleyici bir denetleyiciyi koruma amacıyla `[Authorize]` özniteliğini k
 > `[Authorize]` özniteliğinin kullanılması nedeniyle bu denetleyicinin tüm metotları yalnızca kullanıcının kimliğinin doğrulanması durumunda yürütülebilir. Kimliği doğrulanmamış bir kullanıcının denetleyiciye erişmeye çalışması durumunda OWIN bir kimlik doğrulaması sınaması başlatır ve kullanıcıyı kimlik doğrulaması için zorlar. Yukarıdaki kod kullanıcı belirtecinde bulunan belirli öznitelikler için kullanıcının talep koleksiyonuna bakar. Bu öznitelik kullanıcının tam adını, kullanıcı adını ve genel kullanıcı tanımlayıcısı nesnesini içerir. Ayrıca kullanıcının kuruluşunun kimliğini temsil eden *Kiracı Kimliği* değerini de içerir.
 <!--end-collapse-->
 
-## <a name="step-8-create-a-view-to-display-the-users-claims"></a>8. Adım: Kullanıcının taleplerini görüntülemek için bir görünüm oluşturma
+## <a name="step-8-create-a-view-to-display-the-users-claims"></a>8. adım: Kullanıcı talepleri görüntülemek için bir görünüm oluşturma
 
 Visual Studio'da kullanıcının taleplerini bir web sayfasında görüntülemek için yeni bir görünüm oluşturun:
 
@@ -179,7 +179,7 @@ Visual Studio'da kullanıcının taleplerini bir web sayfasında görüntülemek
 
 <!--start-configure-->
 
-## <a name="step-9-configure-your-webconfig-and-register-an-application"></a>9. Adım: *web.config* dosyanızı yapılandırma ve uygulama kaydetme
+## <a name="step-9-configure-your-webconfig-and-register-an-application"></a>9. adım: Yapılandırma, *web.config* ve bir uygulamayı kaydetme
 
 1. Visual Studio'da aşağıdaki kodu `configuration\appSettings` dizinindeki `web.config` dosyasına (kök klasörde bulunur) ekleyin:
 
@@ -208,7 +208,7 @@ Visual Studio'da kullanıcının taleplerini bir web sayfasında görüntülemek
 > [!TIP]
 > Hesabınız birden fazla dizine erişecek şekilde yapılandırılmışsa aşağıda gösterilen şekilde Azure portalda sağ üst köşedeki hesap adına tıklayıp seçili dizini doğrulayarak uygulamanın kaydedilmesini istediğiniz kuruluş için doğru dizini seçtiğinizden emin olun:<br/>![Doğru dizini seçme](./media/quickstart-v1-aspnet-webapp/tenantselector.png)
 
-## <a name="step-10-configure-sign-in-options"></a>10. Adım: Oturum açma seçeneklerini yapılandırma
+## <a name="step-10-configure-sign-in-options"></a>10. adım: Oturum açma seçeneklerini yapılandırın
 
 Uygulamanızı yalnızca kuruluşunuzun Azure AD örneğindeki kullanıcıların oturum açmasına izin verecek veya tüm kuruluşlardan kullanıcıların oturum açmasını sağlayacak şekilde yapılandırabilirsiniz. Lütfen aşağıdaki seçeneklerden birini belirleyin ve ilgili yönergeleri izleyin:
 
@@ -261,7 +261,7 @@ In this step, you will configure your project to use SSL, and then use the SSL U
 <!--end-configure-arp-->
 <!--start-test-->
 
-## <a name="step-11-test-your-code"></a>11. Adım: Kodunuzu test etme
+## <a name="step-11-test-your-code"></a>11. adım: Kodunuzu test etme
 
 1. Visual Studio projenizi çalıştırmak için **F5** tuşuna basın. Tarayıcı açılır ve **Microsoft ile Oturum Aç** düğmesinin bulunduğu `http://localhost:{port}` sayfası görüntülenir.
 1. Düğmeyi seçerek oturum açın.
@@ -286,9 +286,9 @@ Kullanıcının taleplerini görmek için köprüyü seçin. Bu eylem yalnızca 
 
  Oturum açmış olan kullanıcının temel özelliklerinin bulunduğu bir tablo görmeniz gerekir:
 
-| Özellik | Değer | Açıklama |
+| Özellik | Value | Açıklama |
 |---|---|---|
-| Ad | {User Full Name} | Kullanıcının adı ve soyadı |
+| Name | {User Full Name} | Kullanıcının adı ve soyadı |
 | Kullanıcı adı | <span>user@domain.com</span> | Oturum açmış kullanıcıyı tanımlamak için kullanılan kullanıcı adı |
 | Konu| {Subject} |Web üzerinde kullanıcı oturumunu benzersiz bir şekilde tanımlayan dize |
 | Kiracı Kimliği | {Guid} | Kullanıcının Azure AD kuruluşunu benzersiz bir şekilde temsil eden *guid* değeri |

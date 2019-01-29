@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/27/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 9be8ddb6869a4872ff3eae9b589584f850c7dc96
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 57ba89de9eeb69ee9c78ba2d3adef758134283b7
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463630"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55203615"
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Karma kimlik çözümünüz için kimlik gereksinimleri belirleme
 Karma kimlik çözümü tasarlamanın ilk adımı, bu çözüm yararlanarak iş kuruluş gereksinimlerini belirlemektir.  Karma kimlik (diğer tüm bulut çözümleri kimlik sağlayarak destekler) destekleyen bir rol olarak başlar ve kullanıcılar için yeni iş yüklerini kilidini yeni ve ilginç özellikler sağlamak için geçer.  Bu iş yükleri veya kullanıcılarınız için benimsemek için istediğiniz hizmetleri karma kimlik tasarımı gereksinimlerini gösterecektir.  Bu hizmetlerin ve iş yüklerini karma kimlik hem şirket içi gerekir ve bulut.  

@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory Cisco bulut ile tümleştirme | Microsoft Docs'
+title: 'Öğretici: Cisco bulut ile Azure Active Directory Tümleştirme | Microsoft Docs'
 description: Azure Active Directory ve Cisco bulut arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: db1cea1d-ff0a-4f0d-b5fd-50ca32702d56
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: jeedes
-ms.openlocfilehash: e5d7e195a3f61d32387d1101fbb24bfa1ac8bccb
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c5809426da95e2295c5bf318b6f17345002f536d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431241"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197951"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-cisco-cloud"></a>Öğretici: Azure Active Directory Cisco bulut ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-cisco-cloud"></a>Öğretici: Cisco bulut ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Cisco bulut Azure Active Directory (Azure AD) ile tümleştirmeyi öğrenin.
 
@@ -38,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Cisco bulut ile Azure AD tümleştirmesini yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Bir Cisco bulut çoklu oturum açma etkin aboneliği
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Azure AD'de Cisco bulut tümleştirmesini yapılandırmak için Cisco bulut Gale
 
 **Cisco bulut Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -147,7 +147,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve C
 
     e. **Tamam**’a tıklayın.
 
-1. Üzerinde **SAML imzalama sertifikası** bölümünde, kopyalamak için Kopyala düğmesine **uygulama Federasyon meta verileri URL'sini** kopyalayıp Not Defteri'ne yapıştırın.
+1. Üzerinde **SAML imzalama sertifikası** bölümünde, kopyalamak için Kopyala düğmesine **uygulama Federasyon meta verileri URL'sini** kopyalayıp Not Defteri'ne yapıştırın.
 
     ![Sertifika indirme bağlantısı](./media/ciscocloud-tutorial/tutorial_ciscocloud_certificate.png)
 
@@ -191,7 +191,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
  
 ### <a name="create-a-cisco-cloud-test-user"></a>Cisco bulut test kullanıcısı oluşturma
 
-Bu bölümde, Cisco bulutta Britta Simon adlı bir kullanıcı oluşturun. Çalışmak [Cisco bulut Destek ekibine](mailto:cpr-ops@cisco.com) Cisco bulut platformunda kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi
+Bu bölümde, Cisco bulutta Britta Simon adlı bir kullanıcı oluşturun. Çalışmak [Cisco bulut Destek ekibine](mailto:cpr-ops@cisco.com) Cisco bulut platformunda kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

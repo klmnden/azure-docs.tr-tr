@@ -8,18 +8,18 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: e189fb8b2bc5079d1560d3b7a54fea2db7366fe7
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: ab5a3b00d063dfdd42e67247bb2cdc37866d0164
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46293988"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55164138"
 ---
 # <a name="troubleshooting-dynamic-memberships-for-groups"></a>Gruplar için dinamik üyelik sorunlarını giderme
 
@@ -33,8 +33,8 @@ ms.locfileid: "46293988"
 
 | Kural ayrıştırıcı hatası | Hata kullanımı | Düzeltilmiş kullanımı |
 | --- | --- | --- |
-| Hata: özniteliği desteklenmiyor. |(user.invalidProperty - eq "Value") |(user.department - eq "value")<br/><br/>Öznitelik olduğundan emin olun üzerinde [desteklenen özellikler listesinde](groups-dynamic-membership.md#supported-properties). |
-| Hata: İşleç özniteliği desteklenmiyor. |(user.accountEnabled-true içerir) |(user.accountEnabled - eq true)<br/><br/>Özellik türü için kullanılan işleci desteklenmiyor (Bu örnekte,-içeren kullanılamaz boolean türü). Doğru operators, özellik türü için kullanın. |
+| Hata: Özniteliği desteklenmiyor. |(user.invalidProperty - eq "Value") |(user.department - eq "value")<br/><br/>Öznitelik olduğundan emin olun üzerinde [desteklenen özellikler listesinde](groups-dynamic-membership.md#supported-properties). |
+| Hata: İşleç özniteliği desteklenmiyor. |(user.accountEnabled-true içerir) |(user.accountEnabled -eq true)<br/><br/>Özellik türü için kullanılan işleci desteklenmiyor (Bu örnekte,-içeren kullanılamaz boolean türü). Doğru operators, özellik türü için kullanın. |
 | Hata: Sorgu derleme hatası. | 1. (user.department - eq "Sales") (user.department - eq "Pazarlama")<br>2. (user.userPrincipalName-eşleşen "*@domain.ext") | 1. İşleç eksik. Kullanın - veya - veya iki doğrulamaları katılın<br>(user.department - eq "Sales")- veya (user.department - eq "Pazarlama")<br>2. Hata - ile kullanılan normal ifade ile eşleşen<br>(user.userPrincipalName-eşleşen ". *@domain.ext")<br>veya alternatif olarak: (user.userPrincipalName-eşleşen "@domain.ext$") |
 
 ## <a name="next-steps"></a>Sonraki adımlar
@@ -42,6 +42,6 @@ ms.locfileid: "46293988"
 Bu makalelerde Azure Active Directory ile ilgili ek bilgi sağlanmıştır.
 
 * [Azure Active Directory grupları ile kaynaklara erişimi yönetme](../fundamentals/active-directory-manage-groups.md)
-* [Azure Active Directory'de uygulama yönetimi](../manage-apps/what-is-application-management.md)
+* [Azure Active Directory’de Uygulama Yönetimi](../manage-apps/what-is-application-management.md)
 * [Azure Active Directory nedir?](../fundamentals/active-directory-whatis.md)
 * [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](../hybrid/whatis-hybrid-identity.md)

@@ -9,13 +9,13 @@ ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: c6933a3d50807f38c0704f41dff7c9bcb3351949
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: 5c63a838d6cffce5ca45dbf0dde50bb9bd01892c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54850648"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55171661"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -64,7 +64,7 @@ Düzenleme adımlarının sıralanmış listesini belirtmek için bir **Orchestr
 | Öznitelik | Gerekli | Açıklama |
 | --------- | -------- | ----------- |
 | Sipariş verme | Evet | Düzenleme adımlarının sırası. | 
-| Tür | Evet | Düzenleme adımı türü. Olası değerler: <ul><li>**ClaimsProviderSelection** -düzenleme adımı birini seçmek için kullanıcıya çeşitli talep sağlayıcıları sunan gösterir.</li><li>**CombinedSignInAndSignUp** -düzenleme adımı oturum açma ve yerel hesap kaydolma sayfası birleşik sosyal sağlayıcılar sunar gösterir.</li><li>**ClaimsExchange** -düzenleme adımı talepler bir talep sağlayıcı ile değiştirir gösterir.</li><li>**SendClaims** -düzenleme adımı, bir talep veren tarafından verilmiş bir belirteç ile bağlı olan tarafa talep gönderdiğini belirtir.</li></ul> | 
+| Type | Evet | Düzenleme adımı türü. Olası değerler: <ul><li>**ClaimsProviderSelection** -düzenleme adımı birini seçmek için kullanıcıya çeşitli talep sağlayıcıları sunan gösterir.</li><li>**CombinedSignInAndSignUp** -düzenleme adımı oturum açma ve yerel hesap kaydolma sayfası birleşik sosyal sağlayıcılar sunar gösterir.</li><li>**ClaimsExchange** -düzenleme adımı talepler bir talep sağlayıcı ile değiştirir gösterir.</li><li>**SendClaims** -düzenleme adımı, bir talep veren tarafından verilmiş bir belirteç ile bağlı olan tarafa talep gönderdiğini belirtir.</li></ul> | 
 | ContentDefinitionReferenceId | Hayır | Tanımlayıcısını [içerik tanımı](contentdefinitions.md) bu düzenleme adımı ile ilişkili. Çoğunlukla içerik tanım başvurusu tanımlayıcısını otomatik olarak onaylanan teknik profili içinde tanımlanır. Ancak, teknik bir profili olmayan bir şey görüntülemek Azure AD B2C ihtiyacı olduğunda bazı durumlar vardır. Düzenleme adımı türü aşağıdakilerden biri ise iki örnekler verilmiştir: `ClaimsProviderSelection` veya `CombinedSignInAndSignUp`. Teknik profil gerek kalmadan kimlik sağlayıcısı seçim görüntülemek Azure AD B2C gerekir. | 
 | CpimIssuerTechnicalProfileReferenceId | Hayır | Düzenleme adımı türü `SendClaims`. Bu özellik, bağlı olan taraf için belirteç veren talep sağlayıcısı teknik profil tanımlayıcısını tanımlar.  Yoksa, bağlı olan taraf belirteci olmadan oluşturulduysa. |
 
@@ -92,14 +92,14 @@ Düzenleme adımlarının sıralanmış listesini belirtmek için bir **Orchestr
 
 | Öznitelik | Gerekli | Açıklama |
 | --------- | -------- | ----------- |
-| Tür | Evet | Onay veya bu önkoşulu için gerçekleştirmek için sorgu türü. Değer olabilir **ClaimsExist**, kullanıcının geçerli talep kümesinde belirtilen talep varsa eylemlerin gerçekleştirilmesi gereken belirtir veya **ClaimEquals**, hangi belirtir eylemleri Belirtilen talep varsa ve değeri belirtilen değere eşittir gerçekleştirilmelidir. |
+| Type | Evet | Onay veya bu önkoşulu için gerçekleştirmek için sorgu türü. Değer olabilir **ClaimsExist**, kullanıcının geçerli talep kümesinde belirtilen talep varsa eylemlerin gerçekleştirilmesi gereken belirtir veya **ClaimEquals**, hangi belirtir eylemleri Belirtilen talep varsa ve değeri belirtilen değere eşittir gerçekleştirilmelidir. |
 | ExecuteActionsIf | Evet | True veya false test önkoşuluna eylemleri gerçekleştirilen karar vermek için kullanın. | 
 
 **Önkoşulu** öğeleri aşağıdaki öğeleri içerir:
 
 | Öğe | Oluşumlar | Açıklama |
 | ------- | ----------- | ----------- |
-| Değer | 1:n | İçin Sorgulanacak ClaimTypeReferenceId. Başka bir değeri öğenin denetlenecek değer içeriyor.</li></ul>|
+| Value | 1:n | İçin Sorgulanacak ClaimTypeReferenceId. Başka bir değeri öğenin denetlenecek değer içeriyor.</li></ul>|
 | Eylem | 1:1 | Önkoşul denetimi içinde bir düzenleme adımı doğru olması durumunda gerçekleştirilmesi gereken eylem. Varsa değerini `Action` ayarlanır `SkipThisOrchestrationStep`, ilişkili `OrchestrationStep` değil yürütülmelidir. | 
 
 ### <a name="preconditions-examples"></a>Önkoşulları örnekleri

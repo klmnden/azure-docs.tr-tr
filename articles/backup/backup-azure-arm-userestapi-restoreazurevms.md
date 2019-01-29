@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: pullabhk
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: 68c611b08524b5fc037598bafe46d75b3293886d
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 4a65e8a855b9be797c1ceeacf4b74fea74697d00
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289732"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55100224"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>REST API kullanarak Azure sanal makineleri geri yükleme
 
@@ -37,7 +37,7 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 ### <a name="responses"></a>Yanıtlar
 
-|Ad  |Tür  |Açıklama  |
+|Name  |Tür  |Açıklama  |
 |---------|---------|---------|
 |200 TAMAM     |   [RecoveryPointResourceList](https://docs.microsoft.com/rest/api/backup/recoverypoints/list#recoverypointresourcelist)      |       Tamam  |
 
@@ -127,9 +127,9 @@ Yedekleme verilerini bir VM'den oluşturulmasını özelleştirmek için bir ger
 
 Diskleri geri yükleme tetikleniyor olduğu bir *POST* isteği. Disk geri yükleme işlemini hakkında daha fazla bilgi edinmek için bkz ["geri yüklemeyi tetikleyecek" REST API](https://docs.microsoft.com/rest/api/backup/restores/trigger).
 
-````http
+```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/restore?api-version=2016-12-01
-````
+```
 
 `{containerName}` Ve `{protectedItemName}` oluşturulmuş gibi [burada](backup-azure-arm-userestapi-backupazurevms.md#example-responses-1). `{fabricName}` "Azure" olduğundan ve `{recoveryPointId}` olduğu `{name}` belirtilen kurtarma noktası alanı [yukarıda](#example-response).
 
@@ -137,7 +137,7 @@ POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/
 
 Aşağıdaki disk geri yükleme yoluyla bir Azure VM yedeklemesi tetiklemek için istek gövdesi bileşenleridir.
 
-|Ad  |Tür  |Açıklama  |
+|Name  |Tür  |Açıklama  |
 |---------|---------|---------|
 |properties     | [IaaSVMRestoreRequest](https://docs.microsoft.com/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
 
@@ -147,7 +147,7 @@ Aşağıdaki disk geri yükleme yoluyla bir Azure VM yedeklemesi tetiklemek içi
 
 Aşağıdaki istek gövdesi bir diski geri yüklemeyi tetikleyecek gerekli özelliklerini tanımlar.
 
-````json
+```json
 {
   "properties": {
     "objectType": "IaasVMRestoreRequest",
@@ -163,15 +163,15 @@ Aşağıdaki istek gövdesi bir diski geri yüklemeyi tetikleyecek gerekli özel
     }
   }
 }
-````
+```
 
 ### <a name="response"></a>Yanıt
 
 Bir diski geri yükleme tetikleniyor olduğu bir [zaman uyumsuz işlem](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Bu işlem, ayrı ayrı izlenmesi gereken başka bir işlem oluşturur anlamına gelir.
 
-İki yanıt verir: 202 (kabul edildi başka bir işlem oluşturulurken) ve 200 (Tamam) Bu işlem tamamlandığında.
+İki yanıt döndürür: 202 (kabul edildi başka bir işlem oluşturulurken) ve ardından 200 (Tamam) Bu işlem tamamlandığında.
 
-|Ad  |Tür  |Açıklama  |
+|Name  |Tür  |Açıklama  |
 |---------|---------|---------|
 |202 kabul edildi     |         |     Kabul Edildi    |
 
@@ -243,7 +243,7 @@ Uzun süre çalışan iş tamamlandığında, diskleri ve yapılandırmayı yede
 
 Aşağıdaki istek gövdesi, bir sanal makine geri yüklemeyi tetikleyecek gerekli özelliklerini tanımlar.
 
-````json
+```json
 {
   "parameters": {
         "subscriptionId": "00000000-0000-0000-0000-000000000000",
@@ -275,7 +275,7 @@ Aşağıdaki istek gövdesi, bir sanal makine geri yüklemeyi tetikleyecek gerek
       }
     }
 }
-````
+```
 
 Yanıt aynı şekilde ele alınması [diskleri geri yüklemek için yukarıda açıklanan](#response).
 

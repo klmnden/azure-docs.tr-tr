@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/2018
+ms.date: 1/29/2019
 ms.author: barclayn
-ms.openlocfilehash: 32174af9edcd6da7b87b6b38c0824fa7f07aa8f9
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 6f571655bb0501f8ef4018bf47588c8db4cc2a3e
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49384896"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097678"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Güvenlik Hizmetleri ve teknolojileri Azure üzerinde kullanılabilir
 
@@ -84,7 +84,11 @@ Zamanla, bu liste değiştirin ve Azure gibi büyütün. Bu sayfada, güvenlikle
 | [Ağ&nbsp;güvenlik&nbsp;grupları](../virtual-network/virtual-networks-nsg.md)| İzin verme veya reddetme kararları yapmak için 5-tanımlama grubu kullanarak ağ tabanlı erişim denetimi özelliği.  |
 | [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md)| Bir VPN uç noktası, izin vermek için Azure sanal ağlarına erişimi içi ve dışı karışık olarak kullanılan bir ağ aygıtı.  |
 | [Azure uygulama ağ geçidi](../application-gateway/application-gateway-introduction.md)|Gelişmiş web uygulaması, URL tabanlı Yönlendirme ve SSL boşaltma gerçekleştirmek dengeleyici yükleyin. |
+|[Web uygulaması güvenlik duvarı](../application-gateway/waf-overview.md) (WAF)|Web uygulamalarınızda açıklardan yararlanmaya ve güvenlik açıkları merkezi koruma sağlayan bir Application Gateway özelliğidir|
 | [Azure Load Balancer](../load-balancer/load-balancer-overview.md)|TCP/UDP uygulama Ağ Yükü dengeleyici. |
 | [Azure ExpressRoute](../expressroute/expressroute-introduction.md)| Adanmış bir WAN, şirket içi ağlar ve Azure sanal ağları arasında bağlantı. |
 | [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)| Yük Dengeleyici Genel DNS.|
 | [Azure uygulama proxy'si](../active-directory/active-directory-application-proxy-get-started.md)| Bir web uygulaması için uzaktan erişimin güvenliğini sağlamak için kullanılan ön uç kimlik doğrulaması, şirket içinde barındırılan. |
+|[Azure güvenlik duvarı](../firewall/overview.md)|Azure sanal ağ kaynaklarınıza koruyan yönetilen, bulut tabanlı bir ağ güvenlik hizmeti.|
+|[Azure DDoS koruması](../virtual-network/ddos-protection-overview.md)|Uygulama tasarım en iyi yöntemleri ile birlikte, DDoS saldırılarına karşı koruma sağlar.|
+|[Sanal ağ hizmeti uç noktaları](../virtual-network/virtual-network-service-endpoints-overview.md)|Sanal ağ özel adres alanınızı ve Azure Hizmetleri, sanal ağınızın kimliğini doğrudan bağlantı üzerinden genişletir.|

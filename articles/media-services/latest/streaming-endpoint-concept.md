@@ -11,16 +11,19 @@ ms.workload: ''
 ms.topic: article
 ms.date: 01/16/2019
 ms.author: juliako
-ms.openlocfilehash: e286617897ecc9201c3880affd0a974f7330305a
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 18c5e48b5f7dbf664b607b8b83473a914256590b
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359654"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104587"
 ---
 # <a name="streaming-endpoints"></a>Akış Uç Noktaları
 
-Microsoft Azure Media Services (AMS) içinde [akış uç noktalarını](https://docs.microsoft.com/rest/api/media/streamingendpoints) varlık içeriği bir istemci Yürütücü uygulamaya doğrudan teslim eden ya da daha fazla için bir içerik teslim ağı (CDN) bir akış hizmetini temsil eder Dağıtım. Bir akış uç noktası hizmetinden giden akış canlı akış ve isteğe bağlı varlığı Media Services hesabınızda olabilir. Bir Media Services hesabı oluşturduğunuzda bir **varsayılan** akış uç noktası, durdurulmuş durumda sizin için oluşturulur. Nelze odstranit **varsayılan** akış uç noktası. Ek akış uç noktaları hesap altında oluşturulabilir. Video akışını başlatmak için video akışı yapmak istediğiniz akış uç başlatmanız gerekir. 
+Microsoft Azure Media Services (AMS) içinde [akış uç noktalarını](https://docs.microsoft.com/rest/api/media/streamingendpoints) varlık içeriği bir istemci Yürütücü uygulamaya doğrudan teslim eden ya da daha fazla için bir içerik teslim ağı (CDN) bir akış hizmetini temsil eder Dağıtım. Çıkış akışından bir **akış uç noktası** hizmet canlı akış ve isteğe bağlı varlığı Media Services hesabınızda olabilir. Bir Media Services hesabı oluşturduğunuzda bir **varsayılan** akış uç noktası, durdurulmuş durumda sizin için oluşturulur. Nelze odstranit **varsayılan** akış uç noktası. Ek akış uç noktaları hesap altında oluşturulabilir. 
+
+> [!NOTE]
+> Video akışını başlatmak için başlatmanız **akış uç noktası** video akışı yapmak istediğiniz. 
 
 ## <a name="naming-convention"></a>Adlandırma kuralı
 
@@ -34,7 +37,7 @@ Tüm ek uç noktalar için: `{EndpointName}-{AccountName}-{DatacenterAbbreviatio
 
 Tablo türleri açıklanmaktadır:  
 
-|Tür|Ölçek birimleri|Açıklama|
+|Type|Ölçek birimleri|Açıklama|
 |--------|--------|--------|  
 |**Standart akış uç noktası** (önerilir)|0|**Standart** türü neredeyse tüm akış senaryoları ve hedef kitle boyutları için önerilen seçenektir. **Standart** türü giden bant genişliğini otomatik olarak ölçeklendirir. <br/>Media Services ile son derece gereksinimleri yoğunlukta olan çeşitli müşteriler için sunar **Premium** akış uç noktaları kullanılabilir ölçek artırma kapasitesi en büyük internet izleyiciler için. Geniş kitlelere ve eş zamanlı görüntüleyiciler düşünüyorsanız bizimle iletişime geçin amsstreaming@microsoft.com taşımak gereken yönergeler **Premium** türü. |
 |**Premium akış uç noktası**|>0|**Premium** akış uç noktaları, adanmış ve ölçeklenebilir bant genişliği kapasitesi sağlar; dolayısıyla gelişmiş iş yükleri için uygundur. Geçmeden bir **Premium** ayarlayarak türü `scaleUnits`. `scaleUnits` 200 MB/sn'lik artışlarla satın alınabilir adanmış çıkış kapasitesi sağlar. Kullanırken **Premium** türü, her etkin birim, uygulamaya ek bant genişliği kapasitesi sağlar. |

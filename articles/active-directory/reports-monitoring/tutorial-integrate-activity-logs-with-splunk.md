@@ -1,5 +1,5 @@
 ---
-title: Azure İzleyicisi'ni (Önizleme) kullanarak Azure Active Directory günlükleri Splunk ile tümleştirme | Microsoft Docs
+title: Stream Splunk Azure İzleyicisi'ni (Önizleme) kullanarak Azure Active Directory günlükleri | Microsoft Docs
 description: Azure İzleyicisi'ni (Önizleme) kullanarak Azure Active Directory günlükleri Splunk ile tümleştirmeyi öğrenin
 services: active-directory
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d12d220b7c648fed8fd2f0229b57a29fc775ff5e
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 7bc687d339a3089b8285078f7ad23c172452c5dc
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54809879"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55183450"
 ---
 # <a name="integrate-azure-ad-logs-with-splunk-using-azure-monitor-preview"></a>Azure İzleyicisi'ni (Önizleme) kullanarak Splunk ile Azure AD günlükleri tümleştirme
 

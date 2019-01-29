@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 40710225-05ab-40a3-9aec-8b4e96b6b5e7
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: android
 ms.devlang: java
@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 2c7ccd8d2022631e32c240007a782d2382aac518
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 9f0cc19ae220d27de620e5bd347fe78d9bfab2d5
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422856"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093300"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Nasıl yapılır: Android ADAL kullanarak uygulamalar arası SSO'yu etkinleştirin
 
@@ -108,7 +108,7 @@ Bir uygulamayı cihazda yüklü herhangi bir aracı kullanmak için özelliği v
 2. Yeni bir yeniden yönlendirme URI'Sİ'kurmak ve hem uygulama hem de uygulama kaydınızı sağlayın
 3. Android bildirimindeki doğru izinleri ayarlama
 
-#### <a name="step-1-enable-broker-mode-in-your-application"></a>1. adım: uygulamanızda Aracısı modu etkinleştir
+#### <a name="step-1-enable-broker-mode-in-your-application"></a>1. Adım: Uygulamanızdaki Aracısı modunu etkinleştir
 
 "Ayarlar" veya ilk kurulum kimlik doğrulaması örneğinizin oluşturduğunuzda aracı kullanmak için uygulamanızı özelliği etkinleştirilir. Uygulamanızda Bunu yapmak için:
 
@@ -116,7 +116,7 @@ Bir uygulamayı cihazda yüklü herhangi bir aracı kullanmak için özelliği v
 AuthenticationSettings.Instance.setUseBroker(true);
 ```
 
-#### <a name="step-2-establish-a-new-redirect-uri-with-your-url-scheme"></a>2. adım: yeni bir yeniden yönlendirme URI'si ile URL düzeni oluştur
+#### <a name="step-2-establish-a-new-redirect-uri-with-your-url-scheme"></a>2. Adım: Yeni bir yeniden yönlendirme URI'si ile URL düzeni oluştur
 
 Doğru uygulama recevies emin olmak için döndürülen kimlik bilgisi, orada belirteçler Android işletim sistemi doğrulayabilirsiniz bir biçimde çağrı uygulamanızı emin olmak için bir gerekli değildir. Android işletim sistemi, Google Play Mağazası'nda sertifika karmasını kullanır. Bu sertifikanın karması, standart dışı bir uygulama tarafından sahte olamaz. Aracı uygulama URI'sini yanı sıra, Microsoft belirteçleri doğru uygulamaya döndürülür sağlar. Benzersiz bir yeniden yönlendirme URI'si uygulamayı kayıtlı olması gerekiyor.
 
@@ -128,7 +128,7 @@ Uygulamanızın yeniden yönlendirme URI'si düzgün biçimde olmalıdır:
 
 Bu yeniden yönlendirme URI'sini kullanarak, uygulama kayıt kaydedebilirsiniz [Azure portalında](https://portal.azure.com/). Azure AD uygulama kaydı hakkında daha fazla bilgi için bkz. [Azure Active Directory ile tümleştirme](active-directory-how-to-integrate.md).
 
-#### <a name="step-3-set-up-the-correct-permissions-in-your-application"></a>3. adım: uygulamanızda doğru izinleri ayarlayın
+#### <a name="step-3-set-up-the-correct-permissions-in-your-application"></a>3. Adım: Uygulamanızdaki doğru izinleri ayarla
 
 Android Aracısı uygulama, uygulamalar arasında kimlik bilgilerini yönetmek için Android işletim sistemi Hesap Yöneticisi özelliğini kullanır. Android'de aracı kullanmak için uygulama bildiriminizi Accountmanager'a hesaplarını kullanmak için izinleri olmalıdır. Bu izinleri ayrıntılı olarak ele alınmıştır [burada Google belgeler için Hesap Yöneticisi](https://developer.android.com/reference/android/accounts/AccountManager.html)
 

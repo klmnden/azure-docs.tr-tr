@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: Hizmet sorumlusu yapılandırma sorunlarını giderme | Microsoft Docs'
+title: 'Azure Active Directory etki alanı Hizmetleri: Sorun giderme hizmet sorumlusu yapılandırma | Microsoft Docs'
 description: Azure AD etki alanı Hizmetleri için hizmet sorumlusu yapılandırma sorunlarını giderme
 services: active-directory-ds
 documentationcenter: ''
@@ -8,27 +8,27 @@ manager: ''
 editor: ''
 ms.assetid: f168870c-b43a-4dd6-a13f-5cfadc5edf2c
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: bba7c70a5078d309a55f898c24389d42a8a604ab
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 2c39e8f172283f512037e0d991b2c22eb816c8f6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035044"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55191338"
 ---
 # <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>Yönetilen etki alanınız için geçersiz bir hizmet sorumlusu yapılandırma sorunlarını giderme
 
 Bu makale ve aşağıdaki uyarı iletisinde neden hizmet sorumlusu ile ilgili yapılandırma hataları gidermek yardımcı olur:
 
-## <a name="alert-aadds102-service-principal-not-found"></a>Uyarı AADDS102: Hizmet sorumlusu bulunamadı
+## <a name="alert-aadds102-service-principal-not-found"></a>Alert AADDS102: Hizmet sorumlusu bulunamadı
 
-**Uyarı iletisi:** *düzgün çalışması Azure AD Domain Services için gereken bir hizmet sorumlusu, Azure AD dizininden silindi. Bu yapılandırma, izleme, yönetme, düzeltme eki, Microsoft'un yeteneğini etkiler ve yönetilen Etki Alanınızla eşitleme.*
+**Uyarı iletisi:** *Azure AD dizininizi Azure AD Domain Services düzgün çalışması gerekli bir hizmet sorumlusu silindi. Bu yapılandırma, izleme, yönetme, düzeltme eki, Microsoft'un yeteneğini etkiler ve yönetilen Etki Alanınızla eşitleme.*
 
 [Hizmet sorumluları](../active-directory/develop/app-objects-and-service-principals.md) yönetme, güncelleştirme ve yönetilen etki alanınızı korumak için Microsoft kullanan uygulamalar. Silindiğinde, Microsoft'un hizmet etki alanınız olanağı keser.
 
@@ -50,7 +50,7 @@ Hangi hizmet sorumluları yeniden oluşturulması gerekir belirlemek için aşa�
 ## <a name="recreate-a-missing-service-principal-with-powershell"></a>Eksik bir hizmet sorumlusu PowerShell ile yeniden oluşturun
 Kimliğine sahip bir hizmet sorumlusu, adımları ```2565bd9d-da50-47d4-8b85-4c97f669dc36``` Azure AD dizininizi eksik.
 
-**Çözüm:** bu adımları tamamlamak için Azure AD PowerShell gerekir. Azure AD PowerShell'i yükleme hakkında daha fazla bilgi için bkz: [bu makalede](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
+**Çözüm:** Bu adımları tamamlamak için Azure AD PowerShell ihtiyacınız vardır. Azure AD PowerShell'i yükleme hakkında daha fazla bilgi için bkz: [bu makalede](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
 
 Bu sorunu gidermek için bir PowerShell penceresinde aşağıdaki komutları yazın:
 1. Azure AD PowerShell modülünü yükleyin ve alın.
@@ -78,7 +78,7 @@ Bu sorunu gidermek için bir PowerShell penceresinde aşağıdaki komutları yaz
 ## <a name="re-register-to-the-microsoft-aad-namespace-using-the-azure-portal"></a>Azure portalını kullanarak Microsoft AAD ad alanına yeniden kaydedin
 Kimliğine sahip bir hizmet sorumlusu, adımları ```443155a6-77f3-45e3-882b-22b3a8d431fb``` veya ```abba844e-bc0e-44b0-947a-dc74e5d09022``` veya ```d87dcbc6-a371-462e-88e3-28ad15ec4e64``` Azure AD dizininizi eksik.
 
-**Çözüm:** etki alanı Hizmetleri dizininiz geri yüklemek için aşağıdaki adımları kullanın:
+**Çözüm:** Etki Alanı Hizmetleri dizininiz geri yüklemek için aşağıdaki adımları kullanın:
 
 1. Gidin [abonelikleri](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) Azure portalında sayfası.
 2. Yönetilen etki alanınızla ilişkili tablodan aboneliği seçin
@@ -87,12 +87,12 @@ Kimliğine sahip bir hizmet sorumlusu, adımları ```443155a6-77f3-45e3-882b-22b
 5. Uyarı çözümlendiğinde emin olmak için iki saat içinde yönetilen etki alanınız için sağlık durumu sayfasını görüntüleyin.
 
 
-## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>Uyarı AADDS105: Parola eşitlemesi uygulama güncel değil
+## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>Alert AADDS105: Parola eşitlemesi uygulama güncel değil
 
-**Uyarı iletisi:** "d87dcbc6-a371-462e-88e3-28ad15ec4e64" uygulama kimliği ile hizmet sorumlusu silindi ve yeniden oluşturulur. Yeniden oluşturarak tutarsız izinleri yönetilen etki alanınıza hizmet için gereken Azure AD etki alanı Hizmetleri kaynaklarında bırakır. Yönetilen etki alanınızda parola eşitlemeyi etkilenebilir.
+**Uyarı iletisi:** Uygulama kimliği ile "d87dcbc6-a371-462e-88e3-28ad15ec4e64" hizmet sorumlusu silindi ve yeniden oluşturulur. Yeniden oluşturarak tutarsız izinleri yönetilen etki alanınıza hizmet için gereken Azure AD etki alanı Hizmetleri kaynaklarında bırakır. Yönetilen etki alanınızda parola eşitlemeyi etkilenebilir.
 
 
-**Çözüm:** bu adımları tamamlamak için Azure AD PowerShell gerekir. Azure AD PowerShell'i yükleme hakkında daha fazla bilgi için bkz: [bu makalede](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
+**Çözüm:** Bu adımları tamamlamak için Azure AD PowerShell ihtiyacınız vardır. Azure AD PowerShell'i yükleme hakkında daha fazla bilgi için bkz: [bu makalede](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
 
 Bu sorunu gidermek için bir PowerShell penceresinde aşağıdaki komutları yazın:
 1. Azure AD PowerShell modülünü yükleyin ve alın.

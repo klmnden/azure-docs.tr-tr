@@ -6,16 +6,16 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: 915e2e5a67d068c418ce50eee9d84dc66e61ee00
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: cb47b3933ecb6e38aa7945ac7f81f7602a0c8034
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321301"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55192545"
 ---
 # <a name="calchistogram-method"></a>CalcHistogram yöntemi
 
@@ -30,7 +30,7 @@ https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?
   
 ## <a name="request-parameters"></a>İstek Parametreleri
 
-Ad  |Değer | Gerekli mi?  |Açıklama
+Name  |Value | Gerekli mi?  |Açıklama
 -----------|----------|--------|----------
 **ifade**    |Metin dizesi | Evet  |Varlıkları histogramlar hesaplanacağı belirten bir sorgu ifadesi.
 **Model** |Metin dizesi | Hayır |Sorgulamak istediğiniz model adını seçin.  Değer şu anda, varsayılan olarak *son*.
@@ -41,7 +41,7 @@ Ad  |Değer | Gerekli mi?  |Açıklama
 
 ## <a name="response-json"></a>Yanıt (JSON)
 
-Ad | Açıklama
+Name | Açıklama
 --------|---------
 **ifade**  |İfade parametre istek.
 **num_entities** | Eşleşen varlıkların toplam sayısı.

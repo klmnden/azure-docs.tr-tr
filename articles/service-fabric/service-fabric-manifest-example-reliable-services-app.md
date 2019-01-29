@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/11/2018
 ms.author: ryanwi
-ms.openlocfilehash: c90715608b5d35520605c504b5cebb5e7a3ec021
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 9cb41bfde38d9b47f5db994c0ca39c64b453ef1d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096642"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55171465"
 ---
 # <a name="reliable-services-application-and-service-manifest-examples"></a>Güvenilir hizmetler uygulaması ve hizmet bildirimi örnekleri
 Bir ASP.NET Core web ön ucu ve durum bilgisi olan bir arka uç Service Fabric uygulaması için uygulama ve hizmet bildirimleri örnekleri aşağıda verilmiştir. Bu örnekler amacı hangi ayarlar kullanılabilir ve bunların nasıl kullanılacağını göstermektir. Bu uygulama ve hizmet bildirimleri dayalı [Service Fabric .NET hızlı](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) bildirimleri.
@@ -198,7 +198,7 @@ Bkz: [uygulama bildirim öğeleri](#application-manifest-elements), [VotingWeb h
         the root of the code package regardless of where the EXE is defined in the code package directory. This is where the processes can write the data. Writing data 
         in the code package or code base is not recommended as those folders could be shared between different application instances and may get deleted.-->
         <WorkingFolder>CodePackage</WorkingFolder>
-        <!-- Warning! Do not use console rediriction in a production application, only use it for local development and debugging. Redirects console output from the startup
+        <!-- Warning! Do not use console redirection in a production application, only use it for local development and debugging. Redirects console output from the startup
         script to an output file in the application folder called "log" on the cluster node where the application is deployed and run. Also set the number of output files
         to retain and the maximum file size (in KB). -->
         <ConsoleRedirection FileRetentionCount="10" FileMaxSizeInKb="20480"/>
@@ -215,7 +215,7 @@ Bkz: [uygulama bildirim öğeleri](#application-manifest-elements), [VotingWeb h
     </EntryPoint>
   </CodePackage>
 
-  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an 
+  <!-- Config package is the contents of the Config directory under PackageRoot that contains an 
        independently-updateable and versioned set of custom configuration settings for your service. -->
   <ConfigPackage Name="Config" Version="1.0.0" />
 
@@ -399,10 +399,12 @@ Yürütülebilir adı.  Örneğin, "MySetup.bat" veya "MyServiceHost.exe". Daha 
  Daha fazla bilgi için [bağımsız değişkenleri öğesi](service-fabric-service-model-schema-elements.md#ArgumentsElementxs:stringComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
 ### <a name="workingfolder-element"></a>WorkingFolder öğesi
-Kod paketi uygulamanın dağıtıldığı küme düğümü üzerinde işlem için çalışma dizini. Üç değer belirtebilirsiniz: iş (varsayılan), CodePackage veya kod temeli. Kod tabanı çalışma dizini EXE kod paketinde tanımlanır dizinine ayarlandığını belirtir. CodePackage EXE kod paketi dizinde tanımlandığı bağımsız olarak kod paketi kökünde olacak şekilde çalışma dizinini ayarlar. İş, düğüm üzerinde oluşturulan benzersiz bir klasöre çalışma dizinini ayarlar.  Bu klasör, tüm uygulama örneği için aynıdır. Varsayılan olarak, uygulamadaki tüm işlemlerin çalışma dizini, uygulama çalışma klasörü için ayarlanır. Veri işlemleri nerede yazabilirsiniz budur. Bu klasörleri farklı uygulama örnekleri arasında paylaşılan ve silinen verileri kod paketi veya kod tabanına yazma önerilmez. Daha fazla bilgi için [WorkingFolder öğesi](service-fabric-service-model-schema-elements.md#WorkingFolderElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
+Kod paketi uygulamanın dağıtıldığı küme düğümü üzerinde işlem için çalışma dizini. Üç değer belirtebilirsiniz: İş (varsayılan), CodePackage veya kod temeli. Kod tabanı çalışma dizini EXE kod paketinde tanımlanır dizinine ayarlandığını belirtir. CodePackage EXE kod paketi dizinde tanımlandığı bağımsız olarak kod paketi kökünde olacak şekilde çalışma dizinini ayarlar. İş, düğüm üzerinde oluşturulan benzersiz bir klasöre çalışma dizinini ayarlar.  Bu klasör, tüm uygulama örneği için aynıdır. Varsayılan olarak, uygulamadaki tüm işlemlerin çalışma dizini, uygulama çalışma klasörü için ayarlanır. Veri işlemleri nerede yazabilirsiniz budur. Bu klasörleri farklı uygulama örnekleri arasında paylaşılan ve silinen verileri kod paketi veya kod tabanına yazma önerilmez. Daha fazla bilgi için [WorkingFolder öğesi](service-fabric-service-model-schema-elements.md#WorkingFolderElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
 ### <a name="consoleredirection-element"></a>ConsoleRedirection öğesi
-Uyarı! Bir üretim uygulamasında konsol rediriction kullanmak değil, yalnızca yerel geliştirme ve hata ayıklama için kullanın. Başlangıç betiği konsol çıktısı küme düğümünde burada dağıtılan ve çalıştırma "günlüğü" adlı uygulama klasöründe bir çıktı dosyası için yönlendirir. Daha fazla bilgi için [ConsoleRedirection öğesi](service-fabric-service-model-schema-elements.md#ConsoleRedirectionElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
+
+> [!WARNING]
+> Konsol yönlendirmesi, bir üretim uygulamasında kullanmak değil, yalnızca yerel geliştirme ve hata ayıklama için kullanın. Başlangıç betiği konsol çıktısı küme düğümünde burada dağıtılan ve çalıştırma "günlüğü" adlı uygulama klasöründe bir çıktı dosyası için yönlendirir. Daha fazla bilgi için [ConsoleRedirection öğesi](service-fabric-service-model-schema-elements.md#ConsoleRedirectionElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
 ### <a name="entrypoint-element"></a>EntryPoint öğesi
 Giriş noktası tarafından belirtilen yürütülebilir genellikle uzun süre çalışan hizmet yöneticisidir. Ayrı bir Kurulum giriş noktası varlığını, hizmet ana bilgisayarı uzun sürelerle yüksek ayrıcalıklarla çalıştır gereğini ortadan kaldırır. Giriş noktası tarafından belirtilen yürütülebilir SetupEntryPoint başarıyla çıktıktan sonra çalıştırılır. Sonuçta elde edilen işlem izlenir ve hiç olmadığı kadar sonlandırır veya çöküyor (başlayarak tekrar SetupEntryPoint) yeniden. Daha fazla bilgi için [EntryPoint öğesi](service-fabric-service-model-schema-elements.md#EntryPointElementEntryPointDescriptionTypeComplexTypeDefinedInCodePackageTypecomplexType)
@@ -447,7 +449,7 @@ Giriş noktası tarafından belirtilen yürütülebilir genellikle uzun süre ç
 Yürütülebilir adı.  Örneğin, "MySetup.bat" veya "MyServiceHost.exe". Daha fazla bilgi için [Program öğesi](service-fabric-service-model-schema-elements.md#ProgramElementxs:stringComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
 ### <a name="workingfolder-element"></a>WorkingFolder öğesi
-Kod paketi uygulamanın dağıtıldığı küme düğümü üzerinde işlem için çalışma dizini. Üç değer belirtebilirsiniz: iş (varsayılan), CodePackage veya kod temeli. Kod tabanı çalışma dizini EXE kod paketinde tanımlanır dizinine ayarlandığını belirtir. CodePackage EXE kod paketi dizinde tanımlandığı bağımsız olarak kod paketi kökünde olacak şekilde çalışma dizinini ayarlar. İş, düğüm üzerinde oluşturulan benzersiz bir klasöre çalışma dizinini ayarlar.  Bu klasör, tüm uygulama örneği için aynıdır. Varsayılan olarak, uygulamadaki tüm işlemlerin çalışma dizini, uygulama çalışma klasörü için ayarlanır. Veri işlemleri nerede yazabilirsiniz budur. Bu klasörleri farklı uygulama örnekleri arasında paylaşılan ve silinen verileri kod paketi veya kod tabanına yazma önerilmez. Daha fazla bilgi için [WorkingFolder öğesi](service-fabric-service-model-schema-elements.md#WorkingFolderElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
+Kod paketi uygulamanın dağıtıldığı küme düğümü üzerinde işlem için çalışma dizini. Üç değer belirtebilirsiniz: İş (varsayılan), CodePackage veya kod temeli. Kod tabanı çalışma dizini EXE kod paketinde tanımlanır dizinine ayarlandığını belirtir. CodePackage EXE kod paketi dizinde tanımlandığı bağımsız olarak kod paketi kökünde olacak şekilde çalışma dizinini ayarlar. İş, düğüm üzerinde oluşturulan benzersiz bir klasöre çalışma dizinini ayarlar.  Bu klasör, tüm uygulama örneği için aynıdır. Varsayılan olarak, uygulamadaki tüm işlemlerin çalışma dizini, uygulama çalışma klasörü için ayarlanır. Veri işlemleri nerede yazabilirsiniz budur. Bu klasörleri farklı uygulama örnekleri arasında paylaşılan ve silinen verileri kod paketi veya kod tabanına yazma önerilmez. Daha fazla bilgi için [WorkingFolder öğesi](service-fabric-service-model-schema-elements.md#WorkingFolderElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
 ### <a name="configpackage-element"></a>ConfigPackage öğesi
 Bir Settings.xml dosyasının içeren PackageRoot altında Name özniteliği tarafından adlı bir klasör bildirir. Bu dosya, çalışma zamanında işlem okuyabilen kullanıcı tanımlı, anahtar-değer çifti ayarları bölümlerini içerir. Yalnızca ConfigPackage sürümü değişti, yükseltme sırasında daha sonra çalışan işlemi yeniden başlatılmaz. Bunun yerine, bunlar dinamik olarak yeniden yüklenebilir, böylece yapılandırma ayarları değişti işlemi bir geri çağırma bildirir. Daha fazla bilgi için [ConfigPackage öğesi](service-fabric-service-model-schema-elements.md#ConfigPackageElementConfigPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedConfigPackageelement)

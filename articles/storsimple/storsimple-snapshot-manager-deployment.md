@@ -1,6 +1,6 @@
 ---
-title: StorSimple Snapshot Manager dağıtma | Microsoft Docs
-description: StorSimple Snapshot Manager StorSimple veri koruma ve yedekleme özellikleri yönetmek için MMC ek bileşenini yükleyip öğrenin.
+title: StorSimple Snapshot Manager'ı dağıtma | Microsoft Docs
+description: StorSimple veri koruma ve yedekleme özellikleri yönetmek için MMC ek bileşenini, StorSimple Snapshot Manager'ı yükleyip öğrenin.
 services: storsimple
 documentationcenter: NA
 author: SharS
@@ -14,164 +14,164 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
-ms.openlocfilehash: cde355381b0d726a1ab340bc4230b2dc8f6e2c56
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ee17e4b69d1e6c9de465e4241ee2237361e320b7
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23876323"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168014"
 ---
 # <a name="deploy-the-storsimple-snapshot-manager-mmc-snap-in"></a>StorSimple Snapshot Manager MMC ek bileşenini dağıtma
 
 ## <a name="overview"></a>Genel Bakış
-StorSimple Snapshot Manager, veri koruma ve Microsoft Azure StorSimple ortamda yedekleme yönetimini basitleştirir Microsoft Yönetim Konsolu (MMC) ek bileşenidir. StorSimple Snapshot Manager ile Microsoft Azure StorSimple şirket içi yönetme ve tam olarak tümleşik depolama sistemi değilmiş gibi depolama böylece yedekleme ve geri yükleme işlemleri basitleştirir ve maliyetlerini azaltma bulut. 
+StorSimple Snapshot Manager, veri koruma ve Microsoft Azure StorSimple ortamında yedekleme yönetimini basitleştiren bir Microsoft Yönetim Konsolu (MMC) ek bileşenidir. StorSimple Snapshot Manager ile Microsoft Azure StorSimple şirket içi yönetebilir ve tamamen tümleşik depolama sistemi değilmiş gibi yedekleme ve geri yükleme işlemleri basitleştirmek ve maliyetlerin düşürülmesi bulut depolama. 
 
-Bu öğretici, yükleme, kaldırma ve StorSimple Snapshot Manager yükseltme yordamları yanı sıra yapılandırma gereksinimlerini açıklar.
+Bu öğreticide, yapılandırma gereksinimlerinin yanı sıra, yükleme, kaldırma ve StorSimple Snapshot Manager yükseltme yordamları açıklanmaktadır.
 
 > [!NOTE]
-> * StorSimple Snapshot Manager, Microsoft Azure StorSimple sanal (olarak da bilinen StorSimple sanal cihazlar şirket) diziler yönetmek için kullanamazsınız.
-> * StorSimple Cihazınızda StorSimple güncelleştirme 2 yüklemeyi planlıyorsanız, StorSimple anlık görüntü Yöneticisi'nin en son sürümü karşıdan yükleyip emin olun **StorSimple güncelleştirme 2 yüklemeden önce**. StorSimple anlık görüntü Yöneticisi'nin en son sürümü, geriye dönük olarak uyumludur ve Microsoft Azure StorSimple serbest bırakılmış tüm sürümleri ile çalışır. StorSimple anlık görüntü Yöneticisi'nin önceki sürümü kullanıyorsanız, (, yeni sürümü yüklemeden önce önceki sürümü kaldırmanız gerekmez) güncelleştirmeniz gerekir.
+> * Microsoft Azure StorSimple sanal (diğer adıyla StorSimple sanal cihazları şirket) dizilerini yönetmek için StorSimple Snapshot Manager'ı kullanamazsınız.
+> * StorSimple Cihazınızda StorSimple güncelleştirme 2 yüklemeyi planlıyorsanız, StorSimple Snapshot Manager'ın en son sürümünü indirip yüklemeniz mutlaka **StorSimple güncelleştirme 2'yi yüklemeden önce**. StorSimple Snapshot Manager'ın en son sürümü, geriye dönük uyumludur ve Microsoft Azure StorSimple yayımlanan tüm sürümleri ile çalışır. StorSimple Snapshot Manager'ın önceki sürümü kullanıyorsanız (, yeni sürümü yüklemeden önce önceki sürümü kaldırmanız gerekmez) güncelleştirmeniz gerekir.
 
 
-## <a name="storsimple-snapshot-manager-installation"></a>StorSimple anlık görüntü Yöneticisi'ni yükleme
-StorSimple Snapshot Manager Windows Server 2008 R2 SP1, Windows Server 2012 veya Windows Server 2012 R2 işletim sistemini çalıştıran bilgisayarlara yüklenebilir. Windows 2008 R2 çalıştıran sunucularda, Windows Server 2008 SP1 ve Windows Management Framework 3.0 de yüklemeniz gerekir.
+## <a name="storsimple-snapshot-manager-installation"></a>StorSimple Snapshot Manager yükleme
+StorSimple Snapshot Manager, Windows Server 2008 R2 SP1, Windows Server 2012 veya Windows Server 2012 R2 işletim sistemini çalıştıran bilgisayarlara yüklenebilir. Windows 2008 R2 çalıştıran sunuculara, Windows Server 2008 SP1 ve Windows Management Framework 3.0 da yüklemeniz gerekir.
 
-Yüklemeden veya StorSimple Snapshot Manager ek bileşenini Microsoft Yönetim Konsolu (MMC) için yükseltmeden önce Microsoft Azure StorSimple cihaz ve ana bilgisayar sunucusu olduğunu doğru yapılandırıldığından emin olun.
+Yüklediğinizde veya yükselttiğinizde StorSimple Snapshot Manager ek bileşenini Microsoft Yönetim Konsolu (MMC) için önce Microsoft Azure StorSimple cihaz ve ana bilgisayar sunucusu, düzgün bir şekilde yapılandırıldığından emin olun.
 
 ## <a name="configure-prerequisites"></a>Önkoşulları yapılandırma
-Aşağıdaki adımlar, StorSimple Snapshot Manager yüklemeden önce tamamlanması gereken yapılandırma görevleri üst düzey bir genel bakış sağlar. Microsoft Azure StorSimple yapılandırmasını tamamlamak ve sistem gereksinimleri ve adım adım yönergeler de dahil olmak üzere, kurulum bilgileri görmek için [şirket içi StorSimple Cihazınızı dağıtma](storsimple-8000-deployment-walkthrough-u2.md).
+Aşağıdaki adımlar, StorSimple Snapshot Manager'ı yüklemeden önce tamamlamanız gereken yapılandırma görevleri üst düzey bir genel bakış sağlar. Microsoft Azure StorSimple yapılandırmasını tamamlamak ve sistem gereksinimleri ve adım adım yönergeler dahil olmak üzere, kurulum bilgilerini görmek için [şirket içi StorSimple Cihazınızı dağıtma](storsimple-8000-deployment-walkthrough-u2.md).
 
 > [!IMPORTANT]
-> Başlamadan önce gözden [dağıtım yapılandırma denetim listesi](storsimple-8000-deployment-walkthrough-u2.md#deployment-configuration-checklist) ve ve [dağıtımının önkoşulları](storsimple-8000-deployment-walkthrough-u2.md#deployment-prerequisites) içinde [şirket içi StorSimple Cihazınızı dağıtma](storsimple-8000-deployment-walkthrough-u2.md).
+> Başlamadan önce gözden [dağıtım yapılandırma denetim listesi](storsimple-8000-deployment-walkthrough-u2.md#deployment-configuration-checklist) ve ve [dağıtım önkoşulları](storsimple-8000-deployment-walkthrough-u2.md#deployment-prerequisites) içinde [şirket içi StorSimple Cihazınızı dağıtma](storsimple-8000-deployment-walkthrough-u2.md).
 > <br>
 > 
 > 
 
-### <a name="before-you-install-storsimple-snapshot-manager"></a>StorSimple Snapshot Manager yüklemeden önce
-1. Kutusundan çıkarma, bağlama ve açıklandığı gibi Microsoft Azure StorSimple cihazı bağlayın [StorSimple 8100 cihazınız yüklemek](storsimple-8100-hardware-installation.md) veya [StorSimple 8600 model Cihazınızı yüklemek](storsimple-8600-hardware-installation.md).
-2. Ana bilgisayarınız aşağıdaki işletim sistemlerinden birini çalıştığından emin olun:
+### <a name="before-you-install-storsimple-snapshot-manager"></a>StorSimple Snapshot Manager'ı yüklemeden önce
+1. Cihazınızı kutusundan çıkarma, bağlamak ve açıklandığı gibi Microsoft Azure StorSimple cihazı bağlayın [StorSimple 8100 cihazınızın yükleme](storsimple-8100-hardware-installation.md) veya [StorSimple 8600 cihazınızın yükleme](storsimple-8600-hardware-installation.md).
+2. Ana bilgisayarınızda aşağıdaki işletim sistemlerinden birini çalıştırdığından emin olun:
    
-   * Windows Server 2008 R2 (Windows 2008 R2 çalıştıran üzerinde sunucular da Windows Server 2008 SP1 ve Windows Management Framework 3.0 yüklemeniz gerekir)
+   * Windows Server 2008 R2 (Windows 2008 R2 çalıştıran sunucular üzerinde ayrıca Windows Server 2008 SP1 ve Windows Management Framework 3.0 yüklemeniz gerekir)
    * Windows Server 2012
    * Windows Server 2012 R2
      
-     StorSimple sanal cihaz için bir Microsoft Azure sanal makine konak olması gerekir.
-3. Tüm Microsoft Azure StorSimple yapılandırma gereksinimlerini karşıladığından emin olun. Ayrıntılar için Git [dağıtımının önkoşulları](storsimple-8000-deployment-walkthrough-u2.md#deployment-prerequisites).
-4. Cihaza ana bilgisayara bağlanın ve ilk yapılandırmasını gerçekleştirin. Ayrıntılar için Git [dağıtım adımları](storsimple-8000-deployment-walkthrough-u2.md#deployment-steps).
-5. Cihazda birimler oluşturabilir, konağa atayın ve konak bağlama ve bunları doğrulayın. StorSimple Snapshot Manager birimler aşağıdaki türlerini destekler:
+     StorSimple sanal cihaz için bir Microsoft Azure sanal makine konağı olmalıdır.
+3. Tüm Microsoft Azure StorSimple yapılandırma gereksinimlerini karşıladığından emin olun. Ayrıntılar için Git [dağıtım önkoşulları](storsimple-8000-deployment-walkthrough-u2.md#deployment-prerequisites).
+4. Aygıt ana bilgisayarına bağlanmak ve ilk yapılandırmasını gerçekleştirin. Ayrıntılar için Git [dağıtım adımları](storsimple-8000-deployment-walkthrough-u2.md#deployment-steps).
+5. Cihaz üzerinde birimler oluşturun, bunları konağa atayın ve konak bağlayabilir ve bunları doğrulayın. StorSimple Snapshot Manager birimler aşağıdaki türlerini destekler:
    
-   * Temel birim
+   * Temel birimler
    * Basit birimler
    * Dinamik birimler
    * Yansıtılmış dinamik birimler (RAID 1)
    * Küme Paylaşılan Birimleri
      
-     Birimleri StorSimple cihazı veya StorSimple sanal cihaz oluşturma hakkında daha fazla bilgi için Git [6. adım: birim oluşturma](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume), [şirket içi StorSimple Cihazınızı dağıtma](storsimple-8000-deployment-walkthrough-u2.md).
+     Birimler StorSimple cihazı veya StorSimple sanal cihazı oluşturma hakkında daha fazla bilgi için Git [adım 6: Birim oluşturma](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume), [şirket içi StorSimple Cihazınızı dağıtma](storsimple-8000-deployment-walkthrough-u2.md).
 
-## <a name="install-a-new-storsimple-snapshot-manager"></a>Yeni bir StorSimple Snapshot Manager yükleyin
-StorSimple Snapshot Manager'ı yüklemeden önce StorSimple cihazı veya StorSimple sanal cihazı üzerinde oluşturulan birimleri bağlanır, başlatılmış ve açıklandığı şekilde biçimlendirilmiş olduğunu emin olun [önkoşulları yapılandırma](#configure-prerequisites).
+## <a name="install-a-new-storsimple-snapshot-manager"></a>Yeni bir StorSimple Snapshot Manager'ı yükleme
+StorSimple Snapshot Manager'ı yüklemeden önce StorSimple sanal cihazını ve StorSimple cihaz üzerinde oluşturulan birimlere bağlı, başlatılır ve açıklanan şekilde biçimlendirilmiş olduğunu emin olun [önkoşulları yapılandırma](#configure-prerequisites).
 
 > [!IMPORTANT]
-> * StorSimple sanal cihaz için bir Microsoft Azure sanal makine konak olması gerekir. 
-> * Ana bilgisayar Windows 2008 R2, Windows Server 2012 veya Windows Server 2012 R2 çalıştırması gerekir. Sunucunuz Windows Server 2008 R2 çalıştırıyorsa, Windows Server 2008 SP1 ve Windows Management Framework 3.0 yüklemeniz gerekir.
-> * StorSimple anlık görüntü Yöneticisi cihaz bağlanabilmesi için önce bir iSCSI bağlantısı StorSimple cihazı ana bilgisayardan yapılandırmanız gerekir.
+> * StorSimple sanal cihaz için bir Microsoft Azure sanal makine konağı olmalıdır. 
+> * Ana bilgisayar, Windows 2008 R2, Windows Server 2012 veya Windows Server 2012 R2 çalıştırmalıdır. Sunucunuz Windows Server 2008 R2 çalıştırıyorsa, Windows Server 2008 SP1 ve Windows Management Framework 3.0 yüklemeniz gerekir.
+> * Cihaz için StorSimple Snapshot Manager bağlanabilmesi için önce bir StorSimple cihazı konağa iSCSI bağlantısı yapılandırmanız gerekir.
 
-StorSimple anlık görüntü Yöneticisi'nin yeni bir yüklemeyi tamamlamak için aşağıdaki adımları izleyin. Bir yükseltme yüklüyorsanız, Git [yükseltme veya yeniden StorSimple Snapshot Manager](#upgrade-or-reinstall-storsimple-snapshot-manager).
+StorSimple Snapshot Manager'ın yeni yüklemesini tamamlamak için aşağıdaki adımları izleyin. Yükseltme yüklüyorsanız, Git [yükseltmek veya yeniden StorSimple Snapshot Manager](#upgrade-or-reinstall-storsimple-snapshot-manager).
 
-* 1. adım: StorSimple anlık görüntü Yöneticisi'ni yükleyin 
-* 2. adım: StorSimple Snapshot Manager bir cihaza bağlanma 
-* Adım 3: cihaz bağlantısı doğrulama 
+* 1. Adım: StorSimple anlık görüntü Yöneticisi'ni yükleyin 
+* 2. Adım: StorSimple Snapshot Manager bir cihaza bağlanma 
+* 3. Adım: Cihaz bağlantısını doğrulayın 
 
-### <a name="step-1-install-storsimple-snapshot-manager"></a>1. adım: StorSimple anlık görüntü Yöneticisi'ni yükleyin
-StorSimple anlık görüntü Yöneticisi'ni yüklemek için aşağıdaki adımları kullanın.
+### <a name="step-1-install-storsimple-snapshot-manager"></a>1. Adım: StorSimple anlık görüntü Yöneticisi'ni yükleyin
+StorSimple Snapshot Manager'ı yüklemek için aşağıdaki adımları kullanın.
 
-#### <a name="to-install-storsimple-snapshot-manager"></a>StorSimple anlık görüntü Yöneticisi'ni yüklemek için
-1. StorSimple Snapshot Manager yazılımı yükle (Git [StorSimple Snapshot Manager](https://www.microsoft.com/download/details.aspx?id=44220) Microsoft Download Center'da) ve ana bilgisayarda yerel olarak kaydedin.
-2. Dosya Gezgini'nde, sıkıştırılmış klasörü sağ tıklatın ve ardından **tümünü Ayıkla**.
-3. İçinde **sıkıştırılmış ayıklamak (Zipped) klasörleri** penceresi, **bir hedef seçin ve dosyaları ayıklayın** kutusuna yazın veya burada istediğinizi ayıklanacak dosya yoluna göz atın.
+#### <a name="to-install-storsimple-snapshot-manager"></a>StorSimple Snapshot Manager'ı yüklemek için
+1. StorSimple Snapshot Manager yazılımı indirin (Git [StorSimple Snapshot Manager](https://www.microsoft.com/download/details.aspx?id=44220) Microsoft Download Center'daki) ve konakta yerel olarak kaydedin.
+2. Dosya Gezgini'nde, sıkıştırılmış klasöre sağ tıklayın ve ardından **tümünü Ayıkla**.
+3. İçinde **sıkıştırılmış ayıklamak (Zipped) klasörleri** penceresi içinde **bir hedef seçmeniz ve dosyaları ayıklayın** kutusuna yazın veya istediğiniz ayıklanacak dosya yoluna göz atın.
    
     > [!IMPORTANT]
-    > StorSimple Snapshot Manager C: sürücüsünde yüklemeniz gerekir.
+    > StorSimple Snapshot Manager C: sürücüsüne yüklemesi gerekir.
     
-4. Seçin **Göster ayıklanan dosyaları tamamlandığında** onay kutusunu işaretleyin ve ardından **ayıklamak**.
+4. Seçin **Show ayıklanan dosyaları tamamlandığında** onay kutusunu işaretleyin ve ardından **ayıklamak**.
    
     ![Dosyaları ayıkla iletişim kutusu](./media/storsimple-snapshot-manager-deployment/HCS_SSM_extract_files.png) 
-5. Ayıklama işlemi tamamlandığında, hedef klasör açılır. Hedef klasörde görüntülenir uygulama Kurulum simgesini çift tıklatın.
-6. Zaman **Kurulumu başarılı** iletisi görüntülendikten sonra **Kapat**. StorSimple Snapshot Manager simgesi masaüstünüzde görmeniz gerekir.
+5. Ayıklama işlemi tamamlandıktan sonra hedef klasörünü açar. Hedef klasörde görünen uygulama Kurulum simgesini çift tıklatın.
+6. Zaman **Kurulum başarılı** iletisi görüntülendikten sonra **Kapat**. StorSimple Snapshot Manager simgesi masaüstünüzde görmeniz gerekir.
    
     ![Masaüstü simgesi](./media/storsimple-snapshot-manager-deployment/HCS_SSM_desktop_icon.png) 
 
-### <a name="step-2-connect-storsimple-snapshot-manager-to-a-device"></a>2. adım: StorSimple Snapshot Manager bir cihaza bağlanma
+### <a name="step-2-connect-storsimple-snapshot-manager-to-a-device"></a>2. Adım: StorSimple Snapshot Manager bir cihaza bağlanma
 StorSimple Snapshot Manager bir StorSimple cihazına bağlanmak için aşağıdaki adımları kullanın.
 
-#### <a name="to-connect-storsimple-snapshot-manager-to-a-device"></a>StorSimple Snapshot Manager bir aygıta bağlanmayı
-1. Masaüstünüzde StorSimple Snapshot Manager simgesine tıklayın. StorSimple Snapshot Manager penceresi görüntülenir. Pencere içeren bir **kapsam** bölmesinde, bir **sonuçları** bölmesinde ve bir **Eylemler** bölmesi. 
+#### <a name="to-connect-storsimple-snapshot-manager-to-a-device"></a>StorSimple Snapshot Manager bir cihaza bağlanmak için
+1. Masaüstü StorSimple Snapshot Manager simgesine tıklayın. StorSimple Snapshot Manager penceresi görüntülenir. Pencereyi içeren bir **kapsam** bölmesinde, bir **sonuçları** bölmesinde ve bir **eylemleri** bölmesinde. 
    
-    ![StorSimple anlık görüntü Yöneticisi kullanıcı arabirimi](./media/storsimple-snapshot-manager-deployment/HCS_SSM_gui_panes.png)
+    ![StorSimple Snapshot Manager kullanıcı arabirimi](./media/storsimple-snapshot-manager-deployment/HCS_SSM_gui_panes.png)
    
-   * **Kapsam** bölmesinde (sol bölme) içeren bir ağaç yapısında düzenlenmiş düğüm listesi. Bir görünüm veya bu düğüme ilgili belirli verileri seçmek için bazı düğümler genişletebilirsiniz. Genişletmek veya bir düğüm daraltmak için ok simgesine tıklayın. Bir öğeyi sağ **kapsam** bu öğe için kullanılabilir eylemlerin listesini görmek için bölmesi.
-   * **Sonuçları** bölmesinde (Orta bölme) düğüm, görünümü veya seçtiğiniz veri hakkındaki ayrıntılı durum bilgilerini içeren **kapsam** bölmesi.
-   * **Eylemler** bölmesi listeler düğümü, görünümü veya seçtiğiniz veri gerçekleştirebileceğiniz işlemler **kapsam** bölmesi.
+   * **Kapsam** bölmesinde (sol bölme), düğüm bir ağaç yapısında düzenlenmiş bir listesini içerir. Bir görünüm veya o düğümle ilgili belirli verileri seçmek için bazı düğümleri genişletebilirsiniz. Genişletmek veya daraltmak için bir düğüm için ok simgesine tıklayın. Bir öğeyi sağ **kapsam** bölmesinde bu öğeye ilişkin kullanılabilir eylemler listesini görmek için.
+   * **Sonuçları** bölmesinde (Orta bölme) düğümü, görünümü veya seçtiğiniz verileri hakkında ayrıntılı durum bilgisi içeren **kapsam** bölmesi.
+   * **Eylemleri** bölmesi düğümü, görünümü veya seçtiğiniz veri gerçekleştirebileceğiniz işlemleri listeler **kapsam** bölmesi.
      
-     StorSimple anlık görüntü Yöneticisi kullanıcı arabirimi tam bir açıklaması için bkz: [StorSimple Snapshot Manager kullanıcı arabirimini](storsimple-use-snapshot-manager.md).
-2. İçinde **kapsam** bölmesinde sağ **aygıtları** düğümünü ve ardından **bir aygıt yapılandırma**. **Bir aygıt yapılandırma** iletişim kutusu görüntülenir.
+     StorSimple Snapshot Manager kullanıcı arabirimini eksiksiz bir açıklaması için bkz: [StorSimple Snapshot Manager kullanıcı arabirimini](storsimple-use-snapshot-manager.md).
+2. İçinde **kapsam** bölmesinde sağ **cihazları** düğümünü ve ardından **bir cihaz yapılandırma**. **Bir cihaz yapılandırma** iletişim kutusu görüntülenir.
    
-    ![Bir aygıt yapılandırma](./media/storsimple-snapshot-manager-deployment/HCS_SSM_config_device.png) 
-3. İçinde **aygıt** liste kutusunda, Microsoft Azure StorSimple cihazı veya sanal aygıt IP adresi seçin. İçinde **parola** metin kutusuna, Azure portalında cihaz için oluşturduğunuz StorSimple Snapshot Manager parolasını yazın. **Tamam** düğmesine tıklayın.
-4. StorSimple Snapshot Manager tanımladığınız cihaz için arar. Cihaz kullanılabilir değilse, StorSimple Snapshot Manager bağlantı ekler. Yapabilecekleriniz [aygıt bağlantıyı doğrulama](#to-verify-the-connection) bağlantı başarıyla eklendiğini onaylamak için.
+    ![Bir cihaz yapılandırma](./media/storsimple-snapshot-manager-deployment/HCS_SSM_config_device.png) 
+3. İçinde **cihaz** liste kutusunda, sanal cihaz ve Microsoft Azure StorSimple cihazı IP adresi seçin. İçinde **parola** metin kutusuna, Azure portalında cihaz için oluşturduğunuz StorSimple Snapshot Manager parolasını yazın. **Tamam** düğmesine tıklayın.
+4. Tanımladığınız cihaz için StorSimple Snapshot Manager arar. Kullanılabilir cihazsa, StorSimple Snapshot Manager bağlantı ekler. Yapabilecekleriniz [cihaz bağlantısını doğrulayın](#to-verify-the-connection) bağlantı başarıyla eklendiğini doğrulamak için.
    
-    Aygıt için herhangi bir nedenle kullanılamıyorsa, StorSimple Snapshot Manager bir hata iletisi döndürür. Tıklatın **Tamam** hata iletisini kapatın ve ardından **iptal** kapatmak için **bir aygıt yapılandırma** iletişim kutusu.
-5. Birim grubu yedeklemeleri ilişkili koşuluyla StorSimple Snapshot Manager bir aygıta bağlandığında, o aygıtı için yapılandırılmış her birim grubu içeri aktarır. İlişkili yedeklemelerinizi olmayan birim grupları içeri aktarılmadı. Ayrıca, bir birim grubu için oluşturulan yedekleme ilkeleri içeri aktarılmadı. Alınan grupları görmek için en üstteki sağ tıklatın **birim grupları** düğümünde **kapsam** bölmesinde ve tıklatın **alınan grupları geçiş**.
+    Cihaz için herhangi bir nedenle kullanılamıyorsa, StorSimple Snapshot Manager bir hata iletisi döndürür. Tıklayın **Tamam** hata iletiyi kapatın ve ardından **iptal** kapatmak için **bir cihaz yapılandırma** iletişim kutusu.
+5. Birim grubu yedeklemeleri ilişkili şartıyla, StorSimple Snapshot Manager bir aygıta bağlandığında, bu cihaz için yapılandırılmış her bir birim grubu içeri aktarır. İlişkili yedekleme olmayan birim gruplarını içeri aktarılmaz. Ayrıca, bir birim grubu için oluşturulan yedekleme ilkelerini içeri aktarılmaz. İçeri aktarılan gruplar görmek için en üstteki sağ **birim gruplarını** düğümünde **kapsam** bölmesinde seçeneğine tıklayıp **içeri aktarılan gruplar geçiş**.
 
-### <a name="step-3-verify-the-connection-to-the-device"></a>Adım 3: cihaz bağlantısı doğrulama
+### <a name="step-3-verify-the-connection-to-the-device"></a>3. Adım: Cihaz bağlantısını doğrulayın
 StorSimple Snapshot Manager StorSimple cihazına bağlı olduğunu doğrulamak için aşağıdaki adımları kullanın.
 
 #### <a name="to-verify-the-connection"></a>Bağlantıyı doğrulamak için
-1. İçinde **kapsam** bölmesinde tıklatın **aygıtları** düğümü.
+1. İçinde **kapsam** bölmesinde tıklayın **cihazları** düğümü.
    
     ![StorSimple Snapshot Manager cihaz durumu](./media/storsimple-snapshot-manager-deployment/HCS_SSM_Device_status.png) 
 2. Denetleme **sonuçları** bölmesi: 
    
-   * Cihaz simgesinde yeşil bir göstergesi görünür değilse ve **kullanılabilir** görünür **durum** sütun sonra cihaz bağlı. 
-   * Cihaz simgesinde kırmızı bir göstergesi görünür ve kullanılamaz görünür **durum** sütun sonra aygıt bağlı değil. 
-   * Varsa **yenilemek** görünür **durum** sütun sonra StorSimple Snapshot Manager alma birim grupları ve ilişkili yedeklemeler bağlı bir aygıt için.
+   * Cihaz simgesinde yeşil bir göstergesi görünüyorsa ve **kullanılabilir** görünür **durumu** sütun, ardından cihaz bağlı. 
+   * Cihaz simgesi üzerinde kırmızı bir göstergesi görünür ve kullanılamıyor görünür **durumu** sütun, ardından cihaz bağlı değil. 
+   * Varsa **yenilemek** görünür **durumu** sütun ve StorSimple Snapshot Manager alınırken birim gruplarını ve bağlı bir cihaz için ilişkili yedekler.
 
-## <a name="upgrade-or-reinstall-storsimple-snapshot-manager"></a>Yükseltme veya StorSimple Snapshot Manager yeniden yükleme
-Yükseltme veya yazılımı yeniden yüklemek için önce StorSimple Snapshot Manager tamamen kaldırmanız gerekir. 
+## <a name="upgrade-or-reinstall-storsimple-snapshot-manager"></a>StorSimple Snapshot Manager'ı yeniden yükleyin veya yükseltin
+Yükseltme veya yazılımı yeniden önce StorSimple Snapshot Manager tamamen kaldırmanız gerekir. 
 
-StorSimple Snapshot Manager yeniden yüklemeden önce ana bilgisayarda varolan StorSimple Snapshot Manager veritabanını yedekleyin. Bu yedekleme ilkeleri ve yapılandırma bilgileri kaydeder, böylece bu verileri kolayca yedekten geri yükleyebilirsiniz.
+StorSimple Snapshot Manager yeniden yüklemeden önce ana bilgisayarda mevcut StorSimple Snapshot Manager veritabanını yedekleyin. Bu yedekleme ilkeleri ve yapılandırma bilgilerini kaydeder, böylece bu verileri kolayca yedekten geri yükleyebilirsiniz.
 
-Yükseltme veya yeniden yüklemeyi StorSimple Snapshot Manager, şu adımları izleyin:
+Yükseltme veya yeniden yüklemeyi StorSimple Snapshot Manager aşağıdaki adımları izleyin:
 
-* 1. adım: StorSimple anlık görüntü Yöneticisi'ni kaldırma 
-* 2. adım: StorSimple Snapshot Manager veritabanını yedekle 
-* 3. adım: StorSimple anlık görüntü Yöneticisi'ni yeniden yükleyin ve veritabanını geri yükleyin 
+* 1. Adım: StorSimple Snapshot Manager'ı kaldırın 
+* 2. Adım: StorSimple Snapshot Manager veritabanını yedekleme 
+* 3. Adım: StorSimple Snapshot Manager'ı yeniden yükleyin ve veritabanını geri yükleyin 
 
-### <a name="step-1-uninstall-storsimple-snapshot-manager"></a>1. adım: StorSimple anlık görüntü Yöneticisi'ni kaldırma
-StorSimple anlık görüntü Yöneticisi'ni kaldırmak için aşağıdaki adımları kullanın.
+### <a name="step-1-uninstall-storsimple-snapshot-manager"></a>1. Adım: StorSimple Snapshot Manager'ı kaldırın
+StorSimple Snapshot Manager'ı kaldırmak için aşağıdaki adımları kullanın.
 
-#### <a name="to-uninstall-storsimple-snapshot-manager"></a>StorSimple anlık görüntü Yöneticisi'ni kaldırmak için
-1. Ana bilgisayarda açmak **Denetim Masası**, tıklatın **programları**ve ardından **programlar ve Özellikler**.
+#### <a name="to-uninstall-storsimple-snapshot-manager"></a>StorSimple Snapshot Manager'ı kaldırmak için
+1. Ana bilgisayarda açın **Denetim Masası**, tıklayın **programlar**ve ardından **programlar ve Özellikler**.
 2. Sol bölmede **Kaldır veya Değiştir bir program**.
 3. Sağ **StorSimple Snapshot Manager**ve ardından **kaldırma**.
-4. StorSimple Snapshot Manager Kurulum programını başlatır. Tıklatın **değiştirme kurulum**ve ardından **kaldırma**.
+4. Bu, StorSimple Snapshot Manager Kurulum programını başlatır. Tıklayın **Kurulumu Değiştir**ve ardından **kaldırma**.
    
    > [!NOTE]
-   > Arka planda çalışan tüm MMC işlemler varsa, StorSimple Snapshot Manager veya Disk Yönetimi gibi kaldırma işlemi başarısız olur ve program kaldırmayı denemeden önce tüm örneklerini MMC kapatmak için bir ileti alırsınız. Seçin **otomatik olarak uygulamaları kapatın ve Kurulum tamamlandıktan sonra yeniden başlatmayı dene**ve ardından **Tamam**.
+   > Arka planda çalışan hiçbir MMC işlem varsa, StorSimple Snapshot Manager veya Disk Yönetimi gibi kaldırma başarısız olur ve program Kaldırmaya çalışmadan önce MMC tüm örneklerini kapatın isteyen bir ileti alırsınız. Seçin **otomatik olarak uygulamaları kapatın ve Kurulum tamamlandıktan sonra yeniden başlatmayı dene**ve ardından **Tamam**.
    > 
    > 
-5. Kaldırma işlemi tamamlandığında, bir **Kurulumu başarılı** ileti görüntülenir. **Kapat**’a tıklayın.
+5. Kaldırma işlemi tamamlandığında bir **Kurulum başarılı** iletisi görüntülenir. **Kapat**’a tıklayın.
 
-### <a name="step-2-back-up-the-storsimple-snapshot-manager-database"></a>2. adım: StorSimple Snapshot Manager veritabanını yedekle
+### <a name="step-2-back-up-the-storsimple-snapshot-manager-database"></a>2. Adım: StorSimple Snapshot Manager veritabanını yedekleme
 Oluşturmak ve StorSimple Snapshot Manager veritabanının bir kopyasını kaydetmek için aşağıdaki adımları kullanın.
 
 #### <a name="to-back-up-the-database"></a>Veritabanını yedeklemek için
 1. Microsoft StorSimple Yönetim hizmetini durdurun:
    
    1. Sunucu Yöneticisi'ni başlatın.
-   2. Sunucu Yöneticisi panosunda üzerinde **Araçları** menüsünde, select **Hizmetleri**.
-   3. Üzerinde **Hizmetleri** sayfasında, **Microsoft StorSimple Yöneticisi hizmeti**.
-   4. Sağ bölmede altında **Microsoft StorSimple Yöneticisi hizmeti**, tıklatın **hizmetini durdurun**.
+   2. Sunucu Yöneticisi panosunda üzerinde **Araçları** menüsünde **Hizmetleri**.
+   3. Üzerinde **Hizmetleri** sayfasında **Microsoft StorSimple Yöneticisi hizmeti**.
+   4. Sağ bölmede altında **Microsoft StorSimple Yöneticisi hizmeti**, tıklayın **Hizmeti Durdur**.
       
         ![StorSimple cihaz Yöneticisi hizmetini durdurun](./media/storsimple-snapshot-manager-deployment/HCS_SSM_stop_service.png)
 2. C:\ProgramData\Microsoft\StorSimple\BACatalog için göz atın. 
@@ -179,40 +179,40 @@ Oluşturmak ve StorSimple Snapshot Manager veritabanının bir kopyasını kayde
    > [!NOTE]
    > ProgramData gizli bir klasördür.
   
-3. Katalog XML dosyasını bulun, dosyasını kopyalayın ve güvenli bir konumda veya bulutta kopyayı depolar.
+3. Katalog XML dosyasını bulun, dosyasını kopyalayın ve kopyayı güvenli bir konumda veya bulutta depolamak.
    
     ![StorSimple yedekleme kataloğu dosyası](./media/storsimple-snapshot-manager-deployment/HCS_SSM_bacatalog.png)
 4. Microsoft StorSimple Yönetim hizmetini yeniden başlatın: 
    
-   1. Sunucu Yöneticisi panosunda üzerinde **Araçları** menüsünde, select **Hizmetleri**.
-   2. Üzerinde **Hizmetleri** sayfasında, **Microsoft StorSimple Yönetim bildirimleri**e.
-   3. Sağ bölmede altında **Microsoft StorSimple Yöneticisi hizmeti**, tıklatın **hizmeti yeniden**. 
+   1. Sunucu Yöneticisi panosunda üzerinde **Araçları** menüsünde **Hizmetleri**.
+   2. Üzerinde **Hizmetleri** sayfasında **Microsoft StorSimple Yöneticisi hizmeti**.
+   3. Sağ bölmede altında **Microsoft StorSimple Yöneticisi hizmeti**, tıklayın **hizmetini yeniden**. 
 
-### <a name="step-3-reinstall-storsimple-snapshot-manager-and-restore-the-database"></a>3. adım: StorSimple anlık görüntü Yöneticisi'ni yeniden yükleyin ve veritabanını geri yükleyin
-StorSimple Snapshot Manager yeniden yüklemek için adımları [yeni bir StorSimple Snapshot Manager yükleme](#install-a-new-storsimple-snapshot-manager). Ardından, StorSimple Snapshot Manager veritabanını geri yüklemek için aşağıdaki yordamı kullanın.
+### <a name="step-3-reinstall-storsimple-snapshot-manager-and-restore-the-database"></a>3. Adım: StorSimple Snapshot Manager'ı yeniden yükleyin ve veritabanını geri yükleyin
+StorSimple Snapshot Manager'ı yeniden yüklemek için adımları izleyin. [yeni bir StorSimple Snapshot Manager'ı yükleme](#install-a-new-storsimple-snapshot-manager). Ardından, StorSimple Snapshot Manager veritabanını geri yüklemek için aşağıdaki yordamı kullanın.
 
 #### <a name="to-restore-the-database"></a>Veritabanını geri yüklemek için
 1. Microsoft StorSimple Yönetim hizmetini durdurun:
    
    1. Sunucu Yöneticisi'ni başlatın.
-   2. Sunucu Yöneticisi panosunda üzerinde **Araçları** menüsünde, select **Hizmetleri**.
-   3. Üzerinde **Hizmetleri** sayfasında, **Microsoft StorSimple Yöneticisi hizmeti**.
-   4. Sağ bölmede altında **Microsoft StorSimple Yöneticisi hizmeti**, tıklatın **hizmetini durdurun**.
+   2. Sunucu Yöneticisi panosunda üzerinde **Araçları** menüsünde **Hizmetleri**.
+   3. Üzerinde **Hizmetleri** sayfasında **Microsoft StorSimple Yöneticisi hizmeti**.
+   4. Sağ bölmede altında **Microsoft StorSimple Yöneticisi hizmeti**, tıklayın **Hizmeti Durdur**.
 2. C:\ProgramData\Microsoft\StorSimple\BACatalog için göz atın.
    
    > [!NOTE]
    > ProgramData gizli bir klasördür.
    > 
    > 
-3. Katalog XML dosyasını silin ve daha önce kaydettiğiniz sürümle değiştirin.
+3. Katalog XML dosyasını silin ve daha önce kaydettiğiniz bir sürümle değiştirin.
 4. Microsoft StorSimple Yönetim hizmetini yeniden başlatın: 
    
-   1. Sunucu Yöneticisi panosunda üzerinde **Araçları** menüsünde, select **Hizmetleri**.
-   2. Üzerinde **Hizmetleri** sayfasında, **Microsoft StorSimple Yöneticisi hizmeti**.
-   3. Sağ bölmede altında **Microsoft StorSimple Yöneticisi hizmeti**, tıklatın **hizmeti yeniden**.
+   1. Sunucu Yöneticisi panosunda üzerinde **Araçları** menüsünde **Hizmetleri**.
+   2. Üzerinde **Hizmetleri** sayfasında **Microsoft StorSimple Yöneticisi hizmeti**.
+   3. Sağ bölmede altında **Microsoft StorSimple Yöneticisi hizmeti**, tıklayın **hizmetini yeniden**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* StorSimple anlık görüntü Yöneticisi hakkında daha fazla bilgi için şuraya gidin [StorSimple anlık görüntü Yöneticisi nedir?](storsimple-what-is-snapshot-manager.md).
-* StorSimple anlık görüntü Yöneticisi kullanıcı arabirimi hakkında daha fazla bilgi için şuraya gidin [StorSimple Snapshot Manager kullanıcı arabirimini](storsimple-use-snapshot-manager.md).
-* StorSimple anlık görüntü Yöneticisi'ni kullanma hakkında daha fazla bilgi için şuraya gidin [StorSimple çözümünüzün yönetmek için StorSimple anlık görüntü Yöneticisi'ni kullanın](storsimple-snapshot-manager-admin.md).
+* StorSimple Snapshot Manager hakkında daha fazla bilgi için Git [StorSimple Snapshot Manager nedir?](storsimple-what-is-snapshot-manager.md).
+* StorSimple Snapshot Manager kullanıcı arabirimi hakkında daha fazla bilgi için şuraya gidin [StorSimple Snapshot Manager kullanıcı arabirimini](storsimple-use-snapshot-manager.md).
+* StorSimple Snapshot Manager'ı kullanma hakkında daha fazla bilgi edinmek için Git [StorSimple çözümünüzü yönetmek için StorSimple anlık görüntü Yöneticisi'ni kullanın](storsimple-snapshot-manager-admin.md).
 

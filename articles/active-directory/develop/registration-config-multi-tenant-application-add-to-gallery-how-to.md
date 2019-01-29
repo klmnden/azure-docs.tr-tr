@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 ms.assetid: 92c1651a-675d-42c8-b337-f78e7dbcc40d
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
 ms.reviewer: jeedes
-ms.openlocfilehash: b89be37d9c77fb83e607a1af0bc2f6ba716ab2c1
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 073f6d925a6868937410972a9400daefa802876d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44724233"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55152051"
 ---
 # <a name="add-a-multitenant-application-to-the-azure-ad-application-gallery"></a>Azure AD uygulama Galerisi çok kiracılı bir uygulama ekleme
 
@@ -31,9 +31,9 @@ Azure Active Directory (Azure AD), bulut tabanlı kimlik hizmetidir. [Azure AD u
 ## <a name="if-your-application-supports-saml-or-openidconnect"></a>Uygulamanız SAML veya Openıdconnect destekliyorsa
 Azure AD uygulama galerisinde listelenmesini istediğiniz çok kiracılı bir uygulama varsa, ilk uygulamanızı aşağıdaki tek oturum açma teknolojileri birini destekleyen emin olmalısınız:
 
-- **Openıd Connect**: listelenen uygulamanızı sağlamak için Azure AD'de çok kiracılı bir uygulama oluşturmak ve uygulamak [Azure AD'ye onay çerçevesine](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#overview-of-the-consent-framework) uygulamanız için. Herhangi bir müşteri uygulama onay sağlayabilmesi için ortak bir uç nokta oturum açma isteği gönderin. Kiracı kimliği ve belirteçte alınan kullanıcının UPN göre bir kullanıcının erişimi denetleyebilirsiniz. İçinde açıklanan işlemi kullanarak uygulama gönderme [Azure Active Directory Uygulama galerisinde uygulamanızı listeleme](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
+- **Openıd Connect**: Listelenen uygulamanızı sağlamak için Azure AD'de çok kiracılı bir uygulama oluşturmak ve uygulamak [Azure AD'ye onay çerçevesine](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) uygulamanız için. Herhangi bir müşteri uygulama onay sağlayabilmesi için ortak bir uç nokta oturum açma isteği gönderin. Kiracı kimliği ve belirteçte alınan kullanıcının UPN göre bir kullanıcının erişimi denetleyebilirsiniz. İçinde açıklanan işlemi kullanarak uygulama gönderme [Azure Active Directory Uygulama galerisinde uygulamanızı listeleme](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
 
-- **SAML**: SAML 2.0, uygulamanız destekliyorsa, uygulama galerisinde listelenebilir. Bölümündeki yönergeleri [Azure Active Directory Uygulama galerisinde uygulamanızı listeleme](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
+- **SAML**: Uygulamanız SAML 2.0 destekliyorsa, app Galerisi'nde listelenebilir. Bölümündeki yönergeleri [Azure Active Directory Uygulama galerisinde uygulamanızı listeleme](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
 
 ## <a name="if-your-application-does-not-support-saml-or-openidconnect"></a>Uygulamanız SAML veya Openıdconnect desteklemiyorsa
 SAML veya Openıdconnect desteklemeyen uygulamaları, oturum açma parolası tek teknoloji app Galerisi'nde içine yine de tümleştirilebilir.

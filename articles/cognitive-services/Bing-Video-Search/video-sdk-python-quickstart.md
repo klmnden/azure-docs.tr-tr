@@ -1,23 +1,23 @@
 ---
-title: 'Hızlı Başlangıç: Video Arama SDK’sı, Python'
+title: "Hızlı Başlangıç: Video arama SDK'sı Python"
 titleSuffix: Azure Cognitive Services
 description: Video Arama SDK'sı konsol uygulaması için kurulum.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-video-search
+ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 02/15/2018
 ms.author: rosh
-ms.openlocfilehash: 2c099f3520b697e8ec2f7ef39c4525298182a697
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 58e393a4c7232326a44d7f3d60bea8e956bb28de
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307925"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55185014"
 ---
-# <a name="quickstart-bing-video-search-sdk-with-python"></a>Hızlı Başlangıç: Python ile Bing Video Arama SDK'sı
+# <a name="quickstart-bing-video-search-sdk-with-python"></a>Hızlı Başlangıç: Bing Video arama ile Python SDK'sı
 
 Bing Görüntü Arama SDK'sı, web sorguları ve sonuçları ayrıştırmak için REST API işlevselliğini içerir.
 

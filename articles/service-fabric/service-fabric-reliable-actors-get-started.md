@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/16/2018
 ms.author: vturecek
-ms.openlocfilehash: 4ff896902c1a92c244c3bcd147c3daeeb9e49c77
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: f92fe2432051b148bf0b35fccc3fa33db9b66a14
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054766"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093173"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Reliable Actors hizmetini kullanmaya başlama
 > [!div class="op_single_selector"]
@@ -54,7 +54,7 @@ Oluşturulan proje aşağıdaki yapısını gösterir:
 
 * **Arabirim projesi (HelloWorld.Interfaces)**. Bu proje, aktör arabirimi tanımını içerir. Aktör arabirimi, herhangi bir projede herhangi bir ad ile tanımlanabilir.  Arabirim aktör uygulaması ve aktörü çağıran istemciler tarafından paylaşılan aktör anlaşmasını tanımlar.  İstemci projeler üzerinde bağlı olabileceği için genellikle aktör uygulamasından ayrı bir derleme tanımlamak için mantıklıdır.
 
-* **Aktör hizmeti projesini (HelloWorld)**. Bu proje, aktör barındırmak için giderek Service Fabric hizmeti tanımlar. Aktör uygulamasını içerir *HellowWorld.cs*. Aktör temel türünden türetilen bir sınıf uygulamasıdır `Actor` ve içinde tanımlanan arabirimlerini uygular *MyActor.Interfaces* proje. Aktör sınıfı da kabul eden bir oluşturucu uygulamalıdır bir `ActorService` örneği ve bir `ActorId` ve bunları tabanına geçirir `Actor` sınıfı.
+* **Aktör hizmeti projesini (HelloWorld)**. Bu proje, aktör barındırmak için giderek Service Fabric hizmeti tanımlar. Aktör uygulamasını içerir *: HelloWorld.cs'ye*. Aktör temel türünden türetilen bir sınıf uygulamasıdır `Actor` ve içinde tanımlanan arabirimlerini uygular *MyActor.Interfaces* proje. Aktör sınıfı da kabul eden bir oluşturucu uygulamalıdır bir `ActorService` örneği ve bir `ActorId` ve bunları tabanına geçirir `Actor` sınıfı.
     
     Bu proje de içeren *Program.cs*, yapan aktör sınıfları kullanarak Service Fabric çalışma zamanı `ActorRuntime.RegisterActorAsync<T>()`. `HelloWorld` Sınıf zaten kayıtlı. Projeye eklenen herhangi bir ek aktör uygulamaları da kayıtlı olması gerekir `Main()` yöntemi.
 

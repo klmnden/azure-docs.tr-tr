@@ -1,5 +1,5 @@
 ---
-title: Azure CLI Betik Örneği - LAMP Yığınını Yük Dengeli Bir Sanal Makine Ölçek Kümesine Dağıtma | Microsoft Docs
+title: Azure CLI betik örneği - LAMP yığınını yük dengeli sanal makine ölçek kümesine dağıtma | Microsoft Docs
 description: LAMP Yığınını Azure’da yük dengeli bir sanal makine ölçek kümesine dağıtmak için özel bir betik uzantısı kullanın.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/05/2017
 ms.author: allclark
 ms.custom: mvc
-ms.openlocfilehash: cb8815db5e16603ca4578f6d3d943cbef62e49af
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: ceda12b71a58153995a23eabace37b4373b57ef2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54461154"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55155179"
 ---
 # <a name="deploy-the-lamp-stack-in-a-load-balanced-virtual-machine-scale-set"></a>LAMP yığınını yük dengeli bir sanal makine ölçek kümesine dağıtma
 

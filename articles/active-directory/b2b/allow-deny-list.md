@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 60fbde1ea269dc43d35007287c38e852a5feedff
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: d5a39efd932225eb2f71acdba742c88095df8ec9
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55075338"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098791"
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>İzin verme veya davetleri B2B kullanıcıları belirli kuruluşlardan engelleme
 
@@ -86,71 +86,71 @@ Modülün sürümünü denetleyin (ve yüklü olup olmadığını görmek için)
 1. Yükseltilmiş bir kullanıcı (yönetici olarak çalıştır) olarak Windows PowerShell'i açın. 
 2. Azure modülü PowerShell için Active Directory Windows bilgisayarınızda yüklü olan sürümlerinin olup olmadığını görmek için aşağıdaki komutu çalıştırın:
 
-   ````powershell  
+   ```powershell  
    Get-Module -ListAvailable AzureAD*
-   ````
+   ```
 
 Modülü yüklü değil ya da gerekli bir sürüme sahip değilseniz, aşağıdakilerden birini yapın:
 
 - Hiçbir sonuç döndürmedi ise AzureADPreview modülünün en son sürümünü yüklemek için aşağıdaki komutu çalıştırın:
   
-   ````powershell  
+   ```powershell  
    Install-Module AzureADPreview
-   ````
+   ```
 - Yalnızca AzureAD modülüne sonuçlarda gösterilen AzureADPreview modülünü yüklemek için aşağıdaki komutları çalıştırın: 
 
-   ````powershell 
+   ```powershell 
    Uninstall-Module AzureAD 
    Install-Module AzureADPreview 
-   ````
+   ```
 - AzureADPreview modülünde sonuçlarında gösterilir ancak kısa 2.0.0.98 sürümü yalnızca, güncelleştirmek için aşağıdaki komutları çalıştırın: 
 
-   ````powershell 
+   ```powershell 
    Uninstall-Module AzureADPreview 
    Install-Module AzureADPreview 
-   ````
+   ```
 
 - AzureAD hem AzureADPreview modülleri sonuçlarda gösterilir, ancak kısa 2.0.0.98 AzureADPreview modülünde sürümü değil, güncelleştirmek için aşağıdaki komutları çalıştırın: 
 
-   ````powershell 
+   ```powershell 
    Uninstall-Module AzureAD 
    Uninstall-Module AzureADPreview 
    Install-Module AzureADPreview 
-    ````
+    ```
 
 ### <a name="use-the-azureadpolicy-cmdlets-to-configure-the-policy"></a>İlke yapılandırma AzureADPolicy cmdlet'leri kullanın.
 
 Bir izin oluşturmak ya da reddetme için kullanmak [yeni AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview) cmdlet'i. Aşağıdaki örnekte engelleyen bir engelleme listesine "live.com" etki alanı ayarlama işlemini gösterir.
 
-````powershell 
+```powershell 
 $policyValue = @("{`"B2BManagementPolicy`":{`"InvitationsAllowedAndBlockedDomainsPolicy`":{`"AllowedDomains`": [],`"BlockedDomains`": [`"live.com`"]}}}")
 
 New-AzureADPolicy -Definition $policyValue -DisplayName B2BManagementPolicy -Type B2BManagementPolicy -IsOrganizationDefault $true 
-````
+```
 
 Aynı örneği aşağıdaki gösterir ancak ilke tanımı satır içi.
 
-````powershell  
+```powershell  
 New-AzureADPolicy -Definition @("{`"B2BManagementPolicy`":{`"InvitationsAllowedAndBlockedDomainsPolicy`":{`"AllowedDomains`": [],`"BlockedDomains`": [`"live.com`"]}}}") -DisplayName B2BManagementPolicy -Type B2BManagementPolicy -IsOrganizationDefault $true 
-````
+```
 
 İzin kümesi veya listesi ilkesi engellemek için kullanın [kümesi AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview) cmdlet'i. Örneğin:
 
-````powershell   
+```powershell   
 Set-AzureADPolicy -Definition $policyValue -Id $currentpolicy.Id 
-````
+```
 
 İlkeyi almak için kullanın [Get-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview) cmdlet'i. Örneğin:
 
-````powershell
+```powershell
 $currentpolicy = Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy'} | select -First 1 
-````
+```
 
 İlke kaldırmak için [Remove-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview) cmdlet'i. Örneğin:
 
-````powershell
+```powershell
 Remove-AzureADPolicy -Id $currentpolicy.Id 
-````
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

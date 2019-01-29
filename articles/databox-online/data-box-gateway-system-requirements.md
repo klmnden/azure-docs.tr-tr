@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 10/17/2018
+ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: da22c09a227069af0eeb42ab67a59189ae494185
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 81df0a776cd22490342230567deacb23097cd12e
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256681"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094198"
 ---
 # <a name="azure-data-box-gateway-system-requirements-preview"></a>Azure veri kutusu ağ geçidi sistem gereksinimleri (Önizleme)
 
@@ -46,7 +46,7 @@ Temel alınan bir konak sistemi veri kutusu ağ geçidi için sanal cihazınız�
 
 | **İşletim sistemi/platform** | **Sürümleri** |
 | --- | --- |
-| Windows Server |2012 R2 <br> 2016 |
+| Windows Server |2012 R2 <br> 2016 <br> 2019 |
 | Windows |8, 10 |
 | SUSE Linux |Kuruluş Sunucusu 12 (x86_64)|
 | Ubuntu |16.04.3 LTS|
@@ -64,7 +64,7 @@ Temel alınan bir konak sistemi veri kutusu ağ geçidi için sanal cihazınız�
 | **İşletim sistemi/platform**  |**Sürümleri**   |**Notlar**  |
 |---------|---------|---------|
 |Hyper-V  |  2012 R2 <br> 2016  |         |
-|VMware ESXi     | 6.0 <br> 6.5        |VMware araçları desteklenmez.         |
+|VMware ESXi     | 6.0 <br> 6.5 <br> 6.7       |VMware araçları desteklenmez.         |
 
 
 ## <a name="supported-storage-accounts"></a>Desteklenen depolama hesapları
@@ -103,7 +103,7 @@ Sanal cihaz için yerel web kullanıcı Arabirimi için desteklenen tarayıcıla
 
 Aşağıdaki tabloda, SMB, Bulut ve yönetim trafiği için izin vermek için güvenlik duvarını açılması gereken bağlantı noktalarını listeler. Bu tabloda *içinde* veya *gelen* hangi gelen istemci istekleri erişimden Cihazınızı yönü belirtir. *Çıkış* veya *giden* hangi veri kutusu ağ geçidi Cihazınızı gönderir dışarıdan, veri dağıtımı dışında yön ifade eder: Örneğin, Internet'e giden.
 
-| Bağlantı noktası yok.| Daraltma veya genişletme | Bağlantı noktası kapsamı| Gerekli|   Notlar                                                             |                                                                                     |
+| Bağlantı noktası yok.| Daraltma veya genişletme | Bağlantı noktası kapsamı| Gereklidir|   Notlar                                                             |                                                                                     |
 |--------|---------|----------|--------------|----------------------|---------------|
 | TCP 80 (HTTP)|Çıkan|WAN |Hayır|Giden bağlantı noktası, güncelleştirmeleri almak için Internet erişimi için kullanılır. <br>Kullanıcı tarafından yapılandırılabilir bir giden web Ara sunucudur. |                          
 | TCP 443 (HTTPS)|Çıkan|WAN|Evet|Giden bağlantı noktası, bulut veri erişimi için kullanılır.<br>Kullanıcı tarafından yapılandırılabilir bir giden web Ara sunucudur.|   
@@ -126,7 +126,7 @@ Veri kutusu liberally çoğu zaman sabit IP adresleri, ağ geçidi temel giden t
 |     URL deseni                                                                                                                                                                                                                                                                                                                                                                                                                                       |     Bileşen/işlevi                                                                             |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
 |    https://*.databoxedge.azure.com/*<br>https://*.servicebus.windows.net/*<br>https://login.windows.net                                                                                                                                                                                                                                                                                                        |    Azure veri kutusu ağ geçidi hizmeti<br>Azure Service Bus<br>Kimlik Doğrulama Hizmeti    |
-|    http://*.Backup.windowsazure.com                                                                                                                                                                                                                                                                                                                                                                                                                   |    Cihaz etkinleştirme                                                                                    |
+|    http://*.backup.windowsazure.com                                                                                                                                                                                                                                                                                                                                                                                                                   |    Cihaz etkinleştirme                                                                                    |
 |    http://crl.microsoft.com/pki/*   http://www.microsoft.com/pki/*                                                                                                                                                                                                                                                                                                                                                                                    |    Sertifika iptal etme                                                                               |
 |    https://*.core.windows.net/* https://*. data.microsoft.com http://*. msftncsi.com                                                                                                                                                                                                                                                                                                                                                                |    Azure depolama hesapları ve izleme                                                                |
 |    http://windowsupdate.microsoft.com<br>http://*. windowsupdate.microsoft.com<br>https://*. windowsupdate.microsoft.com<br>http://*. update.microsoft.com<br>https://*. update.microsoft.com<br>http://*. windowsupdate.com<br>http://download.microsoft.com<br>http://*. download.windowsupdate.com<br>http://wustat.windows.com<br>http://ntservicepack.microsoft.com<br>http://*. ws.microsoft.com<br>https://*. ws.microsoft.com<br>http://*.MP.microsoft.com        |    Microsoft Update sunucularına                                                                             |

@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 01/28/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 7f8f4848b7181ad3df7ad4fa009ff284de381b75
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 592b8500f9b032a20bb991326201d45db586980d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54820419"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55177534"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>LUIS modeline ve anahtarlar için sınırlar
 LUIS, birden fazla sınır alanlara sahip değildir. İlk [modeli sınır](#model-boundaries), amacı, varlıkları ve LUIS özellikleri denetler. İkinci alanı [kota sınırları](#key-limits) anahtar türüne göre. Üçüncü bir sınırları alanıdır [klavye birleşimi](#keyboard-controls) LUIS Web sitesi denetleme. Dördüncü alan [dünya bölge eşleme](luis-reference-regions.md) LUIS ile Web sitesi geliştirme LUIS arasındaki [uç nokta](luis-glossary.md#endpoint) API'leri. 
@@ -24,15 +24,14 @@ LUIS, birden fazla sınır alanlara sahip değildir. İlk [modeli sınır](#mode
 
 ## <a name="model-boundaries"></a>Model sınırları
 
-
 |Alan|Sınır|
 |--|:--|--|
 | [Uygulama adı][luis-get-started-create-app] | * Max varsayılan karakter |
 | [Toplu test etme][batch-testing]| 10 veri kümeleri, veri kümesi başına 1000 konuşma|
 | Açık listesi | uygulama başına 50|
-| [Hedefleri][intents]|uygulama başına 500<br>[Gönderim tabanlı](https://aka.ms/dispatch-tool) uygulamanın karşılık gelen 500 gönderme kaynakları var.|
+| [Hedefleri][intents]|uygulama başına 500: 499 özel amaçlar ve gerekli _hiçbiri_ hedefi.<br>[Gönderim tabanlı](https://aka.ms/dispatch-tool) uygulama karşılık gelen 500 gönderme kaynaklarına sahiptir.|
 | [Varlıklar listesi](./luis-concept-entity-types.md) | Üst öğe: 50, alt: 20.000 öğeleri. Kurallı ad * varsayılan karakter maks. Eş anlamlı değerleri herhangi bir uzunluk sınırlaması vardır. |
-| [Makine öğrenilen varlıklar](./luis-concept-entity-types.md):<br> Bileşik<br>  Hiyerarşik<br> Basit|100 <br>Makine öğrenilen varlıklar (Basit, hiyerarşik ve bileşik varlıklar) toplam sayısı 100 aşamaz. Bileşik ve hiyerarşik varlıkları 10'dan fazla alt öğeleri olamaz.  |
+| [Makine öğrenilen varlıklar](./luis-concept-entity-types.md):<br> Bileşik<br>  Hiyerarşik<br> Basit|Bir sınır 100 üst varlıklar (hiyerarşik alt öğeleri dahil değil) veya 330 varlıklar (hiyerarşik alt öğeleri dahil), hangisi kullanıcı isabet önce sınırlandırın.<br><br>30 hiyerarşilerle her 10 alt hiyerarşisi örneği olacaktır.  Alt toplam 300 kullanacaktır ve hiyerarşisi öğeleriniz kalan 30 kullanacaktır. |
 | [Desenleri](luis-concept-patterns.md)|uygulama başına 500 desenleri.<br>Deseni en fazla uzunluğu 400 karakter olabilir.<br>Deseni başına 3 Pattern.any varlıklar<br>En fazla 2 iç içe geçmiş isteğe bağlı metni deseninde|
 | [Pattern.Any](./luis-concept-entity-types.md)|uygulama başına 100 deseni başına 3 pattern.any varlıklar |
 | [İfade listesi][phrase-list]|10 tümcecik listeler, liste başına 5.000 öğeleri|

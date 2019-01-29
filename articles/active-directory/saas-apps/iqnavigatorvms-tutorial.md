@@ -1,5 +1,5 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme IQNavigator vm'lerle | Microsoft Docs"
+title: "Öğretici: IQNavigator VM'ler ile Azure Active Directory Tümleştirme | Microsoft Docs"
 description: Azure Active Directory ve IQNavigator VM'ler arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -7,21 +7,21 @@ author: jeevansd
 manager: femila
 ms.assetid: a8a09b25-dfa5-4c31-aea2-53bf1853b365
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: f568f33de348289334c4b4c346e9525e28cce51c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 062c83c7e1d621a80a5e81cdaf6b070eb446453c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445131"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55180543"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-iqnavigator-vms"></a>Öğretici: Azure Active Directory IQNavigator VM'ler ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-iqnavigator-vms"></a>Öğretici: IQNavigator VM'ler ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, IQNavigator VM'leri Azure Active Directory (Azure AD) ile tümleştirme konusunda bilgi edinin.
 
@@ -37,7 +37,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD Tümleştirmesi ile IQNavigator VM'leri yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik IQNavigator VM'leri çoklu oturum açma etkin
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Azure AD'de IQNavigator VM'leri tümleştirmesini yapılandırmak için IQNaviga
 
 **Galeriden IQNavigator VM'leri eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
@@ -125,7 +125,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve I
     > [!NOTE]
     > Bu değerler gerçek değildir. Bu değerler gerçek yanıt URL'si ve geçiş durumu ile güncelleştirin. İlgili kişi [IQNavigator VM'leri istemci Destek ekibine](https://www.beeline.com/iqn-product-support/) bu değerleri almak için.
 
-1. Üzerinde **SAML imzalama sertifikası** bölümünde, kopyalamak için Kopyala düğmesine **uygulama Federasyon meta verileri URL'sini** kopyalayıp Not Defteri'ne yapıştırın.
+1. Üzerinde **SAML imzalama sertifikası** bölümünde, kopyalamak için Kopyala düğmesine **uygulama Federasyon meta verileri URL'sini** kopyalayıp Not Defteri'ne yapıştırın.
     
     ![Çoklu oturum açmayı yapılandırın](./media/iqnavigatorvms-tutorial/tutorial_metadataurl.png)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 07/27/201
 ms.author: v-jamebr
-ms.openlocfilehash: 2f84550c83c646b44f4a59c3ae506df7c18d1555
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 522e9209da5d2df796700dea764270382b1170f5
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852988"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102774"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Ayarlama ve Azure Service Fabric ters proxy ayarlarını yapılandırma
 Ters proxy, bulmak ve http uç noktaları olan diğer hizmetlerle iletişim kurma bir Service Fabric kümesinde çalışan mikro hizmetler yardımcı olan isteğe bağlı bir Azure Service Fabric hizmetidir. Daha fazla bilgi için bkz. [ters proxy Azure Service fabric'te](service-fabric-reverseproxy.md). Bu makalede ayarlama ve kümedeki ters Ara sunucu yapılandırma gösterilmektedir. 
@@ -30,7 +30,7 @@ Azure portalında yeni bir Service Fabric kümesi oluşturduğunuzda, ters proxy
 
 Ters Proxy'yi yapılandırmak için olduğunda, [Azure portalını kullanarak küme oluşturma](./service-fabric-cluster-creation-via-portal.md), aşağıdakileri yaptığınızdan emin olun:
 
-1. İçinde **adım 2: küme yapılandırmasını**altında **düğüm türü yapılandırması**seçin **etkinleştir ters proxy**.
+1. İçinde **2. adım: Küme Yapılandırması**altında **düğüm türü yapılandırması**seçin **etkinleştir ters proxy**.
 
    ![Portal ters Proxy'yi Etkinleştir](./media/service-fabric-reverseproxy-setup/enable-rp-portal.png)
 2. (İsteğe bağlı) Güvenli ters Proxy'yi yapılandırmak için bir SSL sertifikası'nı yapılandırmanız gerekir. İçinde **3. adım: Güvenlik**, **küme güvenlik ayarlarını yapılandırın**altında **yapılandırma türü**seçin **özel**. Ardından, altında **Ters Proxy SSL sertifikası**seçin **bir ters proxy SSL sertifikası dahil** ve sertifika ayrıntılarınızı girin.
@@ -239,7 +239,7 @@ Ters proxy etkinleştirmek için ClusterConfig.json dosyanızı değiştirdiğin
 Ters dışından Ara sunucuya Azure kümesine yönelik olarak, Azure Load Balancer kuralları ve bir Azure sistem durumu araştırması için ters proxy bağlantı noktası ayarlayın. Bu adımlar, kümeyi oluşturduktan sonra herhangi bir zamanda Azure portalı ya da Resource Manager şablonu kullanarak gerçekleştirilebilir. 
 
 > [!WARNING]
-> Yük Dengeleyici ters proxy bağlantı noktası yapılandırdığınızda, bir HTTP uç noktasını açığa tüm mikro Hizmetleri kümedeki küme dışında'ten adreslenebilir. Başka bir deyişle, mikro hizmetler iç olacak şekilde tasarlanmış belirlenen kötü niyetli bir kullanıcı tarafından keşfedilebilir olabilir. Bu potenially yararlanılabilir ciddi güvenlik açıklarını sunar; Örneğin:
+> Yük Dengeleyici ters proxy bağlantı noktası yapılandırdığınızda, bir HTTP uç noktasını açığa tüm mikro Hizmetleri kümedeki küme dışında'ten adreslenebilir. Başka bir deyişle, mikro hizmetler iç olacak şekilde tasarlanmış belirlenen kötü niyetli bir kullanıcı tarafından keşfedilebilir olabilir. Bu, potansiyel olarak yararlanılabilir ciddi güvenlik açıklarını sunar; Örneğin:
 >
 > * Kötü niyetli bir kullanıcı, sürekli olarak yeterli saldırı yüzeyini yok. bir iç hizmet çağırarak bir hizmet reddi saldırısı başlatabilir.
 > * Kötü niyetli bir kullanıcının istenmeyen davranışla bir iç hizmet için hatalı biçimlendirilmiş paketlerini teslim edebilir.

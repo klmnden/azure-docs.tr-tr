@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/15/2017
 ms.author: harahma
-ms.openlocfilehash: 367f21c63eac3969fb19eada91eae9a8577921de
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 80d9d447a86b58c8d6db5a62d3b0df997e42f673
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348489"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55172383"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Azure Service Fabric barındırma modeli
 Bu makalede, Azure Service Fabric tarafından sağlanan modelleri barındıran uygulama genel bir bakış sağlar ve arasındaki farkları açıklar **paylaşılan işlem** ve **özel işlem** modelleri. Bu, dağıtılan bir uygulama bir Service Fabric düğüm ve hizmet ve hizmet ana bilgisayar işlemi çoğaltmaları (veya örnekleri) arasındaki ilişkiyi nasıl görüneceğini gösteren açıklar.
@@ -150,7 +150,7 @@ Bazı durumlarda, Service Fabric ayrıca birden fazla sağlar *ServiceType* baş
 
 Özel barındırma modeli işlem birden çok sahip bir uygulama modeli ile tutarlı değil *ServiceTypes* başına *ServicePackage*. Bunun nedeni birden çok, *ServiceTypes* başına *ServicePackage* daha yüksek kaynak arasında çoğaltmaları paylaşımını sağlamak için tasarlanmıştır ve işlem başına daha yüksek yineleme yoğunluğu sağlar. Özel işlem modeli farklı sonuçlar elde etmek için tasarlanmıştır.
 
-Birden çok durum düşünün *ServiceTypes* başına *ServicePackage*, farklı bir ile *CodePackage* her kaydetme *ServiceType*. Diyelim ki sahip bir *ServicePackage* iki'MultiTypeServicePackge ' *CodePackages*:
+Birden çok durum düşünün *ServiceTypes* başına *ServicePackage*, farklı bir ile *CodePackage* her kaydetme *ServiceType*. Diyelim ki sahip bir *ServicePackage* iki'MultiTypeServicePackage ' *CodePackages*:
 
 - Kayıtları'MyCodePackageA ' *ServiceType* 'MyServiceTypeA'.
 - Kayıtları'MyCodePackageB ' *ServiceType* 'MyServiceTypeB'.
@@ -160,15 +160,15 @@ Artık, bir uygulama oluşturacağız varsayalım **fabric: / SpecialApp**. İç
 - Hizmet **fabric: / SpecialApp/ServiceA** 'MyServiceTypeA' türünde iki bölüm (örneğin, **P1** ve **P2**) ve bölüm başına üç kopyaya.
 - Hizmet **fabric: / SpecialApp/ServiceB** 'MyServiceTypeB' türünde iki bölüm (**P3** ve **P4**) ve bölüm başına üç kopyaya.
 
-Belirli bir düğümde iki çoğaltma hizmetlerinin her ikisi de vardır. Service Fabric, biz hizmetleri oluşturmak için özel işlem modeli kullandığından, 'MyServicePackage' ın yeni bir kopyasını her çoğaltma için etkinleştirir. Her etkinleştirme 'MultiTypeServicePackge', 'MyCodePackageA' ve 'MyCodePackageB' bir kopyasını başlatır. Ancak, yalnızca bir 'MyCodePackageA' veya 'MyCodePackageB' 'MultiTypeServicePackge' etkinleştirildiği çoğaltma barındırır. Aşağıdaki diyagramda, düğüm görünümü gösterilmektedir:
+Belirli bir düğümde iki çoğaltma hizmetlerinin her ikisi de vardır. Service Fabric, biz hizmetleri oluşturmak için özel işlem modeli kullandığından, 'MyServicePackage' ın yeni bir kopyasını her çoğaltma için etkinleştirir. Her etkinleştirme 'MultiTypeServicePackage', 'MyCodePackageA' ve 'MyCodePackageB' bir kopyasını başlatır. Ancak, yalnızca bir 'MyCodePackageA' veya 'MyCodePackageB' 'MultiTypeServicePackage' etkinleştirildiği çoğaltma barındırır. Aşağıdaki diyagramda, düğüm görünümü gösterilmektedir:
 
 
 ![Dağıtılan uygulamanın düğüm görünümü diyagramı][node-view-five]
 
 
-'MultiTypeServicePackge' etkinleştirme çoğaltmasının bölümünün içinde **P1** hizmetinin **fabric: / SpecialApp/ServiceA**, 'MyCodePackageA' çoğaltma barındırma. 'MyCodePackageB' çalışıyor. Benzer şekilde, 'MultiTypeServicePackge' etkinleştirme çoğaltmasının bölümünün içinde **P3** hizmetinin **fabric: / SpecialApp/ServiceB**, 'MyCodePackageB' çoğaltma barındırma. 'MyCodePackageA' çalışıyor. Bu nedenle, sayısı arttıkça *CodePackages* (farklı kaydetme *ServiceTypes*) başına *ServicePackage*, yedekli kaynak kullanımını daha yüksek. 
+'MultiTypeServicePackage' etkinleştirme çoğaltmasının bölümünün içinde **P1** hizmetinin **fabric: / SpecialApp/ServiceA**, 'MyCodePackageA' çoğaltma barındırma. 'MyCodePackageB' çalışıyor. Benzer şekilde, 'MultiTypeServicePackage' etkinleştirme çoğaltmasının bölümünün içinde **P3** hizmetinin **fabric: / SpecialApp/ServiceB**, 'MyCodePackageB' çoğaltma barındırma. 'MyCodePackageA' çalışıyor. Bu nedenle, sayısı arttıkça *CodePackages* (farklı kaydetme *ServiceTypes*) başına *ServicePackage*, yedekli kaynak kullanımını daha yüksek. 
  
- Ancak biz Hizmetleri oluşturursanız **fabric: / SpecialApp/ServiceA** ve **fabric: / SpecialApp/ServiceB** paylaşılan işlem modeliyle, Service Fabric yalnızca bir kopyasını etkinleştirir. ' MultiTypeServicePackge' uygulaması için **fabric: / SpecialApp**. 'MyCodePackageA' hizmeti için tüm çoğaltmaları barındıran **fabric: / SpecialApp/ServiceA**. 'MyCodePackageB' hizmeti için tüm çoğaltmaları barındıran **fabric: / SpecialApp/ServiceB**. Aşağıdaki diyagramda, bu ayarda düğüm görünümü gösterilmektedir: 
+ Ancak biz Hizmetleri oluşturursanız **fabric: / SpecialApp/ServiceA** ve **fabric: / SpecialApp/ServiceB** paylaşılan işlem modeliyle, Service Fabric yalnızca bir kopyasını etkinleştirir. ' MultiTypeServicePackage' uygulaması için **fabric: / SpecialApp**. 'MyCodePackageA' hizmeti için tüm çoğaltmaları barındıran **fabric: / SpecialApp/ServiceA**. 'MyCodePackageB' hizmeti için tüm çoğaltmaları barındıran **fabric: / SpecialApp/ServiceB**. Aşağıdaki diyagramda, bu ayarda düğüm görünümü gösterilmektedir: 
 
 
 ![Dağıtılan uygulamanın düğüm görünümü diyagramı][node-view-six]

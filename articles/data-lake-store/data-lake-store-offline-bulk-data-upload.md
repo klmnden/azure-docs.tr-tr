@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: fc70089517bbc1aa90f95f1e0231f2c67f930090
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 43b482324f0244baf52edbb8989a56dd12833331
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242203"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104507"
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-azure-data-lake-storage-gen1"></a>Azure Data Lake depolama Gen1 veri çevrimdışı kopyalama için Azure içeri/dışarı aktarma hizmetini kullanma
 Bu makalede, büyük veri kümelerini kopyalama hakkında bilgi edineceksiniz (> 200 GB) gibi çevrimdışı kopya yöntemleri kullanarak Azure Data Lake depolama Gen1 içine [Azure içeri/dışarı aktarma hizmeti](../storage/common/storage-import-export-service.md). Özellikle, bu makaledeki örnek olarak kullanılan 339,420,860,416 bayt veya yaklaşık 319 GB disk üzerinde dosyasıdır. Bu dosya 319GB.tsv adlandıralım.
@@ -54,9 +54,9 @@ Bölümündeki yönergeleri [Azure içeri/dışarı aktarma hizmetini kullanarak
 2. Verileri Azure veri merkezi IP'sine sevk edildikten sonra kopyalanacağı bir Azure depolama hesabını belirleyin.
 3. Kullanım [Azure içeri/dışarı aktarma aracı](https://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409), bir komut satırı yardımcı programı. Aracının nasıl kullanılacağını gösteren bir örnek kod parçacığı aşağıda verilmiştir.
 
-    ````
+    ```
     WAImportExport PrepImport /sk:<StorageAccountKey> /t: <TargetDriveLetter> /format /encrypt /logdir:e:\myexportimportjob\logdir /j:e:\myexportimportjob\journal1.jrn /id:myexportimportjob /srcdir:F:\demo\ExImContainer /dstdir:importcontainer/vf1/
-    ````
+    ```
     Bkz: [Azure içeri/dışarı aktarma hizmetini kullanarak](../storage/common/storage-import-export-service.md) daha fazla örnek kod parçacıkları için.
 4. Yukarıdaki komut, belirtilen konumda bir günlük dosyası oluşturur. Öğesinden içeri aktarma işi oluşturmak için bu günlük dosyası kullanmak [Azure portalında](https://portal.azure.com).
 
@@ -72,7 +72,7 @@ Diskleri Azure veri merkezi artık fiziksel olarak gönderebilirsiniz. Burada, v
 Bu bölümde, veri kopyalamak için bir Azure Data Factory işlem hattı oluşturmak için kullanabileceğiniz JSON tanımları ile sunuyoruz. Bu JSON tanımları kullanabileceğiniz [Azure portalında](../data-factory/tutorial-copy-data-portal.md) veya [Visual Studio](../data-factory/tutorial-copy-data-dot-net.md).
 
 ### <a name="source-linked-service-azure-storage-blob"></a>Bağlı kaynağı hizmeti (Azure depolama blobu)
-````
+```
 {
     "name": "AzureStorageLinkedService",
     "properties": {
@@ -83,10 +83,10 @@ Bu bölümde, veri kopyalamak için bir Azure Data Factory işlem hattı oluştu
         }
     }
 }
-````
+```
 
 ### <a name="target-linked-service-azure-data-lake-storage-gen1"></a>Bağlı hizmeti (Azure Data Lake depolama Gen1) hedef
-````
+```
 {
     "name": "AzureDataLakeStorageGen1LinkedService",
     "properties": {
@@ -99,9 +99,9 @@ Bu bölümde, veri kopyalamak için bir Azure Data Factory işlem hattı oluştu
         }
     }
 }
-````
+```
 ### <a name="input-data-set"></a>Giriş veri kümesi
-````
+```
 {
     "name": "InputDataSet",
     "properties": {
@@ -119,9 +119,9 @@ Bu bölümde, veri kopyalamak için bir Azure Data Factory işlem hattı oluştu
         "policy": {}
     }
 }
-````
+```
 ### <a name="output-data-set"></a>Çıkış veri kümesi
-````
+```
 {
 "name": "OutputDataSet",
 "properties": {
@@ -137,9 +137,9 @@ Bu bölümde, veri kopyalamak için bir Azure Data Factory işlem hattı oluştu
     }
   }
 }
-````
+```
 ### <a name="pipeline-copy-activity"></a>İşlem hattı (kopyalama etkinliği)
-````
+```
 {
     "name": "CopyImportedData",
     "properties": {
@@ -186,7 +186,7 @@ Bu bölümde, veri kopyalamak için bir Azure Data Factory işlem hattı oluştu
         "pipelineMode": "Scheduled"
     }
 }
-````
+```
 Daha fazla bilgi için [Azure Data Factory kullanarak Azure depolama blobu'ndan Azure Data Lake depolama Gen1 için veri taşıma](../data-factory/connector-azure-data-lake-store.md).
 
 ## <a name="reconstruct-the-data-files-in-azure-data-lake-storage-gen1"></a>Azure Data Lake depolama Gen1 veri dosyaları yeniden yapılandırma
@@ -205,7 +205,7 @@ Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 
 # Join  the files
 Join-AzureRmDataLakeStoreItem -AccountName "<adlsg1_account_name" -Paths "/importeddatafeb8job/319GB.tsv-part-aa","/importeddatafeb8job/319GB.tsv-part-ab", "/importeddatafeb8job/319GB.tsv-part-ac", "/importeddatafeb8job/319GB.tsv-part-ad" -Destination "/importeddatafeb8job/MergedFile.csv"
-````
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Data Lake Storage Gen1'de verilerin güvenliğini sağlama](data-lake-store-secure-data.md)

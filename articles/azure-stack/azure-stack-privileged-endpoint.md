@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
-ms.openlocfilehash: df1f8d805c950bdfbe2c18f365a450a6d630891b
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: a9ca61d7845c427429282885c658f4a4cb9b7b7a
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300447"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097682"
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Azure Stack'te ayrıcalıklı uç noktası kullanma
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 Azure Stack operatörü, Yönetici portalı, PowerShell veya Azure Resource Manager API'leri en günlük yönetim görevleri için kullanmanız gerekir. Ancak, bazı yaygın işlemlerin daha az kullanmanız gerekir *ayrıcalıklı uç nokta* (CESARETLENDİRİCİ). Gerekli bir görevi gerçekleştirmenize yardımcı olması için yeterli özellikleriyle sağlayan önceden yapılandırılmış bir uzak PowerShell konsolunu CESARETLENDİRİCİ var. Uç nokta kullanan [PowerShell JEA (yeterli yönetim)](https://docs.microsoft.com/powershell/jea/overview) yalnızca sınırlı bir dizi cmdlet kullanıma sunmak için. Düşük ayrıcalıklı hesap CESARETLENDİRİCİ erişmek ve kısıtlı bir cmdlet kümesi çağırmak için kullanılır. Hiç yönetici hesabı gereklidir. Ek güvenlik için komut dosyası izin verilmez.
 
@@ -52,29 +52,29 @@ Tümleşik bir sistem için bu yordama başlamadan önce IP adresi veya DNS arac
 
     - Tümleşik bir sistemde CESARETLENDİRİCİ donanım yaşam döngüsü konak veya ayrıcalıklı erişim iş istasyonu çalışan sağlamlaştırılmış sanal makinede güvenilir bir konak olarak eklemek için yükseltilmiş bir Windows PowerShell oturumunda aşağıdaki komutu çalıştırın.
 
-      ````PowerShell
+      ```PowerShell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
-      ````
+      ```
     - ASDK çalıştırıyorsanız, Geliştirme Seti ana bilgisayara oturum açın.
 
 2. Sağlamlaştırılmış donanım yaşam döngüsü konak veya ayrıcalıklı erişim iş istasyonu üzerinde çalışan sanal makinenin üzerinde bir Windows PowerShell oturumu açın. CESARETLENDİRİCİ sanal makinede uzaktan oturum oluşturmak için aşağıdaki komutları çalıştırın:
  
     - Tümleşik bir sistem üzerinde:
-      ````PowerShell
+      ```PowerShell
         $cred = Get-Credential
 
         Enter-PSSession -ComputerName <IP_address_of_ERCS> `
           -ConfigurationName PrivilegedEndpoint -Credential $cred
-      ````
+      ```
       `ComputerName` Parametresi, IP adresi veya DNS adını CESARETLENDİRİCİ barındıran sanal makinelerden birinde olabilir. 
     - ASDK çalıştırıyorsanız:
      
-      ````PowerShell
+      ```PowerShell
         $cred = Get-Credential
 
         Enter-PSSession -ComputerName azs-ercs01 `
           -ConfigurationName PrivilegedEndpoint -Credential $cred
-      ```` 
+      ``` 
    İstendiğinde aşağıdaki kimlik bilgilerini kullanın:
 
       - **Kullanıcı adı**: CloudAdmin hesabı, belirttiğiniz biçimde  **&lt; *Azure Stack etki*&gt;\cloudadmin**. (ASDK için kullanıcı adı. **azurestack\cloudadmin**.)
@@ -124,38 +124,38 @@ Yerel makinenizde CESARETLENDİRİCİ oturumun içeri aktarmak için aşağıdak
 
     -Tümleşik bir sistem üzerinde CESARETLENDİRİCİ donanım yaşam döngüsü konak veya ayrıcalıklı erişim iş istasyonu çalışan sağlamlaştırılmış sanal makinede güvenilir bir konak olarak eklemek için yükseltilmiş bir Windows PowerShell oturumunda aşağıdaki komutu çalıştırın.
 
-      ````PowerShell
+      ```PowerShell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
-      ````
+      ```
     - ASDK çalıştırıyorsanız, Geliştirme Seti ana bilgisayara oturum açın.
 
 2. Sağlamlaştırılmış donanım yaşam döngüsü konak veya ayrıcalıklı erişim iş istasyonu üzerinde çalışan sanal makinenin üzerinde bir Windows PowerShell oturumu açın. CESARETLENDİRİCİ sanal makinede uzaktan oturum oluşturmak için aşağıdaki komutları çalıştırın:
  
     - Tümleşik bir sistem üzerinde:
-      ````PowerShell
+      ```PowerShell
         $cred = Get-Credential
 
         $session = New-PSSession -ComputerName <IP_address_of_ERCS> `
           -ConfigurationName PrivilegedEndpoint -Credential $cred
-      ````
+      ```
       `ComputerName` Parametresi, IP adresi veya DNS adını CESARETLENDİRİCİ barındıran sanal makinelerden birinde olabilir. 
     - ASDK çalıştırıyorsanız:
      
-      ````PowerShell
+      ```PowerShell
        $cred = Get-Credential
 
        $session = New-PSSession -ComputerName azs-ercs01 `
           -ConfigurationName PrivilegedEndpoint -Credential $cred
-      ```` 
+      ``` 
    İstendiğinde aşağıdaki kimlik bilgilerini kullanın:
 
       - **Kullanıcı adı**: CloudAdmin hesabı, belirttiğiniz biçimde  **&lt; *Azure Stack etki*&gt;\cloudadmin**. (ASDK için kullanıcı adı. **azurestack\cloudadmin**.)
       - **Parola**: AzureStackAdmin etki alanı yönetici hesabı için yükleme sırasında sağlanan parolanın aynısını girin.
 
 3. Yerel makinenize CESARETLENDİRİCİ oturumun içeri aktarma
-    ````PowerShell 
+    ```PowerShell 
         Import-PSSession $session
-    ````
+    ```
 4. Şimdi, sekme tamamlamayı kullanma ve her zaman olduğu gibi tüm işlevleri ve CESARETLENDİRİCİ cmdlet'lerin yerel PowerShell oturumunuzda üzerinde Azure Stack güvenlik duruşunu azaltmayı olmadan komut gerçekleştirebilirsiniz. Keyfini çıkarın!
 
 
@@ -178,4 +178,5 @@ Transkript günlük dosyaları, dosya paylaşımına başarıyla aktarıldıktan
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 [Azure Stack tanılama araçları](azure-stack-diagnostics.md)

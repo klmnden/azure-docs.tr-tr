@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: fab422612bc3f83c8dc75d0dd99f42369dfa1d26
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 6c0207a68cea70951143c87f83f6b17bb0c7b1f3
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438092"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098468"
 ---
 # <a name="virtual-machine-serial-console-for-linux"></a>Linux için sanal makine seri Konsolu
 
@@ -89,7 +89,7 @@ Yanlış güvenlik duvarı kuralları | Seri konsola erişin, iptables düzeltin
 Dosya Sistemi Bozulması/işaretleyin | Seri konsol erişmek ve dosya sistemi kurtarın.
 SSH/RDP yapılandırma sorunları | Seri konsola erişin, ayarları değiştirin.
 Sistem ağ kilitleme| Seri konsol sistemini yönetmek için Azure portalından erişim.
-Önyükleme yükleyicisi ile etkileşim kurma | Seri konsoldan GRUB erişim. Daha fazla bilgi için [GRUB ve tek kullanıcı modunda erişmek için kullanım seri konsol](serial-console-grub-single-user-mode.md).
+Önyükleme yükleyicisi ile etkileşim kurma | GRUB Linux vm'nize erişmesine, VM'den seri konsol Dikey içinde yeniden başlatın. Daha fazla bilgi için [GRUB ve tek kullanıcı modunda erişmek için kullanım seri konsol](serial-console-grub-single-user-mode.md).
 
 ## <a name="disable-the-serial-console"></a>Seri konsol devre dışı bırak
 Varsayılan olarak, seri konsol erişimi tüm VM'ler için Etkin Abonelikler var. Seri konsol abonelik düzeyinde veya VM düzeyinde devre dışı bırakabilirsiniz.

@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 12/10/2018
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: 0fcdb2324868528e62e69fa0ce24ab2334052ced
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 186e5ed062be8210f4efa0bdaf134f3af51d268b
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245422"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094147"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Azure Stack için Azure Market öğelerini indirme
 
@@ -184,7 +184,7 @@ Bu senaryo iki bölümü vardır:
       [ ![BLOB hizmeti](media/azure-stack-download-azure-marketplace-item/blob-service.png "Blob hizmeti") ](media/azure-stack-download-azure-marketplace-item/blob-service.png#lightbox)  
    
    3. Kullanın ve ardından istediğiniz kapsayıcıyı seçin **karşıya** açmak için **blobu karşıya yükleme** bölmesi.  
-      [ ![Kapsayıcı](media/azure-stack-download-azure-marketplace-item/container.png "kapsayıcı") ](media/azure-stack-download-azure-marketplace-item/container.png#lightbox)  
+      [ ![Container](media/azure-stack-download-azure-marketplace-item/container.png "Container") ](media/azure-stack-download-azure-marketplace-item/container.png#lightbox)  
    
    4. Depolama alanına yüklemek ve ardından diski ve paket dosyaları karşıya yükleme blob bölmesinde, Gözat **karşıya**: [ ![Karşıya yükleme](media/azure-stack-download-azure-marketplace-item/uploadsm.png "karşıya yükleme") ](media/azure-stack-download-azure-marketplace-item/upload.png#lightbox)  
 
@@ -232,9 +232,9 @@ Bu senaryo iki bölümü vardır:
 
 Azure Stack PowerShell 1.3.0'ın yayınlanmasıyla birlikte, artık sanal makine uzantıları ekleyebilirsiniz. Örneğin:
 
-````PowerShell
+```PowerShell
 Add-AzsVMExtension -Publisher "Microsoft" -Type "MicroExtension" -Version "0.1.0" -ComputeRole "IaaS" -SourceBlob "https://github.com/Microsoft/PowerShell-DSC-for-Linux/archive/v1.1.1-294.zip" -SupportMultipleExtensions -VmOsType "Linux"
-````
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

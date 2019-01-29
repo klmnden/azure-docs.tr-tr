@@ -8,18 +8,18 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: be880b937f254cbf8115d1a5129069069a0c7eea
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: dabee3f4eb6fb2bf4f58ff8654068e138858dbbd
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249688"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156930"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>Dinamik bir grup oluşturun ve durumunu denetle
 
@@ -54,17 +54,17 @@ Durumu ve son güncelleştirme tarihi işleme üyelik gördüğünüz **genel ba
 
 Aşağıdaki durum iletileri için gösterilen **üyelik işleme** durumu:
 
-* **Değerlendirme**: Grup değişikliği alındı ve güncelleştirmeler değerlendirilir.
-* **İşleme**: güncelleştirmeleri işleniyor.
-* **Güncelleştirme tamamlandı**: işleme tamamlandı ve geçerli tüm güncelleştirmeleri yapıldı.
+* **Değerlendirme**:  Grup değişikliğinin alındı ve güncelleştirmeler değerlendirilir.
+* **İşleme**: Güncelleştirmeleri işlenmekte olan.
+* **Güncelleştirme tamamlandı**: İşleme tamamlandı ve geçerli tüm güncelleştirmeleri yapıldı.
 * **İşleme hatası**: Üyelik Kuralı değerlendirilirken bir hata oluştu ve işlem tamamlanamadı.
-* **Güncelleştirme duraklatıldı**: dinamik üyelik kuralı güncelleştirmeleri yönetici tarafından duraklatıldı. MembershipRuleProcessingState "Paused" olarak ayarlanır.
+* **Güncelleştirme duraklatıldı**: Dinamik üyelik kuralı güncelleştirmeleri yönetici tarafından duraklatıldı. MembershipRuleProcessingState "Paused" olarak ayarlanır.
 
 Aşağıdaki durum iletileri için gösterilen **son güncelleştirme üyelik** durumu:
 
-* &lt;**Tarih ve saat**&gt;: en son ne zaman üyelik güncelleştirildi.
-* **Devam eden**: güncelleştirmeleri şu anda sürüyor.
-* **Bilinmeyen**: son güncelleştirme zamanı alınamıyor. Yeni oluşturulan grubu nedeniyle olabilir.
+* &lt;**Tarih ve saat**&gt;: Son üyelik güncelleştirildi.
+* **Devam eden**: Şu anda devam eden güncelleştirmelerin.
+* **Bilinmeyen**: Son güncelleştirme zamanı alınamıyor. Yeni oluşturulan grubu nedeniyle olabilir.
 
 Belirli bir grup üyeliği kuralı işlenirken bir hata meydana gelirse, üzerindeki bir uyarı gösterilir **genel bakış sayfasında** grubu için. Hayır dinamik üyelik güncelleştirmeleri Kiracı içindeki tüm gruplar için daha sonra 24 saat için işlenebilir varsa bir uyarı üzerindeki gösterilir **tüm grupları**.
 

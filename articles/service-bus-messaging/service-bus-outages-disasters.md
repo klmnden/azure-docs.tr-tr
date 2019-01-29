@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: e9fb1795ecb26fc87fd8f3ff000d125d71e9d594
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 2a51447f3d9f8e9e8bed41c47214d7784924c85a
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54846719"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099841"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Hizmet veri yolu kesintilerini ve olağanüstü durumları yönetme karşı uygulamalar insulating için en iyi yöntemler
 
@@ -24,44 +24,46 @@ Kesinti geçici olarak kullanım dışı kalması Azure Service Bus tanımlanır
 
 Olağanüstü bir durumda, kalıcı bir Service Bus ölçek birimi veya veri merkezi kaybına tanımlanır. Veri merkezi olabilir veya yeniden kullanılabilir olmaktan çıkabilir. Genellikle bir olağanüstü durum bazı veya tüm iletileri veya diğer veri kaybına neden olur. Ateş, taşmasını veya deprem felaketler örnekleridir.
 
-## <a name="current-architecture"></a>Geçerli mimari
-Service Bus, kuyruklar veya konular gönderilen iletileri depolamak için birden çok Mesajlaşma deposu kullanır. Bölümlenmemiş kuyruk veya konuda bir Mesajlaşma deposuna atanır. Bu ileti deposuna kullanılamıyorsa, söz konusu kuyruk veya konu üzerindeki tüm işlemler başarısız olur.
+## <a name="protecting-against-outages-and-disasters---service-bus-premium"></a>Kesintileri ve olağanüstü durumları yönetme - hizmet veri yolu Premium karşı koruma
+Yüksek kullanılabilirlik ve olağanüstü durum kurtarma kavramları yerleşik Azure Service Bus Premium katmanı, her ikisi de aynı bölgede (aracılığıyla, kullanılabilirlik alanları) olarak sağ ve farklı bölgelere (aracılığıyla coğrafi olağanüstü durum kurtarma).
 
-Tüm Service Bus Mesajlaşma varlıkları (kuyruklar, konular, geçişleri), bir veri merkezi ile bağlı bir hizmet ad alanında bulunur. Service Bus destekler [ *coğrafi olağanüstü durum kurtarma* ve *coğrafi çoğaltma* ](service-bus-geo-dr.md) ad alanı düzeyinde.
+### <a name="geo-disaster-recovery"></a>Coğrafi Olağanüstü Durum Kurtarma
 
-## <a name="protecting-queues-and-topics-against-messaging-store-failures"></a>Kuyruklar ve konular Mesajlaşma deposu başarısızlıkları karşı koruma
-Bölümlenmemiş kuyruk veya konuda bir Mesajlaşma deposuna atanır. Bu ileti deposuna kullanılamıyorsa, söz konusu kuyruk veya konu üzerindeki tüm işlemler başarısız olur. Bölümlenmiş bir kuyruk, diğer yandan, birden çok parçalarını oluşur. Her parça, farklı bir Mesajlaşma deposunda depolanır. Bir bölümlenmiş kuyruğa veya konuya ileti gönderildiğinde, Service Bus ileti parçalarının birine atar. Service Bus ileti için farklı bir parça, karşılık gelen ileti deposuna kullanılamıyorsa, mümkünse yazar. Bölümlenen varlıklar artık desteklenmemektedir [Premium SKU](service-bus-premium-messaging.md). 
+Service Bus Premium ad alanı düzeyinde coğrafi olağanüstü durum kurtarma destekler. Daha fazla bilgi için [Azure Service Bus Geo-olağanüstü durum kurtarma](service-bus-geo-dr.md). İçin olağanüstü durum kurtarma özelliği [Premium SKU](service-bus-premium-messaging.md) yalnızca meta veri olağanüstü durum kurtarma uygular ve birincil ve ikincil olağanüstü durum kurtarma ad alanlarında kullanır.
 
-Bölümlenen varlıklar hakkında daha fazla bilgi için bkz: [bölümlenmiş Mesajlaşma varlıkları][Partitioned messaging entities].
+### <a name="availability-zones"></a>Kullanılabilirlik Alanları
 
-## <a name="protecting-against-datacenter-outages-or-disasters"></a>Veri Merkezi kesintilerine veya felaketlere karşı koruma
-İki veri merkezi arasında bir yük devretme olanak tanımak için her veri merkezinde bir Service Bus hizmeti ad alanı oluşturabilirsiniz. Örneğin, Service Bus hizmeti ad alanı **contosoPrimary.servicebus.windows.net** Kuzey Amerika Birleşik Devletleri/Orta bölgesinde bulunan ve **contosoSecondary.servicebus.windows.net**BİZE/Orta Güney bölgesinde bulunabilir. Mesajlaşma varlığı bir Service Bus varlığında bir veri merkezi kesintisi erişilebilir kalması gereken, her iki ad alanlarında, varlık oluşturabilirsiniz.
+Service Bus Premium SKU destekler [kullanılabilirlik](../availability-zones/az-overview.md), aynı Azure bölgesindeki hatadan yalıtılmış konumlardır sağlama.
 
-Daha fazla bilgi için bkz: "Service Bus, Azure veri merkezindeki hatası" bölümünde [zaman uyumsuz desenleri ve yüksek kullanılabilirlik Mesajlaşma][Asynchronous messaging patterns and high availability].
+> [!NOTE]
+> Azure Service Bus Premium kullanılabilirlik desteği yalnızca kullanılabilir [Azure bölgeleri](../availability-zones/az-overview.md#regions-that-support-availability-zones) kullanılabilirlik nerede bulunduğunu.
 
-## <a name="protecting-relay-endpoints-against-datacenter-outages-or-disasters"></a>Geçiş uç noktalarına felaketler ya da veri merkezi kesintilerine karşı koruma
-Coğrafi çoğaltma, geçiş uç noktaları, hizmet veri yolu kesintilerini saklanacaktır erişilebilir olması için bir geçiş uç noktası hizmetidir sağlar. Coğrafi çoğaltma elde etmek için hizmet, farklı ad alanlarına iki geçiş uç noktası oluşturmanız gerekir. Ad alanları farklı veri merkezlerinde bulunmalıdır ve iki uç nokta adları farklı olmalıdır. Örneğin, bir birincil uç nokta altında ulaşılabilir **contosoPrimary.servicebus.windows.net/myPrimaryService**altında ikincil çözümlemesiyle ulaşılabilir korurken **contosoSecondary.servicebus.windows.net /mySecondaryService**.
+Kullanılabilirlik alanları, yeni ad alanları üzerinde yalnızca, Azure portalını kullanarak etkinleştirebilirsiniz. Service Bus, var olan ad alanlarının geçişini desteklemez. Bölge artıklığı ad alanınızı etkinleştirildikten sonra devre dışı bırakılamıyor.
 
-Hizmet daha sonra her iki bitiş noktasında dinler ve bir istemci, hizmeti ya da uç noktası aracılığıyla çağırabilirsiniz. Bir istemci uygulaması rastgele geçişleri biri birincil uç noktası olarak seçer ve etkin uç noktaya, isteği gönderir. İşlem bir hata kodu ile başarısız olursa, bu hata, geçiş uç noktası kullanılamıyor gösteriyor. Uygulama, yedekleme uç nokta için bir kanal açar ve isteği yeniden yayımlar. Bu noktada etkin ve yedekleme uç rollerini değiştirmek: istemci uygulama yeni bir yedekleme uç nokta ve yeni etkin uç noktası olacak şekilde eski yedekleme uç nokta olacak şekilde eski etkin uç nokta olarak değerlendirir. Hem de işlemler başarısız gönderirseniz, iki varlık rollerini değişmeden kalır ve bir hata döndürdü.
+![1][]
 
-## <a name="protecting-queues-and-topics-against-datacenter-outages-or-disasters"></a>Kuyruklar ve konular felaketler ya da veri merkezi kesintilerine karşı koruma
-Service Bus kullanarak aracılı Mesajlaşma, veri merkezi kesintilerine karşı dayanıklılık elde etmek için iki yaklaşım destekler: *etkin* ve *pasif* çoğaltma. Belirli bir kuyruk veya konuda bir veri merkezi kesintisi saklanacaktır erişilebilir kalması gereken her bir yaklaşıma, bu iki ad alanları oluşturabilirsiniz. Her iki varlık aynı ada sahip olabilir. Örneğin, birincil bir kuyruk altında ulaşılabilir **contosoPrimary.servicebus.windows.net/myQueue**altında ikincil çözümlemesiyle ulaşılabilir korurken **contosoSecondary.servicebus.windows.net/myQueue**.
+
+## <a name="protecting-against-outages-and-disasters---service-bus-standard"></a>Kesintileri ve olağanüstü durumları yönetme - Service Bus standart karşı koruma
+Service Bus Mesajlaşma fiyatlandırma katmanını standart kullanırken veri merkezi kesintilerine karşı dayanıklılık elde etmek için iki yaklaşım destekler: *etkin* ve *pasif* çoğaltma. Belirli bir kuyruk veya konuda bir veri merkezi kesintisi saklanacaktır erişilebilir kalması gereken her bir yaklaşıma, bu iki ad alanları oluşturabilirsiniz. Her iki varlık aynı ada sahip olabilir. Örneğin, birincil bir kuyruk altında ulaşılabilir **contosoPrimary.servicebus.windows.net/myQueue**altında ikincil çözümlemesiyle ulaşılabilir korurken **contosoSecondary.servicebus.windows.net/myQueue**.
+
+>[!NOTE]
+> **Etkin çoğaltma** ve **pasif çoğaltma** Kurulum: genel amaçlı çözümleri ve Service Bus özel olmayan özellikler. (2 farklı ad alanlarına gönderme) çoğaltma mantıksal gönderen uygulamaları yaşar ve alıcı, yinelenen algılama için özel mantığı iznine sahip olması gerekir.
 
 Uygulamayı kalıcı gönderenin alıcı iletişim gerektirmiyorsa, uygulamayı dayanıklı bir istemci-tarafı kuyruk iletisi kaybını önlemek için ve Service Bus geçici hatalar gönderenden yüklerden uygulayabilirsiniz.
 
-## <a name="active-replication"></a>Etkin çoğaltma
+### <a name="active-replication"></a>Etkin çoğaltma
 Etkin çoğaltma varlıklar her işlem için her iki ad alanlarında kullanır. Bir ileti gönderen herhangi bir istemci aynı ileti iki kopyasını gönderir. İlk kopyalama için birincil varlık gönderilir (örneğin, **contosoPrimary.servicebus.windows.net/sales**), ve iletiyi ikinci bir kopyası ikincil varlığa gönderilir (örneğin,  **contosoSecondary.servicebus.windows.net/sales**).
 
 Bir istemci, her iki sıralarından iletileri alır. Alıcı ilk iletinin kopyasını işler ve ikinci kopya bastırılır. Gönderen, yinelenen iletileri bastırmak için her iletinin benzersiz bir tanımlayıcı etiketlemeniz gerekir. Her iki kopyasında iletinin tanımlayıcısı aynı olan etiketlenmelidir. Kullanabileceğiniz [BrokeredMessage.MessageId] [ BrokeredMessage.MessageId] veya [BrokeredMessage.Label] [ BrokeredMessage.Label] özellikleri ya da ileti etiketlemek için özel bir özellik. Alıcı listesi zaten aldığı iletileri sürdürmeniz gerekir.
 
-[Coğrafi çoğaltma ile Service Bus aracılı ileti] [ Geo-replication with Service Bus Brokered Messages] örnek etkin çoğaltma, Mesajlaşma varlıkları gösterir.
+[Coğrafi çoğaltma ile Service Bus standart katman] [ Geo-replication with Service Bus Standard Tier] örnek etkin çoğaltma, Mesajlaşma varlıkları gösterir.
 
 > [!NOTE]
 > Etkin çoğaltma yaklaşım işlemlerin sayısı iki katına çıkarır, dolayısıyla bu yaklaşım daha yüksek maliyete yol açabilir.
 > 
 > 
 
-## <a name="passive-replication"></a>Etkin olmayan çoğaltma
+### <a name="passive-replication"></a>Etkin olmayan çoğaltma
 Hata ücretsiz durumda pasif çoğaltma iki Mesajlaşma varlıkları yalnızca birini kullanır. Bir istemcinin etkin varlığa iletiyi gönderir. Etkin varlık üzerinde işlem etkin varlık barındıran veri merkezinde kullanılamayabilir belirten bir hata kodu ile başarısız olursa istemci yedekleme varlığa iletinin bir kopyasını gönderir. Bu noktada etkin ve yedekleme varlıkları rollerini değiştirmek: Yeni yedekleme varlığı olarak eski active varlık gönderen istemci olarak kabul eder ve eski yedekleme varlık yeni etkin varlıktır. Hem de işlemler başarısız gönderirseniz, iki varlık rollerini değişmeden kalır ve bir hata döndürdü.
 
 Bir istemci, her iki sıralarından iletileri alır. Alıcı, alıcının aynı ileti iki kopyasını aldığı bir fırsat olmadığından, yinelenen iletileri gösterme gerekir. Etkin çoğaltma için açıklandığı gibi aynı şekilde yinelenen gösterilmemesini sağlayabilirsiniz.
@@ -73,22 +75,12 @@ Etkin olmayan çoğaltma kullanırken, aşağıdaki senaryolarda iletileri kaybo
 * **İleti gecikmesi ya da zarar**: Gönderen birincil kuyruğa bir ileti m1 başarıyla gönderildi. ve ardından alıcı m1 almadan önce sıranın kullanılamaz hale varsayılır. Gönderici bir sonraki ileti m2 ikincil kuyruğa gönderir. Birincil kuyruk geçici olarak kullanılamıyorsa, sıranın tekrar kullanılabilir hale geldikten sonra alıcı m1 alır. Bir olağanüstü bir durumda, alıcı m1 hiçbir zaman alabilir.
 * **Alma yinelenen**: Birincil kuyruğa gönderen bir ileti m gönderdiğini varsayar. Service Bus başarıyla m işler ancak yanıt göndermek başarısız olur. Gönderme işlemi zaman aşımına sonra gönderen m özdeş birer kopyası ikincil kuyruğa gönderir. Alıcı birincil kuyruk kullanılamaz duruma gelirse, önce ilk kopyayı m alabildiği, alıcı yaklaşık aynı zamanda her iki kopyasında m alır. Alıcı birincil kuyruk kullanılamaz duruma gelirse, önce ilk kopyayı m almak mümkün değilse, alıcı başlangıçta yalnızca m ikinci kopyasını alır, ancak birincil kuyruğa kullanıma sunulduğunda ardından m ikinci bir kopyasını alır.
 
-[Coğrafi çoğaltma ile Service Bus aracılı ileti] [ Geo-replication with Service Bus Brokered Messages] örnek, Mesajlaşma varlıkları pasif çoğaltma gösterir.
+[Coğrafi çoğaltma ile Service Bus standart katman] [ Geo-replication with Service Bus Standard Tier] örnek, Mesajlaşma varlıkları pasif çoğaltma gösterir.
 
-## <a name="geo-replication"></a>Coğrafi çoğaltma
+## <a name="protecting-relay-endpoints-against-datacenter-outages-or-disasters"></a>Geçiş uç noktalarına felaketler ya da veri merkezi kesintilerine karşı koruma
+Coğrafi çoğaltma, geçiş uç noktaları, hizmet veri yolu kesintilerini saklanacaktır erişilebilir olması için bir geçiş uç noktası hizmetidir sağlar. Coğrafi çoğaltma elde etmek için hizmet, farklı ad alanlarına iki geçiş uç noktası oluşturmanız gerekir. Ad alanları farklı veri merkezlerinde bulunmalıdır ve iki uç nokta adları farklı olmalıdır. Örneğin, bir birincil uç nokta altında ulaşılabilir **contosoPrimary.servicebus.windows.net/myPrimaryService**altında ikincil çözümlemesiyle ulaşılabilir korurken **contosoSecondary.servicebus.windows.net /mySecondaryService**.
 
-Service Bus, coğrafi olağanüstü durum kurtarma ve coğrafi çoğaltma, ad alanı düzeyinde destekler. Daha fazla bilgi için [Azure Service Bus Geo-olağanüstü durum kurtarma](service-bus-geo-dr.md). İçin olağanüstü durum kurtarma özelliği [Premium SKU](service-bus-premium-messaging.md) yalnızca meta veri olağanüstü durum kurtarma uygular ve birincil ve ikincil olağanüstü durum kurtarma ad alanlarında kullanır.
-
-## <a name="availability-zones-preview"></a>Kullanılabilirlik alanları (Önizleme)
-
-Service Bus Premium SKU destekler [kullanılabilirlik](../availability-zones/az-overview.md), sağlayan bir Azure bölgesi içinde hatadan yalıtılmış konumlardır. 
-
-> [!NOTE]
-> Kullanılabilirlik alanları Önizleme yalnızca desteklenen **Orta ABD**, **Doğu ABD 2**, ve **Fransa orta** bölgeleri.
-
-Kullanılabilirlik alanları, yeni ad alanları üzerinde yalnızca, Azure portalını kullanarak etkinleştirebilirsiniz. Service Bus, var olan ad alanlarının geçişini desteklemez. Bölge artıklığı ad alanınızı etkinleştirildikten sonra devre dışı bırakılamıyor.
-
-![1][]
+Hizmet daha sonra her iki bitiş noktasında dinler ve bir istemci, hizmeti ya da uç noktası aracılığıyla çağırabilirsiniz. Bir istemci uygulaması rastgele geçişleri biri birincil uç noktası olarak seçer ve etkin uç noktaya, isteği gönderir. İşlem bir hata kodu ile başarısız olursa, bu hata, geçiş uç noktası kullanılamıyor gösteriyor. Uygulama, yedekleme uç nokta için bir kanal açar ve isteği yeniden yayımlar. Bu noktada etkin ve yedekleme uç rollerini değiştirmek: istemci uygulama yeni bir yedekleme uç nokta ve yeni etkin uç noktası olacak şekilde eski yedekleme uç nokta olacak şekilde eski etkin uç nokta olarak değerlendirir. Hem de işlemler başarısız gönderirseniz, iki varlık rollerini değişmeden kalır ve bir hata döndürdü.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Olağanüstü durum kurtarma hakkında daha fazla bilgi edinmek için şu makalelere bakın:
@@ -102,7 +94,7 @@ Olağanüstü durum kurtarma hakkında daha fazla bilgi edinmek için şu makale
 [Asynchronous messaging patterns and high availability]: service-bus-async-messaging.md#failure-of-service-bus-within-an-azure-datacenter
 [BrokeredMessage.MessageId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId
 [BrokeredMessage.Label]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label
-[Geo-replication with Service Bus Brokered Messages]: https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoReplication
+[Geo-replication with Service Bus Standard Tier]: https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoReplication
 [Azure SQL Database Business Continuity]: ../sql-database/sql-database-business-continuity.md
 [Azure resiliency technical guidance]: /azure/architecture/resiliency
 

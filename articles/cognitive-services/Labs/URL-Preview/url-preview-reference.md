@@ -10,12 +10,12 @@ ms.component: url-preview
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh
-ms.openlocfilehash: 12e91a07d09929ba59873d0d56f4e19b20077f53
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 297547d52333bf84af69a780c98ce9d84938cf94
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999762"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097767"
 ---
 # <a name="project-url-preview-v7-reference"></a>Proje URL'si Önizleme v7 başvurusu
 
@@ -31,10 +31,10 @@ URL önizlemesi yalnızca verilerden Önizleme parçacıkları ve küçük resim
 URL önizlemesi sonuçlarının istemek için aşağıdaki uç noktaya bir istek gönderin. Daha fazla özellikleri tanımlamak için başlık ve URL parametrelerini kullanın.
 
 GET uç noktası:
-````
+```
 https://api.labs.cognitive.microsoft.com/urlpreview/v7.0/search?q=queryURL
 
-````
+```
 
 İstek, HTTPS protokolünü kullanmak ve ardından sorgu parametresi içerir:
 
@@ -73,7 +73,7 @@ Maksimum sorgu URL'SİNİN uzunluğu 2.048 karakterdir. URL uzunluğu sınırı 
 ## <a name="query-parameters"></a>Sorgu parametreleri
 Aşağıdaki sorgu parametreleri istek içerebilir. Gerekli Parametreler için gerekli sütununa bakın. URL gereken sorgu parametrelerine kodlayın. Sorgu, bir http veya https şemasına sahip bir mutlak URL olmalıdır; Göreli URL'ler veya ftp gibi diğer düzenleri desteklemiyoruz: / /
 
-|Ad|Değer|Tür|Gereklidir|
+|Name|Value|Type|Gereklidir|
 |----------|-----------|----------|--------------|
 |<a name="mkt" />mkt|Sonuçların geldiği pazar. <br /><br />Olası Pazar değerler listesi için bkz. [Pazar kodları](#market-codes).<br /><br /> **NOT:** URL önizleme API'sı şu anda yalnızca ABD coğrafya ve İngilizce dilini desteklemektedir.<br /><br />|Dize|Evet|
 |<a name="query" />q|Önizleme URL'si|Dize|Evet|
@@ -90,7 +90,7 @@ Yanıt şeması ya da bir [Web] sayfasıdır veya ErrorResponse, Web araması AP
 ### <a name="error"></a>Hata
 Gerçekleşen hata tanımlar.
 
-|Öğe|Açıklama|Tür|
+|Öğe|Açıklama|Type|
 |-------------|-----------------|----------|
 |<a name="error-code" />Kod|Hata kategorisi tanımlar hata kodu. Olası kodlarının listesi için bkz. [hata kodları](#error-codes).|Dize|
 |<a name="error-message" />İleti|Hatanın açıklaması.|Dize|
@@ -102,15 +102,15 @@ Gerçekleşen hata tanımlar.
 ### <a name="errorresponse"></a>ErrorResponse
 Başarısız istek olduğunda yanıt içeren üst düzey nesnesi.
 
-|Ad|Değer|Tür|
+|Name|Value|Type|
 |----------|-----------|----------|
-|_türü|Tür ipucu.|Dize|
+|_type|Tür ipucu.|Dize|
 |<a name="errors" />Hataları|İsteğin neden başarısız olma nedenlerini tanımlayan hataların listesi.|[Hata](#error)]|
 
 ### <a name="webpage"></a>Web sayfası
 Hakkında bilgilerini tanımlayan bir önizleme Web sayfası.
 
-|Ad|Değer|Tür|
+|Name|Value|Type|
 |----------|-----------|----------|
 |ad|Sayfa başlığı, mutlaka HTML Başlığı|Dize|
 |url|Aslında gezinilen URL'si (istek ve ardından yeniden yönlendirmeleri)|Dize|
@@ -119,7 +119,7 @@ Hakkında bilgilerini tanımlayan bir önizleme Web sayfası.
 |primaryImageOfPage/contentUrl|Önizlemede dahil etmek için temsili bir görüntü URL'si|Dize|
 
 ### <a name="identifiable"></a>Tanımlama
-|Ad|Değer|Tür|
+|Name|Value|Type|
 |-------------|-----------------|----------|
 |id|Bir kaynak tanımlayıcısı|Dize|
 

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 01/28/2019
 ms.author: patricka
 ms.reviewer: jerskine
-ms.openlocfilehash: 87e3f03ce5d4c65d5c4b1754300f5d57feca2a49
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 7e6c54add856a69e1750b0b6ca0a058c2d80bfd8
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416520"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101745"
 ---
 # <a name="validate-ad-fs-integration-for-azure-stack"></a>Azure Stack için AD FS tümleştirme doğrula
 
@@ -29,7 +29,7 @@ Ortamınızı Azure Stack ile Active Directory Federasyon Hizmetleri (AD FS) tü
 Hazırlık denetleyicisi doğrular:
 
 * *Federasyon meta verileri* Federasyon için geçerli XML öğelerini içerir.
-* *AD FS SSL sertifikası* can alınması ve yerleşik can güven zinciri. Damga üzerinde AD FS SSL sertifika zincirine güvenmelidir. Sertifika aynı tarafından imzalanmalıdır *sertifika yetkilisi* Azure Stack dağıtım sertifikalar olarak veya bir güvenilir kök yetkilisi iş ortağı. Güvenilir kök yetkilisi iş ortakları tam listesi için bkz. [TechNet](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
+* *AD FS SSL sertifikası* can alınması ve yerleşik can güven zinciri. Damga üzerinde AD FS SSL sertifika zincirine güvenmelidir. Sertifika aynı tarafından imzalanmalıdır *sertifika yetkilisi* Azure Stack dağıtım sertifikalar için veya bir güvenilir kök yetkilisi iş ortağı tarafından kullanılır. Güvenilir kök yetkilisi iş ortakları tam listesi için bkz. [TechNet](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
 * *İmzalama sertifikası AD FS* güvenilir ve değil tamamlanmak üzere zaman aşımı.
 
 Azure Stack veri merkezi tümleştirmesi hakkında daha fazla bilgi için bkz. [Azure Stack'i veri merkezi tümleştirmesi - kimlik](azure-stack-integrate-identity.md).
@@ -101,8 +101,8 @@ Varsayılan olarak, her iki dosya için yazılan `C:\Users\<username>\AppData\Lo
 
 Kullanım:
 
-* **-OutputPath**: *yolu* sonunda farklı rapor konumunu belirtmek için bir run komutu, parametre.
-* **-CleanReport**: önceki rapor bilgilerin AzsReadinessCheckerReport.json temizlemek için çalıştırma komutunun sonuna parametre. Daha fazla bilgi için [Azure Stack doğrulama raporu](azure-stack-validation-report.md).
+* **-OutputPath**: *Yolu* sonunda farklı rapor konumunu belirtmek için bir run komutu, parametre.
+* **-CleanReport**: Sonunda önceki rapor bilgilerin AzsReadinessCheckerReport.json temizlemek için bir run komutu, parametre. Daha fazla bilgi için [Azure Stack doğrulama raporu](azure-stack-validation-report.md).
 
 ## <a name="validation-failures"></a>Doğrulama hataları
 
@@ -114,9 +114,9 @@ Aşağıdaki örnekler, yaygın doğrulama hataları hakkında rehberlik sağlar
 
 `Invoke-AzsADFSValidation : The term 'Invoke-AzsADFSValidation' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.`
 
-**Neden**: PowerShell Sorsorgu hazırlık denetleyicisi modülü düzgün şekilde yüklenemedi.
+**Neden**: PowerShell Sorsorgu hazırlık denetleyicisi Modülü doğru şekilde yüklenemedi.
 
-**Çözüm**: açıkça hazırlık denetleyicisi modülü içeri aktarın. PowerShell ve güncelleştirme aşağıdaki kodu yapıştırın \<sürüm\> şu anda yüklü sürüm numarasıyla.
+**Çözüm**: Hazırlık denetleyicisi modülü açıkça içeri aktarın. PowerShell ve güncelleştirme aşağıdaki kodu yapıştırın \<sürüm\> şu anda yüklü sürüm numarasıyla.
 
 `Import-Module "c:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.ReadinessChecker\<version>\Microsoft.AzureStack.ReadinessChecker.psd1" -Force`
 

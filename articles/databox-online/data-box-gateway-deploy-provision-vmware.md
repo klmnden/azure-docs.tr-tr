@@ -6,20 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 10/01/2018
+ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: ea4203c45f482b990122a966fc2ec13b3fb41c84
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
-ms.translationtype: HT
+ms.openlocfilehash: 00415cab4d5c36c74cf78a10cb71682d97236517
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167163"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099167"
 ---
-# <a name="tutorial-provision-azure-data-box-gateway-in-vmware-preview"></a>Öğretici: Azure Data Box Gateway'i VMware'de sağlama (Önizleme)
+# <a name="tutorial-provision-azure-data-box-gateway-in-vmware-preview"></a>Öğretici: Sağlama Azure veri kutusu ağ geçidi VMware (Önizleme)
 
 ## <a name="overview"></a>Genel Bakış
 
-Bu öğreticide Data Box Gateway'i VMware ESXi 6.0 veya 6.5 çalıştıran bir ana bilgisayarda sağlama adımları anlatılmaktadır. 
+Bu öğreticide, bir veri kutusu ağ geçidinde VMware ESXi 6.0 veya 6.5 6.7 çalıştıran bir konak sistemi sağlama işlemi açıklanır. 
 
 Sanal cihaz sağlamak ve bağlantı kurmak için yönetici ayrıcalıklarına sahip olmanız gerekir. Sağlama ve ilk kurulum adımlarını tamamlamak yaklaşık 10 dakika sürecektir.
 
@@ -35,9 +35,9 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 > [!IMPORTANT]
 > - Data Box Gateway önizleme aşamasındadır. Sipariş vermeden ve bu çözümü dağıtmadan önce [Önizleme için Azure hizmet şartlarını](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) gözden geçirin.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
-VMware ESXi 6.0 veya 6.5 çalıştıran ana bilgisayar sisteminde sanal cihaz sağlama önkoşulları aşağıda belirtilmiştir.
+VMware ESXi 6.7, 6.0 veya 6.5 çalıştıran bir konak sistemi üzerinde sanal cihaz sağlama için gereken önkoşullar aşağıdaki gibidir.
 
 ### <a name="for-the-data-box-gateway-resource"></a>Data Box Gateway kaynağı için
 
@@ -53,7 +53,7 @@ Başlamadan önce aşağıdakilerden emin olun:
 
 Sanal cihazı dağıtmadan önce şunlardan emin olun:
 
-* VMware (ESXi 6.0 veya 6.5) çalıştıran ve cihaz sağlamak için kullanılabilecek bir ana bilgisayar sistemine erişiminiz var.
+* Erişiminiz olabilir (ESXi 6.0 veya 6.5 6.7) VMware çalıştıran bir konak sistemi için bir cihaz bir sağlamak için kullanılır.
 * Ana bilgisayar sistemi sanal cihazınızı sağlamak için aşağıdaki kaynakları ayırabiliyor:
 
   * En az 4 çekirdek.
@@ -73,7 +73,7 @@ Başlamadan önce:
 
 Sanal cihaz oluşturmak için şunlara ihtiyacınız vardır:
 
-* VMware ESXi Server 6.0 veya 6.5 çalıştıran bir ana bilgisayara erişim. Ana bilgisayar sistemi sanal cihazınız için aşağıdaki kaynakları ayırabiliyor:
+* VMware ESXi Server 6.0 veya 6.5 6.7 çalıştıran bir konak sistemi erişim. Ana bilgisayar sistemi sanal cihazınız için aşağıdaki kaynakları ayırabiliyor:
  
   * En az 4 çekirdek.
   * En az 8 GB RAM. 
@@ -89,7 +89,7 @@ Hiper yöneticinizde sanal cihaz sağlamak için aşağıdaki adımları gerçek
 
 1. Sanal cihaz görüntüsünü sisteminize kopyalayın. Bu sanal görüntüyü (iki dosya) Azure portaldan indirmiştiniz. Bu görüntüyü yordamın ilerleyen bölümlerinde kullanacağınız için kopyaladığınız konumu not edin.
 
-2. vSphere web istemcisini kullanarak ESXi sunucusunda oturum açın. Sanal makine oluşturmak için yönetici ayrıcalıklarınızın olması gerekir.
+2. VSphere web istemcisi kullanarak ESXi sunucusuna oturum açın. Sanal makine oluşturmak için yönetici ayrıcalıklarınızın olması gerekir.
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image1.png)
   
@@ -192,7 +192,7 @@ Sanal cihazınızı başlatmak ve bağlantı kurmak için aşağıdaki adımlar�
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image23.png)
 
-6. Adım 5-7 yalnızca DHCP bulunmayan bir ortamdaki önyükleme süreci için geçerlidir. DHCP ortamındaysanız bu adımları atlayıp 8. adımla devam edebilirsiniz. Cihazınızı DHCP olmayan bir ortamda çalıştırdıysanız bunu belirten bir ileti açılacaktır: **Ağı yapılandırmak için Set-HcsIPAddress cmdlet'ini kullanın**. 
+6. Adım 5-7 yalnızca DHCP bulunmayan bir ortamdaki önyükleme süreci için geçerlidir. DHCP ortamındaysanız bu adımları atlayıp 8. adımla devam edebilirsiniz. DHCP olmayan Ortam aygıtınızda'kurmak önyüklendiğinde, etkili olması için bir ileti görürsünüz: **Ağı yapılandırmak için Set-HcsIPAddress cmdlet'ini kullanın**. 
    
 7. Ağı yapılandırmak için komut isteminde `Get-HcsIpAddress` komutunu kullanarak sanal cihazınızda etkinleştirilmiş olan ağ arabirimlerini listeleyin. Cihazınızda tek bir ağ arabirimi varsa `Ethernet` varsayılan adı atanır.
 

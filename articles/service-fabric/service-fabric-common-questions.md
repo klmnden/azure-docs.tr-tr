@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: 60fe7296d95a7746fd703c3a45349faf294e5bbd
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: ce88c8c4850e5226ddda12ce5ee0e1d18b51ea5c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320608"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104091"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Sık sorulan sorular Service Fabric
 
@@ -73,7 +73,7 @@ Biz, aşağıdaki üç nedenden dolayı en az 5 düğümünüz için bir üretim
 
 Kümenin aynı anda iki düğüm başarısız karşılaşıldığında kullanılabilir olmasını istiyoruz. Bir Service Fabric kümesi kullanılabilir olması, sistem hizmetleri kullanılabilir olması gerekir. Adlandırma Hizmeti ve hangi hizmetlerin kümeye dağıtılan ve bunlar şu anda barındırıldığı izleme, üzerinde güçlü tutarlılık bağlıdır, Yük Devretme Yöneticisi hizmeti gibi durum bilgisi olan sistem hizmetleri. Bu güçlü tutarlılık sırayla alma yeteneğini bağlıdır bir *çekirdek* herhangi belirli bir güncelleştirme durumu için Hizmetleri, bir çekirdek belirli bir hizmete yönelik çoğaltmalar (N/2 + 1) katı çoğunu temsil ettiği için. Bu nedenle aynı anda iki düğüm (Bu nedenle aynı anda kayıp sistem hizmeti iki kopyasının) kaybına karşı dayanıklı olmasını istiyoruz, biz ClusterSize - QuorumSize olmalıdır > = 2, en küçük boyut beş olmasını zorlar. Küme N düğümleri sahip olduğundan ve sistem hizmeti – her düğümde bir N çoğaltmalarını göz önünde bulundurun, görmek için. Çekirdek sistem hizmeti büyüklüğünde (N/2 + 1). Yukarıdaki eşitsizlik N - (N/2 + 1) gibi görünüyor. > = 2. Dikkate alınması gereken iki durum vardır: N bile olduğunda ve N tek olduğunda. N bile, örneğin N ise, 2 =\*m nerede m > = 1, 2 eşitsizlik görünür\*milyon - (2\*m/2 + 1) > 2 ya da m = > = 3. N için en az 6'dır ve ne zaman elde m = 3. Öte yandan, N çift ise söyleyin N = 2\*m + 1 nerede m > = 1, 2 eşitsizlik görünür\*m + 1 - ((2\*m + 1) / 2 + 1) > 2 ya da 2 =\*m + 1 - (m + 1) > 2 ya da m = > = 2. N için en az 5'tir ve ne zaman elde m = 2. Eşitsizlik ClusterSize - QuorumSize karşılayan bu nedenle, tüm değerleri arasında n > = 2, 5 düşük düzeyde grup üyeliğidir.
 
-Biz kabul bir sistem hizmeti çoğaltmasını her düğümü vardır, bu nedenle çekirdek boyutu kümedeki düğüm sayısına göre hesaplanır yukarıdaki bağımsız değişkeninde dikkat edin. Değiştirerek ancak *TargetReplicaSetSize* biz çekirdek boyutu hale getirebilecek küçüktür (N / 2 + 1), biz bir küme 5 düğümler küçük olduğundan ve yine de ek 2 düğümlerin çekirdek boyutu üzerinde sahip izlenimini vermek. TargetReplicaSetSize 3'e ayarlarsanız, 4 düğümlü bir kümede TargetReplicaSetSize üzerinde temel çekirdek boyutudur (3/2 + 1) veya 2, dolayısıyla biz CluserSize - QuorumSize sahip 4-2 = > = 2. Ancak biz, sistem hizmeti olarak veya size herhangi bir düğüm çifti eşzamanlı olarak kaybederseniz çekirdek sistem hizmeti (yalnızca tek bir çoğaltma sol sahip) çekirdek kayıp gidecek şekilde ki kaybedilen iki düğüm yinelemeler, barındırma olabilir garanti edemez bir ND kullanılamayacak.
+Biz kabul bir sistem hizmeti çoğaltmasını her düğümü vardır, bu nedenle çekirdek boyutu kümedeki düğüm sayısına göre hesaplanır yukarıdaki bağımsız değişkeninde dikkat edin. Değiştirerek ancak *TargetReplicaSetSize* biz çekirdek boyutu hale getirebilecek küçüktür (N / 2 + 1), biz bir küme 5 düğümler küçük olduğundan ve yine de ek 2 düğümlerin çekirdek boyutu üzerinde sahip izlenimini vermek. TargetReplicaSetSize 3'e ayarlarsanız, 4 düğümlü bir kümede TargetReplicaSetSize üzerinde temel çekirdek boyutudur (3/2 + 1) veya 2, dolayısıyla biz ClusterSize - QuorumSize sahip 4-2 = > = 2. Ancak biz, sistem hizmeti olarak veya size herhangi bir düğüm çifti eşzamanlı olarak kaybederseniz çekirdek sistem hizmeti (yalnızca tek bir çoğaltma sol sahip) çekirdek kayıp gidecek şekilde ki kaybedilen iki düğüm yinelemeler, barındırma olabilir garanti edemez bir ND kullanılamayacak.
 
 Bu bilgileri, bazı olası küme yapılandırmalarını inceleyelim:
 

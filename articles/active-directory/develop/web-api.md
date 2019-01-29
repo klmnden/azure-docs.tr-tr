@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,19 +16,19 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: e4ed0db3a08937c3c8b51e2c8af5e566b59df4c4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b507e6630e5b0b0e73edad1815825e70ed90ec4d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970966"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097308"
 ---
 # <a name="web-api"></a>Web API
 
 Web API uygulamaları bir web API'sini kaynakları almak için gereken web uygulamalardır. Bu senaryoda, web uygulamasının kimliğini doğrulamak ve web API'sini çağırmak için kullanabileceğiniz iki kimlik türü vardır:
 
 - **Uygulama Kimliği** -bu senaryo uygulamanın kimliğini doğrulamak ve web API'sine erişmek için OAuth 2.0 istemci kimlik bilgileri verme kullanır. Uygulama kimliği, web API'si, yalnızca web uygulaması, aradığı algılayabilir kullanırken web kullanıcı hakkındaki tüm bilgileri API almaz. Uygulama kullanıcı hakkındaki bilgileri alırsa, uygulama protokol üzerinden gönderilir ve Azure AD tarafından imzalanmadı. Web API'si, web uygulaması kullanıcının kimliğinin güvenir. Bu nedenle, bu düzen, bir güvenilir alt sistem adı verilir.
-- **Yönetici temsilcisi kullanıcı kimliğini** -bu senaryo iki şekilde gerçekleştirilebilir: Openıd Connect ve OAuth 2.0 yetkilendirme kodu verme gizli bir istemci ile. Web uygulaması, web API'sine kullanıcı, web uygulamasını başarıyla kimlik doğrulaması ve web uygulaması web API'sini çağırmak için bir yetkilendirilmiş kullanıcının kimliği alabilmiş kanıtlar kullanıcı için bir erişim belirteci alır. Bu erişim belirteci kullanıcı yetkisi verir ve istenen kaynağa döndüren API web isteği gönderilir.
+- **Yönetici temsilcisi kullanıcı kimliğini** -bu senaryo iki şekilde gerçekleştirilebilir: İle gizli bir istemci, Openıd Connect ve OAuth 2.0 yetkilendirme kodu verme. Web uygulaması, web API'sine kullanıcı, web uygulamasını başarıyla kimlik doğrulaması ve web uygulaması web API'sini çağırmak için bir yetkilendirilmiş kullanıcının kimliği alabilmiş kanıtlar kullanıcı için bir erişim belirteci alır. Bu erişim belirteci kullanıcı yetkisi verir ve istenen kaynağa döndüren API web isteği gönderilir.
 
 Uygulama kimliği ve yetkilendirilmiş kullanıcının kimlik türleri flow'da ele alınmıştır. Aralarındaki temel fark, kullanıcı oturum açın ve Web API'sine erişmek için önce yetkilendirilmiş kullanıcının kimliğini ilk kez bir yetkilendirme kodu almalıdır ' dir.
 

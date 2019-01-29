@@ -1,6 +1,6 @@
 ---
 title: Bir Azure Service Fabric kümesini yükseltme | Microsoft Docs
-description: Sürüm veya bir Azure Svice Fabric küme yapılandırmasını yükseltme hakkında bilgi edinin.  Bu makalede, sertifikaları yükseltme, uygulama bağlantı noktaları ekleme, işletim sistemi düzeltme ekleri ve yükseltmeleri gerçekleştirildiğinde gerçekleşmesini bekleyebilirsiniz ayarı küme güncelleştirme modu açıklanır.
+description: Sürüm veya bir Azure Service Fabric kümesi yapılandırmasını yükseltme hakkında bilgi edinin.  Bu makalede, sertifikaları yükseltme, uygulama bağlantı noktaları ekleme, işletim sistemi düzeltme ekleri ve yükseltmeleri gerçekleştirildiğinde gerçekleşmesini bekleyebilirsiniz ayarı küme güncelleştirme modu açıklanır.
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: aljo
-ms.openlocfilehash: a864d6423dc530857009e58a2fa90f0fa2cbc84f
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 2e5838046cdb60023495c7e9e111506c333cecc7
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853294"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102405"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>Yükseltme ve bir Azure Service Fabric kümesi güncelleştiriliyor
 
@@ -62,7 +62,7 @@ Herhangi bir yükseltmeyi altyapı nedenlerle başarısız olduysa yönelik ayn�
 
 Küme sistem durumu ilkeleri karşılanırsa yükseltme başarılı olarak kabul ve tam olarak işaretlenmiş. Bu aşamada bu ilk yükseltme veya herhangi bir yükseltme tekrar bölümlerini sırasında ortaya çıkabilir. Başarılı çalıştırma hiç e-posta onayı yoktur.
 
-### <a name="phase-3-an-upgrade-is-performed-by-using-aggressive-health-policies"></a>3. Aşama: Agresif bir sistem durumu ilkeleri kullanarak bir yükseltme gerçekleştirilmeden
+### <a name="phase-3-an-upgrade-is-performed-by-using-aggressive-health-policies"></a>3. Aşama: Yükseltme agresif bir sistem durumu ilkeleri kullanılarak gerçekleştirilir.
 Bu sistem durumu ilkeleri bu aşamada, uygulamaların durumunu yerine yükseltme doğru olarak. Bu aşamada birkaç Küme yükseltme edersiniz. Bu aşama için kümenizin alır, / kötüleşir veya kullanılabilirlik kaybetmek uygulamanızı olasılığı yoktur.
 
 3. Aşama yükseltmeleri benzer şekilde, diğer iki aşaması, bir yükseltme etki alanı aynı anda geçin.

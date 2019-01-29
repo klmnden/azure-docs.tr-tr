@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: ad89acb63057ff260332384372bcb7719cc8e4f3
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 1482497f3767e7533d1d56e6eb63e55cdb5c9ebb
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064840"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104652"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Azure Service fabric'te yedeğini geri yükleme
 
@@ -229,7 +229,7 @@ Aşağıdaki sırada geri yükleme isteği ilerler:
     ```
     
 3. **Başarı**, **hatası**, veya **zaman aşımı**: İstenen bir geri yükleme, aşağıdaki durumlardan birinde tamamlanabilir. Her durum önem ve yanıt ayrıntıları aşağıdaki gibidir:
-    - **Başarı**: A _başarı_ durumunu geri yükle buldum bölüm durumunu gösterir. Bölüm raporları _RestoreEpoch_ ve _RestordLSN_ saat (UTC) ile birlikte durumları.
+    - **Başarı**: A _başarı_ durumunu geri yükle buldum bölüm durumunu gösterir. Bölüm raporları _RestoredEpoch_ ve _RestoredLSN_ saat (UTC) ile birlikte durumları.
 
         ```
         RestoreState  : Success

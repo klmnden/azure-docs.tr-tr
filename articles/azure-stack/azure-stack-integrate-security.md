@@ -6,25 +6,25 @@ author: PatAltimore
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 01/28/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 keywords: ''
-ms.openlocfilehash: d81478e6bdaf4a1844d01278b961350c81b2edd6
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 5826ab8ac50a5d27f5a74cff4bebba4b2809d5f0
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087738"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096628"
 ---
 # <a name="azure-stack-datacenter-integration---syslog-forwarding"></a>Azure Stack veri merkezi tümleştirmesi - syslog iletme
 
-Bu makalede, Azure Stack altyapısının veri merkezinizde zaten dağıtılmış bir dış güvenlik çözümleri ile tümleştirmek için syslog kullanmayı gösterir. Örneğin, bir güvenlik bilgileri olay Yönetimi (SIEM) sistemine. Denetimler, uyarılar ve Azure Stack altyapısının tüm bileşenlerin güvenlik günlükleri syslog kanalı sunar. Güvenlik İzleme çözümleri ile tümleştirmek için Syslog iletmeyi kullanın ve/veya tüm denetimler, uyarılar ve güvenlik almak için bekletme için depolamaya kaydeder. 
+Bu makalede, Azure Stack altyapısının veri merkezinizde zaten dağıtılmış bir dış güvenlik çözümleri ile tümleştirmek için syslog kullanmayı gösterir. Örneğin, bir güvenlik bilgileri olay Yönetimi (SIEM) sistemine. Denetimler, uyarılar ve Azure Stack altyapısının tüm bileşenlerin güvenlik günlükleri syslog kanalı sunar. Güvenlik İzleme çözümleri ile tümleştirmek için Syslog iletmeyi kullanın ve/veya tüm denetimler, uyarılar ve güvenlik almak için bekletme için depolamaya kaydeder.
 
 1809 güncelleştirmesinden itibaren Azure Stack, yapılandırıldıktan sonra Yük Common Event Format (CEF), syslog iletileri yayar bir tümleşik syslog istemcisi vardır.
 
 Aşağıdaki diyagram, Azure Stack dış bir SIEM ile tümleştirme açıklar. Ele alınması gereken iki tümleştirme desenleri vardır: ilk (bir mavi) bir altyapı sanal makineler ve Hyper-V düğümlerinin kapsayan Azure Stack altyapısıdır. Tüm denetimleri, güvenlik günlükleri ve uyarılar Bu bileşenlerden merkezi olarak toplanan ve syslog CEF yüküyle aracılığıyla kullanıma sunulan. Bu tümleştirme deseni, bu belge sayfasında açıklanmıştır.
-İkinci tümleştirme deseni turuncu renkte gösterilen olur ve temel kart yönetim denetleyicileri (Bmc'ler), donanım yaşam döngüsü ana bilgisayar (HLH), sanal makineler ve/veya izleme donanım iş ortağı çalıştırılan sanal Gereçleri ve Yönetimi kapsar yazılım ve üst raf üstü (TOR) anahtarlar. Bu bileşenler donanım iş ortağı olduğundan belirli, Lütfen bunları dış bir SIEM ile tümleştirme hakkında bilgi için donanım ortağınıza ulaşın.
+İkinci tümleştirme deseni turuncu renkte gösterilen olur ve temel kart yönetim denetleyicileri (Bmc'ler), donanım yaşam döngüsü ana bilgisayar (HLH), sanal makineler ve/veya izleme donanım iş ortağı çalıştırılan sanal Gereçleri ve Yönetimi kapsar yazılım ve üst raf üstü (TOR) anahtarlar. Bu bileşenler donanım iş ortağı belirli, kişi olduğundan, donanım ortak bunları dış bir SIEM ile tümleştirme hakkında bilgi için.
 
 ![Syslog iletmeyi diyagramı](media/azure-stack-integrate-security/syslog-forwarding.png)
 
@@ -32,13 +32,13 @@ Aşağıdaki diyagram, Azure Stack dış bir SIEM ile tümleştirme açıklar. E
 
 Azure stack'teki syslog istemci aşağıdaki yapılandırmaları destekler:
 
-1. **Syslog ile karşılıklı kimlik doğrulaması (istemci ve sunucu) ve TLS 1.2 şifrelemeyi, TCP üzerinden:** bu yapılandırmada, syslog sunucusuna hem syslog istemci sertifikaları aracılığıyla birbirine kimliğini doğrulayabilirsiniz. İletileri, TLS 1.2 şifrelenmiş bir kanal üzerinden gönderilir.
+1. **Syslog ile karşılıklı kimlik doğrulaması (istemci ve sunucu) ve TLS 1.2 şifrelemeyi, TCP üzerinden:** Bu yapılandırmada, syslog sunucusuna hem syslog istemci sertifikaları aracılığıyla birbirine kimliğini doğrulayabilirsiniz. İletileri, TLS 1.2 şifrelenmiş bir kanal üzerinden gönderilir.
 
-2. **Syslog sunucu kimlik doğrulaması ve TLS 1.2 şifrelemeyi ile TCP üzerinden:** bu yapılandırmada, syslog istemci sertifika aracılığıyla syslog sunucusunun kimliğini doğrulayabilirsiniz. İletileri, TLS 1.2 şifrelenmiş bir kanal üzerinden gönderilir.
+2. **Syslog sunucu kimlik doğrulaması ve TLS 1.2 şifrelemeyi ile TCP üzerinden:** Bu yapılandırmada, syslog istemci sertifika aracılığıyla syslog sunucusunun kimliğini doğrulayabilirsiniz. İletileri, TLS 1.2 şifrelenmiş bir kanal üzerinden gönderilir.
 
-3. **Syslog ile şifreleme, TCP üzerinden:** bu yapılandırmada, syslog istemci ne syslog sunucusuna birbiriyle kimliğini doğrular. İletileri, TCP üzerinden açık metin olarak gönderilir.
+3. **Syslog üzerinden TCP, şifreleme ile:** Bu yapılandırmada, syslog istemci ve syslog sunucusu kimlikleri doğrulanmaz. İletileri, TCP üzerinden açık metin olarak gönderilir.
 
-4. **Şifreleme ile UDP üzerinden Syslog:** bu yapılandırmada, syslog istemci ne syslog sunucusuna birbiriyle kimliğini doğrular. İletileri UDP üzerinden açık metin olarak gönderilir.
+4. **Syslog şifreleme ile UDP üzerinden:** Bu yapılandırmada, syslog istemci ve syslog sunucusu kimlikleri doğrulanmaz. İletileri UDP üzerinden açık metin olarak gönderilir.
 
 > [!IMPORTANT]
 > Microsoft kimlik doğrulama ve şifreleme kullanarak TCP kullanmak için kesinlikle önerir (yapılandırma #1 veya çok az # 2) iletilerin gizlice ve ADAM-de-adam saldırılarına karşı korumak, üretim ortamları için.
@@ -60,7 +60,7 @@ Set-SyslogClient [-pfxBinary <Byte[]>] [-CertPassword <SecureString>] [-RemoveCe
 
 Parametreler için *kümesi SyslogServer* cmdlet:
 
-| Parametre | Açıklama | Tür | Gerekli |
+| Parametre | Açıklama | Type | Gereklidir |
 |---------|---------|---------|---------|
 |*SunucuAdı* | Syslog sunucusunun FQDN veya IP adresi | Dize | evet|
 |*ServerPort* | Bağlantı noktası numarası syslog sunucusunun dinleme yaptığı | Dize | evet|
@@ -71,7 +71,7 @@ Parametreler için *kümesi SyslogServer* cmdlet:
 |*Kaldır*| İstemciden sunucusunun yapılandırmasını kaldırın ve syslog iletmeyi Durdur| Bayrağı | hayır|
 
 Parametreler için *kümesi SyslogClient* cmdlet:
-| Parametre | Açıklama | Tür |
+| Parametre | Açıklama | Type |
 |---------|---------| ---------|
 | *pfxBinary* | İstemci tarafından kimliği olarak syslog sunucusuna göre kimlik doğrulaması için kullanılacak sertifikayı içeren pfx dosyasını  | Bayt] |
 | *CertPassword* |  Pfx dosyası ile ilişkili özel anahtarı içeri aktarmak için parola | SecureString |
@@ -129,7 +129,7 @@ Invoke-Command @params -ScriptBlock {
 
 ### <a name="configuring-syslog-forwarding-with-tcp-server-authentication-and-tls-12-encryption"></a>Syslog iletmeyi yapılandırma TCP ile sunucu kimlik doğrulaması ve TLS 1.2 şifrelemeyi
 
-Bu yapılandırmada, Azure Stack syslog istemcisinde syslog sunucunuza iletileri TCP üzerinden TLS 1.2 şifrelemeyle iletir. İlk anlaşması sırasında istemci, sunucu geçerli ve güvenilen bir sertifika sağlar de doğrular. Bu, güvenilmeyen hedeflere ileti göndermek için istemci engeller.
+Bu yapılandırmada, Azure Stack syslog istemcisinde syslog sunucunuza iletileri TCP üzerinden TLS 1.2 şifrelemeyle iletir. İlk anlaşması sırasında istemci, sunucu geçerli ve güvenilen bir sertifika sağlar de doğrular. Bu yapılandırma, güvenilmeyen hedeflere ileti göndermek için istemci engeller.
 Kimlik doğrulama ve şifreleme kullanarak TCP varsayılan yapılandırma ve bir üretim ortamı için Microsoft'un önerdiği güvenlik en düşük düzeyi temsil eder. 
 
 ```powershell
@@ -318,7 +318,7 @@ Azure stack'teki Windows olayları için özel uzantı tablosu:
 | Özel uzantı adı | Windows olay örneği | 
 |-----------------------|---------|
 |MasChannel | Sistem|
-|MasComputer | Test.azurestack.contoso.com|
+|MasComputer | test.azurestack.contoso.com|
 |MasCorrelationActivityID| C8F40D7C-3764-423B-A4FA-C994442238AF|
 |MasCorrelationRelatedActivityID| C8F40D7C-3764-423B-A4FA-C994442238AF|
 |MasEventData| Svchost!! 4132, G, 0!!! EseDiskFlushConsistency!! ESENT!! 0x800000|
@@ -360,7 +360,7 @@ Uyarı önem derecesi tablosu:
 Azure Stack'te oluşturulan uyarılar için özel uzantı tablosu:
 | Özel uzantı adı | Örnek | 
 |-----------------------|---------|
-|MasEventDescription|Açıklama: Bir kullanıcı hesabı \<TestUser\> oluşturulduğu \<TestDomain\>. Bu, olası bir güvenlik riski oluşturur. --Düzeltme: Destek ekibiyle iletişime geçin. Bu sorunu çözmek için müşteri desteği gereklidir. Kendi yardımı olmadan bu sorunu çözmek çalışmayın. Bir destek talebi açmadan önce kılavuzdan kullanarak günlük dosya toplama işlemi Başlat https://aka.ms/azurestacklogfiles |
+|MasEventDescription|AÇIKLAMA: Bir kullanıcı hesabı \<TestUser\> oluşturulduğu \<TestDomain\>. Bu, olası bir güvenlik riski oluşturur. --DÜZELTME: Desteğe başvurun. Bu sorunu çözmek için müşteri desteği gereklidir. Kendi yardımı olmadan bu sorunu çözmek çalışmayın. Bir destek talebi açmadan önce kılavuzdan kullanarak günlük dosya toplama işlemi Başlat https://aka.ms/azurestacklogfiles |
 
 ### <a name="cef-mapping-for-alerts-closed"></a>Uyarılar için CEF eşleme kapalı
 

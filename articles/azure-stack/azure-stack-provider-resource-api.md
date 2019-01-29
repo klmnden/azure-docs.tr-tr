@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: c6f17fd4cc225b7d4ce60d38bf2abcabf12a40c5
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 1963708fb05feb7797bc8b4df024d16175687b17
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945595"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55177917"
 ---
 # <a name="provider-resource-usage-api"></a>Sağlayıcı kaynak kullanım API’si
 Terim *sağlayıcısı* Hizmet Yöneticisi ve herhangi bir sağlayıcı temsilcisi için geçerlidir. Azure Stack operatörleri ve sağlayıcı temsilcisi sağlayıcı kullanım API'si doğrudan kiracıları kullanımını görüntülemek için kullanabilirsiniz. Örneğin, diyagramda gösterildiği gibi P1'ın kullanım bilgileri için API sağlayıcısı P0 çağırabilir ve P1 ve P2'ın doğrudan kullanım P3 ve P4 kullanım bilgileri için çağırabilirsiniz.
@@ -80,13 +80,13 @@ meterID1",
 ### <a name="response-details"></a>Yanıt Ayrıntıları
 | **Bağımsız değişken** | **Açıklama** |
 | --- | --- |
-| *Kimliği* |Kullanım toplama benzersiz kimliği. |
+| *id* |Kullanım toplama benzersiz kimliği. |
 | *Adı* |Kullanım toplama adı. |
 | *type* |Kaynak tanımı. |
 | *Subscriptionıd* |Azure Stack kullanıcı abonelik tanımlayıcısı. |
 | *usageStartTime* |UTC başlangıç zamanı, bu kullanım toplama ait olduğu kullanım demeti.|
 | *usageEndTime* |Bu kullanım toplama ait olduğu kullanım demeti bitiş saati UTC. |
-| *instanceData* |Örnek ayrıntıları (yeni biçimde) anahtar-değer çiftleri:<br> *resourceUri*: tam kaynak kimliği, kaynak grupları ve örnek adını içerir. <br> *Konum*: Bu hizmeti çalıştırıldığı bölge. <br> *etiketleri*: kullanıcı tarafından belirtilen kaynak etiketleri. <br> *Additionalınfo*: işletim sistemi sürümü veya görüntü türü daha fazla ayrıntı, örneğin, tüketilen kaynak hakkında. |
+| *instanceData* |Örnek ayrıntıları (yeni biçimde) anahtar-değer çiftleri:<br> *resourceUri*: Kaynak grupları ve örnek adını içeren tam kaynak kimliği. <br> *Konum*: Bu hizmetin çalıştırıldığı bölge. <br> *Etiketleri*: Kullanıcı tarafından belirtilen kaynak etiketleri. <br> *Additionalınfo*: Tüketilen, kaynak işletim sistemi sürümü veya görüntü gibi hakkında daha fazla ayrıntı girin. |
 | *Miktar* |Bu zaman çerçevesinde gerçekleşen kaynak tüketimi miktarı. |
 | *meterId* |Tüketilen kaynak için benzersiz kimlik (olarak da adlandırılan *ResourceId*). |
 

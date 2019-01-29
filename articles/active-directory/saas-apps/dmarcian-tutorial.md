@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle dmarcian | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile dmarcian | Microsoft Docs'
 description: Azure Active Directory ve dmarcian arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 0f8878505280371bf6046c1d1f0d7fc1275dd496
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 197e0cceb7457ffdd96ada7d4561de56c7ed10fc
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039896"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095660"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-dmarcian"></a>Öğretici: Azure Active Directory dmarcian ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-dmarcian"></a>Öğretici: Dmarcian ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile dmarcian tümleştirme konusunda bilgi edinin.
 
@@ -157,18 +157,18 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve d
 
     ![Kimlik doğrulaması ](./media/dmarcian-tutorial/tutorial_dmarcian_auth.png)
 
-    * Altında **kimlik sağlayıcınız dmarcian ekleme** bölümünde **kopyalama** kopyalamak için **onay belgesi tüketici hizmeti URL'si** örneğinizin yapıştırın  **Yanıt URL'si** metin kutusunda **dmarcian etki alanı ve URL'ler bölüm** Azure portalında.
+    * Altında **kimlik sağlayıcınız dmarcian ekleme** bölümünde **kopyalama** kopyalamak için **onay belgesi tüketici hizmeti URL'si** örneğinizin yapıştırın  **Yanıt URL'si** metin kutusunda **dmarcian etki alanı ve URL'ler bölüm** Azure portalında.
 
-    * Altında **kimlik sağlayıcınız dmarcian ekleme** bölümünde **kopyalama** kopyalamak için **varlık kimliği** örneğinizin yapıştırın **tanımlayıcı**metin kutusunda **dmarcian etki alanı ve URL'ler bölüm** Azure portalında.
+    * Altında **kimlik sağlayıcınız dmarcian ekleme** bölümünde **kopyalama** kopyalamak için **varlık kimliği** örneğinizin yapıştırın ** Tanımlayıcı** metin kutusunda **dmarcian etki alanı ve URL'ler bölüm** Azure portalında.
 
     * Altında **kimlik doğrulamasını ayarlama** bölümünde **kimlik sağlayıcısı meta verileri** textbox Yapıştır **uygulama Federasyon meta verileri URL'sini**, hangi Azure Portalı'ndan kopyaladığınız.
 
     * Altında **kimlik doğrulamasını ayarlama** bölümünde **özniteliği deyimleri** metin URL'sini yapıştırın `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    * Altında **oturum açma URL'sini ayarlayın** bölümünde, kopya **oturum açma URL'si** örneğinizin yapıştırın **oturum açma URL'si** metin kutusunda **dmarcian etki alanı ve URL'ler bölüm** Azure portalında.
+    * Altında **oturum açma URL'sini ayarlayın** bölümünde, kopya **oturum açma URL'si** örneğinizin yapıştırın **oturum açma URL'si** metin kutusunda **dmarcian etki alanı ve URL'ler bölüm** Azure portalında.
 
         > [!Note]
-        > Değiştirebileceğiniz **oturum açma URL'si** kuruluşunuza göre.
+        > Değiştirebileceğiniz **oturum açma URL'si** kuruluşunuz göre.
 
     * **Kaydet**’e tıklayın.
 

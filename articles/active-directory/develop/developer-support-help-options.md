@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -17,12 +17,12 @@ ms.date: 10/27/2017
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 7374b3f71474cb4d4e59e9d81ab1de7bea265483
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: f8c5e5f598ab8566eacb594ff66b63ce3793f57f
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337147"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093207"
 ---
 # <a name="support-and-help-options-for-developers"></a>Geliştiriciler için destek ve Yardım seçenekleri
 
@@ -52,7 +52,7 @@ Burada *{Your arama terimlerini}* arama anahtar sözcüklerinizi olduğu.
 
 |Aracı  |Açıklama  |
 |---------|---------|
-|[jwt.MS](https://jwt.ms)| Talep adlarını ve değerlerini çözülecek kimliği veya erişim belirteçleri yapıştırın |
+|[jwt.ms](https://jwt.ms)| Talep adlarını ve değerlerini çözülecek kimliği veya erişim belirteçleri yapıştırın |
 |[Hata kodu Çözümleyicisi](https://apps.dev.microsoft.com/portal/tools/errors)| Oturum açma sırasında alınan hata kodu yapıştırın veya sayfaları olası nedenleri ve düzeltmeleri görmek için onay |
 |[Microsoft Graph Gezgini](https://developer.microsoft.com/graph/graph-explorer)| İstekleri ve yanıtları Microsoft Graph API karşı görmek olanak tanıyan bir araç|
 

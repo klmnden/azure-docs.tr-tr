@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: bb2f701f-3bc3-4759-94a5-8b9d53a8a0b6
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,14 +17,14 @@ ms.date: 11/02/2018
 ms.author: celested
 ms.reviewer: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: c0bf5bbdf496a23a5ed66a149933f25a059984a9
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
-ms.translationtype: HT
+ms.openlocfilehash: 20e19664963f66954f9d46a1b596a34b7d744f48
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913287"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093235"
 ---
-# <a name="quickstart-register-an-app-with-the-azure-active-directory-v20-endpoint"></a>Hızlı Başlangıç: Azure Active Directory v2.0 uç noktasıyla uygulama kaydetme
+# <a name="quickstart-register-an-app-with-the-azure-active-directory-v20-endpoint"></a>Hızlı Başlangıç: Azure Active Directory v2.0 uç noktası ile bir uygulamayı kaydetme
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
@@ -33,18 +33,18 @@ Hem kişisel Microsoft hesabı (MSA) hem de iş veya okul hesabı (Azure AD) otu
 Bazı Azure AD senaryoları ve özellikleri v2.0 uç noktasında desteklenmez. v2.0 uç noktasını kullanmanızın gerekip gerekmediğini belirlemek için [v2.0 sınırlamaları](active-directory-v2-limitations.md) bölümünü okuyun.
 
 > [!NOTE]
-> Yeni uygulama mı kaydediyorsunuz? Azure portalında **Uygulama kayıtları (Önizleme)** deneyimini kullanın. Başlamak için bkz. [Uygulama kaydetme (Önizleme)](quickstart-register-app.md).
+> Yeni bir uygulama mı kaydediyorsunuz? Azure portalında yeni **Uygulama kayıtları (Önizleme)** deneyimini kullanın. Başlamak için bkz. [Uygulama kaydetme (Önizleme)](quickstart-register-app.md).
 
-## <a name="step-1-sign-in-to-the-microsoft-application-registration-portal"></a>1. Adım: Microsoft uygulama kayıt portalında oturum açma
+## <a name="step-1-sign-in-to-the-microsoft-application-registration-portal"></a>1. Adım: Microsoft uygulama kayıt portalında oturum açın
 
 1. [https://apps.dev.microsoft.com/](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) adresinde Microsoft uygulama kayıt portalına gidin.
 1. Kişisel veya iş veya okul Microsoft hesabıyla oturum açın. Bunlardan herhangi birisi yoksa yeni bir kişisel hesap açın.
 1. Açtınız mı? Şimdi muhtemelen boş olan bir Microsoft uygulamaları listenizi görüyor olmanız gerekir. Şimdi bunu değiştirelim.
 
-## <a name="step-2-register-an-app"></a>2. Adım: Uygulama kaydetme
+## <a name="step-2-register-an-app"></a>2. Adım: Bir uygulamayı kaydetme
 
 1. **Uygulama ekle**’yi seçin ve buna bir ad verin.
-    Portal, uygulamanıza sonradan kodunuzda kullanacağınız genelde benzersiz bir Uygulama Kimliği atar. Uygulamanız API’lerin (düşünün: Office, Azure veya kendi web API’niz) çağrılması için erişim belirteçlerine ihtiyaç duyan bir sunucu tarafı bileşeni içeriyorsa burada bir **Uygulama Gizli Anahtarı** oluşturmanız iyi olacaktır.
+    Portal, uygulamanıza sonradan kodunuzda kullanacağınız genelde benzersiz bir Uygulama Kimliği atar. Uygulamanız sunucu tarafı bileşeni içeriyorsa, erişim belirteçleri için arama API'leri gerekir (düşünün: Office, Azure veya kendi web API'si), oluşturmak istediğiniz bir **uygulama gizli anahtarı** de burada.
 1. Ardından uygulamanızın kullanacağı **Platformları** ekleyin.
     * Web tabanlı uygulamalar için oturum açma iletilerinin gönderilebildiği bir **Yönlendirme URI’si** sağlayın.
     * Mobil uygulamalar için, sizin için otomatik olarak oluşturulan varsayılan yeniden yönlendirme URI'sini kopyalayın.

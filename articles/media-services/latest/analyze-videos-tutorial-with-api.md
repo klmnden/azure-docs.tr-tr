@@ -1,5 +1,5 @@
 ---
-title: Medya Hizmetleri - Azure ile videoları analiz etme | Microsoft Docs
+title: .NET - Azure kullanarak Media Services ile videoları analiz etme | Microsoft Docs
 description: Azure Media Services kullanarak videoları analiz etmek için bu öğreticideki adımları izleyin.
 services: media-services
 documentationcenter: ''
@@ -9,26 +9,24 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
-ms.date: 01/23/2019
+ms.date: 01/28/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: c3205163cf8796441e676e1775e4300d44a4012e
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 191a6c9dc1cc5a24c1a46af21c5b63e3ff27a290
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884920"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55150402"
 ---
-# <a name="tutorial-analyze-videos-with-media-services-v3-using-apis"></a>Öğretici: Media Services v3 ile API'lerini kullanarak videoları analiz etme
+# <a name="tutorial-analyze-videos-with-media-services-v3-using-net"></a>Öğretici: Media Services v3 ile .NET kullanarak videoları analiz etme
 
 Bu öğreticide Azure Media Services ile videoları analiz etme işlemi gösterilir. Kayıtlı videolar veya ses içerikleri hakkında derin içgörüler kazanmak isteyebileceğiniz çok sayıda senaryo mevcuttur. Örneğin, daha yüksek müşteri memnuniyeti elde etmek isteyen kuruluşlar, müşteri destek kayıtlarını dizinler ve panolarla aranabilir bir katalog haline getirmek için konuşmayı metne dönüştürme işlemini çalıştırabilir. Ardından, kendi iş yaygın şikayetlerinden listesi, kaynaklarına böyle şikayetlerinin ve diğer yararlı bilgiler gibi Öngörüler elde edebilirsiniz.
 
 Bu öğretici şunların nasıl yapıldığını gösterir:    
 
 > [!div class="checklist"]
-> * Media Services hesabı oluşturma
-> * Media Services API’sine erişim
-> * Örnek uygulamayı yapılandırma
+> * Bu konu başlığı altında açıklanan örnek uygulamasını indirin
 > * Belirtilen videoyu analiz eden kodu inceleme
 > * Uygulamayı çalıştırma
 > * Çıktıyı inceleme
@@ -39,15 +37,10 @@ Bu öğretici şunların nasıl yapıldığını gösterir:
 ## <a name="prerequisites"></a>Önkoşullar
 
 - Visual Studio yüklü değilse, [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15)’yi edinebilirsiniz.
-- Yükleyin ve bu makalede Azure CLI 2.0 veya sonraki bir sürüm gerektirir, CLI'yı yerel olarak kullanın. Kullandığınız sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekirse bkz. [Azure CLI’yı yükleme](/cli/azure/install-azure-cli). 
+- [Bir Media Services hesabı oluşturma](create-account-cli-how-to.md).<br/>Media Services hesap adını ve kaynak grubu adı için kullanılan değerleri unutmayın emin olun.
+- Bağlantısındaki [erişim Azure Media Services API'sine Azure CLI ile](access-api-cli-how-to.md) ve kimlik bilgilerini kaydedin. Bunları API'ye erişmek için kullanmanız gerekecektir.
 
-    Şu anda tüm [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) komutlar Azure Cloud Shell içinde çalışır. CLI'yi yerel olarak kullanmak için önerilir.
-
-- [Bir Media Services hesabı oluşturma](create-account-cli-how-to.md).
-
-    Media Services hesap adını ve kaynak grubu adı için kullanılan değerleri unutmayın emin olun.
-
-## <a name="download-the-sample"></a>Örneği indirme
+## <a name="download-and-configure-the-sample"></a>İndirme ve örnek yapılandırma
 
 Aşağıdaki komutu kullanarak, .NET örneğini içeren bir GitHub havuzunu makinenize kopyalayın:  
 
@@ -57,7 +50,7 @@ Aşağıdaki komutu kullanarak, .NET örneğini içeren bir GitHub havuzunu maki
 
 Örnek, [AnalyzeVideos](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/AnalyzeVideos) klasöründe yer alır.
 
-[!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
+Açık [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/AnalyzeVideos/appsettings.json) içinde proje indirilir. Aldığınız kimlik değerleri Değiştir [API'leri erişme](access-api-cli-how-to.md).
 
 ## <a name="examine-the-code-that-analyzes-the-specified-video"></a>Belirtilen videoyu analiz eden kodu inceleme
 

@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: ff006e7962f2aa79e7c71ab12be918770c6e6d39
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: b8eb6d483b9e7a92b50a269e5efbc8ca55946931
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55082494"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104227"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>Azure SQL veritabanı yönetilen örneği ile çalışmaya başlama
 
@@ -25,7 +25,7 @@ ms.locfileid: "55082494"
 
 ## <a name="quickstart-overview"></a>Hızlı genel bakış
 
-Bu bölümde, yönetilen örnekler ile hızlıca çalışmaya başlamanıza yardımcı olabilecek makalelerde genel bakış görürsünüz. İlk yönetilen Örneğinize oluşturmak için en kolay yolu kullanmaktır [Azure portalında](sql-database-managed-instance-get-started.md) , gerekli parametreleri yapılandırmak ve otomatik olarak Azure'ı oluşturma ayrıntıları ağ hakkında bilinmesi gerekenler ortamı ağ ve altyapı gereksinimleri. Bilgisayarınızda yüklü olduğundan emin olmanız yeterlidir bir [abonelik türü](sql-database-managed-instance-resource-limits.md#supported-subscription-types) örneği oluşturmak için izin.
+Bu bölümde, yönetilen örnekler ile hızlıca çalışmaya başlamanıza yardımcı olabilecek mevcut makaleleri genel bakış görürsünüz. İlk yönetilen Örneğinize oluşturmak için en kolay yolu kullanmaktır [Azure portalında](sql-database-managed-instance-get-started.md) ağ ortamınızda, gerekli parametreleri (kullanıcı adı/parola, çekirdek sayısı, en fazla depolama alanı), yapılandırma ve otomatik olarak Azure'ı oluşturma olmadan ağ ayrıntıları ve altyapı gereksinimleri hakkında bilmeniz gerekir. Bilgisayarınızda yüklü olduğundan emin olmanız yeterlidir bir [abonelik türü](sql-database-managed-instance-resource-limits.md#supported-subscription-types) örneği oluşturmak için izin.
 
 Kullanmak istediğiniz kendi ağ veya ağ özelleştirmek bkz. isterseniz nasıl [ağ ortamını yapılandırmak](#configure-network-environment) yönetilen örneği için.
 
@@ -35,7 +35,7 @@ Yönetilen Örneğinize oluşturduğunuzda, aşağıdaki yaklaşımlardan birini
 
 Alternatif olarak, yerel ağınızdan express route veya siteden siteye bağlantı kullanabilirsiniz, ancak bu yaklaşım şu hızlı başlangıçlardan biriyle kapsamı dışında olan.
 
-Bir yönetilen örnek oluşturup erişimi yapılandırma veritabanınızı geçiş başlatabilirsiniz. Yüklemelisiniz [Data Migration Yardımcısı (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) , SQL Server veritabanlarınızı analiz edin ve FILESTREAM varlığını gibi yönetilen örneğine geçişi engelleyebilecek herhangi bir sorun veya birden çok günlük dosyası bulun. Bu sorunları çözmek, veritabanlarınızı yönetilen örneği'ne gitmek hazırsınız. [Veritabanı deneme Yardımcısı](https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/) yükünüz üzerindeki SQL Server ve yönetilen tanımlayabilirsiniz böylece örneği üzerinde oraya giden yönetilen örneğe geçiş işlemi gerçekleştirirseniz, herhangi bir performans sorunu olacak şekilde yeniden yürütme kaydedebilen başka yararlı bir araçtır.
+Bir yönetilen örnek oluşturma ve erişim yapılandırdığınızda, SQL Server şirket içi veya Azure Vm'leri üzerinde yerleştirilen veritabanlarınızı geçirme başlatabilirsiniz. Geçirmek istediğiniz kaynak veritabanında desteklenmeyen bazı özellikler varsa, geçiş başarısız olduğunu unutmayın. Uyumluluğu denetlemek ve hatalarını önlemek için yükleyebilirsiniz [Data Migration Yardımcısı (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) , SQL Server veritabanlarınızı çözümleme ve yönetilen örneğe geçiş varlığını gibi engelleyebilecek herhangi bir sorun bulunamadı FILESTREAM veya birden çok günlük dosyası. Bu sorunları çözmek, veritabanlarınızı yönetilen örneği'ne gitmek hazırsınız. [Veritabanı deneme Yardımcısı](https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/) yükünüz üzerindeki SQL Server ve yönetilen tanımlayabilirsiniz böylece örneği üzerinde oraya giden yönetilen örneğe geçiş işlemi gerçekleştirirseniz, herhangi bir performans sorunu olacak şekilde yeniden yürütme kaydedebilen başka yararlı bir araçtır.
 
 Veritabanınızı yönetilen örneğe geçirme emin emin olduktan sonra kullanabileceğiniz [yerel geri](sql-database-managed-instance-get-started-restore.md) Transact-SQL komutunu kullanarak veritabanınızın bir yedeğine oluşturmanıza olanak sağlayan işlevselliği, bir Azure blob depolama alanına yükleyin ve Veritabanı Transact-SQL komutunu kullanarak blob depolama alanından geri yükleyin.
 
