@@ -6,17 +6,17 @@ author: eross-msft
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.openlocfilehash: df0f4fac471192c7e8745c07423857ea3c3d906b
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: d526a56f0d33ebaba664a455b9e541f0f2489a53
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450856"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104533"
 ---
 # <a name="add-or-update-a-users-profile-information-using-azure-active-directory"></a>Ekleme veya Azure Active Directory'yi kullanarak kullanıcının profil bilgilerini güncelleştirme
 Kullanıcı profili bilgilerini, profil resminizi dahil olmak üzere, işe özgü bilgileri ve Azure Active Directory (Azure AD) kullanarak bazı ayarları ekleyin. Yeni kullanıcı ekleme hakkında daha fazla bilgi için bkz. [ekleyin veya Azure Active Directory'de kullanıcı silme](add-users-azure-active-directory.md).

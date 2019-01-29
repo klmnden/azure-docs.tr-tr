@@ -10,12 +10,12 @@ ms.component: url-preview
 ms.topic: overview
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: e3791c897722c9bbf50f58c126d7e4e573b2096f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: eeb68ef869e3249ec86ecc8763aa1f136617e6d4
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465823"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101711"
 ---
 # <a name="what-is-project-url-preview"></a>Proje URL Önizlemesi nedir?
 URL Önizlemesi uç noktası bir URL sorgu parametresini alır ve önizlemede görüntülenmek üzere hedef kaynak, kısa açıklama ve bağlantı içeren bir JSON yanıtı döndürür. Yanıt aynı zamanda URL'de yetişkinlere yönelik, korsan veya farklı yasa dışı içerik olup olmadığını belirten [isFamilyFriendly](url-preview-reference.md#query-parameters) bayrağını da içerir. 
@@ -26,7 +26,7 @@ https://api.labs.cognitive.microsoft.com/urlpreview/v7.0/search?q=https://swiftk
 
 ```
 Yanıt: 
-````
+```
 HTTP Headers:
 BingAPIs-TraceId: 3CC74C94769440C0851D9DF0869FCE7F
 BingAPIs-SessionId: 52219085A6364692958C9C83983A0DBA
@@ -44,7 +44,7 @@ X-MSEdge-Ref: Ref A: 3CC74C94769440C0851D9DF0869FCE7F Ref B: CO1EDGE0315 Ref C: 
   }
 }
 
-````
+```
 ## <a name="scenarios"></a>Senaryolar 
 
 URL Önizlemesi API'si, Web kaynakları için kısa açıklamaları destekler. Geliştiriciler bunu kullanarak zengin bir önizleme deneyimi sunabilir.  Kullanıcılar web sayfaları, haberler, bloglar ve forumlar gibi sayfaları paylaşabilir veya yer işareti ekleyebilir. Bu API içerik moderasyonu için de kullanılabilir.    

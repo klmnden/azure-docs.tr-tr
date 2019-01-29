@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,14 +16,14 @@ ms.workload: identity
 ms.date: 09/23/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 49ced3277a659ddacef239c7a1394cbe5ce06ac9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 2f91cfc6c391bb22ca5f75a7a72123b695380aff
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973618"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094317"
 ---
-# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-native-app"></a>Hızlı başlangıç: Yerel iOS uygulamasından kullanıcıların oturum açma ve Microsoft Graph API'sini çağırma
+# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-native-app"></a>Hızlı Başlangıç: Kullanıcılar oturum ve bir iOS yerel uygulamadan Microsoft Graph API çağırma
 
 [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
@@ -32,14 +32,14 @@ Bu hızlı başlangıç, yerel bir iOS uygulaması ile kişisel, iş ve okul hes
 ![Bu Hızlı Başlangıcın oluşturduğu örnek uygulama nasıl çalışır](media/quickstart-v2-ios/ios-intro.png)
 
 > [!div renderon="docs"]
-> ## <a name="register-and-download"></a>Kaydolun ve indirin
-> ### <a name="register-and-configure-your-application-and-code-sample"></a>Kaydolun ve uygulamanızı ve kod örneğini yapılandırın
+> ## <a name="register-and-download"></a>Kaydetme ve indirme
+> ### <a name="register-and-configure-your-application-and-code-sample"></a>Uygulamanızı ve kod örneğinizi kaydetme ve yapılandırma
 > #### <a name="step-1-register-your-application"></a>1. Adım: Uygulamanızı kaydetme
 > Uygulamanızı kaydetmek ve uygulama kayıt bilgilerinizi çözümünüze eklemek için aşağıdakileri yapın:
-> 1. Bir uygulamayı kaydetmek için [Microsoft Uygulama Kayıt Portalı](https://apps.dev.microsoft.com/portal/register-app)’na gidin.
+> 1. Uygulamayı kaydetmek için [Microsoft Uygulama Kayıt Portalı](https://apps.dev.microsoft.com/portal/register-app)’na gidin.
 > 1. **Uygulama Adı** kutusuna uygulamanız için bir ad girin.
-> 1. **Destekli Kurulum** onay kutusunun seçilmemiş olduğundan emin olun ve **Oluştur**’u seçin.
-> 1. **Platform Ekle**’yi seçin, **Yerel Uygulama**’yı seçin ve sonra **Kaydet**’i seçin.
+> 1. **Destekli Kurulum** onay kutusunun işaretli olmadığından emin olun ve **Oluştur**’u seçin.
+> 1. **Platform Ekle**’yi, **Yerel Uygulama**’yı ve **Kaydet**’i seçin.
 
 > [!div renderon="portal" class="sxs-lookup"]
 > #### <a name="step-1-configure-your-application"></a>1. Adım: Uygulamanızı yapılandırma
@@ -50,11 +50,11 @@ Bu hızlı başlangıç, yerel bir iOS uygulaması ile kişisel, iş ve okul hes
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Zaten yapılandırılmış](media/quickstart-v2-ios/green-check.png) Uygulamanız bu özellikle yapılandırıldı
 
-#### <a name="step-2-download-your-web-server-or-project"></a>2. Adım: Web sunucunuzu veya projenizi indirme
+#### <a name="step-2-download-your-web-server-or-project"></a>2. Adım: Web sunucunuzda veya proje indirme
 
 - [XCode Projesini indirme](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
 
-#### <a name="step-3-configure-your-project"></a>3. Adım:Projenizi yapılandırma
+#### <a name="step-3-configure-your-project"></a>3. Adım: Projenizi yapılandırın
 
 1. Zip dosyasını ayıklayın ve projeyi XCode’da açın.
 1. **ViewController.swift**’i düzenleyin ve 'let kClientID' ile başlayan satırı aşağıdaki kod parçacığı ile değiştirin:
@@ -130,13 +130,13 @@ Aşağıdakileri bu podfile dosyaya ekleyin:
 
 ### <a name="msal-initialization"></a>MSAL başlatma
 
-Aşağıdaki kodu ekleyerek MSAL başvurusunu ekleyebilirsiniz:
+Şu kodu ekleyerek MSAL başvurusunu ekleyebilirsiniz:
 
 ```swift
 import MSAL
 ```
 
-Ardından aşağıdaki kodu kullanarak MSAL’ı başlatın:
+Sonra şu kodu kullanarak MSAL'yi başlatın:
 
 ```swift
 let authority = MSALAuthority(url: URL(string: kAuthority)!)
@@ -145,7 +145,7 @@ self.applicationContext = try MSALPublicClientApplication(clientId: kClientID, a
 
 > |Konumlar: ||
 > |---------|---------|
-> | `clientId` | *portal.azure.com*’da kaydedilen uygulamanın Uygulama Kimliği |
+> | `clientId` | *portal.azure.com* adresinde kayıtlı uygulamaya ait Uygulama Kimliği |
 > | `authority` | Azure AD v2.0 uç noktası. Çoğu durumda bu *https<span/>://login.microsoftonline.com/common* olur |
 
 ### <a name="requesting-tokens"></a>Belirteç isteme
@@ -157,9 +157,9 @@ Belirteç almak için MSAL’in iki yöntemi vardır: `acquireToken` ve `acquire
 Bazı durumlarda kullanıcıları Azure Active Directory (Azure AD) v.2.0 uç. noktasıyla etkileşimde bulunmaya zorlamak gerekebilir ve bu da ya kullanıcının kimlik bilgilerinin doğrulanması ya da onayı için sistem tarayıcısına bağlam geçişine neden olur. Bazı örnekler:
 
 * Kullanıcılar uygulamada ilk kez oturum açtığında
-* Parolanın süresi dolması nedeniyle kullanıcıların kimlik bilgilerini yeniden girmesi gerektiğinde
-* Uygulamanız kullanıcının onay vermesi gerektiği bir kaynağa erişim istediğinde
-* İki öğeli kimlik doğrulaması gerektiğinde
+* Parolanın süresi dolduğundan kullanıcıların kimlik bilgilerini yeniden girmesi gerektiğinde
+* Uygulamanız kullanıcının onaylaması gereken bir kaynağa erişim istediğinde
+* İki faktörlü kimlik doğrulama gerektiğinde
 
 ```swift
 applicationContext.acquireToken(forScopes: self.kScopes) { (result, error) in /* Add your handling logic */}

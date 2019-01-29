@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: a7f939d9-532d-4b6d-b6d3-95520207965d
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 02/08/2017
 ms.author: celested
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 8f32d8f05d5ba5a7a813157adbf07ff7590153bb
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 0afcb022cf6a62479253efcf07843d06b17117cd
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425387"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092876"
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>Hizmetten hizmete çağrılar (paylaşılan gizli diziyi veya sertifika) istemci kimlik bilgileri kullanma
 
@@ -53,7 +53,7 @@ https://login.microsoftonline.com/<tenant id>/oauth2/token
 ## <a name="service-to-service-access-token-request"></a>Hizmetten hizmete erişim belirteci isteği
 İstemci uygulaması paylaşılan bir gizli dizi veya bir sertifika tarafından güvenli hale seçti olup olmadığına bağlı olarak iki durum vardır.
 
-### <a name="first-case-access-token-request-with-a-shared-secret"></a>İlk durumda: paylaşılan bir gizli dizi ile erişim belirteci isteği
+### <a name="first-case-access-token-request-with-a-shared-secret"></a>İlk Durum: Paylaşılan gizlilik ile erişim belirteci isteği
 Paylaşılan gizlilik kullanırken, hizmetten hizmete erişim belirteci isteği aşağıdaki parametreleri içerir:
 
 | Parametre |  | Açıklama |
@@ -74,7 +74,7 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=client_credentials&client_id=625bc9f6-3bf6-4b6d-94ba-e97cf07a22de&client_secret=qkDwDJlDfig2IpeuUZYKH1Wb8q1V0ju6sILxQQqhJ+s=&resource=https%3A%2F%2Fservice.contoso.com%2F
 ```
 
-### <a name="second-case-access-token-request-with-a-certificate"></a>İkinci durumda: bir sertifika ile erişim belirteci isteği
+### <a name="second-case-access-token-request-with-a-certificate"></a>İkinci durum: Bir sertifika ile erişim belirteci isteği
 Bir sertifika ile hizmetten hizmete erişim belirteci isteği aşağıdaki parametreleri içerir:
 
 | Parametre |  | Açıklama |
@@ -105,7 +105,7 @@ Başarılı yanıt, aşağıdaki parametrelerle bir JSON OAuth 2.0 yanıtındaki
 | Parametre | Açıklama |
 | --- | --- |
 | access_token |İstenen erişim belirteci. Çağıran web hizmeti, alıcı web hizmetinde kimlik doğrulaması için bu belirteci kullanabilirsiniz. |
-| token_type |Belirteç türü değeri gösterir. Azure AD destekleyen tek tür **taşıyıcı**. Taşıyıcı belirteçleri hakkında daha fazla bilgi için bkz: [OAuth 2.0 yetkilendirme Framework: taşıyıcı belirteç kullanımı (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
+| token_type |Belirteç türü değeri gösterir. Azure AD destekleyen tek tür **taşıyıcı**. Taşıyıcı belirteçleri hakkında daha fazla bilgi için bkz: [OAuth 2.0 yetkilendirme Framework: Taşıyıcı belirteç kullanımı (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 | expires_in |Ne kadar süreyle erişim belirteci (saniye olarak) geçerli değil. |
 | expires_on |Erişim belirtecinin süresinin sona erdiği zaman. Tarih 1970'ten saniye sayısı temsil edilen-01-kadar süre sonu UTC 01T0:0:0Z. Bu değer, önbelleğe alınan belirteç ömrünü belirlemek için kullanılır. |
 | not_before |Erişim belirteci kullanılabilir duruma süre. Tarih 1970'ten saniye sayısı temsil edilen-01-01T0:0:0Z UTC belirtecin geçerlilik süresini kadar.|

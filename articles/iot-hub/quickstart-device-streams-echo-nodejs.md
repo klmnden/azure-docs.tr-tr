@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: a90357e0075856049616a026fee7a49606ea4d90
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: fbd1c96cede42c0a5875f28b7b7793bcf20755bf
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54830155"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55150319"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>Hızlı Başlangıç: Node.js IOT Hub cihaz akışları (Önizleme) ile bir cihaz uygulaması için iletişim
 
@@ -48,7 +48,7 @@ Aşağıdaki komutu kullanarak geliştirme makinenizde geçerli Node.js sürüm�
 node --version
 ```
 
-Örnek Node.js projesini önceden indirmediyseniz https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip adresinden indirip ZIP arşivini ayıklayın.
+Örnek Node.js projesini önceden indirmediyseniz https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip adresinden indirip ZIP arşivini ayıklayın.
 
 
 ## <a name="create-an-iot-hub"></a>IoT hub oluşturma

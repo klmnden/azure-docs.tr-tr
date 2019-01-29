@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 01/25/2019
 ms.author: pbutlerm
-ms.openlocfilehash: ad62b306849b2291c81399cedc1634057e2eec9d
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 2adf07cf2337611b9136af47ce6a35b617e2e9ff
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828103"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55177041"
 ---
 # <a name="publish-azure-application-offer"></a>Azure uygulama teklifi yayımlama
 
@@ -28,6 +28,7 @@ ms.locfileid: "54828103"
 Aşağıdaki diyagramda "Canlı gitmek" bir teklif için yayımlama işlemi ana adımları gösterir.
 
 ![Teklif yayımlama adımları](./media/offer-publishing-steps.png)
+
 
 ## <a name="detailed-description-of-publishing-steps"></a>Yayımlama adımları ayrıntılı bir açıklaması
 
@@ -44,12 +45,14 @@ Aşağıdaki tabloda, listeler ve her yayımlama adımlarını açıklar ve her 
 | Microsoft gözden geçirme                | 7 - 14 gün | Bütünlüklü olarak Microsoft Azure uygulamanızı inceler ve sorunları bulunursa size e-posta.  Bu adımı uzunluğunu uygulama, sorunları ortaya çıkardı ve onlara nasıl kısa bir süre içinde yanıt karmaşıklığına bağlıdır.  |
 | Canlı                           | < 1 gün | Teklif serbest, belirli bölgelerde çoğaltılır ve genel kullanıma sunulan. |
 |   |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|   |
+
  
 Yayımlama işlemini izleyebilirsiniz **durumu** bulut iş ortağı Portalı'nda teklifinizi için sekmesinde.
 
 ![Bir Azure uygulaması teklif durumu sekmesi](./media/offer-status-tab.png)
 
 Yayımlama işlemini tamamladıktan sonra teklifinizi listelenir [Microsoft Azure Marketi'nde uygulama kategorisi](https://azuremarketplace.microsoft.com/marketplace/apps/).
+
 
 
 ## <a name="errors-and-review-feedback"></a>Hatalar ve gözden geçirme geri bildirimi

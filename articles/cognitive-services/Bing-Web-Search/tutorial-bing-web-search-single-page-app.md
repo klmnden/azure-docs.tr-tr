@@ -1,23 +1,23 @@
 ---
-title: 'Öğretici: Tek sayfalı web uygulaması oluşturma - Bing Web Araması API’si'
+title: "Öğretici: Tek sayfa web uygulaması - Bing Web araması API'si oluşturma"
 titleSuffix: Azure Cognitive Services
 description: Bu tek sayfalı uygulama, Bing Web Araması API'si kullanılarak tek sayfalı bir uygulamada ilgili arama sonuçlarının nasıl alınabileceği, ayrıştırılabileceği ve görüntülenebileceğini gösterir.
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: tutorial
 ms.date: 09/12/2018
-ms.author: erhopf
-ms.openlocfilehash: 670f02cbd8e994664e7c4edd75940ff43f9616b6
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
-ms.translationtype: HT
+ms.author: aahi
+ms.openlocfilehash: 13040cf7f75b8bf2c0bf898dc4f3b16c99a80560
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126488"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55172486"
 ---
-# <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Öğretici: Bing Web Araması API’sini kullanarak tek sayfalı uygulama oluşturma
+# <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Öğretici: Bing Web araması API'si kullanarak tek sayfalı uygulama oluşturma
 
 Bu tek sayfalı uygulama Bing Web Araması API'sinden arama sonuçlarını almayı, ayrıştırmayı ve görüntülemeyi gösterir. Öğretici standart HTML ile CSS kullanır ve JavaScript koduna odaklanır. HTML, CSS ve JS dosyaları, hızlı başlangıç yönergeleriyle birlikte [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Web-Search)'da sağlanır.
 
@@ -32,7 +32,7 @@ Bu örnek uygulama şunları yapabilir:
 
 Bu uygulamayı kullanmak için Bing Arama API'lerine sahip bir [Azure Bilişsel Hizmetler hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) gerekir. Bir hesabınız yoksa, abonelik anahtarı almak için [ücretsiz deneme sürümünü](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) kullanabilirsiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Uygulamayı çalıştırmak için ihtiyacınız olacak birkaç şey:
 

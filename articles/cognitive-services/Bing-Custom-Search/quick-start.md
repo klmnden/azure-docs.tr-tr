@@ -6,16 +6,16 @@ services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-custom-search
+ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2017
 ms.author: aahi
-ms.openlocfilehash: ba1444b3115ffd2c73e1773aa926d11fed81f830
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 360860813e4901a3346eec1fd2a970f0d1e86c46
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556127"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55177891"
 ---
 # <a name="quickstart-create-your-first-bing-custom-search-instance"></a>Hızlı Başlangıç: İlk Bing özel arama örneğinizin oluşturma
 

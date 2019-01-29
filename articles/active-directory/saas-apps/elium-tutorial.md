@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle Elium | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile Elium | Microsoft Docs'
 description: Azure Active Directory ve Elium arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: fae344b3-5bd9-40e2-9a1d-448dcd58155f
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: jeedes
-ms.openlocfilehash: dfa90474632b2cf18055e0ba95994f120cb293ef
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ac88d3accad8aa9ec523ecce5eb11b6c10eb913c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447793"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55181495"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-elium"></a>Öğretici: Azure Active Directory Elium ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-elium"></a>Öğretici: Elium ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Elium tümleştirme konusunda bilgi edinin.
 
@@ -38,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD Tümleştirmesi ile Elium yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik bir Elium çoklu oturum açma etkin
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Azure AD'de Elium tümleştirmesini yapılandırmak için Elium Galeriden yönet
 
 **Galeriden Elium eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -233,7 +233,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
 Bu bölümün amacı Elium Britta Simon adlı bir kullanıcı oluşturmaktır. Elium tam zamanında sağlama, varsayılan olarak etkin olan destekler. Bu bölümde, hiçbir eylem öğesini yoktur. Yeni bir kullanıcı, henüz yoksa Elium erişme denemesi sırasında oluşturulur.
 >[!Note]
->Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [Elium Destek ekibine](mailto:support@elium.com).
+>Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [Elium Destek ekibine](mailto:support@elium.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 01/29/2019
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: d006deb83ca16860eb669548ae8563304f7937fa
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 06252d2fc33fafc27371c45f41f792e8e5abd542
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306616"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55196217"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack için kullanılabilir olan Azure Market öğeleri
 
 *Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti.*
 
-## <a name="virtual-machine-extensions"></a>Sanal Makine Uzantıları
+## <a name="virtual-machine-extensions"></a>Sanal makine uzantıları
 
 Kullandığınız sanal makine (VM) uzantıları için güncelleştirmeler olduğunda bunları indirmeniz gerekir. Ürün sevk uzantıları, normal düzeltme eki ve güncelleştirme işlemini güncelleştirmez; Bu nedenle güncelleştirmeleri sık bakın. Diğer uzantılar yalnızca Market Yönetimi kullanılabilir.
 
@@ -97,10 +97,11 @@ Microsoft Azure Stack, çözüm şablonları ve şu Azure Marketi sanal makinele
 | ![SLES 12 SP3 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 12 SP3 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SLES) | SUSE Linux Enterprise Server 12 SP3. | SUSE |
 | ![SLES (BYOS) 15](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 15 SP3 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SLES) | SUSE Linux Enterprise Server 15. | SUSE |
 
-## <a name="third-party-byol-free-and-trial-images-and-solution-templates"></a>Üçüncü taraf KLG, ücretsiz ve deneme görüntüler ve çözüm şablonları
+## <a name="third-party-byol-free-trial-images-and-solution-templates"></a>Üçüncü taraf KLG, ücretsiz ve deneme görüntüler ve çözüm şablonları
 
 |  | Öğe adı | Açıklama | Yayımcı |
 | --- | --- | --- | --- |
+| ![A10 vThunder ADC](media/azure-stack-marketplace-azure-items/a10.png) | [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1) | Microsoft Azure için uygulama teslim denetleyicisi A10 ağları vThunder yüksek performans, esneklik, amaca yönelik olarak tasarlanan ve dağıtımı kolay uygulama teslimi ve Yük Dengeleme ve Azure bulut içinde yerel olarak çalışmak üzere iyileştirilmiştir. | A10 Networks |
 | ![Arista vEOS Router](media/azure-stack-marketplace-azure-items/arista.png) | [Arista vEOS Router](https://azuremarketplace.microsoft.com/marketplace/apps/arista-networks.veos-router) | Bir özellik bakımından zengin, çoklu bulut Arista vEOS yönlendirici olduğundan ve kurumlar ve tutarlı, yüksek güvenlikli oluşturmak için bulut sağlayıcıları güçlendirir, çok hipervizörlü sanal yönlendirici ve ölçeklenebilir hibrit ağlar. | Arista ağlar |
 | ![Barracuda uygulama güvenlik denetimi Merkezi](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda uygulama güvenlik denetimi Merkezi](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-app-sec-control-center) | Birden çok Barracuda Web uygulaması güvenlik duvarları (WAF) merkezi olarak yönetin. | Barracuda Networks, Inc. |
 | ![Barracuda e-posta güvenlik ağ geçidi](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda e-posta güvenlik ağ geçidi](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-email-security-gateway) | Gelen e-posta kaynaklı tehditlere karşı koruma için e-posta güvenlik ağ geçidi. | Barracuda Networks, Inc. |

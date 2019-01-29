@@ -9,13 +9,13 @@ ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: a49553941b83e323f23f20b794a464f47ef31981
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: 635700529007cc90c7e9b79c224f55f34b326f0f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849099"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55167079"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -71,7 +71,7 @@ PredicateValidationReference| 0:1 | Bir başvuru bir **PredicateValidationsInput
 
 | Öznitelik | Gerekli | Açıklama |
 | --------- | -------- | ----------- |
-| Ad | Evet | Azure AD B2C tarafından desteklenen geçerli bir protokol adı. Olası değerler şunlardır:  OAuth1, OAuth2, SAML2, Openıdconnect, WsFed veya WsTrust. |
+| Name | Evet | Azure AD B2C tarafından desteklenen geçerli bir protokol adı. Olası değerler şunlardır:  OAuth1, OAuth2, SAML2, Openıdconnect, WsFed veya WsTrust. |
 | PartnerClaimType | Evet | Kullanılacak talep türü adı. |
 
 Aşağıdaki örnekte olduğu saml2 tabanlı kimlik sağlayıcısı veya bağlı olan taraf uygulaması ile kimlik deneyimi çerçevesi etkileşim kurduğunda **Soyadı** talep eşlendi `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`, Openıdconnect ve OAuth2, talep olduğunu eşlenen `family_name`.
@@ -106,7 +106,7 @@ Sonuç olarak, Azure AD B2C tarafından verilen JWT belirteci yayan `family_name
 
 | Öznitelik | Gerekli | Açıklama |
 | --------- | -------- | ----------- |
-| Tür | Evet | Talep maskesi türü. Olası değerler: `Simple` veya `Regex`. `Simple` Değeri basit metin maske dizesi talep önde gelen bölümüne uygulandığını gösterir. `Regex` Değeri belirten bir normal ifade dizesini talep bütün olarak uygulanır.  Varsa `Regex` değeri belirtilirse, isteğe bağlı bir öznitelik, kullanılacak normal ifade ile tanımlanmalıdır. |
+| Type | Evet | Talep maskesi türü. Olası değerler: `Simple` veya `Regex`. `Simple` Değeri basit metin maske dizesi talep önde gelen bölümüne uygulandığını gösterir. `Regex` Değeri belirten bir normal ifade dizesini talep bütün olarak uygulanır.  Varsa `Regex` değeri belirtilirse, isteğe bağlı bir öznitelik, kullanılacak normal ifade ile tanımlanmalıdır. |
 | Regex | Hayır | Varsa **türü** ayarlanır `Regex`, normal ifadeyi belirtin.
 
 Aşağıdaki örnek yapılandırır bir **PhoneNumber** ile talep `Simple` maskesi:
@@ -162,7 +162,7 @@ Kimlik deneyimi çerçevesi e-posta adresini ve e-posta etki alanı adı yalnız
 | Öznitelik | Gerekli | Açıklama |
 | --------- | -------- | ----------- |
 | Metin | Evet | Bu seçenek için kullanıcı arabirimi kullanıcılara gösterilen görüntü dizesi. |
-|Değer | Evet | Bu seçeneğin belirlenmesi ile ilişkili talep değeri. |
+|Value | Evet | Bu seçeneğin belirlenmesi ile ilişkili talep değeri. |
 | SelectByDefault | Hayır | Bu seçenek varsayılan olarak kullanıcı arabiriminde seçili olup olmadığını gösterir. Olası değerler: TRUE veya False. |
 
 Aşağıdaki örnek yapılandırır bir **Şehir** açılan liste talep kümesine varsayılan değeri `New York`:

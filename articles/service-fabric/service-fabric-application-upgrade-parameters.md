@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2018
 ms.author: subramar
-ms.openlocfilehash: 71e7abef725abf95cc20de8d1283d0efea6c3687
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 73b48525566f9bf0107ba3b029c516ca294ca141
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615866"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099201"
 ---
 # <a name="application-upgrade-parameters"></a>Uygulama yükseltme parametreleri
 Bu makalede, Azure Service Fabric uygulaması yükseltme sırasında geçerli olan çeşitli parametreler açıklanmaktadır. Uygulama yükseltme parametreleri zaman aşımları ve yükseltme sırasında uygulanan sistem durumu denetimlerini denetleme ve bunlar yükseltme başarısız olduğunda uygulanmalıdır ilkeleri belirtin. Uygulama parametreleri kullanarak yükseltmeleri için geçerlidir:
@@ -64,7 +64,7 @@ Yatay kaydırma çubuğu, tablonun alt kısmındaki tam açıklama alanı görü
 
 | Parametre | Şunun İçin Geçerli | Açıklama |
 | --- | --- | --- |
-| ApplicationParameter |PS, VS| Uygulama parametreleri geçersiz kılmalarını belirtir.<br>PowerShell applcation parametreleri hashtable ad/değer çiftleri belirtilir. Örneğin, @{"VotingData_MinReplicaSetSize" = "3"; "VotingData_PartitionCount" = "1"}.<br>Visual Studio uygulama parametreleri, Service Fabric uygulamasını Yayımla iletişim belirtilebilir **uygulama parametreleri dosyası** alan.
+| ApplicationParameter |PS, VS| Uygulama parametreleri geçersiz kılmalarını belirtir.<br>PowerShell uygulama parametreleri hashtable ad/değer çiftleri belirtilir. Örneğin, @{"VotingData_MinReplicaSetSize" = "3"; "VotingData_PartitionCount" = "1"}.<br>Visual Studio uygulama parametreleri, Service Fabric uygulamasını Yayımla iletişim belirtilebilir **uygulama parametreleri dosyası** alan.
 | Onayla |PS| İzin verilen değerler **True** ve **False**. Cmdlet'i çalıştırmadan önce onay ister. |
 | ConsiderWarningAsError |PS, VS |İzin verilen değerler **True** ve **False**. Varsayılan ayar, **False** değeridir. Uygulama için uyarı sistem durumu olayları, yükseltme sırasında durumunu değerlendirilirken hata olarak değerlendir. Varsayılan olarak, Service Fabric uyarı olayları olsa bile, yükseltme devam edebilmeniz için hatası (hata) gibi uyarı sistem durumu olayları değerlendirmez. |
 | DefaultServiceTypeHealthPolicy | PS, VS |Sistem durumu ilkesi biçiminde MaxPercentUnhealthyPartitionsPerService, MaxPercentUnhealthyReplicasPerPartition, MaxPercentUnhealthyServices izlenen yükseltme için kullanılacak varsayılan hizmet türünün belirtir. Örneğin, aşağıdaki değerleri 5,10,15 gösterir: MaxPercentUnhealthyPartitionsPerService = 5, MaxPercentUnhealthyReplicasPerPartition = 10, MaxPercentUnhealthyServices = 15. |
@@ -94,7 +94,7 @@ Service Fabric CLI kullanarak Service Fabric uygulama yükseltme [sfctl uygulama
 
 | Parametre | Açıklama |
 | --- | --- |
-| Uygulama Kimliği  |Yükseltilmekte olan uygulama kimliği. <br> Bu genellikle uygulamayı olmadan tam adı, ' fabric:' URI düzeni. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmıştır ' ~' karakteri. Örneğin, uygulama adı ise ' fabric: / myapp/app1 ', uygulama kimliği olur ' Uygulamam ~ app1' 6.0 + ve ' myapp/app1' in önceki sürümlerindeki.|
+| Uygulama Kimliği  |Yükseltilmekte olan uygulama kimliği. <br> Bu genellikle uygulamayı olmadan tam adı, ' fabric:' URI şeması. Sürüm 6. 0 ' başlayarak, hiyerarşik adları ile ayrılmıştır ' ~' karakteri. Örneğin, uygulama adı ise ' fabric: / myapp/app1 ', uygulama kimliği olur ' Uygulamam ~ app1' 6.0 + ve ' myapp/app1' in önceki sürümlerindeki.|
 Uygulama sürümü |Uygulama sürümü türü yükseltme hedefler.|
 parametreler  |Uygulama yükseltme sırasında uygulanacak parametr aplikace JSON olarak kodlanmış listesi geçersiz kılar.|
 
@@ -114,7 +114,7 @@ Hizmet sistem durumu ilkesi | JSON hizmet türü sistem durumu ilkesi başına h
 timeout | İşlemi için saniye cinsinden zaman aşımı süresini belirtir. Varsayılan: 60. |
 Yükseltme etki alanı timeout | Önce tamamlamak, her bir yükseltme etki alanı süreyi sahip *FailureAction* yürütülür. Bu, önce bir ISO 8601 süre temsil eden bir dize olarak yorumlanır. Bu başarısız olursa, milisaniye cinsinden toplam sayısını temsil eden bir sayı olarak yorumlanır. Varsayılan değer hiçbir zaman: (sonsuz) ve uygulamanız için uygun biçimde özelleştirilmelidir. Varsayılan: P10675199DT02H48M05.4775807S. |
 Yükseltme zaman aşımı | Önce tamamlamak, her bir yükseltme etki alanı süreyi sahip *FailureAction* yürütülür. Bu, önce bir ISO 8601 süre temsil eden bir dize olarak yorumlanır. Bu başarısız olursa, milisaniye cinsinden toplam sayısını temsil eden bir sayı olarak yorumlanır. Varsayılan değer hiçbir zaman: (sonsuz) ve uygulamanız için uygun biçimde özelleştirilmelidir. Varsayılan: P10675199DT02H48M05.4775807S.|
-hata olarak uyarı | İzin verilen değerler **True** ve **False**. Varsayılan ayar, **False** değeridir. İçinde bir bayrak olarak geçirilebilir. Uygulama için uyarı sistem durumu olayları, yükseltme sırasında durumunu değerlendirilirken hata olarak değerlendir. Varsayılan olarak, Service Fabric uyarı olayları olsa bile, yükseltme devam edebilmeniz için hatası (hata) gibi uyarı sistem durumu olayları değerlendirmez. |
+warning-as-error | İzin verilen değerler **True** ve **False**. Varsayılan ayar, **False** değeridir. İçinde bir bayrak olarak geçirilebilir. Uygulama için uyarı sistem durumu olayları, yükseltme sırasında durumunu değerlendirilirken hata olarak değerlendir. Varsayılan olarak, Service Fabric uyarı olayları olsa bile, yükseltme devam edebilmeniz için hatası (hata) gibi uyarı sistem durumu olayları değerlendirmez. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Uygulamayı kullanarak Visual Studio yükseltme](service-fabric-application-upgrade-tutorial.md) Visual Studio kullanarak bir uygulama yükseltmesi size yol gösterir.

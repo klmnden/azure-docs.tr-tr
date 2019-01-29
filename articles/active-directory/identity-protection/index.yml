@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: b063f970b8c435c948ea9cfedf98c8693c695424
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 72839ff812c2e8574f911cf18ea54fcda11fe831
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468855"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55173964"
 documentType: LandingData
 title: Azure AD Kimlik Koruması
 metadata:
@@ -12,7 +12,7 @@ metadata:
   title: Azure Active Directory Kimlik Koruması Belgeleri - Hızlı başlangıçlar, kavramlar, başvurular | Microsoft Docs
   description: Azure Active Directory Kimlik Koruması’nı yapılandırmayı ve test etmeyi öğrenin.
   services: active-directory
-  ms.component: identity-protection
+  ms.subservice: identity-protection
   author: MarkusVi
   manager: daveba
   ms.service: active-directory

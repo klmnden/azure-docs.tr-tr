@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/24/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 9f95be8a9d75065deedd3bd7c92907145e966494
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: b40ab6bcc2f718eda85ff64d69a6689e12d60ab8
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913063"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094844"
 ---
 # <a name="scaling-media-processing"></a>Medya işlemeyi ölçeklendirme
 
@@ -32,27 +32,19 @@ Bu makalede nasıl kullanılacağını gösterir [Media Services v3 CLI](https:/
 
 ## <a name="prerequisites"></a>Önkoşullar 
 
-+ [Azure CLI]( /cli/azure/install-azure-cli)’yi yükleyin. Bu makale, Azure CLI 2.0 veya sonraki bir sürümü gerektirir. Kullandığınız sürümü bulmak için `az --version` komutunu çalıştırın. 
+[Bir Media Services hesabı oluşturma](create-account-cli-how-to.md).
 
-    [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest)’i de kullanabilirsiniz.
-+ [Bir Media Services hesabı oluşturma](create-account-cli-how-to.md).
+[!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
 ## <a name="scale-media-reserved-units-with-cli"></a>Ölçek medya ayrılmış birimleri CLI ile
 
-1. `login` komutunu çalıştırın. Azure cloud shell veya yerel CLI Kabuğu'nu kullanıp kullanmadığınızı şu komutu çalıştırın.
+`mru` komutunu çalıştırın.
 
-    ```azurecli
-    az login
-    ```
-    
-    CLI varsayılan tarayıcınızı açabiliyorsa, tarayıcıyı açar ve oturum açma sayfasını yükler. Aksi takdirde, tarayıcı sayfasını açın ve ayrıldıktan sonra bir yetkilendirme kodu girmek için komut satırında yönergeleri için ihtiyaç duyduğunuz [ https://aka.ms/devicelogin ](https://aka.ms/devicelogin) tarayıcınızda.
-2. `mru` komutunu çalıştırın.
+Aşağıdaki [az ams hesabınızı mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) komut, medya ayrılmış birimi "amsaccount" hesabını kullanarak kümeleri **sayısı** ve **türü** parametreleri.
 
-    Aşağıdaki [az ams hesabınızı mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) komut, medya ayrılmış birimi "amsaccount" hesabını kullanarak kümeleri **sayısı** ve **türü** parametreleri.
-
-    ```azurecli
-    az account set mru -n amsaccount -g amsResourceGroup --count 10 --type S3
-    ```
+```azurecli
+az account set mru -n amsaccount -g amsResourceGroup --count 10 --type S3
+```
 
 ## <a name="billing"></a>Faturalandırma
 

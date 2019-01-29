@@ -8,17 +8,17 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.topic: overview
 ms.date: 01/16/2019
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: b5848b16624f3b8c307a022b9f79c61910736b83
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: b5f1e5838fcf6eeac3b58fb0eef8fe08eb9202d4
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433739"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55167147"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management nedir?
 
@@ -56,8 +56,8 @@ PIM ve belgelerin daha iyi anlamak için aşağıdaki koşulları gözden geçir
 
 | Kavram veya sözleşme | Rol ataması kategorisi | Açıklama |
 | --- | --- | --- |
-| Uygun | Tür | Bir kullanıcı rolü kullanmak için bir veya daha fazla eylem gerçekleştirmek gereken bir rol ataması. Bir kullanıcı rolü için uygun duruma getirildi, ayrıcalıklı görevleri gerçekleştirmek ihtiyaç duydukları zaman rolünü etkinleştirebilir anlamına gelir. Kalıcı uygun rol atamasını karşı kimseler verilen erişimi hiçbir fark yoktur. Tek fark, bazıları her zaman bu erişim olmanızın gerekmemesidir. |
-| etkin | Tür | Bir kullanıcı rolü kullanmak için herhangi bir eylemi gerçekleştirmek gerektirmeyen bir rol ataması. Etkin olarak atanan kullanıcılar role atanmış ayrıcalıklarına sahiptir. |
+| Uygun | Type | Bir kullanıcı rolü kullanmak için bir veya daha fazla eylem gerçekleştirmek gereken bir rol ataması. Bir kullanıcı rolü için uygun duruma getirildi, ayrıcalıklı görevleri gerçekleştirmek ihtiyaç duydukları zaman rolünü etkinleştirebilir anlamına gelir. Kalıcı uygun rol atamasını karşı kimseler verilen erişimi hiçbir fark yoktur. Tek fark, bazıları her zaman bu erişim olmanızın gerekmemesidir. |
+| etkin | Type | Bir kullanıcı rolü kullanmak için herhangi bir eylemi gerçekleştirmek gerektirmeyen bir rol ataması. Etkin olarak atanan kullanıcılar role atanmış ayrıcalıklarına sahiptir. |
 | etkinleştirme |  | Bir kullanıcı için uygun rolü kullanmak için bir veya daha fazla eylemler gerçekleştirme işlemi. Bir iş gerekçesi sağlamak veya belirlenmiş onaylayanlar onayı isteyen bir çok faktörlü kimlik doğrulaması (MFA) denetimi gerçekleştirme işlemleri içerebilir. |
 | Atanan | Durum | Etkin bir rol atamanız bulunan bir kullanıcı. |
 | Etkinleştirildi | Durum | Bir uygun rol ataması bulunan bir kullanıcı rolü etkinleştirmek için eylemleri ve artık etkindir. |

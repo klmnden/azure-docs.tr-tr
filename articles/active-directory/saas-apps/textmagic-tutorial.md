@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle TextMagic | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile TextMagic | Microsoft Docs'
 description: Azure Active Directory ve TextMagic arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 3e5b49d2-7096-46bc-a9ce-90e09177ba28
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: jeedes
-ms.openlocfilehash: 5ab193d908063230946ebb2bb6320ab50bf14971
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: ed5107d581c880d130901bfb31d34afb9e986635
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014897"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55190097"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-textmagic"></a>Öğretici: Azure Active Directory TextMagic ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-textmagic"></a>Öğretici: TextMagic ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile TextMagic tümleştirme konusunda bilgi edinin.
 
@@ -122,7 +122,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve T
 
 6. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri ve talepler** iletişim kutusunda, SAML belirteci özniteliği yukarıdaki görüntüde gösterilen şekilde yapılandırın ve aşağıdaki adımları gerçekleştirin:
 
-    | Ad  | Kaynak özniteliği  | Ad Alanı |
+    | Name  | Kaynak özniteliği  | Ad alanı |
     | --------------- | --------------- | --------------- |
     | Şirket | User.CompanyName | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | FirstName               | User.givenName |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |

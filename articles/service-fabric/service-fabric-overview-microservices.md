@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell
-ms.openlocfilehash: 48df598ab12c509952b7712bb8cc9fe21355325f
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 39034d069c0c0feb2ac81437e34c7206d7fe6c4c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613690"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102825"
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>Neden mikro hizmetler yaklaşımı uygulamaları oluşturmak için?
 
@@ -37,7 +37,7 @@ Azure'da mikro hizmetler yaklaşımı hakkında daha fazla bilgi için okuma [mi
 
 ## <a name="monolithic-vs-microservice-design-approach"></a>Tek parçalı mikro hizmet yaklaşımı karşılaştırması
 
-Uygulamalar zamanla gelişmesinin. Kişiler için yararlı olan başarılı uygulamalar geliştirin. Başarısız uygulamalar değil evrim geçiren ve sonunda kullanım dışı bırakılmıştır. Soru: ne kadar gereksinimleriniz hakkında bugün biliyor musunuz ve ne, gelecekte sunulacak? Örneğin, bir departman için bir raporlama uygulaması oluşturuyorsanız varsayalım. Uygulamayı yalnızca şirketiniz kapsamında geçerlidir ve raporları kısa süreli olduğundan emin olursunuz. Söyleyin tercih ettiğiniz yaklaşımı, farklı olduğundan, bir hizmet oluşturma için on milyonlarca müşteriye video içeriği sunar.
+Uygulamalar zamanla gelişmesinin. Kişiler için yararlı olan başarılı uygulamalar geliştirin. Başarısız uygulamalar değil evrim geçiren ve sonunda kullanım dışı bırakılmıştır. Soru da şudur: Ne kadar gereksinimleriniz hakkında bugün biliyor musunuz ve ne, gelecekte sunulacak? Örneğin, bir departman için bir raporlama uygulaması oluşturuyorsanız varsayalım. Uygulamayı yalnızca şirketiniz kapsamında geçerlidir ve raporları kısa süreli olduğundan emin olursunuz. Söyleyin tercih ettiğiniz yaklaşımı, farklı olduğundan, bir hizmet oluşturma için on milyonlarca müşteriye video içeriği sunar.
 
 Bazen, kavram kanıtı olarak bir kullanıma alma bildiğiniz uygulama daha sonra tasarlanması ancak sürükleyici etken olabilir. Hiçbir zaman kullanılan bir şey aşırı mühendislik içinde çok az noktası yok. Bu normal mühendislik dengedir. Şirketler için bulut yapı hakkında konuşurken, diğer taraftan, büyüme ve kullanım beklenir. Büyüme ve ölçek öngörülemeyen sorunudur. Hızlı bir şekilde gelecekteki başarılı bir şekilde ilgilenmenin bir yolu üzerinde olduğunu da bilerek prototip kullanabilmek istiyorsunuz. Yalın başlangıç yaklaşım budur: oluşturun, ölçün, öğrenin ve yineleme.
 
@@ -149,7 +149,7 @@ Service Fabric, mikro hizmetler yaklaşımı sağlayarak kullanan uygulamalar ol
 
 * Dağıtmak için sistem hizmetleri sağlayan bir platform yükseltme, algılamanıza ve başarısız hizmetlerini yeniden başlatın, hizmetlerini keşfedin, iletileri yönlendirmek, durumunu yönetme ve durumunu izleyin.
 * Kapsayıcılar veya işlemler ya da çalışan uygulamaları dağıtma yeteneği. Service Fabric kapsayıcı ve işlem Düzenleyici ' dir.
-* Mikro hizmet uygulamaları oluşturmanıza yardımcı olmak üzere, üretken programlama API'leri: [ASP.NET Core, Reliable Actors ve Reliable Services](service-fabric-choose-framework.md). Örneğin, sistem durumu ve tanılama bilgileri elde edebilirsiniz veya yerleşik yüksek kullanılabilirlik yararlanabilir.
+* Mikro hizmet uygulamaları oluşturmanıza yardımcı olmak için üretken programlama API'leri: [ASP.NET Core, Reliable Actors ve güvenilir hizmetler](service-fabric-choose-framework.md). Örneğin, sistem durumu ve tanılama bilgileri elde edebilirsiniz veya yerleşik yüksek kullanılabilirlik yararlanabilir.
 
 ***Service Fabric hizmetinizin nasıl oluşturulacağına belirsiz olduğundan ve tüm teknolojileri kullanabilirsiniz. Bununla birlikte, mikro hizmetler oluşturmayı kolay hale getiren yerleşik programlama API'leri sağlar.***
 
@@ -181,7 +181,7 @@ Birçok kuruluşun burada durabilir. Zaten sahip oldukları kapsayıcılarının
 Varolan yanı sıra yeni hizmetler eklenen kod kapsayıcıya alınmış. Yeni kod yazmak için kullanacaksanız, mikro hizmetler yolunu küçük adımlar atın karar en iyisidir. Bu, yeni REST API uç noktası veya yeni bir iş mantığı ekleme. Bu şekilde, yeni mikro hizmetler oluşturma ve uygulama geliştirme ve bunları dağıtma yolculukta başlatın.
 
 **Yenilik yapın**  
-Bir mikro hizmetler yaklaşımı accomodates değişen işletme ihtiyaçlarına. Bu aşamada, tek parçalı uygulama hizmetleri veya yenilik bölme Başlat gerekip gerekmediğini kararıdır. İşlem sorunu iş akışı sırası olarak kullanılan bir veritabanı hale geldiğinde buraya örneğidir. İş akışı sayısı arttıkça istekleri gibi iş için ölçek dağıtılması gerekir. Belirli olan İnceleyenleri olmaması ölçeklendirmeyle veya, daha sık güncelleştirilmesi gerekiyor uygulamanın bu mikro hizmete bölmek ve yenilik yapın.
+Mikro hizmetler yaklaşımı, değişen iş gereksinimlerini karşılar. Bu aşamada, tek parçalı uygulama hizmetleri veya yenilik bölme Başlat gerekip gerekmediğini kararıdır. İşlem sorunu iş akışı sırası olarak kullanılan bir veritabanı hale geldiğinde buraya örneğidir. İş akışı sayısı arttıkça istekleri gibi iş için ölçek dağıtılması gerekir. Belirli olan İnceleyenleri olmaması ölçeklendirmeyle veya, daha sık güncelleştirilmesi gerekiyor uygulamanın bu mikro hizmete bölmek ve yenilik yapın.
 
 **Mikro hizmetler halinde dönüştürdü**  
 Bu, uygulamanızın tam olarak oluştuğundan, (veya ayrılmış olarak) olduğu, mikro hizmetler. Buraya ulaşmak için mikro hizmetler yolculuğu yapıldı. Buradan başlayın, ancak bir mikro hizmetler Bunu yapmak için yardımcı olması için ciddi bir yatırım platformudur. 

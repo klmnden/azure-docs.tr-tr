@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle XaitPorter | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile XaitPorter | Microsoft Docs'
 description: Azure Active Directory ve XaitPorter arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: d33c7cb7-0550-425b-882a-619a713a71b7
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 12fb8e5b2b940c48de766a48f59ed0cc342b5356
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: fe89b64fb5f188591ce123e8ed7ed410d3c5ab48
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421075"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55170054"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-xaitporter"></a>Öğretici: Azure Active Directory XaitPorter ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-xaitporter"></a>Öğretici: XaitPorter ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile XaitPorter tümleştirme konusunda bilgi edinin.
 
@@ -38,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD Tümleştirmesi ile XaitPorter yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik XaitPorter çoklu oturum açma etkin
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Azure AD'de XaitPorter tümleştirmesini yapılandırmak için XaitPorter Galeri
 
 **Galeriden XaitPorter eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -183,7 +183,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
  
 ### <a name="create-a-xaitporter-test-user"></a>XaitPorter test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon XaitPorter içinde adlı bir kullanıcı oluşturun. Çalışmak [XaitPorter istemci Destek ekibine](https://www.xait.com/support/) XaitPorter platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi. 
+Bu bölümde, Britta Simon XaitPorter içinde adlı bir kullanıcı oluşturun. Çalışmak [XaitPorter istemci Destek ekibine](https://www.xait.com/support/) XaitPorter platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

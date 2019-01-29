@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 1/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 4a8b45850ef609f908450fbcf35aad6b5c87540b
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: c2e67adb93c34cc4421145964ee809e4423b4843
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818515"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101737"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-signagelive"></a>Öğretici: Signagelive ile Azure Active Directory Tümleştirme
 
@@ -104,7 +104,7 @@ Azure AD çoklu oturum açma ile Signagelive yapılandırmak için aşağıdaki 
 
     ![Signagelive etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-signonurl.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:  `https://login.signagelive.com/sso/<ORGANISATIONALUNITNAME>`
+    İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:  `https://login.signagelive.com/sso/<ORGANIZATIONALUNITNAME>`
 
     > [!NOTE]
     > Değer, gerçek değil. Değerini gerçek oturum açma URL'si ile güncelleştirin. İlgili kişi [Signagelive istemci Destek ekibine](mailto:support@signagelive.com) değeri alınamıyor. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.

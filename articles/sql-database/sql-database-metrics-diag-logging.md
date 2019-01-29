@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: 49c411487a29a7faa5a6cec5087a85d472309a4b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: e44ac8dca3b27a21e1a7564bbee31c156f80e929
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044578"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102198"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL veritabanı ölçümleri ve tanılama günlükleri
 
@@ -68,7 +68,7 @@ Azure SQL veritabanları ve yönetilen örnek veritabanları aşağıdaki tanıl
 | [Tüm ölçümleri](sql-database-metrics-diag-logging.md#all-metrics): DTU/CPU yüzdesi, DTU/CPU sınırı, fiziksel içeren veri okuma yüzdesi, günlük yazma ve yüzde başarılı/başarısız/engellenen güvenlik duvarı bağlantıları, oturumları yüzdesi, çalışanları yüzdesi, depolama, depolama yüzdesi ve XTP depolama yüzdesi. | Evet | Hayır |
 | [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics): CPU kullanımı gibi çalışma zamanı istatistikleri sorgu ve sorgu süresi istatistikleri hakkında bilgi içerir. | Evet | Evet |
 | [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics): CPU, günlük ve KİLİTLEME gibi (ne sorgularınızın beklenen) sorgu bekleme istatistikleri hakkında bilgi içerir. | Evet | Evet |
-| [Hataları](sql-database-metrics-diag-logging.md#errors-dataset): Veritabanında SQL hatalar hakkında bilgi içerir. | Evet | Hayır |
+| [Hataları](sql-database-metrics-diag-logging.md#errors-dataset): Veritabanında SQL hatalar hakkında bilgi içerir. | Evet | Evet |
 | [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-wait-statistics-dataset): Ne kadar süre bekleyin farklı türlerde bekleyen veritabanı harcanan bilgilerini içerir. | Evet | Hayır |
 | [Zaman aşımları](sql-database-metrics-diag-logging.md#time-outs-dataset): Veritabanında zaman aşımları hakkındaki bilgileri içerir. | Evet | Hayır |
 | [Blokları](sql-database-metrics-diag-logging.md#blockings-dataset): Veritabanı olaylarını engelleme hakkında bilgi içerir. | Evet | Hayır |
@@ -414,8 +414,8 @@ Yönetilen örnek için günlükleri hakkında ayrıntılar için aşağıdaki t
 |TenantId|Kiracı Kimliğiniz |
 |SourceSystem|Her zaman: Azure|
 |TimeGenerated [UTC]|Günlüğe kaydedildiği zaman damgası |
-|Tür|Her zaman: AzureDiagnostics |
-|ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT. SQL |
+|Type|Her zaman: AzureDiagnostics |
+|ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT.SQL |
 |Kategori|Kategori adı. Her zaman: ResourceUsageStats |
 |Kaynak|Kaynağın adı |
 |ResourceType|Kaynak türünün adı. Her zaman: MANAGEDINSTANCES |
@@ -443,8 +443,8 @@ Azure SQL ve yönetilen örnek veritabanları için günlükler hakkında ayrın
 |TenantId|Kiracı Kimliğiniz |
 |SourceSystem|Her zaman: Azure |
 |TimeGenerated [UTC]|Günlüğe kaydedildiği zaman damgası |
-|Tür|Her zaman: AzureDiagnostics |
-|ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT. SQL |
+|Type|Her zaman: AzureDiagnostics |
+|ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT.SQL |
 |Kategori|Kategori adı. Her zaman: QueryStoreRuntimeStatistics |
 |OperationName|İşlemin adı. Her zaman: QueryStoreRuntimeStatisticsEvent |
 |Kaynak|Kaynağın adı |
@@ -494,8 +494,8 @@ Daha fazla bilgi edinin [Query Store çalışma zamanı istatistik verileri](htt
 |TenantId|Kiracı Kimliğiniz |
 |SourceSystem|Her zaman: Azure |
 |TimeGenerated [UTC]|Günlüğe kaydedildiği zaman damgası |
-|Tür|Her zaman: AzureDiagnostics |
-|ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT. SQL |
+|Type|Her zaman: AzureDiagnostics |
+|ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT.SQL |
 |Kategori|Kategori adı. Her zaman: QueryStoreWaitStatistics |
 |OperationName|İşlemin adı. Her zaman: QueryStoreWaitStatisticsEvent |
 |Kaynak|Kaynağın adı |
@@ -532,7 +532,7 @@ Daha fazla bilgi edinin [Query Store bekleme istatistikleri veri](https://docs.m
 |TenantId|Kiracı Kimliğiniz |
 |SourceSystem|Her zaman: Azure |
 |TimeGenerated [UTC]|Günlüğe kaydedildiği zaman damgası |
-|Tür|Her zaman: AzureDiagnostics |
+|Type|Her zaman: AzureDiagnostics |
 |ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT.SQ |
 |Kategori|Kategori adı. Her zaman: Hatalar |
 |OperationName|İşlemin adı. Her zaman: ErrorEvent |
@@ -561,8 +561,8 @@ Daha fazla bilgi edinin [SQL Server hata iletileri](https://msdn.microsoft.com/l
 |TenantId|Kiracı Kimliğiniz |
 |SourceSystem|Her zaman: Azure |
 |TimeGenerated [UTC]|Günlüğe kaydedildiği zaman damgası |
-|Tür|Her zaman: AzureDiagnostics |
-|ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT. SQL |
+|Type|Her zaman: AzureDiagnostics |
+|ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT.SQL |
 |Kategori|Kategori adı. Her zaman: DatabaseWaitStatistics |
 |OperationName|İşlemin adı. Her zaman: DatabaseWaitStatisticsEvent |
 |Kaynak|Kaynağın adı |
@@ -590,8 +590,8 @@ Daha fazla bilgi edinin [bekleme istatistikleri veritabanı](https://docs.micros
 |TenantId|Kiracı Kimliğiniz |
 |SourceSystem|Her zaman: Azure |
 |TimeGenerated [UTC]|Günlüğe kaydedildiği zaman damgası |
-|Tür|Her zaman: AzureDiagnostics |
-|ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT. SQL |
+|Type|Her zaman: AzureDiagnostics |
+|ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT.SQL |
 |Kategori|Kategori adı. Her zaman: Zaman Aşımları |
 |OperationName|İşlemin adı. Her zaman: TimeoutEvent |
 |Kaynak|Kaynağın adı |
@@ -613,8 +613,8 @@ Daha fazla bilgi edinin [bekleme istatistikleri veritabanı](https://docs.micros
 |TenantId|Kiracı Kimliğiniz |
 |SourceSystem|Her zaman: Azure |
 |TimeGenerated [UTC]|Günlüğe kaydedildiği zaman damgası |
-|Tür|Her zaman: AzureDiagnostics |
-|ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT. SQL |
+|Type|Her zaman: AzureDiagnostics |
+|ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT.SQL |
 |Kategori|Kategori adı. Her zaman: blokları |
 |OperationName|İşlemin adı. Her zaman: BlockEvent |
 |Kaynak|Kaynağın adı |
@@ -637,8 +637,8 @@ Daha fazla bilgi edinin [bekleme istatistikleri veritabanı](https://docs.micros
 |TenantId|Kiracı Kimliğiniz |
 |SourceSystem|Her zaman: Azure |
 |TimeGenerated [UTC] |Günlüğe kaydedildiği zaman damgası |
-|Tür|Her zaman: AzureDiagnostics |
-|ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT. SQL |
+|Type|Her zaman: AzureDiagnostics |
+|ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT.SQL |
 |Kategori|Kategori adı. Her zaman: Kilitlenmeler |
 |OperationName|İşlemin adı. Her zaman: DeadlockEvent |
 |Kaynak|Kaynağın adı |
@@ -658,8 +658,8 @@ Daha fazla bilgi edinin [bekleme istatistikleri veritabanı](https://docs.micros
 |TenantId|Kiracı Kimliğiniz |
 |SourceSystem|Her zaman: Azure |
 |TimeGenerated [UTC]|Günlüğe kaydedildiği zaman damgası |
-|Tür|Her zaman: AzureDiagnostics |
-|ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT. SQL |
+|Type|Her zaman: AzureDiagnostics |
+|ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT.SQL |
 |Kategori|Kategori adı. Her zaman: AutomaticTuning |
 |Kaynak|Kaynağın adı |
 |ResourceType|Kaynak türünün adı. Her zaman: SUNUCULARI/VERİTABANLARI |

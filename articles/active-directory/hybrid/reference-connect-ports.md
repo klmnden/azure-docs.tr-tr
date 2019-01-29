@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 38a344fb6e67beae6310480646d84a1fe7730f84
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: b5c7a1c56d9df28b8132f240dc3872314f029f78
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54461051"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55155340"
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>Karma Kimlik için Gereken Bağlantı Noktaları ve Protokoller
 Gerekli bağlantı noktaları ve protokolleri bir karma kimlik çözümü uygulamak için teknik başvuru belgesidir. Aşağıdaki çizim kullanın ve karşılık gelen tabloya bakın.
@@ -36,7 +36,7 @@ Bu tablo, Azure AD Connect sunucusu arasındaki iletişim için gereken protokol
 | Kerberos |88 (TCP/UDP) |AD ormanı için Kerberos kimlik doğrulaması. |
 | MS-RPC |135 (TCP/UDP) |Azure AD Connect Sihirbazı tarafından AD ormanına bağladığında ilk yapılandırma sırasında ve ayrıca parola eşitleme sırasında kullanılır. |
 | LDAP |389 (TCP/UDP) |AD alanından veri içeri aktarma için kullanılır. Veriler, Kerberos oturum & korumalı ile şifrelenir. |
-| RPC | 445 (TCP/UDP) |Sorunsuz çoklu oturum açma tarafından AD ormanında bilgisayar hesabını oluşturmak için kullanılır. |
+| SMB | 445 (TCP/UDP) |Sorunsuz çoklu oturum açma tarafından AD ormanında bilgisayar hesabını oluşturmak için kullanılır. |
 | LDAP/SSL |636 (TCP/UDP) |AD alanından veri içeri aktarma için kullanılır. Veri aktarımı imzalanır ve şifrelenir. Yalnızca SSL kullanıyorsanız kullanılır. |
 | RPC |49152 - 65535 (rastgele yüksek RPC Port)(TCP/UDP) |Azure AD Connect'in AD ormanına için bağladığında ilk yapılandırma sırasında ve parola eşitleme sırasında kullanılır. Bkz: [KB929851](https://support.microsoft.com/kb/929851), [KB832017](https://support.microsoft.com/kb/832017), ve [KB224196](https://support.microsoft.com/kb/224196) daha fazla bilgi için. |
 

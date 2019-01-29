@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı başlangıç: Yanıt Arama Projesi, Node'
+title: 'Hızlı Başlangıç: Proje yanıt arama, düğüm'
 description: Node ile Yanıt Arama Projesini kullanmaya başlayın.
 services: cognitive-services
 author: mikedodaro
@@ -9,18 +9,18 @@ ms.component: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 1afd029803fc7d2709a9a9abe840db6d7f52498d
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: 3fd10bd08aa86458173dd1d88e2767f6f9ca4191
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465755"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104460"
 ---
-# <a name="quickstart-project-answer-search-with-node"></a>Hızlı başlangıç: Node ile Yanıt Arama Projesi
+# <a name="quickstart-project-answer-search-with-node"></a>Hızlı Başlangıç: Proje düğümü ile yanıt arama
 
 Aşağıdaki Node örneği Yosemite Ulusal Parkı hakkındaki bilgileri almak için bir sorgu oluşturur.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 [Bilişsel Hizmetler Laboratuvarları](https://aka.ms/answersearchsubscription) ücretsiz denemesi için erişim anahtarı alın
 
@@ -38,7 +38,7 @@ Aşağıdaki adımları izler:
 
 Bu tanıtımda kullanılan kodun tamamı aşağıda verilmiştir:
 
-````
+```
 'use strict';
 
 let https = require('https');
@@ -85,7 +85,7 @@ let Search = function () {
 
 Search();
 
-````
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - [C# örnek kodu](c-sharp-quickstart.md)

@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: a242a5ff-7300-40c2-ba83-fb6035707433
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 46b66a6e718f18b76db6332487c350c2c199c342
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: c6cf9681804f9576d6c13a52161843d64244b1e8
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957783"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097699"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Azure Active Directory kod örnekleri (v1.0 uç noktası)
 
@@ -56,10 +56,10 @@ Aşağıdaki örnekleri kullanıcılar imzalama Web uygulamaları gösterir. Bu 
 
  Platform | Yalnızca kullanıcılar oturum açtığında | Çağrıları Microsoft Graph veya AAD Graph| Başka bir ASP.NET veya ASP.NET Core 2.0 Web API'sini çağırır.
  -------- | ------------------- | --------------------- | -------------------------
-![ASP.NET](media/sample-v2-code/logo_NETcore.png)<p/>ASP.NET Core 2.0 sürümüne | [DotNet webapp openıdconnect aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore) | [WebApp-webapı-multitenant-openıdconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-webapp-webapi-multitenant-openidconnect-aspnetcore/) <p/>(AAD Graph) | [DotNet-webapp-webapı-openıdconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore)
-![ASP.NET 4.5](media/sample-v2-code/logo_NETframework.png)<p/> ASP.NET 4.5 | [webApp openıdconnect dotnet](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-aspnetwebapp-v1) <p/> [WebApp WSFederation dotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation) <p/> [DotNet-webapp-webapı-oauth2-userıdentity](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-useridentity) | [DotNet webapp multitenant openıdconnect](https://github.com/Azure-Samples/active-directory-dotnet-webapp-multitenant-openidconnect)<p/> (AAD Graph) |
+![ASP.NET](media/sample-v2-code/logo_NETcore.png)<p/>ASP.NET Core 2.0 sürümüne | [DotNet webapp openıdconnect aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore) | [webapp-webapi-multitenant-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-webapp-webapi-multitenant-openidconnect-aspnetcore/) <p/>(AAD Graph) | [dotnet-webapp-webapi-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore)
+![ASP.NET 4.5](media/sample-v2-code/logo_NETframework.png)<p/> ASP.NET 4.5 | [webApp openıdconnect dotnet](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-aspnetwebapp-v1) <p/> [webapp-WSFederation-dotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation) <p/> [dotnet-webapp-webapi-oauth2-useridentity](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-useridentity) | [DotNet webapp multitenant openıdconnect](https://github.com/Azure-Samples/active-directory-dotnet-webapp-multitenant-openidconnect)<p/> (AAD Graph) |
 ![Python](media/sample-v2-code/logo_python.png) | | [Python webapp graphapi](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi)  |
-![Java](media/sample-v2-code/logo_java.png)  | | [Java webapp openıdconnect](https://github.com/azure-samples/active-directory-java-webapp-openidconnect)  |
+![Java](media/sample-v2-code/logo_java.png)  | | [java-webapp-openidconnect](https://github.com/azure-samples/active-directory-java-webapp-openidconnect)  |
 ![PHP](media/sample-v2-code/logo_php.png) | | [PHP graphapi web](https://github.com/Azure-Samples/active-directory-php-graphapi-web)  |
 
 ### <a name="web-applications-demonstrating-role-based-access-control-authorization"></a>Rol tabanlı erişim denetimi (yetkilendirme) gösteren web uygulamaları
@@ -80,14 +80,14 @@ Aşağıdaki örnekleri, Microsoft Graph veya bir Web API'sini bir kullanıcı a
 
 İstemci uygulaması | Platform | Akış/verme | Microsoft Graph çağrıları | Bir ASP.NET veya ASP.NET Core 2.x Web API'si çağıran
 ------------------ | -------- | ---------- | -------------------- | -------------------------
-Masaüstü (WPF)           | ![.NET / C#](media/sample-v2-code/logo_NET.png)  | Etkileşimli | Parçası [dotnet yerel multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget) | [DotNet yerel Masaüstü](https://github.com/Azure-Samples/active-directory-dotnet-native-desktop) </p> [DotNet yerel aspnetcore](https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore/)</p> [DotNet-webapı-el ile-jwt-doğrulama](https://github.com/azure-samples/active-directory-dotnet-webapi-manual-jwt-validation)
+Masaüstü (WPF)           | ![.NET/C#](media/sample-v2-code/logo_NET.png)  | Etkileşimli | Parçası [dotnet yerel multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget) | [DotNet yerel Masaüstü](https://github.com/Azure-Samples/active-directory-dotnet-native-desktop) </p> [DotNet yerel aspnetcore](https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore/)</p> [dotnet-webapi-manual-jwt-validation](https://github.com/azure-samples/active-directory-dotnet-webapi-manual-jwt-validation)
 Mobile (UWP)            | .![.NET/C#/UWP](media/sample-v2-code/logo_Windows.png)   | Etkileşimli | [DotNet yerel uwp wam](https://github.com/azure-samples/active-directory-dotnet-native-uwp-wam) </p> Bu örnekte [WAM](https://docs.microsoft.com/windows/uwp/security/web-account-manager)değil [ADAL.NET](https://aka.ms/adalnet)|  [DotNet windows mağazası](https://github.com/Azure-Samples/active-directory-dotnet-windows-store) (tek bir kiracının Web API'sini çağırmak için ADAL.NET kullanarak UWP uygulaması) </p> [DotNet-webapı-multitenant-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-webapi-multitenant-windows-store) (bir çok kiracılı bir Web API'sini çağırmak için ADAL.NET kullanarak UWP uygulaması)|
-Mobile (Android, iOS, UWP)   | ![.NET / C# (Xamarin)](media/sample-v2-code/logo_xamarin.png) | Etkileşimli | [DotNet yerel multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget) |
+Mobile (Android, iOS, UWP)   | ![.NET/C# (Xamarin)](media/sample-v2-code/logo_xamarin.png) | Etkileşimli | [DotNet yerel multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget) |
 Mobile (Android)           | ![Android / Java](media/sample-v2-code/logo_Android.png) | Etkileşimli |   [Android](https://github.com/Azure-Samples/active-directory-android) |
 Mobile (iOS)           | ![iOS / Objective C ya da swift'te](media/sample-v2-code/logo_iOS.png) | Etkileşimli |   [nativeClient-iOS](https://github.com/azureadquickstarts/nativeclient-ios) |
-Masaüstü (konsol)          | ![.NET / C#](media/sample-v2-code/logo_NET.png) | Kullanıcı adı / parola </p>  Tümleşik Windows Kimlik Doğrulaması | | [DotNet-yerel-gözetimsiz](https://github.com/azure-samples/active-directory-dotnet-native-headless)
+Masaüstü (konsol)          | ![.NET/C#](media/sample-v2-code/logo_NET.png) | Kullanıcı adı / parola </p>  Tümleşik Windows Kimlik Doğrulaması | | [DotNet-yerel-gözetimsiz](https://github.com/azure-samples/active-directory-dotnet-native-headless)
 Masaüstü (konsol)          | ![Java konsol](media/sample-v2-code/logo_Java.png) | Kullanıcı adı / parola | | [Java-yerel-gözetimsiz](https://github.com/Azure-Samples/active-directory-java-native-headless)
-Masaüstü (konsol)           | ![.NET core / C#](media/sample-v2-code/logo_NETcore.png) | Cihaz kod akışı | | [DotNet deviceprofile](https://github.com/Azure-Samples/active-directory-dotnet-deviceprofile)
+Masaüstü (konsol)           | ![.NET Core/C#](media/sample-v2-code/logo_NETcore.png) | Cihaz kod akışı | | [DotNet deviceprofile](https://github.com/Azure-Samples/active-directory-dotnet-deviceprofile)
 
 ## <a name="daemon-applications-accessing-web-apis-with-the-applications-identity"></a>Arka plan programı uygulamalar (Web API'leri ile uygulamanın kimliğine erişim)
 
@@ -97,7 +97,7 @@ Aşağıdaki örnekler, Microsoft Graph veya bir web API'si (uygulama kimliği i
 ------------------ | -------- | ---------- | -------------------- | -------------------------
 Arka plan programı uygulama (konsol)          | ![.NET](media/sample-v2-code/logo_NETframework.png) | Uygulama gizli anahtarı veya sertifika ile istemci kimlik bilgileri | [DotNet-arka plan programı](https://github.com/azure-samples/active-directory-dotnet-daemon)</p> [DotNet-arka plan programı-sertifika-credential](https://github.com/azure-samples/active-directory-dotnet-daemon-certificate-credential)
 Arka plan programı uygulama (konsol)         | ![.NET](media/sample-v2-code/logo_NETcore.png) | Sertifika istemci kimlik bilgileri| [dotnetcore-arka plan programı-sertifika-credential](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-certificate-credential)
-ASP.NET Web uygulaması  | ![.NET](media/sample-v2-code/logo_NETframework.png) | İstemci kimlik bilgileri | [DotNet-webapp-webapı-oauth2-appidentity](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-appidentity)
+ASP.NET Web uygulaması  | ![.NET](media/sample-v2-code/logo_NETframework.png) | İstemci kimlik bilgileri | [dotnet-webapp-webapi-oauth2-appidentity](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-appidentity)
 
 ## <a name="web-apis"></a>Web API'leri
 
@@ -117,7 +117,7 @@ Aşağıdaki örnekler, başka bir web API'si çağıran bir web API'si gösteri
 
  Platform |  Microsoft Graph çağrıları | Başka bir ASP.NET veya ASP.NET Core 2.0 Web API'sini çağırır.
  -------- |  --------------------- | -------------------------
-![ASP.NET 4.5](media/sample-v2-code/logo_NETframework.png)<p/> ASP.NET 4.5 | [DotNet webapı onbehalfof](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof) <p/> [DotNet-webapı-onbehalfof-ca](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof-ca) |[DotNet webapı onbehalfof](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof) <p/> [DotNet-webapı-onbehalfof-ca](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof-ca)
+![ASP.NET 4.5](media/sample-v2-code/logo_NETframework.png)<p/> ASP.NET 4.5 | [DotNet webapı onbehalfof](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof) <p/> [dotnet-webapi-onbehalfof-ca](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof-ca) |[DotNet webapı onbehalfof](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof) <p/> [dotnet-webapi-onbehalfof-ca](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof-ca)
 
 ## <a name="other-microsoft-graph-samples"></a>Diğer Microsoft Graph örnekleri
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 43e842d6325897f484d9dff342505cace6640e78
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 64fb629e29de9771ca5f76d1c454ec5d14337a57
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54472297"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104525"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak günlük uyarıları yönetme  
 
@@ -72,6 +72,7 @@ Ayrıntılı sonraki Azure portal arabirimi kullanarak günlük uyarıları kull
     ![toplama seçeneği](media/alerts-log/aggregate-on.png)
 
 1.  *Günlük uyarıları*: Bir yerde görselleştirme ile **Alert Logic** koşulu, toplama ve son olarak eşiği gösterilen seçeneklerden seçilebilir. Son olarak mantığında belirtin belirtilen koşulun değerlendirme süresi kullanarak **süresi** seçeneği. Uyarı seçerek ne sıklıkta çalıştırılacağını birlikte **sıklığı**.
+
 İçin **günlük uyarıları** uyarılar temelinde:
    - *Kayıt sayısı*: Sorgu tarafından döndürülen kayıt sayısını büyüktür veya belirtilen değerden daha az ise bir uyarı oluşturulur.
    - *Ölçüm ölçüsü*: Her değilse bir uyarı oluşturulur *toplam değer* sonuçlarda sağlanan eşik değerini aşıyor ve bu *göre gruplandırılmış* değer seçildi. Seçili zaman aralığındaki eşiğini kaç kez uyarısının ihlallerini sayısıdır. Sonuç kümesi veya ihlallerini ardışık örnekler içinde gerçekleşmelidir gerektirecek şekilde ardışık ihlaller genelinde toplam ihlal sayısı için herhangi bir birleşimini ihlallerini belirtebilirsiniz. Daha fazla bilgi edinin [günlük uyarıları ve bunların türlerini](../../azure-monitor/platform/alerts-unified-log.md).
@@ -108,7 +109,7 @@ Ayrıntılı sonraki Azure portal arabirimi kullanarak günlük uyarıları kull
     Birkaç dakika içinde uyarı etkin ve daha önce açıklandığı gibi tetikler.
 
 Kullanıcılar ayrıca kendi analytics sorgunuzda kesin [Azure portalında günlüklerini analiz sayfası](../../azure-monitor/log-query/portals.md#log-analytics-page
-) ve Ayarla'uyarı ' düğmesiyle - bir uyarı oluşturmak için anında iletme sonra adım 6'dan başlayarak yukarıdaki öğreticide talimatları.
+) ve aracılığıyla bir uyarı oluşturmak için anında iletme '+ Yeni uyarı kuralı' düğmesini - sonra adım 6'dan başlayarak yukarıdaki öğreticide talimatları.
 
  ![Log Analytics - uyarı ayarlama](media/alerts-log/AlertsAnalyticsCreate.png)
 
@@ -125,35 +126,31 @@ Kullanıcılar ayrıca kendi analytics sorgunuzda kesin [Azure portalında günl
     ![ Uyarı kurallarını yönet](media/alerts-log/manage-alert-rules.png)
 
 ## <a name="managing-log-alerts-using-azure-resource-template"></a>Azure kaynak şablonu kullanarak günlük uyarıları yönetme
-Şu anda günlük uyarı oluşturulabilmesi için iki farklı kaynak şablonlarını kullanarak hangi analytics platformu üzerine uyarı (yani) Log Analytics veya Application Insights temel dayanır.
 
-Bu nedenle aşağıdaki bölümde ayrıntıları sağlayın kaynak şablonu için günlük uyarıları için her bir analiz platformu kullanarak.
+Azure İzleyici'de günlüğü uyarılarına kaynak türüyle ilişkili `Microsoft.Insights/scheduledQueryRules/`. Bu kaynak türü hakkında daha fazla bilgi için bkz. [Azure İzleyici - zamanlanmış sorgu kuralları API Başvurusu](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/). Application Insights veya Log Analytics için günlük uyarıları, kullanılarak oluşturulan [zamanlanmış sorgu kuralları API'si](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).
 
-### <a name="azure-resource-template-for-log-analytics"></a>Log Analytics için Azure kaynak şablonu
-Günlük uyarıları için Log Analytics kayıtlı bir aramayı düzenli aralıklarla çalıştıran uyarı kuralları tarafından oluşturulur. Sorgu eşleşmenin sonuçlarını ölçütleri belirtilirse, bir uyarı kaydı oluşturulur ve bir veya daha fazla Eylemler çalıştırılır. 
-
-Kaynak şablonu Log analytics arama ve Log analytics uyarılarını kayıtlı için Log Analytics belgeleri bölümünde kullanılabilir. Daha fazla bilgi için bkz, [ekleme Log Analytics kayıtlı aramaları ve Uyarıları](../../azure-monitor/insights/solutions-resources-searches-alerts.md); yalnızca tanım örnekleri ve bunun yanı sıra şema ayrıntılarını içerir.
-
-### <a name="azure-resource-template-for-application-insights"></a>Application Insights için Azure kaynak şablonu
-Application Insights kaynakları için günlük uyarı sahip bir tür `Microsoft.Insights/scheduledQueryRules/`. Bu kaynak türü hakkında daha fazla bilgi için bkz. [Azure İzleyici - zamanlanmış sorgu kuralları API Başvurusu](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).
+> [!NOTE]
+> Log Analytics için günlük uyarıları da eski kullanılarak yönetilebilir [Log Analytics uyarı API](../../azure-monitor/platform/api-alerts.md) ve eski şablonları [Log Analytics kayıtlı aramaları ve Uyarıları](../../azure-monitor/insights/solutions-resources-searches-alerts.md) de. Varsayılan olarak burada ayrıntıları yeni ScheduledQueryRules API'sini kullanarak daha fazla bilgi için bkz. [geçiş yapmak için yeni bir API için Log Analytics uyarılarını](alerts-log-api-switch.md).
 
 Aşağıdakiler için yapısıdır [zamanlanmış sorgu kuralı oluşturma](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate) değişkenleri olarak örnek veri kümesiyle kaynak şablonu temel.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0", 
     "parameters": {      
     },   
     "variables": {
-    "alertLocation": "southcentralus",
-    "alertName": "samplelogalert",
-    "alertTag": "hidden-link:/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/components/sampleAIapplication",
-    "alertDescription": "Sample log search alert",
+    "alertLocation": "Region Name for your Application Insights App or Log Analytics Workspace",
+    "alertName": "sample log alert",
+    "alertDescr": "Sample log search alert",
     "alertStatus": "true",
+    "alertTag": "hidden-link:/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicews",
     "alertSource":{
-        "Query":"requests",
-        "SourceId": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/components/sampleAIapplication",
+        "Query":"union workspace("servicews").Update, app('serviceapp').requests | summarize AggregatedValue = count() by bin(TimeGenerated,1h), Classification",
+        "Resource1": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicews", 
+        "Resource2": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.insights/components/serviceapp",
+        "SourceId": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicews",
         "Type":"ResultCount"
          },
      "alertSchedule":{
@@ -161,17 +158,24 @@ Aşağıdakiler için yapısıdır [zamanlanmış sorgu kuralı oluşturma](http
          "Time": 60
          },
      "alertActions":{
-         "SeverityLevel": "4"
+         "SeverityLevel": "4",
+         "SuppressTimeinMin": 20
          },
       "alertTrigger":{
         "Operator":"GreaterThan",
         "Threshold":"1"
          },
+      "metricMeasurement": {
+          "thresholdOperator": "Equal",
+          "threshold": "1",
+          "metricTriggerType": "Consecutive",
+          "metricColumn": "Classification"
+      },
        "actionGrp":{
-        "ActionGroup": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/actiongroups/sampleAG",
+        "ActionGroup": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.insights/actiongroups/sampleAG",
         "Subject": "Customized Email Header",
-        "Webhook": "{ \"alertname\":\"#alertrulename\", \"IncludeSearchResults\":true }"           
-         }
+        "Webhook": "{ \"alertname\":\"#alertrulename\", \"IncludeSearchResults\":true }"
+        }
   },
   "resources":[ {
     "name":"[variables('alertName')]",
@@ -180,28 +184,36 @@ Aşağıdakiler için yapısıdır [zamanlanmış sorgu kuralı oluşturma](http
     "location": "[variables('alertLocation')]",
     "tags":{"[variables('alertTag')]": "Resource"},
     "properties":{
-       "description": "[variables('alertDescription')]",
+       "description": "[variables('alertDescr')]",
        "enabled": "[variables('alertStatus')]",
        "source": {
            "query": "[variables('alertSource').Query]",
+           "authorizedResources": "[concat(array(variables('alertSource').Resource1), array(variables('alertSource').Resource2))]",
            "dataSourceId": "[variables('alertSource').SourceId]",
            "queryType":"[variables('alertSource').Type]"
        },
       "schedule":{
            "frequencyInMinutes": "[variables('alertSchedule').Frequency]",
-           "timeWindowInMinutes": "[variables('alertSchedule').Time]"    
+           "timeWindowInMinutes": "[variables('alertSchedule').Time]"
        },
       "action":{
            "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
            "severity":"[variables('alertActions').SeverityLevel]",
+           "throttlingInMin": "[variables('alertActions').SuppressTimeinMin]",
            "aznsAction":{
-               "actionGroup":"[array(variables('actionGrp').ActionGroup)]",
+               "actionGroup": "[array(variables('actionGrp').ActionGroup)]",
                "emailSubject":"[variables('actionGrp').Subject]",
                "customWebhookPayload":"[variables('actionGrp').Webhook]"
            },
        "trigger":{
                "thresholdOperator":"[variables('alertTrigger').Operator]",
-               "threshold":"[variables('alertTrigger').Threshold]"
+               "threshold":"[variables('alertTrigger').Threshold]",
+               "metricTrigger":{
+                   "thresholdOperator": "[variables('metricMeasurement').thresholdOperator]",
+                   "threshold": "[variables('metricMeasurement').threshold]",
+                   "metricColumn": "[variables('metricMeasurement').metricColumn]",
+                   "metricTriggerType": "[variables('metricMeasurement').metricTriggerType]"
+               }
            }
        }
      }
@@ -212,34 +224,28 @@ Aşağıdakiler için yapısıdır [zamanlanmış sorgu kuralı oluşturma](http
 > [!IMPORTANT]
 > Hedef kaynak için gizli-bağlantı etiketi alanıyla kullanımını zorunlu [zamanlanmış sorgu kuralları ](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) API çağrısı veya kaynak şablonu. 
 
-Yukarıdaki örnek json sampleScheduledQueryRule.json amacıyla bu izlenecek yolda (örneğin) olarak kaydedilebilir ve kullanılarak dağıtılabilir [Azure portalında Azure Resource Manager](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
-
+Yukarıdaki örnek json (örneğin) sampleScheduledQueryRule.json amacıyla bu kılavuzda olarak kaydedilebilir ve kullanılarak dağıtılabilir [Azure portalında Azure Resource Manager](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 
 ## <a name="managing-log-alerts-using-powershell-cli-or-api"></a>PowerShell, CLI veya API kullanarak günlük uyarıları yönetme
-Şu anda günlük uyarı oluşturulabilmesi için iki farklı Resource Manager uyumlu API'leri kullanarak hangi analytics platformu üzerine uyarı (yani) Log Analytics veya Application Insights temel dayanır.
 
-Bu nedenle aşağıdaki bölümde ayrıntıları sağlayın API, Powershell veya CLI aracılığıyla günlük uyarıları için her bir analiz platformu kullanarak.
+Azure İzleyici - zamanlanmış sorgu kuralları API] (https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) REST API ve Azure Resource Manager REST API'si ile tamamen uyumlu. Bu nedenle Azure CLI yanı sıra, Resource Manager cmdlet'ini kullanarak Powershell kullanılabilir.
 
-### <a name="powershell-cli-or-api-for-log-analytics"></a>PowerShell, CLI veya Log Analytics için API
-Log Analytics uyarı REST API, RESTful olduğu ve Azure Resource Manager REST API aracılığıyla erişilebilir. API, böylece bir PowerShell komut satırından erişilebilir ve sonuçları programlı olarak birçok farklı şekilde kullanmanıza olanak sağlayan, arama sonuçları JSON biçiminde çıkarır.
+> [!NOTE]
+> Log Analytics için günlük uyarıları da eski kullanılarak yönetilebilir [Log Analytics uyarı API](../../azure-monitor/platform/api-alerts.md) ve eski şablonları [Log Analytics kayıtlı aramaları ve Uyarıları](../../azure-monitor/insights/solutions-resources-searches-alerts.md) de. Varsayılan olarak burada ayrıntıları yeni ScheduledQueryRules API'sini kullanarak daha fazla bilgi için bkz. [geçiş yapmak için yeni bir API için Log Analytics uyarılarını](alerts-log-api-switch.md).
 
-Daha fazla bilgi edinin [oluşturmak ve REST API ile Log analytics'teki uyarı kuralları yönetmek](../../azure-monitor/platform/api-alerts.md)Powershell'den API'sine erişim örnekler dahil.
 
-### <a name="powershell-cli-or-api-for-application-insights"></a>PowerShell, CLI veya Application ınsights API
-[Azure İzleyici - zamanlanmış sorgu kuralları API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) REST API ve Azure Resource Manager REST API'si ile tamamen uyumlu. Bu nedenle Azure CLI yanı sıra, Resource Manager cmdlet'ini kullanarak Powershell kullanılabilir.
-
-Kaynak şablonu (sampleScheduledQueryRule.json) daha önce gösterilen örnek için Azure Resource Manager PowerShell cmdlet'i aracılığıyla kullanımı aşağıda gösterilen [kaynak şablon bölümü](#azure-resource-template-for-application-insights) :
+Günlük uyarıları özel PowerShell veya CLI komutları şu anda yoktur; ancak aşağıda gösterildiği gibi Azure Resource Manager PowerShell cmdlet'i kaynak şablonu (sampleScheduledQueryRule.json) daha önce gösterilen örnek için kullanılabilir [kaynak şablon bölümü](#azure-resource-template-for-application-insights) :
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile "D:\Azure\Templates\sampleScheduledQueryRule.json"
+New-AzureRmResourceGroupDeployment -ResourceGroupName "contosoRG" -TemplateFile "D:\Azure\Templates\sampleScheduledQueryRule.json"
 ```
+
 Azure Resource Manager kaynak şablonu (sampleScheduledQueryRule.json) daha önce gösterilen örnek için Azure CLI komutu aracılığıyla kullanımı aşağıda gösterilen [kaynak şablon bölümü](#azure-resource-template-for-application-insights) :
 
 ```azurecli
-az group deployment create --resource-group myRG --template-file sampleScheduledQueryRule.json
+az group deployment create --resource-group contosoRG --template-file sampleScheduledQueryRule.json
 ```
+
 Başarılı bir işlem 201 durum yeni uyarı kuralı oluşturma döndürülecek veya mevcut bir uyarı kuralı değiştirilmişse, 200 döndürülür.
-
-
   
 ## <a name="next-steps"></a>Sonraki adımlar
 

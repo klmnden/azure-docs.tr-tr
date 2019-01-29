@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory Tümleştirme Skyhigh ağlarla | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi Skyhigh ağlarla | Microsoft Docs'
 description: Azure Active Directory ve Skyhigh ağlar arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 48d6ddd1-4d3e-4019-8234-5e5212684d9c
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: jeedes
-ms.openlocfilehash: 40237946adf0e9cf30367fd0464a6c32572c3aaf
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6b66a7343c6ddaa9ff8cf36489798a96fbdf1c30
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423734"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55175324"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-skyhigh-networks"></a>Öğretici: Azure Active Directory Skyhigh ağlar ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-skyhigh-networks"></a>Öğretici: Skyhigh ağlar ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Skyhigh ağları tümleştirme konusunda bilgi edinin.
 
@@ -38,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD Tümleştirmesi ile Skyhigh ağları yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik Skyhigh ağları çoklu oturum açma etkin
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Azure AD'de Skyhigh ağları tümleştirmesini yapılandırmak için Skyhigh ağ
 
 **Galeriden Skyhigh ağlar eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -169,7 +169,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
  
 ### <a name="create-a-skyhigh-networks-test-user"></a>Skyhigh ağları test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon Skyhigh ağlarda adlı bir kullanıcı oluşturun. Çalışmak [Skyhigh ağları Destek ekibine](mailto:support@skyhighnetworks.com) Skyhigh ağları platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi
+Bu bölümde, Britta Simon Skyhigh ağlarda adlı bir kullanıcı oluşturun. Çalışmak [Skyhigh ağları Destek ekibine](mailto:support@skyhighnetworks.com) Skyhigh ağları platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

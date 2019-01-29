@@ -5,23 +5,23 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/29/2018
+ms.date: 01/28/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: 16bf68a5fdb1df2a4f60de9167893a42295cbc52
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 266e2be2775a6f9b74c714bd9112e38837bb6a6c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260542"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098347"
 ---
 # <a name="ethereum-proof-of-work-consortium-solution-template"></a>Ethereum iş kavram consortium çözüm şablonu
 
 Ethereum kavram iş Consortium çözüm şablonu, daha kolay ve hızlı dağıtma ve Azure ve Ethereum minimum bilgi ile çok üye consortium Ethereum ağ yapılandırma olmak için tasarlanmıştır.
 
-Birkaç kullanıcı girişleri ve Azure Portalı aracılığıyla tek tıklamayla dağıtım ile üyelerin kendi ağ kaplama alanını kullanarak Microsoft Azure işlem, ağ ve depolama hizmetleri dünya çapında sağlayabilirsiniz. Her üyenin ağ kaplama alanını yük dengeli işlem düğümlerinin bir dizi oluşur. sahip olan bir uygulama ya da kullanıcı işlemleri, bir dizi araştırma düğümü kayıt işlemleri ve VPN ağ geçidi göndermek için etkileşim kurabilirsiniz. Bir sonraki bağlantı adımı tam olarak yapılandırılmış birden çok üye blockchain ağ oluşturmak için ağ geçitleri bağlanır.
+Bir Azure Resource Manager şablonu kullanarak, üyelerin kendi ağ kaplama alanını kullanarak Microsoft Azure işlem, ağ ve depolama hizmetleri sağlayabilirsiniz. Yük dengeli işlem düğümlerinin bir dizi her üyenin ağ kaplama alanını oluşur ile bir uygulama ya da kullanıcı işlemleri, bir dizi araştırma düğümü kayıt işlemleri ve VPN ağ geçidi göndermek için etkileşim kurar. Dağıtımdan sonra tam olarak yapılandırılmış birden çok üye blockchain ağ oluşturmak için ağ geçidi bağlayın.
 
 ## <a name="about-blockchain"></a>Blockchain hakkında
 
@@ -35,7 +35,7 @@ En fazla beş bölgede yönetilen diskle, bir veya daha fazla araştırma düğ�
 
 Tüm düğümleri Ethereum gidin (Geth) istemcinin kararlı bir sürüm olması ve araştırma düğümleri olacak şekilde yapılandırılır. Özel genesis blok sağlamadı, tüm düğümler aynı Ethereum adresini ve Ethereum hesabı parola korumalı anahtar çifti kullanın. Sağladığınız Ethereum parola her araştırma düğüm için varsayılan hesap (coinbase) oluşturmak için kullanılır. Araştırma düğümleri olarak Madencilik, bunlar bu hesaba eklenen ücreti tahsil.
 
-Toplam boyut her üyesine atanmış karma gücü miktarına ve istenen ağ consortium üyesi başına araştırma düğüm sayısını bağlıdır. Ağ ne daha büyük bir haksız avantaj elde etmek için tehlikeye gereken daha fazla düğüm. Şablon kullanarak sanal makine ölçek kümeleri sağlanan bölge başına en fazla 15 araştırma düğümleri destekler.
+Toplam boyut her üyesine atanmış karma gücü miktarına ve istenen ağ consortium üyesi başına araştırma düğüm sayısını bağlıdır. Daha büyük ağlar bir haksız avantaj elde etmek için tehlikeye daha fazla düğüm gerektirir. Şablon kullanarak sanal makine ölçek kümeleri sağlanan bölge başına en fazla 15 araştırma düğümleri destekler.
 
 ### <a name="transaction-node-details"></a>İşlem düğümü ayrıntıları
 
@@ -45,7 +45,7 @@ Yük dengeli işlem düğümleri kümesi consortium üyesi de var. Bu düğümle
 
 ### <a name="log-analytics-details"></a>Log analytics ayrıntıları
 
-Her dağıtım, ayrıca yeni bir Log Analytics örneği oluşturur veya var olan bir örneğini katılabilirsiniz. Bu, çeşitli performans ölçümleri dağıtılan ağı yaptığı tüm sanal makinelerin izlenmesini sağlar.
+Her dağıtım, ayrıca yeni bir Log analytics örneği oluşturur veya var olan bir örneğini katılabilirsiniz. Log analytics, çeşitli performans ölçümleri dağıtılan ağı yaptığı tüm sanal makinelerin izlenmesini sağlar.
 
 ## <a name="deployment-architecture"></a>Dağıtım mimarisi
 
@@ -88,11 +88,9 @@ Abonelik| Aboneliği Konsorsiyum ağı dağıtmak için||NA
 Kaynak Grubu| Hangi Konsorsiyum ağı dağıtmak kaynak grubu.||NA
 Konum| Kaynak grubu için bir Azure bölgesi. ||NA
 
-
-
 ### <a name="operations-management-suite"></a>Operations Management Suite
 
-Operations Management Suite (OMS) dikey penceresinde, ağınız için bir OMS kaynak yapılandırmanıza olanak sağlar. OMS toplar ve yüzey yararlı ölçüm ve günlükleri ağınızdan, hızlı bir şekilde hata ayıklama ve ağ durumu denetleme olanağı tanıyacak verir. Kapasite ulaşıldığında ücretsiz sunulan OMS düzgün biçimde başarısız olur.
+Operations Management Suite (OMS) ağınız için bir OMS kaynak yapılandırmanıza olanak sağlar. OMS toplar ve yüzey yararlı ölçüm ve günlükleri ağınızdan, hızlı bir şekilde hata ayıklama ve ağ durumu denetleme olanağı tanıyacak verir. Kapasite ulaşıldığında ücretsiz sunulan OMS düzgün biçimde başarısız olur.
 
 ![Yeni OMS oluşturma](./media/ethereum-deployment/new-oms.png)
 
@@ -143,8 +141,8 @@ Parametre Adı |Açıklama |İzin Verilen Değerler|Varsayılan değerler
 ConsortiumMember kimliği|Çakışma önlemek için IP adresi alanları yapılandırmak için kullanılan consortium ağa katılan her üye ile ilişkili kimlik. <br /><br />Üye kimliği aynı ağda farklı kuruluşlar arasında benzersiz olmalıdır. Hatta aynı kuruluşa birden fazla bölgeye dağıtırken benzersiz üye kimliği gereklidir.<br /><br />Katılan diğer üyeleriyle paylaşmak olması gerektiğinden, bu parametrenin değerini not edin.|0 - 255
 Ethereum ağ kimliği|Dağıtılan consortium Ethereum ağ ağ kimliği. Her Ethereum ağ kendi ağ 1 olan ortak ağ kimliği ile kimliği vardır. Ağ erişimi için araştırma düğümleri kısıtlı olsa da, çakışmaları önlemek için çok sayıda kullanarak yine de öneririz.|5 - 999,999,999| 10101010
 Özel genesis bloğu|Otomatik olarak genesis blok oluşturmak veya özel bir sağlamak için seçenek.|Evet/Hayır| Hayır
-Ethereum hesap parolası (özel genesis blok = Hayır)|Her bir düğümüne içeri Ethereum hesabının güvenliğini sağlamak için kullanılan yönetici parolası. Parola şunları içermelidir: 1 büyük harf karakter, 1 küçük harf ve 1 sayı.|en az 12 karakter|NA
-Ethereum özel anahtar parolası (özel genesis blok = Hayır)|Oluşturulan varsayılan Ethereum hesapla ilişkili ECC özel anahtarı oluşturmak için kullanılan parola. Önceden oluşturulan bir özel anahtarı açıkça geçirilmesi gerekmez.<br /><br />Bir parola ile güçlü bir özel anahtar ve diğer consortium üyeleriyle örtüşme emin olmak için yeterli doğrulukla göz önünde bulundurun. Parola en az şunları içermelidir: 1 büyük harf karakter, 1 küçük harf ve 1 sayı.<br /><br />Not iki üye aynı parolayı oluşturulan hesapları kullanıyorsanız, aynı olacaktır. Tek bir kuruma bölgeler arasında dağıtmak çalışıyor ve tüm düğümlere tek bir hesap (para temel) paylaşmak istiyor, parolayı yararlı olur.|en az 12 karakter|NA
+Ethereum hesap parolası (özel genesis blok = Hayır)|Her bir düğümüne içeri Ethereum hesabının güvenliğini sağlamak için kullanılan yönetici parolası. Parolanın içermesi gereken: 1 büyük harf karakter, 1 küçük harf ve 1 sayı.|en az 12 karakter|NA
+Ethereum özel anahtar parolası (özel genesis blok = Hayır)|Oluşturulan varsayılan Ethereum hesapla ilişkili ECC özel anahtarı oluşturmak için kullanılan parola. Önceden oluşturulan bir özel anahtarı açıkça geçirilmesi gerekmez.<br /><br />Bir parola ile güçlü bir özel anahtar ve diğer consortium üyeleriyle örtüşme emin olmak için yeterli doğrulukla göz önünde bulundurun. Parola en az içermelidir: 1 büyük harf karakter, 1 küçük harf ve 1 sayı.<br /><br />Not iki üye aynı parolayı oluşturulan hesapları kullanıyorsanız, aynı olacaktır. Tek bir kuruma bölgeler arasında dağıtmak çalışıyor ve tüm düğümlere tek bir hesap (para temel) paylaşmak istiyor, parolayı yararlı olur.|en az 12 karakter|NA
 Genesis engelle (özel genesis blok = Yes)|Özel genesis blok temsil eden JSON dizesi. Özel ağlar altında burada genesis bloğunun biçimi hakkında daha fazla ayrıntı bulabilirsiniz.<br /><br />Ethereum hesabınız hala özel genesis blok sağlanırken oluşturulur. Araştırma için bekleme için genesis bloğundaki bir prefunded Ethereum hesabı belirtme göz önünde bulundurun.|Geçerli bir JSON |NA
 Paylaşılan anahtar bağlantısı|VNET ağ geçitleri arasında bağlantı için bir paylaşılan anahtar.| en az 12 karakter|NA
 Consortium veri URL'si|Başka bir üyesinin dağıtım tarafından sağlanan ilgili consortium yapılandırma verilerini işaret eden URL. <br /><br />Bu bilgiler, bir dağıtım olan zaten bağlı bir üyesi tarafından sağlanır. Ağın geri kalanı dağıttıysanız CONSORTIUM veri adlı şablon dağıtımı çıkış URL'dir.||NA
@@ -154,7 +152,7 @@ Anahtar, eş bilgileri kayıt şirketi|Başka bir üyesinin dağıtım tarafınd
 
 ### <a name="summary"></a>Özet
 
-Özet dikey penceresi aracılığıyla belirtilen girişleri inceleyin ve temel dağıtım öncesi doğrulama çalıştırmak için tıklayın.
+Özet belirtilen girişleri inceleyin ve temel dağıtım öncesi doğrulama çalıştırmak için tıklayın.
 
 ![Özet](./media/ethereum-deployment/summary.png)
 

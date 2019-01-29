@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 8f98cbf0-a71d-4e34-babf-e644ad9ff423
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin, jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: e118249cf2aaf07aeb4f337636a46d088102bca8
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 94a8cb5f0764ac1ed7330fb75131d3084d804f1e
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261188"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55091969"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>İzinler ve onay Azure Active Directory v2.0 uç noktası
 
@@ -48,7 +48,7 @@ Aynı durum Microsoft kimlik platformu ile tümleştirdik herhangi bir üçünc�
 
 * Kullanıcının Takvim okuyun
 * Kullanıcının takvim için yazma
-* Bir kullanıcı olarak posta gönderme
+* Kullanıcı olarak posta gönderme
 
 Bu tür izinler tanımlayarak kaynak verilerini ve API işlevselliğini nasıl sunulduğunu üzerinde ayrıntılı denetime sahiptir. Bir üçüncü taraf uygulaması kullanıcılar ve Yöneticiler, bu izinler isteyebilir kimin önce uygulama isteğini onaylaması veri erişebilir veya bir kullanıcı adına hareket. Daha küçük izin kümeleri kaynağın işlevsellik Öbekleme tarafından üçüncü taraf uygulamaları işlevleri gerçekleştirmek için ihtiyaç duydukları belirli izinleri istemek için oluşturulabilir. Tam olarak hangi verilerin uygulama erişimi olan kullanıcıların ve yöneticilerin bilebilirsiniz ve kötü amaçlı bir eyleme çalışmıyorsa doğrulayabilirse olabilir. Geliştiriciler için yalnızca işlev uygulamalarına ihtiyaç duydukları izinleri isteyen en az ayrıcalık kavramı tarafından her zaman uymanız.
 

@@ -11,18 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/19/2018
+ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: f4ded67ef964482a2acea0d731b1b154a95168d2
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: db6646c2066be940b2c058653fe8f2ceb9bff3a2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53741360"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55169715"
 ---
-# <a name="liveevent-latency-in-media-services"></a>Media Services Livestream gecikme süresi
+# <a name="live-event-latency-in-media-services"></a>Media Services canlı olay gecikme süresi
 
-Bu makalede, düşük gecikme süresi ayarlamak gösterilmektedir bir [Livestream](https://docs.microsoft.com/rest/api/media/liveevents). Ayrıca, düşük gecikme süresi ayarları çeşitli oynatıcılarda kullanırken göreceğiniz tipik sonuçları anlatılmaktadır. Sonuçları, CDN ve ağ gecikmesi göre değişir.
+Bu makalede, düşük gecikme süresi ayarlamak gösterilmektedir bir [canlı olay](https://docs.microsoft.com/rest/api/media/liveevents). Ayrıca, düşük gecikme süresi ayarları çeşitli oynatıcılarda kullanırken göreceğiniz tipik sonuçları anlatılmaktadır. Sonuçları, CDN ve ağ gecikmesi göre değişir.
 
 Yeni **LowLatency** özelliği, ayarladığınız **StreamOptionsFlag** için **LowLatency** üzerinde **Livestream**. Oluştururken [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) HLS kayıttan yürütme için ayarlanmış [LiveOutput.Hls.fragmentsPerTsSegment](https://docs.microsoft.com/rest/api/media/liveoutputs/create#hls) 1. Akış, çalışır duruma geldikten sonra kullanabileceğiniz [Azure Media Player](http://ampdemo.azureedge.net/) (AMP tanıtım sayfası) ve "Düşük gecikme süresi buluşsal yöntemler profili" kullanmak için kayıttan yürütme seçeneklerini ayarlayın.
 
@@ -54,7 +54,7 @@ LiveEvent liveEvent = new LiveEvent(
 
 Tam örneğe bakın: [MediaV3LiveApp](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/Program.cs#L126).
 
-## <a name="liveevents-latency"></a>LiveEvents gecikme süresi
+## <a name="live-events-latency"></a>Canlı olayları gecikme süresi
 
 Aşağıdaki tablolarda, Media Services, bir Görüntüleyici oynatıcıda kayıttan yürütme gördüğünde hizmetinin katkı akış ulaştığında zamandan itibaren ölçülür (LowLatency bayrağı etkinleştirildiğinde) gecikme süresi için tipik sonuçları gösterir. Düşük gecikme süresi en iyi şekilde kullanmak için Kodlayıcı ayarlarınızı aşağı 1 saniye "Grubu, resimleri" (GOP) uzunluğunu ayarlayın. Daha yüksek bir GOP uzunluğu kullanırken, bant genişliği kullanımını en aza indirmek ve altında aynı kare hızı bit hızı azaltma. Daha az hareket videoları bu durum özellikle yararlıdır.
 

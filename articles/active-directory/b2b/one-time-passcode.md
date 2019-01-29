@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.openlocfilehash: 5259176328803d3b6c0715c741d7f43b6ecc2d8a
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: bc88b46182eadf431efcb5be89f05256a9e0eb1b
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55082569"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095591"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>E-posta bir kerelik geçiş kodu kimlik doğrulama (Önizleme)
 
@@ -81,29 +81,29 @@ Bu, etkili olması katılım eylemi için birkaç dakika sürebilir. Bundan sonr
 #### <a name="prerequisite-install-the-latest-azureadpreview-module"></a>Önkoşul: En son AzureADPreview modülünü yükleme
 İlk olarak, hangi modülleri yüklediğinizi denetleyin. Windows PowerShell’i yükseltilmiş yönetici olarak açın (Yönetici olarak çalıştırın) ve aşağıdaki komutu çalıştırın:
  
-````powershell  
+```powershell  
 Get-Module -ListAvailable AzureAD*
-````
+```
 
 AzureADPreview modülü, sonraki bir sürüm olduğunu belirten bir ileti olmadan görüntülenirse hazırsınız demektir. Aksi takdirde, çıktıya bağlı olarak aşağıdakilerden birini yapın:
 
 - Bir sonuç döndürülmezse, AzureADPreview modülünü yüklemek için aşağıdaki komutu çalıştırın:
   
-   ````powershell  
+   ```powershell  
    Install-Module AzureADPreview
-   ````
+   ```
 - Yalnızca sonuçlarda AzureAD modülü gösteriliyorsa, AzureADPreview modülünü yüklemek için aşağıdaki komutları çalıştırın: 
 
-   ````powershell 
+   ```powershell 
    Uninstall-Module AzureAD 
    Install-Module AzureADPreview 
-   ````
+   ```
 - Yalnızca sonuçlarda AzureADPreview modülü gösteriliyorsa, ancak sonraki bir sürümün olduğunu belirten bir ileti alırsanız modülü güncelleştirmek için aşağıdaki komutları çalıştırın: 
 
-   ````powershell 
+   ```powershell 
    Uninstall-Module AzureADPreview 
    Install-Module AzureADPreview 
-  ````
+  ```
 
 Modülü güvenilir olmayan bir depodan yüklediğinizi belirten bir istem alabilirsiniz. Önceden PSGallery deposunu güvenilir depo olarak ayarlamadıysanız bu oluşur. Modülü yüklemek için **Y** tuşuna basın.
 
@@ -111,25 +111,25 @@ Modülü güvenilir olmayan bir depodan yüklediğinizi belirten bir istem alabi
 
 Ardından, aşağıdaki komutu çalıştırarak bir B2BManagementPolicy geçerli olup olmadığını kontrol edin:
 
-````powershell 
+```powershell 
 $currentpolicy =  Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy' -and $_.IsOrganizationDefault -eq $true} | select -First 1
 $currentpolicy -ne $null
-````
+```
 - Çıkış False ise, ilke şu anda mevcut değil. Yeni bir B2BManagementPolicy oluşturun ve önizleme için aşağıdaki komutu çalıştırarak kabul et:
 
-   ````powershell 
+   ```powershell 
    $policyValue=@("{`"B2BManagementPolicy`":{`"PreviewPolicy`":{`"Features`":[`"OneTimePasscode`"]}}}")
    New-AzureADPolicy -Definition $policyValue -DisplayName B2BManagementPolicy -Type B2BManagementPolicy -IsOrganizationDefault $true
-   ````
+   ```
 
 - Çıkış True ise, B2BManagementPolicy ilke şu anda mevcut. Güncelleştirme ilkesi ve önizleme için katılım için şu komutu çalıştırın:
   
-   ````powershell 
+   ```powershell 
    $policy = $currentpolicy.Definition | ConvertFrom-Json
    $features=[PSCustomObject]@{'Features'=@('OneTimePasscode')}; $policy.B2BManagementPolicy | Add-Member 'PreviewPolicy' $features -Force; $policy.B2BManagementPolicy
    $updatedPolicy = $policy | ConvertTo-Json -Depth 3
    Set-AzureADPolicy -Definition $updatedPolicy -Id $currentpolicy.Id
-   ````
+   ```
 
 ## <a name="opting-out-of-the-preview-after-opting-in"></a>Seçim sonrasında Önizleme dışında seçim yapma
 Bu, geri çevirme eylemi etkili olması birkaç dakika sürebilir. Önizlemeyi Kapat, bir kerelik geçiş kodu yararlandınız tüm Konuk kullanıcılar oturum açmanız mümkün olmayacaktır. Konuk kullanıcı silebilir ve odaklanmalarını başka bir kimlik doğrulama yöntemini kullanarak tekrar oturum açmak kullanıcıya yeniden davet edin.
@@ -144,17 +144,17 @@ Bu, geri çevirme eylemi etkili olması birkaç dakika sürebilir. Önizlemeyi K
 ### <a name="to-turn-off-the-preview-using-powershell"></a>PowerShell kullanarak önizlemesini Kapat için
 Henüz yoksa, en son AzureADPreview modülünde yükleyin (bkz [önkoşul: En son AzureADPreview modülünü yükleme](#prerequisite-install-the-latest-azureadpreview-module) yukarıda). Ardından, bir kerelik geçiş kodu Önizleme İlkesi şu anda aşağıdaki komutu çalıştırarak var olduğundan emin olun:
 
-````powershell 
+```powershell 
 $currentpolicy = Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy' -and $_.IsOrganizationDefault -eq $true} | select -First 1
 ($currentPolicy -ne $null) -and ($currentPolicy.Definition -like "*OneTimePasscode*")
-````
+```
 
 Çıkış True ise, aşağıdaki komutu çalıştırarak önizlemeden iyileştirilmiş:
 
-````powershell 
+```powershell 
 $policy = $currentpolicy.Definition | ConvertFrom-Json
 $policy.B2BManagementPolicy.PreviewPolicy.Features = $policy.B2BManagementPolicy.PreviewPolicy.Features.Where({$_ -ne "OneTimePasscode"})
 $updatedPolicy = $policy | ConvertTo-Json -Depth 3
 Set-AzureADPolicy -Definition $updatedPolicy -Id $currentpolicy.Id
-````
+```
 

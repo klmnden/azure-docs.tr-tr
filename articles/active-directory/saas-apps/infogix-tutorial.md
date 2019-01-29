@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: aa3109b8-bdbe-45ae-933a-2eb4dc03855c
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 3e54ade44828bf1e26c310a14ae401fe8ae33229
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5e9b805786346abd6dfe830c9ce6ae4cc341c9e7
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39437675"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55194279"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-infogix-data3sixty-govern"></a>Öğretici: Azure Active Directory Infogix Data3Sixty yöneten ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-infogix-data3sixty-govern"></a>Öğretici: Infogix Data3Sixty yöneten ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Infogix Data3Sixty yöneten Azure Active Directory (Azure AD) ile tümleştirmeyi öğrenin.
 
@@ -38,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD tümleştirmesi Infogix Data3Sixty yöneten ile yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik bir Infogix Data3Sixty yöneten çoklu oturum açma etkin
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Infogix Data3Sixty yöneten tümleştirmesini Azure AD'de yapılandırmak için 
 
 **Galeriden Infogix Data3Sixty yöneten eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -199,7 +199,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 Bu bölümün amacı, Britta Simon Infogix Data3Sixty yöneten içinde adlı bir kullanıcı oluşturmaktır. Infogix Data3Sixty yöneten tam zamanında sağlama, varsayılan olarak etkin olan destekler. Bu bölümde, hiçbir eylem öğesini yoktur. Yeni bir kullanıcı, henüz yoksa Infogix Data3Sixty yöneten erişme denemesi sırasında oluşturulur.
 
 >[!Note]
->Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [Infogix Data3Sixty yönetir, Destek ekibine](mailto:data3sixtysupport@infogix.com).
+>Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [Infogix Data3Sixty yönetir, Destek ekibine](mailto:data3sixtysupport@infogix.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 4608e9ec0cd67b6c0f7ac23e27761b0355a5d738
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
-ms.translationtype: HT
+ms.openlocfilehash: 1411d9b4a199685315587cb642842286da575c63
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50911873"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098536"
 ---
 # <a name="quickstart-register-an-app-with-the-azure-active-directory-v10-endpoint"></a>Hızlı Başlangıç: Azure Active Directory v1.0 uç noktasına uygulama kaydetme
 
@@ -36,7 +36,7 @@ Bu hızlı başlangıçta Azure portalındaki **Uygulama kayıtları** deneyimin
 > [!NOTE]
 > Yeni bir uygulama mı kaydediyorsunuz? Azure portalında yeni **Uygulama kayıtları (Önizleme)** deneyimini kullanın. Başlamak için bkz. [Uygulama kaydetme (Önizleme)](quickstart-register-app.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Başlamak için uygulamalarınızı kaydetmek için kullanabileceğiniz bir Azure AD kiracınız olduğundan emin olun. Henüz bir kiracınız yoksa [nasıl kiracı alınabileceğini öğrenin](quickstart-create-new-tenant.md).
 
@@ -51,12 +51,12 @@ Başlamak için uygulamalarınızı kaydetmek için kullanabileceğiniz bir Azur
 
 1. **Oluştur** sayfası göründüğünde uygulamanızın kayıt bilgilerini girin: 
 
-    - **Ad:** Anlamlı bir uygulama adı girin
+    - **Adı:** Anlamlı uygulama adı girin
     - **Uygulama türü:**
       - Bir cihaza yerel olarak yüklenen [istemci uygulamaları](developer-glossary.md#client-application) için **Yerel**'i seçin. Bu ayar OAuth ortak [yerel istemcileri](developer-glossary.md#native-client) için kullanılır.
       - Güvenli bir sunucuya yüklenen [istemci uygulamaları](developer-glossary.md#client-application) ve [kaynak/API uygulamaları](developer-glossary.md#resource-server) için **Web uygulaması/API'si**'ni seçin. Bu ayar OAuth gizli [web istemcileri](developer-glossary.md#web-client) ve ortak [kullanıcı aracısı tabanlı istemciler](developer-glossary.md#user-agent-based-client) için kullanılır. Aynı uygulama gerek bir istemciyi, gerekse kaynağı/API'yi sunabilir.
-    - **Oturum açma URL'si:** "Web uygulaması / API'si" uygulamaları için uygulamanızın temel URL'si girin. Örneğin `http://localhost:31544` yerel makinenizde çalışan bir web uygulamasının URL'si olabilir. Kullanıcılar, bir web istemci uygulamasında oturum açmak için bu URL'yi kullanır. 
-    - **Yeniden yönlendirme URI'si:** "Yerel" uygulamalar için Azure AD'nin belirteç yanıtlarını döndürmek üzere kullandığı URI'yi girin. Uygulamanıza özgü bir değer girin; örneğin `http://MyFirstAADApp`
+    - **Oturum açma URL'si:** İçin "Web uygulaması / API'si" uygulamaları, uygulamanızın temel URL'si girin. Örneğin `http://localhost:31544` yerel makinenizde çalışan bir web uygulamasının URL'si olabilir. Kullanıcılar, bir web istemci uygulamasında oturum açmak için bu URL'yi kullanır. 
+    - **Yeniden yönlendirme URI'si:** "Yerel" uygulamaları için Azure AD'nin belirteç yanıtlarını döndürmek için kullanılan URI girin. Uygulamanıza özgü bir değer girin; örneğin `http://MyFirstAADApp`
 
       ![Yeni bir uygulamayı kaydetme - oluşturma](./media/quickstart-v1-integrate-apps-with-azure-ad/add-app-registration-create.png)
 

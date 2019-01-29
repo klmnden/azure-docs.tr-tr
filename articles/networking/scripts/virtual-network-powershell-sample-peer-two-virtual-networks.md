@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell Betiği örnek - eş iki sanal ağlar | Microsoft Docs
-description: Azure PowerShell Betiği örnek - eş iki sanal ağlar
+title: Azure PowerShell betik örneği - iki sanal ağı eşleme | Microsoft Docs
+description: Azure PowerShell betik örneği - iki sanal ağı eşleme
 services: virtual-network
 documentationcenter: virtual-network
 author: georgewallace
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 05/16/2017
 ms.author: gwallace
-ms.openlocfilehash: 6c475311f8b0299908dfc26aa590c1990e00bc4a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8a892f109b368d7ff0d4ec2ad9174bb99114fd7c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31598515"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55100164"
 ---
-# <a name="peer-two-virtual-networks"></a>Eş iki sanal ağlar
+# <a name="peer-two-virtual-networks"></a>İki sanal ağı eşleme
 
-Bu komut dosyasını oluşturur ve iki sanal ağlarda aynı bölge trhough Azure ağı bağlanır. Betiği çalıştırdıktan sonra iki sanal ağ arasında eşleme oluşturmuş olursunuz.
+Bu betik Azure ağı aracılığıyla aynı bölgedeki iki sanal ağı bağlanır ve oluşturur. Betiği çalıştırdıktan sonra iki sanal ağ arasında eşleme oluşturmuş olursunuz.
 
 Gerekirse, [Azure PowerShell kılavuzunda](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) bulunan yönergeleri kullanarak Azure PowerShell’i yükleyin ve ardından Azure ile bağlantı oluşturmak için `Connect-AzureRmAccount` komutunu çalıştırın.
 
@@ -57,4 +57,4 @@ Bu betik, bir kaynak grubu, sanal makine ve tüm ilgili kaynakları oluşturmak 
 
 Azure PowerShell hakkında daha fazla bilgi için bkz. [Azure PowerShell belgeleri](https://docs.microsoft.com/powershell/azure/overview).
 
-Ek ağ PowerShell komut dosyası örnekleri bulunabilir [Azure ağ genel görünümü belgelerine](../powershell-samples.md?toc=%2fazure%2fnetworking%2ftoc.json).
+Ek ağ PowerShell betiği örnekleri, [Azure Ağına Genel Bakış belgeleri](../powershell-samples.md?toc=%2fazure%2fnetworking%2ftoc.json) içinde bulunabilir.

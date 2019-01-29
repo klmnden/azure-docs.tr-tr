@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle Insider izleme | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Insider izleme ile tümleştirmesi | Microsoft Docs'
 description: Azure Active Directory ve içeriden gelen parça arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 53b6a928-e8a4-4cf1-9952-50cd3f013b7c
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2018
 ms.author: jeedes
-ms.openlocfilehash: 09f0e38dc8eab2042a28e6816155ad14b185a034
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: e23949ac4957325c3949312dad61071a1f527789
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39047272"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55191117"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-insider-track"></a>Öğretici: Azure Active Directory tümleştirmesiyle Insider İzle
+# <a name="tutorial-azure-active-directory-integration-with-insider-track"></a>Öğretici: Azure Active Directory Insider izleme ile tümleştirmesi
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Insider izleme tümleştirme konusunda bilgi edinin.
 
@@ -38,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD tümleştirmesi Insider parça ile yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik bir Insider izleme çoklu oturum açma etkin
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Azure AD'de Insider izleme tümleştirmesini yapılandırmak için Insider izlem
 
 **Galeriden Insider izleme eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -130,7 +130,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve I
 7. Çoklu oturum açmayı yapılandırma **Insider izleme** tarafı, indirilen göndermek için ihtiyacınız **meta veri XML, oturum kapatma URL'si, SAML varlık kimliği** ve **SAML çoklu oturum açma hizmeti URL'si** için [Insider izleme Destek ekibine](https://cytecsolutions.com/contact/). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 > [!TIP]
-> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
+> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi embedded belgeleri özelliği burada hakkında: [Azure AD embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
@@ -167,7 +167,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
  
 ### <a name="create-an-insider-track-test-user"></a>Bir Insider izleme test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon Insider İzle'adlı bir kullanıcı oluşturun. Çalışmak [Insider izleme Destek ekibine](https://cytecsolutions.com/contact/) Insider izleme platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi. 
+Bu bölümde, Britta Simon Insider İzle'adlı bir kullanıcı oluşturun. Çalışmak [Insider izleme Destek ekibine](https://cytecsolutions.com/contact/) Insider izleme platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
@@ -209,7 +209,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/28/2019
 ms.author: jingwang
-ms.openlocfilehash: 3096fa77913ef1dd4eb491b3c0e5d7fa236f6c65
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 0a8a229beab03dd8cb26d9cfb9c3b945059d6f70
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020903"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55164954"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Etkinlik performansı ve ayarlama Kılavuzu kopyalayın
-> [!div class="op_single_selector" title1="Kullanmakta olduğunuz Data Factory servisinin sürümünü seçin:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Sürüm 1](v1/data-factory-copy-activity-performance.md)
 > * [Geçerli sürüm](copy-activity-performance.md)
 
@@ -69,7 +69,7 @@ Dikkat edilecek noktalar:
     </tr>
     <tr>
         <td>Ağ</td>
-        <td>Internet arabirimi: 10 GB/sn; intranet arabiriminde: 40 GB/sn</td>
+        <td>Internet arabirimi: 10 GB/sn; intranet arabiriminde: 40 Gbps</td>
     </tr>
     </table>
 
@@ -241,7 +241,13 @@ Kopyalama etkinliği, Data Factory hizmetine performansını ayarlamak için aş
 
 1. **Bir taban çizgisi oluşturma**. Geliştirme aşamasında, bir temsilci veri örneği karşı kopyalama etkinliği'ni kullanarak işlem hattınızı test etme. Yürütme ayrıntıları ve performans özelliklerini aşağıdaki toplamak [kopyalama etkinliği izleme](copy-activity-overview.md#monitoring).
 
-2. **Tanılama ve performans iyileştirme**. Siz gözleyin performans beklentilerinizi karşılamıyorsa, performans sorunlarını tanımlamak gerekir. Ardından, kaldırmak veya performans etkisini azaltmak için performansı iyileştirin. Performans Tanılama tam açıklamasını bu makalenin kapsamı dışındadır, ancak bazı genel konular şunlardır:
+2. **Tanılama ve performans iyileştirme**. Siz gözleyin performans beklentilerinizi karşılamıyorsa, performans sorunlarını tanımlamak gerekir. Ardından, kaldırmak veya performans etkisini azaltmak için performansı iyileştirin. 
+
+    Bazı senaryolarda da göreceksiniz bir "**performans ayarlama ipuçları**" üst kısmındaki bölümünde [kopyalama etkinliği sayfası izleme](copy-activity-overview.md#monitor-visually), tanımlanan sorunu bildiren ve kopyalama artırma konusunda size yol gösterir Böyle bir durumda kopyalama için aktarım hızı.
+
+    **Örnek: performans ayarlama ipuçları ile Azure SQL Veritabanına kopyalama** ![kopyalama performans ayarlama ipuçları ile izleme](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
+
+    Performans Tanılama tam açıklamasını bu makalenin kapsamı dışındadır, ancak bazı genel konular şunlardır:
 
    * Performans özellikleri:
      * [Paralel kopyalama](#parallel-copy)
@@ -392,7 +398,7 @@ Bu durumda, bzıp2 veri sıkıştırma tüm işlem hattını yavaşlatmasını. 
 Performans izleme ve desteklenen veri depolarının bazılarını başvuruları ayarlama şu şekildedir:
 
 * Azure Storage (Blob Depolama ve tablo depolama gibi): [Azure depolama ölçeklenebilirlik hedefleri](../storage/common/storage-scalability-targets.md) ve [Azure depolama performansı ve ölçeklenebilirlik denetim listesi](../storage/common/storage-performance-checklist.md)
-* Azure SQL veritabanı: Yapabilecekleriniz [performansını izleme](../sql-database/sql-database-single-database-monitor.md) ve veritabanı işlem birimi (DTU) yüzde denetleyin
+* Azure SQL Veritabanı: Yapabilecekleriniz [performansını izleme](../sql-database/sql-database-single-database-monitor.md) ve veritabanı işlem birimi (DTU) yüzde denetleyin
 * Azure SQL veri ambarı: Kendi özellik veri ambarı birimi (Dwu) ölçülür bkz: [Yönet işlem gücünü Azure SQL veri ambarı (Genel)](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
 * Azure Cosmos DB: [Azure Cosmos DB'de performans düzeyleri](../cosmos-db/performance-levels.md)
 * Şirket içi SQL Server: [İzleme ve performansı ayarlama](https://msdn.microsoft.com/library/ms189081.aspx)

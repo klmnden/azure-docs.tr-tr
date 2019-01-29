@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 6cba4e1fd9c9fe5fdaa7ff4513218a606a4eace9
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 060ff6b94c171d27dae74ea76603222253f33bab
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215239"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55194296"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Service Fabric sistem durumu izlemeye giriş
 Azure Service Fabric, zengin, esnek ve Genişletilebilir bir sistem durumu değerlendirme ve raporlama sağlar bir sistem durumu modeli sunar. Model, küme ve içinde çalışan hizmetleri durumunu neredeyse gerçek zamanlı izlenmesini sağlar. Kolayca sağlık bilgilerini almak ve düzeltmek yayılmadığını ve devasa kesintilerine neden önce olası sorunlar. Tipik modelinde, hizmetleri kendi yerel görünümleri temel alan raporlar gönderin ve genel bir sağlamak için bu bilgileri de toplanır küme görünümü düzeyi.
@@ -68,7 +68,7 @@ Sistem durumu hiyerarşinin üst-alt ilişkilerini oluşur. Küme düğümleri v
 Sistem durumu hiyerarşi son neredeyse gerçek zamanlı bilgi en son sistem durumu raporlarının temel sistem durumunu temsil eder.
 İç ve dış watchdogs uygulamaya özgü mantığı veya özel izlenen koşullara göre aynı varlıklar üzerinde rapor edebilirsiniz. Kullanıcı raporları, sistem raporlarıyla arada.
 
-Rapor ve sağlık verilerinin büyük bir bulut hizmeti tasarım sırasında yanıt yatırım yapmaya planlayın. Bu ön investement hizmet hata ayıklama, izleme ve işletin kolaylaştırır.
+Rapor ve sağlık verilerinin büyük bir bulut hizmeti tasarım sırasında yanıt yatırım yapmaya planlayın. Bu önceden yatırım hizmet hata ayıklama, izleme ve işletin kolaylaştırır.
 
 ## <a name="health-states"></a>Sistem sağlığı durumları
 Service Fabric, bir varlığın sağlıklı olup olmadığını açıklamak için üç sağlık durumundan kullanır: Tamam, uyarı ve hata. Durum deposuna gönderilen herhangi bir raporu bu durumlardan biriyle belirtmeniz gerekir. Sistem durumu değerlendirme sonucu bu durumlardan biridir.

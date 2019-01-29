@@ -1,23 +1,23 @@
 ---
-title: "Hızlı başlangıç: Bing Varlık Arama SDK'sı, C#"
+title: "Hızlı Başlangıç: Bing varlık arama SDK'sıC#"
 titleSuffix: Azure Cognitive Services
 description: C# ile Varlık Arama SDK'sı konsol uygulaması kurulumu.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-entity-search
+ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
-ms.openlocfilehash: 7cbb97fbf237e14d6822edfa174ca469f8988e2d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: f3b4f38d8e2cb32758253fe4d121e6b2505f792c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307367"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55152952"
 ---
-# <a name="quickstart-bing-entity-search-sdk-with-c"></a>Hızlı başlangıç: C# ile Bing Varlık Arama SDK'sı
+# <a name="quickstart-bing-entity-search-sdk-with-c"></a>Hızlı Başlangıç: Bing varlık arama SDK'sı ileC#
 
 Bing Varlık Arama API'si, varlık arama ve sonuçları ayrıştırmak için REST API işlevselliğini içerir.
 

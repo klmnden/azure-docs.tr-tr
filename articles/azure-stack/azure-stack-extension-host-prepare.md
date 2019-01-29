@@ -5,17 +5,17 @@ services: azure-stack
 keywords: ''
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 01/22/2018
+ms.date: 01/25/2019
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
-ms.openlocfilehash: daf524e6802fbb0548ff2d30d32dc6fbd4bc68cb
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: c8e78ead58c34a62851fddc5a12504bc5747a27b
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54476402"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092331"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>Azure Stack için uzantısı konağı için hazırlama
 
@@ -127,7 +127,7 @@ Sonraki adımlar için Azure Stack ayrıcalıklı uç noktasına bağlanabilir b
 > DNS tümleştirme için DNS bölgesini temsilci olarak seçme kullandıysanız, bu adım gerekli değildir.
 Azure Stack uç noktalarını yayımlama için ayrı ayrı konak A kaydı yapılandırıldıysa, iki ek konak A kaydı oluşturmanız gerekir:
 
-| IP | Ana Bilgisayar Adı | Tür |
+| IP | Ana Bilgisayar Adı | Type |
 |----|------------------------------|------|
 | \<IP &GT; | *. Adminhosting. \<Bölge >. \<FQDN > | A |
 | \<IP &GT; | *. Barındırma. \<Bölge >. \<FQDN > | A |

@@ -10,14 +10,14 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/09/2018
+ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: 1c53dfb1447b0abd5b96d109a657eae5f5947118
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: 804044dbfc5428c3a80aab13227730ed13c43ce2
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54401444"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098039"
 ---
 # <a name="azure-monitor-overview"></a>Azure İzleyiciye Genel Bakış
 
@@ -66,7 +66,7 @@ Azure İzleyicisi'ni kullanarak herhangi bir REST istemcisinden günlük veriler
 
 
 ## <a name="insights"></a>Insights
-İzleme verileri yalnızca, bilgi işlem ortamınızın işlemi görünürlük artırabilirsiniz yararlıdır. Azure İzleyici, çeşitli özellikler ve uygulamalarınızın ve bağımlı oldukları diğer kaynakları değerli Öngörüler sağlayan araçları içerir. [İzleme çözümleri](insights/solutions.md) ve gibi özellikleri [Application Insights](app/app-insights-overview.md) ve kapsayıcı öngörüleri, uygulama ve belirli Azure hizmetlerinin farklı yönlerini derin Öngörüler sağlayın. 
+İzleme verileri yalnızca, bilgi işlem ortamınızın işlemi görünürlük artırabilirsiniz yararlıdır. Azure İzleyici, çeşitli özellikler ve uygulamalarınızın ve bağımlı oldukları diğer kaynakları değerli Öngörüler sağlayan araçları içerir. [İzleme çözümleri](insights/solutions.md) ve gibi özellikleri [Application Insights](app/app-insights-overview.md) ve [kapsayıcılar için Azure İzleyici](insights/container-insights-overview.md) uygulama ve belirli bir Azure farklı yönlerini derin Öngörüler sağlayın Hizmetler. 
 
 ### <a name="application-insights"></a>Application Insights
 [Application Insights](app/app-insights-overview.md) kullanılabilirliğine, performansına ve kullanımına web uygulamalarınızı bulutta veya şirket içinde barındırılan olup olmadığını izler. Bu, güçlü veri analizi platformu, uygulamanızın işlem derin Öngörüler sağlar ve bunları rapor bir kullanıcının bildirmesini beklemeden hataları tanılamak için Azure İzleyici'de yararlanır. Application Insights, geliştirme araçları çeşitli bağlantı noktaları içerir ve DevOps işlemlerinizi desteklemek için Visual Studio ile tümleşir.
@@ -74,12 +74,12 @@ Azure İzleyicisi'ni kullanarak herhangi bir REST istemcisinden günlük veriler
 ![App Insights](media/overview/app-insights.png)
 
 ### <a name="azure-monitor-for-containers"></a>Kapsayıcılar için Azure İzleyici
-Kapsayıcılar için Azure İzleyici, yönetilen Azure Kubernetes Service (AKS) barındırılan Kubernetes kümelerini dağıtılan kapsayıcı iş yüklerinin performansını izlemek için tasarlanmış bir özelliktir. Bunu, toplama bellek ve işlemci ölçümleri performans görünürlük denetleyicileri, düğümleri ve Kubernetes ölçümleri API'si aracılığıyla kullanılabilen kapsayıcılar sunar. Kapsayıcı günlükleri de toplanır.  Kubernetes kümelerdeki izleme etkinleştirdikten sonra bu ölçüm ve günlükleri otomatik olarak sizin için Linux için Log Analytics aracısını kapsayıcı bir sürümü aracılığıyla toplanır.
+[Kapsayıcılar için Azure İzleyici](insights/container-insights-overview.md) dağıtılan Azure Kubernetes Service (AKS) barındırılan yönetilen Kubernetes kümeleri için kapsayıcı iş yüklerinin performansını izlemek için tasarlanmış bir özelliktir. Bunu, toplama bellek ve işlemci ölçümleri performans görünürlük denetleyicileri, düğümleri ve Kubernetes ölçümleri API'si aracılığıyla kullanılabilen kapsayıcılar sunar. Kapsayıcı günlükleri de toplanır.  Kubernetes kümelerdeki izleme etkinleştirdikten sonra bu ölçüm ve günlükleri otomatik olarak sizin için Linux için Log Analytics aracısını kapsayıcı bir sürümü aracılığıyla toplanır.
 
 ![Kapsayıcı durumu](media/overview/container-insights.png)
 
 ### <a name="azure-monitor-for-vms"></a>VM'ler için Azure İzleyici
-Azure İzleyici VM içgörüler izler, Azure sanal makineleri (VM) uygun ölçekte Windows ve Linux Vm'leri, farklı işlemler ve diğer kaynakları ve dış işlemlere birbirine bağımlılıkları da dahil olmak üzere, sistem durumu ve performansı çözümleyerek. Uygulama bağımlılıkları VM'ler için şirket içi veya başka bir bulut sağlayıcısı barındırılan ve çözüm, performans izleme için destek içerir.  
+[VM'ler için Azure İzleyici](insights/vminsights-overview.md) Azure sanal makinelerinizi (VM) Windows ve Linux Vm'leri, farklı işlemler ve diğer kaynakları ve dış birbirine bağımlılıkları da dahil olmak üzere, sistem durumu ve performansı çözümleyerek ölçekli olarak izler. işler. Uygulama bağımlılıkları VM'ler için şirket içi veya başka bir bulut sağlayıcısı barındırılan ve çözüm, performans izleme için destek içerir.  
 
 
 ![VM Insights](media/overview/vm-insights.png)

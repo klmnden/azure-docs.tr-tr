@@ -6,16 +6,16 @@ services: cognitive-services
 author: kegodin
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: acoustics
+ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: c37e050cd762cb173d64f78b5267e4ad252d17a9
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: f376b6bcb0238f96b4f5bb35d898cc600e108c65
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902255"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55169765"
 ---
 # <a name="bake-acoustics"></a>Akustik hazırlama
 
@@ -256,8 +256,8 @@ Yükleme ve Docker benzetim işleyen bilgisayarda yapılandırma-
 Bu eklenti çeşitli noktalarında tarafından oluşturulan dört veri dosyası vardır. Yalnızca bir tanesi gereklidir çalışma zamanında, bu nedenle projenize derlenmiş olmaz şekilde "Düzenleyicisi" adlı bir klasör içinde diğer üç altındadır.
 
 * **Varlıklar/Düzenleyici / [SceneName]\_AcousticsParameters.asset**: Bu dosya akustik UI alanlarında girdiğiniz verileri depolar. Bu dosyanın adını ve konumunu değiştirilemez. Hazırlama etkileyen, bu dosyada depolanan diğer değerleri vardır, ancak bunlar Gelişmiş kullanıcılar için ve değiştirilmemesi gerekir.
-* **Varlıklar/AcousticsData/akustik\_[SceneName].ace.bytes**: Bu dosyasıdır ne hazırlama benzetimi sırasında oluşturulur ve, sahnenin akustik işlemek için çalışma zamanı tarafından kullanılan arama verilerini içerir. Bu dosyanın adını ve konumunu alanlara kullanarak değiştirilebilir **araştırmaları** sekmesi.
-* **Assets/AcousticsData/Editor/Acoustics_[SceneName].vox**: voxelized akustik geometry ve malzeme özelliklerine bu dosyada depolanır. Kullanarak hesaplanan **hesapla...**  araştırmaları sekmesindeki düğmesi. Bu dosyanın adını ve konumunu alanlara kullanarak değiştirilebilir **araştırmaları** sekmesi.
+* **Varlıklar/AcousticsData/akustik\_[SceneName].ace.bytes**: Bu, hangi hazırlama benzetimi sırasında oluşturulur ve, sahnenin akustik işlemek için çalışma zamanı tarafından kullanılan arama verileri içeren dosyadır. Bu dosyanın adını ve konumunu alanlara kullanarak değiştirilebilir **araştırmaları** sekmesi.
+* **Assets/AcousticsData/Editor/Acoustics_[SceneName].vox**: Bu dosya, voxelized akustik geometri ve malzeme özelliklerine depolar. Kullanarak hesaplanan **hesapla...**  araştırmaları sekmesindeki düğmesi. Bu dosyanın adını ve konumunu alanlara kullanarak değiştirilebilir **araştırmaları** sekmesi.
 * **Varlıklar/AcousticsData/Düzenleyicisi/akustik\_[SceneName]\_config.xml**: Bu dosya kullanılarak hesaplanır parametreleri depolayan **hesapla...**  düğmesini **araştırmaları** sekmesi. Bu dosyanın adını ve konumunu alanlara kullanarak değiştirilebilir **araştırmaları** sekmesi.
 
 İlgileniriz silmemek *. ace.bytes dosya hazırlama indirilir. Bu dosya Sahne rebaking tarafından dışında kurtarılamaz.

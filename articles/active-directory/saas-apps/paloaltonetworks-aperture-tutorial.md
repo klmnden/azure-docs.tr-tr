@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle Palo Alto Networks - açıklık | Microsoft Docs'
+title: 'Öğretici: Palo Alto Networks - açıklık ile Azure Active Directory Tümleştirme | Microsoft Docs'
 description: Azure Active Directory ve Palo Alto Networks - açıklık arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: a5ea18d3-3aaf-4bc6-957c-783e9371d0f1
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jeedes
-ms.openlocfilehash: 7bb4782fa390ad2cc324a79a1f544c3db062c921
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7f94921126900c8e124cd41bd2e4f913b28396a2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421558"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55153683"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---aperture"></a>Öğretici: Azure Active Directory tümleştirmesiyle Palo Alto Networks - açıklık
+# <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---aperture"></a>Öğretici: Palo Alto Networks - açıklık ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile açıklık Palo Alto Networks - tümleştirme konusunda bilgi edinin.
 
@@ -38,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Palo Alto Networks - açıklığı, Azure AD tümleştirmesi yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Palo Alto Networks - açıklık çoklu oturum açma abonelik etkin.
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Palo Alto Networks - Azure AD'ye açıklık tümleştirmesini yapılandırmak i�
 
 **Palo Alto Networks - galerisinden açıklık eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -161,7 +161,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     f. **Kaydet**’e tıklayın.
 
 > [!TIP]
-> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
+> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi embedded belgeleri özelliği burada hakkında: [Azure AD embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
@@ -197,7 +197,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
  
 ### <a name="create-a-palo-alto-networks---aperture-test-user"></a>Palo Alto Networks - açıklık test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon Palo Alto Networks - açıklık adlı bir kullanıcı oluşturun. Çalışmak [Palo Alto Networks - açıklık istemci Destek ekibine](https://live.paloaltonetworks.com/t5/custom/page/page-id/Support) Palo Alto Networks - açıklık platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi. 
+Bu bölümde, Britta Simon Palo Alto Networks - açıklık adlı bir kullanıcı oluşturun. Çalışmak [Palo Alto Networks - açıklık istemci Destek ekibine](https://live.paloaltonetworks.com/t5/custom/page/page-id/Support) Palo Alto Networks - açıklık platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

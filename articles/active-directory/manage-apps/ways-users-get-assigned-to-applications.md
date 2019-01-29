@@ -7,19 +7,19 @@ author: barbkess
 manager: daveba
 ms.assetid: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: cb477ccba648a15c88f2e216b39d4ba1676d43c7
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: fd677a34caa5a1871808b31477e91746ec9fdccb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464621"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55170411"
 ---
 # <a name="how-to-assign-users-to-applications"></a>Kullanıcılar uygulamaları atama
 
@@ -55,9 +55,9 @@ Bir kullanıcı bir uygulamaya erişmek, bunlar ilk için herhangi bir şekilde 
 
 8.  Bir yönetici kullanıcı gibi bir birinci taraf uygulaması için bir üyesi olan bir lisans grubuna atar [Microsoft Office 365](https://products.office.com/)
 
-9.  Bir [yönetici uygulamaya onay](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) tüm kullanıcılar ve ardından bir kullanıcı tarafından kullanılacak oturum açtığında uygulamaya
+9.  Bir [yönetici uygulamaya onay](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) tüm kullanıcılar ve ardından bir kullanıcı tarafından kullanılacak oturum açtığında uygulamaya
 
-10. Bir kullanıcı [uygulamaya onay](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) başlarına uygulamada oturum açarken
+10. Bir kullanıcı [uygulamaya onay](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) başlarına uygulamada oturum açarken
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Uygulamaları Azure Active Directory ile yönetme](what-is-application-management.md)

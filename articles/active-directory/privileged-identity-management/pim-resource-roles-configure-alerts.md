@@ -10,16 +10,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 5d990d86124a7360dbc0398cf4250f9b088c183b
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 564517052796ee5dbc022ff92afcaa0216bdf8ea
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465580"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55196847"
 ---
 # <a name="configure-security-alerts-for-azure-resource-roles-in-pim"></a>Güvenlik Uyarıları Azure kaynak rolleri için PIM içinde yapılandırma
 Azure kaynakları için privileged Identity Management (PIM), ortamınızda şüpheli veya güvenli olmayan bir etkinlik olduğunda uyarılar oluşturur. Bir uyarı tetiklendiğinde, bunu bir uyarılar sayfasında gösterilir. 
@@ -40,7 +40,7 @@ Düzeltme önerileri ile birlikte, uyarıyı tetikleyen rollerin listeleyen bir 
 
 
 ### <a name="severity"></a>Severity
-* **Yüksek**: ilke ihlali nedeniyle Acil eylem gerektirir. 
+* **Yüksek**: Acil eylem ilke ihlali nedeniyle gerektirir. 
 * **Orta**: Acil eylem gerektirmeyen ancak olası bir ilke ihlali bildirir.
 * **Düşük**: Acil eylem gerektirmeyen ancak tercih edilen ilke değişikliğini önerir.
 

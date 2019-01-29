@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/24/2019
+ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 0501ca031fbe6f1d1f16b4db55fde6a1662286f3
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 2af94deaedbafdfa638f5deb3150f1e7f711a238
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904123"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093534"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>Öğretici: SMB üzerinden Azure Data Box için veri kopyalama
 
@@ -96,7 +96,7 @@ Bir Windows Server ana bilgisayar kullanıyorsanız, Kutusu'na veri bağlamak i�
 
 Data Box paylaşımlarına bağlandıktan sonra sonraki adıma veri kopyalamaktır. Veri kopyalama başlamadan önce aşağıdaki konuları gözden geçirin:
 
-- Uygun veri biçimine karşılık gelen paylaşımlarına veri kopyaladığınızdan emin olun. Örneğin blok blobu verilerinin blok blobu paylaşımına kopyalanması gerekir. Uygun paylaşım türü veri biçimi eşleşmiyor, daha sonraki bir adımda, Azure için verileri karşıya yükleme başarısız olur.
+- Uygun veri biçimine karşılık gelen paylaşımlarına veri kopyaladığınızdan emin olun. Örneğin blok blobu verilerinin blok blobu paylaşımına kopyalanması gerekir. VHD'ler sayfa blob'olarak kopyalayın. Uygun paylaşım türü veri biçimi eşleşmiyor, daha sonraki bir adımda, Azure için verileri karşıya yükleme başarısız olur.
 -  Veri kopyalama sırasında veri boyutu için açıklanan boyutu sınırları uyduğundan emin olun [Azure depolama ve Data Box sınırları](data-box-limits.md).
 - Data Box tarafından yüklenen verilerin Data Box haricinde başka bir uygulama tarafından da yüklenmesi durumunda yükleme işinde hata oluşabilir ve veri bozulması yaşanabilir.
 - Olmasını öneririz:

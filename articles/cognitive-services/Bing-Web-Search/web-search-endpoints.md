@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: v-gedod
-ms.openlocfilehash: 794a2c77c5601b76f258b2b73f5a01f3c6b8f8c9
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 2f7e6cd577b1eabbaabdfe87fca8ea0f036a062d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712305"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55149399"
 ---
 # <a name="web-search-endpoint"></a>Web araması uç noktası
 
@@ -25,15 +25,15 @@ ms.locfileid: "51712305"
 
 Bing API'si kullanarak Web araması sonuçlarını almak için gönderin bir `GET` aşağıdaki uç noktayı isteği. Daha fazla başlık ve URL parametrelerini belirtimleri tanımlayın.
 
-**Uç nokta**: sorgu tarafından tanımlanan arama kullanıcının ilgili döndürür Web sonuçları `?q=""`.
+**Uç nokta**: Tarafından tanımlanan kullanıcı arama sorgusu için uygun Web sonuçları döndüren `?q=""`.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/search
 ```
 
-Uç noktası: üst bilgiler, parametreleri, Pazar kodları, yanıt nesneleri, hataları ve diğer hakkında daha fazla ayrıntı için bkz. [Bing Web API'si v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) başvuru.
+Uç noktası: Üst bilgiler, parametreleri, Pazar kodları, yanıt nesneleri, hataları ve diğer hakkında daha fazla ayrıntı için bkz: [Bing Web API'si v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) başvuru.
 
-## <a name="response-json"></a>JSON yanıtı
+## <a name="response-json"></a>Response JSON
 
 Bir Web isteğine yanıt olarak arama JSON nesnesi tüm sonuçlarını içerir. Ayrıştırma sonucu, her türden öğelerini işlemek yordamları gerektirir. Bkz: [öğretici](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/tutorial-bing-web-search-single-page-app) ve [kaynak kodu](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Web-Search) örnekler.
 

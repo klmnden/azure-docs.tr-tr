@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/4/2019
 ms.author: rkarlin
-ms.openlocfilehash: 52af6051b4534ba65b4822205cb5395a59ef9d6a
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: c706dbd4536b9c75281500ace6f02db00ff2f95d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259973"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095583"
 ---
 # <a name="working-with-security-policies"></a>Güvenlik ilkeleriyle çalışma
 
@@ -36,7 +36,7 @@ Güvenlik ilkesi iş yüklerinizin istenen yapılandırmasını tanımlar ve şi
 
 Güvenlik ilkelerinizi size Azure Güvenlik Merkezi'nde güvenlik önerilerini. Uyumluluk, olası zayıflıkları belirlemek ve tehditleri önlemeye yardımcı olmak için onlarla izleyebilirsiniz. Listesini sizin için uygun seçeneği belirleme hakkında daha fazla bilgi için bkz. [yerleşik güvenlik ilkeleri](security-center-policy-definitions.md).
 
-Güvenlik Merkezi'ni etkinleştirdiğinizde, yerleşik Güvenlik Merkezi güvenlik ilkesi, yerleşik bir girişim kategorisi Güvenlik Merkezi altında olarak Azure İlkesi'nde yansıtılır. Yerleşik intitiative tüm Güvenlik Merkezi kayıtlı abonelikler (ücretsiz veya standart katmanları) otomatik olarak atanır. Yerleşik girişim yalnızca denetim ilkeleri içerir. 
+Güvenlik Merkezi'ni etkinleştirdiğinizde, yerleşik Güvenlik Merkezi güvenlik ilkesi, yerleşik bir girişim kategorisi Güvenlik Merkezi altında olarak Azure İlkesi'nde yansıtılır. Yerleşik girişim, tüm Güvenlik Merkezi kayıtlı abonelikler (ücretsiz veya standart katmanları) otomatik olarak atanır. Yerleşik girişim yalnızca denetim ilkeleri içerir. 
 
 
 ### <a name="management-groups"></a>Yönetim grupları
@@ -121,7 +121,7 @@ Yerleşik girişim varsayılan olarak etkin Güvenlik Merkezi'nin ilkeler vardı
 Aşağıdaki örneklerde, bu değişkenleri değiştirin:
 
 - **{} kapsamı**  yönetim grubu adını girin veya abonelik ilkeyi uygulamak.
-- **{poicyAssignmentName}**  girin [ilgili ilke ataması adı](#policy-names).
+- **{policyAssignmentName}**  girin [ilgili ilke ataması adı](#policy-names).
 - **{name}**  adınızı veya ilke değişikliği onaylayan yöneticisinin adını girin.
 
 Bu örnek, bir abonelik veya yönetim grubu yerleşik Güvenlik Merkezi girişimine atama gösterir
@@ -212,7 +212,7 @@ Bu örnek, bir atamayı silmeyi işlemini göstermektedir:
 |Güvenlik yapılandırmaları |Azure Güvenlik Merkezi'nde işletim sistemi güvenlik açıklarını izleyin |systemConfigurationsMonitoringEffect| 
 |Uç nokta koruması |Azure Güvenlik Merkezi'nde eksik Endpoint Protection'ı izleme |endpointProtectionMonitoringEffect |
 |Disk şifrelemesi |Azure Güvenlik Merkezi'nde şifrelenmemiş VM disklerini izleyin |diskEncryptionMonitoringEffect|
-|Güvenlik açığı değerlendirmesi |Azure Güvenlik Merkezi'nde izleme VM güvenlik açıklarını |vulnerabilityAssesmentMonitoringEffect|
+|Güvenlik açığı değerlendirmesi |Azure Güvenlik Merkezi'nde VM Güvenlik Açıklarını İzleme |vulnerabilityAssessmentMonitoringEffect|
 |Web uygulaması güvenlik duvarı |Azure Güvenlik Merkezi'nde korumasız web uygulamasını izleme |webApplicationFirewallMonitoringEffect |
 |Yeni nesil güvenlik duvarı |Azure Güvenlik Merkezi'nde korumasız ağ uç noktalarını izleme| |
 

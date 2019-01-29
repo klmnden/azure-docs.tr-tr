@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 2fce90f971d13b94c73012d4089cca05739c5440
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 7f6e95b28482ed6d75bb76773da05aebd1855a66
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853719"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093402"
 ---
 # <a name="service-fabric-networking-patterns"></a>Service Fabric ağ desenleri
 Azure Service Fabric kümenizi Azure diğer ağ özelliklerini tümleştirebilirsiniz. Bu makalede, biz, aşağıdaki özellikleri kullanırsınız kümeleri oluşturma işlemini gösterir:
@@ -81,7 +81,7 @@ Bu makaledeki örneklerde, Service Fabric template.json kullanırız. Küme olu�
 
 1. Alt ağ parametresi var olan alt ağ adını değiştirin ve ardından mevcut sanal ağa başvurmak için iki yeni parametreler eklendi:
 
-    ```
+    ```json
         "subnet0Name": {
                 "type": "string",
                 "defaultValue": "default"
@@ -108,26 +108,26 @@ Bu makaledeki örneklerde, Service Fabric template.json kullanırız. Küme olu�
 
 2. Açıklama `nicPrefixOverride` özniteliği `Microsoft.Compute/virtualMachineScaleSets`mevcut alt ağı kullanıyorsanız ve bu değişkeni 1. adım, devre dışı olduğundan.
 
-    ```
+    ```json
             /*"nicPrefixOverride": "[parameters('subnet0Prefix')]",*/
     ```
 
 3. Değişiklik `vnetID` varolan bir sanal ağa işaret edecek şekilde değişkeni:
 
-    ```
+    ```json
             /*old "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',parameters('virtualNetworkName'))]",*/
             "vnetID": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', parameters('existingVNetRGName'), '/providers/Microsoft.Network/virtualNetworks/', parameters('existingVNetName'))]",
     ```
 
 4. Kaldırma `Microsoft.Network/virtualNetworks` kaynaklarınızdan, bu nedenle Azure oluşturmaz yeni bir sanal ağ:
 
-    ```
+    ```json
     /*{
     "apiVersion": "[variables('vNetApiVersion')]",
     "type": "Microsoft.Network/virtualNetworks",
     "name": "[parameters('virtualNetworkName')]",
     "location": "[parameters('computeLocation')]",
-    "properities": {
+    "properties": {
         "addressSpace": {
             "addressPrefixes": [
                 "[parameters('addressPrefix')]"
@@ -151,7 +151,7 @@ Bu makaledeki örneklerde, Service Fabric template.json kullanırız. Küme olu�
 
 5. Sanal ağdan yorum `dependsOn` özniteliği `Microsoft.Compute/virtualMachineScaleSets`, yeni bir sanal ağ oluşturma ile ilgili bağlı olmayan:
 
-    ```
+    ```json
     "apiVersion": "[variables('vmssApiVersion')]",
     "type": "Microsoft.Computer/virtualMachineScaleSets",
     "name": "[parameters('vmNodeType0Name')]",
@@ -185,7 +185,7 @@ Başka bir örnek için bkz: [, Service Fabric'e özgü değildir](https://githu
 
 1. Mevcut bir statik IP kaynak grubu adı, adı ve tam etki alanı adı (FQDN) parametrelerini ekleyin:
 
-    ```
+    ```json
     "existingStaticIPResourceGroup": {
                 "type": "string"
             },
@@ -199,7 +199,7 @@ Başka bir örnek için bkz: [, Service Fabric'e özgü değildir](https://githu
 
 2. Kaldırma `dnsName` parametresi. (Statik IP adresi zaten varsa.)
 
-    ```
+    ```json
     /*
     "dnsName": {
         "type": "string"
@@ -209,13 +209,13 @@ Başka bir örnek için bkz: [, Service Fabric'e özgü değildir](https://githu
 
 3. Mevcut bir statik IP adresi başvurmak için bir değişken ekleyin:
 
-    ```
+    ```json
     "existingStaticIP": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', parameters('existingStaticIPResourceGroup'), '/providers/Microsoft.Network/publicIPAddresses/', parameters('existingStaticIPName'))]",
     ```
 
 4. Kaldırma `Microsoft.Network/publicIPAddresses` kaynaklarınızdan, bu nedenle Azure oluşturmaz yeni bir IP adresi:
 
-    ```
+    ```json
     /*
     {
         "apiVersion": "[variables('publicIPApiVersion')]",
@@ -237,7 +237,7 @@ Başka bir örnek için bkz: [, Service Fabric'e özgü değildir](https://githu
 
 5. IP adresinden yorum `dependsOn` özniteliği `Microsoft.Network/loadBalancers`, yeni bir IP adresi oluşturma ile ilgili bağlı olmayan:
 
-    ```
+    ```json
     "apiVersion": "[variables('lbIPApiVersion')]",
     "type": "Microsoft.Network/loadBalancers",
     "name": "[concat('LB', '-', parameters('clusterName'), '-', parameters('vmNodeType0Name'))]",
@@ -251,7 +251,7 @@ Başka bir örnek için bkz: [, Service Fabric'e özgü değildir](https://githu
 
 6. İçinde `Microsoft.Network/loadBalancers` kaynak, değişiklik `publicIPAddress` öğesinin `frontendIPConfigurations` yeni oluşturulan bir tane yerine var olan statik IP adresi başvurmak için:
 
-    ```
+    ```json
                 "frontendIPConfigurations": [
                         {
                             "name": "LoadBalancerIPConfig",
@@ -267,7 +267,7 @@ Başka bir örnek için bkz: [, Service Fabric'e özgü değildir](https://githu
 
 7. İçinde `Microsoft.ServiceFabric/clusters` kaynak, değişiklik `managementEndpoint` statik IP adresini DNS FQDN'sine. Güvenli bir küme kullanıyorsanız, değiştirdiğiniz emin *http://* için *https://*. (Bu adım yalnızca Service Fabric kümeleri için geçerli olduğunu unutmayın. Bir sanal makine ölçek kümesi kullanıyorsanız, bu adımı atlayın.)
 
-    ```
+    ```json
                     "fabricSettings": [],
                     /*"managementEndpoint": "[concat('http://',reference(concat(parameters('lbIPName'),'-','0')).dnsSettings.fqdn,':',parameters('nt0fabricHttpGatewayPort'))]",*/
                     "managementEndpoint": "[concat('http://',parameters('existingStaticIPDnsFQDN'),':',parameters('nt0fabricHttpGatewayPort'))]",
@@ -294,7 +294,7 @@ Bu senaryo, bir yalnızca iç yük dengeleyiciyle varsayılan Service Fabric şa
 
 1. Kaldırma `dnsName` parametresi. (Bu gerekli değildir.)
 
-    ```
+    ```json
     /*
     "dnsName": {
         "type": "string"
@@ -304,7 +304,7 @@ Bu senaryo, bir yalnızca iç yük dengeleyiciyle varsayılan Service Fabric şa
 
 2. İsteğe bağlı olarak, bir statik ayırma yöntemini kullanırsanız, bir statik IP adresi parametre ekleyebilirsiniz. Dinamik ayırma yöntemini kullanırsanız, bu adımı gerekmez.
 
-    ```
+    ```json
             "internalLBAddress": {
                 "type": "string",
                 "defaultValue": "10.0.0.250"
@@ -313,7 +313,7 @@ Bu senaryo, bir yalnızca iç yük dengeleyiciyle varsayılan Service Fabric şa
 
 3. Kaldırma `Microsoft.Network/publicIPAddresses` kaynaklarınızdan, bu nedenle Azure oluşturmaz yeni bir IP adresi:
 
-    ```
+    ```json
     /*
     {
         "apiVersion": "[variables('publicIPApiVersion')]",
@@ -335,7 +335,7 @@ Bu senaryo, bir yalnızca iç yük dengeleyiciyle varsayılan Service Fabric şa
 
 4. IP adresini kaldırın `dependsOn` özniteliği `Microsoft.Network/loadBalancers`, yeni bir IP adresi oluşturma ile ilgili bağlı değilsiniz. Sanal ağ ekleme `dependsOn` yük dengeleyici artık alt ağdan sanal ağa bağlı olduğundan özniteliği:
 
-    ```
+    ```json
                 "apiVersion": "[variables('lbApiVersion')]",
                 "type": "Microsoft.Network/loadBalancers",
                 "name": "[concat('LB','-', parameters('clusterName'),'-',parameters('vmNodeType0Name'))]",
@@ -348,7 +348,7 @@ Bu senaryo, bir yalnızca iç yük dengeleyiciyle varsayılan Service Fabric şa
 
 5. Load balancer'ın değiştirme `frontendIPConfigurations` ayarı kullanarak bir `publicIPAddress`, bir alt ağ kullanarak ve `privateIPAddress`. `privateIPAddress` önceden tanımlanmış statik iç IP adresi kullanır. Dinamik IP adresi kullanmak için kaldırmak `privateIPAddress` öğesini ve ardından değişiklik `privateIPAllocationMethod` için **dinamik**.
 
-    ```
+    ```json
                 "frontendIPConfigurations": [
                         {
                             "name": "LoadBalancerIPConfig",
@@ -369,7 +369,7 @@ Bu senaryo, bir yalnızca iç yük dengeleyiciyle varsayılan Service Fabric şa
 
 6. İçinde `Microsoft.ServiceFabric/clusters` kaynak, değişiklik `managementEndpoint` iç yük dengeleyici adresine yönlendirin. Güvenli bir küme kullanıyorsanız, değiştirdiğiniz unutmayın *http://* için *https://*. (Bu adım yalnızca Service Fabric kümeleri için geçerli olduğunu unutmayın. Bir sanal makine ölçek kümesi kullanıyorsanız, bu adımı atlayın.)
 
-    ```
+    ```json
                     "fabricSettings": [],
                     /*"managementEndpoint": "[concat('http://',reference(concat(parameters('lbIPName'),'-','0')).dnsSettings.fqdn,':',parameters('nt0fabricHttpGatewayPort'))]",*/
                     "managementEndpoint": "[concat('http://',reference(variables('lbID0')).frontEndIPConfigurations[0].properties.privateIPAddress,':',parameters('nt0fabricHttpGatewayPort'))]",
@@ -394,7 +394,7 @@ Bu senaryoda, var olan tek bir düğüm türü dış yük dengeleyici ile başla
 
 1. Statik iç yük dengeleyici IP adresi parametre ekleyin. (Bu makalenin önceki bölümlerinde dinamik IP adresi kullanımıyla ilgili notları için bkz.)
 
-    ```
+    ```json
             "internalLBAddress": {
                 "type": "string",
                 "defaultValue": "10.0.0.250"
@@ -405,7 +405,7 @@ Bu senaryoda, var olan tek bir düğüm türü dış yük dengeleyici ile başla
 
 3. Var olan iç sürümlerini kopyalayın ve yapıştırın değişkenleri, ağ ekleyin ve eklemek için "-Int" adı:
 
-    ```
+    ```json
     /* Add internal load balancer networking variables */
             "lbID0-Int": "[resourceId('Microsoft.Network/loadBalancers', concat('LB','-', parameters('clusterName'),'-',parameters('vmNodeType0Name'), '-Internal'))]",
             "lbIPConfig0-Int": "[concat(variables('lbID0-Int'),'/frontendIPConfigurations/LoadBalancerIPConfig')]",
@@ -418,7 +418,7 @@ Bu senaryoda, var olan tek bir düğüm türü dış yük dengeleyici ile başla
 
 4. Uygulama bağlantı noktası 80'i kullanan portal tarafından oluşturulan şablonla başlatırsanız, varsayılan portal şablonu AppPort1 ekler (bağlantı noktası 80) dış yük dengeleyici üzerindeki. Bu durumda, dış yük dengeleyiciden AppPort1 Kaldır `loadBalancingRules` ve araştırmaları, iç yük dengeleyiciye ekleyebilirsiniz:
 
-    ```
+    ```json
     "loadBalancingRules": [
         {
             "name": "LBHttpRule",
@@ -495,7 +495,7 @@ Bu senaryoda, var olan tek bir düğüm türü dış yük dengeleyici ile başla
 
 5. İkinci bir ekleme `Microsoft.Network/loadBalancers` kaynak. Oluşturulan iç yük dengeleyiciye benzer [yalnızca iç yük dengeleyici](#internallb) bölümü, ancak "-Int" Yük Dengeleyici değişkenleri ve yalnızca uygulama bağlantı noktası 80 uygular. Bu da kaldırır `inboundNatPools`, herkese açık yük dengeleyici üzerinde RDP uç noktaları korumak için. İç yük dengeleyici üzerinde RDP isterseniz taşıma `inboundNatPools` dışarıdan yük dengeleyici bu iç yük dengeleyici için:
 
-    ```
+    ```json
             /* Add a second load balancer, configured with a static privateIPAddress and the "-Int" load balancer variables. */
             {
                 "apiVersion": "[variables('lbApiVersion')]",
@@ -580,7 +580,7 @@ Bu senaryoda, var olan tek bir düğüm türü dış yük dengeleyici ile başla
 
 6. İçinde `networkProfile` için `Microsoft.Compute/virtualMachineScaleSets` kaynak, iç arka uç adres havuzu ekleme:
 
-    ```
+    ```json
     "loadBalancerBackendAddressPools": [
                                                         {
                                                             "id": "[variables('lbPoolID0')]"

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/09/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 76ccbb3eabbf7186498ad0d57753314bdeffc2ea
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: aa740cfb203f50dc97a06359774dae367a20252b
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52585860"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55147965"
 ---
 ## <a name="about-vhds"></a>VHD'ler hakkında
 
@@ -71,6 +71,6 @@ Aşağıdaki tablo standart HDD, standart bir SSD ve yönetilen ve yönetilmeyen
 | Disk Türü | Katı Hal Sürücüleri (SSD) | Katı Hal Sürücüleri (SSD) | Sabit Disk Sürücüleri (HDD)  
 | Genel Bakış  | G/Ç yoğunluklu iş yükleri çalıştıran veya görev açısından kritik üretim ortamı barındıran VM’ler için SSD tabanlı, yüksek performans ve düşük gecikme süresi sunan disk desteği |Daha tutarlı performans ve güvenilirlik HDD. Düşük IOPS iş yükleri için iyileştirilmiş| Seyrek erişim için uygun maliyetli disk HDD tabanlı
 | Senaryo  | Üretim ve performansa duyarlı iş yükleri |Web sunucuları, az kullanılan Kurumsal uygulama ve geliştirme/Test| Yedekleme, kritik olmayan, seyrek erişim
-| Disk Boyutu | P4: 32 GiB (yalnızca yönetilen diskler)<br>P6: 64 GiB (yalnızca yönetilen diskler)<br>P10: 128 Gib'a<br>P15: 256 GiB (yalnızca yönetilen diskler)<br>P20: 512 Gib'a<br>P30: 1024 GiB<br>P40: 2048 GiB<br>P50: 4.095 GiB<br>P60: 8192 GiB * (8 tib'a kadar)<br>P70: 16.384 GiB * (16 tib'a kadar)<br>P80: 32.767 GiB * (32 tib'a kadar) |Yalnızca yönetilen diskler:<br>E10: 128 Gib'a<br>E15: 256 GiB<br>E20: 512 Gib'a<br>E30: 1024 GiB<br>E40: 2048 GiB<br>E50: 4095 GiB<br>E60: 8192 GiB * (8 tib'a kadar)<br>E70: 16.384 GiB * (16 tib'a kadar)<br> E80: 32.767 GiB * (32 tib'a kadar) | Yönetilmeyen diskler: 1 GiB – 4 TiB (4095 GiB) <br><br>Yönetilen Diskler:<br> S4: 32 GiB <br>S6: 64 GiB <br>S10: 128 Gib'a <br>S15: 256 GiB <br>S20: 512 Gib'a <br>S30: 1024 GiB <br>S40: 2048 GiB<br>S50: 4095 GiB<br>S60: 8192 GiB * (8 tib'a kadar)<br>S70: 16.384 GiB * (16 tib'a kadar)<br>S80: 32.767 GiB * (32 tib'a kadar)
-| Disk Başına En Fazla Aktarım Hızı | P4: 25 MiB/sn<br> P6: 50 MiB/sn<br> P10: 100 MiB/sn<br> P15: 125 MiB/sn<br> P20: 150 MiB/sn<br> P30: 200 MiB/sn<br> P40 P50: 250 MiB/sn<br> P60: 480 MiB/sn *<br> P70 P80: 750 MiB/sn * | E10 E50: En fazla 60 MiB/sn<br> E60: en fazla 300 MiB/sn *<br> E70 E80: 500 MiB/sn *| S4 - S50: Upt o 60 MiB/sn<br> S60: en fazla 300 MiB/sn *<br> S70 S80: en fazla 500 MiB/sn *
-| Disk başına en fazla IOPS | P4: 120 IOPS<br> P6: 240 IOPS<br> P10: 500 IOPS<br> P15: 1100 IOPS<br> P20: 2300 IOPS<br> P30: 5000 IOPS<br> P40 P50: 7500 IOPS<br> P60: 12.500 IOPS *<br> P70: 15.000 IOPS *<br> P80: 20.000 IOPS * | E10 E50: en fazla 500 IOPS<br> E60: 1300 IOPS kadar *<br> E70 E80: en fazla 2000 IOPS * | S4-S50: en fazla 500 IOPS<br> S60: 1300 IOPS kadar *<br> S70 S80: en fazla 2000 IOPS *
+| Disk Boyutu | P4: 32 giB (yalnızca yönetilen diskler)<br>P6: 64 giB (yalnızca yönetilen diskler)<br>P10: 128 GiB<br>P15: 256 giB (yalnızca yönetilen diskler)<br>P20: 512 GiB<br>P30: 1024 giB<br>P40: 2048 giB<br>P50: 4.095 giB<br>P60: 8192 giB * (8 tib'a kadar)<br>P70: 16.384 giB * (16 tib'a kadar)<br>P80: 32.767 giB * (32 tib'a kadar) |Yalnızca yönetilen diskler:<br>E4: 32 GiB<br>E6: 64 GiB<br>E10: 128 GiB<br>E15: 256 GiB<br>E20: 512 GiB<br>E30: 1024 giB<br>E40: 2048 giB<br>E50: 4095 giB<br>E60: 8192 giB * (8 tib'a kadar)<br>E70: 16.384 giB * (16 tib'a kadar)<br> E80: 32.767 giB * (32 tib'a kadar) | Yönetilmeyen diskler: 1 giB – 4 TiB (4095 GiB) <br><br>Yönetilen Diskler:<br> S4: 32 GiB <br>S6: 64 GiB <br>S10: 128 GiB <br>S15: 256 GiB <br>S20: 512 GiB <br>S30: 1024 giB <br>S40: 2048 giB<br>S50: 4095 giB<br>S60: 8192 giB * (8 tib'a kadar)<br>S70: 16.384 giB * (16 tib'a kadar)<br>S80: 32.767 giB * (32 tib'a kadar)
+| Disk Başına En Fazla Aktarım Hızı | P4: 25 MiB/s<br> P6: 50 MiB/s<br> P10: 100 MiB/s<br> P15: 125 MiB/s<br> P20: 150 MiB/s<br> P30: 200 MiB/s<br> P40 P50: 250 MiB/s<br> P60: 480 MiB/s *<br> P70 P80: 750 MiB/s * | E10-E50: En fazla 60 MiB/sn<br> E60: En fazla 300 MiB/sn *<br> E70-E80: 500 MiB/s *| S4 - S50: Upt o 60 MiB/sn<br> S60: En fazla 300 MiB/sn *<br> S70-S80: En fazla 500 MiB/sn *
+| Disk başına en fazla IOPS | P4: 120 IOPS<br> P6: 240 IOPS<br> P10: 500 IOPS<br> P15: 1100 IOPS<br> P20: 2300 IOPS<br> P30: 5000 IOPS<br> P40 P50: 7500 IOPS<br> P60: 12.500 IOPS *<br> P70: 15.000 IOPS *<br> P80: 20.000 IOPS * | E10-E50: En fazla 500 IOPS<br> E60: 1300 IOPS kadar *<br> E70-E80: 2000 IOPS kadar * | S4-S50: En fazla 500 IOPS<br> S60: 1300 IOPS kadar *<br> S70-S80: 2000 IOPS kadar *

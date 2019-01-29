@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/23/2018
 ms.author: srrengar
-ms.openlocfilehash: ec2b623650818877930ac6b95a17ee264f07efdf
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 32e67343c5d799157d67408b34753da5a38b6f8e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959552"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197254"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Service Fabric Linux kümesi Syslog olayları
 
@@ -35,7 +35,7 @@ Her bir Syslog olayının 4 bileşenleri olan
 * İleti
 * Severity
 
-SyslogConsumer özelliğini kullanarak tüm platform olayları yazar `Local0`. Geçerli bir birime config config değiştirerek güncelleştirebilirsiniz. Kimliktir `ServicFabric`. Mesaj alanına, böylelikle sorgulandı ve çeşitli araçlar tarafından kullanılan JSON olarak serileştirilmiş tüm olay içerir. 
+SyslogConsumer özelliğini kullanarak tüm platform olayları yazar `Local0`. Geçerli bir birime config config değiştirerek güncelleştirebilirsiniz. Kimliktir `ServiceFabric`. Mesaj alanına, böylelikle sorgulandı ve çeşitli araçlar tarafından kullanılan JSON olarak serileştirilmiş tüm olay içerir. 
 
 ## <a name="enable-syslogconsumer"></a>SyslogConsumer etkinleştir
 

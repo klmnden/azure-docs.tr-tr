@@ -6,20 +6,20 @@ services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-custom-search
+ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 5394f86e8a5d167830cb4061800f4cbf9a521713
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 5b73acb633512960d7aa6d6eea9b1d6e10dd3c22
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816420"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55174304"
 ---
 # <a name="get-videos-from-your-custom-view"></a>Videoları özel görünümünüzden Al
 
-Bing videolar arama özel videolar, özel arama deneyimini zenginleştirin olanak sağlar. Benzer şekilde web sonuçları, Web siteleri listesinin örneğinizin videoları arama özel arama destekler. Bing'in özel video arama API'sini kullanarak videoları alın veya barındırılan kullanıcı Arabirimi aracılığıyla özelliği. Barındırılan UI özelliğini kullanarak, kullanımı kolaydır ve arama deneyiminizi'ı kullanmaya başlamak ve kısa sırasını çalıştırmak için önerilir. Barındırılan videoları eklemek için kullanıcı Arabirimi yapılandırma hakkında daha fazla bilgi için bkz: [barındırılan UI deneyiminizi yapılandırma](hosted-ui.md).
+Bing videolar arama özel videolar, özel arama deneyimini zenginleştirin olanak sağlar. Özel arama, web sonuçlarına benzer şekilde örneğinizin web sitesi listesinde video aramayı destekler. Bing'in özel video arama API'sini kullanarak videoları alın veya barındırılan kullanıcı Arabirimi aracılığıyla özelliği. Barındırılan UI özelliğini kullanarak, kullanımı kolaydır ve arama deneyiminizi'ı kullanmaya başlamak ve kısa sırasını çalıştırmak için önerilir. Barındırılan videoları eklemek için kullanıcı Arabirimi yapılandırma hakkında daha fazla bilgi için bkz: [barındırılan UI deneyiminizi yapılandırma](hosted-ui.md).
 
 Arama sonuçlarını görüntülemeden üzerinde daha fazla denetim istiyorsanız, Bing'in özel video arama API'sini kullanabilirsiniz. API'yi çağırma arama Bing Video arama API'si benzer olduğundan kullanıma alma [Bing Video arama](../Bing-Video-Search/search-the-web.md) API'yi çağırıp örnekler. Ancak bunu yapmadan önce ile kendinizi alıştırın [özel video arama API'si başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference) içeriği. Temel farklılıklar şunlardır: (customConfig sorgu parametresini içermesi gerekir) desteklenen sorgu parametreleri ve uç nokta istekleri gönderme.
 

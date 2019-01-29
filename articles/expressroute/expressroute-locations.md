@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/19/2018
+ms.date: 01/25/2018
 ms.author: pareshmu
-ms.openlocfilehash: d1d268a3be53e335fe61200a2e1e212b0842ac0f
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: c64e73fb30f1f7c18ec1bb1fe8dc9e6bf7857b94
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077157"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55184607"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute ortakları ve eşleme konumları
 
@@ -44,9 +44,9 @@ Aşağıdaki tablo, coğrafi bölge içindeki Azure bölgeler ile ExpressRoute k
 | --- | --- | --- | --- |
 | **Australia Government** | 1 | Avustralya Orta, Avustralya Orta 2 |Kanberra, Kanberra2 |
 | **Avrupa** | 1 |Fransa Orta, Fransa Güney, Kuzey Avrupa, Batı Avrupa, UK Batı, UK Güney |Amsterdam, Amsterdam2, Dublin, Londra, London2, Marsilya'daki, newport(Galler), Paris |
-| **Kuzey Amerika** | 1 |Doğu ABD, Batı ABD, Doğu ABD 2, Batı ABD 2, Orta ABD, Orta Güney ABD, Orta Kuzey ABD, Batı Orta ABD, Orta Kanada, Doğu Kanada |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, New York, San Antonio, Seattle, Silikon Vadisi, Washington, Montreal, Quebec City, Toronto |
-| **Asya** | 2 |Doğu Asya, Güneydoğu Asya |Hong Kong, Kuala Lumpur, Singapur, Singapur2 |
-| **Avustralya** | 2 |Güneydoğu Avustralya, Doğu Avustralya |Melbourne, Sidney | 
+| **Kuzey Amerika** | 1 |Doğu ABD, Batı ABD, Doğu ABD 2, Batı ABD 2, Orta ABD, Orta Güney ABD, Orta Kuzey ABD, Batı Orta ABD, Orta Kanada, Doğu Kanada |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, New York, San Antonio, Seattle, Silikon vadisi, Washington DC, Washington DC2, Montreal, Quebec City, Toronto |
+| **Asya** | 2 |Doğu Asya, Güneydoğu Asya |Hong Kong, Kuala Lumpur, Singapur, singapur2 Taipei |
+| **Avustralya** | 2 |Güneydoğu Avustralya, Doğu Avustralya |Melbourne, Perth, Sidney | 
 | **Hindistan** | 2 |Batı Hindistan, Orta Hindistan, Güney Hindistan |Madras, Madras2, Bombay, Bombay2 |
 | **Japonya** | 2 |Batı Japonya, Doğu Japonya |Osaka, Tokyo |
 | **Güney Kore** | 2 |Kore Orta, Kore Güney |Busan, Seul|
@@ -86,9 +86,10 @@ Aşağıdaki tabloda hizmet sağlayıcısına göre konumlar gösterilmektedir. 
 | **C3ntro** |Çok yakında |Çok yakında |Miami |
 | **CDC** | Desteklenen | Desteklenen | Kanberra, Kanberra2 |
 | **[CenturyLink Cloud Connect](http://www.centurylink.com/cloudconnect)** |Desteklenen |Desteklenen |Las Vegas, New York, San Antonio, Silikon Vadisi, Tokyo, Toronto |
+| **Baş telekomünikasyon** |Desteklenen |Desteklenen |Taipei |
 | **China Telecom Global** |Desteklenen |Desteklenmiyor |Hong Kong |
 | **[Cologix](http://www.cologix.com/solutions/cloud-connect/public-clouds/microsoft-cloud/)** |Desteklenen |Desteklenen |Chicago, Dallas, Montreal, Toronto, Washington DC |
-| **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Desteklenen |Desteklenen |Amsterdam, Dublin, Londra, Paris, Tokyo |
+| **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Desteklenen |Desteklenen |Amsterdam, Dublin, Londra, Paris, singapur2, Tokyo |
 | **[Comcast](https://business.comcast.com/landingpage/microsoft-azure)** |Desteklenen |Desteklenen |Chicago, Silikon Vadisi, Washington DC |
 | **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Desteklenen |Desteklenen |Chicago, Denver, Los Angeles, New York, Silikon vadisi, Washington DC, Washington DC2 |
 | **eir** |Desteklenen |Desteklenen |Dublin|
@@ -113,7 +114,7 @@ Aşağıdaki tabloda hizmet sağlayıcısına göre konumlar gösterilmektedir. 
 | **[MTN](http://www.mtnbusiness.com/en/enterprise/Pages/microsoft-express-route.aspx)** |Desteklenen |Desteklenen |Londra |
 | **[Neutrona Networks](http://www.neutrona.com/index.php/azure-expressroute/)** |Desteklenen |Desteklenen |Dallas, Miami, Sao Paulo |
 | **[Next Generation Data](http://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |Desteklenen |Desteklenen |Newport(Galler) |
-| **NEXTDC** |Desteklenen |Desteklenen |Melbourne, Sidney |
+| **[NEXTDC](https://www.nextdc.com/services/axon-ethernet/microsoft-expressroute)** |Desteklenen |Desteklenen |Melbourne, Perth, Sidney |
 | **[NTT Communications](http://www.ntt.com/en/services/network/virtual-private-network.html)** |Desteklenen |Desteklenen |Amsterdam, Hong Kong, Londra, Los Angeles, Osaka, Singapur, Sidney, Tokyo, Washington DC |
 | **[NTT EAST](https://flets.com/cloudgateway/crossconnect/)** |Desteklenen |Desteklenen |Tokyo |
 | **[NTT SmartConnect](http://cloud.nttsmc.com/cxc/azure.html)** |Desteklenen |Desteklenen |Osaka |

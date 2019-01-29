@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: mcoskun
-ms.openlocfilehash: 42aaafd346c6db9d4a8780628319720aa3f28134
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 986a7be49f8ae0f683b89596204845bb08eeaf2d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727724"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095779"
 ---
 # <a name="backup-and-restore-reliable-services-and-reliable-actors"></a>Yedekleme ve Reliable Services ve Reliable Actors geri yükleme
 Azure Service Fabric durum bu yüksek kullanılabilirliği sürdürmek için birden fazla düğümde çoğaltan bir yüksek kullanılabilirlik platformudur.  Bu nedenle, kümedeki bir düğümün başarısız olsa bile, hizmetler kullanılabilir olmaya devam. Bazı durumlarda daha bu yerleşik yedeklilik platform tarafından sağlanan bazı için yeterli olmakla birlikte bile hizmeti (bir dış depoya) verileri yedeklemek tercih edilir.
@@ -44,7 +44,7 @@ Azure Service Fabric durum bu yüksek kullanılabilirliği sürdürmek için bir
 Yedekleme/Geri Yükleme özelliği güvenilir hizmetler oluşturma ve yedekleri geri yüklemek için API üzerinde derlenmiş hizmetleri sağlar. Platform tarafından sağlanan yedekleme API'leri engelleme okuma veya yazma işlemleri olmadan bir hizmet bölümün durumunun yedekleri izin verin. Geri yükleme, seçilen bir yedekten geri yüklenmesi durumu hizmeti bölümün API'leri sağlar.
 
 ## <a name="types-of-backup"></a>Yedekleme türleri
-Yedekleme iki seçenek vardır: tam ve artımlı.
+Yedekleme iki seçenek vardır: Tam ve artımlı.
 Çoğaltma durumu yeniden oluşturmak için gereken tüm verileri içeren bir yedekleme tam bir yedeklemedir: denetim noktaları ve tüm günlük kayıtları.
 Kontrol noktalarına ve günlük olduğundan, kendi kendine tam bir yedekleme geri yüklenebilir.
 
@@ -227,7 +227,7 @@ Artımlı yedekleme etkinleştirildikten sonra bir artımlı yedekleme ile Fabri
   - Birincil duyurulduğu çoğaltmayı hiçbir zaman bir tam yedekleme duruma getirdi.
   - Son yedeklemeden alındıktan sonra bazı günlük kayıtlarını kesildi.
 
-Artımlı yedekleme etkinleştirildiğinde `KvsActorStateProvider` döngüsel arabellek günlük kayıtlarını yönetmenizi kullanmaz ve düzenli aralıklarla keser. Kullanıcı tarafından 45 dakika boyunca hiçbir yedekleme alınmışsa, sistem otomatik olarak günlük kayıtlarını keser. Bu aralığı belirterek yapılandırılabilir `logTrunctationIntervalInMinutes` içinde `KvsActorStateProvider` Oluşturucusu (artımlı yedeklemeyi etkinleştirilirken benzer). Tüm verileri göndererek başka bir çoğaltma oluşturmak birincil çoğaltma gerekiyorsa günlük kayıtlarını da kesilmiş.
+Artımlı yedekleme etkinleştirildiğinde `KvsActorStateProvider` döngüsel arabellek günlük kayıtlarını yönetmenizi kullanmaz ve düzenli aralıklarla keser. Kullanıcı tarafından 45 dakika boyunca hiçbir yedekleme alınmışsa, sistem otomatik olarak günlük kayıtlarını keser. Bu aralığı belirterek yapılandırılabilir `logTruncationIntervalInMinutes` içinde `KvsActorStateProvider` Oluşturucusu (artımlı yedeklemeyi etkinleştirilirken benzer). Tüm verileri göndererek başka bir çoğaltma oluşturmak birincil çoğaltma gerekiyorsa günlük kayıtlarını da kesilmiş.
 
 Bir yedekleme zinciri geri yükleme yaparken, Reliable Services benzer BackupFolderPath tam yedekleme ve diğer artımlı yedekleri içeren alt dizinleri içeren bir alt ile alt dizinleri içermelidir. Yedekleme zinciri doğrulama başarısız olursa geri yükleme API ile ilgili hata iletisi FabricException durum oluşturur. 
 

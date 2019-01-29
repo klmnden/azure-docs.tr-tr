@@ -9,12 +9,12 @@ ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: 74587d05ec27e87d87aa3647c22f5c90a9cdcf58
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 1a3cfb51cc75c89c5a4580b1b7721eb763078980
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436412"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096713"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Makineleri Azure Otomasyon durum yapılandırması tarafından Yönetim için hazırlama
 
@@ -168,7 +168,7 @@ Birkaç basit adımda üzerinden internet giden erişime sahip oldukları sürec
 1. En son sürümünü emin [Linux için PowerShell Desired State Configuration](https://github.com/Microsoft/PowerShell-DSC-for-Linux) Azure Otomasyon durum yapılandırması için eklemek istediğiniz makineleri yüklenir.
 1. Varsa [PowerShell DSC Local Configuration Manager varsayılan](/powershell/dsc/metaconfig4) kullanım Örneğinize uyan ve gibi yerleşik makineleri yapmak istiyorsanız, bunlar **hem** isteneceğini ve Azure Otomasyonu durum yapılandırması için Rapor:
 
-   - Azure Otomasyonu durumu yapılandırmasını ekleneceği her Linux makine üzerinde `Register.py` yerleşik PowerShell DSC Local Configuration Manager varsayılan değerleri kullanarak:
+   - Azure Otomasyonu durum yapılandırması eklemek için her Linux makine üzerinde `Register.py` yerleşik PowerShell DSC Local Configuration Manager varsayılan değerleri kullanarak:
 
      `/opt/microsoft/dsc/Scripts/Register.py <Automation account registration key> <Automation account registration URL>`
 

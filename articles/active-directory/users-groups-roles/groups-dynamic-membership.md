@@ -8,18 +8,18 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.date: 11/07/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 148a657b1a5db5b1b33c94e27d695e7c24dfb265
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 98638c2fbd3f60ec0db009b52507eadcadd87ab4
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214650"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55172332"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory'de gruplar için dinamik Üyelik kuralları
 
@@ -40,7 +40,7 @@ Bir kullanıcı veya cihaz grubuyla otomatik olarak dolduran bir üyelik kuralı
 
 * Özellik
 * İşleç
-* Değer
+* Value
 
 Söz dizimi hatalarını önlemek, bir ifade içinde bölümleri sırası önemlidir.
 
@@ -70,8 +70,8 @@ Tek bir ifade oluşturmak için kullanabileceğiniz kullanıcı özellikleri aş
 
 | Özellikler | İzin verilen değerler | Kullanım |
 | --- | --- | --- |
-| accountEnabled |doğru yanlış |user.accountEnabled - eq true |
-| dirSyncEnabled |doğru yanlış |user.dirSyncEnabled - eq true |
+| accountEnabled |doğru yanlış |user.accountEnabled -eq true |
+| dirSyncEnabled |doğru yanlış |user.dirSyncEnabled -eq true |
 
 ### <a name="properties-of-type-string"></a>Dize türündeki özellikleri
 
@@ -89,7 +89,7 @@ Tek bir ifade oluşturmak için kullanabileceğiniz kullanıcı özellikleri aş
 | posta |Herhangi bir dize değeri veya *null* (kullanıcının SMTP adresi) |(user.mail - eq "value") |
 | mailNickName |Herhangi bir dize değeri (kullanıcının posta diğer) |(user.mailNickName - eq "value") |
 | Mobil |Herhangi bir dize değeri veya *null* |(user.mobile - eq "value") |
-| objectId |Kullanıcı nesnesinin GUID |(user.objectId - eq "11111111-1111-1111-1111-111111111111") |
+| objectId |Kullanıcı nesnesinin GUID |(user.objectId -eq "11111111-1111-1111-1111-111111111111") |
 | onPremisesSecurityIdentifier | Güvenlik tanımlayıcısı (SID) şirket içinden buluta eşitlenmiş kullanıcılar için şirket içi. |(user.onPremisesSecurityIdentifier - eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
 | passwordPolicies |Hiçbiri DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies - eq "DisableStrongPassword") |
 | physicalDeliveryOfficeName |Herhangi bir dize değeri veya *null* |(user.physicalDeliveryOfficeName - eq "value") |
@@ -350,7 +350,7 @@ Aşağıdaki cihaz öznitelikleri kullanılabilir.
  deviceOSType | herhangi bir dize değeri | (cihaz.cihazostürü - eq "iPad")- veya (cihaz.cihazostürü - eq "iPhone")
  deviceOSVersion | herhangi bir dize değeri | (device.deviceOSVersion - eq "9.1")
  deviceCategory | Geçerli cihaz kategorisi adı | (device.deviceCategory - eq "KCG")
- deviceManufacturer | herhangi bir dize değeri | (device.deviceManufacturer - eq "Samsung")
+ deviceManufacturer | herhangi bir dize değeri | (device.deviceManufacturer -eq "Samsung")
  deviceModel | herhangi bir dize değeri | (device.deviceModel - eq "iPad hava")
  deviceOwnership | Kişisel, şirket, bilinmeyen | (device.deviceOwnership - eq "Şirket")
  DomainName | herhangi bir dize değeri | (device.domainName - eq "contoso.com")

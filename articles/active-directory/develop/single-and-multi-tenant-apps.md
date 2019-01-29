@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: justhu
 ms.custom: aaddev
-ms.openlocfilehash: a965cd70e3eba04f278cf432196b9386b537462d
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 1e9509cfe94153eb7820023075495db75c6a3b9e
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424349"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097036"
 ---
 # <a name="tenancy-in-azure-active-directory"></a>Azure Active Directory'de kiralama
 
@@ -38,7 +38,7 @@ Azure portalında, İzleyici şu şekilde ayarlayarak tek kiracılı veya çok k
 | Hedef kitle | Tek/birden çok-tenant | Kim oturum | 
 |----------|--------| ---------|
 | Yalnızca bu dizindeki hesapları | Tek kiracılı | Dizininizdeki tüm kullanıcı ve konuk hesapları uygulamanızı veya API'nizi kullanabilir.<br>*Hedef kitlenizi kuruluşunuz, bu seçeneği kullanın.* |
-| Herhangi bir Azure AD dizinini hesapları | Çok Kiracılı | Tüm kullanıcılar ve konuklar bir iş veya Okul hesabı Microsoft ile uygulamanız veya API kullanabilirsiniz. Bu, okullar ve Office 365 kullanan işletmelerin içerir.<br>*Hedef kitlenizi iş veya eğitim müşterileri, bu seçeneği kullanın.* |
+| Herhangi bir Azure AD dizinindeki hesaplar | Çok Kiracılı | Tüm kullanıcılar ve konuklar bir iş veya Okul hesabı Microsoft ile uygulamanız veya API kullanabilirsiniz. Bu, okullar ve Office 365 kullanan işletmelerin içerir.<br>*Hedef kitlenizi iş veya eğitim müşterileri, bu seçeneği kullanın.* |
 | Herhangi bir Azure AD dizini ve kişisel Microsoft hesapları (örneğin, Skype, Xbox, Outlook.com) hesapları | Çok Kiracılı | Bir iş veya okul veya kişisel Microsoft hesabı olan tüm kullanıcılar, uygulama veya API kullanabilirsiniz. Okullar ve Xbox ve Skype gibi hizmetlerinde oturum açarken kullanılacak kişisel hesaplarının yanı sıra Office 365 kullanan işletmelerin de buna dahildir.<br>*Microsoft hesapları geniş kümesini hedeflemek için bu seçeneği kullanın.* | 
 
 ## <a name="best-practices-for-multi-tenant-apps"></a>Çok kiracılı uygulamalar için en iyi uygulamalar

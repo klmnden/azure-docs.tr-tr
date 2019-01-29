@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 29142f7e-d862-4076-9a1a-ecae5bcd9d9b
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 04/17/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 3b60a659700b1e464f4d8f70516a2ceaa0f08b6b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b78d8a5bd5ebb0d7b2f3c2012ec2021e4f999c1f
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423754"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55100810"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Openıd Connect ile Azure Active Directory kullanarak web uygulamalarına erişim yetkisi verme
 
@@ -226,7 +226,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAA
 | Parametre | Açıklama |
 | --- | --- |
 | id_token |`id_token` İstenen uygulama. Kullanabileceğiniz `id_token` kullanıcının kimliğini doğrulamak ve kullanıcı bir oturumla başlayın. |
-| Kod |Uygulama istenen authorization_code. Uygulama, hedef kaynağı için bir erişim belirteci istemek için yetkilendirme kodu kullanabilirsiniz. Authorization_codes kısa süreli ve genellikle yaklaşık 10 dakika sonra süresi dolar. |
+| kod |Uygulama istenen authorization_code. Uygulama, hedef kaynağı için bir erişim belirteci istemek için yetkilendirme kodu kullanabilirsiniz. Authorization_codes kısa süreli ve genellikle yaklaşık 10 dakika sonra süresi dolar. |
 | durum |State parametresi istekte yer alıyorsa aynı değeri yanıt olarak görünmelidir. Uygulama istek ve yanıt durum değerleri özdeş olduğunu doğrulamanız gerekir. |
 
 ### <a name="error-response"></a>Hata yanıtı

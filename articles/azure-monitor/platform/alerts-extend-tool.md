@@ -1,5 +1,5 @@
 ---
-title: Uyarıları Log Analytics’ten Azure’a genişletme
+title: Uyarıları Log Analytics'ten Azure kamu buluta genişletin.
 description: Bu makalede, uyarıları Log Analytics'ten Azure Uyarıları'na genişletebileceğiniz API ve araçları açıklar.
 author: msvijayn
 services: azure-monitor
@@ -8,24 +8,24 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: dc8c1733f506870765523b17c1fc3e283ff9cbdb
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 9d734f74c4e12b369e46c15dcb9d01a8185dddd6
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54423284"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103386"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Uyarıları Log Analytics'ten Azure uyarılarına genişletecektir genişletme
-Azure Log analytics'te uyarıları özelliği, Azure uyarıları ile değiştirilmektedir. Bu geçişin bir parçası olarak, ilk olarak yapılandırdığınız Log Analytics'te uyarıları Azure'a genişletilir. Bunlar otomatik olarak Azure'a taşınması için beklemek istemiyorsanız işlemi başlatabilirsiniz:
+OMS portalında uyarıları özelliği, Azure Uyarıları'nda Azure kamu Bulutu ile değiştirilmektedir. Bu geçişin bir parçası olarak, ilk olarak yapılandırdığınız Log Analytics'te uyarıları Azure'a genişletilir. Bunlar otomatik olarak Azure'a taşınması için beklemek istemiyorsanız işlemi başlatabilirsiniz:
 
 - Operations Management Suite portaldaki el ile. 
 - Program aracılığıyla AlertsVersion API'si kullanarak.  
 
 > [!NOTE]
-> Microsoft, tamamlanana kadar yinelenen bir dizide 14 Mayıs 2018'de başlayarak Azure uyarıları Log Analytics'e genel bulut örneklerinde oluşturulan uyarıların otomatik olarak genişletilir. Oluşturma sorunları varsa [Eylem grupları](../../azure-monitor/platform/action-groups.md), kullanın [düzeltme adımları](alerts-extend-tool.md#troubleshooting) otomatik olarak oluşturulan eylem grupları alınamıyor. 5 Temmuz 2018'e kadar bu adımları kullanabilirsiniz. *Azure kamu ve Log Analytics bağımsız bulut kullanıcıları için uygulanamaz*. 
+> Microsoft, sistematik bir şekilde 1 Mart'ta 2019'üzerinde başlatma Azure Uyarılar ' Log Analytics, Azure kamu OMS portalı durumlarda oluşturulan uyarıların otomatik olarak genişletilir. Oluşturma sorunları varsa [Eylem grupları](../../azure-monitor/platform/action-groups.md), kullanın [düzeltme adımları](alerts-extend-tool.md#troubleshooting) otomatik olarak oluşturulan eylem grupları alınamıyor. 15 Mart 2019'e kadar Azure kamu OMS Portalı'nda aşağıdaki adımları kullanabilirsiniz.
 
 ## <a name="option-1-initiate-from-the-operations-management-suite-portal"></a>1. seçenek: Operations Management Suite Portalı'ndan Başlat
-Aşağıdaki adımlarda, çalışma alanı için uyarıları Operations Management Suite Portalı'ndan genişletmek anlatılmaktadır.  
+Aşağıdaki adımlar, Azure kamu bulutu için Operations Management Suite portalında çalışma alanı için uyarılar genişletmek açıklanmaktadır.  
 
 1. Azure portalda **Tüm hizmetler**’i seçin. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.
 2. Log Analytics abonelikleri bölmesinde, bir çalışma alanı seçin ve ardından **OMS portalında** Döşe.
@@ -213,251 +213,11 @@ Bu yanıt uyarıları başarılı bir şekilde Azure uyarılarına genişletecek
 
 ```
 
-
-## <a name="option-3-use-a-custom-powershell-script"></a>Seçenek 3: Özel bir PowerShell betiğini kullanın
- 5 Temmuz 2018'e kadar Microsoft başarıyla uyarıları Operations Management Suite Portalı'ndan Azure'a genişletilmiş değil, el ile yapabilirsiniz. El ile uzantısı için iki seçenek iki önceki bölümlerde ele alınmıştır.
-
-5 Temmuz 2018'den sonra Azure'a tüm uyarıları Operations Management Suite Portalı'ndan genişletilir. Almak istemediğiniz kullanıcılar [önerilen gerekli düzeltme adımları](#troubleshooting) eylemler veya bildirimleri, olmaması nedeniyle tetikleme olmadan çalışan uyarılarını ilişkilendirilmiş olan [Eylem grupları](../../azure-monitor/platform/action-groups.md). 
-
-Oluşturulacak [Eylem grupları](../../azure-monitor/platform/action-groups.md) el ile Log analytics'teki uyarılar için aşağıdaki örnek betiği kullanın:
-```PowerShell
-########## Input Parameters Begin ###########
-
-
-$subscriptionId = ""
-$resourceGroup = ""
-$workspaceName = "" 
-
-
-########## Input Parameters End ###########
-
-armclient login
-
-try
-{
-    $workspace = armclient get /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/"$workspaceName"?api-version=2015-03-20 | ConvertFrom-Json
-    $workspaceId = $workspace.properties.customerId
-    $resourceLocation = $workspace.location
-}
-catch
-{
-    "Please enter valid input parameters i.e. Subscription Id, Resource Group and Workspace Name !!"
-    exit
-}
-
-# Get Extend Summary of the Alerts
-"`nGetting Extend Summary of Alerts for the workspace...`n"
-try
-{
-
-    $value = armclient get /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/alertsversion?api-version=2017-04-26-preview
-
-    "Extend preview summary"
-    "=========================`n"
-
-    $value
-
-    $result = $value | ConvertFrom-Json
-}
-catch
-{
-
-    $ErrorMessage = $_.Exception.Message
-    "Error occurred while fetching/parsing Extend summary: $ErrorMessage"
-    exit 
-}
-
-if ($result.version -eq 2)
-{
-    "`nThe alerts in this workspace have already been extended to Azure."
-    exit
-}
-
-$in = Read-Host -Prompt "`nDo you want to continue extending the alerts to Azure? (Y/N)"
-
-if ($in.ToLower() -ne "y")
-{
-    exit
-} 
-
-
-# Check for resource provider registration
-try
-{
-    $val = armclient get subscriptions/$subscriptionId/providers/microsoft.insights/?api-version=2017-05-10 | ConvertFrom-Json
-    if ($val.registrationState -eq "NotRegistered")
-    {
-        $val = armclient post subscriptions/$subscriptionId/providers/microsoft.insights/register/?api-version=2017-05-10
-    }
-}
-catch
-{
-    "`nThe user does not have required access to register the resource provider. Please try with user having Contributor/Owner role in the subscription"
-    exit
-}
-
-$actionGroupsMap = @{}
-try
-{
-    "`nCreating new action groups for alerts extension...`n"
-    foreach ($actionGroup in $result.migrationSummary.actionGroups)
-    {
-        $actionGroupName = $actionGroup.actionGroupName
-        $actions = $actionGroup.actions
-        if ($actionGroupsMap.ContainsKey($actionGroupName))
-        {
-            continue
-        } 
-        
-        # Create action group payload
-        $shortName = $actionGroupName.Substring($actionGroupName.LastIndexOf("AG_"))
-        $properties = @{"groupShortName"= $shortName; "enabled" = $true}
-        $emailReceivers = New-Object Object[] $actions.emailIds.Count
-        $webhookReceivers = New-Object Object[] $actions.webhookActions.Count
-        
-        $count = 0
-        foreach ($email in $actions.emailIds)
-        {
-            $emailReceivers[$count] = @{"name" = "Email$($count+1)"; "emailAddress" = "$email"}
-            $count++
-        }
-
-        $count = 0
-        foreach ($webhook in $actions.webhookActions)
-        {
-            $webhookReceivers[$count] = @{"name" = "$($webhook.name)"; "serviceUri" = "$($webhook.serviceUri)"}
-            $count++
-        }
-
-        $itsmAction = $actions.itsmAction
-        if ($itsmAction.connectionId -ne $null)
-        {
-            $val = @{
-            "name" = "ITSM"
-            "workspaceId" = "$subscriptionId|$workspaceId"
-            "connectionId" = "$($itsmAction.connectionId)"
-            "ticketConfiguration" = $itsmAction.templateInfo
-            "region" = "$resourceLocation"
-            }
-            $properties["itsmReceivers"] = @($val)  
-        }
-
-        $properties["emailReceivers"] = @($emailReceivers)
-        $properties["webhookReceivers"] = @($webhookReceivers)
-        $armPayload = @{"properties" = $properties; "location" = "Global"} | ConvertTo-Json -Compress -Depth 4
-
-    
-        # Azure Resource Manager call to create action group
-        $response = $armPayload | armclient put /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.insights/actionGroups/$actionGroupName/?api-version=2017-04-01
-
-        "Created Action Group with name $actionGroupName" 
-        $actionGroupsMap[$actionGroupName] = $actionGroup.actionGroupResourceId.ToLower()
-        $index++
-    }
-
-    "`nSuccessfully created all action groups!!"
-}
-catch
-{
-    $ErrorMessage = $_.Exception.Message
-
-    #Delete all action groups in case of failure
-    "`nDeleting newly created action groups if any as some error happened..."
-    
-    foreach ($actionGroup in $actionGroupsMap.Keys)
-    {
-        $response = armclient delete /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.insights/actionGroups/$actionGroup/?api-version=2017-04-01      
-    }
-
-    "`nError: $ErrorMessage"
-    "`nExiting..."
-    exit
-}
-
-# Update all alerts configuration to the new version
-"`nExtending OMS alerts to Azure...`n"
-
-try
-{
-    $index = 1
-    foreach ($alert in $result.migrationSummary.alerts)
-    {
-        $uri = $alert.alertId + "?api-version=2015-03-20"
-        $config = armclient get $uri | ConvertFrom-Json
-        $aznsNotification = @{
-            "GroupIds" = @($actionGroupsMap[$alert.actionGroupName])
-        }
-        if ($alert.customWebhookPayload)
-        {
-            $aznsNotification.Add("CustomWebhookPayload", $alert.customWebhookPayload)
-        }
-        if ($alert.customEmailSubject)
-        {
-            $aznsNotification.Add("CustomEmailSubject", $alert.customEmailSubject)
-        }      
-
-        # Update alert version
-        $config.properties.Version = 2
-
-        $config.properties | Add-Member -MemberType NoteProperty -Name "AzNsNotification" -Value $aznsNotification
-        $payload = $config | ConvertTo-Json -Depth 4
-        $response = $payload | armclient put $uri
-    
-        "Extended alert with name $($alert.alertName)"
-        $index++
-    }
-}
-catch
-{
-    $ErrorMessage = $_.Exception.Message   
-    if ($index -eq 1)
-    {
-        "`nDeleting all newly created action groups as no alerts got extended..."
-        foreach ($actionGroup in $actionGroupsMap.Keys)
-        {
-            $response = armclient delete /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.insights/actionGroups/$actionGroup/?api-version=2017-04-01      
-        }
-        "`nDeleted all action groups."  
-    }
-    
-    "`nError: $ErrorMessage"
-    "`nPlease resolve the issue and try extending again!!"
-    "`nExiting..."
-    exit
-}
-
-"`nSuccessfully extended all OMS alerts to Azure!!" 
-
-# Update version of workspace to indicate extension
-"`nUpdating alert version information in OMS workspace..." 
-
-$response = armclient post "/subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/alertsversion?api-version=2017-04-26-preview&iversion=2"
-
-"`nExtension complete!!"
-```
-
-
-### <a name="about-the-custom-powershell-script"></a>Özel bir PowerShell Betiği hakkında 
-Komut dosyası kullanma hakkında önemli bilgiler verilmiştir:
-- Yüklenmesini önkoşuldur [ARMclient](https://github.com/projectkudu/ARMClient), Azure Resource Manager API'si çağırma basitleştiren bir açık kaynak komut satırı aracı.
-- Betiği çalıştırmak için Azure aboneliğinde katkıda bulunan veya sahip rolü olmalıdır.
-- Aşağıdaki parametreleri belirtmeniz gerekir:
-    - $subscriptionId: Operations Management Suite Log Analytics çalışma alanı ile ilişkili Azure abonelik kimliği.
-    - $resourceGroup: Operations Management Suite Log Analytics çalışma alanı için Azure kaynak grubu.
-    - $workspaceName: Operations Management Suite Log Analytics çalışma alanının adı.
-
-### <a name="output-of-the-custom-powershell-script"></a>Özel bir PowerShell komut dosyası çıktısı
-Betik ayrıntılıdır ve çalışırken adımları çıkarır: 
-- Bu çalışma alanında mevcut Operations Management Suite Log Analytics Uyarıları hakkında bilgileri içeren özeti görüntüler. Özet, ilişkili eylemler için oluşturulacak Azure Eylem grupları hakkında bilgiler de içerir. 
-- Uzantı ile devam edin veya Özet görüntüledikten sonra çıkmak istenir.
-- Uzantı ile devam edin, yeni Azure Eylem grupları oluşturulur ve var olan tüm uyarıları bunlarla ilişkili. 
-- "Uzantısı tamamlandı!" iletisi görüntüleyerek kodun çıkar Tüm ara hataları olması durumunda betiğin sonraki hataları görüntüler.
-
 ## <a name="troubleshooting"></a>Sorun giderme 
 Uyarılar genişletme işlemi sırasında sorunları sistem gerekli oluşturmasını engelleyebilirsiniz [Eylem grupları](../../azure-monitor/platform/action-groups.md). Bu gibi durumlarda, bir hata iletisi bir başlık görürsünüz **uyarı** bölüm Operations Management Suite portalı veya GET API'sine yapılan çağırın.
 
 > [!IMPORTANT]
-> Azure genel bulut tabanlı, Log Analytics kullanıcı 5 Temmuz 2018 tarihinden önce aşağıdaki düzeltme adımları yakalayana, uyarılar, Azure'da çalışır ancak herhangi bir eylem veya bildirim tetiklenmez. Uyarılar için bildirim almak için el ile düzenleme ekleyin ve gerekir [Eylem grupları](../../azure-monitor/platform/action-groups.md), veya önceki [özel PowerShell Betiği](#option-3---using-custom-powershell-script).
+> Azure kamu Bulutu tabanlı OMS portalı kullanıcıları, 15 Mart 2019'den önce aşağıdaki düzeltme adımları yakalayana, uyarılar, Azure'da çalışır ancak herhangi bir eylem veya bildirim tetiklenmez. Uyarılar için bildirim almak için el ile azure'da kendi uyarı kuralları düzenlemek ve eklemeniz gerekir [Eylem grupları](../../azure-monitor/platform/action-groups.md)
 
 Her hata için düzeltme adımları şunlardır:
 - **Hata: Kapsam kilit mevcut abonelik/kaynak grubu düzeyinde yazma işlemleri için**:   ![Sayfasının ekran görüntüsü Operations Management Suite portalı uyarı ayarlarını, vurgulanan kapsam kilit hata iletisi](media/alerts-extend-tool/ErrorScopeLock.png)

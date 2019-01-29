@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 89ac87436fb6807177acf3882dd6e923b1722bd5
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 8bfa4178baae0d92f7efb5ea156cfd35a8b32b1b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849218"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55157474"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Azure CLI kullanarak bir yönlendirme tablosu ile ağ trafiğini yönlendirme
 
@@ -121,7 +121,7 @@ az network vnet subnet update \
 
 NVA; yönlendirme, güvenlik duvarı oluşturma veya WAN iyileştirmesi gibi ağ işlevlerini gerçekleştiren bir VM'dir.
 
-Bir NVA oluşturma *DMZ* alt ağ ile [az vm oluşturma](/cli/azure/vm#az_vm_create). Bir VM oluşturduğunuzda, Azure oluşturur ve varsayılan olarak VM, genel bir IP adresi atar. `--public-ip-address ""` Parametresi oluşturun ve olduğundan VM, internet'ten bağlı gerekmez VM, genel bir IP adresi atamak için Azure bildirir. SSH anahtarları, varsayılan anahtar konumunda zaten mevcut değilse komut bunları oluşturur. Belirli bir anahtar kümesini kullanmak için `--ssh-key-value` seçeneğini kullanın.
+Bir NVA oluşturma *DMZ* alt ağ ile [az vm oluşturma](/cli/azure/vm). Bir VM oluşturduğunuzda, Azure oluşturur ve varsayılan olarak VM, genel bir IP adresi atar. `--public-ip-address ""` Parametresi oluşturun ve olduğundan VM, internet'ten bağlı gerekmez VM, genel bir IP adresi atamak için Azure bildirir. SSH anahtarları, varsayılan anahtar konumunda zaten mevcut değilse komut bunları oluşturur. Belirli bir anahtar kümesini kullanmak için `--ssh-key-value` seçeneğini kullanın.
 
 ```azure-cli-interactive
 az vm create \
@@ -161,7 +161,7 @@ Komutu yürütmek için bir dakika kadar sürebilir.
 
 Gelen trafiğin doğrulayabilmek sanal ağda iki VM oluşturma *genel* alt yönlendirileceğini *özel* sonraki bir adımda NVA aracılığıyla alt ağ. 
 
-Bir VM oluşturma *genel* alt ağ ile [az vm oluşturma](/cli/azure/vm#az_vm_create). `--no-wait` Parametresi sonraki komuta devam edebilmesi arka planda komutu yürütmek Azure sağlar. Bu makalede kolaylaştırmak için bir parola kullanılır. Anahtarlar genellikle üretim dağıtımında kullanılır. Anahtarları kullanıyorsanız, SSH aracı iletmeyi yapılandırmanız da gerekir. Daha fazla bilgi için SSH istemcinizin belgelerine bakın. Değiştirin `<replace-with-your-password>` seçtiğiniz parolayla aşağıdaki komutta.
+Bir VM oluşturma *genel* alt ağ ile [az vm oluşturma](/cli/azure/vm). `--no-wait` Parametresi sonraki komuta devam edebilmesi arka planda komutu yürütmek Azure sağlar. Bu makalede kolaylaştırmak için bir parola kullanılır. Anahtarlar genellikle üretim dağıtımında kullanılır. Anahtarları kullanıyorsanız, SSH aracı iletmeyi yapılandırmanız da gerekir. Daha fazla bilgi için SSH istemcinizin belgelerine bakın. Değiştirin `<replace-with-your-password>` seçtiğiniz parolayla aşağıdaki komutta.
 
 ```azurecli-interactive
 adminPassword="<replace-with-your-password>"

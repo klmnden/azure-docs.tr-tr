@@ -1,43 +1,44 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle Egnyte | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile Egnyte | Microsoft Docs'
 description: Azure Active Directory ve Egnyte arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
+ms.reviewer: joflore
 ms.assetid: 8c2101d4-1779-4b36-8464-5c1ff780da18
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/18/2017
+ms.date: 11/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 4f6f6ef12f5a8dd8a9f210e9b1f1ca978ec5a1ac
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e33fc71e0e43864d7d70495fc5056a8acaf4ad56
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440465"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55159021"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-egnyte"></a>Öğretici: Azure Active Directory Egnyte ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-egnyte"></a>Öğretici: Egnyte ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Egnyte tümleştirme konusunda bilgi edinin.
 
 Azure AD ile Egnyte tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Egnyte erişimi, Azure AD'de denetleyebilirsiniz
+- Egnyte erişimi, Azure AD'de kontrol edebilirsiniz.
 - Otomatik olarak imzalanan için Egnyte (çoklu oturum açma) ile Azure AD hesaplarına açma, kullanıcılarınızın etkinleştirebilirsiniz.
-- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilirsiniz.
+- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD Tümleştirmesi ile Egnyte yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik bir Egnyte çoklu oturum açma etkin
 
 > [!NOTE]
@@ -46,53 +47,50 @@ Azure AD Tümleştirmesi ile Egnyte yapılandırmak için aşağıdaki öğeler 
 Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 
 - Gerekli olmadıkça, üretim ortamında kullanmayın.
-- Azure AD deneme ortamı yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
+- Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
+
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Galeriden Egnyte ekleme
-1. Yapılandırma ve test Azure AD çoklu oturum açma
+2. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-egnyte-from-the-gallery"></a>Galeriden Egnyte ekleme
+
 Azure AD'de Egnyte tümleştirmesini yapılandırmak için Egnyte Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Galeriden Egnyte eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
-    ![Active Directory][1]
+    ![Azure Active Directory düğmesi][1]
 
-1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
-    ![Uygulamalar][2]
-    
-1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+    ![Kurumsal uygulamalar dikey penceresi][2]
 
-    ![Uygulamalar][3]
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
-1. Arama kutusuna **Egnyte**.
+    ![Yeni Uygulama düğmesi][3]
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/egnyte-tutorial/tutorial_egnyte_search.png)
+4. Arama kutusuna **Egnyte**seçin **Egnyte** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-1. Sonuçlar panelinde seçin **Egnyte**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+    ![Sonuç listesinde Egnyte](./media/egnyte-tutorial/tutorial_egnyte_addfromgallery.png)
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/egnyte-tutorial/tutorial_egnyte_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Yapılandırma ve test Azure AD çoklu oturum açma
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon." adlı bir test kullanıcı tabanlı Egnyte ile test etme
+Bu bölümde, yapılandırın ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı Egnyte sınayın.
 
 Tek iş için oturum açma için Azure AD ne Egnyte karşılığı kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının Egnyte ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
-
-Egnyte içinde değerini atayın **kullanıcı adı** değerini Azure AD'de **kullanıcıadı** bağlantı kurmak için.
 
 Yapılandırma ve Azure AD çoklu oturum açma Egnyte ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-1. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-1. **[Bir Egnyte test kullanıcısı oluşturma](#creating-an-egnyte-test-user)**  - kullanıcı Azure AD gösterimini bağlı Egnyte Britta simon'un bir karşılığı vardır.
-1. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-1. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+3. **[Bir Egnyte test kullanıcısı oluşturma](#creating-an-egnyte-test-user)**  - kullanıcı Azure AD gösterimini bağlı Egnyte Britta simon'un bir karşılığı vardır.
+4. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
@@ -102,48 +100,54 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve E
 
 1. Azure portalında, üzerinde **Egnyte** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
-    ![Çoklu oturum açmayı yapılandırın][4]
+    ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
-1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
- 
-    ![Çoklu oturum açmayı yapılandırın](./media/egnyte-tutorial/tutorial_egnyte_samlbase.png)
+2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunu tıklatın **seçin** için **SAML** modu, çoklu oturum açmayı etkinleştirmek için.
 
-1. Üzerinde **Egnyte etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
+    ![Çoklu oturum açmayı yapılandırın](common/tutorial_general_301.png)
 
-    ![Çoklu oturum açmayı yapılandırın](./media/egnyte-tutorial/tutorial_egnyte_url.png)
+3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
+
+    ![Çoklu oturum açmayı yapılandırın](common/editconfigure.png)
+
+4. Üzerinde **temel SAML yapılandırma** bölümünde, aşağıdaki adımları gerçekleştirin:
+
+    ![Egnyte etki alanı ve URL'ler tek oturum açma bilgileri](./media/egnyte-tutorial/tutorial_egnyte_url.png)
 
     İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<companyname>.egnyte.com`
 
     > [!NOTE] 
     > Bu değer, gerçek değil. Bu değer, gerçek oturum açma URL'si ile güncelleştirin. İlgili kişi [Egnyte istemci Destek ekibine](https://www.egnyte.com/corp/contact_egnyte.html) bu değeri alınamıyor. 
- 
-1. Üzerinde **SAML imzalama sertifikası** bölümünde **Certificate(Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/egnyte-tutorial/tutorial_egnyte_certificate.png) 
+5. Üzerinde **SAML imzalama sertifikası** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **sertifika (Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 
-1. Tıklayın **Kaydet** düğmesi.
+    ![Sertifika indirme bağlantısı](./media/egnyte-tutorial/tutorial_egnyte_certificate.png) 
 
-    ![Çoklu oturum açmayı yapılandırın](./media/egnyte-tutorial/tutorial_general_400.png)
+6. Üzerinde **Egnyte kümesi** bölümünde, ihtiyacınıza göre uygun URL'yi kopyalayın.
 
-1. Üzerinde **Egnyte yapılandırma** bölümünde **yapılandırma Egnyte** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
+    a. Oturum Açma URL'si:
 
-    ![Çoklu oturum açmayı yapılandırın](./media/egnyte-tutorial/tutorial_egnyte_configure.png) 
+    b. Azure AD Tanımlayıcısı
 
-1. Farklı bir web tarayıcı penceresinde Egnyte şirketinizin sitesi için bir yönetici olarak oturum açın.
+    c. Oturum Kapatma URL'si
 
-1. Tıklayın **ayarları**.
+    ![Egnyte yapılandırma](common/configuresection.png)
+
+7. Farklı bir web tarayıcı penceresinde Egnyte şirketinizin sitesi için bir yönetici olarak oturum açın.
+
+8. Tıklayın **ayarları**.
    
-   ![Ayarları](./media/egnyte-tutorial/ic787819.png "ayarları")
+    ![Ayarları](./media/egnyte-tutorial/ic787819.png "ayarları")
 
-1. Menüde **ayarları**.
+9. Menüde **ayarları**.
 
-   ![Ayarları](./media/egnyte-tutorial/ic787820.png "ayarları")
+    ![Ayarları](./media/egnyte-tutorial/ic787820.png "ayarları")
 
-1. Tıklayın **yapılandırma** sekmesine ve ardından **güvenlik**.
+10. Tıklayın **yapılandırma** sekmesine ve ardından **güvenlik**.
 
     ![Güvenlik](./media/egnyte-tutorial/ic787821.png "güvenlik")
 
-1. İçinde **çoklu oturum açma kimlik doğrulaması** bölümünde, aşağıdaki adımları gerçekleştirin:
+11. İçinde **çoklu oturum açma kimlik doğrulaması** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açma kimlik doğrulaması](./media/egnyte-tutorial/ic787822.png "çoklu oturum açma kimlik doğrulaması")   
     
@@ -151,9 +155,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve E
    
     b. Olarak **kimlik sağlayıcısı**seçin **AzureAD**.
    
-    c. Yapıştırma **SAML çoklu oturum açma hizmeti URL'si** Azure portalına kopyalama kaynağı **kimlik sağlayıcısı oturum açma URL'si** metin.
+    c. Yapıştırma **oturum açma URL'si** Azure portalına kopyalama kaynağı **kimlik sağlayıcısı oturum açma URL'si** metin.
    
-    d. Yapıştırma **SAML varlık kimliği** Azure portalından kopyalanan **kimlik sağlayıcısı varlık kimliği** metin.
+    d. Yapıştırma **Azure AD tanımlayıcısı** Azure portalından kopyalanan **kimlik sağlayıcısı varlık kimliği** metin.
       
     e. Base-64 kodlanmış sertifikanızı Azure portalından indirdiğiniz Not Defteri'nde açın, içeriğini, panoya kopyalayın ve ardından ona yapıştırın **kimlik sağlayıcısı sertifikası** metin.
    
@@ -163,41 +167,31 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve E
    
     h. **Kaydet**’e tıklayın.
 
-> [!TIP]
-> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
-
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
+
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-![Azure AD kullanıcısı oluşturun][100]
+1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
-**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+    ![Azure AD kullanıcısı oluşturun][100]
 
-1. İçinde **Azure portalında**, sol gezinti bölmesinde **Azure Active Directory** simgesi.
+2. Seçin **yeni kullanıcı** ekranın üstünde.
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/egnyte-tutorial/create_aaduser_01.png) 
+    ![Bir Azure AD test kullanıcısı oluşturma](common/create_aaduser_01.png) 
 
-1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
-    
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/egnyte-tutorial/create_aaduser_02.png) 
+3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
 
-1. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
- 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/egnyte-tutorial/create_aaduser_03.png) 
+    ![Bir Azure AD test kullanıcısı oluşturma](common/create_aaduser_02.png)
 
-1. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
- 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/egnyte-tutorial/create_aaduser_04.png) 
+    a. İçinde **adı** alanına **BrittaSimon**.
+  
+    b. İçinde **kullanıcı adı** alanına **brittasimon@yourcompanydomain.extension**  
+    Örneğin, BrittaSimon@contoso.com
 
-    a. İçinde **adı** metin kutusuna **BrittaSimon**.
+    c. Seçin **özellikleri**seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
-    b. İçinde **kullanıcı adı** metin kutusuna **e-posta adresi** BrittaSimon biri.
+    d. **Oluştur**’u seçin.
 
-    c. Seçin **Göster parola** ve değerini yazma **parola**.
-
-    d. **Oluştur**’a tıklayın.
- 
 ### <a name="creating-an-egnyte-test-user"></a>Bir Egnyte test kullanıcısı oluşturma
 
 Egnyte için oturum açmak Azure AD kullanıcılarının etkinleştirmek için bunların Egnyte sağlanması gerekir. Egnyte söz konusu olduğunda, sağlama bir el ile gerçekleştirilen bir görevdir.
@@ -206,19 +200,23 @@ Egnyte için oturum açmak Azure AD kullanıcılarının etkinleştirmek için b
 
 1. Oturum açın, **Egnyte** şirketinizin sitesi yöneticisi olarak.
 
-1. Git **ayarları \> kullanıcıları ve grupları**.
+2. Git **ayarları \> kullanıcıları ve grupları**.
 
-1. Tıklayın **yeni kullanıcı Ekle**ve ardından eklemek istediğiniz kullanıcı türünü seçin.
+3. Tıklayın **yeni kullanıcı Ekle**ve ardından eklemek istediğiniz kullanıcı türünü seçin.
    
-   ![Kullanıcılar](./media/egnyte-tutorial/ic787824.png "kullanıcılar")
+    ![Kullanıcılar](./media/egnyte-tutorial/ic787824.png "kullanıcılar")
 
-1. İçinde **yeni standart kullanıcı** bölümünde, aşağıdaki adımları gerçekleştirin:
-   
-   ![Yeni standart kullanıcı](./media/egnyte-tutorial/ic787825.png "yeni standart kullanıcı")   
+4. İçinde **yeni güç kullanıcı** bölümünde, aşağıdaki adımları gerçekleştirin:
+    
+    ![Yeni standart kullanıcı](./media/egnyte-tutorial/ic787825.png "yeni standart kullanıcı")   
 
-   a. Tür **e-posta**, **kullanıcıadı**ve diğer ayrıntıları sağlamak istediğiniz geçerli bir Azure Active Directory hesabı.
+    a. İçinde **e-posta** metin kutusuna, kullanıcının gibi e-posta girin **Brittasimon@contoso.com**.
+
+    b. İçinde **kullanıcıadı** metin kutusunda, gibi kullanıcının kullanıcı adı girin **Brittasimon**.
+
+    c. Seçin **çoklu oturum açma** olarak **kimlik doğrulama türü**.
    
-   b. **Kaydet**’e tıklayın.
+    d. **Kaydet**’e tıklayın.
     
     >[!NOTE]
     >Azure Active Directory hesap sahibi bir bildirim e-posta alacaksınız.
@@ -232,57 +230,47 @@ Egnyte için oturum açmak Azure AD kullanıcılarının etkinleştirmek için b
 
 Bu bölümde, Azure çoklu oturum açma kullanmak için Egnyte erişim vererek Britta Simon etkinleştirin.
 
-![Kullanıcı Ata][200] 
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**.
 
-**Britta Simon Egnyte için atamak için aşağıdaki adımları gerçekleştirin:**
+    ![Kullanıcı Ata][201]
 
-1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+2. Uygulamalar listesinde **Egnyte**.
 
-    ![Kullanıcı Ata][201] 
+    ![Çoklu oturum açmayı yapılandırın](./media/egnyte-tutorial/tutorial_egnyte_app.png)
 
-1. Uygulamalar listesinde **Egnyte**.
+3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/egnyte-tutorial/tutorial_egnyte_app.png) 
+    ![Kullanıcı Ata][202]
 
-1. Soldaki menüde **kullanıcılar ve gruplar**.
-
-    ![Kullanıcı Ata][202] 
-
-1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
     ![Kullanıcı Ata][203]
 
-1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
 
-1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+6. İçinde **atama Ekle** iletişim kutusunda **atama** düğmesi.
 
-1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
-    
 ### <a name="testing-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
 Erişim panelinde Egnyte kutucuğa tıkladığınızda, otomatik olarak Egnyte uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md). 
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
 * [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
-
-
 <!--Image references-->
 
-[1]: ./media/egnyte-tutorial/tutorial_general_01.png
-[2]: ./media/egnyte-tutorial/tutorial_general_02.png
-[3]: ./media/egnyte-tutorial/tutorial_general_03.png
-[4]: ./media/egnyte-tutorial/tutorial_general_04.png
+[1]: common/tutorial_general_01.png
+[2]: common/tutorial_general_02.png
+[3]: common/tutorial_general_03.png
+[4]: common/tutorial_general_04.png
 
-[100]: ./media/egnyte-tutorial/tutorial_general_100.png
+[100]: common/tutorial_general_100.png
 
-[200]: ./media/egnyte-tutorial/tutorial_general_200.png
-[201]: ./media/egnyte-tutorial/tutorial_general_201.png
-[202]: ./media/egnyte-tutorial/tutorial_general_202.png
-[203]: ./media/egnyte-tutorial/tutorial_general_203.png
-
+[201]: common/tutorial_general_201.png
+[202]: common/tutorial_general_202.png
+[203]: common/tutorial_general_203.png

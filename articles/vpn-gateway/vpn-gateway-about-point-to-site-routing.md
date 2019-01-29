@@ -2,25 +2,17 @@
 title: İlgili Azure-yönlendirme siteye | Microsoft Docs
 description: Bu makalede, noktadan siteye VPN yönlendirme nasıl davranacağını anlamanıza yardımcı olur.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: ''
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/16/2018
+ms.date: 01/28/2019
 ms.author: anzaman
-ms.openlocfilehash: 620a2bf9221bdb7c46dc36a2b3ed23d853faff35
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 486a910226db5dc7b36aaf873e7bb8115eb78805
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031732"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55189666"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>Noktadan Siteye VPN yönlendirme hakkında
 
@@ -74,7 +66,7 @@ Windows kullanan istemciler doğrudan eşlenmiş Vnet'ler erişebilir, ancak san
 
 * VNet3: 10.3.0.0/16
 
-* Vnet4 arasında: 10.4.0.0/16
+* VNet4: 10.4.0.0/16
 
 ### <a name="routes-added"></a>Eklenen yollar
 
@@ -108,7 +100,7 @@ Windows veya başka bir desteklenen işletim sistemi kullanan istemciler yalnız
 
 * Windows istemcileri için eklenen yollar: 10.1.0.0/16, 192.168.0.0/24
 
-* Windows olmayan istemciler için eklenen yollar: 10.1.0.0/16, 10.2.0.0/16 192.168.0.0/24
+* Windows olmayan istemciler için eklenen yollar: 10.1.0.0/16, 10.2.0.0/16, 192.168.0.0/24
 
 ### <a name="access"></a>Access
 
@@ -188,7 +180,7 @@ Windows istemcileri VNet ve şube ofisi (Site1) erişebilir ancak Site1 yolları
 
 * Windows istemcileri için eklenen yollar: 10.1.0.0/16, 192.168.0.0/24
 
-* Windows olmayan istemciler için eklenen yollar: 10.1.0.0/16, 10.101.0.0/16 192.168.0.0/24
+* Windows olmayan istemciler için eklenen yollar: 10.1.0.0/16, 10.101.0.0/16, 192.168.0.0/24
 
 ### <a name="access"></a>Access
 
@@ -217,9 +209,9 @@ Tüm istemciler yalnızca vnet1'e erişebilir.
 
 ### <a name="routes-added"></a>Eklenen yollar
 
-* Yollar eklenen istemciler: 10.1.0.0/16, 192.168.0.0/24
+* Yollar istemciler eklendi: 10.1.0.0/16, 192.168.0.0/24
 
-* Windows olmayan istemciler için eklenen yollar: 10.1.0.0/16 10.2.0.0/16, 10.3.0.0/16 10.101.0.0/16, 192.168.0.0/24
+* Windows olmayan istemciler için eklenen yollar: 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 10.101.0.0/16, 192.168.0.0/24
 
 ### <a name="access"></a>Access
 
@@ -247,9 +239,9 @@ Bu örnekte, noktadan siteye VPN ağ geçidi bağlantısı için VNet1 ' dir. Vn
 
 ### <a name="routes-added"></a>Eklenen yollar
 
-* Yollar eklenen istemciler: 10.1.0.0/16, 192.168.0.0/24
+* Yollar istemciler eklendi: 10.1.0.0/16, 192.168.0.0/24
 
-* Windows olmayan istemciler için eklenen yollar: 10.1.0.0/16 10.2.0.0/16, 10.3.0.0/16 10.101.0.0/16, 192.168.0.0/24
+* Windows olmayan istemciler için eklenen yollar: 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 10.101.0.0/16, 192.168.0.0/24
 
 ### <a name="access"></a>Access
 

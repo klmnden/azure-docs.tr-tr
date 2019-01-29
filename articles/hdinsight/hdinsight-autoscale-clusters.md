@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: 977466d77bee2d6fe49c0438aa1d9d4489f8eb5f
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: fd2d9bd325d79a1fd8aa0da74da64f6ba98decda
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888235"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101065"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Azure HDInsight kümeleri (Önizleme) otomatik olarak ölçeklendirme
 
@@ -22,7 +22,7 @@ Azure HDInsight'ın küme otomatik ölçeklendirme özelliği yukarı ve aşağ�
 
 ## <a name="getting-started"></a>Başlarken
 
-### <a name="create-cluster-with-azure-portal"></a>Azure portalı ile küme oluşturma
+### <a name="create-a-cluster-with-the-azure-portal"></a>Azure portalı ile küme oluşturma
 
 > [!Note]
 > Otomatik ölçeklendirme şu anda yalnızca Azure HDInsight Hive, MapReduce ve Spark kümeleri için sürümü 3.6 desteklenir.
@@ -48,7 +48,7 @@ Aboneliğiniz, her bölge için bir kapasite kotası vardır. Kapasite kota topl
 > [!Note]  
 > Toplam çekirdek kota sınırını aşarsanız, 'en fazla düğüm bu bölgede kullanılabilir çekirdek sayısı aşıldı, Lütfen başka bir bölge seçin veya Kotayı artırmak için desteğe başvurun.' belirten bir hata iletisi alırsınız.
 
-### <a name="create-cluster-with-an-resource-manager-template"></a>Bir Resource Manager şablonu ile küme oluşturma
+### <a name="create-a-cluster-with-a-resource-manager-template"></a>Resource Manager şablonu ile küme oluşturma
 
 Resource Manager şablonlarını kullanarak HDInsight kümesi oluşturma adımları tamamlama bulunabilir [Apache Hadoop kümeleri oluşturma HDInsight Resource Manager şablonları kullanarak](hdinsight-hadoop-create-linux-clusters-arm-templates.md).  Bir Azure Resource Manager şablonu ile bir HDInsight kümesi oluşturduğunuzda, aşağıdaki ayarları "computeProfile" "workernode" bölümünde eklemek ve buna göre düzenleyin gerekir:
 
@@ -74,7 +74,7 @@ Resource Manager şablonlarını kullanarak HDInsight kümesi oluşturma adımla
 }
 ```
 
-### <a name="enable-and-disabling-autoscale-for-a-running-cluster"></a>Etkinleştirme ve devre dışı bırakmak için otomatik ölçeklendirmeyi, çalışan bir küme
+### <a name="enable-and-disable-autoscale-for-a-running-cluster"></a>Etkinleştirme ve otomatik ölçeklendirme, çalışan bir küme için devre dışı
 
 Özel önizleme sırasında çalışan bir küme için otomatik ölçeklendirmeyi etkinleştirme desteklenmiyor. Küme oluşturma sırasında etkinleştirilmesi gerekir.
 
@@ -82,7 +82,7 @@ Resource Manager şablonlarını kullanarak HDInsight kümesi oluşturma adımla
 
 ## <a name="monitoring"></a>İzleme
 
-Küme ölçek kümesi ölçümleri bir parçası olarak geçmişi yukarı ve aşağı görüntüleyebilirsiniz. Tüm ölçek eylemleri geçtiğimiz listeleyebilirsiniz gün, hafta veya daha uzun süre.
+Küme ölçeği artırma ve ölçek kümesi ölçümleri bir parçası olarak geçmişi basılı görüntüleyebilirsiniz. Tüm ölçeklendirme eylemleri geçtiğimiz listeleyebilirsiniz gün, hafta veya daha uzun süre.
 
 ## <a name="how-it-works"></a>Nasıl çalışır?
 

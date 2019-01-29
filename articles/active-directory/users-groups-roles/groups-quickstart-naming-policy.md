@@ -14,12 +14,12 @@ ms.date: 08/08/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: 8c5d980f25e196add6885d250665eae7127456f1
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 4c607558c721b38bd63a8094f433bfe9499013af
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273128"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102218"
 ---
 # <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Hızlı Başlangıç: Azure Active Directory'de gruplar için adlandırma ilkesi
 
@@ -38,14 +38,14 @@ PowerShell komutlarını çalıştırmadan önce Windows PowerShell Graph için 
 1. Windows PowerShell uygulamasını yönetici olarak açın.
 2. Eski AzureADPreview sürümlerini kaldırın.
   
-  ````
+  ```
   Uninstall-Module AzureADPreview
-  ````
+  ```
 3. En son AzureADPreview sürümünü yükleyin.
   
-  ````
+  ```
   Install-Module AzureADPreview
-  ````
+  ```
 Güvenilmeyen depoya erişmek isteyip istemediğiniz sorulursa **Y** tuşuna basın. Yeni modülün yüklenmesi birkaç dakika sürebilir.
 
 ## <a name="set-up-naming-policy"></a>Adlandırma ilkesini ayarlama
@@ -56,10 +56,10 @@ Güvenilmeyen depoya erişmek isteyip istemediğiniz sorulursa **Y** tuşuna bas
 
 2. Ortamı cmdlet'leri çalıştırmaya hazır hale getirmek için aşağıdaki komutları çalıştırın.
   
-  ````
+  ```
   Import-Module AzureADPreview
   Connect-AzureAD
-  ````
+  ```
   Açılan **Hesabınızda oturum açın** ekranında hizmetinizle bağlantı kurmak için yönetici hesabınızın adını ve parolasını girin **Oturum aç**'ı seçin.
 
 3. Bu kiracının grup ayarlarını oluşturmak için [Grup ayarlarını yapılandırmak için Azure Active Directory cmdlet'leri](groups-settings-cmdlets.md) adımlarını izleyin.
@@ -68,35 +68,35 @@ Güvenilmeyen depoya erişmek isteyip istemediğiniz sorulursa **Y** tuşuna bas
 
 1. Geçerli adlandırma ilkesi ayarlarını görüntüleyin.
   
-  ````
+  ```
   $Setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id
-  ````
+  ```
   
 2. Geçerli grup ayarlarını görüntüleyin.
   
-  ````
+  ```
   $Setting.Values
-  ````
+  ```
   
-### <a name="step-3-set-the-naming-policy-and-any-custom-blocked-words"></a>3. adım: Adlandırma ilkesini ve herhangi bir özel engellenen sözcük ayarlayın
+### <a name="step-3-set-the-naming-policy-and-any-custom-blocked-words"></a>3. Adım: Adlandırma ilkesini ve herhangi bir özel engellenen sözcük ayarlayın
 
 1. Azure AD PowerShell'de grup adı ön ve son eklerini ayarlayın. Düzgün bir şekilde çalışması için özelliği için [GroupName] ayarı eklenmesi gerekir.
   
-  ````
+  ```
   $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
-  ````
+  ```
   
 2. Sınırlamak istediğiniz özel engellenen sözcükleri belirleyin. Aşağıdaki örnekte kendi özel sözcüklerinizi ekleme adımları gösterilmektedir.
   
-  ````
+  ```
   $Setting["CustomBlockedWordsList"]=“Payroll,CEO,HR"
-  ````
+  ```
   
 3. Yeni ilkenin etkili olması için aşağıdaki örnekte gösterilen şekilde ayarları kaydedin.
   
-  ````
+  ```
   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
-  ````
+  ```
   
 İşte bu kadar. Adlandırma ilkenizi ayarladınız ve özel engellenen sözcüklerinizi eklediniz.
 
@@ -104,21 +104,21 @@ Güvenilmeyen depoya erişmek isteyip istemediğiniz sorulursa **Y** tuşuna bas
 
 1. Grup adı önek ve sonek Azure AD PowerShell'de boş.
   
-  ````
+  ```
   $Setting["PrefixSuffixNamingRequirement"] =""
-  ````
+  ```
   
 2. Özel engellenen sözcük boş.
   
-  ````
+  ```
   $Setting["CustomBlockedWordsList"]=""
-  ````
+  ```
   
 3. Ayarları kaydedin.
   
-  ````
+  ```
   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
-  ````
+  ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
