@@ -32,11 +32,11 @@ Bu kapsayıcı, aşağıdaki yapılandırma ayarları vardır:
 |--|--|--|
 |Evet|[ApiKey](#apikey-setting)|Fatura bilgileri izlemek için kullanılır.|
 |Hayır|[ApplicationInsights](#applicationinsights-setting)|Eklemenizi sağlayan [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) kapsayıcınızı telemetri desteği.|
-|Evet|[Billing](#billing-setting)|Azure'da uç nokta hizmet kaynağın URI'sini belirtir.|
-|Evet|[Eula](#eula-setting)| Kapsayıcı lisansını kabul ettiğiniz gösterir.|
+|Evet|[Billing](#billing-setting)|Azure'daki hizmet kaynağının uç nokta URI'sini belirtir.|
+|Evet|[Eula](#eula-setting)| Kapsayıcı lisansını kabul ettiğinizi gösterir.|
 |Hayır|[Fluentd](#fluentd-settings)|Günlük yazma ve isteğe bağlı olarak ölçüm verileri Fluentd sunucusuna.|
 |Hayır|[HTTP Ara sunucusu](#http-proxy-credentials-settings)|Bir HTTP Proxy'si Giden istekleri yapmak için yapılandırın.|
-|Hayır|[Logging](#logging-settings)|ASP.NET Core günlüğü kapsayıcınız için destek sağlar. |
+|Hayır|[Logging](#logging-settings)|Kapsayıcınız için ASP.NET Core günlük kaydı desteği sunar. |
 |Evet|[Mounts](#mount-settings)|Okuyup veri kapsayıcısı ana bilgisayarından kapsayıcısından geri ana bilgisayara yazma.|
 
 > [!IMPORTANT]
