@@ -35,7 +35,10 @@
 #### [Microsoft ile işletmenizi tanıtma](./gtm-promote-your-business.md)
 #### [Tercih edilen çözümler](./preferred-solutions.md) 
 
-### [Azure Market ve AppSource desteği](./support-azure-marketplace.md)  
+### [Azure Market ve AppSource desteği](./support-azure-marketplace.md)
+#### [Market hakkında SSS](./marketplace-faq-publisher-guide.md)
+#### [Market terimleri](./marketplace-terms.md)
+#### [Market katılım ilkesi](./marketplace-participation-policy.md)
 
 
 <!-- Following section is for Cloud Partner Portal (CPP). -->
@@ -151,7 +154,6 @@
 #### [Teklif yayımlama](./cloud-partner-portal/saas-app/cpp-publish-offer.md)
 #### [Mevcut teklifi güncelleştirme](./cloud-partner-portal/saas-app/cpp-update-existing-offer.md)
 #### [SaaS API’leri](./cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis.md)
-#### [SaaS kendi kendine test istemcisi](./cloud-partner-portal/saas-app/cpp-selftest-client.md)
 
 ### [Sanal makine teklifi](./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md)
 #### [Önkoşullar](./cloud-partner-portal/virtual-machine/cpp-prerequisites.md)
@@ -176,6 +178,7 @@
 ###### [VHD Dağıtım Şablonu](./cloud-partner-portal/virtual-machine/cpp-deploy-json-template.md)
 ###### [Marketten VM dağıtımı](./cloud-partner-portal/virtual-machine/cpp-deploy-vm-marketplace.md)
 ##### [VM görüntüsünü sertifikalandırma](./cloud-partner-portal/virtual-machine/cpp-certify-vm.md)
+##### [VM kendi kendine test istemcisi](./cloud-partner-portal/virtual-machine/cpp-selftest-client.md)
 ##### [SAS URI’sini alma](./cloud-partner-portal/virtual-machine/cpp-get-sas-uri.md)
 ##### [Sık karşılaşılan SAS URL’si sorunları](./cloud-partner-portal/virtual-machine/cpp-common-sas-url-issues.md)
 #### [VM teklifi yayımlama](./cloud-partner-portal/virtual-machine/cpp-publish-offer.md)

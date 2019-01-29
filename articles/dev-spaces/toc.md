@@ -28,6 +28,7 @@
 ### [Özel NuGet akışı kullanma](how-to/use-custom-nuget-feed.md)
 ### [Azure Dev Spaces ile kubectl kullanma](how-to/use-kubectl-with-azure-dev-spaces.md)
 ### [Azure Dev Spaces araçlarını yükseltme](how-to/upgrade-tools.md)
+### [Azure Dev Spaces için iş sürekliliği ve olağanüstü durum kurtarma](how-to/dev-spaces-business-continuity.md)
 
 ## [Sorun giderme](troubleshooting.md)
 

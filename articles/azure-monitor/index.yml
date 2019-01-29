@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 5b8d5e639711b91d380b5f14de48be6a80fb0263
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: d0fbabdae9b560a882bd4681eb9e681fd2a0398a
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54820776"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101779"
 documentType: LandingData
 title: Azure İzleyici Belgeleri
 metadata:
@@ -16,7 +16,7 @@ metadata:
   ms.service: azure-monitor
   ms.tgt_pltfrm: na
   ms.topic: landing-page
-  ms.date: 01/22/2019
+  ms.date: 01/25/2019
   ms.author: bwren
 abstract:
   description: Log Analytics ve Application Insights çözümlerini de içeren Azure İzleyici, buluttaki ve şirket içindeki kaynaklarınızla uygulamalarınızın performansını ve kullanılabilirliğini en üst düzeye çıkarmanızı sağlayan telemetri verilerini toplamak ve analiz etmek için kullanabileceğiniz gelişmiş araçlar sunar. Uygulamalarınızın performansını anlamanıza ve uygulamalarla bağlı oldukları kaynakları etkileyen sorunları önceden tespit etmenize yardımcı olur.
@@ -63,7 +63,7 @@ sections:
       text: Abonelik Denetimi ve Uyarılar
       href: /azure/monitoring-and-diagnostics/monitor-quick-audit-notify-action-in-subscription
   - type: paragraph
-    text: Azure Application Insights ile uygulamanızı izlemeye nasıl başlayabileceğinizi öğrenin.
+    text: Azure İzleyici Application Insights ile uygulamanızı izlemeye nasıl başlayabileceğinizi öğrenin.
   - type: list
     style: icon48
     items:
