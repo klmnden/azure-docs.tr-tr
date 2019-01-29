@@ -6,16 +6,16 @@ services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-video-search
+ms.subservice: bing-video-search
 ms.topic: overview
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: e48a0a056628e0c863330de792f8edfaa48aae34
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f7f97f68db317bb526b9a8542b76633ef16fb766
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261868"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55194670"
 ---
 # <a name="what-is-bing-video-search"></a>Bing Video Arama nedir?
 
@@ -150,7 +150,7 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="expanding-the-query"></a>Sorguyu genişletme
 
-Bing özgün aramayı daraltmak için sorguyu genişletebiliyorsa [Videos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) nesnesi `queryExpansions` alanını içerir. Örneğin, sorgu *Boşluk Temizleme* ise, genişletilmiş sorgular şunlar olabilir: Boşluk Temizleme **Araçları**, **Sıfırdan** Boşluk Temizleme, Boşluk Temizleme **Makinesi** ve **Kolay** Boşluk Temizleme.
+Bing özgün aramayı daraltmak için sorguyu genişletebiliyorsa [Videos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) nesnesi `queryExpansions` alanını içerir. Örneğin, sorgu *temizleme boşluğu*, genişletilmiş sorgular olabilir: Cilt payını Temizleme **Araçları**, boşluğu Temizleme **baştan**, cilt payını Temizleme **makine**, ve **kolay** cilt payını temizleme.
 
 Aşağıdaki örnekte *Boşluk Temizleme* için genişletilmiş sorgular gösterilmektedir.
 

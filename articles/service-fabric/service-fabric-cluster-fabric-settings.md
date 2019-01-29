@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/11/2018
 ms.author: aljo
-ms.openlocfilehash: fb3e61b2b43194cb550a7c87c6841e91b4025560
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: a919d10bbb7def8f81e68d95c03d95309483df59
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002765"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55167283"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Service Fabric küme ayarlarını özelleştirme
 Bu makalede, Service Fabric kümenizin özelleştirebileceğiniz çeşitli yapı ayarları açıklanır. Azure'da barındırılan kümeler için ayarları aracılığıyla özelleştirebilirsiniz [Azure portalında](https://portal.azure.com) veya bir Azure Resource Manager şablonu kullanarak. Daha fazla bilgi için [Azure kümesine yapılandırmasını yükseltme](service-fabric-cluster-config-upgrade-azure.md). Tek başına kümeler için ayarlarını güncelleştirerek özelleştirdiğiniz *ClusterConfig.json* dosyası ve bir yapılandırmasını gerçekleştirmek kümenizde yükseltin. Daha fazla bilgi için [tek başına küme yapılandırmasını yükseltme](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -139,7 +139,7 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 |PartitionPrefix|Varsayılan bir dize ise "--"|Statik|Bölümlenmiş Hizmetleri için DNS sorgularını bölüm önek dizesi değeri kontrol eder. Değer: <ul><li>Bir DNS sorgusunun bir parçası olacağı RFC uyumlu olmalıdır.</li><li>Bir nokta içermemelidir '.' gibi nokta DNS soneki davranışı ile uğratır.</li><li>5 karakterden uzun olmamalıdır.</li><li>Boş bir dize olamaz.</li><li>PartitionPrefix ayarı geçersiz kılınan sonra PartitionSuffix kılınmalıdır ve tersi.</li></ul>Daha fazla bilgi için [Service Fabric DNS hizmeti.](service-fabric-dnsservice.md).|
 |PartitionSuffix|Varsayılan bir dize ise ""|Statik|Bölümlenmiş Hizmetleri için DNS sorgularını bölüm sonek dizesi değeri kontrol eder. Değer: <ul><li>Bir DNS sorgusunun bir parçası olacağı RFC uyumlu olmalıdır.</li><li>Bir nokta içermemelidir '.' gibi nokta DNS soneki davranışı ile uğratır.</li><li>5 karakterden uzun olmamalıdır.</li><li>PartitionPrefix ayarı geçersiz kılınan sonra PartitionSuffix kılınmalıdır ve tersi.</li></ul>Daha fazla bilgi için [Service Fabric DNS hizmeti.](service-fabric-dnsservice.md). |
 
-## <a name="eventstore"></a>Eventstore'a
+## <a name="eventstore"></a>EventStore
 | **Parametre** | **İzin verilen değerler** | **Yükseltme İlkesi** | **Kılavuz veya kısa açıklama** |
 | --- | --- | --- | --- |
 |MinReplicaSetSize|int, varsayılan 0'dır|Statik|Eventstore'a hizmeti MinReplicaSetSize |
@@ -317,8 +317,8 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 |DeploymentMaxFailureCount|Int, varsayılan 20'dir| Dinamik|Uygulama dağıtımı düğümde, uygulama dağıtımını başarısızlığından önce geçen DeploymentMaxFailureCount zamanları yeniden denenecek.| 
 |DeploymentMaxRetryInterval| Zaman aralığı, Common::TimeSpan::FromSeconds(3600) varsayılandır|Dinamik| Saniye cinsinden zaman aralığı belirtin. Dağıtım için en fazla yeniden deneme aralığı. Her sürekli hata durumunda yeniden deneme aralığı (DeploymentMaxRetryInterval; Min hesaplanır. Sürekli hata sayısı * DeploymentRetryBackoffInterval) |
 |DeploymentRetryBackoffInterval| Zaman aralığı, Common::TimeSpan::FromSeconds(10) varsayılandır|Dinamik|Saniye cinsinden zaman aralığı belirtin. Dağıtım hatası için geri alma aralığı. Her sürekli dağıtım hatası sistem dağıtımının MaxDeploymentFailureCount kadar yeniden deneyecek. Yeniden deneme aralığı, bir ürün sürekli dağıtım hatası ve dağıtımı geri alma aralığı ' dir. |
-|DisableContainers|bool, varsayılan FALSE olur.|Statik|Kullanım dışı yapılandırma olan DisableContainerServiceStartOnContainerActivatorOpen yerine kullanılan kapsayıcıları - devre dışı bırakmak için yapılandırma |
-|DisableDockerRequestRetry|bool, varsayılan FALSE olur. |Dinamik| Varsayılan olarak SF gg (docker dameon) ile 'DockerRequestTimeout' kendisine gönderilen her http isteği için bir zaman aşımı ile iletişim kurar. DD yoksa bu süre içinde yanıt verir; Zaman remining üst düzey işlem hala varsa, BT isteği yeniden gönderir.  Hyperv kapsayıcıyla; DD, bazen kapsayıcınızı getirebilirsiniz veya devre dışı çok daha uzun zaman. Böyle durumlarda gg isteği zaman aşımına SF Perspektif ve SF işlemi yeniden dener. Bazen bu ekler daha fazla baskısı üzerinde gg gibi görünüyor Bu yapılandırma, bu yeniden deneme devre dışı bırakın ve yanıt vermesi için DD bekleyin imkan tanır. |
+|DisableContainers|bool, varsayılan FALSE olur.|Statik|Kapsayıcılar olan DisableContainerServiceStartOnContainerActivatorOpen yerine kullanılan - devre dışı bırakma yapılandırma yapılandırma kullanım dışı. |
+|DisableDockerRequestRetry|bool, varsayılan FALSE olur. |Dinamik| Varsayılan olarak SF gg (docker dameon) ile 'DockerRequestTimeout' kendisine gönderilen her http isteği için bir zaman aşımı ile iletişim kurar. DD yoksa bu süre içinde yanıt verir; Kalan süre üst düzey işlem hala varsa, BT isteği yeniden gönderir.  Hyperv kapsayıcıyla; DD, bazen kapsayıcınızı getirebilirsiniz veya devre dışı çok daha uzun zaman. Böyle durumlarda gg isteği zaman aşımına SF Perspektif ve SF işlemi yeniden dener. Bazen bu ekler daha fazla baskısı üzerinde gg gibi görünüyor Bu yapılandırma, bu yeniden deneme devre dışı bırakın ve yanıt vermesi için DD bekleyin imkan tanır. |
 |EnableActivateNoWindow| bool, varsayılan FALSE olur.|Dinamik| Etkin işlem arka planda herhangi bir konsol olmadan oluşturulur. |
 |EnableContainerServiceDebugMode|bool, varsayılan true'dur.|Statik|Docker kapsayıcıları için günlük kaydını etkinleştir/devre dışı bırak.  Yalnızca Windows.|
 |EnableDockerHealthCheckIntegration|bool, varsayılan true'dur.|Statik|Service Fabric sistem durumu raporu ile docker HEALTHCHECK olayları entegrasyonunu sağlar |
@@ -499,7 +499,7 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 |PlacementConstraintValidationCacheSize | Int, varsayılan 10000'dir |Dinamik| Tabloyu hızlı doğrulama için kullanılan ve yerleşim kısıtlaması ifadeleri önbellek boyutunu sınırlar. |
 |PlacementSearchTimeout | Zamanı saniye cinsinden 0,5 varsayılandır |Dinamik| Saniye cinsinden zaman aralığı belirtin. Hizmetleri yerleştirirken; Bu süre için en fazla bir sonuç döndürmeden önce arayın. |
 |PLBRefreshGap | Zamanı saniye olarak varsayılan 1'dir |Dinamik| Saniye cinsinden zaman aralığı belirtin. PLB durumu yeniden yenilenmeden önce geçmesi gereken en düşük süreyi tanımlar. |
-|PreferredLocationConstraintPriority | Varsayılan Int, 2'dir| Dinamik|Tercih edilen konum kısıtlaması önceliğini belirler: 0: Sabit; 1: Geçici; 2: İyileştirme; Negatif: Yoksayma |
+|PreferredLocationConstraintPriority | Varsayılan Int, 2'dir| Dinamik|Tercih edilen konum kısıtlaması önceliğini belirler: 0: Sabit; 1: Soft; 2: İyileştirme; Negatif: Yoksayma |
 |PreferUpgradedUDs|bool, varsayılan true'dur.|Dinamik|Açma ve kapatma zaten geçmeyi tercih eden mantığını etkinleştirir, UD yükseltildi.|
 |PreventTransientOvercommit | Bool, varsayılan değer false'tur | Dinamik|PLB tarafından başlatılan taşıma yukarı boşaltılacak kaynakları hemen güvenebilirsiniz belirler. Varsayılan olarak; PLB dışarı taşıma başlatabilir ve hangi geçici oluşturabilirsiniz aynı düğümde taşıma fazla kullanma. Bu parametre, doğru olarak ayarlanması bu tür engeller, overcommits ve devre dışı üzerine birleştirme (diğer adıyla placementWithMove) olacaktır. |
 |ScaleoutCountConstraintPriority | int, varsayılan 0'dır |Dinamik| Genişletme sayısı kısıtlaması önceliğini belirler: 0: Sabit; 1: Geçici; Negatif: Yoksayın. |

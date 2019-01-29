@@ -1,5 +1,5 @@
 ---
-title: Kümesi yeniden yönlendirme URL'leri b2clogin.com için Azure Active Directory B2C | Microsoft Docs
+title: Kümesi yeniden yönlendirme URL'leri b2clogin.com - Azure Active Directory B2C | Microsoft Docs
 description: İçinde bir yeniden yönlendirme b2clogin.com kullanma hakkında bilgi edinmek için Azure Active Directory B2C URL'leri.
 services: active-directory-b2c
 author: davidmu1
@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 01/28/2019
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: 147d8e80c66bd47ed56400deca024532fc7e39c7
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: 61c4212233dd7ed9c34de779176c3402890e673f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54844935"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55160913"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Kümesi yeniden yönlendirme URL'leri b2clogin.com için Azure Active Directory B2C için
 
@@ -23,8 +23,8 @@ Kaydolma ve oturum açma, Azure Active Directory (Azure AD) B2C uygulamanızda b
 
 B2clogin.com kullanma, ek avantajlar gibi sunar:
 
-- Tanımlama bilgileri artık diğer Microsoft hizmetleriyle paylaşılır.
-- URL'nizde artık Microsoft bir başvuru içerir. Örneğin, `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`.
+- Tanımlama bilgisi üstbilgisi içinde Microsoft hizmetler tarafından kullanılan alanı azalır.
+- URL'nizde artık Microsoft bir başvuru içerir. Örneğin, `https://your-tenant-name.b2clogin.com/tenant-id/oauth2/authresp`.
 
 Bu ayar b2clogin.com kullanırken değiştirmeniz gerekebileceğini göz önünde bulundurun:
 
@@ -60,7 +60,9 @@ Azure AD B2C'yi uygulamanız büyük olasılıkla başvurduğu `login.microsofto
 
 ## <a name="set-the-validateauthority-property"></a>ValidateAuthority özelliğini ayarlayın
 
-MSAL kullanıyorsanız ayarlayın **ValidateAuthority** için `false`. Aşağıdaki örnek, özelliğin nasıl ayarlayabilir gösterir:
+MSAL kullanıyorsanız ayarlayın **ValidateAuthority** özelliğini `false`. Zaman **ValidateAuthority** ayarlanır `false`, yeniden yönlendirmeleri b2clogin.com için izin verilir. 
+
+Aşağıdaki örnek, özelliğin nasıl ayarlayabilir gösterir:
 
 İçinde [.Net için MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet):
 

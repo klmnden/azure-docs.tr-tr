@@ -9,14 +9,14 @@ ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.custom: seodec18
-ms.openlocfilehash: 115604d9b2aa21018742bbedbc737405b52599e4
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 7ad494a3a1ce657951a0afab4d5ca838821927ad
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188955"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55158834"
 ---
-# <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services'ı kullanarak bir HDInsight kümesi Kurumsal güvenlik paketi ile yapılandırma
+# <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services'i kullanarak bir HDInsight kümesi ile Kurumsal Güvenlik Paketi yapılandırma
 
 Kurumsal güvenlik paketi (ESP) kümeleri, Azure HDInsight kümelerinde birden çok kullanıcı erişim sağlar. Böylece etki alanı kullanıcıları kümeleri ile kimlik doğrulaması ve büyük veri işlerini çalıştırmak için etki alanı kimlik bilgilerini kullanabilirsiniz ESP HDInsight kümeleriyle bir etki alanına bağlanır. 
 
@@ -28,7 +28,11 @@ Bu makalede, Azure Active Directory etki alanı Hizmetleri (Azure AD DS) kullana
 ## <a name="enable-azure-ad-ds"></a>Azure'ı etkinleştirme AD DS
 
 > [!NOTE]  
-> Kiracı yöneticileri yalnızca Azure AD DS'yi etkinleştirme için ayrıcalıklara sahip. Küme depolama, Azure Data Lake Storage (ADLS) olup olmadığını Gen1 veya 2. nesil, devre dışı multi-Factor Authentication (MFA) kümeye erişmek için ihtiyaç duyan kullanıcılar için. Küme depolama alanı Azure Blob Storage (WASB) ise, mfa'yı devre dışı bırakmayın.
+> Kiracı yöneticileri yalnızca Azure AD DS'yi etkinleştirme için ayrıcalıklara sahip. Küme depolama, Azure Data Lake Storage (ADLS) olup olmadığını Gen1 ya da 2. nesil, devre dışı bırakmanız multi-Factor Authentication (MFA) yalnızca temel Kerberose kimlik doğrulamaları kullanarak kümeye erişmek için gereken kullanıcılar. Kullanabileceğiniz [güvenilen IP'ler](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-mfasettings#trusted-ips) veya [koşullu erişim](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/overview) belirli kullanıcılar için mfa'yı devre dışı bırakmak için yalnızca zaman HDInsight küme sanal ağ IP aralığı eriştikleri. Koşullu kullanıyorsanız erişim lütfen emin olun, AD hizmet uç noktasında HDInsight VNET üzerinde etkin.
+>
+>Küme depolama alanı Azure Blob Storage (WASB) ise, mfa'yı devre dışı bırakmayın.
+
+
 
 Bir HDInsight kümesi ile ESP oluşturabilmeniz için önce AzureAD DS etkinleştirme önkoşuldur. Daha fazla bilgi için [etkinleştirme Azure Active Directory etki alanı Azure portalını kullanarak Hizmetleri](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
 

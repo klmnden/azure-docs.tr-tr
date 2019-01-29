@@ -6,16 +6,16 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: e16a772caa5fba632f8544094e2d8b57ed4ca765
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: d79e14fa48631ec6ce3cde42a7dbe300034782cb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902578"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55171669"
 ---
 # <a name="interpret-method"></a>Yöntem yorumlama
 
@@ -29,18 +29,18 @@ Etkileşimli bir deneyim sağlamak üzere bu yöntemi tekrar tekrar sonrasında 
 
 ## <a name="request-parameters"></a>İstek Parametreleri
 
-Ad     | Değer | Gerekli mi?  | Açıklama
+Name     | Value | Gerekli mi?  | Açıklama
 ---------|---------|---------|---------
 **Sorgu**    | Metin dizesi | Evet | Kullanıcı tarafından girilen sorgu.  Tam 1 olarak ayarlanırsa, sorgu oluşturma sorgu otomatik tamamlama önerileri için önek olarak yorumlanacaktır.        
 **Model**    | Metin dizesi | Hayır  | Sorgulamak istediğiniz modelin adı.  Değer şu anda, varsayılan olarak *son*.        
 **Tamamlayın** | 0 veya 1 | Hayır<br>Varsayılan: 0  | 1, otomatik tamamlama önerileri, dil bilgisi ve graf verilerine dayalı olarak oluşturulan anlamına gelir.         
-**Sayısı**    | Sayı | Hayır<br>Varsayılan: 10 | Yorum döndürülecek en fazla sayısı.         
+**count**    | Sayı | Hayır<br>Varsayılan: 10 | Yorum döndürülecek en fazla sayısı.         
 **uzaklık**   | Sayı | Hayır<br>Varsayılan: 0  | Döndürülecek ilk yorumu dizini. Örneğin, *sayısı = 2 & uzaklığı 0 =* ınterpretations 0 ve 1 döndürür. *sayısı 2 & uzaklığı = 2 =* ınterpretations 2 ve 3 döndürür.       
 **zaman aşımı**  | Sayı | Hayır<br>Varsayılan: 1000 | Milisaniye cinsinden zaman aşımı. Zaman aşımı dolmadan bulunan ınterpretations döndürülür.
 <br>
   
 ## <a name="response-json"></a>Yanıt (JSON)
-Ad     | Açıklama
+Name     | Açıklama
 ---------|---------
 **Sorgu** |*Sorgu* istek parametresi.
 **Yorumlar** |Kullanıcı girişi dilbilgisi karşı eşleşen 0 veya daha farklı yolları dizisi.

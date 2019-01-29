@@ -1,21 +1,21 @@
 ---
-title: Bing yerel iş arama API'si nedir? | Microsoft Docs
+title: Bing Yerel İşletme Arama API'si nedir? | Microsoft Docs
 titleSuffix: Azure Cognitive Services
-description: Bing yerel iş arama API'si, yerel yerler ve işleri arama sorgularına dayalı hakkında bilgi, uygulamaları etkinleştiren bir RESTful hizmeti.
+description: Bing Yerel İşletme Arama API'si, uygulamalarınızın arama sorguları temelinde yerel konumlar ve işletmeler hakkında bilgi bulmasına olanak tanıyan bir RESTful hizmetidir.
 services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.component: bing-local-business
+ms.subservice: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: f6299a8241b4ce43dc9276070f06ae4cc6566d43
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: fd57c344c640974e9c73156902848fb1685861f2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748760"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55163152"
 ---
 # <a name="what-is-bing-local-business-search"></a>Bing arama yerel iş nedir?
 Bing yerel iş arama API'si arama sorgularına dayalı yerel işletmeler hakkında bilgi, uygulamaların bir RESTful hizmeti olduğu. Örneğin, `q=<business-name> in Redmond, Washington`, veya `q=Italian restaurants near me`. 

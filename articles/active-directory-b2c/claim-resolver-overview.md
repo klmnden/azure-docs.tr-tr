@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/08/2018
+ms.date: 01/25/2019
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: 6b7f3dc79e3b4c06b2b974e0cdca0bf20221c3ad
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: 99498646a65865add35ec4a86cb7a25b42dd5523
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54845025"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55162200"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C özel ilkelerinde talep Çözümleyicileri hakkında
 
@@ -97,6 +97,11 @@ OIDC veya OAuth2 bir isteğin parçası olarak dahil herhangi bir parametre adı
 | {OAUTH-KV:loyalty_number} | Bir sorgu dizesi parametresi. | 1234 |
 | {OAUTH KV: herhangi bir özel sorgu dizesini} | Bir sorgu dizesi parametresi. | Yok |
 
+### <a name="oauth2"></a>OAuth2
+
+| İste | Açıklama | Örnek |
+| ----- | ----------------------- | --------|
+| {oauth2:access_token} | Erişim belirteci. | Yok |
 
 ## <a name="how-to-use-claim-resolvers"></a>Talep Çözümleyicileri kullanma
 

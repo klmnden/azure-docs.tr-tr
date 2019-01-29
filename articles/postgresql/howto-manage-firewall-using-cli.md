@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 05/4/2018
-ms.openlocfilehash: 214c6c4dc3b2dd83e6bf3dfa3355ad6f6aa2eb18
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: d450b8d154e920bfc9a82314d34f20a52af71dab
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53539152"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55182005"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-azure-cli"></a>Oluşturma ve Azure veritabanı Azure CLI kullanarak PostgreSQL için güvenlik duvarı kurallarını yönetme
 Sunucu düzeyinde güvenlik duvarı kuralları, erişim belirli bir IP adresi veya IP adresi aralığı PostgreSQL sunucusu için Azure veritabanı'na yönetme olanağı sağlar. Uygun Azure CLI'si komutlarını kullanarak, oluşturabilir, güncelleştirin, silin, listeleyin ve sunucunuzu yönetmek için güvenlik duvarı kurallarını gösterir. Bir Azure veritabanı'nın için PostgreSQL güvenlik duvarı kuralları için bkz: genel bakış [PostgreSQL sunucusu güvenlik duvarı kuralları için Azure veritabanı](concepts-firewall-rules.md)
@@ -70,7 +70,7 @@ az postgres server firewall-rule show --resource-group myresourcegroup --server-
 Başarılı olduktan sonra komut çıktısı varsayılan olarak JSON biçiminde belirttiğiniz güvenlik duvarı kuralı ayrıntılarını listeler. Bir hata varsa, çıktı bunun yerine bir hata iletisi gösterir.
 
 ## <a name="delete-firewall-rule"></a>Güvenlik duvarı kuralını Sil
-Sunucu bir IP aralığına erişimi iptal etmek için mevcut bir güvenlik duvarı kuralını silin [az postgres server güvenlik duvarı kuralını Sil](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_delete) komutu. Mevcut güvenlik duvarı kuralı adını belirtin.
+Sunucu bir IP aralığına erişimi iptal etmek için mevcut bir güvenlik duvarı kuralını silin [az postgres server güvenlik duvarı kuralını Sil](/cli/azure/postgres/server/firewall-rule) komutu. Mevcut güvenlik duvarı kuralı adını belirtin.
 ```azurecli-interactive
 az postgres server firewall-rule delete --resource-group myresourcegroup --server-name mydemoserver --name AllowIpRange
 ```

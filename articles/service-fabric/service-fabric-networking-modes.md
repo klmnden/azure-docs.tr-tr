@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: twhitney, subramar
-ms.openlocfilehash: a42236af7e301a21a91a3c1294b20167824dfc84
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 62812dd8f92bcace8f764a21aba608157815cec3
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024799"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093180"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric kapsayıcı ağ modları
 
@@ -78,7 +78,7 @@ Bir kapsayıcı hizmeti yeniden başlatılıyor veya kümedeki başka bir düğ�
             ],
     ```
     
-2. Sanal makine ölçek kümesi kaynak ağ profili bölümünü ayarlayın. Bu, kümedeki her düğümde yapılandırılması birden çok IP adresi sağlar. Aşağıdaki örnek bir Windows/Linux Service Fabric kümesi için düğüm başına beş adet IP adresi ayarlar. Her düğümde bağlantı noktasını dinleyen beş hizmet örnekleri olabilir. Beş Azure yük Dengeleyiciden erişilebilir IP sağlamak için aşağıda gösterildiği gibi beş IP'ler Azure yük dengeleyici arka uç adres havuzunu kaydedin.  Değişkenler bölümünde şablonunuzda üstüne değişkenleri eklemek için neeed kazandırır.
+2. Sanal makine ölçek kümesi kaynak ağ profili bölümünü ayarlayın. Bu, kümedeki her düğümde yapılandırılması birden çok IP adresi sağlar. Aşağıdaki örnek bir Windows/Linux Service Fabric kümesi için düğüm başına beş adet IP adresi ayarlar. Her düğümde bağlantı noktasını dinleyen beş hizmet örnekleri olabilir. Beş Azure yük Dengeleyiciden erişilebilir IP sağlamak için aşağıda gösterildiği gibi beş IP'ler Azure yük dengeleyici arka uç adres havuzunu kaydedin.  Değişkenler bölümünde şablonunuzda üstüne değişkenleri eklemek gerekir.
 
     Bu bölümde, değişkenleri ekleyin:
 
@@ -209,10 +209,10 @@ Bir kapsayıcı hizmeti yeniden başlatılıyor veya kümedeki başka bir düğ�
  
 3. Yalnızca Windows kümeleri için aşağıdaki değerlerle sanal ağ için bağlantı noktası UDP/53'kurmak açılır bir Azure ağ güvenlik grubu (NSG) kuralı ayarlayın:
 
-   |Ayar |Değer | |
+   |Ayar |Value | |
    | --- | --- | --- |
    |Öncelik |2000 | |
-   |Ad |Custom_Dns  | |
+   |Name |Custom_Dns  | |
    |Kaynak |VirtualNetwork | |
    |Hedef | VirtualNetwork | |
    |Hizmet | DNS (UDP/53) | |
@@ -264,7 +264,7 @@ Bir kapsayıcı hizmeti yeniden başlatılıyor veya kümedeki başka bir düğ�
    </Resources>
    ```
    
-6. Windows için VM yeniden başlatma, yeniden oluşturulması açık ağ neden olur. Bu, ağ yığınını, temel alınan bir sorunu azaltmak içindir. Varsayılan davranış, ağ yeniden oluşturmaktır. Bu davranışı devre dışı bırakılması gerekiyorsa, bir yapılandırma yükseltmenin ardından aşağıdaki yapılandırma kullanılabilir.
+6. Windows için VM yeniden başlatma, yeniden oluşturulması açık ağ neden olur. Bu, ağ yığınını, temel alınan bir sorunu azaltmak içindir. Ağ yeniden oluşturmak için varsayılan davranıştır. Bu davranışı devre dışı bırakılması gerekiyorsa, bir yapılandırma yükseltmenin ardından aşağıdaki yapılandırma kullanılabilir.
 
 ```json
 "fabricSettings": [

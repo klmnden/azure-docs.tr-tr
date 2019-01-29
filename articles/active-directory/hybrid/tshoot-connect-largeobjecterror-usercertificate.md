@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: ffc8832fa2da9d4bfad23752a5bc767ace2b573e
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 5361b93d24c66ef6ccb2f117e6e3a68de4c5f459
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478629"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55195628"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect eşitleme: Neden userCertificate özniteliğinin yol açtığı LargeObject hatalarını işleme
 
@@ -89,7 +89,7 @@ Etkin ve kullanıcı nesnelerinin userCertificate özniteliğinin Azure AD'ye d�
 
 2. Arama filtreleri, aşağıdaki değerleri yapılandırın:
 
-    | Öznitelik | Değer |
+    | Öznitelik | Value |
     | --- | --- |
     | Yön |**Giden** |
     | MV nesne türü |**Kişi** |
@@ -104,7 +104,7 @@ Etkin ve kullanıcı nesnelerinin userCertificate özniteliğinin Azure AD'ye d�
 7. Düzenleme ekranında seçin **Scoping filtre** sekmesi.
 8. Kapsam belirleme filtresi yapılandırmayı unutmayın. OOB eşitleme kuralı kullanıyorsanız, tam olarak olması gerektiğini **iki yan tümceyi içeren bir kapsam belirleme filtre grubu**de dahil olmak üzere:
 
-    | Öznitelik | İşleç | Değer |
+    | Öznitelik | İşleç | Value |
     | --- | --- | --- |
     | sourceObjectType | EŞİTTİR | Kullanıcı |
     | cloudMastered | EŞİT DEĞİLDİR | True |
@@ -114,9 +114,9 @@ Yeni eşitleme kuralı aynı olmalıdır **kapsam belirleme filtresi** ve **daha
 1. Eşitleme kuralları Düzenleyicisi'nde **Yeni Kural Ekle** düğmesi.
 2. Altında **açıklaması sekmesi**, aşağıdaki yapılandırmayı sağlayın:
 
-    | Öznitelik | Değer | Ayrıntılar |
+    | Öznitelik | Value | Ayrıntılar |
     | --- | --- | --- |
-    | Ad | *Bir ad sağlayın* | Örneğin, *"Out – AAD için özel geçersiz kılmayı için userCertificate"* |
+    | Name | *Bir ad sağlayın* | Örneğin, *"Out – AAD için özel geçersiz kılmayı için userCertificate"* |
     | Açıklama | *Bir açıklama sağlayın* | Örneğin, *"UserCertificate özniteliğinin yol açtığı 15'ten fazla değer yoksa NULL verin."* |
     | Bağlı sistem | *Azure AD Bağlayıcısı'nı seçin* |
     | Bağlı sistem nesnesi türü | **Kullanıcı** | |
@@ -128,7 +128,7 @@ Yeni eşitleme kuralı aynı olmalıdır **kapsam belirleme filtresi** ve **daha
 4. Skip **birleştirme kuralları** sekmesi.
 5. Git **dönüşümleri** yapılandırmayı kullanarak yeni bir dönüştürme eklemek için sekmesinde:
 
-    | Öznitelik | Değer |
+    | Öznitelik | Value |
     | --- | --- |
     | Akış türü |**İfade** |
     | Hedef Öznitelik |**userCertificate** |

@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory Trisotech dijital Enterprise Server ile tümleştirme | Microsoft Docs'
+title: 'Öğretici: Trisotech dijital kuruluş sunucusu ile Azure Active Directory Tümleştirme | Microsoft Docs'
 description: Azure Active Directory Trisotech dijital kuruluş sunucusu arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 6d54d20c-eca1-4fa6-b56a-4c3ed0593db0
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: e36a4be3a95b67c040855171d4b167e495a22496
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e3f90da177f46246d1a7453796b7b9a9c93f4a21
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439635"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55193175"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trisotech-digital-enterprise-server"></a>Öğretici: Azure Active Directory tümleştirmesiyle Trisotech dijital kuruluş sunucusu
 
@@ -38,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD tümleştirmesi Trisotech dijital Kurumsal sunucusuyla yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik Trisotech dijital kuruluş sunucusu çoklu oturum açma etkin
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Azure AD'de Trisotech dijital Enterprise Server tümleştirmesini yapılandırma
 
 **Galeriden Trisotech dijital Kurumsal sunucusu eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -185,7 +185,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
 Bu bölümün amacı, Britta Simon Trisotech dijital Kurumsal Server'da adlı bir kullanıcı oluşturmaktır. Trisotech dijital kuruluş sunucusu tam zamanında sağlama, varsayılan olarak etkin olan destekler. Bu bölümde, hiçbir eylem öğesini yoktur. Yeni bir kullanıcı, henüz yoksa Trisotech dijital Enterprise Server erişme denemesi sırasında oluşturulur.
 >[!Note]
->Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [Trisotech dijital Enterprise Server Destek ekibine](mailto:support@trisotech.com).
+>Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [Trisotech dijital Enterprise Server Destek ekibine](mailto:support@trisotech.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

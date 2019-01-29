@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric kümesi sertifika aktarma | Microsoft Docs
-description: Geçiş için Service Fabric kümesi sertifika sertifika ortak adı tarafından nasıl tanımlanan öğrenin.
+title: Bir Azure Service Fabric küme sertifikası aktarma | Microsoft Docs
+description: Nasıl geçiş için bir Service Fabric küme sertifikası sertifika ortak adına göre tanımlanan öğrenin.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
 ms.author: ryanwi
-ms.openlocfilehash: df919e23fd608cdf41e93844f13342ca00657adb
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 72640a4d917ddb2485199f0df1fead8b0bdcd1c9
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205153"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55192983"
 ---
-# <a name="manually-roll-over-a-service-fabric-cluster-certificate"></a>El ile bir Service Fabric kümesi sertifika alma
-Service Fabric kümesi sertifikanın süresi dolmak üzere olduğunda sertifika güncelleştirmeniz gerekir.  Sertifika aktarma küme ise basit [ortak adını temel alarak sertifikaları kullan kadar ayarlanmış](service-fabric-cluster-change-cert-thumbprint-to-cn.md) (yerine parmak izi).  Yeni bir sona erme tarihi ile sertifika yetkilisinden yeni bir sertifika alın.  Azure portalında bir Service Fabric kümesi dağıtırken oluşturulan dahil olmak üzere otomatik olarak imzalanan sertifikalar desteklenmez.  Yeni sertifika daha eski sertifika ortak adıyla aynı olmalıdır. 
+# <a name="manually-roll-over-a-service-fabric-cluster-certificate"></a>El ile bir Service Fabric küme sertifikası alma
+Bir Service Fabric küme sertifikasının süresi dolmak üzere olduğunda sertifika güncelleştirmeniz gerekiyor.  Küme ise, Basit sertifika geçişi [ortak adını temel alarak sertifikaları kullan kadar ayarlanmış](service-fabric-cluster-change-cert-thumbprint-to-cn.md) (yerine parmak izi).  Yeni bir sona erme tarihi ile sertifika yetkilisinden yeni bir sertifika alın.  Otomatik olarak imzalanan sertifikaları Azure portalı küme oluşturma iş akışı sırasında oluşturulan sertifikalar dahil etmek için üretim Service Fabric kümeleri için destek değildir. Yeni sertifika, ortak eski sertifikanın adıyla aynı olmalıdır. 
 
-Aşağıdaki komut dosyasını yeni bir sertifika bir anahtar Kasası'na yükler ve ardından sanal makine ölçek kümesi üzerinde sertifikayı yükler.  Service Fabric kümesi, en son sona erme tarihi ile sertifika otomatik olarak kullanır.
+Service Fabric kümesini otomatik olarak kullanacağınız bildirilen sertifika ile daha fazla gelecekteki sona erme tarihi; içine birden fazla doğruladığınızda sertifika konakta yüklenir. Azure kaynakları sağlamak için Resource Manager şablonu kullanmak iyi bir uygulamadır. Üretim dışı ortam için aşağıdaki betiği bir anahtar Kasası'na yeni bir sertifika yüklemek için kullanılabilir ve ardından sanal makine ölçek kümesinde sertifikayı yükler: 
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
@@ -79,7 +79,10 @@ $vmss = Add-AzureRmVmssSecret -VirtualMachineScaleSet $vmss -SourceVaultId $Sour
 Update-AzureRmVmss -ResourceGroupName $VmssResourceGroupName -Name $VmssName -VirtualMachineScaleSet $vmss  -Verbose
 ```
 
-Daha fazla bilgi için aşağıdaki okuyun:
+>[!NOTE]
+> Her bir gizli dizi tutulan benzersiz bir kaynak olarak sanal makine ölçek kümesi gizli iki ayrı gizli dizileri için aynı kaynak kimliği desteği olmayan hesaplar. 
+
+Daha fazla bilgi için aşağıdakileri okuyun:
 * Hakkında bilgi edinin [küme güvenlik](service-fabric-cluster-security.md).
-* [Güncelleştirme ve küme sertifikaları yönetme](service-fabric-cluster-security-update-certs-azure.md)
+* [Küme sertifikalarını yönetme ve güncelleştirme](service-fabric-cluster-security-update-certs-azure.md)
 

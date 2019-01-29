@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle BorrowBox | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile BorrowBox | Microsoft Docs'
 description: Azure Active Directory ve BorrowBox arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: dd8e4178-9a63-492a-bd48-782e94e404af
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2018
 ms.author: jeedes
-ms.openlocfilehash: a8ed2f04bf3004907cdd6e33bfb30260233fb101
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: efb905364e5ae4736b058472e66b3a8850a99fe3
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157165"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55167853"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-borrowbox"></a>Öğretici: Azure Active Directory BorrowBox ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-borrowbox"></a>Öğretici: BorrowBox ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile BorrowBox tümleştirme konusunda bilgi edinin.
 

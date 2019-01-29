@@ -8,18 +8,18 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 5d8e6c0db2ce6c35935c2b00aa40de2a5d5a050f
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: a7e4a20905b390945c22557af044cf739bc17ce8
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297631"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197220"
 ---
 # <a name="using-a-group-to-manage-access-to-saas-applications"></a>SaaS uygulamalarına erişimi yönetmek için grup kullanma
 Azure Active Directory (Azure AD) bir Azure AD Premium veya Azure AD temel lisansı ile birlikte kullanarak, Azure AD ile tümleştirilmiş bir SaaS uygulamasına erişim atamak için grupları kullanabilirsiniz. Örneğin, beş farklı SaaS uygulamasında kullanmak pazarlama bölümü için erişimi atamak istiyorsanız, pazarlama departmanındaki kullanıcılar içeren bir grup oluşturabilir ve ardından tarafından gerekli olan bu beş SaaS uygulamaları için bu gruba atayın Pazarlama departmanındaki. Bu şekilde üyelik pazarlama departmanı tek bir yerden yöneterek zaman kazanabilirsiniz. Pazarlama grubunun bir üyesi eklenir ve pazarlama gruptan kaldırdığınızda atamaları uygulamadan kaldırdıysanız, kullanıcılar uygulamaya sonra atanır. Bu özellik, Azure AD uygulama Galerisi içinde ekleyebilirsiniz uygulamaları yüzlerce ile kullanılabilir.
@@ -40,7 +40,7 @@ Azure Active Directory (Azure AD) bir Azure AD Premium veya Azure AD temel lisan
 Bu makalelerde Azure Active Directory ile ilgili ek bilgi sağlanmıştır.
 
 * [Azure Active Directory grupları ile kaynaklara erişimi yönetme](../fundamentals/active-directory-manage-groups.md)
-* [Azure Active Directory'de uygulama yönetimi](../manage-apps/what-is-application-management.md)
+* [Azure Active Directory’de Uygulama Yönetimi](../manage-apps/what-is-application-management.md)
 * [Grup ayarlarını yapılandırmak için Azure Active Directory cmdlet'leri](groups-settings-cmdlets.md)
 * [Azure Active Directory nedir?](../fundamentals/active-directory-whatis.md)
 * [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](../hybrid/whatis-hybrid-identity.md)

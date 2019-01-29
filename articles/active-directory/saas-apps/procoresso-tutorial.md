@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory Procore SSO ile tümleştirme | Microsoft Docs'
+title: 'Öğretici: Procore SSO ile Azure Active Directory Tümleştirme | Microsoft Docs'
 description: Azure Active Directory ve Procore SSO arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 9818edd3-48c0-411d-b05a-3ec805eafb2e
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: jeedes
-ms.openlocfilehash: 12e7a37c1d2811b44dbf943b460b7d620770d45e
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 1cd82188ef9f5a4e0078a8ea21882f99bb8b8f44
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017534"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55171295"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>Öğretici: Azure Active Directory Procore SSO ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>Öğretici: Procore SSO ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Procore SSO tümleştirme konusunda bilgi edinin.
 
@@ -144,7 +144,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve P
 
     c. Artık **Federasyon meta verileri XML** yukarıda Azure portalından indirilen ve etiketin adlı sertifikayı kopyalamanız **X509Certificate**. Kopyalanan değer içine yapıştırın **çoklu oturum açma x509 sertifika** kutusu.
 
-10. Tıklayarak **değişiklikleri kaydetmek**.
+10. **Değişiklikleri Kaydet**’e tıklayın.
 
 11. Bu ayarlar sonra göndermesi gerekiyor. **etki alanı adı** (ör. **contoso.com**) için Procore içine, oturum açtığınız aracılığıyla [Procore Destek ekibine](https://support.procore.com/) ve bunlar etki alanı Federasyon SSO'yu etkinleştirin.
 

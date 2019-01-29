@@ -7,22 +7,22 @@ author: swhite-msft
 manager: cgronlun
 ms.assetid: E8827BEB-4379-47CE-B67B-6C81AD7DAEB1
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: reference
 ms.date: 01/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: eb84c961d13c5abac7a0c9f426f099d21f034f20
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 7c3e19fd809e442d58f7cb0e6922d4e565673fe2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129752"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55188941"
 ---
 # <a name="upgrade-from-bing-web-search-api-v5-to-v7"></a>Yükseltme Bing Web arama API'si v5 için v7
 
 Bu Yükseltme Kılavuzu, sürüm 5 ve Bing Web araması API'si 7 sürümü arasındaki değişiklikleri tanımlar. Sürüm 7 kullanılacak güncelleştirmeye gerek duyduğunuz uygulamanızın parçalarını tanımlamanıza yardımcı olması için bu kılavuzu kullanın.
 
-## <a name="breaking-changes"></a>Hataya neden olan değişiklikler
+## <a name="breaking-changes"></a>Yeni değişiklikler
 
 ### <a name="endpoints"></a>Uç Noktalar
 
@@ -75,7 +75,7 @@ Engellendi|InvalidRequest.Blocked
 
 ### <a name="headers"></a>Üst bilgiler
 
-- İsteğe bağlı eklenen [Pragma](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#pragma) isteği üstbilgisi. Varsayılan olarak, önbelleğe alınmış içeriği varsa Bing döndürür. Önbelleğe alınan içerik döndürmesini Bing önlemek için Pragma üstbilgisi no-cache olarak ayarlayın (örneğin, Pragması: no-cache).
+- İsteğe bağlı eklenen [Pragma](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#pragma) isteği üstbilgisi. Varsayılan olarak, Bing önbelleğe alınmış içeriği (varsa) döndürür. Bing'in önbelleğe alınmış içeriği döndürmesini önlemek için, Pragma üst bilgisini no-cache olarak ayarlayın (örneğin, Pragma: no-cache).
 
 ### <a name="query-parameters"></a>Sorgu parametreleri
 

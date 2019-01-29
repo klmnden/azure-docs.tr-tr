@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: saurabh
-ms.openlocfilehash: 2a4f55ea15c933094befb8855185c4b7e353dee3
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 26e902cb31a77ffb1516f084bb71b5a99a89fba9
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42060872"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55188652"
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>Windows çalıştıran bir sanal makinede PowerShell kullanarak Azure Tanılama’yı etkinleştirme
 
@@ -84,13 +84,13 @@ Yapılandırma şunlar için güncelleştirilmesi gerekiyor:
   * Kaynak Kimliği şu deseni kullanılarak oluşturulabilir: "/ subscriptions / {*VM ile abonelik kimliği için abonelik*} /resourceGroups/ {*VM için kaynak grubu adı*} / providers/Microsoft.Compute/virtualMachines/ {*VM adı*} ".
   * Örneğin, sanal Makinenin çalıştığı abonelik için abonelik kimliği ise **11111111-1111-1111-1111-111111111111**, kaynak grubu için kaynak grubu adı **MyResourceGroup**ve VM adı **MyWindowsVM**, ardından değeri *ResourceId* olacaktır:
     
-      ```
+      ```xml
       <Metrics resourceId="/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/MyWindowsVM" >
       ```
   * Hakkında daha fazla bilgi için ölçümler performans sayaçlarını ve ölçümleri yapılandırmasını temel alarak oluşturulur, bkz: [Azure tanılama ölçümleri tablo depolamada](diagnostics-template.md#wadmetrics-tables-in-storage).
 * **StorageAccount** öğesi tanılama depolama hesabı adı ile güncelleştirilmesi gerekiyor.
   
-    ```
+    ```xml
     <?xml version="1.0" encoding="utf-8"?>
     <PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
         <WadCfg>

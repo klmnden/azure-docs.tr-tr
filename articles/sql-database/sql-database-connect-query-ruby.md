@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/20/2018
-ms.openlocfilehash: 66819cbd65f6f044d0dac68326eb5890476964b6
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 8fa161f82cf73e61127ab67aba6ca3408c8e7c10
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993918"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197832"
 ---
 # <a name="quickstart-use-ruby-to-query-an-azure-sql-database"></a>Hızlı Başlangıç: Ruby kullanarak Azure SQL veritabanı sorgulama
 
@@ -28,8 +28,6 @@ Bu hızlı başlangıçta nasıl kullanılacağını gösterir [Ruby](https://ww
 Bu hızlı başlangıcı tamamlamak için aşağıdaki önkoşullar gerekir:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
-  
-- Bu hızlı başlangıçta kullanacağınız bilgisayarın genel IP adresi için [sunucu düzeyinde bir güvenlik duvarı kuralı](sql-database-get-started-portal-firewall.md).
   
 - İşletim sisteminiz için Ruby ve ilgili yazılım:
   

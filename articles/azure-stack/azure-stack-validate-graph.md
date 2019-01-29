@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 01/28/2019
 ms.author: patricka
 ms.reviewer: jerskine
-ms.openlocfilehash: 43f30989fa09e711fc71941e7722dcd195212472
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: fbc6e7586e116df1fa19c6c9e0c5a5b17f00d646
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416248"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096781"
 ---
 # <a name="validate-graph-integration-for-azure-stack"></a>Azure Stack için Graph entegrasyonuna doğrula
 
@@ -106,8 +106,8 @@ Varsayılan olarak, her iki dosya için yazılan `C:\Users\<username>\AppData\Lo
 
 Kullanım:
 
-* **-OutputPath**: *yolu* sonunda farklı rapor konumunu belirtmek için bir run komutu, parametre.
-* **-CleanReport**: parametre temizlemek için bir run komutu sonunda *AzsReadinessCheckerReport.json* önceki rapor bilgileri. Daha fazla bilgi için [Azure Stack doğrulama raporu](azure-stack-validation-report.md).
+* **-OutputPath**: *Yolu* sonunda farklı rapor konumunu belirtmek için bir run komutu, parametre.
+* **-CleanReport**: Sonunda temizlemek için bir run komutu, parametre *AzsReadinessCheckerReport.json* önceki rapor bilgileri. Daha fazla bilgi için [Azure Stack doğrulama raporu](azure-stack-validation-report.md).
 
 ## <a name="validation-failures"></a>Doğrulama hataları
 

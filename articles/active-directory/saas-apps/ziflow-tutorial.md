@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle Ziflow | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile Ziflow | Microsoft Docs'
 description: Azure Active Directory ve Ziflow arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 84e60fa4-36fb-49c4-a642-95538c78f926
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2018
 ms.author: jeedes
-ms.openlocfilehash: 460a52f240f6b3723f93e81a11a8cd1ccc6c30c9
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: ca687f15187d4dd485d2c59e3c46fa3158802ff4
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626702"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55180011"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-ziflow"></a>Öğretici: Azure Active Directory Ziflow ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-ziflow"></a>Öğretici: Ziflow ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Ziflow tümleştirme konusunda bilgi edinin.
 
@@ -60,7 +60,7 @@ Azure AD'de Ziflow tümleştirmesini yapılandırmak için Ziflow Galeriden yön
 
 **Galeriden Ziflow eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 

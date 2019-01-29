@@ -7,7 +7,7 @@ author: barbkess
 manager: daveba
 ms.assetid: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviwer: japere,asteen
-ms.openlocfilehash: 34a4da2c14b84b9e539fc2d3e755a523cf3574c9
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: e516319b2f0ddb842a02a731a59362e040784ace
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54847246"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55179455"
 ---
 # <a name="problem-signing-in-to-the-access-panel-website"></a>Erişim paneli Web sitesinde oturum açarken sorun
 
@@ -103,7 +103,7 @@ Bir kullanıcı hesabının mevcut olup olmadığını denetlemek için şu adı
 
 3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  Tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklayın **tüm kullanıcılar**.
 
@@ -121,7 +121,7 @@ Bir kullanıcı hesabı durumunu denetlemek için şu adımları izleyin:
 
 3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  Tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklayın **tüm kullanıcılar**.
 
@@ -141,7 +141,7 @@ Bir kullanıcının parolasını sıfırlamak için şu adımları izleyin:
 
 3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  Tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklayın **tüm kullanıcılar**.
 
@@ -173,7 +173,7 @@ Bir kullanıcının çok faktörlü kimlik doğrulaması durumunu denetlemek iç
 
 3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  Tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklayın **tüm kullanıcılar**.
 
@@ -200,7 +200,7 @@ Bir kullanıcının çok faktörlü kimlik doğrulaması durumunu denetlemek iç
 
 3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  Tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklayın **tüm kullanıcılar**.
 
@@ -222,7 +222,7 @@ Bir kullanıcının grup üyeliklerini denetlemek için şu adımları izleyin:
 
 3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  Tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklayın **tüm kullanıcılar**.
 
@@ -240,7 +240,7 @@ Bir kullanıcının lisans atanmış denetlemek için şu adımları izleyin:
 
 3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  Tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklayın **tüm kullanıcılar**.
 
@@ -258,7 +258,7 @@ Bir kullanıcıya bir lisans atamak için bu adımları izleyin:
 
 3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  Tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklayın **tüm kullanıcılar**.
 

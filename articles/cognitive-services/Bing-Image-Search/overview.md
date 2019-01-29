@@ -1,5 +1,5 @@
 ---
-title: Bing resim arama API'si nedir?
+title: Bing Resim Arama API’si nedir?
 titleSuffix: Azure Cognitive Services
 description: Bing Resim Arama API'si uygulamanızda Bing'in bilişsel resim arama özellikleri kullanmanıza olanak tanır. API ile kullanıcı arama sorguları göndererek Bing Resimler’e benzeyen ilgili ve yüksek kaliteli resimler alıp görüntüleyebilirsiniz.
 services: cognitive-services
@@ -7,19 +7,19 @@ author: aahill
 manager: cgronlun
 ms.assetid: 1446AD8B-A685-4F5F-B4AA-74C8E9A40BE9
 ms.service: cognitive-services
-ms.component: bing-image-search
+ms.subservice: bing-image-search
 ms.topic: overview
 ms.date: 10/11/2017
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 71e8e363a02e08a099d9051c7f851e11bbd9b80b
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 8115ffd943750d88a1aa9f94ba53ff972a636373
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467290"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55157321"
 ---
-# <a name="what-is-the-bing-image-search-api"></a>Bing resim arama API'si nedir?
+# <a name="what-is-the-bing-image-search-api"></a>Bing Resim Arama API’si nedir?
 
 Bing Resim Arama API'si uygulamanızda Bing'in bilişsel resim arama özellikleri kullanmanıza olanak tanır. API ile kullanıcı arama sorguları göndererek [Bing Resimler](https://www.bing.com/images)'e benzeyen ilgili ve yüksek kaliteli resimler alıp görüntüleyebilirsiniz.
 

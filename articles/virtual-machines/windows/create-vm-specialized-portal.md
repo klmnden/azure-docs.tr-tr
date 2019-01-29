@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2018
+ms.date: 01/18/2019
 ms.author: cynthn
-ms.openlocfilehash: 905f00842c5ce74f681a6c5c09ff8bf6c7a9e162
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: b24435501ed1312e91ebec9b9c434971dbc94b55
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091258"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55163458"
 ---
 # <a name="create-a-vm-from-a-vhd-by-using-the-azure-portal"></a>Azure portalını kullanarak bir VHD'den VM oluşturma
 
@@ -28,6 +28,8 @@ Azure'da bir sanal makine (VM) oluşturmanın birkaç yolu vardır:
 - Zaten sahip olduğunuz bir sanal sabit disk (VHD) kullanmak için veya VHD'yi kullanmak için mevcut bir VM'den kopyalamak isterseniz yeni bir VM tarafından oluşturabilirsiniz *ekleme* VHD bir işletim sistemi diski olarak yeni VM. 
 
 - Silinmiş olan bir VM VHD'den yeni bir VM oluşturabilirsiniz. Örneğin, düzgün çalışmayan bir Azure VM varsa, VM'yi silin ve yeni bir VM oluşturmak için VHD kullanın. Aynı VHD'ye yeniden kullanabilir veya bir anlık görüntü oluşturma ve ardından yeni bir yönetilen disk anlık görüntüden oluşturarak VHD'nin kopyasını oluşturma. Anlık görüntü oluşturma birkaç adım daha sürmekle birlikte, özgün VHD korur ve geri dönüş konusunda sağlar.
+
+- Klasik VM'yi alın ve Resource Manager dağıtım modeli ve yönetilen diskler kullanan yeni bir VM oluşturmak için VHD'yi kullanın. En iyi sonuçlar için **Durdur** anlık görüntüsünü oluşturmadan önce Azure portalında Klasik VM.
  
 - Bir Azure VM, şirket içi VHD'yi karşıya yüklemek ve yeni bir sanal makineye ekleyerek şirket içi bir VHD'den oluşturabilirsiniz. Bir depolama hesabına VHD yüklemek için PowerShell veya başka bir araç kullanın ve ardından bir VHD'den yönetilen disk oluşturun. Daha fazla bilgi için [özelleştirilmiş bir VHD'yi karşıya yükleme](create-vm-specialized.md#option-2-upload-a-specialized-vhd). 
 

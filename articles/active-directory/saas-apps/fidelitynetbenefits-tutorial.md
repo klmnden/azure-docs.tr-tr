@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory Tümleştirme ile uygunluk NetBenefits | Microsoft Docs'
+title: 'Öğretici: Uygunluk NetBenefits ile Azure Active Directory Tümleştirme | Microsoft Docs'
 description: Azure Active Directory ve uygunluk NetBenefits arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 77dc8a98-c0e7-4129-ab88-28e7643e432a
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2018
 ms.author: jeedes
-ms.openlocfilehash: a1308035a8b758a9e2f824de3a78c03103c19931
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 00b90dae4acfae3f8250b94be1f8752aa72bcfe1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42056539"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55174899"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-fidelity-netbenefits"></a>Öğretici: Azure Active Directory uygunluk NetBenefits ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-fidelity-netbenefits"></a>Öğretici: Uygunluk NetBenefits ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile uygunluk NetBenefits tümleştirme konusunda bilgi edinin.
 

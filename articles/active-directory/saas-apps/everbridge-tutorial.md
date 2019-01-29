@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle EverBridge | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile EverBridge | Microsoft Docs'
 description: Azure Active Directory ve EverBridge arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 58d7cd22-98c0-4606-9ce5-8bdb22ee8b3e
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: jeedes
-ms.openlocfilehash: 75bd4325063ff90e4a065c0cf854fa375e58fa95
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 40645db589409ac80c69f1e7595e20869b08f5d0
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584800"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55194687"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-everbridge"></a>Öğretici: Azure Active Directory EverBridge ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-everbridge"></a>Öğretici: EverBridge ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile EverBridge tümleştirme konusunda bilgi edinin.
 

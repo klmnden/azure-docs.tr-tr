@@ -6,16 +6,16 @@ services: cognitive-services
 author: kegodin
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: acoustics
+ms.subservice: acoustics
 ms.topic: sample
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: f5ea565e68579dfad601d1037daeb4113e3daa43
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
-ms.translationtype: HT
+ms.openlocfilehash: 7d8ba2f25bd53b407ab6860bc57163a79b7d228a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901167"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55174270"
 ---
 # <a name="unity-sample-walkthrough"></a>Unity örnek kılavuzu
 Bu kılavuzda Project Acoustics örneği gösterilmektedir. Project Acoustics hakkında daha fazla bilgi için bkz. [Project Acoustics'e giriş](what-is-acoustics.md). Project Acoustics paketini var olan bir Unity projesine ekleme konusunda yardım için bkz. [Başlangıç kılavuzu](getting-started.md).
@@ -36,7 +36,7 @@ Bu kılavuzda Project Acoustics örneği gösterilmektedir. Project Acoustics ha
 
 Sahne önceden oluşturulmuştur ancak **Hierarchy** içinde **MicrosoftAcoustics** prefab ile ilişkilendirilmiş bir ACE dosyası vardır. 
 
-Unity düzenleyicisindeki yürütme düğmesine tıklayarak sahnenin sesini dinleyin. Masaüstünde W, A, S, D tuşlarını ve fareyi kullanarak sahnede gezinin. Seslerin akustik özellikleri ile ve bu özellikler olmadan nasıl duyulduğunu karşılaştırmak için "Acoustics: Disabled" (Akustik: Devre dışı) metni görünene kadar **R** tuşuna basın. Diğer denetimlerin klavye kısayollarını görmek için **F1** tuşuna basın. Ayrıca sağ tıklayıp bir eylem seçtikten sonra sol tıklama ile o eylemi gerçekleştirerek de tüm denetimleri kullanabilirsiniz.
+Unity düzenleyicisindeki yürütme düğmesine tıklayarak sahnenin sesini dinleyin. Masaüstünde W, A, S, D tuşlarını ve fareyi kullanarak sahnede gezinin. Sahne ve akustik olmadan nasıl sesleri Karşılaştırılacak basın **R** katmana metin kırmızıya döner ve diyor kadar düğmesi "Akustik: Devre dışı bırakıldı." Diğer denetimlerin klavye kısayollarını görmek için **F1** tuşuna basın. Ayrıca sağ tıklayıp bir eylem seçtikten sonra sol tıklama ile o eylemi gerçekleştirerek de tüm denetimleri kullanabilirsiniz.
 
 ## <a name="targeting-other-platforms"></a>Diğer platformları hedefleme
 Örnekte Windows Masaüstü, UWP, Windows Karma Gerçeklik, Android ve Oculus Go üzerinde çalışma ayarları bulunur. Proje varsayılan olarak Windows Masaüstü için yapılandırılmıştır. Bir VR platformunu hedeflemek için oynatıcı ayarlarına gidin (**Edit > Project Settings > Player** (Düzenle > Proje Ayarları > Oynatıcı)), **XR Settings** (XR Ayarları) bölümün bulun ve **Virtual Reality Supported** (Sanal Gerçeklik Desteği) onay kutusunu işaretleyin.

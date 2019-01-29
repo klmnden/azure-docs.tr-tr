@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: ca18aa5af89ec0a80d1aa8139671bf017a86e36c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 12764574c92c494e27290f98f274d2b76c7a4dc6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465182"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55183246"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Yedekleme ve geri yükleme Azure SQL veri ambarı
 Yedekleme ve geri yükleme şeklini Azure SQL veri ambarı'nda öğrenin. Kullanım verileri kurtarma anlık görüntüleri ambar veya birincil bölge içinde önceki bir geri yükleme noktası veri Ambarınızı kopyalayın. Farklı bir coğrafi bölgeye geri yüklemek için coğrafi olarak yedekli yedeklemeleri kullanım veri ambarı. 
@@ -73,7 +73,7 @@ Coğrafi yedekleme varsayılan olarak etkindir. Veri ambarınız Gen1 ise yapabi
 
 
 ## <a name="backup-and-restore-costs"></a>Yedekleme ve geri yükleme maliyetleri
-Azure fatura bir satır öğesi depolama ve bir satır öğesi için olağanüstü durum kurtarma depolama için olduğunu fark edeceksiniz. Depolama anlık görüntüleri tarafından yakalanan artımlı değişikliklerin yanı sıra birincil bölgedeki verilerinizi depolamak için toplam maliyeti ücrettir. Anlık görüntü şu anda nasıl alındığı hakkında daha ayrıntılı açıklaması için bu başvuru [belgeleri](https://docs.microsoft.com/rest/api/storageservices/Understanding-How-Snapshots-Accrue-Charges?redirectedfrom=MSDN#snapshot-billing-scenarios). Coğrafi olarak yedekli ücret coğrafi yedekleri depolamak için maliyetini kapsar.  
+Azure fatura bir satır öğesi depolama ve bir satır öğesi için olağanüstü durum kurtarma depolama için olduğunu fark edeceksiniz. Depolama anlık görüntüleri tarafından yakalanan artımlı değişikliklerin yanı sıra birincil bölgedeki verilerinizi depolamak için toplam maliyeti ücrettir. Anlık görüntüleri nasıl ücretlendirilir daha ayrıntılı açıklaması için başvurmak [anlık görüntüleri nasıl tahakkuk anlama ücretleri](https://docs.microsoft.com/rest/api/storageservices/Understanding-How-Snapshots-Accrue-Charges?redirectedfrom=MSDN#snapshot-billing-scenarios). Coğrafi olarak yedekli ücret coğrafi yedekleri depolamak için maliyetini kapsar.  
 
 Toplam Maliyet birincil veri ambarı ve anlık görüntü değişikliklerinin yedi gün için en yakın TB değerine yuvarlanır. Örneğin, veri ambarınızın boyutu 1,5 TB ise ve 100 GB anlık görüntü yakalar, 2 TB veri sayfasındaki Azure Premium depolama fiyatları üzerinden faturalandırılırsınız. 
 

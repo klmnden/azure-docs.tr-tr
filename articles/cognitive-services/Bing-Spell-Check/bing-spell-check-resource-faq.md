@@ -6,16 +6,16 @@ services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-spell-check
+ms.subservice: bing-spell-check
 ms.topic: conceptual
 ms.date: 07/26/2017
 ms.author: heidist
-ms.openlocfilehash: e6662ffcbab9ea274a67bc4437ca1600f1625ff1
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 90acc80b19058c2a7eb963f9e423883846519b2c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801514"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55164937"
 ---
 # <a name="frequently-asked-questions-about-the-bing-spell-check-api"></a>Sorulan sorular hakkında Bing yazım denetimi APİ'si
 
@@ -27,13 +27,13 @@ Aşağıdaki üst bilgiler isteğe bağlıdır, ancak bunları gerektiği gibi e
 
 - X arama konumu
 - X MSEdge ClientID
-- X MSEdge Clientıp
+- X-MSEdge-ClientIP
 
 Bing yazım denetimi API'si JavaScript'ten çağırdığınızda, ancak, tarayıcınızın yerleşik güvenlik özellikleri, bu üstbilgi değerlerini erişmesini engelleyebilir.
 
 Bu sorunu çözmek için Bing yazım denetimi API'si isteği bir CORS Ara sunucu aracılığıyla yapabilirsiniz. Böyle bir ara sunucu yanıtı sahip bir `Access-Control-Expose-Headers` üst bilgi, beyaz yanıt üst bilgileri ve JavaScript için kullanılabilir hale getirir.
 
-İzin vermek için bir CORS Ara Sunucusu'nun yükleneceği kolaydır [öğretici uygulama](tutorials/spellcheck.md) isteğe bağlı istemci üstbilgileri erişmek için. Bu, zaten yoksa, birinci [Node.js yükleme](https://nodejs.org/en/download/). Ardından bir komut isteminde aşağıdaki komutu girin.
+İzin vermek için bir CORS Ara Sunucusu'nun yükleneceği kolaydır [öğretici uygulama](tutorials/spellcheck.md) isteğe bağlı istemci üstbilgileri erişmek için. İlk olarak, henüz yüklemediyseniz [Node.js'yi yükleyin](https://nodejs.org/en/download/). Ardından bir komut isteminde aşağıdaki komutu girin.
 
     npm install -g cors-proxy-server
 
@@ -41,11 +41,11 @@ Ardından, Bing yazım denetimi API'si uç nokta HTML dosyasındaki değiştirin
 
     http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/spellcheck/
 
-Son olarak, CORS Ara sunucusu aşağıdaki komutla başlatın:
+Son olarak, aşağıdaki komutla CORS ara sunucusunu başlatın:
 
     cors-proxy-server
 
-Öğretici uygulamayı kullanırken komut penceresini açık bırakın; pencereyi kapattıktan proxy durdurur. Arama sonuçları altında Genişletilebilir HTTP üstbilgileri bölümünde artık görebilirsiniz `X-MSEdge-ClientID` üst bilgisi (diğerlerinin arasında) ve her istek için aynı olduğunu doğrulayın.
+Öğretici uygulamasını kullanırken komut penceresini açık bırakın; pencere kapatılırsa ara sunucu durdurulur. Arama sonuçları altında Genişletilebilir HTTP üstbilgileri bölümünde artık görebilirsiniz `X-MSEdge-ClientID` üst bilgisi (diğerlerinin arasında) ve her istek için aynı olduğunu doğrulayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

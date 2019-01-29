@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/03/2018
 ms.author: cynthn
 ms.component: disks
-ms.openlocfilehash: 5e2a485630b7e3c9cc5977170d7e7e7eeb3e6ff5
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: b87e27ae914a01f03ce78eafe5792433d18e417f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474226"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55193718"
 ---
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Azure Vm'leri azure'da yönetilen disklere geçirme
 
@@ -37,7 +37,7 @@ Aşağıdaki senaryolarda yönetilen disklere geçirebilirsiniz:
 | Geçiş...                                            | Belgeleri bağlantısı                                                                                                                                                                                                                                                                  |
 |----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Tek başına Vm'leri ve Vm'leri bir kullanılabilirlik kümesindeki yönetilen disklere dönüştürme   | [Vm'leri yönetilen diskleri kullanacak şekilde dönüştürme](convert-unmanaged-to-managed-disks.md) |
-| Tek bir VM Klasik'ten Resource Manager'için yönetilen diskler üzerindeki     | [Tek bir VM'yi geçirme](migrate-single-classic-to-resource-manager.md)  | 
+| Tek bir VM Klasik'ten Resource Manager'için yönetilen diskler üzerindeki     | [Klasik bir VHD'den VM oluşturma](create-vm-specialized-portal.md)  | 
 | Bir sanal ağ içindeki Klasik'ten Resource Manager'a yönetilen diskler üzerindeki tüm sanal makineler     | [Iaas kaynaklarının Klasikten Resource Manager'a geçiş](migration-classic-resource-manager-ps.md) ardından [VM'yi yönetilmeyen disklerden yönetilen disklere dönüştürme](convert-unmanaged-to-managed-disks.md) | 
 
 

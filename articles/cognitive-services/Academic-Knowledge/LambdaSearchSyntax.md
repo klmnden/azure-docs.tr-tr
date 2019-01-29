@@ -6,16 +6,16 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: 284f1d90f043e2634e143508e2ab0e98cd309f46
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: a76be5203c7d62ba973993bf6338b7496e2fce80
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902697"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55203938"
 ---
 # <a name="lambda-search-syntax"></a>Lambda arama söz dizimi
 
@@ -93,7 +93,7 @@ Döndürür *Action.Continue* koşul ise *true*. Koşul ise *false* ve bu ifadey
 
 Büyüktür veya eşittir 0,0 ile 1,0'den küçük rastgele bir sayı oluşturur. Bu işlev döndürür *true* sayı ya da eşit ise *p*.
 
-İle karşılaştırıldığında *json* arama *lambda* arama daha ifadesel: C# lambda ifadeleri doğrudan sorgu desenleri belirtmek için kullanılabilir. İki örnek aşağıda verilmiştir.
+İle karşılaştırıldığında *json* arama *lambda* arama daha ifadesel: C#Lambda ifadeleri, doğrudan sorgu desenleri belirtmek üzere kullanılabilir. İki örnek aşağıda verilmiştir.
 
 ```
 MAG.StartFrom(@"{

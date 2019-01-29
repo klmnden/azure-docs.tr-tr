@@ -6,17 +6,17 @@ author: eross-msft
 manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
-ms.component: user-help
+ms.subservice: user-help
 ms.workload: identity
 ms.topic: overview
 ms.date: 01/24/2019
 ms.author: lizross
-ms.openlocfilehash: 0b3b79b3791e7cbba11dc9282fc60fb4f13b3c47
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 2379f1ff4fb4385015cc6077cb923cab998d1d11
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903953"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55175222"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>Microsoft Authenticator uygulaması nedir?
 Microsoft Authenticator uygulamasını hesaplarınıza iki aşamalı doğrulama kullanırsanız oturum yardımcı olur. İki Faktörlü doğrulama özellikle hassas bilgileri görüntülerken hesaplarınızı daha güvenli bir şekilde erişmenize yardımcı olur. Parolaları bu nedenle Unutulan, çalınması veya ele geçirilen, iki Faktörlü doğrulama kesmek diğer kişiler için daha zor hale getirerek hesabınızın korunmasına yardımcı olan bir ek güvenlik adımdır.
@@ -63,7 +63,7 @@ Hesap türüne bağlı olarak, iki Faktörlü doğrulama kullanmalısınız veya
 
 |Makale |Açıklama |
 |------|------------|
-|[İndirme ve uygulama yükleme](microsoft-authenticator-app-how-to.md)|Nerede tanımlar ve nasıl alınacağını ve Android, iOS ve Windows Phone çalıştıran cihazlar için Microsoft Authenticator uygulamasını yükleyin.|
+|[Uygulamayı indirme ve yükleme](microsoft-authenticator-app-how-to.md)|Nerede tanımlar ve nasıl alınacağını ve Android, iOS ve Windows Phone çalıştıran cihazlar için Microsoft Authenticator uygulamasını yükleyin.|
 |[İş veya Okul hesapları ekleme](microsoft-authenticator-app-add-work-account.md)|Çeşitli iş veya Okul ve kişisel hesaplar için Microsoft Authenticator uygulamasını eklemeyi açıklar.|
 |[Kişisel hesaplarınızın Ekle](microsoft-authenticator-app-add-personal-account.md)|Kişisel Microsoft ve Microsoft dışı hesaplar için Microsoft Authenticator uygulamasını eklemeyi açıklar.|
 |[Hesaplarınızı el ile Ekle](microsoft-authenticator-app-add-account-manual.md)|Sağlanan QR kodunu tarayın yapamıyorsanız el ile hesaplarınızı Microsoft Authenticator uygulamasına eklemeyi açıklar.|

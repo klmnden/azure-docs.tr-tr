@@ -6,23 +6,23 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: alch
-ms.openlocfilehash: ae238a3c3af091b764147fcde8aa2a98986da92e
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: d36a39f10f9e0129af3b730a65387d7108209004
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158899"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168388"
 ---
 # <a name="paper-entity"></a>Kağıt varlık
 
 <sub> * Aşağıdaki öznitelikleri kağıt varlığa özgüdür. (Ty = '0') </sub>
 
 
-Ad    |Açıklama                                        |Tür       | İşlemler
+Name    |Açıklama                                        |Type       | İşlemler
 ------- | ------------------------------------------------- | --------- | ----------------------------
 Kimlik      |Varlık Kimliği                                          |Int64      |Eşittir
 Za      |Kağıt başlığı                                        |Dize     |Eşittir<br/>StartsWith
@@ -31,10 +31,10 @@ E       |Kağıt yıl                                         |Int32      |Eşit
 D       |İnceleme Tarihi                                         |Tarih       |Eşittir<br/>IsBetween
 BİLGİ      |Alıntı sayısı                                     |Int32      |yok  
 ECC     |Tahmini alıntı sayısı                           |Int32      |yok
-AA. AuN  |Yazar adı                                        |Dize     |Eşittir<br/>StartsWith
-AA. AuId |Yazar Kimliği                                          |Int64      |Eşittir
-AA. AfN  |Yazar ilişkisi adı                            |Dize     |Eşittir<br/>StartsWith
-AA. AfId |Yazar bağlantı kimliği                              |Int64      |Eşittir
+AA.AuN  |Yazar adı                                        |Dize     |Eşittir<br/>StartsWith
+AA.AuId |Yazar Kimliği                                          |Int64      |Eşittir
+AA.AfN  |Yazar ilişkisi adı                            |Dize     |Eşittir<br/>StartsWith
+AA.AfId |Yazar bağlantı kimliği                              |Int64      |Eşittir
 AA. S    |Yazar sıra kağıt                         |Int32      |Eşittir
 F.FN    |Örnek olay incelemesini ad alanı                                |Dize     |Eşittir<br/>StartsWith
 F.FId   |Örnek olay incelemesini Kimliği alanı                                  |Int64      |Eşittir
@@ -42,7 +42,7 @@ J.JN    |Günlük adı                                       |Dize     |Eşittir
 J.JId   |Günlük kimliği                                         |Int64      |Eşittir
 C.CN    |Konferans serisi adı                             |Dize     |Eşittir<br/>StartsWith
 C.CId   |Konferans serisi kimliği                               |Int64      |Eşittir
-RID     |Başvurulan incelemeler kimliği                              |Int64]    |Eşittir
+RId     |Başvurulan incelemeler kimliği                              |Int64[]    |Eşittir
 W       |Kağıt başlık ve Özet sözcük                |String[]   |Eşittir
 E       |Genişletilmiş meta verileri (aşağıdaki tabloya bakın)                |Dize     |yok  
         
@@ -50,14 +50,14 @@ E       |Genişletilmiş meta verileri (aşağıdaki tabloya bakın)            
 
 ## <a name="extended-metadata-attributes"></a>Genişletilmiş meta veri öznitelikleri ##
 
-Ad    | Açıklama               
+Name    | Açıklama               
 --------|---------------------------    
 DN      | Kağıt görünen adı 
 S       | Kaynaklar - statik sırasına göre sıralanmış kağıdın, web kaynaklarının listesi
 S.Ty    | Kaynak türü (1:HTML 2:Text, 3:PDF, 4:DOC, 5:PPT, 6:XLS, 7:PS)
 S.U     | Kaynak URL
 VFN     | Mekan tam adı - günlük veya konferans tam adı
-VSN'NİN     | Kısa ad mekan - günlük veya konferans kısa adı
+VSN     | Kısa ad mekan - günlük veya konferans kısa adı
 V       | Toplu - günlük birim
 BV      | Günlük adı
 BT      | 

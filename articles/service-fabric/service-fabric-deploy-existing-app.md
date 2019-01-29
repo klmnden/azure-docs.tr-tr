@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
 ms.author: mfussell
-ms.openlocfilehash: 0f4bb3f32b264bd894341a8776d48eb9f8b061a2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d8b78e42dc5909e6c80f100c9337880b1ad2d9e6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258740"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168422"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Paketleme ve varolan bir yürütülebilir dosya Service Fabric'e dağıtma
 Varolan bir yürütülebilir dosya olarak paketlenirken bir [Konuk yürütülebilir dosyası](service-fabric-guest-executables-introduction.md), Visual Studio Proje şablonu kullanmayı seçebilirsiniz veya [uygulama paketini el ile oluşturmak](#manually). Visual Studio kullanarak, uygulama paketi yapısı ve bildirim dosyalarını yeni bir proje şablonu tarafından sizin için oluşturulur.
@@ -302,4 +302,4 @@ Bu makalede, konuk tarafından yürütülebilir bir paketleme ve Service Fabric'
 * [Paketleme ve dağıtma Konuk yürütülebilir dosyası için örnek](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started), yayın öncesi paketleme aracı bağlantı
 * [İki Konuk yürütülebilir dosyalar (C# ve nodejs) iletişim REST kullanarak Adlandırma Hizmeti örnek](https://github.com/Azure-Samples/service-fabric-containers)
 * [Konuk tarafından yürütülebilir birden çok uygulama dağıtma](service-fabric-deploy-multiple-apps.md)
-* [Visual Studio kullanarak ilk Service Fabric uygulamanızı oluşturma](service-fabric-create-your-first-application-in-visual-studio.md)
+* [Visual Studio kullanarak ilk Service Fabric uygulamanızı oluşturma](service-fabric-tutorial-create-dotnet-app.md)

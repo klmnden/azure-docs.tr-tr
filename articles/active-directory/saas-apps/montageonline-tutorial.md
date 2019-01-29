@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory Tümleştirme ile birleştirme çevrimiçi | Microsoft Docs'
+title: 'Öğretici: Birleştirme Online ile Azure Active Directory Tümleştirmesi | Microsoft Docs'
 description: Azure Active Directory ve birleştirme Online arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 5c5e8c6f-e4fb-43fe-8841-e371f568ebed
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: jeedes
-ms.openlocfilehash: e11c97ecb33c1b1a37891a521c0375b39ad8a956
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 52b89fd830d18c595e29549432514fd60bbc6df9
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439927"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55158715"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-montage-online"></a>Öğretici: Azure Active Directory Tümleştirme ile birleştirme çevrimiçi
+# <a name="tutorial-azure-active-directory-integration-with-montage-online"></a>Öğretici: Birleştirme Online ile Azure Active Directory Tümleştirmesi
 
 Bu öğreticide, montaj çevrimiçi Azure Active Directory (Azure AD) ile tümleştirme konusunda bilgi edinin.
 
@@ -38,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD tümleştirmesi birleştirme Online ile yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Bir birleştirme çevrimiçi çoklu oturum açma abonelik etkin.
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Azure AD'de birleştirme Online'nın tümleştirmesini yapılandırmak için bir
 
 **Birleştirme çevrimiçi Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -171,7 +171,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
  
 ### <a name="create-a-montage-online-test-user"></a>Birleştirme çevrimiçi bir test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon birleştirme Online'da adlı bir kullanıcı oluşturun. Çalışmak [birleştirme Çevrimiçi Destek ekibine](https://www.montage.co.nz/contact-us/) birleştirme çevrimiçi platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi
+Bu bölümde, Britta Simon birleştirme Online'da adlı bir kullanıcı oluşturun. Çalışmak [birleştirme Çevrimiçi Destek ekibine](https://www.montage.co.nz/contact-us/) birleştirme çevrimiçi platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

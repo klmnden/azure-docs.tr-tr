@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory OpsGenie ile tümleştirme | Microsoft Docs'
+title: 'Öğretici: OpsGenie ile Azure Active Directory Tümleştirme | Microsoft Docs'
 description: OpsGenie ile Azure Active Directory arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -7,21 +7,21 @@ author: jeevansd
 manager: femila
 ms.assetid: 41b59b22-a61d-4fe6-ab0d-6c3991d1375f
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 715035072ddc2ceb087d003dd5da5bc47572e9b9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 52d976761ad5962f09f40565cfa04ae78386d1ca
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444360"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55192403"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-opsgenie"></a>Öğretici: Azure Active Directory OpsGenie ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-opsgenie"></a>Öğretici: OpsGenie ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile OpsGenie tümleştirme konusunda bilgi edinin.
 
@@ -37,7 +37,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD tümleştirmesi OpsGenie ile yapılandırma için aşağıdakiler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - OpsGenie çoklu oturum açma abonelik etkin.
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Azure AD'de OpsGenie tümleştirmesini yapılandırmak için OpsGenie Galeriden 
 
 **Galeriden OpsGenie eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
@@ -134,15 +134,15 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve O
 
 1. SSO'yu etkinleştirmek üzere işaretleyin **etkin**.
    
-    ![OpsGenie ayarları](./media/opsgenie-tutorial/tutorial_opsgenie_07.png) 
+    ![OpsGenie Settings](./media/opsgenie-tutorial/tutorial_opsgenie_07.png) 
 
 1. İçinde **sağlayıcısı** bölümünde **Azure Active Directory** sekmesi.
    
-    ![OpsGenie ayarları](./media/opsgenie-tutorial/tutorial_opsgenie_08.png) 
+    ![OpsGenie Settings](./media/opsgenie-tutorial/tutorial_opsgenie_08.png) 
 
 1. Azure Active Directory sayfasında, aşağıdaki adımları gerçekleştirin:
    
-    ![OpsGenie ayarları](./media/opsgenie-tutorial/tutorial_opsgenie_09.png)
+    ![OpsGenie Settings](./media/opsgenie-tutorial/tutorial_opsgenie_09.png)
     
     a. İçinde **SAML 2.0 uç noktası** metin kutusu, yapıştırma **tek oturum üzerinde hizmet URL'si**Azure portaldan kopyaladığınız değeri.
     
@@ -189,13 +189,13 @@ Amacı, bu bölümün OpsGenie içinde Britta Simon adlı bir kullanıcı oluşt
 
 1. Tıklayarak kullanıcıların listesine gidin **kullanıcı** sol panelde.
    
-   ![OpsGenie ayarları](./media/opsgenie-tutorial/tutorial_opsgenie_10.png) 
+   ![OpsGenie Settings](./media/opsgenie-tutorial/tutorial_opsgenie_10.png) 
 
 1. Tıklayın **kullanıcı ekleme**.
 
 1. Üzerinde **Kullanıcı Ekle** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
    
-   ![OpsGenie ayarları](./media/opsgenie-tutorial/tutorial_opsgenie_11.png)
+   ![OpsGenie Settings](./media/opsgenie-tutorial/tutorial_opsgenie_11.png)
    
    a. İçinde **e-posta** metin BrittaSimon türü e-posta adresi, Azure Active Directory'de ele.
    

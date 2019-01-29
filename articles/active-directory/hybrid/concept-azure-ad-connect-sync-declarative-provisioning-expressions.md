@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 488309d9d78834896a939c66ccdc7515310103de
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 0f15915d7c515387658ee132fcc1217958728c8a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54460508"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55166756"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Azure AD Connect eşitleme: Bildirim Temelli Sağlama İfadelerini Anlama
 Azure AD Connect eşitleme ilk Forefront Identity Manager 2010'da tanıtılan bildirim temelli sağlama üzerinde oluşturur. Tam kimlik tümleştirme iş mantığınızı derlenmiş kod yazmak zorunda kalmadan olanak tanır.

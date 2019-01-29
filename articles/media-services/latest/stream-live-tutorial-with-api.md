@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services v3 ile canlı Stream | Microsoft Docs
+title: Azure Media Services v3 ile canlı Stream .NET kullanarak | Microsoft Docs
 description: Bu öğretici, .NET Core kullanarak Media Services v3 ile canlı akış yapmayı adım adım anlatılmaktadır.
 services: media-services
 documentationcenter: ''
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/22/2019
+ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: c59ebc0672970c6ee8d00daae373036e2768e318
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 49598eb8579e20dd20ca63d11529ba106a510102
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888201"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55170530"
 ---
-# <a name="tutorial-stream-live-with-media-services-v3-using-apis"></a>Öğretici: Media Services v3 ile canlı Stream API'leri kullanma
+# <a name="tutorial-stream-live-with-media-services-v3-using-net"></a>Öğretici: Media Services v3 ile canlı Stream .NET kullanma
 
-Azure Media Services, [Canlı olayları](https://docs.microsoft.com/rest/api/media/liveevents) canlı akış içeriğinin işlemekten sorumludur. Canlı bir olay giriş uç noktası sağlar (alma URL'si) sonra bir gerçek zamanlı kodlayıcıya sağlamak. Canlı olay gerçek zamanlı Kodlayıcı giriş Canlı akışları alır ve bir veya daha fazla akış için kullanılabilir hale getirir [akış uç noktalarını](https://docs.microsoft.com/rest/api/media/streamingendpoints). LiveEvent'ler, ayrıca, akışınızı yapılacak başka işlemlerden ve sunumdan önce doğrulamak amacıyla incelemek için kullanacağınız bir önizleme uç noktası (önizleme URL'si) sağlar. Bu öğretici, **geçiş** türü bir canlı olay oluşturmak için .NET Core kullanmayı göstermektedir. 
+Azure Media Services, [Canlı olayları](https://docs.microsoft.com/rest/api/media/liveevents) canlı akış içeriğinin işlemekten sorumludur. Canlı bir olay giriş uç noktası sağlar (alma URL'si) sonra bir gerçek zamanlı kodlayıcıya sağlamak. Canlı olay gerçek zamanlı Kodlayıcı giriş Canlı akışları alır ve bir veya daha fazla akış için kullanılabilir hale getirir [akış uç noktalarını](https://docs.microsoft.com/rest/api/media/streamingendpoints). Canlı etkinlikler de daha fazla işleme edip teslime geçmeden önce akışınızı onaylama için kullandığınız bir önizleme uç noktası (Önizleme URL'si) sağlar. Bu öğretici, **geçiş** türü bir canlı olay oluşturmak için .NET Core kullanmayı göstermektedir. 
 
 > [!NOTE]
 > Devam etmeden önce [Media Services v3 ile canlı akış](live-streaming-overview.md) konusunu gözden geçirmeyi unutmayın. 
@@ -31,8 +31,7 @@ Azure Media Services, [Canlı olayları](https://docs.microsoft.com/rest/api/med
 Öğretici şunların nasıl yapıldığını göstermektedir:    
 
 > [!div class="checklist"]
-> * Media Services API’sine erişim
-> * Örnek uygulamayı yapılandırma
+> * Bu konu başlığı altında açıklanan örnek uygulamasını indirin
 > * Canlı akışı gerçekleştiren kodu inceleme
 > * Olayı [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html) ile http://ampdemo.azureedge.net üzerinde izleme
 > * Kaynakları temizleme
@@ -44,18 +43,12 @@ Azure Media Services, [Canlı olayları](https://docs.microsoft.com/rest/api/med
 Öğreticiyi tamamlamak için aşağıdakiler gereklidir.
 
 - Visual Studio Code veya Visual Studio yükleyin.
-- Yükleyin ve bu makalede Azure CLI 2.0 veya sonraki bir sürüm gerektirir, CLI'yı yerel olarak kullanın. Kullandığınız sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekirse bkz. [Azure CLI’yı yükleme](/cli/azure/install-azure-cli). 
-
-    Şu anda tüm [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) komutlar Azure Cloud Shell içinde çalışır. CLI'yi yerel olarak kullanmak için önerilir.
-
-- [Bir Media Services hesabı oluşturma](create-account-cli-how-to.md).
-
-    Media Services hesap adını ve kaynak grubu adı için kullanılan değerleri unutmayın emin olun
-
+- [Bir Media Services hesabı oluşturma](create-account-cli-how-to.md).<br/>Media Services hesap adını ve kaynak grubu adı için kullanılan değerleri unutmayın emin olun.
+- Bağlantısındaki [erişim Azure Media Services API'sine Azure CLI ile](access-api-cli-how-to.md) ve kimlik bilgilerini kaydedin. Bunları API'ye erişmek için kullanmanız gerekecektir.
 - Etkinlik yayınlamak için kullanılan bir kamera veya (dizüstü gibi) bir cihaz.
 - Şirket içi bir canlı kodlayıcı, kameradan alınan sinyalleri Media Services canlı akış hizmetine gönderilen akışlara dönüştürür. Akışın **RTMP** veya **Kesintisiz Akış** biçiminde olması gerekir.
 
-## <a name="download-the-sample"></a>Örneği indirme
+## <a name="download-and-configure-the-sample"></a>İndirme ve örnek yapılandırma
 
 Aşağıdaki komutu kullanarak, akış .NET örneğini içeren bir GitHub havuzunu makinenize kopyalayın:  
 
@@ -65,11 +58,10 @@ Aşağıdaki komutu kullanarak, akış .NET örneğini içeren bir GitHub havuzu
 
 Canlı akış örneği [Live](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/Live/MediaV3LiveApp) klasöründe bulunabilir.
 
-> [!IMPORTANT]
-> Bu örnek, her kaynak için benzersiz bir sonek kullanır. Hata ayıklamayı iptal eder veya uygulamayı baştan sona çalıştırmadan sonlandırırsanız, hesabınızda birden çok LiveEvent oluşur. <br/>
-> Çalışan Canlı olayları durdurduğunuzdan emin olun. Aksi takdirde **faturalandırılırsınız**!
+Açık [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/appsettings.json) içinde proje indirilir. Aldığınız kimlik değerleri Değiştir [API'leri erişme](access-api-cli-how-to.md).
 
-[!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
+> [!IMPORTANT]
+> Bu örnek, her kaynak için benzersiz bir sonek kullanır. Hata ayıklama iptal veya uygulama üzerinden çalışan olmadan sonlandırın, birden çok canlı olay ile hesabınızı elde edebilirsiniz. <br/>Çalışan Canlı olayları durdurduğunuzdan emin olun. Aksi takdirde **faturalandırılırsınız**!
 
 ## <a name="examine-the-code-that-performs-live-streaming"></a>Canlı akışı gerçekleştiren kodu inceleme
 
@@ -121,11 +113,13 @@ Canlı olay giden akış oluşturduktan sonra bir varlık, Canlı çıkış ve a
 
 #### <a name="create-an-asset"></a>Asset oluşturma
 
-[!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateAsset)]
-
 Kullanılacak Canlı çıkışı için bir varlık oluşturun.
 
+[!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateAsset)]
+
 #### <a name="create-a-live-output"></a>Canlı bir çıkış oluşturma
+
+Oluşturma çıkışları başlangıç canlı ve silindiğinde sona erer. Canlı çıkış sildiğinizde, temel alınan varlık veya varlık içeriği silmekte olduğunuz değil.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateLiveOutput)]
 
@@ -133,6 +127,8 @@ Kullanılacak Canlı çıkışı için bir varlık oluşturun.
 
 > [!NOTE]
 > Media Services hesabınız oluşturulduğunda hesabınıza **Durdurulmuş** durumda bir **varsayılan** akış uç noktası eklenir. İçerik akışını başlatmak ve dinamik paketleme ile dinamik şifrelemeden yararlanmak için içerik akışı yapmak istediğiniz akış uç noktasının **Çalışıyor** durumda olması gerekir. 
+
+Bir akış Bulucu kullanılarak Canlı çıktı varlığı yayımlayın, canlı olay (en fazla DVR pencere uzunluğunun) akış Bulucu'nın süre sonu veya silme kadar görüntülenebilir olmaya devam edecek, hangisinin önce geldiğine.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateStreamingLocator)]
 
@@ -164,13 +160,15 @@ Olayların akışla aktarılmasını tamamlayıp önceden sağlanan kaynakları 
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CleanupLocatorAssetAndStreamingEndpoint)]
 
+Aşağıdaki kod, tüm Canlı olaylar hesabınızı temizlemek gösterilmektedir:
+
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CleanupAccount)]   
 
 ## <a name="watch-the-event"></a>Olayı izleme
 
 Olay izlemek için kod açıklanan çalıştırdığınızda aldığınız akış URL'sini kopyalayın [bir akış Bulucu](#create-a-streaminglocator) ve tercih ettiğiniz bir oynatıcı kullanın. Akışınızı http://ampdemo.azureedge.net üzerinde test etmek için [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html)'ı kullanabilirsiniz. 
 
-Canlı olay durduğunda otomatik olarak isteğe bağlı içeriğe dönüşür. Olayı durdurduktan ve sildikten sonra dahi, varlığı silmeniz sürece, kullanıcılar arşivlenen içeriğinizin isteğe bağlı içerik olarak akışını gerçekleştirebilir. Bir olay tarafından kullanılıyorsa varlık silinemez; önce olayın silinmesi gerekir. 
+Canlı etkinlik, olayları otomatik olarak durduğunda isteğe bağlı içeriğe dönüşür. Olayı durdurduktan ve sildikten sonra dahi, varlığı silmeniz sürece, kullanıcılar arşivlenen içeriğinizin isteğe bağlı içerik olarak akışını gerçekleştirebilir. Bir olay tarafından kullanılıyorsa varlık silinemez; önce olayın silinmesi gerekir. 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

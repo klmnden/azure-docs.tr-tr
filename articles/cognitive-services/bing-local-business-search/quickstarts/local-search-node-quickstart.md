@@ -6,18 +6,18 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.component: bing-local-business
+ms.subservice: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 409e4d2e71766ddba2b1d7bcf7e10afdbe298104
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e58bd9afcbb7684cae93d3e71bae89d49f640111
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968555"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55203972"
 ---
-# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-nodejs"></a>Hızlı Başlangıç: Bing yerel iş arama Node.js kullanarak API için bir sorgu gönderin.
+# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-nodejs"></a>Hızlı Başlangıç: Bing yerel iş arama Node.js kullanarak API için bir sorgu gönderme
 
 Bu hızlı başlangıçta, Azure Bilişsel hizmet olduğu Bing yerel iş arama API'si için istekleri göndermeye başlamak için kullanın. Bu basit uygulama, node.js'de yazılmış olsa da API'si bir RESTful Web tüm programlama dillerini HTTP isteğinde bulunan ve JSON ayrıştırma özelliğine sahip uyumlu hizmetidir.
 
@@ -43,7 +43,7 @@ Aşağıdaki kod, tanımlar alır ve isteği gönderir. Aşağıdaki adımları 
 
 Bu tanıtımda kullanılan kodun tamamı aşağıda verilmiştir:
 
-````
+```
 'use strict';
 
 let https = require('https');
@@ -90,7 +90,7 @@ let Search = function () {
 
 Search();
 
-````
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: 21c0fd9b258100e769172332713769024fb12969
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 48c78f4c3332f28cc37aea0c663976ce7c2d489b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39520580"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55170955"
 ---
 # <a name="previewing-drive-usage-for-an-export-job"></a>Dışarı aktarma işi için sürücü kullanımının önizlemesini yapma
 Dışarı aktarma işi oluşturmadan önce BLOB'ları dışarı aktarılmasına izin kümesi seçin gerekir. Microsoft Azure içeri/dışarı aktarma hizmeti, blob yollarının listesini kullanın veya seçtiğiniz blobları temsil etmek için ön ekleri blob olanak tanır.  
@@ -28,9 +28,9 @@ Kullanırken aşağıdaki parametreleri kullanabilirsiniz `PreviewExport` içeri
 |--------------------------|-----------------|  
 |**/ LOGDIR:**< LogDirectory\>|İsteğe bağlı. Günlük dizini. Ayrıntılı günlük dosyası bu dizine yazılır. Hiçbir günlük dizini belirtilmezse, geçerli dizin günlük dizini kullanılır.|  
 |**/sn:**< StorageAccountName\>|Gereklidir. Dışarı aktarma işi için depolama hesabı adı.|  
-|**/SK:**< StorageAccountKey\>|Bir kapsayıcı SAS belirtilmedi ve yalnızca, gerekli. Dışarı aktarma işi için depolama hesabı için hesap anahtarı.|  
-|**/csas:**< ContainerSas\>|Depolama hesabı anahtarı belirtilmedi ve yalnızca, gerekli. Dışarı aktarma işi verilecek blobları listeleme kapsayıcısı SAS.|  
-|**/ ExportBlobListFile:**< ExportBlobListFile\>|Gereklidir. XML yolu içeren blob yollarının listesini dosya veya yol önekleri dışarı aktarılacak bloblar için blob. Kullanılan dosya biçimi `BlobListBlobPath` öğesinde [Put işlemini](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) içeri/dışarı aktarma hizmeti REST API işlemi.|  
+|**/sk:**<StorageAccountKey\>|Bir kapsayıcı SAS belirtilmedi ve yalnızca, gerekli. Dışarı aktarma işi için depolama hesabı için hesap anahtarı.|  
+|**/csas:**<ContainerSas\>|Depolama hesabı anahtarı belirtilmedi ve yalnızca, gerekli. Dışarı aktarma işi verilecek blobları listeleme kapsayıcısı SAS.|  
+|**/ ExportBlobListFile:**< ExportBlobListFile\>|Gereklidir. XML yolu içeren blob yollarının listesini dosya veya yol önekleri dışarı aktarılacak bloblar için blob. Kullanılan dosya biçimi `BlobListBlobPath` öğesinde [Put işlemini](/rest/api/storageimportexport/jobs) içeri/dışarı aktarma hizmeti REST API işlemi.|  
 |**/ DriveSize:**< DriveSize\>|Gereklidir. Bir dışarı aktarma işi için kullanılacak sürücüleri boyutunu *örn*, 500 GB, 1,5 TB.|  
 
 ## <a name="command-line-example"></a>Komut satırı örneği

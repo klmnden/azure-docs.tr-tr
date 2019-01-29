@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle Infor CloudSuite | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile Infor CloudSuite | Microsoft Docs'
 description: Azure Active Directory ve Infor CloudSuite arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: a2f4f843-00d2-4522-a29d-6496cc5a781a
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: jeedes
-ms.openlocfilehash: bed29e213c3a4ed81ec8736d40f33b35d7f069a5
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 09d0c92703c13baba2555245f7c71a3d48b4ee9d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52730247"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55174984"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-infor-cloudsuite"></a>Öğretici: Azure Active Directory Infor CloudSuite ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-infor-cloudsuite"></a>Öğretici: Infor CloudSuite ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Infor CloudSuite tümleştirme konusunda bilgi edinin.
 

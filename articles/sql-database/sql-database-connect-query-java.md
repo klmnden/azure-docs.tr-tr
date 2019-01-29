@@ -11,12 +11,12 @@ ms.author: andrela
 ms.reviewer: v-masebo
 manager: craigg
 ms.date: 11/20/2018
-ms.openlocfilehash: 5c12bd54c0ea96ac915fedab94f03cf044330dcf
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 6b748ebdbdc443c5fa44c82323774cd12c82ba38
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723304"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197509"
 ---
 # <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>Hızlı Başlangıç: Java kullanarak Azure SQL veritabanı sorgulama
 
@@ -27,8 +27,6 @@ Bu makalede nasıl yapılacağı açıklanır [Java](/sql/connect/jdbc/microsoft
 Bu örnek tamamlamak için aşağıdaki önkoşulların karşılandığından emin olun:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
-
-- A [sunucu düzeyinde güvenlik duvarı kuralı](sql-database-get-started-portal-firewall.md) kullanmakta olduğunuz bilgisayarın genel IP adresi
 
 - Yüklü işletim sisteminiz için Java ile ilgili yazılım:
 
@@ -75,7 +73,7 @@ Bu örnek tamamlamak için aşağıdaki önkoşulların karşılandığından em
 
 1. Adlı bir dosya zaten olmalıdır *App.java* Maven projenize adresinde yer alan:
 
-   *.. \sqltest\src\main\java\com\sqldbsamples\App.Java*
+   *..\sqltest\src\main\java\com\sqldbsamples\App.java*
 
 1. Dosyayı açıp içeriğini aşağıdaki kodla değiştirin. Ardından, sunucu, veritabanı, kullanıcı ve parola için uygun değerleri ekleyin.
 

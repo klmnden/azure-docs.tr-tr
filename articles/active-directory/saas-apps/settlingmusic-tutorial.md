@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory Tümleştirme ile müzik kapatma | Microsoft Docs'
+title: 'Öğretici: Müzik kapatma ile azure Active Directory Tümleştirmesi | Microsoft Docs'
 description: Azure Active Directory ve Settling müzik arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 6f86a8a2-4bd0-40cc-b1b4-752fce123328
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: jeedes
-ms.openlocfilehash: fda6ca2efb670c8087252428e417a3e0901fa748
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 900254e42410aafa0d8e58048c7d88efa94dfed5
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449072"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55178554"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-settling-music"></a>Öğretici: Azure Active Directory Tümleştirme ile müzik kapatma
+# <a name="tutorial-azure-active-directory-integration-with-settling-music"></a>Öğretici: Müzik kapatma ile azure Active Directory Tümleştirmesi
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Settling müzik tümleştirme konusunda bilgi edinin.
 
@@ -38,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD tümleştirmesi müzik kapatma ile yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik Settling müzik çoklu oturum açma etkin
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Azure AD'de Settling müzik tümleştirmesini yapılandırmak için Settling mü
 
 **Galeriden Settling müzik eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -189,7 +189,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
  
 ### <a name="create-a-settling-music-test-user"></a>Settling müzik test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon Settling müzik adlı bir kullanıcı oluşturun. Çalışmak [müzik istemci Destek ekibine sonlandırma](https://rakurakuseisan.jp/) Settling müzik platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+Bu bölümde, Britta Simon Settling müzik adlı bir kullanıcı oluşturun. Çalışmak [müzik istemci Destek ekibine sonlandırma](https://rakurakuseisan.jp/) Settling müzik platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

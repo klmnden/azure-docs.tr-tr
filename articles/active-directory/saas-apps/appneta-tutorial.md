@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory AppNeta Performans İzleyicisi ile tümleştirme | Microsoft Docs'
+title: 'Öğretici: AppNeta Performans İzleyicisi ile Azure Active Directory Tümleştirme | Microsoft Docs'
 description: Azure Active Directory ve AppNeta Performans İzleyicisi'ni arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 643a45fb-d6fc-4b32-b721-68899f8c7d44
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: jeedes
-ms.openlocfilehash: ccedc0288e313df2639862a14078d8cad9951286
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 19d79f65746b5ee03209bfd7d8405ddaa24bb825
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054558"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55194891"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appneta-performance-monitor"></a>Öğretici: Azure Active Directory tümleştirmesiyle AppNeta Performans İzleyicisi
 
@@ -38,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD Tümleştirmesi ile AppNeta Performans İzleyicisi'ni yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik bir AppNeta Performans İzleyicisi'ni çoklu oturum açma etkin
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Azure AD'de AppNeta Performans İzleyicisi'nin tümleştirmesini yapılandırmak
 
 **Galeriden AppNeta Performans İzleyicisi eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -194,7 +194,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
 Bu bölümün amacı, Britta Simon AppNeta Performans İzleyicisi'nde adlı bir kullanıcı oluşturmaktır. Performans İzleyicisi'ni AppNeta tam zamanında sağlama, varsayılan olarak etkin olan destekler. Bu bölümde, hiçbir eylem öğesini yoktur. Yeni bir kullanıcı, henüz yoksa AppNeta Performans İzleyicisi'ni erişme denemesi sırasında oluşturulur.
 >[!Note]
->Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [AppNeta Performans İzleyicisi'ni Destek ekibine](mailto:support@appneta.com).
+>Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [AppNeta Performans İzleyicisi'ni Destek ekibine](mailto:support@appneta.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
@@ -236,7 +236,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

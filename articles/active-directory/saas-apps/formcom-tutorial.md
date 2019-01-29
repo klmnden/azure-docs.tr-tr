@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle Form.com | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile Form.com | Microsoft Docs'
 description: Azure Active Directory ve Form.com arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: f1bc0112-315c-4e6f-8c69-7c6873007bcf
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: faa89ffd572733c580235b1c6dec58893de20503
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d5748cad11e8e0e4bdfd1000b312ab44fc304059
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449630"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55161074"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-formcom"></a>Öğretici: Azure Active Directory Form.com ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-formcom"></a>Öğretici: Form.com ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Form.com tümleştirme konusunda bilgi edinin.
 
@@ -38,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD Tümleştirmesi ile Form.com yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik Form.com çoklu oturum açma etkin
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Azure AD'de Form.com tümleştirmesini yapılandırmak için Form.com Galeriden 
 
 **Galeriden form.com eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -123,11 +123,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve F
     > [!NOTE]
     > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si yanıt URL'si ve tanımlayıcı ile güncelleştirin. İlgili kişi [Form.com istemci Destek ekibine](https://form.com/about/company/contact-us/) bu değerleri almak için.
 
-1. Üzerinde **SAML imzalama sertifikası** bölümünde, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **SAML imzalama sertifikası** bölümünde, aşağıdaki adımları gerçekleştirin:
     
     ![Çoklu oturum açmayı yapılandırın](./media/formcom-tutorial/tutorial_metadataurl.png)
 
-    a. Kopyalamak için Kopyala düğmesine **uygulama Federasyon meta verileri URL'sini** kopyalayıp Not Defteri'ne yapıştırın.
+    a. Kopyalamak için Kopyala düğmesine **uygulama Federasyon meta verileri URL'sini** kopyalayıp Not Defteri'ne yapıştırın.
 
     b. Tıklayın **sertifika (Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
      

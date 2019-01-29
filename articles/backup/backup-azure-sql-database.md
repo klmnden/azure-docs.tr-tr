@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: raynew
-ms.openlocfilehash: 50085336c59f2284f357e32b875eae08ff90d30f
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 959e58a58099b71a595f995e03cc70255fd6d059
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790184"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55198036"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>SQL Server veritabanlarını Azure'a yedekleme
 
@@ -129,7 +129,7 @@ Bir denge seçenekleri, yönetilebilirlik, ayrıntılı bir denetim ve Maliyet '
 
 ## <a name="set-permissions-for-non-marketplace-sql-vms"></a>İçin olmayan Market SQL VM'lerin izinleri ayarlama
 
-Bir sanal makineyi yedeklemek için Azure Backup gerektirir **AzureBackupWindowsWorkload** uzantısı yüklenecek. Azure Market sanal makineler kullanırsanız, devam [Bul SQL Server veritabanlarını](backup-azure-sql-database.md#discover-sql-server-databases). Azure Market'ten SQL veritabanlarınızı barındıran sanal makine oluşturulmadı, uzantıyı yüklemek ve uygun izinleri ayarlamak için aşağıdaki yordamı tamamlayın. Ek olarak **AzureBackupWindowsWorkload** uzantısı, Azure Backup, SQL veritabanlarını korumak için SQL sysadmin ayrıcalıkları gerektirir. Eşitlemesini bulmak sanal makinede veritabanları, Azure Backup, hesap oluşturur **NT SERVICE\AzureWLBackupPluginSvc**. Bu hesap, yedekleme ve geri yükleme için kullanılır ve SQL sysadmin iznine sahip olması gerekir. Ayrıca, Azure Backup özelliğinden yararlanır **NT AUTHORITY\SYSTEM** SQL ortak bir oturum açma olacak şekilde bu hesabınızın olması gerekir böylece DB bulma/sorgulama için hesap.
+Bir sanal makineyi yedeklemek için Azure Backup gerektirir **AzureBackupWindowsWorkload** uzantısı yüklenecek. Azure Market sanal makineler kullanırsanız, devam [Bul SQL Server veritabanlarını](backup-azure-sql-database.md#discover-sql-server-databases). Azure Market'ten SQL veritabanlarınızı barındıran sanal makine oluşturulmadı, uzantıyı yüklemek ve uygun izinleri ayarlamak için aşağıdaki yordamı tamamlayın. Ek olarak **AzureBackupWindowsWorkload** uzantısı, Azure Backup, SQL veritabanlarını korumak için SQL sysadmin ayrıcalıkları gerektirir. Sanal makine üzerindeki veritabanlarını bulmak için Azure Backup, hesabı oluşturan **NT SERVICE\AzureWLBackupPluginSvc**. Bu hesap, yedekleme ve geri yükleme için kullanılır ve SQL sysadmin iznine sahip olması gerekir. Ayrıca, Azure Backup özelliğinden yararlanır **NT AUTHORITY\SYSTEM** SQL ortak bir oturum açma olacak şekilde bu hesabınızın olması gerekir böylece DB bulma/sorgulama için hesap.
 
 İzinleri yapılandırmak için:
 

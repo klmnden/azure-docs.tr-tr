@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: bc1353ffb4514622ce0ef6e5c3ced76adc7f999f
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 8f87cb68aeea8b953b9883e92fd5080569c6cdd0
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314797"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55203700"
 ---
 # <a name="predefined-skills-for-content-enrichment-azure-search"></a>İçerik zenginleştirme (Azure Search) için önceden tanımlanmış beceriler
 
@@ -35,7 +35,7 @@ Birkaç becerileri ne bunlar kullanma veya üretmek esnektir. Genel olarak, ço�
 | [Microsoft.Skills.Text.KeyPhraseSkill](cognitive-search-skill-keyphrases.md) | Bu yetenek, terim yerleştirme, dilsel kurallar, diğer koşulları yakınlık ve nasıl olağan dışı kaynak verileri terimdir göre önemli tümcecikleri algılamak için pretrained modeli kullanır. |
 | [Microsoft.Skills.Text.LanguageDetectionSkill](cognitive-search-skill-language-detection.md)  | Hangi dili algılayın pretrained modelidir bu beceri (belge başına bir dil kimliği) kullanır. Birden çok dil aynı metin Segmentte kullanıldığında, genellikle kullanılan dilin LCID çıkış alınır.|
 | [Microsoft.Skills.Text.MergerSkill](cognitive-search-skill-textmerger.md) | Alanlar koleksiyonu tek bir alana metinden birleştirir.  |
-| [Microsoft.Skills.Text.NamedEntityRecognitionSkill](cognitive-search-skill-named-entity-recognition.md) | Bu yetenek, varlıklar için sabit bir kategoriler kümesi oluşturmak için bir pretrained modeli kullanır: kişiler, konum, kuruluş. |
+| [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md) | Bu yetenek, varlıklar için sabit bir kategoriler kümesi oluşturmak için bir pretrained modeli kullanır: kişiler, konum, kuruluş, URL'ler, datetime alanları e-posta gönderir. |
 | [Microsoft.Skills.Text.SentimentSkill](cognitive-search-skill-sentiment.md)  | Bu yetenek, bir kayıt kayıt temelinde pozitif veya negatif yaklaşım puanını için pretrained modeli kullanır. Puan, 0 ile 1 arasında ' dir. Nötr puanları için null durumu yaklaşım algılandı ve metin, dilden bağımsız olarak kabul edilir ortaya çıkar.  |
 | [Microsoft.Skills.Text.SplitSkill](cognitive-search-skill-textsplit.md) | Böylece zenginleştirin veya içeriği aşamalı olarak artırmak sayfalarına metin böler. |
 | [Microsoft.Skills.Vision.ImageAnalysisSkill](cognitive-search-skill-image-analysis.md) | Bu yetenek, görüntü içeriğini tanımlamak ve bir metin açıklama oluşturmak için bir görüntü algılama algoritması kullanır. |

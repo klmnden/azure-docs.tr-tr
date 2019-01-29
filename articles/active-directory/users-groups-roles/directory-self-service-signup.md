@@ -7,19 +7,19 @@ author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
 ms.date: 10/16/2018
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 30b86d7938279133c303ad4eae840f520a4900e6
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 63ddff08b93ffa072add0e8f093e1d4e0f1aa01e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394689"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55195826"
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>Azure Active Directory için Self Servis kaydolma nedir?
 Bu makalede, Self Servis kaydolma ve Azure Active Directory (Azure AD) desteklemek nasıl açıklanmaktadır. Bir etki alanı adının üzerine göz atmak istiyorsanız yönetilmeyen bir Azure AD kiracısı için bkz: [yönetilmeyen bir dizini yönetici olarak ele](domains-admin-takeover.md).
@@ -31,7 +31,7 @@ Bu makalede, Self Servis kaydolma ve Azure Active Directory (Azure AD) desteklem
 * Bir self-servis tarafından oluşturulan Azure AD dizini, diğer hizmetler için kullanılabilir yönetilen bir dizine etkinleştirilebilir
 
 ## <a name="terms-and-definitions"></a>Terimleri ve tanımları
-* **Self Servis kaydolma**:, bir bulut hizmeti için bir kullanıcı kaydolduğunda ve bunlar için Azure AD'de otomatik olarak oluşturulan bir kimlik tabanlı sahip e-posta etki yöntem budur.
+* **Self Servis kaydolma**: Bu, bir bulut hizmeti için bir kullanıcı kaydolduğunda ve otomatik olarak bunlar için Azure AD'de oluşturulan bir kimlik kendi e-posta etki alanına dayalı olan yöntemdir.
 * **Azure AD dizini yönetilmeyen**: Bu kimliğe oluşturulduğu dizinidir. Yönetilmeyen bir dizin yok genel yönetici olan bir dizindir.
 * **E-posta adresi doğrulanan kullanıcı**: Azure AD'de kullanıcı hesabı türü budur. Self Servis bir teklif için kaydolan sonra otomatik olarak oluşturulan bir kimliğe sahip bir kullanıcı bir e-posta adresi doğrulanan kullanıcı olarak bilinir. Bir e-posta adresi doğrulanan kullanıcı creationmethod ile etiketlenmiş bir dizin normal üyesidir EmailVerified =.
 
@@ -63,9 +63,9 @@ Flow ve PowerApps deneme kaydolmalar tarafından denetlenir değil **AllowAdHocS
 ### <a name="how-do-the-controls-work-together"></a>Denetimleri birlikte nasıl çalışır?
 Bu iki parametre birlikte, Self Servis kayıt üzerinde daha kesin denetim tanımlamak için kullanılabilir. Örneğin, aşağıdaki komut söz konusu kullanıcıların Azure AD'de bir hesap zaten varsa, ancak yalnızca Self Servis kaydolma gerçekleştirmek imkan tanıyacak (diğer bir deyişle, oluşturulacak bir e-posta adresi doğrulanan hesap gereken kullanıcılar ilk Self Servis kaydolma gerçekleştirilemiyor):
 
-````powershell
+```powershell
     Set-MsolCompanySettings -AllowEmailVerifiedUsers $false -AllowAdHocSubscriptions $true
-````
+```
 
 Aşağıdaki akış, bu parametrelerin farklı birleşimlerini ve Self Servis kaydolma ve dizin için elde edilen koşullar açıklanmaktadır.
 

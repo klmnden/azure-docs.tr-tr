@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2018
 ms.author: hrushib
-ms.openlocfilehash: 91813e31c6237cf47a744a4290e3e2d7736195f0
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 14d7ae7cc347b771dfdb1209bc8d55c484d00db0
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54322104"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55193743"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Azure Service fabric'te düzenli yedekleme yapılandırması anlama
 
@@ -219,9 +219,9 @@ Askıya alma gereksinimini bittikten sonra düzenli yedekleme ilgili sürdürme 
 * Askıya alma, uygulandıysa bir _bölüm_, kullanarak sürdürülmesini sonra [bölüm yedeklemeyi Sürdür](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumepartitionbackup) API.
 
 ### <a name="difference-between-suspend-and-disable-backups"></a>Askıya alma ve devre dışı yedeklemeler arasındaki fark
-Devre dışı yedekleme, yedekleme artık belirli bir uygulama, hizmet veya bölüm için gerekli olduğunda kullanılmalıdır. Bir can de true olması da var olan tüm yedeklemeler de silinir anlamına gelir devre dışı yedekleme isteği temiz yedeklemeleri parametresi ile birlikte çağırın. Ancak, askıya alma burada bir istediği yedeklemeleri, yerel disk tam olduğunda gibi geçici olarak devre dışı bırakmayı veya yedekleme karşıya yükleme vb. bilinen ağ sorunu nedeniyle başarısız senaryolarda kullanılır. 
+Devre dışı yedekleme, yedekleme artık belirli bir uygulama, hizmet veya bölüm için gerekli olduğunda kullanılmalıdır. Bir true olması da var olan tüm yedeklemeler de silinir anlamına gelir devre dışı yedekleme isteği temiz yedeklemeleri parametresi ile birlikte çağırabilirsiniz. Ancak, askıya alma burada bir istediği yedeklemeleri, yerel disk tam olduğunda gibi geçici olarak devre dışı bırakmayı veya yedekleme karşıya yükleme vb. bilinen ağ sorunu nedeniyle başarısız senaryolarda kullanılır. 
 
-Yalnızca bir düzeyinde devre dışı bırakma çağrılabilir olsa önceden yedekleme explicilty için askıya alma, şu anda yedekleme için ya da doğrudan etkinleştirilen herhangi bir düzeyde veya devralma yoluyla ancak uygulanabilir etkin / hiyerarşisi. Örneğin, bir uygulama düzeyinde yedekleme etkinleştirilirse, bir devre dışı bırakma çalıştırabilirsiniz ancak yalnızca uygulama düzeyinde askıya uygulama, hizmet veya uygulama altında bölüm çağrılabilir. 
+Yalnızca bir düzeyinde devre dışı bırakma çağrılabilir olsa önceden yedekleme için açıkça askıya alma, şu anda yedekleme için ya da doğrudan etkinleştirilen herhangi bir düzeyde veya devralma yoluyla ancak uygulanabilir etkin / hiyerarşisi. Örneğin, bir uygulama düzeyinde yedekleme etkinleştirilirse, bir devre dışı bırakma çalıştırabilirsiniz ancak yalnızca uygulama düzeyinde askıya uygulama, hizmet veya uygulama altında bölüm çağrılabilir. 
 
 ## <a name="auto-restore-on-data-loss"></a>Veri kaybı otomatik geri yükleme
 Hizmet bölüm beklenmeyen hatalar nedeniyle veri kaybedebilirsiniz. Örneğin, bir bölüm (birincil çoğaltma dahil) için iki tanesi üç çoğaltmalar için disk bozuk silinebilen veya.
