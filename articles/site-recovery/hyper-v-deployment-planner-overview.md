@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: nisoneji
-ms.openlocfilehash: 7c5a5cddca2aa8e459bde711465425bdd32c669e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 06e3139ffa958637721aae7e912b34070d307757
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964025"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207403"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Azure Site Recovery dağıtım planlayıcısı hakkında azure'a Hyper-V olağanüstü durum kurtarma
 
@@ -84,7 +84,7 @@ Araç, Hyper-V için üç ana aşama içerir: VM listesini alma, profil oluştur
 
 | Sunucu gereksinimi | Açıklama |
 |---|---|
-|VM listesini alma, profil oluşturma ve aktarım hızı ölçümü |<ul><li>İşletim sistemi: Microsoft Windows Server 2016 veya Microsoft Windows Server 2012 R2 </li><li>Makine yapılandırması: 8 vCPU, 16 GB RAM, 300 GB HDD</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Visual Studio 2012 için Microsoft Visual C++ Yeniden Dağıtılabilir](https://aka.ms/vcplusplus-redistributable)</li><li>Bu sunucudan Azure’a İnternet erişimi</li><li>Azure depolama hesabı</li><li>Sunucu üzerinde yönetici erişimi</li><li>En az 100 GB boş disk alanı (30 günlük profili oluşturulmuş ve her biri ortalama üç diske sahip 1000 VM varsayıldığında)</li><li>Azure Site Recovery dağıtım planlayıcısı aracını çalıştırdığınız sanal makinenin, tüm Hyper-V sunucularının TrustedHosts listesine eklenmesi gerekir.</li><li>Tüm Hyper-V sunucularının profili oluşturulacak VM’lerinin, aracın çalıştırıldığı istemci VM’nin TrustedHosts listesine eklenmesi gerekir. [TrustedHosts listesine sunucu eklemek için daha fazla bilgi edinin](#steps-to-add-servers-into-trustedhosts-list). </li><li> Araç, PowerShell veya istemci üzerindeki komut satırı konsolu üzerinde yönetici ayrıcalığı ile çalıştırılmalıdır</ul></ul>|
+|VM listesini alma, profil oluşturma ve aktarım hızı ölçümü |<ul><li>İşletim Sistemi: Microsoft Windows Server 2016 veya Microsoft Windows Server 2012 R2 </li><li>Makine Yapılandırması: 8 Vcpu, 16 GB RAM, 300 GB HDD</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Visual Studio 2012 için Microsoft Visual C++ Yeniden Dağıtılabilir](https://aka.ms/vcplusplus-redistributable)</li><li>Bu sunucudan Azure’a İnternet erişimi</li><li>Azure depolama hesabı</li><li>Sunucu üzerinde yönetici erişimi</li><li>En az 100 GB boş disk alanı (30 günlük profili oluşturulmuş ve her biri ortalama üç diske sahip 1000 VM varsayıldığında)</li><li>Azure Site Recovery dağıtım planlayıcısı aracını çalıştırdığınız sanal makinenin, tüm Hyper-V sunucularının TrustedHosts listesine eklenmesi gerekir.</li><li>Tüm Hyper-V sunucularının profili oluşturulacak aracı burada çalıştırıldığı istemci VM'nin TrustedHosts listesine eklenmesi gerekir. [TrustedHosts listesine sunucu eklemek için daha fazla bilgi edinin](#steps-to-add-servers-into-trustedhosts-list). </li><li> Araç, PowerShell veya istemci üzerindeki komut satırı konsolu üzerinde yönetici ayrıcalığı ile çalıştırılmalıdır</ul></ul>|
 | Rapor oluşturma | Microsoft Excel 2013 ve üzerinin yüklü olduğu herhangi bir Windows PC ya da Windows Server |
 | Kullanıcı izinleri | VM listesini alma ve profil oluşturma işlemleri sırasında Hyper-V kümesine/Hyper-V konağına erişmek için kullanılacak yönetici hesabı.<br>Profili oluşturulması gereken tüm konakların, aynı kimlik bilgilerine sahip (kullanıcı adı ve parola) bir etki alanı yönetici hesabı olmalıdır
  |
@@ -110,7 +110,7 @@ Araç, Hyper-V için üç ana aşama içerir: VM listesini alma, profil oluştur
 Araç bir zip klasöründe paketlenmiştir. Aynı araç hem VMware’den Azure’a hem de Hyper-V’den Azure’a olağanüstü durum kurtarma senaryolarını destekler. Bu aracı Hyper-V’den ikincil siteye olağanüstü durum kurtarma senaryoları için de kullanabilirsiniz. Ancak bu durumda, rapordaki Azure altyapısı önerilerini dikkate almayın.
 
 1.  Zip klasörünü, aracı çalıştırmak istediğiniz Windows Server’a kopyalayın. Aracı Windows Server 2012 R2 veya Windows Server 2016 üzerinde çalıştırabilirsiniz. Sunucunun, profili oluşturulacak VM’leri içeren Hyper-V kümesine veya Hyper-V konağına bağlanması için ağ erişimi olması gerekir. Korumak istediğiniz Hyper-V sunucusu ve aracın çalıştırılacağı VM ile aynı donanım yapılandırmasına sahip olmanız önerilir. Bu tür bir yapılandırma, araç tarafından elde edildiği rapor edilen aktarım hızının, Azure Site Recovery tarafından profil oluşturma sırasında elde edilebilecek gerçek aktarım hızı ile eşleşmesini sağlar. Aktarım hızı hesaplaması, sunucu üzerinde kullanılabilir ağ bant genişliğine ve sunucunun donanım yapılandırmasına (CPU, depolama vb.) bağlıdır. Aktarım hızı, aracın Azure’a çalıştırıldığı sunucudan hesaplanır. Sunucunun donanım yapılandırması, Hyper-V sunucusundan farklı olursa, aracın elde edildiğini rapor ettiği aktarım hızı hatalı olur.
-Önerilen VM yapılandırması: 8 vCPU, 16 GB RAM, 300 GB HDD.
+Önerilen VM yapılandırması: 8 vCPUs, 16 GB RAM, 300 GB HDD.
 
 1.  .zip klasörünü ayıklayın.
 Klasör birden fazla dosya ve alt klasör içerir. Yürütülebilir dosya, üst klasördeki ASRDeploymentPlanner.exe dosyasıdır.

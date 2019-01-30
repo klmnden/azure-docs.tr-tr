@@ -11,12 +11,12 @@ ms.author: tedway
 author: tedway
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7ebd25fe7b60cb3f8701793f222bbbc8bd4990e5
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.openlocfilehash: f93457315fec03210213ddfd79d027c8cfec4555
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/29/2019
-ms.locfileid: "55196778"
+ms.locfileid: "55227327"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile bir FPGA üzerinde bir web hizmeti olarak model dağıtma
 
@@ -165,7 +165,7 @@ registered_model.delete()
 
 ## <a name="secure-fpga-web-services"></a>FPGA web hizmetlerini güvence altına alma
 
-FPGA üzerinde çalışan azure Machine Learning hizmeti modeller, SSL desteği ve anahtar tabanlı kimlik doğrulaması sağlar. Bu, hizmet ve istemcileri tarafından gönderilen güvenli veri erişimi sınırlamak sağlar. [Web hizmeti güvenli hale getirme hakkında bilgi edinin](how-to-secure-web-service.md#fpga).
+FPGA web hizmetleri SSL ile güvenli hale getirme şu anda desteklenmiyor.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

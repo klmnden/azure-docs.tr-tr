@@ -10,14 +10,14 @@ ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 01/24/2019
 ms.author: bwren
-ms.openlocfilehash: ba79365ec310c7d62d0a4de07991d516430b9d41
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 370483b92dcd2c468cd676a32db0ded80e8814d0
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886161"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216621"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Office 365 Yönetim çözümüne (Önizleme)
 
@@ -158,7 +158,7 @@ Office 365 aboneliğinize:
     AdminConsent -ErrorAction Stop
     ```
 
-2. Aşağıdaki komutu kullanarak betiği çalıştırın.
+2. Aşağıdaki komutu kullanarak betiği çalıştırın. İki kez kimlik bilgileri istenir. Log Analytics çalışma alanınız için önce kimlik bilgilerini sağlayın ve ardından Office 365 genel yönetici kimlik bilgilerini Kiracı.
     ```
     .\office365_consent.ps1 -WorkspaceName <Workspace name> -ResourceGroupName <Resource group name> -SubscriptionId <Subscription ID>
     ```
@@ -351,7 +351,7 @@ Son adım Log Analytics çalışma alanınıza uygulama abone olmaktır. Ayrıca
 
 ### <a name="troubleshooting"></a>Sorun giderme
 
-Abonelik zaten var. sonra abonelik oluşturmaya çalışırsanız aşağıdaki hatayı görebilirsiniz.
+Uygulamanız bu çalışma alanına zaten abone olunursa veya başka bir çalışma alanına bu Kiracı abone olunursa şu hatayı görebilirsiniz.
 
 ```
 Invoke-WebRequest : {"Message":"An error has occurred."}
@@ -394,7 +394,7 @@ Bağlantısındaki işlemi kullanarak Office 365 yönetim çözümü kaldırabil
     $Subscription = (Select-AzureRmSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
     $Subscription
     $option = [System.StringSplitOptions]::RemoveEmptyEntries 
-    $Workspace = (Set-AzureRMOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
+    $Workspace = (Get-AzureRMOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
     $Workspace
     $WorkspaceLocation= $Workspace.Location
     
@@ -510,7 +510,7 @@ Aşağıdaki özellikler, tüm Office 365 kayıtlarına yaygındır.
 
 | Özellik | Açıklama |
 |:--- |:--- |
-| Tür | *OfficeActivity* |
+| Type | *OfficeActivity* |
 | Clientıp | Etkinlik günlüğe kaydedildiğinde kullanılan cihazın IP adresi. IP adresi IPv4 veya IPv6 adresi biçiminde görüntülenir. |
 | OfficeWorkload | Kayıt başvurduğu office 365 hizmeti.<br><br>AzureActiveDirectory<br>Exchange<br>SharePoint|
 | İşlem | Kullanıcı veya yönetici etkinliğinin adı.  |

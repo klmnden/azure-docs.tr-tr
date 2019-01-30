@@ -163,7 +163,7 @@ items:
       - name: Azure VM'leri için Mobility Hizmeti'ni güncelleştirme
         href: azure-to-azure-autoupdate.md
       - name: Azure Site Recovery’deki güncelleştirmeler
-        href: service updates-how-to.md
+        href: service-updates-how-to.md
   - name: VMware'den Azure'a olağanüstü durum kurtarma
     items:
     - name: Ağı ayarlama
@@ -239,7 +239,7 @@ items:
       - name: vCenter sunucularını yönetme
         href: vmware-azure-manage-vcenter.md
       - name: Azure Site Recovery’deki güncelleştirmeler
-        href: service updates-how-to.md
+        href: service-updates-how-to.md
       - name: Sunucuları kaldırma ve korumayı devre dışı bırakma
         href: site-recovery-manage-registration-and-protection.md
       - name: Bir kasayı silme
@@ -281,7 +281,7 @@ items:
       - name: Sunucuları kaldırma ve korumayı devre dışı bırakma
         href: site-recovery-manage-registration-and-protection.md
       - name: Azure Site Recovery’deki güncelleştirmeler
-        href: service updates-how-to.md
+        href: service-updates-how-to.md
       - name: Bir kasayı silme
         href: delete-vault.md
   - name: Azure Stack VM olağanüstü durum kurtarma
@@ -333,11 +333,9 @@ items:
       - name: Sunucuları kaldırma ve korumayı devre dışı bırakma
         href: site-recovery-manage-registration-and-protection.md
       - name: Azure Site Recovery’deki güncelleştirmeler
-        href: service updates-how-to.md
+        href: service-updates-how-to.md
       - name: Bir kasayı silme
         href: delete-vault.md
-      - name: Site Recovery ile yapılandırılmış Windows Sunucularını yükseltme
-        href: upgrade-2012R2-to-2016.md
   - name: Uygulamalar için olağanüstü durum kurtarma
     items:
     - name: Şirket içi uygulamalar için Azure’a olağanüstü durum kurtarmayı ayarlama
@@ -454,9 +452,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Hizmet güncelleştirmeleri
     href: https://azure.microsoft.com/updates/?product=site-recovery
-ms.openlocfilehash: 8cbe1fe9d7cbd22dfb16661b87b8758c41da5d70
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: bd744e6d16f52c70ae70e7c90ca8ed011f02e275
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/29/2019
-ms.locfileid: "55191202"
+ms.locfileid: "55222754"

@@ -6,16 +6,16 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: e1a80de1e6d0deebaff81207717886a4a8bbcc63
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e524df191bc7e621d5b048a373a8c424fbe2a721
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259488"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55214152"
 ---
 # <a name="how-to-use-the-dynamic-dictionary-feature-of-the-translator-text-api"></a>Translator metin çevirisi API'si, dinamik sözlük özelliği nasıl kullanılır
 
@@ -23,13 +23,13 @@ Bir sözcük veya tümcecik uygulamak istediğiniz çeviri zaten biliyorsanız, 
 
 **Sözdizimi:**
 
-< mstrans:dictionary çeviri "ifade çevirisi" = > tümcecik < / mstrans:dictionary >
+<mstrans:dictionary translation=”translation of phrase”>phrase</mstrans:dictionary>
 
 **Örnek: tr-de:**
 
-Giriş kaynağı: sözcük < mstrans:dictionary çeviri =\"wordomatic\"> sözcük veya tümcecik < / mstrans:dictionary > bir sözlük girişi.
+Kaynak girişi: Word < mstrans:dictionary çeviri =\"wordomatic\"> sözcük veya tümcecik < / mstrans:dictionary > bir sözlük girişi.
 
-Hedef Çıkış: Das Wort "wordomatic" ist EIN Wörterbucheintrag.
+Hedefi çıktısı: DAS Wort "wordomatic" ist EIN Wörterbucheintrag.
 
 Bu özellik ile ve HTML modu olmadan aynı şekilde çalışır.
 

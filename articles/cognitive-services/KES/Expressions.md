@@ -6,16 +6,16 @@ services: cognitive-services
 author: bojunehsu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: bdde2dfc9ab8e8ffdf7123c916538a8c98ecfce9
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 335bcc025d2f3e972a02234da89e35c90c91afeb
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129180"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55222706"
 ---
 # <a name="structured-query-expression"></a>Yapılandırılmış sorgu ifadesi
 
@@ -29,7 +29,7 @@ Yapılandırılmış sorgu ifadeleri öğesinden alınan [ *yorumlama* ](interpr
 
 Bir öznitelik sorgu ifadesi karşı belirli bir öznitelik eşleşmesi temeline göre bir nesne tanımlar.  Farklı eşleşen işlemlerini, öznitelik türüne bağlı olarak desteklenir ve dizinli işlemi belirtilen [şema](SchemaFormat.md):
 
-| Tür | İşlem | Örnekler |
+| Type | İşlem | Örnekler |
 |------|-------------|------------|
 | Dize | şuna eşittir: | Başlık 'görünmeyen anlam çözümleme' = (kurallı + eş anlamlılar) |
 | Dize | şuna eşittir: | Author.Name=='susan t dumais (kurallı yalnızca)|
@@ -38,8 +38,8 @@ Bir öznitelik sorgu ifadesi karşı belirli bir öznitelik eşleşmesi temeline
 | Int64/Int32/çift | starts_with | Yıl = '20'... ("20" ile başlayan ondalık değer içermemeli) |
 | Int64/Int32/çift | is_between | Yıl&lt;2000 <br/> Yıl&lt;2000 = <br/> Yıl&gt;2000 <br/> Yıl&gt;2000 = <br/> Year=[2010,2012) *(yalnızca sol sınır değeri içerir: 2010, 2011)* <br/> Yıl [2000,2012] = *(her iki sınır değerleri içerir: 2010, 2011, 2012)* |
 | Tarih | şuna eşittir: | Doğum tarihini ='1984-05-14' |
-| Tarih | is_between | Doğum tarihi&lt;=' 2008/03/14' <br/> PublishDate = ['2000-01-01', ' 2009-12-31'] |
-| Guid | şuna eşittir: | Kimliği '602DD052-CC47-4B23-A16A-26B52D30C05B' = |
+| Tarih | is_between | Doğum tarihi&lt;=' 2008/03/14' <br/> PublishDate=['2000-01-01','2009-12-31'] |
+| Guid | şuna eşittir: | Id='602DD052-CC47-4B23-A16A-26B52D30C05B' |
 
 
 Örneğin, ifade "Title 'görünmeyen s' =..." ayarlanmış başlık "görünmeyen s" dizesi ile başlayan tüm akademik yayınları eşleşir.  Bu ifadeyi değerlendirmek için ' % s'özniteliği başlık şemanın dizin oluşturmak için kullanılan "starts_with" işlemi belirtmeniz gerekir.

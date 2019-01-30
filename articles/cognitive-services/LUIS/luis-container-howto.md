@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: ac97cf3e269652dc33ce4211947b45631228a697
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: e6f13994d404d58082b953fc98ac6028eea2e43e
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463295"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216216"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Yükleme ve LUIS docker kapsayıcılarını çalıştırın
  
@@ -169,7 +169,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Yer tutucu | Değer |
+| Yer tutucu | Value |
 |-------------|-------|
 |{APPLICATION_ID} | Yayımlanan LUIS uygulaması uygulama kimliği. |
 |{APPLICATION_ENVIRONMENT} | Yayımlanan LUIS uygulaması ortam. Aşağıdaki değerlerden birini kullanın:<br/>```PRODUCTION```<br/>```STAGING``` |
@@ -197,7 +197,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Yer tutucu | Değer |
+| Yer tutucu | Value |
 |-------------|-------|
 |{APPLICATION_ID} | Eğitilen LUIS uygulamasının uygulama kimliği. |
 |{APPLICATION_VERSION} | Eğitilen LUIS uygulamasının uygulama sürümü. |
@@ -219,7 +219,7 @@ Başarılı olursa, yanıt bir LUIS paket dosyasıdır. Kapsayıcının giriş b
 
 Kullanım [docker run](https://docs.docker.com/engine/reference/commandline/run/) kapsayıcıyı çalıştırmak için komutu. Komutu şu parametreleri kullanır:
 
-| Yer tutucu | Değer |
+| Yer tutucu | Value |
 |-------------|-------|
 |{ENDPOINT_KEY} | Bu anahtar kapsayıcısı başlatmak için kullanılır. Başlangıç anahtarı kullanmayın. |
 |{BILLING_ENDPOINT} | Fatura uç nokta değerini Azure portalının dil anlama genel bakış sayfasında kullanılabilir.|
@@ -268,7 +268,7 @@ Ana bilgisayarını kullanmak https://localhost:5000, kapsayıcı API'leri için
 
 Sorgu parametrelerini yapılandırma nasıl ve ne sorgu yanıtına döndürülür:
 
-|Sorgu parametresi|Tür|Amaç|
+|Sorgu parametresi|Type|Amaç|
 |--|--|--|
 |`q`|dize|Kullanıcının utterance.|
 |`timezoneOffset`|number|TimezoneOffset sağlar [saat dilimini değiştirme](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) önceden oluşturulmuş varlık datetimeV2 tarafından kullanılır.|

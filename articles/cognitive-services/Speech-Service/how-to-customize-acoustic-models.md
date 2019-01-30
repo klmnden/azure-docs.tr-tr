@@ -1,21 +1,21 @@
 ---
-title: 'Öğretici: Özel Konuşma Hizmeti ile akustik bir model oluşturma'
+title: 'Öğretici: Konuşma hizmeti sayesinde akustik model oluşturma'
 titlesuffix: Azure Cognitive Services
 description: Azure Bilişsel Hizmetler'de Özel Konuşma Tanıma Hizmeti ile akustik model oluşturmayı öğrenin.
 services: cognitive-services
 author: PanosPeriorellis
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: 70fc9c34599f27eb5d67b79ef823f8037ae55ba9
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.openlocfilehash: 8bee93c4bb932730000a06cc2bc3fe5a3e330a1f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215251"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217637"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>Öğretici: Özel akustik model oluşturma
 
@@ -29,7 +29,7 @@ Bu makalede şunları öğreneceksiniz:
 
 Azure Bilişsel Hizmetler hesabınız yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/try/cognitive-services) oluşturun.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 [Cognitive Services Subscriptions](https://cris.ai/Subscriptions) (Bilişsel Hizmetler Abonelikleri) sayfasını açarak Bilişsel Hizmetler hesabınızın bir aboneliğe bağlanmış olduğundan emin olun.
 
@@ -41,12 +41,12 @@ Azure portalda Konuşma Tanıma Hizmeti aboneliği oluşturma hakkında bilgi i�
 
 Bir akustik modeli belirli bir etki alanı için özelleştirmek üzere konuşma verilerinden oluşan bir koleksiyona ihtiyaç duyulur. Bu koleksiyon birkaç konuşmadan yüzlerce saatlik konuşmaya kadar değişebilir. Koleksiyon, konuşma verilerinden oluşan ses dosyası kümesinden ve her ses dosyasının transkripsiyonunu içeren bir metin dosyasından oluşur. Ses verilerinin tanıyıcıyı kullanmak istediğiniz senaryoyu temsil etmesi gerekir.
 
-Örnek:
+Örneğin:
 
 * Gürültülü bir fabrika ortamındaki konuşmayı daha iyi bir şekilde tanımak istiyorsanız ses dosyaları gürültülü bir fabrika ortamında konuşan kişileri içermelidir.
 * Örneğin tek bir kullanıcı için performansı iyileştirmek istiyorsanız FDR’nin Fireside Chats içeriğinin tamamını yazıya dökerek ses dosyalarının yalnızca bu konuşmacıya ait olan birçok örnek içermesini sağlamanız gerekir.
 
-Akustik modeli özelleştirmek üzere kullanılacak akustik veri kümesi iki bölümden oluşur: (1) konuşma verilerini içeren ses dosyası kümesi ve (2) tüm ses dosyalarının transkripsiyonunu içeren bir dosya.
+Akustik modelin özelleştirilmesi için akustik bir veri kümesi, iki bölümden oluşur: (1 konuşma verileri içeren ses dosyalarını ve (2) içeren tüm ses dosyaları, döküm dosyası kümesi.
 
 ### <a name="audio-data-recommendations"></a>Ses verisi önerileri
 
@@ -63,7 +63,7 @@ Akustik modeli özelleştirmek üzere kullanılacak akustik veri kümesi iki bö
 > Web portalı aracılığıyla gerçekleştirilen veri içeri aktarma işlemleri şu an için 2 GB ile sınırlı olduğundan bir akustik veri kümesi bu boyutu aşamaz. Bu boyut 16 KHz kaliteyle kaydedilmiş yaklaşık 17 saatlik sese veya 8 KHz kaliteyle kaydedilmiş yaklaşık 34 saatlik sese denk gelir. Ses verilerinin ana gereksinimleri aşağıdaki tabloda özetlenmiştir:
 >
 
-| Özellik | Değer |
+| Özellik | Value |
 |---------- |----------|
 | Dosya Biçimi | RIFF (WAV) |
 | Örnekleme Oranı | 8000 Hertz (Hz) veya 16.000 Hz |
@@ -85,7 +85,7 @@ Akustik modeli özelleştirmek üzere kullanılacak akustik veri kümesi iki bö
 
 Tüm WAV dosyalarının transkripsiyonları tek bir düz metin dosyasına yerleştirilmelidir. Transkripsiyon dosyasının her satırında ses dosyalarından birinin adı ve transkripsiyon bulunmalıdır. Dosya adı ve transkripsiyon sekme (\t) ile ayrılmalıdır.
 
-  Örnek:
+  Örneğin:
 ```
   speech01.wav  speech recognition is awesome
   speech02.wav  the quick brown fox jumped all over the place
@@ -112,7 +112,7 @@ Bu dosyaları içeri aktarmak için öncelikle [Konuşma Tanıma Hizmeti portal�
 
 **Transcriptions file (.txt)** (Transkripsiyon dosyaları) ve **Audio files (.zip)** (Ses dosyaları) kutularında **Browse** (Gözat) öğesini seçip düz metin transkripsiyon dosyanızı ve WAV dosyalarının bulunduğu zip arşivini bulun. Hazırlık işlemlerini tamamladığınızda verilerinizi yüklemek için **Import** (İçeri Aktar) öğesini seçin. Verileriniz yüklenir. Büyük veri kümelerinin aktarılması birkaç dakika sürebilir.
 
-Karşıya yükleme tamamlandıktan sonra **Acoustic Datasets** (Akustik Veri Kümeleri) tablosuna dönün. Akustik veri kümenizi gösteren yeni bir giriş görüntülenir. Bu kümeye benzersiz tanımlayıcı (GUID) atanmış olduğuna dikkat edin. Kümenin geçerli durumu görüntülenir: İşlenmek üzere kuyruğa alınmış olduğunda *NotStarted* (Başlatılmadı), doğrulama sürecinde *Running* (Çalışıyor), kullanıma hazır olduğunda ise *Complete* (Tamamlandı) olur.
+Karşıya yükleme tamamlandıktan sonra **Acoustic Datasets** (Akustik Veri Kümeleri) tablosuna dönün. Akustik veri kümenizi gösteren yeni bir giriş görüntülenir. Bu kümeye benzersiz tanımlayıcı (GUID) atanmış olduğuna dikkat edin. Veriler geçerli durumu görüntüler: *NotStarted* işlenmek üzere sıraya alınıyor sırada *çalıştıran* doğrulama gerçekleştiriliyor sırada ve *tam* veri olduğunda kullanıma hazır.
 
 Veri doğrulama aşamasında bir dizi kontrol gerçekleştirilerek ses dosyalarında dosya biçimi, uzunluğu ve örnekleme oranı doğrulama; transkripsiyon dosyalarında ise dosya biçimi doğrulama ve metin normalleştirme işlemleri gerçekleştirilir.
 
@@ -141,13 +141,13 @@ Daha sonra **Acoustic Data** (Akustik Verileri) açılan listesinde özelleştir
 
 ![Akustik model oluşturma sayfası](media/stt/speech-acoustic-models-create2.png)
 
-İşleme tamamlandıktan sonra isteğe bağlı olarak yeni modelinizin doğruluk testini gerçekleştirebilirsiniz. Bu test belirtilen akustik veri kümesinde özelleştirilmiş akustik modeli kullanarak konuşmayı metne dönüştürme değerlendirmesi gerçekleştirecek ve sonuçları bildirecektir. Bu testi gerçekleştirmek için **Accuracy Testing** (Doğruluk Testi) onay kutusunu seçin. Ardından açılan listeden bir dil modeli seçin. Özel dil modeli oluşturmadıysanız açılan listede yalnızca temel dil modelleri görüntülenir. En uygun dil modelini seçmek için bkz. [Öğretici: Özel dil modeli oluşturma](how-to-customize-language-model.md).
+İşleme tamamlandıktan sonra isteğe bağlı olarak yeni modelinizin doğruluk testini gerçekleştirebilirsiniz. Bu test belirtilen akustik veri kümesinde özelleştirilmiş akustik modeli kullanarak konuşmayı metne dönüştürme değerlendirmesi gerçekleştirecek ve sonuçları bildirecektir. Bu testi gerçekleştirmek için **Accuracy Testing** (Doğruluk Testi) onay kutusunu seçin. Ardından açılan listeden bir dil modeli seçin. Özel dil modeli oluşturmadıysanız açılan listede yalnızca temel dil modelleri görüntülenir. En uygun dil modeli seçmek için bkz: [Öğreticisi: Özel dil modeli oluşturma](how-to-customize-language-model.md).
 
 Son olarak özel modeli değerlendirmek için kullanmak istediğiniz akustik veri kümesini seçin. Doğruluk testini gerçekleştiriyorsanız modelin performansı hakkında gerçekçi bir izlenim almak için model oluşturma sırasında kullandığınız kümeden farklı bir akustik veri kümesi seçmeniz önemlidir. Eğitim verilerinin doğruluğunun test edilmesi, uyarlanmış modelin gerçek koşullarda göstereceği performansı değerlendirmenizi sağlamaz. Sonuç fazla iyimser olacaktır. Doğruluk testinin 1000 konuşmayla sınırlı olduğunu da unutmayın. Akustik veri kümesi daha büyükse yalnızca ilk 1000 konuşma değerlendirilir.
 
 Özelleştirme işlemini çalıştırmaya hazır olduğunuzda **Create** (Oluştur) öğesini seçin.
 
-Akustik model tablosunda bu yeni modele karşılık gelen yeni bir giriş görüntülenir. Tabloda ayrıca *Waiting* (Beklemede), *Processing* (İşleniyor) veya *Complete* (Tamamlandı) şeklinde işlem durumu da gösterilir.
+Akustik model tablosunda bu yeni modele karşılık gelen yeni bir giriş görüntülenir. Tabloda ayrıca işlemin durumunu görüntüler: *Bekleyen*, *işleme*, veya *tam*.
 
 ![Akustik modeller sayfası](media/stt/speech-acoustic-models-creating.png)
 

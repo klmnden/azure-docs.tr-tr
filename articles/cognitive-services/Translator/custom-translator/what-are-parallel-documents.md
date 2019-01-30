@@ -5,16 +5,16 @@ description: Paralel belgeleri belgelerin bir diğer çeviri olduğu çiftleridi
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: e9214314bab40e3ce402fed84f429f3542519240
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: d7f479bbacef7270807d9292e7b91fe835485647
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627828"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217382"
 ---
 # <a name="what-are-parallel-documents"></a>Paralel belgeleri nelerdir?
 

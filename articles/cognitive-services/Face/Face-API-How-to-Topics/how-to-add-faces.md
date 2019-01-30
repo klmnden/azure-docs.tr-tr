@@ -1,23 +1,23 @@
 ---
-title: 'Örnek: Yüz ekleme - Yüz Tanıma API’si'
+title: "Örnek: Yüzleri - yüz tanıma API'si ekleme"
 titleSuffix: Azure Cognitive Services
 description: Görüntülere yüz eklemek için Yüz Tanıma API’sini kullanın.
 services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: fb5d03e2cb3c11daf7a94966fda46345ee910ded
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
-ms.translationtype: HT
+ms.openlocfilehash: f443eb13650483bc3ee63dad59cc40b8042bc35b
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125111"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55222823"
 ---
-# <a name="example-how-to-add-faces"></a>Örnek: Yüz ekleme
+# <a name="example-how-to-add-faces"></a>Örnek: Yüzleri ekleme
 
 Bu kılavuzda, bir PersonGroup’a çok sayıda kişi ve yüz eklemek için en iyi uygulama gösterilmektedir.
 Aynı strateji, FaceList ve LargePersonGroup için de geçerlidir.
@@ -60,9 +60,9 @@ static async Task WaitCallLimitPerSecondAsync()
 }
 ```
 
-## <a name="step-2-authorize-the-api-call"></a>2. Adım: API çağrısını yetkilendirme
+## <a name="step-2-authorize-the-api-call"></a>2. Adım: API çağrısı Yetkilendir
 
-Bir istemci kitaplığı kullanılırken, FaceServiceClient sınıfının oluşturucusu aracılığıyla abonelik anahtarı geçirilir. Örnek:
+Bir istemci kitaplığı kullanılırken, FaceServiceClient sınıfının oluşturucusu aracılığıyla abonelik anahtarı geçirilir. Örneğin:
 
 ```CSharp
 FaceServiceClient faceServiceClient = new FaceServiceClient("<Subscription Key>");
@@ -82,7 +82,7 @@ _timeStampQueue.Enqueue(DateTime.UtcNow);
 await faceServiceClient.CreatePersonGroupAsync(personGroupId, personGroupName);
 ```
 
-## <a name="step-4-create-the-persons-to-the-persongroup"></a>4. Adım: PersonGroup için kişiler oluşturma
+## <a name="step-4-create-the-persons-to-the-persongroup"></a>4. Adım: PersonGroup kişilere oluşturma
 
 Çağrı sınırının aşılmasını önlemek için kişiler eş zamanlı olarak oluşturulur ve `await WaitCallLimitPerSecondAsync()` uygulanır.
 
@@ -97,7 +97,7 @@ Parallel.For(0, PersonCount, async i =>
 });
 ```
 
-## <a name="step-5-add-faces-to-the-persons"></a>5. Adım: Kişilere yüz ekleme
+## <a name="step-5-add-faces-to-the-persons"></a>5. Adım: Yüzleri kişilere ekleyin
 
 Farklı kişilere farklı yüzler ekleme işlemi eş zamanlı olarak işlenirken, tek bir kişi için bu işlem sıralı olarak gerçekleştirilir.
 İstek sıklığının sınırlama kapsamında olduğundan emin olmak için tekrar `await WaitCallLimitPerSecondAsync()` çağrılır.

@@ -1,23 +1,23 @@
 ---
-title: "Öğretici: Algılamak ve .NET SDK'sı ile bir resimdeki yüz veri görüntüleme"
+title: "Öğretici: Algılama ve .NET SDK'sı ile bir resimdeki yüz veri görüntüleme"
 titleSuffix: Azure Cognitive Services
 description: Bu öğreticide, algılamak ve bir görüntüdeki yüzleri çerçeve için yüz tanıma API'si kullanan bir Windows uygulaması oluşturacaksınız.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 11/05/2018
 ms.author: pafarley
-ms.openlocfilehash: 8db2437b7f78271aee131cf5b4dfd9f06f744c66
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 79b467e55ec381d851d064d5f78cbdb91c9cf837
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852682"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221190"
 ---
-# <a name="tutorial-create-a-wpf-app-to-display-face-data-in-an-image"></a>Öğretici: bir resimdeki yüz verileri görüntülemek için bir WPF uygulaması oluşturma
+# <a name="tutorial-create-a-wpf-app-to-display-face-data-in-an-image"></a>Öğretici: Bir resimdeki yüz verileri görüntülemek için bir WPF uygulaması oluşturma
 
 Bu öğreticide, Azure yüz tanıma API'si, .NET İstemci SDK'sı ile bir resimdeki yüz algılama ve ardından bu verileri kullanıcı Arabiriminde sunmak için nasıl kullanılacağını öğreneceksiniz. Durum çubuğunda yüzü açıklamasını görüntüler yüzleri algılar ve her yüz etrafında bir çerçeve çizen basit bir Windows Presentation Framework (WPF) uygulaması oluşturacaksınız. 
 

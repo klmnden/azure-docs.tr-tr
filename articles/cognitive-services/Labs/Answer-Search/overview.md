@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: answer-search
+ms.subservice: answer-search
 ms.topic: overview
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 54438a99a710a24daac9e7482cb92a9781d06746
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: cb02c9067e4d672b0aace4caf13e4c8f0d718afb
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099099"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220204"
 ---
 # <a name="what-is-project-answer-search"></a>Proje Yanıt Arama nedir?
 Proje Yanıt Arama API'si soru sorgularına yanıt bulmak için Bing v7 uç noktasını kullanır. "What is the circumference of the earth?" (Dünyanın çevresinin uzunluğu nedir?) gibi bir soruya olgu içeren bir yanıt döndürülür.  Kişi, yer veya nesne sorguları, sorguda tanımlanan varlıkla ilgili bilgileri döndürür. Bu senaryolar sohbet botları, mesajlaşma uygulamaları, okuyucular gibi uygulamalarda yararlı olabilir.  

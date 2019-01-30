@@ -6,16 +6,16 @@ services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: pafarley
-ms.openlocfilehash: 2bee7f0af98bf03a13e376dea9dbf083b3f61815
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 72ba363201b27a8ca31c73af1d0cceb436de468d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340299"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209410"
 ---
 # <a name="how-to-improve-your-classifier"></a>Nasıl sınıflandırıcınızı geliştirme
 
@@ -41,23 +41,23 @@ Verilerinizi dengelenir emin olmalısınız başka bir husustur. Örneği için 
 
 Temsilcisi, normal kullanım sırasında ne bir sınıflandırıcı gönderilir, görüntüleri sağlar. Örneğin, "apple" sınıflandırıcı eğitim, sınıflandırıcınızı kalıplarını ancak elma ağaçları üzerinde fotoğraf üzerinde yapma tahminler elma fotoğraflarını yalnızca eğitimle doğru olmayabilir. Çeşitli görüntüleri dahil olmak üzere sınıflandırıcınızı ağırlıklı olmayan ve iyi genelleştirebilirsiniz sağlayacaktır. Aşağıda, eğitim yapabileceğiniz bazı açılardan daha çeşitli ayarlanır:
 
-__Arka planı:__ farklı arka plan (diğer bir deyişle, Market Torba içinde Meyve karşı kalıbı üzerinde Meyve) önündeki nesne görüntüleri sağlar. Fotoğraf bağlamında daha fazla bilgi için sınıflandırıcı sağladıkları gibi bağımsız arka planlar önüne fotoğraflar'den daha iyidir.
+__Arka planı:__ Farklı bir arka plan (diğer bir deyişle, Market Torba içinde Meyve karşı kalıbı üzerinde Meyve) önündeki nesne görüntüleri sağlar. Fotoğraf bağlamında daha fazla bilgi için sınıflandırıcı sağladıkları gibi bağımsız arka planlar önüne fotoğraflar'den daha iyidir.
 
 ![Arka plan örnekleri görüntüsü](./media/getting-started-improving-your-classifier/background.png)
 
-__Aydınlatma:__ çeşitli aydınlatma ile görüntüleri sağlar (diğer bir deyişle, flash, yüksek ifşasını gerçekleştirilen, vb.), özellikle tahmin için kullanılan görüntülerin farklı ışık varsa. Değiştirilen Doygunluk ve hue parlaklık ile görüntüleri dahil etmek yararlıdır.
+__Aydınlatma:__ Değiştirilen aydınlatma ile görüntüleri sağlar (diğer bir deyişle, flash, yüksek ifşasını gerçekleştirilen, vb.), özellikle tahmin için kullanılan görüntülerin farklı ışık varsa. Değiştirilen Doygunluk ve hue parlaklık ile görüntüleri dahil etmek yararlıdır.
 
 ![Aydınlatma örnekleri görüntüsü](./media/getting-started-improving-your-classifier/lighting.png)
 
-__Nesne boyutu:__ sağlama görüntüleri nesneler olduğu, değiştirilen nesnesinin farklı bölümlerini yakalama boyutlandırma. Örneğin, fotoğrafını bananas ve tek Muz sağında bunches. Farklı boyutlandırma daha iyi generalize sınıflandırıcı yardımcı olur.
+__Nesne boyutu:__ Nesneleri nesnesinin farklı bölümlerini yakalama çeşitli boyutlandırması olan görüntüleri sağlar. Örneğin, fotoğrafını bananas ve tek Muz sağında bunches. Farklı boyutlandırma daha iyi generalize sınıflandırıcı yardımcı olur.
 
 ![Görüntü boyutu örnekleri](./media/getting-started-improving-your-classifier/size.png)
 
-__Kamera Açısı:__ görüntüleri farklı Kamera Açısı ile yapılan sağlayın. Tüm fotoğraflarınızı, (örneğin, ekleme işlemlerini kaydedecek) sabit kameralar kümesiyle alınır, bunlar overfitting - ilgisiz nesne (örneğin, lampposts) bir anahtar özellik olarak modelleme önlemek için aynı nesnelerini yakalama olsa bile her kamera için farklı bir etiket atamak emin olun.
+__Kamera Açısı:__ Görüntüleri farklı Kamera Açısı ile yapılan sağlayın. Tüm fotoğraflarınızı, (örneğin, ekleme işlemlerini kaydedecek) sabit kameralar kümesiyle alınır, bunlar overfitting - ilgisiz nesne (örneğin, lampposts) bir anahtar özellik olarak modelleme önlemek için aynı nesnelerini yakalama olsa bile her kamera için farklı bir etiket atamak emin olun.
 
 ![Açı örnekleri görüntüsü](./media/getting-started-improving-your-classifier/angle.png)
 
-__Stil:__ aynı sınıfı (diğer bir deyişle, farklı türde citrus) farklı türlerde görüntülerini sağlayın. Ancak, önemli ölçüde farklı stilleri (diğer bir deyişle, gerçek zamanlı konuşmaların rat karşı Mickey fare) nesneleri görüntüler varsa, bunların farklı özellikleri bunları etiketlemek iyi temsil etmek için ayrı sınıflar olarak önerilir.
+__Stili:__ Farklı türlerde aynı sınıfı (diğer bir deyişle, farklı türde citrus) görüntülerini sağlar. Ancak, önemli ölçüde farklı stilleri (diğer bir deyişle, gerçek zamanlı konuşmaların rat karşı Mickey fare) nesneleri görüntüler varsa, bunların farklı özellikleri bunları etiketlemek iyi temsil etmek için ayrı sınıflar olarak önerilir.
 
 ![Stil örnekleri görüntüsü](./media/getting-started-improving-your-classifier/style.png)
 

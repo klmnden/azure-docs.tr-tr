@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: article
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: b03ee4ebf1113fd422d34ebf219461e75c4a5a45
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 6ebf1abe6f3b115a254201184f47e6aad2febb2a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970772"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208185"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>VMware Vm'lerini ve fiziksel sunucuları ikincil bir siteye olağanüstü durum kurtarma için destek matrisi
 
@@ -40,7 +40,7 @@ Aşağıdaki tabloda, Site Recovery'ye çoğaltılan makineler için işletim si
 **İşletim sistemi** | **Ayrıntılar**
 --- | ---
 Windows Server | 64 bit Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Itanium tabanlı sistemler için Windows Server 2008 R2 ile en az SP1.
-Linux | Red Hat Enterprise Linux 6.7, 6,8, 6.9, 7.1, 7.2 <br/><br/> Centos 6.5, 6.6, 6.7, 6,8, 6.9, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4, 6.5, Red Hat uyumlu çekirdek veya kesilemeyen Enterprise çekirdeği sürüm 3 (UEK3) çalıştıran 6,8 <br/><br/> SUSE Linux Enterprise Server 11 SP3, 11 SP4 
+Linux | Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.1, 7.2 <br/><br/> Centos 6.5, 6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4, 6.5, Red Hat uyumlu çekirdek veya kesilemeyen Enterprise çekirdeği sürüm 3 (UEK3) çalıştıran 6,8 <br/><br/> SUSE Linux Enterprise Server 11 SP3, 11 SP4 
 
 
 ## <a name="linux-machine-storage"></a>Linux makine depolama
@@ -58,13 +58,13 @@ Yalnızca Linux makineleri aşağıdaki depolama ile çoğaltılmış olabilir:
 **Yapılandırma** | **Destekleniyor**  
 --- | --- 
 -Konak NIC ekibi oluşturma | Evet 
-Ana bilgisayar - VLAN | Evet 
+Host - VLAN | Evet 
 Ana bilgisayar - IPv4 | Evet 
 Ana bilgisayar - IPv6 | Hayır 
 Konuk VM - NIC grubu oluşturma | Hayır
 Konuk VM - IPv4 | Evet
 Konuk VM - IPv6 | Hayır
-Gues VM Windows/Linux - statik IP adresi | Evet
+Konuk VM Windows/Linux - statik IP adresi | Evet
 Konuk VM - Multi-NIC | Evet
 
 

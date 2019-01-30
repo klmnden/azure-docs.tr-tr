@@ -1,23 +1,23 @@
 ---
-title: "Hızlı başlangıç: Metin Analizi API'sini çağırmak için Ruby kullanma"
+title: "Hızlı Başlangıç: Metin analizi API'sini çağırmak için Ruby kullanma"
 titleSuffix: Azure Cognitive Services
 description: Azure Microsoft Bilişsel Hizmetler'deki Metin Analizi API'sini kullanmaya başlamanıza yardımcı olacak bilgileri ve kod örneklerini inceleyin.
 services: cognitive-services
 author: noellelacharite
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: nolachar
-ms.openlocfilehash: 8495d003113b2ba607dada7b8f5624d8281d3583
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: d757569f666f6a512b4f20b6c5753d65f1e65baf
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284413"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55205976"
 ---
-# <a name="quickstart-using-ruby-to-call-the-text-analytics-cognitive-service"></a>Hızlı başlangıç: Metin Analizi Bilişsel Hizmetini çağırmak için Ruby kullanma
+# <a name="quickstart-using-ruby-to-call-the-text-analytics-cognitive-service"></a>Hızlı Başlangıç: Metin analizi Bilişsel hizmetini çağırmak için Ruby kullanma
 <a name="HOLTop"></a>
 
 Bu makalede gösterilmektedir için [dili algılayın](#Detect), [düşüncelerini çözümleme](#SentimentAnalysis), [anahtar tümcecikleri ayıklayın](#KeyPhraseExtraction), ve [bağlı varlıkları tanımlama](#Entities) kullanma  [metin analizi API'lerini](//go.microsoft.com/fwlink/?LinkID=759711) Ruby ile.

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: a296576d3d7983b710727923043091f5660b693d
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 196e2fadea10c1527576961b0e4b31c058cf9ba6
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002561"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55223485"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Azure dosya eşitleme ile kayıtlı sunucuları yönetme
 Azure Dosya Eşitleme aracısı şirket içi dosya sunucularının sağladığı esneklik, performans ve uyumluluk özelliklerinden vazgeçmeden kuruluşunuzun dosya paylaşımlarını Azure Dosyaları'nda toplamanızı sağlar. Bunu Windows sunucularınızı Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürerek yapar. Verilere yerel olarak erişmek için Windows Server üzerinde kullanılabilen tüm protokolleri (SMB, NFS ve FTPS gibi) kullanabilir ve dünya çapında istediğiniz sayıda önbellek oluşturabilirsiniz.
@@ -191,5 +191,6 @@ Azure dosya eşitleme, bir sanal makinede çalışan bir Windows Server sanalla�
 
 ## <a name="see-also"></a>Ayrıca bkz.
 - [Bir Azure dosya eşitleme dağıtımı planlama](storage-sync-files-planning.md)
-- [Azure dosya eşitleme işlemi dağıtma](storage-sync-files-deployment-guide.md) 
+- [Azure dosya eşitleme işlemi dağıtma](storage-sync-files-deployment-guide.md)
+- [Azure dosya eşitleme İzleyicisi](storage-sync-files-monitoring.md)
 - [Azure dosya eşitleme sorunlarını giderme](storage-sync-files-troubleshoot.md)

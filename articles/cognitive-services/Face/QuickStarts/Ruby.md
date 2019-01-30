@@ -1,27 +1,27 @@
 ---
-title: 'Hızlı Başlangıç: REST API ve Ruby kullanarak bir görüntüdeki yüzleri algılama'
+title: 'Hızlı Başlangıç: Ruby ve REST API ile bir resimdeki yüz algılama'
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, Ruby ile Yüz Tanıma API’sini kullanarak bir görüntüdeki yüzleri algılayacaksınız.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: pafarley
-ms.openlocfilehash: 8b47c845e8523e1c35dee8a5732cb15fed09e030
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
-ms.translationtype: HT
+ms.openlocfilehash: 6320e05172673abf809ac7fdbfea544ed74b0019
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955464"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221088"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-ruby"></a>Hızlı Başlangıç: REST API ve Ruby kullanarak bir görüntüdeki yüzleri algılama
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-ruby"></a>Hızlı Başlangıç: Ruby ve REST API ile bir resimdeki yüz algılama
 
 Bu hızlı başlangıçta, Yüz Tanıma API'sini kullanarak bir görüntüdeki insan yüzlerini algılayacaksınız.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Örneği çalıştırmanız için bir abonelik anahtarınız olmalıdır. [Bilişsel Hizmetleri Deneme](https://azure.microsoft.com/try/cognitive-services/?api=face-api)'den ücretsiz deneme abonelik anahtarları alabilirsiniz.
 
@@ -29,9 +29,9 @@ Bu hızlı başlangıçta, Yüz Tanıma API'sini kullanarak bir görüntüdeki i
 
 [Yüz - Algılama](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) yöntemini kullanarak bir görüntüdeki yüzleri algılayın ve aşağıdaki yüz özniteliklerini döndürün:
 
-* Face ID: Birkaç Yüz Tanıma API'si senaryosunda kullanılan benzersiz kimlik.
-* Yüz Dikdörtgeni: Görüntüdeki yüzün konumunu gösteren sol kısım, üst kısım, genişlik ve yükseklik.
-* Yer İşaretleri: Yüz bileşenlerinin önemli konumlarına işaret eden 27 noktalık yüz yer işareti dizisi.
+* Face ID: Birkaç yüz tanıma API'si senaryoda kullanılan benzersiz kimliği.
+* Yüz dikdörtgeni: Sol, üst, genişlik ve yükseklik resimdeki yüz konumunu belirten.
+* Yer işareti: Yüz tanıma bileşenlerinin önemli konumlarına işaret eden 27 noktası yüz yer işareti dizisi.
 * Yaş, cinsiyet, gülümseme yoğunluğu, kafanın duruşu ve sakal ve bıyık gibi yüzdeki öznitelikler.
 
 Örneği çalıştırmak için aşağıdaki adımları uygulayın:

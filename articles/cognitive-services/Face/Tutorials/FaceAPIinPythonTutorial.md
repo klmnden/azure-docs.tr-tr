@@ -1,23 +1,23 @@
 ---
-title: "Hızlı Başlangıç: Algılamak ve Python SDK'sı ile bir görüntüdeki yüzleri çerçeve"
+title: "Hızlı Başlangıç: Algılama ve Python SDK'sı ile bir görüntüdeki yüzleri çerçeve"
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, algılamak ve uzak bir görüntüdeki yüzleri çerçeve için yüz tanıma API'sini kullanan basit bir Python betiğini oluşturur.
 services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 11/13/2018
 ms.author: sbowles
-ms.openlocfilehash: 1e35d650f6fc99bff5bf49e517e2b38fcdc58dde
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: cdf17c40cf932e11307eca28a8216c3080eb90e6
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077010"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55213320"
 ---
-# <a name="quickstart-create-a-python-script-to-detect-and-frame-faces-in-an-image"></a>Hızlı Başlangıç: algılamak için bir Python betiği oluşturmak ve çerçevenin bir resimdeki yüz
+# <a name="quickstart-create-a-python-script-to-detect-and-frame-faces-in-an-image"></a>Hızlı Başlangıç: Algılamak için bir Python betiği oluşturmak ve çerçevenin bir resimdeki yüz
 
 Bu hızlı başlangıçta, uzak bir görüntüde İnsan yüzlerini algılamak için Python SDK'sı aracılığıyla Azure yüz tanıma API'sini kullanan basit bir Python betiğini oluşturur. Uygulama, seçilen görüntü görüntüler ve algılanan her yüz etrafında bir çerçeve çizer.
 

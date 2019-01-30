@@ -9,12 +9,12 @@ author: prashanthyv
 ms.author: pryerram
 manager: mbaldwin
 ms.date: 10/03/2018
-ms.openlocfilehash: e9b9620c3c631a9984bc6d1d02dc792c592b6e69
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 0392d84efa3a82a6323d6d09db792df7d6c42256
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55078398"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210684"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>Azure anahtar kasası yönetilen depolama hesabı - CLI
 
@@ -82,8 +82,46 @@ ms.locfileid: "55078398"
 
     az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover     purge restore set setsas update
     ```
+    
+## <a name="how-to-access-your-storage-account-with-sas-tokens"></a>SAS belirteçleri kullanarak depolama hesabınızın erişim
+
+Bu bölümde getirilirken tarafından depolama hesabınızda işlemleri nasıl yapabilirsiniz ele alınacaktır [SAS belirteçlerini](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) Key vault'tan
+
+İçinde aşağıdaki bölümüne, biz Key Vault'ta depolanan depolama hesabı anahtarınızı getirme nasıl gerçekleştirileceğini gösterir ve depolama hesabınız için bir SAS (paylaşılan erişim imzası) tanımı oluşturmak için kullandığı.
+
+> [!NOTE] 
+  İçinde okumak için Key Vault kimlik doğrulaması için izleyebileceğiniz 3 yol vardır [temel kavramlar](key-vault-whatis.md#basic-concepts)
+- Yönetilen hizmet kimliği (kesinlikle önerilir) kullanma
+- Hizmet sorumlusu ve sertifika kullanma 
+- Hizmet sorumlusu ve parola (önerilmez) kullanma
+
+```cs
+// Once you have a security token from one of the above methods, then create KeyVaultClient with vault credentials
+var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(securityToken));
+
+// Get a SAS token for our storage from Key Vault. SecretUri is of the format https://<VaultName>.vault.azure.net/secrets/<ExamplePassword>
+var sasToken = await kv.GetSecretAsync("SecretUri");
+
+// Create new storage credentials using the SAS token.
+var accountSasCredential = new StorageCredentials(sasToken.Value);
+
+// Use the storage credentials and the Blob storage endpoint to create a new Blob service client.
+var accountWithSas = new CloudStorageAccount(accountSasCredential, new Uri ("https://myaccount.blob.core.windows.net/"), null, null, null);
+
+var blobClientWithSas = accountWithSas.CreateCloudBlobClient();
+```
+
+Değeriniz SAS belirtecinizle dolmak üzere ise, SAS belirteci yeniden Key Vault'tan getirme sonra kodunu güncelleştirme
+
+```cs
+// If your SAS token is about to expire, get the SAS Token again from Key Vault and update it.
+sasToken = await kv.GetSecretAsync("SecretUri");
+accountSasCredential.UpdateSASToken(sasToken);
+```
+
+
 ### <a name="relavant-azure-cli-cmdlets"></a>İşaretlemek Azure CLI cmdlet'leri
-- [Azure CLI'yı depolama cmdlet'leri](https://docs.microsoft.com/cli/azure/keyvault/storage?view=azure-cli-latest)
+[Azure CLI'yı depolama cmdlet'leri](https://docs.microsoft.com/cli/azure/keyvault/storage?view=azure-cli-latest)
 
 ### <a name="relevant-powershell-cmdlets"></a>İlgili Powershell cmdlet'leri
 

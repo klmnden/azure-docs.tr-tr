@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 300ed77322f66150111ecda70dbf95ac373aad2c
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 64af946c3f8f58808f1bca06f1ef21d92da8cda8
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079180"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55223570"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Azure Resource Manager ile yaygın Azure dağıtım hatalarını giderme
 
@@ -71,7 +71,7 @@ Bu makalede bazı genel Azure dağıtım hatalarını açıklar ve hataları ç�
 | RequestDisallowedByPolicy | Dağıtım sırasında gerçekleştirmeye çalıştığınız eylem engelleyen bir kaynak İlkesi aboneliğinize dahildir. Eylem engelleyen ilke bulun. Mümkünse, ilkeden kısıtlamaları karşılamak için dağıtımınıza değiştirin. | [İlkeleri çözümleyin](resource-manager-policy-requestdisallowedbypolicy-error.md) |
 | ReservedResourceName | Ayrılmış bir ad içermeyen bir kaynak adı girin. | [Ayrılmış kaynak adları](resource-manager-reserved-resource-name.md) |
 | ResourceGroupBeingDeleted | Silme işlemini tamamlamak bekleyin. | |
-| ResourceGroupNotFound | Dağıtım için hedef kaynak grubu adını kontrol edin. Aboneliğinizde zaten mevcut olmalıdır. Abonelik Bağlamınızı denetleyin. | [Azure CLI](/cli/azure/account?#az-account-set) [PowerShell](/powershell/module/az.profile/set-azcontext) |
+| ResourceGroupNotFound | Dağıtım için hedef kaynak grubu adını kontrol edin. Aboneliğinizde zaten mevcut olmalıdır. Abonelik Bağlamınızı denetleyin. | [Azure CLI](/cli/azure/account?#az-account-set) [PowerShell](/powershell/module/Az.Accounts/Set-AzContext) |
 | ResourceNotFound | Dağıtımınız, çözümlenemeyen bir kaynağa başvuruyor. Doğrulayın kullanımınız **başvuru** işlevi senaryonuz için gerekli parametreleri içerir. | [Başvuruları çözümlemek](resource-manager-not-found-errors.md) |
 | ResourceQuotaExceeded | Dağıtım için aboneliğe, kaynak grubu ya da bölge kotayı aştığınız kaynakları oluşturmak çalışıyor. Mümkünse, kotalar içinde kalmak için altyapınızı gözden geçirin. Aksi takdirde, bir değişiklik kotanızı isteyen göz önünde bulundurun. | [Kotalar çözümleyin](resource-manager-quota-errors.md) |
 | SkuNotAvailable | Seçtiğiniz konum için kullanılabilir SKU (örneğin, VM boyutu) seçin. | [SKU çözümleyin](resource-manager-sku-not-available-errors.md) |

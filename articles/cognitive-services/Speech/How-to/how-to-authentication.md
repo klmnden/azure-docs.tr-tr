@@ -6,16 +6,16 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 205eff6c79ba4699516a8898c5b1268eb3dfe644
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 163ec61dc534255470626468195dcab28b3e3250
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754025"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221836"
 ---
 # <a name="authenticate-to-the-speech-api"></a>Konuşma tanıma API'si için kimlik doğrulaması
 
@@ -34,7 +34,7 @@ Uzun süreli kullanım veya daha fazla kotaya için kaydolmaya bir [Azure hesab�
 
 Abonelik anahtarı geçmesi gerek konuşma REST API'sini kullanmayı `Ocp-Apim-Subscription-Key` istek üstbilgisinde alan.
 
-Ad| Biçimlendir| Açıklama
+Name| Biçimlendir| Açıklama
 ----|-------|------------
 Ocp-Apim-Subscription-Key | ASCII | YOUR_SUBSCRIPTION_KEY
 

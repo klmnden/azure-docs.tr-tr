@@ -6,16 +6,16 @@ services: cognitive-services
 author: bojunehsu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 45badbdbe1a7e1f2028a00d54458db35a4f7d440
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 4f950734081be6cf76770b1c6cb2feca7efdae70
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46128023"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221412"
 ---
 # <a name="interpret-method"></a>Yöntem yorumlama
 
@@ -25,7 +25,7 @@ ms.locfileid: "46128023"
 
 `http://<host>/interpret?query=<query>[&<options>]`
 
-Ad|Değer| Açıklama
+Name|Value| Açıklama
 ----|----|----
 sorgu    | Metin dizesi | Kullanıcı tarafından girilen sorgu.  Tam 1 olarak ayarlanırsa, sorgu oluşturma sorgu otomatik tamamlama önerileri için önek olarak yorumlanacaktır.        
 Tamamlayın | 0 (varsayılan) veya 1 | 1 dilbilgisi ve dizin verileri temel alan otomatik tamamlama önerileri oluşturulan anlamına gelir.         
@@ -41,13 +41,13 @@ JSONPath     | Açıklama
 ---------|---------
 $.query |*Sorgu* istek parametresi.
 $.interpretations   |0 veya daha fazla yolu dilbilgisi karşı giriş sorguyla eşleşen dizisi.
-$.interpretations [\*] .logprob   |Yorumu göreli günlük olasılığı (< = 0).  Yüksek değerler daha yüksektir.
-$.interpretations [\*] .parse |Sorgunun her bölümü nasıl yorumlanacağını gösterir XML dizesi.
+$.interpretations[\*].logprob   |Yorumu göreli günlük olasılığı (< = 0).  Yüksek değerler daha yüksektir.
+$.interpretations[\*].parse |Sorgunun her bölümü nasıl yorumlanacağını gösterir XML dizesi.
 $.interpretations [\*] .rules |1 veya daha fazla kural yorumlama sırasında çağrılan dilbilgisi içinde tanımlanan dizisi.
-$.interpretations [\*] .rules [\*] .name    |kuralın adı.
-$.interpretations [\*] .rules [\*] .output  |Kural anlam çıkışı.
-$.interpretations [\*] .rules [\*]. output.type |Anlam çıkış veri türü.
-$.interpretations [\*] .rules [\*]. output.value|Anlam çıktı değeri.  
+$.interpretations[\*].rules[\*].name    |kuralın adı.
+$.interpretations[\*].rules[\*].output  |Kural anlam çıkışı.
+$.interpretations[\*].rules[\*].output.type |Anlam çıkış veri türü.
+$.interpretations[\*].rules[\*].output.value|Anlam çıktı değeri.  
 $.aborted | İstek zaman aşımına uğrarsa true.
 
 ### <a name="parse-xml"></a>XML Ayrıştırma

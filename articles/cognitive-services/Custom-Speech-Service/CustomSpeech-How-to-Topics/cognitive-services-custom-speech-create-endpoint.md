@@ -5,16 +5,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: article
 ms.date: 07/08/2017
 ms.author: panosper
-ms.openlocfilehash: 7b7bbf89f04e4c8b12df46c2a7100a08001eb7d1
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: f9aca8529bf0407022ff3683c1cd73b87045f2f2
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340810"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216682"
 ---
 # <a name="create-a-custom-speech-to-text-endpoint"></a>Özel bir konuşmayı metne dönüştürme uç noktası oluşturma
 
@@ -35,11 +35,11 @@ Aşağıdaki tabloda, Ölçek birimleri kullanılabilir eş zamanlı isteğin na
 
 | Ölçek birimi | Eş zamanlı istek sayısı |
 | ------ | ----- |
-| 0 | 1 |
+| 0 | 1. |
 | 1 | 5 |
 | 2 | 10 |
 | 3 | 15 |
-| n | 5 * n |
+| Z | 5 * n |
 
 İçerik günlüğü açıp anahtarlanır de seçebilirsiniz. Uç nokta trafiği için yalnızca Microsoft dahili kullanımı depolanmasından bağımsız diğer bir deyişle, seçeneğini belirliyoruz. Seçilmezse, trafiği depolama gizlenir. Ek ücret sonuçları içerik günlüğü engelleme. Başvurun [fiyatlandırma bilgileri sayfası](https://azure.microsoft.com/pricing/details/cognitive-services/custom-speech-service/) Ayrıntılar için.
 

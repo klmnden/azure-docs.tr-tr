@@ -1,23 +1,23 @@
 ---
-title: 'Hızlı Başlangıç: Java - olan desteklenen dillerin listesi Translator Text API alın.'
+title: "Hızlı Başlangıç: Translator metin çevirisi API'si desteklenen diller, - Java'nın listesini alın"
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, çeviri, harf çevirisi ve Translator Text API kullanarak sözlük araması için desteklenen dillerin bir listesini alın.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/03/2018
 ms.author: erhopf
-ms.openlocfilehash: 9a5985adb92799726951ad37c1dbd0b72c6c9709
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 937fd58b28a3e64f7f4f9fc4bf52e8280af81136
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889013"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226987"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-java"></a>Hızlı Başlangıç: Java kullanarak desteklenen dillerin listesini almak için Translator Text API kullanın.
+# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-java"></a>Hızlı Başlangıç: Translator metin çevirisi API'si, Java kullanarak desteklenen dillerin listesini almak için kullanın
 
 Bu hızlı başlangıçta, çeviri, harf çevirisi ve Translator Text API kullanarak sözlük araması için desteklenen dillerin bir listesini alın.
 

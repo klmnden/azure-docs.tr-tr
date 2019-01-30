@@ -11,16 +11,49 @@ ms.author: haining
 ms.reviewer: j-martens
 ms.date: 12/20/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5341c4901ca2a7aa0b4935e13d06c8fb5a1f0d1b
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
-ms.translationtype: MT
+ms.openlocfilehash: 9556a87b8de08dadb211d73e93f3daa9033c2cc1
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54304116"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221326"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning hizmeti sürüm notları
 
 Bu makalede, Azure Machine Learning hizmet sürümleri hakkında bilgi edinin. 
+
+## <a name="2019-01-28"></a>2019-01-28
+
+### <a name="azure-machine-learning-sdk-for-python-v1010"></a>Azure Machine SDK için Python v1.0.10 Learning
+
++ **SDK başvuru belgeleri**: https://aka.ms/aml-sdk
+
++ **Değişiklikleri**: 
+  + Azure ML SDK'sı, bağımlılık olarak artık azure-cli paketleri vardır. Özellikle, azure CLI core ve azure CLI profili bağımlılıkları azureml çekirdekten kaldırıldı. Kullanıcının etkileyen değişiklikler şunlardır:
+    + "Az login" gerçekleştirme ve ardından azureml-SDK'sını kullanarak, SDK'sı bir kez daha tarayıcı veya cihaz kodunu oturum açma yapın. Bunu, "az login" oluşturulan herhangi bir kimlik bilgileri durumu kullanmaz.
+    + "Az login" komutunu kullanarak gibi Azure CLI kimlik doğrulaması kullanan _azureml.core.authentication.AzureCliAuthentication_ sınıfı. Azure CLI kimlik doğrulaması için yapmak _pip, azure CLI yükleme_ azureml sdk yüklediğiniz Python ortamında.
+    + "Az login Otomasyon için bir hizmet sorumlusunu kullanarak" yapıyorsanız kullanmanızı öneririz _azureml.core.authentication.ServicePrincipalAuthentication_ azureml sdk, azure CLI tarafından oluşturulan kimlik bilgilerini durumu kullanmaz gibi sınıf. 
+
++ **Hata düzeltmeleri**: Bu sürüm, çoğunlukla küçük hata düzeltmeleri içerir
+
+### <a name="azure-machine-learning-data-prep-sdk-v108"></a>Azure Machine Learning veri hazırlama SDK v1.0.8
+
++ **SDK başvuru belgeleri**: https://aka.ms/data-prep-sdk
+
++ **Hata düzeltmeleri**
+  + Veri profilleri alma performansı önemli ölçüde geliştirildi.
+  + Hata Raporlama ile ilgili küçük hata düzeltildi.
+  
+### <a name="azure-portal-new-features"></a>Azure portalı: yeni özellikler
++ Raporlar için yeni bir Sürükle ve bırak grafik deneyimi. Kullanıcılar bir sütun veya öznitelik sistem bir veri türüne göre kullanıcı için uygun grafik türü otomatik olarak nerede seçip grafik alanı için sekme grubundan sürükleyebilirsiniz. Kullanıcılar, diğer uygulanabilir türleri için grafik türünü değiştirmek veya ek öznitelikler ekleyin.
+
+    Grafik türleri desteklenir:
+    - Çizgi Grafiği
+    - Histogram
+    - Yığılmış çubuk grafik
+    - Kutu Çizimi
+    - Çizim Dağılım
+    - Kabarcık çizimi
 
 ## <a name="2019-01-14"></a>2019-01-14
 
