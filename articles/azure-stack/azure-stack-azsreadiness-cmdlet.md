@@ -15,12 +15,13 @@ ms.topic: get-started-article
 ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: af959507fc2e0d1b68f547d2856eb7020d3ed5c6
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.lastreviewed: 12/04/2018
+ms.openlocfilehash: 861784a2d22d15253c61884bfab62667c0560bcd
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247593"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250657"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Başlangıç AzsReadinessChecker cmdlet başvurusu
 
@@ -507,7 +508,7 @@ ACSBlob, ACSQueue, ACSTable, ADFS, Yönetim Portalı, ARM yönetici, ARM genel, 
 |----------------------------|---------|
 |Şunu yazın:                       |Dize   |
 |Konum:                   |adlı    |
-|Varsayılan değer:              |. \Certificates |
+|Varsayılan değer:              |.\Certificates |
 |Ardışık giriş yapılabilir:      |False    |
 |Joker karakterler kabul edin: |False    |
 

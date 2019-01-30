@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/03/2017
 ms.author: rogarana
-ms.component: common
-ms.openlocfilehash: 0f237b4d742c0c7de1e836e2b9d83502cfe1a30d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 233a0685bffba1192193f97b8d98dabd7c65d3c9
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231024"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239783"
 ---
 # <a name="storage-analytics"></a>Depolama Analizi
 
@@ -135,9 +135,9 @@ Sağlam bir veri kümesini giriş/çıkış, kullanılabilirlik, hataları, dahi
 
 Kapasite verileri günlük olarak bir depolama hesabının Blob hizmeti için kaydedilir ve iki tablo varlıkları yazılır. Bir varlık için kullanıcı verileri istatistikler sağlar ve diğer ilgili istatistikler sağlar `$logs` blob kapsayıcısı depolama analizi tarafından kullanılır. `$MetricsCapacityBlob` Tablo, aşağıdaki İstatistikler içerir:
 
-* **Kapasite**: bayt olarak depolama hesabının Blob hizmeti tarafından kullanılan depolama miktarı.
-* **ContainerCount**: depolama hesabının Blob hizmetindeki blob kapsayıcı sayısı.
-* **ObjectCount**: kaydedilen ve kaydedilmeyen blok veya sayfa blobları depolama hesabının Blob hizmetindeki sayısı.
+* **Kapasite**: Bayt olarak depolama hesabının Blob hizmeti tarafından kullanılan depolama miktarı.
+* **ContainerCount**: Depolama hesabının Blob hizmetindeki blob kapsayıcı sayısı.
+* **ObjectCount**: İşlenmiş ve kaydedilmemiş blok veya sayfa blobları depolama hesabının Blob hizmetindeki sayısı.
 
 Kapasite ölçümleri hakkında daha fazla bilgi için bkz: [Storage Analytics Ölçüm tablosu şeması](https://msdn.microsoft.com/library/hh343264.aspx).
 

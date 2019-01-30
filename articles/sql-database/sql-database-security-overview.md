@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: d1225cb90d0eecddb5ec7eca56437b020be50c71
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.date: 01/29/2019
+ms.openlocfilehash: f1376e98dc1a018bd6c0b263939cecbc012d4815
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55080845"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250781"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Azure SQL veritabanı güvenlik özelliklerine genel bakış
 
@@ -138,7 +138,7 @@ SQL veritabanı dinamik veri maskeleme, hassas verilerin görünürlüğünü ay
 
 ### <a name="sql-vulnerability-assessment"></a>SQL Güvenlik Açığı Değerlendirmesi
 
-[SQL güvenlik açığı değerlendirmesi](sql-vulnerability-assessment.md) bir kolayca bulmak, izlemek ve proaktif olarak genel veritabanı güvenliği artırmak amacıyla olası veritabanı güvenlik açıklarını düzeltin yardımcı hizmetini yapılandırmak. Güvenlik Açığı değerlendirmesi (VA) Gelişmiş SQL güvenlik özellikleri için birleştirilmiş bir pakettir SQL Gelişmiş tehdit Koruması (ATP) sunan bir parçasıdır. Güvenlik Açığı değerlendirmesi, erişilebilir ve merkezi SQL ATP portalı üzerinden yönetilebilir.
+[SQL güvenlik açığı değerlendirmesi](sql-vulnerability-assessment.md) bir kolayca bulmak, izlemek ve proaktif olarak genel veritabanı güvenliği artırmak amacıyla olası veritabanı güvenlik açıklarını düzeltin yardımcı hizmetini yapılandırmak. Güvenlik Açığı değerlendirmesi (VA) Gelişmiş SQL güvenlik özellikleri için birleştirilmiş bir pakettir SQL gelişmiş veri güvenliği (REKLAM) sunan bir parçasıdır. Güvenlik Açığı değerlendirmesi, erişilebilir ve merkezi SQL REKLAM portalı üzerinden yönetilebilir.
 
 ### <a name="data-discovery--classification"></a>Veri bulma & sınıflandırma
 

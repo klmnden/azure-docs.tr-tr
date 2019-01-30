@@ -9,18 +9,18 @@ manager: cgronlun
 ms.custom: seodec18
 ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 6963515958cd55314562e37ffc6ab1d8e0af5bee
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 53ddea5426d2adfa7b0ddfcbda3375efae8d0859
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078765"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250815"
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Derin azure'da sanal makine öğrenme vm'si sağlama 
 
@@ -38,21 +38,21 @@ Bir örneği, ayrıntılı öğrenme sanal makinesi oluşturmak için adımlar �
    
    1. **Temel Bilgiler**
       
-      1. **Ad**: oluşturmakta olduğunuz veri bilimi sunucunuzun adını yazın.
-      2. **Derin öğrenme VM için işletim sistemi türü seçin**: seçin, Windows veya Linux (için Windows 2016 ve Ubuntu Linux temel DSVM)
-      2. **Kullanıcı adı**: yönetici hesabı oturum açma kimliği.
-      3. **Parola**: yönetici hesabının parolası.
-      4. **Abonelik**: birden fazla aboneliğiniz varsa, bir makine olduğu faturalandırılır ve seçin.
-      5. **Kaynak grubu**: yeni bir tane oluşturabilir veya bir **boş** aboneliğinizdeki mevcut bir Azure kaynak grubu.
-      6. **Konum**: en uygun veri merkezi seçin. Genellikle, verilerinizden en iyi olduğundan veya en hızlı ağ erişimi için fiziksel konumunuza en yakın veri merkezi bulunur. 
+      1. **Ad**: Oluşturmakta olduğunuz veri bilimi sunucunuzun adıdır.
+      2. **Derin öğrenme VM için işletim sistemi türü seçin**: Windows veya Linux (için Windows 2016 ve Ubuntu Linux temel DSVM) seçin
+      2. **Kullanıcı adı**: Yönetici hesabı oturum açma kimliği.
+      3. **Parola**: Yönetici hesabı parolası.
+      4. **Abonelik**: Birden fazla aboneliğiniz varsa, bir makine oluşturulması ve fatura olduğu seçin.
+      5. **Kaynak grubu**: Yeni bir tane oluşturabilir veya bir **boş** aboneliğinizdeki mevcut bir Azure kaynak grubu.
+      6. **Konum**: En uygun veri merkezi seçin. Genellikle, verilerinizden en iyi olduğundan veya en hızlı ağ erişimi için fiziksel konumunuza en yakın veri merkezi bulunur. 
       
 > [!NOTE]
 > DLVM tüm NC ve ND serisi GPU sanal makine örneğini destekler. DLVM sağlanırken GPU'ları olan Azure'da konumlardan birini seçmeniz gerekir. Denetleme [bölge sayfasına göre Azure ürünleri](https://azure.microsoft.com/regions/services/) sayfa için kullanılabilir konumların ve Ara **NC serisi**, **NCv2 serisi**, **NCv3 serisi** , veya **ND serisi** altında **işlem**. 
 
-   2. **Ayarları**: NC serisi (NC, NCv2 NCv3) veya maliyet kısıtlamaları ve işlevsel bir gereksinimi karşılayan, ND serisi GPU sanal makine boyutları birini seçin. Sanal Makineniz için bir depolama hesabı oluşturun.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
+   2. **Ayarları**: NC serisi (NC NCv2, NCv3) veya maliyet kısıtlamaları ve işlevsel bir gereksinimi karşılayan, ND serisi GPU sanal makine boyutları birini seçin. Sanal Makineniz için bir depolama hesabı oluşturun.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
    
-   3. **Özet**: girdiğiniz tüm bilgilerin doğru olduğunu doğrulayın.
-   5. **Satın alma**: tıklayın **satın** sağlamaya başlamak için. İşlemin koşullarının bağlantısı sunulur. VM, seçtiğiniz sunucu boyutu için işlem ötesinde herhangi bir ek ücreti yok **boyutu** adım. 
+   3. **Özet**: Girdiğiniz tüm bilgilerin doğru olduğunu doğrulayın.
+   5. **Satın alma**: Tıklayın **satın** sağlamaya başlamak için. İşlemin koşullarının bağlantısı sunulur. VM, seçtiğiniz sunucu boyutu için işlem ötesinde herhangi bir ek ücreti yok **boyutu** adım. 
 
 > [!NOTE]
 > Sağlama yaklaşık 10-20 dakika sürer. Sağlama durumunu Azure portalında görüntülenir.
@@ -79,12 +79,12 @@ Linux DLVM zaten X2Go sunucusu ile sağlanan ve istemci bağlantılarını kabul
 1. İstemci platformunuza yönelik X2Go istemcisini indirme ve yükleme [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
 2. X2Go istemci çalıştırıp seçeneğini **yeni oturumu**. Bu, birden fazla sekme ile bir yapılandırma penceresi açılır. Aşağıdaki yapılandırma parametrelerini girin:
    * **Oturum sekmesini**:
-     * **Konak**: konak adı veya IP adresini Linux veri bilimi sanal makinesi.
-     * **Oturum açma**: Linux sanal makinesi üzerinde kullanıcı adı.
+     * **Konak**: Ana bilgisayar adı veya IP adresini Linux veri bilimi sanal makinesi.
+     * **Oturum açma**: Linux VM kullanıcı adı.
      * **SSH bağlantı noktası**: 22, varsayılan değeri bırakın.
-     * **Oturum türü**: değere değiştirin **XFCE**. Şu anda yalnızca Linux DSVM'sini XFCE Masaüstü destekler.
-   * **Ortam sekmesini**: ses desteği ve bunları kullanmak gerekmiyorsa Yazdırma İstemcisi kapat.
-   * **Paylaşılan Klasörler**: Linux VM'de bağlı istemci makinelerden dizinleri istiyorsanız, bu sekmedeki VM ile paylaşmak istediğiniz istemci makine dizinlerine ekleyin.
+     * **Oturum türü**: Bir değerle değiştirmek **XFCE**. Şu anda yalnızca Linux DSVM'sini XFCE Masaüstü destekler.
+   * **Ortam sekmesini**: Ses desteği ve bunları kullanmak gerekmiyorsa Yazdırma İstemcisi kapatabilirsiniz.
+   * **Paylaşılan Klasörler**: Linux VM'de bağlı istemci makinelerden dizinleri istiyorsanız bu sekmedeki VM ile paylaşmak istediğiniz istemci makine dizinlerine ekleyin.
 
 VM'ye SSH istemcisi veya XFCE grafik Masaüstü X2Go istemcisi aracılığıyla kullanarak oturum açtıktan sonra yüklenmiş ve yapılandırılmış VM'de araçları kullanmaya başlamak hazırsınız. XFCE üzerinde çok sayıda araçla menüsü kısayolları uygulamalar ve masaüstü simgelerini görebilirsiniz.
 

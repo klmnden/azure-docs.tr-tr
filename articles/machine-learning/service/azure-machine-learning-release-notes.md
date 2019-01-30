@@ -4,29 +4,29 @@ titleSuffix: Azure Machine Learning service
 description: Azure Machine Learning hizmeti ve makine öğrenimi için en son güncelleştirmeleri öğrenin ve Python SDK'ları veri hazırlama.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: reference
 author: hning86
 ms.author: haining
 ms.reviewer: j-martens
 ms.date: 12/20/2018
 ms.custom: seodec18
-ms.openlocfilehash: 9556a87b8de08dadb211d73e93f3daa9033c2cc1
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: a615b6c59d178fcc1d47d11bf89691c7e83249f3
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221326"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250665"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning hizmeti sürüm notları
 
-Bu makalede, Azure Machine Learning hizmet sürümleri hakkında bilgi edinin. 
+Bu makalede, Azure Machine Learning hizmet sürümleri hakkında bilgi edinin.  Her bir SDK tam bir açıklaması için başvuru belgelerini ziyaret edin:
++ Azure Machine Learning'ın [ **Python için ana SDK'sı**](https://aka.ms/aml-sdk)
++ Azure Machine Learning [ **veri hazırlama SDK'sı**](https://aka.ms/aml-sdk)
 
 ## <a name="2019-01-28"></a>2019-01-28
 
 ### <a name="azure-machine-learning-sdk-for-python-v1010"></a>Azure Machine SDK için Python v1.0.10 Learning
-
-+ **SDK başvuru belgeleri**: https://aka.ms/aml-sdk
 
 + **Değişiklikleri**: 
   + Azure ML SDK'sı, bağımlılık olarak artık azure-cli paketleri vardır. Özellikle, azure CLI core ve azure CLI profili bağımlılıkları azureml çekirdekten kaldırıldı. Kullanıcının etkileyen değişiklikler şunlardır:
@@ -37,8 +37,6 @@ Bu makalede, Azure Machine Learning hizmet sürümleri hakkında bilgi edinin.
 + **Hata düzeltmeleri**: Bu sürüm, çoğunlukla küçük hata düzeltmeleri içerir
 
 ### <a name="azure-machine-learning-data-prep-sdk-v108"></a>Azure Machine Learning veri hazırlama SDK v1.0.8
-
-+ **SDK başvuru belgeleri**: https://aka.ms/data-prep-sdk
 
 + **Hata düzeltmeleri**
   + Veri profilleri alma performansı önemli ölçüde geliştirildi.
@@ -59,13 +57,9 @@ Bu makalede, Azure Machine Learning hizmet sürümleri hakkında bilgi edinin.
 
 ### <a name="azure-machine-learning-sdk-for-python-v108"></a>Azure Machine SDK için Python v1.0.8 Learning
 
-+ **SDK başvuru belgeleri**: https://aka.ms/aml-sdk
-
 + **Hata düzeltmeleri**: Bu sürüm, çoğunlukla küçük hata düzeltmeleri içerir
 
 ### <a name="azure-machine-learning-data-prep-sdk-v107"></a>Azure Machine Learning veri hazırlama SDK v1.0.7
-
-+ **SDK başvuru belgeleri**: https://aka.ms/data-prep-sdk
 
 + **Yeni Özellikler**
   + Veri deposu geliştirmeleri (belirtilmiştir [Yardım How-to veri deposu-Kılavuzu](https://github.com/Microsoft/AMLDataPrepDocs/tree/master/how-to-guides/datastore.ipynb))
@@ -77,22 +71,15 @@ Bu makalede, Azure Machine Learning hizmet sürümleri hakkında bilgi edinin.
 
 ### <a name="azure-machine-learning-data-prep-sdk-v106"></a>Azure Machine Learning veri hazırlama SDK v1.0.6
 
-+ **SDK başvuru belgeleri**: https://aka.ms/data-prep-sdk
-
 + **Hata düzeltmeleri**
   + Spark üzerinde okunabilir ortak Azure Blob kapsayıcıları okumaya ile ilgili hata düzeltildi
 
 ## <a name="2018-12-20"></a>2018-12-20 
 
 ### <a name="azure-machine-learning-sdk-for-python-v106"></a>Azure Machine SDK için Python v1.0.6 Learning
-
-+ **SDK başvuru belgeleri**: https://aka.ms/aml-sdk
-
 + **Hata düzeltmeleri**: Bu sürüm, çoğunlukla küçük hata düzeltmeleri içerir
 
 ### <a name="azure-machine-learning-data-prep-sdk-v104"></a>Azure Machine Learning veri hazırlama SDK v1.0.4
-
-+ **SDK başvuru belgeleri**: https://aka.ms/data-prep-sdk
 
 + **Yeni Özellikler**
   + `to_bool` işlevi, hata değerlerini dönüştürülecek eşleşmeyen değerlere artık izin verir. Yeni varsayılan uyuşmazlığı davranışı budur `to_bool` ve `set_column_types`, önceki davranışı False olarak eşleşmeyen değerlerini dönüştürmek için expectedhash.

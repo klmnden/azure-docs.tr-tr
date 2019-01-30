@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
-ms.openlocfilehash: 754a0002aca52462910abe50825cff0254a7068f
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.lastreviewed: 09/17/2018
+ms.openlocfilehash: 20cddc74dd05e982cbd332a65f9a477559caece7
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244163"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244105"
 ---
 # <a name="overview-of-offering-services-in-azure-stack"></a>Azure stack'teki hizmetleri sunan genel bakış
 

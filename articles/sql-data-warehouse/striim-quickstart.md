@@ -6,16 +6,16 @@ author: hirokib
 manager: jrj
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 10/12/2018
 ms.author: elbutter
 ms.reviewer: craigg
-ms.openlocfilehash: 09f3126725b9a2cd6a8277447c0eed4a16838429
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 1f8c2590ea01e9a819ebdacd6b3774555dded800
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49355575"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250849"
 ---
 # <a name="striim-azure-sql-dw-marketplace-offering-install-guide"></a>Striim Azure SQL DW Market teklifi Yükleme Kılavuzu
 
@@ -47,7 +47,7 @@ JDBC jar dosyasını Striim'ın LIB dizinine taşımak, başlangıç ve sunucuyu
 
    1. sudo su
    2. CD/tmp
-   3. MV sqljdbc42.jar /opt/striim/lib
+   3. mv sqljdbc42.jar /opt/striim/lib
    4. systemctl durdurma striim düğümü
    5. systemctl durdurma striim dbms
    6. systemctl başlangıç striim dbms

@@ -3,17 +3,17 @@ title: "Öğretici: Azure HDInsight üzerinde Apache Hive'ı kullanarak ayıklam
 description: Bu öğreticide, ham CSV kümesinden verileri ayıklamak için Azure HDInsight üzerinde Apache Hive'ı kullanarak verileri dönüştürebilirsiniz öğrenin ve ardından dönüştürülmüş verileri Sqoop kullanarak Azure SQL veritabanı'na yükleyin.
 services: storage
 author: jamesbak
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
 ms.date: 01/07/2019
 ms.author: jamesbak
-ms.openlocfilehash: 65d2d69c788a54371664d1a443a79bd121332470
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 70ad37aa0ccbab762aa6e5cfb05d385e8b2a86ee
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105161"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244020"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-apache-hive-on-azure-hdinsight"></a>Öğretici: Ayıklama, dönüştürme ve Azure HDInsight üzerinde Apache Hive'ı kullanarak veri yükleme
 

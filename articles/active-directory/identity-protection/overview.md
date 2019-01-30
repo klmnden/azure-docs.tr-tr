@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 01/29/2019
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 3017d92115a61dbf5ce647e75a01360224843f44
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1e08af577bec463263045a0f0355acffaad5e599
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55165039"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244173"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>Azure Active Directory kimlik koruması nedir?
 
@@ -48,7 +48,7 @@ Bu söz konusu kümelerdeki şunları yapmanız gerekir:
 
 Tehlikeye atılmış kimlik keşfetme hiçbir kolay bir görevdir. Azure Active Directory Uyarlamalı makine öğrenimi algoritmaları kullanır ve anormallikleri ve olası gösterir şüpheli olayları algılamak için buluşsal yöntemler kimlikleri riske. Kimlik koruması, bu verileri kullanarak raporlar ve algılanan sorunlarını değerlendirin ve uygun bir risk azaltma veya düzeltme eylemleri olanak tanıyan uyarılar oluşturur.
 
-Azure Active Directory kimlik koruması bir izleme ve raporlama aracıyla daha büyük. Kuruluşunuzun kimliklerini korumak için belirtilen risk düzeyi ulaşıldığında otomatik olarak algılanan sorunlara yanıt risk tabanlı ilkeler yapılandırabilirsiniz. Azure Active Directory ve EMS tarafından sağlanan diğer koşullu erişim denetimleri ek olarak bu ilkeleri otomatik olarak engellemek veya uyarlamalı düzeltme eylemleri de dahil olmak üzere parolasını sıfırlar ve çok faktörlü kimlik doğrulaması zorlama başlatın.
+Azure Active Directory kimlik koruması bir izleme ve raporlama aracıyla daha büyük. Kuruluşunuzun kimliklerini korumak için belirtilen risk düzeyi ulaşıldığında otomatik olarak algılanan sorunlara yanıt risk tabanlı ilkeler yapılandırabilirsiniz. Azure Active Directory tarafından sağlanan diğer koşullu erişim denetimleri ek olarak bu ilkeleri ve [Enterprise Mobility + Security](https://docs.microsoft.com/enterprise-mobility-security/) (EMS), otomatik olarak engellemek ya da dahil olmak üzere Uyarlamalı düzeltme eylemleri başlatmak parola sıfırlama ve çok faktörlü kimlik doğrulaması zorlama.
 
 
 #### <a name="identity-protection-capabilities"></a>Kimlik koruma özellikleri
