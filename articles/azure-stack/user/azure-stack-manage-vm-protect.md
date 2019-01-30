@@ -15,12 +15,13 @@ ms.topic: get-started-article
 ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 45e22f19c6e2da26105615da6a775eed4f8676f0
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.lastreviewed: 12/10/2018
+ms.openlocfilehash: 759ea6b8e4981b3ea198077cabf9df7966d6e883
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54243653"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242969"
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Azure Stack üzerinde dağıtılan sanal makinelerini koruma
 
@@ -53,7 +54,7 @@ Her Azure Stack Bulutu, bir veri merkezine dağıtılır. Ayrı bir ortam gerekl
 
 Her uygulama için hedef belirlemek her bir uygulama için yedekleme kurtarma ve olağanüstü durum kurtarma stratejinizi planlayın. Bir kurtarma planı, kuruluşunuzun düzgün kapasite gerekli şirket içi depolama boyutu ve genel bulut tüketimi proje yardımcı olur.
 
-|  | Genel Azure | CSP veri merkezi içinde dağıtılır ve CSP tarafından işletilen azure Stack | Müşteri veri merkezine dağıtılan ve müşteri tarafından işletilen azure Stack |
+|  | Küresel Azure | CSP veri merkezi içinde dağıtılır ve CSP tarafından işletilen azure Stack | Müşteri veri merkezine dağıtılan ve müşteri tarafından işletilen azure Stack |
 |------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
 | **CSP veri merkezi içinde dağıtılır ve CSP tarafından işletilen azure Stack** | Kullanıcı VM'ler için CSP tarafından işletilen Azure Stack dağıtılır.<br><br>Kullanıcı Vm'lerinin yedeklemeden geri veya doğrudan Azure'a yük devretti. | CSP'de Azure Stack birincil ve ikincil örneklerini, kendi veri merkezlerinde çalışır.<br><br>Kullanıcı Vm'leri geri veya iki Azure Stack örnekleri arasında yük devretti. | CSP, birincil sitenin Azure Stack'te çalışır.<br><br>Müşterinin veri merkezi geri yükleme ya da yük devretme hedefidir. |
 | **Müşteri veri merkezine dağıtılan ve müşteri tarafından işletilen azure Stack** | Kullanıcı VM'ler dağıtıldığı Azure Stack müşteri işletilir.<br><br>Kullanıcı Vm'lerinin yedeklemeden geri veya doğrudan Azure'a yük devretti. | Müşteri, Azure Stack birincil sitede çalışır.<br><br>CSP'ın datacenter geri yükleme ya da yük devretme hedefidir. | Müşteri, Azure Stack birincil ve ikincil örneklerini, kendi veri merkezlerinde çalışır.<br><br>Kullanıcı Vm'leri geri veya iki Azure Stack örnekleri arasında yük devretti. |

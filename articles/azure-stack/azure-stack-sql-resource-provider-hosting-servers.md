@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: a0a482e44617732c9dc6cd6609672e8204001dbc
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.lastreviewed: 10/16/2018
+ms.openlocfilehash: f1b39601f0f6d254daadfafdd812549c6c95ed35
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362067"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239477"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>SQL kaynak sağlayıcısı için barındırma sunucuları ekleme
 
@@ -62,8 +63,8 @@ Her zaman en son sürümünü indirin emin olun **SQL Iaas uzantısı** bir Mark
 SQL sysadmin daha düşük ayrıcalıklara sahip bir yönetici kullanıcı oluşturabilirsiniz. Kullanıcı, yalnızca şu işlemler için izinler gerekir:
 
 * Veritabanı: Create, Alter, kapsama (için her zaman açık yalnızca), bırakın, yedekleme
-* Kullanılabilirlik Grubu: Alter, birleştirme, ekleme/kaldırma veritabanı
-* Oturum açma: Oluşturma, seçin, Alter, Drop, iptal etme
+* Kullanılabilirlik Grubu: ALTER, birleştirme, ekleme/kaldırma veritabanı
+* Oturum aç: Oluşturma, seçin, Alter, Drop, iptal et
 * Seçme işlemlerinin: \[ana\].\[ sys\].\[ availability_group_listeners\] (AlwaysOn) (AlwaysOn) birincilindeki, sys.databases, \[ana\].\[ sys\].\[ dm_os_sys_memory\], SERVERPROPERTY, \[ana\].\[ sys\].\[ availability_groups\] (AlwaysOn) sys.master_files
 
 ### <a name="additional-security-information"></a>Ek güvenlik bilgileri

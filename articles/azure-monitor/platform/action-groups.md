@@ -5,19 +5,19 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 1/29/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 38cccf17980f5a6a2cf162cdecdc6aad40d4f38e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 5717074d53e267018b7697aeed21ea00d246592e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432567"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55252226"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure portalında Eylem grupları oluşturma ve yönetme
 ## <a name="overview"></a>Genel Bakış ##
-Bir eylem grubu, Azure aboneliğinin sahibi tarafından tanımlanan bildirim tercihleri koleksiyonudur. Azure İzleyici ve hizmet Sistem Durumu Uyarıları Eylem grupları uyarı tetiklendi kullanıcılara bildirmek için kullanın. Çeşitli uyarılar aynı eylem grubu veya kullanıcının gereksinimlerine bağlı olarak farklı eylem grupları kullanabilir.
+Bir eylem grubu, Azure aboneliğinin sahibi tarafından tanımlanan bildirim tercihleri koleksiyonudur. Azure İzleyici ve hizmet Sistem Durumu Uyarıları Eylem grupları uyarı tetiklendi kullanıcılara bildirmek için kullanın. Çeşitli uyarılar aynı eylem grubu veya kullanıcının gereksinimlerine bağlı olarak farklı eylem grupları kullanabilir. Bir abonelikte en fazla 2.000 Eylem grupları yapılandırabilirsiniz.
 
 Ne zaman bir eylem bir kişiye bildirim e-posta ile yapılandırılmış veya SMS kişinin kendisi belirten bir onay alırsınız / Filiz eylem grubuna eklendi.
 
@@ -88,15 +88,18 @@ Bir eylem grubu 1000 adede kadar e-posta eylemleri olabilir. Bkz: [bilgileri sı
 **Ses** -10 adede kadar ses eylemleri bir eylem grubu içinde olabilir</dd>
 Bkz: [bilgileri sınırlama oranı](./../../azure-monitor/platform/alerts-rate-limiting.md) makale</dd>
 
-**Web kancası** -10 adede kadar Web kancası eylemleri bir eylem grubu içinde olabilir. Yanıt 10 saniyedir logic - zaman aşımı süresi yeniden deneyin. Web kancası çağrısı olacaktır, 2 katı şu HTTP durum kodları, döndürülen en fazla yeniden deneme: 408, 429, 503, 504 veya HTTP uç noktasına yanıt vermiyor. İlk yeniden deneme 10 saniye sonra gerçekleşir. İkinci ve son yeniden deneme 100 saniye sonra gerçekleşir.
+**Web kancası** -10 adede kadar Web kancası eylemleri bir eylem grubu içinde olabilir.
+Yanıt 10 saniyedir logic - zaman aşımı süresi yeniden deneyin. Web kancası çağrısı olacaktır, 2 katı şu HTTP durum kodları, döndürülen en fazla yeniden deneme: 408, 429, 503, 504 veya HTTP uç noktasına yanıt vermiyor. İlk yeniden deneme 10 saniye sonra gerçekleşir. İkinci yeniden 100 saniye sonra gerçekleşir. İki hatasından sonra uç noktası 30 dakikalığına herhangi bir eylem grubundan çağrılır değil.
 
 Kaynak IP adresi aralıkları
+    - 13.72.19.232
     - 13.106.57.181
     - 13.106.54.3
     - 13.106.54.19
     - 13.106.38.142
     - 13.106.38.148
     - 13.106.57.196
+    - 52.244.68.117
 
 Değişiklikler yapılandırdığınız öneririz bu IP adresleri için güncelleştirmeleri almak için bir [hizmet durumu Uyarısı](./../../azure-monitor/platform/service-notifications.md) Eylem grupları hizmeti hakkında bilgi veren bildirimleri için izler.
 

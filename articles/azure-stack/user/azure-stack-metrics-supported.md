@@ -13,16 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: mabrigg
-ms.openlocfilehash: 7ebb9d683803a6c5a5a0fa25308b348eeea586c4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.lastreviewed: 12/06/2018
+ms.openlocfilehash: c7b0332d2a1df9d61b95b73699bf04f32e3165ff
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097905"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240548"
 ---
 # <a name="supported-metrics-with-azure-monitor-on-azure-stack"></a>Azure Stack'te Azure İzleyici ile desteklenen ölçümler
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri*
 
 Azure'dan ölçümlerinizi alabilirsiniz izleyicisinde Azure Stack'te genel Azure ile aynı. Portalda, ölçü oluşturma, REST API'SİNDEN alın veya PowerShell veya CLI ile sorgulama.
 

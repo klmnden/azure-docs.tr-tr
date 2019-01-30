@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 66a2871e0c4b36959ccd8f08df5b6b7edd09f624
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.lastreviewed: 10/15/2018
+ms.openlocfilehash: 79e031226f11d45121827795c34b0103235d8d79
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227833"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55248172"
 ---
 # <a name="asdk-administration-basics"></a>ASDK yönetim temel bilgileri 
 Azure Stack geliştirme Seti'ni (ASDK) yönetim için yeni bilmeniz gereken birkaç şey vardır. Bu kılavuz değerlendirme ortamında Azure Stack operatörü olarak sizin rolünüze genel bir bakış sağlar ve test kullanıcılarınızın emin olmak nasıl hızlı şekilde üretken hale gelebilir.

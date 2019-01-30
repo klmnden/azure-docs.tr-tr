@@ -7,13 +7,13 @@ ms.author: cbrooks
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.component: blobs
-ms.openlocfilehash: 0f726769b9e4266e310f9f50b1a7ef768c0c1d55
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.subservice: blobs
+ms.openlocfilehash: 6c2a642c30be79c907286e4ffac6bcea40d86fcd
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735894"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247757"
 ---
 # <a name="reacting-to-blob-storage-events"></a>BLOB Depolama olaylarına tepki verme
 
@@ -28,7 +28,7 @@ Bir göz atın [rota Blob Depolama olaylarını bir özel web uç noktası - CLI
 ![Event Grid modeli](./media/storage-blob-event-overview/event-grid-functional-model.png)
 
 ## <a name="blob-storage-accounts"></a>Blob Storage hesapları
-Genel amaçlı v2 depolama hesabı ve Blob Depolama hesapları BLOB Depolama olaylarını kullanılabilir. **Genel amaçlı v2** depolama hesapları, Blobları, dosyalar, kuyruklar ve tablolar dahil olmak üzere tüm depolama hizmetleri için tüm özellikleri destekler. **Blob depolama hesabı**, yapılandırılmamış verilerinizi bloblar (nesneler) olarak Azure Storage’da depolamanıza yönelik özel depolama hesabıdır. Blob Storage hesapları, genel amaçlı depolama hesaplarınıza benzer ve blok blobları ve ilave blobları için %100 API tutarlığı dahil günümüzde kullandığınız tüm harika dayanıklılık, kullanılabilirlik, ölçeklenebilirlik ve performans özelliklerini paylaşır. Daha fazla bilgi için [Azure depolama hesabına genel bakış](../common/storage-account-overview.md).
+Blob depolama olayları, genel amaçlı v2 depolama hesaplarında ve Blob depolama hesaplarında kullanılabilir. **Genel amaçlı v2** depolama hesapları, Blobları, dosyalar, kuyruklar ve tablolar dahil olmak üzere tüm depolama hizmetleri için tüm özellikleri destekler. **Blob depolama hesabı**, yapılandırılmamış verilerinizi bloblar (nesneler) olarak Azure Storage’da depolamanıza yönelik özel depolama hesabıdır. Blob Storage hesapları, genel amaçlı depolama hesaplarınıza benzer ve blok blobları ve ilave blobları için %100 API tutarlığı dahil günümüzde kullandığınız tüm harika dayanıklılık, kullanılabilirlik, ölçeklenebilirlik ve performans özelliklerini paylaşır. Daha fazla bilgi için bkz. [Azure depolama hesabına genel bakış](../common/storage-account-overview.md).
 
 ## <a name="available-blob-storage-events"></a>Blob Depolama olayları kullanılabilir
 Event grid'i kullanır [olay abonelikleri](../../event-grid/concepts.md#event-subscriptions) abonelere olay iletileri yönlendirmek için.  BLOB Depolama olay abonelikleri, iki tür olay şunları içerebilir:  
@@ -44,19 +44,19 @@ BLOB Depolama olaylarını verilerinizdeki değişiklikleri yanıtlamak için ge
 > |Özellik|Tür|Açıklama|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
 > |konu başlığı|dize|Olay yayar depolama hesabının Tam Azure Resource Manager kimliği.|
-> |Konu|dize|Depolama hesapları, hizmetler ve kapsayıcılar için Azure RBAC açıklamak için kullandığımız aynı Genişletilmiş Azure Resource Manager biçimini kullanarak konusu olayın nesne göreli bir kaynak yolu.  Bu biçim bir servis talebi koruyarak blob adı içerir.|
+> |konu|dize|Depolama hesapları, hizmetler ve kapsayıcılar için Azure RBAC açıklamak için kullandığımız aynı Genişletilmiş Azure Resource Manager biçimini kullanarak konusu olayın nesne göreli bir kaynak yolu.  Bu biçim bir servis talebi koruyarak blob adı içerir.|
 > |eventTime|dize|Olayın oluşturulduğu, ISO 8601 biçiminde tarih/saat|
 > |olay türü|dize|"Microsoft.Storage.BlobCreated" veya "Microsoft.Storage.BlobDeleted"|
 > |Kimlik|dize|Bu benzersiz tanımlayıcı olay|
 > |dataVersion|dize|Veri nesnesinin şema sürümü.|
 > |metadataVersion|dize|Üst düzey özellikler şema sürümü.|
-> |veri|object|Blob depolama özel olay verilerini toplama|
+> |veriler|object|Blob depolama özel olay verilerini toplama|
 > |data.contentType|dize|Content-Type üst bilgisinde blobundan döndürülürdü blob'u, içerik türü|
 > |data.contentLength|number|Content-Length üst bilgisinde blobundan döndürülürdü gibi bayt sayısını temsil eden tamsayı olduğu gibi blob boyutu.  BlobCreated olaylı, ancak BlobDeleted gönderilir.|
 > |Data.URL|dize|Olayın konusu nesnenin URL'si|
 > |data.eTag|dize|Bu olay harekete nesne etag'i.  BlobDeleted olay için kullanılamaz.|
 > |Data.api|dize|Bu olay harekete API işlemi adı. BlobCreated olaylar için bu değer "PutBlob", "PutBlockList" veya "CopyBlob" olur. BlobDeleted olaylar için bu değer "DeleteBlob" olur. Bu değerler Azure depolama tanılama günlüklerinde mevcut olan aynı API adlardır. Bkz: [işlemler ve durum iletileri günlüğe](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).|
-> |Data.Sequencer|dize|Herhangi bir belirli blob adı için olayların mantıksal sırasını temsil eden bir donuk bir dize değeri.  Kullanıcılar, standart dize karşılaştırması, aynı blob adı iki olayların göreli sırasını anlamak için kullanabilirsiniz.|
+> |data.sequencer|dize|Herhangi bir belirli blob adı için olayların mantıksal sırasını temsil eden bir donuk bir dize değeri.  Kullanıcılar, standart dize karşılaştırması, aynı blob adı iki olayların göreli sırasını anlamak için kullanabilirsiniz.|
 > |data.requestId|dize|Depolama API işlemi için istek hizmet tarafından oluşturulan kimliği. Azure tanılama günlüklerinde "istek kimliği üstbilgisi" alanını kullanarak kaydeder ve başlatmasını API çağrısı 'x-ms-isteği-id' üst bilgisinde döndürülen depolama ilişkilendirmek için kullanılabilir. Bkz: [günlük biçimi](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format).|
 > |data.clientRequestId|dize|Depolama API işlemi için sağlanan istemci istek kimliği. "X-ms-istemci-request-id" üst bilgisini kullanarak istemci isteklerinde sağlanan ve günlüklerinde "client-request-id" alanını kullanarak Azure depolama tanılama günlüklerine ilişkilendirmek için kullanılır. Bkz: [günlük biçimi](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format). |
 > |data.storageDiagnostics|object|Bazen Azure depolama hizmeti tarafından bulunan Tanılama verileri. Mevcut olduğunda olay tüketicileri tarafından yoksayılacak.|

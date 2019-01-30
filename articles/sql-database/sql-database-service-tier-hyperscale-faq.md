@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/17/2018
-ms.openlocfilehash: 661fd36b4451238f488bff1db60a901a8dabd5aa
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c5f5b43a96d5fad5d5f7737ef82585593cd05a7b
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242169"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240667"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Azure SQL hiper ölçekli veritabanları hakkında SSS
 
@@ -54,7 +54,7 @@ Kullanılabilirlik, depolama türü ve IOPS temel sanal çekirdek tabanlı hizme
 | **Depolama boyutu** | Tek veritabanı / elastik havuz | 5 GB – 4 TB | En fazla 100 TB | 5 GB – 4 TB |
 | | Yönetilen örnek  | 32 GB – 8 TB | Yok | 32 GB – 4 TB |
 | **G/ç aktarım hızı** | Tek veritabanı ** | 7000 maksimum IOPS ile sanal çekirdek başına 500 IOPS | Henüz bilinmiyor | 200.000 maksimum IOPS ile 5000 IOPS|
-| | Yönetilen örnek | Dosya boyutuna bağlıdır | Yok | Yönetilen örnek: dosya boyutuna bağlıdır|
+| | Yönetilen örnek | Dosya boyutuna bağlıdır | Yok | Yönetilen örnek: Dosya boyutuna bağlıdır|
 |**Kullanılabilirlik**|Tümü|1 çoğaltma, hiçbir okuma ölçeği, Hayır yerel önbellek | Lrs'de kadar 15 okuma ölçeği, kısmi yerel önbellek | 3 çoğaltma, 1 okuma ölçeği, bölgesel olarak yedekli HA tam yerel önbellek |
 |**Yedekleri**|Tümü|RA-GRS, 7-35 gün (varsayılan olarak 7 gün)| RA-GRS, 7-35 gün (varsayılan olarak 7 gün), sabit bir zaman noktası in0time Kurtarma (PITR) | RA-GRS, 7-35 gün (varsayılan olarak 7 gün) |
 
@@ -73,7 +73,7 @@ Hiper ölçekli Hizmet katmanını, öncelikle şirket içi SQL Server veritaban
 
 ### <a name="what-regions-currently-support-hyperscale"></a>Hangi bölgeler şu anda hiper ölçekli destekler
 
-Hiper ölçekli, şu anda tek veritabanları aşağıdaki bölgelerde kullanılabilir: Batı US1, Batı abd2, US1 Doğu, Orta ABD, Batı Avrupa, Kuzey Avrupa, UK Batı, Güneydoğu Asya, Japonya Doğu, Kore Orta, Avustralya Güneydoğu ve Avustralya Doğu.
+Hiper ölçekli şu anda tek veritabanı aşağıdaki bölgelerde kullanılabilir:  Batı US1, Batı abd2, US1 Doğu, Orta ABD, Batı Avrupa, Kuzey Avrupa, UK Batı, Güneydoğu Asya, Japonya Doğu, Kore Orta, Avustralya Güneydoğu ve Avustralya Doğu.
 
 ### <a name="can-i-create-multiple-hyperscale-databases-per-logical-server"></a>Mantıksal sunucu başına birden fazla hiper ölçekli veritabanı oluşturabilirim
 
@@ -98,7 +98,7 @@ SQL veritabanı hiper ölçekli, iş yükü talebe göre hızlı ölçeklenebili
 
 ## <a name="deep-dive-questions"></a>Derin Dalış sorular
 
-### <a name="can-i-mix-hyperscale-and-single-databases-a-my-logical-server"></a>Hiper ölçekli ile tek veritabanları karıştırabilirsiniz bir mantıksal sunucumu
+### <a name="can-i-mix-hyperscale-and-single-databases-on-my-logical-server"></a>Mantıksal Sunucumda hiper ölçekli ile tek veritabanları karıştırabilirsiniz
 
 Evet, uygulayabilirsiniz.
 
@@ -243,7 +243,7 @@ Hayır. SQL veritabanı hiper ölçekli bir SMP mimaridir ve asimetrik bir çokl
 
 ### <a name="what-is-the-oldest-sql-server-version-will-sql-database-hyperscale-support-migration-from"></a>Eski SQL Server sürümü, SQL veritabanı hiper ölçekli destek geçiş olur nedir
 
-SQL Server 2005'te. Daha fazla bilgi için [tek bir veritabanı veya havuza alınmış bir veritabanı geçiş](sql-database-cloud-migrate.md#migrate-to-a-single-database-or-a-pooled-database). Uyumluluk sorunları için bkz: [veritabanı geçişi uyumluluk sorunlarını çözme](sql-database-cloud-migrate.md#resolving-database-migration-compatibility-issues).
+SQL Server 2005. Daha fazla bilgi için [tek bir veritabanı veya havuza alınmış bir veritabanı geçiş](sql-database-cloud-migrate.md#migrate-to-a-single-database-or-a-pooled-database). Uyumluluk sorunları için bkz: [veritabanı geçişi uyumluluk sorunlarını çözme](sql-database-cloud-migrate.md#resolving-database-migration-compatibility-issues).
 
 ### <a name="does-sql-database-hyperscale-support-migration-from-other-data-sources-such-as-aurora-mysql-oracle-db2-and-other-database-platforms"></a>SQL veritabanı hiper ölçekli Aurora, MySQL, Oracle, DB2 ve diğer veritabanı platformlarına gibi diğer veri kaynaklarından geçiş destekliyor mu
 

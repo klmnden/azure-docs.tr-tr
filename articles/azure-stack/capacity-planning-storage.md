@@ -15,21 +15,22 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.openlocfilehash: 9ea46860817d60c2ffbde68c0fc5ae6f6ca14877
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.lastreviewed: 09/18/2018
+ms.openlocfilehash: 5d9d01a482483d030569a4dcad03c9ecef7cffc0
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46368884"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245159"
 ---
 # <a name="azure-stack-storage-capacity-planning"></a>Azure Stack depolama kapasitesi planlama
 Aşağıdaki bölümler solutions depolama gereksinimlerini planlama stratejilerinde destek olmak için Azure Stack depolama kapasitesini planlama bilgileri sağlar.
 
 ## <a name="uses-and-organization-of-storage-capacity"></a>Kullanır ve kuruluş depolama kapasitesi
-Fiziksel depolama cihazları paylaşmak için Azure Stack hiper yakınsama yapılandırmasını sağlar. Kullanılabilir depolama alanı, üç ana bölümleri, altyapı, Kiracı sanal makinelerinin geçici depolama blobları, tablolar ve Kuyruklar Azure tutarlı depolama (ACS) Hizmetleri, yedekleme depolama arasında ve ' dir.
+Azure Stack'in hiper yakınsanmış yapılandırması fiziksel depolama cihazlarının paylaşımına olanak sağlar. Kullanılabilir depolama alanı, üç ana bölümleri, altyapı, Kiracı sanal makinelerinin geçici depolama blobları, tablolar ve Kuyruklar Azure tutarlı depolama (ACS) Hizmetleri, yedekleme depolama arasında ve ' dir.
 
 ## <a name="spaces-direct-cache-and-capacity-tiers"></a>Önbellek ve kapasite katmanları alanları doğrudan
-Depolama kapasitesi gereksinimlerini işletim sistemi, yerel günlüğe kaydetme, dökümleri ve diğer altyapı geçici depolama için kullanılan yoktur. Depolama alanları doğrudan Yapılandırması Yönetim altına duruma depolama aygıtlarını (cihazlar ve kapasite) ayırmak bu yerel depolama kapasitesidir. Depolama aygıtlarını kalanını tek bir ölçek birimindeki sunucularının sayısından bağımsız olarak depolama kapasitesi havuzu yerleştirilir. Bu cihazları iki türü şunlardır: önbellek ve kapasite.  Önbellek: önbellek cihazlardır. Alanları doğrudan geri yazma için bu cihazları kullanma ve önbelleğe alma okuyun. Bu önbellek cihazları kapasiteleri kullanılabilir ancak, biçimlendirilmiş, "visible" biçimlendirilmiş sanal-disklerin kapasitesi iletilmez. Kapasite cihazları bu amaçla kullanılır ve "Giriş" depolama alanları tarafından yönetilen veri sağlamalısınız.
+Depolama kapasitesi gereksinimlerini işletim sistemi, yerel günlüğe kaydetme, dökümleri ve diğer altyapı geçici depolama için kullanılan yoktur. Depolama alanları doğrudan Yapılandırması Yönetim altına duruma depolama aygıtlarını (cihazlar ve kapasite) ayırmak bu yerel depolama kapasitesidir. Depolama aygıtlarını kalanını tek bir ölçek birimindeki sunucularının sayısından bağımsız olarak depolama kapasitesi havuzu yerleştirilir. Bu cihazları iki türleri şunlardır: Önbellek ve kapasite.  Önbellek: önbellek cihazlardır. Alanları doğrudan geri yazma için bu cihazları kullanma ve önbelleğe alma okuyun. Bu önbellek cihazları kapasiteleri kullanılabilir ancak, biçimlendirilmiş, "visible" biçimlendirilmiş sanal-disklerin kapasitesi iletilmez. Kapasite cihazları bu amaçla kullanılır ve "Giriş" depolama alanları tarafından yönetilen veri sağlamalısınız.
 
 Tüm depolama kapasitesi ayrılan ve doğrudan Azure Stack altyapısı tarafından yönetilir. İşleci hakkında yapılandırma, yükleme seçimleri yapmanıza veya kapasite genişletmesi geldiğinde seçtiklerinizle uğraşmanız gerekmez. Bu tasarım kararlarını çözüm gereksinimleri ile hizalamak için yapılan ve ilk ya da yükleme/dağıtım sırasında veya kapasite genişletmesi sırasında otomatik. Dayanıklılık, yeniden oluşturulması için ayrılmış kapasite ve diğer ayrıntıları ayrıntılarını tasarımının bir parçası düşünür. 
 
@@ -51,7 +52,7 @@ Sanal-otomatik olarak oluşturulan diskler ve kapasitelerini aşağıdaki gibidi
 
 
 
-|Ad|Kapasite hesaplama|Açıklama|
+|Name|Kapasite hesaplama|Açıklama|
 |-----|-----|-----|
 |Yerel/önyükleme aygıtı|En az 340 GB<sup>1</sup>|İşletim sistemi görüntüleri ve "yerel" altyapı Vm'leri için ayrı ayrı sunucu depolama|
 |Altyapı|3,5 TB|Tüm Azure Stack altyapısını kullanımı|

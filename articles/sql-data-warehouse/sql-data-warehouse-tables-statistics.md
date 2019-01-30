@@ -6,16 +6,16 @@ author: ckarst
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 05/09/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 1a7ea00e8bdf4fa1a22dd765e5108dce72e2d380
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 699538666a3bdbea94d35844f9c5c4fb7b4fd0f2
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307471"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55241058"
 ---
 # <a name="creating-updating-statistics-on-tables-in-azure-sql-data-warehouse"></a>Azure SQL veri ambarı tablolarda istatistikleri güncelleştirmeyi oluşturma
 Öneriler ve iyileştirme sorgu istatistikleri tablolarda Azure SQL veri ambarı oluşturma ve güncelleştirme için örnekler.
@@ -38,7 +38,7 @@ Yapılandırılmış AUTO_CREATE_STATISTICS veri ambarınız yoksa, aşağıdaki
 ALTER DATABASE <yourdatawarehousename> 
 SET AUTO_CREATE_STATISTICS ON
 ```
-Aşağıdaki deyimleri İstatistikleri otomatik olarak oluşturulmasını tetikleyecek: SELECT, INSERT SELECT, CTAS, güncelleştirme, silme ve açıklama içeren bir birleştirme veya bir koşul varlığını algılandı. 
+Aşağıdaki deyimleri, İstatistikleri otomatik olarak oluşturulmasını tetikleyecek: SELECT, INSERT SELECT, CTAS, güncelleştirme, silme ve açıklama içeren bir birleştirme veya bir koşul varlığını algılandı. 
 
 > [!NOTE]
 > İstatistikleri otomatik olarak oluşturulması, geçici veya dış tablolarda oluşturulmaz.
@@ -50,7 +50,7 @@ Sütunlarınızı kendileri için oluşturulan istatistikleri zaten yoksa bir ha
 > İstatistikleri oluşturulmasını da oturumunuz açılır [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=aps-pdw-2016) farklı kullanıcı bağlamı altında.
 > 
 
-Otomatik İstatistikler oluşturulduğunda, formun sürer: _WA_Sys_< onaltılık basamak 8 sütun kimliği > _ < onaltılık basamak 8 tablo kimliği >. Çalıştırarak zaten oluşturulmuş istatistikleri görüntüleyebilirsiniz [DBCC SHOW_STATISTICS](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=sql-server-2017) komutu:
+Otomatik İstatistikler oluşturduğunuzda, bunlar formun gerçekleştirir: _WA_Sys_< onaltılık basamak 8 sütun kimliği > _ < onaltılık basamak 8 tablo kimliği >. Çalıştırarak zaten oluşturulmuş istatistikleri görüntüleyebilirsiniz [DBCC SHOW_STATISTICS](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=sql-server-2017) komutu:
 
 ```sql
 DBCC SHOW_STATISTICS (<tablename>, <targetname>)
@@ -67,7 +67,7 @@ Yeni tarihleri eklendikçe istatistikleri Tarih sütunlarını her gün güncell
 
 |||
 |-|-|
-| **İstatistiklerini güncelleştirme sıklığı**  | Koruyucu: günlük <br></br> Yükleme veya veri dönüştürme sonra |
+| **İstatistiklerini güncelleştirme sıklığı**  | Koruyucu: Günlük <br></br> Yükleme veya veri dönüştürme sonra |
 | **Örnekleme** |  1 milyardan az satır kullanmak varsayılan örnekleme (yüzde 20) <br></br> 1 milyardan fazla satır ile 2 yüzde aralığı istatistiklerle iyidir |
 
 İlk hakkında soruların yanıtlarını ne zaman bir sorgu gidermeye çalışıyorsanız biridir, **"istatistikleri güncel misiniz?"**
@@ -125,7 +125,7 @@ Yükleme işlemi sırasında istatistiklerinizi güncelleştirmek için aşağı
 
 Daha fazla bilgi için [kardinalite tahmini](/sql/relational-databases/performance/cardinality-estimation-sql-server).
 
-## <a name="examples-create-statistics"></a>Örnekler: istatistikleri oluşturma
+## <a name="examples-create-statistics"></a>Örnekler: İstatistik oluşturma
 Bu örnekler istatistikleri oluşturmak için çeşitli seçenekler kullanmak nasıl gösterir. Her sütun için kullandığınız seçenekleri, verilerinizi ve sütun sorgularda nasıl kullanılacağını özelliklerini bağlıdır.
 
 ### <a name="create-single-column-statistics-with-default-options"></a>Varsayılan seçeneklerle tek sütunlu istatistikler oluşturma
@@ -390,7 +390,7 @@ Bu sistem görünümleri istatistikleri hakkında bilgi sağlar:
 
 | Katalog görünümü | Açıklama |
 |:--- |:--- |
-| [sys.Columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql) |Her sütun için bir satır. |
+| [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql) |Her sütun için bir satır. |
 | [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |Veritabanındaki her nesne için bir satır. |
 | [sys.schemas](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |Veritabanındaki her bir şema için bir satır. |
 | [sys.stats](/sql/relational-databases/system-catalog-views/sys-stats-transact-sql) |Her istatistikleri nesne için bir satır. |
@@ -450,7 +450,7 @@ DBCC SHOW_STATISTICS() istatistikleri nesnesi içinde tutulan verileri gösterir
 
 - Üst bilgi
 - Vektör yoğunluğu
-- Çubuk grafik
+- Histogram
 
 İstatistikler hakkında üstbilgi meta veriler. Histogram istatistikleri nesnenin ilk anahtar sütunu değerlerinin dağıtım görüntüler. Yoğunluk vektör arası sütunlu bağıntı ölçer. SQL veri ambarı kardinalite tahminlerde istatistikleri nesne verileri hesaplar.
 

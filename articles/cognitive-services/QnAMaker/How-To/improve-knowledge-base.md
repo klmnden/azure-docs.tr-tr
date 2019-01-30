@@ -8,16 +8,16 @@ displayName: active learning, suggestion, dialog prompt, train api, feedback loo
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 01/29/2019
 ms.author: diberry
-ms.openlocfilehash: da32d1e7a3cc9fc0c37418e24c1f1f270a104b09
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: cf652c1b0edd469f29d14ed10d66ebe78b0fbb7c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55105680"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247842"
 ---
-# <a name="use-active-learning-to-improve-knowledge-base"></a>Bilgi Bankası geliştirmek için etkin öğrenmeyi kullanma
+# <a name="use-active-learning-to-improve-knowledge-base"></a>Bilgi bankasını geliştirmek için etkin öğrenmeyi kullanma
 
 Etkin öğrenme bilgi bankanızı alternatif sorular, soru ve yanıt çiftinizi için kullanıcı-gönderimler göre önererek kalitesini sağlar. Bu öneriler, ya da sorularınız var ya da bunları reddetmeniz ekleme inceleyin. 
 
@@ -39,6 +39,10 @@ Benzer sorguları kümelenir, soru-cevap Oluşturucu kabul etmek veya reddetmek 
 Etkin öğrenme herhangi belirli bir sorgu için soru-cevap Oluşturucu tarafından döndürülen ilk birkaç yanıtların puanları temel tetiklenir. Puan farklılıkları küçük bir aralık içinde yer alan sonra olası sorgusu _öneri_ her olası yanıtlar. 
 
 Tüm öneriler birlikte benzerliğe göre kümelenir ve diğer sorular için en çok istenen önerilerden belirli sorgularının sıklığını üzerinde son kullanıcılar tarafından bağlı görüntülenir. Etkin öğrenme makul bir miktar ve çeşitli sorgular kullanım uç noktalar burada alma durumlarda en iyi olası öneriler sağlar.
+
+## <a name="upgrade-version-to-use-active-learning"></a>Etkin öğrenmeyi kullanma sürüme yükseltme
+
+Etkin öğrenme, çalışma zamanı sürümü 4.4.0 ve sonraki sürümlerde desteklenir. Bilgi bankanızı bir önceki sürümünde oluşturulduysa [hizmetinizi yükseltme](upgrade-qnamaker-service.md) bu özelliği kullanmak için. 
 
 ## <a name="best-practices"></a>En iyi uygulamalar
 
@@ -152,7 +156,9 @@ Content-Type: application/json
 {"feedbackRecords": [{"userId": "1","userQuestion": "<question-text>","qnaId": 1}]}
 ```
 
+Etkin öğrenme ile kullanma hakkında daha fazla bilgi edinin bir [Azure Bot C# örneği](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-activelearning-bot)
+
 ## <a name="next-steps"></a>Sonraki adımlar
  
 > [!div class="nextstepaction"]
-> [QnAMaker API kullanın](./upgrade-qnamaker-service.md)
+> [Soru-cevap Oluşturucu API'si kullanma](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)

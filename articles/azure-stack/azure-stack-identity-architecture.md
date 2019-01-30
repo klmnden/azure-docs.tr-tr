@@ -15,12 +15,13 @@ ms.topic: get-started-article
 ms.date: 11/07/2018
 ms.author: patricka
 ms.reviewer: fiseraci
-ms.openlocfilehash: a16a6596d6bc33200f87a1dfd3b2ea5b02628e10
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.lastreviewed: 11/07/2018
+ms.openlocfilehash: b739db654a182433bbe1f47528d1ab99f1b10c08
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277826"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242170"
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Azure Stack için kimlik mimarisi
 Azure Stack ile kullanmak için bir kimlik sağlayıcısı seçmeden önce Azure Active Directory (Azure AD) seçeneklerini ve Active Directory Federasyon Hizmetleri (AD FS) arasındaki önemli farklar anlayın. 

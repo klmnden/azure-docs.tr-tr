@@ -15,15 +15,16 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeffgilb
 ms.reviewer: scottnap
-ms.openlocfilehash: b401139d417674cf58d2db264b442d7588cc34ba
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.lastreviewed: 09/17/2018
+ms.openlocfilehash: d81374b110523e48e06725d3d3153e61135471cc
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45986234"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251631"
 ---
 # <a name="add-public-ip-addresses"></a>Genel IP adresleri ekleme
-*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*  
+*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*  
 
 Daha fazla genel IP adresleri Azure Stack'e ekleme konusunda bilgi edinin.  Bu makalede, genel IP adresleri olarak dış adresleri diyoruz, ancak Azure Stack'te bu IP adresi blokları, dış ağa eklenmesi başvurmak için tasarlanmıştır.  Olup, dış ağ genel Internet yönlendirilebilir veya intranette yer ve özel adres alanınızı kullanır, bu makalenin amaçları önemli değildir.  Adımları aynıdır. 
 

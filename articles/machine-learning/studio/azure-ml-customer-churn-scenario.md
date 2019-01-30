@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning Studio
 description: Analiz etme ve Azure Machine Learning Studio ile müşteri karmaşıklığını puanlamaya yönelik tümleşik bir model geliştirme incelemesi.
 services: machine-learning
 ms.service: machine-learning
-ms.component: studio
+ms.subservice: studio
 ms.topic: article
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: 153ddcc1ba0da6171963ec91511fafe84023ecf8
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: 47d267a2c4c122d8acbb2d3bf40e6858b4d6b77c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54401986"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244190"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio"></a>Azure Machine Learning Studio'yu kullanarak müşteri değişim sıklığını çözümleme
 ## <a name="overview"></a>Genel Bakış

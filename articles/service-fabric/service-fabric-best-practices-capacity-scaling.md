@@ -14,16 +14,29 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: ff58cc713a6aba211f9eeb1dc42912d21c5b0bdb
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: d6f2ca53829642009adbc50061966c5a7e924f7e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54914122"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240412"
 ---
 # <a name="capacity-planning-and-scaling"></a>Kapasite planlama ve ölçekleme
 
 Herhangi bir Azure Service Fabric kümesi oluşturma veya kümenizi barındırma işlem kaynaklarını ölçeklendirme önce kapasiteyi planlamak üzere önemlidir. Kapasite planlaması hakkında daha fazla bilgi için bkz. [Service Fabric küme kapasitesini planlama](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity). NodeType ve küme özelliklerini düşünmeye ek olarak, eklemekte olduğunuz sanal makine sayısına bakılmaksızın bir üretim ortamı için tamamlamak için bir saatten daha uzun sürmesine operations ölçeklendirme için planlayın.
+
+## <a name="auto-scaling"></a>Auto Scaling
+Ölçeklendirme işlemlerinin gerçekleştirilmelidir aracılığıyla Azure kaynak şablon dağıtımı, değerlendirmek için en iyi bir yöntemdir çünkü [kod olarak kaynak yapılandırmaları]( https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code)ve otomatik ölçeklendirme neden olur, sanal makine ölçek kümesi kullanılarak, sanal makine ölçek kümenizi zamanlayıcılara tanımlama tutulan Resource Manager şablonu örneği sayılarının ayarlayın; istenmeyen ölçeklendirme işlemleri neden gelecekteki dağıtımlar ve genel risk artırılması, otomatik ölçeklendirme kullanmanız gerekir:
+
+* Resource Manager şablonlarınızı dağıtmak bildirilen uygun kapasitede kullanım Örneğinize desteklemiyor.
+  * Yapılandırabileceğiniz el ile ölçeklendirmenin yanı sıra bir [sürekli tümleştirme ve teslim işlem hattı Azure DevOps Azure kaynak grubu dağıtım projeleri kullanarak Hizmetleri'nde]( https://docs.microsoft.com/azure/vs-azure-tools-resource-groups-ci-in-vsts), hangi yaygın olarak tetiklenir yararlanan bir mantıksal uygulama tarafından sanal makine performans ölçümlerini gelen sorgulanan [Azure İzleyici REST API](https://docs.microsoft.com/azure/azure-monitor/platform/rest-api-walkthrough); etkili bir şekilde ne olursa olsun ölçümlere göre otomatik ölçeklendirme, istediğiniz değeri eklemek Azure Resource Manager için en iyi duruma getirme sırasında.
+* 1 sanal makine ölçek kümesi düğümü aynı anda yatay olarak genişletmek yeterlidir.
+  * 3 veya daha fazla düğüm tarafından bir zaman ölçek genişletme için aşağıdakileri yapmalısınız [bir sanal makine ölçek kümesi ekleyerek bir Service Fabric kümesinin ölçeğini](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out), ölçeklendirme en güvenli olanıdır ve sanal makine ölçek genişletme yatay olarak 1 düğüm aynı anda ayarlar.
+* Sahip olduğunuz Silver güvenilirlik veya Service Fabric kümesi ve Silver dayanıklılık için daha yüksek veya daha yüksek bir ölçek kümesini otomatik ölçeklendirme kurallarını yapılandırın.
+  * Otomatik ölçeklendirme kuralları kapasite [en düşük] 5 sanal makine örnekleri'değerinden büyük veya eşit olmalıdır ve eşit veya birincil düğüm türünüz için güvenilirlik katmanını en az'dan büyük olmalıdır.
+
+> [!NOTE]
+> Azure Service Fabric durum bilgisi olan service fabric: / Sistem/InfastructureService/< NODE_TYPE_NAME > çalışan her Silver sahip bir düğüm türü veya Azure'da herhangi bir düğüm türleri kümeleriniz üzerinde çalıştırmak için desteklenen tek sistem hizmet yüksek dayanıklılık . 
 
 ## <a name="vertical-scaling-considerations"></a>Dikey ölçeklendirme hakkında önemli noktalar
 
@@ -150,10 +163,10 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 ## <a name="reliability-levels"></a>Güvenilirlik düzeyi
 
 [Güvenilirlik düzeyi](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) bir Service Fabric kümesi kaynağınızı özelliğidir ve farklı için tek tek NodeType yapılandırılamaz. Sistem Hizmetleri kümesi için çoğaltma faktörü denetler ve küme kaynak düzeyinde bir ayardır. Güvenilirlik düzeyi birincil düğüm türünüz gereken düğüm sayısı alt sınırı belirler. Güvenilirlik katmanı, şu değerleri alabilir:
-* Platinum - yedi sayısı hedef çoğaltma kümesi ile sistem hizmetleri çalıştırır
-* Altın - yedi sayısı hedef çoğaltma kümesi ile sistem hizmetleri çalıştırır
-* Gümüş - sistem hizmetlerini beş sayısı hedef çoğaltma kümesi ile çalışır.
-* Bronz - sistem hizmetlerini hedef çoğaltma kümesi sayısını üç ile çalışır.
+* Platinum - yedi ve dokuz çekirdek düğümleri hedef çoğaltma kümesi sayısı ile sistem hizmetleri çalıştırır.
+* Altın - yedi ve yedi çekirdek düğümleri hedef çoğaltma kümesi sayısı ile sistem hizmetleri çalıştırır.
+* Gümüş - sistem hizmetlerini bir hedef çoğaltma kümesi beş ila beş çekirdek düğüm sayısı ile çalışır.
+* Bronz - sistem hizmetlerini bir hedef çoğaltma kümesi üç ve üç çekirdek düğüm sayısı ile çalışır.
 
 Önerilen en düşük güvenilirlik, Gümüş düzeyidir.
 

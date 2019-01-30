@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning service
 description: Azure Machine Learning için Visual Studio Code ve eğitim ve dağıtma makine öğrenimi ve derin öğrenme modelleri Visual Studio Code kullanarak Azure Machine Learning hizmetindeki başlatma hakkında bilgi edinin.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.author: shwinne
 author: swinner95
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7852ff20a7f6528546063365ede10ad5536319a2
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 409d1bb30dc956bb19e9a37212d93990d1401e7b
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079146"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240123"
 ---
 # <a name="use-visual-studio-code-to-train-and-deploy-machine-learning-models"></a>Visual Studio Code eğitmek ve makine öğrenimi modelleri dağıtmak için kullanın
 

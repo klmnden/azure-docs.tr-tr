@@ -1,6 +1,6 @@
 ---
 Başlık: Algoritma örnekleri titleSuffix: Azure Machine Learning Studio açıklaması: Machine learning temel bilgileri anlaşılması kolay bir bakış algoritma örnekleri içerir. İndirilebilir bilgi grafiği çoğu machine learning soruları kapsar.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
 
 Yazar: garyericson ms.author: garye MS.özel: seodc18 ms.date: 12/18/2017
 ---

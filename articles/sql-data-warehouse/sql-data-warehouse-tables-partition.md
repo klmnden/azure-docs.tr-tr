@@ -6,16 +6,16 @@ author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 04e489e6b6841f1038830d0b160e88111be8d838
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 60f475afd8e9d599d3771b875f15a29e8a082fb7
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301969"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245897"
 ---
 # <a name="partitioning-tables-in-sql-data-warehouse"></a>SQL Data warehouse'da tablo bölümleme
 Öneriler ve Azure SQL Data Warehouse'da tablo bölümleri kullanımına ilişkin örnekler.

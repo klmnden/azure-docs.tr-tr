@@ -9,19 +9,19 @@ manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: 395604da3465e66214f89b4f74ddf9d6bcdc48f8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 47d5616f86c8f4cb62773d0b92a24a5fb63b2ea7
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103957"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240481"
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Azure'da bir coğrafi yapay zeka sanal makinesi sağlama 
 
@@ -49,24 +49,24 @@ Coğrafi AI veri bilimi sanal makinesi örneğini oluşturmak için bir yordam �
 
    - **Temel Bilgiler**
 
-      1. **Ad**: oluşturmakta olduğunuz veri bilimi sunucusunun adı.
+      1. **Ad**: Oluşturmakta olduğunuz veri bilimi sunucusunun adı.
 
-      2. **Kullanıcı adı**: yönetici hesabı oturum açma kimliği.
+      2. **Kullanıcı adı**: Yönetici hesabı oturum açma kimliği.
 
-      3. **Parola**: yönetici hesabının parolası.
+      3. **Parola**: Yönetici hesabı parolası.
 
-      4. **Abonelik**: birden fazla aboneliğiniz varsa, bir makine olduğu faturalandırılır ve seçin.
+      4. **Abonelik**: Birden fazla aboneliğiniz varsa, bir makine oluşturulması ve fatura olduğu seçin.
 
-      5. **Kaynak grubu**: yeni bir tane oluşturabilir veya bir **boş** aboneliğinizdeki mevcut bir Azure kaynak grubu.
+      5. **Kaynak grubu**: Yeni bir tane oluşturabilir veya bir **boş** aboneliğinizdeki mevcut bir Azure kaynak grubu.
 
-      6. **Konum**: en uygun veri merkezi seçin. Genellikle, verilerinizden en iyi olduğundan veya en hızlı ağ erişimi için fiziksel konumunuza en yakın veri merkezi bulunur. GPU üzerinde derin öğrenme yapmanız gerekiyorsa, NC serisi GPU sanal makine örneklerine sahip Azure'da konumlardan birini seçmeniz gerekir. Şu anda GPU Vm'lerine sahip konumlardır: **Doğu ABD, Kuzey Orta ABD, Güney Orta ABD, Batı ABD 2, Kuzey Avrupa, Batı Avrupa**. En son liste için [bölge sayfasına göre Azure ürünleri](https://azure.microsoft.com/regions/services/) ve Ara **NC serisi** altında **işlem**. 
+      6. **Konum**: En uygun veri merkezi seçin. Genellikle, verilerinizden en iyi olduğundan veya en hızlı ağ erişimi için fiziksel konumunuza en yakın veri merkezi bulunur. GPU üzerinde derin öğrenme yapmanız gerekiyorsa, NC serisi GPU sanal makine örneklerine sahip Azure'da konumlardan birini seçmeniz gerekir. Şu anda, GPU Vm'lerine sahip konumları şunlardır: **Doğu ABD, Kuzey Orta ABD, Güney Orta ABD, Batı ABD 2, Kuzey Avrupa, Batı Avrupa**. En son liste için [bölge sayfasına göre Azure ürünleri](https://azure.microsoft.com/regions/services/) ve Ara **NC serisi** altında **işlem**. 
 
 
-   - **Ayarları**: coğrafi DSVM üzerinde GPU üzerinde derin öğrenme çalıştırmayı planlıyorsanız NC serisi GPU sanal makine boyutu seçin. Aksi takdirde, örnek tabanlı CPU birini seçebilirsiniz.  Sanal Makineniz için bir depolama hesabı oluşturun. 
+   - **Ayarları**: Derin öğrenme coğrafi DSVM üzerinde GPU üzerinde çalıştırmayı planlıyorsanız NC serisi GPU sanal makine boyutu seçin. Aksi takdirde, örnek tabanlı CPU birini seçebilirsiniz.  Sanal Makineniz için bir depolama hesabı oluşturun. 
    
-   - **Özet**: girdiğiniz tüm bilgilerin doğru olduğunu doğrulayın.
+   - **Özet**: Girdiğiniz tüm bilgilerin doğru olduğunu doğrulayın.
 
-   - **Satın alma**: tıklayın **satın** sağlamaya başlamak için. Hizmet koşulları için bir bağlantı sağlanır. VM, seçtiğiniz sunucu boyutu için işlem ötesinde herhangi bir ek ücreti yok **boyutu** adım. 
+   - **Satın alma**: Tıklayın **satın** sağlamaya başlamak için. Hizmet koşulları için bir bağlantı sağlanır. VM, seçtiğiniz sunucu boyutu için işlem ötesinde herhangi bir ek ücreti yok **boyutu** adım. 
 
 >[!NOTE]
 > Sağlama yaklaşık 20-30 dakika sürer. Sağlama durumunu Azure portalında görüntülenir.

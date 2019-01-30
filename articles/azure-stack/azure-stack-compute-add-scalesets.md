@@ -10,16 +10,17 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: sethm
 ms.reviewer: kivenkat
-ms.openlocfilehash: 2c615dd781b40c3ebb78ae291453c5b4b2d2ef4d
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 10/22/2018
+ms.openlocfilehash: 3f1c84961f2ad6bd15612917d33982ec96824257
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971836"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55252277"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Sanal makine ölçek kümeleri Azure Stack'te kullanılabilir yapın
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
   
 Sanal makine ölçek kümeleri Azure Stack işlem kaynaklarıdır. Bir özdeş sanal makine kümesini dağıtıp yönetmek için kullanabilirsiniz. Tüm aynı şekilde yapılandırılmış sanal makineler ile ölçek kümeleri, sanal makinelerin önceden hazırlanması gerekmez. Büyük işlem, büyük veri ve kapsayıcılı iş yüklerini hedefleyen büyük ölçekli hizmetler oluşturmayı kolaylaştırır.
 
@@ -33,8 +34,8 @@ Azure Stack üzerinde sanal makine ölçek kümelerini otomatik ölçeklendirme 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- **Market:** kayıt Azure Stack ile genel Azure Marketi'nde öğeleri kullanılabilirliğini sağlamak. Bölümündeki yönergeleri [kaydetme Azure Stack Azure ile](azure-stack-registration.md).
-- **İşletim sistemi görüntüsü:** bir sanal makine ölçek kümesi (VMSS) oluşturulabilmesi için önce VMSS kullanmak için VM görüntüleri indirin [Azure Stack Marketini](azure-stack-download-azure-marketplace-item.md). Görüntüleri zaten bir kullanıcı yeni bir VMSS oluşturabilmeniz için önce mevcut olması gerekir. 
+- **Market:** Azure Stack öğeleri Market'te kullanılabilirliğini etkinleştirmek için genel Azure ile kaydedin. Bölümündeki yönergeleri [kaydetme Azure Stack Azure ile](azure-stack-registration.md).
+- **İşletim sistemi yansıması:** Bir sanal makine ölçek kümesi (VMSS) oluşturulabilmesi için önce VMSS kullanmak için VM görüntüleri indirin [Azure Stack Marketini](azure-stack-download-azure-marketplace-item.md). Görüntüleri zaten bir kullanıcı yeni bir VMSS oluşturabilmeniz için önce mevcut olması gerekir. 
 
 ## <a name="use-the-azure-stack-portal"></a>Azure Stack portalını kullanın 
 

@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 44d4d3b7b82a2f23f973a9c94cb66c81c430efa8
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 56dab93087249082330c0f685e5457bc2585664c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55225321"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55237940"
 ---
 # <a name="how-to-deploy-a-conversation-learner-bot"></a>Konuşma Öğrenici bot dağıtma
 
@@ -118,6 +118,7 @@ Konuşma Öğrenici Bot Azure'a dağıtmak için adım adım yönergeler aşağ�
         CONVERSATION_LEARNER_SERVICE_URI | "https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/"
         CONVERSATION_LEARNER_MODEL_ID      | Uygulama kimliği GUID, elde edilen modeli için "ayarlar" altında konuşma Öğrenici arabiriminden >
         LUIS_AUTHORING_KEY               | Bu model için anahtar yazma LUIS
+        LUIS_SUBSCRIPTION_KEY            | Yazma kotanızı kullanmaktan kaçınmak yayımlanan botlar önerilir ancak gerekli değildir.
     
     4. Sayfanın üst kısımda "Kaydet"'a tıklayın
     5. Sol taraftaki gezinti öğesi "Derleme" açın

@@ -10,12 +10,13 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 12d5c2448bc6a5241f6aa4e283acdf9c5a0f602a
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.lastreviewed: 09/05/2018
+ms.openlocfilehash: 027d4a9f93032bfdd0f4cda96df74c92b5679540
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265660"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251580"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>Azure Stack yedekleme doğrulamak için ASDK kullanın
 Azure Stack dağıtma ve kullanıcı kaynaklarını tekliflerini, planları, kotalar ve abonelikler gibi sağlama sonra yapmanız gerekenler [Azure Stack altyapısını yedekleme etkinleştir](../azure-stack-backup-enable-backup-console.md). Zamanlama ve normal altyapı yedeklemeleri geri dönülemez bir donanım veya Hizmeti hatası olması durumunda altyapı Yönetimi veri kaybı olmadığından sağlayacaktır.

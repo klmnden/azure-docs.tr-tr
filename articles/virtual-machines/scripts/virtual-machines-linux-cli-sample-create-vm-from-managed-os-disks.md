@@ -3,7 +3,7 @@ title: Azure CLI Betik Örneği - Yönetilen bir diski işletim sistemi diski ol
 description: Azure CLI Betik Örneği - Yönetilen bir diski işletim sistemi diski olarak ekleyerek sanal makine oluşturma
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: ramankum
+author: ramankumarlive
 manager: kavithag
 editor: ramankum
 tags: azure-service-management
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 5d86710fd9173cd0bc3416fedec226f97f12d9d2
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
-ms.translationtype: HT
+ms.openlocfilehash: 319803a8b6c07de6efafa80789248c60a9cdad06
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29847684"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55241450"
 ---
 # <a name="create-a-virtual-machine-using-an-existing-managed-os-disk-with-cli"></a>Yönetilen bir diski işletim sistemi diski olarak ekleyerek sanal makine oluşturma
 

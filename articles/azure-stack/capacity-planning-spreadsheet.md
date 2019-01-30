@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 12/11/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.openlocfilehash: 6f6e680f7ce613d7a6d9f227765ce599c537e2d3
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.lastreviewed: 12/11/2018
+ms.openlocfilehash: d140b80ecb5fe2a7211245044b08f43fde4233a8
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106520"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240995"
 ---
 # <a name="azure-stack-capacity-planner"></a>Azure Stack kapasite Planlayıcısı
 Azure Stack Capacity Planner, Azure Stack kaynak kapasite planlaması için kullanılan bir elektronik tablodur. Kapasite Planlayıcısı çeşitli bilgi işlem kaynakları tahsis tasarlayın ve bunlar arasında seçim donanım tekliflerinin nasıl uyduğunu görmek yeteneği sağlar. Azure Stack hesaplayıcı'nın kullanılması için ayrıntılı yönergeler aşağıda verilmiştir.

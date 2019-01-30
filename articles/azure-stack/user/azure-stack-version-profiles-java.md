@@ -15,16 +15,17 @@ ms.topic: article
 ms.date: 09/28/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 5a97a683e7f25029199ba68ce3d5cee410c3cf29
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.lastreviewed: 09/28/2018
+ms.openlocfilehash: cd02845f648275ee17f763bd5a94b386f7ed64fd
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886833"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246373"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack"></a>Java'da Azure Stack ile API Sürüm profillerini kullanma
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 Java SDK'sı için Azure Stack Kaynak Yöneticisi'ni oluşturmanıza ve altyapınızı yönetmenize yardımcı olacak araçlar sağlar. İşlem, ağ, depolama, uygulama hizmetleri, SDK kaynak sağlayıcılarını içerir ve [KeyVault](../../key-vault/key-vault-whatis.md). Java SDK API profillerini .java dosyasının doğru modülleri yükler Pom.xml dosyasında bağımlılıklar dahil ederek içerir. Ancak, bağımlılık birden çok profilleri gibi ekleyebilirsiniz **2018-03-01-karma**, veya **son** Azure profil olarak. Kaynak türünüzü oluşturduğunuzda, kullanmak istediğiniz bu profillerden API sürümünü seçebilir ve böylelikle kullanarak bu bağımlılıklar doğru modülü yükler. Bu Azure Stack için en güncel API sürümlerine karşı geliştirirken en son sürümlerini Azure'da kullanmanıza olanak sağlar. Java SDK'sını kullanarak bir gerçek hibrit bulut geliştirici deneyimi sağlar. Java SDK API profillerini, hibrit bulut geliştirme genel Azure kaynakları ve Azure Stack'te kaynakları arasında geçiş yardımcı olarak etkinleştirin.
 
@@ -77,8 +78,8 @@ Java SDK'sını yüklemek için aşağıdaki adımları kullanın:
 
 4.  Yüklenmesi gereken paketleri kullanmak istediğiniz profili sürümüne bağlıdır. Paket adları profil sürümleri şunlardır:
     
-   - **com.microsoft.Azure.Profile\_2018\_03\_01\_karma**
-   - **com.microsoft.Azure**
+   - **com.microsoft.azure.profile\_2018\_03\_01\_hybrid**
+   - **com.microsoft.azure**
       - **en son**
 
 5.  Yoksa, bir abonelik oluşturur ve daha sonra kullanmak için abonelik Kimliğini kaydedin. Abonelik oluşturma hakkında yönergeler için bkz: [Azure Stack'te teklifleri abonelikleri oluşturma](../azure-stack-subscribe-plan-provision-vm.md).
@@ -149,9 +150,9 @@ Gerekli meta verilerini almak için: `<ResourceManagerUrl>/metadata/endpoints?ap
 
 ## <a name="existing-api-profiles"></a>Mevcut API profilleri
 
-1.  **com.microsoft.Azure.Profile\_2018\_03\_01\_karma**: son profil Azure Stack için yerleşik. En Azure Stack ile uyumlu 1808 damgada olduğu sürece veya diğer hizmetler için bu profili kullanın.
+1.  **com.microsoft.Azure.Profile\_2018\_03\_01\_karma**: Azure Stack için yerleşik son profili. En Azure Stack ile uyumlu 1808 damgada olduğu sürece veya diğer hizmetler için bu profili kullanın.
 
-2.  **com.microsoft.Azure**: tüm hizmetleri en son sürümlerine oluşan profili. Tüm hizmetler en son sürümlerini kullanın.
+2.  **com.microsoft.azure**: Tüm hizmetler en son sürümlerine oluşan profili. Tüm hizmetler en son sürümlerini kullanın.
 
 Azure Stack ve API profilleri hakkında daha fazla bilgi için bkz. [API özeti profilleri](../user/azure-stack-version-profiles.md#summary-of-api-profiles).
 

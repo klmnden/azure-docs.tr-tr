@@ -3,18 +3,18 @@ title: Azure Machine Learning hizmeti 59 karakter ya da daha az için fiili eyle
 description: Bunun nasıl yapılacağı ve müşteri kullanarak Azure Machine Learning'de sözcükleri öğrenin. Bu dize için 115 145 karakter makalesinde açıklar. Burada SEO tür eylem fiilleri kullanın. Bu bilgileri makale tarih damgası ile arama sayfası satır içi görüntülenir. Giriş para makalenizin hedefi tanımlıyorsa, uzunluğu için burada düzenlenen kullanabilirsiniz.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: your-msft-alias
 author: your-github-account-name
 ms.date: 04/10/2018
-ms.openlocfilehash: 1fd64cca8eb51cdcaa2eb6e8cbce853b6a55b0e6
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1367f09fa9cac3a5d3a23a1192ada49f16976125
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013012"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245557"
 ---
 # <a name="this-h1-is-the-title-of-the-article-it-appears-in-search-appears-at-the-top-of-article-second-greatest-impact-on-search-100-chars-or-less"></a>Bu H1 başlığı makalenin ' dir. Aramada, 100 karakter veya daha az ikinci en büyük etkisi olan makalenin üst Search'te göründüğü görünür
 

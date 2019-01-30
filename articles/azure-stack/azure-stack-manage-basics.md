@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
-ms.openlocfilehash: f22754a16c4765989b5773d099fc3ecda73040db
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 10/15/2018
+ms.openlocfilehash: a9bf2240e6e60a3d2d80bf4829d74f1043024d7e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972397"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239681"
 ---
 # <a name="azure-stack-administration-basics"></a>Azure Stack yönetim temel bilgileri
 Azure Stack Yönetim için yeni bilmeniz gereken birkaç şey vardır. Bu kılavuz, Azure Stack operatörü olarak sizin rolünüze genel bir bakış ve hızlı bir şekilde üretken olmak için bunları kullanıcılarınıza söylemeniz gerekenler sağlar.
@@ -63,7 +64,7 @@ Bu hizmetler, bunları kullanıcılarınıza sunabileceğiniz önce ek yapıland
 
 **Hizmet yol haritası**
 
-Azure Stack, Azure Hizmetleri için destek eklemeye devam edeceğiz. Gelecekteki yol haritası için bkz. [Azure Stack: bir Azure uzantısı](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409) teknik incelemesi. Ayrıca izleyebilirsiniz [Azure Stack blog gönderilerini](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview) yeni duyuruları.
+Azure Stack, Azure Hizmetleri için destek eklemeye devam edeceğiz. Gelecekteki yol haritası için bkz. [Azure Stack: Bir Azure uzantısı](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409) teknik incelemesi. Ayrıca izleyebilirsiniz [Azure Stack blog gönderilerini](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview) yeni duyuruları.
 
 ## <a name="what-account-should-i-use"></a>Hangi hesabı kullanmalıyım?
 Azure Stack yönetirken bilmeniz gereken birkaç hesabında dikkate alınacak noktalar vardır. Dağıtımlarda özellikle Windows Server Active Directory Federasyon Hizmetleri (ADFS) yerine Azure Active Directory (Azure AD) kimlik sağlayıcısı olarak kullanma. Azure Stack tümleşik sistemleri ve ASDK dağıtımları için aşağıdaki hesabı maddeler geçerlidir:
@@ -108,7 +109,7 @@ Azure Stack'te hizmetler ile nasıl çalışılacağını ve ortamına bağlanma
 
 Hizmetleri kullanın ve Azure Stack'te uygulamalar oluşturmak için önce kullanıcılarınızın anlamalısınız bilgisi yoktur. Örneğin, belirli PowerShell ve API sürüm gereksinimleri vardır. Ayrıca, bir Azure hizmeti ve Azure stack'teki eşdeğer hizmeti arasında bazı özellik farkları vardır. Kullanıcılarınızın aşağıdaki makaleleri gözden emin olun:
 
-- [Anahtar dikkat edilmesi gerekenler: hizmetlerini kullanarak veya Azure Stack için uygulamalar oluşturma](user/azure-stack-considerations.md)
+- [Önemli noktalar yer: Hizmetleri kullanarak veya Azure Stack için uygulamalar oluşturma](user/azure-stack-considerations.md)
 - [Azure Stack'te sanal makineler için dikkat edilmesi gerekenler](user/azure-stack-vm-considerations.md)
 - [Depolama: farklılıklar ve dikkat edilmesi gerekenler](user/azure-stack-acs-differences.md)
 

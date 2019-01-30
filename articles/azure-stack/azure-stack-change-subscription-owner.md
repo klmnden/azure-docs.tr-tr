@@ -15,12 +15,13 @@ ms.topic: get-started-article
 ms.date: 10/19/2018
 ms.author: sethm
 ms.reviewer: shnatara
-ms.openlocfilehash: 46dd9c786fddb2f6ce9fb8a761a1b9f135a82d74
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 10/19/2018
+ms.openlocfilehash: c9288d47dc9df8604c7eb676ba5d93f91a6b0063
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959205"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245693"
 ---
 # <a name="change-the-owner-for-an-azure-stack-user-subscription"></a>Bir Azure Stack kullanıcı aboneliği sahibini değiştirin
 
@@ -28,7 +29,7 @@ Azure Stack operatörleri, bir kullanıcı abonelik fatura sahibini değiştirme
 
 İki tür vardır *sahipleri* bir abonelik için atanan:
 
-- **Faturalandırma sahibi**: varsayılan olarak, fatura sahibi, abonelik bir teklifinden alır ve ardından söz konusu abonelik için fatura ilişkiyi sahip kullanıcı hesabıdır. Bu ayrıca aboneliğin yönetici hesabıdır. Yalnızca bir kullanıcı hesabı bu gösterim bir abonelikte olabilir. Bir fatura genellikle kuruluşunuz veya ekibiniz müşteri adayı sahibidir. 
+- **Faturalandırma sahibi**: Varsayılan olarak, fatura sahibi, abonelik bir teklifinden alır ve ardından söz konusu abonelik için fatura ilişkiyi sahip kullanıcı hesabıdır. Bu ayrıca aboneliğin yönetici hesabıdır. Yalnızca bir kullanıcı hesabı bu gösterim bir abonelikte olabilir. Bir fatura genellikle kuruluşunuz veya ekibiniz müşteri adayı sahibidir. 
 
   PowerShell cmdlet kullanın [kümesi AzsUserSubscription](/powershell/module/azs.subscriptions.admin/set-azsusersubscription) fatura sahibini değiştirmek için.  
 
@@ -45,10 +46,10 @@ Kullanıcı aboneliği fatura sahibini değiştirmek için aşağıdaki betiği 
 
 Çalıştırılmadan önce betiğin aşağıdaki değerleri değiştirin: 
  
-- **$ArmEndpoint**: ortamınız için Resource Manager uç noktasını belirtin.  
+- **$ArmEndpoint**: Ortamınız için Resource Manager uç noktasını belirtin.  
 - **$TenantId**: Kiracı kimliğinizi belirtin 
 - **$SubscriptionId**: Abonelik kimliğinizi belirtin
-- **$OwnerUpn**: olarak bir hesap belirtin **user@example.com** yeni faturalandırma sahibi olarak eklenecek.  
+- **$OwnerUpn**: Bir hesap olarak belirtmeniz **user@example.com** yeni faturalandırma sahibi olarak eklenecek.  
 
 ```PowerShell   
 # Set up Azure Stack admin environment

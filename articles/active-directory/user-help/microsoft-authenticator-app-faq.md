@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: a108d89ab3eb3cf9c7a729f14e3c88bf2b67b20b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 5a646f83d3bd6a2c2824aef679f8a46e352f2263
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55154108"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246941"
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Microsoft Authenticator uygulaması hakkında SSS
 
@@ -47,6 +47,8 @@ Microsoft Authenticator uygulamasını yerini Azure Authenticator uygulaması ve
 |Apple Watch ve telefonumu arasında bir iletişim hatası alıyorum. Sorun giderme için ne yapabilirim?|İzleme ekran telefonunuz ile iletişim kurulurken tamamlanmadan önce uyku moduna alındığında, bu hata oluşur.<br><br><b>Kurulum sırasında böyle bir durumda:</b><br>Kurulumu yeniden çalıştırmak süreç tamamlanana kadar Watch cihazınıza uyanık tutmak içermemesini sağlamayı deneyin. Aynı anda telefonunuzda uygulamasını açın ve görüntülenen tüm istemleri yanıtlayın.<br><br>Telefon ve izleme hala iletişim değil, aşağıdakileri deneyebilirsiniz:<ol><li>Microsoft Authenticator telefon uygulaması çıkın ve yeniden İphone'unuzda açın.</li><li>Force, Apple Watch companion uygulamasını kapatın.<ol><li> Watch cihazınıza Microsoft Authenticator companion uygulamasını açın</li><li>Kadar yan düğmesini basılı **kapatma** ekranı görüntülenir.</li><li>Yan düğmesini bırakın ve etkin uygulaması Dama dijital zorlamak için arama yapma basılı çıkın.</li></ol></li><li>Telefonunuza hem de Watch cihazınıza için hem Bluetooth ve Wi-Fi Kapat ve sonra bunları tekrar etkinleştirebilirsiniz.</li><li>İPhone ve Watch cihazınıza yeniden başlatın.</li></ol><b>Bir bildirim onaylanacak çalışırken böyle bir durumda:</b><br>Apple Watch bildirim onaylanacak çalıştığınızda ekran uyanık istek tamamlandı ve başarılı olduğunu gösteren sesi duymak kadar tutun.|
 |Neden olmayan Apple Watch için Microsoft Authenticator companion uygulaması eşitleniyor veya my watch'ta görünmeye?|Uygulama, saatin listemde, aşağıdakileri deneyin: <ol><li>Watch cihazınıza watchOS 4.0 veya üzerini çalıştırdığından emin olun.</li><li>Watch cihazınıza yeniden eşitleyin.</li></ol>|
 |Apple Watch Yardımcısı uygulamamı kilitlendi. İnceleme yapmak amacıyla, my kilitlenme günlüklerini gönderebilirim? |İlk kez analiz bizimle paylaşmak seçtiğiniz emin olmak sahip. TestFlight kullanıcısıysanız, henüz oturum açmadıysanız. Aksi takdirde, gidebilirsiniz **Ayarları > Gizlilik > Analytics** ve her ikisini de seçin **paylaşmak iPhone & Watch analytics** ve **uygulama geliştiricileri paylaşımıyla** seçenekleri.<br><br>Kaydolduktan sonra kilitlenme günlüklerini otomatik olarak bize araştırma için gönderilir, kilitlenmesini yeniden oluşturamadığınızda deneyebilirsiniz. Ancak, kilitlenme oluşturamıyorsanız, el ile günlük dosyaları kopyalayabilir ve bize gönderin.<ol><li>Watch uygulaması, telefonunuza Aç'ı Git **ayarlar > Genel**ve ardından **kopyalama Watch Analytics**.</li><li>Altında ilgili kilitlenme bulmak **ayarlar > Gizlilik > Analytics > Analiz verilerini**ve tüm metin el ile kopyalayın.</li><li>Telefon ve kopyalanan metni içine yapıştırma Microsoft Authenticator uygulamasını açın **uygulama geliştiricileri paylaşımıyla** metin kutusunu **günlükleri gönderin** sayfası.</li></ol>|
+|Uygulama kilidi özelliği nedir ve nasıl bana daha güvenli tutmak için yardımcı?|Bir kerelik geçiş kodları, uygulama bilgilerini ve uygulama ayarlarını daha güvenli tutmak için Microsoft Authenticator uygulamasını Uygulama kilidi özelliğini kapatabilirsiniz. Uygulama Kilidi açmak **ayarları** Microsoft Authenticator uygulamasının ekran anlamına gelir, Microsoft Authenticator uygulamasını her açtığınızda, PIN veya biyometrik kullanılarak kimlik doğrulaması istenir. Bu özellik ek koruma sağlar, bildirimlerinizde Microsoft Authenticator uygulamasını onaylamanız biçimini değiştirmez.<br><br>**Not**<br>Bir Android cihazında 30 saniyeden kısa bir süre içinde çalışan Microsoft Authenticator uygulamasını dönün, yeniden kimlik doğrulaması istenmez.| 
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

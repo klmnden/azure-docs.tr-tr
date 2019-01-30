@@ -1,6 +1,6 @@
 ---
 Başlık: Özel sinir ağları, Net # titleSuffix ile oluşturun: Azure Machine Learning Studio açıklaması: Net # sinir ağları belirtim dilinin söz dizimi Kılavuzu. Azure Machine Learning Studio'da özel sinir ağı modelleri oluşturmayı öğrenin.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: başvuru
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: başvuru
 
 Yazar: ericlicoding ms.author: amlstudiodocs MS.özel: Yazar önceki = heatherbshapiro, önceki ms.author=hshapiro ms.date: 03/01/2018
 ---

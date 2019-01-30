@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 12/27/2018
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: cd44aa1dcc0ac5f97d39dee91fb547a333cb6ccf
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.lastreviewed: 12/27/2018
+ms.openlocfilehash: 8f53bbd65053fe9ac2bf49478944dc99dac3acfd
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247716"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247859"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Azure Stack üzerinde desteklenen konuk işletim sistemleri
 
@@ -61,14 +62,14 @@ Linux dağıtımları kullanılabilir olarak Market'te listelenen gerekli Window
 | CentOS tabanlı 6.9 | 64 bit | Rogue Wave | Evet |
 | CentOS tabanlı 7.4 | 64 bit | Rogue Wave | Evet |
 | ClearLinux | 64 bit | ClearLinux.org | Evet |
-| Linux kapsayıcısı |  64 bit | CoreOS | Dengeli |
+| Container Linux |  64 bit | CoreOS | Dengeli |
 | Debian 8 "Jessie" | 64 bit | credativ |  Evet |
 | Debian 9 "Uzat" | 64 bit | credativ | Evet |
 | Red Hat Enterprise Linux 7.x | 64 bit | Red Hat |Kendi görüntünüzü getirin |
 | SLES 11SP4 | 64 bit | SUSE | Evet |
 | SLES 12SP3 | 64 bit | SUSE | Evet |
-| Ubuntu 14.04 LTS | 64 bit | Canonical | Evet |
-| Ubuntu 16.04 LTS | 64 bit | Canonical | Evet |
+| Ubuntu 14.04-LTS | 64 bit | Canonical | Evet |
+| Ubuntu 16.04-LTS | 64 bit | Canonical | Evet |
 | Ubuntu 18.04-LTS | 64 bit | Canonical | Evet |
 
 Red Hat Enterprise Linux desteği için bilgi [Red Hat ve Azure Stack: Sık sorulan sorular](https://access.redhat.com/articles/3413531).

@@ -3,18 +3,18 @@ title: Azure Service Fabric Mesh uygulama parolalarını yönetme | Microsoft Do
 description: Uygulama gizli dizilerini güvenli bir şekilde oluşturabilir ve bir Service Fabric Mesh uygulaması dağıtma şekilde yönetin.
 services: service-fabric-mesh
 keywords: gizli dizi
-author: aljo
+author: aljo-microsoft
 ms.author: aljo
 ms.date: 11/28/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
 manager: chackdan
-ms.openlocfilehash: d92726ebc2cd4c6c44afdb2d2a9f53ab5441ac32
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 06d8519836129a557ec69d59d15eb12129e8099b
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52893524"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55236760"
 ---
 # <a name="manage-service-fabric-mesh-application-secrets"></a>Service Fabric Mesh uygulama parolalarını yönetme
 Service Fabric Mesh gizli Azure kaynaklarını destekler. Service Fabric Mesh gizli dizi herhangi bir depolama bağlantı dizeleri, parolalar veya güvenli şekilde iletilmesini ve depolanan gereken diğer değerleri gibi hassas metin bilgi olabilir. Bu makalede, Service Fabric güvenli Store hizmeti dağıtma ve gizli dizileri korumak için nasıl kullanılacağını gösterir.
@@ -183,7 +183,7 @@ Bir YAML dosyası Mesh gizli anahtarları/değerleri kaynaklarında bildirmek na
 
 ## <a name="modify-mesh-application-to-reference-mesh-secret-values"></a>Mesh uygulaması gizli Mesh değerleri başvurmak için değiştirme
 Service Fabric Örgü uygulamalar Store hizmet parolasını güvenli değerleri kullanmak için aşağıdaki iki dizenin dikkat etmeniz gerekir:
-1. Micrsoft.ServiceFabricMesh/Secrets.name dosya adını içerir ve düz metin parolaları değeri içerir.
+1. Microsoft.ServiceFabricMesh/Secrets.name dosya adını içerir ve düz metin parolaları değeri içerir.
 2. Windows veya Linux ortam değişkeni "Fabric_SettingPath" nerede Store hizmet gizli dizileri güvenli değerleri içeren dosyalar erişilebilir olacaktır için dizin yolunu içerir. Bunun için "C:\Settings" olan Windows barındırılan ve "/ var/ayarları" kafes Linux barındırılan uygulamalar için sırasıyla.
 
 ## <a name="deploy-or-use-a-rolling-upgrade-for-mesh-application-to-consume-secret-values"></a>Dağıtmanıza veya gizli değerler kullanılacağı Mesh uygulaması için sıralı yükseltme

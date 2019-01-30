@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning service
 description: Azure Machine Learning hizmeti ile dağıtılmış bir web hizmeti güvenli hale getirme hakkında bilgi edinin. Web hizmetlerine erişimi kısıtlama ve Güvenli Yuva Katmanı (SSL) kullanan istemciler tarafından gönderilen verilerin güvenliğini sağlamak ve anahtar tabanlı kimlik doğrulaması.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2018
 ms.custom: seodec18
-ms.openlocfilehash: 43f4aa5cc0d8545c6148fc15991817356ff69827
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 2c82c39de9b403e2e35f40c0290c8642c702790f
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228109"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55248070"
 ---
 # <a name="use-ssl-to-secure-web-services-with-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile web hizmetlerinin güvenliğini sağlamak için SSL kullan
 

@@ -9,17 +9,17 @@ ms.service: storage
 ms.author: tamram
 ms.date: 11/14/2018
 ms.topic: quickstart
-ms.component: blobs
-ms.openlocfilehash: c72cd83af2b06b19b285d3c939c0d45b995464d9
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.subservice: blobs
+ms.openlocfilehash: a5433284d9722ce907b962be7ba437ef32ad819c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711491"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245391"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
-# <a name="quickstart-upload-list-and-delete-blobs-using-javascripthtml-in-the-browser"></a>Hızlı Başlangıç: Tarayıcıda JavaScript/HTML kullanarak blobları karşıya yükleme, listeleme ve silme
+# <a name="quickstart-upload-list-and-delete-blobs-using-javascripthtml-in-the-browser"></a>Hızlı Başlangıç: Karşıya yükleme, listeleme ve tarayıcıda JavaScript/HTML kullanarak blobları silme
 
 Bu hızlı başlangıçta, tamamen tarayıcıdan çalıştırılan koddan blobların nasıl yönetileceği gösterilmektedir. Burada kullanılan yaklaşım, blob depolama hesabınıza korumalı erişimi güvence altına almak için gerekli güvenlik önlemlerinin nasıl kullanılacağını göstermektedir. Bu hızlı başlangıcı tamamlamak bir [Azure aboneliğinizin](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) olması gerekir.
 
@@ -78,9 +78,9 @@ az storage account generate-sas
 ```
 Her parametreden sonraki değer serisini biraz şifreli bulabilirsiniz. Bu parametre değerleri, kendi ilgili izninin ilk harfinden alınır. Aşağıdaki tabloda değerlerin nereden geldiği açıklanmıştır: 
 
-| Parametre        | Değer   | Açıklama  |
+| Parametre        | Value   | Açıklama  |
 |------------------|---------|---------|
-| *permissions*    | racwdl  | Bu SAS *read*, *append*, *create*, *write*, *delete* ve *list* özelliklerine izin verir. |
+| *izinleri*    | racwdl  | Bu SAS *read*, *append*, *create*, *write*, *delete* ve *list* özelliklerine izin verir. |
 | *resource-types* | sco     | SAS’den etkilenen kaynaklar *service*, *container* ve *object* kaynaklarıdır. |
 | *services*       | b       | SAS’den etkilenen hizmet *blob* hizmetidir. |
 
@@ -251,7 +251,7 @@ document.getElementById('delete-button').addEventListener('click', () => {
 > Bu kod örneğinin çalışması için *blobName*’e ilişkin bir dize değeri sağlamanız gerekir.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
-Bu hızlı başlangıç sırasında oluşturulan kaynakları temizlemek için [Azure portalına](https://portal.azure.com) geri dönün ve depolama hesabınızı seçin. Seçtikten sonra şuraya giderek depolama hesabınızı silebilirsiniz: **Genel bakış > Depolama hesabını sil**.
+Bu hızlı başlangıç sırasında oluşturulan kaynakları temizlemek için [Azure portalına](https://portal.azure.com) geri dönün ve depolama hesabınızı seçin. Seçildikten sonra şuraya giderek depolama hesabını silebilirsiniz: **Genel Bakış > depolama hesabını Sil**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Dosya yüklemeleri sırasında blobları ve rapor ilerleme durumunu indirme hakkında bilgi almak için örnekleri araştırın.

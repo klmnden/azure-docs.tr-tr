@@ -13,16 +13,17 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: mabrigg
 ms.reviewer: fiseraci
-ms.openlocfilehash: 4641dce6fe8518016ee85cd480de6d11354fe170
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.lastreviewed: 11/05/2018
+ms.openlocfilehash: 09d3d996e4c939d6691162d66f303536a3f2038d
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037230"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239273"
 ---
 # <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>Ayrıcalıklı uç noktayı kullanarak Azure stack'teki güncelleştirmelerini izleme
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri*
 
 Kullanabileceğiniz [ayrıcalıklı uç nokta](azure-stack-privileged-endpoint.md) Azure Stack ilerlemesini izlemek için güncelleştirme çalıştırın ve başarısız bir güncelleştirme son başarılı adımından çalışmaya devam etmek için Azure Stack portalını kullanılamaz duruma gelir.  Azure Stack portalını kullanarak Azure Stack'te güncelleştirmeleri yönetmek için önerilen yöntemdir.
 
@@ -35,7 +36,7 @@ Güncelleştirme yönetimi için aşağıdaki yeni PowerShell cmdlet'leri, Azure
 | | |
 
 ## <a name="verify-the-cmdlets-are-available"></a>Cmdlet'lerin kullanılabilir olduğunu doğrulayın
-Cmdlet'ler, Azure Stack için 1710 güncelleştirme paketindeki yeni olduğundan, izleme olanağı kullanılabilir olmadan önce belirli bir noktaya almak 1710 güncelleştirme işlemi gerekiyor. Genellikle, cmdlet'leri Yönetici portalını durum 1710 güncelleştirme sırasında olduğunu gösteriyorsa, kullanılabilir **depolama konakları yeniden** adım. Özellikle, cmdlet güncelleştirme sırasında ortaya çıkan **. adım: adım 2.6 - güncelleştirme PrivilegedEndpoint beyaz liste çalıştıran**.
+Cmdlet'ler, Azure Stack için 1710 güncelleştirme paketindeki yeni olduğundan, izleme olanağı kullanılabilir olmadan önce belirli bir noktaya almak 1710 güncelleştirme işlemi gerekiyor. Genellikle, cmdlet'leri Yönetici portalını durum 1710 güncelleştirme sırasında olduğunu gösteriyorsa, kullanılabilir **depolama konakları yeniden** adım. Özellikle, cmdlet güncelleştirme sırasında ortaya çıkan **. adım: 2.6 - güncelleştirme PrivilegedEndpoint beyaz liste adım çalıştırılıyor**.
 
 Ayrıca, cmdlet öğelerini programlı olarak ayrıcalıklı uç noktasından komut listesi sorgulayarak kullanılabilir olup olmadığını belirleyebilirsiniz. Bunu yapmak için donanım yaşam döngüsü konak ya da bir ayrıcalıklı erişim iş istasyonu aşağıdaki komutları çalıştırın. Ayrıca, bir güvenilir ana bilgisayar ayrıcalıklı uç noktası olduğundan emin olun. Daha fazla bilgi için bkz: 1. adımı [ayrıcalıklı uç noktasına erişmek](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). 
 

@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning service
 description: Bir modeli Azure Machine Learning modeli ile dağıttığınızda, oluşturulan bir web hizmetinin nasıl kullanılacağı hakkında bilgi edinin. Web hizmeti REST API sunar. İstemciler bu API için tercih ettiğiniz programlama dilini kullanarak oluşturun.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: 96a96bcb007d904e9ffbee355f896bde8b509820
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b83542a11ce2351214ac8f15a6902d1a90f871ee
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55177161"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242272"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Bir web hizmeti olarak bir Azure Machine Learning modeli kullanma
 

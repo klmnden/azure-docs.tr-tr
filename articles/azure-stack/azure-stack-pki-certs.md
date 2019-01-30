@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 6cf32ba50e83b95d51493244ef8e8646433b0b02
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.lastreviewed: 01/02/2019
+ms.openlocfilehash: 93e6345ba50bab21e03fb7a30148ea51c52a10f2
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024952"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244258"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack ortak anahtar altyapısı sertifika gereksinimleri
 
@@ -74,10 +75,10 @@ Dağıtımınız, [Bölge] ve [externalfqdn] değerleri bölge ve Azure Stack si
 | Azure Resource Manager'a genel | yönetimi. &lt;bölge >. &lt;fqdn > | Azure Resource Manager | &lt;region>.&lt;fqdn> |
 | Azure Resource Manager Yöneticisi | adminmanagement. &lt;bölge >. &lt;fqdn > | Azure Resource Manager | &lt;region>.&lt;fqdn> |
 | ACSBlob | *.blob.&lt;region>.&lt;fqdn><br>(Joker SSL sertifikası) | Blob Depolama | BLOB. &lt;bölge >. &lt;fqdn > |
-| ACSTable | * .table. &lt;bölge >. &lt;fqdn ><br>(Joker SSL sertifikası) | Tablo Depolama | Tablo. &lt;bölge >. &lt;fqdn > |
-| ACSQueue | * .queue. &lt;bölge >. &lt;fqdn ><br>(Joker SSL sertifikası) | Kuyruk Depolama | Kuyruk. &lt;bölge >. &lt;fqdn > |
-| KeyVault | * .vault. &lt;bölge >. &lt;fqdn ><br>(Joker SSL sertifikası) | Key Vault | Kasa. &lt;bölge >. &lt;fqdn > |
-| KeyVaultInternal | *.adminvault. &lt;bölge >. &lt;fqdn ><br>(Joker SSL sertifikası) |  İç anahtar kasası |  adminvault. &lt;bölge >. &lt;fqdn > |
+| ACSTable | *.table.&lt;region>.&lt;fqdn><br>(Joker SSL sertifikası) | Tablo Depolama | Tablo. &lt;bölge >. &lt;fqdn > |
+| ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(Joker SSL sertifikası) | Kuyruk Depolama | queue.&lt;region>.&lt;fqdn> |
+| KeyVault | *.vault.&lt;region>.&lt;fqdn><br>(Joker SSL sertifikası) | Key Vault | vault.&lt;region>.&lt;fqdn> |
+| KeyVaultInternal | *.adminvault.&lt;region>.&lt;fqdn><br>(Joker SSL sertifikası) |  İç anahtar kasası |  adminvault.&lt;region>.&lt;fqdn> |
 | Yönetici uzantısı konağı | *.adminhosting. \<bölge >. \<fqdn > (joker SSL sertifikaları) | Yönetici uzantısı konağı | adminhosting. \<bölge >. \<fqdn > |
 | Genel uzantı konak | * .hosting. \<bölge >. \<fqdn > (joker SSL sertifikaları) | Genel uzantı konak | barındırma. \<bölge >. \<fqdn > |
 
@@ -103,10 +104,10 @@ Aşağıdaki tabloda, SQL ve MySQL bağdaştırıcısı ve App Service için ger
 |Kapsam (bölge başına)|Sertifika|Gerekli bir sertifika konusu ve konu alternatif adları (SAN)|Alt etki alanı ad alanı|
 |-----|-----|-----|-----|
 |SQL, MySQL|SQL ve MySQL|&#42;.dbadapter.  *&lt;bölge >.&lt; FQDN >*<br>(Joker SSL sertifikası)|dbadapter.*&lt;region>.&lt;fqdn>*|
-|App Service|Web trafiği varsayılan SSL sertifikası|&#42;.appservice.  *&lt;bölge >.&lt; FQDN >*<br>&#42;. scm.appservice.  *&lt;bölge >.&lt; FQDN >*<br>&#42;. sso.appservice.  *&lt;bölge >.&lt; FQDN >*<br>(Çoklu etki alanı joker SSL sertifikası<sup>1</sup>)|appservice.  *&lt;bölge >.&lt; FQDN >*<br>SCM.appservice.  *&lt;bölge >.&lt; FQDN >*|
-|App Service|API|api.appservice.  *&lt;bölge >.&lt; FQDN >*<br>(SSL sertifikası<sup>2</sup>)|appservice.  *&lt;bölge >.&lt; FQDN >*<br>SCM.appservice.  *&lt;bölge >.&lt; FQDN >*|
-|App Service|FTP|FTP.appservice.  *&lt;bölge >.&lt; FQDN >*<br>(SSL sertifikası<sup>2</sup>)|appservice.  *&lt;bölge >.&lt; FQDN >*<br>SCM.appservice.  *&lt;bölge >.&lt; FQDN >*|
-|App Service|SSO|SSO.appservice.  *&lt;bölge >.&lt; FQDN >*<br>(SSL sertifikası<sup>2</sup>)|appservice.  *&lt;bölge >.&lt; FQDN >*<br>SCM.appservice.  *&lt;bölge >.&lt; FQDN >*|
+|App Service|Web trafiği varsayılan SSL sertifikası|&#42;.appservice.*&lt;region>.&lt;fqdn>*<br>&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*<br>&#42;.sso.appservice.*&lt;region>.&lt;fqdn>*<br>(Çoklu etki alanı joker SSL sertifikası<sup>1</sup>)|appservice.  *&lt;bölge >.&lt; FQDN >*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
+|App Service|API|api.appservice.  *&lt;bölge >.&lt; FQDN >*<br>(SSL sertifikası<sup>2</sup>)|appservice.  *&lt;bölge >.&lt; FQDN >*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
+|App Service|FTP|FTP.appservice.  *&lt;bölge >.&lt; FQDN >*<br>(SSL sertifikası<sup>2</sup>)|appservice.  *&lt;bölge >.&lt; FQDN >*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
+|App Service|SSO|sso.appservice.*&lt;region>.&lt;fqdn>*<br>(SSL sertifikası<sup>2</sup>)|appservice.  *&lt;bölge >.&lt; FQDN >*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
 
 <sup>1</sup> birden fazla joker konu alternatif adı ile bir sertifika gerektirir. Tek bir sertifikanın birden fazla joker karakter SAN'lar tüm ortak sertifika yetkilileri tarafından desteklenmiyor olabilir 
 

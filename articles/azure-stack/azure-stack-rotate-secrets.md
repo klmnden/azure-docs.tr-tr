@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 12/18/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: e4131bc8f038957e52b914937b2d45e670be8f5f
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.lastreviewed: 12/18/2018
+ms.openlocfilehash: 09988009712f9312eb97d5c32dc8991ec5b2f1f9
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157284"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251359"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Azure Stack gizli Döndür
 
@@ -137,7 +138,7 @@ Aşağıdaki yönergeleri kullanarak gizli döndürmeye çalışıyor, bu uyarı
 > Örneğin:
 > - Dosya paylaşımını =  **\\ \\ \<IPADDRESS >\\\<ShareName >\\**
 > - CertFolder = **Certificates\AAD**
-> - FullPath =  **\\ \\ \<IPADDRESS >\\\<ShareName > \Certificates\AAD**
+> - FullPath = **\\\\\<IPAddress>\\\<ShareName>\Certificates\AAD**
 
 ## <a name="rotating-external-secrets"></a>Dış gizli anahtarları döndürme
 
@@ -297,13 +298,13 @@ Start-SecretRotation [-ReRun] [-Internal]
 
 ### <a name="parameters"></a>Parametreler
 
-| Parametre | Tür | Gereklidir | Konum | Varsayılan | Açıklama |
+| Parametre | Type | Gereklidir | Konum | Varsayılan | Açıklama |
 | -- | -- | -- | -- | -- | -- |
 | PfxFilesPath | Dize  | False  | adlı  | None  | Fileshare yolu **\Certificates** tüm dış içeren dizin ağ uç noktası sertifikaları. Yalnızca dış gizli anahtarları döndürürken gereklidir. Son dizin olmalıdır **\Certificates**. |
 | CertificatePassword | SecureString | False  | adlı  | None  | -PfXFilesPath sağlanan tüm sertifikalar için parola. Dış gizli anahtarları Döndürülmüş olduğunda PfxFilesPath sağlanıyorsa değer gereklidir. |
 | İç | Dize | False | adlı | None | İç bayrağı, iç altyapı gizli dizileri döndürmek Azure Stack operatörü istediği zaman kullanılmalıdır. |
 | PathAccessCredential | PSCredential | False  | adlı  | None  | PowerShell kimlik bilgilerini dosya paylaşımını **\Certificates** tüm dış içeren dizin ağ uç noktası sertifikaları. Yalnızca dış gizli anahtarları döndürürken gereklidir.  |
-| Yeniden çalıştırma | SwitchParameter | False  | adlı  | None  | Gizli anahtar döndürme, başarısız bir girişimden sonra reattempted herhangi bir zamanda yeniden kullanılması gerekir. |
+| ReRun | SwitchParameter | False  | adlı  | None  | Gizli anahtar döndürme, başarısız bir girişimden sonra reattempted herhangi bir zamanda yeniden kullanılması gerekir. |
 
 ### <a name="examples"></a>Örnekler
 

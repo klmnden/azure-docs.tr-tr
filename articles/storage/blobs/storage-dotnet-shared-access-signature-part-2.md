@@ -8,15 +8,15 @@ ms.topic: article
 ms.devlang: dotnet
 ms.date: 05/15/2017
 ms.author: tamram
-ms.component: blobs
-ms.openlocfilehash: 6e33f700e9f453f419bf431d772d3db27e806ac0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: blobs
+ms.openlocfilehash: 9c5f32bb1b4f335fab11f0fd865421f2eec5eee9
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240707"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244921"
 ---
-# <a name="shared-access-signatures-part-2-create-and-use-a-sas-with-blob-storage"></a>Paylaşılan erişim imzaları, 2. Bölüm: Oluşturma ve bir SAS Blob Depolama ile kullanma
+# <a name="shared-access-signatures-part-2-create-and-use-a-sas-with-blob-storage"></a>Paylaşılan erişim imzaları, bölüm 2: Oluşturma SAS ve Blob Depolama ile kullanma
 
 [1. bölüm](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) araştırılan Bu öğretici paylaşılan erişim imzaları (SAS) ve bunları kullanmaya yönelik en iyi yöntemler açıklanmıştır. 2. bölüm oluşturma ve ardından Blob Depolama ile paylaşılan erişim imzaları kullanma gösterilmektedir. Örnekler C# dilinde yazılmıştır ve .NET için Azure depolama istemci kitaplığını kullanın. Bu öğreticideki örneklerde:
 
@@ -28,11 +28,11 @@ ms.locfileid: "51240707"
 ## <a name="about-this-tutorial"></a>Bu öğretici hakkında
 Bu öğreticide, oluşturma ve kapsayıcılar ve bloblar için paylaşılan erişim imzaları kullanma gösteren iki konsol uygulaması oluşturacağız:
 
-**1 uygulama**: yönetim uygulaması. Bir kapsayıcı ve blob için paylaşılan erişim imzası oluşturur. Depolama hesabı erişim anahtarı, kaynak kodunda içerir.
+**1 uygulama**: Yönetim uygulaması. Bir kapsayıcı ve blob için paylaşılan erişim imzası oluşturur. Depolama hesabı erişim anahtarı, kaynak kodunda içerir.
 
-**Uygulama 2**: istemci uygulama. İlk uygulama ile oluşturulan paylaşılan erişim imzalarını kullanma erişimleri kapsayıcı ve blob kaynakları. Erişim kapsayıcı ve blob kaynaklara--yalnızca paylaşılan erişim imzalarını kullanır, çalıştığı *değil* depolama hesabı erişim anahtarı içerir.
+**Uygulama 2**: İstemci uygulaması. İlk uygulama ile oluşturulan paylaşılan erişim imzalarını kullanma erişimleri kapsayıcı ve blob kaynakları. Erişim kapsayıcı ve blob kaynaklara--yalnızca paylaşılan erişim imzalarını kullanır, çalıştığı *değil* depolama hesabı erişim anahtarı içerir.
 
-## <a name="part-1-create-a-console-application-to-generate-shared-access-signatures"></a>1. Bölüm: paylaşılan erişim imzaları üretmek için bir konsol uygulaması oluşturma
+## <a name="part-1-create-a-console-application-to-generate-shared-access-signatures"></a>1. Bölüm: Paylaşılan erişim imzaları üretmek için bir konsol uygulaması oluşturma
 İlk olarak, Azure depolama istemci kitaplığı için .NET yüklü olduğundan emin olun. Yükleyebileceğiniz [NuGet paketini](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet paketini") istemci kitaplığı için en güncel derlemeleri içeren. En son düzeltmeler olmasını sağlamak için önerilen yöntem budur. İstemci kitaplığının en son sürümünün bir parçası olarak indirebilirsiniz [.NET için Azure SDK'sı](https://azure.microsoft.com/downloads/).
 
 Visual Studio'da yeni bir Windows konsol uygulaması oluşturun ve adlandırın **GenerateSharedAccessSignatures**. Başvuruları Ekle [Microsoft.WindowsAzure.ConfigurationManager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager) ve [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) aşağıdaki yaklaşımlardan birini kullanarak:
@@ -337,7 +337,7 @@ Container SAS URI using stored access policy: https://storagesample.blob.core.wi
 Blob SAS URI using stored access policy: https://storagesample.blob.core.windows.net/sascontainer/sasblobpolicy.txt?sv=2016-05-31&sr=b&si=tutorialpolicy&sig=%2FkTWkT23SS45%2FoF4bK2mqXkN%2BPKs%2FyHuzkfQ4GFoZVU%3D
 ```
 
-## <a name="part-2-create-a-console-application-to-test-the-shared-access-signatures"></a>2. Bölüm: paylaşılan erişim imzaları'nı test etmek için bir konsol uygulaması oluşturun
+## <a name="part-2-create-a-console-application-to-test-the-shared-access-signatures"></a>2. Bölüm: Paylaşılan erişim imzaları'nı test etmek için bir konsol uygulaması oluşturun
 Önceki örneklerde oluşturulan paylaşılan erişim imzaları test etmek için kapsayıcı ve blob işlemleri gerçekleştirmek için imzalarını kullanır ikinci bir konsol uygulaması oluşturacağız.
 
 > [!NOTE]
@@ -589,7 +589,7 @@ Additional error information: The remote server returned an error: (403) Forbidd
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-* [Paylaşılan erişim imzaları, bölüm 1: SAS modelini anlama](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* [Paylaşılan erişim imzaları, 1. Bölüm: SAS modelini anlama](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Kapsayıcılar ve bloblar için anonim okuma erişimini yönetme](storage-manage-access-to-resources.md)
 * [Paylaşılan erişim imzası (REST API'si) ile erişim için temsilci seçme](https://msdn.microsoft.com/library/azure/ee395415.aspx)
 * [Tablo ve kuyruk SAS ile tanışın](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)

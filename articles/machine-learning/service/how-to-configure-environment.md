@@ -6,18 +6,18 @@ services: machine-learning
 author: rastala
 ms.author: roastala
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: b098ce78143cbcfd53d6ab1c7e4127df336f2bc4
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 02d0afd18ad966baf8954ae5add180c970fe302e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55212044"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247417"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning için bir geliştirme ortamı yapılandırma
 
@@ -248,7 +248,7 @@ Databricks kümenizi hazırlamak ve örnek not defterleri edinmek için:
 
 1. Oluşturma bir [Databricks kümesine](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) aşağıdaki ayarlara sahip:
 
-    | Ayar | Value |
+    | Ayar | Değer |
     |----|---|
     | Küme adı | yourclustername |
     | Databricks Çalışma Zamanı | Tüm olmayan ML çalışma zamanı (olmayan ML 4.x, 5.x) |
@@ -257,7 +257,7 @@ Databricks kümenizi hazırlamak ve örnek not defterleri edinmek için:
 
     Yalnızca, otomatik makine öğrenimi Databricks üzerinde kullanıyorsanız, bu ayarları kullanın:
     
-    |   Ayar | Value |
+    |   Ayar | Değer |
     |----|---|
     | Çalışan düğümü VM türleri | Tercih edilen VM bellek için iyileştirilmiş |
     | Otomatik Ölçeklendirmeyi Etkinleştirme | Seçeneğinin işaretini kaldırın |
@@ -271,13 +271,13 @@ Databricks kümenizi hazırlamak ve örnek not defterleri edinmek için:
     * [Bir kitaplığı oluşturma](https://docs.databricks.com/user-guide/libraries.html#create-a-library) bu ayarları biriyle (_yalnızca bu seçeneklerden birini_):
     
         * Azure Machine Learning SDK yüklemek için _olmadan_ otomatik makine öğrenme özelliği:
-            | Ayar | Value |
+            | Ayar | Değer |
             |----|---|
             |Kaynak | Python yükleme Yumurta veya Pypı
             |Pypı adı | azureml-sdk[databricks]
     
         * Azure Machine Learning SDK yüklemek için _ile_ machine learning otomatik:
-            | Ayar | Value |
+            | Ayar | Değer |
             |----|---|
             |Kaynak | Python yükleme Yumurta veya Pypı
             |Pypı adı | azureml-sdk[automl_databricks]

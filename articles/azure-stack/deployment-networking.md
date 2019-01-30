@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: aac8713f94482e0fc809f24786b96d29b23b076a
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.lastreviewed: 08/30/2018
+ms.openlocfilehash: 3e53d79682772be7eacb649148ceeaec7d9f2865
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43343397"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247587"
 ---
 # <a name="about-deployment-network-traffic"></a>Dağıtım ağ trafiğini hakkında
 Azure Stack sırasında ağa trafiğin nasıl akacağını anlama dağıtım başarılı bir dağıtım sağlamak için önemlidir. Bu makalede beklenmesi gerekenler bir anlayış sağlamak için dağıtım işlemi sırasında beklenen ağ trafiğinin gösterilmektedir.
@@ -39,7 +40,7 @@ Azure Stack çözüm, Azure Stack bileşenleri barındırmak için kullanılan s
 Dağıtım başlamadan önce dağıtım başarıyla tamamlandıktan emin olmak için OEM tarafından doğrulanabilecek bazı en düşük gereksinimi yoktur. Bu gereksinimleri ortamını hazırlayın ve doğrulama başarılı olduğundan emin olun yardımcı olacak anlama, bunlar:
 
 -   [Sertifikalar](azure-stack-pki-certs.md)
--   [Azure aboneliği](https://azure.microsoft.com/free/?b=17.06)
+-   [Azure Aboneliği](https://azure.microsoft.com/free/?b=17.06)
 -   İnternet erişimi
 -   DNS
 -   NTP

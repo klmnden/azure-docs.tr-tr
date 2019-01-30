@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 09/12/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 3cbe7c1d458e95aa27c51f0d1c9f61326888a5ab
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 09/12/2018
+ms.openlocfilehash: afb4e634b7e255ef8f2cfc84319029af7412372e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962690"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251886"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Azure Stack tümleşik sistemleri için veri merkezi tümleştirme konuları
 Bir Azure Stack tümleşik sisteminde ilgileniyorsanız, bazı önemli planlama konuları dağıtım ve sistem Merkezinizde nasıl uyduğunu anlamanız gerekir. Bu makalede, Azure Stack çok düğümlü sisteminiz için önemli altyapısı kararları vermenize yardımcı olmak için bu konuları üst düzey bir genel bakış sağlar. Bu noktalar anlaşılması, veri merkezinizi Azure Stack dağıtırken OEM donanım satıcınız ile çalışırken yardımcı olur.  
@@ -196,7 +197,7 @@ Linux veya Windows Iaas sanal makinelerini yedeklemek için yedekleme ürünleri
 ## <a name="learn-more"></a>Daha fazla bilgi edinin
 
 - Kullanım örnekleri, satın alma, iş ortakları ve OEM donanım satıcıları hakkında daha fazla bilgi için bkz. [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) ürün sayfası.
-- Tümleşik sistemler, Azure Stack için yol haritası ve coğrafi kullanılabilirlik hakkında bilgi teknik incelemesine bakın: [Azure Stack: bir Azure uzantısı](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
+- Tümleşik sistemler, Azure Stack için yol haritası ve coğrafi kullanılabilirlik hakkında bilgi teknik incelemesine bakın: [Azure Stack: Bir Azure uzantısı](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Azure Stack dağıtım bağlantı modelleri](azure-stack-connection-models.md)

@@ -1,6 +1,6 @@
 ---
 Başlık: Web hizmeti titleSuffix kullan: Azure Machine Learning Studio açıklaması: Bir machine learning hizmeti Azure Machine Learning Studio dağıtıldıktan sonra RESTFul Web hizmeti gerçek zamanlı istek-yanıt hizmeti ya da bir toplu yürütme hizmeti olarak kullanılabilir.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 06/02/2017
 ---

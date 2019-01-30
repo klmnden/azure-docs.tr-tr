@@ -13,12 +13,13 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: e9c2bf52cb1999381d7d1cde3a8f62710514b915
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.lastreviewed: 01/11/2019
+ms.openlocfilehash: 6f3b4632674217133f4af4c95143d2df51ecde6a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884529"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247468"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Azure Stack'te desteklenen sanal makine boyutları
 
@@ -151,7 +152,7 @@ Belleği en iyi duruma getirilmiş VM boyutları, ilişkisel veritabanı sunucul
 ### <a name="mo-d"></a>D serisi
 |Boyut     |Sanal işlemci     |Bellek (GiB) | Geçici depolama alanı (GiB)  | En yüksek işletim sistemi disk aktarım hızı (IOPS) | Maksimum geçici depolama aktarım hızı (IOPS) | Maksimum veri diski / aktarım hızı (IOPS) | En fazla NIC |
 |------------------|---|----|----|--------|------|------------|---------|
-|**İşler için standart_d11**  |2  |14  |100 |500     |6000  |8/8x500   |2 |
+|**Standard_F1s**  |2  |14  |100 |500     |6000  |8/8x500   |2 |
 |**İşler için standart_d12**  |4  |28  |200 |500     |12000 |16/16x500 |4 |
 |**Standard_D13**  |8  |56  |400 |500     |24000 |32/32x500 |8 |
 |**İşler için standart_d14**  |16 |112 |800 |500     |48000 |64 / 64 x 500 |8 |

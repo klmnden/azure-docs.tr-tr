@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: anwestg
-ms.openlocfilehash: db4c0f2d1197a190b33bd297bb597fd19057d875
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.lastreviewed: 01/11/2019
+ms.openlocfilehash: 267c3c2d8430d769b5d42de33796da8b57504516
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230348"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55238797"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>AD FS tarafından güvenliği bağlantısı kesilmiş bir Azure Stack ortamına bir App Service kaynak sağlayıcısı ekleme
 
@@ -159,7 +160,7 @@ App Service bağlantısı kesilmiş bir ortamda dağıtmak için önce Internet'
      >
      >
 
-    | Rol | En düşük örnekleri | En az bir SKU | Notlar |
+    | Rol | En düşük örnekleri | Minimum SKU | Notlar |
     | --- | --- | --- | --- |
     | Denetleyici | 1 | Standard_a2 = - (2 vCPU, 3584 MB) | Yönetir ve App Service bulut durumu korur. |
     | Yönetim | 1 | Standard_a2 = - (2 Vcpu, 3584 MB) | App Service Azure Resource Manager ve API uç noktaları, portal Uzantıları (yönetici, Kiracı, işlevleri portalına) ve veri hizmeti yönetir. Yük devretme desteklemek için 2 için önerilen örnekleri artar. |

@@ -1,6 +1,6 @@
 ---
 Başlık: Bir çalışma alanı titleSuffix oluşturun: Azure Machine Learning Studio açıklaması: Azure Machine Learning Studio'da kullanmak için Machine Learning Studio çalışma alanına sahip olmanız gerekir. Bu çalışma alanı, denemeleri oluşturmak, yönetmek ve yayımlamak için ihtiyacınız olan araçları içerir.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 12/07/2017
 ---

@@ -3,17 +3,17 @@ title: Azure Data Lake depolama Gen2 DistCp kullanma önizlemesi veri kopyalama 
 description: Data Lake depolama Gen2 önizlemesi ve veri kopyalamak için DistCp aracını kullanın
 services: storage
 author: seguler
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: seguler
-ms.openlocfilehash: 6c231de0a37eda4f5593c9fbbfa5e611a97996a0
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 9c12f96399de218241c8aa7ed686113c17a7410c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975567"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244156"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2-preview"></a>Azure depolama BLOB'ları ile Azure Data Lake depolama Gen2 önizlemesi arasında veri kopyalamak için DistCp kullanma
 
@@ -71,9 +71,9 @@ DistCp'ın en düşük ayrıntı düzeyi, tek bir dosya olduğundan, en fazla e�
 
 Aşağıda kullanabileceğiniz bazı yönergeler verilmiştir.
 
-* **1. adım: 'default' YARN uygulama kuyruğa kullanılabilir toplam bellek belirlemek** -ilk adımı 'default' YARN uygulama kuyruğa kullanılabilir bellek belirlemektir. Bu bilgiler, kümeyle ilişkili Ambari portalında kullanılabilir. YARN için gidin ve 'default' uygulama kuyruğa YARN bellek görmek için yapılandırmaları sekmesini görüntüleyin. (Aslında bir MapReduce işi olan) DistCp işiniz için toplam kullanılabilir belleğin budur.
+* **1. adım: 'Default' YARN uygulama kuyruğa kullanılabilir toplam bellek belirlemek** -ilk adımı 'default' YARN uygulama kuyruğa kullanılabilir bellek belirlemektir. Bu bilgiler, kümeyle ilişkili Ambari portalında kullanılabilir. YARN için gidin ve 'default' uygulama kuyruğa YARN bellek görmek için yapılandırmaları sekmesini görüntüleyin. (Aslında bir MapReduce işi olan) DistCp işiniz için toplam kullanılabilir belleğin budur.
 
-* **2. adım: azaltıcının sayısını hesaplamak** -değerini **m** toplam YARN bellek YARN kapsayıcı boyutuna göre bölünen sayının eşittir. YARN kapsayıcı boyutu bilgileri de Ambari portalda kullanılabilir. YARN için gidin ve yapılandırmaları sekmesini görüntüleyin. YARN kapsayıcı boyutu Bu pencerede görüntülenir. Azaltıcının numaradan ulaşması için eşitlik (**m**) olan
+* **2. adım: Azaltıcının sayısını hesaplamak** -değerini **m** toplam YARN bellek YARN kapsayıcı boyutuna göre bölünen sayının eşittir. YARN kapsayıcı boyutu bilgileri de Ambari portalda kullanılabilir. YARN için gidin ve yapılandırmaları sekmesini görüntüleyin. YARN kapsayıcı boyutu Bu pencerede görüntülenir. Azaltıcının numaradan ulaşması için eşitlik (**m**) olan
 
         m = (number of nodes * YARN memory for each node) / YARN container size
 
@@ -81,11 +81,11 @@ Aşağıda kullanabileceğiniz bazı yönergeler verilmiştir.
 
 Bir 4 x D14v2s kümeniz varsa ve 10 farklı klasörlerinden 10 TB veri aktarımı çalıştığınız varsayalım. Her değişken miktarda veri içerir ve her klasördeki dosya boyutları farklı.
 
-* **YARN bellek toplam**: gelen Ambari portalı YARN bellek D14 düğümü için 96 GB olduğunu belirlemek için. Bu nedenle, dört düğümlü küme için toplam YARN bellek şöyledir: 
+* **YARN bellek toplam**: Ambari portaldan YARN belleğin bir D14 düğümü için 96 GB olup olmadığını belirler. Bu nedenle, dört düğümlü küme için toplam YARN bellek şöyledir: 
 
         YARN memory = 4 * 96GB = 384GB
 
-* **Azaltıcının sayısı**: gelen Ambari portalı YARN kapsayıcı boyutu D14 küme düğümü için 3.072 MB olduğunu belirlemek için. Bu nedenle, azaltıcının sayısıdır:
+* **Azaltıcının sayısı**: Ambari portaldan YARN kapsayıcı boyutu D14 küme düğümü için 3.072 MB olduğunu belirleyin. Bu nedenle, azaltıcının sayısıdır:
 
         m = (4 nodes * 96GB) / 3072MB = 128 mappers
 

@@ -13,12 +13,13 @@ ms.topic: get-started-article
 ms.date: 10/22/2018
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: ee247dcadd7ba8574bbdae1e25b0e39ca1ebc2da
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.lastreviewed: 10/22/2018
+ms.openlocfilehash: b12e696260793a79bab6b384fc7be810eb2a803c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246237"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240837"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Azure Stack, Azure ExpressRoute kullanarak Azure'a bağlanma
 
@@ -59,7 +60,7 @@ Azure Stack ve Azure ExpressRoute kullanarak bağlanmak için aşağıdaki gerek
 
 ExpressRoute kurulumunu tamamladıktan sonra aşağıdaki diyagramda Azure Stack ve Azure ortamları, bu makaledeki örnekler kullanarak gösterilmektedir:
 
-*Şekil 1. ExpressRoute ağ*
+*Şekil 1. ExpressRoute network*
 
 ![ExpressRoute ağ](media/azure-stack-connect-expressroute/Conceptual.png)
 

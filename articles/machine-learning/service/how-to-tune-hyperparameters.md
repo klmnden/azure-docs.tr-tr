@@ -7,16 +7,16 @@ author: swatig007
 ms.reviewer: sgilley
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: da809aaaa1dd46c1232d0b032136833caaf0d2d0
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 48f714a505bc79f0556a829206821aef986ad5d0
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100744"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240276"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile modeliniz için ayarlama hiperparametreleri
 
@@ -150,7 +150,7 @@ param_sampling = BayesianParameterSampling( {
 Denemeyi en iyi duruma getirmeyi ayarlama hiper parametre istediğiniz birincil Metrik belirtin. Her bir eğitim çalıştırmanın birincil ölçümü için değerlendirilir. Hatalı çalıştırmalar (burada birincil ölçüm ve Erken sonlandırma ilke tarafından ayarlanan ölçütlere uymuyor) gerçekleştirme sonlandırılacak. Birincil ölçüm adı yanı sıra, ayrıca amacı, en iyi duruma getirme - belirttiğiniz en üst düzeye çıkarmak veya birincil ölçüm en aza indirin.
 
 * `primary_metric_name`: En iyi duruma getirmek için birincil ölçüm adı. Birincil ölçüm adı bir eğitim betiği tarafından günlüğe ölçüm adı tam olarak eşleşmesi gerekir. Bkz: [oturum hiper parametre ayarı için ölçümleri](#log-metrics-for-hyperparameter-tuning).
-* `primary_metric_goal`: Kaynaklar şunlar olabilir bu `PrimaryMetricGoal.MAXIMIZE` veya `PrimaryMetricGoal.MINIMIZE` ve birincil Metrik ekranı veya kaldırılacak çalıştırmalar değerlendirirken simge durumuna küçültülmüş olup olmadığını belirler. 
+* `primary_metric_goal`: Ya da olabilir `PrimaryMetricGoal.MAXIMIZE` veya `PrimaryMetricGoal.MINIMIZE` ve birincil Metrik ekranı veya kaldırılacak çalıştırmalar değerlendirirken simge durumuna küçültülmüş olup olmadığını belirler. 
 
 ```Python
 primary_metric_name="accuracy",

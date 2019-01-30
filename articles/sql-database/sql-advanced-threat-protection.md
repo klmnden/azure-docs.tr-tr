@@ -1,5 +1,5 @@
 ---
-title: Azure SQL veritabanı Gelişmiş tehdit koruması - | Microsoft Docs
+title: Azure SQL veritabanı veri güvenliği - Gelişmiş | Microsoft Docs
 description: Bulma ve hassas verileri sınıflandırmak, veritabanı güvenlik açıklarını yönetmeye ve Azure SQL veritabanınız için tehdit oluşturabilecek anormal etkinlikleri algılamaya ilişkin işlevler konusunda bilgi edinin.
 services: sql-database
 ms.service: sql-database
@@ -10,42 +10,42 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 12/16/2018
-ms.openlocfilehash: 40f6b6effa509fd2cfa40ecfc758ac37e0a66778
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 1/29/2019
+ms.openlocfilehash: 36d8f878426534c582ce6ada4e7000acf62bceaf
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538625"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251852"
 ---
-# <a name="advanced-threat-protection-for-azure-sql-database"></a>Azure SQL veritabanı için Gelişmiş tehdit koruması
+# <a name="advanced-data-security-for-azure-sql-database"></a>Azure SQL veritabanı için Gelişmiş veri güvenliği
 
-SQL Gelişmiş Tehdit Koruması, gelişmiş SQL güvenlik özellikleri için birleştirilmiş bir paket sunar. Bu bulma, hassas verilerin görünmesini ve azaltıcı olası veritabanı güvenlik açıklarını, Sınıflandırma ve veritabanınız için tehdit oluşturabilecek anormal etkinlikleri algılamaya işlevi içerir. Bu özellikler tek bir konumdan etkinleştirilebilir ve yönetilebilir. 
+SQL gelişmiş veri güvenliği, Gelişmiş SQL güvenlik özellikleri için birleştirilmiş bir pakettir. Bu bulma, hassas verilerin görünmesini ve azaltıcı olası veritabanı güvenlik açıklarını, Sınıflandırma ve veritabanınız için tehdit oluşturabilecek anormal etkinlikleri algılamaya işlevi içerir. Bu özellikler tek bir konumdan etkinleştirilebilir ve yönetilebilir. 
 
 ## <a name="overview"></a>Genel Bakış
 
-SQL Gelişmiş tehdit Koruması (ATP), veri bulma & Sınıflandırma, güvenlik açığı değerlendirmesi ve tehdit algılama gibi gelişmiş SQL güvenlik özellikleri sunar. 
+SQL gelişmiş veri güvenliği (REKLAM), veri bulma & Sınıflandırma, güvenlik açığı değerlendirmesi ve tehdit algılama gibi gelişmiş SQL güvenlik özellikleri sunmaktadır. 
 
 - [Veri Bulma ve Sınıflandırma](sql-database-data-discovery-and-classification.md) (önizleme sürümündedir), veritabanlarınızdaki hassas verileri keşfetmek, sınıflandırmak, etiketlemek ve korumak için yerleşik Azure SQL Veritabanı özellikleri sunar. Veri sınıflandırma durumunuz için görünürlük sağlamanın yanı sıra veritabanı içindeki ve dışındaki hassas verilere erişimin izlenmesi için kullanılabilir.
 - [Güvenlik Açığı Değerlendirmesi](sql-vulnerability-assessment.md) olası veritabanı güvenlik açıklarını keşfetmenizi ve izlemenizi sağlamanın yanı sıra bunları gidermeye yardımcı olan yapılandırması kolay bir hizmettir. Güvenlik durumunuz hakkında görünürlük sağlamasının yanı sıra güvenlik sorunlarınızı çözmek ve veritabanı güçlendirmelerinizi geliştirmek için eyleme dönüştürülebilir adımlar sunar.
 - [Tehdit Algılama](sql-database-threat-detection-overview.md), veritabanlarına erişme veya bunları kullanma konusunda olağandışı ve potansiyel olarak zararlı girişimleri gösteren anormal etkinlikleri tespit eder. Veritabanınızı şüpheli etkinliklere karşı sürekli izler ve olası güvenlik açıkları, SQL ekleme saldırıları ve anormal veritabanı erişim modelleri hakkında anında güvenlik uyarıları sunar. Tehdit Algılama uyarıları, şüpheli etkinliğin ayrıntılarının yanı sıra tehdidi araştırmak ve ortadan kaldırmak için önerilen eylemleri içerir.
 
-Bunların tümü etkinleştirmek için özellikler dahil sonra SQL ATP etkinleştirin. ATP’yi tüm veritabanı sunucunuzda tek tıkla etkinleştirebilir ve sunucuda bulunan tüm veritabanlarına uygulayabilirsiniz. Etkinleştirme veya ATP ayarlarını yönetme gerektirir ait [SQL Güvenlik Yöneticisi](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager) rolü, SQL veritabanı yönetim rolü veya SQL server Yönetici rolü. 
+Bunların tümü etkinleştirmek için özellikler dahil sonra SQL REKLAM etkinleştirin. Tek bir tıklamayla tüm veritabanı sunucunuzda, sunucudaki tüm veritabanları için uygulama REKLAM etkinleştirebilirsiniz. Etkinleştirme veya REKLAM ayarlarını yönetme gerektirir ait [SQL Güvenlik Yöneticisi](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager) rolü, SQL veritabanı yönetim rolü veya SQL server Yönetici rolü. 
 
-ATP fiyatlandırması, Azure Güvenlik Merkezi standart katmanı, korunan her SQL veritabanı sunucusu bir düğüm olarak sayıldığı ile hizalar. Yeni korunan kaynakları, Güvenlik Merkezi standart katmanının ücretsiz deneme için uygun. Daha fazla bilgi için [Azure Güvenlik Merkezi fiyatlandırma sayfasına](https://azure.microsoft.com/pricing/details/security-center/).
+Azure Güvenlik Merkezi standart katmanı, korunan her SQL veritabanı sunucusu bir düğüm olarak sayıldığı ile fiyatlandırma REKLAM hizalar. Yeni korunan kaynakları, Güvenlik Merkezi standart katmanının ücretsiz deneme için uygun. Daha fazla bilgi için [Azure Güvenlik Merkezi fiyatlandırma sayfasına](https://azure.microsoft.com/pricing/details/security-center/).
 
 
-## <a name="getting-started-with-atp"></a>ATP ile çalışmaya başlama 
-Aşağıdaki adımları ATP ile başlamanıza yardımcı olmak. 
+## <a name="getting-started-with-ads"></a>REKLAMLAR ile çalışmaya başlama 
+Aşağıdaki adımlar ile REKLAM başlamanıza yardımcı olmak. 
 
-## <a name="1-enable-atp"></a>1. ATP'yi etkinleştirme
+## <a name="1-enable-ads"></a>1. REKLAM etkinleştir
 
-Giderek ATP'yi etkinleştirme **Gelişmiş tehdit koruması** altında **güvenlik** , Azure SQL veritabanı bölmesinde başlığı. Sunucudaki tüm veritabanları için ATP etkinleştirmek için tıklayın **etkinleştirme Gelişmiş tehdit koruması sunucuda**.
+REKLAM giderek etkinleştirme **gelişmiş veri güvenliği** altında **güvenlik** , Azure SQL veritabanı bölmesinde başlığı. Sunucudaki tüm veritabanları için REKLAM etkinleştirmek için tıklayın **gelişmiş veri güvenliği sunucuda**.
 
-![ATP'yi etkinleştirme](./media/sql-advanced-protection/enable_atp.png) 
+![REKLAM etkinleştir](./media/sql-advanced-protection/enable_atp.png) 
 
 > [!NOTE]
-> ATP maliyeti, Azure Güvenlik Merkezi standart katmanı bir düğümü olduğu tüm SQL mantıksal sunucusu, düğüm başına fiyatlandırma ile hizalanır. Bu nedenle yalnızca bir kez ATP ile sunucudaki tüm veritabanlarını korumak için ödeme yaparsınız. Ürününü ATP başlangıçta ücretsiz bir deneme deneyebilirsiniz.
+> REKLAM maliyeti, Azure Güvenlik Merkezi standart katmanı bir düğümü olduğu tüm SQL mantıksal sunucusu, düğüm başına fiyatlandırma ile hizalanır. Bu nedenle yalnızca bir kez REKLAMLARI ile sunucudaki tüm veritabanlarını korumak için ödeme yaparsınız. Ürününü REKLAM başlangıçta ücretsiz bir deneme deneyebilirsiniz.
 
 ## <a name="2-configure-vulnerability-assessment"></a>2. Güvenlik Açığı değerlendirmesi yapılandırma
 
@@ -61,21 +61,21 @@ Seçin veya tarama sonuçlarını kaydetmek için bir depolama hesabı oluşturu
 
 Tıklayın **veri bulma ve sınıflandırma** görmek için kart hassas sütunları sınıflandırmak için ve verilerinizi kalıcı duyarlılık etiketlerle sınıflandırmak için önerilir. Tıklayın **güvenlik açığı değerlendirmesi** kart güvenlik açığı taramaları ve raporlarını görüntüleyip yönetmek ve uygulamanızın güvenlik stature izlemek için. Güvenlik Uyarıları alınan tıklatmak **tehdit algılama** uyarıların ve birleştirilmiş bir rapor Azure Güvenlik Merkezi'nde güvenlik uyarıları sayfası aracılığıyla Azure aboneliğinizdeki tüm uyarıları görmek için görüntülenecek kart ayrıntıları.
 
-## <a name="4-manage-atp-settings-on-your-sql-server"></a>4. SQL sunucunuzda ATP ayarlarını yönetme
+## <a name="4-manage-ads-settings-on-your-sql-server"></a>4. SQL sunucunuzda REKLAM ayarlarını yönetme
 
-Gelişmiş tehdit Koruması ayarlarını görüntülemek ve yönetmek için gidin **Gelişmiş tehdit koruması** altında **güvenlik** , SQL server bölmesinde başlığı. Bu sayfada etkinleştirebilir veya ATP devre dışı bırakın ve tüm SQL server için tehdit algılama ayarları değiştirin.
+Gelişmiş veri güvenliği ayarlarını görüntülemek ve yönetmek için gidin **gelişmiş veri güvenliği** altında **güvenlik** , SQL server bölmesinde başlığı. Bu sayfada etkinleştirebilir veya REKLAMLARI devre dışı bırakın ve tüm SQL server için tehdit algılama ayarları değiştirin.
 
 ![Sunucu ayarları](./media/sql-advanced-protection/server_settings.png) 
 
-## <a name="5-manage-atp-settings-for-a-sql-database"></a>5. SQL veritabanı için ATP ayarlarını yönetme
+## <a name="5-manage-ads-settings-for-a-sql-database"></a>5. Bir SQL veritabanı için REKLAM ayarlarını yönetme
 
-Belirli bir veritabanı için ATP tehdit algılama ayarları geçersiz kılmak için kontrol **etkinleştirme Gelişmiş tehdit koruması ve veritabanı düzeyinde** onay kutusu. Yalnızca tek veritabanı yerine veya sunucudaki tüm veritabanları için alınan uyarılar yanı sıra ayrı tehdit algılama uyarıları almak için belirli bir gereksinimi varsa bu seçeneği kullanın. 
+Belirli bir veritabanı için REKLAM tehdit algılama ayarları geçersiz kılmak için kontrol **gelişmiş veri güvenliği ve veritabanı düzeyinde** onay kutusu. Yalnızca tek veritabanı yerine veya sunucudaki tüm veritabanları için alınan uyarılar yanı sıra ayrı tehdit algılama uyarıları almak için belirli bir gereksinimi varsa bu seçeneği kullanın. 
 
 Onay kutusu seçildiğinde tıklayın **bu veritabanı için tehdit algılama ayarları** ve bu veritabanı için ilgili ayarları yapılandırın.
 
 ![Veritabanı ve tehdit algılama ayarları](./media/sql-advanced-protection/database_threat_detection_settings.png) 
 
-Sunucunuz için Gelişmiş tehdit koruması ayarları ayrıca ATP veritabanı Bölmesi'nden erişilebilir. Tıklayın **ayarları** ana ATP bölmesi ve ardından **görünüm Gelişmiş tehdit koruması sunucu ayarlarını**. 
+Sunucunuzun gelişmiş veri güvenliği ayarlarını da REKLAM veritabanı Bölmesi'nden erişilebilir. Tıklayın **ayarları** ana REKLAM bölmesi ve ardından **görünüm gelişmiş veri güvenliği sunucu ayarlarını**. 
 
 ![Veritabanı ayarları](./media/sql-advanced-protection/database_settings.png) 
 

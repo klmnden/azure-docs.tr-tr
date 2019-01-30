@@ -79,8 +79,12 @@ items:
       href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
     - name: DMS kullanarak Yönetilen Örneğe geçiş
       href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
-  - name: Veritabanınızı güvenli hale getirme
-    href: sql-database-security-tutorial.md
+  - name: Azure SQL Veritabanı’nda güvenlik
+    items:
+    - name: Tek veritabanı güvenliği
+      href: sql-database-security-tutorial.md
+    - name: Azure AD oturum açma bilgileri ile Yönetilen Örnek güvenliği
+      href: sql-database-managed-instance-aad-security-tutorial.md
   - name: Coğrafi olarak dağıtılmış bir veritabanı uygulama
     href: sql-database-implement-geo-distributed-database.md
   - name: Azure SQL Data Sync’i ayarlama
@@ -692,9 +696,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Elastik işin yüklemesini kaldırma (kullanım dışı)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: 7d7e85b3a7934b03395960d5dcbdc1141f0effd8
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: b69adc5f54e2566f62049225ccb0fc438a33ca6e
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101100"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226817"

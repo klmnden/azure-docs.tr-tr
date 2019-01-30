@@ -8,19 +8,19 @@ author: gopitk
 manager: cgronlun
 ms.assetid: d4f91270-dbd2-4290-ab2b-b7bfad0b2703
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 10/27/2017
 ms.author: gokuma
-ms.openlocfilehash: 3b3b15db171dc00519c532a229205df96ef29e31
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 44427183b6cc785af33daf92bda050336eec5284
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316897"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245295"
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Linux ve Windows için Azure Veri Bilimi Sanal Makinesi’ne Giriş
 
@@ -97,7 +97,7 @@ Veri Bilimi Sanal Makinesi halihazırda yüklenmiş ve yapılandırılmış olan
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Blob FUSE sürücüsü](https://github.com/Azure/azure-storage-fuse) | N | E |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Adlcopy(Azure Data Lake Depolama)](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob) | E | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [DocDB Veri Taşıma Aracı](https://docs.microsoft.com/azure/documentdb/documentdb-import-data) | E | N |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Microsoft Veri Yönetimi Ağ Geçidi](https://msdn.microsoft.com/library/dn879362.aspx): Verileri Şirket İçi ile Bulut Arasında Taşıma | E | N |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Microsoft Veri Yönetimi ağ geçidi](https://msdn.microsoft.com/library/dn879362.aspx): Şirket içi ile bulut arasında veri taşıma | E | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Unix/Linux Komut Satırı Yardımcı Programları | E | E |
 | Veri keşfi için [Apache Drill](http://drill.apache.org) | E | E |
 | **Machine Learning Araçları** |||

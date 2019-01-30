@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 01/24/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 8a67ae74f753fdbe3c5301c543e5a57544695922
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.lastreviewed: 01/24/2019
+ms.openlocfilehash: 9a65ef9acf7a1a133b3f479fe75921191949eeb8
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904225"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55237860"
 ---
 # <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>Azure Stack, Kubernetes dağıtımı sorunlarını giderme
 
@@ -112,7 +113,7 @@ Kubernetes kümesini dağıtırken, herhangi bir sorun için kontrol etmek için
     | Özellik | Açıklama |
     | ----     | ----        |
     | Kaynak | Kaynak adı. |
-    | Tür | Kaynak sağlayıcıya ve kaynak türü. |
+    | Type | Kaynak sağlayıcıya ve kaynak türü. |
     | Durum | Öğenin durumu. |
     | Zaman Damgası | Saat UTC zaman damgası. |
     | İşlem ayrıntıları | İşlem ayrıntıları işlemi, kaynak uç noktası ve kaynağın adını söz konusuydu kaynak sağlayıcısı gibi. |

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/18/2019
+ms.date: 01/29/2019
 ms.author: diberry
-ms.openlocfilehash: 2e5ecf32782c86b236c4947d5d2793be9c3883d8
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 26954c8f839ff0bfb2da484e4fb535f33d4e07ed
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55223689"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239188"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>LUIS uygulamanız ile abonelik anahtarlarını kullanma
 
@@ -32,7 +32,7 @@ Test ve yalnızca prototip için ücretsiz katman (F0) kullanın. Üretim sistem
 
 Bu yordam oluşturur bir **Language Understanding** kaynak. Bilişsel hizmetler kullanılabilir bir kaynak istiyorsanız, hepsi bir arada anahtar oluşturma **[Bilişsel hizmet](../cognitive-services-apis-create-account.md)** Language Understanding kaynak yerine. 
 
-Bu anahtar yalnızca, uç nokta tahmin sorguları için kullanılmalıdır. Emin değil, bu anahtar için model veya uygulama değişiklikleri yapın. 
+Bu anahtar yalnızca, uç nokta tahmin sorguları için kullanılmalıdır. Bu anahtar, değişiklikler model veya uygulama için kullanmayın. 
 
 1. Oturum  **[Azure portalında](https://ms.portal.azure.com/)**. 
 1. Yeşili **+** üst sol panelde oturum ve arama `Language Understanding` Market'te seçin **Language Understanding** izleyin  **deneyimi oluşturmak** LUIS abonelik hesabı oluşturmak için. 
@@ -43,7 +43,7 @@ Bu anahtar yalnızca, uç nokta tahmin sorguları için kullanılmalıdır. Emin
 
     ![Azure API seçim](./media/luis-azure-subscription/azure-api-choice.png) 
 
-1. Language Understanding kaynak oluşturduktan sonra oluşturulan erişim anahtarlarını görüntüleyebilir **kaynak yönetimi -> anahtarlar**. Anahtarları yapın. Sonraki bölümde, bu yeni kaynak LUIS portalında LUIS uygulaması bağlanma gösterilmektedir. 3. adımdaki LUIS kaynağın adına ihtiyacınız vardır.
+1. Language Understanding kaynak oluşturduktan sonra oluşturulan erişim anahtarlarını görüntüleyebilir **kaynak yönetimi -> anahtarlar**. Sonraki bölümde, bu yeni kaynak LUIS portalında LUIS uygulaması bağlanma gösterilmektedir. 3. adımdaki LUIS kaynağın adına ihtiyacınız vardır.
 
     ![Azure anahtarları](./media/luis-azure-subscription/azure-keys.png)
 
@@ -71,7 +71,7 @@ Bu anahtar yalnızca, uç nokta tahmin sorguları için kullanılmalıdır. Emin
 
     ![Uygulamanıza bir kaynak atayın](./media/luis-manage-keys/assign-key.png)
 
-1. İletişim kutusunda bir kiracı seçin, oturum açma ile LUIS Web sitesi e-posta adresiyle ilişkili.  
+1. İletişim e-posta ile ilişkili bir kiracı seçin LUIS Web sitesine oturum açmak için kullanılan adres.  
 
 1. Seçin **abonelik adı** eklemek istediğiniz Azure kaynakla ilişkilendirilmiş.
 
@@ -122,7 +122,7 @@ Hedefleri ve puanlarını Ayrıca, uç nokta günlükleri dahil. Yapabilecekleri
 ### <a name="enable-bing-spell-checker"></a>Bing yazım denetimi etkinleştir 
 İçinde **uç nokta URL'si ayarları**, **Bing yazım denetleyicisi** geçiş sözcüklerin tahmin önce düzeltmek LUIS sağlar. Oluşturma bir  **[Bing yazım denetimi anahtarı](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)**. 
 
-Ekleme **yazım denetimi = true** querystring parametresi ve **bing-yazım-onay-subscription-key = {YOUR_BING_KEY_HERE}** . Değiştirin `{YOUR_BING_KEY_HERE}` Bing yazım denetleyicisi anahtarınızı.
+Ekleme **yazım denetimi = true** querystring parametresi ve **bing-yazım-onay-subscription-key = {YOUR_BING_KEY_HERE}**. Değiştirin `{YOUR_BING_KEY_HERE}` Bing yazım denetleyicisi anahtarınızı.
 
 ```JSON
 {
@@ -142,7 +142,7 @@ Yayımlama hakkında daha fazla bilgi [bölgeleri](luis-reference-regions.md) ya
 
 ## <a name="assign-resource-without-luis-portal"></a>LUIS portalı olmadan kaynak atayın
 
-Bir CI/CD işlem hattı gibi Otomasyon amacıyla bir LUIS uygulaması LUIS kaynağa atamasını otomatik hale getirmek isteyebilirsiniz. O sırada, aşağıdaki adımları tamamlamanız gerekir:
+Bir CI/CD işlem hattı gibi Otomasyon amacıyla bir LUIS uygulaması LUIS kaynağa atamasını otomatik hale getirmek isteyebilirsiniz. Bunu yapmak için aşağıdaki adımları gerçekleştirmeniz gerekir:
 
 1. Azure Resource Manager bu belirteci alma [Web sitesi](https://resources.azure.com/api/token?plaintext=true). Bu belirtecin süresi dolacak şekilde hemen kullanın. İstek, bir Azure Resource Manager belirtecini döndürür.
 

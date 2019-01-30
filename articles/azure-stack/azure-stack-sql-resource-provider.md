@@ -14,16 +14,17 @@ ms.topic: article
 ms.date: 10/25/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 3d608843ef31a1ed665fcb1fd90b822f34f77fdd
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.lastreviewed: 10/25/2018
+ms.openlocfilehash: 7183cae491287042c778c2e56be8a1451c8c71a2
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086361"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247774"
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Microsoft Azure Stack'te SQL veritabanlarını kullanma
 
-SQL veritabanları hizmet olarak sunmak için SQL Server Kaynak sağlayıcısı bağdaştırıcısını kullanın [Azure Stack](azure-stack-poc.md). Kaynak sağlayıcısını yüklemek ve bir veya daha fazla SQL Server örneklerine bağlanabilirsiniz sonra siz ve kullanıcılarınız oluşturabilirsiniz:
+SQL veritabanları hizmet olarak sunmak için SQL Server Kaynak sağlayıcısı bağdaştırıcısını kullanın [Azure Stack](azure-stack-poc.md). Kaynak sağlayıcısını yükledikten ve onu bir veya birden çok SQL Server örneğine bağladıktan sonra, siz ve kullanıcılarınız şunları oluşturabilirsiniz:
 
 - Bulutta yerel uygulamalar için veritabanları.
 - SQL kullanan Web siteleri.
@@ -46,4 +47,4 @@ SQL Server'ın en az bir örnek oluşturun veya dış SQL Server örneğine eri�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[SQL Server Kaynak sağlayıcısı dağıtma](azure-stack-sql-resource-provider-deploy.md)
+[SQL Server kaynak sağlayıcısını dağıtma](azure-stack-sql-resource-provider-deploy.md)

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 45af8f554bf38c65c886c4d101c78255f5671037
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: f369ab0ec8c460137f7e2b16a7f2696357d84c50
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55218674"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247451"
 ---
 # <a name="speech-service-rest-apis"></a>Konuşma hizmeti REST API'leri
 
@@ -439,6 +439,9 @@ Her biri belirli bir dil ve yerel ayar tarafından tanımlanan diyalekti, destek
 
 * Sesler tam bir listesi için bkz. [dil desteği](language-support.md#text-to-speech).
 * Bölgesel kullanılabilirlik hakkında daha fazla bilgi için bkz. [bölgeleri](regions.md#text-to-speech).
+
+> [!IMPORTANT]
+> Maliyetleri için standart, özel ve sinir sesleri farklılık gösterir. Daha fazla bilgi için [fiyatlandırma](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 

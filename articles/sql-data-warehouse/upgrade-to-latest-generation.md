@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 11/26/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 1e2f1a3c46c9d343c305292a217fff5750f442fa
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 173846e4828228bdc51fc42858e0c6c9b00cafd6
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682563"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242799"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>SQL Veri Ambarı’nı yükselterek performansı iyileştirme
 Azure SQL veri ambarı, yeni nesil Azure donanım ve depolama mimarisi için yükseltin.
@@ -78,7 +78,7 @@ Bu yükseltme en iyi duruma getirilmiş Gen1 işlem katmanı veri ambarları iç
 
 ## <a name="start-the-upgrade"></a>Yükseltmeyi başlatın
 
-1. Git, işlem için iyileştirilmiş katmanı veri ambarı Azure Portalı'nda ve tıklayarak Gen1 **yükseltmek için 2. nesil** kartını görevleri sekmesi altındaki: ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
+1. Git, işlem için iyileştirilmiş katmanı veri ambarı Azure Portalı'nda ve tıklayarak Gen1 **yükseltmek için 2. nesil** kartını görevleri sekmesi altındaki:  ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
     
     > [!NOTE]
     > Görmüyorsanız, **yükseltmek için 2. nesil** kart görevleri sekmesindeki abonelik türü geçerli bölgede sınırlıdır.
@@ -88,7 +88,7 @@ Bu yükseltme en iyi duruma getirilmiş Gen1 işlem katmanı veri ambarları iç
 
    | İşlem için iyileştirilmiş Gen1 katmanı | İşlem için iyileştirilmiş 2. nesil katmanı |
    | :-------------------------: | :-------------------------: |
-   |            DEĞERİ DW100            |           DW100c            |
+   |            DW100            |           DW100c            |
    |            DW200            |           DW200c            |
    |            DW300            |           DW300c            |
    |            DW400            |           DW400c            |
@@ -113,7 +113,7 @@ Bu yükseltme en iyi duruma getirilmiş Gen1 işlem katmanı veri ambarları iç
 
    Yükseltme işleminin ikinci adım, veri taşıma ("Yükseltme - Online") ' dir. Veri geçişi yavaş sütunlu veri bir yerel SSD önbellek yararlanan yeni depolama mimarisi için eski depolama mimariden taşır bir çevrimiçi akışla arka plan işlemidir. Bu süre boyunca, veri Ambarınızı sorgulamak ve yüklemek için çevrimiçi olacak. Tüm verilerinizi olup olmadığını geçirildikten bağımsız olarak sorgulamak kullanılabilir. Veri geçişi, columnstore segmentleri sayısı veri boyutu ve performans düzeyinize bağlı olarak değişen bir hızda olur. 
 
-5. **İsteğe bağlı öneri:** veri geçiş arka plan işlemi hızlandırmak için hemen veri taşıma çalıştırarak zorlayabilirsiniz [Alter Index yeniden](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-index) , sorgulama sırasında daha büyük bir SLO tüm birincil columnstore tabloları ve kaynak sınıfı. Bu işlem **çevrimdışı** sayısını ve boyutları tablolarınızı bağlı olarak saat sürebilir akışla arka plan işlemi karşılaştırıldığında; ancak, veri geçişi burada daha sonra tam anlamıyla alabilir çok daha hızlı olacaktır Yeni depolama mimarisi tamamlandıktan sonra yüksek kaliteli satır grupları ile geliştirilmiştir. 
+5. **İsteğe bağlı öneri:** Veri geçiş arka plan işlemi hızlandırmak için hemen veri taşıma çalıştırarak zorlayabilirsiniz [Alter Index yeniden](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-index) tüm birincil columnstore tabloları, daha büyük bir SLO ve kaynak sınıfı sorgulama. Bu işlem **çevrimdışı** sayısını ve boyutları tablolarınızı bağlı olarak saat sürebilir akışla arka plan işlemi karşılaştırıldığında; ancak, veri geçişi burada daha sonra tam anlamıyla alabilir çok daha hızlı olacaktır Yeni depolama mimarisi tamamlandıktan sonra yüksek kaliteli satır grupları ile geliştirilmiştir. 
 
 Aşağıdaki sorgu, veri geçiş sürecini hızlandırmak için gerekli olan Alter Index REBUILD komutları oluşturur:
 

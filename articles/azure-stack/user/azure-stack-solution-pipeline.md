@@ -14,12 +14,13 @@ ms.topic: tutorial
 ms.date: 11/07/2018
 ms.author: mabrigg
 ms.reviewer: anajod
-ms.openlocfilehash: 984f6713445b53429758d616945a6e64245b42bc
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.lastreviewed: 11/07/2018
+ms.openlocfilehash: 63d22aaa402c77b55591a15745b258cdd6f0ef0a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263229"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244360"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Öğretici: Azure ve Azure Stack’e uygulama dağıtma
 
@@ -258,7 +259,7 @@ Visual Studio Online (VSTO) derleme, uç noktaları oluşturarak, Azure Stack i�
 
 4. Üzerinde **üyeleri** sekmesinde **Ekle**.
 
-    ![Üye ekleme](media/azure-stack-solution-hybrid-pipeline/014_members_tab.png)
+    ![Üye ekle](media/azure-stack-solution-hybrid-pipeline/014_members_tab.png)
 
 5. İçinde **kullanıcılar ve gruplar ekleme**, bir kullanıcı adı girin ve kullanıcının kullanıcılar listesinden seçin.
 6. Seçin **değişiklikleri kaydetmek**.
@@ -280,7 +281,7 @@ Mevcut uç nokta bilgileri, Azure Stack bağlantı Azure DevOps Hizmetleri'nin k
 
 Aşağıdaki eşlemeyi kullanarak bir hizmet bağlantı oluşturabilirsiniz:
 
-| Ad | Örnek | Açıklama |
+| Name | Örnek | Açıklama |
 | --- | --- | --- |
 | Bağlantı adı | Azure Stack Azure AD | Bağlantının adı. |
 | Ortam | AzureStack | Ortamınızın adını. |
@@ -305,7 +306,7 @@ Azure DevOps en son güncelleştirmesi, bir hizmet sorumlusu kimlik doğrulamas�
 
 Aşağıdaki eşlemeyi kullanarak bir hizmet bağlantı oluşturabilirsiniz:
 
-| Ad | Örnek | Açıklama |
+| Name | Örnek | Açıklama |
 | --- | --- | --- |
 | Bağlantı adı | Azure Stack ADFS | Bağlantının adı. |
 | Ortam | AzureStack | Ortamınızın adını. |
@@ -387,7 +388,7 @@ Yayın işlem hattı oluşturmak, son adım, uygulamanızdaki yapı işlemi olur
 
 3. Üzerinde **bir şablon seçin**, seçin **Azure uygulama hizmeti dağıtımının**ve ardından **Uygula**.
 
-    ![Şablonu Uygula](media/azure-stack-solution-hybrid-pipeline/102.png)
+    ![Şablonu uygula](media/azure-stack-solution-hybrid-pipeline/102.png)
 
 4. Üzerinde **yapıt ekleme**, gelen **kaynak (derleme tanımı)** aşağı açılır menüsünde, Azure bulut yapı uygulamayı seçin.
 

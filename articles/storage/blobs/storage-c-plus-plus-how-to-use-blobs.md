@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: michaelhauss
-ms.component: blobs
-ms.openlocfilehash: f928f27c8c1dbfe6c65cb25cb5c34680fc58bff3
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.subservice: blobs
+ms.openlocfilehash: a9b7d15bebdef40c983eaf4d5eee6953b5a10994
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52955879"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55236947"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>BLOB depolama alanından C++ kullanma
 
@@ -33,8 +33,8 @@ Bunu yapmak için, C++ için Azure Depolama İstemci Kitaplığı’nı yükleme
 
 C++ için Azure Depolama İstemci Kitaplığı’nı aşağıdaki yöntemleri kullanarak yükleyebilirsiniz:
 
-* **Linux:** verilen yönergeleri izleyerek [C++ Benioku için Azure depolama istemci Kitaplığı](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) sayfası.  
-* **Windows:** Visual Studio'da **Araçlar > NuGet Paket Yöneticisi > Paket Yöneticisi Konsolu**’na tıklayın. Aşağıdaki komutu yazın [NuGet Paket Yöneticisi Konsolu](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) basın **ENTER**.  
+* **Linux:** Verilen yönergeleri izleyerek [C++ Benioku için Azure depolama istemci Kitaplığı](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) sayfası.  
+* **Windows:** Visual Studio'da, **Araçlar > NuGet Paket Yöneticisi > Paket Yöneticisi Konsolu**’na tıklayın. Aşağıdaki komutu yazın [NuGet Paket Yöneticisi Konsolu](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) basın **ENTER**.  
   
      Install-Package wastorage
 
@@ -82,7 +82,7 @@ Ardından, bir başvuru almak bir **cloud_blob_client** kapsayıcılar ve blobla
 azure::storage::cloud_blob_client blob_client = storage_account.create_cloud_blob_client();  
 ```
 
-## <a name="how-to-create-a-container"></a>Nasıl yapılır: bir kapsayıcı oluşturma
+## <a name="how-to-create-a-container"></a>Nasıl yapılır: Bir kapsayıcı oluşturma
 [!INCLUDE [storage-container-naming-rules-include](../../../includes/storage-container-naming-rules-include.md)]
 
 Bu örnek, zaten yoksa, nasıl bir kapsayıcı oluşturulacağını gösterir:  
@@ -119,7 +119,7 @@ container.upload_permissions(permissions);
 
 Internet'teki herkes ortak bir kapsayıcıdaki blobları görebilir ancak değiştirdiğinizde ya da yalnızca uygun erişim anahtarınız varsa bunları silin.  
 
-## <a name="how-to-upload-a-blob-into-a-container"></a>Nasıl yapılır: bir kapsayıcıya bir blob yükleme
+## <a name="how-to-upload-a-blob-into-a-container"></a>Nasıl yapılır: Bir kapsayıcıya bir blob yükleme
 Azure Blob Depolama destekler, blobları ve sayfa blobları engelleyin. Çoğu durumda kullanılması önerilen blob türü blok blobudur.  
 
 Bir dosyayı bir blok blobuna yüklemek için bir kapsayıcı başvurusu alın ve blok blob başvurusu almak için kullanın. Bir blob başvurusunu aldıktan sonra herhangi bir veri akışı için çağırarak yükleyebilirsiniz **upload_from_stream** yöntemi. Bu işlemle, eğer önceden oluşturulmadıysa bir blob oluşturulacaktır, aksi takdirde üzerine yazılacaktır. Aşağıdaki örnek kapsayıcının önceden oluşturulduğunu varsayarak bir blobun bir kapsayıcıya nasıl yükleneceğini gösterir.  
@@ -154,7 +154,7 @@ blob3.upload_text(U("other text"));
 
 Alternatif olarak, **upload_from_file** bir dosyayı bir blok blobuna yüklemek için yöntemi.
 
-## <a name="how-to-list-the-blobs-in-a-container"></a>Nasıl yapılır: bir kapsayıcıdaki blobları Listele
+## <a name="how-to-list-the-blobs-in-a-container"></a>Nasıl yapılır: Blob’ları bir kapsayıcıda listeleme
 Blob’ları bir kapsayıcıda listelemek için ilk olarak bir kapsayıcı başvurusu edinin. Daha sonra kapsayıcının kullanabilirsiniz **list_blobs** blobları ve/veya dizinleri içine almak için yöntemi. Zengin özellik ve yöntem dönen erişmeye **list_blob_item**, çağırmalısınız **list_blob_item.as_blob** almak için yöntemi bir **cloud_blob** nesnesi veya **list_blob.as_directory** cloud_blob_directory nesne almak için yöntemi. Aşağıdaki kod, almak ve her nesnenin URI çıkış gösterilmiştir **örnek kapsayıcı my** kapsayıcı:
 
 ```cpp
@@ -184,7 +184,7 @@ for (auto it = container.list_blobs(); it != end_of_results; ++it)
 
 İşlemlerini listeleyen hakkında ayrıntılı bilgi için bkz: [listesi Azure depolama kaynaklarını C++ dilinde](../storage-c-plus-plus-enumeration.md).
 
-## <a name="how-to-download-blobs"></a>Nasıl yapılır: blobları indirin
+## <a name="how-to-download-blobs"></a>Nasıl yapılır: Blob’ları indirme
 Blobları indirmek için önce bir blob başvurusu alın ve sonra çağrı **download_to_stream** yöntemi. Aşağıdaki örnekte **download_to_stream** blob içeriklerini, ardından yerel bir dosyaya kalıcı bir akış nesnesine aktarmak için yöntemi.  
 
 ```cpp
@@ -232,7 +232,7 @@ azure::storage::cloud_block_blob text_blob = container.get_block_blob_reference(
 utility::string_t text = text_blob.download_text();
 ```
 
-## <a name="how-to-delete-blobs"></a>Nasıl yapılır: blobları Sil
+## <a name="how-to-delete-blobs"></a>Nasıl yapılır: Blob’ları silme
 Bir blobu silmek için önce bir blob başvurusu alın ve sonra çağrı **delete_blob** yöntemini.  
 
 ```cpp

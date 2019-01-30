@@ -3,18 +3,18 @@ title: KAVRAM gibi Web hizmetlerini Azure Machine Learning hizmetinde 59 karakte
 description: Bu dize için 115 145 karakter makalesinde açıklar. Burada SEO tür eylem fiilleri kullanın. gibi - ve bunu yapma hakkında bilgi müşteri sözcükleri kullanarak. Bu bilgileri makale tarih damgası ile arama sayfası satır içi görüntülenir. Giriş para makalenizin hedefi tanımlıyorsa, uzunluğu için burada düzenlenen kullanabilirsiniz.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: your-msft-alias
 author: your-github-account-name
 ms.date: 04/10/2018
-ms.openlocfilehash: 759e76a75fffeb31d38439f59b219ad48ebf6277
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: e38a7e2bc55b4cc4b60984d355efad097ac7b068
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51009258"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55249798"
 ---
 # <a name="this-is-the-h1-and-the-article-title-that-shows-on-the-web"></a>H1 ve web üzerinde gösteren makale başlığı budur.
 

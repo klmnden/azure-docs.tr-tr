@@ -15,14 +15,15 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: bee684409b2ef3fffeb9f175c2b469d3736b6484
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.lastreviewed: 10/23/2018
+ms.openlocfilehash: 8587b40bf6963d57fd510aefc17de4385b871590
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993832"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55249046"
 ---
-# <a name="tutorial-offer-highly-available-mysql-databases"></a>Öğretici: yüksek oranda kullanılabilir olan MySQL veritabanları sunar.
+# <a name="tutorial-offer-highly-available-mysql-databases"></a>Öğretici: Yüksek oranda kullanılabilir olan MySQL veritabanları sunar.
 
 Azure Stack operatör MySQL Server veritabanlarını barındırmak için server Vm'leri yapılandırabilirsiniz. Bir MySQL sonra başarıyla kümedir oluşturulan ve Azure Stack tarafından yönetilen, yüksek oranda kullanılabilir olan MySQL veritabanları MySQL hizmetlere abone olan kullanıcılar kolayca oluşturabilirsiniz.
 
@@ -175,7 +176,7 @@ MySQL kümesi oluşturulduğundan, yapılandırılmış ve bir Azure Stack MySQL
 
 3. Seçin **SKU** uygun MySQL barındırma sunucusunu kullanmak için SKU seçin. Bu örnekte, Azure Stack operatörü oluşturduğu **MySQL-HA** MySQL küme veritabanları için yüksek kullanılabilirliği desteklemek için SKU.
 
-   ![SKU'ları seçin](./media/azure-stack-tutorial-mysqlrp/createdb2.png)
+   ![Select SKU](./media/azure-stack-tutorial-mysqlrp/createdb2.png)
 
 4. Seçin **oturum açma** > **yeni bir oturum açma oluşturma** ve ardından yeni veritabanı için kullanılacak MySQL kimlik doğrulaması kimlik bilgilerini sağlayın. İşiniz bittiğinde tıklayın **Tamam** ardından **Oluştur** veritabanı dağıtım işlemini başlatmak için.
 
