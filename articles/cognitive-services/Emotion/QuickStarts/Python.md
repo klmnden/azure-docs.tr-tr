@@ -1,30 +1,30 @@
 ---
-title: "Hızlı başlangıç: Bir görüntüdeki yüzlerin duygularını tanıma - Duygu Tanıma API'si, Python"
+title: "Hızlı Başlangıç: Görüntü - duygu tanıma API'si, Python yüzlerini üzerinde duyguları tanıma"
 description: Python ile Duygu Tanıma API'sini kullanmaya başlamanıza yardımcı olacak bilgiler ve kod örnekleri edinin.
 services: cognitive-services
 author: anrothMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: emotion-api
+ms.subservice: emotion-api
 ms.topic: quickstart
 ms.date: 02/05/2018
 ms.author: anroth
 ROBOTS: NOINDEX
-ms.openlocfilehash: f0bcc88b60e0a9b93856aa32a10b9c0ad898ce95
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: bdc42233d027134ca42e52398eeefd83ae45669f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240707"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211262"
 ---
-# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Hızlı başlangıç: Bir görüntüdeki yüzlerin duygularını tanımak için bir uygulama oluşturma.
+# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Hızlı Başlangıç: Görüntüdeki yüzleri üzerinde duyguları tanıma için bir uygulama oluşturun.
 
 > [!IMPORTANT]
 > Duygu Tanıma API'si 15 Şubat 2019 tarihinde kullanım dışı bırakılacaktır. Duygu tanıma özelliği [Yüz Tanıma API'sinin](https://docs.microsoft.com/azure/cognitive-services/face/) bir parçası olarak genel kullanıma sunulmuştur. 
 
 Bu kılavuz bir görüntüdeki bir veya daha fazla kişinin duygularını tanımak için Python ile [Duygu Tanıma API'si Recognize metodunu](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) kullanmaya başlamanıza yardımcı olacak bilgiler ve kod örnekleri bulunmaktadır.
 
-Bu örneği başlatma Bağlayıcı rozetine tıklayarak [Bağlayıcım](https://mybinder.org)'da bir Jupyter not defteri olarak çalıştırabilirsiniz: [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=EmotionAPI.ipynb)
+Bu örneği başlatma Bağlayıcı rozetine tıklayarak [Bağlayıcım](https://mybinder.org)’da bir Jupyter not defteri olarak çalıştırabilirsiniz: ![Bağlayıcı](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=EmotionAPI.ipynb)
 
 
 ## <a name="prerequisite"></a>Önkoşul

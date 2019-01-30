@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 12/07/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 20e96ad7a99fdb8c90f3b7990965d7225aef8be0
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.lastreviewed: 12/07/2018
+ms.openlocfilehash: e335f4cb112c0f029768ccf050f888e00a6efdc1
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53555022"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250631"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack"></a>. NET'te Azure Stack ile API Sürüm profillerini kullanma
 
@@ -126,9 +127,9 @@ Aşağıdaki konuları göz önünde bulundurun:
 
 ## <a name="existing-api-profiles"></a>Mevcut API profilleri
 
-1.  **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01. *ResourceProvider*. 0.9.0-preview.nupkg**: Azure Stack için yerleşik son profili. En Azure Stack ile uyumlu 1808 damgada olduğu sürece veya diğer hizmetler için bu profili kullanın.
+1.  **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.*ResourceProvider*.0.9.0-preview.nupkg**: Azure Stack için yerleşik son profili. En Azure Stack ile uyumlu 1808 damgada olduğu sürece veya diğer hizmetler için bu profili kullanın.
 
-2.  **Microsoft.Azure.Management.Profiles.hybrid\_2017\_03\_09. *ResourceProvider*. 0.9.0-preview.nupkg**: 1808 yapı düşük bir damga kullanıyorsanız, bu profili kullanın.
+2.  **Microsoft.Azure.Management.Profiles.hybrid\_2017\_03\_09.*ResourceProvider*.0.9.0-preview.nupkg**: 1808 yapı düşük bir damga kullanıyorsanız, bu profili kullanın.
 
 3.  **En son**: Tüm hizmetler en son sürümlerine oluşan profili. Tüm hizmetler en son sürümlerini kullanın. Bu profili parçasıdır **Microsoft.Azure.Management** NuGet paketi.
 

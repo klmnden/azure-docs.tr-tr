@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 2bdda273a32167f70633096d463be59884eca033
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.lastreviewed: 09/10/2018
+ms.openlocfilehash: 363e0868542f56df8c37639b2af7ac295be97da2
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718242"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55249914"
 ---
 # <a name="install-the-azure-stack-development-kit-asdk"></a>Azure Stack geliştirme Seti'ni (ASDK) yükleyin
 Sonra [ASDK ana bilgisayar hazırlama](asdk-prepare-host.md), bu makalede aşağıdaki adımları kullanarak CloudBuilder.vhdx görüntüye ASDK dağıtılabilir.
@@ -38,8 +39,8 @@ Bu makaledeki adımlarda, indirme ve çalıştırma tarafından sağlanan bir gr
     ![](media/asdk-install/1.PNG) 
 
 3. Kimlik sağlayıcısındaki **türü** açılan kutusunda **Azure bulut** veya **AD FS**. Altında **yerel yönetici parolasını** yazın (geçerli yapılandırılmış yerel yönetici parolasını eşleşmelidir) bir yerel yönetici parolasını **parola** kutusuna ve ardından  **Sonraki**.
-    - **Azure bulut**: yapılandırır Azure Active Directory (Azure AD) kimlik sağlayıcısı. Bu seçeneği kullanmak için bir Azure AD alanının tam adı bir internet bağlantısı gerekir. dizin Kiracı biçiminde *domainname*. onmicrosoft.com veya Azure AD'yi özel etki alanı adını ve belirtilen için genel yönetici kimlik doğrulandı Dizin. Dağıtımdan sonra Azure Active Directory genel yönetici izni gerekli değildir. Ancak, bazı işlemler, genel yönetici kimlik bilgileri gerektirebilir. Örneğin, bir kaynak sağlayıcısı yükleyicisi betiği veya izin verilecek gerektiren yeni bir özelliktir. Geçici olarak hesap genel yönetici izinleri yeniden geri veya sahiplerinden biri olan ayrı bir genel yönetici hesabı kullanın *varsayılan sağlayıcı aboneliği*.
-    - **AD FS**: varsayılan damga dizin hizmetinde kimlik sağlayıcısı olarak kullanılır. Oturum açmak için varsayılan hesap azurestackadmin@azurestack.local, ve kullanılacak kurulumunun bir parçası sağlanan bir paroladır.
+    - **Azure bulut**: Azure Active Directory (Azure AD) kimlik sağlayıcısı olarak yapılandırır. Bu seçeneği kullanmak için bir Azure AD alanının tam adı bir internet bağlantısı gerekir. dizin Kiracı biçiminde *domainname*. onmicrosoft.com veya Azure AD'yi özel etki alanı adını ve belirtilen için genel yönetici kimlik doğrulandı Dizin. Dağıtımdan sonra Azure Active Directory genel yönetici izni gerekli değildir. Ancak, bazı işlemler, genel yönetici kimlik bilgileri gerektirebilir. Örneğin, bir kaynak sağlayıcısı yükleyicisi betiği veya izin verilecek gerektiren yeni bir özelliktir. Geçici olarak hesap genel yönetici izinleri yeniden geri veya sahiplerinden biri olan ayrı bir genel yönetici hesabı kullanın *varsayılan sağlayıcı aboneliği*.
+    - **AD FS**: Varsayılan damga dizin hizmeti, kimlik sağlayıcısı olarak kullanılır. Oturum açmak için varsayılan hesap azurestackadmin@azurestack.local, ve kullanılacak kurulumunun bir parçası sağlanan bir paroladır.
 
     ![](media/asdk-install/2.PNG) 
     
@@ -53,16 +54,16 @@ Bu makaledeki adımlarda, indirme ve çalıştırma tarafından sağlanan bir gr
     > [!TIP]
     > Azure Stack için NAT ve VPN özellikleri sağlayan sınır yönlendiricisi BGPNAT01 vm'dir.
 
-    - **DHCP** (varsayılan): sanal makine ağ IP yapılandırması DHCP sunucusundan alır.
-    - **Statik**: Bu seçeneği yalnızca DHCP İnternet'e erişmek Azure Stack için geçerli bir IP adresi atayamadığı durumlarda kullanın. **Statik bir IP adresi, CIDR biçiminde (örneğin, 10.0.0.5/24) alt ağ maskesi uzunluğu kullanılarak belirtilmelidir**.
+    - **DHCP** (varsayılan): Sanal makine ağ IP yapılandırması DHCP sunucusundan alır.
+    - **Statik**: Yalnızca DHCP İnternet'e erişmek Azure Stack için geçerli bir IP adresi atayamadığı durumlarda bu seçeneği kullanın. **Statik bir IP adresi, CIDR biçiminde (örneğin, 10.0.0.5/24) alt ağ maskesi uzunluğu kullanılarak belirtilmelidir.**.
     - Geçerli bir türü **zaman sunucu IP'si** adresi. Başka bir gerekli alan Geliştirme Seti tarafından kullanılacak saat sunucusu belirler. Bu parametre, geçerli saat sunucusu IP adresi olarak sağlanmalıdır. Sunucu adları desteklenmez.
 
       > [!TIP]
       > Bir saat sunucusu IP adresini bulmak için ziyaret [pool.ntp.org](http://pool.ntp.org) veya time.windows.com ping işlemi. 
 
     - **İsteğe bağlı olarak**, aşağıdaki değerleri ayarlayın:
-        - **VLAN kimliği**: VLAN kimliğini ayarlar Bu seçeneği yalnızca AzS-BGPNAT01 ve konak fiziksel ağ (ve İnternet'e) erişmek için VLAN Kimliğini yapılandırması gereken durumlarda kullanın. 
-        - **DNS ileticisi**: bir DNS sunucusu, Azure Stack dağıtımının bir parçası oluşturulur. Damga dışında adlarını çözümlemek için çözüm içindeki bilgisayarları izin vermek için mevcut altyapı DNS sunucunuzu sağlar. Damga DNS sunucusu bu sunucusuna Bilinmeyen ad çözümleme isteklerini iletir.
+        - **VLAN KİMLİĞİ**: VLAN kimliğini ayarlar Bu seçeneği yalnızca AzS-BGPNAT01 ve konak fiziksel ağ (ve İnternet'e) erişmek için VLAN Kimliğini yapılandırması gereken durumlarda kullanın. 
+        - **DNS ileticisi**: Bir DNS sunucusu, Azure Stack dağıtımının bir parçası oluşturulur. Damga dışında adlarını çözümlemek için çözüm içindeki bilgisayarları izin vermek için mevcut altyapı DNS sunucunuzu sağlar. Damga DNS sunucusu bu sunucusuna Bilinmeyen ad çözümleme isteklerini iletir.
 
     ![](media/asdk-install/4.PNG)
 
@@ -81,7 +82,7 @@ Bu makaledeki adımlarda, indirme ve çalıştırma tarafından sağlanan bir gr
 
     ![](media/asdk-install/7.PNG)
 
-11. Dağıtım işlemi sırasında hangi zaman ana bilgisayar otomatik olarak bir kez yeniden birkaç saat sürer. Dağıtımın ilerleme durumunu izlemek istiyorsanız, Geliştirme Seti konak yeniden başlatıldıktan sonra azurestack\AzureStackAdmin oturum açın. Dağıtım başarılı olduktan sonra PowerShell konsolunu görüntüler: **tamamlandı: 'Dağıtımı' eylem**. 
+11. Dağıtım işlemi sırasında hangi zaman ana bilgisayar otomatik olarak bir kez yeniden birkaç saat sürer. Dağıtımın ilerleme durumunu izlemek istiyorsanız, Geliştirme Seti konak yeniden başlatıldıktan sonra azurestack\AzureStackAdmin oturum açın. Dağıtım başarılı olduktan sonra PowerShell konsolunu görüntüler: **TAMAMLAYIN: Eylem 'Dağıtımı'**. 
     > [!IMPORTANT]
     > Makine etki alanına katıldıktan sonra yerel yönetici oturum açarsanız, dağıtımın ilerleme durumunu göremezsiniz. Dağıtım yeniden değil, bunun yerine azurestack\AzureStackAdmin çalıştığını doğrulamak oturum açın.
 
