@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 01/08/2019
 ms.author: sethm
 ms.reviewer: avishwan
-ms.openlocfilehash: b2520864589558a530f4f9dbfed83a9f3b8c727a
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.lastreviewed: 01/08/2019
+ms.openlocfilehash: 44cf5b2cc7547a4e85c65215fdc1e4fe2cb585a9
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104106"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243649"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Market öğesi oluşturma ve yayımlama
 
@@ -128,15 +129,15 @@ ms.locfileid: "54104106"
 
 ### <a name="identity-information"></a>Kimlik bilgileri
 
-| Ad | Gereklidir | Tür | Kısıtlamalar | Açıklama |
+| Name | Gereklidir | Type | Kısıtlamalar | Açıklama |
 | --- | --- | --- | --- | --- |
-| Ad |X |Dize |[A-Za-z0-9]+ | |
+| Name |X |Dize |[A-Za-z0-9]+ | |
 | Yayımcı |X |Dize |[A-Za-z0-9]+ | |
 | Sürüm |X |Dize |[SemVer v2](https://semver.org/) | |
 
 ### <a name="metadata"></a>Meta Veriler
 
-| Ad | Gereklidir | Tür | Kısıtlamalar | Açıklama |
+| Name | Gereklidir | Type | Kısıtlamalar | Açıklama |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |Dize |Öneri 80 karakter |Portal 80 karakterden daha uzunsa, öğe adı düzgün görüntülenmeyebilir. |
 | PublisherDisplayName |X |Dize |Öneri 30 karakter |Portalda 30 karakterden uzunsa, yayımcı adını düzgün bir şekilde görüntülenmeyebilir. |
@@ -149,7 +150,7 @@ ms.locfileid: "54104106"
 
 Market, aşağıdaki simgeleri kullanır:
 
-| Ad | Genişlik | Yükseklik | Notlar |
+| Name | Genişlik | Yükseklik | Notlar |
 | --- | --- | --- | --- |
 | Geniş |255 px |115 piksel |Her zaman gerekli |
 | Büyük |115 piksel |115 piksel |Her zaman gerekli |
@@ -165,7 +166,7 @@ Her bir Market öğesi öğesi kullanıcı Arabirimi portalda göründüğü tan
 
 Her bir Market öğesi çeşitli ek içeriklere bağlantılar içerebilir. Bağlantılar, adları ve bir URI'leri listesi olarak belirtilir:
 
-| Ad | Gereklidir | Tür | Kısıtlamalar | Açıklama |
+| Name | Gereklidir | Type | Kısıtlamalar | Açıklama |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |Dize |En fazla 64 karakter | |
 | Uri |X |URI | | |
@@ -174,10 +175,10 @@ Her bir Market öğesi çeşitli ek içeriklere bağlantılar içerebilir. Bağl
 
 Önceki meta veriler ek olarak aşağıdaki biçimde özel bir anahtar/değer çifti verileri Market yazarlar sağlayabilirsiniz:
 
-| Ad | Gereklidir | Tür | Kısıtlamalar | Açıklama |
+| Name | Gereklidir | Type | Kısıtlamalar | Açıklama |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |Dize |En çok 25 karakter | |
-| Değer |X |Dize |En çok 30 karakter | |
+| Value |X |Dize |En çok 30 karakter | |
 
 ### <a name="html-sanitization"></a>HTML temizleme
 

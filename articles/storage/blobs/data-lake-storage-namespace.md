@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 13483333c2135f858191f62b255e2887c0e61f01
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.subservice: data-lake-storage-gen2
+ms.openlocfilehash: 967e24ae6e004fe6ce2b1c0aa6c039f46be2598c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975308"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244513"
 ---
 # <a name="azure-data-lake-storage-gen2-preview-hierarchical-namespace"></a>Azure Data Lake depolama Gen2 önizlemesi hiyerarşik ad alanı
 
@@ -23,11 +23,11 @@ Nesne depolama ölçek ve Fiyatlar, dosya sistem performansını sağlamak Azure
 
 Hiyerarşik ad alanı blob verilerinde uygulamak dosya sistemleri ile ilişkili aşağıdaki faydaları şunlardır:
 
-- **Atomik bir dizini düzenleme:** yol kesimleri göstermek için nesne adlarında eğik çizgi (/) ekleme bir kuralı benimseyen dizin sıradüzeni yaklaşık nesne depolar. Bu kural nesnelerini düzenleme için çalışırken, kuralı taşıma, yeniden adlandırma veya dizinleri silme gibi eylemler için hiçbir Yardım sağlar. Gerçek dizin uygulamaları dizin düzeyinde görevleri elde etmek için tek tek bloblar milyonlarca potansiyel olarak işlemesi gerekir. Bunun aksine, hiyerarşik ad alanı, tek bir giriş (üst dizini) güncelleştirerek bu görevleri işler.
+- **Atomik bir dizini düzenleme:** Nesne depoları, yol kesimleri göstermek için nesne adlarında eğik çizgi (/) ekleme bir kuralı benimseyen dizin sıradüzeni yaklaşık. Bu kural nesnelerini düzenleme için çalışırken, kuralı taşıma, yeniden adlandırma veya dizinleri silme gibi eylemler için hiçbir Yardım sağlar. Gerçek dizin uygulamaları dizin düzeyinde görevleri elde etmek için tek tek bloblar milyonlarca potansiyel olarak işlemesi gerekir. Bunun aksine, hiyerarşik ad alanı, tek bir giriş (üst dizini) güncelleştirerek bu görevleri işler.
 
     Çarpıcı Bu iyileştirme, çok büyük veri analizi çerçeveleri için özellikle önemlidir. Hive, Spark vb. gibi araçlar genellikle geçici bir konuma çıkışını yazmak ve sonuç projenin konumu yeniden adlandırın. Hiyerarşik ad alanı bu yeniden adlandırma genellikle kendi analiz işlem daha uzun sürebilir. Daha düşük işlem gecikme süresi maliyetinizi (TCO) analizi iş yükleri için düşük maliyetli eşittir.
 
-- **Tanıdık arabirimi stili:** dosya sistemleri iyi geliştiriciler ve kullanıcılar tarafından anlaşılmalıdır. Data Lake depolama Gen2 tarafından kullanıma sunulan dosya sistemi arabirimi büyük ve küçük bilgisayarlar tarafından kullanılan aynı paradigma olduğu gibi buluta taşıdığınızda, yeni bir depolama paradigma öğrenmek için gerek yoktur.
+- **Tanıdık arabirimi stili:** Dosya sistemleri, geliştiriciler ve kullanıcılar tarafından de anlaşılabilir. Data Lake depolama Gen2 tarafından kullanıma sunulan dosya sistemi arabirimi büyük ve küçük bilgisayarlar tarafından kullanılan aynı paradigma olduğu gibi buluta taşıdığınızda, yeni bir depolama paradigma öğrenmek için gerek yoktur.
 
 Nesne depoları daha önce hiyerarşik ad alanları desteklenmiyor olduğunu nedeniyle hiyerarşik ad alanları ölçek sınırlı olmasıdır. Ancak, Data Lake depolama Gen2 hiyerarşik ad alanı doğrusal olarak ölçeklenen ve veri kapasitesi veya performansı düşmez.
 

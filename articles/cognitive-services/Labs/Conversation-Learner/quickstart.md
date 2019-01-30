@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 02501cba75bd64d6a09fce671d2949759b5cd577
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 0990ae2c21017c0d6ff25478eb4b5e3bfb4f0d11
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207029"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251444"
 ---
 # <a name="create-a-conversation-learner-model-using-nodejs"></a>Node.js kullanarak bir konuşma Öğrenici model oluşturma
 
@@ -78,26 +78,18 @@ Botunuzun ve machine learning için SDK'sı erişir bir bulut hizmetine eklediğ
 
     Bu genel boş bot çalıştırır `cl-bot-01/src/app.ts`.
 
-3. Konuşma Öğrenici UI çalıştırın:
-
-    ```bash
-    [open second command prompt window]
-    cd cl-bot-01
-    npm run ui
-    ```
-
-4. Tarayıcıyı Aç http://localhost:5050 
+3. Tarayıcıyı Aç http://localhost:3978
 
 Konuşma Öğrenici kullanmakta olduğunuz ve oluşturabilir ve konuşma Öğrenici modeli öğretin.  
 
 > [!NOTE]
-> Başlatma sırasında proje konuşma Öğrenici davetle kullanılabilir.  Varsa http://localhost:5050 HTTP gösterir `403` hata, yani hesabınız yok davet etti.  Lütfen [davet isteği](https://aka.ms/conversation-learner-request-invite).
+> Başlatma sırasında proje konuşma Öğrenici davetle kullanılabilir.  Varsa http://localhost:3978/ui HTTP gösterir `403` hata, yani hesabınız yok davet etti.  Lütfen [davet isteği](https://aka.ms/conversation-learner-request-invite).
 
 ## <a name="tutorials-demos-and-switching-between-bots"></a>Öğreticiler, tanıtımlar ve botlar arasında geçiş yapma
 
 Yukarıdaki yönergeleri genel boş bot başlatıldı.  Bir öğretici çalıştırma veya bunun yerine bot gösteri için:
 
-1. Konuşma Öğrenici web kullanıcı arabirimini açın varsa, model listesine dönmek http://localhost:5050/home.
+1. Konuşma Öğrenici web kullanıcı arabirimini açın varsa, model listesine dönmek http://localhost:3978/ui/home.
     
 2. Başka bir bot çalışıyorsa (gibi `npm start` veya `npm run demo-pizza`), durdurun.  UI işlemi durdurun ya da web tarayıcısını kapatın gerekmez.
 
@@ -114,7 +106,7 @@ Yukarıdaki yönergeleri genel boş bot başlatıldı.  Bir öğretici çalışt
   npm run demo-storage
   ```
 
-4. Zaten değilseniz, konuşma Öğrenici Web Arabirimine chrome'da yükleyerek geçiş http://localhost:5050/home. 
+4. Zaten değilseniz, konuşma Öğrenici Web Arabirimine chrome'da yükleyerek geçiş http://localhost:3978/ui/home. 
 
 5. "İçeri aktarma eğitimler" tıklayın ve konuşma Öğrenici başlattığınız tanıtım için karşılık gelen kullanıcı arabiriminde tanıtım modeli seçin.
 
@@ -122,7 +114,7 @@ Tanıtımları için kaynak dosyaları `cl-bot-01/src/demos`
 
 ## <a name="create-a-bot-which-includes-back-end-code"></a>Arka uç kodu içeren bir bot oluşturun
 
-1. Konuşma Öğrenici web kullanıcı arabirimini açın varsa, model listesine dönmek http://localhost:5050/home.
+1. Konuşma Öğrenici web kullanıcı arabirimini açın varsa, model listesine dönmek http://localhost:3978/ui/home.
     
 2. Bir bot çalışıyorsa (gibi `npm run demo-pizza`), durdurun.  UI işlemi durdurun ya da web tarayıcısını kapatın gerekmez.
 
@@ -135,7 +127,7 @@ Tanıtımları için kaynak dosyaları `cl-bot-01/src/demos`
     npm start
     ```
 
-5. Zaten değilseniz, konuşma Öğrenici Web Arabirimine chrome'da yükleyerek geçiş http://localhost:5050/home. 
+5. Zaten değilseniz, konuşma Öğrenici Web Arabirimine chrome'da yükleyerek geçiş http://localhost:3978/ui/home. 
 
 6. Yeni bir konuşma Öğrenici modeli oluşturma kullanıcı Arabiriminde ve öğretim başlatın.
 

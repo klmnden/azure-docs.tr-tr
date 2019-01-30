@@ -6,16 +6,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: panosper
-ms.openlocfilehash: 07b90942c8d231418888491fd47a9be3caff77ea
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 44f2cb9e95a9a79c85c23b0eebd919851b94c1f8
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467744"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228143"
 ---
 # <a name="transcription-guidelines-for-using-the-speech-service"></a>Konuşma hizmeti kullanarak transkripsiyonu yönergeleri
 
@@ -53,7 +53,7 @@ Konuşma hizmeti aşağıdaki normalleştirme kurallarını taşır:
 | "Ne olacak?" söz konusu Batman'ın sidekick, bir kez deneme. | hangi söz konusu batman'ın sidekick bir kez deneme |
 | Git - em alın! | go get em |
 | Double-jointed istiyorum | Çift jointed istiyorum |
-| 104 istasyon Sokak | bir oh dört istasyon Sokak |
+| 104 Elm Street | bir oh dört istasyon Sokak |
 | 102.7 için ayarlama | bir oh ayarlama iki yedi |
 | PI hakkında 3,14 olan | Pi yaklaşık üç noktası bir dört olduğu |
 | $3.14 maliyetleri | üç on dört maliyetleri |
@@ -70,10 +70,10 @@ Aşağıdaki normalleştirme, metin dökümleri için geçerlidir:
 
 | Orijinal metni | Normalleştirme sonra |
 |----- | ----- |
-| 14 NE 3 Dr. | on dört northeast üçüncü sürücü |
+| 14 NE 3rd Dr. | on dört northeast üçüncü sürücü |
 | Dr. Bruce başlığı | Hastanede Bruce başlığı |
 | James Bond, 007 | James Bond çift oh yedi |
-| Ke$ ha | Kesha |
+| Ke$ha | Kesha |
 | 2 x 4 ne kadardır | Tarafından iki dört ne kadardır |
 | 1-3'te gelen toplantı gider | Bir ila üç pm toplantı gider |
 | My tansiyon O + türüdür | O pozitif My tansiyon türüdür |
@@ -90,7 +90,7 @@ Yarım genişlikteki noktalama karakterleri kullanmaktan kaçının. Bir sözcü
 | Önlemek için karakter | Değiştirme |
 |----- | ----- |
 | "(Açma ve kapama çift tırnak işareti) 你好" | "你好" (çift tırnak) |
-| 需要什么帮助? (soru işareti) | 需要什么帮助? |
+| 需要什么帮助? (soru işareti) | 需要什么帮助？ |
 
 ### <a name="text-normalization-rules-for-chinese"></a>Çince için metin normalleştirme kuralları
 
@@ -164,9 +164,9 @@ Metninizi içeri aktarmadan önce aşağıdaki normalleştirme uygulayabilir:
 
 | Orijinal metni | Kullanıcının normalleştirme sonra | Sistem normalleştirme sonra
 |--------  | ----- | -------- |
-| ES ist 12.23 Uhr | ES ist 12:23 Uhr | ES ist zwölf uhr drei çizili zwanzig uhr |
+| ES ist 12.23 Uhr | ES ist 12:23 Uhr | es ist zwölf uhr drei und zwanzig uhr |
 | {12.45} | {12,45} | zwölf komma vier fünf ||
-| 2 + 3-4 | 2 ve 3 4 eksi | zwei artı eksi vier drei|
+| 2 + 3 - 4 | 2 ve 3 4 eksi | zwei plus drei minus vier|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

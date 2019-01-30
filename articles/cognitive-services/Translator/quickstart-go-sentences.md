@@ -1,23 +1,23 @@
 ---
-title: 'Hızlı Başlangıç: Cümle uzunluklarını alma, Go - Translator Metin Çevirisi API’si'
+title: "Hızlı Başlangıç: Alma cümlesi işlediklerinde, Git - Translator metin çevirisi API'si"
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, Go ile Translator Metin Çevirisi API’sini kullanarak metindeki cümlelerin uzunluklarını bulacaksınız.
 services: cognitive-services
 author: erhopf
 manager: erhopf
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/05/2018
 ms.author: erhopf
-ms.openlocfilehash: 71b88afeb941e6b635548468e634e07597318116
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 5f4a4a4518eb973dc9d2c7cbcb34683fe0b3db08
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994104"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226851"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-go"></a>Hızlı Başlangıç: Go kullanarak cümle belirlemek için Translator Text API kullanın.
+# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-go"></a>Hızlı Başlangıç: Translator metin çevirisi API'si, Go kullanarak cümle belirlemek için kullanın
 
 Bu hızlı başlangıçta, Git ve Translator Text REST API kullanarak cümle uzunluğu (karakter cinsinden) kullanılacağını öğreneceksiniz.
 

@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/27/2018
 ms.author: sethm
-ms.openlocfilehash: ab82e604eb1af3d5e64571b115dc48d213466328
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.lastreviewed: 12/27/2018
+ms.openlocfilehash: e7a22e6699a69bf89a9c3828433affa0a212116f
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54414834"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240786"
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Azure Stack için VPN gateway yapılandırma ayarları
 
@@ -169,7 +170,7 @@ Birden çok teklife destekleyen hem Başlatıcı hem de bir Yanıtlayıcı olara
 
 ### <a name="ike-phase-1-main-mode-parameters"></a>IKE Aşama 1 (Ana Mod) parametreleri
 
-| Özellik              | Değer|
+| Özellik              | Value|
 |-|-|
 | IKE Sürümü           | IKEv2 |
 |Diffie-Hellman Grubu   | Grup 2 (1024 bit) |
@@ -179,7 +180,7 @@ Birden çok teklife destekleyen hem Başlatıcı hem de bir Yanıtlayıcı olara
 
 ### <a name="ike-phase-2-quick-mode-parameters"></a>IKE Aşama 2 (Hızlı Mod) parametreleri
 
-| Özellik| Değer|
+| Özellik| Value|
 |-|-|
 |IKE Sürümü |IKEv2 |
 |Şifreleme ve karma algoritmaları (şifreleme)     | GCMAES256|

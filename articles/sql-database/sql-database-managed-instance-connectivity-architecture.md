@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: 2077978ac9353531d10359edf396e4426e9d6988
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: b709bbacce23a89b8c60b77a524018b50ca1ca5e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104523"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245676"
 ---
 # <a name="azure-sql-database-managed-instance-connectivity-architecture"></a>Azure SQL veritabanı yönetilen örneği bağlantı mimarisi
 
@@ -111,6 +111,9 @@ Yönetilen örnek, aşağıdaki gereksinimlere uygun bir sanal ağ içinde ayrı
 |yönetim  |80, 443, 12000|TCP     |Herhangi biri              |Internet   |İzin Ver |
 |mi_subnet   |Herhangi biri           |Herhangi biri     |Herhangi biri              |MI ALT AĞ  |İzin Ver |
 
+  > [!Note]
+  > Form 10.x.x.x/y alt ağ için IP adresi aralığı mı alt ifade eder. Bu bilgiler (alt ağ özelliklerini) aracılığıyla Azure portalında bulunabilir.
+  
   > [!Note]
   > Zorunlu bir gelen güvenlik kuralları, gelen trafiğe izin verse de _herhangi_ bağlantı noktalarını 9000, 9003, kaynak 1438, 1440, 1452 Bu bağlantı noktaları, yerleşik güvenlik duvarı tarafından korunur. Bu [makale](sql-database-managed-instance-find-management-endpoint-ip-address.md) yönetim uç noktası IP adresi Bul ve güvenlik duvarı kurallarını doğrulayın nasıl gösterir. 
   

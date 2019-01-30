@@ -9,13 +9,14 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
+ms.lastreviewed: 10/15/2018
 keywords: ''
-ms.openlocfilehash: bf412809f9d10296ad600e64abb6d870dbb88d3e
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: dce59cf012a8c3bc5b6b3baf705b5619bdf43104
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339687"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55252328"
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Azure Stack veri merkezi tümleştirmesi - DNS
 Azure Stack uç noktaları erişebilmesi için (**portalı**, **adminportal**, **Yönetim**, **adminmanagement**vb..)  Dış Azure yığını, Azure Stack'te kullanmak istediğiniz DNS bölgeleri barındıran bir DNS sunucuları ile Azure Stack DNS hizmetleri tümleştirmeniz gerekir.
@@ -121,7 +122,7 @@ Dağıtım sanal makine artık kullanılamaz veya erişilemez durumda, ayrıcal�
 
 Azure Stack, DNS altyapısıyla tümleştirme basit ve en güvenli yolu, üst bölgeyi barındıran sunucudan bölgenin koşullu iletme yapmaktır. Üst bölgeyi barındıran Azure Stack dış DNS ad alanınız için DNS sunucuları üzerinde doğrudan denetim varsa, bu yaklaşım önerilir.
 
-DNS ile koşullu iletme yapma hakkında bilgi sahibi değilseniz, şu TechNet makalesine bakın: [koşullu ileticisi atamak için bir etki alanı adı](https://technet.microsoft.com/library/cc794735), veya DNS çözümünüze özgü belgelere.
+DNS ile iletme koşullu nasıl aşina değilseniz, şu TechNet makalesine bakın: [Bir etki alanı adı için bir koşullu ileticisi atama](https://technet.microsoft.com/library/cc794735), veya DNS çözümünüze özgü belgelere.
 
 Şirket etki alanı adınızı bir alt etki alanı gibi aramak için harici, Azure Stack DNS bölgesi burada belirttiğiniz senaryolarda, koşullu iletme kullanılamaz. DNS temsilcisi yapılandırılması gerekir.
 

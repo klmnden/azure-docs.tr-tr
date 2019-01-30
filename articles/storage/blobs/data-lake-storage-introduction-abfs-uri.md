@@ -7,13 +7,13 @@ ms.topic: conceptual
 ms.author: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
-ms.component: data-lake-storage-gen2
-ms.openlocfilehash: e596123cb218a542166d80b53916a73034f71760
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.subservice: data-lake-storage-gen2
+ms.openlocfilehash: 63dcea94fd880102a784e6f776855c44d4e97c87
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975259"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243326"
 ---
 # <a name="use-the-azure-data-lake-storage-gen2-uri"></a>Azure Data Lake depolama Gen2'ye kullanmak URI'si
 
@@ -27,23 +27,23 @@ Data Lake depolama Gen2 özellikli hesabı adresine isterseniz **değil** URI'si
 
 <pre>abfs[s]<sup>1</sup>://&lt;file_system&gt;<sup>2</sup>@&lt;account_name&gt;<sup>3</sup>.dfs.core.windows.net/&lt;path&gt;<sup>4</sup>/&lt;file_name&gt;<sup>5</sup></pre>
 
-1. **Düzen tanımlayıcısı**: `abfs` protokolü, düzen tanımlayıcısı kullanılır. İle veya bir Güvenli Yuva Katmanı (SSL) bağlantısı olmadan bağlanma seçeneği var. Kullanım `abfss` bir Güvenli Yuva Katmanı bağlantısı kurmak için.
+1. **Düzen tanımlayıcısı**: `abfs` Protokolü, düzen tanımlayıcısı kullanılır. İle veya bir Güvenli Yuva Katmanı (SSL) bağlantısı olmadan bağlanma seçeneği var. Kullanım `abfss` bir Güvenli Yuva Katmanı bağlantısı kurmak için.
 
-2. **Dosya sistemi**: dosya ve klasörleri tutan üst konumu. Bu kapsayıcılar Azure depolama BLOB'ları hizmetinde aynıdır.
+2. **Dosya sistemi**: Dosya ve klasörleri tutar üst konum. Bu kapsayıcılar Azure depolama BLOB'ları hizmetinde aynıdır.
 
-3. **Hesap adı**: oluşturma sırasında depolama hesabınıza verilen ad.
+3. **Hesap adı**: Oluşturma sırasında depolama hesabınıza verilen adı.
 
-4. **Yolları**: bir eğik ayrılmış (`/`) dizin yapısı temsili.
+4. **Yolları**: Bir eğik ayrılmış (`/`) dizin yapısı temsili.
 
-5. **Dosya adı**: bireysel dosyasının adı. Bu parametre bir dizin ele alır, isteğe bağlıdır.
+5. **Dosya adı**: Tek tek dosya adı. Bu parametre bir dizin ele alır, isteğe bağlıdır.
 
 Ancak, adresine istediğiniz hesabın hesap oluşturma sırasında varsayılan dosya sistemi olarak ayarlanırsa, ardından toplu URI'si söz dizimi şöyledir:
 
 <pre>/&lt;path&gt;<sup>1</sup>/&lt;file_name&gt;<sup>2</sup></pre>
 
-1. **Yol**: bir eğik ayrılmış (`/`) dizin yapısı temsili.
+1. **Yol**: Bir eğik ayrılmış (`/`) dizin yapısı temsili.
 
-2. **Dosya adı**: bireysel dosyasının adı.
+2. **Dosya adı**: Tek tek dosya adı.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

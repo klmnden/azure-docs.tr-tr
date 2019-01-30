@@ -5,16 +5,16 @@ description: Bu belge biçimlerini ve özel Translator adlandırma kuralı kıla
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 74b421691f5d3536c44af16e99dc54451dfde3f7
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: afd3192117bd22c62fd8e36752515166e4c6e043
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872773"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55225491"
 ---
 # <a name="document-formats-and-naming-convention-guidance"></a>Belge biçimleri ve adlandırma kuralı Kılavuzu
 
@@ -30,8 +30,8 @@ Bu tablo, çeviri sisteminizi oluşturmak için kullanabileceğiniz tüm destekl
 | Locstudio         | . LCL         | Paralel belgeleri için Microsoft biçimi                                                                                                                                                                                                                                      |
 | Microsoft Word    | . DOCX        | Microsoft Word belgesi                                                                                                                                                                                                                                                        |
 | Adobe Acrobat     | . PDF         | Adobe Acrobat Taşınabilir Belge                                                                                                                                                                                                                                                |
-| HTML              | . HTML. HTM  | HTML belgesi                                                                                                                                                                                                                                                                  |
-| Metin dosyası         | . TXT         | UTF-16 veya UTF-8 olarak kodlanmış metin dosyaları                                                                                                                                                                                                                                             |
+| HTML              | .HTML, .HTM  | HTML belgesi                                                                                                                                                                                                                                                                  |
+| Metin dosyası         | .TXT         | UTF-16 veya UTF-8 olarak kodlanmış metin dosyaları                                                                                                                                                                                                                                             |
 | Hizalanmış bir metin dosyası | . HİZALA       | Uzantı `.ALIGN` belge çifti cümleleri mükemmel bir şekilde hizalı olup biliyorsanız kullanabileceğiniz özel bir uzantısıdır. Sağlarsanız bir `.ALIGN` dosya, özel Translator değil hizalanacağı cümleleri sizin için. |
 | Excel dosyası        | . XLSX        | Excel dosyası (2013 veya üzeri). İlk satır / satır elektronik dil kodu olmalıdır.                                                                                                                                                                                                                                                      |
 

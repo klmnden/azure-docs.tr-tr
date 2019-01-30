@@ -14,20 +14,18 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/31/2018
 ms.author: ellacroi
-ms.openlocfilehash: b86506fdf5fac78386f7eef2f90241225e6c583a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 93b1b0c8288fb408e4af6aba2eb2267ce650208c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55199291"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247128"
 ---
 # <a name="marketplace-faqs"></a>Market SSS
 
 Microsoft Azure Market hakkında sık sorulan sorulara yanıtlar.
 
 ## <a name="faq-for-customers"></a>Müşteriler için SSS
-
-Microsoft Azure Market hakkında sık sorulan sorulara yanıtlar.
 
 ### <a name="what-you-need-to-know-about-azure-marketplace"></a>Azure Market hakkında bilmeniz gerekenler
 

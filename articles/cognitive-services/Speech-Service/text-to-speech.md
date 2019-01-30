@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 7439a2c5466784a881e71649fa86a8e51d757957
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: b413bd65582dceadd9aab912694c3b560070c4f3
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226426"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251563"
 ---
 # <a name="about-the-text-to-speech-api"></a>Metin okuma API'si hakkında
 
@@ -37,6 +37,9 @@ Konuşmanın oluşturulacağı uygulamanızı metin okuma API'si için HTTP POST
 ## <a name="voice-support"></a>Ses desteği
 
 Microsoft **metin okuma** hizmeti, birden fazla 75 seslerle 45'den fazla dil ve yerel ayar sunar. Bu standart "ses tipi" kullanmak için yalnızca hizmetin REST API çağrısı ile diğer bazı parametreler ses adı belirtmeniz gerekir. Desteklenen diller, yerel ayarlar ve sesler hakkında daha fazla bilgi için bkz. [desteklenen diller](language-support.md#text-to-speech).
+
+> [!IMPORTANT]
+> Maliyetleri için standart, özel ve sinir sesleri farklılık gösterir. Daha fazla bilgi için [fiyatlandırma](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 ### <a name="neural-voices"></a>Sinir sesleri
 

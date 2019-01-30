@@ -15,13 +15,14 @@ ms.topic: get-started-article
 ms.date: 09/12/2018
 ms.author: sethm
 ms.reviewer: scottnap
+ms.lastreviewed: 09/12/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: b17b1b077a1acac5ddb0e9eea8c4a2cf44697979
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 65bf3d7eb84f4a4e6fe6d74bd08c41ba4d9dd637
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078911"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247230"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>Farklı Azure Stack geliştirme Seti'ni ortamlarındaki iki sanal ağ arasında siteden siteye VPN bağlantısı oluşturma
 ## <a name="overview"></a>Genel Bakış
@@ -94,7 +95,7 @@ Hizmet Yöneticisi bir kiracı planlar, teklifler ve kiracılarının kullanabil
 1. Kullanıcı portalında oturum açmak için bir kiracı hesabı kullanın.
 2. Kullanıcı Portalı'nda seçin **+ kaynak Oluştur**.
 3. Git **Market**ve ardından **ağ**.
-4. Seçin **sanal ağ**.
+4. **Sanal ağ**'ı seçin.
 5. İçin **adı**, **adres alanı**, **alt ağ adı**, ve **alt ağ adres aralığı**, ağda görünen değerleri kullanın Yapılandırma tablo.
 6. İçinde **abonelik**, daha önce oluşturduğunuz aboneliği görüntülenir.
 7. İçin **kaynak grubu**, bir kaynak grubu oluşturabilir veya zaten bir varsa seçin **var olanı kullan**.
@@ -164,7 +165,7 @@ VPN bağlantısından geçen verileri doğrulamak için her Azure Stack gelişti
 2. Git **Market**ve ardından **işlem**.
 3. Sanal makine görüntüleri listesinde seçin **Windows Server 2016 Datacenter değerlendirme** görüntü.
 4. Üzerinde **Temelleri** dikey penceresindeki **adı**, girin **VM01**.
-5. Geçerli kullanıcı adı ve parolayı girin. Oluşturulduktan sonra VM'de oturum açmak için bu hesabı kullanın.
+5. Geçerli bir kullanıcı adı ve parola girin. Oluşturulduktan sonra VM'de oturum açmak için bu hesabı kullanın.
 6. Sağlayan bir **abonelik**, **kaynak grubu**, ve **konumu**ve ardından **Tamam**.
 7. Üzerinde **boyutu** dikey penceresinde bu örnek için bir sanal makine boyutu seçin ve ardından **seçin**.
 8. Üzerinde **ayarları** dikey penceresinde, Varsayılanları kabul edin. Emin **VNET-01** sanal ağın seçili. Alt ağ değerine ayarlandığını doğrulayın **10.0.10.0/24**. Sonra **Tamam**’ı seçin.
@@ -184,7 +185,7 @@ Hizmet Yöneticisi bir kiracı planlar, teklifler ve kiracılarının kullanabil
 1. Bir kiracı hesabı kullanarak oturum açın.
 2. Kullanıcı Portalı'nda seçin **+ kaynak Oluştur**.
 3. Git **Market**ve ardından **ağ**.
-4. Seçin **sanal ağ**.
+4. **Sanal ağ**'ı seçin.
 5. POC2 için değerleri belirlemek için ağ yapılandırma tabloda daha önce görünen bilgileri kullanın **adı**, **adres alanı**, **alt ağ adı**ve **Alt ağ adres aralığı**.
 6. İçinde **abonelik**, daha önce oluşturduğunuz aboneliği görüntülenir.
 7. İçin **kaynak grubu**, yeni bir kaynak grubu oluşturun veya zaten bir hesabınız varsa seçin **var olanı kullan**.
@@ -207,7 +208,7 @@ Hizmet Yöneticisi bir kiracı planlar, teklifler ve kiracılarının kullanabil
 3. Ağ kaynakları listesinden **sanal ağ geçidi**.
 4. İçinde **adı**, girin **GW2**.
 5. Bir sanal ağ seçmek için Seç **sanal ağ**. Ardından **VNET-02** listeden.
-6. Seçin **genel IP adresi**. Zaman **genel IP adresi seçin** dikey penceresi açılır ve select **Yeni Oluştur**.
+6. **Genel IP adresi**'ni seçin. Zaman **genel IP adresi seçin** dikey penceresi açılır ve select **Yeni Oluştur**.
 7. İçinde **adı**, girin **GW2-PiP**ve ardından **Tamam**.
 8. Varsayılan olarak, için **VPN türü**, **rota tabanlı** seçilir.
     Tutun **rota tabanlı** VPN türü.
@@ -242,7 +243,7 @@ POC2'de, hemen bir sanal makine oluşturun ve sanal ağınızdaki VM alt yerleş
 2. Git **Market**ve ardından **işlem**.
 3. Sanal makine görüntüleri listesinde seçin **Windows Server 2016 Datacenter değerlendirme** görüntü.
 4. Üzerinde **Temelleri** dikey penceresinde için **adı**, girin **VM02**.
-5. Geçerli kullanıcı adı ve parolayı girin. Oluşturulduktan sonra sanal makineye oturum açmak için bu hesabı kullanın.
+5. Geçerli bir kullanıcı adı ve parola girin. Oluşturulduktan sonra sanal makineye oturum açmak için bu hesabı kullanın.
 6. Sağlayan bir **abonelik**, **kaynak grubu**, ve **konumu**ve ardından **Tamam**.
 7. Üzerinde **boyutu** bir sanal makine boyutu bu örneği için ve ardından dikey penceresinde **seçin**.
 8. Üzerinde **ayarları** dikey penceresinde varsayılan değerleri kabul edebilirsiniz. Emin **VNET-02** sanal ağ, seçili olduğundan ve alt değerine ayarlandığını doğrulayın **10.0.20.0/24**. **Tamam**’ı seçin.

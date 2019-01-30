@@ -3,17 +3,17 @@ title: Azure Data Lake depolama Gen2 Hive performans ayarlama yönergeleri | Mic
 description: Azure Data Lake depolama Gen2 Hive performans ayarlama yönergeleri
 services: storage
 author: swums
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: stewu
-ms.openlocfilehash: 90982491ecd64ff707bc47d71f374668ed74eb38
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 07be781c917a466b67580a99490eca4f6ff29985
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975273"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239800"
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-storage-gen2"></a>HDInsight ve Azure Data Lake depolama Gen2 Hive için performans ayarlama Kılavuzu
 
@@ -22,7 +22,7 @@ Varsayılan ayarlar, birçok farklı kullanım örnekleri arasında iyi bir perf
 ## <a name="prerequisites"></a>Önkoşullar
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
-* **Bir Data Lake depolama Gen2 hesabı**. Bir oluşturma hakkında yönergeler için bkz: [hızlı başlangıç: Azure Data Lake depolama Gen2'ye bir depolama hesabı oluşturma](data-lake-storage-quickstart-create-account.md)
+* **Bir Data Lake depolama Gen2 hesabı**. Bir oluşturma hakkında yönergeler için bkz: [hızlı başlangıç: Bir Azure Data Lake depolama Gen2'ye depolama hesabı oluşturma](data-lake-storage-quickstart-create-account.md)
 * **Azure HDInsight kümesinde** bir Data Lake depolama Gen2 hesabına erişim.
 * **HDInsight üzerinde Hive'ı çalıştıran**.  HDInsight üzerinde Hive işlerini çalıştırma hakkında bilgi edinmek için bkz. [HDInsight Hive kullanma](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
 * **Performans ayarlama yönergeleri Data Lake depolama Gen2**.  Genel performans için bkz [veri Lake depolama Gen2 performans ayarlama Kılavuzu](data-lake-storage-performance-tuning-guidance.md)

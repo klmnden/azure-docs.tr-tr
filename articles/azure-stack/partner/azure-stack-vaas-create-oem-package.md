@@ -13,13 +13,14 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
+ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: a90ec05fa3224033436830e7666c7eb81ff881f6
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 415cdecc33b7360d482d37a3cb9d4f1bce528ab1
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247002"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251801"
 ---
 # <a name="create-an-oem-package"></a>OEM paketi oluşturma
 

@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 9b1eb6878dcafba68c230255f3b3f43e005421ab
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.lastreviewed: 08/30/2018
+ms.openlocfilehash: a4e04bc9071f4f677230d112a7baa708e9e8dc34
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43340197"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243241"
 ---
 # <a name="network-connectivity"></a>Ağ bağlantısı
 Bu makalede, Azure Stack mevcut ağ ortamınıza en iyi şekilde tümleştirmek nasıl karar vermenize yardımcı olmak için Azure Stack ağ altyapı bilgileri sağlar. 
@@ -29,17 +30,17 @@ Bu makalede, Azure Stack mevcut ağ ortamınıza en iyi şekilde tümleştirmek 
 > Azure Stack (örneğin, www.bing.com) dış DNS adları çözümlemek için DNS sunucuları, DNS istekleri iletmek üzere vermeniz gerekir. Azure Stack DNS gereksinimleri hakkında daha fazla bilgi için bkz. [Azure Stack'i veri merkezi tümleştirmesi - DNS](azure-stack-integrate-dns.md).
 
 ## <a name="physical-network-design"></a>Fiziksel ağ tasarımı
-Azure Stack çözüm, işlem ve hizmetlerini desteklemek için esnek ve yüksek oranda kullanılabilir fiziksel bir altyapı gerektirir. Yukarı bağlantılar ToR üzerinden kenarlık anahtarlar, SFP + veya SFP28 medya ve 1 GB, 10 GB ve 25 GB hızları için sınırlıdır. Kullanılabilirlik için orijinal ekipman üreticisi (OEM) donanım satıcınıza başvurun. Aşağıdaki diyagramda bizim önerilen tasarımı gösterir:
+Azure Stack çözümünün çalışmasını ve hizmetlerini desteklemek için dayanıklı ve yüksek kullanılabilirliğe sahip bir fiziksel altyapı gerekir. Yukarı bağlantılar ToR üzerinden kenarlık anahtarlar, SFP + veya SFP28 medya ve 1 GB, 10 GB ve 25 GB hızları için sınırlıdır. Kullanılabilirlik için orijinal ekipman üreticisi (OEM) donanım satıcınıza başvurun. Aşağıdaki diyagramda bizim önerilen tasarımı gösterir:
 
 ![Önerilen Azure Stack ağ tasarımı](media/azure-stack-network/recommended-design.png)
 
 
-## <a name="logical-networks"></a>Mantıksal ağlar
+## <a name="logical-networks"></a>Mantıksal Ağlar
 Mantıksal ağlar temeldeki fiziksel ağ altyapısının bir soyutlamasını temsil eder. Bunlar, konaklar, sanal makineler ve hizmetler için ağ atamalarını düzenlemek ve kolaylaştırmak için kullanılır. Mantıksal ağ oluşturmanın bir parçası, ağ siteleri, sanal yerel ağları (VLAN'lar), IP alt ağları ve her fiziksel konumdaki mantıksal ağ ile ilişkili IP alt ağı/VLAN çiftleri tanımlamak için oluşturulur.
 
 Aşağıdaki tabloda, mantıksal ağlar ve planlamanız gereken ilişkili IPv4 alt ağ aralıklarını gösterilmektedir:
 
-| Mantıksal ağ | Açıklama | Boyut | 
+| Mantıksal Ağ | Açıklama | Boyut | 
 | -------- | ------------- | ------------ | 
 | Genel VIP | Azure Stack 31 adresleri bu ağ üzerinden toplam kullanır. Rest, Kiracı sanal makineler tarafından kullanılır ve sekiz genel IP adresleri Azure Stack'i Hizmetleri küçük bir kümesi için kullanılır. App Service ve SQL kaynak Sağlayıcısı'nı kullanmayı planlıyorsanız, 7 daha fazla adresleri kullanılır. Kalan 15 IP'ler, gelecekte Azure Hizmetleri için ayrılmıştır. | / 26 (62 konakları) - /22 (1022 ana)<br><br>Önerilen /24 (254 ana bilgisayardan) = | 
 | Geçiş altyapısı | Noktadan noktaya yönlendirme amacıyla, adanmış IP adresleri yönetim arabirimleri ve anahtara atanmış geri döngü adresi geçin. | /26 | 

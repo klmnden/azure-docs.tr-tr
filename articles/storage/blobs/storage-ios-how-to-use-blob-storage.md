@@ -8,13 +8,13 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 11/20/2018
 ms.author: michaelhauss
-ms.component: blobs
-ms.openlocfilehash: be9254686eeb285fb4f0a5e29ba60023abee84ab
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.subservice: blobs
+ms.openlocfilehash: 9e4c717b3b205d6c8fdd309dada918eb6df35181
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961935"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244772"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>BLOB depolama alanından iOS kullanma
 
@@ -28,8 +28,8 @@ Blob Depolama hakkında daha fazla bilgi için bkz: [Azure Blob depolamaya giri�
 Azure depolama iOS kitaplığı uygulamanın içine kullanılarak alabileceğiniz [Azure depolama CocoaPod](https://cocoapods.org/pods/AZSClient) veya alarak **Framework** dosya. Kolay mevcut projeniz için daha az müdahale eden ancak framework dosyasından içeri aktarma kitaplığı tümleştirme getirir CocoaPod önerilen yoludur.
 
 Bu kitaplığı kullanmak için aşağıdakiler gerekir:
-- iOS 8 +
-- Xcode 7 +
+- iOS 8+
+- Xcode 7+
 
 ## <a name="cocoapod"></a>CocoaPod
 1. Bunu henüz yapmadıysanız [CocoaPods yükleme](https://guides.cocoapods.org/using/getting-started.html#toc_3) bilgisayarda bir terminal penceresi açıp ve aşağıdaki komutu çalıştırarak
@@ -129,9 +129,9 @@ Bu durum bakarak çalıştığını doğrulayabilirsiniz [Microsoft Azure Depola
 ## <a name="set-container-permissions"></a>Kapsayıcı izinleri ayarlama
 Bir kapsayıcının izinleri için yapılandırılmış olan **özel** varsayılan olarak erişim. Ancak, kapsayıcılar, kapsayıcı erişim için birkaç farklı seçenekler sunar:
 
-* **Özel**: kapsayıcı ve blob verileri yalnızca hesap sahibi tarafından okunabilir.
-* **BLOB**: Bu kapsayıcı içinde Blob verilerini anonim istek okunabilir ancak kapsayıcı verileri kullanılamıyor. İstemcilerin anonim isteğiyle kapsayıcı içindeki blobları listelenemiyor.
-* **Kapsayıcı**: kapsayıcı ve blob verilerini anonim istek okunabilir. İstemcilerin anonim isteğiyle kapsayıcı içindeki blobları listeleme, ancak depolama hesabında kapsayıcıları numaralandırılamıyor.
+* **Özel**: Kapsayıcı ve blob verileri yalnızca hesap sahibi tarafından okunabilir.
+* **BLOB**: Anonim İstek bu kapsayıcıdaki BLOB verilerini okuyabilir, ancak kapsayıcı verileri mevcut değil. İstemcilerin anonim isteğiyle kapsayıcı içindeki blobları listelenemiyor.
+* **kapsayıcı**: Kapsayıcı ve blob verilerini anonim istek okunabilir. İstemcilerin anonim isteğiyle kapsayıcı içindeki blobları listeleme, ancak depolama hesabında kapsayıcıları numaralandırılamıyor.
 
 Aşağıdaki örnek ile bir kapsayıcı oluşturma işlemi gösterilmektedir **kapsayıcı** erişim izinlerini Internet üzerindeki tüm kullanıcılar için genel ve salt okunur erişim sağlar:
 
@@ -216,12 +216,12 @@ Aşağıdaki örnek, bir kapsayıcıdaki tüm blobları listelemek gösterilmekt
 * **önek** -blob listesi için kullanılacak öneki belirtebilirsiniz. Bu ön Ekle başlayan blobları listelenir.
 * **Listblobs** - belirtildiği gibi [adlandırma ve kapsayıcılar ve bloblar başvuran](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) bölümünde, Blob hizmeti, bir düz depolama düzeni olmasına rağmen oluşturabileceğiniz sanal bir hiyerarşi yol ile BLOB'ları adlandırarak bilgiler. Ancak, olmayan düz liste şu anda desteklenmiyor. Bu özellik yakında kullanıma sunulacaktır. Şimdilik, bu değer olmalıdır **Evet**.
 * **blobListingDetails** -blobları listeleme dahil edilecek öğeleri belirtebilirsiniz.
-  * _AZSBlobListingDetailsNone_: yalnızca kaydedilmiş blobları listelemek ve blob meta verilerini döndürmüyor.
-  * _AZSBlobListingDetailsSnapshots_: kaydedilmiş BLOB'ları listelemek ve blob anlık görüntüsü.
-  * _AZSBlobListingDetailsMetadata_: döndürülen listesindeki her blobu için blob meta veri alınamadı.
-  * _AZSBlobListingDetailsUncommittedBlobs_: kaydedilen ve kaydedilmeyen blobları listeler.
-  * _AZSBlobListingDetailsCopy_: kopyalama içeren listenin özellikleri.
-  * _AZSBlobListingDetailsAll_: tüm kullanılabilir kaydedilmiş BLOB'ları, işlenmemiş BLOB'ları ve anlık görüntüleri listesinde ve bu bloblar için tüm meta verileri ve kopyalama durumu döndürür.
+  * _AZSBlobListingDetailsNone_: Yalnızca kaydedilmiş blobları listelemek ve blob meta verilerini döndürmüyor.
+  * _AZSBlobListingDetailsSnapshots_: Taahhüt edilen blobları listelemek ve blob anlık görüntüleri.
+  * _AZSBlobListingDetailsMetadata_: Her blob için blob meta veri alınamadı, liste döndürdü.
+  * _AZSBlobListingDetailsUncommittedBlobs_: İşlenmiş ve kaydedilmemiş blobları listeleyin.
+  * _AZSBlobListingDetailsCopy_: Özellikleri Kopyala listesindeki içerir.
+  * _AZSBlobListingDetailsAll_: Tüm kullanılabilir kaydedilmiş BLOB'ları, işlenmemiş BLOB'ları ve anlık görüntüleri listeleyin ve bu bloblar için tüm meta verileri ve kopyalama durumu döndürür.
 * **maxresults bağımsız değişkenini** -bu işlem için döndürülecek sonuç sayısı. Olmayan bir sınır ayarlamak için-1 değerini kullanın.
 * **completionHandler** - listeleme işlemi sonuçlarını yürütmek için kod bloğu.
 

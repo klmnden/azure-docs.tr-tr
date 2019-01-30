@@ -13,13 +13,14 @@ ms.topic: article
 ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: sijuman
+ms.lastreviewed: 01/05/2019
 <!-- dev: viananth -->
-ms.openlocfilehash: 8049db848e34b0aa9bc23f08169a8c63f765791a
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: c7c23352cea4f9e79b371f38112fb66ac31ac849
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389744"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242306"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>Azure stack'teki Python ile API Sürüm profillerini kullanma
 
@@ -50,7 +51,7 @@ Python SDK'sı, Azure yığını ve genel Azure gibi farklı bulut platformları
 
 Azure Python SDK'sı, Azure Stack ile kullanmak için aşağıdaki değerleri girin ve ardından ortam değişkenleriyle değerleri ayarlayın. Tablodan sonra sağlanan işletim sistemi ortam değişkenlerini ayarlama konusunda yönergelere bakın.
 
-| Değer | Ortam değişkenleri | Açıklama |
+| Value | Ortam değişkenleri | Açıklama |
 |---------------------------|-----------------------|-------------------------------------------------------------------------------------------------------------------------|
 | Kiracı Kimliği | AZURE_TENANT_ID | Azure Stack değerini [Kiracı kimliği](../azure-stack-identity-overview.md). |
 | İstemci Kimliği | AZURE_CLIENT_ID | Hizmet sorumlusu uygulama kimliği bu makalenin önceki bölümde hizmet sorumlusu oluşturulurken kaydedilen. |

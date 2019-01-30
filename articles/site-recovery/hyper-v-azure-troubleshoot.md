@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 2f9c4c0b973efe26e6ece2235f2d0c7a6878ebef
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 94b2ab0263ccb7b6835a7bbe76ed8776aadb1a65
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845000"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228211"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Azure'a çoğaltma ve yük devretme için Hyper-V sorunlarını giderme
 
@@ -110,9 +110,9 @@ Uygulamayla tutarlı bir anlık görüntü, VM'nin içindeki uygulama verilerini
 5. Yedekleme hizmeti etkinleştirildiğinden emin olun. İçinde etkin olduğunu doğrulayın **Hyper-V ayarları** > **tümleştirme hizmetleri**.
 6. VSS anlık görüntülerini alma uygulamaları ile çakışma olmadığından emin olun. Birden fazla uygulama VSS anlık görüntüsünü aynı zaman çakışmalarını en çalışıyorsanız oluşabilir. Örneğin, Site Recovery çoğaltma ilkenizi bir anlık görüntüsünü almak için zamanlandı VSS anlık görüntüleri yedekleme uygulaması sürüyorsa.   
 7. VM bir yüksek bir karmaşıklık oranı yaşıyor denetleyin:
-    - Hyper-V konağında performans sayaçlarını kullanarak Konuk sanal makineleri için günlük veri değişikliği hızınıza ölçebilirsiniz. Veri değişiklik oranı ölçmek için sayaç aşağıdaki etkinleştirin. VM diskleri için 5-15 dakika boyunca bu değer bir örnek Aggregrate VM karmaşası alınacağı.
+    - Hyper-V konağında performans sayaçlarını kullanarak Konuk sanal makineleri için günlük veri değişikliği hızınıza ölçebilirsiniz. Veri değişiklik oranı ölçmek için sayaç aşağıdaki etkinleştirin. Bu değer bir örneği arasında VM diskleri VM karmaşası alınacağı 5-15 dakika için toplama.
         - Kategori: "Hyper-V sanal depolama cihazı"
-        - Sayaç: "yazılan bayt / sn"</br>
+        - Sayaç: "Yazma Bayt / sn"</br>
         - Bu veri değişim hızı artırmak veya VM veya uygulamalarına ne kadar meşgul olduğunu bağlı olarak yüksek bir düzeyde kalır.
         - Ortalama kaynak disk veri değişim sıklığı, 2 MB/sn'lik Site Recovery için standart depolama için ' dir. [Daha fazla bilgi](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)
     - Buna ek olarak şunları yapabilirsiniz [depolama ölçeklenebilirlik hedefleri doğrulayın](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#scalability-targets-for-a-storage-account).
@@ -125,7 +125,7 @@ Uygulamayla tutarlı bir anlık görüntü, VM'nin içindeki uygulama verilerini
 1. VSS hatalarının ve öneriler için olay günlüklerini kontrol edin:
     - Hyper-V konak sunucusunda Hyper-V yönetici olay günlüğünde açın **Olay Görüntüleyicisi'ni** > **uygulama ve hizmet günlükleri** > **Microsoft**  >  **Windows** > **Hyper-V** > **yönetici**.
     - Uygulamayla tutarlı anlık görüntü hatalarını belirten tüm olaylar olup olmadığını doğrulayın.
-    - Tipik bir hatadır: "Hyper-V başarısız oldu 'XYZ' sanal makinesi için VSS anlık görüntü kümesi oluşturmak: yazıcı geçici olmayan bir hatayla karşılaştı. Hizmet yanıt vermiyorsa VSS hizmetini yeniden sorunları çözebilir."
+    - Tipik bir hatadır: "Hyper-V başarısız oldu 'XYZ' sanal makinesi için VSS anlık görüntü kümesi oluşturmak: Yazıcı, geçici olmayan bir hatayla karşılaştı. Hizmet yanıt vermiyorsa VSS hizmetini yeniden sorunları çözebilir."
 
 2. VM için VSS anlık görüntülerini oluşturmak için Hyper-V tümleştirme hizmetleri sanal makinede yüklü olduğundan ve yedekleme (VSS) tümleştirme hizmeti etkin olduğunu denetleyin.
     - Tümleştirme hizmetleri VSS hizmeti/Daemon Konuk çalıştıran olduğundan emin olun ve bir **Tamam** durumu.
@@ -136,7 +136,7 @@ Uygulamayla tutarlı bir anlık görüntü, VM'nin içindeki uygulama verilerini
 
 **Hata kodu** | **İleti** | **Ayrıntılar**
 --- | --- | ---
-**0x800700EA** | "Sanal makine için VSS anlık görüntü kümesi oluşturmak için Hyper-V başlatılamadı: daha fazla veri kullanılabilir. (0x800700EA). Yedekleme işlemi devam ediyor, VSS anlık görüntü ayarlanmış üretimi başarısız olabilir.<br/><br/> Sanal makine için çoğaltma işlemi: başka veri yok. " | Sanal makinenizin dinamik disk etkin olup olmadığını denetleyin. Bu özellik desteklenmez.
+**0x800700EA** | "Başarısız Hyper-V sanal makinesi için VSS anlık görüntü kümesi oluşturmak: Daha fazla veri kullanılabilir. (0x800700EA). Yedekleme işlemi devam ediyor, VSS anlık görüntü ayarlanmış üretimi başarısız olabilir.<br/><br/> Sanal makine için çoğaltma işlemi başarısız oldu: Daha fazla veri mevcut değil." | Sanal makinenizin dinamik disk etkin olup olmadığını denetleyin. Bu özellik desteklenmez.
 **0x80070032** | "Hyper-V Birim Gölge kopyası istek sahibi, sanal makineye bağlanamadı <. / VMname > sürüm Hyper-V tarafından beklenen sürüm eşleşmediğinden | En son Windows güncelleştirmelerini'nın yüklü olup olmadığını denetleyin.<br/><br/> [Yükseltme](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) Integration Services'ın en son sürüme.
 
 

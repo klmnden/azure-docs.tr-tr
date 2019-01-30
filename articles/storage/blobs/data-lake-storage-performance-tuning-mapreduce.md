@@ -3,17 +3,17 @@ title: Azure Data Lake depolama 2. nesil MapReduce performansı ayarlama yönerg
 description: Azure Data Lake depolama 2. nesil MapReduce performansı ayarlama yönergeleri
 services: storage
 author: swums
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: stewu
-ms.openlocfilehash: 4ba683bc75ed841fc92eb2c9fcc908e419b716d6
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 0cd7ecdc6ee7b6ccd66c9d0d88ebef0a1220a40a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975301"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55249121"
 ---
 # <a name="performance-tuning-guidance-for-mapreduce-on-hdinsight-and-azure-data-lake-storage-gen2"></a>HDInsight ve Azure Data Lake depolama 2. nesil MapReduce için performans ayarlama Kılavuzu
 
@@ -22,7 +22,7 @@ Map Reduce işleri performansını ayarlamak, dikkate almanız gereken faktörle
 ## <a name="prerequisites"></a>Önkoşullar
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
-* **Bir Azure Data Lake depolama Gen2 hesap**. Bir oluşturma hakkında yönergeler için bkz: [hızlı başlangıç: Azure Data Lake depolama Gen2'ye bir depolama hesabı oluşturma](data-lake-storage-quickstart-create-account.md).
+* **Bir Azure Data Lake depolama Gen2 hesap**. Bir oluşturma hakkında yönergeler için bkz: [hızlı başlangıç: Bir Azure Data Lake depolama Gen2'ye depolama hesabı oluşturma](data-lake-storage-quickstart-create-account.md).
 * **Azure HDInsight kümesinde** bir Data Lake depolama Gen2 hesabına erişim. Küme için Uzak Masaüstü etkinleştirdiğinizden emin olun.
 * **HDInsight üzerinde MapReduce kullanarak**.  Daha fazla bilgi için [, HDInsight üzerinde Hadoop MapReduce kullanma](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-mapreduce)
 * **Performans ayarlama yönergeleri Data Lake depolama Gen2**.  Genel performans için bkz [veri Lake depolama Gen2 performans ayarlama Kılavuzu](data-lake-storage-performance-tuning-guidance.md)
@@ -45,11 +45,11 @@ MapReduce işleri çalıştırırken, Data Lake depolama Gen2 performansı artı
 > [!NOTE]
 > Bu belgedeki bilgiler, uygulamanız, küme üzerinde çalışan tek bir uygulama olduğunu varsayar.
 
-**1. adım: çalışan işlerin sayısını belirleme**
+**1. adım: Çalışan işlerin sayısını belirleme**
 
 Varsayılan olarak, işiniz için tüm küme MapReduce kullanın.  Kümenin daha az kullanılabilir kapsayıcı sayısından daha az azaltıcının kullanarak kullanabilirsiniz.        
 
-**2. adım: mapreduce.map.memory/mapreduce.reduce.memory ayarlama**
+**2. adım: Mapreduce.Map.Memory/mapreduce.reduce.Memory ayarlayın**
 
 Eşleme için bellek boyutu ve görevleri, belirli bir projede bağımlı olur.  Eşzamanlılığı artırmak istiyorsanız bellek boyutunu küçültebilirsiniz.  Eşzamanlı olarak çalışan görevlerin sayısını kapsayıcıların sayısına bağlıdır.  Eşleyici veya azaltıcı başına bellek miktarını azaltarak, daha fazla kapsayıcı, daha fazla azaltıcının veya eşzamanlı olarak çalıştırılmasını genişletin etkinleştiren oluşturulabilir.  Çok fazla bellek miktarını azaltarak, belleğin tükenmek üzere bazı işlemler neden olabilir.  İş çalışırken bir yığın hata alırsanız, Eşleyici veya azaltıcı başına bellek yükseltmeniz gerekir.  Daha fazla kapsayıcı ekleme ekleyeceksiniz dikkate almanız gereken potansiyel olarak performansı düşürebilir ek her kapsayıcı için fazladan ek yükü.  Başka bir alternatif, kümenizdeki düğümlerin sayısını artırmak ya da daha büyük miktarda bellek sahip bir küme kullanarak daha fazla bellek almaktır.  Daha fazla bellek, daha fazla eşzamanlılık başka bir deyişle, kullanılacak, daha fazla kapsayıcı olanak sağlar.  
 
@@ -61,13 +61,13 @@ Mapreduce.job.Maps/mapreduce.job.reduces ayarlamak için kullanılabilir toplam 
 
 Ardından bir boş küme kullanıyorsanız, bellek toplam YARN bellek, kümeniz olabilir.  Diğer uygulamaları bellek kullanıyorsanız, kullanmak istediğiniz kapsayıcı sayısı için azaltıcının veya genişletin sayısını azaltarak kümenizin belleğin bir kısmını yalnızca kullanmayı seçebilirsiniz.  
 
-**4. adım: YARN kapsayıcı sayısı hesaplama**
+**4. adım: YARN kapsayıcıları sayısını hesaplayın**
 
 YARN kapsayıcıları eşzamanlılık iş için kullanılabilir miktarını gerektirir.  Toplam YARN bellek alın ve tarafından mapreduce.map.memory bölen.  
 
     # of YARN containers = total YARN memory / mapreduce.map.memory
 
-**5. adım: mapreduce.job.maps/mapreduce.job.reduces ayarlama**
+**5. adım: Mapreduce.job.Maps/mapreduce.job.reduces ayarlayın**
 
 Mapreduce.job.Maps/mapreduce.job.reduces en az biri olarak ayarlayın kullanılabilir kapsayıcı sayısı.  Denemeler yapabilir ve azaltıcının daha iyi performans elde olmadığını görmek için genişletin sayısını artırarak daha fazla.  Çok fazla azaltıcının sahip performansı düşebilir için daha fazla azaltıcının ek yük olacağını aklınızda bulundurun.  
 
@@ -77,11 +77,11 @@ YARN kapsayıcı sayısı bellekle sınırlıdır. Bu nedenle CPU zamanlama ve C
 
 8 D14 düğümlerinin oluşan bir kümesini sunuyoruz ve g/ç yoğunluklu iş çalıştırılmasına istiyoruz varsayalım.  Yapmanız gerekenler hesaplamalar şunlardır:
 
-**1. adım: çalışan işlerin sayısını belirleme**
+**1. adım: Çalışan işlerin sayısını belirleme**
 
 Bu örnekte, bizim işi çalıştıran tek bir iş olduğunu varsayalım.  
 
-**2. adım: mapreduce.map.memory/mapreduce.reduce.memory ayarlama**
+**2. adım: Mapreduce.Map.Memory/mapreduce.reduce.Memory ayarlayın**
 
 Bu örnekte, g/ç yoğunluklu iş çalışıyor ve 3 GB bellek eşlemesi görevler için yeterli olacağına karar verin.
 
@@ -90,11 +90,11 @@ Bu örnekte, g/ç yoğunluklu iş çalışıyor ve 3 GB bellek eşlemesi görevl
 **3. adım: Toplam YARN bellek belirleme**
 
     Total memory from the cluster is 8 nodes * 96GB of YARN memory for a D14 = 768GB
-**4. adım: Hesaplama YARN kapsayıcı sayısı**
+**4. adım: YARN kapsayıcı sayısı hesaplayın**
 
     # of YARN containers = 768GB of available memory / 3 GB of memory =   256
 
-**5. adım: mapreduce.job.maps/mapreduce.job.reduces ayarlama**
+**5. adım: Mapreduce.job.Maps/mapreduce.job.reduces ayarlayın**
 
     mapreduce.map.jobs = 256
 

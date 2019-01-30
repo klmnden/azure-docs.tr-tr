@@ -13,13 +13,14 @@ ms.topic: quickstart
 ms.date: 12/20/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
+ms.lastreviewed: 12/20/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: c8a723137761c12ab335af79dfffb9e124348eac
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 57aa0146f29d45dbcb5b1a0ac2f4fbdf31cb045b
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246611"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55238763"
 ---
 # <a name="validate-a-new-azure-stack-solution"></a>Yeni bir Azure Stack çözüm doğrula
 
@@ -76,7 +77,7 @@ Bir test başarıyla tamamlandıktan sonra **zamanlama** eylemi devre dışı ka
     - SDK'sı işletimsel Suite işlem
     - Disk kimliği Test
     - KeyVault uzantı SDK'sı işletimsel paketi
-    - KeyVault SDK işletimsel paketi
+    - KeyVault SDK Operational Suite
     - Ağ SDK işletimsel paketi
     - Depolama hesabı SDK işletimsel paketi
 

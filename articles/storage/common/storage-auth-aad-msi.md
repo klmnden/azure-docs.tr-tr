@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: d8382cac86abb112018195695340ed12663a2333
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.subservice: common
+ms.openlocfilehash: 15c37be3f3b1b3f72c32865e095091fa10ee9750
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427425"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251699"
 ---
 # <a name="authenticate-access-to-blobs-and-queues-with-managed-identities-for-azure-resources-preview"></a>BLOB'lar ve Kuyruklar yönetilen kimliklerle erişim (Önizleme) Azure kaynakları için kimlik doğrulaması
 
@@ -43,7 +43,7 @@ Azure Storage uygulamanızı bir yönetilen kimlik doğrulamak için önce yöne
 
 İle yönetilen bir kimlik doğrulamak için uygulama veya betik bir yönetilen kimlik erişim belirtecini almalıdır. Erişim belirteci alma hakkında bilgi edinmek için [bir erişim belirteci almak için bir Azure sanal makinesinde Azure kaynakları için yönetilen kimlikleri kullanmak nasıl](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
 
-## <a name="net-code-example-create-a-block-blob"></a>.NET kod örneği: bir blok blobu oluştur
+## <a name="net-code-example-create-a-block-blob"></a>.NET kod örneği: Bir blok blobu oluştur
 
 Kod örneği, bir yönetilen kimlik erişim belirteci sahibi olduğunuzu varsayar. Erişim belirteci, bir blok blobu oluşturmak için yönetilen kimlik yetkilendirmek için kullanılır.
 

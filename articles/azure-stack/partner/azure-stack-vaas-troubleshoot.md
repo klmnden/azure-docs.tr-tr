@@ -13,13 +13,14 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
+ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0fb1afb1a07b31f7e261c958b8a03bec3b299433
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: a6fea6962c5e8864398cd80635d997407cf1d22e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245302"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250308"
 ---
 # <a name="troubleshoot-validation-as-a-service"></a>Hizmet olarak doğrulama sorunlarını giderme
 
@@ -80,7 +81,7 @@ Kullanabileceğiniz **Get-HashFile** karma değeri, görüntü dosyalarını, re
 | WindowsServer2012R2DatacenterBYOL.vhd | 9792CBF742870B1730B9B16EA814C683A8415EFD7601DDB6D5A76D0964767028 |
 | Server2016DatacenterCoreBYOL.vhd | 5E80E1A6721A48A10655E6154C1B90E320DF5558487D6A0D7BFC7DCD32C4D9A5 |
 | Ubuntu1404LTS.vhd | B24CDD12352AAEBC612A4558AB9E80F031A2190E46DCB459AF736072742E20E0 |
-| Ubuntu1604 20170619.1.vhd | C481B88B60A01CBD5119A3F56632A2203EE5795678D3F3B9B764FFCA885E26CB |
+| Ubuntu1604-20170619.1.vhd | C481B88B60A01CBD5119A3F56632A2203EE5795678D3F3B9B764FFCA885E26CB |
 
 ### <a name="failure-occurs-when-uploading-vm-image-in-the-vaasprereq-script"></a>Sanal makine görüntüsünü karşıya yüklenirken hata oluşması `VaaSPreReq` betiği
 
@@ -98,7 +99,7 @@ Ortamın sağlıklı olup olmadığını el ile VaaS test çalıştırmaları i�
     > [!IMPORTANT]
     > Tüm Varsayılanları, var olan bir Market öğesi için doğrudur.
 
-    | Alan  | Değer  |
+    | Alan  | Value  |
     |---------|---------|
     | Yayımcı | MicrosoftWindowsServer |
     | Sunduğu | WindowsServer |

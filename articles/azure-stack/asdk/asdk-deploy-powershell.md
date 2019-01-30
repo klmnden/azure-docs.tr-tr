@@ -16,12 +16,13 @@ ms.custom: ''
 ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: c6b2387360973cd4e65b5a1e4ba483abf5ea9070
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.lastreviewed: 09/10/2018
+ms.openlocfilehash: 2513f397457c4866229605487149aa1fe03a2c68
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44716035"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247740"
 ---
 # <a name="deploy-the-asdk-from-the-command-line"></a>ASDK komut satırından dağıtma
 ASDK değerlendirmek ve Azure Stack özelliklerini ve hizmetler için dağıtabileceğiniz bir test ve geliştirme ortamıdır. Bu alınacağı ayarlandıktan ve çalışmaya, ortam donanım hazırlama ve bazı komut dosyaları (Bu işlem birkaç saat sürebilir) çalıştırmanız gerekir. Bundan sonra yönetici ve kullanıcı portalı için Azure Stack kullanmaya başlamak için oturum açabilir.
@@ -105,7 +106,7 @@ Geliştirme Seti dağıtmak için **kimlik sağlayıcısı olarak AD FS kullanar
 
 AD FS dağıtımında, varsayılan damga dizin hizmeti, kimlik sağlayıcısı olarak kullanılır. Oturum açmak için varsayılan hesap azurestackadmin@azurestack.local, ve PowerShell Kurulum komutları bir parçası olarak sağlanan için parola ayarlanır.
 
-Dağıtım işlemi, hangi sırada sistem otomatik olarak bir kez yeniden başlatılır, birkaç saat sürebilir. Dağıtım başarılı olduktan sonra PowerShell konsolunu görüntüler: **tamamlandı: 'Dağıtımı' eylem**. Dağıtım başarısız olursa, betiği kullanarak yeniden deneyebilirsiniz yeniden çalıştırma parametresi. Veya [ASDK yeniden](asdk-redeploy.md) sıfırdan.
+Dağıtım işlemi, hangi sırada sistem otomatik olarak bir kez yeniden başlatılır, birkaç saat sürebilir. Dağıtım başarılı olduktan sonra PowerShell konsolunu görüntüler: **TAMAMLAYIN: Eylem 'Dağıtımı'**. Dağıtım başarısız olursa, betiği kullanarak yeniden deneyebilirsiniz yeniden çalıştırma parametresi. Veya [ASDK yeniden](asdk-redeploy.md) sıfırdan.
 
 > [!IMPORTANT]
 > ASDK konak yeniden başlatıldıktan sonra dağıtımın ilerleme durumunu izlemek istiyorsanız, AzureStack\AzureStackAdmin oturum açmalısınız. Ana bilgisayar yeniden (ve azurestack.local etki alanına katılmış sonra) yerel bir yönetici olarak oturum açarsanız, dağıtımın ilerleme durumunu göremezsiniz. Dağıtım yeniden değil, bunun yerine azurestack çalıştığını doğrulamak oturum açın.
@@ -139,9 +140,9 @@ Ortamınız DHCP etkin olmaması durumunda aşağıdaki ek parametreler (sağlan
 ### <a name="asdk-installazurestackpocps1-optional-parameters"></a>ASDK InstallAzureStackPOC.ps1 isteğe bağlı parametreler
 |Parametre|Gerekli/isteğe bağlı|Açıklama|
 |-----|-----|-----|
-|AdminPassword|Gerekli|Geliştirme Seti dağıtımının bir parçası oluşturulan tüm sanal makinelerde yerel yönetici hesabı ve diğer tüm kullanıcı hesaplarını ayarlar. Bu parola, ana bilgisayardaki geçerli yerel yönetici parolasını eşleşmesi gerekir.|
-|InfraAzureDirectoryTenantName|Gerekli|Kiracı dizinini ayarlar. AAD hesabının birden çok dizini Yönetme iznine sahip olduğu belirli bir dizini belirtmek için bu parametreyi kullanın. Tam adı biçiminde bir AAD Directory Kiracısı. onmicrosoft.com veya Azure AD'yi özel etki alanı adı doğrulandı.|
-|Zaman sunucusunu|Gerekli|Belirli bir saat sunucusu belirtmek için bu parametreyi kullanın. Bu parametre, geçerli saat sunucusu IP adresi olarak sağlanmalıdır. Sunucu adları desteklenmez.|
+|AdminPassword|Gereklidir|Geliştirme Seti dağıtımının bir parçası oluşturulan tüm sanal makinelerde yerel yönetici hesabı ve diğer tüm kullanıcı hesaplarını ayarlar. Bu parola, ana bilgisayardaki geçerli yerel yönetici parolasını eşleşmesi gerekir.|
+|InfraAzureDirectoryTenantName|Gereklidir|Kiracı dizinini ayarlar. AAD hesabının birden çok dizini Yönetme iznine sahip olduğu belirli bir dizini belirtmek için bu parametreyi kullanın. Tam adı biçiminde bir AAD Directory Kiracısı. onmicrosoft.com veya Azure AD'yi özel etki alanı adı doğrulandı.|
+|Zaman sunucusunu|Gereklidir|Belirli bir saat sunucusu belirtmek için bu parametreyi kullanın. Bu parametre, geçerli saat sunucusu IP adresi olarak sağlanmalıdır. Sunucu adları desteklenmez.|
 |InfraAzureDirectoryTenantAdminCredential|İsteğe bağlı|Azure Active Directory kullanıcı adını ve parolasını ayarlar. Bu Azure kimlik bilgileri, bir kuruluş kimliği olmalıdır|
 |InfraAzureEnvironment|İsteğe bağlı|Azure ile bu Azure Stack dağıtım kaydetmek istediğiniz ortamı seçin. Genel Azure, Azure - Çin'de, Azure - US Government seçenekleri içerir.|
 |DNSForwarder|İsteğe bağlı|Bir DNS sunucusu, Azure Stack dağıtımının bir parçası oluşturulur. Damga dışında adlarını çözümlemek için çözüm içindeki bilgisayarları izin vermek için mevcut altyapı DNS sunucunuzu sağlar. Damga DNS sunucusu bu sunucusuna Bilinmeyen ad çözümleme isteklerini iletir.|

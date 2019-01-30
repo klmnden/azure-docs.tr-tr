@@ -1,6 +1,6 @@
 ---
 Başlık: Studio web hizmeti ile web uygulaması şablonu titleSuffix kullan: Azure Machine Learning Studio açıklaması: Web uygulaması şablonu, Azure Marketi'nde Azure Machine learning'de Tahmine dayalı web servisini kullanın.
-Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.component: studio ms.topic: makale
+Hizmetler: Makine öğrenimi ms.service: Makine öğrenimi ms.subservice: studio ms.topic: makale
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/20/2017
 ---

@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: sethm
 ms.reviewer: avishwan
-ms.openlocfilehash: bf70f9a74b58758e03800d7f6fb92a8f8754828a
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.lastreviewed: 11/12/2018
+ms.openlocfilehash: 03a6f649f15f6a4905433d6e2ec292a901340929
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613104"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55249689"
 ---
 # <a name="windows-server-in-azure-stack-marketplace-faq"></a>Windows Server'da Azure Stack Marketini SSS
 
@@ -37,10 +38,10 @@ Ardından, tüm sanal makine ölçek kümeleri belirli bir sürümüne başvuruy
 
 Microsoft Azure Stack marketten Windows Server görüntülerini iki sürümünü sunar:
 
-- **Kullandıkça Öde**: Bu görüntüleri tam fiyat Windows ölçümleri çalıştırın. 
-   Kimin kullanmalıdır: kullanan Kurumsal Anlaşma (EA) müşterileri *tüketim faturalandırma modeli*; SPLA lisans kullanmak istiyor musunuz CSP'ler.
-- **Kendi lisansını (KLG) getirin**: temel ölçümleri bu görüntüleri çalıştırın.
-   Kimin kullanmalıdır: EA müşterileri; Windows Server Lisansı SPLA lisansı kullanan CSP'ler.
+- **Kullandıkça Öde**: Bu görüntüler, tam fiyat Windows ölçümleri çalıştırın. 
+   Kimin kullanmanız gerekir: Kullanan Kurumsal Anlaşma (EA) müşterileri *tüketim faturalandırma modeli*; SPLA lisans kullanmak istiyor musunuz CSP'ler.
+- **Kendi lisansınızı getirin (BYOL)**: Bu görüntüler, temel ölçümleri çalıştırın.
+   Kimin kullanmanız gerekir: EA müşterileri bir Windows Server lisansına sahip; SPLA lisansı kullanan CSP'ler.
 
 Azure karma kullanım Avantajı'nı (AHUB), Azure Stack üzerinde desteklenmiyor. "Kapasite" modeli aracılığıyla lisans müşteriler KLG görüntüsü kullanmanız gerekir. Azure Stack geliştirme Seti'ni (ASDK) ile test ediyorsanız, bu seçeneklerden birini kullanabilirsiniz.
 

@@ -13,13 +13,14 @@ ms.topic: article
 ms.date: 12/20/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
+ms.lastreviewed: 12/20/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0461e33f8154d3d9004860737a844af0f9df258c
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: c0694a3839ae6b843abd1ddc8b67d1f3e3322e0e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245370"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246050"
 ---
 # <a name="what-is-validation-as-a-service-for-azure-stack"></a>Azure Stack için hizmet olarak doğrulama nedir?
 
@@ -62,7 +63,7 @@ Daha fazla bilgi için [hızlı başlangıç: Doğrulama, ilk test zamanlamak i�
 
 | Doğrulama iş akışı | Gerekli testleri |
 |----|------------|
-| [Yeni çözüm doğrulama](azure-stack-vaas-validate-solution-new.md) | Bulut benzetimi altyapısı<br>SDK'sı işletimsel Suite işlem<br>Disk kimliği Test<br>KeyVault uzantı SDK'sı işletimsel paketi<br>KeyVault SDK işletimsel paketi<br>Ağ SDK işletimsel paketi<br>Depolama hesabı SDK işletimsel paketi<br> |
+| [Yeni çözüm doğrulama](azure-stack-vaas-validate-solution-new.md) | Bulut benzetimi altyapısı<br>SDK'sı işletimsel Suite işlem<br>Disk kimliği Test<br>KeyVault uzantı SDK'sı işletimsel paketi<br>KeyVault SDK Operational Suite<br>Ağ SDK işletimsel paketi<br>Depolama hesabı SDK işletimsel paketi<br> |
 | [OEM paketi doğrulama](azure-stack-vaas-validate-oem-package.md) | OEM uzantı paketi doğrulama<br>Bulut benzetimi altyapısı |
 | [Aylık güncelleştirme doğrulama](azure-stack-vaas-validate-microsoft-updates.md) | Aylık AzureStack güncelleştirme doğrulama<br>Bulut benzetimi altyapısı<br> |
 

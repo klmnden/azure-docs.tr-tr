@@ -41,13 +41,13 @@ Aşağıdaki listede yer alan V2 ve V3 yöntemleri V2 ile gelen işlevselliği s
 
 | V2 API yöntemi   | V3 API uyumluluğu |
 |:----------- |:-------------|
-| Çevirme     | [Çevir](reference/v3-0-translate.md)          |
+| Translate     | [Çevir](reference/v3-0-translate.md)          |
 | TranslateArray      | [Çevir](reference/v3-0-translate.md)        |
 | GetLanguageNames      | [Diller](reference/v3-0-languages.md)         |
 | GetLanguagesForTranslate     | [Diller](reference/v3-0-languages.md)       |
 | GetLanguagesForSpeak      | [Microsoft konuşma hizmeti](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
-| Söyleyin     | [Microsoft konuşma hizmeti](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
-| Algılama     | [Algılama](reference/v3-0-detect.md)         |
+| Speak     | [Microsoft konuşma hizmeti](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
+| Detect     | [Algılama](reference/v3-0-detect.md)         |
 | DetectArray     | [Algılama](reference/v3-0-detect.md)         |
 | AddTranslation     | [Microsoft Translator API hub'ı](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)         |
 | AddTranslationArray    | [Microsoft Translator API hub'ı](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)          |
@@ -75,12 +75,12 @@ Microsoft Translator V3 V2 fiyatlandırılır aynı şekilde fiyatlandırılır;
 
 | V3 yöntemi   | Faturalandırma için sayılan karakterler |
 |:----------- |:-------------|
-| Diller     | Gönderilen herhangi bir karakter yok sayılan, ücret alınmaz.          |
-| Çevirme     | Sayısı temel karakterlerinin kaçının tutulacağını gönderilen çeviri ve kaç diller için karakter çevrilir. 50 karakteri gönderildi ve istenen 5 dilleri 50 x 5 olacaktır.           |
-| Karakter Dönüştürme     | Harf çevirisi için gönderilen karakter sayısına göre sayılır.         |
-| Sözlük Arama ve örnek     | Sözlük Arama ve örnekler için gönderilen karakter sayısına göre sayılır.         |
+| Languages     | Gönderilen herhangi bir karakter yok sayılan, ücret alınmaz.          |
+| Translate     | Sayısı temel karakterlerinin kaçının tutulacağını gönderilen çeviri ve kaç diller için karakter çevrilir. 50 karakteri gönderildi ve istenen 5 dilleri 50 x 5 olacaktır.           |
+| Transliterate     | Harf çevirisi için gönderilen karakter sayısına göre sayılır.         |
+| Dictionary lookup &amp; example     | Sözlük Arama ve örnekler için gönderilen karakter sayısına göre sayılır.         |
 | BreakSentence     | Ücret alınmaz.       |
-| Algılama     | Ücret alınmaz.      |
+| Detect     | Ücret alınmaz.      |
 
 ## <a name="v3-end-points"></a>V3 uç noktaları
 

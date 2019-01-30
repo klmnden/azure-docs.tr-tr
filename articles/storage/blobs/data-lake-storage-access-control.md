@@ -3,17 +3,17 @@ title: Azure Data Lake depolama Gen2'ye erişim denetimine genel bakış | Micro
 description: Azure Data Lake depolama Gen2 erişim denetiminin nasıl çalıştığını anlama
 services: storage
 author: jamesbak
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: 52af1a45f920139ddda1d02734de91372fe4719d
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 3005f19ffbc4771da442e36290a5803dddebfdbb
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52974916"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240184"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Azure Data Lake depolama Gen2'ye erişim denetimi
 
@@ -47,9 +47,9 @@ SAS belirteçleri belirtecinin bir parçası izin verilen izinleri içerir. SAS 
 
 Denetim listeleri (ACL) iki tür erişim vardır: erişim ACL'leri ve varsayılan ACL.
 
-* **Erişim ACL'leri**: erişim ACL'leri erişimi denetlemek için bir nesne. Dosyalar ve dizinler erişim ACL'leri vardır.
+* **Erişim ACL'leri**: Erişim ACL'leri bir nesneye erişimi denetler. Dosyalar ve dizinler erişim ACL'leri vardır.
 
-* **Varsayılan ACL'ler**: ACL'leri şablonu bu dizin altında oluşturulan tüm alt öğelere ilişkin erişim ACL'lerini belirleyen bir dizin ile ilişkili. Dosyaları varsayılan ACL'ye sahip değildir.
+* **Varsayılan ACL'ler**: ACL'ler şablonu bu dizin altında oluşturulan tüm alt öğelere ilişkin erişim ACL'lerini belirleyen bir dizin ile ilişkilendirilmiştir. Dosyaları varsayılan ACL'ye sahip değildir.
 
 Hem erişim ACL'leri hem de varsayılan ACL'ler aynı yapıdadır.
 
@@ -130,8 +130,8 @@ POSIX ACL'lerinde her kullanıcı ile ilişkili bir *birincil grup*. Örneğin, 
 
 #### <a name="assigning-the-owning-group-for-a-new-file-or-directory"></a>Yeni dosya veya dizin sahip olan grup atama
 
-* **1. durum**: kök dizini "/". Bu dizin, bir Data Lake depolama 2. nesil dosya sistemini oluşturduğunuzda oluşturulur. Bu durumda sahip olan Grup bitti dedik, dosya sistemi oluşturan kullanıcıya ayarlanır OAuth kullanarak. Paylaşılan anahtar, bir hesap SAS veya bir hizmet SAS'ı kullanarak dosya oluşturulduktan sonra sahibi ve sahip olan Grup ayarlanır **$superuser**.
-* **2. durum** (diğer her olay): yeni bir öğe oluşturulduğunda sahip olan Grup üst dizininden kopyalanır.
+* **Case 1**: Kök dizin "/". Bu dizin, bir Data Lake depolama 2. nesil dosya sistemini oluşturduğunuzda oluşturulur. Bu durumda sahip olan Grup bitti dedik, dosya sistemi oluşturan kullanıcıya ayarlanır OAuth kullanarak. Paylaşılan anahtar, bir hesap SAS veya bir hizmet SAS'ı kullanarak dosya oluşturulduktan sonra sahibi ve sahip olan Grup ayarlanır **$superuser**.
+* **2. durum** (diğer her olay): Yeni bir öğe oluşturulduğunda sahip olan Grup üst dizininden kopyalanır.
 
 #### <a name="changing-the-owning-group"></a>Sahip olan Grup değiştirme
 

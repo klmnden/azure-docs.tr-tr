@@ -5,16 +5,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: 4bbd4c57556fd4bfd176c915e26be4a4d198418a
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 7392459f0b80558aac22bd585c0d30bf4105d76f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339942"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55224454"
 ---
 # <a name="get-started-with-custom-speech-service"></a>Özel konuşma hizmeti ile çalışmaya başlama
 
@@ -28,15 +28,15 @@ Bulabileceğiniz koyulmanız için sağladığımız iyi bir örneği [burada](h
 ## <a name="prerequisites"></a>Önkoşullar  
 
 ### <a name="subscribe-to-custom-speech-service-and-get-a-subscription-key"></a>Özel konuşma hizmeti için abone ve bir abonelik anahtarı edinirler
-Yukarıdaki yürütmeden önce örnek özel konuşma hizmeti için abone ve gerekir bir abonelik anahtarı, bkz: alma [abonelikleri](https://portal.azure.com/#create/Microsoft.CognitiveServices/apitype/CustomSpeech) veya açıklamaları izleyin [burada](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-subscribe.md). Bu öğreticide, hem birincil ve ikincil anahtar kullanılabilir. API anahtarı gizli tutmak için en iyi uygulamaları takip ettiğinizden emin olun ve güvenliğini sağlayın.
+Yukarıdaki yürütmeden önce örnek özel konuşma hizmeti için abone ve gerekir bir abonelik anahtarı, bkz: alma [abonelikleri](https://portal.azure.com/#create/Microsoft.CognitiveServices/apitype/CustomSpeech) veya açıklamaları izleyin [burada](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-subscribe.md). Bu öğreticide, hem birincil hem de ikincil anahtar kullanılabilir. API anahtarınızın gizliliğini ve güvenliğini korumak için en iyi yöntemleri uyguladığınızdan emin olun.
 
-### <a name="get-the-client-library-and-example"></a>İstemci Kitaplığı ve örnek alma
-Bir istemci kitaplığı ve örnek aracılığıyla yükleyebilirsiniz [SDK](https://www.microsoft.com/cognitive-services/en-us/SDK-Sample?api=bing%20speech&category=sdk). İndirilen ZIP dosyasını tercih ettiğiniz bir klasöre ayıklanmasını gerekiyor, çok sayıda kullanıcı Visual Studio 2015 klasöründe seçin.
+### <a name="get-the-client-library-and-example"></a>İstemci kitaplığını ve örneği alma
+Bir istemci kitaplığı ve örnek aracılığıyla yükleyebilirsiniz [SDK](https://www.microsoft.com/cognitive-services/en-us/SDK-Sample?api=bing%20speech&category=sdk). İndirilen zip dosyasının istediğiniz bir klasöre ayıklanması gerekir, çoğu kullanıcı, Visual Studio 2015 klasörünü seçer.
 
 ## <a name="creating-a-custom-acoustic-model"></a>Özel akustik model oluşturma
 Akustik modeli belirli bir etki alanına özelleştirmek üzere konuşma verilerinden oluşan bir koleksiyona ihtiyaç duyulur. Bu koleksiyon, konuşma verilerinden oluşan ses dosyası kümesine ve her ses dosyasının transkripsiyonunu içeren bir metin dosyasından oluşur. Ses verisi tanıyıcı kullanmak istediğiniz senaryoyu temsilcisi olmalıdır
 
-Örneğin: konuşma gürültülü fabrika ortamında daha iyi tanımak istiyorsanız, ses dosyalarını gürültülü factory'de Konuşmayı kişilerin oluşmalıdır.
+Örneğin: Gürültülü bir fabrika ortamındaki konuşmayı daha iyi bir şekilde tanımak istiyorsanız ses dosyaları gürültülü bir fabrika ortamında konuşan kişileri içermelidir.
 Tek bir Konuşmacı için performansı en iyi duruma getirme ilgileniyorsanız, örneğin tüm FDR'ın Fireside sohbetleri konuşmaların istediğiniz sonra birçok örnekleri yalnızca bu konuşmacının ses dosyalarını oluşmalıdır.
 
 Bir özel akustik model oluşturma konusunda ayrıntılı bir açıklama bulabilirsiniz [burada](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-acoustic-model.md).

@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: e0f51306ab17e88db9d28da14faab9de0b445f74
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.lastreviewed: 11/05/2018
+ms.openlocfilehash: 491bdf121729d690784324051ff701f3ed2d2b7a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037915"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243190"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Azure bağlı dağıtım planlama kararları için Azure Stack tümleşik sistemleri
 Karar verdim sonra [Azure Stack, hibrit bulut ortamına nasıl tümleştirilecek](azure-stack-connection-models.md), Azure Stack dağıtım kararlarınızı sonra sonlandır.
@@ -30,7 +31,7 @@ Azure Stack ile Azure'a bağlı dağıtma, Azure Active Directory (Azure AD) vey
 ## <a name="choose-an-identity-store"></a>Bir kimlik deposu seçin
 Bağlı bir dağıtım ile Azure AD veya kimlik deponuz için AD FS arasından seçim yapabilirsiniz. Bağlantısı kesilmiş bir dağıtım ile internet bağlantısı olmayan, yalnızca AD FS kullanabilirsiniz.
 
-Kimlik deposu seçtiğiniz Kiracı sanal makinelerinde (VM'ler) bir ilgisi yoktur. Kiracı VM'ler, bunların nasıl yapılandırılır bağlı olarak bağlan istedikleri hangi kimlik deposu seçebilir: Azure AD, Windows Server Active Directory etki alanına katılmış, çalışma grubu, vs. Azure Stack kimlik sağlayıcısı kararı ilgisiz olmasıdır. 
+Kimlik deposu seçtiğiniz Kiracı sanal makinelerinde (VM'ler) bir ilgisi yoktur. Kiracı VM'ler, bunların nasıl yapılandırılır bağlı olarak bağlanma istedikleri hangi kimlik deposu tercih edebilirsiniz: Azure AD, Windows Server Active Directory etki alanına katılmış, çalışma grubu, vs. Azure Stack kimlik sağlayıcısı kararı ilgisiz olmasıdır. 
 
 Iaas Kiracı Azure Stack üzerinde sanal makineleri dağıtmak ve bir kurumsal Active Directory etki alanına ve buradan hesaplarını kullanmak istiyorsanız, örneğin, yine de bunu yapabilirsiniz. Bu hesaplar için burada seçtiğiniz Azure AD kimlik deposu kullanmak için gerekli değildir.
 
@@ -68,7 +69,7 @@ Kapasite faturalandırma gerektiren bir Kurumsal Anlaşma (EA) kaydı için Azur
 
 ## <a name="learn-more"></a>Daha fazla bilgi edinin
 - Kullanım örnekleri, satın alma, iş ortakları ve OEM donanım satıcıları hakkında daha fazla bilgi için bkz. [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) ürün sayfası.
-- Tümleşik sistemler, Azure Stack için yol haritası ve coğrafi kullanılabilirlik hakkında bilgi teknik incelemesine bakın: [Azure Stack: bir Azure uzantısı](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
+- Tümleşik sistemler, Azure Stack için yol haritası ve coğrafi kullanılabilirlik hakkında bilgi teknik incelemesine bakın: [Azure Stack: Bir Azure uzantısı](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
 - Microsoft Azure Stack paketleme ve fiyatlandırma hakkında daha fazla bilgi edinmek için [.pdf indirme](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
