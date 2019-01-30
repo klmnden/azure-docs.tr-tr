@@ -6,16 +6,16 @@ services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: aahi
-ms.openlocfilehash: dec903d8557145701e06ddd588a58eb11fef96f5
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 42f1279e0459f113fbe9540a6a3a15b307c93763
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879324"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55225593"
 ---
 # <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Translator konuşma API'sini konuşma Service'a dönüştürme
 
@@ -62,7 +62,7 @@ Translator konuşma tanıma API'si kullanan uygulamaları geliştirme veya üret
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Konuşma hizmetini ücretsiz deneyin](get-started.md)
-* [Hızlı Başlangıç: bir UWP uygulamasında Speech SDK'sı kullanarak konuşma tanıma](quickstart-csharp-uwp.md)
+* [Hızlı Başlangıç: Bir UWP uygulamasında Speech SDK'sı kullanarak konuşma tanıma](quickstart-csharp-uwp.md)
 
 ## <a name="see-also"></a>Ayrıca bkz.
 

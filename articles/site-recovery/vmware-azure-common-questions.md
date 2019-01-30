@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 12/31/2018
+ms.date: 1/29/2019
 ms.topic: conceptual
-ms.author: raynew
-ms.openlocfilehash: 703d255a962dbac7a430404835c6d45c358d99a7
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.author: mayg
+ms.openlocfilehash: aa4b0fcdfecde181eea4481cc40b898ca74fce76
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478118"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55212248"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Sık sorulan sorular - Vmware'den Azure'a çoğaltma
 
@@ -42,6 +42,9 @@ Bir LRS veya GRS depolama hesabı gerekir. Bölgesel bir kesintinin meydana gelm
 
 ### <a name="does-my-azure-account-need-permissions-to-create-vms"></a>Hesabımdaki Azure sanal makineler oluşturmak için izinler gerekiyor mu?
 Bir abonelik yöneticisi değilseniz, ihtiyaç duyduğunuz çoğaltma izinleri sahip. Değilseniz, bir Azure VM kaynak grubu ve Site Recovery yapılandırırken belirttiğiniz sanal ağ oluşturmak için izinler ve seçili depolama hesabına yazma izni gerekir. [Daha fazla bilgi edinin](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
+
+### <a name="can-i-use-guest-os-server-license-on-azure"></a>Konuk işletim sistemi sunucu lisansı Azure üzerinde kullanabilir miyim?
+Microsoft Yazılım Güvencesi müşterileri lisanslama maliyetlerini kaydetmek için Azure hibrit avantajı Evet, kullanabilirsiniz **Windows Server makineleri** azure'a veya Azure olağanüstü durum kurtarma için kullanılacak geçirilir.
 
 ## <a name="azure-site-recovery-components-upgrade"></a>Azure Site Recovery bileşenlerini yükseltme
 
@@ -250,7 +253,7 @@ Evet, Azure'a yük devretmesi, ilkinin kullanılamıyorsa farklı bir konuma ba�
 Azure'dan yeniden çalışma, verileri azure'dan şirket içi Makinenize geri kopyalanır ve özel erişim gereklidir.
 
 ### <a name="can-i-resize-the-azure-vm-after-failover"></a>Yük devretmeden sonra Azure VM'nin boyutunu değiştirebilirsiniz?
-Hayır, yük devretme sonrasında hedef sanal makine boyutunu değiştiremezsiniz.
+Hayır, yük devretme sonrasında hedef sanal makine türünü ve boyutunu değiştiremezsiniz.
 
 
 ## <a name="automation-and-scripting"></a>Otomasyon ve betik oluşturma

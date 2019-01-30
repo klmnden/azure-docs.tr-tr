@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.author: bsiva
-ms.openlocfilehash: e34409490f9e120cb39daf99b280cc52c59f54e2
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 48e53bcc542b9a0e00a544f80ec796082fa71f7b
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845656"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210429"
 ---
 # <a name="monitor-and-troubleshoot-site-recovery"></a>İzleme ve Site Recovery sorun giderme
 
@@ -35,7 +35,7 @@ Bu makalede, Azure Site Recovery'nin yerleşik İzleme özelliklerini izleme ve 
 
 Çoğaltılan öğeler bölüm çoğaltma kasaya etkin olan tüm makineler durumunu gösterir.
 
-**durumu** | **Ayrıntılar**
+**State** | **Ayrıntılar**
 --- | ---
 Sorunsuz | Çoğaltma normal şekilde devam eder. Herhangi bir hata veya uyarı belirtileri algılanır.
 Uyarı | Çoğaltma etkileyebilecek bir veya daha fazla uyarı belirtileri algılanır.
@@ -49,7 +49,7 @@ Kasada makineler için test yük devretme durumunu görüntüleyebilirsiniz.
 - Her altı aylık en az bir kez çoğaltılan makinelerde yük devretme testi çalıştırmanızı öneririz. Bu, yük devretme, üretim ortamınızın kesintiye uğratmadan beklendiği gibi çalıştığını denetlemek için bir yoludur. 
 - Yalnızca Yük devretme ve yük devretme sonrası Temizleme işlemini tamamladıktan sonra başarıyla yük devretme testi başarılı olarak kabul edilir.
 
-**durumu** | **Ayrıntılar**
+**State** | **Ayrıntılar**
 --- | ---
 Sınama önerilir | Koruma etkinleştirildikten sonra Yük devretme testi sahip olmayan makineler.
 Başarıyla gerçekleştirildi | Makine ile ya da daha başarılı test yük devretmeleri.
@@ -62,7 +62,7 @@ Uygulanamaz | Yük devretme testi için şu anda uygun olmayan makineler. Örne�
 - Yapılandırma sorunları (dışında yazılım güncelleştirme kullanılabilirlik), varsayılan olarak her 12 saatte bir çalışan düzenli Doğrulayıcı işlemi tarafından algılanır. Hemen yanında Yenile simgesine tıklayarak çalıştırmak için Doğrulayıcı işlemi zorlayabilirsiniz **yapılandırma sorunlarını** bölüm başlığı.
 - Daha fazla bilgi almak için bağlantıları tıklatın. Belirli makinelere etkileyen sorunlar için tıklatın **dikkat etmeniz gereken** içinde **hedef yapılandırmaları** sütun. Ayrıntılar için düzeltme önerileri içerir.
 
-**durumu** | **Ayrıntılar**
+**State** | **Ayrıntılar**
 --- | ---
 Eksik yapılandırmaları | Gerekli bir ayar eksik bir kurtarma ağı veya bir kaynak grubu gibi.
 Eksik kaynakları | Belirtilen kaynak bulunamıyor veya bu abonelikte mevcut değil. Örneğin, kaynak geçişi veya silinmiş. İzlenen kaynakları dahil hedef kaynak grubu, hedef VNet/alt ağ, günlük/hedef depolama hesabı, hedef kullanılabilirlik kümesi, hedef IP adresi.
@@ -95,7 +95,7 @@ Yazılım güncelleştirmeleri | Yeni yazılım güncelleştirmeleri ve süresi 
 - Altyapı Görünümü'nde tüm özelliklerini kullanmak için çalıştırılması gerektiği [güncelleştirme paketi 22](https://support.microsoft.com/help/4072852) bu bileşenler için.
 - Altyapı görünümü kullanmak için ortamınızda uygun çoğaltma senaryosu seçin. Daha fazla bilgi için görünümde detaya gidebilirsiniz. Aşağıdaki tablo, hangi senaryoları temsil gösterir.
 
-    **Senaryo** | **durumu**  | **Kullanılabilir görüntülemek ister misiniz?**
+    **Senaryo** | **State**  | **Kullanılabilir görüntülemek ister misiniz?**
     --- |--- | ---
     **Şirket içi siteler arasında çoğaltma** | Tüm durumlar | Hayır 
     **Azure bölgeleri arasında Azure VM çoğaltma**  | Çoğaltma etkin ilk çoğaltma sürüyor | Evet
@@ -149,17 +149,17 @@ Ayrıca Panoda sanal makineler sayfasındaki makineler izleyebilirsiniz.
     ![Site Recovery çoğaltılan öğeleri listesi görünümü](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-list-view.png)
 
 2. Üzerinde **çoğaltılan öğeler** sayfasında görüntüleyebilir ve filtre bilgileri. Üst Eylem menüsünde yük devretme testi çalıştırma veya belirli hataları görüntüleme dahil olmak üzere belirli bir makine için eylemler gerçekleştirebilirsiniz.
-3.  Tıklayın **sütunları** RPO, gösterilecek örneğin ek sorgunuzun göstermek için yapılandırma sorunlarını ve çoğaltma hataları hedefleyin.
+3.  Tıklayın **sütunları** RPO, gösterilecek örneğin ek sütunları gösterecek şekilde yapılandırma sorunlarını ve çoğaltma hataları hedefleyin.
 4. Tıklayın **filtre** çoğaltma durumu veya belirli bir çoğaltma ilkesi gibi belirli parametreleri temel alan bilgiler görüntülemek için.
 5. Bir makine için yük devretme testi gibi işlemleri başlatmak için ya da onunla ilişkili özel hata ayrıntılarını görüntülemek için sağ tıklayın.
 6. Daha fazla için detaylarına gitmek için bir makineye tıklayın. Ayrıntıları içerir:
-      - **Çoğaltma bilgileri**: geçerli durumu ve makinenin sistem durumu.
-      - **RPO** (kurtarma noktası hedefi): sanal makine ve hangi RPO son Hesaplandı saat için geçerli RPO.
-      - **Kurtarma noktaları**: makine için en son kullanılabilir kurtarma noktaları.
-      - **Yük devretmeye hazırlık**: yük devretme testi (makineler) Mobility hizmetini çalıştıran makine ve yapılandırma sorunlarını çalışan Aracısı sürümü makinenin çalıştırılıp çalıştırılmadığını gösterir.
-      - **Hataları**: şu anda makine ve olası nedenleri/eylemleri gözlemlenen çoğaltma hatası belirtileri listesi.
-      - **Olayları**: Makine etkileyen en son olayların kronolojik bir listesi. Hata ayrıntılarını şu anda gözlemlenebilir hatası belirtileri olayları bir geçmiş kaydını makine etkilemiş sorunlarını üzerindeyken gösterir.
-      - **Altyapı görünümü**: makineleri Azure'a çoğaltırken senaryosu için altyapı durumunu gösterir.
+      - **Çoğaltma bilgileri**: Geçerli durumu ve makinenin sistem durumu.
+      - **RPO** (kurtarma noktası hedefi): Geçerli RPO için sanal makine ve RPO son Hesaplandı zaman.
+      - **Kurtarma noktaları**: Makine için en son kullanılabilir kurtarma noktaları.
+      - **Yük devretmeye hazırlık**: Yük devretme testi (makineler) Mobility hizmetini çalıştıran makine ve yapılandırma sorunlarını çalışan Aracısı sürümü makinenin çalıştırılıp çalıştırılmadığını gösterir.
+      - **Hataları**: Şu anda makine ve olası nedenleri/Eylemler gözlemlenen çoğaltma hatası belirtileri listesi.
+      - **Olayları**: Makineyi etkileyen en son olayların kronolojik bir listesi. Hata ayrıntılarını şu anda gözlemlenebilir hatası belirtileri olayları bir geçmiş kaydını makine etkilemiş sorunlarını üzerindeyken gösterir.
+      - **Altyapı görünümü**: Makineleri Azure'a çoğaltırken senaryosu için altyapı durumunu gösterir.
 
     ![Site Recovery çoğaltılan öğe ayrıntıları/genel bakış](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
 

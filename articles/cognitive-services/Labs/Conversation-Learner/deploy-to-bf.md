@@ -6,16 +6,16 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 0bcb6262201b3399ca4d759bb306a570bea33b00
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
-ms.translationtype: MT
+ms.openlocfilehash: 44d4d3b7b82a2f23f973a9c94cb66c81c430efa8
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578778"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55225321"
 ---
 # <a name="how-to-deploy-a-conversation-learner-bot"></a>Konuşma Öğrenici bot dağıtma
 
@@ -53,7 +53,7 @@ Model kimliği almak nasıl aşağıda verilmiştir:
 
 5. "Model kimliği" GUID, sayfanın üst kısımda görüntülenir.
 
-## <a name="option-1-deploying-a-conversation-learner-bot-to-run-locally"></a>1. seçenek: yerel olarak çalıştırmak için bir konuşma Öğrenici bot dağıtma
+## <a name="option-1-deploying-a-conversation-learner-bot-to-run-locally"></a>1. seçenek: Yerel olarak çalıştırmak için bir konuşma Öğrenici bot dağıtma
 
 Bu yerel makinenize bir bot dağıtır ve Bot Framework öykünücüsü'nü kullanarak nasıl erişeceği gösterilmektedir.
 
@@ -90,7 +90,7 @@ Bot artık yerel olarak çalışıyor.  Bot Framework öykünücü ile erişebil
 
 2. Şimdi, botunuzun ile konuşmaya.
 
-## <a name="option-2-deploy-to-azure"></a>2. seçenek: Azure'a dağıtma
+## <a name="option-2-deploy-to-azure"></a>2. seçenek: Azure’a dağıtma
 
 Konuşma Öğrenici botunuzun benzer şekilde aynı diğer herhangi bir bot yayımlamak istediğiniz yayımlayın. Yüksek bir düzeyde kodunuzu barındırılan bir Web sitesine yükleme, uygun yapılandırma değerleri ayarlayın ve ardından çeşitli kanallarla bot kaydetme. Ayrıntılı yönergeleri kullanarak Azure Bot hizmeti botunuza yayımlama gösteren Bu videoda verilmiştir.
 

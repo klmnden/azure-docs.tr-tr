@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.author: nitinme
 ms.date: 10/23/2018
 ms.topic: hub-page
-ms.openlocfilehash: 5477b1b3dc14a94713074a72751b732262880258
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 3c67a6fc7345cb533ad0c7088ac09fb02d3da1f2
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53650986"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55213985"
 ---
 <h1>Azure Bilişsel Hizmetler Belgeleri</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">Uygulamalarınıza, web sitelerinize ve botlarınıza, kullanıcılarınızın ihtiyaçlarını görmek, duymak, dile getirmek ve anlamak için doğal iletişim yöntemlerinden yararlanan akıllı algoritmalar oluşturmayı öğrenin. Öğreticiler, hızlı başlangıçlar, API başvuruları ve örnekler size bunu nasıl yapacağınızı gösterir.</p>
@@ -131,7 +131,7 @@ ms.locfileid: "53650986"
                     <div class="cardText">
                         <h3>Görüntü İşleme hizmeti ile görüntü analizi</h3>
                         <p><a href="/azure/cognitive-services/Computer-vision/quickstarts-sdk/csharp-analyze-sdk">C# kullanma</a></p>
-                        <p><a href="/azure/cognitive-services/Computer-vision/Quickstarts/java-analyze">Java kullanma</a></p>
+                        <p><a href="/azure/cognitive-services/bing-visual-search/quickstarts/java">Java kullanma</a></p>
                         <p><a href="/azure/cognitive-services/Computer-vision/Quickstarts/node-analyze">Node.js'yi kullanma</a></p>
                         <p><a href="/azure/cognitive-services/Computer-vision/Quickstarts/python-analyze">Python’u kullanma</a></p>
                     </div>

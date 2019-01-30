@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: raynew
-ms.openlocfilehash: 959e58a58099b71a595f995e03cc70255fd6d059
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 334a476fee6e995c33a290d34df2f111baae34c3
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/29/2019
-ms.locfileid: "55198036"
+ms.locfileid: "55224250"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>SQL Server veritabanlarını Azure'a yedekleme
 
@@ -483,7 +483,14 @@ Bu yordamı, verileri alternatif bir konuma geri yükleme yoluyla açıklanmakta
 > Veritabanı, aynı Azure bölgesindeki bir SQL Server'ın bir örneğine geri yükleyebilirsiniz. Hedef sunucuyu kurtarma Hizmetleri kasasına kayıtlı olması gerekir.
 >
 
-Üzerinde **geri yükleme Yapılandırması** menüsünde **sunucu** aşağı açılan liste kutusunu yalnızca kurtarma Hizmetleri kasasına kayıtlı SQL Server örnekleri gösterilir. İstediğiniz sunucu listede yoksa bkz [Bul SQL Server veritabanlarını](backup-azure-sql-database.md#discover-sql-server-databases) sunucusunu bulmak için. Bulma işlemi sırasında kurtarma Hizmetleri Kasası'na yeni sunucular kaydedilir.
+Üzerinde **geri yükleme Yapılandırması** menüsünde **sunucu** aşağı açılan liste kutusunu yalnızca kurtarma Hizmetleri kasasına kayıtlı SQL Server örnekleri gösterilir. İstediğiniz sunucu listede yoksa bkz [Bul SQL Server veritabanlarını](backup-azure-sql-database.md#discover-sql-server-databases) sunucusunu bulmak için. Bulma işlemi sırasında kurtarma Hizmetleri Kasası'na yeni sunucular kaydedilir.<br>
+Bir SQL veritabanını geri yüklemek için aşağıdaki izinlere ihtiyacınız:
+
+* **Yedekleme işleci** kurtarma Hizmetleri izinlerini **kasası** içinde yapıyor geri yükleme.
+* **Contributor(write)** erişim **SQL VM kaynağı** (ve yedeklenen VM'yi geri çalıştığınız).
+* **Katkıda bulunan (yazma)** erişimi hedef SQL sanal makine (VM geri; olacak olması durumunda özgün konum Recovery(OLR)) VM kaynağı olarak aynı VM.
+
+Alternatif bir konuma geri yüklemek için:
 
 1. İçinde **geri yükleme Yapılandırması** menüsü:
 

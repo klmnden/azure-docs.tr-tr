@@ -5,17 +5,17 @@ services: cognitive-services
 author: chliang
 manager: bix
 ms.service: cognitive-services
-ms.component: anomaly-finder
+ms.subservice: anomaly-finder
 ms.topic: include
 ms.date: 04/13/2018
 ms.author: chliang
 ms.custom: include file
-ms.openlocfilehash: a49df0c18ef9db9d0d41ca2e714474e6386ae7d1
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 5ad589c4adb60369f81979e214935f73d9eb0755
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48904546"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228925"
 ---
 <a name="definitions"></a>
 ## <a name="definitions"></a>Tanımlar
@@ -23,7 +23,7 @@ ms.locfileid: "48904546"
 <a name="point"></a>
 ### <a name="point"></a>Noktası
 
-|Ad|Açıklama|Şema|
+|Name|Açıklama|Şema|
 |---|---|---|
 |**Zaman damgası**  <br>*İsteğe bağlı*|Veri noktası için zaman damgası. Bunu hizalar gece yarısı ve bir UTC tarih saat dizesi, örneğin, kullanım 2017 emin olun-08-01T00:00:00Z.|dize (tarih)|
 |**Değer**  <br>*İsteğe bağlı*|Veri ölçü birimi değeri.|sayı (çift)|
@@ -32,7 +32,7 @@ ms.locfileid: "48904546"
 <a name="request"></a>
 ### <a name="request"></a>İstek
 
-|Ad|Açıklama|Şema|
+|Name|Açıklama|Şema|
 |---|---|---|
 |**Dönem**  <br>*İsteğe bağlı*|Veri noktalarının süre. Değeri null ya da mevcut değil, API dönemi otomatik olarak belirler.|sayı (çift)|
 |**noktaları**  <br>*İsteğe bağlı*|Zaman serisi veri noktaları. Zaman damgası anomali sonucu eşleşecek şekilde artan veri sıralanmalıdır. Veriler düzgün şekilde sıralanır değil veya yinelenen zaman damgası API anomali noktaları doğru algılar, ancak giriş ile döndürülen noktaları da eşlenemedi. Böyle bir durumda bir uyarı iletisi yanıta eklenir.|< [işaret](#point) > dizi|
@@ -41,7 +41,7 @@ ms.locfileid: "48904546"
 <a name="response"></a>
 ### <a name="response"></a>Yanıt
 
-|Ad|Açıklama|Şema|
+|Name|Açıklama|Şema|
 |---|---|---|
 |**ExpectedValues**  <br>*İsteğe bağlı*|Tahmin edilen değer öğrenme modeli temel. Giriş noktaları zaman damgası tarafından artan düzende sıralanır, dizini dizinin beklenen değerini ve özgün değeri eşlemek için kullanılabilir.|dizi < sayı (çift) >|
 |**IsAnomaly**  <br>*İsteğe bağlı*|Sonuç veri noktaları anomalileri olup olmadığı veya her iki yönde (ani artışlar veya Düşüşler) içinde değil. doğru anomali noktasıdır anlamına gelir, yanlış anomali olmayan noktasıdır anlamına gelir. Giriş noktaları zaman damgası tarafından artan düzende sıralanır, dizini dizinin beklenen değerini ve özgün değeri eşlemek için kullanılabilir.|< Boole > dizi|

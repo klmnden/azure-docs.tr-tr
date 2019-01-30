@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 601246ab537c72e787c25d43a190111983c2b350
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 9375b042885459ab88b7c1f2a76a471da55ff5c8
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55075610"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209545"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Öğretici: Oturum açma ekranından Azure AD parola sıfırlama
 
@@ -28,11 +28,11 @@ Bu öğreticide kullanıcıların parolalarını Windows 10 oturum açma ekranı
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Windows 10 Nisan 2018 Güncelleştirmesi veya aşağıdaki özelliklere sahip daha yeni bir istemci:
-   * [Azure AD'ye katılmış makine](../device-management-azure-portal.md) veya
-   * [Hibrit Azure AD'ye katıldı makine](../device-management-hybrid-azuread-joined-devices-setup.md), bir etki alanı denetleyicisine ağ bağlantısı ile.
-* Azure AD self servis parola sıfırlama etkinleştirilmelidir.
-* Windows 10 makinelerinizi bir proxy sunucusu veya güvenlik duvarı ise HTTPS (443) için trafiği. `passwordreset.microsoftonline.com` ve `ajax.aspnetcdn.com` izin verilmelidir.
+* En az çalıştırılması gereken Windows 10, sürüm Nisan 2018 güncelleştirme ve cihazlara aşağıdakilerden biri olması gerekir:
+   * [Azure AD'ye katılmış](../device-management-azure-portal.md) veya
+   * [Hibrit Azure AD'ye katılmış](../device-management-hybrid-azuread-joined-devices-setup.md), bir etki alanı denetleyicisine ağ bağlantısı ile.
+* Etkinleştirmeniz Azure AD Self Servis parola sıfırlama.
+* Windows 10 cihazlarınızı bir proxy sunucusu veya güvenlik duvarı ise URL'leri eklemelisiniz `passwordreset.microsoftonline.com` ve `ajax.aspnet.cdn.com` HTTPS trafiğinin (bağlantı noktası 443) izin verilen URL'ler listesine.
 
 ## <a name="configure-reset-password-link-using-intune"></a>Intune'u kullanarak Parolayı sıfırla bağlantısını yapılandırma
 

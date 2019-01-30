@@ -5,16 +5,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: 6c64b89c2eb933e9bcc24bdc3097e7a0b2aab368
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 7d9b8b5a2ad8ccb447462ef7d34a8c25e5af6ef4
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342475"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55225032"
 ---
 # <a name="transcription-guidelines"></a>Transkripsiyon yönergeleri
 
@@ -58,7 +58,7 @@ Bazı örnekleri aşağıda verilmiştir
 | "Ne olacak?" söz konusu Batman'ın sidekick, bir kez deneme. | hangi söz konusu batman'ın sidekick bir kez deneme |
 | Git - em alın! | go get em |
 | Double-jointed istiyorum | i çift jointed |
-| 104 ana Sokak | bir oh dört ana Sokak |
+| 104 Main Street | bir oh dört ana Sokak |
 | 102.7 için ayarlama | bir oh iki noktası yedi ayarlama |
 | PI hakkında 3,14 olan | Pi yaklaşık üç noktası bir dört olduğu |
 | $3.14 maliyetleri | üç on dört maliyetleri |
@@ -76,10 +76,10 @@ Bazı örnekleri aşağıda verilmiştir
 
 | Orijinal metni | Normalleştirme sonra |
 |----- | ----- |
-| 14 NE 3 Dr. | on dört northeast üçüncü sürücü |
+| 14 NE 3rd Dr. | on dört northeast üçüncü sürücü |
 | Dr. Strangelove | Doktor Strangelove |
 | James Bond 007 | James bağlamak çift oh yedi |
-| Ke$ ha | Kesha |
+| Ke$ha | Kesha |
 | 2 x 4 ne kadardır | Tarafından iki dört ne kadardır |
 | 1-3'te gelen toplantı gider | Bir ila üç pm toplantı gider |
 | My tansiyon O + türüdür | O pozitif My tansiyon türüdür |
@@ -95,7 +95,7 @@ Yarım genişlikteki noktalama işaretleri kullanımını önlemek önemlidir. B
 | Unicode önlemek için | ASCII değiştirme |
 |----- | ----- |
 | "你好" (açma ve kapama çift tırnak) | "你好" (çift tırnak) |
-| 需要什么帮助? (soru işareti) | 需要什么帮助? |
+| 需要什么帮助? (soru işareti) | 需要什么帮助？ |
 
 ### <a name="text-normalization-performed-by-the-custom-speech-service"></a>Özel konuşma hizmeti tarafından gerçekleştirilen metin normalleştirme
 
@@ -175,11 +175,11 @@ Bazı örnekleri aşağıda verilmiştir
 
 | Orijinal metni | Kullanıcının normalleştirme sonra | Sistem normalleştirme sonra
 |--------  | ----- | -------- |
-| ES ist 12.23Uhr | ES ist 12:23Uhr | ES ist zwölf uhr drei çizili zwanzig uhr |
+| ES ist 12.23Uhr | ES ist 12:23Uhr | es ist zwölf uhr drei und zwanzig uhr |
 | {12.45} | {12,45} | zwölf komma vier fünf |
 | 3 < 5 | 3 kleiner als 5 | drei kleiner als vier |
-| 2 + 3-4 | 2 ve 3 4 eksi | zwei artı eksi vier drei|
-| DAS macht 12€ | DAS macht 12 Euro | DAS macht zwölf Euro |
+| 2 + 3 - 4 | 2 ve 3 4 eksi | zwei plus drei minus vier|
+| DAS macht 12€ | DAS macht 12 Euro | das macht zwölf euros |
 
 
 

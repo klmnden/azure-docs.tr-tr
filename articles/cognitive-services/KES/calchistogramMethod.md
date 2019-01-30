@@ -6,16 +6,16 @@ services: cognitive-services
 author: bojunehsu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 0ca43d6f6879198b8f80794c1948439e15f312ad
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: f994a254e661cd245d2e953efd3bd595d50c6fc7
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46122765"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55214322"
 ---
 # <a name="calchistogram-method"></a>calchistogram yöntemi
 *Calchistogram* yöntemi bir yapılandırılmış sorgu ifadesi ile eşleşen nesneleri hesaplar ve dağıtım, öznitelik değerleri hesaplar.
@@ -23,7 +23,7 @@ ms.locfileid: "46122765"
 ## <a name="request"></a>İstek
 `http://<host>/calchistogram?expr=<expr>[&options]` 
 
-Ad|Değer|Açıklama
+Name|Value|Açıklama
 ----|-----|-----------
 ifade | Metin dizesi | Dizin varlıkları histogramlar hesaplanacağı belirten yapılandırılmış sorgu ifade.
 Öznitelikleri | Metin dizesi (varsayılan = "") | Yanıta dahil edilmesi için öznitelik virgülle ayrılmış listesi.
@@ -37,12 +37,12 @@ $.expr | *Expr* istek parametresi.
 $.num_entities | Eşleşen varlıkların toplam sayısı.
 $.histograms |  Histogramlar, istenen her öznitelik için bir dizi.
 $.histograms [\*] .attribute | Histogram üzerine Hesaplandı özniteliğinin adı.
-$.histograms [\*] .distinct_values | Bu öznitelik için varlıklar eşleşen arasında farklı değerleri sayısı.
+$.histograms[\*].distinct_values | Bu öznitelik için varlıklar eşleşen arasında farklı değerleri sayısı.
 $.histograms [\*] .total_count | Değer örnekleri arasında bu öznitelik için varlıklar eşleşen toplam sayısı.
-$.histograms [\*] .histogram | Bu öznitelik için histogram verileri.
-$.histograms [\*] .histogram [\*] .value | Öznitelik değeri.
-$.histograms [\*] .histogram [\*] .logprob  | Varlıkları bu öznitelik değeri ile eşleşen toplam doğal logaritmayı olasılık.
-$.histograms [\*] .histogram [\*] .count    | Bu öznitelik değeri ile eşleşen varlıkların sayısı.
+$.histograms[\*].histogram | Bu öznitelik için histogram verileri.
+$.histograms[\*].histogram[\*].value | Öznitelik değeri.
+$.histograms[\*].histogram[\*].logprob  | Varlıkları bu öznitelik değeri ile eşleşen toplam doğal logaritmayı olasılık.
+$.histograms[\*].histogram[\*].count    | Bu öznitelik değeri ile eşleşen varlıkların sayısı.
 $.aborted | İstek zaman aşımına uğrarsa true.
 
 ### <a name="example"></a>Örnek

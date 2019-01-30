@@ -1,29 +1,29 @@
 ---
-title: 'Öğretici: C# ile Metin Analizi'
+title: 'Öğretici: İle metin analiziC#'
 titleSuffix: Azure Cognitive Services
 description: Bir ASP.NET Core web uygulamasından Metin Analizine bağlanın.
 services: cognitive-services
 author: ghogen
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 09/12/2018
 ms.author: ghogen
-ms.openlocfilehash: 95de174087fb2a73ad6c75a2e96caf872c351854
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
-ms.translationtype: HT
+ms.openlocfilehash: 6527e053f685fd7947e123d15c0d33399d07e61f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605241"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227259"
 ---
-# <a name="tutorial-connect-to-the-text-analytics-cognitive-service-by-using-connected-services-in-visual-studio"></a>Öğretici: Visual Studio’da Bağlı Hizmetleri kullanarak Metin Analizi Bilişsel Hizmeti’ne bağlanma
+# <a name="tutorial-connect-to-the-text-analytics-cognitive-service-by-using-connected-services-in-visual-studio"></a>Öğretici: Visual Studio bağlı Hizmetler'i kullanarak metin analizi Bilişsel hizmete bağlanın
 
 Metin Analizi Hizmeti’ni kullanarak görsel verileri kategorilere ayırıp işlemenin yanı sıra hizmetlerinizi oluşturmanıza yardımcı olan makine yardımlı görüntü denetimi gerçekleştirmek için zengin bilgileri ayıklayabilirsiniz.
 
 Bu makalede ve beraberindeki makalelerde, Metin Analizi Hizmeti için Visual Studio Bağlı Hizmet özelliğinin kullanımına ilişkin ayrıntılar sağlanmaktadır. Özellik, Bilişsel Hizmetler uzantısının yüklendiği Visual Studio 2017 15.7 ve sonraki sürümlerde mevcuttur.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - Azure aboneliği. Bir aboneliğiniz yoksa [ücretsiz hesap](https://azure.microsoft.com/pricing/free-trial/) için kaydolabilirsiniz.
 - Web Geliştirme iş yükünün yüklendiği Visual Studio 2017 sürüm 15.7. [Şimdi indir](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).

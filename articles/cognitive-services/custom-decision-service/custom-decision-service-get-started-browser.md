@@ -6,16 +6,16 @@ services: cognitive-services
 author: slivkins
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-decision-service
+ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: slivkins
-ms.openlocfilehash: 01f75d333e3eea5af35ca57bd44bc76148a481f2
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: db993693acc7e64a789564b92f4d0eacfa0e69f7
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867624"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55225270"
 ---
 # <a name="call-api-from-a-browser"></a>Tarayıcıdan API çağrısı yapma
 
@@ -23,7 +23,7 @@ Bu makalede, Azure özel karar alma hizmeti API'lere giden çağrıların doğru
 
 Mutlaka [uygulamanızı kaydetmeniz](custom-decision-service-get-started-register.md), ilk.
 
-Haydi başlayalım. Uygulamanız birkaç makale sayfaları için bağlantılar bir ön sayfa sahip olacak şekilde modellenir. Ön sayfa Custom Decision Service, makale sayfaları sıralama belirtmek için kullanır. Ön sayfanın HTML baş aşağıdaki kodu ekleyin:
+Başlayalım. Uygulamanız birkaç makale sayfaları için bağlantılar bir ön sayfa sahip olacak şekilde modellenir. Ön sayfa Custom Decision Service, makale sayfaları sıralama belirtmek için kullanır. Ön sayfanın HTML baş aşağıdaki kodu ekleyin:
 
 ```html
 // Define the "callback function" to render UI

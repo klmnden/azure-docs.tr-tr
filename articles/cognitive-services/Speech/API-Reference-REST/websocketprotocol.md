@@ -6,16 +6,16 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 0bbc6b638d11335e6d46501fa651996f05957dd5
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 1d6c0a8ca04949216e6410ff81b15f79c7067522
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341829"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217297"
 ---
 # <a name="bing-speech-websocket-protocol"></a>Bing konuşma WebSocket Protokolü
 
@@ -77,7 +77,7 @@ Content-Length: 0
 
 Aşağıdaki üst bilgi bilgileri için belirteç erişimi gereklidir.
 
-| Ad | Biçimlendir | Açıklama |
+| Name | Biçimlendir | Açıklama |
 |----|----|----|
 | Ocp-Apim-Subscription-Key | ASCII | Abonelik anahtarınız |
 
@@ -149,7 +149,7 @@ Hizmetlere istemci tarafından gönderilen ana iletiler `speech.config`, `audio`
 
 Aşağıdaki üst bilgiler, tüm istemci kaynaklı iletiler için gereklidir.
 
-| Üst bilgi | Değer |
+| Üst bilgi | Value |
 |----|----|
 | Yol | Bu belgede belirtilen ileti yolu |
 | X-RequestId | "No-dash" biçiminde UUID |
@@ -178,7 +178,7 @@ Konuşma hizmeti, en iyi olası konuşma tanıma sağlamak için uygulamanızın
 
 #### <a name="required-message-headers"></a>Gerekli ileti üstbilgileri
 
-| Üst bilgi adı | Değer |
+| Üst bilgi adı | Value |
 |----|----|
 | Yol | `speech.config` |
 | X-zaman damgası | İstemci UTC saati ISO 8601 biçimli zaman damgası |
@@ -218,17 +218,17 @@ System.version öğesinin `speech.config` ileti, konuşma istemci uygulama veya 
 
 | Alan | Açıklama | Kullanım |
 |-|-|-|
-| OS.Platform | İşletim sistemi örnek uygulamasını barındıran platformu, Windows, Android, iOS veya Linux |Gerekli |
-| OS.Name | Örneğin, Debian veya Windows 10 işletim sistemi ürün adı | Gerekli |
-| OS.Version | Biçimindeki işletim sistemi sürümünü *major.minor.build.branch* | Gerekli |
+| OS.Platform | İşletim sistemi örnek uygulamasını barındıran platformu, Windows, Android, iOS veya Linux |Gereklidir |
+| os.name | Örneğin, Debian veya Windows 10 işletim sistemi ürün adı | Gereklidir |
+| OS.Version | Biçimindeki işletim sistemi sürümünü *major.minor.build.branch* | Gereklidir |
 
 ##### <a name="device-element"></a>Cihaz öğesi
 
 | Alan | Açıklama | Kullanım |
 |-|-|-|
-| Device.Manufacturer | Cihaz donanım üreticisi | Gerekli |
-| Device.model | Cihaz modeli | Gerekli |
-| Device.Version | Cihaz üreticisi tarafından sağlanan cihaz yazılımı sürümü. Bu değer, cihaz üreticisi tarafından izlenen bir sürümünü belirtir. | Gerekli |
+| Device.Manufacturer | Cihaz donanım üreticisi | Gereklidir |
+| Device.model | Cihaz modeli | Gereklidir |
+| Device.Version | Cihaz üreticisi tarafından sağlanan cihaz yazılımı sürümü. Bu değer, cihaz üreticisi tarafından izlenen bir sürümünü belirtir. | Gereklidir |
 
 ### <a name="message-audio"></a>İleti `audio`
 
@@ -249,7 +249,7 @@ Konuşma hizmeti kullanan ilk `audio` içeren yeni bir istek/yanıt döngüsü b
 
 Aşağıdaki üst bilgiler tüm gerekli `audio` iletileri.
 
-| Üst bilgi         |  Değer     |
+| Üst bilgi         |  Value     |
 | ------------- | ---------------- |
 | Yol | `audio` |
 | X-RequestId | "No-dash" biçiminde UUID |
@@ -507,10 +507,10 @@ Telemetri şema, aşağıdaki bölümlere ayrılmıştır: alınan ileti zaman d
 
 | Alan | Açıklama | Kullanım |
 | ----- | ----------- | ----- |
-| Ad | `Connection` | Gerekli |
-| Kimlik | Bağlantı tanımlayıcı değeri kullanıldı *X ConnectionID* Bu bağlantı isteği üst bilgisi | Gerekli |
-| Başlatma | İstemci bağlantı isteği zaman gönderdiği saati | Gerekli |
-| Son | Zaman istemci bağlantı başarıyla kuruldu bildirim alındığında veya hata durumlarında reddedildi, reddedildi veya başarısız oldu | Gerekli |
+| Name | `Connection` | Gereklidir |
+| Kimlik | Bağlantı tanımlayıcı değeri kullanıldı *X ConnectionID* Bu bağlantı isteği üst bilgisi | Gereklidir |
+| Başlatma | İstemci bağlantı isteği zaman gönderdiği saati | Gereklidir |
+| Bitiş | Zaman istemci bağlantı başarıyla kuruldu bildirim alındığında veya hata durumlarında reddedildi, reddedildi veya başarısız oldu | Gereklidir |
 | Hata | Varsa, oluşan hata açıklaması. Bağlantı başarılı olursa, istemcilerin bu alan atlamak. Bu alan uzunluğunun üst sınırı 50 karakterdir. | Aksi takdirde atlanmış hata durumları için gerekli |
 
 Hata açıklaması en fazla 50 karakter arasında olmalıdır ve ideal olarak aşağıdaki tabloda listelenen değerlerden biri olmalıdır. Hata koşulu şu değerlerden biri olarak eşleşmiyorsa, istemciler birleştiren bir hata durumu açıklaması kullanarak kullanabilir [CamelCasing](https://en.wikipedia.org/wiki/Camel_case) boşluk olmadan. Gönderme olanağı bir *telemetri* ileti hizmet, bu nedenle yalnızca geçici bir bağlantı gerektirir ya da geçici hata koşulları rapor içinde *telemetri* ileti. Hata koşulları *kalıcı olarak* blok hizmetine bir bağlantı kurulurken bir istemcinin istemci hizmete herhangi bir ileti göndermesini engellemek dahil olmak üzere *telemetri* iletileri.
@@ -547,9 +547,9 @@ Aşağıdaki örnekler, kayıt için kılavuz olarak kullanın *Başlat* saat de
 
 | Alan | Açıklama | Kullanım |
 | ----- | ----------- | ----- |
-| Ad | Mikrofon | Gerekli |
-| Başlatma | Ne zaman istemci mikrofon veya başka bir ses akışı ses girişi kullanmaya veya bir tetikleyici anahtar sözcüğü spotter alınan saati | Gerekli |
-| Son | Ne zaman istemci ses veya mikrofon akış kullanarak durduruldu. süre | Gerekli |
+| Name | Mikrofon | Gereklidir |
+| Başlatma | Ne zaman istemci mikrofon veya başka bir ses akışı ses girişi kullanmaya veya bir tetikleyici anahtar sözcüğü spotter alınan saati | Gereklidir |
+| Bitiş | Ne zaman istemci ses veya mikrofon akış kullanarak durduruldu. süre | Gereklidir |
 | Hata | Varsa, oluşan hata açıklaması. Mikrofon işlem başarılı olursa, istemcilerin bu alan atlamak. Bu alan uzunluğunun üst sınırı 50 karakterdir. | Aksi takdirde atlanmış hata durumları için gerekli |
 
 ### <a name="metric-listeningtrigger"></a>Ölçüm `ListeningTrigger`
@@ -567,9 +567,9 @@ Aşağıdaki örnekler, kayıt için kılavuz olarak kullanın *Başlat* ve *son
 
 | Alan | Açıklama | Kullanım |
 | ----- | ----------- | ----- |
-| Ad | ListeningTrigger | İsteğe bağlı |
-| Başlatma | İstemci dinleme tetikleyici başlatıldığı saat | Gerekli |
-| Son | Ne zaman istemci dinleme tetikleyici bitiş zamanı | Gerekli |
+| Name | ListeningTrigger | İsteğe bağlı |
+| Başlatma | İstemci dinleme tetikleyici başlatıldığı saat | Gereklidir |
+| Bitiş | Ne zaman istemci dinleme tetikleyici bitiş zamanı | Gereklidir |
 | Hata | Varsa, oluşan hata açıklaması. Tetikleyici işlem başarılı olduysa, istemciler bu alan atlamak. Bu alan uzunluğunun üst sınırı 50 karakterdir. | Aksi takdirde atlanmış hata durumları için gerekli |
 
 #### <a name="sample-message"></a>Örnek ileti

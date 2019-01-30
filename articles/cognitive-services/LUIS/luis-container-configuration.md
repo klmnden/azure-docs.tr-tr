@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: 31d6725b6e02bbc583ad80f235360574941a97d3
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 40cfadd3880b1875e775aae21e667ba0e20086ef
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468344"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219762"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Language Understanding docker kapsayıcıları yapılandırın 
 
@@ -32,12 +32,12 @@ Bu kapsayıcı, aşağıdaki yapılandırma ayarları vardır:
 |--|--|--|
 |Evet|[ApiKey](#apikey-setting)|Fatura bilgileri izlemek için kullanılır.|
 |Hayır|[ApplicationInsights](#applicationinsights-setting)|Eklemenizi sağlayan [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) kapsayıcınızı telemetri desteği.|
-|Evet|[Billing](#billing-setting)|Azure'daki hizmet kaynağının uç nokta URI'sini belirtir.|
-|Evet|[Eula](#eula-setting)| Kapsayıcı lisansını kabul ettiğinizi gösterir.|
+|Evet|[Faturalandırma](#billing-setting)|Azure'da uç nokta hizmet kaynağın URI'sini belirtir.|
+|Evet|[EULA'sı](#eula-setting)| Kapsayıcı lisansını kabul ettiğiniz gösterir.|
 |Hayır|[Fluentd](#fluentd-settings)|Günlük yazma ve isteğe bağlı olarak ölçüm verileri Fluentd sunucusuna.|
 |Hayır|[HTTP Ara sunucusu](#http-proxy-credentials-settings)|Bir HTTP Proxy'si Giden istekleri yapmak için yapılandırın.|
-|Hayır|[Logging](#logging-settings)|Kapsayıcınız için ASP.NET Core günlük kaydı desteği sunar. |
-|Evet|[Mounts](#mount-settings)|Okuyup veri kapsayıcısı ana bilgisayarından kapsayıcısından geri ana bilgisayara yazma.|
+|Hayır|[Günlüğe kaydetme](#logging-settings)|ASP.NET Core günlüğü kapsayıcınız için destek sağlar. |
+|Evet|[Bağlar](#mount-settings)|Okuyup veri kapsayıcısı ana bilgisayarından kapsayıcısından geri ana bilgisayara yazma.|
 
 > [!IMPORTANT]
 > [ `ApiKey` ](#apikey-setting), [ `Billing` ](#billing-setting), Ve [ `Eula` ](#eula-setting) ayarları birlikte kullanılır ve bunları; Aksi takdirde, tüm üç için geçerli değerler sağlamanız gerekir kapsayıcınızı başlatılamıyor. Bir kapsayıcı örneği oluşturmak için bu yapılandırma ayarlarını kullanma hakkında daha fazla bilgi için bkz. [faturalama](luis-container-howto.md#billing).

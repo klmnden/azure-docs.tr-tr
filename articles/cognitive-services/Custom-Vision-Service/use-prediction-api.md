@@ -1,21 +1,21 @@
 ---
-title: 'Örnek: Sınıflandırıcı ile programlama yoluyla görüntüleri test etmek için tahmin uç noktasını kullanma - Özel Görüntü İşleme'
+title: 'Örnek: Program aracılığıyla sınıflandırıcı - özel görüntü işleme görüntülerle test etmek için tahmin uç noktası kullan'
 titlesuffix: Azure Cognitive Services
 description: Özel Görüntü İşleme sınıflandırıcınızla programlama yoluyla görüntüleri test etmek için API’nin nasıl kullanılacağını öğrenin.
 services: cognitive-services
 author: anrothMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: sample
 ms.date: 05/03/2018
 ms.author: anroth
-ms.openlocfilehash: 3a81f3cef6aaeb5c98022d9fc93f4d84f3f58a6e
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
-ms.translationtype: HT
+ms.openlocfilehash: 4b65cb6bb8a9a8b7c5546c7859a4ce1544e8feff
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46363658"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55218572"
 ---
 # <a name="use-the-prediction-endpoint-to-test-images-programmatically-with-a-custom-vision-service-classifier"></a>Özel Görüntü İşleme Hizmeti sınıflandırıcısı ile programlama yoluyla görüntüleri test etmek için tahmin uç noktasını kullanma
 

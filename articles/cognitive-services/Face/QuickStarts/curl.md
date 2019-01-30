@@ -1,23 +1,23 @@
 ---
-title: 'Hızlı Başlangıç: bir resim cURL ve Azure REST API ile yüzleri algılayın'
+title: "Hızlı Başlangıç: CURL ve Azure REST API'si ile bir görüntüdeki yüzleri algılayın"
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, bir resimdeki yüz algılama için Azure yüz REST API ile cURL kullanır.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: b6c05382a3a40aa9157fd64a7f0192c58e79b0ee
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: bfa7574a7f85bdb5acaa052f22e5a26c07d90c07
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853787"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55225661"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-curl"></a>Hızlı Başlangıç: cURL ve yüz tanıma REST API'si ile bir resimdeki yüz algılama
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-curl"></a>Hızlı Başlangıç: CURL ve yüz tanıma REST API'si ile bir resimdeki yüz algılama
 
 Bu hızlı başlangıçta, bir resimdeki İnsan yüzlerini algılamak için cURL ile Azure yüz REST API'sini kullanır.
 

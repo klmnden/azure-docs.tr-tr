@@ -5,18 +5,18 @@ services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: bbe9ffd0709157b5f0389ccc68a285b9c3829db9
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: e5ceb6208229baf3e07e4030992d5de85309789c
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632875"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55212503"
 ---
-# <a name="example-how-to-detect-sentiment-in-text-analytics"></a>Örnek: Metin Analizi’nde yaklaşımı algılama
+# <a name="example-how-to-detect-sentiment-in-text-analytics"></a>Örnek: Metin analizi yaklaşım tespit etme
 
 [Yaklaşım Analizi API’si](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9), metin girişini değerlendirir ve her belge için 0 (negatif) - 1 (pozitif) aralığında bir yaklaşım döndürür.
 
@@ -73,11 +73,11 @@ Belge boyutu, belge başına 5.000 karakterden küçük olmalıdır ve koleksiyo
     }
 ```
 
-## <a name="step-1-structure-the-request"></a>1. Adım: İsteği yapılandırma
+## <a name="step-1-structure-the-request"></a>1. Adım: Yapı isteği
 
 İstek tanımıyla ilgili ayrıntılara [Metin Analizi API’sini çağırma](text-analytics-how-to-call-api.md) bölümünden erişilebilir. Kolaylık olması için aşağıdaki noktalar yeniden belirtilmektedir:
 
-+ Bir **POST** isteği oluşturun. Bu istek için API belgelerini gözden geçirin: [Yaklaşım Analizi API’si](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9)
++ Bir **POST** isteği oluşturun. Bu istek için API belgelerini gözden geçirin: [Yaklaşım analizi API'si](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9)
 
 + Yaklaşım analizi, Azure veya bir örneklenmiş bir metin analizi kaynak kullanarak HTTP uç noktasına ayarlayın [metin analizi kapsayıcı](text-analytics-how-to-install-containers.md). `/sentiment` kaynağını içermelidir: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
 
@@ -88,7 +88,7 @@ Belge boyutu, belge başına 5.000 karakterden küçük olmalıdır ve koleksiyo
 > [!Tip]
 > İsteği yapılandırmak ve hizmete GÖNDERMEK için [Postman](text-analytics-how-to-call-api.md) kullanın veya [belgelerdeki](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) **API testi konsolu**’nu açın.
 
-## <a name="step-2-post-the-request"></a>2. Adım: İsteği gönderme
+## <a name="step-2-post-the-request"></a>2. Adım: POST isteği
 
 İstek alındığında analiz gerçekleştirilir. Hizmet dakikada en fazla 100 istek kabul eder. Her istek maksimum 1 MB olabilir.
 

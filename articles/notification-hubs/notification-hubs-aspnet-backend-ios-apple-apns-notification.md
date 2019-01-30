@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 4ecac47de08b458eac375f8f5e774c396aeb2f5d
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 23c532f6c344f8be37c3bf3d77f30effa4ec17e8
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448117"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227718"
 ---
 # <a name="tutorial-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Öğretici: Azure Notification hubs'ı kullanarak belirli kullanıcılara anında iletme bildirimleri
 
@@ -86,7 +86,7 @@ Mobile Apps arka uç hizmetinize kullanmak istiyorsanız, bkz. [Mobile Apps ile 
     - (IBAction)LogInAction:(id)sender;
     ```
 
-4. İçinde `ViewController.h`, aşağıdaki `#define` içeri aktarma Deyimlerinizde sonra. Yedek `<Enter Your Backend Endpoint>` yer tutucusunu önceki bölümde, uygulamanızın arka ucuna dağıtmak için kullanılan hedef URL ile. Örneğin, *http://your_backend.azurewebsites.net*.
+4. İçinde `ViewController.h`, aşağıdaki `#define` içeri aktarma Deyimlerinizde sonra. Yedek `<Enter Your Backend Endpoint>` yer tutucusunu önceki bölümde, uygulamanızın arka ucuna dağıtmak için kullanılan hedef URL ile. Örneğin, `http://your_backend.azurewebsites.net`.
 
     ```objc
     #define BACKEND_ENDPOINT @"<Enter Your Backend Endpoint>"

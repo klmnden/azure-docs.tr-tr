@@ -6,16 +6,16 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: v-jansko
-ms.openlocfilehash: ce6446caf74e16f69369d5ee8ee7b6342870e826
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 6fa468308bb7187111a6f7f65366d83eaadd9494
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682610"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227786"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Translator Text API V2 V3 geçiş
 
@@ -41,13 +41,13 @@ Aşağıdaki listede yer alan V2 ve V3 yöntemleri V2 ile gelen işlevselliği s
 
 | V2 API yöntemi   | V3 API uyumluluğu |
 |:----------- |:-------------|
-| Translate     | [Çevir](reference/v3-0-translate.md)          |
+| Çevirme     | [Çevir](reference/v3-0-translate.md)          |
 | TranslateArray      | [Çevir](reference/v3-0-translate.md)        |
 | GetLanguageNames      | [Diller](reference/v3-0-languages.md)         |
 | GetLanguagesForTranslate     | [Diller](reference/v3-0-languages.md)       |
 | GetLanguagesForSpeak      | [Microsoft konuşma hizmeti](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
-| Speak     | [Microsoft konuşma hizmeti](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
-| Detect     | [Algılama](reference/v3-0-detect.md)         |
+| Söyleyin     | [Microsoft konuşma hizmeti](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
+| Algılama     | [Algılama](reference/v3-0-detect.md)         |
 | DetectArray     | [Algılama](reference/v3-0-detect.md)         |
 | AddTranslation     | [Microsoft Translator API hub'ı](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)         |
 | AddTranslationArray    | [Microsoft Translator API hub'ı](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)          |
@@ -59,7 +59,7 @@ Aşağıdaki listede yer alan V2 ve V3 yöntemleri V2 ile gelen işlevselliği s
 
 Microsoft Translator metin çevirisi V2 kabul edilir ve XML biçiminde veriler döndürdü. V3 sürümünde API'si kullanılarak alınan tüm veriler JSON biçiminde olan. XML bundan böyle kabul edilecek veya V3 sürümünde döndürdü.
 
-Bu değişiklik V2 metin çevirisi API'si için yazılan bir uygulamanın çeşitli yönlerini etkiler. Örnek: diller API metin çevirisi, harf çevirisi ve iki sözlük yöntemleri için dil bilgilerini döndürür. Tüm dil bilgisinin bir çağrıda tüm yöntemleri için istek veya bunları ayrı ayrı isteyin.
+Bu değişiklik V2 metin çevirisi API'si için yazılan bir uygulamanın çeşitli yönlerini etkiler. Örneğin: Dilleri API, metin çevirisi, harf çevirisi ve iki sözlük yöntemleri için dil bilgilerini döndürür. Tüm dil bilgisinin bir çağrıda tüm yöntemleri için istek veya bunları ayrı ayrı isteyin.
 
 Dilleri yöntemi kimlik doğrulaması gerektirmez; Aşağıdaki bağlantıyı tıklatarak json'da V3 için tüm dil bilgileri görebilirsiniz:
 
@@ -75,12 +75,12 @@ Microsoft Translator V3 V2 fiyatlandırılır aynı şekilde fiyatlandırılır;
 
 | V3 yöntemi   | Faturalandırma için sayılan karakterler |
 |:----------- |:-------------|
-| Languages     | Gönderilen herhangi bir karakter yok sayılan, ücret alınmaz.          |
-| Translate     | Sayısı temel karakterlerinin kaçının tutulacağını gönderilen çeviri ve kaç diller için karakter çevrilir. 50 karakteri gönderildi ve istenen 5 dilleri 50 x 5 olacaktır.           |
-| Transliterate     | Harf çevirisi için gönderilen karakter sayısına göre sayılır.         |
-| Dictionary lookup & example     | Sözlük Arama ve örnekler için gönderilen karakter sayısına göre sayılır.         |
+| Diller     | Gönderilen herhangi bir karakter yok sayılan, ücret alınmaz.          |
+| Çevirme     | Sayısı temel karakterlerinin kaçının tutulacağını gönderilen çeviri ve kaç diller için karakter çevrilir. 50 karakteri gönderildi ve istenen 5 dilleri 50 x 5 olacaktır.           |
+| Karakter Dönüştürme     | Harf çevirisi için gönderilen karakter sayısına göre sayılır.         |
+| Sözlük Arama ve örnek     | Sözlük Arama ve örnekler için gönderilen karakter sayısına göre sayılır.         |
 | BreakSentence     | Ücret alınmaz.       |
-| Detect     | Ücret alınmaz.      |
+| Algılama     | Ücret alınmaz.      |
 
 ## <a name="v3-end-points"></a>V3 uç noktaları
 

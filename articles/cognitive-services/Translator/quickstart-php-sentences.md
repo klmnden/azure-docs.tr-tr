@@ -1,27 +1,27 @@
 ---
-title: 'Hızlı Başlangıç: Cümle uzunluklarını alma, PHP - Translator Metin Çevirisi API’si'
+title: "Hızlı Başlangıç: Translator metin çevirisi API'si cümlesi işlediklerinde, PHP - Al"
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, PHP ile Translator Metin Çevirisi API’sini kullanarak metindeki cümlelerin uzunluklarını bulacaksınız.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: erhopf
-ms.openlocfilehash: 7c709c10d7944a53a557f6a1ce2a6d9b930cccce
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
-ms.translationtype: HT
+ms.openlocfilehash: 51b7691b856181ec3f66b1de595fec05104229f6
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645403"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209460"
 ---
-# <a name="quickstart-get-sentence-lengths-with-the-translator-text-rest-api-php"></a>Hızlı Başlangıç: Translator Metin Çevirisi REST API'si (PHP) ile cümle uzunluklarını alma
+# <a name="quickstart-get-sentence-lengths-with-the-translator-text-rest-api-php"></a>Hızlı Başlangıç: Translator metin REST API (PHP) ile cümle uzunlukları Al
 
 Bu hızlı başlangıçta, Translator Metin Çevirisi API'sini kullanarak metindeki cümlelerin uzunluklarını bulacaksınız.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu kodu çalıştırmak için [PHP 5.6.x](http://php.net/downloads.php)’e ihtiyacınız olacak.
 

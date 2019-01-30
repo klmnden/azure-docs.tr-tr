@@ -1,23 +1,23 @@
 ---
-title: 'Öğretici: Windows ML ile ONNX modeli kullanma - Özel Görüntü İşleme Hizmeti'
+title: "Öğretici: Windows ML - Custom Vision Service'e ONNX model kullanın"
 titlesuffix: Azure Cognitive Services
 description: Azure Bilişsel Hizmetler’den dışarı aktarılan bir ONNX modelini kullanan Windows UWP uygulamasının nasıl oluşturulacağını öğrenin.
 services: cognitive-services
 author: larryfr
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 10/16/2018
 ms.author: larryfr
-ms.openlocfilehash: f9ffbdd34c6fe7e8fc0f5e8ad8a49a3ad922f88a
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
-ms.translationtype: HT
+ms.openlocfilehash: 55235c8c209a17a494c3879d61e22665ba7a893b
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362991"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55224913"
 ---
-# <a name="tutorial-use-an-onnx-model-from-custom-vision-with-windows-ml-preview"></a>Öğretici: Windows ML (önizleme) ile Özel Görüntü İşleme hizmetinden ONNX modeli kullanma
+# <a name="tutorial-use-an-onnx-model-from-custom-vision-with-windows-ml-preview"></a>Öğretici: Bir özel görüntü işleme ONNX modelden Windows ML (Önizleme) ile kullanma
 
 Windows ML (önizleme) ile Özel Görüntü İşleme hizmetinden dışarı aktarılan bir ONNX modelinin nasıl kullanılacağını öğrenin.
 
@@ -29,7 +29,7 @@ Bu belgedeki bilgiler, Windows ML ile Özel Görüntü İşleme Hizmeti’nden d
 > * Örneği çalıştırma
 > * Kendi modelinizi kullanma
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Windows 10 derleme 17738 veya üzeri
 

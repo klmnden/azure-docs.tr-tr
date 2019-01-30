@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: answer-search
+ms.subservice: answer-search
 ms.topic: reference
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 001ef83e23aeb21104d8efb8c4aad9c8a007cba6
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 6ec09627fb80925fef72c491936a1dd83106874b
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103921"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211704"
 ---
 # <a name="project-answer-search-v7-reference"></a>Proje yanıt arama v7 başvurusu
 
@@ -83,7 +83,7 @@ Maksimum sorgu URL'SİNİN uzunluğu 2.048 karakterdir. URL uzunluğu sınırı 
 Aşağıdaki sorgu parametreleri istek içerebilir. Gerekli Parametreler için gerekli sütununa bakın. URL gereken sorgu parametrelerine kodlayın.  
   
   
-|Ad|Değer|Tür|Gereklidir|  
+|Name|Value|Type|Gereklidir|  
 |----------|-----------|----------|--------------|  
 |<a name="mkt" />mkt|Sonuçların geldiği pazar. <br /><br />Olası Pazar değerler listesi için bkz. [Pazar kodları](#market-codes).<br /><br /> **NOT:** URL önizlemesi API'sı şu anda yalnızca tr destekler-bize pazara çıkma sürelerini ve dili.<br /><br />|Dize|Evet|  
 |<a name="query" />q|Önizleme URL'si|Dize|Evet|  
@@ -106,7 +106,7 @@ Yanıt şeması ya da bir [Web] sayfasıdır veya ErrorResponse, Web araması AP
 ### <a name="error"></a>Hata  
 Gerçekleşen hata tanımlar.  
   
-|Öğe|Açıklama|Tür|  
+|Öğe|Açıklama|Type|  
 |-------------|-----------------|----------|  
 |<a name="error-code" />Kod|Hata kategorisi tanımlar hata kodu. Olası kodlarının listesi için bkz. [hata kodları](#error-codes).|Dize|  
 |<a name="error-message" />İleti|Hatanın açıklaması.|Dize|  
@@ -119,7 +119,7 @@ Gerçekleşen hata tanımlar.
 ### <a name="errorresponse"></a>ErrorResponse  
 Başarısız istek olduğunda yanıt içeren üst düzey nesnesi.  
   
-|Ad|Değer|Tür|  
+|Name|Value|Type|  
 |----------|-----------|----------|  
 |_type|Tür ipucu.|Dize|  
 |<a name="errors" />Hataları|İsteğin neden başarısız olma nedenlerini tanımlayan hataların listesi.|[Hata:](#error)|  
@@ -129,7 +129,7 @@ Başarısız istek olduğunda yanıt içeren üst düzey nesnesi.
 ### <a name="license"></a>Lisans  
 Altında bir metin veya resim kullanılabilir lisans tanımlar.  
   
-|Ad|Değer|Tür|  
+|Name|Value|Type|  
 |----------|-----------|----------|  
 |ad|Lisans adı.|Dize|  
 |url|Kullanıcı Lisansı hakkında daha fazla bilgi edinebileceğiniz bir Web sitesi URL'si.<br /><br /> Köprü oluşturmak için adını ve URL'sini kullanın.|Dize|  
@@ -138,7 +138,7 @@ Altında bir metin veya resim kullanılabilir lisans tanımlar.
 ### <a name="licenseattribution"></a>LicenseAttribution  
 Lisans attribution için sözleşmeye dayalı bir kural tanımlar.  
   
-|Ad|Değer|Tür|  
+|Name|Value|Type|  
 |----------|-----------|----------|  
 |_type|LicenseAttribution için ayarlanmış bir tür ipucu.|Dize|  
 |lisans|İçeriği altında kullanılabilir lisans.|[Lisans](#license)|  
@@ -150,7 +150,7 @@ Lisans attribution için sözleşmeye dayalı bir kural tanımlar.
 ### <a name="link"></a>Bağlantı  
 Köprü bileşenlerinin tanımlar.  
   
-|Ad|Değer|Tür|  
+|Name|Value|Type|  
 |----------|-----------|----------|  
 |_type|Tür ipucu.|Dize|  
 |metin|Görünen metin.|Dize|  
@@ -160,7 +160,7 @@ Köprü bileşenlerinin tanımlar.
 ### <a name="linkattribution"></a>LinkAttribution  
 İçin bağlantı attribution sözleşmeye dayalı bir kural tanımlar.  
   
-|Ad|Değer|Tür|  
+|Name|Value|Type|  
 |----------|-----------|----------|  
 |_type|LinkAttribution için ayarlanmış bir tür ipucu.|Dize|  
 |mustBeCloseToContent|Kuralın uygulanacağı alan yakınlık kapatın kural içeriğini yerleştirilmelidir olup olmadığını belirleyen bir Boole değeri. Varsa **true**, içeriği yakınında içinde yerleştirilmelidir. Varsa **false**, veya bu alan mevcut değil, arayanın kararımıza içeriği yerleştirilebilir.|Boole|  
@@ -172,7 +172,7 @@ Köprü bileşenlerinin tanımlar.
 ### <a name="mediaattribution"></a>MediaAttribution  
 Medya attribution için sözleşmeye dayalı bir kural tanımlar.  
   
-|Ad|Değer|Tür|  
+|Name|Value|Type|  
 |----------|-----------|----------|  
 |_type|MediaAttribution için ayarlanmış bir tür ipucu.|Dize|  
 |mustBeCloseToContent|Kuralın uygulanacağı alan yakınlık kapatın kural içeriğini yerleştirilmelidir olup olmadığını belirleyen bir Boole değeri. Varsa **true**, içeriği yakınında içinde yerleştirilmelidir. Varsa **false**, veya bu alan mevcut değil, arayanın kararımıza içeriği yerleştirilebilir.|Boole|  
@@ -186,7 +186,7 @@ Bir yayımcı olarak tanımlar.
   
 Bir yayımcı adının veya Web sitesi veya her ikisini sağlayabilir unutmayın.  
   
-|Ad|Değer|Tür|  
+|Name|Value|Type|  
 |----------|-----------|----------|  
 |ad|Yayımcının adı.|Dize|  
 |url|Yayımcının Web sitesi URL'si.<br /><br /> Yayımcının Web sitesi sağlamayabilir unutmayın.|Dize|  
@@ -196,7 +196,7 @@ Bir yayımcı adının veya Web sitesi veya her ikisini sağlayabilir unutmayın
 ### <a name="webpage"></a>Web sayfası  
 Hakkında bilgilerini tanımlayan bir önizleme Web sayfası.  
   
-|Ad|Değer|Tür|  
+|Name|Value|Type|  
 |----------|-----------|----------|
 |ad|Sayfa başlığı, mutlaka HTML Başlığı|Dize|
 |url|Aslında gezinilen URL'si (istek ve ardından yeniden yönlendirmeleri)|Dize|  
@@ -208,7 +208,7 @@ Hakkında bilgilerini tanımlayan bir önizleme Web sayfası.
 ### <a name="querycontext"></a>QueryContext  
 Bing istek için kullanılan sorgu bağlamı tanımlar.  
   
-|Öğe|Açıklama|Tür|  
+|Öğe|Açıklama|Type|  
 |-------------|-----------------|----------|  
 |adultIntent|Belirtilen sorgu yetişkinlere yönelik sonuçlar olup olmadığını belirten bir Boole değeri. Değer **true** yetişkinlere yönelik sonuçlar; sorgu varsa, aksi takdirde, **false**.|Boole|  
 |alterationOverrideQuery|Orijinal dizeyi kullanmak için Bing zorlamak için kullanılacak sorgu dizesi. Örneğin, sorgu dizesi ise *downwind saling*, geçersiz kılma sorgu dizesi olacaktır *+ downwind saling*. Sonuçlanan sorgu dizesini kodlayın unutmayın *% 2Bsaling + downwind*.<br /><br /> Bu alan, yalnızca özgün sorgu dizesi bir yazım hatası içeriyorsa dahildir.|Dize|  
@@ -217,19 +217,19 @@ Bing istek için kullanılan sorgu bağlamı tanımlar.
 |originalQuery|İstekte belirtilen sorgu dizesi.|Dize|  
 
 ### <a name="identifiable"></a>Tanımlama
-|Ad|Değer|Tür|  
+|Name|Value|Type|  
 |-------------|-----------------|----------|
 |id|Bir kaynak tanımlayıcısı|Dize|
  
 ### <a name="rankinggroup"></a>RankingGroup
 Tanımlar grubu bir arama sonuçları, aşağıdaki gibi mainline.
-|Ad|Değer|Tür|  
+|Name|Value|Type|  
 |-------------|-----------------|----------|
 |öğeler|Grup içinde görüntülemek için arama sonuçları listesi.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 Görüntülenecek bir arama sonucu öğesi tanımlar.
-|Ad|Değer|Tür|  
+|Name|Value|Type|  
 |-------------|-----------------|----------|
 |resultIndex|Görüntülenecek yanıtında öğenin sıfır tabanlı dizini. Bu alan öğe içermiyorsa, yanıt tüm öğeleri görüntüler. Örneğin, haber yanıt tüm haber makalelerini görüntüler.|Tamsayı|
 |answerType|Görüntülenecek öğe içeren yanıtı. Örneğin, haber.<br /><br />Yanıt SearchResponse nesnesinde bulunacak türünü kullanın. Türü bir SearchResponse alan adıdır.<br /><br /> Ancak, yalnızca bu nesne değeri alanı varsa yanıt türünü kullanın. Aksi takdirde, yoksayın.|Dize|
@@ -239,7 +239,7 @@ Görüntülenecek bir arama sonucu öğesi tanımlar.
 ### <a name="rankingresponse"></a>RankingResponse  
 Arama sonuçları sayfası içeriği yerleştirilmesi gerektiğini ve hangi sırayla tanımlar.  
   
-|Ad|Değer|  
+|Name|Value|  
 |----------|-----------|  
 |<a name="ranking-mainline" />mainline|Ana hatta da görüntülemek için arama sonuçları.|  
 |<a name="ranking-pole" />kutup|Arama sonuçlarını, en çok görünen alınmasına üyelerine gösterilen (örneğin, ana hat görüntülenen ve kenar çubuğunuzu).|  
@@ -251,7 +251,7 @@ Arama sonuçları sayfası içeriği yerleştirilmesi gerektiğini ve hangi sır
   
 Hizmet bir saldırı hizmet reddi şüphelenen, istek başarılı olduğunu unutmayın (HTTP durum kodudur 200 Tamam); Ancak, yanıt gövdesi boş olur.  
   
-|Ad|Değer|Tür|  
+|Name|Value|Type|  
 |----------|-----------|----------|  
 |_type|Tür ipucu SearchResponse için ayarlanır.|Dize|  
 |Web sayfası|Önizleme tanımlayan bir JSON nesnesi|dize|  
@@ -260,7 +260,7 @@ Hizmet bir saldırı hizmet reddi şüphelenen, istek başarılı olduğunu unut
 ### <a name="textattribution"></a>TextAttribution  
 Düz metin attribution için sözleşmeye dayalı bir kural tanımlar.  
   
-|Ad|Değer|Tür|  
+|Name|Value|Type|  
 |----------|-----------|----------|  
 |_type|TextAttribution için ayarlanmış bir tür ipucu.|Dize|  
 |metin|Attribution metin.<br /><br /> Metin atıf varlığa bir bütün olarak uygular ve varlık sunu takip görüntülenmesi gerekir. Bir hedef belirtmeyen birden çok metin veya bağlantı attribution kuralı varsa, bunları birleştirmek ve onları görüntülemek kullanarak bir "veri:" etiketi.|Dize| 

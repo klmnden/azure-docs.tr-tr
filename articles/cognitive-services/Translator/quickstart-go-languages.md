@@ -1,23 +1,23 @@
 ---
-title: 'Hızlı Başlangıç: Desteklenen dilleri alma, Go - Translator Metin Çevirisi API’si'
+title: "Hızlı Başlangıç: Desteklenen diller, Git - Translator metin çevirisi API'si"
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, Go ile Translator Metin Çevirisi API’sini kullanarak çeviri, başka alfabeye çevirme ve sözlük arama için desteklenen dillerin ve örneklerin bir listesini alacaksınız.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/05/2018
 ms.author: erhopf
-ms.openlocfilehash: 1e630d4dee3629fc256fdc97eefad259aff909e2
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 45dcd87910e0dbfc57aa09751cbdaa7a043d7cf1
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000278"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226664"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-go"></a>Hızlı Başlangıç: Go kullanarak desteklenen dillerin listesini almak için Translator Text API kullanın.
+# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-go"></a>Hızlı Başlangıç: Translator metin çevirisi API'si, Go kullanarak desteklenen dillerin listesini almak için kullanın
 
 Bu hızlı başlangıçta, Git ve Translator Text REST API kullanarak desteklenen dillerin listesi döndüren bir GET isteğinde bulunmak öğreneceksiniz.
 
@@ -99,7 +99,7 @@ u.RawQuery = q.Encode()
 ```
 
 >[!NOTE]
-> Uç noktalar, rotalar ve istek parametreleri hakkında daha fazla bilgi için bkz. [Translator Metin Çevirisi API’si 3.0: Diller](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).
+> Uç noktaları, yollar ve istek parametreleri hakkında daha fazla bilgi için bkz: [Translator Text API 3.0: Diller](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).
 
 ## <a name="build-the-request"></a>Derleme isteği
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: fauhse
 ms.component: files
-ms.openlocfilehash: aa01ffc196ba6ece41fac9a95db04b58ad962060
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 273d6b730f4b92da83e43a8fec3c1188e8111313
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259827"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55224471"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Azure Dosya Eşitleme proxy’si ve güvenli duvarı ayarları
 Azure dosya eşitleme, şirket içi sunucularınızı Azure çok siteli eşitleme ve bulut katmanlaması özellikleri etkinleştirme dosyaları'na bağlanır. Bu nedenle, bir şirket içi sunucu internet'e bağlanması gerekir. Bir BT yöneticisi Azure bulut hizmetlerine erişmek sunucu için en iyi yolu karar vermeniz gerekir.
@@ -144,3 +144,4 @@ Güvenlik duvarı kuralları kısıtlama etki alanının ayarlanmasında güvenl
 ## <a name="next-steps"></a>Sonraki adımlar
 - [Bir Azure dosya eşitleme dağıtımı planlama](storage-sync-files-planning.md)
 - [Azure dosya eşitleme işlemi dağıtma](storage-sync-files-deployment-guide.md)
+- [Azure dosya eşitleme İzleyicisi](storage-sync-files-monitoring.md)

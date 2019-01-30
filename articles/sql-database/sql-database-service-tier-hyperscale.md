@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/17/2018
-ms.openlocfilehash: 80e807a8fcbd6c087ad0995a4481180fa28ef42f
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 2d5fdde14c1a33ace81e8999dbb365dac9de3e6e
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872900"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227905"
 ---
 # <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>En fazla 100 TB için hiper ölçekli hizmet Katmanı (Önizleme)
 
@@ -40,7 +40,7 @@ Azure SQL veritabanı'nda hiper ölçekli hizmet katmanı sanal çekirdek tabanl
 Azure SQL veritabanı'nda hiper ölçekli Hizmet katmanını, aşağıdaki özellikleri sağlar:
 
 - Veritabanı boyutu en fazla 100 TB için destek
-- Neredeyse anında işlem GÇ etkilemeden boyutundan bağımsız olarak veritabanı yedeklemeleri (Azure Blob depolamada depolanan dosya anlık görüntüleri göre)
+- Neredeyse anında işlem GÇ etkilemeden boyutundan bağımsız olarak veritabanı yedeklemeleri (Azure Blob depolamada depolanan dosya anlık görüntüleri göre)   
 - Veritabanını geri yükler (dosya anlık görüntülerine dayalı) dakika yerine saatler veya günler hızlı (değil veri işleminin boyutu)
 - Daha fazla günlük performans ve veri birimlerini bağımsız olarak daha hızlı hareket işleme süreleri nedeniyle yüksek genel performansı
 - Hızlı ölçeği genişletme - bir veya daha fazla salt okunur düğüm, okuma iş yükü boşaltma için ve kullanımına yönelik sık erişimli-yedek sağlayabilirsiniz
@@ -133,9 +133,6 @@ ALTER DATABASE [DB2] MODIFY (EDITION = 'HyperScale', SERVICE_OBJECTIVE = 'HS_Gen
 GO
 ```
 
-> [!IMPORTANT]
-> [Saydam veritabanı şifrelemesi (TDE)](transparent-data-encryption-azure-sql.md) hiper ölçekli bir hiper ölçekli olmayan veritabanına değiştirmeden önce kapatılmalıdır.
-
 ## <a name="connect-to-a-read-scale-replica-of-a-hyperscale-database"></a>Bir okuma ölçeği hiper ölçekli bir veritabanı çoğaltmasına bağlanmak
 
 Hiper ölçekli veritabanlarında `ApplicationIntent` istemci tarafından sağlanan bağlantı dizesi bağımsız değişkenini belirleyen bağlantı yazma çoğaltmaya veya salt okunur bir ikincil çoğaltmaya yönlendirilir. Varsa `ApplicationIntent` kümesine `READONLY` ve veritabanı ikincil bir çoğaltmaya sahip değil, birincil çoğaltma ve varsayılan olarak bağlantı yönlendirilecek `ReadWrite` davranışı.
@@ -147,7 +144,7 @@ Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationInte
 
 ## <a name="available-regions"></a>Kullanılabilen bölgeler
 
-Hiper ölçekli hizmet katmanı şu anda genel Önizleme aşamasındadır ve aşağıdaki Azure bölgeleri içinde kullanılabilir: EastUS1 EastUS2, WestUS2, CentralUS, NorthCentralUS, WestEurope, NorthEurope, UKWest, AustraliaEast, AustraliaSouthEast, SouthEastAsia, JapanEast, KoreaCentral
+Hiper ölçekli hizmet katmanı şu anda genel önizlemede ve aşağıdaki Azure bölgelerinde kullanılabilir: EastUS1, EastUS2, WestUS2, CentralUS, NorthCentralUS, WestEurope, NorthEurope, UKWest, AustraliaEast, AustraliaSouthEast, SouthEastAsia, JapanEast, KoreaCentral
 
 ## <a name="known-limitations"></a>Bilinen sınırlamalar
 
@@ -158,7 +155,8 @@ Hiper ölçekli hizmet katmanı şu anda genel Önizleme aşamasındadır ve aş
 | Bir veritabanı dosyası etkin bir iş yükü nedeniyle geçiş sırasında artar ve dosya sınır başına 1 TB'ı aştığında, geçiş başarısız olur. | Risk azaltma işlemleri: <br> -Eğer Mümkünse, çalışan hiçbir güncelleştirme iş yükü olduğunda veritabanını geçirin.<br> -Geçiş işlemini yeniden deneyin, geçiş sırasında 1 TB sınır aşıldığında değil sürece başarılı olur.|
 | Yönetilen örnek şu anda desteklenmiyor | Şu anda desteklenmiyor |
 | Geçiş için hiper ölçekli şu anda bir tek yönlü işlem değil | Bir veritabanı için hiper ölçekli geçirildikten sonra doğrudan bir hiper ölçekli olmayan hizmet katmanına geçirilemez. Şu anda Hiperölçekli için olmayan hiper ölçekli bir veritabanını geçirme yalnızca kullanarak BACPAC dosyasına dışarı/içeri aktarma için yoludur.|
-| Bellek içi nesneleri içeren bir veritabanı geçişi şu anda desteklenmiyor | Bellek içi nesneler bırakılan ve hiper ölçekli hizmet katmanına bir veritabanını geçirmeden önce bellek olmayan nesneler olarak yeniden oluşturulması gerekir.
+| Bellek içi nesneleri içeren bir veritabanı geçişi şu anda desteklenmiyor | Bellek içi nesneler bırakılan ve hiper ölçekli hizmet katmanına bir veritabanını geçirmeden önce bellek olmayan nesneler olarak yeniden oluşturulması gerekir.|
+| Değişiklik izleme verileri şu anda desteklenmiyor. | Değişiklik izleme verileri ile hiper ölçekli databasess kullanmanız mümkün olmayacaktır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

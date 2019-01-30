@@ -1,23 +1,23 @@
 ---
-title: "Hızlı Başlangıç: Metin betiğini dönüştürme, Go - Translator Metin Çevirisi API'si"
+title: "Hızlı Başlangıç: Metin dönüştürme komut dosyası, Git - Translator metin çevirisi API'si"
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, Go ile Translator Metin Çevirisi API’sini kullanarak bir dildeki metni bir betikten diğerine dönüştüreceksiniz.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/05/2018
 ms.author: erhopf
-ms.openlocfilehash: 6b86d94e53b1ecb7a0d0d7b1f325a425f05c9e4f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 976ca2623667abc4e49ceb91ec97706723bc32c2
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993299"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211755"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-go"></a>Hızlı Başlangıç: Go kullanarak metin alfabeye için Translator Text API kullanın.
+# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-go"></a>Hızlı Başlangıç: Translator metin çevirisi API'si, Go kullanarak metin alfabeye için kullanın
 
 Bu hızlı başlangıçta, Translator Metin Çevirisi API'sini kullanarak bir dildeki metni bir betikten diğerine dönüştüreceksiniz.
 
@@ -103,7 +103,7 @@ u.RawQuery = q.Encode()
 ```
 
 >[!NOTE]
-> Uç noktalar, rotalar ve istek parametreleri hakkında daha fazla bilgi için bkz. [Translator Metin Çevirisi API’si 3.0: Karakter dönüştürme](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate).
+> Uç noktaları, yollar ve istek parametreleri hakkında daha fazla bilgi için bkz: [Translator Text API 3.0: Alfabeye](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate).
 
 ## <a name="create-a-struct-for-your-request-body"></a>Bir yapı, istek gövdesi için oluşturma
 

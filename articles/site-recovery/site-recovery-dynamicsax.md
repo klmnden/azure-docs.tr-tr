@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: c1714fd6ada45f2b4498a3f5972424200afa9aa3
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c2151be1644cde0e737be7f026bdf63cef0b3686
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838149"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221972"
 ---
-# <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>Çok katmanlı bir Dynamics AX uygulamasının olağanüstü durum kurtarmayı ayarlama 
+# <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>Çok katmanlı bir Dynamics AX uygulamasının olağanüstü durum kurtarmayı ayarlama   
 
 
 
@@ -109,7 +109,7 @@ Site Recovery, yük devretme işlemini otomatik hale getirmek için bir kurtarma
 
 4. Uygulama nesnesi sunucu ve istemci sanal makinelerine kurtarma planı için seçin ve ✓ seçin.
 
-    ![Öğeleri seçin](./media/site-recovery-dynamics-ax/selectvms.png)
+    ![Öğe seçin](./media/site-recovery-dynamics-ax/selectvms.png)
 
     Kurtarma planı örneği:
 
@@ -118,12 +118,12 @@ Site Recovery, yük devretme işlemini otomatik hale getirmek için bir kurtarma
 Dynamics AX uygulamasının kurtarma planı, aşağıdaki adımları ekleyerek özelleştirebilirsiniz. Tüm adımları ekledikten sonra önceki anlık görüntüye tam kurtarma planı gösterir.
 
 
-* **SQL Server Yük devretme adımları**: SQL server belirli kurtarma adımları hakkında daha fazla bilgi için bkz. [SQL Server ve Azure Site Recovery çoğaltma uygulamalarla](site-recovery-sql.md).
+* **SQL Server Yük devretme adımları**: Kurtarma adımları belirli SQL Server hakkında daha fazla bilgi için bkz. [SQL Server ve Azure Site Recovery çoğaltma uygulamalarla](site-recovery-sql.md).
 
-* **Yük devretme grubu 1**: uygulama nesnesi sunucu VM'in devredilmesini düzenleyebilirsiniz.
+* **Yük devretme grubu 1**: Uygulama nesnesi sunucu VM'in devredilmesini düzenleyebilirsiniz.
 Seçilen kurtarma noktasının veritabanına PIT, olabildiğince yakın ancak gibi olduğundan emin olun, önceden.
 
-* **Betik**: ekleme yük dengeleyici (yalnızca E-A).
+* **betik**: Yük Dengeleyici Ekle (yalnızca E-A).
 Bir yük dengeleyici eklemek için bir betik uygulama nesnesi Server VM grubu (aracılığıyla Azure Otomasyonu) gelir ekleyin. Bu görevi gerçekleştirmek için bir komut dosyası kullanabilirsiniz. Daha fazla bilgi için [çok katmanlı uygulama olağanüstü durum kurtarma için bir yük dengeleyici ekleme](https://azure.microsoft.com/blog/cloud-migration-and-disaster-recovery-of-load-balanced-multi-tier-applications-using-azure-site-recovery/).
 
 * **Yük devretme grubu 2**: Dynamics AX İstemci sanal makinelerine başarısız. Kurtarma planının bir parçası olarak web katmanı Vm'leri yük devredebilirsiniz.

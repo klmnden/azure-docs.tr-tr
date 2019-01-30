@@ -5,16 +5,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: tutorial
 ms.date: 05/03/2017
 ms.author: panosper
-ms.openlocfilehash: 53e93a08782ba66e69b903c32c4c3c7417e5a801
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
-ms.translationtype: HT
+ms.openlocfilehash: 0e4c21a064cdb0a60aef49482eee4b768112b899
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344583"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216430"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>Öğretici: Özel akustik model oluşturma
 
@@ -30,7 +30,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 Bilişsel Hizmetler hesabınız yoksa başlamadan önce [ücretsiz bir hesap](https://cris.ai) oluşturun.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 [Cognitive Services Subscriptions](https://cris.ai/Subscriptions) (Bilişsel Hizmetler Abonelikleri) sayfasını açarak Bilişsel Hizmetler hesabınızın bir aboneliğe bağlanmış olduğundan emin olun.
 
@@ -42,13 +42,13 @@ Azure portalında Özel Arama Hizmeti aboneliği oluşturma hakkında bilgi içi
 
 Akustik modeli belirli bir etki alanına özelleştirmek üzere konuşma verilerinden oluşan bir koleksiyona ihtiyaç duyulur. Bu koleksiyon, konuşma verilerinden oluşan ses dosyası kümesine ve her ses dosyasının transkripsiyonunu içeren bir metin dosyasından oluşur. Ses verilerinin tanıyıcıyı kullanmak istediğiniz senaryoyu temsil etmesi gerekir.
 
-Örnek:
+Örneğin:
 
 *   Gürültülü bir fabrika ortamındaki konuşmayı daha iyi bir şekilde tanımak istiyorsanız ses dosyaları gürültülü bir fabrika ortamında konuşan kişileri içermelidir.
 <a name="Preparing data to customize the acoustic model"></a>
 *   Örneğin tek bir kullanıcı için performansı iyileştirmek istiyorsanız FDR’nin Fireside Chats içeriğinin tamamını yazıya dökerek ses dosyalarının yalnızca bu konuşmacıya ait olan birçok örnek içermesini sağlamanız gerekir.
 
-Akustik modeli özelleştirmek üzere kullanılacak akustik veri kümesi iki bölümden oluşur: (1) konuşma verilerini içeren ses dosyası kümesi ve (2) tüm ses dosyalarının transkripsiyonunu içeren bir dosya.
+Akustik modelin özelleştirilmesi için akustik bir veri kümesi, iki bölümden oluşur: (1 konuşma verileri içeren ses dosyalarını ve (2) içeren tüm ses dosyaları, döküm dosyası kümesi.
 
 ### <a name="audio-data-recommendations"></a>Ses verisi önerileri
 
@@ -65,7 +65,7 @@ Akustik modeli özelleştirmek üzere kullanılacak akustik veri kümesi iki bö
 > Web portalı aracılığıyla gerçekleştirilen veri içeri aktarma işlemleri şu an için 2 GB ile sınırlı olduğundan bir akustik veri kümesi bu boyutu aşamaz. Bu da 16 kHz kaliteyle yaklaşık 17 saate, 8 kHz ile de yaklaşık 34 saate denk gelir. Ses verilerinin ana gereksinimleri aşağıdaki tabloda özetlenmiştir.
 >
 
-| Özellik | Değer |
+| Özellik | Value |
 |---------- |----------|
 | Dosya Biçimi | RIFF (WAV) |
 | Örnekleme Oranı | 8000 Hz veya 16000 Hz |
@@ -80,7 +80,7 @@ Akustik modeli özelleştirmek üzere kullanılacak akustik veri kümesi iki bö
 
 Tüm WAV dosyalarının transkripsiyonları tek bir düz metin dosyasına yerleştirilmelidir. Transkripsiyon dosyasının her satırında ses dosyalarından birinin adı ve transkripsiyonu bulunmalıdır. Dosya adı ve transkripsiyon sekme (\t) ile ayrılmalıdır.
 
-  Örnek:
+  Örneğin:
 ```
   speech01.wav  speech recognition is awesome
 

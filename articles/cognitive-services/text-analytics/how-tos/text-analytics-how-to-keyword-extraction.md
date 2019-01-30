@@ -5,18 +5,18 @@ services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: d38886d40a92d5e75f5d0b6b189dbf7c067e1635
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: bbca745da1fe657c1316d9e4e5fbeeeabfa5e1ef
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632399"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216753"
 ---
-# <a name="example-how-to-extract-key-phrases-in-text-analytics"></a>Örnek: Metin Analizi’nde anahtar ifadeleri ayıklama
+# <a name="example-how-to-extract-key-phrases-in-text-analytics"></a>Örnek: Metin analizi, anahtar ifadeleri ayıklama
 
 [Anahtar İfade Ayıklama API’si](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6), yapılandırılmamış metni değerlendirir ve her bir JSON belgesi için bir anahtar ifade listesi döndürür. 
 
@@ -67,11 +67,11 @@ Belge boyutu, belge başına 5.000 karakterden küçük olmalıdır ve koleksiyo
     }
 ```    
     
-## <a name="step-1-structure-the-request"></a>1. Adım: İsteği yapılandırma
+## <a name="step-1-structure-the-request"></a>1. Adım: Yapı isteği
 
 İstek tanımıyla ilgili ayrıntılara [Metin Analizi API’sini çağırma](text-analytics-how-to-call-api.md) bölümünden erişilebilir. Kolaylık olması için aşağıdaki noktalar yeniden belirtilmektedir:
 
-+ Bir **POST** isteği oluşturun. Bu istek için API belgelerini gözden geçirin: [Anahtar İfadeler API’si](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
++ Bir **POST** isteği oluşturun. Bu istek için API belgelerini gözden geçirin: [Anahtar ifadeleri API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
 
 + Anahtar ifade ayıklama, Azure veya bir örneklenmiş bir metin analizi kaynak kullanarak HTTP uç noktasına ayarlayın [metin analizi kapsayıcı](text-analytics-how-to-install-containers.md). `/keyPhrases` kaynağını içermelidir: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
 
@@ -82,7 +82,7 @@ Belge boyutu, belge başına 5.000 karakterden küçük olmalıdır ve koleksiyo
 > [!Tip]
 > İsteği yapılandırmak ve hizmete GÖNDERMEK için [Postman](text-analytics-how-to-call-api.md) kullanın veya [belgelerdeki](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) **API testi konsolu**’nu açın.
 
-## <a name="step-2-post-the-request"></a>2. Adım: İsteği gönderme
+## <a name="step-2-post-the-request"></a>2. Adım: POST isteği
 
 İstek alındığında analiz gerçekleştirilir. Hizmet dakikada en fazla 100 istek kabul eder. Her istek maksimum 1 MB olabilir.
 

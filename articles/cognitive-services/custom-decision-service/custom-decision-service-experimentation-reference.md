@@ -6,16 +6,16 @@ services: cognitive-services
 author: marco-rossi29
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-decision-service
+ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: marossi
-ms.openlocfilehash: eec2c82b779fa5421bc9ac58107ef56f8c71bd1e
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 90a99d4910b0afb885b415760f6a7ef1ca2aec33
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366565"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219830"
 ---
 # <a name="experimentation"></a>Deneme
 
@@ -35,8 +35,8 @@ Günlük dosyası kullanarak, en yüksek tahmini, beklenen ödül ilkesiyle bulm
 * Test İlkesi değerlendirmesi `--cb_type` (ters eğilimini puanı (`ips`) veya karakteriyle güçlü (`dr`). Daha fazla bilgi için [bağlamsal Bandit örnek](https://github.com/JohnLangford/vowpal_wabbit/wiki/Contextual-Bandit-Example).
 * Testleri marginals.
 * Testleri ikinci dereceden etkileşim özellikleri:
-   * **deneme yanılma aşaması**: tüm birleşimlerle testleri `--q_bruteforce_terms` çiftleri ya da daha az.
-   * **doyumsuz aşaması**: oluncaya kadar hiçbir geliştirme için en iyi çifti ekler `--q_greedy_stop` yuvarlar.
+   * **deneme yanılma aşaması**: Tüm birleşimlerle testleri `--q_bruteforce_terms` çiftleri ya da daha az.
+   * **doyumsuz aşaması**: Oluncaya kadar hiçbir geliştirme için en iyi çifti ekler `--q_greedy_stop` yuvarlar.
 * Hyper-parametreleriyle üzerinde ikinci bir tarama gerçekleştirir (`learning rate`, `L1 regularization`, ve `power_t`).
 
 Bu adımları denetleyen parametreler bazı Vowpal Wabbit bağımsız değişkenleri şunlardır:
@@ -54,12 +54,12 @@ Yukarıdaki bağımsız değişkenler ayrıntılı bir açıklaması için bkz: 
 
 ## <a name="prerequisites"></a>Önkoşullar
 - Vowpal Wabbit: Yüklü ve yolunuzu.
-  - Windows: [kullanım `.msi` yükleyici](https://github.com/eisber/vowpal_wabbit/releases).
-  - Diğer platformlar: [kaynak kodu alma](https://github.com/JohnLangford/vowpal_wabbit/releases).
+  - Windows: [Kullanım `.msi` yükleyici](https://github.com/eisber/vowpal_wabbit/releases).
+  - Diğer platformlar: [Kaynak kodu alma](https://github.com/JohnLangford/vowpal_wabbit/releases).
 - Python 3: Yüklü ve yolunuzu.
-- NumPy: seçtiğiniz Paket Yöneticisi'ni kullanın.
-- *Mwt/Microsoft-ds* depo: [depoyu Kopyalayalım](https://github.com/Microsoft/mwt-ds).
-- Karar alma hizmeti JSON günlük dosyası: varsayılan olarak, temel komutu içerir `--dsjson`, giriş veri dosyasını karar alma hizmeti JSON ayrıştırma sağlar. [Bu biçim örneği Al](https://github.com/JohnLangford/vowpal_wabbit/blob/master/test/train-sets/decisionservice.json).
+- NumPy: Seçtiğiniz Paket Yöneticisi'ni kullanın.
+- *Mwt/Microsoft-ds* depo: [Depoyu kopyalayalım](https://github.com/Microsoft/mwt-ds).
+- Karar alma hizmeti JSON günlük dosyası: Varsayılan olarak, temel komut içerir `--dsjson`, giriş veri dosyasını karar alma hizmeti JSON ayrıştırma sağlar. [Bu biçim örneği Al](https://github.com/JohnLangford/vowpal_wabbit/blob/master/test/train-sets/decisionservice.json).
 
 ## <a name="usage"></a>Kullanım
 Git `mwt-ds/DataScience` çalıştırıp `Experimentation.py` aşağıdaki kodda ayrıntılı olarak ilgili bağımsız değişkenleriyle:
@@ -80,9 +80,9 @@ Sonuçları günlüğe eklenir *mwt-ds/DataScience/experiments.csv* dosya.
 | Girdi | Açıklama | Varsayılan |
 | --- | --- | --- |
 | `-h`, `--help` | Yardım iletisini ve çıkış gösterir. | |
-| `-f FILE_PATH`, `--file_path FILE_PATH` | Veri dosyası yolu (`.json` veya `.json.gz` biçimidir - her satır bir `dsjson`). | Gerekli |  
+| `-f FILE_PATH`, `--file_path FILE_PATH` | Veri dosyası yolu (`.json` veya `.json.gz` biçimidir - her satır bir `dsjson`). | Gereklidir |  
 | `-b BASE_COMMAND`, `--base_command BASE_COMMAND` | Temel Vowpal Wabbit komutu.  | `vw --cb_adf --dsjson -c` |  
-| `-p N_PROC`, `--n_proc N_PROC` | Kullanılacak paralel işlem sayısı. | Mantıksal işlemci |  
+| `-p N_PROC`, `--n_proc N_PROC` | Kullanılacak paralel işlem sayısı. | Mantıksal işlemciler |  
 | `-s SHARED_NAMESPACES, --shared_namespaces SHARED_NAMESPACES` | Paylaşılan özellik ad alanları (örneğin, `abc` ad alanları anlamına gelir `a`, `b`, ve `c`).  | Veri dosyasından otomatik olarak algıla |  
 | `-a ACTION_NAMESPACES, --action_namespaces ACTION_NAMESPACES` | Eylem özellik ad alanları. | Veri dosyasından otomatik olarak algıla |  
 | `-m MARGINAL_NAMESPACES, --marginal_namespaces MARGINAL_NAMESPACES` | Marjinal özellik ad alanları. | Veri dosyasından otomatik olarak algıla |  

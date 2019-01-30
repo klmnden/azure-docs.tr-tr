@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/04/2018
 ms.author: ramankum
 ms.component: disks
-ms.openlocfilehash: 4f9e3468cc8ec94eeb3ba936b828e9adfd9a3e6d
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: MT
+ms.openlocfilehash: eacf2c2d2b732a16596afba622244a793a25924c
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478527"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227021"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>Güncelleştirme yönetilen disk depolama türü
 
@@ -83,7 +83,7 @@ Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 
 ## <a name="convert-a-managed-disk-from-standard-to-premium"></a>Yönetilen disk standart katmandan premium Dönüştür.
 
-Geliştirme/test yükünüz için maliyetlerinizi azaltmak için standart ve premium diskler bir karışımını isteyebilirsiniz. Bunu, premium depolama için yükseltme dos performans gerektiren diskleri iyi. Aşağıdaki örnek, tek bir disk, standart bir VM'den premium depolamaya geçiş işlemi gösterilmektedir ve bunun tersi de geçerlidir. Premium yönetilen diskler kullanmak için sanal makinenizin kullanmalısınız bir [VM boyutu](sizes.md) , premium depolamayı destekler. Bu örnek ayrıca premium Depolama'yı destekleyen bir boyut için geçiş işlemini gösterir:
+Geliştirme/test yükünüz için maliyetlerinizi azaltmak için standart ve premium diskler bir karışımını isteyebilirsiniz. Bunu yapmak için daha iyi performans gerektiren diskler için premium depolama yükseltin. Aşağıdaki örnek, tek bir disk, standart bir VM'den premium depolamaya geçiş işlemi gösterilmektedir ve bunun tersi de geçerlidir. Premium yönetilen diskler kullanmak için sanal makinenizin kullanmalısınız bir [VM boyutu](sizes.md) , premium depolamayı destekler. Bu örnek ayrıca premium Depolama'yı destekleyen bir boyut için geçiş işlemini gösterir:
 
 ```azurepowershell-interactive
 

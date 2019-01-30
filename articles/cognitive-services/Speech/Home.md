@@ -6,16 +6,16 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 960d2d402f223b306aa6ff05b567d13525e3d525
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 9b462ba594122b86580b9d136a844db070eea92d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340367"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217654"
 ---
 # <a name="what-is-bing-speech"></a>Bing konuşma tanıma nedir?
 
@@ -28,9 +28,9 @@ Bulut tabanlı Microsoft Bing konuşma tanıma API'si, geliştiricilerin uygulam
 
 ## <a name="speech-to-text-speech-recognition"></a>Konuşmadan metne (konuşma tanıma)
 
-Microsoft konuşma tanıma API'si *dönüştürür* uygulamanızı görüntülemek için kullanıcı veya olarak alacak bir metne ses akışları giriş komutu. Geliştiriciler, uygulamalarına konuşma eklemek iki yol sunar: REST API'ler **veya** Websocket tabanlı istemci kitaplıkları.
+Microsoft konuşma tanıma API'si *dönüştürür* uygulamanızı görüntülemek için kullanıcı veya olarak alacak bir metne ses akışları giriş komutu. Bu, geliştiricilerin kendi uygulamalarına Konuşma ekleme iki yol sunar: REST API'leri **veya** Websocket tabanlı istemci kitaplıkları.
 
-- [REST API'leri](GetStarted/GetStartedREST.md): geliştiriciler, konuşma tanıma hizmeti uygulamalarını HTTP çağrıları kullanabilir.
+- [REST API'leri](GetStarted/GetStartedREST.md): Geliştiriciler, konuşma tanıma hizmeti uygulamalarını HTTP çağrıları kullanabilir.
 - [İstemci kitaplıkları](GetStarted/GetStartedClientLibraries.md): Gelişmiş özellikler için geliştiriciler Microsoft Speech istemci kitaplıklarını indirin ve kendi uygulamalarınızda bağlantı.  İstemci kitaplıkları (C#, Java, JavaScript, ObjectiveC) farklı dilleri kullanan çeşitli platformlarda (Windows, Android, iOS) kullanılabilir. REST API'ler farklı olarak, istemci kitaplıkları Websocket tabanlı protokolü kullanır.
 
 | Uygulama alanları | [REST API'ler](GetStarted/GetStartedREST.md) | [İstemci kitaplıkları](GetStarted/GetStartedClientLibraries.md) |
@@ -60,4 +60,4 @@ Hangi yaklaşımın geliştiriciler (REST API veya istemci kitaplıkları) seçi
 
 ### <a name="next-steps"></a>Sonraki adımlar
 
-- Microsoft metin okuma hizmetini kullanmaya başlama: [metin okuma API Başvurusu için](api-reference-rest/bingvoiceoutput.md). Diller ve seslerle metin okuma tarafından desteklenen tam listesi için bkz: [desteklenen yerel ayarlar ve ses tiplerini](api-reference-rest/bingvoiceoutput.md#SupLocales).
+- Microsoft metin okuma hizmetini kullanmaya başlayın: [Metin okuma API Başvurusu](api-reference-rest/bingvoiceoutput.md). Diller ve seslerle metin okuma tarafından desteklenen tam listesi için bkz: [desteklenen yerel ayarlar ve ses tiplerini](api-reference-rest/bingvoiceoutput.md#SupLocales).

@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 865f7421172c3302333b1cbf465f66806b296759
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 4581173f142170248a48d99683804bdb67f1703e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314389"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250692"
 abstract:
   description: Bu Azure Machine Learning ürünlerini kullanarak uygulamalara ve web sitelerine akıllı algoritma eklemeyi öğrenin.  Öğreticiler, hızlı başlangıçlar, API başvuruları ve örnekler size bunu nasıl yapacağınızı gösterir.
 documentType: LandingData
@@ -12,7 +12,7 @@ metadata:
   author: j-martens
   description: Uygulamalarınıza, web sitelerinize ve botlarınıza, kullanıcılarınızın ihtiyaçlarını görmek, duymak, dile getirmek ve anlamak için doğal iletişim yöntemlerinden yararlanan akıllı algoritmalar oluşturmayı öğrenin. Öğreticiler, hızlı başlangıçlar, API başvuruları ve örnekler size bunu nasıl yapacağınızı gösterir.
   ms.author: jmartens
-  ms.component: core
+  ms.subservice: core
   ms.date: 12/04/2018
   ms.devlang: na
   ms.service: machine-learning

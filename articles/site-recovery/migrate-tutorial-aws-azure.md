@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 4674428cf96562670b0e24e5ac93a2f2979128da
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: ce48e9a17ab6b63c7fb8caa752258e218ca51ba3
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042062"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226392"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Amazon Web Services (AWS) sanal makinelerini Azure’a geçirme
 
@@ -169,7 +169,7 @@ Bu bölümde, bu öğreticinin önceki kısımlarındaki [Azure kaynaklarını h
 
 Geçirmek istediğiniz her sanal makine için çoğaltmayı etkinleştirin. Çoğaltma etkinleştirildiğinde Site Recovery otomatik olarak Mobility hizmetini yükler.
 
-1. [Azure Portal](htts://portal.azure.com) gidin.
+1. [Azure Portal](https://portal.azure.com) gidin.
 1. Kasanızın sayfasındaki **Başlarken** bölümünde **Site Recovery**’i seçin.
 2. Altında **şirket içi makineler ve Azure Vm'leri için**seçin **1. adım: Uygulama çoğaltma**. Aşağıdaki bilgilerle sihirbazın sonraki sayfalarını tamamlayın. İşiniz bittiğinde her sayfada **Tamam**’ı seçin:
     - 1: Kaynağı yapılandırma

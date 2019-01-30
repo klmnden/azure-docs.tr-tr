@@ -5,16 +5,16 @@ description: Ayarlarını yönetme, çalışma alanı oluşturun, çalışma ala
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 7b6dd0ec271d335d1055381a8cb7256600be283f
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 6fabbb57538f5e10e6cd91ebc109707045e54033
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627568"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227089"
 ---
 # <a name="how-to-manage-settings"></a>Ayarları yönetme
 
@@ -85,11 +85,11 @@ Farklı bir iş parçası farklı kişilerle paylaşılması gerekiyorsa özel T
 
 ## <a name="sharing-permissions"></a>Paylaşım izinleri
 
-1.  **Okuyucu:** çalışma alanında bir okuyucu çalışma alanındaki tüm bilgileri görüntülemek mümkün olacaktır. 
+1.  **Okuyucu:** Çalışma alanında bir okuyucu çalışma alanındaki tüm bilgileri görüntülemek mümkün olacaktır. 
 
-2.  **Düzenleyen:** çalışma alanında bir düzenleyici belgelere ekleme, modelleri eğitme ve belgeler ve projeler silmek mümkün olacaktır. Bir abonelik anahtarı ekleyebilir ancak olamaz değiştirme ile çalışma alanını paylaşan, çalışma alanını silmek veya çalışma alanı adı değiştirin.
+2.  **Düzenleyen:** Çalışma alanında bir düzenleyici belgelere ekleme, modelleri eğitme ve belgeler ve projeler silmek mümkün olacaktır. Bir abonelik anahtarı ekleyebilir ancak olamaz değiştirme ile çalışma alanını paylaşan, çalışma alanını silmek veya çalışma alanı adı değiştirin.
 
-3.  **Sahibi:** sahibi, çalışma alanına tam izinleri vardır.
+3.  **Sahibi:** Sahibi, çalışma alanına tam izinleri vardır.
 
 ## <a name="change-sharing-permission"></a>Paylaşım izni Değiştir
 

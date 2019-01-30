@@ -14,16 +14,18 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/25/2019
 ms.author: juliako
-ms.openlocfilehash: 512eb765e626118e49d2732338d0d5bd7252f3f8
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 41d9548aa33ee29c40179506ae824ab79b000859
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55100589"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55213183"
 ---
 # <a name="cli-example-create-an-azure-media-services-account"></a>CLI örneği: Azure Media Services hesabı oluşturma
 
-Bu konudaki Azure CLI betiği, Azure Media Services hesabı oluşturmayı gösterir. Media Services hesabı ve ilişkili depolama hesabı aynı veri merkezinde ve aynı kaynak grubunun parçası olması gerekir.
+Bu konudaki Azure CLI betiği, Azure Media Services hesabı oluşturmayı gösterir. 
+
+Media Services hesabı ve tüm ilişkili depolama hesapları aynı Azure aboneliğinde olması gerekir. Media Services hesabıyla aynı konumda depolama hesaplarını kullanmak için önerilir.
 
 [!INCLUDE [media-services-cli-instructions.md](../../../../includes/media-services-cli-instructions.md)]
 

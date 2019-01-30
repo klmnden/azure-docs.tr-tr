@@ -1,24 +1,24 @@
 ---
-title: "Hızlı başlangıç: Bir görüntüdeki yüzlerin duygularını tanıma - Duygu Tanıma API'si, Ruby"
+title: "Hızlı Başlangıç: Görüntü - duygu tanıma API'si, Ruby yüzlerini üzerinde duyguları tanıma"
 titlesuffix: Azure Cognitive Services
 description: Ruby ile Duygu Tanıma API'sini kullanmaya başlamanıza yardımcı olacak bilgiler ve kod örnekleri edinin.
 services: cognitive-services
 author: anrothMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: emotion-api
+ms.subservice: emotion-api
 ms.topic: quickstart
 ms.date: 05/23/2017
 ms.author: anroth
 ROBOTS: NOINDEX
-ms.openlocfilehash: bcab24334c1ee4e47061ce6ea28bd60039e17b3f
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
-ms.translationtype: HT
+ms.openlocfilehash: 9ab0f4128e163ca887cf8f03425e33f3fbb6f01a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239038"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221989"
 ---
-# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Hızlı başlangıç: Bir görüntüdeki yüzlerin duygularını tanımak için bir uygulama oluşturma.
+# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Hızlı Başlangıç: Görüntüdeki yüzleri üzerinde duyguları tanıma için bir uygulama oluşturun.
 
 > [!IMPORTANT]
 > Duygu Tanıma API'si 15 Şubat 2019 tarihinde kullanım dışı bırakılacaktır. Duygu tanıma özelliği [Yüz Tanıma API'sinin](https://docs.microsoft.com/azure/cognitive-services/face/) bir parçası olarak genel kullanıma sunulmuştur. 

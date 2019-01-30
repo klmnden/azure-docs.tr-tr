@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 4118e52e8fac34e860f05e17effb01e9375582ec
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 2571c4a1e5a3ff6228cd6647c4367555d0add866
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54914069"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55212601"
 ---
 # <a name="networking"></a>Ağ
 
@@ -48,7 +48,7 @@ Hızlandırılmış ağ ile sanal makinenizin performansını en üst düzeye, a
 ```
 Service Fabric kümesi sağlanabilir [Linux hızlandırılmış ağ ile](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli), ve [hızlandırılmış ağ ile Windows](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell).
 
-Hızlandırılmış ağ, Azure sanal makine serisi SKU'ları için desteklenir: D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2 ve Ms/Mms. Hızlandırılmış ağ başarıyla Standard_DS8_v3 SKU 1/23/2019 kullanılarak test edilmiştir.
+Hızlandırılmış ağ, Azure sanal makine serisi SKU'ları için desteklenir: D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2 ve Ms/Mms. Hızlandırılmış ağ başarıyla Standard_DS8_v3 SKU 1/23/2019 için Service Fabric Windows kümesi ve Standard_DS12_v2 29/01/2019 üzerinde bir Service Fabric Linux kümesi için kullanarak test edilmiştir.
 
 Var olan bir Service Fabric kümesinde hızlandırılmış Ağ'ı etkinleştirmek için öncelikle gerekir. [bir sanal makine ölçek kümesi ekleyerek bir Service Fabric kümesinin ölçeğini](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out), aşağıdakileri yapmak için:
 1. Hızlandırılmış ağ etkin olan bir NodeType sağlama

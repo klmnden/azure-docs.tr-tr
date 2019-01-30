@@ -6,16 +6,16 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: e9b3d3207f5aca6cba3555ba2578b5c66b3bd193
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 79ed6f1d2dc5495994d2522abf5af391cc79b705
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343700"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226052"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-service-library-in-c35-for-net-windows"></a>Hızlı Başlangıç: Bing konuşma tanıma hizmeti kitaplık C'de kullanın&#35; .NET Windows için
 
@@ -46,17 +46,17 @@ Konuşma tanıma API'si, Bilişsel hizmetler (daha önce Project Oxford) bir par
 >
 > * Abonelik anahtarınızı kullanın. Sağlanan C# hizmet kitaplığı örnek uygulaması, bir komut satırı parametreleri abonelik anahtarınızı sağlamanız gerekir. Daha fazla bilgi için [örnek uygulamayı çalıştırma](#step-3-run-the-sample-application).
 
-## <a name="step-1-install-the-sample-application"></a>1. adım: örnek uygulama yükleme
+## <a name="step-1-install-the-sample-application"></a>1. Adım: Örnek uygulamayı yüklemek
 
 1. Visual Studio 2015'i başlatın ve **dosya** > **açık** > **proje/çözüm**.
 
 2. SpeechClient.sln adlı Visual Studio 2015 çözümü (.sln) dosyasını açmak için çift tıklayın. Çözüm, Visual Studio'da açılır.
 
-## <a name="step-2-build-the-sample-application"></a>2. adım: örnek uygulamayı oluşturma
+## <a name="step-2-build-the-sample-application"></a>2. Adım: Örnek uygulaması oluşturma
 
 Ctrl + Shift + B tuşuna basın veya **derleme** Şerit menüsünde. Ardından **Çözümü Derle**.
 
-## <a name="step-3-run-the-sample-application"></a>3. adım: örnek uygulamayı çalıştırma
+## <a name="step-3-run-the-sample-application"></a>3. Adım: Örnek uygulamayı çalıştırın
 
 1. Derleme tamamlandıktan sonra F5 tuşuna basın veya seçin **Başlat** örneği çalıştırmak için Şerit menüsünde.
 
@@ -64,17 +64,17 @@ Ctrl + Shift + B tuşuna basın veya **derleme** Şerit menüsünde. Ardından *
 
 3. Çalıştırma `SpeechClientSample.exe` aşağıdaki bağımsız değişkenleriyle:
 
-   * [0] bağımsız değişken: giriş ses WAV dosyası belirtin.
-   * [1]. değişken: ses yerel ayarları belirtin.
-   * [2] bağımsız değişken: tanıma modları belirtin: *kısa* için `ShortPhrase` modu ve *uzun* için `LongDictation` modu.
-   * [3] bağımsız değişken: konuşma tanıma hizmeti erişmek için abonelik anahtarını belirtin.
+   * Arg [0]: Giriş Ses WAV dosyası belirtin.
+   * [1]. değişken: Ses yerel ayarları belirtin.
+   * [2] bağımsız değişken: Tanıma modları belirtin: *Kısa* için `ShortPhrase` modu ve *uzun* için `LongDictation` modu.
+   * [3] bağımsız değişken: Konuşma tanıma hizmeti erişmek için abonelik anahtarını belirtin.
 
 ## <a name="samples-explained"></a>Açıklanan örnekleri
 
 ### <a name="recognition-modes"></a>Tanıma modları
 
-* `ShortPhrase` mod: bir utterance fazla 15 saniye kadar. İstemci, veriler sunucuya gönderildiğinde gibi birden çok kısmı sonuç ve bir son en iyi sonucu alır.
-* `LongDictation` mod: bir utterance en fazla 10 dakika kadar. Veriler sunucuya gönderildiğinde gibi istemci, birden çok kısmı sonuç ve birden çok Nihai sonuç, sunucunun cümle duraklamaları burada gösterir temel alır.
+* `ShortPhrase` modu: Uzun bir utterance fazla 15 saniye. İstemci, veriler sunucuya gönderildiğinde gibi birden çok kısmı sonuç ve bir son en iyi sonucu alır.
+* `LongDictation` modu: Uzun bir utterance en fazla 10 dakika. Veriler sunucuya gönderildiğinde gibi istemci, birden çok kısmı sonuç ve birden çok Nihai sonuç, sunucunun cümle duraklamaları burada gösterir temel alır.
 
 ### <a name="supported-audio-formats"></a>Ses biçimleri desteklenir
 
@@ -90,18 +90,18 @@ Bir SpeechClient oluşturmak için ilk tercihleri nesnesi oluşturmanız gerekir
 
 * `SpeechLanguage`: Konuşma tanıma Hizmeti'ne gönderilen ses yerel ayar.
 * `ServiceUri`: Konuşma hizmeti çağırmak için kullanılan uç nokta.
-* `AuthorizationProvider`: Konuşma hizmeti erişmek için kullanılan belirteçleri getirilemedi IAuthorizationProvider uygulaması. Örnek bir Bilişsel hizmetler yetkilendirme sağlayıcısı sağlasa da, belirteç önbelleğe işlemek için kendi uygulama oluşturmanızı öneririz.
+* `AuthorizationProvider`: Konuşma hizmeti erişmek için kullanılan belirteçleri getirilecek IAuthorizationProvider uygulaması. Örnek bir Bilişsel hizmetler yetkilendirme sağlayıcısı sağlasa da, belirteç önbelleğe işlemek için kendi uygulama oluşturmanızı öneririz.
 * `EnableAudioBuffering`: Gelişmiş bir seçenek. Bkz: [bağlantı yönetimi](#connection-management).
 
 ### <a name="speech-input"></a>Konuşma giriş
 
 SpeechInput nesne iki alandan oluşur:
 
-* **Ses**: içinden SDK çeker ses, tercih ettiğiniz bir akış uygulaması. Herhangi olabilir [stream](https://msdn.microsoft.com/library/system.io.stream(v=vs.110).aspx) okuma destekleyen.
+* **Ses**: SDK'sı ses çeker, tercih ettiğiniz bir akış uygulaması. Herhangi olabilir [stream](https://msdn.microsoft.com/library/system.io.stream(v=vs.110).aspx) okuma destekleyen.
    > [!NOTE]
    > Akış döndürdüğünde SDK akışın sonuna algılar **0** olarak okundu.
 
-* **RequestMetadata**: konuşma istek hakkındaki meta verileri. Daha fazla bilgi için [başvuru](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-ServiceLibrary/master/docs/index.html).
+* **RequestMetadata**: Konuşma isteğiyle ilgili meta veriler. Daha fazla bilgi için [başvuru](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-ServiceLibrary/master/docs/index.html).
 
 ### <a name="speech-request"></a>Konuşma isteği
 

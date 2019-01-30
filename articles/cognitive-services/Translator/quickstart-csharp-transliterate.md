@@ -1,23 +1,23 @@
 ---
-title: 'Hızlı Başlangıç: Metin betiğini dönüştürme, C# - Translator Metin Çevirisi'
+title: 'Hızlı Başlangıç: Metin komut dönüştürme C# -Translator metin çevirisi'
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, başka bir .NET Core ve Translator Text REST API kullanarak bir komut dosyasından (dönüştürme) metin alfabeye öğreneceksiniz. Bu örnekte Japonca, Latin alfabesine dönüştürülmektedir.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 11/21/2018
 ms.author: erhopf
-ms.openlocfilehash: d67fbdad32612f23b1de31f7d2a1d7b4dee3b68e
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 7beddd7f7f21466ee404303b2727370d0cfc86f6
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889149"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220171"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-c"></a>Hızlı Başlangıç: Translator Text API kullanarak metin alfabeye için kullanın.C#
+# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-c"></a>Hızlı Başlangıç: Translator metin çevirisi API'si kullanarak metin alfabeye için kullanınC#
 
 Bu hızlı başlangıçta, başka bir .NET Core kullanarak bir komut dosyasından (dönüştürme) metin alfabeye öğreneceksiniz (C#) ve Translator metin çevirisi REST API'si. Verilen örnekte Japonca, Latin alfabesine dönüştürülmektedir.
 

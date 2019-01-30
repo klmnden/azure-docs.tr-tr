@@ -6,16 +6,16 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: v-jansko
-ms.openlocfilehash: 3d25cfd39b4b4278fedf33e042d394208fd5eafc
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 96f73d7d1324de9e5531aefcc4ee3b9a054cf941
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713188"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228058"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Translator metin API'si, dil ve bölge desteği
 
@@ -114,14 +114,14 @@ Transliterate yöntemi aşağıdaki dilleri desteklemektedir. İçinde "içine/d
 | Çince (Basitleştirilmiş) | `zh-Hans` | Basitleştirilmiş Çince `Hans`| <--> | Geleneksel Çince `Hant`|
 | Geleneksel Çince | `zh-Hant` | Geleneksel Çince `Hant`| <--> | Latin `Latn` |
 | Geleneksel Çince | `zh-Hant` | Geleneksel Çince `Hant`| <--> | Basitleştirilmiş Çince `Hans` |
-| Gucerat dili | `gu`  | Gucerat dili `Gujr` | --> | Latin `Latn` |
+| Gucerat dili | `gu`  | Gujarati `Gujr` | --> | Latin `Latn` |
 | İbranice | `he` | İbranice `Hebr` | <--> | Latin `Latn` |
 | Hintçe | `hi` | Devanagari `Deva` | <--> | Latin `Latn` |
 | Japonca | `ja` | Japonca `Jpan` | <--> | Latin `Latn` |
-| Kannada dili | `kn` | Kannada dili `Knda` | --> | Latin `Latn` |
-| Malayalam dili | `ml` | Malayalam dili `Mlym` | --> | Latin `Latn` |
+| Kannada dili | `kn` | Kannada `Knda` | --> | Latin `Latn` |
+| Malayalam dili | `ml` | Malayalam `Mlym` | --> | Latin `Latn` |
 | Marathi dili | `mr` | Devanagari `Deva` | --> | Latin `Latn` |
-| Odia | `or` | Odia `Orya` | <--> | Latin `Latn` |
+| Odia | `or` | Oriya `Orya` | <--> | Latin `Latn` |
 | Pencap dili | `pa` | Gurmuki `Guru`  | <--> | Latin `Latn`  |
 | Sırpça (Kiril) | `sr-Cyrl` | Kiril `Cyrl`  | --> | Latin `Latn` |
 | Sırpça (Latin) | `sr-Latn` | Latin `Latn` | --> | Kiril `Cyrl`|
@@ -224,7 +224,7 @@ Aşağıdaki dilleri Algıla yöntemi tarafından desteklenir. Mayıs algılamak
 | İtalyanca |
 | Japonca |
 | Korece |
-| Kürtçe (Arapça) |
+| Kurdish (Arabic) |
 | Kürtçe (Latin) |
 | Latin |
 | Letonca |

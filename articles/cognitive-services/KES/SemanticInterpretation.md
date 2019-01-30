@@ -6,16 +6,16 @@ services: cognitive-services
 author: bojunehsu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 5fcc7b760b5445e57b41787d8818ef11ed926e6c
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 2b0065dbdac8e3bdbc535f2d7d103b24110e1d02
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129361"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217281"
 ---
 # <a name="semantic-interpretation"></a>Anlam yorumlama
 
@@ -33,7 +33,7 @@ Bir değişken, bir harfle başlar ve yalnızca harfler (A-Z), sayılar (0-9) ve
 
 Şu anda desteklenen veri türlerinin bir listesi aşağıdadır:
 
-|Tür|Açıklama|Örnekler|
+|Type|Açıklama|Örnekler|
 |----|----|----|
 |Dize|0 veya daha fazla karakter dizisi|"Hello World!"<br/>""|
 |bool|Boole değeri|true<br/>false|
@@ -139,7 +139,7 @@ Değişkenin değerini döndürür *adı* altında belirtilen tanımlanan *kapsa
 
 Sistem değişkenleri, hizmet tarafından önceden tanımlanan ve çeşitli İstatistikler sistemin geçerli durumunu almak için kullanılabilir.  Şu anda desteklenen sistem değişkenleri kümesi aşağıdadır:
 
-|Ad|Tür|Açıklama|
+|Name|Tür|Açıklama|
 |----|----|----|
 |IsAtEndOfQuery|bool|Tüm giriş sorgu metni geçerli yorumu eşleşti true|
 |IsBeyondEndOfQuery|bool|Geçerli yorumu giriş sorgu metni ötesinde tamamlamaları önerdiği true|

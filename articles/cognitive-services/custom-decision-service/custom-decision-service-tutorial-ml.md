@@ -1,27 +1,27 @@
 ---
-title: 'Öğretici: Özellik kazandırma ve özellik belirtimi - Özel Karar Alma Hizmeti'
+title: 'Öğretici: Özellik kazandırma sayesinde ve özellik belirtimi - Custom Decision Service'
 titlesuffix: Azure Cognitive Services
 description: Özel Karar Alma Hizmeti’nde makine öğrenimi özellik kazandırma ve özellik belirtimine yönelik bir öğretici.
 services: cognitive-services
 author: slivkins
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-decision-service
+ms.subservice: custom-decision-service
 ms.topic: tutorial
 ms.date: 05/08/2018
 ms.author: slivkins
-ms.openlocfilehash: 1e5d012706d1de5a201eecb8ad805b4d6faaf411
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
-ms.translationtype: HT
+ms.openlocfilehash: 1c701cbe1a71ed48c71a9441c05a7fb4b63e3814
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869607"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226069"
 ---
-# <a name="tutorial-featurization-and-feature-specification"></a>Öğretici: Özellik kazandırma ve özellik belirtimi
+# <a name="tutorial-featurization-and-feature-specification"></a>Öğretici: Özellik kazandırma sayesinde ve özellik belirtimi
 
 Bu öğreticide, Özel Karar Alma Hizmeti’ndeki gelişmiş makine öğrenimi özelliği ele alınmaktadır. Öğretici iki bölümden oluşur: [özellik kazandırma](#featurization-concepts-and-implementation) ve [özellik belirtimi](#feature-specification-format-and-apis). Özellik kazandırma, verilerinizin makine öğrenimi için “özellikler” olarak temsil edilmesi anlamına gelir. Özellik belirtimi, özellikleri belirtmek için JSON biçimini ve yardımcı API’leri kapsar.
 
-Özel Karar Alma Hizmeti’nde makine öğrenimi varsayılan olarak müşterilere açıktır. Özellikler içeriğinizden otomatik olarak ayıklanır ve pekiştirmeye dayalı standart öğrenme kullanılır. Özellik ayıklama birkaç başka Azure Bilişsel Hizmetinden yararlanır: [Varlık Bağlama](../entitylinking/home.md), [Metin Analizi](../text-analytics/overview.md), [Duygu Tanıma](../emotion/home.md) ve [Görüntü İşleme](../computer-vision/home.md). Bu öğretici yalnızca varsayılan özellik kullanılıyorsa atlanabilir.
+Özel Karar Alma Hizmeti’nde makine öğrenimi varsayılan olarak müşterilere açıktır. Özellikler içeriğinizden otomatik olarak ayıklanır ve pekiştirmeye dayalı standart öğrenme kullanılır. Özellik ayıklama birkaç diğer Azure Bilişsel hizmetler yararlanır: [Varlık bağlama](../entitylinking/home.md), [metin analizi](../text-analytics/overview.md), [duygu tanıma](../emotion/home.md), ve [görüntü işleme](../computer-vision/home.md). Bu öğretici yalnızca varsayılan özellik kullanılıyorsa atlanabilir.
 
 ## <a name="featurization-concepts-and-implementation"></a>Özellik kazandırma: kavramlar ve uygulama
 

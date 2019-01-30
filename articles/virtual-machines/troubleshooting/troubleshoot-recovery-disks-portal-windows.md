@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/013/2018
 ms.author: genli
-ms.openlocfilehash: 0b6ade7a6031b957f2405e525d61c9ca1d2dac3d
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 2c5fac377dfab4b4c85991dcb8f4e15f4e3cb61a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53809106"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55225946"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>İşletim sistemi diskini bir kurtarma Azure portalını kullanarak sanal Makinesine ekleyerek bir Windows sanal makinesinin sorunlarını giderme
 Azure'da Windows sanal makinesi (VM), önyükleme veya disk bir hatasıyla karşılaşırsa, sanal sabit diskin kendisinde sorun giderme adımları gerçekleştirmeniz gerekebilir. Yaygın olarak karşılaşılan örneklerden VM başarıyla önyükleme engelleyen bir uygulamanın güncelleştirme olacaktır. Bu makalede, sanal sabit diskinizi başka bir Windows varsa hataları düzeltin ve ardından orijinal VM'yi yeniden oluşturmak için VM'ye bağlanmak için Azure portalını kullanma işlemi açıklanmaktadır.
@@ -37,12 +37,11 @@ Bu kullanan yönetilen diskin VM için artık Azure PowerShell bir VM için işl
 ## <a name="determine-boot-issues"></a>Önyükleme sorunlarını belirleme
 Neden sanal makinenizin doğru ön yükleyebileceğini değil belirlemek için önyükleme tanılama VM ekran inceleyin. Yaygın olarak karşılaşılan örneklerden başarısız bir uygulama güncelleştirmesinin ya da bir temel alınan sanal sabit silinmiş veya taşınmış disk gerekir.
 
-Portalında VM'nizi seçin ve ardından aşağı kaydırarak **destek + sorun giderme** bölümü. Tıklayın **önyükleme tanılaması** ekran görüntülemek için. Herhangi bir özel hata iletileri veya hata kodları VM bir sorunla karşılaşan neden belirlemeye yardımcı olması için dikkat edin. Aşağıdaki örnek, bir VM üzerinde hizmetleri durdurma bekleniyor gösterir:
+Portalında VM'nizi seçin ve ardından aşağı kaydırarak **destek + sorun giderme** bölümü. Tıklayın **önyükleme tanılaması** ekran görüntülemek için. Herhangi bir özel hata iletileri veya hata kodları VM bir sorunla karşılaşan neden belirlemeye yardımcı olması için dikkat edin. 
 
 ![Konsol günlükleri görüntüleme VM önyükleme tanılaması](./media/troubleshoot-recovery-disks-portal-windows/screenshot-error.png)
 
-Ayrıca **ekran** bir yakalama VM ekran görüntüsü indirilemedi.
-
+Ayrıca **indirme ekran** bir VM ekran görüntüsü yakalama indirmek için.
 
 ## <a name="view-existing-virtual-hard-disk-details"></a>Mevcut sanal sabit disk ayrıntıları görüntüleyin
 Sanal sabit diskinizi başka bir sanal makineye iliştirebilmek için önce sanal sabit disk (VHD) adını tanımlamak gerekir. 

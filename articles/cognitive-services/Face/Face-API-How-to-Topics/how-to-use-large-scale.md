@@ -1,23 +1,23 @@
 ---
-title: 'Örnek: Büyük Ölçek Özelliğini kullanma - Yüz Tanıma API’si'
+title: "Örnek: Yüz tanıma API'si - büyük ölçekli özelliğini kullanın"
 titleSuffix: Azure Cognitive Services
 description: Yüz Tanıma API’sinde büyük ölçek özelliğini kullanın.
 services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: e8bbf78da84ddb77ce956e37f91be46e96144991
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
-ms.translationtype: HT
+ms.openlocfilehash: 9289f7178a6e285b447041937f191d283fc2f2f0
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123088"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55222907"
 ---
-# <a name="example-how-to-use-the-large-scale-feature"></a>Örnek: Büyük ölçek özelliğini kullanma
+# <a name="example-how-to-use-the-large-scale-feature"></a>Örnek: Büyük ölçekli özelliğinin nasıl kullanılacağı
 
 Bu kılavuz, sırasıyla mevcut PersonGroup ve FaceList’ten LargePersonGroup ve LargeFaceList’e ölçeği genişletmek için kod geçişiyle ilgili ileri düzey bir makaledir.
 Bu kılavuzda, PersonGroup ve FaceList’in temel kullanımının bilindiği varsayımıyla geçiş işlemi gösterilmektedir.
@@ -39,15 +39,15 @@ Ancak dezavantajı, büyük ölçekli eğitime yeni geçiş sonrası tamamlanın
 
 Bu kılavuzda yer alan aşağıdaki kavramlar hakkında bilgi sahibi değilseniz tanımları [sözlükte](../Glossary.md) bulabilirsiniz:
 
-- LargePersonGroup: 1.000.000’a kadar kapasiteye sahip Kişi koleksiyonu.
-- LargeFaceList: 1.000.000’a kadar kapasiteye sahip Yüz koleksiyonu.
-- Eğitim: Tanımlama/FindSimilar performansını güvence altına almak için ön işlem.
-- Tanımlama: Bir PersonGroup veya LargePersonGroup’tan bir ya da daha fazla yüzü tanımlama.
-- FindSimilar: Bir FaceList veya LargeFaceList’ten benzer yüzleri arama.
+- LargePersonGroup: 1.000.000 kadar kapasiteye sahip kişiler koleksiyonu.
+- LargeFaceList: Bir yüz koleksiyonu 1.000.000 kadar kapasiteye sahip.
+- Eğitimi: Kimliği/FindSimilar performansı elde etmek için bir ön işleme.
+- Kimliği: Bir veya daha fazla PersonGroup veya LargePersonGroup yüzleri belirleyin.
+- FindSimilar: FaceList veya LargeFaceList benzer yüzleri arayın.
 
-## <a name="step-1-authorize-the-api-call"></a>1. Adım: API çağrısını yetkilendirme
+## <a name="step-1-authorize-the-api-call"></a>1. Adım: API çağrısı Yetkilendir
 
-Yüz Tanıma API’si istemci kitaplığı kullanılırken abonelik anahtarı ve abonelik uç noktası, FaceServiceClient sınıfının oluşturucusu aracılığıyla geçirilir. Örnek:
+Yüz Tanıma API’si istemci kitaplığı kullanılırken abonelik anahtarı ve abonelik uç noktası, FaceServiceClient sınıfının oluşturucusu aracılığıyla geçirilir. Örneğin:
 
 ```CSharp
 string SubscriptionKey = "<Subscription Key>";
@@ -59,14 +59,14 @@ FaceServiceClient FaceServiceClient = new FaceServiceClient(SubscriptionKey, Sub
 İlgili uç nokta ile birlikte abonelik anahtarı, Azure portalınızın Market sayfasından elde edilebilir.
 Bkz. [Abonelikler](https://azure.microsoft.com/services/cognitive-services/directory/vision/).
 
-## <a name="step-2-code-migration-in-action"></a>2. Adım: Uygulamalı olarak Kod Geçişi
+## <a name="step-2-code-migration-in-action"></a>2. Adım: Uygulamada kod geçişi
 
 Bu bölümde yalnızca PersonGroup/FaceList uygulamasının LargePersonGroup/LargeFaceList uygulamasına geçişine odaklanılmaktadır.
 LargePersonGroup/LargeFaceList, tasarım ve iç uygulama açısından PersonGroup/FaceList’ten farklılık gösterse de API arabirimleri, geriye dönük uyumluluk açısından benzerdir.
 
 Veri geçişi desteklenmez, bunun yerine LargePersonGroup/LargeFaceList’i yeniden oluşturmanız gerekir.
 
-## <a name="step-21-migrate-persongroup-to-largepersongroup"></a>Adım 2.1: PersonGroup’u LargePersonGroup’a Geçirme
+## <a name="step-21-migrate-persongroup-to-largepersongroup"></a>2.1. adım: İçin LargePersonGroup PersonGroup geçirme
 
 PersonGroup ve LargePersonGroup tamamen aynı grup düzeyinde işlemleri paylaştığından PersonGroup’tan LargePersonGroup’a geçiş sorunsuzdur.
 
@@ -74,7 +74,7 @@ PersonGroup/Kişi ile ilgili uygulama için API yollarının veya SDK sınıfı/
 
 Veri geçişi ile ilgili olarak başvuru için bkz. [Yüz Ekleme](how-to-add-faces.md).
 
-## <a name="step-22-migrate-facelist-to-largefacelist"></a>Adım 2.2: FaceList’i LargeFaceList’e geçirme
+## <a name="step-22-migrate-facelist-to-largefacelist"></a>2.2. adım: İçin LargeFaceList FaceList geçirme
 
 | FaceList API’leri | LargeFaceList API’leri |
 |:---:|:---:|
@@ -212,7 +212,7 @@ using (Stream stream = File.OpenRead(QueryImagePath))
 Yukarıda gösterildiği gibi, veri yönetimi ve FindSimilar kısmı neredeyse aynıdır.
 Tek istisna, FindSimilar’ın çalışması için önce LargeFaceList’te yeni bir Eğitim ön işleminin tamamlanmasının gerekmesidir.
 
-## <a name="step-3-train-suggestions"></a>3. Adım: Eğitim Önerileri
+## <a name="step-3-train-suggestions"></a>3. Adım: Train önerileri
 
 Eğitim işlemi, [FindSimilar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) ve [Tanımlama](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) işlemini hızlandırıyor olsa da, özellikle de büyük ölçek söz konusu olduğunda eğitim süresi uzar.
 Aşağıdaki tabloda, farklı ölçeklerde tahmini eğitim süresi listelenmektedir:
@@ -226,7 +226,7 @@ Aşağıdaki tabloda, farklı ölçeklerde tahmini eğitim süresi listelenmekte
 
 Büyük ölçekli özelliği daha iyi kullanmak için dikkate alınması için bazı stratejiler önerilir.
 
-## <a name="step-31-customize-time-interval"></a>Adım 3.1: Zaman Aralığını Özelleştirme
+## <a name="step-31-customize-time-interval"></a>Adım 3.1: Zaman aralığı özelleştirme
 
 `TrainLargeFaceList()` içinde gösterildiği gibi, sonsuz eğitim durumu denetleme işlemini geciktirmek için `timeIntervalInMilliseconds` vardır.
 Daha fazla yüz içeren LargeFaceList için, büyük bir aralık kullanıldığında çağrı sayıları ve maliyeti azaltılır.

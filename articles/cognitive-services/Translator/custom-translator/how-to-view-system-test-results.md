@@ -5,16 +5,16 @@ description: Eğitim başarılı olduğunda, eğitim sonuçlarınızı çözüml
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 701f97a006e7457fcbdcc835f87832b269f986a8
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 6cad142c050ca1de7e4c5f9b4415132a82f38c7b
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630351"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215260"
 ---
 # <a name="view-system-test-results"></a>Sistem test sonuçlarını görüntüleme
 
@@ -54,7 +54,7 @@ Zip dosyasını indirmek için indirme çevirilerini bağlantıya tıklayın. Ma
 
 Bu indirilen ZIP arşivini üç dosyalarını içerir.
 
-1.  **Custom.MT.txt:** Bu dosya, kaynak dili cümle hedef kullanıcının verileriyle eğitilen model tarafından yapılan dilde makine çevirileri içerir.
+1.  **custom.mt.txt:** Bu dosya, kaynak dili cümle hedef kullanıcının verileriyle eğitilen model tarafından yapılan dilde makine çevirileri içerir.
 
 2.  **Ref.txt:** Bu dosya, kullanıcı tarafından sağlanan Çeviriler kaynak dili cümle hedef dilde içerir.
 

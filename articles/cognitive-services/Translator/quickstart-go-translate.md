@@ -1,23 +1,23 @@
 ---
-title: 'Hızlı Başlangıç: Metin çevirme, Go - Translator Metin Çevirisi API’si'
+title: "Hızlı Başlangıç: Metni Çevir Git - Translator metin çevirisi API'si"
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, metin bir dilden diğerine Translator metin çevirisi API'si, 10 dakikadan az Go kullanarak çevir.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/05/2018
 ms.author: erhopf
-ms.openlocfilehash: 21794d0a728e7baed7ec392fa448c98eb519576c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: bc46fbda191ba13d5fb770ac4128ee2b56eb81c3
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000402"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55218368"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-go"></a>Hızlı Başlangıç: Go kullanarak bir dize çevirmek için Translator Text API kullanın.
+# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-go"></a>Hızlı Başlangıç: Go kullanarak bir dize çevirmek için Translator Text API kullanın
 
 Bu hızlı başlangıçta, İtalyanca ve Almanca Go ve Translator Text REST API kullanarak bir metin dizesi İngilizce'den Çevir öğreneceksiniz.
 
@@ -102,7 +102,7 @@ u.RawQuery = q.Encode()
 ```
 
 >[!NOTE]
-> Uç noktalar, rotalar ve istek parametreleri hakkında daha fazla bilgi için bkz. [Translator Metin Çevirisi API’si 3.0: Çeviri](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate).
+> Uç noktaları, yollar ve istek parametreleri hakkında daha fazla bilgi için bkz: [Translator Text API 3.0: Çevirme](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate).
 
 ## <a name="create-a-struct-for-your-request-body"></a>Bir yapı, istek gövdesi için oluşturma
 

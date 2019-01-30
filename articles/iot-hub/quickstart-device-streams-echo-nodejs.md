@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: fbd1c96cede42c0a5875f28b7b7793bcf20755bf
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 590faaf727345dcfe8ab61a1860ca46d78256b22
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/29/2019
-ms.locfileid: "55150319"
+ms.locfileid: "55219014"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>Hızlı Başlangıç: Node.js IOT Hub cihaz akışları (Önizleme) ile bir cihaz uygulaması için iletişim
 
@@ -40,7 +40,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 Bu hızlı başlangıçta Hizmet tarafı uygulamayı çalıştırmak için geliştirme makinenizi Node.js v4.x.x veya sonraki bir sürümü gerekir.
 
-Node.js için birden çok platformdan indirebileceğiniz [Node.js.org](https://Node.js.org).
+Node.js için birden çok platformdan indirebileceğiniz [Node.js.org](https://nodejs.org).
 
 Aşağıdaki komutu kullanarak geliştirme makinenizde geçerli Node.js sürümünü doğrulayabilirsiniz:
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 750ab99df1d241cf4252c49a5a9ced08a82b1c92
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 55d73d51cf7d1867b868b3a9b8385340e01cdd02
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54809200"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55223411"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure Dosya Eşitleme dağıtımı planlama
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -283,3 +283,4 @@ Coğrafi olarak yedekli depolama ve Azure dosya eşitleme arasında yük devretm
 * [Azure Dosyaları dağıtımını planlama](storage-files-planning.md)
 * [Azure dosyaları'nı dağıtma](storage-files-deployment-guide.md)
 * [Azure dosya eşitleme işlemi dağıtma](storage-sync-files-deployment-guide.md)
+* [Azure dosya eşitleme İzleyicisi](storage-sync-files-monitoring.md)
