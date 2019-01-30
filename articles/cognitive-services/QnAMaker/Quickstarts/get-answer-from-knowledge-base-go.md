@@ -1,21 +1,21 @@
 ---
-title: "Hızlı Başlangıç: Bilgi Bankası - REST, Git - soru-cevap Oluşturucu'nden Get yanıtlama"
+title: 'Hızlı Başlangıç: Yanıt, Bilgi Bankası - REST, Git - soru-cevap Oluşturucu alın.'
 titlesuffix: Azure Cognitive Services
 description: Git (REST) tabanlı bu hızlı başlangıçta, yanıt bir Bilgi Bankası, program aracılığıyla getirmenizde size yol gösterir.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 11/19/2018
 ms.author: diberry
-ms.openlocfilehash: 54c2133e35de09cae411f3bcec9f4421e4586f18
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: a9c3a689aed2a94d51d590bbf7b396b8a1095e99
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977470"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209885"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-go"></a>Go ile Bilgi Bankası'tan bir soru sorulara yanıtlar alın
 

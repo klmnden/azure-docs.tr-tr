@@ -5,16 +5,16 @@ description: Belgeyi Karşıya Yükleme özelliğini kullanarak, eğitimleri iç
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 3a0adb4b761121334e93f2b8d2d764ff3ab495e2
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: e08813c71a0b95b6b130ab71313bda6d044d730a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633257"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217229"
 ---
 # <a name="upload-a-document"></a>Bir belgeyi karşıya yükleme
 
@@ -37,25 +37,25 @@ Gelen [özel Translator](https://portal.customtranslator.azure.ai) portal belgel
 
     a.  Belge türü:
 
-    -  Eğitim: Bu belge için Eğitim kümesi kullanılır.
-    -  Ayar: Bu belge kümesini ayarlamak için kullanılır.
-    -  Test: Bu belge kümesini test etmek için kullanılır.
-    -  İfade sözlüğü: Bu belge ifade sözlüğü için kullanılır.
-    -  Cümle sözlüğü: Bu belge cümle sözlüğü için kullanılır.
+    -  Eğitim: Bu belgeler, eğitim kümesi için kullanılır.
+    -  Ayarlama: Bu belge kümesini ayarlamak için kullanılır.
+    -  Test: Bu belge, kümesi test etmek için kullanılır.
+    -  İfade sözlüğü: Bu belge, ifade sözlüğü için kullanılır.
+    -  Tümce sözlüğü: Bu belge, cümle sözlük için kullanılacak
 
     b.  Dil çifti
 
-    c.  Belge geçersiz kılmak var: aynı ada sahip tüm mevcut belgeleri üzerine yazmak istiyorsanız bu onay kutusunu işaretleyin.
+    c.  Belge geçersiz kılmak bulunmaktadır: Aynı ada sahip tüm mevcut belgeleri üzerine yazmak istiyorsanız bu onay kutusunu seçin.
 
     d.  Paralel veri veya birleşik giriş verileri için ilgili bölüme doldurun.
 
     -  Paralel veri:
-        -  Kaynak dosya: yerel bilgisayarınıza dosyasından kaynak dili seçin.
-        -  Hedef dosya: yerel bilgisayarınıza dosyasından hedef dili seçin.
-        -  Belge adı: paralel dosyaları karşıya yüklemekte yalnızca kullanılır.
+        -  Kaynak dosya: Kaynak dili dosyasını kullanarak yerel bilgisayarınızdan seçin.
+        -  Hedef dosya: Yerel bilgisayarınızdan hedef dile dosyayı seçin.
+        -  Belge adı: Paralel dosya karşıya yüklemekte yalnızca kullanılır.
 
     - Birleşik giriş verileri:
-        -  Birleşik giriş dosyası: yerel bilgisayarınızdan açılan dosyayı seçin. Birleşik giriş dosyanız hem kaynak ve hedef dil tümceleri vardır. [Adlandırma kuralı](document-formats-naming-convention.md) birleşik giriş dosyaları için önemlidir.
+        -  Birleşik giriş dosyası: Yerel bilgisayarınızdan açılan dosyayı seçin. Birleşik giriş dosyanız hem kaynak ve hedef dil tümceleri vardır. [Adlandırma kuralı](document-formats-naming-convention.md) birleşik giriş dosyaları için önemlidir.
 
     e.  Yükle'yi tıklatın
 

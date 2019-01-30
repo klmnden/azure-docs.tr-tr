@@ -11,13 +11,13 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 12/03/2018
-ms.openlocfilehash: ff9011dda4a94f323b430a3860eadc8d970a23f7
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 01/18/2019
+ms.openlocfilehash: 0bb7c047f6bd03a45aa6c5c6d07b8022ee59bec9
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838625"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217195"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>SQL kimlik doğrulaması için Azure Active Directory kimlik doğrulaması kullanın.
 
@@ -35,8 +35,9 @@ Azure AD kimlik doğrulaması ile veritabanı kullanıcılarının kimliklerini 
 - Tümleşik Windows kimlik doğrulaması ve diğer Azure Active Directory tarafından desteklenen kimlik doğrulama etkinleştirerek bu parolaları ortadan kaldırabilir.
 - Azure AD kimlik doğrulaması bağımsız veritabanı kullanıcılarını ve veritabanı düzeyinde kimlikleri doğrulamak için kullanır.
 - Azure AD, SQL veritabanına bağlanan uygulamalar için belirteç tabanlı kimlik doğrulamasını destekler.
-- Azure AD kimlik doğrulaması için bir yerel Azure Active Directory etki alanı eşitleme olmadan ADFS (etki alanı Federasyon) veya yerel kullanıcı/parola kimlik doğrulamasını destekler.  
-- Azure AD Active Directory Evrensel multi-Factor Authentication (MFA) içeren kimlik doğrulaması kullanan SQL Server Management Studio bağlantılarından destekler.  MFA, güçlü kimlik doğrulaması ile çeşitli kolay doğrulama seçenekleri içerir — telefon araması, SMS mesajı, akıllı kartlar ve PIN ya da mobil uygulama bildirimi. Daha fazla bilgi için [SQL veritabanı ve SQL veri ambarı ile Azure AD MFA için SSMS desteği](sql-database-ssms-mfa-authentication.md).  
+- Azure AD kimlik doğrulaması için bir yerel Azure Active Directory etki alanı eşitleme olmadan ADFS (etki alanı Federasyon) veya yerel kullanıcı/parola kimlik doğrulamasını destekler.
+- Azure AD Active Directory Evrensel multi-Factor Authentication (MFA) içeren kimlik doğrulaması kullanan SQL Server Management Studio bağlantılarından destekler.  MFA, güçlü kimlik doğrulaması ile çeşitli kolay doğrulama seçenekleri içerir — telefon araması, SMS mesajı, akıllı kartlar ve PIN ya da mobil uygulama bildirimi. Daha fazla bilgi için [SQL veritabanı ve SQL veri ambarı ile Azure AD MFA için SSMS desteği](sql-database-ssms-mfa-authentication.md).
+- Azure AD, Active Directory etkileşimli kimlik doğrulaması kullanan benzer SQL Server veri Araçları (SSDT) gelen bağlantıyı destekler. Daha fazla bilgi için [Azure Active Directory desteği SQL Server veri Araçları (SSDT)](/sql/ssdt/azure-active-directory).
 
 > [!NOTE]  
 > Bir Azure Active Directory hesabı kullanarak bir Azure sanal makinesinde çalışan SQL Server için bağlanması desteklenmiyor. Bunun yerine bir etki alanı Active Directory hesabı kullanın.  
@@ -44,7 +45,7 @@ Azure AD kimlik doğrulaması ile veritabanı kullanıcılarının kimliklerini 
 Yapılandırma adımları yapılandırmak ve Azure Active Directory kimlik doğrulamasını kullanmak için aşağıdaki yordamları içerir.
 
 1. Oluşturma ve Azure AD doldurabilirsiniz.
-2. İsteğe bağlı: İlişkilendirmek veya şu anda Azure aboneliğinizle ilişkili olan active directory değiştirin.
+2. İsteğe bağlı: İlişkilendirme veya şu anda Azure aboneliğinizle ilişkili olan active directory değiştirin.
 3. Yönetilen örnek, Azure SQL veritabanı sunucusu için bir Azure Active Directory Yöneticisi oluşturma veya [Azure SQL veri ambarı](https://azure.microsoft.com/services/sql-data-warehouse/).
 4. İstemci bilgisayarlarınızın yapılandırın.
 5. Azure AD kimlikleri için eşlenmiş veritabanında bağımsız veritabanı kullanıcılarını oluşturun.
@@ -77,22 +78,40 @@ Azure SQL veritabanı yönetilen örneği veya SQL veri ambarı bağımsız veri
 
 ## <a name="azure-ad-features-and-limitations"></a>Azure AD özellikler ve sınırlamalar
 
-Azure AD aşağıdaki üyeleri, Azure SQL server veya SQL veri ambarı sağlanabilir:
+- Azure AD aşağıdaki üyeleri, Azure SQL server veya SQL veri ambarı sağlanabilir:
 
-- Yerel üyeleri: yönetilen etki alanında veya bir müşteri etki alanında Azure AD'de oluşturulan bir üyesi. Daha fazla bilgi için [kendi etki alanı adınızı Azure AD'ye ekleme](../active-directory/active-directory-domains-add-azure-portal.md).
-- Federasyon etki alanı üyesi: federe bir etki alanı ile Azure AD'de oluşturulan bir üyesi. Daha fazla bilgi için [Microsoft Azure artık Windows Server Active Directory ile Federasyonu destekliyor](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/).
-- Yerel veya Federasyon etki alanına üye olan içeri aktarılan üyelerinden diğer Azure AD'nin.
-- Active Directory grupları güvenlik grupları oluşturulur.
+  - Yerel Üyeler: Azure AD'de yönetilen etki alanında veya bir müşteri etki alanında oluşturulan bir üyesi. Daha fazla bilgi için [kendi etki alanı adınızı Azure AD'ye ekleme](../active-directory/active-directory-domains-add-azure-portal.md).
+  - Federasyon etki alanı üyeleri: Bir Federasyon etki alanı ile Azure AD'de oluşturulan bir üyesi. Daha fazla bilgi için [Microsoft Azure artık Windows Server Active Directory ile Federasyonu destekliyor](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/).
+  - Yerel veya Federasyon etki alanına üye olan içeri aktarılan üyelerinden diğer Azure AD'nin.
+  - Active Directory grupları güvenlik grupları oluşturulur.
 
-Azure AD oturum açma bilgileri ve kullanıcılar için önizleme özelliği olarak desteklenir [yönetilen örnekler](sql-database-managed-instance.md)
+- Sahip bir grubun parçası olan azure AD kullanıcıları `db_owner` sunucu rolü kullanamaz **[CREATE DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/create-database-scoped-credential-transact-sql)** Azure SQL veritabanı ve Azure SQL veri ambarı karşı söz dizimi. Aşağıdaki hatayı görürsünüz:
 
-Bu sistem İşlevler, Azure AD sorumlusu altında yürütüldüğünde NULL değerler döndürür:
+    `SQL Error [2760] [S0001]: The specified schema name 'user@mydomain.com' either does not exist or you do not have permission to use it.`
 
-- `SUSER_ID()`
-- `SUSER_NAME(<admin ID>)`
-- `SUSER_SNAME(<admin SID>)`
-- `SUSER_ID(<admin name>)`
-- `SUSER_SID(<admin name>)`
+    GRANT `db_owner` doğrudan tek tek Azure AD rolüne azaltmak için kullanıcı **CREATE DATABASE SCOPED CREDENTIAL** sorun.
+
+- Bu sistem İşlevler, Azure AD sorumlusu altında yürütüldüğünde NULL değerler döndürür:
+
+  - `SUSER_ID()`
+  - `SUSER_NAME(<admin ID>)`
+  - `SUSER_SNAME(<admin SID>)`
+  - `SUSER_ID(<admin name>)`
+  - `SUSER_SID(<admin name>)`
+
+### <a name="manage-instances"></a>Örnekleri yönetme
+
+- Azure AD oturum açma bilgileri ve kullanıcılar için önizleme özelliği olarak desteklenir [yönetilen örnekler](sql-database-managed-instance.md).
+- Veritabanı sahibi olarak desteklenmediği için Azure AD grubu eşlenen Azure AD oturum açma bilgileri ayarlama [yönetilen örnekler](sql-database-managed-instance.md).
+    - Bir grubun parçası olarak eklendiğinde olan uzantı bu `dbcreator` sunucu rolü, kullanıcıların bu Grup can yönetilen örneğine bağlanın ve yeni veritabanları oluşturmak, ancak veritabanına erişmek mümkün olmayacaktır. Yeni veritabanı sahibi SA ve Azure AD kullanıcı olmasıdır. Bireysel kullanıcı eklenirse bu sorunu bildirim değil `dbcreator` sunucu rolü.
+- SQL aracı yönetimi ve iş yürütme, Azure AD oturum açma bilgileri için desteklenir.
+- Veritabanı yedekleme ve geri yükleme işlemleri Azure AD oturum açma bilgileri tarafından yürütülebilir.
+- Azure AD oturum açma bilgileri ve kimlik doğrulama olayları ile ilgili tüm deyimler denetim desteklenir.
+- Adanmış yönetici bağlantısı sysadmin sunucu rolünün üyeleri olan Azure AD oturum açma için desteklenir.
+    - SQLCMD yardımcı programını ve SQL Server Management Studio desteklenir.
+- Oturum açma tetikleyicileri, Azure AD oturum açma bilgilerinden gelen oturum açma olayları için desteklenir.
+- Hizmet aracısı ve DB posta, Azure AD oturum açma bilgilerini kullanarak kurulum olabilir.
+
 
 ## <a name="connecting-using-azure-ad-identities"></a>Azure AD kimlikleri kullanarak bağlanma
 
@@ -102,15 +121,23 @@ Azure Active Directory kimlik doğrulaması, Azure AD kimlikleri kullanarak bir 
 - Azure AD sorumlusu adı ve parola kullanarak
 - Uygulama belirteci kimlik doğrulamasını kullanma
 
+Azure AD oturum açma bilgileri için aşağıdaki kimlik doğrulama yöntemleri desteklenir (**genel Önizleme**):
+
+- Azure Active Directory parolası
+- Azure Active Directory ile tümleşik
+- MFA ile Azure Active Directory Evrensel
+- Etkileşimli Azure Active Directory
+
+
 ### <a name="additional-considerations"></a>Diğer konular
 
 - Yönetilebilirlik geliştirmek için adanmış bir Azure AD sağlama öneririz yönetici olarak grup.   
-- Yalnızca bir Azure AD Yöneticisi (kullanıcı veya grup) herhangi bir zamanda bir Azure SQL veritabanı sunucusu, yönetilen örneği veya Azure SQL veri ambarı için yapılandırılabilir.
+- Yalnızca bir Azure AD Yöneticisi (kullanıcı veya grup) herhangi bir zamanda bir Azure SQL veritabanı sunucusu veya Azure SQL veri ambarı için yapılandırılabilir.
+  - Yönetilen örnek için Azure AD oturum açma bilgileri eklenmesi (**genel Önizleme**) eklenebilir birden çok Azure AD oturum açma oluşturma olanağı tanır `sysadmin` rol.
 - Yalnızca SQL Server için Azure AD Yöneticisi, başlangıçta Azure SQL veritabanı sunucusu, yönetilen örneği veya Azure Active Directory hesabını kullanarak Azure SQL veri ambarı bağlanabilirsiniz. Active Directory Yöneticisi sonraki Azure AD'yi yapılandırabilirsiniz veritabanı kullanıcılar.   
 - 30 saniye olarak bağlantı zaman aşımı ayarını öneririz.   
 - SQL Server 2016 Management Studio ve Visual Studio 2015 (sürüm 14.0.60311.1April 2016 veya üzeri) için SQL Server veri araçları, Azure Active Directory kimlik doğrulamasını destekler. (Azure AD kimlik doğrulaması tarafından desteklenen **SqlServer için .NET Framework veri sağlayıcısı**; en az .NET Framework 4.6 sürümü). Bu nedenle en son sürümleri bu araçlar ve veri katmanı uygulamaları (DAC ve. BACPAC), Azure AD kimlik doğrulaması kullanabilirsiniz.   
-- [ODBC sürüm 13.1](https://www.microsoft.com/download/details.aspx?id=53339) ancak Azure Active Directory kimlik doğrulamasını destekleyen `bcp.exe` daha eski bir ODBC sağlayıcısını kullandığından, Azure Active Directory kimlik doğrulaması kullanılarak bağlanılamıyor.   
-- `sqlcmd` Azure Active Directory kimlik doğrulaması başına 13.1 kullanılabilir sürümüyle destekler [İndirme Merkezi](https://go.microsoft.com/fwlink/?LinkID=825643).
+- 15.0.1, sürümünden başlayarak [sqlcmd yardımcı programını](/sql/tools/sqlcmd-utility) ve [bcp yardımcı programının](/sql/tools/bcp-utility) MFA ile Active Directory etkileşimli kimlik doğrulaması desteği.
 - SQL Server veri araçları, Visual Studio 2015 için en az bir veri Araçları (sürüm 14.0.60311.1) Nisan 2016 sürümünü gerektirir. Şu anda Azure AD kullanıcılarının SSDT nesne Gezgini'nde gösterilmez. Geçici çözüm olarak, kullanıcılar görüntülemek [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).   
 - [SQL Server için Microsoft JDBC sürücüsü 6.0](https://www.microsoft.com/download/details.aspx?id=11774) destekleyen Azure AD kimlik doğrulaması. Ayrıca bkz [bağlantı özelliklerini ayarlama](https://msdn.microsoft.com/library/ms378988.aspx).   
 - PolyBase, Azure AD kimlik doğrulamasını kullanarak kimlik doğrulaması yapamaz.   
@@ -120,10 +147,12 @@ Azure Active Directory kimlik doğrulaması, Azure AD kimlikleri kullanarak bir 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Oluşturup Azure AD'ye doldurun ve ardından Azure AD ile Azure SQL veritabanı veya Azure SQL veri ambarı yapılandırma konusunda bilgi almak için bkz: [yapılandırma ve SQL veritabanı, yönetilen örneği veya SQL veri ambarı ile Azure Active Directory kimlik doğrulamasını Yönet ](sql-database-aad-authentication-configure.md).
+- Azure AD oturum açma bilgileri ile yönetilen örnekler kullanarak ilişkin bir öğretici için bkz [Azure AD oturum açma bilgileri ile yönetilen örnekler](sql-database-managed-instance-aad-security-tutorial.md)
 - SQL Veritabanında erişim ve denetime genel bakış için bkz. [SQL Veritabanında erişim ve denetim](sql-database-control-access.md).
 - SQL Veritabanındaki oturum açma bilgileri, kullanıcılar ve veritabanı rollerine genel bakış için bkz. [Oturum açma bilgileri, kullanıcılar ve veritabanı rolleri](sql-database-manage-logins.md).
 - Veritabanı sorumluları hakkında daha fazla bilgi için bkz. [Sorumlular](https://msdn.microsoft.com/library/ms181127.aspx).
 - Veritabanı rolleri hakkında daha fazla bilgi için bkz. [Veritabanı rolleri](https://msdn.microsoft.com/library/ms189121.aspx).
+- Yönetilen örnek için Azure AD oturum açma oluşturma sözdizimi için bkz [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
 - SQL Veritabanındaki güvenlik duvarı kuralları hakkında daha fazla bilgi için bkz. [SQL Veritabanı güvenlik duvarı kuralları](sql-database-firewall-configure.md).
 
 <!--Image references-->

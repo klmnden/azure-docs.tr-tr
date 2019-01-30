@@ -6,16 +6,16 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: aa59ce89bf8c2c4b31d85c572dcdfb3645f06884
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 273b54961adafb58fe9faa7993003ff74d50b6f9
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646022"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55218165"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Collaborative Translation Framework (CTF) raporlamasını kullanma
 
@@ -36,10 +36,10 @@ Raporlama CTF API uç noktası http://api.microsofttranslator.com/v2/beta/ctfrep
 
 
 ## <a name="methods"></a>Yöntemler
-| Ad |    Açıklama|
+| Name |    Açıklama|
 |:---|:---|
-| GetUserTranslationCounts yöntemi | Kullanıcı tarafından oluşturulan çevirileri sayısını alın. |
-| GetUserTranslations yöntemi | Kullanıcı tarafından oluşturulan çevirileri alır. |
+| GetUserTranslationCounts Method | Kullanıcı tarafından oluşturulan çevirileri sayısını alın. |
+| GetUserTranslations Method | Kullanıcı tarafından oluşturulan çevirileri alır. |
 
 Bu yöntemler sağlar:
 * Kullanıcı çevirileri ve düzeltmeleri indirmek için hesap kimliği altında tam kümesini alır.
@@ -49,7 +49,7 @@ Bu yöntemler sağlar:
 > [!NOTE]
 > Her iki yöntem görece yavaş ve pahalı. Tutumlu kullanmak için önerilir.
 
-## <a name="getusertranslationcounts-method"></a>GetUserTranslationCounts yöntemi
+## <a name="getusertranslationcounts-method"></a>GetUserTranslationCounts method
 
 Bu yöntem, kullanıcı tarafından oluşturulan çevirileri sayısını alır. Bu çeviri sayıları kullanıcı, minRating ve maxRating İstek parametreleri için uriPrefix göre gruplandırılmış listesini sağlar.
 
@@ -80,8 +80,8 @@ UserTranslationCount[]GetUserTranslationCounts(
 | uriPrefix | **İsteğe bağlı** çeviri URI öneki içeren bir dize.|
 | başlangıç | **İsteğe bağlı** çeviri metnin dil kodu temsil eden bir dize. |
 | - | **İsteğe bağlı** metne çevirmek için dil kodunu temsil eden bir dize.|
-| minRating| **İsteğe bağlı** çevrilmiş metin için en düşük kalite sıralaması temsil eden bir tamsayı değeri. Geçerli -10 ile 10 arasında bir değerdir. Varsayılan değer 1'dir.|
-| maxRating| **İsteğe bağlı** çevrilmiş metin için en yüksek kalite sıralaması temsil eden bir tamsayı değeri. Geçerli -10 ile 10 arasında bir değerdir. Varsayılan değer 1'dir.|
+| minRating| **İsteğe bağlı** çevrilmiş metin için en düşük kalite sıralaması temsil eden bir tamsayı değeri. Geçerli -10 ile 10 arasında bir değerdir. Varsayılan değer 1’dir.|
+| maxRating| **İsteğe bağlı** çevrilmiş metin için en yüksek kalite sıralaması temsil eden bir tamsayı değeri. Geçerli -10 ile 10 arasında bir değerdir. Varsayılan değer 1’dir.|
 | kullanıcı | **İsteğe bağlı** sonucu filtrelemek için kullanılan bir dize tabanlı gönderene gönderim, üzerinde. |
 | category| **İsteğe bağlı** kategori veya çeviri etki alanı içeren bir dize. Bu parametre yalnızca genel varsayılan seçeneği destekler.|
 | minDateUtc| **İsteğe bağlı** zaman çevirileri almak istediğiniz başlangıç tarihi. Tarihi UTC biçiminde olması gerekir. |
@@ -99,7 +99,7 @@ Dizi sonuç kümesini içeren **UserTranslationCount**. Her UserTranslationCount
 | Alan | Açıklama |
 |:---|:---|
 | Sayı| Alınan sonuç sayısı|
-| Kimden | Kaynak dili|
+| Başlangıç fiyatı | Kaynak dili|
 | Derecelendirme| Gönderen AddTranslation() yöntemi çağrısında tarafından uygulanan derecelendirme|
 | Alıcı| Hedef Dil|
 | Uri| AddTranslation() yöntem çağrısında uygulanan URI'si|
@@ -151,8 +151,8 @@ UserTranslation[] GetUserTranslations (
 | uriPrefix| **İsteğe bağlı** çeviri URI öneki içeren bir dize.|
 | başlangıç| **İsteğe bağlı** çeviri metnin dil kodu temsil eden bir dize.|
 | -| **İsteğe bağlı** metne çevirmek için dil kodunu temsil eden bir dize.|
-| minRating| **İsteğe bağlı** çevrilmiş metin için en düşük kalite sıralaması temsil eden bir tamsayı değeri. Geçerli -10 ile 10 arasında bir değerdir. Varsayılan değer 1'dir.|
-| maxRating| **İsteğe bağlı** çevrilmiş metin için en yüksek kalite sıralaması temsil eden bir tamsayı değeri. Geçerli -10 ile 10 arasında bir değerdir. Varsayılan değer 1'dir.|
+| minRating| **İsteğe bağlı** çevrilmiş metin için en düşük kalite sıralaması temsil eden bir tamsayı değeri. Geçerli -10 ile 10 arasında bir değerdir. Varsayılan değer 1’dir.|
+| maxRating| **İsteğe bağlı** çevrilmiş metin için en yüksek kalite sıralaması temsil eden bir tamsayı değeri. Geçerli -10 ile 10 arasında bir değerdir. Varsayılan değer 1’dir.|
 | kullanıcı| **İsteğe bağlı. Gönderim oluşturanla üzerinde sonucu filtrelemek için kullanılan bir dize**|
 | category| **İsteğe bağlı** kategori veya çeviri etki alanı içeren bir dize. Bu parametre yalnızca genel varsayılan seçeneği destekler.|
 | minDateUtc| **İsteğe bağlı** zaman çevirileri almak istediğiniz başlangıç tarihi. Tarihi UTC biçiminde olması gerekir.|
@@ -170,11 +170,11 @@ Dizi sonuç kümesini içeren **UserTranslation**. Her UserTranslation aşağıd
 | Alan | Açıklama |
 |:---|:---|
 | CreatedDateUtc| Oluşturulma tarihi AddTranslation() kullanarak giriş|
-| Kimden| Kaynak dili|
+| Başlangıç fiyatı| Kaynak dili|
 | originalText| İstek gönderirken kullanılan kaynak dili metni|
 |Derecelendirme |Gönderen AddTranslation() yöntemi çağrısında tarafından uygulanan derecelendirme|
 |Alıcı|    Hedef Dil|
-|translatedText|    AddTranslation() yöntem çağrısında gönderilen çeviri|
+|TranslatedText|    AddTranslation() yöntem çağrısında gönderilen çeviri|
 |Uri|   AddTranslation() yöntem çağrısında uygulanan URI'si|
 |Kullanıcı   |Kullanıcı adı|
 

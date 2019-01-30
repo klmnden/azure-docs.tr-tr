@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 653d88aafc683b8a67e93945c62a99bbcf8c92fc
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 61bbc65c543801b0f783d01dfb803f47dbcf8a07
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54900683"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215308"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Linux'ta App Service için Java Geliştirici Kılavuzu
 
@@ -28,7 +28,7 @@ Bu kılavuzu temel kavramları ve Linux için App Service kullanarak Java geliş
 
 ## <a name="logging-and-debugging-apps"></a>Günlüğe kaydetme ve hata ayıklama uygulamaları
 
-Performans raporları, trafiği görselleştirmeler ve sistem durumu denetlemeler Azure portalı üzerinden eeach uygulama için kullanılabilir. Bkz: [Azure App Service tanılama genel bakış](/azure/app-service/overview-diagnostics) erişmek ve bu tanılama araçları kullanma hakkında daha fazla bilgi için.
+Performans raporları, trafiği görselleştirmeler ve sistem durumu denetlemeler Azure portalı üzerinden her uygulama için kullanılabilir. Bkz: [Azure App Service tanılama genel bakış](/azure/app-service/overview-diagnostics) erişmek ve bu tanılama araçları kullanma hakkında daha fazla bilgi için.
 
 ## <a name="application-performance-monitoring"></a>Uygulama performansı izleme
 

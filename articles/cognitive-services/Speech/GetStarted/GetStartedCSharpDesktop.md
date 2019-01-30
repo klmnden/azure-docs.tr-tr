@@ -6,18 +6,18 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: f79b148558e7881f852ccd57916b0b0f31a98219
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 4d03ccfddab9a4aab4a1eacde02d68652bf5103a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342339"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219082"
 ---
-# <a name="quickstart-use-the-bing-speech-recognition-api-in-c35-for-net-on-windows"></a>Hızlı Başlangıç: c Bing konuşma tanıma API'si kullanan&#35; Windows üzerinde .NET için
+# <a name="quickstart-use-the-bing-speech-recognition-api-in-c35-for-net-on-windows"></a>Hızlı Başlangıç: C'de Bing konuşma tanıma API'si kullanan&#35; Windows üzerinde .NET için
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
@@ -46,7 +46,7 @@ Konuşma tanıma API'si, Bilişsel hizmetler (daha önce Project Oxford) bir par
 >
 > * Abonelik anahtarınızı kullanın. Örneği çalıştırdığında sağlanan C# Masaüstü örnek uygulama ile birlikte abonelik anahtarınızı metin kutusuna yapıştırın. Daha fazla bilgi için [örnek uygulamayı çalıştırma](#step-3-run-the-sample-application).
 
-## <a name="step-1-install-the-sample-application"></a>1. adım: örnek uygulama yükleme
+## <a name="step-1-install-the-sample-application"></a>1. Adım: Örnek uygulamayı yüklemek
 
 1. Visual Studio 2015'i başlatın ve **dosya** > **açık** > **proje/çözüm**.
 
@@ -54,7 +54,7 @@ Konuşma tanıma API'si, Bilişsel hizmetler (daha önce Project Oxford) bir par
 
 3. SpeechToText WPF Samples.sln adlı Visual Studio 2015 çözümü (.sln) dosyasını açmak için çift tıklayın. Çözüm, Visual Studio'da açılır.
 
-## <a name="step-2-build-the-sample-application"></a>2. adım: örnek uygulamayı oluşturma
+## <a name="step-2-build-the-sample-application"></a>2. Adım: Örnek uygulaması oluşturma
 
 1. Kullanmak istiyorsanız *tanıma amacıyla*, önce kaydolmanız gerekir [Language Understanding Intelligent Service (LUIS)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/). LUIS uygulamanızı uç nokta URL'sini anahtarının değerini ayarlayın kullanılacağını `LuisEndpointUrl` samples/SpeechRecognitionServiceExample klasöründeki app.config dosyasında. LUIS uygulaması uç nokta URL'sini hakkında daha fazla bilgi için bkz. [uygulamanızı yayımlayın](../../luis/luis-get-started-create-app.md#publish-your-app).
 
@@ -63,7 +63,7 @@ Konuşma tanıma API'si, Bilişsel hizmetler (daha önce Project Oxford) bir par
 
 2. Ctrl + Shift + B tuşuna basın veya **derleme** Şerit menüsünde. Ardından **Çözümü Derle**.
 
-## <a name="step-3-run-the-sample-application"></a>3. adım: örnek uygulamayı çalıştırma
+## <a name="step-3-run-the-sample-application"></a>3. Adım: Örnek uygulamayı çalıştırın
 
 1. Derleme tamamlandıktan sonra F5 tuşuna basın veya seçin **Başlat** örneği çalıştırmak için Şerit menüsünde.
 
@@ -78,9 +78,9 @@ Konuşma tanıma API'si, Bilişsel hizmetler (daha önce Project Oxford) bir par
 
    Her kategorinin üç tanıma modu vardır:
 
-    * **ShortPhrase modu**: bir utterance fazla 15 saniye kadar. İstemci, veriler sunucuya gönderildiğinde gibi birden çok kısmı sonuç ve birden çok en iyi n seçim ile bir nihai sonucu alır.
-    * **LongDictation modu**: bir utterance en fazla iki dakika kadar. Veriler sunucuya gönderildiğinde gibi istemci, birden çok kısmı sonuç ve birden çok Nihai sonuç, sunucunun cümle duraklamaları burada gösterir temel alır.
-    * **Hedefi olan algılama**: sunucu giriş konuşma hakkında daha fazla yapılandırılmış bilgi döndürür. Hedefi olan algılama kullanmak için önce kullanarak bir model eğitip gerekir [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
+    * **ShortPhrase modu**: Uzun bir utterance fazla 15 saniye. İstemci, veriler sunucuya gönderildiğinde gibi birden çok kısmı sonuç ve birden çok en iyi n seçim ile bir nihai sonucu alır.
+    * **LongDictation modu**: Uzun bir utterance en fazla iki dakika. Veriler sunucuya gönderildiğinde gibi istemci, birden çok kısmı sonuç ve birden çok Nihai sonuç, sunucunun cümle duraklamaları burada gösterir temel alır.
+    * **Hedefi olan algılama**: Sunucu giriş konuşma hakkında daha fazla yapılandırılmış bilgi döndürür. Hedefi olan algılama kullanmak için önce kullanarak bir model eğitip gerekir [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
 
 Bu örnek uygulaması ile örnek ses dosyalarını kullanın. Bu örnek samples/SpeechRecognitionServiceExample klasörü altında ile indirdiğiniz deponun dosyaları bulun. Başka hiçbir dosya seçtiğinizde seçilirse, bu örnek ses dosyalarını otomatik olarak çalışacak **Shortphrase modu için wav dosyası kullan** veya **Longdictation modu için wav dosyası kullan** konuşmanızı giriş olarak. Şu anda yalnızca WAV ses biçimi desteklenir.
 
@@ -90,9 +90,9 @@ Bu örnek uygulaması ile örnek ses dosyalarını kullanın. Bu örnek samples/
 
 ### <a name="recognition-events"></a>Tanıma olayları
 
-* **Kısmi sonuçlar olayları**: bile Konuşmayı bitirmeden kişilerin, yorumlarını konuşma hizmeti tahmin her başlatıldığında bu olay adlı (kullanırsanız `MicrophoneRecognitionClient`) veya veri gönderen son (kullanırsanız `DataRecognitionClient`).
-* **Hata olayları**: hizmeti bir hata algıladığında çağrılır.
-* **Hedefi olayları**: adlı istemcilerde "WithIntent" (yalnızca modunda ShortPhrase) son tanıma sonra sonuç yapılandırılmış bir JSON hedefi ayrıştırılır.
+* **Kısmi sonuçlar olayları**: Konuşma hizmeti bile Konuşmayı bitirmeden kişilerin, yorumlarını tahmin her başlatıldığında bu olay adlı (kullanırsanız `MicrophoneRecognitionClient`) veya veri gönderen son (kullanırsanız `DataRecognitionClient`).
+* **Hata olayları**: Hizmet bir hata algıladığında çağrılır.
+* **Hedefi olayları**: Adlı istemcilerde "WithIntent" (yalnızca modunda ShortPhrase) son tanıma sonra sonuç yapılandırılmış bir JSON hedefi ayrıştırılır.
 * **Neden olayların**:
   * İçinde `ShortPhrase` modu, bu olay adı verilir ve konuşma tamamladıktan sonra en iyi n sonuçlarını döndürür.
   * İçinde `LongDictation` modu, olay işleyicisi adlı birden çok kez bağlı hizmeti cümle duraklamaları burada tanımlar.

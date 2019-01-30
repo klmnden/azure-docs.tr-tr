@@ -1,29 +1,29 @@
 ---
-title: "Hızlı Başlangıç: Metni başka alfabeye çevirme, Node.js - Translator Metin Çevirisi API'si"
+title: "Hızlı Başlangıç: Metin, Node.js - Translator metin çevirisi API'si alfabeye"
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta Node.js ve Translator Metin Çevirisi API'sini kullanarak bir metni bir alfabeden başka bir alfabeye çevirmeyi (dönüştürmeyi) öğreneceksiniz. Bu örnekte Japonca, Latin alfabesine dönüştürülmektedir.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: 9a9de1375e024bf4e74eafa3442e2cb818ad9c61
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
-ms.translationtype: HT
+ms.openlocfilehash: 2fe70e570cc5cb5b2572719c496f044c39b1bfa4
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035824"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207930"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-with-nodejs"></a>Hızlı Başlangıç: Node.js ve Translator Metin Çevirisi REST API’si ile metni başka alfabeye çevirme
+# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-with-nodejs"></a>Hızlı Başlangıç: Node.js ile metin alfabeye için Translator Text API kullanın
 
 Bu hızlı başlangıçta Node.js ve Translator Metin Çevirisi API'sini kullanarak bir metni bir alfabeden başka bir alfabeye çevirmeyi (dönüştürmeyi) öğreneceksiniz. Verilen örnekte Japonca, Latin alfabesine dönüştürülmektedir.
 
 Bu hızlı başlangıç, Translator Metin Çevirisi kaynağına sahip bir [Azure Bilişsel Hizmetler hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) gerektirir. Bir hesabınız yoksa, abonelik anahtarı almak için [ücretsiz deneme sürümünü](https://azure.microsoft.com/try/cognitive-services/) kullanabilirsiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu hızlı başlangıç şunları gerektirir:
 
@@ -68,7 +68,7 @@ if (!subscriptionKey) {
 İstek modülü aracılığıyla kullanıma sunulan `request()` yöntemi HTTP yöntemi, URL, istek parametreleri, üst bilgileri ve JSON gövdesi bileşenlerini `options` nesnesi olarak geçirmemizi sağlar. Bu kod parçacığında isteği yapılandıracağız:
 
 >[!NOTE]
-> Uç noktalar, rotalar ve istek parametreleri hakkında daha fazla bilgi için bkz. [Translator Metin Çevirisi API’si 3.0: Karakter dönüştürme](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate).
+> Uç noktaları, yollar ve istek parametreleri hakkında daha fazla bilgi için bkz: [Translator Text API 3.0: Alfabeye](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate).
 
 ```javascript
 let options = {

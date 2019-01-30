@@ -1,23 +1,23 @@
 ---
-title: 'Hızlı Başlangıç: Cümle uzunluklarını alma, Java - Translator Metin Çevirisi API’si'
+title: "Hızlı Başlangıç: Translator metin çevirisi API'si cümlesi işlediklerinde, Java - al"
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, Java ve Translator Text API kullanarak cümle uzunluğu belirlemek öğreneceksiniz.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/03/2018
 ms.author: erhopf
-ms.openlocfilehash: 941467e7756faa4fd06220bafbf733f42b43e8d9
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 26c1d8c703f8bb03d06e742d52d639cf3dd24634
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888588"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208406"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-java"></a>Hızlı Başlangıç: Java kullanarak cümle belirlemek için Translator Text API kullanın.
+# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-java"></a>Hızlı Başlangıç: Translator metin çevirisi API'si, Java kullanarak cümle belirlemek için kullanın
 
 Bu hızlı başlangıçta, Java ve Translator Text API kullanarak cümle uzunlukları belirlemek öğreneceksiniz.
 

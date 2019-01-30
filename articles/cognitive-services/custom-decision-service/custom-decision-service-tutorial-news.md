@@ -1,23 +1,23 @@
 ---
-title: 'Öğretici: Makale kişiselleştirmesi - Özel Karar Alma Hizmeti'
+title: 'Öğretici: Makale kişiselleştirme - Custom Decision Service'
 titlesuffix: Azure Cognitive Services
 description: Bağlamsal karar almaya yönelik makale kişiselleştirmesi için öğretici.
 services: cognitive-services
 author: slivkins
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-decision-service
+ms.subservice: custom-decision-service
 ms.topic: tutorial
 ms.date: 05/08/2018
 ms.author: slivkins
-ms.openlocfilehash: b142fe2051c017d0c0ec3c4cac6aaedd563f6cd7
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
-ms.translationtype: HT
+ms.openlocfilehash: 1589ef94946a6396ee51b8fecfe2ed3e80db08e5
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366345"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55212240"
 ---
-# <a name="tutorial-article-personalization-for-contextual-decision-making"></a>Öğretici: Bağlamsal karar almaya yönelik makale kişiselleştirmesi
+# <a name="tutorial-article-personalization-for-contextual-decision-making"></a>Öğretici: Bağlamsal bir karar alma için makale kişiselleştirme
 
 Bu öğreticide, bir web sitesinin ön sayfasındaki makale seçkisini kişiselleştirmeye odaklanılmaktadır. Örneğin, Özel Karar Alma Hizmeti, ön sayfadaki *birden çok* makale listesini etkiler. Sayfa, yalnızca siyaset ve sporla ilgili bir haber web sitesi olabilir. Makalelerin üç sıralı listesini gösterir: siyasi, spor ve son dakika.
 

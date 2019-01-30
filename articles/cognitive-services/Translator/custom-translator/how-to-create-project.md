@@ -5,16 +5,16 @@ description: Özel Translator içinde bir proje oluşturmak nasıl?
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 4e5ac4386af55855c5240f89557feafd4a93adfb
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 9886ba39846d9489a66c57bcc614f90e2bf70d4e
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627561"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55218113"
 ---
 # <a name="create-a-project"></a>Proje oluşturma
 
@@ -30,17 +30,17 @@ Proje oluşturma, bir model oluşturmaya yönelik ilk adımdır.
 
 2.  Projeniz hakkında aşağıdaki ayrıntıları iletişim kutusunda girin:
 
-    a.  Proje adı (gerekli): projenize benzersiz ve anlamlı bir ad verin. Başlık içinde dilleri bahsetmek gerekli değildir.
+    a.  Proje adı (gerekli): Projenize benzersiz ve anlamlı bir ad verin. Başlık içinde dilleri bahsetmek gerekli değildir.
 
     b.  Açıklama: Projeyle ilgili kısa bir özeti. Bu açıklama, özel Translator ya da sonuçta elde edilen özel sisteminizi davranışı üzerinde hiçbir etkisi yoktur, ancak, farklı projeler arasında ayırt etmenize yardımcı olabilir.
 
-    c.  Dil çifti (gerekli): Başlangıç ve bitiş çevirme dili seçin.
+    c.  Dil çifti (gerekli): Başlangıç ve bitiş çevirme dil seçin.
 
-    d.  Kategori (gerekli): projeniz için en uygun kategoriyi seçin. Kategori terminoloji ve çevirmek için istediğinize belgelerin stil açıklar.
+    d.  Kategori (gerekli): Projeniz için en uygun kategoriyi seçin. Kategori terminoloji ve çevirmek için istediğinize belgelerin stil açıklar.
 
-    e.  Kategori açıklaması: belirli bir alan veya çalışma sektör daha iyi tanımlamak için bu alanı kullanın. Örneğin, TIP, kategori ise belirli bir belge, tür ameliyatı yapıyor veya pediatrics ekleyebilirsiniz. Açıklama davranışı özel Translator ya da sonuçta elde edilen özel sisteminizin üzerinde etkisi yoktur.
+    e.  Kategori açıklaması: Belirli bir alan veya, çalıştığınız sektör daha iyi tanımlamak için bu alanı kullanın. Örneğin, TIP, kategori ise belirli bir belge, tür ameliyatı yapıyor veya pediatrics ekleyebilirsiniz. Açıklama davranışı özel Translator ya da sonuçta elde edilen özel sisteminizin üzerinde etkisi yoktur.
 
-    f.  Proje etiketi: [proje etiket](workspace-and-project.md#project-labels) projeleri aynı dil çifti ve kategori ile ayırt eder. En iyi uygulama, bir etiket kullanın *yalnızca* birden çok proje için aynı kategoriye ve aynı dil çifti oluşturup bu projeleri ile farklı CategoryID erişmek istediğiniz planlıyorsanız. Bu alan sistemler yalnızca bir kategori için oluşturuluyorsa kullanmayın. Bir proje etiket gerekli ve dil çiftleri arasında ayrım yapmak yararlı değildir. Birden çok proje için aynı etiketi kullanabilirsiniz.
+    f.  Proje etiketi: [Proje etiket](workspace-and-project.md#project-labels) projeleri aynı dil çifti ve kategori ile ayırt eder. En iyi uygulama, bir etiket kullanın *yalnızca* birden çok proje için aynı kategoriye ve aynı dil çifti oluşturup bu projeleri ile farklı CategoryID erişmek istediğiniz planlıyorsanız. Bu alan sistemler yalnızca bir kategori için oluşturuluyorsa kullanmayın. Bir proje etiket gerekli ve dil çiftleri arasında ayrım yapmak yararlı değildir. Birden çok proje için aynı etiketi kullanabilirsiniz.
 
     ![Projesi oluştur iletişim kutusu](media/how-to/how-to-create-project-dialog.png)
 
@@ -54,11 +54,11 @@ Bir proje seçtikten sonra aşağıdaki proje sayfada görürsünüz:
 
 - CategoryID: CategoryID Workspaceıd, proje etiket ve kategori kodu birleştirilerek oluşturulur. Translator metin API'si ile CategoryID özel çevirileri almak için kullanın.
 
-- Eğit düğmesine: başlatmak için bu düğmeyi kullanın. bir [modeli](how-to-train-model.md).
+- Train düğmesi: Başlamak için bu düğmeyi kullanın. bir [modeli](how-to-train-model.md).
 
-- Belgeler düğme ekleyin: Bu düğmeyi kullanın [belgeleri karşıya yüklemesine](how-to-upload-document.md).
+- Belgeler düğmesi ekleyin: Bu düğmeyi kullanın [belgeleri karşıya yüklemesine](how-to-upload-document.md).
 
-- Filtre belgeleri düğmesine: Filtre ve belirli belge araması için bu düğmeyi kullanın.
+- Filtre belgeleri düğmesi: Filtre ve belirli belge araması için bu düğmeyi kullanın.
 
     ![Proje ayrıntılarını görüntüle](media/how-to/how-to-view-project.png)
 

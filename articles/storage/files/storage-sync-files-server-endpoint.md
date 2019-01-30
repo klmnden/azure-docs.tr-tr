@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 00ce83a7ec52e24ce858c720e834b8396c2f808c
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 118ecc08604cbe05181dd3ba943fd73a34fd47f1
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523974"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55212486"
 ---
 # <a name="addremove-an-azure-file-sync-server-endpoint"></a>Bir Azure dosya eşitleme sunucusu uç noktası Ekle/Kaldır
 Azure Dosya Eşitleme aracısı şirket içi dosya sunucularının sağladığı esneklik, performans ve uyumluluk özelliklerinden vazgeçmeden kuruluşunuzun dosya paylaşımlarını Azure Dosyaları'nda toplamanızı sağlar. Bunu Windows sunucularınızı Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürerek yapar. Verilere yerel olarak erişmek için Windows Server üzerinde kullanılabilen tüm protokolleri (SMB, NFS ve FTPS gibi) kullanabilir ve dünya çapında istediğiniz sayıda önbellek oluşturabilirsiniz.
@@ -32,13 +32,13 @@ Sunucu uç noktası oluşturmak için önce aşağıdaki ölçütleri karşılan
 ## <a name="add-a-server-endpoint"></a>Sunucu uç noktası ekleme
 Sunucu uç noktası eklemek için istenen eşitleme grubuna gidin ve "sunucu uç noktası Ekle"'yi seçin.
 
-![Eşitleme grubu bölmesinde yeni bir sunucu uç noktası ekleme](media/storage-sync-files-server-endpoint/add-server-endpoint-1.png)
+![Eşitleme grubu bölmesine yeni bir sunucu uç noktası ekleme](media/storage-sync-files-server-endpoint/add-server-endpoint-1.png)
 
 Aşağıdaki bilgileri altında gerekli **sunucusu uç noktası ekleme**:
 
-- **Kayıtlı sunucu**: sunucu veya sunucu uç noktasını oluşturmak için küme adı.
-- **Yol**: eşitleme grubunun bir parçası olarak eşitlenmesi gereken Windows Server'da yolu.
-- **Bulut Katmanlandırma**: bir anahtar etkinleştirme veya devre dışı bulut katmanlaması. Etkin olduğunda, katmanlama olacak bulut *katmanı* Azure dosya paylaşımlarınızın dosyaları. Bu şirket içi dosya paylaşımlarını veri kümesine tam bir kopyasını yerine bir önbellek sunucunuzdaki alan verimliliğini yönetmenize yardımcı olmak için dönüştürür.
+- **Kayıtlı sunucu**: Sunucu veya sunucu uç noktasını oluşturmak için küme adı.
+- **Yol**: Eşitleme grubunun bir parçası olarak eşitlenmesi gereken Windows Server'da yolu.
+- **Bulut Katmanlaması**: Bir anahtar etkinleştirme veya devre dışı bulut katmanlaması. Etkin olduğunda, katmanlama olacak bulut *katmanı* Azure dosya paylaşımlarınızın dosyaları. Bu şirket içi dosya paylaşımlarını veri kümesine tam bir kopyasını yerine bir önbellek sunucunuzdaki alan verimliliğini yönetmenize yardımcı olmak için dönüştürür.
 - **Birim boş alanı**: sunucu uç noktasını bulunduğu birimde ayırmak için boş alan miktarı. Birim boş alanı, tek bir sunucu uç noktası olan bir birimde % 50'si ayarlanırsa, örneğin, kabaca veri miktarının yarısına Azure dosyaları'na katmanlanmış olmaz. Bağımsız olarak, ister bulut katmanlamayı etkin olduğunda, Azure dosya paylaşımınızı, verilerin tam bir kopyasını her zaman eşitleme grubunda sahip.
 
 Seçin **Oluştur** sunucu uç noktası eklemek için. Bir eşitleme grubuna bir ad alanı içindeki dosyalar artık eşitlenmiş tutulacak. 
@@ -70,3 +70,4 @@ Sunucu uç noktasını kaldırmak için:
 ## <a name="next-steps"></a>Sonraki adımlar
 - [Azure dosya eşitleme ile bir sunucu kaydı/unregister](storage-sync-files-server-registration.md)
 - [Bir Azure dosya eşitleme dağıtımı planlama](storage-sync-files-planning.md)
+- [Azure dosya eşitleme İzleyicisi](storage-sync-files-monitoring.md)

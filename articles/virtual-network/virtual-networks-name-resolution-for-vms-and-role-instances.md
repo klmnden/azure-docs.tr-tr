@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: subsarma
-ms.openlocfilehash: 487bf54d80c9249e5ce69c4b5aeff942a21d5b48
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: e63db9dd5dcd48e19c75608c39c4c0b62db24527
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913173"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221207"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Azure sanal ağlarda bulunan kaynaklar için ad çözümlemesi
 
@@ -157,7 +157,7 @@ Azure tarafından sağlanan ad çözümlemesi kullanırken Azure dinamik konak Y
 
 Gerekirse, PowerShell veya API kullanarak iç DNS soneki belirleyebilirsiniz:
 
-* Azure Resource Manager dağıtım modellerindeki Sanal Ağları için soneki aracılığıyla kullanılabilir [ağ arabirimi REST API](/rest/api/virtualnetwork/networkinterfaces/get), [Get-Azurermnetworkınterface](/powershell/module/azurerm.network/get-azurermnetworkinterface) PowerShell cmdlet'ini ve [az ağ nic show](/cli/azure/network/nic#az-network-nic-show) Azure CLI komutu.
+* Azure Resource Manager dağıtım modellerindeki Sanal Ağları için soneki aracılığıyla kullanılabilir [ağ arabirimi REST API](/rest/api/virtualnetwork/networkinterfaces), [Get-Azurermnetworkınterface](/powershell/module/azurerm.network/get-azurermnetworkinterface) PowerShell cmdlet'ini ve [az ağ nic show](/cli/azure/network/nic#az-network-nic-show) Azure CLI komutu.
 * Klasik dağıtım modellerinde soneki aracılığıyla kullanılabilir [alma dağıtım API](https://msdn.microsoft.com/library/azure/ee460804.aspx) arayın veya [Get-AzureVM-hata ayıklama](/powershell/module/servicemanagement/azure/get-azurevm) cmdlet'i.
 
 Azure'a sorguları iletme ihtiyaçlarınıza uygun değil, kendi DNS çözüm sağlamanız gerekir. DNS çözümünüzü gerekir:

@@ -1,22 +1,22 @@
 ---
-title: Özel Translator nedir?
+title: Özel Çevirmen nedir?
 titleSuffix: Azure Cognitive Services
 description: Özel Translator Microsoft Translator Hub için istatistiksel makine çevirisi (SMT) ancak sinirsel makine çevirisi (NMT) sistemleri için özel olarak yaptığı için benzer özellikleri sunar.
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: overview
-ms.openlocfilehash: f845c064ec3625d205ec346ddfc90c3a1b2c3d8d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: e613f660d4d1abfd45b11d71c2abfda53331cc31
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874847"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211217"
 ---
-# <a name="what-is-custom-translator"></a>Özel Translator nedir?
+# <a name="what-is-custom-translator"></a>Özel Çevirmen nedir?
 
 [Özel Translator](https://portal.customtranslator.azure.ai) Translator kuruluşlar, uygulama geliştiricilerinin sağlayan Microsoft Translator hizmeti özelliğidir ve özelleştirilmiş sinirsel makine çevirisi (NMT) sistemleri oluşturmak için dil hizmeti sağlayıcıları. Özelleştirilmiş çeviri sistemleri sorunsuzca mevcut uygulamalarınızın, iş akışları ve Web siteleri ile tümleştirin. [Özel Translator](https://portal.customtranslator.azure.ai/) ne benzer olanağı sunan [Microsoft Translator Hub](https://hub.microsofttranslator.com/) için istatistiksel makine çevirisi (SMT) ancak sinirsel makine çevirisi (NMT) sistemleri için özel olarak yapar.
 

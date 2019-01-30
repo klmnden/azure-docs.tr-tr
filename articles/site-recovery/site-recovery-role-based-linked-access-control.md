@@ -1,17 +1,17 @@
 ---
 title: Rol tabanlı erişim denetimi (RBAC) ile Azure Site Recovery erişimini yönetme | Microsoft Docs
-description: Bu makalede, rol tabanlı erişim bontrol Azure Site Recovery erişimi yönetmek için (RBAC) uygulanacağını açıklar.
+description: Bu makalede rol tabanlı erişim denetimi (RBAC) Azure Site Recovery erişimi yönetmek için nasıl uygulanacağını açıklar.
 ms.service: site-recovery
 ms.date: 11/27/2018
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 815eb1f94d80c36824dc34f3f9410458b9837003
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 5a6ef10f03bb5e108c226fe3d68f1dec67e6164a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849539"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55218079"
 ---
 # <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>Rol tabanlı erişim denetimi (RBAC) Site Recovery erişimini yönetme
 
@@ -69,9 +69,9 @@ Bir kullanıcı yeni bir sanal makine çoğaltmayı tamamlamak için aşağıdak
 'Sanal makine Katılımcısı' ve 'Klasik sanal makine Katılımcısı' kullanmayı düşünün [yerleşik roller](../role-based-access-control/built-in-roles.md) için Resource Manager ve klasik dağıtım modelleri sırasıyla.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Rol tabanlı erişim denetimi](../role-based-access-control/role-assignments-portal.md): Azure portalında RBAC ile çalışmaya başlama.
+* [Rol tabanlı erişim denetimi](../role-based-access-control/role-assignments-portal.md): Azure portalında RBAC ile çalışmaya başlayın.
 * Erişim ile yönetmeyi öğrenin:
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [Azure CLI](../role-based-access-control/role-assignments-cli.md)
   * [REST API](../role-based-access-control/role-assignments-rest.md)
-* [Rol tabanlı erişim denetimi sorunlarını giderme](../role-based-access-control/troubleshooting.md): yaygın sorunları çözme için öneriler alın.
+* [Rol tabanlı erişim denetimi sorunlarını giderme](../role-based-access-control/troubleshooting.md): Yaygın sorunları çözme için öneriler alın.

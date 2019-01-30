@@ -6,16 +6,16 @@ services: cognitive-services
 author: alekh
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-decision-service
+ms.subservice: custom-decision-service
 ms.topic: overview
 ms.date: 05/08/2018
 ms.author: slivkins
-ms.openlocfilehash: 273f2965a0fcaaa729175c5232da1aba69589eec
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
-ms.translationtype: HT
+ms.openlocfilehash: 1792e279283608c81c0d4a08b77f9822816ed76d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364220"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221360"
 ---
 # <a name="what-is-custom-decision-service"></a>Özel Karar Alma Hizmeti nedir?
 
@@ -44,10 +44,10 @@ Tipik bir web uygulamasında veya mobil uygulamada ön sayfa bağlantısı birç
 
 Bu belgede bazı terimler sık sık geçmektedir:
 
-* **Eylem kümesi**: Özel Karar Alma Hizmeti için derecelendirilecek içerik öğeleri kümesi. Bu küme bir *RSS* veya *Atom* uç noktası olarak belirtilebilir.
-* **Derecelendirme**: Özel Karar Alma Hizmeti’ne yapılan her istek bir veya daha fazla eylem kümesini belirtir. Sistem bu kümelerden tüm içerik seçeneklerini seçerek yanıt verir ve bunları sıralı bir düzende döndürür.
-* **Geri çağırma işlevi**: Belirttiğiniz bu işlev, kullanıcı arabiriminizde içeriği işler. İçerik, Özel Karar Alma Hizmeti tarafından döndürülen sıralı düzene göre sıralanır.
-* **Ödül**: Kullanıcının işlenen içeriğe nasıl yanıt verdiğine yönelik bir ölçü. Özel Karar Alma Hizmeti, tıklamaları kullanarak kullanıcı yanıtını ölçer. Tıklamalar, uygulamanıza eklenen özel kod kullanılarak sisteme bildirilir.
+* **Eylem kümesi**: İçerik öğeleri kümesi için Custom Decision Service derece için. Bu küme bir *RSS* veya *Atom* uç noktası olarak belirtilebilir.
+* **Derecelendirme**: Custom Decision Service için her istek bir belirtiyor veya daha fazla eylem ayarlar. Sistem bu kümelerden tüm içerik seçeneklerini seçerek yanıt verir ve bunları sıralı bir düzende döndürür.
+* **Geri çağırma işlevi**: Bu işlev, belirttiğiniz kullanıcı Arabirimi içeriği işler. İçerik, Özel Karar Alma Hizmeti tarafından döndürülen sıralı düzene göre sıralanır.
+* **Ödül**: Kullanıcı, işlenmiş içeriğin nasıl yanıt verdiğini ölçü. Özel Karar Alma Hizmeti, tıklamaları kullanarak kullanıcı yanıtını ölçer. Tıklamalar, uygulamanıza eklenen özel kod kullanılarak sisteme bildirilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

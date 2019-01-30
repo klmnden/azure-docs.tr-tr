@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: cf86d2a644c2732f27442a807dec1ad960b94af5
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: fe712648cf3e76f4161f9f3a7b97b7990bc692a1
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095166"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55214475"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure Dosya Eşitleme ile ilgili sorunları giderme
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -879,6 +879,7 @@ Sorun çözülmezse AFSDiag aracı çalıştırın:
 6. Günlükleri içeren bir .zip dosyası ve izleme dosyaları belirttiğiniz çıkış dizinine kaydedilir.
 
 ## <a name="see-also"></a>Ayrıca bkz.
+- [Azure dosya eşitleme İzleyicisi](storage-sync-files-monitoring.md)
 - [Azure dosyaları hakkında sık sorulan sorular](storage-files-faq.md)
 - [Windows’ta Azure Dosyalar sorunlarını giderme](storage-troubleshoot-windows-file-connection-problems.md)
 - [Linux'ta Azure dosyaları sorunlarını giderme](storage-troubleshoot-linux-file-connection-problems.md)

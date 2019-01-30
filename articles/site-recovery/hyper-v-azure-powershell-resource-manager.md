@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: c20f61788086806d3eebb62d35b7ac9fbcbd6fb9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f4e1b25133914a65f34e281c145d7db5969b0581
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846938"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208032"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>PowerShell ve Azure Resource Manager'ı kullanarak Hyper-V Vm'leri için Azure'da olağanüstü durum kurtarma ayarlama
 
@@ -43,12 +43,12 @@ Ayrıca, bu makalede açıklanan özel bir örnek, aşağıdaki önkoşulları v
 * Windows Server 2012 R2 ya da bir veya daha fazla Vm'leri içeren Microsoft Hyper-V Server 2012 R2 çalıştıran bir Hyper-V konağı. Hyper-V sunucularının, doğrudan veya bir ara sunucu üzerinden Internet'e bağlanmalıdır.
 * Çoğaltmak istediğiniz VM'lerin karşılaması gerektiğini [bu Önkoşullar](hyper-v-azure-support-matrix.md#replicated-vms).
 
-## <a name="step-1-sign-in-to-your-azure-account"></a>1. adım: Azure hesabınızda oturum açın
+## <a name="step-1-sign-in-to-your-azure-account"></a>1. Adım: Azure hesabınızda oturum açma
 
 1. Bir PowerShell konsolu açın ve Azure hesabınızda oturum açmak için şu komutu çalıştırın. Cmdlet getirir, bir web sayfası için hesap kimlik bilgilerinizi ister: **Connect-AzureRmAccount**.
     - Alternatif olarak, bir parametre olarak bir hesap kimlik bilgilerinizi içerebilir **Connect-AzureRmAccount** cmdlet'ini kullanarak **-Credential** parametresi.
-    - Müşteri, Kiracı adına çalışma CSP iş ortağıysanız, Kiracı kimliği veya Kiracı birincil etki alanı adlarını kullanarak Kiracı olarak belirtin. Örneğin: **Connect-AzureRmAccount-Kiracı "fabrikam.com"**
-2. Hesabınız birden çok abonelik olabileceği için bir hesap ile kullanmak istediğiniz aboneliği ilişkilendirin:
+    - Müşteri, Kiracı adına çalışma CSP iş ortağıysanız, Kiracı kimliği veya Kiracı birincil etki alanı adlarını kullanarak Kiracı olarak belirtin. Örneğin: **Connect-AzureRmAccount -Tenant "fabrikam.com"**
+2. Hesabınız birden fazla abonelik olabilir bu yana hesabı ile kullanmak istediğiniz aboneliği ilişkilendirin:
 
     `Select-AzureRmSubscription -SubscriptionName $SubscriptionName`
 
@@ -64,7 +64,7 @@ Ayrıca, bu makalede açıklanan özel bir örnek, aşağıdaki önkoşulları v
 
     `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices` `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.SiteRecovery`.
 
-## <a name="step-2-set-up-the-vault"></a>2. adım: kasası ayarlama
+## <a name="step-2-set-up-the-vault"></a>2. Adım: Kasası ayarlama
 
 1. Kasa oluşturulacağı bir Azure Resource Manager kaynak grubu oluşturun veya mevcut bir kaynak grubunu kullanın. Yeni bir kaynak grubu oluşturun. $ResourceGroupName değişkeni oluşturmak istediğiniz kaynak grubunun adını, ve $Geo değişkeni (örneğin, "Brezilya Güney") kaynak grubunun oluşturulacağı Azure bölgesi içerir.
 
@@ -78,13 +78,13 @@ Ayrıca, bu makalede açıklanan özel bir örnek, aşağıdaki önkoşulları v
     İle varolan kasaların listesini alabilirsiniz **Get-AzureRmRecoveryServicesVault** cmdlet'i.
 
 
-## <a name="step-3-set-the-recovery-services-vault-context"></a>3. adım: Kurtarma Hizmetleri kasa bağlamını ayarlayın
+## <a name="step-3-set-the-recovery-services-vault-context"></a>3. Adım: Kurtarma Hizmetleri kasa bağlamını ayarlayın
 
 Kasa bağlamını şu şekilde ayarlayın:
 
 `Set-AsrVaultSettings -Vault $vault`
 
-## <a name="step-4-create-a-hyper-v-site"></a>4. adım: Hyper-V sitesi oluşturma
+## <a name="step-4-create-a-hyper-v-site"></a>4. Adım: Bir Hyper-V sitesi oluşturun
 
 1. Yeni bir Hyper-V sitesi şu şekilde oluşturun:
 
@@ -102,7 +102,7 @@ Kasa bağlamını şu şekilde ayarlayın:
 
 5. İndirilen anahtarı, Hyper-V ana bilgisayara kopyalayın. Hyper-V konağı sitesine kaydetmek için anahtarı gerekir.
 
-## <a name="step-5-install-the-provider-and-agent"></a>5. adım: sağlayıcı ve aracı yükleme
+## <a name="step-5-install-the-provider-and-agent"></a>5. Adım: Sağlayıcı ve aracı yükleme
 
 1. Yükleyici adresinden sağlayıcının en son sürümü için indirme [Microsoft](https://aka.ms/downloaddra).
 2. Yükleyiciyi theHyper-V konağı üzerinde çalıştırın.
@@ -112,7 +112,7 @@ Kasa bağlamını şu şekilde ayarlayın:
 
         $server =  Get-AsrFabric -Name $siteName | Get-AsrServicesProvider -FriendlyName $server-friendlyname
 
-## <a name="step-6-create-a-replication-policy"></a>6. adım: çoğaltma ilkesi oluşturma
+## <a name="step-6-create-a-replication-policy"></a>6. Adım: Çoğaltma ilkesi oluşturma
 
 Başlamadan önce belirtilen depolama hesabı kasasıyla aynı Azure bölgesinde olmalıdır ve coğrafi çoğaltmanın etkinleştirilmiş olması unutmayın.
 
@@ -136,7 +136,7 @@ Başlamadan önce belirtilen depolama hesabı kasasıyla aynı Azure bölgesinde
 
 4. Başarıyla tamamlamak ilişkilendirme işin tamamlanmasını bekleyin.
 
-## <a name="step-7-enable-vm-protection"></a>7. adım: Sanal makine korumayı etkinleştirin
+## <a name="step-7-enable-vm-protection"></a>7. Adım: VM korumasını etkinleştirin
 
 1. Aşağıdaki şekilde, korumak istediğiniz sanal Makineye karşılık gelen bir korunabilir öğe alınamıyor:
 
@@ -175,7 +175,7 @@ Başlamadan önce belirtilen depolama hesabı kasasıyla aynı Azure bölgesinde
 
 
 
-## <a name="step-8-run-a-test-failover"></a>8. adım: yük devretme testi çalıştırma
+## <a name="step-8-run-a-test-failover"></a>8. adım: Yük devretme testi çalıştırma
 1. Yük devretme testi aşağıdaki gibi çalıştırın:
 
         $nw = Get-AzureRmVirtualNetwork -Name "TestFailoverNw" -ResourceGroupName "MyRG" #Specify Azure vnet name and resource group

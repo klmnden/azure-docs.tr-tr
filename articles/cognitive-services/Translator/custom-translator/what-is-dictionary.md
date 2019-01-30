@@ -5,16 +5,16 @@ description: Bir sözlük listesini tümcecikleri veya cümlelerden (ve çeviril
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 3a92e41ad9611981777012cd231845587a6f947b
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: bc297fd4cdda8cdb3dc618b73e91d2f4e31e8b6a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627574"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55212418"
 ---
 # <a name="what-is-a-dictionary"></a>Bir sözlük nedir?
 
@@ -32,7 +32,7 @@ Tümce sözlük kaynak cümle için bir tam hedef çeviri belirtmenizi sağlar. 
 Sözlük verileri kullanarak bir model eğitebilirsiniz. Bunu yapmak için yalnızca sözlük belge (veya birden çok sözlük belge) seçin, model Oluştur'a dokunun ve dahil etmek istediğiniz. Bu yalnızca sözlük eğitim olduğundan, hiçbir en düşük gerekli eğitim cümleler sayısı yoktur. Model, genellikle eğitim standart bir eğitim daha çok daha hızlı tamamlanır.  Elde edilen modelleri, ek olarak, eklediğiniz sözlükleri çeviri için Microsoft temel modelleri kullanır.  Bir test raporu almazsınız.
 
 >[!Note]
->Özel Translator önemli kaynak ve hedef tümcecikleri/cümlelerde sözlük belgelerinizi eşit sayıda vardır, bu nedenle değil cümle sözlük dosyaları işlemiyle uyumlu ve bunların tam olarak olduğunu hizalanır.
+>Özel Translator cümle değil sözlük dosyaları, kaynak ve hedef tümcecikleri eşit sayıda olduğunu önemlidir Hizala / cümleler, sözlüğünüzü belgeler ve bunların tam olarak hizalanır.
 
 ## <a name="recommendations"></a>Öneriler
 

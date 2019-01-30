@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: ffa1c45b2d9449310a2b0dcc66a513b4d8efbc5d
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 8dfcee6e7f0e2fd21c35ed2507b572c6e8cffc42
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232996"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217246"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL veritabanı veri bulma ve sınıflandırma
 
@@ -28,7 +28,7 @@ Bulma ve sınıflandırma en hassas verileriniz (iş, Finans, sağlık hizmeti, 
 - (Denetim) izleme gibi çeşitli güvenlik senaryoları ve anormal hassas verilere erişimi üzerinde uyarı.
 - Erişimi denetleme ve son derece hassas veri içeren veritabanlarını güvenliğini artırma.
 
-Veri bulma & sınıflandırma parçası olan [SQL Gelişmiş tehdit koruması](sql-advanced-threat-protection.md) Gelişmiş SQL güvenlik özellikleri için birleştirilmiş bir pakettir (ATP) teklifi. Veri bulma & sınıflandırma erişilen ve merkezi SQL ATP portalı üzerinden yönetilebilir.
+Veri bulma & sınıflandırma parçası olan [SQL gelişmiş veri güvenliği](sql-advanced-threat-protection.md) (REKLAM) sunumunun Gelişmiş SQL güvenlik özellikleri için birleştirilmiş bir pakettir. Veri bulma & sınıflandırma erişilen ve merkezi SQL REKLAM portalı üzerinden yönetilebilir.
 
 > [!NOTE]
 > Bu belge, Azure SQL veritabanı'na yalnızca ilişkilendirir. SQL Server (şirket içi) için bkz: [SQL veri bulma ve sınıflandırma](https://go.microsoft.com/fwlink/?linkid=866999).
@@ -77,7 +77,7 @@ Kiracı genelinde bir ilke oluşturulduktan sonra özelleştirilmiş ilkenizi ku
 
 1. [Azure Portal](https://portal.azure.com) gidin.
 
-2. Gidin **Gelişmiş tehdit koruması** güvenlik başlığı, Azure SQL veritabanı bölmesinde. Gelişmiş tehdit Koruması'nı etkinleştirmek için tıklayın ve ardından **veri bulma & sınıflandırma (Önizleme)** kart.
+2. Gidin **gelişmiş veri güvenliği** güvenlik başlığı, Azure SQL veritabanı bölmesinde. Gelişmiş veri güvenliği etkinleştirmek için tıklayın ve ardından **veri bulma & sınıflandırma (Önizleme)** kart.
 
    ![Bir veritabanı tarama](./media/sql-data-discovery-and-classification/data_classification.png)
 
@@ -134,8 +134,8 @@ Sütun sınıflandırmaları Ekle/Kaldır ek olarak, veritabanının tamamı iç
 > [!NOTE]
 > Etiketleri yönetmek için T-SQL kullanarak, eklenen bir sütuna kuruluş bilgilerini koruma İlkesi (portal önerileri görünen etiket kümesi) mevcut olan doğrulama yoktur. Bu nedenle bu doğrulamak için size bağlıdır.
 
-- Bir veya daha fazla sütun sınıflandırmasını ekleme/güncelleştirme: [DUYARLIK SINIFLANDIRMASI ekleyin](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
-- Bir veya daha fazla sütunlarından Sınıflandırmayı kaldırmak: [bırak DUYARLIK SINIFLANDIRMASI](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
+- Sınıflandırma bir veya daha fazla sütun Ekle/Güncelleştir: [DUYARLIK SINIFLANDIRMASI EKLEYİN](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
+- Sınıflandırma, bir veya daha fazla sütunlarından kaldırın: [DUYARLIK SINIFLANDIRMASI BIRAK](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
 - Tüm sınıflandırmalar veritabanında görüntüleyin: [sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
 Sınıflandırmaları programlı olarak yönetmek için REST API de kullanabilirsiniz. Yayımlanan REST API'leri, aşağıdaki işlemleri destekler:
@@ -147,7 +147,7 @@ Sınıflandırmaları programlı olarak yönetmek için REST API de kullanabilir
 
 ## <a id="subheading-5"></a>Sonraki adımlar
 
-- Daha fazla bilgi edinin [SQL Gelişmiş tehdit koruması](sql-advanced-threat-protection.md).
+- Daha fazla bilgi edinin [SQL gelişmiş veri güvenliği](sql-advanced-threat-protection.md).
 - Yapılandırmayı göz önünde bulundurun [Azure SQL veritabanı denetimi](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) izleme ve, sınıflandırılmış hassas verilere erişimi denetleme.
 
 <!--Anchors-->

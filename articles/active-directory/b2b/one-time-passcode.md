@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.openlocfilehash: bc88b46182eadf431efcb5be89f05256a9e0eb1b
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 14b00dd354618edb3a1f41c292d62b5a13a1f10d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095591"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216056"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>E-posta bir kerelik geçiş kodu kimlik doğrulama (Önizleme)
 
@@ -29,7 +29,7 @@ E-posta bir kerelik geçiş kodu Özelliği Azure AD gibi başka bir yolla, Micr
 Bu özellik şu anda Önizleme için kullanılabilir (bkz [Önizleme seçim](#opting-in-to-the-preview) aşağıda). Önizlemeden sonra bu özellik varsayılan olarak tüm kiracılar için açık olması.
 
 > [!NOTE]
-> Kullanıcıların bir kerelik geçiş kodu gerekir oturum örneğin Kiracı bağlamını içeren bir bağlantı kullanarak `https://myapps.microsoft.com/?tenantid=<tenant id>`. Kiracı bağlam içerirler sürece uygulamalarına ve kaynaklarına doğrudan bağlantılar da çalışır. Konuk kullanıcıları hiçbir Kiracı bağlamına sahip uç noktaları kullanarak oturum şu anda belirleyemiyoruz. Örneğin, kullanarak `https://myapps.microsoft.com`, `https://portal.azure.com`, veya ekipler ortak uç nokta bir hataya neden olur. 
+> Bir kerelik geçiş kodu kullanıcılar Kiracı bağlamını içeren bir bağlantıyı kullanarak oturum gerekir (örneğin, `https://myapps.microsoft.com/?tenantid=<tenant id>` veya `https://portal.azure.com/<tenant id>`, veya bir doğrulanmış varsayılan etki alanı, söz konusu olduğunda `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com`). Kiracı bağlam içerirler sürece uygulamalarına ve kaynaklarına doğrudan bağlantılar da çalışır. Konuk kullanıcıları hiçbir Kiracı bağlamına sahip uç noktaları kullanarak oturum şu anda belirleyemiyoruz. Örneğin, kullanarak `https://myapps.microsoft.com`, `https://portal.azure.com`, veya ekipler ortak uç nokta bir hataya neden olur. 
 
 ## <a name="user-experience-for-one-time-passcode-guest-users"></a>Bir kerelik geçiş kodu Konuk kullanıcılar için kullanıcı deneyimi
 Bir kerelik geçiş kodu ile kimlik doğrulaması, Konuk kullanıcı, doğrudan bağlantısını tıklatarak veya için davet e-posta davetini. Her iki durumda da, Konuk kullanıcının e-posta adresine bir kod gönderilecek tarayıcıda bir ileti gösterir. Konuk kullanıcının seçtiği **kod Gönder**:

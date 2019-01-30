@@ -5,16 +5,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: article
 ms.date: 11/23/2017
 ms.author: panosper
-ms.openlocfilehash: 1e9de9755ef4baee7e2a0e6c093e2cf27cb4281f
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 0459fdb63134598e65657e5e26020c2ee0dc0efc
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339823"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209800"
 ---
 # <a name="enable-custom-pronunciation"></a>Özel telaffuz etkinleştir
 
@@ -48,10 +48,10 @@ Görüntüleme formu fonetik dizisini konuşulan biçimidir. Harf, sözcükleri 
 ## <a name="supported-pronunciation-characters"></a>Desteklenen telaffuz karakter
 Özel telaffuz şu anda İngilizce (en-US) ve Almanca (de-de) için desteklenir. Konuşulan biçiminde bir terim (özel telaffuz dosyası) ifade etmek için kullanılan karakter kümesi aşağıdaki tabloda gösterilmiştir: 
 
-| Dil | Karakter |
+| Dil | Karakterler |
 |---------- |----------|
 | İngilizce (en-US) | a, b, c, d, e, f, g, h, i, j, k, m, o, p, q, r, s, t, u, v, w, x, y, z |
-| Almanca (de-de) | ä, ö, ü, ẞ, a, b, c, d, e, f, g, h, i, j, k, m, o, p, q, r, s, t, u, v, w, x, y, z |
+| Almanca (de-de) | ä, ö, ü, ẞ, a, b, c, d, e, f, g, h, i, j, k, l, o, p, q, r, s, t, u, v, w, x, y, z |
 
 >[NOT] Bir terimi ait görüntüleme formu (telaffuz dosyasında) aynı şekilde dil uyarlama veri kümesinde yazılması gerekir.
 

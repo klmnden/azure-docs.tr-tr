@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: url-preview
+ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 04/24/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 23f9f0cb8205a29733e90522f5eb524142677137
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: cfc0cd690c040ed912281be081daffd26566bd4d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55094283"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209133"
 ---
 # <a name="quickstart-url-preview-with-java"></a>Hızlı Başlangıç: Java ile URL önizlemesi
 

@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 469d553d60eb7c5cdfac3bc16f1fb479bd84cb70
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 7d52af9e3948f40936795efab5b6671c3f71007a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886221"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55206756"
 ---
 # <a name="azure-data-box-system-requirements"></a>Azure Data Box sistem gereksinimleri
 
@@ -48,7 +48,7 @@ Data Box cihazına bağlı istemcileri aracılığıyla veri kopyalama işlemi i
 
 ### <a name="supported-storage-accounts"></a>Desteklenen depolama hesapları
 
-Desteklenen depolama hesapları ve Data Box cihaz için depolama türleri listesi aşağıda verilmiştir. Depolama hesapları ve bunların tüm özelliklerini tüm farklı türlerinin tam listesi için bkz. [türlerde depolama hesapları](/azure/storage/common/storage-account-overview.md#types-of-storage-accounts).
+Desteklenen depolama hesapları ve Data Box cihaz için depolama türleri listesi aşağıda verilmiştir. Depolama hesapları ve bunların tüm özelliklerini tüm farklı türlerinin tam listesi için bkz. [türlerde depolama hesapları](/azure/storage/common/storage-account-overview#types-of-storage-accounts).
 
 | **Depolama hesabı / desteklenen depolama türleri** | **Blok blobu** |**Sayfa blobu*** |**Azure dosyaları** |**Notlar**|
 | --- | --- | -- | -- | -- |

@@ -1,27 +1,27 @@
 ---
-title: 'Hızlı başlangıç: Yanıt Arama Projesi, C#'
+title: 'Hızlı Başlangıç: Proje yanıt aramaC#'
 titlesuffix: Azure Cognitive Services
 description: C# ile Yanıt Arama Projesini kullanmaya başlamak için kullanabileceğiniz kod örneği.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: answer-search
+ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 6d00c420ba84ea78235e138977cc4b5fde4fae64
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: fa6ee10b9597c32be11d15cad2a63eefe768472c
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49464854"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207437"
 ---
-# <a name="quickstart-project-answer-search-query-in-c"></a>Hızlı başlangıç: C# Yanıt Arama Projesi sorgusu
+# <a name="quickstart-project-answer-search-query-in-c"></a>Hızlı Başlangıç: C# proje yanıt arama sorgusu
 
 Aşağıdaki C# örneği kalkülüsün üçüncü yasası hakkında bilgi almak için bir sorgu oluşturup gönderir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu kodu Windows’da çalıştırmak için [Visual Studio 2017](https://www.visualstudio.com/downloads/) gerekir. (Ücretsiz Community Edition’ı kullanabilirsiniz.)
 

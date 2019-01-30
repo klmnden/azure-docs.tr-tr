@@ -6,22 +6,22 @@ services: cognitive-services
 author: RichardSunMS
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: linguistic-analysis
+ms.subservice: linguistic-analysis
 ms.topic: conceptual
 ms.date: 03/23/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: f8c7aba2b853f3916c2d01d94d49090a4b3e36a0
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 997dcdd6ce99815a79006b40b87568e573c63ff3
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237243"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221693"
 ---
 # <a name="analyzer-names"></a>Çözümleyici adları
 
 > [!IMPORTANT]
-> Dil analizi önizlemesi, 9 Ağustos 2018 tarihinde kullanımdan. Kullanmanızı öneririz [Azure Machine Learning metin analiz modüllerini](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) metin işleme ve analiz için.
+> Dilbilimsel Analiz önizleme sürümü 9 Ağustos 2018 tarihinde kullanımdan kaldırılmıştır. Metin işleme ve analiz için [Azure Machine Learning metin analizi modüllerini](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) kullanmanızı öneririz.
 
 Her iki esneklik Çözümleyicileri ve bir ad ne anlama geldiğini anlamak duyarlık izin vermek için biraz karmaşık bir adlandırma yapısına Çözümleyicileri için kullanırız.
 Çözümleyici adları dört bölümden oluşur: kimlik, bir tür, bir belirtimi ve bir uygulama.
@@ -31,7 +31,7 @@ Her bileşenin rol aşağıda tanımlanmıştır.
 İlk olarak, bir çözümleyici benzersiz bir kimlik vardır; bir GUID.
 Bu Guıd'lar, nispeten ender olarak değiştirmeniz gerekir, ancak belirli bir çözümleyici benzersiz şekilde tanımlamak için tek yoludur.
 
-## <a name="kind"></a>Tip
+## <a name="kind"></a>Tür
 Ardından, her Çözümleyicisi olduğu bir **tür**.
 Bu analiz türünü döndürdü ve bu analizin temsil etmek için kullanılan veri yapısını benzersiz şekilde tanımlamalıdır çok geniş koşullarını tanımlar.
 Şu anda üç farklı tür vardır:

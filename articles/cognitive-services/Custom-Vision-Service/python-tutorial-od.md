@@ -1,23 +1,23 @@
 ---
-title: 'Hızlı Başlangıç: Python için Özel Görüntü İşleme SDK’sı ile nesne algılama projesi oluşturma'
+title: "Hızlı Başlangıç: Bir nesne algılama proje Python için özel görüntü işleme SDK'sı ile oluşturma"
 titlesuffix: Azure Cognitive Services
 description: Python SDK'sını kullanarak bir proje oluşturun, etiketler ekleyin, görüntüleri karşıya yükleyin, projenizi eğitin ve nesneleri algılayın.
 services: cognitive-services
 author: areddish
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 11/5/2018
 ms.author: areddish
-ms.openlocfilehash: 1b301f2197b16d8cd74c3cf3616de70f28ac64df
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 9c13c2747b75184c559f7520fd5932daf6a3ced0
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874949"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208056"
 ---
-# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-python-sdk"></a>Hızlı Başlangıç: Özel Görüntü İşleme Python SDK’sı ile nesne algılama projesi oluşturma
+# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-python-sdk"></a>Hızlı Başlangıç: Özel görüntü işleme Python SDK ile bir nesne algılama projesi oluşturma
 
 Bu makalede, Özel Görüntü İşleme SDK'sını Python ile kullanarak nesne algılama modeli oluşturmaya başlarken size yardımcı olacak bilgiler ve örnek kod sağlanır. Oluşturulduktan sonra etiketlenmiş bölgeler ekleyebilir, görüntüleri karşıya yükleyebilir, projeyi eğitebilir, projenin varsayılan tahmin uç nokta URL’sini alabilir ve bir görüntüyü programlama yoluyla test etmek için uç noktayı kullanabilirsiniz. Kendi Python uygulamanızı oluştururken bu örneği şablon olarak kullanın.
 

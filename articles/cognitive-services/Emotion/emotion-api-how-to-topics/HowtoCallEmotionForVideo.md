@@ -1,24 +1,24 @@
 ---
-title: 'Örnek: Video için Duygu Tanıma API’sini çağırma'
+title: "Örnek: Video için duygu tanıma API'si çağırma"
 titlesuffix: Azure Cognitive Services
 description: Bilişsel Hizmetlerde Video için Duygu Tanıma API'sini çağırmayı öğrenin.
 services: cognitive-services
 author: anrothMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: emotion-api
+ms.subservice: emotion-api
 ms.topic: sample
 ms.date: 02/06/2017
 ms.author: anroth
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6c96ab18161230ffabd0703bdb6d0230bdc8d3ba
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
-ms.translationtype: HT
+ms.openlocfilehash: dd2df32ed43fd540a0516b7d5c1debc6a4f49f4f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026271"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211177"
 ---
-# <a name="example-call-emotion-api-for-video"></a>Örnek: Video için Duygu Tanıma API’sini çağırma
+# <a name="example-call-emotion-api-for-video"></a>Örnek: Video için duygu tanıma API'si çağırma
 
 > [!IMPORTANT]
 > Duygu Tanıma API'si 15 Şubat 2019 tarihinde kullanım dışı bırakılacaktır. Duygu tanıma özelliği [Yüz Tanıma API'sinin](https://docs.microsoft.com/azure/cognitive-services/face/) bir parçası olarak genel kullanıma sunulmuştur. 
@@ -28,7 +28,7 @@ Bu kılavuzda Video için Duygu Tanıma API'sini çağırma adımları gösteril
 ### <a name="Prep">Hazırlık</a>
 Video için Duygu Tanıma API'sini kullanmak üzere insanların bulunduğu bir videoya ihtiyacınız olacaktır. İnsanların yüzlerinin kameraya dönük olduğu bir video kullanmanız önerilir.
 
-### <a name="Step1">1. Adım: API çağrısını yetkilendirme</a>
+### <a name="Step1">1. adım: API çağrısı Yetkilendir</a>
 Video için Duygu Tanıma API'sine yapılan her çağrı için bir abonelik anahtarı gerekir. Bu anahtarın bir sorgu dizesi parametresi aracılığıyla geçirilmesi veya istek üst bilgisinde belirtilmesi gerekir. Sorgu dizesi aracılığıyla abonelik anahtarını geçirmek için aşağıdaki örnek Video için Duygu Tanıma API'si istek URL'sine bakın:
 
 ```
@@ -41,14 +41,14 @@ Abonelik anahtarı alternatif olarak HTTP isteği üst bilgisinde de belirtilebi
 ocp-apim-subscription-key: <Your subscription key>
 ```
 
-Bir istemci kitaplığı kullanılırken, VideoServiceClient sınıfının oluşturucusu aracılığıyla abonelik anahtarı geçirilir. Örnek:
+Bir istemci kitaplığı kullanılırken, VideoServiceClient sınıfının oluşturucusu aracılığıyla abonelik anahtarı geçirilir. Örneğin:
 
 ```
 var emotionServiceClient = new emotionServiceClient("Your subscription key");
 ```
 Bir abonelik anahtarı almak için bkz. [Abonelikler](https://azure.microsoft.com/try/cognitive-services/).
 
-### <a name="Step2">2. Adım: Hizmete bir video yükleme ve durumunu denetleme</a>
+### <a name="Step2">2. adım: Hizmete karşıya video yükleme ve durumunu denetle</a>
 Video için Duygu Tanıma API'si çağrısı yapmanın en kolay yolu doğrudan bir video yüklemektir. Video dosyasından okunan verilerle uygulama/sekizli akış içerik türü ile bir "POST" isteği gönderilerek bu yapılır. Maksimum video boyutu 100 MB’tır.
 
 İstemci kitaplığı kullanılarak karşıya yükleme aracılığıyla sabitleme bir akış nesnesi geçirilerek gerçekleştirilir. Aşağıdaki örneğe bakın:
@@ -107,7 +107,7 @@ VideoOperationResult durumu “Başarılı” olarak gösterildiğinde sonuç Vi
 var emotionRecognitionJsonString = ((VideoOperationInfoResult<VideoAggregateRecognitionResult>)operationResult).ProcessingResult;
 ```
 
-### <a name="Step3">3. Adım: Duygu tanıma ve izleme JSON çıktısını alma ve anlama</a>
+### <a name="Step3">3. adım: Alma ve duygu tanıma anlama ve JSON çıkışını izleme</a>
 
 Çıkış sonucunda verilen dosyadaki yüzlerin meta verileri JSON biçiminde sağlanır.
 

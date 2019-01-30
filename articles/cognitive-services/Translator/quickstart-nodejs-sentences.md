@@ -1,23 +1,23 @@
 ---
-title: "Hızlı Başlangıç: Cümle uzunluklarını alma, Node.js - Translator Metin Çevirisi API'si"
+title: "Hızlı Başlangıç: Translator metin çevirisi API'si cümlesi işlediklerinde, Node.js - Al"
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta Node.js ve Translator Metin Çevirisi API'sini kullanarak cümle uzunluklarını (karakter cinsinden) belirlemeyi öğreneceksiniz.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: 09d0c855aada753b0a3e594055ec188c2698e677
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: b27bad7b3e34353ec7e2d33cab3614affc31322b
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999004"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215563"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-with-nodejs"></a>Hızlı Başlangıç: Node.js ve Translator Metin Çevirisi API'si ile cümle uzunluğunu belirleme
+# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-with-nodejs"></a>Hızlı Başlangıç: Translator metin çevirisi API'si Node.js ile cümle uzunluğu belirlemek için kullanın
 
 Bu hızlı başlangıçta Node.js ve Translator Metin Çevirisi API'sini kullanarak cümle uzunluklarını (karakter cinsinden) belirlemeyi öğreneceksiniz.
 
@@ -68,7 +68,7 @@ if (!subscriptionKey) {
 İstek modülü aracılığıyla kullanıma sunulan `request()` yöntemi HTTP yöntemi, URL, istek parametreleri, üst bilgileri ve JSON gövdesi bileşenlerini `options` nesnesi olarak geçirmemizi sağlar. Bu kod parçacığında isteği yapılandıracağız:
 
 >[!NOTE]
-> Uç noktaları, yollar ve istek parametreleri hakkında daha fazla bilgi için bkz: [Translator Text API 3.0: sonu cümle](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence).
+> Uç noktaları, yollar ve istek parametreleri hakkında daha fazla bilgi için bkz: [Translator Text API 3.0: Tümce sonu](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence).
 
 ```javascript
 let options = {

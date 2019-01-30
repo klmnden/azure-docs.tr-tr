@@ -5,16 +5,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: tutorial
 ms.date: 05/03/2017
 ms.author: panosper
-ms.openlocfilehash: 6af2da9ffc7678a58fcf1c647ba89c586066d2ad
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
-ms.translationtype: HT
+ms.openlocfilehash: 0798fb16954d2d0b5e0d614d619cd772670d30c3
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339105"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55218096"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>Öğretici: Özel dil modeli oluşturma
 
@@ -30,7 +30,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 Bilişsel Hizmetler hesabınız yoksa başlamadan önce [ücretsiz bir hesap](https://cris.ai) oluşturun.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 [Cognitive Services Subscriptions](https://cris.ai/Subscriptions) (Bilişsel Hizmetler Abonelikleri) sayfasını açarak Bilişsel Hizmetler hesabınızın bir aboneliğe bağlanmış olduğundan emin olun.
 
@@ -53,9 +53,9 @@ Bazı cümlelerin ağırlığının daha fazlasını isterseniz verilerinize bir
 
 Dil verilerinin ana gereksinimleri aşağıdaki tabloda özetlenmiştir.
 
-| Özellik | Değer |
+| Özellik | Value |
 |----------|-------|
-| Metin Kodlaması | en-US: US-ACSII veya UTF-8 ya da zh-CN: UTF-8|
+| Metin Kodlaması | en-US: ABD ACSII veya UTF-8 ya da zh-CN: UTF-8|
 | Satır başına konuşma sayısı | 1 |
 | En Büyük Dosya Boyutu | 200 MB |
 | Açıklamalar | karakterleri 4'ten fazla tekrarlamaktan kaçının, örneğin: "aaaaa"|

@@ -6,22 +6,22 @@ services: cognitive-services
 author: RichardSunMS
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: linguistic-analysis
+ms.subservice: linguistic-analysis
 ms.topic: conceptual
 ms.date: 12/13/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: 87df00ae5ca12b168f2e1c03850da2e94cec350b
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: a14a685ba80dbd5e7e3d44e9032e5baaad5ef3fe
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239311"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208644"
 ---
 # <a name="analyze-method"></a>Analiz yöntemi
 
 > [!IMPORTANT]
-> Dil analizi önizlemesi, 9 Ağustos 2018 tarihinde kullanımdan. Kullanmanızı öneririz [Azure Machine Learning metin analiz modüllerini](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) metin işleme ve analiz için.
+> Dilbilimsel Analiz önizleme sürümü 9 Ağustos 2018 tarihinde kullanımdan kaldırılmıştır. Metin işleme ve analiz için [Azure Machine Learning metin analizi modüllerini](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) kullanmanızı öneririz.
 
 **Analiz** REST API, verilen doğal dil giriş analiz etmek için kullanılır.
 Yalnızca bulma ilgili [tümce ve belirteçlere ayırmaktır](Sentences-and-Tokens.md) içinde giriş, bulma [konuşma bölümü etiketleri](POS-tagging.md), veya bulma [constitutency ağaç](Constituency-Parsing.md).
@@ -38,7 +38,7 @@ https://westus.api.cognitive.microsoft.com/linguistics/v1.0/analyze
 
 ## <a name="request-parameters"></a>İstek parametreleri
 
-Ad | Tür | Gerekli | Açıklama
+Name | Type | Gerekli | Açıklama
 -----|-------|----------|------------
 **Dil**    | dize | Evet | İki harfli ISO dil kod'analiz için kullanılacak. Örneğin, "en" İngilizce olarak belirlenmiştir.
 **analyzerIds** | dize listesi | Evet | Çözümleyiciler, uygulamak için bir GUID'ler listesi. Daha fazla bilgi için Çözümleyicileri belgelerine bakın.
@@ -50,7 +50,7 @@ Analiz çıkış dizisi, istekte belirtilen her bir öznitelik için bir tane.
 
 Sonuçlar şu şekilde görünür:
 
-Ad | Tür | Açıklama
+Name | Tür | Açıklama
 -----|------|--------------
 Analyzerıd | dize | Belirtilen Çözümleyicisi GUİD'si
 Sonuç | object | Çözümleyici sonucu
@@ -59,7 +59,7 @@ Sonuç türü giriş Çözümleyicisi türüne bağlı olduğunu unutmayın.
 
 ### <a name="tokens-response-json"></a>Belirteçler yanıt (JSON)
 
-Ad | Tür | Açıklama
+Name | Tür | Açıklama
 -----|------|-------------
 Sonuç | tümce nesnelerinin listesi | içinde bulunan metinde tanımlanmış cümleyi sınırları |
 [x] sonucu. Uzaklık | int | Her cümle başlangıç karakteri uzaklığı |

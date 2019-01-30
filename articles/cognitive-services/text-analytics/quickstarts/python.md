@@ -1,23 +1,23 @@
 ---
-title: "Hızlı başlangıç: Metin Analizi API'sini çağırmak için Python kullanma"
+title: "Hızlı Başlangıç: Metin analizi API'sini çağırmak için Python kullanma"
 titleSuffix: Azure Cognitive Services
 description: Azure Microsoft Bilişsel Hizmetler'deki Metin Analizi API'sini kullanmaya başlamanıza yardımcı olacak bilgileri ve kod örneklerini inceleyin.
 services: cognitive-services
 author: ashmaka
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: 5169f6c7ff3d34d90f3f2e4b37b01733384966ff
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: cd8a895bef1580b10f50f1c5d31c35f36b6806ce
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52283596"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55214594"
 ---
-# <a name="quickstart-using-python-to-call-the-text-analytics-cognitive-service"></a>Hızlı başlangıç: Metin Analizi Bilişsel Hizmetini çağırmak için Python kullanma 
+# <a name="quickstart-using-python-to-call-the-text-analytics-cognitive-service"></a>Hızlı Başlangıç: Metin analizi Bilişsel hizmet çağırmak için Python'ı kullanma 
 <a name="HOLTop"></a>
 
 Bu kılavuzda Python ile [Metin Analizi API'sini](//go.microsoft.com/fwlink/?LinkID=759711) kullanarak [dil algılama](#Detect), [duygu analizi gerçekleştirme](#SentimentAnalysis) ve [anahtar sözcükleri ayıklama](#KeyPhraseExtraction) adımları gösterilmektedir.

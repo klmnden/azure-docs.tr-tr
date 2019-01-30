@@ -6,16 +6,16 @@ services: cognitive-services
 author: bojunehsu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 5be39e8dce6aeeef32d20273c56650620d6fe986
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 131d8d58982b5430063aa3dc7b3d1982cd430148
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46122034"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211313"
 ---
 # <a name="web-api-interface"></a>Web API Arabirimi
 
@@ -29,8 +29,8 @@ Birlikte kullanıldığında, bu API yöntemleri bir anlam zengin arama deneyimi
 
 **Örnek**
 
-Kullanıcı ' % s'dizesi "görünmeyen s" yazarsa bir akademik yayınlar etki alanındaki *yorumlama* yöntemi, bir dizi kullanıcı "gizli anlam analizi" anahtar sözcüğü arama önerme dereceli yorumlaması sağlayabilir görünmeyen yapısı başlığı "analiz" veya "ile görünmeyen s" ile başlayan diğer ifadeler.  Bu bilgiler, kullanıcının istenen arama sonuçlarını hızla yol göstermesi için kullanılabilir.
+Kullanıcı ' % s'dizesi "görünmeyen s" yazarsa bir akademik yayınlar etki alanındaki *yorumlama* yöntemi, bir dizi kullanıcı "gizli anlam analizi" anahtar sözcüğü arama önerme dereceli yorumlaması sağlayabilir görünmeyen yapısı başlığı "analiz" veya "ile görünmeyen s" ile başlayan diğer ifadeler.  Bu bilgiler kullanıcıyı hızla istenen arama sonuçlarına ulaştırmak için kullanılabilir.
 
 Bu etki alanı için *değerlendirmek* yöntemi, bir dizi yayınlar akademik dizinden eşleşen almak için kullanılabilir ve *calchistogram* yöntemi, öznitelik dağıtımını hesaplamak için kullanılabilir Daha fazla filtre uygulamak için kullanılan ve arama sonuçlarını daraltmak eşleşen yayınlar için değerler.
 
-Örnekler okunabilirliğini geliştirmek için REST API çağrıları URL kodlanmış olan karakterler (örneğin, boşluk) içerdiğini unutmayın. Kodunuz, uygun URL'yi Kodlamalar uygulamak gerekir.
+Örneklerin daha kolay okunmasını sağlamak için REST API çağrılarında URL'de kodlanmamış olan karakterlerin (boşluk gibi) bulunduğuna dikkat edin. Kodunuzda uygun URL kodlama işlemlerini gerçekleştirmeniz gerekir.

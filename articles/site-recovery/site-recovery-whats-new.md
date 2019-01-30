@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: raynew
-ms.openlocfilehash: fef6dc7937b2c83e67a281c69267bdf29216793d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 61e66a19b625141c69a9473373d3d5d808e18fde
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/29/2019
-ms.locfileid: "55199241"
+ms.locfileid: "55211126"
 ---
-# <a name="whats-new-in-site-recovery"></a>Site Recovery'de yenilikler nelerdir?
+# <a name="whats-new-in-site-recovery"></a>Site Recovery'deki yenilikler
 
 [Azure Site Recovery](site-recovery-overview.md) hizmeti güncelleştirildi ve sürekli olarak Gelişmiş. Yeniliklerden haberdar olun yardımcı olmak için bu makalede, en son sürümlerde, yeni özellikler ve yeni içerik hakkında bilgi sağlar. Bu sayfayı düzenli olarak güncelleştirilir.
 
@@ -59,7 +59,7 @@ Kullanıma sunulan azure [standart katı hal sürücüleri (SSD)](https://docs.m
 
 ### <a name="support-for-azure-storage-firewall"></a>Azure depolama güvenlik duvarı desteği
 
-Hesabı için güvenlik duvarı kuralları açarak ağları belirli bir dizi Azure depolama hesaplarına güvenli hale getirebilirsiniz. Varsayılan olarak iç ağlara ve internet trafiği reddetmeye yönelik depolama hesaplarını yapılandırın ve ardından erişim akışına ait özel sanal ağlar verin. Site kurtarma, ikincil bir bölgeye firewa özellikli depolama hesaplarındaki yönetilmeyen disklere sahip VM'ler için çoğaltmayı destekler. Yönetilmeyen diskler için hedef bölgede depolama hesapları ile Güvenlik Duvarı etkin seçebilirsiniz. Kaynak VM'lerin olduğu bulunduğu ağ için ağ erişimini kısıtlayarak önbellek depolama hesabına erişimi de kısıtlayabilirsiniz. Şunları yapmanız gerektiğini Not [erişime izin ver](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) güvenilen Microsoft Hizmetleri için.
+Hesabı için güvenlik duvarı kuralları açarak ağları belirli bir dizi Azure depolama hesaplarına güvenli hale getirebilirsiniz. Varsayılan olarak iç ağlara ve internet trafiği reddetmeye yönelik depolama hesaplarını yapılandırın ve ardından erişim akışına ait özel sanal ağlar. Site kurtarma, ikincil bir bölgeye Güvenlik Duvarı etkin depolama hesaplarındaki yönetilmeyen disklere sahip VM'ler için çoğaltmayı destekler. Yönetilmeyen diskler için hedef bölgede depolama hesapları ile Güvenlik Duvarı etkin seçebilirsiniz. Kaynak VM'lerin olduğu bulunduğu ağ için ağ erişimini kısıtlayarak önbellek depolama hesabına erişimi de kısıtlayabilirsiniz. Şunları yapmanız gerektiğini Not [erişime izin ver](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) güvenilen Microsoft Hizmetleri için.
 
 ## <a name="q3-2018"></a>2018 Ç3 
 

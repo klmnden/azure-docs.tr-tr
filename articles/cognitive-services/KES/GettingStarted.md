@@ -1,21 +1,21 @@
 ---
-title: "Örnek: Başlarken - Bilgi Keşfetme Hizmeti API'si"
+title: "Örnek: Alma başlatıldı - bilgi keşfetme hizmeti API'si"
 titlesuffix: Azure Cognitive Services
 description: Akademik yayınlar arasında etkileşimli bir arama deneyimi altyapısı oluşturmak için Bilgi Keşfetme Hizmeti'ni (KES) kullanın.
 services: cognitive-services
 author: bojunehsu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: sample
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 6cee339793269af0e8060cce56f94fa81db6a6c5
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
-ms.translationtype: HT
+ms.openlocfilehash: 14dc1ca90ecd342330425db840776fa67caa80b0
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124026"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208151"
 ---
 # <a name="get-started-with-the-knowledge-exploration-service"></a>Bilgi Keşfetme Hizmeti'ni kullanmaya başlama
 
@@ -41,7 +41,7 @@ Akademik yayınlar örneğinde, Microsoft'taki araştırmacıların yayımladı�
 }
 ```
 
-Burada, *Title*, *Year* ve *Keyword* özniteliklerini sırasıyla dize, tamsayı ve dize özniteliği olarak tanımlarız. Yazarlar kimlik, ad ve ilişki ile gösterildiğinden, *Author* özniteliğini üç alt özniteliği olan bileşik bir öznitelik olarak tanımlarsınız: *Author.Id*, *Author.Name* ve *Author.Affiliation*.
+Burada, *Title*, *Year* ve *Keyword* özniteliklerini sırasıyla dize, tamsayı ve dize özniteliği olarak tanımlarız. Yazarlar kimliği, adı ve bağlantı tarafından temsil edilir çünkü tanımladığınız *Yazar* üç alt özniteliklere sahip bir bileşik özniteliği olarak: *Author.Id*, *yazar.adi*, ve *Author.Affiliation*.
 
 Varsayılan olarak, öznitelikler *equals*, *starts_with* ve *is_between* de dahil olmak üzere kendi veri türünde kullanılabilen tüm işlemleri destekler. Yazar kimliği yalnızca dahili olarak bir tanımlayıcı olarak kullanıldığından, varsayılan değeri geçersiz kılın ve dizini oluşturulan tek işlem olarak *equals* işlemini belirtin.
 
@@ -110,7 +110,7 @@ Dil bilgisi, hem hizmetin yorumlayabildiği bir dizi doğal dil sorgusu hem de b
 <grammar root="GetPapers">
 
   <!-- Import academic data schema-->
-  <import schema="Academic.schema" name="academic"/>
+  <import schema="Academic.schema" name="academic"/>
 
   <!-- Define root rule-->
   <rule id="GetPapers">

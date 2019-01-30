@@ -6,16 +6,16 @@ services: cognitive-services
 author: dwlin
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speaker-recognition
+ms.subservice: speaker-recognition
 ms.topic: overview
 ms.date: 10/01/2018
 ms.author: dwlin
-ms.openlocfilehash: c9193a51c677b327e7d799412e389467ac5cc1c0
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
-ms.translationtype: HT
+ms.openlocfilehash: 7267663bae71b793923bc10a3b52ab54c12168af
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48016866"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216770"
 ---
 # <a name="speaker-recognition-api"></a>Konuşmacı Tanıma API’si
 
@@ -38,7 +38,7 @@ Kayıt sırasında konuşmacının belirli bir tümceciği söylerken sesi kayde
 
 Doğrulama aşamasında bir giriş sesi ve tümcecik, kaydın ses imzası ve tümceciği ile karşılaştırılarak aynı kişiden olup olmadığı ve doğru tümceciğin söylenip söylenmediğini doğrulanır.
 
-Konuşmacı doğrulama hakkında daha fazla ayrıntı için lütfen [Konuşmacı - Doğrulama](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/563309b7778daf06340c9652) API’sine bakın.
+Konuşmacı doğrulama hakkında daha fazla ayrıntı için lütfen API için başvuru [Konuşmacı - doğrulama](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/563309b7778daf06340c9652).
 
 ## <a name="speaker-identification"></a>Konuşmacı Belirleme
 
@@ -56,4 +56,4 @@ Konuşmacı belirleme için kayıt metinden bağımsızdır; başka bir deyişle
 
 Tanıma sırasında, olası konuşmacı grubu ile birlikte, bilinmeyen konuşmacının sesi de sağlanır. Sesin kime ait olduğunu belirlemek için giriş sesi, tüm konuşmacılarla karşılaştırılır ve bir eşleşme bulunursa konuşmacının kimliği döndürülür.
 
-Konuşmacı belirleme hakkında daha fazla ayrıntı için lütfen [Konuşmacı - Belirleme](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c068e597ed22ec38f42e) API’sine bakın.
+Konuşmacı tanıma hakkında daha fazla ayrıntı için lütfen API için başvuru [Konuşmacı - kimlik](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c068e597ed22ec38f42e).

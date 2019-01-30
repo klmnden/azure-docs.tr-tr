@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 7e682850d331770766a9b97c2b4b9102af143f2e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: a78e5c411c03aaff07818c4e45183f8eff40492d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836279"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211364"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-azure-vms-after-failover"></a>IP adresi yük devretmeden sonra Azure Vm'lerine bağlanmak için ayarlama
 
@@ -30,8 +30,8 @@ Bu makalede hakkında bilgi edineceksiniz:
 
 Çoğaltma ve yük devretme stratejisi planlama yaparken, önemli sorular yük devretme sonrasında Azure VM'ye bağlanma biridir. Azure Vm'lerini çoğaltma için ağ stratejinizi tasarlarken birkaç seçeneğiniz vardır:
 
-- **Farklı bir IP adresi kullanmak**: çoğaltılan Azure VM ağı için farklı bir IP adresi aralığı kullanmayı seçebilirsiniz. Bu senaryoda, sanal makine yük devretmeden sonra yeni bir IP adresi alır ve DNS güncelleştirme gerekli değildir.
-- **Aynı IP adresini koruma**: aynı IP adresi aralığı, birincil şirket içi sitenizdeki yük devretme sonrasında Azure ağı için kullanmak istediğiniz. Tutma aynı IP adreslerini basitleştirir kurtarma azaltarak yük devretme sonrasında ağa ilişkin sorunları. Ancak, Azure'a çoğaltırken yollar yük devretmeden sonra IP adreslerini yeni konumu ile güncelleştirmeniz gerekir.
+- **Farklı bir IP adresi kullanmak**: Çoğaltılan Azure VM ağı için farklı bir IP adresi aralığı kullanmayı seçebilirsiniz. Bu senaryoda, sanal makine yük devretmeden sonra yeni bir IP adresi alır ve DNS güncelleştirme gerekli değildir.
+- **Aynı IP adresini koruma**: Aynı IP adresi aralığı, birincil şirket içi sitenizdeki yük devretme sonrasında Azure ağı için kullanmak istediğiniz. Tutma aynı IP adreslerini basitleştirir kurtarma azaltarak yük devretme sonrasında ağa ilişkin sorunları. Ancak, Azure'a çoğaltırken yollar yük devretmeden sonra IP adreslerini yeni konumu ile güncelleştirmeniz gerekir.
 
 ## <a name="retaining-ip-addresses"></a>IP adresleri korunuyor
 

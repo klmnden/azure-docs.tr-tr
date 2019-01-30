@@ -6,16 +6,16 @@ services: cognitive-services
 author: priyaravi20
 manager: yanbo
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: priyar
-ms.openlocfilehash: db69a9e3beb819600109603a8c0129547db57fa5
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 61bd1879a4b1bf8281ac03c8254fb3d48c07a139
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343036"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215869"
 ---
 # <a name="bing-text-to-speech-api"></a>Bing metin okuma API'si
 
@@ -40,7 +40,7 @@ Content-Length: 0
 
 Belirteç erişimi için gereken üst bilgi bilgileri aşağıdaki gibidir.
 
-Ad| Biçimlendir | Açıklama
+Name| Biçimlendir | Açıklama
 ----|----|----
 Ocp-Apim-Subscription-Key | ASCII | Abonelik anahtarınız
 
@@ -59,11 +59,11 @@ JWT belirteci belirteç hizmetine döndürür `text/plain`. Daha sonra JWT olara
 
 Aşağıdaki tablo, sesli sentezi istekleri için kullanılan HTTP üst bilgilerini gösterir.
 
-Üst bilgi |Değer |Yorumlar
+Üst bilgi |Value |Yorumlar
 ----|----|----
 Content-Type | Uygulama/ssml'yi + xml şeklindedir | Giriş içerik türü.
 X Microsoft OutputFormat | **1.** ssml'yi-16 khz-16 bit-mono-tts <br> **2.** ham-16 khz-16 bit-mono-pcm <br>**3.** ses-16 khz-16 KB/sn-mono-siren <br> **4.** RIFF-16 khz-16 KB/sn-mono-siren <br> **5.** RIFF-16 khz-16 bit-mono-pcm <br> **6.** ses-16 khz-128kbitrate-mono-mp3 <br> **7.** ses-16 khz-64kbitrate-mono-mp3 <br> **8.** ses-16 khz-32kbitrate-mono-mp3 | Çıkış ses biçimi.
-X arama AppID | Bir GUID (onaltılık yalnızca, çizgi içermeyen) | İstemci uygulaması benzersiz olarak tanımlayan bir kimliği. Bu uygulamalar için depolama kimliği olabilir. Bir kullanılabilir durumda değilse, bir uygulama için oluşturulan kullanıcı kimliği olabilir.
+X-Search-AppId | Bir GUID (onaltılık yalnızca, çizgi içermeyen) | İstemci uygulaması benzersiz olarak tanımlayan bir kimliği. Bu uygulamalar için depolama kimliği olabilir. Bir kullanılabilir durumda değilse, bir uygulama için oluşturulan kullanıcı kimliği olabilir.
 X arama ClientID | Bir GUID (onaltılık yalnızca, çizgi içermeyen) | Her yükleme için uygulama örneğini benzersiz şekilde tanımlayan bir kimliği.
 Kullanıcı Aracısı | Uygulama adı | Uygulama adı gereklidir ve 255'den az karakter olmalıdır.
 Yetkilendirme | Yetkilendirme belirteci |  Bkz: <a href="#Subscription">yetkilendirme belirteci</a> bölümü.
@@ -179,7 +179,7 @@ Microsoft metin okuma API'si destekler SSML'yi 1.0 W3C tanımlandığı şekilde
   ```
 
 > [!NOTE]
-> Ses verilere sahip olması 8 k ya da 16 k wav Not Dosyalanan şu biçimde: **CRC kod** (CRC-32): 4 bayt (DWORD), geçerli aralık 0x00000000 ~ 0xFFFFFFFF; **Ses biçimi bayrağı**: 4 bayt (DWORD), geçerli aralık 0x00000000 ~ 0xFFFFFFFF; **Örnek sayısı**: 4 bayt (DWORD), geçerli aralık 0x00000000 ~ 0x7FFFFFFF; **İkili Gövde boyutu**: 4 bayt (DWORD), geçerli aralık 0x00000000 ~ 0x7FFFFFFF; **İkili gövde**: n baytı.
+> Not ses verilerini şu biçimde Dosyalanan 8 k ya da 16 k wav gerekir: **CRC kod** (CRC-32): 4 bayt (DWORD), geçerli aralık 0x00000000 ~ 0xFFFFFFFF; **Ses biçimi bayrağı**: 4 bayt (DWORD), geçerli aralık 0x00000000 ~ 0xFFFFFFFF; **Örnek sayısı**: 4 bayt (DWORD), geçerli aralık 0x00000000 ~ 0x7FFFFFFF; **İkili Gövde boyutu**: 4 bayt (DWORD), geçerli aralık 0x00000000 ~ 0x7FFFFFFF; **İkili gövde**: n baytı.
 
 ## <a name="SampleApp"></a>Örnek uygulama
 
@@ -214,9 +214,9 @@ IE tr | Erkek | "Microsoft Server Konuşma metin konuşma ses (tr-IE, Sean)"
 tr-giriş | Kadın | "Microsoft Server Konuşma metin konuşma ses (en-IN Heera, Apollo)"
 tr-giriş | Kadın | "Microsoft Server Konuşma metin konuşma ses (en-IN, PriyaRUS)"
 tr-giriş | Erkek | "Microsoft Server Konuşma metin konuşma ses (en-IN Ravi, Apollo)"
-tr-TR | Kadın | "Microsoft Server Konuşma metin konuşma ses (en-US, ZiraRUS)"
-tr-TR | Kadın | "Microsoft Server Konuşma metin konuşma ses (en-US, JessaRUS)"
-tr-TR | Erkek | "Microsoft Server Konuşma metin konuşma ses (en-US, BenjaminRUS)"
+en-US | Kadın | "Microsoft Server Konuşma metin konuşma ses (en-US, ZiraRUS)"
+en-US | Kadın | "Microsoft Server Konuşma metin konuşma ses (en-US, JessaRUS)"
+en-US | Erkek | "Microsoft Server Konuşma metin konuşma ses (en-US, BenjaminRUS)"
 es-ES | Kadın | "Microsoft Server Konuşma metin okuma ses (es-ES, Gamze, Apollo)"
 es-ES | Kadın | "Microsoft Server Konuşma metin okuma ses (es-ES, HelenaRUS)"
 es-ES | Erkek | "Microsoft Server Konuşma metin okuma ses (es-ES, Pablo, Apollo)"

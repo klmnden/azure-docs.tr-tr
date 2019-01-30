@@ -6,18 +6,18 @@ services: cognitive-services
 author: luiscabrer
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 09/12/2018
 ms.author: luisca
-ms.openlocfilehash: fe6bc384e4190cd17df00ddf285701db8c4199a6
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
-ms.translationtype: HT
+ms.openlocfilehash: 0bda38db089218e0d5f6f8ff15c9eac888900e95
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733338"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209103"
 ---
-# <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Öğretici: Metin Analizi Bilişsel Hizmeti ile Power BI’ı tümleştirme
+# <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Öğretici: Power BI ile metin analizi Bilişsel hizmet tümleştirme
 
 Microsoft Power BI Desktop, verilerinize bağlanmanıza, verilerinizi dönüştürmenize ve görselleştirmenize olanak sağlayan ücretsiz bir uygulamadır. Microsoft Azure Bilişsel Hizmetler’in parçası olan Metin Analizi hizmeti, doğal dil işleme özelliği sağlar. Ham yapılandırılmamış veriler olduğunda, en önemli ifadeleri ayıklayabilir, yaklaşımı analiz edebilir ve markalar gibi iyi bilindik varlıkları belirleyebilir. Birlikte bu araçlar, müşterilerinizin ne hakkında konuştuğunu ve bu konuda nasıl hissettiğini hızlıca görmenize yardımcı olabilir.
 
@@ -30,7 +30,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Müşteri geri bildiriminden en önemli ifadeleri ayıklamak için Metin Analizi Anahtar İfadeler API’sini kullanma
 > * Müşteri geri bildiriminden sözcük bulutu oluşturma
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 <a name="Prerequisites"></a>
 
 - Microsoft Power BI Desktop. [Ücretsiz olarak indirin](https://powerbi.microsoft.com/get-started/).

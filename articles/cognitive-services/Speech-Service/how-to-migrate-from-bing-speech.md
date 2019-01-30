@@ -6,16 +6,16 @@ services: cognitive-services
 author: wsturman
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: gracez
-ms.openlocfilehash: fdd22e14e0b7636dbc337a20dd69bf93696bb924
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: b862975cda4a73d087d9aa0d5816fdcb9e0149dc
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416289"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55218018"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Konuşma hizmeti için Bing konuşma içeriğinden geçirme
 
@@ -39,7 +39,7 @@ Konuşma hizmeti ile aşağıdaki farklar Bing konuşma, büyük ölçüde benze
 
 Özellik | Bing Konuşma | Konuşma Hizmeti | Ayrıntılar
 -|-|-|-
-C++ SDK'SI | : heavy_minus_sign: | :heavy_check_mark: | Konuşma hizmeti, Windows ve Linux destekler.
+C++ SDK | : heavy_minus_sign: | :heavy_check_mark: | Konuşma hizmeti, Windows ve Linux destekler.
 Java SDK | :heavy_check_mark: | :heavy_check_mark: | Konuşma hizmeti, Android ve konuşma cihazları destekler.
 C# SDK’sı | :heavy_check_mark: | :heavy_check_mark: | Konuşma hizmeti, Windows 10 Evrensel Windows Platformu (UWP) ve .NET Standard 2.0 destekler.
 Sürekli konuşma tanıma | 10 dakika | Sınırsız (SDK ile) | Bing konuşma hem konuşma hizmeti WebSockets protokolleri, çağrı başına 10 dakikaya kadar destekler. Ancak, Speech SDK'sı otomatik olarak zaman aşımından üzerinde yeniden veya kesin.
@@ -90,7 +90,7 @@ Konuşma hizmeti, SDK ve API desteği için konuşma hizmeti ziyaret [destek say
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Konuşma hizmetini ücretsiz deneyin](get-started.md)
-* [Hızlı Başlangıç: bir UWP uygulamasında Speech SDK'sı kullanarak konuşma tanıma](quickstart-csharp-uwp.md)
+* [Hızlı Başlangıç: Bir UWP uygulamasında Speech SDK'sı kullanarak konuşma tanıma](quickstart-csharp-uwp.md)
 
 ## <a name="see-also"></a>Ayrıca bkz.
 * [Konuşma hizmeti sürüm notları](releasenotes.md)

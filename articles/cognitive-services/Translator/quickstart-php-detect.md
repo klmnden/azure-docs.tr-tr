@@ -1,27 +1,27 @@
 ---
-title: 'Hızlı Başlangıç: Metinden dili tanımlama, PHP - Translator Metin Çevirisi API’si'
+title: "Hızlı Başlangıç: PHP - Translator metin çevirisi API'si metin dili tanımlama"
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, PHP ile Translator Metin Çevirisi API’sini kullanarak kaynak metnin dilini tanımlayacaksınız.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: erhopf
-ms.openlocfilehash: e13dbe63efe950061f157b6d8dec7665c1bc5c42
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
-ms.translationtype: HT
+ms.openlocfilehash: db563a111abe069e361dfed03718bd75cdd0311e
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649460"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210804"
 ---
-# <a name="quickstart-identify-language-from-text-with-the-translator-text-rest-api-php"></a>Hızlı Başlangıç: Translator Metin Çevirisi REST API’si (PHP) ile metinden dil tanımlama
+# <a name="quickstart-identify-language-from-text-with-the-translator-text-rest-api-php"></a>Hızlı Başlangıç: Translator metin REST API (PHP) ile metin dili tanımlama
 
 Bu hızlı başlangıçta, Translator Metin Çevirisi API'sini kullanarak kaynak metnin dilini tanımlayacaksınız.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu kodu çalıştırmak için [PHP 5.6.x](http://php.net/downloads.php)’e ihtiyacınız olacak.
 

@@ -1,30 +1,30 @@
 ---
-title: "Hızlı Başlangıç: Metin çevirme, Node.js - Translator Metin Çevirisi API'si"
+title: "Hızlı Başlangıç: Metin, Node.js - Translator metin çevirisi API'si Çevir"
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, Node.js ile Translator Metin Çevirisi API’sini kullanarak metni bir dilden diğerine çevireceksiniz.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: erhopf
-ms.openlocfilehash: 68c38d289e4095bd602e681171d8409b21920142
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
-ms.translationtype: HT
+ms.openlocfilehash: 40b38fdf2773bd58cf1635d089aec7340b04ce07
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50246550"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55214032"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-with-nodejs"></a>Hızlı Başlangıç: Node.js ile bir dizeyi çevirmek için Translator Metin Çevirisi API'sini kullanma
+# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-with-nodejs"></a>Hızlı Başlangıç: Translator metin çevirisi API'si Node.js dizesiyle çevirmek için kullanın
 
 Bu hızlı başlangıçta, Node.js ve Translator Metin Çevirisi REST API'sini kullanarak bir metin dizesini İngilizceden İtalyanca ve Almancaya çevirmeyi öğreneceksiniz.
 
 Bu hızlı başlangıç, Translator Metin Çevirisi kaynağına sahip bir [Azure Bilişsel Hizmetler hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) gerektirir. Bir hesabınız yoksa, abonelik anahtarı almak için [ücretsiz deneme sürümünü](https://azure.microsoft.com/try/cognitive-services/) kullanabilirsiniz.
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu hızlı başlangıç şunları gerektirir:
 
@@ -69,7 +69,7 @@ if (!subscriptionKey) {
 İstek modülü aracılığıyla kullanıma sunulan `request()` yöntemi HTTP yöntemi, URL, istek parametreleri, üst bilgileri ve JSON gövdesi bileşenlerini `options` nesnesi olarak geçirmemizi sağlar. Bu kod parçacığında isteği yapılandıracağız:
 
 >[!NOTE]
-> Uç noktalar, rotalar ve istek parametreleri hakkında daha fazla bilgi için bkz. [Translator Metin Çevirisi API’si 3.0: Çeviri](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate).
+> Uç noktaları, yollar ve istek parametreleri hakkında daha fazla bilgi için bkz: [Translator Text API 3.0: Çevirme](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate).
 
 ```javascript
 let options = {

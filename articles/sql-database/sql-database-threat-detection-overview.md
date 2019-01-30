@@ -11,24 +11,23 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 587c0718e333f121d0ff8b32d8c2a7dad6b8f774
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 01/29/2019
+ms.openlocfilehash: 2f52cbaf5d50eca13a87ff8e745b0f8baefbe23e
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037149"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210387"
 ---
 # <a name="azure-sql-database-threat-detection"></a>Azure SQL veritabanı tehdit algılama
 
 Azure SQL tehdit algılama için [Azure SQL veritabanı](sql-database-technical-overview.md) ve [SQL veri ambarı](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) erişim veritabanı açıklıklarından yararlanmaya yönelik sıra dışı ve zararlı olabilecek girişimleri gösteren anormal etkinlikleri algılar.
 
-Tehdit algılama parçasıdır [SQL Gelişmiş tehdit koruması](sql-advanced-threat-protection.md) Gelişmiş SQL güvenlik özellikleri için birleştirilmiş bir pakettir (ATP) teklifi. Tehdit algılama, erişilebilir ve merkezi SQL ATP portalı üzerinden yönetilebilir.
+Tehdit algılama parçasıdır [SQL gelişmiş veri güvenliği](sql-advanced-threat-protection.md) (REKLAM) sunumunun Gelişmiş SQL güvenlik özellikleri için birleştirilmiş bir pakettir. Tehdit algılama, erişilebilir ve merkezi SQL REKLAM portalı üzerinden yönetilebilir.
 
 > [!NOTE]
 > Bu konu başlığı, Azure SQL sunucusunun yanı sıra Azure SQL sunucusu üzerinde oluşturulmuş olan SQL Veritabanı ve SQL Veri Ambarı veritabanları için de geçerlidir. Kolaylık açısından, hem SQL Veritabanı hem de SQL Veri Ambarı için SQL Veritabanı terimi kullanılmaktadır.
 
-Tehdit algılama hizmetine 15$ / ay başına mantıksal sunucu veya yönetilen örneği, tüm veritabanları için ilk 30 gün ile ücretsiz olarak ücretlendirilir.
 
 ## <a name="what-is-threat-detection"></a>Tehdit algılama nedir
 
@@ -69,7 +68,7 @@ Anormal veritabanı etkinliklerinin algılanması üzerine bir e-posta bildirimi
 
 ## <a name="explore-threat-detection-alerts-for-your-database-in-the-azure-portal"></a>Azure portalında veritabanınız için tehdit algılama uyarıları keşfedin
 
-SQL veritabanı tehdit algılama, uyarıları ile tümleştirilir [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/). Veritabanı ve Azure portalında SQL ATP dikey pencereleri içinde Canlı SQL tehdit algılama kutucuklar etkin tehditleri durumunu izleyin.
+SQL veritabanı tehdit algılama, uyarıları ile tümleştirilir [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/). SQL tehdit algılama kutucuklar veritabanı ve Azure portalında SQL REKLAM dikey pencereleri içinde etkin tehditleri durumunu izlemek Canlı.
 
 Tıklayın **tehdit algılaması Uyarısı** Azure Güvenlik Merkezi'ni başlatmak için uyarılar sayfasında ve veritabanı veya veri ambarını algılanan etkin SQL tehditler genel bir bakış edinin.
 
@@ -81,7 +80,7 @@ Tıklayın **tehdit algılaması Uyarısı** Azure Güvenlik Merkezi'ni başlatm
 
 - Daha fazla bilgi edinin [tek veritabanı tehdit algılama](sql-database-threat-detection.md).
 - Daha fazla bilgi edinin [yönetilen örnek tehdit algılama](sql-database-managed-instance-threat-detection.md).
-- Daha fazla bilgi edinin [SQL Gelişmiş tehdit koruması](sql-advanced-threat-protection.md).
+- Daha fazla bilgi edinin [SQL gelişmiş veri güvenliği](sql-advanced-threat-protection.md).
 - Daha fazla bilgi edinin [Azure SQL veritabanı denetimi](sql-database-auditing.md)
 - Daha fazla bilgi edinin [Azure Güvenlik Merkezi](https://docs.microsoft.com/azure/security-center/security-center-intro)
 - Fiyatlandırma hakkında daha fazla bilgi için bkz. [SQL veritabanı fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/sql-database/)  

@@ -1,23 +1,23 @@
 ---
-title: 'Hızlı Başlangıç: Metin çevirme, C# - Translator Metin Çevirisi'
+title: 'Hızlı Başlangıç: Metni çevir C# -Translator metin çevirisi'
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, C# ile Translator Metin Çevirisi API’sini kullanarak metni bir dilden diğerine çevireceksiniz.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 11/20/2018
 ms.author: erhopf
-ms.openlocfilehash: 9d9a893a1e62ae35ed3c2f1630c92d4f23cdb2dc
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: fbe89d938157cebd7fa605f07cee8b198de062d2
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52887687"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55214526"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-c"></a>Hızlı Başlangıç: Translator Text API kullanarak bir dize çevirmek için kullanın.C#
+# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-c"></a>Hızlı Başlangıç: Translator metin çevirisi API'si kullanarak bir dize çevirmek için kullanınC#
 
 Bu hızlı başlangıçta, bir metin dizesi İngilizce'den İtalyanca ve .NET Core ve Translator Text REST API kullanarak Almanca Çevir öğreneceksiniz.
 

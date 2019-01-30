@@ -6,16 +6,16 @@ services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 6fd3d33d40b0ed142127e46dd7c9173de39947c7
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 545f3669f04c3cd30f4766357c5d582dfe515c80
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46122000"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215597"
 ---
 # <a name="face-api-release-notes"></a>Yüz tanıma API'si sürüm notları
 
@@ -51,7 +51,7 @@ Bu makalede, yüz tanıma API'si hizmeti sürüm 1.0 için geçerlidir.
 * Kesinlikle 36 x 36 için 4096 x 4096 piksel arasında olduğundan emin olmak için algılanabilir yüz boyutu sabit.
 
 ### <a name="release-changes-in-november-2016"></a>Kasım 2016 yayın değişiklikleri
-* Eklenen kullanırken daha fazla kalıcı yüz depolamak için yüz depolama Standart abonelik [PersonGroup kişi - yüz tanıma ekleme](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) veya [FaceList - yüz tanıma ekleme](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250) tanımlama veya benzerlik eşleşen. 1000 yüz başına 0,5 depolanan görüntüler ücretlendirilir ve bu fiyat günlük olarak saatlere eşit olarak dağıtılır. Ücretsiz katman abonelik 1.000 toplam kişilere sınırlandırılacak şekilde devam edin.
+* Eklenen kullanırken daha fazla kalıcı yüz depolamak için yüz depolama Standart abonelik [PersonGroup kişi - yüz tanıma ekleme](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) veya [FaceList - yüz tanıma ekleme](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250) tanımlama veya benzerlik eşleşen. Depolanan görüntüler, 1000 yüz başına 0,5 $ üzerinden ücretlendirilir ve bu fiyat, günlere eşit olarak dağıtılır. Ücretsiz katman abonelik 1.000 toplam kişilere sınırlandırılacak şekilde devam edin.
 
 ### <a name="release-changes-in-october-2016"></a>Yayın değişiklikleri Ekim 2016
 * Hata iletisini 'Vardır birden fazla yüz görüntüde' 'Var. birden fazla yüz görüntüde' den targetFace birden çok yüzü sürümünde değiştirilmiştir [FaceList - yüz tanıma ekleme](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250) ve [PersonGroup kişi - yüz tanımaEkle](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b).
@@ -66,7 +66,7 @@ Bu makalede, yüz tanıma API'si hizmeti sürüm 1.0 için geçerlidir.
 * İsteğe bağlı eklenen `start` ve `top` parametrelerinde [PersonGroup - liste](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395248) başlangıç noktası ve kişi sayısı listesine belirtmek kullanıcı etkinleştirmek için.
 
 ### <a name="v10-changes-from-v0"></a>V0 V1.0 değişiklikleri
-* Güncelleştirilmiş hizmet kök uç noktasından ```https://westus.api.cognitive.microsoft.com/face/v0/``` için ```https://westus.api.cognitive.microsoft.com/face/v1.0/```. Uygulanan değişiklikler: [yüz tanıma - algılamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [yüz tanıma - tanımlamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [yüz tanıma - bulma benzer](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) ve [yüz tanıma - grup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
+* Güncelleştirilmiş hizmet kök uç noktasından ```https://westus.api.cognitive.microsoft.com/face/v0/``` için ```https://westus.api.cognitive.microsoft.com/face/v1.0/```. Uygulanan değişiklikler: [Yüz tanıma - algılamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [yüz tanıma - tanımlamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [yüz tanıma - benzer Bul](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) ve [yüz tanıma - grup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
 
 * En az algılanabilir yüz boyutu 36 x 36 piksel olarak güncelleştirildi. Yüzleri 36 x 36 pikselden küçük algılanmaz.
 

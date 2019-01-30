@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 7/10/2018
 ms.author: aljo-microsoft
-ms.openlocfilehash: ac263ef842c780e09576303f2f49e782612294c2
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 02ad880f3c4a4f5812b60887090c29a0a39f6742
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/29/2019
-ms.locfileid: "55159123"
+ms.locfileid: "55206978"
 ---
 # <a name="production-readiness-checklist"></a>Üretim hazırlığı denetim listesi
 
@@ -62,7 +62,7 @@ Service Fabric güvenilir hizmetler veya Reliable Actors programlama modellerini
 23. Önlemek [planlarken düşebileceğiniz yaygın tuzaklardan](service-fabric-work-with-reliable-collections.md) güvenilir koleksiyonlar kullanarak.
 24. Çalıştırırken sayaçları yük testleri ve çöp toplama veya kaçan yığın büyüme yüksek oranlarda denetleyin .NET CLR bellek performansı izleyin.
 25. Çevrimdışı yedeğini tutmak [Reliable Services ve Reliable Actors](service-fabric-reliable-services-backup-restore.md) ve geri yükleme işlemini test edin.
-26. Birincil NodeType sanal makine örnek sayınız, ideal olarak, kümeler güvenilirlik katmanı için en düşük eşit olmalıdır; uygun olduğunda en düşük katmanlı aşmayı koşullar bulunmaktadır: geçici olarak ne zaman dikey ölçekleme birincil NodeType sanal makine ölçek kümesi SKU'nuz demektir.
+26. Birincil NodeType sanal makine örnek sayınız, ideal olarak, kümeler güvenilirlik katmanı için en düşük eşit olmalıdır; uygun olduğunda en düşük katmanlı aşmayı koşullar bulunmaktadır: geçici olarak ne zaman dikey birincil NodeType sanal makine ölçek kümesi SKU'nuz ölçeklendirme.
 
 ## <a name="optional-best-practices"></a>İsteğe bağlı en iyi uygulamalar
 

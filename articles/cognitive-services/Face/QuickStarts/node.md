@@ -6,18 +6,18 @@ services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: ba42cc7ede2ab790e5f50f3db525e48ebd21f522
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 3b0eefb7471061e7e3547898b2edf02ed0f94ccf
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852512"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210089"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>Hızlı Başlangıç: Node.js ve yüz tanıma REST API'si ile bir resimdeki yüz algılama
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>Hızlı Başlangıç: Yüz tanıma REST API'si ve Node.js ile bir resimdeki yüz algılama
 
 Bu hızlı başlangıçta, bir resimdeki İnsan yüzlerini algılamak için Node.js ile Azure yüz REST API'sini kullanır.
 

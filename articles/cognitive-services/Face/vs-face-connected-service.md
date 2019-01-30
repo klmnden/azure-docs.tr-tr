@@ -1,21 +1,21 @@
 ---
-title: 'Öğretici: Yüz Tanıma API’si C#'
+title: "Öğretici: Yüz tanıma API'siC#"
 titleSuffix: Azure Cognitive Services
 description: Bir görüntüdeki yüzlerin özelliklerini algılamak için Bilişsel Hizmetler Yüz Tanıma API’sini kullanan basit bir Windows uygulaması oluşturun.
 services: cognitive-services
 author: ghogen
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: ghogen
-ms.openlocfilehash: 70414674e563cf3703d2cf3ebc57f09afcdf2691
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
-ms.translationtype: HT
+ms.openlocfilehash: 00b1d3ed636bb1690e9d5026c558ca989de95375
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129531"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209443"
 ---
 # <a name="connecting-to-cognitive-services-face-api-by-using-connected-services-in-visual-studio"></a>Visual Studio’da Bağlı Hizmetler’i kullanarak Bilişsel Hizmetler Yüz Tanıma API’sine bağlanma
 
@@ -23,7 +23,7 @@ Bilişsel Hizmetler Yüz Tanıma API’sini kullanarak, fotoğraflardaki yüzler
 
 Bu makalede ve beraberindeki destek makalelerinde, Bilişsel Hizmetler Yüz Tanıma API’si için Visual Studio Bağlı Hizmet özelliğinin kullanımına ilişkin ayrıntılar sağlanmaktadır. Özellik, Bilişsel Hizmetler uzantısının yüklendiği Visual Studio 2017 15.7 ve sonraki sürümlerde mevcuttur.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - **Bir Azure aboneliği**. Bir aboneliğiniz yoksa [ücretsiz hesap](https://azure.microsoft.com/pricing/free-trial/) için kaydolabilirsiniz.
 - **Web Geliştirme** iş yükünün yüklendiği **Visual Studio 2017 sürüm 15.7**. [Şimdi indir](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).

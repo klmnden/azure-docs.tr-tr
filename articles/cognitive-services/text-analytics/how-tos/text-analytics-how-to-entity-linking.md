@@ -6,16 +6,16 @@ services: cognitive-services
 author: ashmaka
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: article
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: e81428d5bdffb65b5e61a7aba7496da275f249a5
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 3f56bd4efafe506a95d46524713ebe49e3250f63
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230565"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220401"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Adlandırılmış varlık tanıma, metin analizi (Önizleme) kullanma
 
@@ -41,10 +41,10 @@ Varlık bağlama çeşitli dillerde kullanarak, karşılık gelen Bilgi Bankası
 
 ## <a name="supported-types-for-named-entity-recognition"></a>Adlandırılmış varlık tanıma için desteklenen türler:
 
-| Tür  | Alt tür | Örnek |
+| Type  | SubType | Örnek |
 |:-----------   |:------------- |:---------|
 | Kişi        | YOK\*         | "Jeff", "Bill Gates'le"     |
-| Konum      | YOK\*         | "Redmond, Washington", "İstanbul"  |
+| Konum      | YOK\*         | "Redmond, Washington", "Paris"  |
 | Kuruluş  | YOK\*         | "Microsoft"   |
 | Miktar      | Sayı        | "6", "altı"     | 
 | Miktar      | Yüzde    | "%50", "yüzde Elli"| 
@@ -56,9 +56,9 @@ Varlık bağlama çeşitli dillerde kullanarak, karşılık gelen Bilgi Bankası
 | Miktar      | Sıcaklık   | "32 derece"    |
 | DateTime      | YOK\*         | "6:30 PM 4 Şubat 2012"      | 
 | DateTime      | Tarih          | "Mayıs 2 2017", "02/05/2017"   | 
-| Tarih Saat     | Zaman          | "8 am", "8:00"  | 
+| Tarih/Saat     | Zaman          | "8 am", "8:00"  | 
 | DateTime      | DateRange     | "2 Mayıs Mayıs 5 için"    | 
-| DateTime      | timeRange     | "18: 00 için 7 pm"     | 
+| DateTime      | TimeRange     | "18: 00 için 7 pm"     | 
 | DateTime      | Süre      | "1 dakika ve 45 saniye"   | 
 | DateTime      | Ayarla           | "her Salı"     | 
 | DateTime      | TimeZone      |    | 
@@ -89,11 +89,11 @@ Belge boyutu, belge başına 5.000 karakterden küçük olmalıdır ve koleksiyo
 }
 ```    
     
-## <a name="step-1-structure-the-request"></a>1. Adım: İsteği yapılandırma
+## <a name="step-1-structure-the-request"></a>1. Adım: Yapı isteği
 
 İstek tanımıyla ilgili ayrıntılara [Metin Analizi API’sini çağırma](text-analytics-how-to-call-api.md) bölümünden erişilebilir. Kolaylık olması için aşağıdaki noktalar yeniden belirtilmektedir:
 
-+ Bir **POST** isteği oluşturun. Bu istek için API belgelerini gözden geçirin: [varlık bağlama API'si](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634)
++ Bir **POST** isteği oluşturun. Bu istek için API belgelerini gözden geçirin: [Varlık bağlama API'si](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634)
 
 + Varlık ayıklama için HTTP uç noktası ayarlayın. `/entities` kaynağını içermelidir: `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
 
@@ -104,7 +104,7 @@ Belge boyutu, belge başına 5.000 karakterden küçük olmalıdır ve koleksiyo
 > [!Tip]
 > İsteği yapılandırmak ve hizmete GÖNDERMEK için [Postman](text-analytics-how-to-call-api.md) kullanın veya [belgelerdeki](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) **API testi konsolu**’nu açın.
 
-## <a name="step-2-post-the-request"></a>2. Adım: İsteği gönderme
+## <a name="step-2-post-the-request"></a>2. Adım: POST isteği
 
 İstek alındığında analiz gerçekleştirilir. Hizmet dakikada en fazla 100 istek kabul eder. Her istek maksimum 1 MB olabilir.
 

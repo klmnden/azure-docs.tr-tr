@@ -5,16 +5,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: panosper
-ms.openlocfilehash: a9bdb257137db0063d39f028a69e2164eccbdc31
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 71aa20c779ae0c73db3d7ce6f267524c5bf71ea5
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340469"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55214577"
 ---
 # <a name="migrate-deployments-to-the-new-pricing-model"></a>Dağıtımlar için yeni fiyatlandırma modeline geçirme
 
@@ -37,12 +37,12 @@ Microsoft geçiş yarı otomatik bir şekilde işler. İlk olarak, yeni bir fiya
 
 Yeni katmanına geçirmek için aşağıdakileri yapın:
 
-## <a name="step-1-check-your-existing-deployment"></a>1. adım: mevcut dağıtımınızı kontrol edin.
+## <a name="step-1-check-your-existing-deployment"></a>1. Adım: Mevcut dağıtımınızı denetleyin
 Git [özel konuşma hizmeti portalı](http://cris.ai)ve mevcut dağıtımlarınızı denetleyin. Bu örnekte iki dağıtım vardır. Bir dağıtım bir S0 katmanı üzerinde çalışır ve diğer dağıtım bir S1 katmanında çalışır. Dağıtımları gösterilen **dağıtım seçenekleri** aşağıdaki tablo, sütun:
 
 ![Dağıtımları sayfası](../../../media/cognitive-services/custom-speech-service/custom-speech-deployments.png)
 
-## <a name="step-2-select-your-new-pricing-tier-in-the-azure-portal"></a>2. adım: Azure portalında yeni fiyatlandırma katmanınızı seçin
+## <a name="step-2-select-your-new-pricing-tier-in-the-azure-portal"></a>2. Adım: Azure portalında yeni fiyatlandırma katmanınızı seçin
 1. Yeni bir tarayıcı sekmesi açın ve oturum [Azure portalında](http://ms.portal.azure.com/). 
 
 2. İçinde **Bilişsel Hizmetler** bölmesinde, **abonelikleri** listesinde, özel konuşma aboneliğinizi seçin. 
@@ -57,7 +57,7 @@ Git [özel konuşma hizmeti portalı](http://cris.ai)ve mevcut dağıtımların�
 
     !["Fiyatlandırma katmanınızı seçin" sayfası](../../../media/cognitive-services/custom-speech-service/custom-speech-update-pricing.png)
 
-## <a name="step-3-check-the-migration-status-in-the-custom-speech-service-portal"></a>3. adım: özel konuşma hizmeti Portalı'nda geçiş durumu denetleme
+## <a name="step-3-check-the-migration-status-in-the-custom-speech-service-portal"></a>3. Adım: Özel konuşma hizmeti Portalı'nda geçiş durumunu denetle
 Özel konuşma hizmeti portala geri dönün ve dağıtımlarınızı denetleyin. (Tarayıcı pencerenizi hâlâ açıksa yenileyin.) 
 
 İlgili dağıtım durumu için geçtiniz *işleme*. Denetleyerek geçiş doğrulayabilirsiniz **dağıtım seçenekleri** sütun. Var. Şimdi ölçek birimleri ve günlüğe kaydetme hakkında bilgi bulabilirsiniz. Ölçek birimleri, önceki fiyatlandırma katmanınızı yansıtmalıdır. Günlük kaydı ayrıca tabloda gösterildiği gibi açık:

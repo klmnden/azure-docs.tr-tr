@@ -1,23 +1,23 @@
 ---
-title: "Hızlı Başlangıç: Listesini alın desteklenen diller, C# -Translator metin çevirisi API'si"
+title: "Hızlı Başlangıç: Desteklenen dillerin listesini alma C# -Translator metin çevirisi API'si"
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, çeviri, harf çevirisi ve Translator Text API kullanarak sözlük araması için desteklenen dillerin bir listesini alın.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 11/26/2018
 ms.author: erhopf
-ms.openlocfilehash: 54896e96658286297d90f488bd02f11da505ec50
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: e638375c9c8316c00ee8da000ca5223330072985
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889098"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215580"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-c"></a>Hızlı Başlangıç: Translator Text API kullanarak desteklenen dillerin listesini almak için kullanın.C#
+# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-c"></a>Hızlı Başlangıç: Translator metin çevirisi API'si kullanarak desteklenen dillerin listesini almak için kullanınC#
 
 Bu hızlı başlangıçta, çeviri, harf çevirisi ve Translator Text API kullanarak sözlük araması için desteklenen dillerin bir listesini alın.
 

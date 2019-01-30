@@ -6,16 +6,16 @@ services: cognitive-services
 author: ashmaka
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: 63c8ebe8eda049a770cecfd445757e4b5a2de1ea
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: ec1858256c942fd50818a214de426fd00c3c2c88
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067050"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216940"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Metin analizi API'si için dil ve bölge desteği
 
@@ -33,25 +33,25 @@ Yaklaşım analizi, anahtar ifade ayıklama ve varlık tanıma, desteklenen dill
 
 Dil desteği başlangıçta Mezun genel kullanıma (GA) durumuna birbirinden ve metin analizi hizmetinin genel Önizleme aşamasında kullanıma sunulma. Önizleme aşamasında için genel kullanıma sunulan metin analizi API'si geçişi sırasında bile kalmasına diller için mümkündür.
 
-| Dil    | Dil kodu | Yaklaşım | Anahtar ifadeler | Varlık tanıma |   Notlar  |
+| Dil    | Dil kodu | Yaklaşım | Anahtar ifadeler | Varlık Tanıma |   Notlar  |
 |:----------- |:-------------:|:---------:|:-----------:|:-----------:|:-----------:
 | Danca      | `da`          | ✔ \*     | ✔           |             |     |
-| Hollanda dili       | `nl`          | ✔ \*     | ✔          |             |     |
+| Felemenkçe       | `nl`          | ✔ \*     | ✔          |             |     |
 | Türkçe     | `en`          | ✔        | ✔           |  ✔ \*   |      |
 | Fince     | `fi`          | ✔ \*     | ✔           |             |     |
-| Fransızca      | `fr`          | ✔        | ✔           |             |     |
-| Almanca      | `de`          | ✔ \*     | ✔           |            |     |
+| Fransızca       | `fr`          | ✔        | ✔           |             |     |
+| Almanca       | `de`          | ✔ \*     | ✔           |            |     |
 | Yunanca       | `el`          | ✔ \*     |             |            |     |
 | İtalyanca     | `it`          | ✔ \*     | ✔           |             |     |
 | Japonca    | `ja`          |          | ✔           |            |     |
-| Kore dili      | `ko`          |          | ✔           |            |     |
-| Norveççe (Bokmal) | `no`          | ✔ \*     |  ✔          |             |     |
+| Korece      | `ko`          |          | ✔           |            |     |
+| Norwegian  (Bokmål) | `no`          | ✔ \*     |  ✔          |             |     |
 | Lehçe      | `pl`          | ✔ \*     |  ✔          |             |     |
 | Portekizce (Portekiz) | `pt-PT`| ✔        |  ✔          |       |`pt` Ayrıca kabul edildi|
 | Portekizce (Brezilya)   | `pt-BR`|          |  ✔   |         |     |
 | Rusça     | `ru`          | ✔ \*     | ✔           |             |     |
-| İspanyolca     | `es`          | ✔        | ✔           |   ✔ \*\*      |     |
-| İsveç dili     | `sv`          | ✔ \*     | ✔           |             |     |
+| İspanyolca      | `es`          | ✔        | ✔           |   ✔ \*\*      |     |
+| İsveççe     | `sv`          | ✔ \*     | ✔           |             |     |
 | Türkçe     | `tr`          | ✔ \*     |             |             |  |
 
 \* dil desteği Önizleme gösterir

@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 01/28/2019
 ms.author: bwren
-ms.openlocfilehash: 674a26b9c8eb5fe8f44b416b5296b61c6678d2cd
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 9fe25821d5a234326570b1681807c6f9dfd6ffc8
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186183"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211109"
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>HTTP veri toplayıcı API'sini (genel Önizleme) ile Log Analytics veri Gönder
 Bu makalede REST API istemcisinden Log Analytics'e veri göndermek için HTTP veri toplayıcı API'sini kullanmayı gösterir.  Bu betik ya da uygulama tarafından toplanan verileri biçimlendirme, bir isteğe ekleyin ve bu istek Log Analytics tarafından yetkilendirilmiş olması açıklar.  PowerShell, C# ve Python için örnek verilmiştir.
@@ -43,7 +43,7 @@ HTTP veri toplayıcı API'sini kullanmak için JavaScript nesne gösterimi (JSON
 | Öznitelik | Özellik |
 |:--- |:--- |
 | Yöntem |POST |
-| URI |https://\<CustomerID\>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
+| URI |https://\<CustomerId\>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
 | İçerik türü |uygulama/json |
 
 ### <a name="request-uri-parameters"></a>İstek URI parametreleri
@@ -57,7 +57,7 @@ HTTP veri toplayıcı API'sini kullanmak için JavaScript nesne gösterimi (JSON
 | Üst bilgi | Açıklama |
 |:--- |:--- |
 | Yetkilendirme |Yetkilendirme imzası. Makalenin sonraki bölümlerinde bir HMAC SHA256 üst bilgisi oluşturma hakkında okuyabilirsiniz. |
-| Günlük türü |Gönderiliyor verileri kayıt türünü belirtin. Şu anda yalnızca alfasayısal karakterler günlük türünü destekler. Sayısal veya özel karakterleri desteklemez. Bu parametre için boyut sınırı 100 karakterdir. |
+| Günlük türü |Gönderiliyor verileri kayıt türünü belirtin. Bu parametre için boyut sınırı 100 karakterdir. |
 | x-ms-tarih |İstek işlendiği, RFC 1123 biçiminde tarih. |
 | saat oluşturulan alanı |Zaman damgası veri öğesinin içerdiği verileri bir alanın adı. Bir alanı belirtmeniz sonra içeriği için kullanılan **TimeGenerated**. Bu alan belirtilmezse, varsayılan **TimeGenerated** ileti alınan zamandır. Mesaj alanına içeriğini ISO 8601 biçimi YYYY izlemelidir-aa-ssZ. |
 
@@ -138,10 +138,10 @@ Bir özelliğin veri türünü tanımlamak için Log Analytics için özellik ad
 
 | Özellik verilerinin türü | Sonek |
 |:--- |:--- |
-| Dize |_Yanları |
-| Boole |_B |
-| çift |_D |
-| Tarih/saat |_T |
+| Dize |_s |
+| Boole |_b |
+| çift |_d |
+| Tarih/saat |_t |
 | GUID |_g |
 
 İster yeni kayıt için kayıt türü zaten var. her bir özellik için Log Analytics kullanan veri türüne bağlıdır.

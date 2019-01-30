@@ -6,16 +6,16 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 961bc2f5d8d619c5a1815b0f4be3b837f72513f4
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 1f184d54c0d9edc8e203b697c06c2178436172ff
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340044"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55206945"
 ---
 # <a name="supported-languages"></a>Desteklenen diller
 
@@ -30,14 +30,14 @@ Microsoft konuşma tanıma API'si, aşağıdaki dilleri desteklemektedir `intera
 | ar EG | Arapça (Mısır) modern standart | yüksek giriş | Hintçe (Hindistan) |
 | CA-ES | Katalanca (İspanya) | İt-IT | İtalyanca (İtalya)  |
 | v-DK | Danca (Danimarka) | ja-JP | Japonca (Japonya) |
-| de-DE | Almanca (Almanya) |ko-KR | Korece (Kore) |
+| de-DE | Almanca (Almanya) |ko-KR | Korece (Güney Kore) |
 | tr-AU | İngilizce (Avustralya) |NB-yok | Norveççe (Bokmal) (Norveç)  |
-| CA tr | İngilizce (Kanada) | NL-NL | Hollanda dili (Hollanda)   |
+| CA tr | İngilizce (Kanada) | NL-NL | Felemenkçe (Hollanda)   |
 | en-GB | İngilizce (Birleşik Krallık) |pl-PL | Lehçe (Polonya) |
 | tr-giriş | English (India) | pt-BR | Portekizce (Brezilya)  |
 | tr NZ | İngilizce (Yeni Zelanda) |pt-PT | Portekizce (Portekiz)  |
-| tr-TR | İngilizce (ABD) | ru-RU | Rusça (Rusya) |
-| es-ES | İspanyolca (İspanya) | sv-SE | İsveççe (İsveç) |
+| en-US | İngilizce (ABD) | ru-RU | Rusça (Rusya) |
+| es-ES | İspanyolca (İspanya) | sv-SE | İsveç dili (İsveç) |
 | es-MX | İspanyolca (Meksika) |zh-CN | Çince (Basitleştirilmiş Mandarin)  |
 | FI-FI | Fince (Finlandiya) |zh-HK | Çince (Hong Kong ÖİB) |
 | fr-CA | Fransızca (Kanada) | zh-TW | Çince (Mandarin, Tayvanca)|
@@ -51,6 +51,6 @@ Microsoft konuşma tanıma API'si, aşağıdaki dilleri desteklemektedir `conver
 |-----|-----|-----|-----|
 | ar EG | Arapça (Mısır) modern standart | İt-IT | İtalyanca (İtalya) |
 | de-DE | Almanca (Almanya) | ja-JP | Japonca (Japonya) |
-| tr-TR | İngilizce (ABD) | pt-BR | Portekizce (Brezilya) |
+| en-US | İngilizce (ABD) | pt-BR | Portekizce (Brezilya) |
 | es-ES | İspanyolca (İspanya) | ru-RU | Rusça (Rusya) |
 | fr-FR | Fransızca (Fransa) | zh-CN | Çince (Basitleştirilmiş Mandarin) |

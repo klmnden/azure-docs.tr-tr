@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/27/2018
-ms.author: raynew
-ms.openlocfilehash: 3d07b7156800b50daa75978add3ad3922108f142
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.date: 1/18/2019
+ms.author: mayg
+ms.openlocfilehash: 05a60ff2b2995642f797897d0e1f4db46c5b6741
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974021"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215852"
 ---
 # <a name="fail-over-vms-and-physical-servers"></a>Vm'leri ve fiziksel sunucuları başarısız 
 
@@ -27,7 +27,7 @@ Azure Site Recovery tarafından sağlanan yük devretme seçenekleri hakkında b
 
 | Senaryo | Uygulama Kurtarma gereksinimi | Hyper-v iş akışı | VMware için iş akışı
 |---|--|--|--|
-|Yaklaşan bir veri merkezinde bir kesinti nedeniyle planlı yük devretme| Sıfır veri kaybıyla planlı bir etkinliği gerçekleştirildiğinde uygulama| Hyper-V için kullanıcı tarafından belirtilen bir kopyalama sıklığı veri ASR çoğaltır. Planlı yük devretme sıklığını geçersiz kıl ve bir yük devretme başlatılmadan önce son değişiklikleri çoğaltmak için kullanılır. <br/> <br/> 1.    Bir bakım penceresi işletmenizin değişiklik Yönetimi sürecini göre planlayın. <br/><br/> 2, yaklaşan bir kapalı kalma süresi kullanıcılara bildirin. <br/><br/> 3. Kullanıcıya yönelik uygulamayı çevrimdışı duruma getirin.<br/><br/>4 ASR portalı kullanarak planlı yük devretme başlatın. Şirket içi sanal makine otomatik olarak kapalı.<br/><br/>Etkili uygulama veri kaybı = 0 <br/><br/>Bir günlük kurtarma noktası, daha eski bir kurtarma noktasına kullanmak isteyen bir kullanıcı için bir saklama aralığı içinde de sağlanır. (24 saat bekletme için Hyper-V).| VMware için sürekli olarak CDP kullanarak verileri ASR çoğaltır. Yük devretme kullanıcı yük devretme seçeneğini (post uygulama kapalı dahil) en son verileri sağlar.<br/><br/> 1. Değişiklik Yönetimi sürecinin göre bir bakım penceresi planlama <br/><br/>2 kullanıcılara yaklaşan bir kapalı kalma süresi bildir <br/><br/>3.    Kullanıcıya yönelik uygulamayı çevrimdışı duruma getirin. <br/><br/>4.  Planlanan uygulamayı çevrimdışı duruma geldikten sonra en son tarihli ASR portal'ı kullanarak yük devretme başlatın. Portal'daki "Planlanmamış yük devretme" seçeneğini kullanın ve en son noktaya yük devretme seçin. Şirket içi sanal makine otomatik olarak kapalı.<br/><br/>Etkili uygulama veri kaybı = 0 <br/><br/>Kurtarma noktası bekletme penceresi içinde bir günlük daha eski bir kurtarma noktasına kullanmak isteyen bir müşteri için sağlanır. (72 saate kadar bekletme VMware için).
+|Yaklaşan bir veri merkezinde bir kesinti nedeniyle planlı yük devretme| Sıfır veri kaybıyla planlı bir etkinliği gerçekleştirildiğinde uygulama| Hyper-V için kullanıcı tarafından belirtilen bir kopyalama sıklığı veri ASR çoğaltır. Planlı yük devretme sıklığını geçersiz kıl ve bir yük devretme başlatılmadan önce son değişiklikleri çoğaltmak için kullanılır. <br/> <br/> 1.    Bir bakım penceresi işletmenizin değişiklik Yönetimi sürecini göre planlayın. <br/><br/> 2, yaklaşan bir kapalı kalma süresi kullanıcılara bildirin. <br/><br/> 3. Kullanıcıya yönelik uygulamayı çevrimdışı duruma getirin.<br/><br/>4 ASR portalı kullanarak planlı yük devretme başlatın. Şirket içi sanal makine otomatik olarak kapalı.<br/><br/>Etkili uygulama veri kaybı = 0 <br/><br/>Bir günlük kurtarma noktası, daha eski bir kurtarma noktasına kullanmak isteyen bir kullanıcı için bir saklama aralığı içinde de sağlanır. (24 saat bekletme için Hyper-V). Bekletme süresi çerçeve dışına çoğaltma durduruldu, müşterilerin en son kullanılabilir kurtarma noktalarını kullanarak yük devretme mümkün olabilir. | VMware için sürekli olarak CDP kullanarak verileri ASR çoğaltır. Yük devretme kullanıcı yük devretme seçeneğini (post uygulama kapalı dahil) en son verileri sağlar.<br/><br/> 1. Değişiklik Yönetimi sürecinin göre bir bakım penceresi planlama <br/><br/>2 kullanıcılara yaklaşan bir kapalı kalma süresi bildir <br/><br/>3.    Kullanıcıya yönelik uygulamayı çevrimdışı duruma getirin. <br/><br/>4.  Planlanan uygulamayı çevrimdışı duruma geldikten sonra en son tarihli ASR portal'ı kullanarak yük devretme başlatın. Portal'daki "Planlanmamış yük devretme" seçeneğini kullanın ve en son noktaya yük devretme seçin. Şirket içi sanal makine otomatik olarak kapalı.<br/><br/>Etkili uygulama veri kaybı = 0 <br/><br/>Kurtarma noktası bekletme penceresi içinde bir günlük daha eski bir kurtarma noktasına kullanmak isteyen bir müşteri için sağlanır. (72 saate kadar bekletme VMware için). Bekletme süresi çerçeve dışına çoğaltma durduruldu, müşterilerin en son kullanılabilir kurtarma noktalarını kullanarak yük devretme mümkün olabilir.
 |Yük devretmesi nedeniyle bir datacenter Planlanmamış kapalı kalma süresi (doğal veya BT olağanüstü durum) | Uygulama için en düşük düzeyde veri kaybı | 1. kuruluşun BCP planı başlatma <br/><br/>2. ASR portalından en son veya noktası için bekletme süresinin (günlük) kullanarak planlanmamış yük devretme başlatın.| 1. Kuruluşun BCP planı başlatın. <br/><br/>2.  ASR portalından en son veya noktası için bekletme süresinin (günlük) kullanarak, planlanmamış yük devretme başlatın.
 
 
@@ -97,7 +97,7 @@ Bazı durumlarda, sanal makinelerin yük devretmesi, genellikle tamamlanması ya
 * Fiziksel sunucuları olarak korunan Hyper-V sanal makineler
 * VMware sanal makinelerini burada aşağıdaki sürücüler olarak mevcut olmayan sürücüler önyükleme
     * storvsc
-    * VMBus
+    * vmbus
     * storflt
     * intelide
     * Atapi

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/21/2019
 ms.author: raynew
-ms.openlocfilehash: fa25c144737c4d070b2dbd08700c68e617950e0d
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 148efb47d123938c3914f36e1432d447e277b051
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452267"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210566"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Bir Azure bölgesinden diğerine çoğaltma için destek matrisi
 
@@ -59,9 +59,9 @@ Almanya | Almanya Orta, Almanya Kuzeydoğu
 >
 > - İçin **Brezilya Güney** bölgeye çoğaltmak ve aşağıdakilerden birini yük devretme: Orta Güney ABD, Batı Orta ABD, Doğu ABD, Doğu ABD 2, Batı ABD, Batı ABD 2 ve orta Kuzey ABD bölgeleri. Site Recovery, Brezilya Güney, burada Vm'leri korunabilir gelen bir kaynak bölgesi olarak kullanılmak üzere yalnızca etkinleştirilmiş olduğu unutulmamalıdır. Bunu **bir hedef DR bölgesindeki kullanılamaz** Orta Güney ABD gibi Azure bölgelerinden birini için. Bunun nedeni gecikme süresi, Brezilya Güney dışındaki tüm diğer Amerika'nın bölgeyi seçmek için önerilen nedeniyle coğrafi uzaklıktan gözlemledik.
 > 
-> - Eğer **bir bölge görmek karşılaştırılamıyor** istediğiniz **bir kasa oluşturmak için** sonra aboneliğiniz, bu bölgede kaynakları oluşturmak için erişimi olduğundan emin olun. Örneğin: Fransa Güney bölgesinde kasası oluşturmak mümkün değilse, aboneliğinizin Fransa Güney bölgesine erişimi yok. Lütfen "diğer genel sorular" konu sorun türü "abonelik yönetimi" altında dosya destek bileti ve sorun türü "XXX whitlelist aboneliğinde Azure bölgesi"
+> - Eğer **bir bölge görmek karşılaştırılamıyor** istediğiniz **bir kasa oluşturmak için** sonra aboneliğiniz, bu bölgede kaynakları oluşturmak için erişimi olduğundan emin olun. Örneğin: Fransa Güney bölgesinde kasası oluşturmak mümkün değilse, aboneliğinizin Fransa Güney bölgesine erişimi yok. Lütfen "diğer genel sorular" konu sorun türü "abonelik yönetimi" altında dosya destek bileti ve sorun türü "XXX beyaz liste aboneliğinde Azure bölgesi"
 > 
-> - Kullanıyorsanız **bir bölge görmek karşılaştırılamıyor** coğrafi bir küme içindeki **çoğaltmayı etkinleştirme sırasında** sonra aboneliğiniz, bu bölgede sanal makine oluşturmak için erişimi olduğundan emin olun. Örneğin: Sanal makineler Fransa Orta için Fransa Güney korumaya çalışıyorsanız ve görmüyorsanız Fransa Güney bölgesi altındaki aşağı açılır liste sonra aboneliğiniz bu bölgedeki VM dağıtmak için erişime sahip değil. Lütfen "diğer genel sorular" konu sorun türü "abonelik yönetimi" altında dosya destek bileti ve sorun türü "XXX whitlelist aboneliğinde Azure bölgesi"
+> - Kullanıyorsanız **bir bölge görmek karşılaştırılamıyor** coğrafi bir küme içindeki **çoğaltmayı etkinleştirme sırasında** sonra aboneliğiniz, bu bölgede sanal makine oluşturmak için erişimi olduğundan emin olun. Örneğin: Sanal makineler Fransa Orta için Fransa Güney korumaya çalışıyorsanız ve görmüyorsanız Fransa Güney bölgesi altındaki aşağı açılır liste sonra aboneliğiniz bu bölgedeki VM dağıtmak için erişime sahip değil. Lütfen "diğer genel sorular" konu sorun türü "abonelik yönetimi" altında dosya destek bileti ve sorun türü "XXX beyaz liste aboneliğinde Azure bölgesi"
 > - Yukarıda belirtilen coğrafi kümeleri arasında bölgeleri seçemezsiniz.
 
 

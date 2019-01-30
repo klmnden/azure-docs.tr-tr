@@ -1,26 +1,22 @@
 ---
 title: Yük devretme Azure hataları için sorun giderme | Microsoft Docs
 description: Bu makalede, azure'a yük devretme, sık karşılaşılan sorunları giderme yolları açıklanır.
-services: site-recovery
-documentationcenter: ''
 author: ponatara
 manager: abhemraj
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
+services: site-recovery
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 12/11/2018
+ms.date: 1/29/2019
 ms.author: mayg
-ms.openlocfilehash: 742e7891ec9c7151f23f1ad6eb57e728dd2a1ddd
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 62b69364f0b3d3e14d0b2d877604cecfcc346dce
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255100"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207505"
 ---
-# <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>Bir sanal makinenin azure'a yük devri sırasında karşılaşılan sorunları giderme
+# <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>VMware VM veya fiziksel makinenin azure'a yük devri sırasında karşılaşılan sorunları giderme
 
 Azure'da bir sanal makine yük devretmesi yaparken aşağıdaki hatalardan birini alabilirsiniz. Sorunu gidermek için her bir hata koşulu için açıklanan adımları kullanın.
 
@@ -48,7 +44,9 @@ Site Recovery Azure'da Klasik sanal makine üzerinde başarısız oluşturmak m�
 
 Site kurtarma, başarısız bir yük devredilen Azure sanal makine oluşturmak ulaşamadı. Şirket içi sanal makine için bir iç hidrasyonu etkinliğin başarısız olduğundan meydana gelmiş olabilir.
 
-Azure'da herhangi bir makineye getirmek için bazı sürücüler önyükleme olmasını başlangıç durumu ve DHCP autostart durumunda olması gibi hizmetler Azure ortamına gerektirir. Bu nedenle, yük devretme sırasındaki hidrasyonu etkinlik başlangıç türünü dönüştürür **atapi, intelide, storflt, vmbus ve storvsc sürücüleri** önyükleme başlatmak için. Ayrıca DHCP gibi birkaç hizmet başlangıç türünü otomatik başlatma için dönüştürür. Bu etkinlik belirli ortam sorunları nedeniyle başarısız olabilir. Sürücüleri başlatma türü el ile değiştirmeniz için izleyin aşağıdaki adımları:
+Azure'da herhangi bir makineye getirmek için bazı sürücüler önyükleme olmasını başlangıç durumu ve DHCP autostart durumunda olması gibi hizmetler Azure ortamına gerektirir. Bu nedenle, yük devretme sırasındaki hidrasyonu etkinlik başlangıç türünü dönüştürür **atapi, intelide, storflt, vmbus ve storvsc sürücüleri** önyükleme başlatmak için. Ayrıca DHCP gibi birkaç hizmet başlangıç türünü otomatik başlatma için dönüştürür. Bu etkinlik belirli ortam sorunları nedeniyle başarısız olabilir. 
+
+El ile sürücüleri için başlangıç türünü değiştirmek için **Windows konuk işletim sistemi**, izleyerek aşağıdaki adımları:
 
 1. [İndirme](http://download.microsoft.com/download/5/D/6/5D60E67C-2B4F-4C51-B291-A97732F92369/Script-no-hydration.ps1) çalıştırma ve Hayır hidrasyonu betik olarak izler. Bu betik, VM hidrasyonu gerektirip gerektirmediğini denetler.
 

@@ -6,18 +6,18 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 7c4a5029208854528afdfdbfcdc63434a2a94e24
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: f8bc13aa2adad5c27b1754303ea30304c491f7ca
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49338717"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211806"
 ---
-# <a name="quickstart-use-the-bing-speech-recognition-api-in-objective-c-on-ios"></a>Hızlı Başlangıç: Objective-C içinde Bing konuşma tanıma API'si, İos'ta kullanın.
+# <a name="quickstart-use-the-bing-speech-recognition-api-in-objective-c-on-ios"></a>Hızlı Başlangıç: Bing konuşma tanıma API'si, iOS üzerinde Objective-C içinde kullanın
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
@@ -113,9 +113,9 @@ Aşağıdaki kod örneğinde, kullanıcı senaryoları tabanlı tanıma istemci 
 
 İstemci Kitaplığı önceden uygulanan tanıma, konuşma tanıma tipik senaryolar için istemci sınıfları sağlar:
 
-* `DataRecognitionClient`: PCM verileri (örneğin, bir dosya ya da ses kaynağından gelen) ile Konuşma tanıma. Veri arabellekleri ayrılmıştır ve her arabellek konuşma hizmeti için gönderilir. Kullanıcılar kendi sessizlik algılama isterseniz uygulayabilmek için hiçbir değişiklik arabellekleri için gerçekleştirilir. Veri WAV dosyalarını sağlanmazsa, sunucunun dosya sağdan veriler gönderebilir. Ham verileri varsa, örneğin, Bluetooth üzerinden gelen ses, ilk biçimi üstbilgi verileri sunucusuna gönderir.
+* `DataRecognitionClient`: Konuşma tanıma PCM verileri (örneğin, bir dosya ya da ses kaynağından gelen) ile. Veri arabellekleri ayrılmıştır ve her arabellek konuşma hizmeti için gönderilir. Kullanıcılar kendi sessizlik algılama isterseniz uygulayabilmek için hiçbir değişiklik arabellekleri için gerçekleştirilir. Veri WAV dosyalarını sağlanmazsa, sunucunun dosya sağdan veriler gönderebilir. Ham verileri varsa, örneğin, Bluetooth üzerinden gelen ses, ilk biçimi üstbilgi verileri sunucusuna gönderir.
 * `MicrophoneRecognitionClient`: Konuşma tanıma mikrofondan gelen sesi ile. Mikrofon açık ve mikrofon verileri için konuşma tanıma hizmeti gönderilir emin olun. Tanıma hizmetine gönderilmeden önce bir yerleşik "sessizlik algılayıcısı" Mikrofon verilere uygulanır.
-* `DataRecognitionClientWithIntent` ve `MicrophoneRecognitionClientWithIntent`: tanıma metne ek olarak, bu istemciler uygulamalarınızı daha da seslerini için kullanabileceğiniz konuşmacının amacı hakkında yapılandırılmış bilgiler döndürür. "Hedefi" kullanmak için önce kullanarak bir model eğitip gerekir [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
+* `DataRecognitionClientWithIntent` ve `MicrophoneRecognitionClientWithIntent`: Tanıma metne ek olarak, bu istemciler, uygulamaları daha da seslerini için kullanabilir konuşmacının amacı hakkında yapılandırılmış bilgiler döndürür. "Hedefi" kullanmak için önce kullanarak bir model eğitip gerekir [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
 
 ### <a name="recognition-language"></a>Tanıma dili
 
@@ -125,16 +125,16 @@ Kullanırken `SpeechRecognitionServiceFactory` istemcisi oluşturmak için bir d
 
 Ayrıca belirtmenize gerek `SpeechRecognitionMode` istemciyle oluşturduğunuzda `SpeechRecognitionServiceFactory`:
 
-* `SpeechRecognitionMode_ShortPhrase`Uzun utterance fazla 15 saniye. Hizmetine gönderilen veri gibi istemci, birden çok kısmı sonuç ve birden çok en iyi n seçim ile bir nihai sonucu alır.
-* `SpeechRecognitionMode_LongDictation`: Bir utterance iki kadar uzun dakika. Hizmetine gönderilen veri gibi istemci, birden çok kısmı sonuç ve birden çok Nihai sonuç, sunucunun cümle duraklamaları burada tanımlar temel alır.
+* `SpeechRecognitionMode_ShortPhrase`: Uzun bir utterance fazla 15 saniye. Hizmetine gönderilen veri gibi istemci, birden çok kısmı sonuç ve birden çok en iyi n seçim ile bir nihai sonucu alır.
+* `SpeechRecognitionMode_LongDictation`: Uzun bir utterance en fazla iki dakika. Hizmetine gönderilen veri gibi istemci, birden çok kısmı sonuç ve birden çok Nihai sonuç, sunucunun cümle duraklamaları burada tanımlar temel alır.
 
 ### <a name="attach-event-handlers"></a>Olay işleyicileri ekleme
 
 İstemciye çeşitli olay işleyicileri ekleyebilirsiniz, oluşturan:
 
-* **Kısmi sonuçlar olayları**: bile Konuşmayı bitirmeden kişilerin, yorumlarını, konuşma tanıma hizmeti tahmin her başlatıldığında bu olay adlı (kullanırsanız `MicrophoneRecognitionClient`) veya veri gönderen son (kullanırsanız `DataRecognitionClient`).
-* **Hata olayları**: hizmeti bir hata algıladığında çağrılır.
-* **Hedefi olayları**: adlı istemcilerde "WithIntent" (yalnızca modunda ShortPhrase) son tanıma sonra sonuç yapılandırılmış bir JSON hedefi ayrıştırılır.
+* **Kısmi sonuçlar olayları**: Bile Konuşmayı bitirmeden kişilerin, yorumlarını, konuşma tanıma hizmeti tahmin her başlatıldığında bu olay adlı (kullanırsanız `MicrophoneRecognitionClient`) veya veri gönderen son (kullanırsanız `DataRecognitionClient`).
+* **Hata olayları**: Hizmet bir hata algıladığında çağrılır.
+* **Hedefi olayları**: Adlı istemcilerde "WithIntent" (yalnızca modunda ShortPhrase) son tanıma sonra sonuç yapılandırılmış bir JSON hedefi ayrıştırılır.
 * **Neden olayların**:
   * İçinde `SpeechRecognitionMode_ShortPhrase` modu, bu olay adı verilir ve konuşma tamamladıktan sonra en iyi n sonuçlarını döndürür.
   * İçinde `SpeechRecognitionMode_LongDictation` modu, olay işleyicisi adlı birden çok kez bağlı hizmeti cümle duraklamaları burada tanımlar.
