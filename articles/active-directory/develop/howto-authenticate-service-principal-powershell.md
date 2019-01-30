@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 10/24/2018
 ms.author: celested
 ms.reviewer: tomfitz
-ms.openlocfilehash: c768d5a35016b0725d4dbca2a418c8e780812d62
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 35a69f12dc73ef0cbf9bc1541fa75037f6ef06f5
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55091655"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228245"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Nasıl yapılır: Azure PowerShell kullanarak sertifikayla bir hizmet sorumlusu oluşturma
 
@@ -46,7 +46,7 @@ Hesabınızın yeterli izinlere sahip olup olmadığını denetlemenin en kolay 
 
 ## <a name="create-service-principal-with-self-signed-certificate"></a>Otomatik olarak imzalanan bir sertifikayla hizmet sorumlusu oluşturma
 
-Aşağıdaki örnekte basit bir senaryo ele alınmıştır. Kullandığı [yeni AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal) otomatik olarak imzalanan bir sertifika ile kullanan bir hizmet sorumlusu oluşturmak için [New-AzureRmRoleAssignment](/powershell/module/az.resources/new-azroleassignment) atamak [katkıda bulunan](../../role-based-access-control/built-in-roles.md#contributor) rolü için hizmet sorumlusu. Rol atamasının kapsamı şu anda seçili olan Azure aboneliğinizdir. Farklı bir aboneliği seçmek için kullanın [kümesi AzContext](/powershell/module/az.profile/set-azcontext).
+Aşağıdaki örnekte basit bir senaryo ele alınmıştır. Kullandığı [yeni AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal) otomatik olarak imzalanan bir sertifika ile kullanan bir hizmet sorumlusu oluşturmak için [New-AzureRmRoleAssignment](/powershell/module/az.resources/new-azroleassignment) atamak [katkıda bulunan](../../role-based-access-control/built-in-roles.md#contributor) rolü için hizmet sorumlusu. Rol atamasının kapsamı şu anda seçili olan Azure aboneliğinizdir. Farklı bir aboneliği seçmek için kullanın [kümesi AzContext](/powershell/module/Az.Accounts/Set-AzContext).
 
 ```powershell
 $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" `

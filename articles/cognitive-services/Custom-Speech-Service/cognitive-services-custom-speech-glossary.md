@@ -5,16 +5,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: 02f6c3f81cbaa26eed8de8b7785b519ecbc3bf26
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 889eabf38f25923d9bd84ea6ceaa5567c74216df
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344260"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55223825"
 ---
 # <a name="glossary"></a>Sözlük
 
@@ -60,7 +60,7 @@ Uyarlanmış özel model, bir hizmet haline gelir ve sunan bir URI işlemi
 
 ## <a name="l"></a>L
 
-### <a name="language-model"></a>Dil Modeli
+### <a name="language-model"></a>Dil modeli
 
 Dil modeli, sözcük dizileri üzerine bir olasılık dağılımıdır. Dil modeli, sözcük dizileri olasılığını üzerinde temel benzer, ses sözcük dizileri arasında karar sistem yardımcı olur.
 
@@ -70,7 +70,7 @@ Dil modeli, sözcük dizileri üzerine bir olasılık dağılımıdır. Dil mode
 
 ### <a name="normalization"></a>Normalleştirme
 
-Normalleştirme (metin): Sonuçta elde edilen metin (yani, döküm) dönüştürülmesini bir forma standart, benzersiz sistem tarafından okunabilir.
+Normalleştirme (metin): Sonuçta elde edilen metin (yani, döküm) dönüşümü bir forma standart, benzersiz sistem tarafından okunabilir.
 
 ## <a name="o"></a>O
 
@@ -94,7 +94,7 @@ Abonelik anahtarı herhangi bir özel konuşma hizmeti model çağırmak için b
 
 ### <a name="transcription"></a>Döküm
 
-Transkripsiyonu: Ses .wav dosyasının bir işlemden sonuçları metin parçası
+Döküm: Ses .wav dosyasının bir işlemden sonuçları metin parçası
 
 ## <a name="u"></a>U
 

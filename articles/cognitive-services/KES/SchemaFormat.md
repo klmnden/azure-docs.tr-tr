@@ -6,16 +6,16 @@ services: cognitive-services
 author: bojunehsu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 07f5536641b55aadf9d8b2623bf4797b8dcd7bd5
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 4fa8f072d420a0245b9de65482ab4c97fa775bdf
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129259"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227310"
 ---
 # <a name="schema-format"></a>Şema biçimi
 
@@ -41,15 +41,15 @@ ms.locfileid: "46129259"
 
 Desteklenen öznitelik veri türlerinin bir listesi aşağıdadır:
 
-| Tür | Açıklama | İşlemler | Örnek |
+| Type | Açıklama | İşlemler | Örnek |
 |------|-------------|------------|---------|
 | Dize | Dize (1-1024 karakter) | Equals, starts_with | "hello world" |
 | Int32 | İşaretli 32 bit tam sayı | is_between starts_with, eşittir | 2016 |
 | Int64 | İşaretli 64 bit tam sayı | is_between starts_with, eşittir | 9876543210 |
 | çift | Çift duyarlıklı kayan nokta değeri | is_between starts_with, eşittir | 1.602e-19 |
-| Tarih | Tarih (1400-01-01-9999-12-31) | Equals, is_between | ' 2016-03-14' |
+| Tarih | Tarih (1400-01-01-9999-12-31) | Equals, is_between | '2016-03-14' |
 | Guid | Genel benzersiz tanıtıcısı | şuna eşittir: | "602DD052-CC47-4B23-A16A-26B52D30C05B" |
-| Blob | Dahili olarak sıkıştırılmış veri dizini oluşturulmamış | *Yok* | "Her kişi ve her kuruluşun gezegendeki daha fazlasını başarmak için güçlendirin" |
+| Blob | Dahili olarak sıkıştırılmış veri dizini oluşturulmamış | *Yok.* | "Her kişi ve her kuruluşun gezegendeki daha fazlasını başarmak için güçlendirin" |
 | Bileşik | Birden çok alt öznitelikler oluşturma| *Yok* | {"Name": "harry shum", "Bağlantı": "microsoft"} |
 
 Dize öznitelikler kullanıcı sorgunun bir parçası görünebilir dize değerleri temsil etmek için kullanılır.  Tam eşleşme destekledikleri *eşittir* işlemi, hem de *starts_with* işlemi "micros", "microsoft" ile eşleşen gibi sorgu tamamlama senaryolar için.  Yazım hatalarını işlemek için büyük/küçük harfe ve benzer eşleştirme, gelecekteki bir sürümde desteklenecek.

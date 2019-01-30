@@ -6,16 +6,16 @@ services: cognitive-services
 author: bojunehsu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/24/2016
 ms.author: paulhsu
-ms.openlocfilehash: 7ec2282317019275b15a8e506753408c75a68561
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 52d001e32e1bdb0d0046853f18649bafa49b1f14
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127174"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228534"
 ---
 # <a name="command-line-interface"></a>Command Line Interface
 
@@ -48,7 +48,7 @@ Bu dosyalar, yerel dosya yolu veya URL yolu Azure BLOB'ları için belirtilebili
 
 Bir açıklama dizesi kullanarak bir ikili dizin sonradan tanımlamak için isteğe bağlı olarak belirtilebilir **describe_index** komutu.  
 
-Varsayılan olarak, dizin yerel makine üzerinde oluşturulmuştur.  Azure ortamının dışında en fazla 10.000 nesneler içeren veri dosyaları için yerel yapılar sınırlıdır.  Zaman--uzak bayrağı belirtilirse, belirtilen boyutta geçici olarak oluşturulan Azure VM üzerinde dizin oluşturulacak.  Bu, verimli bir şekilde daha fazla belleğe sahip Azure sanal makinelerini kullanarak oluşturulacak büyük dizinler sağlar.  Yapı işlemini yavaşlatır disk belleği önlemek için bir VM ile RAM miktarını 3 kez giriş verilerini dosya boyutu kullanmanızı öneririz.  Kullanılabilir VM boyutlarını gösteren liste için bkz: [sanal makine boyutları](../../../articles/virtual-machines/virtual-machines-windows-sizes.md).
+Varsayılan olarak, dizin yerel makine üzerinde oluşturulmuştur.  Azure ortamının dışında en fazla 10.000 nesneler içeren veri dosyaları için yerel yapılar sınırlıdır.  Zaman--uzak bayrağı belirtilirse, belirtilen boyutta geçici olarak oluşturulan Azure VM üzerinde dizin oluşturulacak.  Bu, verimli bir şekilde daha fazla belleğe sahip Azure sanal makinelerini kullanarak oluşturulacak büyük dizinler sağlar.  Yapı işlemini yavaşlatır disk belleği önlemek için bir VM ile RAM miktarını 3 kez giriş verilerini dosya boyutu kullanmanızı öneririz.  Kullanılabilir VM boyutları listesi için bkz. [Sanal makinelerin boyutları](../../../articles/virtual-machines/virtual-machines-windows-sizes.md).
 
 > [!TIP] 
 > Daha hızlı derlemeler için olasılık azaltarak veri dosyasındaki nesneleri presort.

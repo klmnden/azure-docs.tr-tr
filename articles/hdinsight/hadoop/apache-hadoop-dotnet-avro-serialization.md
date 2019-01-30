@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
 ms.custom: hdiseo17may2017
-ms.openlocfilehash: 8ef8f66a67ee93ea8c015c33e69b87e7c5d2a898
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: d729d840bb055452eb8bb87cc978f1e38dcea48e
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259996"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227956"
 ---
 # <a name="serialize-data-in-apache-hadoop-with-the-microsoft-avro-library"></a>Microsoft Avro library Apache Hadoop, verileri seri hale getirme
 
@@ -1351,7 +1351,7 @@ Altıncı örnek Azure HDInsight hizmeti ile etkileşim için ilgili bazı progr
 Örnek, aşağıdaki görevleri gerçekleştirir:
 
 * Mevcut bir HDInsight hizmeti kümesine bağlanır.
-* Birden çok CSV dosyalarına serileştirir ve sonuçta Azure Blob depolama alanına yükler. (CSV dosyaları örnek ile birlikte dağıtılan ve ayıklama tarafından dağıtılan AMEX stok geçmiş verilerden temsil [Infochimps](https://www.infochimps.com/) 1970 2010 süre. Örnek CSV dosyası verilerine okur, kayıtları örneğine dönüştürür **hisse senedi** sınıfı ve ardından yansıma kullanarak serileştirir. Stok tür tanımı bir JSON şeması Microsoft Avro Library kod oluşturma yardımcı programı aracılığıyla oluşturulur.
+* Birden çok CSV dosyalarına serileştirir ve sonuçta Azure Blob depolama alanına yükler. (CSV dosyaları örnek ile birlikte dağıtılan ve ayıklama tarafından dağıtılan AMEX stok geçmiş verilerden temsil [Infochimps](https://www.infochimps.org/) 1970 2010 süre. Örnek CSV dosyası verilerine okur, kayıtları örneğine dönüştürür **hisse senedi** sınıfı ve ardından yansıma kullanarak serileştirir. Stok tür tanımı bir JSON şeması Microsoft Avro Library kod oluşturma yardımcı programı aracılığıyla oluşturulur.
 * Adlı yeni bir dış tablo oluşturur **Stocks** Hive ve önceki adımda verileri karşıya bağlantılar.
 * Bir sorgu üzerinde Hive'ı kullanarak yürütür **Stocks** tablo.
 

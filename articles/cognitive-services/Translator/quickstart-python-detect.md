@@ -1,23 +1,23 @@
 ---
-title: "Hızlı başlangıç: Metin dilini algılama, Python - Translator Metin Çevirisi API'si"
+title: "Hızlı Başlangıç: Metin dili, Python - Translator metin çevirisi API'si algılayın"
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta Python ve Translator Metin Çevirisi API'sini kullanarak sağlanan metnin dilini tanımlamayı öğreneceksiniz.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 10/24/2018
 ms.author: erhopf
-ms.openlocfilehash: cfc2565c0ee2b51eaff40647cfcd7505e0479e64
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 23f1aa8e6356c9a0d3ce7e680ae1b0ca7d0b1bc3
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993823"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55213812"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-python"></a>Hızlı Başlangıç: Python ve Translator Metin Çevirisi API'sini kullanarak metin dilini algılama
+# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-python"></a>Hızlı Başlangıç: Translator metin çevirisi API'si, Python kullanarak metin dili algılamak için kullanın
 
 Bu hızlı başlangıçta Python ve Translator Metin Çevirisi API'sini kullanarak sağlanan metnin dilini algılamayı öğreneceksiniz.
 
@@ -67,7 +67,7 @@ else:
 Şu anda Translator Metin Çevirisi için bir uç nokta kullanılabilir ve `base_url` olarak ayarlanmıştır. `path`, `detect` rotasını ayarlar ve API sürüm 3’ü kullanmak istediğimizi belirler.
 
 >[!NOTE]
-> Uç noktalar, rotalar ve istek parametreleri hakkında daha fazla bilgi için bkz. [Translator Metin Çevirisi API’si 3.0: Algılama](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect).
+> Uç noktaları, yollar ve istek parametreleri hakkında daha fazla bilgi için bkz: [Translator Text API 3.0: Algılama](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect).
 
 ```python
 base_url = 'https://api.cognitive.microsofttranslator.com'

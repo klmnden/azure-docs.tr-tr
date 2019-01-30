@@ -1,23 +1,23 @@
 ---
-title: "Hızlı Başlangıç: Metin çevirme, Java - Translator Metin Çevirisi API'si"
+title: "Hızlı Başlangıç: Java - Translator metin çevirisi API'si metni Çevir"
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, İtalyanca ve Almanca Java ve Translator Text REST API kullanarak bir metin dizesi İngilizce'den Çevir öğreneceksiniz.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/03/2018
 ms.author: erhopf
-ms.openlocfilehash: 537132a5d77927f130f2737e0ba597b9e74ace6e
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: a757b766537cc4f1105d77478f4a1d7543c27e40
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890254"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227922"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-java"></a>Hızlı Başlangıç: Java kullanarak bir dizeye çevirmek için Translator Text API kullanın.
+# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-java"></a>Hızlı Başlangıç: Translator metin çevirisi API'si, Java kullanarak bir dizeye çevirmek için kullanın
 
 Bu hızlı başlangıçta, İtalyanca ve Almanca Java ve Translator Text REST API kullanarak bir metin dizesi İngilizce'den Çevir öğreneceksiniz.
 

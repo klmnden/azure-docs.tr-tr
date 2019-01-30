@@ -4,22 +4,40 @@ description: Güncelleştirme yönetimi, değişiklik izleme ve stok çözümler
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 01/25/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 52ff52ffb558278507bb24e1b1e2054c251b2512
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 78e78bc019ab5f8be1cfd3448220b97b89cde6a5
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879653"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228789"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>Hatalarında sorun giderme, onboarding çözümleri
 
 Güncelleştirme yönetimi veya değişiklik izleme ve sayım gibi çözümleri ekleme sırasında hatalarla karşılaşabilirsiniz. Bu makalede, oluşabilecek çeşitli hataları ve bunların nasıl çözüleceğine açıklanır.
 
 ## <a name="general-errors"></a>Genel hatalar
+
+### <a name="missing-write-permissions"></a>Senaryo: Çözüm etkinleştirilemiyor - ekleme iletisi ile başarısız oluyor
+
+#### <a name="issue"></a>Sorun
+
+Yerleşik bir çözüm için bir sanal makine çalıştığınızda şu iletiyi alırsınız:
+
+```
+The solution cannot be enabled due to missing permissions for the virtual machine or deployments
+```
+
+#### <a name="cause"></a>Nedeni
+
+Bu hata, sanal makinede veya kullanıcı için eksik veya hatalı izinleri kaynaklanır.
+
+#### <a name="resolution"></a>Çözüm
+
+Sanal makine eklemek için doğru izinlere sahip olun. Gözden geçirme [makine için gereken izinleri](../automation-role-based-access-control.md#onboarding) ve ekleme için çözümü yeniden deneyin.
 
 ### <a name="computer-group-query-format-error"></a>Senaryo: ComputerGroupQueryFormatError
 
@@ -55,7 +73,7 @@ Bu hata kodu dağıtımda bir veya daha fazla ilke ihlali nedeniyle başarısız
   * Yeniden hedefleme İlkesi belirli bir kaynağa (gibi belirli bir Otomasyon hesabı).
   * Düzeltme kümesi kaynakları bu ilke reddetmek üzere yapılandırıldı.
 
-Azure portalının sağ üst köşedeki Bildirimlerde denetleyin veya seçin ve Otomasyon hesabını içeren kaynak grubuna gidin **dağıtımları** altında **ayarları** başarısız görüntülemek için Dağıtım. Azure İlkesi ziyaret hakkında daha fazla bilgi edinmek için: [Azure İlkesi Genel Bakış](../../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json).
+Azure portalının sağ üst köşedeki Bildirimlerde denetleyin veya seçin ve Otomasyon hesabını içeren kaynak grubuna gidin **dağıtımları** altında **ayarları** başarısız görüntülemek için Dağıtım. Azure İlkesi ziyaret hakkında daha fazla bilgi için: [Azure İlkesi'ne genel bakış](../../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json).
 
 ## <a name="mma-extension-failures"></a>MMA uzantısı hatalarında
 
@@ -67,7 +85,7 @@ Linux için MMA veya Log Analytics aracısını yükleme çeşitli nedenlerden d
 
 Aşağıdaki bölümde onboarding MMA uzantısı dağıtımda bir hata neden olduğunda, karşılaşabilirsiniz çeşitli sorunlar açıklanmaktadır.
 
-### <a name="webclient-exception"></a>Senaryo: WebClient isteği sırasında bir özel durum oluştu.
+### <a name="webclient-exception"></a>Senaryo: WebClient isteği sırasında bir özel durum oluştu
 
 Sanal makinede MMA uzantısı başarısız dış kaynaklara ve dağıtım ile iletişim kuramıyor.
 

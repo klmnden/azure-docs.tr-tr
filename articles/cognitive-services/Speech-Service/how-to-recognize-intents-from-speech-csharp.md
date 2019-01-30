@@ -1,23 +1,23 @@
 ---
-title: "Öğretici: C# için Konuşma SDK'sını kullanarak konuşmadaki amaçları tanıma"
+title: "Öğretici: C# ' ta Speech SDK'sı kullanarak amaçlardan tutun konuşma tanıma"
 titleSuffix: Azure Cognitive Services
 description: Bu öğreticide C# için Konuşma SDK'sını kullanarak konuşmadaki amaçları tanımayı öğreneceksiniz.
 services: cognitive-services
 author: wolfma61
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 64fa194225c7e9fa4c272ca8a9e95b44282ec1df
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: e810450a8934a8df921c5d952a55ab0deaf853ec
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466486"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227989"
 ---
-# <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Öğretici: C# için Konuşma SDK'sını kullanarak konuşmadaki amaçları tanıma
+# <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Öğretici: Amaçlardan tutun Speech SDK'sı kullanarak konuşma tanımaC#
 
 [!INCLUDE [Article selector](../../../includes/cognitive-services-speech-service-how-to-recognize-intents-from-speech-selector.md)]
 
@@ -36,7 +36,7 @@ Bu öğreticide, cihazınızın mikrofonu aracılığıyla alınan kullanıcı k
 > * Dosyadan konuşma tanıma
 > * Zaman uyumsuz, olay odaklı sürekli tanıma kullanma
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiye başlamadan önce aşağıdakilere sahip olduğunuzdan emin olun.
 

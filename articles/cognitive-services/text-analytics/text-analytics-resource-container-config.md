@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: 8f3c6b62f71247aabe88fd06956c6f2a26db82c1
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 2360cb56f40bf899cec5d4a5fb6637eaac59f4d1
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54460932"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55224335"
 ---
 # <a name="configure-text-analytics-docker-containers"></a>Metin analizi docker kapsayıcıları yapılandırın
 
@@ -77,7 +77,7 @@ Giriş metin analizi kapsayıcıları kullanma ya da eğitim veya hizmeti verile
 
 Konak bağlama konumu söz dizimi konak işletim sistemine göre değişir. Ayrıca, [ana bilgisayar](how-tos/text-analytics-how-to-install-containers.md#the-host-computer)'s bağlama konumu docker hizmet hesabı tarafından kullanılan izinler arasında bir çakışma nedeniyle erişilebilir olmayabilir ve konak yeri izinleri bağlayın. 
 
-|İsteğe bağlı| Ad | Veri türü | Açıklama |
+|İsteğe bağlı| Name | Veri türü | Açıklama |
 |-------|------|-----------|-------------|
 |İzin verilmedi| `Input` | Dize | Metin analizi kapsayıcıları bu kullanmayın.|
 |İsteğe bağlı| `Output` | Dize | Çıkış bağlama hedefi. Varsayılan değer `/output` şeklindedir. Bu günlükler konumdur. Bu, kapsayıcı günlükleri içerir. <br><br>Örnek:<br>`--mount type=bind,src=c:\output,target=/output`|

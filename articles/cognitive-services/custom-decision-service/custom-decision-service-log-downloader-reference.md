@@ -6,16 +6,16 @@ services: cognitive-services
 author: marco-rossi29
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-decision-service
+ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: marossi
-ms.openlocfilehash: 8c5ab0e297690f1fbdb41a2627dd63c3ea522d1b
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 227caaa1b726210fd498596d716aa41365a63c7a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366822"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228126"
 ---
 # <a name="logdownloader"></a>LogDownloader
 
@@ -24,9 +24,9 @@ Azure Custom Decision Service tarafından üretilen ve oluşturacak günlük dos
 ## <a name="prerequisites"></a>Önkoşullar
 
 - Python 3: Yüklü ve yolunuzu. Büyük dosyaları işlemek için 64 bit sürümü öneririz.
-- *Mwt/Microsoft-ds* depo: [depoyu Kopyalayalım](https://github.com/Microsoft/mwt-ds).
-- *Azure depolama blobu* paket: ilgili yükleme ayrıntılarını, Git [Python için Microsoft Azure depolama Kitaplığı](https://github.com/Azure/azure-storage-python#option-1-via-pypi).
-- Azure depolama bağlantı dizenizi girin *mwt-ds/DataScience/ds.config*: izleyin *my_app_id: my_connectionString* şablonu. Birden çok belirtebilirsiniz `app_id`. Çalıştırdığınızda `LogDownloader.py`, giriş `app_id` içinde bulunamadı `ds.config`, `LogDownloader.py` kullanan `$Default` bağlantı dizesi.
+- *Mwt/Microsoft-ds* depo: [Depoyu kopyalayalım](https://github.com/Microsoft/mwt-ds).
+- *Azure depolama blobu* paket: Yükleme ayrıntıları için Git [Python için Microsoft Azure depolama Kitaplığı](https://github.com/Azure/azure-storage-python#option-1-via-pypi).
+- Azure depolama bağlantı dizenizi girin *mwt-ds/DataScience/ds.config*: İzleyin *my_app_id: my_connectionString* şablonu. Birden çok belirtebilirsiniz `app_id`. Çalıştırdığınızda `LogDownloader.py`, giriş `app_id` içinde bulunamadı `ds.config`, `LogDownloader.py` kullanan `$Default` bağlantı dizesi.
 
 ## <a name="usage"></a>Kullanım
 
@@ -44,13 +44,13 @@ python LogDownloader.py [-h] -a APP_ID -l LOG_DIR [-s START_DATE]
 | Girdi | Açıklama | Varsayılan |
 | --- | --- | --- |
 | `-h`, `--help` | Çıkış ve yardım iletisini gösterir. | |
-| `-a APP_ID`, `--app_id APP_ID` | Uygulama Kimliği (diğer bir deyişle, Azure depolama blobu kapsayıcısının adı). | Gerekli |
-| `-l LOG_DIR`, `--log_dir LOG_DIR` | (Bir alt klasör oluşturulduğunda) veri yükleme için taban dizini.  | Gerekli |
+| `-a APP_ID`, `--app_id APP_ID` | Uygulama Kimliği (diğer bir deyişle, Azure depolama blobu kapsayıcısının adı). | Gereklidir |
+| `-l LOG_DIR`, `--log_dir LOG_DIR` | (Bir alt klasör oluşturulduğunda) veri yükleme için taban dizini.  | Gereklidir |
 | `-s START_DATE`, `--start_date START_DATE` | Başlangıç tarihi (dahil), buna indirme *YYYY-AA-GG* biçimi. | `None` |
 | `-e END_DATE`, `--end_date END_DATE` | (Dahil) yükleme son tarihi *YYYY-AA-GG* biçimi. | `None` |
 | `-o OVERWRITE_MODE`, `--overwrite_mode OVERWRITE_MODE` | Kullanılacak üzerine yazma modu. | |
 | | `0`: Hiçbir zaman üzerine; BLOB'ları şu anda kullanılmakta olan kullanıcı isteyin. | Varsayılan | |
-| | `1`: Kullanıcının dosyaları farklı boyutlarda veya BLOB'ları şu anda kullanılmakta olan devam etmek nasıl isteyin. | |
+| | `1`: Kullanıcı dosyaları farklı boyutlarda veya BLOB'ları şu anda kullanılmakta olan devam etmek nasıl isteyin. | |
 | | `2`: Her zaman üzerine; şu anda kullanılan blobları indirin. | |
 | | `3`: Hiçbir zaman üzerine ve boyutu büyükse, istemeden ekleme; şu anda kullanılan blobları indirin. | |
 | | `4`: Hiçbir zaman üzerine ve boyutu büyükse, istemeden ekleme; şu anda kullanılan BLOB'ları atlayın. | |
@@ -59,8 +59,8 @@ python LogDownloader.py [-h] -a APP_ID -l LOG_DIR [-s START_DATE]
 | `--delta_mod_t DELTA_MOD_T` | Bir dosya şu anda kullanımda olup olmadığını saptamak için saniye cinsinden zaman penceresi. | `3600` saniye (`1` saat) |
 | `--verbose` | Daha fazla ayrıntı yazdırın. | `False` |
 | `-v VERSION`, `--version VERSION` | Kullanılacak günlük yükleyici sürümü. | |
-| | `1`: Uncooked günlüklerini (yalnızca geriye dönük uyumluluk için). | Kullanım Dışı |
-| | `2`: İşlenmiş günlükler için. | Varsayılan |
+| | `1`: (Yalnızca geriye dönük uyumluluk için) uncooked günlükleri için. | Kullanım Dışı |
+| | `2`: İşlenmiş günlükleri için. | Varsayılan |
 
 ### <a name="examples"></a>Örnekler
 

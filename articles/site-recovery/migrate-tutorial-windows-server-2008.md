@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.date: 11/27/2018
 ms.author: bsiva
 ms.custom: MVC
-ms.openlocfilehash: afcf64b79b08ae76f56f57569905945489c2933e
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 875548b8277e50ccb813cf6b36541a053abdbb70
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382888"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55222074"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Windows Server 2008 çalıştıran sunucuları Azure'a geçirme
 
@@ -125,7 +125,7 @@ Hedef kaynaklarını seçin ve doğrulayın.
 İlke, yapılandırma sunucusu ile otomatik olarak ilişkilendirilir.
 
 > [!WARNING]
-> Çoğaltma ilkesinin Uygulamayla tutarlı anlık görüntü sıklığı ayarını **KAPALI** olarak belirlediğinizden emin olun. Windows Server 2008 çalıştıran sunucularının çoğaltılması sırasında yalnızca kilitlenmeyle tutarlı kurtarma noktaları desteklenir. Uygulamayla tutarlı anlık görüntü sıklığı için başka bir değerin belirtilmesi durumunda Uygulamayla tutarlı kurtarma noktaları olmadığından sunucunun çoğaltma durumu kritik düzeye gelir ve hatalı uyarılar oluşturulur.
+> Çoğaltma ilkesinin Uygulamayla tutarlı anlık görüntü sıklığı ayarını **KAPALI** olarak belirlediğinizden emin olun. Windows Server 2008 çalıştıran sunucularının çoğaltılması sırasında yalnızca kilitlenmeyle tutarlı kurtarma noktaları desteklenir. Tüm belirtme uygulamayla tutarlı anlık görüntü sıklığı için başka bir değer false uyarıları sunucusunun çoğaltma durumu kritik uygulamayla tutarlı kurtarma noktalarını eksikliği nedeniyle açarak neden olur.
 
    ![Çoğaltma ilkesi oluşturma](media/migrate-tutorial-windows-server-2008/create-policy.png)
 

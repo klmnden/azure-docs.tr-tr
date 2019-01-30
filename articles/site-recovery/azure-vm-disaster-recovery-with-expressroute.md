@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 5a16b81abb9cc95f46bd61f6c0232a28f3cda0ff
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 7e53b50df88c592386d3f2fb140373a0c5aaab13
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52875408"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228296"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Azure ExpressRoute, Azure Vm'leri için olağanüstü durum kurtarma ile tümleştirin
 
@@ -28,8 +28,8 @@ Site Recovery, Azure sanal makine verilerini Azure'a çoğaltma yaparak Azure Vm
 
 ExpressRoute, bağlantı sağlayıcı tarafından kolaylaştırılan özel bağlantı üzerinden, şirket içi ağlarınızı Microsoft Azure bulutuna genişletmenizi sağlar. Yapılandırılmış ExpressRoute varsa, Site Recovery ile şu şekilde tümleşir:
 
-- **Azure bölgeleri arasında çoğaltma gerçekleştiği sırada**: çoğaltma trafiği Azure VM'LERİNDE olağanüstü durum kurtarma için Azure içinde yalnızca ve ExpressRoute gerekli değil veya çoğaltma için kullanılan. Ancak, bir şirket içi siteden Azure birincil sitede Azure vm'lerine bağlanıyorsanız, birkaç sorun ne zaman, olağanüstü durum kurtarma işlemini söz konusu Azure Vm'leri için ayarladığınız dikkat etmeniz vardır.
-- **Azure bölgeleri arasında yük devretme**: kesintiler meydana geldiğinde, Azure VM'lerin yükünü birincil düğümden ikincil Azure bölgesine başarısız. İkincil bir bölgeye sonra Yük devretme, bir dizi ExpressRoute kullanarak ikincil bölgedeki Azure Vm'lerini erişmek için gereken adımlar vardır.
+- **Azure bölgeleri arasında çoğaltma gerçekleştiği sırada**: Çoğaltma trafiği Azure VM'LERİNDE olağanüstü durum kurtarma için yalnızca Azure içinde geçerlidir ve ExpressRoute gerekli değil veya çoğaltma için kullanılan. Ancak, bir şirket içi siteden Azure birincil sitede Azure vm'lerine bağlanıyorsanız, birkaç sorun ne zaman, olağanüstü durum kurtarma işlemini söz konusu Azure Vm'leri için ayarladığınız dikkat etmeniz vardır.
+- **Azure bölgeleri arasında yük devretme**: Kesintiler meydana geldiğinde Azure Vm'leri için ikincil Azure bölgesine birincil başarısız. İkincil bir bölgeye sonra Yük devretme, bir dizi ExpressRoute kullanarak ikincil bölgedeki Azure Vm'lerini erişmek için gereken adımlar vardır.
 
 
 ## <a name="before-you-begin"></a>Başlamadan önce
@@ -93,7 +93,7 @@ Kuruluş dağıtımları genellikle iş yükleri merkezi bağlantı hub için İ
 - **Hub vNet**. Bir hub vNet yok **kaynak Hub vNet**: 10.10.10.0/24.
     - Bu hub sanal ağ geçidi davranır.
     - Bu hub'ı aracılığıyla alt ağlar arasındaki tüm iletişimler gidin.
- - ** Merkez sanal ağ alt ağları**. Hub sanal ağı iki alt ağa sahip:
+ - Merkez sanal ağ alt ağları **. Hub sanal ağı iki alt ağa sahip:
      - **NVA alt ağı**: 10.10.10.0/25. Bu alt ağ bir NVA (10.10.10.10) içerir.
      - **Ağ geçidi alt ağı**: 10.10.10.128/25. Bu alt ağı bir ExpressRoute ağ geçidi aracılığıyla özel bir eşleme Yönlendirme etki alanı şirket içi siteye yönlendiren bir ExpressRoute bağlantısı bağlı içerir.
 - Şirket içi veri merkezi, Hong Kong iş ortağı edge'de aracılığıyla bir ExpressRoute bağlantı hattı bağlantısı vardır.
@@ -104,7 +104,7 @@ Kuruluş dağıtımları genellikle iş yükleri merkezi bağlantı hub için İ
 
 #### <a name="spoke-to-hub"></a>Uçtan merkeze
 
-**Yön** | **Ayar** | **durumu**
+**Yön** | **Ayar** | **State**
 --- | --- | ---
 Uçtan merkeze | Sanal ağ adresi izin ver | Etkin
 Uçtan merkeze | İletilen trafiğe izin ver | Etkin
@@ -115,7 +115,7 @@ Uçtan merkeze | Remove-ağ geçitlerini kullan | Etkin
 
 #### <a name="hub-to-spoke"></a>Merkezden uca
 
-**Yön** | **Ayar** | **durumu**
+**Yön** | **Ayar** | **State**
 --- | --- | ---
 Merkezden uca | Sanal ağ adresi izin ver | Etkin
 Merkezden uca | İletilen trafiğe izin ver | Etkin
@@ -146,7 +146,7 @@ Azure sanal makinelerini Site Recovery kullanarak Azure bölgesini hedef için y
 
 #### <a name="two-circuits-with-two-peering-locations"></a>İki bağlantı hatları ile iki eşleme konumları
 
-Bu yapılandırma yardımcı olur, ExpressRoute devreleri bölgesel bir olağanüstü durum karşı korur. Bağlantılar, birincil, eşleme loation kalırsa, farklı bir konumdan devam edebilirsiniz.
+Bu yapılandırma yardımcı olur, ExpressRoute devreleri bölgesel bir olağanüstü durum karşı korur. Bağlantılar, birincil eşleme konumunuz kalırsa, farklı bir konumdan devam edebilirsiniz.
 
 - Üretim ortamına bağlı devre genellikle birincil değil. İkincil bağlantı hattını genellikle bir olağanüstü durum oluşursa, artırılabilir daha düşük bant genişliğine sahip.
 - Yük devretmeden sonra ikincil ExpressRoute bağlantı hattı'den hedef sanal ağdan sanal ağa bağlantı kurabilirsiniz. Alternatif olarak, genel kurtarma süresini azaltmak için ayarlayabilir ve hazır durumunda olağanüstü durum, bağlantıları olabilir.

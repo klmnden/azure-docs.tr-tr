@@ -1,23 +1,23 @@
 ---
-title: 'Hızlı başlangıç: C# ile görüntüleri özel listelere göre denetleme - Content Moderator'
+title: 'Hızlı Başlangıç: Görüntüleri özel listeler karşı denetleyin C# -Content Moderator'
 titlesuffix: Azure Cognitive Services
 description: C# için Content Moderator SDK'sını kullanarak görüntüleri özel görüntü listeleriyle denetleme.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 10/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: 7165bdc4aebec886a57990281bc35c83b1d7bf04
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
-ms.translationtype: HT
+ms.openlocfilehash: f7894fa54b634df450d3f7eb90d594cf0315970c
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309408"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228194"
 ---
-# <a name="quickstart-moderate-with-custom-image-lists-in-c"></a>Hızlı Başlangıç: C# ile özel görüntü listeleriyle denetleme
+# <a name="quickstart-moderate-with-custom-image-lists-in-c"></a>Hızlı Başlangıç: Özel görüntü listeleriyle OrtaC#
 
 Bu makalede, aşağıdaki amaçlarla [.NET için Content Moderator SDK'sı](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/)'nı kullanmaya başlamanıza yardımcı olacak bilgi ve kod örnekleri sağlanmaktadır:
 - Özel görüntü listesi oluşturma

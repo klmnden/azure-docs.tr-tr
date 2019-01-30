@@ -1,23 +1,23 @@
 ---
-title: 'Hızlı Başlangıç: Metinden dili tanımlama, Go - Translator Metin Çevirisi API’si'
+title: "Hızlı Başlangıç: Metin dili tanımlamak Git - Translator metin çevirisi API'si"
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, Go ile Translator Metin Çevirisi API’sini kullanarak kaynak metnin dilini tanımlayacaksınız.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/05/2018
 ms.author: erhopf
-ms.openlocfilehash: 84522612dbd31d406537b9679887e0f82a971b1c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 31db299fba70775c85ac5b5ad1a641c2ebe2575b
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000506"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221139"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-go"></a>Hızlı Başlangıç: Go kullanarak metin dili algılamak için Translator Text API kullanın.
+# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-go"></a>Hızlı Başlangıç: Translator metin çevirisi API'si, Go kullanarak metin dili algılamak için kullanın
 
 Bu hızlı başlangıçta, Git ve Translator Text REST API kullanarak sağlanan metin dili algılayın öğreneceksiniz.
 
@@ -100,7 +100,7 @@ u.RawQuery = q.Encode()
 ```
 
 >[!NOTE]
-> Uç noktalar, rotalar ve istek parametreleri hakkında daha fazla bilgi için bkz. [Translator Metin Çevirisi API’si 3.0: Algılama](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect).
+> Uç noktaları, yollar ve istek parametreleri hakkında daha fazla bilgi için bkz: [Translator Text API 3.0: Algılama](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect).
 
 ## <a name="create-a-struct-for-your-request-body"></a>Bir yapı, istek gövdesi için oluşturma
 

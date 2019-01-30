@@ -6,23 +6,23 @@ services: cognitive-services
 author: wolfma61
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 04a1f3222b17d91889eb580d9d4e8206d8156d37
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c906a45443bcba8c84a0624c74255f19a492a4e9
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53095492"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217187"
 ---
 # <a name="troubleshoot-the-speech-service-sdk"></a>Konuşma hizmeti SDK'sını sorunlarını giderme
 
 Bu makalede, konuşma tanıma hizmeti SDK'sı kullanırken karşılaşabileceğiniz sorunları gidermenize yardımcı olacak bilgiler sağlar.
 
-## <a name="error-websocket-upgrade-failed-with-an-authentication-error-403"></a>Hata: WebSocket yükseltme (403) kimlik doğrulama hatası ile başarısız oldu.
+## <a name="error-websocket-upgrade-failed-with-an-authentication-error-403"></a>Hata: WebSocket yükseltme (403) kimlik doğrulama hatası ile başarısız oldu
 
 Bölge veya hizmetiniz için yanlış uç nokta olabilir. URI'nin doğru olduğundan emin olmak için kontrol edin.
 
@@ -104,7 +104,7 @@ Bir yetkilendirme belirteci kimlik doğrulaması için kullanıyorsanız, yetkil
 
 ---
 
-## <a name="error-http-400-bad-request"></a>Hata: HTTP 400 Hatalı istek.
+## <a name="error-http-400-bad-request"></a>Hata: HTTP 400 Hatalı istek
 
 İstek gövdesi geçersiz ses verilerini içerdiğinde, bu hata genellikle oluşur. Yalnızca WAV biçimi desteklenmiyor. Ayrıca, isteğin üstbilgileri için uygun değerleri belirtmenize emin olmak için kontrol `Content-Type` ve `Content-Length`.
 

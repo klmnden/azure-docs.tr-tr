@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2018
 ms.custom: seodec18
-ms.openlocfilehash: c2285b4d7764592d3e210177edd8f127ca4bfaee
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: MT
+ms.openlocfilehash: 43f4aa5cc0d8545c6148fc15991817356ff69827
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55090672"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228109"
 ---
 # <a name="use-ssl-to-secure-web-services-with-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile web hizmetlerinin güvenliğini sağlamak için SSL kullan
 
@@ -82,36 +82,11 @@ Dağıtın (veya yeniden dağıtmak için) SSL etkin hizmetiyle ayarlayın `ssl_
     aci_config = AciWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
     ```
 
-<a name="fpga"></a>
-+ **Alanda programlanabilir kapı dizileri (FPGA) üzerinde dağıtın**
-
-  Yanıtın `create_service` işlem hizmetinin IP adresini içeriyor. Hizmetin IP adresine DNS adı eşleme IP adresi kullanılır. Yanıtını da içeren bir __birincil anahtar__ ve __ikincil anahtar__ hizmeti kullanmak için kullanılır. SSL ile ilgili parametreler için kod parçacığında gösterilen değerleri sağlayın:
-
-    ```python
-    from amlrealtimeai import DeploymentClient
-
-    subscription_id = "<Your Azure Subscription ID>"
-    resource_group = "<Your Azure Resource Group Name>"
-    model_management_account = "<Your Azure Machine Learning service Model Management Account Name>"
-    location = "eastus2"
-
-    model_name = "resnet50-model"
-    service_name = "quickstart-service"
-
-    deployment_client = DeploymentClient(subscription_id, resource_group, model_management_account, location)
-
-    with open('cert.pem','r') as cert_file:
-        with open('key.pem','r') as key_file:
-            cert = cert_file.read()
-            key = key_file.read()
-            service = deployment_client.create_service(service_name, model_id, ssl_enabled=True, ssl_certificate=cert, ssl_key=key)
-    ```
-
 ## <a name="update-your-dns"></a>Güncelleştirin
 
 Ardından, DNS sunucunuzun web hizmetine işaret edecek şekilde güncelleştirmeniz gerekir.
 
-+ **ACI ve FPGA**:
++ **ACI için**:
 
   Etki alanı adınız için DNS kaydı güncelleştirmek için etki alanı adı kayıt şirketi tarafından sağlanan araçları kullanın. Kayıt hizmetinin IP adresine işaret etmelidir.
 
@@ -122,6 +97,10 @@ Ardından, DNS sunucunuzun web hizmetine işaret edecek şekilde güncelleştirm
   "Genel IP adresi" görüntüde gösterildiği gibi AKS kümesi "Yapılandırma" sekmesi altındaki DNS güncelleştirin. AKS aracı düğümleri ve diğer ağ kaynakları içeren kaynak grubu altında oluşturulan kaynak türlerini biri olarak genel IP adresini bulabilirsiniz.
 
   ![Azure Machine Learning hizmeti: Web Hizmetleri SSL ile güvenli hale getirme](./media/how-to-secure-web-service/aks-public-ip-address.png)
+
++ **FPGA için**:
+
+FPGA için dağıtılan hizmetlerle SSL kullanarak şu anda desteklenmiyor.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
